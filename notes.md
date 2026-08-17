@@ -930,21 +930,53 @@ contrapositive and pigeonhole give (12.11).  For a uniform g∈G,
 by character orthogonality.  Equations (12.11)–(12.12) put the empirical
 "factor residues mix" claim into a precise additive large-deviation form.
 
-What did **not** close is transferring random-residue mixing to
-B_w(p),A_w(p) while p remains prime, uniformly for
-w≤(log N)^{1−ε}.  A sufficient input would be a growing-order, residue-marked
-Sathe–Selberg estimate along the prime affine form: factorial moments of the
-counts of prime divisors of B_w(p) and A_w(p) in every class modulo w, through
-order K≈log log N, with enough uniformity to sum the 3^K signed products (and
-joint moments for both forms).  Bombieri–Vinogradov controls each averaged
-divisibility congruence up to level N^{1/2}; it does not by itself provide the
-required relative high-moment estimate after the residue-product constraints
-and the primality condition are imposed.
+The random-residue model itself can be settled sharply.
 
-This is the exact Phase-2 stopping point.  The signed-product and Fourier
-lemmas are proved; the claimed constant contraction ρ<1 is **not**.  Therefore
-no bound N exp(−c(log N)^θ), for any θ>0, is claimed from this route, and
-Vaughan's θ=2/3 record is not improved.
+**Lemma 12.5 (random signed products).** Let G be a finite abelian group of
+order h, let τ have order 2, and let g₁,…,g_K be independent uniform elements
+of G.  If
+
+    T=#{ε∈{−1,0,1}^K : ∑εᵢgᵢ=τ},       t=|G[2]|,
+
+then
+
+    E T=(3^K−1)/h,
+    E T²≤9^K/h²+2(3^K−1)/h+t5^K/h²,
+
+and hence
+
+    P(T>0) ≥ (3^K−1)²/[9^K+2h(3^K−1)+t5^K].                 (12.13)
+
+*Proof.* Every nonzero coefficient vector gives a uniform sum, proving the
+first identity.  For a pair of coefficient vectors, a 2×2 minor equal to ±1
+makes the map G^K→G² surjective, contributing 1/h².  The proportional pairs
+are d=c or d=−c; because τ=−τ, there are at most 2(3^K−1) contributions of
+size 1/h.  Every remaining nonsurjective rank-two pair has each coordinate in
+{(0,0),±(1,1),±(1,−1)}, at most 5^K pairs.  In the basis (1,1),(1,−1), the
+fiber over (τ,τ) has relative size t/h².  Summing these upper bounds gives the
+second moment, and Paley–Zygmund gives (12.13). ∎
+
+For G=(Z/wZ)^× with w odd, t=2^{ω(w)}=w^{o(1)}.  Given ε>0, choose fixed η>0
+so that (1−η)log 3>1−ε and put K=⌊(1−η)log log N⌋.  Uniformly for
+h≤w≤(log N)^{1−ε}, one has 3^K/h→∞ and t(5/9)^K→0, so (12.13) tends to 1.
+Thus the desired Phase-2 contraction is rigorously true in the independent
+uniform-residue model, through the full target range.
+
+What did **not** close is transferring that model to B_w(p),A_w(p) while p
+remains prime.  A sufficient input would be a growing-order, residue-marked
+Sathe–Selberg estimate along the prime affine form: first ensure at least K
+usable distinct prime factors, then reproduce the aggregate first and second
+moments in Lemma 12.5, uniformly in w and jointly for both forms.  This needs
+factorial moments through order about 2K and enough uniformity to sum the 9^K
+coefficient pairs.  Bombieri–Vinogradov controls each averaged divisibility
+congruence up to level N^{1/2}; it does not by itself provide the required
+relative high-moment estimate after the residue-product constraints and the
+primality condition are imposed.
+
+This is the exact Phase-2 stopping point.  The signed-product, Fourier, and
+random-model lemmas are proved; the contraction ρ<1 for the **actual shifted
+values** is not.  Therefore no bound N exp(−c(log N)^θ), for any θ>0, is
+claimed from this route, and Vaughan's θ=2/3 record is not improved.
 
 ---
 

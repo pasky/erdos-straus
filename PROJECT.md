@@ -89,9 +89,12 @@ large-deviations against actual data for hard-class primes).
   the bound is weaker than Vaughan's known theorem and is not a literature
   record.
 * **Phase 2 reduced but not solved:** Lemmas 12.3–12.4 give the exact signed
-  subset-product and Fourier large-deviation formulations. The missing input
-  is a growing-order, residue-marked factor-count theorem along a prime affine
-  form. No uniform contraction ρ<1, and hence no positive θ, was proved.
+  subset-product and Fourier large-deviation formulations; Lemma 12.5 proves
+  success with probability 1−o(1) in the independent uniform-residue model
+  throughout w≤(log N)^{1−ε}. The missing input is a growing-order,
+  residue-marked factor-count theorem along a prime affine form. No uniform
+  contraction ρ<1 for the actual shifted values, and hence no positive θ, was
+  proved.
 * **Phase 3 corrected:** Vaughan uses many sufficient residue classes per
   auxiliary prime plus the large sieve and a Rankin tail, not growing-k shifted
   correlations. Pomerance–Weingartner §4 is the checked modern reconstruction;

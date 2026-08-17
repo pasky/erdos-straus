@@ -14,7 +14,7 @@ All computations are cheap (seconds). We verify:
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
 from collections import Counter
-from itertools import combinations
+from itertools import combinations, product as cartesian_product
 from math import gcd, lcm, log, exp, ceil, prod
 import cmath
 
@@ -327,6 +327,31 @@ for w in (7, 11, 19):
         assert abs(fourier_prob.imag) < 1e-10
         fourier_checks += 1
 print(f"Fourier inversion checks: {fourier_checks}; character averages exact")
+
+# Exact finite-group checks of the first/second moments in Lemma 12.5.
+random_model_checks = 0
+for h, K in ((6, 3), (8, 3), (10, 4)):
+    tau = h // 2
+    values = []
+    for gs in cartesian_product(range(h), repeat=K):
+        representations = 0
+        for coeffs in cartesian_product((-1, 0, 1), repeat=K):
+            if sum(c * g for c, g in zip(coeffs, gs)) % h == tau:
+                representations += 1
+        values.append(representations)
+    mean = sum(values) / len(values)
+    second = sum(value * value for value in values) / len(values)
+    t = 2  # |(Z/hZ)[2]| for even h
+    second_bound = (9 ** K / h ** 2 + 2 * (3 ** K - 1) / h
+                    + t * 5 ** K / h ** 2)
+    paley_bound = ((3 ** K - 1) ** 2
+                    / (9 ** K + 2 * h * (3 ** K - 1) + t * 5 ** K))
+    success_rate = sum(value > 0 for value in values) / len(values)
+    assert abs(mean - (3 ** K - 1) / h) < 1e-12
+    assert second <= second_bound + 1e-12
+    assert success_rate + 1e-12 >= paley_bound
+    random_model_checks += 1
+print(f"random signed-product moment checks: {random_model_checks} groups")
 
 # Empirical per-modulus failure rates for the full condition, separately for
 # both criterion halves.  These support no theorem.
