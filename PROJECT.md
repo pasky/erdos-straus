@@ -20,8 +20,9 @@ derived independently of Vaughan's method.
 target).** The stackable conditions: for each modulus w ≡ 3 (mod 4) and each
 of the two criterion halves, a counterexample p forces the shifted value
 ((p+w)/4 resp. (pw+1)/4) to have NO prime factor in specified residue classes
-mod w (≥ 2 classes per (w, p mod 4w): the −1 class and the −x class; see
-notes §8.3, §11.3). These are multiplicative 0/1-indicator conditions on k
+mod w (the −1 and −x classes, when distinct; for w = 3 and some Case-B
+classes they coincide; see notes §8.3, §11.3). These necessary slices are
+multiplicative 0/1-indicator conditions on k
 coprime linear forms in p. Needed: a k-fold Shiu/Nair–Tenenbaum-type upper
 bound with constant C(k) explicit and subexponential in k. Key simplification
 vs the general machinery (sources/henriot-1102.1643.pdf, which states
@@ -59,12 +60,17 @@ large-deviations against actual data for hard-class primes).
 * `sources/henriot-1102.1643.pdf` — Henriot, NT bounds uniform in
   discriminant (quotes NT Thm 1, Holowinsky Thm 2 — the pair-case tools).
 * `sources/bright-loughran-1908.02526.pdf` — geometry side (context only).
-* Missing and wanted: Nair–Tenenbaum 1998 original; Shiu 1980; Vaughan 1970.
+* `sources/nair-tenenbaum-1998.pdf`, `sources/shiu-1980.pdf` — originals.
+* `sources/pomerance-weingartner-2025.pdf` — a modern proof explicitly following
+  Vaughan's inaccessible 1970 paper; §4 gives the large-sieve argument.
+* Still wanted: Vaughan 1970 itself (publisher page found; PDF access blocked).
 
 ## Known traps (paid for already, don't re-pay)
 
-* The full failure condition is NOT a multiplicative indicator (depends on
-  x mod w as well as factorization) — condition on p mod 4w first, then it is.
+* The full failure condition is NOT a multiplicative indicator. Conditioning
+  on p mod 4w fixes the target coset but does **not** make subset-product
+  avoidance multiplicative (e.g. modulo 7, target −1: 8 and 15 each avoid it,
+  while 120 does not). Only the necessary prime-class slices are multiplicative.
 * Prime and near-prime x are provably useless (notes §8.3) — smoothness/many-
   factor x carry everything; don't waste effort on sparse-divisor slices.
 * Identity/covering/form shortcuts are dead by theorem (notes §5, §9.3);

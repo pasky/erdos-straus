@@ -617,78 +617,105 @@ p = 21169), versus 63 for Case B alone. The adelic "one bit" (§10.2) couples
 the halves globally but their factorization events decouple — the sieve sees
 two independent barrels.
 
-### 11.2 Theorem (exceptional-set bound, my route; modulo one standard tool)
+### 11.2 Correction: the first analytic bounds were vacuous for primes
 
-**Theorem 11.1.** The number of primes p ≤ N for which 4/p has no
-representation is ≪ N (log N)^{−1/2}.
+The q = 3 implications are correct but the exceptional-set conclusions first
+written here were not progress.  If f is the indicator of integers all of
+whose prime factors are 1 (mod 3), a counterexample prime p, with
+n = (p+3)/4, forces
 
-*Proof.* A counterexample has p ≡ 1 (mod 24) (§1) and fails Case B at q = 3,
-which by §6 forces every prime factor of n = (p+3)/4 to be ≡ 1 (mod 3). Let f
-be the multiplicative 0/1-indicator of that property; then the count is at
-most ∑_{n ≤ (N+3)/4} f(n), and the Halberstam–Richert/Wirsing mean-value
-bound gives ∑_{n≤x} f(n) ≪ (x/log x)·exp(∑_{r≤x} f(r)/r) with
-∑_{r ≡ 1 (3)} 1/r = ½ log log x + O(1). ∎
+    f(n) = f(3n−2) = 1,                 p = 4n−3 prime.
 
-Weaker than Vaughan (1970), but: derived through the criterion, self-contained
-modulo one classical mean-value theorem *(cited from memory)*, and extensible:
+Consequently the two inequalities
 
-**Theorem 11.2 (modulo Nair–Tenenbaum/Henriot correlation bounds, cited).**
-Using both halves at modulus 3: a counterexample forces n = (p+3)/4 *and*
-3n − 2 = (3p+1)/4 to lie in the same multiplicatively-restricted set, so the
-count is ≤ ∑ f(n)f(3n−2) ≪ N (log N)^{−1+o(1)}, by the shifted-correlation
-upper bounds of Nair–Tenenbaum/Henriot (product-of-mean-values shape;
-applicability to this pair of linear forms flagged as cited-not-reproved).
-§11.1's independence data supports the bound being of the true order.
+    E(N) ≤ ∑_{n≤(N+3)/4} f(n) ≪ N/(log N)^{1/2},
+    E(N) ≤ ∑_{n≤(N+3)/4} f(n)f(3n−2) ≪ N/log N
 
-### 11.3 Calibration: what the stacking program can and cannot reach
+are valid.  The first uses the classical nonnegative-multiplicative mean-value
+bound; the second is a fixed-two-form application of Nair–Tenenbaum Theorem 1
+(or Henriot's discriminant-uniform version) to X and 3X−2.  Holowinsky's
+same-slope shifted theorem is not the right citation for the latter.
 
-Stack conditions over moduli w ≤ W (both halves each contribute per w):
+But both estimates discard the condition that 4n−3 is prime.  The elementary
+bound E(N) ≤ π(N) ≪ N/log N is already at least as strong.  Thus the former
+"Theorems 11.1 and 11.2" are demoted to necessary-condition calculations,
+not exceptional-prime theorems.  Any nontrivial criterion-route bound must
+retain primality, for example by adding the affine form p itself to an upper-
+bound sieve.
 
-* **Necessary-slice stacking** (only the "no factor ≡ −1 (mod w)" slice,
-  density 1/(w−1) each): total exponent ∑ 2/(w−1) ≈ log log W — caps at
-  savings exp(−c·log log N·log log log N). **Provably-elementary reach: far
-  below Vaughan's exp(−c(log N)^{2/3}).** The route cannot approach Vaughan
-  one-condition-per-modulus; Vaughan must be using the *full* coset condition
-  per modulus.
-* **Full-condition stacking** (heuristic): failure probability per modulus is
-  empirically ≈ 0.3–0.7 and roughly independent (§11.1, and the geometric
-  decay 273 → 186 → 131 → … → 0 of §8.3's data) for moduli up to the
-  divisor-richness threshold w ≲ τ(x²) ≈ (log p)^{log 3 ≈ 1.1}. If that
-  independence were a theorem, one would get ≪ N·exp(−c(log N)^{1.1−o(1)})
-  — *stronger* than Vaughan. So the missing uniform divisor-equidistribution
-  is worth precisely the gap between exponent ≈ 1.1 (heuristic truth),
-  2/3 (Vaughan's provable), and log-log-stacking (elementary reach).
-* **The named lever — now checked against the sources** (Henriot,
-  arXiv:1102.1643, quoting Nair–Tenenbaum's Theorem 1 and Holowinsky's
-  Theorem 2):
-  – The **pair case is fully covered by published theorems**: shifted
-    convolutions ∑ λ₁(n)λ₂(n+ℓ) for τ_m-bounded multiplicative functions,
-    uniform in the shift (Holowinsky; Henriot's D-uniform version). Our
-    indicators are ≤ 1, our two linear forms are coprime and irreducible, and
-    their resultant is small and smooth — friendliest possible case. So
-    Theorem 11.2 rests on solid published ground.
-  – The **k-growing case is genuinely not covered**: in Nair–Tenenbaum and
-    Henriot the implicit constant depends on the total degree g (= k for k
-    linear forms) in an unspecified — in the proofs, effectively exponential —
-    way, and the theorems are stated for fixed k. Stacking k ≈ (log N)^{1.1}
-    conditions is outside the machinery as published. Making the k-dependence
-    explicit (polynomial in k would suffice for exp-type savings) is a
-    concrete, bounded technical project — rework one ≈ 20-page sieve argument
-    tracking constants — and is precisely the kind of internalization
-    Vaughan's bespoke 1970 method performs implicitly. This is the sharpest
-    actionable formulation of "beat or match Vaughan by the criterion route"
-    that this session produced.
+### 11.3 Exact slice and conditioning audit
 
-### 11.4 Honest wave-four verdict
+For w ≡ 3 (mod 4), p > w, put
 
-No proof of the conjecture, and none was realistically available; the yield
-is: (a) an independent-method exceptional-set theorem (11.1, exponent 1/2
-self-contained; 11.2, exponent 1 modulo cited correlation bounds); (b) the
-empirical near-independence of the two criterion halves and the 63 → 31 joint
-record; (c) a quantitative calibration showing exactly where elementary
-stacking saturates, what Vaughan's method must already be exploiting, and the
-single identified lever (k-fold correlation constants) with any prospect of
-beating the 55-year-old record.
+    x_w = (p+w)/4,       z_w = (pw+1)/4,       a_B = p/4 (mod w),
+    a_A = 1/4 (mod w).
+
+If a prime ℓ divides x_w or z_w (write the relevant residue as a), each of
+
+    ℓ ≡ −1 (mod w)  ⇒ d = nℓ,
+    ℓ ≡ −a (mod w) ⇒ d = ℓ,
+    ℓ² ≡ −a (mod w) ⇒ d = ℓ²
+
+supplies a divisor d | n² in the target class −n.  Hence failure forbids those
+prime-factor classes.  The first two classes need not be distinct: in Case A
+they coincide for w = 3; in Case B they coincide when p ≡ 4 (mod w).  If
+p ≡ −4 (mod w), Case B already succeeds with d = 1.  For composite w the
+density of one reduced class is 1/φ(w), not 1/(w−1).
+
+Conditioning p modulo 4w fixes a_B, but does **not** make full subset-product
+avoidance multiplicative.  For example modulo 7 with target −1, 8 and 15 each
+avoid the target among divisors of their squares, while 120 does not.  Only
+the necessary prime-class slices above are multiplicative.
+
+For simultaneous moduli w, conditioning costs the least common multiple L,
+not merely notation: the parameter intervals have length about N/L.  For
+prime w ≤ W, w ≡ 3 (mod 4), log L ~ W/2.  Therefore the old heuristic that
+one could condition simultaneously through W = (log N)^{1.1} is impossible
+(L > N).  The Phase-2 target W ≤ (log N)^{1−ε} remains arithmetically
+compatible with conditioning; proving useful joint distribution is the real
+missing step.
+
+### 11.4 What Vaughan actually does (checked via a modern reconstruction)
+
+Vaughan's 1970 PDF remained access-blocked, so this paragraph is **cited via**
+Pomerance–Weingartner (2025), §4, whose proof says explicitly that it largely
+follows Vaughan.  For an auxiliary prime q ≡ −1 (mod m), set M = (q+1)/m and
+
+    f_m(q) = floor( 1/2 · ∑_{t|M} |μ(t)| τ(M/t) )
+           = floor(τ(M²)/2).
+
+Vaughan constructs at least f_m(q) good residue classes for the denominator n
+modulo q.  One form of the identity is: factor M = uvw with (u,v)=1; if
+nv ≡ −u (mod q) and nv+u = kq, then
+
+    m/n = 1/(kuw) + 1/(nkvw) + 1/(nuvw).
+
+Pomerance–Weingartner Lemma 4.1 proves
+
+    ∑_{q≤X} f_m(q)/q ≍ (log X)²/φ(m).
+
+Their §4 then applies the large sieve to integers avoiding all these good
+classes and uses a Rankin tail for products of auxiliary primes.  Balancing
+at log X ≍ φ(m)^{1/3}(log N)^{1/3} yields
+
+    #{n≤N : m/n is not a sum of three unit fractions}
+      ≪ N exp(−C (log N)^{2/3}/φ(m)^{1/3}).
+
+For m=4 this is Vaughan's N exp(−c(log N)^{2/3}) bound, for **all integer
+denominators**, hence also for primes.  Vaughan is not implicitly proving a
+growing-k shifted-correlation theorem and is not stacking the full
+subset-product condition; the previous claim to that effect was wrong.  As
+of Pomerance–Weingartner, no published improvement of the 2/3 exponent was
+found.
+
+### 11.5 Corrected wave-four verdict
+
+The empirical A/B near-independence and the fixed-pair Nair–Tenenbaum
+calculation survive.  No new exceptional-prime theorem survived the primality
+audit.  The useful open program is narrower: retain primality in a direct
+many-root upper-bound sieve for the necessary slices, and treat the full
+condition by genuinely nonmultiplicative subset-product methods.  Both are
+executed, as far as they close, in the next section.
 
 ---
 
@@ -697,8 +724,15 @@ beating the 55-year-old record.
 * Obláth 1950 (first appearance in print; conjecture attributed to Erdős).
 * L. J. Mordell, *Diophantine Equations*, 1969, ch. 30 (mod-840 covering).
 * D. G. Terzi 1971 (extension mod 120120). *(from problem page)*
-* R. C. Vaughan, "On a problem of Erdős, Straus and Schinzel", Mathematika 17
-  (1970). *(bound shape from memory)*
+* R. C. Vaughan, "On a problem of Erdős, Straus and Schinzel", *Mathematika*
+  17 (1970), 193–198, DOI 10.1112/S0025579300002886. *(Primary PDF remained
+  access-blocked; method checked through Pomerance–Weingartner §4.)*
+* C. Pomerance, A. Weingartner, "Exceptions to the Erdős–Straus–Schinzel
+  conjecture" (2025), arXiv:2511.16817, especially Theorem 1.3 and §4.
+* M. Nair, G. Tenenbaum, "Short sums of certain arithmetic functions",
+  *Acta Math.* 180 (1998), 119–144, Theorem 1.
+* P. Shiu, "A Brun–Titchmarsh theorem for multiplicative functions",
+  *J. Reine Angew. Math.* 313 (1980), 161–170, Theorem 1.
 * A. Schinzel — quadratic-residue obstruction to polynomial identities.
   *(attribution from memory; also treated in Mordell's book)*
 * C. Elsholtz, T. Tao, "Counting the number of solutions to the Erdős–Straus
