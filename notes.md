@@ -721,8 +721,9 @@ executed, as far as they close, in the next section.
 
 This section keeps primality, avoids every unspecified fixed-k constant, and
 then pushes the full nonmultiplicative condition to an exact Fourier barrier.
-The outcome is a rigorous new superlogarithmic saving, not the requested
-positive power of log N.
+The outcome is an independent criterion-route proof of a superlogarithmic
+saving.  The bound itself is weaker than Vaughan's known theorem and is not
+claimed as new in the literature.
 
 ### 12.1 An explicit-k sieve with no k-dependent prefactor
 
@@ -758,7 +759,9 @@ therefore gives
 
 Summing (12.2) over q≤Q and applying the analytic large sieve yields
 
-    |S| ≤ (X+Q²)/H(Q),       H(Q)=∑_{q≤Q} g(q).                 (12.3)
+    |S| ≤ (X+Q²)/H(Q),       H(Q)=∑_{q≤Q} g(q),                 (12.3)
+
+where this and all following q-sums run over squarefree q supported on P.
 
 For completeness, set Z=∑_q g(q)=∏(1+g(ℓ))=V⁻¹ and regard g(q)/Z as a
 probability distribution.  A prime ℓ occurs independently with probability
@@ -792,8 +795,10 @@ and A_w to have no prime factor in
 
     C_A(w)={−1,−1/4} (mod w),                              (12.4)
 
-with repetitions removed.  This is exactly the d=nℓ and d=ℓ argument of
-§11.3.  A class with r≡−4 (mod w) has no counterexamples because d=1 works.
+with repetitions removed.  This is the d=nℓ and d=ℓ sub-family of the
+necessary slices in §11.3.  The valid ℓ² slice is discarded for simplicity;
+including it could improve only the constant below.  A class with
+r≡−4 (mod w) has no counterexamples because d=1 works.
 For every remaining class and w>3, |C_A|=2 and |C_B|≥1.
 
 Retain primality by adding P(t)=Mt+r and excluding its zero class modulo every
@@ -820,8 +825,9 @@ linear forms.
     #{p≤N prime : 4/p is not representable}
        ≪ N exp(−c(log log N)²).                               (12.7)
 
-*Proof.* It suffices to count p in a dyadic interval (T,2T].  Take
-W=δ log T for a sufficiently small fixed δ>0.  Since
+*Proof.* By Lemma 1.2 every prime outside p≡1 (mod 24) is already solvable.
+It therefore suffices to count the remaining p in a dyadic interval (T,2T].
+Take W=δ log T for a sufficiently small fixed δ>0.  Since
 log lcm(1,…,W)=W+o(W), M≤T^{2δ} for large T, so every conditioned parameter
 interval has length X≫T^{1−2δ}.
 
@@ -832,7 +838,7 @@ Two elementary estimates give, uniformly in r,
 For the lower bound, restrict to w=3m with m≡1 (mod 4):
 
     ∑_{w∈𝒲,w>3} 1/φ(w)
-      ≥ ∑_{m≤W/3,m≡1(4)} 1/(3m) = (1/12)log W+O(1),
+      ≥ ∑_{1<m≤W/3,m≡1(4)} 1/(3m) = (1/12)log W+O(1),
 
 and (12.4) supplies at least three classes per w.  For the upper bound use
 ∑_{n≤W}1/φ(n)≪log W, which follows from
@@ -843,22 +849,29 @@ Choose
     log z = log T/(A log W),       log y = (log z)^{1/2},
 
 with A a sufficiently large absolute constant, and sieve only y<ℓ≤z.
-Siegel–Walfisz, uniformly for every w≤W, and (12.6) give
+Siegel–Walfisz, uniformly for every w≤W, and (12.6) give, for absolute
+c₂ and A chosen sufficiently large,
 
-    ∑_{y<ℓ≤z} ν_r(ℓ)logℓ/ℓ ≪ (log W)log z ≤ (log X)/4,
+    ∑_{y<ℓ≤z} ν_r(ℓ)logℓ/ℓ ≤ c₂(log W)log z ≤ (log X)/4,
     ∑_{y<ℓ≤z} ν_r(ℓ)/ℓ ≫ (log W)log(log z/log y)
                          ≫ (log log T)².                       (12.9)
 
-Here y>W², so the distinct-root calculation applies, and z<T, so every prime
+The uniform error per residue class is
+O(exp(−c₃(log y)^{1/2})); summing O(W) classes still gives o(1).  Starting the
+sieve at y is load-bearing here: it removes uncontrolled accumulated Mertens
+constants from the many moduli.  Also y>W², so the distinct-root calculation
+applies, and z<T, so every prime
 p in the dyadic interval avoids the zero root of P.  Lemma 12.1 and
 log V≤−∑ν_r(ℓ)/ℓ now bound the counterexamples in each conditioned class by
 
     ≪ X exp(−c(log log T)²).
 
-There are at most M classes and MX≪T; summing them cancels the conditioning
-cost.  Finally sum the dyadic estimates. ∎
+There are at most φ(M) reduced classes; the sum of their parameter-interval
+lengths is O(T), so conditioning costs no extra factor.  Finally sum the
+dyadic estimates (the intervals below T^{1/2} contribute O(T^{1/2})). ∎
 
-**Status and comparison.** The proof is unconditional modulo the standard
+**Status and comparison.** The constant c is absolute but ineffective because
+of Siegel–Walfisz.  The proof is unconditional using the standard
 analytic large sieve, Siegel–Walfisz, and the prime number theorem estimate
 for the least common multiple, all used in their classical ranges.  It is
 independent of Vaughan's many-good-classes construction.  It is stronger than
@@ -880,9 +893,9 @@ Write n=∏ℓ^{e_ℓ}.  A divisor d|n² satisfies d≡−n (mod w) iff
  d=n∏ℓ^{k_ℓ} in the stated exponent ranges, and n is invertible modulo w. ∎
 
 Thus for either n=B_w(p) or n=A_w(p), full failure is exactly avoidance of
-−1 by the signed subset products of the prime-factor residues.  It is still
-nonmultiplicative because the signed-product sets multiply when coprime
-integers are multiplied.
+−1 by the signed subset products of the prime-factor residues.  The
+set-valued signed-product map is multiplicative on coprime inputs, but the
+predicate "this one target is absent" is not (§11.3's 8,15,120 example).
 
 Let G=(Z/wZ)^× and let D(n) be the set of residues of divisors of n.  Equation
 (12.10) says success is equivalent to

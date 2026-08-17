@@ -83,8 +83,11 @@ large-deviations against actual data for hard-class primes).
 
 * **Phase 1 completed:** Lemma 12.1 is a direct many-root large sieve with
   absolute constant 4 and no hidden k-dependence. Applied to both criterion
-  halves, all composite moduli w≤δ log N, and the prime affine form itself,
-  it proves E(N)≪N exp(−c(log log N)²) (Theorem 12.2).
+  halves, all moduli w≡3 (mod 4) up to δ log N (prime and composite), and the
+  prime affine form itself, it independently proves
+  E(N)≪N exp(−c(log log N)²) (Theorem 12.2). The method is criterion-native;
+  the bound is weaker than Vaughan's known theorem and is not a literature
+  record.
 * **Phase 2 reduced but not solved:** Lemmas 12.3–12.4 give the exact signed
   subset-product and Fourier large-deviation formulations. The missing input
   is a growing-order, residue-marked factor-count theorem along a prime affine
