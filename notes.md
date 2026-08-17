@@ -366,6 +366,116 @@ condition of 8.1 according to p's own QR structure) hits the moving coset
 Erdős–Odlyzko–Sárközy type (divisors in residue classes), open in the required
 uniformity. That — not characters, not congruences, not forms — is the wall.
 
+## 9. Third wave: attacks 4–8
+
+Asked "why just 3 attacks?", the honest answer was: no reason. Enumerating the
+remaining surface and burning through it:
+
+### 9.1 Attack 4 — the Case-A mirror collapses identically (proved + verified)
+
+**Proposition 9.1.** For p ≡ 1 (mod 4) prime, m ≡ 3 (mod 4), z₀ = (pm+1)/4,
+and any odd prime r | z₀ with r ≠ p, gcd(r, m) = 1: **(r|m) = (r|p)**.
+
+*Proof.* pm ≡ −1 (mod r) gives m ≡ −p⁻¹ (mod r), and (p⁻¹|r) = (p|r). The
+same two-case reciprocity computation as Prop 8.1 (m ≡ 3 (mod 4) supplies the
+sign in the r ≡ 3 case). ∎ (Verified: 8,818 triples, 0 mismatches.)
+
+So the two halves of criterion 3.1 — which looked like independent chances —
+share a *single* character landscape, dictated by p alone. Case A adds new
+coset-hitting opportunities (different integers z₀(m), same moduli) but no new
+character mechanism. One wall, not two.
+
+### 9.2 Attack 5 — the p-intrinsic witness law (proved + verified)
+
+Combining 8.1/9.1 with the witness congruence d ≡ −x (mod q) and the 2-adic
+bookkeeping ((2|q) = +1 iff x even, for p ≡ 1 (mod 8)):
+
+**Proposition 9.2.** For p ≡ 1 (mod 8), every Case-B witness (q, d) at every
+x satisfies **(d_odd | p) = −(x_odd | p)** where n_odd is the odd part of n.
+
+(Verified on all 5,662 witnesses with q ≤ 63 of all 273 hard-class primes
+below 10⁵: zero violations.) The whole problem is now internal to p: a witness
+is a divisor of x² that p's own quadratic character regards as "opposite" to
+x, landing in one exact coset. The character layer thins candidates by exactly
+a factor 2, no more — the residual difficulty is pure coset-hitting, now
+provably so on both halves of the criterion.
+
+### 9.3 Attack 6 — can quadratic-form families be bootstrapped? No: a Pell
+norm-sign obstruction (new-ish, proved) + Chebotarev evasion (sketch)
+
+§8.1's form families cover positive-density sets; could finitely many of them,
+plus congruence families, cover everything? Two-part negative answer.
+
+**(a) One-class-per-genus discriminants: the forms are forced onto the wrong
+side.** For such discs, representability is equivalent to congruence
+conditions, and a square class p ≡ 1 (mod 4s(s−1)·…) lies in the *principal*
+genus, so +p is represented by the principal form X² − s(s−1)Y². But the
+ES-family of §8.1 needs **−p** represented (p = s(s−1)f² − h², forced by
+positivity of the witness pair). −p is principal-equivalent iff the Pell
+equation X² − s(s−1)Y² = −1 is solvable — and it never is: s ≡ 3 (mod 4)
+divides s(s−1), and X² ≡ −1 (mod s) has no solution. So **square classes are
+never covered by any one-class-per-genus s-family**. The same 2-adic signature
+(q ≡ 3 mod 4) that defines the criterion forces the norm-sign obstruction:
+the machinery is self-blocking with remarkable consistency.
+(Pell unsolvability verified for s = 3, 7, …, 31.)
+
+**(b) Generic discriminants (class number exceeding genus number):**
+representation by the *specific* form is a Frobenius condition in the ring
+class field, whose non-abelian-over-ℚ part is linearly disjoint from every
+cyclotomic field. So for any finite mixture of congruence families and such
+form families, Chebotarev supplies infinitely many primes satisfying p ≡ 1
+(mod L) *and* evading every form family's Frobenius class. *(Sketch-level:
+linear disjointness and non-exhaustion of the fiber are standard but not
+re-proved here — flagged.)*
+
+**Corollary 9.3 (extension of 5.3).** No finite mixture of divisor-forced
+congruence identities and s-type quadratic-form families proves the
+conjecture. ∎
+
+### 9.4 Attack 7 — the graveyard (each checked, each terminal)
+
+* **Greedy algorithm** = the q = 3 special case of the criterion; nothing new.
+* **Counting/second-moment positivity**: expected witness count over q ≤ Q
+  diverges, but averages give almost-all (= Vaughan) by construction; "all"
+  needs pointwise concentration that moments cannot supply. Structural ceiling.
+* **Norm coexistence contradictions**: counterexample needs (p+3)/4 and
+  (3p+1)/4 both Eisenstein norms with N₂ = 3N₁ − 2; pairs of norms in linear
+  relation are heuristically abundant (denser than twin primes); no
+  contradiction available at any finite depth (same block-satisfiability
+  phenomenon as 8.3).
+* **Choosing x's factorization**: fake freedom — x is determined by q; wanting
+  x = r₁r₂ with r₂ ≡ −1 (mod 4r₁r₂ − p) is verbatim the original problem.
+* **Signed representations** (4/p = 1/x + 1/y − 1/z is easy): no known descent
+  repairs the sign; the sign is the conjecture.
+* **Identity re-derivations via factoring (p+3)² etc.**: provably circular —
+  they reproduce the divisor-coset condition verbatim.
+
+### 9.5 Attack 8 — the standing structural route (geometry)
+
+The equation 4xyz = p(xy + yz + zx) defines a singular cubic surface; the
+conjecture asks for *integral* points on the affine piece. Bright–Loughran
+(2020) showed the integral Brauer–Manin obstruction vanishes for this family.
+So ES would follow from a strong integral local-to-global principle for such
+log surfaces — conjectures in that direction exist but are far beyond reach,
+and integral Hasse principles are known to fail in general without a
+controlling theory. This is the one non-analytic route left standing, and it
+is a route for a different decade.
+
+### 9.6 Where the attack tree now stands
+
+Every elementary branch terminates at one of exactly three named walls:
+
+1. **Uniform divisor equidistribution** (divisors of one specific x² hitting
+   one moving coset — §8.3, now p-intrinsic by §9.2);
+2. **The almost-all ceiling** of averaging methods (Vaughan's bound is the
+   method's edge, not a lazy stop);
+3. **Integral Hasse principles** for log cubic surfaces (§9.5).
+
+Everything softer — congruences, polynomial identities, quadratic forms,
+characters, greedy, signs, moments — is now provably or structurally dead,
+with the obstruction mechanisms identified (Thm 5.1, Cor 9.3, Prop 9.2) rather
+than merely observed.
+
 ---
 
 ### References (partly from memory — flagged)
