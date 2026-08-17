@@ -29,9 +29,11 @@ vs the general machinery (sources/henriot-1102.1643.pdf, which states
 Nair–Tenenbaum Thm 1 and Holowinsky Thm 2): our functions are 0/1 indicators,
 f(p^ℓ) ≤ 1, product structure across forms — the full M_k(A,B,ε) generality
 is not needed and a direct sieve/Halász-style argument may give good
-k-dependence cheaply. Warning from notes §11.3: this phase alone caps at
-exponent ∑ 2/(w−1) ≈ log log W, i.e. superlogarithmic savings only — still
-worth having unconditionally, but it cannot reach θ = 2/3.
+k-dependence cheaply. Warning from notes §11.3: prime moduli alone contribute
+∑ 2/(w−1) ≈ log log W. Section 12's completed direct sieve also admits all
+composite w≡3 (mod 4), raising the cumulative density to ≫log W and proving
+the unconditional bound N·exp(−c(log log N)²). This remains superlogarithmic,
+not a positive power of log N, so it cannot reach θ = 2/3.
 
 **Phase 2 — capture the full per-modulus condition (the prize).** Full failure
 at modulus w is subset-product avoidance: no product of prime factors of x
@@ -76,3 +78,18 @@ large-deviations against actual data for hard-class primes).
 * Identity/covering/form shortcuts are dead by theorem (notes §5, §9.3);
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
+
+## Outcome (2026-08-17)
+
+* **Phase 1 completed:** Lemma 12.1 is a direct many-root large sieve with
+  absolute constant 4 and no hidden k-dependence. Applied to both criterion
+  halves, all composite moduli w≤δ log N, and the prime affine form itself,
+  it proves E(N)≪N exp(−c(log log N)²) (Theorem 12.2).
+* **Phase 2 reduced but not solved:** Lemmas 12.3–12.4 give the exact signed
+  subset-product and Fourier large-deviation formulations. The missing input
+  is a growing-order, residue-marked factor-count theorem along a prime affine
+  form. No uniform contraction ρ<1, and hence no positive θ, was proved.
+* **Phase 3 corrected:** Vaughan uses many sufficient residue classes per
+  auxiliary prime plus the large sieve and a Rankin tail, not growing-k shifted
+  correlations. Pomerance–Weingartner §4 is the checked modern reconstruction;
+  Vaughan's primary PDF remained access-blocked.

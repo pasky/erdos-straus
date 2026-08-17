@@ -717,6 +717,222 @@ many-root upper-bound sieve for the necessary slices, and treat the full
 condition by genuinely nonmultiplicative subset-product methods.  Both are
 executed, as far as they close, in the next section.
 
+## 12. Phase five: the direct many-root sieve closes Phase 1
+
+This section keeps primality, avoids every unspecified fixed-k constant, and
+then pushes the full nonmultiplicative condition to an exact Fourier barrier.
+The outcome is a rigorous new superlogarithmic saving, not the requested
+positive power of log N.
+
+### 12.1 An explicit-k sieve with no k-dependent prefactor
+
+**Lemma 12.1 (many-root large sieve).** Let I be an interval containing X
+integers.  For every prime ℓ in a finite set P, let Ω_ℓ be a set of ν(ℓ) < ℓ
+residue classes.  If S ⊂ I avoids Ω_ℓ modulo ℓ for every ℓ ∈ P, define
+
+    V = ∏_{ℓ∈P}(1−ν(ℓ)/ℓ),
+    Λ = ∑_{ℓ∈P} ν(ℓ) log ℓ/ℓ.
+
+If Λ ≤ (log X)/4, then
+
+    |S| ≤ 4XV.                                                   (12.1)
+
+The constant 4 is absolute: the number of conditions appears only in the
+actual local root counts ν(ℓ).
+
+*Proof.* Put g(ℓ)=ν(ℓ)/(ℓ−ν(ℓ)), extended multiplicatively to squarefree
+numbers supported on P.  For each ℓ define the mean-zero function
+
+    ψ_ℓ(a) = g(ℓ) if a ∉ Ω_ℓ, and ψ_ℓ(a) = −1 if a ∈ Ω_ℓ.
+
+For squarefree q supported on P, let ψ_q=∏_{ℓ|q}ψ_ℓ.  Its Fourier expansion
+modulo q is supported only on primitive frequencies (each prime component has
+zero constant coefficient), and Parseval gives
+
+    ∑*_{a (mod q)} |ψ̂_q(a)|² = g(q).
+
+For n ∈ S, ψ_q(n)=g(q).  Cauchy–Schwarz applied to the Fourier expansion
+therefore gives
+
+    ∑*_{a (mod q)} |∑_{n∈S} e(an/q)|² ≥ g(q)|S|².                (12.2)
+
+Summing (12.2) over q≤Q and applying the analytic large sieve yields
+
+    |S| ≤ (X+Q²)/H(Q),       H(Q)=∑_{q≤Q} g(q).                 (12.3)
+
+For completeness, set Z=∑_q g(q)=∏(1+g(ℓ))=V⁻¹ and regard g(q)/Z as a
+probability distribution.  A prime ℓ occurs independently with probability
+ν(ℓ)/ℓ, so the expected value of log q is Λ.  If log Q≥2Λ, Markov's inequality
+gives H(Q)≥Z/2.  Taking Q=X^{1/2} proves (12.1).  The only cited input is the
+standard analytic large-sieve inequality; all dependence on the local
+conditions is displayed. ∎
+
+This is the explicit-k mean-value result sought in Phase 1.  It is simpler
+than Nair–Tenenbaum because the conditions are literal exclusions of roots in
+one parameter, not arbitrary multiplicative weights on polynomial values.
+
+### 12.2 The criterion supplies many distinct roots
+
+Let
+
+    𝒲 = {w≤W : w≡3 (mod 4)},       L = lcm(𝒲),
+    M = lcm(24,4L),                R=M/4.
+
+Condition p to a reduced class r modulo M with r≡1 (mod 24), and write
+p=r+Mt.  For every w in 𝒲 the two criterion values are affine forms
+
+    B_w(t)=Rt+(r+w)/4=(p+w)/4,
+    A_w(t)=wRt+(wr+1)/4=(pw+1)/4.
+
+A counterexample forces B_w to have no prime factor in
+
+    C_B(w,r)={−1,−r/4} (mod w)
+
+and A_w to have no prime factor in
+
+    C_A(w)={−1,−1/4} (mod w),                              (12.4)
+
+with repetitions removed.  This is exactly the d=nℓ and d=ℓ argument of
+§11.3.  A class with r≡−4 (mod w) has no counterexamples because d=1 works.
+For every remaining class and w>3, |C_A|=2 and |C_B|≥1.
+
+Retain primality by adding P(t)=Mt+r and excluding its zero class modulo every
+sieving prime.  The relevant pairwise determinants are
+
+    det(P,B_u)=Ru,              det(P,A_u)=R,
+    det(B_u,B_v)=R(v−u)/4,      det(A_u,A_v)=R(u−v)/4,
+    det(B_u,A_v)=R(1−uv)/4.                                  (12.5)
+
+Every prime factor of R is ≤W, and the remaining factors in (12.5) have
+absolute value <W².  Hence at every sieving prime ℓ>W² all active roots are
+distinct.  The exact local count is therefore
+
+    ν_r(ℓ)=1 + ∑_{w∈𝒲} [1_{ℓ mod w∈C_A(w)}
+                         +1_{ℓ mod w∈C_B(w,r)}].              (12.6)
+
+There is no discriminant loss and no hidden dependence on the roughly W
+linear forms.
+
+### 12.3 A rigorous independently-derived exceptional-set bound
+
+**Theorem 12.2.** There is an absolute c>0 such that
+
+    #{p≤N prime : 4/p is not representable}
+       ≪ N exp(−c(log log N)²).                               (12.7)
+
+*Proof.* It suffices to count p in a dyadic interval (T,2T].  Take
+W=δ log T for a sufficiently small fixed δ>0.  Since
+log lcm(1,…,W)=W+o(W), M≤T^{2δ} for large T, so every conditioned parameter
+interval has length X≫T^{1−2δ}.
+
+Two elementary estimates give, uniformly in r,
+
+    c₁ log W ≤ 1 + ∑_{w∈𝒲} (|C_A|+|C_B|)/φ(w) ≤ c₂ log W.     (12.8)
+
+For the lower bound, restrict to w=3m with m≡1 (mod 4):
+
+    ∑_{w∈𝒲,w>3} 1/φ(w)
+      ≥ ∑_{m≤W/3,m≡1(4)} 1/(3m) = (1/12)log W+O(1),
+
+and (12.4) supplies at least three classes per w.  For the upper bound use
+∑_{n≤W}1/φ(n)≪log W, which follows from
+n/φ(n)=∑_{d|n}μ²(d)/φ(d) after summation.
+
+Choose
+
+    log z = log T/(A log W),       log y = (log z)^{1/2},
+
+with A a sufficiently large absolute constant, and sieve only y<ℓ≤z.
+Siegel–Walfisz, uniformly for every w≤W, and (12.6) give
+
+    ∑_{y<ℓ≤z} ν_r(ℓ)logℓ/ℓ ≪ (log W)log z ≤ (log X)/4,
+    ∑_{y<ℓ≤z} ν_r(ℓ)/ℓ ≫ (log W)log(log z/log y)
+                         ≫ (log log T)².                       (12.9)
+
+Here y>W², so the distinct-root calculation applies, and z<T, so every prime
+p in the dyadic interval avoids the zero root of P.  Lemma 12.1 and
+log V≤−∑ν_r(ℓ)/ℓ now bound the counterexamples in each conditioned class by
+
+    ≪ X exp(−c(log log T)²).
+
+There are at most M classes and MX≪T; summing them cancels the conditioning
+cost.  Finally sum the dyadic estimates. ∎
+
+**Status and comparison.** The proof is unconditional modulo the standard
+analytic large sieve, Siegel–Walfisz, and the prime number theorem estimate
+for the least common multiple, all used in their classical ranges.  It is
+independent of Vaughan's many-good-classes construction.  It is stronger than
+every fixed power of 1/log N but much weaker than
+exp(−c(log N)^{2/3}); thus it is genuine Phase-1 progress but not the requested
+exp-type fallback.
+
+### 12.4 Exact formulation of the full condition
+
+Conditioning was not the missing algebraic step.  There is a cleaner centered
+form which removes x from the target entirely.
+
+**Lemma 12.3 (signed subset-product criterion).** Let w be odd and (n,w)=1.
+Write n=∏ℓ^{e_ℓ}.  A divisor d|n² satisfies d≡−n (mod w) iff
+
+    ∏_ℓ ℓ^{k_ℓ} ≡ −1 (mod w) for some −e_ℓ≤k_ℓ≤e_ℓ.          (12.10)
+
+*Proof.* Every divisor of n² has a unique expression
+ d=n∏ℓ^{k_ℓ} in the stated exponent ranges, and n is invertible modulo w. ∎
+
+Thus for either n=B_w(p) or n=A_w(p), full failure is exactly avoidance of
+−1 by the signed subset products of the prime-factor residues.  It is still
+nonmultiplicative because the signed-product sets multiply when coprime
+integers are multiplied.
+
+Let G=(Z/wZ)^× and let D(n) be the set of residues of divisors of n.  Equation
+(12.10) says success is equivalent to
+
+    −1 ∈ D(n)D(n)⁻¹.
+
+In particular, |D(n)|>|G|/2 forces success, since D(n) and −D(n) must
+intersect.  This is a useful deterministic sufficient condition, but it does
+not control concentration in a proper subgroup.
+
+### 12.5 Fourier large-deviation reduction (proved) and the transfer gap
+
+For each copy g of a prime-factor residue of n, choose an exponent
+ε∈{−1,0,1} uniformly.  For a character χ of G define
+
+    q_χ(g)=(χ(g)⁻¹+1+χ(g))/3,
+    M_χ(n)=−∑_g log|q_χ(g)|,
+
+with M_χ=∞ when a factor vanishes.  Fourier inversion of this random signed
+product proves:
+
+**Lemma 12.4.** If full failure holds, some nontrivial χ satisfies
+
+    M_χ(n) ≤ log(|G|−1).                                      (12.11)
+
+Indeed the probability of the target −1 is |G|⁻¹ times 1 plus the sum over
+nonprincipal characters.  If ∑_{χ≠1}exp(−M_χ)<1 it is positive; the
+contrapositive and pigeonhole give (12.11).  For a uniform g∈G,
+
+    E_g |q_χ(g)|² = 5/9 if χ has order 2, and 1/3 otherwise,   (12.12)
+
+by character orthogonality.  Equations (12.11)–(12.12) put the empirical
+"factor residues mix" claim into a precise additive large-deviation form.
+
+What did **not** close is transferring random-residue mixing to
+B_w(p),A_w(p) while p remains prime, uniformly for
+w≤(log N)^{1−ε}.  A sufficient input would be a growing-order, residue-marked
+Sathe–Selberg estimate along the prime affine form: factorial moments of the
+counts of prime divisors of B_w(p) and A_w(p) in every class modulo w, through
+order K≈log log N, with enough uniformity to sum the 3^K signed products (and
+joint moments for both forms).  Bombieri–Vinogradov controls each averaged
+divisibility congruence up to level N^{1/2}; it does not by itself provide the
+required relative high-moment estimate after the residue-product constraints
+and the primality condition are imposed.
+
+This is the exact Phase-2 stopping point.  The signed-product and Fourier
+lemmas are proved; the claimed constant contraction ρ<1 is **not**.  Therefore
+no bound N exp(−c(log N)^θ), for any θ>0, is claimed from this route, and
+Vaughan's θ=2/3 record is not improved.
+
 ---
 
 ### References (partly from memory — flagged)

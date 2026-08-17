@@ -12,8 +12,11 @@ All computations are cheap (seconds). We verify:
   (e) the classical identity families are exactly valid (symbolic spot checks).
 """
 from fractions import Fraction
-from sympy import primerange, factorint, jacobi_symbol
+from sympy import primerange, factorint, jacobi_symbol, primitive_root
 from collections import Counter
+from itertools import combinations
+from math import gcd, lcm, log, exp, ceil, prod
+import cmath
 
 LIMIT = 100_000
 SIX = {1, 121, 169, 289, 361, 529}  # squares of units mod 840, all ≡ 1 mod 24
@@ -183,4 +186,162 @@ pm4 = 4 * h - 1  # p ≡ 3 (mod 4), h = (p+1)/4
 expr = 1 / h + 1 / (2 * h * pm4) + 1 / (2 * h * pm4) - 4 / pm4
 assert simplify(expr) == 0
 print("mod 4: p = 4h-1  =>  4/p = 1/h + 1/(2hp) + 1/(2hp)            [exact]")
+# ---------------------------------------------------------------- (f)
+print("\n== (f) Phase-1 necessary slices and distinct affine roots ==")
+
+
+def signed_residues(n, w):
+    """Products ∏ ell^k mod w over -e <= k <= e for ell^e || n."""
+    residues = {1}
+    for ell, e in factorint(n).items():
+        powers = {pow(ell, k, w) for k in range(-e, e + 1)}
+        residues = {(a * b) % w for a in residues for b in powers}
+    return residues
+
+
+def direct_target_hit(n, w):
+    return any((d + n) % w == 0 for d in divisors_of_square(n))
+
+
+slice_checks = centered_checks = 0
+phase_moduli = (3, 7, 11, 15, 19, 23, 27, 31)
+for p in primerange(5, 5000):
+    if p % 24 != 1:
+        continue
+    for w in phase_moduli:
+        if p <= w:
+            continue
+        for n in ((p + w) // 4, (p * w + 1) // 4):
+            assert gcd(n, w) == 1
+            centered = (w - 1) in signed_residues(n, w)
+            assert centered == direct_target_hit(n, w)
+            centered_checks += 1
+            a = n % w
+            for ell in factorint(n):
+                candidates = []
+                if ell % w == w - 1:
+                    candidates.append(n * ell)
+                if ell % w == (-a) % w:
+                    candidates.append(ell)
+                if ell * ell % w == (-a) % w:
+                    candidates.append(ell * ell)
+                for d in candidates:
+                    assert n * n % d == 0 and (d + n) % w == 0
+                    slice_checks += 1
+print(f"necessary-slice witnesses checked: {slice_checks}; "
+      f"centered equivalences: {centered_checks}")
+
+# Full avoidance is not multiplicative, even after the target is fixed.
+assert (6 not in signed_residues(8, 7)
+        and 6 not in signed_residues(15, 7)
+        and 6 in signed_residues(120, 7))
+print("nonmultiplicativity mod 7: F(8)=F(15)=1 but F(120)=0")
+
+# Condition on p = r (mod M) and check the determinant-based assertion that
+# every active root is distinct at primes ell > W^2.
+ws = (3, 7, 11, 15)
+W = max(ws)
+L = lcm(*ws)
+M = lcm(24, 4 * L)
+R = M // 4
+r = 1
+root_checks = 0
+for ell in primerange(W * W + 1, W * W + 500):
+    roots = {(-r * pow(M, -1, ell)) % ell}  # primality form Mt+r
+    expected = 1
+    for w in ws:
+        cb = {(-1) % w, (-r * pow(4, -1, w)) % w}
+        ca = {(-1) % w, (-pow(4, -1, w)) % w}
+        if ell % w in cb:
+            roots.add((-(r + w) // 4 * pow(R, -1, ell)) % ell)
+            expected += 1
+        if ell % w in ca:
+            roots.add((-(w * r + 1) // 4 * pow(w * R, -1, ell)) % ell)
+            expected += 1
+    assert len(roots) == expected
+    root_checks += 1
+print(f"distinct local-root counts checked at {root_checks} primes > W^2")
+
+# Numerical sanity for the Markov truncation in Lemma 12.1.
+sieve_primes = (11, 13, 17, 19)
+nu = {11: 2, 13: 1, 17: 3, 19: 2}
+gfun = {ell: nu[ell] / (ell - nu[ell]) for ell in sieve_primes}
+Lambda = sum(nu[ell] * log(ell) / ell for ell in sieve_primes)
+Q = ceil(exp(2 * Lambda))
+Z = prod(1 + gfun[ell] for ell in sieve_primes)
+H = 0.0
+for j in range(len(sieve_primes) + 1):
+    for subset in combinations(sieve_primes, j):
+        q = prod(subset)
+        if q <= Q:
+            H += prod(gfun[ell] for ell in subset)
+assert H + 1e-12 >= Z / 2
+print(f"large-sieve truncation sanity: H(Q)/Z={H/Z:.3f} >= 1/2")
+
+# ---------------------------------------------------------------- (g)
+print("\n== (g) Phase-2 signed products and Fourier reduction ==")
+
+# Check Fourier inversion and the character averages (12.12) in cyclic unit
+# groups.  This is numerical verification, not an input to the proof.
+fourier_checks = 0
+for w in (7, 11, 19):
+    h = w - 1
+    gen = primitive_root(w)
+    dlog = {}
+    cur = 1
+    for j in range(h):
+        dlog[cur] = j
+        cur = cur * gen % w
+
+    def chi(j, value):
+        return cmath.exp(2j * cmath.pi * j * dlog[value % w] / h)
+
+    for j in range(1, h):
+        avg = sum(abs((1 + chi(j, value) + chi(j, value).conjugate()) / 3) ** 2
+                  for value in range(1, w)) / h
+        order = h // gcd(j, h)
+        target_avg = 5 / 9 if order == 2 else 1 / 3
+        assert abs(avg - target_avg) < 1e-10
+
+    for p in list(primerange(max(w + 1, 25), 300))[:12]:
+        if p % 4 != 1:
+            continue
+        n = (p + w) // 4
+        copies = [ell % w for ell, e in factorint(n).items() for _ in range(e)]
+        counts = {1: 1}
+        for value in copies:
+            nxt = Counter()
+            for old, count in counts.items():
+                for power in (-1, 0, 1):
+                    nxt[old * pow(value, power, w) % w] += count
+            counts = nxt
+        direct_prob = counts.get(w - 1, 0) / (3 ** len(copies))
+        fourier_prob = 0j
+        for j in range(h):
+            qprod = 1 + 0j
+            for value in copies:
+                qprod *= (chi(j, value) ** -1 + 1 + chi(j, value)) / 3
+            fourier_prob += chi(j, w - 1).conjugate() * qprod
+        fourier_prob /= h
+        assert abs(fourier_prob.real - direct_prob) < 1e-10
+        assert abs(fourier_prob.imag) < 1e-10
+        fourier_checks += 1
+print(f"Fourier inversion checks: {fourier_checks}; character averages exact")
+
+# Empirical per-modulus failure rates for the full condition, separately for
+# both criterion halves.  These support no theorem.
+print("full-condition failure rates on the six hard classes:")
+for w in phase_moduli:
+    eligible = [p for p in six_primes if p > w]
+    fail_b = fail_a = fail_joint = 0
+    for p in eligible:
+        b = (w - 1) not in signed_residues((p + w) // 4, w)
+        a = (w - 1) not in signed_residues((p * w + 1) // 4, w)
+        fail_b += b
+        fail_a += a
+        fail_joint += b and a
+    total = len(eligible)
+    print(f"  w={w:2}: B={fail_b/total:.3f}, A={fail_a/total:.3f}, "
+          f"joint={fail_joint/total:.3f} ({total} primes)")
+
 print("\nall checks passed")
