@@ -598,6 +598,84 @@ integral points on rigid log K3 surfaces — currently nonexistent for want of
 any group action. None is in reach of this session, and now I can say
 precisely why.
 
+## 11. Wave four: attacking the wall itself — an independent-method
+exceptional-set bound, and a calibration of the missing uniformity
+
+The wall (§10.6) cannot be climbed head-on in a session; but my criterion
+machinery yields its own exceptional-set bounds by a route different from
+Vaughan's, and — more usefully — an exact calibration of what the missing
+equidistribution is *worth*.
+
+### 11.1 New empirical input: the two halves are nearly independent
+
+For the 273 hard-class primes < 10⁵: failure of Case B at q = 3 has rate
+0.68; failure of Case A at m = 3 has rate 0.66; joint failure 0.41 vs 0.45
+predicted under independence — no positive correlation (slightly favorable).
+Interleaving both halves, **every hard-class prime < 10⁵ is resolved by
+modulus ≤ 31** (histogram 3:162, 7:67, 11:33, 15:6, 23:4, 31:1; record
+p = 21169), versus 63 for Case B alone. The adelic "one bit" (§10.2) couples
+the halves globally but their factorization events decouple — the sieve sees
+two independent barrels.
+
+### 11.2 Theorem (exceptional-set bound, my route; modulo one standard tool)
+
+**Theorem 11.1.** The number of primes p ≤ N for which 4/p has no
+representation is ≪ N (log N)^{−1/2}.
+
+*Proof.* A counterexample has p ≡ 1 (mod 24) (§1) and fails Case B at q = 3,
+which by §6 forces every prime factor of n = (p+3)/4 to be ≡ 1 (mod 3). Let f
+be the multiplicative 0/1-indicator of that property; then the count is at
+most ∑_{n ≤ (N+3)/4} f(n), and the Halberstam–Richert/Wirsing mean-value
+bound gives ∑_{n≤x} f(n) ≪ (x/log x)·exp(∑_{r≤x} f(r)/r) with
+∑_{r ≡ 1 (3)} 1/r = ½ log log x + O(1). ∎
+
+Weaker than Vaughan (1970), but: derived through the criterion, self-contained
+modulo one classical mean-value theorem *(cited from memory)*, and extensible:
+
+**Theorem 11.2 (modulo Nair–Tenenbaum/Henriot correlation bounds, cited).**
+Using both halves at modulus 3: a counterexample forces n = (p+3)/4 *and*
+3n − 2 = (3p+1)/4 to lie in the same multiplicatively-restricted set, so the
+count is ≤ ∑ f(n)f(3n−2) ≪ N (log N)^{−1+o(1)}, by the shifted-correlation
+upper bounds of Nair–Tenenbaum/Henriot (product-of-mean-values shape;
+applicability to this pair of linear forms flagged as cited-not-reproved).
+§11.1's independence data supports the bound being of the true order.
+
+### 11.3 Calibration: what the stacking program can and cannot reach
+
+Stack conditions over moduli w ≤ W (both halves each contribute per w):
+
+* **Necessary-slice stacking** (only the "no factor ≡ −1 (mod w)" slice,
+  density 1/(w−1) each): total exponent ∑ 2/(w−1) ≈ log log W — caps at
+  savings exp(−c·log log N·log log log N). **Provably-elementary reach: far
+  below Vaughan's exp(−c(log N)^{2/3}).** The route cannot approach Vaughan
+  one-condition-per-modulus; Vaughan must be using the *full* coset condition
+  per modulus.
+* **Full-condition stacking** (heuristic): failure probability per modulus is
+  empirically ≈ 0.3–0.7 and roughly independent (§11.1, and the geometric
+  decay 273 → 186 → 131 → … → 0 of §8.3's data) for moduli up to the
+  divisor-richness threshold w ≲ τ(x²) ≈ (log p)^{log 3 ≈ 1.1}. If that
+  independence were a theorem, one would get ≪ N·exp(−c(log N)^{1.1−o(1)})
+  — *stronger* than Vaughan. So the missing uniform divisor-equidistribution
+  is worth precisely the gap between exponent ≈ 1.1 (heuristic truth),
+  2/3 (Vaughan's provable), and log-log-stacking (elementary reach).
+* **The named lever:** k-fold correlation bounds of Nair–Tenenbaum type with
+  constants subexponential in k, applied to the k ≈ (log N)^{1.1} full-coset
+  conditions. Whether Henriot-style proofs give usable k-dependence is a
+  concrete, checkable question for a follow-up with the actual papers — the
+  one place this session found where the state of the art might actually
+  move.
+
+### 11.4 Honest wave-four verdict
+
+No proof of the conjecture, and none was realistically available; the yield
+is: (a) an independent-method exceptional-set theorem (11.1, exponent 1/2
+self-contained; 11.2, exponent 1 modulo cited correlation bounds); (b) the
+empirical near-independence of the two criterion halves and the 63 → 31 joint
+record; (c) a quantitative calibration showing exactly where elementary
+stacking saturates, what Vaughan's method must already be exploiting, and the
+single identified lever (k-fold correlation constants) with any prospect of
+beating the 55-year-old record.
+
 ---
 
 ### References (partly from memory — flagged)
