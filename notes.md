@@ -273,6 +273,99 @@ mismatches on all hard-class primes < 10⁵); and a precise, minimal statement o
 the missing lemma together with the reason it sits beyond current uniformity
 technology.
 
+## 8. Second push: three attacks past the wall
+
+Section 7 identified the missing lemma; this section records genuine attempts
+to prove it, each pushed until it broke, with the break point named.
+
+### 8.1 Quadratic-form families (attack, partial success, structural failure)
+
+In criterion (B), fix a multiplier s ≥ 2 and ask for *both* roots at once: d,
+d′ are the roots of T² − (sq − 2x)T + x², so a witness with d + d′ = sq − 2x
+exists iff the discriminant qs((s−1)q − p) is a perfect square (parities match
+automatically; need (s−1)q > p for positivity). Taking s ≡ 3 (mod 4), q = sf²
+with f odd, the square condition becomes
+
+    p = s(s−1)f² − h²   ⇒   4/p solvable.
+
+**Verified** (`p = 281 = 506·1 − 15²`, s = 23: 4/281 = 1/76 + 1/1124 + 1/5339;
+and the family with f = 5, h = 107 captures the stubborn p = 1201 =
+506·25 − 107²). These are Aigner/Rosati-type conditions rediscovered.
+
+**Why it cannot finish:** representability by an indefinite form is a class-
+group condition, not a congruence condition — each family hits a hard class
+only in a thin subset (empirically: of the s = 23 family's hits below 3000 in
+p ≡ 1 (mod 24), exactly one lies in the six classes). Worse, the small-s
+families die on congruence grounds before even starting: s = 3 forces
+p ≢ 1 (mod 3), s = 7 likewise, s = 11 and 19 die mod 8, s = 15 dies mod 3 —
+the 2-adic/3-adic obstructions of Theorem 5.1 reappear form by form. Quadratic
+forms give densities, never classes; summing thin sets cannot reach "all p".
+
+### 8.2 Reciprocity collapse (new-ish lemma, proved + verified)
+
+**Proposition 8.1.** Let p ≡ 1 (mod 4) be prime, x > p/4, q = 4x − p (any such
+q, prime or not; q ≡ 3 (mod 4)), and r an odd prime dividing x, r ≠ p. Then
+the Jacobi symbols satisfy **(r|q) = (r|p)**.
+
+*Proof.* r | x gives q ≡ −p (mod r). If r ≡ 1 (mod 4):
+(r|q) = (q|r) = (−p|r) = (−1|r)(p|r) = (p|r) = (r|p), using reciprocity twice
+and p ≡ 1 (mod 4). If r ≡ 3 (mod 4): (r|q) = −(q|r) (both ≡ 3 mod 4)
+= −(−p|r) = −(−1)(p|r) = (p|r) = (r|p). ∎
+(Verified: 38,480 triples with prime q below 3000, zero mismatches.)
+
+Moreover (2|q) is +1 or −1 according as x is even or odd (p ≡ 1 mod 8). So:
+**the entire character landscape governing Lemma 6.1, across every q
+simultaneously, is dictated by which primes are quadratic residues mod p
+itself** — nothing about the individual q matters. Consequences:
+
+* A counterexample p cannot be "all Jacobi-obstructed": window elements with a
+  QNR-mod-p odd factor (or odd window elements, via the factor 2) have
+  character-permitted witnesses. So a counterexample must fail predominantly
+  by *coset misses* — the character sieve is provably not the true wall.
+* The 92.9% Jacobi-obstruction rate of §6 is a statement about p's own residue
+  structure filtered through the window's factorizations.
+
+### 8.3 Window dichotomy and the true residual problem
+
+Since x = (p+q)/4 ranges over *all* integers > p/4 as q ranges over its
+progression, the criterion becomes a statement about the block of consecutive
+integers just above p/4:
+
+**Lemma 8.2 (window dichotomy).** p is a counterexample iff for every integer
+x > p/4 (q := 4x − p, and mirror Case-A conditions): no divisor of x² lies in
+−x (mod q). In particular, taking d = xr: **no prime factor of any window
+element x may be ≡ −1 (mod 4x − p)** — a "diagonal sieve" where consecutive
+integers face conditions with growing moduli. ∎
+
+Two hard facts about this diagonal sieve, both proved above or checkable:
+
+1. **Prime window elements are useless.** If x = r is prime, the divisors of
+   x² are {1, r, r²}, and a witness exists iff (4r − p) | (p + 4) — the L
+   family again. So any proof must route through *composite* window elements
+   with rich divisor sets: the conjecture genuinely lives in the
+   divisor-structure of the window, not in its primes.
+2. **Every finite pattern is heuristically satisfiable.** Each single condition
+   ("x has no prime factor ≡ −1 mod q") holds on a positive-density set, and
+   for fixed window length L the intersection has density ≈ ∏ρ over blocks —
+   positive. So no fixed-L contradiction can exist: for every L there should be
+   (rare) primes whose first L conditions all fail. Prediction: **the minimal
+   witness q(p) is unbounded**. Data (all primes to 4·10⁵): the record minimal
+   q runs 1, 3, 7, 11, 23, 31, 35, 63 at p = 3, 5, 73, 1129, 1201, 21169,
+   67369, 87481 — slow growth, consistent with ≍ log-power unboundedness.
+
+This closes the loop with Corollary 5.3 from the other side: identity systems
+are exactly the *uniformly finite* proofs, and 8.3(2) predicts no uniformly
+finite proof can exist because the quantity it would bound is unbounded. The
+conjecture, if true, is true non-uniformly — which is why 75 years of
+covering systems, forms, and almost-all analytics have not closed it.
+
+**The residual problem, in final form.** For every prime p ≡ 1 (mod 24) there
+is an x just above p/4 whose divisor lattice (of x², halved by the character
+condition of 8.1 according to p's own QR structure) hits the moving coset
+−x (mod 4x − p). This is a uniform divisor-equidistribution statement of
+Erdős–Odlyzko–Sárközy type (divisors in residue classes), open in the required
+uniformity. That — not characters, not congruences, not forms — is the wall.
+
 ---
 
 ### References (partly from memory — flagged)
