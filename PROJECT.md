@@ -1,0 +1,72 @@
+# Project: explicit-k correlation bounds → Erdős–Straus exceptional set
+
+Successor session to the campaign logged in `notes.md` (read it first, §3, §6,
+§8.3, §11 are the load-bearing sections; `verify.py` re-checks every claim in
+~2 s). Goal: execute the one actionable lever found there.
+
+## The target
+
+Prove an exceptional-set bound for the Erdős–Straus conjecture of the form
+
+    #{p ≤ N prime : 4/p has no representation} ≪ N·exp(−c(log N)^θ)
+
+by the criterion route (notes.md Thm 3.1), with the explicit ambition θ > 2/3
+(beating Vaughan 1970) and the realistic fallback of any exp-type saving
+derived independently of Vaughan's method.
+
+## The plan (phases; each is standalone publishable-progress if it works)
+
+**Phase 1 — explicit-k mean-value bounds for indicator slices (rigorous
+target).** The stackable conditions: for each modulus w ≡ 3 (mod 4) and each
+of the two criterion halves, a counterexample p forces the shifted value
+((p+w)/4 resp. (pw+1)/4) to have NO prime factor in specified residue classes
+mod w (≥ 2 classes per (w, p mod 4w): the −1 class and the −x class; see
+notes §8.3, §11.3). These are multiplicative 0/1-indicator conditions on k
+coprime linear forms in p. Needed: a k-fold Shiu/Nair–Tenenbaum-type upper
+bound with constant C(k) explicit and subexponential in k. Key simplification
+vs the general machinery (sources/henriot-1102.1643.pdf, which states
+Nair–Tenenbaum Thm 1 and Holowinsky Thm 2): our functions are 0/1 indicators,
+f(p^ℓ) ≤ 1, product structure across forms — the full M_k(A,B,ε) generality
+is not needed and a direct sieve/Halász-style argument may give good
+k-dependence cheaply. Warning from notes §11.3: this phase alone caps at
+exponent ∑ 2/(w−1) ≈ log log W, i.e. superlogarithmic savings only — still
+worth having unconditionally, but it cannot reach θ = 2/3.
+
+**Phase 2 — capture the full per-modulus condition (the prize).** Full failure
+at modulus w is subset-product avoidance: no product of prime factors of x
+(exponents ≤ 2eᵢ) lands in the coset −x (mod w). Empirically this fails with
+probability ≈ 0.3–0.7 per modulus, roughly independently across moduli and
+halves (measured: notes §11.1), for w up to the divisor-richness threshold
+≈ (log p)^{1.1}. Task: prove per-modulus failure probability ≤ ρ < 1 *on
+average over p* for w ≤ (log N)^{1−ε}, e.g. via large-deviation/moment
+control of the vector of class-counts of prime factors of the shifted values
+(multidimensional Selberg–Delange / Halász), then stack with Phase-1-style
+explicit-k control. Success here gives θ near 1 — beating Vaughan.
+
+**Phase 3 — write-up.** Compare against Vaughan 1970's actual argument
+(obtain the paper); be scrupulous about what is genuinely new. House rules:
+no overclaiming — "verified numerically" ≠ "proved"; every analytic step
+either proved or cited to a checked source; extend `verify.py` with numerical
+sanity checks for each new lemma (e.g. simulate Phase-2 class-count
+large-deviations against actual data for hard-class primes).
+
+## Assets
+
+* `notes.md` — full campaign: criterion (Thm 3.1, proved), obstruction
+  theorems (5.1, 9.3), reciprocity collapse (8.1/9.1), one-bit completeness
+  (§10.2), independence data + joint record (§11.1), calibration (§11.3).
+* `verify.py` — 2-second re-verification of all computational claims.
+* `sources/henriot-1102.1643.pdf` — Henriot, NT bounds uniform in
+  discriminant (quotes NT Thm 1, Holowinsky Thm 2 — the pair-case tools).
+* `sources/bright-loughran-1908.02526.pdf` — geometry side (context only).
+* Missing and wanted: Nair–Tenenbaum 1998 original; Shiu 1980; Vaughan 1970.
+
+## Known traps (paid for already, don't re-pay)
+
+* The full failure condition is NOT a multiplicative indicator (depends on
+  x mod w as well as factorization) — condition on p mod 4w first, then it is.
+* Prime and near-prime x are provably useless (notes §8.3) — smoothness/many-
+  factor x carry everything; don't waste effort on sparse-divisor slices.
+* Identity/covering/form shortcuts are dead by theorem (notes §5, §9.3);
+  don't rediscover them.
+* GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
