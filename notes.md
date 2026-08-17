@@ -658,12 +658,26 @@ Stack conditions over moduli w ≤ W (both halves each contribute per w):
   — *stronger* than Vaughan. So the missing uniform divisor-equidistribution
   is worth precisely the gap between exponent ≈ 1.1 (heuristic truth),
   2/3 (Vaughan's provable), and log-log-stacking (elementary reach).
-* **The named lever:** k-fold correlation bounds of Nair–Tenenbaum type with
-  constants subexponential in k, applied to the k ≈ (log N)^{1.1} full-coset
-  conditions. Whether Henriot-style proofs give usable k-dependence is a
-  concrete, checkable question for a follow-up with the actual papers — the
-  one place this session found where the state of the art might actually
-  move.
+* **The named lever — now checked against the sources** (Henriot,
+  arXiv:1102.1643, quoting Nair–Tenenbaum's Theorem 1 and Holowinsky's
+  Theorem 2):
+  – The **pair case is fully covered by published theorems**: shifted
+    convolutions ∑ λ₁(n)λ₂(n+ℓ) for τ_m-bounded multiplicative functions,
+    uniform in the shift (Holowinsky; Henriot's D-uniform version). Our
+    indicators are ≤ 1, our two linear forms are coprime and irreducible, and
+    their resultant is small and smooth — friendliest possible case. So
+    Theorem 11.2 rests on solid published ground.
+  – The **k-growing case is genuinely not covered**: in Nair–Tenenbaum and
+    Henriot the implicit constant depends on the total degree g (= k for k
+    linear forms) in an unspecified — in the proofs, effectively exponential —
+    way, and the theorems are stated for fixed k. Stacking k ≈ (log N)^{1.1}
+    conditions is outside the machinery as published. Making the k-dependence
+    explicit (polynomial in k would suffice for exp-type savings) is a
+    concrete, bounded technical project — rework one ≈ 20-page sieve argument
+    tracking constants — and is precisely the kind of internalization
+    Vaughan's bespoke 1970 method performs implicitly. This is the sharpest
+    actionable formulation of "beat or match Vaughan by the criterion route"
+    that this session produced.
 
 ### 11.4 Honest wave-four verdict
 
