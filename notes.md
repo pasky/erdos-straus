@@ -993,7 +993,8 @@ factors in level sets of |q_χ| — which the many-root sieve (Lemma 12.1) can
 process after conditioning on the exceptional factor patterns.  The union
 cost over characters and patterns is paid explicitly, and it caps the
 exponent well below Vaughan's 2/3; but it closes, and yields the
-unconditional theorem
+unconditional theorem (§13.5 then completes the single-modulus transfer
+H1′/H2′ of §13.4)
 
     E(N) := #{p ≤ N prime : 4/p not representable}
           ≤ N exp(−(log N)^{1/8})            (N large).        (13.1)
@@ -1455,6 +1456,9 @@ with no structural wall in sight; proving them, and then the w-joint
 version (H3) for stacking, is the successor unit.  With H1'–H2' alone:
 per-modulus failure probability o(1) uniformly to w ≤ (log N)^{1/2−ε},
 already far beyond every ceiling in §13.3 at single-modulus level.
+**(Executed: §13.5 proves them, in window form — Lemmas 13.9–13.10 and
+Theorem 13.11.  One structural wall did appear — the L(1,χ)-sized bias
+of the small primes — and is bypassed there by flooring the window.)**
 
 The remainder of this subsection keeps the older ω-conditioned targets
 for the record; they are now a fallback formulation.  H1–H3 are stated
@@ -1473,6 +1477,274 @@ gap: **two fixed-order BV-average Sathe–Selberg asymptotics (H1, H2),
 plus their w-joint version (H3), would imply every θ < 1**.  Nothing
 beyond fixed second order is demanded by the target — that is the
 reduction; proving H1–H3 is the successor project.
+
+### 13.5 H1′/H2′ proved: the window form of the tilted transfer
+
+The two open inputs of §13.4 are proved here in a slightly modified
+("window") form which supersedes the literal H1′/H2′ statements: it feeds
+the identical Paley–Zygmund step and delivers the full per-modulus
+conclusion — failure probability o(1), uniformly for w ≤ (log N)^{1/2−ε}
+(Theorem 13.11).  The modification is forced by an honest obstacle,
+recorded first because it is instructive.
+
+**Why the small primes must leave the window.**  With W ⊇ {q ≤ w^{O(1)}}
+as in the literal H1′ display, the second-moment character decomposition
+contains, for every pair (χ₁, χ₂) of nonprincipal characters mod w with
+χ₁χ₂ nonprincipal, an Euler product of shape
+∏_{q∈W}(1 + (χ₁+χ₂+χ₁χ₂)(q)/O(q)).  Its modulus is
+exp(O(Re ∑_q χᵢ(q)/q)) — an L(1,·)-sized quantity, as large as
+(log w)^{3/4} — and there are ≈ h² such pairs against a main term that
+beats each of them only by (log z)^{3/4}.  Absolute-value estimates
+therefore cap the range at h² ≪ (log z/log w)^{3/4}, i.e.
+w ≲ (log N)^{3/8}; and one can check the loss is carried entirely by the
+primes q ≤ w^{O(1)}, because above that height Siegel–Walfisz makes every
+character sum over primes cancel.  Those small primes contribute only
+κ·log log N to λ = ∑_{q∈W} 1/q if deleted up to exp((log N)^κ), while
+carrying all of the L(1,χ) bias.  Deleting them costs an ε-sliver of the
+range and buys uniform 1+o(1) control of every nonprincipal Euler
+product.  (This paragraph is a proof-level obstruction to our estimates,
+not a nonexistence theorem; the fix follows.)
+
+**Setup.**  Fix ε ∈ (0, 1/2) and put
+
+    z₀ = exp((log N)^{ε/2}),   z = exp((log N)^{1−ε/2}),
+    W = {q prime : z₀ < q ≤ z},   λ = ∑_{q∈W} 1/q,
+
+so that, by Mertens, λ = (1−ε)·log log N + O((log N)^{−ε/2}) and
+e^{−λ/2} = (log N)^{−(1−ε)/2}(1+o(1)).  For N large every q ∈ W exceeds
+(log N)^{1/2} ≥ w, so q ∤ 6w automatically — all coprimality below is
+free.  Fix w ≡ 3 (mod 4), 3 ≤ w ≤ (log N)^{1/2−ε}, put h = φ(w), and for
+p ≡ 1 (mod 24) set n = n_w(p) = (p+w)/4.  Define
+
+    T″(n) = #{d | n : d squarefree, all prime factors in W,
+                      d ≤ X, d ≡ −1 (mod w)},        X = Y = N^{1/8},
+    U(n)  = 2^{−ω_W(n)} T″(n),
+
+where ω_W(n) = #{q ∈ W : q | n}.  T″ ≤ T′ up to the harmless truncation
+change (every counted d is a divisor of n coprime to 6w), so T″ > 0
+still triggers the criterion.  All implied constants below depend on ε
+alone; Siegel–Walfisz makes them ineffective.
+
+**Lemma 13.8 (window character sums cancel; proved).**  There are
+c_ε > 0 and N₀(ε) such that, for all N ≥ N₀(ε), every modulus
+2 < w ≤ (log N)^{1/2} and every nonprincipal character χ mod w,
+
+    |∑_{q∈W} χ(q)/q| ≤ β = β(N) := exp(−c_ε (log N)^{ε/4}).
+
+*Proof.*  For t ≥ z₀ we have w ≤ (log N)^{1/2} = (log z₀)^{1/ε} ≤
+(log t)^{1/ε}, so Siegel–Walfisz applies with A = 1/ε:
+θ(t,χ) := ∑_{q≤t} χ(q) log q ≪_ε t·exp(−c√(log t)) (the ψ-form of SW
+minus the prime-power contribution O(√t log²t); Iwaniec–Kowalski §5.9).
+Abel summation against 1/(t log t):
+
+    ∑_{z₀<q≤z} χ(q)/q = [θ(t,χ)/(t log t)]_{z₀}^{z}
+        + ∫_{z₀}^{z} θ(t,χ)·(log t + 1)/(t log t)² dt
+      ≪ exp(−(c/2)√(log z₀)) = exp(−(c/2)(log N)^{ε/4}),
+
+after substituting v = log t in the integral. ∎
+
+**Lemma 13.9 (H1″ — tilted first moment along the shifted primes;
+proved).**  Uniformly for w ≡ 3 (mod 4), 3 ≤ w ≤ (log N)^{1/2−ε},
+
+    S₁ := ∑_{p≤N, p≡1 (24)} U(n_w(p))
+        = (li N / 8h) · (1 + O((log N)^{−ε/2})).
+
+*Proof.*  (1) *Expansion.*  2^{−ω_W(n)} = ∏_{q∈W, q|n}(1 − 1/2) =
+∑_{m|n, m sqfree W-smooth} (−1/2)^{ω(m)}, so, with d running over
+squarefree W-smooth d ≤ X, d ≡ −1 (mod w) and m over squarefree W-smooth
+integers,
+
+    S₁ = ∑_{d} ∑_{m} (−1/2)^{ω(m)} #{p ≤ N : p ≡ 1 (24), [d,m] | n}.
+
+(2) *Tail m > Y, at the level of p.*  With η = 1/log z (so q^η ≤ e on W)
+and τ_W(n) := 2^{ω_W(n)} ≥ T″(n),
+
+    ∑_{p} τ_W(n) ∑_{m|n, m>Y} 2^{−ω(m)}
+      ≤ Y^{−η} ∑_{n≤N} ∏_{q∈W, q|n} 2(1 + e/2)
+      ≪ Y^{−η} · N ∏_{q∈W}(1 + 8/q)
+      ≪ N (log N)^{8} exp(−(1/8)(log N)^{ε/2}) ≪ N (log N)^{−13},
+
+using ∑_{n≤N} f(n) ≤ N ∏_{q≤N}(1 + ∑_j f(q^j) q^{−j}) for f ≥ 0
+multiplicative, and log Y/log z = (1/8)(log N)^{ε/2}.
+
+(3) *Bombieri–Vinogradov.*  For the retained pairs put v = [d,m], a
+squarefree W-smooth modulus ≤ XY = N^{1/4}.  The conditions p ≡ 1 (24)
+and v | (p+w)/4 ⟺ p ≡ −w (mod 4v) are compatible mod 4 exactly because
+w ≡ 3 (mod 4), and CRT fuses them into a single class a_v mod 24v,
+invertible: a_v ≡ 1 (24) handles ℓ ∈ {2,3}, and q | v gives
+a_v ≡ −w ≢ 0 (q) since q > z₀ > w.  The number of pairs (d,m) with
+[d,m] = v is ≤ 3^{ω(v)}.  Hence, with
+E(v) := max_{(a,24v)=1} |π(N;24v,a) − li N/φ(24v)|,
+
+    S₁ = li(N)·Σ† + O( ∑_{v ≤ N^{1/4}} 3^{ω(v)} E(v) ) + O(N(log N)^{−13}),
+    Σ† := ∑_{d≤X} ∑_{m≤Y} (−1/2)^{ω(m)} / φ(24[d,m]),
+
+and by Cauchy–Schwarz, Brun–Titchmarsh (E(v) ≪ N/φ(24v) for
+24v ≤ N^{2/5}), and BV at level N^{1/2} with A = 36:
+
+    ∑_v 3^{ω(v)} E(v) ≤ ( ∑_v 9^{ω(v)} N/φ(24v) )^{1/2}
+                        ( ∑_{q≤N^{1/2}} max_a E )^{1/2}
+      ≪ ( N (log N)^{10} )^{1/2} ( N (log N)^{−36} )^{1/2}
+      = N (log N)^{−13}.
+
+(4) *Completing the density sum (Rankin).*  φ(24v) = 8φ(v) for our v, so
+8Σ† = ∑_{d≤X}∑_{m≤Y} (−1/2)^{ω(m)}/φ([d,m]); let Σ be the same sum with
+both size caps removed.  Then
+
+    |8Σ† − Σ| ≤ ∑_{d,m} [(d/X)^η + (m/Y)^η] 2^{−ω(m)}/φ([d,m])
+      ≤ 2 exp(−(1/8)(log N)^{ε/2}) ∏_{q∈W}(1 + 6/(q−1))
+      ≪ (log N)^{7} exp(−(1/8)(log N)^{ε/2}),
+
+smaller than any power of 1/log N.
+
+(5) *Factorization and characters.*  Detect d ≡ −1 (mod w) by
+1 = (1/h)∑_χ χ(−1)χ(d) (χ(−1) = ±1); the completed (d,m)-sum then
+factors over q ∈ W — each prime sits in d, in m, in both, or in neither:
+
+    Σ = (1/h) ∑_{χ mod w} χ(−1) ∏_{q∈W} F_q(χ),
+    F_q(χ) = 1 + [χ(q)(1 − 1/2) − 1/2]/(q−1)
+           = 1 + (χ(q) − 1)/(2(q−1)).
+
+For χ = χ₀: F_q ≡ 1 identically — the 2^{−ω} tilt cancels the divisor
+growth *exactly*, and the principal term is 1/h with no secondary
+expansion.  For χ ≠ χ₀, the factors are 1 + O(1/z₀), so
+
+    log |∏_q F_q(χ)| = Re ∑_q (χ(q)−1)/(2q) + O(z₀^{−1/2})
+                     = −λ/2 + O(β + z₀^{−1/2}),
+
+by Lemma 13.8; hence |∏ F_q(χ)| ≤ 2e^{−λ/2} for N ≥ N₀(ε).  Therefore
+
+    Σ = (1/h)·[1 + O(h e^{−λ/2})] = (1/h)·[1 + O((log N)^{−ε/2})],
+
+since h e^{−λ/2} ≤ (log N)^{1/2−ε}·(log N)^{−(1−ε)/2}(1+o(1)) ≪
+(log N)^{−ε/2}.  Combining (2)–(5), and noting the main term is
+≫ N/(log N)^{3/2} while every error is ≪ N(log N)^{−13} or relatively
+O((log N)^{−ε/2}), gives the lemma. ∎
+
+**Lemma 13.10 (H2″ — tilted second moment; proved).**  Uniformly in the
+same range,
+
+    S₂ := ∑_{p≤N, p≡1 (24)} 4^{−ω_W(n)} T″(n)²
+        = (li N / 8h²) · (1 + O((log N)^{−ε/2})).
+
+*Proof.*  Same skeleton; only the combinatorics change.  Expand
+4^{−ω_W(n)} = ∑_{m|n, sqfree W-smooth} (−3/4)^{ω(m)} and
+T″² = ∑_{d₁,d₂}; the moduli become v = [d₁,d₂,m] ≤ X²Y = N^{3/8}, with
+multiplicity ≤ 7^{ω(v)}.  The m-tail runs as in step (2) with
+τ_W(n)² ≤ 4^{ω_W(n)} and weights (3/4)^{ω(m)} ≤ 1 (per-prime constant
+4(1 + 3e/4) < 13, giving N(log N)^{13}·exp(−(1/8)(log N)^{ε/2}));
+the BV step as in (3) with 7 ↔ 3, 49 ↔ 9 (∏(1+49/(q−1)) ≪ (log N)^{50})
+and A = 76; the Rankin completion as in (4) with per-prime constant
+1 + 21e/(q−1)-type, still ≪ (log N)^{−C} for every C.  The completed
+density sum factors with both class conditions detected by characters:
+
+    Σ₂ = (1/h²) ∑_{χ₁,χ₂ mod w} χ₁(−1)χ₂(−1) ∏_{q∈W} F_q(χ₁,χ₂),
+    F_q(χ₁,χ₂) = 1 + [(1+χ₁(q))(1+χ₂(q))/4 − 1]/(q−1),
+
+(per prime, the eight (q|d₁?, q|d₂?, q|m?) options sum to
+(1+χ₁)(1+χ₂)(1−3/4) over φ-normalization (q−1), minus the empty option
+restored).  The character pairs fall into exactly the families of Lemma
+13.7:
+
+* (χ₀,χ₀): F_q ≡ 1 identically (the tilt again telescopes exactly);
+  term 1/h².
+* χ₁ = χ₀ ≠ χ₂ and mirror: (1+χ₀)(1+χ₂)/4 − 1 = (χ₂−1)/2, so
+  F_q = 1 + (χ₂(q)−1)/(2(q−1)) — the first-moment factor;
+  |∏| ≤ 2e^{−λ/2} as above.  2(h−1) terms.
+* χ₂ = χ̄₁ ≠ χ₀: (1+χ)(1+χ̄)/4 − 1 = (Re χ − 1)/2, and Re ∑ χ(q)/q =
+  O(β) again gives |∏| ≤ 2e^{−λ/2}.  h−1 terms.  (Total 3h e^{−λ/2},
+  matching Lemma 13.7.)
+* generic (χ₁, χ₂, χ₁χ₂ all nonprincipal): the bracket is
+  (χ₁+χ₂+χ₁χ₂−3)/4, so uniformly
+
+      ∏_q F_q = e^{−3λ/4}·e^{ζ},   |ζ| ≤ 3β/4 + O(z₀^{−1/2}) =: β′,
+
+  and |e^{ζ} − 1| ≤ 2β′.  The signed coefficient sum over generic pairs
+  is computed by inclusion–exclusion: ∑_{all} χ₁(−1)χ₂(−1) =
+  (∑_χ χ(−1))² = 0 for w > 2; the three excluded families sum to 0, 0,
+  and ∑_{χ₁} χ₁(−1)χ̄₁(−1) = h; their triple overlap (χ₀,χ₀)
+  contributes 1 to each.  Hence ∑_{generic} χ₁(−1)χ₂(−1) = 2 − h (the
+  model's 1 − (h−1)), and
+
+      |∑_{generic} χ₁(−1)χ₂(−1) ∏ F_q|
+        ≤ e^{−3λ/4}·[ h + 2β′h² ] ≪ h e^{−3λ/4},
+
+  using β′h² ≤ β′ log N = o(1).  Note h e^{−3λ/4} ≤ h e^{−λ/2}.
+
+Altogether Σ₂ = h^{−2}[1 + O(h e^{−λ/2})], and assembling as in Lemma
+13.9 gives the claim. ∎
+
+**Theorem 13.11 (single-modulus transfer complete; proved).**  Fix
+ε ∈ (0, 1/2).  Uniformly for w ≡ 3 (mod 4), 3 ≤ w ≤ (log N)^{1/2−ε},
+
+    #{p ≤ N : p ≡ 1 (mod 24), (p+w)/4 has no divisor ≡ −1 (mod w)}
+      ≪_ε π(N)·(log N)^{−ε/2}.
+
+In particular, for each such w all but O_ε(π(N)(log N)^{−ε/2}) of the
+primes p ≤ N, p ≡ 1 (mod 24) satisfy the Erdős–Straus criterion at
+modulus w: per-modulus failure probability O((log N)^{−ε/2}) = o(1),
+uniformly through w ≤ (log N)^{1/2−ε} — the H1′/H2′ deliverable.
+
+*Proof.*  U(n) > 0 iff T″(n) > 0, so Cauchy–Schwarz (Paley–Zygmund)
+gives
+
+    #{p ≤ N, p ≡ 1 (24) : T″ > 0} ≥ S₁²/S₂
+      = (li N/8)·(1 + O((log N)^{−ε/2}))
+
+by Lemmas 13.9–13.10, while #{p ≤ N : p ≡ 1 (24)} = li N/8 +
+O(N e^{−c√log N}); subtracting gives the failure count, since
+{no divisor ≡ −1 at all} ⊆ {T″ = 0}.  Sufficiency: if d | n with
+d ≡ −1 (mod w), then D := n/d divides n | n², and n = dD forces
+D ≡ −n (mod w), i.e. w | D + n.  Theorem 3.1(B) applies with q = w
+(q ≡ −p (mod 4) holds: w ≡ 3, p ≡ 1 (4)) and x = n, divisor D of x²,
+giving the explicit solution (n, p(n+D)/w, p(n + n²/D)/w). ∎
+
+**Remarks.**
+
+(i) *Model correspondence is exact.*  The three error families reproduce
+Lemma 13.7's bound 1 + 3h e^{−λ/2} + h e^{−3λ/4} term by term, with λ
+now the window mass (1−ε) log log N; the arithmetic tracks the iid model
+to relative O(β) once the floor z₀ removes the L(1,χ)-biased primes.
+The telescoping F_q(χ₀) ≡ 1 is the arithmetic image of E U = (1−e^{−λ/2})/h:
+the θ = 1/2 tilt is exactly the weight at which divisor growth and
+suppression cancel, so no Selberg–Delange machinery is needed at all —
+the promised "Selberg–Delange × BV hybrid" degenerated into Mertens
+products once the tilt was chosen right.
+
+(ii) Constants are ineffective (Siegel–Walfisz), and depend on ε only.
+
+(iii) *Supersession ledger.*  The literal H1′/H2′ (window down to q = 2,
+all divisors ≤ N^{1/4}) were not proved and are not needed: nothing
+downstream references the small primes, and the window statements feed
+the same Paley–Zygmund inequality with the same conclusion.  The
+obstruction paragraph above explains why the literal form resists
+(h² Euler products of L(1,·) size vs a (log z)^{3/4} main term) — our
+absolute-value method caps it at w ≲ (log N)^{3/8}; the window form has
+no such cap up to (log N)^{1/2−ε}.
+
+(iv) *Honest ledger of what this does and does not give.*  A single
+modulus yields only E(N) ≪ N(log N)^{−1−ε/2} — far weaker than Theorem
+13.2; the value is the uniformity in w, past every §13.3 ceiling at
+single-modulus level.  The remaining open input for exponential savings
+is H3, the w-joint version (stacking the ≍ (log N)^{1/2−ε} moduli); with
+it this route yields every θ < 1/2 — **not** the θ < 1 of the
+ω-conditioned H1–H3 of §13.4, whose range (log N)^{1−ε} remains open:
+the 2^{−ω} tilt's admissible range h ≤ e^{(1/2−ε)λ} is structural
+(Lemma 13.7 (ii)).  Two named increments could go further: (a) the
+signed/n²-divisor variant — Lemma 12.5's ±1 exponent vectors tilted by
+3^{−ω} — has model range h ≤ e^{(2/3−ε)λ}, i.e. w ≤ (log N)^{2/3−ε},
+and the same window proof plausibly transfers it (the pair combinatorics
+of Lemma 12.5 must be redone as local Euler factors); that would put the
+stacked route at θ = 2/3 — Vaughan-equal, and the reappearance of 2/3
+from a different direction is consistent with §13.3's divisor-density
+ceiling A/(A+1).  (b) Beating 2/3 still needs conditioning beyond
+fixed-order tilts.  Neither increment is claimed here.
+
+Numerics: `verify.py (k)` checks the local-factor factorizations of both
+density sums exactly (toy window, all characters), the Paley–Zygmund
+chain and moment formulas on real shifted-prime data at toy scale, and
+reconstructs exact unit-fraction solutions from sampled window witnesses
+via Theorem 3.1(B).
 
 ---
 

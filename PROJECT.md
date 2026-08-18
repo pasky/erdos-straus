@@ -79,6 +79,35 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 3 (2026-08-18, phase seven — see notes.md §13.5)
+
+* **H1′/H2′ PROVED (window form): the single-modulus transfer is
+  complete.**  With the prime window W = (z₀, z], z₀ = exp((log N)^{ε/2}),
+  z = exp((log N)^{1−ε/2}), and witnesses restricted to squarefree
+  W-smooth divisors d ≡ −1 (mod w) of n = (p+w)/4, the tilted moments
+  hold with (1 + O((log N)^{−ε/2})) precision uniformly for w ≡ 3 (4),
+  w ≤ (log N)^{1/2−ε} (Lemmas 13.9–13.10).  No Selberg–Delange machinery
+  survives in the proof: the θ = 1/2 tilt telescopes every principal
+  Euler factor to exactly 1; the inputs are Siegel–Walfisz for window
+  character sums (the floor z₀ deletes the L(1,χ)-biased small primes
+  that otherwise wall the method at w ≈ (log N)^{3/8} — an honest
+  obstruction, documented), Bombieri–Vinogradov at level N^{3/8} with
+  τ-bounded multiplicities, and Rankin tails.  **Theorem 13.11:**
+  per-modulus criterion failure probability O((log N)^{−ε/2}), uniformly
+  to w ≤ (log N)^{1/2−ε} — the successor-unit deliverable, past every
+  §13.3 ceiling at single-modulus level.  Constants ineffective (SW).
+  `verify.py (k)`: factorization identities exact; model tracking, PZ
+  chain, and exact solution reconstruction verified on real data.
+* **Honest ledger:** a single modulus improves no E(N) bound (one w gives
+  only N(log N)^{−1−ε/2}).  Open inputs now: (H3) the w-joint version
+  for stacking — with it this window route yields every θ < 1/2, not
+  θ < 1 (the 2^{−ω} tilt's range cap h ≤ e^{(1/2−ε)λ} is structural);
+  and the signed/n²-divisor variant (3^{−ω} tilt, Lemma 12.5's pair
+  combinatorics as Euler factors), model range w ≤ (log N)^{2/3−ε},
+  plausibly window-transferable — θ = 2/3, Vaughan-equal, still not
+  beating 2/3.  Beating 2/3 still needs conditioning beyond fixed-order
+  tilts.
+
 ## Outcome 2 (2026-08-18, phase six — see notes.md §13)
 
 * **Positive power achieved unconditionally (fallback prize):**

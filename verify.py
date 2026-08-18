@@ -638,4 +638,130 @@ for w in (7, 31):
     print(f"w={w:2}: tilted PZ ratio {r16[0.5]:.3f}@L=16 -> {r32[0.5]:.4f}"
           f"@L=32; untilted collapses to {r32[1.0]:.4f}@L=32")
 
+# ---------------------------------------------------------------- (k)
+print("\n== (k) Window-tilted transfer H1''/H2'' (§13.5, Lemmas 13.9-13.11) ==")
+
+# (k1) Exact local-factor factorization of the completed density sums
+# (step (5) of Lemmas 13.9 and 13.10): enumerate all squarefree W-smooth
+# d, m (resp. d1, d2, m) over a toy window and compare with the products
+# prod_q F_q(chi) and prod_q F_q(chi1, chi2), for every character.
+WSET = [5, 11, 13, 17]
+WK = 7
+HK = WK - 1
+_g = primitive_root(WK)
+_dlog = {}
+_cur = 1
+for _j in range(HK):
+    _dlog[_cur] = _j
+    _cur = _cur * _g % WK
+
+
+def chi_k(j, x):
+    return cmath.exp(2 * cmath.pi * 1j * j * _dlog[x % WK] / HK)
+
+
+def subsets(xs):
+    out = [()]
+    for x in xs:
+        out += [s + (x,) for s in out]
+    return out
+
+
+SUBS = subsets(WSET)
+worst1 = worst2 = 0.0
+for j1 in range(HK):
+    direct = 0j
+    for d in SUBS:
+        for m in SUBS:
+            un = set(d) | set(m)
+            phi_u = prod(q - 1 for q in un) if un else 1
+            direct += (chi_k(j1, prod(d) if d else 1)
+                       * (-0.5) ** len(m) / phi_u)
+    local = prod(1 + (chi_k(j1, q) - 1) / (2 * (q - 1)) for q in WSET)
+    worst1 = max(worst1, abs(direct - local))
+    if j1 == 0:
+        assert abs(local - 1) < 1e-12  # principal factor telescopes to 1
+for j1 in range(HK):
+    for j2 in range(HK):
+        direct = 0j
+        for d1 in SUBS:
+            for d2 in SUBS:
+                for m in SUBS:
+                    un = set(d1) | set(d2) | set(m)
+                    phi_u = prod(q - 1 for q in un) if un else 1
+                    direct += (chi_k(j1, prod(d1) if d1 else 1)
+                               * chi_k(j2, prod(d2) if d2 else 1)
+                               * (-0.75) ** len(m) / phi_u)
+        local = prod(1 + ((1 + chi_k(j1, q)) * (1 + chi_k(j2, q)) / 4 - 1)
+                     / (q - 1) for q in WSET)
+        worst2 = max(worst2, abs(direct - local))
+        if j1 == j2 == 0:
+            assert abs(local - 1) < 1e-12
+assert worst1 < 1e-12 and worst2 < 1e-12, (worst1, worst2)
+print(f"(k1) local-factor factorizations exact: max defects "
+      f"{worst1:.2e} (H1''), {worst2:.2e} (H2''); principal factors == 1")
+
+# (k2) Real shifted-prime data at toy scale: tilted moments vs the model
+# values of Lemma 13.7, the Paley-Zygmund inequality, and failure rates.
+# (Toy scale cannot make h*e^{-lam/2} small; informational, loose asserts.
+#  The d <= X truncation is dropped: it is Rankin-inactive asymptotically
+#  and vacuous at this scale.)
+NK = 1_000_000
+WIN = list(primerange(21, 5000))
+LAM = sum(1.0 / q for q in WIN)
+EL2 = exp(-LAM / 2)
+EL34 = exp(-3 * LAM / 4)
+print(f"(k2) N={NK}, window (20,5000], lam={LAM:.3f}, e^-lam/2={EL2:.3f}")
+for w in (3, 7, 11):
+    h = sum(1 for a in range(1, w) if gcd(a, w) == 1)
+    s1 = s2 = pi0 = succ = 0.0
+    samples = []
+    for p in primerange(w + 1, NK):
+        if p % 24 != 1:
+            continue
+        pi0 += 1
+        n = (p + w) // 4
+        divs = [q for q in WIN if n % q == 0]
+        vec = [0] * w
+        vec[1 % w] = 1
+        for q in divs:
+            nxt = vec[:]
+            for a in range(w):
+                if vec[a]:
+                    nxt[a * q % w] += vec[a]
+            vec = nxt
+        t = vec[w - 1]  # subset products = -1 (mod w)
+        u = t / 2 ** len(divs)
+        s1 += u
+        s2 += t * t / 4 ** len(divs)
+        if t:
+            succ += 1
+            if len(samples) < 20:
+                samples.append((p, n, divs))
+    model1 = (1 - EL2) / h
+    bound2 = (1 + 3 * h * EL2 + h * EL34) / h / h
+    pz = s1 * s1 / (pi0 * s2)
+    assert succ >= s1 * s1 / s2 - 1e-9          # Paley-Zygmund inequality
+    assert 0.3 * model1 < s1 / pi0 < 3 * model1  # loose model bracket
+    assert s2 / pi0 < 3 * bound2
+    print(f"  w={w:2}: EU*h={s1 / pi0 * h:.3f} (model {model1 * h:.3f}), "
+          f"EU2*h^2={s2 / pi0 * h * h:.3f} (model bound {bound2 * h * h:.3f}), "
+          f"PZ={pz:.3f}, success={succ / pi0:.3f}")
+
+    # (k3) criterion sufficiency: reconstruct exact solutions from window
+    # witnesses via Theorem 3.1(B) with q = w.
+    for p, n, divs in samples:
+        wit = next(s for s in subsets(divs)
+                   if s and prod(s) % w == w - 1 and n % prod(s) == 0)
+        d = prod(wit)
+        D = n // d
+        assert (n * n) % D == 0 and (D + n) % w == 0
+        y = p * (n + D) // w
+        z_ = p * (n + n * n // D) // w
+        assert p * (n + D) % w == 0 and p * (n + n * n // D) % w == 0
+        assert Fraction(4, p) == (Fraction(1, n) + Fraction(1, y)
+                                  + Fraction(1, z_))
+print("(k3) exact Erdos-Straus solutions reconstructed from window "
+      "witnesses (20 samples per modulus)")
+
 print("\nall checks passed")
