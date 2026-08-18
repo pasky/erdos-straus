@@ -379,17 +379,29 @@ MU_GRID = [j / 100 for j in range(0, 301)]
 K1, K2 = 1 / 3, 1 / 20
 
 
+BAND = 1e-9  # pessimistic safety band around the 1/20 boundary
+
+
 def level_sigmas(d):
-    """(sigma0, sigma1, sigma2) for a character of exact order d."""
+    """(sigma0, sigma1, sigma2) for a character of exact order d.
+
+    Rigor: q_chi = 0 iff 3a in {d, 2d} (cos = -1/2), and |q| <= 1/3 iff
+    cos(2*pi*a/d) <= 0 iff d <= 4a <= 3d -- both EXACT integer tests.
+    Only the interior 1/20-level split uses binary64 cosines; borderline
+    values (within BAND of the boundary) go to S1, the side with the
+    smaller penalty, i.e. the pessimistic direction for the rate R(d).
+    """
     s0 = s1 = s2 = 0
     for a in range(1, d):
-        v = abs(1 + 2 * cmath.cos(2 * pi * a / d).real) / 3
-        if v < 1e-12:
-            s0 += 1
-        elif v <= K2:
-            s2 += 1
-        elif v <= K1:
-            s1 += 1
+        if 3 * a == d or 3 * a == 2 * d:
+            s0 += 1                      # exact: q = 0
+        elif d <= 4 * a <= 3 * d:        # exact: |q| <= 1/3
+            c = cmath.cos(2 * pi * a / d).real
+            # |q| <= 1/20 iff c in [-23/40, -17/40]
+            if -23 / 40 + BAND <= c <= -17 / 40 - BAND:
+                s2 += 1
+            else:
+                s1 += 1                  # includes borderline: pessimistic
     return s0 / d, s1 / d, s2 / d
 
 
@@ -419,11 +431,12 @@ for d in range(2, D0 + 1):
     disc = max(abs(sig[j] - SIG_INF[j]) * d for j in range(3))
     max_disc = max(max_disc, disc)
 # (C1): every exact order d>=2 has rate >= c1 (worst small d checked directly,
-# d > D0 via the arc-discrepancy bound R(d) >= R_inf - 24*s0/d).
-assert worst[0] >= 0.09 > C1, worst
-assert R_INF - 24 * S0C / D0 >= C1
+# d > D0 via the arc-discrepancy bound R(d) >= R_inf - 24*s0/d).  Asserted
+# margins dwarf binary64 arithmetic error (~1e-15) by >= 13 orders.
+assert worst[0] >= 0.098 > C1, worst
+assert R_INF - 24 * S0C / D0 >= C1 + 1e-6
 # (C2): high-order ceiling with tail margin.
-assert R_INF >= GAMMA + 2 * C1 + 24 * S0C / D0, R_INF
+assert R_INF >= GAMMA + 2 * C1 + 24 * S0C / D0 + 1e-6, R_INF
 # arc-discrepancy claim |sigma_j(d)-sigma_j_inf| <= 8/d, verified exhaustively
 assert max_disc <= 8.0, max_disc
 print(f"(C1) min_d R(d) = {worst[0]:.4f} at d={worst[1]} (>= c1={C1})")

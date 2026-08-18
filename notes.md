@@ -1009,7 +1009,9 @@ of the method; §13.4 states the sharpened residual gap.
 
 Throughout, p ≡ 1 (mod 24) is a counterexample prime (Lemma 1.2), w ≡ 3
 (mod 4), h = φ(w), G = (Z/wZ)^×, and n is either criterion half; (n,w) = 1
-as before (a common factor of n and w would divide the prime p < n·4).
+as before: for the B-half a common prime q | w and (p+w)/4 would divide
+p = (p+w) − w, impossible for p prime > w; for the A-half, 4n = pw + 1
+forces (n, w) = 1 directly.
 For nontrivial χ mod w define the disjoint class sets
 
     S₀(χ) = {g : q_χ(g) = 0},
@@ -1099,11 +1101,14 @@ mod w,
 
     ∑_{y<ℓ≤z, ℓ≡g (w)} 1/ℓ = L₁'/φ(w)·(1 + o(1)),             (13.4)
 
-with L₁' := log log z − log log y; the differenced range kills the
-Mertens constants, and the accumulated error over all h ≤ Y classes is
-O(Y exp(−c√(log y))) = o(1) because √(log y) = exp(γL/32) beats γL.  Hence
-for any union S of classes of density σ, the sum (13.4) over S is
-σ L₁'(1+o(1)) ≥ σ s₀ L with s₀ = 0.84, for large N.
+with L₁' := log log z − log log y.  (13.4) follows from the Siegel–Walfisz
+theorem, π(t; w, g) = li(t)/φ(w) + O(t·exp(−c√(log t))) uniformly for
+w ≤ (log t)^{16}, by partial summation over (y, z]; the differenced range
+kills the Mertens constants.  The accumulated error over all O(Y) moduli
+and ≤ Y classes each is O(Y² exp(−c√(log y))) = o(1) because
+√(log y) = exp(γL/32) beats 2γL.  Hence for any union S of classes of
+density σ, the sum (13.4) over S is σ L₁'(1+o(1)) ≥ σ s₀ L with
+s₀ = 0.84, for large N.
 
 **The union.**  By Lemma 13.1, a counterexample p determines, for each of
 the 2|𝒲| pairs (w, H), H ∈ {A, B}, a nontrivial character χ_{w,H} mod w
@@ -1120,13 +1125,19 @@ Call such a **admissible**.  The total conditioning modulus obeys
 
     ∏_{w,H} a_{w,H} ≤ z^{2|𝒲|·γL/\log 3} ≤ N^{0.03}.           (13.6)
 
-**The cell sieve.**  Fix χ⃗ and admissible a⃗ = (a_{w,H}).  The conditions
-a_{w,H} | H_w(s) pin s to at most one class modulo
-Q₀ = 24·lcm of the prime powers involved (leading coefficients 6, 6w are
-units at every ℓ > y; if two a's share a prime, the distinct-root
-computation below makes the cell empty, and the product bound used next is
-still an upper bound).  Reparametrize s = s₀ + Q₀u; the parameter interval
-has length X' ≤ N/(24 Q₀') + 1, Q₀' = ∏ a_{w,H}.  Sieve with the prime set
+**The cell sieve.**  Fix χ⃗ and admissible a⃗ = (a_{w,H}).  Each prime
+power ℓ^e ∥ a_{w,H} forces H_w(s) ≡ 0 (mod ℓ^e), one class modulo ℓ^e
+(the leading coefficients 6, 6w are units at every ℓ > y).  By CRT the
+conditions pin s to at most one class modulo Q₀ := ∏_{w,H} a_{w,H} when
+the a's are pairwise coprime; if two a's share a prime, the distinct-root
+computation below makes the cell empty, and using the product Q₀ anyway
+only weakens the upper bound.  Reparametrize s = s₀ + Q₀u.  Since s
+ranges over [0, N/24), the u-interval has length X' with
+
+    N/(24Q₀) − 1 ≤ X' ≤ N/(24Q₀) + 1,
+
+and Q₀ ≤ N^{0.03} by (13.6), so X' = (1+o(1))·N/(24Q₀) and
+log X' ≥ 0.96 log N.  Sieve with the prime set
 P' = {ℓ ∈ (y, z] : ℓ ∤ 6∏a⃗}, excluding for each ℓ ∈ P':
 
     * the class with ℓ | P(s)  (valid: p > N^{1/2} > z is prime);
@@ -1134,20 +1145,27 @@ P' = {ℓ ∈ (y, z] : ℓ ∤ 6∏a⃗}, excluding for each ℓ ∈ P':
       with ℓ | H_w(s) — valid because a_{w,H} already carries the **entire**
       (S₁∪S₂)-part of H_w(p) in (y,z], and S₀ has no factors at all by (i).
 
-By (13.3) all determinants are < y < ℓ and the leading coefficients are
-prime to ℓ, so the active roots are pairwise distinct and
+In the u-variable every determinant in (13.3) is multiplied by Q₀, which
+is a unit modulo each ℓ ∈ P' (ℓ ∤ ∏a⃗, ℓ > y > 6); so the pairwise
+distinctness of roots is preserved.  By (13.3) all determinants are
+< y < ℓ and the leading coefficients are prime to ℓ, so
 
     ν(ℓ) = 1 + ∑_{w,H} 1_{ℓ mod w ∈ S₀∪S₁∪S₂(χ_{w,H})} < 1 + Y < ℓ.
 
 Lemma 12.1 applies: Λ ≤ (1+Y)(log z + O(1)) ≤ (1+o(1))(log N)/L ≤
-(log X')/4 since log X' ≥ 0.9 log N by (13.6).  Therefore the number of
-surviving s in the cell is at most 4X'V + 1 with
+(log X')/4 since log X' ≥ 0.96 log N.  Therefore the number of
+surviving u in the cell is at most 4X'V with
 
-    log V ≤ −∑_{ℓ∈P'} ν(ℓ)/ℓ
-          ≤ −L₁'(1+o(1)) − ∑_{w,H} (λ₀ + λ₁ + λ₂)(χ_{w,H}) + o(1),
+    log V ≤ −∑_{ℓ∈P'} ν(ℓ)/ℓ ≤ −∑_{w,H} (λ₀ + λ₁ + λ₂)(χ_{w,H}) + o(1),
 
-where λ_j(χ_{w,H}) := σ_j s₀ L-type sums as in (13.4); the primes removed
-with ∏a⃗ contribute ≤ 2|𝒲|·γL·(1+Y)/y = o(1).
+where, exactly,
+
+    λ_j(χ_{w,H}) := ∑_{y<ℓ≤z, ℓ mod w ∈ S_j(χ_{w,H})} 1/ℓ
+                  = σ_j(d)·L₁'·(1+o(1))                          (13.4')
+
+by (13.4) summed over the σ_j·h classes of S_j; the primes removed with
+∏a⃗ contribute ≤ 2|𝒲|·γL·(1+Y)/y = o(1) to the middle expression, and
+the discarded ℓ ∤ P(s) exclusion only strengthens V.
 
 **Tilted pattern sum.**  Sum over admissible a⃗ at fixed χ⃗.  The sum
 factorizes over (w,H).  For one pair, using the tilt μ = μ(d) ≥ 0 from the
@@ -1179,19 +1197,25 @@ at d* = exp(c₁L log(γL)/(2γL)) → ∞:
 Either way the per-pair union U := ∑_{χ≠1} (13.7) obeys
 U ≤ e^{−(c₁/3)L} for large N, uniformly in (w,H).
 
-**Assembly.**  Summing 4X'V + 1 over cells: the +1 terms total at most the
-number of patterns ≤ N^{0.03}; the main terms give
+**Assembly.**  Sum 4X'V over cells at fixed χ⃗, using
+X' ≤ (1+o(1))N/(24∏a) and the factorized tilted sums; then sum over χ⃗:
 
-    E(N) ≤ N^{1/2} + N^{0.03} + 4N ∏_{w,H} U_{w,H}
+    E(N) ≤ N^{1/2} + (1+o(1))·(N/6) ∏_{w,H} U_{w,H}
          ≤ N exp( −2|𝒲|(c₁/3)L )
          ≤ N exp( −0.001·(log N)^{1/8} log log N )
 
 for large N, which is ≤ N exp(−(log N)^{1/8}) once log log N ≥ 1000/c₁.  ∎
 
-**Status.**  Unconditional; inputs are Lemma 12.1 (proved in §12.1),
-Lemma 12.4 (proved in §12.5), Lemma 13.1, Mertens in progressions with
-Siegel–Walfisz uniformity, and the finite rate certificate.  The exponent
-1/8 is chosen for clean margins, not optimized; see §13.3.
+**Status.**  Unconditional modulo the stated finite certificate; inputs
+are Lemma 12.1 (proved in §12.1), Lemma 12.4 (proved in §12.5), Lemma
+13.1, the Siegel–Walfisz theorem via partial summation (13.4), and the
+rate certificate.  On the certificate's rigor: σ₀(d) and the 1/3-level
+membership are decided by **exact integer comparisons** (q_χ = 0 iff
+3 | d and 3a ∈ {d, 2d}; |q| ≤ 1/3 iff d ≤ 4a ≤ 3d), so only the interior
+1/20-level split relies on binary64 cosines, and there a 10⁻⁹ safety band
+classifies every borderline value to the side that lowers R(d) — the
+pessimistic direction; asserted margins exceed 10⁻².  The exponent 1/8 is
+chosen for clean margins, not optimized; see §13.3.
 
 ### 13.3 The ceilings of this route — why 2/3 stays out of reach
 
@@ -1201,21 +1225,24 @@ Three ceilings, in increasing order of importance.
    partition sends the per-pair rate to its Chernoff limit
    sup_μ [(1−γ)(1 − m(μ)) − μγ] with m(μ) = ∫₀^{2π} (|1+2cos θ|/3)^μ
    dθ/2π.  The largest γ for which this exceeds γ (the character-union
-   cost) is γ* = 0.207… (`verify.py (h)` computes the curve).  So the
-   method of §13.2, fully optimized, proves every θ < γ* ≈ 0.21 and no
-   more.
+   cost) is the crossover of that continuum relaxation, numerically
+   estimated at γ* ≈ 0.207 by grid/quadrature in `verify.py (h)` (not a
+   certified constant).  So the method of §13.2, fully optimized, proves
+   every θ below ≈ 0.2 and — by the union-cost structure — no more.
 
 2. **The pigeonhole ceiling log 3/2 ≈ 0.549.**  For any order-2 character,
    M_χ(n) = (log 3)·#{copies with χ = −1}, and this count has normal order
    (1/2)·log log n.  Hence for w ≥ (log N)^{log 3/2 + ε} the threshold
    log(h−1) in (12.11) exceeds the **typical** value of M_χ: Lemma 12.4's
    necessary condition is satisfied by almost all integers, and carries no
-   information whatsoever.  (Routine Turán-variance computation for marked
-   factor counts; stated as calibration, not used elsewhere.)  So no
-   argument that goes through the first-moment Fourier pigeonhole (12.11)
-   can reach θ ≥ log 3/2 = 0.5493…, in particular not 2/3.  Lemma 12.5
-   evades this only via second moments of T itself — the transfer of which
-   is precisely the open gap.
+   information whatsoever.  (Calibration only: the normal-order claim is
+   a Turán-variance computation for marked factor counts of the shifted
+   values, not written out here and not used elsewhere.)  At calibration
+   level, then, an argument that uses (12.11) alone — one modulus at a
+   time, first moment only — loses all its information beyond
+   θ = log 3/2 = 0.5493…, in particular before 2/3.  Lemma 12.5 evades
+   this only via second moments of T itself — the transfer of which is
+   precisely the open gap.
 
 3. **The identity-class ceiling behind Vaughan's 2/3.**  In the
    Pomerance–Weingartner reconstruction (§11.4), the large sieve is fed
@@ -1245,8 +1272,9 @@ half n = n_w(p) and the truncation d ≤ N^{1/4},
 T₀ > 0 is a sufficient condition for success at (w, n) (it uses only
 divisors of n, not of n²).  Two warnings, both paid for already:
 
-* **Over-dispersion.**  Unconditioned second moments fail: E T₀ ≍
-  (log N)/w but E T₀² ≍ (log N)³/w², so Paley–Zygmund gives only
+* **Over-dispersion.**  Unconditioned second moments fail: heuristically
+  (local densities; sizes not proved here) E T₀ ≍ (log N)/w but
+  E T₀² ≍ (log N)³/w², so Paley–Zygmund alone would give only
   P(T₀ > 0) ≫ 1/log N — the classic Erdős/Ford divisor-concentration
   phenomenon.  Conditioning on the factor count is essential.
 
@@ -1254,9 +1282,10 @@ divisors of n, not of n²).  Two warnings, both paid for already:
   moments of Lemma 12.5 to order 2K, K ≍ log log N, via
   Bombieri–Vinogradov costs a tuple-multiplicity (2K)! =
   exp(2(1+o(1)) L log L), while BV saves only (log N)^{−A} = e^{−AL} for
-  fixed A.  Since log L → ∞, no fixed-level BV can pay for growing-order
-  moments.  This is the precise reason the §12.5 demand is too strong to
-  transfer with current tools.
+  fixed A.  Since log L → ∞, fixed-level BV cannot pay for growing-order
+  moments by itself.  This multiplicity accounting is elementary but is a
+  back-of-envelope obstruction, not a nonexistence theorem; it explains
+  why the §12.5 demand resists the standard toolchain.
 
 The weakened, fixed-order form.  Let A_k = {p ≤ N : ω(n_w(p)) = k} and
 let k range over the Erdős–Kac window |k − L| ≤ C√L (Turán for shifted
@@ -1272,18 +1301,23 @@ P(T₀ > 0 ∧ A_k) ≥ E[T₀ 1_{A_k}]²/E[T₀² 1_{A_k}], so H1 + H2 give
 per-modulus failure probability ≤ ρ < 1; a third, w-joint version (H3)
 would stack the moduli and give every θ < 1 − ε.
 
-Both H1 and H2 are **fixed-order** statements: sums of
+The whole of this subsection is a **schematic research program**, not a
+proof: H1–H3 are stated targets, their model values are defined by the
+iid-residue model, and the implication chain above is only as strong as
+those inputs.  Both H1 and H2 are **fixed-order** statements: sums of
 #{p : lcm(d₁,d₂) | n_w(p), ω(n_w(p)) = k} over pairs of divisors below
 level N^{1/2} — i.e. Selberg–Delange/Sathe-type asymptotics along shifted
 primes in progressions, on average over the progression modulus (a
 Bombieri–Vinogradov flavor for ω-restricted shifted primes).  The
-character-sum side is benign: the nonprincipal contributions are
-controlled by L(1,χ)-size Euler products, O(log w) each, against a main
-term of size (log N)^{c}/h.  The hard part is the joint (AP-average ×
+character-sum side is expected to be benign: the nonprincipal
+contributions should be controlled by L(1,χ)-size Euler products,
+O(log w) each, against a main term of size (log N)^{c}/h (heuristic
+sizing, not proved).  The hard part is the joint (AP-average ×
 ω-restriction × primality) uniformity.  This is the sharpened Phase-2
 gap: **two fixed-order BV-average Sathe–Selberg asymptotics (H1, H2),
-plus their w-joint version (H3), imply every θ < 1**.  Nothing beyond
-fixed second order is needed.
+plus their w-joint version (H3), would imply every θ < 1**.  Nothing
+beyond fixed second order is demanded by the target — that is the
+reduction; proving H1–H3 is the successor project.
 
 ---
 
@@ -1297,6 +1331,14 @@ fixed second order is needed.
   access-blocked; method checked through Pomerance–Weingartner §4.)*
 * C. Pomerance, A. Weingartner, "Exceptions to the Erdős–Straus–Schinzel
   conjecture" (2025), arXiv:2511.16817, especially Theorem 1.3 and §4.
+* H. L. Montgomery, R. C. Vaughan-style analytic large sieve: see e.g.
+  H. Iwaniec, E. Kowalski, *Analytic Number Theory*, AMS Colloq. Publ. 53
+  (2004), Thm 7.11 (the ∑*_{a(q)}|∑ a_n e(an/q)|² ≤ (N+Q²)∑|a_n|² form
+  used in Lemma 12.1). *(standard; citation from memory, not re-checked
+  against a copy — flagged)*
+* Siegel–Walfisz theorem (used in (12.9) and (13.4) via partial
+  summation): any standard reference, e.g. Iwaniec–Kowalski §5.9.
+  *(classical; from memory — flagged)*
 * M. Nair, G. Tenenbaum, "Short sums of certain arithmetic functions",
   *Acta Math.* 180 (1998), 119–144, Theorem 1.
 * P. Shiu, "A Brun–Titchmarsh theorem for multiplicative functions",

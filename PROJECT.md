@@ -90,7 +90,7 @@ large-deviations against actual data for hard-class primes).
   arithmetic.  Criterion-native, keeps primality, independent of Vaughan’s
   construction — but still **weaker than Vaughan’s 2/3**; not a record.
 * **Ceilings computed (§13.3):** the fully optimized version of this route
-  caps at θ < γ* = 0.207; any route through the first-moment pigeonhole
+  caps at θ < γ* ≈ 0.207 (numerical estimate); any route through the first-moment pigeonhole
   (12.11) caps at θ < log 3/2 ≈ 0.549; Vaughan’s outer argument caps at
   θ = A/(A+1) with A = 2 the divisor-density of identity classes, i.e. 2/3.
   Beating 2/3 therefore needs the second-moment transfer, not more of this.
@@ -98,9 +98,11 @@ large-deviations against actual data for hard-class primes).
   Sathe–Selberg) is reduced to two fixed-order hypotheses H1/H2 (BV-average
   ω-conditioned divisor correlations along the shifted forms) plus a
   w-joint version H3; together they would give every θ < 1.  The naive
-  moment transfer is provably blocked by the k!-vs-BV wall; unconditioned
-  Paley–Zygmund is blocked by divisor over-dispersion.  This is the exact
-  remaining open input.
+  moment transfer is blocked by an elementary k!-vs-BV multiplicity
+  accounting (back-of-envelope obstruction, not a nonexistence theorem);
+  unconditioned Paley–Zygmund is blocked by divisor over-dispersion.
+  H1–H3 are the sharpest currently-identified missing inputs; proving
+  them is the successor project.
 
 ## Outcome (2026-08-17)
 
