@@ -1385,10 +1385,82 @@ P(T₀ > 0 ∧ A_k) ≥ E[T₀ 1_{A_k}]²/E[T₀² 1_{A_k}], so H1 + H2 give
 per-modulus failure probability ≤ ρ < 1; a third, w-joint version (H3)
 would stack the moduli and give every θ < 1 − ε.
 
-The whole of this subsection is a **schematic research program**, not a
-proof: H1–H3 are stated targets, their model values are defined by the
-iid-residue model, and the implication chain above is only as strong as
-those inputs.  Both H1 and H2 are **fixed-order** statements: sums of
+**The tilted second moment removes the conditioning (proved, in the
+model).**  Both H1 and H2 can be weakened further.  Tilting the counting
+variable by θ^{ω(n)} suppresses the divisor-rich outliers that cause the
+over-dispersion, and at θ = 1/2 the Paley–Zygmund ratio becomes 1 − o(1)
+with **fixed-order** moments only:
+
+**Lemma 13.7 (tilted subset-product moments).**  Let G be abelian of
+order h, τ ∈ G, τ ≠ 1.  Let K be Poisson(λ), and given K let
+g₁,…,g_K be iid uniform on G.  Put T = #{S ⊆ {1,…,K} :
+∏_{i∈S} g_i = τ} and U = 2^{−K}T.  Then
+
+    E U = (1 − e^{−λ/2})/h,
+    E U² ≤ h^{−2}(1 + 3h e^{−λ/2} + h e^{−3λ/4}),
+
+and hence, by Cauchy–Schwarz,
+
+    P(T > 0) ≥ (1 − e^{−λ/2})² / (1 + 3h e^{−λ/2} + h e^{−3λ/4})
+             = 1 − O(h e^{−λ/2} + e^{−λ/2}).
+
+In particular P(T = 0) = o(1) whenever h ≤ e^{(1/2−ε)λ}.
+
+*Proof.*  By orthogonality, for k fixed and χ running over characters,
+E[T | K = k] = h^{−1}∑_χ χ̄(τ)·(E_g(1+χ(g)))^k = (2^k − 1)/h, since
+E_g(1+χ(g)) = 2 for χ principal and 1 otherwise, and
+∑_{χ≠χ₀}χ̄(τ) = −1 for τ ≠ 1.  Averaging 2^{−k}(2^k−1)/h over
+K ~ Poisson(λ), with E x^K = e^{λ(x−1)}, gives E U.  For the second
+moment, E[T² | K = k] = h^{−2}∑_{χ₁,χ₂} χ̄₁(τ)χ̄₂(τ)·m(χ₁,χ₂)^k where
+m = E_g(1+χ₁(g))(1+χ₂(g)) = 1 + 1_{χ₁=χ₀} + 1_{χ₂=χ₀} + 1_{χ₁χ₂=χ₀}.
+So m = 4 on the principal pair; m = 2 in exactly three families —
+χ₁ = χ₀ ≠ χ₂, χ₂ = χ₀ ≠ χ₁, and χ₂ = χ̄₁ ≠ χ₀ — together at most 3h
+pairs, each with coefficient χ̄₁(τ)χ̄₂(τ) of modulus 1; and m = 1 on the
+remaining pairs, whose total coefficient is exactly
+∑_{χ₁≠χ₀, χ₂∉{χ₀,χ̄₁}} χ̄₁(τ)χ̄₂(τ) = 1 − (h−1), at most h in absolute
+value.  Hence
+
+    E[T² | K = k] ≤ h^{−2}(4^k + 3h·2^k + h·1^k),
+
+and averaging 4^{−k}·(·) over Poisson(λ) gives E U² ≤
+h^{−2}(1 + 3h e^{−λ/2} + h e^{−3λ/4}).  Cauchy–Schwarz:
+P(T > 0) ≥ (E U)²/E U². ∎
+
+Three remarks.  (i) This **supersedes Lemma 12.5 at per-modulus level**:
+only subset (squarefree-divisor) products are needed, not signed
+exponent vectors, and only first and second tilted moments — nothing of
+growing order.  (ii) The admissible range h ≤ e^{(1/2−ε)λ}, i.e.
+w ≤ (log N)^{1/2−ε} after the calibration λ ≈ log log N, is narrower
+than Lemma 12.5's (log N)^{1−ε} but far beyond anything reachable
+before.  (iii) Numerically (verify.py (j)): at λ = 32, w = 31, the
+untilted ratio is 0.0003 (over-dispersion collapse) while the tilted
+ratio is 1.0000 — the cure is exact in the model.
+
+**Revised transfer targets (supersede H1–H2 for one modulus).**  Fix a
+window W = {primes ≤ exp(√(log N))} and let ω_W(n) count distinct
+W-prime factors of n.  The needed inputs become
+
+    (H1')  ∑_{p≤N, p≡1(24)} 2^{−ω_W(n)} T'(n)  =  (model)(1+o(1)),
+    (H2')  ∑_{p≤N, p≡1(24)} 4^{−ω_W(n)} T'(n)² ≤  (model)(1+o(1)),
+
+uniformly for w ≤ (log N)^{1/2−ε}, with n = (p+w)/4 and T' as above.
+Both are **fixed-order and tail-controlled**: 2^{−ω_W(n)} =
+∑_{m | n, m sqfree, W-smooth} (−1/2)^{ω(m)}, the m > N^{1/8} tail is
+Rankin-negligible because a W-smooth m > N^{1/8} has ≥ (log N)^{1/2}/8
+prime factors (so (1/2)^{ω(m)} ≤ exp(−c√(log N)) beats everything), and
+the resulting Bombieri–Vinogradov moduli 24[d,m] ≤ N^{1/2} carry only
+τ-bounded multiplicities — powers of log N, not the k! of the growing-
+order route.  So H1'–H2' are Selberg–Delange × BV hybrid computations
+with no structural wall in sight; proving them, and then the w-joint
+version (H3) for stacking, is the successor unit.  With H1'–H2' alone:
+per-modulus failure probability o(1) uniformly to w ≤ (log N)^{1/2−ε},
+already far beyond every ceiling in §13.3 at single-modulus level.
+
+The remainder of this subsection keeps the older ω-conditioned targets
+for the record; they are now a fallback formulation.  H1–H3 are stated
+targets, their model values are defined by the iid-residue model, and
+the implication chain is only as strong as those inputs.  Both H1 and H2
+are **fixed-order** statements: sums of
 #{p : lcm(d₁,d₂) | n_w(p), ω(n_w(p)) = k} over pairs of divisors below
 level N^{1/2} — i.e. Selberg–Delange/Sathe-type asymptotics along shifted
 primes in progressions, on average over the progression modulus (a

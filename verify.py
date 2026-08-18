@@ -563,4 +563,79 @@ for n_cap in (60_000, 240_000, 960_000):
 print(f"Lemma 13.4 ratio S1*h/(pi_(24,1)(N) log N), w=7: "
       + " -> ".join(f"{r:.3f}" for r in rows) + "  (toy scale, informational)")
 
+# ---------------------------------------------------------------- (j)
+print("\n== (j) Tilted subset-product moments (§13.4, Lemma 13.7) ==")
+import random
+from math import comb
+
+
+def subset_target_count(gs, h, tau):
+    """#subsets of gs (additive Z/h) summing to tau, via group-ring DP."""
+    vec = [0] * h
+    vec[0] = 1
+    for g in gs:
+        vec = [vec[a] + vec[(a - g) % h] for a in range(h)]
+    return vec[tau]
+
+
+# Exact conditional moments E[T|K=k] = (2^k-1)/h and the bound
+# E[T^2|K=k] <= (4^k + 3h 2^k + h)/h^2, by full enumeration over multisets.
+for h, tau, k in ((6, 5, 4), (6, 5, 8), (10, 3, 5)):
+    et = et2 = 0.0
+    total = h ** k
+    from itertools import combinations_with_replacement
+    for ms in combinations_with_replacement(range(h), k):
+        cnt = Counter(ms)
+        weight = 1
+        rem = k
+        for val, c in cnt.items():
+            weight *= comb(rem, c)
+            rem -= c
+        t = subset_target_count(ms, h, tau)
+        et += weight * t
+        et2 += weight * t * t
+    et /= total
+    et2 /= total
+    assert abs(et - (2 ** k - 1) / h) < 1e-9, (h, k, et)
+    assert et2 <= (4 ** k + 3 * h * 2 ** k + h) / h ** 2 + 1e-9, (h, k, et2)
+print("exact conditional moments: E[T|k]=(2^k-1)/h and the E[T^2|k] bound "
+      "verified by enumeration (3 cases)")
+
+# Poisson-mixed simulation: untilted PZ ratio collapses, theta=1/2 cures it.
+random.seed(11)
+
+
+def pz_ratios(L, w, trials=4000):
+    units = [a for a in range(1, w) if gcd(a, w) == 1]
+    stats = {1.0: [0.0, 0.0], 0.5: [0.0, 0.0]}
+    for _ in range(trials):
+        k, pacc, sacc, u = 0, exp(-L), exp(-L), random.random()
+        while u > sacc:
+            k += 1
+            pacc *= L / k
+            sacc += pacc
+        vec = [0.0] * w
+        vec[1 % w] = 1.0
+        for _ in range(k):
+            g = random.choice(units)
+            nxt = vec[:]
+            for a in range(w):
+                if vec[a]:
+                    nxt[a * g % w] += vec[a]
+            vec = nxt
+        t = vec[w - 1]
+        for th in stats:
+            uval = th ** k * t
+            stats[th][0] += uval
+            stats[th][1] += uval * uval
+    return {th: (s[0] * s[0] / trials) / s[1] for th, s in stats.items()}
+
+
+for w in (7, 31):
+    r16, r32 = pz_ratios(16, w), pz_ratios(32, w)
+    assert r16[0.5] > 0.9 and r32[0.5] > 0.99, (w, r16, r32)
+    assert r32[1.0] < 0.01, (w, r32)
+    print(f"w={w:2}: tilted PZ ratio {r16[0.5]:.3f}@L=16 -> {r32[0.5]:.4f}"
+          f"@L=32; untilted collapses to {r32[1.0]:.4f}@L=32")
+
 print("\nall checks passed")

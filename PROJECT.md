@@ -102,15 +102,18 @@ large-deviations against actual data for hard-class primes).
   modulus, uniformly for w ≤ (log N)^{1−ε}.  The lost 1/log N is exactly
   divisor over-dispersion — the ω-conditioning is the sole remaining
   analytic input.
-* **Gap sharpened (§13.4):** the §12.5 demand (growing-order marked
-  Sathe–Selberg) is reduced to two fixed-order hypotheses H1/H2 (BV-average
-  ω-conditioned divisor correlations along the shifted forms) plus a
-  w-joint version H3; together they would give every θ < 1.  The naive
-  moment transfer is blocked by an elementary k!-vs-BV multiplicity
-  accounting (back-of-envelope obstruction, not a nonexistence theorem);
-  unconditioned Paley–Zygmund is blocked by divisor over-dispersion.
-  H1–H3 are the sharpest currently-identified missing inputs; proving
-  them is the successor project.
+* **Gap sharpened twice (§13.4):** first from growing-order marked
+  Sathe–Selberg to ω-conditioned fixed-order hypotheses H1/H2/H3; then —
+  via **Lemma 13.7 (proved)**, the θ = 1/2 tilted subset-product second
+  moment — the conditioning itself is removed in the model: P(T = 0) =
+  o(1) for h ≤ e^{(1/2−ε)λ} with only first/second tilted moments.  The
+  remaining open inputs are H1'/H2' (tilted divisor moments along the
+  shifted primes: Selberg–Delange × BV hybrids, fixed-order, Rankin-
+  controlled tails, τ-bounded BV multiplicities — no k! wall, no
+  over-dispersion wall) uniformly for w ≤ (log N)^{1/2−ε}, plus the
+  w-joint H3 for stacking.  Proving H1'/H2' is the successor unit; the
+  naive-route obstructions (k!-vs-BV; unconditioned over-dispersion,
+  now quantified by Cor 13.6) are documented.
 
 ## Outcome (2026-08-17)
 
