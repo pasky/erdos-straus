@@ -698,14 +698,16 @@ for j1 in range(HK):
         if j1 == j2 == 0:
             assert abs(local - 1) < 1e-12
 assert worst1 < 1e-12 and worst2 < 1e-12, (worst1, worst2)
-print(f"(k1) local-factor factorizations exact: max defects "
-      f"{worst1:.2e} (H1''), {worst2:.2e} (H2''); principal factors == 1")
+print(f"(k1) local-factor factorization spot-check (toy window, mod 7): "
+      f"defects {worst1:.2e} (H1''), {worst2:.2e} (H2''); principal == 1")
 
-# (k2) Real shifted-prime data at toy scale: tilted moments vs the model
-# values of Lemma 13.7, the Paley-Zygmund inequality, and failure rates.
-# (Toy scale cannot make h*e^{-lam/2} small; informational, loose asserts.
-#  The d <= X truncation is dropped: it is Rankin-inactive asymptotically
-#  and vacuous at this scale.)
+# (k2) Real shifted-prime data at toy scale: UNCAPPED tilted moments vs
+# the model values of Lemma 13.7, the Paley-Zygmund inequality, and
+# failure rates.  The d <= X cap of T'' is dropped (X = N^{1/8} < 6 here,
+# so the capped statistic itself is untestable at toy scale; the cap is
+# Rankin-inactive asymptotically).  Toy scale cannot make h*e^{-lam/2}
+# small either: informational tracking with loose brackets, NOT a
+# verification of Lemmas 13.9-13.10.
 NK = 1_000_000
 WIN = list(primerange(21, 5000))
 LAM = sum(1.0 / q for q in WIN)

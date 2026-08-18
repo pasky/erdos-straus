@@ -90,14 +90,18 @@ large-deviations against actual data for hard-class primes).
   survives in the proof: the θ = 1/2 tilt telescopes every principal
   Euler factor to exactly 1; the inputs are Siegel–Walfisz for window
   character sums (the floor z₀ deletes the L(1,χ)-biased small primes
-  that otherwise wall the method at w ≈ (log N)^{3/8} — an honest
-  obstruction, documented), Bombieri–Vinogradov at level N^{3/8} with
+  that otherwise wall the method at w ≈ (log N)^{3/8} even with the
+  enlarged window top, and at ≈ (log N)^{3/16} for the literal H1′
+  window — an honest proof-level obstruction, documented), Bombieri–Vinogradov at level N^{3/8} with
   τ-bounded multiplicities, and Rankin tails.  **Theorem 13.11:**
   per-modulus criterion failure probability O((log N)^{−ε/2}), uniformly
   to w ≤ (log N)^{1/2−ε} — the successor-unit deliverable, past every
   §13.3 ceiling at single-modulus level.  Constants ineffective (SW).
-  `verify.py (k)`: factorization identities exact; model tracking, PZ
-  chain, and exact solution reconstruction verified on real data.
+  `verify.py (k)`: factorization spot-checks (toy window, defect
+  < 1e-12), uncapped-moment model tracking + PZ inequality on real data
+  (informational — the cap is untestable at toy scale), and exact
+  solution reconstruction from window witnesses (machine-checked
+  sufficiency chain).
 * **Honest ledger:** a single modulus improves no E(N) bound (one w gives
   only N(log N)^{−1−ε/2}).  Open inputs now: (H3) the w-joint version
   for stacking — with it this window route yields every θ < 1/2, not

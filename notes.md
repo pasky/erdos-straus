@@ -1495,8 +1495,10 @@ contains, for every pair (χ₁, χ₂) of nonprincipal characters mod w with
 exp(O(Re ∑_q χᵢ(q)/q)) — an L(1,·)-sized quantity, as large as
 (log w)^{3/4} — and there are ≈ h² such pairs against a main term that
 beats each of them only by (log z)^{3/4}.  Absolute-value estimates
-therefore cap the range at h² ≪ (log z/log w)^{3/4}, i.e.
-w ≲ (log N)^{3/8}; and one can check the loss is carried entirely by the
+therefore cap the range at h² ≪ (log z/log w)^{3/4}: even after
+enlarging the window top to z = exp((log N)^{1−ε/2}) this is
+w ≲ (log N)^{3/8}, and for the literal H1′ window z = exp(√(log N)) it
+is only w ≲ (log N)^{3/16}.  One can check the loss is carried entirely by the
 primes q ≤ w^{O(1)}, because above that height Siegel–Walfisz makes every
 character sum over primes cancel.  Those small primes contribute only
 κ·log log N to λ = ∑_{q∈W} 1/q if deleted up to exp((log N)^κ), while
@@ -1560,12 +1562,14 @@ integers,
 and τ_W(n) := 2^{ω_W(n)} ≥ T″(n),
 
     ∑_{p} τ_W(n) ∑_{m|n, m>Y} 2^{−ω(m)}
-      ≤ Y^{−η} ∑_{n≤N} ∏_{q∈W, q|n} 2(1 + e/2)
-      ≪ Y^{−η} · N ∏_{q∈W}(1 + 8/q)
-      ≪ N (log N)^{8} exp(−(1/8)(log N)^{ε/2}) ≪ N (log N)^{−13},
+      ≤ Y^{−η} ∑_{n≤N} ∏_{q∈W, q|n} (2 + q^η)
+      ≤ Y^{−η} · N ∏_{q∈W}(1 + 4/q)
+      ≪ N (log N)^{4} exp(−(1/8)(log N)^{ε/2}) ≪ N (log N)^{−13},
 
-using ∑_{n≤N} f(n) ≤ N ∏_{q≤N}(1 + ∑_j f(q^j) q^{−j}) for f ≥ 0
-multiplicative, and log Y/log z = (1/8)(log N)^{ε/2}.
+using, for g(n) = ∏_{q|n, q∈W} C_q with constants C_q ≥ 1: g = 1 * u
+with u multiplicative supported on squarefree W-smooth m, u(q) = C_q − 1,
+so ∑_{n≤N} g(n) = ∑_m u(m)⌊N/m⌋ ≤ N ∏_{q∈W}(1 + (C_q−1)/q); here
+C_q = 2 + q^η ≤ 2 + e, and log Y/log z = (1/8)(log N)^{ε/2}.
 
 (3) *Bombieri–Vinogradov.*  For the retained pairs put v = [d,m], a
 squarefree W-smooth modulus ≤ XY = N^{1/4}.  The conditions p ≡ 1 (24)
@@ -1632,7 +1636,8 @@ same range,
 T″² = ∑_{d₁,d₂}; the moduli become v = [d₁,d₂,m] ≤ X²Y = N^{3/8}, with
 multiplicity ≤ 7^{ω(v)}.  The m-tail runs as in step (2) with
 τ_W(n)² ≤ 4^{ω_W(n)} and weights (3/4)^{ω(m)} ≤ 1 (per-prime constant
-4(1 + 3e/4) < 13, giving N(log N)^{13}·exp(−(1/8)(log N)^{ε/2}));
+C_q = 4 + 3q^η ≤ 4 + 3e, so C_q − 1 < 13, giving
+N(log N)^{13}·exp(−(1/8)(log N)^{ε/2}));
 the BV step as in (3) with 7 ↔ 3, 49 ↔ 9 (∏(1+49/(q−1)) ≪ (log N)^{50})
 and A = 76; the Rankin completion as in (4) with per-prime constant
 1 + 21e/(q−1)-type, still ≪ (log N)^{−C} for every C.  The completed
@@ -1719,8 +1724,9 @@ downstream references the small primes, and the window statements feed
 the same Paley–Zygmund inequality with the same conclusion.  The
 obstruction paragraph above explains why the literal form resists
 (h² Euler products of L(1,·) size vs a (log z)^{3/4} main term) — our
-absolute-value method caps it at w ≲ (log N)^{3/8}; the window form has
-no such cap up to (log N)^{1/2−ε}.
+absolute-value method caps the unfloored window at w ≲ (log N)^{3/8}
+(and the literal z = exp(√log N) window at w ≲ (log N)^{3/16}); the
+floored window has no such cap up to (log N)^{1/2−ε}.
 
 (iv) *Honest ledger of what this does and does not give.*  A single
 modulus yields only E(N) ≪ N(log N)^{−1−ε/2} — far weaker than Theorem
@@ -1740,11 +1746,16 @@ from a different direction is consistent with §13.3's divisor-density
 ceiling A/(A+1).  (b) Beating 2/3 still needs conditioning beyond
 fixed-order tilts.  Neither increment is claimed here.
 
-Numerics: `verify.py (k)` checks the local-factor factorizations of both
-density sums exactly (toy window, all characters), the Paley–Zygmund
-chain and moment formulas on real shifted-prime data at toy scale, and
-reconstructs exact unit-fraction solutions from sampled window witnesses
-via Theorem 3.1(B).
+Numerics: `verify.py (k)` spot-checks the local-factor factorizations of
+both density sums by full enumeration over a toy window (all characters
+mod 7, floating point, defect < 10^{−12}); tracks the *uncapped* tilted
+moments on real shifted-prime data at toy scale against Lemma 13.7's
+model values (the d ≤ X cap is Rankin-inactive asymptotically but
+vacuous at toy scale, so the capped T″ itself is not testable there;
+loose brackets, informational); verifies the Paley–Zygmund inequality on
+that data; and reconstructs exact unit-fraction solutions from sampled
+window witnesses via Theorem 3.1(B) — the sufficiency chain is machine-
+checked end to end.
 
 ---
 
