@@ -369,4 +369,128 @@ for w in phase_moduli:
     print(f"  w={w:2}: B={fail_b/total:.3f}, A={fail_a/total:.3f}, "
           f"joint={fail_joint/total:.3f} ({total} primes)")
 
+# ---------------------------------------------------------------- (h)
+print("\n== (h) Phase-6 rate certificate and hard thresholds (§13) ==")
+from math import acos, pi, sqrt
+
+GAMMA, S0C, C1 = 0.125, 0.84, 0.015
+D0 = 3000
+MU_GRID = [j / 100 for j in range(0, 301)]
+K1, K2 = 1 / 3, 1 / 20
+
+
+def level_sigmas(d):
+    """(sigma0, sigma1, sigma2) for a character of exact order d."""
+    s0 = s1 = s2 = 0
+    for a in range(1, d):
+        v = abs(1 + 2 * cmath.cos(2 * pi * a / d).real) / 3
+        if v < 1e-12:
+            s0 += 1
+        elif v <= K2:
+            s2 += 1
+        elif v <= K1:
+            s1 += 1
+    return s0 / d, s1 / d, s2 / d
+
+
+def rate(sig, gamma=GAMMA, s0c=S0C):
+    s0, s1, s2 = sig
+    return max(s0c * (s0 + (1 - 3 ** -mu) * s1 + (1 - 20 ** -mu) * s2)
+               - mu * gamma for mu in MU_GRID)
+
+
+def sig_inf_leq(k):  # measure of {theta: |1+2cos theta| <= 3k}
+    lo, hi = max(-1.0, -(1 + 3 * k) / 2), -(1 - 3 * k) / 2
+    return (acos(lo) - acos(hi)) / pi
+
+
+SIG2_INF = sig_inf_leq(K2)
+SIG1_INF = sig_inf_leq(K1) - SIG2_INF
+SIG_INF = (0.0, SIG1_INF, SIG2_INF)
+R_INF = rate(SIG_INF)
+
+worst = (9.0, None)
+max_disc = 0.0
+for d in range(2, D0 + 1):
+    sig = level_sigmas(d)
+    r = rate(sig)
+    if r < worst[0]:
+        worst = (r, d)
+    disc = max(abs(sig[j] - SIG_INF[j]) * d for j in range(3))
+    max_disc = max(max_disc, disc)
+# (C1): every exact order d>=2 has rate >= c1 (worst small d checked directly,
+# d > D0 via the arc-discrepancy bound R(d) >= R_inf - 24*s0/d).
+assert worst[0] >= 0.09 > C1, worst
+assert R_INF - 24 * S0C / D0 >= C1
+# (C2): high-order ceiling with tail margin.
+assert R_INF >= GAMMA + 2 * C1 + 24 * S0C / D0, R_INF
+# arc-discrepancy claim |sigma_j(d)-sigma_j_inf| <= 8/d, verified exhaustively
+assert max_disc <= 8.0, max_disc
+print(f"(C1) min_d R(d) = {worst[0]:.4f} at d={worst[1]} (>= c1={C1})")
+print(f"(C2) R_inf = {R_INF:.4f} >= gamma+2c1+tail = "
+      f"{GAMMA + 2*C1 + 24*S0C/D0:.4f}")
+print(f"arc discrepancy: max_d d*|sigma_d - sigma_inf| = {max_disc:.2f} <= 8")
+
+# Chernoff ceiling gamma* of the fully level-refined method (§13.3(1)).
+THETA_N = 4096
+QVALS = [abs(1 + 2 * cmath.cos(pi * (2 * j + 1) / THETA_N).real) / 3
+         for j in range(THETA_N // 2)]
+
+
+def chernoff_rate(gamma):
+    best = 0.0
+    for mu in MU_GRID:
+        m = sum(v ** mu for v in QVALS) / len(QVALS)
+        best = max(best, (1 - gamma) * (1 - m) - mu * gamma)
+    return best
+
+
+lo, hi = 0.05, 0.5
+for _ in range(40):
+    mid = (lo + hi) / 2
+    lo, hi = (mid, hi) if chernoff_rate(mid) > mid else (lo, mid)
+gamma_star = (lo + hi) / 2
+assert 0.19 < gamma_star < 0.22, gamma_star
+print(f"Chernoff ceiling of the route: gamma* = {gamma_star:.3f}")
+
+# Lemma 13.1 on real data: whenever full failure holds at (w, half), some
+# nontrivial character satisfies the hard thresholds (i)+(ii).
+checked = tight = 0
+for w in (7, 11, 19, 23, 31):
+    h = w - 1
+    gen = primitive_root(w)
+    dlog = {}
+    cur = 1
+    for j in range(h):
+        dlog[cur] = j
+        cur = cur * gen % w
+    for p in six_primes[:150]:
+        if p <= w:
+            continue
+        for n in ((p + w) // 4, (p * w + 1) // 4):
+            if (w - 1) in signed_residues(n, w):
+                continue  # no full failure here
+            copies = [ell % w for ell, e in factorint(n).items()
+                      for _ in range(e)]
+            found = False
+            for j in range(1, h):
+                O0 = O1 = O2 = 0
+                for g in copies:
+                    v = abs(1 + 2 * cmath.cos(2 * pi * j * dlog[g] / h).real) / 3
+                    if v < 1e-12:
+                        O0 += 1
+                    elif v <= K2:
+                        O2 += 1
+                    elif v <= K1 + 1e-12:
+                        O1 += 1
+                if O0 == 0 and 3 ** O1 * 20 ** O2 <= h - 1:
+                    found = True
+                    if 3 ** (O1 + 1) > h - 1:
+                        tight += 1
+                    break
+            assert found, (p, w, n)
+            checked += 1
+print(f"Lemma 13.1 verified on {checked} full-failure pairs "
+      f"({tight} with tight thresholds)")
+
 print("\nall checks passed")

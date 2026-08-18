@@ -977,6 +977,313 @@ This is the exact Phase-2 stopping point.  The signed-product, Fourier, and
 random-model lemmas are proved; the contraction ρ<1 for the **actual shifted
 values** is not.  Therefore no bound N exp(−c(log N)^θ), for any θ>0, is
 claimed from this route, and Vaughan's θ=2/3 record is not improved.
+*(Superseded in part: §13 extracts an unconditional positive power θ = 1/8
+from (12.11) by hard discretization; the full contraction, and every θ ≥
+log 3/2, remain open there — see §13.3–13.4 for the precise ceilings.)*
+
+---
+
+## 13. Phase six: hard level thresholds turn the Fourier bound into a
+positive power
+
+§12.5 stopped because the contraction was only proved in a random-residue
+model.  This section avoids the model entirely.  The Fourier inequality
+(12.11) is discretized into **hard divisibility events** — counts of prime
+factors in level sets of |q_χ| — which the many-root sieve (Lemma 12.1) can
+process after conditioning on the exceptional factor patterns.  The union
+cost over characters and patterns is paid explicitly, and it caps the
+exponent well below Vaughan's 2/3; but it closes, and yields the
+unconditional theorem
+
+    E(N) := #{p ≤ N prime : 4/p not representable}
+          ≤ N exp(−(log N)^{1/8})            (N large).        (13.1)
+
+This is the positive-power fallback named in the project brief: far stronger
+than Theorem 12.2's exp(−c(log log N)²), independent of Vaughan's
+many-good-classes construction, and still weaker than Vaughan's published
+exp(−c(log N)^{2/3}).  It is **not** a literature record; it is a second,
+criterion-native method that keeps primality.  §13.3 computes the ceilings
+of the method; §13.4 states the sharpened residual gap.
+
+### 13.1 Level thresholds and the rate certificate
+
+Throughout, p ≡ 1 (mod 24) is a counterexample prime (Lemma 1.2), w ≡ 3
+(mod 4), h = φ(w), G = (Z/wZ)^×, and n is either criterion half; (n,w) = 1
+as before (a common factor of n and w would divide the prime p < n·4).
+For nontrivial χ mod w define the disjoint class sets
+
+    S₀(χ) = {g : q_χ(g) = 0},
+    S₁(χ) = {g : 1/20 < |q_χ(g)| ≤ 1/3},
+    S₂(χ) = {g : 0 < |q_χ(g)| ≤ 1/20}.
+
+**Lemma 13.1 (hard thresholds).**  Full failure at (w, n) implies that some
+nontrivial χ mod w satisfies both
+
+    (i)  n has no prime factor in S₀(χ);
+    (ii) Ω₁ log 3 + Ω₂ log 20 ≤ log(h−1),
+
+where Ω_j counts prime factors of n in S_j(χ) with multiplicity.  Both
+conclusions persist a fortiori when the factors are restricted to any
+subrange of primes.
+
+*Proof.*  Take χ from Lemma 12.4, so M_χ(n) ≤ log(h−1) < ∞.  Every copy
+contributes −log|q_χ| ≥ 0; copies in S₀ contribute +∞ (so there are none),
+copies in S₁ at least log 3, copies in S₂ at least log 20.  Dropping copies
+outside a subrange only lowers the left side of (ii). ∎
+
+If χ has exact order d, then χ: G → μ_d is a surjective homomorphism, so
+each value e(a/d) is taken on exactly h/d classes and the densities
+σ_j(d) = |S_j(χ)|/h depend only on d: with v(a) = |1 + 2cos(2πa/d)|/3,
+
+    σ₀(d) = (2/d)·1_{3|d},   σ_j(d) = #{a : v(a) ∈ range_j}/d.
+
+For μ ≥ 0 put the tilted rate
+
+    ρ_d(μ) = σ₀(d) + (1−3^{−μ})σ₁(d) + (1−20^{−μ})σ₂(d),
+
+and its continuum analogue ρ_∞(μ) with the arc measures of θ ↦
+|1+2cos θ|/3 (σ₁^∞ = 0.44473…, σ₂^∞ = 0.05527…, σ₀^∞ = 0).
+
+**Rate certificate (finite closed checks; `verify.py (h)`).**  With
+γ = 1/8, s₀ = 0.84, c₁ = 0.015 and μ ranging over the grid
+{0, 0.01, …, 3}:
+
+    (C1)  R(d) := max_μ [ s₀ ρ_d(μ) − μγ ] ≥ 0.099 > c₁  for all d ≥ 2;
+    (C2)  R_∞  := max_μ [ s₀ ρ_∞(μ) − μγ ] = 0.1692… ≥ γ + 2c₁ + 24s₀/3000.
+
+Each level preimage in θ is a union of at most 4 arcs (|1+2cos θ| falls
+3→0 then rises 0→1 on [0, π], and is symmetric), so counting the d-th
+roots of unity in those arcs gives |σ_j(d) − σ_j^∞| ≤ 8/d and hence
+
+    R(d) ≥ R_∞ − 24 s₀/d                                       (13.2)
+
+for every d.  The certificate checks d ≤ 3000 exactly (worst case d = 5,
+R = 0.0990, from σ₁(5) = 2/5); (13.2) covers d > 3000.  Boundary values
+|q| = 1/3 are placed in S₁ by the lemma; the verification code may drop
+such boundary cases by floating-point strictness, which only lowers the
+certified R(d) — the safe direction.
+
+### 13.2 The positive-power theorem
+
+**Theorem 13.2.**  For all sufficiently large N,
+
+    E(N) ≤ N exp(−(log N)^{1/8}).
+
+The constant threshold is ineffective (Siegel–Walfisz, as in Theorem 12.2).
+
+*Proof.*  Set L = log log N, γ = 1/8, Y = (log N)^γ, and
+
+    𝒲 = {w ≡ 3 (mod 4) : Y/2 < w ≤ Y},      |𝒲| = Y/8 + O(1).
+
+Counterexamples p ≤ N^{1/2} are absorbed into the final bound; assume
+p > N^{1/2}, p ≡ 1 (mod 24), and write p = 24s + 1.  For each w ∈ 𝒲 the
+two criterion halves are the integer affine forms
+
+    B_w(s) = 6s + (w+1)/4 = (p+w)/4,
+    A_w(s) = 6ws + (w+1)/4 = (pw+1)/4,
+
+together with P(s) = 24s + 1 = p.  Pairwise determinants:
+
+    det(P, A_w) = 6,             det(P, B_w) = 6w,
+    det(B_w, B_{w'}) = det(A_{w'}, A_w) = (3/2)(w'−w),
+    det(B_w, A_{w'}) = (3/2)(1 − ww'),                        (13.3)
+
+all nonzero and of absolute value ≤ 2Y².  Fix the sieve range
+
+    y = exp(Y^{1/16}),        log z = (log N)^{1−γ}/L,
+
+so that log log z − log log y = (1 − γ − γ/16 + o(1))L ≥ 0.85 L =: L₁ for
+large N.  Mertens in arithmetic progressions with Siegel–Walfisz uniformity
+(valid since every w ≤ Y = (log y)^{16}) gives, for each reduced class g
+mod w,
+
+    ∑_{y<ℓ≤z, ℓ≡g (w)} 1/ℓ = L₁'/φ(w)·(1 + o(1)),             (13.4)
+
+with L₁' := log log z − log log y; the differenced range kills the
+Mertens constants, and the accumulated error over all h ≤ Y classes is
+O(Y exp(−c√(log y))) = o(1) because √(log y) = exp(γL/32) beats γL.  Hence
+for any union S of classes of density σ, the sum (13.4) over S is
+σ L₁'(1+o(1)) ≥ σ s₀ L with s₀ = 0.84, for large N.
+
+**The union.**  By Lemma 13.1, a counterexample p determines, for each of
+the 2|𝒲| pairs (w, H), H ∈ {A, B}, a nontrivial character χ_{w,H} mod w
+satisfying (i)–(ii) for n = H_w(p).  Fix the vector χ⃗ = (χ_{w,H}) (union
+bound at the end).  For each (w,H) let a_{w,H} be the exact part of
+H_w(p) supported on primes ℓ ∈ (y, z] with ℓ mod w ∈ S₁ ∪ S₂ (multiplicity
+included).  By (ii),
+
+    3^{Ω₁(a)} 20^{Ω₂(a)} ≤ h − 1,                              (13.5)
+
+where Ω_j(a) counts the prime factors of a = a_{w,H} in S_j(χ_{w,H});
+in particular Ω(a) ≤ log(h−1)/log 3 ≤ γL/log 3 and a ≤ z^{γL/\log 3}.
+Call such a **admissible**.  The total conditioning modulus obeys
+
+    ∏_{w,H} a_{w,H} ≤ z^{2|𝒲|·γL/\log 3} ≤ N^{0.03}.           (13.6)
+
+**The cell sieve.**  Fix χ⃗ and admissible a⃗ = (a_{w,H}).  The conditions
+a_{w,H} | H_w(s) pin s to at most one class modulo
+Q₀ = 24·lcm of the prime powers involved (leading coefficients 6, 6w are
+units at every ℓ > y; if two a's share a prime, the distinct-root
+computation below makes the cell empty, and the product bound used next is
+still an upper bound).  Reparametrize s = s₀ + Q₀u; the parameter interval
+has length X' ≤ N/(24 Q₀') + 1, Q₀' = ∏ a_{w,H}.  Sieve with the prime set
+P' = {ℓ ∈ (y, z] : ℓ ∤ 6∏a⃗}, excluding for each ℓ ∈ P':
+
+    * the class with ℓ | P(s)  (valid: p > N^{1/2} > z is prime);
+    * for each (w,H) with ℓ mod w ∈ S₀ ∪ S₁ ∪ S₂ (for χ_{w,H}): the class
+      with ℓ | H_w(s) — valid because a_{w,H} already carries the **entire**
+      (S₁∪S₂)-part of H_w(p) in (y,z], and S₀ has no factors at all by (i).
+
+By (13.3) all determinants are < y < ℓ and the leading coefficients are
+prime to ℓ, so the active roots are pairwise distinct and
+
+    ν(ℓ) = 1 + ∑_{w,H} 1_{ℓ mod w ∈ S₀∪S₁∪S₂(χ_{w,H})} < 1 + Y < ℓ.
+
+Lemma 12.1 applies: Λ ≤ (1+Y)(log z + O(1)) ≤ (1+o(1))(log N)/L ≤
+(log X')/4 since log X' ≥ 0.9 log N by (13.6).  Therefore the number of
+surviving s in the cell is at most 4X'V + 1 with
+
+    log V ≤ −∑_{ℓ∈P'} ν(ℓ)/ℓ
+          ≤ −L₁'(1+o(1)) − ∑_{w,H} (λ₀ + λ₁ + λ₂)(χ_{w,H}) + o(1),
+
+where λ_j(χ_{w,H}) := σ_j s₀ L-type sums as in (13.4); the primes removed
+with ∏a⃗ contribute ≤ 2|𝒲|·γL·(1+Y)/y = o(1).
+
+**Tilted pattern sum.**  Sum over admissible a⃗ at fixed χ⃗.  The sum
+factorizes over (w,H).  For one pair, using the tilt μ = μ(d) ≥ 0 from the
+rate certificate (d = order of χ) and (13.5),
+
+    ∑_{a admissible} 1/a
+      ≤ (h−1)^μ ∑_{supp(a) ⊂ (S₁∪S₂)∩(y,z]} 3^{−μΩ₁(a)} 20^{−μΩ₂(a)}/a
+      ≤ (h−1)^μ ∏_{ℓ∈S₁∩(y,z]} (1 − 3^{−μ}/ℓ)^{−1}
+                 ∏_{ℓ∈S₂∩(y,z]} (1 − 20^{−μ}/ℓ)^{−1}
+      ≤ exp( μγL + 3^{−μ}λ₁ + 20^{−μ}λ₂ + o(1) ).
+
+Combining with the V-factor for the same pair,
+
+    e^{−λ₀−λ₁−λ₂} ∑_{a} 1/a ≤ exp(−R(d)·L·(1−o(1))),              (13.7)
+
+using λ_j ≥ σ_j s₀ L (large N) for the negative terms and log(h−1) ≤ γL
+for the positive ones.
+
+**Character union per pair.**  G is a product of ω(w) cyclic groups (w
+odd), so #{χ : χ^d = 1} ≤ d^{ω(w)} and ω(w) ≤ (1+o(1))γL/log(γL).  Split
+at d* = exp(c₁L log(γL)/(2γL)) → ∞:
+
+    * d ≤ d*: at most d*^{ω+1} = e^{(c₁/2)L(1+o(1))} characters in total,
+      each contributing ≤ e^{−R(d)L(1−o(1))} ≤ e^{−c₁L(1−o(1))} by (C1);
+    * d > d*: at most h − 1 ≤ e^{γL} characters, each contributing
+      ≤ e^{−(R_∞ − 24s₀/d*)L(1−o(1))} ≤ e^{−(γ + 2c₁)L(1−o(1))}
+      by (13.2) and (C2).
+
+Either way the per-pair union U := ∑_{χ≠1} (13.7) obeys
+U ≤ e^{−(c₁/3)L} for large N, uniformly in (w,H).
+
+**Assembly.**  Summing 4X'V + 1 over cells: the +1 terms total at most the
+number of patterns ≤ N^{0.03}; the main terms give
+
+    E(N) ≤ N^{1/2} + N^{0.03} + 4N ∏_{w,H} U_{w,H}
+         ≤ N exp( −2|𝒲|(c₁/3)L )
+         ≤ N exp( −0.001·(log N)^{1/8} log log N )
+
+for large N, which is ≤ N exp(−(log N)^{1/8}) once log log N ≥ 1000/c₁.  ∎
+
+**Status.**  Unconditional; inputs are Lemma 12.1 (proved in §12.1),
+Lemma 12.4 (proved in §12.5), Lemma 13.1, Mertens in progressions with
+Siegel–Walfisz uniformity, and the finite rate certificate.  The exponent
+1/8 is chosen for clean margins, not optimized; see §13.3.
+
+### 13.3 The ceilings of this route — why 2/3 stays out of reach
+
+Three ceilings, in increasing order of importance.
+
+1. **Level refinement.**  Replacing the two levels (1/3, 1/20) by a fine
+   partition sends the per-pair rate to its Chernoff limit
+   sup_μ [(1−γ)(1 − m(μ)) − μγ] with m(μ) = ∫₀^{2π} (|1+2cos θ|/3)^μ
+   dθ/2π.  The largest γ for which this exceeds γ (the character-union
+   cost) is γ* = 0.207… (`verify.py (h)` computes the curve).  So the
+   method of §13.2, fully optimized, proves every θ < γ* ≈ 0.21 and no
+   more.
+
+2. **The pigeonhole ceiling log 3/2 ≈ 0.549.**  For any order-2 character,
+   M_χ(n) = (log 3)·#{copies with χ = −1}, and this count has normal order
+   (1/2)·log log n.  Hence for w ≥ (log N)^{log 3/2 + ε} the threshold
+   log(h−1) in (12.11) exceeds the **typical** value of M_χ: Lemma 12.4's
+   necessary condition is satisfied by almost all integers, and carries no
+   information whatsoever.  (Routine Turán-variance computation for marked
+   factor counts; stated as calibration, not used elsewhere.)  So no
+   argument that goes through the first-moment Fourier pigeonhole (12.11)
+   can reach θ ≥ log 3/2 = 0.5493…, in particular not 2/3.  Lemma 12.5
+   evades this only via second moments of T itself — the transfer of which
+   is precisely the open gap.
+
+3. **The identity-class ceiling behind Vaughan's 2/3.**  In the
+   Pomerance–Weingartner reconstruction (§11.4), the large sieve is fed
+   ∑_{q≤X} f_m(q)/q ≍ (log X)² good classes and the support cost is
+   Λ ≍ (log X)³; balancing Λ ≍ log N gives exp(−c(log N)^{2/3}).  In
+   general, class density ∑ ν(q)/q ≍ (log X)^A yields θ = A/(A+1).
+   Vaughan's A = 2 comes from τ(M²)-many divisor-pair classes per
+   auxiliary prime; a proof of θ = 3/4 by the same outer argument would
+   need A = 3, i.e. τ³-dense *universal* one-modulus classes, which the
+   identity structure does not supply (each class comes from a
+   factorization M = uvw, and their number per modulus is a divisor
+   function).  Assessment, not a theorem: within the
+   one-modulus-sufficient-class + large-sieve paradigm, 2/3 is a
+   structural ceiling, and any improvement must use genuinely joint
+   multi-modulus conditions — exactly the subset-product events whose
+   transfer is the remaining gap.
+
+### 13.4 The sharpened residual gap
+
+§12.5 asked for a growing-order residue-marked Sathe–Selberg theorem along
+the prime affine forms.  That demand can be **weakened**.  Recall (§12.4)
+that for d | n, d ≡ −n (mod w) iff n/d ≡ −1 (mod w); so define, for one
+half n = n_w(p) and the truncation d ≤ N^{1/4},
+
+    T₀(n) = #{d | n : d ≡ −1 (mod w), d ≤ N^{1/4}}.
+
+T₀ > 0 is a sufficient condition for success at (w, n) (it uses only
+divisors of n, not of n²).  Two warnings, both paid for already:
+
+* **Over-dispersion.**  Unconditioned second moments fail: E T₀ ≍
+  (log N)/w but E T₀² ≍ (log N)³/w², so Paley–Zygmund gives only
+  P(T₀ > 0) ≫ 1/log N — the classic Erdős/Ford divisor-concentration
+  phenomenon.  Conditioning on the factor count is essential.
+
+* **The k! wall for naive moment transfer.**  Reproducing the marked
+  moments of Lemma 12.5 to order 2K, K ≍ log log N, via
+  Bombieri–Vinogradov costs a tuple-multiplicity (2K)! =
+  exp(2(1+o(1)) L log L), while BV saves only (log N)^{−A} = e^{−AL} for
+  fixed A.  Since log L → ∞, no fixed-level BV can pay for growing-order
+  moments.  This is the precise reason the §12.5 demand is too strong to
+  transfer with current tools.
+
+The weakened, fixed-order form.  Let A_k = {p ≤ N : ω(n_w(p)) = k} and
+let k range over the Erdős–Kac window |k − L| ≤ C√L (Turán for shifted
+primes puts all but O(C^{−2})·π(N) primes there).  Sufficient inputs:
+
+    (H1)  E[ T₀ · 1_{A_k} ]  =  (model value)·(1 + o(1)),
+    (H2)  E[ T₀² · 1_{A_k} ] =  (model value)·(1 + o(1)),
+
+uniformly for w ≤ (log N)^{1−ε} and k in the window, where the model
+values are computed from k iid uniform residues (Lemma 12.5 supplies
+their asymptotics; note E[T₀²|k]/E[T₀|k]² → 1 there).  By Cauchy–Schwarz
+P(T₀ > 0 ∧ A_k) ≥ E[T₀ 1_{A_k}]²/E[T₀² 1_{A_k}], so H1 + H2 give
+per-modulus failure probability ≤ ρ < 1; a third, w-joint version (H3)
+would stack the moduli and give every θ < 1 − ε.
+
+Both H1 and H2 are **fixed-order** statements: sums of
+#{p : lcm(d₁,d₂) | n_w(p), ω(n_w(p)) = k} over pairs of divisors below
+level N^{1/2} — i.e. Selberg–Delange/Sathe-type asymptotics along shifted
+primes in progressions, on average over the progression modulus (a
+Bombieri–Vinogradov flavor for ω-restricted shifted primes).  The
+character-sum side is benign: the nonprincipal contributions are
+controlled by L(1,χ)-size Euler products, O(log w) each, against a main
+term of size (log N)^{c}/h.  The hard part is the joint (AP-average ×
+ω-restriction × primality) uniformity.  This is the sharpened Phase-2
+gap: **two fixed-order BV-average Sathe–Selberg asymptotics (H1, H2),
+plus their w-joint version (H3), imply every θ < 1**.  Nothing beyond
+fixed second order is needed.
 
 ---
 
