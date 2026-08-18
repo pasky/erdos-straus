@@ -506,4 +506,61 @@ for w in (7, 11, 19, 23, 31):
 print(f"Lemma 13.1 verified on {checked} full-failure pairs "
       f"({tight} with tight thresholds)")
 
+# ---------------------------------------------------------------- (i)
+print("\n== (i) Unconditioned moment lemmas (§13.4, Lemmas 13.3-13.6) ==")
+XMAX = 30_000
+phi_tab = list(range(XMAX + 1))
+for ell in range(2, XMAX + 1):
+    if phi_tab[ell] == ell:  # ell prime
+        for k in range(ell, XMAX + 1, ell):
+            phi_tab[k] -= phi_tab[k] // ell
+
+# Lemma 13.3: |A_chi(X)| = |sum_{d<=X,(d,6)=1} chi(d)/phi(d)| << log(6w),
+# uniformly in X.  Check at several checkpoints for several prime w.
+worst_ratio = 0.0
+for w in (7, 11, 43, 103):
+    h = w - 1
+    gen = primitive_root(w)
+    dlog = {}
+    cur = 1
+    for jj in range(h):
+        dlog[cur] = jj
+        cur = cur * gen % w
+    checkpoints = {300, 3000, XMAX}
+    acc = [0.0] * w                     # acc[g] = sum over d = g (mod w)
+    snaps = []
+    for d in range(1, XMAX + 1):
+        if d % 2 and d % 3 and d % w:
+            acc[d % w] += 1.0 / phi_tab[d]
+        if d in checkpoints:
+            snaps.append(list(acc))
+    for jj in range(1, h):              # nonprincipal characters
+        for acc_x in snaps:
+            a_chi = sum(acc_x[g] * cmath.exp(2j * cmath.pi * jj * dlog[g] / h)
+                        for g in range(1, w) if g in dlog)
+            worst_ratio = max(worst_ratio, abs(a_chi) / log(6 * w))
+assert worst_ratio <= 2.0, worst_ratio
+print(f"Lemma 13.3: max |A_chi(X)|/log(6w) over 4 moduli, all chi, 3 "
+      f"checkpoints = {worst_ratio:.3f} (<= 2)")
+
+# Lemma 13.4 shape (informational, toy scale): S1*h/(pi_{24,1}(N) log N)
+# should be roughly stable in N for fixed w.
+# (w = 7 only: for larger w and toy N, no d <= N^{1/4} is both = -1 mod w
+# and coprime to 6, so T' is identically zero at this scale.)
+w = 7
+rows = []
+for n_cap in (60_000, 240_000, 960_000):
+    x_cap = int(round(n_cap ** 0.25))
+    s1 = cnt = 0
+    for p in primerange(w + 1, n_cap):
+        if p % 24 != 1:
+            continue
+        cnt += 1
+        n = (p + w) // 4
+        s1 += sum(1 for d in range(1, x_cap + 1)
+                  if n % d == 0 and d % 2 and d % 3 and d % w == w - 1)
+    rows.append(s1 * (w - 1) / (cnt * log(n_cap)))
+print(f"Lemma 13.4 ratio S1*h/(pi_(24,1)(N) log N), w=7: "
+      + " -> ".join(f"{r:.3f}" for r in rows) + "  (toy scale, informational)")
+
 print("\nall checks passed")

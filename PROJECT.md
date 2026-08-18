@@ -94,6 +94,14 @@ large-deviations against actual data for hard-class primes).
   (12.11) caps at θ < log 3/2 ≈ 0.549; Vaughan’s outer argument caps at
   θ = A/(A+1) with A = 2 the divisor-density of identity classes, i.e. 2/3.
   Beating 2/3 therefore needs the second-moment transfer, not more of this.
+* **Unconditioned halves of the gap now proved (§13.4, Lemmas 13.3–13.5,
+  Cor 13.6):** Pólya–Vinogradov character-average lemma; first-moment
+  asymptotic li(N)·c_w·(log N)/h for divisor witnesses along the actual
+  shifted primes (Bombieri–Vinogradov, level N^{1/4}); second-moment upper
+  bound N(log N)²/h² (Brun–Titchmarsh); hence success ≫ li(N)/log N per
+  modulus, uniformly for w ≤ (log N)^{1−ε}.  The lost 1/log N is exactly
+  divisor over-dispersion — the ω-conditioning is the sole remaining
+  analytic input.
 * **Gap sharpened (§13.4):** the §12.5 demand (growing-order marked
   Sathe–Selberg) is reduced to two fixed-order hypotheses H1/H2 (BV-average
   ω-conditioned divisor correlations along the shifted forms) plus a

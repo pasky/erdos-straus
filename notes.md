@@ -1272,11 +1272,11 @@ half n = n_w(p) and the truncation d ≤ N^{1/4},
 T₀ > 0 is a sufficient condition for success at (w, n) (it uses only
 divisors of n, not of n²).  Two warnings, both paid for already:
 
-* **Over-dispersion.**  Unconditioned second moments fail: heuristically
-  (local densities; sizes not proved here) E T₀ ≍ (log N)/w but
-  E T₀² ≍ (log N)³/w², so Paley–Zygmund alone would give only
-  P(T₀ > 0) ≫ 1/log N — the classic Erdős/Ford divisor-concentration
-  phenomenon.  Conditioning on the factor count is essential.
+* **Over-dispersion.**  Unconditioned second moments fail: by Lemmas
+  13.4–13.5 below, E T₀ ≫ (log N)/h while E T₀² ≪ (log N)³/h², so
+  Paley–Zygmund gives only P(T₀ > 0) ≫ 1/log N (Corollary 13.6) — the
+  classic Erdős/Ford divisor-concentration phenomenon.  Conditioning on
+  the factor count is essential to do better.
 
 * **The k! wall for naive moment transfer.**  Reproducing the marked
   moments of Lemma 12.5 to order 2K, K ≍ log log N, via
@@ -1287,7 +1287,91 @@ divisors of n, not of n²).  Two warnings, both paid for already:
   back-of-envelope obstruction, not a nonexistence theorem; it explains
   why the §12.5 demand resists the standard toolchain.
 
-The weakened, fixed-order form.  Let A_k = {p ≤ N : ω(n_w(p)) = k} and
+**What the unconditioned toolchain does prove.**  The first moment, and a
+second-moment upper bound, for divisor witnesses along the **actual
+shifted primes** are provable today; only the conditioning is not.
+Restrict to the B-half n = (p+w)/4 and to witnesses coprime to 6 (a
+smaller count, still sufficient for solvability); write h = φ(w),
+X = N^{1/4},
+
+    T'(n) = #{d | n : d ≤ X, (d,6) = 1, d ≡ −1 (mod w)}.
+
+**Lemma 13.3 (character averages are benign; proved).**  For odd w ≥ 3,
+χ a nonprincipal character mod w, and every X ≥ 2,
+
+    A_χ(X) := ∑_{d ≤ X, (d,6)=1} χ(d)/φ(d) ≪ log 6w,
+
+with an absolute implied constant, uniformly in X.
+
+*Proof.*  Insert 1/φ(d) = (1/d)∑_{m|d} μ²(m)/φ(m):
+
+    A_χ(X) = ∑_{(m,6)=1} μ²(m)χ(m)/(mφ(m)) · ∑_{e ≤ X/m, (e,6)=1} χ(e)/e.
+
+The inner summand is χ'(e)/e with χ' = χ·(principal mod 6), a
+nonprincipal character to a modulus dividing 6w, so Pólya–Vinogradov
+bounds its partial sums by √(6w) log 6w; splitting at E₀ = √(6w) log 6w
+and summing by parts, |∑_{e≤T} χ'(e)/e| ≤ log E₀ + O(1) ≪ log 6w for
+every T.  The outer sum converges absolutely to O(1). ∎
+
+**Lemma 13.4 (unconditioned first moment; proved).**  Uniformly for
+3 ≤ w ≤ (log N)^{1−ε}, w ≡ 3 (mod 4),
+
+    ∑_{p ≤ N, p ≡ 1 (24)} T'((p+w)/4) = li(N)·(c_w + o_ε(1))·(log N)/h,
+
+where c_w ≍ 1 with absolute constants.
+
+*Proof.*  For (d,6) = 1, d ≡ −1 (mod w): d | (p+w)/4 together with
+p ≡ 1 (mod 24) pins p to a single class modulo 24d (the 2-part is
+compatible because w ≡ 3 mod 4, the 3-part because (d,3) = 1), and the
+class is invertible: a common prime q | d and q | p + w would divide p,
+impossible for p > w prime.  Bombieri–Vinogradov at level
+24X = 24N^{1/4} ≪ N^{1/2} (one fixed class per modulus 24d) gives
+
+    ∑_p T' = li(N) ∑_{d≤X, (d,6)=1, d≡−1(w)} 1/φ(24d) + O(N(log N)^{−3}).
+
+Since φ(24d) = 8φ(d) for (d,24) = 1, orthogonality of characters mod w
+splits the d-sum into the principal part
+(1/8h)·∑_{d≤X,(d,6w)=1} 1/φ(d) = (c_w/h)·(log X)·(1 + O(log 6w/log X))
+— a Mertens-type sum whose constant is bounded above and below
+absolutely, the local factors at ℓ | w changing it by
+exp(O(∑_{ℓ|w} 1/ℓ)) = O(1) — and at most h − 1 nonprincipal terms,
+each O(log 6w)/(8h) by Lemma 13.3, so O(log 6w) in total.  The
+nonprincipal-to-principal ratio is ≪ h log(6w)/log N ≤
+(log N)^{−ε}·O(log log N) = o_ε(1): this is exactly where
+w ≤ (log N)^{1−ε} enters.  Finally log X = (log N)/4. ∎
+
+**Lemma 13.5 (unconditioned second moment, upper bound; proved).**
+Uniformly in the same range,
+
+    ∑_{p ≤ N, p ≡ 1 (24)} T'((p+w)/4)² ≪ N (log N)²/h².
+
+*Proof.*  T'² = ∑_{d₁,d₂} 1_{[d₁,d₂] | n}, [d₁,d₂] ≤ X² = N^{1/2}, and
+p lies in one invertible class modulo 24[d₁,d₂]; Brun–Titchmarsh gives
+≪ N/(φ([d₁,d₂]) log N) per pair.  Write d_i = g e_i with g = (d₁,d₂),
+(e₁,e₂) = 1; then φ([d₁,d₂]) ≥ φ(g)φ(e₁)φ(e₂) and e_i ≡ −g⁻¹ (mod w),
+so
+
+    ∑_{pairs} 1/φ([d₁,d₂])
+      ≤ ∑_{g≤X} (1/φ(g)) [ ∑_{e≤X,(e,6)=1, e≡−g⁻¹(w)} 1/φ(e) ]²
+      ≪ (log X)·((log X)/h + log 6w)² ≪ (log N)³/h²,
+
+the inner sum again by orthogonality plus Lemma 13.3, the last step by
+h log 6w ≪ log N. ∎
+
+**Corollary 13.6 (the unconditioned frontier; proved).**  Uniformly for
+w ≤ (log N)^{1−ε},
+
+    #{p ≤ N, p ≡ 1 (24) : (p+w)/4 has a divisor ≡ −1 (mod w), ≤ N^{1/4}}
+      ≫ li(N)/log N,
+
+by Cauchy–Schwarz from Lemmas 13.4–13.5.  The lost factor 1/log N is
+exactly the over-dispersion: the mean of T' is carried by rare
+divisor-rich n, and unconditioned second moments can certify no more.
+Turning ≫ 1/log N into ≥ 1 − ρ per modulus is precisely the
+ω-conditioning content of H1–H2 below — that, and nothing else, is now
+the open analytic input.
+
+The conditioned targets.  Let A_k = {p ≤ N : ω(n_w(p)) = k} and
 let k range over the Erdős–Kac window |k − L| ≤ C√L (Turán for shifted
 primes puts all but O(C^{−2})·π(N) primes there).  Sufficient inputs:
 
@@ -1309,10 +1393,9 @@ those inputs.  Both H1 and H2 are **fixed-order** statements: sums of
 level N^{1/2} — i.e. Selberg–Delange/Sathe-type asymptotics along shifted
 primes in progressions, on average over the progression modulus (a
 Bombieri–Vinogradov flavor for ω-restricted shifted primes).  The
-character-sum side is expected to be benign: the nonprincipal
-contributions should be controlled by L(1,χ)-size Euler products,
-O(log w) each, against a main term of size (log N)^{c}/h (heuristic
-sizing, not proved).  The hard part is the joint (AP-average ×
+character-sum side is benign at the unconditioned level — that is
+exactly Lemma 13.3, driving Lemmas 13.4–13.5 — and its ω-restricted
+analogue is plausibly benign too (heuristic there).  The hard part is the joint (AP-average ×
 ω-restriction × primality) uniformity.  This is the sharpened Phase-2
 gap: **two fixed-order BV-average Sathe–Selberg asymptotics (H1, H2),
 plus their w-joint version (H3), would imply every θ < 1**.  Nothing
