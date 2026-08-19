@@ -1790,7 +1790,7 @@ hindsight and both invisible from inside §13:
   CRT; the discrepancy between "exclusive" and "independent" is a
   per-shared-prime correction of size O(1/q²) whose marked sums have
   identically vanishing principal parts (the telescoping again), and
-  the floor makes the total exclusion correction O(W³/u) = o(1).  H3 at
+  the floor makes the total exclusion correction O(W⁴/u) = o(1).  H3 at
   integer level is a negligible-correlation estimate — not the hard
   transfer problem it is over the primes.
 
@@ -2012,15 +2012,23 @@ distinct primes,
 
 Indeed Δ_w(M) = −2θ_wμ₁^{(M)} + θ_w²μ₂^{(M)} with μ_i^{(M)} the moment
 sums with the divisibility marks.  After Rankin completion (marked
-tails keep a factor ∏(C/q), since a forced q retains its 1/q), the
-completed marked sums factor with the local factor at each q ∈ M
-replaced by (F_q − 1); |F_q − 1| ≤ 6/q.  The principal (resp.
-principal-pair) term vanishes identically since F_q(χ₀) = 1 =
-F_q(χ₀,χ₀).  Every other term is bounded by *size only* — no
-cancellation over the generic family is claimed for marked sums (it is
-false: marks correlate with the coefficients; e.g. q ≡ −1 (mod w)
-gives a marked generic coefficient sum ≍ h²/q) — using
-|∏_{q′∉M} F| ≤ 2e^{−(1−P/9)λ} and the family counts of Lemma 14.2(3):
+tails keep a factor ∏(C/q), since a forced q retains its 1/q, and
+contribute ≤ C^{|M|}h²e^{−λ²+O(λ)}∏ 1/q — below every bound claimed),
+the completed marked sums factor with the local factor at each q ∈ M
+replaced by (F_q − 1).  The principal (resp. principal-pair) term
+vanishes identically since F_q(χ₀) = 1 = F_q(χ₀,χ₀).  For every other
+character (pair), write the punctured product through the full window:
+
+    ∏_{q∈M}(F_q−1) · ∏_{q∉M}F_q = ( ∏_{q∈I_w}F_q ) · ∏_{q∈M} (F_q−1)/F_q,
+
+with |F_q| ≥ 1/2 for q > u and |(F_q−1)/F_q| ≤ C/q, so the full-window
+size bounds of Lemma 14.2 (|∏_{I_w}F| ≤ 2e^{−(1−P/9)λ}, uniform via
+Lemma 13.8; the 1+O(β′) corrections absorbed since β′ = o(1)) apply
+verbatim, at the cost ∏_{q∈M}(C/q).  Every term is then bounded by
+*size only* — no cancellation over the generic family is claimed for
+marked sums (it is false: marks correlate with the coefficients; e.g.
+q ≡ −1 (mod w) gives a marked generic coefficient sum ≍ h²/q) — with
+the family counts of Lemma 14.2(3):
 
     |θ_w μ₁^{(M)}|  ≤ C^{|M|} h e^{−2λ/3} ∏ 1/q  ≤ C^{|M|} h^{−ϑ} ∏ 1/q,
     |θ_w²μ₂^{(M)}| ≤ C^{|M|} [h e^{−2λ/3} + 2^{ω(w)}e^{−4λ/9}
@@ -2036,12 +2044,13 @@ each (q, w)-incidence separately (safe, W ≥ 1) gives, per q, the cost
 Hence
 
     ∑_{Q≠∅} |J_Q| ≤ (∏_w δ̄_w)·[ ∏_{q>u} (1 + 3C₆²W⁴/q²) − 1 ]
-              ≤ (∏_w δ̄_w)·[ exp( 3C₆²W⁴/u ) − 1 ]
+              ≤ (∏_w δ̄_w)·[ exp( 6C₆²W⁴/u ) − 1 ]
               ≤ (∏_w δ̄_w)·C W⁴/u = (∏_w δ̄_w)·o(1),
 
-since ∑_{q>u} q^{−2} ≤ 1/u and u = exp(W^{1/A}) exceeds every fixed
-power of W.  So J ≤ ∏δ̄_w·(1 + o(1)) + J_∅ ≤ 2∏(C₅h_w^{−ϑ}) by Lemma
-14.2, for N large. ∎
+since ∑_{q>u} q^{−2} ≤ 2/u for large u and u = exp(W^{1/A}) exceeds
+every fixed power of W.  With D := ∏_wδ̄_w and |J_∅| = ∏|δ_w| ≤ D:
+J ≤ J_∅ + D·o(1) ≤ D·(1 + o(1)) ≤ 2∏(C₅h_w^{−ϑ}) by Lemma 14.2, for N
+large. ∎
 
 **Theorem 14.4 (exponential bound, θ = 2/5 − o(1); proved).**  For each
 fixed ϑ ∈ (0, 1/10) there is c(ϑ) > 0 such that for all large N
