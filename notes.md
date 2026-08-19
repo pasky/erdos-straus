@@ -1759,6 +1759,320 @@ checked end to end.
 
 ---
 
+## 14. Phase eight: stacking the moduli over the integers —
+E(N) ≪ N exp(−(log N)^{2/5−o(1)})
+
+§13.5 finished the single-modulus transfer; the remaining obstacle to an
+exponential bound was H3, the joint version across moduli.  This section
+proves an unconditional exponential bound with θ = 2/5 − o(1) — far
+above Theorem 13.2's θ = 1/8, still below Vaughan's 2/3 — by resolving
+the joint problem with two structural observations, both cheap in
+hindsight and both invisible from inside §13:
+
+* **Count integers, not primes.**  The exceptional primes can be counted
+  inside a nonnegative integer-weighted sum ∑_{m≤N} Λ(m)² where Λ is a
+  product of per-modulus sieve factors equal to 1 on every criterion
+  failure.  Over the integers m, every congruence count is exact up to
+  O(1), so there is no Bombieri–Vinogradov error floor.  This matters
+  because any prime-side evaluation of an exponentially small main term
+  is impossible: BV's saving is only a power of log, additive, while the
+  target is exp(−(log N)^{θ}); see the wall-map (§14.5, W2).  Primality
+  of the exceptional set is *not used at all* beyond the criterion
+  itself — exactly as in Vaughan's own large-sieve argument.
+
+* **Shift-coprimality makes the moduli exactly independent.**  All
+  witness primes live above a floor u > W ≥ |w − w′|, so no prime q can
+  divide both (m+w)/4 and (m+w′)/4: q | (m+w) − (m+w′) = w − w′ is
+  impossible for q ≥ u.  Hence the divisor conditions attached to
+  different moduli w involve pairwise coprime integers, their joint
+  densities factor *exactly* by CRT, and the joint moment of the sieve
+  product is the product of the per-modulus moments with no correlation
+  term whatsoever.  H3, at integer level, is not an estimate but an
+  identity.
+
+The per-modulus factors use the *signed* (n²-divisor) witnesses of Lemma
+12.3 tilted at 3^{−ω} — the c = 3 alphabet — because the stack's
+exponent is set by a budget in which signed witnesses are strictly
+cheaper than subset witnesses (§14.4; the subset version of everything
+below gives θ = 1/3 − o(1) by the same proof with 2^{−ω} in place of
+3^{−ω}).
+
+### 14.1 Setup and the master inequality
+
+Fix ϑ ∈ (0, 1/10), put A = ⌈1/ϑ⌉, and let
+
+    W  = (log N)^{2/5−ϑ},        𝒲 = {w ≡ 3 (mod 4) : C₀ < w ≤ W},
+    u  = exp(W^{1/A}),           (so W = (log u)^{A}, and u > W)
+
+with C₀ = C₀(ϑ) a constant fixed below.  For each w ∈ 𝒲 put h = φ(w)
+and
+
+    I_w = (u, v_w],   log v_w = K_w·log u,   K_w = ⌈C₁ h^{3(1+ϑ)/2}⌉,
+    λ_w = ∑_{q ∈ I_w} 1/q = log K_w + O(1/log u),
+
+so λ_w = (3/2)(1+ϑ) log h + O_{C₁}(1).  All windows share the floor u;
+they may overlap freely (only shifts must differ).  Truncation:
+
+    X_w = exp(λ_w² · log v_w).
+
+For m ≡ 1 (mod 24) write n = n_w(m) = (m+w)/4 and let P_w(n) =
+{q ∈ I_w : q | n}.  The signed witness count and tilted variable are
+
+    T_w(n) = #{k ∈ {−1,0,1}^{P_w(n)} : ∏ q^{k_q} ≡ −1 (mod w),
+                                        ∏_{k_q≠0} q ≤ X_w},
+    U_w(n) = 3^{−|P_w(n)|} T_w(n) ∈ [0, 1].
+
+**Sufficiency.**  If T_w(n) > 0 with witness k, put a = ∏_{k_q=1} q,
+b = ∏_{k_q=−1} q.  Then ab | n, and d := na/b is a positive integer
+dividing n² with d ≡ −n (mod w), i.e. w | d + n.  For m = p prime,
+p ≡ 1 (mod 24), p > W: Theorem 3.1(B) applies with q = w (w ≡ 3 ≡ −p
+(mod 4)), x = n, divisor d of x², so 4/p is representable.
+
+Define, with θ_w ≥ 0 chosen in §14.2,
+
+    Λ(m) = ∏_{w ∈ 𝒲} (1 − θ_w U_w(n_w(m))).
+
+**Lemma 14.1 (master inequality).**  Every exceptional prime p ≤ N
+(no representation of 4/p) with p > W satisfies Λ(p) = 1, and
+
+    E(N) ≤ W + ∑_{m ≤ N, m ≡ 1 (24)} Λ(m)².
+
+*Proof.*  An exceptional p is ≡ 1 (mod 24) (Lemma 1.2).  If some
+T_w(n_w(p)) > 0, the sufficiency paragraph makes 4/p representable —
+contradiction.  So U_w = 0 for every w ∈ 𝒲 and Λ(p) = 1.  Since
+Λ(m)² ≥ 0 for every m, the sum over the class m ≡ 1 (24) dominates the
+count of such p. ∎
+
+### 14.2 The per-modulus factor
+
+All densities below are over m ≡ 1 (mod 24): for squarefree v with
+prime factors in I_w, the condition v | n_w(m) pins m to one class mod
+24v (compatibility mod 4 is w ≡ 3 (mod 4); q > u > w makes the class
+nontrivial mod each q | v), so its count on m ≤ N is N/(24v) + O(1) —
+relative density exactly 1/v within the class, up to the rounding
+accounted in Lemma 14.3.  Expand the tilt and the witness sum:
+3^{−|P_w(n)|} = ∑_{m′|n, sqfree, I_w-smooth} (−2/3)^{ω(m′)}, and a
+signed pattern is a coprime pair (a,b) of squarefree I_w-smooth numbers
+(a = positive part, b = negative part) with ab ≤ X_w and
+a·b⁻¹ ≡ −1 (mod w):
+
+    U_w(n) = ∑_{(a,b)} ∑_{m′} (−2/3)^{ω(m′)} 1_{[ab, m′] | n},
+
+and define the exact moment densities (finite sums)
+
+    μ₁(w) = ∑_{(a,b)} ∑_{m′} (−2/3)^{ω(m′)} / [ab, m′],
+    μ₂(w) = the analogous sum from the expansion of U_w²
+            (pairs of signed patterns, tilt 9^{−|P|} = ∑(−8/9)^{ω(m′)}).
+
+**Lemma 14.2 (per-modulus factor).**  There are C₀(ϑ), C₁(ϑ) such that
+uniformly for w ∈ 𝒲 and N large,
+
+    μ₁(w) = (1/h)(1 + O(ρ_w)),   μ₂(w) = (1/h²)(1 + O(ρ_w)),
+    ρ_w := h e^{−2λ_w/3} + 2^{ω(w)} e^{−4λ_w/9} + h²β(u),
+
+with β(u) = exp(−c_A√(log u)) the Siegel–Walfisz saving of Lemma 13.8
+for windows above u at moduli ≤ W = (log u)^{A}.  With C₀, C₁ large
+enough (depending on ϑ), ρ_w ≤ h^{−ϑ}/C and hence, setting
+θ_w := μ₁/μ₂ ∈ [h/2, 2h],
+
+    δ_w := 1 − 2θ_wμ₁ + θ_w²μ₂ = 1 − μ₁²/μ₂ ∈ [0, C′h^{−ϑ}] ⊂ [0, 1/2].
+
+*Proof.*  The machinery of Lemmas 13.9–13.10 with primes replaced by
+the class m ≡ 1 (24) (exact densities 1/v — no φ, no BV, no prime
+tails) and subsets replaced by the signed alphabet.  Steps, displaying
+only the changed local computations:
+
+(1) *Completion.*  Removing the caps ab ≤ X_w and m′ ≤ X_w costs, by
+Rankin with η = 1/log v_w (so q^η ≤ e on I_w),
+exp(−log X_w/log v_w)·∏_{q∈I_w}(1 + O(1)/q) ≪ exp(−λ_w² + O(λ_w)),
+smaller than any fixed power of 1/h; likewise for pairs.
+
+(2) *First moment.*  Detecting ab⁻¹ ≡ −1 (mod w) by characters, the
+completed density factors over q ∈ I_w with local options
+(q ∈ a / q ∈ b / neither) × (q ∈ m′ or not):
+
+    μ₁-completed = (1/h) ∑_{χ} χ(−1) ∏_{q∈I_w} F_q(χ),
+    F_q(χ) = 1 + [(χ(q) + χ̄(q) + 1)(1 − 2/3) − 1]/q
+           = 1 + (χ(q) + χ̄(q) − 2)/(3q).
+
+Principal χ: F_q ≡ 1 exactly — the 3^{−ω} tilt telescopes the signed
+alphabet as 2^{−ω} telescoped subsets.  Nonprincipal χ:
+log|∏F_q| = (2/3)·Re∑_{q∈I_w}χ(q)/q − (2/3)λ_w + O(1/u), and Lemma
+13.8 (floor u, modulus ≤ (log u)^A) bounds the character sum by β(u):
+|∏F_q(χ)| ≤ 2e^{−2λ_w/3}.  Hence μ₁ = (1/h)(1 + O(he^{−2λ_w/3} + hβ)).
+
+(3) *Second moment.*  The pair expansion has local factors
+
+    F_q(χ₁,χ₂) = 1 + [(1/9) ∑_{a,b ∈ {−1,0,1}} χ₁^{a}χ₂^{b}(q) − 1]/q,
+
+again ≡ 1 at the principal pair.  With P(χ₁,χ₂) := #{(a,b) :
+χ₁^{a}χ₂^{b} = χ₀} (∈ {1,3,5,9}), Lemma 13.8 gives uniformly
+
+    ∏_q F_q(χ₁,χ₂) = e^{−(1−P/9)λ_w} (1 + O(β′)),   β′ := 9β + O(1/u).
+
+Classification (finite, exhaustive; both χᵢ not both principal):
+P = 3 ⇔ exactly one nontrivial relation among χ₁,χ₂ of the forms
+χ₁ = χ₀, χ₂ = χ₀, χ₂ = χ₁, χ₂ = χ̄₁ (with the participating character
+of order > 2 in the last two cases) — at most 4h pairs, each with
+|∏| ≤ 2e^{−2λ_w/3}.  P = 5 ⇔ χ₂ ∈ {χ₁, χ̄₁}, χ₁ of order 2 — at most
+2·2^{ω(w)} pairs (2-torsion of the character group), each
+|∏| ≤ 2e^{−4λ_w/9}.  All remaining pairs are generic: P = 1,
+∏ = e^{−8λ_w/9}(1+O(β′)); their signed coefficient sum over the
+inclusion–exclusion of the excluded families is O(h) exactly as in
+Lemma 13.10 (each family's coefficient sum is 0, 0, or ±h), so the
+generic total is O((h + h²β′)e^{−8λ_w/9}).  Collecting:
+
+    μ₂ = (1/h²)·[1 + O(he^{−2λ_w/3} + 2^{ω(w)}e^{−4λ_w/9}
+                        + he^{−8λ_w/9} + h²β′)].
+
+Since λ_w = (3/2)(1+ϑ)log h + log C₁ + O(1): he^{−2λ_w/3} ≤
+C₁^{−2/3}h^{−ϑ}, 2^{ω(w)}e^{−4λ_w/9} ≤ h^{o(1)−2(1+ϑ)/3} ≤ h^{−ϑ}/C
+(for h ≥ C₀-large; ω(w) ≪ log w/log log w), he^{−8λ_w/9} ≤ h^{−1/3},
+and h²β′ ≤ W²β′ = o(1) uniformly.  All ≤ O(h^{−ϑ}) with constants
+controlled by C₀, C₁.
+
+(4) *Paley–Zygmund algebra.*  μ₂ ≥ μ₁² by Cauchy–Schwarz on the exact
+densities (both are moments of the genuine random variable U_w under
+the uniform measure on the class, up to identical completions), so
+δ_w = 1 − μ₁²/μ₂ ∈ [0,1], and (2)–(3) give
+μ₁²/μ₂ ≥ (1−Cρ_w)²/(1+Cρ_w) ≥ 1 − 3Cρ_w. ∎
+
+### 14.3 Exact joint factorization and the theorem
+
+**Lemma 14.3 (joint evaluation).**  Let Ξ_w ≥ 1 + θ_w·(number of
+expansion terms of U_w and U_w², weighted by |coefficients|); one may
+take Ξ_w ≤ 4h X_w⁶.  Then
+
+    ∑_{m ≤ N, m ≡ 1 (24)} Λ(m)²
+      = (N/24)·∏_{w∈𝒲} δ_w + O( ∏_{w∈𝒲} Ξ_w ).
+
+*Proof.*  Expand Λ² = ∏_w(1 − θ_wU_w)² completely: a term is a choice,
+for each w, of the trivial pattern or of one/two signed patterns with
+their tilt divisors; its condition on m is ∏_w(v-part of w’s pattern)
+dividing the respective n_w(m).  Across w ∈ 𝒲 the v-parts are pairwise
+coprime: a common prime q ≥ u would divide (m+w) − (m+w′) = w − w′,
+0 < |w − w′| < W < u.  So each term's count is N/(24·∏v) + O(1) by CRT
+(single class; compatibility as in §14.2).  The main parts sum to
+(N/24)∏_w(1 − 2θ_wμ₁ + θ_w²μ₂) exactly — μ₁, μ₂ are by definition the
+sums of 1/(v-part) over patterns — and the O(1) rounding terms total at
+most ∏_w Ξ_w. ∎
+
+**Theorem 14.4 (exponential bound, θ = 2/5 − o(1); proved).**  For each
+fixed ϑ ∈ (0, 1/10) there is c(ϑ) > 0 such that for all large N
+
+    E(N) ≤ N·exp(−c(ϑ)·(log N)^{2/5−ϑ}·log log N),
+
+so in particular E(N) ≪ N exp(−(log N)^{2/5−o(1)}).  Constants
+ineffective (Siegel–Walfisz).
+
+*Proof.*  Budget for the rounding product:
+log Ξ_w ≪ log h + λ_w²·K_w·log u ≪ (loglog N)²·W^{3(1+ϑ)/2}·W^{1/A},
+so, summing over the ≤ W moduli,
+
+    ∑_{w∈𝒲} log Ξ_w ≪ W^{1 + 3(1+ϑ)/2 + ϑ}·(loglog N)²
+      ≤ (log N)^{(2/5−ϑ)(5/2 + 5ϑ/2)}(loglog N)² ≤ (log N)^{1−ϑ/4},
+
+since (2/5 − ϑ)(5/2 + 5ϑ/2) = 1 − (3/2)ϑ − (5/2)ϑ² < 1 − ϑ.  So the
+rounding total is exp((log N)^{1−ϑ/4}) = N^{o(1)}.  Main term:
+
+    ∏_{w∈𝒲} δ_w ≤ exp(−ϑ∑_{w∈𝒲} log h_w + O(W))
+      ≤ exp(−(ϑ/3)·W log W)
+      = exp(−c(ϑ)·(log N)^{2/5−ϑ}·log log N)
+
+for large N, using ∑_{w≤W, w≡3(4)} log φ(w) = (W/2)(log W)(1+o(1)).
+Lemma 14.1 and Lemma 14.3 assemble:
+E(N) ≤ W + (N/24)·exp(−c(log N)^{2/5−ϑ}loglog N) + N^{o(1)}. ∎
+
+The subset (c = 2) version — U = 2^{−ω}T″ exactly as in §13.5, with
+F_q(χ) = 1 + (χ(q)−1)/(2q) and λ_w ≥ (2+ϑ)log h, K_w ≈ h^{2+ϑ} —
+yields θ = 1/3 − o(1) by the same assembly.  The signed alphabet is
+strictly better here; this is the first place in the campaign where the
+c = 3 structure pays concretely.
+
+### 14.4 The budget ceiling of witness stacking
+
+The exponent 2/5 is pinned by an accounting that covers every variant
+of the framework.  For modulus w to contribute a constant factor
+δ_w ≤ 1/2, a second-moment (Paley–Zygmund) argument needs the tilted
+family to cover (Z/w)×: h ≤ e^{(1−1/c)λ_w}, i.e. window mass
+λ_w ≥ (1−1/c)⁻¹ log h.  Mass λ above a floor u forces the window top
+log v ≥ e^{λ} log u, and a witness generically contains a prime of the
+top dyadic block, so the level consumed by modulus w is
+≳ h^{1/(1−1/c)}·log u.  The total level is capped by log N (the
+rounding budget; with primality it would be BV's (1/2)log N — worse,
+see W2).  Hence ∑_{w≤W} h_w^{1/(1−1/c)} ≲ log N, i.e.
+W^{1+1/(1−1/c)} ≲ log N: θ ≤ 1/3 for c = 2, θ ≤ 2/5 for c = 3, and
+θ → 1/2 as c → ∞ — but the signed alphabet on squarefree window parts
+is c = 3 (exponents −e..e, e = 1), and no larger c exists without
+higher prime multiplicities, which have no density.  One genuine
+upgrade remains inside the framework: Selberg-optimal weights supported
+on the closure of the witness system need only witness *mass*
+e^{λ}/h ≥ h^{ε} (λ ≥ (1+ε)log h) rather than concentration
+(λ ≥ (3/2)log h), relaxing the consumption to ∑_{w≤W} h_w ≲ log N and
+the cap to θ = 1/2 − o(1).  The missing piece is a support-restricted
+Selberg minimization — the admissible support
+{v : some signed subproduct of v's primes ≡ −1 (mod w)} is not
+divisor-closed, so the classical diagonalization does not apply
+verbatim.  Named open lemma.  Beyond 1/2 the wall is structural:
+covering a group of size h with products of primes above any floor
+consumes level ≥ h per modulus, and ∑_{w≤W} h_w ≍ W².  **The joint
+multi-modulus route contemplated in §13.3(3), now executed, tops out at
+θ = 1/2: it cannot reach Vaughan's 2/3.**
+
+### 14.5 The wall-map: what beating 2/3 now requires
+
+Assessments, not theorems; each is a proof-level obstruction to the
+named technology with its load-bearing computation cited.
+
+* **(W1) Witness stacking caps at 1/2** (§14.4): group-covering forces
+  level consumption ≥ h_w per modulus; budget log N; so ≤ (log N)^{1/2}
+  moduli — tilt or Selberg, subsets or signed, integers or primes.
+
+* **(W2) No prime-side stacking.**  An evaluation-based joint argument
+  over primes needs progression counts to compound moduli with relative
+  errors below an exponentially small main term; Bombieri–Vinogradov
+  saves only fixed powers of log N, additively.  Hence the integer-side
+  Λ² device of §14.1 (inequalities with O(1) rounding instead of
+  evaluations) is not one option among several — it is the only exit,
+  and primality contributes nothing.  Vaughan's own argument also
+  counts integers for exactly this reason.
+
+* **(W3) The class-mass ceiling B = 2, and the one visible door.**
+  Vaughan/PW feed the large sieve ∑_{ℓ≤X} f(ℓ)/ℓ ≍ (log X)² forced
+  classes (PW Lemma 4.1; f(ℓ) is τ₃-like on ℓ ≡ −1 (mod m)) and
+  optimize exp(−log N/(2 log X) + c·log²X) at log X ≍ (log N)^{1/3}:
+  θ = 2/3 = B/(B+1), B = 2.  Beating 2/3 in this currency means B > 2:
+  more *distinct* forced classes mod a single prime ℓ.  The
+  Elsholtz–Tao/PW counts say total solution mass per prime is
+  (log p)³-sized (B = 3) but clusters ≍ log p solutions per class,
+  realizing only (log ℓ)² distinct classes.  **The one visible door to
+  θ > 2/3 is declustering: a construction giving (log ℓ)^{2+δ} distinct
+  forced classes per prime ℓ.**  §5's obstruction theorem rules out
+  polynomial families as the source; §13.3(3) rules out one-modulus
+  divisor identities; nothing rules the door shut in general.
+
+* **(W4) Hybrids do not add exponents.**  Feeding Λ-weighted sequences
+  into the large sieve pays Cauchy–Schwarz halving:
+  #E ≤ [(N+Q²)·∑Λ⁴/S]^{1/2} carries exponent (Vaughan + stack)/2 <
+  Vaughan.  Splitting the level budget between the two systems is
+  likewise lossy (the LS mass is superlinear in its budget share).  Max,
+  not sum: 2/3 stands.
+
+Status after phase eight: campaign record E(N) ≪
+N exp(−(log N)^{2/5−o(1)}) (Theorem 14.4), Vaughan unbeaten; open
+frontier = (i) restricted-Selberg lemma (→ θ = 1/2 exactly at the
+framework ceiling), (ii) the declustering door of W3 (→ θ > 2/3, new
+algebraic input required).
+
+Numerics: `verify.py (l)` checks the signed local-factor identities
+(first and second moments, all character pairs mod 7, toy window), runs
+a toy integer-side stack ∑Λ² against ∏δ_w on real data
+(informational), confirms Λ = 1 on witness-free integers, and
+reconstructs exact unit-fraction solutions from signed witnesses via
+d = na/b and Theorem 3.1(B).
+
+---
+
 ### References (partly from memory — flagged)
 
 * Obláth 1950 (first appearance in print; conjecture attributed to Erdős).

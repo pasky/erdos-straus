@@ -79,6 +79,35 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 4 (2026-08-18, phase eight — see notes.md §14)
+
+* **New campaign record: E(N) ≪ N exp(−(log N)^{2/5−o(1)}) (Theorem
+  14.4), unconditional (SW-ineffective).**  θ = 2/5 vs the previous 1/8;
+  Vaughan's 2/3 still stands.  Mechanism — the H3 stacking problem
+  dissolved by two structural moves: (1) count exceptional primes inside
+  ∑_{m≤1(24), m≤N} Λ(m)² over the *integers* (Λ = ∏_w(1−θ_wU_w) = 1 on
+  every criterion failure; congruence counts exact to O(1), no BV error
+  floor); (2) all witness primes sit above a floor u > W, so no prime
+  divides two shifted forms (m+w)/4, (m+w′)/4 — the per-modulus
+  conditions are pairwise coprime and the joint moment factorizes
+  *exactly* by CRT.  Per-modulus factors: signed (n²-divisor, c = 3)
+  witnesses tilted at 3^{−ω}, telescoping Euler factors, δ_w ≤ h^{−ϑ};
+  ∏δ_w over w ≤ W = (log N)^{2/5−ϑ} gives the exponent (windows sized
+  K_w ≈ h^{3(1+ϑ)/2}, total level (log N)^{1−ϑ/4}).  `verify.py (l)`:
+  signed local-factor identities exact; joint/marginal-product = 0.9992
+  on real data (the CRT independence); exact solutions from signed
+  witnesses.
+* **Ceiling of the framework mapped (§14.4–14.5):** witness stacking
+  caps at θ = 1/2 (group-covering consumes level h_w per modulus;
+  ∑h_w ≍ W² ≤ log N) — reachable via a named open restricted-Selberg
+  lemma; **it cannot reach 2/3**.  Prime-side stacking is impossible
+  outright (BV polylog floor vs exponential main terms).  Vaughan's 2/3
+  = B/(B+1), B = 2 class-mass (log X)², verified tight in PW's own
+  proof; total solution mass is (log p)³ but clusters log p per class.
+  **The one visible door past 2/3: declustering — (log ℓ)^{2+δ}
+  distinct forced classes per prime ℓ.**  Hybrids pay CS-halving and do
+  not add exponents.
+
 ## Outcome 3 (2026-08-18, phase seven — see notes.md §13.5)
 
 * **H1′/H2′ PROVED (window form): the single-modulus transfer is

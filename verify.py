@@ -766,4 +766,141 @@ for w in (3, 7, 11):
 print("(k3) exact Erdos-Straus solutions reconstructed from window "
       "witnesses (20 samples per modulus)")
 
+# ---------------------------------------------------------------- (l)
+print("\n== (l) Integer-side signed stack (§14, Lemmas 14.1-14.3, Thm 14.4) ==")
+
+# (l1) Signed local-factor identities (Lemma 14.2 steps (2)-(3)): direct
+# enumeration over a toy window vs the products prod_q F_q, every
+# character (pair) mod 7.  Float spot-check, tolerance 1e-12.
+worst1 = worst2 = 0.0
+for j1 in range(HK):
+    direct = 0j
+    for a in SUBS:
+        for b in SUBS:
+            if set(a) & set(b):
+                continue
+            for mp in SUBS:
+                un = set(a) | set(b) | set(mp)
+                lcm_u = prod(un) if un else 1
+                direct += (chi_k(j1, prod(a) if a else 1)
+                           * chi_k(j1, prod(b) if b else 1).conjugate()
+                           * (-2 / 3) ** len(mp) / lcm_u)
+    local = prod(1 + (chi_k(j1, q) + chi_k(j1, q).conjugate() - 2)
+                 / (3 * q) for q in WSET)
+    worst1 = max(worst1, abs(direct - local))
+    if j1 == 0:
+        assert abs(local - 1) < 1e-12
+
+
+def pat_iter():
+    for a in SUBS:
+        for b in SUBS:
+            if not (set(a) & set(b)):
+                yield a, b
+
+
+PATS = list(pat_iter())
+for j1 in range(HK):
+    for j2 in range(HK):
+        direct = 0j
+        for a1, b1 in PATS:
+            for a2, b2 in PATS:
+                for mp in SUBS:
+                    un = set(a1) | set(b1) | set(a2) | set(b2) | set(mp)
+                    lcm_u = prod(un) if un else 1
+                    direct += (chi_k(j1, prod(a1) if a1 else 1)
+                               * chi_k(j1, prod(b1) if b1 else 1).conjugate()
+                               * chi_k(j2, prod(a2) if a2 else 1)
+                               * chi_k(j2, prod(b2) if b2 else 1).conjugate()
+                               * (-8 / 9) ** len(mp) / lcm_u)
+        local = 1
+        for q in WSET:
+            s = sum(chi_k(j1, q) ** e1 * chi_k(j2, q) ** e2
+                    for e1 in (-1, 0, 1) for e2 in (-1, 0, 1))
+            local *= 1 + (s / 9 - 1) / q
+        worst2 = max(worst2, abs(direct - local))
+        if j1 == j2 == 0:
+            assert abs(local - 1) < 1e-12
+assert worst1 < 1e-12 and worst2 < 1e-11, (worst1, worst2)
+print(f"(l1) signed local-factor identities: defects {worst1:.2e} (mu1), "
+      f"{worst2:.2e} (mu2); principal factors == 1")
+
+# (l2) Toy integer-side stack: joint mean of prod_w (1-theta_w U_w)^2 vs
+# the product of the per-w means (the exact-CRT independence of Lemma
+# 14.3), plus Lambda = 1 on witness-free m.  Signed U via group DP.
+# Informational: toy windows, loose assert.
+NK2 = 2_000_000
+STACK = {3: list(primerange(26, 700)), 7: list(primerange(26, 3000))}
+
+
+def u_signed(n, w, win):
+    ps = [q for q in win if n % q == 0]
+    vec = [0] * w
+    vec[1 % w] = 1
+    for q in ps:
+        qi = pow(q, -1, w)
+        nxt = vec[:]
+        for r in range(w):
+            if vec[r]:
+                nxt[r * q % w] += vec[r]
+                nxt[r * qi % w] += vec[r]
+        vec = nxt
+    return vec[w - 1] / 3 ** len(ps), vec[w - 1], ps
+
+
+sums = {w: [0.0, 0.0] for w in STACK}
+vals = []
+for m in range(1, NK2, 24):
+    row = {}
+    for w, win in STACK.items():
+        u, t, _ = u_signed((m + w) // 4, w, win)
+        row[w] = u
+        sums[w][0] += u
+        sums[w][1] += u * u
+    vals.append(row)
+cnt = len(vals)
+theta = {w: s[0] / s[1] for w, s in sums.items()}
+marg = {w: 1 - 2 * theta[w] * sums[w][0] / cnt
+        + theta[w] ** 2 * sums[w][1] / cnt for w in STACK}
+joint = sum(prod((1 - theta[w] * row[w]) ** 2 for w in STACK)
+            for row in vals) / cnt
+ratio = joint / prod(marg.values())
+assert abs(ratio - 1) < 0.2, ratio
+lam_free = sum(1 for row in vals if all(row[w] == 0 for w in STACK))
+print(f"(l2) joint/product-of-marginals = {ratio:.4f} (CRT independence; "
+      f"toy scale), delta_w = {[f'{marg[w]:.3f}' for w in STACK]}, "
+      f"witness-free fraction {lam_free / cnt:.3f}")
+
+# (l3) Signed-witness sufficiency: reconstruct exact solutions via
+# d = n*a/b | n^2, Theorem 3.1(B) with q = w.
+done = 0
+for p in primerange(10 ** 5, 2 * 10 ** 5):
+    if p % 24 != 1 or done >= 25:
+        continue
+    w = 7
+    n = (p + w) // 4
+    u, t, ps = u_signed(n, w, STACK[7])
+    if not t:
+        continue
+    found = None
+    for ks in cartesian_product((-1, 0, 1), repeat=len(ps)):
+        v = 1
+        for q, k in zip(ps, ks):
+            v = v * pow(q, k % (w - 1) if k < 0 else k, w) % w  # q^k mod w
+        if v % w == w - 1:
+            found = ks
+            break
+    assert found is not None
+    a = prod(q for q, k in zip(ps, found) if k == 1)
+    b = prod(q for q, k in zip(ps, found) if k == -1)
+    d = n * a // b
+    assert n % b == 0 and (n * n) % d == 0 and (d + n) % w == 0
+    y = p * (n + d) // w
+    z_ = p * (n + n * n // d) // w
+    assert Fraction(4, p) == Fraction(1, n) + Fraction(1, y) + Fraction(1, z_)
+    done += 1
+assert done == 25
+print("(l3) exact solutions from signed witnesses d = n*a/b via Thm 3.1(B) "
+      "(25 samples, w=7)")
+
 print("\nall checks passed")
