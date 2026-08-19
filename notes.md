@@ -1986,10 +1986,17 @@ primes of ∪I_w,
     J = ∑_Q (−1)^{|Q|} J_Q,   J_Q := ∑_{τ : Q ⊆ viol(τ)} ∏ c_w/v_w,
 
 and J_∅ = ∏_w δ_w (the free sum factorizes across w by definition of
-μ₁, μ₂, θ_w).  For Q ≠ ∅, expand which moduli use each q ∈ Q: J_Q =
-∑_{(S_q)_{q∈Q}, S_q ⊆ 𝒲, |S_q| ≥ 2} ∏_w Δ_w(marks), where
-marks(w) = {q ∈ Q : w ∈ S_q} and Δ_w(M) is the w-sum restricted to
-patterns whose v-part is divisible by every q ∈ M (Δ_w(∅) = δ_w).
+μ₁, μ₂, θ_w; the IE identity is ∑_{Q ⊆ V}(−1)^{|Q|} = 1_{V=∅} applied
+to V = viol(τ), all sums finitely supported).  For Q ≠ ∅, bound J_Q by
+covering each violation with a pair: 1_{#users(q) ≥ 2} ≤
+∑_{pairs P ⊆ 𝒲} 1_{users(q) ⊇ P}, so
+
+    |J_Q| ≤ ∑_{(P_q)_{q∈Q}} |∏_w Δ_w(marks)|,
+
+where P_q runs over 2-element subsets of 𝒲, marks(w) = {q ∈ Q : w ∈
+P_q}, and Δ_w(M) is the w-sum restricted to patterns whose v-part is
+divisible by every q ∈ M (Δ_w(∅) = δ_w).  Crucially the ⊇-conditions
+factor freely across moduli: untouched moduli keep their *signed* δ_w.
 
 *Marked-sum bound.*  For a nonempty finite M ⊂ I_w of distinct primes,
 
@@ -2010,7 +2017,7 @@ likewise for μ₁^{(M)}.
 *Assembly.*  |Δ_w(M)| ≤ δ̄_w·∏_{q∈M}(C₃/q) with δ̄_w := max(δ_w,
 C₂h_w^{−ϑ}) ≤ C₅h_w^{−ϑ}, uniformly.  Hence
 
-    ∑_{Q≠∅} |J_Q| ≤ (∏_w δ̄_w)·[ ∏_{q ∈ ∪I_w} (1 + ∑_{j≥2} \binom{W}{j}(C₃/q)^j) − 1 ]
+    ∑_{Q≠∅} |J_Q| ≤ (∏_w δ̄_w)·[ ∏_{q ∈ ∪I_w} (1 + \binom{W}{2}(C₃/q)²) − 1 ]
               ≤ (∏_w δ̄_w)·[ exp( ∑_{q>u} C₃²W²/q² ) − 1 ]
               ≤ (∏_w δ̄_w)·C W²/u,
 
