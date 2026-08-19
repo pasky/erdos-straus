@@ -85,7 +85,7 @@ large-deviations against actual data for hard-class primes).
   14.4), unconditional (SW-ineffective).**  θ = 2/5 vs the previous 1/8;
   Vaughan's 2/3 still stands.  Mechanism — the H3 stacking problem
   dissolved by two structural moves: (1) count exceptional primes inside
-  ∑_{m≤1(24), m≤N} Λ(m)² over the *integers* (Λ = ∏_w(1−θ_wU_w) = 1 on
+  ∑_{m≡1 (24), m≤N} Λ(m)² over the *integers* (Λ = ∏_w(1−θ_wU_w) = 1 on
   every criterion failure; the tilt is truncated *in the definition*,
   so the expansion is finite and congruence counts are exact to O(1) —
   no BV error floor); (2) all witness primes sit above a floor u > W,

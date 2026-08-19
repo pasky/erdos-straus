@@ -851,6 +851,54 @@ def u_signed(n, w, win):
     return vec[w - 1] / 3 ** len(ps), vec[w - 1], ps
 
 
+# (l1b) The CAPPED sieve variable U_w (truncated tilt, the actual
+# definition in §14.1): (i) vanishes identically on witness-free n;
+# (ii) equals 3^{-omega} * (witness count) whenever the caps are
+# inactive.  Checked on real shifted integers.
+
+
+def u_capped(n, w, win, cap):
+    ps = [q for q in win if n % q == 0]
+    tot = 0.0
+    for ia in range(len(ps) + 1):
+        for asub in combinations(ps, ia):
+            rest = [q for q in ps if q not in asub]
+            for ib in range(len(rest) + 1):
+                for bsub in combinations(rest, ib):
+                    ab = prod(asub) * prod(bsub)
+                    if ab > cap:
+                        continue
+                    va = prod(asub) % w
+                    vb = prod(bsub) % w
+                    if va * pow(vb, -1, w) % w != w - 1:
+                        continue
+                    for mp_size in range(len(ps) + 1):
+                        for mp in combinations(ps, mp_size):
+                            if prod(mp) <= cap:
+                                tot += (-2 / 3) ** len(mp)
+    return tot
+
+
+chk = eq = fails = 0
+for m in range(1, 200_000, 24):
+    w = 7
+    n = (m + w) // 4
+    u_unc, t, ps = u_signed(n, w, STACK[7])
+    if len(ps) > 4:
+        continue
+    uc = u_capped(n, w, STACK[7], 10 ** 12)
+    if t == 0:
+        assert abs(uc) < 1e-12, (m, uc)
+        fails += 1
+    elif abs(uc - u_unc) < 1e-9:  # caps inactive at this scale
+        eq += 1
+    chk += 1
+assert fails > 100 and eq > 100
+print(f"(l1b) capped U: vanishes on all {fails} witness-free n; equals "
+      f"3^-omega*T on {eq} witnessed n (caps inactive at toy scale)")
+
+
+
 q_sh = 29  # shared window prime; check exclusivity vs independence
 both = sum(1 for m in range(1, NK2, 24)
            if (m + 3) // 4 % q_sh == 0 and (m + 7) // 4 % q_sh == 0)

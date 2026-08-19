@@ -1955,7 +1955,7 @@ the uniform measure on the class, up to identical completions), so
 δ_w = 1 − μ₁²/μ₂ ∈ [0,1], and (2)–(3) give
 μ₁²/μ₂ ≥ (1−Cρ_w)²/(1+Cρ_w) ≥ 1 − 3Cρ_w. ∎
 
-### 14.3 Exact joint factorization and the theorem
+### 14.3 Joint evaluation via exclusivity, and the theorem
 
 **Lemma 14.3 (joint evaluation with exclusion corrections).**  Let
 Ξ_w := (1 + 2θ_w X_w³)² ≥ the total |coefficient| mass of the expansion
@@ -1987,43 +1987,61 @@ primes of ∪I_w,
 
 and J_∅ = ∏_w δ_w (the free sum factorizes across w by definition of
 μ₁, μ₂, θ_w; the IE identity is ∑_{Q ⊆ V}(−1)^{|Q|} = 1_{V=∅} applied
-to V = viol(τ), all sums finitely supported).  For Q ≠ ∅, bound J_Q by
-covering each violation with a pair: 1_{#users(q) ≥ 2} ≤
-∑_{pairs P ⊆ 𝒲} 1_{users(q) ⊇ P}, so
+to V = viol(τ), all sums finitely supported).  For Q ≠ ∅ use, for each
+q ∈ Q, the exact signed identity (valid for every finite set U:
+both sides are 1 for |U| ≥ 2 and 0 for |U| ≤ 1, by binomial sums)
 
-    |J_Q| ≤ ∑_{(P_q)_{q∈Q}} |∏_w Δ_w(marks)|,
+    1_{|U| ≥ 2} = ∑_{S ⊆ U, |S| ≥ 2} (−1)^{|S|}(|S| − 1),
 
-where P_q runs over 2-element subsets of 𝒲, marks(w) = {q ∈ Q : w ∈
-P_q}, and Δ_w(M) is the w-sum restricted to patterns whose v-part is
-divisible by every q ∈ M (Δ_w(∅) = δ_w).  Crucially the ⊇-conditions
-factor freely across moduli: untouched moduli keep their *signed* δ_w.
+with U = users_τ(q) := {w : q | v_w(π_w)}.  Since "S ⊆ users_τ(q)" is
+the *conjunction of forced divisibilities* q | v_w for w ∈ S, it
+factors freely across moduli, and
 
-*Marked-sum bound.*  For a nonempty finite M ⊂ I_w of distinct primes,
+    J_Q = ∑_{(S_q)_{q∈Q}, S_q ⊆ 𝒲, |S_q| ≥ 2}
+            ∏_{q∈Q} (−1)^{|S_q|}(|S_q| − 1) · ∏_w Δ_w(marks),
 
-    |Δ_w(M)| ≤ (C₂ h^{−ϑ} + exp(−λ_w²/2)) · ∏_{q∈M} (C₂/q).
+where marks(w) = {q ∈ Q : w ∈ S_q} and Δ_w(M) is the w-sum restricted
+to patterns whose v-part is divisible by every q ∈ M (Δ_w(∅) = δ_w;
+Δ_w(M) = 0 if some q ∈ M lies outside I_w, the empty sum).  Untouched
+moduli keep their *signed* δ_w.
+
+*Marked-sum bound (safe form).*  For a nonempty finite M ⊂ I_w of
+distinct primes,
+
+    |Δ_w(M)| ≤ C₂^{|M|} · h^{2/3} · ∏_{q∈M} (1/q).
 
 Indeed Δ_w(M) = −2θ_wμ₁^{(M)} + θ_w²μ₂^{(M)} with μ_i^{(M)} the moment
-sums with the divisibility marks; after Rankin completion (cost
-exp(−λ²)·∏(C/q) on the marked sums, since a forced q keeps its 1/q),
-the completed marked sums factor with the local factor at q ∈ M
-replaced by (F_q − 1) — and F_q(χ₀) = 1, F_q(χ₀,χ₀) = 1 identically,
-so the principal (and principal-pair) contributions to every marked sum
-*vanish*.  What survives are the nonprincipal families, with the same
-counts and sizes as in Lemma 14.2 (2)–(3) and an extra factor
-|F_q − 1| ≤ 6/q per mark: |θ_w²μ₂^{(M)}| ≤ C·(he^{−2λ/3} +
-2^{ω(w)}e^{−4λ/9} + he^{−8λ/9} + h²β′)·∏(6/q) ≤ Ch^{−ϑ}∏(C/q), and
-likewise for μ₁^{(M)}.
+sums with the divisibility marks.  After Rankin completion (marked
+tails keep a factor ∏(C/q), since a forced q retains its 1/q), the
+completed marked sums factor with the local factor at each q ∈ M
+replaced by (F_q − 1); |F_q − 1| ≤ 6/q.  The principal (resp.
+principal-pair) term vanishes identically since F_q(χ₀) = 1 =
+F_q(χ₀,χ₀).  Every other term is bounded by *size only* — no
+cancellation over the generic family is claimed for marked sums (it is
+false: marks correlate with the coefficients; e.g. q ≡ −1 (mod w)
+gives a marked generic coefficient sum ≍ h²/q) — using
+|∏_{q′∉M} F| ≤ 2e^{−(1−P/9)λ} and the family counts of Lemma 14.2(3):
 
-*Assembly.*  |Δ_w(M)| ≤ δ̄_w·∏_{q∈M}(C₃/q) with δ̄_w := max(δ_w,
-C₂h_w^{−ϑ}) ≤ C₅h_w^{−ϑ}, uniformly.  Hence
+    |θ_w μ₁^{(M)}|  ≤ C^{|M|} h e^{−2λ/3} ∏ 1/q  ≤ C^{|M|} h^{−ϑ} ∏ 1/q,
+    |θ_w²μ₂^{(M)}| ≤ C^{|M|} [h e^{−2λ/3} + 2^{ω(w)}e^{−4λ/9}
+                     + h² e^{−8λ/9}] ∏ 1/q ≤ C^{|M|} h^{2/3} ∏ 1/q,
 
-    ∑_{Q≠∅} |J_Q| ≤ (∏_w δ̄_w)·[ ∏_{q ∈ ∪I_w} (1 + \binom{W}{2}(C₃/q)²) − 1 ]
-              ≤ (∏_w δ̄_w)·[ exp( ∑_{q>u} C₃²W²/q² ) − 1 ]
-              ≤ (∏_w δ̄_w)·C W²/u,
+the last step from h²e^{−8λ/9} = h^{2−(4/3)(1+ϑ)} ≤ h^{2/3}.
 
-since ∑_{q>u} q^{−2} ≤ 1/u and C₃W/q ≤ 1/2 for q > u ≫ W².  So
-J ≤ ∏δ̄_w·(1 + CW²/u) plus the J_∅ main term; both are ≤
-2∏(C₅h_w^{−ϑ}) by Lemma 14.2. ∎
+*Assembly.*  Normalize by δ̄_w := C₅h_w^{−ϑ} ≥ max(δ_w, |Δ-scale|·…):
+the ratio per touched modulus is |Δ_w(M)|/δ̄_w ≤
+h^{2/3+ϑ}∏_{q∈M}(C₆/q) ≤ W·∏_{q∈M}(C₆/q).  Charging the factor W to
+each (q, w)-incidence separately (safe, W ≥ 1) gives, per q, the cost
+∑_{j≥2} \binom{W}{j}(j−1)(WC₆/q)^{j} ≤ 3(W²C₆/q)² for q > u ≫ W⁴.
+Hence
+
+    ∑_{Q≠∅} |J_Q| ≤ (∏_w δ̄_w)·[ ∏_{q>u} (1 + 3C₆²W⁴/q²) − 1 ]
+              ≤ (∏_w δ̄_w)·[ exp( 3C₆²W⁴/u ) − 1 ]
+              ≤ (∏_w δ̄_w)·C W⁴/u = (∏_w δ̄_w)·o(1),
+
+since ∑_{q>u} q^{−2} ≤ 1/u and u = exp(W^{1/A}) exceeds every fixed
+power of W.  So J ≤ ∏δ̄_w·(1 + o(1)) + J_∅ ≤ 2∏(C₅h_w^{−ϑ}) by Lemma
+14.2, for N large. ∎
 
 **Theorem 14.4 (exponential bound, θ = 2/5 − o(1); proved).**  For each
 fixed ϑ ∈ (0, 1/10) there is c(ϑ) > 0 such that for all large N
