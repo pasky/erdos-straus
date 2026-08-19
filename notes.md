@@ -1780,15 +1780,19 @@ hindsight and both invisible from inside §13:
   of the exceptional set is *not used at all* beyond the criterion
   itself — exactly as in Vaughan's own large-sieve argument.
 
-* **Shift-coprimality makes the moduli exactly independent.**  All
-  witness primes live above a floor u > W ≥ |w − w′|, so no prime q can
-  divide both (m+w)/4 and (m+w′)/4: q | (m+w) − (m+w′) = w − w′ is
-  impossible for q ≥ u.  Hence the divisor conditions attached to
-  different moduli w involve pairwise coprime integers, their joint
-  densities factor *exactly* by CRT, and the joint moment of the sieve
-  product is the product of the per-modulus moments with no correlation
-  term whatsoever.  H3, at integer level, is not an estimate but an
-  identity.
+* **Shift-coprimality makes cross-modulus correlations second-order.**
+  All witness primes live above a floor u > W ≥ |w − w′|, so no prime
+  q ≥ u can divide both (m+w)/4 and (m+w′)/4: q would divide
+  (m+w) − (m+w′) = w − w′.  The windows overlap, so the same prime q
+  serves several moduli — but *exclusively*: expansion terms that use q
+  for two different shifts demand m ≡ −w and m ≡ −w′ (mod q)
+  simultaneously and count exactly zero.  Compatible terms factor by
+  CRT; the discrepancy between "exclusive" and "independent" is a
+  per-shared-prime correction of size O(1/q²) whose marked sums have
+  identically vanishing principal parts (the telescoping again), and
+  the floor makes the total exclusion correction O(W³/u) = o(1).  H3 at
+  integer level is a negligible-correlation estimate — not the hard
+  transfer problem it is over the primes.
 
 The per-modulus factors use the *signed* (n²-divisor) witnesses of Lemma
 12.3 tilted at 3^{−ω} — the c = 3 alphabet — because the stack's
@@ -1815,15 +1819,28 @@ they may overlap freely (only shifts must differ).  Truncation:
 
     X_w = exp(λ_w² · log v_w).
 
-For m ≡ 1 (mod 24) write n = n_w(m) = (m+w)/4 and let P_w(n) =
-{q ∈ I_w : q | n}.  The signed witness count and tilted variable are
+For m ≡ 1 (mod 24) write n = n_w(m) = (m+w)/4.  A *signed pattern* for
+w is a pair (a, b) of coprime squarefree I_w-smooth integers with
+ab ≤ X_w and a·b⁻¹ ≡ −1 (mod w); a *tilt divisor* is a squarefree
+I_w-smooth m′ ≤ X_w.  The sieve variable is the **finite** signed
+divisor sum (truncated tilt — this is a definition, not an expansion of
+a closed form)
 
-    T_w(n) = #{k ∈ {−1,0,1}^{P_w(n)} : ∏ q^{k_q} ≡ −1 (mod w),
-                                        ∏_{k_q≠0} q ≤ X_w},
-    U_w(n) = 3^{−|P_w(n)|} T_w(n) ∈ [0, 1].
+    U_w(n) := ∑_{(a,b)} ∑_{m′ ≤ X_w} (−2/3)^{ω(m′)} · 1_{[ab, m′] | n}.
 
-**Sufficiency.**  If T_w(n) > 0 with witness k, put a = ∏_{k_q=1} q,
-b = ∏_{k_q=−1} q.  Then ab | n, and d := na/b is a positive integer
+U_w need not lie in [0,1], but two properties hold.  (i) *Vanishing on
+failures*: every term contains the factor 1_{ab | n} with
+a·b⁻¹ ≡ −1 (mod w); if some term is nonzero then k = (+1 on primes of
+a, −1 on primes of b) is a signed witness, so on witness-free n every
+term is zero and U_w(n) = 0.  (ii) On typical n it tracks
+3^{−ω_{I_w}(n)}·#witnesses: completing the m′-truncation recovers the
+tilt identity 3^{−|P_w(n)|} = ∑_{m′|n, sqfree I_w-smooth}
+(−2/3)^{ω(m′)}; the truncation is Rankin-negligible in every moment
+computed below.
+
+**Sufficiency.**  If n has a signed witness — disjoint subsets S₊, S₋
+of its I_w-prime set with (∏ S₊)(∏ S₋)⁻¹ ≡ −1 (mod w) — put
+a = ∏ S₊, b = ∏ S₋.  Then ab | n and d := na/b is a positive integer
 dividing n² with d ≡ −n (mod w), i.e. w | d + n.  For m = p prime,
 p ≡ 1 (mod 24), p > W: Theorem 3.1(B) applies with q = w (w ≡ 3 ≡ −p
 (mod 4)), x = n, divisor d of x², so 4/p is representable.
@@ -1837,11 +1854,12 @@ Define, with θ_w ≥ 0 chosen in §14.2,
 
     E(N) ≤ W + ∑_{m ≤ N, m ≡ 1 (24)} Λ(m)².
 
-*Proof.*  An exceptional p is ≡ 1 (mod 24) (Lemma 1.2).  If some
-T_w(n_w(p)) > 0, the sufficiency paragraph makes 4/p representable —
-contradiction.  So U_w = 0 for every w ∈ 𝒲 and Λ(p) = 1.  Since
-Λ(m)² ≥ 0 for every m, the sum over the class m ≡ 1 (24) dominates the
-count of such p. ∎
+*Proof.*  An exceptional p is ≡ 1 (mod 24) (Lemma 1.2).  If n_w(p) had
+a signed witness for some w ∈ 𝒲, the sufficiency paragraph would make
+4/p representable — contradiction.  So every n_w(p) is witness-free,
+U_w(n_w(p)) = 0 by property (i), and Λ(p) = 1.  Since Λ(m)² ≥ 0 for
+every m, the sum over the class m ≡ 1 (24) dominates the count of such
+p. ∎
 
 ### 14.2 The per-modulus factor
 
@@ -1850,19 +1868,17 @@ prime factors in I_w, the condition v | n_w(m) pins m to one class mod
 24v (compatibility mod 4 is w ≡ 3 (mod 4); q > u > w makes the class
 nontrivial mod each q | v), so its count on m ≤ N is N/(24v) + O(1) —
 relative density exactly 1/v within the class, up to the rounding
-accounted in Lemma 14.3.  Expand the tilt and the witness sum:
-3^{−|P_w(n)|} = ∑_{m′|n, sqfree, I_w-smooth} (−2/3)^{ω(m′)}, and a
-signed pattern is a coprime pair (a,b) of squarefree I_w-smooth numbers
-(a = positive part, b = negative part) with ab ≤ X_w and
-a·b⁻¹ ≡ −1 (mod w):
+accounted in Lemma 14.3.  Define the exact moment densities as the
+period-averages of the *function* U_w and its square: with the finite
+expansion of U_w² into pairs of terms,
 
-    U_w(n) = ∑_{(a,b)} ∑_{m′} (−2/3)^{ω(m′)} 1_{[ab, m′] | n},
+    μ₁(w) = ∑_{(a,b)} ∑_{m′ ≤ X_w} (−2/3)^{ω(m′)} / [ab, m′],
+    μ₂(w) = ∑_{(a₁,b₁),(a₂,b₂)} ∑_{m₁′, m₂′ ≤ X_w} (−2/3)^{ω(m₁′)+ω(m₂′)}
+              / [a₁b₁, a₂b₂, m₁′, m₂′];
 
-and define the exact moment densities (finite sums)
-
-    μ₁(w) = ∑_{(a,b)} ∑_{m′} (−2/3)^{ω(m′)} / [ab, m′],
-    μ₂(w) = the analogous sum from the expansion of U_w²
-            (pairs of signed patterns, tilt 9^{−|P|} = ∑(−8/9)^{ω(m′)}).
+these are exactly the averages of U_w, U_w² over the full joint period,
+so μ₂ ≥ μ₁² holds by Cauchy–Schwarz as an identity about a real
+function, truncation and all.
 
 **Lemma 14.2 (per-modulus factor).**  There are C₀(ϑ), C₁(ϑ) such that
 uniformly for w ∈ 𝒲 and N large,
@@ -1882,10 +1898,12 @@ the class m ≡ 1 (24) (exact densities 1/v — no φ, no BV, no prime
 tails) and subsets replaced by the signed alphabet.  Steps, displaying
 only the changed local computations:
 
-(1) *Completion.*  Removing the caps ab ≤ X_w and m′ ≤ X_w costs, by
-Rankin with η = 1/log v_w (so q^η ≤ e on I_w),
-exp(−log X_w/log v_w)·∏_{q∈I_w}(1 + O(1)/q) ≪ exp(−λ_w² + O(λ_w)),
-smaller than any fixed power of 1/h; likewise for pairs.
+(1) *Completion.*  μ₁, μ₂ differ from their cap-free completions — the
+Euler-product-factorable sums with (a,b), m′ unrestricted — by Rankin
+tails: with η = 1/log v_w (so q^η ≤ e on I_w), each removed cap costs
+a factor exp(−log X_w/log v_w)·∏_{q∈I_w}(1 + O(1)/q) ≪
+exp(−λ_w² + O(λ_w)), smaller than any fixed power of 1/h.  The
+completed sums are evaluated in (2)–(3).
 
 (2) *First moment.*  Detecting ab⁻¹ ≡ −1 (mod w) by characters, the
 completed density factors over q ∈ I_w with local options
@@ -1939,23 +1957,66 @@ the uniform measure on the class, up to identical completions), so
 
 ### 14.3 Exact joint factorization and the theorem
 
-**Lemma 14.3 (joint evaluation).**  Let Ξ_w ≥ 1 + θ_w·(number of
-expansion terms of U_w and U_w², weighted by |coefficients|); one may
-take Ξ_w ≤ 4h X_w⁶.  Then
+**Lemma 14.3 (joint evaluation with exclusion corrections).**  Let
+Ξ_w := (1 + 2θ_w X_w³)² ≥ the total |coefficient| mass of the expansion
+of (1 − θ_wU_w)² (each of U_w, U_w² has at most X_w³, X_w⁶ terms, all
+coefficients ≤ 1 in modulus).  Then, for N large,
 
     ∑_{m ≤ N, m ≡ 1 (24)} Λ(m)²
-      = (N/24)·∏_{w∈𝒲} δ_w + O( ∏_{w∈𝒲} Ξ_w ).
+      ≤ (N/24)·2·∏_{w∈𝒲} C₅ h_w^{−ϑ} + O( ∏_{w∈𝒲} Ξ_w ).
 
-*Proof.*  Expand Λ² = ∏_w(1 − θ_wU_w)² completely: a term is a choice,
-for each w, of the trivial pattern or of one/two signed patterns with
-their tilt divisors; its condition on m is ∏_w(v-part of w’s pattern)
-dividing the respective n_w(m).  Across w ∈ 𝒲 the v-parts are pairwise
-coprime: a common prime q ≥ u would divide (m+w) − (m+w′) = w − w′,
-0 < |w − w′| < W < u.  So each term's count is N/(24·∏v) + O(1) by CRT
-(single class; compatibility as in §14.2).  The main parts sum to
-(N/24)∏_w(1 − 2θ_wμ₁ + θ_w²μ₂) exactly — μ₁, μ₂ are by definition the
-sums of 1/(v-part) over patterns — and the O(1) rounding terms total at
-most ∏_w Ξ_w. ∎
+*Proof.*  Expand Λ² = ∏_w(1 − θ_wU_w)² completely: a term is a tuple
+τ = (π_w)_w, π_w a (possibly trivial) pattern from the expansion of
+(1 − θ_wU_w)², with coefficient c(τ) = ∏c_w(π_w) and condition
+v_w(π_w) | n_w(m) for each w, where v_w(π_w) is squarefree I_w-smooth.
+
+*Exclusivity.*  If a prime q divides v_w(π_w) and v_{w′}(π_{w′}) for
+w ≠ w′, the conditions force m ≡ −w and m ≡ −w′ (mod q), hence
+q | w − w′ with 0 < |w − w′| < W < u ≤ q: impossible.  Such τ have
+count exactly 0.  Call τ *compatible* if the v_w are pairwise coprime;
+compatible τ pin m to a single class mod 24∏v_w (CRT; §14.2), so
+
+    ∑_m Λ² = (N/24)·J + O(∏_w Ξ_w),
+    J := ∑_{τ compatible} ∏_w c_w(π_w)/v_w(π_w).
+
+*Exclusion correction.*  For a tuple τ let viol(τ) = {q : q divides
+v_w(π_w) for ≥ 2 moduli}.  By inclusion–exclusion over finite sets Q of
+primes of ∪I_w,
+
+    J = ∑_Q (−1)^{|Q|} J_Q,   J_Q := ∑_{τ : Q ⊆ viol(τ)} ∏ c_w/v_w,
+
+and J_∅ = ∏_w δ_w (the free sum factorizes across w by definition of
+μ₁, μ₂, θ_w).  For Q ≠ ∅, expand which moduli use each q ∈ Q: J_Q =
+∑_{(S_q)_{q∈Q}, S_q ⊆ 𝒲, |S_q| ≥ 2} ∏_w Δ_w(marks), where
+marks(w) = {q ∈ Q : w ∈ S_q} and Δ_w(M) is the w-sum restricted to
+patterns whose v-part is divisible by every q ∈ M (Δ_w(∅) = δ_w).
+
+*Marked-sum bound.*  For a nonempty finite M ⊂ I_w of distinct primes,
+
+    |Δ_w(M)| ≤ (C₂ h^{−ϑ} + exp(−λ_w²/2)) · ∏_{q∈M} (C₂/q).
+
+Indeed Δ_w(M) = −2θ_wμ₁^{(M)} + θ_w²μ₂^{(M)} with μ_i^{(M)} the moment
+sums with the divisibility marks; after Rankin completion (cost
+exp(−λ²)·∏(C/q) on the marked sums, since a forced q keeps its 1/q),
+the completed marked sums factor with the local factor at q ∈ M
+replaced by (F_q − 1) — and F_q(χ₀) = 1, F_q(χ₀,χ₀) = 1 identically,
+so the principal (and principal-pair) contributions to every marked sum
+*vanish*.  What survives are the nonprincipal families, with the same
+counts and sizes as in Lemma 14.2 (2)–(3) and an extra factor
+|F_q − 1| ≤ 6/q per mark: |θ_w²μ₂^{(M)}| ≤ C·(he^{−2λ/3} +
+2^{ω(w)}e^{−4λ/9} + he^{−8λ/9} + h²β′)·∏(6/q) ≤ Ch^{−ϑ}∏(C/q), and
+likewise for μ₁^{(M)}.
+
+*Assembly.*  |Δ_w(M)| ≤ δ̄_w·∏_{q∈M}(C₃/q) with δ̄_w := max(δ_w,
+C₂h_w^{−ϑ}) ≤ C₅h_w^{−ϑ}, uniformly.  Hence
+
+    ∑_{Q≠∅} |J_Q| ≤ (∏_w δ̄_w)·[ ∏_{q ∈ ∪I_w} (1 + ∑_{j≥2} \binom{W}{j}(C₃/q)^j) − 1 ]
+              ≤ (∏_w δ̄_w)·[ exp( ∑_{q>u} C₃²W²/q² ) − 1 ]
+              ≤ (∏_w δ̄_w)·C W²/u,
+
+since ∑_{q>u} q^{−2} ≤ 1/u and C₃W/q ≤ 1/2 for q > u ≫ W².  So
+J ≤ ∏δ̄_w·(1 + CW²/u) plus the J_∅ main term; both are ≤
+2∏(C₅h_w^{−ϑ}) by Lemma 14.2. ∎
 
 **Theorem 14.4 (exponential bound, θ = 2/5 − o(1); proved).**  For each
 fixed ϑ ∈ (0, 1/10) there is c(ϑ) > 0 such that for all large N
@@ -1966,20 +2027,22 @@ so in particular E(N) ≪ N exp(−(log N)^{2/5−o(1)}).  Constants
 ineffective (Siegel–Walfisz).
 
 *Proof.*  Budget for the rounding product:
-log Ξ_w ≪ log h + λ_w²·K_w·log u ≪ (loglog N)²·W^{3(1+ϑ)/2}·W^{1/A},
-so, summing over the ≤ W moduli,
+log Ξ_w ≪ log h + log X_w ≪ λ_w²·K_w·log u ≪
+(loglog N)²·W^{3(1+ϑ)/2}·W^{1/A}, so, summing over the ≤ W moduli,
 
     ∑_{w∈𝒲} log Ξ_w ≪ W^{1 + 3(1+ϑ)/2 + ϑ}·(loglog N)²
       ≤ (log N)^{(2/5−ϑ)(5/2 + 5ϑ/2)}(loglog N)² ≤ (log N)^{1−ϑ/4},
 
 since (2/5 − ϑ)(5/2 + 5ϑ/2) = 1 − (3/2)ϑ − (5/2)ϑ² < 1 − ϑ.  So the
-rounding total is exp((log N)^{1−ϑ/4}) = N^{o(1)}.  Main term:
+rounding total is exp((log N)^{1−ϑ/4}) = N^{o(1)}.  Main term, via
+Lemma 14.3's product bound:
 
-    ∏_{w∈𝒲} δ_w ≤ exp(−ϑ∑_{w∈𝒲} log h_w + O(W))
-      ≤ exp(−(ϑ/3)·W log W)
+    2∏_{w∈𝒲} C₅ h_w^{−ϑ} ≤ exp(−ϑ∑_{w∈𝒲} log h_w + O(W))
+      ≤ exp(−(ϑ/5)·W log W)
       = exp(−c(ϑ)·(log N)^{2/5−ϑ}·log log N)
 
-for large N, using ∑_{w≤W, w≡3(4)} log φ(w) = (W/2)(log W)(1+o(1)).
+for large N, using ∑_{w≤W, w≡3(4)} log φ(w) = (W/4)(log W)(1+o(1))
+(the progression w ≡ 3 (mod 4) has density 1/4 in the integers).
 Lemma 14.1 and Lemma 14.3 assemble:
 E(N) ≤ W + (N/24)·exp(−c(log N)^{2/5−ϑ}loglog N) + N^{o(1)}. ∎
 
@@ -1989,35 +2052,38 @@ yields θ = 1/3 − o(1) by the same assembly.  The signed alphabet is
 strictly better here; this is the first place in the campaign where the
 c = 3 structure pays concretely.
 
-### 14.4 The budget ceiling of witness stacking
+### 14.4 The budget ceiling of witness stacking (assessment)
 
-The exponent 2/5 is pinned by an accounting that covers every variant
-of the framework.  For modulus w to contribute a constant factor
+The following accounting is a calibration of *this* framework —
+second-moment per-modulus factors built from multiplicative witnesses
+above a floor — not a nonexistence theorem; its model assumptions are
+named as they are used.  For modulus w to contribute a constant factor
 δ_w ≤ 1/2, a second-moment (Paley–Zygmund) argument needs the tilted
-family to cover (Z/w)×: h ≤ e^{(1−1/c)λ_w}, i.e. window mass
-λ_w ≥ (1−1/c)⁻¹ log h.  Mass λ above a floor u forces the window top
-log v ≥ e^{λ} log u, and a witness generically contains a prime of the
-top dyadic block, so the level consumed by modulus w is
-≳ h^{1/(1−1/c)}·log u.  The total level is capped by log N (the
-rounding budget; with primality it would be BV's (1/2)log N — worse,
-see W2).  Hence ∑_{w≤W} h_w^{1/(1−1/c)} ≲ log N, i.e.
-W^{1+1/(1−1/c)} ≲ log N: θ ≤ 1/3 for c = 2, θ ≤ 2/5 for c = 3, and
-θ → 1/2 as c → ∞ — but the signed alphabet on squarefree window parts
-is c = 3 (exponents −e..e, e = 1), and no larger c exists without
-higher prime multiplicities, which have no density.  One genuine
-upgrade remains inside the framework: Selberg-optimal weights supported
-on the closure of the witness system need only witness *mass*
-e^{λ}/h ≥ h^{ε} (λ ≥ (1+ε)log h) rather than concentration
-(λ ≥ (3/2)log h), relaxing the consumption to ∑_{w≤W} h_w ≲ log N and
-the cap to θ = 1/2 − o(1).  The missing piece is a support-restricted
-Selberg minimization — the admissible support
-{v : some signed subproduct of v's primes ≡ −1 (mod w)} is not
-divisor-closed, so the classical diagonalization does not apply
-verbatim.  Named open lemma.  Beyond 1/2 the wall is structural:
-covering a group of size h with products of primes above any floor
-consumes level ≥ h per modulus, and ∑_{w≤W} h_w ≍ W².  **The joint
-multi-modulus route contemplated in §13.3(3), now executed, tops out at
-θ = 1/2: it cannot reach Vaughan's 2/3.**
+family to cover (Z/w)×, which for iid-model residues means
+h ≤ e^{(1−1/c)λ_w} (Lemma 13.7 and its signed analogue), i.e. window
+mass λ_w ≥ (1−1/c)⁻¹ log h.  Mass λ above a floor u forces the window
+top log v ≥ e^{λ} log u, and the moment mass is carried by witnesses
+containing top-block primes (the measure ∑ log q/q is uniform in
+log q), so the level consumed by modulus w is ≳ h^{1/(1−1/c)}·log u.
+The total level is capped by log N (the rounding budget; with primality
+it would be BV's (1/2)log N — worse, see W2).  Hence
+∑_{w≤W} h_w^{1/(1−1/c)} ≲ log N, i.e. W^{1+1/(1−1/c)} ≲ log N: θ ≤ 1/3
+for c = 2, θ ≤ 2/5 for c = 3, and θ → 1/2 as c → ∞ — but the signed
+alphabet on squarefree window parts is c = 3 (exponents −e..e, e = 1),
+and higher multiplicities have no density.  One genuine upgrade remains
+inside the framework: Selberg-optimal weights supported on the closure
+of the witness system would need only witness *mass* e^{λ}/h ≥ h^{ε}
+(λ ≥ (1+ε)log h) rather than concentration (λ ≥ (3/2)log h), relaxing
+the consumption to ∑_{w≤W} h_w ≲ log N and the cap to θ = 1/2 − o(1).
+The missing piece is a support-restricted Selberg minimization — the
+admissible support {v : some signed subproduct of v's primes ≡ −1
+(mod w)} is not divisor-closed, so the classical diagonalization does
+not apply verbatim.  Named open lemma.  Beyond 1/2, within these model
+assumptions, the wall is structural: covering a group of size h with
+products of primes above any floor consumes level ≥ h per modulus, and
+∑_{w≤W} h_w ≍ W².  **Assessment: the joint multi-modulus route
+contemplated in §13.3(3), as executed here, tops out at θ = 1/2 and
+does not reach Vaughan's 2/3.**
 
 ### 14.5 The wall-map: what beating 2/3 now requires
 
@@ -2028,14 +2094,15 @@ named technology with its load-bearing computation cited.
   level consumption ≥ h_w per modulus; budget log N; so ≤ (log N)^{1/2}
   moduli — tilt or Selberg, subsets or signed, integers or primes.
 
-* **(W2) No prime-side stacking.**  An evaluation-based joint argument
-  over primes needs progression counts to compound moduli with relative
-  errors below an exponentially small main term; Bombieri–Vinogradov
-  saves only fixed powers of log N, additively.  Hence the integer-side
-  Λ² device of §14.1 (inequalities with O(1) rounding instead of
-  evaluations) is not one option among several — it is the only exit,
-  and primality contributes nothing.  Vaughan's own argument also
-  counts integers for exactly this reason.
+* **(W2) No prime-side stacking by progression evaluations.**  An
+  evaluation-based joint argument over primes needs progression counts
+  to compound moduli with relative errors below an exponentially small
+  main term; Bombieri–Vinogradov saves only fixed powers of log N,
+  additively.  Within evaluation-based technology the integer-side Λ²
+  device of §14.1 (inequalities with O(1) rounding instead of
+  evaluations) is the exit, and primality contributes nothing.
+  Vaughan's own argument also counts integers.  (Scope: this indicts
+  BV-style evaluations, not every conceivable prime-side inequality.)
 
 * **(W3) The class-mass ceiling B = 2, and the one visible door.**
   Vaughan/PW feed the large sieve ∑_{ℓ≤X} f(ℓ)/ℓ ≍ (log X)² forced
@@ -2051,12 +2118,12 @@ named technology with its load-bearing computation cited.
   polynomial families as the source; §13.3(3) rules out one-modulus
   divisor identities; nothing rules the door shut in general.
 
-* **(W4) Hybrids do not add exponents.**  Feeding Λ-weighted sequences
-  into the large sieve pays Cauchy–Schwarz halving:
-  #E ≤ [(N+Q²)·∑Λ⁴/S]^{1/2} carries exponent (Vaughan + stack)/2 <
-  Vaughan.  Splitting the level budget between the two systems is
-  likewise lossy (the LS mass is superlinear in its budget share).  Max,
-  not sum: 2/3 stands.
+* **(W4) Hybrids do not add exponents** (in the combinations computed
+  here).  Feeding Λ-weighted sequences into the large sieve pays
+  Cauchy–Schwarz halving: #E ≤ [(N+Q²)·∑Λ⁴/S]^{1/2} carries exponent
+  (Vaughan + stack)/2 < Vaughan.  Splitting the level budget between
+  the two systems is likewise lossy (the LS mass is superlinear in its
+  budget share).  Max, not sum: 2/3 stands against these combinations.
 
 Status after phase eight: campaign record E(N) ≪
 N exp(−(log N)^{2/5−o(1)}) (Theorem 14.4), Vaughan unbeaten; open

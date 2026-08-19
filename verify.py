@@ -825,10 +825,13 @@ assert worst1 < 1e-12 and worst2 < 1e-11, (worst1, worst2)
 print(f"(l1) signed local-factor identities: defects {worst1:.2e} (mu1), "
       f"{worst2:.2e} (mu2); principal factors == 1")
 
-# (l2) Toy integer-side stack: joint mean of prod_w (1-theta_w U_w)^2 vs
-# the product of the per-w means (the exact-CRT independence of Lemma
-# 14.3), plus Lambda = 1 on witness-free m.  Signed U via group DP.
-# Informational: toy windows, loose assert.
+# (l2) Toy integer-side stack.  (a) EXCLUSIVITY (Lemma 14.3): a shared
+# window prime q cannot serve two shifts — the joint divisibility count
+# is exactly zero while the independence model predicts N/q^2.  (b) The
+# joint mean of prod_w (1-theta_w U_w)^2 vs the product of per-w means:
+# equal up to second-order exclusion corrections (O(sum 1/q^2) over
+# shared primes) and finite-sample noise; informational, loose assert.
+# Signed U via group DP.
 NK2 = 2_000_000
 STACK = {3: list(primerange(26, 700)), 7: list(primerange(26, 3000))}
 
@@ -847,6 +850,14 @@ def u_signed(n, w, win):
         vec = nxt
     return vec[w - 1] / 3 ** len(ps), vec[w - 1], ps
 
+
+q_sh = 29  # shared window prime; check exclusivity vs independence
+both = sum(1 for m in range(1, NK2, 24)
+           if (m + 3) // 4 % q_sh == 0 and (m + 7) // 4 % q_sh == 0)
+single3 = sum(1 for m in range(1, NK2, 24) if (m + 3) // 4 % q_sh == 0)
+assert both == 0 and single3 > 0
+print(f"(l2a) exclusivity at q={q_sh}: joint count 0 (model would give "
+      f"~{single3 ** 2 * 24 // NK2}), single count {single3}")
 
 sums = {w: [0.0, 0.0] for w in STACK}
 vals = []
@@ -867,7 +878,7 @@ joint = sum(prod((1 - theta[w] * row[w]) ** 2 for w in STACK)
 ratio = joint / prod(marg.values())
 assert abs(ratio - 1) < 0.2, ratio
 lam_free = sum(1 for row in vals if all(row[w] == 0 for w in STACK))
-print(f"(l2) joint/product-of-marginals = {ratio:.4f} (CRT independence; "
+print(f"(l2) joint/product-of-marginals = {ratio:.4f} (exclusion corrections are second-order; "
       f"toy scale), delta_w = {[f'{marg[w]:.3f}' for w in STACK]}, "
       f"witness-free fraction {lam_free / cnt:.3f}")
 
