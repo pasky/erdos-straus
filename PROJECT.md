@@ -81,7 +81,10 @@ large-deviations against actual data for hard-class primes).
 
 ## Outcome 7 (2026-08-23, multiplier classes — see notes.md §16)
 
-* **Vaughan's 1970 bound is beaten.**  The generalized identity for
+* **CLAIMED/PROVISIONAL Vaughan-beating bounds.**  This record claim is
+  subject to external verification and priority search; Vaughan's primary
+  paper (1970) remains access-blocked and was checked only through the
+  Pomerance-Weingartner 2025 reconstruction.  The generalized identity for
   \(A_k=(k\ell+1)/4=uvw\) forces the class
   \(n\equiv-uv^{-1}\pmod{k\ell}\).  Lemma 16.3 proves, by a
   Bombieri--Vinogradov divisor-sum argument with honest cross-\(k\)
@@ -89,16 +92,15 @@ large-deviations against actual data for hard-class primes).
   every compatible subsequence.  The full multiplier family has
   \(h\asymp\log K\), giving for prime exceptions
   \(E(N)\ll N\exp[-c(\log N)^{2/3}(\log\log N)^{1/3}]\) (Theorem 16.4).
-* **All-denominator record, with the exact scope separated.**  Restricting
-  multipliers to solved primes \(k\equiv5,13,17\pmod{24}\) makes every
-  subsequence which can contain an exceptional integer automatically reduced;
-  their harmonic mass is \(\asymp\log\log K\).  Theorem 16.5 gives
+* **All-denominator scope.**  Every prime factor of an exceptional integer is
+  exceptional.  Rankin's inequality for that multiplicative semigroup lifts
+  Theorem 16.4 at full strength: Theorem 16.5 gives
   \(E_{\rm all}(N)\ll N\exp[-c(\log N)^{2/3}
-  (\log\log\log N)^{1/3}]\), still strictly stronger than Vaughan for all
-  denominators.  The requested \((\log\log N)^{1/3}\) factor is **not**
-  claimed in the all-integer version.  `verify.py (o)` checks 7,684 exact
-  identities (including composite/even inputs), toy class averages, and
-  within/across-multiplier distinctness.
+  (\log\log N)^{1/3}]\).  The prime and all-integer statements have the same
+  scale, but remain separate statements.  `verify.py (o)` checks 7,684 exact
+  identities (including composite/even inputs), an informational toy average
+  with the actual floor and \(\Omega\)-cutoff over primes and reduced classes,
+  and within/across-multiplier distinctness.
 
 ## Outcome 6 (2026-08-22, declustering door — see notes.md §15)
 

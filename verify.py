@@ -1063,8 +1063,8 @@ print("fast fixed-multiple replay (ell=103): one reduced candidate r=-4; "
 print("\n== (o) generalized multiplier identity and class counts ==")
 
 
-def multiplier_rows(ell, K, cutoff=None):
-    """Deduplicated (residue,u,v,k) rows from A_k=uvw, gcd(u,v)=1."""
+def multiplier_rows(ell, K, cutoff=None, floor=0, omega_cutoff=None):
+    """(residue,u,v,k) rows, with the Lemma-16.2 floor/cutoff if given."""
     classes = {}
     bound = cutoff if cutoff is not None else int(ell ** (1 / 3))
     while (bound + 1) ** 3 <= ell:
@@ -1074,10 +1074,15 @@ def multiplier_rows(ell, K, cutoff=None):
     for k0 in range(1, K + 1, 4):
         A0 = (k0 * ell + 1) // 4
         for u0 in divisors_of_square(A0):
-            if u0 > bound or A0 % u0:
+            if not floor < u0 <= bound or A0 % u0:
                 continue
+            omega_u = sum(factorint(u0).values())
             for v0 in divisors_of_square(A0 // u0):
-                if v0 > bound or A0 % (u0 * v0) or gcd(u0, v0) != 1:
+                if (not floor < v0 <= bound or A0 % (u0 * v0)
+                        or gcd(u0, v0) != 1):
+                    continue
+                if (omega_cutoff is not None
+                        and omega_u + sum(factorint(v0).values()) > omega_cutoff):
                     continue
                 r0 = (-u0 * pow(v0, -1, ell)) % ell
                 classes.setdefault(r0, []).append((u0, v0, k0))
@@ -1120,43 +1125,66 @@ assert saw_even_n and saw_composite_n and saw_composite_ell
 print(f"generalized identity: {multiplier_identity_checks} exact checks "
       "(including even/composite n and composite ell)")
 
-# Empirical f_c averages.  These use the full small-u,v family (the proof's
-# K^10 floor is deliberately asymptotic and vacuous at toy scale).  Over all
-# c == 1 (mod 4), the raw compatibility average is exactly sum(rows/k).
-K0 = 13
+# INFORMATIONAL small-scale version of the actual Lemma-16.2/16.3 object.
+# H_TOY^2>K0 preserves cross-k distinctness; OMEGA_TOY is a real, nonvacuous
+# cutoff.  We average over both all reduced c and a dyadic-ish range of ell.
+K0, H_TOY, OMEGA_TOY = 13, 4, 4
 ks0 = tuple(range(1, K0 + 1, 4))
 M0 = 4
 for k0 in ks0:
     M0 = lcm(M0, k0)
 all_c = tuple(range(1, M0, 4))
 reduced_c = tuple(c for c in all_c if gcd(c, M0) == 1)
-class_average_rows = []
-for ell in (10079, 13259, 18959, 29063):
-    by_residue = multiplier_rows(ell, K0)
+ells_toy = tuple(ell for ell in primerange(10_000, 30_000) if ell % 4 == 3)
+observed_by_k = {k0: 0.0 for k0 in ks0}
+predicted_by_k = {k0: 0.0 for k0 in ks0}
+observed_dedup = 0.0
+for ell in ells_toy:
+    by_residue = multiplier_rows(
+        ell, K0, floor=H_TOY, omega_cutoff=OMEGA_TOY)
+    # The toy floor has exactly the inequality used in the proof.
+    assert H_TOY * H_TOY > K0
+    assert all(len(entries) == 1 for entries in by_residue.values())
     rows = [(r0, u0, v0, k0) for r0, entries in by_residue.items()
             for u0, v0, k0 in entries]
+    per_k = {k0: 0 for k0 in ks0}
+    dedup_total = 0
+    for c in reduced_c:
+        hits = []
+        for r0, u0, v0, k0 in rows:
+            if (c * v0 + u0) % k0 == 0:
+                hits.append(r0)
+                per_k[k0] += 1
+        assert len(hits) == len(set(hits))
+        dedup_total += len(hits)
+    for k0 in ks0:
+        observed_by_k[k0] += per_k[k0] / len(reduced_c)
+        phi_k = k0
+        for p0 in factorint(k0):
+            phi_k = phi_k // p0 * (p0 - 1)
+        z0 = int(ell ** (1 / 3))
+        while (z0 + 1) ** 3 <= ell:
+            z0 += 1
+        while z0 ** 3 > ell:
+            z0 -= 1
+        predicted_by_k[k0] += phi_k / k0**2 * log(z0 / H_TOY) ** 2
+    observed_dedup += dedup_total / len(reduced_c)
 
-    def class_counts(classes):
-        raw, dedup = [], []
-        for c in classes:
-            hits = [r0 for r0, u0, v0, k0 in rows
-                    if (c * v0 + u0) % k0 == 0]
-            raw.append(len(hits))
-            dedup.append(len(set(hits)))
-        return sum(raw) / len(raw), sum(dedup) / len(dedup)
-
-    raw_all, avg_all = class_counts(all_c)
-    raw_reduced, avg_reduced = class_counts(reduced_c)
-    expected_raw = sum(Fraction(1, k0) for _, _, _, k0 in rows)
-    assert Fraction(sum(len([1 for _, u0, v0, k0 in rows
-                            if (c * v0 + u0) % k0 == 0]) for c in all_c),
-                    len(all_c)) == expected_raw
-    scale = log(ell) ** 2 * log(K0)
-    class_average_rows.append((ell, avg_all, avg_reduced, avg_all / scale))
-    assert avg_all <= raw_all and avg_reduced <= raw_reduced
-print("f_c toy averages (ell: all-c, reduced-c, all-c/((log ell)^2 log K)):",
-      {ell: (round(a, 2), round(ar, 2), round(ratio, 3))
-       for ell, a, ar, ratio in class_average_rows})
+n_ells = len(ells_toy)
+toy_comparison = {
+    k0: (round(observed_by_k[k0] / n_ells, 3),
+         round(predicted_by_k[k0] / n_ells, 3),
+         round(observed_by_k[k0] / predicted_by_k[k0], 3))
+    for k0 in ks0
+}
+total_predicted = sum(predicted_by_k.values()) / n_ells
+assert n_ells == 1014 and observed_dedup > 0
+print("INFORMATIONAL actual-object toy average over 1014 primes ell and all "
+      f"{len(reduced_c)} reduced c (H={H_TOY}, Omega<={OMEGA_TOY}); "
+      "k: (classes, phi(k)/k^2 scale, ratio) =", toy_comparison,
+      "; total =", (round(observed_dedup / n_ells, 3),
+                     round(total_predicted, 3),
+                     round((observed_dedup / n_ells) / total_predicted, 3)))
 
 # Spot-check both parts of distinctness by design at a prime where k=1 and
 # k=13 both contribute with u,v>K.  Reduced-ratio equality is checked too.

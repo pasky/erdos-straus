@@ -2316,7 +2316,11 @@ sieve.  This verdict is superseded in a different direction by §16: varying
 still allowed to vary with \(n\), so it was not part of the fixed-\(q=k\ell\)
 experiment of §15.1.
 
-## 16. Multiplier classes
+## 16. Multiplier classes — CLAIMED/PROVISIONAL Vaughan-beating bounds
+
+**Status.**  The record claim is subject to external verification and priority
+search; Vaughan's primary paper (1970) remains access-blocked and was checked
+only through the Pomerance-Weingartner 2025 reconstruction.
 
 ### 16.1 The generalized identity
 
@@ -2381,59 +2385,135 @@ Here \(\Sigma^*\) is over \(H<u,v\le z\),
 (16.2) one may additionally impose
 \(\Omega(uv)\le D\log\log z\).  The implied constants depend only on \(B\).
 
-*Proof.*  Split each variable into multiplicative intervals
-\((U,(1+\eta)U]\), with a fixed small \(\eta>0\).  In one pair of boxes,
-Möbius inversion for \((u,v)=1\), followed by counting the single reduced
-linear congruence \(u\equiv-cv\pmod k\), gives
+*Proof.*  We give the box calculation, including the two weighted estimates
+used later.  Fix \(\eta=1/20\), and first take two full multiplicative boxes
+\(I=(U,(1+\eta)U]\), \(J=(V,(1+\eta)V]\).  Möbius inversion for
+\((u,v)=1\) gives a sum over \(d\mid(u,v)\), necessarily with \((d,k)=1\).
+After writing \(u=da,v=db\), the remaining congruence is
+\(a+cb\equiv0\pmod k\).  For each reduced \(b\pmod k\) it specifies one
+reduced \(a\pmod k\), and
 
-    #{(u,v) in the boxes : (u,v)=(uv,k)=1, k|u+cv}
-      = η²UV · φ(k)/k² · ∏_{p∤k}(1−p⁻²)
-        + O_η((U+V)τ(k)^2 log(2UV)).                         (16.4)
+    #{b∈J/d:(b,k)=1} = ηV φ(k)/(dk) + O(τ(k)),
+    #{a∈I/d:a≡−cb (mod k)} = ηU/(dk) + O(1).
 
-Indeed, modulo \(k\) there are exactly \(\varphi(k)\) admissible pairs; a
-prime not dividing \(k\) excludes the proportion \(p^{-2}\), while primes
-dividing \(k\) have already been excluded.  Summing the full Möbius inversion
-uses \(\sum d^{-2}\) for the main term; the two boundary errors are bounded by
-\(O((U+V)\tau(k)^2\log(2UV))\), and the omitted end of the main Euler product
-is smaller still.  Since \(U,V>H=K^{10}\), the total error after summing the
-boxes and \(k\le K\) is \(o(1)\) times the main term.  Weighting a box by \(1/(UV)\)
-and then letting \(\eta\) tend to a fixed sufficiently small value gives,
-uniformly in \(c\),
+Using the first formula and then the second (or interchanging the variables)
+therefore gives
 
-    Σ* 1/(uv)
-      = {φ(k)/k² · ∏_{p∤k}(1−p⁻²) + o(1/k)}
-        (log(z/H))²                                          (16.5)
+    #{(a,b)∈I/d×J/d:(ab,k)=1, a+cb≡0 (mod k)}
+      = η²UV φ(k)/(d²k²) + O((U+V)τ(k)/d).
 
-for each \(k\), after summation (the aggregate error is what is used; no
-individual asymptotic is asserted when its main term is tiny).  The Euler
-factor in (16.5) lies between \(1/\zeta(2)\) and 1.  Möbius expansion of
-\(\varphi(k)/k\), restricted to \(k\equiv1\pmod4\), gives
+Summing with weight \(\mu(d)\), and extending the main sum past the largest
+possible \(d\), costs \(O(U+V)\).  Thus, uniformly in the reduced \(c\),
+
+    #{(u,v)∈I×J:(u,v)=(uv,k)=1, k|u+cv}
+      = η²UV · φ(k)/k² · P(k)
+        + O((U+V)τ(k)log(2UV)),                              (16.4)
+    P(k) = ∏_{p∤k}(1−p⁻²).
+
+This also proves directly why the main density is \(\varphi(k)/k^2\), not
+merely an average over \(c\).  Notice that
+\(1/\zeta(2)\le P(k)\le1\).
+
+Cover \((H,z]\) by these boxes (enlarging the last box for an upper bound and
+discarding it for a lower bound).  Put \(L=\log(z/H)\); the number of boxes is
+\(\asymp_\eta L\).  After division by \(UV\), the aggregate of all boundary
+errors in (16.4), for one fixed \(k\), is
+
+    ≪ τ(k)log z · L/H.                                      (16.5)
+
+Indeed, the sum of \(1/U\) over the geometric box endpoints is
+\(O_\eta(1/H)\), and the other variable supplies \(O_\eta(L)\) boxes.
+The main term is \(\asymp_\eta(\varphi(k)/k^2)L^2\).  Since \(z>H^2\),
+\(\log z/L<2\); and since
+\(k^2/\varphi(k)\le k\tau(k)\) and \(\tau(k)\le2\sqrt k\), the ratio of
+(16.5) to the main term is \(O(K^2/H)=O(K^{-8})\).  In particular the fixed
+floor \(H=K^{10}\) absorbs all box-boundary errors uniformly for every
+\(k\le K\), rather than only after averaging over \(k\).  We have proved
+
+    Σ* 1/(uv) ≍ φ(k)/k² · L²                              (16.5a)
+
+pointwise in \(k,c\).
+
+We next prove the weighted upper bound needed both for (16.3) and for the
+\(\Omega\)-tail.  We use the following precise specialization of Shiu's
+Brun--Titchmarsh theorem for nonnegative multiplicative functions.  If
+\(F(p^a)\le A^a\), \(F(n)\ll_\epsilon n^\epsilon\), \((r,q)=1\),
+\(q\le Y^{1/2}\), and \(\eta\) is fixed, then
+
+    Σ_{Y<n≤(1+η)Y, n≡r (mod q)} F(n)
+      ≪_{A,η} ηY/(φ(q)log Y)
+         exp{Σ_{p≤2Y, p∤q} F(p)/p}.                         (16.5b)
+
+This is Shiu's theorem with interval length \(\eta Y\); its hypotheses hold
+here because \(k\le K\le H^{1/10}<U^{1/2},V^{1/2}\).  Summing (16.5b) over
+the \(\varphi(k)\) reduced classes also gives
+
+    Σ_{V<v≤(1+η)V, (v,k)=1} F(v)
+      ≪_{A,η} ηV/log V
+         exp{Σ_{p≤2V, p∤k} F(p)/p}.                         (16.5c)
+
+Drop only the condition \((u,v)=1\).  Apply (16.5b) to the one reduced class
+\(u\equiv-cv\pmod k\) for each \(v\), and (16.5c) to the resulting
+\(v\)-sum.  Mertens' theorem then gives, uniformly for \(Y\ge H\),
+
+    exp{Σ_{p≤2Y, p∤k} t/p}/log Y
+       ≪_t (log Y)^{t−1} exp{−tΣ_{p|k}1/p},
+    exp{Σ_{p≤2Y, p∤k} (p/(p−1))/p}/log Y
+       ≪ exp{−Σ_{p|k}1/(p−1)}.                              (16.5d)
+
+The same formula with \(t=1\) handles \(F=1\).  No factor depending on the
+prime divisors of \(k\) is being suppressed here.  In fact, in each of the
+three cases the quotient of the two local factors in (16.5d), together with
+\(1/\varphi(k)\), by the desired density \(\varphi(k)/k^2\) is at most
+
+    k²/φ(k)² · exp{−2Σ_{p|k} b_p},                           (16.5e)
+
+where respectively \(b_p=t/p,1/(p-1),1/p\).  The logarithm of (16.5e) is
+
+    Σ_{p|k}{−2log(1−1/p)−2b_p}.
+
+For \(b_p=t/p\) its linear term is \(2(1-t)/p\le0\); for the other two
+choices the linear terms cancel.  In all cases the remainder is
+\(O_t(\sum_p p^{-2})\).  Hence (16.5e) is bounded by an absolute constant
+(or a constant depending only on fixed \(t\)), uniformly in \(k\).
+
+Dividing the box estimate by \(UV\), and summing the
+\(O_\eta(L^2)\) pairs of boxes, now proves the explicit estimate
+
+    Σ* t^{Ω(u)+Ω(v)}/(uv)
+      ≪_t φ(k)/k² · L² (log z)^{2(t−1)},       1<t<2,         (16.5f)
+
+for every reduced \(c\) and every \(k\le K\).  Taking instead
+\(F(n)=n/\varphi(n)\) is legitimate because it is multiplicative and
+\(F(p^a)=p/(p-1)\); since
+\(F(u)F(v)/(uv)=1/(\varphi(u)\varphi(v))\), the same calculation gives
+
+    Σ* 1/(φ(u)φ(v)) ≪ φ(k)/k² · L².                          (16.5g)
+
+This proves (16.3), with the required \(\varphi(k)/k^2\) retained pointwise.
+Equivalently, expanding
+\(n/\varphi(n)=\sum_{d\mid n}\mu^2(d)/\varphi(d)\) produces the same local
+factors: the extra divisor sums are bounded by
+\(\sum_d\mu^2(d)/(d\varphi(d))<\infty\); (16.5d)--(16.5e) record explicitly
+why primes dividing \(k\) do not introduce a growing factor.
+
+Finally Rankin's inequality and (16.5f) show that, for each \(k\),
+
+    Σ*_{Ω(uv)>D log log z} 1/(uv)
+      ≤ t^{−D log log z} Σ* t^{Ω(u)+Ω(v)}/(uv)
+      ≪ φ(k)/k² · L² (log z)^{2(t−1)−D log t}.               (16.5h)
+
+Fix, for example, \(t=3/2\), and choose the absolute integer \(D\) so that
+\(D\log t>2(t-1)\) (with enough fixed margin to absorb the constants for the
+minimum \(z>3^{20}\)).  Comparing (16.5h) with (16.5a) leaves at least half
+of the latter mass.  Summing the pointwise estimates over an arbitrary
+\(\mathcal J\) proves (16.2)--(16.3), since \(L\asymp\log z\).  Finally,
+Möbius expansion of \(\varphi(k)/k\), with the progression
+\(k\equiv1\pmod4\), gives
 
     Σ_{k∈𝒦(K)} φ(k)/k² ≍ log K.                              (16.6)
 
-Summing (16.5) over \(k\in\mathcal J\) proves untruncated (16.2), since
-\(\log(z/H)\sim\log z\).  In particular, for the full family (16.6) says
-\(h(\mathcal K(K))\asymp\log K\).
-
-For completeness, the two standard harmless truncations can be made in the
-same box calculation.  The identity
-
-    n/φ(n) = Σ_{d|n} μ²(d)/φ(d)
-
-has an absolutely convergent mean-value Euler product after division by
-\(n\), because \(\sum_d\mu^2(d)/(d\varphi(d))<\infty\).  Inserting it for
-\(u\) and \(v\) in (16.4) proves (16.3), with only bounded local factors.
-Likewise, inserting \(t^{\Omega(u)+\Omega(v)}\), \(1<t<2\), multiplies the
-unweighted box bound by at most
-\((\log z)^{2(t-1)+O(1/\log\log z)}\).  Rankin's inequality therefore makes
-the part \(\Omega(uv)>D\log\log z\) at most
-
-    (log z)^{2(t−1)−D log t+o(1)}
-
-of the scale before normalization.  Taking, for example, \(t=3/2\) and then
-\(D\) sufficiently large leaves at least half of (16.2).  The same argument
-is uniform for the reduced residue \(-cv\), because (16.4) was uniform.
-This proves the lemma. ∎
+Thus \(h(\mathcal K(K))\asymp\log K\), as used below. ∎
 
 The deliberately wasteful floor \(H=K^{10}\) makes the lattice errors
 uniform and also makes cross-multiplier distinctness immediate.  It costs
@@ -2458,58 +2538,101 @@ Then, uniformly in \(c\) and \(\mathcal J\),
 
 Every one of these residues is a forced class from Lemma 16.1.
 
-*Proof: distinctness.*  For fixed \(k\), two reduced fractions \(u/v\) and
-\(u'/v'\) in (16.7) which are congruent modulo \(\ell\) have
-\(|uv'-u'v|<\ell^{2/3}<\ell\), and hence are equal as rational numbers.
-Coprimality then makes the ordered pairs equal.  If the same reduced pair
-occurred for \(k\ne k'\), then \(uv\) would divide both
-\(A_k=(k\ell+1)/4\) and \(A_{k'}\).  Since \((A_k,\ell)=1\),
+*Proof: distinctness.*  Take any \(k,k'\in\mathcal J\).  A collision between
+the residues belonging to \((k,u,v)\) and \((k',u',v')\) modulo \(\ell\)
+gives
 
-    gcd(A_k,A_{k'}) | |k−k'|/4 < K.
+    ℓ | uv'−u'v,    |uv'−u'v| < ℓ^{2/3} < ℓ.
 
-But \(uv>H^2>K\), a contradiction.  Thus (16.7) has no duplicates at all;
+Thus \(u/v=u'/v'\), and reducedness gives \((u,v)=(u',v')\).  If
+\(k\ne k'\), put \(g=(A_k,A_{k'})\).  Here
+
+    A_k−A_{k'} = ((k−k')/4)ℓ,
+
+where \((k-k')/4\) is an integer because \(k\equiv k'\equiv1\pmod4\).
+Also \((g,\ell)=1\), since each \(A_j=(j\ell+1)/4\) is prime to \(\ell\).
+It follows that \(g\mid(k-k')/4\).  On the other hand the now-common product
+\(uv\) divides both \(A_k,A_{k'}\), and hence divides \(g\), whereas
+
+    uv > H² > K > |k−k'|/4.
+
+This is a contradiction.  For \(k=k'\), equality of the ordered pair also
+fixes \(w=A_k/(uv)\).  Thus (16.7) has no duplicates for any pair \(k,k'\);
 the stated honest deduplication changes nothing.
 
 *Proof: lower bound.*  Partition \((X^{1/2},X]\) into dyadic intervals
-\((x,2x]\).  In one interval retain only \(u,v\le x^{1/6}\).  These satisfy
-the size condition in (16.7).  For every remaining \((k,u,v)\), divisibility
-in (16.7) is exactly the reduced prime progression
+\((x,2x]\), and fix the parameter \(B=6\) in Lemma 16.2.  In one interval
+put \(z=x^{1/6}\) and retain only \(u,v\le z\).  Since
+\(x\ge X^{1/2}\),
+
+    log z ≥ (1/12)log X,    z>H² ⇔ (1/6)log x>20log K.
+
+The latter inequality holds uniformly once \(X\) is large because
+\(K\le(\log X)^5\); the same assumption gives
+\(K\le(\log z)^6\) (indeed \((\log X)^5\le(\log X/12)^6\) eventually).
+Thus every hypothesis of Lemma 16.2 is met.  Also \(z\le\ell^{1/3}\) for
+\(\ell>x\), so these pairs satisfy the size condition in (16.7).  The
+lemma supplies pairs with
+\(\Omega(uv)\le D(6)\log\log z\); because
+
+    log log z = log log X + O(1),    log log z ≤ log log X,
+
+these pairs are included after fixing the \(D\) in (16.7) to be \(D(6)\).
+This explicitly reconciles the two cutoffs.
+
+For every retained \((k,u,v)\), divisibility in (16.7) is exactly the reduced
+prime progression
 
     ℓ ≡ −k^{-1} (mod 4uv).                                  (16.9)
 
-It already includes \(\ell\equiv3\pmod4\), since \(k\equiv1\pmod4\).
-The moduli in (16.9) are at most \(4x^{1/3}\).  Apply
-Bombieri--Vinogradov to the interval \((x,2x]\).  After imposing
-\(\Omega(uv)\le D\log\log X\), a given modulus occurs at most
+It already includes \(\ell\equiv3\pmod4\), since \(k\equiv1\pmod4\), and
+its modulus is
 
-    K·2^{Ω(uv)} ≤ (log X)^{O_D(1)}
+    q=4uv ≤ 4x^{1/3}.
 
- times.  Thus the total Bombieri--Vinogradov error is
-\(O(x(\log x)^{-C})\) for any prescribed \(C\), on choosing its usual
-logarithmic saving sufficiently large.  Lemma 16.2 and
-\(1/\varphi(4uv)\ge1/(4uv)\) give the main term
+Here is the Bombieri--Vinogradov bookkeeping.  For a prescribed \(R\), use
+the standard level
+
+    q ≤ x^{1/2}/(log x)^{A_R},
+    Σ_q max_{(a,q)=1}|π(2x;q,a)−π(x;q,a)
+       −(li(2x)−li(x))/φ(q)| ≪_R x/(log x)^R.
+
+For large \(x\), every \(q\le4x^{1/3}\) lies below that level.  A fixed
+\(q=4uv\) is generated by at most
+
+    W(q) ≤ K·2^{Ω(uv)}
+         ≤ (log X)^{5+D log 2} = (log X)^{C_D}               (16.9a)
+
+triples: coprimality assigns each prime power of \(uv\) wholly to \(u\) or
+to \(v\), and there are at most \(K\) choices of \(k\).  Since
+\(\log x\asymp\log X\), take \(R=C_D+10\) and the corresponding
+Bombieri--Vinogradov constant \(A_R\).  Multiplying the displayed error sum
+by (16.9a) gives \(O(x/(\log x)^{10})\), negligible uniformly in \(c\).
+Lemma 16.2 and \(1/\varphi(4uv)\ge1/(4uv)\) give the main term
 
     ≫ x/log x · (log x)^2 h(𝒥) = x log x\,h(𝒥).              (16.10)
 
 Consequently this dyadic interval contributes
-\(\gg\log x\,h(\mathcal J)\) to the reciprocal sum.  Summing the
-\(\asymp\log X\) dyadic intervals between \(X^{1/2}\) and \(X\) proves the
-lower half of (16.8).
+\(\gg\log x\,h(\mathcal J)\) to the reciprocal sum.  There are
+\(\asymp\log X\) such intervals and throughout them \(\log x\asymp\log X\),
+which proves the lower half of (16.8).
 
-*Proof: upper bound.*  On \((x,2x]\), enlarge to
-\(u,v\le(2x)^{1/3}\) and drop the \(\Omega\)-restriction.  Brun--Titchmarsh
+*Proof: upper bound.*  On \((x,2x]\), put \(z=(2x)^{1/3}\), enlarge to
+\(u,v\le z\), and drop the \(\Omega\)-restriction.  The same explicit
+checks give \(z>H^2\) and \(K\le(\log z)^6\) for large \(X\).  Brun--Titchmarsh
 in (16.9), followed by (16.3), gives
 
     Σ_{x<ℓ≤2x} f_c(ℓ)
       ≪ x/log x · Σ_{k,u,v} 1/(φ(u)φ(v))
       ≪ x log x\,h(𝒥).                                      (16.11)
 
-Here \(4uv\ll x^{2/3}\), so the Brun--Titchmarsh logarithm is
-\(\gg\log x\).  Dividing by \(x\) and summing the same dyadic intervals
-proves the upper half.  This also proves the asserted uniformity: the only
-appearance of \(c\) was in Lemma 16.2, which is pointwise for every
-\((c,L_{\mathcal J})=1\).  Finally (16.7) says \(A_k=uvw\) for an integer \(w>0\), and
-\(cv\equiv-u\pmod k\).  Lemma 16.1 supplies the forced class. ∎
+Here \(4uv\ll x^{2/3}\), so the Brun--Titchmarsh denominator
+\(\log(x/(4uv))\) is \(\gg\log x\).  Dividing by \(x\) and summing the same
+dyadic intervals proves the upper half.  This also proves the asserted
+uniformity: the only appearance of \(c\) was in Lemma 16.2, which is
+pointwise for every \((c,L_{\mathcal J})=1\).  Finally (16.7) says
+\(A_k=uvw\) for an integer \(w>0\), and \(cv\equiv-u\pmod k\).  Lemma 16.1
+supplies the forced class. ∎
 
 This is the promised PW-Lemma-4.1-style divisor-sum argument.  For the full
 family the new factor \(h(\mathcal J)\asymp\log K\) comes from (16.6).
@@ -2604,70 +2727,92 @@ reduced subsequences, and absorbing primes at most \(K\), gives
 
 as claimed. ∎
 
-The nonreduced classes can also be handled without a correlation estimate if
-one gives up most, but not all, of the \(\log K\) gain.  This is enough to make
-the comparison with Vaughan's original all-integer theorem unambiguous.
-
-Put
-
-    𝒥_good(K) = {1} ∪ {k≤K prime : k mod 24 ∈ {5,13,17}}.     (16.15)
-
-Every prime in (16.15) is in an easy class of Lemma 1.2: residues 5 and 17
-modulo 24 are 2 modulo 3, and residue 13 is 5 modulo 8.  Hence an exceptional
-integer cannot be divisible by any member of \(\mathcal J_{\rm good}\), since
-a representation for a divisor scales to one for the integer (Lemma 1.1).
-Mertens' theorem in arithmetic progressions gives
-
-    h(𝒥_good) = 1 + Σ_{k≤K,\ k mod 24∈{5,13,17}} (k−1)/k²
-              = (3/8+o(1)) log log K.                        (16.16)
+The prime bound immediately gives the same full logarithmic strength for all
+denominators; no treatment of nonreduced multiplier subsequences is needed.
+The point is that exceptional integers lie in the multiplicative semigroup
+generated by exceptional primes.
 
 **Theorem 16.5 (all exceptional denominators).**  Let
 
     E_all(N) = #{n≤N : 4/n is not a sum of three unit fractions}.
 
-There is an absolute \(c>0\) such that
+There is an absolute \(c>0\) such that, for all sufficiently large \(N\),
 
-    E_all(N) ≪ N exp{−c (log N)^{2/3}(log log log N)^{1/3}}.  (16.17)
+    E_all(N) ≪ N exp{−c (log N)^{2/3}(log log N)^{1/3}}.      (16.15)
 
-*Proof.*  Take \(K=\lfloor\delta\log N\rfloor\),
-\(\mathcal J=\mathcal J_{\rm good}(K)\),
-\(M_0=24L_{\mathcal J}\), and \(h=h(\mathcal J)\).  Again
-\(M_0\le\exp(O(K))\), so \(Y=N/M_0\ge N^{1-2\delta}\) after reducing
-\(\delta\).  If the progression \(n\equiv c\pmod{M_0}\) contains an
-exceptional integer, then \((c,M_0)=1\): divisibility by 2 or 3 is easy, and
-divisibility by a prime in \(\mathcal J_{\rm good}\) is excluded by the
-preceding paragraph.  Thus Lemma 16.3 applies pointwise to every progression
-that matters.
+*Proof.*  Every prime factor of an exceptional integer \(n>1\) is itself
+exceptional.  Indeed, if \(p\mid n\) and
 
-Choose
+    4/p = 1/x₁ + 1/x₂ + 1/x₃,
 
-    X = exp{α (log N/h)^{1/3}}
+then scaling the three denominators gives
 
-with \(\alpha\) sufficiently small.  The large-sieve proof of Theorem 16.4,
-now using (16.8) in the form
-\(\sum f_c(\ell)/\ell\asymp(\log X)^2h\), applies verbatim.  Its Rankin
-support condition is
+    4/n = 1/((n/p)x₁) + 1/((n/p)x₂) + 1/((n/p)x₃),
 
-    (log X)^3 h ≪ log Y,
+contrary to exceptionality of \(n\).  Thus the exceptional integers are a
+subset of the multiplicative semigroup generated by exceptional primes.
 
-which follows from the choice of \(\alpha\).  Each relevant subsequence
-therefore contributes
+Write
 
-    ≪ Y exp{−a(log X)^2h}
-     = Y exp{−aα²(log N)^{2/3}h^{1/3}}.
+    g(u)=u^{2/3}(log u)^{1/3},    x=e^L.
 
-Sum over at most \(M_0\) classes and use (16.16), noting that
-\(\log\log K\sim\log\log\log N\).  This proves (16.17). ∎
+Theorem 16.4 says, after changing its constant to cover a finite initial
+range, that the exceptional-prime counting function satisfies
 
-**Scope and verdict.**  The requested \((\log\log N)^{1/3}\) enhancement is
-proved for the prime exceptional set in Theorem 16.4.  For all integer
-denominators, the fully uniform theorem currently proved is (16.17), with
-\((\log\log\log N)^{1/3}\).  Both factors tend to infinity, so each exponent
-strictly majorizes every fixed constant times \((\log N)^{2/3}\); (16.17)
-therefore **does beat Vaughan's 1970 all-integer bound**.  No averaging over
-bad subsequences is hidden: every subsequence which can contain an exception
-is reduced modulo the deliberately chosen solved-prime multipliers.  The
-stronger all-integer exponent asked for in the program is not proved.
+    E(x) ≪ x exp{−c₀g(log x)}.                                (16.16)
+
+Fix \(0<\eta<c_0\), and for large \(L\) put
+\(\delta=\eta g(L)/L\), so \(0<\delta<1/4\).  Rankin's inequality over the
+above multiplicative semigroup gives
+
+    E_all(x)
+      ≤ x^{1−δ} ∏_{p≤x,\ p exceptional}(1−p^{−1+δ})^{−1}.    (16.17)
+
+Only primes at most \(x\) occur because an integer counted on the left is at
+most \(x\).
+
+We show that the Euler product in (16.17) is bounded uniformly in \(x\).
+Partial summation and (16.16) give
+
+    Σ_{p≤x,\ p exceptional} p^{−1+δ}
+      ≪ 1 + E(x)x^{−1+δ}
+           + ∫_2^x E(t)t^{−2+δ}dt
+      ≪ 1 + ∫_{log 2}^L exp{δu−c₀g(u)}du.                    (16.18)
+
+For \(u>e\),
+
+    g(u)/u = u^{−1/3}(log u)^{1/3}
+
+is decreasing.  Hence, for \(u\le L\),
+
+    δu = η(g(L)/L)u ≤ ηg(u).
+
+The last integral in (16.18) is therefore at most a fixed initial contribution
+plus
+\(\int_e^\infty\exp\{-(c_0-\eta)g(u)\}\,du<\infty\).  This proves
+\(\sum p^{-1+\delta}=O(1)\), uniformly in \(x\).  Finally, the prime-power
+terms in the logarithm of the Euler product satisfy
+
+    Σ_{p≤x} Σ_{j≥2} p^{−j(1−δ)}/j
+      ≤ Σ_p Σ_{j≥2} p^{−3j/4}/j = O(1).
+
+Thus the product in (16.17) is \(O(1)\), and
+
+    E_all(x) ≪ x^{1−δ}
+             = x exp{−ηg(log x)},
+
+which is (16.15).  Salez's verification through \(10^{17}\) is unnecessary
+for this implication, although it can be used as a convenient finite base. ∎
+
+**Scope and provisional verdict.**  Theorems 16.4 and 16.5 now have the same
+full-strength saving
+\((\log N)^{2/3}(\log\log N)^{1/3}\), respectively for prime denominators
+and for all integer denominators.  They are CLAIMED/PROVISIONAL
+Vaughan-beating bounds, subject to external verification and priority search;
+Vaughan's primary paper (1970) remains access-blocked and was checked only
+through the Pomerance-Weingartner 2025 reconstruction.  The all-integer result
+is a semigroup corollary of the prime result, not an assertion that
+Lemma 16.3 applies to nonreduced integer subsequences.
 
 ---
 
