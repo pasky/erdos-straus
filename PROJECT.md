@@ -79,6 +79,28 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 6 (2026-08-22, declustering door — see notes.md §15)
+
+* **Vaughan's forced classes are now explicit in criterion language.**  For
+  ℓ ≡ 3 (mod 4), a=(ℓ+1)/4, each squarefree T|a and split
+  d₁d₂=a/T, d₁<d₂, gives the distinct class
+  n≡−4Td₁² (mod ℓ).  With g=(d₁,d₂), u=d₁/g, v=d₂/g,
+  w=Tg², s=(nv+u)/ℓ, the exact Theorem 3.1(B) witness is
+  q=(s+u)/v, x=suw, d=s²w, yielding
+  4/n=1/(suw)+1/(nsvw)+1/(nuvw).  The parameter count is exactly
+  f(ℓ)=(τ(a²)−1)/2, reproducing PW (4.1) and locating the B=2 supply
+  in the divisors of a².
+* **The proposed fixed-multiple declustering route is negative, but the full
+  door remains unclear.**  Exhaustive finite tests of all 27,452 nonzero
+  residues for ℓ=103,…,13799, 40 hard-slice n-values each, leave exactly one
+  class per ℓ for q=kℓ or m=kℓ with k≤20: r=−4, already forced by q=ℓ,
+  d=x².  Measured log-log growth exponent: 0.00 (degenerate sample); no
+  k-shift gain.  This is not an upper envelope for Vaughan: his criterion q
+  varies with n (q→q+1 when n→n+ℓ).  Therefore bounded fixed multiples are
+  shut, no B>2 family was found, and claiming all ℓ-local declustering shut
+  would be an overreach.  `phase0_full.py` records the full experiment;
+  `verify.py (n)` gives the fast identity/count replay.
+
 ## Outcome 4 (2026-08-18, phase eight — see notes.md §14)
 
 * **New campaign record: E(N) ≪ N exp(−(log N)^{2/5−o(1)}) (Theorem

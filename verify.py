@@ -962,4 +962,101 @@ assert done == 25
 print("(l3) exact solutions from signed witnesses d = n*a/b via Thm 3.1(B) "
       "(25 samples, w=7)")
 
+# ---------------------------------------------------------------- (n)
+print("\n== (n) auxiliary-prime declustering (§15) ==")
+
+
+def pw_class_count(ell):
+    """PW (4.1), m=4: floor(1/2 sum_{T|a} mu^2(T) tau(a/T))."""
+    a = (ell + 1) // 4
+    squarefree = [1]
+    for prime in factorint(a):
+        squarefree += [T * prime for T in squarefree]
+    raw = sum(prod(e + 1 for e in factorint(a // T).values())
+              for T in squarefree)
+    assert raw == prod(2 * e + 1 for e in factorint(a).values())
+    return raw // 2
+
+
+def vaughan_classes(ell):
+    """Return (r,D,u,v,w) for D|a^2, D<a and uvw=a, D=u^2w."""
+    a = (ell + 1) // 4
+    rows = []
+    for D in sorted(divisors_of_square(a)):
+        if D >= a:
+            continue
+        g0 = gcd(D, a)
+        u0, v0, w0 = D // g0, a // g0, g0 * g0 // D
+        assert gcd(u0, v0) == 1 and u0 * v0 * w0 == a and u0 * u0 * w0 == D
+        rows.append(((-4 * D) % ell, D, u0, v0, w0))
+    return rows
+
+
+ladder = (103, 199, 431, 863, 1699, 3467, 6899, 13799)
+expected_f = (4, 7, 17, 24, 7, 7, 22, 67)
+for ell, expected in zip(ladder, expected_f):
+    rows = vaughan_classes(ell)
+    assert pw_class_count(ell) == expected == len(rows)
+    assert len({row[0] for row in rows}) == expected
+print("PW class counts on ell ladder:", dict(zip(ladder, expected_f)))
+
+# For ell=103, reconstruct every class and the exact criterion-B witness.
+rows103 = vaughan_classes(103)
+assert [row[:2] for row in rows103] == [(99, 1), (95, 2), (87, 4), (51, 13)]
+identity_checks = 0
+for r, D, u0, v0, w0 in rows103:
+    for j in (0, 1, 2, 17, 101):
+        n = r + 103 * j
+        t0 = (n * v0 + u0) // 103
+        assert 103 * t0 == n * v0 + u0
+        assert (t0 + u0) % v0 == 0
+        q0 = (t0 + u0) // v0
+        x0, d0 = t0 * u0 * w0, t0 * t0 * w0
+        assert q0 == 4 * x0 - n and x0 * x0 % d0 == 0 and (d0 + x0) % q0 == 0
+        sol = (x0, n * t0 * v0 * w0, n * u0 * v0 * w0)
+        assert sum((Fraction(1, value) for value in sol), Fraction()) == Fraction(4, n)
+        identity_checks += 1
+print(f"ell=103 Vaughan classes {[row[0] for row in rows103]}; "
+      f"{identity_checks} exact identity/witness checks")
+
+# Fast replay of Phase 0 at ell=103.  We only test n == 1 (mod 4), the
+# hard slice; q=k*ell and m=k*ell are admissible there only for k == 1 (mod 4).
+from random import Random
+
+
+def fixed_multiple_witness(n, ell, k0, half):
+    modulus = k0 * ell
+    value = ((n + modulus) // 4 if half == "B" else (n * modulus + 1) // 4)
+    return any((d0 + value) % modulus == 0 for d0 in divisors_of_square(value))
+
+
+ell = 103
+ks = (1, 5, 9, 13, 17)
+rng = Random(20260819 + ell)
+states = {r: {(half, k0): True for half in "BA" for k0 in ks}
+          for r in range(1, ell)}
+union = {r: True for r in range(1, ell)}
+bases = {r: r + ell * (((1 - r) * pow(ell, -1, 4)) % 4) for r in states}
+for _ in range(40):
+    alive = [r for r in states if union[r] or any(states[r].values())]
+    for r in alive:
+        base = bases[r]
+        lo = max(0, (1_000_000 - base + 4 * ell - 1) // (4 * ell))
+        hi = (100_000_000 - base) // (4 * ell)
+        n = base + 4 * ell * rng.randint(lo, hi)
+        any_now = False
+        for half in "BA":
+            for k0 in ks:
+                key = (half, k0)
+                if states[r][key] or union[r]:
+                    hit = fixed_multiple_witness(n, ell, k0, half)
+                    states[r][key] &= hit
+                    any_now |= hit
+        union[r] &= any_now
+assert [r for r in union if union[r]] == [ell - 4]
+assert [(half, k0) for half in "BA" for k0 in ks
+        if any(states[r][(half, k0)] for r in states)] == [("B", 1)]
+print("fast fixed-multiple replay (ell=103): one reduced candidate r=-4; "
+      "no extra class from k<=20")
+
 print("\nall checks passed")

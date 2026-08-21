@@ -2172,6 +2172,147 @@ a toy integer-side stack ∑Λ² against ∏δ_w on real data
 reconstructs exact unit-fraction solutions from signed witnesses via
 d = na/b and Theorem 3.1(B).
 
+## 15. The declustering door: fixed auxiliary witnesses do not enlarge it
+
+This section separates two notions that initially looked identical but are not:
+a criterion witness whose parameter is the auxiliary prime ℓ, and a residue
+class *constructed using* ℓ.  The experiment below measures the first notion.
+Vaughan's classes use the second: their criterion parameter varies with n.
+That distinction is decisive, and prevents the finite experiment from being
+misreported as an upper bound for all ℓ-local identities.
+
+### 15.1 Fixed-parameter envelope (exhaustive finite experiment)
+
+Let ℓ ≡ 3 (mod 4) be prime.  On the only hard slice n ≡ 1 (mod 4), define a
+fixed-multiple hit at n to mean a Theorem 3.1 witness with q = kℓ in case B or
+m = kℓ in case A, for some k ≤ 20.  Compatibility forces k ≡ 1 (mod 4), so
+only k = 1, 5, 9, 13, 17 can occur.  (In particular, q = ℓ in case B is
+compatible with n ≡ 1, not n ≡ 3.)  Residue 0 mod ℓ is omitted: it is irrelevant
+to the large sieve on target primes and is trivially composite.
+
+`phase0_full.py` exhausts every nonzero residue r mod ℓ in the stated ladder.
+For each it tests 40 deterministic-pseudorandom n ≡ r (mod ℓ), n ≡ 1 (mod 4),
+with 10^6 ≤ n ≤ 10^8.  Divisors of x² or z₀² are enumerated from exact integer
+factorizations.  A candidate survives only if every tested n has a hit; for the
+union over k and both halves, k may vary with n.  Thus survivors are only
+finite-test upper candidates, while one failed test is an exact counterexample
+to that residue being universally fixed-multiple-forced.
+
+| ℓ | PW f(ℓ) | q=ℓ, B | m=ℓ, A | either half, some k≤20 |
+|---:|---:|---:|---:|---:|
+| 103 | 4 | 1 | 0 | 1 |
+| 199 | 7 | 1 | 0 | 1 |
+| 431 | 17 | 1 | 0 | 1 |
+| 863 | 24 | 1 | 0 | 1 |
+| 1699 | 7 | 1 | 0 | 1 |
+| 3467 | 7 | 1 | 0 | 1 |
+| 6899 | 22 | 1 | 0 | 1 |
+| 13799 | 67 | 1 | 0 | 1 |
+
+The survivor is always r = −4 (mod ℓ), and it is genuinely forced: if
+x = (n+ℓ)/4, then x ≡ −1 (mod ℓ), so d = x² divides x² and
+ℓ | d+x.  The reconstructed solution is Theorem 3.1(B)'s.  No A-half class
+survived, and no k-shift added a class.  The descriptive regression
+log A = α + β log log ℓ therefore gives β = 0.00 with degenerate standard
+error 0.00 (all eight observations equal 1); this is measured finite data, not
+an asymptotic theorem.  For scale only, the same eight highly divisor-sensitive
+values of f give β = 2.47 ± 1.10 (ordinary least-squares standard error), too
+noisy to estimate the known average exponent 2.
+
+The passing witness also explains why the fixed-parameter search is so narrow:
+d = x² is a universal endpoint of the divisor lattice.  By contrast, the
+classes in the next lemma have d = s²w and a criterion modulus that changes
+with n.  They could never have appeared in the q = kℓ scan.
+
+### 15.2 Vaughan's classes reconstructed from Theorem 3.1
+
+**Lemma 15.1 (explicit Vaughan/PW class family).**  Let ℓ ≡ 3 (mod 4) be
+prime and put a = (ℓ+1)/4.  Choose a squarefree T | a and a factorization
+
+    d₁d₂ = a/T,                    d₁ < d₂.
+
+Put g = gcd(d₁,d₂), u = d₁/g, v = d₂/g, and w = Tg².  Then uvw = a and
+every positive integer n in the residue class
+
+    n ≡ r(T,d₁,d₂) := −4Td₁² ≡ −u v⁻¹              (mod ℓ)
+
+has a three-unit-fraction representation.  Explicitly, set
+
+    s = (nv+u)/ℓ,       q = (s+u)/v,       x = suw,       d = s²w.
+
+These are positive integers, q = 4x−n, d | x², and q | d+x, so they give the
+case-B witness and identity
+
+    4/n = 1/(suw) + 1/(nsvw) + 1/(nuvw).
+
+The classes so obtained are distinct, and their number is exactly
+
+    f(ℓ) = floor( (1/2) ∑_{T|a} μ²(T) τ(a/T) ).
+
+*Proof.*  The two displayed descriptions of the class agree because
+D := Td₁² = u²w and 4a ≡ 1 (mod ℓ), hence 4D ≡ D/a = u/v.  The class makes
+s integral.  Since ℓ = 4uvw−1 ≡ −1 (mod v), reducing
+ℓs = nv+u modulo v shows v | s+u, so q is integral.  Moreover
+
+    4suvw = s+nv+u,
+    4x = n+(s+u)/v = n+q,
+    x²/d = u²w,
+    d+x = sw(s+u) = qsvw.
+
+Thus d | x² and q | d+x.  Substitution in Theorem 3.1(B)'s denominators gives
+x, nsvw, nuvw exactly; the displayed identity also proves sufficiency directly
+when n is composite.
+
+It remains to count and separate the classes.  Prime by prime, every divisor
+D of a² has a unique expression D = Td₁² with T squarefree and d₁ | a/T;
+then d₂ = a/(Td₁).  The involution D ↦ a²/D swaps d₁ and d₂, and its unique
+fixed point is D = a.  Hence d₁ < d₂ selects exactly
+(τ(a²)−1)/2 divisors D<a.  Multiplicativity gives
+
+    ∑_{T|a} μ²(T)τ(a/T) = ∏_{p^e || a} ((e+1)+e)
+                         = ∏_{p^e || a}(2e+1) = τ(a²),
+
+so the count is f(ℓ).  Finally 0 < D < a < ℓ; therefore distinct D give
+distinct residues −4D mod ℓ. ∎
+
+For ℓ = 103, a = 26 and the eligible D are 1, 2, 4, 13, giving exactly the
+four classes
+
+    r = 99, 95, 87, 51                         (mod 103).
+
+`verify.py (n)` regenerates f(ℓ) = 4,7,17,24,7,7,22,67 on the full ladder,
+checks distinctness, and checks the criterion witness and unit-fraction
+identity for every ℓ = 103 class at five n-values (20 exact checks).  This
+both reproduces PW's promised f(103) classes and identifies where the
+(log ℓ)² class mass comes from: one squarefree-kernel choice T and one divisor
+split d₁d₂.  Equivalently, it is the divisor set of a², cut in half by
+D ↔ a²/D.
+
+### 15.3 Door verdict
+
+**Verdict: shut for fixed q = kℓ or m = kℓ with bounded k; unclear for the
+full declustering door.**  The strongest evidence is the exhaustive finite
+result that all 27,452 nonzero residue classes in the eight moduli reduce to
+the single endpoint class r = −4 even after both halves and k ≤ 20 are pooled.
+There is no measured growth at all, let alone (log ℓ)^{2+δ}.
+
+But this does **not** close “ℓ-local structure” in general.  Lemma 15.1 proves
+why: in a Vaughan class, replacing n by n+ℓ replaces s by s+v and q by q+1.
+The auxiliary prime controls the congruence, while the criterion modulus is
+not ℓ and is not fixed.  Therefore the Phase-0 quantity is not an envelope
+containing Vaughan's f(ℓ), and its smallness cannot upper-bound more general
+families.  No theorem here bounds the number of all possible forced classes,
+and no new family with B>2 was found.
+
+The count in Lemma 15.1 also sharpens what a successful construction must add.
+T and the split d₁d₂ already enumerate every divisor of a² once; rearranging
+those parameters can only recluster the same τ(a²) supply.  To beat Vaughan in
+this currency one needs a genuinely additional independent parameter that
+produces distinct residues (and an all-n identity), not more witnesses inside
+the same residue.  The bounded k-shift proposal supplies no such parameter.
+Thus there is nothing new to plug into the PW large sieve, and θ = 2/3 remains
+unbeaten by this unit.
+
 ---
 
 ### References (partly from memory — flagged)
