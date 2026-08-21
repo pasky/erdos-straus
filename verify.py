@@ -978,7 +978,7 @@ def pw_class_count(ell):
     return raw // 2
 
 
-def vaughan_classes(ell):
+def reconstructed_classes(ell):
     """Return (r,D,u,v,w) for D|a^2, D<a and uvw=a, D=u^2w."""
     a = (ell + 1) // 4
     rows = []
@@ -995,29 +995,42 @@ def vaughan_classes(ell):
 ladder = (103, 199, 431, 863, 1699, 3467, 6899, 13799)
 expected_f = (4, 7, 17, 24, 7, 7, 22, 67)
 for ell, expected in zip(ladder, expected_f):
-    rows = vaughan_classes(ell)
+    rows = reconstructed_classes(ell)
     assert pw_class_count(ell) == expected == len(rows)
     assert len({row[0] for row in rows}) == expected
 print("PW class counts on ell ladder:", dict(zip(ladder, expected_f)))
 
-# For ell=103, reconstruct every class and the exact criterion-B witness.
-rows103 = vaughan_classes(103)
-assert [row[:2] for row in rows103] == [(99, 1), (95, 2), (87, 4), (51, 13)]
-identity_checks = 0
-for r, D, u0, v0, w0 in rows103:
-    for j in (0, 1, 2, 17, 101):
-        n = r + 103 * j
-        t0 = (n * v0 + u0) // 103
-        assert 103 * t0 == n * v0 + u0
-        assert (t0 + u0) % v0 == 0
-        q0 = (t0 + u0) // v0
-        x0, d0 = t0 * u0 * w0, t0 * t0 * w0
-        assert q0 == 4 * x0 - n and x0 * x0 % d0 == 0 and (d0 + x0) % q0 == 0
-        sol = (x0, n * t0 * v0 * w0, n * u0 * v0 * w0)
-        assert sum((Fraction(1, value) for value in sol), Fraction()) == Fraction(4, n)
-        identity_checks += 1
-print(f"ell=103 Vaughan classes {[row[0] for row in rows103]}; "
-      f"{identity_checks} exact identity/witness checks")
+
+def check_reconstructed_classes(ell, expected_rows):
+    """Check the closed form for five j, including even/composite n."""
+    rows = reconstructed_classes(ell)
+    assert [row[:2] for row in rows] == expected_rows
+    identity_checks = 0
+    for r, D, u0, v0, w0 in rows:
+        for j in (0, 1, 2, 17, 101):
+            n = r + ell * j
+            s0 = v0 - u0 + j * v0
+            assert ell * s0 == n * v0 + u0
+            q0 = j + 1
+            assert q0 == (s0 + u0) // v0 == 4 * s0 * u0 * w0 - n
+            x0, d0 = s0 * u0 * w0, s0 * s0 * w0
+            assert x0 * x0 % d0 == 0
+            assert (d0 + x0) % q0 == 0
+            assert (x0 + x0 * x0 // d0) % q0 == 0
+            sol = (x0, n * s0 * v0 * w0, n * u0 * v0 * w0)
+            assert sum((Fraction(1, value) for value in sol), Fraction()) == Fraction(4, n)
+            identity_checks += 1
+    return rows, identity_checks
+
+
+rows103, checks103 = check_reconstructed_classes(
+    103, [(99, 1), (95, 2), (87, 4), (51, 13)])
+rows199, checks199 = check_reconstructed_classes(
+    199, [(195, 1), (191, 2), (183, 4), (179, 5),
+          (159, 10), (119, 20), (99, 25)])
+print(f"independently reconstructed ell=103 classes {[row[0] for row in rows103]} "
+      f"and ell=199 classes {[row[0] for row in rows199]}; "
+      f"{checks103 + checks199} exact closed-form identity checks")
 
 # Fast replay of Phase 0 at ell=103.  We only test n == 1 (mod 4), the
 # hard slice; q=k*ell and m=k*ell are admissible there only for k == 1 (mod 4).
@@ -1027,8 +1040,16 @@ from random import Random
 def fixed_multiple_witness(n, ell, k0, half):
     modulus = k0 * ell
     value = ((n + modulus) // 4 if half == "B" else (n * modulus + 1) // 4)
-    return any((d0 + value) % modulus == 0 for d0 in divisors_of_square(value))
+    return any((d0 + value) % modulus == 0
+               and (value + value * value // d0) % modulus == 0
+               for d0 in divisors_of_square(value))
 
+
+# Composite-n regression: d=x^2 passes the first divisibility but does not
+# reconstruct an integral second denominator.
+assert (205 * 205 + 205) % 515 == 0
+assert (205 + 205 * 205 // (205 * 205)) % 515 != 0
+assert not fixed_multiple_witness(305, 103, 5, "B")
 
 ell = 103
 ks = (1, 5, 9, 13, 17)

@@ -15,18 +15,16 @@ MAX_RES = 20000
 SEED = 20260819
 
 
-def has_divisor_residue(x, q, target):
-    residues = {1}
-    for p,e in factorint(x).items():
-        powers=[]
-        v=1
-        for _ in range(2*e+1):
-            powers.append(v)
-            v=v*(p%q)%q
-        residues={a*b%q for a in residues for b in powers}
-        if target in residues:
+def has_exact_witness(x, q):
+    """Find d|x^2 making both reconstructed denominators integral."""
+    divisors = [1]
+    for p, e in factorint(x).items():
+        powers = [p**j for j in range(2 * e + 1)]
+        divisors = [a * b for a in divisors for b in powers]
+        if any((d + x) % q == 0 and (x + x * x // d) % q == 0
+               for d in divisors):
             return True
-    return target in residues
+    return (1 + x) % q == 0 and (x + x * x) % q == 0
 
 
 def witness(n, ell, k, half):
@@ -37,7 +35,7 @@ def witness(n, ell, k, half):
     else:
         if (n*w+1)%4: return False
         x=(n*w+1)//4
-    return has_divisor_residue(x,w,(-x)%w)
+    return has_exact_witness(x,w)
 
 
 def f_pw(ell):
