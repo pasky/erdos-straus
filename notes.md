@@ -2313,6 +2313,44 @@ the same residue.  The bounded k-shift proposal supplies no such parameter.
 Thus there is nothing new to plug into the PW large sieve, and θ = 2/3 remains
 unbeaten by this unit.
 
+## 16. Multiplier classes
+
+### 16.1 The generalized identity
+
+**Lemma 16.1 (multiplier identity).**  Let \(k,\ell\) be positive integers with
+\(k\ell\equiv3\pmod4\), and put
+
+    A_k=(kℓ+1)/4.
+
+For every factorization \(A_k=uvw\) into positive integers and every positive
+integer \(n\) satisfying
+
+    nv ≡ −u (mod kℓ),
+
+put \(s=(nv+u)/(k\ell)\).  Then \(s\) is a positive integer and
+
+    4/n = 1/(suw) + 1/(nsvw) + 1/(nuvw).                 (16.1)
+
+In particular every such congruence class is forced representable.  Neither
+primality of \(n\) or \(\ell\), nor a parity or size condition on \(n\), is
+needed.  Also \((v,k\ell)=1\), so the class may equivalently be written
+\(n\equiv-u v^{-1}\pmod{k\ell}\).
+
+*Proof.*  Integrality of \(A_k\) is the congruence hypothesis.  Since
+\((A_k,k\ell)=1\), every divisor of \(A_k\), including \(v\), is invertible
+modulo \(k\ell\).  The assumed congruence makes \(s\) integral, and positivity
+is immediate from \(n,u,v>0\).  On the common denominator \(nsuvw\), the
+numerator on the right of (16.1) is
+
+    nv+u+s = skℓ+s = s(kℓ+1) = 4suvw.
+
+This is the numerator of \(4/n\), proving the identity. ∎
+
+**Machine check.**  `verify.py (o)` exhausts thousands of factorizations for
+prime and composite \(\ell\), several multipliers and four representatives of
+each class.  It checks (16.1) with exact rational arithmetic and explicitly
+requires that the sample include even and composite \(n\).
+
 ---
 
 ### References (partly from memory — flagged)

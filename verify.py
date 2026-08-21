@@ -1059,4 +1059,65 @@ assert [(half, k0) for half in "BA" for k0 in ks
 print("fast fixed-multiple replay (ell=103): one reduced candidate r=-4; "
       "no extra class from k<=20")
 
+# ---------------------------------------------------------------- (o)
+print("\n== (o) generalized multiplier identity and class counts ==")
+
+
+def multiplier_rows(ell, K, cutoff=None):
+    """Deduplicated (residue,u,v,k) rows from A_k=uvw, gcd(u,v)=1."""
+    classes = {}
+    bound = cutoff if cutoff is not None else int(ell ** (1 / 3))
+    while (bound + 1) ** 3 <= ell:
+        bound += 1
+    while bound ** 3 > ell:
+        bound -= 1
+    for k0 in range(1, K + 1, 4):
+        A0 = (k0 * ell + 1) // 4
+        for u0 in divisors_of_square(A0):
+            if u0 > bound or A0 % u0:
+                continue
+            for v0 in divisors_of_square(A0 // u0):
+                if v0 > bound or A0 % (u0 * v0) or gcd(u0, v0) != 1:
+                    continue
+                r0 = (-u0 * pow(v0, -1, ell)) % ell
+                classes.setdefault(r0, []).append((u0, v0, k0))
+    return classes
+
+
+# Lemma 16.1: include odd primes, odd composites, even/composite n, and every
+# ordered factorization in a modest exhaustive range.
+multiplier_identity_checks = 0
+saw_even_n = saw_composite_n = saw_composite_ell = False
+for ell in list(primerange(3, 80)) + [9, 15, 21, 25, 27, 35]:
+    if ell % 2 == 0:
+        continue
+    saw_composite_ell |= not __import__("sympy").isprime(ell)
+    for k0 in range(1, 18):
+        if k0 * ell % 4 != 3:
+            continue
+        A0 = (k0 * ell + 1) // 4
+        for u0 in divisors_of_square(A0):
+            if A0 % u0:
+                continue
+            for v0 in divisors_of_square(A0 // u0):
+                if A0 % (u0 * v0):
+                    continue
+                w0 = A0 // (u0 * v0)
+                modulus = k0 * ell
+                r0 = (-u0 * pow(v0, -1, modulus)) % modulus
+                for j in range(1, 5):
+                    n = r0 + j * modulus
+                    s0 = (n * v0 + u0) // modulus
+                    assert s0 * modulus == n * v0 + u0 and s0 > 0
+                    rhs = (Fraction(1, s0 * u0 * w0)
+                           + Fraction(1, n * s0 * v0 * w0)
+                           + Fraction(1, n * u0 * v0 * w0))
+                    assert rhs == Fraction(4, n)
+                    saw_even_n |= n % 2 == 0
+                    saw_composite_n |= not __import__("sympy").isprime(n)
+                    multiplier_identity_checks += 1
+assert saw_even_n and saw_composite_n and saw_composite_ell
+print(f"generalized identity: {multiplier_identity_checks} exact checks "
+      "(including even/composite n and composite ell)")
+
 print("\nall checks passed")
