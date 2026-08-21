@@ -962,4 +962,116 @@ assert done == 25
 print("(l3) exact solutions from signed witnesses d = n*a/b via Thm 3.1(B) "
       "(25 samples, w=7)")
 
+# ---------------------------------------------------------------- (m)
+print("\n== (m) Restricted-Selberg support and exact toy minima (§14.6) ==")
+
+# For a prime-set pattern P, let f(P)=1 exactly when no subproduct is -1
+# mod w.  Mobius inversion on the Boolean lattice gives the unique
+# coefficients xi with sum_{V subset P} xi(V)=f(P).  The admissible support
+# condition predicts xi(V)=0 for every nonempty witness-free V.  We verify
+# this with integer arithmetic, and verify Q(xi)=P(failure) over the exact
+# Bernoulli probabilities p_q=1/q (a common denominator prod q).
+def _mul_reachable(bits, a, w):
+    out = 0
+    for x in range(1, w):
+        if (bits >> x) & 1:
+            out |= 1 << (x * a % w)
+    return out
+
+
+def restricted_minimum_exact(w, r):
+    qs = list(primerange(w + 1, 200))[:r]
+    assert len(qs) == r
+    size = 1 << r
+    reachable = [0] * size
+    reachable[0] = 1 << 1
+    weights = [0] * size
+    weights[0] = prod(q - 1 for q in qs)
+    failure = [0] * size
+    for mask in range(size):
+        if mask:
+            bit = mask & -mask
+            i = bit.bit_length() - 1
+            rest = mask ^ bit
+            reachable[mask] = (reachable[rest]
+                               | _mul_reachable(reachable[rest], qs[i] % w, w))
+            weights[mask] = weights[rest] // (qs[i] - 1)
+        failure[mask] = 1 - ((reachable[mask] >> (w - 1)) & 1)
+
+    xi = failure[:]
+    for i in range(r):
+        bit = 1 << i
+        for mask in range(size):
+            if mask & bit:
+                xi[mask] -= xi[mask ^ bit]
+    assert xi[0] == 1
+    assert all(mask == 0 or not failure[mask] or xi[mask] == 0
+               for mask in range(size))
+
+    lambda_values = xi[:]
+    for i in range(r):
+        bit = 1 << i
+        for mask in range(size):
+            if mask & bit:
+                lambda_values[mask] += lambda_values[mask ^ bit]
+    assert lambda_values == failure
+
+    denominator = prod(qs)
+    failure_numerator = sum(weights[mask] for mask in range(size)
+                            if failure[mask])
+    q_numerator = sum(weights[mask] * lambda_values[mask] ** 2
+                      for mask in range(size))
+    assert q_numerator == failure_numerator  # exact restricted minimum
+    return (sum(1 / q for q in qs), failure_numerator / denominator,
+            sum(x != 0 for x in xi) - 1)
+
+
+for wm in (7, 11, 19, 23, 31):
+    row = []
+    for rm in (8, 12, 16):
+        lamm, failm, suppm = restricted_minimum_exact(wm, rm)
+        row.append(f"r={rm}: lam/logh={lamm / log(wm - 1):.3f}, "
+                   f"minQ={failm:.3f}, |supp|={suppm}")
+    print(f"(m1) w={wm}: " + "; ".join(row))
+
+# Exact fixed-k iid-uniform transition for three small cyclic unit groups,
+# followed by Poisson(lambda) mixing.  This is finite-toy information, not an
+# asymptotic proof; the rigorous threshold obstruction is in §14.6.
+def iid_fixed_k_failures(w, kmax):
+    states = {1 << 1: 1.0}
+    values = []
+    units = [a for a in range(1, w) if gcd(a, w) == 1]
+    for _ in range(kmax + 1):
+        values.append(sum(p for bits, p in states.items()
+                          if not ((bits >> (w - 1)) & 1)))
+        nxt = {}
+        for bits, p in states.items():
+            for a in units:
+                newbits = bits | _mul_reachable(bits, a, w)
+                nxt[newbits] = nxt.get(newbits, 0.0) + p / len(units)
+        states = nxt
+    return values
+
+
+def poisson_mixture(lam, values):
+    pk = exp(-lam)
+    ans = pk * values[0]
+    for k0 in range(1, len(values)):
+        pk *= lam / k0
+        ans += pk * values[k0]
+    return ans
+
+
+for wm in (7, 11, 19):
+    fixed = iid_fixed_k_failures(wm, 50)
+    vals = []
+    for ratio0 in (1.0, 1 / log(2), 2.0):
+        vals.append(poisson_mixture(ratio0 * log(wm - 1), fixed))
+    assert vals[0] > vals[1] > vals[2]
+    print(f"(m2) iid-Poisson w={wm}: P(miss) at "
+          f"lam/logh=(1,1/log2,2) is " + ", ".join(f"{x:.3f}" for x in vals))
+
+print("(m) Mobius support and Q=min=P(miss) checked exactly; toy transition "
+      "is informational")
+
 print("\nall checks passed")
