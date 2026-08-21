@@ -963,10 +963,11 @@ print("(l3) exact solutions from signed witnesses d = n*a/b via Thm 3.1(B) "
       "(25 samples, w=7)")
 
 # ---------------------------------------------------------------- (m)
-print("\n== (m) Restricted-Selberg support and exact toy minima (§14.6) ==")
+print("\n== (m) Subset-only exact minima and signed reachability (§14.6) ==")
 
-# For a prime-set pattern P, let f(P)=1 exactly when no subproduct is -1
-# mod w.  Mobius inversion on the Boolean lattice gives the unique
+# SUBSET-ONLY CHECK.  For a prime-set pattern P, let f(P)=1 exactly when no
+# subset product is -1 mod w.  Mobius inversion on the Boolean lattice gives
+# the unique
 # coefficients xi with sum_{V subset P} xi(V)=f(P).  The admissible support
 # condition predicts xi(V)=0 for every nonempty witness-free V.  We verify
 # this with integer arithmetic, and verify Q(xi)=P(failure) over the exact
@@ -979,7 +980,18 @@ def _mul_reachable(bits, a, w):
     return out
 
 
-def restricted_minimum_exact(w, r):
+# A direct discriminator: modulo 7, factors 2 and 5 miss -1 by subsets but
+# hit it using a negative exponent.  This guards the inverse transition below.
+_subset_bits = _signed_bits = 1 << 1
+for _a in (2, 5):
+    _subset_bits |= _mul_reachable(_subset_bits, _a, 7)
+    _signed_old = _signed_bits
+    _signed_bits |= (_mul_reachable(_signed_old, _a, 7)
+                     | _mul_reachable(_signed_old, pow(_a, -1, 7), 7))
+assert not ((_subset_bits >> 6) & 1) and ((_signed_bits >> 6) & 1)
+
+
+def subset_restricted_minimum_exact(w, r):
     qs = list(primerange(w + 1, 200))[:r]
     assert len(qs) == r
     size = 1 << r
@@ -1029,15 +1041,18 @@ def restricted_minimum_exact(w, r):
 for wm in (7, 11, 19, 23, 31):
     row = []
     for rm in (8, 12, 16):
-        lamm, failm, suppm = restricted_minimum_exact(wm, rm)
+        lamm, failm, suppm = subset_restricted_minimum_exact(wm, rm)
         row.append(f"r={rm}: lam/logh={lamm / log(wm - 1):.3f}, "
                    f"minQ={failm:.3f}, |supp|={suppm}")
-    print(f"(m1) w={wm}: " + "; ".join(row))
+    print(f"(m1-subset-only) w={wm}: " + "; ".join(row))
 
-# Exact fixed-k iid-uniform transition for three small cyclic unit groups,
-# followed by Poisson(lambda) mixing.  This is finite-toy information, not an
-# asymptotic proof; the rigorous threshold obstruction is in §14.6.
-def iid_fixed_k_failures(w, kmax):
+# Exact fixed-k iid-uniform reachability for three small cyclic unit groups,
+# followed by Poisson(lambda) mixing.  The subset transition is S -> S union
+# S*a.  The signed transition also includes S*a^{-1}, and therefore reaches
+# all products with exponents in {-1,0,1}.  These centered finite-toy tables
+# are informational, not evidence for an asymptotic transition; the proof is
+# Lemma 14.6.
+def iid_fixed_k_failures(w, kmax, *, signed):
     states = {1 << 1: 1.0}
     values = []
     units = [a for a in range(1, w) if gcd(a, w) == 1]
@@ -1048,6 +1063,8 @@ def iid_fixed_k_failures(w, kmax):
         for bits, p in states.items():
             for a in units:
                 newbits = bits | _mul_reachable(bits, a, w)
+                if signed:
+                    newbits |= _mul_reachable(bits, pow(a, -1, w), w)
                 nxt[newbits] = nxt.get(newbits, 0.0) + p / len(units)
         states = nxt
     return values
@@ -1062,16 +1079,22 @@ def poisson_mixture(lam, values):
     return ans
 
 
+thresholds = (("subset", False, 1 / log(2)),
+              ("signed", True, 1 / log(3)))
 for wm in (7, 11, 19):
-    fixed = iid_fixed_k_failures(wm, 50)
-    vals = []
-    for ratio0 in (1.0, 1 / log(2), 2.0):
-        vals.append(poisson_mixture(ratio0 * log(wm - 1), fixed))
-    assert vals[0] > vals[1] > vals[2]
-    print(f"(m2) iid-Poisson w={wm}: P(miss) at "
-          f"lam/logh=(1,1/log2,2) is " + ", ".join(f"{x:.3f}" for x in vals))
+    for label, signed, threshold in thresholds:
+        fixed = iid_fixed_k_failures(wm, 50, signed=signed)
+        ratios = (threshold - 0.25, threshold, threshold + 0.25)
+        vals = [poisson_mixture(ratio * log(wm - 1), fixed)
+                for ratio in ratios]
+        assert vals[0] > vals[1] > vals[2]
+        assert 0.35 < vals[1] < 0.70  # entropy scale lies in the toy transition
+        print(f"(m2-{label}) iid-Poisson w={wm}: P(miss) at lam/logh="
+              + ",".join(f"{ratio:.3f}" for ratio in ratios) + " is "
+              + ", ".join(f"{x:.3f}" for x in vals))
 
-print("(m) Mobius support and Q=min=P(miss) checked exactly; toy transition "
-      "is informational")
+print("(m) subset-only Mobius support and Q=min=P(miss) checked exactly; "
+      "signed S*a^{-1} reachability checked; centered toy transitions are "
+      "informational")
 
 print("\nall checks passed")

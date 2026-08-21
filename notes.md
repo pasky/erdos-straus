@@ -2086,54 +2086,51 @@ yields θ = 1/3 − o(1) by the same assembly.  The signed alphabet is
 strictly better here; this is the first place in the campaign where the
 c = 3 structure pays concretely.
 
-### 14.4 The budget ceiling of witness stacking (assessment)
+### 14.4 The budget ceiling of witness stacking (corrected assessment)
 
-The following accounting is a calibration of *this* framework —
-second-moment per-modulus factors built from multiplicative witnesses
-above a floor — not a nonexistence theorem; its model assumptions are
-named as they are used.  For modulus w to contribute a constant factor
-δ_w ≤ 1/2, a second-moment (Paley–Zygmund) argument needs the tilted
-family to cover (Z/w)×, which for iid-model residues means
-h ≤ e^{(1−1/c)λ_w} (Lemma 13.7 and its signed analogue), i.e. window
-mass λ_w ≥ (1−1/c)⁻¹ log h.  Mass λ above a floor u forces the window
-top log v ≥ e^{λ} log u, and the moment mass is carried by witnesses
-containing top-block primes (the measure ∑ log q/q is uniform in
-log q), so the level consumed by modulus w is ≳ h^{1/(1−1/c)}·log u.
-The total level is capped by log N (the rounding budget; with primality
-it would be BV's (1/2)log N — worse, see W2).  Hence
-∑_{w≤W} h_w^{1/(1−1/c)} ≲ log N, i.e. W^{1+1/(1−1/c)} ≲ log N: θ ≤ 1/3
-for c = 2, θ ≤ 2/5 for c = 3, and θ → 1/2 as c → ∞ — but the signed
-alphabet on squarefree window parts is c = 3 (exponents −e..e, e = 1),
-and higher multiplicities have no density.  One genuine upgrade remained
-at this phase: support-restricted weights
-on the upward closure of the witness system, with window mass only
-(1+ε)log h, would relax the consumption to ∑_{w≤W}h_w^{1+ε} and approach
-the cap θ = 1/2.  §14.6 executes this upgrade for the **signed** witness
-system.  It also corrects an error in the motivating subset heuristic:
-for subset witnesses the typical number of products is 2^K with
-K ≈ λ, so λ = (1+ε)log h is below the threshold (log h)/log 2 when
-ε < 1/log 2 − 1; the Poisson expectation E2^K = e^λ is carried by an
-upper tail and cannot control a miss probability.  The non-divisor-closed
-support itself is not an obstacle: Boolean-lattice Möbius inversion gives
-the exact restricted minimum.  Signed witnesses have 3^K products and
-Lemma 12.5 supplies the needed polynomial miss bound at λ > log h.
-Beyond 1/2, within these model assumptions, the wall remains structural:
-covering a group of size h with products of primes above any floor
-consumes level ≥ h per modulus, and ∑_{w≤W} h_w ≍ W².  **Assessment:
-the joint multi-modulus route tops out at θ = 1/2 and does not reach
-Vaughan's 2/3.**
+This is a calibration of *this* framework — independent-uniform residue
+mixing in prime windows above a floor, support-restricted local weights, and
+the finite integer-side rounding assembly — not a nonexistence theorem for
+other methods.  The phase-eight second-moment factors required
+λ_w ≥ (1−1/c)⁻¹log h and therefore gave θ ≤ 1/3 for c = 2 and θ ≤ 2/5
+for c = 3.  Restricted weights remove that second-moment cost, so it is not
+the final ceiling.
+
+The correct remaining threshold is entropy.  If K is the Poisson number of
+selected window primes and signed exponents lie in {−1,0,1}, there are at
+most 3^K candidate products.  Write λ = ρ log h.  If ρ < 1/log 3, choose
+ρ < b < 1/log 3.  Poisson concentration gives K ≤ b log h with probability
+1−h^{−c}, while a union bound gives conditional witness probability at most
+3^K/h ≤ h^{b log 3−1}.  Thus polynomial contraction in this model requires
+ρ ≥ ρ₀ := 1/log 3; Lemma 14.6 and Theorem 14.9 work for every fixed
+ρ > ρ₀.
+
+A window of mass ρ log h above u has log v/log u = h^{ρ+o(1)}.  The finite
+weights therefore spend h^{ρ+o(1)} (up to logarithms and the common floor
+factor) at modulus w.  Stacking w ≤ W spends
+∑_{w≤W}h_w^{ρ+o(1)} = W^{1+ρ+o(1)}, against budget log N.  Letting
+ρ ↓ ρ₀ gives the structural supremum
+
+    θ_* = 1/(1+ρ₀) = log 3/(1+log 3) = 0.5234946419… .
+
+The endpoint is not claimed.  **Assessment:** under the named model and
+rounding architecture, witness stacking reaches every θ < θ_* and cannot
+cross θ_*; this remains below Vaughan's 2/3.  The earlier claim that every
+modulus must consume at least h, and hence that 1/2 is the ceiling, was
+false: signed entropy only forces h^{1/log 3+o(1)} at the threshold.
 
 ### 14.5 The wall-map: what beating 2/3 now requires
 
 Assessments, not theorems; each is a proof-level obstruction to the
 named technology with its load-bearing computation cited.
 
-* **(W1) Witness stacking caps at 1/2** (§14.4): group-covering forces
-  level consumption ≥ h_w per modulus; budget log N; so ≤ (log N)^{1/2}
-  moduli — tilt or restricted weights, subsets or signed, integers or
-  primes.  §14.6 reaches every fixed exponent below 1/2 with signed
-  restricted weights; the endpoint remains a framework ceiling, not an
-  attained fixed-constant exponent.
+* **(W1) Witness stacking caps at θ_* = log 3/(1+log 3)** (§14.4,
+  under the named model and rounding assumptions): the signed alphabet has
+  3^K products, so polynomial witness probability starts at
+  K ≈ (log h_w)/log 3.  A window at that entropy threshold consumes
+  h_w^{1/log 3+o(1)} level; summing over w ≤ W gives
+  W^{1+1/log 3+o(1)} ≤ log N.  §14.6 reaches every fixed θ < θ_*;
+  the endpoint is a framework supremum, not an attained estimate.
 
 * **(W2) No prime-side stacking by progression evaluations.**  An
   evaluation-based joint argument over primes needs progression counts
@@ -2168,9 +2165,10 @@ named technology with its load-bearing computation cited.
 
 Status after phase eight (historical ledger): campaign record E(N) ≪
 N exp(−(log N)^{2/5−o(1)}) (Theorem 14.4), Vaughan unbeaten; the two
-open frontiers were (i) restricted weights toward θ = 1/2 and (ii) the
-declustering door of W3 toward θ > 2/3.  Frontier (i) is resolved in
-§14.6; frontier (ii) remains open.
+open frontiers were (i) restricted weights toward the then-miscalculated
+1/2 ceiling and (ii) the declustering door of W3 toward θ > 2/3.
+Section 14.6 resolves (i) at the corrected entropy supremum θ_*; frontier
+(ii) remains open.
 
 Numerics: `verify.py (l)` checks the signed local-factor identities
 (first and second moments, all character pairs mod 7, toy window), runs
@@ -2180,7 +2178,7 @@ reconstructs exact unit-fraction solutions from signed witnesses via
 d = na/b and Theorem 3.1(B).
 
 ### 14.6 Restricted weights: exact Boolean minimum, a subset obstruction,
-and the signed θ = 1/2 − o(1) stack
+and the signed entropy-threshold stack
 
 This section resolves the named support-restricted minimization, but not
 in the form originally guessed.  The support issue disappears completely
@@ -2188,9 +2186,10 @@ under Möbius inversion on the Boolean lattice: without a size cap, the
 restricted quadratic minimum is exactly the probability that the random
 prime pattern is witness-free.  That identity exposes a decisive
 alphabet-size distinction.  Subset witnesses do **not** have polynomially
-small miss probability at λ = (1+ε)log h for every ε > 0; signed
-witnesses do.  The latter suffice for the Erdős–Straus stack and improve
-Theorem 14.4 to every exponent below 1/2.
+small miss probability at λ = (1+ε)log h for every ε > 0.  Signed
+witnesses already do once λ = ρ log h with ρ > 1/log 3.  The latter
+suffice for the Erdős–Straus stack and improve Theorem 14.4 to every
+exponent below log 3/(1+log 3).
 
 Fix a finite prime set I, with independent Bernoulli variables X_q of
 means p_q = 1/q, and identify a pattern P with {q : X_q = 1}.  Let 𝒜 be
@@ -2237,12 +2236,12 @@ mean λ, and conditional on K let g₁,…,g_K be iid uniform on G.
    that no subset product equals τ is 1 − O_ε(h^{−c_ε}) for some
    c_ε > 0.
 2. Suppose additionally that |G[2]| = h^{o(1)} (as for the unit groups
-   used below).  If ε > 0 and λ ≥ (1+ε)log h, then the probability that
-   no signed product ∏g_i^{e_i}, e_i ∈ {−1,0,1}, equals τ is
-   O_ε(h^{−c_ε}).
+   used below).  For every fixed ρ > 1/log 3, if λ ≥ ρ log h, then the
+   probability that no signed product ∏g_i^{e_i},
+   e_i ∈ {−1,0,1}, equals τ is O_ρ(h^{−c_ρ}).
 
-Both conclusions persist, with a possibly smaller c_ε, for the actual
-prime pattern in a window I = (u,v] when all q > u > w,
+Both conclusions persist, with possibly smaller positive exponents, for
+the actual prime pattern in a window I = (u,v] when all q > u > w,
 ∑_{q∈I}1/q = λ, and
 
     max_{χ≠χ₀} |∑_{q∈I} χ(q)/q| ≤ β,
@@ -2259,19 +2258,31 @@ E2^K = e^λ comes from the upper tail of K and says nothing useful about
 typical covering.
 
 For (2), condition on K = k and use Lemma 12.5.  With
-T = #{e ∈ {−1,0,1}^k : ∏g_i^{e_i} = τ} and t = |G[2]|, its bound implies,
-for k ≥ 1,
+T = #{e ∈ {−1,0,1}^k : ∏g_i^{e_i} = τ} and t = |G[2]|, put
+A = 3^k−1.  The denominator in (12.13) is
+D = 9^k+2hA+t5^k, so
 
-    P(T=0 | K=k) ≪ (h+1)3^{−k} + t(5/9)^k.                  (14.15)
+    P(T=0 | K=k) ≤ 1−A²/D ≤ (D−A²)/A²
+      = (2·3^k−1+2hA+t5^k)/A²
+      ≪ (h+1)3^{−k} + t(5/9)^k,                            (14.15)
 
-Indeed subtract the Paley–Zygmund lower bound (12.13) from one and use
-(3^k−1)² ≥ (4/9)9^k.  Choose a with 1/log 3 < a < 1+ε.  The Poisson
-lower-tail bound gives P(K < a log h) ≤ h^{−c}.  On the complementary
-event the first term in (14.15) is O(h^{1−a log 3}); for
-G = (Z/wZ)×, the case used below, t = 2^{ω(w)} = h^{o(1)}, so the second
-is O(h^{−a log(9/5)+o(1)}).  Shrinking c proves (2).  Only the stated
-small-2-torsion groups are covered; no signed claim is made here for,
-e.g., elementary 2-groups.
+where A² ≥ (4/9)9^k for k ≥ 1.  Thus the first error is the
+expected-pool/entropy term, including the proportional-pair contribution,
+and the second is the remaining rank-two second-moment term; neither is
+discarded.
+
+Choose 1/log 3 < a < ρ.  Poisson Chernoff gives
+P(K < a log h) ≤ h^{−c₀(ρ,a)} (the exponent at the smallest allowed mean
+is ρ−a+a log(a/ρ)>0).  Conditional on K ≥ a log h, (14.15) gives honestly
+
+    P(T=0 | K ≥ a log h)
+      ≪ h^{1−a log 3} + h^{−a log(9/5)+o(1)}.               (14.16)
+
+Both displayed exponents save a fixed positive power: a log 3−1 > 0,
+and t = h^{o(1)} makes a log(9/5)−o(1)>0.  Adding the lower-tail bound
+and shrinking the exponent proves (2).  Only the stated small-2-torsion
+groups are covered; no signed claim is made here for, e.g., elementary
+2-groups.
 
 It remains to transfer the iid model to the window, and this costs no
 moment calculation.  Couple each Bernoulli(1/q) variable to an
@@ -2298,20 +2309,21 @@ We now impose the finite level required for integer-side rounding.  A
 pattern V also denotes the squarefree integer ∏_{q∈V}q.
 
 **Lemma 14.7 (finite signed weights and marked stability; proved).**
-Fix ε > 0.  Suppose I = (u,v] is a prime window for w ≡ 3 (mod 4),
-h = φ(w), with
+Fix ρ_+, ρ_- with ρ_+ ≥ ρ_- > 1/log 3.  Suppose I = (u,v] is a prime
+window for w ≡ 3 (mod 4), h = φ(w), with
 
-    (1+ε)log h ≤ λ := ∑_{q∈I}1/q ≤ (1+2ε)log h,
+    ρ_- log h ≤ λ := ∑_{q∈I}1/q ≤ ρ_+ log h,
 
 and the character-sum hypothesis of Lemma 14.6 with negligible hβ+1/u.
-There are constants B(ε), κ(ε)>0 and admissible signed-witness weights
+There are constants B(ρ_-,ρ_+), κ(ρ_-,ρ_+)>0 and admissible
+signed-witness weights
 ξ_V, supported on
 
     V ∈ 𝒜,       |V| ≤ L := ⌈Bλ⌉,       V ≤ R := v^L,
 
 with ξ_∅ = 1, such that
 
-    Q_w := E(∑_{V⊆P}ξ_V)² ≤ C_ε h^{−κ}.                     (14.16)
+    Q_w := E(∑_{V⊆P}ξ_V)² ≤ C_{ρ_-,ρ_+} h^{−κ}.             (14.17)
 
 Moreover, if the multilinear expansion is
 
@@ -2320,7 +2332,7 @@ Moreover, if the multilinear expansion is
 then for every nonempty set M of distinct primes of I,
 
     |Δ_w(M)| := |∑_{A⊇M} c_A ∏_{q∈A}q^{−1}|
-       ≤ 18^{|M|} h^{8(1+2ε)} ∏_{q∈M}q^{−1}.                (14.17)
+       ≤ 18^{|M|} h^{8ρ_+} ∏_{q∈M}q^{−1}.                  (14.18)
 
 Finally ∑_V|ξ_V| ≤ 1+R², so the total absolute coefficient mass of the
 square is at most Ξ_w := (1+R²)².
@@ -2332,9 +2344,9 @@ For every P, truncated or not,
 
     |∑_{V⊆P}ξ_V| ≤ ∑_{V⊆P}2^{|V|} = 3^K.
 
-Consequently Lemma 14.6(2) gives
+Consequently Lemma 14.6(2), applied with ρ_-, gives
 
-    Q_w ≤ P(P witness-free) + E(9^K 1_{K>L}).               (14.18)
+    Q_w ≤ P(P witness-free) + E(9^K 1_{K>L}).               (14.19)
 
 For t > 1, independence gives
 
@@ -2343,7 +2355,7 @@ For t > 1, independence gives
 
 Put t = B/9 and choose B large enough that
 B log(B/9)−B+1 is larger than the desired fixed constant.  The last
-display is then h^{-c}; together with Lemma 14.6 it proves (14.16),
+display is then h^{-c}; together with Lemma 14.6 it proves (14.17),
 after decreasing κ.
 
 For the marks, let F be the multilinear reduction of the square and
@@ -2351,7 +2363,7 @@ D_MF its iterated Boolean difference in the variables of M.  If the
 remaining random pattern is Y, coefficient comparison gives the exact
 identity
 
-    Δ_w(M) = (∏_{q∈M}q^{−1}) E D_MF(Y).                     (14.19)
+    Δ_w(M) = (∏_{q∈M}q^{−1}) E D_MF(Y).                     (14.20)
 
 The difference is an alternating sum of 2^{|M|} Boolean values.  At each
 such value the full pattern has size at most |Y|+|M|, so the preceding
@@ -2359,50 +2371,70 @@ such value the full pattern has size at most |Y|+|M|, so the preceding
 
     |D_MF(Y)| ≤ 2^{|M|}9^{|Y|+|M|} = 18^{|M|}9^{|Y|}.
 
-Since E9^{|Y|} ≤ ∏_{q∈I}(1+8/q) ≤ e^{8λ}, (14.17) follows.  Finally
+Since E9^{|Y|} ≤ ∏_{q∈I}(1+8/q) ≤ e^{8λ} ≤ h^{8ρ_+},
+(14.18) follows.  Finally
 |ξ_V| ≤ 2^{ω(V)} ≤ V and all supported integers satisfy V ≤ R, whence
 ∑|ξ_V| ≤ 1+∑_{n≤R}n ≤ 1+R². ∎
 
 This marked estimate is deliberately crude.  Unlike §14.3's local-factor
 bound it uses no character cancellation, but its h-power is fixed; the
-floor u will beat every such power.  Notice also that (14.19), not
+floor u will beat every such power.  Notice also that (14.20), not
 E(F1_{M⊆P}), is the marked sum needed by exclusion: the mark says that
 the monomial's union contains M.  This distinction prevents an invalid
 positivity shortcut.
 
-**Theorem 14.8 (restricted signed stack, θ = 1/2 − o(1); proved).**
-For every fixed σ ∈ (0,1/4) there is c(σ)>0 such that, for all large N,
+**Theorem 14.8 (the earlier 1/2 statement; proved).**  For every fixed
+σ ∈ (0,1/4) there is c(σ)>0 such that, for all large N,
 
     E(N) ≤ N exp(−c(σ)(log N)^{1/2−σ} log log N).
 
-Hence
+This remains valid, but is superseded by Theorem 14.9 and is no longer the
+campaign frontier.  It follows immediately from that theorem (with a
+smaller exponent parameter if necessary).  The constants are ineffective
+because of Siegel–Walfisz.
 
-    E(N) ≪ N exp(−(log N)^{1/2−o(1)}).
+**Theorem 14.9 (restricted signed stack at the entropy exponent; proved).**
+Put
 
-The constants are ineffective because of Siegel–Walfisz.
+    θ_* := log 3/(1+log 3) = 0.5234946419… .
 
-*Proof.*  Put ε = σ, choose an integer A with 1/A ≤ σ, and set
+For every fixed σ > 0 there is c(σ)>0 such that, for all large N,
 
-    W = (log N)^{1/2−σ},      𝒲 = {w ≡ 3 (mod 4): C₀ < w ≤ W},
+    E(N) ≤ N exp(−c(σ)(log N)^{θ_*−σ} log log N).
+
+Hence E(N) ≪ N exp(−(log N)^{θ_*−o(1)}).  The constants are ineffective
+because of Siegel–Walfisz.  Vaughan's exponent 2/3 remains stronger.
+
+*Proof.*  It suffices to prove the assertion for 0 < σ < θ_*; every larger
+σ follows from any one stronger case.  Put θ = θ_*−σ and
+ρ₀ = 1/log 3.  Since θ < 1/(1+ρ₀), choose fixed ρ > ρ₀ and an integer
+A so large that
+
+    θ(1+ρ+1/A) < 1.                                         (14.21)
+
+Set
+
+    W = (log N)^θ,             𝒲 = {w ≡ 3 (mod 4): C₀ < w ≤ W},
     u = exp(W^{1/A}).
 
 For w ∈ 𝒲, h = φ(w), choose
 
-    K_w = ⌈C_ε h^{1+ε}⌉,       v_w = u^{K_w},
-    I_w = (u,v_w],             L_w = ⌈B(ε)λ_w⌉,
+    K_w = ⌈C_ρ h^ρ⌉,           v_w = u^{K_w},
+    I_w = (u,v_w],             L_w = ⌈Bλ_w⌉,
     λ_w = ∑_{q∈I_w}1/q,        R_w = v_w^{L_w}.
 
-Mertens gives λ_w = log K_w + O(1/log u); after increasing C₀ and
-adjusting C_ε,
+Choose fixed ρ_-,ρ_+ with ρ₀ < ρ_- < ρ < ρ_+.  Mertens gives
+λ_w = log K_w+O(1/log u) = ρ log h+O_ρ(1); after increasing C₀ and
+adjusting C_ρ,
 
-    (1+ε)log h ≤ λ_w ≤ (1+2ε)log h.
+    ρ_- log h ≤ λ_w ≤ ρ_+ log h.
 
 Siegel–Walfisz in the form of Lemma 13.8, now with
 w ≤ W = (log u)^A, gives β(u) = exp(−c_A√log u).  Thus Lemma 14.7
 applies uniformly, and (enlarging C₀ once more) supplies local factors
 L_w(n) = ∑_Vξ_{w,V}1_{V|n} with
 
-    Q_w = E L_w² ≤ C h^{−κ} =: δ̄_w ≤ 1/2.                 (14.20)
+    Q_w = E L_w² ≤ C h^{−κ} =: δ̄_w ≤ 1/2.                 (14.22)
 
 Every nonconstant supported V contains a signed witness.  Therefore
 L_w(n) = 1 whenever n is signed-witness-free.  With
@@ -2411,7 +2443,7 @@ L_w(n) = 1 whenever n is signed-witness-free.  With
 
 §14.1's sufficiency argument and master inequality apply verbatim:
 
-    E(N) ≤ W + ∑_{m≤N, m≡1 (24)} ℒ(m)².                    (14.21)
+    E(N) ≤ W + ∑_{m≤N, m≡1 (24)} ℒ(m)².                    (14.23)
 
 We give the joint estimate because its marked input differs from Lemma
 14.3's.  Expand ℒ².  A local monomial has squarefree modulus A ⊆ I_w,
@@ -2421,14 +2453,14 @@ q > u > W cannot occur in monomials belonging to two distinct shifts:
 the congruences would force q | w−w′.  Compatible tuples count by CRT,
 with an O(1) rounding error per tuple.  Hence
 
-    ∑_{m≤N,m≡1(24)}ℒ(m)² = (N/24)J + O(∏_w Ξ_w),            (14.22)
+    ∑_{m≤N,m≡1(24)}ℒ(m)² = (N/24)J + O(∏_w Ξ_w),            (14.24)
 
 where J is the free product sum with all shared-prime tuples deleted.
 Inclusion–exclusion over shared primes, using the exact user-set identity
 from Lemma 14.3, expresses each correction as products of local marked
 sums Δ_w(M), while untouched moduli contribute Q_w.
 
-Let D > 8(1+2ε)+κ be a fixed integer.  By (14.17), after normalizing by
+Let D > 8ρ_++κ be a fixed integer.  By (14.18), after normalizing by
 δ̄_w, each touched modulus costs at most
 
     C^{|M|} W^D ∏_{q∈M}1/q.
@@ -2445,55 +2477,54 @@ Therefore the sum of the absolute exclusion corrections, divided by
     ≪ exp(CW^{2D+2}∑_{q>u}q^{−2}) − 1
      ≪ W^{2D+2}/u = o(1).
 
-The free term is ∏Q_w ≤ ∏δ̄_w, so (14.22) yields
+The free term is ∏Q_w ≤ ∏δ̄_w, so (14.24) yields
 
     ∑_{m≤N,m≡1(24)}ℒ(m)²
-      ≤ (N/24)·2∏_{w∈𝒲} C h_w^{−κ} + O(∏_wΞ_w).             (14.23)
+      ≤ (N/24)·2∏_{w∈𝒲} C h_w^{−κ} + O(∏_wΞ_w).             (14.25)
 
 It remains to check the rounding level.  Lemma 14.7 and the window
 choices give
 
     ∑_{w∈𝒲}log Ξ_w ≪ ∑_w log R_w
       ≪ ∑_{w≤W} λ_w K_w log u
-      ≪ W^{2+ε+1/A} log W.
+      ≪ W^{1+ρ+1/A} log W.
 
-Because ε = σ and 1/A ≤ σ,
-
-    (1/2−σ)(2+ε+1/A)
-       ≤ (1/2−σ)(2+2σ) = 1−σ−2σ² < 1,
-
-so ∏Ξ_w = exp(o(log N)) = N^{o(1)}.  Finally
+By (14.21), this is o(log N), so ∏Ξ_w = exp(o(log N)) = N^{o(1)}.
+Finally
 
     ∏_{w∈𝒲} C h_w^{−κ}
        ≤ exp(−c_σ W log W),
 
 using the same asymptotic
 ∑_{w≤W,w≡3(4)}log φ(w) = (W/4)log W(1+o(1)) as Theorem 14.4.  Substitute
-this and the rounding bound into (14.21)–(14.23); both W and N^{o(1)}
-are smaller than the asserted right side for large N. ∎
+this and the rounding bound into (14.23)–(14.25), and use
+W = (log N)^{θ_*−σ}; both W and N^{o(1)} are smaller than the asserted
+right side for large N. ∎
 
 **Honest ledger.**  The unrestricted support identity, the subset
 counterexample, the finite signed weights, their marked stability, and
-the θ < 1/2 stack are proved above.  No endpoint estimate with a fixed
-θ = 1/2 constant is claimed, and the structural assessment that this
-stack cannot beat 1/2 is unchanged.  Vaughan's θ = 2/3 remains stronger.
+every θ < θ_* stack are proved above.  No endpoint estimate at θ_* is
+claimed.  The framework assessment caps this architecture at the signed
+entropy threshold θ_*, not at 1/2.  Vaughan's θ = 2/3 remains stronger.
 The earlier proposed subset route at λ = (1+ε)log h is false for
 ε < 1/log 2 − 1; only the signed alphabet closes the upgrade.
 
-Numerics: `verify.py (m)` computes the exact Möbius coefficients and
-restricted minimum for w ∈ {7,11,19,23,31}, the first r ∈ {8,12,16}
-primes above w, using integer probability numerators.  In every case the
-coefficients vanish on nonempty witness-free patterns and
-Q_min = P(miss) exactly.  It also computes the finite iid-Poisson miss
-probability at three λ/log h values for w ∈ {7,11,19}.  These are toy
-checks only; their small harmonic masses do not test an asymptotic
-transition, and no numerical observation is used in the proof.
+Numerics: `verify.py (m1)` computes the exact Möbius coefficients and
+restricted minimum for **subset witnesses only**, for
+w ∈ {7,11,19,23,31} and the first r ∈ {8,12,16} primes above w, using
+integer probability numerators.  In every case the coefficients vanish
+on nonempty subset-witness-free patterns and Q_min = P(miss) exactly.
+`verify.py (m2)` separately implements signed reachability, including the
+S·a^{-1} transition, and prints finite iid-Poisson miss tables centered at
+1/log 3 for signed witnesses and 1/log 2 for subsets.  These are toy checks
+only; their small groups do not establish an asymptotic transition, and no
+numerical observation is used in the proof.
 
 Status after phase nine: campaign record
-E(N) ≪ N exp(−(log N)^{1/2−o(1)}) (Theorem 14.8), unconditional and
-Siegel–Walfisz-ineffective.  The restricted-weight frontier is closed;
-the declustering door of W3 is the remaining named route beyond
-Vaughan's 2/3.
+E(N) ≪ N exp(−(log N)^{θ_*−o(1)}) (Theorem 14.9), unconditional and
+Siegel–Walfisz-ineffective.  The restricted-weight frontier is closed at
+the corrected entropy supremum; the declustering door of W3 is the
+remaining named route beyond Vaughan's 2/3.
 
 ---
 

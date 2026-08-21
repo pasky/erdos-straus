@@ -83,31 +83,37 @@ large-deviations against actual data for hard-class primes).
 
 ## Outcome 5 (2026-08-19, phase nine — see notes.md §14.6)
 
-* **New campaign record: E(N) ≪ N exp(−(log N)^{1/2−o(1)}) (Theorem
-  14.8), unconditional (Siegel–Walfisz-ineffective).**  For every fixed
-  σ > 0 the proved bound is
-  N exp(−c(σ)(log N)^{1/2−σ}log log N).  The restricted-support problem
-  has an exact Boolean solution: Möbius inversion makes the unrestricted
-  quadratic minimum equal the true witness-miss probability, despite the
-  support not being divisor-closed.  After a cardinality cap
-  L = O(log h), Rankin tails are polynomially small; Boolean differences
-  give the marked bound C^|M|h^O(1)∏_{q∈M}q^−1; the floor u absorbs that
-  fixed h-power in the §14.3 exclusion assembly.  Window consumption is
-  h^{1+ε} times logarithms, so W = (log N)^{1/2−σ} fits the rounding
-  level.
+* **New campaign record: E(N) ≪ N exp(−(log N)^{θ_*−o(1)}),
+  θ_* = log 3/(1+log 3) = 0.5234946419… (Theorem 14.9), unconditional
+  and Siegel–Walfisz-ineffective.**  For every fixed σ > 0 the proved
+  bound is N exp(−c(σ)(log N)^{θ_*−σ}log log N).  The
+  restricted-support problem has an exact Boolean solution: Möbius
+  inversion makes the unrestricted quadratic minimum equal the true
+  witness-miss probability, despite the support not being divisor-closed.
+  After a cardinality cap L = O(log h), Rankin tails are polynomially
+  small; Boolean differences give the marked bound
+  C^|M|h^O(1)∏_{q∈M}q^−1; the floor u absorbs that fixed h-power in the
+  §14.3 exclusion assembly.  Taking window mass λ = ρ log h for any
+  fixed ρ > 1/log 3 costs h^ρ times logarithms; the rounding budget gives
+  every exponent below 1/(1+ρ), and ρ ↓ 1/log 3 gives θ_*.
 * **The proposed subset lemma at λ = (1+ε)log h is false for small ε.**
   With K ∼ Poisson(λ), a typical subset alphabet has only 2^K products;
   if ε < 1/log 2−1, a union bound plus Poisson concentration gives miss
   probability 1−h^−c, and the exact-minimum identity means no weights can
   repair it.  The **signed** alphabet closes the application: Lemma 12.5
-  plus Poisson concentration gives miss O(h^−c) at λ > log h for unit
-  groups; a direct Bernoulli–Poisson coupling and Siegel–Walfisz transfer
-  this to arithmetic windows.  `verify.py (m)` checks exact Möbius
-  support and Q_min = P(miss) for all requested toy moduli/windows; its
-  transition table is explicitly informational.
-* **Honest ceiling:** every fixed exponent below 1/2 is proved, not a
-  fixed endpoint θ = 1/2 estimate.  Vaughan's 2/3 remains stronger; the
-  §14.5 declustering door remains the named route past it.
+  plus Poisson concentration gives miss O(h^−c) whenever
+  λ ≥ ρ log h with fixed ρ > 1/log 3 for unit groups; a direct
+  Bernoulli–Poisson coupling and Siegel–Walfisz transfer
+  this to arithmetic windows.  `verify.py (m1)` labels its exact Möbius
+  check subset-only; `(m2)` adds signed reachability (including inverse
+  transitions) and informational iid-Poisson tables centered at 1/log 3,
+  contrasted with the subset threshold 1/log 2.
+* **Corrected framework ceiling:** signed entropy requires
+  K ≥ (log h)/log 3, so this window-and-rounding architecture has supremum
+  θ_*, not 1/2.  Every fixed exponent below θ_* is proved; the endpoint
+  is not.  Vaughan's 2/3 remains stronger, and all constants remain
+  ineffective because of Siegel–Walfisz.  The §14.5 declustering door
+  remains the named route past Vaughan.
 
 ## Outcome 4 (2026-08-18, phase eight — see notes.md §14)
 
@@ -131,12 +137,12 @@ large-deviations against actual data for hard-class primes).
   confirmed on data (joint count 0 vs model N/q²);
   joint/marginal-product = 0.9992 (second-order-only correlations);
   exact solutions from signed witnesses.
-* **Ceiling of the framework mapped (§14.4–14.5, assessments with named
-  model assumptions):** witness stacking caps at θ = 1/2
-  (group-covering consumes level h_w per modulus; ∑h_w ≍ W² ≤ log N) —
-  subsequently reached to every fixed exponent below 1/2 by the signed
-  restricted weights of Outcome 5; within these assumptions **it does not
-  reach 2/3**.  Prime-side stacking by
+* **Framework ceiling corrected (§14.4–14.5, assessments with named
+  model assumptions):** phase eight's restricted-weight forecast of 1/2
+  was false.  Signed witness entropy only forces window level
+  h_w^{1/log 3+o(1)} per modulus, so Outcome 5 reaches every fixed
+  θ < log 3/(1+log 3); within these assumptions **it still does not reach
+  2/3**.  Prime-side stacking by
   progression evaluations is impossible (BV polylog floor vs
   exponential main terms).  Vaughan's 2/3
   = B/(B+1), B = 2 class-mass (log X)², verified tight in PW's own
