@@ -79,6 +79,27 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 7 (2026-08-23, multiplier classes — see notes.md §16)
+
+* **Vaughan's 1970 bound is beaten.**  The generalized identity for
+  \(A_k=(k\ell+1)/4=uvw\) forces the class
+  \(n\equiv-uv^{-1}\pmod{k\ell}\).  Lemma 16.3 proves, by a
+  Bombieri--Vinogradov divisor-sum argument with honest cross-\(k\)
+  deduplication, class mass \(\asymp(\log X)^2h(\mathcal J)\) pointwise in
+  every compatible subsequence.  The full multiplier family has
+  \(h\asymp\log K\), giving for prime exceptions
+  \(E(N)\ll N\exp[-c(\log N)^{2/3}(\log\log N)^{1/3}]\) (Theorem 16.4).
+* **All-denominator record, with the exact scope separated.**  Restricting
+  multipliers to solved primes \(k\equiv5,13,17\pmod{24}\) makes every
+  subsequence which can contain an exceptional integer automatically reduced;
+  their harmonic mass is \(\asymp\log\log K\).  Theorem 16.5 gives
+  \(E_{\rm all}(N)\ll N\exp[-c(\log N)^{2/3}
+  (\log\log\log N)^{1/3}]\), still strictly stronger than Vaughan for all
+  denominators.  The requested \((\log\log N)^{1/3}\) factor is **not**
+  claimed in the all-integer version.  `verify.py (o)` checks 7,684 exact
+  identities (including composite/even inputs), toy class averages, and
+  within/across-multiplier distinctness.
+
 ## Outcome 6 (2026-08-22, declustering door — see notes.md §15)
 
 * **Vaughan's forced classes are now explicit in criterion language.**  For

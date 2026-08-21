@@ -1120,4 +1120,61 @@ assert saw_even_n and saw_composite_n and saw_composite_ell
 print(f"generalized identity: {multiplier_identity_checks} exact checks "
       "(including even/composite n and composite ell)")
 
+# Empirical f_c averages.  These use the full small-u,v family (the proof's
+# K^10 floor is deliberately asymptotic and vacuous at toy scale).  Over all
+# c == 1 (mod 4), the raw compatibility average is exactly sum(rows/k).
+K0 = 13
+ks0 = tuple(range(1, K0 + 1, 4))
+M0 = 4
+for k0 in ks0:
+    M0 = lcm(M0, k0)
+all_c = tuple(range(1, M0, 4))
+reduced_c = tuple(c for c in all_c if gcd(c, M0) == 1)
+class_average_rows = []
+for ell in (10079, 13259, 18959, 29063):
+    by_residue = multiplier_rows(ell, K0)
+    rows = [(r0, u0, v0, k0) for r0, entries in by_residue.items()
+            for u0, v0, k0 in entries]
+
+    def class_counts(classes):
+        raw, dedup = [], []
+        for c in classes:
+            hits = [r0 for r0, u0, v0, k0 in rows
+                    if (c * v0 + u0) % k0 == 0]
+            raw.append(len(hits))
+            dedup.append(len(set(hits)))
+        return sum(raw) / len(raw), sum(dedup) / len(dedup)
+
+    raw_all, avg_all = class_counts(all_c)
+    raw_reduced, avg_reduced = class_counts(reduced_c)
+    expected_raw = sum(Fraction(1, k0) for _, _, _, k0 in rows)
+    assert Fraction(sum(len([1 for _, u0, v0, k0 in rows
+                            if (c * v0 + u0) % k0 == 0]) for c in all_c),
+                    len(all_c)) == expected_raw
+    scale = log(ell) ** 2 * log(K0)
+    class_average_rows.append((ell, avg_all, avg_reduced, avg_all / scale))
+    assert avg_all <= raw_all and avg_reduced <= raw_reduced
+print("f_c toy averages (ell: all-c, reduced-c, all-c/((log ell)^2 log K)):",
+      {ell: (round(a, 2), round(ar, 2), round(ratio, 3))
+       for ell, a, ar, ratio in class_average_rows})
+
+# Spot-check both parts of distinctness by design at a prime where k=1 and
+# k=13 both contribute with u,v>K.  Reduced-ratio equality is checked too.
+ell, K0 = 13259, 13
+rows = []
+for r0, entries in multiplier_rows(ell, K0).items():
+    for u0, v0, k0 in entries:
+        if u0 > K0 and v0 > K0:
+            rows.append((r0, u0, v0, k0))
+assert {k0 for _, _, _, k0 in rows} == {1, 13}
+assert len(rows) == len({r0 for r0, _, _, _ in rows}) == 8
+for i, (r0, u0, v0, k0) in enumerate(rows):
+    for r1, u1, v1, k1 in rows[i + 1:]:
+        assert r0 != r1
+        assert u0 * v1 != u1 * v0
+        if k0 != k1:
+            A0, A1 = (k0 * ell + 1) // 4, (k1 * ell + 1) // 4
+            assert gcd(A0, A1) <= abs(k0 - k1) // 4 < K0
+print("distinctness spot-check: 8/8 classes distinct across k=1,13 at ell=13259")
+
 print("\nall checks passed")
