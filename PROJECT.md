@@ -1,8 +1,9 @@
 # Project: explicit-k correlation bounds → Erdős–Straus exceptional set
 
 Successor session to the campaign logged in `notes.md` (read it first, §3, §6,
-§8.3, §11 are the load-bearing sections; `verify.py` re-checks every claim in
-~2 s). Goal: execute the one actionable lever found there.
+§8.3, §11 are the load-bearing sections; `verify.py` re-checks every
+computational companion claim in under 30 s). Goal: execute the one actionable
+lever found there.
 
 ## The target
 
@@ -58,7 +59,8 @@ large-deviations against actual data for hard-class primes).
 * `notes.md` — full campaign: criterion (Thm 3.1, proved), obstruction
   theorems (5.1, 9.3), reciprocity collapse (8.1/9.1), one-bit completeness
   (§10.2), independence data + joint record (§11.1), calibration (§11.3).
-* `verify.py` — 2-second re-verification of all computational claims.
+* `verify.py` — under-30-second re-verification of all computational
+  companion claims.
 * `sources/henriot-1102.1643.pdf` — Henriot, NT bounds uniform in
   discriminant (quotes NT Thm 1, Holowinsky Thm 2 — the pair-case tools).
 * `sources/bright-loughran-1908.02526.pdf` — geometry side (context only).
@@ -78,6 +80,34 @@ large-deviations against actual data for hard-class primes).
 * Identity/covering/form shortcuts are dead by theorem (notes §5, §9.3);
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
+
+## Outcome 5 (2026-08-19, phase nine — see notes.md §14.6)
+
+* **New campaign record: E(N) ≪ N exp(−(log N)^{1/2−o(1)}) (Theorem
+  14.8), unconditional (Siegel–Walfisz-ineffective).**  For every fixed
+  σ > 0 the proved bound is
+  N exp(−c(σ)(log N)^{1/2−σ}log log N).  The restricted-support problem
+  has an exact Boolean solution: Möbius inversion makes the unrestricted
+  quadratic minimum equal the true witness-miss probability, despite the
+  support not being divisor-closed.  After a cardinality cap
+  L = O(log h), Rankin tails are polynomially small; Boolean differences
+  give the marked bound C^|M|h^O(1)∏_{q∈M}q^−1; the floor u absorbs that
+  fixed h-power in the §14.3 exclusion assembly.  Window consumption is
+  h^{1+ε} times logarithms, so W = (log N)^{1/2−σ} fits the rounding
+  level.
+* **The proposed subset lemma at λ = (1+ε)log h is false for small ε.**
+  With K ∼ Poisson(λ), a typical subset alphabet has only 2^K products;
+  if ε < 1/log 2−1, a union bound plus Poisson concentration gives miss
+  probability 1−h^−c, and the exact-minimum identity means no weights can
+  repair it.  The **signed** alphabet closes the application: Lemma 12.5
+  plus Poisson concentration gives miss O(h^−c) at λ > log h for unit
+  groups; a direct Bernoulli–Poisson coupling and Siegel–Walfisz transfer
+  this to arithmetic windows.  `verify.py (m)` checks exact Möbius
+  support and Q_min = P(miss) for all requested toy moduli/windows; its
+  transition table is explicitly informational.
+* **Honest ceiling:** every fixed exponent below 1/2 is proved, not a
+  fixed endpoint θ = 1/2 estimate.  Vaughan's 2/3 remains stronger; the
+  §14.5 declustering door remains the named route past it.
 
 ## Outcome 4 (2026-08-18, phase eight — see notes.md §14)
 
@@ -104,8 +134,9 @@ large-deviations against actual data for hard-class primes).
 * **Ceiling of the framework mapped (§14.4–14.5, assessments with named
   model assumptions):** witness stacking caps at θ = 1/2
   (group-covering consumes level h_w per modulus; ∑h_w ≍ W² ≤ log N) —
-  reachable via a named open restricted-Selberg lemma; within these
-  assumptions **it does not reach 2/3**.  Prime-side stacking by
+  subsequently reached to every fixed exponent below 1/2 by the signed
+  restricted weights of Outcome 5; within these assumptions **it does not
+  reach 2/3**.  Prime-side stacking by
   progression evaluations is impossible (BV polylog floor vs
   exponential main terms).  Vaughan's 2/3
   = B/(B+1), B = 2 class-mass (log X)², verified tight in PW's own
