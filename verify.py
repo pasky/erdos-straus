@@ -1168,6 +1168,7 @@ for r0, entries in multiplier_rows(ell, K0).items():
             rows.append((r0, u0, v0, k0))
 assert {k0 for _, _, _, k0 in rows} == {1, 13}
 assert len(rows) == len({r0 for r0, _, _, _ in rows}) == 8
+crt_checks = 0
 for i, (r0, u0, v0, k0) in enumerate(rows):
     for r1, u1, v1, k1 in rows[i + 1:]:
         assert r0 != r1
@@ -1175,6 +1176,22 @@ for i, (r0, u0, v0, k0) in enumerate(rows):
         if k0 != k1:
             A0, A1 = (k0 * ell + 1) // 4, (k1 * ell + 1) // 4
             assert gcd(A0, A1) <= abs(k0 - k1) // 4 < K0
-print("distinctness spot-check: 8/8 classes distinct across k=1,13 at ell=13259")
+    # Choose a compatible subsequence c and solve its ell-class for n.  This
+    # spot-checks that the k-part is absorbed and the residue becomes a class
+    # modulo ell for the affine subsequence variable.
+    c = next(c0 for c0 in all_c if (c0 * v0 + u0) % k0 == 0)
+    n = c + M0 * (((r0 - c) * pow(M0, -1, ell)) % ell)
+    if n == 0:
+        n += M0 * ell
+    assert n % M0 == c and n % ell == r0
+    assert (n * v0 + u0) % (k0 * ell) == 0
+    A0 = (k0 * ell + 1) // 4
+    w0, s0 = A0 // (u0 * v0), (n * v0 + u0) // (k0 * ell)
+    assert Fraction(4, n) == (Fraction(1, s0 * u0 * w0)
+                              + Fraction(1, n * s0 * v0 * w0)
+                              + Fraction(1, n * u0 * v0 * w0))
+    crt_checks += 1
+print(f"distinctness/CRT spot-check: 8/8 classes distinct across k=1,13; "
+      f"{crt_checks} subsequence reconstructions")
 
 print("\nall checks passed")
