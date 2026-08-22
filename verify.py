@@ -1080,4 +1080,176 @@ assert [(half, k0) for half in "BA" for k0 in ks
 print("fast fixed-multiple replay (ell=103): one reduced candidate r=-4; "
       "no extra class from k<=20")
 
+# ---------------------------------------------------------------- (o)
+print("\n== (o) generalized multiplier identity and class counts ==")
+
+
+def multiplier_rows(ell, K, cutoff=None, floor=0, omega_cutoff=None):
+    """(residue,u,v,k) rows, with the Lemma-16.2 floor/cutoff if given."""
+    classes = {}
+    bound = cutoff if cutoff is not None else int(ell ** (1 / 3))
+    while (bound + 1) ** 3 <= ell:
+        bound += 1
+    while bound ** 3 > ell:
+        bound -= 1
+    for k0 in range(1, K + 1, 4):
+        A0 = (k0 * ell + 1) // 4
+        for u0 in divisors_of_square(A0):
+            if not floor < u0 <= bound or A0 % u0:
+                continue
+            omega_u = len(factorint(u0))
+            for v0 in divisors_of_square(A0 // u0):
+                if (not floor < v0 <= bound or A0 % (u0 * v0)
+                        or gcd(u0, v0) != 1):
+                    continue
+                if (omega_cutoff is not None
+                        and omega_u + len(factorint(v0)) > omega_cutoff):
+                    continue
+                r0 = (-u0 * pow(v0, -1, ell)) % ell
+                classes.setdefault(r0, []).append((u0, v0, k0))
+    return classes
+
+
+# Lemma 16.1: include odd primes, odd composites, even/composite n, and every
+# ordered factorization in a modest exhaustive range.
+multiplier_identity_checks = 0
+saw_even_n = saw_composite_n = saw_composite_ell = False
+for ell in list(primerange(3, 80)) + [9, 15, 21, 25, 27, 35]:
+    if ell % 2 == 0:
+        continue
+    saw_composite_ell |= not __import__("sympy").isprime(ell)
+    for k0 in range(1, 18):
+        if k0 * ell % 4 != 3:
+            continue
+        A0 = (k0 * ell + 1) // 4
+        for u0 in divisors_of_square(A0):
+            if A0 % u0:
+                continue
+            for v0 in divisors_of_square(A0 // u0):
+                if A0 % (u0 * v0):
+                    continue
+                w0 = A0 // (u0 * v0)
+                modulus = k0 * ell
+                r0 = (-u0 * pow(v0, -1, modulus)) % modulus
+                for j in range(1, 5):
+                    n = r0 + j * modulus
+                    s0 = (n * v0 + u0) // modulus
+                    assert s0 * modulus == n * v0 + u0 and s0 > 0
+                    rhs = (Fraction(1, s0 * u0 * w0)
+                           + Fraction(1, n * s0 * v0 * w0)
+                           + Fraction(1, n * u0 * v0 * w0))
+                    assert rhs == Fraction(4, n)
+                    saw_even_n |= n % 2 == 0
+                    saw_composite_n |= not __import__("sympy").isprime(n)
+                    multiplier_identity_checks += 1
+assert saw_even_n and saw_composite_n and saw_composite_ell
+print(f"generalized identity: {multiplier_identity_checks} exact checks "
+      "(including even/composite n and composite ell)")
+
+# INFORMATIONAL small-scale version of the actual Lemma-16.2/16.3 object.
+# H_TOY^2>K0 preserves cross-k distinctness; DISTINCT_PRIME_CUTOFF_TOY is a
+# real, nonvacuous distinct-prime cutoff.  The tested classes are reduced c = 1
+# (mod 4) modulo this toy M0=4*L_K, not all classes modulo the theorem's full
+# 24*L_K modulus.  We also average over a dyadic-ish range of ell.
+K0, H_TOY, DISTINCT_PRIME_CUTOFF_TOY = 13, 4, 4
+ks0 = tuple(range(1, K0 + 1, 4))
+M0 = 4
+for k0 in ks0:
+    M0 = lcm(M0, k0)
+all_c = tuple(range(1, M0, 4))
+reduced_c = tuple(c for c in all_c if gcd(c, M0) == 1)
+ells_toy = tuple(ell for ell in primerange(10_000, 30_000) if ell % 4 == 3)
+observed_by_k = {k0: 0.0 for k0 in ks0}
+predicted_by_k = {k0: 0.0 for k0 in ks0}
+observed_dedup = 0.0
+for ell in ells_toy:
+    by_residue = multiplier_rows(
+        ell, K0, floor=H_TOY, omega_cutoff=DISTINCT_PRIME_CUTOFF_TOY)
+    # The toy floor has exactly the inequality used in the proof.
+    assert H_TOY * H_TOY > K0
+    assert all(len(entries) == 1 for entries in by_residue.values())
+    rows = [(r0, u0, v0, k0) for r0, entries in by_residue.items()
+            for u0, v0, k0 in entries]
+    per_k = {k0: 0 for k0 in ks0}
+    dedup_total = 0
+    for c in reduced_c:
+        hits = []
+        for r0, u0, v0, k0 in rows:
+            if (c * v0 + u0) % k0 == 0:
+                hits.append(r0)
+                per_k[k0] += 1
+        assert len(hits) == len(set(hits))
+        dedup_total += len(hits)
+    for k0 in ks0:
+        observed_by_k[k0] += per_k[k0] / len(reduced_c)
+        phi_k = k0
+        for p0 in factorint(k0):
+            phi_k = phi_k // p0 * (p0 - 1)
+        z0 = int(ell ** (1 / 3))
+        while (z0 + 1) ** 3 <= ell:
+            z0 += 1
+        while z0 ** 3 > ell:
+            z0 -= 1
+        predicted_by_k[k0] += phi_k / k0**2 * log(z0 / H_TOY) ** 2
+    observed_dedup += dedup_total / len(reduced_c)
+
+n_ells = len(ells_toy)
+ratios_by_k = {
+    k0: observed_by_k[k0] / predicted_by_k[k0] for k0 in ks0
+}
+total_predicted = sum(predicted_by_k.values()) / n_ells
+total_ratio = (observed_dedup / n_ells) / total_predicted
+assert n_ells == 1014 and observed_dedup > 0
+# Deliberately broad scale guards catch catastrophic counting regressions.
+assert all(0.02 <= ratio <= 50 for ratio in ratios_by_k.values())
+assert 0.02 <= total_ratio <= 50
+toy_comparison = {
+    k0: (round(observed_by_k[k0] / n_ells, 3),
+         round(predicted_by_k[k0] / n_ells, 3),
+         round(ratios_by_k[k0], 3))
+    for k0 in ks0
+}
+print("INFORMATIONAL actual-object toy average over 1014 primes ell and all "
+      f"{len(reduced_c)} reduced c=1 (mod 4) "
+      f"(H={H_TOY}, omega<={DISTINCT_PRIME_CUTOFF_TOY}); "
+      "k: (classes, phi(k)/k^2 scale, ratio) =", toy_comparison,
+      "; total =", (round(observed_dedup / n_ells, 3),
+                     round(total_predicted, 3), round(total_ratio, 3)))
+
+# Spot-check both parts of distinctness by design at a prime where k=1 and
+# k=13 both contribute with u,v>K.  Reduced-ratio equality is checked too.
+ell, K0 = 13259, 13
+rows = []
+for r0, entries in multiplier_rows(ell, K0).items():
+    for u0, v0, k0 in entries:
+        if u0 > K0 and v0 > K0:
+            rows.append((r0, u0, v0, k0))
+assert {k0 for _, _, _, k0 in rows} == {1, 13}
+assert len(rows) == len({r0 for r0, _, _, _ in rows}) == 8
+crt_checks = 0
+for i, (r0, u0, v0, k0) in enumerate(rows):
+    for r1, u1, v1, k1 in rows[i + 1:]:
+        assert r0 != r1
+        assert u0 * v1 != u1 * v0
+        if k0 != k1:
+            A0, A1 = (k0 * ell + 1) // 4, (k1 * ell + 1) // 4
+            assert gcd(A0, A1) <= abs(k0 - k1) // 4 < K0
+    # Choose a compatible subsequence c and solve its ell-class for n.  This
+    # spot-checks that the k-part is absorbed and the residue becomes a class
+    # modulo ell for the affine subsequence variable.
+    c = next(c0 for c0 in all_c if (c0 * v0 + u0) % k0 == 0)
+    n = c + M0 * (((r0 - c) * pow(M0, -1, ell)) % ell)
+    if n == 0:
+        n += M0 * ell
+    assert n % M0 == c and n % ell == r0
+    assert (n * v0 + u0) % (k0 * ell) == 0
+    A0 = (k0 * ell + 1) // 4
+    w0, s0 = A0 // (u0 * v0), (n * v0 + u0) // (k0 * ell)
+    assert Fraction(4, n) == (Fraction(1, s0 * u0 * w0)
+                              + Fraction(1, n * s0 * v0 * w0)
+                              + Fraction(1, n * u0 * v0 * w0))
+    crt_checks += 1
+print(f"distinctness/CRT spot-check: 8/8 classes distinct across k=1,13; "
+      f"{crt_checks} subsequence reconstructions")
+
 print("\nall checks passed")

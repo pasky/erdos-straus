@@ -2,7 +2,7 @@
 
 Successor session to the campaign logged in `notes.md` (read it first, §3, §6,
 §8.3, §11 are the load-bearing sections; `verify.py` re-checks every claim in
-~2 s). Goal: execute the one actionable lever found there.
+~13 s). Goal: execute the one actionable lever found there.
 
 ## The target
 
@@ -58,7 +58,7 @@ large-deviations against actual data for hard-class primes).
 * `notes.md` — full campaign: criterion (Thm 3.1, proved), obstruction
   theorems (5.1, 9.3), reciprocity collapse (8.1/9.1), one-bit completeness
   (§10.2), independence data + joint record (§11.1), calibration (§11.3).
-* `verify.py` — 2-second re-verification of all computational claims.
+* `verify.py` — ~13-second re-verification of all computational claims.
 * `sources/henriot-1102.1643.pdf` — Henriot, NT bounds uniform in
   discriminant (quotes NT Thm 1, Holowinsky Thm 2 — the pair-case tools).
 * `sources/bright-loughran-1908.02526.pdf` — geometry side (context only).
@@ -78,6 +78,29 @@ large-deviations against actual data for hard-class primes).
 * Identity/covering/form shortcuts are dead by theorem (notes §5, §9.3);
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
+
+## Outcome 7 (2026-08-23, multiplier classes — see notes.md §16)
+
+* **CLAIMED/PROVISIONAL Vaughan-beating bounds.**  This record claim is
+  subject to external verification and priority search; Vaughan's primary
+  paper (1970) remains access-blocked and was checked only through the
+  Pomerance-Weingartner 2025 reconstruction.  The generalized identity for
+  \(A_k=(k\ell+1)/4=uvw\) forces the class
+  \(n\equiv-uv^{-1}\pmod{k\ell}\).  Lemma 16.3 proves, by a
+  Bombieri--Vinogradov divisor-sum argument with honest cross-\(k\)
+  deduplication, class mass \(\asymp(\log X)^2h(\mathcal J)\) pointwise in
+  every compatible subsequence.  The full multiplier family has
+  \(h\asymp\log K\), giving for prime exceptions
+  \(E(N)\ll N\exp[-c(\log N)^{2/3}(\log\log N)^{1/3}]\) (Theorem 16.4).
+* **All-denominator scope.**  Every prime factor of an exceptional integer is
+  exceptional.  Rankin's inequality for that multiplicative semigroup lifts
+  Theorem 16.4 at full strength: Theorem 16.5 gives
+  \(E_{\rm all}(N)\ll N\exp[-c(\log N)^{2/3}
+  (\log\log N)^{1/3}]\).  The prime and all-integer statements have the same
+  scale, but remain separate statements.  `verify.py (o)` checks 7,684 exact
+  identities (including composite/even inputs), an informational toy average
+  with the actual floor and \(\omega\)-cutoff over primes and reduced classes,
+  and within/across-multiplier distinctness.
 
 ## Outcome 6 (2026-08-22, declustering door — see notes.md §15)
 
