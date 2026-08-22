@@ -1,6 +1,6 @@
 # The Erdős–Straus conjecture: a serious attempt, and an honest map of the wall
 
-*Working notes, 2026-08-16. Companion computations: `verify.py` (runs in ~2 s).*
+*Working notes, 2026-08-16. Companion computations: `verify.py` (runs in ~13 s).*
 
 **Conjecture (Erdős–Straus, 1948).** For every integer n ≥ 2 there are positive
 integers x, y, z with
@@ -2367,9 +2367,9 @@ All logarithms in this section are natural.  Write
 The following elementary weighted lattice estimate is used in the prime
 count.  It is recorded with the uniformity needed below.
 
-**Lemma 16.2 (harmonic congruence lattice).**  Fix \(B>0\).  There is an
-absolute \(D=D(B)\) such that the following holds.  Let
-\(3\le K\le(\log z)^B\), \(H=K^{10}\), \(z>H^2\), and let
+**Lemma 16.2 (harmonic congruence lattice).**  Fix \(B>0\).  There are an
+absolute \(K_0\) and a constant \(D=D(B)\) such that the following holds.  Let
+\(K_0\le K\le(\log z)^B\), \(H=K^{10}\), \(z>H^2\), and let
 \(\mathcal J\subseteq\mathcal K(K)\) contain 1.  If \((c,L_{\mathcal J})=1\),
 where \(L_{\mathcal J}={\rm lcm}_{k\in\mathcal J}k\), put
 
@@ -2383,7 +2383,8 @@ Then, uniformly in \(c\) and \(\mathcal J\),
 Here \(\Sigma^*\) is over \(H<u,v\le z\),
 \((u,v)=(uv,k)=1\), \(u+cv\equiv0\pmod k\); in the lower bound in
 (16.2) one may additionally impose
-\(\Omega(uv)\le D\log\log z\).  The implied constants depend only on \(B\).
+\(\omega(uv)\le D\log\log z\), where \(\omega\) counts distinct prime
+factors.  The implied constants depend only on \(B\).
 
 *Proof.*  We give the box calculation, including the two weighted estimates
 used later.  Fix \(\eta=1/20\), and first take two full multiplicative boxes
@@ -2426,16 +2427,18 @@ Indeed, the sum of \(1/U\) over the geometric box endpoints is
 The main term is \(\asymp_\eta(\varphi(k)/k^2)L^2\).  Since \(z>H^2\),
 \(\log z/L<2\); and since
 \(k^2/\varphi(k)\le k\tau(k)\) and \(\tau(k)\le2\sqrt k\), the ratio of
-(16.5) to the main term is \(O(K^2/H)=O(K^{-8})\).  In particular the fixed
-floor \(H=K^{10}\) absorbs all box-boundary errors uniformly for every
-\(k\le K\), rather than only after averaging over \(k\).  We have proved
+(16.5) to the main term is at most \(C K^2/H=C K^{-8}\) for an absolute
+constant \(C\).  Choose the absolute \(K_0\) large enough that
+\(CK_0^{-8}\le1/2\).  The fixed floor \(H=K^{10}\) then absorbs all
+box-boundary errors uniformly for every \(k\le K\), rather than only after
+averaging over \(k\).  We have proved
 
     Σ* 1/(uv) ≍ φ(k)/k² · L²                              (16.5a)
 
 pointwise in \(k,c\).
 
 We next prove the weighted upper bound needed both for (16.3) and for the
-\(\Omega\)-tail.  We use the following precise specialization of Shiu's
+\(\omega\)-tail.  We use the following precise specialization of Shiu's
 Brun--Titchmarsh theorem for nonnegative multiplicative functions.  If
 \(F(p^a)\le A^a\), \(F(n)\ll_\epsilon n^\epsilon\), \((r,q)=1\),
 \(q\le Y^{1/2}\), and \(\eta\) is fixed, then
@@ -2444,9 +2447,14 @@ Brun--Titchmarsh theorem for nonnegative multiplicative functions.  If
       ≪_{A,η} ηY/(φ(q)log Y)
          exp{Σ_{p≤2Y, p∤q} F(p)/p}.                         (16.5b)
 
-This is Shiu's theorem with interval length \(\eta Y\); its hypotheses hold
-here because \(k\le K\le H^{1/10}<U^{1/2},V^{1/2}\).  Summing (16.5b) over
-the \(\varphi(k)\) reduced classes also gives
+This is Shiu's theorem with interval length \(\eta Y\); its modulus condition
+holds here because \(k\le K\le H^{1/10}<U^{1/2},V^{1/2}\).  For the weighted
+estimate below take the nonnegative multiplicative function
+\(F(n)=t^{\omega(n)}\).  Then
+\(F(p^a)=t\le t^a\), while
+\(F(n)\le\tau(n)^{\log_2t}\ll_{t,\epsilon}n^\epsilon\).  Thus Shiu's growth
+hypothesis is satisfied, and the prime local factor is still \(F(p)=t\).
+Summing (16.5b) over the \(\varphi(k)\) reduced classes also gives
 
     Σ_{V<v≤(1+η)V, (v,k)=1} F(v)
       ≪_{A,η} ηV/log V
@@ -2480,7 +2488,7 @@ choices the linear terms cancel.  In all cases the remainder is
 Dividing the box estimate by \(UV\), and summing the
 \(O_\eta(L^2)\) pairs of boxes, now proves the explicit estimate
 
-    Σ* t^{Ω(u)+Ω(v)}/(uv)
+    Σ* t^{ω(u)+ω(v)}/(uv)
       ≪_t φ(k)/k² · L² (log z)^{2(t−1)},       1<t<2,         (16.5f)
 
 for every reduced \(c\) and every \(k\le K\).  Taking instead
@@ -2499,15 +2507,18 @@ why primes dividing \(k\) do not introduce a growing factor.
 
 Finally Rankin's inequality and (16.5f) show that, for each \(k\),
 
-    Σ*_{Ω(uv)>D log log z} 1/(uv)
-      ≤ t^{−D log log z} Σ* t^{Ω(u)+Ω(v)}/(uv)
+    Σ*_{ω(uv)>D log log z} 1/(uv)
+      ≤ t^{−D log log z} Σ* t^{ω(u)+ω(v)}/(uv)
       ≪ φ(k)/k² · L² (log z)^{2(t−1)−D log t}.               (16.5h)
 
-Fix, for example, \(t=3/2\), and choose the absolute integer \(D\) so that
-\(D\log t>2(t-1)\) (with enough fixed margin to absorb the constants for the
-minimum \(z>3^{20}\)).  Comparing (16.5h) with (16.5a) leaves at least half
-of the latter mass.  Summing the pointwise estimates over an arbitrary
-\(\mathcal J\) proves (16.2)--(16.3), since \(L\asymp\log z\).  Finally,
+Here \((u,v)=1\) gives \(\omega(uv)=\omega(u)+\omega(v)\), so Rankin's
+inequality applies exactly as displayed.  Fix, for example, \(t=3/2\), and
+choose the integer \(D\) so that \(D\log t>2(t-1)\).  With fixed positive
+margin in this inequality, enlarge the absolute \(K_0\) if necessary; since
+\(z>K^{20}\), the ratio of (16.5h) to (16.5a) is then at most \(1/2\).
+Thus at least half of the latter mass remains.  Summing the pointwise
+estimates over an arbitrary \(\mathcal J\) proves (16.2)--(16.3), since
+\(L\asymp\log z\).  Finally,
 Möbius expansion of \(\varphi(k)/k\), with the progression
 \(k\equiv1\pmod4\), gives
 
@@ -2515,13 +2526,17 @@ Möbius expansion of \(\varphi(k)/k\), with the progression
 
 Thus \(h(\mathcal K(K))\asymp\log K\), as used below. ∎
 
+The restriction \(K\ge K_0\) loses nothing in Theorem 16.4, where
+\(K=\lfloor\delta\log N\rfloor\) tends to infinity; Theorem 16.5 is its
+semigroup corollary.
+
 The deliberately wasteful floor \(H=K^{10}\) makes the lattice errors
 uniform and also makes cross-multiplier distinctness immediate.  It costs
 only \(O(\log K)\) from a logarithm of size \(\asymp\log X\).
 
 **Lemma 16.3 (class-mass lemma).**  There are constants \(a,A>0\) and an
 absolute integer \(D\) with the following property.  Let \(X\) be large,
-\(3\le K\le(\log X)^5\), \(H=K^{10}\), and let
+\(K_0\le K\le(\log X)^5\), \(H=K^{10}\), and let
 \(\mathcal J\subseteq\mathcal K(K)\) contain 1.  Suppose
 \((c,L_{\mathcal J})=1\).  For each prime
 \(\ell\equiv3\pmod4\), \(X^{1/2}<\ell\le X\), let
@@ -2529,7 +2544,7 @@ absolute integer \(D\) with the following property.  Let \(X\) be large,
 \(-uv^{-1}\pmod\ell\) arising from triples
 
     k∈𝒥,  H<u,v≤ℓ^{1/3},  (u,v)=1,
-    uv | (kℓ+1)/4,  k | u+cv,  Ω(uv)≤D log log X.             (16.7)
+    uv | (kℓ+1)/4,  k | u+cv,  ω(uv)≤D log log X.             (16.7)
 
 Then, uniformly in \(c\) and \(\mathcal J\),
 
@@ -2573,7 +2588,7 @@ The latter inequality holds uniformly once \(X\) is large because
 Thus every hypothesis of Lemma 16.2 is met.  Also \(z\le\ell^{1/3}\) for
 \(\ell>x\), so these pairs satisfy the size condition in (16.7).  The
 lemma supplies pairs with
-\(\Omega(uv)\le D(6)\log\log z\); because
+\(\omega(uv)\le D(6)\log\log z\); because
 
     log log z = log log X + O(1),    log log z ≤ log log X,
 
@@ -2600,11 +2615,12 @@ the standard level
 For large \(x\), every \(q\le4x^{1/3}\) lies below that level.  A fixed
 \(q=4uv\) is generated by at most
 
-    W(q) ≤ K·2^{Ω(uv)}
+    W(q) ≤ K·2^{ω(uv)}
          ≤ (log X)^{5+D log 2} = (log X)^{C_D}               (16.9a)
 
-triples: coprimality assigns each prime power of \(uv\) wholly to \(u\) or
-to \(v\), and there are at most \(K\) choices of \(k\).  Since
+triples: coprimality assigns each whole prime power of \(uv\) to either \(u\)
+or \(v\), giving at most \(2^{\omega(uv)}\) ordered assignments, and there
+are at most \(K\) choices of \(k\).  Since
 \(\log x\asymp\log X\), take \(R=C_D+10\) and the corresponding
 Bombieri--Vinogradov constant \(A_R\).  Multiplying the displayed error sum
 by (16.9a) gives \(O(x/(\log x)^{10})\), negligible uniformly in \(c\).
@@ -2618,7 +2634,7 @@ Consequently this dyadic interval contributes
 which proves the lower half of (16.8).
 
 *Proof: upper bound.*  On \((x,2x]\), put \(z=(2x)^{1/3}\), enlarge to
-\(u,v\le z\), and drop the \(\Omega\)-restriction.  The same explicit
+\(u,v\le z\), and drop the \(\omega\)-restriction.  The same explicit
 checks give \(z>H^2\) and \(K\le(\log z)^6\) for large \(X\).  Brun--Titchmarsh
 in (16.9), followed by (16.3), gives
 
@@ -2679,8 +2695,9 @@ sufficiently large \(N\),
     E(N) ≪ N exp{−c (log N)^{2/3}(log log N)^{1/3}}.           (16.12)
 
 *Proof.*  Choose a sufficiently small fixed \(\delta>0\), put
-\(K=\lfloor\delta\log N\rfloor\), and use \(M_0=24L_K\).  Since \(L_K\)
-divides \({\rm lcm}(1,\ldots,K)\), the prime number theorem (the elementary
+\(K=\lfloor\delta\log N\rfloor\), and use \(M_0=24L_K\).  For sufficiently
+large \(N\), this \(K\) is at least the absolute \(K_0\) from Lemma 16.2.
+Since \(L_K\) divides \({\rm lcm}(1,\ldots,K)\), the prime number theorem (the elementary
 Chebyshev upper bound would suffice after reducing \(\delta\)) gives
 
     log M_0 ≤ (1+o(1))K,
@@ -2750,18 +2767,20 @@ then scaling the three denominators gives
     4/n = 1/((n/p)x₁) + 1/((n/p)x₂) + 1/((n/p)x₃),
 
 contrary to exceptionality of \(n\).  Thus the exceptional integers are a
-subset of the multiplicative semigroup generated by exceptional primes.
+subset of the multiplicative semigroup generated by exceptional primes,
+where the semigroup includes the empty product \(1\).  The case \(n=1\)
+contributes only \(O(1)\).
 
 Write
 
     g(u)=u^{2/3}(log u)^{1/3},    x=e^L.
 
-Theorem 16.4 says, after changing its constant to cover a finite initial
-range, that the exceptional-prime counting function satisfies
+Fix \(x_0\ge e^e\) large enough that Theorem 16.4 gives, for every
+\(x\ge x_0\),
 
     E(x) ≪ x exp{−c₀g(log x)}.                                (16.16)
 
-Fix \(0<\eta<c_0\), and for large \(L\) put
+Fix \(0<\eta<c₀\), and for large \(L\) put
 \(\delta=\eta g(L)/L\), so \(0<\delta<1/4\).  Rankin's inequality over the
 above multiplicative semigroup gives
 
@@ -2772,14 +2791,17 @@ Only primes at most \(x\) occur because an integer counted on the left is at
 most \(x\).
 
 We show that the Euler product in (16.17) is bounded uniformly in \(x\).
-Partial summation and (16.16) give
+Split at the fixed \(x_0\).  The finitely many exceptional primes
+\(p\le x_0\) contribute \(O(1)\), uniformly for \(0<\delta<1/4\).  Partial
+summation on \([x_0,x]\), (16.16), and the endpoint estimate
+\(\delta L-c₀g(L)=-(c₀-\eta)g(L)<0\) give
 
     Σ_{p≤x,\ p exceptional} p^{−1+δ}
       ≪ 1 + E(x)x^{−1+δ}
-           + ∫_2^x E(t)t^{−2+δ}dt
-      ≪ 1 + ∫_{log 2}^L exp{δu−c₀g(u)}du.                    (16.18)
+           + ∫_{x₀}^x E(t)t^{−2+δ}dt
+      ≪ 1 + ∫_{log x₀}^L exp{δu−c₀g(u)}du.                   (16.18)
 
-For \(u>e\),
+For \(u\ge\log x_0\ge e\),
 
     g(u)/u = u^{−1/3}(log u)^{1/3}
 
@@ -2787,9 +2809,8 @@ is decreasing.  Hence, for \(u\le L\),
 
     δu = η(g(L)/L)u ≤ ηg(u).
 
-The last integral in (16.18) is therefore at most a fixed initial contribution
-plus
-\(\int_e^\infty\exp\{-(c_0-\eta)g(u)\}\,du<\infty\).  This proves
+The last integral in (16.18) is therefore at most
+\(\int_{\log x_0}^\infty\exp\{-(c₀-\eta)g(u)\}\,du<\infty\).  This proves
 \(\sum p^{-1+\delta}=O(1)\), uniformly in \(x\).  Finally, the prime-power
 terms in the logarithm of the Euler product satisfy
 

@@ -1076,13 +1076,13 @@ def multiplier_rows(ell, K, cutoff=None, floor=0, omega_cutoff=None):
         for u0 in divisors_of_square(A0):
             if not floor < u0 <= bound or A0 % u0:
                 continue
-            omega_u = sum(factorint(u0).values())
+            omega_u = len(factorint(u0))
             for v0 in divisors_of_square(A0 // u0):
                 if (not floor < v0 <= bound or A0 % (u0 * v0)
                         or gcd(u0, v0) != 1):
                     continue
                 if (omega_cutoff is not None
-                        and omega_u + sum(factorint(v0).values()) > omega_cutoff):
+                        and omega_u + len(factorint(v0)) > omega_cutoff):
                     continue
                 r0 = (-u0 * pow(v0, -1, ell)) % ell
                 classes.setdefault(r0, []).append((u0, v0, k0))
@@ -1126,9 +1126,11 @@ print(f"generalized identity: {multiplier_identity_checks} exact checks "
       "(including even/composite n and composite ell)")
 
 # INFORMATIONAL small-scale version of the actual Lemma-16.2/16.3 object.
-# H_TOY^2>K0 preserves cross-k distinctness; OMEGA_TOY is a real, nonvacuous
-# cutoff.  We average over both all reduced c and a dyadic-ish range of ell.
-K0, H_TOY, OMEGA_TOY = 13, 4, 4
+# H_TOY^2>K0 preserves cross-k distinctness; DISTINCT_PRIME_CUTOFF_TOY is a
+# real, nonvacuous distinct-prime cutoff.  The tested classes are reduced c = 1
+# (mod 4) modulo this toy M0=4*L_K, not all classes modulo the theorem's full
+# 24*L_K modulus.  We also average over a dyadic-ish range of ell.
+K0, H_TOY, DISTINCT_PRIME_CUTOFF_TOY = 13, 4, 4
 ks0 = tuple(range(1, K0 + 1, 4))
 M0 = 4
 for k0 in ks0:
@@ -1141,7 +1143,7 @@ predicted_by_k = {k0: 0.0 for k0 in ks0}
 observed_dedup = 0.0
 for ell in ells_toy:
     by_residue = multiplier_rows(
-        ell, K0, floor=H_TOY, omega_cutoff=OMEGA_TOY)
+        ell, K0, floor=H_TOY, omega_cutoff=DISTINCT_PRIME_CUTOFF_TOY)
     # The toy floor has exactly the inequality used in the proof.
     assert H_TOY * H_TOY > K0
     assert all(len(entries) == 1 for entries in by_residue.values())
@@ -1171,20 +1173,27 @@ for ell in ells_toy:
     observed_dedup += dedup_total / len(reduced_c)
 
 n_ells = len(ells_toy)
+ratios_by_k = {
+    k0: observed_by_k[k0] / predicted_by_k[k0] for k0 in ks0
+}
+total_predicted = sum(predicted_by_k.values()) / n_ells
+total_ratio = (observed_dedup / n_ells) / total_predicted
+assert n_ells == 1014 and observed_dedup > 0
+# Deliberately broad scale guards catch catastrophic counting regressions.
+assert all(0.02 <= ratio <= 50 for ratio in ratios_by_k.values())
+assert 0.02 <= total_ratio <= 50
 toy_comparison = {
     k0: (round(observed_by_k[k0] / n_ells, 3),
          round(predicted_by_k[k0] / n_ells, 3),
-         round(observed_by_k[k0] / predicted_by_k[k0], 3))
+         round(ratios_by_k[k0], 3))
     for k0 in ks0
 }
-total_predicted = sum(predicted_by_k.values()) / n_ells
-assert n_ells == 1014 and observed_dedup > 0
 print("INFORMATIONAL actual-object toy average over 1014 primes ell and all "
-      f"{len(reduced_c)} reduced c (H={H_TOY}, Omega<={OMEGA_TOY}); "
+      f"{len(reduced_c)} reduced c=1 (mod 4) "
+      f"(H={H_TOY}, omega<={DISTINCT_PRIME_CUTOFF_TOY}); "
       "k: (classes, phi(k)/k^2 scale, ratio) =", toy_comparison,
       "; total =", (round(observed_dedup / n_ells, 3),
-                     round(total_predicted, 3),
-                     round((observed_dedup / n_ells) / total_predicted, 3)))
+                     round(total_predicted, 3), round(total_ratio, 3)))
 
 # Spot-check both parts of distinctness by design at a prime where k=1 and
 # k=13 both contribute with u,v>K.  Reduced-ratio equality is checked too.

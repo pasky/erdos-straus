@@ -2,7 +2,7 @@
 
 Successor session to the campaign logged in `notes.md` (read it first, §3, §6,
 §8.3, §11 are the load-bearing sections; `verify.py` re-checks every claim in
-~2 s). Goal: execute the one actionable lever found there.
+~13 s). Goal: execute the one actionable lever found there.
 
 ## The target
 
@@ -58,7 +58,7 @@ large-deviations against actual data for hard-class primes).
 * `notes.md` — full campaign: criterion (Thm 3.1, proved), obstruction
   theorems (5.1, 9.3), reciprocity collapse (8.1/9.1), one-bit completeness
   (§10.2), independence data + joint record (§11.1), calibration (§11.3).
-* `verify.py` — 2-second re-verification of all computational claims.
+* `verify.py` — ~13-second re-verification of all computational claims.
 * `sources/henriot-1102.1643.pdf` — Henriot, NT bounds uniform in
   discriminant (quotes NT Thm 1, Holowinsky Thm 2 — the pair-case tools).
 * `sources/bright-loughran-1908.02526.pdf` — geometry side (context only).
@@ -99,7 +99,7 @@ large-deviations against actual data for hard-class primes).
   (\log\log N)^{1/3}]\).  The prime and all-integer statements have the same
   scale, but remain separate statements.  `verify.py (o)` checks 7,684 exact
   identities (including composite/even inputs), an informational toy average
-  with the actual floor and \(\Omega\)-cutoff over primes and reduced classes,
+  with the actual floor and \(\omega\)-cutoff over primes and reduced classes,
   and within/across-multiplier distinctness.
 
 ## Outcome 6 (2026-08-22, declustering door — see notes.md §15)
