@@ -1501,9 +1501,51 @@ def check_p():
     s = Rational(1, a0*b0*c0) + Rational(1, p0*a0*c0*k0) + Rational(1, p0*b0*c0*k0)
     assert s == Rational(4, 409)
 
+    # (p6) fixed-(c,k) regression (Thm 17.1(iii) scope): p=29, (c,k)=(1,2):
+    # D=15 | 465, D=-1 mod 8 gives NON-coprime (a,b)=(2,4); identity still exact;
+    # canonical re-decomposition lands at different (c,k)=(4,1).
+    p0, c0, k0 = 29, 1, 2
+    n0 = 4*p0*c0*k0*k0 + 1
+    assert n0 == 465 and n0 % 15 == 0 and 15 % (4*c0*k0) == 4*c0*k0 - 1
+    a0 = (15 + 1)//(4*c0*k0); b0 = (n0//15 + 1)//(4*c0*k0)
+    assert (a0, b0) == (2, 4) and _gcd(a0, b0) == 2
+    assert k0*p0 + a0 + b0 == 4*a0*b0*c0*k0
+    s = Rational(1, a0*b0*c0) + Rational(1, p0*a0*c0*k0) + Rational(1, p0*b0*c0*k0)
+    assert s == Rational(4, 29)
+    # canonical decomposition of the induced witness: x=abc=8, q=(a+b)/k=3, d=a^2c=4
+    x0, q0, d0 = a0*b0*c0, (a0 + b0)//k0, a0*a0*c0
+    g0 = _gcd(d0, x0); aa = d0//g0; cc = g0//aa; bb = x0//(aa*cc); kk = (aa + bb)//q0
+    assert (aa, bb, cc, kk) == (1, 2, 4, 1) and kk*p0 == 4*aa*bb*cc*kk - aa - bb
+
+    # (p7) Thm 17.3(c): residue 1 never lies in R(M) = {-4D mod M}: no D | A^2 with M | 4D+1
+    for A0 in range(1, 2001):
+        M0 = 4*A0 - 1
+        for D0 in divisors(A0*A0):
+            assert (4*D0 + 1) % M0 != 0, (A0, D0)
+
+    # (p8) Thm 17.3(d): Case-A moving-c families end-to-end (Type-I reconstruction)
+    nA = 0
+    for aa, bb, mm in ((1, 2, 3), (2, 3, 5 if False else 5), (1, 6, 7), (3, 4, 7), (2, 5, 7), (1, 10, 11)):
+        if _gcd(aa, bb) != 1 or (aa + bb) % mm or mm % 4 != 3:
+            continue
+        M4 = 4*aa*bb
+        tgt = (-pow(mm, -1, M4)) % M4
+        for p1 in primerange(3, 30000):
+            if p1 % M4 == tgt:
+                cc = (p1*mm + 1)//M4; kk = (aa + bb)//mm
+                assert (p1*mm + 1) % M4 == 0
+                z0 = aa*bb*cc; d1 = aa*aa*cc
+                assert d1 * (z0*z0 // d1) == z0*z0 and (d1 + z0) % mm == 0
+                s = Rational(1, aa*cc*kk) + Rational(1, bb*cc*kk) + Rational(1, p1*aa*bb*cc)
+                assert s == Rational(4, p1)
+                nA += 1
+                break
+    assert nA >= 4, nA
+
     print(f"sec-17 companions: identities symbolic OK; {nII} random Type-II tuples exact; "
           f"{ndec} witness decompositions; {npar} parity checks all +1; "
-          f"Mahler means {[round(v, 5) for v in vals]}; entropy toy exact; 409 witness OK")
+          f"Mahler means {[round(v, 5) for v in vals]}; entropy toy exact; 409 + p=29 "
+          f"regressions OK; R(M) residue-1 escape verified M<=8000 (A<=2000); {nA} Case-A moving-c families exact")
 
 
 check_p()

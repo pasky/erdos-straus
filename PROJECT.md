@@ -85,25 +85,35 @@ large-deviations against actual data for hard-class primes).
 
 * **The full-conjecture ("all p") frontier is now mapped to closure.**  Three
   parallel swings, all merged and verified:
-* **§17 (pointwise frontier).**  Theorem 17.1: complete four-parameter
-  parametrization of both solution types (kp = 4abck−a−b for Type II,
-  p(a+b) = k(4abc−1) for Type I, valuation-argument completeness), with the
-  divisor dictionary — Case B ⟺ some 4pck²+1 has a divisor ≡ −1 (mod 4ck).
-  Lemma 17.2: the quadratic layer (the surface's only global structure) is
-  **pointwise inert** — λ_p = +1 identically on both witness families, so no
-  global parity contradiction can ever bite an exceptional p.  Theorem 17.3:
-  bounded-modulus forced-class systems are escapable by actual primes forever
-  (upgrades Cor 5.3 to all prime-modulus systems via the §18 supply theorem).
-  Theorem 17.4 + Lemma 17.5: **entropy wall** — oblivious coverage
-  certificates cost exponential windows (Davenport-type lower bound), and the
-  Mahler measure of the Dirichlet kernel is exactly 0, so
-  character/equidistribution technology has zero drift above the (inert)
-  quadratic layer.  §17.5: audit of every pointwise-capable technology
-  (Duke positivity, Linnik repulsion, GRH-Chebotarev families, Chen-type
-  sieves, EGZ coverage) — each fails for an identified structural reason
-  (Eisenstein-only spectrum with polylog main terms; no L-function family; no
-  cusp positivity; polylog witness mass).  §17.6: the residual pointwise
-  problem in final form + what any proof must look like (P1–P4).
+* **§17 (pointwise frontier; hostile-reviewed, rewritten once).**
+  Theorem 17.1: complete four-parameter parametrization of both solution
+  types (kp = 4abck−a−b for Type II, p(a+b) = k(4abc−1) for Type I,
+  valuation-argument bijections), with the divisor dictionary — Case B ⟺
+  some 4pck²+1 has a divisor ≡ −1 (mod 4ck) (coprimality subtlety at fixed
+  (c,k) documented with the p = 29 regression).  Lemma 17.2: the quadratic
+  layer is **pointwise inert** — λ_p = +1 identically on both witness
+  families, so no global parity contradiction can ever bite an exceptional
+  p.  Theorem 17.3 (**square-class escape**): the residue 1 (mod M) lies in
+  no forced class of any formalized shape — including two new self-contained
+  proofs: the Lemma-16.1 class set 𝓡(M) never contains 1 (a 4-line size
+  argument), and the new Case-A moving-c families (a,b,m) avoid 1; corollary:
+  bounded-modulus identity systems are escapable by actual primes forever.
+  §17.4 (**entropy wall**, honest split): Lemma 17.4.1 (box-coverage mass
+  ≥ s−1, worst case), Lemma 17.4.2 (the all-ones configuration forces
+  pinned-target certificates into q | p+4 congruence families — dead by
+  17.3), Assessment 17.4.3 (sub-exponential-window oblivious certificates
+  are confined to congruence reach or unproved strong forcing onto sparse
+  λ-special moduli — the earlier "no certificate system" theorem-claim is
+  withdrawn), Lemma 17.4.4 (Mahler measure of the exponent box = 0 exactly;
+  corrected reading: average-case equidistribution holds in the model, the
+  pointwise problem is carried entirely by worst-case configurations).
+  §17.5: technology audit (Duke positivity, Linnik repulsion, GRH-Chebotarev
+  — compositum-limited to exp(−(loglog p)²) density, matching Thm 12.2;
+  Chen-type sieves vs polylog mass; EGZ coverage) — each an assessment with
+  the missing structural prerequisite identified.  §17.6: exact residual
+  problem (unbounded Thm 3.1) vs the natural polylog sufficient target,
+  and the P1–P4 feature list for proofs within the divisor-coset frame
+  (explicitly not a classification of all conceivable proofs).
 * **§18 (full-harvest ceiling).**  Lemma 18.1: the Lemma-16.1 classes mod M
   are exactly {−4D : D | A²}, A = (M+1)/4.  Theorem 18.2: total identity
   supply is **exactly cubic** — Σ F(M)/M ≍ (log Q)³ — so B = 3 and θ = 3/4
