@@ -3231,6 +3231,372 @@ Lemma 16.3 applies to nonreduced integer subsequences.
 
 ---
 
+## 18. The full-harvest ceiling: the identity supply is cubic, and what caps the realized mass
+
+This section separates three questions which must not be conflated: the
+number of classes supplied by Lemma 16.1 when every auxiliary modulus is
+allowed; the amount of that supply which Lemma 16.3 can presently prove in a
+prime slice; and the cost of assembling composite-modulus exclusions into an
+upper-bound sieve.  The first question has an unconditional sharp answer.  The
+other two contain distinct walls.  In particular, a level bound for products
+of moduli is not by itself a sieve theorem: common multiplier factors create
+correlations which still have to be evaluated.
+
+### 18.1 The unconditional cubic supply
+
+For an integer \(M\equiv3\pmod4\), put \(A=(M+1)/4\), and let
+\(\mathscr R(M)\) be the union of all Lemma-16.1 classes modulo \(M\):
+
+    𝓡(M) = {−uv⁻¹ (mod M) : uvw=A for some u,v,w≥1},
+    F(M) = |𝓡(M)|.
+
+This definition counts a residue once.  It does not count a choice of a
+factorization \(M=k\ell\).  That distinction is essential below.
+
+**Lemma 18.1 (exact divisor description and honest deduplication; proved).**
+For every \(M\equiv3\pmod4\),
+
+    𝓡(M) = {−4D (mod M) : D | A²},                            (18.1)
+    (τ(A²)−1)/2 ≤ F(M) ≤ τ(A²).                              (18.2)
+
+The lower-bound classes can be taken to be the divisors \(D<A\), and those
+classes are pairwise distinct.
+
+*Proof.*  A factorization \(A=uvw\) gives \(D=u^2w\mid A^2\), and, because
+\(4A\equiv1\pmod M\),
+
+    −uv⁻¹ ≡ −u²w A⁻¹ ≡ −4u²w = −4D (mod M).
+
+Conversely, write \(A=\prod p^{e_p}\) and \(D=\prod p^{d_p}\), with
+\(0\le d_p\le2e_p\).  At each prime put
+
+    ord_p(u)=⌊d_p/2⌋,   ord_p(w)=d_p−2⌊d_p/2⌋,
+    ord_p(v)=e_p−ord_p(u)−ord_p(w).
+
+The last exponent is nonnegative, and these choices give \(uvw=A\) and
+\(u^2w=D\).  This proves (18.1), hence the upper bound in (18.2).
+The involution \(D\mapsto A^2/D\) on the divisors of \(A^2\) has the unique
+fixed point \(A\), so exactly \((\tau(A^2)-1)/2\) divisors satisfy \(D<A\).
+For two such divisors, \(0<4D<M\); therefore their residues \(-4D\pmod M\)
+are distinct. ∎
+
+This also disposes of the cross-\(k\) counting issue at full harvest.  The
+class set is intrinsic to \(M\).  If the same \(M\) is written as
+\(k\ell=k'\ell'\), both descriptions produce the same set (18.1), and the
+union is taken once.  Lemma 16.3's cross-\(k\) argument concerns a different
+operation: it fixes one prime \(\ell\), varies the genuinely different moduli
+\(k\ell\), and then projects their classes modulo \(\ell\) after fixing a
+subsequence.
+
+**Theorem 18.2 (full-harvest supply is exactly cubic; proved).**  As
+\(Q\to\infty\),
+
+    Σ_{M≤Q, M≡3 (4)} F(M)/M ≍ (log Q)³.                       (18.3)
+
+More precisely, with \(\zeta(2)=\pi^2/6\),
+
+    (1/(48ζ(2))+o(1))(log Q)³
+      ≤ Σ_{M≤Q, M≡3 (4)} F(M)/M
+      ≤ (1/(24ζ(2))+o(1))(log Q)³.                            (18.4)
+
+Thus the complete Lemma-16.1 identity family has class-mass exponent
+\(B=3\), neither \(B=2\) nor \(B>3\).
+
+*Proof.*  The elementary Euler identity
+
+    Σ_{n≥1} τ(n²)n^(−s) = ζ(s)³/ζ(2s)                       (18.5)
+
+follows at a prime from
+\(\sum_{e\ge0}(2e+1)z^e=(1-z^2)/(1-z)^3\).  For completeness, its
+coefficient form is
+
+    τ(n²) = Σ_{d²|n} μ(d) τ₃(n/d²).
+
+The usual three-dimensional hyperbola calculation gives
+
+    Σ_{m≤x} τ₃(m) = (1/2)x(log x)² + O(x log x).
+
+Substitution in the coefficient identity (the \(d\)-sum is absolutely
+convergent after division by \(d^2\)) gives
+
+    Σ_{n≤x} τ(n²) = x(log x)²/(2ζ(2)) + O(x log x).           (18.6)
+
+Partial summation now yields
+
+    Σ_{n≤x} τ(n²)/n = (log x)³/(6ζ(2)) + O((log x)²).         (18.7)
+
+Write \(M=4A-1\).  Since
+\(1/(4A-1)=1/(4A)+O(A^{-2})\), the total contribution of the error is
+bounded (use \(\tau(A^2)\ll_\epsilon A^\epsilon\)).  Apply the lower and
+upper halves of (18.2) in (18.7); the subtracted \(1\) in the lower bound
+contributes only \(O(\log Q)\).  This gives (18.4), hence (18.3). ∎
+
+**Deduplication warning (proved, not notation).**  The literal double sum
+
+    Σ_k Σ_ℓ F(kℓ)/(kℓ)                                      (18.8)
+
+is *not equivalent* to (18.3) unless the pairs \((k,\ell)\) are first
+quotiented by their product.  If \(\ell\) ranges over all integers, every
+\(M\) is repeated once per admissible divisor.  If \(\ell\) is required to
+be prime, some \(M\)'s are omitted and others are repeated once per
+admissible prime divisor.  For example
+\(231=77\cdot3=33\cdot7=21\cdot11\), and all three decompositions give the
+same set (18.1).  No asymptotic for the raw repeated sum (18.8) is needed or
+claimed.  The theorem answers the structural supply question for distinct
+moduli and distinct classes.
+
+**Mass-ceiling corollary (proved within the mass/Rankin sieve model).**  In a
+PW-style argument with auxiliary scale \(X=e^t\), a class family of total
+mass \(O(t^B)\) has Rankin-tail balance
+
+    t^B ≲ log N/t.
+
+Its saving is therefore at most
+\(O((\log N)^{B/(B+1)})\).  Theorem 18.2 gives \(B=3\), hence \(3/4\), for
+the entire Lemma-16.1 family.  This is an absolute ceiling for sieves whose
+only gain is the summed identity-class mass and whose product tail is
+controlled in this way.  It is not a nonexistence theorem for every possible
+use of the arithmetic arrangement of the classes.
+
+### 18.2 Which wall binds in Theorem 16.4?
+
+Put
+
+    L=log N,   t=log X,   r=log K.
+
+Lemma 16.3 supplies mass
+
+    μ ≍ t² r.                                                   (18.9)
+
+The Rankin step (16.14) requires \(t\mu\ll L\), so
+
+    t³r ≲ L,   μ ≲ L^(2/3) r^(1/3).                            (18.10)
+
+These two lines account for the exponent and its logarithmic factor.
+
+**Assessment 18.3(a) (partition cost is not the scale-binding wall; proved
+arithmetic).**  The partition uses
+\(M_0=24L_K=\exp(K(1+o(1)))\), hence only requires \(K\le(1-\epsilon)L\)
+if each subsequence is to have polynomial length.  One may instead take, for
+example, \(K=L^{1/2}\): then \(K=o(L)\), while
+\(r=(1/2)\log L\), and (18.10) still gives
+
+    μ ≍ L^(2/3)(log L)^(1/3).
+
+Thus the partition changes constants, not the displayed scale.  At the
+choice \(K=\delta L\) made in Theorem 16.4 it consumes a fixed fraction of
+\(L\), but the optimizing value
+\(t\asymp(L/\log L)^{1/3}\) is set by (16.14), not by the condition
+\(M_0<N\).
+
+**Assessment 18.3(b) (the proved prime-slice wall is the summed
+Bombieri--Vinogradov multiplicity).**  In Lemma 16.3, a modulus
+\(q=4uv\) is generated by at most
+
+    W(q) ≤ K·2^ω(uv) ≤ K(log X)^(D log 2).                    (18.11)
+
+The proof bounds every corresponding progression error by
+\(W(q)\max_a|E(x;q,a)|\) and then invokes Bombieri--Vinogradov.  Arbitrarily
+large fixed logarithmic powers can be absorbed by asking for a larger
+Bombieri--Vinogradov saving, but a factor \(K=X^\delta\) cannot.  This is the
+precise reason for the existing hypothesis \(K\le(\log X)^5\); the exponent
+5 is inessential, while “a fixed power of \(\log X\)” is essential to that
+proof.
+
+A direct Barban--Davenport--Halberstam/Cauchy--Schwarz replacement does not
+repair this.  In one dyadic interval the box has \(z=x^{1/6}\), so the number
+of triples is
+
+    T ≪ x^(1/3)h(𝒥)·(log x)^O(1),
+
+and \(\sum m(q,a)^2\le(\max m)T\), with
+\(\max m\le K(\log x)^{O(1)}\).  At the small modulus level
+\(q\le Q_0=x^{1/3}\), the available unconditional large-sieve
+second-moment bound is of size \(x^2(\log x)^{O(1)}\), not the conjectural
+small-level BDH size \(xQ_0(\log x)^{O(1)}\).  Cauchy--Schwarz therefore
+gives an error of order
+
+    x^(7/6) K^(1/2)(log x)^O(1),                              (18.12)
+
+against a main term \(\asymp x\log x\,h(\mathcal J)\); it loses even before
+\(K\) grows.  A hypothetical variance bound of size \(xQ_0\) would instead
+give \(x^{5/6}K^{1/2}\) up to logarithms and would permit a small power of
+\(x\).  Such a bound in this small-\(q\), residue-varying weighted setting is
+not the standard BDH theorem.
+
+For reference, the deliberately large floor \(H=K^{10}\) is not the
+logarithmic wall: the proof of Lemma 16.2 continues verbatim whenever
+\(z>H^2=K^{20}\).  If the prime-progression error were available for
+\(K=X^\kappa\), the lowest dyadic interval in Lemma 16.3 would only require,
+with its current wasteful constants, \(\kappa<1/240\).  Any fixed positive
+\(\kappa\) already makes \(r\asymp t\), which is all the cubic scale needs.
+
+**Elliott--Halberstam check (negative).**  Ordinary Elliott--Halberstam
+replaces the range of the Bombieri--Vinogradov sum over \(q\); it does not
+remove the multiplicity (18.11).  Here \(q\le x^{1/3}\) is already inside
+the Bombieri--Vinogradov range.  Bounding the weighted sum by
+\(K(\log x)^{O(1)}\sum_q\max_a|E(q,a)|\) still loses \(K\).  Thus ordinary
+Elliott--Halberstam buys at most room in constants here, not the missing
+\(k\)-aspect and not the exponent \(3/4\).
+
+### 18.3 Partition-free assembly: the honest optimization
+
+Consider the proposed integer-side Selberg/\(\Lambda^2\) assembly as a model.
+Suppose it can use mass \(\mu\asymp t^2r\), and that truncating its Euler or
+Selberg expansion requires degree
+
+    J ≍ μ.                                                       (18.13)
+
+For a term containing moduli \(k_i\ell_i\), \(i\le J\),
+
+    lcm(k_iℓ_i:i≤J)
+       ≤ lcm(k_i:i≤J)·∏ℓ_i
+       ≤ min(L_K,K^J)X^J.                                     (18.14)
+
+Consequently exact integer counting to square-root level has the honest
+logarithmic budget
+
+    min(K,Jr)+Jt ≲ L.                                         (18.15)
+
+Using only \(L_K\le\exp(K(1+o(1)))\) gives the coarser budget
+\(K+Jt\lesssim L\).  The sharper \(K^J\) alternative in (18.14) matters
+when \(K\) is large; it is still only a level calculation, not an evaluation
+of correlated intersections.
+
+**Assessment 18.4 (optimization under the stated assembly model; proved
+arithmetic).**
+
+* If \(K\) is at most a fixed power of \(L\), then
+  \(r=O(\log L)\).  At the optimum \(t\gg r\), (18.13)--(18.15) reduce to
+  \(t^3r\lesssim L\), and
+
+      μ ≲ L^(2/3)r^(1/3)
+        ≲ L^(2/3)(log L)^(1/3).                               (18.16)
+
+  Thus a partition-free implementation does **not** improve the
+  \((\log\log N)^{1/3}\) power in Theorem 16.4 when only
+  polylogarithmic \(K\) is available.  A power \(2/3\) on \(\log\log N\)
+  in this formula would require
+  \(r\asymp(\log L)^2\), already beyond every fixed polylogarithmic range.
+
+* If a genuine \(k\)-aspect estimate permits \(K=X^\kappa\) for fixed
+  \(\kappa>0\), then \(r=\kappa t\),
+  \(\mu\asymp t^3\), and the sharper form of (18.15) is
+  \(J(t+r)\asymp t^4\lesssim L\).  It predicts
+
+      t ≍ L^(1/4),   μ ≍ L^(3/4).                             (18.17)
+
+  This reaches the supply ceiling.  The preliminary choice
+  \(K=\exp(L^{1/3})\) is too large for this balance: with \(r\asymp t\)
+  it spends order \(L^{4/3}\), not \(L\).  The cubic optimum is
+  \(K=\exp(\Theta(L^{1/4}))\).  If one insists on the coarser
+  \(e^K\) bound instead of \(K^J\), even that choice is impossible because
+  it forces \(K\lesssim L\).
+
+**Assembly gap (named and not proved away).**  Section 14's integer-side
+product works because a window prime larger than every shift cannot divide
+two different shifted forms; incompatible terms vanish, and the remaining
+correction is second-order.  Composite moduli \(k\ell\) have the opposite
+feature: different conditions deliberately share factors of their
+multipliers, and a compatible intersection has density
+\(1/\operatorname{lcm}(k_i\ell_i)\), which can be much larger than the
+product of the individual densities.  Equations (18.14)--(18.17) control the
+rounding level but do not prove the required mean-value factorization or a
+Selberg quadratic-form bound.  No unconditional sharpening of Theorem 16.4
+follows from the partition-free calculation alone.
+
+### 18.4 A precise conditional route to the ceiling
+
+The following hypotheses isolate the two missing inputs.  They are stated to
+make the implication falsifiable; neither is claimed to be standard.
+
+**Hypothesis H_kBV(κ) (weighted, residue-varying \(k\)-aspect BV).**  Fix some
+\(0<\kappa<1/240\).  Uniformly for large \(X\),
+\(X^{1/2}\le x\le X\), \(K\le X^\kappa\), every reduced compatible \(c\),
+and every allowed subfamily \(\mathcal J\subseteq\{k\le K:k\equiv1(4)\}\),
+put \(H=K^{10}\), \(z=x^{1/6}\), and
+
+    E(x;q,a)=π(2x;q,a)−π(x;q,a)
+             −(li(2x)−li(x))/φ(q).
+
+For the triples in Lemma 16.2 with
+\(\omega(uv)\le D\log\log X\), assume
+
+    Σ_{k∈𝒥} Σ* |E(x;4uv,−k⁻¹)|
+       = o(x log x·h(𝒥)),                                    (H_kBV)
+
+uniformly (the inverse and residue are modulo \(4uv\)).  This is a bilinear,
+weighted progression statement with the \(k\)-aspect absorbed; ordinary BV,
+BDH, and Elliott--Halberstam do not state it.
+
+**Hypothesis H_PF (partition-free Selberg assembly).**  For a finite union of
+Lemma-16.1 classes of moduli at most \(X\), of total distinct-class density
+\(\mu=\sum_M F_0(M)/M\), suppose there is a nonnegative degree-\(J\) Selberg
+majorant which equals at least one on every integer avoiding all the classes,
+has mean \(\ll\exp(-c\mu)\), and whose expansion only requires exact
+congruence counts to the lcm of at most \(J\) selected moduli, whenever
+\(J\ge C\mu\) and every such lcm is at most \(N^{1/2}\).  Constants
+\(c,C>0\) are uniform.  For the restricted \(k\ell\) system the relevant lcm
+bound is (18.14); for the intrinsic full system \(M\le X\) it is simply
+\(X^J\).  This is precisely the correlation assertion missing from the
+level-only calculation; it is not being smuggled in as a standard
+“fundamental lemma.”
+
+**Lemma 18.5 (conditional cubic prime-slice mass).**  Under
+H_kBV(\(\kappa\)), Lemma 16.3 extends to \(K=X^\kappa\), and for the full
+\(\mathcal J\), pointwise in every reduced compatible \(c\),
+
+    Σ_{X^(1/2)<ℓ≤X} f_c(ℓ)/ℓ ≍ (log X)³.                     (18.18)
+
+*Proof.*  The box and Shiu estimates in Lemma 16.2 need only
+\(z>K^{20}\), which follows in the lowest dyadic interval from
+\(\kappa<1/240\).  Distinctness is unchanged because
+\(uv>H^2>K\).  In Lemma 16.3 replace the multiplicity-times-BV error by
+H_kBV.  It is negligible beside (16.10).  The upper bound still follows
+from Brun--Titchmarsh and (16.3).  Finally
+\(h(\mathcal K(K))\asymp\log K\asymp\log X\), giving (18.18). ∎
+
+**Theorem 18.6 (conditional full-harvest bound).**  Under H_PF there is
+\(c>0\) such that
+
+    E_all(N) ≤ N exp(−c(log N)^(3/4)),                        (18.19)
+
+and hence the same bound holds for prime denominators.
+
+*Proof.*  Put \(L=\log N\), choose
+\(t=\alpha L^{1/4}\), and \(X=e^t\).  Use once each of the intrinsic
+classes (18.1) for every \(M\le X\), \(M\equiv3\pmod4\).  Theorem 18.2 gives
+\(\mu\asymp t^3\).  Take \(J=C\mu\).  The lcm of any \(J\) selected moduli
+is at most their product, hence at most \(X^J\), whose logarithm is
+
+    J log X ≪ t³·t = α⁴L.
+
+Choose \(\alpha\) small enough that this is at most \(L/2\).  H_PF then
+bounds the avoiders by \(N\exp(-c\mu)\), which is (18.19).  Every exceptional
+denominator is an avoider by Lemma 16.1. ∎
+
+Theorem 18.6 is **CONDITIONAL on the nonstandard H_PF hypothesis**.  It uses
+the intrinsic all-\(M\) supply, so it bypasses prime-slice harvesting and does
+not need H_kBV.  If one insists on realizing the same cubic mass through the
+restricted prime factors \(M=k\ell\), then Lemma 18.5 shows that H_kBV plus
+the corresponding restricted form of H_PF gives the same calculation via
+(18.14).  H_kBV is therefore the prime-slice harvesting wall; H_PF is the
+composite-modulus assembly wall, and the latter is the sole wall for the
+literal full harvest of Theorem 18.2.  Ordinary Elliott--Halberstam does not
+imply H_kBV, and no level estimate alone implies H_PF.  Unconditionally,
+Theorem 18.2 proves that cubic supply exists and that a mass-driven exponent
+beyond \(3/4\) cannot come from Lemma 16.1, but Theorem 16.4 remains the
+realized bound.
+
+**Numerical companion.**  `verify.py (q)` computes the exact union (18.1) for
+every \(M\le10^5\), reports its harmonic truncations against \((\log Q)^3\),
+checks the canonical half and the bounds (18.2), exhibits the threefold
+cross-decomposition duplicate at \(M=231\), and checks the two level-balance
+arithmetics (18.16)--(18.17).  The fitted finite-range exponent is labeled
+informational; none of these computations is used as proof.
+
+---
+
 ### References (partly from memory — flagged)
 
 * Obláth 1950 (first appearance in print; conjecture attributed to Erdős).

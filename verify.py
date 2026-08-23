@@ -1401,4 +1401,106 @@ assert any(u == 9 and v == 8 and k == 1 for tl in _cut.values()
 print(f"distinctness/CRT spot-check: 8/8 classes distinct across k=1,13; "
       f"{crt_checks} subsequence reconstructions")
 
+
+# ---------------------------------------------------------------- (q)
+def check_q():
+    """Numerical companions for §18 (informational asymptotics, exact sets)."""
+    print("\n== (q) full-harvest cubic supply and assembly budgets ==")
+
+    q_max = 100_000
+    a_max = (q_max + 1) // 4
+
+    # A small SPF table avoids making 25,000 separate factorint calls.  For
+    # M=4A-1, the complete Lemma-16.1 class set is {-4D mod M:D|A^2}.
+    spf = list(range(a_max + 1))
+    for p0 in range(2, int(a_max**0.5) + 1):
+        if spf[p0] == p0:
+            for n0 in range(p0 * p0, a_max + 1, p0):
+                if spf[n0] == n0:
+                    spf[n0] = p0
+
+    def square_divisors_spf(n0):
+        factors = []
+        while n0 > 1:
+            p0, e0 = spf[n0], 0
+            while n0 % p0 == 0:
+                n0 //= p0
+                e0 += 1
+            factors.append((p0, e0))
+        ds = [1]
+        for p0, e0 in factors:
+            ds = [d0 * p0**j for d0 in ds for j in range(2 * e0 + 1)]
+        return ds
+
+    cutoffs = (2_000, 5_000, 10_000, 25_000, 50_000, 100_000)
+    supply = canonical = 0.0
+    samples = []
+    next_cut = 0
+    for A0 in range(1, a_max + 1):
+        M = 4 * A0 - 1
+        ds = square_divisors_spf(A0)
+        classes = {(-4 * d0) % M for d0 in ds}
+        canonical_classes = {(-4 * d0) % M for d0 in ds if d0 < A0}
+        assert len(canonical_classes) == (len(ds) - 1) // 2
+        assert canonical_classes <= classes
+        assert (len(ds) - 1) // 2 <= len(classes) <= len(ds)
+        supply += len(classes) / M
+        canonical += len(canonical_classes) / M
+        while next_cut < len(cutoffs) and M + 4 > cutoffs[next_cut]:
+            Q0 = cutoffs[next_cut]
+            samples.append((Q0, supply, canonical))
+            next_cut += 1
+
+    # The finite range still has large lower-order terms; only broad guards are
+    # appropriate.  The fitted exponent is evidence, not part of the proof.
+    ratios = [s0 / log(Q0)**3 for Q0, s0, _ in samples]
+    xs = [log(log(Q0)) for Q0, _, _ in samples]
+    ys = [log(s0) for _, s0, _ in samples]
+    xbar, ybar = sum(xs) / len(xs), sum(ys) / len(ys)
+    fitted_B = (sum((x0 - xbar) * (y0 - ybar) for x0, y0 in zip(xs, ys))
+                / sum((x0 - xbar)**2 for x0 in xs))
+    assert all(0.005 < r0 < 0.2 for r0 in ratios)
+    assert 2.0 < fitted_B < 3.5
+    print("exact union mass S(Q)/log^3 Q:",
+          {Q0: round(s0 / log(Q0)**3, 5) for Q0, s0, _ in samples},
+          f"; informational fitted B={fitted_B:.3f}")
+
+    # Cross-decomposition warning: the literal (k,ell)-double sum is not the
+    # union over moduli.  M=231 has three admissible prime choices for ell,
+    # but all three decompositions produce exactly the same identity classes.
+    M = 3 * 7 * 11
+    A0 = (M + 1) // 4
+    full = {(-4 * d0) % M for d0 in square_divisors_spf(A0)}
+    decompositions = [(M // ell0, ell0) for ell0 in (3, 7, 11)]
+    assert all(k0 % 4 == 1 and k0 * ell0 == M
+               for k0, ell0 in decompositions)
+    class_sets = []
+    for k0, ell0 in decompositions:
+        Ak = (k0 * ell0 + 1) // 4
+        class_sets.append({(-4 * d0) % (k0 * ell0)
+                           for d0 in square_divisors_spf(Ak)})
+    assert all(s0 == full for s0 in class_sets)
+    print(f"cross-k dedup at M={M}: {len(decompositions)} decompositions, "
+          f"{len(full)} union classes (not {len(decompositions)*len(full)})")
+
+    # Explicit arithmetic for Assessment 18.4.  With polylogarithmic K,
+    # r=log K=O(log L), mu=t^2 r and J~mu give t^3 r~L.  With r~t,
+    # J(t+r)~t^4 and mu~t^3.  Constants are immaterial to the exponents.
+    budget_rows = []
+    for L0 in (10**6, 10**9, 10**12):
+        r0 = 0.5 * log(L0)                 # K=L^(1/2)
+        t0 = (L0 / r0)**(1 / 3)
+        mu0 = t0 * t0 * r0
+        norm = L0**(2 / 3) * log(L0)**(1 / 3)
+        t3 = (L0 / 2)**0.25                # r=t, J(t+r)=2t^4=L
+        mu3 = t3**3
+        assert abs(t0**3 * r0 / L0 - 1) < 1e-12
+        assert abs(2 * t3**4 / L0 - 1) < 1e-12
+        budget_rows.append((L0, mu0 / norm, mu3 / L0**0.75))
+    print("toy level balances (L, polylog-normalized, cubic-normalized):",
+          [(L0, round(a0, 3), round(b0, 3))
+           for L0, a0, b0 in budget_rows])
+
+
+check_q()
 print("\nall checks passed")
