@@ -4248,8 +4248,92 @@ witness give:
 \((p,q_{\min},c_{\min})\) rows, timings, and 20 replay witnesses.
 `frontier_compute.py` reproduces the scan.  `verify.py (r)` independently
 replays 100 F1 triples, the 20 stored decompositions, (19.2) symbolically, and
-ten record-table entries; the complete verification suite remains under 20 s
-on the calibration machine.
+ten original record-table entries.
+
+### 19.4 Extension past \(10^8\) and the F3 microscope
+
+The extension used a segmented sieve on \(p=24k+1\) in blocks of width
+\(10^8\), retaining only aggregate counts.  A pilot on
+\([10^8,2\cdot10^8)\) processed 664,109 primes at 170,260 witness tests per
+second with 82.7 MiB peak memory; before the full run this projected about 5.5
+minutes to \(10^{10}\).  The measured rate fell as the factored integers grew.
+The full witness search took 635.25 s, in addition to 14.49 s for sieving, at
+an aggregate 88,401 primes per witness-search second.
+
+Every prime \(p\equiv1\pmod {24}\) in \([10^8,10^{10})\) was scanned:
+56,156,819 primes, ending at 9,999,999,817.  Together with §19.1 this is
+56,876,600 primes below \(10^{10}\).  There was one new strict record,
+
+| record prime \(p\) | \(w^*(p)\) |
+|---:|---:|
+| 2,927,257,369 | 71 |
+
+so the 59 plateau does **not** survive to \(10^{10}\); it lasts from 118,801
+to this prime, and the running maximum then remains 71 through the scan bound.
+The cumulative nonzero histogram tail is
+
+| \(w^*\) | 35 | 39 | 43 | 47 | 51 | 55 | 59 | 71 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| count | 198 | 100 | 16 | 51 | 4 | 4 | 1 | 1 |
+
+For the microscope, a fixed-seed sample took 800 random hard primes from each
+decade \([10^j,10^{j+1})\), \(j=4,\ldots,9\), then included all 147 primes
+with \(w^*\ge27\) found by a dedicated complete rescan below \(10^8\), and
+all six record primes.  After overlaps this gave 4,948 primes (sample maximum
+9,990,035,233).  Every half-pair strictly below its \(w^*\) was classified:
+
+| population | pairs | F1 Jacobi | F2 subgroup | F3 exponent box |
+|---|---:|---:|---:|---:|
+| stratified + enriched sample | 3,830 | 3,590 (93.73%) | 1 (0.03%) | 239 (6.24%) |
+| Case B | 1,915 | 1,786 | 1 | 128 |
+| Case A | 1,915 | 1,804 | 0 | 111 |
+
+The enrichment deliberately raises the F3 fraction, so 6.24% is not an
+estimate for unconditioned hard primes.  Exact min-plus residue DP gave the
+following cap deficit \(\min\sum_i\max(0,e_i-2v_i(n))\):
+
+| deficit | 1 | 2 | 3 | 7 | 8 | 20 |
+|---:|---:|---:|---:|---:|---:|---:|
+| F3 cases | 164 | 46 | 19 | 5 | 4 | 1 |
+| fraction | 68.62% | 19.25% | 7.95% | 2.09% | 1.67% | 0.42% |
+
+In 162 of the 164 deficit-one cases the binding factor had \(v_i(n)=1\) and
+needed exponent 3 rather than the cap 2; the other two had \(v_i(n)=2\) and
+needed exponent 5 rather than 4.  Of those 164 cases, 98 allowed more than one
+prime to carry an optimal one-unit excess.  Among the 66 with a unique carrier,
+that carrier was the smallest factor in 44 cases, the largest in 16, and an
+interior factor in 6.  Across all 239 cases the corresponding counts were 120
+ambiguous, 69 uniquely smallest, 42 uniquely largest, and 8 uniquely interior.
+The largest deficit was 20 at the new record's Case-B pair \((w,n)=(43,
+731814353)\): \(n\) is prime and the least exponent reaching the target is 22
+against cap 2.  Full factorizations, targets, canonical optimal exponents, and
+all optimal carrier sets for every F3 row are stored in `recorddata.json`.
+
+For a modulus-matched comparison, both halves of every sampled prime were
+measured at each F3-bearing modulus
+\(11,19,23,27,31,35,39,43,47,59\):
+
+| class | pairs | mean \(\omega(n)\) | median \(\omega(n)\) | squarefree |
+|---|---:|---:|---:|---:|
+| F1 | 36,434 | 2.601 | 3 | 23,064 (63.30%) |
+| F3 | 21,826 | 2.724 | 3 | 17,785 (81.49%) |
+| success | 40,700 | 3.904 | 4 | 18,988 (46.65%) |
+
+**Interpretation.**  F3 is measured to be strongly concentrated on
+squarefree inputs, and its median of three distinct factors is below the
+success median of four.  It does not have smaller \(\omega\) than F1 in the
+modulus-matched controls, so “few distinct factors” alone does not separate
+the two failure modes; missing multiplicity is the clearer signal.  A
+one-unit shortage is the majority pattern, usually a prime factor of
+squarefree \(n\) needing exponent 3, but 75 of 239 cases need more and the
+observed deficit reaches 20.
+The carrier is often non-unique and, when unique, is more often the smallest
+than the largest factor, so the data reject an “always the largest factor”
+rule while retaining a real squarefree/exponent-scarcity pattern.
+
+`frontier_extension.py` reproduces the segmented extension and microscope.
+`verify.py (r)` additionally recomputes the new record and replays three stored
+F3 deficit rows exactly.
 
 ---
 

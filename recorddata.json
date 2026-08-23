@@ -63,6 +63,7606 @@
       "q_min": 107
     }
   ],
+  "extension": {
+    "f3_microscopy": {
+      "binding_location_histogram": {
+        "ambiguous": 120,
+        "interior": 8,
+        "largest": 42,
+        "smallest": 69
+      },
+      "cases": [
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "211": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "211": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 633,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 2521,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 2,
+            "3": 2,
+            "83": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "3": 1,
+            "83": 1
+          },
+          "half": "B",
+          "n": 4233,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              83
+            ]
+          ],
+          "p": 16921,
+          "squarefree": true,
+          "target": 2,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "5297": 10
+          },
+          "deficit": 8,
+          "factorization": {
+            "5297": 1
+          },
+          "half": "B",
+          "n": 5297,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              5297
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "193": 1,
+            "521": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "193": 1,
+            "521": 1
+          },
+          "half": "A",
+          "n": 100553,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              521
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "137": 0,
+            "149": 3,
+            "7": 4
+          },
+          "deficit": 3,
+          "factorization": {
+            "137": 1,
+            "149": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 142891,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              149
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "2411": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2411": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 7233,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 28921,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1447": 2,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1447": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 7235,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 28921,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "5051": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "5051": 1
+          },
+          "half": "B",
+          "n": 15153,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 60601,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 5,
+            "991": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "17": 1,
+            "991": 1
+          },
+          "half": "B",
+          "n": 16847,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 67369,
+          "squarefree": true,
+          "target": 6,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "3299": 4,
+            "97": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "3299": 1,
+            "97": 1
+          },
+          "half": "A",
+          "n": 320003,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3299
+            ]
+          ],
+          "p": 67369,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 3,
+            "3": 0,
+            "8377": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "3": 1,
+            "8377": 1
+          },
+          "half": "A",
+          "n": 326703,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              13
+            ],
+            [
+              8377
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "13": 0,
+            "457": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "457": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 29705,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1097": 3,
+            "17": 2,
+            "43": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "1097": 1,
+            "17": 1,
+            "43": 1
+          },
+          "half": "A",
+          "n": 801907,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              1097
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "37": 0,
+            "6221": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 2,
+            "37": 1,
+            "6221": 1
+          },
+          "half": "A",
+          "n": 920708,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              37
+            ],
+            [
+              6221
+            ]
+          ],
+          "p": 118801,
+          "squarefree": false,
+          "target": 23,
+          "w": 31
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "19": 0,
+            "3": 2,
+            "6079": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "19": 1,
+            "3": 2,
+            "6079": 1
+          },
+          "half": "A",
+          "n": 1039509,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              19
+            ],
+            [
+              6079
+            ]
+          ],
+          "p": 118801,
+          "squarefree": false,
+          "target": 26,
+          "w": 35
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "2971": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "2971": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 29710,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              5
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 8,
+          "w": 39
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 1,
+            "37": 4,
+            "73": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "11": 1,
+            "37": 1,
+            "73": 1
+          },
+          "half": "B",
+          "n": 29711,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              37
+            ],
+            [
+              73
+            ],
+            [
+              11,
+              37
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 2,
+          "w": 43
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "25673": 3,
+            "59": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "25673": 1,
+            "59": 1
+          },
+          "half": "A",
+          "n": 1514707,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              25673
+            ]
+          ],
+          "p": 224401,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "13": 0,
+            "1607": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "1607": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 62673,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 250681,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1031": 5,
+            "97": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "1031": 1,
+            "97": 1
+          },
+          "half": "B",
+          "n": 100007,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1031
+            ]
+          ],
+          "p": 400009,
+          "squarefree": true,
+          "target": 9,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "103997": 10
+          },
+          "deficit": 8,
+          "factorization": {
+            "103997": 1
+          },
+          "half": "B",
+          "n": 103997,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              103997
+            ]
+          ],
+          "p": 415969,
+          "squarefree": true,
+          "target": 9,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17333": 0,
+            "2": 1,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17333": 1,
+            "2": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 103998,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "p": 415969,
+          "squarefree": true,
+          "target": 8,
+          "w": 23
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "179": 3,
+            "7": 2,
+            "83": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "179": 1,
+            "7": 1,
+            "83": 1
+          },
+          "half": "B",
+          "n": 103999,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              179
+            ]
+          ],
+          "p": 415969,
+          "squarefree": true,
+          "target": 5,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "52021": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "52021": 1
+          },
+          "half": "B",
+          "n": 156063,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 624241,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 3,
+            "3": 0,
+            "44017": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "3": 1,
+            "44017": 1
+          },
+          "half": "A",
+          "n": 1716663,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              13
+            ],
+            [
+              44017
+            ]
+          ],
+          "p": 624241,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 3,
+            "2239": 0,
+            "23": 0,
+            "3": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "2239": 1,
+            "23": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 2008383,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              13
+            ],
+            [
+              2239
+            ]
+          ],
+          "p": 730321,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "27191": 0,
+            "29": 3,
+            "5": 4
+          },
+          "deficit": 3,
+          "factorization": {
+            "27191": 1,
+            "29": 1,
+            "5": 1
+          },
+          "half": "A",
+          "n": 3942695,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              5,
+              29
+            ]
+          ],
+          "p": 830041,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "68669": 3,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "68669": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 8171611,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              68669
+            ]
+          ],
+          "p": 1210609,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1129": 3,
+            "293": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "1129": 1,
+            "293": 1
+          },
+          "half": "B",
+          "n": 330797,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              293
+            ],
+            [
+              1129
+            ]
+          ],
+          "p": 1323169,
+          "squarefree": true,
+          "target": 12,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "29": 0,
+            "43997": 3,
+            "7": 4
+          },
+          "deficit": 3,
+          "factorization": {
+            "29": 1,
+            "43997": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 8931391,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              43997
+            ]
+          ],
+          "p": 1323169,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "400307": 10
+          },
+          "deficit": 8,
+          "factorization": {
+            "400307": 1
+          },
+          "half": "B",
+          "n": 400307,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              400307
+            ]
+          ],
+          "p": 1601209,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1609": 3,
+            "163": 1,
+            "29": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "1609": 1,
+            "163": 1,
+            "29": 1
+          },
+          "half": "A",
+          "n": 7605743,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              1609
+            ]
+          ],
+          "p": 1601209,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1319": 3,
+            "29": 0,
+            "43": 1,
+            "5": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "1319": 1,
+            "29": 1,
+            "43": 1,
+            "5": 1
+          },
+          "half": "A",
+          "n": 8223965,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              29
+            ],
+            [
+              43
+            ],
+            [
+              1319
+            ]
+          ],
+          "p": 1731361,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "14947": 9,
+            "41": 0
+          },
+          "deficit": 7,
+          "factorization": {
+            "14947": 1,
+            "41": 1
+          },
+          "half": "B",
+          "n": 612827,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              41
+            ],
+            [
+              14947
+            ]
+          ],
+          "p": 2451289,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "12923": 3,
+            "17": 0,
+            "53": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "12923": 1,
+            "17": 1,
+            "53": 1
+          },
+          "half": "A",
+          "n": 11643623,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              53
+            ],
+            [
+              12923
+            ]
+          ],
+          "p": 2451289,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "2": 3,
+            "317959": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "317959": 1
+          },
+          "half": "B",
+          "n": 635918,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ]
+          ],
+          "p": 2543641,
+          "squarefree": true,
+          "target": 16,
+          "w": 31
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "127": 0,
+            "5591": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "127": 1,
+            "5591": 1
+          },
+          "half": "B",
+          "n": 710057,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5591
+            ]
+          ],
+          "p": 2840209,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "3": 0,
+            "5407": 0,
+            "563": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "5407": 1,
+            "563": 1
+          },
+          "half": "A",
+          "n": 9132423,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              563
+            ],
+            [
+              5407
+            ]
+          ],
+          "p": 3320881,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "173": 2,
+            "4799": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "173": 1,
+            "4799": 1
+          },
+          "half": "B",
+          "n": 830227,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              4799
+            ]
+          ],
+          "p": 3320881,
+          "squarefree": true,
+          "target": 23,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "311": 2,
+            "72077": 9
+          },
+          "deficit": 7,
+          "factorization": {
+            "311": 1,
+            "72077": 1
+          },
+          "half": "A",
+          "n": 22415947,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              311
+            ],
+            [
+              72077
+            ],
+            [
+              311,
+              72077
+            ]
+          ],
+          "p": 3320881,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "101": 3,
+            "17": 0,
+            "2003": 0,
+            "3": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "101": 1,
+            "17": 1,
+            "2003": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 10317453,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              101
+            ]
+          ],
+          "p": 3751801,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1571": 3,
+            "17": 4,
+            "41": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "1571": 1,
+            "17": 1,
+            "41": 1
+          },
+          "half": "B",
+          "n": 1094987,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              17,
+              1571
+            ]
+          ],
+          "p": 4379929,
+          "squarefree": true,
+          "target": 2,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "127": 2,
+            "9371": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "127": 1,
+            "9371": 1
+          },
+          "half": "B",
+          "n": 1190117,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              9371
+            ]
+          ],
+          "p": 4760449,
+          "squarefree": true,
+          "target": 5,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "29": 2,
+            "5": 5,
+            "8741": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "29": 1,
+            "5": 1,
+            "8741": 1
+          },
+          "half": "B",
+          "n": 1267445,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 5069761,
+          "squarefree": true,
+          "target": 7,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1427": 3,
+            "23981": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "1427": 1,
+            "23981": 1
+          },
+          "half": "A",
+          "n": 34220887,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1427
+            ]
+          ],
+          "p": 5069761,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "29": 5,
+            "4229": 1,
+            "7": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "29": 2,
+            "4229": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 24896123,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ]
+          ],
+          "p": 5241289,
+          "squarefree": false,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "2389": 2,
+            "251": 3,
+            "59": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2389": 1,
+            "251": 1,
+            "59": 1
+          },
+          "half": "A",
+          "n": 35378701,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              251
+            ]
+          ],
+          "p": 5241289,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "139": 0,
+            "181": 3,
+            "53": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "139": 1,
+            "181": 1,
+            "53": 1
+          },
+          "half": "B",
+          "n": 1333427,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              53
+            ],
+            [
+              139
+            ],
+            [
+              181
+            ]
+          ],
+          "p": 5333689,
+          "squarefree": true,
+          "target": 12,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 4,
+            "78437": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "17": 1,
+            "78437": 1
+          },
+          "half": "B",
+          "n": 1333429,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 5333689,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "3": 0,
+            "431": 3,
+            "683": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "3": 1,
+            "431": 1,
+            "683": 1
+          },
+          "half": "A",
+          "n": 15013023,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              431
+            ]
+          ],
+          "p": 5459281,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "19": 1,
+            "2477": 2,
+            "29": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "19": 1,
+            "2477": 1,
+            "29": 1
+          },
+          "half": "B",
+          "n": 1364827,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              2477
+            ]
+          ],
+          "p": 5459281,
+          "squarefree": true,
+          "target": 23,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "569": 1,
+            "64763": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "569": 1,
+            "64763": 1
+          },
+          "half": "A",
+          "n": 36850147,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              64763
+            ]
+          ],
+          "p": 5459281,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1365557": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "1365557": 1
+          },
+          "half": "B",
+          "n": 1365557,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              1365557
+            ]
+          ],
+          "p": 5462209,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "20441": 3,
+            "67": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "20441": 1,
+            "67": 1
+          },
+          "half": "B",
+          "n": 1369547,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              20441
+            ]
+          ],
+          "p": 5478169,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "21101": 2,
+            "67": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "21101": 1,
+            "67": 1
+          },
+          "half": "B",
+          "n": 1413767,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              67
+            ]
+          ],
+          "p": 5655049,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "21067": 0,
+            "23": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "21067": 1,
+            "23": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 1453623,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 5814481,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "29": 0,
+            "401": 3,
+            "5": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "29": 1,
+            "401": 1,
+            "5": 3
+          },
+          "half": "B",
+          "n": 1453625,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              29
+            ],
+            [
+              401
+            ]
+          ],
+          "p": 5814481,
+          "squarefree": false,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "251": 3,
+            "373": 0,
+            "5": 0,
+            "59": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "251": 1,
+            "373": 1,
+            "5": 1,
+            "59": 1
+          },
+          "half": "A",
+          "n": 27618785,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              59
+            ],
+            [
+              251
+            ],
+            [
+              373
+            ]
+          ],
+          "p": 5814481,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "3": 0,
+            "7229": 3,
+            "79": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "7229": 1,
+            "79": 1
+          },
+          "half": "B",
+          "n": 1713273,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              79
+            ],
+            [
+              7229
+            ]
+          ],
+          "p": 6853081,
+          "squarefree": true,
+          "target": 10,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "31": 0,
+            "3251": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "31": 1,
+            "3251": 1
+          },
+          "half": "B",
+          "n": 1713277,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              31
+            ],
+            [
+              3251
+            ]
+          ],
+          "p": 6853081,
+          "squarefree": true,
+          "target": 8,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "173": 1,
+            "267389": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "173": 1,
+            "267389": 1
+          },
+          "half": "A",
+          "n": 46258297,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              267389
+            ]
+          ],
+          "p": 6853081,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1031": 3,
+            "41": 1,
+            "773": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "1031": 1,
+            "41": 1,
+            "773": 1
+          },
+          "half": "A",
+          "n": 32675483,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              1031
+            ]
+          ],
+          "p": 6879049,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "389": 2,
+            "4421": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "389": 1,
+            "4421": 1
+          },
+          "half": "B",
+          "n": 1719769,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              4421
+            ]
+          ],
+          "p": 6879049,
+          "squarefree": true,
+          "target": 23,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "7459": 0,
+            "79": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "7459": 1,
+            "79": 1
+          },
+          "half": "B",
+          "n": 1767783,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 7071121,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "3": 2,
+            "37": 3,
+            "7963": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "3": 1,
+            "37": 1,
+            "7963": 1
+          },
+          "half": "B",
+          "n": 1767786,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              37
+            ],
+            [
+              7963
+            ]
+          ],
+          "p": 7071121,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1222253": 1,
+            "31": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "1222253": 1,
+            "31": 1
+          },
+          "half": "A",
+          "n": 37889843,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              31
+            ]
+          ],
+          "p": 7976809,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "101": 0,
+            "5": 0,
+            "59": 3,
+            "67": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "101": 1,
+            "5": 1,
+            "59": 1,
+            "67": 1
+          },
+          "half": "B",
+          "n": 1996265,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              59
+            ],
+            [
+              67
+            ],
+            [
+              101
+            ]
+          ],
+          "p": 7985041,
+          "squarefree": true,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 0,
+            "135977": 2,
+            "29": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "135977": 1,
+            "29": 1
+          },
+          "half": "A",
+          "n": 43376663,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              135977
+            ]
+          ],
+          "p": 9131929,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 5,
+            "213289": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 2,
+            "213289": 1
+          },
+          "half": "A",
+          "n": 61640521,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 9131929,
+          "squarefree": false,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 0,
+            "2333": 2,
+            "89": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "2333": 1,
+            "89": 1
+          },
+          "half": "B",
+          "n": 2284007,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              89
+            ],
+            [
+              2333
+            ]
+          ],
+          "p": 9136009,
+          "squarefree": true,
+          "target": 2,
+          "w": 19
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "2027": 0,
+            "271": 3,
+            "79": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "2027": 1,
+            "271": 1,
+            "79": 1
+          },
+          "half": "A",
+          "n": 43396043,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              271
+            ]
+          ],
+          "p": 9136009,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "366791": 4,
+            "7": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "366791": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 2567537,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              366791
+            ]
+          ],
+          "p": 10270129,
+          "squarefree": true,
+          "target": 9,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "127": 0,
+            "43": 3,
+            "8933": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "127": 1,
+            "43": 1,
+            "8933": 1
+          },
+          "half": "A",
+          "n": 48783113,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              43
+            ]
+          ],
+          "p": 10270129,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "880211": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "880211": 1
+          },
+          "half": "B",
+          "n": 2640633,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 10562521,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "5": 3,
+            "528127": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "5": 1,
+            "528127": 1
+          },
+          "half": "B",
+          "n": 2640635,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 10562521,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "11": 1,
+            "1789": 3,
+            "3623": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "1789": 1,
+            "3623": 1
+          },
+          "half": "A",
+          "n": 71297017,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              1789
+            ]
+          ],
+          "p": 10562521,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "3": 0,
+            "710503": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "3": 1,
+            "710503": 1
+          },
+          "half": "A",
+          "n": 36235653,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              710503
+            ]
+          ],
+          "p": 13176601,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "37013": 1,
+            "89": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "37013": 1,
+            "89": 1
+          },
+          "half": "B",
+          "n": 3294157,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              89
+            ]
+          ],
+          "p": 13176601,
+          "squarefree": true,
+          "target": 5,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "131": 0,
+            "179": 3,
+            "3793": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "131": 1,
+            "179": 1,
+            "3793": 1
+          },
+          "half": "A",
+          "n": 88942057,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              131
+            ],
+            [
+              179
+            ],
+            [
+              3793
+            ]
+          ],
+          "p": 13176601,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "5": 3,
+            "665659": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "5": 1,
+            "665659": 1
+          },
+          "half": "B",
+          "n": 3328295,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 13313161,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "149": 3,
+            "29": 0,
+            "2971": 0,
+            "7": 4
+          },
+          "deficit": 3,
+          "factorization": {
+            "149": 1,
+            "29": 1,
+            "2971": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 89863837,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              149
+            ]
+          ],
+          "p": 13313161,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "111467": 1,
+            "31": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "111467": 1,
+            "31": 1
+          },
+          "half": "B",
+          "n": 3455477,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              31
+            ]
+          ],
+          "p": 13821889,
+          "squarefree": true,
+          "target": 15,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 4,
+            "5488103": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "17": 1,
+            "5488103": 1
+          },
+          "half": "A",
+          "n": 93297751,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 13821889,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 2,
+            "2887": 1,
+            "71": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "2887": 1,
+            "71": 1
+          },
+          "half": "B",
+          "n": 3484609,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              71
+            ]
+          ],
+          "p": 13938409,
+          "squarefree": true,
+          "target": 11,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "281": 0,
+            "3": 0,
+            "45641": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "281": 1,
+            "3": 1,
+            "45641": 1
+          },
+          "half": "A",
+          "n": 38475363,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              281
+            ],
+            [
+              45641
+            ]
+          ],
+          "p": 13991041,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 4,
+            "216947": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "17": 1,
+            "216947": 1
+          },
+          "half": "B",
+          "n": 3688099,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 14752369,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "5": 3,
+            "771517": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "5": 1,
+            "771517": 1
+          },
+          "half": "B",
+          "n": 3857585,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 15430321,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "167": 3,
+            "24181": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "167": 1,
+            "24181": 1
+          },
+          "half": "B",
+          "n": 4038227,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              167
+            ]
+          ],
+          "p": 16152889,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "3": 0,
+            "906523": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "3": 1,
+            "906523": 1
+          },
+          "half": "A",
+          "n": 46232673,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              906523
+            ]
+          ],
+          "p": 16811881,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "28751": 3,
+            "3947": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "28751": 1,
+            "3947": 1
+          },
+          "half": "A",
+          "n": 113480197,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              28751
+            ]
+          ],
+          "p": 16811881,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13567": 3,
+            "17": 1,
+            "509": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "13567": 1,
+            "17": 1,
+            "509": 1
+          },
+          "half": "A",
+          "n": 117395251,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              509
+            ],
+            [
+              13567
+            ]
+          ],
+          "p": 17391889,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "59": 3,
+            "84223": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "59": 1,
+            "84223": 1
+          },
+          "half": "B",
+          "n": 4969157,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              59
+            ]
+          ],
+          "p": 19876609,
+          "squarefree": true,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "229499": 0,
+            "3": 2,
+            "83": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "229499": 1,
+            "3": 1,
+            "83": 1
+          },
+          "half": "A",
+          "n": 114290502,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              83
+            ],
+            [
+              229499
+            ]
+          ],
+          "p": 19876609,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "11": 2,
+            "452077": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "11": 1,
+            "452077": 1
+          },
+          "half": "B",
+          "n": 4972847,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              452077
+            ]
+          ],
+          "p": 19891369,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "293": 1,
+            "4813": 3,
+            "67": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "293": 1,
+            "4813": 1,
+            "67": 1
+          },
+          "half": "A",
+          "n": 94484003,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              67
+            ],
+            [
+              293
+            ],
+            [
+              4813
+            ]
+          ],
+          "p": 19891369,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "127": 0,
+            "31": 0,
+            "41": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "127": 1,
+            "31": 2,
+            "41": 1
+          },
+          "half": "B",
+          "n": 5003927,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              31
+            ],
+            [
+              41
+            ],
+            [
+              127
+            ]
+          ],
+          "p": 20015689,
+          "squarefree": false,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "18217": 2,
+            "307": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "18217": 1,
+            "307": 1
+          },
+          "half": "A",
+          "n": 95074523,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              307
+            ],
+            [
+              18217
+            ]
+          ],
+          "p": 20015689,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "101": 0,
+            "59": 0,
+            "863": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "101": 1,
+            "59": 1,
+            "863": 1
+          },
+          "half": "B",
+          "n": 5142617,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              59
+            ],
+            [
+              101
+            ],
+            [
+              863
+            ]
+          ],
+          "p": 20570449,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2309": 3,
+            "5": 4,
+            "8609": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "2309": 1,
+            "5": 1,
+            "8609": 1
+          },
+          "half": "A",
+          "n": 99390905,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              5,
+              2309
+            ]
+          ],
+          "p": 20924401,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "241597": 0,
+            "3": 2,
+            "83": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "241597": 1,
+            "3": 1,
+            "83": 1
+          },
+          "half": "A",
+          "n": 120315306,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              83
+            ],
+            [
+              241597
+            ]
+          ],
+          "p": 20924401,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "143629": 3,
+            "29": 2,
+            "5": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "143629": 1,
+            "29": 1,
+            "5": 2
+          },
+          "half": "A",
+          "n": 104131025,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              29
+            ],
+            [
+              143629
+            ]
+          ],
+          "p": 21922321,
+          "squarefree": false,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "110563": 3,
+            "17": 0,
+            "3": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "110563": 1,
+            "17": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 5638713,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              110563
+            ]
+          ],
+          "p": 22554841,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 3,
+            "1636927": 0,
+            "3": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "1636927": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 63840153,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              13
+            ],
+            [
+              1636927
+            ]
+          ],
+          "p": 23214601,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1934671": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1934671": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 5804013,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 23216041,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "11": 1,
+            "14246207": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "11": 1,
+            "14246207": 1
+          },
+          "half": "A",
+          "n": 156708277,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              14246207
+            ]
+          ],
+          "p": 23216041,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "29": 0,
+            "7": 4,
+            "783527": 3
+          },
+          "deficit": 3,
+          "factorization": {
+            "29": 1,
+            "7": 1,
+            "783527": 1
+          },
+          "half": "A",
+          "n": 159055981,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              783527
+            ]
+          ],
+          "p": 23563849,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "269": 4,
+            "457": 0,
+            "7": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "269": 1,
+            "457": 1,
+            "7": 2
+          },
+          "half": "B",
+          "n": 6023717,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              269
+            ]
+          ],
+          "p": 24094849,
+          "squarefree": false,
+          "target": 5,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "23201": 1,
+            "4933": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "23201": 1,
+            "4933": 1
+          },
+          "half": "A",
+          "n": 114450533,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              4933
+            ]
+          ],
+          "p": 24094849,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "13": 2,
+            "1787": 0,
+            "7001": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "1787": 1,
+            "7001": 1
+          },
+          "half": "A",
+          "n": 162640231,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7001
+            ]
+          ],
+          "p": 24094849,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "3853": 2,
+            "4703": 3,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "3853": 1,
+            "4703": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 126844613,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3853
+            ],
+            [
+              4703
+            ]
+          ],
+          "p": 26704129,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "3": 2,
+            "37": 3,
+            "691661": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "3": 1,
+            "37": 1,
+            "691661": 1
+          },
+          "half": "A",
+          "n": 153548742,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              37
+            ],
+            [
+              691661
+            ]
+          ],
+          "p": 26704129,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "3": 0,
+            "412051": 3,
+            "61": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "412051": 1,
+            "61": 1
+          },
+          "half": "A",
+          "n": 75405333,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              61
+            ],
+            [
+              412051
+            ]
+          ],
+          "p": 27420121,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1555343": 3,
+            "17": 0,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "1555343": 1,
+            "17": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 185085817,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              1555343
+            ]
+          ],
+          "p": 27420121,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "2": 1,
+            "2004773": 3,
+            "53": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "2004773": 1,
+            "53": 1
+          },
+          "half": "A",
+          "n": 212505938,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2004773
+            ]
+          ],
+          "p": 27420121,
+          "squarefree": true,
+          "target": 23,
+          "w": 31
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1553": 3,
+            "17": 0,
+            "3": 0,
+            "991": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "1553": 1,
+            "17": 1,
+            "3": 1,
+            "991": 1
+          },
+          "half": "A",
+          "n": 78490173,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              1553
+            ]
+          ],
+          "p": 28541881,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "179": 4,
+            "39863": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "179": 1,
+            "39863": 1
+          },
+          "half": "B",
+          "n": 7135477,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              179
+            ]
+          ],
+          "p": 28541881,
+          "squarefree": true,
+          "target": 2,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "10133": 3,
+            "2": 0,
+            "5": 0,
+            "73": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "10133": 1,
+            "2": 1,
+            "5": 1,
+            "73": 1
+          },
+          "half": "B",
+          "n": 7397090,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              73
+            ],
+            [
+              10133
+            ]
+          ],
+          "p": 29588329,
+          "squarefree": true,
+          "target": 6,
+          "w": 31
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "23": 4,
+            "5": 0,
+            "66947": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "23": 1,
+            "5": 1,
+            "66947": 1
+          },
+          "half": "B",
+          "n": 7698905,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              23
+            ]
+          ],
+          "p": 30795601,
+          "squarefree": true,
+          "target": 9,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "239": 0,
+            "32213": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "239": 1,
+            "32213": 1
+          },
+          "half": "B",
+          "n": 7698907,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              32213
+            ]
+          ],
+          "p": 30795601,
+          "squarefree": true,
+          "target": 8,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "2141": 4,
+            "3767": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "2141": 1,
+            "3767": 1
+          },
+          "half": "B",
+          "n": 8065147,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              2141
+            ]
+          ],
+          "p": 32260561,
+          "squarefree": true,
+          "target": 23,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "29": 3,
+            "7": 1,
+            "767881": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "29": 1,
+            "7": 1,
+            "767881": 1
+          },
+          "half": "A",
+          "n": 155879843,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              767881
+            ]
+          ],
+          "p": 32816809,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "11": 0,
+            "68147": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "11": 2,
+            "68147": 1
+          },
+          "half": "B",
+          "n": 8245787,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              68147
+            ]
+          ],
+          "p": 32983129,
+          "squarefree": false,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "13187": 1,
+            "16883": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "13187": 1,
+            "16883": 1
+          },
+          "half": "A",
+          "n": 222636121,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              16883
+            ]
+          ],
+          "p": 32983129,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "195599": 0,
+            "43": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "195599": 1,
+            "43": 1
+          },
+          "half": "B",
+          "n": 8410757,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              43
+            ]
+          ],
+          "p": 33643009,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "251": 2,
+            "4787": 3,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "251": 1,
+            "4787": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 8410759,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              251
+            ],
+            [
+              4787
+            ]
+          ],
+          "p": 33643009,
+          "squarefree": true,
+          "target": 11,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11411": 3,
+            "2843": 0,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "11411": 1,
+            "2843": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 227090311,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2843
+            ],
+            [
+              11411
+            ]
+          ],
+          "p": 33643009,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1663": 2,
+            "29": 2,
+            "4721": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1663": 1,
+            "29": 1,
+            "4721": 1
+          },
+          "half": "A",
+          "n": 227679667,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              1663
+            ],
+            [
+              4721
+            ]
+          ],
+          "p": 33730321,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "167": 3,
+            "187193": 0,
+            "3": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "167": 1,
+            "187193": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 93783693,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              167
+            ],
+            [
+              187193
+            ]
+          ],
+          "p": 34103161,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "28901": 1,
+            "5": 5,
+            "59": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "28901": 1,
+            "5": 1,
+            "59": 1
+          },
+          "half": "B",
+          "n": 8525795,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 34103161,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "29": 0,
+            "41999": 3,
+            "7": 4
+          },
+          "deficit": 3,
+          "factorization": {
+            "29": 1,
+            "41999": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 8525797,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              41999
+            ]
+          ],
+          "p": 34103161,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "109": 0,
+            "17": 0,
+            "17747": 3,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "109": 1,
+            "17": 1,
+            "17747": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 230196337,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              17747
+            ]
+          ],
+          "p": 34103161,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "2": 3,
+            "4262899": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "4262899": 1
+          },
+          "half": "B",
+          "n": 8525798,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ]
+          ],
+          "p": 34103161,
+          "squarefree": true,
+          "target": 8,
+          "w": 31
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "25603": 3,
+            "3": 5,
+            "37": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "25603": 1,
+            "3": 2,
+            "37": 1
+          },
+          "half": "B",
+          "n": 8525799,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3,
+              25603
+            ]
+          ],
+          "p": 34103161,
+          "squarefree": false,
+          "target": 26,
+          "w": 35
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "10067": 3,
+            "173": 0,
+            "5": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "10067": 1,
+            "173": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 8707955,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              10067
+            ]
+          ],
+          "p": 34831801,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "23": 0,
+            "3907": 3,
+            "97": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "23": 1,
+            "3907": 1,
+            "97": 1
+          },
+          "half": "B",
+          "n": 8716517,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3907
+            ]
+          ],
+          "p": 34866049,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "167": 2,
+            "181": 3,
+            "5479": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "167": 1,
+            "181": 1,
+            "5479": 1
+          },
+          "half": "A",
+          "n": 165613733,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              167
+            ],
+            [
+              181
+            ]
+          ],
+          "p": 34866049,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1151": 2,
+            "7573": 9
+          },
+          "deficit": 7,
+          "factorization": {
+            "1151": 1,
+            "7573": 1
+          },
+          "half": "B",
+          "n": 8716523,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1151
+            ],
+            [
+              7573
+            ]
+          ],
+          "p": 34866049,
+          "squarefree": true,
+          "target": 7,
+          "w": 43
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1467391": 0,
+            "2": 1,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1467391": 1,
+            "2": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 8804346,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "p": 35217361,
+          "squarefree": true,
+          "target": 8,
+          "w": 23
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1187": 3,
+            "2": 0,
+            "28433": 0,
+            "3": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "1187": 1,
+            "2": 1,
+            "28433": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 202499826,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              1187
+            ],
+            [
+              28433
+            ]
+          ],
+          "p": 35217361,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1785481": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1785481": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 8927405,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 35709601,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "483883": 3,
+            "53": 2,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "483883": 1,
+            "53": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 179520593,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              53
+            ],
+            [
+              483883
+            ]
+          ],
+          "p": 37793809,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "104183": 3,
+            "3": 0,
+            "347": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "104183": 1,
+            "3": 1,
+            "347": 1
+          },
+          "half": "A",
+          "n": 108454503,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              347
+            ],
+            [
+              104183
+            ]
+          ],
+          "p": 39438001,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "155461": 1,
+            "241": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "155461": 1,
+            "241": 1,
+            "5": 1
+          },
+          "half": "A",
+          "n": 187330505,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 39438001,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "28513": 2,
+            "359": 5
+          },
+          "deficit": 3,
+          "factorization": {
+            "28513": 1,
+            "359": 1
+          },
+          "half": "B",
+          "n": 10236167,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              359
+            ]
+          ],
+          "p": 40944649,
+          "squarefree": true,
+          "target": 7,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 1,
+            "29": 2,
+            "7": 0,
+            "88721": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "29": 1,
+            "7": 1,
+            "88721": 1
+          },
+          "half": "A",
+          "n": 198113993,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              88721
+            ]
+          ],
+          "p": 41708209,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "11159": 4,
+            "25229": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "11159": 1,
+            "25229": 1
+          },
+          "half": "A",
+          "n": 281530411,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              11159
+            ]
+          ],
+          "p": 41708209,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "2273": 3,
+            "4673": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2273": 1,
+            "4673": 1
+          },
+          "half": "B",
+          "n": 10621729,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              2273
+            ]
+          ],
+          "p": 42486889,
+          "squarefree": true,
+          "target": 17,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1753": 5,
+            "6299": 2
+          },
+          "deficit": 3,
+          "factorization": {
+            "1753": 1,
+            "6299": 1
+          },
+          "half": "B",
+          "n": 11042147,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1753
+            ]
+          ],
+          "p": 44168569,
+          "squarefree": true,
+          "target": 7,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "191": 0,
+            "29": 3,
+            "7": 0,
+            "773": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "191": 1,
+            "29": 1,
+            "7": 2,
+            "773": 1
+          },
+          "half": "A",
+          "n": 209800703,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ],
+            [
+              773
+            ]
+          ],
+          "p": 44168569,
+          "squarefree": false,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1013197": 4,
+            "11": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "1013197": 1,
+            "11": 1
+          },
+          "half": "B",
+          "n": 11145167,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1013197
+            ]
+          ],
+          "p": 44580649,
+          "squarefree": true,
+          "target": 5,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "106721": 4,
+            "2837": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "106721": 1,
+            "2837": 1
+          },
+          "half": "A",
+          "n": 302767477,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              106721
+            ]
+          ],
+          "p": 44854441,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 2,
+            "1303": 0,
+            "2": 0,
+            "331": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "1303": 1,
+            "2": 1,
+            "331": 1
+          },
+          "half": "B",
+          "n": 11213618,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              13
+            ],
+            [
+              331
+            ]
+          ],
+          "p": 44854441,
+          "squarefree": true,
+          "target": 12,
+          "w": 31
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "3794771": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "3794771": 1
+          },
+          "half": "B",
+          "n": 11384313,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 45537241,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "5": 4,
+            "599": 3,
+            "72221": 0
+          },
+          "deficit": 3,
+          "factorization": {
+            "5": 1,
+            "599": 1,
+            "72221": 1
+          },
+          "half": "A",
+          "n": 216301895,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              5,
+              599
+            ]
+          ],
+          "p": 45537241,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "17": 3,
+            "7": 2,
+            "96323": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "7": 1,
+            "96323": 1
+          },
+          "half": "B",
+          "n": 11462437,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 45849721,
+          "squarefree": true,
+          "target": 8,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 0,
+            "2": 3,
+            "440863": 3
+          },
+          "deficit": 2,
+          "factorization": {
+            "13": 1,
+            "2": 1,
+            "440863": 1
+          },
+          "half": "B",
+          "n": 11462438,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2,
+              440863
+            ]
+          ],
+          "p": 45849721,
+          "squarefree": true,
+          "target": 29,
+          "w": 31
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "459593": 0,
+            "5": 6
+          },
+          "deficit": 2,
+          "factorization": {
+            "459593": 1,
+            "5": 2
+          },
+          "half": "B",
+          "n": 11489825,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 45959281,
+          "squarefree": false,
+          "target": 7,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1914971": 0,
+            "2": 1,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1914971": 1,
+            "2": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 11489826,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "p": 45959281,
+          "squarefree": true,
+          "target": 8,
+          "w": 23
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "4012681": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "4012681": 1
+          },
+          "half": "B",
+          "n": 12038043,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 48152161,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1361": 0,
+            "29": 1,
+            "5": 0,
+            "61": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1361": 1,
+            "29": 1,
+            "5": 1,
+            "61": 1
+          },
+          "half": "B",
+          "n": 12038045,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              29
+            ],
+            [
+              61
+            ],
+            [
+              1361
+            ]
+          ],
+          "p": 48152161,
+          "squarefree": true,
+          "target": 13,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 1,
+            "2006341": 2,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "2006341": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 12038046,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "p": 48152161,
+          "squarefree": true,
+          "target": 16,
+          "w": 23
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "4332191": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "4332191": 1
+          },
+          "half": "B",
+          "n": 12996573,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 51986281,
+          "squarefree": true,
+          "target": 4,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "11": 3,
+            "1181507": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "1181507": 1
+          },
+          "half": "B",
+          "n": 12996577,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              11
+            ]
+          ],
+          "p": 51986281,
+          "squarefree": true,
+          "target": 8,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "145063": 1,
+            "41": 2,
+            "59": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "145063": 1,
+            "41": 1,
+            "59": 1
+          },
+          "half": "A",
+          "n": 350907397,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              41
+            ],
+            [
+              59
+            ]
+          ],
+          "p": 51986281,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1857461": 4,
+            "7": 2
+          },
+          "deficit": 2,
+          "factorization": {
+            "1857461": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 13002227,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1857461
+            ]
+          ],
+          "p": 52008889,
+          "squarefree": true,
+          "target": 5,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "764837": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "764837": 1
+          },
+          "half": "B",
+          "n": 13002229,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              764837
+            ]
+          ],
+          "p": 52008889,
+          "squarefree": true,
+          "target": 26,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1198157": 2,
+            "293": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1198157": 1,
+            "293": 1
+          },
+          "half": "A",
+          "n": 351060001,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              293
+            ]
+          ],
+          "p": 52008889,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "22067": 3,
+            "601": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "22067": 1,
+            "601": 1
+          },
+          "half": "B",
+          "n": 13262267,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              601
+            ],
+            [
+              22067
+            ]
+          ],
+          "p": 53049049,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "113557": 3,
+            "317": 2,
+            "7": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "113557": 1,
+            "317": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 251982983,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              317
+            ],
+            [
+              113557
+            ]
+          ],
+          "p": 53049049,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 2,
+            "43": 1,
+            "489851": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "43": 1,
+            "489851": 1
+          },
+          "half": "A",
+          "n": 358081081,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              489851
+            ]
+          ],
+          "p": 53049049,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "41": 0,
+            "5": 0,
+            "65837": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "41": 1,
+            "5": 1,
+            "65837": 1
+          },
+          "half": "B",
+          "n": 13496585,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              41
+            ],
+            [
+              65837
+            ]
+          ],
+          "p": 53986321,
+          "squarefree": true,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "2968913": 3,
+            "3": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "2968913": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 151414563,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              17
+            ],
+            [
+              2968913
+            ]
+          ],
+          "p": 55059841,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "4663621": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "4663621": 1
+          },
+          "half": "B",
+          "n": 13990863,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 55963441,
+          "squarefree": true,
+          "target": 4,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "156677": 1,
+            "1699": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "156677": 1,
+            "1699": 1
+          },
+          "half": "A",
+          "n": 266194223,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1699
+            ]
+          ],
+          "p": 56040889,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "5327831": 1,
+            "71": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "5327831": 1,
+            "71": 1
+          },
+          "half": "A",
+          "n": 378276001,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              71
+            ]
+          ],
+          "p": 56040889,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "3": 2,
+            "61": 2,
+            "83": 3,
+            "947": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "61": 1,
+            "83": 1,
+            "947": 1
+          },
+          "half": "B",
+          "n": 14383983,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              61
+            ],
+            [
+              83
+            ]
+          ],
+          "p": 57535921,
+          "squarefree": true,
+          "target": 2,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "39511": 9,
+            "6983": 2
+          },
+          "deficit": 7,
+          "factorization": {
+            "39511": 1,
+            "6983": 1
+          },
+          "half": "A",
+          "n": 275905313,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              6983
+            ],
+            [
+              39511
+            ],
+            [
+              6983,
+              39511
+            ]
+          ],
+          "p": 58085329,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "23": 1,
+            "79": 3,
+            "8191": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "23": 1,
+            "79": 1,
+            "8191": 1
+          },
+          "half": "B",
+          "n": 14883047,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              23
+            ],
+            [
+              79
+            ],
+            [
+              8191
+            ]
+          ],
+          "p": 59532169,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 4,
+            "23637773": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "17": 1,
+            "23637773": 1
+          },
+          "half": "A",
+          "n": 401842141,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 59532169,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "12487": 3,
+            "3": 0,
+            "4373": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "12487": 1,
+            "3": 1,
+            "4373": 1
+          },
+          "half": "A",
+          "n": 163816953,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              4373
+            ],
+            [
+              12487
+            ]
+          ],
+          "p": 59569801,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "2978491": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2978491": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 14892455,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 59569801,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "29": 3,
+            "513533": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "29": 1,
+            "513533": 1
+          },
+          "half": "B",
+          "n": 14892457,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ]
+          ],
+          "p": 59569801,
+          "squarefree": true,
+          "target": 14,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "29": 3,
+            "529871": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "29": 1,
+            "529871": 1
+          },
+          "half": "B",
+          "n": 15366259,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              29
+            ]
+          ],
+          "p": 61465009,
+          "squarefree": true,
+          "target": 8,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 3,
+            "31": 0,
+            "832451": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "31": 1,
+            "832451": 1
+          },
+          "half": "A",
+          "n": 438701677,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 64992841,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "43": 0,
+            "5856913": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "43": 1,
+            "5856913": 1
+          },
+          "half": "A",
+          "n": 503694518,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              43
+            ],
+            [
+              5856913
+            ]
+          ],
+          "p": 64992841,
+          "squarefree": true,
+          "target": 23,
+          "w": 31
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 0,
+            "3947759": 3,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "3947759": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 469783321,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              3947759
+            ]
+          ],
+          "p": 69597529,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "4999": 3,
+            "509": 0,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "4999": 1,
+            "509": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 17811437,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              509
+            ],
+            [
+              4999
+            ]
+          ],
+          "p": 71245729,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "4157": 3,
+            "81409": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "4157": 1,
+            "81409": 1
+          },
+          "half": "A",
+          "n": 338417213,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              4157
+            ]
+          ],
+          "p": 71245729,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1801": 3,
+            "2819": 2,
+            "67": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "1801": 1,
+            "2819": 1,
+            "67": 1
+          },
+          "half": "A",
+          "n": 340160273,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              67
+            ],
+            [
+              1801
+            ]
+          ],
+          "p": 71612689,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "293": 1,
+            "751": 3,
+            "83": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "293": 1,
+            "751": 1,
+            "83": 1
+          },
+          "half": "B",
+          "n": 18263569,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              83
+            ],
+            [
+              293
+            ],
+            [
+              751
+            ]
+          ],
+          "p": 73054249,
+          "squarefree": true,
+          "target": 14,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "179": 2,
+            "41117": 3,
+            "67": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "179": 1,
+            "41117": 1,
+            "67": 1
+          },
+          "half": "A",
+          "n": 493116181,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              67
+            ],
+            [
+              179
+            ],
+            [
+              41117
+            ]
+          ],
+          "p": 73054249,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "49477": 0,
+            "53": 4,
+            "7": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "49477": 1,
+            "53": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 18355967,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              53
+            ]
+          ],
+          "p": 73423849,
+          "squarefree": true,
+          "target": 9,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "41": 0,
+            "5": 0,
+            "91373": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "41": 1,
+            "5": 1,
+            "91373": 1
+          },
+          "half": "B",
+          "n": 18731465,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              41
+            ],
+            [
+              91373
+            ]
+          ],
+          "p": 74925841,
+          "squarefree": true,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1101851": 3,
+            "17": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "1101851": 1,
+            "17": 1
+          },
+          "half": "B",
+          "n": 18731467,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              1101851
+            ]
+          ],
+          "p": 74925841,
+          "squarefree": true,
+          "target": 26,
+          "w": 27
+        },
+        {
+          "binding_location": "interior",
+          "canonical_exponents": {
+            "2083": 3,
+            "23": 0,
+            "7477": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "2083": 1,
+            "23": 1,
+            "7477": 1
+          },
+          "half": "A",
+          "n": 358215593,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2083
+            ]
+          ],
+          "p": 75413809,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "109829": 3,
+            "173": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "109829": 1,
+            "173": 1
+          },
+          "half": "B",
+          "n": 19000417,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              109829
+            ]
+          ],
+          "p": 76001641,
+          "squarefree": true,
+          "target": 23,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "19": 0,
+            "59": 2,
+            "6269": 3,
+            "73": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "19": 1,
+            "59": 1,
+            "6269": 1,
+            "73": 1
+          },
+          "half": "A",
+          "n": 513011077,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              59
+            ],
+            [
+              6269
+            ]
+          ],
+          "p": 76001641,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "181": 0,
+            "2459": 3,
+            "43": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "181": 1,
+            "2459": 1,
+            "43": 1
+          },
+          "half": "B",
+          "n": 19138397,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2459
+            ]
+          ],
+          "p": 76553569,
+          "squarefree": true,
+          "target": 18,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "3": 2,
+            "37": 3,
+            "86209": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "3": 1,
+            "37": 1,
+            "86209": 1
+          },
+          "half": "B",
+          "n": 19138398,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              37
+            ],
+            [
+              86209
+            ]
+          ],
+          "p": 76553569,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1356247": 4,
+            "269": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "1356247": 1,
+            "269": 1
+          },
+          "half": "A",
+          "n": 364830443,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1356247
+            ]
+          ],
+          "p": 76806409,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "6823471": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "6823471": 1
+          },
+          "half": "B",
+          "n": 20470413,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 81881641,
+          "squarefree": true,
+          "target": 4,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1210037": 1,
+            "17": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "1210037": 1,
+            "17": 1
+          },
+          "half": "B",
+          "n": 20570629,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 82282489,
+          "squarefree": true,
+          "target": 23,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1039": 3,
+            "71": 1,
+            "7529": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "1039": 1,
+            "71": 1,
+            "7529": 1
+          },
+          "half": "A",
+          "n": 555406801,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              71
+            ],
+            [
+              1039
+            ],
+            [
+              7529
+            ]
+          ],
+          "p": 82282489,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "12633653": 1,
+            "31": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "12633653": 1,
+            "31": 1
+          },
+          "half": "A",
+          "n": 391643243,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              31
+            ]
+          ],
+          "p": 82451209,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "1129": 4,
+            "347057": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "1129": 1,
+            "347057": 1
+          },
+          "half": "A",
+          "n": 391827353,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              1129
+            ]
+          ],
+          "p": 82489969,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "281": 0,
+            "281327": 3,
+            "3": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "281": 1,
+            "281327": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 474317322,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              281
+            ],
+            [
+              281327
+            ]
+          ],
+          "p": 82489969,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "17": 2,
+            "283": 4,
+            "4297": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "17": 1,
+            "283": 1,
+            "4297": 1
+          },
+          "half": "B",
+          "n": 20672867,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              283
+            ],
+            [
+              17,
+              283
+            ]
+          ],
+          "p": 82691449,
+          "squarefree": true,
+          "target": 7,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "3003761": 4,
+            "7": 0
+          },
+          "deficit": 2,
+          "factorization": {
+            "3003761": 1,
+            "7": 1
+          },
+          "half": "B",
+          "n": 21026327,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3003761
+            ]
+          ],
+          "p": 84105289,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 0,
+            "1231": 3,
+            "163": 1,
+            "181": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "1231": 1,
+            "163": 1,
+            "181": 1
+          },
+          "half": "A",
+          "n": 399500123,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              181
+            ],
+            [
+              1231
+            ]
+          ],
+          "p": 84105289,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "227": 1,
+            "92627": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "227": 1,
+            "92627": 1
+          },
+          "half": "B",
+          "n": 21026329,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              92627
+            ]
+          ],
+          "p": 84105289,
+          "squarefree": true,
+          "target": 2,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "21247727": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "21247727": 1
+          },
+          "half": "B",
+          "n": 21247727,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              21247727
+            ]
+          ],
+          "p": 84990889,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "113": 9,
+            "3187": 0,
+            "59": 2
+          },
+          "deficit": 7,
+          "factorization": {
+            "113": 1,
+            "3187": 1,
+            "59": 1
+          },
+          "half": "B",
+          "n": 21247729,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              59
+            ],
+            [
+              113
+            ],
+            [
+              59,
+              113
+            ]
+          ],
+          "p": 84990889,
+          "squarefree": true,
+          "target": 2,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "19403": 4,
+            "29567": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "19403": 1,
+            "29567": 1
+          },
+          "half": "A",
+          "n": 573688501,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              19403
+            ]
+          ],
+          "p": 84990889,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11689": 0,
+            "2": 0,
+            "3": 2,
+            "6983": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "11689": 1,
+            "2": 1,
+            "3": 1,
+            "6983": 1
+          },
+          "half": "A",
+          "n": 489745722,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              6983
+            ],
+            [
+              11689
+            ]
+          ],
+          "p": 85173169,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "17": 3,
+            "29129": 2,
+            "43": 2
+          },
+          "deficit": 1,
+          "factorization": {
+            "17": 1,
+            "29129": 1,
+            "43": 1
+          },
+          "half": "B",
+          "n": 21293299,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ]
+          ],
+          "p": 85173169,
+          "squarefree": true,
+          "target": 8,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "7660061": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "7660061": 1
+          },
+          "half": "B",
+          "n": 22980183,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 91920721,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "4596037": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "4596037": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 22980185,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 91920721,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "11": 1,
+            "56405897": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "11": 1,
+            "56405897": 1
+          },
+          "half": "A",
+          "n": 620464867,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              56405897
+            ]
+          ],
+          "p": 91920721,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "4651963": 2,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "4651963": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 23259815,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 93039241,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "106877": 0,
+            "5": 4,
+            "827": 3
+          },
+          "deficit": 3,
+          "factorization": {
+            "106877": 1,
+            "5": 1,
+            "827": 1
+          },
+          "half": "A",
+          "n": 441936395,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ],
+            [
+              5,
+              827
+            ]
+          ],
+          "p": 93039241,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "179": 0,
+            "501209": 3,
+            "7": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "179": 1,
+            "501209": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 628014877,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              179
+            ],
+            [
+              501209
+            ]
+          ],
+          "p": 93039241,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "101": 3,
+            "3": 0,
+            "846401": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "101": 1,
+            "3": 1,
+            "846401": 1
+          },
+          "half": "A",
+          "n": 256459503,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              101
+            ],
+            [
+              846401
+            ]
+          ],
+          "p": 93258001,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "1109": 1,
+            "21023": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "1109": 1,
+            "21023": 1
+          },
+          "half": "B",
+          "n": 23314507,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              21023
+            ]
+          ],
+          "p": 93258001,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "4740559": 0,
+            "5": 5
+          },
+          "deficit": 3,
+          "factorization": {
+            "4740559": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 23702795,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 94811161,
+          "squarefree": true,
+          "target": 9,
+          "w": 19
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "41": 3,
+            "578117": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "41": 1,
+            "578117": 1
+          },
+          "half": "B",
+          "n": 23702797,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              41
+            ]
+          ],
+          "p": 94811161,
+          "squarefree": true,
+          "target": 17,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "23865497": 10
+          },
+          "deficit": 8,
+          "factorization": {
+            "23865497": 1
+          },
+          "half": "B",
+          "n": 23865497,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              23865497
+            ]
+          ],
+          "p": 95461969,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "2472551": 0,
+            "3": 2,
+            "37": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "2472551": 1,
+            "3": 1,
+            "37": 1
+          },
+          "half": "A",
+          "n": 548906322,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ],
+            [
+              37
+            ],
+            [
+              2472551
+            ]
+          ],
+          "p": 95461969,
+          "squarefree": true,
+          "target": 17,
+          "w": 23
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1163": 0,
+            "7": 4,
+            "79151": 3
+          },
+          "deficit": 3,
+          "factorization": {
+            "1163": 1,
+            "7": 1,
+            "79151": 1
+          },
+          "half": "A",
+          "n": 644368291,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              79151
+            ]
+          ],
+          "p": 95461969,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "3": 3,
+            "8083561": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "3": 1,
+            "8083561": 1
+          },
+          "half": "B",
+          "n": 24250683,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 97002721,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1125559": 0,
+            "3": 0,
+            "79": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "1125559": 1,
+            "3": 1,
+            "79": 1
+          },
+          "half": "A",
+          "n": 266757483,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              79
+            ],
+            [
+              1125559
+            ]
+          ],
+          "p": 97002721,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 1,
+            "3": 3,
+            "4041781": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "3": 1,
+            "4041781": 1
+          },
+          "half": "B",
+          "n": 24250686,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              3
+            ]
+          ],
+          "p": 97002721,
+          "squarefree": true,
+          "target": 8,
+          "w": 23
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "121001": 0,
+            "1861": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "121001": 1,
+            "1861": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 675548583,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 2702194321,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 0,
+            "1127603": 0,
+            "59": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "1127603": 1,
+            "59": 1
+          },
+          "half": "B",
+          "n": 731814347,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              59
+            ],
+            [
+              1127603
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "285179": 4,
+            "48757": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "285179": 1,
+            "48757": 1
+          },
+          "half": "A",
+          "n": 13904472503,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              285179
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "293147": 3,
+            "7": 1,
+            "9629": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "293147": 1,
+            "7": 1,
+            "9629": 1
+          },
+          "half": "A",
+          "n": 19758987241,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              9629
+            ],
+            [
+              293147
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "731814353": 22
+          },
+          "deficit": 20,
+          "factorization": {
+            "731814353": 1
+          },
+          "half": "B",
+          "n": 731814353,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              731814353
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 24,
+          "w": 43
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "48636811": 3,
+            "647": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "48636811": 1,
+            "647": 1
+          },
+          "half": "A",
+          "n": 31468016717,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              48636811
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 32,
+          "w": 43
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "197673989": 0,
+            "2": 0,
+            "29": 3,
+            "3": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "197673989": 1,
+            "2": 1,
+            "29": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 34395274086,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              29
+            ],
+            [
+              197673989
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 35,
+          "w": 47
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "243938119": 4,
+            "3": 3
+          },
+          "deficit": 3,
+          "factorization": {
+            "243938119": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 731814357,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3,
+              243938119
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 49,
+          "w": 59
+        }
+      ],
+      "deficit_histogram": {
+        "1": 164,
+        "2": 46,
+        "20": 1,
+        "3": 19,
+        "7": 5,
+        "8": 4
+      },
+      "deficit_replays": [
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "211": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "211": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 633,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 2521,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "5297": 10
+          },
+          "deficit": 8,
+          "factorization": {
+            "5297": 1
+          },
+          "half": "B",
+          "n": 5297,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              5297
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "731814353": 22
+          },
+          "deficit": 20,
+          "factorization": {
+            "731814353": 1
+          },
+          "half": "B",
+          "n": 731814353,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              731814353
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 24,
+          "w": 43
+        }
+      ],
+      "failures_below_w_star": {
+        "by_half": {
+          "A": {
+            "F1": 1804,
+            "F3": 111
+          },
+          "B": {
+            "F1": 1786,
+            "F2": 1,
+            "F3": 128
+          }
+        },
+        "by_w": {
+          "11": {
+            "F1": 319,
+            "F3": 39
+          },
+          "15": {
+            "F1": 314
+          },
+          "19": {
+            "F1": 210,
+            "F3": 98
+          },
+          "23": {
+            "F1": 282,
+            "F3": 14
+          },
+          "27": {
+            "F1": 103,
+            "F3": 71
+          },
+          "3": {
+            "F1": 1750
+          },
+          "31": {
+            "F1": 18,
+            "F3": 8
+          },
+          "35": {
+            "F1": 18,
+            "F3": 2
+          },
+          "39": {
+            "F1": 7,
+            "F3": 1
+          },
+          "43": {
+            "F1": 4,
+            "F3": 4
+          },
+          "47": {
+            "F1": 3,
+            "F3": 1
+          },
+          "51": {
+            "F1": 3,
+            "F2": 1
+          },
+          "55": {
+            "F1": 4
+          },
+          "59": {
+            "F1": 1,
+            "F3": 1
+          },
+          "63": {
+            "F1": 2
+          },
+          "67": {
+            "F1": 2
+          },
+          "7": {
+            "F1": 550
+          }
+        },
+        "factor_traits": {
+          "F1": {
+            "count": 3590,
+            "extra_multiplicity_histogram": {
+              "0": 2639,
+              "1": 502,
+              "12": 1,
+              "2": 235,
+              "3": 114,
+              "4": 49,
+              "5": 30,
+              "6": 8,
+              "7": 4,
+              "8": 4,
+              "9": 4
+            },
+            "omega_histogram": {
+              "1": 788,
+              "2": 1429,
+              "3": 1008,
+              "4": 327,
+              "5": 38
+            },
+            "omega_mean": 2.275208913649025,
+            "omega_median": 2,
+            "squarefree_count": 2639,
+            "squarefree_fraction": 0.7350974930362117
+          },
+          "F2": {
+            "count": 1,
+            "extra_multiplicity_histogram": {
+              "0": 1
+            },
+            "omega_histogram": {
+              "2": 1
+            },
+            "omega_mean": 2.0,
+            "omega_median": 2,
+            "squarefree_count": 1,
+            "squarefree_fraction": 1.0
+          },
+          "F3": {
+            "count": 239,
+            "extra_multiplicity_histogram": {
+              "0": 227,
+              "1": 11,
+              "2": 1
+            },
+            "omega_histogram": {
+              "1": 7,
+              "2": 96,
+              "3": 109,
+              "4": 27
+            },
+            "omega_mean": 2.6527196652719667,
+            "omega_median": 3,
+            "squarefree_count": 227,
+            "squarefree_fraction": 0.9497907949790795
+          }
+        },
+        "pair_count": 3830,
+        "taxonomy": {
+          "F1": 3590,
+          "F2": 1,
+          "F3": 239
+        }
+      },
+      "matched_controls": {
+        "category_counts": {
+          "F1": 36434,
+          "F3": 21826,
+          "success": 40700
+        },
+        "definition": "all sampled primes and both halves at each F3-bearing modulus",
+        "factor_traits": {
+          "F1": {
+            "count": 36434,
+            "extra_multiplicity_histogram": {
+              "0": 23064,
+              "1": 6963,
+              "10": 12,
+              "11": 11,
+              "12": 5,
+              "13": 3,
+              "15": 1,
+              "2": 3213,
+              "3": 1593,
+              "4": 816,
+              "5": 372,
+              "6": 199,
+              "7": 105,
+              "8": 53,
+              "9": 24
+            },
+            "omega_histogram": {
+              "1": 4236,
+              "2": 12914,
+              "3": 13258,
+              "4": 5220,
+              "5": 776,
+              "6": 30
+            },
+            "omega_mean": 2.60136136575726,
+            "omega_median": 3,
+            "squarefree_count": 23064,
+            "squarefree_fraction": 0.6330350771257617
+          },
+          "F2": {
+            "count": 0,
+            "extra_multiplicity_histogram": {},
+            "omega_histogram": {},
+            "omega_mean": null,
+            "omega_median": null,
+            "squarefree_count": 0,
+            "squarefree_fraction": null
+          },
+          "F3": {
+            "count": 21826,
+            "extra_multiplicity_histogram": {
+              "0": 17785,
+              "1": 2930,
+              "11": 1,
+              "2": 719,
+              "3": 251,
+              "4": 74,
+              "5": 38,
+              "6": 16,
+              "7": 9,
+              "8": 2,
+              "9": 1
+            },
+            "omega_histogram": {
+              "1": 940,
+              "2": 7693,
+              "3": 9883,
+              "4": 3073,
+              "5": 235,
+              "6": 2
+            },
+            "omega_mean": 2.7239989003940255,
+            "omega_median": 3,
+            "squarefree_count": 17785,
+            "squarefree_fraction": 0.8148538440392192
+          },
+          "success": {
+            "count": 40700,
+            "extra_multiplicity_histogram": {
+              "0": 18988,
+              "1": 10642,
+              "10": 15,
+              "11": 5,
+              "12": 6,
+              "13": 1,
+              "14": 1,
+              "15": 1,
+              "16": 1,
+              "2": 5466,
+              "3": 2848,
+              "4": 1389,
+              "5": 675,
+              "6": 363,
+              "7": 166,
+              "8": 89,
+              "9": 44
+            },
+            "omega_histogram": {
+              "1": 70,
+              "2": 2355,
+              "3": 11545,
+              "4": 16459,
+              "5": 8232,
+              "6": 1805,
+              "7": 223,
+              "8": 11
+            },
+            "omega_mean": 3.903931203931204,
+            "omega_median": 4,
+            "squarefree_count": 18988,
+            "squarefree_fraction": 0.4665356265356265
+          }
+        },
+        "moduli": [
+          11,
+          19,
+          23,
+          27,
+          31,
+          35,
+          39,
+          43,
+          47,
+          59
+        ]
+      },
+      "record_prime_f3_cases": [
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "211": 0,
+            "3": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "211": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 633,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ]
+          ],
+          "p": 2521,
+          "squarefree": true,
+          "target": 5,
+          "w": 11
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "5297": 10
+          },
+          "deficit": 8,
+          "factorization": {
+            "5297": 1
+          },
+          "half": "B",
+          "n": 5297,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              5297
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 4,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "193": 1,
+            "521": 4
+          },
+          "deficit": 2,
+          "factorization": {
+            "193": 1,
+            "521": 1
+          },
+          "half": "A",
+          "n": 100553,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              521
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "137": 0,
+            "149": 3,
+            "7": 4
+          },
+          "deficit": 3,
+          "factorization": {
+            "137": 1,
+            "149": 1,
+            "7": 1
+          },
+          "half": "A",
+          "n": 142891,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              7
+            ],
+            [
+              7,
+              149
+            ]
+          ],
+          "p": 21169,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "13": 3,
+            "3": 0,
+            "8377": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "3": 1,
+            "8377": 1
+          },
+          "half": "A",
+          "n": 326703,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              13
+            ],
+            [
+              8377
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 8,
+          "w": 11
+        },
+        {
+          "binding_location": "smallest",
+          "canonical_exponents": {
+            "13": 0,
+            "457": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "13": 1,
+            "457": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 29705,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              5
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 11,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "1097": 3,
+            "17": 2,
+            "43": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "1097": 1,
+            "17": 1,
+            "43": 1
+          },
+          "half": "A",
+          "n": 801907,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              17
+            ],
+            [
+              1097
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "37": 0,
+            "6221": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 2,
+            "37": 1,
+            "6221": 1
+          },
+          "half": "A",
+          "n": 920708,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              37
+            ],
+            [
+              6221
+            ]
+          ],
+          "p": 118801,
+          "squarefree": false,
+          "target": 23,
+          "w": 31
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "19": 0,
+            "3": 2,
+            "6079": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "19": 1,
+            "3": 2,
+            "6079": 1
+          },
+          "half": "A",
+          "n": 1039509,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              19
+            ],
+            [
+              6079
+            ]
+          ],
+          "p": 118801,
+          "squarefree": false,
+          "target": 26,
+          "w": 35
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "2": 0,
+            "2971": 0,
+            "5": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "2": 1,
+            "2971": 1,
+            "5": 1
+          },
+          "half": "B",
+          "n": 29710,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              2
+            ],
+            [
+              5
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 8,
+          "w": 39
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 1,
+            "37": 4,
+            "73": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "11": 1,
+            "37": 1,
+            "73": 1
+          },
+          "half": "B",
+          "n": 29711,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              37
+            ],
+            [
+              73
+            ],
+            [
+              11,
+              37
+            ]
+          ],
+          "p": 118801,
+          "squarefree": true,
+          "target": 2,
+          "w": 43
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "11": 0,
+            "1127603": 0,
+            "59": 3
+          },
+          "deficit": 1,
+          "factorization": {
+            "11": 1,
+            "1127603": 1,
+            "59": 1
+          },
+          "half": "B",
+          "n": 731814347,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              59
+            ],
+            [
+              1127603
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 8,
+          "w": 19
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "285179": 4,
+            "48757": 1
+          },
+          "deficit": 2,
+          "factorization": {
+            "285179": 1,
+            "48757": 1
+          },
+          "half": "A",
+          "n": 13904472503,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              285179
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 14,
+          "w": 19
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "293147": 3,
+            "7": 1,
+            "9629": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "293147": 1,
+            "7": 1,
+            "9629": 1
+          },
+          "half": "A",
+          "n": 19758987241,
+          "omega": 3,
+          "optimal_carrier_prime_sets": [
+            [
+              9629
+            ],
+            [
+              293147
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 20,
+          "w": 27
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "731814353": 22
+          },
+          "deficit": 20,
+          "factorization": {
+            "731814353": 1
+          },
+          "half": "B",
+          "n": 731814353,
+          "omega": 1,
+          "optimal_carrier_prime_sets": [
+            [
+              731814353
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 24,
+          "w": 43
+        },
+        {
+          "binding_location": "largest",
+          "canonical_exponents": {
+            "48636811": 3,
+            "647": 0
+          },
+          "deficit": 1,
+          "factorization": {
+            "48636811": 1,
+            "647": 1
+          },
+          "half": "A",
+          "n": 31468016717,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              48636811
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 32,
+          "w": 43
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "197673989": 0,
+            "2": 0,
+            "29": 3,
+            "3": 1
+          },
+          "deficit": 1,
+          "factorization": {
+            "197673989": 1,
+            "2": 1,
+            "29": 1,
+            "3": 1
+          },
+          "half": "A",
+          "n": 34395274086,
+          "omega": 4,
+          "optimal_carrier_prime_sets": [
+            [
+              3
+            ],
+            [
+              29
+            ],
+            [
+              197673989
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 35,
+          "w": 47
+        },
+        {
+          "binding_location": "ambiguous",
+          "canonical_exponents": {
+            "243938119": 4,
+            "3": 3
+          },
+          "deficit": 3,
+          "factorization": {
+            "243938119": 1,
+            "3": 1
+          },
+          "half": "B",
+          "n": 731814357,
+          "omega": 2,
+          "optimal_carrier_prime_sets": [
+            [
+              3,
+              243938119
+            ]
+          ],
+          "p": 2927257369,
+          "squarefree": true,
+          "target": 49,
+          "w": 59
+        }
+      ],
+      "sample": {
+        "decade_counts": {
+          "[1e1,1e2)": 1,
+          "[1e2,1e3)": 1,
+          "[1e3,1e4)": 1,
+          "[1e4,1e5)": 800,
+          "[1e5,1e6)": 806,
+          "[1e6,1e7)": 829,
+          "[1e7,1e8)": 909,
+          "[1e8,1e9)": 800,
+          "[1e9,1e10)": 801
+        },
+        "enriched_w_star_ge_27_below_1e8_count": 147,
+        "prime_count": 4948,
+        "range": {
+          "max_p": 9990035233,
+          "min_p": 73
+        },
+        "record_primes_included": [
+          73,
+          241,
+          2521,
+          21169,
+          118801,
+          2927257369
+        ],
+        "stratified_random_per_decade": 800
+      },
+      "timing_seconds": 26.056942699942738
+    },
+    "histogram_tail": {
+      "35": 198,
+      "39": 100,
+      "43": 16,
+      "47": 51,
+      "51": 4,
+      "55": 4,
+      "59": 1,
+      "71": 1
+    },
+    "histogram_tail_extension_only": {
+      "35": 195,
+      "39": 94,
+      "43": 16,
+      "47": 49,
+      "51": 4,
+      "55": 4,
+      "71": 1
+    },
+    "max_p": 9999999817,
+    "max_w_star": 71,
+    "new_records": [
+      {
+        "p": 2927257369,
+        "w_star": 71
+      }
+    ],
+    "pilot": {
+      "note": "The projection preceded the full run; factorization throughput fell as p grew.",
+      "peak_memory_mb": 82.7109375,
+      "prime_count": 664109,
+      "primes_per_scan_second": 170260.34261901912,
+      "projected_full_extension_minutes": 5.5,
+      "range": {
+        "bound_exclusive": 200000000,
+        "start_inclusive": 100000000
+      }
+    },
+    "prime_bound_exclusive": 10000000000,
+    "prime_count_cumulative": 56876600,
+    "prime_count_extension": 56156819,
+    "records": [
+      {
+        "p": 73,
+        "w_star": 3
+      },
+      {
+        "p": 241,
+        "w_star": 7
+      },
+      {
+        "p": 2521,
+        "w_star": 15
+      },
+      {
+        "p": 21169,
+        "w_star": 31
+      },
+      {
+        "p": 118801,
+        "w_star": 59
+      },
+      {
+        "p": 2927257369,
+        "w_star": 71
+      }
+    ],
+    "scan_range": {
+      "bound_exclusive": 10000000000,
+      "start_inclusive": 100000000
+    },
+    "timing": {
+      "block_span": 100000000,
+      "primes_per_scan_second": 88400.98531320953,
+      "scan_seconds": 635.251052926993,
+      "sieve_seconds": 14.48792882123962,
+      "workers": 12
+    }
+  },
   "failure_taxonomy": {
     "record_details": [
       {
@@ -478,7 +8078,7 @@
   "max_prime_reached": 99999721,
   "modulus_search_guard": 999,
   "prime_bound_exclusive": 100000000,
-  "schema_version": 1,
+  "schema_version": 2,
   "timing": {
     "dictionary_seconds": 0.2036542270798236,
     "hard_primes_per_scan_second": 211044.90063294605,

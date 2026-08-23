@@ -1732,8 +1732,8 @@ def check_r():
                 return w0
         raise AssertionError("Case-B record replay guard exhausted")
 
-    # Five interleaved records plus the five newest Case-B records make ten
-    # independently recomputed table entries, including every new record.
+    # Five original interleaved records plus the five newest Case-B records
+    # make the ten entries from §19.1.
     inter = data["interleaved_records"]
     assert len(inter) == 5
     for row in inter:
@@ -1741,8 +1741,65 @@ def check_r():
     case_b = data["case_b_records"][-5:]
     for row in case_b:
         assert direct_case_b(row["p"]) == row["q_min"]
-    print("section-19 replay: 100 F1 triples, 20 decompositions, symbolic "
-          "factor identity, and 10 record entries")
+
+    # Section 19.4 addendum: independently recompute every extension record.
+    extension = data["extension"]
+    assert extension["max_p"] == 9_999_999_817
+    assert extension["max_w_star"] == 71
+    assert extension["records"][-1] == {"p": 2_927_257_369, "w_star": 71}
+    for row in extension["new_records"]:
+        assert factorint(row["p"]) == {row["p"]: 1}
+        assert direct_interleaved(row["p"]) == row["w_star"]
+
+    # Replay three stored F3 deficits.  Reduction modulo each generator's
+    # order makes 0 <= e < ord exact: adding an order can only increase the
+    # cap-excess cost.  This is a separate min-plus implementation from the
+    # production script.
+    replays = extension["f3_microscopy"]["deficit_replays"]
+    assert len(replays) == 3
+    for row in replays:
+        p0, w0, half0 = row["p"], row["w"], row["half"]
+        n0 = ((p0 + w0) // 4 if half0 == "B" else
+              (p0 * w0 + 1) // 4)
+        fac0 = factorint(n0)
+        assert {str(q0): e0 for q0, e0 in sorted(fac0.items())} == row["factorization"]
+        target0 = (-n0) % w0
+        assert n0 == row["n"] and target0 == row["target"]
+
+        capped = {1}
+        for q0, e0 in fac0.items():
+            powers0 = {pow(q0, j0, w0) for j0 in range(2 * e0 + 1)}
+            capped = {a0 * b0 % w0 for a0 in capped for b0 in powers0}
+        assert target0 not in capped
+
+        costs = {1: 0}
+        for q0, e0 in fac0.items():
+            options0 = []
+            power0, exponent0 = 1, 0
+            while True:
+                options0.append((power0, max(0, exponent0 - 2 * e0)))
+                power0 = power0 * q0 % w0
+                exponent0 += 1
+                if power0 == 1:
+                    break
+                assert exponent0 <= w0
+            next_costs = {}
+            for a0, cost0 in costs.items():
+                for power0, extra0 in options0:
+                    residue0 = a0 * power0 % w0
+                    next_costs[residue0] = min(
+                        next_costs.get(residue0, 10**9), cost0 + extra0)
+            costs = next_costs
+        assert costs[target0] == row["deficit"] >= 1
+        exponents0 = {int(q0): e0 for q0, e0 in
+                      row["canonical_exponents"].items()}
+        residue0 = prod(pow(q0, exponents0[q0], w0) for q0 in fac0) % w0
+        deficit0 = sum(max(0, exponents0[q0] - 2 * e0)
+                       for q0, e0 in fac0.items())
+        assert residue0 == target0 and deficit0 == row["deficit"]
+
+    print("section-19 replay: original tables, extension record w*=71, and "
+          "three exact F3 deficits")
 
 
 print("\n== (r) computational-frontier replay ==")
