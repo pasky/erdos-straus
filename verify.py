@@ -1834,4 +1834,158 @@ def check_r():
 print("\n== (r) computational-frontier replay ==")
 check_r()
 
+
+# ---------------------------------------------------------------- (s)
+def check_s():
+    """Section 20: composition, affine transfers, and finite orbit replay."""
+    from sympy import symbols, expand, simplify
+
+    p, u, v, a, b, c, k, t = symbols(
+        "p u v a b c k t", nonzero=True)
+    h = 4 * c * k
+    L = h * k
+    Np = 1 + L * p
+
+    # Lemma 20.1 and the explicit inherited-factor transfer (20.2)-(20.3).
+    assert expand(1 + L * (u + v + L * u * v)
+                  - (1 + L * u) * (1 + L * v)) == 0
+    p_ab = 4 * a * b * c - (a + b) / k
+    b_new = b + k * t * (h * b - 1)
+    p_new = 4 * a * b_new * c - (a + b_new) / k
+    assert simplify(p_new - (p_ab + t * (1 + L * p_ab))) == 0
+    assert expand((h * a - 1) * (h * b - 1)
+                  - (1 + L * p_ab)) == 0
+
+    # All three coordinate translations and their simultaneous reduction.
+    assert simplify((4 * a * b * (c + t) - (a + b) / k)
+                    - (p_ab + 4 * a * b * t)) == 0
+    assert simplify((4 * (a + k * t) * b * c
+                     - (a + k * t + b) / k)
+                    - (p_ab + t * (4 * b * c * k - 1))) == 0
+    assert simplify((4 * a * (b + k * t) * c
+                     - (a + b + k * t) / k)
+                    - (p_ab + t * (4 * a * c * k - 1))) == 0
+    a0, b0 = symbols("a0 b0", positive=True)
+    p0 = 4 * a0 * b0 * c - (a0 + b0) / k
+    D0, E0 = h * a0 - 1, h * b0 - 1
+    reduced = 4 * (a0 + k * u) * (b0 + k * v) * c \
+        - (a0 + k * u + b0 + k * v) / k
+    assert simplify(reduced - (p0 + u * E0 + v * D0 + L * u * v)) == 0
+    assert expand((D0 + L * u) * (E0 + L * v)
+                  - (1 + L * reduced)) == 0
+
+    # Ternary fixed-slice composition and binary cross-modulus forgetting.
+    p1, p2, p3, w1, w2 = symbols("p1 p2 p3 w1 w2")
+    ternary_p = ((1 + L * p1) * (1 + L * p2) * (1 + L * p3) - 1) / L
+    assert expand(1 + L * ternary_p
+                  - (1 + L * p1) * (1 + L * p2) * (1 + L * p3)) == 0
+    cross_p = w1 * p1 + w2 * p2 + 4 * w1 * w2 * p1 * p2
+    assert expand((1 + 4 * w1 * p1) * (1 + 4 * w2 * p2)
+                  - (1 + 4 * cross_p)) == 0
+
+    # Minimal corrected binary law (20.4a-c).  The divisibility by k follows
+    # symbolically after imposing k | a_i+b_i; the polynomial identities are
+    # checked here without that substitution.
+    a1, a2, b1, b2 = symbols("a1 a2 b1 b2", positive=True)
+    A = h * a1 * a2 - a1 - a2
+    B = h * b1 * b2 - b1 - b2
+    corrected_p = 4 * A * B * c - (A + B) / k
+    assert expand(h * A - 1 - ((h * a1 - 1) * (h * a2 - 1) - 2)) == 0
+    assert expand(h * B - 1 - ((h * b1 - 1) * (h * b2 - 1) - 2)) == 0
+    assert expand((h * A - 1) * (h * B - 1)
+                  - (1 + L * corrected_p)) == 0
+    H, K, T = symbols("H K T", nonzero=True)
+    C_rescaled, P_rescaled = H / (4 * K), T / K
+    assert expand(1 + 4 * P_rescaled * C_rescaled * K**2
+                  - (1 + H * T)) == 0
+
+    # Euclidean reduction (20.11), diagonal identity (20.15), and the
+    # signed/four-term near representations (20.16)-(20.17).
+    R = 4 * a * c * k - 1
+    assert expand(4 * a * c * (k * p + a)
+                  - (p * R + p + 4 * a**2 * c)) == 0
+    assert expand(a * Np - (p * k * R + a + p * k)) == 0
+    n = symbols("n", positive=True)
+    pp = 4 * n + 1
+    assert simplify(1 / (n + 1) + 3 / (pp * (n + 1)) - 4 / pp) == 0
+    assert simplify(1 / (n + 1) + 1 / (n * (n + 1))
+                    - 1 / (n * pp) - 4 / pp) == 0
+
+    def all_divisors(n0):
+        ds = [1]
+        for q0, e0 in factorint(n0).items():
+            ds = [d0 * q0**j0 for d0 in ds for j0 in range(e0 + 1)]
+        return sorted(ds)
+
+    def fixed_status(p0, c0, k0):
+        h0, L0 = 4 * c0 * k0, 4 * c0 * k0 * k0
+        n0 = 1 + L0 * p0
+        ds = all_divisors(n0)
+        witness = any(d0 % h0 == h0 - 1 for d0 in ds)
+        atom = not any(1 < d0 < n0 and d0 % L0 == 1 for d0 in ds)
+        return witness, atom
+
+    # Lemma 20.2's nonclosure example and the explicit witnessed atom.
+    delta25 = {d0 % 12 for d0 in all_divisors(25)}
+    delta49 = {d0 % 12 for d0 in all_divisors(49)}
+    delta_product = {d0 % 12 for d0 in all_divisors(25 * 49)}
+    assert 11 not in delta25 and 11 not in delta49 and 11 in delta_product
+    assert factorint(4 * 313 + 1) == {7: 1, 179: 1}
+    assert fixed_status(313, 1, 1) == (True, True)
+    # Correcting the p=5 witness with itself gives (A,B,P)=(2,12,82),
+    # and the affine shift B -> B+33 reaches the atom p=313.
+    assert 4 * 2 * 12 - 2 - 12 == 82
+    assert 4 * 2 * (12 + 33) - 2 - (12 + 33) == 313
+    assert (4 * 2 - 1) * (4 * (12 + 33) - 1) == 4 * 313 + 1
+    assert fixed_status(5, 1, 1)[0] and fixed_status(3, 1, 2)[0]
+    assert (1 + 4 * 5) * (1 + 16 * 3) == 1 + 4 * 257
+    assert fixed_status(257, 1, 1)[0]
+    # Corrected cross-slice composition: p=3 at (1,2) and p=59 at
+    # (1,1) give the hard prime 2617 at (1,1).
+    assert (7 * 3 - 2) * (7 * 79 - 2) == 19 * 551 == 1 + 4 * 2617
+    assert factorint(2617) == {2617: 1} and 2617 % 24 == 1
+    assert fixed_status(2617, 1, 1)[0]
+    # Common-modulus rescaling of p=3 at (1,2) and p=41 at (1,4).
+    assert (7 * 15 - 2) * (7 * 175 - 2) == 103 * 1223 \
+        == 1 + 16 * 7873
+    assert factorint(7873) == {7873: 1} and 7873 % 24 == 1
+    assert fixed_status(7873, 1, 2)[0]
+
+    # Exact finite atom table in §20.1.
+    hard = [p0 for p0 in primerange(2, 5000) if p0 % 24 == 1]
+    assert len(hard) == 76
+    expected = {
+        (1, 1): Counter({(False, False): 16, (False, True): 24,
+                         (True, False): 14, (True, True): 22}),
+        (1, 2): Counter({(False, False): 4, (False, True): 46,
+                         (True, False): 2, (True, True): 24}),
+    }
+    for ck0, wanted in expected.items():
+        assert Counter(fixed_status(p0, *ck0) for p0 in hard) == wanted
+
+    # Exhaust every smaller-prime absorption seed for c,k <= 3.  The cap
+    # s<1000 is complete for targets P<5000 because P>(L+1)s>=5s.
+    seeds = []
+    for c0 in range(1, 4):
+        for k0 in range(1, 4):
+            L0 = 4 * c0 * k0 * k0
+            for s0 in primerange(2, 1000):
+                if fixed_status(s0, c0, k0)[0]:
+                    seeds.append((s0, c0, k0, 1 + L0 * s0))
+    reached = []
+    for P0 in hard:
+        if any(s0 < P0 and (P0 - s0) % Ns0 == 0
+               for s0, _c0, _k0, Ns0 in seeds):
+            reached.append(P0)
+    assert reached == [433, 457, 1753, 2113, 2953, 3001, 3433, 3793,
+                       4057, 4177, 4561, 4993]
+    assert not ({409, 577, 1201, 2521} & set(reached))
+
+    print("sec-20 composition/correction algebra exact; fixed-slice atoms "
+          "and 12/76 small transfer reachability replayed")
+
+
+print("\n== (s) frontal-assault transfer algebra (§20) ==")
+check_s()
+
 print("\nall checks passed")

@@ -4459,3 +4459,676 @@ F3 deficit rows exactly.
 * T. Bloom, C. Elsholtz (2022), Thm 1: divisor-condition equivalence.
 * Salez 2014: verification to 10^17; [MiDu25] further. *(from problem page)*
 * erdosproblems.com/242 (accessed 2026-08-16, status: Open).
+
+## 20. Frontal assault log
+
+This section records a direct attempt at the full conjecture, with the
+prime-to-prime transfer slot attacked first.  Throughout, a **witness at \((c,k)\)** means a Type-II factorization from Theorem 17.1(iii).  Put
+
+\[
+ h=4ck,\qquad L=hk=4ck^2,\qquad N_{c,k}(p)=1+Lp.
+\]
+
+Thus a witness at \((c,k)\) is exactly
+
+\[
+ N_{c,k}(p)=DE,\qquad D,E>0,\qquad D\equiv E\equiv-1\pmod h.       \tag{20.1}
+\]
+
+All identities in this section are replayed symbolically in `verify.py (s)`.
+
+### 20.1 Composition/transfer hunt
+
+#### The fixed-\((c,k)\) multiplication law
+
+**Lemma 20.1 (proved: the exact composition monoid).**  On nonnegative
+integers define
+
+\[
+        u\circ_L v=u+v+Luv.
+\]
+
+This is a commutative associative monoid with identity zero, and
+
+\[
+        N_{c,k}(u\circ_Lv)=N_{c,k}(u)N_{c,k}(v).                \tag{20.2}
+\]
+
+If \(u\) has a witness at \((c,k)\), then \(u\circ_Lv\) has one for every
+\(v\geq0\), whether or not \(v\) is soluble.  More explicitly, if
+\(N(u)=(ha-1)(hb-1)\), then
+
+\[
+ \begin{aligned}
+ u'&=u\circ_Lv=u+vN(u),\\
+ a'&=a,\qquad b'=b+kv(hb-1),
+ \end{aligned}                                                   \tag{20.3}
+\]
+
+is a witness for \(u'\).
+
+*Proof.*  Equation (20.2) is expansion.  The old factor \(D=ha-1\)
+continues to divide \(N(u)N(v)\) and is still \(-1\pmod h\); its new
+cofactor is
+
+\[
+ (hb-1)N(v)=h\{b+kv(hb-1)\}-1.
+\]
+
+This proves (20.3), and associativity follows either by expansion or by the
+injective map \(u\mapsto N(u)\) into multiplication. ∎
+
+This gives a genuine transfer across primes, but only along an already
+harvested progression.  Since \((u,N(u))=1\), Dirichlet's theorem supplies
+infinitely many primes in \(u+N(u)\mathbb Z_{\geq0}\), and every one is
+soluble by (20.3).  For odd \(u\), a prime output necessarily has even
+\(v\).  In particular, composing **two odd primes** at the same \((c,k)\)
+can never produce a new prime: \(u\circ_Lv\) is even and greater than two.
+This parity obstruction was absent from the initial semigroup suggestion.
+
+**Lemma 20.2 (proved: divisor-set algebra and the wrong sign).**  For an
+integer \(n\) coprime to \(h\), let
+
+\[
+       \Delta_h(n)=\{d\bmod h:d\mid n\}.
+\]
+
+Then \(\Delta_h(n_1n_2)=\Delta_h(n_1)\Delta_h(n_2)\), including when
+\(n_1,n_2\) are not coprime.  Consequently the set
+
+\[
+ \mathcal S_h=\{n\equiv1\pmod L:-1\in\Delta_h(n)\}
+\]
+
+is a multiplicative ideal: \(n_1\in\mathcal S_h\) implies
+\(n_1n_2\in\mathcal S_h\).  Its complement is not multiplicatively closed.
+For example at \(h=L=12\), neither \(25\) nor \(49\) has a divisor
+\(11\pmod {12}\), while \(25\cdot49\) does, since \(35\equiv11\pmod {12}\).
+
+*Proof.*  At each prime, every exponent from zero through \(e_1+e_2\) splits
+as a sum of exponents in the two allowed intervals; multiplication over the
+primes proves the equality of divisor sets.  The ideal assertion uses the
+factor \(1\in\Delta_h(n_2)\).  The displayed example proves the final
+assertion. ∎
+
+The ideal property is only **absorption**, not Gauss composition.  If
+\(N_i=D_iE_i\) are two displayed witness pairs, all four balanced mixed
+products
+
+\[
+ D_1D_2,\ D_1E_2,\ E_1D_2,\ E_1E_2
+\]
+
+are \(+1\pmod h\), not \(-1\).  A divisor made from an odd number of the
+four displayed factors is \(-1\), but with two pairs it is one original
+factor or the complement of one original factor.  Thus it merely carries
+one witness unchanged through the other whole norm.  With three witness
+pairs there is a positive ternary composition,
+
+\[
+ D_*=D_1D_2D_3,
+ \quad E_*=E_1E_2E_3,
+ \quad N(p_*)=\prod_{i=1}^3N(p_i),                             \tag{20.4}
+\]
+
+because both new factors are again \(-1\pmod h\).  This can have odd prime
+output when the \(p_i\) are odd, but inversion requires the target norm to
+split into three factors individually congruent to \(1\pmod L\).  It does
+not address norms which are atoms in this monoid.
+
+This is the complete explanation of the tempting “norm form” under the
+suggested factor multiplication.  The change of variables
+\((a,b)\mapsto(ha-1,hb-1)\) turns the binary form into the split norm
+\(DE\).  Its two displayed congruence components are graded by the signs
+\(\{+1,-1\}\): multiplication sends the desired negative component squared
+to the positive component.  This identity supplies a split torus, not a
+nonsplit quadratic ring or a class-group operation.  Negating \(D_1D_2\)
+restores the residue \(-1\), but makes the factor negative.  Thus there is
+no binary law preserving the product \(N_1N_2\).  The smallest positive
+correction does give a different product, and must be audited separately.
+
+**Lemma 20.2.1 (proved: the minimal corrected binary law).**  Let
+\((a_i,b_i,c,k)\), \(i=1,2\), be two parameter solutions at the same
+\((c,k)\), and put
+
+\[
+ A=ha_1a_2-a_1-a_2,\qquad B=hb_1b_2-b_1-b_2.                 \tag{20.4a}
+\]
+
+Then \(A,B>0\), \(k\mid A+B\), and
+
+\[
+ P=4ABc-(A+B)/k                                               \tag{20.4b}
+\]
+
+is a positive soluble integer at \((c,k)\).  On factors this is the
+non-monomial correction
+
+\[
+ hA-1=(ha_1-1)(ha_2-1)-2,\qquad
+ hB-1=(hb_1-1)(hb_2-1)-2.                                    \tag{20.4c}
+\]
+
+If both input parameters \(p_1,p_2\) are odd, the canonical output \(P\) is
+even.
+
+*Proof.*  Since \(h\geq4\), \(A,B\geq h-2>0\).  Modulo \(k\), (20.4a)
+gives
+\(A+B\equiv-(a_1+b_1)-(a_2+b_2)\equiv0\).  Equations (20.4b–c) now give a
+valid factorization and hence a solution.  For parity, write
+\(D_i=ha_i-1,E_i=hb_i-1\).  As \(p_i\) is odd,
+\(D_iE_i=1+Lp_i\equiv1+L\pmod {2L}\).  The corrected norm is
+
+\[
+ (D_1D_2-2)(E_1E_2-2)
+ =N_1N_2-2(D_1D_2+E_1E_2)+4.
+\]
+
+Here \(N_1N_2\equiv1\pmod {2L}\), while
+
+\[
+ D_1D_2+E_1E_2-2
+ =h\{h(a_1a_2+b_1b_2)-(a_1+a_2+b_1+b_2)\}
+\]
+
+is divisible by \(hk=L\).  Thus the corrected norm is
+\(1\pmod {2L}\), so \(P\) is even. ∎
+
+The parity failure can be bypassed by an affine shift: replacing
+\(A\) by \(A+kt\) sends \(P\) to
+\(P+t(4Bck-1)\).  Its modulus is coprime to \(P\), so Dirichlet gives
+infinitely many prime outputs.  But this is exactly one of the coordinate
+grids classified in Theorem 20.4 below, not a new inverse operation.  For
+example, composing the \((1,1)\) witness for \(p=5\) with itself gives
+\((A,B,P)=(2,12,82)\); shifting \(B\) by 33 gives
+\((A,B,P)=(2,45,313)\).  Thus the multiplication-atom example 313 is
+reachable by corrected composition plus an already-harvested translation,
+but deciding the required shift from a target still requires its factor
+pair \(7\cdot179\).
+
+More generally, replacing (20.4c) by
+\(D_1D_2-2+hr\), \(E_1E_2-2+hs\) merely replaces \((A,B)\) by
+\((A+r,B+s)\); subject to positivity, the sole integrality condition is
+\(r+s\equiv0\pmod k\).  These corrections range inside the same reduced-
+seed grids of Theorem 20.4.  Reverse corrected composition also has no total
+move: it asks simultaneously for factorizations of \(hA+1\) and \(hB+1\)
+into factors \(-1\pmod h\).  In the displayed 313 witness,
+\(hB+1=181\) is prime.  Hence the first non-monomial law exists, but after
+full squeezing it adds no target coverage beyond the affine lattice and has
+no everywhere-defined descent.
+
+**Theorem 20.3 (proved: finite transfer seeds cannot be cofinite).**  Fix
+\((c,k)\) and finitely many prime seeds \(p_1,\ldots,p_r\), each witnessed
+at \((c,k)\).  Their absorption orbits
+
+\[
+       \{p_i\circ_Lt:t\geq0\}
+       =\{P:P\equiv p_i\pmod {N(p_i)}\}
+
+automatically miss infinitely many primes \(P\equiv1\pmod {24}\).
+
+*Proof.*  Put \(M=\operatorname{lcm}(24,N(p_1),\ldots,N(p_r))\).  Every
+prime \(P\equiv1\pmod M\) misses every orbit, because
+\(1\not\equiv p_i\pmod {N(p_i)}\): here \(1<p_i<N(p_i)\).  Dirichlet gives
+infinitely many such primes. ∎
+
+There are witnessed norms which cannot be generated by any nontrivial fixed-
+\((c,k)\) composition.  At \((c,k)=(1,1)\),
+
+\[
+       p=313,\qquad 4p+1=1253=7\cdot179
+
+displays a witness, since both factors are \(3\pmod4\).  But \(1253\) has
+no proper divisor \(1\pmod4\), so it is an atom under (20.2).  It is a
+soluble prime that reverse composition cannot even enter.  The finite replay
+in `verify.py (s)` finds many such atoms: among the 76 primes
+\(p<5000,\ p\equiv1\pmod {24}\), the \((\text{witness},\text{monoid-atom})\) counts
+are
+
+\[
+\begin{array}{c|rrrr}
+(c,k)&(0,0)&(0,1)&(1,0)&(1,1)\\ \hline
+(1,1)&16&24&14&22\\
+(1,2)&4&46&2&24.
+\end{array}
+\]
+
+This is a finite computation, not a density claim.
+
+#### Cross-modulus products
+
+There is also an exact composition after forgetting down to \((C,K)=(1,1)\).
+Write \(w_i=c_i k_i^2\).  Then
+
+\[
+ (1+4w_1p_1)(1+4w_2p_2)=1+4P,
+ \quad P=w_1p_1+w_2p_2+4w_1w_2p_1p_2.                         \tag{20.5}
+\]
+
+If the first factor has any Type-II witness, one of its factors is
+\(3\pmod4\), remains a divisor of \(4P+1\), and proves that \(P\) is soluble
+at \((1,1)\).  Unlike fixed-parameter composition, (20.5) can be odd for
+odd \(p_1,p_2\) when \(w_1,w_2\) have opposite parity.  For example
+
+\[
+ (1+4\cdot1\cdot5)(1+4\cdot4\cdot3)=21\cdot49=4\cdot257+1,
+\]
+
+so the witnesses for \(5\) at \((1,1)\) and for \(3\) at \((1,2)\)
+compose to a witness for the prime \(257\) at \((1,1)\).
+
+The minimal correction also works across different slices after reduction
+modulo 4, and unlike the same-slice law it can produce an odd prime.
+
+**Lemma 20.3.1 (proved: corrected cross-slice prime composition).**  Given
+any two Type-II witness pairs
+\(N_i=D_iE_i\), possibly at different \((c_i,k_i)\), put
+
+\[
+       D=D_1D_2-2,\qquad E=E_1E_2-2,
+       \qquad P=(DE-1)/4.                                    \tag{20.5a}
+\]
+
+Then \(D,E\equiv-1\pmod4\), so \(P\) is a positive integer soluble at
+\((C,K)=(1,1)\).  In particular this is a genuine composition across
+solutions of different primes whenever \(P\) is prime.
+
+*Proof.*  Every Type-II witness factor is \(-1\pmod4\); hence each corrected
+product is \(1-2=-1\pmod4\), and their product is \(1\pmod4\).  The
+factorization \(4P+1=DE\) is Theorem 17.1(iii) at \((1,1)\). ∎
+
+For an exact hard-prime example, use
+
+\[
+ 1+16\cdot3=7\cdot7,
+ \qquad 1+4\cdot59=3\cdot79.
+\]
+
+The corrected pairing gives
+
+\[
+ (7\cdot3-2)(7\cdot79-2)=19\cdot551
+       =4\cdot2617+1,
+\]
+
+and \(2617\) is prime with \(2617\equiv1\pmod {24}\).  Thus the transfer
+slot is not empty: two smaller solved primes really do compose to a hard
+solved prime.
+
+This still does not propagate to all primes.  Every output **as normalized
+in (20.5a)** has a \((1,1)\) witness.  Reverse composition requires both
+displayed factors \(D+2,E+2\) to split into old witness factors
+\(3\pmod4\), and either may be prime.  In particular none of the six primes
+in §19.3 which have no \(k=1\) representation can be an output under this
+normalization.  Affine shifts of a corrected output again give infinitely
+many primes, including hard primes after an appropriate CRT restriction,
+but only inside the forced grids of Theorem 20.4.
+
+There is a complete rescaled version, which does permit \(K>1\).
+
+**Corollary 20.3.2 (proved: all inherited common-modulus rescalings).**  With
+\(D,E\) from (20.5a), let \(H\) be any positive multiple of 4 dividing
+\(\gcd(h_1,h_2)\), and put \(T=(DE-1)/H\).  For every
+
+\[
+       K\mid H/4,\qquad K\mid T,
+       \qquad C=H/(4K),\qquad P=T/K,                           \tag{20.5b}
+\]
+
+\(P\) is a positive soluble integer at \((C,K)\).
+
+*Proof.*  Both original factors are \(-1\pmod H\), so
+\(D=D_1D_2-2\) and \(E=E_1E_2-2\) are also \(-1\pmod H\).  The definitions
+give \(H=4CK\) and
+\(DE=1+HT=1+4PCK^2\), which is (17.3). ∎
+
+For example, the witnesses
+
+\[
+ 1+16\cdot3=7\cdot7,
+ \qquad 1+64\cdot41=15\cdot175
+\]
+
+have common modulus \(H=8\).  Their corrected factors are
+\(103,1223\); choosing \((C,K)=(1,2)\) in (20.5b) gives
+
+\[
+       103\cdot1223=1+16\cdot7873,
+\]
+
+another hard prime composed from the smaller primes 3 and 41.  The extra
+conditions in (20.5b) are exact divisibility constraints.  Reverse use still
+requires the two simultaneous factorizations after adding 2, now together
+with a common-modulus and square-factor synchronization.  No argument makes that inverse move total.
+
+The exact product law (20.5) itself is absorption.  Every output of (20.5) lies in the narrow
+\((1,1)\) slice, and an atomic value such as \(4\cdot313+1\) cannot arise as
+a nontrivial product of factors \(1\pmod4\).  More generally one may write
+the product as \(1+4PCK^2\) whenever \(CK^2\) divides \((N_1N_2-1)/4\).
+An inherited divisor \(D_i\) remains a witness only when additionally
+\(CK\mid(D_i+1)/4\).  These are divisibility restrictions, not a free
+change of modulus, and return exactly to a forced factor class.
+
+#### All coordinate translations
+
+The translation \(c\mapsto c+t\) from §17.6 is not the whole affine action.
+There are equally exact translations
+
+\[
+ \begin{array}{rcl}
+ c\mapsto c+t&:&p\mapsto p+4ab\,t,\\
+ a\mapsto a+kt&:&p\mapsto p+(4bck-1)t,\\
+ b\mapsto b+kt&:&p\mapsto p+(4ack-1)t.                        \tag{20.6}
+ \end{array}
+\]
+
+They can be classified completely.
+
+**Theorem 20.4 (proved: reduced-seed classification of a fixed slice).**  For
+a solution \((a,b,c,k)\), let \(a_0,b_0\in\{1,\ldots,k\}\) be the positive
+residues of \(a,b\pmod k\), and write
+\(a=a_0+ku, b=b_0+kv\).  Then
+
+\[
+ a_0+b_0\in\{k,2k\},
+ \quad p_0=4a_0b_0c-(a_0+b_0)/k>0,                            \tag{20.7}
+\]
+
+and, with \(D_0=ha_0-1, E_0=hb_0-1\),
+
+\[
+       p=p_0+uE_0+vD_0+Luv.                                  \tag{20.8}
+\]
+
+Conversely every \(u,v\geq0\) in (20.8) is a valid parameter solution
+(allowing noncoprime \(a,b\), as in Theorem 17.1(iii)).  Thus for fixed
+\((c,k)\) the entire parameter solution set is the union of only \(k\)
+bilinear grids,
+corresponding to
+\((a_0,b_0)=(r,k-r)\), \(1\leq r<k\), and \((k,k)\).
+
+*Proof.*  The divisibility \(k\mid a+b\) gives (20.7); the only multiples of
+\(k\) between 2 and \(2k\) are \(k,2k\).  Also \(p_0\geq4-2>0\).  Finally
+
+\[
+ 1+Lp=(D_0+Lu)(E_0+Lv),
+
+after which (20.8) follows by expansion.  Reversing the calculation proves
+the converse. ∎
+
+Equivalently the fixed-slice generating function is the following finite
+sum of positive double \(q\)-series
+
+\[
+ \sum_{r}\sum_{u,v\geq0}
+ z^{p_{0,r}+uE_{0,r}+vD_{0,r}+Luv}.                            \tag{20.9}
+\]
+
+This is a complete transfer structure, but in the wrong direction for
+induction: it descends an **already known solution** to a reduced soluble
+seed.  To decide whether a supplied prime \(p\) lies in one of the grids,
+one must factor \(1+Lp\) as
+\((D_0+Lu)(E_0+Lv)\), which is precisely the original divisor-coset event,
+now refined modulo \(L\).  The apparent descent has no starting move on a
+counterexample.
+
+**Computational test (finite).**  Exhausting all hard primes below 5000 and
+all fixed slices \(1\leq c,k\leq3\), only 12 of 76 targets are in an
+absorption orbit of a smaller prime witnessed in the same slice:
+
+\[
+433,457,1753,2113,2953,3001,3433,3793,4057,4177,4561,4993.
+\]
+
+The seed search below 1000 is complete for this experiment: a nontrivial
+fixed-slice transfer to \(P<5000\) has
+\(P=s+t(1+Ls)>(L+1)s\geq5s\).  In particular none of
+\(409,577,1201,2521\) is reached in these slices.  This does not exclude a
+larger \((c,k)\), but it confirms that the exact transfer law is much sparser
+than the actual solved set at this scale.
+
+**Outcome of the transfer hunt.**  A nontrivial algebraic structure was
+found and classified: split-norm multiplication, its sign grading, the
+minimal corrected binary law, exact and corrected cross-modulus forgetting,
+and the full affine coordinate action.  The corrected cross-slice law even
+composes the smaller primes 3 and 59 to the hard prime 2617.  These laws
+propagate infinitely many prime witnesses.
+They do **not** prove cofiniteness: exact binary same-slice prime composition
+has the wrong parity/sign, the corrected law collapses into the affine grids,
+finite seed orbits are escaped by residue 1, and multiplication atoms block
+reverse exact composition.  No inverse operation lowering an arbitrary
+target prime was found.
+
+### 20.2 Algorithmic and well-ordering attempts
+
+#### Reverse composition
+
+**Attempt (failed).**  Given \(P\), factor \(N(P)\) and choose a proper
+factor \(n\equiv1\pmod L\).  Then
+
+\[
+ s=(n-1)/L,
+ \qquad t=(N(P)/n-1)/L,
+ \qquad P=s\circ_Lt,                                          \tag{20.10}
+\]
+
+and \(s,t<P\).  If \(s\) is a previously witnessed prime, this is a valid
+well-ordering step.
+
+**Exact failure.**  A proper factor \(1\pmod L\) need not exist, even when
+\(P\) is soluble: \(P=313,(c,k)=(1,1)\) is the explicit atom above.  If such
+a factor does exist, it need not encode a prime or a witnessed smaller
+integer.  The size is a genuine monovariant, but the move is not total.
+
+#### Affine reduction
+
+**Attempt (failed).**  Starting from a quadruple, repeatedly subtract \(k\)
+from \(a\) or \(b\); (20.6) strictly lowers \(p\) until the reduced seed
+(20.7) is reached.
+
+**Exact failure.**  This is a terminating algorithm on the set of
+**solutions**, not on the set of input primes.  Its first step requires the
+factor \(D=4ack-1\) which is the desired certificate.  Reconstructing
+\(u,v\) from a bare \(p\) asks for the factorization in the sentence after
+(20.9), so the proposed monovariant is circular.
+
+#### Euclidean/continued-fraction reduction
+
+Solving (17.1) for \(b\) gives
+
+\[
+ b={kp+a\over 4ack-1}.
+\]
+
+The following identity makes the obstruction exact:
+
+\[
+ (4ack-1)\mid(kp+a)
+ \quad\Longleftrightarrow\quad
+ (4ack-1)\mid(p+4a^2c),                                      \tag{20.11}
+\]
+
+because
+
+\[
+ 4ac(kp+a)=p(4ack-1)+(p+4a^2c),
+
+and \((4ac,4ack-1)=1\).  Hence, for fixed \((a,c)\), all possible \(k\)
+are encoded by divisors
+
+\[
+       R\mid p+4a^2c,\qquad R\equiv-1\pmod {4ac}.             \tag{20.12}
+\]
+
+**Attempt (failed).**  Round \((kp+a)/(4ack-1)\), or apply the Euclidean
+algorithm to \((p+4a^2c,4ack-1)\), and adjust \((a,c,k)\) according to the
+remainders.
+
+**Exact failure.**  Rounding gives a small *analytic* error but integrality
+requires the remainder to be exactly zero.  Euclid lowers a pair of
+integers, but its new pair is not generally of the form
+\((p+4a'^2c',4a'c'k'-1)\) with positive parameters and the same \(p\).
+Thus the parameter invariant is lost at the first nonzero remainder.  The
+simple line \(a=c=1\) illustrates the issue: it succeeds exactly when
+\(p+4\) has a divisor \(3\pmod4\).  It fails for \(p=97\), since
+\(p+4=101\), although \(97\) is soluble at \((a,b,c,k)=(1,13,2,2)\).
+Moving to another line restarts, rather than descends, the divisor search.
+LLL or continued fractions control closeness only and supply no mechanism
+forcing (20.12).
+
+#### Least-counterexample induction
+
+**Attempt (failed).**  If \(P\) is the least exceptional prime, all smaller
+prime factors, and hence all smaller composite integers, are soluble.  For
+\(q<3P\), the window value \(x=(P+q)/4<P\) is therefore soluble.  Try to
+feed a solution of \(4/x\) back into the two-term split of \(q/x\).
+
+**Exact failure.**  Solubility of \(4/x\) gives denominators on a different
+fiber.  The required split of \(q/x\) is equivalent to a divisor of \(x^2\)
+in one specified class modulo \(q\); the supplied solution of \(4/x\) gives
+no such divisor.  At \(q=3\), the distinction is especially sharp:
+\(4/x\) would have to possess a representation with one denominator exactly
+\(x\), leaving a two-term representation of \(3/x\).  Induction guarantees
+an unanchored representation only.  This is the window-irrelevance wall of
+§17.7 in algorithmic form.
+
+No attempted algorithm obtained both properties needed for a proof: a move
+defined on every unsolved input and a positive integer monovariant decreased
+by that move.
+
+### 20.3 Minimal-gap pair
+
+Several proposed auxiliary statements collapsed either to a false claim
+(“every fixed norm has a nontrivial \(1\pmod L\) factor,” refuted by the
+atom \(1253\)) or to the conjecture itself.  The closest unconditional
+construction found is the following off-diagonal supply statement.
+
+**Lemma 20.5 (proved: off-diagonal forced factors).**  Let \(p,k,t\geq1\),
+put \(r=4kt-1\), and suppose \((p,r)=1\).  There is a unique class
+\(c_0\pmod r\) such that every \(c\equiv c_0\pmod r\) satisfies
+
+\[
+       r\mid1+4pck^2,
+       \qquad r\equiv-1\pmod {4k}.                            \tag{20.13}
+\]
+
+*Proof.*  The coefficient \(4pk^2\) is invertible modulo \(r\), so take
+\(c_0\equiv-(4pk^2)^{-1}\pmod r\). ∎
+
+This proves an infinite supply of factors with the correct congruence after
+the factor \(c\) is omitted from the modulus.  Synchronizing the two copies
+of \(c\) is the entire remaining gap:
+
+\[
+ r\equiv-1\pmod {4ck}
+ \quad\Longleftrightarrow\quad c\mid t.                       \tag{20.14}
+\]
+
+If one can choose \((k,t)\) so that the least positive solution \(c_0\) in
+Lemma 20.5 divides \(t\), then \(a=t/c_0\) gives
+\(r=4ac_0k-1\), and (20.13) is a Type-II witness.  Conversely every
+Type-II witness arises in exactly this way, because \((a,4ack-1)=1\) and
+
+\[
+ a(1+4pck^2)=pk(4ack-1)+(a+pk).                               \tag{20.15}
+\]
+
+Thus the **proved side** is unrestricted modular-inverse supply (20.13); the
+**minimal named gap** is the diagonal synchronization \(c_0\mid t\).  The
+pair is useful diagnostically but does not constitute progress toward a
+proof: (20.14)–(20.15) show that the synchronization assertion is equivalent
+to the original Type-II residual statement, not a weaker theorem smuggled
+in as a lemma.
+
+For comparison, there are unconditional representations immediately one
+unit/sign away from the target.  If \(p=4n+1\), then
+
+\[
+ {4\over p}={1\over n+1}+{1\over p(n+1)}+{1\over p(n+1)}
+             +{1\over p(n+1)},                               \tag{20.16}
+\]
+
+and
+
+\[
+ {4\over p}={1\over n+1}+{1\over n(n+1)}-{1\over np}.         \tag{20.17}
+\]
+
+Both are proved by one-line expansion.  Compressing (20.16) or repairing
+the sign in (20.17) uniformly would prove the conjecture, but the former is
+again the two-term divisor condition and the latter crosses the positivity
+component isolated in §10.  They are therefore weaker minimal-gap pairs than
+(20.13)–(20.15), not proof routes.
+
+**Outcome.**  No auxiliary statement was both proved unconditionally and
+shown to imply Erdős–Straus without leaving an equivalent unproved
+synchronization condition.  Claiming otherwise would be a proof of the
+conjecture; none was obtained.
+
+### 20.4 Wild cards
+
+**Generating function (attempt; no traction).**  Theorem 20.4 gives the
+exact fixed-slice series (20.9), a finite sum of double \(q\)-series with
+bilinear exponent.  Coefficients are nonnegative, but the series
+is not a theta series of a positive quadratic form, and composition acts by
+multiplication of \(1+Lp\), not addition of exponents.  No modular
+transformation or cusp-form positivity was found.  Summing over \((c,k)\)
+recreates the divisor-counting series already bounded by the cubic supply of
+§18 rather than a coefficientwise positivity theorem.
+
+**Divisor circle / three-distance idea (attempt; no traction).**  Writing a
+prime factor of a shifted value as a rotation in
+\((\mathbb Z/h\mathbb Z)^\times\) turns bounded divisor exponents into a
+finite multidimensional orbit.  Three-distance phenomena control one
+irrational cyclic orbit, while the adversarial case here is a product of
+short cyclic arcs with arithmetic phases and a prescribed endpoint.  After
+projection to a cyclic quotient this is exactly Lemma 17.4.1's exponent-mass
+problem; no order on the circle is preserved by multiplication across
+several generators.
+
+**Non-monomial correspondence (unresolved slot).**  Lemma 20.2.1 is a
+surviving non-monomial degree-two correction at fixed \((c,k)\), but its
+general additive corrections are exactly the affine grids of Theorem 20.4,
+and its inverse again asks for prescribed factorizations.  The cross-slice version (20.5a) and its common-modulus rescalings (20.5b)
+survive too, but their reverse direction requires simultaneous
+factorizations after adding 2 plus the explicit modulus/square-factor
+synchronization.  What remains unclassified are polynomial/rational maps
+outside these inherited-common-modulus constructions which change to a
+nontrivial \((C,K)\) and add correction terms to the factors.  A viable map would have to preserve
+positivity and the negative congruence grade while possessing an inverse
+branch that lowers an arbitrary prime parameter.  The smallest corrections at fixed modulus and across a common divisor of
+the input moduli do not do this.  This is
+the only transfer subslot not formally closed, but there is no warm
+candidate in it.
+
+### 20.5 Honest outcome statement
+
+**No proof of the Erdős–Straus conjecture was obtained.**  What was proved is:
+
+1. the exact fixed-parameter composition monoid and its witness-absorption
+   law (Lemmas 20.1–20.2), including the wrong-sign obstruction to exact
+   binary Gauss composition, the valid ternary law, and the minimal corrected
+   binary law (Lemma 20.2.1), which collapses into the affine grids;
+2. finite transfer orbits cannot cover all hard primes (Theorem 20.3), and
+   explicit witnessed monoid atoms block reverse composition;
+3. the exact and corrected cross-modulus laws (20.5)/(20.5a–b), including
+   the explicit prime transfers \((3,59)\mapsto2617\) and
+   \((3,41)\mapsto7873\), and the complete reduced-seed classification of
+   every affine coordinate transfer (Theorem 20.4);
+4. the exact Euclidean divisor reduction (20.11) and the off-diagonal factor
+   supply Lemma 20.5, with the missing diagonal synchronization proved
+   equivalent to the Type-II residual problem.
+
+The transfer door is colder after this audit: every natural multiplication,
+minimal correction, or translation either propagates an existing forced
+class, lands in the wrong sign/parity component, collapses into an affine
+grid, or requires the target divisor before descent can begin.  The only
+logically open transfer direction is a non-monomial cross-modulus
+correspondence outside the inherited common-modulus rescalings which does
+not collapse to an affine forced grid.
+A precise next test, if that slot is pursued, is to classify bounded-degree
+positive polynomial maps on factor pairs which satisfy
+\(D'E'=1+4PCK^2\) and \(D',E'\equiv-1\pmod {4CK}\) identically, modulo the
+multiplication, fixed/cross-slice minimal-correction and rescaling, and
+coordinate-shift maps above, and then
+check whether any inverse branch strictly lowers \(P\).  No evidence here suggests that such a map exists.
