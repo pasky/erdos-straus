@@ -3645,9 +3645,10 @@ the list is not a classification of all conceivable proofs):
   moves solutions between p and p' = p ± 4ab, i.e. transfers witnesses
   along the progression p' ≡ p (mod 4ab); this is exactly the mechanism
   behind the shape-(e) classes, so the naive transfer lands back in the
-  harvested class supply.  The naive half of this slot (minimal-counterexample
-  descent) is executed and closed in §17.7; what remains is a non-naive
-  transfer, with no candidate mechanism in the mapped landscape.
+  harvested class supply.  The three obvious minimal-counterexample
+  routes are executed in §17.7 and yield no known transfer; cleverer
+  transfers remain unexcluded, with no candidate mechanism in the mapped
+  landscape.
 
 **Status of the named doors after this section.**  The identity/sieve axis
 is bracketed: supply exactly cubic (Thm 18.2), realized mass log²X·log K
@@ -3668,70 +3669,89 @@ for the intrinsic full harvest, or H_kBV together with the restricted form
 of H_PF (exceptional set to exp(−(log N)^{3/4}), still not "all p");
 (iii) a transfer structure (P4).
 
-### 17.7 The descent audit: minimal-counterexample arguments find no
-purchase (P4's naive half, executed)
+### 17.7 The descent audit: the three obvious minimal-counterexample
+routes yield no known transfer
 
 Suppose p is the least exceptional prime.  Induction supplies: 4/n is
 solvable for every n ≥ 2 having any prime factor < p (Lemma 1.1 lifts
-solvability from the factor).  Below p² the unsolvable candidates are
-therefore p itself and primes > p only.  Three descent routes present
-themselves; here is each, run to its end.
+solvability from the factor).  Three descent routes present themselves;
+here is each, run to its end.  *(This subsection was rewritten after a
+hostile referee round found the first version's shape classification
+incomplete and its "no map" claims overreaching.)*
 
-**(1) Power descent.**  Is "4/p² solvable ⟹ 4/p solvable" provable?  For
-n = p², classify solutions by the valuation shape (v_p(x), v_p(y), v_p(z)),
-sorted descending.
+**(1) Power descent.**  Is "4/p² solvable ⟹ 4/p solvable" provable?
 
-**Lemma 17.7.1 (shape classification at p²; proved).**  Let p ≥ 3 be prime
-and 4/p² = 1/x + 1/y + 1/z.  Up to permutation:
-(i) shape (≥1, ≥1, ≥1) descends: dividing all three by p gives a solution
-of 4/p;
-(ii) shapes with exactly one denominator divisible by p and v_p = 1, i.e.
-(1, 0, 0), and shapes (1, 1, 0), are impossible: clearing denominators and
-dividing by the visible p-power leaves 4·(coprime product) ≡ 0 (mod p)
-(computed: 4xyz₁ = pxy + p²z₁(x+y), resp. 4x₁y₁z = p²x₁y₁ + pz(x₁+y₁)),
-contradicting coprimality;
-(iii) shapes (2, 0, 0) and (2, 1, 0) and (0-side mirrors with v_p ≥ 2) are
-consistent and carry **no descent map**: e.g. (2,1,0) reduces to
-4x₂y₁z = p²x₂y₁ + y₁z + px₂z, forcing p | 4x₂ − 1 — a genuinely
-p²-specific solution.  These shapes occur: **4/9 = 1/9 + 1/12 + 1/4** has
-v₃-shape (2,1,0) and no valuation surgery produces a 4/3 solution from it.
-(iv) shape (2, ≥1-mirror) analysis for one-coprime-denominator cases
-((0, ≥1, ≥1)-sorted): the two-term residue q/(px) = 1/y′ + 1/z′ with
-q = 4x − p² produces divisor-coset witnesses for the modulus family
-4x − p², not 4x − p — the wrong window.  ∎ (proofs: three-line valuation
-computations, replayed symbolically in `verify.py (p)`.)
+**Lemma 17.7.1 (complete valuation-shape classification at p²; proved).**
+Let p ≥ 3 be prime, 4/p² = 1/x + 1/y + 1/z, and let (a, b, c) with
+a ≥ b ≥ c be the sorted p-valuations of the denominators.  Then p | xyz
+(so a ≥ 1), and exactly one of the following holds:
 
-So p-descent exists only for the all-divisible shape, and a hypothetical
-solution of 4/p² of any other shape certifies nothing about p.  Power
-descent is not derivable by valuation surgery.  (This is also exactly why
-Theorem 3.1 is a prime-only criterion: composite n admit the mixed shapes.)
+(i) c ≥ 1 (all divisible): dividing all three denominators by p gives a
+solution of 4/p — the descending shape;
 
-**(2) Window irrelevance.**  The induction hypothesis grants that 4/x is
-solvable for every window element x = (p+q)/4 and every z₀ = (pm+1)/4
-(each has a prime factor < p unless it is a prime > p or a power of one —
-and those window elements are witness-useless anyway, §8.3(1)).  But p's
-criterion consults these numbers only through their divisor residues mod
-4x − p resp. m; solvability of 4/x is a statement about *x's own* windows,
-with no bearing on where divisors of x² sit mod 4x − p.  No identity
-converting a solution of 4/x into a witness for p exists in any formalized
-shape (all shapes are classified: §4, §16.1, 17.3(d)–(e)), and the surface
-rigidity of §10.5 (no correspondences, no Vieta moves) is the structural
-reason none is available to find.
+(ii) c = 0 and a > b: then necessarily a = 2, i.e. the shape is (2, 0, 0)
+— which forces p² | 4X − 1 — or (2, 1, 0) — which forces p | 4X − 1 —
+where X is the coprime part of the p²-denominator.  Shapes (1, 0, 0),
+(1, 1, 0) and (a, b, 0) with a ≥ 3 > b are impossible;
+
+(iii) c = 0 and a = b: then necessarily a ≥ 2, and every shape (a, a, 0),
+a ≥ 2, is valuation-consistent, the constraint being v_p(X + Y) = a − 2
+for the coprime parts X, Y of the two p-power denominators.
+
+*Proof.*  Write the denominators p^aX, p^bY, p^cZ with p ∤ XYZ and clear:
+4p^{a+b+c}XYZ = p²(p^{a+b}XY + p^{b+c}YZ + p^{a+c}XZ).  With c = 0 the
+right side's term valuations are 2+a+b, 2+b, 2+a.  If a > b the minimum
+2+b is attained by the single term p^{2+b}YZ, so equality of valuations
+forces a + b = 2 + b, i.e. a = 2; then dividing by p^{2+b} leaves, for
+b = 0: 4XYZ − YZ = p²X(Y+Z), i.e. YZ(4X−1) = p²X(Y+Z), so p² | 4X − 1;
+for b = 1: 4XYZ = p²XY + YZ + pXZ, so p | YZ(4X−1), i.e. p | 4X − 1.
+For a = b the two minimal terms can cancel: dividing by p^{2+a} needs
+v_p(YZ + XZ) = v_p(Z) + v_p(X+Y) = a − 2, forcing a ≥ 2 with
+v_p(X+Y) = a − 2.  For a = b = 1 this is impossible (negative valuation);
+shapes (1,0,0), (1,1,0), and a ≥ 3 > b fail as shown.  If c ≥ 1, divide.
+∎  (The three substitution computations are replayed symbolically in
+`verify.py (p)`.)
+
+The mixed shapes occur: **4/9 = 1/9 + 1/12 + 1/4** has v₃-shape (2,1,0)
+(and indeed 3 | 4·1 − 1).  For mixed-shape solutions the only map the
+valuation structure offers — dividing out a common p-power — is
+unavailable, so power descent is not derivable by *this* route.  We do
+**not** claim no map whatsoever exists: ad-hoc replacements can
+accidentally connect solutions of different denominators (from the 4/9
+example, replacing 9 by 1 happens to give 4/3 = 1/1 + 1/12 + 1/4), which
+is precisely why only general constructions count, and none is known.
+(This shape analysis is also exactly why Theorem 3.1 is a prime-only
+criterion: composite n admit the mixed shapes.)  For the record, the
+one-coprime-denominator shapes carry two-term data in the modulus family
+4x − p² — the direct criterion dictionary for p, keyed to 4x − p, does
+not apply to them.
+
+**(2) Window irrelevance.**  For q < 3p every Case-B window element
+x = (p+q)/4 is < p, so induction grants 4/x solvable; for larger q, and
+for most Case-A values z₀ = (pm+1)/4 > p, not even that is guaranteed
+(z₀ may be a product of primes all exceeding p).  Either way the grant is
+useless: p's criterion consults these numbers only through their divisor
+residues mod 4x − p resp. m, and solvability of 4/x is a statement about
+*x's own* windows, with no bearing on where divisors of x² sit mod
+4x − p.  Among the formalized forced-class families (§4, §16.1,
+17.3(d)–(e)) no shape converts a solution of 4/x into a witness for p;
+nothing beyond those families is classified, but the surface rigidity of
+§10.5 (no correspondences, no Vieta moves) removes the known mechanisms
+for producing such a conversion.
 
 **(3) Lattice transfer.**  By (17.1), (a, b, c, k) → (a, b, c ± 1, k)
-transfers solutions between p and p ± 4ab — the shape-(e) class structure,
-already harvested; a transfer that moved p *across* its class mod 4ab
-would be a second point-generating structure on the multilinear variety,
-which §10.5 rules out for every known mechanism.
+transfers solutions between p and p ± 4ab — the shape-(e) class
+structure, already harvested; a transfer that moved p *across* its class
+mod 4ab would be a second point-generating structure on the multilinear
+variety, and §10.5 rules out every known mechanism for one.
 
-**Audit conclusion (assessment).**  Minimal-counterexample induction gets
-zero purchase on the Erdős–Straus criterion: solvability propagates upward
-through multiplication (Lemma 1.1) and sideways along harvested class
-structures, while p's own windows are insulated from the solvability of
-every smaller integer.  The naive half of the P4 slot is hereby executed
-and closed; what remains of P4 is precisely a *non-naive* transfer — a new
-correspondence structure on the ES surfaces, for which nothing in the
-mapped landscape supplies a candidate.
+**Audit conclusion (assessment).**  These three obvious
+minimal-counterexample routes yield no known transfer: solvability
+propagates upward through multiplication (Lemma 1.1) and sideways along
+harvested class structures, and no general construction linking p's
+criterion to the solvability of smaller integers is available.  Cleverer
+transfers remain unexcluded — that is exactly the open P4 slot — but the
+naive attempts are now executed rather than presumed.
 
 Numerics: `verify.py (p)` checks (17.1)/(17.2)/(17.3) symbolically, random
 Type-II tuples and deterministic Type-I (moving-c) reconstructions, the
@@ -4321,8 +4341,8 @@ ten original record-table entries.
 
 The extension used a segmented sieve on \(p=24k+1\) in blocks of width
 \(10^8\), retaining only aggregate counts.  A pilot on
-\([10^8,2\cdot10^8)\) processed 664,109 primes at 170,260 witness tests per
-second with 82.7 MiB peak memory; before the full run this projected about 5.5
+\([10^8,2\cdot10^8)\) processed 664,109 primes at 170,260 primes per
+scan-second with 82.7 MiB peak memory; before the full run this projected about 5.5
 minutes to \(10^{10}\).  The measured rate fell as the factored integers grew.
 The full witness search took 635.25 s, in addition to 14.49 s for sieving, at
 an aggregate 88,401 primes per witness-search second.
@@ -4345,7 +4365,8 @@ The cumulative nonzero histogram tail is
 
 For the microscope, a fixed-seed sample took 800 random hard primes from each
 decade \([10^j,10^{j+1})\), \(j=4,\ldots,9\), then included all 147 primes
-with \(w^*\ge27\) found by a dedicated complete rescan below \(10^8\), and
+with \(w^*\ge27\) found by a dedicated rescan from \(10^4\) to \(10^8\)
+(record data imply none below \(10^4\)), and
 all six record primes.  After overlaps this gave 4,948 primes (sample maximum
 9,990,035,233).  Every half-pair strictly below its \(w^*\) was classified:
 
@@ -4364,9 +4385,12 @@ following cap deficit \(\min\sum_i\max(0,e_i-2v_i(n))\):
 | F3 cases | 164 | 46 | 19 | 5 | 4 | 1 |
 | fraction | 68.62% | 19.25% | 7.95% | 2.09% | 1.67% | 0.42% |
 
-In 162 of the 164 deficit-one cases the binding factor had \(v_i(n)=1\) and
-needed exponent 3 rather than the cap 2; the other two had \(v_i(n)=2\) and
-needed exponent 5 rather than 4.  Of those 164 cases, 98 allowed more than one
+Under the stored canonical optimizer (lexicographically first optimal
+exponent vector), 162 of the 164 deficit-one cases had a binding factor with
+\(v_i(n)=1\) needing exponent 3 rather than the cap 2; the other two had
+\(v_i(n)=2\) needing 5 rather than 4.  (Across *all* optimal choices the
+choice-invariant split is: 159 cases admit only valuation-1 carriers, two
+only valuation-2, and three admit mixed choices.)  Of those 164 cases, 98 allowed more than one
 prime to carry an optimal one-unit excess.  Among the 66 with a unique carrier,
 that carrier was the smallest factor in 44 cases, the largest in 16, and an
 interior factor in 6.  Across all 239 cases the corresponding counts were 120

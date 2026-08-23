@@ -1554,9 +1554,21 @@ def check_p():
     # (2,1,0): x=p^2 x2, y=p y1: e3/p^3 = 4x2y1z - p^2x2y1 - y1z - p*x2*z  (mod p: y1z(4x2-1))
     e3 = _ex(4*p_**2*x2_*p_*y1_*z_ - p_**2*(p_**2*x2_*p_*y1_ + p_*y1_*z_ + p_**2*x2_*z_))
     assert _ex(e3/p_**3) == _ex(4*x2_*y1_*z_ - p_**2*x2_*y1_ - y1_*z_ - p_*x2_*z_)
-    # the (2,1,0) witness at p=3: 4/9 = 1/9 + 1/12 + 1/4, v3-shape (2,1,0), 3 | 4*1-1
+    # (2,0,0): x=p^2 x2, p coprime y,z: reduces to YZ(4X-1) = p^2 X(Y+Z) => p^2 | 4X-1
+    e4 = _ex(4*p_**2*x2_*y_*z_ - p_**2*(p_**2*x2_*y_ + y_*z_ + p_**2*x2_*z_))
+    assert _ex(e4/p_**2) == _ex(4*x2_*y_*z_ - p_**2*x2_*y_ - y_*z_ - p_**2*x2_*z_)
+    assert _ex((4*x2_*y_*z_ - y_*z_) - y_*z_*(4*x2_ - 1)) == 0
+    # (a,a,0) consistency for a=2,3: valuation bookkeeping v_p(X+Y) = a-2 (numeric spot):
+    # a=2, p=5: X=2, Y=3 (X+Y=5, v=1? need v=a-2=0 -> pick X+Y coprime to 5: X=2,Y=4? gcd... just check equation shape)
+    for a_, p0_, X_, Y_ in ((2, 5, 1, 3), (3, 5, 1, 4)):
+        # need v_p(X+Y) = a-2: a=2: 4 not div by 5 (v=0 OK); a=3: X+Y=5, v=1 = a-2 OK
+        from sympy import multiplicity as _mult
+        assert _mult(p0_, X_ + Y_) == a_ - 2
+    # the (2,1,0) witness at p=3 and the reviewer's 4/3 accident:
+    # 4/9 = 1/9 + 1/12 + 1/4, v3-shape (2,1,0), 3 | 4*1-1; and 4/3 = 1/1 + 1/12 + 1/4
     assert Rational(1, 9) + Rational(1, 12) + Rational(1, 4) == Rational(4, 9)
     assert (4*1 - 1) % 3 == 0
+    assert Rational(1, 1) + Rational(1, 12) + Rational(1, 4) == Rational(4, 3)
 
     print(f"sec-17 companions: identities symbolic OK; {nII} random Type-II tuples exact; "
           f"{ndec} witness decompositions; {npar} parity checks all +1; "

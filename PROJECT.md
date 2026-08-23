@@ -116,12 +116,13 @@ large-deviations against actual data for hard-class primes).
   and the P1–P4 feature list for proofs within the divisor-coset frame
   (explicitly not a classification of all conceivable proofs).  §17.7
   (descent audit): minimal-counterexample induction gets zero purchase —
-  Lemma 17.7.1 classifies the valuation shapes at p² (only the all-divisible
-  shape descends; mixed shapes exist — 4/9 = 1/9 + 1/12 + 1/4 is a (2,1,0)
-  witness — and carry wrong-window data), the induction hypothesis is
-  window-irrelevant, and lattice transfers stay inside harvested classes;
-  P4's naive half is closed, leaving only a non-naive correspondence
-  structure with no known candidate.
+  Lemma 17.7.1 completely classifies the valuation shapes at p² (descending
+  shape; (2,0,0) with p²|4X−1; (2,1,0) with p|4X−1, realized by
+  4/9 = 1/9 + 1/12 + 1/4; the (a,a,0) family, a ≥ 2, with v_p(X+Y) = a−2;
+  all else impossible — mixed shapes carry wrong-window data), the induction
+  hypothesis is window-irrelevant, and lattice transfers stay inside
+  harvested classes; the three obvious routes yield no known transfer
+  (cleverer transfers remain unexcluded — the open P4 slot).
 * **§18 (full-harvest ceiling).**  Lemma 18.1: the Lemma-16.1 classes mod M
   are exactly {−4D : D | A²}, A = (M+1)/4.  Theorem 18.2: total identity
   supply is **exactly cubic** — Σ F(M)/M ≍ (log Q)³ — so B = 3 and θ = 3/4
@@ -140,9 +141,9 @@ large-deviations against actual data for hard-class primes).
   primes to 10¹⁰: exactly one new record, w*(2,927,257,369) = 71, then flat
   — w* ≤ 71 through 10¹⁰ (vs log 10¹⁰ ≈ 23); growth data cannot yet
   discriminate c·log p from log-powers.  F3 microscopy (§19.4): box-failures
-  are deficit-1-dominated with no largest-factor rule, strongly enriched at
-  squarefree small-ω shifted values — the box/subgroup gap is thin exactly
-  when the window element has few prime factors.  Failure
+  are deficit-1-dominated with no largest-factor rule, strongly
+  squarefree-enriched and lower-ω than successes (ω alone does not separate
+  F3 from F1).  Failure
   taxonomy: 99.23% Jacobi (F1), the rest exponent-box (F3), non-Jacobi
   subgroup misses essentially absent (one case) — record primes enrich F3 to
   22%.  Type-II dictionary verified on all 36,384 stored witnesses (zero
