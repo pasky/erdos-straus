@@ -3464,8 +3464,9 @@ most ΣE_i + 1 elements of C, which must contain ψ(S). ∎
 with an admissibility proviso).**  Suppose the all-ones assignment (every
 r | P given residue 1 mod q) is admissible for the certificate class —
 i.e. not excluded by the certificate's congruence data; note it satisfies
-(r | q) = +1, so it is excluded exactly when the class pins some
-(r | p) = −1 for r | P via Prop 8.1.  In that assignment every divisor of
+(r | q) = +1, so it is excluded in particular whenever the class pins some
+(r | p) = −1 for r | P via Prop 8.1 (one important example of excluding
+data, not the only conceivable one).  In that assignment every divisor of
 P² is ≡ 1 (mod q); a certificate correct there must designate an x with
 −x ≡ 1, i.e. q | x + 1, i.e. **q | p + 4** (from 4(x+1) = q + p + 4).
 For fixed q this is a single congruence class of p — a §4 d = 1 family —
@@ -3569,7 +3570,9 @@ heuristic normalization).  A coverage-density model of ≍ (log s)/s per s
 makes Σ_s (log s)/s ≍ (log S)² diverge — consistent with "true with
 room".  But controlling the *joint* distribution of Frob_p across the
 family requires Chebotarev in the compositum L of the fields up to S, whose
-degree is n_L = ∏_{s≤S} h₀(s) = exp(Σ log h₀(s)) = exp(S^{1+o(1)});
+degree is n_L ≤ ∏_{s≤S} h₀(s) = exp(Σ log h₀(s)) = exp(S^{1+o(1)})
+(the product is the independence-model scale; even the quadratic subfields
+alone keep n_L exponential in S^{1−o(1)});
 GRH-effective Chebotarev needs √p to beat error terms of size
 n_L·(polylog-discriminant data + log p) (conductor–discriminant
 bookkeeping normalized per degree), hence log p ≳ S^{1+o(1)}, i.e.
@@ -3985,8 +3988,10 @@ least one on every integer avoiding all the classes, with normalized mean
 \(N^{-1}\sum_{n\le N}\nu(n)\ll\exp(-c\mu)\), whose evaluation requires only
 exact congruence counts modulo lcms of at most \(J\) of the moduli (each
 lcm \(\le X^J\le N^{1/2}\), so each count carries \(O(1)\) rounding error,
-and the aggregate rounding error is \(O(2^J\cdot\text{terms}\cdot1)\ll
-N\exp(-c\mu)\) by the degree budget).  Constants \(c,C>0\) absolute.
+and, writing T for the number of congruence-count terms in the evaluation
+and assuming the coefficient sum is \(\le T\le e^{O(J)}\), the aggregate
+rounding error is \(O(e^{O(J)})\ll N\exp(-c\mu)\) by the degree budget).
+Constants \(c,C>0\) absolute.
 
 *Scope warning (why the full system is essential).*  The previous draft
 quantified over arbitrary finite subfamilies; that version is **false**:
