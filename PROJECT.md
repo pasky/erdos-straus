@@ -115,7 +115,7 @@ large-deviations against actual data for hard-class primes).
   problem (unbounded Thm 3.1) vs the natural polylog sufficient target,
   and the P1–P4 feature list for proofs within the divisor-coset frame
   (explicitly not a classification of all conceivable proofs).  §17.7
-  (descent audit): minimal-counterexample induction gets zero purchase —
+  (descent audit): the three audited minimal-counterexample routes yield no known purchase —
   Lemma 17.7.1 completely classifies the valuation shapes at p² (descending
   shape; (2,0,0) with p²|4X−1; (2,1,0) with p|4X−1, realized by
   4/9 = 1/9 + 1/12 + 1/4; the (a,a,0) family, a ≥ 2, with v_p(X+Y) = a−2;

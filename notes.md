@@ -3709,8 +3709,9 @@ For a = b the two minimal terms can cancel: dividing by p^{2+a} needs
 v_p(YZ + XZ) = v_p(Z) + v_p(X+Y) = a − 2, forcing a ≥ 2 with
 v_p(X+Y) = a − 2.  For a = b = 1 this is impossible (negative valuation);
 shapes (1,0,0), (1,1,0), and a ≥ 3 > b fail as shown.  If c ≥ 1, divide.
-∎  (The three substitution computations are replayed symbolically in
-`verify.py (p)`.)
+∎  (The four fixed-shape substitution reductions are replayed symbolically
+in `verify.py (p)`; the (a,a,0) branch gets two numeric valuation
+spot-checks there, not a symbolic verification.)
 
 The mixed shapes occur: **4/9 = 1/9 + 1/12 + 1/4** has v₃-shape (2,1,0)
 (and indeed 3 | 4·1 − 1).  For mixed-shape solutions the only map the
@@ -3729,8 +3730,8 @@ not apply to them.
 **(2) Window irrelevance.**  For q < 3p every Case-B window element
 x = (p+q)/4 is < p, so induction grants 4/x solvable; for larger q, and
 for most Case-A values z₀ = (pm+1)/4 > p, not even that is guaranteed
-(z₀ may be a product of primes all exceeding p).  Either way the grant is
-useless: p's criterion consults these numbers only through their divisor
+(z₀ may be a product of primes all exceeding p).  Either way the grant
+supplies no known transfer by itself: p's criterion consults these numbers only through their divisor
 residues mod 4x − p resp. m, and solvability of 4/x is a statement about
 *x's own* windows, with no bearing on where divisors of x² sit mod
 4x − p.  Among the formalized forced-class families (§4, §16.1,

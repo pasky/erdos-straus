@@ -1561,7 +1561,7 @@ def check_p():
     # (a,a,0) consistency for a=2,3: valuation bookkeeping v_p(X+Y) = a-2 (numeric spot):
     # a=2, p=5: X=2, Y=3 (X+Y=5, v=1? need v=a-2=0 -> pick X+Y coprime to 5: X=2,Y=4? gcd... just check equation shape)
     for a_, p0_, X_, Y_ in ((2, 5, 1, 3), (3, 5, 1, 4)):
-        # need v_p(X+Y) = a-2: a=2: 4 not div by 5 (v=0 OK); a=3: X+Y=5, v=1 = a-2 OK
+        # numeric valuation spot-checks of the (a,a,0) constraint v_p(X+Y) = a-2
         from sympy import multiplicity as _mult
         assert _mult(p0_, X_ + Y_) == a_ - 2
     # the (2,1,0) witness at p=3 and the reviewer's 4/3 accident:
