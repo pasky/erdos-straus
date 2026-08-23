@@ -1981,8 +1981,40 @@ def check_s():
                        4057, 4177, 4561, 4993]
     assert not ({409, 577, 1201, 2521} & set(reached))
 
+    # reviewer-round supplements: general non-coprime divisor-set equality,
+    # corrected-law parity, and the (20.14) synchronization equivalence
+    from sympy import divisors as _dv
+    from random import Random as _R
+    from math import gcd as igcd
+    _r = _R(20)
+    for _ in range(200):
+        n1 = _r.randint(2, 400); n2 = _r.randint(2, 400); h0 = _r.choice([4, 8, 12, 20])
+        if igcd(n1 * n2, h0) != 1:
+            continue
+        s12 = {d % h0 for d in _dv(n1 * n2)}
+        s1x2 = {(d1 * d2) % h0 for d1 in _dv(n1) for d2 in _dv(n2)}
+        assert s12 == s1x2, (n1, n2, h0)
+    # corrected same-slice law parity: odd inputs -> even canonical P (Lemma 20.2.1)
+    for (a1, b1), (a2, b2), c0, k0 in (((1, 1), (1, 1), 1, 1), ((1, 13), (1, 1), 2, 2)):
+        h0 = 4 * c0 * k0
+        p1 = (4 * a1 * b1 * c0 * k0 - a1 - b1) // k0
+        p2 = (4 * a2 * b2 * c0 * k0 - a2 - b2) // k0
+        if p1 % 2 and p2 % 2:
+            A0 = h0 * a1 * a2 - a1 - a2
+            B0 = h0 * b1 * b2 - b1 - b2
+            assert (A0 + B0) % k0 == 0
+            P0 = 4 * A0 * B0 * c0 - (A0 + B0) // k0
+            assert P0 % 2 == 0, (a1, b1, a2, b2, c0, k0, P0)
+    # (20.14): r = 4kt-1: r = -1 mod 4ck  <=>  c | t
+    for k0 in (1, 2, 3):
+        for t0 in range(1, 30):
+            r0 = 4 * k0 * t0 - 1
+            for c0 in range(1, 12):
+                assert ((r0 + 1) % (4 * c0 * k0) == 0) == (t0 % c0 == 0)
+
     print("sec-20 composition/correction algebra exact; fixed-slice atoms "
-          "and 12/76 small transfer reachability replayed")
+          "and 12/76 small transfer reachability replayed; non-coprime "
+          "divisor-set equality, corrected-law parity, and (20.14) sync checked")
 
 
 print("\n== (s) frontal-assault transfer algebra (§20) ==")

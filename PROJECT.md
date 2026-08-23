@@ -81,6 +81,30 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 9 (2026-08-23, frontal assault — see notes.md §20; hostile-reviewed: repairable → repaired)
+
+* **A direct proof attempt at the full conjecture, transfer slot first.  No
+  proof resulted; genuinely new algebra did.**  Proved: the fixed-(c,k)
+  composition monoid u∘v = u+v+Luv with witness absorption (N(u∘v) =
+  N(u)N(v)); the divisor-set product law Δ_h(n₁n₂) = Δ_h(n₁)Δ_h(n₂) (even
+  non-coprime) making the witnessed set an ideal of {n ≡ 1 (mod L)}; the
+  sign-grading obstruction (exact binary Gauss-style composition lands in
+  +1, the wrong class; ternary works); the minimal corrected binary law and
+  its collapse into affine grids; exact and corrected cross-slice
+  composition with real hard-prime transfers — witnesses of 3 and 59
+  compose to one for the hard prime 2617, and 3, 41 → 7873; Theorem 20.4:
+  the complete fixed-slice solution set is exactly k bilinear grids
+  (reduced-seed classification); the Euclidean divisor-reduction identity;
+  the off-diagonal supply lemma with its synchronization proved equivalent
+  to the residual problem (not a weaker lemma).  Theorem 20.3: finite
+  transfer seeds can never cover cofinitely (residue-1 escape).  Explicit
+  monoid atoms (p = 313) block reverse composition.  All algorithmic
+  descents (reverse composition, affine reduction, Euclid/LLL,
+  least-counterexample) documented with exact failure points.  §20.5: the
+  transfer door is colder — the one unclosed subslot is a non-monomial
+  cross-modulus correspondence outside all classified maps, with no warm
+  candidate and a stated (not yet well-posed) classification direction.
+
 ## Outcome 8 (2026-08-23, the pointwise campaign — see notes.md §17–§19)
 
 * **The full-conjecture ("all p") frontier is now mapped to closure.**  Three
