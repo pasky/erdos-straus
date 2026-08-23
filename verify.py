@@ -1556,6 +1556,24 @@ def check_q():
     """Numerical companions for §18 (informational asymptotics, exact sets)."""
     print("\n== (q) full-harvest cubic supply and assembly budgets ==")
 
+    # Independent (non-circular) check of Lemma 18.1: enumerate ALL ordered
+    # factorizations uvw = A and the residues -u*v^{-1} mod M; compare with
+    # {-4D mod M : D | A^2}.  Includes M = 231 = 77*3 = 33*7 = 21*11: the
+    # class set is intrinsic to M, identical however M is split as k*ell.
+    from sympy import divisors as _divs
+    from math import gcd as _g
+    for M0 in list(range(3, 400, 4)) + [231, 4*250 - 1, 4*333 - 1]:
+        A0 = (M0 + 1) // 4
+        lhs = set()
+        for u0 in _divs(A0):
+            for v0 in _divs(A0 // u0):
+                # w = A0//(u0*v0) automatically a positive integer
+                lhs.add((-u0 * pow(v0, -1, M0)) % M0)
+        rhs = {(-4 * D0) % M0 for D0 in _divs(A0 * A0)}
+        assert lhs == rhs, M0
+    print("Lemma 18.1 independent enumeration: {-u v^-1} = {-4D} verified, "
+          "M = 3..399 and 231/999/1331 (intrinsic across k*ell splits)")
+
     q_max = 100_000
     a_max = (q_max + 1) // 4
 

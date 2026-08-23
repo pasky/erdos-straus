@@ -3289,8 +3289,8 @@ lands at a different (c, k) — e.g. p = 29, (c,k) = (1,2), D = 15 gives
 *Proof.* (i, ⟸)  With kp = 4abck − a − b, the three fractions have common
 denominator pabck and numerator sum kp + a + b = 4abck, so they sum to 4/p.
 Since a + b ≤ 2ab ≤ 2abck, (17.1) gives kp ≥ 2abck, so p ≥ 2abc > abc;
-hence p ∤ abc, the last two denominators are divisible by p exactly once
-each in the displayed factored form, and the solution is Case B.
+hence p ∤ abc: exactly the last two denominators are divisible by p, and
+the solution is Case B.
 (i, ⟹)  Let (q, d, x) be a criterion-B witness (Thm 3.1), g₀ = gcd(d, x),
 a = d/g₀, c = g₀/a, b = x/(ac), k = (a + b)/q.  These are integers: for
 each prime r, with α = v_r(d), ξ = v_r(x), the hypothesis d | x² gives
@@ -3307,8 +3307,7 @@ gcd(m, z₀) = 1 from the proof of Thm 3.1(A); then 4z₀ = pm + 1 gives
 pmk = k(4abc − 1), i.e. (17.2) with m = (a+b)/k.  For (ii, ⟸) one needs
 p ∤ k (so that m = (a+b)/k is genuinely the criterion modulus and the type
 is Case A): if p | k, dividing (17.2) by p gives a + b = (k/p)(4abc − 1)
-≥ 4abc − 1 > a + b for c ≥ 1, ab > 1·(the case a = b = 1 forces
-4c − 1 ≤ 2, impossible); contradiction.  Hence p | 4abc − 1 and p ∤ abck.
+≥ 4abc − 1 ≥ 4ab − 1 ≥ 2(a + b) − 1 > a + b; contradiction.  Hence p | 4abc − 1 and p ∤ abck.
 (iii)  D := 4ack − 1 ≡ −1 (mod 4ck) divides the RHS of (17.3) by
 expanding with (17.1).  Conversely if D ≡ −1 (mod 4ck) divides
 n := 4pck² + 1, then n ≡ 1 (mod 4ck) forces the cofactor n/D ≡ −1
@@ -3381,31 +3380,43 @@ families (m, d, R)  [Theorem 5.1 and its Case-A verbatim];
 M ≡ 3 (mod 4);
 (d) the Case-A moving-c families: for positive integers (a, b, m) with
 gcd(a, b) = 1, m | a + b, m ≡ 3 (mod 4), the class p ≡ −m⁻¹ (mod 4ab),
-each member solvable via c = (pm+1)/(4ab), k = (a+b)/m and (17.2).
+each member solvable via c = (pm+1)/(4ab), k = (a+b)/m and (17.2);
+(e) the Case-B moving-c families: for positive integers (a, b, k) with
+k | a + b and q := (a+b)/k ≡ 3 (mod 4), the class p ≡ −q (mod 4ab)
+(members p > 4ab − q), each member solvable via c = (p+q)/(4ab) and
+(17.1) — e.g. (a, b, k) = (1, 13, 2): p = 52c − 7, containing 97 and 409.
 
-*Proof of (c).*  Suppose D | A² and −4D ≡ 1, i.e. M | 4D + 1.  Write
+*Proof of (c).*  For A = 1 (M = 3): 4D + 1 = 5 is not divisible by 3.  Let
+A ≥ 2.  Suppose D | A² and −4D ≡ 1, i.e. M | 4D + 1.  Write
 4D + 1 = (4A − 1)t; reducing mod 4 gives t ≡ 3 (mod 4), so t ≥ 3 and
 D ≥ (3(4A−1) − 1)/4 = 3A − 1 > A.  The cofactor D' = A²/D then satisfies
-D' ≤ A²/(3A − 1) < A/2.  Since 4A ≡ 1 (mod M), from 4D ≡ −1 we get
-D ≡ −A, and multiplying D·D' = A² by 16 gives (4D)(4D') ≡ 16A² ≡ 1, so
-4D' ≡ −1 and D' ≡ −A (mod M) as well.  Hence M | D' + A with
-0 < D' + A < 3A/2 < 4A − 1 = M: contradiction. ∎
+D' ≤ A²/(3A − 1) < A/2 (for A ≥ 2).  Since 4A ≡ 1 (mod M), from
+4D ≡ −1 we get D ≡ −A, and multiplying D·D' = A² by 16 gives
+(4D)(4D') ≡ 16A² ≡ 1, so 4D' ≡ −1 and D' ≡ −A (mod M) as well.  Hence
+M | D' + A with 0 < D' + A < 3A/2 < 4A − 1 = M: contradiction. ∎
 
 *Proof of (d).*  The family is well-defined: gcd(m, 4ab) = 1 (a prime
 dividing m and ab would divide both a and b via m | a + b), and for p in
 the class, c = (pm+1)/(4ab) is a positive integer with z₀ = abc,
 d = a²c, m | d + z₀ = ac(a + b), giving (17.2); `verify.py (p)` replays
 end-to-end examples.  Avoidance of 1: the class contains 1 iff
-m ≡ −1 (mod 4ab); since m ≤ a + b, this needs a + b ≥ 4ab − 1, i.e.
-(a, b) = (1, 1), and then m | 2 contradicts m ≡ 3 (mod 4). ∎
+m ≡ −1 (mod 4ab); but 4ab − 1 > a + b ≥ m for all positive a, b (since
+4ab − a − b − 1 = (4a−1)(4b−1)/4 − 5/4 ≥ 9/4 − 5/4 > 0), so
+m ≡ −1 (mod 4ab) is impossible. ∎
+
+*Proof of (e).*  For p in the class, c = (p+q)/(4ab) is a positive
+integer; kp = k(4abc − q) = 4abck − (a+b) is (17.1), so p is solvable
+(coprimality of (a, b) is not needed, per Thm 17.1(iii)'s remark).
+Avoidance of 1: the class contains 1 iff q ≡ −1 (mod 4ab); but
+q ≤ a + b < 4ab − 1 as in (d). ∎
 
 **Corollary 17.3.1 (bounded-modulus identity systems never close).**  For
 every Q there are infinitely many primes p ≡ 1 (mod 24) avoiding every
-forced class of every family of shapes (a)–(d) whose progression modulus is
+forced class of every family of shapes (a)–(e) whose progression modulus is
 ≤ Q: by Theorem 17.3 the single class 1 (mod lcm(24, all moduli ≤ Q))
 escapes them all, and Dirichlet supplies its primes.  (Schinzel's theorem —
 cited, §5 — extends the escape to *all* polynomial identity families, of
-any shape; (c) and (d) above are the two moving-parameter shapes arising in
+any shape; (c), (d), (e) above are the moving-parameter shapes arising in
 this campaign, with self-contained proofs.)  Consequently no proof of the
 conjecture can consist of finitely many forced-class families of these
 shapes, and any certificate system whose reach is a finite union of such
@@ -3439,23 +3450,31 @@ divisor of P² lies in the class −x (mod q) for some designated multiple x.
 (r | q) = (r | p) of Prop 8.1; the all-ones assignment below respects it.)
 
 **Lemma 17.4.1 (box-coverage mass bound; proved).**  Let G be a finite
-abelian group, ψ: G → C a surjection onto a cyclic group, g₁, …, g_j ∈ G,
-and suppose the products {∏ g_i^{e_i} : 0 ≤ e_i ≤ E_i} meet every element
-of a set S ⊆ G with |ψ(S)| = s.  If the adversary may choose the g_i, then
-in the worst case (all ψ(g_i) equal to one generator of C) coverage forces
+abelian group, ψ: G → C a surjection onto a cyclic group, and S ⊆ G with
+|ψ(S)| = s.  There is an assignment of elements g₁, …, g_j ∈ G (namely:
+all ψ(g_i) equal to one generator γ of C) under which the products
+{∏ g_i^{e_i} : 0 ≤ e_i ≤ E_i} can meet every element of S only if
 
     Σ_i E_i ≥ s − 1.
 
 *Proof.*  ψ of every product lies in {γ^e : 0 ≤ e ≤ ΣE_i}, a set of at
 most ΣE_i + 1 elements of C, which must contain ψ(S). ∎
 
-**Lemma 17.4.2 (the pinned-target corner is a §5-shape family; proved).**
-In the all-ones assignment (every r | P given residue 1 mod q — consistent
-with all congruence and quadratic-layer data), every divisor of P² is
-≡ 1 (mod q); a certificate correct in this configuration must therefore
-designate an x with −x ≡ 1, i.e. q | x + 1, i.e. **q | p + 4**.  For fixed
-q this is a single congruence class of p — a §4 d = 1 family — and any
-finite union of such classes is escaped by Theorem 17.3/Cor 17.3.1. ∎
+**Lemma 17.4.2 (the pinned-target corner is a §5-shape family; proved,
+with an admissibility proviso).**  Suppose the all-ones assignment (every
+r | P given residue 1 mod q) is admissible for the certificate class —
+i.e. not excluded by the certificate's congruence data; note it satisfies
+(r | q) = +1, so it is excluded exactly when the class pins some
+(r | p) = −1 for r | P via Prop 8.1.  In that assignment every divisor of
+P² is ≡ 1 (mod q); a certificate correct there must designate an x with
+−x ≡ 1, i.e. q | x + 1, i.e. **q | p + 4** (from 4(x+1) = q + p + 4).
+For fixed q this is a single congruence class of p — a §4 d = 1 family —
+and any finite union of such classes is escaped by Cor 17.3.1. ∎
+
+Certificate classes that pin negative quadratic data ((r | p) = −1 for
+some r | P) evade this corner argument; for those, only the mass bound of
+Lemma 17.4.1 applies (through any cyclic quotient of the index-2 subgroup
+pattern), and the assessment below is correspondingly weaker there.
 
 **Assessment 17.4.3 (the entropy wall).**  A certificate that does not
 collapse to the pinned corner must cover, at each arising modulus q, a
@@ -3469,7 +3488,11 @@ walls rather than doors:
   congruences; in the limit this is Lemma 17.4.2's corner (a congruence
   family).  Intermediate pinning still yields, in the all-ones
   configuration, a bounded set of forced congruences q | x + 1-type — a
-  finite union of §5-shape classes, escaped by Cor 17.3.1.
+  finite union of §5-shape classes, escaped by Cor 17.3.1.  This branch
+  carries Lemma 17.4.2's proviso: it binds only certificate classes for
+  which the all-ones (or an equivalent single-coset) assignment is
+  admissible; classes pinning negative quadratic data are constrained only
+  by the mass bound.
 * *Small cyclic quotient.*  Moduli with λ(q) ≤ C log T evade the mass
   bound.  But integers with λ(q) ≤ (log q)^{O(1)} are of density q^{−1+o(1)}
   (Erdős–Pomerance–Schmutz-type counts — *cited from memory, flagged*), so
@@ -3494,9 +3517,12 @@ polynomials; Kronecker).  **Assessment.**  In a model where a character χ
 of large order assigns the primes of P independent equidistributed phases,
 log|∏_r D_{2a_r}(arg χ(r))| is a mean-zero random walk, while the principal
 term is ∏(2a_r + 1); the *relative* size of nonprincipal to principal
-character sums therefore decays like ∏(2a_r+1)^{−1+o(1)} — equidistribution
-of the divisor box holds *on average* over configurations (consistent with
-Lemma 12.5 and with the measured §11.1 success rates).  What the model does
+character sums therefore decays like ∏(2a_r+1)^{−1+o(1)} for a *fixed*
+nonprincipal character, typically over configurations (the o(1) absorbs
+e^{O(√j)} CLT fluctuations); full residue-class equidistribution needs in
+addition control of the aggregate over growing numbers of characters, which
+the model does not by itself supply.  This is consistent with Lemma 12.5
+and with the measured §11.1 success rates.  What the model does
 not and cannot deliver is decay in the *worst* configuration — Lemma 17.4.1
 — and the gap between average-case success and worst-case failure is
 precisely the almost-all/exceptional-set shape of every bound in this
@@ -3538,26 +3564,38 @@ L-functions do appear locally; what is missing is a *family with a zero-*
 **(c) Chebotarev/GRH-effective form families.**  §8.1's quadratic-form
 families cover p when a Frobenius condition holds in the ring class field
 of disc 4s(s−1) (degree ~ class number h₀(s); with regulator ≍ log s the
-class-number formula gives h₀(s) = s^{1+o(1)}).  Coverage density per s is
-≍ (log s)/s; Σ_s (log s)/s ≍ (log S)² diverges — consistent with "true
-with room".  But controlling the *joint* distribution of Frob_p across the
-family requires Chebotarev in the compositum, of log-discriminant
-≍ Σ_{s ≤ S} s^{1+o(1)} = S^{2+o(1)}; GRH-effective Chebotarev needs
-log p ≳ S^{2+o(1)}, i.e. S ≤ (log p)^{1/2−o(1)}.  The unprovable-failure
-probability through that range is ∏_{s ≤ S}(1 − c log s/s) ≈
-exp(−c(log S)²) ≈ exp(−c'(log log p)²) — the same shape as the campaign's
-unconditional Theorem 12.2, and almost-all only.  Even under GRH the
-form-family route reproduces the weakest exceptional-set bound, not a
-pointwise statement.
+class-number formula gives h₀(s) = s^{1+o(1)}, modulo L(1, χ) factors —
+heuristic normalization).  A coverage-density model of ≍ (log s)/s per s
+makes Σ_s (log s)/s ≍ (log S)² diverge — consistent with "true with
+room".  But controlling the *joint* distribution of Frob_p across the
+family requires Chebotarev in the compositum L of the fields up to S, whose
+degree is n_L = ∏_{s≤S} h₀(s) = exp(Σ log h₀(s)) = exp(S^{1+o(1)});
+GRH-effective Chebotarev needs √p to beat error terms of size
+n_L·(polylog-discriminant data + log p) (conductor–discriminant
+bookkeeping normalized per degree), hence log p ≳ S^{1+o(1)}, i.e.
+S ≤ (log p)^{1−o(1)}.  The unprovable-failure probability through that
+range is ∏_{s ≤ S}(1 − c log s/s) ≈ exp(−c(log S)²) ≈
+exp(−c'(log log p)²) — the same shape as the campaign's unconditional
+Theorem 12.2, and almost-all only.  (All constants here are model-level;
+the point is the shape, which no choice of bookkeeping changes: the
+compositum degree grows exponentially in S, capping S at a power of
+log p, and the failure product then lives at loglog scale.)  Even under
+GRH the form-family route reproduces the weakest exceptional-set bound,
+not a pointwise statement.
 
 **(d) Sieve positivity (Chen-type switching).**  Chen-type "every large n"
 results sift sequences whose target events have per-element probability
 ≍ 1/log with polynomial sequence length — total sifted mass a positive
-power of n.  Here the witness mass is polylogarithmic at every scale: the
-identity-class mass at modulus cutoff Q is Θ((log Q)³) (Thm 18.2), and the
-per-prime solution counts are polylog on average (Elsholtz–Tao, *cited
-from memory — flagged*).  A lower-bound sieve cannot certify positivity of
-a polylog-mass count over a polynomial index set; this is the quantitative
+power of n, so that available remainder estimates (level-of-distribution
+errors, polylog-sized per modulus) sit far below the main term.  Here the
+witness mass is polylogarithmic at every scale: the identity-class mass at
+modulus cutoff Q is Θ((log Q)³) (Thm 18.2), and per-prime solution counts
+are polylog on average (Elsholtz–Tao, *cited from memory — flagged*).
+Every known remainder framework (BV-type averages, large-sieve variances)
+loses factors that are themselves powers of log — at or above the entire
+main term — and no known sieve remainder is o(polylog) at the required
+per-p uniformity.  This is an audit of existing remainder technology, not
+a universal impossibility for lower-bound sieves; it is the quantitative
 reason all bounds here take the shape exp(−(log)^θ): polylog mass
 exponentiates to exactly that scale.
 
@@ -3585,11 +3623,14 @@ is the frame every known equivalent formulation lives in, §10.4/§10.6, but
 the list is not a classification of all conceivable proofs):
 
 * **(P1)** unboundedly many moduli, range growing with p — finite systems
-  of every formalized shape are escaped forever (Thm 17.3/Cor 17.3.1);
+  of every shape formalized here, (a)–(e), are escaped forever
+  (Thm 17.3/Cor 17.3.1; Schinzel's cited theorem for all polynomial
+  families);
 * **(P2)** per-modulus coverage from *distributional* facts about actual
   factorizations of shifted values — worst-case combinatorics costs
-  exponential windows (17.4.1/17.4.3), and the character layer is inert
-  (Lemma 17.2) with average-case-only equidistribution above it (17.4.4);
+  exponential windows (17.4.1/17.4.3, with 17.4.2's admissibility proviso
+  for the pinned corner), and the character layer is inert (Lemma 17.2)
+  with average-case-only equidistribution above it (17.4.4);
 * **(P3)** distributional inputs with an *empty* exceptional set — for
   which each audited technology (17.5 a–e) lacks its structural
   prerequisite here (no cusp positivity and polylog mains; no L-function
@@ -3598,9 +3639,9 @@ the list is not a classification of all conceivable proofs):
 * **(P4)** or a structure source outside the frame.  The one formally
   unexplored slot visible from the parametrization: a *transfer/induction
   between different primes* — by (17.1), (a, b, c, k) → (a, b, c ± 1, k)
-  moves solutions between kp and kp ± 4abk, i.e. transfers witnesses along
-  the arithmetic progression p ≡ p' (mod 4ab/k-structure); this is exactly
-  why forced classes mod 4ab exist, so the naive transfer lands back in the
+  moves solutions between p and p' = p ± 4ab, i.e. transfers witnesses
+  along the progression p' ≡ p (mod 4ab); this is exactly the mechanism
+  behind the shape-(e) classes, so the naive transfer lands back in the
   harvested class supply.  Nothing rules out a cleverer transfer; nothing
   currently suggests one.
 
@@ -3613,19 +3654,21 @@ mass-ceiling corollary; whether some non-mass use of the class arrangement
 could do better is open, cf. §18's own disclaimer).  The pointwise axis
 requires (P1)–(P3) or (P4).  The conjecture is supported by everything
 measurable — witness mass (log p)³-scale against a single required hit,
-w* ≤ 59 through 10⁸, failure modes fully understood (§19.2) — and by the
+w* ≤ 59 through 10⁸, failure modes classified on the reported samples
+(§19.2) — and by the
 audit above it sits beyond each currently existing pointwise technology for
 an identified structural reason.  What would move the frontier: (i) any
 pointwise-uniform equidistribution theorem for divisors of shifted integers
-in one moving coset, in any nontrivial range; (ii) the H_kBV or H_PF inputs
-of §18.4 (exceptional set to exp(−(log N)^{3/4}), still not "all p");
+in one moving coset, in any nontrivial range; (ii) the §18.4 inputs — H_PF
+for the intrinsic full harvest, or H_kBV together with the restricted form
+of H_PF (exceptional set to exp(−(log N)^{3/4}), still not "all p");
 (iii) a transfer structure (P4).
 
-Numerics: `verify.py (p)` checks (17.1)/(17.2)/(17.3) symbolically and on
-random reconstructions of both types, the p = 29 fixed-(c,k) regression,
-the 409 witness, parity inertness on samples (Lemma 17.2), the residue-1
-escape of 𝓡(M) for all M ≤ 2000 (Thm 17.3(c)), end-to-end Case-A moving-c
-families (Thm 17.3(d)), the Mahler integral (Lemma 17.4.4, numerically ≈ 0,
+Numerics: `verify.py (p)` checks (17.1)/(17.2)/(17.3) symbolically, random
+Type-II tuples and deterministic Type-I (moving-c) reconstructions, the
+p = 29 fixed-(c,k) regression, the 409 witness, parity inertness on samples
+(Lemma 17.2), the residue-1 escape of 𝓡(M) for all A ≤ 2000 (M < 8000,
+Thm 17.3(c)), the Mahler integral (Lemma 17.4.4, numerically ≈ 0,
 informational), and the entropy-toy bound of Lemma 17.4.1 (single-generator
 reachable count = Σ2a_r + 1 exactly).
 
@@ -3912,9 +3955,11 @@ make the implication falsifiable; neither is claimed to be standard.
 
 **Hypothesis H_kBV(κ) (weighted, residue-varying \(k\)-aspect BV).**  Fix some
 \(0<\kappa<1/240\).  Uniformly for large \(X\),
-\(X^{1/2}\le x\le X\), \(K\le X^\kappa\), every reduced compatible \(c\),
-and every allowed subfamily \(\mathcal J\subseteq\{k\le K:k\equiv1(4)\}\),
-put \(H=K^{10}\), \(z=x^{1/6}\), and
+\(X^{1/2}\le x\le X\), \(K\le X^\kappa\), every residue \(c\pmod{24L_{\mathcal J}}\)
+with \((c,24L_{\mathcal J})=1\), and every subfamily
+\(\mathcal J\subseteq\{k\le K:k\equiv1\ (4)\}\) with \(1\in\mathcal J\)
+(\(L_{\mathcal J}={\rm lcm}_{k\in\mathcal J}k\), as in Lemma 16.2), put
+\(H=K^{10}\), \(z=x^{1/6}\), and
 
     E(x;q,a)=π(2x;q,a)−π(x;q,a)
              −(li(2x)−li(x))/φ(q).
@@ -3929,18 +3974,36 @@ uniformly (the inverse and residue are modulo \(4uv\)).  This is a bilinear,
 weighted progression statement with the \(k\)-aspect absorbed; ordinary BV,
 BDH, and Elliott--Halberstam do not state it.
 
-**Hypothesis H_PF (partition-free Selberg assembly).**  For a finite union of
-Lemma-16.1 classes of moduli at most \(X\), of total distinct-class density
-\(\mu=\sum_M F_0(M)/M\), suppose there is a nonnegative degree-\(J\) Selberg
-majorant which equals at least one on every integer avoiding all the classes,
-has mean \(\ll\exp(-c\mu)\), and whose expansion only requires exact
-congruence counts to the lcm of at most \(J\) selected moduli, whenever
-\(J\ge C\mu\) and every such lcm is at most \(N^{1/2}\).  Constants
-\(c,C>0\) are uniform.  For the restricted \(k\ell\) system the relevant lcm
-bound is (18.14); for the intrinsic full system \(M\le X\) it is simply
-\(X^J\).  This is precisely the correlation assertion missing from the
-level-only calculation; it is not being smuggled in as a standard
-“fundamental lemma.”
+**Hypothesis H_PF (partition-free Selberg assembly for the FULL intrinsic
+system; corrected after review).**  Let \(X\ge X_0\), and let the class
+system be the **complete** family \(\{\mathscr R(M):M\le X,\
+M\equiv3\pmod4\}\) — every class of every modulus, nothing omitted — with
+\(\mu=\sum_{M\le X,\,M\equiv3(4)}F(M)/M\asymp(\log X)^3\) (Theorem 18.2).
+Suppose: for \(J\ge C\mu\) and \(N\) with \(J\log X\le\tfrac12\log N\),
+there is a nonnegative arithmetic majorant \(\nu\) on \([1,N]\), equal to at
+least one on every integer avoiding all the classes, with normalized mean
+\(N^{-1}\sum_{n\le N}\nu(n)\ll\exp(-c\mu)\), whose evaluation requires only
+exact congruence counts modulo lcms of at most \(J\) of the moduli (each
+lcm \(\le X^J\le N^{1/2}\), so each count carries \(O(1)\) rounding error,
+and the aggregate rounding error is \(O(2^J\cdot\text{terms}\cdot1)\ll
+N\exp(-c\mu)\) by the degree budget).  Constants \(c,C>0\) absolute.
+
+*Scope warning (why the full system is essential).*  The previous draft
+quantified over arbitrary finite subfamilies; that version is **false**:
+the subfamily of \(D=1\) classes with \(3\mid M\) (\(n\equiv-4\pmod M\)
+over \(M\equiv3\pmod{12}\)) has mass \(\asymp\log X\), yet every such class
+lies inside \(n\equiv2\pmod3\), so all \(n\not\equiv2\pmod3\) — density
+\(2/3\) — avoid the whole subfamily, and no majorant can have mean
+\(\exp(-c\mu)\to0\).  (Even the full \(D=1\) family over all
+\(M\equiv3\pmod4\) has avoider density \(\asymp(\log X)^{-1/2}\) — the
+\(n+4\) free of divisors \(\equiv3\pmod4\) up to \(X\) — far above
+\(\exp(-c\,\mathrm{mass})\).)  Heavy cross-\(M\) correlations are real.  H_PF is precisely the assertion that the
+**complete** system's CRT spread defeats such correlations at cubic scale;
+it is a genuinely open correlation hypothesis, not a standard fundamental
+lemma, and — unlike the subfamily version — no counterexample is known.
+A *restricted variant* H_PF(\(k\ell\)) asserts the same for the complete
+multiplier system \(\{k\ell\le X\cdot K\}\) of §16 with lcm bound (18.14);
+it is what pairs with H_kBV below.
 
 **Lemma 18.5 (conditional cubic prime-slice mass).**  Under
 H_kBV(\(\kappa\)), Lemma 16.3 extends to \(K=X^\kappa\), and for the full
@@ -3979,7 +4042,7 @@ Theorem 18.6 is **CONDITIONAL on the nonstandard H_PF hypothesis**.  It uses
 the intrinsic all-\(M\) supply, so it bypasses prime-slice harvesting and does
 not need H_kBV.  If one insists on realizing the same cubic mass through the
 restricted prime factors \(M=k\ell\), then Lemma 18.5 shows that H_kBV plus
-the corresponding restricted form of H_PF gives the same calculation via
+the restricted variant H_PF(\(k\ell\)) gives the same calculation via
 (18.14).  H_kBV is therefore the prime-slice harvesting wall; H_PF is the
 composite-modulus assembly wall, and the latter is the sole wall for the
 literal full harvest of Theorem 18.2.  Ordinary Elliott--Halberstam does not

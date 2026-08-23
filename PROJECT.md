@@ -94,9 +94,10 @@ large-deviations against actual data for hard-class primes).
   layer is **pointwise inert** — λ_p = +1 identically on both witness
   families, so no global parity contradiction can ever bite an exceptional
   p.  Theorem 17.3 (**square-class escape**): the residue 1 (mod M) lies in
-  no forced class of any formalized shape — including two new self-contained
-  proofs: the Lemma-16.1 class set 𝓡(M) never contains 1 (a 4-line size
-  argument), and the new Case-A moving-c families (a,b,m) avoid 1; corollary:
+  no forced class of any formalized shape (a)–(e) — with self-contained
+  proofs for the three moving-parameter shapes: the Lemma-16.1 class set
+  𝓡(M) never contains 1 (a 4-line size argument), and the Case-A and
+  Case-B moving-c families ((a,b,m) and (a,b,k)) avoid 1; corollary:
   bounded-modulus identity systems are escapable by actual primes forever.
   §17.4 (**entropy wall**, honest split): Lemma 17.4.1 (box-coverage mass
   ≥ s−1, worst case), Lemma 17.4.2 (the all-ones configuration forces
@@ -121,7 +122,10 @@ large-deviations against actual data for hard-class primes).
   prove ES outright**.  The realized §16 mass is capped by two named walls:
   summed-BV multiplicity (H_kBV) and composite-modulus Selberg assembly
   (H_PF); Theorem 18.6: under H_PF, E_all(N) ≤ N exp(−c(log N)^{3/4})
-  (CONDITIONAL, nonstandard hypothesis, stated falsifiably).  Ordinary EH
+  (CONDITIONAL, nonstandard hypothesis, stated falsifiably — after review,
+  H_PF is quantified over the COMPLETE intrinsic system only: the reviewer's
+  sparse-subfamily counterexample (D=1 classes with 3|M leave density-2/3
+  avoiders) is recorded in the hypothesis's scope warning).  Ordinary EH
   does not substitute.  No unconditional improvement of Theorem 16.4.
 * **§19 (computational frontier to 10⁸).**  All 719,781 primes ≡ 1 (mod 24)
   below 10⁸: interleaved witness records only (73,3),(241,7),(2521,15),
