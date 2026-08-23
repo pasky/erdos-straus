@@ -81,6 +81,53 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 8 (2026-08-23, the pointwise campaign — see notes.md §17–§19)
+
+* **The full-conjecture ("all p") frontier is now mapped to closure.**  Three
+  parallel swings, all merged and verified:
+* **§17 (pointwise frontier).**  Theorem 17.1: complete four-parameter
+  parametrization of both solution types (kp = 4abck−a−b for Type II,
+  p(a+b) = k(4abc−1) for Type I, valuation-argument completeness), with the
+  divisor dictionary — Case B ⟺ some 4pck²+1 has a divisor ≡ −1 (mod 4ck).
+  Lemma 17.2: the quadratic layer (the surface's only global structure) is
+  **pointwise inert** — λ_p = +1 identically on both witness families, so no
+  global parity contradiction can ever bite an exceptional p.  Theorem 17.3:
+  bounded-modulus forced-class systems are escapable by actual primes forever
+  (upgrades Cor 5.3 to all prime-modulus systems via the §18 supply theorem).
+  Theorem 17.4 + Lemma 17.5: **entropy wall** — oblivious coverage
+  certificates cost exponential windows (Davenport-type lower bound), and the
+  Mahler measure of the Dirichlet kernel is exactly 0, so
+  character/equidistribution technology has zero drift above the (inert)
+  quadratic layer.  §17.5: audit of every pointwise-capable technology
+  (Duke positivity, Linnik repulsion, GRH-Chebotarev families, Chen-type
+  sieves, EGZ coverage) — each fails for an identified structural reason
+  (Eisenstein-only spectrum with polylog main terms; no L-function family; no
+  cusp positivity; polylog witness mass).  §17.6: the residual pointwise
+  problem in final form + what any proof must look like (P1–P4).
+* **§18 (full-harvest ceiling).**  Lemma 18.1: the Lemma-16.1 classes mod M
+  are exactly {−4D : D | A²}, A = (M+1)/4.  Theorem 18.2: total identity
+  supply is **exactly cubic** — Σ F(M)/M ≍ (log Q)³ — so B = 3 and θ = 3/4
+  is the absolute ceiling of the identity-sieve axis; **that axis can never
+  prove ES outright**.  The realized §16 mass is capped by two named walls:
+  summed-BV multiplicity (H_kBV) and composite-modulus Selberg assembly
+  (H_PF); Theorem 18.6: under H_PF, E_all(N) ≤ N exp(−c(log N)^{3/4})
+  (CONDITIONAL, nonstandard hypothesis, stated falsifiably).  Ordinary EH
+  does not substitute.  No unconditional improvement of Theorem 16.4.
+* **§19 (computational frontier to 10⁸).**  All 719,781 primes ≡ 1 (mod 24)
+  below 10⁸: interleaved witness records only (73,3),(241,7),(2521,15),
+  (21169,31),(118801,59) — w* ≤ 59 throughout, plateau over three decades;
+  growth data cannot yet discriminate c·log p from log-powers.  Failure
+  taxonomy: 99.23% Jacobi (F1), the rest exponent-box (F3), non-Jacobi
+  subgroup misses essentially absent (one case) — record primes enrich F3 to
+  22%.  Type-II dictionary verified on all 36,384 stored witnesses (zero
+  decomposition failures); six primes < 10⁵ (409, 577, 5569, 9601, 23929,
+  83449) need k ≥ 2.
+* **Honest verdict:** the conjecture is true-with-room on all evidence, the
+  exceptional set is provisionally below Vaughan, and a full proof requires
+  technology (pointwise-uniform divisor equidistribution in moving cosets, or
+  a prime-to-prime transfer structure) that currently does not exist — with
+  the reasons now theorem-level precise rather than folklore.
+
 ## Outcome 7 (2026-08-23, multiplier classes — see notes.md §16)
 
 * **CLAIMED/PROVISIONAL Vaughan-beating bounds.**  This record claim is

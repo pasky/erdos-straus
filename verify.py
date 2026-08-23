@@ -1402,6 +1402,113 @@ print(f"distinctness/CRT spot-check: 8/8 classes distinct across k=1,13; "
       f"{crt_checks} subsequence reconstructions")
 
 
+# ---------------------------------------------------------------- (p)
+def check_p():
+    """Companions for §17: four-parameter completeness, parity inertness,
+    Mahler integral, entropy-wall toy."""
+    import random as _rnd
+    from math import gcd as _gcd, log as _log
+    import cmath as _cmath
+    from sympy import symbols, simplify, Rational, expand, jacobi_symbol, divisors, primerange
+    print("\n== (p) pointwise-frontier companions (sec 17) ==")
+    _rnd.seed(17)
+
+    # (p1) symbolic identities (17.1)/(17.2)/(17.3)
+    a, b, c, k, p = symbols('a b c k p', positive=True)
+    pII = (4*a*b*c*k - a - b)/k
+    r1 = simplify((1/(a*b*c) + 1/(pII*a*c*k) + 1/(pII*b*c*k)) - 4/pII)
+    pI = k*(4*a*b*c - 1)/(a + b)
+    r2 = simplify((1/(a*c*k) + 1/(b*c*k) + 1/(pI*a*b*c)) - 4/pI)
+    r3 = expand((4*a*c*k - 1)*(4*b*c*k - 1) - (4*pII*c*k**2 + 1))
+    assert r1 == 0 and r2 == 0 and r3 == 0, (r1, r2, r3)
+
+    # (p1b) random Type-II tuples -> exact unit fractions; decomposition round-trip
+    nII = 0
+    for _ in range(300):
+        a0 = _rnd.randint(1, 30); b0 = _rnd.randint(1, 30)
+        if _gcd(a0, b0) != 1:
+            continue
+        c0 = _rnd.randint(1, 30); k0 = _rnd.randint(1, 6)
+        num = 4*a0*b0*c0*k0 - a0 - b0
+        if num % k0:
+            continue
+        p0 = num // k0
+        s = Rational(1, a0*b0*c0) + Rational(1, p0*a0*c0*k0) + Rational(1, p0*b0*c0*k0)
+        assert s == Rational(4, p0)
+        nII += 1
+    assert nII > 40, nII
+
+    # (p1c) criterion-B witness -> (a,b,c,k) decomposition (Thm 17.1(i) direction =>)
+    ndec = 0
+    for p0 in (97, 1201, 409, 577, 61681):
+        for q in range(3, 44, 4):
+            if (p0 + q) % 4:
+                continue
+            x = (p0 + q)//4
+            for d in divisors(x*x):
+                if (d + x) % q:
+                    continue
+                g0 = _gcd(d, x); a0 = d//g0
+                assert g0 % a0 == 0, (p0, q, d)
+                c0 = g0//a0; b0 = x//(a0*c0)
+                assert _gcd(a0, b0) == 1 and d == a0*a0*c0 and x == a0*b0*c0
+                assert (a0 + b0) % q == 0
+                k0 = (a0 + b0)//q
+                assert k0*p0 == 4*a0*b0*c0*k0 - a0 - b0
+                ndec += 1
+    assert ndec >= 30, ndec
+
+    # (p2) parity inertness (Lemma 17.2): lambda_p = +1 on both families
+    npar = 0
+    for p0 in primerange(2000, 4000):
+        if p0 % 4 != 1:
+            continue
+        for c0 in (1, 2, 3):
+            for k0 in (1, 2):
+                assert jacobi_symbol(4*p0*c0*k0*k0 + 1, p0) == 1
+                npar += 1
+        for m0 in range(3, 24, 4):
+            if (p0*m0 + 1) % 4 == 0:
+                assert jacobi_symbol((p0*m0 + 1)//4, p0) == 1
+                npar += 1
+    assert npar > 300
+
+    # (p3) Mahler integral of the Dirichlet kernel: numerically ~ 0 (informational)
+    vals = []
+    for E in (2, 5, 10):
+        n = 200001
+        tot = 0.0
+        for j in range(n):
+            th = (j + 0.5)/n
+            z = _cmath.exp(2j*_cmath.pi*th)
+            D = (z**(E + 1) - 1)/(z - 1)
+            tot += _log(abs(D))
+        vals.append(tot/n)
+    assert all(abs(v) < 5e-3 for v in vals), vals
+
+    # (p4) entropy-wall toy: single-generator assignment reaches exactly sum(2a_r)+1 values
+    q0 = 101  # cyclic group (Z/101)^* of order 100
+    g = 2     # primitive root mod 101
+    caps = [2, 4, 6]          # 2a_r for three "primes" all assigned residue g
+    reach = {1}
+    for cap in caps:
+        reach = {(v*pow(g, e, q0)) % q0 for v in reach for e in range(cap + 1)}
+    assert len(reach) == sum(caps) + 1, len(reach)
+
+    # (p5) the p=409 first witness needs k=2
+    p0 = 409; a0, b0, c0, k0 = 1, 13, 8, 2
+    assert k0*p0 + a0 + b0 == 4*a0*b0*c0*k0
+    s = Rational(1, a0*b0*c0) + Rational(1, p0*a0*c0*k0) + Rational(1, p0*b0*c0*k0)
+    assert s == Rational(4, 409)
+
+    print(f"sec-17 companions: identities symbolic OK; {nII} random Type-II tuples exact; "
+          f"{ndec} witness decompositions; {npar} parity checks all +1; "
+          f"Mahler means {[round(v, 5) for v in vals]}; entropy toy exact; 409 witness OK")
+
+
+check_p()
+
+
 # ---------------------------------------------------------------- (q)
 def check_q():
     """Numerical companions for §18 (informational asymptotics, exact sets)."""

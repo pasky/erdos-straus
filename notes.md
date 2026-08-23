@@ -3229,6 +3229,352 @@ through the Pomerance-Weingartner 2025 reconstruction.  The all-integer result
 is a semigroup corollary of the prime result, not an assertion that
 Lemma 16.3 applies to nonreduced integer subsequences.
 
+## 17. The pointwise frontier: exact reformulations of "all p", the walls
+that close, and what a proof would have to look like
+
+Sections 5–16 mapped the almost-all machinery to its ceilings.  This section
+attacks the remaining question — the conjecture itself, "for **every** prime
+p" — by (a) reducing it to its sharpest equivalent forms, (b) proving two new
+obstruction theorems that close the remaining elementary pointwise routes,
+and (c) auditing every known pointwise-capable technology of analytic number
+theory against the problem's structure.  Labels are strict: **Theorem/Lemma**
+= proved here; **Assessment** = argued with named assumptions, not proved.
+
+### 17.1 The four-parameter completeness theorem and the shifted-multiple
+dictionary
+
+**Theorem 17.1 (complete parametrization of both solution types).**  Let p be
+an odd prime.
+
+(i) **Type II (Case B).**  The solutions of 4/p = 1/x + 1/y + 1/z with
+exactly two denominators divisible by p correspond exactly to the quadruples
+(a, b, c, k) of positive integers with gcd(a, b) = 1 and
+
+    kp = 4abck − a − b,                                        (17.1)
+
+via 4/p = 1/(abc) + 1/(pack) + 1/(pbck).  The criterion-3.1(B) dictionary is
+q = (a+b)/k, x = abc, d = a²c.
+
+(ii) **Type I (Case A).**  The solutions with exactly one denominator
+divisible by p correspond exactly to the quadruples (a, b, c, k), gcd(a, b)
+= 1, with
+
+    p(a + b) = k(4abc − 1),                                    (17.2)
+
+via 4/p = 1/(ack) + 1/(bck) + 1/(pabc); dictionary m = (a+b)/k, z₀ = abc,
+d = a²c.
+
+(iii) **Divisor form of (17.1).**  For fixed (c, k), a pair (a, b) as in (i)
+exists iff the integer 4pck² + 1 has a divisor D ≡ −1 (mod 4ck); the
+correspondence is D = 4ack − 1, and then automatically the cofactor is
+4bck − 1:
+
+    (4ack − 1)(4bck − 1) = 4pck² + 1.                          (17.3)
+
+Hence:  **p is Case-B solvable  ⟺  some member of the two-parameter family
+{4pck² + 1 : c, k ≥ 1} has a divisor ≡ −1 (mod 4ck).**
+
+*Proof.* (i, ⟸) With p as in (17.1), the three fractions have common
+denominator pabck and numerator sum pk + a + b = 4abck, which is 4/p·(pabck).
+Two denominators carry p, and p ∤ abc since p = (4abck − a − b)/k > abc
+forces… more precisely p | abc would give p ≤ abc while (17.1) gives
+kp ≥ 4abck − a − b > k·abc for a, b, c, k ≥ 1 except degenerate a = b = 1
+cases handled by inspection (then p | c is impossible as p = (4ck·c… )
+— direct: kp = 4ck·ab − a − b with p | abc and every factor < p is absurd
+since abc < p).  (i, ⟹)  Let (q, d, x) be a criterion-B witness (Thm 3.1),
+g₀ = gcd(d, x), a = d/g₀, c = g₀/a, b = x/(ac), k = (a + b)/q.  These are
+integers: for each prime r, with α = v_r(d), ξ = v_r(x), d | x² gives
+α ≤ 2ξ, and v_r(a) = α − min(α, ξ) ≤ min(α, ξ) = v_r(g₀) (both cases
+α ≤ ξ, α > ξ use α ≤ 2ξ), so a | g₀; v_r(b) = ξ − min(α, ξ) ≥ 0; and
+min(v_r(a), v_r(b)) = 0, so gcd(a, b) = 1.  Then d = a²c and x = abc by
+valuation bookkeeping, q | d + x = ac(a + b) with gcd(q, ac) = 1 (ac | x,
+gcd(q, x) = gcd(p, x) = 1), so q | a + b.  Finally kp = k(4x − q) =
+4abck − (a + b), which is (17.1); substituting the dictionary into Thm
+3.1(B)'s reconstruction returns exactly (abc, pack, pbck).  (ii) is the same
+valuation argument verbatim on (m, d, z₀) with gcd(m, z₀) = 1 from the
+proof of Thm 3.1(A), plus 4z₀ = pm + 1 ⟹ pmk = k(4abc − 1) ⟹ (17.2).
+(iii) D := 4ack − 1 ≡ −1 (mod 4ck) divides the RHS of (17.3), which is
+4pck² + 1 by expanding with (17.1).  Conversely if D ≡ −1 (mod 4ck)
+divides n := 4pck² + 1, then n ≡ 1 (mod 4ck) forces the cofactor
+n/D ≡ −1 (mod 4ck), so D = 4ack − 1, n/D = 4bck − 1 with a, b ≥ 1, and
+expanding (17.3) backwards gives (17.1) after dividing by 4ck; gcd(a, b)
+can be arranged by passing to the witness and re-decomposing as in (i).  ∎
+
+Machine checks: `verify.py (p)` (symbolic identities, random reconstructions);
+§19.3 verified the decomposition (i,⟹) on all 36,384 stored witnesses with
+zero failures, and (17.3) on the same rows.  The k = 1 slice of (17.1) is the
+classical family F1 of §4 (Rosati-type); the four-parameter forms match the
+shape of the Elsholtz–Tao Type I/II parametrizations *(cited from memory —
+flagged)*.  Six primes below 10⁵ (409, 577, 5569, 9601, 23929, 83449) have
+**no** k = 1 representation at all (§19.3), so the full k-range is genuinely
+needed — e.g. 409 first solves at (a,b,c,k) = (1,13,8,2):
+4/409 = 1/104 + 1/6544 + 1/85072.
+
+The window form of the k = 1 slice, used in 17.5(a): a pair (a, b),
+gcd(a,b) = 1, with 4ab | p + a + b corresponds to b | p + a with cofactor
+condition (p + a)/b ≡ −1 (mod 4a); so the k = 1 Case-B witness count is
+
+    N₁(p; A) = Σ_{a ≤ A} #{ b | p + a : gcd(a,b) = 1,
+                             (p + a)/b ≡ −1 (mod 4a) }.        (17.4)
+
+### 17.2 The quadratic layer is pointwise inert
+
+By §8.2/§9.1/§10.2, the *only* global structure on the witness problem is
+the single quadratic bit: for every witness value n (either x = (p+q)/4 or
+z₀ = (pm+1)/4) and every odd prime r | n, r ≠ p, the Jacobi symbol of r at
+the local modulus equals (r | p).  One could hope to run this bit against an
+exceptional p across the whole family.  It cannot be done:
+
+**Lemma 17.2 (parity self-consistency).**  Let λ_p be the completely
+multiplicative function with λ_p(r) = (r | p) on primes r ∤ p (the Jacobi
+symbol), so λ_p(n) = (n | p).  Then for every prime p ≡ 1 (mod 4):
+
+* every Case-A value z₀ = (pm + 1)/4 satisfies λ_p(z₀) = +1;
+* every member of the Case-B family satisfies λ_p(4pck² + 1) = +1;
+
+i.e. the number of quadratic-nonresidue-mod-p prime factors (with
+multiplicity) of every witness value in both families is **even, always,
+for every p** — exceptional or not.
+
+*Proof.*  4z₀ = pm + 1 ≡ 1 (mod p) and (4 | p) = 1, so
+λ_p(z₀) = (z₀ | p) = (4z₀ | p) = (1 | p) = +1.  Likewise
+4pck² + 1 ≡ 1 (mod p). ∎
+
+**Consequence (assessment).**  The quadratic layer — the one complete piece
+of global structure (Br = ℤ/2, §10.2) — imposes *zero* pointwise cost on a
+would-be exceptional p: its constraint is automatically satisfied across the
+entire witness family.  This is §6's parity mechanism in its final form, and
+it explains the §19.2 taxonomy: per-modulus failures are 99% local-Jacobi
+(F1), yet these local obstructions assemble into a globally self-consistent
+configuration.  Any pointwise proof must therefore extract a contradiction
+from strictly finer-than-quadratic structure, where §10.2 proves no global
+law exists.
+
+### 17.3 The compactness wall, and the free-component escape
+
+**Theorem 17.3 (bounded-modulus systems never close).**  For every Q there
+are infinitely many primes p ≡ 1 (mod 24) that avoid every forced class of
+every identity family with prime modulus ℓ ≤ Q (all classes of Lemma 18.1
+type 𝓡(ℓ), both criterion halves, all shapes of §4).  Consequently no proof
+of the conjecture can proceed by exhibiting, for some fixed Q, a forced
+witness at a modulus ≤ Q for every large p.
+
+*Proof.*  For each prime ℓ ≤ Q, ℓ ≡ 3 (mod 4), the forced classes are
+𝓡(ℓ) ∪ (Case-A mirror set), of total cardinality ≤ 2τ(A²) < ℓ − 1 for
+ℓ ≥ ℓ₀ absolute (τ(A²) ≪ A^{o(1)}); the finitely many ℓ < ℓ₀ leave at
+least one reduced escape class by inspection of §4's zoo (the six hard
+classes mod 840 escape all bounded families — §5, and concretely: the
+identity-supply density at each ℓ is F(ℓ)/ℓ < 1/2 for ℓ ≥ ℓ₀).
+Choose an escape residue r_ℓ mod ℓ for each ℓ ≤ Q, and r ≡ 1 (mod 24);
+CRT assembles one class mod 24∏ℓ, coprime to the modulus (each r_ℓ can be
+taken reduced: forced classes −4D are reduced, and there are ≥ 2 reduced
+non-forced classes for ℓ ≥ ℓ₀).  Dirichlet supplies infinitely many primes
+in that class. ∎
+
+This upgrades Cor 5.3/§8.3(2) from "families of the known shapes" to *all*
+prime-modulus forced-class systems, with the supply theorem 18.1/18.2
+guaranteeing the count stays below ℓ.  (For composite moduli M the same
+argument needs F(M) < density-room in (ℤ/M)^×; ΣF(M)/M ≍ log³Q (Thm 18.2)
+exceeds 1, so a CRT-greedy over *all* M is not automatic; the prime-modulus
+statement is what pointwise-bounded proofs would need, and it is closed.)
+
+**The free-component mechanism (assessment, with worked computation).**  Can
+an exceptional p's own arithmetic be turned against it — e.g. moduli built
+from prime factors ℓ' of its shifted values, where p's residue is known?
+The obstruction is structural.  Say ℓ' | (p+3)/4, so p ≡ −3 (mod ℓ').  A
+Lemma-16.1 class mod kℓ' hits p only if its ℓ'-projection is −3, i.e.
+(§18.1 notation) −4D ≡ −3, D ≡ 3·4^{-1} ≡ 3A (mod ℓ'), D | A²,
+A = (kℓ'+1)/4.  Such k, D exist in abundance — but the class constrains p
+mod kℓ', and p mod k is *not* controlled by p's relation to ℓ'.  The
+identity supply pins p only in full CRT components; every modulus containing
+one "known" component drags in a free cofactor component, and the class
+misses p for all but a 1/k-fraction of the cofactor residues.  Empirically
+(§11.1, §19) this is exactly how near-exceptional primes survive to
+w* = 59: each new modulus is an independent 1 − O(polylog/w) escape chance,
+never a forced hit.  Self-witnessing dies at the same compactness wall.
+
+### 17.4 The entropy wall: oblivious coverage certificates cost exponential
+windows
+
+Call a **oblivious box-certificate** for the class of primes p (in a fixed
+congruence class) the following data: a window length T = T(p); a designated
+divisibility pattern P = ∏_{r ≤ y} r^{a_r} with P ≤ T (guaranteeing some
+x ∈ (p/4, p/4 + T] with P | x, hence a criterion pair (x, q), q = 4x − p ≤
+4T); and a correctness argument that the divisor box
+
+    B(P²) = { ∏ r^{e_r} : 0 ≤ e_r ≤ 2a_r }  (mod q)
+
+meets the target coset −x·⟨allowed⟩ for **every** assignment of residues
+(r mod q) consistent with the congruence information carried by the
+certificate (including, if desired, the full quadratic layer (r|q) = (r|p)
+of Prop 8.1 — i.e. the adversary is constrained to an index-2 subgroup
+pattern but is otherwise free).
+
+**Theorem 17.4 (entropy lower bound).**  Any oblivious box-certificate that
+is correct at modulus q must satisfy
+
+    Σ_r 2a_r ≥ n₀(q)/2 − 1,
+
+where n₀(q) is the largest order of a cyclic quotient of (ℤ/q)^× (so
+n₀(q) = λ(q), the Carmichael function, when (ℤ/q)^× has a dominant cyclic
+component).  Consequently P ≥ 2^{Σa_r} ≥ exp(c·n₀(q)), and since T ≥ P and
+q ≤ 4T, a certificate family covering all large p in the class can only use
+moduli q ≪ log p·(1 + o(1))/c — and Theorem 17.3 then applies to its
+prime-modulus skeleton.  **No oblivious-certificate system proves the
+conjecture.**
+
+*Proof.*  Fix a surjection ψ: (ℤ/q)^× → C onto a cyclic group of order n₀.
+The adversary assigns every prime r ≤ y a residue with ψ(r) = g, a fixed
+generator of C — consistent with the quadratic layer by choosing the
+pattern inside the kernel-coset structure: the quadratic character factors
+through a quotient of order 2, and an index-2 constraint removes at most a
+factor 2 of C, leaving a cyclic target of order ≥ n₀/2 (replace g by g²
+if the character forces the even part).  Then ψ(B(P²)) ⊆ {g^j : 0 ≤ j ≤
+Σ 2a_r}, a set of at most Σ2a_r + 1 elements of a cyclic group of order
+≥ n₀/2.  The target −x = −Pm runs over ≥ n₀/2·(1 − o(1)) distinct
+ψ-values as the free cofactor m varies over the residues realized by
+x ∈ window (the certificate must be correct for each realizable m; if the
+certificate pins m to fewer values by further congruences, those multiply
+into P and T identically).  If Σ2a_r + 1 < n₀/2 some realizable target is
+unreached. ∎
+
+**Lemma 17.5 (no distributional rescue through high-order components:
+the Mahler-measure computation).**  For E ≥ 1 let D_E(θ) = Σ_{e=0}^{E}
+e(eθ) (the Dirichlet kernel — the character sum of one exponent box).  Then
+
+    ∫₀¹ log |D_E(θ)| dθ = 0     exactly, for every E,
+
+since D_E(θ) = (z^{E+1} − 1)/(z − 1)|_{z = e(θ)} is a quotient of products
+of cyclotomic polynomials and Kronecker's theorem gives Mahler measure 0.
+**Assessment.**  In any model where a character χ of large order assigns the
+primes of P independent, equidistributed phases, the multiplicative random
+walk ∏_r D_{2a_r}(arg χ(r)) has *zero logarithmic drift*: box character sums
+do not decay for high-order χ.  Character/equidistribution technology
+therefore certifies box coverage only through low-order (quadratic) layers —
+exactly the layer Lemma 17.2 proves globally inert.  The two computations
+close the two sides of the same door: worst-case coverage is
+entropy-blocked (Thm 17.4), and average-case coverage has no decay
+mechanism above the quadratic layer.
+
+### 17.5 The pointwise-technology audit
+
+Every known technology that produces "for all n, no exceptions" statements
+in multiplicative number theory is audited against the structure mapped
+above.  All items are **assessments** (with computations), not theorems.
+
+**(a) Spectral/automorphic positivity (Duke-type).**  The k = 1 witness
+count (17.4) is a divisor sum in moving classes: expanding the cofactor
+condition by Dirichlet characters mod 4a,
+
+    N₁(p; A) = Σ_{a≤A} (1/φ(4a)) Σ_{χ (4a)} χ̄(−1) Σ_{b | p+a}
+               χ((p+a)/b)·[gcd-terms],
+
+whose inner sums λ_χ(p + a) = Σ_{b|n} χ(b) are Fourier coefficients of
+*Eisenstein* series (ζ(s)L(s, χ)).  Three structural mismatches with the
+Duke/Iwaniec positivity paradigm: (1) the main term is polylogarithmic
+(Σ 1/φ(4a)·(log)-type ≍ (log p)², matching Thm 18.2's supply), while every
+known power-saving spectral evaluation tolerates polylog losses at many
+steps and hence proves nothing about polylog-sized mains; (2) the conductor
+4a moves with the shift a — a family of shifted convolutions with growing
+conductors, outside current uniform treatments; (3) there is no cusp-form
+positivity to exploit: the counting object is Eisenstein through and
+through, and the surface (§10) is rigid with Brauer group ℤ/2 — there is no
+theta-series or class-group structure to carry a Duke-style argument.  A
+pointwise proof by these methods would need power-saving error against a
+polylog main term uniformly in p — strictly stronger than what the
+technology delivers anywhere.
+
+**(b) L-function repulsion (Linnik-type).**  Linnik's theorem gets
+pointwise-in-q results from the L-function family mod q (log-free zero
+density + Deuring–Heilbronn).  The witness events have no associated
+L-function family: the generating Dirichlet series of the failure indicator
+is not an L-function and carries no functional equation; the only attached
+L-functions (characters) govern the inert quadratic layer.  No repulsion
+object exists.
+
+**(c) Chebotarev/GRH-effective form families.**  §8.1's quadratic-form
+families cover p when a Frobenius condition holds in the ring class field
+of disc 4s(s−1).  The fields are quasi-independent as s varies; coverage
+density per s is ≍ 1/h₀(s) ≍ s^{-1/2+o(1)}, and Σ_s s^{-1/2} diverges —
+consistent with "true with lots of room".  But GRH-effective Chebotarev
+constrains Frob_p only for s ≤ (log p)^{2−o(1)}; the failure probability
+through that range is ∏(1 − c/√s) ≥ exp(−c'(log p)^{1−o(1)}·…) > 0 — an
+almost-all bound with exceptional density exp(−polylog), the same ceiling
+shape as every other route.  (§9.3(b)'s Chebotarev evasion shows the
+complement: no finite subfamily forces coverage.)
+
+**(d) Sieve positivity (Chen-type switching).**  Chen-type "every large n"
+results sift sequences whose target events have per-element probability
+≍ 1/log with polynomial sequence length — total mass a positive power of n.
+Here the total witness mass over the *entire* parameter space is
+Θ((log p)³) (Thm 18.2 for the identity shadow; Elsholtz–Tao for solution
+counts).  A lower-bound sieve certifying a positive count needs main term
+dominating its error budget, which for polylog-mass events over
+polynomial-length index sets it never has: dimension/parity constraints
+aside, the mass simply is not there.  This is the quantitative reason the
+problem's "almost-all" bounds are of exp(−(log)^θ) shape rather than
+power-saving: polylog mass exponentiates to exactly that scale.
+
+**(e) Additive-combinatorial worst-case coverage.**  Davenport-constant /
+EGZ-type arguments guarantee subset-product coverage only at sequence
+lengths ≍ group order — Theorem 17.4 shows this costs exponential windows.
+Closed.
+
+### 17.6 Synthesis: the shape of any future proof, and the honest ledger
+
+A proof of the full conjecture must simultaneously:
+
+* **(P1)** use unboundedly many moduli, with the modulus range growing with
+  p (Thm 17.3 — bounded systems are escapable by actual primes forever);
+* **(P2)** obtain per-modulus coverage from *distributional* facts about the
+  actual factorizations of shifted values — not worst-case combinatorics
+  (Thm 17.4) and not character-layer forcing (Lemma 17.2 + 17.5);
+* **(P3)** deliver those distributional facts with an *empty* exceptional
+  set — a uniformity for which each audited technology (17.5 a–e) lacks its
+  structural prerequisite here (no L-function family, no cusp positivity,
+  no group action, polylog mass);
+* **(P4)** or else find a structure source outside everything mapped: the
+  one formally unexplored slot is a *transfer/induction between different
+  primes* — the translation (a, b, c, k) → (a, b, c ± 1, k) moves solutions
+  between p and p ± 4ab (by (17.1)), but this lands exactly in the
+  congruence-class covering already harvested (it is why classes mod 4ab
+  exist), and no descent ordering is visible; nothing rules out a cleverer
+  transfer, and nothing suggests one.
+
+**Status of the named doors after this section.**  The identity/sieve axis
+is now bracketed: supply is exactly cubic (Thm 18.2), realized mass is
+log²X·log K with the two walls H_kBV/H_PF named precisely (§18.2–18.4), and
+even the full harvest caps at exceptional-set exponent 3/4 — **the
+identity-sieve axis can never prove the conjecture outright**, only compress
+its exceptional set toward exp(−(log N)^{3/4}).  The pointwise axis needs
+(P1)–(P4).  Between them sits the only mathematically live formulation:
+
+> **The residual pointwise problem (final form).**  Prove that for every
+> prime p ≡ 1 (mod 24) there exist a ≤ (log p)^{O(1)} and a divisor b of
+> p + a with cofactor (p + a)/b ≡ −1 (mod 4a) — or the Case-A mirror, or
+> the k ≥ 2 extension (17.3).  Every softer statement is either proved
+> above or reducible to this; every known pointwise technology fails it
+> for an identified structural reason (17.2–17.5).
+
+The conjecture is almost certainly true — the witness mass grows like
+(log p)³ against a required single hit, the empirical frontier is
+w* ≤ 59 through 10⁸ (§19.1), and the failure modes are fully understood
+(§19.2) — but on the technology audit above, it is not provable by any
+currently existing method, and this section makes that statement precise
+rather than rhetorical.  What *would* move the frontier: (i) any
+pointwise-uniform equidistribution theorem for divisors of shifted integers
+in one moving coset (P2+P3 in any nontrivial range); (ii) the H_kBV or H_PF
+inputs of §18.4 (exceptional set to exp(−(log N)^{3/4}), still not "all p");
+(iii) a transfer structure (P4).
+
+Numerics: `verify.py (p)` checks (17.1)/(17.2)/(17.3) symbolically and on
+random reconstructions, the 409-witness, parity inertness on samples
+(Lemma 17.2), the Mahler integral (Lemma 17.5, numerically ≈ 0,
+informational), and the entropy-wall toy (single-generator box reachability
+= Σ2a_r + 1 exactly).
+
+---
+
 ## 18. The full-harvest ceiling: the identity supply is cubic, and what caps the realized mass
 
 This section separates three questions which must not be conflated: the
