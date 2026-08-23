@@ -1401,4 +1401,80 @@ assert any(u == 9 and v == 8 and k == 1 for tl in _cut.values()
 print(f"distinctness/CRT spot-check: 8/8 classes distinct across k=1,13; "
       f"{crt_checks} subsequence reconstructions")
 
+# ---------------------------------------------------------------- (r)
+def check_r():
+    """Replay the finite checks supporting the section-19 frontier data."""
+    import json
+    from pathlib import Path
+    from random import Random
+    from sympy import expand
+
+    data = json.loads(Path(__file__).with_name("recorddata.json").read_text())
+
+    # The k=1/F1 dictionary, including exact criterion-B reconstruction.
+    rng = Random(0x19)
+    for _ in range(100):
+        g0, u0, v0 = (rng.randint(1, 10_000), rng.randint(1, 1_000),
+                      rng.randint(1, 1_000))
+        p0 = 4 * g0 * u0 * v0 - u0 - v0
+        q0, x0, d0 = u0 + v0, g0 * u0 * v0, u0 * u0 * g0
+        assert p0 + q0 == 4 * x0
+        assert x0 * x0 % d0 == 0 and (d0 + x0) % q0 == 0
+        assert caseB_solution(p0, q0, d0, x0) == (
+            g0 * u0 * v0, p0 * g0 * u0, p0 * g0 * v0)
+
+    # Twenty stored witnesses replay the valuation decomposition
+    # d=a^2*c, x=a*c*b and its four-parameter identity.
+    stored = data["type_II_dictionary"]["replay_witnesses"]
+    assert len(stored) == 20
+    for p0, q0, d0, x0, a0, b0, c0, k0 in stored:
+        g0 = gcd(d0, x0)
+        assert a0 == d0 // g0 and g0 % a0 == 0
+        assert c0 == g0 // a0 and b0 == x0 // (a0 * c0)
+        assert gcd(a0, b0) == 1 and (a0 + b0) == q0 * k0
+        assert d0 == a0 * a0 * c0 and x0 == a0 * b0 * c0
+        assert k0 * p0 == 4 * a0 * b0 * c0 * k0 - a0 - b0
+
+    a, b, c, k, p = symbols("a b c k p")
+    polynomial = ((4 * a * c * k - 1) * (4 * b * c * k - 1)
+                  - (4 * p * c * k**2 + 1))
+    relation = k * p - (4 * a * b * c * k - a - b)
+    assert expand(polynomial.subs(p, (4 * a * b * c * k - a - b) / k)) == 0
+    assert expand(polynomial + 4 * c * k * relation) == 0
+
+    def direct_hit(n0, w0):
+        return any((d + n0) % w0 == 0 for d in divisors_of_square(n0))
+
+    def direct_interleaved(p0):
+        for w0 in range(3, 1000, 4):
+            if (direct_hit((p0 + w0) // 4, w0)
+                    or direct_hit((p0 * w0 + 1) // 4, w0)):
+                return w0
+        raise AssertionError("record replay guard exhausted")
+
+    def direct_case_b(p0):
+        q0 = (-p0) % 4
+        if q0 == 0:
+            q0 = 4
+        for w0 in range(q0, 1000, 4):
+            if direct_hit((p0 + w0) // 4, w0):
+                return w0
+        raise AssertionError("Case-B record replay guard exhausted")
+
+    # Five interleaved records plus the five newest Case-B records make ten
+    # independently recomputed table entries, including every new record.
+    inter = data["interleaved_records"]
+    assert len(inter) == 5
+    for row in inter:
+        assert direct_interleaved(row["p"]) == row["w_star"]
+    case_b = data["case_b_records"][-5:]
+    for row in case_b:
+        assert direct_case_b(row["p"]) == row["q_min"]
+    print("section-19 replay: 100 F1 triples, 20 decompositions, symbolic "
+          "factor identity, and 10 record entries")
+
+
+print("\n== (r) computational-frontier replay ==")
+check_r()
+
 print("\nall checks passed")

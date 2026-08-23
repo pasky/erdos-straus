@@ -3229,9 +3229,195 @@ through the Pomerance-Weingartner 2025 reconstruction.  The all-integer result
 is a semigroup corollary of the prime result, not an assertion that
 Lemma 16.3 applies to nonreduced integer subsequences.
 
+## 19. Computational frontier: witness-record growth to large scale, failure taxonomy, and the Type-II dictionary
+
+Everything in this section is a finite computation, not an asymptotic result.
+The search domain was **every prime** \(p<10^8\) with \(p\equiv1\pmod {24}\):
+719,781 primes, ending at 99,999,721.  At each
+\(w=3,7,11,\ldots\), both \(x=(p+w)/4\) and \(z_0=(pw+1)/4\) were factored;
+the exact residues of divisors of their squares were tested against \(-n\pmod
+w\).  A recursion enumerated divisor residues below \(\tau(n^2)=10^6\), with
+a bounded subset-product residue DP above that cap (the cap was not reached in
+this range).  A 100,595-hard-prime pilot through 12.3 million ran at 229,868
+primes/second with 12 workers; the final scan ran at 211,045 primes/second
+(2.79 s sieving plus 3.41 s witness search).  Thus the requested \(10^8\)
+frontier was inexpensive on this machine; timings are calibration, not part of
+the mathematical data.
+
+### 19.1 Record growth through \(10^8\)
+
+The strict running records for the interleaved minimum \(w^*(p)\) are
+
+| record prime \(p\) | \(w^*(p)\) |
+|---:|---:|
+| 73 | 3 |
+| 241 | 7 |
+| 2,521 | 15 |
+| 21,169 | 31 |
+| 118,801 | 59 |
+
+Here “record” means strictly larger than every earlier value in this scan.
+This corrects a terminology ambiguity in §11.1: 11 and 23 are attained (first
+at 3,049 and 26,161), but are not running records because 15 and 31,
+respectively, occurred earlier.  The complete histogram is
+
+| \(w^*\) | 3 | 7 | 11 | 15 | 19 | 23 | 27 | 31 | 35 | 39 | 47 | 59 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| count | 622,065 | 83,809 | 10,610 | 1,873 | 890 | 387 | 61 | 74 | 3 | 6 | 2 | 1 |
+
+The Case-B-only hard-slice record extension is
+
+| \(p\) | 3 | 5 | 73 | 1,129 | 1,201 | 21,169 | 67,369 | 87,481 | 1,430,641 | 8,803,369 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| minimal \(q\) | 1 | 3 | 7 | 11 | 23 | 31 | 35 | 63 | 71 | 107 |
+
+The first two entries are the exact pre-hard baseline.  Entries thereafter are
+records among the scanned \(p\equiv1\pmod {24}\) primes; the first eight agree
+with §8.3's all-prime scan through \(4\cdot10^5\), but non-hard residue classes
+were not rescanned to \(10^8\).
+
+There are only five interleaved record jumps.  The purely descriptive fit
+\(w=C(\log p)^\alpha\) to those jumps gives \(\alpha=2.832\) and \(C=0.0500\),
+while the endpoint ratio is \(59/\log(10^8)=3.203\).  These numbers are not a
+credible asymptotic exponent estimate: the maximum first reached 59 at
+118,801 and then did not move over almost three further decades.  The data are
+compatible with \(c\log p\), with the broader \((\log p)^{1+o(1)}\) scale or
+another log-power, and with slower growth; they do not discriminate among
+them.  The increase 31 to 59 does not
+contradict §8.3's unbounded log-power prediction, but a finite plateau cannot
+support unboundedness either.
+
+### 19.2 Failure-mode taxonomy
+
+For every failed pair below \(w^*\), let \(R\) be the exact bounded-exponent
+residue set, \(H\) the subgroup generated without exponent caps by the prime
+factors of \(n\), and \(t=-n\pmod w\).  The implementation checked independently
+that \(t\in R\) is equivalent to the literal divisor witness test for every
+classified pair.  The classes were made exclusive in the order F0
+(gcd-degenerate), F1 (Jacobi), F2 (non-Jacobi subgroup miss), F3 (\(t\in H\)
+but \(t\notin R\)), F4 (logical catch-all).  No F0 or F4 case occurred.
+
+A fixed-seed, scale-stratified sample of 2,000 scanned primes (273, 400, 500,
+827 from the four displayed scales) produced 784 failed half-pairs below
+\(w^*\):
+
+| population | pairs | F1 Jacobi | F2 subgroup | F3 box |
+|---|---:|---:|---:|---:|
+| random sample, both halves | 784 | 778 (99.23%) | 0 | 6 (0.77%) |
+| sample, Case B only | 392 | 387 (98.72%) | 0 | 5 (1.28%) |
+| sample, Case A only | 392 | 391 (99.74%) | 0 | 1 (0.26%) |
+| five running-record primes | 50 | 38 (76.0%) | 1 (2.0%) | 11 (22.0%) |
+
+By modulus in the random sample:
+
+| \(w\) | pairs | F1 | F2 | F3 |
+|---:|---:|---:|---:|---:|
+| 3 | 650 | 650 | 0 | 0 |
+| 7 | 92 | 92 | 0 | 0 |
+| 11 | 14 | 12 | 0 | 2 |
+| 15 | 14 | 14 | 0 | 0 |
+| 19 | 10 | 7 | 0 | 3 |
+| 23 | 2 | 2 | 0 | 0 |
+| 27 | 2 | 1 | 0 | 1 |
+
+By prime scale, F1 was 138/138 below \(10^5\), 193/196 (98.47%) on
+\([10^5,10^6)\), 189/192 (98.44%) on \([10^6,10^7)\), and 258/258 on
+\([10^7,10^8)\).  These are failure-pair counts, not counts of sampled primes,
+and the last two 100% observations have limited denominator.  The 98.72%
+Case-B figure is higher than §6's 92.9%, but the populations differ: §6 used
+six classes modulo 840 and all Case-B failures below the Case-B minimum,
+whereas this experiment uses \(p\equiv1\pmod {24}\) and stops at the
+interleaved minimum.  It is therefore not evidence of a trend in the
+percentage.  It does show that Jacobi remains dominant at large scale in this
+conditioned population.  F3, the finite exponent box, carries every non-F1
+random failure.  The only measured F2 case was the Case-B pair \((p,w)=
+(118801,51)\); selection for record primes strongly enriches F3.
+
+### 19.3 Type-II dictionary
+
+For 10,000 fixed-seed random positive triples \((g,u,v)\), setting
+
+\[
+ p=4guv-u-v,\qquad q=u+v,\qquad x=guv,\qquad d=u^2g
+\]
+
+gave \(d\mid x^2\), \(q\mid d+x\), and Theorem 3.1(B)'s reconstruction
+exactly returned
+
+\[
+ (x,p(x+d)/q,p(x+x^2/d)/q)=(guv,pgu,pgv).
+\]
+
+For the four-parameter direction, **all 36,384 Case-B witnesses** with
+\(q\le63\) for all 1,181 primes \(p<10^5\), \(p\equiv1\pmod {24}\), were
+checked (all admissible divisors \(d\), not merely the first witness).  With
+\(g_0=(d,x)\), every one produced integers
+
+\[
+ a=d/g_0,\qquad c=g_0/a,\qquad b=x/(ac),\qquad k=(a+b)/q
+\]
+
+with \((a,b)=1\), \(d=a^2c\), \(x=abc\), and
+
+\[
+                 kp=4abck-a-b.                              \tag{19.1}
+\]
+
+There were zero integrality, coprimality, or identity failures.  Thus the
+four-parameter form is complete on this finite witness set; this is not a
+proof of criterion completeness beyond the already algebraic valuation
+argument.  On the same 36,384 rows,
+
+\[
+       (4ack-1)(4bck-1)=4pck^2+1                            \tag{19.2}
+\]
+
+held exactly.  Conversely, a divisor \(D\equiv-1\pmod {4ck}\) of the
+right-hand side makes both factors of this form.  The computation therefore
+supports the exact dictionary
+
+\[
+ \text{Case B}\quad\Longleftrightarrow\quad
+ \exists c,k:\ 4pck^2+1\text{ has a divisor }-1\pmod {4ck}.
+\]
+
+Finally, an exhaustive \(k=1\) search was made for the same 1,181 primes.  It
+is enough to search \(c\le\lfloor(p+2)/4\rfloor\), since (19.1) gives
+\(c=(p+a+b)/(4ab)\).  A \(k=1\) witness exists for 1,175 primes.  Their
+\(c_{\min}\) has median 2, 90th percentile 4, 99th percentile 20, and maximum
+557.  The exact nonzero distribution is
+
+    1:579, 2:376, 3:88, 4:30, 5:39, 6:19, 7:2, 8:12, 9:3,
+    10:1, 11:5, 12:2, 14:3, 15:1, 16:1, 18:1, 20:2, 21:1,
+    23:1, 30:2, 35:1, 38:1, 45:1, 131:1, 149:1, 251:1, 557:1.
+
+The six primes 409, 577, 5,569, 9,601, 23,929, and 83,449 have **no** \(k=1\)
+witness at all (hence none with \(c\le10^4\)); their Case-B solutions require
+\(k\ge2\).  Grouped by Case-B minimal \(q\), the primes having a \(k=1\)
+witness give:
+
+| minimal \(q\) | count | min \(c_{\min}\) | median | max |
+|---:|---:|---:|---:|---:|
+| 3 | 574 | 1 | 1 | 557 |
+| 7 | 472 | 1 | 2 | 45 |
+| 11 | 79 | 1 | 2 | 149 |
+| 15 | 13 | 1 | 1 | 5 |
+| 19 | 13 | 1 | 2 | 6 |
+| 23 | 17 | 1 | 2 | 30 |
+| 31 | 5 | 1 | 2 | 5 |
+| 35 | 1 | 1 | 1 | 1 |
+| 63 | 1 | 8 | 8 | 8 |
+
+`recorddata.json` contains the full histograms, taxonomy counts, all 1,181
+\((p,q_{\min},c_{\min})\) rows, timings, and 20 replay witnesses.
+`frontier_compute.py` reproduces the scan.  `verify.py (r)` independently
+replays 100 F1 triples, the 20 stored decompositions, (19.2) symbolically, and
+ten record-table entries; the complete verification suite remains under 20 s
+on the calibration machine.
+
 ---
 
-### References (partly from memory — flagged)
+## References (partly from memory — flagged)
 
 * Obláth 1950 (first appearance in print; conjecture attributed to Erdős).
 * L. J. Mordell, *Diophantine Equations*, 1969, ch. 30 (mod-840 covering).
