@@ -3645,8 +3645,9 @@ the list is not a classification of all conceivable proofs):
   moves solutions between p and p' = p ± 4ab, i.e. transfers witnesses
   along the progression p' ≡ p (mod 4ab); this is exactly the mechanism
   behind the shape-(e) classes, so the naive transfer lands back in the
-  harvested class supply.  Nothing rules out a cleverer transfer; nothing
-  currently suggests one.
+  harvested class supply.  The naive half of this slot (minimal-counterexample
+  descent) is executed and closed in §17.7; what remains is a non-naive
+  transfer, with no candidate mechanism in the mapped landscape.
 
 **Status of the named doors after this section.**  The identity/sieve axis
 is bracketed: supply exactly cubic (Thm 18.2), realized mass log²X·log K
@@ -3667,13 +3668,79 @@ for the intrinsic full harvest, or H_kBV together with the restricted form
 of H_PF (exceptional set to exp(−(log N)^{3/4}), still not "all p");
 (iii) a transfer structure (P4).
 
+### 17.7 The descent audit: minimal-counterexample arguments find no
+purchase (P4's naive half, executed)
+
+Suppose p is the least exceptional prime.  Induction supplies: 4/n is
+solvable for every n ≥ 2 having any prime factor < p (Lemma 1.1 lifts
+solvability from the factor).  Below p² the unsolvable candidates are
+therefore p itself and primes > p only.  Three descent routes present
+themselves; here is each, run to its end.
+
+**(1) Power descent.**  Is "4/p² solvable ⟹ 4/p solvable" provable?  For
+n = p², classify solutions by the valuation shape (v_p(x), v_p(y), v_p(z)),
+sorted descending.
+
+**Lemma 17.7.1 (shape classification at p²; proved).**  Let p ≥ 3 be prime
+and 4/p² = 1/x + 1/y + 1/z.  Up to permutation:
+(i) shape (≥1, ≥1, ≥1) descends: dividing all three by p gives a solution
+of 4/p;
+(ii) shapes with exactly one denominator divisible by p and v_p = 1, i.e.
+(1, 0, 0), and shapes (1, 1, 0), are impossible: clearing denominators and
+dividing by the visible p-power leaves 4·(coprime product) ≡ 0 (mod p)
+(computed: 4xyz₁ = pxy + p²z₁(x+y), resp. 4x₁y₁z = p²x₁y₁ + pz(x₁+y₁)),
+contradicting coprimality;
+(iii) shapes (2, 0, 0) and (2, 1, 0) and (0-side mirrors with v_p ≥ 2) are
+consistent and carry **no descent map**: e.g. (2,1,0) reduces to
+4x₂y₁z = p²x₂y₁ + y₁z + px₂z, forcing p | 4x₂ − 1 — a genuinely
+p²-specific solution.  These shapes occur: **4/9 = 1/9 + 1/12 + 1/4** has
+v₃-shape (2,1,0) and no valuation surgery produces a 4/3 solution from it.
+(iv) shape (2, ≥1-mirror) analysis for one-coprime-denominator cases
+((0, ≥1, ≥1)-sorted): the two-term residue q/(px) = 1/y′ + 1/z′ with
+q = 4x − p² produces divisor-coset witnesses for the modulus family
+4x − p², not 4x − p — the wrong window.  ∎ (proofs: three-line valuation
+computations, replayed symbolically in `verify.py (p)`.)
+
+So p-descent exists only for the all-divisible shape, and a hypothetical
+solution of 4/p² of any other shape certifies nothing about p.  Power
+descent is not derivable by valuation surgery.  (This is also exactly why
+Theorem 3.1 is a prime-only criterion: composite n admit the mixed shapes.)
+
+**(2) Window irrelevance.**  The induction hypothesis grants that 4/x is
+solvable for every window element x = (p+q)/4 and every z₀ = (pm+1)/4
+(each has a prime factor < p unless it is a prime > p or a power of one —
+and those window elements are witness-useless anyway, §8.3(1)).  But p's
+criterion consults these numbers only through their divisor residues mod
+4x − p resp. m; solvability of 4/x is a statement about *x's own* windows,
+with no bearing on where divisors of x² sit mod 4x − p.  No identity
+converting a solution of 4/x into a witness for p exists in any formalized
+shape (all shapes are classified: §4, §16.1, 17.3(d)–(e)), and the surface
+rigidity of §10.5 (no correspondences, no Vieta moves) is the structural
+reason none is available to find.
+
+**(3) Lattice transfer.**  By (17.1), (a, b, c, k) → (a, b, c ± 1, k)
+transfers solutions between p and p ± 4ab — the shape-(e) class structure,
+already harvested; a transfer that moved p *across* its class mod 4ab
+would be a second point-generating structure on the multilinear variety,
+which §10.5 rules out for every known mechanism.
+
+**Audit conclusion (assessment).**  Minimal-counterexample induction gets
+zero purchase on the Erdős–Straus criterion: solvability propagates upward
+through multiplication (Lemma 1.1) and sideways along harvested class
+structures, while p's own windows are insulated from the solvability of
+every smaller integer.  The naive half of the P4 slot is hereby executed
+and closed; what remains of P4 is precisely a *non-naive* transfer — a new
+correspondence structure on the ES surfaces, for which nothing in the
+mapped landscape supplies a candidate.
+
 Numerics: `verify.py (p)` checks (17.1)/(17.2)/(17.3) symbolically, random
 Type-II tuples and deterministic Type-I (moving-c) reconstructions, the
 p = 29 fixed-(c,k) regression, the 409 witness, parity inertness on samples
 (Lemma 17.2), the residue-1 escape of 𝓡(M) for all A ≤ 2000 (M < 8000,
 Thm 17.3(c)), the Mahler integral (Lemma 17.4.4, numerically ≈ 0,
-informational), and the entropy-toy bound of Lemma 17.4.1 (single-generator
-reachable count = Σ2a_r + 1 exactly).
+informational), the entropy-toy bound of Lemma 17.4.1 (single-generator
+reachable count = Σ2a_r + 1 exactly), and the §17.7 shape algebra with the
+4/9 = 1/9 + 1/12 + 1/4 example (v₃-shape (2,1,0)).
 
 ---
 

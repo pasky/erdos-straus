@@ -114,7 +114,14 @@ large-deviations against actual data for hard-class primes).
   the missing structural prerequisite identified.  §17.6: exact residual
   problem (unbounded Thm 3.1) vs the natural polylog sufficient target,
   and the P1–P4 feature list for proofs within the divisor-coset frame
-  (explicitly not a classification of all conceivable proofs).
+  (explicitly not a classification of all conceivable proofs).  §17.7
+  (descent audit): minimal-counterexample induction gets zero purchase —
+  Lemma 17.7.1 classifies the valuation shapes at p² (only the all-divisible
+  shape descends; mixed shapes exist — 4/9 = 1/9 + 1/12 + 1/4 is a (2,1,0)
+  witness — and carry wrong-window data), the induction hypothesis is
+  window-irrelevant, and lattice transfers stay inside harvested classes;
+  P4's naive half is closed, leaving only a non-naive correspondence
+  structure with no known candidate.
 * **§18 (full-harvest ceiling).**  Lemma 18.1: the Lemma-16.1 classes mod M
   are exactly {−4D : D | A²}, A = (M+1)/4.  Theorem 18.2: total identity
   supply is **exactly cubic** — Σ F(M)/M ≍ (log Q)³ — so B = 3 and θ = 3/4
@@ -127,10 +134,15 @@ large-deviations against actual data for hard-class primes).
   sparse-subfamily counterexample (D=1 classes with 3|M leave density-2/3
   avoiders) is recorded in the hypothesis's scope warning).  Ordinary EH
   does not substitute.  No unconditional improvement of Theorem 16.4.
-* **§19 (computational frontier to 10⁸).**  All 719,781 primes ≡ 1 (mod 24)
+* **§19 (computational frontier to 10¹⁰).**  All 719,781 primes ≡ 1 (mod 24)
   below 10⁸: interleaved witness records only (73,3),(241,7),(2521,15),
-  (21169,31),(118801,59) — w* ≤ 59 throughout, plateau over three decades;
-  growth data cannot yet discriminate c·log p from log-powers.  Failure
+  (21169,31),(118801,59); extension §19.4 scanned the further 56,156,819
+  primes to 10¹⁰: exactly one new record, w*(2,927,257,369) = 71, then flat
+  — w* ≤ 71 through 10¹⁰ (vs log 10¹⁰ ≈ 23); growth data cannot yet
+  discriminate c·log p from log-powers.  F3 microscopy (§19.4): box-failures
+  are deficit-1-dominated with no largest-factor rule, strongly enriched at
+  squarefree small-ω shifted values — the box/subgroup gap is thin exactly
+  when the window element has few prime factors.  Failure
   taxonomy: 99.23% Jacobi (F1), the rest exponent-box (F3), non-Jacobi
   subgroup misses essentially absent (one case) — record primes enrich F3 to
   22%.  Type-II dictionary verified on all 36,384 stored witnesses (zero

@@ -1542,10 +1542,27 @@ def check_p():
                 break
     assert nA >= 4, nA
 
+    # (p9) sec-17.7 descent audit: shape algebra + the 4/9 example
+    from sympy import symbols as _sy, expand as _ex
+    p_, x_, y_, z1_, x1_, y1_, x2_, z_ = _sy('p_ x_ y_ z1_ x1_ y1_ x2_ z_', positive=True)
+    # (1,0,0): z=p*z1, p coprime to x,y,z1: clearing gives 4xyz1 = p*xy + p^2*z1*(x+y)
+    e1 = _ex(4*x_*y_*p_*z1_ - p_**2*(x_*y_ + x_*p_*z1_ + y_*p_*z1_))
+    assert _ex(e1/p_) == _ex(4*x_*y_*z1_ - p_*x_*y_ - p_**2*z1_*(x_ + y_))
+    # (1,1,0): x=p*x1, y=p*y1: e2/p^2 = 4x1y1z - p^2x1y1 - p*z*(x1+y1)
+    e2 = _ex(4*p_*x1_*p_*y1_*z_ - p_**2*(p_*x1_*p_*y1_ + p_*y1_*z_ + p_*x1_*z_))
+    assert _ex(e2/p_**2) == _ex(4*x1_*y1_*z_ - p_**2*x1_*y1_ - p_*z_*(x1_ + y1_))
+    # (2,1,0): x=p^2 x2, y=p y1: e3/p^3 = 4x2y1z - p^2x2y1 - y1z - p*x2*z  (mod p: y1z(4x2-1))
+    e3 = _ex(4*p_**2*x2_*p_*y1_*z_ - p_**2*(p_**2*x2_*p_*y1_ + p_*y1_*z_ + p_**2*x2_*z_))
+    assert _ex(e3/p_**3) == _ex(4*x2_*y1_*z_ - p_**2*x2_*y1_ - y1_*z_ - p_*x2_*z_)
+    # the (2,1,0) witness at p=3: 4/9 = 1/9 + 1/12 + 1/4, v3-shape (2,1,0), 3 | 4*1-1
+    assert Rational(1, 9) + Rational(1, 12) + Rational(1, 4) == Rational(4, 9)
+    assert (4*1 - 1) % 3 == 0
+
     print(f"sec-17 companions: identities symbolic OK; {nII} random Type-II tuples exact; "
           f"{ndec} witness decompositions; {npar} parity checks all +1; "
           f"Mahler means {[round(v, 5) for v in vals]}; entropy toy exact; 409 + p=29 "
-          f"regressions OK; R(M) residue-1 escape verified M<=8000 (A<=2000); {nA} Case-A moving-c families exact")
+          f"regressions OK; R(M) residue-1 escape verified M<=8000 (A<=2000); {nA} Case-A moving-c "
+          f"families exact; 17.7 shape algebra + 4/9 example OK")
 
 
 check_p()
