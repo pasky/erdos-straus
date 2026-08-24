@@ -5481,3 +5481,378 @@ the lower bound \(\delta_X\geq\exp[-C(\log X)^2\log\log X]\) that would
 refute H_PF, nor an upper bound \(\exp[-c(\log X)^{2+\epsilon}]\) that would
 support it.  Proving either is the remaining density problem.  Until then
 the correct label is: **H_PF false-looking, open**.
+
+## 22. Degree-two classification of transfer maps
+
+This section executes the low-degree search proposed at the end of §20.  It
+finds new maps, so its outcome is a discovery rather than a ``known maps
+only'' no-go theorem.  The most useful new maps multiply the two input
+moduli, multiply the two input values of \(k\), and have a strict descent on
+their image.  That image is not all targets.
+
+### 22.1 The search space and why the norm equation is not an extra equation
+
+Put \(h_i=4c_i k_i\), and, when a common modulus is used, write
+\(h_i=g r_i\), treating \(g,r_1,r_2\) as independent symbols.  The
+**universal degree-two search space** used here consists of pairs
+
+\[
+ (D',E')\in\mathbb Z[D_1,E_1,D_2,E_2]^2,
+ \qquad \max(\deg D',\deg E')\leq2,                         \tag{22.1}
+\]
+
+whose coefficients do not depend on a numerical slice.  The permitted
+output moduli are
+
+\[
+ M=g^\alpha h_1^\beta h_2^\gamma,
+ \quad \alpha,\beta,\gamma\geq0,
+ \quad 1\leq \alpha+\beta+\gamma\leq2.                     \tag{22.2}
+\]
+
+Thus quotients such as an lcm, rational maps, and coefficients which depend
+on \(h_i\) are outside this search.  This is the promised precise degree-two
+slot, not a classification of arbitrary rational correspondences.  Radial
+positivity means that the highest nonzero homogeneous part after the
+centering below has nonnegative coefficients, not all zero.  This implies
+positivity when all centered variables are scaled to infinity; every new
+map actually used below is positive on the entire positive orthant.
+
+For comparison with §20, let \(\mathcal K_{\leq2}\) be the maps obtained,
+up to input/output swaps, from raw-factor projections and products, one
+application of \(XY\mapsto XY-2\), integral coordinate translations, and
+a common-modulus interpretation as in (20.5b), with compositions retained
+only when their total degree is at most two.  A translation parameter may
+be a fixed integer or an integer polynomial in the admitted inputs, but not
+a quotient by a symbolic modulus; every nonconstant translated term
+therefore retains an explicit factor of that modulus.  This makes
+``known-generated'' an exact polynomial-map test while not artificially
+restricting polynomial shifts.  Its degree-two normal forms have at most
+one raw quadratic monomial in each corrected/product output coordinate;
+extra monomials introduced by translations have coefficients divisible by
+the relevant symbolic modulus.  Absorption by a whole second norm is degree
+three and hence is absent from this slot.  This enumeration will be used
+for nontriviality below.
+
+Set
+
+\[
+ z=(u_1,v_1,u_2,v_2)
+   =(D_1+1,E_1+1,D_2+1,E_2+1).                              \tag{22.3}
+\]
+
+**Theorem 22.1 (proved: complete coefficient classification at degree two).**
+Let \(Q\in\mathbb Z[D_1,E_1,D_2,E_2]\) have degree at most two, and let
+\(M\) be (22.2), with \(q=\alpha+\beta+\gamma\).  Then
+\(Q\equiv-1\pmod M\) as a polynomial consequence of
+\(D_i,E_i\equiv-1\pmod {h_i}\) if and only if
+
+\[
+ Q=-1+\sum_\nu q_\nu z^\nu,                                \tag{22.4}
+\]
+
+where every retained monomial satisfies
+
+\[
+ |\nu|\geq q,\qquad \nu_{u_1}+\nu_{v_1}\geq\beta,
+ \qquad \nu_{u_2}+\nu_{v_2}\geq\gamma,
+ \qquad |\nu|\leq2.                                        \tag{22.5}
+\]
+
+The coefficients \(q_\nu\) are arbitrary integers; radial positivity is the
+stated sign filter on their top-degree part.  The number of free coefficients
+for one output factor is
+
+\[
+\begin{array}{c|rrrrrrrrr}
+M&g&h_1&h_2&g^2&gh_1&gh_2&h_1^2&h_1h_2&h_2^2\\ \hline
+\#&14&9&9&10&7&7&3&4&3.
+\end{array}                                                  \tag{22.6}
+\]
+
+The two factors are independent, so the pair has twice the displayed
+number.  In particular, at the genuinely cross-modulus maximum
+\(M=h_1h_2\), every solution is exactly
+
+\[
+ D'=-1+(u_1,v_1)R(u_2,v_2)^T,
+ \qquad E'=-1+(u_1,v_1)S(u_2,v_2)^T                         \tag{22.7}
+\]
+
+for two integral \(2\times2\) matrices \(R,S\).  Nonnegative nonzero
+matrices make both factors positive for all inputs.
+
+*Proof.*  Substitute \(D_i=h_i x_i-1,E_i=h_i y_i-1\).  A centered monomial
+of slice-degrees \((d_1,d_2)\) acquires
+\(g^{d_1+d_2}r_1^{d_1}r_2^{d_2}\).  Divisibility by
+\(M=g^q r_1^\beta r_2^\gamma\) is therefore exactly (22.5).  Distinct
+monomials in the independent \(x_i,y_i,g,r_i\) cannot cancel a failed
+valuation.  Counting the allowed monomials gives (22.6); for \(h_1h_2\),
+only the four cross-bilinear monomials survive. ∎
+
+This also exposes a degeneracy in the originally suggested coefficient
+system.  Once \(D'=-1+F\) and \(E'=-1+G\) are each \(-1\pmod M\),
+
+\[
+ D'E'-1=FG-F-G=M T                                           \tag{22.8}
+\]
+
+identically.  Taking \(K'=1,C'=M/4,P'=T\) always supplies the norm
+structure.  Thus (b) adds no nonlinear equations to (a); the exact solve is
+a linear coefficient solve, not a Gröbner problem.  At \(M=h_1h_2\), a
+generic raw quadratic has 15 coefficients, the congruence system has rank
+11, and (22.7) is its four-parameter solution.  `verify.py (u)` replays this
+`linsolve` calculation and all dimensions in (22.6).
+
+The classification is already enough to answer the existence question:
+there are infinitely many maps besides §20's maps.  For example
+
+\[
+ D'=(D_1+1)(D_2+1)-1,
+ \qquad E'=(E_1+1)(E_2+1)-1,
+ \qquad M=h_1h_2.                                            \tag{22.9}
+\]
+
+Its raw linear coefficients are one, not multiples of a common modulus, and
+its output modulus is a product rather than a divisor of \(\gcd(h_1,h_2)\).
+It is therefore not in \(\mathcal K_{\leq2}\).  More generally, the
+nonnegative coefficient cone in (22.7) has the four centered products as
+its additive atoms.  Pairing two atoms has, modulo all input/output swaps,
+three support types: the same atom twice, two atoms sharing one input
+coordinate, and two opposite atoms.  The first gives
+\(P'=A(MA-2)\), hence no positive odd prime output; the second has a common
+parameter factor, and its natural inherited-\(k\) prime outputs force that
+factor to be one and reduce to a coordinate-grid rescaling.  Opposite atoms
+can produce primes, but under the default \(K'=1\) they cannot reach any of
+the six primes in §19.3, which have no \(k=1\) witness.
+
+### 22.2 A new cross-modulus, cross-\(k\) composition
+
+The source relation \(k_i\mid a_i+b_i\), which was not needed in Theorem
+22.1, permits a stronger interpretation of (22.7).  Write
+\(s_i=(a_i+b_i)/k_i\).  If the bilinear coefficient matrices in (22.7)
+are \(R,S\), then the quotient in (22.8) is divisible by \(k_1k_2\) for
+all source solutions exactly when
+
+\[
+                  R+S=\lambda
+                  \begin{pmatrix}1&1\\1&1\end{pmatrix}       \tag{22.10}
+\]
+
+for an integer \(\lambda\).  Indeed, reducing successively modulo \(k_1\)
+and \(k_2\) substitutes \(b_i=-a_i\); coefficient matching says all four
+entries of \(R+S\) are equal.  Then
+
+\[
+ \Phi+\Psi=\lambda(a_1+b_1)(a_2+b_2)
+            =\lambda k_1k_2s_1s_2.                           \tag{22.11}
+\]
+
+For nonnegative coefficients the coefficient-minimal solutions have
+\(\lambda=1\): the four tensor monomials
+
+\[
+ a_1a_2,\qquad a_1b_2,\qquad b_1a_2,\qquad b_1b_2.          \tag{22.12}
+\]
+
+are partitioned into two nonempty sets, whose sums are \(A=\Phi\) and
+\(B=\Psi\).  There are 14 ordered maps, seven up to output swap, and only
+three under all symmetries: a \(1+3\) split, an adjacent \(2+2\) split, and
+an opposite \(2+2\) split.  These are exactly the coefficient-minimal maps
+with both factors nonzero.  If zero-factor layers are admitted, all 16
+splits (including empty/full) form the degree-one-in-\(\lambda\) generators
+of the nonnegative coefficient semigroup; every larger \(\lambda\) is an
+entrywise superposition of those layers.
+
+**Theorem 22.2 (proved: tensor-partition composition and strict descent on
+its image).**  Let \((a_i,b_i,c_i,k_i)\), \(i=1,2\), be any two positive
+Type-II parameter solutions, with source integers
+
+\[
+ p_i=4a_ib_ic_i-s_i>0,\qquad s_i=(a_i+b_i)/k_i.
+\]
+
+Choose any nonempty proper partition of (22.12), and let \(A,B\) be the two
+sums.  Then
+
+\[
+ C=4c_1c_2,\qquad K=k_1k_2,
+ \qquad P=16c_1c_2AB-s_1s_2                                \tag{22.13}
+\]
+
+is a positive Type-II solution, because
+
+\[
+ A+B=(a_1+b_1)(a_2+b_2)=K s_1s_2,
+ \qquad P=4ABC-(A+B)/K.                                     \tag{22.14}
+\]
+
+On factors this is a degree-two map of form (22.7), with output modulus
+\(4CK=h_1h_2\).  It is not in \(\mathcal K_{\leq2}\): a nontrivial split
+has centered sums (and hence either multiple raw quadratic monomials or
+unit raw linear coefficients), while the known degree-two normal forms do
+not; also (20.5b) can only forget to a common divisor of the input moduli.
+Finally
+
+\[
+ P\geq(4a_1b_1c_1)(4a_2b_2c_2)-s_1s_2
+   =p_1p_2+p_1s_2+p_2s_1>\max(p_1,p_2).                     \tag{22.15}
+\]
+
+Thus every inverse of this map, wherever it exists, strictly lowers both
+source values.
+
+*Proof.*  Equations (22.13)--(22.14) prove the factor congruence, integrality,
+and norm identity.  For a \(1+3\) split, the singleton's opposite monomial
+lies in the other part, so their product already equals
+\(a_1b_1a_2b_2\).  An adjacent split gives, up to symmetry,
+\(AB=a_1b_1(a_2+b_2)^2\); an opposite split contains
+\(a_1b_1(a_2^2+b_2^2)\) in its expansion.  Each is at least
+\(a_1b_1a_2b_2\), proving (22.15).  The polynomial non-membership is the
+normal-form comparison just given. ∎
+
+For the \(1+3\) split, one explicit factor formula is
+
+\[
+\begin{aligned}
+ D'&=(D_1+1)(D_2+1)-1,\\
+ E'&=(D_1+1)(E_2+1)+(E_1+1)(D_2+1)
+       +(E_1+1)(E_2+1)-1.                                  \tag{22.16}
+\end{aligned}
+\]
+
+This gives real hard-prime transfers from smaller primes.  For example,
+using source tuples in the order \((p;a,b,c,k)\),
+
+\[
+ (17;1,6,1,1),(7;1,1,2,2)\longmapsto(409;1,13,8,2),          \tag{22.17}
+\]
+
+and
+
+\[
+ (7;1,2,1,3),(1217;17,18,1,5)
+       \longmapsto(23929;17,88,4,15).                        \tag{22.18}
+\]
+
+The opposite split is genuinely active too:
+
+\[
+ (73;2,5,2,1),(47;1,3,4,4)
+       \longmapsto(23929;17,11,32,4),                        \tag{22.19}
+\]
+
+since \(17=2\cdot1+5\cdot3\) and
+\(11=2\cdot3+5\cdot1\).  In particular, (22.18)--(22.19) reach a prime
+which has no \(k=1\) representation; these are not merely outputs of the
+\(K'=1\) normalization.
+
+**Computational Search 22.3 (exact finite enumeration, not a theorem about
+all primes).**  All positive parameter representations of a fixed target
+\(p\) can be enumerated without a search cutoff.  Since
+
+\[
+ p=4ABC-(A+B)/K\geq4AB-A-B\geq2AB,
+\]
+
+one has \(AB\leq p/2\); also \(K\mid A+B\), and then
+
+\[
+ C={Kp+A+B\over4ABK}.                                       \tag{22.20}
+\]
+
+Enumerating (22.20) for the six no-\(k=1\) primes gives
+
+\[
+\begin{array}{c|rrrrrr}
+p&409&577&5569&9601&23929&83449\\ \hline
+\#\text{ ordered parameter tuples}&14&14&20&14&78&30\\
+\#\text{ with }4\mid C&2&0&0&2&22&0.
+\end{array}                                                  \tag{22.21}
+\]
+
+Factoring \(A,C/4,K,(A+B)/K\) and checking all 14 primitive partitions
+shows that 409, 9601, and 23929 are reached from smaller prime sources;
+577, 5569, and 83449 are not.  The negative three are stronger than a
+failure of the primitive search: every maximal-modulus map with a natural
+\(K'\mid k_1k_2\) has
+
+\[
+ C'={h_1h_2\over4K'}
+    =4c_1c_2{k_1k_2\over K'},                               \tag{22.22}
+\]
+
+so it necessarily has \(4\mid C'\), while (22.21) exhausts *all* target
+parameter tuples.  Hence no inverse branch in this genuinely cross-modulus
+family is total.  `verify.py (u)` replays the complete bounded enumeration,
+the three reachability outcomes, and the displayed examples.
+
+The failure is proof-relevant.  Inverting a primitive map requires a target
+factor pair \((A,B,C,K)\), factorizations
+\(C=4c_1c_2\), \(K=k_1k_2\),
+\((A+B)/K=s_1s_2\), and a compatible partition (22.12).  When those data
+exist, (22.15) gives a genuine descent.  They do not exist for the three
+explicit targets above, and obtaining the initial target pair from a bare
+prime is still the original witness problem.  Thus this is a new partial
+descent, not an induction proving Erdős--Straus.
+
+### 22.3 The one-pair degree-three slot
+
+There is an equally short complete coefficient solve for a single witness
+pair.  Put \(u=D+1,v=E+1\).
+
+**Theorem 22.4 (proved: univariate-pair classification through degree
+three).**  Let \(Q\in\mathbb Z[D,E]\) have degree at most three.  For
+\(r=1,2,3\), the congruence \(Q\equiv-1\pmod {h^r}\) follows identically
+from \(D,E\equiv-1\pmod h\) if and only if
+
+\[
+ Q=-1+\sum_{r\leq i+j\leq3}q_{ij}u^iv^j.                    \tag{22.23}
+\]
+
+There are respectively 9, 7, and 4 free coefficients for one output factor.
+For degree at most two the corresponding counts are 5 and 3 for output
+moduli \(h,h^2\).  These are all solutions; the proof is the one-variable-
+slice specialization of Theorem 22.1.  The ranks \(1,3,6\) of the raw
+10-coefficient cubic systems are replayed in `verify.py (u)`.
+
+The coefficient-minimal maximal-modulus maps are pairs of centered
+monomials.  The only pair which can avoid a forced common factor for generic
+coprime \(a,b>1\) is, up to swaps,
+
+\[
+ D_r'=(D+1)^r-1,\qquad E_r'=(E+1)^r-1,
+ \qquad r=2,3.                                               \tag{22.24}
+\]
+
+With \(K'=1,C'=h^r/4\), their output is
+
+\[
+             P_r=h^r(ab)^r-a^r-b^r.                          \tag{22.25}
+\]
+
+For the \(p=5\) witness \((a,b,c,k)=(1,2,1,1)\), (22.25) gives
+\(P_2=59\) and \(P_3=503\).  Cubing can also reach hard primes: the
+\(p=103\) witness \((2,15,1,1)\) gives \(P_3=1,724,617\), which is prime
+and \(1\pmod {24}\).  Squaring cannot give a hard prime: if \(P_2\) is odd,
+exactly one of \(a,b\) is odd, so
+\(P_2\equiv-(a^2+b^2)\in\{3,7\}\pmod8\).
+
+There is again no total inverse.  The displayed inverse requires both
+\(D'+1\) and \(E'+1\) to be perfect \(r\)-th powers, all outputs in the
+\(K'=1\) interpretation have a \(k=1\) witness, and the natural maximal
+moduli have \(4\mid C'\).  Either (22.21)'s no-\(k=1\) result or its three
+no-\(4\mid C\) targets supplies an explicit obstruction.
+
+**Outcome.**  The degree-two universal polynomial system (22.1)--(22.2) is
+closed by Theorem 22.1, and the one-pair degree-three system by Theorem
+22.4.  The answer to ``are there other maps?'' is **yes**: centered-modulus
+lifts exist in an infinite coefficient family, and the tensor-partition
+maps (22.13) give new cross-modulus, cross-\(k\), prime-to-prime transfers
+with a strict lowering inverse on their image.  The answer to ``is the
+inverse total?'' is **no for these new maximal-modulus families**: three
+explicit primes below \(10^5\) have no parameter tuple with the necessary
+\(4\mid C\), and inversion still starts from the target witness pair.  No
+Erdős--Straus proof results.  Rational maps, quotient/lcm output moduli, and
+modulus-dependent polynomial coefficients remain outside the precisely
+fixed search space and are not claimed classified here.
