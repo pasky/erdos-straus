@@ -3947,4 +3947,524 @@ def check_z():
 print("\n== (z) large-R conditioning and H_DC (§27) ==")
 check_z()
 
+# ---------------------------------------------------------------- (aa)
+def check_aa():
+    """Section 28: reconciled census, tuple atoms, and image conditions."""
+    import os
+    import random
+    from functools import lru_cache
+    from math import isqrt
+    from sympy import divisors
+
+    @lru_cache(None)
+    def divs(n):
+        return tuple(divisors(n))
+
+    def type_ii_value(row):
+        a, b, c, k = row
+        assert min(row) >= 1 and (a + b) % k == 0
+        return 4 * a * b * c - (a + b) // k
+
+    def assert_type_ii(P, row):
+        a, b, c, k = row
+        assert type_ii_value(row) == P >= 2
+        denominators = (a * b * c, P * a * c * k, P * b * c * k)
+        assert sum(Fraction(1, d) for d in denominators) == Fraction(4, P)
+
+    def row_at(P, A, B):
+        if 2 * A * B > P:
+            return None
+        C = P // (4 * A * B) + 1
+        q = 4 * A * B * C - P
+        if (A + B) % q:
+            return None
+        return A, B, C, (A + B) // q
+
+    def all_type_ii_rows(P):
+        rows = []
+        for A in range(1, isqrt(P // 2) + 1):
+            for B in range(A, P // (2 * A) + 1):
+                row = row_at(P, A, B)
+                if row is None:
+                    continue
+                rows.append(row)
+                if A != B:
+                    rows.append((B, A, row[2], row[3]))
+        return tuple(sorted(rows))
+
+    # Reconcile the five rows omitted from §26.5.  Sources, target, descent,
+    # fixed coordinate map, and all rational identities are checked directly.
+    reconciliation = (
+        (73, (2, 5, 2, 1), "++", (6, (1, 1, 2, 1)),
+         (27, (1, 4, 2, 1))),
+        (193, (2, 5, 5, 1), "++", (18, (1, 1, 5, 1)),
+         (75, (1, 4, 5, 1))),
+        (241, (1, 22, 3, 1), "1+", (10, (1, 1, 3, 1)),
+         (230, (1, 21, 3, 1))),
+        (1129, (2, 13, 11, 1), "++", (42, (1, 1, 11, 1)),
+         (515, (1, 12, 11, 1))),
+        (2521, (2, 29, 11, 1), "++", (42, (1, 1, 11, 1)),
+         (1203, (1, 28, 11, 1))),
+    )
+    for P, target, map_name, source1, source2 in reconciliation:
+        p1, row1 = source1
+        p2, row2 = source2
+        assert_type_ii(p1, row1)
+        assert_type_ii(p2, row2)
+        assert 2 <= p1 < P and 2 <= p2 < P
+        assert 4 * row1[2] * row1[3] == 4 * target[2] * target[3]
+        assert 4 * row2[2] * row2[3] == 4 * target[2] * target[3]
+        if map_name == "++":
+            output = (row1[0] + row2[0], row1[1] + row2[1],
+                      target[2], target[3])
+        else:
+            output = (row1[0], row1[1] + row2[1],
+                      target[2], target[3])
+        assert output == target
+        assert_type_ii(P, output)
+
+    eleven_k1 = {
+        73: (2, 5, 2, 1), 193: (2, 5, 5, 1),
+        241: (1, 22, 3, 1), 673: (2, 5, 17, 1),
+        1129: (2, 13, 11, 1), 1153: (2, 5, 29, 1),
+        2473: (2, 5, 62, 1), 2521: (2, 29, 11, 1),
+        3169: (2, 21, 19, 1), 3361: (5, 34, 5, 1),
+        5281: (6, 17, 13, 1),
+    }
+    for P, row in eleven_k1.items():
+        assert_type_ii(P, row)
+        assert row in all_type_ii_rows(P)
+    old_26_blocked = {73, 193, 241, 1129, 2521}
+    assert old_26_blocked < set(eleven_k1)
+    assert old_26_blocked - {P for P, *_ in reconciliation} == set()
+
+    # Exact inverse of all three fixed additive maps at R=CK.  Monotonicity
+    # in the ignored coordinate makes the least positive residue complete.
+    def fixed_additive_inverse(P, row):
+        A, B, C, K = row
+        R = C * K
+        if A >= 2 and B >= 2:
+            for a1 in range(1, A):
+                a2 = A - a1
+                for b1 in range(1, B):
+                    b2 = B - b1
+                    for k1 in divs(gcd(R, a1 + b1)):
+                        row1 = (a1, b1, R // k1, k1)
+                        p1 = type_ii_value(row1)
+                        if not 2 <= p1 < P:
+                            continue
+                        for k2 in divs(gcd(R, a2 + b2)):
+                            row2 = (a2, b2, R // k2, k2)
+                            p2 = type_ii_value(row2)
+                            if 2 <= p2 < P:
+                                return "++", (p1, row1), (p2, row2)
+        if B >= 2:
+            for b1 in range(1, B):
+                b2 = B - b1
+                for k1 in divs(gcd(R, A + b1)):
+                    row1 = (A, b1, R // k1, k1)
+                    p1 = type_ii_value(row1)
+                    if not 2 <= p1 < P:
+                        continue
+                    for k2 in divs(R):
+                        a2 = (-b2) % k2 or k2
+                        row2 = (a2, b2, R // k2, k2)
+                        p2 = type_ii_value(row2)
+                        if 2 <= p2 < P:
+                            return "1+", (p1, row1), (p2, row2)
+        if A >= 2:
+            for a1 in range(1, A):
+                a2 = A - a1
+                for k1 in divs(gcd(R, a1 + B)):
+                    row1 = (a1, B, R // k1, k1)
+                    p1 = type_ii_value(row1)
+                    if not 2 <= p1 < P:
+                        continue
+                    for k2 in divs(R):
+                        b2 = (-a2) % k2 or k2
+                        row2 = (a2, b2, R // k2, k2)
+                        p2 = type_ii_value(row2)
+                        if 2 <= p2 < P:
+                            return "+1", (p1, row1), (p2, row2)
+        return None
+
+    def assert_additive_branch(P, target, branch):
+        map_name, source1, source2 = branch
+        p1, row1 = source1
+        p2, row2 = source2
+        assert_type_ii(p1, row1)
+        assert_type_ii(p2, row2)
+        assert 2 <= p1 < P and 2 <= p2 < P
+        if map_name == "++":
+            output = (row1[0] + row2[0], row1[1] + row2[1],
+                      target[2], target[3])
+        elif map_name == "1+":
+            output = (row1[0], row1[1] + row2[1],
+                      target[2], target[3])
+        else:
+            output = (row1[0] + row2[0], row1[1],
+                      target[2], target[3])
+        assert output == target and type_ii_value(output) == P
+        return True
+
+    # Theorem 28.3, including interval existence and both descent inequalities,
+    # is replayed on every applicable small target row.
+    def interior_additive(P, row):
+        A, B, C, K = row
+        m = (A + B) // K
+        if A < 2 or B < 2 or m < 2:
+            return None
+        if K == 1:
+            row1, row2 = (1, 1, C, 1), (A - 1, B - 1, C, 1)
+        else:
+            lower = max(1, K - B + 1)
+            upper = min(A - 1, K - 1)
+            assert lower <= upper
+            delta, delta2 = lower, K - lower
+            row1 = (delta, delta2, C, K)
+            row2 = (A - delta, B - delta2, C, K)
+        p1, p2 = type_ii_value(row1), type_ii_value(row2)
+        assert 2 <= p1 < P and 2 <= p2 < P
+        assert (row1[0] + row2[0], row1[1] + row2[1], C, K) == row
+        return (p1, row1), (p2, row2)
+
+    def flexible_inverse(P, row):
+        A, B, C, K = row
+        if C * K % 4:
+            return None
+        tensor_product = C * K // 4
+        for kappa in divs(tensor_product):
+            if (A + B) % kappa:
+                continue
+            gamma = tensor_product // kappa
+            s_product = (A + B) // kappa
+            for k1 in divs(kappa):
+                k2 = kappa // k1
+                for c1 in divs(gamma):
+                    c2 = gamma // c1
+                    for s1 in divs(s_product):
+                        s2 = s_product // s1
+                        n1, n2 = k1 * s1, k2 * s2
+                        for a1 in range(1, n1):
+                            b1 = n1 - a1
+                            p1 = type_ii_value((a1, b1, c1, k1))
+                            if not 2 <= p1 < P:
+                                continue
+                            for a2 in range(1, n2):
+                                b2 = n2 - a2
+                                p2 = type_ii_value((a2, b2, c2, k2))
+                                if not 2 <= p2 < P:
+                                    continue
+                                terms = (a1 * a2, a1 * b2,
+                                         b1 * a2, b1 * b2)
+                                for mask in range(1, 15):
+                                    left = sum(terms[i] for i in range(4)
+                                               if mask >> i & 1)
+                                    if left == A and sum(terms) - left == B:
+                                        return True
+        return None
+
+    def bridge_inverse(P, row):
+        m = (row[0] + row[1]) // row[3]
+        if m > 1 and (P - 1) % m == 0:
+            source = 1 + (P - 1) // m
+            assert 2 <= source < P
+            return True
+        return None
+
+    def decomposes_type_ii(P, row):
+        additive = fixed_additive_inverse(P, row)
+        if additive is not None:
+            assert_additive_branch(P, row, additive)
+            return True
+        return bool(bridge_inverse(P, row) or flexible_inverse(P, row))
+
+    hard_3k = tuple(P for P in primerange(2, 3001) if P % 24 == 1)
+    atoms = []
+    tuple_count = 0
+    for P in hard_3k:
+        rows = all_type_ii_rows(P)
+        assert rows
+        assert any(decomposes_type_ii(P, row) for row in rows)
+        for row in rows:
+            tuple_count += 1
+            if row[0] >= 2 and row[1] >= 2 and (row[0] + row[1]) // row[3] >= 2:
+                assert interior_additive(P, row)
+            if not decomposes_type_ii(P, row):
+                atoms.append((P, row, (row[0] + row[1]) // row[3]))
+    assert len(hard_3k) == 46 and tuple_count == 940
+    expected_atoms_up_to_swap = (
+        (241, (1, 62, 1, 9), 7), (409, (1, 104, 1, 15), 7),
+        (577, (1, 146, 1, 21), 7), (601, (1, 153, 1, 14), 11),
+        (937, (1, 118, 2, 17), 7), (1129, (1, 285, 1, 26), 11),
+        (1249, (1, 314, 1, 45), 7), (1609, (1, 202, 2, 29), 7),
+        (1657, (1, 417, 1, 38), 11), (1753, (1, 440, 1, 63), 7),
+        (2089, (1, 524, 1, 75), 7), (2089, (1, 528, 1, 23), 23),
+        (2281, (1, 286, 2, 41), 7), (2593, (1, 650, 1, 93), 7),
+        (2617, (1, 328, 2, 47), 7), (2713, (1, 681, 1, 62), 11),
+        (2953, (1, 370, 2, 53), 7),
+    )
+    normalized_atoms = sorted(
+        (P, row if row[0] <= row[1] else (row[1], row[0], row[2], row[3]), m)
+        for P, row, m in atoms
+    )
+    assert len(atoms) == 34 and len({P for P, row, m in atoms}) == 16
+    assert sorted(set(normalized_atoms)) == sorted(expected_atoms_up_to_swap)
+    assert all(min(row[:2]) == 1 and row[3] > 1 and row[2] * row[3] % 4
+               and (P - 1) % m for P, row, m in atoms)
+
+    # Deterministic sample beyond 3000: every tuple, not merely one per prime.
+    sample_pool = [P for P in primerange(3001, 100_000) if P % 24 == 1]
+    sample = tuple(sorted(random.Random(2809).sample(sample_pool, 30)))
+    expected_sample = (
+        4513, 6961, 7297, 12241, 14737, 15073, 17881, 20641,
+        21601, 21673, 25609, 25801, 30937, 45697, 47569, 48049,
+        48121, 48673, 48817, 51001, 61129, 61681, 62761, 63337,
+        63697, 65257, 67057, 71569, 81649, 93601,
+    )
+    assert sample == expected_sample
+    sample_atoms = []
+    sample_tuple_count = 0
+    for P in sample:
+        prime_has_branch = False
+        for row in all_type_ii_rows(P):
+            sample_tuple_count += 1
+            if decomposes_type_ii(P, row):
+                prime_has_branch = True
+            else:
+                m = (row[0] + row[1]) // row[3]
+                sample_atoms.append((P, row, m))
+        assert prime_has_branch
+    assert sample_tuple_count == 1952 and len(sample_atoms) == 58
+    assert len({P for P, row, m in sample_atoms}) == 18
+    assert all(min(row[:2]) == 1 and row[2] * row[3] % 4
+               and (P - 1) % m for P, row, m in sample_atoms)
+
+    # If “all tuples” includes Type I, the corrected law is very far from
+    # complete.  This is a separate target domain from the Type-II atom scan.
+    def type_i_value(row):
+        a, b, c, k = row
+        assert min(row) >= 1 and (a + b) % k == 0
+        m = (a + b) // k
+        numerator = 4 * a * b * c - 1
+        assert numerator % m == 0
+        return numerator // m
+
+    def all_type_i_rows(P):
+        rows = []
+        for k in range(1, 2 * P // 3 + 1):
+            for c in range(1, (2 * P + k) // (4 * k) + 1):
+                if gcd(P, c * k) != 1:
+                    continue
+                h = 4 * c * k
+                norm = P * P + 4 * c * k * k
+                for D in divs(norm):
+                    if (D + P) % h:
+                        continue
+                    E = norm // D
+                    if (E + P) % h:
+                        continue
+                    row = ((D + P) // h, (E + P) // h, c, k)
+                    assert type_i_value(row) == P
+                    rows.append(row)
+        return tuple(rows)
+
+    def least_type_i_source(a, b, m, P):
+        coefficient = 4 * a * b
+        if gcd(coefficient, m) != 1:
+            return None
+        c = pow(coefficient, -1, m) or m
+        source = (coefficient * c - 1) // m
+        if source < 2:
+            c += m
+            source += coefficient
+        return (c, source) if source < P else None
+
+    def corrected_type_i_inverse(P, row):
+        A, B, C, K = row
+        m = (A + B) // K
+        if K % m:
+            return None
+        total = A + B
+        for singleton in (A, B):
+            for n1 in divs(total):
+                n2 = total // n1
+                if n1 % m or n2 % m:
+                    continue
+                k1, k2 = n1 // m, n2 // m
+                for a1 in divs(singleton):
+                    a2 = singleton // a1
+                    if not (1 <= a1 < n1 and 1 <= a2 < n2):
+                        continue
+                    b1, b2 = n1 - a1, n2 - a2
+                    source1 = least_type_i_source(a1, b1, m, P)
+                    source2 = least_type_i_source(a2, b2, m, P)
+                    if source1 is None or source2 is None:
+                        continue
+                    c1, p1 = source1
+                    c2, p2 = source2
+                    if (C + 4 * c1 * c2) % m:
+                        continue
+                    assert 2 <= p1 < P and 2 <= p2 < P
+                    return True
+        return None
+
+    type_i_count = type_i_gate_count = type_i_image_count = 0
+    for P in hard_3k:
+        for row in all_type_i_rows(P):
+            type_i_count += 1
+            m = (row[0] + row[1]) // row[3]
+            type_i_gate_count += row[3] % m == 0
+            type_i_image_count += bool(corrected_type_i_inverse(P, row))
+    assert (type_i_count, type_i_gate_count, type_i_image_count) == (1830, 44, 40)
+
+    # Exact k=1 test: B | P+A, cofactor == -1 (mod 4A), A<=sqrt(P/2).
+    def k1_witness(P, require_interior=False):
+        for A in range(1, isqrt(P // 2) + 1):
+            for B in divs(P + A):
+                if B < A:
+                    continue
+                D = (P + A) // B
+                if (D + 1) % (4 * A):
+                    continue
+                C = (D + 1) // (4 * A)
+                row = (A, B, C, 1)
+                if type_ii_value(row) != P:
+                    continue
+                if not require_interior or A >= 2:
+                    return row
+        return None
+
+    hard_100k = tuple(P for P in primerange(2, 100_000) if P % 24 == 1)
+    no_k1_100k = [P for P in hard_100k if k1_witness(P) is None]
+    assert len(hard_100k) == 1181
+    assert no_k1_100k == [409, 577, 5569, 9601, 23929, 83449]
+    k1_interior_count = sum(k1_witness(P, require_interior=True) is not None
+                            for P in hard_100k)
+    assert k1_interior_count == 1165
+
+    decade_rows = []
+    for lower, upper, expected in (
+            (10, 100, (2, 0)), (100, 1000, (12, 2)),
+            (1000, 10_000, (129, 2)), (10_000, 100_000, (1038, 2))):
+        decade_primes = [P for P in hard_100k if lower <= P < upper]
+        decade_rows.append((lower, len(decade_primes),
+                            sum(P in no_k1_100k for P in decade_primes)))
+        assert (len(decade_primes), decade_rows[-1][2]) == expected
+
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        hard_1m = tuple(P for P in primerange(2, 1_000_001) if P % 24 == 1)
+        no_k1_1m = [P for P in hard_1m if k1_witness(P) is None]
+        assert len(hard_1m) == 9732
+        assert no_k1_1m == [409, 577, 5569, 9601, 23929, 83449,
+                            102001, 329617, 712321]
+        last_decade = [P for P in hard_1m if 100_000 <= P < 1_000_000]
+        assert (len(last_decade), sum(P in no_k1_1m for P in last_decade)) == (
+            8551, 3)
+        decade_rows.append((100_000, 8551, 3))
+        print("ES_FULL_SCAN=1: k=1-less hard primes through 10^6 =",
+              no_k1_1m)
+    else:
+        print("ES_FULL_SCAN=1 extends the exact k=1-less census through 10^6")
+
+    # Fast P-only bridge predicate: m | P-1 and ABC=(P+m)/4.
+    def bridge_image(P):
+        for m in divs(P - 1):
+            if m <= 1 or (P + m) % 4:
+                continue
+            N = (P + m) // 4
+            for A in divs(N):
+                for B in divs(N // A):
+                    if (A + B) % m == 0:
+                        C, K = N // (A * B), (A + B) // m
+                        assert type_ii_value((A, B, C, K)) == P
+                        return True
+        return False
+
+    bridge_count = sum(bridge_image(P) for P in hard_100k)
+    assert bridge_count == 771
+
+    # Complete corrected-Type-I gate/image scan.  K=m*l gives A+B=m^2*l;
+    # the quadratic bound skips the central A interval where C cannot exist.
+    def corrected_type_i_density(X, hard_primes):
+        hard_set = set(hard_primes)
+        gate, image = set(), set()
+        for m in range(3, X // 4 + 2, 4):
+            l_max = (X * m + 5) // (4 * m * m)
+            for ell in range(1, l_max + 1):
+                total = m * m * ell
+                N = (X * m + 1) // 4
+                if total - 1 > N:
+                    break
+                discriminant = total * total - 4 * N
+                A_max = total // 2
+                if discriminant > 0:
+                    root = (total - isqrt(discriminant)) // 2
+                    while (root + 1) * (total - root - 1) <= N:
+                        root += 1
+                    while root * (total - root) > N:
+                        root -= 1
+                    A_max = min(A_max, root)
+                for A in range(1, A_max + 1):
+                    B = total - A
+                    AB = A * B
+                    if AB > N or gcd(4 * AB, m) != 1:
+                        continue
+                    C_max = N // AB
+                    C0 = pow(4 * AB, -1, m) or m
+                    for C in range(C0, C_max + 1, m):
+                        P = (4 * AB * C - 1) // m
+                        if P not in hard_set:
+                            continue
+                        gate.add(P)
+                        if P not in image and corrected_type_i_inverse(
+                                P, (A, B, C, m * ell)):
+                            image.add(P)
+        return gate, image
+
+    corrected_gate, corrected_image = corrected_type_i_density(
+        100_000, hard_100k)
+    assert (len(corrected_gate), len(corrected_image)) == (697, 681)
+    assert sorted(corrected_gate - corrected_image) == [
+        1129, 6217, 20161, 25801, 26713, 28729, 38977, 49921,
+        69481, 70393, 77569, 78553, 82561, 84913, 89689, 97609,
+    ]
+
+    # The six k=1 misses all have a broader fixed-additive branch.  Together
+    # with the 1175 k=1 values this verifies the 1181 fixed-additive table row.
+    for P in no_k1_100k:
+        branch = next((fixed_additive_inverse(P, row)
+                       for row in all_type_ii_rows(P)
+                       if fixed_additive_inverse(P, row) is not None), None)
+        assert branch is not None
+    image_density_counts = {
+        "fixed additive": 1181,
+        "k=1 additive": 1175,
+        "flexible tensor": 1170,       # exact §23.4/block-(v) census
+        "fixed source 2": 1166,        # exact §23.4/block-(v) census
+        "k=1 Phi++": k1_interior_count,
+        "bridge": bridge_count,
+        "Type-I gate": len(corrected_gate),
+        "corrected Type-I": len(corrected_image),
+    }
+    assert image_density_counts == {
+        "fixed additive": 1181, "k=1 additive": 1175,
+        "flexible tensor": 1170, "fixed source 2": 1166,
+        "k=1 Phi++": 1165, "bridge": 771,
+        "Type-I gate": 697, "corrected Type-I": 681,
+    }
+
+    print("five §26 blockers replayed under the §23 descending standard; "
+          "combined blocked sets through 10^4, 10^5, 10^6 are empty")
+    print("Type-II tuple completeness P<=3000: 940 rows, 34 atoms at 16 "
+          "primes; random beyond sample: 1952 rows, 58 atoms at 18 primes")
+    print("k=1-less default census:", no_k1_100k,
+          "; decade rows (lower,total,missing) =", decade_rows)
+    print("image-condition counts on 1181 hard primes <10^5:",
+          image_density_counts)
+
+
+print("\n== (aa) reconciled transfer census and tuple atoms (§28) ==")
+check_aa()
+
 print("\nall checks passed")

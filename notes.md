@@ -8221,3 +8221,314 @@ refutation of H_PF.
 Thus the status does not change.  The new unconditional gain is a
 polylogarithmic extension and a prime/composite separation; the full
 large-\(R\), broad-cofactor composite system remains the exact obstruction.
+
+## 28. Reconciled transfer census, tuple atoms, and the forward-image residual
+
+Sections 25 and 26 were produced independently.  Their headline censuses used
+incompatible law sets: (26.22) combined §23 with the two §26 laws but omitted
+the fixed additive maps (25.11).  This section fixes the register, recomputes
+the union, and then asks the stronger tuple-by-tuple question.  Throughout,
+**decomposition** means that an already exhibited target tuple is a descending
+forward image of explicit source tuples.  It does not construct a tuple for an
+arbitrary prime.  **Existence** of a target tuple, or equivalently forward
+image totality from the integer alone, remains the Erdős--Straus problem.
+
+### 28.1 One reachability standard and the corrected combined census
+
+**Definition 28.1 (descending self-certified reachability).**  A target tuple
+of value \(P\) is *reached* by a transfer branch if the branch exhibits every
+source tuple explicitly, direct substitution verifies the appropriate Type-I
+or Type-II equation for each source, every source value \(p_i\) satisfies
+
+\[
+                         2\leq p_i<P,                         \tag{28.1}
+\]
+
+and the fixed forward formula lands on the displayed target tuple exactly.
+A value \(P\) is reached if at least one of its target tuples is reached.
+Source values need not be prime, hard, or reached by some earlier branch:
+their displayed tuples are their certificates.  This is precisely the
+standard used for the descending inverse branches in §23.3--§23.4 and the
+source rows in (25.10), (25.13), (26.16), and (26.20).  Merely finding a
+target tuple is not a transfer proof; conversely, starting an inverse search
+from one has already assumed witness existence.
+
+The five values left in (26.22) are covered by Corollary 25.6.1 under this
+same definition.  Here is the complete replay, now including the source
+tuples rather than only their values:
+
+\[
+\begin{array}{r|c|c|c|c}
+P&(A,B,C,K)&\text{map}&(p_1;a_1,b_1,c_1,k_1)&
+ (p_2;a_2,b_2,c_2,k_2)\\ \hline
+73&(2,5,2,1)&\Phi_{++}&(6;1,1,2,1)&(27;1,4,2,1)\\
+193&(2,5,5,1)&\Phi_{++}&(18;1,1,5,1)&(75;1,4,5,1)\\
+241&(1,22,3,1)&\Phi_{1+}&(10;1,1,3,1)&(230;1,21,3,1)\\
+1129&(2,13,11,1)&\Phi_{++}&(42;1,1,11,1)&(515;1,12,11,1)\\
+2521&(2,29,11,1)&\Phi_{++}&(42;1,1,11,1)&(1203;1,28,11,1).
+\end{array}                                                   \tag{28.2}
+\]
+
+For every source row, \(k_i\mid a_i+b_i\) and
+\(p_i=4a_ib_ic_i-(a_i+b_i)/k_i\); all ten values satisfy (28.1).  The common
+centered modulus is \(g=4C\).  Thus \(\Phi_{++}\) adds the two coordinate
+pairs, while \(\Phi_{1+}\) copies the first coordinate and adds the second:
+these operations give the target rows in (28.2), whose same formula gives
+exactly \(P\).  `verify.py (aa)` also checks all source and target unit-fraction
+identities with exact rationals.
+
+**Computational Search 28.2 (corrected prime-level union).**  With Definition
+28.1, the combined blocked set under all §23, §25, and §26 laws is
+
+\[
+\begin{array}{c|r|r|r|l}
+\text{range}&\#\{P\equiv1\ (24)\}&\text{pure tensor reached}&
+ \text{combined reached}&\text{combined blocked}\\ \hline
+P\leq10^4&143&132&143&\varnothing\\
+P<10^5&1181&1170&1181&\varnothing\\
+P\leq10^6&9732&9721&9732&\varnothing.
+\end{array}                                                   \tag{28.3}
+\]
+
+The first correction is simply \(132+11=143\), not (26.22)'s \(132+6=138\):
+all eleven pure-tensor resisters have the audited \(k=1\) rows (25.13), so
+Theorem 25.6 reaches them.  For \(P<10^5\), §23.4 proves that the same eleven
+are the only pure-tensor resisters, and (25.13) covers all eleven.  For
+\(P\leq10^6\), the exact one-candidate enumeration and census (25.14)--(25.15)
+prove that the pure-tensor resister set is still exactly those eleven; no
+extrapolation from \(10^5\) is being made.  The eleven rows are replayed, and
+30 deterministic random hard primes in \((3000,10^5)\) are independently
+spot-checked in block (aa).  Equation (28.3) is finite **witness-decomposition
+coverage**.  It is not witness existence for the next prime and is not a
+proof of the conjecture.
+
+### 28.2 Decomposition completeness fails, but the interior has a uniform map
+
+The target domain in this subsection is the complete set of ordered Type-II
+tuples of each hard prime.  This is the common target domain of the additive,
+flexible-tensor, and bridge inverses.  A corrected Type-I tensor targets a
+Type-I tuple; a Type-II tuple of a hard prime cannot simultaneously be a
+Type-I tuple of the same value.  Indeed equality of the two values forces
+\(m=1\) (or value 1), while \(m=1\) gives a value \(-1\pmod4\), not a hard
+prime.
+
+There is a useful extension of Theorem 25.6 away from \(K=1\).
+
+**Theorem 28.3 (proved: fixed additive descent on the interior).**  Let
+\((A,B,C,K)\) be a Type-II tuple for \(P\), put
+\(m=(A+B)/K\), and suppose \(A,B\geq2\) and \(m\geq2\).  Then the fixed map
+\(\Phi_{++}\), at common source and target modulus \(4CK\), is a descending
+image from two explicit Type-II source tuples.  For \(K=1\), use Theorem
+25.6.  For \(K\geq2\), choose any integer
+
+\[
+ \max(1,K-B+1)\leq\delta\leq\min(A-1,K-1),                  \tag{28.4}
+\]
+
+put \(\delta'=K-\delta\), and use
+
+\[
+ (\delta,\delta',C,K),\qquad
+ (A-\delta,B-\delta',C,K).                                  \tag{28.5}
+\]
+
+*Proof.*  The interval (28.4) is nonempty exactly because
+\(A,B\geq2\) and \(A+B=mK\geq2K\).  Both rows in (28.5) are positive; their
+coordinate sums are \(K\) and \((m-1)K\), so they are valid Type-II tuples.
+Their coordinatewise sum is the target, and both centered moduli equal
+\(4CK\), proving the forward-map assertion.  Write
+\(x=A-\delta,y=B-\delta'\).  The two source values are
+
+\[
+ p_1=4C\delta\delta'-1,
+ \qquad p_2=4Cxy-(m-1).
+\]
+
+Now \(P-p_2=4C(AB-xy)-1>0\).  Also
+\(AB-\delta\delta'=\delta y+\delta'x+xy\geq x+y+1
+=(m-1)K+1\geq m\), so \(P-p_1>0\).  Positivity gives \(p_i\geq2\), hence
+(28.1). ∎
+
+The suggested \((1,K-1)\) move is the first admissible choice in (28.4)
+when the boundary permits it.  A \((K,0)\) move is not a positive source.
+Copy/add maps can avoid that zero, but their descent then depends on divisors
+of \(CK\); they are not universal on the coordinate boundary.
+
+For completeness, the inverse of all three fixed additive maps was made
+finite and exact.  Put \(R=CK\).  For \(\Phi_{++}\), enumerate positive
+splits \(A=a_1+a_2,B=b_1+b_2\), then
+\(k_i\mid(R,a_i+b_i)\) and \(c_i=R/k_i\).  For \(\Phi_{1+}\), enumerate
+\(B=b_1+b_2\), take \(k_1\mid(R,A+b_1)\), and for each \(k_2\mid R\) take
+the least positive \(a_2\equiv-b_2\pmod{k_2}\); source value is increasing
+in \(a_2\), so this least representative makes the test complete.  The
+third map is symmetric.  Every candidate is checked against (28.1).
+
+**Computational Search 28.4 (all target tuples).**  Complete Type-II tuple
+enumeration gives 940 ordered rows over all 46 hard primes \(P\leq3000\).
+The union of the three exact additive inverses, flexible tensor inverse,
+bridge, and corrected-Type-I overlap leaves 34 rows, at 16 primes.  Up to
+coordinate swap the complete atom table is
+
+\[
+\begin{array}{r|c|r@{\qquad}r|c|r}
+P&(A,B,C,K)&m&P&(A,B,C,K)&m\\ \hline
+241&(1,62,1,9)&7&409&(1,104,1,15)&7\\
+577&(1,146,1,21)&7&601&(1,153,1,14)&11\\
+937&(1,118,2,17)&7&1129&(1,285,1,26)&11\\
+1249&(1,314,1,45)&7&1609&(1,202,2,29)&7\\
+1657&(1,417,1,38)&11&1753&(1,440,1,63)&7\\
+2089&(1,524,1,75)&7&2089&(1,528,1,23)&23\\
+2281&(1,286,2,41)&7&2593&(1,650,1,93)&7\\
+2617&(1,328,2,47)&7&2713&(1,681,1,62)&11\\
+2953&(1,370,2,53)&7&&&
+\end{array}                                                   \tag{28.6}
+\]
+
+Every row in (28.6) has a coordinate 1, \(K>1\), \(4\nmid CK\), and
+\(m\nmid P-1\).  Thus it lies outside Theorem 28.3, the flexible tensor, and
+the bridge; the exact additive inverse closes the remaining branches.  These
+are **tuple atoms**, not prime blockers: every listed prime has some other
+decomposable tuple.  On a deterministic random sample of 30 hard primes
+between 3000 and \(10^5\), all 1,952 Type-II rows were tested.  There are 58
+atoms at 18 primes; again every atom has a coordinate 1, \(4\nmid CK\), and
+\(m\nmid P-1\), while every sampled prime has at least one decomposable row.
+This refutes decomposition completeness for the fixed family and isolates
+the boundary, rather than producing a new prime-level resister frontier.
+
+If “every tuple” is read to include Type I as well, failure is much larger.
+There are 1,830 ordered Type-I rows at the same 46 primes.  Only 44 pass the
+necessary gate \(m\mid K\), and the exact corrected inverse decomposes 40;
+1,790 are outside the only fixed law here whose target is Type I.  The bridge
+points from a Type-I source to a Type-II target and does not change that
+count.
+
+### 28.3 The complete \(k=1\)-less census through one million
+
+There is a fast exact test requiring no arbitrary parameter cutoff.  By
+symmetry take \(A\leq B\).  From
+
+\[
+ P=4ABC-A-B
+\]
+
+one gets \(B\mid P+A\) and
+
+\[
+ {P+A\over B}=4AC-1\equiv-1\pmod{4A}.                       \tag{28.7}
+\]
+
+Conversely every divisor satisfying (28.7) reconstructs the positive integer
+\(C\).  Since every tuple has \(AB\leq P/2\), it is enough to test
+\(1\leq A\leq\lfloor\sqrt{P/2}\rfloor\).  Thus (28.7) is an exact finite
+test per prime.
+
+**Computational Search 28.5 (exact hard-prime census).**  Among hard primes
+\(P\equiv1\pmod{24}\), the complete \(k=1\)-less list through one million is
+
+\[
+ \boxed{409,577,5569,9601,23929,83449,102001,329617,712321}. \tag{28.8}
+\]
+
+The first six reproduce §19.3; the final three are new beyond \(10^5\).
+Counts by half-open decimal decade are
+
+\[
+\begin{array}{c|r|r|r}
+\text{range}&\#\text{ hard primes}&\#\text{ without }k=1&\text{fraction}\\ \hline
+[10,10^2)&2&0&0\\
+[10^2,10^3)&12&2&0.166667\\
+[10^3,10^4)&129&2&0.015504\\
+[10^4,10^5)&1038&2&0.001927\\
+[10^5,10^6)&8551&3&0.000351.
+\end{array}                                                   \tag{28.9}
+\]
+
+After the sparse first two decades, the observed proportion thins by roughly
+an order of magnitude per decade.  This is descriptive finite data, not a
+density theorem.  The default block (aa) replays (28.7) through \(10^5\);
+`ES_FULL_SCAN=1` extends the same code through \(10^6\).  The scan stores only
+the current divisor list and the output list.
+
+### 28.4 Forward images ranked, and the sharpened residual
+
+Each image condition can be stated arithmetically in \(P\) alone.  This does
+not remove its existential content.
+
+* **Fixed additive maps.**  There is a Type-II row
+  \((A,B,C,K)\) of \(P\), and positive source splits satisfying the exact
+  \(R=CK\) divisor conditions preceding Search 28.4 and (28.1).  The simple
+  \(\Phi_{++}\), \(K=1\) subimage is exactly the set of \(P\) having a
+  \(k=1\) row with \(A,B\geq2\); the three Theorem-25.6 branches together
+  are exactly the hard \(P\) having any \(k=1\) row.
+* **Flexible tensor.**  There is a Type-II row and the finite factor/split
+  data of Lemma 23.3, including (28.1).  For the source-2 singleton branch,
+  up to swaps there are positive \(a,b,c,k,C,K\) with
+  \(k\mid a+b\), \(CK=4ck\), \(K\mid2(a+b)\),
+  \((A,B)=(a,a+2b)\), source value
+  \(q=4abc-(a+b)/k\in[2,P)\), and
+  \(P=4ABC-2(a+b)/K\).  This is an explicit arithmetic shape, not a residue
+  class.
+* **Bridge.**  There is a Type-II row of \(P\) with
+  \(m=(A+B)/K>1\) and \(m\mid P-1\).  Equivalently,
+  \(ABC=(P+m)/4\), \(m\mid A+B\), and the smaller Type-I value is
+  \(1+(P-1)/m\).
+* **Corrected Type I.**  There is a Type-I row of \(P\), with
+  \(m=(A+B)/K\), satisfying the complete inverse data (26.17) and (28.1).
+  The easy condition \(m\mid K\) is only a necessary gate, not the image:
+  1129 already separates them.
+
+The exact/specified census densities for the 1,181 hard primes below
+\(10^5\), in decreasing order, are
+
+\[
+\begin{array}{l|r|r}
+\text{condition}&\#P&\text{fraction}\\ \hline
+\text{some exact fixed-additive branch}&1181&1.000000\\
+\text{some Theorem-25.6 }k=1\text{ branch}&1175&0.994920\\
+\text{full flexible-tensor inverse}&1170&0.990686\\
+\text{fixed-source-2 tensor inverse}&1166&0.987299\\
+\Phi_{++}\text{ on a }k=1\text{ row with }A,B\geq2&1165&0.986452\\
+\text{bridge}&771&0.652837\\
+\text{corrected-Type-I necessary gate }m\mid K&697&0.590178\\
+\text{exact corrected-Type-I inverse}&681&0.576630.
+\end{array}                                                   \tag{28.10}
+\]
+
+The \(k=1\), bridge, and Type-I rows in (28.10) are regenerated by fast exact
+arithmetic predicates in block (aa); the two tensor counts are the exact
+§23.4 census replayed by block (v).  The fixed-additive count is certified by
+the 1,175 \(k=1\) values plus exact branches for the six values in §19.3.
+The corrected-Type-I gate is enumerated without Lemma 26.2's broad loops:
+write \(K=m\ell\), so \(A+B=m^2\ell\), and enumerate
+\(C\equiv(4AB)^{-1}\pmod m\) under \(P=(4ABC-1)/m<10^5\); (26.17) then
+distinguishes 681 exact images from the 697 gate values.
+
+Empirically the additive image is broadest.  Structurally, however, its
+condition starts by asking for a Type-II witness and so has not solved the
+forward problem.  The source-2 branch is the most rigid and explicit high-
+density sufficient shape, but it already has finite misses.  The bridge and
+corrected-Type-I conditions are too sparse to be plausible individual
+all-large-prime statements.  No audited distribution theorem makes even the
+full disjunction pointwise-uniform.
+
+The weakest sufficient statement available from the combined fixed family is
+therefore its exact union:
+
+> **Residual conjecture H_W9 (forward-image totality).**  For every prime
+> \(P\equiv1\pmod{24}\), at least one of the exact predicates
+> \(I_{\rm add}(P)\), \(I_{\rm flex}(P)\),
+> \(I_{\rm Icorr}(P)\), or \(I_{\rm bridge}(P)\) above holds, including
+> explicit positive source tuple(s) with every source value in \([2,P)\)
+> and the corresponding fixed forward formula landing exactly at value
+> \(P\).
+
+A proof after any finite base check would prove Erdős--Straus for the hard
+primes, because every branch directly outputs a certified target tuple.
+H_W9 is weaker than requiring any one family to be total, but it is **not
+weaker than the raw residual problem of §17.6**.  It implies witness existence
+and imposes extra decomposability; the tuple atoms (28.6) show that witness
+existence does not imply decomposition of an arbitrary witness under this
+family.  The prime-level converse is exactly what is unknown.  Thus the empty
+finite blocked set and the 100% additive-image row in (28.10) are useful
+structure diagnostics, not a reduction in the proved logical hardness and
+not an Erdős--Straus proof.
