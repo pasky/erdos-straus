@@ -2,7 +2,7 @@
 
 Successor session to the campaign logged in `notes.md` (read it first, §3, §6,
 §8.3, §11 are the load-bearing sections; `verify.py` re-checks every
-computational companion claim in under 30 s). Goal: execute the one actionable
+computational companion claim in about 55 s). Goal: execute the one actionable
 lever found there.
 
 ## The target
@@ -59,7 +59,7 @@ large-deviations against actual data for hard-class primes).
 * `notes.md` — full campaign: criterion (Thm 3.1, proved), obstruction
   theorems (5.1, 9.3), reciprocity collapse (8.1/9.1), one-bit completeness
   (§10.2), independence data + joint record (§11.1), calibration (§11.3).
-* `verify.py` — under-30-second re-verification of all computational
+* `verify.py` — about-55-second re-verification of all computational
   companion claims.
 * `sources/henriot-1102.1643.pdf` — Henriot, NT bounds uniform in
   discriminant (quotes NT Thm 1, Holowinsky Thm 2 — the pair-case tools).
@@ -156,8 +156,8 @@ large-deviations against actual data for hard-class primes).
   5281.  **Combined two-type reachability \(\le10^4\): 138/143; exact
   blocked set \(\{73,193,241,1129,2521\}\)** — all five have explicit
   tuples of both types; blocked = not an image of the present laws;
-  forward-image totality is false for the present laws.
-* **§27 (large-\(R\) conditioning): near-cubic fiber cutoff.**  The §24.8
+  forward-image totality is false for the present laws (later: see Outcome 13).
+* **§27 (large-\(R\) conditioning): near-cubic fiber cutoff.**  Theorem 24.8's
   certificate hybridized with the prime-modulus slice extends joint
   avoidance to every fiber \(R\le Y\) with
   \(Y=L^3/(\log\log X)^{2+\eta}\), at cost
@@ -195,7 +195,8 @@ large-deviations against actual data for hard-class primes).
   order at any modulus reaches any resister tuple**.  The circularity trap
   (inverting a known tuple presupposes \(P\in S\)) is documented; the
   theorem to hunt is forward-image totality.  Unclassified: non-pure
-  (additive modulus-dependent) corrections, rational maps.
+  (additive modulus-dependent) corrections (later: see Outcome 12 for a fixed
+  additive family), rational maps.
 * **§24 (H_PF lower-bound routes): prime slice pinned, truncated fibers
   proved, refutation reduced.**  Lemma 24.3: full prime-modulus intrinsic
   mass \(\asymp(\log X)^2\).  Theorem 24.4: two-sided
@@ -225,7 +226,7 @@ large-deviations against actual data for hard-class primes).
   reappearing at the sieve-hypothesis level; unconditional upper bound
   |Av| ≪ N exp(−c(log X)²) for log N ≫ (log X)³; measured avoidance
   through X = 3200 fits (log X)² loglog X far better than (log X)³ (RMS
-  0.046 vs 0.169).  If the refutation completes, §18.6's conditional 3/4
+  0.046 vs 0.169).  If the refutation completes, Theorem 18.6's conditional 3/4
   route dies and Theorem 16.4 is near the intrinsic supply's true ceiling.
 * **§22 (degree-two transfer-map classification): new maps found.**
   Complete classification of universal factor-congruence polynomial maps at
@@ -237,7 +238,8 @@ large-deviations against actual data for hard-class primes).
   proved unreachable under the natural K' | k₁k₂ interpretations (no
   witness with 4 | C — exhaustive via AB ≤ p/2 bound); no total inverse,
   no induction, no proof.  Scope disclaimers: rational maps, quotient/lcm
-  moduli, modulus-dependent coefficients unclassified.
+  moduli, modulus-dependent coefficients unclassified (later partial
+  classifications: see Outcomes 11–12).
 
 ## Outcome 9 (2026-08-23, frontal assault — see notes.md §20; hostile-reviewed: repairable → repaired)
 
@@ -261,7 +263,8 @@ large-deviations against actual data for hard-class primes).
   least-counterexample) documented with exact failure points.  §20.5: the
   transfer door is colder — the one unclosed subslot is a non-monomial
   cross-modulus correspondence outside all classified maps, with no warm
-  candidate and a stated (not yet well-posed) classification direction.
+  candidate and a stated (not yet well-posed) classification direction
+  (later: see Outcomes 10–12).
 
 ## Outcome 8 (2026-08-23, the pointwise campaign — see notes.md §17–§19)
 
@@ -304,7 +307,7 @@ large-deviations against actual data for hard-class primes).
   all else impossible — mixed shapes carry wrong-window data), the induction
   hypothesis is window-irrelevant, and lattice transfers stay inside
   harvested classes; the three obvious routes yield no known transfer
-  (cleverer transfers remain unexcluded — the open P4 slot).
+  (cleverer transfers remain unexcluded — the open P4 slot; later: see Outcomes 9–13).
 * **§18 (full-harvest ceiling).**  Lemma 18.1: the Lemma-16.1 classes mod M
   are exactly {−4D : D | A²}, A = (M+1)/4.  Theorem 18.2: total identity
   supply is **exactly cubic** — Σ F(M)/M ≍ (log Q)³ — so B = 3 and θ = 3/4
@@ -330,11 +333,12 @@ large-deviations against actual data for hard-class primes).
   subgroup misses essentially absent (one case) — record primes enrich F3 to
   22%.  Type-II dictionary verified on all 36,384 stored witnesses (zero
   decomposition failures); six primes < 10⁵ (409, 577, 5569, 9601, 23929,
-  83449) need k ≥ 2.
+  83449) need k ≥ 2 (later: see Outcome 13 for the extended census).
 * **Honest verdict:** the conjecture is true-with-room on all evidence, the
   exceptional set is provisionally below Vaughan, and a full proof requires
   technology (pointwise-uniform divisor equidistribution in moving cosets, or
-  a prime-to-prime transfer structure) that currently does not exist — with
+  a prime-to-prime transfer structure) that currently does not exist
+  (later: see Outcomes 9–13) — with
   the reasons now theorem-level precise rather than folklore.
 
 ## Outcome 7 (2026-08-23, multiplier classes — see notes.md §16)
@@ -382,8 +386,8 @@ large-deviations against actual data for hard-class primes).
   theorem for arbitrary ℓ or k.  The varying q in the reconstructed family
   shows only that its explicit witnesses are not fixed-q; alternative fixed-q
   witnesses can cover the same class (as r=−4 does).  Thus the scan is not
-  guaranteed to upper-envelope all ℓ-local families.  No B>2 family was found.
-  `phase0_full.py` records the experiment; `verify.py (n)` replays it and
+  guaranteed to upper-envelope all ℓ-local families.  No B>2 family was found
+  (later: see Outcome 7).  `phase0_full.py` records the experiment; `verify.py (n)` replays it and
   checks the ℓ=103,199 closed forms.
 ## Outcome 5 (2026-08-19, phase nine — see notes.md §14.6)
 
@@ -455,7 +459,7 @@ large-deviations against actual data for hard-class primes).
   proof; total solution mass is (log p)³ but clusters log p per class.
   **The one visible door past 2/3: declustering — (log ℓ)^{2+δ}
   distinct forced classes per prime ℓ.**  Hybrids pay CS-halving and do
-  not add exponents.
+  not add exponents (later: see Outcome 7).
 
 ## Outcome 3 (2026-08-18, phase seven — see notes.md §13.5)
 
@@ -482,7 +486,7 @@ large-deviations against actual data for hard-class primes).
   sufficiency chain).
 * **Honest ledger:** a single modulus improves no E(N) bound (one w gives
   only N(log N)^{−1−ε/2}).  Open inputs now: (H3) the w-joint version
-  for stacking — with it this window route yields every θ < 1/2, not
+  for stacking (later: see Outcome 4) — with it this window route yields every θ < 1/2, not
   θ < 1 (the 2^{−ω} tilt's range cap h ≤ e^{(1/2−ε)λ} is structural);
   and the signed/n²-divisor variant (3^{−ω} tilt, Lemma 12.5's pair
   combinatorics as Euler factors), model range w ≤ (log N)^{2/3−ε},
@@ -522,8 +526,8 @@ large-deviations against actual data for hard-class primes).
   shifted primes: Selberg–Delange × BV hybrids, fixed-order, Rankin-
   controlled tails, τ-bounded BV multiplicities — no k! wall, no
   over-dispersion wall) uniformly for w ≤ (log N)^{1/2−ε}, plus the
-  w-joint H3 for stacking.  Proving H1'/H2' is the successor unit; the
-  naive-route obstructions (k!-vs-BV; unconditioned over-dispersion,
+  w-joint H3 for stacking (later: see Outcome 4).  Proving H1'/H2' is the
+  successor unit (later: see Outcome 3); the naive-route obstructions (k!-vs-BV; unconditioned over-dispersion,
   now quantified by Cor 13.6) are documented.
 
 ## Outcome (2026-08-17)
@@ -541,7 +545,7 @@ large-deviations against actual data for hard-class primes).
   throughout w≤(log N)^{1−ε}. The missing input is a growing-order,
   residue-marked factor-count theorem along a prime affine form. No uniform
   contraction ρ<1 for the actual shifted values, and hence no positive θ, was
-  proved.
+  proved (later: see Outcomes 2–3).
 * **Phase 3 corrected:** Vaughan uses many sufficient residue classes per
   auxiliary prime plus the large sieve and a Rankin tail, not growing-k shifted
   correlations. Pomerance–Weingartner §4 is the checked modern reconstruction;
