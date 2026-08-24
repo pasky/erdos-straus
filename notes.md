@@ -6948,9 +6948,9 @@ There are 116 ordered rows in all.  Every row has
 \(v_2(C)+v_2(A+B)\leq1\), as required by Lemma 23.6.  Every coordinate gcd
 is odd; the only non-unit gcd is 3 on the two \((3,63,7,6)\) rows for 5281.
 Thus the anatomy rechecks every input to Corollary 23.9.1 rather than merely
-rechecking its row counts.  `verify.py (x)` hard-codes all rows for
-73, 193, and 241, audits (25.1), the factorizations, parity data, gcds, and
-all eleven complete counts.
+rechecking its row counts.  `verify.py (x)` hard-codes all 116 rows and every displayed anatomy cell,
+including the expected factor dictionaries, and audits (25.1) and both
+counts in (25.2).
 
 ### 25.2 What the sub-maximal coefficient spaces actually say
 
@@ -6973,13 +6973,14 @@ linear values
 
 \[
  r_1a_1,
-_1b_1,
-_2a_2,
-_2b_2                              \tag{25.4}
+ r_1b_1,
+ r_2a_2,
+ r_2b_2                             \tag{25.4}
 \]
 
-and the ten quadratic values obtained by multiplying each degree-two
-monomial by the remaining factor \(g\).  This is the concrete coordinate
+and the ten values obtained by multiplying by \(g\) each degree-two
+monomial in these four weighted linear values.  Thus the original quadratic
+generators retain their \(r_i\)-weights.  This is the concrete coordinate
 form of the 9 and 14 entries in (22.6).
 
 **Lemma 25.2 (proved: pointwise-expressivity lattice).**  At a fixed source
@@ -7010,7 +7011,7 @@ integer coefficient pairs in (25.3) whose selected output is exactly
 fresh coefficient choice at each target reduces “reachability” to the bare
 condition that \(CK\) occur as \(c_1k_1\) for a smaller source.
 
-*Proof.*  Bézout gives independent \(\alpha,eta\) representing \(A\) and
+*Proof.*  Bézout gives independent \(\alpha,\beta\) representing \(A\) and
 \(B\); set all quadratic coefficients to zero.  Then
 \(h_1=4c_1k_1=4CK\), and reading at the target \((C,K)\) gives its two
 shifted factors. ∎
@@ -7081,8 +7082,9 @@ P&(A,B,C,K)&(p_1;a_1,b_1,c_1,k_1)&(p_2;a_2,b_2,c_2,k_2)\\ \hline
 \end{array}                                                  \tag{25.10}
 \]
 
-All source identities and output factors are replayed end to end in
-`verify.py (x)`.  The seven other primes resist this stated finite box.
+All source identities and output coordinates are replayed end to end in
+`verify.py (x)`; the target shifted factors are separately checked against
+the hard-coded anatomy table.  The seven other primes resist this stated finite box.
 There is no common mod-8 obstruction: four rows pass and the failures occur
 at the compatible shifted-divisor step (25.8).  No claim is made for
 coefficients outside \(\{\pm1,\pm2,\pm3\}\) or for general combinations of
@@ -7125,13 +7127,19 @@ gives \(P\).  Every source is a positive Type-II tuple.  In the first case,
 \(p_1=4C-2\), while
 
 \[
- P-p_2=4C(A+B-1)-2>0.
+ P-p_1=4C(AB-1)-A-B+2>0,
+ \qquad P-p_2=4C(A+B-1)-2>0;
 \]
 
-In the boundary case,
+the first inequality uses \(A,B\geq2\).  In the boundary case,
 \(p_1=4C-2\), \(p_2=4C(B-1)-B\), and
-\(P-p_2=4C-1>0\).  Positivity follows from
-\(4xy-x-y\geq2xy\) for positive \(x,y\). ∎
+
+\[
+ P-p_1=4C(B-1)-B+1=p_2+1>0,
+ \qquad P-p_2=4C-1>0.
+\]
+
+Positivity follows from \(4xy-x-y\geq2xy\) for positive \(x,y\). ∎
 
 **Corollary 25.6.1 (proved, with finite target audit).**  Every prime in
 (23.14) is a descending image of one of the three fixed maps (25.11).  One
@@ -7156,8 +7164,8 @@ P&(A,B,C,1)&p_1&p_2\\ \hline
 
 This explains exactly how non-pure maps shed the tensor's 2-adic weight:
 they add centered factors at modulus \(g\) instead of multiplying them at a
-modulus carrying \(v_2\geq4\).  None of the eleven remains a resister to the
-full degree-\(\leq2\) classification.
+modulus carrying \(v_2\geq4\).  All eleven lie in the descending image of the degree-one \(M=g\) subfamily
+of Theorem 22.1; their resistance was only to pure tensors.
 
 **Assessment 25.7 (the proposed finite-family non-cofiniteness theorem is
 not established).**  The residue-1 proof of Theorem 20.3 does not extend to
@@ -7221,9 +7229,10 @@ image contains all 9,732 census primes.  This is a finite computational
 coverage statement, not forward-image totality for unknown primes.
 
 `verify.py (x)` replays the \(P\leq20000\) row by default.  With
-`ES_FULL_SCAN=1` it replays the complete one-million row; the measured run
-used about 85 seconds and 63 MiB.  The default block takes well below 15
-seconds.
+`ES_FULL_SCAN=1` it replays the complete one-million row, including the 407
+fast-phase survivors.  One recorded environment-specific run used about 85
+seconds and 63 MiB peak memory; these figures are measurements, not bounds.
+The default block takes well below 15 seconds.
 
 ### 25.5 Rational and quotient readings
 

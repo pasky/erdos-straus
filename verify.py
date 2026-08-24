@@ -2913,17 +2913,112 @@ def check_x():
                     rows.append((B, A, row[2], row[3]))
         return sorted(rows)
 
-    # The first three anatomy lists are hard-coded in full, not inferred from
-    # the expected counts.  Their shifted factors are independently factored.
-    anatomy = {
-        73: ((1, 20, 1, 3), (1, 21, 1, 2), (2, 5, 2, 1),
-             (5, 2, 2, 1), (20, 1, 1, 3), (21, 1, 1, 2)),
-        193: ((2, 5, 5, 1), (2, 13, 2, 1),
-              (5, 2, 5, 1), (13, 2, 2, 1)),
-        241: ((1, 21, 3, 2), (1, 22, 3, 1), (1, 62, 1, 9),
-              (1, 69, 1, 2), (21, 1, 3, 2), (22, 1, 3, 1),
-              (62, 1, 1, 9), (69, 1, 1, 2)),
+    # Every displayed anatomy row and cell is a regression constant.  The last
+    # Boolean says that notes.md prints “+ swap”; expansion below also swaps the
+    # two hard-coded factor dictionaries.  These comparisons are deliberately
+    # independent of factorint's reconstruction of its own output.
+    # row, CK, v2(C), v2(A+B), gcd(A,B), factors(FA), factors(FB), add_swap
+    anatomy_rows = {
+        73: (
+            ((1, 20, 1, 3), 3, 0, 0, 1, ((11, 1),), ((239, 1),), False),
+            ((1, 21, 1, 2), 2, 0, 1, 1, ((7, 1),), ((167, 1),), False),
+            ((2, 5, 2, 1), 2, 1, 0, 1, ((3, 1), (5, 1)), ((3, 1), (13, 1)), False),
+            ((5, 2, 2, 1), 2, 1, 0, 1, ((3, 1), (13, 1)), ((3, 1), (5, 1)), False),
+            ((20, 1, 1, 3), 3, 0, 0, 1, ((239, 1),), ((11, 1),), False),
+            ((21, 1, 1, 2), 2, 0, 1, 1, ((167, 1),), ((7, 1),), False),
+        ),
+        193: (
+            ((2, 5, 5, 1), 5, 0, 0, 1, ((3, 1), (13, 1)), ((3, 2), (11, 1)), False),
+            ((2, 13, 2, 1), 2, 1, 0, 1, ((3, 1), (5, 1)), ((103, 1),), False),
+            ((5, 2, 5, 1), 5, 0, 0, 1, ((3, 2), (11, 1)), ((3, 1), (13, 1)), False),
+            ((13, 2, 2, 1), 2, 1, 0, 1, ((103, 1),), ((3, 1), (5, 1)), False),
+        ),
+        241: (
+            ((1, 21, 3, 2), 6, 0, 1, 1, ((23, 1),), ((503, 1),), False),
+            ((1, 22, 3, 1), 3, 0, 0, 1, ((11, 1),), ((263, 1),), False),
+            ((1, 62, 1, 9), 9, 0, 0, 1, ((5, 1), (7, 1)), ((23, 1), (97, 1)), False),
+            ((1, 69, 1, 2), 2, 0, 1, 1, ((7, 1),), ((19, 1), (29, 1)), False),
+            ((21, 1, 3, 2), 6, 0, 1, 1, ((503, 1),), ((23, 1),), False),
+            ((22, 1, 3, 1), 3, 0, 0, 1, ((263, 1),), ((11, 1),), False),
+            ((62, 1, 1, 9), 9, 0, 0, 1, ((23, 1), (97, 1)), ((5, 1), (7, 1)), False),
+            ((69, 1, 1, 2), 2, 0, 1, 1, ((19, 1), (29, 1)), ((7, 1),), False),
+        ),
+        673: (
+            ((1, 34, 5, 5), 25, 0, 0, 1, ((3, 2), (11, 1)), ((3, 1), (11, 1), (103, 1)), True),
+            ((2, 5, 17, 1), 17, 0, 0, 1, ((3, 3), (5, 1)), ((3, 1), (113, 1)), True),
+            ((2, 43, 2, 3), 6, 1, 0, 1, ((47, 1),), ((1031, 1),), True),
+            ((2, 45, 2, 1), 2, 1, 0, 1, ((3, 1), (5, 1)), ((359, 1),), True),
+            ((3, 19, 3, 2), 6, 0, 1, 1, ((71, 1),), ((5, 1), (7, 1), (13, 1)), True),
+        ),
+        1129: (
+            ((1, 285, 1, 26), 26, 0, 1, 1, ((103, 1),), ((107, 1), (277, 1)), True),
+            ((1, 308, 1, 3), 3, 0, 0, 1, ((11, 1),), ((5, 1), (739, 1)), True),
+            ((2, 13, 11, 1), 11, 0, 0, 1, ((3, 1), (29, 1)), ((571, 1),), True),
+            ((2, 29, 5, 1), 5, 0, 0, 1, ((3, 1), (13, 1)), ((3, 1), (193, 1)), True),
+            ((3, 19, 5, 2), 10, 0, 1, 1, ((7, 1), (17, 1)), ((3, 1), (11, 1), (23, 1)), True),
+        ),
+        1153: (
+            ((1, 17, 17, 6), 102, 0, 1, 1, ((11, 1), (37, 1)), ((5, 1), (19, 1), (73, 1)), True),
+            ((2, 5, 29, 1), 29, 0, 0, 1, ((3, 1), (7, 1), (11, 1)), ((3, 1), (193, 1)), True),
+            ((2, 21, 7, 1), 7, 0, 0, 1, ((5, 1), (11, 1)), ((587, 1),), True),
+            ((2, 73, 2, 5), 10, 1, 0, 1, ((79, 1),), ((3, 1), (7, 1), (139, 1)), True),
+            ((2, 77, 2, 1), 2, 1, 0, 1, ((3, 1), (5, 1)), ((3, 1), (5, 1), (41, 1)), True),
+            ((2, 145, 1, 21), 21, 0, 0, 1, ((167, 1),), ((19, 1), (641, 1)), True),
+            ((2, 165, 1, 1), 1, 0, 0, 1, ((7, 1),), ((659, 1),), True),
+            ((5, 58, 1, 9), 9, 0, 0, 1, ((179, 1),), ((2087, 1),), True),
+        ),
+        2473: (
+            ((1, 20, 31, 3), 93, 0, 0, 1, ((7, 1), (53, 1)), ((43, 1), (173, 1)), True),
+            ((1, 62, 10, 9), 90, 1, 0, 1, ((359, 1),), ((11, 1), (2029, 1)), True),
+            ((1, 209, 3, 6), 18, 0, 1, 1, ((71, 1),), ((41, 1), (367, 1)), True),
+            ((1, 212, 3, 3), 9, 0, 0, 1, ((5, 1), (7, 1)), ((13, 1), (587, 1)), True),
+            ((2, 5, 62, 1), 62, 1, 0, 1, ((3, 2), (5, 1), (11, 1)), ((3, 1), (7, 1), (59, 1)), True),
+            ((2, 45, 7, 1), 7, 0, 0, 1, ((5, 1), (11, 1)), ((1259, 1),), True),
+            ((2, 165, 2, 1), 2, 1, 0, 1, ((3, 1), (5, 1)), ((1319, 1),), True),
+            ((4, 31, 5, 5), 25, 0, 0, 1, ((3, 1), (7, 1), (19, 1)), ((3, 1), (1033, 1)), True),
+            ((5, 42, 3, 1), 3, 0, 0, 1, ((59, 1),), ((503, 1),), True),
+        ),
+        2521: (
+            ((2, 29, 11, 1), 11, 0, 0, 1, ((3, 1), (29, 1)), ((3, 1), (5, 2), (17, 1)), True),
+            ((2, 159, 2, 7), 14, 1, 0, 1, ((3, 1), (37, 1)), ((29, 1), (307, 1)), True),
+            ((4, 161, 1, 3), 3, 0, 0, 1, ((47, 1),), ((1931, 1),), True),
+        ),
+        3169: (
+            ((1, 114, 7, 5), 35, 0, 0, 1, ((139, 1),), ((15959, 1),), True),
+            ((1, 797, 1, 42), 42, 0, 1, 1, ((167, 1),), ((5, 1), (61, 1), (439, 1)), True),
+            ((1, 834, 1, 5), 5, 0, 0, 1, ((19, 1),), ((13, 1), (1283, 1)), True),
+            ((2, 21, 19, 1), 19, 0, 0, 1, ((151, 1),), ((5, 1), (11, 1), (29, 1)), True),
+            ((2, 397, 1, 57), 57, 0, 0, 1, ((5, 1), (7, 1), (13, 1)), ((5, 1), (43, 1), (421, 1)), True),
+            ((2, 453, 1, 1), 1, 0, 0, 1, ((7, 1),), ((1811, 1),), True),
+        ),
+        3361: (
+            ((1, 29, 29, 10), 290, 0, 1, 1, ((19, 1), (61, 1)), ((3, 1), (11213, 1)), True),
+            ((5, 34, 5, 1), 5, 0, 0, 1, ((3, 2), (11, 1)), ((7, 1), (97, 1)), True),
+        ),
+        5281: (
+            ((1, 21, 63, 2), 126, 0, 1, 1, ((503, 1),), ((19, 1), (557, 1)), True),
+            ((1, 38, 35, 1), 35, 0, 0, 1, ((139, 1),), ((3, 3), (197, 1)), True),
+            ((1, 265, 5, 14), 70, 0, 1, 1, ((3, 2), (31, 1)), ((3, 1), (24733, 1)), True),
+            ((1, 278, 5, 1), 5, 0, 0, 1, ((19, 1),), ((3, 1), (17, 1), (109, 1)), True),
+            ((1, 1322, 1, 189), 189, 0, 0, 1, ((5, 1), (151, 1)), ((999431, 1),), True),
+            ((1, 1329, 1, 38), 38, 0, 1, 1, ((151, 1),), ((13, 1), (41, 1), (379, 1)), True),
+            ((1, 1358, 1, 9), 9, 0, 0, 1, ((5, 1), (7, 1)), ((19, 1), (31, 1), (83, 1)), True),
+            ((1, 1509, 1, 2), 2, 0, 1, 1, ((7, 1),), ((12071, 1),), True),
+            ((3, 63, 7, 6), 42, 0, 1, 3, ((503, 1),), ((19, 1), (557, 1)), True),
+            ((6, 17, 13, 1), 13, 0, 0, 1, ((311, 1),), ((883, 1),), True),
+            ((13, 102, 1, 5), 5, 0, 0, 1, ((7, 1), (37, 1)), ((2039, 1),), True),
+        ),
     }
+    expected_anatomy = {P: {} for P in resisters}
+    for P, displayed_rows in anatomy_rows.items():
+        for row, R, vC, vSum, coordinate_gcd, factors_A, factors_B, add_swap in displayed_rows:
+            expected_anatomy[P][row] = (R, vC, vSum, coordinate_gcd, factors_A, factors_B)
+            if add_swap:
+                swapped = (row[1], row[0], row[2], row[3])
+                expected_anatomy[P][swapped] = (
+                    R, vC, vSum, coordinate_gcd, factors_B, factors_A,
+                )
+
     expected_counts = (6, 4, 8, 10, 10, 16, 18, 6, 12, 4, 22)
     expected_distinct_CK = (2, 2, 4, 4, 5, 8, 9, 3, 6, 2, 10)
     rows_by_P = {}
@@ -2932,16 +3027,21 @@ def check_x():
         rows = all_rows(P)
         rows_by_P[P] = rows
         assert len(rows) == expected_count
+        assert set(rows) == set(expected_anatomy[P])
         assert len({C * K for A, B, C, K in rows}) == expected_CK_count
-        if P in anatomy:
-            assert tuple(rows) == anatomy[P]
-        for A, B, C, K in rows:
-            assert_tuple(P, (A, B, C, K))
+        for row in rows:
+            A, B, C, K = row
+            assert_tuple(P, row)
             R = C * K
             FA, FB = 4 * A * R - 1, 4 * B * R - 1
+            expected_R, expected_vC, expected_vSum, expected_gcd, expected_FA, expected_FB = expected_anatomy[P][row]
+            assert R == expected_R
+            assert v2(C) == expected_vC
+            assert v2(A + B) == expected_vSum
+            assert gcd(A, B) == expected_gcd
+            assert tuple(sorted(factorint(FA).items())) == expected_FA
+            assert tuple(sorted(factorint(FB).items())) == expected_FB
             assert FA * FB == 4 * P * C * K * K + 1
-            assert prod(p**e for p, e in factorint(FA).items()) == FA
-            assert prod(p**e for p, e in factorint(FB).items()) == FB
             assert v2(C) + v2(A + B) <= 1
             assert gcd(A, B) % 2 == 1
 
@@ -3080,11 +3180,26 @@ def check_x():
         assert 4 * source2[2] * source2[3] == 4 * R
         return map_name, (p1, source1), (p2, source2)
 
+    displayed_additive = {
+        73: ((2, 5, 2, 1), 6, 27),
+        193: ((2, 5, 5, 1), 18, 75),
+        241: ((1, 22, 3, 1), 10, 230),
+        673: ((2, 5, 17, 1), 66, 267),
+        1129: ((2, 13, 11, 1), 42, 515),
+        1153: ((2, 5, 29, 1), 114, 459),
+        2473: ((2, 5, 62, 1), 246, 987),
+        2521: ((2, 29, 11, 1), 42, 1203),
+        3169: ((2, 21, 19, 1), 74, 1499),
+        3361: ((5, 34, 5, 1), 18, 2603),
+        5281: ((6, 17, 13, 1), 50, 4139),
+    }
     additive_resister_targets = {}
-    for P in resisters:
-        target = next(row for row in rows_by_P[P]
-                      if row[3] == 1 and row[:2] != (1, 1))
-        assert additive_certificate(P, target)
+    for P, (target, expected_p1, expected_p2) in displayed_additive.items():
+        assert target in rows_by_P[P]
+        certificate = additive_certificate(P, target)
+        assert certificate is not None
+        _, (p1, _), (p2, _) = certificate
+        assert (p1, p2) == (expected_p1, expected_p2)
         additive_resister_targets[P] = target
 
     # Fast fixed-source-2 inverse used in the census.
@@ -3190,7 +3305,11 @@ def check_x():
             extras.append(P)
             target_by_P[P] = target
 
-        # Pure tensors cover every qualifying row.  For the residual eleven,
+        if stop == 1_000_001:
+            assert len(pending) == 407
+
+        # A pure descending certificate exists for every prime having a
+        # qualifying row.  For the residual eleven,
         # the fixed additive maps cover a k=1 row.  This remains diagnostic
         # descent: selecting that target row has already supplied a witness.
         assert set(target_by_P) == set(primes)
@@ -3227,7 +3346,7 @@ def check_x():
                for C2 in divs(6) for K2 in range(1, isqrt(6) + 1)
                if C2 * K2 * K2 == 6 for D, E in (old_factors,))
 
-    print("resister anatomy: 116 ordered rows exact; 73/193/241 full lists "
+    print("resister anatomy: all 116 ordered rows and displayed cells "
           "hard-coded; every row has a smaller ck-matched source")
     print("shifted h1 maps (cross coefficients ±1..±3): four targets fall "
           "{1153,2473,3361,5281}; seven resist this finite box")
