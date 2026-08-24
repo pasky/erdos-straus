@@ -81,6 +81,58 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 12 (2026-08-24, wave 8 — see notes.md §25–§27; all three hostile-reviewed: repairable → repaired)
+
+* **§25 (sub-maximal maps): the eleven pure-tensor resisters all fall to
+  fixed additive maps — as witness decomposition, not witness existence.**
+  Shifted degree-two maps at modulus \(h_1\) (finite \(\pm1..\pm3\)
+  coefficient box, exact inverse) reach 1153, 2473, 3361, 5281.  Theorem
+  25.6: three fixed degree-ONE additive maps at modulus \(g\) decompose
+  EVERY \(k=1\) Type-II tuple \((A,B,C,1)\ne(1,1,C,1)\) into two explicit
+  smaller-value source tuples — all eleven resisters are decomposition
+  images (Corollary 25.6.1, finite audit).  This is how non-pure maps shed
+  the tensor's 2-adic weight: addition at modulus \(g\) instead of
+  multiplication at \(v_2\ge4\).  Assessment 25.7 (honest ceiling): the
+  proposed finite-family non-cofiniteness theorem is NOT established — the
+  three fixed maps' image already contains every hard prime with a
+  \(k=1\) tuple, and inverting any tuple presupposes the witness; **the
+  entire transfer axis so far is witness decomposition; witness existence
+  (forward totality from scratch) remains the conjecture.**  Census
+  (exact, ES_FULL_SCAN-replayable): all 9,732 hard primes \(<10^6\) —
+  pure-tensor descending inverses for 9,721; the pure-tensor resister set
+  stays exactly the eleven of (23.14); no new resisters in
+  \([10^5,10^6]\).
+* **§26 (Type-I transfer theory — first of its kind).**  Foundations: the
+  Type-I divisor form \((4ack-p)(4bck-p)=p^2+4ck^2\) with exact
+  gcd bookkeeping and a PROVED finite enumeration of all Type-I tuples per
+  \(p\) (no experimental cutoffs; stress-tested against brute force).
+  Brahmagupta composition of the norms exists but lands in the wrong
+  divisor grade (\(+P\) vs \(-P\) mod \(4c\) — the §20.2 sign obstruction's
+  mirror; degenerate \(K_\sigma=0\) handled after review).  Theorem 26.4
+  (corrected binary Type-I tensor, same \(m\)): \(A=a_1a_2\),
+  \(B=(a_1+b_1)(a_2+b_2)-A\), \(C=mt-4c_1c_2\), \(K=k_1k_2m\),
+  \(P=(4ABC-1)/m\) — with exact finite inverse test; reaches 2473, 3169,
+  5281 with prime sources.  Theorem 26.5 (same-tuple cross-type bridge):
+  \(Q=m(p-1)+1\), strict descent for \(m>1\); reaches 673, 1153, 3361,
+  5281.  **Combined two-type reachability \(\le10^4\): 138/143; exact
+  blocked set \(\{73,193,241,1129,2521\}\)** — all five have explicit
+  tuples of both types; blocked = not an image of the present laws;
+  forward-image totality is false for the present laws.
+* **§27 (large-\(R\) conditioning): near-cubic fiber cutoff.**  The §24.8
+  certificate hybridized with the prime-modulus slice extends joint
+  avoidance to every fiber \(R\le Y\) with
+  \(Y=L^3/(\log\log X)^{2+\eta}\), at cost
+  \(\exp[-O(H_Y\log\log X+L^2)]\), \(H_Y=\sum_{R\le Y}2^{\omega(R)}\)
+  (proved; probability spaces separated after review).  The remaining wall
+  is named exactly: the weighted rough-modulus broad-cofactor clustering
+  estimate (27.17) + a finite-interval cluster-expansion transfer;
+  the elementary LLL charge diverges.  H_DC (falsifiable divisor-clustering
+  hypothesis) formulated; H_DC \(\Rightarrow\) H_PF false.  New exact
+  X=6400 sample (2.4e9 draws, reproducible C++ sampler + raw chunks
+  checked in): survivor rate 1.14e-7, Wilson [1.01,1.29]e-7; the
+  \(L^2\log L\) fit still dominates the subset benchmark.  **H_PF: still
+  false-looking, open.**
+
 ## Outcome 11 (2026-08-24, wave 7 — see notes.md §23–§24; both hostile-reviewed: repairable → repaired)
 
 * **§23 (flexible tensor reinterpretation): all six §22 blockers fall; the
