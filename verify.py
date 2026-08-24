@@ -5373,4 +5373,62 @@ def check_ae():
 print("\n== (ae) k=1 certification and nine-prime anatomy (§32) ==")
 check_ae()
 
+# ---------------------------------------------------------------- (af)
+def check_af():
+    """Section 33: exact windows and failure of prime-coordinate tensoring."""
+    import numpy as np
+
+    def exact_avoiders(X0):
+        moduli0 = list(range(3, X0 + 1, 4))
+        period0 = lcm(*moduli0)
+        alive0 = np.ones(period0, dtype=np.bool_)
+        for M0 in moduli0:
+            A0 = (M0 + 1) // 4
+            for D0 in divisors_of_square(A0):
+                alive0[(-4 * D0) % M0::M0] = False
+        return period0, alive0
+
+    expected = {
+        15: (1155, 256, {100: (18, 27), 1000: (217, 226)}),
+        23: (504735, 57344,
+             {100: (4, 21), 1000: (98, 128),
+              10000: (1110, 1161), 100000: (11340, 11385)}),
+    }
+    rows = []
+    saved15 = None
+    for X0, (period_expected, survivors_expected, windows) in expected.items():
+        period0, alive0 = exact_avoiders(X0)
+        survivors0 = int(alive0.sum())
+        assert (period0, survivors0) == (period_expected, survivors_expected)
+        max_window = max(windows)
+        extended = np.concatenate((alive0, alive0[:max_window]))
+        prefix = np.empty(extended.size + 1, dtype=np.int64)
+        prefix[0] = 0
+        np.cumsum(extended, out=prefix[1:])
+        for width, extrema in windows.items():
+            counts = prefix[width:width + period0] - prefix[:period0]
+            got = (int(counts.min()), int(counts.max()))
+            assert got == extrema
+            # Every survivor belongs to exactly width cyclic windows.
+            assert int(counts.sum()) == width * survivors0
+            rows.append((X0, width, got[0],
+                         round(width * survivors0 / period0, 4), got[1]))
+        if X0 == 15:
+            saved15 = alive0
+
+    # Three corners of a prime-coordinate rectangle survive, but the fourth
+    # is the intrinsic class 13 mod 15 (D=8).  A tensor product cannot do this.
+    rectangle = (231, 616, 693, 1078)
+    assert [(n % 3, n % 5, n % 7, n % 11) for n in rectangle] == [
+        (0, 1, 0, 0), (1, 1, 0, 0), (0, 3, 0, 0), (1, 3, 0, 0)]
+    assert [bool(saved15[n]) for n in rectangle] == [True, True, True, False]
+    assert 1078 % 15 == (-4 * 8) % 15 and 16 % 8 == 0
+
+    print("exact cyclic windows (X,W,min,mean,max) =", rows)
+    print("X=15 prime-coordinate rectangle: three survivors, crossed corner killed")
+
+
+print("\n== (af) finite-window transfer obstructions (§33) ==")
+check_af()
+
 print("\nall checks passed")

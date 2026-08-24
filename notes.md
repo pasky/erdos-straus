@@ -10344,3 +10344,353 @@ nine-prime table, then performs the Type-I-less scan through \(10^5\).  It
 reproduces the four finite mass-ratio rows in (32.13); it does not
 machine-check either mass asymptotic or Theorem 32.4.  The default block is
 memory-bounded and runs in under ten seconds on the campaign host.
+
+---
+
+## 33. The critical-window transfer: cylinder and local-sieve walls
+
+Put \(L=\log X\), and retain the complete intrinsic avoider
+\({\rm Av}_X\) of §21.  This section attacks the finite-window residual
+(31.28).  The conclusions are deliberately scoped.  The small-cylinder
+wall, the raw residual count, the finite-transfer criterion, and the failure
+of prime-power tensor factorization are **proved**.  The assessment of a
+classical beta-sieve substitution is a no-go for that stated substitution,
+not for every possible hypergraph sieve.  The target (31.28), and hence
+\(H_{\rm PF}'\), remain **OPEN**.
+
+### 33.1 What the local lemma does not localize
+
+There is an immediate obstruction to turning Theorem 31.4 into a union of
+small-modulus classes.
+
+**Theorem 33.1 (exact all-avoider cylinder wall; proved).**  Suppose that a
+nonempty union \(\mathcal U\) of complete residue classes modulo \(Q\)
+satisfies
+
+\[
+                         \mathcal U\subseteq {\rm Av}_X.     \tag{33.1}
+\]
+
+Then
+
+\[
+ \prod_{\substack{\ell\leq X\\ \ell\equiv3\ (4)\\
+                   \ell\ \text{prime}}}\ell\mid Q,
+ \qquad
+ \log Q\geq(1/2+o(1))X.                                    \tag{33.2}
+\]
+
+In particular \(\log Q\) is not \(o(L^4)\); it is exponentially larger
+than the critical-window budget.
+
+*Proof.*  Choose one class \(a\pmod Q\) in \(\mathcal U\).  For every prime
+\(\ell\equiv3\pmod4\), \(\ell\leq X\), the divisor \(D=1\) gives the
+intrinsic forbidden class \(-4\pmod\ell\).  If \(\ell\nmid Q\), the Chinese
+remainder theorem supplies an integer which is \(a\pmod Q\) and
+\(-4\pmod\ell\).  It belongs both to the complete class in \(\mathcal U\)
+and to a forbidden class, a contradiction.  Thus every such \(\ell\)
+divides \(Q\).  The last estimate is the prime number theorem in the
+progression \(3\pmod4\). ∎
+
+This theorem also rules out a decomposition of the local-lemma support into
+nonempty, all-avoider cylinders of modulus \(\exp\{o(L^4)\}\).  It does not
+rule out a cylinder which leaves a correction family to be sieved.  That
+distinction is decisive.  The prime-modulus correction has
+\(\Theta(X/L)\) coordinates and total coordinate product
+\(\exp\{\Theta(X)\}\), but only quadratic class mass; Theorems 24.4 and
+27.1 transfer it by a degree-\(O(L^2)\) Bonferroni argument.  Thus “small
+correction” can mean small sieve degree, but cannot mean small total modulus
+product.
+
+The same issue appears in a literal hybrid consisting of a certificate for
+\(R\leq Y\) followed by the §31 local lemma on the remaining atoms.
+
+**Proposition 33.2 (the raw residual family is not sparse; proved).**  Let
+\(z,Y=X^{o(1)}\), with \(z\to\infty\).  Before removing atoms which might be
+implied by other atoms, the family of composite, \(z\)-rough intrinsic atoms
+with \(R>Y\) contains
+
+\[
+                 \gg {X\over L\log z}                       \tag{33.3}
+\]
+
+distinct moduli \(M\asymp X\).  Consequently the logarithm of the product
+of these moduli is
+
+\[
+                 \gg {X\over\log z}\gg L^4.               \tag{33.4}
+\]
+
+*Proof.*  Take primes
+\[
+ p\in(z,2z],\quad p\equiv3\pmod4,
+ \qquad
+ q\in[X/(8z),X/(4z)],\quad q\equiv1\pmod4.
+\]
+For large \(X\), the two ranges are disjoint and \(q>z\).  The products
+\(M=pq\) are distinct, \(z\)-rough, \(M\equiv3\pmod4\), and
+\(X/8<M\leq X/2\).  The prime number theorem in the two progressions gives
+\(\gg X/(L\log z)\) such products.  Put \(A=(M+1)/4\).  Then \(A>Y\),
+and the choice \(R=A,s=1,D=A^2\) is one of the exact atoms (21.4), with
+\(R>Y\).  Finally each selected modulus has logarithm \(\asymp L\), which
+proves (33.4). ∎
+
+The qualification “before removing implied atoms” is essential.  Some of
+the displayed atoms can be killed by a prime-modulus condition, and proving
+how much of the large-\(R\) family survives all such compression is itself a
+version of the divisor-clustering problem.  Proposition 33.2 therefore
+closes only the proposal that the **literal** residual LLL family has small
+total modulus product.  It is not a lower bound for a minimal irredundant
+family.
+
+The constructive or Moser--Tardos local lemma does not evade either point.
+Its variables are the prime-power CRT coordinates.  It starts on the full
+product space and resamples all coordinates of a violated modulus.  The
+output is an avoiding residue modulo the full period; neither the expected
+number of resamplings nor the witness-tree bound controls the least positive
+representative of that residue.  Starting instead with a uniform integer in
+\([1,N]\) loses product independence once a queried coordinate product
+exceeds \(N\).  Moreover Theorem 33.1 shows that the output support cannot be
+covered by nonempty all-avoider cylinders of critical-window modulus.  Thus
+the algorithmic LLL certifies existence and product-space probability, not
+integer-order localization.
+
+There is nevertheless **no modulus-budget no-go** for a suitably truncated
+correction polynomial.  The exact missing object can be isolated as follows.
+After the quarantine (31.23), transform the surviving congruences to the
+integer variable left after division by \(P_z\), and denote their indicators
+by \(1_A\).
+
+**Lemma 33.3 (finite-transfer criterion; proved).**  Suppose there are real
+coefficients \(c_S\), supported on sets of at most \(r=o(L^3)\) surviving
+atoms, such that
+
+\[
+ B_X(n):=\sum_S c_S\prod_{A\in S}1_A(n)
+       \leq \mathbf1_{\{\text{no surviving atom at }n\}}    \tag{33.5}
+\]
+
+pointwise, and, in the exact CRT product space,
+
+\[
+ \mathbb E_{\rm CRT}B_X\geq\exp\{-o(L^3)\},
+ \qquad
+ \log\sum_S|c_S|=o(L^4).                                   \tag{33.6}
+\]
+
+Then, uniformly for \(\log N\asymp L^4\),
+
+\[
+ |{\rm Av}_X(N)|\geq N\exp\{-o(L^3)\}.                     \tag{33.7}
+\]
+
+*Proof.*  The quarantine costs
+\(P_z=\exp\{O(z)\}=\exp\{o(L^3)\}\).  For every compatible set \(S\),
+the product in (33.5) is one residue class modulo the lcm \(d_S\), so on an
+interval of length \(N/P_z+O(1)\) its sum is
+\(N/(P_zd_S)+O(1)\); for an incompatible set both the interval and CRT
+sums vanish.  Summing (33.5) therefore gives the CRT main term with total
+error at most \(\sum_S|c_S|\).  Equations (33.6) and
+\(\log N\asymp L^4\) make that error negligible.  Also
+\(d_S\leq X^r=\exp\{o(L^4)\}\), so every term lies inside the advertised
+degree budget. ∎
+
+This criterion shows exactly why raw cardinality is not the final wall.  The
+number \(K\) of atoms is \(\exp\{O(L)\}\), by the standard maximal-order
+divisor bound.  The §31 activity is
+\[
+       \sum_Ax_A\ll L^3/\log z\asymp L^3/\log L.            \tag{33.8}
+\]
+Hence a polynomial of degree \(r=O(L^3/\log L)\) with unit-size
+coefficients would have the *a priori* ledger
+\(K^r=\exp\{O(L^4/\log L)\}\), which fits (33.6).  Odd Bonferroni provides
+the pointwise inequality (33.5), but no estimate proved here keeps its CRT
+expectation positive at that degree: compatible atoms sharing prime
+coordinates can make the high factorial moments much larger than powers of
+(33.8).  Conversely the LLL lower bound (31.26) is not itself a pointwise
+polynomial minorant.  A convergent hypergraph-sieve or event-cluster
+minorant satisfying (33.5)--(33.6) would prove the desired theorem; none is
+constructed here.
+
+### 33.2 Why the proposed Fourier product is not a product
+
+The CRT **space** is a product over prime powers, but the complete avoider
+**indicator** is not.  If \(\mathcal A\) is the atomic family, then
+
+\[
+ \mathbf1_{{\rm Av}_X}(n)
+ =\prod_{A\in\mathcal A}
+   \left(1-\prod_{p^e\Vert M_A}
+       \mathbf1_{\{n\equiv r_A\ (p^e)\}}\right).            \tag{33.9}
+\]
+
+Each inner event factors over its coordinates.  The outer factors overlap,
+so Fourier transformation turns their product into a convolution, not a
+product of local Fourier transforms.
+
+**Lemma 33.4 (explicit tensor obstruction; proved).**  Already at \(X=15\),
+the complete avoider indicator modulo
+\(1155=3\cdot5\cdot7\cdot11\) does not factor into functions of the four
+prime coordinates.
+
+*Proof.*  The four residues
+\[
+\begin{array}{c|cc|cc|c}
+ n&n\bmod3&n\bmod5&n\bmod7&n\bmod11&\mathbf1_{{\rm Av}_{15}}(n)\\ \hline
+231 &0&1&0&0&1\\
+616 &1&1&0&0&1\\
+693 &0&3&0&0&1\\
+1078&1&3&0&0&0
+\end{array}                                                  \tag{33.10}
+\]
+form a two-coordinate rectangle with the other coordinates fixed.  A tensor
+product containing the first three corners must contain the fourth.  Directly,
+1078 is killed by the class \(13\pmod {15}\), arising from \(D=8\mid4^2\),
+while the first three residues avoid every participating modulus. ∎
+
+Consequently a Fourier coefficient at a CRT character \(\chi\) has the
+expansion
+
+\[
+ \widehat{\mathbf1_{{\rm Av}_X}}(\chi)
+ =\sum_{S\subseteq\mathcal A}(-1)^{|S|}
+   \mathbb E_{\rm CRT}\!\left[
+      \overline\chi\prod_{A\in S}1_A\right],               \tag{33.11}
+\]
+
+which is a hypergraph partition function with a complex external field.
+Theorem 31.4 controls only the untwisted, positive void probability.  Its
+LLL inequalities give no absolute or signed bound for (33.11).  In
+particular, the standard interval identity
+
+\[
+ |{\rm Av}_X(N)|=N\delta_X+
+   \sum_{\chi\ne1}\widehat{\mathbf1_{{\rm Av}_X}}(\chi)
+                         K_N(\chi)                           \tag{33.12}
+\]
+
+has no usable error estimate from the local factors, because those local
+factors do not exist for the full indicator.  For the direct prime-local
+certificate of Theorems 24.8 and 27.1 they do exist; its Fourier/Bonferroni
+transfer is exactly the already-proved certificate, with the
+\(H_Y\log L\) cost wall.
+
+### 33.3 The weighted fundamental-lemma attempt
+
+The softened charges in Theorem 31.3 look at first like a growing-dimensional
+sieve density.  This analogy gives the correct degree budget but the wrong
+main term.  Ignore the nonnegative \(u_q\) for the moment and put
+\(g(q)=b_q=L^3/(q\log z)\).  Mertens' theorem gives
+
+\[
+ \sum_{z<q\leq X}b_q
+ ={L^3\over\log z}
+   \{\log\log X-\log\log z+O(1)\}
+ =(1/3+o(1))L^3,                                             \tag{33.13}
+\]
+
+for the cutoff (31.11).  On the other hand
+
+\[
+ \sum_{w<q\leq y}b_q\log q
+ \sim {L^3\over\log z}\log(y/w).                           \tag{33.14}
+\]
+
+Thus the formal sieve dimension is
+\(\kappa\asymp L^3/\log z=o(L^3)\), and the available level parameter
+\(s=\log N/\log X\asymp L^3\) beats it by a factor \(\asymp\log L\).
+This is enough room to approximate the corresponding Euler product.  It
+does not make that product large:
+
+\[
+             \prod_{z<q\leq X}(1-b_q)
+             =\exp\{-\Theta(L^3)\}.                         \tag{33.15}
+\]
+
+**No-go 33.5 (scoped local-charge substitution; proved).**  A classical
+lower-bound sieve whose local density at \(q\) is the §31 neighborhood
+charge \(a_q=A(b_q+u_q)\), or even only a fixed positive multiple of
+\(b_q\), cannot prove (33.7): its Euler main term is at most
+\(\exp\{-cL^3\}\) by (33.13).  The fact that \(s\gg\kappa\) controls the
+fundamental-lemma error, not this cubic main-term loss.  The \(u_q\) terms
+can only increase the loss; no growing-dimension bound for their unweighted
+sum is asserted here.
+
+The reason this loses the gain of Theorem 31.4 is structural.  The
+neighborhood charge \(a_q\) is not the density of a set of forbidden
+residues at coordinate \(q\).  It charges every hyperedge incident to
+\(q\), and summing it over \(q\) counts the same composite atom at several
+coordinates.  The LLL instead pays each atom once, through (33.8), and uses
+the neighborhood inequalities only to control dependencies.  If one tries
+to use the atom activities \(x_A\) as the sieve densities, the desired Euler
+cost becomes subcubic, but classical multiplicativity disappears:
+intersections of atoms sharing a prime have density \(1/\operatorname{lcm}
+(M_A,M_B)\), not \(1/(M_AM_B)\).  Therefore the beta-sieve convolution and
+Rosser-weight proof do not apply.
+
+A genuinely weighted **hypergraph** fundamental lemma, with the LLL
+neighborhood inequalities replacing multiplicative local densities and
+with a pointwise minorant as in Lemma 33.3, would close the critical window.
+Neither the ordinary fundamental lemma nor the LLL product-measure bound is
+such a theorem.  This is the precise failure point of the most promising
+transfer attempt.
+
+### 33.4 Status and finite companion
+
+**Assessment 33.6 (critical-window status).**  The estimate
+
+\[
+ |{\rm Av}_X(N)|\geq N\exp\{-o(L^3)\},
+       \qquad \log N\asymp L^4,                             \tag{33.16}
+\]
+
+is not proved.  Accordingly \(H_{\rm PF}'\) is **OPEN**, and the conditional
+\(3/4\) route is not settled.  At this window the unconditional full-system
+bounds available here remain only
+
+\[
+ \lfloor\sqrt N\rfloor\leq |{\rm Av}_X(N)|
+       \ll N\exp\{-cL^2\},                                  \tag{33.17}
+\]
+
+by Lemma 21.2 and Theorem 21.3.  The lower side is exponentially too small
+on the \(L^3\) scale.  The exact route failures are:
+
+1. an all-avoider small cylinder is impossible by Theorem 33.1; a literal
+   large-\(R\) residual list is exponentially large by Proposition 33.2;
+   Moser--Tardos returns a full-period CRT point, not a localized integer;
+2. the full indicator has no prime-power Fourier product, by Lemma 33.4, so
+   the desired exponential-sum bound is the original hypergraph correlation
+   problem in complex form;
+3. replacing the local sieve density by \(a_q\) pays cubic cost before the
+   fundamental lemma starts, while replacing it by \(x_A\) loses the
+   multiplicative sieve axioms.
+
+The sharp surviving opportunity is not a larger modulus budget: the ledger
+in (33.8) fits the critical window.  It is the construction of the
+pointwise, low-degree hypergraph minorant in Lemma 33.3, or an equivalent
+signed Fourier/cluster estimate.  No argument here rules out such a new
+transfer theorem.
+
+**Computational 33.7 (informational).**  Exact cyclic windows in complete
+periods give
+
+\[
+\begin{array}{c|r|r|r|r|r}
+X&P_X&|{\rm Av}_X\bmod P_X|&W&\min& W\delta_X&\max\\ \hline
+15&1155&256&100&18&22.1645&27\\
+15&1155&256&1000&217&221.6450&226\\
+23&504735&57344&100&4&11.3612&21\\
+23&504735&57344&1000&98&113.6121&128\\
+23&504735&57344&10000&1110&1136.1209&1161\\
+23&504735&57344&100000&11340&11361.2093&11385
+\end{array}                                                  \tag{33.18}
+\]
+
+Here the minimum and maximum range over all cyclic starting points, and the
+average is exactly \(W\delta_X\).  These tiny periods show both visible
+short-window discrepancy and eventual averaging; they do not test the
+asymptotic critical regime.  `verify.py (af)` reconstructs the two periods,
+checks every entry in (33.18), checks the cyclic average identity, and
+replays the non-tensor rectangle (33.10).  The block is exact and runs in
+under ten seconds by default.
