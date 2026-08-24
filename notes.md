@@ -8916,11 +8916,12 @@ Put
 Thus a fixed centered modulus \(g\) permits many independent readings:
 \(K\mid R\), \(K\mid A+B\), and \(C=R/K\).  The main result below is a
 complete generation theorem for **all** of \(\mathscr T\), from the single
-tuple \((1,1,1,1)\).  Its price is also exact: a target of value \(P\) and
-fourth coordinate \(K\) is first generated in its \(K=1\) reading at value
-\(KP\), then relabelled down to \(P\).  This theorem is about decomposing an
-already specified lattice point.  It does not construct a point over a
-specified prime.
+tuple \((1,1,1,1)\).  Its canonical path first generates a target of value
+\(P\) and fourth coordinate \(K\) in its \(K=1\) reading at value \(KP\),
+then relabels down to \(P\).  Thus \(KP\) is the peak of that displayed path,
+not a proved minimum or an unavoidable price.  This theorem is about
+decomposing an already specified lattice point.  It does not construct a
+point over a specified prime.
 
 ### 30.1 The move set
 
@@ -9040,7 +9041,13 @@ Take the finite set of move **schemas**
 
 “Finite” here means seven fixed formulas; their positive tuple arguments and
 the admissible divisor \(K'\) vary.  Coordinate swap is a symmetry, not an
-additional generator.
+additional generator.  Because three schemas are binary,
+\(\operatorname{Orb}_{\mathcal M}(S)\) means the least subset of \(\mathscr T\)
+that contains \(S\), is closed under every admissible unary move, and is
+closed under a binary schema whenever both inputs already belong to the
+subset.  A binary derivation may reuse an earlier input.  This mixed-arity
+closure is not an ordinary monoid action; the totality proof below in fact
+uses only the four unary schemas.
 
 Two earlier candidate moves add no lattice reach.  The §20.1 absorption law
 at fixed \((C,K)\), with \(L=gK\), sends
@@ -9086,16 +9093,22 @@ For the global system put simply
    \]
 
    All intermediate vertices can be kept valid.  A target
-   \((A,B,C,K)\) of value \(P\), with \(R=CK\), has a path from 2 to
-   \(KP\) on which every nontrivial translation strictly increases the
-   value, followed by the one relabelling \(\mathfrak R_K\) to \(P\).
-   Hence the maximum excursion is **exactly
-   \(KP\)** (ratio \(K\) over the target); for \(K=1\) the whole path is
-   value-monotone.
+   \((A,B,C,K)\) of value \(P\), with \(R=CK\), has a canonical unary path
+   from 2 to \(KP\) on which every translation strictly increases the value,
+   followed by the one relabelling \(\mathfrak R_K\) to \(P\).  That path has
+   peak exactly \(KP\) (ratio \(K\) over the target); no minimality claim is
+   made.  For \(K=1\) the whole path is value-monotone.
 3. **Global irreducibility.**  Orient relabelling toward \(K=1\), then orient
    the inverse unit additions toward \(A=B=1\), and finally orient \(Z^{-1}\)
-   toward \(C=1\).  The sole irreducible is (30.14).  The apparently trivial
-   shapes \((1,1,C,K)\) exist only for \(K\mid2\): the \(K=2\) shape
+   toward \(C=1\).  The sole irreducible is (30.14).  This prescribed reverse
+   reduction terminates under the lexicographic rank
+   \[
+                 \bigl(\mathbf 1_{K\ne1},\ A+B+CK\bigr).
+   \]
+   The initial relabelling lowers its first component; every subsequent
+   subtraction lowers its second.  Reverse value \(V\) is not monotone: the
+   initial relabelling raises \(P\) to \(KP\) when \(K>1\).  The apparently
+   trivial shapes \((1,1,C,K)\) exist only for \(K\mid2\): the \(K=2\) shape
    relabels to \((1,1,2C,1)\), and every \(K=1\) shape with \(C>1\)
    reduces by \(Z^{-1}\).
 
@@ -9115,33 +9128,58 @@ with \(u,v\geq0\), Theorem 20.4's exact formula is
  V=V_0+u(gB_0-1)+v(gA_0-1)+gKuv.                            \tag{30.17}
 \]
 
-For the global statement, first apply \(Z\) to generate
-\(e_R=(1,1,R,1)\).  At modulus \(g=4R\), repeated
-\(\Phi_{+1}(x,e_R)\) increments the first coordinate by one, and repeated
-\(\Phi_{1+}(x,e_R)\) increments the second.  This reaches
-\((A,B,R,1)\), whose value is \(T_R(A,B)=KP\).  Conditions
-\(K\mid R,A+B\) permit the final relabelling to \((A,B,C,K)\).  Every
-translation has positive increment by Lemmas 30.1--30.2.
+For the global statement, first apply \(Z^{R-1}\) to reach
+\((1,1,R,1)\), then \(X^{A-1}\) and \(Y^{B-1}\) to reach
+\((A,B,R,1)\).  These are unit translations because this sheet has \(K=1\),
+and the final value is \(T_R(A,B)=KP\).  Conditions \(K\mid R,A+B\) permit
+the final relabelling to \((A,B,C,K)\).  This is an ordinary unary path; the
+three binary \(\Phi\) laws are redundant extra closure operations for
+(30.15).  Every translation has positive increment by Lemma 30.2.
 
-Conversely every move preserves membership in \(\mathscr T\), so the orbit
-cannot be larger.  Reversing the displayed construction gives the stated
-normal reduction and its sole endpoint. \(\square\)
+Conversely Lemmas 30.1--30.2 show that every schema preserves membership in
+\(\mathscr T\), so the orbit cannot be larger.  Reversing the displayed
+construction gives the stated normal reduction and its sole endpoint; the
+rank in part 3 proves termination. \(\square\)
 
-There is a cleaner orbit model.  Forget the reading and identify the
-\(K=1\) tuple with the positive lattice point \((A,B,R)\).  The three
-translations act as the free commutative monoid \(\mathbb N_0^3\), simply
-transitively from \((1,1,1)\).  Over a node sits the finite divisor fibre
+The canonical peak can be far from optimal.  For the hard-prime tuple
+\((1,20,1,3)\) of value 73, the canonical peak is 219, whereas
+\[
+ (1,1,1,1)\xrightarrow{Z^2}(1,1,3,1)
+ \xrightarrow{Y}(1,2,3,1)
+ \xrightarrow{\mathfrak R_3}(1,2,1,3)
+ \xrightarrow{Y^6}(1,20,1,3)
+\]
+has successive values \(2,6,10,21,7,18,29,40,51,62,73\), so its peak is
+only 73.  Nor is there a uniform canonical excursion factor.  For
+\(K=6n+3\), the tuple \((1,7K-1,1,K)\) has
+\(P=28K-11=168n+73\).  Dirichlet's theorem supplies infinitely many prime
+values in this progression, all \(1\pmod{24}\); hence \(K\) and the canonical
+ratio \(KP/P=K\) are unbounded even on hard-prime fibres.
+
+There is a cleaner **reduced** orbit model.  Forget the reading and identify
+the \(K=1\) tuple with the positive lattice point \((A,B,R)\).  The three
+unit translations act as the free commutative monoid \(\mathbb N_0^3\),
+simply transitively from \((1,1,1)\).  Over a node sits the finite divisor
+fibre
 
 \[
  \mathcal K(A,B,R)=\{K:K\mid\gcd(R,A+B)\},                  \tag{30.18}
 \]
 
-and its decoration \(K\) means the tuple \((A,B,R/K,K)\).  Thus the only
-relations in the generating grid are the commuting relations among the three
-translations, together with relabelling inside one divisor fibre.  This is a
-commutative semigroup action/groupoid decoration, not a descent tree: a node
+and its decoration \(K\) means the tuple \((A,B,R/K,K)\).  In this reduced
+model alone, the only translation relations are commutation.  It is a
+commutative grid with a divisor-fibre decoration, not a descent tree: a node
 at translation depth \(d\) has
 \(d!/((A-1)!(B-1)!(R-1)!)\) labelled shortest paths to it.
+
+This is not a presentation of the full seven-schema closure.  The binary
+maps need not commute in their inputs: at \(R=1\), \(\Phi_{1+}\) applied to
+\((1,1,1,1),(2,1,1,1)\) gives \((1,2,1,1)\), while reversing the inputs
+gives \((2,2,1,1)\).  Relabelling and sheet translation also need not
+commute: from \((1,1,1,2)\), relabel-to-1 then \(X\) reaches
+\((2,1,2,1)\), while \(X\) then relabel-to-1 reaches \((3,1,2,1)\).
+Thus neither the mixed-arity system nor its divisor decoration is a
+commutative monoid action.
 
 The value image at exact translation depth \(d\) is explicitly
 
@@ -9166,32 +9204,47 @@ upper bound \(4((d+3)/3)^3\), attained to leading order near the balanced
 point.  Relabelling contributes the exact divisors shown in (30.19), not a
 random or approximately multiplicative growth law.
 
-**Computational Audit 30.4 (exact finite closure, not evidence for an
-asymptotic).**  `verify.py (ac)` checks the common-\(g\) laws with independent
-readings, every move identity, the two normal forms, and complete tuple lists
-for every hard prime through 5000.  Tuple enumeration uses Lemma 25.8, so it
-has no parameter cutoff.  Every ordered tuple is explicitly relabelled to
-\(K=1\), reduced coordinate by coordinate to \((1,1,R,1)\), then reduced to
-(30.14).  The audit table is
+**Computational Audit 30.4 (bounded construction and complete finite
+value-fibre regression, not asymptotic evidence).**  `verify.py (ac)` checks
+the common-\(g\) laws with independent readings, every move identity, the two
+normal forms, and complete tuple lists for every hard prime through 5000.
+The printed common-addition count is the number of admissible branches; the
+grid count is the number of valid rows on which all moves and relabellings are
+audited; and the bounded-orbit count is the number of decorated nodes
+constructed.  Tuple enumeration uses Lemma 25.8, so it has no parameter
+cutoff.  Every ordered tuple is explicitly relabelled to \(K=1\), reduced
+coordinate by coordinate to \((1,1,R,1)\), then reduced to (30.14).  The
+audit table is
 
 \[
-\begin{array}{c|r|r|r|r|r}
+\begin{array}{c|r|r|r|r}
  P\leq X&\#\text{ hard primes}&\#\text{ ordered tuples}
- &\#\text{ fixed-slice seeds seen}&\#\text{ missing fibres}
- &\#\text{ non-seed atoms}\\ \hline
-500&9&102&41&0&0\\
-1000&14&182&74&0&0\\
-2000&30&522&197&0&0\\
-3000&46&940&359&0&0\\
-4000&61&1402&524&0&0\\
-5000&76&1938&717&0&0
+ &\#\text{ local fixed-slice seeds seen}&\#\text{ endpoints off the global seed}\\ \hline
+500&9&102&41&0\\
+1000&14&182&74&0\\
+2000&30&522&197&0\\
+3000&46&940&359&0\\
+4000&61&1402&524&0\\
+5000&76&1938&717&0
 \end{array}                                                  \tag{30.21}
 \]
 
-“No atoms” here is a regression of the proved directed reduction theorem,
-not an empirical extrapolation.  In contrast, the §20.1 multiplication atoms
-were atoms only for that much sparser macro-law; the additive/grid moves pass
-through every one of them.
+The 41, 74, 197, and later counts are distinct local normal forms (30.13)
+encountered before global relabelling, not additional global endpoints.
+Every one subsequently reaches (30.14).  The zero endpoint counts are
+computed from the canonical reductions, but remain regressions of the proved
+theorem rather than empirical extrapolation.
+
+This also reconciles the closer atom census in §28.  Its 34 rows are atoms
+only for the older one-step descending transfer union with source values in
+\([2,P)\).  The §30 grid/relabel system is different and permits paths with
+upward relabelling.  In fact all 34 are immediate \(X\)- or \(Y\)-descendants
+of lower valid tuples: \((1,62,1,9)\) at 241, for example, has
+\((1,53,1,9)\) at 206 as its \(Y^{-1}\) predecessor.  Block (aa) checks all
+34 immediate predecessors and their reductions to the global seed.  Thus §30
+eliminates them as lattice atoms without claiming that its moves are the same
+as §28's transfer laws.  Likewise, the §20.1 multiplication atoms belonged
+only to that still sparser macro-law.
 
 ### 30.3 The exact reformulation, and why it is not yet a Markoff problem
 
@@ -9241,7 +9294,11 @@ Erdős--Straus has the exact value statement
 \]
 
 not (30.23) alone.  Equation (30.22) is exact as written and must not be
-upgraded by silently discarding Type I.
+upgraded by silently discarding Type I.  Empirically, §19 found a Case-B
+witness for each of the 719,781 hard primes below \(10^8\).  Its label
+“Case-B-only hard-slice” means that the search was restricted to Case B, not
+that those primes were proved to have only Case-B solutions; no exhaustive
+stored Case-A table was compared.
 
 There is no hidden Vieta action.  Holding \(P\) and three of \(A,B,C,K\)
 fixed makes the fourth unique:
@@ -9273,11 +9330,15 @@ all rational self-maps.
 * **Markoff / Bourgain--Gamburd--Sarnak.**  The Markoff Vieta involutions
   preserve one cubic equation and generate a non-elementary invertible action
   whose reductions modulo primes admit expansion/strong-approximation
-  technology (including density-one statements in that setting).  Here every
-  nontrivial generator in (30.11) changes \(V\), the fixed-\(P\) fibre has no
-  second-root involution, and the action on the ambient lattice is the
-  elementary commutative grid.  The required fixed-fibre group action is
-  absent.
+  technology (including density-one statements in that setting).  Here the
+  unary translations change \(V\), but a special binary addition can preserve
+  it: \(x=(2,69,4,1)\) has value 2137, \(y=(1,22,4,1)\) has value 329, and
+  \(\Phi_{++}(x,y)\) with output reading \(K'=2\) is \((3,91,2,2)\), again
+  of value 2137.  This needs an auxiliary source, is not source-independent
+  or shown invertible, and supplies no non-elementary fixed-fibre group.  The
+  fixed-\(P\) fibre still has no second-root involution, while only the reduced
+  \(K=1\) translation model is an elementary commutative grid.  The required
+  source-independent, invertible fixed-fibre action is absent.
 * **Markoff / Zagier counting.**  Markoff counting exploits a finite-to-one
   descent and hyperbolic tree growth.  Here shortest paths commute in
   multinomially many ways, reduced seeds vary with slices, and membership in
@@ -9302,18 +9363,22 @@ because (30.15) uses the word “orbit.”
 \((C_i,K_i)\) readings and any admissible output reading.  Fixed slices are
 exactly \(K\) value-monotone bilinear grids.  Seven fixed move schemas generate
 the entire positive Type-II tuple lattice from one seed, with sole global
-normal-form atom \((1,1,1,1)\) and exact excursion ceiling \(KP\).  The
-finite audit through 5000 finds all 1,938 ordered tuples and no non-seed atom.
+normal-form atom \((1,1,1,1)\).  The displayed canonical path has peak \(KP\),
+but lower-peak paths exist and its factor \(K\) is unbounded.  The finite audit
+through 5000 finds all 1,938 ordered tuples and no endpoint off the seed.
 
-**What it buys.**  It gives a clean normal form, exact semigroup relations,
-and the explicit level images (30.19).  It also prevents future work from
-mistaking §20 multiplication atoms or the \(k=1\) boundary for genuine tuple-
-lattice obstructions.
+**What it buys.**  It gives a clean normal form, the exact relations of the
+reduced \(K=1\) translation grid, and the explicit level images (30.19).  It
+also prevents future work from mistaking §20 multiplication atoms, §28's
+restricted-family atoms, or the \(k=1\) boundary for intrinsic tuple-lattice
+obstructions.
 
 **What it does not buy.**  Because the orbit is already all of \(\mathscr T\),
 (30.23) is a relabelling of the Type-II witness-existence problem, not a new
-local--global mechanism.  The translations do not preserve prime value, and
-reverse reduction starts from the tuple whose existence is sought.  The
+local--global mechanism.  The unary translations do not preserve prime value;
+special binary additions can preserve a value but do not form a
+source-independent invertible action.  Reverse reduction starts from the
+tuple whose existence is sought, and may first raise \(P\) to \(KP\).  The
 full-Erdős--Straus equivalence additionally retains the Type-I alternative in
 (30.25).
 

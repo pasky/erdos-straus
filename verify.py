@@ -4848,8 +4848,36 @@ def check_ac():
                         common_add(left, right, kind, kout)
                         additive_checks += 1
 
-    # Fixed-slice grid normal forms and all relabellings in a small box.
-    grid_checks = 0
+    # What actually commutes is the reduced K=1 translation grid, not the
+    # mixed seven-schema closure.  Binary input order and relabel/X order give
+    # explicit noncommuting regressions.
+    commute_base = (2, 3, 4, 1)
+    assert move_x(move_y(commute_base)) == move_y(move_x(commute_base))
+    assert move_x(move_z(commute_base)) == move_z(move_x(commute_base))
+    assert move_y(move_z(commute_base)) == move_z(move_y(commute_base))
+    binary_left = (1, 1, 1, 1)
+    binary_right = (2, 1, 1, 1)
+    assert common_add(binary_left, binary_right, "1+", 1) == (1, 2, 1, 1)
+    assert common_add(binary_right, binary_left, "1+", 1) == (2, 2, 1, 1)
+    noncommuting_sheet = (1, 1, 1, 2)
+    assert move_x(relabel(noncommuting_sheet, 1)) == (2, 1, 2, 1)
+    assert relabel(move_x(noncommuting_sheet), 1) == (3, 1, 2, 1)
+
+    # A nontrivial binary branch can preserve value, contrary to the old
+    # blanket fixed-value claim.  It still uses an auxiliary source and is not
+    # a source-independent invertible fixed-fibre action.
+    fixed_value_left = (2, 69, 4, 1)
+    fixed_value_right = (1, 22, 4, 1)
+    fixed_value_output = common_add(
+        fixed_value_left, fixed_value_right, "++", 2)
+    assert assert_tuple(fixed_value_left) == 2137
+    assert assert_tuple(fixed_value_right) == 329
+    assert fixed_value_output == (3, 91, 2, 2)
+    assert assert_tuple(fixed_value_output) == 2137
+
+    # Fixed-slice grid normal forms and all relabellings in a small box.  The
+    # counter records valid input rows, not the larger number of move checks.
+    grid_rows = 0
     for C in range(1, 5):
         for K in range(1, 7):
             for A in range(1, 13):
@@ -4880,10 +4908,10 @@ def check_ac():
                     assert P == (assert_tuple(seed)
                                  + u * (g * B0 - 1)
                                  + v * (g * A0 - 1) + g * K * u * v)
-                    grid_checks += 1
+                    grid_rows += 1
 
     # Construct every bounded decorated lattice node from the single seed.
-    orbit_checks = 0
+    decorated_nodes = 0
     global_seed = (1, 1, 1, 1)
     assert_tuple(global_seed, 2, check_fractions=True)
     for R in range(1, 9):
@@ -4908,7 +4936,30 @@ def check_ac():
                     target = relabel(current, K)
                     assert target == (A, B, R // K, K)
                     assert assert_tuple(current) == K * assert_tuple(target)
-                    orbit_checks += 1
+                    decorated_nodes += 1
+
+    # The canonical KP path need not minimize the peak: this P=73 path peaks
+    # at the target itself.  Also check the unbounded-K family algebraically;
+    # infinitude of prime values is the separate Dirichlet argument in §30.
+    low_peak_path = [global_seed]
+    for unused in range(2):
+        low_peak_path.append(move_z(low_peak_path[-1]))
+    low_peak_path.append(move_y(low_peak_path[-1]))
+    low_peak_path.append(relabel(low_peak_path[-1], 3))
+    for unused in range(6):
+        low_peak_path.append(move_y(low_peak_path[-1]))
+    assert low_peak_path[-1] == (1, 20, 1, 3)
+    assert [assert_tuple(row) for row in low_peak_path] == [
+        2, 6, 10, 21, 7, 18, 29, 40, 51, 62, 73,
+    ]
+    assert max(map(assert_tuple, low_peak_path)) == 73 < 3 * 73
+    for n in range(20):
+        K = 6 * n + 3
+        row = (1, 7 * K - 1, 1, K)
+        P = assert_tuple(row)
+        assert P == 28 * K - 11 == 168 * n + 73
+        assert P % 24 == 1
+        assert assert_tuple(relabel(row, 1)) == K * P
 
     # Lemma 25.8 gives every ordered Type-II tuple of P with no search cutoff.
     def row_at(P, A, B):
@@ -4934,8 +4985,7 @@ def check_ac():
 
     hard_primes = [p for p in primerange(2, 5001) if p % 24 == 1]
     rows_by_prime = {}
-    reduced_seeds = set()
-    nonseed_atoms = []
+    nonseed_endpoints = []
     for P in hard_primes:
         rows = all_rows(P)
         assert rows                         # finite value-fibre regression only
@@ -4943,13 +4993,10 @@ def check_ac():
         for row in rows:
             A, B, C, K = row
             assert_tuple(row, P, check_fractions=True)
-            A0, B0 = (A - 1) % K + 1, (B - 1) % K + 1
-            reduced_seeds.add((A0, B0, C, K))
-
             R = C * K
             current = relabel(row, 1)
             assert current == (A, B, R, 1)
-            assert assert_tuple(current) == K * P  # exact excursion ceiling
+            assert assert_tuple(current) == K * P  # canonical lift, not minimum
             while current[0] > 1:
                 a, b, r, one = current
                 nxt = (a - 1, b, r, one)
@@ -4966,8 +5013,8 @@ def check_ac():
                 assert assert_tuple(current) - assert_tuple(nxt) == 4 * a * b
                 current = nxt
             if current != global_seed:
-                nonseed_atoms.append((P, row, current))
-    assert not nonseed_atoms
+                nonseed_endpoints.append((P, row, current))
+    assert not nonseed_endpoints
 
     expected_table = (
         (500, 9, 102, 41), (1000, 14, 182, 74),
@@ -4982,17 +5029,18 @@ def check_ac():
             ((A - 1) % K + 1, (B - 1) % K + 1, C, K)
             for P in ps for A, B, C, K in rows_by_prime[P]
         }
-        table.append((bound, len(ps), row_count, len(seeds), 0, 0))
+        off_seed = sum(P <= bound for P, row, endpoint in nonseed_endpoints)
+        table.append((bound, len(ps), row_count, len(seeds), off_seed))
         assert (len(ps), row_count, len(seeds)) == (
             wanted_primes, wanted_rows, wanted_seeds
         )
 
-    print("common-g additive laws: %d independent-reading branches; "
-          "grid/relabel checks: %d; bounded orbit nodes: %d" %
-          (additive_checks, grid_checks, orbit_checks))
-    print("full reverse-M audit through 5000 "
-          "(bound, hard primes, ordered tuples, reduced seeds, missing, atoms):",
-          table)
+    print("common-g additive laws: %d admissible independent-reading branches; "
+          "valid grid rows audited: %d; bounded decorated nodes constructed: "
+          "%d" % (additive_checks, grid_rows, decorated_nodes))
+    print("complete finite value-fibre canonical reductions through 5000 "
+          "(bound, hard primes, ordered tuples, local fixed-slice seeds, "
+          "endpoints off global seed):", table)
 
 
 print("\n== (ac) full Type-II generation orbit (§30) ==")
