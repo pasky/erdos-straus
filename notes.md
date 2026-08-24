@@ -8845,3 +8845,431 @@ the \((7,5,1)\) non-subsumption example and exact Type-I reconstructions;
 and reports the finite mass divided by its raw multiplicity mass,
 \((\log X)^2\log\log X\), and \((\log X)^3\).  These truncation ratios are
 informational and are not used in (29.8).
+
+
+## 30. The full Type-II tuple lattice is one decorated additive orbit
+
+This section asks a different question from witness existence.  Let
+
+\[
+ \mathscr T=\{(A,B,C,K)\in\mathbb Z_{>0}^4:K\mid A+B\},
+ \qquad V(A,B,C,K)=4ABC-{A+B\over K}.                       \tag{30.1}
+\]
+
+Every member has \(V\geq2\) and is a valid Type-II tuple for its value.
+Put
+
+\[
+ R=CK,\qquad g=4R,\qquad
+ T_R(A,B)=gAB-A-B=K V(A,B,C,K).                              \tag{30.2}
+\]
+
+Thus a fixed centered modulus \(g\) permits many independent readings:
+\(K\mid R\), \(K\mid A+B\), and \(C=R/K\).  The main result below is a
+complete generation theorem for **all** of \(\mathscr T\), from the single
+tuple \((1,1,1,1)\).  Its price is also exact: a target of value \(P\) and
+fourth coordinate \(K\) is first generated in its \(K=1\) reading at value
+\(KP\), then relabelled down to \(P\).  This theorem is about decomposing an
+already specified lattice point.  It does not construct a point over a
+specified prime.
+
+### 30.1 The move set
+
+#### Common-modulus addition with arbitrary source and output readings
+
+For a tuple \(x_i=(a_i,b_i,C_i,K_i)\), write
+\(D_i=g a_i-1,E_i=g b_i-1\).  The condition needed for the following maps is
+only
+
+\[
+ C_1K_1=C_2K_2=R.                                           \tag{30.3}
+\]
+
+In particular \((C_1,K_1)\) and \((C_2,K_2)\) may be different readings of
+the same \(g=4R\).  Define the three fixed centered-factor maps
+
+\[
+\begin{array}{c|c|c}
+ &D'&E'\\ \hline
+ \Phi_{++}&-1+(D_1+1)+(D_2+1)&-1+(E_1+1)+(E_2+1)\\
+ \Phi_{1+}&D_1&-1+(E_1+1)+(E_2+1)\\
+ \Phi_{+1}&-1+(D_1+1)+(D_2+1)&E_1.
+\end{array}                                                  \tag{30.4}
+\]
+
+After division by \(g\), their output coordinate pairs are respectively
+
+\[
+ (a_1+a_2,b_1+b_2),\qquad(a_1,b_1+b_2),\qquad
+ (a_1+a_2,b_1).                                              \tag{30.5}
+\]
+
+**Lemma 30.1 (proved: exact common-\(g\) composition law).**  Let \((A,B)\)
+be any pair in (30.5).  For every independently chosen output reading
+
+\[
+ K'\mid R,\qquad K'\mid A+B,\qquad C'=R/K',                 \tag{30.6}
+\]
+(30.4) outputs the valid tuple \((A,B,C',K')\), of value
+
+\[
+ P'={T_R(A,B)\over K'}.                                     \tag{30.7}
+\]
+
+No relation among \(K_1,K_2,K'\) is required beyond source validity and
+(30.6).  If \(p_i=V(x_i)\), the three numerator laws are
+
+\[
+\begin{aligned}
+ T_R(a_1+a_2,b_1+b_2)
+   &=K_1p_1+K_2p_2+g(a_1b_2+a_2b_1),\\
+ T_R(a_1,b_1+b_2)&=K_1p_1+b_2(ga_1-1),\\
+ T_R(a_1+a_2,b_1)&=K_1p_1+a_2(gb_1-1).
+                                                               \tag{30.8}
+\end{aligned}
+\]
+
+*Proof.*  Every factor in (30.4) is \(gA-1\) or \(gB-1\), hence is
+\(-1\pmod g\).  Conditions (30.6) give the requested reading and
+integrality of (30.7).  Expanding \(T_R\) gives (30.8).  For positivity,
+write \(C'=R/K'\); then
+\[
+ P'=4ABC'-{A+B\over K'}\geq4AB-(A+B)\geq2AB\geq2.
+\]
+This also verifies directly that the output remains in \(\mathscr T\).
+\(\square\)
+
+This is the all-\(K\) version of Theorem 25.6.  The important extra freedom
+is not a new coefficient: it is the independent divisor reading of each
+source and the output at their common \(g\).
+
+#### Grid neighbours, slice motion, and relabelling
+
+There are four unary move schemas:
+
+\[
+\begin{array}{rcll}
+ X:(A,B,C,K)&\mapsto&(A+K,B,C,K),
+   &V\mapsto V+(4BCK-1),\\
+ Y:(A,B,C,K)&\mapsto&(A,B+K,C,K),
+   &V\mapsto V+(4ACK-1),\\
+ Z:(A,B,C,K)&\mapsto&(A,B,C+1,K),
+   &V\mapsto V+4AB,\\
+ \mathfrak R_{K'}:(A,B,C,K)&\mapsto&(A,B,R/K',K'),
+   &V\mapsto (K/K')V,
+\end{array}                                                   \tag{30.9}
+\]
+
+where the relabelling move requires \(K'\mid R=CK\) and
+\(K'\mid A+B\).  The last displayed quotient is integral by (30.2), even
+when neither \(K\) nor \(K'\) divides the other.
+
+**Lemma 30.2 (proved: validity and self-certifying grid complements).**  All
+moves in (30.9) preserve positivity and validity.  The first three strictly
+increase the value.  At fixed \((C,K)\), if
+\(D=gA-1,E=gB-1\), then
+
+\[
+ X:D\mapsto D+gK,\quad V\mapsto V+E;
+ \qquad
+ Y:E\mapsto E+gK,\quad V\mapsto V+D.                        \tag{30.10}
+\]
+
+Thus each grid-neighbour edge carries its old complementary factor as the
+exact value increment.  Its inverse is valid precisely when the coordinate
+to be reduced is greater than \(K\).
+
+*Proof.*  Divisibility by \(K\) is unchanged by adding \(K\), and by changing
+\(C\).  Direct substitution gives (30.9)--(30.10).  Relabelling preserves
+\(R\), and (30.2) gives its value law. \(\square\)
+
+Take the finite set of move **schemas**
+
+\[
+ \mathcal M=\{\Phi_{++},\Phi_{1+},\Phi_{+1},X,Y,Z,\mathfrak R\}. \tag{30.11}
+\]
+
+“Finite” here means seven fixed formulas; their positive tuple arguments and
+the admissible divisor \(K'\) vary.  Coordinate swap is a symmetry, not an
+additional generator.
+
+Two earlier candidate moves add no lattice reach.  The §20.1 absorption law
+at fixed \((C,K)\), with \(L=gK\), sends
+
+\[
+ P\mapsto P\circ_Lv=P+v+LPv,
+ \qquad B\mapsto B+Kv(gB-1).                                \tag{30.12}
+\]
+
+It is exactly \(v(gB-1)\) successive \(Y\)-neighbour steps (or the swapped
+version), so it is a sparse macro-edge in the same grid.  The §26.5 bridge
+starts from a **Type-I** tuple and is therefore not an endomorphism of
+\(\mathscr T\).  In a bipartite Type-I/Type-II graph it supplies useful
+certificate edges, but every Type-II endpoint is already in the orbit proved
+below.  It does not strengthen the Type-II lattice generation statement.
+
+### 30.2 Complete generation and normal forms
+
+For a fixed slice \((C,K)\), define
+
+\[
+ \mathcal S_{C,K}^{\rm red}=
+ \{(r,K-r,C,K):1\leq r<K\}\cup\{(K,K,C,K)\}.               \tag{30.13}
+\]
+
+For the global system put simply
+
+\[
+                     \mathcal S_0=\{(1,1,1,1)\}.             \tag{30.14}
+\]
+
+**Theorem 30.3 (proved: fixed-slice and full-lattice generation).**
+
+1. **Value-monotone fixed slices.**  Every tuple in the \((C,K)\)-slice is
+   reached by \(X,Y\) from exactly one reduced seed in (30.13).  Reverse
+   grid reduction is terminating and confluent.  The irreducibles are exactly
+   the \(K\) seeds (30.13).
+2. **The full orbit.**
+
+   \[
+                 \operatorname{Orb}_{\mathcal M}(\mathcal S_0)
+                 =\mathscr T.                               \tag{30.15}
+   \]
+
+   All intermediate vertices can be kept valid.  A target
+   \((A,B,C,K)\) of value \(P\), with \(R=CK\), has a path from 2 to
+   \(KP\) on which every nontrivial translation strictly increases the
+   value, followed by the one relabelling \(\mathfrak R_K\) to \(P\).
+   Hence the maximum excursion is **exactly
+   \(KP\)** (ratio \(K\) over the target); for \(K=1\) the whole path is
+   value-monotone.
+3. **Global irreducibility.**  Orient relabelling toward \(K=1\), then orient
+   the inverse unit additions toward \(A=B=1\), and finally orient \(Z^{-1}\)
+   toward \(C=1\).  The sole irreducible is (30.14).  The apparently trivial
+   shapes \((1,1,C,K)\) exist only for \(K\mid2\): the \(K=2\) shape
+   relabels to \((1,1,2C,1)\), and every \(K=1\) shape with \(C>1\)
+   reduces by \(Z^{-1}\).
+
+*Proof.*  Write the positive residues
+
+\[
+ A=A_0+Ku,\qquad B=B_0+Kv,
+ \qquad 1\leq A_0,B_0\leq K.                                \tag{30.16}
+\]
+
+Since \(K\mid A_0+B_0\), their sum is \(K\) or
+\(2K\), giving exactly (30.13).  The residues make the seed unique, and
+Lemma 30.2 makes every forward step strictly value-increasing.  Equivalently,
+with \(u,v\geq0\), Theorem 20.4's exact formula is
+
+\[
+ V=V_0+u(gB_0-1)+v(gA_0-1)+gKuv.                            \tag{30.17}
+\]
+
+For the global statement, first apply \(Z\) to generate
+\(e_R=(1,1,R,1)\).  At modulus \(g=4R\), repeated
+\(\Phi_{+1}(x,e_R)\) increments the first coordinate by one, and repeated
+\(\Phi_{1+}(x,e_R)\) increments the second.  This reaches
+\((A,B,R,1)\), whose value is \(T_R(A,B)=KP\).  Conditions
+\(K\mid R,A+B\) permit the final relabelling to \((A,B,C,K)\).  Every
+translation has positive increment by Lemmas 30.1--30.2.
+
+Conversely every move preserves membership in \(\mathscr T\), so the orbit
+cannot be larger.  Reversing the displayed construction gives the stated
+normal reduction and its sole endpoint. \(\square\)
+
+There is a cleaner orbit model.  Forget the reading and identify the
+\(K=1\) tuple with the positive lattice point \((A,B,R)\).  The three
+translations act as the free commutative monoid \(\mathbb N_0^3\), simply
+transitively from \((1,1,1)\).  Over a node sits the finite divisor fibre
+
+\[
+ \mathcal K(A,B,R)=\{K:K\mid\gcd(R,A+B)\},                  \tag{30.18}
+\]
+
+and its decoration \(K\) means the tuple \((A,B,R/K,K)\).  Thus the only
+relations in the generating grid are the commuting relations among the three
+translations, together with relabelling inside one divisor fibre.  This is a
+commutative semigroup action/groupoid decoration, not a descent tree: a node
+at translation depth \(d\) has
+\(d!/((A-1)!(B-1)!(R-1)!)\) labelled shortest paths to it.
+
+The value image at exact translation depth \(d\) is explicitly
+
+\[
+ \mathcal V_d=
+ \left\{{4RAB-A-B\over K}:\begin{array}{l}
+ A,B,R\geq1,\ A+B+R=d+3,\\
+ K\mid\gcd(R,A+B)
+ \end{array}\right\}.                                      \tag{30.19}
+\]
+
+There are \({d+2\choose2}\) undecorated nodes and
+
+\[
+ \sum_{A+B+R=d+3}\tau(\gcd(R,A+B))                          \tag{30.20}
+\]
+
+decorated tuples before value collisions.  On the \(K=1\) sheet the values
+range from exactly \(3d+2\) to \(\Theta(d^3)\): every translation adds at
+least 3, equality is attained along \((d+1,1,1)\), while AM--GM gives the
+upper bound \(4((d+3)/3)^3\), attained to leading order near the balanced
+point.  Relabelling contributes the exact divisors shown in (30.19), not a
+random or approximately multiplicative growth law.
+
+**Computational Audit 30.4 (exact finite closure, not evidence for an
+asymptotic).**  `verify.py (ac)` checks the common-\(g\) laws with independent
+readings, every move identity, the two normal forms, and complete tuple lists
+for every hard prime through 5000.  Tuple enumeration uses Lemma 25.8, so it
+has no parameter cutoff.  Every ordered tuple is explicitly relabelled to
+\(K=1\), reduced coordinate by coordinate to \((1,1,R,1)\), then reduced to
+(30.14).  The audit table is
+
+\[
+\begin{array}{c|r|r|r|r|r}
+ P\leq X&\#\text{ hard primes}&\#\text{ ordered tuples}
+ &\#\text{ fixed-slice seeds seen}&\#\text{ missing fibres}
+ &\#\text{ non-seed atoms}\\ \hline
+500&9&102&41&0&0\\
+1000&14&182&74&0&0\\
+2000&30&522&197&0&0\\
+3000&46&940&359&0&0\\
+4000&61&1402&524&0&0\\
+5000&76&1938&717&0&0
+\end{array}                                                  \tag{30.21}
+\]
+
+“No atoms” here is a regression of the proved directed reduction theorem,
+not an empirical extrapolation.  In contrast, the §20.1 multiplication atoms
+were atoms only for that much sparser macro-law; the additive/grid moves pass
+through every one of them.
+
+### 30.3 The exact reformulation, and why it is not yet a Markoff problem
+
+Let \(\mathrm{ES}_{II}\) denote the **Type-II strengthening** of
+Erdős--Straus on the hard primes.  The exact orbit reformulation is:
+
+> **Exact orbit reformulation (verbatim).**
+> \[
+> [\mathrm{ES}_{II}\text{ for hard primes}]
+> \Longleftrightarrow
+> [\text{every hard prime }P\text{ has some Type-II tuple}]
+> \Longleftrightarrow
+> [\text{for every hard prime }P,\
+> V^{-1}(P)\cap\operatorname{Orb}_{\mathcal M}(\mathcal S_0)\ne\varnothing].
+>                                                               \tag{30.22}
+> \]
+
+By (30.19), the exact open value-image statement is
+
+\[
+ \boxed{\quad
+ \{P\text{ prime}:P\equiv1\pmod {24}\}
+       \subseteq \bigcup_{d\geq0}\mathcal V_d.\quad}         \tag{30.23}
+\]
+
+This is arithmetically explicit, but substitution of \(R=CK\) shows that it
+is precisely \(P=4ABC-(A+B)/K\) again.  Orbit coverage is completely proved;
+**value-fibre intersection** is the conjectural part.
+
+**Logical warning (proved from the scope of Theorems 3.1 and 17.1, not a
+conjectural identification).**  The first bracket in the requested chain
+cannot honestly be replaced by unrestricted
+“Erdős--Straus for hard primes” using the results in this document.  A hard
+prime solution may a priori be Type I or Type II; Theorem 3.1 proves the
+union of the two cases, and no same-value Type-I-to-Type-II conversion theorem
+has been proved.  Therefore
+
+\[
+ \mathrm{ES}_{II}\Longrightarrow\mathrm{ES},                \tag{30.24}
+\]
+
+but the converse needed for that replacement is open here.  Full
+Erdős--Straus has the exact value statement
+
+\[
+ P\in V_{II}(\mathscr T)\ \cup\ V_I(\mathscr T_I),           \tag{30.25}
+\]
+
+not (30.23) alone.  Equation (30.22) is exact as written and must not be
+upgraded by silently discarding Type I.
+
+There is no hidden Vieta action.  Holding \(P\) and three of \(A,B,C,K\)
+fixed makes the fourth unique:
+
+\[
+ A={KP+B\over4BCK-1},\quad
+ B={KP+A\over4ACK-1},\quad
+ C={KP+A+B\over4ABK},\quad
+ K={A+B\over4ABC-P}.                                        \tag{30.26}
+\]
+
+Thus no coordinate occurs quadratically and there is no second root to flip.
+In divisor coordinates,
+
+\[
+ (gA-1)(gB-1)=1+gKP,                                        \tag{30.27}
+\]
+
+the involution \(D\mapsto(1+gKP)/D\) merely swaps \(A,B\).  Choosing a
+different factor pair requires factoring the right side, which is the
+original divisor-coset search.  Flexible relabelling cannot give a second
+fixed-\(P\) involution either: it changes \(P\) by \(K/K'\), and preserves
+\(P\) only when \(K'=K\).  No second slice-mixing involution was found; this
+is a closure of the natural root/factor-pair hunt, not a classification of
+all rational self-maps.
+
+**Technology audit (assessments; prerequisites stated, no transfer claim).**
+
+* **Markoff / Bourgain--Gamburd--Sarnak.**  The Markoff Vieta involutions
+  preserve one cubic equation and generate a non-elementary invertible action
+  whose reductions modulo primes admit expansion/strong-approximation
+  technology (including density-one statements in that setting).  Here every
+  nontrivial generator in (30.11) changes \(V\), the fixed-\(P\) fibre has no
+  second-root involution, and the action on the ambient lattice is the
+  elementary commutative grid.  The required fixed-fibre group action is
+  absent.
+* **Markoff / Zagier counting.**  Markoff counting exploits a finite-to-one
+  descent and hyperbolic tree growth.  Here shortest paths commute in
+  multinomially many ways, reduced seeds vary with slices, and membership in
+  one value fibre remains the factorization condition (30.27).  Quadratic
+  node growth in (30.20) does not supply pointwise positivity of the value
+  image.
+* **Apollonian / Fuchs-type local--global work.**  Apollonian packings provide
+  a thin integral orthogonal-group orbit on the fixed Descartes quadratic
+  form; congruence admissibility can then be compared with orbit values.
+  Our orbit is the whole decorated positive lattice, not a thin quadratic
+  orbit, and Theorem 17.3 shows that local congruence classes alone miss the
+  relevant square classes.  The thin-group and fixed-quadratic-form
+  prerequisites are both absent.
+
+These comparisons identify prerequisites, not impossibility theorems for all
+future orbit methods.  They do rule out importing the named results merely
+because (30.15) uses the word “orbit.”
+
+### 30.4 Honest verdict
+
+**Proved.**  The three common-\(g\) additive maps admit arbitrary independent
+\((C_i,K_i)\) readings and any admissible output reading.  Fixed slices are
+exactly \(K\) value-monotone bilinear grids.  Seven fixed move schemas generate
+the entire positive Type-II tuple lattice from one seed, with sole global
+normal-form atom \((1,1,1,1)\) and exact excursion ceiling \(KP\).  The
+finite audit through 5000 finds all 1,938 ordered tuples and no non-seed atom.
+
+**What it buys.**  It gives a clean normal form, exact semigroup relations,
+and the explicit level images (30.19).  It also prevents future work from
+mistaking §20 multiplication atoms or the \(k=1\) boundary for genuine tuple-
+lattice obstructions.
+
+**What it does not buy.**  Because the orbit is already all of \(\mathscr T\),
+(30.23) is a relabelling of the Type-II witness-existence problem, not a new
+local--global mechanism.  The translations do not preserve prime value, and
+reverse reduction starts from the tuple whose existence is sought.  The
+full-Erdős--Straus equivalence additionally retains the Type-I alternative in
+(30.25).
+
+**Exact open orbit statement.**  Prove (30.23), equivalently prove that every
+prime \(P\equiv1\pmod {24}\) occurs in one of the explicit decorated-grid
+value sets (30.19); or, for full Erdős--Straus without the Type-II
+strengthening, prove that it occurs in the union (30.25).  No such value-image
+theorem is proved here.
