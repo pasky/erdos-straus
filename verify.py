@@ -3675,7 +3675,14 @@ check_y()
 
 # ---------------------------------------------------------------- (z)
 def check_z():
-    """Finite companions for the §27 large-R conditioning audit."""
+    """Finite companions and reproducibility checks for the §27 audit."""
+    import csv
+    import hashlib
+    import os
+    from pathlib import Path
+    import shlex
+    import subprocess
+    import tempfile
     import numpy as np
 
     def fiber_shifts(Y0):
@@ -3743,9 +3750,9 @@ def check_z():
         14, 4, Fraction(147, 320)
     )
 
-    # Exact finite replay of Theorem 27.1's hybrid certificate.  Every
-    # low-fiber event has a certifying 3 mod 4 prime coordinate, and every
-    # prime-modulus intrinsic class is explicitly in G_p.
+    # Construction-consistency smoke test for Theorem 27.1's hybrid.  It
+    # checks indexing and threshold logic, not the Euler-product, Bonferroni,
+    # Q_0, or finite-rounding estimates in the proof.
     X1, Y1 = 300, 8
     shifts1 = fiber_shifts(Y1)
     H1 = len(shifts1)
@@ -3797,14 +3804,83 @@ def check_z():
                         assert D1 % p1 != 0 and (-4 * D1) % p1 != 0
                         quarantine_checks += 1
 
-    # Arithmetic replay of the 2.4-billion-sample table.  The raw sampling
-    # run is intentionally not repeated by the default verifier.
-    fit_X = np.array([50, 100, 200, 400, 800, 1600, 3200, 6400.])
-    fit_survivors = np.array([
+    # Reproducible sample provenance.  The default run compiles the checked-in
+    # sampler, executes its direct-divisor-oracle self-test, hashes and parses
+    # all 240 checked-in chunk rows, and derives the table totals.  The costly
+    # (about six seconds on the recorded host) regeneration is opt-in.
+    root = Path(__file__).resolve().parent
+    sampler_source = root / "scripts" / "sample_avoidance.cpp"
+    sample_data = root / "data" / "avoidance-sample-x6400.tsv"
+    assert hashlib.sha256(sampler_source.read_bytes()).hexdigest() == (
+        "90f4a8833595865040ddb2bfd2c343daf0c3cd68afa39ecbf8a536b531a74094"
+    )
+    assert hashlib.sha256(sample_data.read_bytes()).hexdigest() == (
+        "1a0428e5d0e28043d172530498ac90c6e80625c3fd8b2a6ac788a89e19c7c896"
+    )
+
+    def read_sample_rows(path):
+        with path.open(newline="") as handle:
+            data_lines = [line for line in handle if not line.startswith("#")]
+        return list(csv.DictReader(data_lines, delimiter="\t"))
+
+    sample_rows = read_sample_rows(sample_data)
+    survivor_fields = tuple(f"survive_{x}" for x in
+                            (50, 100, 200, 400, 800, 1600, 3200, 6400))
+    assert len(sample_rows) == 240
+    assert {(int(row["stream"]), int(row["chunk"])) for row in sample_rows} == {
+        (stream, chunk) for stream in range(24) for chunk in range(10)
+    }
+    mask64 = (1 << 64) - 1
+    for row in sample_rows:
+        stream, chunk = int(row["stream"]), int(row["chunk"])
+        assert int(row["seed"]) == (
+            27_006_400 + 0x9e3779b97f4a7c15 * stream
+        ) & mask64
+        assert int(row["start"]) == chunk * 10_000_000
+        assert int(row["draws"]) == 10_000_000
+        assert all(0 <= int(row[field]) <= 10_000_000
+                   for field in survivor_fields)
+        assert 0 <= int(row["sample_sum_mod_2^64"]) <= mask64
+        assert 0 <= int(row["sample_mix_xor"]) <= mask64
+
+    sample_count = sum(int(row["draws"]) for row in sample_rows)
+    raw_survivors = np.array([
+        sum(int(row[field]) for row in sample_rows)
+        for field in survivor_fields
+    ], dtype=np.int64)
+    expected_survivors = np.array([
         126_504_179, 42_472_324, 10_805_883, 2_315_665,
         362_699, 42_008, 3_854, 274,
-    ], dtype=float)
-    sample_count = 2_400_000_000
+    ], dtype=np.int64)
+    assert sample_count == 2_400_000_000
+    assert np.array_equal(raw_survivors, expected_survivors)
+
+    with tempfile.TemporaryDirectory(prefix="es-sampler-") as build_dir:
+        executable = Path(build_dir) / "sample_avoidance"
+        compile_command = (shlex.split(os.environ.get("CXX", "g++")) + [
+            "-O3", "-DNDEBUG", "-std=c++20", "-pthread",
+            "-o", str(executable), str(sampler_source),
+        ])
+        subprocess.run(compile_command, check=True, capture_output=True, text=True)
+        self_test = subprocess.run(
+            [str(executable), "--self-test"], check=True,
+            capture_output=True, text=True,
+        )
+        assert "match direct oracle" in self_test.stdout
+        if os.environ.get("ES_BIG_SAMPLE") == "1":
+            regenerated = Path(build_dir) / "regenerated.tsv"
+            subprocess.run(
+                [str(executable), "--output", str(regenerated)],
+                check=True,
+            )
+            assert read_sample_rows(regenerated) == sample_rows
+            print("ES_BIG_SAMPLE=1: all 2.4 billion draws and 240 chunks "
+                  "match the checked-in raw data")
+        else:
+            print("Set ES_BIG_SAMPLE=1 to regenerate all 2.4 billion sample draws")
+
+    fit_X = np.array([50, 100, 200, 400, 800, 1600, 3200, 6400.])
+    fit_survivors = raw_survivors.astype(float)
     fit_y = -np.log(fit_survivors / sample_count)
     fit_L = np.log(fit_X)
 
@@ -3859,11 +3935,11 @@ def check_z():
 
     print("conditioned X=27,Y=2: 14 atoms, 4 impossible, "
           "conditional void=147/320; (27.5) exact")
-    print("Theorem 27.1 finite certificate: %d low events and %d prime "
+    print("Theorem 27.1 construction smoke test: %d low events and %d prime "
           "classes; primorial exclusions=%d" %
           (low_event_checks, prime_class_checks, quarantine_checks))
-    print("§27 sample replay: X=6400 has 274/2.4e9 survivors, Wilson "
-          "[1.01425e-7,1.28509e-7]")
+    print("§27 raw-data and table-arithmetic replay: X=6400 has "
+          "274/2.4e9 survivors, Wilson [1.01425e-7,1.28509e-7]")
     print("§27 fits (L^2logL, subset RMSE, correlation): "
           "%.5f, %.5f, %.6f" % (rmses[3], rmses[4], correlation))
 
