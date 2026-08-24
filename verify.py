@@ -5046,4 +5046,91 @@ def check_ac():
 print("\n== (ac) full Type-II generation orbit (§30) ==")
 check_ac()
 
+
+# ---------------------------------------------------------------- (ad)
+def check_ad():
+    """Exact small-scale rough-event enumeration for §31."""
+
+    def tau3(n):
+        out = 1
+        for e in factorint(n).values():
+            out *= (e + 1) * (e + 2) // 2
+        return out
+
+    expected = {
+        (80, 3): (13, 2.6377878615258217, 3.6115446632487553,
+                  0.04715333385100241, 0.204479861037451,
+                  0.05730010074882489),
+        (120, 3): (20, 3.363912912202289, 5.484397404494572,
+                   0.05490972332435533, 0.15887281668150682,
+                   0.09339846903266923),
+        (160, 5): (21, 3.2544024853701723, 4.131858245775285,
+                   0.05087060224100122, 0.19332400027263097,
+                   0.09144414035036377),
+        (200, 5): (27, 3.7196502318836147, 4.7730977015384815,
+                   0.05164884872205539, 0.2987014116162228,
+                   0.09309693804572494),
+    }
+    table = []
+    determinant_checks = class_checks = 0
+    for (X, z), wanted in expected.items():
+        L = log(X)
+        kappa = 0.02
+        rows = []
+        rough_primes = set()
+        for M in range(3, X + 1, 4):
+            A0 = (M + 1) // 4
+            residues = {(-4 * d) % M for d in divisors_of_square(A0)}
+            F = len(residues)
+            assert F <= tau3(A0)
+            class_checks += 1
+            factors = tuple(map(int, factorint(M)))
+            if min(factors) <= z:
+                continue
+            rows.append((M, F, factors))
+            rough_primes.update(factors)
+            for q in factors:
+                k = M // q
+                r = k % 4
+                assert r in (1, 3) and (q * r) % 4 == 3
+                c = (q * r + 1) // 4
+                t = (k - r) // 4
+                assert 4 * c - q * r == 1
+                assert q * t + c == A0
+                determinant_checks += 1
+
+        b = {q: L**3 / (q * log(z)) for q in rough_primes}
+        charges = {q: kappa * b[q] for q in rough_primes}
+        total0 = total = 0.0
+        neighborhoods = {q: 0.0 for q in rough_primes}
+        composite_neighborhoods = {q: 0.0 for q in rough_primes}
+        for M, F, factors in rows:
+            activity = (F / M) * exp(2 * sum(charges[q] for q in factors))
+            total0 += F / M
+            total += activity
+            for q in factors:
+                neighborhoods[q] += activity
+                if M != q:                  # remove the prime-modulus diagonal
+                    composite_neighborhoods[q] += activity
+
+        got = (
+            len(rows), total0, total, total / (L**3 / log(z)),
+            max(neighborhoods[q] / b[q] for q in rough_primes),
+            max(composite_neighborhoods[q] / b[q]
+                for q in rough_primes),
+        )
+        assert got[0] == wanted[0]
+        assert all(abs(x - y) < 1e-12 for x, y in zip(got[1:], wanted[1:]))
+        table.append((X, z, got[0], round(got[1], 5), round(got[3], 5),
+                      round(got[4], 5), round(got[5], 5)))
+
+    print("rough weighted events (X,z,count,S0,S_a/(L^3/log z),"
+          "max Tq/bq,max composite Tq/bq):", table)
+    print("Henriot majorant/determinant checks:", class_checks,
+          "class bounds and", determinant_checks, "linear-form readings")
+
+
+print("\n== (ad) weighted rough shifted-divisor estimates (§31) ==")
+check_ad()
+
 print("\nall checks passed")

@@ -9398,3 +9398,498 @@ prime \(P\equiv1\pmod {24}\) occurs in one of the explicit decorated-grid
 value sets (30.19); or, for full Erdős--Straus without the Type-II
 strengthening, prove that it occurs in the union (30.25).  No such value-image
 theorem is proved here.
+
+---
+
+## 31. Rough shifted divisors: a weighted mean theorem and a natural-density refutation of H_PF
+
+Put \(L=\log X\).  This section returns to the wall in §27.3.  The labels
+are important: the weighted rough mean, the softened neighborhood estimate,
+and the natural-density conclusion are **proved**.  The original pointwise
+shape in (27.17), and the transfer to an interval with
+\(\log N\asymp L^4\), are not proved.
+
+### 31.1 The target, its difficulty class, and the source check
+
+For a prime \(q\) let
+
+\[
+ b_q={L^3\over q\log z},\qquad
+ W_{\boldsymbol a}(M)=\mathbf1_{P^-(M)>z}
+       \exp\!\left(2\sum_{p\mid M}a_p\right),               \tag{31.1}
+\]
+
+where the sum is over distinct prime divisors.  The exact statement requested
+in (27.17), with all quantifiers exposed, is the following.
+
+**Target 31.1 (the original weighted estimate; still not proved in this
+pointwise shape).**  Take
+\(z=L^3/\sqrt{\log L}\).  There should be an absolute constant \(A>0\)
+such that, for every sufficiently large \(X\), there are nonnegative numbers
+\(a_q\), one for every prime \(z<q\leq X\), satisfying
+
+\[
+ a_q\leq A b_q,
+ \qquad
+ \sum_{\substack{M\leq X\,,\ M\equiv3(4)\,,\ P^-(M)>z\,,\ q\mid M}}
+ {F(M)\over M}\exp\!\left(2\sum_{p\mid M}a_p\right)
+ \leq a_q                                                   \tag{31.2}
+\]
+
+for every such \(q\), and
+
+\[
+ \sum_{\substack{M\leq X\,,\ M\equiv3(4)\,,\ P^-(M)>z}}
+ {F(M)\over M}\exp\!\left(2\sum_{p\mid M}a_p\right)
+ =o(L^3).                                                    \tag{31.3}
+\]
+
+The error in (31.3) is uniform for the one charge vector supplied at each
+\(X\); it is not a \(q\)-dependent assertion.  Equivalently, (31.2) is
+\(T_q(z;\boldsymbol a)\leq a_q\).
+
+By Lemma 21.1, the underlying void event says, jointly for every
+\(R\leq(X+1)/4\) and every \(s\mid\operatorname{rad}(R)\), that
+
+\[
+ n+4R^2/s\quad\hbox{has no divisor }M\leq X
+       \quad\hbox{with }M\equiv-1\pmod {4R}.                \tag{31.4}
+\]
+
+After the standalone quarantine \(n\equiv0\pmod p\) for \(p\leq z\), only
+\(z\)-rough \(M\)'s survive and every atomic probability is exactly \(1/M\).
+Thus (31.2) is a weighted, shared-prime neighborhood estimate for the
+**joint** shifted-divisor problem (31.4), not merely a mean theorem for one
+polynomial value.  The progression modulus \(4R\), the shift \(4R^2/s\),
+and the \(2^{\omega(R)}\) multiplicity all move together.  This is the exact
+difficulty class.
+
+The literature audit is as follows.
+
+* Theorem 1 quoted in Henriot, *Nair--Tenenbaum bounds uniform with respect
+  to the discriminant* (`sources/henriot-1102.1643.pdf`, pp. 1--2), says:
+  for pairwise coprime irreducible \(Q_1,\ldots,Q_k\in\mathbb Z[T]\), with
+  \(Q=\prod Q_j\) of degree \(g\), discriminant \(D\), and no fixed prime
+  divisor, and \(F\in\mathcal M_k(A,B,\epsilon)\) with
+  \(\epsilon\leq\alpha\delta/(12g^2)\), uniformly for
+  \(x\geq c_0\|Q\|^\delta\) and \(x^\alpha<y\leq x\),
+  \[
+   \sum_{x<n\leq x+y}F(|Q_1(n)|,\ldots,|Q_k(n)|)
+   \ll y\prod_{p\leq x}\left(1-\frac{\rho(p)}p\right)
+   \sum_{n_1\cdots n_k\leq x}
+   F(n_1,\ldots,n_k){\rho_{Q_1}(n_1)\cdots\rho_{Q_k}(n_k)
+                    \over n_1\cdots n_k}.                  \tag{31.5}
+  \]
+  In that quoted theorem the implicit constant may depend on \(D\).
+  Henriot's own Theorem 5/Corollary 2 replaces this by an explicit
+  discriminant factor and constants independent of \(D\), while retaining
+  the coefficient-size condition \(x\geq c_0\|Q\|^\delta\).
+* The original Nair--Tenenbaum paper
+  (`sources/nair-tenenbaum-1998.pdf`, Theorem 1 and Corollaries 1--2) gives
+  (31.5), including an arithmetic-progression extension, for the larger
+  \(\mathcal M_k\) class.  Shiu's Theorem 1
+  (`sources/shiu-1980.pdf`, pp. 162--163) is its one-form ancestor: for a
+  nonnegative multiplicative \(f\) in Shiu's class, reduced \(a\pmod q\),
+  \(q<y^{1-\beta}\), and \(x^\alpha\leq y\leq x\), it bounds the progression
+  sum by
+  \(y\{\varphi(q)\log x\}^{-1}
+    \exp(\sum_{p\leq x,p\nmid q}f(p)/p)\), up to a constant depending only
+  on the class parameters.
+* These are **upper mean-value** theorems.  The indicator that an integer has
+  no divisor in one truncated progression is not multiplicative: two
+  coprime values which separately have no eligible divisor can acquire one
+  by multiplying divisors from the two values.  A product over forbidden
+  prime factors is a valid minorant only when every bad composite divisor
+  forces a prime in a fixed bad set.  That is exactly the \(D=1\) mechanism
+  of Lemma 24.5; it fails for a general moving class \(-1\pmod {4R}\).
+* **FLAGGED (bibliography checked only at title level; theorem details from
+  memory, not invoked):** Erdős--Hall's *Proof of a conjecture about the
+  distribution of divisors of integers in residue classes* and R. R. Hall's
+  related residue-class papers study distribution/moments of divisors in
+  fixed residue classes.  **FLAGGED (from memory):** Ford's Annals paper
+  *The distribution of integers with a divisor in a given interval*, 168
+  (2008), 367--433, determines the order of the one-value interval-divisor
+  counting function \(H(x,y,z)\).  Their clustering technology is the right
+  analogy, but no theorem from those works is asserted here to be uniform in
+  the moving \(4R\), simultaneous in all shifts, conditional on (27.2), or
+  weighted by the shared-prime activities in (31.2).
+
+There is nevertheless a multiplicative **majorant** which is useful for the
+rough atomic mass: \(F(M)\leq\tau(((M+1)/4)^2)\leq
+\tau_3((M+1)/4)\).  It does not minorize the void.  The next two results use
+it only on the upper-mean side, then let the local lemma provide the void.
+
+### 31.2 The weighted rough mean: the second half of (27.17)
+
+**Theorem 31.2 (weighted rough-modulus mean; proved).**  Uniformly for
+\(3\leq z\leq X^{1/10}\) and nonnegative charges \(a_p\leq1\), put
+\(E=\sum_{z<p\leq X}a_p/p\).  Then
+
+\[
+ \sum_{\substack{M\leq X\,,\ M\equiv3(4)}}
+ {F(M)\over M}W_{\boldsymbol a}(M)
+ \ll e^{CE}{L^3\over\log z}.                               \tag{31.6}
+\]
+
+In particular, if \(a_p=O(L^3/(p\log z))\) and
+\(z=L^3/\sqrt{\log L}\), then \(E=o(1)\), so (31.3) holds.
+
+*Proof.*  Write \(M=4m-1\), and define the multiplicative function
+
+\[
+ w(p^\nu)=
+ \begin{cases}0,&p\leq z,\\ e^{2a_p},&p>z,
+ \end{cases}
+ \qquad(\nu\geq1),\qquad w(1)=1.                            \tag{31.7}
+\]
+
+The summand before division by \(M\) is at most
+\(w(4m-1)\tau_3(m)\).  Apply (31.5), or Henriot's Corollary 2, to
+
+\[
+ Q_1(t)=4t-1,\qquad Q_2(t)=t,
+ \qquad \mathcal F(u,v)=w(u)\tau_3(v).                     \tag{31.8}
+\]
+
+The function \(\mathcal F\) is multiplicative and belongs to a fixed
+\(\mathcal M_2(A,B,\epsilon)\), uniformly in the charges.  The determinant
+of the two linear forms is \(1\), so the discriminant factor is exactly
+harmless.  At every odd prime the forms have two distinct roots.  Corollary
+2 therefore gives, on a dyadic interval of length \(V\), an upper bound by
+\(V\) times
+
+\[
+ \prod_{p\ll V}(1-2/p)(1+w(p)/p)(1+3/p)
+ \ll {\log^2(2V)\over\log z}
+       \exp\!\left(C\sum_{z<p\ll V}{a_p\over p}\right),    \tag{31.9}
+\]
+
+whenever the interval can contain a \(z\)-rough value.  For \(p\leq z\)
+the coefficient of \(1/p\) in the logarithm is \(1\); for \(p>z\) it is
+\(2+O(a_p)\).  This proves (31.9) by Mertens' estimate.  The first possible
+rough value has size \(>z\), so the few lowest dyadic intervals have
+\(\log V\asymp\log z\) and obey the same bound after changing the constant.
+Dyadic summation and partial summation now give
+
+\[
+ \sum {F(M)W_{\boldsymbol a}(M)\over M}
+ \ll {e^{CE}\over\log z}
+      \left(L^2+\int_z^X{(\log t)^2\over t}\,dt\right),
+\]
+
+which is (31.6).  Finally
+\(E\ll L^3\{z\log z\}^{-1}=o(1)\) for the stated charges and cutoff. ∎
+
+This proves the global weighted line which §27.3 left open.  It does not by
+itself prove a void probability: its right side still tends to infinity.
+
+### 31.3 A softened pointwise estimate
+
+The obstruction to applying Henriot uniformly to all of (31.2) is now very
+specific.  In \(M=qk\), the relevant forms in the cofactor variable have
+coefficient size \(q\).  Henriot requires the cofactor interval to have
+length at least a fixed power of \(q\).  The short initial range is not
+covered by (31.5), and the diagonal \(k=1\) alone would require the unproved
+pointwise bound
+\(F(q)=O(L^3/\log z)\) to retain \(a_q=O(b_q)\).
+
+A maximal-order term handles that short range without damaging the global
+weighted mean.  Fix a sufficiently large absolute \(C_d\), and put
+
+\[
+ u_q={\log(2q)\over q}
+       \exp\!\left({C_d\log(2q)\over\log\log(3q)}\right).    \tag{31.10}
+\]
+
+**Theorem 31.3 (softened (27.17); proved).**  Let
+
+\[
+ z={L^3\log\log L\over\log L}.                              \tag{31.11}
+\]
+
+For all sufficiently large \(X\), there is an absolute \(A>0\) such that
+the charges
+
+\[
+ a_q=A(b_q+u_q)\qquad(z<q\leq X,
+                       \ q\text{ prime})                    \tag{31.12}
+\]
+
+satisfy
+
+\[
+ T_q(z;\boldsymbol a)\leq a_q\quad(z<q\leq X),              \tag{31.13}
+\]
+
+and
+
+\[
+ \max_{q>z}a_q=o(1),\qquad
+ \sum_{z<q\leq X}{a_q\over q}=o(1),\qquad
+ \sum_{\substack{M\leq X\,,\ M\equiv3(4)}}
+ {F(M)\over M}W_{\boldsymbol a}(M)
+ \ll {L^3\over\log z}=o(L^3).                              \tag{31.14}
+\]
+
+The same conclusion holds with
+\(z=L^3g(L)/\log L\) whenever \(g(L)\to\infty\) and
+\(g(L)=o(\log L)\).
+
+*Proof.*  The standard maximal-order divisor bound gives
+
+\[
+ \tau_3(n)\leq
+ \exp\!\left({C_d'\log(2n)\over\log\log(3n)}\right).        \tag{31.15}
+\]
+
+Fix \(q>z\), write \(M=qk\), and choose the unique
+\(r\in\{1,3\}\) for which \(qr\equiv3\pmod4\).  With
+\(k=4t+r\),
+
+\[
+ {qk+1\over4}=qt+c,\qquad c={qr+1\over4},\qquad 4c-qr=1.    \tag{31.16}
+\]
+
+Thus the cofactor and shifted factor are determinant-one linear forms.  Also
+
+\[
+ W_{\boldsymbol a}(qk)
+ \leq e^{2a_q}w(k),
+ \qquad F(qk)\leq\tau_3((qk+1)/4).                          \tag{31.17}
+\]
+
+Split the cofactor sum at \(k=C_0q^{1/2}\), with \(C_0\) large enough for
+Henriot's coefficient condition with \(\delta=1/2\).  In the lower range,
+(31.15), \(\sum_{k\leq y}1/k\ll\log(2y)\), and roughness give
+
+\[
+ {1\over q}\sum_{k<C_0q^{1/2}}
+ {F(qk)W_{\boldsymbol a}(qk)\over k}
+ \ll u_q.                                                   \tag{31.18}
+\]
+
+Indeed \(qk\ll q^{3/2}\).  From (31.12), uniformly in \(p>z\),
+\(a_p=O(1/\log\log L)+p^{-1+o(1)})\).  Since a rough integer \(qk\) has at
+most \(\log(qk)/\log z\) distinct prime factors, its exponential weight in
+the lower range is absorbed by increasing the constant in (31.15).  This
+also includes \(k=1\), the prime-modulus diagonal.
+
+For every dyadic lower endpoint \(V\geq C_0q^{1/2}\), apply Henriot to the
+two forms in (31.16) and the multiplicative function
+\(w(k)\tau_3((qk+1)/4)\).  Their determinant is \(1\), and the coefficient
+condition now holds.  Since a composite rough cofactor has \(k>z\), the
+Euler-product calculation in (31.9) gives
+
+\[
+ \sum_{V<k\leq2V}w(k)\tau_3((qk+1)/4)
+ \ll V{(\log(2V))^2\over\log z}.                            \tag{31.19}
+\]
+
+The omitted local factor at \(p=q\) can only decrease this upper bound.
+Dividing by \(qk\) and summing the dyadic blocks gives
+\(O(L^3/(q\log z))=O(b_q)\).  Equations (31.18)--(31.19) prove
+\(T_q\ll b_q+u_q\).  The implicit constant is uniform once
+\(\max a_p\leq1\) and \(\sum a_p/p\leq1\), so choosing the absolute \(A\)
+in (31.12) large enough closes (31.13), rather than making a circular
+assumption.
+
+For (31.14),
+
+\[
+ \sum_{q>z}{b_q\over q}\ll {L^3\over z\log z}=o(1).         \tag{31.20}
+\]
+
+For large \(q\), the exponential in (31.10) is at most \(q^{1/4}\), so
+
+\[
+ \sum_{q>z}{u_q\over q}
+ \ll\sum_{n>z}{\log(2n)\over n^{7/4}}=o(1).                 \tag{31.21}
+\]
+
+The same estimates give \(\max a_q=o(1)\).  Theorem 31.2 now proves the
+last assertion of (31.14).  Replacing \(\log\log L\) in (31.11) by a general
+\(g(L)\) changes (31.20) to \(O(1/g(L))\) and changes nothing else. ∎
+
+The additional \(u_q\) is the exact price of the coefficient-short range.
+It is \(q^{-1+o(1)}\), so it is invisible in the Euler mean (31.14), but no
+argument here proves the stronger uniform comparison \(u_q=O(b_q)\) up to
+\(q=X\).  Thus Theorem 31.3 is a usable weakening, not a relabeling of the
+original (27.17).
+
+### 31.4 Natural-density lower bound and H_PF
+
+**Theorem 31.4 (full-system natural-density lower bound; proved).**  With
+\(z\) as in (31.11), the natural density of the complete avoider system
+satisfies
+
+\[
+ \delta_X\geq
+ \exp\!\left\{-O\!\left({L^3\log\log L\over\log L}\right)\right\}
+ =\exp\{-o(L^3)\}.                                         \tag{31.22}
+\]
+
+More generally the cutoff in the last sentence of Theorem 31.3 gives
+\(\delta_X\geq\exp\{-O(L^3g(L)/\log L)\}\).
+
+*Proof.*  First impose
+
+\[
+ n\equiv0\pmod p\qquad(3\leq p\leq z,
+                         \ p\text{ prime}).                 \tag{31.23}
+\]
+
+Its natural-density cost is
+\(\exp\{-\vartheta(z)+O(1)\}=\exp\{-O(z)\}\).  Every atomic event whose
+modulus has such a prime factor is impossible: for
+\(D\mid((M+1)/4)^2\), one has \((M,D)=1\), so
+\(n\equiv0\pmod p\) cannot equal \(-4D\pmod p\).  Conditional on (31.23),
+each remaining distinct atomic residue class modulo a \(z\)-rough \(M\) has
+probability exactly \(1/M\); events with coprime moduli are independent.
+
+Join two atoms when their moduli share a prime.  For an atom \(A\) of modulus
+\(M\), set
+
+\[
+ x_A={1\over M}\exp\!\left(2\sum_{q\mid M}a_q\right).       \tag{31.24}
+\]
+
+For large \(X\), every \(x_A<1/2\): roughness gives
+\(\log M\geq\omega(M)\log z\), while \(\max a_q=o(1)\).
+By (31.13), its total neighbor activity is at most
+\(\sum_{q\mid M}a_q\).  Hence
+
+\[
+ \prod_{B\sim A}(1-x_B)
+ \geq\exp\!\left(-2\sum_{B\sim A}x_B\right)
+ \geq\exp\!\left(-2\sum_{q\mid M}a_q\right),               \tag{31.25}
+\]
+
+and therefore
+\(\Pr(A)=1/M\leq x_A\prod_{B\sim A}(1-x_B)\).  The
+quantitative Lovász local lemma gives
+
+\[
+ \Pr(\text{no surviving atom}\mid(31.23))
+ \geq\prod_A(1-x_A)
+ \geq\exp\!\left(-2\sum_Ax_A\right)
+ \geq\exp\{-O(L^3/\log z)\},                               \tag{31.26}
+\]
+
+where the last step is (31.14).  Multiplying by the cost of (31.23), and
+using (31.11), proves (31.22). ∎
+
+**Corollary 31.5 (H_PF is false; proved).**  Hypothesis H_PF as stated in
+§18.4 is false.
+
+*Proof with the quantifiers visible.*  Theorem 18.2 gives
+\(\mu_X\geq c_0L^3\).  If H_PF held with constants \(c,C\), choose
+\(J\geq C\mu_X\).  For each fixed sufficiently large \(X\), apply H_PF on
+arbitrarily long intervals satisfying
+\(J\log X\leq\tfrac12\log N\).  Since its nonnegative majorant is at least
+one on every avoider, its asserted mean would give
+
+\[
+ {|\operatorname{Av}_X(N)|\over N}
+ \ll e^{-c\mu_X}\leq e^{-cc_0L^3}.                         \tag{31.27}
+\]
+
+Letting \(N\to\infty\) at fixed \(X\) gives the same upper bound for
+\(\delta_X\).  This contradicts (31.22) for all sufficiently large \(X\),
+because its negative logarithm is \(o(L^3)\). ∎
+
+This conclusion uses natural density, as §27.3 explicitly allowed.  It does
+not depend on interpreting a numerical fit, and it does not assume H_DC.
+Theorem 18.6 remains a formally valid implication, but its H_PF antecedent is
+now disproved, so it supplies no exceptional-set bound.  Its conclusion has
+not been disproved by another argument.
+
+**Assessment 31.6 (ceiling interpretation).**  The cubic first moment of
+Theorem 18.2 cannot be assembled into cubic-rate decay even in natural
+density by the H_PF mechanism.  This kills the named full-harvest route to
+the conditional \(3/4\) exponent and makes Theorem 16.4's
+\((\log N)^{2/3}(\log\log N)^{1/3}\) scale the surviving intrinsic-system
+benchmark.  This is not a theorem that no different finite-interval method
+can improve Theorem 16.4; the missing transfer below is precisely why
+“near the true ceiling” remains an assessment rather than a new
+exceptional-set lower bound.
+
+### 31.5 Route audit and the finite-interval residual
+
+**Attempt audit 31.7.**
+
+1. **Hall moments / the \(D=1\) model.**  A second moment and
+   Paley--Zygmund lower-bound the probability of at least one hit; they point
+   in the wrong direction for a lower bound on the void unless the first
+   moment is already small.  For \(D=1\), the special factorization fact
+   “\(M\equiv3\pmod4\) has a prime \(p\equiv3\pmod4\) to odd exponent”
+   turns the complete divisor condition into independent local prime
+   exclusions.  For many \(D\)'s this becomes the residue set \(B_p(Y)\) of
+   (27.1).  The coordinate freedom in Theorem 27.1 handles all
+   \(R\leq Y\); beyond it those sets can fill the available coordinate, and
+   the exact uncontrolled cost is still (27.15).  No Hall-style lower-tail
+   theorem was found which repairs that conditioned Route-A occupancy.
+2. **Nair--Tenenbaum/Henriot.**  This route succeeds for the upper quantities
+   it actually addresses.  The determinant-one forms (31.8) prove the
+   weighted global mean, and (31.16), split at the coefficient threshold,
+   prove the softened neighborhoods.  It does not apply to the nonmultiplicative
+   no-divisor indicator and does not by itself produce a lower void.
+3. **Suen / cluster expansion.**  Suen's standard useful direction is an
+   upper bound for the no-event probability; it does not replace the lower
+   local-lemma estimate here.  The softened charges make the ordinary
+   quantitative local lemma close in the CRT product space, so no Suen gain
+   is needed for natural density.  Pair information alone still does not
+   control the alternating finite-interval tail.
+4. **Restricted families and mass accounting.**  Restricting all prime
+   factors of \(M\) to \((z,z^B]\), for fixed \(B\), lies inside the
+   \(z^B\)-smooth family and hence has \(o(L^3)\) raw intrinsic mass by
+   Lemma 24.6.  It cannot account for a \((1-o(1))\) portion of the cubic raw
+   supply.  After quarantine, Theorem 31.2 bounds the entire rough weighted
+   mass by \(O(L^3/\log z)=o(L^3)\); the issue was its dependency geometry,
+   not a remaining cubic first moment.
+
+**Residual finite statement (open).**  The proof above is on the exact CRT
+product space, equivalently on complete periods.  It does **not** prove
+
+\[
+ |\operatorname{Av}_X(N)|
+ \geq N\exp\{-o(L^3)\}
+ \qquad\text{uniformly when }\log N\asymp L^4.              \tag{31.28}
+\]
+
+On \([1,N]\), intersections of at most \(j\) congruence atoms have the CRT
+main term plus an \(O(1)\) rounding error, but the local lemma does not by
+itself give a degree-\(j\) polynomial whose odd truncation retains the lower
+bound (31.26).  A finite transfer needs a convergent event-cluster expansion
+with a quantitatively controlled tail and coefficient sum through
+\(j=O(L^3)\); only then would the lcm budget \(X^j\leq N^{O(1)}\) and the
+aggregate rounding errors fit inside \(\log N\asymp L^4\).  No such transfer
+is proved here.  Complete periods (or sufficiently large multiples of them)
+do give (31.22), which is enough for Corollary 31.5 but can have
+\(\log N\) exponentially larger than the critical \(L^4\) scale.
+
+### 31.6 Numerical companion
+
+`verify.py (ad)` exactly enumerates every intrinsic class and every rough
+atomic event for \(X\leq200\).  It checks
+\(F(M)\leq\tau_3((M+1)/4)\), every determinant-one representation (31.16),
+and the shared-prime sums.  For a deliberately mild finite-scale charge
+\(a_q=0.02L^3/(q\log z)\), it reports the global weighted sum and both the
+full and diagonal-removed neighborhood ratios to \(b_q\).  These are shape
+diagnostics only: at these tiny \(X\), the asymptotic charge need not satisfy
+the local lemma.
+
+\[
+\begin{array}{c|c|r|c|c|c|c}
+X&z&\#\{M\text{ rough}\}&S_0&S_a/(L^3/\log z)
+ &\max_q T_q/b_q&\max_q(T_q-\text{diagonal})/b_q\\ \hline
+80&3&13&2.63779&.04715&.20448&.05730\\
+120&3&20&3.36391&.05491&.15887&.09340\\
+160&5&21&3.25440&.05087&.19332&.09144\\
+200&5&27&3.71965&.05165&.29870&.09310
+\end{array}                                                 \tag{31.29}
+\]
+
+The computation supports neither an asymptotic constant nor the original
+\(a_q=O(b_q)\) shape.  Its useful regression is structural: the prime
+diagonal is visibly the largest finite-scale addition, exactly the term
+isolated by \(u_q\) in Theorem 31.3.
