@@ -7710,3 +7710,445 @@ totality is false for the present laws.
 * Rational maps, non-singleton corrected tensors, and mixed products with
   additional coordinates remain unclassified.  No Erdős--Straus proof is
   claimed.
+
+
+## 27. Large-\(R\) conditioning: a near-cubic cutoff, rough quarantine, and the remaining cluster wall
+
+Put \(L=\log X\).  This section attacks the large-\(R\) remainder left by
+Theorem 24.8.  Labels are strict.  The enlarged truncated-fiber certificate
+and its prime-modulus hybrid are **proved**.  The local-lemma and rough-modulus
+calculations stop at explicitly named estimates.  H_DC below is a
+**conditional, falsifiable** void-probability hypothesis, not a theorem.
+The measurements are **informational**.
+
+### 27.1 The exact conditional target
+
+Fix a cutoff \(Y\), and write
+
+\[
+ \mathcal D_Y=\{(R,R^2/s):R\leq Y,\ s\mid\operatorname{rad}(R)\},
+ \qquad H_Y=|\mathcal D_Y|.
+\]
+
+For every prime \(p\leq X\), \(p\equiv3\pmod4\), put
+
+\[
+ B_p(Y)=\{-4D\pmod p:(R,D)\in\mathcal D_Y,\ p\nmid R\},
+ \qquad b_p=|B_p(Y)|.                                      \tag{27.1}
+\]
+
+The particular finite-interval certificate used in the proof of Theorem
+24.8 is
+
+\[
+ \mathcal C_Y=\left\{n:
+ \begin{array}{ll}
+ n\equiv0\pmod p,&p\leq2H_Y,\ p\equiv3\pmod4,\\
+ n\pmod p\notin B_p(Y),&2H_Y<p\leq X,\ p\equiv3\pmod4
+ \end{array}\right\}.                                     \tag{27.2}
+\]
+
+For the launching cutoff \(Y_0=L^{3-\epsilon}\), the exact missing statement
+is
+
+\[
+ { |\{n\leq N:n\in\mathcal C_{Y_0},\ \text{no hit with }R>Y_0\}|
+       \over |[1,N]\cap\mathcal C_{Y_0}| }
+ \geq \exp\{-o(L^3)\},\qquad \log N\asymp L^4.             \tag{27.3}
+\]
+
+Together with Theorem 24.8, (27.3) would give
+\(|{\rm Av}_X(N)|\geq N\exp\{-o(L^3)\}\), contradicting H_PF's
+\(N\exp(-cL^3)\) majorant mean for large \(X\).  This is a conditional
+probability for the **same** prime coordinates, not a multiplication of two
+independent avoidance estimates.
+
+Here is exactly what remains random after (27.2).  In the CRT (natural-density)
+probability space, the coordinates at primes \(p\equiv1\pmod4\) are still
+uniform.  At a prime \(p\equiv3\pmod4\), \(p\leq2H_Y\), the residue is fixed
+to zero.  At \(p>2H_Y\), it is uniform on the \(p-b_p\) residues outside
+\(B_p(Y)\).  Higher \(p\)-adic digits remain uniform.  The same description
+holds in a finite interval up to the congruence-count rounding errors treated
+by Bonferroni in Theorem 24.8.
+
+There is a useful exact simplification which was easy to miss.  For every
+atomic event
+
+\[
+ A_{M,R,s}=\{M\mid n+4D\},\qquad
+ D=R^2/s,\quad M\equiv-1\pmod {4R},                         \tag{27.4}
+\]
+
+one has \((M,R)=1\), hence \((M,D)=1\).  Thus an event whose modulus contains
+a conditioned prime \(p\leq2H_Y\), \(p\equiv3\pmod4\), is **impossible**:
+\(n\equiv0\pmod p\) but \(-4D\not\equiv0\pmod p\).  In particular, the
+prime in question cannot divide the event's own \(R\); the congruence
+\(M\equiv-1\pmod R\) rules that out.
+
+For every remaining event, if \(M=\prod p^{a_p}\), its exact conditional
+probability in the CRT space is
+
+\[
+ \Pr(A_{M,R,s}\mid\mathcal C_Y)=
+ \prod_{\substack{p^{a_p}\Vert M\\p\equiv1(4)}}p^{-a_p}
+ \prod_{\substack{p^{a_p}\Vert M\\p\equiv3(4)}}
+ {\mathbf1_{\{-4D\bmod p\notin B_p(Y)\}}
+  \over p^{a_p-1}(p-b_p)}.                                  \tag{27.5}
+\]
+
+The second product is automatically over \(p>2H_Y\); otherwise it is zero.
+Two such cylinder events are independent after conditioning when their
+moduli are coprime.  The honest atomic dependency graph therefore joins
+moduli sharing a prime (after duplicate residue classes for one modulus are
+collapsed).  Formula (27.5) also shows the conditioning problem: the
+large-\(R\) residues are tested against the very sets already removed for
+small \(R\).  No independent resampling of those coordinates is available.
+
+### 27.2 A proved polylogarithmic extension and a prime hybrid
+
+The restriction \(Y\leq L^{3-\epsilon}\) in Theorem 24.8 is not the sharp
+range of its own bookkeeping.
+
+**Theorem 27.1 (near-cubic truncated fibers plus every prime modulus;
+proved).**  Let \(Y=Y(X)\), \(H=H_Y\), and suppose
+
+\[
+ H\log L=o(L^3).                                             \tag{27.6}
+\]
+
+Uniformly when \(\log N\geq L^4\), the integers which have neither
+
+1. a hit (21.3) with \(R\leq Y\), nor
+2. a hit whose modulus \(M\) is prime,
+
+have cardinality
+
+\[
+ \geq N\exp\{-O(H\log L+L^2)\}.                             \tag{27.7}
+\]
+
+The same lower bound holds for natural density.  Since
+\(H\ll Y\log(2Y)\), for every fixed \(\eta>0\) one may take
+
+\[
+ Y={L^3\over(\log L)^{2+\eta}},\qquad
+ H\log L\ll {L^3\over(\log L)^\eta}=o(L^3).                 \tag{27.8}
+\]
+
+Thus the construction reaches a single cutoff \(Y=L^{3-o(1)}\), and at the
+same time certifies the complete prime-modulus subsystem, at subcubic cost.
+It still leaves composite moduli with \(R>Y\).
+
+*Proof.*  Strengthen (27.2) by fixing \(n\equiv0\pmod p\) for
+\(p\leq4H\), \(p\equiv3\pmod4\).  This costs \(\exp\{-O(H)\}\).  For every
+larger prime \(p\equiv3\pmod4\), forbid
+
+\[
+ G_p=B_p(Y)\cup\mathscr R(p).                               \tag{27.9}
+\]
+
+Lemma 21.2 gives \(|\mathscr R(p)|=F(p)\leq(p-1)/2\), while
+\(|B_p(Y)|\leq H<p/4\).  Hence \(|G_p|<3p/4\), and
+
+\[
+ \sum_{4H<p\leq X}{|G_p|\over p}
+ \leq H\sum_{p\leq X}{1\over p}
+       +\sum_{p\leq X}{F(p)\over p}
+ \ll H\log L+L^2,                                           \tag{27.10}
+\]
+
+where the second term is Lemma 24.3.  Avoiding (27.9) certifies every
+\(R\leq Y\) event exactly as in Theorem 24.8.  It also certifies every event
+with prime modulus, because \(\mathscr R(p)\) is the complete intrinsic set
+for that modulus.  The zero prescriptions handle all such events at
+\(p\leq4H\), since \((p,D)=1\).
+
+As \(|G_p|/p<3/4\), the CRT product is bounded below by the exponential of
+minus a constant times (27.10).  Odd Bonferroni truncation has degree
+\(O(H\log L+L^2)\).  With \(W=\sum|G_p|\leq H\pi(X)+\sum F(p)\), its total
+rounding error is
+
+\[
+ \exp\{O((H\log L+L^2)L)\}=\exp\{o(L^4)\},                 \tag{27.11}
+\]
+
+by (27.6).  It is negligible against \(N\) times the CRT product when
+\(\log N\geq L^4\).  This proves (27.7).  Finally
+\(H\ll Y\log(2Y)\) gives (27.8). \(\square\)
+
+The new part of (27.7) beyond a direct range extension is modest but useful:
+a hybrid direct-forbidding step completely removes the class \(M=q\).  The
+class that defeats the continuation below is therefore genuinely composite,
+not the prime slice already pinned by Theorem 24.4.
+
+### 27.3 Local lemma, Suen, and cluster expansion: exact failure point
+
+**Attempt 27.2 (failed as an unconditional full extension).**  On the
+conditioned product space, use the atoms (27.4), with probabilities (27.5),
+and connect atoms whose moduli share a prime.  Before conditioning, the
+pair-count neighborhood charge at a fixed prime \(q\) is
+
+\[
+ \begin{split}
+ \Lambda_q^{\rm pair}
+ &=\sum_{\substack{R>Y\,,\ (R,q)=1}}2^{\omega(R)}
+   \sum_{\substack{M\leq X\\M\equiv-1\ (4R)\\q\mid M}}{1\over M}\\
+ &\asymp {1\over q}\sum_{Y<R\leq X/q}{2^{\omega(R)}\over R}
+                  \log {X\over qR}
+ \asymp {\{\log(X/q)\}^3\over q}                           \tag{27.12}
+ \end{split}
+\]
+
+for polylogarithmic \(q\) and \(Y=X^{o(1)}\), apart from the negligible
+lower endpoint.  The first comparison is the harmonic sum in the unique CRT
+class modulo \(4Rq\); the second uses
+\(\sum_{R\leq t}2^{\omega(R)}/R\asymp(\log t)^2\).
+Equation (27.12) is a **pair-mass calculation**, not a lower bound after the
+residue exclusions in (27.5).  Deduplicating equal classes or proving that
+many large shifts fall in \(B_q(Y)\) could reduce it; controlling precisely
+that reduction is the missing clustering input.
+
+There is an even earlier defect if one uses (27.2) literally: small primes
+\(q\equiv1\pmod4\), such as 5, remain free, so their shared-prime
+neighborhoods retain cubic-scale charge.  A clean quarantine is available.
+Fixing
+
+\[
+ n\equiv0\pmod p\quad\hbox{for every prime }p\leq z          \tag{27.13}
+\]
+
+costs \(\exp\{-\vartheta(z)\}=\exp\{-O(z)\}\), and makes every event whose
+modulus has a prime factor at most \(z\) impossible, because \((M,D)=1\).
+All surviving moduli are \(z\)-rough, all their prime coordinates exceed
+\(z\), and their conditional atomic probabilities are exactly \(1/M\).
+This is a genuine improvement over conditioning only the primes
+\(3\pmod4\).
+
+The expected upper-sieve saving for rough moduli is one factor \(1/\log z\).
+Accordingly the rough pair-charge benchmark is
+
+\[
+ \Lambda_q^{\rm rough}\ \hbox{of size}\
+       {L^3\over q\log z}.                                  \tag{27.14}
+\]
+
+This exposes the sharp edge of the uniform-charge LLL attempt.  At the
+original \(Y=L^{3-\epsilon}\), \(H\asymp Y\log Y\), putting \(z\asymp H\)
+in (27.14) still gives
+\(L^\epsilon/(\log L)^2\to\infty\).  At the near-cubic cutoff (27.8), it
+gives \((\log L)^\eta\to\infty\).  Thus the one-number neighborhood bound
+needed by the elementary asymmetric LLL still diverges exactly when the
+certificate cost is subcubic.  Suen's inequality does not supply the needed
+lower void bound, and the elementary cluster expansion has the same
+nonconvergent absolute neighborhood sum.
+
+The responsible proxy class is explicit: broad-cofactor composite moduli
+\(M=qk\), \(k>1\), with \(q>z\),
+\(R\mid(qk+1)/4\), and all \(2^{\omega(R)}\) shifts.  Fixed prime modulus
+\(M=q\) is already handled in Theorem 27.1.  Summing over the unrestricted
+cofactor \(k\) is what creates (27.12).  A second direct-forbidding hybrid
+would add, at coordinate \(q\), every residue \(-4R^2/s\) arising from this
+class.  No proved bound keeps that set away from all the available nonzero
+residues.  Its exact local cost
+
+\[
+ -\log\left(1-{|C_q\setminus B_q(Y)|\over q-b_q}\right)      \tag{27.15}
+\]
+
+can therefore be as large as \(\log(q-b_q)\), rather than
+\(O(|C_q|/q)\).  Bounding the sum of (27.15) by \(o(L^3)\) is another form
+of the missing large-\(R\) divisor-clustering theorem, not a consequence of
+the cubic first moment.
+
+A more refined, still incomplete route is to take, for example,
+\(z=L^3/\sqrt{\log L}=o(L^3)\) in (27.13), and use prime-dependent rather
+than uniform LLL charges.  Define
+
+\[
+ T_q(z;\mathbf a)=
+ \sum_{\substack{M\leq X,\ P^-(M)>z\\q\mid M}}
+ {F(M)\over M}\exp\!\left(2\sum_{r\mid M}a_r\right).        \tag{27.16}
+\]
+
+If one could prove, simultaneously and uniformly,
+
+\[
+ T_q(z;\mathbf a)\leq a_q\quad(q>z),\qquad
+ \sum_{\substack{M\leq X\\P^-(M)>z}}{F(M)\over M}
+   \exp\!\left(2\sum_{r\mid M}a_r\right)=o(L^3),            \tag{27.17}
+\]
+
+with \(a_q=O(L^3/(q\log z))=o(1)\), then assigning to each distinct atomic
+class modulo \(M\)
+
+\[
+ x_A={1\over M}\exp\!\left(2\sum_{q\mid M}a_q\right)        \tag{27.18}
+\]
+
+would satisfy the clique-LLL criterion: its neighbor activity is at most
+\(\sum_{q\mid M}a_q\), and
+\(\prod_{B\sim A}(1-x_B)\geq
+\exp(-2\sum_{q\mid M}a_q)\).  The second estimate in (27.17) would make the
+resulting void cost subcubic.  The exponential weight is essential; the
+unweighted estimates \(T_q(z;\mathbf0)\ll L^3/(q\log z)\) alone do not
+control moduli having many rough prime factors.
+
+**Exact obstruction.**  No uniform shifted-divisor sieve estimate of the
+weighted form (27.17), and no finite-interval cluster-expansion transfer for
+it at \(\log N\asymp L^4\), is proved here.  Dropping the exponential weight
+or replacing it by its worst-case value loses more than the subcubic budget.
+This is the precise point at which the promising all-prime quarantine stops.
+Standard one-dimensional upper-bound sieve estimates suggest the unweighted
+\(1/\log z\) factor, but ordinary Brun--Titchmarsh, Bombieri--Vinogradov, and
+the §17.5 pointwise tools do not state the weighted, residue-varying joint
+bound (27.17), nor do they give its lower void probability.
+
+### 27.4 A usable conditional refutation
+
+A per-fiber hit-probability estimate is not enough: its sum is much larger
+than one, so a union bound is negative.  The hypothesis must include the
+joint void mechanism.
+
+**Hypothesis H_DC(\(\eta\)) (conditional divisor-clustering void bound;
+not proved).**  Fix \(\epsilon>0\) and
+\(0<\eta<1-\log2\), put \(Y_0=L^{3-\epsilon}\), and condition on
+\(\mathcal C_{Y_0}\) from (27.2).  For every subset \(\mathcal S\) of the
+remaining fibers \((R,s)\), \(R>Y_0\), uniformly for
+\(\log N\asymp L^4\), assume
+
+\[
+ \Pr_N\!\left(
+ \begin{array}{c}
+ n+4R^2/s\text{ has no divisor }M\leq X,\\
+ M\equiv-1\pmod {4R},\quad (R,s)\in\mathcal S
+ \end{array}
+ \middle|\mathcal C_{Y_0}\right)
+ \geq \exp\!\left\{-C\sum_{(R,s)\in\mathcal S}w_R\right\}, \tag{27.19}
+\]
+
+where
+
+\[
+ w_R=\min\left\{1,{L^{\log2+\eta}\over\varphi(4R)}\right\}. \tag{27.20}
+\]
+
+The probability is the literal uniform probability on \([1,N]\); thus
+(27.19) includes, rather than hides, both the shared-coordinate conditioning
+and the finite-interval transfer.  Quantification over every subset makes it
+falsifiable and gives substantially more content than simply asserting the
+full-system conclusion.  A proof of the weighted clique estimates
+(27.16)--(27.18), plus a controlled finite cluster expansion, is one concrete
+way H_DC could follow.
+
+**Proposition 27.3 (conditional; H_DC refutes H_PF).**  Under H_DC(\(\eta\)),
+
+\[
+ |{\rm Av}_X(N)|
+ \geq N\exp\{-O(L^{2+\log2+\eta})-o(L^3)\}
+ =N\exp\{-o(L^3)\}                                         \tag{27.21}
+\]
+
+when \(\log N\asymp L^4\).  Consequently H_PF is false.
+
+*Derivation.*  By (21.13), and harmless constant factors from \(4R\),
+
+\[
+ \sum_{R>Y_0}2^{\omega(R)}w_R
+ \leq L^{\log2+\eta}
+      \sum_{R\leq X/4}{2^{\omega(R)}\over\varphi(4R)}
+ \ll L^{2+\log2+\eta}=o(L^3).                               \tag{27.22}
+\]
+
+Apply (27.19) to all remaining fibers and multiply it by the proved
+subcubic lower count for \(\mathcal C_{Y_0}\).  This gives (27.21).  The
+strict inequality \(\eta<1-\log2\) is exactly what makes the exponent
+subcubic.  Unlike a union bound from individual probabilities, (27.19)
+already supplies the required joint lower void probability. \(\square\)
+
+**Small exact diagnostic (informational only).**  At \(X=27,Y=2\), one has
+\(H=3\) and the exact period is 4,542,615.  The certificate (27.2) contains
+460,800 residues.  Of the 14 remaining \((M,R,s)\) atoms, the four with
+\(M=15,27\) are impossible because of the fixed coordinate \(n\equiv0\pmod
+3\), exactly as predicted above; all ten others obey (27.5).  There are
+211,680 certificate residues with no remaining hit, so the conditional void
+probability is \(0.459375\).  With the toy weight (27.20) at \(\eta=0\), the
+weight sum is 3.80956 and
+\(-\log(0.459375)/3.80956=0.2042\).  This is consistent with an H_DC-type
+constant at one tiny scale, but it neither probes the rough composite regime
+nor supports an asymptotic claim.
+
+### 27.5 One more doubling of sampled avoidance
+
+**Computation 27.4 (informational, exact membership for each sampled
+integer).**  A new memory-bounded run used 2.4 billion pseudorandom 64-bit
+integers, uniform on \([10^{14},9\cdot10^{17})\).  Twenty-four separately seeded
+`mt19937_64` streams used seeds
+\(27006400+\mathtt{0x9e3779b97f4a7c15}\,t\), \(0\leq t<24\), and the C++
+standard rejection-based `uniform_int_distribution`.  For every
+\(M\equiv3\pmod4\), \(M\leq6400\), a Boolean table stored the exact set
+\(\{-4D\bmod M:D\mid((M+1)/4)^2\}\).  Each sample stopped at its first
+failed modulus; recording that first modulus gives all doubling rows without
+bias.  Memory was \(O(\sum_{M\leq6400}M)\), independent of sample count.
+
+\[
+\begin{array}{c|r|c|c|c}
+X&\#\text{ survive}&\widehat\delta_X&95\%\text{ Wilson interval}
+ &-\log\widehat\delta_X\\ \hline
+50&126504179&5.2710075\,10^{-2}&[.05270114,.05271902]&2.94295\\
+100&42472324&1.7696802\,10^{-2}&[.01769153,.01770208]&4.03437\\
+200&10805883&4.5024513\,10^{-3}&[.00449977,.00450513]&5.40313\\
+400&2315665&9.6486042\,10^{-4}&[.00096362,.00096610]&6.94353\\
+800&362699&1.5112458\,10^{-4}&[.00015063,.00015162]&8.79741\\
+1600&42008&1.7503333\,10^{-5}&[1.73368,1.76715]10^{-5}&10.95312\\
+3200&3854&1.6058333\,10^{-6}&[1.55593,1.65734]10^{-6}&13.34187\\
+6400&274&1.1416667\,10^{-7}&[1.01425,1.28509]10^{-7}&15.98561
+\end{array}                                                  \tag{27.23}
+\]
+
+The \(X=6400\) interval has 274 survivors rather than the 14 in the old
+\(X=3200\) row.  The coupled \(3200\to6400\) shell adds 2.64374 to the
+avoidance exponent while the exact raw class mass adds 4.65670, a ratio
+0.568.  The normalized exponent at 6400 is
+\(-\log\widehat\delta/(\log6400)^2=0.2081\).
+
+Repeating the unweighted affine fits, now on all eight high-precision rows in
+(27.23), gives
+
+\[
+\begin{array}{c|cccccc}
+ f(X)&L\log L&L^{3/2}&L^2&L^2\log L&L^{2+\log2}&L^3\\ \hline
+ {\rm RMSE}&.434&.366&.137&.057&.169&.296
+\end{array}.                                                 \tag{27.24}
+\]
+
+The correlation of the \(L^2\log L\) and \(L^{2+\log2}\) regressors is
+still 0.99965.  The extra doubling favors \(L^2\log L\) on this diagnostic,
+but slowly varying candidates remain nearly collinear and a finite-window
+sample is not the natural density.  It is evidence only, not H_DC and not a
+refutation of H_PF.
+
+### 27.6 Verdict after the large-\(R\) attempt
+
+**Assessment 27.5.**  H_PF remains **false-looking, open**.
+
+* **Proved:** the multi-shift certificate itself reaches
+  \(Y=L^3/(\log L)^{2+\eta}=L^{3-o(1)}\) at subcubic cost, improving the
+  fixed-power cutoff in Theorem 24.8.  The same certificate can simultaneously
+  remove every prime-modulus event, by Theorem 27.1.
+* **Proved structural quarantine:** fixing \(n\equiv0\) at every small prime
+  makes all surviving atomic moduli rough and restores exact probability
+  \(1/M\) with shared-prime dependency.  This costs only \(\exp\{-O(z)\}\).
+* **Failed continuation:** after the full small-prime quarantine, the
+  elementary LLL neighborhood benchmark for the broad-cofactor composite
+  class is still \(L^3/(q\log z)\); at every subcubic near-critical cutoff it
+  diverges.  Direct local forbidding fails at the unbounded occupancy cost
+  (27.15).
+* **Sharpest remaining input:** a weighted rough-modulus, multi-shift
+  divisor-clustering estimate such as (27.17), together with its finite
+  cluster-expansion transfer; equivalently, the explicit joint void bound
+  H_DC (27.19).  Individual divisor probabilities, an unweighted rough
+  first moment, or another prime-slice estimate do not suffice.
+
+Thus the status does not change.  The new unconditional gain is a
+polylogarithmic extension and a prime/composite separation; the full
+large-\(R\), broad-cofactor composite system remains the exact obstruction.

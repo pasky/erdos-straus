@@ -3512,4 +3512,202 @@ def check_y():
 print("\n== (y) Type-I transfer theory (§26) ==")
 check_y()
 
+# ---------------------------------------------------------------- (z)
+def check_z():
+    """Finite companions for the §27 large-R conditioning audit."""
+    import numpy as np
+
+    def fiber_shifts(Y0):
+        shifts0 = []
+        for R0 in range(1, Y0 + 1):
+            squarefree0 = [1]
+            for p0 in factorint(R0):
+                squarefree0 += [s0 * p0 for s0 in squarefree0]
+            shifts0.extend((R0, R0 * R0 // s0) for s0 in squarefree0)
+        return shifts0
+
+    # Exact conditioned-event classification from (27.5).  The full X=27
+    # period is small enough to enumerate.  Small conditioned 3 mod 4 prime
+    # factors make four of the fourteen remaining atoms impossible.
+    X0, Y0 = 27, 2
+    low_shifts = fiber_shifts(Y0)
+    H0 = len(low_shifts)
+    conditioned_primes = tuple(
+        p0 for p0 in primerange(3, X0 + 1) if p0 % 4 == 3
+    )
+    allowed = {}
+    for p0 in conditioned_primes:
+        bad0 = {(-4 * D0) % p0 for R0, D0 in low_shifts if R0 % p0}
+        allowed[p0] = ({0} if p0 <= 2 * H0
+                       else set(range(p0)) - bad0)
+
+    period0 = lcm(*range(3, X0 + 1, 4))
+    ns0 = np.arange(period0, dtype=np.int64)
+    certificate = np.ones(period0, dtype=bool)
+    for p0 in conditioned_primes:
+        certificate &= np.isin(ns0 % p0, tuple(allowed[p0]))
+    certificate_count = int(certificate.sum())
+    assert (period0, certificate_count) == (4_542_615, 460_800)
+
+    no_remaining_hit = np.ones(period0, dtype=bool)
+    atom_count = impossible_count = 0
+    for R0 in range(Y0 + 1, (X0 + 1) // 4 + 1):
+        for RR0, D0 in fiber_shifts(R0):
+            if RR0 != R0:
+                continue
+            for M0 in range(4 * R0 - 1, X0 + 1, 4 * R0):
+                atom_count += 1
+                event = ns0 % M0 == (-4 * D0) % M0
+                exact_count = int(np.count_nonzero(certificate & event))
+                predicted = Fraction(1, 1)
+                for p0, a0 in factorint(M0).items():
+                    if p0 % 4 == 1:
+                        predicted *= Fraction(1, p0**a0)
+                    else:
+                        residue0 = (-4 * D0) % p0
+                        if residue0 not in allowed[p0]:
+                            predicted = Fraction(0, 1)
+                            break
+                        predicted *= Fraction(
+                            1, p0**(a0 - 1) * len(allowed[p0])
+                        )
+                assert Fraction(exact_count, certificate_count) == predicted
+                impossible_count += predicted == 0
+                no_remaining_hit &= ~event
+    conditional_void = Fraction(
+        int(np.count_nonzero(certificate & no_remaining_hit)),
+        certificate_count,
+    )
+    assert (atom_count, impossible_count, conditional_void) == (
+        14, 4, Fraction(147, 320)
+    )
+
+    # Exact finite replay of Theorem 27.1's hybrid certificate.  Every
+    # low-fiber event has a certifying 3 mod 4 prime coordinate, and every
+    # prime-modulus intrinsic class is explicitly in G_p.
+    X1, Y1 = 300, 8
+    shifts1 = fiber_shifts(Y1)
+    H1 = len(shifts1)
+    local_sets = {}
+    for p1 in primerange(3, X1 + 1):
+        if p1 % 4 != 3 or p1 <= 4 * H1:
+            continue
+        low_bad1 = {(-4 * D1) % p1 for R1, D1 in shifts1 if R1 % p1}
+        A1 = (p1 + 1) // 4
+        prime_bad1 = {(-4 * d1) % p1 for d1 in divisors_of_square(A1)}
+        G1 = low_bad1 | prime_bad1
+        assert 0 not in G1 and len(G1) < 3 * p1 / 4
+        local_sets[p1] = G1
+
+    low_event_checks = 0
+    for R1, D1 in shifts1:
+        for M1 in range(4 * R1 - 1, X1 + 1, 4 * R1):
+            certifying = next(
+                p1 for p1, a1 in factorint(M1).items()
+                if p1 % 4 == 3 and a1 % 2 == 1
+            )
+            assert gcd(M1, R1) == gcd(M1, D1) == 1
+            if certifying > 4 * H1:
+                assert (-4 * D1) % certifying in local_sets[certifying]
+            else:
+                assert (-4 * D1) % certifying != 0
+            low_event_checks += 1
+    prime_class_checks = 0
+    for p1 in primerange(3, X1 + 1):
+        if p1 % 4 != 3:
+            continue
+        for d1 in divisors_of_square((p1 + 1) // 4):
+            if p1 > 4 * H1:
+                assert (-4 * d1) % p1 in local_sets[p1]
+            else:
+                assert (-4 * d1) % p1 != 0
+            prime_class_checks += 1
+
+    # Primorial quarantine: a modulus sharing any pinned prime cannot hit,
+    # because M == -1 (mod R) makes that prime coprime to D.
+    quarantine_checks = 0
+    for R1 in range(1, (X1 + 1) // 4 + 1):
+        for RR1, D1 in fiber_shifts(R1):
+            if RR1 != R1:
+                continue
+            for M1 in range(4 * R1 - 1, X1 + 1, 4 * R1):
+                for p1 in factorint(M1):
+                    if p1 <= 11:
+                        assert D1 % p1 != 0 and (-4 * D1) % p1 != 0
+                        quarantine_checks += 1
+
+    # Arithmetic replay of the 2.4-billion-sample table.  The raw sampling
+    # run is intentionally not repeated by the default verifier.
+    fit_X = np.array([50, 100, 200, 400, 800, 1600, 3200, 6400.])
+    fit_survivors = np.array([
+        126_504_179, 42_472_324, 10_805_883, 2_315_665,
+        362_699, 42_008, 3_854, 274,
+    ], dtype=float)
+    sample_count = 2_400_000_000
+    fit_y = -np.log(fit_survivors / sample_count)
+    fit_L = np.log(fit_X)
+
+    def affine_rmse_z(regressor):
+        design = np.column_stack((np.ones(regressor.size), regressor))
+        coefficients = np.linalg.lstsq(design, fit_y, rcond=None)[0]
+        return float(np.sqrt(np.mean((fit_y - design @ coefficients)**2)))
+
+    regressors = (
+        fit_L * np.log(fit_L), fit_L**1.5, fit_L**2,
+        fit_L**2 * np.log(fit_L), fit_L**(2 + log(2)), fit_L**3,
+    )
+    rmses = tuple(affine_rmse_z(regressor) for regressor in regressors)
+    expected_rmses = (0.43396, 0.36647, 0.13702, 0.05667, 0.16856, 0.29564)
+    assert all(abs(got - wanted) < 2e-5
+               for got, wanted in zip(rmses, expected_rmses))
+    correlation = float(np.corrcoef(regressors[3], regressors[4])[0, 1])
+    assert abs(correlation - 0.999651) < 2e-6
+
+    # Wilson arithmetic for the new row and the exact raw-mass shell.
+    z95 = 1.959963984540054
+    phat = fit_survivors[-1] / sample_count
+    denominator = 1 + z95**2 / sample_count
+    center = (phat + z95**2 / (2 * sample_count)) / denominator
+    half_width = z95 * np.sqrt(
+        phat * (1 - phat) / sample_count
+        + z95**2 / (4 * sample_count**2)
+    ) / denominator
+    assert abs((center - half_width) - 1.0142531e-7) < 1e-14
+    assert abs((center + half_width) - 1.2850863e-7) < 1e-14
+
+    intrinsic_mass = 0.0
+    mass_3200 = None
+    for M1 in range(3, 6401, 4):
+        A1 = (M1 + 1) // 4
+        intrinsic_mass += len({(-4 * d1) % M1
+                               for d1 in divisors_of_square(A1)}) / M1
+        if M1 == 3199:
+            mass_3200 = intrinsic_mass
+    assert abs(mass_3200 - 18.5283467617) < 1e-9
+    assert abs(intrinsic_mass - 23.1850498655) < 1e-9
+
+    toy_T = log(X0)**log(2)
+    toy_weight = 0.0
+    for R0 in range(Y0 + 1, (X0 + 1) // 4 + 1):
+        phi0 = 4 * R0
+        for p0 in factorint(4 * R0):
+            phi0 = phi0 // p0 * (p0 - 1)
+        toy_weight += 2**len(factorint(R0)) * min(1.0, toy_T / phi0)
+    toy_ratio = -log(float(conditional_void)) / toy_weight
+    assert abs(toy_ratio - 0.20419) < 2e-5
+
+    print("conditioned X=27,Y=2: 14 atoms, 4 impossible, "
+          "conditional void=147/320; (27.5) exact")
+    print("Theorem 27.1 finite certificate: %d low events and %d prime "
+          "classes; primorial exclusions=%d" %
+          (low_event_checks, prime_class_checks, quarantine_checks))
+    print("§27 sample replay: X=6400 has 274/2.4e9 survivors, Wilson "
+          "[1.01425e-7,1.28509e-7]")
+    print("§27 fits (L^2logL, subset RMSE, correlation): "
+          "%.5f, %.5f, %.6f" % (rmses[3], rmses[4], correlation))
+
+
+print("\n== (z) large-R conditioning and H_DC (§27) ==")
+check_z()
+
 print("\nall checks passed")
