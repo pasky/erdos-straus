@@ -10344,3 +10344,458 @@ nine-prime table, then performs the Type-I-less scan through \(10^5\).  It
 reproduces the four finite mass-ratio rows in (32.13); it does not
 machine-check either mass asymptotic or Theorem 32.4.  The default block is
 memory-bounded and runs in under ten seconds on the campaign host.
+
+---
+
+## 34. The prime-slice harvesting wall: a direct assault on \(H_{k\rm BV}\)
+
+This section separates the literal error-sum hypothesis from the job for
+which it was introduced.  The literal hypothesis remains open.  Its
+prime-slice consequence, however, can be obtained unconditionally after
+removing a negligible set of high-incidence triples.  The key is to use the
+congruence \(k\mid u+cv\), which the multiplicity bound (18.11) discarded.
+Labels are strict: literature comparisons are assessments; the incidence
+moment and the pruned prime-slice theorem are proved here.
+
+### 34.1 The hypothesis, all quantifiers, and its current logical role
+
+**Hypothesis \(H_{k\rm BV}(\kappa)\) (restated, not assumed here).**  Fix one
+constant \(0<\kappa<1/240\).  There is a function
+\(\rho_\kappa(X)\to0\) such that the following holds for every sufficiently
+large \(X\), uniformly in all the data below:
+
+* \(X^{1/2}\leq x\leq X\) and \(K_0\leq K\leq X^\kappa\);
+* \(\mathcal J\) is any subfamily of
+  \(\{k\leq K:k\equiv1\pmod4\}\) containing \(1\),
+  \(L_{\mathcal J}=\operatorname {lcm}_{k\in\mathcal J}k\), and
+  \(h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2\);
+* \(c\pmod {24L_{\mathcal J}}\) is any reduced residue;
+* \(H=K^{10}\), \(z=x^{1/6}\), and \(D\) is the fixed absolute integer in
+  the low-\(\omega\) conclusion of Lemma 16.2.
+
+Writing
+
+\[
+ E(x;q,a)=\pi(2x;q,a)-\pi(x;q,a)
+       -{\operatorname {li}(2x)-\operatorname {li}(x)\over\varphi(q)},
+                                                               \tag{34.1}
+\]
+
+the assertion is
+
+\[
+ \sum_{k\in\mathcal J}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=(uv,k)=1\\
+                  u+cv\equiv0\ (k)\\
+                  \omega(uv)\leq D\log\log X}}
+ \left|E(x;4uv,-k^{-1})\right|
+ \leq \rho_\kappa(X)x\log x\,h(\mathcal J).                 \tag{34.2}
+\]
+
+The inverse and residue in (34.2) are modulo \(4uv\).  They exist because
+\(k\equiv1\pmod4\) and \((k,uv)=1\).  The two sums are literal sums over
+triples, so repetitions of a modulus or even of a progression retain their
+multiplicity.  The little-oh is simultaneous in \(x,K,c,\mathcal J\), not
+an average over any of them.  These are exactly the quantifiers needed in
+Lemma 18.5.
+
+**Proved implication (Lemma 18.5, restated).**  If (34.2) holds, the lower
+proof of Lemma 16.3 may use \(K=X^\kappa\): the box main term in each dyadic
+prime interval is \(\asymp x\log x\,h(\mathcal J)\), while (34.2) is
+negligible.  Distinctness and the Brun--Titchmarsh upper bound are unchanged.
+For the full family,
+\(h(\mathcal K(K))\asymp\log K\asymp\log X\), and hence
+
+\[
+ \sum_{X^{1/2}<\ell\leq X}{f_c(\ell)\over\ell}
+       \asymp(\log X)^3                                     \tag{34.3}
+\]
+
+pointwise for every reduced compatible \(c\).  The restriction
+\(\kappa<1/240\) comes only from the present floor: at the lowest dyadic
+interval, \(z\geq X^{1/12}\) and Lemma 16.2 asks for
+\(z>H^2=K^{20}\).
+
+**Current dependency graph (post-Outcome 14).**
+
+1. \(H_{k\rm BV}\) by itself gives (34.3), not an exceptional-set bound.
+   The §16 partition has modulus
+   \(24L_K=\exp((1+o(1))K)\); taking \(K=X^\kappa\) at the cubic optimum
+   makes that modulus far larger than \(N\).
+2. The original all-range \(H_{\rm PF}\) is refuted by Corollary 31.5.
+   Therefore the old arrow
+   \(H_{k\rm BV}+H_{\rm PF}(k\ell)\Rightarrow3/4\) has a false assembly
+   antecedent as stated.
+3. The critical-window hypothesis \(H_{\rm PF}'\) of §31.5 remains open and,
+   for the **complete intrinsic all-\(M\) system**, implies
+   \(E_{\rm all}(N)\ll N\exp[-c(\log N)^{3/4}]\) without using prime slices
+   or \(H_{k\rm BV}\).
+4. To turn (34.3) into the same bound by the multiplier-prime route requires
+   a different, restricted critical-window assembly statement, call it
+   \(H_{\rm PF}'(k\ell)\), for the complete harvested \(k\ell\)-system and
+   with the lcm budget (18.14).  This statement has not been formulated as a
+   proved implication of the complete-system \(H_{\rm PF}'\), and is open.
+
+Thus “\(H_{k\rm BV}\) plus \(H_{\rm PF}'\) gives \(3/4\)” is not literally a
+current theorem: it is either redundant (complete-system
+\(H_{\rm PF}'\) alone) or needs the new restricted variant in item 4.
+
+### 34.2 Technology audit: what the nearest theorems actually miss
+
+**Source check: PW §4.**  Pomerance--Weingartner, §4 (the PDF in `sources/`),
+uses Bombieri--Vinogradov only after observing that the number of triples
+\((m,d,t)\) with a fixed product is \((\log x)^{O(1)}\); this produces their
+Lemma 4.1 mass \(\sum f(p)/p\asymp\varphi(m)^{-1}(\log x)^2\).  Their next
+step is the larger-sieve Rankin truncation.  This is exactly the pattern of
+Lemma 16.3.  It validates the polylogarithmic-multiplicity mechanism, not a
+power-sized extra parameter.
+
+The remaining literature statements in this audit are **cited from memory**:
+there is no BFI/Fouvry--Iwaniec/Zhang PDF in `sources/`.
+
+**Assessment 34.1 (Bombieri--Friedlander--Iwaniec).**  The classical BFI
+Theorem 10 permits \(q\leq x^{4/7-\epsilon}\) for a fixed integer residue
+\(a\), after a **signed scalar** modulus weight \(\lambda_q\) is assumed
+well-factorable: for every split of its level, \(\lambda\) must be a
+convolution of two bounded sequences on the corresponding ranges.  This is
+not a black box for (34.2), for three independent reasons.
+
+* Our moduli already satisfy \(q=4uv\leq4x^{1/3}\), safely inside ordinary
+  Bombieri--Vinogradov; extra level past \(1/2\) is not the resource missing.
+* Even for a fixed \(k\), the residue \(-k^{-1}\pmod q\) moves with \(q\);
+  across \(k\) there are many such residues at one \(q\).  BFI fixes one
+  integer \(a\) for the entire modulus sum.
+* Dualizing the absolute values in (34.2) creates arbitrary signs
+  \(\epsilon_{k,u,v}\).  They are indexed by both modulus and residue, and
+  the incidence \(k\mid u+cv\) couples \(k\) to both factors of \(q=4uv\).
+  This is not even a scalar \(\lambda_q\) to which well-factorability can be
+  applied.  No factorization of these arbitrary dual coefficients is known.
+
+The factorization \(q=4uv\) therefore resembles BFI's raw bilinear geometry,
+but the weight in \(H_{k\rm BV}\) is **not covered** by the theorem's
+well-factorable-weight hypothesis.
+
+**Assessment 34.2 (Fouvry--Iwaniec and incomplete Kloosterman sums).**  The
+early Fouvry--Iwaniec dispersion method and its BFI descendants convert
+structured bilinear prime sums, after Cauchy and reciprocity, into incomplete
+Kloosterman sums.  That is the right local analytic species: additive
+completion of the moving inverse in (34.2) produces
+\(e(h\bar k/(4uv))\).  What their published fixed-residue formulations do
+not supply is an \(\ell^1\) estimate after independent signs are attached to
+every \((k,u,v)\), with \(k\) additionally selected by
+\(k\mid u+cv\).  The missing prerequisite is not “a Kloosterman sum exists”;
+it is a long or factorable average left after dualization.  Here that average
+is both short and divisor-conditioned (quantified in §34.3(c)).
+
+**Assessment 34.3 (Zhang-style smooth moduli).**  Zhang/Polymath-type
+estimates gain distribution for squarefree moduli all of whose prime factors
+are small, using flexible dense divisibility (some later variants improve
+residue uniformity on similarly restricted coefficient classes).  The
+condition \(\omega(uv)\leq D\log\log X\) says that \(uv\) has few distinct
+prime factors; it does **not** say those factors are small.  A single prime
+factor may be of size \(x^{1/6}\), and prime powers are allowed.  Thus
+\(4uv\) is not a Zhang-smooth family.  More basically, smooth-modulus
+uniformity can choose one worst residue per modulus, as ordinary BV already
+does here; it does not pay for up to \(K\) separately absolute residues at
+the same modulus.
+
+**Assessment 34.4 (dispersion as a program).**  Linnik dispersion is the
+only audited technology that exposes the moving inverse rather than
+maximizing it away.  A viable application would have to preserve structure
+in the dual signs, average the divisor incidence \(k\mid u+cv\), and handle
+composite \(4uv\) through prime-power Kloosterman bounds and CRT.  None of
+the quoted theorems has those three features simultaneously.  Section
+34.3(c) shows that the most direct completion is quantitatively backwards;
+the successful partial theorem instead removes the rare incidence
+congestion before applying ordinary BV.
+
+### 34.3 What can be proved
+
+#### (a) Plain BV and Cauchy--Schwarz baselines
+
+Let \(S\) denote the left side of (34.2).  Grouping only by the modulus and
+using the cutoff on \(\omega(uv)\) gives the §16 bound
+
+\[
+ W(q)\leq K2^{\omega(q/4)}
+       \leq K(\log X)^{D\log2}.                              \tag{34.4}
+\]
+
+Bombieri--Vinogradov with an arbitrary fixed saving \(R\) consequently gives
+
+\[
+ S\ll_R {Kx\over(\log x)^{R-D\log2}}.                        \tag{34.5}
+\]
+
+Splitting into individual \(k\)'s gives the same factor \(K\), not a better
+bound.  Since \(R\) must be fixed before \(X\to\infty\), (34.5) absorbs
+\(K\leq(\log X)^A\) for every fixed \(A\), but no function larger than all
+fixed log powers.
+
+For the honest second-moment baseline, the number of triples in one box is
+
+\[
+ T\ll x^{1/3}h(\mathcal J)(\log x)^{O(1)},\qquad
+ \sum_{q,a}m(q,a)^2\leq W_{\max}T.                           \tag{34.6}
+\]
+
+The unconditional small-level large-sieve/BDH upper bound available at
+\(Q_0=x^{1/3}\) is \(x^2(\log x)^{O(1)}\), rather than the conjectural
+\(xQ_0(\log x)^{O(1)}\).  Cauchy--Schwarz therefore yields
+
+\[
+ S\ll x^{7/6}\{K h(\mathcal J)\}^{1/2}(\log x)^{O(1)}.       \tag{34.7}
+\]
+
+Against the main term \(x\log x\,h(\mathcal J)\), the polynomial loss is
+\(x^{1/6}\{K/h(\mathcal J)\}^{1/2}\), up to log powers.  Thus it already
+loses at \(K=1\).  A conjectural \(xQ_0\) variance would give
+\(x^{5/6}\{Kh\}^{1/2}\), which is why the missing small-level variance
+would permit a small power of \(x\); standard BDH does not state that bound
+in this range.
+
+#### (b) The exact polylogarithmic theorem and the prize function
+
+**Lemma 34.5 (all fixed log powers; proved).**  For every fixed \(A>0\), the
+conclusion of Lemma 16.3 holds uniformly for
+\(K\leq(\log X)^A\) (with the harmless constants and BV saving allowed to
+depend on \(A\)).
+
+*Proof.*  The proof of Lemma 16.2 takes its parameter \(B>A\), and (34.5)
+with \(R>A+D\log2+10\) makes the progression error negligible.  Every
+other line of Lemma 16.3 is unchanged. ∎
+
+This is the exact content of “apply BV separately for each multiplier.”  The
+exponent 5 in Lemma 16.3 is inessential.  Increasing it to 500 does **not**
+improve a logarithmic exponent in Theorem 16.4: if
+
+\[
+ L=\log N,\quad t=\log X,\quad r=\log K,
+ \quad \mu\asymp t^2r,                                      \tag{34.8}
+\]
+
+then every fixed-polylog range has \(r\asymp\log t\), and the Rankin budget
+\(t\mu\lesssim L\) gives
+
+\[
+ \mu\asymp L^{2/3}(\log L)^{1/3}.                           \tag{34.9}
+\]
+
+The §16 choice \(K\asymp L\) already attains \(r\asymp\log L\) while
+remaining a fixed power of \(t\) at the optimum.  Larger fixed powers alter
+constants only.
+
+For reference, under a partition-free \(H_{\rm PF}'(k\ell)\)-type assembly,
+the general budget while \(r\leq t\) is
+
+\[
+ t^3r\lesssim L,\qquad \mu\asymp t^2r=L/t.                  \tag{34.10}
+\]
+
+It gives the following exact incremental prizes (all conditional on that
+assembly, not consequences of a prime-slice estimate alone):
+
+* \(K=\exp((\log L)^2)\), so \(r=(\log L)^2\), gives
+  \(\mu\asymp L^{2/3}(\log L)^{2/3}\).  This range is already larger than
+  the §16 partition permits, since \(K\gg L\).
+* If \(K=\exp(t^\beta)\), \(0<\beta<1\), then
+  \(\mu\asymp L^{(2+\beta)/(3+\beta)}\).
+* If \(K=X^{1/\psi(t)}\) with \(\psi(t)\to\infty\), the implicit balance is
+  \(t^4/\psi(t)\asymp L\) and
+  \(\mu\asymp L^{3/4}\psi(t)^{-1/4}\).  The phrase \(K=X^{o(1)}\) alone
+  therefore has no single exponent; it can approach \(3/4\) with an
+  arbitrary slowly varying loss.
+* A fixed power \(K=X^\kappa\) has \(r=\kappa t\), budget \(t^4\lesssim L\),
+  and \(\mu\asymp L^{3/4}\).
+
+#### (c) Completion, its failure, and a low-congestion extension
+
+**Standard completion input (cited from memory).**  For an interval \(I\)
+and an integer \(h\), additive completion plus the prime-power
+Weil--Estermann bound and CRT gives
+
+\[
+ \left|\sum_{k\in I,(k,q)=1}e(h\bar k/q)\right|
+ \ll \tau(q)(h,q)^{1/2}q^{1/2}\log(2q).                     \tag{34.11}
+\]
+
+For composite \(q\), the complete sums are multiplicative only after the
+usual CRT twists; prime powers dividing both the frequency and \(q\) produce
+the factor \((h,q)^{1/2}\).  The factor 4 in \(q=4uv\) must therefore not be
+treated as an unramified prime modulus.  There is in fact no literal “prime
+\(4uv\)” case.
+
+**Assessment 34.6 (direct Weil completion loses).**  Even in the easier
+model with a full interval of \(k\)'s, no divisor condition, and coherent
+signs, (34.11) competes with the trivial bound \(K\).  In the actual family
+
+\[
+ q=4uv>4H^2=4K^{20},\qquad {q^{1/2}\over K}>2K^9.            \tag{34.12}
+\]
+
+Thus completion is at least nine powers of \(K\) worse before its divisor
+and logarithmic factors.  The condition \(k\mid u+cv\) replaces the interval
+by an irregular divisor set, and dualizing (34.2) permits arbitrary signs on
+that set; both changes only remove structure.  Lowering the floor within the
+box proof does not fix the comparison: its boundary error needs roughly
+\(H\gg K^2\), still forcing \(q^{1/2}\gg K^2\).  The elementary
+completion-plus-Weil route gives no range gain over (34.5).
+
+The failed completion points to a different use of \(k\mid u+cv\).  Define
+the incidence
+
+\[
+ r_{\mathcal J}(u,v;c)
+   =\#\{k\in\mathcal J:k\mid u+cv\}.                         \tag{34.13}
+\]
+
+When \((u,v)=1\) and \((c,L_{\mathcal J})=1\), the coprimality
+\((uv,k)=1\) follows automatically for every counted \(k\).
+
+**Lemma 34.7 (second incidence moment; proved).**  Let \(K\geq K_0\),
+\(H=K^{10}\), \(z>H^2\), and let \(c,\mathcal J\) have the preceding
+properties.  Then
+
+\[
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+ {r_{\mathcal J}(u,v;c)^2\over uv}
+ \ll (\log z)^2(1+\log K)^3.                                \tag{34.14}
+\]
+
+The constant is absolute and the estimate is uniform in \(c\) and
+\(\mathcal J\).
+
+*Proof.*  Expand the square.  For \(k,k'\in\mathcal J\), both divisibilities
+are the single congruence
+\(d=[k,k']\mid u+cv\), and \((c,d)=1\).  The box calculation (16.4), now
+with modulus \(d\leq K^2\), gives
+
+\[
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1\\d\mid u+cv}}{1\over uv}
+ \ll {\varphi(d)\over d^2}(\log z)^2
+      +{\tau(d)(\log z)^2\over H}.                           \tag{34.15}
+\]
+
+Indeed the geometric-box boundary sum is
+\(O(\tau(d)\log z\log(z/H)/H)\).  For the main coefficients,
+
+\[
+ \sum_{k,k'\leq K}{\varphi([k,k'])\over[k,k']^2}
+ \leq\sum_{k,k'\leq K}{(k,k')\over kk'}
+ \ll(1+\log K)^3,                                           \tag{34.16}
+\]
+
+where writing \(k=da,k'=db,(a,b)=1\) reduces the last sum to
+\(\sum_{d\leq K}d^{-1}(1+\log(K/d))^2\).  Finally
+\(\tau([k,k'])\leq2K\), so the total boundary contribution is
+\(O(K^3(\log z)^2/H)=O(K^{-7}(\log z)^2)\).  Summing (34.15) proves
+(34.14). ∎
+
+**Theorem 34.8 (unconditional pruned cubic prime slice; proved).**  Fix
+\(0<\kappa<1/240\).  In the setup of \(H_{k\rm BV}(\kappa)\), impose on the
+triples the additional low-congestion condition
+
+\[
+ r_{\mathcal J}(u,v;c)\leq T_X:=(\log X)^4.                 \tag{34.17}
+\]
+
+Then the sum in (34.2), restricted by (34.17), is
+\(o(x\log x\,h(\mathcal J))\) **unconditionally**, uniformly in all the
+quantified data.  Moreover, if \(f_c^{\rm good}(\ell)\) counts only the
+distinct Lemma-16.3 classes from these low-congestion triples, then
+
+\[
+ \sum_{X^{1/2}<\ell\leq X}{f_c^{\rm good}(\ell)\over\ell}
+       \asymp(\log X)^2h(\mathcal J).                        \tag{34.18}
+\]
+
+In particular, for \(K=X^\kappa\) and the full family,
+
+\[
+ \sum_{X^{1/2}<\ell\leq X}{f_c^{\rm good}(\ell)\over\ell}
+       \asymp(\log X)^3                                     \tag{34.19}
+\]
+
+pointwise in every reduced compatible \(c\), without \(H_{k\rm BV}\).
+
+*Proof.*  First note that the proof of Lemma 16.2 does not intrinsically need
+\(K\) to be polylogarithmic.  Its box error is \(O(K^2/H)\) relative to the
+main term, Shiu is applied with modulus \(k\leq K<H^{1/2}\), and its
+low-\(\omega\) Rankin estimate is uniform.  Thus the same proof applies
+whenever \(z>K^{20}\), with \(\log(z/H)\asymp\log z\).  At the lowest
+prime interval this holds uniformly because \(\kappa<1/240\).
+
+The low-\(\omega\) first moment from that extended box argument is
+\(\gg(\log z)^2h(\mathcal J)\).  By Lemma 34.7, the first-moment mass of
+triples failing (34.17) is at most
+
+\[
+ {1\over T_X}
+ \sum_{u,v}{r_{\mathcal J}(u,v;c)^2\over uv}
+ \ll { (\log z)^2(1+\log K)^3\over(\log X)^4}
+ =o((\log z)^2h(\mathcal J)),                               \tag{34.20}
+\]
+
+uniformly, since \(h(\mathcal J)\geq1\) and \(\log K\ll\log X\).  Hence the
+retained triples have the full order of main mass.
+
+For fixed \(q=4uv\), coprimality permits at most
+\(2^{\omega(uv)}\) ordered allocations of its prime powers to \((u,v)\).
+For each allocation, (34.17) permits at most \(T_X\) choices of \(k\).
+Consequently the retained multiplicity is
+
+\[
+ W_{\rm good}(q)\leq
+ 2^{\omega(uv)}T_X\leq(\log X)^{D\log2+4}.                  \tag{34.21}
+\]
+
+Ordinary Bombieri--Vinogradov, with a fixed saving larger than the exponent
+in (34.21), now makes the restricted error sum negligible.  Equations
+(34.20), Lemma 16.2, and
+\(1/\varphi(4uv)\geq1/(4uv)\) give the lower main term in every dyadic
+interval.  Distinctness is exactly Lemma 16.3's argument, since
+\(uv>H^2>K\).  Brun--Titchmarsh and the extended form of (16.3) give the
+upper bound.  Summing the dyadic intervals proves (34.18), and
+\(h(\mathcal K(X^\kappa))\asymp\log X\) gives (34.19). ∎
+
+Theorem 34.8 does **not** prove literal \(H_{k\rm BV}\): (34.2) still asks
+for the absolute errors of the discarded high-incidence triples.  It proves
+that those triples carry negligible expected class mass, so they need not be
+harvested.  This is enough for Lemma 18.5's conclusion and is strictly
+stronger for that application than an estimate for a sparse set of isolated
+large multipliers.
+
+### 34.4 Verdict and changed bottleneck
+
+**Proved verdict.**  The unconditional prime-slice record is now (34.19):
+the complete cubic order is realized after an explicit, asymptotically
+massless congestion pruning.  The old bound \(K\leq(\log X)^A\) was a wall
+of the crude maximum multiplicity (34.4), not of the class supply and not of
+ordinary BV once the divisor incidence is used.  Literal \(H_{k\rm BV}\)
+remains open, but it is no longer needed to realize cubic prime-slice mass.
+
+**Exceptional-set consequence now.**  There is no unconditional improvement
+to Theorem 16.4 from this theorem alone.  The existing §16 partition still
+forces \(K\ll\log N\), and optimizing with \(r\leq\log\log N\) returns
+\(E(N)\ll N\exp[-cL^{2/3}(\log L)^{1/3}]\).  A restricted
+critical-window assembly \(H_{\rm PF}'(k\ell)\) would combine with Theorem
+34.8 to give \(N\exp[-cL^{3/4}]\); that assembly is open.  The complete-system
+\(H_{\rm PF}'\) would give the same bound independently.  Given Outcome 14,
+paying for full \(H_{k\rm BV}\) now has little marginal value for the
+\(3/4\) campaign: assembly, not prime-slice harvesting, is the exact live
+bottleneck.
+
+**Soft spots.**  Theorem 34.8 is new to this campaign and needs external
+priority and referee checking, especially the power-range extension of the
+Shiu/box estimates and the uniform second-moment boundary sum.  The
+technology audit's BFI/Fouvry--Iwaniec/Zhang statements are from memory
+because those PDFs are absent from `sources/`.  No claim is made that
+\(H_{\rm PF}'(k\ell)\) follows from the currently stated complete-system
+\(H_{\rm PF}'\).
+
+**Numerical companion.**  `verify.py (ag)` checks the exact incidence-square
+expansion behind Lemma 34.7, the congestion inequality and (34.21) on a toy
+box, evaluates the actual progression errors there, and prints both the
+realized Cauchy--Schwarz loss and the scale proxy from (34.7).  It also checks
+small composite-modulus Kloosterman sums against the CRT/Weil envelope.  The
+block is finite evidence only and runs in under ten seconds.
