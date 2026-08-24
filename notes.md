@@ -5865,3 +5865,381 @@ moving factors of \(4c_1c_2\) into \(K'\) are not classified.)  No
 Erdős--Straus proof results.  Rational maps, quotient/lcm output moduli, and
 modulus-dependent polynomial coefficients remain outside the precisely
 fixed search space and are not claimed classified here.
+
+---
+
+## 23. Flexible tensor reinterpretation: the six old blockers fall, but the
+image is still not total
+
+Section 22 fixed the tensor-partition output at
+\(C=4c_1c_2, K=k_1k_2\).  That normalization is unnecessarily rigid.
+This section moves factors between the output coordinates \(C\) and \(K\),
+classifies the exact finite inverse problem for that enlarged family, and
+runs it on every hard prime through \(10^5\).  The enlargement is substantial:
+all six primes which motivated §22 are now images of smaller explicit source
+tuples.  It is not total: eleven other hard primes in the same range have no
+target tuple with the necessary divisibility \(4\mid CK\).  Labels below are
+strict; in particular the range statements are computational, not theorems
+about all primes.
+
+Let \(S\) denote the positive integers \(p\geq2\) possessing a positive
+Type-II tuple
+
+\[
+ (a,b,c,k),\qquad s=(a+b)/k,\qquad p=4abc-s.                 \tag{23.1}
+\]
+
+Primality and \((a,b)=1\) are not part of this definition.  By Theorem
+17.1(i), every such tuple gives
+
+\[
+ {4\over p}={1\over abc}+{1\over pack}+{1\over pbck}.        \tag{23.2}
+\]
+
+This distinction matters below: several source values are composite, but
+their displayed tuples certify their membership in \(S\) without invoking a
+classical residue identity.  In particular
+\((1,1,1,1)\) is a tuple for \(2\), and \((1,1,1,2)\) is a tuple for \(3\).
+The value \(1\) is not usable: three positive unit fractions have sum at most
+\(3\), so they cannot represent \(4/1\).
+
+### 23.1 The flexible-\((C',K')\) composition
+
+Take two source tuples \((a_i,b_i,c_i,k_i)\), put
+\(s_i=(a_i+b_i)/k_i\), and partition the four tensor monomials
+
+\[
+ a_1a_2,\quad a_1b_2,\quad b_1a_2,\quad b_1b_2
+\]
+
+into two nonempty ordered parts with sums \(A,B\).  Write
+\(\kappa=k_1k_2\).  Then
+
+\[
+ A+B=(a_1+b_1)(a_2+b_2)=\kappa s_1s_2.                      \tag{23.3}
+\]
+
+**Theorem 23.1 (proved: all factor reallocations at maximal tensor
+modulus).**  For every positive integer \(K'\) satisfying
+
+\[
+ K'\mid A+B,\qquad K'\mid4c_1c_2\kappa,                    \tag{23.4}
+\]
+
+put
+
+\[
+ C'={4c_1c_2\kappa\over K'},\qquad
+ P'=4ABC'-{A+B\over K'}.                                   \tag{23.5}
+\]
+
+Then \((A,B,C',K')\) is a positive Type-II tuple for the integer \(P'\).
+Equivalently, if
+
+\[
+ Q=16c_1c_2AB-s_1s_2
+\]
+
+is the §22 output, then
+
+\[
+                 P'={\kappa\over K'}Q.                     \tag{23.6}
+\]
+
+*Proof.*  Conditions (23.4) make both \(C'\) and \((A+B)/K'\) positive
+integers.  Substitution gives
+
+\[
+ 4ABC'-{A+B\over K'}
+ ={\kappa\over K'}(16c_1c_2AB-s_1s_2),
+\]
+
+which is (23.6).  The right side is positive because \(Q>0\) by Theorem
+22.2; the left side is an integer.  More elementarily, every positive
+quadruple satisfying (23.5) has
+\(P'\geq4AB-A-B\geq2AB\geq2\).  Finally (23.5) is exactly (23.1), so
+Theorem 17.1(i) gives (23.2). ∎
+
+The divisibility \(K'\mid A+B\) is not cosmetic.  Equation (23.3) only says
+that \(\kappa\mid A+B\); moving additional factors into \(K'\) is possible
+only when those factors also divide \(s_1s_2\), and when (23.4)'s modulus
+condition holds.
+
+**Warning 23.2 (proved: §22's descent does not survive automatically).**
+When \(K'>\kappa\), equation (23.6) makes the new output smaller than the
+§22 output.  The inequality \(Q>\max(p_1,p_2)\) therefore says nothing about
+whether \(P'>\max(p_1,p_2)\).  For example, the source tuples
+
+\[
+ (2;1,1,1,1),\qquad(75;1,4,5,1)
+\]
+
+and the singleton partition \((A,B)=(1,9)\) admit \(K'=10\), \(C'=2\).
+They output
+
+\[
+ P'=4\cdot1\cdot9\cdot2-{10\over10}=71<75.
+\]
+
+Thus every inverse branch counted as a descent below is checked separately
+for \(2\leq p_i<P'\); no inequality from §22 is reused.
+
+### 23.2 Exact inverse and the circularity trap
+
+Let \((A,B,C,K)\) be a target tuple for \(P\).  Theorem 23.1 forces
+
+\[
+ {CK\over4}=(c_1c_2)(k_1k_2).                               \tag{23.7}
+\]
+
+Consequently \(4\mid CK\) is necessary.  It is the replacement for §22's
+too-strong condition \(4\mid C\).
+
+**Lemma 23.3 (proved: exact finite inverse test).**  A target tuple
+\((A,B,C,K)\) is an image under Theorem 23.1 if and only if \(4\mid CK\)
+and the following finite data exist:
+
+1. a factorization \(CK/4=\gamma\kappa\);
+2. ordered splittings \(\gamma=c_1c_2\) and \(\kappa=k_1k_2\);
+3. \(\kappa\mid A+B\), followed by an ordered splitting
+   \((A+B)/\kappa=s_1s_2\);
+4. positive splits \(a_i+b_i=k_is_i\);
+5. one of the 14 ordered nonempty proper subsets of the four tensor
+   monomials whose two sums are exactly \((A,B)\);
+6. source values \(p_i=4a_ib_ic_i-s_i\geq2\).
+
+It is a descending inverse exactly when the final check also gives
+\(p_i<P\) for both \(i\).
+
+*Proof.*  Necessity follows from (23.3), (23.5), and (23.7).  Conversely the
+listed data are positive source tuples satisfying (23.1), and their forward
+image has the prescribed \(A,B\) and
+\(C'K'=4c_1c_2k_1k_2=CK\).  Taking \(K'=K\) forces \(C'=C\), hence the
+output is the target. ∎
+
+The target tuples themselves are enumerated completely by (22.20):
+\(AB\leq P/2\), \(K\mid A+B\), and
+
+\[
+ C={KP+A+B\over4ABK}.                                       \tag{23.8}
+\]
+
+The inverse search used below loops over every item in Lemma 23.3.  There
+are no bounds chosen experimentally.
+
+There is a logical trap here.  Starting a purported proof with “choose a
+Type-II tuple of \(P\), then invert it” has already assumed \(P\in S\).
+The genuine statement needed for a proof is **forward-image totality**:
+for every hard prime \(P\), there exist explicit data of Lemma 23.3 with
+smaller source values whose forward image equals \(P\).  The source
+memberships in \(S\) are free because the inverse data explicitly construct
+the source tuples; no appeal to the conjecture, to primality of a source, or
+to a possibly Type-I classical identity is needed.  The computational
+inversion of a known target is therefore a diagnostic for this theorem to
+hunt, not an induction proof by itself.
+
+### 23.3 The six old blockers all fall
+
+**Computational Search 23.4 (exact finite enumeration).**  Applying (23.8)
+and Lemma 23.3 to all six primes in §19.3 gives:
+
+\[
+\begin{array}{c|rrrrrr}
+P&409&577&5569&9601&23929&83449\\ \hline
+\#\text{ ordered target tuples}&14&14&20&14&78&30\\
+\#(4\mid C)&2&0&0&2&22&0\\
+\#(4\mid CK)&4&2&10&4&42&4\\
+\#\text{ ordered descending inverse branches}
+ &272&48&1536&144&33768&80
+\end{array}                                                  \tag{23.9}
+\]
+
+Thus the single most important first test is positive for every old blocker:
+**577, 5569, and 83449 do have tuples with \(4\mid CK\)**, despite having no
+tuple with \(4\mid C\).  In fact all six have descending inverses.  A simple
+branch for each uses the fixed source tuple for \(2\):
+
+\[
+\begin{array}{r|c|c|c}
+P&(A,B,C,K)&\text{other source }(p_2;a_2,b_2,c_2,k_2)&K/\kappa\\ \hline
+409&(1,13,8,2)&(89;1,6,4,1)&2\\
+577&(1,77,2,2)&(113;1,38,1,1)&2\\
+5569&(1,41,34,6)&(4059;1,20,51,1)&6\\
+9601&(1,173,14,2)&(2321;1,86,7,1)&2\\
+23929&(1,301,20,2)&(5849;1,150,10,1)&2\\
+83449&(5,39,107,4)&(36358;5,17,107,1)&4
+\end{array}                                                  \tag{23.10}
+\]
+
+Here the first source is always \((2;1,1,1,1)\), \(\kappa=1\), and the
+listed partition is a singleton versus the other three monomials.  Every
+source value is between \(2\) and \(P-1\).  The composite values 4059 and
+36358 cause no issue: their tuples in (23.10) are direct Type-II
+certificates.
+
+For an end-to-end check, the branch for 577 is
+
+\[
+ (2;1,1,1,1),\quad(113;1,38,1,1)
+ \longmapsto(577;1,77,2,2),
+\]
+
+because the monomials are \(1,38,1,38\), the singleton split is
+\((A,B)=(1,77)\), and \(C'K'=4\) is interpreted as \((C',K')=(2,2)\).
+The three exact identities are
+
+\[
+\begin{aligned}
+ {4\over2}&={1\over1}+{1\over2}+{1\over2},\\
+ {4\over113}&={1\over38}+{1\over113}+{1\over4294},\\
+ {4\over577}&={1\over154}+{1\over2308}+{1\over177716}.
+\end{aligned}                                                \tag{23.11}
+\]
+
+`verify.py (v)` replays the complete target and inverse enumerations in
+(23.9), every branch in (23.10), and (23.11) using exact rational
+arithmetic.
+
+### 23.4 Reachability through \(10^5\)
+
+**Computational Search 23.5 (exact finite range, existential certificates
+short-circuited).**  Every prime \(P\equiv1\pmod {24}\) through the stated
+bound was tested.  For a success the search stops after an explicit inverse
+certificate; for a failure it exhausts every target row (23.8).  The result
+is
+
+\[
+\begin{array}{c|r|r|r|r}
+\text{range}&\#P&\exists(4\mid CK)&\text{descending inverse}
+ &\text{inverse with fixed source }2\\ \hline
+P\leq10^4&143&132&132&129\\
+P<10^5&1181&1170&1170&1166
+\end{array}                                                  \tag{23.12}
+\]
+
+The three additional successes through \(10^4\) are 601, 5881, and 9049;
+the only further one below \(10^5\) is 20641.  One explicit branch for each
+is
+
+\[
+\begin{array}{r|c|c|c}
+P&(A,B,C,K)&(p_1;a_1,b_1,c_1,k_1)&(p_2;a_2,b_2,c_2,k_2)\\ \hline
+601&(2,19,4,3)&(5;1,2,1,1)&(65;1,6,3,1)\\
+5881&(2,37,20,1)&(5;1,2,1,1)&(227;1,12,5,1)\\
+9049&(1,566,4,81)&(59;1,20,1,1)&(8397;1,26,81,1)\\
+20641&(17,76,4,3)&(5;1,2,1,1)&(2825;14,17,3,1)
+\end{array}                                                  \tag{23.13}
+\]
+
+For the 1166 fixed-source-2 certificates below \(10^5\), the other displayed
+source is prime only 139 times and is a hard prime itself only 20 times; 1027
+are composite.  Its median ratio to the target is about 0.491, while the
+largest observed ratio is \(73868/73897\approx0.99961\).  These statistics
+depend on the deterministic first-certificate ordering and are descriptive,
+not canonical.  They show both why a classical “non-hard prime” argument is
+unnecessary and why there is no observed uniform contraction: the explicit
+source tuple, not its residue class, certifies \(S\)-membership.
+
+`verify.py (v)` certifies the \(10^4\) row of (23.12) in under ten seconds
+for this block.  The \(10^5\) row was run with the same exact enumerator at
+the larger bound; it had 1181 inputs and no additional failure.
+
+### 23.5 The remaining obstruction and higher pure tensors
+
+The eleven failures in both rows of (23.12) are
+
+\[
+ 73,193,241,673,1129,1153,2473,2521,3169,3361,5281.          \tag{23.14}
+\]
+
+Every one belongs to \(S\); what fails is this composition image.  Complete
+enumeration proves that **none has any target tuple with \(4\mid CK\)**.
+The failure therefore occurs before tensor splitting or the source-size
+test.
+
+There is a useful exact parity form of the obstruction.
+
+**Lemma 23.6 (proved: parity criterion for an odd target tuple).**  If
+\((A,B,C,K)\) is a Type-II tuple for odd \(P\), then
+
+\[
+ v_2(K)=v_2(A+B),\qquad
+ 4\mid CK\ \Longleftrightarrow\ v_2(C)+v_2(A+B)\geq2.        \tag{23.15}
+\]
+
+Thus a tuple fails \(4\mid CK\) exactly when either
+
+* \(A+B\) is odd and \(4\nmid C\), or
+* \(A+B\equiv2\pmod4\) and \(C\) is odd.
+
+*Proof.*  In \(P=4ABC-s\), \(s=(A+B)/K\) is odd because \(P\) is odd.
+Hence \(v_2(A+B)=v_2(K)\), and (23.15) follows. ∎
+
+For every parameter row of every prime in (23.14), the right side of
+(23.15) is at most one.  This is a finite invariant of the complete tuple
+set, not a congruence characterization of the prime alone; no residue-class
+criterion selecting exactly these primes was found.
+
+The same obstruction closes all higher **pure maximal-modulus tensor
+partitions**, including the proposed three-input extension.
+
+**Lemma 23.7 (proved: higher-tensor divisibility no-go).**  For \(r\geq2\)
+source tuples, partitioning the \(2^r\) tensor monomials at the product
+modulus forces every output interpretation to satisfy
+
+\[
+ C'K'=4^{r-1}\prod_{i=1}^r c_i k_i.                          \tag{23.16}
+\]
+
+In particular three inputs force \(16\mid C'K'\), and any number of inputs
+at least two forces \(4\mid C'K'\).  Hence none of (23.14) is reachable by
+any such higher pure tensor.
+
+*Proof.*  The centered input moduli are \(h_i=4c_ik_i\).  A tensor factor is
+\(-1+(\prod h_i)A\), while a Type-II output factor is
+\(-1+4C'K'A\).  Equating the coefficients gives
+\(4C'K'=\prod h_i=4^r\prod c_ik_i\), which is (23.16). ∎
+
+There is also a precise answer for the two simplest quotient-modulus
+reinterpretations of the same centered partition.
+
+**Lemma 23.8 (proved: quotient readings of a pure two-tensor).**  Let
+\(g=(h_1,h_2)\), choose a modulus \(M\mid h_1h_2\) with \(4\mid M\), and
+put \(r=h_1h_2/M\).  The factors
+\(h_1h_2A-1,h_1h_2B-1\) can be read at modulus \(M\), but the target
+coordinates become \((rA,rB)\).  Every
+
+\[
+ K'\mid\gcd(r(A+B),M/4),\qquad C'=M/(4K')                  \tag{23.17}
+\]
+
+gives a valid Type-II output.  For \(M=\operatorname{lcm}(h_1,h_2)\), one
+has \(r=g\), which is divisible by four.  For
+\(M=h_1h_2/g^2\), the interpretation is unavailable unless \(4\mid M\),
+and when available \(r=g^2\), divisible by sixteen.  In either case both
+target coordinates are divisible by four, so (23.15) forces \(4\mid CK\).
+These quotient readings are valid compositions, but cannot reach (23.14).
+
+*Proof.*  Since \(h_1h_2A=M(rA)\), each centered factor is \(-1\pmod M\)
+and has target coordinate \(rA\), and similarly for \(B\).  Conditions
+(23.17) say exactly that \(M=4C'K'\) and
+\(K'\mid r(A+B)\), so Theorem 17.1(i) applies.  Both input moduli are
+multiples of four, hence \(4\mid g\); the two claimed values of \(r\) and
+the final use of (23.15) follow. ∎
+
+**Assessment (scope, no overclaim).**  Lemma 23.7 and (23.17) close pure
+partition tensors at product/lcm/\(h_1h_2/g^2\) moduli.  They do **not**
+classify modulus-dependent additive coefficients, general rational maps, or
+maps whose corrections remove the common coordinate scale \(r\).  Those
+families were conditional next steps only if the original six blockers
+persisted; they did not.  They could in principle evade \(4\mid CK\), so
+(23.14) is a theorem-level no-go for the flexible and higher pure-tensor
+families, not for every conceivable transfer map.
+
+**Outcome.**  Moving factors from \(C\) into \(K\) is the immediate crack in
+§22: it reaches all six old blockers, usually from the fixed source 2, and
+empirically reaches every hard prime below \(10^5\) having any tuple with
+\(4\mid CK\).  The enlarged family is nevertheless non-total.  Eleven exact
+counterexamples have no such tuple, and the parity identity (23.15) plus the
+product-modulus law (23.16) blocks every higher pure tensor on them.  No
+Erdős--Straus proof results; forward-image totality fails for this family.

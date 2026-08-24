@@ -2298,4 +2298,228 @@ def check_u():
 print("\n== (u) low-degree transfer-map classification (§22) ==")
 check_u()
 
+# ---------------------------------------------------------------- (v)
+def check_v():
+    """Section 23: flexible-(C,K) tensors and their exact inverse search."""
+    from fractions import Fraction
+    from functools import lru_cache
+    from math import gcd
+    from sympy import divisors, expand, primerange, symbols
+
+    @lru_cache(None)
+    def cached_divisors(n):
+        return tuple(divisors(n))
+
+    def parameter_value(a, b, c, k):
+        assert (a + b) % k == 0
+        return 4 * a * b * c - (a + b) // k
+
+    def all_parameter_rows(P):
+        """Complete by AB <= P/2 and equation (22.20)."""
+        rows = []
+        for A in range(1, P // 2 + 1):
+            for B in range(1, P // (2 * A) + 1):
+                for K in cached_divisors(A + B):
+                    numerator = K * P + A + B
+                    denominator = 4 * A * B * K
+                    if numerator % denominator == 0:
+                        rows.append((A, B, numerator // denominator, K))
+        return rows
+
+    # A branch is counted with ordered c-, k-, and s-splittings and with one
+    # of the 14 ordered nonempty proper tensor subsets.  Source value 1 is
+    # excluded, and flexible outputs are not presumed to descend.
+    def inverse_branch_summary(P, rows, stop_at_first=False):
+        count = 0
+        first = None
+        for A, B, C, K in rows:
+            if C * K % 4:
+                continue
+            tensor_product = C * K // 4  # (c1*c2)*(k1*k2)
+            for kappa in cached_divisors(tensor_product):
+                if (A + B) % kappa:
+                    continue
+                gamma = tensor_product // kappa
+                s_product = (A + B) // kappa
+                for k1 in cached_divisors(kappa):
+                    k2 = kappa // k1
+                    for c1 in cached_divisors(gamma):
+                        c2 = gamma // c1
+                        for s1 in cached_divisors(s_product):
+                            s2 = s_product // s1
+                            n1, n2 = k1 * s1, k2 * s2
+                            assert n1 * n2 == A + B
+                            for a1 in range(1, n1):
+                                b1 = n1 - a1
+                                p1 = parameter_value(a1, b1, c1, k1)
+                                if not 2 <= p1 < P:
+                                    continue
+                                for a2 in range(1, n2):
+                                    b2 = n2 - a2
+                                    p2 = parameter_value(a2, b2, c2, k2)
+                                    if not 2 <= p2 < P:
+                                        continue
+                                    terms = (a1 * a2, a1 * b2,
+                                             b1 * a2, b1 * b2)
+                                    for mask in range(1, 15):
+                                        left = sum(terms[i] for i in range(4)
+                                                   if mask >> i & 1)
+                                        if left != A or sum(terms) - left != B:
+                                            continue
+                                        branch = ((A, B, C, K),
+                                                  (a1, b1, c1, k1, s1, p1),
+                                                  (a2, b2, c2, k2, s2, p2),
+                                                  mask)
+                                        count += 1
+                                        if first is None:
+                                            first = branch
+                                        if stop_at_first:
+                                            return count, first
+        return count, first
+
+    # Fast sufficient inverse with the fixed source tuple (1,1,1,1) for 2.
+    # The four monomials are (a,b,a,b), so subset equations reduce to nine
+    # coefficient pairs instead of a loop over all a.
+    masks_by_counts = {}
+    for mask in range(1, 15):
+        counts = (sum(bool(mask >> i & 1) for i in (0, 2)),
+                  sum(bool(mask >> i & 1) for i in (1, 3)))
+        masks_by_counts.setdefault(counts, mask)
+
+    def fixed_two_inverse(P, row):
+        A, B, C, K = row
+        if C * K % 4 or (A + B) % 2:
+            return None
+        tensor_product = C * K // 4
+        half_sum = (A + B) // 2
+        for k2 in cached_divisors(gcd(tensor_product, half_sum)):
+            c2, s2 = tensor_product // k2, half_sum // k2
+            for (i, j), mask in masks_by_counts.items():
+                if i == j:
+                    if i != 1 or A != half_sum:
+                        continue
+                    candidates = range(1, half_sum)
+                else:
+                    numerator = A - j * half_sum
+                    denominator = i - j
+                    if numerator % denominator:
+                        continue
+                    candidates = (numerator // denominator,)
+                for a2 in candidates:
+                    if not 1 <= a2 < half_sum:
+                        continue
+                    b2 = half_sum - a2
+                    p2 = parameter_value(a2, b2, c2, k2)
+                    if 2 <= p2 < P:
+                        return (row, (1, 1, 1, 1, 2, 2),
+                                (a2, b2, c2, k2, s2, p2), mask)
+        return None
+
+    # Symbolic scaling identity and a concrete failure of automatic descent.
+    AB, cc, kappa, Kp, ss = symbols("AB cc kappa Kp ss")
+    flexible_P = 4 * AB * (4 * cc * kappa / Kp) - kappa * ss / Kp
+    assert expand(flexible_P
+                  - kappa / Kp * (16 * cc * AB - ss)) == 0
+    assert parameter_value(1, 1, 1, 1) == 2
+    assert parameter_value(1, 1, 1, 2) == 3
+    # Sources 2 and 75, singleton partition (A,B)=(1,9), K'=10:
+    # the output 71 is smaller than the source 75.
+    assert parameter_value(1, 4, 5, 1) == 75
+    assert parameter_value(1, 9, 2, 10) == 71
+
+    hard_targets = (409, 577, 5569, 9601, 23929, 83449)
+    expected_rows = (14, 14, 20, 14, 78, 30)
+    expected_four_C = (2, 0, 0, 2, 22, 0)
+    expected_four_CK = (4, 2, 10, 4, 42, 4)
+    expected_branches = (272, 48, 1536, 144, 33768, 80)
+    rows_by_target = {P: all_parameter_rows(P) for P in hard_targets}
+    got_rows, got_four_C, got_four_CK, got_branches = [], [], [], []
+    for P in hard_targets:
+        rows = rows_by_target[P]
+        got_rows.append(len(rows))
+        got_four_C.append(sum(C % 4 == 0 for A, B, C, K in rows))
+        got_four_CK.append(sum(C * K % 4 == 0 for A, B, C, K in rows))
+        branch_count, first = inverse_branch_summary(P, rows)
+        got_branches.append(branch_count)
+        assert first is not None
+    assert tuple(got_rows) == expected_rows
+    assert tuple(got_four_C) == expected_four_C
+    assert tuple(got_four_CK) == expected_four_CK
+    assert tuple(got_branches) == expected_branches
+
+    # Every old blocker has a particularly simple branch using the fixed
+    # tuple for 2.  Rebuild every target forward, including K' > k1*k2.
+    fixed_branches = {}
+    for P in hard_targets:
+        found = None
+        for row in rows_by_target[P]:
+            found = fixed_two_inverse(P, row)
+            if found is not None:
+                break
+        assert found is not None
+        fixed_branches[P] = found
+        (A, B, C, K), left, right, mask = found
+        a1, b1, c1, k1, s1, p1 = left
+        a2, b2, c2, k2, s2, p2 = right
+        terms = (a1 * a2, a1 * b2, b1 * a2, b1 * b2)
+        assert sum(terms[i] for i in range(4) if mask >> i & 1) == A
+        assert sum(terms[i] for i in range(4) if not mask >> i & 1) == B
+        assert C * K == 4 * c1 * c2 * k1 * k2
+        assert parameter_value(A, B, C, K) == P
+        assert 2 <= p1 < P and 2 <= p2 < P
+
+    # End-to-end chain for 577: sources 2 and 113 yield its target tuple.
+    assert fixed_branches[577] == (
+        (1, 77, 2, 2), (1, 1, 1, 1, 2, 2),
+        (1, 38, 1, 1, 39, 113), 1)
+    for p0, tuple0 in ((2, (1, 1, 1, 1)),
+                       (113, (1, 38, 1, 1)),
+                       (577, (1, 77, 2, 2))):
+        a0, b0, c0, k0 = tuple0
+        assert parameter_value(a0, b0, c0, k0) == p0
+        denominators = (a0 * b0 * c0,
+                        p0 * a0 * c0 * k0,
+                        p0 * b0 * c0 * k0)
+        assert sum(Fraction(1, d) for d in denominators) == Fraction(4, p0)
+
+    # Certified reachability scan through 10^4.  A failed fixed-2 attempt is
+    # passed to the complete inverse enumerator; rows with no 4|CK are exact
+    # failures because all target rows have already been exhausted.
+    scan_primes = tuple(p for p in primerange(2, 10_001) if p % 24 == 1)
+    no_four_CK, no_inverse, fixed_two_count, extra_inverse = [], [], 0, []
+    for P in scan_primes:
+        rows = all_parameter_rows(P)
+        qualifying = [row for row in rows if row[2] * row[3] % 4 == 0]
+        fixed = next((branch for row in qualifying
+                      if (branch := fixed_two_inverse(P, row)) is not None), None)
+        if fixed is not None:
+            fixed_two_count += 1
+            continue
+        if not qualifying:
+            no_four_CK.append(P)
+            no_inverse.append(P)
+            continue
+        count, branch = inverse_branch_summary(P, rows, stop_at_first=True)
+        if count:
+            extra_inverse.append(P)
+        else:
+            no_inverse.append(P)
+    expected_failures = [73, 193, 241, 673, 1129, 1153, 2473,
+                         2521, 3169, 3361, 5281]
+    assert len(scan_primes) == 143
+    assert fixed_two_count == 129
+    assert extra_inverse == [601, 5881, 9049]
+    assert no_four_CK == no_inverse == expected_failures
+
+    print("flexible tensor validity exact; six targets 4|CK counts =",
+          dict(zip(hard_targets, got_four_CK)))
+    print("all six old blockers descend; ordered descending branch counts =",
+          dict(zip(hard_targets, got_branches)), "; 577 chain exact")
+    print("hard primes <= 10^4: 143 total, 132 flexible-invertible "
+          "(129 via source 2), 11 blocked by no tuple with 4|CK")
+
+
+print("\n== (v) flexible tensor reinterpretation (§23) ==")
+check_v()
+
 print("\nall checks passed")
