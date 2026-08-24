@@ -3532,36 +3532,74 @@ def check_y():
         assert corrected_type_i(source1, source2, t) == (P, target)
         assert target in type_i_rows[P]
 
-    # Exact structural inverse filter for the corrected singleton tensor.
-    # m|K is necessary.  If it holds, enumerate all possible n_i and a_i;
-    # the sole extra candidate 1129 fails before any c_i choice is possible.
-    def has_binary_singleton_shape(row):
+    # Streaming replay of every step in the exact inverse (26.17).  It
+    # enumerates n_i and a_i, then every c_i allowed by the source residue and
+    # strict-descent bounds, and finally reconstructs the positive integer t.
+    # It returns on the first branch for a target and never collects branches.
+    def source_c_values(a0, b0, m0, target_P):
+        coefficient = 4 * a0 * b0
+        if gcd(coefficient, m0) != 1:
+            return
+        residue = pow(coefficient, -1, m0)
+        first = residue if residue else m0
+        for c0 in range(first, m0 * target_P // coefficient + 1, m0):
+            numerator = coefficient * c0 - 1
+            if numerator % m0:
+                continue
+            source_P = numerator // m0
+            if 2 <= source_P < target_P:
+                yield c0, source_P
+
+    def binary_singleton_inverse(P, row):
         A, B, C, K = row
-        m = (A + B) // K
-        if K % m:
-            return False
         total = A + B
-        for singleton in (A, B):
+        m = total // K
+        if K % m:
+            return None
+        for singleton_index, singleton in enumerate((A, B)):
             for n1 in cached_divisors(total):
                 n2 = total // n1
                 if n1 % m or n2 % m:
                     continue
+                k1, k2 = n1 // m, n2 // m
                 for a1 in cached_divisors(singleton):
                     a2 = singleton // a1
-                    if 1 <= a1 < n1 and 1 <= a2 < n2:
-                        return True
-        return False
+                    if not (1 <= a1 < n1 and 1 <= a2 < n2):
+                        continue
+                    b1, b2 = n1 - a1, n2 - a2
+                    for c1, p1 in source_c_values(a1, b1, m, P):
+                        for c2, p2 in source_c_values(a2, b2, m, P):
+                            if (C + 4 * c1 * c2) % m:
+                                continue
+                            t = (C + 4 * c1 * c2) // m
+                            assert t >= 1
+                            assert K == k1 * k2 * m
+                            constructed = (singleton, total - singleton, C, K)
+                            expected = row if singleton_index == 0 else (B, A, C, K)
+                            assert constructed == expected
+                            assert C == m * t - 4 * c1 * c2
+                            assert_type_i(p1, (a1, b1, c1, k1))
+                            assert_type_i(p2, (a2, b2, c2, k2))
+                            assert_type_i(P, constructed)
+                            return ((p1, (a1, b1, c1, k1)),
+                                    (p2, (a2, b2, c2, k2)), t)
+        return None
 
     m_divides_k = {
         P for P, rows in type_i_rows.items()
         if any(row[3] % ((row[0] + row[1]) // row[3]) == 0 for row in rows)
     }
-    binary_shape_targets = {
-        P for P, rows in type_i_rows.items()
-        if any(has_binary_singleton_shape(row) for row in rows)
-    }
+    binary_inverse_branches = {}
+    for P, rows in type_i_rows.items():
+        branch = next((branch for row in rows
+                       if (branch := binary_singleton_inverse(P, row))
+                       is not None), None)
+        if branch is not None:
+            binary_inverse_branches[P] = branch
+    binary_inverse_targets = set(binary_inverse_branches)
     assert m_divides_k == {1129, 2473, 3169, 5281}
-    assert binary_shape_targets == {2473, 3169, 5281}
+    assert binary_inverse_targets == {2473, 3169, 5281}
+    assert not (binary_inverse_targets & {73, 193, 241, 1129, 2521})
 
     def type_ii_value(row):
         a0, b0, c0, k0 = row
@@ -3611,18 +3649,22 @@ def check_y():
             assert_type_ii(Q, row)
     assert cross_targets == set(cross_expected)
 
-    # Section 23 already exhausts every Type-II flexible inverse and leaves
-    # exactly these eleven.  Combining its 132 successes with the exact new
-    # resister searches leaves five of the 143 hard primes through 10^4.
-    newly_reached = binary_shape_targets | cross_targets
+    # Block (v) independently replays §23's exhaustive base census and leaves
+    # exactly these eleven.  Recompute the 143-prime universe here rather than
+    # using 132 and 143 only as inherited arithmetic constants.
+    hard_primes = tuple(P for P in primerange(2, 10_001) if P % 24 == 1)
+    assert len(hard_primes) == 143 and set(resisters) < set(hard_primes)
+    base_reached = len(hard_primes) - len(resisters)
+    assert base_reached == 132
+    newly_reached = binary_inverse_targets | cross_targets
     combined_blocked = set(resisters) - newly_reached
     assert newly_reached == {673, 1153, 2473, 3169, 3361, 5281}
     assert combined_blocked == {73, 193, 241, 1129, 2521}
-    assert 132 + len(newly_reached) == 138
+    assert base_reached + len(newly_reached) == 138
 
     print("Type-I exact tuple counts (11 resisters):",
           dict(zip(resisters, expected_counts)))
-    print("corrected Type-I tensor reaches", sorted(binary_shape_targets),
+    print("corrected Type-I tensor reaches", sorted(binary_inverse_targets),
           "; cross-type bridge reaches", sorted(cross_targets))
     print("combined hard-prime reachability <= 10^4: 138/143; blocked =",
           sorted(combined_blocked))

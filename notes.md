@@ -7316,8 +7316,9 @@ side from the equation
 Unless a bijection is explicitly asserted, a **Type-I tuple** below means any
 positive quadruple satisfying (26.1); \((a,b)=1\) is not required.  Such a
 tuple gives the identity in Theorem 17.1(ii) even for a composite value of
-\(p\).  All finite computations in this section are replayed independently in
-`verify.py (y)`.
+\(p\).  The §23 base census is replayed independently in `verify.py (v)`.
+`verify.py (y)` replays the Type-I computations, the full inverse (26.17),
+the six-prime increment, and the final set arithmetic.
 
 ### 26.1 Divisor form and complete finite enumeration
 
@@ -7509,9 +7510,12 @@ This norm identity does **not** compose Type-I divisor classes.  If
  R_\sigma=4cx_1x_2k_1k_2-p_1x_2k_2-p_2x_1k_1-\sigma k_1k_2.
 \]
 
-Thus modulo the full target modulus \(4cK_\sigma\), the class is
+When \(K_\sigma>0\), modulo \(4cK_\sigma\) the class is
 \(P_\sigma+4c(R_\sigma\bmod K_\sigma)\); it depends on the coordinates and
-has no source-only simplification.  Universally it is only
+has no source-only simplification.  If it is to be read as a Type-I target,
+one also requires \(P_\sigma\geq2\).  When \(K_\sigma=0\), (26.10)--(26.12)
+remain valid norm identities, but there is no positive target modulus and no
+reduction modulo \(K_\sigma\).  Universally the product is only
 \(+P_\sigma\pmod {4c}\), while a Type-I target requires
 \(-P_\sigma\pmod {4c}\).  For odd \(P_\sigma\) these grades already differ
 modulo four.
@@ -7611,7 +7615,9 @@ swapping \(A,B\), one then finitely enumerates
 
 and the residue classes \(4a_ib_ic_i\equiv1\pmod m\).  Descent bounds each
 \(c_i\) by \(4a_ib_ic_i-1<mP\).  Finally one checks
-\(C\equiv-4c_1c_2\pmod m\).  This is an exact finite inverse test for
+\(C\equiv-4c_1c_2\pmod m\).  The reconstructed parameter is
+\(t=(C+4c_1c_2)/m\): the residue check gives integrality, and positivity is
+automatic from \(C,c_i>0\).  This is an exact finite inverse test for
 Theorem 26.4.  On the eleven resisters, only 1129, 2473, 3169 and 5281 even
 have a row with \(m\mid K\).  The 1129 rows are
 \((7,11,11,6)\) and its swap, with \(m=3\); neither 7 nor 11 can be the
