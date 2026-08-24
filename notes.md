@@ -6098,3 +6098,232 @@ Mertens' theorem in the progression \(3\pmod4\) give (24.13).  For the
 finite interval, odd Bonferroni truncation at degree \(O(\log L)\) has main
 tail smaller than a fixed fraction of (24.13), while its total rounding
 error is \(\exp\{O(L\log L)\}\), exactly as in (24.10)--(24.12). ∎
+
+### 24.4 A scoped no-go for local quadratic certificates
+
+The broad claim that *every* cheap congruence prescription leaves cubic
+conditional first moment is false: a prescription can make selected classes
+incompatible one by one.  The following statement isolates the actual
+entropy wall for the natural Jacobi construction.  Write \(P^+(m)\) for the
+largest prime factor of \(m\), with \(P^+(1)=1\), and
+
+\[
+ \mu_{\rm sm}(X,z)=
+ \sum_{\substack{M\leq X,\ M\equiv3\ (4)\\P^+(M)\leq z}}
+       {F(M)\over M}.                                        \tag{24.14}
+\]
+
+**Lemma 24.6 (smooth moduli carry negligible intrinsic mass; proved).**  For
+every fixed \(B>0\), uniformly for \(2\leq z\leq L^B\),
+
+\[
+ \mu_{\rm sm}(X,z)=o(L^3).                                   \tag{24.15}
+\]
+
+*Proof.*  We use two standard elementary estimates, stated at the strength
+needed here:
+
+\[
+ \Psi(Y,z)/Y\ll \exp\{-c u\log(u+1)\},\quad
+ u={\log Y\over\log z},                                      \tag{24.16}
+\]
+
+for the count of \(z\)-smooth integers, and
+
+\[
+ \sum_{a\leq Y}\tau(a^2)^2\ll Y(\log(2Y))^8.                \tag{24.17}
+\]
+
+The latter follows directly from the Euler product: its prime coefficient is
+\(\tau(p^2)^2=9\), so after extracting \(\zeta(s)^9\) the remaining product
+converges absolutely to the right of \(1/2\); the usual convolution bound
+suffices.  On a dyadic block \(M\asymp Y\), Lemma 18.1 and Cauchy--Schwarz
+give
+
+\[
+ \sum_{\substack{M\asymp Y\\P^+(M)\leq z}}{F(M)\over M}
+ \ll (\log(2Y))^4\{\Psi(2Y,z)/Y\}^{1/2}.                    \tag{24.18}
+\]
+
+Put
+\(T_0=C_B(\log L)^2/\log\log L\).  The contribution of
+\(M\leq e^{T_0}\) is \(O(T_0^3)=o(L^3)\) by the upper half of Theorem 18.2.
+For larger blocks, choose the constant \(C_B\) in (24.16) so that (24.18)
+is \(O(L^{-2})\), uniformly; there are only \(O(L)\) blocks.  This proves
+(24.15). ∎
+
+For each odd prime \(p\leq z\), consider the local condition
+
+\[
+ \left({n\over p}\right)\in\{0,+1\}.                        \tag{24.19}
+\]
+
+It has density \((p+1)/(2p)\).  Imposing (24.19) independently for all such
+primes costs
+
+\[
+ \sigma_z=\prod_{3\leq p\leq z}{p+1\over2p},\qquad
+ -\log\sigma_z=(\log2)\pi(z)+O(\log\log z).                 \tag{24.20}
+\]
+
+It certifies avoidance of every intrinsic class for every \(z\)-smooth
+modulus: if \((n,M)=1\), then \((n/M)=+1\), and otherwise its Jacobi symbol
+is zero, while Lemma 21.2 requires \(-1\).
+
+**Theorem 24.7 (local-symbol plus first-moment no-go; proved in the stated
+method class).**  Consider a lower-bound scheme which
+
+1. imposes (24.19), or a subset of those local symbol conditions, to certify
+   the moduli composed entirely of controlled primes; and
+2. treats every modulus not so certified by the unconditioned first-moment
+   union bound \(\sum F(M)/M\).
+
+If the prescription density is \(\exp\{-o(L^3)\}\), then the second step
+retains \((1-o(1))\) of the cubic mass and gives no positive lower bound.
+Thus no scheme in this class can refute H_PF.
+
+*Proof.*  By (24.20), subcubic prescription cost implies
+\(\pi(z)=o(L^3)\), hence \(z\leq L^4\) for large \(X\).  Lemma 24.6 and
+Theorem 18.2 give
+
+\[
+ \sum_{\substack{M\leq X,\ M\equiv3\ (4)\\P^+(M)>z}}
+       {F(M)\over M}
+ =\sum_{\substack{M\leq X\\M\equiv3\ (4)}}{F(M)\over M}
+      -o(L^3)\gg L^3.                                       \tag{24.21}
+\]
+
+The union-bound lower estimate after step 2 is therefore already negative.
+The same conclusion holds if fewer primes are controlled. ∎
+
+The scope is essential.  The theorem does not cover a prescription which
+uses the actual residues of rough-modulus classes to make many of them
+incompatible, nor a clustered estimate of their conditional union.  Either
+would be new joint arithmetic, not the ``certify smooth, union-bound the
+rest'' method ruled out here.
+
+### 24.5 A joint construction for a growing fiber range
+
+The \(D=1\) construction does tensor across many shifts, but only after one
+keeps the exact dependence on \(R\).  Define
+
+\[
+ {\rm Av}^{(R\leq Y)}_X(N)=
+ \{n\leq N:\text{no pair in (21.3) has }R_0(D)\leq Y\}.      \tag{24.22}
+\]
+
+This is a genuine part of the complete composite-modulus system, not only a
+prime-modulus slice.
+
+**Theorem 24.8 (multi-shift quadratic-character construction; proved).**  Fix
+\(\epsilon>0\).  Uniformly for sufficiently large \(X\),
+\(1\leq Y\leq L^{3-\epsilon}\), and \(\log N\geq L^4\),
+
+\[
+ |{\rm Av}^{(R\leq Y)}_X(N)|
+ \geq N\exp\{-C_\epsilon Y\log(2Y)\log L\}.                 \tag{24.23}
+\]
+
+The corresponding natural density satisfies the same lower bound.  In
+particular, taking \(Y=L^{3-\epsilon}\) makes the exponent \(o(L^3)\).
+
+*Proof.*  Let
+
+\[
+ \mathcal D_Y=\{(R,D):R\leq Y,\ D=R^2/s,\ s\mid\operatorname{rad}(R)\},
+ \qquad H=|\mathcal D_Y|.
+\]
+
+The standard Euler-product estimate
+\(\sum_{R\leq Y}2^{\omega(R)}\ll Y\log(2Y)\) gives
+\(H\ll Y\log(2Y)\).  For each prime \(p\leq X\),
+\(p\equiv3\pmod4\), forbid
+
+\[
+ B_p=\{-4D\pmod p:(R,D)\in\mathcal D_Y,\ p\nmid R\}.        \tag{24.24}
+\]
+
+Every element of \(B_p\) is nonzero, so
+\(g(p):=|B_p|\leq\min(H,p-1)\); at least the residue zero is always
+available.
+
+Any integer avoiding all the sets (24.24) belongs to (24.22).  Indeed, a
+putative hit has \(M\mid n+4D\) and \(M\equiv-1\pmod {4R}\).  Thus
+\((M,R)=1\), and because \(M\equiv3\pmod4\), some prime
+\(p\equiv3\pmod4\) divides \(M\) to odd exponent.  This prime is at most
+\(X\), does not divide \(R\), and forces \(n\equiv-4D\pmod p\), contrary
+to (24.24).
+
+It remains to count this certificate in a short fraction of its enormous
+period.  For the primes \(p\leq2H\), choose the allowed residue
+\(n\equiv0\pmod p\), and let \(Q_0\) be their product.  Chebyshev's bound
+gives \(\log Q_0=O(H)\).  Write \(n=Q_0m\).  At every remaining prime,
+the transformed forbidden set still has size \(g(p)\leq H<p/2\), and
+
+\[
+ \mu_Y:=\sum_{2H<p\leq X}{g(p)\over p}
+       \ll H\log L.                                         \tag{24.25}
+\]
+
+Odd Bonferroni truncation at degree \(r\asymp\mu_Y\), as in (24.10), leaves
+at least a fixed fraction of the Euler product, which is
+\(\geq\exp(-2\mu_Y)\).  If
+\(W_Y=\sum g(p)\), then \(W_Y\leq H\pi(X)\), so all congruence-count
+rounding errors total
+
+\[
+ \exp\{O(r\log W_Y)\}=\exp\{O(HL\log L)\}.                  \tag{24.26}
+\]
+
+For \(Y\leq L^{3-\epsilon}\), the exponent in (24.26) is \(o(L^4)\), and
+so (24.26) is negligible against \(N/Q_0\) under the stated hypothesis.
+Restoring the cost of \(Q_0\) proves (24.23).  Letting \(N\) run through
+full periods gives the density statement directly. ∎
+
+**Assessment 24.9 (what the construction does and does not do).**  Theorem
+24.8 is a joint clustering lower bound for all \(2^{\omega(R)}\) shifts in
+a growing, composite-modulus fiber range.  It is strictly stronger than the
+single \(D=1\) cluster and reaches every \(R\leq L^{3-\epsilon}\) at
+subcubic cost.  It does not approach the full range \(R\leq X/4\).  In the
+proof, \(H\) is the number of shifts; extending the same certificate makes
+both the local cost \(H\log L\) and the finite-interval rounding exponent
+\(HL\log L\) exceed their budgets.  For the full range many sets \(B_p\)
+are expected to contain every nonzero residue, reducing the construction to
+primorial divisibility at exponential-in-\(X\) cost.
+
+Other attempted continuations fail at equally explicit points:
+
+* Treating the \((R,s)\) events independently assumes the false uniformity
+  exposed by (24.5).
+* Direct Bonferroni over all composite congruence classes has
+  \(\exp\{\Theta(L^3)\}\) main degree but an uncontrolled number of residue
+  intersections; the prime factorization in (24.24) is what makes the
+  truncated range countable.
+* The smooth Jacobi certificate leaves the cubic rough-modulus mass (24.21).
+* Letting \(Y\) grow beyond \(L^{3-o(1)}\) in (24.24) loses both the desired
+  subcubic density and the \(N=e^{\Theta(L^4)}\) transfer.  No replacement
+  that exploits overlap among the large-\(R\) sets \(B_p\) was found.
+
+### 24.6 Verdict after wave 7
+
+**Assessment 24.10.**  H_PF remains **false-looking, open**.  The status did
+not change to a refutation: Theorem 24.8 concerns a proper subsystem, and
+Theorem 24.4 goes in the wrong inclusion direction for lower-bounding the
+full avoiders.  What did change is the map of the gap.
+
+* The prime subsystem is now pinned at \(\exp\{-\Theta(L^2)\}\); composite
+  moduli must supply every additional power needed by H_PF.
+* Cheap local Jacobi certificates followed by a first-moment treatment are
+  closed by Theorem 24.7.
+* Joint clustering is proved through \(R\leq L^{3-\epsilon}\), but the
+  remaining fibers \(L^{3-o(1)}<R\leq X/4\) are exactly where the argument
+  loses control.
+* The subset-product mechanism supplies a conditional
+  \(L^{2+\log2}\) candidate, not a corrected asymptotic; existing data
+  cannot distinguish it from \(L^2\log L\).
+
+A refutation still requires
+\(|{\rm Av}_X(N)|\geq N\exp\{-o(L^3)\}\) for the **joint full system** in
+the \(\log N\asymp L^4\) regime.  The named missing input is now a
+large-\(R\), multi-shift divisor-clustering lower bound, not more prime-slice
+sieve mass and not a one-modulus symbol certificate.
