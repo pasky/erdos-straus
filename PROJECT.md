@@ -81,6 +81,45 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 13 (2026-08-24, wave 9 — see notes.md §28–§30; all three hostile-reviewed → repaired)
+
+* **§28 (census reconciliation): the combined blocked set is EMPTY through
+  \(10^6\) — as witness decomposition.**  §25's additive maps and §26's
+  census had run in parallel; under §23.4's uniform standard (descending
+  inverse, self-certifying smaller sources) the additive branches close the
+  five §26 holdouts, so every hard prime \(\le10^6\) that has a Type-II
+  tuple decomposes through smaller sources (143/143, 1181/1181,
+  9732/9732).  Existence remains the conjecture; the register is kept
+  strict throughout.  Tuple-level atoms (34 of 940 rows at \(P\le3000\),
+  coordinate-1 boundary) are law-family-relative and all fall to §30's
+  moves.  Complete k=1-less census to \(10^6\): exactly nine primes
+  409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321 (decade
+  counts 0/2, 2/12, 2/129, 2/1038, 3/8551 — thinning, Measured).
+  Residual conjecture H_W9 (forward-image totality of the four fixed
+  predicates) stated verbatim and honestly assessed: stronger than raw
+  witness existence, not a hardness reduction.
+* **§29 (supply audit): the transfer laws do NOT enlarge the sieve supply
+  beyond cubic.**  Theorem-level subsumption: the fixed-\((c,k)\) Case-B
+  prime-divisor classes are exactly the §16 multiplier classes (verified
+  symbolically and on all \(q\le3000\)).  The Type-I prime-divisor layer
+  has a genuinely new class SHAPE (CRT of quadratic roots mod \(q\) with
+  the coupling \(q\equiv-P\) mod \(4ck\); no coverage gain demonstrated)
+  and total mass \(O((\log X)^2\log\log X)\) — subcubic.  The audited
+  combined supply stays \(\asymp(\log X)^3\); Theorem 16.4 and the
+  conditional 3/4 ceiling are unchanged.  Composite Type-I divisors and
+  joint image counting remain open scope notes.
+* **§30 (structure theorem): the full positive Type-II tuple lattice is
+  one decorated additive orbit.**  Seven move schemas (unary generation
+  form after review) generate every tuple from the single seed
+  \((1,1,1,1)\); independent re-enumeration through 5000 reproduces the
+  audit (zero non-seed atoms).  Exact reformulation: [ES\(_{II}\) for
+  hard primes] \(\Leftrightarrow\) every hard prime's value fibre meets
+  the orbit.  Technology audit: Markoff/Apollonian machinery lacks its
+  prerequisite here (no fixed-value non-elementary action; moves change
+  value; the canonical excursion through value \(KP\) is nonminimal and
+  unbounded in \(K\)).  Honest verdict: a reformulation and a complete
+  decomposition structure, not a solution; Type-I side not covered.
+
 ## Outcome 12 (2026-08-24, wave 8 — see notes.md §25–§27; all three hostile-reviewed: repairable → repaired)
 
 * **§25 (sub-maximal maps): the eleven pure-tensor resisters all fall to
