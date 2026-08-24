@@ -81,6 +81,49 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 11 (2026-08-24, wave 7 — see notes.md §23–§24; both hostile-reviewed: repairable → repaired)
+
+* **§23 (flexible tensor reinterpretation): all six §22 blockers fall; the
+  family is still not total.**  Theorem 23.1: moving factors between the
+  output coordinates — any \(K'\mid A+B\) with \(K'\mid4c_1c_2k_1k_2\),
+  \(C'=4c_1c_2k_1k_2/K'\) — gives \(P'=(k_1k_2/K')(16c_1c_2AB-s_1s_2)\), a
+  valid Type-II tuple (descent no longer automatic: Warning 23.2's 71<75
+  example; every inverse branch checks \(2\le p_i<P\) directly).  Lemma 23.3:
+  exact finite inverse test (necessity \(4\mid CK\), replacing §22's
+  \(4\mid C\)).  Census (23.9)/(23.12), independently reproduced in review:
+  577, 5569, 83449 all have \(4\mid CK\) tuples and descending inverses
+  (mostly from fixed source 2); 1170 of the 1181 hard primes \(<10^5\) are
+  images with descending inverses; **eleven resisters**
+  (73, 193, 241, 673, 1129, 1153, 2473, 2521, 3169, 3361, 5281) have **no
+  tuple with \(4\mid CK\)** (parity criterion Lemma 23.6:
+  \(v_2(C)+v_2(A+B)\le1\) on every tuple row).  Closure theorems: Lemma 23.7
+  (product modulus, any tensor order), Lemma 23.8 (lcm/\(h_1h_2/g^2\)
+  quotient readings, odd outputs), and Lemma 23.9 (review round:
+  \(H\gcd(A,B)=4C''K''\gcd(A'',B'')\) for **arbitrary**-modulus readings of
+  pure tensor factor pairs + finite odd-gcd audit) — **no pure tensor of any
+  order at any modulus reaches any resister tuple**.  The circularity trap
+  (inverting a known tuple presupposes \(P\in S\)) is documented; the
+  theorem to hunt is forward-image totality.  Unclassified: non-pure
+  (additive modulus-dependent) corrections, rational maps.
+* **§24 (H_PF lower-bound routes): prime slice pinned, truncated fibers
+  proved, refutation reduced.**  Lemma 24.3: full prime-modulus intrinsic
+  mass \(\asymp(\log X)^2\).  Theorem 24.4: two-sided
+  \(|{\rm Av}^{\rm prime}_X(N)|=N\exp[-\Theta((\log X)^2)]\) for
+  \(\log N\ge C(\log X)^3\) (CRT density + odd-Bonferroni transfer) — any
+  cubic H_PF majorant must lean entirely on composite moduli.  Lemma 24.5:
+  the \(D=1\) cluster exactly \(\asymp L^{-1/2}\).  Theorem 24.8
+  (multi-shift prime-class certificate): joint avoidance of ALL intrinsic
+  fibers \(R\le Y\) at cost \(\exp[-C_\epsilon Y\log(2Y)\log L]\), valid to
+  \(Y=L^{3-\epsilon}\) — subcubic joint clustering for a genuinely
+  composite-modulus subsystem.  Theorem 24.7 (scoped no-go):
+  initial-cutoff Jacobi certificates + unconditioned first moment cannot
+  refute H_PF (smooth moduli carry negligible mass, Lemma 24.6 — proof
+  repaired in review: correctly-ranged CEP smooth bound via monotone
+  enlargement).  Assessment 24.1: the uniform subset-product model outputs
+  benchmark \(L^{2+\log2}\) but overpredicts sampled hits ~3x even after
+  eligibility filters.  **H_PF: still false-looking, open**; refutation now
+  = a large-\(R\) multi-shift divisor-clustering lower bound.
+
 ## Outcome 10 (2026-08-24, wave 6 — see notes.md §21–§22; reviewed: §21 sound, §22 repaired)
 
 * **§21 (the truth of H_PF): false-looking, open.**  Exact reorganization of
