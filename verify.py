@@ -2020,4 +2020,74 @@ def check_s():
 print("\n== (s) frontal-assault transfer algebra (§20) ==")
 check_s()
 
+# ---------------------------------------------------------------- (t)
+def check_t():
+    """Section 21: exact intrinsic avoidance and the quadratic escape."""
+    import numpy as np
+
+    def rzero(d0):
+        ans = 1
+        for p0, e0 in factorint(d0).items():
+            ans *= p0**((e0 + 1) // 2)
+        return ans
+
+    # Lemma 21.1: D|A^2 iff R_0(D)|A, including the converse reorganization
+    # through M|n+4D.  The bounded loops are exhaustive, not random.
+    for A0 in range(1, 101):
+        M0 = 4 * A0 - 1
+        for D0 in range(1, A0 * A0 + 1):
+            assert ((A0 * A0) % D0 == 0) == (A0 % rzero(D0) == 0)
+        for D0 in divisors_of_square(A0):
+            assert M0 % (4 * rzero(D0)) == 4 * rzero(D0) - 1
+            for n0 in range(1, 3 * M0 + 1):
+                assert ((n0 + 4 * D0) % M0 == 0) == ((-4 * D0) % M0 == n0 % M0)
+
+    # Lemma 21.2: every intrinsic class has Jacobi symbol -1.  Consequently
+    # no square (and, more generally, no unit with Jacobi symbol +1) is hit.
+    sign_checks = square_checks = 0
+    for M0 in range(3, 2000, 4):
+        A0 = (M0 + 1) // 4
+        for D0 in divisors_of_square(A0):
+            r0 = (-4 * D0) % M0
+            assert gcd(r0, M0) == 1
+            assert jacobi_symbol(r0, M0) == -1
+            sign_checks += 1
+            for y0 in (1, 2, 7, 31):
+                if gcd(y0, M0) == 1:
+                    assert y0 * y0 % M0 != r0
+                    square_checks += 1
+
+    # Exact natural densities: the event is periodic modulo the lcm of the
+    # moduli.  X=27 has period 4542615, still small enough to enumerate whole.
+    expected = {
+        3: (3, 2), 7: (21, 8), 11: (231, 64), 15: (1155, 256),
+        19: (21945, 4096), 23: (504735, 57344),
+        27: (4542615, 516096),
+    }
+    exact = {}
+    for X0, (period0, survivors0) in expected.items():
+        moduli0 = list(range(3, X0 + 1, 4))
+        assert lcm(*moduli0) == period0
+        alive = np.ones(period0, dtype=np.bool_)
+        for M0 in moduli0:
+            A0 = (M0 + 1) // 4
+            residues0 = {(-4 * D0) % M0 for D0 in divisors_of_square(A0)}
+            for r0 in residues0:
+                alive[r0::M0] = False
+        assert int(alive.sum()) == survivors0
+        # The common residue 1 and every literal square provide independent
+        # regression guards for the two proved escape constructions.
+        assert alive[1 % period0]
+        for y0 in range(1, min(200, period0)):
+            assert alive[(y0 * y0) % period0]
+        exact[X0] = f"{survivors0}/{period0}"
+
+    print(f"R0 equivalence exhaustive through A=100; Jacobi -1 on "
+          f"{sign_checks} classes ({square_checks} square checks)")
+    print("exact full-period avoider densities:", exact)
+
+
+print("\n== (t) intrinsic-system avoidance (§21) ==")
+check_t()
+
 print("\nall checks passed")
