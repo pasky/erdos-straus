@@ -5465,9 +5465,9 @@ For scale diagnosis only, unweighted affine fits of
 an intercept) have root-mean-square residuals
 
 \[
-\begin{array}{c|ccccc}
- f(X)&L\log L&L^{3/2}&L^2&L^2\log L&L^3\\ \hline
- {\rm RMSE}&.391&.342&.170&.046&.169
+\begin{array}{c|cccccc}
+ f(X)&L\log L&L^{3/2}&L^2&L^2\log L&L^{2+\log 2}&L^3\\ \hline
+ {\rm RMSE}&.391&.342&.170&.046&.077&.169
 \end{array},\qquad L=\log X.                                  \tag{21.17}
 \]
 
@@ -5484,6 +5484,18 @@ the lower bound \(\delta_X\geq\exp[-C(\log X)^2\log\log X]\) that would
 refute H_PF, nor an upper bound \(\exp[-c(\log X)^{2+\epsilon}]\) that would
 support it.  Proving either is the remaining density problem.  Until then
 the correct label is: **H_PF false-looking, open**.
+
+**Section 24 post-script (additive correction).**  The subset-product audit
+there shows that the last ``structural prediction'' in §21.4 was too strong.
+A typical shifted integer has about \((\log X)^{\log 2}\) squarefree
+small-prime subset products, which would give the candidate exponent
+\((\log X)^{2+\log 2}\) *if* those products were uniform modulo every
+\(4R\).  They are not uniform near the truncation boundary, and the audit
+therefore does not promote this candidate to a corrected asymptotic.  The
+new column in (21.17) is nearly collinear with \(L^2\log L\) (correlation
+\(0.99972\)) on the measured range and cannot distinguish the two.  Section
+24 also pins the prime subsystem two-sided, proves a substantial truncated-
+\(R\) clustering lower bound, and leaves the full-system label unchanged.
 
 ## 22. Degree-two classification of transfer maps
 
@@ -5865,3 +5877,224 @@ moving factors of \(4c_1c_2\) into \(K'\) are not classified.)  No
 Erdős--Straus proof results.  Rational maps, quotient/lcm output moduli, and
 modulus-dependent polynomial coefficients remain outside the precisely
 fixed search space and are not claimed classified here.
+
+## 24. A subset-product audit and lower-bound routes for H_PF
+
+This section returns to the density problem at the end of §21.  Put
+\(L=\log X\).  Labels are deliberately strict: the prime-slice and
+truncated-fiber statements below are theorems; the proposed
+\(L^{2+\log2}\) scale is only an assessment.
+
+### 24.1 Subset products: a real correction, but not a new asymptotic
+
+**Assessment 24.1 (the subset-product correction).**  For a random shifted
+integer \(y=n+4D\), the expected number of distinct primes at most \(X\)
+dividing \(y\) is \(\log\log X+O(1)=\log L+O(1)\).  The Erdős--Kac typical
+value therefore suggests
+
+\[
+ T_X(y):=2^{\omega_X(y)}=L^{\log2+o(1)},                     \tag{24.1}
+\]
+
+where \(\omega_X\) counts only prime factors at most \(X\).  Prime powers
+change the typical estimate only by a bounded factor.  If the eligible
+subset products were uniform in \((\mathbb Z/4R\mathbb Z)^*\), the chance
+that one equals \(-1\) would consequently be
+
+\[
+ \min\{1,T_X(y)/\varphi(4R)\}.                               \tag{24.2}
+\]
+
+There is no quadratic-symbol restriction forcing this walk into one coset.
+Lemma 21.2 evaluates the Jacobi symbol of the *resulting class modulo the
+divisor* \(M\); it does not prescribe the residues modulo \(4R\) of the
+prime divisors of \(y\).  The only automatic restrictions in (24.2) are
+coprimality with \(4R\), odd parity, and the product-size cutoff.
+
+The formal sum behind the parent's proposed correction is now clear.  The
+saturated block \(\varphi(4R)\leq T=L^{\log2+o(1)}\) contains at most
+
+\[
+ \sum_{R\leq T^{1+o(1)}}2^{\omega(R)}
+       =T^{1+o(1)}=L^{\log2+o(1)}                             \tag{24.3}
+\]
+
+shift events (retaining the usual harmless polylogarithmic factors).  Even
+charging \(O(\log L)\), rather than one, for a saturated miss leaves this
+block smaller than quadratic scale.  In the unsaturated block, (21.13)
+would give
+
+\[
+ T\sum_{R\leq X/4}{2^{\omega(R)}\over\varphi(4R)}
+       =L^{2+\log2+o(1)}.                                    \tag{24.4}
+\]
+
+Thus \(L^{2.693\ldots}\) is the right output of the *uniform subset-product
+model*, and remains \(o(L^3)\).
+
+The uniformity premise, however, fails a basic boundary check.  Averaged
+over \(y\), the exact first moment of eligible divisors for one modulus
+\(q=4R\) is
+
+\[
+ \sum_{\substack{m\leq X\\m\equiv-1\ (q)}}{1\over m}
+ = {1\over q}\{\log(X/q)+O(1)\},                             \tag{24.5}
+\]
+
+with the evident one-term interpretation when \(q\) is close to \(X\).
+Divisors at most \(X\) are concentrated by size, not spread uniformly over
+all \(\varphi(q)\) units.  For \(q\asymp X\), almost every subset product is
+smaller than the sole target \(q-1\); (24.2) misses this completely.  The
+same issue persists, less starkly, well below the boundary.  Moreover the
+avoidance probability is a quenched quantity and cannot be recovered from
+the heavy-tailed mean divisor count alone.
+
+**Computational 24.2 (informational).**  The deterministic experiment in
+`verify.py (w)` samples large shifted integers and sums the actual
+\((R,s)\)-hit indicators.  At \(X=80,160\), the raw model (24.2)
+overpredicts those sums by factors greater than four and five, respectively.
+This is not asymptotic evidence, but it catches exactly the missing
+size/residue correction in (24.5).  The fit in (21.17) gives root-mean-square
+residual \(0.077\) for \(L^{2+\log2}\), versus \(0.046\) for \(L^2\log L\),
+and the two regressors have correlation \(0.99972\).  Since
+\(L^{\log2}\leq4.2\) through \(X=3200\), those data cannot see the proposed
+subset-product power.
+
+**Assessment.**  Equations (24.1)--(24.4) repair a missing mechanism in the
+old heuristic, but (24.5) prevents calling \(L^{2+\log2}\) the true scale.
+The defensible conclusion is only that it is a conditional candidate between
+the measured slowly varying scales and cubic first moment.  The
+false-looking verdict survives; the claimed narrow ``between \(L^2\) and
+\(L^2\log L\)'' structural prediction does not.
+
+### 24.2 The prime subsystem is exactly quadratic
+
+For primes \(\ell\equiv3\pmod4\), write
+\(f(\ell)=F(\ell)=|\mathscr R(\ell)|\), and let
+\({\rm Av}^{\rm prime}_X(N)\) avoid the full sets
+\(\mathscr R(\ell)\) for all such \(\ell\leq X\).
+
+**Lemma 24.3 (full prime-class mass; proved).**  There are absolute constants
+\(c,C>0\) such that
+
+\[
+ cL^2\leq\sum_{\substack{\ell\leq X\\\ell\equiv3\ (4)}}
+ {F(\ell)\over\ell}\leq CL^2.                               \tag{24.6}
+\]
+
+*Proof.*  The lower bound is (21.10), because the harvested sets
+\(\mathcal C_\ell\) are subsets of the full intrinsic sets.
+
+For the upper bound put \(A=(\ell+1)/4\).  Lemma 18.1 and the local
+inequality \(2e+1\leq(e+1)(e+2)/2\) give
+\(F(\ell)\leq\tau(A^2)\leq\tau_3(A)\).  On a dyadic interval
+\(A\asymp Y\), write every ordered factorization as \(A=abc\) and designate
+one of its largest coordinates as \(c\).  By symmetry this loses at most a
+factor three and gives \(ab\ll Y^{2/3}\).  For fixed \(a,b\), the prime
+\(4abc-1\) lies in one reduced class modulo \(4ab\).  Brun--Titchmarsh,
+uniformly in this range, gives
+
+\[
+ \#\{c:A\asymp Y,\ 4abc-1\ {
+m prime}\}
+ \ll {Y\over\varphi(4ab)\log Y}.
+\]
+
+Since \(\varphi(4ab)\geq\varphi(a)\varphi(b)\) and
+\(\sum_{m\leq y}1/\varphi(m)\ll\log(2y)\), summing over \(a,b\) gives
+
+\[
+ \sum_{\substack{A\asymp Y\\4A-1\ {
+m prime}}}\tau(A^2)
+ \ll Y\log Y.                                                \tag{24.7}
+\]
+
+After division by \(\ell\asymp Y\), the dyadic block costs
+\(O(\log Y)\).  Summing the \(O(L)\) blocks proves the upper bound in
+(24.6). ∎
+
+**Theorem 24.4 (two-sided prime-slice avoidance; proved).**  There are
+absolute constants \(c_1,C_2,C_3>0\) such that, for all sufficiently large
+\(X\),
+
+\[
+ N e^{-C_2L^2}\leq |{\rm Av}^{\rm prime}_X(N)|
+       \leq N e^{-c_1L^2}                                    \tag{24.8}
+\]
+
+whenever \(\log N\geq C_3L^3\).  Its natural density is also
+\(e^{-\Theta(L^2)}\).
+
+*Proof.*  Distinct prime moduli are Chinese-remainder independent.  Hence
+the natural density is exactly
+
+\[
+ V_X=\prod_{\substack{\ell\leq X\\\ell\equiv3\ (4)}}
+       \left(1-{f(\ell)\over\ell}\right).                   \tag{24.9}
+\]
+
+Lemma 21.2 puts all \(f(\ell)\) classes among the \((\ell-1)/2\)
+quadratic nonresidues, so \(f(\ell)/\ell<1/2\).  Lemma 24.3 and
+\(-2u\leq\log(1-u)\leq-u\) for \(0\leq u\leq1/2\) now give
+\(V_X=e^{-\Theta(L^2)}\).
+
+For completeness, no sieve theorem with hidden growing-dimension constants
+is needed to transfer the lower bound to \([1,N]\).  Put
+\(a_\ell=f(\ell)/\ell\), \(\mu=\sum a_\ell\), and take the least odd
+\(r\geq10\mu\).  Bonferroni gives, pointwise in the number \(h(n)\) of
+violated prime conditions,
+
+\[
+ {f1}_{h(n)=0}\geq\sum_{j=0}^{r}(-1)^j{h(n)\choose j}.      \tag{24.10}
+\]
+
+An intersection indexed by \(d\), a product of \(j\) primes, contains
+\(\prod_{\ell\mid d}f(\ell)\) classes modulo \(d\), and therefore has
+count
+
+\[
+ N\prod_{\ell\mid d}a_\ell
+   +O\left(\prod_{\ell\mid d}f(\ell)\right).                \tag{24.11}
+\]
+
+The omitted main tail in (24.10) is at most
+\(\sum_{j>r}\mu^j/j!\leq V_X/4\) for large \(X\).  Also (24.7), summed
+dyadically, gives \(W:=\sum_{\ell\leq X}f(\ell)\ll XL\), so the total
+rounding error is at most
+
+\[
+ \sum_{j\leq r}{W^j\over j!}=\exp\{O(L^3)\}.                \tag{24.12}
+\]
+
+Choosing \(C_3\) large makes (24.12) at most \(NV_X/4\).  Thus the left
+side of (24.8) follows from (24.10).  The upper side is the Selberg argument
+of Theorem 21.3 applied to the prime subsystem itself (or the even
+Bonferroni truncation with the same bookkeeping). ∎
+
+The theorem pins the prime subsystem at quadratic exponent, without a
+\(\log\log X\) loss.  It does **not** lower-bound \({\rm Av}_X\), since
+\({\rm Av}_X\subseteq{\rm Av}^{\rm prime}_X\).  It proves instead that a
+cubic H_PF majorant must obtain its extra saving from composite moduli.
+
+### 24.3 The one-shift cluster is exact
+
+**Lemma 24.5 (the \(D=1\) family; proved).**  The integers avoiding all
+classes \(n\equiv-4\pmod M\), \(M\leq X\), \(M\equiv3\pmod4\), are exactly
+those for which no prime \(p\leq X\), \(p\equiv3\pmod4\), divides \(n+4\).
+Their natural density is
+
+\[
+ \prod_{\substack{p\leq X\\p\equiv3\ (4)}}(1-1/p)
+       \asymp L^{-1/2}.                                      \tag{24.13}
+\]
+
+The same lower bound, up to an absolute constant, holds on \([1,N]\) once
+\(\log N\geq C L\log L\).
+
+*Proof.*  A divisor \(M\equiv3\pmod4\) has a prime divisor
+\(p\equiv3\pmod4\) to odd exponent, and that prime is itself a divisor at
+most \(X\).  The converse takes \(M=p\).  The Chinese remainder theorem and
+Mertens' theorem in the progression \(3\pmod4\) give (24.13).  For the
+finite interval, odd Bonferroni truncation at degree \(O(\log L)\) has main
+tail smaller than a fixed fraction of (24.13), while its total rounding
+error is \(\exp\{O(L\log L)\}\), exactly as in (24.10)--(24.12). ∎
