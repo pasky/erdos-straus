@@ -6822,3 +6822,422 @@ A refutation still requires
 the \(\log N\asymp L^4\) regime.  The named missing input is now a
 large-\(R\), multi-shift divisor-clustering lower bound, not more prime-slice
 sieve mass and not a one-modulus symbol certificate.
+
+---
+
+## 26. Type-I transfer theory: a corrected binary tensor and a cross-type bridge
+
+Sections 20, 22 and 23 used only Type II.  This section develops the Type-I
+side from the equation
+
+\[
+ p(a+b)=k(4abc-1),\qquad m=(a+b)/k,
+ \qquad pm=4abc-1.                                           \tag{26.1}
+\]
+
+Unless a bijection is explicitly asserted, a **Type-I tuple** below means any
+positive quadruple satisfying (26.1); \((a,b)=1\) is not required.  Such a
+tuple gives the identity in Theorem 17.1(ii) even for a composite value of
+\(p\).  All finite computations in this section are replayed independently in
+`verify.py (y)`.
+
+### 26.1 Divisor form and complete finite enumeration
+
+**Theorem 26.1 (proved: exact Type-I divisor form).**  Let \(p\) be an odd
+prime and put \(h=4ck\).  Positive \((a,b,c,k)\) satisfy (26.1) if and only if
+
+\[
+ (ha-p)(hb-p)=p^2+4ck^2,                                    \tag{26.2}
+\]
+
+with both displayed factors positive.  Every such tuple has
+\((p,ck)=1\).  Consequently, for fixed \((c,k)\) with \((p,ck)=1\), the
+ordered pairs \((a,b)\) correspond exactly to divisors
+
+\[
+ D\mid p^2+4ck^2,
+ \qquad D\equiv-p\pmod {4ck},                               \tag{26.3}
+\]
+
+by
+
+\[
+ a={D+p\over4ck},\qquad
+ b={{(p^2+4ck^2)/D}+p\over4ck}.                              \tag{26.4}
+\]
+
+The cofactor in (26.4) is automatically \(-p\pmod {4ck}\).  Without the
+coprimality hypothesis, the exact statement requires **both** factors to be
+\(-p\pmod {4ck}\); one divisor congruence alone is insufficient.
+
+*Proof.*  Expanding the left side of (26.2) gives
+
+\[
+ 16abc^2k^2-4ckp(a+b)+p^2.
+\]
+
+Equation (26.1) says \(p(a+b)=4abck-k\), so this is
+\(p^2+4ck^2\).  Conversely, expansion backwards gives (26.1).  Solving
+(26.1) for either variable gives
+
+\[
+ b(4ack-p)=pa+k,
+ \]
+
+and its symmetric counterpart, proving that both factors are positive.  If
+\(p\mid k\), writing \(k=p\ell\) in (26.1) gives
+\(a+b=\ell(4abc-1)>a+b\), a contradiction.  Thus \(p\nmid k\); reducing
+(26.1) modulo \(p\) gives \(4abc\equiv1\pmod p\), so \(p\nmid abc\) and
+\((p,ck)=1\).
+
+Now \((D,h)=(p,h)=1\).  Since
+\(D((p^2+4ck^2)/D)\equiv p^2\pmod h\) and \(D\equiv-p\pmod h\), multiplication
+by \(D^{-1}\) makes the cofactor \(-p\pmod h\).  Equations (26.4) are therefore
+positive integers and (26.2) completes the converse.  If coprimality is
+removed this cancellation is invalid: \(p=3,c=1,k=3\) gives
+\(p^2+4ck^2=45\), and \(D=9\equiv-3\pmod {12}\), but its cofactor \(5\) is
+not \(-3\pmod {12}\).  This proves the warning. ∎
+
+Thus the Type-I counterpart of (17.3) is
+
+\[
+ \boxed{(4ack-p)(4bck-p)=p^2+4ck^2}.                         \tag{26.5}
+\]
+
+It is a moving-grade condition: the desired divisor class is \(-p\), rather
+than Type II's fixed class \(-1\).
+
+**Lemma 26.2 (proved: complete finite enumeration).**  Every Type-I tuple of
+an odd prime \(p\) satisfies
+
+\[
+             4ck\leq2p+k,
+ \quad 1\leq k\leq\lfloor2p/3\rfloor,
+ \quad 1\leq c\leq\left\lfloor{2p+k\over4k}\right\rfloor. \tag{26.6}
+\]
+
+Therefore the following is a complete enumeration, with no experimental
+cutoff: loop over the \((c,k)\) in (26.6), discard \(p\mid ck\), factor
+\(p^2+4ck^2\), and apply (26.3)--(26.4) to every positive divisor.  Filtering
+\((a,b)=1\) gives exactly the canonical tuples of Theorem 17.1(ii).
+
+*Proof.*  If \(h=4ck\leq p\), the first inequality is immediate.  If \(h>p\),
+both factors in (26.2) are at least \(h-p\), so
+
+\[
+ (h-p)^2\leq p^2+4ck^2=p^2+hk.
+\]
+
+After cancellation and division by \(h>0\), this is \(h\leq2p+k\).  Since
+\(c\geq1\), it gives \(3k\leq2p\), and solving it for \(c\) gives the other
+bounds.  The divisor correspondence proves completeness. ∎
+
+The case \(4ck<p\) is not treated by pretending that \(a=1\): positivity is
+then \(a,b>p/(4ck)\).  The divisor loop enforces this automatically.  For
+example the \(p=73\) row \((a,b,c,k)=(3,20,7,1)\) has \(4ck=28<p\) and
+factors \(11\) and \(487\), on opposite sides of \(p\).
+
+The direct small-prime reconstructions include
+
+\[
+\begin{aligned}
+ {4\over7}&={1\over4}+{1\over4}+{1\over14}
+       &&(1,1,2,2),\\
+ {4\over17}&={1\over6}+{1\over15}+{1\over510}
+       &&(2,5,3,1),\\
+ {4\over73}&={1\over22}+{1\over110}+{1\over4015}
+       &&(1,5,11,2).
+\end{aligned}                                                \tag{26.7}
+\]
+
+For the last row, for example, \(m=3,z_0=55,d=11\), so
+\(d\mid z_0^2\) and \(m\mid d+z_0\), independently matching Theorem 3.1(A).
+`recorddata.json` contains only Case-B/Type-II records (its schema was
+checked); there is no stored Case-A table against which to claim a larger
+comparison.
+
+### 26.2 Anatomy of the eleven Type-II tensor resisters
+
+**Computational Search 26.3 (exact finite enumeration).**  Lemma 26.2 gives
+the following complete census.  “Primitive” means \((a,b)=1\); counts are
+ordered, so swapping \(a,b\) is counted.
+
+\[
+\begin{array}{r|rrrrrr}
+p&\#&\#\text{ up to swap}&\#\text{ primitive}&\#m\text{ values}&\max k
+ &\#(m\mid k)\\ \hline
+73&8&4&8&2&4&0\\
+193&8&4&8&3&10&0\\
+241&10&5&8&2&3&0\\
+673&26&13&24&8&34&0\\
+1129&32&16&28&7&26&2\\
+1153&30&15&28&9&58&0\\
+2473&56&28&48&12&124&4\\
+2521&12&6&12&4&11&0\\
+3169&26&13&26&9&38&2\\
+3361&26&13&26&9&29&0\\
+5281&36&18&30&11&78&4
+\end{array}                                                  \tag{26.8}
+\]
+
+Every resister therefore has Type-I structure, but not uniformly rich
+structure: 73 and 193 have only four swap-pairs.  Here are the complete first
+three lists.  Each line represents the displayed row and its \(a,b\) swap;
+\(m=(a+b)/k\).
+
+\[
+\begin{array}{r|rrrr|r}
+p&a&b&c&k&m\\ \hline
+73&3&20&7&1&23\\
+  &2&21&10&1&23\\
+  &1&5&11&2&3\\
+  &1&11&5&4&3\\ \hline
+193&5&138&10&1&143\\
+   &1&13&26&2&7\\
+   &1&5&29&2&3\\
+   &1&29&5&10&3\\ \hline
+241&9&14&11&1&23\\
+   &2&69&31&1&71\\
+   &2&21&33&1&23\\
+   &1&22&63&1&23\\
+   &3&66&7&3&23
+\end{array}                                                  \tag{26.9}
+\]
+
+Only the last row is nonprimitive.  As in Theorem 17.1, nonprimitive rows
+still give valid identities but duplicate a canonical solution at different
+\((c,k)\).
+
+### 26.3 Brahmagupta's sign obstruction and a corrected binary law
+
+For fixed \(c\), Brahmagupta composition gives, for \(\sigma=\pm1\),
+
+\[
+ (p_1^2+4ck_1^2)(p_2^2+4ck_2^2)
+ =P_\sigma^2+4cK_\sigma^2,                                  \tag{26.10}
+\]
+\[
+ P_\sigma=p_1p_2+\sigma4ck_1k_2,
+ \qquad K_\sigma=|p_1k_2-\sigma p_2k_1|.                    \tag{26.11}
+\]
+
+This norm identity does **not** compose Type-I divisor classes.  If
+\(F_i=4ck_ix_i-p_i\), where \(x_i\) is either input coordinate, then exactly
+
+\[
+ F_1F_2=P_\sigma+4cR_\sigma,                                \tag{26.12}
+\]
+\[
+ R_\sigma=4cx_1x_2k_1k_2-p_1x_2k_2-p_2x_1k_1-\sigma k_1k_2.
+\]
+
+Thus modulo the full target modulus \(4cK_\sigma\), the class is
+\(P_\sigma+4c(R_\sigma\bmod K_\sigma)\); it depends on the coordinates and
+has no source-only simplification.  Universally it is only
+\(+P_\sigma\pmod {4c}\), while a Type-I target requires
+\(-P_\sigma\pmod {4c}\).  For odd \(P_\sigma\) these grades already differ
+modulo four.
+
+The smallest example points directly at a resister.  At \(c=2\), the tuples
+\((5;1,2,2,1)\) and \((13;2,9,2,1)\) give
+
+\[
+ 33=3\cdot11,\quad177=3\cdot59,
+ \quad33\cdot177=73^2+4\cdot2\cdot8^2=5841.                 \tag{26.13}
+\]
+
+The four balanced product residues modulo the target modulus 64 are
+\(9,9,49,33\), never the required \(-73\equiv55\).  Complete enumeration
+also finds no Type-I row for 73 at \((c,k)=(2,8)\).  An odd product of three
+input divisor factors repairs the grade modulo four, as in §20.2, but the
+new moving modulus still has the uncontrolled term in (26.12); no total
+Brahmagupta divisor-pair law was found.
+
+There is, however, a genuine parameter-level correction.
+
+**Theorem 26.4 (proved: corrected binary Type-I tensor).**  Take two Type-I
+tuples \((p_i;a_i,b_i,c_i,k_i)\) with the same
+
+\[
+ m=(a_i+b_i)/k_i.
+\]
+
+For any integer \(t\) such that
+
+\[
+ A=a_1a_2,
+ \quad B=(a_1+b_1)(a_2+b_2)-A,
+ \quad C=mt-4c_1c_2>0,\quad K=k_1k_2m,                       \tag{26.14}
+\]
+
+put
+
+\[
+                  P={4ABC-1\over m}.                         \tag{26.15}
+\]
+
+Then \(P\) is an integer at least two and \((A,B,C,K)\) is a Type-I tuple
+for \(P\).  Input or output swaps give the other singleton partitions of the
+four bilinear monomials.
+
+*Proof.*  Modulo \(m\), \(b_i\equiv-a_i\), while (26.1) gives
+\(-4a_i^2c_i\equiv1\).  Also \(B\equiv-A\) and
+\(C\equiv-4c_1c_2\).  Hence
+
+\[
+ 4ABC\equiv16a_1^2a_2^2c_1c_2
+ =(-4a_1^2c_1)(-4a_2^2c_2)\equiv1\pmod m.
+\]
+
+This proves integrality.  Since \(A+B=k_1k_2m^2=Km\), equations
+(26.14)--(26.15) give
+\(P(A+B)=K(4ABC-1)\).  Finally
+\(4ABC-1>A+B\geq m\), so \(P\geq2\). ∎
+
+The negative leading correction in \(C\equiv-4c_1c_2\pmod m\) is essential.
+Without it, a raw binary tensor has \(4ABC\equiv-t_0^2\pmod m\), where
+\(t_0\) is the signed imbalance of its selected tensor monomials.  For a
+hard prime, \(m\equiv3\pmod4\); \(-1\) is not a square modulo such an \(m\).
+In particular the singleton raw tensor has the exact wrong sign.  A ternary
+singleton has the right sign with \(C\equiv16c_1c_2c_3\pmod m\), but forces
+the much narrower condition \(m^2\mid K\).  Theorem 26.4 is the binary sign
+repair.
+
+The law gives three descending resister transfers, all with prime sources:
+
+\[
+\begin{array}{c|c|c|c|r}
+P&\text{source 1}&\text{source 2}&(A,B,C,K)&t\\ \hline
+2473&(5;1,2,2,1)&(29;1,11,2,4)&(1,35,53,12)&23\\
+3169&(17;1,6,5,1)&(17;2,5,3,1)&(2,47,59,7)&17\\
+5281&(5;1,2,2,1)&(13;1,5,2,2)&(1,17,233,6)&83
+\end{array}                                                  \tag{26.16}
+\]
+
+For example, the first row has common \(m=3\),
+\(53=3\cdot23-4\cdot2\cdot2\), and
+\((4\cdot1\cdot35\cdot53-1)/3=2473\).  Thus every source and target equation
+is checked without assuming prior solubility.
+
+For hostile inverse checking, a target row has
+\(m=(A+B)/K\) and can be a descending image only if \(m\mid K\).  Up to
+swapping \(A,B\), one then finitely enumerates
+
+\[
+ n_1n_2=A+B,\quad m\mid n_i,
+ \quad a_1a_2=A,
+ \quad 1\leq a_i<n_i,
+ \quad b_i=n_i-a_i,
+ \quad k_i=n_i/m,                                            \tag{26.17}
+\]
+
+and the residue classes \(4a_ib_ic_i\equiv1\pmod m\).  Descent bounds each
+\(c_i\) by \(4a_ib_ic_i-1<mP\).  Finally one checks
+\(C\equiv-4c_1c_2\pmod m\).  This is an exact finite inverse test for
+Theorem 26.4.  On the eleven resisters, only 1129, 2473, 3169 and 5281 even
+have a row with \(m\mid K\).  The 1129 rows are
+\((7,11,11,6)\) and its swap, with \(m=3\); neither 7 nor 11 can be the
+product \(a_1a_2\) with \(a_i<n_i\) when
+\(n_1n_2=18\) and \(3\mid n_i\).  The other three are exactly the successes
+in (26.16).  This proves the stated resister outcome for this law, not merely
+a failed bounded search.
+
+### 26.4 A cross-type bridge
+
+The clean bridge does not multiply the two quadratic norms; it reinterprets
+the same four coordinates.
+
+**Theorem 26.5 (proved: same-tuple Type I to Type II transfer).**  A Type-I
+tuple \((p;a,b,c,k)\), with \(m=(a+b)/k\), is a Type-II tuple on the same
+coordinates for
+
+\[
+                    Q=m(p-1)+1.                              \tag{26.18}
+\]
+
+Conversely, a Type-II tuple for \(Q\) has a same-coordinate Type-I reading
+if and only if \(m\mid Q-1\); its Type-I value is
+
+\[
+                    p=1+{Q-1\over m}.                        \tag{26.19}
+\]
+
+For \(m>1\), (26.18) is a strict forward increase and therefore a strict
+descent when a target \(Q\) is inverted.
+
+*Proof.*  Type I says \(4abc=pm+1\), so the Type-II value on the same tuple
+is
+\(4abc-m=pm+1-m=m(p-1)+1\).  Conversely a Type-II tuple says
+\(4abc=Q+m\), and \((4abc-1)/m\) is integral exactly when \(m\mid Q-1\),
+giving (26.19).  Both unit-fraction identities follow directly from their
+parameter equations. ∎
+
+This bridge gives four descending branches among the eleven:
+
+\[
+\begin{array}{r|r|r|c}
+Q&m&p&\text{same tuple }(a,b,c,k)\\ \hline
+673&7&97&(1,34,5,5)\\
+1153&3&385&(1,17,17,6)\\
+3361&3&1121&(1,29,29,10)\\
+5281&11&481&(1,21,63,2)
+\end{array}                                                  \tag{26.20}
+\]
+
+The source 385 is composite, but its displayed Type-I tuple is an explicit
+certificate; no induction hypothesis is used.  For example
+\(7(97-1)+1=673\), and the same tuple gives the source identity
+\(4/97=1/25+1/850+1/16490\) and the target Type-II identity from (23.2).
+
+No useful product bridge between \(4pck^2+1\) and \(p^2+4ck^2\) was found.
+Their grades are respectively fixed \(-1\) and moving \(-p\), and a product
+changes the former linearly in \(p\) but the latter quadratically.  Theorem
+26.5 bypasses that mismatch; it does not amount to a Gauss composition of
+the two divisor forms.
+
+### 26.5 Combined payoff through \(10^4\), and the exact stopping point
+
+**Computational Search 26.6 (exact finite range).**  The §23 Type-II flexible
+tensor reaches 132 of the 143 primes \(P\equiv1\pmod {24}\),
+\(P\leq10^4\), leaving the eleven in (23.14).  Complete Type-I enumeration,
+the exact inverse test (26.17), and the complete Type-II tuple enumeration
+for (26.19) give
+
+\[
+\begin{array}{l|l}
+\text{new system}&\text{resisters reached}\\ \hline
+\text{corrected binary Type I (26.14)}&2473,3169,5281\\
+\text{same-tuple cross bridge (26.18)}&673,1153,3361,5281
+\end{array}                                                  \tag{26.21}
+\]
+
+Their union has six primes.  Therefore the **combined** reachability count is
+138 of 143, and its exact blocked set through \(10^4\) is
+
+\[
+                    \boxed{73,193,241,1129,2521}.             \tag{26.22}
+\]
+
+The set is not empty.  Every number in (26.22) nevertheless has explicit
+Type-I and Type-II tuples; “blocked” means only that it is not an image of
+these transfer systems.  A two-case induction would still require a theorem
+that every target prime has either a descending corrected-Type-I inverse, a
+descending cross-type inverse, or a descending Type-II inverse.  Equations
+(26.17), (26.19), and the five concrete failures show that this forward-image
+totality is false for the present laws.
+
+**Failure log and scope.**
+
+* Brahmagupta composition proves the norm identity (26.10) but lands in the
+  positive divisor grade already modulo four.  Ternary factor products fix
+  that one bit, not the full moving modulus.
+* Theorem 26.4 is a real binary tensor law, but its additive \(C\)-correction
+  puts it on an affine grid.  Its inverse is finite and genuinely descending
+  on (26.16), not total; no claim is made that it classifies arbitrary
+  modulus-dependent corrections.
+* Theorem 26.5 is a real cross-type descent on its image, but (26.19)'s
+  divisibility condition fails on seven of the eleven and overlaps the
+  binary law at 5281.
+* Rational maps, non-singleton corrected tensors, and mixed products with
+  additional coordinates remain unclassified.  No Erdős--Straus proof is
+  claimed.

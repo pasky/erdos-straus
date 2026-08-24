@@ -2859,4 +2859,278 @@ def check_w():
 print("\n== (w) H_PF lower-bound routes (§24) ==")
 check_w()
 
+# ---------------------------------------------------------------- (y)
+def check_y():
+    """Section 26: Type-I divisor form, transfers, and combined payoff."""
+    from functools import lru_cache
+    from sympy import divisors, expand, symbols
+
+    @lru_cache(None)
+    def cached_divisors(n):
+        return tuple(divisors(n))
+
+    def type_i_value(row):
+        a, b, c, k = row
+        assert min(row) >= 1 and (a + b) % k == 0
+        m = (a + b) // k
+        numerator = 4 * a * b * c - 1
+        assert numerator % m == 0
+        return numerator // m
+
+    def assert_type_i(P, row):
+        a, b, c, k = row
+        assert type_i_value(row) == P >= 2
+        assert P * (a + b) == k * (4 * a * b * c - 1)
+        denominators = (a * c * k, b * c * k, P * a * b * c)
+        assert sum(Fraction(1, d) for d in denominators) == Fraction(4, P)
+        m, z0, d0 = (a + b) // k, a * b * c, a * a * c
+        assert z0 == (P * m + 1) // 4
+        assert z0 * z0 % d0 == 0 and (z0 + d0) % m == 0
+        assert ((z0 + d0) // m, (z0 + z0 * z0 // d0) // m,
+                P * z0) == denominators
+
+    def all_type_i_rows(P):
+        """Complete Lemma-26.2 divisor enumeration; ordered in (a,b)."""
+        rows = []
+        for k in range(1, 2 * P // 3 + 1):
+            for c in range(1, (2 * P + k) // (4 * k) + 1):
+                if gcd(P, c * k) != 1:
+                    continue
+                h = 4 * c * k
+                norm = P * P + 4 * c * k * k
+                for D in cached_divisors(norm):
+                    if (D + P) % h:
+                        continue
+                    E = norm // D
+                    # Coprimality makes this automatic; retain it as an
+                    # independent regression for the bookkeeping in Thm 26.1.
+                    assert (E + P) % h == 0
+                    a, b = (D + P) // h, (E + P) // h
+                    row = (a, b, c, k)
+                    assert min(row) >= 1 and type_i_value(row) == P
+                    assert (h * a - P) * (h * b - P) == norm
+                    rows.append(row)
+        assert len(rows) == len(set(rows))
+        return tuple(sorted(rows))
+
+    # The factor identity itself, and the exact point at which cancellation
+    # needs gcd(p,4ck)=1.
+    a, b, c, k, p = symbols("a b c k p", integer=True)
+    lhs = (4 * a * c * k - p) * (4 * b * c * k - p)
+    relation_reduced = expand(lhs - (p * p + 4 * c * k * k))
+    assert expand(relation_reduced - 4 * c * k * (
+        k * (4 * a * b * c - 1) - p * (a + b))) == 0
+    bad_p, bad_c, bad_k, bad_D = 3, 1, 3, 9
+    bad_h = 4 * bad_c * bad_k
+    bad_norm = bad_p * bad_p + 4 * bad_c * bad_k * bad_k
+    assert bad_norm == 45 and bad_norm % bad_D == 0
+    assert (bad_D + bad_p) % bad_h == 0
+    assert (bad_norm // bad_D + bad_p) % bad_h != 0
+
+    expected_7 = (
+        (1, 1, 2, 2), (1, 2, 1, 3), (1, 8, 2, 1),
+        (1, 9, 1, 2), (2, 1, 1, 3), (2, 15, 1, 1),
+        (8, 1, 2, 1), (9, 1, 1, 2), (15, 2, 1, 1),
+    )
+    expected_17 = (
+        (1, 6, 5, 1), (2, 5, 3, 1),
+        (5, 2, 3, 1), (6, 1, 5, 1),
+    )
+    expected_73 = (
+        (1, 5, 11, 2), (1, 11, 5, 4), (2, 21, 10, 1),
+        (3, 20, 7, 1), (5, 1, 11, 2), (11, 1, 5, 4),
+        (20, 3, 7, 1), (21, 2, 10, 1),
+    )
+    expected_193 = (
+        (1, 5, 29, 2), (1, 13, 26, 2), (1, 29, 5, 10),
+        (5, 1, 29, 2), (5, 138, 10, 1), (13, 1, 26, 2),
+        (29, 1, 5, 10), (138, 5, 10, 1),
+    )
+    expected_241 = (
+        (1, 22, 63, 1), (2, 21, 33, 1), (2, 69, 31, 1),
+        (3, 66, 7, 3), (9, 14, 11, 1), (14, 9, 11, 1),
+        (21, 2, 33, 1), (22, 1, 63, 1), (66, 3, 7, 3),
+        (69, 2, 31, 1),
+    )
+    assert all_type_i_rows(7) == expected_7
+    assert all_type_i_rows(17) == expected_17
+    assert all_type_i_rows(73) == expected_73
+    assert all_type_i_rows(193) == expected_193
+    assert all_type_i_rows(241) == expected_241
+    for P, row in ((7, (1, 1, 2, 2)),
+                   (17, (2, 5, 3, 1)),
+                   (73, (1, 5, 11, 2))):
+        assert_type_i(P, row)
+
+    resisters = (73, 193, 241, 673, 1129, 1153, 2473,
+                 2521, 3169, 3361, 5281)
+    expected_counts = (8, 8, 10, 26, 32, 30, 56, 12, 26, 26, 36)
+    expected_primitive = (8, 8, 8, 24, 28, 28, 48, 12, 26, 26, 30)
+    expected_m_counts = (2, 3, 2, 8, 7, 9, 12, 4, 9, 9, 11)
+    expected_max_k = (4, 10, 3, 34, 26, 58, 124, 11, 38, 29, 78)
+    expected_m_divides_k = (0, 0, 0, 0, 2, 0, 4, 0, 2, 0, 4)
+    type_i_rows = {}
+    for P, count, primitive_count, m_count, max_k, divisible_count in zip(
+            resisters, expected_counts, expected_primitive,
+            expected_m_counts, expected_max_k, expected_m_divides_k):
+        rows = all_type_i_rows(P)
+        type_i_rows[P] = rows
+        assert len(rows) == count
+        assert all(row[0] != row[1] for row in rows)
+        assert len({(min(a0, b0), max(a0, b0), c0, k0)
+                    for a0, b0, c0, k0 in rows}) == count // 2
+        assert sum(gcd(row[0], row[1]) == 1 for row in rows) == primitive_count
+        assert len({(a0 + b0) // k0 for a0, b0, c0, k0 in rows}) == m_count
+        assert max(row[3] for row in rows) == max_k
+        assert sum(k0 % ((a0 + b0) // k0) == 0
+                   for a0, b0, c0, k0 in rows) == divisible_count
+        for row in rows:
+            assert_type_i(P, row)
+
+    # Brahmagupta reaches the quadratic-form value for 73 but all four
+    # balanced source-factor products have the wrong target residue.
+    assert_type_i(5, (1, 2, 2, 1))
+    assert_type_i(13, (2, 9, 2, 1))
+    norm1, factors1 = 33, (3, 11)
+    norm2, factors2 = 177, (3, 59)
+    target_P, target_K, fixed_c = 73, 8, 2
+    assert norm1 * norm2 == target_P**2 + 4 * fixed_c * target_K**2
+    balanced = tuple((x * y) % 64 for x in factors1 for y in factors2)
+    assert balanced == (9, 49, 33, 9)
+    assert (-target_P) % 64 == 55 and 55 not in balanced
+    assert not any(row[2:] == (fixed_c, target_K)
+                   for row in type_i_rows[73])
+
+    def corrected_type_i(source1, source2, t):
+        p1, row1 = source1
+        p2, row2 = source2
+        assert_type_i(p1, row1)
+        assert_type_i(p2, row2)
+        a1, b1, c1, k1 = row1
+        a2, b2, c2, k2 = row2
+        m1, m2 = (a1 + b1) // k1, (a2 + b2) // k2
+        assert m1 == m2
+        m = m1
+        A = a1 * a2
+        B = (a1 + b1) * (a2 + b2) - A
+        C = m * t - 4 * c1 * c2
+        K = k1 * k2 * m
+        assert C > 0 and (4 * A * B * C - 1) % m == 0
+        P = (4 * A * B * C - 1) // m
+        target = (A, B, C, K)
+        assert_type_i(P, target)
+        assert P > max(p1, p2)
+        return P, target
+
+    binary_examples = (
+        ((5, (1, 2, 2, 1)), (29, (1, 11, 2, 4)), 23,
+         2473, (1, 35, 53, 12)),
+        ((17, (1, 6, 5, 1)), (17, (2, 5, 3, 1)), 17,
+         3169, (2, 47, 59, 7)),
+        ((5, (1, 2, 2, 1)), (13, (1, 5, 2, 2)), 83,
+         5281, (1, 17, 233, 6)),
+    )
+    for source1, source2, t, P, target in binary_examples:
+        assert corrected_type_i(source1, source2, t) == (P, target)
+        assert target in type_i_rows[P]
+
+    # Exact structural inverse filter for the corrected singleton tensor.
+    # m|K is necessary.  If it holds, enumerate all possible n_i and a_i;
+    # the sole extra candidate 1129 fails before any c_i choice is possible.
+    def has_binary_singleton_shape(row):
+        A, B, C, K = row
+        m = (A + B) // K
+        if K % m:
+            return False
+        total = A + B
+        for singleton in (A, B):
+            for n1 in cached_divisors(total):
+                n2 = total // n1
+                if n1 % m or n2 % m:
+                    continue
+                for a1 in cached_divisors(singleton):
+                    a2 = singleton // a1
+                    if 1 <= a1 < n1 and 1 <= a2 < n2:
+                        return True
+        return False
+
+    m_divides_k = {
+        P for P, rows in type_i_rows.items()
+        if any(row[3] % ((row[0] + row[1]) // row[3]) == 0 for row in rows)
+    }
+    binary_shape_targets = {
+        P for P, rows in type_i_rows.items()
+        if any(has_binary_singleton_shape(row) for row in rows)
+    }
+    assert m_divides_k == {1129, 2473, 3169, 5281}
+    assert binary_shape_targets == {2473, 3169, 5281}
+
+    def type_ii_value(row):
+        a0, b0, c0, k0 = row
+        assert min(row) >= 1 and (a0 + b0) % k0 == 0
+        return 4 * a0 * b0 * c0 - (a0 + b0) // k0
+
+    def assert_type_ii(P, row):
+        a0, b0, c0, k0 = row
+        assert type_ii_value(row) == P >= 2
+        denominators = (a0 * b0 * c0,
+                        P * a0 * c0 * k0, P * b0 * c0 * k0)
+        assert sum(Fraction(1, d) for d in denominators) == Fraction(4, P)
+
+    def all_type_ii_rows(P):
+        """Complete (22.20) enumeration."""
+        rows = []
+        for A in range(1, P // 2 + 1):
+            for B in range(1, P // (2 * A) + 1):
+                for K in cached_divisors(A + B):
+                    numerator = K * P + A + B
+                    denominator = 4 * A * B * K
+                    if numerator % denominator == 0:
+                        rows.append((A, B, numerator // denominator, K))
+        return tuple(rows)
+
+    cross_expected = {
+        673: (97, (1, 34, 5, 5)),
+        1153: (385, (1, 17, 17, 6)),
+        3361: (1121, (1, 29, 29, 10)),
+        5281: (481, (1, 21, 63, 2)),
+    }
+    cross_targets = set()
+    for Q in resisters:
+        for row in all_type_ii_rows(Q):
+            assert_type_ii(Q, row)
+            m = (row[0] + row[1]) // row[3]
+            if m > 1 and (Q - 1) % m == 0:
+                source_p = 1 + (Q - 1) // m
+                assert 2 <= source_p < Q
+                assert_type_i(source_p, row)
+                assert Q == m * (source_p - 1) + 1
+                cross_targets.add(Q)
+        if Q in cross_expected:
+            source_p, row = cross_expected[Q]
+            assert row in all_type_ii_rows(Q)
+            assert_type_i(source_p, row)
+            assert_type_ii(Q, row)
+    assert cross_targets == set(cross_expected)
+
+    # Section 23 already exhausts every Type-II flexible inverse and leaves
+    # exactly these eleven.  Combining its 132 successes with the exact new
+    # resister searches leaves five of the 143 hard primes through 10^4.
+    newly_reached = binary_shape_targets | cross_targets
+    combined_blocked = set(resisters) - newly_reached
+    assert newly_reached == {673, 1153, 2473, 3169, 3361, 5281}
+    assert combined_blocked == {73, 193, 241, 1129, 2521}
+    assert 132 + len(newly_reached) == 138
+
+    print("Type-I exact tuple counts (11 resisters):",
+          dict(zip(resisters, expected_counts)))
+    print("corrected Type-I tensor reaches", sorted(binary_shape_targets),
+          "; cross-type bridge reaches", sorted(cross_targets))
+    print("combined hard-prime reachability <= 10^4: 138/143; blocked =",
+          sorted(combined_blocked))
+
+
+print("\n== (y) Type-I transfer theory (§26) ==")
+check_y()
+
 print("\nall checks passed")
