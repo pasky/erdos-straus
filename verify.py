@@ -3947,4 +3947,274 @@ def check_z():
 print("\n== (z) large-R conditioning and H_DC (§27) ==")
 check_z()
 
+
+# ---------------------------------------------------------------- (ac)
+def check_ac():
+    """Section 30: common-g moves and full Type-II orbit closure."""
+    from functools import lru_cache
+    from math import gcd, isqrt
+    from sympy import divisors, primerange
+
+    @lru_cache(None)
+    def divs(n):
+        return tuple(divisors(n))
+
+    def tuple_value(row):
+        A, B, C, K = row
+        assert min(row) >= 1 and (A + B) % K == 0
+        P = 4 * A * B * C - (A + B) // K
+        assert P >= 2
+        return P
+
+    def assert_tuple(row, expected=None, check_fractions=False):
+        P = tuple_value(row)
+        if expected is not None:
+            assert P == expected
+        if check_fractions:
+            A, B, C, K = row
+            denominators = (A * B * C, P * A * C * K, P * B * C * K)
+            assert sum(Fraction(1, d) for d in denominators) == Fraction(4, P)
+        return P
+
+    def relabel(row, K2):
+        A, B, C, K = row
+        R = C * K
+        assert R % K2 == 0 and (A + B) % K2 == 0
+        out = (A, B, R // K2, K2)
+        assert K2 * assert_tuple(out) == K * assert_tuple(row)
+        return out
+
+    def common_add(left, right, kind, Kout):
+        """The three fixed centered-factor maps (30.4)."""
+        a1, b1, c1, k1 = left
+        a2, b2, c2, k2 = right
+        R = c1 * k1
+        assert c2 * k2 == R
+        g = 4 * R
+        D1, E1 = g * a1 - 1, g * b1 - 1
+        D2, E2 = g * a2 - 1, g * b2 - 1
+        if kind == "++":
+            A, B = a1 + a2, b1 + b2
+            Dp, Ep = D1 + D2 + 1, E1 + E2 + 1
+        elif kind == "1+":
+            A, B = a1, b1 + b2
+            Dp, Ep = D1, E1 + E2 + 1
+        elif kind == "+1":
+            A, B = a1 + a2, b1
+            Dp, Ep = D1 + D2 + 1, E1
+        else:
+            raise AssertionError(kind)
+        assert Dp == g * A - 1 and Ep == g * B - 1
+        assert R % Kout == 0 and (A + B) % Kout == 0
+        out = (A, B, R // Kout, Kout)
+        pout = assert_tuple(out)
+        T = g * A * B - A - B
+        assert T == Kout * pout
+        p1, p2 = assert_tuple(left), assert_tuple(right)
+        if kind == "++":
+            assert T == k1 * p1 + k2 * p2 + g * (a1 * b2 + a2 * b1)
+        elif kind == "1+":
+            assert T == k1 * p1 + b2 * (g * a1 - 1)
+        else:
+            assert T == k1 * p1 + a2 * (g * b1 - 1)
+        assert Dp * Ep == 1 + g * Kout * pout
+        return out
+
+    def move_x(row):
+        A, B, C, K = row
+        old = assert_tuple(row)
+        out = (A + K, B, C, K)
+        assert assert_tuple(out) == old + (4 * B * C * K - 1)
+        g = 4 * C * K
+        assert g * (A + K) - 1 == (g * A - 1) + g * K
+        return out
+
+    def move_y(row):
+        A, B, C, K = row
+        old = assert_tuple(row)
+        out = (A, B + K, C, K)
+        assert assert_tuple(out) == old + (4 * A * C * K - 1)
+        g = 4 * C * K
+        assert g * (B + K) - 1 == (g * B - 1) + g * K
+        return out
+
+    def move_z(row):
+        A, B, C, K = row
+        old = assert_tuple(row)
+        out = (A, B, C + 1, K)
+        assert assert_tuple(out) == old + 4 * A * B
+        return out
+
+    # Exhaust the richer common-g law on independent readings of each source
+    # and every output reading in a nontrivial positive box.
+    additive_checks = 0
+    for R in range(1, 9):
+        sources = []
+        for a in range(1, 5):
+            for b in range(1, 5):
+                for k in divs(gcd(R, a + b)):
+                    sources.append((a, b, R // k, k))
+        for left in sources:
+            for right in sources:
+                for kind in ("++", "1+", "+1"):
+                    if kind == "++":
+                        A, B = left[0] + right[0], left[1] + right[1]
+                    elif kind == "1+":
+                        A, B = left[0], left[1] + right[1]
+                    else:
+                        A, B = left[0] + right[0], left[1]
+                    for kout in divs(gcd(R, A + B)):
+                        common_add(left, right, kind, kout)
+                        additive_checks += 1
+
+    # Fixed-slice grid normal forms and all relabellings in a small box.
+    grid_checks = 0
+    for C in range(1, 5):
+        for K in range(1, 7):
+            for A in range(1, 13):
+                for B in range(1, 13):
+                    if (A + B) % K:
+                        continue
+                    row = (A, B, C, K)
+                    P = assert_tuple(row)
+                    move_x(row)
+                    move_y(row)
+                    move_z(row)
+                    R = C * K
+                    for K2 in divs(gcd(R, A + B)):
+                        relabel(row, K2)
+
+                    A0 = (A - 1) % K + 1
+                    B0 = (B - 1) % K + 1
+                    assert A0 + B0 in (K, 2 * K)
+                    seed = (A0, B0, C, K)
+                    u, v = (A - A0) // K, (B - B0) // K
+                    current = seed
+                    for unused in range(u):
+                        current = move_x(current)
+                    for unused in range(v):
+                        current = move_y(current)
+                    assert current == row
+                    g = 4 * C * K
+                    assert P == (assert_tuple(seed)
+                                 + u * (g * B0 - 1)
+                                 + v * (g * A0 - 1) + g * K * u * v)
+                    grid_checks += 1
+
+    # Construct every bounded decorated lattice node from the single seed.
+    orbit_checks = 0
+    global_seed = (1, 1, 1, 1)
+    assert_tuple(global_seed, 2, check_fractions=True)
+    for R in range(1, 9):
+        eR = global_seed
+        for unused in range(R - 1):
+            eR = move_z(eR)
+        assert eR == (1, 1, R, 1)
+        for A in range(1, 9):
+            for B in range(1, 9):
+                current = eR
+                previous = assert_tuple(current)
+                for unused in range(A - 1):
+                    current = common_add(current, eR, "+1", 1)
+                    assert assert_tuple(current) > previous
+                    previous = assert_tuple(current)
+                for unused in range(B - 1):
+                    current = common_add(current, eR, "1+", 1)
+                    assert assert_tuple(current) > previous
+                    previous = assert_tuple(current)
+                assert current == (A, B, R, 1)
+                for K in divs(gcd(R, A + B)):
+                    target = relabel(current, K)
+                    assert target == (A, B, R // K, K)
+                    assert assert_tuple(current) == K * assert_tuple(target)
+                    orbit_checks += 1
+
+    # Lemma 25.8 gives every ordered Type-II tuple of P with no search cutoff.
+    def row_at(P, A, B):
+        if 2 * A * B > P:
+            return None
+        C = P // (4 * A * B) + 1
+        q = 4 * A * B * C - P
+        if (A + B) % q:
+            return None
+        return (A, B, C, (A + B) // q)
+
+    def all_rows(P):
+        rows = []
+        for A in range(1, isqrt(P // 2) + 1):
+            for B in range(A, P // (2 * A) + 1):
+                row = row_at(P, A, B)
+                if row is None:
+                    continue
+                rows.append(row)
+                if A != B:
+                    rows.append((B, A, row[2], row[3]))
+        return sorted(rows)
+
+    hard_primes = [p for p in primerange(2, 5001) if p % 24 == 1]
+    rows_by_prime = {}
+    reduced_seeds = set()
+    nonseed_atoms = []
+    for P in hard_primes:
+        rows = all_rows(P)
+        assert rows                         # finite value-fibre regression only
+        rows_by_prime[P] = rows
+        for row in rows:
+            A, B, C, K = row
+            assert_tuple(row, P, check_fractions=True)
+            A0, B0 = (A - 1) % K + 1, (B - 1) % K + 1
+            reduced_seeds.add((A0, B0, C, K))
+
+            R = C * K
+            current = relabel(row, 1)
+            assert current == (A, B, R, 1)
+            assert assert_tuple(current) == K * P  # exact excursion ceiling
+            while current[0] > 1:
+                a, b, r, one = current
+                nxt = (a - 1, b, r, one)
+                assert assert_tuple(current) - assert_tuple(nxt) == 4 * r * b - 1
+                current = nxt
+            while current[1] > 1:
+                a, b, r, one = current
+                nxt = (a, b - 1, r, one)
+                assert assert_tuple(current) - assert_tuple(nxt) == 4 * r * a - 1
+                current = nxt
+            while current[2] > 1:
+                a, b, r, one = current
+                nxt = (a, b, r - 1, one)
+                assert assert_tuple(current) - assert_tuple(nxt) == 4 * a * b
+                current = nxt
+            if current != global_seed:
+                nonseed_atoms.append((P, row, current))
+    assert not nonseed_atoms
+
+    expected_table = (
+        (500, 9, 102, 41), (1000, 14, 182, 74),
+        (2000, 30, 522, 197), (3000, 46, 940, 359),
+        (4000, 61, 1402, 524), (5000, 76, 1938, 717),
+    )
+    table = []
+    for bound, wanted_primes, wanted_rows, wanted_seeds in expected_table:
+        ps = [P for P in hard_primes if P <= bound]
+        row_count = sum(len(rows_by_prime[P]) for P in ps)
+        seeds = {
+            ((A - 1) % K + 1, (B - 1) % K + 1, C, K)
+            for P in ps for A, B, C, K in rows_by_prime[P]
+        }
+        table.append((bound, len(ps), row_count, len(seeds), 0, 0))
+        assert (len(ps), row_count, len(seeds)) == (
+            wanted_primes, wanted_rows, wanted_seeds
+        )
+
+    print("common-g additive laws: %d independent-reading branches; "
+          "grid/relabel checks: %d; bounded orbit nodes: %d" %
+          (additive_checks, grid_checks, orbit_checks))
+    print("full reverse-M audit through 5000 "
+          "(bound, hard primes, ordered tuples, reduced seeds, missing, atoms):",
+          table)
+
+
+print("\n== (ac) full Type-II generation orbit (§30) ==")
+check_ac()
+
 print("\nall checks passed")
