@@ -5122,11 +5122,12 @@ def check_ad():
         assert got[0] == wanted[0]
         assert all(abs(x - y) < 1e-12 for x, y in zip(got[1:], wanted[1:]))
         table.append((X, z, got[0], round(got[1], 5), round(got[3], 5),
-                      round(got[4], 5), round(got[5], 5)))
+                      round(got[4], 5), round(got[4] / kappa, 5),
+                      round(got[5], 5)))
 
     print("rough weighted events (X,z,count,S0,S_a/(L^3/log z),"
-          "max Tq/bq,max composite Tq/bq):", table)
-    print("Henriot majorant/determinant checks:", class_checks,
+          "max Tq/bq,max Tq/aq,max composite Tq/bq):", table)
+    print("divisor-majorant/algebra checks:", class_checks,
           "class bounds and", determinant_checks, "linear-form readings")
 
 

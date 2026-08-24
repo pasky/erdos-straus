@@ -4102,6 +4102,8 @@ lies inside \(n\equiv2\pmod3\), so all \(n\not\equiv2\pmod3\) — density
 **complete** system's CRT spread defeats such correlations at cubic scale;
 it is a genuinely open correlation hypothesis, not a standard fundamental
 lemma, and — unlike the subfamily version — no counterexample is known.
+(H_PF as stated is refuted — see §31; the critical-window variant
+\(H_{\rm PF}'\) below remains open.)
 A *restricted variant* H_PF(\(k\ell\)) asserts the same for the complete
 multiplier system \(\{k\ell\le X\cdot K\}\) of §16 with lcm bound (18.14);
 it is what pairs with H_kBV below.
@@ -4150,7 +4152,8 @@ literal full harvest of Theorem 18.2.  Ordinary Elliott--Halberstam does not
 imply H_kBV, and no level estimate alone implies H_PF.  Unconditionally,
 Theorem 18.2 proves that cubic supply exists and that a mass-driven exponent
 beyond \(3/4\) cannot come from Lemma 16.1, but Theorem 16.4 remains the
-realized bound.
+realized bound.  (H_PF as stated is refuted — see §31; the critical-window
+variant \(H_{\rm PF}'\) below remains open.)
 
 **Numerical companion.**  `verify.py (q)` computes the exact union (18.1) for
 every \(M\le10^5\), reports its harmonic truncations against \((\log Q)^3\),
@@ -5169,7 +5172,9 @@ reorganization is a lower-bound sieve, however.  The proved bounds in this
 section leave a large gap: at the degree range relevant to H_PF they do not
 supply an avoider density larger than \(\exp[-c(\log X)^3]\).  Thus Theorem
 18.6 remains conditional; it must not be cited as dead, and H_PF must not be
-cited as plausible merely from the cubic first moment.
+cited as plausible merely from the cubic first moment.  (H_PF as stated is
+refuted — see §31; the critical-window variant \(H_{\rm PF}'\) below remains
+open.)
 
 Write
 
@@ -5489,7 +5494,9 @@ obstruction plus the unconditional upper bound (21.9).  We do **not** have
 the lower bound \(\delta_X\geq\exp[-C(\log X)^2\log\log X]\) that would
 refute H_PF, nor an upper bound \(\exp[-c(\log X)^{2+\epsilon}]\) that would
 support it.  Proving either is the remaining density problem.  Until then
-the correct label is: **H_PF false-looking, open**.
+the correct label is: **H_PF false-looking, open**.  (H_PF as stated is
+refuted — see §31; the critical-window variant \(H_{\rm PF}'\) below remains
+open.)
 
 **Section 24 post-script (additive correction).**  The subset-product audit
 there shows that the last ``structural prediction'' in §21.4 was too strong.
@@ -5503,7 +5510,9 @@ is nearly collinear with \(L^2\log L\) (correlation \(0.99972\)) on the
 measured range and cannot distinguish the two.  Section 24 also pins the
 prime subsystem two-sided when \(\log N\geq C_3(\log X)^3\), with no
 restriction for natural density, proves a substantial truncated-\(R\)
-clustering lower bound, and leaves the full-system label unchanged.
+clustering lower bound, and leaves the full-system label unchanged.  (H_PF
+as stated is refuted — see §31; the critical-window variant \(H_{\rm PF}'\)
+below remains open.)
 
 ## 22. Degree-two classification of transfer maps
 
@@ -6807,8 +6816,10 @@ Other attempted continuations fail at equally explicit points:
 
 ### 24.6 Verdict after wave 7
 
-**Assessment 24.10.**  H_PF remains **false-looking, open**.  The status did
-not change to a refutation: Theorem 24.8 concerns a proper subsystem, and
+**Assessment 24.10.**  H_PF remains **false-looking, open**.  (H_PF as stated
+is refuted — see §31; the critical-window variant \(H_{\rm PF}'\) below
+remains open.)  The status did not change to a refutation: Theorem 24.8
+concerns a proper subsystem, and
 Theorem 24.4 goes in the wrong inclusion direction for lower-bounding the
 full avoiders.  What did change is the map of the gap.
 
@@ -6830,7 +6841,9 @@ A refutation still requires
 \(|{\rm Av}_X(N)|\geq N\exp\{-o(L^3)\}\) for the **joint full system** in
 the \(\log N\asymp L^4\) regime.  The named missing input is now a
 large-\(R\), multi-shift divisor-clustering lower bound, not more prime-slice
-sieve mass and not a one-modulus symbol certificate.  Section 27 later
+sieve mass and not a one-modulus symbol certificate.  This requirement
+survives only for the stronger critical-window route \(H_{\rm PF}'\), not for
+the now-complete refutation of H_PF as stated; see §31.  Section 27 later
 sharpens the cutoff to \(L^{3-o(1)}\) and refines the missing input.
 
 ---
@@ -7746,7 +7759,8 @@ Theorem 24.8.  Labels are strict.  The enlarged truncated-fiber certificate
 and its prime-modulus hybrid are **proved**.  The local-lemma and rough-modulus
 calculations stop at explicitly named estimates.  H_DC below is a
 **conditional, falsifiable** void-probability hypothesis, not a theorem.
-The measurements are **informational**.
+The measurements are **informational**.  (H_PF as stated is refuted — see
+§31; the critical-window variant \(H_{\rm PF}'\) below remains open.)
 
 ### 27.1 The exact conditional target
 
@@ -8208,7 +8222,9 @@ refutation of H_PF.
 
 ### 27.6 Verdict after the large-\(R\) attempt
 
-**Assessment 27.5.**  H_PF remains **false-looking, open**.
+**Assessment 27.5.**  H_PF remains **false-looking, open**.  (H_PF as stated
+is refuted — see §31; the critical-window variant \(H_{\rm PF}'\) below
+remains open.)
 
 * **Proved:** the multi-shift certificate itself reaches
   \(Y=L^3/(\log L)^{2+\eta}=L^{3-o(1)}\) at subcubic cost, improving the
@@ -8893,10 +8909,12 @@ Theorem 18.6 and H_PF need no wording change: H_PF is intentionally a
 hypothesis for the complete intrinsic system, which already has the cubic
 lower mass needed for the conditional \(3/4\) result.  One could formulate a
 stronger mixed H_PF including (29.6), but (29.8) cannot improve its power and
-no such mixed correlation hypothesis is presently justified.  The remaining
-unclosed exceptional-set directions are the composite Type-I CRT mass and a
-joint treatment of polynomial image sets; neither is evidence for a
-supercubic family without a distinct-class count.
+no such mixed correlation hypothesis is presently justified.  (This wording
+is superseded: H_PF as stated is refuted — see §31; the critical-window
+variant \(H_{\rm PF}'\) below remains open.)  The remaining unclosed
+exceptional-set directions are the composite Type-I CRT mass and a joint
+treatment of polynomial image sets; neither is evidence for a supercubic
+family without a distinct-class count.
 
 **Numerical companion.**  `verify.py (ab)` checks Lemma 29.1 on every prime
 \(q\leq3000\), including raw-versus-union counts; constructs and deduplicates
@@ -9650,7 +9668,16 @@ Fix \(q>z\), write \(M=qk\), and choose the unique
  {qk+1\over4}=qt+c,\qquad c={qr+1\over4},\qquad 4c-qr=1.    \tag{31.16}
 \]
 
-Thus the cofactor and shifted factor are determinant-one linear forms.  Also
+Thus the cofactor and shifted factor are determinant-one linear forms.  For
+\(Q(t)=(4t+r)(qt+c)\), Henriot's norm is the sum of the absolute values of
+its coefficients, and here
+\[
+ \|Q\|=
+ \begin{cases}(25q+5)/4,&r=1,\\(49q+7)/4,&r=3,
+ \end{cases}
+ \qquad\text{so}\qquad \|Q\|\leq13q.
+\]
+Also
 
 \[
  W_{\boldsymbol a}(qk)
@@ -9658,8 +9685,12 @@ Thus the cofactor and shifted factor are determinant-one linear forms.  Also
  \qquad F(qk)\leq\tau_3((qk+1)/4).                          \tag{31.17}
 \]
 
-Split the cofactor sum at \(k=C_0q^{1/2}\), with \(C_0\) large enough for
-Henriot's coefficient condition with \(\delta=1/2\).  In the lower range,
+Use Henriot with the fixed choices \(\alpha=\delta=1/2\), and let \(c_0\)
+be its constant in \(x\geq c_0\|Q\|^{1/2}\).  Split the cofactor sum at
+\(k=C_0q^{1/2}\), where \(C_0\) is a sufficiently large fixed multiple of
+\(c_0\sqrt{13}\) (for example, allowing a factor \(8\) for the change from
+\(k\) to \(t\)).  Then every high-range \(t\)-block begins above
+\(c_0\|Q\|^{1/2}\).  In the lower range,
 (31.15), \(\sum_{k\leq y}1/k\ll\log(2y)\), and roughness give
 
 \[
@@ -9674,10 +9705,13 @@ most \(\log(qk)/\log z\) distinct prime factors, its exponential weight in
 the lower range is absorbed by increasing the constant in (31.15).  This
 also includes \(k=1\), the prime-modulus diagonal.
 
-For every dyadic lower endpoint \(V\geq C_0q^{1/2}\), apply Henriot to the
-two forms in (31.16) and the multiplicative function
-\(w(k)\tau_3((qk+1)/4)\).  Their determinant is \(1\), and the coefficient
-condition now holds.  Since a composite rough cofactor has \(k>z\), the
+Dyadically decompose the high range in the variable \(t\) (splitting an
+endpoint cofactor block into a bounded number of such intervals), so each
+interval has the literal form \(x<t\leq x+y\) with
+\(x^{1/2}<y\leq x\).  Apply Henriot to the two forms in (31.16) and the
+multiplicative function \(w(4t+r)\tau_3(qt+c)\).  Their determinant is \(1\),
+and the coefficient condition holds by the choice of \(C_0\).  Since a
+composite rough cofactor has \(k>z\), the
 Euler-product calculation in (31.9) gives
 
 \[
@@ -9738,13 +9772,21 @@ More generally the cutoff in the last sentence of Theorem 31.3 gives
                          \ p\text{ prime}).                 \tag{31.23}
 \]
 
-Its natural-density cost is
-\(\exp\{-\vartheta(z)+O(1)\}=\exp\{-O(z)\}\).  Every atomic event whose
+For precision, let
+\(P_z=\prod_{3\leq p\leq z,\ p\ {
+m prime}}p\), and let \(K_X\) be the
+lcm of \(P_z\) and every participating modulus.  Work on the finite uniform
+probability space \(\mathbb Z/K_X\mathbb Z\), conditioned on (31.23).  The
+conditioning has cost
+\(P_z^{-1}=\exp\{-\vartheta(z)+O(1)\}=\exp\{-O(z)\}\).  Every atomic event whose
 modulus has such a prime factor is impossible: for
 \(D\mid((M+1)/4)^2\), one has \((M,D)=1\), so
 \(n\equiv0\pmod p\) cannot equal \(-4D\pmod p\).  Conditional on (31.23),
-each remaining distinct atomic residue class modulo a \(z\)-rough \(M\) has
-probability exactly \(1/M\); events with coprime moduli are independent.
+each remaining distinct atomic residue class has a \(z\)-rough modulus \(M\)
+coprime to \(P_z\), so its residue coordinate, including all higher
+prime-power digits, remains uniform and has probability exactly \(1/M\).
+Atoms with coprime moduli depend on disjoint prime coordinates and hence are
+independent of the sigma-algebra generated by their nonneighbors.
 
 Join two atoms when their moduli share a prime.  For an atom \(A\) of modulus
 \(M\), set
@@ -9783,18 +9825,20 @@ using (31.11), proves (31.22). ∎
 
 *Proof with the quantifiers visible.*  Theorem 18.2 gives
 \(\mu_X\geq c_0L^3\).  If H_PF held with constants \(c,C\), choose
-\(J\geq C\mu_X\).  For each fixed sufficiently large \(X\), apply H_PF on
-arbitrarily long intervals satisfying
-\(J\log X\leq\tfrac12\log N\).  Since its nonnegative majorant is at least
-one on every avoider, its asserted mean would give
+\(J\geq C\mu_X\).  Let
+\(P_X=\operatorname{lcm}\{M\leq X:M\equiv3\pmod4\}\).  For each fixed
+sufficiently large \(X\), take arbitrarily large multiples \(N=mP_X\) that
+satisfy \(J\log X\leq\tfrac12\log N\).  The avoider indicator is periodic
+modulo \(P_X\), so on every such complete-period interval its proportion is
+exactly \(\delta_X\).  Since the H_PF majorant is at least one on every
+avoider, its asserted mean would therefore give
 
 \[
- {|\operatorname{Av}_X(N)|\over N}
+ \delta_X={|\operatorname{Av}_X(N)|\over N}
  \ll e^{-c\mu_X}\leq e^{-cc_0L^3}.                         \tag{31.27}
 \]
 
-Letting \(N\to\infty\) at fixed \(X\) gives the same upper bound for
-\(\delta_X\).  This contradicts (31.22) for all sufficiently large \(X\),
+This contradicts (31.22) for all sufficiently large \(X\),
 because its negative logarithm is \(o(L^3)\). ∎
 
 This conclusion uses natural density, as §27.3 explicitly allowed.  It does
@@ -9847,6 +9891,22 @@ exceptional-set lower bound.
    mass by \(O(L^3/\log z)=o(L^3)\); the issue was its dependency geometry,
    not a remaining cubic first moment.
 
+**Hypothesis \(H_{\rm PF}'\) (critical-window variant; open).**  There are
+absolute constants \(c,C>0\) and \(0<c_-<c_+\), with \(c_-\) large enough
+for the degree budget, such that whenever
+\[
+ c_-L^4\leq\log N\leq c_+L^4,\qquad
+ J\geq C\mu_X,\qquad J\log X\leq\tfrac12\log N,
+\]
+H_PF's complete-system majorant exists with normalized mean
+\(O(e^{-c\mu_X})\).  No assertion is made outside this window.
+This restricted hypothesis is **not refuted**.  It would still yield the
+conclusion of Theorem 18.6 by taking
+\(\log X=\alpha(\log N)^{1/4}\) with a suitable fixed \(\alpha\) and running
+the same proof.  Corollary 31.5 instead takes a mean over arbitrarily huge
+complete-period multiples at fixed \(X\); it supplies no count in this
+critical window.
+
 **Residual finite statement (open).**  The proof above is on the exact CRT
 product space, equivalently on complete periods.  It does **not** prove
 
@@ -9874,18 +9934,20 @@ atomic event for \(X\leq200\).  It checks
 \(F(M)\leq\tau_3((M+1)/4)\), every determinant-one representation (31.16),
 and the shared-prime sums.  For a deliberately mild finite-scale charge
 \(a_q=0.02L^3/(q\log z)\), it reports the global weighted sum and both the
-full and diagonal-removed neighborhood ratios to \(b_q\).  These are shape
-diagnostics only: at these tiny \(X\), the asymptotic charge need not satisfy
-the local lemma.
+full and diagonal-removed neighborhood ratios to \(b_q\), as well as the
+full ratio \(T_q/a_q\).  These are shape diagnostics only: at these tiny
+\(X\), the displayed \(T_q/a_q>1\) confirms that the toy charge does not
+verify the asymptotic local-lemma inequality.
 
 \[
-\begin{array}{c|c|r|c|c|c|c}
+\begin{array}{c|c|r|c|c|c|c|c}
 X&z&\#\{M\text{ rough}\}&S_0&S_a/(L^3/\log z)
- &\max_q T_q/b_q&\max_q(T_q-\text{diagonal})/b_q\\ \hline
-80&3&13&2.63779&.04715&.20448&.05730\\
-120&3&20&3.36391&.05491&.15887&.09340\\
-160&5&21&3.25440&.05087&.19332&.09144\\
-200&5&27&3.71965&.05165&.29870&.09310
+ &\max_q T_q/b_q&\max_q T_q/a_q
+ &\max_q(T_q-\text{diagonal})/b_q\\ \hline
+80&3&13&2.63779&.04715&.20448&10.22399&.05730\\
+120&3&20&3.36391&.05491&.15887&7.94364&.09340\\
+160&5&21&3.25440&.05087&.19332&9.66620&.09144\\
+200&5&27&3.71965&.05165&.29870&14.93507&.09310
 \end{array}                                                 \tag{31.29}
 \]
 
