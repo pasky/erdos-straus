@@ -10355,8 +10355,9 @@ coverage statements below concern the only open prime class
 ### 35.1 Bounded multiplicative residues: an exact q = 3 family
 
 **Theorem 35.1 (bounded-residue criterion and the exact q = 3 slice).**  Put
-\(x=(p+q)/4=\prod_r r^{\alpha_r}\), where \(q\equiv-p\pmod4\).  Criterion
-3.1(B) at this fixed \(q\) is equivalent to
+\(x=(p+q)/4=\prod_r r^{\alpha_r}\), where \(q\equiv-p\pmod4\), and
+assume \(\gcd(x,q)=1\) (as holds when \(q<p\)).  Criterion 3.1(B) at this
+fixed \(q\) is equivalent to
 
 \[
  \prod_r r^{t_r}\equiv-1\pmod q,
@@ -10490,7 +10491,7 @@ witnesses with \(q=h\leq63\) were reconstructed canonically and the least
 \(h\leq63\) window; a larger h could give a smaller offset.
 
 **Assessment 35.2 (failure log).**  The a = 1 shifted-factor sieve reaches
-99.95% below \(10^6\) and still fails pointwise at (35.6).  The geometric
+99.97% below \(10^6\) and still fails pointwise at (35.6).  The geometric
 route also has an exact death point: with \(p,h,c\) fixed, the apparent Pell
 equation has square coefficient \(h^2\) and splits as (35.8).  There is no
 Pell orbit to exploit; continued fractions or near-diagonal lattice search
@@ -10565,3 +10566,51 @@ that positive integral divisor.  Any finite set of c supplies only a finite
 union of arithmetic progressions.  The observed \(10^7\) coverage is
 therefore computational evidence for a stronger a = 1 Type-I conjecture,
 not a theorem about all primes.
+
+### 35.4 Reconciliation after opening the earlier waves
+
+**Reconciliation 35.4 (method-by-method).**
+
+1. **Bounded residues.**  The q = 3 equivalence in Theorem 35.1 is already
+   stated in §6, including the even-nonresidue mechanism; (35.1) is its
+   direct exponent-box restatement.  The progressions (35.2) are instances
+   of the fixed \((q,d,R)\) Case-B families of §4 (take
+   \(q=3,d=R=r\)), hence fall under the finite-family obstruction of §5 and
+   the inventory in §17.3(a).  The larger \(10^6\) q-window computation is
+   new data, not a new method.
+
+2. **Shifted factors and the conic.**  Theorem 35.2 is exactly the a = 1
+   specialization of the Euclidean divisor reduction (20.11)--(20.12); its
+   c = 1 line is explicitly identified in §§8.3 and 20.2.  Its fixed
+   progressions are old forced grids (§17.3(e), §20.4).  The prior campaign
+   also already explains why continued fractions cannot turn near
+   divisibility into equality (§20.2), why the factor norm is split rather
+   than a class-group norm (§20.1), and why there is no Vieta move (§30.3).
+   The coordinates (35.7)--(35.8), the proof that the exact diagonal is
+   impossible for hard primes, the bounded-offset statistic, and the exact
+   three-prime failure list (35.6) were not present.  They sharpen the
+   failure log but do not escape the divisor wall.  This split degeneration
+   is distinct from §9.3's nonsplit quadratic-form Pell obstruction.
+
+3. **Type I.**  The ambient divisor form and complete finite Type-I search
+   were already developed in §26.1.  Theorem 35.4 is a new-to-this-document
+   a = 1 specialization and reorganization, not a new source of identities:
+   writing \(E=(4c+1)/D\), it is exactly the §4 fixed Case-A family
+   \((m,d,R)=(E,c,c)\).  Thus §5's finite-family escape applies, and the
+   Type-I class accounting of §§26 and 29 supplies the surrounding theory.
+   What the earlier waves did not record is that this very narrow a = 1
+   slice covers every hard prime below \(10^7\), nor the exact divisor test
+   and finite bound (35.9)--(35.11) that certify that statement.  The prior
+   §32 audit proves only that every prime through \(10^5\) has some Type-I
+   tuple, not that one can take a = 1.
+
+**Assessment 35.4 (did the blind attack find a missed door?).**  It found one
+useful missed *reduction/data point*: the a = 1 Type-I divisor-cover sieve and
+its zero failures through \(10^7\).  It also found two new negative facts: the
+three exact a = 1 Type-II failures below \(10^6\), and the split-conic
+diagonal/Pell death.  It found no new pointwise mechanism.  Every
+unconditional prime family above is an instance of the campaign's existing
+Case-A/Case-B identity supply, and the strongest new computation still asks
+for an exact moving divisor.  Therefore the honest reconciliation verdict is:
+**new special-slice theorem and computations, new failure diagnostics, no
+advance past the ten-wave pointwise wall and no proof of Erdős--Straus.**

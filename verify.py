@@ -5373,4 +5373,108 @@ def check_ae():
 print("\n== (ae) k=1 certification and nine-prime anatomy (§32) ==")
 check_ae()
 
+
+# ---------------------------------------------------------------- (ah)
+def check_ah():
+    """Unit W: bounded residues and the two a=1 special slices (§35)."""
+    from time import monotonic
+
+    started = monotonic()
+
+    def divs(n):
+        values = [1]
+        for r, e in factorint(n).items():
+            values = [d * r**j for d in values for j in range(e + 1)]
+        return values
+
+    def square_divs(n):
+        values = [1]
+        for r, e in factorint(n).items():
+            values = [d * r**j for d in values for j in range(2 * e + 1)]
+        return values
+
+    hard10 = [p for p in primerange(5, 10_000_000) if p % 24 == 1]
+    hard1 = [p for p in hard10 if p < 1_000_000]
+
+    q3_count = qwindow_count = 0
+    for p in hard1:
+        x = (p + 3) // 4
+        q3_count += any(r % 3 == 2 for r in factorint(x))
+        hit = False
+        for q in range(3, 64, 4):
+            x = (p + q) // 4
+            if any((d + x) % q == 0 for d in square_divs(x)):
+                hit = True
+                break
+        qwindow_count += hit
+    assert (len(hard1), q3_count, qwindow_count) == (9732, 5192, 9732)
+
+    def a1_type_ii(p, c0, c1):
+        for c in range(c0, c1 + 1):
+            modulus = 4 * c
+            for D in divs(p + modulus):
+                if D % modulus == modulus - 1:
+                    k = (D + 1) // modulus
+                    t = (p + modulus) // D
+                    b = k * t - 1
+                    assert b > 0 and k * p == 4 * b * c * k - b - 1
+                    return c, D, k, b
+        return None
+
+    type_ii_residual = [p for p in hard1 if a1_type_ii(p, 1, 256) is None]
+    assert type_ii_residual == [193, 2521, 66529]
+    for p in type_ii_residual:
+        assert a1_type_ii(p, 257, (p + 2) // 4) is None
+
+    # The first 1000 c-values cover almost everything.  Scan the residual
+    # in increasing c through the proved finite bound, caching 4c+1 divisors.
+    rules = []
+    for c in range(1, 1001):
+        n = 4 * c + 1
+        rules.extend((c, D) for D in divs(n) if D < n and D % 4 == 3)
+    first, type_i_residual = {}, []
+    for p in hard10:
+        got = next(((c, D) for c, D in rules if (p + D) % (4 * c) == 0), None)
+        if got is None:
+            type_i_residual.append(p)
+        else:
+            first[p] = got
+
+    cache = {}
+    for p in type_i_residual:
+        got = None
+        for c in range(1001, (3 * p + 1) // 8 + 1):
+            if c not in cache:
+                n = 4 * c + 1
+                cache[c] = [D for D in divs(n) if D < n and D % 4 == 3]
+            for D in cache[c]:
+                if (p + D) % (4 * c) == 0:
+                    got = (c, D)
+                    break
+            if got is not None:
+                break
+        assert got is not None, p
+        first[p] = got
+
+    for p, (c, D) in first.items():
+        E = (4 * c + 1) // D
+        k = (p + D) // (4 * c)
+        b = (p * E + 1) // (4 * c)
+        assert b * D == p + k
+        assert p * (1 + b) == k * (4 * b * c - 1)
+
+    largest = max((c, p, D) for p, (c, D) in first.items())
+    assert len(hard10) == 82887
+    assert largest == (107588, 8604961, 2079)
+    elapsed = monotonic() - started
+    assert elapsed < 10, "block (ah) exceeded its 10-second budget"
+    print("q=3/q<=63 counts =", (q3_count, qwindow_count),
+          "; a=1 Type-II residual =", type_ii_residual)
+    print("a=1 Type-I hard primes/max first c =", (len(hard10), largest),
+          "; block seconds %.2f" % elapsed)
+
+
+print("\n== (ah) Unit W blind pointwise slices (§35) ==")
+check_ah()
+
 print("\nall checks passed")
