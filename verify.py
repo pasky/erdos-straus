@@ -4467,4 +4467,166 @@ def check_aa():
 print("\n== (aa) reconciled transfer census and tuple atoms (§28) ==")
 check_aa()
 
+
+# ---------------------------------------------------------------- (ab)
+def check_ab():
+    """Finite companions for the transfer-law mass audit in §29."""
+    def positive_divisors(n):
+        out = [1]
+        for prime, exponent in factorint(n).items():
+            out = [d * prime**j for d in out
+                   for j in range(exponent + 1)]
+        return sorted(out)
+
+    # Lemma 29.1: every fixed-(c,k) Case-B prime class is intrinsic,
+    # and every intrinsic class has such a description.  Keep both raw and
+    # union counts so factorization multiplicity cannot masquerade as mass.
+    prime_count = raw_b_count = intrinsic_b_count = overlap_b_count = 0
+    for q0 in primerange(3, 3001):
+        if q0 % 4 != 3:
+            continue
+        prime_count += 1
+        A0 = (q0 + 1) // 4
+        generated = []
+        for k0 in positive_divisors(A0):
+            for c0 in positive_divisors(A0 // k0):
+                a0 = A0 // (c0 * k0)
+                residue = (-pow(4 * c0 * k0 * k0, -1, q0)) % q0
+                D0 = c0 * a0 * a0
+                assert A0 * A0 % D0 == 0
+                assert residue == (-a0 * pow(k0, -1, q0)) % q0
+                assert residue == (-4 * D0) % q0
+                generated.append(residue)
+        intrinsic = {(-4 * D0) % q0 for D0 in divisors_of_square(A0)}
+        generated_union = set(generated)
+        assert generated_union == intrinsic
+        raw_b_count += len(generated)
+        intrinsic_b_count += len(intrinsic)
+        overlap_b_count += len(generated_union & intrinsic)
+    assert (prime_count, raw_b_count, intrinsic_b_count, overlap_b_count) == (
+        218, 7193, 5114, 5114,
+    )
+
+    # Lemma 29.2 at finite scale.  Restrict to classes compatible with the
+    # hard progression P=1 (mod 24), and deduplicate residues at each full
+    # modulus before taking mass.  Every raw class is also reconstructed as
+    # an exact Type-I parameter identity.
+    def case_a_stats(X0):
+        residue_sets = {}
+        raw_mass = 0.0
+        raw_classes = 0
+        for q0 in primerange(3, X0 // 4 + 1):
+            if q0 % 4 != 3:
+                continue
+            for n0 in range(1, X0 // (4 * q0) + 1):
+                if gcd(q0, 2 * n0) != 1:
+                    continue
+                h0 = 4 * n0
+                if (q0 + 1) % gcd(h0, 24) != 0:
+                    continue
+                for k0 in positive_divisors(n0):
+                    c0 = n0 // k0
+                    value = (-4 * c0 * k0 * k0) % q0
+                    if pow(value, (q0 - 1) // 2, q0) != 1:
+                        continue
+                    root = pow(value, (q0 + 1) // 4, q0)
+                    for r0 in {root, (-root) % q0}:
+                        # q=3 shares a factor with the hard modulus 24.
+                        if q0 == 3 and r0 != 1:
+                            continue
+                        t0 = ((r0 + q0) * pow(h0, -1, q0)) % q0
+                        residue = (-q0 + h0 * t0) % (h0 * q0)
+                        modulus = h0 * q0
+                        assert residue % q0 == r0
+                        assert (residue + q0) % h0 == 0
+                        assert (residue - 1) % gcd(modulus, 24) == 0
+                        assert (residue * residue + 4 * c0 * k0 * k0) % q0 == 0
+
+                        # Use a positive representative to replay (26.2)--(26.4).
+                        P0 = residue or modulus
+                        a0 = (P0 + q0) // h0
+                        norm0 = P0 * P0 + 4 * c0 * k0 * k0
+                        assert norm0 % q0 == 0
+                        cofactor = norm0 // q0
+                        assert (cofactor + P0) % h0 == 0
+                        b0 = (cofactor + P0) // h0
+                        assert P0 * (a0 + b0) == k0 * (4 * a0 * b0 * c0 - 1)
+
+                        residue_sets.setdefault(modulus, set()).add(residue)
+                        raw_classes += 1
+                        raw_mass += 1 / modulus
+        distinct_mass = sum(len(residues) / modulus
+                            for modulus, residues in residue_sets.items())
+        return (distinct_mass, raw_mass, raw_classes,
+                len(residue_sets), sum(map(len, residue_sets.values())))
+
+    cutoffs = (500, 1000, 2000, 3000)
+    expected = {
+        500: (0.09249689000908083, 0.09487784239003325, 23, 14, 22),
+        1000: (0.15946563337222747, 0.16572603963263366, 76, 36, 72),
+        2000: (0.2383230628981856, 0.2532556867033714, 206, 81, 190),
+        3000: (0.29711217554271874, 0.31965677026770084, 371, 136, 336),
+    }
+    stats = {}
+    for X0 in cutoffs:
+        got = case_a_stats(X0)
+        wanted = expected[X0]
+        assert abs(got[0] - wanted[0]) < 1e-14
+        assert abs(got[1] - wanted[1]) < 1e-14
+        assert got[2:] == wanted[2:]
+        stats[X0] = got
+
+    # The artificial envelope in (29.7) grants two roots to every triple.
+    # It is an upper bound even before hard-compatibility and class dedup.
+    envelope = {}
+    for X0 in cutoffs:
+        value = 0.0
+        for q0 in primerange(3, X0 // 4 + 1):
+            if q0 % 4 != 3:
+                continue
+            for n0 in range(1, X0 // (4 * q0) + 1):
+                value += len(positive_divisors(n0)) / (2 * n0 * q0)
+        assert stats[X0][1] <= value + 1e-15
+        envelope[X0] = value
+
+    # A genuinely new local projection: one root is outside R(7), and its
+    # hard refinement contains the known target 673.
+    q0, c0, k0, h0 = 7, 5, 1, 20
+    roots = {1, 6}
+    crt_classes = set()
+    for r0 in roots:
+        t0 = ((r0 + q0) * pow(h0, -1, q0)) % q0
+        crt_classes.add((-q0 + h0 * t0) % (h0 * q0))
+    intrinsic7 = {(-4 * D0) % 7 for D0 in divisors_of_square(2)}
+    assert crt_classes == {13, 113}
+    assert intrinsic7 == {3, 5, 6} and 1 not in intrinsic7
+    assert 673 % 140 == 113 and 673 % 24 == 1
+    assert (673 * 673 + 4 * c0 * k0 * k0) % q0 == 0
+    a0 = (673 + q0) // h0
+    b0 = ((673 * 673 + 4 * c0 * k0 * k0) // q0 + 673) // h0
+    assert 673 * (a0 + b0) == k0 * (4 * a0 * b0 * c0 - 1)
+
+    ratios = []
+    for X0 in cutoffs:
+        distinct, raw = stats[X0][:2]
+        L0 = log(X0)
+        ratios.append((X0, round(distinct, 6), round(distinct / raw, 4),
+                       round(distinct / (L0 * L0 * log(L0)), 6),
+                       round(distinct / L0**3, 6)))
+
+    print("Case-B q<=3000: %d primes, %d raw descriptions -> %d distinct; "
+          "intrinsic overlap %d/%d" %
+          (prime_count, raw_b_count, intrinsic_b_count,
+           overlap_b_count, intrinsic_b_count))
+    print("Case-A hard-compatible CRT (X, mass, union/raw, "
+          "mass/(L^2logL), mass/L^3):", ratios)
+    print("Case-A counts at X=3000: 371 raw -> 336 distinct classes at "
+          "136 moduli; all exact reconstructions OK")
+    print("(q,c,k)=(7,5,1): classes {13,113} mod 140; root 1 is new "
+          "mod 7 and refines to 673 mod 840")
+
+
+print("\n== (ab) transfer-law congruence supply (§29) ==")
+check_ab()
+
 print("\nall checks passed")
