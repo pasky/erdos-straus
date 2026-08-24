@@ -9387,3 +9387,356 @@ prime \(P\equiv1\pmod {24}\) occurs in one of the explicit decorated-grid
 value sets (30.19); or, for full Erdős--Straus without the Type-II
 strengthening, prove that it occurs in the union (30.25).  No such value-image
 theorem is proved here.
+
+---
+
+## 32. Certification audit for the \(k=1\) Type-II slice, and its actual exceptional-set bound
+
+This section distinguishes an identity which gives *some* Type-II tuple from
+one which gives a tuple with Type-II multiplier \(k=1\).  The distinction
+changes the available prime-modulus mass by a full logarithm.  In particular,
+the quadratic prime-modulus mass in §§15, 21, and 24 is **not** a \(k=1\)
+supply.  The strongest bound obtained below from a proved \(k=1\)-certifying
+prime-modulus system consequently has exponent \(1/2\), not \(2/3\).
+
+### 32.1 Exact certification dictionary
+
+Write
+
+\[
+        M=4H-1,\qquad H=(M+1)/4.
+\]
+
+**Lemma 32.1 (the multiplier of an intrinsic witness; proved).**  Let
+\(M\equiv3\pmod4\), let \(D\mid H^2\), and choose a Lemma-18.1
+factorization
+
+\[
+        H=uvw,\qquad D=u^2w.
+\]
+
+Let \(P\) be a prime with \((P,H)=1\) in the intrinsic class
+\(P\equiv-4D\pmod M\), and put
+
+\[
+        s={Pv+u\over M}.
+\]
+
+Then Lemma 16.1 gives the (not necessarily canonical) Type-II tuple
+
+\[
+        (a,b,c,k)=(s,u,w,v).                                  \tag{32.1}
+\]
+
+If \(g=(u,v)\), its canonical Theorem-17.1 tuple is
+
+\[
+ (a_0,b_0,c_0,k_0)=\left({s\over g},{u\over g},g^2w,{v\over g}\right),
+ \qquad
+ k_0={v\over g}={H\over(H,D)}.                               \tag{32.2}
+\]
+
+Consequently this particular intrinsic witness has \(k_0=1\) if and only if
+\(H\mid D\).  Thus intrinsic does **not** imply \(k=1\): for example
+\((P,M,D)=(409,7,1)\) gives \((117,1,1,2)\), while 409 has no \(k=1\)
+tuple at all.
+
+*Proof.*  The defining equations give
+
+\[
+ Ms=Pv+u,
+ \qquad
+ 4suvw=s+Pv+u,
+\]
+
+so \(vP=4suwv-s-u\), which is (17.1) with (32.1).  Since
+\((P,u)=1\), reducing \(Ms=Pv+u\) modulo every common divisor with \(u\)
+and using \((M,u)=1\) gives \((s,u)=(v,u)=g\).  The canonical reduction in
+the proof of Theorem 17.1 is therefore exactly (32.2).  Finally
+
+\[
+ (H,D)=(uvw,u^2w)=uw(u,v),
+\]
+
+which proves the displayed formula for \(k_0\) and its last assertion. ∎
+
+**Corollary 32.2 (what the §15 identity certifies; proved).**  In the notation
+of Lemma 15.1,
+
+\[
+ D=Td_1^2<H,
+ \qquad
+ k_0={H\over(H,D)}={d_2\over(d_1,d_2)}=v>1.                 \tag{32.3}
+\]
+
+Thus every *explicit witness constructed in §15* has \(k>1\), never
+\(k=1\).  The residue class itself can nevertheless possess a second,
+\(k=1\) witness: among the \(f(M)=(\tau(H^2)-1)/2\) distinct lower-half
+classes \(-4D\), \(D<H\), this occurs exactly when
+
+\[
+                  4D\mid H.                                 \tag{32.4}
+\]
+
+Indeed a lower class \(-4D\) equals a \(k=1\) class \(-t\), \(t\mid H\),
+if and only if \(4D=t\).  Hence the overlap has exactly
+\({\bf1}_{4\mid H}\tau(H/4)\) classes.  This overlap is about alternative
+witnesses; it does not change the multiplier (32.3) of Lemma 15.1's displayed
+identity.
+
+The exact \(k=1\) part of the intrinsic system has a simpler description.
+
+**Lemma 32.3 (the \(k=1\) class system and its two masses; proved).**  For
+\(M=4H-1\), put
+
+\[
+ \mathscr K(M)=\{-t\pmod M:t\mid H\}.                       \tag{32.5}
+\]
+
+Every positive integer \(P\) in the class \(-t\pmod M\) has a \(k=1\)
+Type-II tuple.  More explicitly, if \(P=jM-t\), \(j\geq1\), then
+
+\[
+              (A,B,C,k)=(j,t,H/t,1),
+ \qquad P=4ABC-A-B.                                         \tag{32.6}
+\]
+
+The classes in (32.5) are distinct, so \(|\mathscr K(M)|=\tau(H)\).  They
+are exactly the intrinsic classes represented by \(D=Ht\), \(t\mid H\),
+and exactly the fixed-divisor classes from
+
+\[
+ (4AC-1)(4BC-1)=4PC+1                                      \tag{32.7}
+\]
+
+in which \(M=4BC-1\).  Equivalently, writing \(C=H/t\),
+
+\[
+ M\equiv-1\pmod {4C},\qquad
+ P\equiv-(4C)^{-1}\equiv-t\pmod M.                         \tag{32.8}
+\]
+
+The complete, generally composite-modulus system has exact asymptotic mass
+
+\[
+ \sum_{\substack{M\leq X\\M\equiv3\ (4)}}
+       { |\mathscr K(M)|\over M}
+   ={1\over8}(\log X)^2+O(\log X).                          \tag{32.9}
+\]
+
+Its **prime-modulus** subsystem has only linear logarithmic mass:
+
+\[
+ \sum_{\substack{\ell\leq X\\\ell\equiv3\ (4)\\\ell\ {
+m prime}}}
+       { |\mathscr K(\ell)|\over\ell}
+       \asymp\log X.                                        \tag{32.10}
+\]
+
+*Proof.*  Equation (32.6) is immediate, and distinct divisors \(t\leq H<M\)
+give distinct residues.  For \(D=Ht\),
+\(-4D\equiv-t\pmod M\), since \(4H\equiv1\pmod M\); Lemma 32.1 gives the
+converse inside the parametrized intrinsic system.  Equations (32.7)--(32.8)
+are the same calculation in Theorem 17.1(iii)'s divisor dictionary.
+
+For (32.9), substitute \(M=4H-1\) and use
+
+\[
+ \sum_{H\leq Y}{\tau(H)\over H}
+       ={1\over2}(\log Y)^2+O(\log Y),
+ \qquad {1\over4H-1}={1\over4H}+O(H^{-2}).
+\]
+
+For (32.10), work dyadically.  The upper bound
+\(\tau(H)\leq2\sum_{t\mid H,\ t\leq\sqrt H}1\), followed by
+Brun--Titchmarsh for \(\ell\equiv-1\pmod {4t}\), gives
+
+\[
+ \sum_{x<\ell\leq2x}\tau((\ell+1)/4)\ll x.
+\]
+
+For the lower bound retain \(t\leq x^{1/3}\); Bombieri--Vinogradov and
+\(\sum_{t\leq y}1/\varphi(4t)\asymp\log y\) give the reverse bound
+\(\gg x\).  Division by \(\ell\asymp x\) and summation over dyadic blocks
+proves (32.10).  This is the one-divisor analogue of Lemma 24.3. ∎
+
+This resolves the mass subtlety.  The §15/§24 prime system has
+\(f(\ell)=(\tau(H^2)-1)/2\) and mass \(\asymp(\log X)^2\), but its displayed
+witnesses have the multipliers (32.3).  The \(k=1\)-certifying prime system
+has only \(\tau(H)\) classes and mass \(\asymp\log X\).  Quadratic mass does
+reappear in (32.9), but there the moduli are composite and are not
+Chinese-remainder independent.  The Selberg/Rankin proof of Theorem 21.3 or
+24.4 cannot be applied to (32.9) by replacing primes with these correlated
+moduli.  No sentence in §§18 or 21 calls the intrinsic system a \(k=1\)
+supply; no stale-phrasing repair is needed there.
+
+### 32.2 An unconditional bound for primes without a \(k=1\) Type-II tuple
+
+Define
+
+\[
+ E_{II,1}(N)=\#\{P\leq N:P\text{ prime and there are no }A,B,C\geq1
+                         \text{ with }P=4ABC-A-B\}.
+\]
+
+**Theorem 32.4 (proved; no literature-priority claim).**  There is an
+absolute constant \(c>0\) such that, for all sufficiently large \(N\),
+
+\[
+             E_{II,1}(N)\ll
+             N\exp\{-c\sqrt{\log N}\}.                      \tag{32.11}
+\]
+
+The same bound holds for all positive integers lacking a representation
+\(n=4ABC-A-B\).
+
+*Proof.*  Use the prime moduli \(X^{1/2}<\ell\leq X\),
+\(\ell\equiv3\pmod4\), and forbid the \(\tau((\ell+1)/4)\) classes
+(32.5).  By Lemma 32.3 their mass \(\mu\) is \(\asymp\log X\), and every
+integer counted in the theorem avoids all of them.  Put
+
+\[
+ g(\ell)={|\mathscr K(\ell)|\over
+                 \ell-|\mathscr K(\ell)|},\quad
+ G=\prod_\ell(1+g(\ell)),\quad
+ S(Q)=\sum_{\substack{s\leq Q\\s\mid\prod\ell}}
+       \mu^2(s)\prod_{\ell\mid s}g(\ell),
+ \qquad Q=N^{1/2}.
+\]
+
+For large \(X\), \(|\mathscr K(\ell)|=\ell^{o(1)}<\ell/2\).  The standard
+Selberg upper-bound sieve gives at most \(O(N/S(Q))\) avoiders.  As in
+(16.14) and Theorem 21.3, Rankin's trick with \(v=1/\log X\) gives
+
+\[
+ {G-S(Q)\over G}
+ \leq\exp\left\{-{\log N\over2\log X}+C\log X\right\}.      \tag{32.12}
+\]
+
+Thus \(S(Q)\geq G/2\geq\tfrac12\exp(c_1\log X)\) whenever
+\(\log N\geq C_2(\log X)^2\).  Choose
+\(\log X=\alpha\sqrt{\log N}\) with a sufficiently small fixed
+\(\alpha>0\).  This proves (32.11), including the stronger integer
+statement. ∎
+
+**Assessment (why the expected \(2/3\) does not follow).**  If the quadratic
+mass (32.9) admitted a product-like Selberg assembly, the formal balance
+\((\log X)^2\lesssim\log N/\log X\) would indeed give exponent \(2/3\).
+But (32.9) is a composite-modulus mass, while the proved independent
+prime-modulus mass is (32.10).  Intersections have density governed by lcms,
+not products, and fixed-\(t\) subfamilies are visibly shifted-divisor
+clusters.  Proving the required composite assembly would be a new correlation
+theorem of the same kind carefully withheld in §§18, 21, and 24.  Therefore
+(32.11), with exponent \(1/2\), is the strongest unconditional conclusion
+from the presently certified system; an unconditional \(2/3\) statement for
+\(E_{II,1}\) is not proved here.
+
+**Numerical companion (informational).**  The truncated ratios
+
+\[
+ \left({\sum_{M\leq X}|\mathscr K(M)|/M\over(\log X)^2},
+       {\sum_{\ell\leq X}|\mathscr K(\ell)|/\ell\over\log X}\right)
+\]
+
+at \(X=10^2,10^3,10^4,10^5\) are respectively
+
+\[
+ (0.12035,0.36688),\ (0.11991,0.42230),\
+ (0.12058,0.45885),\ (0.12115,0.48446),                    \tag{32.13}
+\]
+
+consistent with (32.9)--(32.10).  The observed \(k=1\)-less decade counts
+\(0/2,2/12,2/129,2/1038,3/8551\) are also compatible with the upper-bound
+shape.  For the four nonzero rows,
+\(-\log(\text{fraction})/\sqrt{\log(\text{upper endpoint})}\) is
+\(0.68,1.37,1.84,2.14\).  This finite monotone drift neither estimates the
+unspecified constant in (32.11) nor supports a sharper exponent.
+
+### 32.3 Exact anatomy of the nine primes through one million
+
+The \(k=1\)-lessness was replayed independently using (28.7), with every
+\(1\leq A\leq\lfloor\sqrt{P/2}\rfloor\) and every divisor of \(P+A\).
+All Type-II rows were then enumerated by the complete \((A,B)\) bound, not by
+a stored witness table.  The minimizing tuples below are displayed up to
+\(A\leftrightarrow B\).
+
+\[
+\begin{array}{r|c|l|r@{\ }l}
+P&\min k& (A,B,C)\text{ at }\min k
+ &\#\text{Type-I}&(\#\text{ primitive})\\ \hline
+409&2&(1,13,8),(1,21,5),(1,117,1),(7,15,1)&22&(18)\\
+577&2&(1,5,29),(1,21,7),(1,77,2),(1,165,1)&22&(22)\\
+5569&2&(1,141,10),(1,237,6),(9,157,1)&40&(34)\\
+9601&2&(1,37,65),(1,173,14),(3,115,7),(3,835,1)&40&(34)\\
+23929&2&(1,21,285),(1,53,113),(1,301,20),(1,6837,1),
+       (3,19,105),(7,15,57)&196&(128)\\
+83449&2&(3,211,33),(43,243,2)&70&(64)\\
+102001&3&(5,232,22)&106&(82)\\
+329617&2&(1,5,16481),(1,213,387),(1,9285,9),(1,43949,2),
+        (5,41,402)&230&(184)\\
+712321&2&(1,69,2581),(1,253,704),(1,1877,95),(1,61941,3),
+        (3,499,119),(3,571,104),(13,2745,5),(153,1165,1)&150&(122)
+\end{array}                                                  \tag{32.14}
+\]
+
+Type-I counts are ordered in \((A,B)\), exactly as in §26.1; “primitive”
+means \((A,B)=1\).  They were independently recovered from ordered unit
+fraction solutions.  If \(x\leq y\leq z\), put
+\(q=4x-P\), \(R=Px\), and enumerate every \(d\mid R^2\), \(d\leq R\), with
+\(q\mid d+R\).  The two-term dictionary gives
+
+\[
+ y=(R+d)/q,\qquad z=(R+R^2/d)/q.
+\]
+
+Filtering \(P\nmid xy\), \(P\mid z\) gives every canonical Type-I row; with
+\(h=(x,y)\), it is
+
+\[
+ A=x/h,\quad B=y/h,\quad C={zh^2\over Pxy},\quad K=h/C.
+\]
+
+Every nonprimitive §26.1 row is then obtained uniquely by
+\((A,B,C,K)\mapsto(gA,gB,C/g^2,gK)\) with \(g^2\mid C\).  This is an
+independent exact check of the divisor-form counts in (32.14).
+
+For additional case anatomy, let \(Q_B(P)\) be the set of distinct criterion
+moduli \(q=(A+B)/K\) among all Type-II rows, and let \(Q_A(P)\) be the
+analogous \(m=(A+B)/K\) set among all Type-I rows.  The exact finite sets have
+sizes and intersections
+
+\[
+\begin{array}{r|r|r|l}
+P&|Q_A|&|Q_B|&Q_A\cap Q_B\\ \hline
+409&5&3&\varnothing\\
+577&9&6&7,39\\
+5569&12&9&39,47,143\\
+9601&11&6&\varnothing\\
+23929&36&13&7,11,39,303\\
+83449&25&10&39,191\\
+102001&25&16&47,111,115\\
+329617&71&20&3,107,167,21975\\
+712321&49&21&35,191
+\end{array}                                                  \tag{32.15}
+\]
+
+Thus none of the nine is globally Case-A-only or Case-B-only: every one has
+both types.  At the finer criterion-modulus level every prime has nonempty
+\(Q_A\setminus Q_B\) and \(Q_B\setminus Q_A\); seven also have a modulus
+supporting both cases, while 409 and 9601 have disjoint modulus sets.
+
+**Measured pattern.**  Eight of the nine first solve Type II at \(k=2\), but
+102001 first solves at \(k=3\).  Thus “all have \(k=2\)” is already false,
+while there is no monotone growth of the minimum with \(P\).  The sample is
+too small for a distributional claim.
+
+**Optional finite census (exact).**  The same independent denominator-side
+enumerator stops at the first Type-I row for each odd prime \(P\leq10^5\).
+It finds no Type-I-less prime among all 9,591 odd primes in that range.  This
+is a finite statement only; it does not make Type I pointwise sufficient.
+
+`verify.py (ae)` replays Lemma 32.1 over thousands of intrinsic instances,
+checks the exact §15 multiplier and the overlap (32.4), verifies the two mass
+ratios, independently certifies the nine-prime table, and performs the
+Type-I-less scan through \(10^5\).  The default block is memory-bounded and
+runs in under ten seconds on the campaign host.
