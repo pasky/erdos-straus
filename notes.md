@@ -8221,3 +8221,316 @@ refutation of H_PF.
 Thus the status does not change.  The new unconditional gain is a
 polylogarithmic extension and a prime/composite separation; the full
 large-\(R\), broad-cofactor composite system remains the exact obstruction.
+
+---
+
+## 29. Transfer laws on the exceptional-set axis: one exact subsumption and a subcubic new prime-divisor layer
+
+This section asks a narrower question than §§22--26: after forgetting descent
+and retaining only sufficient conditions on the target integer \(P\), do the
+transfer laws add fixed congruence classes with more than the cubic mass of
+Theorem 18.2?  A **class** below is counted once at its displayed modulus,
+as in §18.1.  Labels are strict.  In particular, the closure theorem in
+§29.2 includes the complete Case-B divisor family and the *prime-divisor*
+Type-I extraction; it does not silently assign congruence mass to polynomial
+value sets or to the unaudited composite-divisor Type-I extraction.
+
+### 29.1 Inventory and the exact Case-B dictionary
+
+Put \(h=4ck\).  In the Case-B divisor form (17.3), a fixed divisor \(q\)
+with
+
+\[
+ q\equiv-1\pmod h,
+ \qquad q\mid4Pck^2+1                                      \tag{29.1}
+\]
+
+forces the single class
+
+\[
+ P\equiv-(4ck^2)^{-1}\pmod q.                              \tag{29.2}
+\]
+
+Here \(q\) may be composite; (29.1) makes every displayed inverse legitimate.
+
+**Lemma 29.1 (Case-B classes are exactly the intrinsic classes; proved).**
+For every \(q\equiv3\pmod4\), the union of (29.2) over all \((c,k)\) with
+\(4ck\mid q+1\) is exactly \(\mathscr R(q)\) of Lemma 18.1, with no
+multiplicity from different \((c,k)\)'s.
+
+*Proof.*  Write
+
+\[
+ A={q+1\over4}=cka.
+\]
+
+The Lemma-16.1 factorization
+
+\[
+ (u,v,w)=(a,k,c),\qquad uvw=A
+\]
+
+gives
+
+\[
+ -uv^{-1}=-ak^{-1}\equiv-(4ck^2)^{-1}\pmod q,              \tag{29.3}
+\]
+
+because \(4cka\equiv1\pmod q\).  In Lemma 18.1's divisor notation the
+same class is
+
+\[
+ -4D\pmod q,\qquad D=ca^2\mid A^2,                         \tag{29.4}
+\]
+
+since \(16ck^2D=(4cka)^2\equiv1\pmod q\).  Conversely, the
+prime-by-prime construction in Lemma 18.1 writes every \(D\mid A^2\) as
+\(D=u^2w\) with \(uvw=A\).  Taking \((a,k,c)=(u,v,w)\) reverses
+(29.3)--(29.4).  Thus the two unions agree as residue sets.  Counting the
+set, rather than the factorizations, gives exactly \(F(q)\). ∎
+
+This is the requested dictionary.  In particular the apparent
+\(\#\{(c,k):4ck\mid q+1\}\) gain is entirely a reparametrization of the
+already deduplicated divisor set \(\{-4D:D\mid A^2\}\).  On prime \(q\),
+the resulting mass is the quadratic prime slice of Lemma 24.3, not a new
+additive copy of it.  Composite \(q\)'s recover the complete intrinsic
+system and its cubic mass.
+
+The Type-I divisor form behaves differently.  For fixed \((c,k)\), (26.3)
+asks for a divisor
+
+\[
+ q\mid P^2+4ck^2,
+ \qquad q\equiv-P\pmod h.                                  \tag{29.5}
+\]
+
+The grade now moves with \(P\).  Prime divisors nevertheless give genuine
+fixed classes.
+
+**Lemma 29.2 (prime Type-I CRT classes; proved).**  Let \(q\nmid2ck\) be an
+odd prime.  If \((-4c\mid q)=1\), let \(r_\pm\) be the two roots of
+\(r^2\equiv-4ck^2\pmod q\).  Then the two Chinese-remainder classes
+
+\[
+ P\equiv r_\pm\pmod q,
+ \qquad P\equiv-q\pmod h                                   \tag{29.6}
+\]
+
+modulo \(hq\) are forced Type-I-solvability classes.  If the symbol is
+\(-1\), there is no such class.  For hard targets \(P\equiv1\pmod4\),
+(29.6) forces \(q\equiv3\pmod4\).
+
+*Proof.*  Every member of (29.6) has \((P,ck)=1\), satisfies
+\(q\mid P^2+4ck^2\), and has \(q\equiv-P\pmod h\).  Theorem 26.1 then
+makes the cofactor automatically \(-P\pmod h\) and reconstructs positive
+\(a,b\) by (26.4).  Conversely a prime divisor in (29.5) supplies one of
+the two roots.  Reduction modulo four gives the final assertion. ∎
+
+These classes are not merely another notation for Lemma 29.1.  For example
+\((q,c,k)=(7,5,1)\) gives roots \(1,6\pmod7\) and classes
+\(113,13\pmod{140}\).  The projection \(1\pmod7\) is not in
+\(\mathscr R(7)=\{3,5,6\}\); its hard-prime refinement is
+\(P\equiv673\pmod{840}\).  Thus Type I contributes genuinely new fixed
+classes, although §29.2 shows that their prime-divisor mass is subcubic.
+For a composite fixed divisor \(q\), the same argument gives
+\(\rho_q(-4ck^2)\) CRT classes modulo \(hq\).  Their root multiplicities
+and cross-factorization collisions are not evaluated here; no claim about
+the mass of that composite extraction is hidden in Theorem 29.3.
+
+The remaining transfer laws have a different status.
+
+* **Pure/flexible tensors (§§22--23).**  Their forward images are polynomial
+  value sets with divisibility side conditions, not a family of complete
+  residue classes supplied by the transfer theorem.  For example the
+  fixed-source-2 singleton branch can read
+  \(P=8a(a+2b)c-s\), \(s=(a+b)/k\).  If \((a,b,k)\) is frozen and only
+  \(c\) varies, this is a subprogression of the pre-existing Type-II
+  moving-\(c\) class for target tuple
+  \((a,a+2b,2c,2k)\); it is not transfer-created supply.  With the source
+  variables free it is a value-set problem, for which no density or
+  bounded-fiber theorem is proved.
+* **Fixed additive maps (§25).**  Theorem 25.6 starts from a target \(k=1\)
+  tuple and decomposes it.  Thus its inverse condition is exactly “a
+  \(k=1\) tuple exists,” already the old Type-II identity condition.  It
+  supplies witness decomposition, not an additional condition forcing a
+  previously unknown \(P\).
+* **Corrected Type-I tensor and bridge (§26).**  Theorem 26.4 again supplies
+  an image value set, with the common-\(m\) and affine-\(C\) constraints.
+  The bridge condition \(m\mid Q-1\) is attached to an already existing
+  tuple; freezing its coordinates gives
+  \(Q=4abc-m\), exactly the old Type-II moving-\(c\) family.  Neither law
+  provides a new free congruence class beyond the complete Type-I/II
+  parametrizations.
+
+**Assessment 29.2.1 (scope of the inventory).**  Polynomial images can in
+principle be counted by value-set or thin-orbit methods, and selected linear
+slices can be organized into old parametrized progressions.  §§22--26 prove
+no such counting theorem and no bounded-multiplicity map onto primes.
+Calling their images extra sieve mass would therefore count witnesses, not
+distinct target classes.  This is the same circularity isolated in §§23.2
+and 25.7, now applied to the exceptional-set question.
+
+### 29.2 Mass accounting and cubic closure
+
+Let \(t=\log X\), and let \(\mathcal A_{\rm pr}(X)\) be the **union**, at
+each modulus \(4ckq\leq X\), of the hard-compatible classes (29.6) with
+prime \(q\).  Duplicates from different \((c,k,q)\) descriptions are
+removed before its mass is computed.  Its distinct mass is bounded by its
+raw multiplicity envelope:
+
+\[
+\begin{aligned}
+ \mu(\mathcal A_{\rm pr}(X))
+ &\leq {1\over2}
+   \sum_{\substack{q\leq X/4\\q\equiv3\ (4)\ {
+m prime}}}{1\over q}
+   \sum_{ck\leq X/(4q)}{1\over ck}                         \tag{29.7}\\
+ &\leq \left({1\over8}+o(1)\right)t^2\log t
+   =o(t^3).                                                  \tag{29.8}
+\end{aligned}
+\]
+
+Indeed each triple has at most two roots, giving the factor
+\(2/(4ckq)=1/(2ckq)\).  Also
+
+\[
+ \sum_{ck\leq Y}{1\over ck}
+ =\sum_{n\leq Y}{\tau(n)\over n}
+ ={1\over2}(\log Y)^2+O(\log Y),                            \tag{29.9}
+\]
+
+and Mertens' theorem in the progression \(3\pmod4\), by partial summation,
+gives
+
+\[
+ \sum_{\substack{q\leq e^t\\q\equiv3\ (4)}}
+ {\{t-\log q\}_+^2\over q}
+ ={1\over2}t^2\log t+O(t^2).                               \tag{29.10}
+\]
+
+Equations (29.9)--(29.10) give (29.8).  The constant \(1/8\) belongs to
+the deliberately larger envelope which awards two roots to every triple;
+Legendre failures, hard-class incompatibility, and all deduplication only
+lower it.  No matching asymptotic for the distinct Type-I union is claimed.
+
+**Theorem 29.3 (cubic closure for the audited fixed-class supply; proved).**
+Take the union of
+
+1. every intrinsic class of Lemma 16.1 with modulus at most \(X\);
+2. every fixed-\((c,k)\) Case-B divisor class with displayed modulus at most
+   \(X\); and
+3. every hard-compatible prime-divisor Type-I class (29.6) with modulus at
+   most \(X\).
+
+After per-modulus deduplication, its total class mass is
+
+\[
+                       \asymp(\log X)^3.                    \tag{29.11}
+\]
+
+*Proof.*  Lemma 29.1 says item 2 is exactly item 1, including all its
+cross-\((c,k)\) duplicates.  Theorem 18.2 gives two-sided cubic mass for
+item 1.  Equations (29.7)--(29.8) give an \(o(t^3)\) upper bound for item
+3 even before deduplication against item 1.  The intrinsic lower bound and
+the sum of these upper bounds prove (29.11). ∎
+
+Thus the prime Case-B back-of-the-envelope \(\tau_3\)-count contributes
+zero new residues after the exact dictionary, while the genuinely new
+prime Type-I CRT layer has at most \(t^2\log t\) mass.  It can alter finite
+constants and lower-order logarithms, but it cannot change the cubic power.
+The mass/Rankin balance of §18.1 therefore still has exponent ceiling
+\(3/(3+1)=3/4\) for this enlarged fixed-class supply.
+
+**Assessment 29.3.1 (what is not closed).**  A composite divisor in (29.5)
+also yields fixed CRT classes.  The crude bound
+\(\rho_q\leq2^{\omega(q)}\) is too wasteful to prove a cubic distinct-mass
+bound after summing \((c,k,q)\), while the expected quadratic-character
+cancellation and the cross-\(q\) deduplication have not been established
+uniformly here.  Consequently Theorem 29.3 is not a theorem about that
+composite Type-I extraction, nor about every possible organization of the
+polynomial image sets.  This is the principal soft spot.  Any claim of a
+supercubic family must first count *distinct* CRT classes through those two
+collisions; raw root/factorization multiplicity is not such a claim.
+
+### 29.3 Quadratic-form sieve angle (exploratory, timeboxed)
+
+Fix \((c,k)\), put \(h=4ck\), and restrict \(P\) to a reduced residue
+\(a\pmod h\).  The relevant prime divisors in (29.6) now satisfy
+
+\[
+ q\equiv-a\pmod h.                                         \tag{29.12}
+\]
+
+The quadratic character \((-4c\mid q)\) has conductor dividing \(4c\),
+hence is constant on (29.12).  A fiber is therefore either inactive or has
+two forbidden roots for every prime in that progression.  On an active
+fiber,
+
+\[
+ \sum_{\substack{q\leq z\\q\equiv-a\ (h)}}{2\over q}
+ ={2\over\varphi(h)}\log\log z+O_{c,k}(1).                 \tag{29.13}
+\]
+
+Thus the classical upper-bound sieve for one fixed pair has dimension
+\(2/\varphi(h)\) and gives only a log-power saving, of shape
+
+\[
+ \#\{P\leq N:P\equiv a\ (h),\ P\hbox{ avoids (29.6)}\}
+ \ll_{c,k}{N\over h(\log z)^{2/\varphi(h)}}                \tag{29.14}
+\]
+
+in its standard level range.  A lower-bound fundamental lemma in a fixed
+fiber leaves the matching log-power order when its level hypotheses hold;
+it therefore shows that this one branch alone has many avoiders, not that
+those avoiders survive the other branches.  Before conditioning, “two roots
+for half the primes” suggests the usual quadratic/half-dimension language;
+after the mandatory grade condition is imposed, the split bit is pinned by
+the same progression and (29.13) is the exact dimension statement.
+
+**Assessment 29.4 (no independent exponential bound from the classical
+quadratic sieve).**  Equation (29.14), even with \(z\) a power of \(N\),
+is polynomial in \(\log N\), far weaker than Theorem 16.4.  Obtaining an
+\(\exp\{-c(\log X)^2\}\)-type auxiliary-scale saving requires a growing
+collection of \((c,k)\)'s to be assembled jointly.  Classical
+half-dimension/fundamental-lemma estimates for one quadratic do not perform
+that assembly: the progression (29.12) moves with \(P\), the moduli share
+\(4ck\), and the same CRT class can have several parameter descriptions.
+No mixed large-sieve or Selberg factorization controlling these correlations
+is proved here.  In particular there is no proved multiplicative stacking
+with the intrinsic system.  Such a mixed assembly is a legitimate future
+question, but its nominal prime-Type-I mass is already bounded by (29.8), so
+even perfect use cannot raise the cubic mass power.
+
+### 29.4 Verdict
+
+**Verdict 29.5 (proved part, then boundary).**
+
+* The complete fixed-\((c,k)\) Case-B divisor supply is **exactly
+  subsumed** by the intrinsic multiplier system, class for class and with
+  exact cross-parameter deduplication.
+* Prime-divisor Type-I conditions do give **new** CRT classes, but their
+  total distinct mass is at most
+  \(O((\log X)^2\log\log X)=o((\log X)^3)\).
+* The tensor, additive, corrected-tensor, and bridge laws produce witness
+  images or reparametrize old Type-I/II classes; no new class-mass theorem
+  follows from them.
+* Therefore the audited enlarged fixed-class system still has exactly cubic
+  mass, and the \(3/4\) conditional mass/Rankin ceiling stands.  There is no
+  unconditional improvement to Theorem 16.4, and no record-bound claim.
+
+Theorem 18.6 and H_PF need no wording change: H_PF is intentionally a
+hypothesis for the complete intrinsic system, which already has the cubic
+lower mass needed for the conditional \(3/4\) result.  One could formulate a
+stronger mixed H_PF including (29.6), but (29.8) cannot improve its power and
+no such mixed correlation hypothesis is presently justified.  The remaining
+unclosed exceptional-set directions are the composite Type-I CRT mass and a
+joint treatment of polynomial image sets; neither is evidence for a
+supercubic family without a distinct-class count.
+
+**Numerical companion.**  `verify.py (ab)` checks Lemma 29.1 on every prime
+\(q\leq3000\), including raw-versus-union counts; constructs and deduplicates
+the hard-compatible Type-I CRT classes through several small cutoffs; checks
+the \((7,5,1)\) non-subsumption example and exact Type-I reconstructions;
+and reports the finite mass divided by its raw multiplicity mass,
+\((\log X)^2\log\log X\), and \((\log X)^3\).  These truncation ratios are
+informational and are not used in (29.8).
