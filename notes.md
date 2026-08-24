@@ -5889,10 +5889,12 @@ This section moves factors between the output coordinates \(C\) and \(K\),
 classifies the exact finite inverse problem for that enlarged family, and
 runs it on every hard prime through \(10^5\).  The enlargement is substantial:
 all six primes which motivated §22 are now images of smaller explicit source
-tuples.  It is not total: eleven other hard primes in the same range have no
-target tuple with the necessary divisibility \(4\mid CK\).  Labels below are
-strict; in particular the range statements are computational, not theorems
-about all primes.
+tuples.  Its image is not total: eleven other hard primes in the same range
+have no target tuple with the necessary divisibility \(4\mid CK\), and
+Lemma 23.9 closes every arbitrary-modulus reading of every higher pure tensor
+on those eleven.  Modulus-dependent non-pure maps remain outside that
+closure.  Labels below are strict; in particular the range statements are
+computational, not theorems about all primes.
 
 Let \(S\) denote the positive integers \(p\geq2\) possessing a positive
 Type-II tuple
@@ -5901,16 +5903,25 @@ Type-II tuple
  (a,b,c,k),\qquad s=(a+b)/k,\qquad p=4abc-s.                 \tag{23.1}
 \]
 
-Primality and \((a,b)=1\) are not part of this definition.  By Theorem
-17.1(i), every such tuple gives
+Primality and \((a,b)=1\) are not part of this definition.  For any positive
+integers satisfying \(k\mid a+b\) and (23.1), multiplication by \(k\) gives
+
+\[
+ kp+a+b=4abck.
+\]
+
+Thus the three fractions below have common denominator \(pabck\), numerator
+\(kp+a+b=4abck\), and hence sum to \(4/p\):
 
 \[
  {4\over p}={1\over abc}+{1\over pack}+{1\over pbck}.        \tag{23.2}
 \]
 
-This distinction matters below: several source values are composite, but
-their displayed tuples certify their membership in \(S\) without invoking a
-classical residue identity.  In particular
+No primality or coprimality is needed for this validity computation.  For
+odd primes, Theorem 17.1(i) is additionally the bijection statement for the
+coprime Type-II tuples.  This distinction matters below: several source
+values are composite, but their displayed tuples certify their membership
+in \(S\) without invoking a classical residue identity.  In particular
 \((1,1,1,1)\) is a tuple for \(2\), and \((1,1,1,2)\) is a tuple for \(3\).
 The value \(1\) is not usable: three positive unit fractions have sum at most
 \(3\), so they cannot represent \(4/1\).
@@ -5969,8 +5980,9 @@ integers.  Substitution gives
 which is (23.6).  The right side is positive because \(Q>0\) by Theorem
 22.2; the left side is an integer.  More elementarily, every positive
 quadruple satisfying (23.5) has
-\(P'\geq4AB-A-B\geq2AB\geq2\).  Finally (23.5) is exactly (23.1), so
-Theorem 17.1(i) gives (23.2). ∎
+\(P'\geq4AB-A-B\geq2AB\geq2\).  Finally (23.5) is exactly (23.1), so the direct
+common-denominator calculation preceding (23.2) gives the unit-fraction
+identity. ∎
 
 The divisibility \(K'\mid A+B\) is not cosmetic.  Equation (23.3) only says
 that \(\kappa\mid A+B\); moving additional factors into \(K'\) is possible
@@ -6150,11 +6162,13 @@ largest observed ratio is \(73868/73897\approx0.99961\).  These statistics
 depend on the deterministic first-certificate ordering and are descriptive,
 not canonical.  They show both why a classical “non-hard prime” argument is
 unnecessary and why there is no observed uniform contraction: the explicit
-source tuple, not its residue class, certifies \(S\)-membership.
+source tuple, not its residue class, certifies \(S\)-membership.  The full
+row and all these descriptive statistics replay under `ES_FULL_SCAN=1`.
 
-`verify.py (v)` certifies the \(10^4\) row of (23.12) in under ten seconds
-for this block.  The \(10^5\) row was run with the same exact enumerator at
-the larger bound; it had 1181 inputs and no additional failure.
+By default `verify.py (v)` certifies the \(10^4\) row of (23.12) in under ten
+seconds and prints the command needed for the larger replay.  With
+`ES_FULL_SCAN=1`, the same block recomputes the \(P<10^5\) row and its
+first-certificate statistics from the exact enumerator.
 
 ### 23.5 The remaining obstruction and higher pure tensors
 
@@ -6192,7 +6206,7 @@ For every parameter row of every prime in (23.14), the right side of
 set, not a congruence characterization of the prime alone; no residue-class
 criterion selecting exactly these primes was found.
 
-The same obstruction closes all higher **pure maximal-modulus tensor
+The same obstruction first closes all higher **pure maximal-modulus tensor
 partitions**, including the proposed three-input extension.
 
 **Lemma 23.7 (proved: higher-tensor divisibility no-go).**  For \(r\geq2\)
@@ -6229,32 +6243,95 @@ gives a valid Type-II output.  For \(M=\operatorname{lcm}(h_1,h_2)\), one
 has \(r=g\), which is divisible by four.  For
 \(M=h_1h_2/g^2\), the interpretation is unavailable unless \(4\mid M\),
 and when available \(r=g^2\), divisible by sixteen.  In either case both
-target coordinates are divisible by four, so (23.15) forces \(4\mid CK\).
-These quotient readings are valid compositions, but cannot reach (23.14).
+target coordinates are divisible by four, so for an odd output (23.15)
+forces \(4\mid CK\).  These quotient readings are valid compositions, but
+cannot reach the odd primes (23.14).
 
 *Proof.*  Since \(h_1h_2A=M(rA)\), each centered factor is \(-1\pmod M\)
 and has target coordinate \(rA\), and similarly for \(B\).  Conditions
 (23.17) say exactly that \(M=4C'K'\) and
-\(K'\mid r(A+B)\), so Theorem 17.1(i) applies.  Both input moduli are
-multiples of four, hence \(4\mid g\); the two claimed values of \(r\) and
-the final use of (23.15) follow. ∎
+\(K'\mid r(A+B)\), so (23.1) and the direct validity computation preceding
+(23.2) apply.  Both input moduli are multiples of four, hence \(4\mid g\);
+the two claimed values of \(r\) and the final use of (23.15) follow. ∎
 
-**Assessment (scope, no overclaim).**  Lemma 23.7 and (23.17) close pure
-partition tensors at product/lcm/\(h_1h_2/g^2\) moduli.  They do **not**
-classify modulus-dependent additive coefficients, general rational maps, or
-maps whose corrections remove the common coordinate scale \(r\).  Those
-families were conditional next steps only if the original six blockers
-persisted; they did not.  They could in principle evade \(4\mid CK\), so
-(23.14) is a theorem-level no-go for the flexible and higher pure-tensor
-families, not for every conceivable transfer map.
+*Remark.*  Oddness is necessary: two source-2 tuples, split as \((1,3)\)
+and read at \(M=\operatorname{lcm}(4,4)=4\), give the even output
+\((176;4,12,1,1)\), with \(CK=1\).
+
+**Lemma 23.9 (proved: arbitrary readings of pure tensor factor pairs).**
+Take \(r\geq2\) source tuples, put
+
+\[
+ H=\prod_{i=1}^r h_i,\qquad h_i=4c_i k_i,
+\]
+
+and let \((HA-1,HB-1)\) be a pure-tensor factor pair.  Any Type-II reading
+of this pair at any modulus, producing \((A'',B'',C'',K'')\), satisfies
+
+\[
+ 4C''K''A''=HA,\qquad 4C''K''B''=HB,
+\]
+
+and therefore the exact identity
+
+\[
+ H\gcd(A,B)=4C''K''\gcd(A'',B'').                            \tag{23.18}
+\]
+
+Consequently
+
+\[
+ v_2(4C''K'')+v_2(\gcd(A'',B''))
+ =v_2(H)+v_2(\gcd(A,B))\geq4.
+\]
+
+*Proof.*  A Type-II factor pair for the target tuple is
+\((4C''K''A''-1,4C''K''B''-1)\).  Equality with the given pure pair gives
+the first two identities.  Taking the gcd of those identities gives
+(23.18).  Finally every \(h_i\) is divisible by four, so
+\(v_2(H)\geq2r\geq4\). ∎
+
+**Corollary 23.9.1 (proved by complete finite audit: all eleven
+resisters).**  No pure tensor of any order \(r\geq2\), read at any modulus,
+outputs any tuple of any prime in (23.14).
+
+*Proof.*  The complete (23.8) tuple lists for the eleven primes are audited
+in `verify.py (v)`.  Every row \((A'',B'',C'',K'')\) has
+\(v_2(C''K'')\leq1\), because it is a resister row, and also has
+\(\gcd(A'',B'')\) odd.  Hence the left side of Lemma 23.9's valuation
+identity is at most three, contradicting its lower bound of four. ∎
+
+The arbitrary-modulus qualification is active, not cosmetic.  Take the
+source tuple \((5;1,2,1,1)\) twice and split its tensor monomials into
+\((A,B)=(3,6)\).  Then \(H=16\), the pure factor pair is \((47,95)\), and
+\(M=24\mid16\gcd(3,6)=48\) reads it as
+
+\[
+ (A'',B'',C'',K'')=(2,4,1,6),\qquad P=31.
+\]
+
+Here \(K''=6\mid A''+B''\) and \(4\nmid C''K''\).  The product-modulus
+reading instead gives \((3,6,4,1)\) of value 279.  Thus non-product readings
+genuinely exceed Lemmas 23.7--23.8's scope; `verify.py (v)` checks this
+example end to end.
+
+**Assessment (scope, no overclaim).**  Lemma 23.9 closes every
+arbitrary-modulus Type-II reading of a **pure tensor factor pair** on the
+eleven resisters.  It does **not** classify modulus-dependent additive
+corrections, which are non-pure maps, or general rational maps.  Those
+families remain unclassified and could in principle evade the invariant;
+(23.14) is not a no-go for every conceivable transfer map.
 
 **Outcome.**  Moving factors from \(C\) into \(K\) is the immediate crack in
 §22: it reaches all six old blockers, usually from the fixed source 2, and
 empirically reaches every hard prime below \(10^5\) having any tuple with
 \(4\mid CK\).  The enlarged family is nevertheless non-total.  Eleven exact
-counterexamples have no such tuple, and the parity identity (23.15) plus the
-product-modulus law (23.16) blocks every higher pure tensor on them.  No
-Erdős--Straus proof results; forward-image totality fails for this family.
+counterexamples have no such tuple, and Lemma 23.9 plus the complete odd-gcd
+audit blocks every pure tensor of every order \(r\geq2\), read at any
+modulus, from outputting any of their tuples.  Modulus-dependent additive
+corrections and general rational maps remain outside this closure.  No
+Erdős--Straus proof results; forward-image totality fails for the pure-tensor
+family.
 
 ## 24. A subset-product audit and lower-bound routes for H_PF
 

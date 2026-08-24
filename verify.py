@@ -2301,10 +2301,11 @@ check_u()
 # ---------------------------------------------------------------- (v)
 def check_v():
     """Section 23: flexible-(C,K) tensors and their exact inverse search."""
+    import os
     from fractions import Fraction
     from functools import lru_cache
     from math import gcd
-    from sympy import divisors, expand, primerange, symbols
+    from sympy import divisors, expand, isprime, primerange, symbols
 
     @lru_cache(None)
     def cached_divisors(n):
@@ -2313,6 +2314,51 @@ def check_v():
     def parameter_value(a, b, c, k):
         assert (a + b) % k == 0
         return 4 * a * b * c - (a + b) // k
+
+    def assert_valid_tuple(P, row):
+        """Check the all-positive-integers Type-II identity directly."""
+        a, b, c, k = row
+        assert min(row) >= 1 and (a + b) % k == 0
+        assert parameter_value(a, b, c, k) == P >= 2
+        denominators = (a * b * c, P * a * c * k, P * b * c * k)
+        assert sum(Fraction(1, d) for d in denominators) == Fraction(4, P)
+
+    def source_record(source):
+        P, (a, b, c, k) = source
+        assert_valid_tuple(P, (a, b, c, k))
+        return (a, b, c, k, (a + b) // k, P)
+
+    def assert_forward_branch(P, target, source1, source2, mask,
+                              require_descent=True):
+        """Replay one displayed branch, including its exact tensor mask."""
+        A, B, C, K = target
+        p1, tuple1 = source1
+        p2, tuple2 = source2
+        left = source_record(source1)
+        right = source_record(source2)
+        a1, b1, c1, k1 = tuple1
+        a2, b2, c2, k2 = tuple2
+        terms = (a1 * a2, a1 * b2, b1 * a2, b1 * b2)
+        assert 1 <= mask < 15
+        assert sum(terms[i] for i in range(4) if mask >> i & 1) == A
+        assert sum(terms[i] for i in range(4) if not mask >> i & 1) == B
+        modulus_quarter = 4 * c1 * c2 * k1 * k2
+        assert C * K == modulus_quarter
+        assert (A + B) % K == 0 and modulus_quarter % K == 0
+        assert (A, B, modulus_quarter // K, K) == target
+        assert_valid_tuple(P, target)
+        if require_descent:
+            assert 2 <= p1 < P and 2 <= p2 < P
+        else:
+            assert p1 >= 2 and p2 >= 2
+        return (target, left, right, mask)
+
+    def v2(n):
+        exponent = 0
+        while n % 2 == 0:
+            exponent += 1
+            n //= 2
+        return exponent
 
     def all_parameter_rows(P):
         """Complete by AB <= P/2 and equation (22.20)."""
@@ -2420,12 +2466,16 @@ def check_v():
     flexible_P = 4 * AB * (4 * cc * kappa / Kp) - kappa * ss / Kp
     assert expand(flexible_P
                   - kappa / Kp * (16 * cc * AB - ss)) == 0
-    assert parameter_value(1, 1, 1, 1) == 2
-    assert parameter_value(1, 1, 1, 2) == 3
-    # Sources 2 and 75, singleton partition (A,B)=(1,9), K'=10:
+    assert_valid_tuple(2, (1, 1, 1, 1))
+    assert_valid_tuple(3, (1, 1, 1, 2))
+    # Sources 2 and 75, exact mask 0001, (A,B)=(1,9), C'K'=20:
     # the output 71 is smaller than the source 75.
-    assert parameter_value(1, 4, 5, 1) == 75
-    assert parameter_value(1, 9, 2, 10) == 71
+    warning_branch = assert_forward_branch(
+        71, (1, 9, 2, 10), (2, (1, 1, 1, 1)),
+        (75, (1, 4, 5, 1)), 0b0001, require_descent=False)
+    assert warning_branch[0] == (1, 9, 2, 10)
+    assert warning_branch[1][-1] == 2 and warning_branch[2][-1] == 75
+    assert 71 < 75
 
     hard_targets = (409, 577, 5569, 9601, 23929, 83449)
     expected_rows = (14, 14, 20, 14, 78, 30)
@@ -2447,74 +2497,191 @@ def check_v():
     assert tuple(got_four_CK) == expected_four_CK
     assert tuple(got_branches) == expected_branches
 
-    # Every old blocker has a particularly simple branch using the fixed
-    # tuple for 2.  Rebuild every target forward, including K' > k1*k2.
+    # Hard-coded replay of all six displayed branches (23.10).  The mask bits
+    # index (a1*a2, a1*b2, b1*a2, b1*b2); every displayed split is 0001.
+    displayed_2310 = (
+        (409, (1, 13, 8, 2), (2, (1, 1, 1, 1)),
+         (89, (1, 6, 4, 1)), 0b0001),
+        (577, (1, 77, 2, 2), (2, (1, 1, 1, 1)),
+         (113, (1, 38, 1, 1)), 0b0001),
+        (5569, (1, 41, 34, 6), (2, (1, 1, 1, 1)),
+         (4059, (1, 20, 51, 1)), 0b0001),
+        (9601, (1, 173, 14, 2), (2, (1, 1, 1, 1)),
+         (2321, (1, 86, 7, 1)), 0b0001),
+        (23929, (1, 301, 20, 2), (2, (1, 1, 1, 1)),
+         (5849, (1, 150, 10, 1)), 0b0001),
+        (83449, (5, 39, 107, 4), (2, (1, 1, 1, 1)),
+         (36358, (5, 17, 107, 1)), 0b0001),
+    )
     fixed_branches = {}
-    for P in hard_targets:
-        found = None
-        for row in rows_by_target[P]:
-            found = fixed_two_inverse(P, row)
-            if found is not None:
-                break
-        assert found is not None
-        fixed_branches[P] = found
-        (A, B, C, K), left, right, mask = found
-        a1, b1, c1, k1, s1, p1 = left
-        a2, b2, c2, k2, s2, p2 = right
-        terms = (a1 * a2, a1 * b2, b1 * a2, b1 * b2)
-        assert sum(terms[i] for i in range(4) if mask >> i & 1) == A
-        assert sum(terms[i] for i in range(4) if not mask >> i & 1) == B
-        assert C * K == 4 * c1 * c2 * k1 * k2
-        assert parameter_value(A, B, C, K) == P
-        assert 2 <= p1 < P and 2 <= p2 < P
+    for P, target, source1, source2, mask in displayed_2310:
+        assert target in rows_by_target[P]
+        branch = assert_forward_branch(P, target, source1, source2, mask)
+        assert fixed_two_inverse(P, target) == branch
+        fixed_branches[P] = branch
 
-    # End-to-end chain for 577: sources 2 and 113 yield its target tuple.
+    # The 577 row also replays all three exact identities in (23.11).
     assert fixed_branches[577] == (
         (1, 77, 2, 2), (1, 1, 1, 1, 2, 2),
-        (1, 38, 1, 1, 39, 113), 1)
+        (1, 38, 1, 1, 39, 113), 0b0001)
     for p0, tuple0 in ((2, (1, 1, 1, 1)),
                        (113, (1, 38, 1, 1)),
                        (577, (1, 77, 2, 2))):
-        a0, b0, c0, k0 = tuple0
-        assert parameter_value(a0, b0, c0, k0) == p0
-        denominators = (a0 * b0 * c0,
-                        p0 * a0 * c0 * k0,
-                        p0 * b0 * c0 * k0)
-        assert sum(Fraction(1, d) for d in denominators) == Fraction(4, p0)
+        assert_valid_tuple(p0, tuple0)
 
-    # Certified reachability scan through 10^4.  A failed fixed-2 attempt is
-    # passed to the complete inverse enumerator; rows with no 4|CK are exact
-    # failures because all target rows have already been exhausted.
-    scan_primes = tuple(p for p in primerange(2, 10_001) if p % 24 == 1)
-    no_four_CK, no_inverse, fixed_two_count, extra_inverse = [], [], 0, []
-    for P in scan_primes:
-        rows = all_parameter_rows(P)
-        qualifying = [row for row in rows if row[2] * row[3] % 4 == 0]
-        fixed = next((branch for row in qualifying
-                      if (branch := fixed_two_inverse(P, row)) is not None), None)
-        if fixed is not None:
-            fixed_two_count += 1
-            continue
-        if not qualifying:
-            no_four_CK.append(P)
-            no_inverse.append(P)
-            continue
-        count, branch = inverse_branch_summary(P, rows, stop_at_first=True)
-        if count:
-            extra_inverse.append(P)
-        else:
-            no_inverse.append(P)
+    # Hard-coded replay of all four exceptional displayed branches (23.13).
+    displayed_2313 = (
+        (601, (2, 19, 4, 3), (5, (1, 2, 1, 1)),
+         (65, (1, 6, 3, 1)), 0b0100),
+        (5881, (2, 37, 20, 1), (5, (1, 2, 1, 1)),
+         (227, (1, 12, 5, 1)), 0b0100),
+        (9049, (1, 566, 4, 81), (59, (1, 20, 1, 1)),
+         (8397, (1, 26, 81, 1)), 0b0001),
+        (20641, (17, 76, 4, 3), (5, (1, 2, 1, 1)),
+         (2825, (14, 17, 3, 1)), 0b0010),
+    )
+    for branch_data in displayed_2313:
+        P, target, source1, source2, mask = branch_data
+        assert target in all_parameter_rows(P)
+        assert_forward_branch(P, target, source1, source2, mask)
+
+    # Lemma 23.8 needs odd output: at M=4, two source-2 tuples with the
+    # singleton split (1,3) read as (4,12,1,1), whose even value is 176.
+    assert_valid_tuple(2, (1, 1, 1, 1))
+    even_target = (4, 12, 1, 1)
+    assert 16 * 1 == 4 * even_target[0]
+    assert 16 * 3 == 4 * even_target[1]
+    assert_valid_tuple(176, even_target)
+    assert even_target[2] * even_target[3] == 1
+
+    # Lemma 23.9 regression: a non-product reading is genuinely active.
+    # Two source-5 tuples have tensor sums (3,6), H=16 and factors (47,95).
+    assert_valid_tuple(5, (1, 2, 1, 1))
+    source_terms = (1, 2, 2, 4)
+    tensor_mask = 0b0011
+    tensor_A = sum(source_terms[i] for i in range(4)
+                   if tensor_mask >> i & 1)
+    tensor_B = sum(source_terms[i] for i in range(4)
+                   if not tensor_mask >> i & 1)
+    assert (tensor_A, tensor_B) == (3, 6)
+    H = 16
+    factors = (H * tensor_A - 1, H * tensor_B - 1)
+    assert factors == (47, 95)
+    M = 24
+    assert H * gcd(tensor_A, tensor_B) % M == 0
+    arbitrary_target = (H * tensor_A // M, H * tensor_B // M, 1, 6)
+    assert arbitrary_target == (2, 4, 1, 6)
+    assert M == 4 * arbitrary_target[2] * arbitrary_target[3]
+    assert factors == (M * arbitrary_target[0] - 1,
+                       M * arbitrary_target[1] - 1)
+    assert_valid_tuple(31, arbitrary_target)
+    assert arbitrary_target[3] == arbitrary_target[0] + arbitrary_target[1]
+    assert arbitrary_target[2] * arbitrary_target[3] % 4 != 0
+    assert H * gcd(tensor_A, tensor_B) == M * gcd(*arbitrary_target[:2])
+    product_target = (tensor_A, tensor_B, 4, 1)
+    assert_valid_tuple(279, product_target)
+    assert factors == (16 * product_target[0] - 1,
+                       16 * product_target[1] - 1)
+
+    # Complete finite audit for Corollary 23.9.1.  The hard-coded row counts
+    # prevent a vacuous pass; all rows come from the exhaustive (23.8) loop.
     expected_failures = [73, 193, 241, 673, 1129, 1153, 2473,
                          2521, 3169, 3361, 5281]
-    assert len(scan_primes) == 143
-    assert fixed_two_count == 129
-    assert extra_inverse == [601, 5881, 9049]
-    assert no_four_CK == no_inverse == expected_failures
+    expected_resister_row_counts = (6, 4, 8, 10, 10, 16, 18, 6, 12, 4, 22)
+    for P, expected_count in zip(expected_failures,
+                                 expected_resister_row_counts):
+        rows = all_parameter_rows(P)
+        assert len(rows) == expected_count
+        for A, B, C, K in rows:
+            assert_valid_tuple(P, (A, B, C, K))
+            assert v2(C * K) <= 1
+            assert gcd(A, B) % 2 == 1
+            assert v2(4 * C * K) + v2(gcd(A, B)) <= 3
+
+    # Exact reachability scan.  A failed fixed-2 attempt is passed to the
+    # complete inverse enumerator; no-4|CK failures have exhausted all rows.
+    def reachability_scan(prime_stop):
+        scan_primes = tuple(p for p in primerange(2, prime_stop)
+                            if p % 24 == 1)
+        no_four_CK, no_inverse, extra_inverse = [], [], []
+        fixed_certificates = []
+        qualifying_count = inverse_count = 0
+        for P in scan_primes:
+            rows = all_parameter_rows(P)
+            qualifying = [row for row in rows
+                          if row[2] * row[3] % 4 == 0]
+            if qualifying:
+                qualifying_count += 1
+            fixed = next((branch for row in qualifying
+                          if (branch := fixed_two_inverse(P, row)) is not None),
+                         None)
+            if fixed is not None:
+                fixed_certificates.append((P, fixed))
+                inverse_count += 1
+                continue
+            if not qualifying:
+                no_four_CK.append(P)
+                no_inverse.append(P)
+                continue
+            count, branch = inverse_branch_summary(P, rows, stop_at_first=True)
+            if count:
+                extra_inverse.append(P)
+                inverse_count += 1
+            else:
+                no_inverse.append(P)
+        return {
+            "primes": scan_primes,
+            "qualifying_count": qualifying_count,
+            "inverse_count": inverse_count,
+            "fixed_certificates": fixed_certificates,
+            "extra_inverse": extra_inverse,
+            "no_four_CK": no_four_CK,
+            "no_inverse": no_inverse,
+        }
+
+    scan_10k = reachability_scan(10_001)
+    assert len(scan_10k["primes"]) == 143
+    assert scan_10k["qualifying_count"] == scan_10k["inverse_count"] == 132
+    assert len(scan_10k["fixed_certificates"]) == 129
+    assert scan_10k["extra_inverse"] == [601, 5881, 9049]
+    assert scan_10k["no_four_CK"] == scan_10k["no_inverse"] == expected_failures
+
+    full_scan_ran = os.environ.get("ES_FULL_SCAN") == "1"
+    if full_scan_ran:
+        scan_100k = reachability_scan(100_000)
+        assert len(scan_100k["primes"]) == 1181
+        assert scan_100k["qualifying_count"] == 1170
+        assert scan_100k["inverse_count"] == 1170
+        assert len(scan_100k["fixed_certificates"]) == 1166
+        assert scan_100k["extra_inverse"] == [601, 5881, 9049, 20641]
+        assert (scan_100k["no_four_CK"] == scan_100k["no_inverse"]
+                == expected_failures)
+
+        other_sources = [(P, branch[2][-1])
+                         for P, branch in scan_100k["fixed_certificates"]]
+        prime_sources = sum(bool(isprime(source))
+                            for P, source in other_sources)
+        hard_prime_sources = sum(bool(isprime(source)) and source % 24 == 1
+                                 for P, source in other_sources)
+        composite_sources = len(other_sources) - prime_sources
+        ratios = sorted(Fraction(source, P) for P, source in other_sources)
+        median_ratio = (ratios[len(ratios) // 2 - 1]
+                        + ratios[len(ratios) // 2]) / 2
+        max_ratio = max(ratios)
+        assert (prime_sources, hard_prime_sources, composite_sources) == (
+            139, 20, 1027)
+        assert round(float(median_ratio), 8) == 0.49098945
+        assert max_ratio == Fraction(73868, 73897)
+        print("ES_FULL_SCAN=1: P < 10^5 row = 1181/1170/1170/1166; "
+              "source stats = 139 prime, 20 hard-prime, 1027 composite, "
+              f"median {float(median_ratio):.8f}, max {max_ratio}")
+    else:
+        print("ES_FULL_SCAN=1 replays the P < 10^5 row and source statistics")
 
     print("flexible tensor validity exact; six targets 4|CK counts =",
           dict(zip(hard_targets, got_four_CK)))
     print("all six old blockers descend; ordered descending branch counts =",
-          dict(zip(hard_targets, got_branches)), "; 577 chain exact")
+          dict(zip(hard_targets, got_branches)), "; all displayed branches exact")
     print("hard primes <= 10^4: 143 total, 132 flexible-invertible "
           "(129 via source 2), 11 blocked by no tuple with 4|CK")
 
