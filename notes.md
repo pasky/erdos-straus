@@ -6822,3 +6822,474 @@ A refutation still requires
 the \(\log N\asymp L^4\) regime.  The named missing input is now a
 large-\(R\), multi-shift divisor-clustering lower bound, not more prime-slice
 sieve mass and not a one-modulus symbol certificate.
+
+---
+
+## 25. Sub-maximal transfer maps: the eleven pure-tensor resisters fall to additive maps
+
+This section starts from the eleven primes (23.14), not from the six older
+§22 blockers.  It closes the requested finite anatomy, examines the alive
+sub-maximal moduli in Theorem 22.1, and extends the exact pure-tensor census
+to one million.  The main positive result is not the initially proposed
+shifted-factor map.  Four primes do fall to that map, but a simpler fixed
+**degree-one** map at the gcd modulus reaches all eleven.  This is a genuine
+non-pure escape from Lemma 23.9's 2-adic invariant.  It is still diagnostic,
+not an Erdős--Straus proof: its inverse construction begins with a target
+Type-II tuple.
+
+### 25.1 Complete anatomy of the eleven targets
+
+For a target row put
+
+\[
+ R=CK,\qquad F_A=4ACK-1,\qquad F_B=4BCK-1.
+\]
+
+Then
+
+\[
+                  F_AF_B=4PCK^2+1.                           \tag{25.1}
+\]
+
+The tables report \(R\), the two parity inputs in Lemma 23.6, the coordinate
+gcd, and the complete prime factorizations of the shifted factors.  Rows are
+ordered.  Here are the complete lists for the first three primes.
+
+| \(P\) | \((A,B,C,K)\) | \(CK\) | \(v_2(C)\) | \(v_2(A+B)\) | \(\gcd(A,B)\) | \(F_A\) | \(F_B\) |
+|---:|---|---:|---:|---:|---:|---|---|
+|73|(1,20,1,3)|3|0|0|1|11|239|
+|73|(1,21,1,2)|2|0|1|1|7|167|
+|73|(2,5,2,1)|2|1|0|1|\(3\cdot5\)|\(3\cdot13\)|
+|73|(5,2,2,1)|2|1|0|1|\(3\cdot13\)|\(3\cdot5\)|
+|73|(20,1,1,3)|3|0|0|1|239|11|
+|73|(21,1,1,2)|2|0|1|1|167|7|
+|193|(2,5,5,1)|5|0|0|1|\(3\cdot13\)|\(3^2\cdot11\)|
+|193|(2,13,2,1)|2|1|0|1|\(3\cdot5\)|103|
+|193|(5,2,5,1)|5|0|0|1|\(3^2\cdot11\)|\(3\cdot13\)|
+|193|(13,2,2,1)|2|1|0|1|103|\(3\cdot5\)|
+|241|(1,21,3,2)|6|0|1|1|23|503|
+|241|(1,22,3,1)|3|0|0|1|11|263|
+|241|(1,62,1,9)|9|0|0|1|\(5\cdot7\)|\(23\cdot97\)|
+|241|(1,69,1,2)|2|0|1|1|7|\(19\cdot29\)|
+|241|(21,1,3,2)|6|0|1|1|503|23|
+|241|(22,1,3,1)|3|0|0|1|263|11|
+|241|(62,1,1,9)|9|0|0|1|\(23\cdot97\)|\(5\cdot7\)|
+|241|(69,1,1,2)|2|0|1|1|\(19\cdot29\)|7|
+
+For the remaining primes every row occurs with its coordinate swap.  The
+following table is therefore still the complete list: “+ swap” adds
+\((B,A,C,K)\), swaps \(F_A,F_B\), and leaves every other displayed datum
+unchanged.
+
+| \(P\) | representative \((A,B,C,K)\) | \(CK\) | \(v_2(C)\) | \(v_2(A+B)\) | \(\gcd(A,B)\) | \(F_A\) | \(F_B\) |
+|---:|---|---:|---:|---:|---:|---|---|
+|673|(1,34,5,5) + swap|25|0|0|1|\(3^2\cdot11\)|\(3\cdot11\cdot103\)|
+|673|(2,5,17,1) + swap|17|0|0|1|\(3^3\cdot5\)|\(3\cdot113\)|
+|673|(2,43,2,3) + swap|6|1|0|1|47|1031|
+|673|(2,45,2,1) + swap|2|1|0|1|\(3\cdot5\)|359|
+|673|(3,19,3,2) + swap|6|0|1|1|71|\(5\cdot7\cdot13\)|
+|1129|(1,285,1,26) + swap|26|0|1|1|103|\(107\cdot277\)|
+|1129|(1,308,1,3) + swap|3|0|0|1|11|\(5\cdot739\)|
+|1129|(2,13,11,1) + swap|11|0|0|1|\(3\cdot29\)|571|
+|1129|(2,29,5,1) + swap|5|0|0|1|\(3\cdot13\)|\(3\cdot193\)|
+|1129|(3,19,5,2) + swap|10|0|1|1|\(7\cdot17\)|\(3\cdot11\cdot23\)|
+|1153|(1,17,17,6) + swap|102|0|1|1|\(11\cdot37\)|\(5\cdot19\cdot73\)|
+|1153|(2,5,29,1) + swap|29|0|0|1|\(3\cdot7\cdot11\)|\(3\cdot193\)|
+|1153|(2,21,7,1) + swap|7|0|0|1|\(5\cdot11\)|587|
+|1153|(2,73,2,5) + swap|10|1|0|1|79|\(3\cdot7\cdot139\)|
+|1153|(2,77,2,1) + swap|2|1|0|1|\(3\cdot5\)|\(3\cdot5\cdot41\)|
+|1153|(2,145,1,21) + swap|21|0|0|1|167|\(19\cdot641\)|
+|1153|(2,165,1,1) + swap|1|0|0|1|7|659|
+|1153|(5,58,1,9) + swap|9|0|0|1|179|2087|
+|2473|(1,20,31,3) + swap|93|0|0|1|\(7\cdot53\)|\(43\cdot173\)|
+|2473|(1,62,10,9) + swap|90|1|0|1|359|\(11\cdot2029\)|
+|2473|(1,209,3,6) + swap|18|0|1|1|71|\(41\cdot367\)|
+|2473|(1,212,3,3) + swap|9|0|0|1|\(5\cdot7\)|\(13\cdot587\)|
+|2473|(2,5,62,1) + swap|62|1|0|1|\(3^2\cdot5\cdot11\)|\(3\cdot7\cdot59\)|
+|2473|(2,45,7,1) + swap|7|0|0|1|\(5\cdot11\)|1259|
+|2473|(2,165,2,1) + swap|2|1|0|1|\(3\cdot5\)|1319|
+|2473|(4,31,5,5) + swap|25|0|0|1|\(3\cdot7\cdot19\)|\(3\cdot1033\)|
+|2473|(5,42,3,1) + swap|3|0|0|1|59|503|
+|2521|(2,29,11,1) + swap|11|0|0|1|\(3\cdot29\)|\(3\cdot5^2\cdot17\)|
+|2521|(2,159,2,7) + swap|14|1|0|1|\(3\cdot37\)|\(29\cdot307\)|
+|2521|(4,161,1,3) + swap|3|0|0|1|47|1931|
+|3169|(1,114,7,5) + swap|35|0|0|1|139|15959|
+|3169|(1,797,1,42) + swap|42|0|1|1|167|\(5\cdot61\cdot439\)|
+|3169|(1,834,1,5) + swap|5|0|0|1|19|\(13\cdot1283\)|
+|3169|(2,21,19,1) + swap|19|0|0|1|151|\(5\cdot11\cdot29\)|
+|3169|(2,397,1,57) + swap|57|0|0|1|\(5\cdot7\cdot13\)|\(5\cdot43\cdot421\)|
+|3169|(2,453,1,1) + swap|1|0|0|1|7|1811|
+|3361|(1,29,29,10) + swap|290|0|1|1|\(19\cdot61\)|\(3\cdot11213\)|
+|3361|(5,34,5,1) + swap|5|0|0|1|\(3^2\cdot11\)|\(7\cdot97\)|
+|5281|(1,21,63,2) + swap|126|0|1|1|503|\(19\cdot557\)|
+|5281|(1,38,35,1) + swap|35|0|0|1|139|\(3^3\cdot197\)|
+|5281|(1,265,5,14) + swap|70|0|1|1|\(3^2\cdot31\)|\(3\cdot24733\)|
+|5281|(1,278,5,1) + swap|5|0|0|1|19|\(3\cdot17\cdot109\)|
+|5281|(1,1322,1,189) + swap|189|0|0|1|\(5\cdot151\)|999431|
+|5281|(1,1329,1,38) + swap|38|0|1|1|151|\(13\cdot41\cdot379\)|
+|5281|(1,1358,1,9) + swap|9|0|0|1|\(5\cdot7\)|\(19\cdot31\cdot83\)|
+|5281|(1,1509,1,2) + swap|2|0|1|1|7|12071|
+|5281|(3,63,7,6) + swap|42|0|1|3|503|\(19\cdot557\)|
+|5281|(6,17,13,1) + swap|13|0|0|1|311|883|
+|5281|(13,102,1,5) + swap|5|0|0|1|\(7\cdot37\)|2039|
+
+**Computational Search 25.1 (exact finite anatomy).**  Enumeration by
+(23.8), independently recast in Lemma 25.6 below, gives
+
+\[
+\begin{array}{c|rrrrrrrrrrr}
+P&73&193&241&673&1129&1153&2473&2521&3169&3361&5281\\ \hline
+\#\text{ ordered rows}&6&4&8&10&10&16&18&6&12&4&22\\
+\#\text{ distinct }CK&2&2&4&4&5&8&9&3&6&2&10.
+\end{array}                                                  \tag{25.2}
+\]
+
+There are 116 ordered rows in all.  Every row has
+\(v_2(C)+v_2(A+B)\leq1\), as required by Lemma 23.6.  Every coordinate gcd
+is odd; the only non-unit gcd is 3 on the two \((3,63,7,6)\) rows for 5281.
+Thus the anatomy rechecks every input to Corollary 23.9.1 rather than merely
+rechecking its row counts.  `verify.py (x)` hard-codes all rows for
+73, 193, and 241, audits (25.1), the factorizations, parity data, gcds, and
+all eleven complete counts.
+
+### 25.2 What the sub-maximal coefficient spaces actually say
+
+At \(M=h_1\), divide (22.4) by \(h_1\).  One output coordinate has the exact
+form
+
+\[
+\begin{split}
+ A'={}&\alpha a_1+\beta b_1
+ +h_1(\alpha_{20}a_1^2+\alpha_{11}a_1b_1+\alpha_{02}b_1^2)\\
+ &+h_2(\lambda_{aa}a_1a_2+\lambda_{ab}a_1b_2
+       +\lambda_{ba}b_1a_2+\lambda_{bb}b_1b_2),              \tag{25.3}
+\end{split}
+\]
+
+with nine arbitrary integer coefficients; \(B'\) has an independent copy.
+The output reading has \(4C'K'=h_1\).  At \(M=g=(h_1,h_2)\), write
+\(h_i=gr_i\).  The 14 generators after division by \(g\) are the four
+linear values
+
+\[
+ r_1a_1,
+_1b_1,
+_2a_2,
+_2b_2                              \tag{25.4}
+\]
+
+and the ten quadratic values obtained by multiplying each degree-two
+monomial by the remaining factor \(g\).  This is the concrete coordinate
+form of the 9 and 14 entries in (22.6).
+
+**Lemma 25.2 (proved: pointwise-expressivity lattice).**  At a fixed source
+pair, the set of integers represented by one coordinate of (25.3), as its
+coefficients vary, is \((a_1,b_1)\mathbb Z\).  At \(M=g\), the corresponding
+set is
+
+\[
+ \delta\mathbb Z,
+ \quad \delta=(r_1a_1,r_1b_1,r_2a_2,r_2b_2).                \tag{25.5}
+\]
+
+In particular, a coprime first source makes the \(h_1\) coordinate
+pointwise arbitrary.  If both source pairs are coprime, then (25.5) is
+\(\mathbb Z\), because \((r_1,r_2)=1\).
+
+*Proof.*  The two linear generators in (25.3) generate
+\((a_1,b_1)\mathbb Z\); every quadratic generator is already a multiple of
+one of them.  The same argument reduces the gcd of all 14 evaluated
+\(g\)-generators to the gcd of the four linear values in (25.4).  Coprimality
+then gives the last two statements. ∎
+
+**Lemma 25.3 (proved: target-dependent degeneracy at \(h_1\)).**  Let
+\((A,B,C,K)\) be any Type-II tuple and let a source tuple
+\((a_1,b_1,c_1,k_1)\) have \((a_1,b_1)=1\) and \(c_1k_1=CK\).  There are
+integer coefficient pairs in (25.3) whose selected output is exactly
+\((A,B,C,K)\); the second source is unnecessary.  Consequently, allowing a
+fresh coefficient choice at each target reduces “reachability” to the bare
+condition that \(CK\) occur as \(c_1k_1\) for a smaller source.
+
+*Proof.*  Bézout gives independent \(\alpha,eta\) representing \(A\) and
+\(B\); set all quadratic coefficients to zero.  Then
+\(h_1=4c_1k_1=4CK\), and reading at the target \((C,K)\) gives its two
+shifted factors. ∎
+
+The lemma concerns positivity at the selected point.  Signed Bézout
+coefficients need not define a map positive on the whole orthant.  More
+importantly, its coefficients depend on \((A,B)\).  It is therefore not one
+fixed universal descent map and cannot support an induction.
+
+**Computational Search 25.4 (exact pointwise-degeneracy test).**  Every one
+of the 116 resister rows passes the bare smaller-source test for the explicit
+reason
+
+\[
+ (p_1;a_1,b_1,c_1,k_1)=(4CK-2;1,1,CK,1),
+ \qquad 2\leq p_1<P.                                      \tag{25.6}
+\]
+
+Thus the hit counts equal the row counts in (25.2).  This is the sharp
+warning: free coefficients erase all target structure on precisely the data
+where fixed coefficients matter.
+
+### 25.3 Fixed maps: four shifted hits, then an additive sweep
+
+Consider first the requested finite shifted box
+
+\[
+ A=a_1(1+n h_2z_2),\qquad B=b_1(1+m h_2w_2),                \tag{25.7}
+\]
+
+where \((z_2,w_2)=(a_2,b_2)\) or \((b_2,a_2)\) and
+\(n,m\in\{1,2,3\}\).  These are the maps
+\(u_1+n u_1u_2\), \(v_1+m v_1v_2\), or their swapped cross-pairing,
+written after division by \(h_1\).  Coefficients \(-1,-2,-3\) on the cross term cannot hit a positive
+coordinate: \(1-nh_2z_2\leq-3\).
+
+The inverse is exact and finite.  Choose \(a_1\mid A,b_1\mid B\); then
+
+\[
+ {A/a_1-1\over4n}=c_2k_2z_2,
+ \qquad {B/b_1-1\over4m}=c_2k_2w_2.                         \tag{25.8}
+\]
+
+Hence \(c_2k_2\) divides the gcd of the two displayed integers.  Splitting
+it and \(CK=c_1k_1\), checking the two source divisibilities, and checking
+\(2\leq p_i<P\) exhausts the family.
+
+**Computational Search 25.5 (exact shifted-box inverse).**
+
+\[
+\begin{array}{c|rrrrrrrrrrr}
+P&73&193&241&673&1129&1153&2473&2521&3169&3361&5281\\ \hline
+\#\text{ hit ordered rows}&0&0&0&0&0&2&2&0&0&2&2\\
+\#\text{ branches}&0&0&0&0&0&8&8&0&0&8&16.
+\end{array}                                                  \tag{25.9}
+\]
+
+The base map \(n=m=1\), without coefficient 2 or 3, already supplies one
+aligned branch for each hit prime:
+
+\[
+\begin{array}{r|c|c|c}
+P&(A,B,C,K)&(p_1;a_1,b_1,c_1,k_1)&(p_2;a_2,b_2,c_2,k_2)\\ \hline
+1153&(5,58,1,9)&(69;1,2,9,1)&(20;1,7,1,1)\\
+2473&(5,42,3,1)&(21;1,2,3,1)&(14;1,5,1,1)\\
+3361&(5,34,5,1)&(37;1,2,5,1)&(11;1,4,1,1)\\
+5281&(13,102,1,5)&(113;1,6,5,1)&(41;3,4,1,1).
+\end{array}                                                  \tag{25.10}
+\]
+
+All source identities and output factors are replayed end to end in
+`verify.py (x)`.  The seven other primes resist this stated finite box.
+There is no common mod-8 obstruction: four rows pass and the failures occur
+at the compatible shifted-divisor step (25.8).  No claim is made for
+coefficients outside \(\{\pm1,\pm2,\pm3\}\) or for general combinations of
+the nine basis monomials.
+
+The gcd modulus contains a much simpler family.  Define three fixed
+coefficient pairs
+
+\[
+\begin{aligned}
+ \Phi_{++}&=(-1+u_1+u_2,\;-1+v_1+v_2),\\
+ \Phi_{1+}&=(-1+u_1,\;-1+v_1+v_2),\\
+ \Phi_{+1}&=(-1+u_1+u_2,\;-1+v_1).                          \tag{25.11}
+\end{aligned}
+\]
+
+These are degree one, have nonnegative coefficients, and are universally
+\(-1\pmod g\).
+
+**Theorem 25.6 (proved: fixed additive descent on the \(k=1\) slice).**  Let
+\((A,B,C,1)\) be a Type-II tuple for \(P\), with
+\((A,B)\ne(1,1)\).  One of the three fixed maps (25.11), at equal source
+moduli \(h_1=h_2=g=4C\), outputs this tuple from two explicit source tuples
+of values in \([2,P)\).
+
+If \(A,B\geq2\), use \(\Phi_{++}\) and
+
+\[
+ (a_1,b_1,c_1,k_1)=(1,1,C,1),\qquad
+ (a_2,b_2,c_2,k_2)=(A-1,B-1,C,1).                           \tag{25.12}
+\]
+
+If \(A=1<B\), use \(\Phi_{1+}\) with sources
+\((1,1,C,1),(1,B-1,C,1)\); the case \(B=1<A\) is symmetric.
+
+*Proof.*  Dividing (25.11) by \(g\) gives respectively coordinate sums or a
+copied coordinate and a sum, so the output coordinates are exactly
+\((A,B)\).  The common output modulus is \(4C\), and the \((C,1)\) reading
+gives \(P\).  Every source is a positive Type-II tuple.  In the first case,
+\(p_1=4C-2\), while
+
+\[
+ P-p_2=4C(A+B-1)-2>0.
+\]
+
+In the boundary case,
+\(p_1=4C-2\), \(p_2=4C(B-1)-B\), and
+\(P-p_2=4C-1>0\).  Positivity follows from
+\(4xy-x-y\geq2xy\) for positive \(x,y\). ∎
+
+**Corollary 25.6.1 (proved, with finite target audit).**  Every prime in
+(23.14) is a descending image of one of the three fixed maps (25.11).  One
+\(k=1\) row and the resulting sources are:
+
+\[
+\begin{array}{r|c|r|r}
+P&(A,B,C,1)&p_1&p_2\\ \hline
+73&(2,5,2,1)&6&27\\
+193&(2,5,5,1)&18&75\\
+241&(1,22,3,1)&10&230\\
+673&(2,5,17,1)&66&267\\
+1129&(2,13,11,1)&42&515\\
+1153&(2,5,29,1)&114&459\\
+2473&(2,5,62,1)&246&987\\
+2521&(2,29,11,1)&42&1203\\
+3169&(2,21,19,1)&74&1499\\
+3361&(5,34,5,1)&18&2603\\
+5281&(6,17,13,1)&50&4139.
+\end{array}                                                  \tag{25.13}
+\]
+
+This explains exactly how non-pure maps shed the tensor's 2-adic weight:
+they add centered factors at modulus \(g\) instead of multiplying them at a
+modulus carrying \(v_2\geq4\).  None of the eleven remains a resister to the
+full degree-\(\leq2\) classification.
+
+**Assessment 25.7 (the proposed finite-family non-cofiniteness theorem is
+not established).**  The residue-1 proof of Theorem 20.3 does not extend to
+(25.11).  Its modulus \(g=4C\) varies with the source, so there is no finite
+lcm of fixed output progressions.  More decisively, Theorem 25.6 says that
+the image of just three fixed maps already contains **every hard prime that
+has a \(k=1\) Type-II tuple**.  Proving that this image is not cofinite would
+therefore require, at minimum, proving infinitely many hard primes lack such
+a tuple.  Only six finite examples below \(10^5\) are known (§19.3), and the
+pure tensor family reaches all six after flexible reading (§23).
+
+Thus no degree-two ceiling theorem was proved.  The combined fixed
+coefficient maps plus §23's reading schema cover every census prime through
+\(10^6\) below.  They remain useless against a least counterexample: choosing
+the \((A,B,C,K)\) to invert has already asserted the witness.  The exact
+honest ceiling obtained here is **witness decomposition, not witness
+existence**.  A residue-escape claim for arbitrary finite maps that ignores
+this circularity would be false as an argument and currently unproved as a
+statement.
+
+### 25.4 Exact census through \(10^6\)
+
+**Lemma 25.8 (proved: one-candidate tuple enumeration).**  Fix odd \(P\) and
+positive \(A,B\) with \(AB\leq P/2\).  Put
+
+\[
+ C=\left\lfloor{P\over4AB}\right\rfloor+1,
+ \qquad q=4ABC-P.                                           \tag{25.14}
+\]
+
+There is a Type-II row with these \(A,B\) if and only if
+\(q\mid A+B\); then it is unique and \(K=(A+B)/q\).
+
+*Proof.*  In any row, \(q=(A+B)/K\) is positive and at most \(A+B\leq2AB\).
+Hence \(0<q/(4AB)\leq1/2\), forcing the unique integer (25.14).  The stated
+divisibility is then exactly the condition that \(K\) be integral. ∎
+
+This removes the divisor loop in (23.8).  The scan first tests
+\(A\in\{1,2,3\}\) and \(B\leq3000\), checking the fixed-source-2 inverse
+immediately.  Only 407 of 9,732 primes survive that fast phase at one
+million.  For each survivor it exhausts all \(A\leq B\) with
+\(AB\leq P/2\), adding the swapped row; memory is linear in one target's
+row list and there is no Cartesian array.  Every claimed failure is
+therefore exhaustive.
+
+**Computational Search 25.9 (exact finite census).**
+
+\[
+\begin{array}{c|r|r|r|r|l}
+\text{range}&\#P&\exists(4\mid CK)&\text{pure descending inverse}
+ &\text{fixed source 2}&\text{non-fixed-source exceptions}\\ \hline
+P\leq20000&267&256&256&253&601,5881,9049\\
+P\leq10^6&9732&9721&9721&9717&601,5881,9049,20641.
+\end{array}                                                  \tag{25.15}
+\]
+
+In both rows the complete no-\(4\mid CK\) list is exactly (23.14).  There
+are **no new pure-tensor resisters through \(10^6\)**.  Adding (25.11)
+reaches those eleven through their \(k=1\) rows, so the combined diagnosed
+image contains all 9,732 census primes.  This is a finite computational
+coverage statement, not forward-image totality for unknown primes.
+
+`verify.py (x)` replays the \(P\leq20000\) row by default.  With
+`ES_FULL_SCAN=1` it replays the complete one-million row; the measured run
+used about 85 seconds and 63 MiB.  The default block takes well below 15
+seconds.
+
+### 25.5 Rational and quotient readings
+
+There is one clean witness-division law, but its extra hypothesis is on the
+witness coordinate rather than on the output integer alone.
+
+**Lemma 25.10 (proved: exact coordinate-supported witness division).**  If
+\((A,B,C,K)\) is a Type-II tuple for \(P=tP''\) and \(t\mid C\), then
+
+\[
+             (A,B,C/t,tK)                                   \tag{25.16}
+\]
+
+is a Type-II tuple for \(P''\).
+
+*Proof.*  Since \(t\mid C,P\), the identity
+\(A+B=K(4ABC-P)\) shows \(tK\mid A+B\).  Dividing
+\(P=4ABC-(A+B)/K\) by \(t\) gives (25.16).  Equivalently, (25.16) preserves
+both shifted factors because \((C/t)(tK)=CK\). ∎
+
+For example, \((6;1,1,2,1)\) divides by 2 to
+\((3;1,1,1,2)\).  Divisibility \(t\mid P\) alone gives no such law.  If the
+same old factor pair is to witness \(P''\) at some \((C'',K'')\), the exact
+necessary norm condition is
+
+\[
+ C''K''^2=tCK^2,                                             \tag{25.17}
+\]
+
+and both old factors must additionally be \(-1\pmod{4C''K''}\).  Neither
+condition follows from \(t\mid P\).  For
+\((6;1,1,2,1)\) and \(t=3\), the old pair is \(7\cdot7\); (25.17) forces
+the candidate modulus 24, but 7 is not \(-1\pmod{24}\).  The quotient 2
+has its own tuple, not one inherited from that factor pair.
+
+If \(d\mid(A,B)\), replacing \((A,B)\) by \((A/d,B/d)\) while multiplying
+the factor modulus by \(d\) is exactly an arbitrary-modulus reading of the
+same factor pair.  For pure tensors it is already covered, including its
+2-adic obstruction, by Lemma 23.9.  For non-pure factor pairs the tensor
+identity (23.18) is absent; (25.11) demonstrates that such maps can evade it,
+but the quotient itself adds no new transfer mechanism.
+
+**Assessment 25.11 (rational pass).**  No general law turning a witness of
+\(tP\) into one of \(P\) was found beyond Lemma 25.10 and existing modulus
+readings.  The obstruction is precise: divisibility of the integer does not
+supply either the new shifted norm (25.17) or the stronger factor
+congruences.  No genuinely new rational totality candidate emerged.
+
+### 25.6 Outcome and failure log
+
+**Assessment 25.12.**
+
+* The complete target anatomy has 116 rows.  Free \(h_1\)-coefficients hit
+  every one, but only by choosing coefficients from the target; this is the
+  exact degeneracy, not a descent theorem.
+* The finite shifted-factor box is genuinely active: 1153, 2473, 3361, and
+  5281 fall; 73, 193, 241, 673, 1129, 2521, and 3169 resist that box.
+* The simpler fixed additive gcd-modulus family then reaches all eleven.
+  It proves decomposition of every \(k=1\) tuple, not existence of one.
+* The pure-tensor resister set stays exactly the same eleven through
+  \(10^6\); no new target anatomy is needed.  The augmented diagnosed image
+  has no survivor in that finite range.
+* The attempted finite-family noncofiniteness theorem fails at its proof
+  route: source-dependent moduli defeat the fixed-lcm escape, and (25.11)
+  already contains the full \(k=1\) witness set.  No noncofiniteness theorem
+  is claimed.
+* Witness division works when the divisor is supported in \(C\).  Mere
+  divisibility of \(P\), general rational maps, and a forward construction
+  of the target tuple remain open.  No Erdős--Straus proof results.

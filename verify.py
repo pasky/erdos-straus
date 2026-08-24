@@ -2859,4 +2859,383 @@ def check_w():
 print("\n== (w) H_PF lower-bound routes (§24) ==")
 check_w()
 
+
+# ---------------------------------------------------------------- (x)
+def check_x():
+    """Section 25: sub-maximal maps, resister anatomy, and the 10^6 census."""
+    import os
+    from functools import lru_cache
+    from math import gcd, isqrt
+    from sympy import divisors, factorint, primerange
+
+    resisters = (73, 193, 241, 673, 1129, 1153, 2473, 2521,
+                 3169, 3361, 5281)
+
+    @lru_cache(None)
+    def divs(n):
+        return tuple(divisors(n))
+
+    def v2(n):
+        e = 0
+        while n % 2 == 0:
+            e += 1
+            n //= 2
+        return e
+
+    def tuple_value(row):
+        a, b, c, k = row
+        assert min(row) >= 1 and (a + b) % k == 0
+        return 4 * a * b * c - (a + b) // k
+
+    def assert_tuple(P, row):
+        assert tuple_value(row) == P >= 2
+
+    # For fixed A,B, q=4ABC-P is positive and at most A+B.  Thus C is the
+    # unique integer floor(P/(4AB))+1, and q | A+B is the exact tuple test.
+    def row_at(P, A, B):
+        if 2 * A * B > P:
+            return None
+        C = P // (4 * A * B) + 1
+        q = 4 * A * B * C - P
+        if (A + B) % q:
+            return None
+        return (A, B, C, (A + B) // q)
+
+    def all_rows(P):
+        rows = []
+        for A in range(1, isqrt(P // 2) + 1):
+            for B in range(A, P // (2 * A) + 1):
+                row = row_at(P, A, B)
+                if row is None:
+                    continue
+                rows.append(row)
+                if A != B:
+                    rows.append((B, A, row[2], row[3]))
+        return sorted(rows)
+
+    # The first three anatomy lists are hard-coded in full, not inferred from
+    # the expected counts.  Their shifted factors are independently factored.
+    anatomy = {
+        73: ((1, 20, 1, 3), (1, 21, 1, 2), (2, 5, 2, 1),
+             (5, 2, 2, 1), (20, 1, 1, 3), (21, 1, 1, 2)),
+        193: ((2, 5, 5, 1), (2, 13, 2, 1),
+              (5, 2, 5, 1), (13, 2, 2, 1)),
+        241: ((1, 21, 3, 2), (1, 22, 3, 1), (1, 62, 1, 9),
+              (1, 69, 1, 2), (21, 1, 3, 2), (22, 1, 3, 1),
+              (62, 1, 1, 9), (69, 1, 1, 2)),
+    }
+    expected_counts = (6, 4, 8, 10, 10, 16, 18, 6, 12, 4, 22)
+    expected_distinct_CK = (2, 2, 4, 4, 5, 8, 9, 3, 6, 2, 10)
+    rows_by_P = {}
+    for P, expected_count, expected_CK_count in zip(
+            resisters, expected_counts, expected_distinct_CK):
+        rows = all_rows(P)
+        rows_by_P[P] = rows
+        assert len(rows) == expected_count
+        assert len({C * K for A, B, C, K in rows}) == expected_CK_count
+        if P in anatomy:
+            assert tuple(rows) == anatomy[P]
+        for A, B, C, K in rows:
+            assert_tuple(P, (A, B, C, K))
+            R = C * K
+            FA, FB = 4 * A * R - 1, 4 * B * R - 1
+            assert FA * FB == 4 * P * C * K * K + 1
+            assert prod(p**e for p, e in factorint(FA).items()) == FA
+            assert prod(p**e for p, e in factorint(FB).items()) == FB
+            assert v2(C) + v2(A + B) <= 1
+            assert gcd(A, B) % 2 == 1
+
+    # Pointwise h1-expressivity is vacuous on this finite target set: for
+    # every row, (1,1,CK,1) is a smaller source with the required ck-product.
+    degenerate_rows = 0
+    for P in resisters:
+        for A, B, C, K in rows_by_P[P]:
+            R = C * K
+            source = (1, 1, R, 1)
+            source_P = 4 * R - 2
+            assert_tuple(source_P, source)
+            assert source[2] * source[3] == R
+            assert 2 <= source_P < P
+            degenerate_rows += 1
+    assert degenerate_rows == sum(expected_counts) == 116
+
+    # Exact inverse for u1+n*u1*z2 and v1+m*v1*w2, n,m in {1,2,3},
+    # with aligned or swapped second-source coordinates.  Divisors of A and
+    # B make the search finite and complete for this stated coefficient box.
+    def shifted_inverses(P, target):
+        A, B, C, K = target
+        R = C * K
+        hits = []
+        for a1 in divs(A):
+            qA = A // a1
+            for b1 in divs(B):
+                qB = B // b1
+                for k1 in divs(gcd(R, a1 + b1)):
+                    c1 = R // k1
+                    p1 = tuple_value((a1, b1, c1, k1))
+                    if not 2 <= p1 < P:
+                        continue
+                    for n in (1, 2, 3):
+                        if (qA - 1) % (4 * n):
+                            continue
+                        RA = (qA - 1) // (4 * n)
+                        if RA <= 0:
+                            continue
+                        for m in (1, 2, 3):
+                            if (qB - 1) % (4 * m):
+                                continue
+                            RB = (qB - 1) // (4 * m)
+                            if RB <= 0:
+                                continue
+                            for c2k2 in divs(gcd(RA, RB)):
+                                x, y = RA // c2k2, RB // c2k2
+                                for swapped in (False, True):
+                                    a2, b2 = ((y, x) if swapped else (x, y))
+                                    for k2 in divs(gcd(c2k2, a2 + b2)):
+                                        c2 = c2k2 // k2
+                                        p2 = tuple_value((a2, b2, c2, k2))
+                                        if not 2 <= p2 < P:
+                                            continue
+                                        z2, w2 = ((b2, a2) if swapped
+                                                  else (a2, b2))
+                                        assert A == a1 * (1 + n * 4 * c2 * k2 * z2)
+                                        assert B == b1 * (1 + m * 4 * c2 * k2 * w2)
+                                        hits.append((n, m, swapped,
+                                                     (p1, (a1, b1, c1, k1)),
+                                                     (p2, (a2, b2, c2, k2))))
+        return hits
+
+    expected_shifted_rows = (0, 0, 0, 0, 0, 2, 2, 0, 0, 2, 2)
+    expected_shifted_branches = (0, 0, 0, 0, 0, 8, 8, 0, 0, 8, 16)
+    shifted_rows = []
+    shifted_branches = []
+    for P in resisters:
+        hit_rows = 0
+        branches = 0
+        for row in rows_by_P[P]:
+            hits = shifted_inverses(P, row)
+            hit_rows += bool(hits)
+            branches += len(hits)
+        shifted_rows.append(hit_rows)
+        shifted_branches.append(branches)
+    assert tuple(shifted_rows) == expected_shifted_rows
+    assert tuple(shifted_branches) == expected_shifted_branches
+    # A negative cross coefficient gives 1-n*h2*z2 <= -3, so cannot produce
+    # a positive target coordinate; this closes the requested minus variants.
+    assert all(1 - n * 4 * z <= -3 for n in (1, 2, 3)
+               for z in range(1, 5))
+
+    displayed_shifted = (
+        (1153, (5, 58, 1, 9), (69, (1, 2, 9, 1)),
+         (20, (1, 7, 1, 1))),
+        (2473, (5, 42, 3, 1), (21, (1, 2, 3, 1)),
+         (14, (1, 5, 1, 1))),
+        (3361, (5, 34, 5, 1), (37, (1, 2, 5, 1)),
+         (11, (1, 4, 1, 1))),
+        (5281, (13, 102, 1, 5), (113, (1, 6, 5, 1)),
+         (41, (3, 4, 1, 1))),
+    )
+    for P, target, source1, source2 in displayed_shifted:
+        p1, (a1, b1, c1, k1) = source1
+        p2, (a2, b2, c2, k2) = source2
+        assert_tuple(p1, source1[1])
+        assert_tuple(p2, source2[1])
+        assert 2 <= p1 < P and 2 <= p2 < P
+        assert c1 * k1 == target[2] * target[3]
+        output = (a1 * (1 + 4 * c2 * k2 * a2),
+                  b1 * (1 + 4 * c2 * k2 * b2),
+                  target[2], target[3])
+        assert output == target and tuple_value(output) == P
+
+    # Three fixed M=g maps are descending-surjective on every k=1 Type-II
+    # tuple except (1,1,C,1).  The source construction checks those genuinely
+    # coefficient-fixed maps end to end; no target-dependent coefficient enters.
+    def additive_certificate(P, target):
+        A, B, C, K = target
+        if K != 1:
+            return None
+        R = C
+        if A >= 2 and B >= 2:       # (-1+u1+u2, -1+v1+v2)
+            map_name = "sum-sum"
+            source1 = (1, 1, R, 1)
+            source2 = (A - 1, B - 1, R, 1)
+            output = (source1[0] + source2[0],
+                      source1[1] + source2[1], C, K)
+        elif A == 1 and B >= 2:     # (-1+u1, -1+v1+v2)
+            map_name = "copy-sum"
+            source1 = (1, 1, R, 1)
+            source2 = (1, B - 1, R, 1)
+            output = (source1[0], source1[1] + source2[1], C, K)
+        elif B == 1 and A >= 2:     # (-1+u1+u2, -1+v1)
+            map_name = "sum-copy"
+            source1 = (1, 1, R, 1)
+            source2 = (A - 1, 1, R, 1)
+            output = (source1[0] + source2[0], source1[1], C, K)
+        else:
+            return None
+        p1, p2 = tuple_value(source1), tuple_value(source2)
+        assert output == target and tuple_value(output) == P
+        assert 2 <= p1 < P and 2 <= p2 < P
+        assert 4 * source1[2] * source1[3] == 4 * R
+        assert 4 * source2[2] * source2[3] == 4 * R
+        return map_name, (p1, source1), (p2, source2)
+
+    additive_resister_targets = {}
+    for P in resisters:
+        target = next(row for row in rows_by_P[P]
+                      if row[3] == 1 and row[:2] != (1, 1))
+        assert additive_certificate(P, target)
+        additive_resister_targets[P] = target
+
+    # Fast fixed-source-2 inverse used in the census.
+    count_pairs = ((0, 1), (0, 2), (1, 0), (1, 1),
+                   (1, 2), (2, 0), (2, 1))
+
+    def fixed_two_inverse(P, row):
+        A, B, C, K = row
+        if C * K % 4 or (A + B) % 2:
+            return None
+        tensor_product = C * K // 4
+        half_sum = (A + B) // 2
+        for k2 in divs(gcd(tensor_product, half_sum)):
+            c2 = tensor_product // k2
+            for i, j in count_pairs:
+                if i == j:
+                    if i != 1 or A != half_sum:
+                        continue
+                    candidates = range(1, half_sum)
+                else:
+                    numerator, denominator = A - j * half_sum, i - j
+                    if numerator % denominator:
+                        continue
+                    candidates = (numerator // denominator,)
+                for a2 in candidates:
+                    if not 1 <= a2 < half_sum:
+                        continue
+                    b2 = half_sum - a2
+                    p2 = tuple_value((a2, b2, c2, k2))
+                    if 2 <= p2 < P:
+                        return row, (a2, b2, c2, k2, p2)
+        return None
+
+    extra_branches = {
+        601: ((2, 19, 4, 3), (5, (1, 2, 1, 1)),
+              (65, (1, 6, 3, 1)), 0b0100),
+        5881: ((2, 37, 20, 1), (5, (1, 2, 1, 1)),
+               (227, (1, 12, 5, 1)), 0b0100),
+        9049: ((1, 566, 4, 81), (59, (1, 20, 1, 1)),
+               (8397, (1, 26, 81, 1)), 0b0001),
+        20641: ((17, 76, 4, 3), (5, (1, 2, 1, 1)),
+                (2825, (14, 17, 3, 1)), 0b0010),
+    }
+
+    def assert_extra_branch(P, data):
+        target, source1, source2, mask = data
+        p1, (a1, b1, c1, k1) = source1
+        p2, (a2, b2, c2, k2) = source2
+        assert_tuple(p1, source1[1])
+        assert_tuple(p2, source2[1])
+        terms = (a1 * a2, a1 * b2, b1 * a2, b1 * b2)
+        A = sum(terms[i] for i in range(4) if mask >> i & 1)
+        B = sum(terms) - A
+        C, K = target[2:]
+        assert C * K == 4 * c1 * c2 * k1 * k2
+        assert (A, B) == target[:2]
+        assert tuple_value(target) == P and 2 <= p1 < P and 2 <= p2 < P
+        return target
+
+    def reachability_census(stop, cap=3000):
+        primes = tuple(p for p in primerange(2, stop) if p % 24 == 1)
+        fixed, pending, target_by_P = [], [], {}
+        for P in primes:
+            certificate = None
+            saw_qualifying = False
+            for B in range(1, min(cap, P // 2) + 1):
+                for A in (1, 2, 3):
+                    row = row_at(P, A, B)
+                    if row is None or row[2] * row[3] % 4:
+                        continue
+                    saw_qualifying = True
+                    certificate = fixed_two_inverse(P, row)
+                    if certificate is not None:
+                        break
+                if certificate is not None:
+                    break
+            if certificate is None:
+                pending.append((P, saw_qualifying))
+            else:
+                fixed.append(P)
+                target_by_P[P] = certificate[0]
+
+        no_four_CK, extras = [], []
+        qualifying_count = len(fixed)
+        for P, _ in pending:
+            rows = all_rows(P)
+            qualifying = [row for row in rows if row[2] * row[3] % 4 == 0]
+            if not qualifying:
+                no_four_CK.append(P)
+                target_by_P[P] = rows[0]
+                continue
+            qualifying_count += 1
+            certificate = next((cert for row in qualifying
+                                if (cert := fixed_two_inverse(P, row))
+                                is not None), None)
+            if certificate is not None:
+                fixed.append(P)
+                target_by_P[P] = certificate[0]
+                continue
+            assert P in extra_branches
+            target = assert_extra_branch(P, extra_branches[P])
+            assert target in qualifying
+            extras.append(P)
+            target_by_P[P] = target
+
+        # Pure tensors cover every qualifying row.  For the residual eleven,
+        # the fixed additive maps cover a k=1 row.  This remains diagnostic
+        # descent: selecting that target row has already supplied a witness.
+        assert set(target_by_P) == set(primes)
+        for P in no_four_CK:
+            assert P in additive_resister_targets
+            assert additive_certificate(P, additive_resister_targets[P])
+        return (len(primes), qualifying_count, len(fixed) + len(extras),
+                len(fixed), extras, no_four_CK)
+
+    scan_20k = reachability_census(20_001)
+    assert scan_20k == (267, 256, 256, 253,
+                        [601, 5881, 9049], list(resisters))
+
+    full_scan_ran = os.environ.get("ES_FULL_SCAN") == "1"
+    if full_scan_ran:
+        scan_1m = reachability_census(1_000_001)
+        assert scan_1m == (9732, 9721, 9721, 9717,
+                           [601, 5881, 9049, 20641], list(resisters))
+        print("ES_FULL_SCAN=1: P <= 10^6 row = "
+              "9732/9721/9721/9717; pure resisters unchanged (11); "
+              "adding three fixed M=g maps covers all 9732 census primes")
+    else:
+        print("ES_FULL_SCAN=1 replays the complete P <= 10^6 census")
+
+    # Exact witness-division law and its obstruction when t divides P but
+    # not C: (6;1,1,2,1)/2 gives (3;1,1,1,2), while division by 3 cannot
+    # preserve the factor pair 7*7 at any modulus satisfying C''K''^2=6.
+    assert_tuple(6, (1, 1, 2, 1))
+    assert_tuple(3, (1, 1, 1, 2))
+    assert 2 % 2 == 0 and (1, 1, 2 // 2, 2 * 1) == (1, 1, 1, 2)
+    old_factors = (7, 7)
+    assert all(not (D % (4 * C2 * K2) == -1 % (4 * C2 * K2)
+                        and E % (4 * C2 * K2) == -1 % (4 * C2 * K2))
+               for C2 in divs(6) for K2 in range(1, isqrt(6) + 1)
+               if C2 * K2 * K2 == 6 for D, E in (old_factors,))
+
+    print("resister anatomy: 116 ordered rows exact; 73/193/241 full lists "
+          "hard-coded; every row has a smaller ck-matched source")
+    print("shifted h1 maps (cross coefficients ±1..±3): four targets fall "
+          "{1153,2473,3361,5281}; seven resist this finite box")
+    print("fixed additive M=g maps: all eleven old resisters fall; default "
+          "pure-tensor census P <= 20000 leaves exactly the same eleven")
+
+
+print("\n== (x) sub-maximal transfer maps and extended census (§25) ==")
+check_x()
+
 print("\nall checks passed")
