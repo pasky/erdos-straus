@@ -5431,4 +5431,109 @@ def check_af():
 print("\n== (af) finite-window transfer obstructions (§33) ==")
 check_af()
 
+
+# ---------------------------------------------------------------------- (ag)
+def check_ag():
+    """§34: k-incidence moment, real CS loss, and composite completion."""
+    from sympy import li as logarithmic_integral
+    from time import monotonic
+
+    started = monotonic()
+    x, z, K, c, h0 = 30_000, 35, 25, 1, 3
+    J = tuple(range(1, K + 1, 4))
+
+    def phi(n):
+        ans = n
+        for p in factorint(n):
+            ans = ans // p * (p - 1)
+        return ans
+
+    def incidence(u, v):
+        return sum((u + c * v) % k == 0 and gcd(u * v, k) == 1 for k in J)
+
+    pairs = [(u, v) for u in range(h0 + 1, z + 1)
+             for v in range(h0 + 1, z + 1) if gcd(u, v) == 1]
+    direct_m1 = sum(Fraction(incidence(u, v), u * v) for u, v in pairs)
+    direct_m2 = sum(Fraction(incidence(u, v) ** 2, u * v) for u, v in pairs)
+    expanded_m2 = sum(
+        Fraction(1, u * v)
+        for k in J for kp in J
+        for u, v in pairs if (u + c * v) % lcm(k, kp) == 0
+    )
+    assert direct_m2 == expanded_m2       # exact expansion in Lemma 34.7
+    threshold = 2
+    bad_m1 = sum(Fraction(incidence(u, v), u * v) for u, v in pairs
+                 if incidence(u, v) > threshold)
+    assert bad_m1 <= direct_m2 / threshold
+
+    rows = []
+    for u, v in pairs:
+        q = 4 * u * v
+        for k in J:
+            if gcd(u * v, k) == 1 and (u + c * v) % k == 0:
+                rows.append((k, u, v, q, (-pow(k, -1, q)) % q))
+
+    good_q_multiplicity = Counter()
+    for k, u, v, q, a in rows:
+        if incidence(u, v) <= threshold:
+            good_q_multiplicity[q] += 1
+    assert all(mult <= threshold * 2 ** len(factorint(q // 4))
+               for q, mult in good_q_multiplicity.items())  # (34.21)
+
+    # Actual E(x;q,a) on the occupied toy progressions and its exact CS bound.
+    progression_multiplicity = Counter((q, a) for k, u, v, q, a in rows)
+    primes = list(primerange(x + 1, 2 * x + 1))
+    residue_counts = {
+        q: Counter(p % q for p in primes)
+        for q in {q for q, a in progression_multiplicity}
+    }
+    delta_li = float(logarithmic_integral(2 * x) - logarithmic_integral(x))
+    errors = {
+        (q, a): residue_counts[q][a] - delta_li / phi(q)
+        for q, a in progression_multiplicity
+    }
+    actual_l1 = sum(mult * abs(errors[qa])
+                    for qa, mult in progression_multiplicity.items())
+    occupied_variance = sum(e * e for e in errors.values())
+    multiplicity_square = sum(mult * mult for mult in progression_multiplicity.values())
+    cs_bound = (occupied_variance * multiplicity_square) ** 0.5
+    assert actual_l1 <= cs_bound * (1 + 1e-12)
+    main = sum(mult * delta_li / phi(q)
+               for (q, a), mult in progression_multiplicity.items())
+    harmonic_k = sum(phi(k) / k ** 2 for k in J)
+    scale_proxy = x ** (7 / 6) * (K * harmonic_k) ** 0.5
+    target_proxy = x * log(x) * harmonic_k
+
+    # Prime-power/CRT care: small q=4uv complete Kloosterman sums satisfy
+    # the standard tau(q)*sqrt((r,h,q)q) envelope used in (34.11).
+    q = 4 * 11 * 13
+    tau_q = prod(e + 1 for e in factorint(q).values())
+    kloosterman_ratios = []
+    for r in (1, 2, 3, 5, 7):
+        for h in (1, 2, 4, 6):
+            complete = sum(
+                cmath.exp(2j * cmath.pi * (r * a + h * pow(a, -1, q)) / q)
+                for a in range(1, q) if gcd(a, q) == 1
+            )
+            envelope = tau_q * (gcd(r, h, q) * q) ** 0.5
+            kloosterman_ratios.append(abs(complete) / envelope)
+    assert max(kloosterman_ratios) < 1 + 1e-9
+    floor_completion_loss = (4 * K ** 20) ** 0.5 / K
+    assert floor_completion_loss == 2 * K ** 9
+
+    elapsed = monotonic() - started
+    print("toy incidence (triples,M1,M2,bad>M2/T,max good W) =",
+          (len(rows), round(float(direct_m1), 6), round(float(direct_m2), 6),
+           round(float(bad_m1), 6), max(good_q_multiplicity.values())))
+    print("toy progression (|E|/main,CS/main,(34.7)-scale/main) =",
+          tuple(round(v, 6) for v in
+                (actual_l1 / main, cs_bound / main, scale_proxy / target_proxy)))
+    print("completion (max Weil-envelope ratio,q^.5/K at floor,seconds) =",
+          (round(max(kloosterman_ratios), 6), int(floor_completion_loss),
+           round(elapsed, 3)))
+
+
+print("\n== (ag) prime-slice k-aspect assault (§34) ==")
+check_ag()
+
 print("\nall checks passed")
