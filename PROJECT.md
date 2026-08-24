@@ -81,6 +81,30 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 10 (2026-08-24, wave 6 — see notes.md §21–§22; reviewed: §21 sound, §22 repaired)
+
+* **§21 (the truth of H_PF): false-looking, open.**  Exact reorganization of
+  the complete-system avoidance into shifted-divisor events (n + 4D free of
+  divisors ≡ −1 mod 4R₀(D) up to X); proved: every intrinsic class has
+  Jacobi symbol −1 (mirror of Prop 8.1), hence **every perfect square
+  avoids the complete intrinsic system** — the square-class phenomenon
+  reappearing at the sieve-hypothesis level; unconditional upper bound
+  |Av| ≪ N exp(−c(log X)²) for log N ≫ (log X)³; measured avoidance
+  through X = 3200 fits (log X)² loglog X far better than (log X)³ (RMS
+  0.046 vs 0.169).  If the refutation completes, §18.6's conditional 3/4
+  route dies and Theorem 16.4 is near the intrinsic supply's true ceiling.
+* **§22 (degree-two transfer-map classification): new maps found.**
+  Complete classification of universal factor-congruence polynomial maps at
+  degree ≤ 2 (and univariate degree ≤ 3); discovery of the
+  **tensor-partition family** (C = 4c₁c₂, K = k₁k₂, P = 4ABC − (A+B)/K
+  over partitions of {a₁a₂, a₁b₂, b₁a₂, b₁b₂}) — genuinely outside §20's
+  explicit formulas, with strictly-lowering inverses on their image;
+  reaches 409, 9601, 23929 from smaller solved primes; 577, 5569, 83449
+  proved unreachable under the natural K' | k₁k₂ interpretations (no
+  witness with 4 | C — exhaustive via AB ≤ p/2 bound); no total inverse,
+  no induction, no proof.  Scope disclaimers: rational maps, quotient/lcm
+  moduli, modulus-dependent coefficients unclassified.
+
 ## Outcome 9 (2026-08-23, frontal assault — see notes.md §20; hostile-reviewed: repairable → repaired)
 
 * **A direct proof attempt at the full conjecture, transfer slot first.  No
