@@ -5488,14 +5488,16 @@ the correct label is: **H_PF false-looking, open**.
 **Section 24 post-script (additive correction).**  The subset-product audit
 there shows that the last ``structural prediction'' in §21.4 was too strong.
 A typical shifted integer has about \((\log X)^{\log 2}\) squarefree
-small-prime subset products, which would give the candidate exponent
-\((\log X)^{2+\log 2}\) *if* those products were uniform modulo every
-\(4R\).  They are not uniform near the truncation boundary, and the audit
-therefore does not promote this candidate to a corrected asymptotic.  The
-new column in (21.17) is nearly collinear with \(L^2\log L\) (correlation
-\(0.99972\)) on the measured range and cannot distinguish the two.  Section
-24 also pins the prime subsystem two-sided, proves a substantial truncated-
-\(R\) clustering lower bound, and leaves the full-system label unchanged.
+small-prime subset products *before* the \(M\leq X\) and coprimality filters.
+Pretending that these raw products are uniform modulo every \(4R\) gives the
+\((\log X)^{2+\log 2}\) uniform-model benchmark.  Its premise fails the
+truncation-boundary check, so this is a toy-model output, not an
+evidence-backed scale or a corrected asymptotic.  The new column in (21.17)
+is nearly collinear with \(L^2\log L\) (correlation \(0.99972\)) on the
+measured range and cannot distinguish the two.  Section 24 also pins the
+prime subsystem two-sided when \(\log N\geq C_3(\log X)^3\), with no
+restriction for natural density, proves a substantial truncated-\(R\)
+clustering lower bound, and leaves the full-system label unchanged.
 
 ## 22. Degree-two classification of transfer maps
 
@@ -6260,8 +6262,9 @@ Erdős--Straus proof results; forward-image totality fails for this family.
 
 This section returns to the density problem at the end of §21.  Put
 \(L=\log X\).  Labels are deliberately strict: the prime-slice and
-truncated-fiber statements below are theorems; the proposed
-\(L^{2+\log2}\) scale is only an assessment.
+truncated-fiber statements below are theorems; the
+\(L^{2+\log2}\) uniform-model benchmark is a toy-model output whose premise
+fails the boundary check, not an evidence-backed scale.
 
 ### 24.1 Subset products: a real correction, but not a new asymptotic
 
@@ -6274,22 +6277,23 @@ value therefore suggests
  T_X(y):=2^{\omega_X(y)}=L^{\log2+o(1)},                     \tag{24.1}
 \]
 
-where \(\omega_X\) counts only prime factors at most \(X\).  Prime powers
-change the typical estimate only by a bounded factor.  If the eligible
-subset products were uniform in \((\mathbb Z/4R\mathbb Z)^*\), the chance
-that one equals \(-1\) would consequently be
+where \(\omega_X\) counts only prime factors at most \(X\).  Including
+prime-power divisors alters this typical order only by an \(L^{o(1)}\) factor.
+The deliberately raw uniform model ignores the eligibility filters and gives
+chance
 
 \[
  \min\{1,T_X(y)/\varphi(4R)\}.                               \tag{24.2}
 \]
 
-There is no quadratic-symbol restriction forcing this walk into one coset.
-Lemma 21.2 evaluates the Jacobi symbol of the *resulting class modulo the
-divisor* \(M\); it does not prescribe the residues modulo \(4R\) of the
-prime divisors of \(y\).  The only automatic restrictions in (24.2) are
-coprimality with \(4R\), odd parity, and the product-size cutoff.
+A filtered finite model instead counts only squarefree products \(M\leq X\)
+formed without the prime \(2\) or primes dividing \(R\), equivalently with
+\((M,4R)=1\).  There is no quadratic-symbol restriction forcing these
+products into one coset.  Lemma 21.2 evaluates the Jacobi symbol of the
+*resulting class modulo the divisor* \(M\); it does not prescribe the
+residues modulo \(4R\) of the prime divisors of \(y\).
 
-The formal sum behind the parent's proposed correction is now clear.  The
+The formal sum behind the uniform-model benchmark is now clear.  The
 saturated block \(\varphi(4R)\leq T=L^{\log2+o(1)}\) contains at most
 
 \[
@@ -6307,8 +6311,8 @@ would give
        =L^{2+\log2+o(1)}.                                    \tag{24.4}
 \]
 
-Thus \(L^{2.693\ldots}\) is the right output of the *uniform subset-product
-model*, and remains \(o(L^3)\).
+Thus \(L^{2.693\ldots}\) is the output of the *uniform subset-product toy
+model*, and remains \(o(L^3)\); it is not yet a scale supported by evidence.
 
 The uniformity premise, however, fails a basic boundary check.  Averaged
 over \(y\), the exact first moment of eligible divisors for one modulus
@@ -6330,20 +6334,24 @@ the heavy-tailed mean divisor count alone.
 **Computational 24.2 (informational).**  The deterministic experiment in
 `verify.py (w)` samples large shifted integers and sums the actual
 \((R,s)\)-hit indicators.  At \(X=80,160\), the raw model (24.2)
-overpredicts those sums by factors greater than four and five, respectively.
-This is not asymptotic evidence, but it catches exactly the missing
-size/residue correction in (24.5).  The fit in (21.17) gives root-mean-square
-residual \(0.077\) for \(L^{2+\log2}\), versus \(0.046\) for \(L^2\log L\),
-and the two regressors have correlation \(0.99972\).  Since
-\(L^{\log2}\leq4.2\) through \(X=3200\), those data cannot see the proposed
-subset-product power.
+overpredicts those sums by factors \(5.11\) and \(5.67\).  After excluding
+\(2\) and primes dividing \(R\), and counting only squarefree subset
+products at most \(X\), the factors are still \(2.89\) and \(2.98\).  This
+is not asymptotic evidence and does not isolate one correction: it conflates
+the size cutoff, non-unit and coprimality exclusions, residue nonuniformity,
+residue collisions among subset products, and overlap of divisor events.
+It does show that the uniform model materially overpredicts after the stated
+filters.  The fit in (21.17) gives root-mean-square residual \(0.077\) for
+\(L^{2+\log2}\), versus \(0.046\) for \(L^2\log L\), and the two regressors
+have correlation \(0.99972\).  Since \(L^{\log2}\leq4.3\) through
+\(X=3200\), those data cannot see the uniform-model subset-product power.
 
-**Assessment.**  Equations (24.1)--(24.4) repair a missing mechanism in the
-old heuristic, but (24.5) prevents calling \(L^{2+\log2}\) the true scale.
-The defensible conclusion is only that it is a conditional candidate between
-the measured slowly varying scales and cubic first moment.  The
-false-looking verdict survives; the claimed narrow ``between \(L^2\) and
-\(L^2\log L\)'' structural prediction does not.
+**Assessment.**  Equations (24.1)--(24.4) identify a missing toy-model
+mechanism, but (24.5) disproves its boundary premise.  The defensible
+conclusion is only that \(L^{2+\log2}\) is a uniform-model benchmark, not an
+evidence-backed scale.  The false-looking verdict survives; the claimed
+narrow ``between \(L^2\) and \(L^2\log L\)'' structural prediction does
+not.
 
 ### 24.2 The prime subsystem is exactly quadratic
 
@@ -6373,8 +6381,7 @@ factor three and gives \(ab\ll Y^{2/3}\).  For fixed \(a,b\), the prime
 uniformly in this range, gives
 
 \[
- \#\{c:A\asymp Y,\ 4abc-1\ {
-m prime}\}
+ \#\{c:A\asymp Y,\ 4abc-1\ {\rm prime}\}
  \ll {Y\over\varphi(4ab)\log Y}.
 \]
 
@@ -6382,8 +6389,7 @@ Since \(\varphi(4ab)\geq\varphi(a)\varphi(b)\) and
 \(\sum_{m\leq y}1/\varphi(m)\ll\log(2y)\), summing over \(a,b\) gives
 
 \[
- \sum_{\substack{A\asymp Y\\4A-1\ {
-m prime}}}\tau(A^2)
+ \sum_{\substack{A\asymp Y\\4A-1\ {\rm prime}}}\tau(A^2)
  \ll Y\log Y.                                                \tag{24.7}
 \]
 
@@ -6423,7 +6429,7 @@ is needed to transfer the lower bound to \([1,N]\).  Put
 violated prime conditions,
 
 \[
- {f1}_{h(n)=0}\geq\sum_{j=0}^{r}(-1)^j{h(n)\choose j}.      \tag{24.10}
+ \mathbf{1}_{h(n)=0}\geq\sum_{j=0}^{r}(-1)^j{h(n)\choose j}. \tag{24.10}
 \]
 
 An intersection indexed by \(d\), a product of \(j\) primes, contains
@@ -6498,15 +6504,19 @@ every fixed \(B>0\), uniformly for \(2\leq z\leq L^B\),
  \mu_{\rm sm}(X,z)=o(L^3).                                   \tag{24.15}
 \]
 
-*Proof.*  We use two standard elementary estimates, stated at the strength
-needed here:
+*Proof.*  We use the standard Canfield--Erdős--Pomerance/de Bruijn
+smooth-number upper bound (see, for example, Tenenbaum, *Introduction à la
+théorie analytique et probabiliste des nombres*, III.5, Theorem 1.1 and its
+corollary): for every fixed \(\delta>0\), uniformly for
+\(z\geq(\log Y)^{1+\delta}\) and \(Y\geq Y_0(\delta)\),
 
 \[
- \Psi(Y,z)/Y\ll \exp\{-c u\log(u+1)\},\quad
- u={\log Y\over\log z},                                      \tag{24.16}
+ \Psi(Y,z)\leq Y\exp\{-u\log u\,(1+o(1))\},\qquad
+ u={\log Y\over\log z}.                                      \tag{24.16}
 \]
 
-for the count of \(z\)-smooth integers, and
+In particular, throughout that range and for large \(Y\), the right side is
+at most \(Y\exp\{-\tfrac12u\log u\}\).  We also use
 
 \[
  \sum_{a\leq Y}\tau(a^2)^2\ll Y(\log(2Y))^8.                \tag{24.17}
@@ -6515,20 +6525,46 @@ for the count of \(z\)-smooth integers, and
 The latter follows directly from the Euler product: its prime coefficient is
 \(\tau(p^2)^2=9\), so after extracting \(\zeta(s)^9\) the remaining product
 converges absolutely to the right of \(1/2\); the usual convolution bound
-suffices.  On a dyadic block \(M\asymp Y\), Lemma 18.1 and Cauchy--Schwarz
-give
+suffices.  On a dyadic block \(Y/2<M\leq Y\), Lemma 18.1 and
+Cauchy--Schwarz give
 
 \[
- \sum_{\substack{M\asymp Y\\P^+(M)\leq z}}{F(M)\over M}
- \ll (\log(2Y))^4\{\Psi(2Y,z)/Y\}^{1/2}.                    \tag{24.18}
+ \sum_{\substack{Y/2<M\leq Y\\P^+(M)\leq z}}{F(M)\over M}
+ \ll (\log(2Y))^4\{\Psi(Y,z)/Y\}^{1/2}.                     \tag{24.18}
 \]
 
-Put
-\(T_0=C_B(\log L)^2/\log\log L\).  The contribution of
+Put \(T_0=C_B(\log L)^2/\log\log L\).  The contribution of
 \(M\leq e^{T_0}\) is \(O(T_0^3)=o(L^3)\) by the upper half of Theorem 18.2.
-For larger blocks, choose the constant \(C_B\) in (24.16) so that (24.18)
-is \(O(L^{-2})\), uniformly; there are only \(O(L)\) blocks.  This proves
-(24.15). ∎
+For a surviving block write \(t=\log Y\geq T_0\) and enlarge the smoothness
+threshold monotonically to
+\[
+ y_*:=\max\{L^B,t^2\}\geq z,\qquad u_*={t\over\log y_*}.
+\]
+For these surviving blocks, \(t\geq T_0\) gives \(L^B\leq Y\), and
+\(t^2\leq Y\) for large \(X\); hence \(y_*\leq Y\).  Also
+\(y_*\geq(\log Y)^2\), so (24.16) applies with \(\delta=1\).  If
+\(t^2\leq L^B\), then \(y_*=L^B\), and, for large \(X\),
+\[
+ \log u_* = \log t-\log(B\log L)\geq\tfrac12\log\log L,
+ \qquad
+ u_*\log u_*\geq {C_B\over2B}\log L.                       \tag{24.18a}
+\]
+Indeed the first inequality follows from
+\(t\geq C_B(\log L)^2/\log\log L\).  If instead \(t^2>L^B\), then
+\(y_*=t^2\), and
+\[
+ u_*\log u_*={t\over2\log t}
+      \log\!\left({t\over2\log t}\right)
+ \geq {t\over4}>{L^{B/2}\over4}\gg_B\log L.               \tag{24.18b}
+\]
+By smoothness monotonicity, \(\Psi(Y,z)\leq\Psi(Y,y_*)\).  Thus (24.16)
+and (24.18) bound every surviving block by
+\[
+ \ll t^4\exp\{-\tfrac14u_*\log u_*\}\leq L^{-2}
+\]
+once \(C_B>48B\) is chosen sufficiently large (and then \(X\) is large).
+There are \(O(L)\) blocks, whose total is \(O(L^{-1})\); together with the
+initial contribution this proves (24.15). ∎
 
 For each odd prime \(p\leq z\), consider the local condition
 
@@ -6561,8 +6597,9 @@ retains \((1-o(1))\) of the cubic mass and gives no positive lower bound.
 Thus no scheme in this class can refute H_PF.
 
 *Proof.*  By (24.20), subcubic prescription cost implies
-\(\pi(z)=o(L^3)\), hence \(z\leq L^4\) for large \(X\).  Lemma 24.6 and
-Theorem 18.2 give
+\(\pi(z)=o(L^3)\).  Since \(\pi(L^4)\gg L^3\), this gives \(z\leq L^4\)
+for large \(X\).  Applying the repaired Lemma 24.6 with \(B=4\), and then
+Theorem 18.2, gives
 
 \[
  \sum_{\substack{M\leq X,\ M\equiv3\ (4)\\P^+(M)>z}}
@@ -6592,7 +6629,7 @@ keeps the exact dependence on \(R\).  Define
 This is a genuine part of the complete composite-modulus system, not only a
 prime-modulus slice.
 
-**Theorem 24.8 (multi-shift quadratic-character construction; proved).**  Fix
+**Theorem 24.8 (multi-shift prime-class certificate construction; proved).**  Fix
 \(\epsilon>0\).  Uniformly for sufficiently large \(X\),
 \(1\leq Y\leq L^{3-\epsilon}\), and \(\log N\geq L^4\),
 
@@ -6677,9 +6714,10 @@ Other attempted continuations fail at equally explicit points:
   intersections; the prime factorization in (24.24) is what makes the
   truncated range countable.
 * The smooth Jacobi certificate leaves the cubic rough-modulus mass (24.21).
-* Letting \(Y\) grow beyond \(L^{3-o(1)}\) in (24.24) loses both the desired
-  subcubic density and the \(N=e^{\Theta(L^4)}\) transfer.  No replacement
-  that exploits overlap among the large-\(R\) sets \(B_p\) was found.
+* The argument gives no single cutoff \(Y=L^{3-o(1)}\): pushing (24.24)
+  toward cubic size loses both the desired subcubic density and the
+  \(N=e^{\Theta(L^4)}\) transfer.  No replacement that exploits overlap
+  among the large-\(R\) sets \(B_p\) was found.
 
 ### 24.6 Verdict after wave 7
 
@@ -6688,16 +6726,19 @@ not change to a refutation: Theorem 24.8 concerns a proper subsystem, and
 Theorem 24.4 goes in the wrong inclusion direction for lower-bounding the
 full avoiders.  What did change is the map of the gap.
 
-* The prime subsystem is now pinned at \(\exp\{-\Theta(L^2)\}\); composite
-  moduli must supply every additional power needed by H_PF.
-* Cheap local Jacobi certificates followed by a first-moment treatment are
-  closed by Theorem 24.7.
-* Joint clustering is proved through \(R\leq L^{3-\epsilon}\), but the
-  remaining fibers \(L^{3-o(1)}<R\leq X/4\) are exactly where the argument
-  loses control.
-* The subset-product mechanism supplies a conditional
-  \(L^{2+\log2}\) candidate, not a corrected asymptotic; existing data
-  cannot distinguish it from \(L^2\log L\).
+* The prime subsystem is now pinned at \(\exp\{-\Theta(L^2)\}\) on finite
+  intervals when \(\log N\geq C_3L^3\), and with no restriction for natural
+  density; composite moduli must supply every additional power needed by
+  H_PF.
+* The initial-cutoff Jacobi prescription followed by an unconditioned first
+  moment is closed by Theorem 24.7; other local prescriptions are not.
+* Joint clustering is proved through \(R\leq L^{3-\epsilon}\) for every
+  fixed \(\epsilon>0\), but fibers with \(R\) beyond \(L^{3-\epsilon}\) for
+  every fixed \(\epsilon\) are exactly where the argument loses control.
+* The subset-product mechanism supplies the \(L^{2+\log2}\) uniform-model
+  benchmark.  Its premise fails the boundary check, so it is a toy-model
+  output, not an evidence-backed scale; existing data cannot distinguish it
+  from \(L^2\log L\).
 
 A refutation still requires
 \(|{\rm Av}_X(N)|\geq N\exp\{-o(L^3)\}\) for the **joint full system** in

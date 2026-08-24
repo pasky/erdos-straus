@@ -2528,8 +2528,8 @@ def check_w():
     """Finite companions for the §24 avoidance bounds and assessments."""
     import numpy as np
 
-    # Lemma 24.5: for the D=1 family, avoiding every divisor M == 3 (mod 4)
-    # is exactly the local condition excluding prime divisors p == 3 (mod 4).
+    # Finite companion to Lemma 24.5: for the D=1 family, compare avoidance
+    # with the local condition excluding prime divisors p == 3 (mod 4).
     d1_rows = []
     N0 = 100_000
     ns0 = np.arange(1, N0 + 1, dtype=np.int64)
@@ -2549,7 +2549,8 @@ def check_w():
         d1_rows.append((X0, round(float(local.mean()), 6),
                         round(product_density, 6)))
 
-    # Lemma 24.3: compute the full, honestly deduplicated prime-class mass.
+    # Finite companion to Lemma 24.3: compute the full, honestly
+    # deduplicated prime-class mass; this does not verify the asymptotic.
     prime_mass_rows = []
     for X0 in (1_000, 3_000, 10_000, 30_000):
         mass = 0.0
@@ -2563,16 +2564,21 @@ def check_w():
         assert 0.10 < normalized < 0.16
         prime_mass_rows.append((X0, round(mass, 4), round(normalized, 4)))
 
-    # Assessment 24.1: compare actual (R,s)-hit counts with the raw
-    # min(1, 2^omega/phi(4R)) subset-product model.  The exact harmonic
-    # first moment records the missing product-size boundary.
+    # Finite companion to Assessment 24.1: compare actual (R,s)-hit counts
+    # with both the raw model and its stated eligibility filters.  The
+    # filtered count uses squarefree products <= X, excludes 2, and excludes
+    # primes dividing R (equivalently, products not coprime to 4R).
     rng = np.random.default_rng(240124)
     subset_rows = []
     for X0, samples in ((80, 4_000), (160, 3_000)):
         ns = rng.integers(10**11, 9 * 10**11, size=samples,
                           dtype=np.int64)
-        actual = model = harmonic = 0.0
+        actual = raw_model = filtered_model = harmonic = 0.0
         small_primes = tuple(primerange(2, X0 + 1))
+        squarefree_products = tuple(
+            m0 for m0 in range(1, X0 + 1)
+            if m0 % 2 == 1 and all(e0 == 1 for e0 in factorint(m0).values())
+        )
         event_count = 0
         for R0 in range(1, (X0 + 1) // 4 + 1):
             q0 = 4 * R0
@@ -2583,6 +2589,9 @@ def check_w():
             for p0 in factorint(R0):
                 squarefree_divisors = (squarefree_divisors
                                        + [s0 * p0 for s0 in squarefree_divisors])
+            eligible_products = tuple(
+                m0 for m0 in squarefree_products if gcd(m0, R0) == 1
+            )
             targets = tuple(range(q0 - 1, X0 + 1, q0))
             for s0 in squarefree_divisors:
                 D0 = R0 * R0 // s0
@@ -2593,19 +2602,52 @@ def check_w():
                 omega = np.zeros(samples, dtype=np.int16)
                 for p0 in small_primes:
                     omega += shifted % p0 == 0
+                eligible_count = np.zeros(samples, dtype=np.int16)
+                for m0 in eligible_products:
+                    eligible_count += shifted % m0 == 0
                 actual += float(hit.mean())
-                model += float(np.minimum(1.0,
-                                           np.exp2(omega.astype(float)) / phi0).mean())
+                raw_model += float(np.minimum(
+                    1.0, np.exp2(omega.astype(float)) / phi0).mean())
+                filtered_model += float(np.minimum(
+                    1.0, eligible_count.astype(float) / phi0).mean())
                 harmonic += sum(1.0 / M0 for M0 in targets)
                 event_count += 1
-        assert model > 3.0 * actual
+        raw_ratio = raw_model / actual
+        filtered_ratio = filtered_model / actual
+        assert raw_model > filtered_model > actual
+        assert 2.0 < filtered_ratio < 4.5
         assert actual < harmonic
         subset_rows.append((X0, event_count, round(actual, 3),
-                            round(model, 3), round(harmonic, 3)))
+                            round(raw_model, 3), round(filtered_model, 3),
+                            round(raw_ratio, 3), round(filtered_ratio, 3),
+                            round(harmonic, 3)))
 
-    # Theorem 24.8: the local sets B_p certify every shifted-divisor event
-    # in a nontrivial finite R-range.  Count the certificate and check every
-    # surviving integer against every (R,D,M) event directly.
+    # Finite replay of the seven §21.5 table rows; these assertions check the
+    # displayed regression diagnostics, not their asymptotic interpretation.
+    fit_X = np.array([50, 100, 200, 400, 800, 1600, 3200], dtype=float)
+    fit_survivors = np.array(
+        [633186, 211887, 54255, 11585, 1740, 201, 14], dtype=float
+    )
+    fit_y = -np.log(fit_survivors / 12_000_000)
+    fit_L = np.log(fit_X)
+
+    def affine_rmse(regressor):
+        design = np.column_stack((np.ones(regressor.size), regressor))
+        coefficients = np.linalg.lstsq(design, fit_y, rcond=None)[0]
+        residual = fit_y - design @ coefficients
+        return float(np.sqrt(np.mean(residual**2)))
+
+    reg_loglog = fit_L**2 * np.log(fit_L)
+    reg_subset = fit_L**(2 + log(2))
+    rmse_loglog = affine_rmse(reg_loglog)
+    rmse_subset = affine_rmse(reg_subset)
+    reg_correlation = float(np.corrcoef(reg_loglog, reg_subset)[0, 1])
+    assert abs(rmse_loglog - 0.0463) < 2e-3
+    assert abs(rmse_subset - 0.0768) < 2e-3
+    assert abs(reg_correlation - 0.99972) < 2e-3
+
+    # Finite companion to Theorem 24.8: construct the local sets B_p and
+    # check every surviving sample against every (R,D,M) event directly.
     X0, Y0, N0 = 100, 5, 100_000
     shifts = []
     for R0 in range(1, Y0 + 1):
@@ -2630,12 +2672,18 @@ def check_w():
         for M0 in range(4 * R0 - 1, X0 + 1, 4 * R0):
             assert not np.any(certified & (shifted % M0 == 0))
     measured_density = float(certified.mean())
-    assert abs(measured_density - crt_density) < 1e-3
+    # N0 gives about 273 expected certified samples here (roughly 6% relative
+    # standard error), so a 25% relative window is conservative but meaningful.
+    assert N0 * crt_density > 250
+    assert abs(measured_density / crt_density - 1.0) < 0.25
 
     print("D=1 exact local/product densities:", d1_rows)
     print("full prime mass (X, mass, mass/log^2 X):", prime_mass_rows)
-    print("subset-product check (X, events, actual, raw model, harmonic):",
-          subset_rows)
+    print("subset-product check (X, events, actual, raw, filtered, "
+          "raw/actual, filtered/actual, harmonic):", subset_rows)
+    print("§21.5 fits (RMSE L^2logL, RMSE subset, correlation): "
+          "%.5f, %.5f, %.6f" %
+          (rmse_loglog, rmse_subset, reg_correlation))
     print("truncated-fiber certificate: X=100, Y=5, shifts=%d, "
           "density=%.6f (CRT %.6f)" %
           (len(shifts), measured_density, crt_density))
