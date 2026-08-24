@@ -5148,7 +5148,7 @@ def check_ae():
             out = [d * p**j for d in out for j in range(e + 1)]
         return tuple(sorted(out))
 
-    # Trace every small intrinsic D through Theorem 17.1's dictionary.
+    # Trace the floor/parity factorization of every small intrinsic D.
     cert = cert1 = certgt1 = pw = direct = 0
     for M in range(3, 300, 4):
         H = (M + 1) // 4
@@ -5308,6 +5308,11 @@ def check_ae():
                     assert P == 4 * A * B * C - A - B
                     return A, B, C, 1
         return None
+
+    # Same intrinsic class, opposite target-level k=1 outcomes.
+    assert 17 % 7 == 409 % 7 == (-4) % 7
+    assert k1(17) == (1, 6, 1, 1)
+    assert k1(409) is None
 
     def type_ii(P):
         rows = []

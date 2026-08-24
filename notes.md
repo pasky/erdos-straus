@@ -10017,8 +10017,14 @@ tuple at all.
 
 so \(vP=4suwv-s-u\), which is (17.1) with (32.1).  Since
 \((P,u)=1\), reducing \(Ms=Pv+u\) modulo every common divisor with \(u\)
-and using \((M,u)=1\) gives \((s,u)=(v,u)=g\).  The canonical reduction in
-the proof of Theorem 17.1 is therefore exactly (32.2).  Finally
+and using \((M,u)=1\) gives \((s,u)=(v,u)=g\).  The replacement in (32.2) preserves all three unit-fraction denominators:
+\[
+ (s/g)(u/g)(g^2w)=suw,
+ \quad P(s/g)(g^2w)(v/g)=Pswv,
+ \quad P(u/g)(g^2w)(v/g)=Puwv.
+\]
+Moreover \((s/g,u/g)=1\), so this is exactly the canonical reduction, without
+any appeal to an unstated step from Theorem 17.1.  Finally
 
 \[
  (H,D)=(uvw,u^2w)=uw(u,v),
@@ -10036,19 +10042,23 @@ of Lemma 15.1,
 \]
 
 Thus every *explicit witness constructed in §15* has \(k>1\), never
-\(k=1\).  The residue class itself can nevertheless possess a second,
-\(k=1\) witness: among the \(f(M)=(\tau(H^2)-1)/2\) distinct lower-half
-classes \(-4D\), \(D<H\), this occurs exactly when
+\(k=1\).  An entire lower progression can nevertheless coincide with one of
+the uniform fixed-\((B,C)\), \(k=1\) progressions: among the
+\(f(M)=(\tau(H^2)-1)/2\) distinct lower-half classes \(-4D\), \(D<H\), this
+occurs exactly when
 
 \[
                   4D\mid H.                                 \tag{32.4}
 \]
 
-Indeed a lower class \(-4D\) equals a \(k=1\) class \(-t\), \(t\mid H\),
-if and only if \(4D=t\).  Hence the overlap has exactly
-\({\bf1}_{4\mid H}\tau(H/4)\) classes.  This overlap is about alternative
-witnesses; it does not change the multiplier (32.3) of Lemma 15.1's displayed
-identity.
+Indeed a lower class \(-4D\) equals a fixed-parameter \(k=1\) class
+\(-t\), \(t\mid H\), if and only if \(4D=t\).  Hence the progression-level
+overlap has exactly \({\bf1}_{4\mid H}\tau(H/4)\) classes.  This does not
+decide whether an individual target has an unrelated \(k=1\) tuple.  The
+regression is the common intrinsic class \(3\pmod7\): its member \(17\) has
+the \(k=1\) tuple \((A,B,C)=(1,6,1)\), while its member \(409\) has no
+\(k=1\) tuple.  None of this changes the multiplier (32.3) of Lemma 15.1's
+displayed identity.
 
 The exact \(k=1\) part of the intrinsic system has a simpler description.
 
@@ -10059,7 +10069,8 @@ The exact \(k=1\) part of the intrinsic system has a simpler description.
  \mathscr K(M)=\{-t\pmod M:t\mid H\}.                       \tag{32.5}
 \]
 
-Every positive integer \(P\) in the class \(-t\pmod M\) has a \(k=1\)
+This system is complete within the intrinsic/fixed-divisor affine class
+dictionary.  Every positive integer \(P\) in the class \(-t\pmod M\) has a \(k=1\)
 Type-II tuple.  More explicitly, if \(P=jM-t\), \(j\geq1\), then
 
 \[
@@ -10082,6 +10093,12 @@ in which \(M=4BC-1\).  Equivalently, writing \(C=H/t\),
  P\equiv-(4C)^{-1}\equiv-t\pmod M.                         \tag{32.8}
 \]
 
+Conversely, any \(k=1\) tuple satisfies
+\(P=A(4BC-1)-B\); taking \(M=4BC-1\), \(H=BC\), and \(t=B\) recovers one
+of (32.5).  This classifies fixed-parameter affine identities in the
+intrinsic dictionary, not arbitrary residue classes modulo an externally
+prescribed \(M\) whose parameters may vary with the target.
+
 The complete, generally composite-modulus system has exact asymptotic mass
 
 \[
@@ -10093,8 +10110,7 @@ The complete, generally composite-modulus system has exact asymptotic mass
 Its **prime-modulus** subsystem has only linear logarithmic mass:
 
 \[
- \sum_{\substack{\ell\leq X\\\ell\equiv3\ (4)\\\ell\ {
-m prime}}}
+ \sum_{\substack{\ell\leq X\\\ell\equiv3\ (4)\\\ell\ \mathrm{prime}}}
        { |\mathscr K(\ell)|\over\ell}
        \asymp\log X.                                        \tag{32.10}
 \]
@@ -10123,17 +10139,27 @@ Brun--Titchmarsh for \(\ell\equiv-1\pmod {4t}\), gives
 
 For the lower bound retain \(t\leq x^{1/3}\); Bombieri--Vinogradov and
 \(\sum_{t\leq y}1/\varphi(4t)\asymp\log y\) give the reverse bound
-\(\gg x\).  Division by \(\ell\asymp x\) and summation over dyadic blocks
-proves (32.10).  This is the one-divisor analogue of Lemma 24.3. ∎
+\(\gg x\).  Thus, uniformly for large \(x\),
+\[
+ \sum_{\substack{x<\ell\leq2x\\\ell\equiv3\ (4)\\
+                         \ell\ \mathrm{prime}}}
+       \tau((\ell+1)/4)\asymp x.
+\]
+After division by \(\ell\asymp x\), every dyadic block has mass
+\(\Theta(1)\).  In particular the exact range \(\sqrt X<\ell\leq X\) has
+mass \(\Theta(\log X)\), which is the form used in Theorem 32.4.  This is
+the one-divisor analogue of Lemma 24.3. ∎
 
 This resolves the mass subtlety.  The §15/§24 prime system has
 \(f(\ell)=(\tau(H^2)-1)/2\) and mass \(\asymp(\log X)^2\), but its displayed
 witnesses have the multipliers (32.3).  The \(k=1\)-certifying prime system
 has only \(\tau(H)\) classes and mass \(\asymp\log X\).  Quadratic mass does
-reappear in (32.9), but there the moduli are composite and are not
-Chinese-remainder independent.  The Selberg/Rankin proof of Theorem 21.3 or
-24.4 cannot be applied to (32.9) by replacing primes with these correlated
-moduli.  No sentence in §§18 or 21 calls the intrinsic system a \(k=1\)
+reappear in (32.9), but the full collection of those moduli is not pairwise
+coprime.  Its intersections are governed by lcms, which can be much smaller
+than products; compositeness by itself is not the obstruction.  The
+Selberg/Rankin proof of Theorem 21.3 or 24.4 therefore cannot be applied to
+(32.9) by replacing the independent prime moduli with the full correlated
+collection.  No sentence in §§18 or 21 calls the intrinsic system a \(k=1\)
 supply; no stale-phrasing repair is needed there.
 
 ### 32.2 An unconditional bound for primes without a \(k=1\) Type-II tuple
@@ -10188,14 +10214,16 @@ statement. ∎
 **Assessment (why the expected \(2/3\) does not follow).**  If the quadratic
 mass (32.9) admitted a product-like Selberg assembly, the formal balance
 \((\log X)^2\lesssim\log N/\log X\) would indeed give exponent \(2/3\).
-But (32.9) is a composite-modulus mass, while the proved independent
-prime-modulus mass is (32.10).  Intersections have density governed by lcms,
-not products, and fixed-\(t\) subfamilies are visibly shifted-divisor
-clusters.  Proving the required composite assembly would be a new correlation
-theorem of the same kind carefully withheld in §§18, 21, and 24.  Therefore
-(32.11), with exponent \(1/2\), is the strongest unconditional conclusion
-from the presently certified system; an unconditional \(2/3\) statement for
-\(E_{II,1}\) is not proved here.
+But (32.9) comes from a full composite-modulus collection that is not
+pairwise coprime, while the proved independent prime-modulus mass is (32.10).
+Intersections in the full collection have density governed by lcms, not
+products, and fixed-\(t\) subfamilies are visibly shifted-divisor clusters.
+Proving the required composite assembly would be a new correlation theorem
+of the same kind carefully withheld in §§18, 21, and 24.  Thus (32.11), with
+exponent \(1/2\), is the strongest bound proved here from the independent
+prime-modulus subsystem, and the present proof does not yield \(2/3\).
+Nothing here rules out a selective coprime or low-correlation composite
+subfamily, or a different use of the identities.
 
 **Numerical companion (informational).**  The truncated ratios
 
@@ -10247,8 +10275,15 @@ P&\min k& (A,B,C)\text{ at }\min k
 
 Type-I counts are ordered in \((A,B)\), exactly as in §26.1; “primitive”
 means \((A,B)=1\).  They were independently recovered from ordered unit
-fraction solutions.  If \(x\leq y\leq z\), put
-\(q=4x-P\), \(R=Px\), and enumerate every \(d\mid R^2\), \(d\leq R\), with
+fraction solutions.  For sorted denominators \(x\leq y\leq z\), the unit
+fraction equation gives the complete range
+\[
+                         P/4<x\leq3P/4:
+\]
+the strict lower bound follows from \(4/P>1/x\), and the upper bound from
+\(4/P\leq3/x\).  Thus the denominator scan is cutoff-free.  For every
+integer \(x\) in that range, put \(q=4x-P\), \(R=Px\), and enumerate every
+\(d\mid R^2\), \(d\leq R\), with
 \(q\mid d+R\).  The two-term dictionary gives
 
 \[
@@ -10296,13 +10331,16 @@ supporting both cases, while 409 and 9601 have disjoint modulus sets.
 while there is no monotone growth of the minimum with \(P\).  The sample is
 too small for a distributional claim.
 
-**Optional finite census (exact).**  The same independent denominator-side
-enumerator stops at the first Type-I row for each odd prime \(P\leq10^5\).
-It finds no Type-I-less prime among all 9,591 odd primes in that range.  This
-is a finite statement only; it does not make Type I pointwise sufficient.
+**Computational Search 32.5 (exact finite census).**  The same independent
+denominator-side enumerator stops at the first Type-I row for each odd prime
+\(P\leq10^5\).  It finds no Type-I-less prime among all 9,591 odd primes in
+that range.  This is a finite statement only; it does not make Type I
+pointwise sufficient.
 
-`verify.py (ae)` replays Lemma 32.1 over thousands of intrinsic instances,
-checks the exact §15 multiplier and the overlap (32.4), verifies the two mass
-ratios, independently certifies the nine-prime table, and performs the
-Type-I-less scan through \(10^5\).  The default block is memory-bounded and
-runs in under ten seconds on the campaign host.
+`verify.py (ae)` checks Lemma 32.1 on 809 floor/parity intrinsic
+factorizations (338 with \(k=1\)), checks 171 §15 instances, 1,014 direct
+class identities, the (17, 409) class/target regression, and the exact
+nine-prime table, then performs the Type-I-less scan through \(10^5\).  It
+reproduces the four finite mass-ratio rows in (32.13); it does not
+machine-check either mass asymptotic or Theorem 32.4.  The default block is
+memory-bounded and runs in under ten seconds on the campaign host.
