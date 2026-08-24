@@ -4679,8 +4679,9 @@ def check_ab():
         assert stats[X0][1] <= value + 1e-15
         envelope[X0] = value
 
-    # A genuinely new local projection: one root is outside R(7), and its
-    # hard refinement contains the known target 673.
+    # Scope the example precisely: one local projection is outside R(7), but
+    # the other is subsumed, §4 already has the exact progression, and 673 is
+    # itself intrinsic at modulus 15.  No new-target claim is being tested.
     q0, c0, k0, h0 = 7, 5, 1, 20
     roots = {1, 6}
     crt_classes = set()
@@ -4688,9 +4689,17 @@ def check_ab():
         t0 = ((r0 + q0) * pow(h0, -1, q0)) % q0
         crt_classes.add((-q0 + h0 * t0) % (h0 * q0))
     intrinsic7 = {(-4 * D0) % 7 for D0 in divisors_of_square(2)}
+    intrinsic35 = {(-4 * D0) % 35 for D0 in divisors_of_square(9)}
+    intrinsic15 = {(-4 * D0) % 15 for D0 in divisors_of_square(4)}
     assert crt_classes == {13, 113}
-    assert intrinsic7 == {3, 5, 6} and 1 not in intrinsic7
+    assert intrinsic7 == {3, 5, 6}
+    assert 13 % 7 == 6 in intrinsic7 and 113 % 7 == 1 not in intrinsic7
+    eligible_divisors = [M for M in positive_divisors(140) if M % 4 == 3]
+    assert eligible_divisors == [7, 35]
+    assert intrinsic35 == {23, 26, 31, 32, 34} and 113 % 35 == 8
+    assert intrinsic15 == {7, 11, 13, 14}
     assert 673 % 140 == 113 and 673 % 24 == 1
+    assert 673 % 15 == 13 in intrinsic15
     assert (673 * 673 + 4 * c0 * k0 * k0) % q0 == 0
     a0 = (673 + q0) // h0
     b0 = ((673 * 673 + 4 * c0 * k0 * k0) // q0 + 673) // h0
@@ -4712,8 +4721,9 @@ def check_ab():
           "mass/(L^2logL), mass/L^3):", ratios)
     print("Case-A counts at X=3000: 371 raw -> 336 distinct classes at "
           "136 moduli; all exact reconstructions OK")
-    print("(q,c,k)=(7,5,1): classes {13,113} mod 140; root 1 is new "
-          "mod 7 and refines to 673 mod 840")
+    print("(q,c,k)=(7,5,1): 13 mod 140 is intrinsic at 7; 113 has a "
+          "projection absent at 7 (and no containing intrinsic progression), "
+          "but already occurs in §4 and 673 is intrinsic at 15")
 
 
 print("\n== (ab) transfer-law congruence supply (§29) ==")

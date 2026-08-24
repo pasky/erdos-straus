@@ -8556,7 +8556,7 @@ Erdős--Straus proof.
 
 ---
 
-## 29. Transfer laws on the exceptional-set axis: one exact subsumption and a subcubic new prime-divisor layer
+## 29. Transfer laws on the exceptional-set axis: one exact subsumption and a subcubic prime-divisor class construction
 
 This section asks a narrower question than §§22--26: after forgetting descent
 and retaining only sufficient conditions on the target integer \(P\), do the
@@ -8587,8 +8587,9 @@ Here \(q\) may be composite; (29.1) makes every displayed inverse legitimate.
 
 **Lemma 29.1 (Case-B classes are exactly the intrinsic classes; proved).**
 For every \(q\equiv3\pmod4\), the union of (29.2) over all \((c,k)\) with
-\(4ck\mid q+1\) is exactly \(\mathscr R(q)\) of Lemma 18.1, with no
-multiplicity from different \((c,k)\)'s.
+\(4ck\mid q+1\) is exactly \(\mathscr R(q)\) of Lemma 18.1 as a residue set.
+The parameter descriptions need not be injective; multiplicity disappears
+only after taking the set union.
 
 *Proof.*  Write
 
@@ -8618,8 +8619,9 @@ same class is
 since \(16ck^2D=(4cka)^2\equiv1\pmod q\).  Conversely, the
 prime-by-prime construction in Lemma 18.1 writes every \(D\mid A^2\) as
 \(D=u^2w\) with \(uvw=A\).  Taking \((a,k,c)=(u,v,w)\) reverses
-(29.3)--(29.4).  Thus the two unions agree as residue sets.  Counting the
-set, rather than the factorizations, gives exactly \(F(q)\). ∎
+(29.3)--(29.4).  Thus the two unions agree as residue sets.  Raw \((c,k)\)
+descriptions can collide; counting the union, rather than the factorizations,
+gives exactly \(F(q)\). ∎
 
 This is the requested dictionary.  In particular the apparent
 \(\#\{(c,k):4ck\mid q+1\}\) gain is entirely a reparametrization of the
@@ -8636,35 +8638,55 @@ asks for a divisor
  \qquad q\equiv-P\pmod h.                                  \tag{29.5}
 \]
 
-The grade now moves with \(P\).  Prime divisors nevertheless give genuine
-fixed classes.
+The grade now moves with \(P\).  Prime divisors nevertheless give fixed CRT
+class constructions whose shape is not exhausted by the intrinsic class at
+the same prime modulus.
 
 **Lemma 29.2 (prime Type-I CRT classes; proved).**  Let \(q\nmid2ck\) be an
 odd prime.  If \((-4c\mid q)=1\), let \(r_\pm\) be the two roots of
-\(r^2\equiv-4ck^2\pmod q\).  Then the two Chinese-remainder classes
+\(r^2\equiv-4ck^2\pmod q\).  Then every positive target in either
+Chinese-remainder class
 
 \[
  P\equiv r_\pm\pmod q,
  \qquad P\equiv-q\pmod h                                   \tag{29.6}
 \]
 
-modulo \(hq\) are forced Type-I-solvability classes.  If the symbol is
-\(-1\), there is no such class.  For hard targets \(P\equiv1\pmod4\),
-(29.6) forces \(q\equiv3\pmod4\).
+modulo \(hq\) has a positive Type-I solution.  If the symbol is \(-1\),
+there is no such class.  For hard targets \(P\equiv1\pmod4\), (29.6) forces
+\(q\equiv3\pmod4\).
 
-*Proof.*  Every member of (29.6) has \((P,ck)=1\), satisfies
-\(q\mid P^2+4ck^2\), and has \(q\equiv-P\pmod h\).  Theorem 26.1 then
-makes the cofactor automatically \(-P\pmod h\) and reconstructs positive
-\(a,b\) by (26.4).  Conversely a prime divisor in (29.5) supplies one of
+*Proof.*  Every positive member of (29.6) has \((P,ck)=1\), satisfies
+\(q\mid P^2+4ck^2\), and has \(q\equiv-P\pmod h\).  The divisor algebra of
+Theorem 26.1 extends verbatim beyond its stated prime-target domain here:
+put \(e=(P^2+4ck^2)/q\).  Since \(q\equiv-P\pmod h\), one has
+\(e\equiv-P\pmod h\), so
+\[
+             a={P+q\over h},\qquad b={P+e\over h}
+\]
+are positive integers, and direct expansion gives
+\(P(a+b)=k(4abc-1)\).  Conversely a prime divisor in (29.5) supplies one of
 the two roots.  Reduction modulo four gives the final assertion. ∎
 
-These classes are not merely another notation for Lemma 29.1.  For example
-\((q,c,k)=(7,5,1)\) gives roots \(1,6\pmod7\) and classes
-\(113,13\pmod{140}\).  The projection \(1\pmod7\) is not in
-\(\mathscr R(7)=\{3,5,6\}\); its hard-prime refinement is
-\(P\equiv673\pmod{840}\).  Thus Type I contributes genuinely new fixed
-classes, although §29.2 shows that their prime-divisor mass is subcubic.
-For a composite fixed divisor \(q\), the same argument gives
+These classes are not merely another notation for Lemma 29.1 at the same
+prime modulus.  For example \((q,c,k)=(7,5,1)\) gives roots
+\(1,6\pmod7\) and classes \(113,13\pmod{140}\).  The second projects to
+\(6\pmod7\) and is subsumed by \(\mathscr R(7)=\{3,5,6\}\); the first
+projects to \(1\pmod7\), which is absent from that intrinsic set.  More
+strongly, no single intrinsic progression contains all of
+\(113\pmod{140}\): its modulus would divide 140, the only eligible divisors
+\(\equiv3\pmod4\) are 7 and 35, and
+\(\mathscr R(35)=\{23,26,31,32,34\}\) does not contain
+\(113\equiv8\pmod{35}\).
+
+This novelty is only relative to the intrinsic multiplier construction.  The
+exact progression \(113\pmod{140}\) already appears in §4 as the guaranteed
+Case-B family \((q,d,R)=(7,5,5)\).  Its hard refinement contains 673, but
+673 is itself intrinsic at modulus 15 because
+\(673\equiv13\in\mathscr R(15)=\{7,11,13,14\}\).  The example therefore
+shows a new class construction and local projection, not a newly covered
+target or novelty relative to every earlier fixed family.  For a composite
+fixed divisor \(q\), the same argument gives
 \(\rho_q(-4ck^2)\) CRT classes modulo \(hq\).  Their root multiplicities
 and cross-factorization collisions are not evaluated here; no claim about
 the mass of that composite extraction is hidden in Theorem 29.3.
@@ -8714,8 +8736,7 @@ raw multiplicity envelope:
 \begin{aligned}
  \mu(\mathcal A_{\rm pr}(X))
  &\leq {1\over2}
-   \sum_{\substack{q\leq X/4\\q\equiv3\ (4)\ {
-m prime}}}{1\over q}
+   \sum_{\substack{q\leq X/4\\q\equiv3\ (4)\\q\ \mathrm{prime}}}{1\over q}
    \sum_{ck\leq X/(4q)}{1\over ck}                         \tag{29.7}\\
  &\leq \left({1\over8}+o(1)\right)t^2\log t
    =o(t^3).                                                  \tag{29.8}
@@ -8766,9 +8787,12 @@ item 1.  Equations (29.7)--(29.8) give an \(o(t^3)\) upper bound for item
 3 even before deduplication against item 1.  The intrinsic lower bound and
 the sum of these upper bounds prove (29.11). ∎
 
-Thus the prime Case-B back-of-the-envelope \(\tau_3\)-count contributes
-zero new residues after the exact dictionary, while the genuinely new
-prime Type-I CRT layer has at most \(t^2\log t\) mass.  It can alter finite
+Here “union” is the per-displayed-modulus class-mass bookkeeping of §18.
+The theorem neither evaluates cross-modulus coverage correlations nor proves
+a positive Type-I mass increment after overlap with the intrinsic system.
+Thus the prime Case-B back-of-the-envelope \(\tau_3\)-count contributes zero
+new residues after the exact dictionary, while the prime Type-I CRT class
+construction has at most \(t^2\log t\) raw-envelope mass.  It can alter finite
 constants and lower-order logarithms, but it cannot change the cubic power.
 The mass/Rankin balance of §18.1 therefore still has exponent ceiling
 \(3/(3+1)=3/4\) for this enlarged fixed-class supply.
@@ -8786,8 +8810,11 @@ collisions; raw root/factorization multiplicity is not such a claim.
 
 ### 29.3 Quadratic-form sieve angle (exploratory, timeboxed)
 
-Fix \((c,k)\), put \(h=4ck\), and restrict \(P\) to a reduced residue
-\(a\pmod h\).  The relevant prime divisors in (29.6) now satisfy
+**Assessment 29.4 (standard one-fiber sieve consequences).**  Fix \((c,k)\),
+put \(h=4ck\), and restrict \(P\) to a reduced residue \(a\pmod h\).  The
+following uses the standard Mertens theorem in a fixed progression and the
+fixed-dimension fundamental lemma only in their usual level ranges.  The
+relevant prime divisors in (29.6) now satisfy
 
 \[
  q\equiv-a\pmod h.                                         \tag{29.12}
@@ -8819,7 +8846,7 @@ for half the primes” suggests the usual quadratic/half-dimension language;
 after the mandatory grade condition is imposed, the split bit is pinned by
 the same progression and (29.13) is the exact dimension statement.
 
-**Assessment 29.4 (no independent exponential bound from the classical
+**Assessment 29.4.1 (no independent exponential bound from the classical
 quadratic sieve).**  Equation (29.14), even with \(z\) a power of \(N\),
 is polynomial in \(\log N\), far weaker than Theorem 16.4.  Obtaining an
 \(\exp\{-c(\log X)^2\}\)-type auxiliary-scale saving requires a growing
@@ -8840,8 +8867,9 @@ even perfect use cannot raise the cubic mass power.
 * The complete fixed-\((c,k)\) Case-B divisor supply is **exactly
   subsumed** by the intrinsic multiplier system, class for class and with
   exact cross-parameter deduplication.
-* Prime-divisor Type-I conditions do give **new** CRT classes, but their
-  total distinct mass is at most
+* Prime-divisor Type-I conditions produce CRT class shapes with projections
+  absent from the intrinsic class at the same prime modulus, but the example
+  proves no newly covered target.  Their total distinct mass is at most
   \(O((\log X)^2\log\log X)=o((\log X)^3)\).
 * The tensor, additive, corrected-tensor, and bridge laws produce witness
   images or reparametrize old Type-I/II classes; no new class-mass theorem
