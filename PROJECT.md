@@ -81,6 +81,41 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 14 (2026-08-24, wave 10 — see notes.md §31–§32; §31 maximum-severity-reviewed (refutation confirmed) → repaired; §32 reviewed → repaired)
+
+* **§31 (rough shifted-divisor assembly): H_PF as stated is REFUTED; the
+  critical-window variant H_PF′ remains OPEN.**  Theorems 31.2–31.3 prove
+  the weighted rough mean and softened pointwise charges; the finite-CRT
+  Lovász-local-lemma argument gives
+  \(\delta_X\geq\exp\{-O(L^3\log\log L/\log L)\}=\exp\{-o(L^3)\}\).  Exact
+  complete-period multiples then contradict H_PF's claimed
+  \(\exp(-cL^3)\) majorant mean.  This refutes H_PF's literal
+  all-eligible-\(N\) quantifiers, not the restriction to
+  \(\log N\asymp L^4\): H_PF′ is not refuted, would still imply Theorem
+  18.6's conclusion, and the corresponding finite-window lower bound
+  remains open.  (The maximum-severity review verified the borderline
+  Henriot coefficient condition at the split point, the LLL
+  factorization/independence structure, and the quarantine arithmetic.)
+  Supersession pointers added at every stale H_PF status line in
+  §§18/21/24/27.  Route audit: Hall moments, Nair–Tenenbaum on the void
+  indicator, Suen, and smooth-restricted families each fail at a named
+  step; the wall now lives entirely in the finite-window transfer.
+* **§32 (k=1 certification audit): the intrinsic system does NOT certify
+  k=1.**  The intrinsic-class witness's canonical multiplier is
+  \(k=H/(H,D)\), \(H=(M+1)/4\); a same-class k=1 witness exists exactly
+  when \(4D\mid H\) (class-level statement; scoped after review).  The
+  k=1-certifying affine system within the fixed-divisor dictionary is
+  \(\{-t\bmod M:t\mid H\}\), with all-modulus mass
+  \(\tfrac18(\log X)^2+O(\log X)\) but prime-modulus mass only
+  \(\asymp\log X\).  **New unconditional theorem:**
+  \(\#\{P\le N\text{ prime}:P\ne4ABC-A-B\}\ll N\exp(-c\sqrt{\log N})\)
+  (also for integer targets) — the honest exponent is \(1/2\), and
+  \(2/3\) is blocked by a precisely-stated non-pairwise-coprime modulus
+  assembly obstruction.  Anatomy of the nine k=1-less primes \(<10^6\):
+  minimal Type-II \(k=2\) for eight, \(k=3\) for 102001; every one has
+  Type-I tuples; **no Type-I-less odd prime exists through \(10^5\)**
+  (Computational).
+
 ## Outcome 13 (2026-08-24, wave 9 — see notes.md §28–§30; all three hostile-reviewed → repaired)
 
 * **§28 (census reconciliation): the combined blocked set is EMPTY through
