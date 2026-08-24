@@ -6173,8 +6173,8 @@ is zero, while Lemma 21.2 requires \(-1\).
 **Theorem 24.7 (local-symbol plus first-moment no-go; proved in the stated
 method class).**  Consider a lower-bound scheme which
 
-1. imposes (24.19), or a subset of those local symbol conditions, to certify
-   the moduli composed entirely of controlled primes; and
+1. imposes (24.19) for every odd prime up to a cutoff \(z\), to certify
+   the moduli composed entirely of those controlled primes; and
 2. treats every modulus not so certified by the unconditioned first-moment
    union bound \(\sum F(M)/M\).
 
@@ -6193,8 +6193,7 @@ Theorem 18.2 give
       -o(L^3)\gg L^3.                                       \tag{24.21}
 \]
 
-The union-bound lower estimate after step 2 is therefore already negative.
-The same conclusion holds if fewer primes are controlled. ∎
+The union-bound lower estimate after step 2 is therefore already negative. ∎
 
 The scope is essential.  The theorem does not cover a prescription which
 uses the actual residues of rough-modulus classes to make many of them
