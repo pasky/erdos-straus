@@ -8222,7 +8222,7 @@ Thus the status does not change.  The new unconditional gain is a
 polylogarithmic extension and a prime/composite separation; the full
 large-\(R\), broad-cofactor composite system remains the exact obstruction.
 
-## 28. Reconciled transfer census, tuple atoms, and the forward-image residual
+## 28. Reconciled transfer census, restricted-family atoms, and the forward-image residual
 
 Sections 25 and 26 were produced independently.  Their headline censuses used
 incompatible law sets: (26.22) combined §23 with the two §26 laws but omitted
@@ -8298,11 +8298,14 @@ are the only pure-tensor resisters, and (25.13) covers all eleven.  For
 prove that the pure-tensor resister set is still exactly those eleven; no
 extrapolation from \(10^5\) is being made.  The eleven rows are replayed, and
 30 deterministic random hard primes in \((3000,10^5)\) are independently
-spot-checked in block (aa).  Equation (28.3) is finite **witness-decomposition
+spot-checked in block (aa).  Block (aa) recomputes the two rows through
+\(10^5\), including the flexible and fixed-source-2 tensor counts; the
+million-prime pure-tensor row is recomputed only by block (x) when
+`ES_FULL_SCAN=1`.  Equation (28.3) is finite **witness-decomposition
 coverage**.  It is not witness existence for the next prime and is not a
 proof of the conjecture.
 
-### 28.2 Decomposition completeness fails, but the interior has a uniform map
+### 28.2 Restricted-family decomposition fails, but the interior has a uniform map
 
 The target domain in this subsection is the complete set of ordered Type-II
 tuples of each hard prime.  This is the common target domain of the additive,
@@ -8363,11 +8366,11 @@ the least positive \(a_2\equiv-b_2\pmod{k_2}\); source value is increasing
 in \(a_2\), so this least representative makes the test complete.  The
 third map is symmetric.  Every candidate is checked against (28.1).
 
-**Computational Search 28.4 (all target tuples).**  Complete Type-II tuple
-enumeration gives 940 ordered rows over all 46 hard primes \(P\leq3000\).
-The union of the three exact additive inverses, flexible tensor inverse,
-bridge, and corrected-Type-I overlap leaves 34 rows, at 16 primes.  Up to
-coordinate swap the complete atom table is
+**Computational Search 28.4 (all target tuples for the pre-§30 law union).**
+Complete Type-II tuple enumeration gives 940 ordered rows over all 46 hard
+primes \(P\leq3000\).  The union of the three exact additive inverses,
+flexible tensor inverse, and bridge leaves 34 rows, at 16 primes.  Up to
+coordinate swap the complete restricted-family descending-atom table is
 
 \[
 \begin{array}{r|c|r@{\qquad}r|c|r}
@@ -8387,13 +8390,24 @@ P&(A,B,C,K)&m&P&(A,B,C,K)&m\\ \hline
 Every row in (28.6) has a coordinate 1, \(K>1\), \(4\nmid CK\), and
 \(m\nmid P-1\).  Thus it lies outside Theorem 28.3, the flexible tensor, and
 the bridge; the exact additive inverse closes the remaining branches.  These
-are **tuple atoms**, not prime blockers: every listed prime has some other
-decomposable tuple.  On a deterministic random sample of 30 hard primes
-between 3000 and \(10^5\), all 1,952 Type-II rows were tested.  There are 58
+are **atoms only for this pre-§30 restricted descending law union**, not prime
+blockers or intrinsic tuple-lattice obstructions: every listed prime has some
+other decomposable tuple.  Section 30 adds the grid moves \(X,Y,Z\), arbitrary
+admissible relabelling, and paths that need not remain below the target value.
+Under that larger system every one of these 34 ordered rows is already a
+direct \(X\)- or \(Y\)-descendant of a lower valid tuple and reduces to
+\((1,1,1,1)\); block (aa) verifies both assertions.  For example,
+\((1,62,1,9)\) at 241 has the descending predecessor
+\((1,53,1,9)\) at 206 under \(Y^{-1}\).  Thus (28.6) records the boundary of
+the older transfer family, not the current lattice frontier.
+
+On a deterministic random sample of 30 hard primes between 3000 and
+\(10^5\), all 1,952 Type-II rows were tested.  There are 58 restricted-family
 atoms at 18 primes; again every atom has a coordinate 1, \(4\nmid CK\), and
 \(m\nmid P-1\), while every sampled prime has at least one decomposable row.
-This refutes decomposition completeness for the fixed family and isolates
-the boundary, rather than producing a new prime-level resister frontier.
+This refutes decomposition completeness for the stated older family and
+isolates its boundary, rather than producing a new prime-level resister
+frontier.
 
 If “every tuple” is read to include Type I as well, failure is much larger.
 There are 1,830 ordered Type-I rows at the same 46 primes.  Only 44 pass the
@@ -8454,13 +8468,13 @@ the current divisor list and the output list.
 Each image condition can be stated arithmetically in \(P\) alone.  This does
 not remove its existential content.
 
-* **Fixed additive maps.**  There is a Type-II row
+* **\(I_{\rm add}(P)\): fixed additive maps.**  There is a Type-II row
   \((A,B,C,K)\) of \(P\), and positive source splits satisfying the exact
   \(R=CK\) divisor conditions preceding Search 28.4 and (28.1).  The simple
   \(\Phi_{++}\), \(K=1\) subimage is exactly the set of \(P\) having a
   \(k=1\) row with \(A,B\geq2\); the three Theorem-25.6 branches together
   are exactly the hard \(P\) having any \(k=1\) row.
-* **Flexible tensor.**  There is a Type-II row and the finite factor/split
+* **\(I_{\rm flex}(P)\): flexible tensor.**  There is a Type-II row and the finite factor/split
   data of Lemma 23.3, including (28.1).  For the source-2 singleton branch,
   up to swaps there are positive \(a,b,c,k,C,K\) with
   \(k\mid a+b\), \(CK=4ck\), \(K\mid2(a+b)\),
@@ -8468,11 +8482,11 @@ not remove its existential content.
   \(q=4abc-(a+b)/k\in[2,P)\), and
   \(P=4ABC-2(a+b)/K\).  This is an explicit arithmetic shape, not a residue
   class.
-* **Bridge.**  There is a Type-II row of \(P\) with
+* **\(I_{\rm bridge}(P)\): bridge.**  There is a Type-II row of \(P\) with
   \(m=(A+B)/K>1\) and \(m\mid P-1\).  Equivalently,
   \(ABC=(P+m)/4\), \(m\mid A+B\), and the smaller Type-I value is
   \(1+(P-1)/m\).
-* **Corrected Type I.**  There is a Type-I row of \(P\), with
+* **\(I_{\rm Icorr}(P)\): corrected Type I.**  There is a Type-I row of \(P\), with
   \(m=(A+B)/K\), satisfying the complete inverse data (26.17) and (28.1).
   The easy condition \(m\mid K\) is only a necessary gate, not the image:
   1129 already separates them.
@@ -8511,10 +8525,10 @@ corrected-Type-I conditions are too sparse to be plausible individual
 all-large-prime statements.  No audited distribution theorem makes even the
 full disjunction pointwise-uniform.
 
-The weakest sufficient statement available from the combined fixed family is
-therefore its exact union:
+Within the four pre-§30 descending transfer families, the exact residual is
+their union:
 
-> **Residual conjecture H_W9 (forward-image totality).**  For every prime
+> **Pre-§30 residual conjecture H_W9 (forward-image totality).**  For every prime
 > \(P\equiv1\pmod{24}\), at least one of the exact predicates
 > \(I_{\rm add}(P)\), \(I_{\rm flex}(P)\),
 > \(I_{\rm Icorr}(P)\), or \(I_{\rm bridge}(P)\) above holds, including
@@ -8522,16 +8536,23 @@ therefore its exact union:
 > and the corresponding fixed forward formula landing exactly at value
 > \(P\).
 
-A proof after any finite base check would prove Erdős--Straus for the hard
-primes, because every branch directly outputs a certified target tuple.
-H_W9 is weaker than requiring any one family to be total, but it is **not
-weaker than the raw residual problem of §17.6**.  It implies witness existence
-and imposes extra decomposability; the tuple atoms (28.6) show that witness
-existence does not imply decomposition of an arbitrary witness under this
-family.  The prime-level converse is exactly what is unknown.  Thus the empty
-finite blocked set and the 100% additive-image row in (28.10) are useful
-structure diagnostics, not a reduction in the proved logical hardness and
-not an Erdős--Straus proof.
+A proof would prove Erdős--Straus for the hard primes directly (or after a
+finite base check if H_W9 were proved only for sufficiently large \(P\)),
+because every branch outputs a certified target tuple.  H_W9 is weaker than
+requiring any one older family to be total, but it is **not weaker than the raw
+residual problem of §17.6**.  It implies witness existence and imposes extra
+decomposability; the restricted-family atoms (28.6) show that witness
+existence does not imply decomposition of an arbitrary witness under those
+four families.  The prime-level converse is exactly what is unknown.
+
+Section 30 changes the decomposition system, not the existence problem.  Its
+grid reduction is automatic once a hard-prime Type-II tuple has been found,
+so it removes all of (28.6) as lattice atoms but supplies no tuple from the
+integer \(P\).  In the §30 system the residual target is therefore raw Type-II
+witness existence, not H_W9-style decomposition.  Thus the empty finite
+blocked set and the 100% additive-image row in (28.10) are useful diagnostics
+of the older laws, not a reduction in the proved logical hardness and not an
+Erdős--Straus proof.
 
 ---
 

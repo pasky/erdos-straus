@@ -4164,6 +4164,44 @@ def check_aa():
                                         return True
         return None
 
+    # Fast complete inverse for branches having fixed source (1,1,1,1).
+    # The tensor subset is determined, up to irrelevant duplicate masks, by
+    # how many copies of the second source's two coordinates it selects.
+    tensor_masks_by_counts = {}
+    for mask in range(1, 15):
+        counts = (sum(bool(mask >> i & 1) for i in (0, 2)),
+                  sum(bool(mask >> i & 1) for i in (1, 3)))
+        tensor_masks_by_counts.setdefault(counts, mask)
+
+    def fixed_two_inverse(P, row):
+        A, B, C, K = row
+        if C * K % 4 or (A + B) % 2:
+            return None
+        tensor_product = C * K // 4
+        half_sum = (A + B) // 2
+        for k2 in divs(gcd(tensor_product, half_sum)):
+            c2, s2 = tensor_product // k2, half_sum // k2
+            for (i, j), mask in tensor_masks_by_counts.items():
+                if i == j:
+                    if i != 1 or A != half_sum:
+                        continue
+                    candidates = range(1, half_sum)
+                else:
+                    numerator = A - j * half_sum
+                    denominator = i - j
+                    if numerator % denominator:
+                        continue
+                    candidates = (numerator // denominator,)
+                for a2 in candidates:
+                    if not 1 <= a2 < half_sum:
+                        continue
+                    b2 = half_sum - a2
+                    source = (a2, b2, c2, k2)
+                    p2 = type_ii_value(source)
+                    if 2 <= p2 < P:
+                        return row, (2, (1, 1, 1, 1)), (p2, source), mask, s2
+        return None
+
     def bridge_inverse(P, row):
         m = (row[0] + row[1]) // row[3]
         if m > 1 and (P - 1) % m == 0:
@@ -4212,6 +4250,33 @@ def check_aa():
     assert sorted(set(normalized_atoms)) == sorted(expected_atoms_up_to_swap)
     assert all(min(row[:2]) == 1 and row[3] > 1 and row[2] * row[3] % 4
                and (P - 1) % m for P, row, m in atoms)
+
+    # Reconcile §28's restricted-family atoms with §30's larger move system.
+    # Each row has an immediate descending X^-1 or Y^-1 predecessor, and the
+    # canonical §30 reverse path (relabel to K=1, then X/Y/Z subtraction)
+    # reaches the sole global seed.  Relabelling may first raise the value.
+    section30_predecessor_counts = {"X": 0, "Y": 0}
+    for P, row, unused_m in atoms:
+        A, B, C, K = row
+        if A > K:
+            predecessor = (A - K, B, C, K)
+            section30_predecessor_counts["X"] += 1
+        else:
+            assert B > K
+            predecessor = (A, B - K, C, K)
+            section30_predecessor_counts["Y"] += 1
+        assert 2 <= type_ii_value(predecessor) < P
+
+        current = (A, B, C * K, 1)
+        assert type_ii_value(current) == K * P
+        while current[0] > 1:
+            current = (current[0] - 1, current[1], current[2], 1)
+        while current[1] > 1:
+            current = (current[0], current[1] - 1, current[2], 1)
+        while current[2] > 1:
+            current = (current[0], current[1], current[2] - 1, 1)
+        assert current == (1, 1, 1, 1)
+    assert section30_predecessor_counts == {"X": 17, "Y": 17}
 
     # Deterministic sample beyond 3000: every tuple, not merely one per prime.
     sample_pool = [P for P in primerange(3001, 100_000) if P % 24 == 1]
@@ -4339,9 +4404,29 @@ def check_aa():
     no_k1_100k = [P for P in hard_100k if k1_witness(P) is None]
     assert len(hard_100k) == 1181
     assert no_k1_100k == [409, 577, 5569, 9601, 23929, 83449]
+    k1_image = {P for P in hard_100k if k1_witness(P) is not None}
     k1_interior_count = sum(k1_witness(P, require_interior=True) is not None
                             for P in hard_100k)
-    assert k1_interior_count == 1165
+    assert len(k1_image) == 1175 and k1_interior_count == 1165
+
+    # Recompute, rather than pin, both tensor image rows in (28.10).  The fast
+    # fixed-source inverse handles 1166 primes.  Only its residual is passed
+    # to the complete flexible inverse, keeping the default audit inexpensive.
+    fixed_source2_image = set()
+    flexible_tensor_image = set()
+    for P in hard_100k:
+        rows = all_type_ii_rows(P)
+        if any(fixed_two_inverse(P, row) is not None for row in rows):
+            fixed_source2_image.add(P)
+            flexible_tensor_image.add(P)
+        elif any(flexible_inverse(P, row) for row in rows):
+            flexible_tensor_image.add(P)
+    assert len(fixed_source2_image) == 1166
+    assert len(flexible_tensor_image) == 1170
+    hard_10k = {P for P in hard_100k if P <= 10_000}
+    assert len(hard_10k) == 143
+    assert len(flexible_tensor_image & hard_10k) == 132
+    assert hard_10k - flexible_tensor_image == set(eleven_k1)
 
     decade_rows = []
     for lower, upper, expected in (
@@ -4431,17 +4516,20 @@ def check_aa():
     ]
 
     # The six k=1 misses all have a broader fixed-additive branch.  Together
-    # with the 1175 k=1 values this verifies the 1181 fixed-additive table row.
+    # with the recomputed k=1 image this verifies the fixed-additive table row.
+    fixed_additive_image = set(k1_image)
     for P in no_k1_100k:
         branch = next((fixed_additive_inverse(P, row)
                        for row in all_type_ii_rows(P)
                        if fixed_additive_inverse(P, row) is not None), None)
         assert branch is not None
+        fixed_additive_image.add(P)
+    assert len(fixed_additive_image) == len(hard_100k)
     image_density_counts = {
-        "fixed additive": 1181,
-        "k=1 additive": 1175,
-        "flexible tensor": 1170,       # exact §23.4/block-(v) census
-        "fixed source 2": 1166,        # exact §23.4/block-(v) census
+        "fixed additive": len(fixed_additive_image),
+        "k=1 additive": len(k1_image),
+        "flexible tensor": len(flexible_tensor_image),
+        "fixed source 2": len(fixed_source2_image),
         "k=1 Phi++": k1_interior_count,
         "bridge": bridge_count,
         "Type-I gate": len(corrected_gate),
@@ -4455,9 +4543,12 @@ def check_aa():
     }
 
     print("five §26 blockers replayed under the §23 descending standard; "
-          "combined blocked sets through 10^4, 10^5, 10^6 are empty")
-    print("Type-II tuple completeness P<=3000: 940 rows, 34 atoms at 16 "
-          "primes; random beyond sample: 1952 rows, 58 atoms at 18 primes")
+          "this block recomputes empty combined blocked sets through 10^4 "
+          "and below 10^5 (the million-prime row belongs to full block (x))")
+    print("Type-II restricted-family census P<=3000: 940 rows, 34 atoms at "
+          "16 primes; all 34 have direct descending §30 X/Y predecessors and "
+          "reduce to its seed; random beyond sample: 1952 rows, 58 atoms at "
+          "18 primes")
     print("k=1-less default census:", no_k1_100k,
           "; decade rows (lower,total,missing) =", decade_rows)
     print("image-condition counts on 1181 hard primes <10^5:",
