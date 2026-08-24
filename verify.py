@@ -2155,8 +2155,11 @@ def check_u():
         AA = sum(tensor_terms[i] for i in range(4) if mask >> i & 1)
         BB = sum(tensor_terms) - AA
         assert expand(AA + BB - (a1 + b1) * (a2 + b2)) == 0
-        PP = 16 * c1 * c2 * AA * BB - s1 * s2
-        assert expand(PP - (4 * AA * BB * (4 * c1 * c2) - s1 * s2)) == 0
+        # non-tautological strict-lowering ingredient: AB >= a1 b1 a2 b2,
+        # spot-checked exactly on a positive grid for every partition mask
+        for vals in ((1, 1, 1, 1), (1, 2, 3, 4), (2, 1, 5, 3), (7, 4, 2, 9)):
+            sub = dict(zip((a1, b1, a2, b2), vals))
+            assert (AA * BB - a1 * b1 * a2 * b2).subs(sub) >= 0, (mask, vals)
 
     # The explicit 1+3 factor map has maximal output modulus h1*h2.
     D1, E1, D2, E2, h1, h2 = symbols("D1 E1 D2 E2 h1 h2")
