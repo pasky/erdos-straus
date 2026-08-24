@@ -2298,4 +2298,126 @@ def check_u():
 print("\n== (u) low-degree transfer-map classification (§22) ==")
 check_u()
 
+
+# ---------------------------------------------------------------- (w)
+def check_w():
+    """Finite companions for the §24 avoidance bounds and assessments."""
+    import numpy as np
+
+    # Lemma 24.5: for the D=1 family, avoiding every divisor M == 3 (mod 4)
+    # is exactly the local condition excluding prime divisors p == 3 (mod 4).
+    d1_rows = []
+    N0 = 100_000
+    ns0 = np.arange(1, N0 + 1, dtype=np.int64)
+    for X0 in (20, 40, 80):
+        y0 = ns0 + 4
+        local = np.ones(N0, dtype=bool)
+        product_density = 1.0
+        for p0 in primerange(3, X0 + 1):
+            if p0 % 4 == 3:
+                local &= y0 % p0 != 0
+                product_density *= 1.0 - 1.0 / p0
+        divisor_avoider = np.ones(N0, dtype=bool)
+        for M0 in range(3, X0 + 1, 4):
+            divisor_avoider &= y0 % M0 != 0
+        assert np.array_equal(local, divisor_avoider)
+        assert abs(local.mean() - product_density) < 3e-4
+        d1_rows.append((X0, round(float(local.mean()), 6),
+                        round(product_density, 6)))
+
+    # Lemma 24.3: compute the full, honestly deduplicated prime-class mass.
+    prime_mass_rows = []
+    for X0 in (1_000, 3_000, 10_000, 30_000):
+        mass = 0.0
+        for ell in primerange(3, X0 + 1):
+            if ell % 4 != 3:
+                continue
+            A0 = (ell + 1) // 4
+            f0 = len({(-4 * d0) % ell for d0 in divisors_of_square(A0)})
+            mass += f0 / ell
+        normalized = mass / log(X0) ** 2
+        assert 0.10 < normalized < 0.16
+        prime_mass_rows.append((X0, round(mass, 4), round(normalized, 4)))
+
+    # Assessment 24.1: compare actual (R,s)-hit counts with the raw
+    # min(1, 2^omega/phi(4R)) subset-product model.  The exact harmonic
+    # first moment records the missing product-size boundary.
+    rng = np.random.default_rng(240124)
+    subset_rows = []
+    for X0, samples in ((80, 4_000), (160, 3_000)):
+        ns = rng.integers(10**11, 9 * 10**11, size=samples,
+                          dtype=np.int64)
+        actual = model = harmonic = 0.0
+        small_primes = tuple(primerange(2, X0 + 1))
+        event_count = 0
+        for R0 in range(1, (X0 + 1) // 4 + 1):
+            q0 = 4 * R0
+            phi0 = q0
+            for p0 in factorint(q0):
+                phi0 -= phi0 // p0
+            squarefree_divisors = [1]
+            for p0 in factorint(R0):
+                squarefree_divisors = (squarefree_divisors
+                                       + [s0 * p0 for s0 in squarefree_divisors])
+            targets = tuple(range(q0 - 1, X0 + 1, q0))
+            for s0 in squarefree_divisors:
+                D0 = R0 * R0 // s0
+                shifted = ns + 4 * D0
+                hit = np.zeros(samples, dtype=bool)
+                for M0 in targets:
+                    hit |= shifted % M0 == 0
+                omega = np.zeros(samples, dtype=np.int16)
+                for p0 in small_primes:
+                    omega += shifted % p0 == 0
+                actual += float(hit.mean())
+                model += float(np.minimum(1.0,
+                                           np.exp2(omega.astype(float)) / phi0).mean())
+                harmonic += sum(1.0 / M0 for M0 in targets)
+                event_count += 1
+        assert model > 3.0 * actual
+        assert actual < harmonic
+        subset_rows.append((X0, event_count, round(actual, 3),
+                            round(model, 3), round(harmonic, 3)))
+
+    # Theorem 24.8: the local sets B_p certify every shifted-divisor event
+    # in a nontrivial finite R-range.  Count the certificate and check every
+    # surviving integer against every (R,D,M) event directly.
+    X0, Y0, N0 = 100, 5, 100_000
+    shifts = []
+    for R0 in range(1, Y0 + 1):
+        squarefree_divisors = [1]
+        for p0 in factorint(R0):
+            squarefree_divisors = (squarefree_divisors
+                                   + [s0 * p0 for s0 in squarefree_divisors])
+        shifts.extend((R0, R0 * R0 // s0) for s0 in squarefree_divisors)
+    ns = np.arange(1, N0 + 1, dtype=np.int64)
+    certified = np.ones(N0, dtype=bool)
+    crt_density = 1.0
+    for p0 in primerange(3, X0 + 1):
+        if p0 % 4 != 3:
+            continue
+        bad = {(-4 * D0) % p0 for R0, D0 in shifts if R0 % p0 != 0}
+        assert 0 not in bad and len(bad) < p0
+        crt_density *= 1.0 - len(bad) / p0
+        for b0 in bad:
+            certified &= ns % p0 != b0
+    for R0, D0 in shifts:
+        shifted = ns + 4 * D0
+        for M0 in range(4 * R0 - 1, X0 + 1, 4 * R0):
+            assert not np.any(certified & (shifted % M0 == 0))
+    measured_density = float(certified.mean())
+    assert abs(measured_density - crt_density) < 1e-3
+
+    print("D=1 exact local/product densities:", d1_rows)
+    print("full prime mass (X, mass, mass/log^2 X):", prime_mass_rows)
+    print("subset-product check (X, events, actual, raw model, harmonic):",
+          subset_rows)
+    print("truncated-fiber certificate: X=100, Y=5, shifts=%d, "
+          "density=%.6f (CRT %.6f)" %
+          (len(shifts), measured_density, crt_density))
+
+
+print("\n== (w) H_PF lower-bound routes (§24) ==")
+check_w()
+
 print("\nall checks passed")
