@@ -2020,4 +2020,210 @@ def check_s():
 print("\n== (s) frontal-assault transfer algebra (§20) ==")
 check_s()
 
+
+# ---------------------------------------------------------------- (u)
+def check_u():
+    """Section 22: exact low-degree coefficient solves and new transfers."""
+    from itertools import combinations_with_replacement
+    from sympy import (Poly, divisors, expand, isprime, linear_eq_to_matrix,
+                       linsolve, symbols)
+
+    # The generic raw quadratic has 15 coefficients.  Requiring Q+1 to
+    # vanish when either centered input slice is zero is exactly divisibility
+    # by h1*h2.  Replay the complete linear solve (rank 11, dimension 4).
+    X = symbols("D1 E1 D2 E2")
+    z = symbols("u1 v1 u2 v2")
+    raw_monomials = [1, *X] + [X[i] * X[j]
+                                  for i in range(4) for j in range(i, 4)]
+    coeffs = symbols(f"coef0:{len(raw_monomials)}")
+    generic = sum(q0 * m0 for q0, m0 in zip(coeffs, raw_monomials))
+    centered = expand(generic.subs(dict(zip(X, (zz - 1 for zz in z)))) + 1)
+    equations = []
+    for restriction, variables in (
+            ({z[2]: 0, z[3]: 0}, z[:2]),
+            ({z[0]: 0, z[1]: 0}, z[2:])):
+        equations.extend(Poly(centered.subs(restriction), *variables).coeffs())
+    matrix, rhs = linear_eq_to_matrix(equations, coeffs)
+    solution = next(iter(linsolve((matrix, rhs), coeffs)))
+    solved_centered = expand(centered.subs(dict(zip(coeffs, solution))))
+    assert len(raw_monomials) == 15 and matrix.rank() == 11
+    assert all(sum(mon[:2]) == sum(mon[2:]) == 1
+               for mon, q0 in Poly(solved_centered, *z).terms() if q0 != 0)
+    assert len(solved_centered.free_symbols & set(coeffs)) == 4
+
+    # The support rule (22.5) replays every entry of (22.6).
+    expected_counts = {
+        (1, 0, 0): 14, (0, 1, 0): 9, (0, 0, 1): 9,
+        (2, 0, 0): 10, (1, 1, 0): 7, (1, 0, 1): 7,
+        (0, 2, 0): 3, (0, 1, 1): 4, (0, 0, 2): 3,
+    }
+    for (alpha, beta, gamma), wanted in expected_counts.items():
+        qdegree = alpha + beta + gamma
+        count = 0
+        for degree in (1, 2):
+            for indices in combinations_with_replacement(range(4), degree):
+                d1 = sum(i < 2 for i in indices)
+                d2 = degree - d1
+                count += degree >= qdegree and d1 >= beta and d2 >= gamma
+        assert count == wanted, ((alpha, beta, gamma), count, wanted)
+
+    # The k1*k2 structure adds exactly three independent coefficient
+    # equations: the four entries of R+S must be equal (22.10).
+    tensor_coeffs = symbols("tensor0:4")
+    tensor_matrix, tensor_rhs = linear_eq_to_matrix(
+        [tensor_coeffs[i] - tensor_coeffs[0] for i in range(1, 4)],
+        tensor_coeffs)
+    tensor_solution = next(iter(linsolve((tensor_matrix, tensor_rhs),
+                                         tensor_coeffs)))
+    assert tensor_matrix.rank() == 3
+    assert len(set(tensor_solution)) == 1
+
+    # Generic tensor-partition identities and the strict lower bound.
+    a1, b1, c1, k1, s1, a2, b2, c2, k2, s2 = symbols(
+        "a1 b1 c1 k1 s1 a2 b2 c2 k2 s2", positive=True)
+    tensor_terms = (a1 * a2, a1 * b2, b1 * a2, b1 * b2)
+    for mask in range(1, 15):
+        AA = sum(tensor_terms[i] for i in range(4) if mask >> i & 1)
+        BB = sum(tensor_terms) - AA
+        assert expand(AA + BB - (a1 + b1) * (a2 + b2)) == 0
+        PP = 16 * c1 * c2 * AA * BB - s1 * s2
+        assert expand(PP - (4 * AA * BB * (4 * c1 * c2) - s1 * s2)) == 0
+
+    # The explicit 1+3 factor map has maximal output modulus h1*h2.
+    D1, E1, D2, E2, h1, h2 = symbols("D1 E1 D2 E2 h1 h2")
+    new_D = (D1 + 1) * (D2 + 1) - 1
+    new_E = ((D1 + 1) * (E2 + 1) + (E1 + 1) * (D2 + 1)
+             + (E1 + 1) * (E2 + 1) - 1)
+    aa1, bb1, aa2, bb2 = symbols("aa1 bb1 aa2 bb2")
+    factor_subs = {D1: h1 * aa1 - 1, E1: h1 * bb1 - 1,
+                   D2: h2 * aa2 - 1, E2: h2 * bb2 - 1}
+    assert expand((new_D + 1).subs(factor_subs)
+                  - h1 * h2 * aa1 * aa2) == 0
+    assert expand((new_E + 1).subs(factor_subs)
+                  - h1 * h2 * (aa1 * bb2 + bb1 * aa2 + bb1 * bb2)) == 0
+
+    def parameter_value(a0, b0, c0, k0):
+        assert (a0 + b0) % k0 == 0
+        return 4 * a0 * b0 * c0 - (a0 + b0) // k0
+
+    def partition_output(left, right, mask):
+        p1, a1, b1, c1, k1 = left
+        p2, a2, b2, c2, k2 = right
+        assert p1 == parameter_value(a1, b1, c1, k1)
+        assert p2 == parameter_value(a2, b2, c2, k2)
+        terms = (a1 * a2, a1 * b2, b1 * a2, b1 * b2)
+        A0 = sum(terms[i] for i in range(4) if mask >> i & 1)
+        B0 = sum(terms) - A0
+        C0, K0 = 4 * c1 * c2, k1 * k2
+        P0 = parameter_value(A0, B0, C0, K0)
+        assert P0 > max(p1, p2)
+        return P0, A0, B0, C0, K0
+
+    assert partition_output((17, 1, 6, 1, 1), (7, 1, 1, 2, 2), 1) \
+        == (409, 1, 13, 8, 2)
+    assert partition_output((7, 1, 2, 1, 3), (1217, 17, 18, 1, 5), 1) \
+        == (23929, 17, 88, 4, 15)
+    # Opposite split: terms 00+11 versus 01+10.
+    assert partition_output((73, 2, 5, 2, 1), (47, 1, 3, 4, 4), 9) \
+        == (23929, 17, 11, 32, 4)
+
+    # Complete parameter enumeration for a fixed target: AB <= p/2,
+    # K | A+B, and C is then forced by (22.20).  This includes non-coprime
+    # (A,B), unlike an enumeration of canonical criterion-B rows alone.
+    hard_targets = (409, 577, 5569, 9601, 23929, 83449)
+
+    def all_parameter_rows(P0):
+        rows = []
+        for A0 in range(1, P0 // 2 + 1):
+            for B0 in range(1, P0 // (2 * A0) + 1):
+                for K0 in divisors(A0 + B0):
+                    numerator = K0 * P0 + A0 + B0
+                    denominator = 4 * A0 * B0 * K0
+                    if numerator % denominator == 0:
+                        C0 = numerator // denominator
+                        assert C0 >= 1
+                        rows.append((A0, B0, C0, K0))
+        return rows
+
+    rows_by_target = {P0: all_parameter_rows(P0) for P0 in hard_targets}
+    assert [len(rows_by_target[P0]) for P0 in hard_targets] \
+        == [14, 14, 20, 14, 78, 30]
+    assert [sum(C0 % 4 == 0 for _A0, _B0, C0, _K0
+                in rows_by_target[P0]) for P0 in hard_targets] \
+        == [2, 0, 0, 2, 22, 0]
+
+    # Invert every primitive tensor partition through every target parameter
+    # row.  Record both arbitrary positive sources and prime sources.
+    reached_positive, reached_prime = set(), set()
+    for P0, rows in rows_by_target.items():
+        for A0, B0, C0, K0 in rows:
+            if C0 % 4:
+                continue
+            target_s = (A0 + B0) // K0
+            for kk1 in divisors(K0):
+                kk2 = K0 // kk1
+                for ss1 in divisors(target_s):
+                    ss2 = target_s // ss1
+                    for aaa1 in range(1, kk1 * ss1):
+                        bbb1 = kk1 * ss1 - aaa1
+                        for aaa2 in range(1, kk2 * ss2):
+                            bbb2 = kk2 * ss2 - aaa2
+                            terms = (aaa1 * aaa2, aaa1 * bbb2,
+                                     bbb1 * aaa2, bbb1 * bbb2)
+                            for mask in range(1, 15):
+                                left_sum = sum(terms[i] for i in range(4)
+                                               if mask >> i & 1)
+                                if left_sum != A0 or sum(terms) - left_sum != B0:
+                                    continue
+                                for cc1 in divisors(C0 // 4):
+                                    cc2 = C0 // (4 * cc1)
+                                    source1 = 4 * aaa1 * bbb1 * cc1 - ss1
+                                    source2 = 4 * aaa2 * bbb2 * cc2 - ss2
+                                    if source1 > 0 and source2 > 0:
+                                        assert max(source1, source2) < P0
+                                        reached_positive.add(P0)
+                                        if isprime(source1) and isprime(source2):
+                                            reached_prime.add(P0)
+    assert reached_positive == reached_prime == {409, 9601, 23929}
+
+    # Complete one-pair cubic coefficient systems: terms below h^r vanish.
+    DD, EE, uu, vv = symbols("DD EE uu vv")
+    uni_monomials = [1, DD, EE, DD**2, DD * EE, EE**2,
+                     DD**3, DD**2 * EE, DD * EE**2, EE**3]
+    uni_coeffs = symbols("uni0:10")
+    uni_centered = expand(sum(q0 * m0 for q0, m0 in
+                              zip(uni_coeffs, uni_monomials)).subs(
+                                  {DD: uu - 1, EE: vv - 1}) + 1)
+    for power, expected_rank, expected_dimension in ((1, 1, 9), (2, 3, 7),
+                                                      (3, 6, 4)):
+        low_equations = [q0 for mon, q0 in Poly(uni_centered, uu, vv).terms()
+                         if sum(mon) < power]
+        uni_matrix, uni_rhs = linear_eq_to_matrix(low_equations, uni_coeffs)
+        uni_solution = next(iter(linsolve((uni_matrix, uni_rhs), uni_coeffs)))
+        solved = expand(uni_centered.subs(dict(zip(uni_coeffs, uni_solution))))
+        assert uni_matrix.rank() == expected_rank
+        assert len(solved.free_symbols & set(uni_coeffs)) == expected_dimension
+        assert all(sum(mon) >= power
+                   for mon, q0 in Poly(solved, uu, vv).terms() if q0 != 0)
+
+    # Centered powers: identities and exact prime examples.
+    for power, wanted in ((2, 59), (3, 503)):
+        h0, a0, b0 = 4, 1, 2
+        P0 = h0**power * (a0 * b0)**power - a0**power - b0**power
+        D0, E0 = h0 * a0 - 1, h0 * b0 - 1
+        assert ((D0 + 1)**power - 1) * ((E0 + 1)**power - 1) \
+            == 1 + h0**power * P0
+        assert P0 == wanted and isprime(P0)
+    cubic_hard = 4**3 * (2 * 15)**3 - 2**3 - 15**3
+    assert cubic_hard == 1_724_617 and cubic_hard % 24 == 1
+    assert isprime(cubic_hard)
+
+    print("sec-22 coefficient systems exact (degree 2 and univariate degree 3); "
+          "new tensor maps and centered powers verified; exhaustive six-target "
+          "inverse result = 3 reached, 3 blocked")
+
+
+print("\n== (u) low-degree transfer-map classification (§22) ==")
+check_u()
+
 print("\nall checks passed")
