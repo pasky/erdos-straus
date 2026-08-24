@@ -10344,3 +10344,224 @@ nine-prime table, then performs the Type-I-less scan through \(10^5\).  It
 reproduces the four finite mass-ratio rows in (32.13); it does not
 machine-check either mass asymptotic or Theorem 32.4.  The default block is
 memory-bounded and runs in under ten seconds on the campaign host.
+
+## 35. Unit W: an independent-method blind pointwise attack
+
+Sections 35.1--35.3 were developed after reading only Theorems 3.1 and 17.1;
+the comparison with the rest of the campaign is deferred to §35.4.  All
+coverage statements below concern the only open prime class
+\(p\equiv1\pmod {24}\), unless stated otherwise.
+
+### 35.1 Bounded multiplicative residues: an exact q = 3 family
+
+**Theorem 35.1 (bounded-residue criterion and the exact q = 3 slice).**  Put
+\(x=(p+q)/4=\prod_r r^{\alpha_r}\), where \(q\equiv-p\pmod4\).  Criterion
+3.1(B) at this fixed \(q\) is equivalent to
+
+\[
+ \prod_r r^{t_r}\equiv-1\pmod q,
+ \qquad -\alpha_r\leq t_r\leq\alpha_r.                 \tag{35.1}
+\]
+
+In particular:
+
+1. if a prime factor \(r\mid x\) satisfies \(r\equiv-1\pmod q\), then this
+   \(q\) solves \(p\);
+2. for \(p\equiv1\pmod {24}\), \(q=3\) solves \(p\) **if and only if**
+   \((p+3)/4\) has a prime factor congruent to 2 modulo 3;
+3. fix any prime \(r\equiv5\pmod6\).  Every prime in the progression
+
+\[
+             p\equiv20r-3\pmod {24r}                  \tag{35.2}
+\]
+
+is solved at \(q=3\).  Each progression (35.2) contains infinitely many
+primes.
+
+*Proof.*  A divisor \(d=\prod r^{\beta_r}\) of \(x^2\) has
+\(0\leq\beta_r\leq2\alpha_r\).  Dividing the congruence
+\(d\equiv-x\pmod q\) by the unit \(x\) and putting
+\(t_r=\beta_r-\alpha_r\) proves (35.1) in both directions.  For (1), take
+\(d=xr\), which divides \(x^2\).  For (2), write \(p=24n+1\), so
+\(x=6n+1\equiv1\pmod3\).  A factor \(r\equiv2\pmod3\) is itself a valid
+choice of \(d\).  Conversely, if no such factor exists, every divisor of
+\(x^2\) is 1 modulo 3 and cannot be \(-x\equiv2\pmod3\).  In (3), write
+\(p=20r-3+24rt\).  Then \(p\equiv1\pmod {24}\) and
+\(x=r(6t+5)\), so (2) applies.  Also
+\(\gcd(20r-3,24r)=1\); Dirichlet's theorem gives infinitely many primes in
+(35.2). ∎
+
+**Computational 35.1.**  Exact SymPy enumeration found 9,732 primes
+\(p<10^6\) in the hard class.  The q = 3 criterion covers 5,192 (53.35%).
+Testing every \(q\in\{3,7,\ldots,63\}\) and every divisor of \(x^2\) covers
+all 9,732.  This extends the §3 q-window check by one decade, but does not
+prove that 63 remains enough.
+
+**Assessment 35.1 (failure log).**  The exact condition is useful but not
+pointwise: 4,540 tested primes fail q = 3, beginning with \(p=73\).  The
+forced congruence \(x\equiv1\pmod3\) does not force any prime divisor of
+\(x\) to be 2 modulo 3.  Dropping the exponent bounds in (35.1) only gives
+subgroup membership in \((\mathbb Z/q\mathbb Z)^*\), a strictly weaker
+local condition; it cannot manufacture the required divisor of \(x^2\).
+
+### 35.2 Shifted factors and the split conic
+
+**Theorem 35.2 (the a = 1 Type-II shifted-factor sieve).**  A Type-II tuple
+with \(a=1\) exists if and only if there are \(c\geq1\) and a positive
+integer \(D\) such that
+
+\[
+             D\mid p+4c,\qquad D\equiv-1\pmod {4c}.     \tag{35.3}
+\]
+
+Given (35.3), put
+
+\[
+ k={D+1\over4c},\qquad t={p+4c\over D},\qquad b=kt-1.  \tag{35.4}
+\]
+
+Then \(t=(b+1)/k\) and \(kp=4bck-b-1\).  It is enough to search
+\(c\leq(p+2)/4\).  In particular, a prime factor congruent to 3 modulo 4
+of \(p+4\) settles \(p\), and fixed \((c,k)\) settles every prime in the
+compatible progression
+
+\[
+             p\equiv-4c\pmod {4ck-1}.                  \tag{35.5}
+\]
+
+*Proof.*  From an \(a=1\) tuple,
+\(b+1=k(4bc-p)=kt\), and direct expansion gives
+\(p+4c=t(4ck-1)\), proving necessity with \(D=4ck-1\).  Conversely,
+(35.4) gives
+\(p=t(4ck-1)-4c=4c(kt-1)-t=4bc-t\), which is the Type-II equation after
+multiplication by \(k\).  The impossible case \(b=0\) would force
+\(k=t=1\) and \(p=-1\).  Finally,
+\(t=(b+1)/k\leq b+1\), so
+\(p=4bc-t\geq b(4c-1)-1\geq4c-2\).  The two sufficient conditions are
+(35.3) with \(c=1\), and (35.3) with \(D=4ck-1\), respectively. ∎
+
+**Computational 35.2.**  Among the 9,732 hard primes below \(10^6\), the
+bounds \(c\leq1,2,4,8,16,32,64,128\) cover respectively
+
+\[
+ 4850,7824,8962,9525,9680,9719,9726,9727
+\]
+
+primes.  A complete scan through the proved bound \((p+2)/4\) leaves
+exactly
+
+\[
+                    193,\quad2521,\quad66529.           \tag{35.6}
+\]
+
+Thus the tempting a = 1 strengthening is false even very low down.  The
+three primes are solved by the non-a = 1 tuples
+
+\[
+ (a,b,c,k)=(2,5,5,1),\ (2,159,2,7),\ (5,832,4,27),
+\]
+
+respectively.
+
+**Theorem 35.3 (the diagonal and the Pell degeneration).**  In any Type-II
+tuple let \(h=(a+b)/k\) and \(r=b-a\).  Then
+
+\[
+ a={hk-r\over2},\quad b={hk+r\over2},\quad
+ p=c(h^2k^2-r^2)-h,                                    \tag{35.7}
+\]
+
+and
+
+\[
+             (hk-r)(hk+r)={p+h\over c}.                 \tag{35.8}
+\]
+
+No hard prime has a diagonal tuple \(a=b\).
+
+*Proof.*  Substitute \(a+b=hk\) and \(b-a=r\) into Theorem 17.1.  If
+\(r=0\), (35.7) becomes \(p=h(chk^2-1)\).  For a hard prime,
+\(h\equiv3\pmod4\), hence \(h\geq3\), so this is composite. ∎
+
+**Computational 35.3a.**  For all 1,181 hard primes below \(10^5\), all
+witnesses with \(q=h\leq63\) were reconstructed canonically and the least
+\(|a-b|\) in that window was recorded.  It reaches 535 at \(p=87049\), via
+\((h,a,b,c,k)=(47,38,573,1,13)\).  This statement is only about the
+\(h\leq63\) window; a larger h could give a smaller offset.
+
+**Assessment 35.2 (failure log).**  The a = 1 shifted-factor sieve reaches
+99.95% below \(10^6\) and still fails pointwise at (35.6).  The geometric
+route also has an exact death point: with \(p,h,c\) fixed, the apparent Pell
+equation has square coefficient \(h^2\) and splits as (35.8).  There is no
+Pell orbit to exploit; continued fractions or near-diagonal lattice search
+returns to a finite factorization with the additional sum congruence
+\(2h\mid(hk-r)+(hk+r)\).  The diagonal is not merely sparse but impossible,
+and the bounded-offset data supply no uniform bound.
+
+### 35.3 A Type-I divisor-cover sieve
+
+**Theorem 35.4 (the a = 1 Type-I sieve).**  A Type-I tuple with \(a=1\)
+exists if and only if there are \(c\geq1\) and a positive divisor
+\(D\mid4c+1\) such that
+
+\[
+                         p\equiv-D\pmod {4c}.            \tag{35.9}
+\]
+
+The reconstruction is
+
+\[
+ k={p+D\over4c},\qquad E={4c+1\over D},\qquad
+ b={pE+1\over4c}={p+k\over D}.                           \tag{35.10}
+\]
+
+For \(p\equiv1\pmod4\), necessarily \(D\equiv3\pmod4\), and it is enough
+to search
+
+\[
+                         c\leq{3p+1\over8}.              \tag{35.11}
+\]
+
+For example, \(c=5\), \(4c+1=21\), and \(D=3,7\) prove unconditionally
+that every prime \(p\equiv97,73\pmod {120}\), respectively, has a Type-I
+solution with \(a=1\).
+
+*Proof.*  From \(p(1+b)=k(4bc-1)\), set \(D=4ck-p\); then
+\(bD=p+k\), so \(D>0\).  Theorem 17.1 gives \(p\nmid ck\), hence
+\(\gcd(D,p)=1\).  Since
+
+\[
+ 4c(p+k)=p(4c+1)+D,
+\]
+
+we obtain \(D\mid4c+1\), and the definition of \(D\) gives (35.9).
+Conversely, (35.9) makes (35.10) integral; indeed
+\(pE+1\equiv-DE+1=-4c\pmod {4c}\).  Also \(bD=p+k\), so reversing the
+calculation proves the Type-I equation.  If \(p\equiv1\pmod4\), (35.9)
+forces \(D\equiv3\pmod4\).  Its cofactor \(E\) is also 3 modulo 4 and at
+least 3, so \(D\leq(4c+1)/3\).  Combining this with
+\(p+D=4ck\geq4c\) proves (35.11).  The stated progressions are the Chinese
+remainder intersections of \(p\equiv1\pmod {24}\) with
+\(p\equiv-3,-7\pmod {20}\). ∎
+
+**Computational 35.3b.**  Exact enumeration of all 82,887 hard primes below
+\(10^7\) found an a = 1 Type-I witness for every one.  Divisors of
+\(4c+1\) were tested in increasing c through (35.11) until a witness was
+found and every resulting tuple was checked in the defining equation.  The
+largest first-witness c in this range is 107,588, for \(p=8,604,961\), with
+\(D=2,079\).
+
+**Heuristic 35.3.**  For fixed c, Theorem 35.4 covers one residue class
+modulo \(4c\) for each 3-mod-4 divisor of \(4c+1\).  Summing these thin,
+partly dependent divisor-cover events suggests increasing aggregate
+coverage and is consistent with the computation.  It does not justify
+probability one for each individual p, let alone no exceptions.
+
+**Assessment 35.3 (failure log).**  Theorem 35.4 is the strongest blind
+reduction found here, but it is not a proof of pointwise existence.  It asks
+for an exact divisor of a moving integer \(4c+1\), aligned with p by
+(35.9).  Congruence and p-adic solutions are plentiful but do not force
+that positive integral divisor.  Any finite set of c supplies only a finite
+union of arithmetic progressions.  The observed \(10^7\) coverage is
+therefore computational evidence for a stronger a = 1 Type-I conjecture,
+not a theorem about all primes.
