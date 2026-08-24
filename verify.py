@@ -5133,4 +5133,238 @@ def check_ad():
 print("\n== (ad) weighted rough shifted-divisor estimates (§31) ==")
 check_ad()
 
+# ---------------------------------------------------------------- (ae)
+def check_ae():
+    """Section 32: k=1 certification, mass, and nine-prime anatomy."""
+    from math import isqrt
+    from time import monotonic
+    from sympy import isprime
+    started = monotonic()
+
+    def divs(n):
+        out = [1]
+        for p, e in factorint(n).items():
+            out = [d * p**j for d in out for j in range(e + 1)]
+        return tuple(sorted(out))
+
+    # Trace every small intrinsic D through Theorem 17.1's dictionary.
+    cert = cert1 = certgt1 = pw = direct = 0
+    for M in range(3, 300, 4):
+        H = (M + 1) // 4
+        lower = set()
+        for D in divisors_of_square(H):
+            u = w = 1
+            for p, e in factorint(D).items():
+                u *= p ** (e // 2)
+                w *= p ** (e % 2)
+            v = H // (u * w)
+            r = (-4 * D) % M
+            P = r + M
+            while not isprime(P):
+                P += M
+            s = (P * v + u) // M
+            g = gcd(u, v)
+            a, b, c, k = s // g, u // g, g * g * w, v // g
+            assert gcd(a, b) == 1
+            assert k * P == 4 * a * b * c * k - a - b
+            assert sum(Fraction(1, z) for z in
+                       (a * b * c, P * a * c * k, P * b * c * k)) == Fraction(4, P)
+            assert k == H // gcd(H, D)
+            assert (k == 1) == (D % H == 0)
+            cert += 1
+            cert1 += k == 1
+            certgt1 += k > 1
+            if D < H:
+                lower.add((-4 * D) % M)
+        k1classes = {(-t) % M for t in divs(H)}
+        assert len(k1classes) == len(divs(H))
+        assert len(lower & k1classes) == (len(divs(H // 4)) if H % 4 == 0 else 0)
+        for t in divs(H):
+            for j in (1, 2, 5):
+                P, A, B, C = j * M - t, j, t, H // t
+                assert P == 4 * A * B * C - A - B
+                assert (4 * A * C - 1) * (4 * B * C - 1) == 4 * P * C + 1
+                direct += 1
+        if isprime(M):
+            for D in divisors_of_square(H):
+                if D >= H:
+                    continue
+                T = prod(p ** (e % 2) for p, e in factorint(D).items())
+                d1 = isqrt(D // T)
+                d2 = H // (T * d1)
+                h = gcd(d1, d2)
+                u, v, w = d1 // h, d2 // h, T * h * h
+                r = M - 4 * D
+                P = r + M
+                while not isprime(P):
+                    P += M
+                j = (P - r) // M
+                s = v - u + j * v
+                assert gcd(s, u) == 1 and v > 1
+                assert v * P == 4 * s * u * w * v - s - u
+                assert v == H // gcd(H, D)
+                pw += 1
+    assert cert1 and certgt1
+    assert (409 * 2 + 1) // 7 == 117
+    assert 2 * 409 == 4 * 117 * 2 - 117 - 1
+
+    # Truncated all-modulus versus prime-modulus k=1 masses.
+    tau = [0] * (100_000 // 4 + 2)
+    for d in range(1, len(tau)):
+        for n in range(d, len(tau), d):
+            tau[n] += 1
+    pset = set(primerange(3, 100_001))
+    mass = []
+    for X in (100, 1_000, 10_000, 100_000):
+        whole = sum(tau[H] / (4 * H - 1)
+                    for H in range(1, (X + 1) // 4 + 1) if 4 * H - 1 <= X)
+        prime = sum(tau[(p + 1) // 4] / p for p in pset if p <= X and p % 4 == 3)
+        mass.append((X, whole / log(X)**2, prime / log(X)))
+    wanted_mass = ((.120350, .366879), (.119906, .422304),
+                   (.120576, .458852), (.121154, .484461))
+    for row, wanted in zip(mass, wanted_mass):
+        assert abs(row[1] - wanted[0]) < 1e-6
+        assert abs(row[2] - wanted[1]) < 1e-6
+
+    nine = (409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321)
+    # SPF-backed, memory-bounded independent denominator enumeration.
+    limit = max(nine) + 1000
+    spf = list(range(limit + 1))
+    for p in range(2, isqrt(limit) + 1):
+        if spf[p] == p:
+            for n in range(p * p, limit + 1, p):
+                if spf[n] == n:
+                    spf[n] = p
+
+    def fac(n):
+        out = []
+        while n > 1:
+            p, e = spf[n], 0
+            while n % p == 0:
+                n //= p
+                e += 1
+            out.append((p, e))
+        return out
+
+    def sqdivs(x, P):
+        R, values = P * x, [1]
+        for p, e in [(P, 2)] + [(p, 2 * e) for p, e in fac(x)]:
+            new, power = [], 1
+            append = new.append
+            for unused in range(e + 1):
+                for d in values:
+                    value = d * power
+                    if value <= R:
+                        append(value)
+                power *= p
+            values = new
+        return values
+
+    def sqmult(c):
+        return prod(e // 2 + 1 for p, e in fac(c))
+
+    def type_i(P, stop=False):
+        raw = primitive = 0
+        moduli = set()
+        for x in range(P // 4 + 1, 3 * P // 4 + 1):
+            q, R = 4 * x - P, P * x
+            for d in sqdivs(x, P):
+                if (d + R) % q:
+                    continue
+                y = (R + d) // q
+                if y < x or y % P == 0:
+                    continue
+                z = (R + R * R // d) // q
+                if z < y or z % P:
+                    continue
+                assert 4 * x * y * z == P * (x * y + x * z + y * z)
+                h = gcd(x, y)
+                A, B = x // h, y // h
+                assert (z * h * h) % (P * x * y) == 0
+                C = z * h * h // (P * x * y)
+                assert h % C == 0
+                K = h // C
+                assert gcd(A, B) == 1 and P * (A + B) == K * (4 * A * B * C - 1)
+                if stop:
+                    return True
+                orientations = 1 if A == B else 2
+                primitive += orientations
+                raw += orientations * sqmult(C)
+                moduli.add((A + B) // K)
+        return False if stop else (raw, primitive, moduli)
+
+    def fdivs(n):
+        values = [1]
+        for p, e in fac(n):
+            values = [d * p**j for d in values for j in range(e + 1)]
+        return values
+
+    def k1(P):
+        for A in range(1, isqrt(P // 2) + 1):
+            for B in fdivs(P + A):
+                if B >= A and ((P + A) // B + 1) % (4 * A) == 0:
+                    C = (((P + A) // B) + 1) // (4 * A)
+                    assert P == 4 * A * B * C - A - B
+                    return A, B, C, 1
+        return None
+
+    def type_ii(P):
+        rows = []
+        for A in range(1, isqrt(P // 2) + 1):
+            for B in range(A, P // (2 * A) + 1):
+                C = P // (4 * A * B) + 1
+                q = 4 * A * B * C - P
+                if (A + B) % q == 0:
+                    K = (A + B) // q
+                    assert K * P == 4 * A * B * C * K - A - B
+                    rows.append((A, B, C, K))
+        return rows
+
+    minima = {
+        409:(2,((1,13,8),(1,21,5),(1,117,1),(7,15,1))),
+        577:(2,((1,5,29),(1,21,7),(1,77,2),(1,165,1))),
+        5569:(2,((1,141,10),(1,237,6),(9,157,1))),
+        9601:(2,((1,37,65),(1,173,14),(3,115,7),(3,835,1))),
+        23929:(2,((1,21,285),(1,53,113),(1,301,20),(1,6837,1),(3,19,105),(7,15,57))),
+        83449:(2,((3,211,33),(43,243,2))),
+        102001:(3,((5,232,22),)),
+        329617:(2,((1,5,16481),(1,213,387),(1,9285,9),(1,43949,2),(5,41,402))),
+        712321:(2,((1,69,2581),(1,253,704),(1,1877,95),(1,61941,3),
+                   (3,499,119),(3,571,104),(13,2745,5),(153,1165,1))),
+    }
+    idata = {
+        409:(22,18,5,()), 577:(22,22,9,(7,39)),
+        5569:(40,34,12,(39,47,143)), 9601:(40,34,11,()),
+        23929:(196,128,36,(7,11,39,303)), 83449:(70,64,25,(39,191)),
+        102001:(106,82,25,(47,111,115)),
+        329617:(230,184,71,(3,107,167,21975)),
+        712321:(150,122,49,(35,191)),
+    }
+    anatomy = []
+    for P in nine:
+        assert k1(P) is None
+        rows = type_ii(P)
+        mk = min(r[3] for r in rows)
+        mts = tuple(r[:3] for r in rows if r[3] == mk)
+        assert (mk, mts) == minima[P]
+        qb = {(A + B) // K for A, B, C, K in rows}
+        raw, primitive, qa = type_i(P)
+        wr, wp, wm, common = idata[P]
+        assert (raw, primitive, len(qa), tuple(sorted(qa & qb))) == (wr, wp, wm, common)
+        assert qa - qb and qb - qa
+        anatomy.append((P, mk, len(mts), raw, primitive, len(qa), len(qb), common))
+
+    type_i_less = [P for P in primerange(3, 100_001) if not type_i(P, stop=True)]
+    assert type_i_less == []
+    elapsed = monotonic() - started
+    print("certification (intrinsic,k=1,k>1,§15,direct) =", (cert,cert1,certgt1,pw,direct))
+    print("k=1 masses (X,all/L^2,prime/L) =",
+          [(X,round(a,6),round(b,6)) for X,a,b in mass])
+    print("anatomy (P,min-k,#min,Type-I,primitive,#A-mod,#B-mod,common) =", anatomy)
+    print("Type-I-less odd primes <=10^5:", type_i_less, "; block seconds %.2f" % elapsed)
+
+
+print("\n== (ae) k=1 certification and nine-prime anatomy (§32) ==")
+check_ae()
+
 print("\nall checks passed")
