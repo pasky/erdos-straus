@@ -81,6 +81,41 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 15 (2026-08-25, wave 11 — see notes.md §33–§35; §34 extra-severity-reviewed (pruned theorem confirmed) → all repaired)
+
+* **§33 (critical-window transfer): H_PF′ still OPEN; the transfer routes
+  are now walled with theorems.**  Any all-avoider congruence-class-union
+  certificate needs \(\log Q\ge(\tfrac12+o(1))X\) (every prime
+  \(\ell\equiv3\ (4)\), \(\ell\le X\) must divide \(Q\); strengthened in
+  review: every residual atom is implied by a prime-modulus atom); the
+  avoider indicator is provably NOT a tensor product over prime-power
+  coordinates (exact \(X=15\) counterexample); charges-as-densities
+  beta-sieve dies at an \(\exp(-\Theta(L^3))\) Euler product.  The one
+  viable route is isolated (Lemma 33.3): a pointwise low-degree hypergraph
+  minorant with controlled coefficient sum would transfer the §31 LLL
+  density into the window; constructing it is open.
+* **§34 (H_kBV assault): a pruned prime-slice theorem, proved
+  unconditionally.**  For every fixed \(\kappa<1/240\), \(K=X^\kappa\):
+  after removing triples with more than \((\log X)^4\) compatible
+  multipliers (negligible mass by a new second-incidence-moment bound),
+  ordinary Bombieri–Vinogradov applies and the full \((\log X)^3\)
+  prime-slice class mass is realized — the first movement on this wall
+  since §16; extra-severity review confirmed both author-flagged steps.
+  Literal H_kBV stays open but is no longer needed: the dependency graph
+  simplifies to ONE hypothesis — a restricted critical-window assembly
+  (now formally stated in §34) — for the \(3/4\) exponent.  No
+  unconditional \(E(N)\) gain (the lcm partition still forces
+  \(K\ll\log N\); sharp \(\log L_K\sim2K/3\)).  Kloosterman completion
+  loses \(2K^9\): documented dead end.
+* **§35 (blind independent-method attack; anti-anchoring protocol).**
+  Three-plus fresh angles (bounded-residue factor criteria, Type-II
+  shifted factors at \(a=1\), conic/Pell, Type-I \(a=1\) slice) — all
+  reconciled against the ten waves: no new mechanism escapes the wall
+  (method-independence evidence).  New data: every hard prime below
+  \(10^7\) has an \(a=1\) Type-I witness (82,887 primes; independently
+  re-verified in review); exactly 193, 2521, 66529 fail the Type-II
+  \(a=1\) slice below \(10^6\).
+
 ## Outcome 14 (2026-08-24, wave 10 — see notes.md §31–§32; §31 maximum-severity-reviewed (refutation confirmed) → repaired; §32 reviewed → repaired)
 
 * **§31 (rough shifted-divisor assembly): H_PF as stated is REFUTED; the

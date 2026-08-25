@@ -3918,7 +3918,7 @@ These two lines account for the exponent and its logarithmic factor.
 
 **Assessment 18.3(a) (partition cost is not the scale-binding wall; proved
 arithmetic).**  The partition uses
-\(M_0=24L_K=\exp(K(1+o(1)))\), hence only requires \(K\le(1-\epsilon)L\)
+\(M_0=24L_K=\exp(K(1+o(1)))\) (sharp constant \(\log L_K\sim2K/3\), see §34, loosening this to \(K\le\tfrac32(1-\epsilon)L\)), hence only requires \(K\le(1-\epsilon)L\)
 if each subsequence is to have polynomial length.  One may instead take, for
 example, \(K=L^{1/2}\): then \(K=o(L)\), while
 \(r=(1/2)\log L\), and (18.10) still gives
@@ -4000,7 +4000,7 @@ logarithmic budget
 
     min(K,Jr)+Jt ≲ L.                                         (18.15)
 
-Using only \(L_K\le\exp(K(1+o(1)))\) gives the coarser budget
+Using only \(L_K\le\exp(K(1+o(1)))\) (sharp: \(\exp(\tfrac23K(1+o(1)))\), §34) gives the coarser budget
 \(K+Jt\lesssim L\).  The sharper \(K^J\) alternative in (18.14) matters
 when \(K\) is large; it is still only a level calculation, not an evaluation
 of correlated intersections.
