@@ -11284,14 +11284,30 @@ block is finite evidence only and runs in under ten seconds.
 
 ## 35. Unit W: an independent-method blind pointwise attack
 
-Sections 35.1--35.3 were developed after reading only Theorems 3.1 and 17.1;
+Sections 35.1--35.3 were developed under the blind protocol logged below;
 the comparison with the rest of the campaign is deferred to §35.4.  All
 coverage statements below concern the only open prime class
 \(p\equiv1\pmod {24}\), unless stated otherwise.
 
+**Blind-phase protocol log (history-bounded and self-reported).**  The source
+snapshot was commit `9fef195` (2026-08-25 01:30 +0200).  The designed phase-1
+allowlist was only `notes.md` §3 and §17.1.  The rest of `notes.md`,
+`PROJECT.md`, `sources/`, existing campaign programs/results, and repository
+text search were out of bounds; fresh scratch SymPy computations of formulas
+derived in phase 1 were allowed.  The phase-1 findings were frozen in
+`unit_w_blind.md` at commit `1f58c57` (01:42), then moved without
+reconciliation into §35 at `6f92450` (01:44).  The self-reported point at
+which the earlier waves were opened is after that commit and before the
+reconciliation commit `b1d6bb5` (01:51).  Git history verifies the snapshot,
+texts, commit order, and timestamps; it cannot verify what was visible on
+screen or enforce the code/search isolation.  Those process and phase-timing
+claims remain an explicit self-attestation, not independently audited
+blindness.
+
 ### 35.1 Bounded multiplicative residues: an exact q = 3 family
 
-**Theorem 35.1 (bounded-residue criterion and the exact q = 3 slice).**  Put
+**Theorem 35.1 (bounded-residue criterion and the exact q = 3 slice).**  Let
+\(q\) be a positive integer, put
 \(x=(p+q)/4=\prod_r r^{\alpha_r}\), where \(q\equiv-p\pmod4\), and
 assume \(\gcd(x,q)=1\) (as holds when \(q<p\)).  Criterion 3.1(B) at this
 fixed \(q\) is equivalent to
@@ -11301,6 +11317,7 @@ fixed \(q\) is equivalent to
  \qquad -\alpha_r\leq t_r\leq\alpha_r.                 \tag{35.1}
 \]
 
+Negative exponents in (35.1) mean inverses of the units \(r\pmod q\).
 In particular:
 
 1. if a prime factor \(r\mid x\) satisfies \(r\equiv-1\pmod q\), then this
@@ -11419,7 +11436,9 @@ No hard prime has a diagonal tuple \(a=b\).
 
 *Proof.*  Substitute \(a+b=hk\) and \(b-a=r\) into Theorem 17.1.  If
 \(r=0\), (35.7) becomes \(p=h(chk^2-1)\).  For a hard prime,
-\(h\equiv3\pmod4\), hence \(h\geq3\), so this is composite. ∎
+\(h\equiv3\pmod4\), hence \(h\geq3\), while
+\(chk^2-1\geq3\cdot1\cdot1-1=2\).  Thus this is a product of two integers
+larger than one. ∎
 
 **Computational 35.3a.**  For all 1,181 hard primes below \(10^5\), all
 witnesses with \(q=h\leq63\) were reconstructed canonically and the least
@@ -11432,9 +11451,12 @@ witnesses with \(q=h\leq63\) were reconstructed canonically and the least
 route also has an exact death point: with \(p,h,c\) fixed, the apparent Pell
 equation has square coefficient \(h^2\) and splits as (35.8).  There is no
 Pell orbit to exploit; continued fractions or near-diagonal lattice search
-returns to a finite factorization with the additional sum congruence
-\(2h\mid(hk-r)+(hk+r)\).  The diagonal is not merely sparse but impossible,
-and the bounded-offset data supply no uniform bound.
+returns to a finite factorization.  Precisely, a factor pair
+\(UV=(p+h)/c\) reconstructs positive integral \(a,b,k\) if and only if
+\(U,V\) are positive and even and \(2h\mid U+V\); then
+\(a=U/2\), \(b=V/2\), \(k=(U+V)/(2h)\), and
+\(r=(V-U)/2\).  The diagonal is not merely sparse but impossible, and the
+bounded-offset data supply no uniform bound.
 
 ### 35.3 A Type-I divisor-cover sieve
 
@@ -11519,9 +11541,11 @@ not a theorem about all primes.
 2. **Shifted factors and the conic.**  Theorem 35.2 is exactly the a = 1
    specialization of the Euclidean divisor reduction (20.11)--(20.12); its
    c = 1 line is explicitly identified in §§8.3 and 20.2.  Its fixed
-   progressions are old forced grids (§17.3(e), §20.4).  The prior campaign
-   also already explains why continued fractions cannot turn near
-   divisibility into equality (§20.2), why the factor norm is split rather
+   progressions (35.5) are the b-translation grids of §20.4.  Section
+   17.3(e) instead fixes \((a,b,k)\) and translates c, a different coordinate
+   direction.  The prior campaign also already explains why continued
+   fractions cannot turn near divisibility into equality (§20.2), why the
+   factor norm is split rather
    than a class-group norm (§20.1), and why there is no Vieta move (§30.3).
    The coordinates (35.7)--(35.8), the proof that the exact diagonal is
    impossible for hard primes, the bounded-offset statistic, and the exact
@@ -11551,3 +11575,11 @@ Case-A/Case-B identity supply, and the strongest new computation still asks
 for an exact moving divisor.  Therefore the honest reconciliation verdict is:
 **new special-slice theorem and computations, new failure diagnostics, no
 advance past the ten-wave pointwise wall and no proof of Erdős--Straus.**
+
+**Verification companion.**  `verify.py (ah)` compares the q = 3 factor and
+literal-divisor criteria prime by prime; checks the q-window totals, all eight
+Type-II cap counts, the complete three-prime residual, and the three rescue
+tuples; reconstructs the 535 maximum least-offset census; and checks all
+82,887 Type-I witnesses and their maximum.  Its elapsed time is reported as
+campaign-host calibration only, with no correctness assertion tied to a
+machine-dependent time limit.

@@ -5561,12 +5561,16 @@ def check_ah():
 
     q3_count = qwindow_count = 0
     for p in hard1:
-        x = (p + 3) // 4
-        q3_count += any(r % 3 == 2 for r in factorint(x))
+        x3 = (p + 3) // 4
+        factor_q3 = any(r % 3 == 2 for r in factorint(x3))
+        q3_count += factor_q3
         hit = False
         for q in range(3, 64, 4):
             x = (p + q) // 4
-            if any((d + x) % q == 0 for d in square_divs(x)):
+            literal_hit = any((d + x) % q == 0 for d in square_divs(x))
+            if q == 3:
+                assert literal_hit == factor_q3
+            if literal_hit:
                 hit = True
                 break
         qwindow_count += hit
@@ -5584,10 +5588,50 @@ def check_ah():
                     return c, D, k, b
         return None
 
-    type_ii_residual = [p for p in hard1 if a1_type_ii(p, 1, 256) is None]
+    type_ii_first = {p: a1_type_ii(p, 1, 256) for p in hard1}
+    caps = (1, 2, 4, 8, 16, 32, 64, 128)
+    cap_counts = tuple(sum(got is not None and got[0] <= cap
+                           for got in type_ii_first.values()) for cap in caps)
+    assert cap_counts == (4850, 7824, 8962, 9525, 9680, 9719, 9726, 9727)
+    type_ii_residual = [p for p, got in type_ii_first.items() if got is None]
     assert type_ii_residual == [193, 2521, 66529]
     for p in type_ii_residual:
         assert a1_type_ii(p, 257, (p + 2) // 4) is None
+
+    rescue_tuples = {
+        193: (2, 5, 5, 1),
+        2521: (2, 159, 2, 7),
+        66529: (5, 832, 4, 27),
+    }
+    for p, (a, b, c, k) in rescue_tuples.items():
+        assert gcd(a, b) == 1
+        assert k * p == 4 * a * b * c * k - a - b
+
+    # Canonically reconstruct every q<=63 witness below 10^5 and replay the
+    # maximum, over p, of the least |a-b| in that window.
+    max_least_offset = None
+    for p in (p for p in hard1 if p < 100_000):
+        best = None
+        for h in range(3, 64, 4):
+            x = (p + h) // 4
+            for d in square_divs(x):
+                if (d + x) % h:
+                    continue
+                g0 = gcd(d, x)
+                a = d // g0
+                assert g0 % a == 0
+                c = g0 // a
+                b = x // g0
+                assert (a + b) % h == 0
+                k = (a + b) // h
+                assert gcd(a, b) == 1
+                assert k * p == 4 * a * b * c * k - a - b
+                row = (abs(a - b), h, a, b, c, k)
+                best = row if best is None else min(best, row)
+        assert best is not None
+        row = (best[0], p, best[1:])
+        max_least_offset = row if max_least_offset is None else max(max_least_offset, row)
+    assert max_least_offset == (535, 87049, (47, 38, 573, 1, 13))
 
     # The first 1000 c-values cover almost everything.  Scan the residual
     # in increasing c through the proved finite bound, caching 4c+1 divisors.
@@ -5630,11 +5674,12 @@ def check_ah():
     assert len(hard10) == 82887
     assert largest == (107588, 8604961, 2079)
     elapsed = monotonic() - started
-    assert elapsed < 10, "block (ah) exceeded its 10-second budget"
     print("q=3/q<=63 counts =", (q3_count, qwindow_count),
-          "; a=1 Type-II residual =", type_ii_residual)
+          "; a=1 Type-II cap counts/residual =", (cap_counts, type_ii_residual))
+    print("Type-II rescues/max least q<=63 offset =",
+          (tuple(rescue_tuples.values()), max_least_offset))
     print("a=1 Type-I hard primes/max first c =", (len(hard10), largest),
-          "; block seconds %.2f" % elapsed)
+          "; campaign-host calibration seconds %.2f" % elapsed)
 
 
 print("\n== (ah) Unit W blind pointwise slices (§35) ==")
