@@ -10726,15 +10726,17 @@ checks every entry in (33.18), checks the cyclic average identity, and
 replays the non-tensor rectangle (33.10).  The block is exact and runs in
 under ten seconds by default.
 
-## 34. The prime-slice harvesting wall: a direct assault on \(H_{k\rm BV}\)
+## 34. The prime-slice harvesting wall: a direct assault on \(H_{k\rm BV}\) — CLAIMED/PROVISIONAL
 
 This section separates the literal error-sum hypothesis from the job for
 which it was introduced.  The literal hypothesis remains open.  Its
-prime-slice consequence, however, can be obtained unconditionally after
-removing a negligible set of high-incidence triples.  The key is to use the
-congruence \(k\mid u+cv\), which the multiplicity bound (18.11) discarded.
-Labels are strict: literature comparisons are assessments; the incidence
-moment and the pruned prime-slice theorem are proved here.
+prime-slice consequence, however, can be obtained unconditionally after a
+congestion pruning which removes \(o(1)\) of the weighted box/main-term mass.
+The key is to use the congruence \(k\mid u+cv\), which the multiplicity bound
+(18.11) discarded.  Labels are strict: literature comparisons are
+assessments; the incidence moment and the pruned prime-slice theorem are
+proved internally, but the new theorem remains **CLAIMED/PROVISIONAL** until
+external priority and referee checks are complete.
 
 ### 34.1 The hypothesis, all quantifiers, and its current logical role
 
@@ -10799,8 +10801,17 @@ interval, \(z\geq X^{1/12}\) and Lemma 16.2 asks for
 
 1. \(H_{k\rm BV}\) by itself gives (34.3), not an exceptional-set bound.
    The §16 partition has modulus
-   \(24L_K=\exp((1+o(1))K)\); taking \(K=X^\kappa\) at the cubic optimum
-   makes that modulus far larger than \(N\).
+   \[
+    24L_K=\exp((2/3+o(1))K),
+   \]
+   since
+   \(\log L_K=\vartheta(K;4,1)+\vartheta(K/3;4,3)+o(K)
+   =(2/3+o(1))K\).  This corrects the larger constant printed in (18.3a):
+   requiring \(M_0\leq N^{1-\epsilon}\) permits
+   \(K\leq(3/2)(1-\epsilon+o(1))\log N\), rather than the earlier constant.
+   The safe upper bound and the conclusion \(K=O(\log N)\) are unchanged.
+   Taking \(K=X^\kappa\) at the cubic optimum still makes that modulus far
+   larger than \(N\).
 2. The original all-range \(H_{\rm PF}\) is refuted by Corollary 31.5.
    Therefore the old arrow
    \(H_{k\rm BV}+H_{\rm PF}(k\ell)\Rightarrow3/4\) has a false assembly
@@ -10810,14 +10821,16 @@ interval, \(z\geq X^{1/12}\) and Lemma 16.2 asks for
    \(E_{\rm all}(N)\ll N\exp[-c(\log N)^{3/4}]\) without using prime slices
    or \(H_{k\rm BV}\).
 4. To turn (34.3) into the same bound by the multiplier-prime route requires
-   a different, restricted critical-window assembly statement, call it
-   \(H_{\rm PF}'(k\ell)\), for the complete harvested \(k\ell\)-system and
-   with the lcm budget (18.14).  This statement has not been formulated as a
-   proved implication of the complete-system \(H_{\rm PF}'\), and is open.
+   the different restricted critical-window assembly
+   \(H_{\rm PF}'(k\ell;{\rm good})\), stated precisely in §34.4 for the
+   complete, \(c\)-dependently pruned harvested system and the lcm budget
+   (18.14).  It is not a consequence proved from the complete-system
+   \(H_{\rm PF}'\), and is open.
 
 Thus “\(H_{k\rm BV}\) plus \(H_{\rm PF}'\) gives \(3/4\)” is not literally a
 current theorem: it is either redundant (complete-system
-\(H_{\rm PF}'\) alone) or needs the new restricted variant in item 4.
+\(H_{\rm PF}'\) alone) or must use the separately named restricted variant
+and its conditional implication in §34.4.
 
 ### 34.2 Technology audit: what the nearest theorems actually miss
 
@@ -10964,7 +10977,8 @@ The §16 choice \(K\asymp L\) already attains \(r\asymp\log L\) while
 remaining a fixed power of \(t\) at the optimum.  Larger fixed powers alter
 constants only.
 
-For reference, under a partition-free \(H_{\rm PF}'(k\ell)\)-type assembly,
+For reference, under the partition-free
+\(H_{\rm PF}'(k\ell;{\rm good})\)-type assembly stated in §34.4,
 the general budget while \(r\leq t\) is
 
 \[
@@ -11055,8 +11069,13 @@ with modulus \(d\leq K^2\), gives
       +{\tau(d)(\log z)^2\over H}.                           \tag{34.15}
 \]
 
-Indeed the geometric-box boundary sum is
-\(O(\tau(d)\log z\log(z/H)/H)\).  For the main coefficients,
+Indeed, over the geometric endpoints
+\[
+ \sum_U U^{-1}=O(1/H),\qquad \#\{V\text{-boxes}\}=O(\log(z/H)),
+\]
+and the symmetric term is identical.  Thus the full boundary sum is
+\(O(\tau(d)\log z\log(z/H)/H)\), which is bounded by the error in
+(34.15).  For the main coefficients,
 
 \[
  \sum_{k,k'\leq K}{\varphi([k,k'])\over[k,k']^2}
@@ -11099,10 +11118,16 @@ pointwise in every reduced compatible \(c\), without \(H_{k\rm BV}\).
 
 *Proof.*  First note that the proof of Lemma 16.2 does not intrinsically need
 \(K\) to be polylogarithmic.  Its box error is \(O(K^2/H)\) relative to the
-main term, Shiu is applied with modulus \(k\leq K<H^{1/2}\), and its
-low-\(\omega\) Rankin estimate is uniform.  Thus the same proof applies
-whenever \(z>K^{20}\), with \(\log(z/H)\asymp\log z\).  At the lowest
-prime interval this holds uniformly because \(\kappa<1/240\).
+main term.  Shiu is used on fixed-relative-length intervals with
+\[
+ k\leq K<U^{1/10},V^{1/10}
+\]
+because \(U,V>H=K^{10}\); the fixed functions \(t^{\omega(n)}\) and
+\(n/\varphi(n)\) satisfy its growth hypotheses, and the local-factor bound
+(16.5e) is uniform in \(k\).  The low-\(\omega\) Rankin estimate is therefore
+uniform as well.  Thus the same proof applies whenever \(z>K^{20}\), with
+\(\log(z/H)\asymp\log z\).  At the lowest prime interval this holds
+uniformly because \(\kappa<1/240\).
 
 The low-\(\omega\) first moment from that extended box argument is
 \(\gg(\log z)^2h(\mathcal J)\).  By Lemma 34.7, the first-moment mass of
@@ -11139,16 +11164,94 @@ upper bound.  Summing the dyadic intervals proves (34.18), and
 
 Theorem 34.8 does **not** prove literal \(H_{k\rm BV}\): (34.2) still asks
 for the absolute errors of the discarded high-incidence triples.  It proves
-that those triples carry negligible expected class mass, so they need not be
-harvested.  This is enough for Lemma 18.5's conclusion and is strictly
-stronger for that application than an estimate for a sparse set of isolated
-large multipliers.
+that they carry \(o(1)\) of the weighted box/main-term mass, while the
+retained **actual** prime-class mass has full cubic order.  It does not assert
+that \(f_c^{\rm good}/f_c\to1\).  This is enough for Lemma 18.5's conclusion
+and is strictly stronger for that application than an estimate for a sparse
+set of isolated large multipliers.
 
-### 34.4 Verdict and changed bottleneck
+### 34.4 Restricted assembly and the changed bottleneck
 
-**Proved verdict.**  The unconditional prime-slice record is now (34.19):
-the complete cubic order is realized after an explicit, asymptotically
-massless congestion pruning.  The old bound \(K\leq(\log X)^A\) was a wall
+For completeness, the assembly statement used in the multiplier-prime route
+is now made explicit.  Fix \(0<\kappa<1/240\), put \(t=\log X\),
+\(K=\lfloor X^\kappa\rfloor\), \(\mathcal J=\mathcal K(K)\), and
+\(M_0=24L_K\).  For each reduced \(c\pmod {M_0}\), let
+\(\mathscr G_{X,c}\) be the **fixed complete family** of distinct forced
+classes
+\[
+ n\equiv-u v^{-1}\pmod {k\ell}                              \tag{34.22}
+\]
+from every triple counted in Theorem 34.8: thus (16.7) holds,
+\(r_{\mathcal J}(u,v;c)\leq(\log X)^4\), and no further class is omitted.
+The pruning depends on the full residue \(c\), but after \(c\) is fixed the
+family does not depend on \(n\).  Its conditional (prime-coordinate) mass is
+\[
+ \mu_{X,c}:=\sum_{X^{1/2}<\ell\leq X}{f_c^{\rm good}(\ell)\over\ell}
+ \asymp t^3                                                       \tag{34.23}
+\]
+uniformly in every reduced \(c\), by Theorem 34.8.  This is conditional mass
+inside the \(c\)-fiber, not the sum of the global densities \(1/(k\ell)\).
+
+**Hypothesis \(H_{\rm PF}'(k\ell;{\rm good})\) (restricted, partition-free
+critical-window assembly; OPEN).**  There are constants \(c_0,C>0\) and
+\(0<c_-<c_+\), depending at most on \(\kappa\), with \(c_-\) large enough
+for the degree budget, such that the following holds uniformly for all large
+\(X\).  Whenever
+\[
+ c_-t^4\leq\log N\leq c_+t^4,
+ \qquad J\geq C\sup_c\mu_{X,c},
+ \qquad J(t+\log K)\leq\tfrac12\log N,
+\]
+the aggregate avoider predicate
+\[
+ {\bf1}_{(n,M_0)=1}
+ {\bf1}_{\{n\text{ avoids every class in }
+                 \mathscr G_{X,n\bmod M_0}\}}
+\]
+has a nonnegative majorant \(\nu_{X,N}\) on \([1,N]\), pointwise at least
+the displayed predicate, with
+\[
+ {1\over N}\sum_{n\leq N}\nu_{X,N}(n)
+ \ll \exp\{-c_0\inf_c\mu_{X,c}\}.                          \tag{34.24}
+\]
+The majorant is required to have a partition-free degree-\(J\) congruence
+expansion, uniform simultaneously over the fixed families
+\(\mathscr G_{X,c}\), whose **total** absolute coefficient sum (including
+all \(c\)-dependence) is \(e^{O(J)}\).  Every term uses at most \(J\) class
+moduli and is evaluated only by exact intersection counts modulo
+\[
+ d=\operatorname {lcm}(k_i\ell_i:i\leq J)
+   \leq K^JX^J\leq N^{1/2}.
+\]
+Thus each finite-window count is its CRT main term plus \(O(1)\), and the
+total rounding error is \(e^{O(J)}=o(N e^{-c_0\inf_c\mu_{X,c}})\).
+Crucially, no hidden expansion into the \(M_0\) residue classes, and no
+\(M_0\)-fold coefficient or rounding loss, is allowed.  This last requirement
+is the unproved partition-free handling of the \(c\)-dependent pruning; the
+hypothesis is not asserted to follow from complete-system \(H_{\rm PF}'\).
+
+The exact restricted implication is
+\[
+ \boxed{\quad
+  \text{Theorem 34.8}+H_{\rm PF}'(k\ell;{\rm good})
+  \ \Longrightarrow\
+  E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}.
+ \quad}                                                       \tag{34.25}
+\]
+Indeed choose \(t=\alpha(\log N)^{1/4}\), with the fixed \(\alpha\) inside
+the asserted critical window and small enough for the degree inequality, and
+take \(J=C\sup_c\mu_{X,c}\).  Every exceptional prime \(n>K\) is coprime
+to \(M_0\) and avoids \(\mathscr G_{X,n\bmod M_0}\), because every member
+of that family is a Lemma-16.1 forced class.  Equations (34.23)--(34.24)
+therefore give the claimed bound for exceptional primes with exponent
+\(t^3\asymp(\log N)^{3/4}\); the semigroup argument of Theorem 16.5 gives
+the displayed all-denominator bound.  This proves only the conditional
+implication, not its open assembly antecedent.
+
+**Provisional proved verdict.**  The unconditional prime-slice record is now
+(34.19): the complete cubic order is realized after an explicit pruning
+which removes \(o(1)\) of the weighted box/main-term mass and retains
+cubic-order actual class mass.  The old bound \(K\leq(\log X)^A\) was a wall
 of the crude maximum multiplicity (34.4), not of the class supply and not of
 ordinary BV once the divisor incidence is used.  Literal \(H_{k\rm BV}\)
 remains open, but it is no longer needed to realize cubic prime-slice mass.
@@ -11156,10 +11259,10 @@ remains open, but it is no longer needed to realize cubic prime-slice mass.
 **Exceptional-set consequence now.**  There is no unconditional improvement
 to Theorem 16.4 from this theorem alone.  The existing §16 partition still
 forces \(K\ll\log N\), and optimizing with \(r\leq\log\log N\) returns
-\(E(N)\ll N\exp[-cL^{2/3}(\log L)^{1/3}]\).  A restricted
-critical-window assembly \(H_{\rm PF}'(k\ell)\) would combine with Theorem
-34.8 to give \(N\exp[-cL^{3/4}]\); that assembly is open.  The complete-system
-\(H_{\rm PF}'\) would give the same bound independently.  Given Outcome 14,
+\(E(N)\ll N\exp[-cL^{2/3}(\log L)^{1/3}]\).  The restricted
+critical-window assembly \(H_{\rm PF}'(k\ell;{\rm good})\) combines with
+Theorem 34.8 exactly as stated in (34.25); its assembly antecedent is open.
+The complete-system \(H_{\rm PF}'\) would give the same bound independently.  Given Outcome 14,
 paying for full \(H_{k\rm BV}\) now has little marginal value for the
 \(3/4\) campaign: assembly, not prime-slice harvesting, is the exact live
 bottleneck.
@@ -11169,8 +11272,8 @@ priority and referee checking, especially the power-range extension of the
 Shiu/box estimates and the uniform second-moment boundary sum.  The
 technology audit's BFI/Fouvry--Iwaniec/Zhang statements are from memory
 because those PDFs are absent from `sources/`.  No claim is made that
-\(H_{\rm PF}'(k\ell)\) follows from the currently stated complete-system
-\(H_{\rm PF}'\).
+\(H_{\rm PF}'(k\ell;{\rm good})\) follows from the currently stated
+complete-system \(H_{\rm PF}'\).
 
 **Numerical companion.**  `verify.py (ag)` checks the exact incidence-square
 expansion behind Lemma 34.7, the congestion inequality and (34.21) on a toy
