@@ -10351,11 +10351,12 @@ memory-bounded and runs in under ten seconds on the campaign host.
 
 Put \(L=\log X\), and retain the complete intrinsic avoider
 \({\rm Av}_X\) of §21.  This section attacks the finite-window residual
-(31.28).  The conclusions are deliberately scoped.  The small-cylinder
-wall, the raw residual count, the finite-transfer criterion, and the failure
-of prime-power tensor factorization are **proved**.  The assessment of a
-classical beta-sieve substitution is a no-go for that stated substitution,
-not for every possible hypergraph sieve.  The target (31.28), and hence
+(31.28).  The conclusions are deliberately scoped.  The small-cylinder wall,
+the raw residual count (together with the complete redundancy of its witnesses), the
+conditional finite-transfer criterion, and the failure of prime-power tensor
+factorization are **proved**.  The Moser--Tardos and classical beta-sieve
+paragraphs assess only the literal implementations specified below, not every
+algorithmic localization or hypergraph sieve.  The target (31.28), and hence
 \(H_{\rm PF}'\), remain **OPEN**.
 
 ### 33.1 What the local lemma does not localize
@@ -10405,21 +10406,26 @@ product.
 The same issue appears in a literal hybrid consisting of a certificate for
 \(R\leq Y\) followed by the §31 local lemma on the remaining atoms.
 
-**Proposition 33.2 (the raw residual family is not sparse; proved).**  Let
-\(z,Y=X^{o(1)}\), with \(z\to\infty\).  Before removing atoms which might be
-implied by other atoms, the family of composite, \(z\)-rough intrinsic atoms
+**Proposition 33.2 (raw-list inflation and complete redundancy of the
+witnesses; proved).**  Let \(z,Y=X^{o(1)}\), with \(z\to\infty\).  Before
+removing implied atoms, the family of composite, \(z\)-rough intrinsic atoms
 with \(R>Y\) contains
 
 \[
                  \gg {X\over L\log z}                       \tag{33.3}
 \]
 
-distinct moduli \(M\asymp X\).  Consequently the logarithm of the product
-of these moduli is
+distinct moduli \(M\asymp X\).  Consequently the logarithm of the ordinary
+product of these listed moduli (with repeated prime coordinates) is
 
 \[
                  \gg {X\over\log z}\gg L^4.               \tag{33.4}
 \]
+
+The lcm of the listed moduli also has logarithm \(\gg X/z\gg L^4\).
+Nevertheless, **every atom constructed in the proof is logically implied by
+a prime-modulus atom** and hence disappears under prime-modulus
+deduplication.
 
 *Proof.*  Take primes
 \[
@@ -10433,27 +10439,43 @@ For large \(X\), the two ranges are disjoint and \(q>z\).  The products
 \(\gg X/(L\log z)\) such products.  Put \(A=(M+1)/4\).  Then \(A>Y\),
 and the choice \(R=A,s=1,D=A^2\) is one of the exact atoms (21.4), with
 \(R>Y\).  Finally each selected modulus has logarithm \(\asymp L\), which
-proves (33.4). ∎
+proves (33.4).  Every prime \(q\) in the displayed interval occurs in a
+selected product, so their product divides the lcm; the prime number theorem
+gives
+\[
+ \log\operatorname {lcm}(M:M\text{ selected})
+ \geq\sum_q\log q\gg X/z.
+\]
+For the logical redundancy, modulo any odd \(m\) put \(A_m=(m+1)/4\).  The
+maximal atom \(D=A_m^2\) is
+\[
+ n\equiv-4A_m^2\equiv-4^{-1}\pmod m.
+\]
+Thus for every selected \(M=pq\), its constructed atom implies
+\(n\equiv-4^{-1}\pmod p\), which is exactly the maximal intrinsic atom for
+the prime modulus \(p\). ∎
 
-The qualification “before removing implied atoms” is essential.  Some of
-the displayed atoms can be killed by a prime-modulus condition, and proving
-how much of the large-\(R\) family survives all such compression is itself a
-version of the divisor-clustering problem.  Proposition 33.2 therefore
-closes only the proposal that the **literal** residual LLL family has small
-total modulus product.  It is not a lower bound for a minimal irredundant
-family.
+The qualification “before removing implied atoms” is therefore essential:
+the entire displayed witness family, not merely part of it, is deleted by
+the prime-modulus conditions.  Proposition 33.2 is only a warning that the
+**literal raw list** and even its CRT lcm can be huge while its irredundant
+support is not.  It gives no lower bound for a minimal residual family;
+constructing a large family which survives prime-modulus and other logical
+deduplication remains open.
 
-The constructive or Moser--Tardos local lemma does not evade either point.
-Its variables are the prime-power CRT coordinates.  It starts on the full
-product space and resamples all coordinates of a violated modulus.  The
-output is an avoiding residue modulo the full period; neither the expected
-number of resamplings nor the witness-tree bound controls the least positive
-representative of that residue.  Starting instead with a uniform integer in
-\([1,N]\) loses product independence once a queried coordinate product
-exceeds \(N\).  Moreover Theorem 33.1 shows that the output support cannot be
-covered by nonempty all-avoider cylinders of critical-window modulus.  Thus
-the algorithmic LLL certifies existence and product-space probability, not
-integer-order localization.
+**Assessment (standard Moser--Tardos run).**  In the vanilla implementation,
+the variables are the prime-power CRT coordinates, the initial assignment is
+uniform on their full product, and a violated event resamples every coordinate
+in its modulus.  The expected resampling and witness-tree bounds used here do
+not control the least positive representative of the resulting CRT residue.
+Starting instead with a uniform integer in \([1,N]\) loses exact product
+independence once a queried coordinate product exceeds \(N\).  Theorem 33.1
+also excludes covering the output support by complete all-avoider cylinders
+of critical-window modulus.  Consequently the standard full-product run
+provides **no localization estimate proved here**.  This is not a no-go for a
+non-cylinder algorithm, an output-distribution or bounded-witness argument,
+or a correction-sieve adaptation; all such localization variants remain
+open.
 
 There is nevertheless **no modulus-budget no-go** for a suitably truncated
 correction polynomial.  The exact missing object can be isolated as follows.
@@ -10461,9 +10483,12 @@ After the quarantine (31.23), transform the surviving congruences to the
 integer variable left after division by \(P_z\), and denote their indicators
 by \(1_A\).
 
-**Lemma 33.3 (finite-transfer criterion; proved).**  Suppose there are real
-coefficients \(c_S\), supported on sets of at most \(r=o(L^3)\) surviving
-atoms, such that
+**Lemma 33.3 (conditional finite-transfer criterion; proved).**  Take
+\[
+ z={L^3\log\log L\over\log L}
+\]
+as in (31.11).  Suppose there are real coefficients \(c_S\), supported on
+sets of at most \(r=o(L^3)\) surviving atoms, such that
 
 \[
  B_X(n):=\sum_S c_S\prod_{A\in S}1_A(n)
@@ -10491,7 +10516,9 @@ interval of length \(N/P_z+O(1)\) its sum is
 \(N/(P_zd_S)+O(1)\); for an incompatible set both the interval and CRT
 sums vanish.  Summing (33.5) therefore gives the CRT main term with total
 error at most \(\sum_S|c_S|\).  Equations (33.6) and
-\(\log N\asymp L^4\) make that error negligible.  Also
+\(\log N\asymp L^4\) make that error negligible.  Explicitly,
+\(rL=o(L^4)\), \(\log\sum_S|c_S|=o(L^4)\), and the positive CRT main term
+has logarithm \(\log N-o(L^3)\).  Also
 \(d_S\leq X^r=\exp\{o(L^4)\}\), so every term lies inside the advertised
 degree budget. ∎
 
@@ -10607,14 +10634,17 @@ does not make that product large:
              =\exp\{-\Theta(L^3)\}.                         \tag{33.15}
 \]
 
-**No-go 33.5 (scoped local-charge substitution; proved).**  A classical
-lower-bound sieve whose local density at \(q\) is the §31 neighborhood
-charge \(a_q=A(b_q+u_q)\), or even only a fixed positive multiple of
-\(b_q\), cannot prove (33.7): its Euler main term is at most
-\(\exp\{-cL^3\}\) by (33.13).  The fact that \(s\gg\kappa\) controls the
-fundamental-lemma error, not this cubic main-term loss.  The \(u_q\) terms
-can only increase the loss; no growing-dimension bound for their unweighted
-sum is asserted here.
+**Calculation/Assessment 33.5 (scoped local-charge substitution).**  Make
+the literal classical-sieve substitution in which the local density at
+\(q\) is the §31 neighborhood charge \(a_q=A(b_q+u_q)\), or even only a
+fixed positive multiple of \(b_q\), and the resulting main term is the
+corresponding Euler product.  By (33.13) that product is at most
+\(\exp\{-cL^3\}\), so this stated substitution does not yield (33.7).  The
+fact that \(s\gg\kappa\) controls its fundamental-lemma approximation error,
+not the cubic loss already present in its main term.  The \(u_q\) terms can
+only increase that loss; no growing-dimension bound for their unweighted sum
+is asserted here.  This calculation is not an impossibility theorem for an
+undefined class of all “classical” sieve arguments.
 
 The reason this loses the gain of Theorem 31.4 is structural.  The
 neighborhood charge \(a_q\) is not the density of a set of forbidden
@@ -10656,9 +10686,10 @@ bounds available here remain only
 by Lemma 21.2 and Theorem 21.3.  The lower side is exponentially too small
 on the \(L^3\) scale.  The exact route failures are:
 
-1. an all-avoider small cylinder is impossible by Theorem 33.1; a literal
-   large-\(R\) residual list is exponentially large by Proposition 33.2;
-   Moser--Tardos returns a full-period CRT point, not a localized integer;
+1. an all-avoider small cylinder is impossible by Theorem 33.1; the literal
+   large-\(R\) list in Proposition 33.2 is huge but all of its displayed
+   witnesses are prime-implied; the standard Moser--Tardos bounds used here
+   provide no localization estimate;
 2. the full indicator has no prime-power Fourier product, by Lemma 33.4, so
    the desired exponential-sum bound is the original hypergraph correlation
    problem in complex form;
