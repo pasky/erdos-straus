@@ -1,12 +1,20 @@
 # Paper draft status
 
-`espaper.tex` is the v4 standalone `amsart` consolidation draft (45 pages). Its two headline results are:
+`espaper.tex` is the v5 standalone `amsart` consolidation draft (54 pages). Its two headline results are:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v5 changes — 2026-08-29, wave 18
+
+- Absorbed source §49's exact implication criterion, pointwise antichain void identity, failure of a uniform residue profile, and complete-bipartite semiprime grid. The grid refutes both repaired hierarchy (47.16) and the ordinary factorial-moment target for the reduced count, with the full every-even-`m`, pairwise-coprime squarefree, extension-ratio-one, and conditional CRT-cost quantifiers retained.
+- Reclassified the complete-system hierarchy/moment axis as **DORMANT**. The nested cube remains the refutation of the raw formulations; the grid is the separate collective refutation of their antichain replacements. Proposition 47.3's prime-only rung survives, while `H_PF'`, (33.16), (37.27), and (40.19) remain open.
+- Added source §50 as a new conditional pointwise section: the proved one-prime-factor slice criterion and explicit Type-I reconstruction, bespoke unproved `H_SPF(A)`, its conditional consequence, prime-norm and bounded-core walls, the GRH active-slice-only theorem, the GRH/Chebotarev mass audit, exact genus pairing, Duke assessment, frontier table, and exact finite census.
+- Preserved the section's scope: §50 is a conditional reduction and map of missing input, not an unconditional theorem. The provisional record labels, source §39.7 qualifications, Vaughan-access warning, Pomerance–Weingartner comparison limits, and internal-only verification register are unchanged.
+- Extended the internal pedigree with the hostile §49 and §50 reviews, updated the abstract/introduction/status register, and regenerated the tracked table of contents.
 
 ## v4 changes
 
@@ -21,11 +29,11 @@ Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inhe
 ## Wave-17 v4 fidelity review
 
 - Review: `reviews/wave17-paper-v4-review.md`; verdict **FAITHFUL-AFTER-REPAIRS** after minimal source-§49 status corrections; two-pass build clean.
-- wave-17: the antichain hierarchy is also refuted (notes §49); moment route closed; v5 queue.
+- wave-17: the antichain hierarchy is also refuted (notes §49); the pending paper absorption is resolved in v5.
 
 ## Resolved v3 errata
 
-The pending v4 structural erratum in the wave-16 fidelity review is resolved: v4 no longer calls raw (37.19) or literal (40.28) open, states their precise refutation scope, and names implication-antichain (47.16) as the repaired open hierarchy. The review’s “do not insert an unadjudicated strengthening” guard is also resolved correctly: only the later hostile-adjudicated Theorem 43.12 is promoted, with every provisional label retained. The post-freeze Layer-1 all-denominator range correction and the §46 endpoint refinement are now incorporated.
+The pending v4 structural erratum in the wave-16 fidelity review was resolved in v4: raw (37.19) and literal (40.28) were no longer called open, and implication-antichain (47.16) was identified as the then-current repair. V5 now absorbs source §49's later refutation of that repair and of the reduced-count moment itself. The review’s “do not insert an unadjudicated strengthening” guard remains resolved correctly: only the hostile-adjudicated Theorem 43.12 is promoted, with every provisional label retained. The post-freeze Layer-1 all-denominator range correction and the §46 endpoint refinement remain incorporated.
 
 ## Statement fidelity
 
@@ -38,7 +46,15 @@ Every new or changed theorem statement was diffed against the post-review `notes
 - notes (43.36)–(43.42) ↔ the new proof: finite cutoff `K`, coefficient `(1-1/p)/p^e`, bound `H_m(K)/p`, fixed relative threshold, `M=eta_2(m)t^3/phi(m)`, `y,r=O(M)`, `O(Mt)` ledger, `t=alpha(L/theta_m)^(1/4)`, fixed-gap constraints, and semigroup `gamma` agree.
 - notes §43.11 and Assessment 43.13 ↔ `pedigree` and the thinned-window preface: allowed reads, freeze hash, self-attestation limitation, S3/S6/S7 qualifications, adjudicated checks, verdict, and unchanged provisional status agree.
 - notes Theorem 47.2, (47.10)–(47.14) ↔ `nested-cube`: squarefree top atom, `exp(cL/log L)` extension mass, conditioned raw-`H` moment failure for every fixed `C`, and the `Y`-to-`2Y` odd-subset mechanism agree.
-- notes (47.16) ↔ `antichain-wall`: deletion direction, unchanged union/void, `Q_S`, `w_B`, every shared prime-power factor in `Gamma_S`, compatible-set quantifiers, even `m in [D Lambda,D Lambda+2]`, and `C Lambda` right side agree.
+- notes (47.16) ↔ `antichain-wall`: deletion direction, unchanged union/void, `Q_S`, `w_B`, every shared prime-power factor in `Gamma_S`, compatible-set quantifiers, even `m in [D Lambda,D Lambda+2]`, and `C Lambda` right side agree; it is retained historically and immediately refuted by the §49 grid.
+- notes Theorem 49.1, (49.1)–(49.5) ↔ `implication-criterion` and `antichain-void`: distinct retained-atom scope, both implication equivalences, `M=tm` unpacking, survival hypotheses, inclusion-largest orientation, and pointwise conditioned void identity agree.
+- notes Theorem 49.4, (49.8)–(49.11) ↔ `antichain-profile`: reduced-class scope, uniform-`C` negation, `g asymp X` strength, exact semiprime intervals and `D=2` retention, and `g^(1-o(1))` ratio agree.
+- notes Theorem 49.5, (49.12)–(49.21) ↔ `grid-obstruction`: every fixed `C,D`, every sufficiently large `X`, every admissible even `m`, compatible pairwise-coprime squarefree `S`, exact extension ratio one, prime-supply ranges, `(2z)^(-2t)` CRT cost, and direct reduced factorial-moment failure agree.
+- notes Computational 49.7 and Assessment 49.8 ↔ the distinct paper registers: finite fractions remain diagnostics, the two formulations alone are refuted, narrower open routes survive, and the complete-system moment axis alone is dormant.
+- notes Theorems 50.1–50.2, (50.1)–(50.8) ↔ `one-prime-slice`, `SPF`, and `hyp:SPF`: exact good class, raw/nonprimitive boundary, explicit `e,a,b`, Type-I identity, fixed-`A` hypothesis quantifier, no bound on `q`, and all-large-hard-prime conclusion agree.
+- notes Lemma 50.3 and Theorems 50.5–50.6, (50.9) ↔ `prime-norm`, `bounded-core`, and `GRH-active`: wrong-grade prime norm, every-fixed-`B` genus escape for all `k`, and GRH's unforced-slice-only conclusion agree.
+- notes (50.10)–(50.17) ↔ the Chebotarev and genus-pairing audits: principal-ideal divisor condition, prime-qualified `1/8` mass envelope, heuristic-only (50.13), exact pairing, residual projector, and assessment—not independence-theorem—register agree.
+- notes Computational 50.9, (50.18)–(50.20) ↔ the census: all 385 counts, eight records, `311/74` split, gap 55 witness, and informational-only optional maximum agree.
 - notes Theorem 46.2, (46.8)–(46.10) ↔ `endpoint-wedge`: `W_1=floor(zL^2/log L)`, `W_2=floor(zW_1)`, full prefix, large-`c` wedge, and `O(Lambda^2)` conclusions agree. The preceding displayed diagonal/occupancy inequalities reproduce (46.3) and (46.9).
 - notes Corollary 46.3, (46.11)–(46.13) ↔ `endpoint-core`: the sets `A,B`, ordered distinct-cell condition `m != m'`, congruence modulo `p`, weight `G_{m,p}G_{m',p}/p`, prime range, and equivalence to (40.19) agree.
 - notes Theorem 48.1, (48.1)–(48.3) ↔ `moving-genus`: fundamental discriminant character, admissible hard-prime scope, implication `chi_s(p)=1 => M_{c,k}(p)=0`, exact set `{1,2,3,6}`, relative density `1/2`, and finite exclusions agree.
@@ -67,11 +83,16 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v4 build completes with zero TeX errors and no undefined references or citations. The PDF is 45 pages and is generated locally, not tracked; `espaper.toc` is tracked and updated. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero.
+The v5 build completes with zero TeX errors and no undefined references or citations. The PDF is generated locally, not tracked; `espaper.toc` is tracked and updated. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero.
 
 ## Submission TODO
 
 - Obtain external expert review of Theorem 34.8, the §39 chain, and the full thinned-window §43 transfer.
 - Obtain/read Vaughan 1970 and complete the priority search.
-- Prove or disprove endpoint remainder (46.13); carry notes §49’s antichain and reduced-moment refutations into v5.
+- Prove or disprove endpoint remainder (46.13); any revival of the dormant complete-system moment axis needs a genuinely new pointwise formulation.
+- Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
+
+## v6 queue
+
+No post-§50 source section exists in this snapshot; there is no newly observed §51/§52 absorption item.

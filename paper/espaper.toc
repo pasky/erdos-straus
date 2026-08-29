@@ -1,43 +1,50 @@
-\contentsline {section}{\tocsection {}{1}{Introduction and statement map}}{3}{section.1}%
+\contentsline {section}{\tocsection {}{1}{Introduction and statement map}}{4}{section.1}%
 \contentsline {section}{\tocsection {}{2}{Notation and elementary tools}}{5}{section.2}%
-\contentsline {section}{\tocsection {}{3}{Criterion and identity families}}{5}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{A two-term lemma and the complete prime criterion}}{5}{subsection.3.1}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Forced identities}}{6}{subsection.3.2}%
+\contentsline {section}{\tocsection {}{3}{Criterion and identity families}}{6}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{A two-term lemma and the complete prime criterion}}{6}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Forced identities}}{7}{subsection.3.2}%
 \contentsline {section}{\tocsection {}{4}{The complete intrinsic system}}{7}{section.4}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Shifted-divisor form}}{8}{subsection.4.1}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Shifted-divisor form}}{9}{subsection.4.1}%
 \contentsline {section}{\tocsection {}{5}{Squares and the prime slice}}{9}{section.5}%
 \contentsline {subsection}{\tocsubsection {}{5.1}{The square-class phenomenon}}{9}{subsection.5.1}%
-\contentsline {subsection}{\tocsubsection {}{5.2}{Harvesting prime classes}}{9}{subsection.5.2}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Harvesting prime classes}}{10}{subsection.5.2}%
 \contentsline {subsection}{\tocsubsection {}{5.3}{A growing multi-shift certificate}}{11}{subsection.5.3}%
 \contentsline {section}{\tocsection {}{6}{The cubic-mass hypothesis and its conditional consequence}}{12}{section.6}%
-\contentsline {section}{\tocsection {}{7}{Rough moduli and refutation of $H_{\mathrm {PF}}$}}{12}{section.7}%
-\contentsline {section}{\tocsection {}{8}{The critical window and transfer walls}}{15}{section.8}%
+\contentsline {section}{\tocsection {}{7}{Rough moduli and refutation of $H_{\mathrm {PF}}$}}{13}{section.7}%
+\contentsline {section}{\tocsection {}{8}{The critical window and transfer walls}}{16}{section.8}%
 \contentsline {subsection}{\tocsubsection {}{8.1}{Cylinder and tensor obstructions}}{16}{subsection.8.1}%
-\contentsline {subsection}{\tocsubsection {}{8.2}{The corrected finite-transfer criterion}}{16}{subsection.8.2}%
-\contentsline {subsection}{\tocsubsection {}{8.3}{The prime side transfers}}{17}{subsection.8.3}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{The corrected finite-transfer criterion}}{17}{subsection.8.2}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{The prime side transfers}}{18}{subsection.8.3}%
 \contentsline {subsection}{\tocsubsection {}{8.4}{The composite frontier}}{18}{subsection.8.4}%
-\contentsline {subsection}{\tocsubsection {}{8.5}{Nested implication and the repaired hierarchy}}{19}{subsection.8.5}%
-\contentsline {section}{\tocsection {}{9}{Provisional record context}}{20}{section.9}%
-\contentsline {subsection}{\tocsubsection {}{9.1}{The provisional exceptional-set record}}{20}{subsection.9.1}%
-\contentsline {subsection}{\tocsubsection {}{9.2}{The pruned cubic prime slice}}{22}{subsection.9.2}%
-\contentsline {section}{\tocsection {}{10}{The fixed-$c$-free critical-window assembly}}{23}{section.10}%
-\contentsline {subsection}{\tocsubsection {}{10.1}{Removing the moving fibre and deduplicating the atoms}}{23}{subsection.10.1}%
-\contentsline {subsection}{\tocsubsection {}{10.2}{Exact mass profiles}}{24}{subsection.10.2}%
-\contentsline {subsection}{\tocsubsection {}{10.3}{Collapse versus consistency}}{26}{subsection.10.3}%
-\contentsline {subsection}{\tocsubsection {}{10.4}{The CRT void without partitioning by all of $M_0$}}{27}{subsection.10.4}%
-\contentsline {subsection}{\tocsubsection {}{10.5}{A low-degree majorant with the honest ledger}}{28}{subsection.10.5}%
-\contentsline {subsection}{\tocsubsection {}{10.6}{Exceptional denominators}}{30}{subsection.10.6}%
-\contentsline {subsection}{\tocsubsection {}{10.7}{Remarks on verification status}}{31}{subsection.10.7}%
-\contentsline {subsection}{\tocsubsection {}{10.8}{Internal verification pedigree}}{31}{subsection.10.8}%
-\contentsline {section}{\tocsection {}{11}{General numerators}}{32}{section.11}%
-\contentsline {subsection}{\tocsubsection {}{11.1}{The identity and the first exceptional-set layer}}{32}{subsection.11.1}%
-\contentsline {subsection}{\tocsubsection {}{11.2}{The provisional cubic transfer}}{35}{subsection.11.2}%
-\contentsline {subsection}{\tocsubsection {}{11.3}{Pomerance--Weingartner comparison}}{37}{subsection.11.3}%
-\contentsline {subsection}{\tocsubsection {}{11.4}{The attested-blind thinned window}}{37}{subsection.11.4}%
-\contentsline {section}{\tocsection {}{12}{Pointwise Type-I slices}}{39}{section.12}%
-\contentsline {subsection}{\tocsubsection {}{12.1}{Exact vanishing and finite conspiracies}}{39}{subsection.12.1}%
-\contentsline {subsection}{\tocsubsection {}{12.2}{Fixed divisors, residue-one escape, and depth}}{40}{subsection.12.2}%
-\contentsline {section}{\tocsection {}{13}{Residue-dispersion frontier}}{41}{section.13}%
-\contentsline {subsection}{\tocsubsection {}{13.1}{Endpoint sparsity and proved ranges}}{42}{subsection.13.1}%
-\contentsline {subsection}{\tocsubsection {}{13.2}{Kloosterman-fraction audit}}{43}{subsection.13.2}%
-\contentsline {section}{\tocsection {}{}{References}}{45}{section*.100}%
+\contentsline {subsection}{\tocsubsection {}{8.5}{Nested implication and the two hierarchy refutations}}{20}{subsection.8.5}%
+\contentsline {subsection}{\tocsubsection {}{8.6}{The implication antichain and the semiprime grid}}{21}{subsection.8.6}%
+\contentsline {section}{\tocsection {}{9}{Provisional record context}}{24}{section.9}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{The provisional exceptional-set record}}{24}{subsection.9.1}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{The pruned cubic prime slice}}{25}{subsection.9.2}%
+\contentsline {section}{\tocsection {}{10}{The fixed-$c$-free critical-window assembly}}{26}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Removing the moving fibre and deduplicating the atoms}}{27}{subsection.10.1}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Exact mass profiles}}{28}{subsection.10.2}%
+\contentsline {subsection}{\tocsubsection {}{10.3}{Collapse versus consistency}}{29}{subsection.10.3}%
+\contentsline {subsection}{\tocsubsection {}{10.4}{The CRT void without partitioning by all of $M_0$}}{31}{subsection.10.4}%
+\contentsline {subsection}{\tocsubsection {}{10.5}{A low-degree majorant with the honest ledger}}{32}{subsection.10.5}%
+\contentsline {subsection}{\tocsubsection {}{10.6}{Exceptional denominators}}{33}{subsection.10.6}%
+\contentsline {subsection}{\tocsubsection {}{10.7}{Remarks on verification status}}{34}{subsection.10.7}%
+\contentsline {subsection}{\tocsubsection {}{10.8}{Internal verification pedigree}}{35}{subsection.10.8}%
+\contentsline {section}{\tocsection {}{11}{General numerators}}{36}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{The identity and the first exceptional-set layer}}{36}{subsection.11.1}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{The provisional cubic transfer}}{39}{subsection.11.2}%
+\contentsline {subsection}{\tocsubsection {}{11.3}{Pomerance--Weingartner comparison}}{40}{subsection.11.3}%
+\contentsline {subsection}{\tocsubsection {}{11.4}{The attested-blind thinned window}}{41}{subsection.11.4}%
+\contentsline {section}{\tocsection {}{12}{Pointwise Type-I slices}}{42}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Exact vanishing and finite conspiracies}}{42}{subsection.12.1}%
+\contentsline {subsection}{\tocsubsection {}{12.2}{Fixed divisors, residue-one escape, and depth}}{44}{subsection.12.2}%
+\contentsline {section}{\tocsection {}{13}{Conditional pointwise routes through the slice frame}}{45}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{The good prime-factor class and exact reduction}}{45}{subsection.13.1}%
+\contentsline {subsection}{\tocsubsection {}{13.2}{Prime values, bounded cores, and least nonresidues}}{46}{subsection.13.2}%
+\contentsline {subsection}{\tocsubsection {}{13.3}{The GRH/Chebotarev compositum wall}}{47}{subsection.13.3}%
+\contentsline {subsection}{\tocsubsection {}{13.4}{The exact genus pairing and the Duke wall}}{48}{subsection.13.4}%
+\contentsline {subsection}{\tocsubsection {}{13.5}{Conditional frontier and census}}{49}{subsection.13.5}%
+\contentsline {section}{\tocsection {}{14}{Residue-dispersion frontier}}{50}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Endpoint sparsity and proved ranges}}{51}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Kloosterman-fraction audit}}{52}{subsection.14.2}%
+\contentsline {section}{\tocsection {}{}{References}}{54}{section*.141}%
