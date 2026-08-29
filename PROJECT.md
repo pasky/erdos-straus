@@ -81,6 +81,37 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 18 (2026-08-29, wave 14 — see notes.md §41–§42 + paper v2; all reviewed → repaired)
+
+* **§41 (blind parallel construction of the §39 record chain): CONVERGED,
+  no error found.**  Under a §35-style attested blind protocol (derivation
+  frozen in `unit_r_blind.md` at commit 347a570 before §39 was opened), a
+  fresh unit re-derived S1–S7 (the full c-free assembly chain) from §16+§34
+  inputs alone; all seven verdicts CONFIRMED-SAME-METHOD (route divergences
+  non-substantive: Shiu mod k, pointwise 1/k moment bound, direct weighted
+  fibre averaging — review re-checked each variant closes).  Numerical
+  stress: exact rational CRT moments to j=6 at dyadic-cutoff toys to
+  X=10⁴ (14,210 atoms, 1.13M compatible pairs — coupling/distinct-ℓ/dedup
+  all hold; no scale-growing residue-profile excess).  This adds an
+  independent-construction datum; it does NOT upgrade §39's
+  CLAIMED/PROVISIONAL status (Theorem 34.8 remains the shared provisional
+  input).
+* **§42 (endpoint attack): (40.19) still OPEN, now sparse-structured.**
+  Proved: exact unique-cofactor form (\(q_p(R)\) unique in \([1,4R)\)),
+  complement-divisor \(c^2s\) reindexing, no-equal-shift collision lemma,
+  every fixed squarefree-\(s\) fibre \(o(\Lambda^2)\) uniformly in
+  \(s\), and the full target on every fixed polylog prime range
+  \(z<p\leq L^B\) (per-\(B\) constants).  The unresolved core: moving
+  \(s\mid{\rm rad}(R)\) superposition at \(L^B<p\leq X/z\) — Gauss/completion
+  bounds do not couple to the moving nonnegative coefficients (42.26).
+  (37.27), (37.19), (33.16), H_PF′: all remain OPEN; no status line
+  superseded.
+* **paper v2: the provisional 3/4 is now the paper's headline** — ~30pp,
+  complete §39 chain with every wave-13 repair and caveat transcribed
+  (fidelity-reviewed; five real eaten-\(\backslash\)r artifacts found and
+  fixed), §40 frontier subsection, priority framing search-limited and
+  conditional.  External expert review of the 3/4 chain is TODO #1.
+
 ## Outcome 17 (2026-08-29, wave 13 — see notes.md §39–§40 + paper/; §39 maximum-severity-reviewed (record chain SURVIVES) → repaired; §40 + paper reviewed → repaired)
 
 * **§39 (c-free critical-window assembly): E_all(N) ≪ N exp{−c(log N)^{3/4}}
