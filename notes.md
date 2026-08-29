@@ -12092,6 +12092,12 @@ incidence at a prime and, even after granting their best \(L^3/(p\log z)\)
 shape, the direct second-moment summation loses a factor \(\asymp\log L\).
 Thus (33.16) and \(H_{\rm PF}'\) remain **OPEN**.
 
+**Later status correction.**  Section 47 refutes the literal factorial-moment
+bound (37.19) for the only-prime-reduced count \(H\) defined below; Proposition
+37.3 remains a proved conditional implication, and §47.4 replaces its false
+input by the corresponding open input for the void-equivalent implication
+antichain.  (wave-16 review repair)
+
 ### 37.1 The corrected residue-set transfer ledger
 
 After (31.23), write the quarantined integers as \(n=P_zm\); multiplication
@@ -12358,7 +12364,10 @@ Lemma 37.1 applies. \(\square\)
 
 Thus only one high factorial moment, rather than a full alternating tail, is
 needed.  No estimate in §§24, 27, 31, or 33 proves (37.19).  This is the
-precise point at which the two-level construction stops.
+precise point at which the original two-level construction stopped.  Section
+47 subsequently proves that (37.19) is false for this count \(H\), while the
+proposition itself remains valid for the implication-antichain repaired count.
+(wave-16 review repair)
 
 ### 37.4 Star clusters, the residue-square loss, and cluster expansions
 
@@ -12497,19 +12506,21 @@ not asymptotic evidence.
 
 **Assessment 37.5 (wave verdict).**  The residue-set correction and the
 prime-side minorant are proved and reusable.  The proposed common-prime
-\(D=1\) clique is not the obstruction.  The complete two-level construction
-is neither proved nor killed: its odd-Bonferroni continuation reduces to
-(37.19), while the
-currently proved §31 input stops at total prime incidence and loses the
-factor in (37.26).  Weighted block truncations by largest prime merely
-redistribute (37.23); without (37.27) they do not control intersections
-between blocks.  The Scott--Sokal cluster expansion controls a partition
-function, not the required pointwise surrogate.  No LP dual certificate or
-universal low-degree lower bound was found, so no impossibility claim for all
-Lemma-33.3 minorants is made.  The next mathematical target is the
-residue-resolved hierarchy beginning with (37.27), or a genuinely one-sided
-cluster polynomial that bypasses factorial moments.  Until one of those is
-proved, (33.16) and \(H_{\rm PF}'\) remain open.
+\(D=1\) clique is not the obstruction.  Section 47 supersedes the original
+status of the odd-Bonferroni continuation: its required bound (37.19) is
+false for the only-prime-reduced count \(H\), although Proposition 37.3
+remains a valid conditional implication for the void-equivalent
+implication-antichain count.  (wave-16 review repair)  The currently proved
+§31 input stops at total prime incidence and loses the factor in (37.26).
+Weighted block truncations by largest prime merely redistribute (37.23);
+without (37.27) they do not control intersections between blocks.  The
+Scott--Sokal cluster expansion controls a partition function, not the
+required pointwise surrogate.  No LP dual certificate or universal
+low-degree lower bound was found, so no impossibility claim for all
+Lemma-33.3 minorants is made.  The residue-dispersion target (37.27), the
+repaired hierarchy (47.16), and a genuinely one-sided cluster polynomial
+remain possible routes.  Until one is proved, (33.16) and \(H_{\rm PF}'\)
+remain open.
 
 ## 38. Fixed-value binary actions: a complete additive law, a disconnected fibre graph, and the multiplier-conversion failure
 
@@ -13813,9 +13824,12 @@ stars sharing one squarefree coordinate.  They are not sufficient for
 (40.28): an atom can participate simultaneously at several primes, and
 prime powers introduce the extra factors in (40.26).  No estimates
 (40.28), (40.29), or an equivalent averaged multi-coordinate hierarchy are
-proved here.  Therefore even a future proof of the pair endpoint (40.19)
-would pass only the first test; it would not by itself activate Proposition
-37.3.
+proved here.  Section 47 subsequently refutes the literal (40.28) and the
+resulting raw-\(H\) bound (37.19); the one-coordinate hierarchy (40.29)
+remains open, and (47.16) is the replacement multi-coordinate wall.
+(wave-16 review repair)  Therefore even a future proof of the pair endpoint
+(40.19) would pass only the first test; it would not by itself activate
+Proposition 37.3 for either the original count or the repaired count.
 
 ### 40.5 Exact finite companion and verdict
 
@@ -13850,10 +13864,12 @@ regular progression tail satisfies a stronger \(o(\Lambda^2)\) bound.  This
 is a genuine narrowing of the pair wall, not its closure.  Standard
 large-sieve and divisor-BDH statements do not contain the moving
 coefficient/endpoint quantifiers, and the conditioning shortcut at
-\(j\asymp\Lambda\) was arithmetically overstated.  The pair endpoint, the
-prime-power and multi-coordinate codegrees, (37.19), (33.16), and the
-refutation of \(H_{\rm PF}'\) all remain **OPEN**.  Accordingly no earlier
-status line is superseded.
+\(j\asymp\Lambda\) was arithmetically overstated.  The pair endpoint
+(40.19), the one-coordinate hierarchy (40.29), the repaired
+multi-coordinate hierarchy (47.16), (33.16), and the refutation of
+\(H_{\rm PF}'\) remain **OPEN**.  Section 47 refutes the literal (40.28) and
+raw-\(H\) (37.19), superseding this assessment's original status for those
+two targets.  (wave-16 review repair)
 
 
 ## 41. Unit R: blind parallel construction and stress test of the cubic-rate chain
@@ -14203,8 +14219,9 @@ equal-shift off-diagonal, the fixed-$s$ estimate, and the bounded-polylogarithmi
 prime range are **proved**.  They do not prove (40.19).  The unresolved part
 is the simultaneous sum over the moving divisors
 $s\mid\operatorname {rad}(R)$ at super-polylogarithmic primes; consequently
-(37.27), (37.19), (33.16), and the refutation of $H_{\rm PF}'$ remain
-**OPEN**.
+(37.27), (33.16), and the refutation of $H_{\rm PF}'$ remain **OPEN**.
+Section 47 refutes raw-$H$ (37.19) and replaces it by the open antichain
+hierarchy (47.16).  (wave-16 review repair)
 
 ### 42.1 Exact sparse and complement-divisor normal forms
 
@@ -14593,10 +14610,12 @@ divisibility, or an unweighted quadratic Gauss sum.  (Wave-15 update:
 Theorem 45.9 closes, by cell injectivity, every fibre with
 $m=4c^2s\leq W_0\asymp L^3/(\log L)^2$ uniformly over the whole prime
 range; the open core is the complementary range $m>W_0$.)  Therefore
-(40.19) and, by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
-(40.19) would still leave the multi-prime and prime-power hierarchy (40.28),
-the factorial moment (37.19), (33.16), and the refutation of
-$H_{\rm PF}'$ **OPEN**.  No earlier status line is superseded.
+(40.19) and, by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even
+a proof of (40.19) would still leave (33.16), the refutation of
+$H_{\rm PF}'$, and the replacement hierarchy (47.16) **OPEN**.  Section 47
+refutes the literal hierarchy (40.28) and raw-$H$ factorial moment (37.19),
+superseding this assessment's original status for those two targets.
+(wave-16 review repair)
 
 ## 43. General numerators: the multiplier identity is m-uniform and the exceptional-set machinery transfers
 
@@ -16102,10 +16121,12 @@ Theorem 45.9 below closes every fibre with $m=4c^2s\leq W_0\asymp
 L^3/(\log L)^2$ over the entire prime range, by injectivity rather than
 cancellation; the open core of (45.24) is now its restriction to
 $m>W_0$.)  The moving-$s$ range (45.24) with $m>W_0$, (40.19), and hence
-(37.27) remain **OPEN**.  Even a future proof of (40.19) would not prove the separate
-multi-coordinate hierarchy (40.28); consequently (37.19), (33.16), and the
-refutation of $H_{\rm PF}'$ also remain **OPEN**.  This is an internal
-sieve-hypothesis arc and makes no claim to prove or refute the
+(37.27) remain **OPEN**.  Even a future proof of (40.19) would not prove the
+replacement multi-coordinate hierarchy (47.16); consequently (33.16) and
+the refutation of $H_{\rm PF}'$ also remain **OPEN**.  Section 47 refutes
+the literal (40.28) and raw-$H$ (37.19), superseding this assessment's
+original status for those two targets.  (wave-16 review repair)  This is an
+internal sieve-hypothesis arc and makes no claim to prove or refute the
 Erdős--Straus conjecture.
 
 ### 45.6 Review round: the small-fibre moving-$s$ closure
@@ -16562,8 +16583,10 @@ cell collision sum (46.13).  The dyadic method loses there by the explicit
 factor $W/(CW_1)$, while direct large-$c$ divisor counting retains a cubic
 harmonic mass.  Therefore (40.19), (37.27), and the pair-level input to the
 internal hypothesis $H_{\rm PF}'$ remain **OPEN**.  Even a future proof of
-(40.19) would not establish the separate codegree hierarchy (40.28), so it
-would not by itself prove (37.19) or (33.16).  This arc neither proves nor
+(40.19) would not establish the replacement codegree hierarchy (47.16), so
+it would not by itself prove (33.16).  Section 47 refutes the literal
+(40.28) and raw-$H$ (37.19), superseding this assessment's original status
+for those two targets.  (wave-16 review repair)  This arc neither proves nor
 refutes the Erdős--Straus conjecture.
 ## 47. The codegree hierarchy: structure, partial theorems, and the exact remaining wall
 
