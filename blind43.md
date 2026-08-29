@@ -457,3 +457,93 @@ wins throughout the common uniformity range.
    argument is not uniform.  The explicit thresholds and checks in
    (S3.6) and (S7.4) are needed; omitting them can turn a prime theorem into
    an unjustified all-denominator theorem.
+
+## Post-freeze comparison with §43 and the wave-15 review
+
+The blind phase was frozen at commit
+`a0bd2940c322cb69426cf83df7f903d563b49648` before either comparison source
+was opened.  I then read `notes.md` lines 14601–15204 and all of
+`reviews/wave15-sec43-review.md`.
+
+The normalizations differ but the local factors agree exactly:
+\[
+ \eta_{1,\mathrm{blind}}=\eta_{1,\S43}/\zeta(2),\qquad
+ \eta_{2,\mathrm{blind}}=C_2\eta_{2,\S43}.                 \tag{C.1}
+\]
+
+| item | verdict | comparison |
+|---|---|---|
+| S1 | **CONVERGED** | Same congruence, identity, and automatic coprimality. |
+| S2 | **CONVERGED** | Same pairing, product modulus \(muv\), lattice/Shiu separation, BV level, aggregate Euler factors, and warning against short-class uniformity. |
+| S3 | **DIVERGED-MINOR** | Same prime theorem.  §43 states a safe all-denominator range \(m\leq L^{1-\epsilon}\); the blind file claimed \(L^{2-\epsilon}\), but its printed cutoff \(\log U_0\asymp\Theta^{1/2}\) was too optimistic.  The stronger range still closes with the corrected margin below. |
+| S4 | **CONVERGED** | Same atom \(muv\mid k\ell+1\), c-free class, determinant argument, unique multiplier, and CRT density. |
+| S5 | **CONVERGED** | Same \(1/\varphi(m)\) in each \(W_k\), aggregate \(\eta_2(m)\), and no second thinning factor. |
+| S6 | **DIVERGED-SUBSTANTIVE** | Both obtain the same moment and void scales.  §43 deliberately keeps \(y,r\asymp t^3\); the blind construction shrinks them to the actual thinned mass.  One local sentence in the blind proof needed the wave-15 mixed-factor correction, but the required inequality and the optimized route survive. |
+| S7 | **DIVERGED-SUBSTANTIVE** | §43 proves the conservative \(\theta_mL^{3/4}\) exponent and its PW crossover.  The independently derived, thinner-degree ledger gives \((\theta_mL^3)^{1/4}\), a different and stronger provisional theorem.  This does not make §43 false; it shows its explicit Failure-log limitation is removable. |
+
+Here is the full resolution of the two nontrivial differences.
+
+**Layer-1 uniform transfer.**  Put
+\(\Theta_1=\varphi(m)/\eta_1(m)\asymp m\), and suppose
+\(\Theta_1\leq L^{2-\epsilon_0}\).  Invoke the prime theorem above
+\[
+ \log x_0=\Theta_1^{1/(2-\epsilon')},\qquad
+ 0<\epsilon'<\epsilon_0/(3-\epsilon_0).                    \tag{C.2}
+\]
+Then, for \(\delta\asymp\mu_1/L\),
+\[
+ \delta\log x_0
+ \ll L^{-1/3}(\log L)^{1/3}
+      \Theta_1^{1/(2-\epsilon')-1/3}=o(1).                 \tag{C.3}
+\]
+All smaller primes cost \(e^{O(\log\Theta_1)}=e^{o(\mu_1)}\), and the
+larger-prime integral uses the theorem with the fixed margin \(\epsilon'\).
+Thus the blind \(L^{2-\epsilon_0}\) all-denominator range is valid after
+replacing its too-small cutoff; §43's \(L^{1-\epsilon}\) range is correct
+but not sharp.
+
+**Thinned void and degree.**  The review correctly notes that at a prime
+\(p\mid m\), deletion from the moment Euler product is
+\(p/(p+1)\) if \(p\leq y\), rather than always
+\(p^2/(p^2+p-1)\).  Since the former is smaller, (S6.1) remains valid as
+an upper bound, not an exact deletion identity.  More importantly, no
+\(\eta_1(m)\) is lost in the bad-fibre tail.  If
+\[
+ H_m(K)=\sum_{k\leq K,(k,m)=1}{\varphi(k)\over k^2},
+\]
+then for every \(p\nmid m\), writing \(k=p^ea\) gives the finite inequality
+\[
+ \sum_{k\leq K,(k,m)=1,p\mid k}{\varphi(k)\over k^2}
+ \leq\left(\sum_{e\geq1}{1-p^{-1}\over p^e}\right)H_m(K)
+ ={H_m(K)\over p}.                                         \tag{C.4}
+\]
+Consequently \(Z(c)=\sum_{p>y,p\mid c}1/p\leq c_0\) retains a fixed
+fraction of the *actual* mass \(H_m(K)\), while
+\(\Pr(Z>c_0)\leq e^{-c_0y+O(1)}\).  There is no need for §43's weaker
+threshold \(Z\ll\eta_1(m)\).
+
+Let \(M=\theta_2(m)t^3\asymp\theta_1(m)t^3\), take
+\(y=BM\), and let \(r\) be the least even integer above \(DM\).
+Equations (43.23), (43.26), and (C.4) give respectively good-fibre void,
+bad-fibre, and Bonferroni-tail bounds \(e^{-cM}\).  The exact ledger is
+\[
+ \deg=O(M),\qquad \log d_{\rm term}=O(Mt),\qquad
+ \log\sum|c_{\rm term}|=O(Mt).                             \tag{C.5}
+\]
+Thus \(Mt\ll L\), not \(t^4\ll L\), is the rounding constraint.  Choosing
+\(t\asymp(L/\theta_2)^{1/4}\) proves the provisional stronger bound
+\[
+ E_m(N)\ll N\exp\{-c[\eta_2(m)L^3/\varphi(m)]^{1/4}\}.      \tag{C.6}
+\]
+For uniform semigroup transfer, if
+\(\Theta_2=\varphi(m)/\eta_2(m)\leq L^{3-\epsilon_0}\), start at
+\(\log x_0=\Theta_2^{1/(3-\epsilon')}\) with sufficiently small fixed
+\(\epsilon'<\epsilon_0/4\).  Then
+\(\delta\log x_0=o(1)\), the small-prime cost is
+\(e^{O(\log\Theta_2)}=e^{o(M)}\), and the large-prime tail is uniform.
+This repairs the overcompressed cutoff in the frozen S7 argument.
+
+The §43 theorem and its stated ranges therefore remain valid.  Equations
+(C.4)–(C.6) are a **new CLAIMED/PROVISIONAL strengthening**, not a status
+upgrade: they still inherit Theorem 34.8, the §39 residue-profile and moment
+inputs, and need a hostile review of the shrinking-degree uniform constants.

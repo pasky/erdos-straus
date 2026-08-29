@@ -15144,6 +15144,22 @@ The argument after (43.15), now with
    as a nontrivial uniform theorem.  This is an analytic uniformity limit,
    not a failure of the algebraic identity.
 
+**Wave-16 blind-construction flag:** the frozen independent construction
+finds that the conservative degrees in (43.29) are not intrinsic.  The finite
+inequality
+\[
+ \sum_{k\leq K,(k,m)=1,p\mid k}{\varphi(k)\over k^2}
+ \leq p^{-1}\sum_{k\leq K,(k,m)=1}{\varphi(k)\over k^2}
+\]
+makes the bad-fibre tail \(e^{-cy}\) at a fixed relative-mass threshold.
+Together with (43.26), this permits
+\(y,r\asymp\eta_2(m)t^3/\varphi(m)\), a ledger of order
+\(\eta_2(m)t^4/\varphi(m)\), and the stronger provisional exponent
+\([\eta_2(m)(\log N)^3/\varphi(m)]^{1/4}\).  This is a substantive new
+record-class strengthening requiring hostile review, not a claim that
+Theorem 43.8 is false; (43.28) is left unchanged rather than silently
+rewritten.
+
 ### 43.3 Layer 3: the PW benchmark and the two regimes
 
 **Literature benchmark (PW 2025, Theorem 1.3, transcribed).**  There is an
@@ -15201,6 +15217,35 @@ Finally it compares finite
 multiplier sums with the exact \(\eta_2(m)\) formula in (43.4).  Those
 finite ratios are informational; they do not prove (43.6) or any asymptotic
 theorem.
+
+### 43.11 Wave-16 blind parallel construction (attestation)
+
+Unit J16 independently rebuilt S1--S7 after reading only the instructed
+§16, §34, §39 ranges and all of `sources/pw.txt`; its exact read commands
+are logged in `blind43.md`.
+The blind derivation was frozen before opening §43 or its review at commit
+`a0bd2940c322cb69426cf83df7f903d563b49648`.
+
+| item | comparison verdict |
+|---|---|
+| S1 identity | **CONVERGED** |
+| S2 supply/local factors | **CONVERGED** (same factors, different normalization) |
+| S3 Layer 1 | **DIVERGED-MINOR** (same theorem; the all-denominator range can be enlarged with a corrected cutoff) |
+| S4 c-free atoms | **CONVERGED** |
+| S5 mass profile | **CONVERGED** |
+| S6 moments/void | **DIVERGED-SUBSTANTIVE** (thinned degrees close after the finite relative-mass inequality) |
+| S7 assembly/crossover | **DIVERGED-SUBSTANTIVE** (the optimized provisional exponent is stronger) |
+
+The wave-15 mixed local-factor repair is correct: at conditioned
+\(p\mid m\) deletion gives \(p/(p+1)\), but the upper bound (43.26) survives.
+The finite relative-mass inequality displayed in the Wave-16 flag supplies
+the missing shrinking-\(y\) audit; the resulting ledger and semigroup
+cutoffs are derived in full in the post-freeze part of `blind43.md`.
+Thus the printed §43 theorems remain correct but conservative; the stronger
+Wave-16 claim remains **CLAIMED/PROVISIONAL** and needs hostile review.
+As in §41, git records the text, freeze, and ordering only: blindness is a
+self-attestation enforced by instruction and read log, not a cryptographic
+or independently audited guarantee, and this check does not upgrade §39.
 
 ## 44. Slice conspiracies: joint vanishing structure of the ray-character mass
 
