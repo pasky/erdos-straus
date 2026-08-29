@@ -11679,7 +11679,7 @@ indexed by (36.1) and by divisors
 and character orthogonality gives
 
 \[
- {f1}_{D\equiv-p\ (h)}={1\over\varphi(h)}
+ {\bf1}_{D\equiv-p\ (h)}={1\over\varphi(h)}
  \sum_{\chi\ ({\rm mod}\ h)}\chi(D)\overline{\chi(-p)}.
 \]
 
@@ -11719,7 +11719,7 @@ There is an entirely real square-indicator reading of (36.6).  When
 \(W=s^2-(ps+k)/(ck)\).  The identity
 
 \[
-                  {f1}_{W\text{ a square}}=
+                  {\bf1}_{W\text{ a square}}=
                   \sum_{d\mid W}\lambda(d)                 \tag{36.9}
 \]
 
@@ -11738,7 +11738,7 @@ For an odd prime \(p\), the \(c=1\) contribution to \(T_I(p)\) is
 \[
  T_{c=1}(p)=\sum_{1\leq k\leq\lfloor2p/3\rfloor}
  \ \sum_{[\alpha]\mid p+2ki\ \text{ in }\mathbb Z[i]}
- {f1}_{N(\alpha)\equiv-p\pmod {4k}},                       \tag{36.10}
+ {\bf1}_{N(\alpha)\equiv-p\pmod {4k}},                       \tag{36.10}
 \]
 
 where Gaussian divisors are taken modulo associates.  For every
@@ -11787,7 +11787,7 @@ primitive, is
 \[
  T_{k=1}(p)=2\sum_{1\leq a\leq p/2}
  \ \sum_{\substack{f\mid pa+1\\ f\leq p}}
-       {f1}_{f\equiv-p\pmod {4a}}                         \tag{36.12}
+       {\bf1}_{f\equiv-p\pmod {4a}}                         \tag{36.12}
 \]
 \[
  ={2}\sum_{1\leq a\leq p/2}{1\over\varphi(4a)}
