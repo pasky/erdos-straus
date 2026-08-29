@@ -1,0 +1,12 @@
+# Unit report: wave 15 §45 hostile review
+- Verdict: SOUND-AFTER-REPAIRS.
+- Wall: CRACKED only for `m=4c^2s \ll L^3/(log L)^2`; full (40.19) stays OPEN.
+- Lemma 45.1 is exact and preserves retention, roughness, prime powers, κ, and the full h-sum.
+- The fibre, edge, Frobenius, effective-support, and nuclear-norm audit is sound.
+- DFI Theorems 1–2 and BC Theorem 1 were checked directly against both archived PDFs.
+- The brief's “DFI θ=a/q” condition is absent: DFI has integral a; BC has real nonzero θ.
+- Character/Möbius, determinant, alternate-modulus, max-bucket, and h-moment attacks do not close the full matrix.
+- New flag: small m is injective mod every p>z, so (45.9) closes the stated moving-s subfamily.
+- `notes.md` received two provenance/source-wording repairs, both flagged `(wave-15 review repair)`.
+- `sources/README.md` URLs and SHA-256 hashes are accurate.
+- Full post-edit uv verification passed in 1:16.61; control-byte count is zero.

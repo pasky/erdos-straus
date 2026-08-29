@@ -15655,8 +15655,9 @@ because ``general coefficients'' means arbitrary entries of each one-variable
 sequence, not arbitrary coefficients on pairs or triples.
 
 For arbitrary complex $\alpha_m,\beta_n$ supported on
-$[M/2,M]$ and $[N/2,N]$, respectively, DFI's principal estimate, as quoted
-verbatim in the introduction of BC, is
+$[M/2,M]$ and $[N/2,N]$, respectively, DFI's principal estimate is
+(the printed DFI convention is $(M,2M]\times(N,2N]$, an immaterial dyadic
+relabelling; wave-15 review repair, checked directly against DFI Theorem 2)
 
 $$
  \left|\sum_{\substack{m\sim M,\ n\sim N\\(m,n)=1}}
@@ -15715,11 +15716,12 @@ $$
                        P^\eta\leq W\leq P^{3-\eta}.         \tag{45.14}
 $$
 
-The source used for (45.10) and (45.12) is archived as
-`sources/bettin-chandee-1502.00769.pdf`.  Springer exposes the DFI article
-metadata but not an open full text; the legitimate ProQuest result located in
-this audit exposes only its first-page preview, so no incomplete file is
-represented as the DFI paper in `sources/`.
+The sources used for (45.10) and (45.12) are archived as
+`sources/dfi-1997-kloosterman-fractions.pdf` and
+`sources/bettin-chandee-1502.00769.pdf`, respectively (wave-15 review
+repair).  The former is the complete 21-page publisher-typeset article from
+William Duke's UCLA author archive; `sources/README.md` records both exact
+source URLs and SHA-256 hashes.
 
 Endpoint scales do not force either (45.11) or (45.14).  On $p\asymp P$ the
 inverse variable is $m=4c^2s$, and (45.4) permits every dyadic scale from a
