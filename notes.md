@@ -20342,3 +20342,410 @@ that expectation.  Nothing here constructs an exceptional denominator,
 changes the conjecture, or weakens the walls in §17.  Theorems 54.1 and 54.3
 only quantify the §17.3/Theorem-50.5 escape phenomena on the logarithmic
 scale.
+
+## 55. General numerators: truncated tails and the effectivity of the m-uniform chain
+
+**Status.**  This section truncates the already constructed general-numerator
+machinery; it does not extend its range.  The fixed-polylogarithmic tail uses
+no Theorem 34.8 or Theorem 43.7, but its assembly has the same internal-review
+qualification as Lemma 51.1 and §39.  The cubic tail and the record recovery
+inherit Theorems 34.8 and 43.7 and are therefore **CLAIMED/PROVISIONAL**.
+The effectivity statements below concern computability of constants
+conditional on those correctness labels; they do not upgrade them.
+Throughout
+
+\[
+ \lambda_m={\eta_1(m)\over\varphi(m)},\qquad
+ \theta_m={\eta_2(m)\over\varphi(m)},                       \tag{55.1}
+\]
+
+where (43.4) defines the two explicit local factors.  They are comparable up
+to absolute constants, and both are \(\asymp1/m\).
+
+### 55.1 The minimal general-numerator witness modulus
+
+For an integer \(m\geq3\) and a positive integer \(p\), define
+
+\[
+ W_m(p)=\min k\ell,                                         \tag{55.2}
+\]
+
+where the minimum is over positive \(k,\ell,u,v,w\) satisfying
+
+\[
+ k\ell\equiv-1\pmod m,\qquad {k\ell+1\over m}=uvw,
+ \qquad pv\equiv-u\pmod {k\ell};                           \tag{55.3}
+\]
+
+put \(W_m(p)=+\infty\) if there is no such datum.  The prime-coordinate
+\(\ell\) is not required to be prime in this definition, although the tail
+proof uses a prime subfamily.  Lemma 43.1 says that \(W_m(p)\leq T\) gives
+an explicit three-unit-fraction representation of \(m/p\), with witness
+modulus at most \(T\).  At \(m=4\), (55.2)--(55.3) are exactly (51.1)--(51.2).
+
+The parameterized assembly has a thinned mass.  Put \(t=\log X\), let
+\(KX\leq T\), and use the canonical boxes (43.16)--(43.17), with a
+fixed-polylogarithmic \(K\) when invoking Lemma 43.3.  The two relevant
+masses are
+
+\[
+ M_1=\lambda_m t^2\log K,
+ \qquad M_2=\theta_m t^3\quad(K=X^\kappa).                  \tag{55.4}
+\]
+
+**Lemma 55.1 (m-uniform truncated assembly; proved internally, with the
+§39 review qualification).**  Fix \(B>0\).  Uniformly for
+\(m\leq t^B\), the canonical Layer-1 supply gives
+
+\[
+ \#\{p\leq N:p\ {
+m prime},\ W_m(p)>T\}
+       \ll_B N e^{-c_BM_1}                                  \tag{55.5}
+\]
+
+provided \(K\) is a sufficiently large fixed power of \(t\), \(KX\leq T\),
+and
+
+\[
+                    \log N\geq C_Bt(1+M_1).                 \tag{55.6}
+\]
+
+For fixed \(0<\kappa<1/240\), Theorem 43.7 instead gives
+
+\[
+ \#\{p\leq N:p\ {
+m prime},\ W_m(p)>T\}
+       \ll_{B,\kappa}N e^{-c_{B,\kappa}M_2},                \tag{55.7}
+\]
+
+provided \(K=X^\kappa\), \(KX\leq T\), and
+
+\[
+                    \log N\geq C_{B,\kappa}t(1+M_2).        \tag{55.8}
+\]
+
+The second assertion is **CLAIMED/PROVISIONAL** through Theorem 43.7.
+All constants in this lemma are effective in the precise sense of §55.3.
+
+*Proof.*  This is Lemma 51.1 with the mass factors retained.  Lemma 43.3
+supplies active prime-coordinate mass
+\(\asymp t^2h(\mathcal J)/\varphi(m)\); for the full coprime multiplier
+family, \(h\asymp\eta_1(m)\log K\).  Its upper profile and the moment
+profile differ only by replacing \(\eta_1\) by \(\eta_2\), which is an
+absolute constant-factor change.  Thus the Layer-1 void and every required
+factorial moment have base \(M_1\), up to absolute constants.  In the cubic
+family (43.20), (43.27), and the relative-mass argument (43.36)--(43.38)
+give base \(M_2\).
+
+Take the small-prime quarantine and even Bonferroni degree of order \(M_i\)
+when \(M_i\) is large; a fixed degree handles bounded \(M_i\).  Exactly as
+in (43.39) and (51.11), the resulting expansion has
+
+\[
+ \deg=O(1+M_i),\qquad
+ \log d_{\rm term},\ \log\sum|c_{\rm term}|
+       =O_B\{t(1+M_i)\}.                                    \tag{55.9}
+\]
+
+Conditions (55.6) and (55.8) pay this ledger.  This also explains the
+otherwise important \(t\)-term in those conditions when thinning makes
+\(M_i\) bounded.  Every retained atom has modulus \(k\ell\leq KX\leq T\),
+so a prime with \(W_m(p)>T\) avoids the whole retained family.  Primes
+dividing \(m\) and the fixed initial ranges are absorbed effectively. \(\square\)
+
+The exact tail statement follows by spending a fixed fraction of the witness
+budget on \(X\).
+
+**Theorem 55.2 (general-m master tails; same status as Lemma 55.1).**  Fix
+\(B>0\).  Uniformly for \(m\leq(\log T)^B\), put
+
+\[
+ \begin{split}
+ \mathcal M_1(m,T)&=\lambda_m(\log T)^2
+                         \log(2+\log T),\\
+ \mathcal M_2(m,T)&=\theta_m(\log T)^3.                    \tag{55.10}
+ \end{split}
+\]
+
+There are effective constants depending only on \(B\) (and on \(\kappa\)
+in the second line) such that
+
+\[
+ \begin{array}{ll}
+ \#\{p\leq N:p\ {
+m prime},\ W_m(p)>T\}
+  \ll_B N e^{-c_B\mathcal M_1(m,T)},&
+ \log N\geq C_B\{\log T+(\log T)\mathcal M_1(m,T)\},\\[3pt]
+ \#\{p\leq N:p\ {
+m prime},\ W_m(p)>T\}
+  \ll_{B,\kappa}N e^{-c_{B,\kappa}\mathcal M_2(m,T)},&
+ \log N\geq C_{B,\kappa}\{\log T+(\log T)\mathcal M_2(m,T)\}.
+ \end{array}                                                \tag{55.11}
+\]
+
+The first line uses only the Layer-1 supply and does not inherit Theorem
+43.7.  The second line is **CLAIMED/PROVISIONAL**.  The fixed-power
+condition on \(m\) is the direct translation of \(m\leq t^B\) in Lemmas
+43.3, 43.6, and Theorem 43.7; no uniformity is asserted for \(m\) larger
+than every fixed power of \(\log T\).
+
+*Proof.*  Set \(X=T^{1/2}\).  For the first line choose
+\(K=t^D\), where the fixed \(D=D(B)\) is large enough for the effective
+sign selection in §55.3; then \(KX\leq T\) for large \(T\) and
+\(\log K\asymp_B\log(2+t)\).  Lemma 55.1 gives the first line.  For the
+second take a harmless fixed rescaling of \(X\), if necessary, so that
+\(K=X^\kappa\) and \(KX\leq T\).  Then (55.4), (55.7), and (55.8) give
+the second line.  Bounded \(T\) is absorbed by enlarging the constants.
+\(\square\)
+
+The top of the cubic window satisfies
+\(\log N\asymp\theta_m(\log T)^4\).  Consequently
+\(\log T\asymp(\log N/\theta_m)^{1/4}\), and the saving becomes
+\(\theta_m^{1/4}(\log N)^{3/4}\), exactly (43.35).  In the fixed-gap
+range \(m\leq(\log N)^{3-\epsilon}\), the extra \(\log T\) term in
+(55.11) is smaller and the same \(m\leq t^4\) ledger closes.  Thus the
+truncation recovers Theorem 43.12 at its top; it neither strengthens its
+range nor changes its status.  Similarly, balancing the first window gives
+\(\log N\asymp\lambda_mt^3\log t\) and saving
+\(\asymp\lambda_m^{1/3}(\log N)^{2/3}(\log\log N)^{1/3}\), recovering
+the Layer-1 scale (43.13), including its fixed-gap
+\(m\leq(\log N)^{2-\epsilon}\) range.
+
+**Corollary 55.3 (polylogarithmic tails and the pointwise frame).**  Fix
+\(A,B>0\) and let \(m\leq(\log\log N)^B\).  Then
+
+\[
+ \begin{split}
+ \#\{p\leq N:W_m(p)>(\log N)^A\}
+ &\ll_{A,B}N\exp\{-c_{A,B}\lambda_m
+       (\log\log N)^2\log\log\log N\},\\
+ \#\{p\leq N:W_m(p)>(\log N)^A\}
+ &\ll_{A,B}N\exp\{-c_{A,B}\theta_m(\log\log N)^3\}.
+                                                               \tag{55.12}
+ \end{split}
+\]
+
+Here and below \(p\) is prime; the second line is **CLAIMED/PROVISIONAL**.
+As in §51, the concise pointwise formulation is
+
+\[
+ H_{{\rm MOD},m}(A):\quad W_m(p)\leq(\log p)^A
+ \quad\hbox{for every sufficiently large prime }p;
+ \qquad H_{{\rm MOD},m}(A)\Longrightarrow m/p
+ \text{ is representable for all such }p.                  \tag{55.13}
+\]
+
+The corollary is an almost-all statement and does not prove
+\(H_{{\rm MOD},m}(A)\).
+
+### 55.2 The conductor really is coupled to m
+
+The modulus in the general-m prime progression is
+
+\[
+                 q=muv,\qquad \ell\equiv-k^{-1}\pmod q,    \tag{55.14}
+\]
+
+not \(uv\) and not \({\rm lcm}(m,uv)\); see (43.12) and the proof of
+Theorem 43.7.  Therefore the suggestion that \(r\mid m\) makes the Page
+character irrelevant is false: in that case **every** modulus (55.14) is
+divisible by \(r\).  The deletion of Lemma 51.5 would erase the entire
+supply.  The repair is instead a favorable-sign selection in the multiplier
+coordinate.
+
+We use the Page-explicit form behind Lemma 51.4.  In one dyadic prime block,
+the standard proof cited there may be run without discarding its one real
+primitive character.  If that character has conductor \(r\) and real zero
+\(\beta\), put
+
+\[
+ \mathcal E_r(y;q,a)=\psi(y;q,a)-{y\over\varphi(q)}
+ +{\mathbf1}_{r\mid q}{\chi_r(a)y^\beta\over\beta\varphi(q)}.
+ \quad
+ \sum_{q\leq Q}\max_{(a,q)=1}\max_{x\leq y\leq2x}
+ |\mathcal E_r(y;q,a)|\ll_A{x\over(\log x)^A}.             \tag{55.15}
+\]
+
+Here \(Q\leq x^{1/2}/(\log x)^{B_A}\), the constants and threshold are
+effective, and when there is no Page character the last term is absent.
+This follows by retaining that one primitive character in the character
+decomposition in the proof of
+Lenstra--Pomerance, JEMS 2019, Lemma 11.2, and applying their effective
+zero-free estimate to every other primitive character.  Induction to
+multiples of \(r\) changes only the elementary \(O((\log y)^2)\) term
+recorded in that proof.  The large-conductor Vaughan-identity estimate is
+unchanged.  Thus (55.15), with the exceptional term displayed rather than
+deleted, has the same arbitrary fixed logarithmic saving as (51.20).  This
+is a dependency proof of the exact variant used here; Lemma 11.2 itself
+prints the excluded-conductor form.
+
+**Lemma 55.4 (m-uniform Page repair; proved).**  In the box supplies of
+Lemmas 43.3 and 43.6 and Theorem 43.7, the lower class mass needed by the
+downstream Layer-1 and c-free chains has effective constants, uniformly for
+\(m\leq t^B\).  The three conductor cases are as follows.
+
+1. If there is no exceptional conductor, use every box.
+2. If \(r\nmid m\), choose a prime \(a\) for which
+   \(v_a(r)>v_a(m)\), and impose \(a\nmid uv\).  Then
+   \(r\nmid muv\).  The proof of Lemma 51.5, including the local retained
+   proportion \((a-1)/(a+1)\) and its large-\(a\) estimate, applies
+   verbatim.  This includes the case in which \(r\) and \(m\) share some
+   but not all of their prime-power conductor.
+3. If \(r\mid m\), retain multipliers satisfying
+   \[
+                    \chi_r(-k^{-1})=-1.                    \tag{55.16}
+   \]
+   For their progressions (55.14), the exceptional term in (55.15) has
+   the favorable sign and adds to, rather than subtracts from, the ordinary
+   main term.  This subfamily retains a fixed positive fraction of the
+   multiplier mass needed by the downstream chain.
+
+The low-\(\omega\) deletion and the low-congestion pruning may be imposed
+simultaneously in all three cases.
+
+*Proof.*  Only the last two assertions require work.  If \(r\nmid m\), the
+selected prime-power component exists.  Requiring \(a\nmid uv\) leaves the
+\(a\)-adic exponent of \(muv\) below that of \(r\), and Lemma 51.5 is
+pointwise in \(k\); common factors of \(r\) and \(m\) elsewhere do not
+matter.
+
+Suppose \(r\mid m\).  The nonprincipal real character \(\chi_r\), lifted
+to the units modulo \(m\), takes each sign on exactly half of those units.
+An elementary dyadic count makes this useful without any character
+zero-free estimate.  Uniformly in a reduced residue \(b\pmod m\), Mobius
+expansion gives
+
+\[
+ \sum_{Y<k\leq2Y\atop k\equiv b\ (m)}{\varphi(k)\over k}
+ ={Y\over m}\prod_{p\nmid m}(1-p^{-2})+O(\log(2Y)).        \tag{55.17}
+\]
+
+After summing over the favorable half of the reduced residues and dividing
+by \(k\asymp Y\), every dyadic interval with \(Y\geq C m^2\) contributes
+\(\gg\eta_1(m)\) to \(\sum\varphi(k)/k^2\).  Hence, whenever
+\(K\geq m^D\) for one fixed sufficiently large \(D\), the multipliers
+(55.16) in \([1,K]\) have mass
+\(\gg\eta_1(m)\log K\), effectively and uniformly.  In the cubic family
+\(K=e^{\kappa t}\gg m^D\); in the Layer-1 tail choose the fixed power
+\(K=t^{D(B)}\), as in Theorem 55.2.
+
+The actual fibre is
+\(\mathcal J_c=\{k:(k,m)=(k,c)=1\}\).  Equation (43.36) bounds the total
+mass erased by each prime divisor of \(c\) by \(H_m(K)/p\).  Therefore the
+same Chernoff good-fibre event as (43.37), with a smaller fixed threshold,
+leaves positive favorable-sign mass: start with (55.17) and subtract the
+total erased mass, rather than trying to prove character balance separately
+inside every arbitrary \(\mathcal J\).  Add \(k=1\) if a supply theorem's
+formal subfamily requires it; its bounded mass is harmless.  Formula
+(55.15) now gives at least the ordinary main term for every retained
+progression.  Finally increase the low-\(\omega\) cutoff as in Lemma 51.5;
+Theorem 34.7 removes only \(o(1)\) of the original box mass, so both
+deletions preserve its order. \(\square\)
+
+This proof deliberately does **not** claim an effective lower bound for
+(43.11) or (43.23) for every adversarial sparse \(\mathcal J\) when
+\(r\mid m\).  Such a family could contain only the unfavorable sign.  The
+Layer-1 larger-sieve proof uses the full coprime family, and the c-free proof
+uses the structured fibres \(\mathcal J_c\); Lemma 55.4 proves exactly the
+positive subfamily required in those two chains.
+
+**Theorem 55.5 (effectivity perimeter; proved internally, status-preserving).**
+The following table is exact.  “Effective” means that the constants and the
+large-parameter threshold are computable uniformly in the displayed
+fixed-gap range (with dependence on \(B,\kappa\), or \(\epsilon\) shown by
+the theorem in question).
+
+\[
+\begin{array}{c|c|c|p{6.3cm}}
+ \text{statement}&\text{effective?}&\text{provisional inheritance}
+   &\text{exceptional conductor versus }m\\ \hline
+ \text{Layer-1 tails (55.5), (55.11)}&
+ \text{yes}&\text{§39 moment/Bonferroni review only; no 34.8 or 43.7}&
+ r\nmid m:\ \text{delete one missing prime-power from }uv;
+ \ r\mid m:\ \text{keep the favorable-sign }k\text{-half}\\
+ \text{thinned-cubic tails (55.7), (55.11)}&
+ \text{yes, conditional on correctness}&
+ \textbf{CLAIMED/PROVISIONAL};\ \text{inherits 34.8 and 43.7}&
+ \text{same split; only the deletion-surviving class mass is effectivized}\\
+ \text{Theorem 43.12, full stated fixed-gap window}&
+ \text{yes, conditional on correctness}&
+ \textbf{CLAIMED/PROVISIONAL};\ \text{inherits 34.8, 43.7, and §39.7}&
+ \text{same split, followed by effective ledger choices and semigroup transfer.}
+\end{array}                                                   \tag{55.18}
+\]
+
+*Proof.*  Lemma 55.4 repairs the only Siegel-sensitive lower
+prime-progression input.  Shiu, Brun--Titchmarsh, the box and incidence
+bounds, exact CRT moments, Chernoff, Bonferroni, integer class counting, and
+the Rankin semigroup transfer are effective exactly as itemized in (51.23).
+At the top of the cubic window, (55.8) is (43.40), so the repair enters
+Theorem 43.12 without changing any parameter or range. \(\square\)
+
+The perimeter caveat is the same as in Theorem 51.6.  The repair makes the
+class-mass consequence needed downstream effective.  It does not make
+Theorem 43.7's inherited ancillary assertion about the absolute progression
+error over **all** low-congestion triples effective: restoring the deleted
+unfavorable triples would restore the unresolved exceptional term.  No
+statement in (55.18) uses that ancillary assertion.
+
+### 55.3 Comparison, walls, and finite companion
+
+Truncation does not reverse the PW comparison.  Truncating their general-m
+\(k=1\) supply gives mass \(\asymp(\log T)^2/\varphi(m)\).  Relative to
+it, the two masses in (55.10) have ratios
+
+\[
+ \eta_1(m)\log\log T\quad\hbox{and}\quad
+ \eta_2(m)\log T,                                         \tag{55.19}
+\]
+
+respectively.  Thus PW's pure \(\varphi(m)^{-1}\) dependence is stronger
+for large \(m\) below the crossovers
+\(\eta_1(m)\log\log T\asymp1\) and
+\(\eta_2(m)\log T\asymp1\); the multiplier tails win formally above them.
+The second comparison is only between exponent scales and one side is
+provisional.  At the optimized \(N\)-window the standing comparison remains
+(43.33)--(43.34), including PW's proved status and its
+\(\varphi(m)^{1/3}\) uniformity.  Unknown absolute constants preclude a
+literal finite crossover.
+
+**What is not done.**  There is no range extension for Theorem 43.12, no
+pointwise proof of \(H_{{\rm MOD},m}(A)\), and no new result for one
+individual unresolved prime.  The PW general-m benchmark is unchanged.
+Dahan's antecedent recorded in §51.9 concerns the \(m=4\)-adjacent hard
+prime problem and a different two-parameter depth statistic; it is not a
+general-m \(W_m\)-tail.  PW remains the standing general-numerator
+comparison.
+
+**Computational 55.6 (exact finite regression; informational).**  `verify.py
+(bb)` harvests all classes (55.3) for \(m\in\{3,5,6,7\}\) and
+\(k\ell\leq1500\).  For primes \(p\leq10^5\), \((p,m)=1\), the counts with
+\(W_m(p)>25,100,400\), where an unharvested witness counts in every tail,
+are respectively
+
+\[
+ \begin{array}{c|c|c|c}
+ m&\#\{p\leq10^5:(p,m)=1\}&\text{three tail counts}
+   &\text{still unharvested at }1500\\ \hline
+ 3&9591&(0,0,0)&0\\
+ 5&9591&(875,61,5)&1\\
+ 6&9590&(3136,663,77)&17\\
+ 7&9591&(2222,438,35)&10
+ \end{array}                                                \tag{55.20}
+\]
+
+The block independently checks the intrinsic description
+\(\{-mD\bmod M:D\mid((M+1)/m)^2\}\), and at \(m=4\) reproduces every
+`(ax)` class set through modulus 1500, with literal spot checks at
+\(M=3,7,23\).  It verifies (43.4) exactly:
+
+\[
+ \eta_2(3)={9\over11},\quad \eta_2(5)={25\over29},\quad
+ \eta_2(6)={36\over55},\quad \eta_2(7)={49\over55}.        \tag{55.21}
+\]
+
+Continuity-corrected fits to both shapes in (55.10) are printed only as
+information.  Finally the \(m=r=5\) Page toy checks the crucial non-vacuity:
+every sampled BV-side modulus is \(5uv\), hence divisible by 5, and both
+signs \(\chi_5(-k^{-1})\) occur.  This is a computational shadow of the
+favorable-sign case in Lemma 55.4, not evidence for an asymptotic theorem.

@@ -9747,4 +9747,142 @@ print("\n== (ba) logarithmic lower tails (§54) ==")
 check_ba()
 
 
+
+# ---------------------------------------------------------------- (bb)
+def check_bb():
+    """§55: general-m witness tails, local thinning, and Page-case shadow."""
+
+    def ordinary_divisors(n):
+        values = [1]
+        for q, e in factorint(n).items():
+            values = [d * q**j for d in values for j in range(e + 1)]
+        return values
+
+    def factorization_classes(m, M):
+        A = (M + 1) // m
+        classes = set()
+        for u in ordinary_divisors(A):
+            for v in ordinary_divisors(A // u):
+                w = A // (u * v)
+                assert u * v * w == A and gcd(v, M) == 1
+                classes.add((-u * pow(v, -1, M)) % M)
+        return classes
+
+    def harvest(m, cap=1500):
+        family = {}
+        for M in range(m - 1, cap + 1, m):
+            A = (M + 1) // m
+            classes = factorization_classes(m, M)
+            intrinsic = {(-m * D) % M for D in divisors_of_square(A)}
+            assert classes == intrinsic
+            family[M] = classes
+        return family
+
+    families = {m: harvest(m) for m in (3, 4, 5, 6, 7)}
+
+    # The m=4 specialization is exactly the factorization and intrinsic-class
+    # harvest in (ax), now truncated at 1500.  Keep literal small-modulus
+    # regressions so agreement is not only an equality of two formulas.
+    ax_style = {
+        M: factorization_classes(4, M) for M in range(3, 1501, 4)
+    }
+    assert families[4] == ax_style
+    assert families[4][3] == {2}
+    assert families[4][7] == {3, 5, 6}
+    assert families[4][23] == {7, 10, 11, 15, 17, 19, 20, 21, 22}
+
+    thresholds = (25, 100, 400)
+    expected_tails = {
+        3: (0, 0, 0),
+        5: (875, 61, 5),
+        6: (3136, 663, 77),
+        7: (2222, 438, 35),
+    }
+    expected_unresolved = {3: 0, 5: 1, 6: 17, 7: 10}
+    tail_rows, fit_rows = {}, {}
+    for m in (3, 5, 6, 7):
+        primes = tuple(p for p in primerange(2, 100_001) if gcd(p, m) == 1)
+        witness = []
+        for p in primes:
+            witness.append(next((M for M, classes in families[m].items()
+                                 if p % M in classes), None))
+        tails = tuple(sum(M is None or M > T for M in witness)
+                      for T in thresholds)
+        assert tails == expected_tails[m]
+        assert sum(M is None for M in witness) == expected_unresolved[m]
+        assert all(a >= b for a, b in zip(tails, tails[1:]))
+        tail_rows[m] = (len(primes), tails, expected_unresolved[m])
+
+        eta2 = prod((Fraction(q * q, q * q + q - 1)
+                     for q in factorint(m)), start=Fraction(1))
+        eta1 = prod((Fraction(q, q + 1) for q in factorint(m)),
+                    start=Fraction(1))
+        phi_m = prod(q**(e - 1) * (q - 1)
+                     for q, e in factorint(m).items())
+        theta, lam = float(eta2 / phi_m), float(eta1 / phi_m)
+        rates = tuple(-log((count + 0.5) / (len(primes) + 0.5))
+                      for count in tails)
+        cubic = tuple(rate / (theta * log(T)**3)
+                      for rate, T in zip(rates, thresholds))
+        layer1 = tuple(rate / (lam * log(T)**2 * log(2 + log(T)))
+                       for rate, T in zip(rates, thresholds))
+        fit_rows[m] = (tuple(round(x, 5) for x in layer1),
+                       tuple(round(x, 5) for x in cubic))
+
+    # Exact Euler-factor computation behind (43.4), including repeated-prime
+    # denominators (only the support of m matters).
+    expected_eta2 = {
+        3: Fraction(9, 11),
+        5: Fraction(25, 29),
+        6: Fraction(36, 55),
+        7: Fraction(49, 55),
+    }
+    eta_rows = {}
+    for m in (3, 5, 6, 7):
+        product_formula = prod(
+            (Fraction(q * q, q * q + q - 1) for q in factorint(m)),
+            start=Fraction(1))
+        direct_local = Fraction(1)
+        for q in factorint(m):
+            harmonic_factor = Fraction(q * q + q - 1, q * q)
+            direct_local *= 1 / harmonic_factor
+        assert product_formula == direct_local == expected_eta2[m]
+        eta_rows[m] = product_formula
+
+    # If the Page conductor r=5 divides m=5, the BV modulus is q=muv, not uv.
+    # Hence deletion is not vacuous: every such q is a multiple of 5.  The
+    # effective repair instead keeps multipliers with chi_5(-k^{-1})=-1,
+    # for which the exceptional explicit-formula term has the helpful sign.
+    page_data = []
+    favorable = unfavorable = 0
+    for M in range(4, 1501, 5):
+        A = (M + 1) // 5
+        for k in ordinary_divisors(M):
+            ell = M // k
+            ell_fac = factorint(ell)
+            if len(ell_fac) != 1 or next(iter(ell_fac.values())) != 1:
+                continue
+            for u in ordinary_divisors(A):
+                for v in ordinary_divisors(A // u):
+                    q_bv = 5 * u * v
+                    assert q_bv % 5 == 0
+                    sign = jacobi_symbol((-pow(k, -1, 5)) % 5, 5)
+                    favorable += sign == -1
+                    unfavorable += sign == 1
+                    if len(page_data) < 8:
+                        page_data.append((M, k, ell, u, v, q_bv, int(sign)))
+    assert favorable > 0 and unfavorable > 0
+
+    print("general-m W_m<=1500 tails (m:(prime count,tails,unresolved)) =",
+          tail_rows)
+    print("eta_2 exact values =", eta_rows)
+    print("INFO fitted c by m (Layer-1,cubic) =", fit_rows)
+    print("r=5|m Page shadow (favorable,unfavorable,sample q=muv data) =",
+          (favorable, unfavorable, tuple(page_data)))
+
+
+print("\n== (bb) general-numerator tails and effectivity (§55) ==")
+check_bb()
+
+
 print("\nall checks passed")
