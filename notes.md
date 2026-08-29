@@ -13358,3 +13358,390 @@ tests the c-coupling, deduplication, and distinct-\(\ell\) compatibility,
 and computes exact \(e_j\), \(\mu^j/j!\), and the dependent-pair
 \(\Delta\) for \(j\leq4\).  The table is a structural regression only; it
 makes no asymptotic claim.
+## 40. Residue dispersion: the regular progression tail closes, and the short-cofactor endpoint remains
+
+Put
+\[
+ L=\log X,\qquad
+ z={L^3\log\log L\over\log L},\qquad
+ \Lambda={L^3\over\log L},
+\]
+and retain the notation of §37.  The labels in this section are strict.
+The exact divisor/character reformulations and the regular-tail estimate are
+**proved**.  The endpoint estimate (40.19), hence (37.27), is **OPEN**.
+No theorem about the critical-window avoiders or \(H_{\rm PF}'\) is obtained.
+
+### 40.1 Exact deduplicated divisor variance
+
+For a composite, \(z\)-rough \(M\leq X\), \(M\equiv3\pmod4\), choose
+one divisor representative for each distinct intrinsic class: let
+\(\mathcal D(M)\) contain the least positive \(D\mid((M+1)/4)^2\) in
+each fibre of
+\[
+                         D\longmapsto-4D\pmod M.             \tag{40.1}
+\]
+Delete from this set a representative when its class is implied by a
+prime-modulus atom as in §37.3, and call the remaining set
+\(\mathcal D^\circ(M)\).  The deletion is well defined on a fibre, since
+all representatives in that fibre have the same projection modulo every
+prime dividing \(M\).  This choice is bookkeeping, not a claim that all
+divisors in Lemma 18.1 give distinct classes.
+
+Let \(Y\) be the cutoff in (37.7), put \(f(q)=F(q)\) for primes
+\(q\equiv3\pmod4\), and define
+\[
+ \kappa(M)=
+ \prod_{\substack{q\mid M,\ z<q\leq Y\\q\equiv3(4)}}
+                    {q\over q-f(q)}.                         \tag{40.2}
+\]
+Multiplication by \(P_z^{-1}\) merely dilates every residue by a unit, so
+it does not change equality of two projections at a prime.  Conditional on
+\(T_0=1\), every retained atom represented by \(D\in
+\mathcal D^\circ(M)\) therefore has the **exact** marginal
+\[
+                              w_{M,D}={\kappa(M)\over M}.     \tag{40.3}
+\]
+For \(p\mid M\), set
+\[
+ n_{M,p}(a)=\#\{D\in\mathcal D^\circ(M):-4D\equiv a\pmod p\}.
+                                                                    \tag{40.4}
+\]
+
+**Proposition 40.1 (exact variance identities; proved).**  The quantity on
+the left of (37.27) is exactly
+\[
+ \begin{split}
+ \mathcal V_X
+ &=\sum_{z<p\leq X}p\sum_{a\bmod p}
+   \left(\sum_{\substack{M\leq X,\ M\ {\rm composite},\ P^-(M)>z\\
+                         M\equiv3(4),\ p\mid M}}
+       {\kappa(M)\over M}n_{M,p}(a)\right)^2                 \tag{40.5}\\
+ &=\sum_{z<p\leq X}p
+   \sum_{\substack{M,N\ {\rm as\ above}\\p\mid(M,N)}}
+   {\kappa(M)\kappa(N)\over MN}\,C_p(M,N),                 \tag{40.6}
+ \end{split}
+\]
+where
+\[
+ C_p(M,N)=\#\{(D,E)\in\mathcal D^\circ(M)\times
+             \mathcal D^\circ(N):D\equiv E\pmod p\}.       \tag{40.7}
+\]
+Writing \(M=p^e m,N=p^{e'}m'\), with \(p\nmid mm'\), changes the
+coefficient in (40.6) to
+\[
+ {\kappa(p^em)\kappa(p^{e'}m')\over
+   p^{e+e'-1}mm'}C_p(p^em,p^{e'}m').                         \tag{40.8}
+\]
+Thus the \(1/(pmm')\) expression in the squarefree
+\(e=e'=1\) sketch is correct, but it is not the complete system: prime
+powers and intrinsic-class deduplication must be retained.  In particular,
+\(D=E\) is possible with \(M\ne N\).
+
+If \(e_p(x)=e^{2\pi i x/p}\), then (40.5) also equals
+\[
+ \sum_{z<p\leq X}\sum_{h\bmod p}
+ \left|\sum_{\substack{M\ {\rm as\ in}\ (40.5)\\p\mid M}}
+ {\kappa(M)\over M}
+ \sum_{D\in\mathcal D^\circ(M)}e_p(-4hD)\right|^2.          \tag{40.9}
+\]
+The \(h=0\) term is \(t_p^2\), not \(pt_p^2\).
+
+*Proof.*  Formula (40.3) follows prime coordinate by prime coordinate.
+At a conditioned prime \(q\), a specified allowed class modulo \(q^e\)
+has conditional probability
+\(q^{-e}/(1-f(q)/q)=q\{q-f(q)\}^{-1}q^{-e}\); all other surviving
+coordinates remain uniform.  Summing (40.3) at a fixed projected residue
+gives (40.5).  Expanding the nonnegative square gives (40.6)--(40.8), since
+\(-4\) is invertible modulo \(p\).  Finally additive-character
+orthogonality
+\[
+ {1\over p}\sum_{h\bmod p}e_p(h(D-E))=\mathbf1_{D\equiv E(p)}
+\]
+gives (40.9). \(\square\)
+
+The shifted-divisor parametrization is equally exact.  By (21.4), for every
+representative \(D\),
+\[
+ D={R^2\over s},\qquad R=R_0(D),\quad s\mid\operatorname {rad}(R),
+ \qquad M=4Rk-1.                                            \tag{40.10}
+\]
+Consequently a pair in (40.6) is counted at \(p\) precisely when
+\[
+ p\mid4Rk-1, \quad p\mid4R'k'-1, \quad
+ p\mid {R^2\over s}-{R'^2\over s'},                        \tag{40.11}
+\]
+subject to the canonical-representative and retention indicators.  This is
+a divisor-pair correlation between two moving shifted values, not a
+variance of the ordinary divisor function in a fixed progression.
+
+**Lemma 40.2 (literal atom diagonal; proved).**  The part of (40.6) with
+the same atom on both sides is \(O(\Lambda)\), hence
+\(o(\Lambda^2)\).
+
+*Proof.*  From (37.16), \(\kappa(M)\leq2\) for large \(X\).  For every odd
+composite \(M\), the sum of its distinct prime divisors is at most \(M\).
+(The one-prime case is immediate; for at least two odd primes their sum is
+at most their product, and induction preserves the inequality.)  The
+diagonal is therefore at most
+\[
+ 4\sum_{M,D}{1\over M^2}\sum_{p\mid M}p
+ \leq4\sum_{M,D}{1\over M}=O(L^3/\log z)=O(\Lambda),        \tag{40.12}
+\]
+by Theorem 31.2 with zero charges. \(\square\)
+
+This lemma does not include different classes at one modulus or equal
+integer divisors occurring at different moduli.
+
+### 40.2 A proved endpoint reduction
+
+For \(p\nmid4R\), let \(c_p(R)\in\{1,\ldots,p-1\}\) be the inverse of
+\(4R\) modulo \(p\).  If the atom (40.10) has \(p\mid M\), then uniquely
+\[
+                         k=c_p(R)+jp, \qquad j\geq0.       \tag{40.13}
+\]
+Split its contribution to the \(p\)-residue vector into the **endpoint**
+\(j=0\) and the **regular tail** \(j\geq1\); denote the corresponding
+vectors by \(u^{\rm end}_{p,a}\) and \(u^{\rm reg}_{p,a}\).
+
+**Theorem 40.3 (regular progression tails satisfy dispersion; proved).**
+With the full canonical and retention restrictions allowed,
+\[
+ \mathcal V_X^{\rm reg}:=
+ \sum_{z<p\leq X}p\sum_a(u^{\rm reg}_{p,a})^2
+ \ll L^2\log L+{L^7\over z\log z}=o(\Lambda^2).             \tag{40.14}
+\]
+
+*Proof.*  Fix \(D=R^2/s\).  Dropping the canonical and retention
+restrictions only enlarges its nonnegative mass.  Since \(\kappa(M)\leq2\)
+and \((4Rk-1)^{-1}\ll(Rk)^{-1}\), (40.13) gives
+\[
+ v^{\rm reg}_{p,D}
+ \leq {C\over R}\sum_{j\geq1,\ c_p(R)+jp\leq X/(4R)}
+                    {1\over c_p(R)+jp}
+ \leq {CL\over pR}.                                        \tag{40.15}
+\]
+Put \(h_D=L/R_0(D)\).  On expanding the regular square, compatibility
+modulo \(p\) says \(p\mid D-E\), and hence
+\[
+ \mathcal V_X^{\rm reg}
+ \ll\sum_{D,E}h_Dh_E
+       \sum_{\substack{p>z\\p\mid D-E}}{1\over p},         \tag{40.16}
+\]
+where for \(D=E\) the inner sum is over all relevant primes.
+The parametrization (21.4) and elementary Euler products give
+\[
+ \sum_Dh_D
+ \leq L\sum_{R\leq X}{2^{\omega(R)}\over R}\ll L^3,
+ \qquad
+ \sum_Dh_D^2
+ \leq L^2\sum_{R\geq1}{2^{\omega(R)}\over R^2}\ll L^2.   \tag{40.17}
+\]
+For \(D\ne E\), both are below \(X^2\), so the number of primes greater
+than \(z\) dividing \(D-E\) is at most \(2L/\log z\).  Therefore
+\[
+ \sum_{\substack{p>z\\p\mid D-E}}{1\over p}
+ \leq {2L\over z\log z}.
+\]
+For \(D=E\), Mertens' estimate gives \(O(\log L)\).  Substitution in
+(40.16) proves the first inequality in (40.14).  Since
+\(z\log z\asymp L^3\log\log L\) and
+\(\Lambda^2=L^6/(\log L)^2\), both terms are \(o(\Lambda^2)\). \(\square\)
+
+**Corollary 40.4 (exact remaining pair-level target; proved equivalence).**
+The residue-dispersion bound (37.27) holds if and only if
+\[
+ \boxed{\quad
+ \mathcal V_X^{\rm end}:=
+ \sum_{z<p\leq X}p\sum_a(u^{\rm end}_{p,a})^2=O(\Lambda^2).
+ \quad}                                                       \tag{40.18}
+\]
+In divisor variables this is the explicit, falsifiable estimate
+\[
+ \sum_{z<p\leq X}p\sum_{a\bmod p}
+ \left(
+  \sum_{\substack{R,s,c,q:\ s\mid\operatorname {rad}(R),\ 1\leq c<p\\
+       pq=4Rc-1\leq X,\ P^-(pq)>z,\ pq\equiv3(4)\\
+       R^2/s\equiv-4^{-1}a\ (p),\\
+       R^2/s\ {\rm is\ the\ retained\ representative\ at}\ pq}}
+       {\kappa(pq)\over pq}
+ \right)^2=O(\Lambda^2).                                    \tag{40.19}
+\]
+Every term here has \(q>z\) and \(q<4R\).  Thus (40.19) is precisely a
+short-cofactor endpoint estimate.
+
+*Proof.*  The endpoint and regular vectors have nonnegative coordinates.
+Thus \(\mathcal V_X^{\rm end}\leq\mathcal V_X\), while
+\(\mathcal V_X\leq2\mathcal V_X^{\rm end}+2\mathcal V_X^{\rm reg}\).
+Use Theorem 40.3.  At an endpoint,
+\(M=4Rc-1=pq\); composite \(z\)-roughness gives \(q>z\), and \(c<p\)
+gives \(q<4R\).  Substitution of \(D=R^2/s\) gives (40.19). \(\square\)
+
+This reduction also identifies the same coefficient-short range which
+forced the \(u_p\) term in Theorem 31.3.  It is not removed by the
+regular divisor-density calculation.
+
+### 40.3 What the large sieve and BDH do not supply
+
+For comparison, Cauchy's residue-blind bound is exactly
+\[
+ \mathcal V_X\leq\sum_{z<p\leq X}pt_p^2.                   \tag{40.20}
+\]
+Even under the idealized \(t_p\ll\Lambda/p\), it yields
+\[
+ \Lambda^2\sum_{z<p\leq X}{1\over p}
+ =\Theta(\Lambda^2\log L),                                 \tag{40.21}
+\]
+which reproduces (37.26).  Theorem 40.3 removes this loss from all
+noninitial points of the relevant progressions; (40.19) is where residue
+concentration can still realize it.
+
+**Failure log 40.5 (standard additive large sieve).**  Formula (40.9)
+looks like a large-sieve norm, but its inner sequence is
+\[
+ \sum_{e,m}{\kappa(p^em)\over p^em}
+   \sum_{D\in\mathcal D^\circ(p^em)}e_p(-4hD).              \tag{40.22}
+\]
+It depends on the denominator prime \(p\) through the shifted value
+\((p^em+1)/4\), the divisor set, the upper endpoint, and residual deletion.
+The additive large sieve requires one common coefficient sequence evaluated
+at the well-spaced fractions \(h/p\); it gives no cross-modulus inequality
+for arbitrary sequences \(c_{p,D}\).  Applying it separately in each row
+is exactly the Cauchy/trivial bound (40.20).
+
+There is a second, independent scale warning.  Even for a hypothetical
+common sequence supported on the possible integer divisors
+\(D\leq X^2/16\), the standard estimate on \(P<p\leq2P\) is
+\[
+ \sum_{p\sim P}\sum_{h=1}^{p-1}
+ \left|\sum_{D\leq X^2/16}c_De_p(hD)\right|^2
+ \ll(P^2+X^2)\sum_D|c_D|^2.                                \tag{40.23}
+\]
+A composite \(z\)-rough modulus incident to \(p\) has
+\(p\leq X/z\).  Hence at the largest possible prime scale the geometric
+factor in (40.23), after a putative \(1/p^2\) normalization, is still
+\(1+(X/P)^2\gg z^2\), not a favorable level-one factor.  Weighted divisor
+structure might beat this generic bound, but (40.23) itself does not.
+
+**Failure log 40.6 (ordinary divisor BDH).**  Barban--Davenport--Halberstam
+variance theorems for a fixed divisor-like arithmetic function in residue
+classes do not state (40.19).  Here the modulus \(p\) is simultaneously a
+factor of \(4Rk-1\), the divisor being projected is \(R^2/s\), and the
+endpoint enforces \(k=c_p(R)<p\) (equivalently \(pq=4Rc-1\) with
+\(q<4R\)).  No cited theorem in this notebook gives a mean square uniform
+in this coupled inverse/short-cofactor family.  Invoking “BDH for the
+divisor function” without a theorem containing these quantifiers would be
+a gap.  A proof or counterexample to (40.19) is the exact pair-level next
+step.
+
+### 40.4 Conditioning and the higher-codegree wall
+
+The estimate behind (37.16) is
+\[
+ \max_M\log\kappa(M)
+ \ll {L\over\log z}  z^{-1+o(1)}=L^{-2+o(1)},            \tag{40.24}
+\]
+using the maximal-order divisor bound for \(f(q)\).  Thus replacing
+conditional weights by \(1/M\) is harmless at pair level.  There is,
+however, an arithmetic correction to the proposed high-moment audit:
+\[
+ (1+L^{-2+o(1)})^\Lambda
+ \leq\exp\{L^{1+o(1)}/\log L\}.                            \tag{40.25}
+\]
+This available bound does **not prove** a \(1+o(1)\) product comparison.  This does not kill a constant-base factorial-moment estimate: the crude
+factor in (40.25) is still \(e^{o(\Lambda)}\), so it can be absorbed by a
+fixed enlargement of the base in \((C\Lambda)^j\) when
+\(j\asymp\Lambda\).  At conditioned low coordinates the compatibility
+collapse is also \(q-f(q)\leq q\).  What is invalid is only the claimed
+multiplicative \(1+o(1)\) comparison of a whole \(j\)-fold marginal
+product.
+
+For clarity, the exact remaining hierarchy is stronger than powers of
+(37.27).  If \(A_1,\ldots,A_j\) are compatible retained atoms, then
+\[
+ \Pr\!\left(\bigcap_{i=1}^jA_i\mid T_0=1\right)
+ ={1\over[ M_{A_1},\ldots,M_{A_j}]}
+  \prod_{\substack{z<q\leq Y, q\equiv3(4)\\
+                    q\mid[ M_{A_1},\ldots,M_{A_j}]}}
+       {q\over q-f(q)}.                                     \tag{40.26}
+\]
+The conditioning factor in this exact intersection is at most
+\[
+ \exp\!\left\{O\!\left(\sum_{z<q\leq Y}{f(q)\over q}\right)\right\}
+ =\exp\{O((\log Y)^2)\}=\exp\{O((\log L)^2)\}=e^{o(\Lambda)},
+\]
+by Lemma 24.3.  Thus an unconditioned constant-base factorial-moment bound
+would transfer after changing its base; the total factor still need not be
+\(1+o(1)\).  Relative to the product of the individual marginals, prime powers therefore
+contribute \(q^{\sum_i v_q(M_{A_i})-\max_i v_q(M_{A_i})}\),
+modified at a conditioned coordinate by the corresponding powers of
+\((q-f(q))/q\).  Compatibility must also hold through the smallest shared
+prime-power digit.  A prime-level pair square does not control these
+multiple-prime, higher-power overlaps.
+
+A precise sufficient hierarchy can be stated without heuristic
+independence.  Here let the atoms include every event counted by \(H\),
+including the tail prime atoms.  For a compatible ordered set \(S\) of
+distinct atoms put
+\[
+ \mathcal L(S)=
+ \sum_{B\notin S\atop S\cup\{B\}\ {\rm compatible}}
+ {\Pr(\bigcap_{A\in S\cup\{B\}}A\mid T_0=1)
+  \over
+  \Pr(\bigcap_{A\in S}A\mid T_0=1)}.                        \tag{40.27}
+\]
+If, for every \(|S|<m\) with \(m\asymp\Lambda\), one proved
+\[
+                         \mathcal L(S)\leq C\Lambda,         \tag{40.28}
+\]
+then induction on ordered compatible tuples would give
+\(\mathbb E(H)_m\leq(C'\Lambda)^m\), which is (37.19).
+Single-coordinate star estimates of the form
+\[
+ \sum_{p>z}(p-f(p))^{j-1}\sum_a u_{p,a}^j
+       \leq(C\Lambda)^j, \qquad2\leq j\leq m,           \tag{40.29}
+\]
+with \(f(p)=0\) off the conditioned prime subsystem, would control only
+stars sharing one squarefree coordinate.  They are not sufficient for
+(40.28): an atom can participate simultaneously at several primes, and
+prime powers introduce the extra factors in (40.26).  No estimates
+(40.28), (40.29), or an equivalent averaged multi-coordinate hierarchy are
+proved here.  Therefore even a future proof of the pair endpoint (40.19)
+would pass only the first test; it would not by itself activate Proposition
+37.3.
+
+### 40.5 Exact finite companion and verdict
+
+**Computational 40.7 (exact finite scope).**  `verify.py (am)` uses the
+same composite, \(z\)-rough, prime-implied deletion convention as block
+(aj), chooses the least divisor representative in (40.1), and additionally
+conditions on the toy low tensor through \(Y\).  All masses and both the
+ordered-pair identity (40.6) and endpoint/regular split are computed as
+rational numbers.  It reports:
+
+\[
+\begin{array}{c|c|c|r|c|c|c|c|c}
+X&z&Y&K&\mathcal V_X/\Lambda^2&
+ \mathcal C_X/\Lambda^2&\mathcal C_X/\mathcal V_X&
+ \mathcal V_X^{\rm end}/\mathcal V_X&\sum_{z<p\leq X}1/p\\ \hline
+80&2&11&14&.0002902&.0006208&2.139&.858&1.269\\
+120&3&13&34&.0001183&.0005121&4.328&.783&1.016\\
+200&5&17&28&.0000272&.0001653&6.088&.891&.916
+\end{array}                                                  \tag{40.30}
+\]
+Here \(\mathcal C_X=\sum_p p t_p^2\) is the exact Cauchy worst case, while
+\(\Lambda^2\sum1/p\) is the idealized loss in (40.21).  The block prints
+every \(t_p\) exactly (printing a rounded ledger) and checks Parseval in the exact cyclotomic field
+\(\mathbb Q(\zeta_7)\), rather than with floating-point characters.  The
+endpoint dominates these toys.  None of the ratios is asymptotic evidence,
+and the declining displayed values do not prove (40.19).
+
+**Assessment 40.8 (wave-13 verdict).**  The target (37.27) has been reduced
+exactly to the short-cofactor estimate (40.19), and the complementary
+regular progression tail satisfies a stronger \(o(\Lambda^2)\) bound.  This
+is a genuine narrowing of the pair wall, not its closure.  Standard
+large-sieve and divisor-BDH statements do not contain the moving
+coefficient/endpoint quantifiers, and the conditioning shortcut at
+\(j\asymp\Lambda\) was arithmetically overstated.  The pair endpoint, the
+prime-power and multi-coordinate codegrees, (37.19), (33.16), and the
+refutation of \(H_{\rm PF}'\) all remain **OPEN**.  Accordingly no earlier
+status line is superseded.
