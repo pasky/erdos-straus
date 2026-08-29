@@ -81,6 +81,64 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 16 (2026-08-29, wave 12 — see notes.md §36–§38; all three hostile-reviewed: repairable → repaired)
+
+* **§36 (mass-formula route): the exact ray-character mass for Type I —
+  proved — and why it is not a positive class-number mass.**  Theorem 36.1:
+  \(T_I(p)\) is exactly a finite Dirichlet-character projection of the
+  divisor masses of \(p^2+4ck^2\) over the complete finite \((c,k)\) box,
+  equivalently the integral-point count on the split quadrics
+  \(r^2=ck(cks^2-ps-k)\); the primitive count carries an explicit Möbius
+  weight and **equals Elsholtz–Tao's \(f_I(p)\)** (exact dictionary
+  (36.17)–(36.21) to their \(\Sigma^I_p\) variety; their
+  \(f=3f_I+3f_{II}\) and square-vanishing sanity checks pass).  Theorem
+  36.2: the \(c=1\) Gaussian slice (discriminant \(-16\), class number
+  one) **vanishes identically on every \(p\equiv1\ (4)\)** — unique
+  factorisation exposes a wrong-grade obstruction (every divisor is
+  \(1\bmod4\), the required grade is \(3\bmod4\)), not a positive mass.
+  Theorem 36.3: exact \(k=1\) character formula; its unique zero among the
+  143 hard primes \(<10^4\) is 2521.  Hurwitz–Kronecker restorations fail
+  at explicit finite tests (the classical mass is weighted and unprojected;
+  the moving ray projector mod \(4ck\) is precisely what it forgets;
+  \(1534\ne830\) at \((73,10,1)\)).  Positivity of the exact formula for
+  all hard \(p\) would BE Type-I Erdős–Straus; no cancellation estimate
+  capable of that is obtained — the deliverable is the exact structure
+  theorem plus a precise account of the missing projector.  New sources
+  mined: Elsholtz–Tao 1107.1010 (full), Yamamoto 1965 (OCR), Salez
+  1406.6307, Elsholtz–Planitzer 1805.02945.
+* **§37 (Lemma 33.3 minorant assault): the prime half transfers; the
+  composite half is ONE precisely-stated moment bound away.**  Lemma 37.1
+  (residue-set transfer, proved): the finite-window transfer works for
+  class-SET terms with the corrected ledger \(\sum|c_\alpha|\rho(U_\alpha)\)
+  (the \(\rho\)-factor is essential).  Theorem 37.2 (proved): the two-level
+  tensor-plus-odd-Bonferroni minorant realizes the complete prime-modulus
+  subsystem at degree \(O(L^2)\) — an accounting formulation of Theorem
+  24.4's bound after quarantine, not an improvement.  Proposition 37.3
+  (proved): a single conditional factorial-moment bound
+  \(\mathbb E(H)_m\le(C\Lambda)^m\) at \(m\asymp\Lambda=L^3/\log L\) would
+  give the full pointwise minorant and prove (33.16), i.e. refute
+  \(H_{\rm PF}'\).  The proposed \(D=1\) common-prime star cliques are
+  proved harmless (37.22); the exact missing input is isolated as a
+  **residue-dispersion bound** (37.27):
+  \(\sum_pp\sum_au_{p,a}^2=O(\Lambda^2)\) — the §31 charges control only
+  \(\ell^1\) incidence and lose a factor \(\log L\) at the pair audit.
+  Scott–Sokal cluster expansions proved non-pointwise (path-\(P_5\)
+  counterexample).  \(H_{\rm PF}'\) remains OPEN.
+* **§38 (fixed-value action hunt): a complete value-fixing law, and the
+  door stays shut.**  Theorem 38.1 (proved): necessary-and-sufficient
+  Diophantine conditions for the three §30 additive maps to fix either
+  input's value; copied-coordinate maps can never fix their first input;
+  behind the 2137 example lies a common law.  Every value-fixing edge
+  preserves \(R=CK\), so fixed-value fibre graphs split into
+  \(R\)-sheets: **none of the 76 hard-prime fibres through 5000 is
+  connected** (complete 188,374-tuple census).  Sparse-rational fixed-value
+  self-maps: only identity and swap survive an exact 2,996,352-ratio box
+  (both types); Type-I scaling (38.17) is a nonprimitive reparametrization.
+  No bounded \(k=2\to k=1\) coordinate law exists through \(P<10^5\)
+  (universal conversion already refuted by 409).  All structures are
+  conditional on fibre nonemptiness; the P4 descent slot is unchanged; no
+  proof of Erdős–Straus results.
+
 ## Outcome 15 (2026-08-25, wave 11 — see notes.md §33–§35; §34 extra-severity-reviewed (pruned theorem confirmed) → all repaired)
 
 * **§33 (critical-window transfer): H_PF′ still OPEN; the transfer routes
