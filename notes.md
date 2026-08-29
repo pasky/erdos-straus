@@ -17541,3 +17541,452 @@ the 80+31 split and all §44 aggregate counts, every value behind
 (48.19), and the explicit divisor reconstruction (48.17).  The optional
 `ES_FULL_SCAN=1` path extends the streamed prime/depth scan and the
 fixed-guarantee row replays to \(10^5\).  *(wave-16 review repair)*
+
+## 50. Conditional pointwise routes through the slice frame
+
+**Scope and verdict.**  This section isolates a one-prime-factor event which
+is sufficient for a Type-I solution and states the corresponding clean
+conditional theorem.  The hypothesis is deliberately labelled **bespoke and
+unproved**: none of Bateman--Horn, Linnik, GRH for Dirichlet/Hecke/ray-class
+L-functions, Elliott--Halberstam, or Duke-type equidistribution has this
+pointwise factorization conclusion in its standard form.  The audit below
+makes the quantifier failure exact.  Two proved walls sharpen §17.5 using
+§§44 and 48: prime values of the norm have the wrong grade, and any bounded
+collection of squarefree cores is simultaneously genus-forced on infinitely
+many hard primes.  Thus the deliverable is a rigorous conditional reduction
+and a map of its missing input, not an unconditional theorem and not a claim
+that a standard conjecture secretly settles Erdős--Straus.
+
+### 50.1 The good prime-factor class and the exact reduction
+
+Fix a hard prime \(p\), an admissible slice \((c,k)\in\mathcal B_p\), and
+write
+
+\[
+ c=st^2,\quad s=\operatorname {sf}(c),\qquad
+ h=4ck,\qquad N=N_{c,k}=p^2+4ck^2.                         \tag{50.1}
+\]
+
+Inflate the primitive genus character \(\chi_s=(\Delta_s/\,\cdot\,)\) to
+\((\mathbb Z/h\mathbb Z)^\times\); this is legitimate because its conductor
+divides \(4s\mid h\).  Put
+
+\[
+ K_s(h)=\ker\chi_s,\qquad
+ \mathcal G_p(c,k)=\{-p\pmod h\}\cap K_s(h).              \tag{50.2}
+\]
+
+This is the exact good class set for a *single prime factor*.  Every prime
+\(q\mid N\) lies in \(K_s(h)\), by the calculation in Theorem 48.1, while
+
+\[
+ \mathcal G_p(c,k)=
+ \begin{cases}
+   \{-p\pmod h\},&\chi_s(p)=-1,\\
+   \varnothing,&\chi_s(p)=1.
+ \end{cases}                                               \tag{50.3}
+\]
+
+Indeed \(\chi_s(-1)=-1\).  Thus Theorem 48.1 is exactly the empty-good-set
+case.  On an unforced class there is still only one good ray grade, not half
+of the factor grades.  A split prime \(q\), or merely
+\(\chi_s(q)=1\), is the **wrong kind of divisor** unless it also satisfies
+\(q\equiv-p\pmod h\).
+
+**Theorem 50.1 (one-prime-factor slice criterion; proved).**  Let \(p\) be
+an odd prime and \((c,k)\in\mathcal B_p\).  If a prime \(q\) satisfies
+
+\[
+       q\mid p^2+4ck^2,
+       \qquad q\pmod {4ck}\in\mathcal G_p(c,k),             \tag{50.4}
+\]
+
+then the \((c,k)\)-slice is positive and gives a Type-I Erdős--Straus
+representation.  Explicitly, with
+
+\[
+ e={p^2+4ck^2\over q},\qquad
+ a={p+q\over4ck},\qquad b={p+e\over4ck},                   \tag{50.5}
+\]
+
+one has \(a,b\in\mathbb Z_{>0}\) and
+
+\[
+ p(a+b)=k(4abc-1),\qquad
+ {4\over p}={1\over ack}+{1\over bck}+{1\over pabc}.       \tag{50.6}
+\]
+
+Primality of \(q\) does not imply \((a,b)=1\), and no primitivity is needed
+for (50.6).  For example, the good prime \(q=11\) at
+\((p,c,k)=(241,7,3)\) gives \((a,b)=(3,66)\), the nonprimitive row already
+recorded after (44.4a).  The canonical decomposition of Theorem 17.1(ii)
+recovers a primitive Type-I tuple if one is desired.
+
+*Proof.*  Admissibility gives \((p,ck)=1\), hence \((N,h)=1\).  In
+particular \((q,h)=1\).  The grade in (50.4) says \(q\equiv-p\pmod h\), and
+\(N\equiv p^2\pmod h\), so
+
+\[
+             e=Nq^{-1}\equiv p^2(-p)^{-1}\equiv-p\pmod h.
+\]
+
+This proves the integrality and positivity in (50.5).  Substitution of
+\(q=ha-p\), \(e=hb-p\), and \(qe=N\), followed by cancellation of \(p^2\),
+gives
+\(4ck^2=h^2ab-hp(a+b)\).  Division by \(h=4ck\) is (50.6)'s first identity;
+the unit-fraction identity follows over the common denominator \(pabck\).
+Also \(p\nmid k\), and reduction of the first identity modulo \(p\) gives
+\(4abc\equiv1\pmod p\), so exactly the denominator \(pabc\) is divisible
+by \(p\).  This is Type I.  The same argument is Theorem 44.1's
+complementary-divisor reconstruction, now with the sufficient divisor chosen
+to be prime. \(\square\)
+
+Here is the promised falsifiable hypothesis.  The logarithm is natural.
+
+**Hypothesis \(H_{\rm SPF}(A)\) (slice prime factor; bespoke and unproved).**
+There are absolute constants \(A>0\) and \(p_0\) such that every prime
+\(p>p_0\), \(p\equiv1\pmod {24}\), admits positive integers \(c,k\) and a
+prime \(q\) with
+
+\[
+ \boxed{\quad ck\leq(\log p)^A,\qquad
+ q\mid p^2+4ck^2,\qquad q\equiv-p\pmod {4ck}.\quad}        \tag{50.7}
+\]
+
+This is the weakest hypothesis *within the one-prime-factor mechanism*: it
+puts no bound on \(q\), no prescribed \((c,k)\), no primitivity condition,
+and no extra genus condition.  The latter is automatic from (50.3).  It is
+stronger than slice positivity, because a product of two or more wrong-grade
+prime factors can hit the target even when no individual prime does.
+Proposition 48.6 remains the weaker exact criterion without the
+one-prime restriction.
+
+**Theorem 50.2 (conditional on \(H_{\rm SPF}(A)\); \(H_{\rm SPF}(A)\)
+unproved).**  If \(H_{\rm SPF}(A)\) holds for some \(A\), then every
+sufficiently large hard prime has a Type-I Erdős--Straus representation.
+
+*Proof.*  For sufficiently large \(p\), (50.7) gives \(ck<p\),
+\(3k\leq2p\), and \(4ck\leq2p+k\).  Thus \((p,ck)=1\) and
+\((c,k)\in\mathcal B_p\).  The congruence in (50.7) makes \(q\) the unique
+good class in (50.2), and Theorem 50.1 applies. \(\square\)
+
+For comparison with Lemma 29.2 and (48.18), if \(q\) is fixed first then
+(50.4) is exactly the pair of root progressions
+
+\[
+ p\equiv-q\pmod {4ck},\qquad
+ p\equiv\pm2k\sqrt{-c}\pmod q,\qquad p\equiv1\pmod {24}.  \tag{50.8}
+\]
+
+The difference is decisive: Lemma 29.2 preassigns \(q\) and obtains a fixed
+CRT class; (50.7) asks the actual factorization of the integer attached to
+each \(p\) to supply some \(q\) after \(p\) is known.  Theorem 48.5 walls
+every bounded-modulus collection of the former and does not wall the latter.
+
+### 50.2 Bateman--Horn, smooth values, and least nonresidues
+
+The most tempting prime-value formulation has exactly the wrong sign.
+
+**Lemma 50.3 (prime norms are wrong-grade; proved).**  For a hard prime
+\(p\) and any admissible \((c,k)\), if \(N_{c,k}\) is prime then the slice
+vanishes.  More generally a good prime factor in (50.4) is
+\(3\pmod4\), its complementary divisor is also \(3\pmod4\), and hence
+\(N_{c,k}\) must be composite.
+
+*Proof.*  The target grade is \(-p\equiv3\pmod4\), whereas
+\(N_{c,k}\equiv1\pmod4\).  If \(N\) is prime, both divisors \(1,N\) have
+grade \(1\pmod4\), so (44.4) misses.  Under (50.4), both \(q\) and
+\(e=N/q\) have the target grade by Theorem 50.1. \(\square\)
+
+**Assessment 50.4 (Hardy--Littlewood/Bateman--Horn).**  Standard
+Bateman--Horn gives an asymptotic as a polynomial variable tends to infinity
+for a *fixed* finite list of irreducible integer polynomials.  It neither
+controls all external coefficients \(p\) uniformly down to a
+\((\log p)^A\) interval nor prescribes a prime factor of a composite value.
+Applied literally to \(p^2+4ck^2\) as a prime-value polynomial, its success
+would trigger Lemma 50.3, not (50.7).  A uniform statement saying that every
+coefficient \(p\) has, in a logarithmic box, a value with a factor in the
+moving grade \(-p\pmod {4ck}\) would imply Theorem 50.2, but that is a
+rephrasing of \(H_{\rm SPF}\), not a standard form of Bateman--Horn.
+The same quantifier defect applies to Hardy--Littlewood prime tuples.
+
+Standard conjectures on friable or smooth values also control factor sizes,
+not their bounded exponent box in \((\mathbb Z/h\mathbb Z)^\times\).
+Theorem 44.1 requires the actual prime-factor grades, with their exponent
+caps, to generate \(-p\).  Even on \(\chi_s(p)=-1\), smoothness alone does
+not say this; on \(\chi_s(p)=1\), Theorem 48.1 forbids it regardless of
+smoothness.
+
+There is also a sharp wall before factorization is considered.
+
+**Theorem 50.5 (bounded-core genus escape; proved).**  For every fixed
+\(B\), infinitely many hard primes satisfy
+
+\[
+       \chi_s(p)=1\quad\hbox{for every squarefree }s\leq B. \tag{50.9}
+\]
+
+For each such prime every admissible slice whose squarefree \(c\)-core is at
+most \(B\) vanishes, for *all* \(k\).  Consequently no absolute bound for a
+least active core, and no proof using only boundedly many cores with arbitrary
+\(k\), can hold.
+
+*Proof.*  Let
+\(R_B=24\prod_{\ell\leq B,\ \ell\ {
+m prime}}\ell\).  Dirichlet's theorem
+gives infinitely many primes \(p\equiv1\pmod {R_B}\).  For every odd prime
+\(\ell\leq B\), quadratic reciprocity and \(p\equiv1\pmod4\) give
+\((\ell/p)=(p/\ell)=1\); the factor 24 gives \((2/p)=(-1/p)=1\).
+Multiplicativity proves (50.9).  Theorem 48.1 then gives every asserted
+slice zero. \(\square\)
+
+**Theorem 50.6 (conditional on GRH; GRH unproved; active slice only).**
+The GRH least-quadratic-nonresidue theorem implies that every sufficiently
+large hard prime \(p\) has a squarefree \(s\ll(\log p)^2\) with
+\(\chi_s(p)=-1\); hence \((c,k)=(s,1)\) is an admissible unforced slice in a
+logarithmic box.  This conclusion does **not** assert that the slice is
+positive.
+
+*Proof of the deduction.*  The standard Ankeny consequence of GRH gives an
+integer \(n\ll(\log p)^2\) with \((n/p)=-1\).  The squarefree kernel \(s\)
+of \(n\) has the same Legendre symbol and is no larger.  For
+\(p\equiv1\pmod8\), \(\chi_s(p)=(-s/p)=(s/p)=-1\).  Admissibility is
+automatic for large \(p\).  The residual exponent-box condition (48.4)
+remains untouched. \(\square\)
+
+Thus least-nonresidue technology supplies the missing *permission* for a
+slice, but not the divisor in that slice.  Standard Linnik similarly finds a
+small prime in the progression \(q\equiv-p\pmod h\), but imposes no condition
+that this prime divide the fixed integer \(N_{c,k}\).  A “Linnik theorem for
+the least prime in that progression which also divides
+\(p^2+4ck^2\)” is exactly a bespoke version of (50.7), not an existing
+Linnik hypothesis.
+
+### 50.3 What GRH/Chebotarev says about the norm, and what it cannot say
+
+The ideal-theoretic translation is useful because it prevents a false
+Chebotarev inference.  With the notation (50.1), put
+
+\[
+ K=\mathbb Q(\sqrt{-s}),\qquad
+ \alpha=p+2tk\sqrt{-s},\qquad N_{K/\mathbb Q}(\alpha)=N_{c,k}. \tag{50.10}
+\]
+
+For a prime \(q\nmid2ck\),
+
+\[
+ q\mid N_{c,k}
+ \quad\Longleftrightarrow\quad
+ \text{some }\mathfrak q\mid q\text{ in }K\text{ divides }(\alpha)
+ \quad\Longleftrightarrow\quad
+ p\equiv\pm2k\sqrt{-c}\pmod q.                            \tag{50.11}
+\]
+
+In particular \(q\) splits in \(K\), but the converse “\(q\) splits” is far
+weaker: (50.11) selects one of the finitely many prime-ideal divisors of the
+*specific principal ideal* \((\alpha)\).  The form
+\(X^2+4cY^2\) has discriminant \(-16c\), but a prime dividing one represented
+integer need not itself be represented by its principal form.  Ring-class
+Chebotarev controls primes represented by form classes; it does not control
+the factorization of a fixed represented integer.
+
+The other half of (50.4), \(q\equiv-p\pmod h\), is a cyclotomic/ray
+condition on the rational prime \(q\).  Combining it with (50.11) gives
+exactly (50.8), a condition on **\(p\) modulo \(q\)** when \(q\) is fixed.
+It is not a Frobenius condition on \(p\) in one fixed ring-class field as
+\(q\) varies.  Effective Chebotarev under GRH can count either fixed class;
+it cannot turn the infinite disjunction over actual divisors of
+\((\alpha)\) into a pointwise factorization theorem.
+
+There is a useful quantitative check on the tempting “many polylogarithmic
+fields” heuristic.  Restrict \(ck\leq L\) and fixed candidate primes
+\(q\leq Z\).  Before any deduplication, (50.8) gives at most two classes
+modulo \(4ckq\), so the rectangular analogue of (29.7) is
+
+\[
+ \begin{split}
+ \mu_{\rm raw}(L,Z)
+ &\leq {1\over2}\sum_{ck\leq L}{1\over ck}
+       \sum_{\substack{q\leq Z\\q\equiv3\ (4)}}{1\over q}\\
+ &=\left({1\over8}+o(1)\right)(\log L)^2\log\log Z.
+                                                               \tag{50.12}
+ \end{split}
+\]
+
+This is a class-mass envelope, not a coverage theorem.  There are
+\(\sum_{n\leq L}\tau(n)=L\log L+O(L)\) slices, but Theorem 48.1 shows that
+all \(k\)'s over one core share the same genus bit; counting them as
+independent quadratic fields is already wrong.
+
+**Assessment 50.7 (the GRH compositum wall in the slice frame).**  A literal
+joint-Chebotarev implementation introduces cyclotomic conductors containing
+\({\rm lcm}(1,\ldots,4L)\) and the candidate primes through \(Z\); its naive
+compositum degree is exponential on the \(L+Z\) scale.  The same
+GRH-effective bookkeeping as §17.5(c) therefore limits a direct compositum
+to \(L+Z=O(\log N)\) when primes \(p\leq N\) are counted.  At
+\(L,Z\asymp\log N\), even an *ideal independent-events model* applied to
+(50.12) predicts only
+
+\[
+ \exp\{-O((\log\log N)^2\log\log\log N)\}                 \tag{50.13}
+\]
+
+for the survivor proportion.  Allowing an average sieve to take
+\(Z=N^\theta\) changes the model exponent only to
+\(O((\log\log N)^3)\).  Both leave \(N^{1-o(1)}\) possible survivors, not
+\(N^{o(1)}\), and are much weaker in shape than the
+CLAIMED/PROVISIONAL §39 bound
+\(N\exp\{-c(\log N)^{3/4}\}\).  More importantly, GRH supplies no
+independence theorem for these overlapping root classes, so (50.13) is an
+audit ceiling, not a conditional exceptional-set theorem.  There is
+therefore no GRH exceptional-set improvement to record here.
+
+Elliott--Halberstam, its generalized forms, and Kloosterman-refined
+levels of distribution alter the range in which the classes (50.8) can be
+averaged over \(p\).  Their standard conclusions retain an exceptional set
+and do not control the factorization of each \((\alpha)\).  Even the ideal
+mass calculation with their larger \(Z\) has the second scale just described.
+Thus they do not imply (50.7) in standard form.
+
+### 50.4 Summing every active slice does not restore a Duke main term
+
+For a product cutoff \(L\), the exact active-box mass is
+
+\[
+ T_L^-(p)=
+ \sum_{\substack{ck\leq L,
+ (c,k)\in\mathcal B_p\\
+                   \chi_{\operatorname {sf}(c)}(p)=-1}}
+ {1\over\varphi(4ck)}\sum_{\chi\ ({\rm mod}\ 4ck)}
+ \overline{\chi(-p)}
+ \prod_{\ell^e\parallel p^2+4ck^2}
+       (1+\chi(\ell)+\cdots+\chi(\ell)^e).                 \tag{50.14}
+\]
+
+There is an exact genus pairing inside each summand.  Inflate \(\chi_s\) to
+modulus \(h\).  Every factor \(\ell\mid N\) has \(\chi_s(\ell)=1\).  Hence
+for an active slice, where \(\chi_s(-p)=1\),
+
+\[
+             \text{the terms indexed by }\chi
+             \text{ and }\chi\chi_s\text{ are equal}.       \tag{50.15}
+\]
+
+For a genus-forced slice they are opposites and cancel, which is Theorem
+48.1 in Fourier language.  Restricting to \(\chi_s(p)=-1\) therefore removes
+that one cancellation but leaves every character of the residual quotient
+of \(K_s(h)\).  It does not make the principal character dominant.
+The principal/genus pair contributes
+
+\[
+ P_L^-(p)=
+ \sum_{\substack{ck\leq L,
+ (c,k)\in\mathcal B_p\\
+                   \chi_{\operatorname {sf}(c)}(p)=-1}}
+ {2\tau(p^2+4ck^2)\over\varphi(4ck)}
+ \leq p^{o(1)}(\log L)^2\log\log(3L)                      \tag{50.16}
+\]
+
+when \(L=p^{o(1)}\).  The inequality uses the uniform divisor bound and
+\(n/\varphi(n)\ll\log\log(3n)\).  It is positive when the active box is
+nonempty, but the remaining ray characters can cancel it exactly.  At
+\(p=2521\), for example, the active cores
+\(11,17,19,22,23,29\) occur in \(ck\leq30\), yet every unforced slice in
+that box vanishes (§§44.4 and 48.2).
+
+**Assessment 50.8 (Duke/class-group GRH).**  Summing (50.14) does not create
+a fixed theta series: the discriminant \(-16c\), ray modulus \(4ck\), norm
+\(p^2+4ck^2\), and even the active-core selection all move.  The
+Hurwitz--Kronecker identity of §36.4 restores class numbers only after
+removing the ray projector and changing to a weighted all-divisor mass.
+Equation (50.15) removes exactly the genus character and no other part of
+that projector.  GRH for class-group or ray-class L-functions controls
+prime/ideal sums, not the target coefficient of the finite Euler product of
+one norm; §44.5's square-root-versus-subpower gap remains.  Therefore a
+Duke-type theorem would need a new uniform equidistribution statement for
+the whole moving family (50.14), with error \(o(P_L^-)\).  Such a statement
+would be a genuine new hypothesis, not a consequence presently recognized
+as “GRH for the relevant L-functions.”
+
+### 50.5 Conditional frontier and census
+
+The standard-hypothesis audit can be summarized without changing its labels:
+
+\[
+\begin{array}{c|c|c}
+\text{input}&\text{standard output}&\text{missing condition}\\ \hline
+\text{Bateman--Horn}&\text{prime polynomial values on average in the variable}
+ &\text{a composite value with a good factor, uniformly per }p\\
+\text{Linnik}&\text{a prime }q\equiv-p\pmod h&q\mid N_{c,k}\\
+\text{GRH/Chebotarev}&\text{split/ray primes in fixed fields}
+ &\mathfrak q\mid(\alpha)\text{ for each fixed }\alpha\\
+\text{least nonresidue under GRH}&\chi_s(p)=-1
+ &\text{the residual exponent-box hit}\\
+\text{EH/GEH/Kloosterman}&\text{average distribution in }p
+ &\text{an empty exceptional set}\\
+\text{Duke/class-group GRH}&\text{unprojected or averaged form mass}
+ &\text{the moving ray projector.}
+\end{array}                                                  \tag{50.17}
+\]
+
+The proved obstructions are Lemma 50.3, Theorem 50.5, the complete
+fixed-divisor escape Theorem 48.5, and the exact Fourier pairing
+(50.15).  The claims that the named standard hypotheses stop at the middle
+column are **Assessments about their standard conclusions**, not logical
+independence theorems saying that GRH or Bateman--Horn cannot coexist with a
+future proof of Erdős--Straus.  The present conditional frontier is exactly
+(50.7): a pointwise theorem about a prime factor of a specified moving
+integer.  Replacing “prime factor” by “divisor” reduces it to the open depth
+criterion of Proposition 48.6.
+
+For the finite comparison define
+
+\[
+ ck_{\rm pr}(p)=\min\{ck:(c,k)\in\mathcal B_p,
+ \ \exists\hbox{ prime }q\mid p^2+4ck^2,
+ \ q\equiv-p\pmod {4ck}\}.                                \tag{50.18}
+\]
+
+**Computational 50.9 (exact stated range, informational).**  `verify.py
+(aw)` finds \(ck_{\rm pr}(p)\) for all 385 hard primes below \(30000\),
+recomputes the complete exponent box at every tested norm, and reconstructs
+(50.5)--(50.6) for every retained good-prime event.  Its distribution is
+
+\[
+\begin{array}{c|rrrrrrrrrrr}
+ck_{\rm pr}&5&7&10&11&13&14&17&19&21&22&23\\
+\#&156&30&36&35&13&15&16&4&15&9&6\\ \hline
+ck_{\rm pr}&26&28&29&31&33&34&35&37&38&39&42\\
+\#&10&4&3&1&2&3&1&1&4&2&5\\ \hline
+ck_{\rm pr}&43&46&55&62&66&67&69&70&77&78&\\
+\#&1&1&2&1&4&1&1&1&1&1&
+\end{array}                                                  \tag{50.19}
+\]
+
+The strict records are
+
+\[
+\begin{array}{c|rrrrrrrr}
+p&73&193&241&1201&2521&4729&7489&9601\\
+ck_{\rm pr}&7&10&21&34&38&66&70&78.
+\end{array}                                                  \tag{50.20}
+\]
+
+The prime-factor minimum equals the unrestricted slice minimum
+\(ck_{\min}=D+1\) for 311 primes and is larger for 74.  The largest gap is
+55, at \(p=23689\): \(ck_{\min}=11\) but \(ck_{\rm pr}=66\), witnessed by
+\((c,k,q)=(33,2,77951)\).  Thus the one-prime condition is visibly
+sufficient but not equivalent even in this small census.  The largest
+\(ck_{\rm pr}\) is 78 at \(p=9601\), while §48's largest \(ck_{\min}\) is
+77.  These finite observations support no growth law and are not evidence
+for \(H_{\rm SPF}\).  With `ES_FULL_SCAN=1`, the memory-bounded scan extends
+to the 1,181 hard primes below \(10^5\); its maximum is 282, at \(p=83689\),
+and remains informational.
+
+**Verification companion.**  `verify.py (aw)` factors one norm at a time and
+keeps at most one residue set of size \(4ck\).  It checks admissibility,
+primality and both congruences in (50.4), the complementary target grade,
+the genus sign, the exact exponent-box implication, the Type-I equation and
+unit-fraction identity, the complete histogram (50.19), records (50.20), and
+the comparison with \(D(p)\).  The optional full scan uses the same streamed
+algorithm.
