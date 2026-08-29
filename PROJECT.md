@@ -81,6 +81,81 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 22 (2026-08-29, wave 18 — see notes.md §51–§52 + paper v5; all hostile-reviewed → repaired)
+
+* **§51: the record and the pointwise frontier are now one object — the
+  witness-modulus tail — and the repaired supply chain is EFFECTIVE
+  (CLAIMED/PROVISIONAL).**  \(W(p)\) = minimal Lemma-16.1 witness modulus
+  \(k\ell\).  Master tail theorem (Theorem 51.2, proved by parameterizing
+  the whole §39 machinery at general truncation \(t=\log X\),
+  \(\mu=t^2\log K\), with \(X=T^{1/2}\)): for primes,
+  \(\#\{p\leq N:W(p)>T\}\ll N\exp\{-c(\log T)^2\log\log T\}\) using only
+  Lemma 16.3 supply (no Theorem 34.8), and
+  \(\ll N\exp\{-c(\log T)^3\}\) with Theorem 34.8 (inherits its
+  provisional status), uniformly to the window top
+  \(T=\exp\{\alpha(\log N)^{1/4}\}\) where the cubic tail reproduces
+  Theorem 39.7 exactly.  Polylog corollary: \(W(p)\leq(\log p)^A\) outside
+  \(N\exp\{-c_A(\log\log N)^3\}\) (cubic variant).  New hypothesis frame
+  \(H_{\rm MOD}(A)\) (Type-II mirror of §50's \(H_{\rm SPF}(A)\); neither
+  implies the other; either gives E-S for all large p) — the residual
+  pointwise problem is exactly the triple-log-sparse conspiracy set.
+  **Effectivity audit (Theorem 51.6, record-adjacent):** the belief
+  "§16 is SW-ineffective" was WRONG in an unexpected direction — Lemma
+  16.3's lower bound uses Bombieri–Vinogradov (so not elementary), but the
+  chain is REPAIRABLE to fully effective: Lemma 51.4 (effective
+  excluded-conductor BV at polynomially-large moduli: Landau–Page gives at
+  most one exceptional real conductor per dyadic block; the review round
+  added the missing induced-small-conductor bookkeeping
+  \(\sum_{q\leq Q,r\mid q}1/\varphi(q)\ll\log(2Q)/\varphi(r)\) and
+  per-block conductor selection) + Lemma 51.5 (deletion tolerance: erasing
+  all moduli \(4uv\) divisible by any fixed \(r_1\geq3\) keeps a positive
+  fraction of every Lemma-16.2 box mass, pointwise in k — replayed in
+  review).  Perimeter honest: Theorem 34.8's ancillary all-triples
+  \(o(1)\) sentence is NOT effectivized, only its class-mass consequence
+  (34.18)–(34.19) — which is all that Lemma 39.5 uses; the §39 N-side is
+  exact integer class-counting; Theorem 16.4's larger sieve and 16.5's
+  Rankin transfer are effective.  So Theorems 16.4/39.7/51.2 all become
+  effective after the repair.  PW §4 comparison honest (their truncation
+  gives the square-log tail; our multiplier family adds the
+  \(\log\log T\)/\(\log T\) factor).  Review found + repaired a literal
+  integer-vs-prime scope overclaim in the displayed sets.  Verify (ax):
+  exact class harvest for all moduli \(\leq3000\), 3,202 primes
+  \(<3\cdot10^5\): tails (226, 19, 0, 0) at T=(25,100,400,1600), max
+  \(W=279\); exact 6-atom inclusion–exclusion regression; deletion toys.
+* **§52: the third slice-obstruction layer is EMPTY at the congruence
+  level — per-slice vanishing is a quantified density-zero event (proved,
+  elementary sieve).**  Theorem 52.1: for every fixed unforced admissible
+  slice \((c,k)\) (core \(\notin\{1,2,3,6\}\)) and compatible unforced
+  hard class \(a\): \(\#\{p\leq X:p\equiv a,\ M_{c,k}(p)=0\}\ll
+  X(\log X)^{-1-2/\varphi(4ck)}\) — via Theorem 50.1's contrapositive
+  (vanishing ⊆ no good prime factor), a dimension-\(1+2/\varphi(h)\)
+  upper sieve on integers (2 root classes at each good prime
+  \(q\equiv-a\ (4ck)\), whose solvability is automatic from the genus
+  identity, + the 0 class), ELEMENTARY remainder — no BV, no SW; constants
+  effective for fixed slice.  Corollary 52.2 (the prize): NO arithmetic
+  progression inside any unforced slice-class is identically vanishing —
+  §44's core law + §48.1's genus law are the COMPLETE list of
+  congruence-level vanishing laws per slice; everything deeper is
+  factorization noise with decaying frequency.  Proposition 52.3: uniform
+  version to \(4ck\leq(\log X)^\theta\) (SW-based, ineffective, labeled).
+  Census (ay, exact to \(3\cdot10^4\), full-scan \(10^5\)): 31 unforced-slice
+  residual frequencies; the 74 \(ck_{\rm pr}>ck_{\min}\) gap events
+  dissected (canonical composite witnesses: 68/98 semiprime, 24 with ≥3
+  prime factors, 6 prime powers — refuting the all-semiprime guess);
+  same-core pair correlations near independence with stable exceptions
+  ((5,1)×(5,2) ratio ≈0.53) — no independence claim.  Honest walls: no
+  \(D(p)\) pointwise bound, no \(H_{\rm SPF}\) case, per-slice vanishing
+  infinitude OPEN (parity-adjacent), multi-slice union deferred (wave-19
+  target: the growing-dimension stacked sieve toward almost-all
+  \(H_{\rm SPF}\); note the genus-permission layer will degrade the
+  stacked exponent — the escape-prime classes of Theorem 50.5 have zero
+  small-slice supply).
+* **paper v5 (54pp, FAITHFUL-AFTER-REPAIRS):** §49 grid refutation + §50
+  conditional frontier absorbed; the antichain-repair storyline now ends
+  at the §49 refutation everywhere; three §50 caveat/label omissions
+  repaired in fidelity review; records + provisional labels intact;
+  §51–§52 flagged as the v6 queue.
+
 ## Outcome 21 (2026-08-29, wave 17 — see notes.md §49–§50 + paper v4; all hostile-reviewed → repaired)
 
 * **§49: the ANTICHAIN repair is also refuted — the factorial-moment /
