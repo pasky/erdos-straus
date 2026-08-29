@@ -20398,10 +20398,12 @@ masses are
 \(m\leq t^B\), the canonical Layer-1 supply gives
 
 \[
- \#\{p\leq N:p\ {
-m prime},\ W_m(p)>T\}
+ \#\{p\leq N:p\ {\rm prime},\ W_m(p)>T\}
        \ll_B N e^{-c_BM_1}                                  \tag{55.5}
 \]
+
+*(wave-20 review repair: the eaten prime scope in (55.5), (55.7), and
+(55.11) has been restored.)*
 
 provided \(K\) is a sufficiently large fixed power of \(t\), \(KX\leq T\),
 and
@@ -20413,8 +20415,7 @@ and
 For fixed \(0<\kappa<1/240\), Theorem 43.7 instead gives
 
 \[
- \#\{p\leq N:p\ {
-m prime},\ W_m(p)>T\}
+ \#\{p\leq N:p\ {\rm prime},\ W_m(p)>T\}
        \ll_{B,\kappa}N e^{-c_{B,\kappa}M_2},                \tag{55.7}
 \]
 
@@ -20425,7 +20426,7 @@ provided \(K=X^\kappa\), \(KX\leq T\), and
 \]
 
 The second assertion is **CLAIMED/PROVISIONAL** through Theorem 43.7.
-All constants in this lemma are effective in the precise sense of §55.3.
+All constants in this lemma are effective in the precise sense of §55.2.
 
 *Proof.*  This is Lemma 51.1 with the mass factors retained.  Lemma 43.3
 supplies active prime-coordinate mass
@@ -20472,12 +20473,10 @@ in the second line) such that
 
 \[
  \begin{array}{ll}
- \#\{p\leq N:p\ {
-m prime},\ W_m(p)>T\}
+ \#\{p\leq N:p\ {\rm prime},\ W_m(p)>T\}
   \ll_B N e^{-c_B\mathcal M_1(m,T)},&
  \log N\geq C_B\{\log T+(\log T)\mathcal M_1(m,T)\},\\[3pt]
- \#\{p\leq N:p\ {
-m prime},\ W_m(p)>T\}
+ \#\{p\leq N:p\ {\rm prime},\ W_m(p)>T\}
   \ll_{B,\kappa}N e^{-c_{B,\kappa}\mathcal M_2(m,T)},&
  \log N\geq C_{B,\kappa}\{\log T+(\log T)\mathcal M_2(m,T)\}.
  \end{array}                                                \tag{55.11}
@@ -20491,7 +20490,7 @@ than every fixed power of \(\log T\).
 
 *Proof.*  Set \(X=T^{1/2}\).  For the first line choose
 \(K=t^D\), where the fixed \(D=D(B)\) is large enough for the effective
-sign selection in §55.3; then \(KX\leq T\) for large \(T\) and
+sign selection in §55.2; then \(KX\leq T\) for large \(T\) and
 \(\log K\asymp_B\log(2+t)\).  Lemma 55.1 gives the first line.  For the
 second take a harmless fixed rescaling of \(X\), if necessary, so that
 \(K=X^\kappa\) and \(KX\leq T\).  Then (55.4), (55.7), and (55.8) give
@@ -20579,10 +20578,14 @@ deleted, has the same arbitrary fixed logarithmic saving as (51.20).  This
 is a dependency proof of the exact variant used here; Lemma 11.2 itself
 prints the excluded-conductor form.
 
-**Lemma 55.4 (m-uniform Page repair; proved).**  In the box supplies of
-Lemmas 43.3 and 43.6 and Theorem 43.7, the lower class mass needed by the
-downstream Layer-1 and c-free chains has effective constants, uniformly for
-\(m\leq t^B\).  The three conductor cases are as follows.
+**Lemma 55.4 (m-uniform Page repair; proved).**  For the full coprime
+multiplier family used by the downstream Layer-1 chain, and for the
+structured fibres \(\mathcal J_c\) used by the c-free chain, the required
+aggregate lower class mass has effective constants, uniformly for
+\(m\leq t^B\).  This is not a per-multiplier lower profile and not an
+arbitrary-subfamily version of (43.11) or (43.23).  The three conductor
+cases are as follows.  *(wave-20 review repair: the lemma's quantifiers now
+state the exact downstream scope proved below.)*
 
 1. If there is no exceptional conductor, use every box.
 2. If \(r\nmid m\), choose a prime \(a\) for which
@@ -20623,24 +20626,37 @@ expansion gives
 After summing over the favorable half of the reduced residues and dividing
 by \(k\asymp Y\), every dyadic interval with \(Y\geq C m^2\) contributes
 \(\gg\eta_1(m)\) to \(\sum\varphi(k)/k^2\).  Hence, whenever
-\(K\geq m^D\) for one fixed sufficiently large \(D\), the multipliers
-(55.16) in \([1,K]\) have mass
-\(\gg\eta_1(m)\log K\), effectively and uniformly.  In the cubic family
+\(K\geq m^D\) for one fixed sufficiently large \(D\), if \(F_r\) denotes
+the multipliers in (55.16), then, effectively and uniformly,
+\[
+ h(F_r)\geq c_0\eta_1(m)\log K\geq c_1H_m(K).              \tag{55.17a}
+\]
+Here \(H_m(K)\) is as in (43.36), and the second inequality is the aggregate
+two-sided estimate in Lemma 43.2.  In the cubic family
 \(K=e^{\kappa t}\gg m^D\); in the Layer-1 tail choose the fixed power
 \(K=t^{D(B)}\), as in Theorem 55.2.
 
-The actual fibre is
-\(\mathcal J_c=\{k:(k,m)=(k,c)=1\}\).  Equation (43.36) bounds the total
-mass erased by each prime divisor of \(c\) by \(H_m(K)/p\).  Therefore the
-same Chernoff good-fibre event as (43.37), with a smaller fixed threshold,
-leaves positive favorable-sign mass: start with (55.17) and subtract the
-total erased mass, rather than trying to prove character balance separately
-inside every arbitrary \(\mathcal J\).  Add \(k=1\) if a supply theorem's
-formal subfamily requires it; its bounded mass is harmless.  Formula
-(55.15) now gives at least the ordinary main term for every retained
-progression.  Finally increase the low-\(\omega\) cutoff as in Lemma 51.5;
-Theorem 34.7 removes only \(o(1)\) of the original box mass, so both
-deletions preserve its order. \(\square\)
+On the c-free event \(S_y=1\), the actual fibre is
+\(\mathcal J_c=\{k:(k,m)=(k,c)=1\}\).  Equation (43.36) and the union
+bound give the explicit adversarial-sign estimate
+\[
+ h(F_r\cap\mathcal J_c)
+ \geq h(F_r)-H_m(K)\!\sum_{p\mid c,\ p\mid L_{m,K}}{1\over p}
+ \geq (c_1-Z(c))H_m(K).                                   \tag{55.17b}
+\]
+Thus the same Chernoff event as (43.37), now with threshold
+\(Z(c)\leq c_1/2\), leaves a fixed positive favorable-sign mass.  This
+subtracts all fibre deletions from the balanced full family; it makes no
+character-balance assertion inside an arbitrary sparse \(\mathcal J\).
+If a supply theorem formally requires \(1\in\mathcal J\), adjoin 1 only
+for that incidence bookkeeping and, when it is unfavorable, omit its triples
+from the BV lower sum.  Its bounded mass does not affect (55.17a)--(55.17b).
+Formula (55.15) gives at least the ordinary main term for every progression
+actually retained in that lower sum.  Finally increase the low-\(\omega\)
+cutoff as in Lemma 51.5; Theorem 34.7 removes only \(o(1)\) of the original
+box mass, so both deletions preserve its order.  *(wave-20 review repair:
+(55.17a)--(55.17b) make the residue-sign retention and the unfavorable
+\(k=1\) bookkeeping explicit.)* \(\square\)
 
 This proof deliberately does **not** claim an effective lower bound for
 (43.11) or (43.23) for every adversarial sparse \(\mathcal J\) when
@@ -20700,11 +20716,16 @@ it, the two masses in (55.10) have ratios
 \]
 
 respectively.  Thus PW's pure \(\varphi(m)^{-1}\) dependence is stronger
-for large \(m\) below the crossovers
+below the formal crossovers
 \(\eta_1(m)\log\log T\asymp1\) and
 \(\eta_2(m)\log T\asymp1\); the multiplier tails win formally above them.
-The second comparison is only between exponent scales and one side is
-provisional.  At the optimized \(N\)-window the standing comparison remains
+For every fixed \(B\), these below-crossover regions eventually lie outside
+the proved uniform window \(m\leq(\log T)^B\), since (43.7) and the
+standard lower bound for \(\varphi(m)/m\) make both displayed ratios tend
+to infinity there.  This is an asymptotic scale statement, not a finite
+crossover.  *(wave-20 review repair: the unrestricted formal crossover is
+separated from the actual uniform window.)*  The second comparison is only
+between exponent scales and one side is provisional.  At the optimized \(N\)-window the standing comparison remains
 (43.33)--(43.34), including PW's proved status and its
 \(\varphi(m)^{1/3}\) uniformity.  Unknown absolute constants preclude a
 literal finite crossover.
@@ -20747,5 +20768,10 @@ The block independently checks the intrinsic description
 Continuity-corrected fits to both shapes in (55.10) are printed only as
 information.  Finally the \(m=r=5\) Page toy checks the crucial non-vacuity:
 every sampled BV-side modulus is \(5uv\), hence divisible by 5, and both
-signs \(\chi_5(-k^{-1})\) occur.  This is a computational shadow of the
-favorable-sign case in Lemma 55.4, not evidence for an asymptotic theorem.
+signs \(\chi_5(-k^{-1})\) occur.  Finite weighted checks for
+\((m,r)=(5,5),(6,3)\) also retain between one third and three quarters of
+\(\sum_{k\leq1500,(k,m)=1}\varphi(k)/k^2\) on the favorable sign.  This is
+a computational shadow of (55.17a), not evidence for its asymptotic or
+uniform assertion.  *(wave-20 review repair: the two effectivity
+cross-references now point to §55.2, and the test checks finite weighted
+retention rather than mere existence of both signs.)*
