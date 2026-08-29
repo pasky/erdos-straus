@@ -5925,4 +5925,137 @@ def check_ai():
 print("\n== (ai) Type-I character mass and class-number audit (§36) ==")
 check_ai()
 
+# ---------------------------------------------------------------- (aj)
+def check_aj():
+    """Unit Y: residue-set transfer and composite factorial moments (§37)."""
+    from math import comb, factorial
+
+    def is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    def intrinsic_residues(M):
+        A = (M + 1) // 4
+        return {(-4 * D) % M for D in divisors_of_square(A)}
+
+    def merge_classes(d, a, M, b):
+        """Return the exact merged CRT class, or None if incompatible."""
+        g0 = gcd(d, M)
+        if (b - a) % g0:
+            return None
+        M0 = M // g0
+        t = 0 if M0 == 1 else ((b - a) // g0 * pow(d // g0, -1, M0)) % M0
+        modulus = d * M0
+        return modulus, (a + d * t) % modulus
+
+    def composite_moments(X, z, reduced, degree=4):
+        small_primes = list(primerange(2, z + 1))
+        prime_residues = {
+            p: intrinsic_residues(p)
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        atoms = []
+        for M in range(3, X + 1, 4):
+            factors = factorint(M)
+            if M <= z or any(p in factors for p in small_primes) or is_prime(M):
+                continue
+            for residue in intrinsic_residues(M):
+                if reduced and any(
+                    p in prime_residues and residue % p in prime_residues[p]
+                    for p in factors
+                ):
+                    continue
+                atoms.append((M, residue))
+
+        # dp[j][(d,a)] is the number of compatible j-subsets merging to a mod d.
+        dp = [{(1, 0): 1}] + [{} for _ in range(degree)]
+        for M, residue in atoms:
+            for j in range(degree - 1, -1, -1):
+                for (d, a), multiplicity in list(dp[j].items()):
+                    merged = merge_classes(d, a, M, residue)
+                    if merged is not None:
+                        dp[j + 1][merged] = dp[j + 1].get(merged, 0) + multiplicity
+
+        mu = sum((Fraction(1, M) for M, _ in atoms), Fraction())
+        moments = [
+            sum((Fraction(mult, d) for (d, _), mult in dp[j].items()), Fraction())
+            for j in range(1, degree + 1)
+        ]
+        compatible_counts = [sum(dp[j].values()) for j in range(1, degree + 1)]
+        return len(atoms), mu, moments, compatible_counts
+
+    expected = {
+        (80, 2, False): (
+            42, Fraction(4246558, 3828825),
+            [Fraction(4246558, 3828825), Fraction(253492, 348075),
+             Fraction(19991, 60775), Fraction(138374, 1276275)],
+            [42, 472, 1959, 4278],
+        ),
+        (80, 2, True): (
+            14, Fraction(6038, 15015),
+            [Fraction(6038, 15015), Fraction(1678, 15015),
+             Fraction(268, 15015), Fraction(16, 15015)],
+            [14, 50, 44, 16],
+        ),
+        (120, 3, False): (
+            64, Fraction(4097396, 5311735),
+            [Fraction(4097396, 5311735), Fraction(9887193, 37182145),
+             Fraction(1863034, 37182145), Fraction(191091, 37182145)],
+            [64, 1007, 2528, 2429],
+        ),
+        (120, 3, True): (
+            34, Fraction(51538, 124355),
+            [Fraction(51538, 124355), Fraction(10532, 124355),
+             Fraction(64, 6545), Fraction(64, 124355)],
+            [34, 284, 352, 64],
+        ),
+        (200, 5, False): (
+            55, Fraction(7313, 17017),
+            [Fraction(7313, 17017), Fraction(960, 17017),
+             Fraction(43, 17017), Fraction(3, 17017)],
+            [55, 634, 43, 3],
+        ),
+        (200, 5, True): (
+            28, Fraction(3620, 17017),
+            [Fraction(3620, 17017), Fraction(192, 17017), Fraction(0), Fraction(0)],
+            [28, 192, 0, 0],
+        ),
+    }
+
+    rows = []
+    for key, want in expected.items():
+        got = composite_moments(*key)
+        assert got == want
+        K, mu, moments, _ = got
+        ratios = tuple(
+            round(float(factorial(j) * moments[j - 1] / mu ** j), 3)
+            for j in range(1, 5)
+        )
+        rows.append((key[0], key[1], "reduced" if key[2] else "raw",
+                     K, round(float(mu), 5), ratios))
+
+    # Exact residue-set rounding ledger: the low prime tensor at 3 and 7 has
+    # 2*4=8 allowed classes modulo 21, and every interval error is <= 8.
+    allowed = {
+        n for n in range(21)
+        if n % 3 not in intrinsic_residues(3)
+        and n % 7 not in intrinsic_residues(7)
+    }
+    assert len(allowed) == 8
+    for H in (0, 1, 5, 20, 100, 1000):
+        actual = sum(m % 21 in allowed for m in range(1, H + 1))
+        assert abs(Fraction(actual) - Fraction(H * len(allowed), 21)) <= len(allowed)
+
+    # Replay the pointwise odd-Bonferroni identity used in (37.13).
+    for r in (1, 3, 5, 7):
+        for h in range(1, 25):
+            assert sum((-1) ** j * comb(h, j) for j in range(r + 1)) == -comb(h - 1, r)
+
+    print("composite moments (X,z,family,K,mu,j!e_j/mu^j) =", rows)
+    print("residue-set tensor rho/modulus =", (len(allowed), 21),
+          "; odd Bonferroni identity exact")
+
+
+print("\n== (aj) Unit Y two-level hypergraph minorant (§37) ==")
+check_aj()
+
 print("\nall checks passed")
