@@ -9785,8 +9785,7 @@ More generally the cutoff in the last sentence of Theorem 31.3 gives
 \]
 
 For precision, let
-\(P_z=\prod_{3\leq p\leq z,\ p\ {
-m prime}}p\), and let \(K_X\) be the
+\(P_z=\prod_{3\leq p\leq z,\ p\ \text{ prime}}p\), and let \(K_X\) be the
 lcm of \(P_z\) and every participating modulus.  Work on the finite uniform
 probability space \(\mathbb Z/K_X\mathbb Z\), conditioned on (31.23).  The
 conditioning has cost
@@ -14557,3 +14556,565 @@ by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
 (40.19) would still leave the multi-prime and prime-power hierarchy (40.28),
 the factorial moment (37.19), (33.16), and the refutation of
 $H_{\rm PF}'$ **OPEN**.  No earlier status line is superseded.
+
+## 43. General numerators: the multiplier identity is m-uniform and the exceptional-set machinery transfers
+
+**Status and three layers.**  Throughout this section \(m\geq3\) is an
+integer.  Layer 1 is a complete replay of §16 at the same internal level of
+rigour; because its logarithmic factor would improve the published general-
+\(m\) benchmark, its external status is still **CLAIMED/PROVISIONAL** pending
+referee and priority checks.  Layer 2 inherits Theorem 34.8 and all three
+maximum-severity qualifications in §39.7, and is therefore explicitly
+**CLAIMED/PROVISIONAL**.  Layer 3 is a transcription and comparison with
+Pomerance--Weingartner (PW) 2025.  No assertion below promotes Theorem 39.7
+from its existing provisional status.
+
+Write
+
+\[
+ E_m(N)=\#\{n\leq N:m/n\hbox{ is not a sum of three positive unit
+ fractions}\}.                                             \tag{43.1}
+\]
+
+This is a property of the rational number, not of a chosen numerator and
+denominator.  Thus, if \(d=(m,n)\), the statements for \(m/n\) and
+\((m/d)/(n/d)\) are identical.  We nevertheless retain the unreduced pair
+\((m,n)\) in (43.1), because that is the convention in PW and in the
+exceptional-set count.
+
+### 43.1 Layer 1: the identity and the fixed-polylogarithmic machine
+
+**Lemma 43.1 (general-numerator multiplier identity; proved).**  Let
+\(k,\ell\geq1\), suppose \(k\ell\equiv-1\pmod m\), and put
+
+\[
+ A={k\ell+1\over m}=uvw.                                   \tag{43.2}
+\]
+
+If \(n>0\), \(nv\equiv-u\pmod {k\ell}\), and
+\(s=(nv+u)/(k\ell)\), then \(s\) is a positive integer and
+
+\[
+ {m\over n}={1\over suw}+{1\over nsvw}+{1\over nuvw}.      \tag{43.3}
+\]
+
+Moreover \((A,k\ell)=1\), so \(v\) is invertible modulo \(k\ell\).
+
+*Proof.*  The congruences give the two integrality assertions, and positivity
+is immediate.  On the common denominator \(nsuvw\), the numerator on the
+right of (43.3) is
+\(nv+u+s=sk\ell+s=s(k\ell+1)=smuvw\).  Finally any common divisor of
+\(A\) and \(k\ell\) divides \(mA-k\ell=1\).  This also shows that no
+primality, parity, or coprimality condition involving \(m\) and \(n\) was
+used. \(\square\)
+
+For a prime \(\ell\nmid m\), (43.2) forces
+\(k\equiv-\ell^{-1}\pmod m\).  In particular, when \(m=4\) and
+\(\ell\equiv3\pmod4\), this is precisely the old condition
+\(k\equiv1\pmod4\).  It is useful to record exactly what this thinning
+costs.  Put
+
+\[
+ \eta_1(m)=\prod_{p\mid m}{p\over p+1},\qquad
+ \eta_2(m)=\prod_{p\mid m}{p^2\over p^2+p-1},              \tag{43.4}
+\]
+
+and
+
+\[
+ C_2=\prod_p(1-p^{-1})\left(1+{p-1\over p^2}\right)>0.     \tag{43.5}
+\]
+
+**Lemma 43.2 (exact multiplier local factors; proved).**  For fixed \(m\)
+and every reduced residue \(r\pmod m\), as \(K\to\infty\),
+
+\[
+ \begin{split}
+ \sum_{\substack{k\leq K\\k\equiv r\ (m)}}{\varphi(k)\over k^2}
+   &\sim {\eta_1(m)\over\varphi(m)\zeta(2)}\log K,\\
+ \sum_{\substack{k\leq K\\k\equiv r\ (m)}}
+       {\varphi(k)^2\over k^3}
+   &\sim {C_2\eta_2(m)\over\varphi(m)}\log K.             \tag{43.6}
+ \end{split}
+\]
+
+After summing over the \(\varphi(m)\) reduced classes, the factors
+\(1/\varphi(m)\) disappear.  Uniformly when \(\log m=O(\log K)\), the
+corresponding sums with \((k,m)=1\) are, up to absolute constants depending
+only on the constant in that \(O\)-term, respectively
+\(\eta_1(m)\log K\) and \(\eta_2(m)\log K\).  The local products satisfy
+
+\[
+ {\varphi(m)\over m}\leq\eta_1(m)\leq
+ \zeta(2){\varphi(m)\over m},\qquad
+ \eta_2(m)\asymp {\varphi(m)\over m},                     \tag{43.7}
+\]
+
+with absolute constants.
+
+*Proof.*  For the first sum use
+\(\varphi(k)/k=\sum_{d\mid k}\mu(d)/d\), or equivalently the Euler
+series \(\zeta(s+1)/\zeta(s+2)\).  Removing integers divisible by
+\(p\mid m\) deletes the local factor \(1+1/p\), giving
+\(p/(p+1)\).  Orthogonality of characters modulo \(m\) divides the
+principal residue by \(\varphi(m)\); every nonprincipal series has no pole
+at \(s=0\).  For the second sum put \(b(k)=(\varphi(k)/k)^2\).  Its local
+harmonic factor is
+
+\[
+ 1+\sum_{e\geq1}{(1-p^{-1})^2\over p^e}
+   =1+{p-1\over p^2}.                                     \tag{43.8}
+\]
+
+Deleting it gives the second product in (43.4), while multiplication by
+\(1-1/p\) at every prime gives (43.5).  Standard partial summation of these
+absolutely convergent pole quotients proves (43.6).  The same convolution
+argument, without characters, gives the stated uniform two-sided estimates
+for the aggregate coprime sums.  Finally
+\(\eta_1/(\varphi(m)/m)=\prod_{p\mid m}p^2/(p^2-1)\), and
+\(\eta_2/(\varphi(m)/m)=
+\prod_{p\mid m}p^3/(p^3-2p+1)\); both comparison products converge.
+\(\square\)
+
+The fixed-class asymptotics in (43.6) are not claimed uniformly when
+\(m\) is comparable with or exceeds \(K\): the class \(1\pmod m\), for
+example, then retains the exceptional term \(k=1\).  The proofs below use
+the aggregate condition \((k,m)=1\), not a false pointwise equidistribution
+among such short classes.
+
+The following identity is the clean way to keep the prime-progression factor
+explicit.  Define the multiplicative function
+
+\[
+ F_m(p^a)=\begin{cases}1,&p\mid m,\\p/(p-1),&p\nmid m.
+             \end{cases}
+\]
+
+If \((u,v)=1\), then exactly
+
+\[
+ {1\over\varphi(muv)}={F_m(u)F_m(v)\over\varphi(m)uv}.     \tag{43.9}
+\]
+
+In particular the lower box estimate may use \(F_m\geq1\), while the upper
+estimate uses \(F_m(n)\leq n/\varphi(n)\), the function already treated in
+(16.5b)--(16.5g).  This avoids both an erroneous extra factor \(1/m\) and
+an erroneous assumption \((uv,m)=1\).
+
+**Lemma 43.3 (general-\(m\) class mass; proved).**  Fix \(B>0\).  Let
+\(K_0\leq K\leq(\log X)^B\), \(H=K^{10}\), and
+\(m\leq(\log X)^B\).  Let
+\(\mathcal J\subseteq\{k\leq K:(k,m)=1\}\) contain 1, put
+\(h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2\), and suppose
+\((c,L_{\mathcal J})=1\).  For primes
+\(X^{1/2}<\ell\leq X\), let \(f_{m,c}(\ell)\) count the distinct residues
+\(-uv^{-1}\pmod\ell\) furnished by
+
+\[
+ \begin{gathered}
+ k\in\mathcal J,
+egthickspace\quad H<u,v\leq\ell^{1/3},\quad
+ (u,v)=(uv,k)=1,\quad \omega(uv)\leq D\log\log X,\\
+ muv\mid k\ell+1,\qquad k\mid u+cv .                       \tag{43.10}
+ \end{gathered}
+\]
+
+Then, with constants depending only on \(B\),
+
+\[
+ { (\log X)^2h(\mathcal J)\over\varphi(m)}
+ \ll\sum_{X^{1/2}<\ell\leq X}{f_{m,c}(\ell)\over\ell}
+ \ll { (\log X)^2h(\mathcal J)\over\varphi(m)}.            \tag{43.11}
+\]
+
+Every counted residue, together with the congruence modulo \(k\), is a
+forced class from Lemma 43.1.
+
+*Proof.*  Here is the complete change ledger from Lemmas 16.2--16.3.
+For each fixed \(k\), the box congruence remains
+\(u+cv\equiv0\pmod k\); hence (16.4), its boundary ratio
+\(O(K^2/H)\), the low-\(\omega\) Rankin truncation, and Shiu's modulus
+condition \(k<U^{1/2},V^{1/2}\) are unchanged.  Organizing by a fixed
+\(\ell\pmod m\) merely restricts \(k\) to the one reduced class
+\(-\ell^{-1}\pmod m\); summing all reduced \(\ell\)-classes is exactly
+the aggregate family \((k,m)=1\).  No distribution among short
+\(k\)-classes is assumed.
+
+For fixed \((k,u,v)\), divisibility is the single reduced prime progression
+
+\[
+ \ell\equiv-k^{-1}\pmod {muv}.                             \tag{43.12}
+\]
+
+It is the product modulus \(muv\), not \(\operatorname {lcm}(m,uv)\),
+because the condition is literally \(muv\mid k\ell+1\).  In the lower
+dyadic boxes \(uv\leq x^{1/3}\); since \(m\) is a fixed log power,
+\(muv\) lies below the Bombieri--Vinogradov level.  A fixed modulus has at
+most \(K2^{\omega(uv)}\) descriptions, exactly as in (16.9a).  Taking the
+BV logarithmic saving larger by \(B\) absorbs both this multiplicity and
+the main-term factor \(1/\varphi(m)\).  Brun--Titchmarsh gives the upper
+bound with the same modulus.  Formula (43.9), (16.2), and (16.3) then give
+the two sides of (43.11).  If one implements the coprimality conditions by
+residue classes before Shiu, the auxiliary modulus is an
+\(\operatorname {lcm}(m,k)\)-type modulus; here it is \(mk\), and the
+same fixed-log-power level check applies.
+
+It remains to check deduplication.  A collision at one \(\ell\) gives
+\(\ell\mid uv'-u'v\), while \(|uv'-u'v|<\ell^{2/3}<\ell\); reducedness
+therefore gives \((u,v)=(u',v')\).  Both atoms then say
+\(k\ell\equiv k'\ell\equiv-1\pmod {muv}\).  Since
+\((\ell,muv)=1\), this fixes \(k\pmod {muv}\), and
+\(muv>mH^2>K\) makes \(k=k'\).  Thus neither \(z^2<\ell\) nor the
+cross-multiplier size argument used \(m=4\).  Finally
+\(n\equiv c\pmod {L_{\mathcal J}}\) and a hit modulo \(\ell\) combine to
+\(nv\equiv-u\pmod {k\ell}\), exactly as in §16.3. \(\square\)
+
+**Theorem 43.4 (Layer-1 exceptional set; complete internal proof,
+CLAIMED/PROVISIONAL externally).**  For every fixed \(m\geq3\) there is an
+absolute \(c_0>0\) such that, for all sufficiently large \(N\),
+
+\[
+ E_m(N)\ll_m N\exp\left\{-c_0
+ \left({\eta_1(m)\over\varphi(m)}\right)^{1/3}
+ (\log N)^{2/3}(\log\log N)^{1/3}\right\}.                 \tag{43.13}
+\]
+
+The prime-denominator version of the same formula is uniform, for every
+fixed \(\epsilon>0\), in the range
+\(3\leq m\leq(\log N)^{2-\epsilon}\).  The all-denominator statement
+(43.13) is uniform in the deliberately smaller range
+\(3\leq m\leq(\log N)^{1-\epsilon}\), after increasing the lower
+threshold for \(N\) in terms of \(\epsilon\).
+
+*Proof.*  Take \(K=\lfloor\delta\log N\rfloor\), use all
+\(k\leq K\) coprime to \(m\), and put
+\(M_0=\operatorname {lcm}_{k\leq K,(k,m)=1}k\).  The elementary bound
+\(\log M_0\leq(1+o(1))K\) makes every reduced subsequence have length
+\(N^{1-O(\delta)}\).  Apart from the \(O(\log m)\) primes dividing \(m\),
+every prime denominator above \(K\) lies in one of these reduced
+subsequences.  Lemmas 43.2--43.3 give, uniformly in its residue \(c\),
+prime-class mass
+\(\asymp\lambda_m(\log X)^2\log K\), where
+\(\lambda_m=\eta_1(m)/\varphi(m)\).  The upper mass has the same factor,
+by (43.9), so the Rankin truncation in the larger sieve closes with
+
+\[
+ \log X=\alpha\left({\log N\over
+                   \lambda_m\log\log N}\right)^{1/3}.      \tag{43.14}
+\]
+
+Equations (16.14) and (43.11) now give the exponent in (43.13).  In the
+stated uniform range, \(\log X=o(\log N)\), while \(K,m\) are fixed powers
+of \(\log X\); this verifies respectively the sieve-length and
+BV/Shiu level requirements.  The BV saving is chosen in terms of
+\(\epsilon\), not of \(m\).
+
+For all denominators, if \(a\mid n\) and the rational number \(m/a\) has a
+three-unit-fraction representation, multiplying its three denominators by
+\(n/a\) represents \(m/n\).  Hence every divisor of an exceptional \(n\)
+is exceptional, and in particular every prime factor is an exceptional
+prime denominator.  The Rankin--semigroup proof of Theorem 16.5 applies
+with
+
+\[
+ g_m(u)=\lambda_m^{1/3}u^{2/3}(\log u)^{1/3}.               \tag{43.15}
+\]
+
+The finitely many omitted primes contribute only \(O_m(1)\) to the Euler
+product.  For the asserted all-denominator uniformity, start the uniform
+prime estimate at
+\(x_0=\exp\{m^{1/(2-\epsilon/2)}\}\).  When
+\(m\leq(\log N)^{1-\epsilon}\), the Rankin parameter in (16.17) obeys
+\(\delta\log x_0=o(1)\); hence all primes below \(x_0\), even if declared
+exceptional, contribute only \(m^{O_\epsilon(1)}\).  Its logarithm is
+absorbed by the exponent in (43.13).  Above \(x_0\) the prime estimate is
+uniform with room in its exponent.  This proves (43.13) for (43.1),
+including unreduced pairs, in the stated ranges. \(\square\)
+
+The local factor is explicit: since \(\eta_1(m)\asymp\varphi(m)/m\), the
+coefficient in (43.13) is \(\asymp m^{-1/3}\).  The logarithmic
+\((\log\log N)^{1/3}\) gain over PW is the new multiplier mass; it is not
+being hidden inside an \(m\)-dependent constant.
+
+### 43.2 Layer 2: the provisional cubic transfer
+
+Fix \(0<\kappa<1/240\), put \(t=\log X\),
+\(K=\lfloor X^\kappa\rfloor\), and \(H=K^{10}\).  The general-numerator
+c-free atom family consists of
+
+\[
+ A=(k,\ell,u,v),\quad k\leq K,\quad(k,m)=1,
+ \quad H<u,v\leq x^{1/6},\quad x<\ell\leq2x,               \tag{43.16}
+\]
+
+with the same coprimality and low-\(\omega\) restrictions as (39.3), and
+
+\[
+ muv\mid k\ell+1,
+ \qquad E_A=\{n:n\equiv-uv^{-1}\pmod {k\ell}\}.           \tag{43.17}
+\]
+
+The dyadic blocks range over \((X^{1/2},X]\).
+
+**Lemma 43.5 (general-\(m\) c-free deduplication; proved).**  A hit of
+(43.17) implies \(k\mid u+nv\), so after revealing
+\(c\equiv n\pmod {L_{m,K}}\), where
+\(L_{m,K}=\operatorname {lcm}_{k\leq K,(k,m)=1}k\), the coupling
+\(k\mid u+cv\) is automatic.  Distinct compatible atoms have distinct
+\(\ell\)'s, and a compatible set has exact density
+
+\[
+ {1\over\operatorname {lcm}(k_1,\ldots,k_j)
+          \prod_{i\leq j}\ell_i}.                          \tag{43.18}
+\]
+
+*Proof.*  The coupling is reduction of (43.17) modulo \(k\).  At a common
+\(\ell\), the \(z^2<\ell\) argument in Lemma 43.3 makes \((u,v)\) common;
+then \(k\ell\equiv-1\pmod {muv}\), together with \(muv>K\), makes \(k\)
+unique.  CRT gives (43.18).  These are exactly the two size inequalities
+which were potentially sensitive to replacing 4 by \(m\), and both become
+no weaker. \(\square\)
+
+For \(g\mid k\) and a reduced \(a\pmod g\), define \(W_{k,a}(g)\) and
+\(W_k\) as in (39.6), using (43.16)--(43.17).
+
+**Lemma 43.6 (general-\(m\) mass profiles; proved at the §39.2 level,
+provisional with §39).**  Uniformly for \(m\leq t^B\), with constants
+allowed to depend on fixed \(B\),
+
+\[
+ W_{k,a}(g)\ll {t^2\over\varphi(m)\varphi(g)}
+                  {\varphi(k)^2\over k^3},\qquad
+ W_k\asymp {t^2\over\varphi(m)}{\varphi(k)^2\over k^3}.     \tag{43.19}
+\]
+
+Consequently
+
+\[
+ \mu_{m,X}:=\sum_A{1\over k_A\ell_A}
+   \asymp {C_2\eta_2(m)\over\varphi(m)}t^2\log K
+   \asymp {\eta_2(m)\over\varphi(m)}t^3.                   \tag{43.20}
+\]
+
+*Proof: the Shiu step in full.*  Formula (43.9) extracts
+\(1/\varphi(m)\).  In boxes \(u\asymp U,v\asymp V\), set
+\(q_0=\operatorname {lcm}(g,\operatorname {rad}k)\).  Since
+\((k,m)=1\), the number of compatible reduced class pairs modulo \(q_0\)
+is still \(\varphi(q_0)^2/\varphi(g)\).  Apply Shiu to \(F_m\): it has
+\(F_m(p^a)=1\) for \(p\mid m\), \(p/(p-1)\) otherwise, is bounded above
+by the old function \(n/\varphi(n)\), and \(q_0\leq k<U^{1/10},V^{1/10}\).
+Thus the derivation of (39.11) gives
+
+\[
+ \sum_{\mathrm{boxes}}{F_m(u)F_m(v)\over uv}
+ \ll {t^2\over\varphi(g)}\left({\varphi(k)\over k}\right)^2.\tag{43.21}
+\]
+
+Brun--Titchmarsh now uses \(muv\), not \(4uv\), and proves the upper
+profile.  For the lower profile, BV applies because
+\(muv\leq t^B x^{1/3}\).  Replacing \(n/\varphi(n)\) by \(F_m(n)\) changes,
+at a prime \(p\mid m\), the coprime-pair Euler factor by exactly
+
+\[
+ {1+2/(p-1)\over1+2p/(p-1)^2}={p^2-1\over p^2+1}.          \tag{43.22}
+\]
+
+The product of (43.22) over any set of primes is bounded above and below by
+absolute positive constants.  Hence the lower profile retains the same
+\((\varphi(k)/k)^2\) order.  The low-\(\omega\) Rankin deletion and the
+allocation multiplicity are unchanged.  Summing (43.19) and applying the
+second formula of Lemma 43.2 proves (43.20). \(\square\)
+
+**Provisional Theorem 43.7 (general-\(m\) pruned cubic prime slice;
+inherits Theorem 34.8).**  For fixed \(B\), uniformly for \(m\leq t^B\)
+and subfamilies \(\mathcal J\) containing 1, the low-congestion restriction
+\(r_{\mathcal J}(u,v;c)\leq t^4\) leaves
+
+\[
+ \sum_{X^{1/2}<\ell\leq X}{f^{\rm good}_{m,c}(\ell)\over\ell}
+ \asymp {t^2h(\mathcal J)\over\varphi(m)}.                 \tag{43.23}
+\]
+
+For the full coprime multiplier family this is
+\(\asymp\eta_1(m)t^3/\varphi(m)\).
+
+*Proof ledger.*  Lemma 34.7 is unchanged after restricting its outer set to
+\((k,m)=1\): it concerns only \(k\mid u+cv\), and its lcm boundary is still
+at most \(K^2\).  The high-incidence harmonic mass in (34.20) is therefore
+\(o(t^2h(\mathcal J))\).  Formula (43.9) turns the retained harmonic mass
+into at least \(1/\varphi(m)\) times that amount.  The retained modulus
+multiplicity remains \(2^{\omega(uv)}t^4\).  Ordinary BV now runs over
+\(q=muv\leq t^Bx^{1/3}\); choosing its fixed logarithmic saving larger by
+\(B\) makes its error \(o(x\log x\,h(\mathcal J)/\varphi(m))\).
+Distinctness is Lemma 43.5 and the upper bound is Lemma 43.6.  These are all
+places where \(m\) enters the proof of Theorem 34.8.  The theorem remains
+provisional because Theorem 34.8 does. \(\square\)
+
+We next check the most dangerous combinatorial step rather than saying only
+that §39 applies verbatim.  Condition on \((n,P_y)=1\), retain the definitions
+of \(q_y(k)\) and \(b_y(g)\) from (39.13), and let \(R\) be the previous
+multiplier lcm.  Adding a compatible atom still multiplies density by
+
+\[
+ {q_y(k)\over k\ell}b_y((k,R)).                             \tag{43.24}
+\]
+
+Compatibility fixes one unit residue modulo \(g=(k,R)\); (43.19) supplies
+\(1/\varphi(g)\).  Hence, prime power by prime power,
+
+\[
+ {b_y(g)\over\varphi(g)}=
+ \prod_{p\mid g,\ p>y}{p\over p-1}.                        \tag{43.25}
+\]
+
+Primes dividing \(m\) never divide \(k\), so they create no missing case in
+this cancellation.  At every remaining modified prime the nonconstant local
+mass \((p-1)/p^2\) again becomes \(1/p\), and the quotient is
+\(1+O(p^{-2})\).  Deleting primes dividing \(m\) contributes exactly
+\(\eta_2(m)\).  Therefore the general form of (39.16) is
+
+\[
+ \sum_{\substack{k\leq K\\(k,m)=1}}
+ {\varphi(k)^2\over k^3}q_y(k)
+ \prod_{p\mid(k,R),\ p>y}{p\over p-1}
+ \ll\eta_2(m)\log K,                                      \tag{43.26}
+\]
+
+and the ordered induction proves
+
+\[
+ \mathbb E(H_{m,X})_j\leq
+ \left(C{\eta_2(m)\over\varphi(m)}t^3\right)^j
+ \leq(Ct^3)^j.                                             \tag{43.27}
+\]
+
+This is the exact (39.14)--(39.15) collapse-versus-consistency replay,
+including unequal prime-power exponents.
+
+**Theorem 43.8 (Layer-2 exceptional set; CLAIMED/PROVISIONAL).**  For every
+fixed \(m\geq3\), and uniformly for each fixed \(\epsilon>0\) in
+\(3\leq m\leq(\log N)^{3/4-\epsilon}\),
+
+\[
+ E_m(N)\ll N\exp\left\{-c_0{\eta_1(m)\over\varphi(m)}
+                         (\log N)^{3/4}\right\}.            \tag{43.28}
+\]
+
+This includes exceptional primes and all exceptional denominators, but it
+inherits the provisional status of Theorems 34.8 and 39.7.
+
+*Proof: void and ledger absorption.*  Reveal the multiplier coordinates and
+use
+\(\mathcal J_c=\{k\leq K:(k,m)=(k,c)=1\}\).  Its full harmonic mass is
+\(\asymp\eta_1(m)\log K\).  With
+\(Z(c)=\sum_{y<p\leq K,p\mid c,\ p\mid L_{m,K}}1/p\), the argument of
+(39.25) gives \(\Pr(Z>C\eta_1(m))\leq
+\exp\{-c\eta_1(m)y\}\).  Take, conservatively and exactly as in §39,
+
+\[
+ y=Bt^3,\qquad r=\hbox{the least even integer at least }D_Bt^3.\tag{43.29}
+\]
+
+On the good fibres, Theorem 43.7 gives active \(\ell\)-mass
+\(\gg\eta_1(m)t^3/\varphi(m)\).  The bad-fibre tail is smaller, and
+(43.27) controls the Bonferroni tail.  Thus
+
+\[
+ \mathbb E_{\rm CRT}\{S_yQ_r(H_{m,X})\}
+ \leq\exp\left\{-c{\eta_1(m)\over\varphi(m)}t^3\right\}.    \tag{43.30}
+\]
+
+For the ledger, \(m\leq t^B\) and (43.16) give
+\(\log|\mathcal A_{m,X}|=O_B(t)\).  Exactly as in
+(39.31)--(39.34),
+
+\[
+ \deg=O(t^3),\quad \log d_{\rm term}=O_B(t^4),\quad
+ \log\sum|c_{\rm term}|=O_B(t^4).                          \tag{43.31}
+\]
+
+This explicitly absorbs the extra \(\log m\): it is \(O_B(\log t)\) per
+atom and hence smaller than the existing \(O(t)\) charge.  Choosing
+\(t=\alpha(\log N)^{1/4}\) and then \(\alpha\) small makes every rounding
+error negligible and proves the prime form of (43.28).  In the uniform
+range the exponent tends to infinity (use
+\(\eta_1(m)\asymp\varphi(m)/m\)), and \(m\leq t^{3-4\epsilon}\), so all
+prime-slice uniformity assumptions hold.  For the semigroup transfer, start
+the uniform prime estimate at
+\(x_0=\exp\{m^{1/(3/4-\epsilon/2)}\}\).  The Rankin parameter satisfies
+\(\delta\log x_0=o(1)\) in the stated range, so declaring every smaller
+prime exceptional costs only \(m^{O_\epsilon(1)}\), absorbed by the
+\(\gg(\log N)^\epsilon\) saving.  The argument after (43.15), now with
+\(g(u)=\eta_1(m)\varphi(m)^{-1}u^{3/4}\), transfers the prime result.
+\(\square\)
+
+**Failure log 43.9 (what is not being claimed).**
+
+1. Theorem 43.8 deliberately keeps the §39 choices \(y,r\asymp t^3\).
+   The thinner profiles in (43.20) and (43.27) suggest an \(m\)-dependent
+   smaller degree and a larger choice of \(X\), but the shrinking-
+   \(y\) bad-fibre estimate and every uniform rounding constant have not
+   been re-audited.  No stronger \(m^{-1/4}\)-type coefficient is claimed.
+2. The fixed-class asymptotic (43.6) is not uniform for \(m\gtrsim K\).
+   The aggregate proof avoids this issue; it would be incorrect to infer
+   pointwise per-\(\ell\)-class mass in that range.
+3. The range \(m\leq(\log N)^{3/4-\epsilon}\) is where the provisional
+   saving in (43.28) grows uniformly.  Beyond it, this replay is not offered
+   as a nontrivial uniform theorem.  This is an analytic uniformity limit,
+   not a failure of the algebraic identity.
+
+### 43.3 Layer 3: the PW benchmark and the two regimes
+
+**Literature benchmark (PW 2025, Theorem 1.3, transcribed).**  There is an
+absolute constant \(C>0\) such that, for every pair \(m,N\) with
+\(4\leq m\leq(\log N)^2\),
+
+\[
+ E_m(N)\leq {N\over
+ \exp\{C((\log N)^2/\varphi(m))^{1/3}\}}.                  \tag{43.32}
+\]
+
+Their §4 defines \(f_m(p)\) only for primes \(p\equiv-1\pmod m\), proves
+\(\sum_{p\leq x}f_m(p)/p\asymp(\log x)^2/\varphi(m)\) by
+Brun--Titchmarsh and Bombieri--Vinogradov, and then applies the same
+larger-sieve Rankin truncation used in §16.  Thus their exponent is
+\((\log N)^{2/3}/\varphi(m)^{1/3}\), with no suppressed
+\(\log\log N\) factor.
+
+For the direct Layer-2 replay, compare the two exponent sizes
+
+\[
+ {\eta_1(m)\over\varphi(m)}L^{3/4}
+ \quad\hbox{and}\quad {L^{2/3}\over\varphi(m)^{1/3}},
+ \qquad L=\log N.                                          \tag{43.33}
+\]
+
+Up to the absolute theorem constants, the first is larger precisely when
+
+\[
+ \varphi(m)\lesssim \eta_1(m)^{3/2}L^{1/8}.                \tag{43.34}
+\]
+
+If the fixed local factor is suppressed, this is the parent-session
+calculation \(\varphi(m)\lesssim(\log N)^{1/8}\): raising
+\(L^{1/12}>\varphi(m)^{2/3}\) to the \(3/2\) power gives exactly
+\(L^{1/8}>\varphi(m)\).  Therefore Layer 2 wins for every fixed \(m\), and
+for sufficiently small growing \(m\); PW has the better
+\(\varphi(m)^{-1/3}\) uniformity once (43.34) is reversed.  In particular
+this notebook does **not** claim to beat PW uniformly.  PW remains valid
+through \(m\leq L^2\), whereas the nontrivial uniform Layer-2 statement
+above stops at \(m\leq L^{3/4-\epsilon}\).  The Layer-1 prime bound is
+uniform through \(m\leq L^{2-\epsilon}\), and its all-denominator form
+through \(m\leq L^{1-\epsilon}\); it gains \((\log L)^{1/3}\) but has
+the same basic \(m^{-1/3}\) scale as PW after (43.7).
+
+**Computational 43.10 (finite companion only).**  `verify.py (ap)` simplifies
+(43.3) symbolically and checks it with exact `Fraction` arithmetic on 364
+random instances for
+\(m\in\{3,5,6,7,8,12,25\}\), explicitly including even and composite
+\(n\).  Its \(m=5\) atom census verifies divisibility, atom-implied
+coupling, fixed-\(\ell\) deduplication, and the distinct-large-coordinate
+claim without allocating a Cartesian array.  Finally it compares finite
+multiplier sums with the exact \(\eta_2(m)\) formula in (43.4).  Those
+finite ratios are informational; they do not prove (43.6) or any asymptotic
+theorem.

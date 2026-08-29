@@ -7303,4 +7303,188 @@ print("\n== (ao) short-cofactor endpoint companions (§42) ==")
 check_ao()
 
 
+# ---------------------------------------------------------------- (ap)
+def check_ap():
+    """Exact finite companions for the general-numerator transfer in §43."""
+    import os
+    from collections import defaultdict
+    from random import Random
+    from sympy import symbols, simplify
+
+    # Symbolic cancellation in Lemma 43.1.  Substituting
+    # m=(k*ell+1)/(u*v*w) should make the identity identically zero.
+    n_s, k_s, ell_s, u_s, v_s, w_s = symbols(
+        "n k ell u v w", nonzero=True)
+    s_s = (n_s * v_s + u_s) / (k_s * ell_s)
+    m_s = (k_s * ell_s + 1) / (u_s * v_s * w_s)
+    rhs = (1 / (s_s * u_s * w_s)
+           + 1 / (n_s * s_s * v_s * w_s)
+           + 1 / (n_s * u_s * v_s * w_s))
+    assert simplify(rhs - m_s / n_s) == 0
+
+    def ap_divisors(value):
+        result = [1]
+        for prime, exponent in factorint(value).items():
+            result = [d * prime ** e for d in result
+                      for e in range(exponent + 1)]
+        return sorted(result)
+
+    # Hundreds of exact rational instances, including deliberately sought
+    # even and composite representatives of each congruence class.
+    rng = Random(430015)
+    numerators = (3, 5, 6, 7, 8, 12, 25)
+    exact_checks = 0
+    even_checks = 0
+    composite_checks = 0
+    per_m = Counter()
+    for m in numerators:
+        for _ in range(52):
+            while True:
+                ell = rng.randrange(2, 120)
+                if gcd(ell, m) == 1:
+                    break
+            k0 = (-pow(ell, -1, m)) % m
+            if k0 == 0:
+                k0 = m
+            k = k0 + m * rng.randrange(0, 8)
+            assert (k * ell + 1) % m == 0
+            A = (k * ell + 1) // m
+            u = rng.choice(ap_divisors(A))
+            remaining = A // u
+            v = rng.choice(ap_divisors(remaining))
+            w = remaining // v
+            modulus = k * ell
+            assert gcd(v, modulus) == 1
+            residue = (-u * pow(v, -1, modulus)) % modulus
+            candidates = [residue + j * modulus for j in range(1, 12)]
+            n = rng.choice(candidates)
+            # On alternating samples prefer an even or visibly composite n.
+            if exact_checks % 2 == 0:
+                preferred = [q for q in candidates if q % 2 == 0]
+                if preferred:
+                    n = preferred[0]
+            else:
+                preferred = [q for q in candidates
+                             if any(q % p == 0 and q != p
+                                    for p in (2, 3, 5, 7, 11))]
+                if preferred:
+                    n = preferred[0]
+            assert n > 0 and (n * v + u) % modulus == 0
+            s = (n * v + u) // modulus
+            value = (Fraction(1, s * u * w)
+                     + Fraction(1, n * s * v * w)
+                     + Fraction(1, n * u * v * w))
+            assert value == Fraction(m, n)
+            exact_checks += 1
+            per_m[m] += 1
+            even_checks += (n % 2 == 0)
+            composite_checks += (n > 3 and not bool(list(primerange(n, n + 1))))
+
+    assert exact_checks == 52 * len(numerators)
+    assert even_checks and composite_checks
+
+    # Structural atom census for m=5.  The extra 5uv>K condition is the
+    # finite analogue of mH^2>K in Lemma 43.6 and makes k unique.
+    toy_m, toy_K = 5, 24
+    atoms = []
+    for ell in primerange(41, 401):
+        z = int(round(ell ** (1 / 3)))
+        while (z + 1) ** 3 <= ell:
+            z += 1
+        while z ** 3 > ell:
+            z -= 1
+        for k in range(1, toy_K + 1):
+            if gcd(k, toy_m) != 1 or (k * ell + 1) % toy_m:
+                continue
+            A = (k * ell + 1) // toy_m
+            for u in range(2, z + 1):
+                for v in range(2, z + 1):
+                    if gcd(u, v) != 1 or gcd(u * v, k * ell) != 1:
+                        continue
+                    if toy_m * u * v <= toy_K or A % (u * v):
+                        continue
+                    residue = (-u * pow(v, -1, k * ell)) % (k * ell)
+                    atoms.append((k, ell, u, v, residue, k * ell))
+
+    assert atoms
+    by_ell_residue = {}
+    by_modulus_pair = {}
+    coupling_checks = 0
+    for atom in atoms:
+        k, ell, u, v, residue, modulus = atom
+        assert (k * ell + 1) % (toy_m * u * v) == 0
+        assert (residue * v + u) % k == 0
+        assert (residue * v + u) % ell == 0
+        coupling_checks += 1
+        ell_key = (ell, residue % ell)
+        assert ell_key not in by_ell_residue, (ell_key, atom,
+                                               by_ell_residue.get(ell_key))
+        by_ell_residue[ell_key] = atom
+        modulus_key = (modulus, residue, u, v)
+        assert modulus_key not in by_modulus_pair
+        by_modulus_pair[modulus_key] = atom
+
+    # Distinct atoms sharing ell cannot be CRT-compatible, since their ell
+    # projections are distinct.  Check this without forming an all-atom
+    # Cartesian array.
+    ell_buckets = defaultdict(list)
+    for atom in atoms:
+        ell_buckets[atom[1]].append(atom)
+    same_ell_pairs = 0
+    for ell, bucket in ell_buckets.items():
+        residues = set()
+        for atom in bucket:
+            residue = atom[4] % ell
+            assert residue not in residues
+            residues.add(residue)
+        same_ell_pairs += len(bucket) * (len(bucket) - 1) // 2
+
+    # Informational finite-range approach to the exact multiplier local
+    # factor eta_2(m)=prod_{p|m} p^2/(p^2+p-1).  Ratios use the full
+    # harmonic proxy sum as their finite-range normalizer.
+    local_limit = 200_000 if os.environ.get("ES_FULL_SCAN") == "1" else 30_000
+    phi = list(range(local_limit + 1))
+    for p in range(2, local_limit + 1):
+        if phi[p] == p:
+            for j in range(p, local_limit + 1, p):
+                phi[j] -= phi[j] // p
+    weights = [0.0] * (local_limit + 1)
+    total = 0.0
+    for k in range(1, local_limit + 1):
+        weight = (phi[k] * phi[k]) / (k * k * k)
+        weights[k] = weight
+        total += weight
+
+    local_rows = []
+    for m in (3, 5, 6, 8, 12, 25):
+        eta = Fraction(1)
+        for p in factorint(m):
+            eta *= Fraction(p * p, p * p + p - 1)
+        coprime_ratio = sum(weights[k] for k in range(1, local_limit + 1)
+                            if gcd(k, m) == 1) / total
+        class_ratios = []
+        for residue in range(1, m + 1):
+            if gcd(residue, m) == 1:
+                class_ratios.append(sum(weights[k]
+                                         for k in range(residue,
+                                                        local_limit + 1, m))
+                                    / total)
+        local_rows.append((m, round(coprime_ratio, 6), round(float(eta), 6),
+                           tuple(round(value, 6) for value in class_ratios),
+                           round(float(eta) / sum(1 for r in range(1, m + 1)
+                                                  if gcd(r, m) == 1), 6)))
+
+    print("general-m identity exact/symbolic:", exact_checks,
+          "rational instances; even/composite =", (even_checks, composite_checks),
+          "; per m =", dict(per_m))
+    print("m=5 toy atoms/dedup/coupling/same-ell pairs =",
+          (len(atoms), len(by_ell_residue), coupling_checks, same_ell_pairs))
+    print("INFORMATIONAL eta_2 finite ratios",
+          "(m,coprime actual/predicted,class ratios,predicted each) =", local_rows)
+
+
+print("\n== (ap) general-numerator multiplier transfer (§43) ==")
+check_ap()
+
+
 print("\nall checks passed")
