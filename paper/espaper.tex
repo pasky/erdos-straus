@@ -87,7 +87,7 @@ The product-space form and its relation to the independent-set polynomial are di
 
 \subsection{A two-term lemma and the complete prime criterion}
 \begin{lemma}[two-term criterion]\label{lem:two-term}
-Let $(a,b)=1$.  The equation $a/b=1/y+1/z$ has a solution in positive integers if and only if $b^2$ has a divisor $d\equiv-b\pmod a$.  Its solutions are
+Let $a,b$ be coprime positive integers.  The equation $a/b=1/y+1/z$ has a solution in positive integers if and only if $b^2$ has a divisor $d\equiv-b\pmod a$.  Its solutions are
 \[
  y=\frac{b+d}{a},\qquad z=\frac{b+b^2/d}{a}.
 \]
@@ -164,7 +164,7 @@ The first right side has common denominator $pguv$ and numerator $p+u+v=4guv$.  
 
 The identity from which the complete intrinsic system arises is the following multiplier form.
 \begin{lemma}[intrinsic multiplier identity]\label{lem:multiplier}
-Let $M\equiv3\pmod4$, $A=(M+1)/4$, and $A=uvw$.  If $nv\equiv-u\pmod M$ and $s=(nv+u)/M$, then
+Let $M\equiv3\pmod4$, $A=(M+1)/4$, and $A=uvw$ a factorization into positive integers.  If the positive integer $n$ satisfies $nv\equiv-u\pmod M$ and $s=(nv+u)/M$, then
 \begin{equation}\label{eq:mult-id}
  \frac4n=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}.
 \end{equation}
@@ -386,7 +386,7 @@ The same upper bound holds for $\delta_X$ without a condition on $N$.
 \subsection{A growing multi-shift certificate}
 For $Y\geq1$, let $\Av_X^{(R\leq Y)}$ denote avoidance of every pair in \eqref{eq:shifted} with $R_0(D)\leq Y$.
 \begin{theorem}[multi-shift prime certificate]\label{thm:multi-shift}
-Fix $\eps>0$.  Uniformly for $1\leq Y\leq L^{3-\eps}$ and $\log N\geq L^4$,
+Fix $\eps>0$.  For all sufficiently large $X$, uniformly for $1\leq Y\leq L^{3-\eps}$ and $\log N\geq L^4$,
 \[
  |\Av_X^{(R\leq Y)}(N)|
  \geq N\exp\{-C_\eps Y\log(2Y)\log L\}.
@@ -673,7 +673,7 @@ Thus Fourier transformation produces a hypergraph convolution, not a product of 
 \subsection{The corrected finite-transfer criterion}
 After the odd-prime quarantine, write $n=P_zm$.  For $U\subseteq\mathbb Z/d\mathbb Z$, put $1_{U,d}(m)=\1_{m\bmod d\in U}$ and $\rho(U)=|U|$.
 \begin{lemma}[residue-set transfer]\label{lem:residue-transfer}
-Let $\mathcal F_X$ be a specified family of surviving atoms.  Suppose
+Let $\mathcal F_X$ be a specified family of surviving atoms and $I_X$ a finite index set.  Suppose
 \[
  B_X(m)=\sum_{\alpha\in I_X}c_\alpha1_{U_\alpha,d_\alpha}(m)
  \leq\1_{\{\text{no atom of }\mathcal F_X\text{ at }m\}}
@@ -777,7 +777,7 @@ $\mathbb EH=O(\Lambda)$.  The conditional full void after the quarantine is at l
 $\Pr(H=0\mid T_0=1)\geq\e^{-O(\Lambda)}$.
 
 \begin{proposition}[factorial-moment reduction]\label{prop:factorial}
-Suppose fixed $C,D>0$, with $D$ sufficiently large in terms of $C$, and an even $m\in[D\Lambda,D\Lambda+2]$ satisfy
+Suppose fixed $C,D>0$, with $D$ sufficiently large in terms of $C$ and of the constant in the conditioned void lower bound (37.18) of the source notes, and an even $m\in[D\Lambda,D\Lambda+2]$ satisfy
 \begin{equation}\label{eq:factorial-target}
  \mathbb E(H)_m\leq(C\Lambda)^m.
 \end{equation}
@@ -859,7 +859,7 @@ with $H=K^{10}$ and $\omega(uv)\leq D\log\log X$.
 For completeness, the harmonic lattice input behind \eqref{eq:mult-mass} is obtained by partitioning $(H,z]$ into fixed-ratio boxes.  M\"obius inversion of $(u,v)=1$ gives, in $I\times J$ with lengths $\eta U,\eta V$,
 \[
  \begin{aligned}
- \#\{(u,v):(uv,k)=1,\ k\mid u+cv\}
+ \#\{(u,v)\in I\times J:(u,v)=(uv,k)=1,\ k\mid u+cv\}
  &=\eta^2UV\frac{\varphi(k)}{k^2}
    \prod_{p\nmid k}(1-p^{-2})\\
  &\quad+O((U+V)\tau(k)\log(2UV)).
@@ -910,7 +910,7 @@ The current harvesting frontier uses the incidence
  r_\mathcal J(u,v;c)=\#\{k\in\mathcal J:k\mid u+cv\}.
 \]
 \begin{lemma}[incidence second moment; provisional context]\label{lem:incidence}
-For $H=K^{10}$ and $z>H^2$,
+For $K\geq K_0$, $H=K^{10}$, and $z>H^2$,
 \[
  \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
  \frac{r_\mathcal J(u,v;c)^2}{uv}
@@ -938,7 +938,10 @@ by writing $k=da,k'=db$.  Since $\tau([k,k'])\leq2K$, all boundary terms total $
 Fix $0<\kappa<1/240$ and let $K=X^\kappa$.  For every
 $\mathcal J\subseteq\mathcal K(K)$ containing $1$ and every
 $c\pmod{24L_\mathcal J}$ with $(c,24L_\mathcal J)=1$, retain only triples in \eqref{eq:mult-mass} satisfying
-$r_\mathcal J(u,v;c)\leq(\log X)^4$.  Their distinct class counts
+$r_\mathcal J(u,v;c)\leq(\log X)^4$.  Then (i) the restriction of the
+$H_{k\rm BV}$ error sum to these retained triples is
+$o(x\log x\,h(\mathcal J))$ unconditionally, uniformly in all the
+quantified data; and (ii) their distinct class counts
 $f_c^{\rm good}(\ell)$ satisfy, uniformly in these data,
 \[
  \sum_{X^{1/2}<\ell\leq X}\frac{f_c^{\rm good}(\ell)}\ell
@@ -1006,7 +1009,7 @@ arXiv:1406.6307 (2014).
 \bibitem{ScottSokal}
 A.~D. Scott and A.~D. Sokal,
 \emph{The repulsive lattice gas, the independent-set polynomial, and the Lov\'asz local lemma},
-J. Stat. Phys. \textbf{118} (2005), 1151--1261;
+J. Stat. Phys. \textbf{118} (2005), 1151--1261 [TODO: journal volume/pages unverified from the archived PDF; arXiv:math/0309352 verified];
 arXiv:cond-mat/0309352.
 
 \bibitem{Shiu}

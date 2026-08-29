@@ -6677,7 +6677,8 @@ def check_am():
         """Least divisor representative for every distinct intrinsic class."""
         representatives = {}
         for D in divisors_of_square((M + 1) // 4):
-            representatives.setdefault((-4 * D) % M, D)
+            key = (-4 * D) % M
+            representatives[key] = min(representatives.get(key, D), D)
         return representatives
 
     def radical_root(D):

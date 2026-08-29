@@ -12993,41 +12993,81 @@ Consequently
                    {\varphi(k)^2\over k^3}
    \asymp t^2\log K\asymp t^3.                            \tag{39.8}
 \]
-For each fixed odd prime \(p\), the asymptotic weighted share of multipliers
-divisible by \(p\) is
+For each fixed odd prime \(p\), the share of the proxy Euler weight
+\(b(k)/k=\varphi(k)^2/k^3\) carried by multipliers divisible by \(p\) is
+exactly
 \[
  \alpha_p={p-1\over p^2+p-1}\sim {1\over p}.              \tag{39.9}
 \]
+(Because (39.7) determines \(W_k\) only up to constants, (39.9) is a
+statement about the proxy weight, not an exact share of the atom mass; the
+moment proof below never uses \(\alpha_p\).)
 
 *Proof.*  Here are the details which are needed later, rather than an appeal
-to an average over \(c\).  In one block, Brun--Titchmarsh in
-\(\ell\equiv-k^{-1}\pmod {4uv}\), followed by the weighted box argument
-of (16.4)--(16.5g), gives
+to an average over \(c\).  (This derivation was rewritten in review; the
+original appeal to “repeating (16.4)” did not carry the extra exclusions.)
+Fix the block and \(k\), and put \(F(n)=n/\varphi(n)\),
+\[
+ q_0=\operatorname {lcm}(g,\operatorname {rad}k)\leq k.
+\]
+Work in multiplicative boxes \(u\asymp U\), \(v\asymp V\).  The
+conditions \((uv,k)=1\) and \(-uv^{-1}\equiv a\pmod g\) restrict
+\((u\bmod q_0,v\bmod q_0)\) to reduced pairs with a fixed ratio modulo
+\(g\): for each of the \(\varphi(q_0)\) choices of \(v\)-class, the
+\(u\)-class is determined modulo \(g\) and free at the remaining part, so
+exactly \(\varphi(q_0)^2/\varphi(g)\) ordered class pairs are compatible.
+Shiu's theorem for the multiplicative function \(F\), on the
+fixed-relative-length interval \(u\asymp U\) in one reduced class modulo
+\(q_0\) (applicable since \(q_0\leq k\leq K\) and \(U>H=K^{10}\)), gives
+\[
+ \sum_{u\asymp U,\ u\equiv r\ (q_0)}F(u)
+ \ll {U\over\varphi(q_0)}
+ \exp\Big\{-\sum_{p\mid k}{1\over p-1}\Big\}
+ \asymp {U\over\varphi(q_0)}\,{\varphi(k)\over k},
+\]
+the last step because the logarithm of the quotient is
+\(O(\sum_pp^{-2})\).  Multiplying the \(u\)- and \(v\)-class sums by the
+number of compatible class pairs and dividing by \(UV\) yields, per box
+pair,
+\[
+ \sum_{\rm box}{1\over\varphi(u)\varphi(v)}
+ \ll {1\over\varphi(g)}\Big({\varphi(k)\over k}\Big)^2,
+\]
+and summing the \(O((\log(z/H))^2)=O(t^2)\) box pairs gives
+\[
+ \sum {1\over\varphi(u)\varphi(v)}
+ \ll { (\log z)^2\over\varphi(g)}{\varphi(k)^2\over k^2}. \tag{39.11}
+\]
+For fixed \((u,v)\), Brun--Titchmarsh in the progression
+\(\ell\equiv-k^{-1}\pmod {4uv}\) (modulus \(4uv\leq4x^{1/3}\), so the
+logarithm in the denominator is \(\asymp\log x\)) gives
+\[
+ \sum_{x<\ell\leq2x,\ \ell\equiv-k^{-1}(4uv)}{1\over\ell}
+ \ll {1\over\varphi(4uv)\log x},
+ \qquad
+ {1\over\varphi(4uv)}\ll{1\over\varphi(u)\varphi(v)}
+\]
+(the last since \((u,v)=1\)).  Combining with (39.11) over the boxes
+proves
 \[
  \sum_{A\text{ in the block}\atop k_A=k,
        -uv^{-1}\equiv a\ (g)}{1\over\ell}
- \ll {\log x\over\varphi(g)}{\varphi(k)^2\over k^2}.      \tag{39.10}
+ \ll {\log x\over\varphi(g)}{\varphi(k)^2\over k^2},      \tag{39.10}
 \]
-The local factor \((\varphi(k)/k)^2\) comes from excluding every prime of
-\(k\) from both harmonic variables.  At a prime power dividing \(g\), the
-units \(u,v\) have one of the \(\varphi(p^e)\) possible ratios; the box
-main term is identical for each ratio.  The boundary error is uniform
-because \(g\leq K\) and \(u,v>H=K^{10}\).  Equivalently, repeating
-(16.4) with modulus \(g\), while retaining \((uv,k)=1\), gives
-\[
- \sum {1\over\varphi(u)\varphi(v)}
- \ll { (\log z)^2\over\varphi(g)}{\varphi(k)^2\over k^2}; \tag{39.11}
-\]
-the quotient of its Euler factors by the displayed expression is
-\(\exp\{O(\sum_p p^{-2})\}\).  This proves (39.10) and, after the
-\(O(t)\) blocks and division by \(k\), the upper half of (39.7).
+with an absolute constant, uniformly in \(k\leq K\), \(g\mid k\), and
+reduced \(a\): no \(k^\varepsilon\), divisor, or logarithmic loss enters.
+After the \(O(t)\) blocks and division by \(k\), this is the upper half of
+(39.7).
 
 For the lower half drop the ratio condition.  For one fixed \(k\), a
 modulus \(4uv\) has at most \(2^{\omega(uv)}=(\log X)^{O(1)}\) ordered
 allocations.  Thus ordinary Bombieri--Vinogradov, with a fixed sufficiently
 large logarithmic saving, evaluates the prime progressions without the
 factor \(K\): \(k\) is fixed on this line.  The low-\(\omega\) Rankin
-argument of (16.5h) retains a fixed proportion uniformly.  This gives the
+argument of (16.5h) retains a fixed proportion uniformly.  (At a prime
+\(p\mid k\) the exact coprime-pair local factor differs from
+\((1-1/p)^2\) by \(1+O(p^{-2})\), so the unrestricted harmonic pair mass
+is \(\asymp(\log(z/H))^2(\varphi(k)/k)^2\) uniformly.)  This gives the
 matching lower bound block by block and proves (39.7).
 
 Finally \(b(k)=(\varphi(k)/k)^2\) is multiplicative and
@@ -13106,8 +13146,13 @@ integer \(m\geq1\),
 \[
  \mathbb E(H_X)_m\leq(Ct^3)^m,                             \tag{39.18}
 \]
-with \(C\) depending at most on \(\kappa\), uniformly in \(y\).
-In particular the bound holds through every order \(m=D t^3\).
+with \(C\) depending at most on \(\kappa\), uniformly in
+\(2\leq y<X^{1/2}\).  (The upper restriction is necessary: for
+\(y\geq\ell\) the coprimality conditioning would renormalize the
+\(\ell\)-coordinate itself by \(\ell/(\ell-1)\), which (39.14) does not
+include.  The application (39.21) has \(y=Bt^3<X^{1/2}\) for all large
+\(X\).)  In particular the bound holds through every order
+\(m=D_Bt^3\).
 
 *Proof.*  Expand the ordered factorial moment into distinct compatible
 atoms.  By Lemma 39.1, every admissible next atom has a new \(\ell\).
@@ -13166,14 +13211,18 @@ CRT space,
 \]
 
 *Proof.*  Reveal all multiplier coordinates.  Let \(c\) denote the resulting
-class modulo \(L_K\), and put
+class modulo \(24L_K\), \(L_K=\operatorname {lcm}\{k\leq K:k\equiv1\ (4)\}\),
+and put
 \[
  \mathcal J_c=\{k\leq K:k\equiv1\pmod4,\ (k,c)=1\},
  \qquad
- Z(c)=\sum_{y<p\leq K\atop p\mid c}{1\over p}.             \tag{39.24}
+ Z(c)=\sum_{y<p\leq K,\ p\mid L_K\atop p\mid c}{1\over p}.             \tag{39.24}
 \]
-The coordinates for \(p>y\) remain independent and
-\(\Pr(p\mid c)=1/p\).  With the exponential parameter \(y\),
+(The restriction \(p\mid L_K\) makes \(Z\) well defined: a prime
+\(p\equiv3\ (4)\) with \(3p>K\) divides no admissible multiplier, so it
+has no CRT coordinate here and can be omitted — it removes nothing from
+\(\mathcal J_c\).)  The coordinates for \(p>y\), \(p\mid L_K\), remain
+independent and \(\Pr(p\mid c)=1/p\).  With the exponential parameter \(y\),
 \[
  \mathbb E e^{yZ}
  \leq\exp\left\{C y\sum_{p>y}p^{-2}\right\}=e^{O(1)},
@@ -13234,9 +13283,11 @@ is nonnegative and is at least one on every exceptional prime
 \(n>\max(K,y)\).
 
 **Theorem 39.6 (modified c-free critical-window assembly; proved,
-CLAIMED/PROVISIONAL).**  There are constants \(c,C_0,D>0\), depending at
+CLAIMED/PROVISIONAL).**  There are constants \(c,C_0,D_B>0\), depending at
 most on \(\kappa\), such that if \(r\) is the least even integer at least
-\(Dt^3\), then (39.29) has exact CRT mean
+\(D_Bt^3\), then (39.29) has exact CRT mean (here and below \(D_B\) is the
+Bonferroni-degree constant, distinct from Lemma 16.2's \(\omega\)-cutoff
+constant \(D\) in (39.3))
 \[
  \mathbb E_{\rm CRT}\nu_X\leq e^{-ct^3}.                   \tag{39.30}
 \]
@@ -13266,7 +13317,7 @@ Consequently, whenever \(\log N\geq C_0t^4\),
  \leq e^{-ct^3},                                           \tag{39.33}
  \end{split}
 \]
-when \(D\) is sufficiently large.  Multiplication by
+when \(D_B\) is sufficiently large.  Multiplication by
 \(\Pr(S_y=1)\leq1\) proves (39.30).
 
 Expand (39.22) and the elementary symmetric polynomials in \(Q_r\).
@@ -13353,7 +13404,11 @@ the three steps above and the priority claim against the primary literature.
 **Computational 39.9 (finite companion only).**  `verify.py (al)` uses the
 toy exponent \(\kappa_{\rm toy}=1/4\) and floor \(H_{\rm toy}=1\), because
 the genuine \(\kappa<1/240\), \(H=K^{10}\) regime has no nontrivial small
-instance.  It enumerates the literal divisibility atoms (39.2)--(39.4),
+instance.  Its atom family is an enlarged structural toy: it uses the
+per-prime cutoff \(u,v\leq\ell^{1/3}\) in place of (39.2)'s dyadic-block
+cutoff \(u,v\leq x^{1/6}\) (which is empty at toy scale), so it tests the
+divisibility/coupling/deduplication structure of (39.2)--(39.4), not the
+literal cutoffs.  It enumerates these atoms,
 tests the c-coupling, deduplication, and distinct-\(\ell\) compatibility,
 and computes exact \(e_j\), \(\mu^j/j!\), and the dependent-pair
 \(\Delta\) for \(j\leq4\).  The table is a structural regression only; it
@@ -13516,7 +13571,7 @@ restrictions only enlarges its nonnegative mass.  Since \(\kappa(M)\leq2\)
 and \((4Rk-1)^{-1}\ll(Rk)^{-1}\), (40.13) gives
 \[
  v^{\rm reg}_{p,D}
- \leq {C\over R}\sum_{j\geq1,\ c_p(R)+jp\leq X/(4R)}
+ \leq {C\over R}\sum_{j\geq1,\ c_p(R)+jp\leq(X+1)/(4R)}
                     {1\over c_p(R)+jp}
  \leq {CL\over pR}.                                        \tag{40.15}
 \]
@@ -13561,12 +13616,13 @@ In divisor variables this is the explicit, falsifiable estimate
  \left(
   \sum_{\substack{R,s,c,q:\ s\mid\operatorname {rad}(R),\ 1\leq c<p\\
        pq=4Rc-1\leq X,\ P^-(pq)>z,\ pq\equiv3(4)\\
-       R^2/s\equiv-4^{-1}a\ (p),\\
+       R^2/s\equiv-4^{-1}a\ (p),\ q>1\ ({\rm so}\ pq\ {\rm composite}),\\
        R^2/s\ {\rm is\ the\ retained\ representative\ at}\ pq}}
        {\kappa(pq)\over pq}
  \right)^2=O(\Lambda^2).                                    \tag{40.19}
 \]
-Every term here has \(q>z\) and \(q<4R\).  Thus (40.19) is precisely a
+Every term here has \(q>z\) (from \(z\)-roughness of the composite
+\(pq\)) and \(q<4R\).  Thus (40.19) is precisely a
 short-cofactor endpoint estimate.
 
 *Proof.*  The endpoint and regular vectors have nonnegative coordinates.
@@ -13576,8 +13632,10 @@ Use Theorem 40.3.  At an endpoint,
 \(M=4Rc-1=pq\); composite \(z\)-roughness gives \(q>z\), and \(c<p\)
 gives \(q<4R\).  Substitution of \(D=R^2/s\) gives (40.19). \(\square\)
 
-This reduction also identifies the same coefficient-short range which
-forced the \(u_p\) term in Theorem 31.3.  It is not removed by the
+This reduction also identifies an analogous moving short-cofactor range to
+the one which forced the \(u_p\) term in Theorem 31.3 (the ranges differ:
+(31.18) treats \(M/p<C_0p^{1/2}\), while (40.19) has \(M/p<4R_0(D)\);
+neither contains the other).  It is not removed by the
 regular divisor-density calculation.
 
 ### 40.3 What the large sieve and BDH do not supply
@@ -13613,7 +13671,7 @@ common sequence supported on the possible integer divisors
 \(D\leq X^2/16\), the standard estimate on \(P<p\leq2P\) is
 \[
  \sum_{p\sim P}\sum_{h=1}^{p-1}
- \left|\sum_{D\leq X^2/16}c_De_p(hD)\right|^2
+ \left|\sum_{D\leq(X+1)^2/16}c_De_p(hD)\right|^2
  \ll(P^2+X^2)\sum_D|c_D|^2.                                \tag{40.23}
 \]
 A composite \(z\)-rough modulus incident to \(p\) has
@@ -13729,8 +13787,9 @@ X&z&Y&K&\mathcal V_X/\Lambda^2&
 \end{array}                                                  \tag{40.30}
 \]
 Here \(\mathcal C_X=\sum_p p t_p^2\) is the exact Cauchy worst case, while
-\(\Lambda^2\sum1/p\) is the idealized loss in (40.21).  The block prints
-every \(t_p\) exactly (printing a rounded ledger) and checks Parseval in the exact cyclotomic field
+\(\Lambda^2\sum1/p\) is the idealized loss in (40.21).  The block computes
+every \(t_p\) in exact rational arithmetic and prints it rounded, and
+spot-checks Parseval (at \(X=200\), \(p=7\)) in the exact cyclotomic field
 \(\mathbb Q(\zeta_7)\), rather than with floating-point characters.  The
 endpoint dominates these toys.  None of the ratios is asymptotic evidence,
 and the declining displayed values do not prove (40.19).
