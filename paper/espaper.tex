@@ -27,24 +27,30 @@
 \newcommand{\PFp}{H_{\mathrm{PF}}'}
 
 % TODO(submission): replace anonymous author metadata after authorship is settled.
-\title[The complete intrinsic congruence system]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure, density bounds, and the refutation of the cubic-mass sieve hypothesis}
+\title[Intrinsic congruences and a provisional $3/4$ bound]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and a provisional improvement of the exceptional-set exponent}
 \author{Anonymous}
 \date{Draft, August 2026}
 
 \begin{document}
 \begin{abstract}
+Subject to external verification, we obtain the unconditional bound
+\[
+ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}
+\]
+for Erd\H{o}s--Straus exceptional denominators.  This theorem is explicitly \textsc{claimed}/\allowbreak\textsc{provisional}; its load-bearing pruned cubic prime-slice input, Theorem~\ref{thm:pruned} (the analogue of Theorem~34.8 in the source notes), is likewise \textsc{claimed}/\allowbreak\textsc{provisional}.  No assertion in this draft should be cited as an established improvement before independent expert review.
+
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
  \Rcal(M)=\{-4D\pmod M:D\mid A^2\}.
 \]
-We prove this description with honest deduplication and show that its total class mass through $X$ is of exact order $(\log X)^3$.  The prime-modulus subsystem behaves differently: its mass is $\Theta((\log X)^2)$ and its avoider density is $\exp\{-\Theta((\log X)^2)\}$, with matching finite-interval bounds.  Every square avoids the full intrinsic system, since every intrinsic unit class has Jacobi symbol $-1$.
+We prove this description with honest deduplication and show that its total class mass through $X$ is of exact order $(\log X)^3$.  The prime-modulus subsystem has mass $\Theta((\log X)^2)$ and avoider density $\exp\{-\Theta((\log X)^2)\}$.  Every square avoids the full intrinsic system.
 
-The central result concerns a proposed partition-free sieve hypothesis $\PF$.  A weighted rough-modulus estimate and the Lov\'asz local lemma give the full-system natural-density lower bound
+Separately, a weighted rough-modulus estimate and the Lov\'asz local lemma refute the literal all-range partition-free hypothesis $\PF$ by proving
 \[
  \delta_X\geq\exp\!\left\{-O\!\left(\frac{(\log X)^3\log\log\log X}{\log\log X}\right)\right\}
        =\exp\{-o((\log X)^3)\}.
 \]
-This contradicts the literal quantifiers of $\PF$, whose majorant would force $\delta_X\leq\exp\{-c(\log X)^3\}$ on arbitrarily long complete-period intervals.  The refutation does not apply to the critical-window variant $\PFp$, where $\log N\asymp(\log X)^4$.  We give exact transfer criteria for that window, prove that the prime half transfers, and isolate the remaining composite-modulus problem as a residue-resolved factorial-moment bound.  Claimed record bounds and the pruned cubic prime-slice theorem are recorded separately and remain explicitly \textsc{provisional} pending external priority and referee checks.
+That refutation does not apply in the critical window $\log N\asymp(\log X)^4$.  The provisional $3/4$ argument instead uses a fixed $c$-free atom family, residue-resolved factorial moments, a uniform conditioned void supplied by Theorem~\ref{thm:pruned}, and an even-Bonferroni majorant with the honest coefficient ledger $\exp\{O((\log X)^4)\}$.  The literal $\exp\{O(J)\}$ ledger clause of the earlier critical-window hypothesis is not proved and is deliberately bypassed.  At the separate residue-dispersion frontier, the regular progression tail is proved negligible; the short-cofactor endpoint remains \textsc{open}.
 \end{abstract}
 
 \maketitle
@@ -57,15 +63,25 @@ The Erd\H{o}s--Straus conjecture asks whether, for every integer $n\geq2$, there
 \end{equation}
 It remains open.  The solution parametrizations and average counts of Elsholtz--Tao \cite{ElsholtzTao}, the divisor criterion presented by Bloom--Elsholtz \cite{BloomElsholtz}, and the exceptional-set argument reconstructed by Pomerance--Weingartner \cite{PomeranceWeingartner} form the nearest literature context.  Yamamoto's reciprocity analysis \cite{Yamamoto}, Salez's computation \cite{Salez}, and the later counting work of Elsholtz--Planitzer \cite{ElsholtzPlanitzer} provide additional context; none is used to promote a conditional or provisional statement below.
 
-The paper has four layers.
+The headline assertion of this draft is
+\[
+ \boxed{\ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}\ }
+ \qquad\text{\textsc{claimed/provisional}.}
+\]
+It is unconditional in the sense that no unproved hypothesis is assumed, but it is subject to external verification.  The load-bearing prime-slice input, Theorem~\ref{thm:pruned}, has the same provisional status.
+
+The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
 \item Section~\ref{sec:criterion} derives a complete two-case divisor criterion for prime denominators and the identity families that lead to the intrinsic congruence system.
 \item Sections~\ref{sec:intrinsic}--\ref{sec:prime} determine that system exactly.  The distinct-modulus class mass is cubic, while the full prime slice and its avoidance exponent are quadratic.  Squares survive every modulus, and a multi-shift certificate gives a subcubic-cost lower bound for a growing part of the composite system.
 \item Sections~\ref{sec:hpf}--\ref{sec:refutation} state the literal cubic-mass majorant hypothesis $\PF$, prove its formerly desired conditional consequence, and then refute the hypothesis with all quantifiers visible.  The analytic inputs are upper mean-value estimates of Nair--Tenenbaum \cite{NairTenenbaum} and Henriot \cite{Henriot}; Shiu's theorem \cite{Shiu} is used in the prime-harvesting arguments.
-\item Section~\ref{sec:window} separates the refuted all-range hypothesis from the open critical-window variant.  Cylinder and tensor obstructions are proved, a corrected residue-set transfer lemma is given, and the composite continuation is reduced to one factorial-moment estimate and its residue-dispersion frontier.  Scott--Sokal's partition-function correspondence \cite{ScottSokal} does not itself provide the required pointwise minorant.
+\item Section~\ref{sec:window} separates that all-range refutation from the critical window and records the cylinder, tensor, finite-transfer, and factorial-moment walls.
+\item Section~\ref{sec:records} states the provisional record inputs.  Section~\ref{sec:cfree} then gives the complete fixed-$c$-free assembly leading, provisionally, to the $3/4$ exponent.  Its final subsection, Section~\ref{sec:dispersion-frontier}, records the proved regular-tail result and the open short-cofactor endpoint from the residue-dispersion frontier.  Scott--Sokal's partition-function correspondence \cite{ScottSokal} does not itself provide the required pointwise minorant.
 \end{enumerate}
 
-Labels are part of the assertions.  ``Proved'' means proved in this draft.  ``Open'' means no proof is claimed.  The results in Section~\ref{sec:records} are reproduced from the campaign record but remain \textsc{claimed/provisional}: writing out their internal arguments does not replace independent priority and referee checks.  In particular, no result of this paper proves the Erd\H{o}s--Straus conjecture.
+Labels are part of the assertions.  ``Proved'' means proved in this draft.  ``Open'' means no proof is claimed.  The results in Sections~\ref{sec:records} and~\ref{sec:cfree} are reproduced from the campaign record and remain \textsc{claimed/provisional}: writing out their internal arguments does not replace independent priority and referee checks.  In particular, no result of this paper proves the Erd\H{o}s--Straus conjecture.
+
+The historical comparison is also provisional.  Vaughan's 1970 bound \cite{Vaughan} is the record identified by the search.  Pomerance--Weingartner's 2025 preprint \cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and a fresh search found no post-1970 improvement of the exceptional-set exponent.  Access to Vaughan's primary paper was blocked, although its DOI was confirmed.  Thus, if the $3/4$ theorem survives external review, it would be the first exponent improvement found since 1970.  This is a search result, not a literature guarantee.
 
 \section{Notation and elementary tools}\label{sec:notation}
 All logarithms are natural.  We write $\tau_k(n)$ for the ordered $k$-fold divisor function, $\tau=\tau_2$, $\omega(n)$ for the number of distinct prime factors, $P^-(n)$ for the least prime factor, and $\varphi$ for Euler's function.  Constants implicit in $O,\ll,\asymp$ are absolute unless a subscript says otherwise.
@@ -901,7 +917,7 @@ $S_c\geq\tfrac12\exp\{a(\log X)^2\log K\}$.  Summing the uniform bound $O(Y/S_c)
 \end{proof}
 
 \begin{remark}[priority and verification status]\label{rem:priority}
-Theorem~\ref{thm:record} remains \textup{CLAIMED}/\allowbreak\textup{PROVISIONAL} pending external checking and priority search.  Vaughan's primary paper \cite{Vaughan} was located by DOI but its PDF was access-blocked.  The comparison was checked only against Pomerance--Weingartner's 2025 reconstruction \cite[\S4]{PomeranceWeingartner}, which explicitly says it largely follows Vaughan.  The draft therefore does not claim a direct verification of Vaughan's argument or a settled record.
+Theorem~\ref{thm:record} remains \textup{CLAIMED}/\allowbreak\textup{PROVISIONAL} pending external checking and primary-literature verification.  Vaughan's primary paper \cite{Vaughan} was located by its confirmed DOI but its PDF was access-blocked.  Pomerance--Weingartner's 2025 reconstruction \cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and the fresh search found no post-1970 exponent improvement.  The draft therefore does not claim a direct verification of Vaughan's argument or a settled record; the search result is not a literature guarantee.
 \end{remark}
 
 \subsection{The pruned cubic prime slice}
@@ -961,8 +977,679 @@ $h(\mathcal K(X^\kappa))\asymp\log X$.
 \end{proof}
 Theorem~\ref{thm:pruned} does not prove the literal weighted error-sum hypothesis from which it originated, does not assemble composite moduli, and does not improve Theorem~\ref{thm:record} unconditionally.  Its soft spots are the power-range extension of the Shiu/box estimates and the uniform second-moment boundary sum; these require external review.
 
+\section{The fixed-$c$-free critical-window assembly}\label{sec:cfree}
+\begin{center}
+\fbox{\parbox{0.91\linewidth}{\centering
+\textsc{Claimed/provisional.}  Every result in this section which feeds
+Theorem~\ref{thm:three-quarter} is subject to hostile external checking.
+In particular, the load-bearing prime-slice input Theorem~\ref{thm:pruned}
+is likewise provisional.  The argument is not presented as an established
+record.}}
+\end{center}
+
+This section attacks the restricted critical-window assembly.  It does
+\emph{not} prove the literal coefficient-sum clause of the source-notes
+hypothesis $H_{\rm PF}'(k\ell;{\rm good})$.  Instead it removes the moving
+$c$-family, uses one fixed unpruned atom family, and proves the weaker ledger
+$\exp\{O(J\log X)\}$.  That ledger is of the same order as the lcm budget and
+is still absorbed when $\log N\geq C(\log X)^4$.  Subject to the caveats in
+Section~\ref{sec:verification-remarks}, this gives the
+\textsc{claimed/provisional} unconditional $3/4$ exponent.
+
+Put
+\begin{equation}\tag{39.1}
+ t=\log X,\qquad K=\lfloor X^\kappa\rfloor,
+ \qquad H=K^{10},\qquad 0<\kappa<1/240,
+\end{equation}
+and partition $(X^{1/2},X]$ into disjoint dyadic blocks $(x,2x]$, truncating
+the two endpoint blocks.  In a block put $z=x^{1/6}$.  Let $\mathcal A_X$
+be the following fixed \emph{$c$-free} family.  An atom is
+\begin{equation}\tag{39.2}
+ A=(k,\ell,u,v),\quad k\leq K,\ k\equiv1\pmod4,
+ \quad \ell\in(x,2x]\text{ prime},\quad H<u,v\leq z,
+\end{equation}
+with
+\begin{equation}\tag{39.3}
+ (u,v)=(uv,k)=1,\qquad
+ \omega(uv)\leq D\log\log X,\qquad 4uv\mid k\ell+1.
+\end{equation}
+Here $D$ is the fixed low-$\omega$ cutoff constant used in the source Lemma
+16.2 and in the proof of Theorem~\ref{thm:pruned}.  The atom denotes the
+cylinder
+\begin{equation}\tag{39.4}
+ E_A=\{n:n\equiv-uv^{-1}\pmod{k\ell}\}.
+\end{equation}
+The dyadic cutoff is only a canonical subfamily of the multiplier-prime
+family.  The lower proof of Theorem~\ref{thm:pruned}, specifically the
+source-notes estimates (34.20)--(34.21), furnishes its retained main mass
+inside these boxes.
+
+\subsection{Removing the moving fibre and deduplicating the atoms}
+\begin{lemma}[source Lemma 39.1: $c$-free reduction and distinct large
+coordinates; proved, provisionally checked]\label{lem:cfree}
+The following hold.
+\begin{enumerate}[leftmargin=*]
+\item If $n$ is exceptional, then it avoids every atom in $\mathcal A_X$.
+If additionally $c\equiv n\pmod{24L_K}$, then every atom hit by $n$
+automatically obeys $k\mid u+cv$.  Thus the coupling condition used to
+define the source family $\mathscr G_{X,c}$ is implied by the atom itself;
+it need not be built into the polynomial.
+\item Distinct atoms which have a compatible intersection have distinct
+primes $\ell$.  At a fixed $\ell$, all atom classes modulo $\ell$ are
+distinct.  At a fixed modulus $k\ell$, no two ordered pairs $(u,v)$ produce
+the same class.
+\item Consequently, for a compatible ordered set $A_1,\ldots,A_j$,
+\begin{equation}\tag{39.5}
+ \Pr\Big(\bigcap_{i\leq j}E_{A_i}\Big)
+ =\frac{\mathbf1_{\rm compatible}}
+ {\lcm(k_1,\ldots,k_j)\prod_{i\leq j}\ell_i}.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Lemma~\ref{lem:multiplier} proves the first assertion.  Modulo $k$,
+(39.4) says $u+nv\equiv0$; since $c\equiv n\pmod k$, it also says
+$u+cv\equiv0$.
+
+Suppose two atoms at the same $\ell$ are compatible.  Their projections
+modulo $\ell$ agree, so
+\[
+ \ell\mid uv'-u'v.
+\]
+In the same block the absolute value is at most $z^2=x^{1/3}<\ell$.  The
+same conclusion holds if two admissible cutoffs are compared across blocks,
+since every $u,v\leq X^{1/6}$, while $\ell>X^{1/2}>X^{1/3}$.  Hence
+$uv'=u'v$, and reducedness gives $(u,v)=(u',v')$.  The apparent swap can
+agree only when $u=v$, which is impossible here because $(u,v)=1$ and
+$u,v>H$.  Finally $uv\mid(k\ell+1)/4$ is exactly
+\[
+ k\ell\equiv-1\pmod{4uv}.
+\]
+Since $(\ell,4uv)=1$, this determines $k\pmod{4uv}$, and
+$4uv>4H^2>K$ makes the admissible $k$ unique.  This proves both forms of
+deduplication and the distinct-$\ell$ assertion.  The Chinese remainder
+theorem now gives (39.5).
+\end{proof}
+
+The logical point is as important as the geometry.  The majorant below
+covers the fixed predicate
+$\mathbf1_{(n,P_y)=1}\mathbf1_{H_X(n)=0}$, where
+$H_X=\sum_{A\in\mathcal A_X}\mathbf1_{E_A}$.  It does not majorize every
+avoider of the smaller, $c$-dependently pruned source family.  It does
+majorize every exceptional prime, which is all the exceptional-set
+implication needs.
+
+\subsection{Exact mass profiles}
+For $g\mid k$ and $a\in(\mathbb Z/g\mathbb Z)^\times$, write
+\begin{equation}\tag{39.6}
+ W_{k,a}(g)=
+ \sum_{\substack{A\in\mathcal A_X\text{ with multiplier }k\\
+                  -uv^{-1}\equiv a\ (g)}}\frac1{k\ell},
+ \qquad W_k=\sum_{A:k_A=k}\frac1{k\ell}.
+\end{equation}
+
+\begin{lemma}[source Lemma 39.2: multiplier and residue profiles; proved,
+provisional]\label{lem:profiles}
+Uniformly for $k\leq K$, $k\equiv1\pmod4$, $g\mid k$, and reduced
+$a\pmod g$,
+\begin{equation}\tag{39.7}
+ W_{k,a}(g)\ll \frac{t^2}{\varphi(g)}\frac{\varphi(k)^2}{k^3},
+ \qquad W_k\asymp t^2\frac{\varphi(k)^2}{k^3}.
+\end{equation}
+Consequently
+\begin{equation}\tag{39.8}
+ \mu_X:=\sum_{A\in\mathcal A_X}\frac1{k_A\ell_A}
+ \asymp t^2\sum_{\substack{k\leq K\\k\equiv1(4)}}
+             \frac{\varphi(k)^2}{k^3}
+ \asymp t^2\log K\asymp t^3.
+\end{equation}
+For each fixed odd prime $p$, the share of the proxy Euler weight
+$b(k)/k=\varphi(k)^2/k^3$ carried by multipliers divisible by $p$ is
+exactly
+\begin{equation}\tag{39.9}
+ \alpha_p=\frac{p-1}{p^2+p-1}\sim\frac1p.
+\end{equation}
+Because (39.7) determines $W_k$ only up to constants, (39.9) is a statement
+about the proxy weight, not an exact share of the atom mass; the moment proof
+below never uses $\alpha_p$.
+\end{lemma}
+\begin{proof}
+We give the review-inserted derivation rather than appeal to an average over
+$c$.  Fix the block and $k$, and put $F(n)=n/\varphi(n)$ and
+\[
+ q_0=\lcm(g,\rad k)\leq k.
+\]
+Work in multiplicative boxes $u\asymp U$, $v\asymp V$.  The conditions
+$(uv,k)=1$ and $-uv^{-1}\equiv a\pmod g$ restrict
+$(u\bmod q_0,v\bmod q_0)$ to reduced pairs with a fixed ratio modulo $g$:
+for each of the $\varphi(q_0)$ choices of $v$-class, the $u$-class is
+determined modulo $g$ and free at the remaining part, so exactly
+$\varphi(q_0)^2/\varphi(g)$ ordered class pairs are compatible.  Shiu's
+theorem for the multiplicative function $F$, on the fixed-relative-length
+interval $u\asymp U$ in one reduced class modulo $q_0$, is applicable since
+$q_0\leq k\leq K$ and $U>H=K^{10}$, and gives
+\[
+ \sum_{\substack{u\asymp U\\u\equiv r\ (q_0)}}F(u)
+ \ll \frac{U}{\varphi(q_0)}
+ \exp\Big\{-\sum_{p\mid k}\frac1{p-1}\Big\}
+ \asymp \frac{U}{\varphi(q_0)}\frac{\varphi(k)}k.
+\]
+The last comparison holds because the logarithm of the quotient is
+$O(\sum_p p^{-2})$.  Multiplying the $u$- and $v$-class sums by the number
+of compatible class pairs and dividing by $UV$ yields, per box pair,
+\[
+ \sum_{\rm box}\frac1{\varphi(u)\varphi(v)}
+ \ll\frac1{\varphi(g)}\left(\frac{\varphi(k)}k\right)^2.
+\]
+Summing the $O((\log(z/H))^2)=O(t^2)$ box pairs gives
+\begin{equation}\tag{39.11}
+ \sum\frac1{\varphi(u)\varphi(v)}
+ \ll\frac{(\log z)^2}{\varphi(g)}\frac{\varphi(k)^2}{k^2}.
+\end{equation}
+For fixed $(u,v)$, Brun--Titchmarsh in the progression
+$\ell\equiv-k^{-1}\pmod{4uv}$, whose modulus is
+$4uv\leq4x^{1/3}$, gives
+\[
+ \sum_{\substack{x<\ell\leq2x\\
+                  \ell\equiv-k^{-1}\ (4uv)}}\frac1\ell
+ \ll\frac1{\varphi(4uv)\log x},
+ \qquad
+ \frac1{\varphi(4uv)}\ll\frac1{\varphi(u)\varphi(v)},
+\]
+where the last inequality uses $(u,v)=1$.  Combining this with (39.11)
+over the boxes proves
+\begin{equation}\tag{39.10}
+ \sum_{\substack{A\text{ in the block}\atop
+       k_A=k,\ -uv^{-1}\equiv a\ (g)}}\frac1\ell
+ \ll\frac{\log x}{\varphi(g)}\frac{\varphi(k)^2}{k^2},
+\end{equation}
+with an absolute constant, uniformly in $k\leq K$, $g\mid k$, and reduced
+$a$: no $k^\varepsilon$, divisor, or logarithmic loss enters.  After the
+$O(t)$ blocks and division by $k$, this is the upper half of (39.7).
+
+For the lower half drop the ratio condition.  For one fixed $k$, a modulus
+$4uv$ has at most $2^{\omega(uv)}=(\log X)^{O(1)}$ ordered allocations.
+Thus ordinary Bombieri--Vinogradov, with a fixed sufficiently large
+logarithmic saving, evaluates the prime progressions without the factor
+$K$: $k$ is fixed on this line.  The low-$\omega$ Rankin argument from the
+source proof retains a fixed proportion uniformly.  At a prime $p\mid k$
+the exact coprime-pair local factor differs from $(1-1/p)^2$ by
+$1+O(p^{-2})$, so the unrestricted harmonic pair mass is
+$\asymp(\log(z/H))^2(\varphi(k)/k)^2$ uniformly.  This gives the matching
+lower bound block by block and proves (39.7).
+
+Finally $b(k)=(\varphi(k)/k)^2$ is multiplicative and
+$\sum b(k)/k\asymp\log K$, also after selecting $k\equiv1\pmod4$, by the
+principal/$\chi_4$ decomposition.  At an odd prime its local factor is
+\begin{equation}\tag{39.12}
+ 1+\sum_{e\geq1}\frac{(1-1/p)^2}{p^e}=1+\frac{p-1}{p^2},
+\end{equation}
+so the part with $p\mid k$, divided by the full factor, is exactly (39.9).
+\end{proof}
+
+Given a reduced fibre $c$, an atom with multiplier $k$ is active for one of
+the $\varphi(k)$ unit residues and then has prime-coordinate probability
+$1/\ell$.  Averaging those conditional masses produces the factor
+$1/\varphi(k)$, whereas the unconditioned cylinder has probability
+$1/(k\ell)$.  Formula (39.7), not the conditional mass profile used in the
+earlier moving-$c$ family, is the correct profile for factorial moments in
+the $c$-free CRT space.
+
+\subsection{Collapse versus consistency}
+The rough collapse bound which discards residue consistency would charge a
+shared prime $p$ by $p\alpha_p^2\asymp1/p$, producing a false
+$\log\log K$ loss.  The required cancellation is exact at the level of a
+new compatible atom.
+
+For a cutoff $y$, put
+\begin{equation}\tag{39.13}
+ q_y(k)=\prod_{\substack{p\mid k\\p\leq y}}\frac p{p-1},
+ \qquad
+ b_y(g)=\prod_{\substack{p^e\Vert g\\p\leq y}}\varphi(p^e)
+         \prod_{\substack{p^e\Vert g\\p>y}}p^e.
+\end{equation}
+Condition the CRT space by $(n,P_y)=1$, where $P_y=\prod_{p\leq y}p$.
+An atom then has probability $q_y(k)/(k\ell)$.  If a compatible previously
+selected set has multiplier lcm $R$, adding an atom of multiplier $k$, with
+$g=(k,R)$, multiplies its intersection probability by
+\begin{equation}\tag{39.14}
+ \frac{q_y(k)}{k\ell}\,b_y(g).
+\end{equation}
+Compatibility fixes one unit residue modulo $g$.  Lemma~\ref{lem:profiles}
+says that the atom mass in that residue is at most $1/\varphi(g)$ of its
+multiplier mass.  Thus the collapse left after summing the compatible new
+atoms is
+\begin{equation}\tag{39.15}
+ \frac{b_y(g)}{\varphi(g)}
+ =\prod_{\substack{p\mid g\\p>y}}\frac p{p-1};
+\end{equation}
+small conditioned primes cancel exactly, and an unconditioned shared prime
+costs only $p/(p-1)$, not $p$.
+
+\begin{lemma}[source Lemma 39.3: uniform multiplier Euler bound; proved]
+\label{lem:euler-bound}
+Uniformly in $y\geq2$, every integer $R$, and $K\geq3$,
+\begin{equation}\tag{39.16}
+ \sum_{\substack{k\leq K\\k\equiv1(4)}}
+ \frac{\varphi(k)^2}{k^3}q_y(k)
+ \prod_{\substack{p\mid(k,R)\\p>y}}\frac p{p-1}
+ \ll\log K.
+\end{equation}
+\end{lemma}
+\begin{proof}
+It is enough to sum over all odd $k$.  The unmodified local nonconstant mass
+is $(p-1)/p^2$.  Multiplication either by $q_y$ for $p\leq y$, or by
+$p/(p-1)$ when $p>y$ and $p\mid R$, changes this to $1/p$.  The quotient
+\begin{equation}\tag{39.17}
+ \frac{1+1/p}{1+(p-1)/p^2}=1+O(p^{-2})
+\end{equation}
+has a convergent product, uniformly in the chosen set of modified primes.
+The remaining harmonic Euler product is $O(\log K)$.
+\end{proof}
+
+\begin{theorem}[source Theorem 39.4: all required upper factorial moments;
+proved, provisional]\label{thm:factorial-cfree}
+In the CRT space conditioned by $(n,P_y)=1$, for every integer $m\geq1$,
+\begin{equation}\tag{39.18}
+ \mathbb E(H_X)_m\leq(Ct^3)^m,
+\end{equation}
+with $C$ depending at most on $\kappa$, uniformly in
+$2\leq y<X^{1/2}$.  The upper restriction is necessary: for $y\geq\ell$
+the coprimality conditioning would renormalize the $\ell$-coordinate itself
+by $\ell/(\ell-1)$, which (39.14) does not include.  The application below
+has $y=Bt^3<X^{1/2}$ for all sufficiently large $X$.  In particular the
+bound holds through every order $m=D_Bt^3$.
+\end{theorem}
+\begin{proof}
+Expand the ordered factorial moment into distinct compatible atoms.  By
+Lemma~\ref{lem:cfree}, every admissible next atom has a new $\ell$.  For a
+fixed preceding compatible set, (39.14), the residue-profile upper bound
+(39.7), and (39.15) bound the sum over all possible next atoms by
+\begin{equation}\tag{39.19}
+ Ct^2\sum_{\substack{k\leq K\\k\equiv1(4)}}
+ \frac{\varphi(k)^2}{k^3}q_y(k)
+ \prod_{\substack{p\mid(k,R)\\p>y}}\frac p{p-1}
+ \leq Ct^2\log K\leq Ct^3.
+\end{equation}
+Removing the forbidden old $\ell$'s only decreases this sum.  Iteration
+proves (39.18).
+\end{proof}
+
+At pair level, for fixed $k,k'$ and $g=(k,k')$,
+\begin{equation}\tag{39.20}
+ \sum_{A:k_A=k}\sum_{\substack{B:k_B=k'\\A\sim B}}
+ \Pr(E_A\cap E_B)
+ \ll\frac g{\varphi(g)}W_kW_{k'}.
+\end{equation}
+Averaging (39.20) uses
+$\alpha_p^2(p/(p-1)-1)=O(p^{-3})$, not
+$p\alpha_p^2\asymp1/p$.  Hence the pair excess is $O(\mu_X^2)$ with an
+absolute constant.  It is \emph{not} $o(\mu_X)$: a fixed small prime already
+contributes a constant multiple of $\mu_X^2$ to the usual Janson dependency
+sum.  Therefore the proposed direct condition $\Delta=o(\mu)$ and the naive
+Janson proof fail quantitatively.  The factorial-moment theorem survives
+because an absolute base $C^m$, rather than Poisson relative error, is enough
+after the separate void estimate below.
+
+\subsection{The CRT void without partitioning by all of $M_0$}
+A completely unconditioned $c$-free void still has a quarantine floor:
+taking $n\equiv0\pmod p$ for many small $p$ disables every atom whose
+multiplier contains one of them.  Thus $Q_r(H_X)$ alone cannot have cubic
+mean.  Take
+\begin{equation}\tag{39.21}
+ y=Bt^3
+\end{equation}
+with a sufficiently large fixed $B$, and multiply by the exact small-prime
+coprimality selector
+\begin{equation}\tag{39.22}
+ S_y(n)=\mathbf1_{(n,P_y)=1}
+ =\sum_{d\mid P_y}\mu(d)\mathbf1_{d\mid n}.
+\end{equation}
+Every exceptional prime greater than $y$ has $S_y=1$.  Notice that (39.22)
+has degree $\pi(y)=O(t^3/\log t)$, not the impossible degree $\pi(K)$.
+
+\begin{lemma}[source Lemma 39.5: conditioned $c$-free void; proved,
+provisional]\label{lem:conditioned-void}
+In the exact CRT space,
+\begin{equation}\tag{39.23}
+ \Pr(H_X=0\mid S_y=1)\leq e^{-ct^3}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Reveal all multiplier coordinates.  Let $c$ denote the resulting class
+modulo $24L_K$, where
+$L_K=\lcm\{k\leq K:k\equiv1\pmod4\}$, and put
+\begin{equation}\tag{39.24}
+ \mathcal J_c=\{k\leq K:k\equiv1\pmod4,\ (k,c)=1\},
+ \qquad
+ Z(c)=\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac1p.
+\end{equation}
+The restriction $p\mid L_K$ makes $Z$ well defined: a prime
+$p\equiv3\pmod4$ with $3p>K$ divides no admissible multiplier, so it has
+no CRT coordinate here and can be omitted; it removes nothing from
+$\mathcal J_c$.  The coordinates for $p>y$, $p\mid L_K$, remain independent
+and $\Pr(p\mid c)=1/p$.  With exponential parameter $y$,
+\begin{equation}\tag{39.25}
+ \mathbb E e^{yZ}
+ \leq\exp\left\{Cy\sum_{p>y}p^{-2}\right\}=e^{O(1)},
+ \qquad \Pr(Z>\eta)\leq e^{-\eta y+O(1)}.
+\end{equation}
+
+Write $h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2$.  The elementary
+bounds
+\begin{equation}\tag{39.26}
+ h(\mathcal K(K))\asymp\log K,
+ \qquad
+ \sum_{\substack{k\leq K\\p\mid k}}\frac{\varphi(k)}{k^2}
+ \ll\frac{\log K}{p}
+\end{equation}
+show by the union bound that, for a sufficiently small fixed $\eta$,
+$Z(c)\leq\eta$ implies
+$h(\mathcal J_c)\geq c_1\log K$.  Also $S_y=1$ makes $c$ coprime to $24$,
+and by definition it is coprime to $L_{\mathcal J_c}$.
+
+Apply Theorem~\ref{thm:pruned}, the source-notes Theorem 34.8, to this
+arbitrary subfamily $\mathcal J_c$.  Its lower proof lies in the canonical
+boxes (39.2), and its good triples are contained in the $c$-free unpruned
+family.  Conditional on the multiplier coordinates, the distinct
+$\ell$-coordinates are independent by Lemma~\ref{lem:cfree}.  Therefore,
+when $Z(c)\leq\eta$,
+\begin{equation}\tag{39.27}
+ \Pr(H_X=0\mid c)
+ \leq\prod_\ell\left(1-\frac{f_c^{\rm good}(\ell)}\ell\right)
+ \leq\exp\{-c_2t^2h(\mathcal J_c)\}
+ \leq e^{-c_3t^3}.
+\end{equation}
+The bad multiplier coordinates cost at most
+$e^{-\eta Bt^3+O(1)}$ by (39.25).  Increasing $B$ if necessary and averaging
+(39.27) proves (39.23).
+\end{proof}
+
+This is the load-bearing use of Theorem~\ref{thm:pruned}.  It replaces
+Janson by supplying cubic active prime-coordinate mass uniformly for every
+reduced surviving multiplier fibre.  The only fibres not reduced are those
+which set too much large-prime multiplier mass to zero, and (39.25) makes
+those fibres exponentially rare after the polynomial-sized coprimality
+cutoff.  The dependency on that provisional theorem is therefore explicit
+and unavoidable in the present argument.
+
+\subsection{A low-degree majorant with the honest ledger}
+For even $r$, put
+\[
+ Q_r(h)=\sum_{j=0}^r(-1)^j\binom hj.
+\]
+The exact identity
+\begin{equation}\tag{39.28}
+ Q_r(0)=1,\qquad Q_r(h)=\binom{h-1}r\geq0\quad(h\geq1)
+\end{equation}
+shows that
+\begin{equation}\tag{39.29}
+ \nu_X(n)=S_y(n)Q_r(H_X(n))
+\end{equation}
+is nonnegative and is at least one on every exceptional prime
+$n>\max(K,y)$.
+
+\begin{theorem}[source Theorem 39.6: modified $c$-free critical-window
+assembly; proved, \textsc{claimed/provisional}]\label{thm:cfree-assembly}
+There are constants $c,C_0,D_B>0$, depending at most on $\kappa$, such that
+if $r$ is the least even integer at least $D_Bt^3$, then (39.29) has exact
+CRT mean
+\begin{equation}\tag{39.30}
+ \mathbb E_{\rm CRT}\nu_X\leq e^{-ct^3}.
+\end{equation}
+Here and below $D_B$ is the Bonferroni-degree constant, distinct from the
+source Lemma 16.2's $\omega$-cutoff constant $D$ in (39.3).  Its congruence
+expansion has the explicit bounds
+\begin{equation}\tag{39.31}
+ \begin{split}
+ \text{degree}&\leq r+\pi(y)=O(t^3),\\
+ \log d_{\rm term}&\leq O(y)+r(t+\log K)=O(t^4),\\
+ \log\sum_{\rm terms}|c_{\rm term}|&=O(rt)=O(t^4).
+ \end{split}
+\end{equation}
+Every nonzero term is one plain congruence class.  Consequently, whenever
+$\log N\geq C_0t^4$,
+\begin{equation}\tag{39.32}
+ \sum_{n\leq N}\nu_X(n)\ll Ne^{-ct^3}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+From (39.28), for $h\geq1$,
+$\binom{h-1}r\leq\binom h{r+1}$.  Lemma~\ref{lem:conditioned-void} and
+Theorem~\ref{thm:factorial-cfree} therefore give
+\begin{equation}\tag{39.33}
+ \begin{split}
+ \mathbb E(Q_r(H_X)\mid S_y=1)
+ &\leq\Pr(H_X=0\mid S_y=1)
+       +\frac{\mathbb E((H_X)_{r+1}\mid S_y=1)}{(r+1)!}\\
+ &\leq e^{-c_1t^3}+\frac{(Ct^3)^{r+1}}{(r+1)!}
+ \leq e^{-ct^3},
+ \end{split}
+\end{equation}
+when $D_B$ is sufficiently large.  Multiplication by
+$\Pr(S_y=1)\leq1$ proves (39.30).
+
+Expand (39.22) and the elementary symmetric polynomials in $Q_r$.
+Lemma~\ref{lem:cfree} makes every compatible atom set use distinct
+$\ell$'s; CRT then makes its further intersection with $d\mid P_y$ either
+empty or one class.  If $A_X=|\mathcal A_X|$, the crude choice count from
+(39.2) gives $\log A_X=O(t)$, and hence
+\begin{equation}\tag{39.34}
+ 2^{\pi(y)}\sum_{j\leq r}\binom{A_X}j=\exp\{O(rt)\}.
+\end{equation}
+The modulus is at most $P_y(KX)^r$, proving (39.31).  On $[1,N]$, each
+class count is its CRT mean times $N$, plus $O(1)$.  Choosing $C_0$ larger
+than the constants in (39.31) makes the aggregate rounding error
+$\exp\{O(rt)\}$ at most, say, $N^{1/2}$, which is negligible beside
+$Ne^{-ct^3}$.  This proves (39.32).
+\end{proof}
+
+The literal source hypothesis $H_{\rm PF}'(k\ell;{\rm good})$ demanded
+coefficient sum $e^{O(J)}$, with $J\asymp t^3$, and a majorant for its larger
+aggregate avoider predicate.  Theorem~\ref{thm:cfree-assembly} proves
+\emph{neither} clause: its direct even-Bonferroni expansion has ledger
+$e^{O(Jt)}$, and it only covers the $c$-free avoider, hence all exceptional
+primes.  These are deliberate modifications, not suppressed losses.  The
+ledger still closes because the critical window itself has logarithmic size
+$\asymp Jt$.  Thus the literal $e^{O(J)}$ clause remains \textsc{open} as
+stated, but is no longer needed for the exceptional set if
+Theorem~\ref{thm:cfree-assembly} survives review.
+
+\subsection{Exceptional denominators}
+\begin{theorem}[source Theorem 39.7: unconditional $3/4$ exceptional-set
+bound; \textsc{claimed/provisional}]\label{thm:three-quarter}
+There is a constant $c>0$ such that
+\begin{equation}\tag{39.35}
+ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}.
+\end{equation}
+The same bound holds for exceptional primes.
+\end{theorem}
+\begin{proof}[Internal argument; provisional status retained]
+Put $L=\log N$, take $t=\alpha L^{1/4}$, and set $X=e^t$.  Choose the fixed
+$\alpha>0$ small enough that $L\geq C_0t^4$.
+Lemma~\ref{lem:cfree} and (39.29) majorize every exceptional prime larger
+than $\max(K,y)$; that omitted range is negligible.  Equations (39.32) and
+$t^3=\alpha^3L^{3/4}$ give the prime bound.
+
+For completeness, we spell out the semigroup transfer used for all
+denominators.  Every prime factor of an exceptional integer $n>1$ is itself
+exceptional: if $p\mid n$ and
+$4/p=1/x_1+1/x_2+1/x_3$, scaling the three denominators by $n/p$ represents
+$4/n$.  Thus the exceptional integers are contained in the multiplicative
+semigroup generated by exceptional primes, including the empty product.
+The integer $1$ contributes only $O(1)$.
+
+Write $g(u)=u^{3/4}$ and $x=e^L$.  Fix $x_0$ large enough that the prime
+bound gives, for every $x\geq x_0$,
+\[
+ E_{\rm prime}(x)\ll x\exp\{-c_0g(\log x)\}.
+\]
+Fix $0<\eta<c_0$ and, for large $L$, put
+$\delta=\eta g(L)/L$, so $0<\delta<1/4$.  Rankin's inequality over the
+semigroup gives
+\[
+ E_{\rm all}(x)\leq x^{1-\delta}
+ \prod_{\substack{p\leq x\\p\ {
+m exceptional}}}
+       (1-p^{-1+\delta})^{-1}.
+\]
+The finitely many exceptional primes $p\leq x_0$ contribute $O(1)$,
+uniformly in $\delta$.  Partial summation and the endpoint estimate
+$\delta L-c_0g(L)=-(c_0-\eta)g(L)<0$ give
+\[
+ \sum_{\substack{p\leq x\\p\ {
+m exceptional}}}p^{-1+\delta}
+ \ll1+\int_{\log x_0}^L\exp\{\delta u-c_0g(u)\}\,du.
+\]
+Because $g(u)/u=u^{-1/4}$ is decreasing, for $u\leq L$ one has
+$\delta u\leq\eta g(u)$.  The last integral is therefore bounded by
+$\int_{\log x_0}^\infty e^{-(c_0-\eta)g(u)}\,du<\infty$.  The prime-power
+terms in the logarithm of the Euler product also satisfy
+\[
+ \sum_{p\leq x}\sum_{j\geq2}\frac{p^{-j(1-\delta)}}j
+ \leq\sum_p\sum_{j\geq2}\frac{p^{-3j/4}}j=O(1).
+\]
+Hence the Euler product is $O(1)$ and
+$E_{\rm all}(x)\ll x^{1-\delta}=x\exp\{-\eta g(\log x)\}$, proving
+(39.35).
+\end{proof}
+
+\begin{center}
+\fbox{\parbox{0.91\linewidth}{\centering
+Theorem~\ref{thm:three-quarter} is \textsc{claimed/provisional}.  It uses
+the likewise provisional Theorem~\ref{thm:pruned}.  It does not use the
+source hypotheses $H_{k\rm BV}$, $H_{\rm PF}'$, or Elliott--Halberstam, but
+``unconditional'' does not remove the need for external verification.}}
+\end{center}
+
+\subsection{Remarks on verification status}\label{sec:verification-remarks}
+The three weakest steps identified by the maximum-severity self-review are
+reproduced faithfully here.
+\begin{enumerate}[leftmargin=*]
+\item The new residue-resolved upper bound (39.11) must be rederived by a
+referee with every local factor present.  It needs simultaneous uniformity
+in $k\leq X^\kappa$, every divisor $g\mid k$, and every unit residue; the
+proof uses Brun--Titchmarsh for the upper bound, so it does not hide a
+polynomially small Bombieri--Vinogradov main term.  This is the most
+load-bearing new analytic lemma.
+\item Lemma~\ref{lem:conditioned-void} uses Theorem~\ref{thm:pruned} for the
+data-dependent subfamily $\mathcal J_c$ and uses the canonical lower boxes,
+not merely the larger family in the statement of the source formula
+(34.18).  The quantifiers of Theorem~\ref{thm:pruned} do allow every
+subfamily containing $1$, and its proof furnishes the lower mass in those
+boxes, but this inheritance is new and needs an independent line-by-line
+check together with Theorem~\ref{thm:pruned} itself.
+\item The ordered-moment induction (39.14)--(39.19) is where lcm collapse
+and residue consistency cancel at every prime power.  A missed factor there
+would be exponentiated through $r\asymp t^3$.  The displayed conditional
+factor is $\varphi(p^e)$ for $p\leq y$ and $p^e$ for $p>y$; after the
+$1/\varphi(g)$ residue share, only $p/(p-1)$ remains at an unconditioned
+shared prime.  This exact replay, including unequal prime-power exponents,
+is mandatory in external review.
+\end{enumerate}
+
+Internally, the quantifier chain is complete: Theorem~\ref{thm:pruned} is
+uniform in $\mathcal J_c$; (39.25) removes the nonreduced fibres; (39.18)
+controls the even Bonferroni tail; and (39.31)--(39.34) pay the full
+$e^{O(t^4)}$ coefficient ledger before selecting
+$t=\alpha(\log N)^{1/4}$.  The direct Janson proposal is rejected because
+its dependency sum is $\Theta(\mu^2)$, while the original $e^{O(J)}$
+formulation remains open.  Theorem~\ref{thm:three-quarter} should not be
+cited as established outside this campaign until an independent expert has
+checked the three steps above and the priority claim against the primary
+literature.
+
+A fresh search found no post-1970 improvement of Vaughan's
+$N/\exp(c(\log N)^{2/3})$ exceptional-set bound.  Pomerance--Weingartner's
+2025 preprint \cite[\S4]{PomeranceWeingartner} explicitly cites Vaughan
+1970 as the state of the art and reproduces the same $2/3$ exponent when
+its general theorem is specialized to $m=4$.  Access to Vaughan's paper was
+blocked, but DOI \href{https://doi.org/10.1112/S0025579300002886}
+{10.1112/S0025579300002886} was confirmed.  If
+Theorem~\ref{thm:three-quarter} survives external review, it would therefore
+be the first exponent improvement found since 1970.  This is a search
+result, not a literature guarantee; the \textsc{claimed/provisional} label
+stands.
+
+\subsection{Residue-dispersion frontier}\label{sec:dispersion-frontier}
+Put
+\[
+ L=\log X,\qquad z=\frac{L^3\log\log L}{\log L},\qquad
+ \Lambda=\frac{L^3}{\log L}.
+\]
+For a composite $z$-rough $M\leq X$, $M\equiv3\pmod4$, choose the least
+positive divisor $D\mid((M+1)/4)^2$ in each fibre of
+$D\mapsto-4D\pmod M$, and delete a representative when its class is implied
+by a prime-modulus atom.  Call the remaining set $\mathcal D^\circ(M)$.
+With the exact conditional weight
+\[
+ \kappa(M)=\prod_{\substack{q\mid M,\ z<q\leq Y\\q\equiv3(4)}}
+                \frac q{q-F(q)},
+ \qquad
+ n_{M,p}(a)=\#\{D\in\mathcal D^\circ(M):-4D\equiv a\pmod p\},
+\]
+the pair-level dispersion quantity is exactly
+\begin{equation}\tag{40.5}
+ \mathcal V_X=\sum_{z<p\leq X}p\sum_{a\bmod p}
+ \left(\sum_{\substack{M\leq X,
+      \ M\ {
+m composite},\ P^-(M)>z\\
+      M\equiv3(4),\ p\mid M}}
+      \frac{\kappa(M)}M n_{M,p}(a)\right)^2.
+\end{equation}
+This is the residue-dispersion reformulation; canonical deduplication,
+prime powers, and the prime-implied deletion are part of the formula.
+
+Write $D=R^2/s$, with $s\mid\rad(R)$ and $M=4Rk-1$.  For
+$p\nmid4R$, let $c_p(R)\in\{1,\ldots,p-1\}$ be the inverse of $4R$ modulo
+$p$.  The condition $p\mid M$ gives $k=c_p(R)+jp$.  Splitting into the
+endpoint $j=0$ and regular tail $j\geq1$ gives vectors
+$u^{\rm end}_{p,a}$ and $u^{\rm reg}_{p,a}$.  The regular-tail theorem is
+proved, with the full canonical and retention restrictions allowed:
+\begin{equation}\tag{40.14}
+ \mathcal V_X^{\rm reg}
+ :=\sum_{z<p\leq X}p\sum_a(u^{\rm reg}_{p,a})^2
+ \ll L^2\log L+\frac{L^7}{z\log z}=o(\Lambda^2).
+\end{equation}
+Indeed the contribution of fixed $D$ is at most $CL/(pR_0(D))$; after
+expansion, $p\mid D-E$, while
+$\sum_D L/R_0(D)\ll L^3$ and
+$\sum_D(L/R_0(D))^2\ll L^2$.  For $D\ne E$ there are at most
+$2L/\log z$ prime divisors above $z$, and for $D=E$ Mertens' estimate costs
+$O(\log L)$, giving (40.14).
+
+The exact remaining pair target is therefore
+\begin{equation}\tag{40.18}
+ \boxed{\quad \mathcal V_X^{\rm end}
+ =\sum_{z<p\leq X}p\sum_a(u^{\rm end}_{p,a})^2
+ =O(\Lambda^2).\quad}
+\end{equation}
+Equivalently, in divisor variables, it is the explicit short-cofactor
+estimate
+\begin{equation}\tag{40.19}
+\begin{aligned}
+ \sum_{z<p\leq X}p\sum_{a\bmod p}
+ \Bigg(&\sum_{\substack{R,s,c,q:\ s\mid\rad(R),\ 1\leq c<p\\
+       pq=4Rc-1\leq X,\ P^-(pq)>z,\ pq\equiv3(4)\\
+       R^2/s\equiv-4^{-1}a\ (p),\ q>1\ ({\rm so}\ pq\ {
+m composite})\\
+       R^2/s\ {
+m is\ the\ retained\ representative\ at}\ pq}}
+       \frac{\kappa(pq)}{pq}\Bigg)^2
+ \ll\Lambda^2.
+\end{aligned}
+\end{equation}
+Every term has $q>z$ and $q<4R$.  Estimate (40.19) is \textsc{open}.
+Standard additive large-sieve and ordinary divisor
+Barban--Davenport--Halberstam statements do not contain this moving
+inverse/short-cofactor family.  Even a proof of (40.19) would pass only the
+pair test: the prime-power and multi-coordinate codegrees through
+$m\asymp\Lambda$, the needed factorial-moment hierarchy, and the critical-
+window avoider assertion all remain \textsc{open}.  No theorem about
+$\PFp$ or the literal $H_{\rm PF}'$ follows from the proved regular tail.
+
 \section*{Acknowledgment of status}
-This is a consolidation draft, not a submission.  Computational observations from the research log are omitted unless needed to state a status fact.  The mathematical headline is the proved natural-density refutation of the literal $\PF$ quantifiers; the critical-window variant and the provisional records remain outside that headline.
+This is a consolidation draft, not a submission.  Computational observations from the research log are omitted unless needed to state a status fact.  The mathematical headline is the \textsc{claimed/provisional} $3/4$ exceptional-set bound, subject to external verification of its full chain and especially Theorem~\ref{thm:pruned}.  The natural-density refutation of the literal $\PF$ quantifiers is proved independently; the literal critical-window ledger clause and the short-cofactor dispersion endpoint remain open.
 
 \begin{thebibliography}{99}
 
