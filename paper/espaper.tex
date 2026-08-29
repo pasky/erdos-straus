@@ -2749,14 +2749,17 @@ $q$ with
  q\mid p^2+4ck^2,\qquad q\equiv-p\pmod {4ck}.\quad}
 \end{equation}
 \end{hypothesis}
+% wave-18 fidelity repair: restore the source genus-automaticity caveat.
 This is a quantitative sufficient hypothesis, not the logically weakest
 one-prime-factor statement: deleting the log-power bound is weaker.  It
 puts no bound on $q$, prescribes no slice, imposes no primitivity, and needs
-no extra genus condition.  It is stronger than slice positivity, since a
-product of wrong-grade prime factors can hit the target even when no one
-prime does.
+no extra genus condition, which is automatic from (50.3).  It is stronger
+than slice positivity, since a product of wrong-grade prime factors can hit
+the target even when no one prime does.
 
-\begin{theorem}[conditional pointwise consequence; source Theorem 50.2]
+% wave-18 fidelity repair: preserve the source theorem's unproved-hypothesis label.
+\begin{theorem}[conditional on $H_{\rm SPF}(A)$; $H_{\rm SPF}(A)$ unproved;
+source Theorem 50.2]
 \label{thm:SPF}
 If $H_{\rm SPF}(A)$ holds for some $A$, then every sufficiently large hard
 prime has a Type-I Erd\H{o}s--Straus representation.
@@ -2961,9 +2964,10 @@ The audit is summarized by
 \begin{equation}\tag{50.17}
 \begin{array}{c|c|c}
 \text{input}&\text{standard output}&\text{missing condition}\\ \hline
-\text{Bateman--Horn}&\text{prime polynomial values in the variable}
- &\text{a good factor, uniformly for every }p\\
-\text{Linnik}&q\equiv-p\pmod h&q\mid N_{c,k}\\
+% wave-18 fidelity repair: restore the source (50.17) Bateman--Horn and Linnik caveats.
+\text{Bateman--Horn}&\text{prime polynomial values on average in the variable}
+ &\text{a composite value with a good factor, uniformly per }p\\
+\text{Linnik}&\text{a prime }q\equiv-p\pmod h&q\mid N_{c,k}\\
 \text{GRH/Chebotarev}&\text{split/ray primes in fixed fields}
  &\mathfrak q\mid(\alpha)\text{ for each fixed }\alpha\\
 \text{least nonresidue under GRH}&\chi_s(p)=-1

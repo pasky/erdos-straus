@@ -95,4 +95,6 @@ The v5 build completes with zero TeX errors and no undefined references or citat
 
 ## v6 queue
 
-No post-§50 source section exists in this snapshot; there is no newly observed §51/§52 absorption item.
+- Absorb notes §51, “The witness-modulus tail: truncated windows, the polylog corollary, and the effectivity audit.”
+- Absorb notes §52, “Per-slice vanishing frequency: the sieve upper bound and the empty third layer.”
+- Both sections postdate the v5 snapshot and are intentionally absent from `espaper.tex`.
