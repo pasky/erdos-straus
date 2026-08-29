@@ -12434,3 +12434,395 @@ Lemma-33.3 minorants is made.  The next mathematical target is the
 residue-resolved hierarchy beginning with (37.27), or a genuinely one-sided
 cluster polynomial that bypasses factorial moments.  Until one of those is
 proved, (33.16) and \(H_{\rm PF}'\) remain open.
+
+## 38. Fixed-value binary actions: a complete additive law, a disconnected fibre graph, and the multiplier-conversion failure
+
+*Section-number note.*  This clone ends at §35.  The present section is
+numbered §38 because parallel Units X and Y are assigned §§36--37.
+
+**Headline (strict quantifiers).**  **Theorem:** for the three common-modulus
+additive maps, equations (38.3)--(38.4) below are necessary and sufficient
+for the output value to equal either designated input value; the two
+copied-coordinate maps can never preserve their *first* input, while every
+unequal tuple has an auxiliary-source realization of the already-known
+coordinate-swap involution.  **Computational, exact finite range:** among all
+188,374 positive Type-II tuples with value at most 5,000, there are 203,906
+designated value-fixing branches, but no hard-prime fibre is connected, even
+when every auxiliary of value at most 5,000 is allowed; the smaller-auxiliary
+graph is also disconnected on every hard-prime fibre.  **Computational,
+exact search boxes:** the sparse-rational fixed-value search found only
+identity and coordinate swap, and the affine/bilinear \(k=2\to k=1\) search
+found no universal coordinate formula through \(P<10^5\).  Every statement
+about a fibre is conditional on that fibre already being nonempty: none
+constructs a tuple over a supplied prime, and none advances the P4
+minimal-counterexample descent slot.
+
+### 38.1 Exact value-fixing law
+
+Put
+
+\[
+ R=CK,\qquad g=4R,\qquad T_R(a,b)=gab-a-b.                  \tag{38.1}
+\]
+
+Use two independently read source tuples
+
+\[
+ x=(a,b,R/k,k),\quad p=V(x)=T_R(a,b)/k,
+ \qquad
+ y=(u,v,R/\ell,\ell),\quad q=V(y)=T_R(u,v)/\ell.           \tag{38.2}
+\]
+
+Thus \(k\mid(R,a+b)\) and \(\ell\mid(R,u+v)\).  The three
+coordinate outputs of (30.4) are
+
+\[
+ F_{++}=(a+u,b+v),\qquad F_{1+}=(a,b+v),\qquad
+ F_{+1}=(a+u,b).
+\]
+
+For any one of these pairs \((A,B)\), an output reading is admissible
+exactly when \(j\mid(R,A+B)\); the output is then
+\((A,B,R/j,j)\).
+
+**Theorem 38.1 (complete value-fixing characterization for the three
+additive maps; proved).**  With the source and output divisibilities just
+stated, the output has value \(p\), the value of the first input, exactly in
+the corresponding line
+
+\[
+\begin{array}{c|l}
+ \Phi_{++}&(j-k)p=\ell q+g(av+ub),\\
+ \Phi_{1+}&(j-k)p=v(ga-1),\\
+ \Phi_{+1}&(j-k)p=u(gb-1).
+\end{array}                                                  \tag{38.3}
+\]
+
+It has value \(q\), the value of the second input, exactly in the
+corresponding line
+
+\[
+\begin{array}{c|l}
+ \Phi_{++}&jq=kp+\ell q+g(av+ub),\\
+ \Phi_{1+}&jq=kp+v(ga-1),\\
+ \Phi_{+1}&jq=kp+u(gb-1).
+\end{array}                                                  \tag{38.4}
+\]
+
+No \(\Phi_{1+}\) or \(\Phi_{+1}\) branch fixes its first input.  A
+\(\Phi_{++}\) branch which fixes the first input has \(j>k\); one fixing
+the second has \(j>\ell\).
+
+*Proof.*  The three exact numerator identities are
+
+\[
+\begin{aligned}
+ T_R(a+u,b+v)&=kp+\ell q+g(av+ub),\\
+ T_R(a,b+v)&=kp+v(ga-1),\\
+ T_R(a+u,b)&=kp+u(gb-1).                                   \tag{38.5}
+\end{aligned}
+\]
+
+Equating (38.5) to \(jp\) or \(jq\) gives (38.3)--(38.4), in
+both directions; admissibility of \(j\) is exactly what makes the displayed
+output a tuple.  For the copied-coordinate impossibility, put
+\(D=ga-1\), \(E=gb-1\).  The source factorization gives
+
+\[
+ DE=1+gkp,
+ \qquad (D,kp)=(E,kp)=1.                                   \tag{38.6}
+\]
+
+If the middle line of (38.3) held, then \(D\mid j-k\).  Its positive
+right side forces \(j>k\), but \(j,k\mid R\) gives
+\(0<j-k<R\), whereas \(D\geq4R-1>R\), a contradiction.  The
+last line is identical with \(E\).  Positivity of the right side in the
+first line of (38.3) gives \(j>k\); symmetry gives the final assertion. ∎
+
+Equation (38.3) is the requested Diophantine law behind the 2,137 example:
+
+\[
+ (2,69,4,1)\ \mathop{\Phi_{++}}\ (1,22,4,1)
+      =(3,91,2,2),
+ \qquad (p,q,V_{\rm out})=(2137,329,2137).                 \tag{38.7}
+\]
+
+The auxiliary value is not determined by the fixed input, or even by the
+fixed input and output.  For example
+
+\[
+ (1,5,8,1)\ \mathop{\Phi_{++}}\ (2,8,8/\ell,\ell)
+       =(3,13,1,8),                                        \tag{38.8}
+\]
+
+where both \(\ell=1,2\) are valid.  The fixed and output values are 154,
+while the same auxiliary coordinate pair has values 502 and 251.  In
+general (38.3) sees \(\ell q=T_R(u,v)\), so every admissible reading of
+\((u,v)\) changes \(q\) without changing the equation.
+
+There is an auxiliary realization of an inverse, but it is precisely the
+old trivial symmetry.
+
+**Lemma 38.2 (the swap branch and its inverse; proved).**  Every tuple
+\(y=(u,v,R/\ell,\ell)\) with \(u\ne v\) has a value-preserving binary
+branch to \((v,u,R/\ell,\ell)\).  If \(u>v\), take the explicit auxiliary
+
+\[
+             (v,u-v,R,1)                                   \tag{38.9}
+\]
+
+as the first source of \(\Phi_{1+}\); if \(v>u\), take
+\((v-u,u,R,1)\) as the first source of \(\Phi_{+1}\).  Applying the
+opposite copied-coordinate map to the swapped tuple reverses the branch.
+
+*Proof.*  In the first case the output coordinates are
+\((v,(u-v)+v)=(v,u)\); in the second they are
+\(((v-u)+u,u)=(v,u)\).  Read the output at the unchanged \(\ell\).  The
+auxiliaries are positive members of the Type-II lattice, and swapping the
+inequality gives the reverse formula. ∎
+
+This is source-dependent and does not produce a new self-map beyond
+\(A\leftrightarrow B\).  The original branch (38.7) has no direct inverse:
+every possible reverse \(\Phi\)-output would have to increase at least one
+of the coordinates of \((3,91)\), whereas \((2,69)\) decreases both.
+More generally \(\Phi_{++}\) branches fixing their first input are acyclic
+under the strictly increasing reading \(k<j\), although copied-coordinate
+branches can create reversible edges such as Lemma 38.2.
+
+### 38.2 Complete finite fibre graph through value 5,000
+
+**Computational 38.3 (exact range and enumeration).**  The scan contains
+*every* tuple with
+
+\[
+                    2\leq V(A,B,C,K)\leq5000.              \tag{38.10}
+\]
+
+Completeness uses \(AB\leq V/2\): enumerate
+\(A\leq2500\), \(B\leq5000/(2A)\), every \(K\mid A+B\), and the exact
+interval of \(C\) cut out by (38.10).  This gives 188,374 ordered tuples at
+4,927 represented values.  Tuples are indexed by \((V,R)\), and equations
+(38.3)--(38.4) recover the other source by coordinate subtraction; no
+source-pair Cartesian product is formed.
+
+A *designated branch* records which input value is fixed.  For
+\(\Phi_{++}\), whose inputs commute, the fixed input is written first.  For
+the copied-coordinate maps, Theorem 38.1 says that only the second input can
+be fixed.  The exact counts are
+
+\[
+\begin{array}{c|r|r}
+ \text{branch}&\text{auxiliary value}\leq5000
+       &\text{auxiliary value}<\text{fixed value}\\ \hline
+ \Phi_{++}&3822&3076\\
+ \Phi_{1+}\text{ fixing input 2}&100042&78067\\
+ \Phi_{+1}\text{ fixing input 2}&100042&78067\\ \hline
+ \text{total}&203906&159210.
+\end{array}                                                  \tag{38.11}
+\]
+
+Thus value-fixing is common only after the asymmetric, second-input reading
+is included.  With all auxiliaries, 4,895 of the 4,927 represented values
+have at least one branch; 83,357 tuples (44.25%) can be the designated fixed
+input and 85,333 (45.30%) participate in some branch.  Only 187 value fibres
+have every tuple as a designated fixed input.  With smaller auxiliaries the
+corresponding numbers are 4,813 values, 65,462 tuples (34.75%), 68,218
+participants (36.21%), and 34 all-input fibres.  In particular, neither
+notion holds tuple-by-tuple on every fibre.
+
+Make an undirected graph on \(V^{-1}(P)\) by forgetting a branch's direction.
+Every edge preserves
+
+\[
+                            R=CK.                            \tag{38.12}
+\]
+
+This is an immediate obstruction to transitivity across different
+\(R\)-sheets.  The all-auxiliary graph has 78,601 distinct edges.  Only 18
+of 4,927 fibres are connected, and five of those are singleton fibres; the
+smaller-auxiliary graph has 66,773 edges and only 13 connected fibres (five
+singletons).  Selected complete fibre counts are:
+
+\[
+\begin{array}{r|r|r|rrr|rrr}
+P&\#V^{-1}(P)&\#R&\#\mathrm{comp}&\max&\#\mathrm{iso}
+ &\#\mathrm{comp}_{<}&\max_{<}&\#\mathrm{iso}_{<}\\ \hline
+73&6&2&2&4&0&3&4&2\\
+241&8&4&4&2&0&6&2&4\\
+409&14&6&7&4&2&14&1&14\\
+577&14&7&9&2&4&13&2&12\\
+1753&36&15&20&6&10&21&6&12\\
+1873&18&7&11&6&8&11&6&8\\
+2137&32&13&17&6&8&18&6&10\\
+2161&26&8&10&8&4&12&8&8\\
+3049&22&9&15&4&12&16&4&14\\
+4441&50&19&32&8&26&32&8&26\\
+4993&42&18&27&6&18&27&6&18.
+\end{array}                                                  \tag{38.13}
+\]
+
+Here the subscript \(<\) restricts the auxiliary to smaller value.  Among
+all 76 hard primes through 5,000, every fibre has some bounded-auxiliary
+branch and 75 have a smaller-auxiliary branch; 1,146 of their 1,938 tuples
+can be fixed inputs.  Only 12 hard-prime fibres have every tuple as a fixed
+input.  Under the smaller-source restriction those numbers are 936 tuples
+and two fibres.  **No one of the 76 hard-prime fibre graphs is connected**:
+each has at least two \(R\)-sheets.  Of 144,796 directed nonloop edges,
+132,390 have a reverse edge somewhere in the family (103,990 of 118,768 in
+the smaller-source graph), largely reflecting swap and related
+copied-coordinate branches; this does not overcome (38.12).
+
+These are exact finite graph statements, not evidence that a supplied prime
+has a fibre.  Even a theorem saying every *nonempty* fibre is connected would
+say nothing about fibre nonemptiness.  The actual result is weaker still:
+transitivity is false in the complete tested range, both with bounded and
+with smaller auxiliaries.
+
+### 38.3 Sparse-rational fixed-value hunt and the Type-I scaling family
+
+The unrestricted phrase ``degree-two rational map'' is too large to support
+an honest exhaustive claim without fixing sparsity.  The following search
+box is therefore stated exactly.
+
+**Computational 38.4 (exact sparse-rational box; no nontrivial Type-II
+map).**  For each of \(A',B',C',K'\), the numerator and denominator use one
+or two atoms from
+
+\[
+ A,B,C,K,AB,CK,ABC,BCK,ACK,ABK,ABCK,1.                     \tag{38.14}
+\]
+
+Every retained coefficient is a nonzero integer in \([-3,3]\).  A common
+sign is removed by requiring the denominator's first coefficient to be
+positive.  There are 2,448 numerator polynomials, 1,224 denominator
+polynomials, and hence 2,996,352 syntactic ratios per output coordinate.
+The signature join tests the full Cartesian map box without materializing
+its fourth power.
+
+Every ratio was tested for positive integral output on all 118 complete
+Type-II rows over
+
+\[
+ P\in\{73,241,409,577,1153,2137,2521,3049\}.               \tag{38.15}
+\]
+
+Only two coordinate signatures survive the full tuple join:
+
+\[
+ (A,B,C,K)\mapsto(A,B,C,K),
+ \qquad (A,B,C,K)\mapsto(B,A,C,K).                          \tag{38.16}
+\]
+
+Both reduce identically modulo
+\(4ABCK-A-B-KP=0\); the second is the factor-pair swap already audited in
+§30.3.  Any universal map in the exact box would have passed the finite test,
+so (38.16) exhausts that box.  This does **not** exhaust dense polynomials,
+ratios with three or more atoms, larger coefficients, target-dependent
+partial maps, or arbitrary birational automorphisms.
+
+The analogous exact search on the Type-I side used the same 2,996,352
+ratios per coordinate (with lower-case variables) and all 84 complete rows
+at \(P=73,193,241,673,1129\), whose row counts are \(8,8,10,26,32\).
+Again only identity and \(a\leftrightarrow b\) survive as maps defined on
+every tested row.  There is nevertheless one genuine partial family outside
+the ``defined everywhere'' conclusion.
+
+**Lemma 38.5 (Type-I presentation scaling; proved).**  For every positive
+rational \(t\),
+
+\[
+ S_t(a,b,c,k)=(ta,tb,c/t^2,tk)                              \tag{38.17}
+\]
+
+preserves the fixed value \(P\) in
+\(P(a+b)=k(4abc-1)\).  It also preserves \(ck^2\) and both divisor factors
+\(4ack-P,4bck-P\).  For integral \(t\), it is an integral map on the
+subfamily \(t^2\mid c\), and \(S_{1/t}\) is its inverse on the image.
+
+*Proof.*  Both sides of the Type-I equation acquire the same factor \(t\),
+while
+\((ta)(c/t^2)(tk)=ack\), and similarly for \(b\). ∎
+
+This is exactly the nonprimitive-presentation scaling already implicit in
+the canonical reduction: it leaves the Type-I factor pair unchanged.  It is
+a partial groupoid, not a new action among divisor pairs and not a source of
+new fixed-value solutions.  No matrix action changing the represented norm
+or divisor grade survived the stated search.  General Type-I rational maps
+mixing \((c,k)\), and dense Type-II rational maps, remain unclassified.
+
+### 38.4 The \(k=2\to k=1\) law hunt
+
+A universal conversion is already incompatible with the exact nine-prime
+anatomy: 409, for example, has four \(k=2\) tuples and no \(k=1\) tuple.
+The finite law hunt asks the weaker diagnostic question whether a small
+coordinate recipe works throughout the population where both kinds exist.
+
+**Computational 38.6 (exact \(P<10^5\) feature box; no universal recipe).**
+Among hard primes \(P<10^5\), exactly 1,175 have a \(k=1\) tuple, 1,120 have
+a \(k=2\) tuple, and 1,114 have both.  The latter population contains
+10,624 ordered \(k=2\) source rows.  Every source and every possible
+\(k=1\) target was generated by the complete \(AB\leq P/2\) enumeration.
+
+For each proposed target coordinate \(A',B',C'\), the searched expressions
+are signed sums of one or two features from
+
+\[
+                1,a,b,c,ab,ac,bc,abc,                       \tag{38.18}
+\]
+
+with each nonzero coefficient in \([-3,3]\).  There are exactly
+
+\[
+             8\cdot6+\binom82 6^2=1056                     \tag{38.19}
+\]
+
+expressions.  Requiring one fixed expression to equal the corresponding
+coordinate of *some* \(k=1\) target for every one of the 10,624 sources
+leaves zero candidates for \(A'\), zero for \(B'\), and zero for \(C'\).
+Thus no triple exists in this box.  The default `verify.py (ak)` replays the
+same zero-candidate result on the 34 \(k=2\) rows at the ten both-kind hard
+primes below 1,000; `ES_FULL_SCAN=1` regenerates the full counts above.
+Dense feature combinations, rational expressions, piecewise recipes, and
+recipes selecting a special \(k=2\) row are outside this exact failure log.
+
+A hypothetical genuine map from **every** \(k=2\) tuple to a same-value
+\(k=1\) tuple would imply
+
+\[
+ \{P:\text{no }k=1\text{ tuple}\}
+       \subseteq\{P:\text{no }k=2\text{ tuple}\}.           \tag{38.20}
+\]
+
+It would not establish either set's emptiness.  In particular it would not
+improve Theorem 32.4's \(\exp(-c\sqrt{\log N})\) exceptional-set bound
+without a stronger, presently unavailable bound for \(k=2\)-lessness.  The
+fixed-\(k=2\) condition is another exact moving-divisor condition, not a
+proved easier existence problem.  In reality the universal premise is
+already refuted by the finite \(k=1\)-less examples, so (38.20) is only the
+precise counterfactual implication.
+
+### 38.5 P4 and existence assessment
+
+**Assessment 38.7.**  The fixed-value hunt changes the §30.3 audit in one
+limited way: binary addition has many fixed-value instances, and the
+copied-coordinate maps realize the swap involution with an explicit
+auxiliary.  It does not supply the missing Markoff-like structure.  The
+graph preserves \(CK\), is nontransitive on every tested hard-prime fibre,
+and its only proved everywhere-available inverse is the old coordinate
+swap.  The original 2,137 edge is not invertible.  Type-I scaling merely
+changes a nonprimitive presentation, while the multiplier-conversion search
+is negative and a universal conversion is finitely impossible.
+
+Most importantly, every construction starts with a tuple on the target
+fibre.  Inverting a branch at that tuple is witness decomposition, not
+witness existence (§23's circularity register).  None takes a bare prime
+\(P\), a mixed valuation shape over \(P^2\), or an induction-supplied
+solution at a smaller denominator and produces the first tuple over \(P\).
+Consequently the P4 ``cleverer transfer'' slot of §17.7 remains open, with no
+new candidate from this wave; no Erdős--Straus proof results.
+
+**Verification companion.**  `verify.py (ak)` regenerates (38.10)--(38.13)
+without a source Cartesian product, checks every finite branch against
+(38.3)--(38.4), replays (38.7), verifies the swap construction and directed
+inverse counts, checks the Type-I scaling example and the coordinate-ring
+identity/swap, and reruns the bounded \(k=2\to k=1\) feature search.

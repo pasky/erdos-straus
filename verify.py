@@ -6058,4 +6058,348 @@ def check_aj():
 print("\n== (aj) Unit Y two-level hypergraph minorant (§37) ==")
 check_aj()
 
+
+# ---------------------------------------------------------------- (ak)
+def check_ak():
+    """Section 38: fixed-value binary maps and the k=2 -> k=1 hunt."""
+    import os
+    from collections import defaultdict
+    from functools import lru_cache
+    from math import isqrt
+    from sympy import expand, symbols
+
+    V0 = 5000
+
+    @lru_cache(None)
+    def divs(n):
+        values = [1]
+        for r, e in factorint(n).items():
+            values = [d * r**j for d in values for j in range(e + 1)]
+        return tuple(sorted(values))
+
+    def value(row):
+        a, b, c, k = row
+        assert min(row) >= 1 and (a + b) % k == 0
+        p = 4 * a * b * c - (a + b) // k
+        assert p >= 2
+        return p
+
+    # Enumerate the whole finite box by AB <= V0/2.  Source indices retain
+    # only rows in the same box; no source-pair Cartesian product is formed.
+    by_value = defaultdict(list)
+    by_vr = defaultdict(list)
+    aux_pair = defaultdict(list)
+    for a in range(1, V0 // 2 + 1):
+        for b in range(1, V0 // (2 * a) + 1):
+            den = 4 * a * b
+            for k in divs(a + b):
+                q = (a + b) // k
+                c0 = max(1, (q + 2 + den - 1) // den)
+                c1 = (V0 + q) // den
+                for c in range(c0, c1 + 1):
+                    p = den * c - q
+                    row = (a, b, c, k)
+                    assert value(row) == p
+                    R = c * k
+                    by_value[p].append(row)
+                    by_vr[(p, R)].append(row)
+                    aux_pair[(R, a, b)].append((row, p))
+
+    assert len(by_value) == 4927
+    assert sum(map(len, by_value.values())) == 188374
+
+    adj = defaultdict(set)
+    adj_small = defaultdict(set)
+    outgoing, participating = set(), set()
+    outgoing_small, participating_small = set(), set()
+    moving_values, moving_values_small = set(), set()
+    directed, directed_small = set(), set()
+    branch_counts = Counter()
+    branch_counts_small = Counter()
+
+    def add_branches(p, fixed, out, others, kind, law_check):
+        if not others:
+            return
+        moving_values.add(p)
+        outgoing.add(fixed)
+        participating.update((fixed, out))
+        if fixed != out:
+            adj[(p, fixed)].add(out)
+            adj[(p, out)].add(fixed)
+            directed.add((p, fixed, out))
+        branch_counts[kind] += len(others)
+        small = []
+        for other, other_p in others:
+            assert value(other) == other_p
+            law_check(other, other_p)
+            if other_p < p:
+                small.append((other, other_p))
+        if small:
+            moving_values_small.add(p)
+            outgoing_small.add(fixed)
+            participating_small.update((fixed, out))
+            if fixed != out:
+                adj_small[(p, fixed)].add(out)
+                adj_small[(p, out)].add(fixed)
+                directed_small.add((p, fixed, out))
+            branch_counts_small[kind] += len(small)
+
+    for (p, R), fibre in by_vr.items():
+        g = 4 * R
+        for fixed in fibre:
+            a, b, c, k = fixed
+            assert c * k == R
+            # The copied-coordinate maps cannot preserve their first input:
+            # D=ga-1 and E=gb-1 are coprime to kP and exceed every possible
+            # positive difference of two readings of R.
+            D, E = g * a - 1, g * b - 1
+            assert D * E == 1 + g * k * p
+            assert gcd(D, k * p) == gcd(E, k * p) == 1
+            assert D > R and E > R
+
+            for out in fibre:
+                A, B, C, j = out
+                assert C * j == R
+
+                # Preserve the first input under Phi_{++}.  The other two
+                # first-input equations have no solutions by the check above.
+                if A > a and B > b:
+                    others = aux_pair.get((R, A - a, B - b), ())
+
+                    def check_pp(other, other_p, A=A, B=B, j=j):
+                        u, v, cc, ell = other
+                        assert (A, B) == (a + u, b + v)
+                        assert (j - k) * p == (ell * other_p
+                                               + g * (a * v + u * b))
+                        assert value((A, B, R // j, j)) == p
+
+                    add_branches(p, fixed, out, others, "++", check_pp)
+
+                # Preserve the second input of a copied-coordinate map.  The
+                # auxiliary first source is recovered exactly from the output.
+                if B > b:
+                    others = aux_pair.get((R, A, B - b), ())
+
+                    def check_1p(other, other_p, A=A, B=B, j=j):
+                        x, y, cc, h = other
+                        assert (A, B) == (x, y + b)
+                        assert j * p == h * other_p + b * (g * x - 1)
+
+                    add_branches(p, fixed, out, others, "1+@2", check_1p)
+                if A > a:
+                    others = aux_pair.get((R, A - a, B), ())
+
+                    def check_p1(other, other_p, A=A, B=B, j=j):
+                        x, y, cc, h = other
+                        assert (A, B) == (x + a, y)
+                        assert j * p == h * other_p + a * (g * y - 1)
+
+                    add_branches(p, fixed, out, others, "+1@2", check_p1)
+
+    assert branch_counts == {
+        "++": 3822, "1+@2": 100042, "+1@2": 100042,
+    }
+    assert branch_counts_small == {
+        "++": 3076, "1+@2": 78067, "+1@2": 78067,
+    }
+    assert (len(moving_values), len(outgoing), len(participating)) == (
+        4895, 83357, 85333)
+    assert (len(moving_values_small), len(outgoing_small),
+            len(participating_small)) == (4813, 65462, 68218)
+    assert sum(len(v) for v in adj.values()) // 2 == 78601
+    assert sum(len(v) for v in adj_small.values()) // 2 == 66773
+
+    def component_sizes(p, graph):
+        seen, sizes = set(), []
+        for start in by_value[p]:
+            if start in seen:
+                continue
+            stack, size = [start], 0
+            seen.add(start)
+            while stack:
+                row = stack.pop()
+                size += 1
+                for nxt in graph.get((p, row), ()):
+                    if nxt not in seen:
+                        seen.add(nxt)
+                        stack.append(nxt)
+            sizes.append(size)
+        return sorted(sizes, reverse=True)
+
+    selected = {
+        # P: (#rows, #R, #components, max, isolated; smaller-source analog)
+        73: (6, 2, 2, 4, 0, 3, 4, 2),
+        241: (8, 4, 4, 2, 0, 6, 2, 4),
+        409: (14, 6, 7, 4, 2, 14, 1, 14),
+        577: (14, 7, 9, 2, 4, 13, 2, 12),
+        1753: (36, 15, 20, 6, 10, 21, 6, 12),
+        1873: (18, 7, 11, 6, 8, 11, 6, 8),
+        2137: (32, 13, 17, 6, 8, 18, 6, 10),
+        2161: (26, 8, 10, 8, 4, 12, 8, 8),
+        3049: (22, 9, 15, 4, 12, 16, 4, 14),
+        4441: (50, 19, 32, 8, 26, 32, 8, 26),
+        4993: (42, 18, 27, 6, 18, 27, 6, 18),
+    }
+    for p, wanted in selected.items():
+        cs, css = component_sizes(p, adj), component_sizes(p, adj_small)
+        got = (len(by_value[p]),
+               len({c * k for a, b, c, k in by_value[p]}),
+               len(cs), max(cs), cs.count(1),
+               len(css), max(css), css.count(1))
+        assert got == wanted
+
+    hard = [p for p in primerange(2, V0 + 1) if p % 24 == 1]
+    assert len(hard) == 76
+    assert sum(len(by_value[p]) for p in hard) == 1938
+    assert sum(p in moving_values for p in hard) == 76
+    assert sum(p in moving_values_small for p in hard) == 75
+    assert not any(len(component_sizes(p, adj)) == 1 for p in hard)
+    assert (sum(row in outgoing for p in hard for row in by_value[p]),
+            sum(row in participating for p in hard for row in by_value[p]),
+            sum(row in outgoing_small for p in hard for row in by_value[p]),
+            sum(row in participating_small for p in hard for row in by_value[p])) == (
+                1146, 1176, 936, 974)
+
+    # The 2137 branch and its lack of a direct reverse branch.
+    x = (2, 69, 4, 1)
+    y = (1, 22, 4, 1)
+    z = (3, 91, 2, 2)
+    assert (value(x), value(y), value(z)) == (2137, 329, 2137)
+    assert (2137, x, z) in directed and (2137, z, x) not in directed
+
+    # Inverses do occur: every unequal tuple has an auxiliary K=1 source
+    # realizing coordinate swap, and the swapped construction reverses it.
+    for fixed in by_value[2137]:
+        u, v, c, k = fixed
+        if u == v:
+            continue
+        R = c * k
+        if u > v:
+            other = (v, u - v, R, 1)
+            swapped = (v, u, c, k)       # Phi_{1+}(other,fixed)
+        else:
+            other = (v - u, u, R, 1)
+            swapped = (v, u, c, k)       # Phi_{+1}(other,fixed)
+        assert value(other) >= 2 and value(swapped) == value(fixed)
+    assert (len(directed),
+            sum((p, z0, x0) in directed for p, x0, z0 in directed),
+            len(directed_small),
+            sum((p, z0, x0) in directed_small
+                for p, x0, z0 in directed_small)) == (
+                144796, 132390, 118768, 103990)
+
+    # Coordinate-ring replay for the only sparse-rational maps surviving the
+    # §38 search: identity and A<->B.
+    A, B, C, K, P = symbols("A B C K P")
+    relation = 4 * A * B * C * K - A - B - K * P
+    assert expand(relation) == expand(
+        4 * B * A * C * K - B - A - K * P)
+
+    # Type-I's genuine partial fixed-value scaling preserves both the equation
+    # and its divisor factors; it only changes a nonprimitive presentation.
+    type_i = (1, 1, 4, 2)
+    scaled = (2, 2, 1, 4)
+    p_i = 15
+    for a, b, c, k in (type_i, scaled):
+        assert p_i * (a + b) == k * (4 * a * b * c - 1)
+    assert tuple(4 * a * type_i[2] * type_i[3] - p_i
+                 for a in type_i[:2]) == tuple(
+        4 * a * scaled[2] * scaled[3] - p_i for a in scaled[:2])
+
+    # k=2 -> k=1 feature hunt.  Default replays the first finite range;
+    # ES_FULL_SCAN=1 reruns the exact P<10^5 research census.
+    def rows_with_k(p, wanted_k):
+        rows = []
+        for a in range(1, isqrt(p // 2) + 1):
+            for b in range(a, p // (2 * a) + 1):
+                c = p // (4 * a * b) + 1
+                q = 4 * a * b * c - p
+                if (a + b) % q:
+                    continue
+                k = (a + b) // q
+                if k == wanted_k:
+                    rows.append((a, b, c, k))
+                    if a != b:
+                        rows.append((b, a, c, k))
+        return rows
+
+    full = os.environ.get("ES_FULL_SCAN") == "1"
+    bound = 100_000 if full else 1_000
+    cases = []
+    k1_count = k2_count = both_count = 0
+    for p in primerange(2, bound):
+        if p % 24 != 1:
+            continue
+        k1_rows = rows_with_k(p, 1)
+        k2_rows = rows_with_k(p, 2)
+        k1_count += bool(k1_rows)
+        k2_count += bool(k2_rows)
+        both_count += bool(k1_rows and k2_rows)
+        if k1_rows and k2_rows:
+            cases.extend((p, row, tuple(k1_rows)) for row in k2_rows)
+
+    expected = ((1175, 1120, 1114, 10624) if full
+                else (12, 12, 10, 34))
+    assert (k1_count, k2_count, both_count, len(cases)) == expected
+
+    def features(row):
+        a, b, c, k = row
+        return (1, a, b, c, a * b, a * c, b * c, a * b * c)
+
+    # Every affine/bilinear expression has one or two of these eight features,
+    # each nonzero coefficient in [-3,3]: 48 + C(8,2)*36 = 1056.
+    polynomials = []
+    for i in range(8):
+        polynomials.extend(((i, coefficient),)
+                           for coefficient in range(-3, 4) if coefficient)
+    for i in range(8):
+        for j in range(i + 1, 8):
+            for ci in range(-3, 4):
+                if not ci:
+                    continue
+                for cj in range(-3, 4):
+                    if cj:
+                        polynomials.append(((i, ci), (j, cj)))
+    assert len(polynomials) == 1056
+
+    feature_rows = [features(row) for p, row, targets in cases]
+    target_sets = [
+        [{target[j] for target in targets} for p, row, targets in cases]
+        for j in range(3)
+    ]
+    compatible = [0, 0, 0]
+    for polynomial in polynomials:
+        alive = [True, True, True]
+        for n, feature_row in enumerate(feature_rows):
+            output = sum(coefficient * feature_row[i]
+                         for i, coefficient in polynomial)
+            if output <= 0:
+                alive = [False, False, False]
+                break
+            for j in range(3):
+                if alive[j] and output not in target_sets[j][n]:
+                    alive[j] = False
+            if not any(alive):
+                break
+        for j in range(3):
+            compatible[j] += alive[j]
+    assert compatible == [0, 0, 0]
+
+    print("fixed-value V<=5000: tuples/branches/smaller branches =",
+          (188374, sum(branch_counts.values()),
+           sum(branch_counts_small.values())),
+          "; graph edges/components at P=2137 =",
+          (78601, len(component_sizes(2137, adj))))
+    print("hard fibres <=5000: moves/smaller-source moves/connected =",
+          (76, 75, 0), "; reversible directed edges =",
+          (132390, 103990))
+    print("k=2->k=1 two-feature box: bound/counts/candidates =",
+          (bound, expected, len(polynomials)), "; universal coordinate hits =",
+          compatible)
+
+
+print("\n== (ak) fixed-value actions and k=2 -> k=1 hunt (§38) ==")
+check_ak()
+
+
 print("\nall checks passed")
