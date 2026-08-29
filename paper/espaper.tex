@@ -1,0 +1,1029 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\Rcal}{\mathscr R}
+\newcommand{\Av}{\operatorname {Av}}
+\newcommand{\rad}{\operatorname {rad}}
+\newcommand{\li}{\operatorname {li}}
+\newcommand{\lcm}{\operatorname {lcm}}
+\newcommand{\e}{\mathrm e}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\PF}{H_{\mathrm{PF}}}
+\newcommand{\PFp}{H_{\mathrm{PF}}'}
+
+% TODO(submission): replace anonymous author metadata after authorship is settled.
+\title[The complete intrinsic congruence system]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure, density bounds, and the refutation of the cubic-mass sieve hypothesis}
+\author{Anonymous}
+\date{Draft, August 2026}
+
+\begin{document}
+\begin{abstract}
+For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
+\[
+ \Rcal(M)=\{-4D\pmod M:D\mid A^2\}.
+\]
+We prove this description with honest deduplication and show that its total class mass through $X$ is of exact order $(\log X)^3$.  The prime-modulus subsystem behaves differently: its mass is $\Theta((\log X)^2)$ and its avoider density is $\exp\{-\Theta((\log X)^2)\}$, with matching finite-interval bounds.  Every square avoids the full intrinsic system, since every intrinsic unit class has Jacobi symbol $-1$.
+
+The central result concerns a proposed partition-free sieve hypothesis $\PF$.  A weighted rough-modulus estimate and the Lov\'asz local lemma give the full-system natural-density lower bound
+\[
+ \delta_X\geq\exp\!\left\{-O\!\left(\frac{(\log X)^3\log\log\log X}{\log\log X}\right)\right\}
+       =\exp\{-o((\log X)^3)\}.
+\]
+This contradicts the literal quantifiers of $\PF$, whose majorant would force $\delta_X\leq\exp\{-c(\log X)^3\}$ on arbitrarily long complete-period intervals.  The refutation does not apply to the critical-window variant $\PFp$, where $\log N\asymp(\log X)^4$.  We give exact transfer criteria for that window, prove that the prime half transfers, and isolate the remaining composite-modulus problem as a residue-resolved factorial-moment bound.  Claimed record bounds and the pruned cubic prime-slice theorem are recorded separately and remain explicitly \textsc{provisional} pending external priority and referee checks.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction and statement map}
+The Erd\H{o}s--Straus conjecture asks whether, for every integer $n\geq2$, there are positive integers $x,y,z$ such that
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1x+\frac1y+\frac1z.
+\end{equation}
+It remains open.  The solution parametrizations and average counts of Elsholtz--Tao \cite{ElsholtzTao}, the divisor criterion presented by Bloom--Elsholtz \cite{BloomElsholtz}, and the exceptional-set argument reconstructed by Pomerance--Weingartner \cite{PomeranceWeingartner} form the nearest literature context.  Yamamoto's reciprocity analysis \cite{Yamamoto}, Salez's computation \cite{Salez}, and the later counting work of Elsholtz--Planitzer \cite{ElsholtzPlanitzer} provide additional context; none is used to promote a conditional or provisional statement below.
+
+The paper has four layers.
+\begin{enumerate}[leftmargin=*,label=(\roman*)]
+\item Section~\ref{sec:criterion} derives a complete two-case divisor criterion for prime denominators and the identity families that lead to the intrinsic congruence system.
+\item Sections~\ref{sec:intrinsic}--\ref{sec:prime} determine that system exactly.  The distinct-modulus class mass is cubic, while the full prime slice and its avoidance exponent are quadratic.  Squares survive every modulus, and a multi-shift certificate gives a subcubic-cost lower bound for a growing part of the composite system.
+\item Sections~\ref{sec:hpf}--\ref{sec:refutation} state the literal cubic-mass majorant hypothesis $\PF$, prove its formerly desired conditional consequence, and then refute the hypothesis with all quantifiers visible.  The analytic inputs are upper mean-value estimates of Nair--Tenenbaum \cite{NairTenenbaum} and Henriot \cite{Henriot}; Shiu's theorem \cite{Shiu} is used in the prime-harvesting arguments.
+\item Section~\ref{sec:window} separates the refuted all-range hypothesis from the open critical-window variant.  Cylinder and tensor obstructions are proved, a corrected residue-set transfer lemma is given, and the composite continuation is reduced to one factorial-moment estimate and its residue-dispersion frontier.  Scott--Sokal's partition-function correspondence \cite{ScottSokal} does not itself provide the required pointwise minorant.
+\end{enumerate}
+
+Labels are part of the assertions.  ``Proved'' means proved in this draft.  ``Open'' means no proof is claimed.  The results in Section~\ref{sec:records} are reproduced from the campaign record but remain \textsc{claimed/provisional}: writing out their internal arguments does not replace independent priority and referee checks.  In particular, no result of this paper proves the Erd\H{o}s--Straus conjecture.
+
+\section{Notation and elementary tools}\label{sec:notation}
+All logarithms are natural.  We write $\tau_k(n)$ for the ordered $k$-fold divisor function, $\tau=\tau_2$, $\omega(n)$ for the number of distinct prime factors, $P^-(n)$ for the least prime factor, and $\varphi$ for Euler's function.  Constants implicit in $O,\ll,\asymp$ are absolute unless a subscript says otherwise.
+
+For $X\geq3$, put $L=\log X$.  Once the intrinsic sets have been defined, their full avoider set is
+\begin{equation}\label{eq:Av-def}
+ \Av_X(N)=\{n\leq N:n\bmod M\notin\Rcal(M)
+       \text{ for every }M\leq X,\ M\equiv3\pmod4\}.
+\end{equation}
+For fixed $X$ this predicate is periodic, so its natural density $\delta_X$ exists.  The superscript ``prime'' restricts the moduli to primes $\ell\equiv3\pmod4$.
+
+We use three standard inputs: Bombieri--Vinogradov in a fixed power-saving form, Brun--Titchmarsh, and the quantitative Lov\'asz local lemma.  The latter says that events $A$ with a dependency graph have positive joint avoidance probability at least $\prod_A(1-x_A)$ if
+\[
+ \Pr(A)\leq x_A\prod_{B\sim A}(1-x_B),\qquad 0\leq x_A<1.
+\]
+The product-space form and its relation to the independent-set polynomial are discussed in \cite{ScottSokal}.
+
+\section{Criterion and identity families}\label{sec:criterion}
+
+\subsection{A two-term lemma and the complete prime criterion}
+\begin{lemma}[two-term criterion]\label{lem:two-term}
+Let $(a,b)=1$.  The equation $a/b=1/y+1/z$ has a solution in positive integers if and only if $b^2$ has a divisor $d\equiv-b\pmod a$.  Its solutions are
+\[
+ y=\frac{b+d}{a},\qquad z=\frac{b+b^2/d}{a}.
+\]
+\end{lemma}
+\begin{proof}
+If $d\mid b^2$ and $d\equiv-b\pmod a$, then $d'=b^2/d$ also satisfies $d'\equiv-b\pmod a$, since $b$ is invertible modulo $a$.  The displayed $y,z$ are integral and
+\[
+ (d+b)(d'+b)=b(d+d'+2b),
+\]
+which gives $1/y+1/z=a/b$.  Conversely, from $ayz=b(y+z)$ put $d=ay-b$ and $d'=az-b$.  Positivity follows from $1/y<a/b$ and $1/z<a/b$, and
+$dd'=a^2yz-ab(y+z)+b^2=b^2$.  Thus $d\mid b^2$ and $d\equiv-b\pmod a$.
+\end{proof}
+
+If $p$ is an odd prime in a solution of \eqref{eq:ES}, at least one denominator is divisible by $p$, because $4xyz=p(xy+yz+zx)$, and not all three are, since after division their reciprocal sum would be at most $3$.  Thus exactly one or exactly two denominators are divisible by $p$.
+
+\begin{theorem}[complete divisor criterion]\label{thm:criterion}
+Let $p$ be an odd prime.  Equation \eqref{eq:ES} is soluble if and only if at least one of the following holds.
+\begin{description}[leftmargin=2.4em,style=nextline]
+\item[(B)] There is $q>0$ with $q\equiv-p\pmod4$ and a divisor $d\mid x_0^2$, where $x_0=(p+q)/4$, such that $q\mid d+x_0$.
+\item[(A)] There is $m>0$ with $m\equiv3p\pmod4$ and a divisor $d\mid z_0^2$, where $z_0=(pm+1)/4$, such that $m\mid d+z_0$.
+\end{description}
+The corresponding solutions are respectively
+\[
+ \left(x_0,\frac{p(x_0+d)}q,\frac{p(x_0+x_0^2/d)}q\right),
+ \qquad
+ \left(\frac{z_0+d}m,\frac{z_0+z_0^2/d}m,pz_0\right).
+\]
+\end{theorem}
+\begin{proof}
+If two denominators are divisible by $p$, write them $py',pz'$.  Then
+\[
+ \frac4p-\frac1{x_0}=\frac1p\left(\frac1{y'}+\frac1{z'}\right),
+ \qquad q:=4x_0-p>0,
+\]
+so $q/x_0=1/y'+1/z'$.  Also $(q,x_0)=(p,x_0)=1$, since $p\mid x_0$ would put $p$ in all three denominators.  Lemma~\ref{lem:two-term} gives (B), both formulas, and the converse.
+
+If exactly one denominator is divisible by $p$, call it $pz_0$.  The equation becomes
+\[
+ xy(4z_0-1)=pz_0(x+y).
+\]
+Since $p\nmid xy$, write $4z_0-1=pm$.  Then $m/z_0=1/x+1/y$ and $(m,z_0)=1$.  Lemma~\ref{lem:two-term} gives (A), while $m\equiv3p\pmod4$ is exactly the integrality condition for $z_0$.  Reversing the calculation proves the converse.
+\end{proof}
+This is an independent derivation of the criterion whose shape agrees with Theorem~1 of Bloom--Elsholtz \cite{BloomElsholtz}.
+
+\subsection{Forced identities}
+For $D=\prod r^{e_r}$ define
+\begin{equation}\label{eq:R0}
+ R_0(D)=\prod_r r^{\lceil e_r/2\rceil}.
+\end{equation}
+Thus $R_0(D)$ is the least positive integer $R$ for which $R\mid x$ forces $D\mid x^2$.
+
+Fix $q,d$ in case (B) and an $R$ divisible by $R_0(d)$.  The simultaneous conditions
+\[
+ x_0\equiv0\pmod R,\qquad x_0\equiv-d\pmod q,
+ \qquad p=4x_0-q
+\]
+form, when consistent, one progression modulo $4\lcm(R,q)$, and every member is represented by Theorem~\ref{thm:criterion}.  The case-(A) construction is identical with $m$ in place of $q$.  Two classical-looking forms are also immediate.
+
+\begin{proposition}[elementary identity families]\label{prop:families}
+For positive integers $g,u,v$,
+\[
+ p=4guv-u-v\quad\Longrightarrow\quad
+ \frac4p=\frac1{guv}+\frac1{pgu}+\frac1{pgv}.
+\]
+For $j\geq1$, the choice $q=(x_0+1)/j$ and $d=1$ in case (B) gives
+\[
+ jp=(4j-1)x_0-1,
+\]
+and hence covers exactly the class $p\equiv-4\pmod{4j-1}$.
+\end{proposition}
+\begin{proof}
+The first right side has common denominator $pguv$ and numerator $p+u+v=4guv$.  For the second, substitute $q=(x_0+1)/j$ into $p=4x_0-q$.  Since $4j\equiv1\pmod{4j-1}$, integrality is equivalent to $p\equiv-4\pmod{4j-1}$; then $q\mid x_0+1=d+x_0$ and Theorem~\ref{thm:criterion} applies.
+\end{proof}
+
+The identity from which the complete intrinsic system arises is the following multiplier form.
+\begin{lemma}[intrinsic multiplier identity]\label{lem:multiplier}
+Let $M\equiv3\pmod4$, $A=(M+1)/4$, and $A=uvw$.  If $nv\equiv-u\pmod M$ and $s=(nv+u)/M$, then
+\begin{equation}\label{eq:mult-id}
+ \frac4n=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}.
+\end{equation}
+In particular $n\equiv-uv^{-1}\pmod M$ is a forced-solubility class.
+\end{lemma}
+\begin{proof}
+Since $(A,M)=1$, the factor $v$ is invertible modulo $M$, and $s$ is a positive integer.  On the common denominator $nsuvw$, the numerator on the right is
+$nv+u+s=sM+s=s(M+1)=4suvw$.
+\end{proof}
+
+\section{The complete intrinsic system}\label{sec:intrinsic}
+For $M\equiv3\pmod4$, define
+\[
+ \Rcal(M)=\{-uv^{-1}\pmod M:uvw=(M+1)/4\},
+ \qquad F(M)=|\Rcal(M)|.
+\]
+``Complete'' always means complete for the multiplier identity of Lemma~\ref{lem:multiplier}; it does not assert that all possible representations of \eqref{eq:ES} arise from one fixed $M$.
+
+\begin{lemma}[exact structure and deduplication]\label{lem:exact-R}
+Put $A=(M+1)/4$.  Then
+\begin{equation}\label{eq:exact-R}
+ \Rcal(M)=\{-4D\pmod M:D\mid A^2\},
+ \qquad \frac{\tau(A^2)-1}{2}\leq F(M)\leq\tau(A^2).
+\end{equation}
+The lower-bound classes may be taken from the divisors $D<A$, and they are pairwise distinct.
+\end{lemma}
+\begin{proof}
+A factorization $A=uvw$ gives $D=u^2w\mid A^2$, and $4A\equiv1\pmod M$ gives
+\[
+ -uv^{-1}\equiv-u^2wA^{-1}\equiv-4u^2w=-4D\pmod M.
+\]
+Conversely, write $A=\prod p^{e_p}$ and $D=\prod p^{d_p}$ with $0\leq d_p\leq2e_p$.  Set
+\[
+ v_p(u)=\lfloor d_p/2\rfloor,\quad
+ v_p(w)=d_p-2\lfloor d_p/2\rfloor,\quad
+ v_p(v)=e_p-v_p(u)-v_p(w).
+\]
+The last number is nonnegative; hence $uvw=A$ and $u^2w=D$.  This proves the set identity and upper bound.  The involution $D\mapsto A^2/D$ has unique fixed point $A$, so exactly $(\tau(A^2)-1)/2$ divisors have $D<A$.  For them $0<4D<M$, making the residues $-4D$ distinct.
+\end{proof}
+The set depends on $M$, not on a factorization $M=k\ell$.  Thus a sum over pairs $(k,\ell)$ must be quotiented by their product before it represents distinct intrinsic moduli.
+
+\begin{theorem}[exact cubic supply]\label{thm:cubic}
+As $Q\to\infty$,
+\begin{equation}\label{eq:cubic}
+ \sum_{\substack{M\leq Q\\M\equiv3\ (4)}}\frac{F(M)}M\asymp(\log Q)^3.
+\end{equation}
+More precisely,
+\[
+ \left(\frac1{48\zeta(2)}+o(1)\right)(\log Q)^3
+ \leq\sum_{\substack{M\leq Q\\M\equiv3\ (4)}}\frac{F(M)}M
+ \leq\left(\frac1{24\zeta(2)}+o(1)\right)(\log Q)^3.
+\]
+\end{theorem}
+\begin{proof}
+At each prime,
+\[
+ \sum_{e\geq0}(2e+1)z^e=\frac{1-z^2}{(1-z)^3},
+\]
+so
+\[
+ \sum_{n\geq1}\frac{\tau(n^2)}{n^s}=\frac{\zeta(s)^3}{\zeta(2s)},
+ \qquad
+ \tau(n^2)=\sum_{d^2\mid n}\mu(d)\tau_3(n/d^2).
+\]
+The elementary three-dimensional hyperbola argument gives
+\[
+ \sum_{m\leq x}\tau_3(m)=\tfrac12x(\log x)^2+O(x\log x).
+\]
+Substitution in the coefficient identity, using absolute convergence of the $d^{-2}$ sum, yields
+\[
+ \sum_{n\leq x}\tau(n^2)=\frac{x(\log x)^2}{2\zeta(2)}+O(x\log x).
+\]
+Partial summation gives
+\begin{equation}\label{eq:tau-harmonic}
+ \sum_{n\leq x}\frac{\tau(n^2)}n
+ =\frac{(\log x)^3}{6\zeta(2)}+O((\log x)^2).
+\end{equation}
+Write $M=4A-1$.  Since $(4A-1)^{-1}=(4A)^{-1}+O(A^{-2})$ and $\tau(A^2)\ll_\eps A^\eps$, replacing the denominator costs $O(1)$.  Apply the two halves of Lemma~\ref{lem:exact-R} in \eqref{eq:tau-harmonic}; the subtracted $1$ in the lower bound costs only $O(\log Q)$.
+\end{proof}
+
+A mass-only Rankin sieve with auxiliary scale $X=\e^t$, class mass $O(t^B)$, and product-tail budget $t^{B+1}\ll\log N$ can save at most $O((\log N)^{B/(B+1)})$.  Thus the intrinsic supply has the formal ceiling $3/4$.  This is only a ceiling inside that mass/product-tail model; it is not a nonexistence theorem for other uses of the class geometry.
+
+\subsection{Shifted-divisor form}
+\begin{lemma}[exact reorganization]\label{lem:shifted}
+For $A=(M+1)/4$,
+\[
+ D\mid A^2\Longleftrightarrow R_0(D)\mid A
+ \Longleftrightarrow M\equiv-1\pmod{4R_0(D)}.
+\]
+Consequently $n\notin\Av_X$ if and only if there are $D,M\geq1$ such that
+\begin{equation}\label{eq:shifted}
+ M\mid n+4D,\qquad M\leq X,\qquad
+ M\equiv-1\pmod{4R_0(D)}.
+\end{equation}
+If $R=\prod p^{a_p}$, then
+\begin{equation}\label{eq:fibers}
+ R_0(D)=R\Longleftrightarrow D=R^2/s
+ \quad\text{for some }s\mid\rad(R).
+\end{equation}
+\end{lemma}
+\begin{proof}
+At a prime, $D\mid A^2$ says $e_p(D)\leq2v_p(A)$, exactly the assertion $\lceil e_p(D)/2\rceil\leq v_p(A)$.  This proves the first line.  Lemma~\ref{lem:exact-R} changes $n\equiv-4D\pmod M$ into \eqref{eq:shifted}, in both directions.  Finally, if $v_p(R)=a$, the condition $\lceil v_p(D)/2\rceil=a$ allows $v_p(D)=2a$ or $2a-1$, independently at each $p\mid R$, which is \eqref{eq:fibers}.
+\end{proof}
+The congruence in \eqref{eq:shifted} implies $R_0(D)\leq(X+1)/4$ and hence $D\leq(X+1)^2/16$; no $D$-tail is omitted.
+
+\section{Squares and the prime slice}\label{sec:prime}
+
+\subsection{The square-class phenomenon}
+\begin{lemma}[quadratic sign]\label{lem:jacobi}
+If $M=4A-1$ and $D\mid A^2$, then
+\[
+ \left(\frac DM\right)=1,
+ \qquad
+ \left(\frac{-4D}M\right)=-1.
+\]
+Thus every unit class in $\Rcal(M)$ has Jacobi sign $-1$.  Every $n$ with $(n/M)\in\{0,1\}$ avoids $\Rcal(M)$; in particular, every perfect square avoids the complete intrinsic system for every $X$.
+\end{lemma}
+\begin{proof}
+For an odd prime $p\mid A$, quadratic reciprocity and $M\equiv-1\pmod p$, $M\equiv3\pmod4$ give
+\[
+ \left(\frac pM\right)=\left(\frac Mp\right)
+ (-1)^{(p-1)(M-1)/4}
+ =\left(\frac{-1}p\right)(-1)^{(p-1)/2}=1.
+\]
+If $2\mid A$, then $M\equiv7\pmod8$ and $(2/M)=1$.  Multiplicativity gives $(D/M)=1$.  Since $(-1/M)=-1$ and $(4/M)=1$, the second identity follows.  Also $(A,M)=1$, so all intrinsic classes are units.
+\end{proof}
+In particular $|\Av_X(N)|\geq\lfloor\sqrt N\rfloor$.  Unit squares modulo the odd period
+$P_X=\lcm\{M\leq X:M\equiv3\pmod4\}$ also give
+\[
+ \delta_X\geq\frac{\varphi(P_X)}{2^{\omega(P_X)}P_X}
+ \geq\exp\{-O(X/\log X)\}.
+\]
+These bounds are too small to test a cubic exponent when $\log N\asymp L^4$.
+
+\subsection{Harvesting prime classes}
+We record the fixed-multiplier harvesting input in a self-contained form.
+\begin{lemma}[prime harvest]\label{lem:prime-harvest}
+For primes $\ell\equiv3\pmod4$, there are subsets $\mathcal C_\ell\subseteq\Rcal(\ell)$ such that
+\begin{equation}\label{eq:harvest}
+ \sum_{X^{1/2}<\ell\leq X}\frac{|\mathcal C_\ell|}{\ell}\asymp L^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+In a dyadic interval $x<\ell\leq2x$, put $z=x^{1/6}$ and take coprime $u,v\leq z$ with $\omega(uv)\leq D\log\log X$.  The progression
+$\ell\equiv-1\pmod{4uv}$ makes $uv\mid(\ell+1)/4$, so Lemma~\ref{lem:multiplier} supplies the residue $-uv^{-1}\pmod\ell$.  Distinct reduced pairs give distinct residues: a collision implies
+$\ell\mid uv'-u'v$, while $|uv'-u'v|<\ell^{2/3}<\ell$, and hence $u/v=u'/v'$.
+
+The elementary harmonic estimates
+\[
+ \sum_{\substack{u,v\leq z\\(u,v)=1}}\frac1{uv}\asymp(\log z)^2,
+ \qquad
+ \sum_{u,v\leq z}\frac1{\varphi(u)\varphi(v)}\ll(\log z)^2
+\]
+follow respectively by M\"obius inversion and from $\sum_{n\leq z}1/\varphi(n)\ll\log z$.  Moreover, for fixed $1<t<2$,
+\[
+ \sum_{u,v\leq z}\frac{t^{\omega(u)+\omega(v)}}{uv}
+ \ll_t(\log z)^{2t}.
+\]
+Rankin's inequality therefore shows that a fixed $D$ leaves a positive proportion of the first harmonic sum.  A modulus $4uv$ is then generated at most $2^{\omega(uv)}\leq(\log X)^{D\log2}$ times.  Bombieri--Vinogradov applies since $4uv\leq4x^{1/3}$ and absorbs this fixed logarithmic multiplicity.  It gives $\gg x\log x$ retained prime incidences in the block; division by $\ell\asymp x$ gives $\gg\log x$.  There are $\asymp L$ dyadic blocks between $X^{1/2}$ and $X$, proving the lower bound in \eqref{eq:harvest}.  Brun--Titchmarsh and the second harmonic estimate give $O(x\log x)$ incidences per block and hence the matching upper bound.
+\end{proof}
+
+\begin{lemma}[full prime mass]\label{lem:prime-mass}
+There are $c,C>0$ such that
+\begin{equation}\label{eq:prime-mass}
+ cL^2\leq\sum_{\substack{\ell\leq X\\\ell\equiv3\ (4)}}\frac{F(\ell)}\ell\leq CL^2,
+\end{equation}
+where $\ell$ is prime.
+\end{lemma}
+\begin{proof}
+The lower bound follows from Lemma~\ref{lem:prime-harvest}.  For the upper bound put $A=(\ell+1)/4$.  Lemma~\ref{lem:exact-R} and $2e+1\leq(e+1)(e+2)/2$ give
+$F(\ell)\leq\tau(A^2)\leq\tau_3(A)$.  On $A\asymp Y$, write $A=abc$ and designate a largest coordinate as $c$, at a factor-three cost; then $ab\ll Y^{2/3}$.  For fixed $a,b$, Brun--Titchmarsh for the prime $4abc-1$ modulo $4ab$ gives
+\[
+ \#\{c:A\asymp Y,\ 4abc-1\text{ prime}\}
+ \ll\frac{Y}{\varphi(4ab)\log Y}.
+\]
+Since $\varphi(4ab)\geq\varphi(a)\varphi(b)$ and
+$\sum_{m\leq y}1/\varphi(m)\ll\log(2y)$,
+\[
+ \sum_{\substack{A\asymp Y\\4A-1\ \mathrm{prime}}}\tau(A^2)\ll Y\log Y.
+\]
+After division by $\ell\asymp Y$, each dyadic block costs $O(\log Y)$, and summing proves the upper bound.
+\end{proof}
+
+\begin{theorem}[two-sided prime-slice avoidance]\label{thm:prime-two-sided}
+There are $c_1,C_2,C_3>0$ such that, for all large $X$ and $\log N\geq C_3L^3$,
+\begin{equation}\label{eq:prime-two-sided}
+ N\e^{-C_2L^2}\leq|\Av_X^{\rm prime}(N)|
+ \leq N\e^{-c_1L^2}.
+\end{equation}
+Its natural density is $\e^{-\Theta(L^2)}$.
+\end{theorem}
+\begin{proof}
+Chinese remaindering over distinct prime moduli gives exact density
+\[
+ V_X=\prod_{\substack{\ell\leq X\\\ell\equiv3\ (4)}}
+ \left(1-\frac{F(\ell)}\ell\right).
+\]
+Lemma~\ref{lem:jacobi} gives $F(\ell)/\ell<1/2$.  Lemma~\ref{lem:prime-mass} and
+$-2u\leq\log(1-u)\leq-u$ imply $V_X=\e^{-\Theta(L^2)}$.
+
+For the finite interval put $a_\ell=F(\ell)/\ell$ and $\mu=\sum a_\ell=\Theta(L^2)$.  Odd and even Bonferroni truncations at degrees $r=O(\mu)$ bracket the avoider indicator.  Their omitted CRT main tails are bounded by
+$\sum_{j>r}\mu^j/j!$; taking the constant in $r$ large makes each tail at most $V_X/4$.  An intersection indexed by a product $d$ of $j$ primes occupies $\prod_{\ell\mid d}F(\ell)$ classes modulo $d$, so its finite count is
+\[
+ N\prod_{\ell\mid d}a_\ell+O\!\left(\prod_{\ell\mid d}F(\ell)\right).
+\]
+The preceding proof of Lemma~\ref{lem:prime-mass}, before division by $\ell$, gives $W:=\sum_{\ell\leq X}F(\ell)\ll XL$.  Hence all rounding errors through degree $r$ total at most
+$\sum_{j\leq r}W^j/j!=\exp\{O(L^3)\}$.  If $C_3$ is large this is at most $NV_X/4$.  The two Bonferroni bounds now give \eqref{eq:prime-two-sided}.
+\end{proof}
+
+Since the full avoiders are contained in the prime-slice avoiders, we obtain the promised unconditional full-system upper bound.
+\begin{corollary}\label{cor:full-upper}
+If $\log N\geq CL^3$, then
+\[
+ |\Av_X(N)|\ll N\exp\{-cL^2\}.
+\]
+The same upper bound holds for $\delta_X$ without a condition on $N$.
+\end{corollary}
+
+\subsection{A growing multi-shift certificate}
+For $Y\geq1$, let $\Av_X^{(R\leq Y)}$ denote avoidance of every pair in \eqref{eq:shifted} with $R_0(D)\leq Y$.
+\begin{theorem}[multi-shift prime certificate]\label{thm:multi-shift}
+Fix $\eps>0$.  Uniformly for $1\leq Y\leq L^{3-\eps}$ and $\log N\geq L^4$,
+\[
+ |\Av_X^{(R\leq Y)}(N)|
+ \geq N\exp\{-C_\eps Y\log(2Y)\log L\}.
+\]
+The corresponding natural density has the same lower bound.  At $Y=L^{3-\eps}$ the exponent is $o(L^3)$.
+\end{theorem}
+\begin{proof}
+Let
+\[
+ \mathcal D_Y=\{(R,D):R\leq Y,\ D=R^2/s,\ s\mid\rad(R)\},
+ \qquad H=|\mathcal D_Y|.
+\]
+The standard Euler-product estimate
+\[
+ \sum_{R\leq Y}2^{\omega(R)}\ll Y\log(2Y)
+\]
+gives $H\ll Y\log(2Y)$.  For each prime $p\leq X$, $p\equiv3\pmod4$, forbid
+\[
+ B_p=\{-4D\pmod p:(R,D)\in\mathcal D_Y,\ p\nmid R\}.
+\]
+Every $B_p$ is nonzero and has size $g(p)\leq\min(H,p-1)$.  Avoiding all $B_p$ certifies the desired avoidance: a hit in \eqref{eq:shifted} has $(M,R)=1$, and some prime $p\equiv3\pmod4$ divides $M$ to odd exponent; then $p\leq X$, $p\nmid R$, and $n\equiv-4D\pmod p$, a contradiction.
+
+For $p\leq2H$, choose the allowed residue $n\equiv0\pmod p$, and let $Q_0$ be their product.  Then $\log Q_0=O(H)$.  In $n=Q_0m$, every remaining forbidden set has $g(p)\leq H<p/2$, and
+\[
+ \mu_Y=\sum_{2H<p\leq X}\frac{g(p)}p\ll H\log L.
+\]
+Odd Bonferroni at degree $r\asymp\mu_Y$ retains a fixed fraction of the Euler product, at least $\exp(-2\mu_Y)$.  Since $W_Y=\sum g(p)\leq H\pi(X)$, the total rounding error is
+\[
+ \exp\{O(r\log W_Y)\}=\exp\{O(HL\log L)\}.
+\]
+For $Y\leq L^{3-\eps}$ this is $\exp\{o(L^4)\}$ and is negligible under $\log N\geq L^4$.  Restoring $Q_0$ proves the claimed bound.  On complete periods there is no rounding error, proving the density statement.
+\end{proof}
+
+\section{The cubic-mass hypothesis and its conditional consequence}\label{sec:hpf}
+Put
+\[
+ \mu_X=\sum_{\substack{M\leq X\\M\equiv3\ (4)}}\frac{F(M)}M\asymp L^3.
+\]
+The following is the literal hypothesis proposed for partition-free assembly.  Its all-range quantifier in $N$ is essential.
+
+\begin{hypothesis}[the literal cubic-mass majorant $\PF$]\label{hyp:PF}
+There are absolute $c,C>0$ such that, for every sufficiently large $X$, every $J\geq C\mu_X$, and every $N$ satisfying
+\[
+ J\log X\leq\tfrac12\log N,
+\]
+there is a nonnegative arithmetic function $\nu$ on $[1,N]$ which is at least $1$ on every member of $\Av_X(N)$ and satisfies
+\[
+ \frac1N\sum_{n\leq N}\nu(n)\ll\exp(-c\mu_X).
+\]
+Its evaluation uses exact congruence counts modulo lcms of at most $J$ participating moduli; every such lcm is at most $X^J\leq N^{1/2}$.  The coefficient sum and number of congruence-count terms are at most $\exp(O(J))$, so aggregate rounding errors are required to be negligible under the displayed degree budget.
+\end{hypothesis}
+This hypothesis concerns the complete system, not arbitrary subfamilies.  The latter formulation is already false: all $D=1$ classes with $3\mid M$ lie in $n\equiv2\pmod3$, while the complement has density $2/3$ despite growing class mass.
+
+\begin{theorem}[formal conditional $3/4$ bound]\label{thm:conditional}
+If $\PF$ holds, then for some $c>0$ the number $E_{\rm all}(N)$ of exceptional denominators $n\leq N$ satisfies
+\[
+ E_{\rm all}(N)\leq N\exp\{-c(\log N)^{3/4}\}.
+\]
+\end{theorem}
+\begin{proof}
+Put $t=\alpha(\log N)^{1/4}$, $X=\e^t$.  By Theorem~\ref{thm:cubic}, $\mu_X\asymp t^3$.  Take $J=C\mu_X$.  Then
+$J\log X\ll\alpha^4\log N$, so small fixed $\alpha$ meets the degree condition.  Hypothesis~\ref{hyp:PF} bounds the avoiders by $N\exp(-c\mu_X)$.  Every exceptional denominator is an avoider, because every intrinsic class is forced soluble by Lemma~\ref{lem:multiplier}.
+\end{proof}
+The implication is valid, but its antecedent will now be disproved.
+
+\section{Rough moduli and refutation of \texorpdfstring{$\PF$}{H-PF}}\label{sec:refutation}
+For primes $q$ define
+\[
+ b_q=\frac{L^3}{q\log z},\qquad
+ W_{\boldsymbol a}(M)=\1_{P^-(M)>z}
+ \exp\!\left(2\sum_{p\mid M}a_p\right).
+\]
+The sum in the exponential is over distinct prime factors.  An \emph{atom} is a pair $(M,r)$ with $M\leq X$, $M\equiv3\pmod4$, and $r\in\Rcal(M)$; it is the event $n\equiv r\pmod M$.  Thus a modulus $M$ contributes exactly $F(M)$ atoms.
+
+\begin{theorem}[weighted rough-modulus mean]\label{thm:rough-mean}
+Uniformly for $3\leq z\leq X^{1/10}$ and charges $0\leq a_p\leq1$, put
+$E=\sum_{z<p\leq X}a_p/p$.  Then
+\begin{equation}\label{eq:rough-mean}
+ \sum_{\substack{M\leq X\\M\equiv3\ (4)}}
+ \frac{F(M)}M W_{\boldsymbol a}(M)
+ \ll \e^{CE}\frac{L^3}{\log z}.
+\end{equation}
+In particular, if $a_p=O(L^3/(p\log z))$ and
+$z=L^3/\sqrt{\log L}$, then $E=o(1)$ and the left side is $o(L^3)$.
+\end{theorem}
+\begin{proof}
+Write $M=4m-1$ and define the multiplicative function
+\[
+ w(p^\nu)=\begin{cases}0,&p\leq z,\\ \e^{2a_p},&p>z,
+ \end{cases}\qquad w(1)=1.
+\]
+Lemma~\ref{lem:exact-R} gives
+$F(4m-1)W_{\boldsymbol a}(4m-1)\leq w(4m-1)\tau_3(m)$.
+Apply the Nair--Tenenbaum estimate in Henriot's discriminant-uniform form \cite{NairTenenbaum,Henriot} to the determinant-one linear forms
+$Q_1(t)=4t-1$, $Q_2(t)=t$ and the multiplicative function
+$\mathcal F(u,v)=w(u)\tau_3(v)$.  The class parameters are uniform in the charges.  On a dyadic interval of length $V$, the local factors give
+\[
+ V\prod_{p\ll V}(1-2/p)(1+w(p)/p)(1+3/p)
+ \ll V\frac{\log^2(2V)}{\log z}
+ \exp\!\left(C\sum_{z<p\ll V}\frac{a_p}p\right).
+\]
+Indeed the coefficient of $1/p$ in the logarithm is $1$ for $p\leq z$ and $2+O(a_p)$ for $p>z$.  The first possible rough value exceeds $z$, so the lowest nonempty blocks obey the same estimate after changing the constant.  Dyadic summation and partial summation yield
+\[
+ \sum\frac{F(M)W_{\boldsymbol a}(M)}M
+ \ll\frac{\e^{CE}}{\log z}
+ \left(L^2+\int_z^X\frac{(\log t)^2}{t}\,dt\right),
+\]
+which proves \eqref{eq:rough-mean}.  Finally
+$E\ll L^3/(z\log z)=o(1)$ for the stated charges and cutoff.
+\end{proof}
+
+The pointwise neighborhood estimate needs a small maximal-order correction.  Fix a sufficiently large absolute $C_d$ and put
+\[
+ u_q=\frac{\log(2q)}q
+ \exp\!\left(\frac{C_d\log(2q)}{\log\log(3q)}\right).
+\]
+For an atom modulus divisible by $q$, set
+\[
+ T_q(z;\boldsymbol a)=
+ \sum_{\substack{M\leq X,\ M\equiv3\ (4)\\P^-(M)>z,\ q\mid M}}
+ \frac{F(M)}M\exp\!\left(2\sum_{p\mid M}a_p\right).
+\]
+
+\begin{theorem}[softened neighborhood bound]\label{thm:soft-neighbor}
+Let
+\begin{equation}\label{eq:zchoice}
+ z=\frac{L^3\log\log L}{\log L}.
+\end{equation}
+For all large $X$ there is an absolute $A>0$ such that
+$a_q=A(b_q+u_q)$ for primes $z<q\leq X$ satisfies
+\[
+ T_q(z;\boldsymbol a)\leq a_q,
+ \quad \max_{q>z}a_q=o(1),
+ \quad\sum_{q>z}\frac{a_q}q=o(1),
+\]
+and
+\begin{equation}\label{eq:weighted-o}
+ \sum_{\substack{M\leq X\\M\equiv3\ (4)}}
+ \frac{F(M)}M W_{\boldsymbol a}(M)
+ \ll\frac{L^3}{\log z}=o(L^3).
+\end{equation}
+The same conclusions hold for $z=L^3g(L)/\log L$ if
+$g(L)\to\infty$ and $g(L)=o(\log L)$.
+\end{theorem}
+\begin{proof}
+Use the maximal-order bound
+\begin{equation}\label{eq:maxdiv}
+ \tau_3(n)\leq\exp\!\left(\frac{C_d'\log(2n)}{\log\log(3n)}\right).
+\end{equation}
+Fix $q>z$, write $M=qk$, and choose $r\in\{1,3\}$ with $qr\equiv3\pmod4$.  With $k=4t+r$,
+\[
+ \frac{qk+1}{4}=qt+c,\qquad c=\frac{qr+1}{4},\qquad4c-qr=1.
+\]
+The cofactor and shifted factor are determinant-one linear forms, and the coefficient norm of their product is at most $13q$.  Also
+$W_{\boldsymbol a}(qk)\leq\e^{2a_q}w(k)$ and
+$F(qk)\leq\tau_3((qk+1)/4)$.
+
+Split at $k=C_0q^{1/2}$, where $C_0$ is large enough for Henriot's coefficient-size condition.  In the lower range, \eqref{eq:maxdiv}, roughness, and $\sum_{k\leq y}1/k\ll\log(2y)$ give
+\[
+ \frac1q\sum_{k<C_0q^{1/2}}
+ \frac{F(qk)W_{\boldsymbol a}(qk)}k\ll u_q.
+\]
+Here $a_p=O(1/\log\log L+p^{-1+o(1)})$, and a rough $qk$ has at most $\log(qk)/\log z$ prime factors, so its exponential weight is absorbed by enlarging the constant in \eqref{eq:maxdiv}.  This includes $k=1$.
+
+Decompose the high range dyadically in $t$.  Henriot's theorem applies to the two determinant-one forms and $w(4t+r)\tau_3(qt+c)$, giving
+\[
+ \sum_{V<k\leq2V}w(k)\tau_3((qk+1)/4)
+ \ll V\frac{(\log(2V))^2}{\log z}.
+\]
+After division by $qk$ and summation over blocks, this is
+$O(L^3/(q\log z))=O(b_q)$.  Thus $T_q\ll b_q+u_q$ uniformly once
+$\max a_p\leq1$ and $\sum a_p/p\leq1$.  Choose the fixed $A$ larger than this implicit constant; the estimates below verify those two conditions for all sufficiently large $X$, closing the argument without circularity.
+
+Indeed
+\[
+ \sum_{q>z}\frac{b_q}q\ll\frac{L^3}{z\log z}=o(1).
+\]
+For large $q$, the exponential in $u_q$ is at most $q^{1/4}$, whence
+\[
+ \sum_{q>z}\frac{u_q}{q}\ll
+ \sum_{n>z}\frac{\log(2n)}{n^{7/4}}=o(1).
+\]
+The same estimates give $\max a_q=o(1)$.  Theorem~\ref{thm:rough-mean} proves \eqref{eq:weighted-o}.  Replacing $\log\log L$ by $g(L)$ changes the first displayed bound to $O(1/g(L))$ and nothing else.
+\end{proof}
+
+\begin{theorem}[natural-density lower bound]\label{thm:density-lower}
+With \eqref{eq:zchoice},
+\begin{equation}\label{eq:density-lower}
+ \delta_X\geq
+ \exp\!\left\{-O\!\left(\frac{L^3\log\log L}{\log L}\right)\right\}
+ =\exp\{-o(L^3)\}.
+\end{equation}
+More generally, the last cutoff in Theorem~\ref{thm:soft-neighbor} gives
+$\delta_X\geq\exp\{-O(L^3g(L)/\log L)\}$.
+\end{theorem}
+\begin{proof}
+First impose $n\equiv0\pmod p$ for every odd prime $p\leq z$.  Work on the finite uniform CRT space modulo the lcm of their product and all participating moduli.  The conditioning costs
+$\exp\{-\vartheta(z)+O(1)\}=\exp\{-O(z)\}$.  If an intrinsic atom has a modulus divisible by such a $p$, it is now impossible: its residue $-4D$ is a unit modulo $M$, since $(D,M)=1$.  Every surviving distinct atom has a $z$-rough modulus $M$, remains uniform, and has probability exactly $1/M$.
+
+Join two atoms when their moduli share a prime and set
+\[
+ x_A=\frac1M\exp\!\left(2\sum_{q\mid M}a_q\right)
+\]
+for an atom of modulus $M$.  Roughness and $\max a_q=o(1)$ give $x_A<1/2$.  Theorem~\ref{thm:soft-neighbor} bounds the total activity of the neighbors of $A$ by $\sum_{q\mid M}a_q$.  Therefore
+\[
+ \prod_{B\sim A}(1-x_B)
+ \geq\exp\!\left(-2\sum_{B\sim A}x_B\right)
+ \geq\exp\!\left(-2\sum_{q\mid M}a_q\right),
+\]
+so $\Pr(A)\leq x_A\prod_{B\sim A}(1-x_B)$.  The quantitative local lemma gives
+\[
+ \begin{aligned}
+ \Pr(\text{no surviving atom}\mid\text{quarantine})
+ &\geq\prod_A(1-x_A)\\
+ &\geq\exp\!\left(-2\sum_Ax_A\right)
+ \geq\exp\{-O(L^3/\log z)\}.
+ \end{aligned}
+\]
+where the last inequality is \eqref{eq:weighted-o}.  Multiplying by the quarantine cost proves \eqref{eq:density-lower}.
+\end{proof}
+
+\begin{corollary}[refutation of the literal hypothesis]\label{cor:refute}
+Hypothesis $\PF$ as stated in Hypothesis~\ref{hyp:PF} is false.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:cubic} gives $\mu_X\geq c_0L^3$.  If $\PF$ held with constants $c,C$, choose $J\geq C\mu_X$.  For each fixed sufficiently large $X$, take arbitrarily large multiples $N=mP_X$ of the full period satisfying
+$J\log X\leq\tfrac12\log N$.  Periodicity gives
+$|\Av_X(N)|/N=\delta_X$.  Since the majorant is at least one on every avoider, $\PF$ would imply
+\[
+ \delta_X\ll\e^{-c\mu_X}\leq\e^{-cc_0L^3}.
+\]
+This contradicts Theorem~\ref{thm:density-lower} for all sufficiently large $X$.
+\end{proof}
+The scope is exact: this refutes the all-range quantifiers of $\PF$, not the conclusion of Theorem~\ref{thm:conditional} by every possible route and not the critical-window statement below.
+
+\section{The critical window and transfer walls}\label{sec:window}
+\begin{hypothesis}[critical-window variant $\PFp$; open]\label{hyp:PFprime}
+There are $c,C>0$ and $0<c_-<c_+$, with $c_-$ large enough for the degree budget, such that the majorant in Hypothesis~\ref{hyp:PF} exists whenever
+\[
+ c_-L^4\leq\log N\leq c_+L^4,
+ \qquad J\geq C\mu_X,
+ \qquad J\log X\leq\tfrac12\log N.
+\]
+No assertion is made outside this window.
+\end{hypothesis}
+This remains open and would still imply Theorem~\ref{thm:conditional}.  Corollary~\ref{cor:refute} uses arbitrarily large complete-period multiples at fixed $X$, which need not lie in this window.
+
+\subsection{Cylinder and tensor obstructions}
+\begin{theorem}[all-avoider cylinder wall]\label{thm:cylinder}
+If a nonempty union $\mathcal U$ of complete classes modulo $Q$ is contained in the full intrinsic avoider set, then
+\[
+ \prod_{\substack{\ell\leq X,\ \ell\equiv3\ (4)\\\ell\ \mathrm{prime}}}\ell\mid Q,
+ \qquad \log Q\geq(1/2+o(1))X.
+\]
+\end{theorem}
+\begin{proof}
+Choose one class $a\pmod Q$ in $\mathcal U$.  For each prime $\ell\equiv3\pmod4$, the divisor $D=1$ gives the forbidden class $-4\pmod\ell$.  If $\ell\nmid Q$, the Chinese remainder theorem produces an integer lying both in $a\pmod Q$ and in that forbidden class, a contradiction.  Thus every such prime divides $Q$, and the prime number theorem in the progression $3\pmod4$ gives the estimate.
+\end{proof}
+
+The CRT space is a product over prime powers, but the avoider indicator is not a tensor product: its atomic factors overlap.
+\begin{lemma}[explicit non-tensor obstruction]\label{lem:nontensor}
+Already at $X=15$, the complete avoider indicator modulo $1155=3\cdot5\cdot7\cdot11$ does not factor into functions of the four prime coordinates.
+\end{lemma}
+\begin{proof}
+The residues
+\[
+\begin{array}{c|cc|cc|c}
+ n&n\bmod3&n\bmod5&n\bmod7&n\bmod11&\1_{\Av_{15}}(n)\\ \hline
+231&0&1&0&0&1\\
+616&1&1&0&0&1\\
+693&0&3&0&0&1\\
+1078&1&3&0&0&0
+\end{array}
+\]
+form a two-coordinate rectangle with the other coordinates fixed.  A tensor product containing the first three corners contains the fourth.  To check the final column without an enumeration, Lemma~\ref{lem:exact-R} gives
+\[
+ \Rcal(3)=\{2\},\quad \Rcal(7)=\{3,5,6\},\quad
+ \Rcal(11)=\{7,8,10\},\quad \Rcal(15)=\{7,11,13,14\}.
+\]
+The first three rows miss these four sets.  The last row is $13\pmod{15}$ and is killed by $D=8\mid4^2$.
+\end{proof}
+Thus Fourier transformation produces a hypergraph convolution, not a product of local Fourier transforms.
+
+\subsection{The corrected finite-transfer criterion}
+After the odd-prime quarantine, write $n=P_zm$.  For $U\subseteq\mathbb Z/d\mathbb Z$, put $1_{U,d}(m)=\1_{m\bmod d\in U}$ and $\rho(U)=|U|$.
+\begin{lemma}[residue-set transfer]\label{lem:residue-transfer}
+Let $\mathcal F_X$ be a specified family of surviving atoms.  Suppose
+\[
+ B_X(m)=\sum_{\alpha\in I_X}c_\alpha1_{U_\alpha,d_\alpha}(m)
+ \leq\1_{\{\text{no atom of }\mathcal F_X\text{ at }m\}}
+\]
+pointwise, where each $d_\alpha$ divides the surviving CRT period and $(d_\alpha,P_z)=1$.  If
+\[
+ \begin{gathered}
+ \mathbb E_{\rm CRT}B_X\geq\e^{-o(L^3)},\qquad
+ \log\max_\alpha d_\alpha=o(L^4),\\
+ \log\mathcal R_X=o(L^4),\qquad
+ \mathcal R_X=\sum_\alpha|c_\alpha|\rho(U_\alpha).
+ \end{gathered}
+\]
+then, uniformly for fixed $0<c_-<c_+$ and
+$c_-L^4\leq\log N\leq c_+L^4$,
+\[
+ |\Av(\mathcal F_X;N)|\geq N\e^{-o(L^3)}.
+\]
+\end{lemma}
+\begin{proof}
+Put $H=\lfloor N/P_z\rfloor$.  A set of $\rho(U_\alpha)$ classes modulo $d_\alpha$ has count
+\[
+ H\frac{\rho(U_\alpha)}{d_\alpha}+O(\rho(U_\alpha)).
+\]
+Hence
+$\sum_{m\leq H}B_X(m)=H\mathbb E_{\rm CRT}B_X+O(\mathcal R_X)$.
+The main term has logarithm $\log N-O(z)-o(L^3)=\log N-o(L^3)$, while the error has logarithm $o(L^4)$ and is negligible because $\log N\geq c_-L^4$.  The pointwise inequality and $P_z=\exp\{O(z)\}=\exp\{o(L^3)\}$ finish the proof.
+\end{proof}
+For an atom monomial, compatibility gives one residue class and incompatibility gives none, so $\rho\leq1$.  The following is the isolated low-degree criterion; the factor $\rho(U)$ in the general ledger is essential.
+\begin{corollary}[monomial finite-transfer criterion]\label{cor:monomial-transfer}
+Suppose real coefficients $c_S$, supported on sets of at most $r=o(L^3)$ surviving atoms, make
+\[
+ B_X(n)=\sum_Sc_S\prod_{A\in S}\1_A(n)
+ \leq\1_{\{\text{no surviving atom at }n\}}
+\]
+pointwise.  If its exact CRT mean is at least $\e^{-o(L^3)}$ and
+$\log\sum_S|c_S|=o(L^4)$, then
+$|\Av_X(N)|\geq N\e^{-o(L^3)}$ uniformly for $\log N\asymp L^4$.
+\end{corollary}
+\begin{proof}
+Apply Lemma~\ref{lem:residue-transfer}.  Compatible monomials are single classes modulo lcms $d_S\leq X^r=\exp\{o(L^4)\}$, incompatible monomials vanish, and the weighted ledger is at most $\sum_S|c_S|$.
+\end{proof}
+
+\subsection{The prime side transfers}
+Let $S_\ell=P_z^{-1}\Rcal(\ell)\pmod\ell$.  Choose $h(L)\to\infty$ slowly and put $Y=L^4/h(L)$, so $z<Y<X$.  Define
+\[
+ d_0=\prod_{\substack{z<\ell\leq Y\\\ell\equiv3\ (4)}}\ell,
+ \qquad
+ U_0=\prod_{\substack{z<\ell\leq Y\\\ell\equiv3\ (4)}}
+ ((\mathbb Z/\ell\mathbb Z)\setminus S_\ell),
+ \qquad T_0=1_{U_0,d_0}.
+\]
+Here and below $\ell$ is prime.  Then $\log d_0=O(Y)=o(L^4)$.  Let $H_P$ count violated prime atoms with $Y<\ell\leq X$, put $\mu_P=\mathbb EH_P=\Theta(L^2)$, let $r$ be the least odd integer at least $8\mu_P$, and define
+\[
+ Q_r(H_P)=\sum_{j=0}^r(-1)^j\binom{H_P}{j},\qquad B_P=T_0Q_r(H_P).
+\]
+
+\begin{theorem}[prime-side two-level minorant]\label{thm:prime-transfer}
+The function $B_P$ is pointwise at most the surviving prime-system avoider indicator.  Its tail degree is $O(L^2)$, every term has modulus logarithm $o(L^4)$,
+\[
+ \mathbb E_{\rm CRT}B_P\geq\e^{-O(L^2)},
+ \qquad
+ \log\sum_\alpha|c_\alpha|\rho(U_\alpha)=o(L^4).
+\]
+Thus Lemma~\ref{lem:residue-transfer} transfers a lower bound $N\e^{-o(L^3)}$ in the critical window.  The sharper $N\e^{-O(L^2)}$ bound is already Theorem~\ref{thm:prime-two-sided}.
+\end{theorem}
+\begin{proof}
+If $T_0=0$ the pointwise assertion is immediate; if $T_0=1$, it is odd Bonferroni.  For $h\geq1$,
+\[
+ \sum_{j=0}^r(-1)^j\binom{h}{j}=-\binom{h-1}{r}.
+\]
+Distinct prime coordinates are independent and atoms at one coordinate are disjoint, so the loss from the exact tail void is at most
+\[
+ \mathbb E\binom{H_P}{r+1}\leq\frac{\mu_P^{r+1}}{(r+1)!}
+ \leq\left(\frac{\e\mu_P}{r+1}\right)^{r+1}.
+\]
+The tail Euler product is at least $\e^{-2\mu_P}$; the last display is a small fraction of it.  This proves the mean bound, including the independent low tensor.
+
+Expand only the tail factor.  If $W_P=\sum_{Y<\ell\leq X}F(\ell)$, the maximal-order divisor bound gives $W_P=\exp\{O(L)\}$.  Each term has at most $\rho(U_0)$ residue classes, so
+\[
+ \mathcal R_X\leq\rho(U_0)\sum_{j\leq r}\frac{W_P^j}{j!},
+ \qquad \log\mathcal R_X\leq o(L^4)+O(rL)=o(L^4).
+\]
+Its modulus divides $d_0X^r$, giving the other budget.  Apply Lemma~\ref{lem:residue-transfer}; the quarantine costs $\e^{-O(z)}=\e^{-o(L^3)}$.
+\end{proof}
+
+\subsection{The composite frontier}
+Delete a composite atom if one of its prime projections is already a prime intrinsic atom; retain the residual family $\mathcal C^\circ$.  Condition on $T_0=1$, and let $H$ count the tail prime atoms together with $\mathcal C^\circ$.  Put
+\[
+ \Lambda=\frac{L^3}{\log L}.
+\]
+For $A\in\mathcal C^\circ$, conditioning on $T_0=1$ gives
+\[
+ \Pr(A\mid T_0=1)=\frac1{M_A}
+ \prod_{\substack{p\mid M_A\\z<p\leq Y}}
+ \frac{p}{p-F(p)}=\frac{1+o(1)}{M_A}
+\]
+uniformly: $F(p)=p^{o(1)}$, $p>z=L^{3+o(1)}$, and
+$\omega(M_A)\leq L/\log z$.  The rough mean therefore gives
+$\mathbb EH=O(\Lambda)$.  The conditional full void after the quarantine is at least $\e^{-O(\Lambda)}$ by the proof of Theorem~\ref{thm:density-lower}; dividing by $\Pr(T_0=1)\leq1$ gives
+$\Pr(H=0\mid T_0=1)\geq\e^{-O(\Lambda)}$.
+
+\begin{proposition}[factorial-moment reduction]\label{prop:factorial}
+Suppose fixed $C,D>0$, with $D$ sufficiently large in terms of $C$, and an even $m\in[D\Lambda,D\Lambda+2]$ satisfy
+\begin{equation}\label{eq:factorial-target}
+ \mathbb E(H)_m\leq(C\Lambda)^m.
+\end{equation}
+Then a two-level pointwise minorant satisfies Lemma~\ref{lem:residue-transfer} and proves
+$|\Av_X(N)|\geq N\e^{-o(L^3)}$ uniformly for $\log N\asymp L^4$.
+\end{proposition}
+\begin{proof}
+Use $B=T_0Q_{m-1}(H)$.  Since $m-1$ is odd, Bonferroni makes it a pointwise minorant.  The preceding binomial identity and
+$\binom{h-1}{m-1}\leq\binom{h}{m}$ give
+\[
+ \mathbb E(Q_{m-1}(H)\mid T_0=1)
+ \geq\Pr(H=0\mid T_0=1)-\frac{(C\Lambda)^m}{m!}.
+\]
+By Stirling, the second term is at most $(\e C/D)^m$, a small fraction of the first for large $D$.  There are $\exp\{O(L)\}$ atoms.  Thus every term, after multiplication by $T_0$, is a residue set and
+\[
+ \begin{aligned}
+ \deg B&=O(\Lambda)=o(L^3),\\
+ \log(\mathrm{modulus})&\leq Y+O(\Lambda L)=o(L^4),\\
+ \log(\mathrm{ledger})&\leq Y+O(\Lambda L)=o(L^4).
+ \end{aligned}
+\]
+Lemma~\ref{lem:residue-transfer} applies.
+\end{proof}
+
+No proved estimate gives \eqref{eq:factorial-target}.  The exact first obstruction is residue dispersion.  For a high prime $p$ and $a\pmod p$, set
+\[
+ u_{p,a}=\sum_{\substack{A\in\mathcal C^\circ\\p\mid M_A,\ r_A\equiv a\ (p)}}
+ \Pr(A\mid T_0=1),\qquad t_p=\sum_a u_{p,a}.
+\]
+For squarefree pairs whose gcd is $p$, their pair contribution is bounded by a sub-sum of
+$p\sum_a u_{p,a}^2$.  Even granting the ideal incidence estimate $t_p\ll\Lambda/p$, the available $\ell^1$ information yields only
+\begin{equation}\label{eq:logloss}
+ \sum_{z<p\leq X}p\sum_a u_{p,a}^2
+ \leq\sum_{z<p\leq X}pt_p^2
+ \ll\Lambda^2\sum_{z<p\leq X}\frac1p
+ \asymp\Lambda^2\log L.
+\end{equation}
+The live dispersion frontier is
+\begin{equation}\label{eq:dispersion}
+ \sum_{z<p\leq X}p\sum_a u_{p,a}^2=O(\Lambda^2),
+\end{equation}
+followed by higher-codegree analogues through $m\asymp\Lambda$.  Equation \eqref{eq:logloss} is not a counterexample to \eqref{eq:dispersion}; it identifies the factor lost by present information.
+
+Scott--Sokal's cluster expansion \cite{ScottSokal} controls a numerical partition function, not the needed pointwise polynomial.  Indeed the literal independent-set polynomial in violated-event indicators fails pointwise: if the induced graph is a five-vertex path, its alternating independent-set sum is $1-5+6-1=1$ although the void indicator is zero.  Thus $\PFp$, the factorial-moment estimate, and the residue-resolved hierarchy beginning at \eqref{eq:dispersion} remain \textsc{open}.
+
+\section{Provisional record context}\label{sec:records}
+This section is deliberately segregated.  Both records are \textsc{claimed/provisional}; neither is used in the refutation of $\PF$.
+
+\subsection{The provisional exceptional-set record}
+Let $E(N)$ count exceptional prime denominators $p\leq N$.
+\begin{theorem}[\textsc{claimed/provisional}]\label{thm:record}
+There is an absolute $c>0$ such that
+\[
+ E(N)\ll N\exp\{-c(\log N)^{2/3}(\log\log N)^{1/3}\}.
+\]
+\end{theorem}
+\begin{proof}[Internal argument; provisional status retained]
+Put
+\[
+ \begin{aligned}
+ \mathcal K(K)&=\{k\leq K:k\equiv1\pmod4\},\qquad
+ L_K=\lcm_{k\in\mathcal K(K)}k,\\
+ h(\mathcal J)&=\sum_{k\in\mathcal J}\frac{\varphi(k)}{k^2}.
+ \end{aligned}
+\]
+The multiplier form of Lemma~\ref{lem:multiplier}, with $M=k\ell$, has the following class-mass consequence.  Uniformly for $K\leq(\log X)^A$, every subfamily $\mathcal J\subseteq\mathcal K(K)$ containing $1$, and every $c\pmod{24L_\mathcal J}$ with $(c,24L_\mathcal J)=1$, there are distinct forced classes modulo primes $X^{1/2}<\ell\leq X$ whose counts $f_c(\ell)$ satisfy
+\begin{equation}\label{eq:mult-mass}
+ \sum_{X^{1/2}<\ell\leq X}\frac{f_c(\ell)}\ell
+ \asymp(\log X)^2h(\mathcal J).
+\end{equation}
+Here the classes arise from
+\[
+ H<u,v\leq\ell^{1/3},\quad (u,v)=(uv,k)=1,
+ \quad uv\mid(k\ell+1)/4,
+ \quad k\mid u+cv,
+\]
+with $H=K^{10}$ and $\omega(uv)\leq D\log\log X$.
+
+For completeness, the harmonic lattice input behind \eqref{eq:mult-mass} is obtained by partitioning $(H,z]$ into fixed-ratio boxes.  M\"obius inversion of $(u,v)=1$ gives, in $I\times J$ with lengths $\eta U,\eta V$,
+\[
+ \begin{aligned}
+ \#\{(u,v):(uv,k)=1,\ k\mid u+cv\}
+ &=\eta^2UV\frac{\varphi(k)}{k^2}
+   \prod_{p\nmid k}(1-p^{-2})\\
+ &\quad+O((U+V)\tau(k)\log(2UV)).
+ \end{aligned}
+\]
+After division by $UV$ and summation over boxes, the boundary/main ratio is $O(K^2/H)$, uniformly in $k,c$.  Shiu's theorem \cite{Shiu}, applied successively in the two variables to $t^{\omega(n)}$ and $n/\varphi(n)$, gives
+\[
+ \sum^*\frac{t^{\omega(u)+\omega(v)}}{uv}
+ \ll_t\frac{\varphi(k)}{k^2}(\log z)^2(\log z)^{2(t-1)},
+ \qquad
+ \sum^*\frac1{\varphi(u)\varphi(v)}
+ \ll\frac{\varphi(k)}{k^2}(\log z)^2.
+\]
+Rankin's inequality removes the high-$\omega$ tail after fixed large $D$.  Summing over $k$ gives the factor $h(\mathcal J)$.
+
+In a dyadic prime interval, the divisor condition is the progression
+$\ell\equiv-k^{-1}\pmod{4uv}$.  Colliding classes imply
+$\ell\mid uv'-u'v$ and hence equality of reduced pairs; different $k,k'$ would force the common $uv$ to divide $(k-k')/4$, impossible because $uv>H^2>K$.  A fixed modulus has multiplicity at most
+$K2^{\omega(uv)}=(\log X)^{O(1)}$.  Bombieri--Vinogradov absorbs it and gives the lower half of \eqref{eq:mult-mass}; Brun--Titchmarsh and the second weighted lattice estimate give the upper half.  This proves \eqref{eq:mult-mass}.
+
+Now choose $K=\lfloor\delta\log N\rfloor$ and partition primes by reduced classes modulo $M_0=24L_K$.  Since $\log M_0\leq(1+o(1))K$, each subsequence has length $Y\geq N^{1-2\delta}$.  Put
+\[
+ X=\exp\{\alpha(\log N/\log\log N)^{1/3}\}.
+\]
+For a fixed subsequence, the larger-sieve denominator is
+\[
+ S_c=\sum_{\substack{s\leq Y^{1/2}\\s\mid P}}\mu^2(s)
+ \prod_{\ell\mid s}\frac{f_c(\ell)}{\ell-f_c(\ell)},
+ \quad P=\prod_{X^{1/2}<\ell\leq X}\ell.
+\]
+Here $f_c(\ell)\leq K\ell^{2/3}<\ell/2$ for large $N$.  Writing $G_c$ for the untruncated Euler product, Rankin's trick with $v=1/\log X$ gives
+\[
+ \frac{G_c-S_c}{G_c}
+ \leq\exp\{-\log Y/(2\log X)+C(\log X)^2\log K\}.
+\]
+Small $\alpha$ makes this at most $1/2$.  Since
+$h(\mathcal K(K))\asymp\log K$, \eqref{eq:mult-mass} gives
+$S_c\geq\tfrac12\exp\{a(\log X)^2\log K\}$.  Summing the uniform bound $O(Y/S_c)$ over the reduced subsequences proves the theorem.
+\end{proof}
+
+\begin{remark}[priority and verification status]\label{rem:priority}
+Theorem~\ref{thm:record} remains \textup{CLAIMED}/\allowbreak\textup{PROVISIONAL} pending external checking and priority search.  Vaughan's primary paper \cite{Vaughan} was located by DOI but its PDF was access-blocked.  The comparison was checked only against Pomerance--Weingartner's 2025 reconstruction \cite[\S4]{PomeranceWeingartner}, which explicitly says it largely follows Vaughan.  The draft therefore does not claim a direct verification of Vaughan's argument or a settled record.
+\end{remark}
+
+\subsection{The pruned cubic prime slice}
+The current harvesting frontier uses the incidence
+\[
+ r_\mathcal J(u,v;c)=\#\{k\in\mathcal J:k\mid u+cv\}.
+\]
+\begin{lemma}[incidence second moment; provisional context]\label{lem:incidence}
+For $H=K^{10}$ and $z>H^2$,
+\[
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+ \frac{r_\mathcal J(u,v;c)^2}{uv}
+ \ll(\log z)^2(1+\log K)^3,
+\]
+uniformly for $\mathcal J\subseteq\mathcal K(K)$ and
+$c\pmod{24L_\mathcal J}$ with $(c,24L_\mathcal J)=1$.
+\end{lemma}
+\begin{proof}
+Expand the square.  For $k,k'\in\mathcal J$, both divisibilities are the congruence $[k,k']\mid u+cv$.  The preceding box calculation, now with $d=[k,k']\leq K^2$, gives
+\[
+ \sum^*\frac1{uv}\ll\frac{\varphi(d)}{d^2}(\log z)^2
+       +\frac{\tau(d)(\log z)^2}{H}.
+\]
+Furthermore
+\[
+ \sum_{k,k'\leq K}\frac{\varphi([k,k'])}{[k,k']^2}
+ \leq\sum_{k,k'\leq K}\frac{(k,k')}{kk'}
+ \ll(1+\log K)^3,
+\]
+by writing $k=da,k'=db$.  Since $\tau([k,k'])\leq2K$, all boundary terms total $O(K^3(\log z)^2/H)$, proving the result.
+\end{proof}
+
+\begin{theorem}[unconditional pruned cubic prime slice; \textsc{claimed/provisional}]\label{thm:pruned}
+Fix $0<\kappa<1/240$ and let $K=X^\kappa$.  For every
+$\mathcal J\subseteq\mathcal K(K)$ containing $1$ and every
+$c\pmod{24L_\mathcal J}$ with $(c,24L_\mathcal J)=1$, retain only triples in \eqref{eq:mult-mass} satisfying
+$r_\mathcal J(u,v;c)\leq(\log X)^4$.  Their distinct class counts
+$f_c^{\rm good}(\ell)$ satisfy, uniformly in these data,
+\[
+ \sum_{X^{1/2}<\ell\leq X}\frac{f_c^{\rm good}(\ell)}\ell
+ \asymp(\log X)^2h(\mathcal J).
+\]
+For the full $\mathcal J=\mathcal K(X^\kappa)$, this is $\asymp(\log X)^3$.
+\end{theorem}
+\begin{proof}[Internal argument; provisional status retained]
+The harmonic lattice proof above remains uniform whenever $z>K^{20}$: its box error is $O(K^2/H)$, and Shiu applies because every variable exceeds $H=K^{10}$.  At the lowest dyadic interval, $z\geq X^{1/12}>K^{20}$ follows from $\kappa<1/240$.  Lemma~\ref{lem:incidence} and Markov's inequality bound the harmonic mass of discarded triples by
+\[
+ \frac{(\log z)^2(1+\log K)^3}{(\log X)^4}
+ =o((\log z)^2h(\mathcal J)).
+\]
+Thus the retained first moment has full order.  For fixed $4uv$, coprimality permits at most $2^{\omega(uv)}$ allocations to $(u,v)$, and the pruning permits at most $(\log X)^4$ choices of $k$.  The retained progression multiplicity is therefore
+$(\log X)^{D\log2+4}$.  Ordinary Bombieri--Vinogradov absorbs it.  Distinctness is unchanged, and Brun--Titchmarsh gives the matching upper bound.  Finally
+$h(\mathcal K(X^\kappa))\asymp\log X$.
+\end{proof}
+Theorem~\ref{thm:pruned} does not prove the literal weighted error-sum hypothesis from which it originated, does not assemble composite moduli, and does not improve Theorem~\ref{thm:record} unconditionally.  Its soft spots are the power-range extension of the Shiu/box estimates and the uniform second-moment boundary sum; these require external review.
+
+\section*{Acknowledgment of status}
+This is a consolidation draft, not a submission.  Computational observations from the research log are omitted unless needed to state a status fact.  The mathematical headline is the proved natural-density refutation of the literal $\PF$ quantifiers; the critical-window variant and the provisional records remain outside that headline.
+
+\begin{thebibliography}{99}
+
+\bibitem{BloomElsholtz}
+T.~F. Bloom and C. Elsholtz,
+\emph{Egyptian fractions},
+Nieuw Arch. Wiskd. (5) \textbf{23} (2022), no.~4, 237--245.
+
+\bibitem{ElsholtzPlanitzer}
+C. Elsholtz and S. Planitzer,
+\emph{The number of solutions of the Erd\H{o}s--Straus equation and sums of $k$ unit fractions},
+Proc. Roy. Soc. Edinburgh Sect. A \textbf{150} (2020), no.~3, 1401--1427;
+arXiv:1805.02945.
+
+\bibitem{ElsholtzTao}
+C. Elsholtz and T. Tao,
+\emph{Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions},
+J. Aust. Math. Soc. \textbf{94} (2013), 50--105;
+arXiv:1107.1010.
+
+\bibitem{Henriot}
+K. Henriot,
+\emph{Nair--Tenenbaum bounds uniform with respect to the discriminant},
+Math. Proc. Cambridge Philos. Soc. \textbf{152} (2012), no.~3, 405--424;
+arXiv:1102.1643.
+
+\bibitem{NairTenenbaum}
+M. Nair and G. Tenenbaum,
+\emph{Short sums of certain arithmetic functions},
+Acta Math. \textbf{180} (1998), 119--144.
+
+% TODO(submission): update this draft citation if final publication metadata is used.
+\bibitem{PomeranceWeingartner}
+C. Pomerance and A. Weingartner,
+\emph{Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture},
+author-hosted draft dated 20 November 2025, arXiv:2511.16817.
+
+% TODO(submission): no journal publication was verified for this computational preprint.
+\bibitem{Salez}
+S.~E. Salez,
+\emph{The Erd\H{o}s--Straus conjecture: new modular equations and checking up to $N=10^{17}$},
+arXiv:1406.6307 (2014).
+
+\bibitem{ScottSokal}
+A.~D. Scott and A.~D. Sokal,
+\emph{The repulsive lattice gas, the independent-set polynomial, and the Lov\'asz local lemma},
+J. Stat. Phys. \textbf{118} (2005), 1151--1261;
+arXiv:cond-mat/0309352.
+
+\bibitem{Shiu}
+P. Shiu,
+\emph{A Brun--Titchmarsh theorem for multiplicative functions},
+J. Reine Angew. Math. \textbf{313} (1980), 161--170.
+
+\bibitem{Vaughan}
+R.~C. Vaughan,
+\emph{On a problem of Erd\H{o}s, Straus and Schinzel},
+Mathematika \textbf{17} (1970), 193--198,
+DOI: \href{https://doi.org/10.1112/S0025579300002886}{10.1112/S0025579300002886}.
+
+\bibitem{Yamamoto}
+K. Yamamoto,
+\emph{On the Diophantine equation $4/n=1/x+1/y+1/z$},
+Mem. Fac. Sci. Kyushu Univ. Ser. A \textbf{19} (1965), no.~1, 37--47.
+
+\end{thebibliography}
+\end{document}
