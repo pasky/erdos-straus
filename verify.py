@@ -7614,4 +7614,154 @@ print("\n== (aq) slice-conspiracy characterizations (§44) ==")
 check_aq()
 
 
+# ---------------------------------------------------------------- (ar)
+def check_ar():
+    """Section 45: exact joint Kloosterman matrix and coefficient norms."""
+    import ast
+    import os
+    from collections import defaultdict
+
+    with open(__file__, encoding="utf-8") as source:
+        ast.parse(source.read(), filename=__file__)
+
+    def ar_is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    def ar_representatives(M):
+        representatives = {}
+        for D in divisors_of_square((M + 1) // 4):
+            residue = (-4 * D) % M
+            representatives[residue] = min(representatives.get(residue, D), D)
+        return representatives
+
+    def ar_radical_root(D):
+        return prod(r ** ((e + 1) // 2) for r, e in factorint(D).items())
+
+    def ar_build(X, z, Y):
+        """Rebuild retained atoms, then form G[m,p] without pair arrays."""
+        prime_residues = {
+            p: set(ar_representatives(p))
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        retained = {}
+        for M in range(3, X + 1, 4):
+            factors = factorint(M)
+            if ar_is_prime(M) or any(r <= z for r in factors):
+                continue
+            kappa = Fraction(1)
+            for r in factors:
+                if r <= Y and r in prime_residues:
+                    kappa *= Fraction(r, r - len(prime_residues[r]))
+            kept = set()
+            for residue, D in ar_representatives(M).items():
+                if any(
+                    r in prime_residues and residue % r in prime_residues[r]
+                    for r in factors
+                ):
+                    continue
+                kept.add(D)
+            retained[M] = (tuple(factors), kappa, kept)
+
+        coefficients = defaultdict(lambda: defaultdict(Fraction))
+        residue_masses = defaultdict(lambda: defaultdict(Fraction))
+        squarefree_index = {}
+        edge_l2_squared = Fraction()
+        incidences = 0
+        for M, (factors, kappa, kept) in retained.items():
+            A = (M + 1) // 4
+            for D in kept:
+                R = ar_radical_root(D)
+                s = R * R // D
+                assert all(e == 1 for e in factorint(s).values())
+                assert A % R == 0
+                c = A // R
+                m = 4 * c * c * s
+                previous = squarefree_index.setdefault(m, (c, s))
+                assert previous == (c, s)  # uniqueness of m/4 = c^2 s
+                for p in factors:
+                    if p <= z or c >= p:
+                        continue
+                    q = M // p
+                    assert q > z and q < 4 * R and M <= X
+                    assert all(r > z for r in factorint(q))
+                    assert gcd(m, M) == 1 and 4 <= m < p * (X + 1)
+                    residue = (-pow(m, -1, p)) % p
+                    assert residue == (-4 * D) % p
+                    coefficient = kappa / q
+                    coefficients[p][m] += coefficient
+                    residue_masses[p][residue] += kappa / M
+                    edge_l2_squared += coefficient * coefficient
+                    incidences += 1
+
+                    # Both exact orientations in (45.5), checked in Q/Z.
+                    for h in (1, p - 1):
+                        phase_p = Fraction(-h * pow(m, -1, p), p)
+                        phase_M = Fraction(-h * q * pow(m, -1, M), M)
+                        phase_recip = (Fraction(h * pow(p, -1, m), m)
+                                       - Fraction(h, m * p))
+                        assert (phase_p - phase_M).denominator == 1
+                        assert (phase_p - phase_recip).denominator == 1
+
+        direct_energy = sum(
+            p * sum((mass * mass for mass in buckets.values()), Fraction())
+            for p, buckets in residue_masses.items()
+        )
+        bilinear_energy = Fraction()
+        l1 = Fraction()
+        l2_squared = Fraction()
+        weighted_frobenius = Fraction()
+        cells = 0
+        for p, row in coefficients.items():
+            inverse_buckets = defaultdict(Fraction)
+            for m, coefficient in row.items():
+                inverse_buckets[(-pow(m, -1, p)) % p] += coefficient
+                l1 += coefficient
+                l2_squared += coefficient * coefficient
+                weighted_frobenius += coefficient * coefficient / p
+                cells += 1
+            # Exact h-orthogonality in the bilinearized form (45.3).
+            bilinear_energy += sum(
+                (coefficient * coefficient / p
+                 for coefficient in inverse_buckets.values()), Fraction()
+            )
+        assert bilinear_energy == direct_energy
+        assert l2_squared >= edge_l2_squared
+        return (incidences, cells, direct_energy, l1, l2_squared,
+                edge_l2_squared, weighted_frobenius)
+
+    cases = [(80, 2, 11), (120, 3, 13), (200, 5, 17)]
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        cases += [(400, 7, 23), (800, 11, 31)]
+    expected = {
+        (80, 2, 11): (
+            25, 23, Fraction(54609, 67600), Fraction(1897, 260),
+            Fraction(378617, 135200), Fraction(352357, 135200),
+            Fraction(55711, 135200)),
+        (120, 3, 13): (
+            59, 57, Fraction(2371407, 5216450), Fraction(17286, 1615),
+            Fraction(201997063, 83463200), Fraction(194884603, 83463200),
+            Fraction(18474697, 83463200)),
+        (200, 5, 17): (
+            51, 51, Fraction(150469, 781456), Fraction(6509, 884),
+            Fraction(485259, 390728), Fraction(485259, 390728),
+            Fraction(71765, 781456)),
+    }
+
+    rows = []
+    for case in cases:
+        values = ar_build(*case)
+        if case in expected:
+            assert values == expected[case]
+        rows.append((*case, values[0], values[1],
+                     *(str(value) for value in values[2:])))
+
+    print("joint matrix (X,z,Y,incidences,cells,V,l1,l2^2,edge-l2^2,sum l2_p^2/p) =",
+          rows)
+    print("endpoint residue energy = exact Kloosterman-matrix Parseval energy; reciprocity exact")
+
+
+print("\n== (ar) moving-s Kloosterman-matrix audit (§45) ==")
+check_ar()
+
+
 print("\nall checks passed")
