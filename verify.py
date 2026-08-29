@@ -8788,6 +8788,176 @@ def check_av():
 
 print("\n== (av) implication-reduced antichain (§49) ==")
 check_av()
+# ---------------------------------------------------------------- (aw)
+def check_aw():
+    """§50: prime-factor slice reduction and its finite depth comparison."""
+    import os
+    from sympy import kronecker_symbol
+
+    scan_limit = 100_000 if os.environ.get("ES_FULL_SCAN") == "1" else 30_000
+    guard = 320 if scan_limit == 100_000 else 128
+    hard_all = tuple(p for p in primerange(2, scan_limit) if p % 24 == 1)
+    census_hard = tuple(p for p in hard_all if p < 30_000)
+    assert len(census_hard) == 385
+    if scan_limit == 100_000:
+        assert len(hard_all) == 1181
+
+    core_cache = {}
+
+    def squarefree_core(n):
+        if n not in core_cache:
+            core_cache[n] = prod(q for q, e in factorint(n).items() if e % 2)
+        return core_cache[n]
+
+    def admissible(P, C, K):
+        return (gcd(P, C * K) == 1 and 3 * K <= 2 * P
+                and 4 * C * K <= 2 * P + K)
+
+    def exponent_box_hit(P, C, K, factors):
+        """Exact (44.4) test, retaining at most 4CK residue grades."""
+        h = 4 * C * K
+        residues = {1}
+        for q, e in factors.items():
+            powers = []
+            power = 1
+            for _ in range(e + 1):
+                powers.append(power)
+                power = power * q % h
+            residues = {a * b % h for a in residues for b in powers}
+            assert len(residues) <= h
+        return (-P) % h in residues
+
+    unresolved_prime = set(hard_all)
+    unresolved_slice = set(hard_all)
+    prime_min = {}
+    slice_min = {}
+    first_prime_slice = {}
+    first_good_prime = {}
+    implication_checks = 0
+
+    # Both minima are found in product order.  Once both have been found for
+    # P, no data for P are retained or recomputed at larger products.
+    for n in range(1, guard + 1):
+        pairs = tuple((C, n // C) for C in range(1, n + 1) if n % C == 0)
+        for C, K in pairs:
+            for P in tuple(unresolved_prime | unresolved_slice):
+                if not admissible(P, C, K):
+                    continue
+                h = 4 * C * K
+                norm = P * P + 4 * C * K * K
+                factors = factorint(norm)
+                hit = exponent_box_hit(P, C, K, factors)
+                good_primes = tuple(q for q in factors
+                                    if q % h == (-P) % h)
+
+                # The universally forced cores have neither a target divisor
+                # nor a good prime, independently checking the genus filter.
+                core = squarefree_core(C)
+                if core in (1, 2, 3, 6):
+                    assert not hit and not good_primes
+
+                # Check every one-prime event encountered before the two
+                # minima resolve, not just the selected minimum witness.
+                for q in good_primes:
+                    assert factorint(q) == {q: 1}
+                    assert gcd(q, h) == 1 and norm % q == 0
+                    E = norm // q
+                    assert q % h == E % h == (-P) % h
+                    assert q % 4 == E % 4 == 3 and q < norm
+                    A, B = (P + q) // h, (P + E) // h
+                    assert min(A, B) > 0
+                    assert P * (A + B) == K * (4 * A * B * C - 1)
+                    assert (Fraction(1, A * C * K)
+                            + Fraction(1, B * C * K)
+                            + Fraction(1, P * A * B * C)
+                            == Fraction(4, P))
+                    assert kronecker_symbol(-core, P) == -1
+                    assert hit
+                    implication_checks += 1
+
+                if P in unresolved_slice and hit:
+                    slice_min[P] = n
+                    unresolved_slice.remove(P)
+                if P in unresolved_prime and good_primes:
+                    prime_min[P] = n
+                    first_prime_slice[P] = (C, K)
+                    first_good_prime[P] = min(good_primes)
+                    unresolved_prime.remove(P)
+        if not unresolved_prime and not unresolved_slice:
+            break
+
+    assert not unresolved_prime, ("prime-factor guard exhausted",
+                                  sorted(unresolved_prime))
+    assert not unresolved_slice, ("slice guard exhausted",
+                                  sorted(unresolved_slice))
+    assert all(prime_min[P] >= slice_min[P] for P in hard_all)
+
+    expected_prime_hist = {
+        5: 156, 7: 30, 10: 36, 11: 35, 13: 13, 14: 15, 17: 16,
+        19: 4, 21: 15, 22: 9, 23: 6, 26: 10, 28: 4, 29: 3, 31: 1,
+        33: 2, 34: 3, 35: 1, 37: 1, 38: 4, 39: 2, 42: 5, 43: 1,
+        46: 1, 55: 2, 62: 1, 66: 4, 67: 1, 69: 1, 70: 1, 77: 1,
+        78: 1,
+    }
+    expected_slice_hist = {
+        5: 165, 7: 29, 10: 30, 11: 66, 13: 13, 14: 19, 17: 18,
+        19: 4, 21: 6, 22: 3, 23: 2, 26: 10, 28: 3, 29: 2, 31: 1,
+        34: 2, 35: 1, 38: 3, 39: 1, 42: 2, 44: 1, 59: 2, 67: 1,
+        77: 1,
+    }
+    observed_prime_hist = dict(sorted(Counter(prime_min[P]
+                                               for P in census_hard).items()))
+    observed_slice_hist = dict(sorted(Counter(slice_min[P]
+                                               for P in census_hard).items()))
+    assert observed_prime_hist == expected_prime_hist
+    assert observed_slice_hist == expected_slice_hist
+
+    def strict_records(values, primes):
+        records = []
+        running = -1
+        for P in primes:
+            if values[P] > running:
+                running = values[P]
+                records.append((P, running))
+        return tuple(records)
+
+    expected_records = (
+        (73, 7), (193, 10), (241, 21), (1201, 34), (2521, 38),
+        (4729, 66), (7489, 70), (9601, 78),
+    )
+    assert strict_records(prime_min, census_hard) == expected_records
+    equal = sum(prime_min[P] == slice_min[P] for P in census_hard)
+    gaps = {P: prime_min[P] - slice_min[P] for P in census_hard}
+    assert equal == 311 and sum(gap > 0 for gap in gaps.values()) == 74
+    assert max(gaps.values()) == 55 and gaps[23_689] == 55
+    assert (slice_min[23_689], prime_min[23_689]) == (11, 66)
+    assert first_prime_slice[23_689] == (33, 2)
+    assert first_good_prime[23_689] == 77_951
+    assert max(prime_min[P] for P in census_hard) == 78
+    assert tuple(P for P in census_hard if prime_min[P] == 78) == (9601,)
+
+    if scan_limit == 100_000:
+        full_records = strict_records(prime_min, hard_all)
+        assert full_records[-3:] == ((31_081, 110), (51_769, 249),
+                                     (83_689, 282))
+        assert max(prime_min.values()) == 282
+        assert tuple(P for P in hard_all if prime_min[P] == 282) == (83_689,)
+        assert max(slice_min.values()) == 103
+        assert sum(prime_min[P] == slice_min[P] for P in hard_all) == 960
+        assert max(prime_min[P] - slice_min[P] for P in hard_all) == 211
+
+    print("prime-factor ck histogram =", expected_prime_hist)
+    print("prime-factor records / exact implication instances =",
+          (expected_records, implication_checks))
+    print("ck_pr versus ck_min: equal/larger/max gap/maxima =",
+          (equal, 74, 55, 78, 77))
+    if scan_limit == 100_000:
+        print("ES_FULL_SCAN hard primes / max ck_pr / max ck_min =",
+              (len(hard_all), max(prime_min.values()), max(slice_min.values())))
+
+
+print("\n== (aw) conditional slice prime-factor reduction (§50) ==")
+check_aw()
 
 
 print("\nall checks passed")
