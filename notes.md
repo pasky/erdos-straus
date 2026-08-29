@@ -19438,8 +19438,7 @@ The raw mass proposed by simply adding slice dimensions is
 
 \[
  m_{\rm raw}(C)=
-   \sum_{\substack{ck\leq T\\(c,k)\ {
-m active\ at}\ C}}
+   \sum_{\substack{ck\leq T\\(c,k)\ {\rm active\ at}\ C}}
              {2\over\varphi(4ck)}.                         \tag{53.3}
 \]
 
@@ -19479,13 +19478,15 @@ coincides with a root class for \(d_2\), then
 \]
 
 Consequently, if \(d_1\ne d_2\), all root pairs belonging to slices
-\(c_i k_i\leq T\) are disjoint for \(q>4T^2\).  A root cannot be zero there.
-If \(d_1=d_2\), the two root sets coincide identically.
+\(c_i k_i\leq T\) are disjoint at every odd prime \(q>T^2\).  A root cannot
+be zero there.  If \(d_1=d_2\), the two root sets coincide identically.
 
-*Proof.*  Squaring a common residue and subtracting gives (53.7).  Since
+*Proof.*  Squaring a common residue and subtracting gives (53.7).  At an odd
+prime it gives \(q\mid d_1-d_2\).  Since
 \(d_i=(c_i k_i)k_i\leq T^2\), a nonzero difference has absolute value less
-than \(T^2\).  Also \(q>4T^2>4d_i\), so (53.6) has no zero root.  Equality
-of the radicands makes the congruences identical. \(\square\)
+than \(T^2\), which proves disjointness for \(q>T^2\).  A zero root there
+would similarly give \(q\mid d_i\), which is impossible.  Equality of the
+radicands makes the congruences identical. *(wave-19 review repair)* \(\square\)
 
 The last case invalidates the assertion that *all slice-label roots* become
 pairwise distinct above a resultant threshold.  For the explicit duplicate
@@ -19517,7 +19518,7 @@ The same estimate therefore holds for primes having no good prime factor of
 any size in the box.
 
 *Proof.*  Take
-\(T_0>\max(Q_T,4T^2)\).  Sieving the integers
+\(T_0>\max(Q_T,T^2)\).  Sieving the integers
 
 \[
                  \mathcal A_C=\{n\leq X:n\equiv C\pmod {Q_T}\} \tag{53.10}
@@ -19557,8 +19558,7 @@ effectively for this fixed modulus,
 Together with ordinary Mertens, this gives
 
 \[
- V_C(z)=\prod_{\ell\leq z}\left(1-{
-ho_C(\ell)\over\ell}\right)
+ V_C(z)=\prod_{\ell\leq z}\left(1-{\rho_C(\ell)\over\ell}\right)
        \asymp_T(\log z)^{-1-m_\#(C)}.                     \tag{53.14}
 \]
 
@@ -19614,8 +19614,7 @@ The size of the full raw box is genuinely quadratic in \(\log T\).  Indeed
 where
 
 \[
- C_{\rm sl}={1\over2}\prod_{p\ {
-m odd}}
+ C_{\rm sl}={1\over2}\prod_{p\ {\rm odd}}
  \left(1-{1\over p}\right)^2
  \left(1+{p(2p-1)\over(p-1)^3}\right)>0.                 \tag{53.17}
 \]
@@ -19626,8 +19625,7 @@ series as
 \[
  \sum_{n\geq1}{2\tau(n)\over\varphi(4n)n^s}
  =\left(\sum_{a\geq0}{a+1\over2^{a(1+s)}}\right)
-  \prod_{p\ {
-m odd}}
+  \prod_{p\ {\rm odd}}
    \left(1+\sum_{a\geq1}{a+1\over p^{a-1}(p-1)p^{as}}\right).
                                                                \tag{53.18}
 \]
@@ -19704,8 +19702,7 @@ its actual weight still larger.  Hence Möbius summation gives
 
 \[
  m_0(C)\gg {1\over q}
-  \sum_{\substack{u\leq T/q\\u\ {
-m squarefree}\\(u,q)=1}}
+  \sum_{\substack{u\leq T/q\\u\ {\rm squarefree}\\(u,q)=1}}
        {1\over u}\log{T/q\over u}
        \gg {\log^2(T/q)\over q}.                           \tag{53.24}
 \]
@@ -19754,8 +19751,8 @@ fixed \(0<A<1\), there are effectively computable constants \(c_A>0\) and
 
 \[
  \begin{split}
- \#\{p\leq X:p\equiv1\pmod {24},\ &\text{there is no active }(c,k),
-       \ ck\leq(\log X)^A,\text{ and no prime }q\leq z\text{ with}\\
+ \#\{p\leq X:p\equiv1\pmod {24},\ &\text{there do not exist an active }(c,k),
+       \ ck\leq(\log X)^A,\text{ and a prime }q\leq z\text{ with}\\
        &q\mid p^2+4ck^2,\quad q\equiv-p\pmod {4ck}\}
  \ll_A {X\over\log X}
  \exp\left\{-c_A{L^{3/2}\over\sqrt{\log L}}\right\}.   \tag{53.27}
@@ -19773,26 +19770,30 @@ needed at the class-partition level.
 There is one uniform-prime-distribution issue.  The standard
 Siegel--Walfisz theorem, applied directly to every modulus \(4sk\leq4T\),
 would make the constants ineffective.  Use instead its effective
-Landau--Page form: Page's theorem gives at most one primitive real conductor
-\(r=r_X\) whose induced characters are not covered by the effective
-zero-free region.  For moduli \(h\leq4T\) with \(r\nmid h\), the usual
-explicit-formula proof of Siegel--Walfisz gives, uniformly for \(x\geq Q_T\),
+Landau--Page form: among primitive real conductors which can induce a
+character modulo some \(h\leq4T\), Page's theorem gives at most one conductor
+\(r=r_X\) not covered by the effective zero-free region; in particular
+\(|r|\leq4T\).  When it exists, for moduli \(h\leq4T\) with \(r\nmid h\),
+the usual explicit-formula proof of Siegel--Walfisz gives, uniformly for
+\(x\geq Q_T\),
 
 \[
  \psi(x;h,a)={x\over\varphi(h)}
        +O\left(xe^{-c\sqrt{\log x}}\right),                \tag{53.28}
 \]
 
-with effective constants; if no exceptional conductor exists, take \(r=1\).
-This is the standard Page-deleted Siegel--Walfisz theorem, obtained from the
-Landau--Page assertion (at most one exceptional primitive real character),
-the classical effective zero-free region for every other Dirichlet
-\(L\)-function, and the explicit formula.  Unlike Chebotarev, it concerns
-only rational prime progressions.  Retain only canonical slices for which
-\(r\nmid4sk\).  A failure for all slices certainly avoids this retained
-subfamily.
+with effective constants.  If no exceptional conductor exists, no slice is
+deleted and the same formula holds for every \(h\leq4T\).  This is the
+standard Page-deleted Siegel--Walfisz theorem, obtained from the Landau--Page
+assertion (at most one exceptional primitive real character), the classical
+effective zero-free region for every other Dirichlet \(L\)-function, and the
+explicit formula.  Unlike Chebotarev, it concerns only rational prime
+progressions.  When \(r\) exists, retain only canonical slices for which
+\(r\nmid4sk\); otherwise retain all canonical slices.  A failure for all
+slices certainly avoids this retained subfamily. *(wave-19 review repair)*
 
-Let \(m_r(C)\) denote the retained version of (53.20).  At root-sieving
+Let \(m_r(C)\) denote the retained version of (53.20), with \(m_r=m_0\) when
+there is no exceptional conductor.  At root-sieving
 primes restrict to \(Q_T<q\leq z\).  The radicands are distinct, so Lemma
 53.1a makes all their root pairs disjoint.  Partial summation in (53.28),
 together with (53.16), gives uniformly in \(C\)
@@ -19820,24 +19821,28 @@ to majorize primality.  Thus the local product satisfies
 The first omitted factor is ordinary Mertens; the elementary bound
 \(Q_T/\varphi(Q_T)\ll\log T\) is enough.
 
-We record the uniform sieve point because it is load-bearing.  The
-upper-bound beta-sieve fundamental lemma, again in the uniform-dimensional
-form of Friedlander--Iwaniec, Theorem 6.9, says that if
+We record the uniform sieve point because it is load-bearing.  The exact
+large-\(s\) form of Friedlander--Iwaniec, *Opera de Cribro*, Theorem 6.9,
+says that under
 
 \[
  \prod_{w\leq\ell<y}(1-g_C(\ell))^{-1}
        \leq K_0\left({\log y\over\log w}\right)^{\kappa_C} \tag{53.31}
 \]
 
-and \(s=\log D/\log z\geq B_0(\kappa_C+1)\), then its upper sieve function
-is bounded absolutely (indeed it is \(1+O(e^{-c s})\) once \(s\) is beyond
-the beta-sieve threshold), uniformly in \(\kappa_C\).  Here the interval
-versions of (53.28)--(53.29) give (53.31) with
+and \(s=\log D/\log z>9\kappa_C+1\), the fundamental-lemma main factor is
+\(1+O(e^{9\kappa_C-s}K_0^{10})\), with an absolute implied constant.  This
+is genuinely uniform when \(\kappa_C\) grows.  Here the interval versions of
+(53.28)--(53.29), ordinary Mertens below \(Q_T\), and the fact that all extra
+roots start above \(Q_T\), give (53.31) with
 \(\kappa_C\ll1+m_r(C)\), an absolute \(K_0\), and
-\(\kappa_C\leq K_T\).  The choice (53.25) gives
-\(s=B K_T/3\), so the cited uniform condition holds for every class.  This
-is why taking a fixed-dimensional constant from Proposition 52.3 and then
-summing it would not suffice.
+\(\kappa_C\leq K_T\).  The summed progression error is
+\(O(T\log T\,e^{-c\sqrt{\log Q_T}})=o(1)\), so it does not enter \(K_0\).
+The choice (53.25) gives \(s=B K_T\); choosing \(C_0\) and then \(B>9\)
+with enough room makes the displayed error \(O(1)\)
+(and in fact exponentially small in \(K_T\)) for every class.  This is why
+taking a fixed-dimensional constant from Proposition 52.3 and then summing
+it would not suffice. *(wave-19 review repair)*
 
 For a squarefree sieve modulus \(d\), the progression count has remainder
 \(O(\rho_C(d))\), as in (53.12).  Crude domination by
@@ -19868,8 +19873,9 @@ It remains to average the permission mass.  Set
 \]
 
 Among primes \(5\leq q\leq y\), ignore those dividing the Page conductor
-\(r\).  There are only
-\(\omega(r)=O(\log T)=O(L)\) such primes.  By the exact independence
+\(r\), if it exists.  There are only
+\(\omega(r)=O(\log T)=O(L)\) such primes; with no exceptional conductor none
+are ignored.  By the exact independence
 (53.21), the proportion of classes on which every remaining bit is positive
 is
 
@@ -19879,7 +19885,8 @@ is
  \leq\exp\left\{-c{L^{3/2}\over\sqrt{\log L}}\right\}.   \tag{53.35}
 \]
 
-For every other class choose a negative prime \(q\leq y\), \(q\nmid r\).
+For every other class choose a negative prime \(q\leq y\), not dividing
+\(r\) when the exceptional conductor exists.
 Since \(y=T^{o(1)}\), Lemma 53.2a and its deletion clause give
 
 \[
@@ -19912,11 +19919,13 @@ fixed \(0<A<1\),
                          \sqrt{\log\log\log X}}\right\}.  \tag{53.37}
 \]
 
-*Proof.*  A failure of (50.7) has no good prime at all and is therefore
-counted by (53.27).  Replacing the cutoff \((\log X)^A\) by
-\((\log p)^A\) is handled on dyadic intervals; on \([X/2,X]\) the two
-cutoffs are asymptotic, and the lower intervals form a convergent geometric
-sum after constants are adjusted. \(\square\)
+*Proof.*  A failure of (50.7) has no good prime at all.  Fix any
+\(0<A'<A\).  On \([X/2,X]\), for all sufficiently large \(X\),
+\((\log X)^{A'}\leq(\log p)^A\); hence a failure at \(p\) is counted by
+(53.27) applied with \(A'\), rather than by an invalid enlargement of the
+slice box.  Summing the resulting bound over dyadic intervals gives (53.37),
+with its constants renamed in terms of \(A\). *(wave-19 review repair)*
+\(\square\)
 
 ### 53.4 Comparison, effectivity ledger, and finite checks
 
@@ -19924,21 +19933,28 @@ The contrast with §51 is now quantitative:
 
 \[
 \begin{array}{c|c|c}
-\text{mechanism}&\text{polylogarithmic failure exponent}&\text{permission}\ \hline
+\text{mechanism}&\text{polylogarithmic failure exponent}&\text{permission}\\ \hline
 \text{Type-I good slice prime, this section}&
  (\log\log X)^{3/2}/\sqrt{\log\log\log X}&
- \text{independent genus bits required}\
+ \text{independent genus bits required}\\
 \text{Type-II fixed-polylog supply, (51.17)}&
- (\log\log X)^2\log\log\log X&\text{none}\
+ (\log\log X)^2\log\log\log X&\text{none}\\
 \text{Type-II cubic supply, (51.18)}&
  (\log\log X)^3&\text{none; CLAIMED/PROVISIONAL.}
 \end{array}                                                  \tag{53.38}
 \]
 
 Theorem 50.5's escape classes are precisely the fixed-\(T\) extreme of the
-first row.  Combining Type I and Type II into the statement “one of the two
-exists” gives no new rate: its failure set is already contained in the
-Type-II failure set.  No hybrid theorem is claimed.
+first row.  For comparison with the antecedent recorded in §51.9, Dahan,
+arXiv:2608.24035, Theorem 4.17, obtains a \((\log\log N)^3\) exponent for
+his stacked-shift two-parameter \((u,a)\)-depth statistic, without a genus
+permission gate, and labels the resulting error ineffective.  The Type-I
+statistic here pays the genus-permission square-root penalty and the
+Landau--Page deletion makes its stated bound effective; the two depth
+statistics are not interchangeable. *(wave-19 review repair)*  Combining
+Type I and Type II into the statement “one of the two exists” gives no new
+rate: its failure set is already contained in the Type-II failure set.  No
+hybrid theorem is claimed.
 
 The effectivity ledger is as follows.  Theorem 53.1 uses fixed-modulus
 Mertens in arithmetic progressions and is effective.  The growing proof needs
@@ -19954,8 +19970,9 @@ records the total mass; only its elementary upper bound enters the sieve.
 **Computational 53.5 (exact ranges; informational).**  `verify.py (az)`
 checks all 111 labels with \(ck\leq30\).  Because the interval requested by
 the preliminary test, \((4\cdot30^3,10^5]\), is empty, it checks the sharper
-nonempty interval \((4\cdot30^2,10^5]\): at all 9,089 primes, every rooted
-distinct-radicand residue is different.  It also verifies the collision
+nonempty interval \((30^2,10^5]\): at all 9,438 primes, every rooted
+distinct-radicand residue is different. *(wave-19 review repair)*  It also
+verifies the collision
 \((q;(c_1,k_1),(c_2,k_2))=(3;(5,1),(5,2))\), whose common roots are 1 and 2,
 and the permanent duplicate \((5,2),(20,1)\).
 

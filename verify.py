@@ -9442,19 +9442,20 @@ def check_az():
     unforced = tuple(row for row in slices if row[2] not in forced_cores)
     assert (len(slices), len(unforced)) == (111, 31)
 
-    # The sharp resultant threshold is 4T^2, since CK^2=(CK)K<=T^2.
-    # The requested interval (4T^3,10^5] is empty at T=30, so check the
-    # stronger nonvacuous interval (4T^2,10^5] instead.  A common root is
-    # equivalent to equality of the two radicands modulo q.
+    # At odd q the factor 4 is invertible, so the uniform threshold is T^2,
+    # since CK^2=(CK)K<=T^2.  The requested interval (4T^3,10^5] is empty
+    # at T=30, so check the stronger nonvacuous interval (T^2,10^5].
+    # A common root is equivalent to equality of the two radicands modulo q.
+    # (wave-19 review repair)
     radicands = tuple(sorted({row[4] for row in slices}))
-    high_primes = tuple(primerange(4 * T * T + 1, 100_001))
-    assert len(high_primes) == 9089
+    high_primes = tuple(primerange(T * T + 1, 100_001))
+    assert len(high_primes) == 9438
     for q in high_primes:
         rooted = tuple(d for d in radicands
                        if pow((-4 * d) % q, (q - 1) // 2, q) == 1)
         residues = tuple((-4 * d) % q for d in rooted)
         assert len(residues) == len(set(residues))
-        assert all(q > 4 * abs(d1 - d2)
+        assert all(q > abs(d1 - d2)
                    for d1, d2 in combinations(rooted, 2))
 
     # A genuine below-threshold collision, and the permanent equal-radicand
@@ -9464,7 +9465,7 @@ def check_az():
     roots_first = tuple(sqrt_mod(-4 * d_first, q_small, all_roots=True))
     roots_second = tuple(sqrt_mod(-4 * d_second, q_small, all_roots=True))
     assert roots_first == roots_second == (1, 2)
-    assert q_small < 4 * T * T and (d_first - d_second) % q_small == 0
+    assert q_small < T * T and (d_first - d_second) % q_small == 0
     duplicate_a, duplicate_b = (5, 2), (20, 1)
     assert duplicate_a[0] * duplicate_a[1]**2 == 20
     assert duplicate_b[0] * duplicate_b[1]**2 == 20
@@ -9608,8 +9609,8 @@ def check_az():
     assert band_rows == (expected_bands_full if scan_limit == 100_000
                          else expected_bands_small)
 
-    print("overlap check (sharp threshold,primes,small collision,duplicate) =",
-          (4 * T * T, len(high_primes),
+    print("overlap check (uniform threshold,primes,small collision,duplicate) =",
+          (T * T, len(high_primes),
            (q_small, first, second, roots_first), (duplicate_a, duplicate_b, 20)))
     print("Q_30 / sampled raw mass min,median,max / sharp =",
           (Q,
