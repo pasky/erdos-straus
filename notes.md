@@ -13837,7 +13837,11 @@ print `(al)`'s summary line, but its code was not read.  The complete blind
 derivation was committed as
 `347a570312f68141e364b9d385db52e6be58aa75` in `unit_r_blind.md` before §39
 was opened.  Phase 3 then read §39 and the wave-13 repair commit
-`41570a595f660adc3abc5cd51b7c7cc74917a0e1`.
+`41570a595f660adc3abc5cd51b7c7cc74917a0e1`.  As in §35, git history
+verifies the snapshots, texts, and commit order only; it cannot verify
+what was visible on screen or enforce the read isolation, so the
+blind-phase claims above remain an explicit self-attestation, not
+independently audited blindness.
 
 The construction below is a condensed self-contained record of that blind
 file.  Put `t=log X`; constants may depend on the fixed
@@ -14076,8 +14080,12 @@ parallel-construction flag is appended to §39.7.
 
 ### 41.4 Independent numerical stress
 
-`verify.py (an)` is fresh code and does not call or reuse `(al)`.  It parses
-the file before running, builds literal dyadic atoms at `X` up to 10000,
+`verify.py (an)` is fresh code and does not call or reuse `(al)`.  Its
+"literal" mode means the literal dyadic-block cutoff \(u,v\leq x^{1/6}\)
+only; two toy substitutions remain and are disclosed here: the floor is
+\(H_{\rm toy}=1\) (not \(K^{10}\), which is empty at toy scale) and the
+\(\omega\)-cutoff is inactive at these sizes.  It parses
+the file before running, builds these dyadic-cutoff toy atoms at `X` up to 10000,
 processes one `ell` fibre at a time, and stores only a multiplier CRT state.
 Thus no Cartesian atom-set array is formed.  It computes the elementary CRT
 intersection sums `e_j` exactly as rational numbers through `j=6`.  The
@@ -14163,14 +14171,16 @@ $s\mid\operatorname {rad}(R)$ at super-polylogarithmic primes; consequently
 
 ### 42.1 Exact sparse and complement-divisor normal forms
 
-Fix a prime $p>z$.  Since $p\mid4Rc-1$, one has $(p,4R)=1$.  Define
+Fix a prime $p>z$.  Since $p\mid4Rc-1$, one has $(p,4R)=1$.  For
+$(p,4R)=1$ define
 $q_p(R)$ to be the unique integer in $[1,4R)$ such that
 
 $$
              p q_p(R)\equiv-1\pmod {4R}.                    \tag{42.1}
 $$
 
-Let $I_p(R,s)$ be the indicator that $s\mid\operatorname {rad}(R)$,
+Let $I_p(R,s)$ be the indicator that $(p,4R)=1$ (otherwise
+$I_p(R,s)=0$ and $q_p(R)$ is left undefined), $s\mid\operatorname {rad}(R)$,
 $q=q_p(R)>z$, $pq\leq X$, $pq$ is composite and $z$-rough, and
 $D=R^2/s$ is the retained canonical representative at $pq$.  Conditions
 such as $pq\equiv3\pmod4$ are included in this indicator.  Put
@@ -14470,7 +14480,11 @@ $$
        {\kappa(pq)\over q},                                 \tag{42.26}
 $$
 
-and then all $s\mid\operatorname {rad}(R)$ are superposed.  A Gauss bound
+(displayed relaxed: the endpoint system's full requirement is
+\(P^-(q)>z\), not merely \(q>z\), so (42.26) is a majorant of the actual
+coefficient — the extra terms have cofactors with a prime factor
+\(\leq z\), which the endpoint system excludes), and then all
+$s\mid\operatorname {rad}(R)$ are superposed.  A Gauss bound
 for the unweighted complete $c$-sum does not bound a sum with these moving
 nonnegative coefficients.  Replacing them by their absolute majorant before
 using (42.25) discards the cancellation and returns residue-blind Cauchy.

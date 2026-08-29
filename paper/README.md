@@ -12,7 +12,7 @@ pdflatex -interaction=nonstopmode -halt-on-error \
   -output-directory=/tmp/es-paper-build paper/espaper.tex
 ```
 
-Three passes complete with zero errors and resolved references. The generated PDF and auxiliary files live outside the repository and are not committed. `lacheck paper/espaper.tex` also exits successfully; its remaining messages are cosmetic false positives about set braces and factorial punctuation.
+Three passes complete with zero errors and resolved references. The generated PDF and auxiliary files live outside the repository and are not committed. `lacheck paper/espaper.tex` also exits successfully; a wave-14 fidelity review found five of its earlier warnings were REAL malformed `\rm` conditions (an eaten-`\r` transcription artifact, since fixed with `\text{...}`); the remaining messages are cosmetic false positives about set braces and factorial punctuation.
 
 ## Included
 

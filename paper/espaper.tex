@@ -1489,16 +1489,14 @@ $\delta=\eta g(L)/L$, so $0<\delta<1/4$.  Rankin's inequality over the
 semigroup gives
 \[
  E_{\rm all}(x)\leq x^{1-\delta}
- \prod_{\substack{p\leq x\\p\ {
-m exceptional}}}
+ \prod_{\substack{p\leq x\\p\ \text{exceptional}}}
        (1-p^{-1+\delta})^{-1}.
 \]
 The finitely many exceptional primes $p\leq x_0$ contribute $O(1)$,
 uniformly in $\delta$.  Partial summation and the endpoint estimate
 $\delta L-c_0g(L)=-(c_0-\eta)g(L)<0$ give
 \[
- \sum_{\substack{p\leq x\\p\ {
-m exceptional}}}p^{-1+\delta}
+ \sum_{\substack{p\leq x\\p\ \text{exceptional}}}p^{-1+\delta}
  \ll1+\int_{\log x_0}^L\exp\{\delta u-c_0g(u)\}\,du.
 \]
 Because $g(u)/u=u^{-1/4}$ is decreasing, for $u\leq L$ one has
@@ -1592,8 +1590,7 @@ the pair-level dispersion quantity is exactly
 \begin{equation}\tag{40.5}
  \mathcal V_X=\sum_{z<p\leq X}p\sum_{a\bmod p}
  \left(\sum_{\substack{M\leq X,
-      \ M\ {
-m composite},\ P^-(M)>z\\
+      \ M\ \text{composite},\ P^-(M)>z\\
       M\equiv3(4),\ p\mid M}}
       \frac{\kappa(M)}M n_{M,p}(a)\right)^2.
 \end{equation}
@@ -1631,10 +1628,8 @@ estimate
  \sum_{z<p\leq X}p\sum_{a\bmod p}
  \Bigg(&\sum_{\substack{R,s,c,q:\ s\mid\rad(R),\ 1\leq c<p\\
        pq=4Rc-1\leq X,\ P^-(pq)>z,\ pq\equiv3(4)\\
-       R^2/s\equiv-4^{-1}a\ (p),\ q>1\ ({\rm so}\ pq\ {
-m composite})\\
-       R^2/s\ {
-m is\ the\ retained\ representative\ at}\ pq}}
+       R^2/s\equiv-4^{-1}a\ (p),\ q>1\ ({\rm so}\ pq\ \text{composite})\\
+       R^2/s\ \text{is\ the\ retained\ representative\ at}\ pq}}
        \frac{\kappa(pq)}{pq}\Bigg)^2
  \ll\Lambda^2.
 \end{aligned}
