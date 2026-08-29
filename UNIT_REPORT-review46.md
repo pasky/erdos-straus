@@ -1,0 +1,11 @@
+# UNIT REPORT — hostile review of §46
+- Verdict: **SOUND-AFTER-REPAIRS**; no analytic or finite-bookkeeping gap found.
+- 1 **CONFIRMED**: block injectivity is local; all inter-block collisions remain accounted for.
+- 2 **CONFIRMED**: occupancy, global diagonal, and `W1 ~ L^5 loglog L/(log L)^2` rederive exactly.
+- 3 **CONFIRMED**: the large-`c` proof closes exactly `c>=z, m<=zW1`.
+- 4 **CONFIRMED**: (46.13) is equivalent to the open endpoint estimate with no mixed-term leakage.
+- 5 **CONFIRMED**: `(as)` matches `(ao)/(ar)`, streams buckets, and its five corners resum exactly.
+- 6 **REPAIRED**: stale raw-codegree OPEN claims now point to §47 and replacement wall (47.16).
+- `(40.19)/(37.27)` remain **OPEN**; raw `(40.28)/(37.19)` are **REFUTED**.
+- Full `uv run --with sympy,numpy,scipy python verify.py`: green in 1:51.85; RSS 329768 KB.
+- `notes.md` control bytes: 0; `verify.py` untouched.
