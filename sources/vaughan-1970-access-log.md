@@ -38,3 +38,11 @@
 - <https://scispace.com/papers/on-a-problem-of-erdos-straus-and-schinzel-4fo2wyggyx> is only an aggregator metadata page; it was not used as a source. Searches also found no target article in EuDML/GDZ or JSTOR.
 
 Only legitimate publisher, author, institutional, and archive routes were pursued; Sci-Hub and LibGen were not queried.
+
+## 6. Wave-19 new-route recheck (2026-08-29)
+
+- **Search result (fresh digitization query):** exact-title `filetype:pdf`, DOI-plus-PDF, 1970 volume/page, and 2025--26 digitization searches returned the Wiley PDF endpoint and later papers that cite Vaughan, but no new lawful copy of the target paper.  The Wiley search snippet exposes only opening text, not a downloadable artifact.
+- **Search result (Internet Archive volume/full-text proxies):** new Advanced Search queries for `title:mathematika AND year:1970`, volume 17, `mathematika17*`, and the DOI in identifier/description fields each returned zero items.  No volume scan on which a separate OCR full-text search could be run was located.
+- **Search result (zbMATH/EuDML):** the zbMATH API failed at its public proxy and the web record presented bot verification; EuDML's exact-title search returned no result record or full-text link.  These routes yielded no artifact.
+- **Search result (publisher migration/open-status recheck):** the current Cambridge legacy record still says “Get access” and offers purchase/institutional access; the current Wiley record exposes PDF/ePDF links but no open-access marker.  OpenAlex still reports `is_oa:false`, `oa_status:closed`, and no repository full text.  Crossref now records Portico and Wiley text-mining links, but Portico is not a public copy and Wiley's TDM API returned HTTP 400 without an artifact.
+- **Assessment:** no PDF was obtained, so no direct Vaughan comparison memo can responsibly be written; Section 16's Vaughan-method statements remain reconstruction-via-Pomerance--Weingartner rather than primary-source facts.

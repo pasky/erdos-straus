@@ -18689,6 +18689,25 @@ the standard Bombieri--Vinogradov proof (for example the Vaughan-identity and
 large-sieve treatment in Chapters 24 and 28 of Davenport's *Multiplicative
 Number Theory*).
 
+*(wave-19 citation repair; Verbatim reference and Assessment.)*  The exact
+external input is H. W. Lenstra Jr. and C. Pomerance, “Primality testing with
+Gaussian periods,” *J. Eur. Math. Soc.* **21** (2019), 1229--1269, Lemma 11.2,
+pp. 1258--1260 (DOI 10.4171/JEMS/861; archived in `sources/`).  It is headed
+“effective Bombieri--Vinogradov inequality” and gives absolute effectively
+computable constants, one excluded modulus
+\(s(x)\in[(\log x)^{1/2},\exp((\log x)^{1/2})]\) (the primitive real
+exceptional conductor when one exists), the maximum over
+\(2\leq y\leq x\) and reduced residues, and the all-modulus sum with
+\(s(x)\nmid q\), bounded by
+\(C x^{1/2}Q(\log x)^5+C x e^{-c\sqrt{\log x}}\).  Taking
+\(Q\leq x^{1/2}(\log x)^{-B}\) and enlarging to
+\(x^{1/3}\log x\) when \(Q\) is smaller proves (51.20), after choosing
+\(B\); a restricted interval of moduli only decreases the sum.  Thus
+(51.20) is a direct corollary, not a verbatim restatement.  The source's
+maximum in \(y\) also supplies one conductor for a dyadic interval before
+partial summation.  Its proof cites Davenport, 2nd ed. (Springer, 1980),
+Chapter 28.
+
 *(wave-18 review repair.)*  Here is the induced-character count suppressed in
 that standard reduction.  Choose the small-conductor cutoff
 \(R=(\log x)^{B_0}\).  Away from the Page character, the explicit formula is
@@ -18894,6 +18913,55 @@ checks three toy instances of the conductor deletion for
 \(r=3,5,7\).  The toy floor is relaxed because \(H=K^{10}\) makes literal
 small instances empty.  No computational line is used as proof of an
 asymptotic statement.
+
+### 51.9 Priority and citation notes (wave-19, appended)
+
+**Search result (not a literature guarantee).**  Searches through Vaughan,
+Webb, Yang, Elsholtz--Tao, Huang--Vaughan, Pomerance--Weingartner (PW), and
+recent 2025--26 records found no paper explicitly claiming an effective
+Vaughan-strength Erdős--Straus exceptional-set constant or a Siegel-free
+proof of that bound.  Huang--Vaughan's binary-fraction paper instead says its
+Delange input is “qualitative in nature” and “does not give an explicit error
+term.”
+
+**Verbatim quote and Assessment (PW effectivity audit).**  PW Theorem 1.3
+states only “There is an absolute positive constant C”
+(`sources/pw.txt:69-72`), not that C or its threshold is computable.  Its
+Section 4 upper class-mass bound uses the divisor inequality and
+Brun--Titchmarsh (`:496-523`); the lower bound says “We now use the
+Bombieri--Vinogradov theorem” (`:600-616`); and the N-side says “We now employ
+the large sieve” (`:627-644`) followed by elementary Rankin/product estimates
+(`:650-762`).  **Assessment:** the only Siegel-sensitive input in the printed
+Section 4 chain is ordinary Bombieri--Vinogradov in the lower bound for Lemma
+4.1.  PW does not perform exceptional-conductor deletion.  The effective
+m=4 repair in Lemmas 51.4--51.5 is therefore a campaign-derived repair, not
+an effectivity assertion of PW; uniform effectivity for their varying general
+m is not established here when the exceptional conductor divides m.
+
+**Search result and Assessment (closest depth statistic).**  Benjamin Dahan,
+*Sieve dimension and search depth for the Erdős--Straus conjecture,
+n congruent to 1 (mod 24)*, arXiv:2608.24035v1 (2026), Theorem 4.17 and
+Corollary 4.29, claims a tail
+\(N\exp\{-(\kappa_1\lambda^2+o(1))(\log\log N)^3\}\) at
+parameter depth \(J=(\log N)^\lambda\).  It explicitly says
+that its o(1) is ineffective because its Bombieri--Vinogradov input rests on
+Siegel's theorem.  This is genuine witness-depth language, but its depth
+bounds the two parameters u,a while the divisor witness s may be much larger;
+it is not a tail for the minimal congruence modulus W in (51.1).
+
+**Search result (phrase-level priority; not a literature guarantee).**  Exact
+and variant searches for “minimal/least/witness modulus,” “almost all primes,”
+and “polylogarithmic” found PW's truncatable argument, Dahan's different
+search-depth statistic, and Elsholtz--Tao's almost-all solution-count bounds,
+but no source formulating polylogarithmic boundedness or a tail for W itself.
+The absence of a hit is not a claim that none exists.
+
+**Search result and Assessment (Vaughan access).**  New exact-title/PDF,
+2025--26 digitization, Internet Archive volume, zbMATH/EuDML, Wiley TDM, and
+current Cambridge/Wiley open-status routes produced no lawful full text.
+`sources/vaughan-1970-access-log.md` records the failures.  No direct Vaughan
+effectivity verdict or argument comparison is therefore claimed.
+
 ## 52. Per-slice vanishing frequency: the sieve upper bound and the empty third layer
 
 **Scope and outcome.**  The genus obstruction of Theorem 48.1 is the last
