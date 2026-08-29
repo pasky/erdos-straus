@@ -3231,6 +3231,12 @@ through the Pomerance-Weingartner 2025 reconstruction.  The all-integer result
 is a semigroup corollary of the prime result, not an assertion that
 Lemma 16.3 applies to nonreduced integer subsequences.
 
+**Wave-13 supersession note (appended; CLAIMED/PROVISIONAL).**  Theorem 39.7
+claims the stronger unconditional saving
+\(\exp\{-c(\log N)^{3/4}\}\).  The present theorem remains the externally
+unchecked prior benchmark until §39's three load-bearing steps receive an
+independent hostile review.
+
 ## 17. The pointwise frontier: exact reformulations of "all p", the walls
 that close, and what a proof would have to look like
 
@@ -4154,6 +4160,12 @@ Theorem 18.2 proves that cubic supply exists and that a mass-driven exponent
 beyond \(3/4\) cannot come from Lemma 16.1, but Theorem 16.4 remains the
 realized bound.  (H_PF as stated is refuted — see §31; the critical-window
 variant \(H_{\rm PF}'\) below remains open.)
+
+**Wave-13 supersession note (appended; CLAIMED/PROVISIONAL).**  Section 39
+replaces H_PF by a fixed c-free restricted family and pays the honest
+\(e^{O(J\log X)}\) ledger inside the critical window.  If its provisional
+proof survives review, Theorem 39.7 makes (18.19) unconditional; the literal
+H_PF and \(H_{\rm PF}'\) statements remain false/open exactly as printed.
 
 **Numerical companion.**  `verify.py (q)` computes the exact union (18.1) for
 every \(M\le10^5\), reports its harmonic truncations against \((\log Q)^3\),
@@ -11267,6 +11279,13 @@ paying for full \(H_{k\rm BV}\) now has little marginal value for the
 \(3/4\) campaign: assembly, not prime-slice harvesting, is the exact live
 bottleneck.
 
+**Wave-13 supersession note (appended; CLAIMED/PROVISIONAL).**  Section 39
+does not prove (34.24): it majorizes the smaller fixed c-free avoider which
+still contains every exceptional prime, and its coefficient ledger is
+\(e^{O(Jt)}\), not \(e^{O(J)}\).  Theorem 39.6 proves that this larger ledger
+is absorbed by \(\log N\asymp t^4\), yielding the provisional unconditional
+implication in Theorem 39.7.  The original hypothesis remains OPEN.
+
 **Soft spots.**  Theorem 34.8 is new to this campaign and needs external
 priority and referee checking, especially the power-range extension of the
 Shiu/box estimates and the uniform second-moment boundary sum.  The
@@ -12851,3 +12870,491 @@ without a source Cartesian product, checks every finite branch against
 (38.3)--(38.4), replays (38.7), verifies the swap construction and directed
 inverse counts, checks the Type-I scaling example and the coordinate-ring
 identity/swap, and reruns the bounded \(k=2\to k=1\) feature search.
+
+---
+
+## 39. The c-free critical-window assembly: a provisional cubic-rate majorant
+
+This section attacks the restricted assembly in §34.4.  It does **not**
+prove the literal coefficient-sum clause of
+\(H_{\rm PF}'(k\ell;{\rm good})\).  Instead it removes the moving
+\(c\)-family, uses one fixed unpruned atom family, and proves the weaker
+ledger \(\exp\{O(J\log X)\}\).  That ledger is exactly of the same order
+as the lcm budget and is still absorbed when \(\log N\geq C(\log X)^4\).
+Subject to the maximum-severity caveats in §39.7, this closes the
+exceptional-set implication and gives a **CLAIMED/PROVISIONAL** unconditional
+\(3/4\) exponent.  All results in this section which feed that claim inherit
+that provisional status pending hostile external checking.
+
+Put
+\[
+ t=\log X,\qquad K=\lfloor X^\kappa\rfloor,
+ \qquad H=K^{10},\qquad 0<\kappa<1/240,                    \tag{39.1}
+\]
+and partition \((X^{1/2},X]\) into disjoint dyadic blocks \((x,2x]\)
+(truncating the two endpoint blocks).  In a block put \(z=x^{1/6}\).
+Let \(\mathcal A_X\) be the following fixed **c-free** family.  An atom is
+\[
+ A=(k,\ell,u,v),\quad k\leq K,\ k\equiv1\pmod4,
+ \quad \ell\in(x,2x]\text{ prime},\quad
+ H<u,v\leq z,                                               \tag{39.2}
+\]
+with
+\[
+ (u,v)=(uv,k)=1,\
+ \omega(uv)\leq D\log\log X,
+ \qquad 4uv\mid k\ell+1.                                  \tag{39.3}
+\]
+It denotes the cylinder
+\[
+ E_A=\{n:n\equiv-u v^{-1}\pmod {k\ell}\}.                \tag{39.4}
+\]
+Here \(D\) is the fixed constant of Lemma 16.2.  The dyadic cutoff is only
+a canonical subfamily of (16.7); inspection of the lower proof of Theorem
+34.8, specifically (34.20)--(34.21), shows that its retained main mass is
+already furnished inside these boxes.
+
+### 39.1 Removing the moving fibre and deduplicating the atoms
+
+**Lemma 39.1 (c-free reduction and distinct large coordinates; proved,
+provisionally checked).**
+
+1. If \(n\) is exceptional, then it avoids every atom in \(\mathcal A_X\).
+   If additionally \(c\equiv n\pmod {24L_K}\), then every atom hit by \(n\)
+   automatically obeys \(k\mid u+cv\).  Thus the coupling condition used to
+   define \(\mathscr G_{X,c}\) is implied by the atom itself; it need not be
+   built into the polynomial.
+2. Distinct atoms which have a compatible intersection have distinct primes
+   \(\ell\).  At a fixed \(\ell\), all atom classes modulo \(\ell\) are
+   distinct.  At a fixed modulus \(k\ell\), no two ordered pairs \((u,v)\)
+   produce the same class.
+3. Consequently, for a compatible ordered set \(A_1,\ldots,A_j\),
+   \[
+    \Pr\Big(\bigcap_{i\leq j}E_{A_i}\Big)
+     ={\mathbf1_{\rm compatible}\over
+       \operatorname {lcm}(k_1,\ldots,k_j)\prod_{i\leq j}\ell_i}.
+                                                                    \tag{39.5}
+   \]
+
+*Proof.*  Lemma 16.1 proves the first assertion.  Modulo \(k\), (39.4) says
+\(u+nv\equiv0\); since \(c\equiv n\pmod k\), it also says
+\(u+cv\equiv0\).
+
+Suppose two atoms at the same \(\ell\) are compatible.  Their projections
+modulo \(\ell\) agree, so
+\[
+ \ell\mid uv'-u'v.
+\]
+In the same block the absolute value is at most \(z^2=x^{1/3}<\ell\).
+The same conclusion holds if two admissible cutoffs are compared across
+blocks, since every \(u,v\leq X^{1/6}\), while
+\(\ell>X^{1/2}>X^{1/3}\).  Hence \(uv'=u'v\), and reducedness gives
+\((u,v)=(u',v')\).  (The apparent swap can agree only when \(u=v\), which
+is impossible here because \((u,v)=1\) and \(u,v>H\).)  Finally
+\(uv\mid(k\ell+1)/4\) is exactly
+\[
+ k\ell\equiv-1\pmod {4uv}.
+\]
+Since \((\ell,4uv)=1\), this determines \(k\pmod {4uv}\), and
+\(4uv>4H^2>K\) makes the admissible \(k\) unique.  This proves both forms
+of deduplication and the distinct-\(\ell\) assertion.  CRT now gives
+(39.5). \(\square\)
+
+The point of this lemma is logical as well as geometric.  The new majorant
+below covers the fixed predicate
+\(\mathbf1_{(n,P_y)=1}\mathbf1_{H_X(n)=0}\), where
+\(H_X=\sum_{A\in\mathcal A_X}\mathbf1_{E_A}\).  It does not majorize every
+avoider of the smaller, \(c\)-dependently pruned family in (34.24).  It does
+majorize every exceptional prime, which is all the implication (34.25)
+needs.
+
+### 39.2 Exact mass profiles
+
+For \(g\mid k\) and \(a\in(\mathbb Z/g\mathbb Z)^\times\), write
+\[
+ W_{k,a}(g)=
+  \sum_{\substack{A\in\mathcal A_X\text{ with multiplier }k\\
+                   -uv^{-1}\equiv a\ (g)}}{1\over k\ell},
+ \qquad W_k=\sum_{A:k_A=k}{1\over k\ell}.                  \tag{39.6}
+\]
+
+**Lemma 39.2 (multiplier and residue profiles; proved, provisional).**
+Uniformly for \(k\leq K\), \(k\equiv1\pmod4\), \(g\mid k\), and reduced
+\(a\pmod g\),
+\[
+ W_{k,a}(g)\ll {t^2\over\varphi(g)}{\varphi(k)^2\over k^3},
+ \qquad
+ W_k\asymp t^2{\varphi(k)^2\over k^3}.                    \tag{39.7}
+\]
+Consequently
+\[
+ \mu_X:=\sum_{A\in\mathcal A_X}{1\over k_A\ell_A}
+   \asymp t^2\sum_{\substack{k\leq K\\k\equiv1(4)}}
+                   {\varphi(k)^2\over k^3}
+   \asymp t^2\log K\asymp t^3.                            \tag{39.8}
+\]
+For each fixed odd prime \(p\), the asymptotic weighted share of multipliers
+divisible by \(p\) is
+\[
+ \alpha_p={p-1\over p^2+p-1}\sim {1\over p}.              \tag{39.9}
+\]
+
+*Proof.*  Here are the details which are needed later, rather than an appeal
+to an average over \(c\).  In one block, Brun--Titchmarsh in
+\(\ell\equiv-k^{-1}\pmod {4uv}\), followed by the weighted box argument
+of (16.4)--(16.5g), gives
+\[
+ \sum_{A\text{ in the block}\atop k_A=k,
+       -uv^{-1}\equiv a\ (g)}{1\over\ell}
+ \ll {\log x\over\varphi(g)}{\varphi(k)^2\over k^2}.      \tag{39.10}
+\]
+The local factor \((\varphi(k)/k)^2\) comes from excluding every prime of
+\(k\) from both harmonic variables.  At a prime power dividing \(g\), the
+units \(u,v\) have one of the \(\varphi(p^e)\) possible ratios; the box
+main term is identical for each ratio.  The boundary error is uniform
+because \(g\leq K\) and \(u,v>H=K^{10}\).  Equivalently, repeating
+(16.4) with modulus \(g\), while retaining \((uv,k)=1\), gives
+\[
+ \sum {1\over\varphi(u)\varphi(v)}
+ \ll { (\log z)^2\over\varphi(g)}{\varphi(k)^2\over k^2}; \tag{39.11}
+\]
+the quotient of its Euler factors by the displayed expression is
+\(\exp\{O(\sum_p p^{-2})\}\).  This proves (39.10) and, after the
+\(O(t)\) blocks and division by \(k\), the upper half of (39.7).
+
+For the lower half drop the ratio condition.  For one fixed \(k\), a
+modulus \(4uv\) has at most \(2^{\omega(uv)}=(\log X)^{O(1)}\) ordered
+allocations.  Thus ordinary Bombieri--Vinogradov, with a fixed sufficiently
+large logarithmic saving, evaluates the prime progressions without the
+factor \(K\): \(k\) is fixed on this line.  The low-\(\omega\) Rankin
+argument of (16.5h) retains a fixed proportion uniformly.  This gives the
+matching lower bound block by block and proves (39.7).
+
+Finally \(b(k)=(\varphi(k)/k)^2\) is multiplicative and
+\(\sum b(k)/k\asymp\log K\), also after selecting \(k\equiv1\pmod4\), by
+the principal/\(\chi_4\) decomposition.  At an odd prime its local factor is
+\[
+ 1+\sum_{e\geq1}{(1-1/p)^2\over p^e}
+   =1+{p-1\over p^2},                                      \tag{39.12}
+\]
+so the part with \(p\mid k\), divided by the full factor, is exactly
+(39.9). \(\square\)
+
+The distinction between the two masses is worth recording.  Given a reduced
+fibre \(c\), an atom with multiplier \(k\) is active for one of the
+\(\varphi(k)\) unit residues and then has prime-coordinate probability
+\(1/\ell\).  Averaging those conditional masses produces the factor
+\(1/\varphi(k)\), whereas the unconditioned cylinder has probability
+\(1/(k\ell)\).  Formula (39.7), not (34.23), is therefore the correct
+profile for factorial moments in the c-free CRT space.
+
+### 39.3 Collapse versus consistency
+
+The rough collapse bound which discards residue consistency would charge a
+shared prime \(p\) by \(p\alpha_p^2\asymp1/p\), producing a false
+\(\log\log K\) loss.  The required cancellation is exact at the level of a
+new compatible atom.
+
+For a cutoff \(y\), put
+\[
+ q_y(k)=\prod_{p\mid k,\ p\leq y}{p\over p-1},
+ \qquad
+ b_y(g)=\prod_{p^e\Vert g,\ p\leq y}\varphi(p^e)
+         \prod_{p^e\Vert g,\ p>y}p^e.                     \tag{39.13}
+\]
+Condition the CRT space by \((n,P_y)=1\), where
+\(P_y=\prod_{p\leq y}p\).  An atom then has probability
+\(q_y(k)/(k\ell)\).  If a compatible previously selected set has
+multiplier lcm \(R\), adding an atom of multiplier \(k\), with
+\(g=(k,R)\), multiplies its intersection probability by
+\[
+ {q_y(k)\over k\ell}\,b_y(g).                              \tag{39.14}
+\]
+Compatibility fixes one unit residue modulo \(g\).  Lemma 39.2 says that
+the atom mass in that residue is at most \(1/\varphi(g)\) of its
+multiplier mass.  Thus the collapse left after summing the compatible new
+atoms is
+\[
+ {b_y(g)\over\varphi(g)}
+   =\prod_{p\mid g,\ p>y}{p\over p-1};                     \tag{39.15}
+\]
+small conditioned primes cancel exactly, and an unconditioned shared prime
+costs only \(p/(p-1)\), not \(p\).
+
+**Lemma 39.3 (uniform multiplier Euler bound; proved).**  Uniformly in
+\(y\geq2\), every integer \(R\), and \(K\geq3\),
+\[
+ \sum_{\substack{k\leq K\\k\equiv1(4)}}
+ {\varphi(k)^2\over k^3}q_y(k)
+ \prod_{\substack{p\mid(k,R)\\p>y}}{p\over p-1}
+ \ll\log K.                                                \tag{39.16}
+\]
+
+*Proof.*  It is enough to sum over all odd \(k\).  The unmodified local
+nonconstant mass is \((p-1)/p^2\).  Multiplication either by \(q_y\) for
+\(p\leq y\), or by \(p/(p-1)\) when \(p>y\) and \(p\mid R\), changes this
+to \(1/p\).  The quotient
+\[
+ {1+1/p\over1+(p-1)/p^2}=1+O(p^{-2})                      \tag{39.17}
+\]
+has a convergent product, uniformly in the chosen set of modified primes.
+The remaining harmonic Euler product is \(O(\log K)\). \(\square\)
+
+**Theorem 39.4 (all required upper factorial moments; proved,
+provisional).**  In the CRT space conditioned by \((n,P_y)=1\), for every
+integer \(m\geq1\),
+\[
+ \mathbb E(H_X)_m\leq(Ct^3)^m,                             \tag{39.18}
+\]
+with \(C\) depending at most on \(\kappa\), uniformly in \(y\).
+In particular the bound holds through every order \(m=D t^3\).
+
+*Proof.*  Expand the ordered factorial moment into distinct compatible
+atoms.  By Lemma 39.1, every admissible next atom has a new \(\ell\).
+For a fixed preceding compatible set, (39.14), the residue-profile upper
+bound (39.7), and (39.15) bound the sum over all possible next atoms by
+\[
+ Ct^2\sum_{k\leq K\atop k\equiv1(4)}
+ {\varphi(k)^2\over k^3}q_y(k)
+ \prod_{p\mid(k,R),\ p>y}{p\over p-1}
+ \leq Ct^2\log K\leq Ct^3.                               \tag{39.19}
+\]
+Removing the forbidden old \(\ell\)'s only decreases this sum.  Iteration
+proves (39.18). \(\square\)
+
+At pair level this gives a sharper diagnosis than the rough attempt in the
+attack brief.  For fixed \(k,k'\), \(g=(k,k')\),
+\[
+ \sum_{A:k_A=k}\sum_{B:k_B=k'\atop A\sim B}
+ \Pr(E_A\cap E_B)
+ \ll {g\over\varphi(g)}W_kW_{k'}.                          \tag{39.20}
+\]
+Averaging (39.20) uses
+\(\alpha_p^2(p/(p-1)-1)=O(p^{-3})\), not
+\(p\alpha_p^2\asymp1/p\).  Hence the pair excess is \(O(\mu_X^2)\) with
+an absolute constant.  It is **not** \(o(\mu_X)\): a fixed small prime
+already contributes a constant multiple of \(\mu_X^2\) to the usual
+Janson dependency sum.  Therefore the proposed direct condition
+\(\Delta=o(\mu)\) and the naive Janson proof fail quantitatively.  The
+factorial-moment theorem survives because an absolute base \(C^m\), rather
+than Poisson relative error, is enough after the separate void estimate
+below.
+
+### 39.4 The CRT void without partitioning by all of \(M_0\)
+
+A completely unconditioned c-free void still has a quarantine floor: taking
+\(n\equiv0\pmod p\) for many small \(p\)'s disables every atom whose
+multiplier contains one of them.  Thus \(Q_r(H_X)\) alone cannot have cubic
+mean.  The cure costs low degree.  Take
+\[
+ y=B t^3                                                     \tag{39.21}
+\]
+with a sufficiently large fixed \(B\), and multiply by the exact small-prime
+coprimality selector
+\[
+ S_y(n)=\mathbf1_{(n,P_y)=1}
+       =\sum_{d\mid P_y}\mu(d)\mathbf1_{d\mid n}.          \tag{39.22}
+\]
+Every exceptional prime greater than \(y\) has \(S_y=1\).  Notice that
+(39.22) has degree \(\pi(y)=O(t^3/\log t)\), not the impossible degree
+\(\pi(K)\).
+
+**Lemma 39.5 (conditioned c-free void; proved, provisional).**  In the exact
+CRT space,
+\[
+ \Pr(H_X=0\mid S_y=1)\leq e^{-c t^3}.                       \tag{39.23}
+\]
+
+*Proof.*  Reveal all multiplier coordinates.  Let \(c\) denote the resulting
+class modulo \(L_K\), and put
+\[
+ \mathcal J_c=\{k\leq K:k\equiv1\pmod4,\ (k,c)=1\},
+ \qquad
+ Z(c)=\sum_{y<p\leq K\atop p\mid c}{1\over p}.             \tag{39.24}
+\]
+The coordinates for \(p>y\) remain independent and
+\(\Pr(p\mid c)=1/p\).  With the exponential parameter \(y\),
+\[
+ \mathbb E e^{yZ}
+ \leq\exp\left\{C y\sum_{p>y}p^{-2}\right\}=e^{O(1)},
+ \qquad
+ \Pr(Z>\eta)\leq e^{-\eta y+O(1)}.                         \tag{39.25}
+\]
+
+Write \(h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2\).
+The elementary bounds
+\[
+ h(\mathcal K(K))\asymp\log K,
+ \qquad
+ \sum_{k\leq K,\ p\mid k}{\varphi(k)\over k^2}
+       \ll {\log K\over p}                                 \tag{39.26}
+\]
+show by the union bound that, for a sufficiently small fixed \(\eta\),
+\(Z(c)\leq\eta\) implies
+\(h(\mathcal J_c)\geq c_1\log K\).  Also \(S_y=1\) makes \(c\) coprime
+to 24, and by definition it is coprime to \(L_{\mathcal J_c}\).
+
+Apply Theorem 34.8 to this arbitrary subfamily \(\mathcal J_c\).  Its lower
+proof lies in the canonical boxes (39.2), and its good triples are contained
+in the c-free unpruned family.  Conditional on the multiplier coordinates,
+the distinct \(\ell\)-coordinates are independent by Lemma 39.1.  Therefore,
+when \(Z(c)\leq\eta\),
+\[
+ \Pr(H_X=0\mid c)
+ \leq\prod_\ell\left(1-{f^{\rm good}_c(\ell)\over\ell}\right)
+ \leq\exp\{-c_2t^2h(\mathcal J_c)\}
+ \leq e^{-c_3t^3}.                                         \tag{39.27}
+\]
+The bad multiplier coordinates cost at most
+\(e^{-\eta Bt^3+O(1)}\) by (39.25).  Increasing \(B\) if necessary and
+averaging (39.27) proves (39.23). \(\square\)
+
+This is where Theorem 34.8 replaces Janson.  It supplies cubic active
+prime-coordinate mass **uniformly for every reduced surviving multiplier
+fibre**.  The only fibres not reduced are those which set too much
+large-prime multiplier mass to zero, and (39.25) makes those fibres
+exponentially rare after the polynomial-sized coprimality cutoff.
+
+### 39.5 A low-degree majorant with the honest ledger
+
+For even \(r\), put
+\[
+ Q_r(h)=\sum_{j=0}^r(-1)^j{h\choose j}.
+\]
+The exact identity
+\[
+ Q_r(0)=1,
+ \qquad Q_r(h)={h-1\choose r}\geq0\quad(h\geq1)             \tag{39.28}
+\]
+shows that
+\[
+ \nu_{X}(n)=S_y(n)Q_r(H_X(n))                               \tag{39.29}
+\]
+is nonnegative and is at least one on every exceptional prime
+\(n>\max(K,y)\).
+
+**Theorem 39.6 (modified c-free critical-window assembly; proved,
+CLAIMED/PROVISIONAL).**  There are constants \(c,C_0,D>0\), depending at
+most on \(\kappa\), such that if \(r\) is the least even integer at least
+\(Dt^3\), then (39.29) has exact CRT mean
+\[
+ \mathbb E_{\rm CRT}\nu_X\leq e^{-ct^3}.                   \tag{39.30}
+\]
+Its congruence expansion has the following explicit bounds:
+\[
+ \begin{split}
+ \text{degree}&\leq r+\pi(y)=O(t^3),\\
+ \log d_{\rm term}&\leq O(y)+r(t+\log K)=O(t^4),\\
+ \log\sum_{\rm terms}|c_{\rm term}|&=O(rt)=O(t^4).
+ \end{split}                                                \tag{39.31}
+\]
+Every nonzero term is one plain congruence class.
+Consequently, whenever \(\log N\geq C_0t^4\),
+\[
+ \sum_{n\leq N}\nu_X(n)\ll Ne^{-ct^3}.                    \tag{39.32}
+\]
+
+*Proof.*  From (39.28), for \(h\geq1\),
+\({h-1\choose r}\leq {h\choose r+1}\).  Lemma 39.5 and Theorem
+39.4 therefore give
+\[
+ \begin{split}
+ \mathbb E(Q_r(H_X)\mid S_y=1)
+ &\leq \Pr(H_X=0\mid S_y=1)
+       +{\mathbb E((H_X)_{r+1}\mid S_y=1)\over(r+1)!}\\
+ &\leq e^{-c_1t^3}+{(Ct^3)^{r+1}\over(r+1)!}
+ \leq e^{-ct^3},                                           \tag{39.33}
+ \end{split}
+\]
+when \(D\) is sufficiently large.  Multiplication by
+\(\Pr(S_y=1)\leq1\) proves (39.30).
+
+Expand (39.22) and the elementary symmetric polynomials in \(Q_r\).
+Lemma 39.1 makes every compatible atom set use distinct \(\ell\)'s; CRT
+then makes its further intersection with \(d\mid P_y\) either empty or one
+class.  If \(A_X=|\mathcal A_X|\), the crude choice count from (39.2) gives
+\(\log A_X=O(t)\), and hence
+\[
+ 2^{\pi(y)}\sum_{j\leq r}{A_X\choose j}=\exp\{O(rt)\}.     \tag{39.34}
+\]
+The modulus is at most \(P_y(KX)^r\), proving (39.31).  On \([1,N]\),
+each class count is its CRT mean times \(N\), plus \(O(1)\).  Choosing
+\(C_0\) larger than the constants in (39.31) makes the aggregate rounding
+error \(\exp\{O(rt)\}\) at most, say, \(N^{1/2}\), which is negligible
+beside \(Ne^{-ct^3}\).  This proves (39.32). \(\square\)
+
+The literal hypothesis (34.24) demanded coefficient sum \(e^{O(J)}\), with
+\(J\asymp t^3\), and a majorant for its larger aggregate avoider predicate.
+Theorem 39.6 proves neither clause: its direct Bonferroni expansion has
+ledger \(e^{O(Jt)}\), and it only covers the c-free avoider (hence all
+exceptional primes).  These are deliberate modifications, not suppressed
+losses.  The ledger still closes because the critical window itself has
+logarithmic size \(\asymp Jt\).  Thus the exact surviving hypothesis from
+§34.4 is still open as stated, but is no longer needed for the exceptional
+set if Theorem 39.6 survives review.
+
+### 39.6 Exceptional denominators
+
+**Theorem 39.7 (unconditional \(3/4\) exceptional-set bound;
+CLAIMED/PROVISIONAL).**  There is a constant \(c>0\) such that
+\[
+ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}.              \tag{39.35}
+\]
+The same bound holds for exceptional primes.
+
+*Proof.*  Put \(L=\log N\), take \(t=\alpha L^{1/4}\), and set
+\(X=e^t\).  Choose the fixed \(\alpha>0\) small enough that
+\(L\geq C_0t^4\).  Lemma 39.1 and (39.29) majorize every exceptional prime
+larger than \(\max(K,y)\); that omitted range is negligible.  Equations
+(39.32) and \(t^3=\alpha^3L^{3/4}\) give the prime bound.  The semigroup
+argument of Theorem 16.5, with
+\(g(u)=u^{3/4}\), transfers the same logarithmic power from exceptional
+primes to all exceptional denominators. \(\square\)
+
+This is a record-class assertion and remains **CLAIMED/PROVISIONAL**.  No
+claim of publication priority is made.  The proof uses only the already
+provisional Theorem 34.8 plus the new arguments above; it does not use
+\(H_{k\rm BV}\), \(H_{\rm PF}'\), or an Elliott--Halberstam hypothesis.
+
+### 39.7 Maximum-severity review and exact status
+
+**Self-review (three weakest steps).**
+
+1. The new residue-resolved upper bound (39.11) must be rederived by a referee
+   with every local factor present.  It needs simultaneous uniformity in
+   \(k\leq X^\kappa\), every divisor \(g\mid k\), and every unit residue;
+   the proof uses Brun--Titchmarsh for the upper bound, so it does not hide a
+   polynomially small Bombieri--Vinogradov main term.  This is the most
+   load-bearing new analytic lemma.
+2. Lemma 39.5 uses Theorem 34.8 for the data-dependent subfamily
+   \(\mathcal J_c\) and uses the canonical lower boxes, not merely the larger
+   family in the statement of (34.18).  The quantifiers of Theorem 34.8 do
+   allow every subfamily containing 1, and its proof furnishes the lower mass
+   in those boxes, but this inheritance is new and needs an independent
+   line-by-line check together with Theorem 34.8 itself.
+3. The ordered-moment induction (39.14)--(39.19) is where lcm collapse and
+   residue consistency cancel at every prime power.  A missed factor there
+   would be exponentiated through \(r\asymp t^3\).  The displayed conditional
+   factor is \(\varphi(p^e)\) for \(p\leq y\) and \(p^e\) for \(p>y\);
+   after the \(1/\varphi(g)\) residue share, only \(p/(p-1)\) remains at an
+   unconditioned shared prime.  This exact replay, including unequal
+   prime-power exponents, is mandatory in external review.
+
+**Assessment 39.8 (status).**  Internally, the quantifier chain is complete:
+Theorem 34.8 is uniform in \(\mathcal J_c\); (39.25) removes the nonreduced
+fibres; (39.18) controls the even Bonferroni tail; and (39.31)--(39.34) pay
+the full \(e^{O(t^4)}\) coefficient ledger before selecting
+\(t=\alpha(\log N)^{1/4}\).  The direct Janson proposal is rejected because
+its dependency sum is \(\Theta(\mu^2)\), while the original
+\(e^{O(J)}\) formulation remains open.  Theorem 39.7 should not be cited as
+established outside this campaign until an independent expert has checked
+the three steps above and the priority claim against the primary literature.
+
+**Computational 39.9 (finite companion only).**  `verify.py (al)` uses the
+toy exponent \(\kappa_{\rm toy}=1/4\) and floor \(H_{\rm toy}=1\), because
+the genuine \(\kappa<1/240\), \(H=K^{10}\) regime has no nontrivial small
+instance.  It enumerates the literal divisibility atoms (39.2)--(39.4),
+tests the c-coupling, deduplication, and distinct-\(\ell\) compatibility,
+and computes exact \(e_j\), \(\mu^j/j!\), and the dependent-pair
+\(\Delta\) for \(j\leq4\).  The table is a structural regression only; it
+makes no asymptotic claim.

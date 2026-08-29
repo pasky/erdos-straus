@@ -6532,4 +6532,133 @@ print("\n== (ak) fixed-value actions and k=2 -> k=1 hunt (§38) ==")
 check_ak()
 
 
+# ---------------------------------------------------------------- (al)
+def check_al():
+    """Exact toy companion for the c-free multiplier-prime assembly (§39)."""
+    # Parse first, before constructing even the small finite atom family.
+    import ast
+    import os
+    from pathlib import Path
+
+    ast.parse(Path(__file__).read_text())
+
+    # The genuine kappa<1/240 and H=K^10 have no nontrivial small instance.
+    # kappa_toy=1/4 and H_toy=1 preserve only the structural congruences.
+    X = 1200 if os.environ.get("ES_FULL_SCAN") == "1" else 625
+    kappa_toy = Fraction(1, 4)
+    K = 1
+    while (K + 1) ** kappa_toy.denominator <= X:
+        K += 1
+    H_toy = 1
+
+    def integer_cuberoot(n):
+        z = 0
+        while (z + 1) ** 3 <= n:
+            z += 1
+        return z
+
+    atoms = []
+    lower = int(X ** 0.5)
+    while (lower + 1) ** 2 <= X:
+        lower += 1
+    while lower ** 2 > X:
+        lower -= 1
+    for ell in primerange(lower + 1, X + 1):
+        if ell % 4 != 3:
+            continue
+        z = integer_cuberoot(ell)
+        for k in range(1, K + 1, 4):
+            A = (k * ell + 1) // 4
+            for u in range(H_toy + 1, z + 1):
+                for v in range(H_toy + 1, z + 1):
+                    if gcd(u, v) != 1 or gcd(u * v, k) != 1:
+                        continue
+                    if A % (u * v):
+                        continue
+                    modulus = k * ell
+                    residue = (-u * pow(v, -1, modulus)) % modulus
+                    atoms.append((k, ell, u, v, modulus, residue))
+
+    assert K >= 5 and 0 < len(atoms) < (1000 if X == 625 else 3000)
+
+    # I1: the atom's k-part implies the moving c-fibre coupling.
+    toy_M0 = 24 * lcm(*(range(1, K + 1, 4)))
+    for k, ell, u, v, modulus, residue in atoms:
+        n = residue + 2 * modulus
+        c = n % toy_M0
+        assert (u + n * v) % k == 0
+        assert c % k == n % k and (u + c * v) % k == 0
+
+    # Honest deduplication at k*ell and distinct ell-projections.
+    modulus_classes = [(k, ell, residue) for k, ell, u, v, modulus, residue in atoms]
+    assert len(modulus_classes) == len(set(modulus_classes))
+    by_ell = {}
+    for atom in atoms:
+        by_ell.setdefault(atom[1], []).append(atom)
+    for ell, rows in by_ell.items():
+        projections = [row[5] % ell for row in rows]
+        assert len(projections) == len(set(projections))
+
+    compatible_pairs = dependent_pairs = 0
+    delta = Fraction(0)
+    for i, left in enumerate(atoms):
+        for right in atoms[i + 1:]:
+            g = gcd(left[4], right[4])
+            compatible = (left[5] - right[5]) % g == 0
+            if compatible:
+                compatible_pairs += 1
+                assert left[1] != right[1]
+                if gcd(left[0], right[0]) > 1:
+                    dependent_pairs += 1
+                    delta += Fraction(1, lcm(left[4], right[4]))
+
+    # Exact e_j without a Cartesian subset materialization.  At X<=1200 the
+    # toy multipliers are exactly 1 and 5.  Process one ell-coordinate at a
+    # time; a state records the common residue mod 5, if one is imposed.
+    assert set(row[0] for row in atoms) == {1, 5}
+    max_j = 4
+    dp = {(0, None): Fraction(1)}
+    for ell in sorted(by_ell):
+        old = dp
+        new = dict(old)  # choose no atom at this ell
+        for (j, residue5), weight in old.items():
+            if j == max_j:
+                continue
+            for k, ell0, u, v, modulus, residue in by_ell[ell]:
+                assert ell0 == ell
+                if k == 1:
+                    next_residue = residue5
+                    factor = Fraction(1, ell)
+                else:
+                    atom_residue5 = residue % 5
+                    if residue5 is not None and residue5 != atom_residue5:
+                        continue
+                    next_residue = atom_residue5
+                    factor = Fraction(1, 5 * ell) if residue5 is None else Fraction(1, ell)
+                key = (j + 1, next_residue)
+                new[key] = new.get(key, Fraction(0)) + weight * factor
+        dp = new
+
+    e = [sum(weight for (degree, state), weight in dp.items() if degree == j)
+         for j in range(max_j + 1)]
+    mu = sum(Fraction(1, row[4]) for row in atoms)
+    assert e[0] == 1 and e[1] == mu
+    ratios = [float(e[j] * prod(range(1, j + 1)) / mu ** j)
+              for j in range(1, max_j + 1)]
+
+    print("toy parameters X/kappa/K/H and atoms/classes/ells =",
+          (X, str(kappa_toy), K, H_toy),
+          (len(atoms), len(set(modulus_classes)), len(by_ell)))
+    print("compatible/dependent pairs; mu, Delta/mu, Delta/mu^2 =",
+          (compatible_pairs, dependent_pairs),
+          tuple(round(value, 6) for value in
+                (float(mu), float(delta / mu), float(delta / (mu * mu)))))
+    print("exact j! e_j / mu^j for j=1..4 =",
+          tuple(round(value, 6) for value in ratios))
+
+
+print("\n== (al) c-free critical-window assembly toy (§39) ==")
+check_al()
+
+
 print("\nall checks passed")
