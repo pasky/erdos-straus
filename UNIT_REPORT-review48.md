@@ -1,0 +1,11 @@
+# Unit review48 report
+- Verdict: **SOUND-AFTER-REPAIRS**; both headline theorems survive full re-derivation.
+- Confirmed the `111 = 80 + 31` slice census and every `(G,E,P)` frequency.
+- Confirmed Theorem 48.1, including the exact universal cores `{1,2,3,6}` and half-density scope.
+- Confirmed robust `D`, `D=ck_min-1`, all finite census data, and §44's 15/385 consistency.
+- Confirmed Theorem 48.4 is complete exactly for the fixed-divisor shape; all prime cases are §29 supply.
+- Repaired the false “same row” link to §35.4: it is the same progression, but a different row and slice.
+- Confirmed Theorem 48.5's residue-one escape, including composite divisors and moving-divisor limitation.
+- Tightened all growth/correlation language to measured or informational only.
+- Full verifier passed; isolated `(au)` took 2.63 s and the optional `10^5` scan passed.
+- Detailed audit: `reviews/wave16-sec48-review.md`.
