@@ -7774,7 +7774,6 @@ def check_ar():
 print("\n== (ar) moving-s Kloosterman-matrix audit (§45) ==")
 check_ar()
 
-
 # ---------------------------------------------------------------- (as)
 def check_as():
     """Section 46: exact endpoint-bulk corner decomposition."""
@@ -7970,6 +7969,241 @@ def check_as():
 
 print("\n== (as) endpoint-bulk collision audit (§46) ==")
 check_as()
+
+
+# ---------------------------------------------------------------- (at)
+def check_at():
+    """Section 47: exact conditional codegrees and the divisor-cube wall."""
+    import os
+    from functools import lru_cache
+
+    def is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    def intrinsic_representatives(M):
+        representatives = {}
+        for D in divisors_of_square((M + 1) // 4):
+            residue = (-4 * D) % M
+            representatives[residue] = min(representatives.get(residue, D), D)
+        return representatives
+
+    def merge_classes(d, a, M, b):
+        common = gcd(d, M)
+        if (a - b) % common:
+            return None
+        quotient = M // common
+        shift = 0 if quotient == 1 else (
+            (b - a) // common * pow(d // common, -1, quotient)
+        ) % quotient
+        modulus = d * quotient
+        return modulus, (a + d * shift) % modulus
+
+    def build_complete_H(X, z, Y):
+        prime_residues = {
+            p: set(intrinsic_representatives(p))
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        low = {p: len(classes) for p, classes in prime_residues.items() if p <= Y}
+        atoms = []
+
+        # Prime atoms above the tensor cutoff are counted by H.
+        for p, classes in prime_residues.items():
+            if p > Y:
+                for residue in classes:
+                    atoms.append((p, residue, dict(factorint(p)), "prime"))
+
+        # Composite atoms use exactly the §37/§40 prime-implied deletion.
+        for M in range(3, X + 1, 4):
+            factors = dict(factorint(M))
+            if is_prime(M) or any(p <= z for p in factors):
+                continue
+            for residue in intrinsic_representatives(M):
+                if any(
+                    p in prime_residues
+                    and residue % p in prime_residues[p]
+                    for p in factors
+                ):
+                    continue
+                atoms.append((M, residue, factors, "composite"))
+        return atoms, low
+
+    def hierarchy_audit(X, z, Y, degree):
+        atoms, low = build_complete_H(X, z, Y)
+
+        @lru_cache(None)
+        def factors(n):
+            return dict(factorint(n))
+
+        @lru_cache(None)
+        def conditional_probability(modulus):
+            probability = Fraction(1, modulus)
+            for p, forbidden in low.items():
+                if modulus % p == 0:
+                    probability *= Fraction(p, p - forbidden)
+            return probability
+
+        mu = sum((conditional_probability(M) for M, *_ in atoms), Fraction())
+        states = [((), 1, 0)]
+        state_counts = []
+        maxima = []
+        extension_counts = [0, 0, 0]
+        maximum_ratio = Fraction()
+
+        # Every compatible subset is generated once, with early CRT pruning.
+        for depth in range(1, degree + 1):
+            next_states = []
+            for indices, modulus, residue in states:
+                start = indices[-1] + 1 if indices else 0
+                for index in range(start, len(atoms)):
+                    merged = merge_classes(
+                        modulus, residue, atoms[index][0], atoms[index][1]
+                    )
+                    if merged is not None:
+                        next_states.append((indices + (index,), *merged))
+            states = next_states
+            state_counts.append(len(states))
+            ell_values = []
+
+            for indices, modulus, residue in states:
+                old_factors = factors(modulus)
+                selected = set(indices)
+                split = [Fraction(), Fraction(), Fraction()]
+                for index, (M, atom_residue, new_factors, _) in enumerate(atoms):
+                    if index in selected:
+                        continue
+                    merged = merge_classes(modulus, residue, M, atom_residue)
+                    if merged is None:
+                        continue
+
+                    shared = old_factors.keys() & new_factors.keys()
+                    if not shared:
+                        category = 0
+                    elif any(new_factors[p] > old_factors[p] for p in shared):
+                        category = 2
+                    else:
+                        category = 1
+
+                    ratio = (conditional_probability(merged[0])
+                             / conditional_probability(modulus))
+                    local_ratio = Fraction(1)
+                    for p, exponent in new_factors.items():
+                        old_exponent = old_factors.get(p, 0)
+                        if old_exponent:
+                            local_ratio /= p ** max(exponent - old_exponent, 0)
+                        elif p in low:
+                            local_ratio /= p ** (exponent - 1) * (p - low[p])
+                        else:
+                            local_ratio /= p ** exponent
+                    assert ratio == local_ratio       # (47.4)--(47.5)
+                    split[category] += ratio
+                    extension_counts[category] += 1
+
+                ell = sum(split, Fraction())
+                assert ell == split[0] + split[1] + split[2]  # (47.7)
+                ell_values.append(ell)
+                maximum_ratio = max(maximum_ratio, ell / mu)
+            maxima.append(max(ell_values))
+
+        return (len(atoms), mu, tuple(state_counts), tuple(maxima),
+                maximum_ratio, tuple(extension_counts))
+
+    # A complete toy H: every compatible S through degree four and every
+    # possible extension B are checked, all in exact rational arithmetic.
+    toy = hierarchy_audit(40, 2, 7, 4)
+    expected_toy = (
+        28,
+        Fraction(27839083, 19372210),
+        (28, 316, 1868, 6217),
+        (Fraction(6342705, 3874442), Fraction(295533, 149017),
+         Fraction(14316, 7843), Fraction(421, 253)),
+        Fraction(38419290, 27839083),
+        (73548, 14916, 0),
+    )
+    assert toy == expected_toy
+
+    # Exact finite member of Theorem 47.2.  These are atoms of the complete
+    # X=5655 system; only this extracted divisor cube is enumerated here.
+    q, ps = 3, (5, 13, 29)
+    top_modulus = q * prod(ps)
+    cube = []
+    for size in (1, 3):
+        for chosen in combinations(ps, size):
+            M = q * prod(chosen)
+            residue = (-8) % M
+            assert M % 8 == 7
+            assert intrinsic_representatives(M)[residue] == 2
+            assert residue % q not in intrinsic_representatives(q)
+            cube.append((M, residue))
+    assert len(cube) == 4 and top_modulus == 5655
+    top = (top_modulus, (-8) % top_modulus)
+    cube_extension = Fraction()
+    for M, residue in cube:
+        if M == top_modulus:
+            continue
+        merged = merge_classes(top[0], top[1], M, residue)
+        assert merged == top
+        cube_extension += Fraction(1)  # P(top intersect B) / P(top)
+    assert cube_extension == 3
+
+    # Both prime-power corners in §47.3 are retained in the actual system.
+    prime_residues = {
+        p: set(intrinsic_representatives(p)) for p in (7, 11, 31)
+    }
+    for M, D, residue in (
+        (119, 3, 107), (539, 675, 534),
+        (539, 27, 431), (1519, 76, 1215),
+    ):
+        assert (-4 * D) % M == residue
+        for p in factorint(M):
+            if p % 4 == 3:
+                assert residue % p not in prime_residues[p]
+
+    # Condition only at 7, where f(7)=3 and theta_7=4.
+    assert len(prime_residues[7]) == 3
+
+    def conditioned_at_7(modulus):
+        probability = Fraction(1, modulus)
+        if modulus % 7 == 0:
+            probability *= Fraction(7, 4)
+        return probability
+
+    higher = merge_classes(119, 107, 539, 534)
+    assert higher is not None and factorint(119)[7] < factorint(539)[7]
+    assert conditioned_at_7(higher[0]) / conditioned_at_7(119) == Fraction(1, 77)
+    assert conditioned_at_7(539) * 4 == Fraction(1, 77)
+
+    equal_power = merge_classes(539, 431, 1519, 1215)
+    assert equal_power is not None and gcd(539, 1519) == 49
+    assert 431 % 49 == 1215 % 49 == 39
+    assert conditioned_at_7(equal_power[0]) / conditioned_at_7(539) == Fraction(1, 31)
+    assert conditioned_at_7(1519) * 28 == Fraction(1, 31)
+    assert 28 == 49 * (7 - len(prime_residues[7])) // 7
+
+    # The larger complete composite toy exhibits both <= and > categories;
+    # keep its 99,362 compatible triples behind the requested full-scan gate.
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        full = hierarchy_audit(550, 5, 550, 3)
+        assert full == (
+            136,
+            Fraction(1327039027, 1697425912),
+            (136, 5998, 99362),
+            (Fraction(2021864469, 1697425912),
+             Fraction(283588275, 130571224),
+             Fraction(25140620, 7316491)),
+            Fraction(5832623840, 1327039027),
+            (1890096, 1001762, 32184),
+        )
+
+    print("complete hierarchy toy (K,mu,compatible counts,max ell,C_toy,categories) =",
+          toy)
+    print("Lambda_toy := mu; exact max ell <= C_toy Lambda_toy with C_toy =",
+          toy[4], "; divisor-cube contribution =", cube_extension)
+    print("higher/equal prime-power extension ratios =", Fraction(1, 77),
+          Fraction(1, 31), "; all structure splits exact")
+
+
+print("\n== (at) complete-system codegree hierarchy (§47) ==")
+check_at()
 
 
 print("\nall checks passed")

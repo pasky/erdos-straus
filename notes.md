@@ -16520,3 +16520,326 @@ internal hypothesis $H_{\rm PF}'$ remain **OPEN**.  Even a future proof of
 (40.19) would not establish the separate codegree hierarchy (40.28), so it
 would not by itself prove (37.19) or (33.16).  This arc neither proves nor
 refutes the Erdős--Straus conjecture.
+## 47. The codegree hierarchy: structure, partial theorems, and the exact remaining wall
+
+This section gives a negative answer to the literal target (40.28).  The
+prime-support decomposition is exact and its coprime part is harmless, but a
+squarefree divisor cube of retained intrinsic atoms makes the equal-level
+part exponentially larger than $\Lambda$.  The same cube disproves (37.19)
+for the particular, only-prime-reduced count $H$ used in §37.  This refutes a
+proposed sufficient mechanism, **not** $H_{\rm PF}'$ and not the
+Erdős--Straus conjecture.  A complete implication reduction preserves the
+void and removes this example; the residue-resolved hierarchy for that
+reduced antichain remains open.
+
+### 47.1 Exact one-step structure
+
+Let $\mathcal P_0$ be the conditioned primes in (37.8), and put
+$\theta_q=q-f(q)$ for $q\in\mathcal P_0$.  For a compatible nonempty set
+$S$, write
+
+$$
+ Q_S=[M_A:A\in S],\qquad r_q=v_q(Q_S),                     \tag{47.1}
+$$
+
+and let $a_S\pmod {Q_S}$ be its merged class.  For a candidate atom $B$ put
+$M=M_B$, $e_q=v_q(M)$, and
+
+$$
+ w_B=\Pr(B\mid T_0=1)
+ ={1\over M}\prod_{q\in\mathcal P_0,\ q\mid M}{q\over\theta_q}.
+                                                                    \tag{47.2}
+$$
+
+This formula includes tail prime atoms as well as the retained composite
+atoms.  Define the shared-coordinate collapse
+
+$$
+ \Gamma_S(B)=
+ \prod_{q\mid(M,Q_S)}q^{\min(e_q,r_q)}
+ \prod_{q\in\mathcal P_0,\ q\mid(M,Q_S)}{\theta_q\over q}. \tag{47.3}
+$$
+
+**Proposition 47.1 (exact extension formula; proved).**  If $B\notin S$ is
+compatible with $S$, then
+
+$$
+ {\Pr(\bigcap_{A\in S\cup\{B\}}A\mid T_0=1)
+  \over\Pr(\bigcap_{A\in S}A\mid T_0=1)}
+ =w_B\Gamma_S(B)
+ =\prod_q\rho_q(e_q,r_q),                                  \tag{47.4}
+$$
+
+where factors with $e_q=0$ are one and
+
+$$
+ \rho_q(e,r)=
+ \begin{cases}
+  1,&r>0,\ e\leq r,\\
+  q^{-(e-r)},&r>0,\ e>r,\\
+  q^{-e},&r=0,\ q\notin\mathcal P_0,\\
+  \{q^{e-1}\theta_q\}^{-1},&r=0,\ q\in\mathcal P_0.
+ \end{cases}                                               \tag{47.5}
+$$
+
+*Proof.*  Divide (40.26) for $S\cup\{B\}$ by the same formula for $S$.
+An old conditioned coordinate cancels completely.  A new conditioned
+coordinate contributes $q^{-e}q/\theta_q$, and an unconditioned one
+contributes $q^{-e}$.  At an old coordinate only the new digits above
+$q^{r_q}$ cost probability.  This is (47.5); multiplying (47.2) by
+(47.3) gives the same factors. $\square$
+
+This calculation corrects a possible misuse of the $e^{o(\Lambda)}$ factor
+following (40.26).  That is a bound for one whole intersection.  In the
+ratio, all conditioning factors on old coordinates cancel exactly; only
+new conditioned primes occur in (47.5).
+
+Split the candidates in (40.27) into
+
+$$
+ \begin{array}{ll}
+ \mathcal B_0(S):&(M_B,Q_S)=1,\\
+ \mathcal B_\leq(S):&(M_B,Q_S)>1\text{ and }e_q\leq r_q
+       \text{ at every shared }q,\\
+ \mathcal B_>(S):&e_q>r_q\text{ at at least one shared }q.
+ \end{array}                                                \tag{47.6}
+$$
+
+Equations (47.3)--(47.4) give the exact disjoint resummation
+
+$$
+ \mathcal L(S)=\mathcal L_0(S)+\mathcal L_\leq(S)
+                       +\mathcal L_>(S),\qquad
+ \mathcal L_\star(S)=
+ \sum_{B\in\mathcal B_\star(S),\ B\sim S}w_B\Gamma_S(B). \tag{47.7}
+$$
+
+Here $B\sim S$ means joint residue compatibility.  The coprime part is
+completely controlled:
+
+$$
+ \mathcal L_0(S)=\sum_{B\in\mathcal B_0(S)}w_B
+ \leq\mathbb E(H\mid T_0=1)=O(\Lambda).                   \tag{47.8}
+$$
+
+Thus goal 1(a) holds with no accumulated conditioning loss.  Goals 1(b) and
+the proposed squarefree restricted hierarchy do not hold, as the next
+subsection shows.  Higher new digits in $\mathcal B_>(S)$ are a genuine
+additional profile problem, but they are not the first obstruction.
+
+For reference, the literal residue profile behind (47.7) is also exact.  If
+$d=(M,Q_S)$ and $N^\circ(M;d,a)$ counts retained intrinsic classes of
+modulus $M$ whose projection is $a\pmod d$, then the modulus-$M$ summand is
+
+$$
+ {\kappa(M)\over M}\Gamma_S(M)
+ N^\circ(M;d,a_S),                                         \tag{47.9}
+$$
+
+apart from omitting atoms already in $S$.  This is the complete-system
+analogue of $W_{k,a}(g)$ in Lemma 39.2.  No bound comparable to (39.7) is
+known for (47.9).  The literal ``at most $1/\varphi(d)$ of the mass'' claim
+is false even finitely: after the §37 prime deletion at $(X,z)=(80,2)$,
+the modulus $35$ has exactly the two retained classes $23,32\pmod {35}$,
+which project to two different classes modulo $7$.  Each therefore carries
+one half, not at most $1/\varphi(7)=1/6$, of that modulus's retained mass.
+The obstruction below is stronger: compatibility has density one along a
+large divisor sublattice.
+
+### 47.2 A squarefree divisor cube disproves (40.28) and (37.19)
+
+**Theorem 47.2 (nested retained-atom obstruction; proved).**  For all
+sufficiently large $X$, the family counted by $H$ contains a squarefree
+atom $A$ such that
+
+$$
+ \mathcal L(\{A\})\geq
+ \exp\!\left(c{L\over\log L}\right).                       \tag{47.10}
+$$
+
+All terms giving (47.10) lie in $\mathcal B_\leq(\{A\})$.  Consequently
+(40.28) is false, including its restrictions to squarefree selected moduli
+and to selected moduli that are pairwise coprime (a singleton already
+satisfies the latter condition).
+
+Moreover, if $m\asymp\Lambda$, then for every fixed $C>0$,
+
+$$
+          \mathbb E((H)_m\mid T_0=1)>(C\Lambda)^m           \tag{47.11}
+$$
+
+for all sufficiently large $X$.  Thus the sufficient input (37.19), whose
+expectation is in this conditioned space, is also false for this unreduced
+$H$.
+
+*Proof.*  Recall $Y=L^4/h(L)$ from (37.7).  Let $k$ be the largest odd
+integer at most $L/(3\log(2Y))$.  The prime number theorem in the fixed
+classes modulo $8$ supplies distinct primes
+
+$$
+ q\in(Y,2Y),\ q\equiv3\pmod8,
+ \qquad p_1,\ldots,p_k\in(Y,2Y),\ p_i\equiv5\pmod8.        \tag{47.12}
+$$
+
+There are far more than $k\asymp L/\log L$ available primes.  Put
+$M=q\prod_{i=1}^kp_i$.  Then
+$M\leq(2Y)^{k+1}<X$ for large $X$.
+
+For every odd subset $I\subseteq\{1,\ldots,k\}$ put
+$M_I=q\prod_{i\in I}p_i$.  One has $M_I\equiv7\pmod8$, so
+$2\mid(M_I+1)/4$ and Lemma 18.1 supplies the atom
+
+$$
+                         A_I:\quad n\equiv-8\pmod {M_I}.   \tag{47.13}
+$$
+
+It survives all reductions made in §37.3.  Indeed $q$ is the only prime
+factor congruent to $3\pmod4$, and
+$(-8/q)=(-1/q)(2/q)^3=+1$ because $q\equiv3\pmod8$.
+Lemma 21.2 says that every intrinsic class at the prime modulus $q$ has
+Legendre sign $-1$, so (47.13) is not prime-implied.  The other prime
+factors are $1\pmod4$ and have no prime-modulus atom in this system.
+Also $D=2$ is the least representative of its class, so canonical
+representative bookkeeping does not delete it.
+
+Take $A=A_{\{1,\ldots,k\}}$.  Its event is contained in every $A_I$:
+$M_I\mid M$ and all the residues in (47.13) are the same integer.  Hence
+adding any proper odd-subset atom to $\{A\}$ has conditional ratio exactly
+one.  There are $2^{k-1}-1$ such atoms.  Their moduli are squarefree and all
+shared exponents are equal to one, proving (47.10) and its
+$\mathcal B_\leq$ assertion.
+
+On the event $A$, at least $K=2^{k-1}$ distinct atoms counted by $H$ occur.
+All their primes exceed $Y$, so $A$ is independent of $T_0$ and
+$\Pr(A\mid T_0=1)=1/M$.  Therefore
+
+$$
+             \mathbb E((H)_m\mid T_0=1)\geq{(K)_m\over M}. \tag{47.14}
+$$
+
+Here $K=\exp(\Theta(L/\log L))\gg m$ and $\log M\leq L$.  Thus
+$(K)_m\geq(K/2)^m$, while
+$\log(C\Lambda)=O(\log L)$.  The logarithm of (47.14) minus
+$m\log(C\Lambda)$ is
+$\Theta(L^4/(\log L)^2)-O(L^3)-O(L)>0$.  This proves (47.11). $\square$
+
+This is exactly where the §39.3 analogy breaks.  Lemma 39.2 averages a rich
+$(u,v)$ family over each multiplier residue.  In (47.13), conditioning on
+the finest atom fixes every coarser divisor atom with probability one;
+there is no $1/\varphi(g)$ consistency thinning to pay for the lcm collapse.
+The issue is logical redundancy, not a missing large-sieve estimate.
+
+### 47.3 What partial hierarchy survives
+
+**Proposition 47.3 (prime-only selected sets; proved).**  If every atom in a
+compatible set $S$ is a tail prime-modulus atom, then
+$\mathcal L(S)=O(\Lambda)$.
+
+*Proof.*  Distinct compatible prime atoms use distinct primes.  A retained
+composite atom sharing one of these primes has, by definition of the §37.3
+deletion, a projection outside the complete intrinsic prime residue set, so
+it is incompatible with the selected prime atom.  A different prime atom
+on the same coordinate is also incompatible.  Every compatible new atom is
+therefore coprime to $Q_S$, and (47.8) applies. $\square$
+
+The other requested rungs do not currently survive:
+
+* Pairwise-coprime or squarefree $S$ does not help: Theorem 47.2 uses a
+  singleton squarefree $S$.  Its bad candidates are also squarefree.
+* Theorem 45.9 is an unconditional quadratic-energy estimate for added
+  endpoint atoms with $m=4c^2s\leq W_0$.  It gives no uniform conditional
+  extension estimate after an arbitrarily finer atom has been fixed.
+  The divisor cube above lies in regular, not endpoint, progressions, so it
+  neither refutes nor proves a small-endpoint-only hierarchy.  That
+  restricted question remains open; injectivity alone is insufficient.
+* The star hierarchy (40.29) is still open.  Its $j=2$ case contains the
+  open endpoint (40.19), which is being treated separately.  No proof or
+  asymptotic counterexample for all $2\leq j\leq m$ is claimed here.
+  Even granting every one-coordinate star estimate would not see
+  Theorem 47.2, because one finest congruence simultaneously implies a
+  Boolean lattice of coarser multi-coordinate congruences.
+
+Prime powers are a separate reason that prime-level stars are insufficient.
+For example the retained atoms represented by
+
+$$
+ (M,D,r)=(539,27,431),\qquad(1519,76,1215)                 \tag{47.15}
+$$
+
+share the class $39\pmod {49}$.  With $7$ conditioned, $f(7)=3$, their
+relative collapse is $49(7-3)/7=28$, whereas a squarefree $7$-star records
+only $7-f(7)=4$.  A higher-level corner is given by the compatible retained
+atoms $(119,3,107)$ and $(539,675,534)$: the added modulus raises the shared
+$7$-level from $7$ to $49$, and (47.5) charges the one genuinely new base-$7$
+digit.  `verify.py (at)` checks both examples exactly.
+
+### 47.4 The repaired wall and verdict
+
+The natural repair is to replace the §37 family by its **implication
+antichain** $\mathcal A^*$: delete an atom $A$ whenever another retained
+atom $B$ satisfies $M_B\mid M_A$ and $r_A\equiv r_B\pmod {M_B}$.  Then
+$A\subseteq B$, so this deletion preserves the union and hence the void.
+It extends the prime-only deletion already made in §37.3.  No claim is made
+here that the resulting hierarchy is true.
+
+For this repaired family, the exact remaining estimate is the following
+falsifiable statement.  There should be fixed $C,D>0$ such that, for every
+large $X$, every compatible $S\subset\mathcal A^*$ with
+$1\leq|S|<m$, where $m$ is an even integer in
+$[D\Lambda,D\Lambda+2]$, one has
+
+$$
+ \boxed{\quad
+ \sum_{B\in\mathcal A^*\setminus S\atop
+       B\sim S,\ (M_B,Q_S)>1}
+ w_B\Gamma_S(B)\leq C\Lambda.
+ \quad}                                                     \tag{47.16}
+$$
+
+Together with (47.8), (47.16) is necessary and sufficient up to a change of
+constant for the one-step bound (40.28) on $\mathcal A^*$.  Induction then
+gives (37.19) for the repaired count, and Proposition 37.3 applies unchanged:
+the void is identical and all degree, modulus, and ledger bounds only
+improve on passing to a subfamily.
+
+Even if the separate open pair endpoint (40.19) is granted as a black box,
+(47.16) does not follow from it.  Equation (40.19) is an averaged
+single-prime quadratic energy; (47.16) is uniform in the already selected
+multi-coordinate class, including $|S|=1$, all simultaneous shared primes,
+and all prime-power digits.  Conversely, (47.16) would subsume the needed
+one-step work, so no additional unnamed ``higher moment estimate'' is being
+hidden.
+
+**Computational 47.4 (exact finite scope).**  `verify.py (at)` builds the
+complete conditioned toy $H$ at $(X,z,Y)=(40,2,7)$.  It checks every
+compatible $S$ through degree four and every possible extension $B$, using
+exact rational CRT probabilities.  The output is
+
+$$
+\begin{array}{c|c|c|c|c|c}
+K&\Lambda_{\rm toy}:=\mu&\#S\ (|S|=1,2,3,4)&
+ \max\mathcal L(S)\ (|S|=1,2,3,4)&
+ \max_S\mathcal L(S)/\mu&(\#\mathcal B_0,\#\mathcal B_\leq,\#\mathcal B_>)\\ \hline
+28&27839083/19372210&(28,316,1868,6217)&
+(6342705/3874442,295533/149017,14316/7843,421/253)&
+38419290/27839083&(73548,14916,0).
+\end{array}
+$$
+
+Thus this toy has $C_{\rm toy}=1.38005\ldots$; it is not asymptotic
+evidence.  The block separately checks the four-atom finite divisor cube at
+$M=5655$, the equal-$49$ collapse $28$, and a genuinely higher-$7$-power
+extension.  With `ES_FULL_SCAN=1` it also checks all 99,362 compatible
+triples of the complete reduced-composite toy at $(550,5,550)$; there are
+32,184 higher-level candidate extensions.  Enumeration is compatibility
+pruned and does not form a full powerset.
+
+**Assessment 47.5 (wave-16 verdict).**  The literal codegree target (40.28)
+and the raw-$H$ factorial-moment target (37.19) are **REFUTED** by a retained
+squarefree divisor cube.  The coprime extension bound and the prime-only
+selected-set hierarchy are proved.  The compatibility-thinning analogy from
+§39 fails because the complete intrinsic family was not reduced under
+composite implication.  After the exact implication-antichain repair,
+(47.16) is the remaining wall; it is **OPEN**, as are (40.19), (33.16), and
+$H_{\rm PF}'$.  Nothing in this section proves or refutes the
+Erdős--Straus conjecture.
