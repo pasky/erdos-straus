@@ -11133,10 +11133,16 @@ main term.  Shiu is used on fixed-relative-length intervals with
 \[
  k\leq K<U^{1/10},V^{1/10}
 \]
-because \(U,V>H=K^{10}\); the fixed functions \(t^{\omega(n)}\) and
-\(n/\varphi(n)\) satisfy its growth hypotheses, and the local-factor bound
-(16.5e) is uniform in \(k\).  The low-\(\omega\) Rankin estimate is therefore
-uniform as well.  Thus the same proof applies whenever \(z>K^{20}\), with
+because \(U,V>H=K^{10}\).  **(wave-15 repair)**  In the notation of
+Shiu's actual Theorem 1, take the interval endpoint and length to be
+\(x_0=(1+\eta)U\) and \(y_0=\eta U\), and fix, for example,
+\(\alpha=\beta=1/4\).  Its source hypotheses
+\(k<y_0^{1-\alpha}\) and \(x_0^\beta<y_0\) then follow (with room to spare)
+from \(k<U^{1/10}\); the residue is reduced because
+\((cv,k)=1\).  The fixed functions \(t^{\omega(n)}\) and
+\(n/\varphi(n)\) satisfy its prime-power and subpower growth hypotheses,
+and the local-factor bound (16.5e) is uniform in \(k\).  The low-\(\omega\)
+Rankin estimate is therefore uniform as well.  Thus the same proof applies whenever \(z>K^{20}\), with
 \(\log(z/H)\asymp\log z\).  At the lowest prime interval this holds
 uniformly because \(\kappa<1/240\).
 
@@ -11151,8 +11157,11 @@ triples failing (34.17) is at most
  =o((\log z)^2h(\mathcal J)),                               \tag{34.20}
 \]
 
-uniformly, since \(h(\mathcal J)\geq1\) and \(\log K\ll\log X\).  Hence the
-retained triples have the full order of main mass.
+uniformly, since \(h(\mathcal J)\geq1\) (the required member
+\(1\in\mathcal J\) contributes exactly 1) and \(\log K\ll\log X\).  Hence
+the retained triples have the full order of main mass.  **(wave-15 repair)**
+This also identifies where the hypothesis \(1\in\mathcal J\) is needed for
+uniformity over sparse subfamilies.
 
 For fixed \(q=4uv\), coprimality permits at most
 \(2^{\omega(uv)}\) ordered allocations of its prime powers to \((u,v)\).
@@ -11165,11 +11174,18 @@ Consequently the retained multiplicity is
 \]
 
 Ordinary Bombieri--Vinogradov, with a fixed saving larger than the exponent
-in (34.21), now makes the restricted error sum negligible.  Equations
-(34.20), Lemma 16.2, and
+in (34.21), now makes the restricted error sum negligible.  **(wave-15
+repair)**  Indeed \(4uv\leq4z^2=4x^{1/3}\), hence lies below
+\(x^{1/2}/(\log x)^A\) for every fixed \(A\), and grouping by the modulus
+bounds the whole triple error sum by (34.21) times the usual BV maximum over
+reduced residue classes.  Equations (34.20), Lemma 16.2, and
 \(1/\varphi(4uv)\geq1/(4uv)\) give the lower main term in every dyadic
-interval.  Distinctness is exactly Lemma 16.3's argument, since
-\(uv>H^2>K\).  Brun--Titchmarsh and the extended form of (16.3) give the
+interval.  This lower argument uses the canonical boxes
+\(u,v\leq z=x^{1/6}\).  If the same prime \(\ell\in(x,2x]\) occurs for two
+triples, then \(|uv'-u'v|<z^2<\ell\); Lemma 16.3's determinant argument and
+then \(uv>H^2>K\) prove that their classes are distinct.  Thus repeated
+occurrences of \(\ell\) are legitimate distinct contributions, not a lower-
+bound overcount.  Brun--Titchmarsh and the extended form of (16.3) give the
 upper bound.  Summing the dyadic intervals proves (34.18), and
 \(h(\mathcal K(X^\kappa))\asymp\log X\) gives (34.19). ∎
 
@@ -11299,6 +11315,28 @@ box, evaluates the actual progression errors there, and prints both the
 realized Cauchy--Schwarz loss and the scale proxy from (34.7).  It also checks
 small composite-modulus Kloosterman sums against the CRT/Weil envelope.  The
 block is finite evidence only and runs in under ten seconds.
+
+### 34.5 Wave-15 independent re-derivation (attestation)
+
+This is a third internal check, not external expert review.
+The reviewer independently re-derived the power-sized extension of Lemma 16.2,
+including its box-boundary ratio and low-\(\omega\) Rankin tail.
+The reviewer independently proved the Lemma 34.7 second incidence moment by
+expanding \(r_{\mathcal J}^2\), summing the lcm densities, and paying all box
+errors.
+Shiu's 1980 PDF was checked directly: both interval/modulus inequalities,
+the reduced-residue condition, and the two multiplicative-function hypotheses
+hold in the fixed-relative-length boxes with \(H=K^{10}\).
+The pruning estimate, its uniform use of \(1\in\mathcal J\), the
+fixed-log-power BV multiplicity, and same-prime class distinctness were all
+re-derived.
+The final dyadic lower and upper assemblies for (34.18)--(34.19) were checked.
+The printed §34 proof was then compared line by line; only the explicit source
+hypotheses and compressed bookkeeping were repaired above.
+The §39 use with the data-dependent \(\mathcal J_c\), canonical boxes, and the
+lower bound for \(h(\mathcal J_c)\) was also audited separately.
+Verdict: **CONFIRMED-AFTER-REPAIRS** as an internal provisional result.
+The campaign's CLAIMED/PROVISIONAL register is unchanged.
 
 ## 35. Unit W: an independent-method blind pointwise attack
 
