@@ -81,6 +81,82 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 19 (2026-08-29, wave 15 — see notes.md §43–§45 + §34.5 + reviews/; all hostile-reviewed → repaired)
+
+* **§43 (general numerators): the whole multiplier machine is m-uniform —
+  CLAIMED/PROVISIONAL two-layer record for every fixed m.**  Lemma 43.1:
+  the Lemma-16.1 identity holds verbatim for every numerator \(m\ge3\)
+  (\(k\ell\equiv-1\ (m)\), \(A=(k\ell+1)/m=uvw\), class
+  \(n\equiv-uv^{-1}\ (k\ell)\) ⇒ \(m/n\) is a sum of three unit
+  fractions).  Exact thinning factors \(\eta_1(m),\eta_2(m)\) computed;
+  Layer 1 (complete §16 replay, internally proved): \(E_m(N)\ll
+  N\exp\{-c(\eta_1(m)/\varphi(m))^{1/3}(\log N)^{2/3}(\log\log
+  N)^{1/3}\}\), primes to \(m\le(\log N)^{2-\epsilon}\), all denominators
+  to \(m\le(\log N)^{1-\epsilon}\) (semigroup transfer is m-uniform).
+  Layer 2 (inherits provisional Theorem 34.8 through the muv-threaded
+  Theorem 43.7): \(E_m(N)\ll N\exp\{-c\,\eta_1(m)(\log
+  N)^{3/4}/\varphi(m)\}\) for \(m\le(\log N)^{3/4-\epsilon}\).  Honest
+  benchmark: PW 2025's exponent \((\log^2N/\varphi(m))^{1/3}\) transcribed
+  exactly; two-regime comparison — ours wins iff (roughly)
+  \(\varphi(m)\le(\log N)^{1/8}\), i.e. for every fixed m; PW's uniformity
+  is better for large m.  NO uniform-beating claim.  Maximum-severity
+  review: SOUND-AFTER-REPAIRS (semigroup cutoff \(\epsilon/4\); conditioned
+  local factor; reduced-fibre quantifier; no Siegel-uniform or short-class
+  equidistribution used — only the aggregate \((k,m)=1\) family).
+* **§44 (slice conspiracies): the exact vanishing law of the §36 ray-mass
+  slices, a strictly larger wrong-grade obstruction, and a census of deep
+  conspiracies.**  Theorem: slice \((c,k)\) vanishes at \(p\) iff the
+  exponent box of \(p^2+4ck^2\) misses the grade \(-p\bmod4ck\) (raw form;
+  raw-vs-primitive Möbius boundary repaired in review with the exact
+  counterexample \(M_{7,3}(241)=2\), \(M^*_{7,3}(241)=0\)).  New proved
+  obstruction: squarefree core of \(c\) in \(\{1,2,3,6\}\) ⇒ the slice
+  vanishes identically on hard primes — 80 of the 111 slices with
+  \(ck\le30\) are forced to zero (strictly extends Theorem 36.2).  The
+  \((5,1)\) slice is positive on \(p\equiv97\ (120)\) — identified in
+  review as the known §35/§16 supply re-read in ray language.  Two-slice
+  joint vanishing is NOT determined mod the natural modulus (193 vs 1033
+  mod 840).  Census (aq): 15 of the 385 hard primes \(<3\cdot10^4\) have
+  ALL 111 small slices vanishing (2521 among them) — depth-111
+  conspiracies exist; every such p still has Type-I witnesses at larger
+  ck.  GRH audit sharpened: even idealized square-root cancellation across
+  the \(O(p)\) fibres leaves \(p^{1/2+o(1)}\) against a \(p^{o(1)}\)
+  principal term — the moving-divisor wall, now with the exact formula.
+  Pointwise existence remains the conjecture; register kept.
+* **§45 (endpoint vs Kloosterman fractions): DFI/BC audited against the
+  actual papers — insufficient for (40.19) — but the review round found
+  and we formalized Theorem 45.9, the widest proved (40.19) subfamily.**
+  Lemma 45.1: \(\mathcal V_X^{\rm end}\) IS an exact Kloosterman-fraction
+  matrix form (phase \(e_p(-h\bar m)\), \(m=4c^2s\)); both reciprocity
+  orientations audited (q can never carry the phase modulus).  DFI 1997
+  (PDF finally obtained — Duke's UCLA archive) and Bettin–Chandee
+  transcribed with true quantifiers; failure is structural: the
+  coefficients are a joint \((m,p)\) matrix, not separated sequences, and
+  the complete h-sum needs an operator/large-sieve bound, not a scalar
+  bilinear one (exact failure logs 45.4–45.6).  Theorem 45.9 (from the
+  hostile review, independently verified, no cancellation used): cells
+  with \(m=4c^2s\le W_0\asymp L^3/(\log L)^2\) are pairwise
+  non-colliding mod every endpoint prime (\(W_0=o(z)\) + inversion
+  injectivity), so their energy is \(\ll W_0L^3\ll\Lambda^2\) — closes
+  \(\asymp L^3/(\log L)^2\) moving-s fibres over the ENTIRE prime range
+  (vs \(O(L^{3/2}/\log L)\) fixed fibres before).  Open core of (40.19)
+  is now exactly the bulk \(m>W_0\).  (40.19), (40.28), (37.19), (33.16),
+  H_PF′: all still OPEN.
+* **§34.5 (attestation): third independent re-derivation of Theorem 34.8
+  — CONFIRMED-AFTER-REPAIRS.**  Fresh blind unit re-derived the
+  power-sized Lemma-16.2 extension, the second-incidence-moment pruning,
+  and the BV-multiplicity assembly; Shiu's 1980 hypotheses instantiated
+  from the actual PDF (\(\alpha=\beta=1/4\)); the \(1\in\mathcal J\) use,
+  same-prime distinctness, and §39's data-dependent subfamily inheritance
+  (\(\mathcal J_c\), canonical boxes, \(h(\mathcal J_c)\gg\log K\)) all
+  audited.  The record chain's single provisional input now has three
+  independent internal checks; external expert review remains the gate.
+* **Sources:** DFI 1997 and Bettin–Chandee 2015 PDFs archived with
+  provenance; Vaughan 1970 still inaccessible after a systematic chase
+  (access log in sources/vaughan-1970-access-log.md — don't re-pay).
+  Latent §31 eaten-\(\backslash\)r artifact found and fixed by two units
+  independently; new corruption species (eaten backslash before
+  \(\backslash\)n-commands) caught in review and swept: zero remaining.
+
 ## Outcome 18 (2026-08-29, wave 14 — see notes.md §41–§42 + paper v2; all reviewed → repaired)
 
 * **§41 (blind parallel construction of the §39 record chain): CONVERGED,
