@@ -18,6 +18,11 @@ Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inhe
 - Added source Theorem 48.1 in full, the fixed-divisor law (48.16)–(48.17), residue-one escape (48.20), and the finite depth census. Pointwise Type-I existence remains the conjectural target; no progress claim is made.
 - Updated the abstract/frontier/status register, compacted already-resolved bibliography entries without adding citation keys, and regenerated the tracked table of contents.
 
+## Wave-17 v4 fidelity review
+
+- Review: `reviews/wave17-paper-v4-review.md`; verdict **FAITHFUL-AFTER-REPAIRS** after minimal source-§49 status corrections; two-pass build clean.
+- wave-17: the antichain hierarchy is also refuted (notes §49); moment route closed; v5 queue.
+
 ## Resolved v3 errata
 
 The pending v4 structural erratum in the wave-16 fidelity review is resolved: v4 no longer calls raw (37.19) or literal (40.28) open, states their precise refutation scope, and names implication-antichain (47.16) as the repaired open hierarchy. The review’s “do not insert an unadjudicated strengthening” guard is also resolved correctly: only the later hostile-adjudicated Theorem 43.12 is promoted, with every provisional label retained. The post-freeze Layer-1 all-denominator range correction and the §46 endpoint refinement are now incorporated.
@@ -68,5 +73,5 @@ The v4 build completes with zero TeX errors and no undefined references or citat
 
 - Obtain external expert review of Theorem 34.8, the §39 chain, and the full thinned-window §43 transfer.
 - Obtain/read Vaughan 1970 and complete the priority search.
-- Prove or disprove endpoint remainder (46.13), then address implication-antichain wall (47.16).
+- Prove or disprove endpoint remainder (46.13); carry notes §49’s antichain and reduced-moment refutations into v5.
 - Settle author metadata and perform a final line-by-line referee audit.
