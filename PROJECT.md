@@ -81,6 +81,72 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 20 (2026-08-29, wave 16 — see notes.md §46–§48, §43.11–§43.12, §47's refutation, paper v3; all hostile-reviewed → repaired)
+
+* **§47: the literal codegree hierarchy (40.28) and the raw-\(H\) moment
+  bound (37.19) are REFUTED — maximum-severity review CONFIRMED.**
+  Theorem 47.2 (nested retained-atom obstruction): primes
+  \(q\equiv3\,(8)\), \(p_i\equiv5\,(8)\) in \((Y,2Y)\) build
+  \(M=q\prod_1^kp_i\), \(k\asymp L/\log L\); every odd subset \(I\) gives
+  the SAME residue \(-8\) atom mod \(M_I\mid M\) (Lemma 18.1 supply,
+  \((-8/q)=+1\) so not prime-implied, \(D=2\) canonical) — a Boolean
+  implication lattice: conditioning on the finest atom fires all
+  \(2^{k-1}\) coarser ones free, so \(\mathcal L(\{A\})\geq e^{cL/\log L}\)
+  and \(\mathbb E((H)_m\mid T_0)\gg(K)_m/M\gg(C\Lambda)^m\) for every
+  \(C\).  The flaw is LOGICAL REDUNDANCY in the §37/§40 formulations, not
+  in the sieve: the repair (§47.4) implication-reduces the family to the
+  inclusion-maximal antichain — void preserved exactly — and the
+  residue-resolved hierarchy for THAT reduced family (47.16) is the new
+  open wall.  Proposition 47.3: prime-only selected sets still satisfy
+  \(\mathcal L(S)=O(\Lambda)\).  Scope crisp: refutes a proposed
+  sufficient mechanism; H_PF′, (33.16), (40.19), (37.27) untouched.
+  Supersession pointers planted at every stale §37/§40/§42/§45/§46 status
+  line.  Verify (at): exact toy \(\mathcal L\)-computations + the (47.15)
+  prime-power corner examples.
+* **§43.12 (wave-16 blind construction → adjudicated strengthening):
+  fourth-root thinning — CLAIMED/PROVISIONAL.**  The §35/§41-style blind
+  parallel construction of the general-m chain (frozen in blind43.md,
+  attested §43.11) converged on S1–S5 and found the ledger scales with the
+  THINNED mass: \(y,r\) shrink to \(\Theta(\theta_mt^3)\),
+  \(\theta_m=\eta_2(m)/\varphi(m)\), ledger \(e^{O(\theta_mt^4)}\), so the
+  window releases \(t=(\log N/\theta_m)^{1/4}\)-scale and
+  **Theorem 43.12**: \(E_m(N)\ll N\exp\{-c(\eta_2(m)(\log
+  N)^3/\varphi(m))^{1/4}\}\) uniformly for \(3\leq m\leq(\log
+  N)^{3-\epsilon}\) (vs Layer 2's linear thinning and \((\log
+  N)^{3/4-\epsilon}\) range; at \(m=4\) same shape as Theorem 39.7).
+  Maximum-severity adjudication CONFIRMED (load-bearing new step: a
+  finite relative-mass inequality for the thinned multiplier family;
+  PW crossover recomputed; Layer-1 all-denominator range repaired).
+  Theorem 43.8 retained as the conservative replay; inherits Theorem
+  34.8 + §39.7 qualifications; external status unchanged.
+* **§46 (endpoint bulk): closed prefix widened
+  \(W_0\asymp L^3/(\log L)^2\to W_1\asymp L^5\log\log L/(\log L)^2\), plus
+  the large-c wedge \(c\geq z\), \(m\leq zW_1\); exact remainder =
+  distinct-cell collision sum (46.13).**  Mechanisms: per-block
+  injectivity (blockwise \(p>2W\)), supported-cell progression occupancy,
+  a global cell-diagonal estimate.  The dyadic method provably loses
+  \(W/(CW_1)\) on the remainder; (40.19)/(37.27) remain OPEN.  Verify
+  (as): exact 5-corner resum of \(\mathcal V_X^{\rm end}\) at
+  \(X=80..800\).
+* **§48 (conspiracy depth): the vanishing law is a MOVING genus
+  character.**  Theorem 48.1: for hard \(p\) and slice \((c,k)\),
+  \(\chi_s(p)=1\Rightarrow M_{c,k}(p)=0\) (\(s\) = squarefree core of
+  \(c\)); \(\chi_s\equiv1\) on the hard progression iff
+  \(s\in\{1,2,3,6\}\) — so §44's identical-vanishing law is the
+  fixed-character slice of a per-p obstruction that kills ~half the
+  unforced slices at each p.  Theorem 48.4: complete fixed-divisor
+  progression law (the guaranteed-positivity classification); Theorem
+  48.5: residue-one escape — every bounded fixed-divisor guarantee system
+  is escaped forever (the §17.3 mirror in slice language); Proposition
+  48.6: Type-I depth-equivalence bookkeeping.  Review fixed a false §35
+  same-row identification.  Census D(p) to \(3\cdot10^4\) (ES_FULL_SCAN
+  \(10^5\)).  Register: pointwise existence remains the conjecture.
+* **paper v3 (41pp, FAITHFUL-AFTER-REPAIRS): general-m second headline +
+  verification-pedigree section + §42/§44/§45 absorbed; §46–§48 and
+  Theorem 43.12 are the flagged v4 queue** (README erratum notes).  Two
+  dropped hypotheses and a census datum restored in fidelity review;
+  DFI/Bettin–Chandee provenance corrected; zero pdflatex errors.
+
 ## Outcome 19 (2026-08-29, wave 15 — see notes.md §43–§45 + §34.5 + reviews/; all hostile-reviewed → repaired)
 
 * **§43 (general numerators): the whole multiplier machine is m-uniform —
