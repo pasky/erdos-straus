@@ -1688,8 +1688,9 @@ Pomerance--Weingartner \cite{PomeranceWeingartner}.
 
 \subsection{The identity and the first exceptional-set layer}
 \begin{lemma}[general-numerator multiplier identity]\label{lem:m-identity}
-Let $k\ell\equiv-1\pmod m$ and
-$A=(k\ell+1)/m=uvw$.  If $n>0$, $nv\equiv-u\pmod{k\ell}$, and
+% (wave-16 fidelity repair) Restore the positivity hypotheses from notes Lemma 43.1.
+Let $k,\ell\geq1$, suppose $k\ell\equiv-1\pmod m$, and let
+$A=(k\ell+1)/m=uvw$ be a factorization into positive integers.  If $n>0$, $nv\equiv-u\pmod{k\ell}$, and
 $s=(nv+u)/(k\ell)$, then
 \begin{equation}\tag{43.2}
  \frac mn=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}.
@@ -1769,7 +1770,8 @@ Fix $B>0$.  Let $K_0\leq K\leq(\log X)^B$, $H=K^{10}$,
 $m\leq(\log X)^B$, and
 $\mathcal J\subseteq\{k\leq K:(k,m)=1\}$ contain $1$.  Put
 $h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2$ and suppose
-$(c,L_{\mathcal J})=1$.  Let $f_{m,c}(\ell)$ count the distinct residues
+$(c,L_{\mathcal J})=1$.  % (wave-16 fidelity repair) Restore the prime range from notes Lemma 43.3.
+For primes $X^{1/2}<\ell\leq X$, let $f_{m,c}(\ell)$ count the distinct residues
 $-uv^{-1}\pmod\ell$ furnished by
 \begin{equation}\tag{43.7}
  \begin{gathered}
@@ -2124,7 +2126,10 @@ $p\equiv1\pmod{24}$, gives
 \end{array}
 \]
 This is a finite exact factorization census, not an asymptotic theorem.
-Every depth-$111$ prime still has a Type-I witness outside the box.  Proving
+% (wave-16 fidelity repair) Preserve the specifically recorded conspiracy prime and scope.
+The $15$ depth-$111$ primes include $2521$; its known twelve ordered Type-I
+rows all lie outside the box $ck\leq30$.  Every depth-$111$ prime still has
+a Type-I witness outside the box.  Proving
 that at least one admissible slice is positive for every hard prime would
 prove the Type-I form of Erd\H{o}s--Straus and hence the conjecture; neither
 (44.2), the census, nor standard GRH character-sum bounds does so.  Even an
@@ -2382,10 +2387,8 @@ open.
 \bibitem{BettinChandee}
 S. Bettin and V. Chandee,
 \emph{Trilinear forms with Kloosterman fractions},
-arXiv:1502.00769v1 (2015); published in
-Adv. Math. \textbf{328} (2018), 1234--1262,
-DOI: \href{https://doi.org/10.1016/j.aim.2018.01.026}
-{10.1016/j.aim.2018.01.026}.
+% (wave-16 fidelity repair) Cite only the version archived in sources/README.md.
+arXiv:1502.00769v1 (2015).
 
 \bibitem{BloomElsholtz}
 T.~F. Bloom and C. Elsholtz,

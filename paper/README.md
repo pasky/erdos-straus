@@ -51,7 +51,13 @@ The v3 statements were checked directly against the post-review source text in `
 - notes (45.2)–(45.5), DFI (45.10), BC (45.12), and Theorem 45.9 (45.26) ↔ the exact matrix, both reciprocity orientations, actual coefficient quantifiers, `W_0 <= z/2`, and `W_0=floor(L^3/(log L)^2)`;
 - notes §41.1–§41.5 and §34.5 ↔ the verification-pedigree counts and the attested-blind / internal-only caveats.
 
-No old paper/notes transcription error was found in this pass. The earlier eaten-backslash repairs recorded by v2 remain intact.
+The initial v3 assembly pass reported no old paper/notes transcription error. The later hostile wave-16 fidelity review found and repaired the statement-domain and source-provenance defects listed below; the earlier eaten-backslash repairs recorded by v2 remain intact.
+
+## Wave-16 v3 fidelity review
+
+`reviews/wave16-paper-v3-review.md` records a **FAITHFUL-AFTER-REPAIRS** verdict. The repair restored the positivity hypotheses in the general-numerator identity, restored the prime domain in the general-$m$ class-mass lemma, retained the specifically requested $p=2521$ census datum, and limited the Bettin--Chandee bibliography entry to the archived arXiv source. No unadjudicated $[\eta_2(m)/\varphi(m)]^{1/4}$ strengthening was inserted.
+
+**Pending v4 structural erratum (§47):** v3's statements that the raw factorial-moment target (37.19) and literal codegree target (40.28) remain open are now stale: notes §47 refutes both for the unreduced count $H$ and replaces them with the still-open implication-antichain target (47.16). The endpoint target (40.19) remains open; the v3 frontier text is intentionally not rewritten in this review.
 
 ## Priority and verification status
 
