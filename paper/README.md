@@ -1,12 +1,23 @@
 # Paper draft status
 
-`espaper.tex` is the v5 standalone `amsart` consolidation draft (54 pages). Its two headline results are:
+`espaper.tex` is the v6 standalone `amsart` consolidation draft (66 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v6 changes — 2026-08-29, wave 20
+
+- Absorbed source §51's minimal witness-modulus statistic `W(p)`, parameterized truncation, both exact tail windows, polylogarithmic corollaries, `H_MOD(A)`, and the exact nonimplication relation with `H_SPF(A)`. The cubic variant remains **CLAIMED/PROVISIONAL**; the fixed-polylog variant retains the §39 review qualification.
+- Added the effectivity headline: checked Lenstra–Pomerance JEMS 2019 Lemma 11.2, one-exceptional-conductor Bombieri–Vinogradov, uniform deletion tolerance, and effective class-supply/downstream constants. Theorem 51.6 is record-adjacent **CLAIMED/PROVISIONAL** and expressly does not effectivize Theorem 34.8's ancillary all-low-congestion-triples `o(1)`.
+- Added §51's PW truncation credit and priority register. Dahan arXiv:2608.24035 Theorem 4.17 is prominently credited as the independent cubic exponent-shape antecedent for a different, ineffective two-parameter statistic; Vaughan remains inaccessible and no phrase-level search result is promoted to a literature guarantee.
+- Recorded the §51 attested-blind protocol and **CONVERGED-WITH-DIVERGENCES** adjudication. The blind-side all-of-Theorem-34.8 effectivity overclaim was rejected, and all prior labels remain unchanged.
+- Absorbed source §52's proved fixed-slice sieve with exact exponent `1+2/phi(4ck)`, elementary remainder, effective fixed-slice scope, empty congruence-level third layer, and proved but ineffective Siegel–Walfisz-uniform proposition. The finite composite-witness shapes and correlation caveats remain informational only.
+- Absorbed source §53's duplicate-radicand quotient, fixed-box exponent `1+m_#(C)`, exact independent genus bits, permission-pair mass, and growing stack. Theorem 53.3 and the almost-all `H_SPF` corollary are **proved and effective**, with the uniform-in-dimension Friedlander–Iwaniec beta sieve and Landau–Page-deleted Siegel–Walfisz ledger explicit.
+- Updated the abstract, introduction, §50 frontier, internal pedigree, and bibliography. Verifier blocks `(ax)`–`(az)`, all three hostile reviews, and the §51 adjudication are registered without promoting internal review to external validation.
+- Cleared the v6 queue: source §§51–53 are now absorbed.
 
 ## v5 changes — 2026-08-29, wave 18
 
@@ -83,7 +94,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v5 build completes with zero TeX errors and no undefined references or citations. The PDF is generated locally, not tracked; `espaper.toc` is tracked and updated. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero.
+The v6 build completes in 66 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are restored to the repository snapshot after this source-only validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero.
 
 ## Submission TODO
 
@@ -93,8 +104,8 @@ The v5 build completes with zero TeX errors and no undefined references or citat
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v6 queue
+## v7 queue
 
-- Absorb notes §51, “The witness-modulus tail: truncated windows, the polylog corollary, and the effectivity audit.”
-- Absorb notes §52, “Per-slice vanishing frequency: the sieve upper bound and the empty third layer.”
-- Both sections postdate the v5 snapshot and are intentionally absent from `espaper.tex`.
+- Absorb notes §54, “Lower tail / frontier sharpening.”
+- Absorb notes §55, “General-`m` effectivity.”
+- Both sections are landing in sibling wave-20 units and are intentionally absent from this v6 snapshot.
