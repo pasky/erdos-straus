@@ -18398,3 +18398,425 @@ the genus sign, the exact exponent-box implication, the Type-I equation and
 unit-fraction identity, the complete histogram (50.19), records (50.20), and
 the comparison with \(D(p)\).  The optional full scan uses the same streamed
 algorithm.
+
+
+## 52. Per-slice vanishing frequency: the sieve upper bound and the empty third layer
+
+**Scope and outcome.**  The genus obstruction of Theorem 48.1 is the last
+fixed-congruence obstruction for one fixed slice.  On every reduced hard
+class on which the genus permits positivity, a classical upper-bound sieve
+shows that residual slice vanishing has relative density zero among the
+primes, with an explicit log-power saving.  Consequently no refinement of
+such a class can be an identically vanishing prime progression.  This is a
+per-slice almost-all theorem, not a pointwise bound on conspiracy depth and
+not a multi-slice stacking theorem.  In this section, as in §44.4, "hard"
+means exactly prime and congruent to 1 modulo 24.
+
+### 52.1 A fractional-dimensional upper-bound sieve
+
+Fix positive integers \(c,k\), put
+
+\[
+ c=st^2,\qquad s=\operatorname {sf}(c),\qquad
+ h=4ck,\qquad Q=\operatorname {lcm}(24,h).                 \tag{52.1}
+\]
+
+**Theorem 52.1 (per-slice sieve upper bound; proved).**  Suppose
+\(s\notin\{1,2,3,6\}\).  Fix a reduced class \(a\pmod Q\) such that
+
+\[
+ a\equiv1\pmod {24},\qquad (a,h)=1,\qquad \chi_s(a)=-1.    \tag{52.2}
+\]
+
+Then
+
+\[
+ \#\{p\leq X:p\ {\rm prime},\ p\equiv a\pmod Q,
+                    \ M_{c,k}(p)=0\}
+ \ll_{c,k}{X\over(\log X)^{1+2/\varphi(h)}}.              \tag{52.3}
+\]
+
+The finitely many \(p\) for which \((c,k)\notin\mathcal B_p\) are included
+in the implied constant.  The constant can be taken uniformly over the
+finitely many classes \(a\pmod Q\) satisfying (52.2), which explains the
+subscript \(c,k\).
+
+*Proof.*  The contrapositive of Theorem 50.1 gives, for every admissible
+\(p\) in (52.2),
+
+\[
+ M_{c,k}(p)=0\quad\Longrightarrow\quad
+ p^2+4ck^2\hbox{ has no prime divisor }q\equiv-a\pmod h.   \tag{52.4}
+\]
+
+Call the primes in the class on the right **good primes**.  Exclude the
+finitely many primes dividing \(Q\).  A good prime \(q\) is then odd and
+prime to \(2ck\).  Since the conductor of \(\chi_s\) divides \(4s\mid h\),
+
+\[
+ \chi_s(q)=\chi_s(-a)=\chi_s(-1)\chi_s(a)=1.              \tag{52.5}
+\]
+
+For odd \(q\nmid2ck\), the definition of the fundamental discriminant gives
+
+\[
+ \left({-4ck^2\over q}\right)
+ =\left({-c\over q}\right)
+ =\left({-s\over q}\right)
+ =\left({\Delta_s\over q}\right)=\chi_s(q)=1.             \tag{52.6}
+\]
+
+Here the factors \(4,k^2,t^2\) are nonzero squares modulo \(q\); this also
+handles all 2-adic choices in \(\Delta_s\), since multiplying the radicand by
+4 does not change its Legendre symbol at odd \(q\).  Thus
+
+\[
+ n^2\equiv-4ck^2\pmod q                                   \tag{52.7}
+\]
+
+has exactly two distinct, nonzero roots.  Therefore (52.4) says that a
+vanishing prime avoids those two classes modulo every good \(q\).
+
+We apply the standard upper-bound fundamental lemma of the beta sieve (or,
+equivalently here, the fixed-dimensional Selberg upper-bound sieve) to
+
+\[
+ \mathcal A=\{n\leq X:n\equiv a\pmod Q\}.                 \tag{52.8}
+\]
+
+For every prime \(\ell\leq z\), \(\ell\nmid Q\), remove the class 0 modulo
+\(\ell\).  At a good prime also remove the two roots in (52.7).  The three
+classes there are distinct.  If \(d\) is squarefree and prime to \(Q\), and
+\(\rho(d)\) is the number of removed classes modulo \(d\), the Chinese
+remainder theorem gives
+
+\[
+ \#\mathcal A_d={X\rho(d)\over Qd}+O(\rho(d)),\qquad
+ \rho\hbox{ multiplicative},\qquad \rho(\ell)\leq3.       \tag{52.9}
+\]
+
+In particular
+
+\[
+ \sum_{d\leq D}\mu^2(d)\rho(d)\ll D(\log D)^2.           \tag{52.10}
+\]
+
+The sieve dimension is
+
+\[
+ \kappa=1+{2\over\varphi(h)}<2.                            \tag{52.11}
+\]
+
+For completeness, the invoked upper-bound fundamental lemma says that for a
+fixed dimension \(\kappa\), if the local product has the standard dimension
+bound, then, for fixed sufficiently large
+\(u=u(\kappa)\), \(z=D^{1/u}\),
+
+\[
+ S(\mathcal A,z)\ll_\kappa {X\over Q}V(z)
+       +\sum_{d\leq D}\mu^2(d)|r_d|,
+ \quad V(z)=\prod_{\ell\leq z}\left(1-{\rho(\ell)\over\ell}\right),
+                                                               \tag{52.12}
+\]
+
+with \(r_d\) the remainder in (52.9).  This is the usual upper-bound half of
+the beta-sieve fundamental lemma; no parity-breaking lower sieve is being
+used.  Take \(D=X^{1/2}\) and this fixed \(u\).  This deliberately avoids
+claiming that the endpoint sieve parameter \(\log D/\log z=2\) is adequate
+for every fractional dimension; any fixed positive power \(z=X^\eta\)
+provided by (52.12) gives the same log exponent.
+
+The local product is explicit:
+
+\[
+ V(z)=\prod_{\substack{\ell\leq z\\\ell\nmid Q}}
+       \left(1-{1\over\ell}\right)
+ \prod_{\substack{q\leq z\\q\equiv-a\ (h)\\q\nmid Q}}
+       {1-3/q\over1-1/q}.                                  \tag{52.13}
+\]
+
+Ordinary Mertens and Mertens in the fixed arithmetic progression
+\(-a\pmod h\) give
+
+\[
+ \sum_{\substack{q\leq z\\q\equiv-a\ (h)}}{1\over q}
+ ={1\over\varphi(h)}\log\log z+C(h,-a)+o(1),              \tag{52.14}
+\]
+
+and hence, because
+\((1-3/q)/(1-1/q)=1-2/(q-1)\),
+
+\[
+ V(z)\asymp_{c,k,a}
+ {1\over(\log z)^{1+2/\varphi(h)}}.                        \tag{52.15}
+\]
+
+Equations (52.10), (52.12), and \(z=X^\eta\) make the remainder and the
+\(O(z)\) primes \(p\leq z\) negligible relative to the right side of
+(52.3).  Every prime \(p>z\) avoids the zero classes automatically, and a
+vanishing one avoids the two root classes by (52.4), so it is counted by the
+sifted set.  This proves (52.3). \(\square\)
+
+The classical analytic inputs are exactly the upper-bound fundamental lemma,
+ordinary Mertens, and Mertens in one fixed reduced progression.  The latter
+follows from the prime number theorem in arithmetic progressions for the
+fixed modulus \(h\).  No Bombieri--Vinogradov theorem, Siegel--Walfisz
+theorem, or prime level of distribution is used: primality was majorized by
+sieving the zero class among the integers in (52.8).  For explicitly fixed
+\((c,k,a)\), these inputs and the constants are effective in principle,
+although no numerical threshold is extracted here.
+
+### 52.2 No third congruence law, and the uniform scope
+
+**Corollary 52.2 (the congruence-level third layer is empty; proved).**
+Under Theorem 52.1's hypotheses, let \(M'\) be any fixed multiple of \(Q\),
+and let \(a'\pmod {M'}\) be a **reduced** refinement of \(a\pmod Q\).  The
+set
+
+\[
+ \{p:p\equiv a'\pmod {M'},\ M_{c,k}(p)=0\}                \tag{52.16}
+\]
+
+does not contain all sufficiently large primes in that progression.
+Consequently no prime-bearing arithmetic progression inside an unforced
+slice-class is an identically vanishing progression.
+
+*Proof.*  The prime number theorem in the fixed reduced progression gives
+
+\[
+ \#\{p\leq X:p\equiv a'\pmod {M'}\}
+ \sim {X\over\varphi(M')\log X}.                           \tag{52.17}
+\]
+
+The vanishing primes in that refinement are a subset of those in the full
+class \(a\pmod Q\), so (52.3) is an upper bound for them.  Since
+\((\log X)^{-2/\varphi(h)}\to0\), (52.17) eventually exceeds that bound.
+Nonreduced refinements contain no infinite prime progression and are
+excluded from the statement for that reason. \(\square\)
+
+Thus Theorems 44.2 and 48.1 give the complete congruence-level vanishing
+classification for every fixed slice: the cores \(1,2,3,6\) vanish on the
+whole hard progression, and every other core vanishes on the genus half
+\(\chi_s(p)=1\), but no arithmetic subprogression in the complementary half
+can vanish identically.  The asymmetry is real: Theorem 48.4 supplies many
+identically **positive** progressions by fixing a target divisor.
+
+The fixed-slice constant in (52.3) is not suitable for simply summing over a
+growing slice box.  The following is the range that the same proof supports
+without pretending those constants are uniform.
+
+**Proposition 52.3 (polylogarithmic uniformity, with an epsilon loss;
+proved, ineffective).**  Fix \(\theta>0\) and \(0<\epsilon<1\).  Uniformly
+for slices and reduced classes satisfying (52.1)--(52.2) and
+
+\[
+                         h\leq(\log X)^\theta,              \tag{52.18}
+\]
+
+one has, with \(Q=\operatorname {lcm}(24,h)\),
+
+\[
+ \#\{p\leq X:p\equiv a\pmod Q,\ M_{c,k}(p)=0\}
+ \ll_{\theta,\epsilon}
+ {X\over\varphi(Q)(\log X)^{1+2(1-\epsilon)/\varphi(h)}}.  \tag{52.19}
+\]
+
+The implied constant and threshold are ineffective.  The result holds for
+every fixed polylogarithmic exponent \(\theta\), but it does not assert
+uniformity for arbitrary \(h=X^{o(1)}\), and it loses the displayed
+\(\epsilon\) fraction of the sparse-prime dimension.
+
+*Proof.*  In (52.13), retain the two extra root classes only for good primes
+in
+
+\[
+ y=\exp\{(\log X)^\epsilon\}<q\leq z=X^\eta,               \tag{52.20}
+\]
+
+where \(\eta>0\) is the fixed small beta-sieve exponent for the coarse
+uniform dimension bound 3.  Siegel--Walfisz, with the fixed parameter
+\(A=\theta/\epsilon\), applies throughout this interval because
+\(h\leq(\log q)^A\).  Partial summation gives uniformly
+
+\[
+ \sum_{\substack{y<q\leq z\\q\equiv-a\ (h)}}{1\over q}
+ ={1\over\varphi(h)}\{(1-\epsilon)\log\log X+O(1)\}+o(1).
+                                                               \tag{52.21}
+\]
+
+Ordinary Mertens with the primes dividing \(Q\) omitted contributes
+\(\ll Q/(\varphi(Q)\log z)\).  Since \(\#\mathcal A\asymp X/Q\), (52.21)
+inserted into the uniform version of (52.12) gives the main term (52.19).
+The elementary remainder is \(O(X^{1/2}(\log X)^2)\), and the omitted
+\(p\leq z\) cost is \(O(z)\); both are uniform and are absorbed under
+(52.18). \(\square\)
+
+The new classical input in Proposition 52.3 is Siegel--Walfisz for moduli up
+to a fixed power of a logarithm.  Its usual uniform constant is ineffective
+because of the possible exceptional real zero.  Page--Landau theory would
+make an analogous statement effective after deleting at most one exceptional
+real-character modulus at each scale; no such deletion is harmless for the
+all-slice statement, so (52.19) is honestly labelled ineffective.  This is
+the precise uniformity available for a future stacking argument; no stacking
+is performed here.
+
+### 52.3 Computational residual structure and correlations
+
+**Computational 52.4 (exact ranges; informational).**  `verify.py (ay)`
+recomputes every prime \(p\equiv1\pmod {24}\) below 30,000, and optionally
+below \(10^5\) with `ES_FULL_SCAN=1`.  Each norm is factored once per test,
+the complete exponent box (44.4) is formed, and no asymptotic assertion is
+inferred.  There are 385 and 1,181 primes in the two ranges.
+
+First, on the least compatible active class \(a=73\) for four slices, the
+exact class counts are
+
+\[
+\begin{array}{c|c|c|c|c}
+(c,k)&h&Q&\#p,\#\{M=0\}\ (30000)&\#p,\#\{M=0\}\ (10^5)\\ \hline
+(5,1)&20&120&105,35&297,86\\
+(7,1)&28&168&66,41&204,122\\
+(10,1)&40&120&105,58&297,163\\
+(13,1)&52&312&31,24&98,81
+\end{array}                                                  \tag{52.22}
+\]
+
+For every good prime \(q\leq10^4\) in these four ray classes, the block
+checks the two distinct roots in (52.7).  It reconstructs 50 sampled
+Theorem-50.1 tuples and verifies the unit-fraction identity with exact
+rational arithmetic.  The good-prime counts through 30,000 are respectively
+413, 268, 208, and 141; their ratios to
+\(\pi(30000)/\varphi(h)\) are all between 0.5 and 2.  Most importantly, at
+every panel prime it checks the exact implication
+
+\[
+ M_{c,k}(p)=0\quad\Longrightarrow\quad
+ \nexists q\mid p^2+4ck^2,
+             \quad q\equiv-p\pmod {4ck}.                  \tag{52.23}
+\]
+
+For all 31 unforced slices with \(ck\leq30\), the next table gives residual
+vanishing divided by the number of primes with \(\chi_s(p)=-1\).  The last
+column divides the 30,000 frequency by the shape
+\((\log30000)^{-2/\varphi(4ck)}\).  This removes the primality log already
+present in the conditioning.  The quotient is only a finite-range scale
+comparison; the theorem does not predict its constant.
+
+\[
+\begin{array}{c|c|c|c@{\qquad}c|c|c|c}
+(c,k)&<30000&<10^5&\text{ratio}&(c,k)&<30000&<10^5&\text{ratio}\\ \hline
+(5,1)&35/200=.175&86/603=.143&.314&(7,1)&148/203=.729&426/612=.696&1.076\\
+(10,1)&128/200=.640&381/603=.632&.857&(11,1)&92/204=.451&270/611=.442&.569\\
+(13,1)&146/197=.741&445/608=.732&.900&(14,1)&117/203=.576&335/612=.547&.700\\
+(15,1)&163/200=.815&480/603=.796&1.091&(17,1)&117/199=.588&341/598=.570&.680\\
+(19,1)&155/204=.760&458/608=.753&.865&(20,1)&149/200=.745&424/603=.703&.862\\
+(21,1)&159/203=.783&459/612=.750&.951&(22,1)&184/204=.902&545/611=.892&1.014\\
+(23,1)&173/212=.816&467/607=.769&.907&(26,1)&130/197=.660&411/608=.676&.727\\
+(28,1)&189/203=.931&570/612=.931&1.026&(29,1)&136/196=.694&401/595=.674&.754\\
+(30,1)&168/200=.840&500/603=.829&.972&(5,2)&108/200=.540&316/603=.524&.723\\
+(7,2)&176/203=.867&529/612=.864&1.053&(10,2)&155/200=.775&470/603=.779&.897\\
+(11,2)&145/204=.711&426/611=.697&.799&(13,2)&165/197=.838&502/608=.826&.923\\
+(14,2)&155/203=.764&437/612=.714&.841&(15,2)&178/200=.890&523/603=.867&1.030\\
+(5,3)&163/200=.815&476/603=.789&1.091&(7,3)&166/203=.818&492/612=.804&.993\\
+(10,3)&163/200=.815&491/603=.814&.943&(5,4)&136/200=.680&413/603=.685&.787\\
+(7,4)&186/203=.916&558/612=.912&1.010&(5,5)&140/200=.700&409/603=.678&.787\\
+(5,6)&174/200=.870&516/603=.856&1.007&&&&
+\end{array}                                                  \tag{52.24}
+\]
+
+The finite data are broadly on the displayed scale (30,000 quotients range
+from .314 to 1.091), and frequencies usually decline by \(10^5\).  This is
+**consistent with**, but does not prove, a log-power decay or an asymptotic
+constant.
+
+The 74 strict gaps \(ck_{\rm pr}>ck_{\min}\) below 30,000 contain 98
+canonical target divisors \(D<\sqrt N\) at the minimal positive product.
+Every prime factor of each \(D\) has the wrong grade individually, as it
+must by the definition of the gap.  Their exact shapes are
+
+\[
+\begin{array}{c|rr|c|rr}
+\text{event's available shapes}&30000&10^5&
+\text{individual }D\text{ shape}&30000&10^5\\ \hline
+\{\text{two distinct primes}\}&49&136&\text{two distinct primes}&68&199\\
+\{\text{three-or-more factors}\}&13&44&\text{three-or-more factors}&24&93\\
+\{\text{prime power}\}&2&6&\text{prime power}&6&16\\
+\{\text{multi},\text{semiprime}\}&6&25&&&\\
+\{\text{power},\text{semiprime}\}&2&3&&&\\
+\{\text{multi},\text{power}\}&1&6&&&\\
+\{\text{all three}\}&1&1&&&
+\end{array}                                                  \tag{52.25}
+\]
+
+There are 221 gap events and 308 canonical divisors in the full range.  Thus
+the tempting description "a product of two wrong-grade primes hits the
+target" is the majority mechanism, but not the only one.  For example, at
+\(p=241,(c,k)=(11,1)\), \(D=155=5\cdot31\) has target grade 23 modulo 44
+while neither factor does.  At \(p=409\), the same slice uses
+\(D=75=3\cdot5^2\), and at \(p=5953,(c,k)=(5,1)\), the target divisor is
+the prime power \(D=27=3^3\).  Exponent caps and products of three or more
+prime factors are genuine additional mechanisms.
+
+Finally, for two slices \(A,B\), condition on both genus signs being -1 and
+write
+
+\[
+ R(A,B)={\Pr(M_A=0,M_B=0)\over
+                 \Pr(M_A=0)\Pr(M_B=0)}.                   \tag{52.26}
+\]
+
+The exact empirical ratios (30,000, then \(10^5\)) are
+
+\[
+\begin{array}{c|c|c@{\qquad}c|c|c}
+A&B&R&A&B&R\\ \hline
+(5,1)&(5,2)&.529,.577&(5,1)&(5,3)&1.017,.972\\
+(7,1)&(7,2)&.974,.994&(10,1)&(10,2)&.938,.946\\
+(5,1)&(7,1)&1.018,1.092&(5,1)&(10,1)&.714,.699\\
+(7,1)&(11,1)&1.009,.993&(11,1)&(17,1)&1.153,1.098
+\end{array}                                                  \tag{52.27}
+\]
+
+**Assessment.**  Most displayed ratios are near one after genus
+conditioning, for both shared and different cores, but the two stable
+anticorrelations involving \((5,1)\) rule out a blanket independence model.
+The data support approximate independence as a first calibration for many,
+not all, pairs.  Lemma 44.4 already proves that two-slice vanishing is not
+determined by the natural ray modulus; the finite ratios add no theorem
+about simultaneous factorizations or growing-dimensional stacking.
+
+### 52.4 Walls and the remaining lower-bound question
+
+Theorem 52.1 is an **almost-all statement for one fixed slice**.  It gives no
+pointwise bound on \(D(p)\), proves no instance of \(H_{\rm SPF}\), and does
+not take a union over slices.  Proposition 52.3 supplies only the uniform
+input for that future problem.  The growing-dimension sieve, the availability
+and dependence of the genus bits across cores, and the exponential least
+common multiple created by a slice partition are all left to the planned
+multi-slice stacking step.  The residue-one escapes of Theorems 17.3 and
+48.5 are untouched.
+
+**Heuristic/assessment (the lower-bound wall).**  There is no lower bound
+here for residual vanishing.  If the norm \(p^2+4ck^2\) is prime, Lemma 50.3
+makes the slice vanish, so whenever there is no fixed local divisor one
+transparent conjectural subfamily asks simultaneously for \(p\) and
+\(p^2+4ck^2\) to be prime.  Hardy--Littlewood or Bateman--Horn predicts order
+\(X/(\log X)^2\) after the appropriate local factors, but an unconditional
+lower bound is a prime-pair parity problem beyond standard sieves.  Some
+fixed progressions have a local divisor of the norm -- for example
+\(3\mid p^2+20\) when \(p\equiv73\pmod {120}\) -- so there one would instead
+need a prescribed almost-prime or prime-cofactor pattern, with every factor
+in a wrong grade.  That is not easier by any argument given here.
+
+A first- or second-moment strategy for the number of good prime factors does
+not automatically repair the lower bound.  Its formal first-moment scale is
+\(2\log\log X/\varphi(h)\), while concentration would describe typical
+positive counts rather than produce zeros.  Upper-bound sieves cannot cross
+this parity barrier.  It remains open here whether every fixed unforced
+slice-class contains infinitely many residual vanishers.
+
+The proved conclusion is narrower and exact: the third layer is empty at the
+**congruence level**.  After the universal core law and the moving genus bit,
+residual vanishing is a factorization event of relative frequency tending to
+zero on every fixed unforced class.  Its infinitude per slice is open, while
+the finite census shows that it remains robust in the computed ranges.

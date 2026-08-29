@@ -8960,4 +8960,291 @@ print("\n== (aw) conditional slice prime-factor reduction (§50) ==")
 check_aw()
 
 
+# ---------------------------------------------------------------- (ay)
+def check_ay():
+    """§52: per-slice sieve bookkeeping and finite residual census."""
+    import os
+    from sympy import kronecker_symbol, sqrt_mod, totient
+
+    scan_limit = 100_000 if os.environ.get("ES_FULL_SCAN") == "1" else 30_000
+    hard = tuple(p for p in primerange(2, scan_limit) if p % 24 == 1)
+    assert len(hard) == (1181 if scan_limit == 100_000 else 385)
+
+    def squarefree_core(n):
+        return prod(q for q, e in factorint(n).items() if e % 2)
+
+    def discriminant(s):
+        return -s if (-s) % 4 == 1 else -4 * s
+
+    def genus(s, n):
+        return int(kronecker_symbol(discriminant(s), n))
+
+    def admissible(P, C, K):
+        return (gcd(P, C * K) == 1 and 3 * K <= 2 * P
+                and 4 * C * K <= 2 * P + K)
+
+    def exponent_box_hit(P, C, K, factors):
+        h = 4 * C * K
+        residues = {1}
+        for q, e in factors.items():
+            powers, power = [], 1
+            for _ in range(e + 1):
+                powers.append(power)
+                power = power * q % h
+            residues = {u * v % h for u in residues for v in powers}
+            assert len(residues) <= h
+        return (-P) % h in residues
+
+    def divisors_from_factorization(factors):
+        values = [1]
+        for q, e in factors.items():
+            values = [d * q**j for d in values for j in range(e + 1)]
+        return values
+
+    # Four fixed unforced classes.  Here the least compatible active class is
+    # a=73 in every case, but it is derived rather than assumed.
+    panel = ((5, 1), (7, 1), (10, 1), (13, 1))
+    expected_panel = (
+        ((105, 35), (297, 86)),
+        ((66, 41), (204, 122)),
+        ((105, 58), (297, 163)),
+        ((31, 24), (98, 81)),
+    )
+    panel_rows = []
+    reconstruction_samples = 0
+    for index, (C, K) in enumerate(panel):
+        s, h, Q = squarefree_core(C), 4 * C * K, lcm(24, 4 * C * K)
+        compatible = tuple(a for a in range(Q)
+                           if a % 24 == 1 and gcd(a, Q) == 1
+                           and genus(s, a) == -1)
+        assert compatible and compatible[0] == 73
+        a = compatible[0]
+
+        # The genus identity makes every q in the good ray class a split
+        # prime.  Check all such q <= 10^4, including the exact two roots.
+        for q in primerange(3, 10_001):
+            if q % h != (-a) % h:
+                continue
+            assert gcd(q, 2 * C * K) == 1
+            assert genus(s, q) == 1
+            roots = tuple(sqrt_mod((-4 * C * K * K) % q, q,
+                                   all_roots=True))
+            assert len(roots) == 2 and roots[0] + roots[1] == q
+            assert all((r * r + 4 * C * K * K) % q == 0 for r in roots)
+
+        class_primes = vanishers = 0
+        for P in hard:
+            if P % Q != a:
+                continue
+            class_primes += 1
+            norm = P * P + 4 * C * K * K
+            factors = factorint(norm)
+            hit = exponent_box_hit(P, C, K, factors)
+            good_factors = tuple(q for q in factors if q % h == (-P) % h)
+            if not hit:
+                vanishers += 1
+                assert not good_factors       # Theorem 50.1 contrapositive
+            for q in good_factors:
+                roots = tuple(sqrt_mod((-4 * C * K * K) % q, q,
+                                       all_roots=True))
+                assert len(roots) == 2 and P % q in roots
+                if reconstruction_samples >= 50:
+                    continue
+                E = norm // q
+                A, B = (P + q) // h, (P + E) // h
+                assert min(A, B) > 0
+                assert P * (A + B) == K * (4 * A * B * C - 1)
+                assert (Fraction(1, A * C * K)
+                        + Fraction(1, B * C * K)
+                        + Fraction(1, P * A * B * C)
+                        == Fraction(4, P))
+                reconstruction_samples += 1
+        observed = (class_primes, vanishers)
+        assert observed == expected_panel[index][scan_limit == 100_000]
+
+        q_count = sum(q % h == (-a) % h
+                      for q in primerange(2, 30_001))
+        expected_density = len(tuple(primerange(2, 30_001))) / int(totient(h))
+        assert (q_count == (413, 268, 208, 141)[index]
+                and 0.5 <= q_count / expected_density <= 2.0)
+        panel_rows.append((C, K, h, Q, a, *observed, q_count))
+    assert reconstruction_samples == 50
+
+    # Recompute all 31 fluctuating slices in the ck<=30 box.  Counts are
+    # (active genus sign -1, residual vanishing), in product order.
+    forced_cores = {1, 2, 3, 6}
+    slices = tuple((C, n // C) for n in range(1, 31)
+                   for C in range(1, n + 1) if n % C == 0
+                   and squarefree_core(C) not in forced_cores)
+    assert len(slices) == 31
+    expected_small = (
+        (200, 35), (203, 148), (200, 108), (200, 128), (204, 92),
+        (197, 146), (203, 176), (203, 117), (200, 163), (200, 163),
+        (199, 117), (204, 155), (200, 136), (200, 155), (200, 149),
+        (203, 166), (203, 159), (204, 145), (204, 184), (212, 173),
+        (200, 140), (197, 165), (197, 130), (203, 186), (203, 155),
+        (203, 189), (196, 136), (200, 174), (200, 163), (200, 178),
+        (200, 168),
+    )
+    expected_full = (
+        (603, 86), (612, 426), (603, 316), (603, 381), (611, 270),
+        (608, 445), (612, 529), (612, 335), (603, 476), (603, 480),
+        (598, 341), (608, 458), (603, 413), (603, 470), (603, 424),
+        (612, 492), (612, 459), (611, 426), (611, 545), (607, 467),
+        (603, 409), (608, 502), (608, 411), (612, 558), (612, 437),
+        (612, 570), (595, 401), (603, 516), (603, 491), (603, 523),
+        (603, 500),
+    )
+    slice_rows = []
+    for C, K in slices:
+        s = squarefree_core(C)
+        active = residual = 0
+        for P in hard:
+            if genus(s, P) != -1:
+                continue
+            active += 1
+            factors = factorint(P * P + 4 * C * K * K)
+            residual += not exponent_box_hit(P, C, K, factors)
+        phi_h = int(totient(4 * C * K))
+        model = log(scan_limit)**(-2 / phi_h)
+        slice_rows.append((C, K, active, residual,
+                           residual / active, model))
+    observed_counts = tuple(row[2:4] for row in slice_rows)
+    assert observed_counts == (expected_full if scan_limit == 100_000
+                               else expected_small)
+
+    # Recompute ck_min and ck_pr in one streamed product-order pass.  The
+    # selected target divisors below are then refactored one norm at a time.
+    guard = 320 if scan_limit == 100_000 else 128
+    unresolved_slice, unresolved_prime = set(hard), set(hard)
+    slice_min, prime_min = {}, {}
+    for n in range(1, guard + 1):
+        for C in range(1, n + 1):
+            if n % C:
+                continue
+            K = n // C
+            for P in tuple(unresolved_slice | unresolved_prime):
+                if not admissible(P, C, K):
+                    continue
+                factors = factorint(P * P + 4 * C * K * K)
+                hit = exponent_box_hit(P, C, K, factors)
+                good = any(q % (4 * n) == (-P) % (4 * n) for q in factors)
+                if P in unresolved_slice and hit:
+                    slice_min[P] = n
+                    unresolved_slice.remove(P)
+                if P in unresolved_prime and good:
+                    prime_min[P] = n
+                    unresolved_prime.remove(P)
+        if not unresolved_slice and not unresolved_prime:
+            break
+    assert not unresolved_slice and not unresolved_prime
+    gaps = tuple(P for P in hard if prime_min[P] > slice_min[P])
+    assert len(gaps) == (221 if scan_limit == 100_000 else 74)
+
+    event_shapes, witness_shapes = Counter(), Counter()
+    for P in gaps:
+        n = slice_min[P]
+        shapes = set()
+        for C in range(1, n + 1):
+            if n % C:
+                continue
+            K, h = n // C, 4 * n
+            if not admissible(P, C, K):
+                continue
+            norm = P * P + 4 * C * K * K
+            factors = factorint(norm)
+            for D in divisors_from_factorization(factors):
+                if D * D >= norm or D % h != (-P) % h:
+                    continue
+                D_factors = factorint(D)
+                assert all(q % h != (-P) % h for q in D_factors)
+                omega = sum(D_factors.values())
+                if len(D_factors) == 1:
+                    shape = "prime-power"
+                elif omega == 2:
+                    shape = "semiprime"
+                else:
+                    shape = "multi-prime"
+                shapes.add(shape)
+                witness_shapes[shape] += 1
+        assert shapes
+        event_shapes[tuple(sorted(shapes))] += 1
+
+    expected_event_small = {
+        ("semiprime",): 49, ("multi-prime",): 13,
+        ("multi-prime", "semiprime"): 6,
+        ("prime-power", "semiprime"): 2, ("prime-power",): 2,
+        ("multi-prime", "prime-power", "semiprime"): 1,
+        ("multi-prime", "prime-power"): 1,
+    }
+    expected_event_full = {
+        ("semiprime",): 136, ("multi-prime",): 44,
+        ("multi-prime", "semiprime"): 25, ("prime-power",): 6,
+        ("multi-prime", "prime-power"): 6,
+        ("prime-power", "semiprime"): 3,
+        ("multi-prime", "prime-power", "semiprime"): 1,
+    }
+    assert dict(event_shapes) == (expected_event_full if scan_limit == 100_000
+                                  else expected_event_small)
+    assert dict(witness_shapes) == (
+        {"semiprime": 199, "multi-prime": 93, "prime-power": 16}
+        if scan_limit == 100_000 else
+        {"semiprime": 68, "multi-prime": 24, "prime-power": 6}
+    )
+
+    # Joint residual frequencies, always conditioned on both genus signs -1.
+    correlation_pairs = (
+        ((5, 1), (5, 2)), ((5, 1), (5, 3)),
+        ((7, 1), (7, 2)), ((10, 1), (10, 2)),
+        ((5, 1), (7, 1)), ((5, 1), (10, 1)),
+        ((7, 1), (11, 1)), ((11, 1), (17, 1)),
+    )
+    expected_corr_small = (
+        (200, 35, 108, 10), (200, 35, 163, 29),
+        (203, 148, 176, 125), (200, 128, 155, 93),
+        (101, 17, 70, 12), (200, 35, 128, 16),
+        (99, 73, 43, 32), (101, 52, 64, 38),
+    )
+    expected_corr_full = (
+        (603, 86, 316, 26), (603, 86, 476, 66),
+        (612, 426, 529, 366), (603, 381, 470, 281),
+        (307, 46, 214, 35), (603, 86, 381, 38),
+        (313, 219, 141, 98), (305, 142, 180, 92),
+    )
+    correlation_rows = []
+    for A, B in correlation_pairs:
+        s_A, s_B = squarefree_core(A[0]), squarefree_core(B[0])
+        population = van_A = van_B = joint = 0
+        for P in hard:
+            if genus(s_A, P) != -1 or genus(s_B, P) != -1:
+                continue
+            population += 1
+            v_A = not exponent_box_hit(
+                P, *A, factorint(P * P + 4 * A[0] * A[1] * A[1]))
+            v_B = not exponent_box_hit(
+                P, *B, factorint(P * P + 4 * B[0] * B[1] * B[1]))
+            van_A += v_A
+            van_B += v_B
+            joint += v_A and v_B
+        raw = (population, van_A, van_B, joint)
+        correlation_rows.append((A, B, *raw,
+                                 joint * population / (van_A * van_B)))
+    assert tuple(row[2:6] for row in correlation_rows) == (
+        expected_corr_full if scan_limit == 100_000 else expected_corr_small
+    )
+
+    print("panel (c,k,h,Q,a,class primes,vanishers,good q<=30000) =",
+          tuple(panel_rows))
+    print("INFO residual rows (c,k,active,vanish,freq,log-model) =",
+          tuple(slice_rows))
+    print("composite gap events / canonical witness shapes =",
+          (len(gaps), dict(event_shapes), dict(witness_shapes)))
+    print("INFO correlations (A,B,n,vA,vB,joint,joint/product) =",
+          tuple(correlation_rows))
+
+
+print("\n== (ay) per-slice sieve bookkeeping and residual census (§52) ==")
+check_ay()
+
+
 print("\nall checks passed")
