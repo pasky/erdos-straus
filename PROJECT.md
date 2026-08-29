@@ -81,6 +81,50 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 17 (2026-08-29, wave 13 — see notes.md §39–§40 + paper/; §39 maximum-severity-reviewed (record chain SURVIVES) → repaired; §40 + paper reviewed → repaired)
+
+* **§39 (c-free critical-window assembly): E_all(N) ≪ N exp{−c(log N)^{3/4}}
+  — unconditional, CLAIMED/PROVISIONAL.**  The record-class chain: (i)
+  Lemma 39.1 — the §34.4 M₀-partition wall dissolves because the H_kBV
+  coupling \(k\mid u+cv\) is IMPLIED by each atom's own congruence, so one
+  fixed c-free unpruned family majorizes every exceptional prime; compatible
+  atom sets have pairwise-distinct large primes \(\ell\) (size argument
+  \(z^2<\ell\) + unique-multiplier argument \(4uv>4H^2\gg K\)); (ii) Lemma
+  39.2 — residue-resolved mass profiles \(W_{k,a}(g)\ll
+  t^2\varphi(k)^2/(\varphi(g)k^3)\) (Shiu in reduced classes; rewritten in
+  review), total mass \(\mu\asymp t^3\); (iii) Theorem 39.4 — ALL factorial
+  moments \(\mathbb E(H)_m\le(Ct^3)^m\): lcm-collapse and residue-consistency
+  cancel exactly at every prime power under \((n,P_y)=1\) conditioning,
+  \(y=Bt^3\) (the direct Janson route fails: \(\Delta=\Theta(\mu^2)\));
+  (iv) Lemma 39.5 — conditioned void \(\le e^{-ct^3}\) via Chernoff on the
+  multiplier fibre + Theorem 34.8 applied to every surviving subfamily
+  \(\mathcal J_c\); (v) Theorem 39.6 — even-Bonferroni majorant at degree
+  \(r\asymp t^3\) with honest ledger \(e^{O(rt)}=e^{O(t^4)}\), absorbed by
+  the window \(\log N\ge C_0t^4\) (the literal \(e^{O(J)}\) clause of
+  H_PF′(kℓ;good) remains open — deliberately bypassed, not proved).  Fresh
+  maximum-severity review re-derived (39.10)–(39.11) and the unequal-prime-power
+  moment induction, confirmed Theorem 34.8's subfamily uniformity, found two
+  MAJOR writing gaps (both repaired: full Shiu derivation inserted; \(y<X^{1/2}\)
+  restriction) and no mathematical break.  Status: inherits Theorem 34.8's
+  provisional status; needs external expert check + priority search before
+  citation.  θ=3/4 is the absolute ceiling of this axis (§18.2).
+* **§40 (complete-system residue dispersion): the regular tail closes;
+  (37.27) ≡ an explicit short-cofactor endpoint.**  Proved: exact
+  deduplicated character reformulation of the dispersion quantity; atom
+  diagonal \(O(\Lambda)\); regular progression tail \(o(\Lambda^2)\).  The
+  full pair bound (37.27) is equivalent to the falsifiable endpoint estimate
+  (40.19) (moving short-cofactor range analogous to Theorem 31.3's
+  \(u_p\) term); generic large sieve and divisor-BDH provably do not supply
+  it; the higher-codegree hierarchy (40.28) is a separate open wall.  Also
+  corrected a parent-session inference; H_PF′ remains OPEN, no status line
+  superseded.
+* **paper/ (consolidation): the H_PF arc as a compilable standalone paper.**
+  ~20pp, complete proofs (criterion, intrinsic system, cubic supply, prime
+  slices, square-class phenomenon, the §31 refutation with exact scope, the
+  §33/§37 transfer walls), full provisional-status and Vaughan-access
+  honesty; fidelity-reviewed against notes.md (nine transcription defects
+  found → repaired); pdflatex zero errors.  §39 not yet absorbed.
+
 ## Outcome 16 (2026-08-29, wave 12 — see notes.md §36–§38; all three hostile-reviewed: repairable → repaired)
 
 * **§36 (mass-formula route): the exact ray-character mass for Type I —
