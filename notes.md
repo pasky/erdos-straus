@@ -16843,3 +16843,461 @@ composite implication.  After the exact implication-antichain repair,
 (47.16) is the remaining wall; it is **OPEN**, as are (40.19), (33.16), and
 $H_{\rm PF}'$.  Nothing in this section proves or refutes the
 Erdős--Straus conjecture.
+## 48. Conspiracy depth: the unforced slices, growth of the vanishing box, and guaranteed-positivity classification
+
+**Scope and outcome.**  This section separates the 80 deterministic zeros in
+(44.16) from the 31 slices which can actually fluctuate.  A quadratic genus
+character forces exactly half of the hard prime classes to vanish for every
+one of those 31 slices, while a fixed prime divisor supplies a positive-density
+progression for every one; hence there is no further identically zero slice in
+the box.  The remaining zeros are genuine misses of the moving finite exponent
+box.  An exact census defines and computes a robust conspiracy depth through
+30,000 (and optionally 100,000), and a fixed-divisor theorem classifies all
+arithmetic-progression guarantees of that shape.  Its residue-one escape is an
+exact slice-language mirror of Theorem 17.3.  None of this proves that every
+hard prime has a positive Type-I slice: the final equivalence is explicitly a
+bookkeeping reformulation of that open strengthening.
+
+### 48.1 The unforced genus and the complete small-box list
+
+Write
+
+\[
+ c=st^2,\qquad s=\operatorname {sf}(c)\ \hbox{squarefree},\qquad
+ \chi_s(n)=\left({\Delta_s\over n}\right),                 \tag{48.1}
+\]
+
+where \(\Delta_s<0\) is the fundamental discriminant of
+\(\mathbb Q(\sqrt{-s})\).  Its conductor divides \(4s\).
+
+**Theorem 48.1 (the moving genus obstruction; proved).**  Let
+\(p\equiv1\pmod {24}\), let \((c,k)\in\mathcal B_p\), and use (48.1).
+Then
+
+\[
+                  \chi_s(p)=1\quad\Longrightarrow\quad
+                  M_{c,k}(p)=0.                             \tag{48.2}
+\]
+
+The restriction of \(\chi_s\) to the hard progression is identically one if
+and only if
+
+\[
+                         s\in\{1,2,3,6\}.                   \tag{48.3}
+\]
+
+For every other squarefree \(s\), the primes satisfying (48.2) have relative
+Dirichlet density \(1/2\) among the hard primes (with the finitely many primes
+dividing \(s\) omitted).
+
+*Proof.*  Every prime \(\ell\mid p^2+4s(tk)^2\) is odd and prime to
+\(stk\), and
+
+\[
+                 \bigl(p(2tk)^{-1}\bigr)^2\equiv-s\pmod\ell.
+\]
+
+Thus \(\chi_s(\ell)=1\), and every divisor \(D\) of the norm has
+\(\chi_s(D)=1\).  Because the conductor divides \(4s\mid4ck\), a target
+divisor would instead have
+\(\chi_s(D)=\chi_s(-p)=-\chi_s(p)\).  This proves (48.2).
+The primitive quadratic character \(\chi_s\) is constant on the kernel of
+reduction modulo 24 exactly when its conductor divides 24.  The negative
+fundamental discriminants with this property give precisely (48.3).
+Otherwise its restriction to that kernel is a nonprincipal quadratic
+character, so exactly half of the compatible reduced classes have value one;
+the prime number theorem in arithmetic progressions gives the density claim.
+\(\square\)
+
+Theorem 44.2 is the universal case (48.3).  Outside it, (48.2) is still a
+large, \(k\)-independent source of zeros, but no longer a universal one.  On
+the complementary classes \(\chi_s(p)=-1\), exact vanishing remains
+
+\[
+ \nexists D\mid p^2+4ck^2,
+       \qquad D\equiv-p\pmod {4ck},                         \tag{48.4}
+\]
+
+including the exponent caps in (44.4).  Thus the residual event is a
+congruence-plus-*moving-divisor* condition, not another genus bit.
+
+**Computational 48.2 (the 31 unforced slices, exact range).**  For all 385
+hard primes below 30,000, `verify.py (au)` independently recomputes the
+following table.  Here \(G\) counts the genus-forced zeros (48.2), \(E\)
+counts the additional exponent-box zeros on \(\chi_s(p)=-1\), and \(P\)
+counts positive slices, so \(G+E+P=385\).  The last column gives the least
+odd prime \(q\) for which a fixed-divisor guarantee exists and one such hard
+class \(p\equiv r\pmod M\); its meaning is proved in Theorem 48.4.  The
+finite minimality of \(q\), as well as the displayed class, is checked
+exactly.
+
+\[
+\begin{array}{c|r|rrr|c}
+(c,k)&ck&G&E&P&q:r\pmod M\\ \hline
+(5,1)&5&185&35&165&3:97\ (120)\\
+(7,1)&7&182&148&55&11:73\ (1848)\\
+(10,1)&10&185&128&72&7:73\ (840)\\
+(11,1)&11&181&92&112&3:217\ (264)\\
+(13,1)&13&188&146&51&7:1657\ (2184)\\
+(14,1)&14&182&117&86&23:1489\ (3864)\\
+(15,1)&15&185&163&37&23:457\ (2760)\\
+(17,1)&17&186&117&82&3:337\ (408)\\
+(19,1)&19&181&155&49&7:601\ (3192)\\
+(20,1)&20&185&149&51&7:313\ (1680)\\
+(21,1)&21&182&159&44&11:409\ (1848)\\
+(22,1)&22&181&184&20&23:1033\ (6072)\\
+(23,1)&23&173&173&39&3:457\ (552)\\
+(26,1)&26&188&130&67&7:97\ (2184)\\
+(28,1)&28&182&189&14&23:3673\ (7728)\\
+(29,1)&29&189&136&60&3:577\ (696)\\
+(30,1)&30&185&168&32&23:337\ (2760)\\ \hline
+(5,2)&10&185&108&92&7:313\ (840)\\
+(7,2)&14&182&176&27&23:145\ (3864)\\
+(10,2)&20&185&155&45&7:1273\ (1680)\\
+(11,2)&22&181&145&59&23:769\ (6072)\\
+(13,2)&26&188&165&32&7:409\ (2184)\\
+(14,2)&28&182&155&48&23:3001\ (7728)\\
+(15,2)&30&185&178&22&23:937\ (2760)\\ \hline
+(5,3)&15&185&163&37&23:577\ (2760)\\
+(7,3)&21&182&166&37&11:241\ (1848)\\
+(10,3)&30&185&163&37&23:217\ (2760)\\
+(5,4)&20&185&136&64&7:73\ (1680)\\
+(7,4)&28&182&186&17&23:313\ (7728)\\
+(5,5)&25&185&140&60&3:97\ (600)\\
+(5,6)&30&185&174&26&23:1177\ (2760)
+\end{array}                                                  \tag{48.5}
+\]
+
+In particular, all 31 slices have both a proved positive-density vanishing
+subfamily, by Theorem 48.1, and a proved positive-density positivity
+subfamily, by their displayed progression and Dirichlet's theorem.  This
+proves, not merely observes, that the universal-zero classification inside
+\(ck\leq30\) is exactly the 80 slices of Theorem 44.2.  There is no extra
+\((c,k)\)-joint universal family in this box; in particular no special
+\(k\) makes a squarefree \(c\)-core 5, 7, or 10 identically vanish.  The
+genus count \(G\) is independent of \(k\), while the residual \(E\) changes
+substantially with \(k\), as expected of the moving norms.
+
+For a descriptive frequency classification, the observed vanishing
+percentage \((G+E)/385\) falls in the following bands:
+
+\[
+\begin{array}{c|c|l}
+\hbox{band}&\#& (c,k)\\ \hline
+[50,70)\%&1&(5,1)\\
+[70,80)\%&4&(11,1),(14,1),(17,1),(5,2)\\
+[80,90)\%&14&(7,1),(10,1),(13,1),(19,1),(20,1),(21,1),(23,1),
+ (26,1),(29,1),(10,2),(11,2),(14,2),(5,4),(5,5)\\
+[90,95)\%&10&(15,1),(22,1),(30,1),(7,2),(13,2),(15,2),
+ (5,3),(7,3),(10,3),(5,6)\\
+[95,100]\%&2&(28,1),(7,4).
+\end{array}                                                  \tag{48.6}
+\]
+
+These bins are census summaries, not limiting-density estimates.  In
+particular the table does not turn the residual event \(E\) into a fixed
+congruence condition; Lemma 44.4 already warns against that inference.
+
+### 48.2 Conspiracy depth and its finite growth
+
+For a hard prime \(p\), define the unforced box
+
+\[
+ \mathcal U_p(B)=\{(c,k)\in\mathcal B_p:ck\leq B,
+              \operatorname {sf}(c)\notin\{1,2,3,6\}\}.     \tag{48.7}
+\]
+
+The **conspiracy depth** is
+
+\[
+ D(p)=\sup\{B\in\mathbb Z_{\geq0}:
+          M_{c,k}(p)=0\ \hbox{for every }(c,k)\in\mathcal U_p(B)\},
+                                                               \tag{48.8}
+\]
+
+with values in \(\mathbb Z_{\geq0}\cup\{\infty\}\).  This definition
+intersects the genuine admissible set \(\mathcal B_p\), so it remains valid
+beyond the uniform small box.  It also ignores the deterministic padding of
+Theorem 44.2.  If an unforced positive slice existed at product one, the
+convention would give \(D=0\); in the present hard-prime problem the first
+possible unforced product is five, so every \(D(p)\geq4\).
+
+Put
+
+\[
+ ck_{\min}(p)=\min\{ck:(c,k)\in\mathcal B_p,
+       \operatorname {sf}(c)\notin\{1,2,3,6\},\ M_{c,k}(p)>0\},
+                                                               \tag{48.9}
+\]
+
+with minimum \(\infty\) when the set is empty.  Product order makes the
+boundary exact:
+
+\[
+ ck_{\min}(p)<\infty\quad\Longrightarrow\quad
+                  D(p)=ck_{\min}(p)-1;                      \tag{48.10}
+\]
+
+if the minimum is infinite, then \(D(p)=\infty\).  There is no rounding by
+the number of pairs on a product hyperbola.
+
+**Computational 48.3 (exact depth census).**  Streaming in increasing
+\(ck\), `verify.py (au)` finds a positive slice for every hard prime below
+30,000 by \(ck=77\).  The complete histogram is
+
+\[
+\begin{array}{c|rrrrrrrrrrrr}
+D&4&6&9&10&12&13&16&18&20&21&22&25\\
+\#&165&29&30&66&13&19&18&4&6&3&2&10\\ \hline
+D&27&28&30&33&34&37&38&41&43&58&66&76\\
+\#&3&2&1&2&1&3&1&2&1&2&1&1
+\end{array}                                                  \tag{48.11}
+\]
+
+and the strict records are
+
+\[
+\begin{array}{c|rrrrrrrrr}
+p&73&193&241&769&1321&2281&2521&9601&12289\\
+D(p)&6&9&10&12&20&25&37&66&76\\
+w^*(p)&3&3&7&7&7&3&15&7&11.
+\end{array}                                                  \tag{48.12}
+\]
+
+Thus the 15 depth-111 conspiracies in (44.18) mean \(D\geq30\), not
+\(D=111\): their first positive products range from 31 through 77.  The
+record holder is \(12289\), with first positive slice \((c,k)=(11,7)\).
+The dyadic maxima, with natural-log comparisons evaluated at the attaining
+prime, are
+
+\[
+\begin{array}{c|r|r|r|r}
+[p_0,p_1)&\#p&\max D&\hbox{attained at}&D/\log p\ ;\ D/(\log p)^2\\ \hline
+[64,128)&2&6&73&1.398\ ;\ .326\\
+[128,256)&2&10&241&1.823\ ;\ .332\\
+[256,512)&5&10&409&1.663\ ;\ .277\\
+[512,1024)&6&12&769&1.806\ ;\ .272\\
+[1024,2048)&16&20&1321&2.783\ ;\ .387\\
+[2048,4096)&31&37&2521&4.724\ ;\ .603\\
+[4096,8192)&58&27&8161&2.998\ ;\ .333\\
+[8192,16384)&99&76&12289&8.071\ ;\ .857\\
+[16384,30000)&166&58&29569&5.634\ ;\ .547
+\end{array}                                                  \tag{48.13}
+\]
+
+This is irregular finite-range growth, not evidence for either logarithmic
+scale.  The optional `ES_FULL_SCAN=1` extension covers all 1,181 hard primes
+below \(10^5\): the two later depth records are \((55441,82)\) and
+\((92401,102)\), and every prime has \(ck_{\min}\leq103\).  It is likewise
+only a computation.
+
+For comparison with §19, recomputation of the interleaved criterion minimum
+\(w^*\) on the 385-prime overlap gives Pearson correlation \(0.525121\) and
+tied-rank Spearman correlation \(0.568502\) with \(D\).  Broken down by
+\(w^*\),
+
+\[
+\begin{array}{c|rrrrrr}
+w^*&3&7&11&15&23&31\\
+\#&304&62&14&2&2&1\\
+\operatorname {mean}D&7.303&17.258&27.143&26.500&21.000&38.000\\
+\max D&37&66&76&37&30&38.
+\end{array}                                                  \tag{48.14}
+\]
+
+The association is real in this census but far from an identification:
+\(9601\) has \((D,w^*)=(66,7)\), while the §19 record prime \(21169\) has
+\((38,31)\).  The two statistics inspect different factorizations and the
+correlations are informational only.  In particular the global record
+\(w^*\leq71\) through \(10^{10}\) gives no bound on \(D\).
+
+### 48.3 Every fixed-divisor guarantee, and its residue-one escape
+
+The infinite union in (44.6) has an exact finite component whenever its
+divisor is fixed.
+
+**Theorem 48.4 (complete fixed-divisor progression law; proved).**  Fix
+\((c,k)\), put \(h=4ck\), and fix a positive integer \(d\) prime to \(h\).
+Let
+
+\[
+                         L=\operatorname {lcm}(24,h,d).      \tag{48.15}
+\]
+
+A reduced class \(r\pmod L\) is a hard-prime class on which the *fixed
+divisor \(d\)* guarantees \(M_{c,k}(p)>0\) if and only if
+
+\[
+ r\equiv1\pmod {24},\qquad r\equiv-d\pmod h,
+ \qquad r^2\equiv-4ck^2\pmod d.                            \tag{48.16}
+\]
+
+Every prime in such a class for which \((c,k)\in\mathcal B_p\) has the
+explicit row
+
+\[
+ e={p^2+4ck^2\over d},\qquad
+ a={p+d\over h},\qquad b={p+e\over h},
+ \qquad p(a+b)=k(4abc-1).                                  \tag{48.17}
+\]
+
+Conversely, within the proof shape “one specified \(d\) divides the norm and
+has the target grade,” (48.16) is necessary.  Thus the theorem is complete
+for that shape.  Classes modulo a multiple of \(L\) are guarantees exactly
+when they refine one of the classes (48.16).
+
+*Proof.*  The last congruence in (48.16) is exactly
+\(d\mid p^2+4ck^2\), and the middle one is exactly
+\(d\equiv-p\pmod h\).  Theorem 44.1 proves sufficiency and necessity.
+Since the norm is \(p^2\pmod h\), its cofactor \(e\) has the same target
+grade; (48.17) is integral and direct expansion proves its last identity.
+The first congruence is precisely the hard-prime restriction. \(\square\)
+
+For an odd prime \(d=q\nmid2ck\), the last condition has two roots exactly
+when \((-4c\mid q)=1\), and one obtains the CRT classes
+
+\[
+ p\equiv-q\pmod h,
+ \qquad p\equiv\pm2k\sqrt{-c}\pmod q,
+ \qquad p\equiv1\pmod {24}.                                \tag{48.18}
+\]
+
+Hard compatibility forces \(q\equiv3\pmod4\), and more precisely
+\(q\equiv-1\pmod{(h,24)}\), together with root compatibility when
+\(q\mid24\).  This is exactly Lemma 29.2 intersected with the hard
+progression.  Corollary 44.3 is \((c,k,q)=(5,1,3)\), while Theorem 35.4's
+\(c=5,D=3\) branch supplies the same row with \(a=1\).  The dictionary is
+therefore literal, not just a density analogy.
+
+For reference, the complete list from (48.18) with \(ck\leq30\) and prime
+divisor \(q\leq7\) is
+
+\[
+\begin{array}{c|l}
+q& (c,k):\ r\pmod M\\ \hline
+3&(5,1):97(120),\ (11,1):217(264),\ (17,1):337(408),\\
+ & (23,1):457(552),\ (29,1):577(696),\ (5,5):97(600)\\
+5&\varnothing\\
+7&(5,1):433,673(840),\ (10,1):73,193(840),\\
+ &(13,1):1657,1969(2184),\ (17,1):1081,2713(2856),\\
+ &(19,1):601,1513(3192),\ (20,1):313,793(1680),\\
+ &(26,1):97,1345(2184),\ (5,2):313,793(840),\\
+ &(10,2):1273,1513(1680),\ (13,2):409,1033(2184),\\
+ &(5,4):73,1033(1680),\ (5,5):793,1993(4200).
+\end{array}                                                  \tag{48.19}
+\]
+
+This is an exact enumeration of all 30 hard-compatible classes in that
+stated small-prime-divisor range, not a selection of successful examples.
+`verify.py (au)` generates the list rather than trusting it, scans every
+prime in each class below 30,000, and verifies \(q\), \(e\), \(a\), and
+\(b\) in (48.17).  Table (48.5) extends existence to all 31 unforced slices
+by allowing the least \(q\leq23\); only one class is displayed there when
+two roots survive.
+
+The progression mechanism itself has the same compactness wall as the
+identity classes of §17.
+
+**Theorem 48.5 (residue-one escape for every bounded fixed-divisor slice
+system; proved).**  No class (48.16) contains the residue \(1\pmod L\).
+Consequently, for every \(Q\), the union of *all* fixed-divisor slice
+guarantees (48.16) with full modulus \(L\leq Q\) misses the class
+
+\[
+ p\equiv1\pmod {\Lambda_Q},\qquad
+ \Lambda_Q=\operatorname {lcm}\{24,L:L\leq Q\hbox{ occurs in (48.15)}\},
+                                                               \tag{48.20}
+\]
+
+which contains infinitely many primes.
+
+*Proof.*  If residue one belonged to a guarantee, then
+\(d\equiv-1\pmod h\) and \(d\mid1+4ck^2=1+hk\).  Its complementary divisor
+\(e=(1+hk)/d\) would also be \(-1\pmod h\).  Hence \(d,e\geq h-1\), but
+
+\[
+ (h-1)^2-(1+hk)=h(h-k-2)>0,
+ \qquad h-k-2=k(4c-1)-2\geq1,                              \tag{48.21}
+\]
+
+which is impossible.  There are only finitely many triples \((c,k,d)\) with
+\(L\leq Q\), and residue one modulo their common multiple misses each
+class.  Dirichlet's theorem gives infinitely many primes in (48.20).
+\(\square\)
+
+The scope is exact and limited.  Theorem 48.5 walls every finite or
+bounded-modulus proof assembled from a preassigned norm divisor, including
+composite \(d\); it does not wall a proof that controls the actual moving
+factorization.  A prime escaping all guarantees can still have a positive
+slice through a divisor depending on that prime.  Indeed (48.11) says that
+most census primes do.  “Not guaranteed” must not be read as “vanishing,”
+and the theorem supplies no infinite conspiracy sequence.
+
+### 48.4 The sharp reformulation and what existing bounds do not say
+
+**Proposition 48.6 (Type-I depth equivalence; proved bookkeeping).**  The
+Type-I strengthening of Erdős--Straus on the hard primes is equivalent to
+
+\[
+             D(p)<\infty\qquad\hbox{for every prime }p\equiv1\pmod {24}.
+                                                               \tag{48.22}
+\]
+
+More quantitatively, a function \(F\) gives the assertion
+
+\[
+              ck_{\min}(p)\leq F(p)\quad\hbox{for every hard }p
+                                                               \tag{48.23}
+\]
+
+if and only if \(D(p)\leq F(p)-1\) (with integer floors understood).  The
+natural pointwise target suggested by §§17.6 and 19 is the log-power
+strengthening
+
+\[
+                 ck_{\min}(p)\leq(\log p)^A                \tag{48.24}
+\]
+
+for some absolute \(A\).  It is **OPEN**.
+
+*Proof.*  A positive raw slice gives positive integers \(a,b,c,k\) satisfying
+the Type-I equation by Theorem 36.1, and hence an Erdős--Straus
+representation; coprimality of \(a,b\) is not needed for existence.
+Conversely every Type-I representation has its canonical tuple in
+\(\mathcal B_p\) and makes that slice positive.  Its squarefree \(c\)-core
+cannot be in (48.3), by Theorem 44.2.  Thus it is counted by (48.9), and
+(48.10) proves all assertions. \(\square\)
+
+This equivalence is bookkeeping, not progress on positivity.  In particular,
+no existing exceptional-set theorem in this document supplies a hidden bound
+on \(ck_{\min}\):
+
+* Lemma 16.1's multiplier classes are, through Lemma 29.1, the complete
+  fixed-divisor **Type-II** (Case-B) class supply.  Theorem 16.4's
+  CLAIMED/PROVISIONAL bound
+  \(N\exp\{-c(\log N)^{2/3}(\log\log N)^{1/3}\}\) therefore proves that
+  almost every prime gets a representation of that broader type; it does not
+  construct any Type-I \((c,k)\).
+* The same directional issue applies to the CLAIMED/PROVISIONAL §39
+  cubic-rate assembly.  Its \(\exp\{-c(\log N)^{3/4}\}\) exceptional set is
+  built from the same multiplier identities, so it has no literal
+  \(ck_{\min}\) consequence either.
+* Lemma 29.2 does supply Type-I slices: a class with displayed modulus
+  \(4ckq\leq X\) has \(ck\leq X/(4q)\).  But §29 proves only the raw
+  \(O((\log X)^2\log\log X)\) class-mass envelope and no joint coverage or
+  exceptional-set theorem for those classes.  Thus that inequality cannot be
+  promoted to an almost-all bound on \(ck_{\min}\).
+
+The finite \(a=1\) result through \(10^7\) in §35 and the depth computations
+above support (48.24) empirically, but neither supplies an all-large-prime
+bound.  Proving merely \(D(p)<\infty\) for every hard prime would already
+prove the Type-I strengthening; bounding it by a log-power is a sharper
+pointwise conjecture, not an implication of the campaign's present
+exceptional-set estimates.
+
+**Verification companion.**  `verify.py (au)` stores at most one residue set
+of size \(4ck\) per requested norm.  It recomputes the 31 rows of (48.5),
+the 80+31 split and all §44 aggregate counts, every value behind
+(48.11)--(48.14), the least-prime guarantee in each row, all 30 classes in
+(48.19), and the explicit divisor reconstruction (48.17).  The optional
+`ES_FULL_SCAN=1` path extends only the streamed prime/depth scan to \(10^5\).
