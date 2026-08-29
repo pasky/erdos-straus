@@ -5811,7 +5811,8 @@ def check_ai():
                     assert (E + P) % h0 == 0
                     A, B = (D + P) // h0, (E + P) // h0
                     rows.append((A, B, C, K))
-                    # The hyperbolic/quadric reorganisation (36.3).
+                    # The hyperbolic/quadric identities (36.6)-(36.8)
+                    # on the divisor rows (forward direction).
                     s, t, r = A + B, A - B, C * K * (A - B)
                     assert C * K * (s * s - t * t) == P * s + K
                     assert r * r == C * K * (C * K * s * s - P * s - K)
@@ -5840,7 +5841,8 @@ def check_ai():
         erows = expanded_rows(denominator_rows(P))
         assert set(drows) == set(erows) and len(drows) == len(erows)
         c1_divisor = sum(row[2] == 1 for row in drows)
-        # Gaussian norm formula (36.7), written through rational norms.
+        # Gaussian slice count (36.10), written through rational norms
+        # (the Gaussian-divisor bijection is proved in Theorem 36.2).
         c1_gaussian = 0
         for K in range(1, 2 * P // 3 + 1):
             norm, modulus = P * P + 4 * K * K, 4 * K
@@ -5850,9 +5852,9 @@ def check_ai():
         if P % 4 == 1:
             assert c1_gaussian == 0
 
-    # The k=1 trace/divisor formula (36.12), without factoring the moving
+    # The k=1 divisor formula (36.12), without factoring the moving
     # values Pa+1: f=4ac-P is generated directly in its proved range.
-    def k1_character_count(P):
+    def k1_divisor_count(P):
         half = 0
         for A in range(1, P // 2 + 1):
             for C in range(P // (4 * A) + 1, P // (2 * A) + 1):
@@ -5860,10 +5862,136 @@ def check_ai():
                 half += (P * A + 1) % f == 0
         return 2 * half
 
-    assert tuple(k1_character_count(P) for P in ground) == expected_k1
+    assert tuple(k1_divisor_count(P) for P in ground) == expected_k1
     k1_failures = [P for P in primerange(3, 10_000)
-                   if P % 24 == 1 and k1_character_count(P) == 0]
+                   if P % 24 == 1 and k1_divisor_count(P) == 0]
     assert k1_failures == [2521]
+
+    # --- Genuine Dirichlet-character evaluation of (36.3), and the
+    # independent (s,r)-point enumeration of (36.6). ---
+    from cmath import exp as cexp, pi as cpi
+
+    def phi_of(m):
+        out = 1
+        for pf, e in fac(m):
+            out *= pf ** (e - 1) * (pf - 1)
+        return out
+
+    @lru_cache(None)
+    def unit_characters(m):
+        """All phi(m) Dirichlet characters mod m as dicts on units."""
+        comps = []
+        for pf, e in fac(m):
+            pe = pf ** e
+            if pf == 2:
+                gens = [] if e == 1 else ([(3, 2)] if e == 2 else
+                                          [(pe - 1, 2), (5, 2 ** (e - 2))])
+            else:
+                gens = [(primitive_root(pe), pe - pe // pf)]
+            # brute-force discrete logs on this cyclic/2-generator part
+            logs = {}
+            if not gens:
+                logs[1 % pe] = ()
+            elif len(gens) == 1:
+                g, n = gens[0]
+                x = 1
+                for t in range(n):
+                    logs[x] = (t,)
+                    x = x * g % pe
+            else:
+                (g1, n1), (g2, n2) = gens
+                x1 = 1
+                for t1 in range(n1):
+                    x2 = x1
+                    for t2 in range(n2):
+                        logs[x2] = (t1, t2)
+                        x2 = x2 * g2 % pe
+                    x1 = x1 * g1 % pe
+            comps.append((pe, gens, logs))
+        # characters = products of one character per component
+        def build(idx, chi):
+            if idx == len(comps):
+                out = {0: 0j}
+                for u in range(1, m):
+                    if gcd(u, m) == 1:
+                        val = 1 + 0j
+                        for (pe, gens, logs), phase in zip(comps, chi):
+                            ts = logs[u % pe]
+                            for t, (j, n) in zip(ts, phase):
+                                val *= cexp(2j * cpi * j * t / n)
+                        out[u] = val
+                    else:
+                        out[u] = 0j
+                yield out
+                return
+            pe, gens, logs = comps[idx]
+            orders = [n for _, n in gens]
+            def phases(os):
+                if not os:
+                    yield ()
+                    return
+                for j in range(os[0]):
+                    for rest in phases(os[1:]):
+                        yield ((j, os[0]),) + rest
+            for ph in phases(orders):
+                yield from build(idx + 1, chi + [ph])
+        return tuple(build(0, []))
+
+    def character_mass(P):
+        """Formula (36.3) with all phi(h) characters, complex floats."""
+        total = 0j
+        for K in range(1, 2 * P // 3 + 1):
+            for C in range(1, (2 * P + K) // (4 * K) + 1):
+                if gcd(P, C * K) != 1:
+                    continue
+                h0, norm = 4 * C * K, P * P + 4 * C * K * K
+                ds = ordinary_divisors(norm)
+                for chi in unit_characters(h0):
+                    inner = sum(chi[D % h0] for D in ds)
+                    total += chi[(-P) % h0].conjugate() * inner / phi_of(h0)
+        return total
+
+    def quadric_points(P):
+        """Literal (s,r)-point count of (36.6), independent of divisors."""
+        count = 0
+        for K in range(1, 2 * P // 3 + 1):
+            for C in range(1, (2 * P + K) // (4 * K) + 1):
+                if gcd(P, C * K) != 1:
+                    continue
+                ck, norm = C * K, P * P + 4 * C * K * K
+                for s in range(2, (norm + 1 + 2 * P) // (4 * ck) + 1):
+                    val = ck * (ck * s * s - P * s - K)
+                    if val < 0:
+                        continue
+                    r = isqrt(val)
+                    if r * r != val or r % ck:
+                        continue
+                    if r >= ck * s or (s - r // ck) % 2:
+                        continue
+                    count += 1 if r == 0 else 2
+        return count
+
+    char_limit = 30
+    for P in primerange(3, char_limit):
+        drows = len(divisor_rows(P))
+        assert quadric_points(P) == drows
+        assert abs(character_mass(P) - drows) < 1e-6
+    # r=0 points exist only for P = 3 mod 4 (D1-repair check): T_I(3)=3 odd.
+    assert quadric_points(3) == 3
+
+    # Genuine character evaluation of the k=1 formula (36.13).
+    def k1_character_mass(P):
+        total = 0j
+        for A in range(1, P // 2 + 1):
+            m4 = 4 * A
+            fs = [f for f in ordinary_divisors(P * A + 1) if f <= P]
+            for chi in unit_characters(m4):
+                inner = sum(chi[f % m4] for f in fs)
+                total += chi[(-P) % m4].conjugate() * inner / phi_of(m4)
+        return 2 * total
+
+    for P in (73, 193):
+        assert abs(k1_character_mass(P) - k1_divisor_count(P)) < 1e-6
 
     # Hurwitz H(N): reduced (possibly imprimitive) positive forms of
     # discriminant -N, generic weight 1, and exceptional weights 1/2,1/3.
@@ -5920,6 +6048,8 @@ def check_ai():
           (tuple(got_c1), k1_failures))
     print("quadric exact range/Hurwitz projection failure =",
           (exact_limit, (norm, full_mass, target_mass)))
+    print("character-sum (36.3)/(36.13) and (s,r)-quadric checks: exact",
+          "below", char_limit, "and at k=1 for 73, 193")
 
 
 print("\n== (ai) Type-I character mass and class-number audit (§36) ==")

@@ -11723,9 +11723,15 @@ There is an entirely real square-indicator reading of (36.6).  When
                   \sum_{d\mid W}\lambda(d)                 \tag{36.9}
 \]
 
-for \(W>0\), with \(\lambda\) the Liouville function, turns (36.6) into
-twice a finite \((c,k,s)\)-sum of the right side of (36.9), restricted by
-\(\sqrt W<s\) and \(\sqrt W\equiv s\pmod2\).  This is exact, but it does
+for \(W>0\), with \(\lambda\) the Liouville function, turns (36.6), for
+\(p\equiv1\pmod4\) (where \(r=0\) is impossible, so \(W>0\) on every
+point), into twice a finite \((c,k,s)\)-sum of the right side of (36.9),
+restricted by
+\(\sqrt W<s\) and \(\sqrt W\equiv s\pmod2\).  For \(p\equiv3\pmod4\)
+the diagonal \(W=0\) points must be added separately:
+\(T_I(p)=2S_{W>0}+S_{W=0}\), as at \(p=3\), where
+\((a,b,c,k)=(1,1,1,2)\) has \(W=0\) and \(T_I(3)=3\) is odd.  This is
+exact, but it does
 not make positivity easier: the square indicator has merely been written as
 a cancelling divisor sum.  Geometrically (36.8) is a split hyperbola, not a
 Pell conic, in agreement with §§20.1 and 35.2.
@@ -11928,8 +11934,9 @@ First, Elsholtz--Tao Proposition 1.6 proves
 \(f_I(n)=f_{II}(n)=0\) for every odd perfect square \(n\).  Formula (36.3)
 is deliberately a **prime-only raw-tuple formula**; extending it to composite
 \(n\) while dropping the coprimality and canonical conditions would not
-count \(f_I(n)\).  Its canonical version (36.20) has the required square
-vanishing, so no positive mass has been smuggled across the square-class
+count \(f_I(n)\).  The Elsholtz--Tao canonical count, which agrees with
+\(T_I^*(p)\) on primes by (36.20), vanishes on odd squares; so no positive
+mass has been smuggled across the square-class
 escape of §17.3.  Second, their Theorem 1.1 gives
 
 \[
@@ -11996,9 +12003,15 @@ and a precise account of the missing projector, not a positivity theorem.
 
 **Verification companion.**  `verify.py (ai)` independently regenerates the
 20 stated raw and primitive counts by the cutoff-free denominator enumerator,
-including the unique nonprimitive dilations; compares the divisor and quadric
-rows for every odd prime below 50 (below 100 with `ES_FULL_SCAN=1`); checks
-the Gaussian and \(k=1\) slice formulas and the exact \(k=1\) failure set for
+including the unique nonprimitive dilations; checks the quadric identities
+(36.6)--(36.8) on every divisor row for every odd prime below 50 (below 100
+with `ES_FULL_SCAN=1`); enumerates the literal \((s,r)\) points of (36.6)
+independently of the divisor loop, and evaluates the full complex character
+projection (36.3) with all \(\varphi(h)\) characters, for every odd prime
+below 30, confirming both against the divisor count (including the odd
+\(T_I(3)=3\) with its \(W=0\) diagonal point); evaluates the \(k=1\)
+character formula (36.13) at \(p=73,193\); checks the rational-norm Gaussian
+slice count and the exact \(k=1\) failure set for
 all hard primes below \(10^4\); brute-counts reduced forms for (36.16); and
 replays both failed class-number candidates.  The divisor generation is
 streamed per \(x\); peak storage is the smallest-prime-factor array and one
@@ -12121,7 +12134,7 @@ Put
 \[
  d_0=\prod_{z<\ell\leq Y,\ \ell\equiv3(4)}\ell,
  \qquad
- U_0=\prod_{z<\ell\leq Y}
+ U_0=\prod_{z<\ell\leq Y,\ \ell\equiv3(4)}
        ((\mathbb Z/\ell\mathbb Z)\setminus S_\ell),
  \qquad T_0=1_{U_0,d_0}.                                   \tag{37.8}
 \]
@@ -12162,8 +12175,14 @@ and ledger
 \]
 
 Hence Lemma 37.1 transfers the lower bound
-\(|\operatorname {Av}^{\rm prime}_X(N)|\geq Ne^{-O(L^2)}\)
-to \(\log N\asymp L^4\).
+\(|\operatorname {Av}^{\rm prime}_X(N)|\geq Ne^{-O(z)-O(L^2)}
+=Ne^{-o(L^3)}\)
+to \(\log N\asymp L^4\): the quarantine itself costs the factor
+\(P_z^{-1}=e^{-O(z)}\), which dominates the \(L^2\) prime mass.  The
+sharper standalone rate \(Ne^{-O(L^2)}\) in this window is Theorem 24.4's
+(whose range \(\log N\geq C_3L^3\) contains it); the present construction
+is the residue-set-ledger accounting of that bound after quarantine, not an
+improvement.
 
 *Proof.*  If \(T_0=0\), the left side of (37.10) is zero.  If \(T_0=1\),
 odd Bonferroni gives (37.10).  For an integer \(h\geq1\),
@@ -12291,8 +12310,8 @@ The specific large-common-prime star proposed in the attack does **not**
 break (37.19).  Fix a prime \(p>z\), and let \(\mathcal Q\) be distinct
 primes \(q>z\) for which \(pq\leq X\) and \(pq\equiv3\pmod4\).  Take only
 the \(D=1\) atom at every modulus \(pq\).  These atoms all prescribe
-\(-4\pmod p\) and are mutually compatible.  For every \(m\), their exact
-unordered star contribution is
+\(-4\pmod p\) and are mutually compatible.  For every \(m\geq1\), their
+exact unordered star contribution is
 
 \[
  {1\over p}\sum_{\substack{S\subseteq\mathcal Q\\|S|=m}}
@@ -12324,8 +12343,11 @@ Here is the actual missing estimate.  For a high prime \(p\) and a residue
 
 For squarefree pairs whose moduli have gcd exactly \(p\), compatibility is
 exactly equality of their \(p\)-residues, and their intersection probability
-is \(p\) times the product of their marginals.  Thus their pair contribution
-is a sub-sum of the residue-square expression
+is at most \(p\) times the product of their marginals (exactly
+\(p-f(p)\) times for \(z<p\leq Y\), where the \(T_0\)-conditioning
+renormalizes the shared coordinate, and exactly \(p\) times for
+\(p>Y\)).  Thus their pair contribution
+is bounded by a sub-sum of the residue-square expression
 
 \[
                          p\sum_{a\bmod p}u_{p,a}^2.          \tag{37.24}
@@ -12622,7 +12644,8 @@ be fixed.  The exact counts are
 Thus value-fixing is common only after the asymmetric, second-input reading
 is included.  With all auxiliaries, 4,895 of the 4,927 represented values
 have at least one branch; 83,357 tuples (44.25%) can be the designated fixed
-input and 85,333 (45.30%) participate in some branch.  Only 187 value fibres
+input and 85,333 (45.30%) appear as a designated fixed input or as an
+output (auxiliary-only roles are not counted here).  Only 187 value fibres
 have every tuple as a designated fixed input.  With smaller auxiliaries the
 corresponding numbers are 4,813 values, 65,462 tuples (34.75%), 68,218
 participants (36.21%), and 34 all-input fibres.  In particular, neither
@@ -12751,7 +12774,8 @@ mixing \((c,k)\), and dense Type-II rational maps, remain unclassified.
 ### 38.4 The \(k=2\to k=1\) law hunt
 
 A universal conversion is already incompatible with the exact nine-prime
-anatomy: 409, for example, has four \(k=2\) tuples and no \(k=1\) tuple.
+anatomy: 409, for example, has four \(k=2\) tuples up to the
+\(A\leftrightarrow B\) swap (eight ordered) and no \(k=1\) tuple.
 The finite law hunt asks the weaker diagnostic question whether a small
 coordinate recipe works throughout the population where both kinds exist.
 
@@ -12807,7 +12831,10 @@ copied-coordinate maps realize the swap involution with an explicit
 auxiliary.  It does not supply the missing Markoff-like structure.  The
 graph preserves \(CK\), is nontransitive on every tested hard-prime fibre,
 and its only proved everywhere-available inverse is the old coordinate
-swap.  The original 2,137 edge is not invertible.  Type-I scaling merely
+swap.  The original 2,137 edge has no direct one-branch reverse (a
+multi-step directed reversal through other fibre members can exist, e.g.
+\((3,91,2,2)\to(1,285,2,2)\to(2,69,4,1)\) via auxiliaries
+\((1,194,4,1)\) and \((1,69,4,1)\)).  Type-I scaling merely
 changes a nonprimitive presentation, while the multiplier-conversion search
 is negative and a universal conversion is finitely impossible.
 
