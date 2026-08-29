@@ -17765,7 +17765,7 @@ form a complete bipartite grid inside \(\mathcal A^\dagger_X\).
 
 **Theorem 49.5 (collective-closure obstruction; proved).**  The repaired
 hierarchy (47.16) is false.  More strongly, for every fixed \(C,D>0\), every
-sufficiently large \(X\), and an even
+sufficiently large \(X\), and **every** even integer
 \(m\in[D\Lambda,D\Lambda+2]\), there is a compatible, pairwise-coprime,
 squarefree selected set \(S\subset\mathcal A^\dagger_X\), \(|S|<m\), for
 which
@@ -17781,7 +17781,7 @@ The factorial-moment input itself also fails: for the same fixed \(C,D\),
                          >(C\Lambda)^m                    \tag{49.15}
 \]
 
-for all sufficiently large \(X\).
+for all sufficiently large \(X\).  (wave-17 review repair)
 
 *Proof of the hierarchy assertion.*  Take the diagonal matching
 \(S=\{A_{ii}:1\leq i\leq t\}\).  Its merged class is \(-8\) modulo
@@ -17800,11 +17800,16 @@ ratio
    \over\Pr(\bigcap_{A\in S}A\mid T_0=1)}=1.              \tag{49.17}
 \]
 
-Choose \(t=m-1\).  The prime number theorem in the two classes modulo eight
-supplies the primes in (49.12), for example below \(B_DL^3\) with \(B_D\)
-a sufficiently large constant; here \(z=o(L^3)\), and all products are
+Choose \(t=m-1\).  The prime number theorem in either required class gives
+\[
+ \#\{z<r\leq B_DL^3:r\equiv a\pmod8\}
+   =\left({B_D\over12}+o(1)\right){L^3\over\log L}
+ \qquad(a=3,5),
+\]
+because the primes at most \(z=o(L^3)\) contribute \(o(\Lambda)\).
+Thus any fixed \(B_D>12D\) supplies the primes in (49.12).  All products are
 \(O_D(L^6)<X\).  The selected moduli are pairwise coprime and squarefree.
-The \(t(t-1)\) off-diagonal edges in (49.17) give
+(wave-17 review repair)  The \(t(t-1)\) off-diagonal edges in (49.17) give
 \(\mathcal L^\dagger(S)\geq t(t-1)>C\Lambda\).  Notice the new logical
 point: no selected edge contains a cross edge, but their **intersection**
 does.
@@ -17876,6 +17881,22 @@ possible escapes from Theorem 49.5 have been checked explicitly.
 * Equation (49.15), unlike failure of a sufficient one-step induction, is a
   direct lower bound for the reduced factorial moment.  It still says
   nothing adverse about the void itself, which is unchanged.
+
+The scope boundaries are also exact.  Restricting to bounded
+\(\omega(M)\) does not help these formulations, since every grid atom has
+\(\omega(M)=2\).  On the other hand, the theorem does not rule out a
+weighted or tilted count, a redesigned conditioning selector that makes the
+grid atoms impossible, or a different pointwise minorant; any such proposal
+would need a new pointwise comparison with the full void and the §37
+critical-window ledger.  Simply deleting grid atoms can enlarge the void and
+gives no pointwise minorant inequality without a separate collective-
+redundancy proof.  Theorem 49.1 exhausts single-cylinder implication, but it
+does not prove that no further
+collective void-preserving reduction exists; the diagonal intersection's
+containment in each cross edge does not itself make any cross edge redundant
+in the union.  Thus Theorem 49.5 refutes exactly (47.16) and the ordinary
+factorial moment for \(H^\dagger\), not every conceivable construction for
+Lemma 33.3.  (wave-17 review repair)
 
 **Computational 49.7 (exact finite scope).**  `verify.py (av)` implements
 (49.4) by divisor enumeration, never by a full-period array.  In the

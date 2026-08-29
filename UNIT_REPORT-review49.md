@@ -1,0 +1,11 @@
+# Unit report: wave 17 §49 hostile review
+- Verdict: CONFIRMED-AFTER-REPAIRS; both semiprime-grid refutations are mathematically sound.
+- Every `−8 mod q_i p_j` edge is a canonical, z-rough, §37-retained maximal `D=2` atom.
+- Theorem 49.1's divisor/projection criterion and pointwise void equivalence rederive exactly.
+- The diagonal matching satisfies every (47.16) quantifier; all cross-edge conditional ratios equal one.
+- The single CRT forcing class gives the claimed direct lower bound for the `T₀=1` factorial moment.
+- The antichain profile and first-moment statements are correct; no `Theta(Lambda)` lower mass is claimed.
+- Repairs make “every admissible m” and the `B_D>12D` PNT count explicit, and narrow the no-escape scope.
+- `(40.19)`, `(37.27)`, `(33.16)`, and `H_PF′` remain open; only this moment/hierarchy route is closed.
+- Block `(av)` matches the criterion, void, profile, and exact 2x2 ratio checks.
+- Full `uv run --with sympy,numpy,scipy python verify.py` passed; control-byte count is zero.
