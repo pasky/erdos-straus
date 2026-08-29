@@ -6829,7 +6829,6 @@ def check_am():
 print("\n== (am) residue-dispersion companions (§40) ==")
 check_am()
 
-
 # ---------------------------------------------------------------- (an)
 def check_an():
     """Unit R: independent atom, CRT-moment, and residue-profile stress."""
@@ -7074,6 +7073,234 @@ def check_an():
 
 print("\n== (an) Unit R independent construction stress (§41) ==")
 check_an()
+
+
+# ---------------------------------------------------------------- (ao)
+def check_ao():
+    """Section 42: sparse endpoint normal forms and exact collision census."""
+    import ast
+    import os
+    from collections import defaultdict
+
+    with open(__file__, encoding="utf-8") as source:
+        ast.parse(source.read(), filename=__file__)
+
+    def ao_is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    def ao_representatives(M):
+        representatives = {}
+        for D in divisors_of_square((M + 1) // 4):
+            residue = (-4 * D) % M
+            representatives[residue] = min(representatives.get(residue, D), D)
+        return representatives
+
+    def ao_radical_root(D):
+        return prod(r ** ((e + 1) // 2) for r, e in factorint(D).items())
+
+    def ao_radical_divisors(R):
+        values = [1]
+        for r in factorint(R):
+            values += [r * value for value in values]
+        return values
+
+    def ao_endpoint_system(X, z, Y):
+        """Build the reduced toy system, then derive endpoints in two ways."""
+        prime_residues = {
+            p: set(ao_representatives(p))
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        retained = {}
+        for M in range(3, X + 1, 4):
+            factors = factorint(M)
+            if ao_is_prime(M) or any(r <= z for r in factors):
+                continue
+            kappa = Fraction(1)
+            for r in factors:
+                if r <= Y and r in prime_residues:
+                    kappa *= Fraction(r, r - len(prime_residues[r]))
+            kept = set()
+            for residue, D in ao_representatives(M).items():
+                if any(
+                    r in prime_residues and residue % r in prime_residues[r]
+                    for r in factors
+                ):
+                    continue
+                kept.add(D)
+            retained[M] = (tuple(factors), kappa, kept)
+
+        # Route 1: start from each retained (M,D) and inspect its prime factors.
+        direct = []
+        for M, (factors, kappa, kept) in retained.items():
+            A = (M + 1) // 4
+            for D in kept:
+                R = ao_radical_root(D)
+                s = R * R // D
+                assert s in ao_radical_divisors(R) and A % R == 0
+                c = A // R
+                for p in factors:
+                    if p <= z or c >= p:
+                        continue
+                    q = M // p
+                    assert q > z and q < 4 * R
+                    residue = (-4 * D) % p
+                    assert residue == (-pow(4 * c * c * s, -1, p)) % p
+                    direct.append((p, M, D, R, s, c, q, residue,
+                                   kappa / M))
+
+        # Route 2: for each (p,R), use the unique q in (0,4R).
+        sparse = []
+        max_R = (X + 1) // 4
+        for p in primerange(z + 1, X + 1):
+            for R in range(1, max_R + 1):
+                if 4 * R <= z or gcd(p, 4 * R) != 1:
+                    continue
+                q = (-pow(p, -1, 4 * R)) % (4 * R)
+                assert 0 < q < 4 * R and (p * q + 1) % (4 * R) == 0
+                M = p * q
+                if q <= z or M > X or M not in retained:
+                    continue
+                c = (M + 1) // (4 * R)
+                if not (1 <= c < p):
+                    continue
+                factors, kappa, kept = retained[M]
+                for s in ao_radical_divisors(R):
+                    D = R * R // s
+                    if D not in kept:
+                        continue
+                    residue = (-4 * D) % p
+                    sparse.append((p, M, D, R, s, c, q, residue,
+                                   kappa / M))
+        assert sorted(direct) == sorted(sparse)
+
+        by_p = defaultdict(list)
+        for incidence in direct:
+            by_p[incidence[0]].append(incidence)
+
+        census = []
+        endpoint_energy = Fraction()
+        endpoint_diagonal = Fraction()
+        max_kappa = max((kappa for _, kappa, _ in retained.values()),
+                        default=Fraction(1))
+        for p in sorted(by_p):
+            rows = by_p[p]
+            K = len(rows)
+            assert len({row[2] for row in rows}) == K  # equal-D off-diagonal is absent
+            masses = defaultdict(Fraction)
+            buckets = defaultdict(list)
+            total_mass = Fraction()
+            for row in rows:
+                _, _, D, _, s, c, q, residue, weight = row
+                assert (c * c * s * 4 * residue + 1) % p == 0
+                masses[residue] += weight
+                buckets[residue].append(row)
+                total_mass += weight
+            assert total_mass <= max_kappa * K * Fraction(1, p * z)
+            collisions = sum(len(bucket) * (len(bucket) - 1) // 2
+                             for bucket in buckets.values())
+            for bucket in buckets.values():
+                for i in range(len(bucket)):
+                    for j in range(i):
+                        left, right = bucket[i], bucket[j]
+                        assert left[2] != right[2]
+                        assert (left[2] - right[2]) % p == 0
+                        assert (left[5] ** 2 * left[4]
+                                - right[5] ** 2 * right[4]) % p == 0
+            energy_p = p * sum((mass * mass for mass in masses.values()),
+                               Fraction())
+            diagonal_p = p * sum((row[-1] ** 2 for row in rows), Fraction())
+            assert diagonal_p <= energy_p
+            endpoint_energy += energy_p
+            endpoint_diagonal += diagonal_p
+            census.append((p, K, collisions, K * (K - 1) // 2))
+
+        return direct, by_p, tuple(census), endpoint_energy, endpoint_diagonal
+
+    cases = [(80, 2, 11), (120, 3, 13), (200, 5, 17)]
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        # Streaming residue buckets avoid an incidence Cartesian product.
+        cases += [(400, 7, 23), (800, 11, 31)]
+
+    expected = {
+        (80, 2, 11): (
+            25, ((3, 5, 10, 10), (5, 8, 9, 28), (7, 2, 0, 1),
+                 (11, 6, 0, 15), (13, 4, 0, 6)),
+            Fraction(54609, 67600), Fraction(49211, 135200)),
+        (120, 3, 13): (
+            59, ((5, 14, 23, 91), (7, 13, 22, 78), (11, 6, 0, 15),
+                 (17, 12, 4, 66), (19, 14, 0, 91)),
+            Fraction(2371407, 5216450), Fraction(17395877, 83463200)),
+        (200, 5, 17): (
+            51, ((7, 11, 15, 55), (11, 14, 8, 91), (13, 14, 4, 91),
+                 (17, 12, 4, 66)),
+            Fraction(150469, 781456), Fraction(71765, 781456)),
+    }
+    summaries = []
+    final_by_p = None
+    for X, z, Y in cases:
+        incidences, by_p, census, energy, diagonal = ao_endpoint_system(X, z, Y)
+        result = (len(incidences), census, energy, diagonal)
+        if (X, z, Y) in expected:
+            assert result == expected[(X, z, Y)]
+        summaries.append((X, z, *result))
+        if (X, z, Y) == (200, 5, 17):
+            final_by_p = by_p
+
+    # Exact endpoint Parseval check in Q(zeta_7), independently of block (am).
+    p = 7
+    vector = [Fraction() for _ in range(p)]
+    for row in final_by_p[p]:
+        vector[row[7]] += row[-1]
+
+    def ao_zeta_power(exponent):
+        exponent %= p
+        if exponent == p - 1:
+            return tuple(Fraction(-1) for _ in range(p - 1))
+        value = [Fraction() for _ in range(p - 1)]
+        value[exponent] = Fraction(1)
+        return tuple(value)
+
+    def ao_add(left, right):
+        return tuple(x + y for x, y in zip(left, right))
+
+    def ao_scale(scalar, value):
+        return tuple(scalar * x for x in value)
+
+    def ao_multiply(left, right):
+        value = tuple(Fraction() for _ in range(p - 1))
+        for i, x in enumerate(left):
+            for j, y in enumerate(right):
+                if x and y:
+                    value = ao_add(value, ao_scale(x * y,
+                                                   ao_zeta_power(i + j)))
+        return value
+
+    transforms = []
+    for h in range(p):
+        value = tuple(Fraction() for _ in range(p - 1))
+        for residue, mass in enumerate(vector):
+            value = ao_add(value, ao_scale(mass,
+                                           ao_zeta_power(h * residue)))
+        transforms.append(value)
+    parseval = tuple(Fraction() for _ in range(p - 1))
+    for h in range(p):
+        parseval = ao_add(parseval,
+                          ao_multiply(transforms[h], transforms[-h % p]))
+    target = [Fraction() for _ in range(p - 1)]
+    target[0] = p * sum((mass * mass for mass in vector), Fraction())
+    assert parseval == tuple(target)
+
+    printable = [
+        (X, z, K, census, str(energy), str(diagonal))
+        for X, z, K, census, energy, diagonal in summaries
+    ]
+    print("endpoint (X,z,incidences,(p,K,collisions,all-pairs),energy,diagonal) =",
+          printable)
+    print("unique-q, complement c^2*s collision, and Q(zeta_7) Parseval checks exact")
+
+
+print("\n== (ao) short-cofactor endpoint companions (§42) ==")
+check_ao()
 
 
 print("\nall checks passed")

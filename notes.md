@@ -14150,3 +14150,396 @@ an input, did not perform a new literature-priority search, and mostly
 converged to §39's method rather than supplying a wholly different proof.
 It therefore adds insurance and a blind derivability record, but **does not
 upgrade Theorem 39.7 beyond CLAIMED/PROVISIONAL**.
+## 42. The short-cofactor endpoint is sparse in the radical root, but its moving squarefree fibres remain open
+
+Keep the notation and the canonical/retention convention of §40.  The
+labels here are strict.  The two endpoint normal forms, the absence of an
+equal-shift off-diagonal, the fixed-$s$ estimate, and the bounded-polylogarithmic
+prime range are **proved**.  They do not prove (40.19).  The unresolved part
+is the simultaneous sum over the moving divisors
+$s\mid\operatorname {rad}(R)$ at super-polylogarithmic primes; consequently
+(37.27), (37.19), (33.16), and the refutation of $H_{\rm PF}'$ remain
+**OPEN**.
+
+### 42.1 Exact sparse and complement-divisor normal forms
+
+Fix a prime $p>z$.  Since $p\mid4Rc-1$, one has $(p,4R)=1$.  Define
+$q_p(R)$ to be the unique integer in $[1,4R)$ such that
+
+$$
+             p q_p(R)\equiv-1\pmod {4R}.                    \tag{42.1}
+$$
+
+Let $I_p(R,s)$ be the indicator that $s\mid\operatorname {rad}(R)$,
+$q=q_p(R)>z$, $pq\leq X$, $pq$ is composite and $z$-rough, and
+$D=R^2/s$ is the retained canonical representative at $pq$.  Conditions
+such as $pq\equiv3\pmod4$ are included in this indicator.  Put
+$c=(pq+1)/(4R)$.
+
+**Proposition 42.1 (endpoint sparsity and collision normal form; proved).**
+The endpoint incidences over $p$ are exactly the pairs $(R,s)$ with
+$I_p(R,s)=1$.  For each such pair,
+
+$$
+ q=q_p(R),\qquad z<q<4R,\qquad 1\leq c<p,
+ \qquad {z\over4}<R\leq {X+1\over4}.                       \tag{42.2}
+$$
+
+In particular, there is at most one cofactor $q$, hence at most one modulus,
+for each $(p,R,s)$; there can still be as many as
+$2^{\omega(R)}$ values of $s$ for one $(p,R)$.  If
+
+$$
+ K_p^{\rm end}=\sum_{R,s}I_p(R,s),
+$$
+
+then the exact count and mass are
+
+$$
+ K_p^{\rm end}=\sum_{z/4<R\leq(X+1)/4}
+                   \sum_{s\mid\operatorname {rad}(R)}I_p(R,s),
+ \qquad
+ t_p^{\rm end}={1\over p}\sum_{R,s}I_p(R,s)
+                  {\kappa(pq_p(R))\over q_p(R)}.            \tag{42.3}
+$$
+
+Equivalently, with $A=(pq+1)/4=Rc$, the complementary divisor
+
+$$
+                         e={A^2\over D}=c^2s               \tag{42.4}
+$$
+
+satisfies, modulo $p$,
+
+$$
+ D\equiv\overline {16c^2s},
+ \qquad -4D\equiv-\overline {4c^2s}.                       \tag{42.5}
+$$
+
+Thus two endpoint incidences over the same $p$ collide precisely when
+
+$$
+ D\equiv D'\pmod p
+ \quad\Longleftrightarrow\quad
+ c^2s\equiv c'^2s'\pmod p.                                 \tag{42.6}
+$$
+
+The endpoint energy consequently has the exact expansion
+
+$$
+ \mathcal V_X^{\rm end}
+ =\sum_{z<p\leq X}{1\over p}
+   \sum_{i,j\in\mathcal I_p}
+   {\kappa_i\kappa_j\over q_iq_j}
+   \mathbf1_{c_i^2s_i\equiv c_j^2s_j\ (p)},                \tag{42.7}
+$$
+
+where $\mathcal I_p$ is the incidence set in (42.3).  If $i\ne j$
+contributes to (42.7), then
+
+$$
+                  D_i\ne D_j,
+ \qquad p\mid D_i-D_j\ne0.                                 \tag{42.8}
+$$
+
+*Proof.*  Equation (42.1) has exactly one representative in $[1,4R)$.
+For an endpoint $pq=4Rc-1$ and $c<p$, so $q<4R$; roughness gives
+$q>z$, which gives the range for $R$.  Conversely (42.1) and the
+conditions in $I_p$ recover the positive integer $c=(pq+1)/(4R)<p$,
+hence the endpoint.  This proves (42.2)--(42.3).  Since
+$A\equiv\overline4\pmod p$, $D=A^2/(c^2s)$ gives (42.4)--(42.6).
+Expanding the residue square in (40.18) gives (42.7).
+
+Finally $D_i=D_j$ forces $R_i=R_0(D_i)=R_0(D_j)=R_j$ and then
+$s_i=R_i^2/D_i=s_j$.  The uniqueness in (42.1) forces $q_i=q_j$,
+hence the same modulus and the same retained atom.  Therefore distinct
+incidences cannot have equal integer shifts, and (42.6) gives (42.8).
+$\square$
+
+The diagonal $i=j$ in (42.7) is a subset of Lemma 40.2 and is
+$O(\Lambda)$.  The new point is that the generic possibility $D=E$ at
+different moduli noted after (40.12) disappears inside the endpoint at a
+fixed shared prime.  Every remaining collision is genuinely a nonzero
+divisibility coincidence.
+
+The per-root smallness does not aggregate by itself.  The weights used in
+the regular proof satisfy
+
+$$
+ \sum_{z/4<R\leq X/4}\ \sum_{s\mid\operatorname {rad}(R)}{L\over R}
+ =L\sum_{z/4<R\leq X/4}{2^{\omega(R)}\over R}
+ \asymp L^3.                                                \tag{42.9}
+$$
+
+Here removing $R\leq z/4$ subtracts only
+$O(L(\log z)^2)=o(L^3)$.  Thus $h_D<4L/z$ for each endpoint shift
+is true, but there are enough radical roots to retain cubic aggregate mass.
+
+### 42.2 A proved fixed-fibre endpoint estimate
+
+For a fixed squarefree integer $s$, let $u^{\rm end,(s)}_{p,a}$ contain
+only endpoint incidences whose parameter in (21.4) is this $s$.  This
+includes the $s=1$ slice, but not the moving slice
+$s=\operatorname {rad}(R)$.
+
+**Theorem 42.2 (every fixed squarefree fibre disperses; proved).**  Uniformly
+in squarefree $s$,
+
+$$
+ \sum_{z<p\leq X}p\sum_{a\bmod p}
+       (u^{\rm end,(s)}_{p,a})^2
+ \ll L^3+L^2\log L=o(\Lambda^2).                            \tag{42.10}
+$$
+
+Consequently, for any prescribed set $\mathcal S$ of $K$ squarefree
+integers, the endpoint subfamily with $s\in\mathcal S$ has energy
+
+$$
+                         O(K^2L^3).                         \tag{42.11}
+$$
+
+In particular it satisfies the target $O(\Lambda^2)$ whenever
+$K=O(L^{3/2}/\log L)$.
+
+*Proof.*  Positivity permits the canonical and retention restrictions to be
+dropped for an upper bound, and $\kappa\leq2$.  Put $Q_p=X/p$ and
+
+$$
+ B_{p,c}^{(s)}=
+ \sum_{\substack{z<q\leq Q_p,\ pq\equiv-1\ (4c)\\
+                  s\mid\operatorname {rad}((pq+1)/(4c))}}
+                  {1\over q},
+ \qquad1\leq c<p.                                         \tag{42.12}
+$$
+
+If $p\mid s$ this is empty.  Otherwise (42.5) shows that
+$c\mapsto-\overline{4c^2s}$ has fibres of size at most two on
+$1\leq c<p$.  Hence
+
+$$
+ p\sum_a(u^{\rm end,(s)}_{p,a})^2
+ \leq {8\over p}\sum_{c<p}(B_{p,c}^{(s)})^2.              \tag{42.13}
+$$
+
+For fixed $p,c$, the $q$'s in (42.12) lie in one progression of
+spacing $4c$.  Write $\ell_p=1+\log^+(Q_p/z)$.  Separate the
+first term of that progression; the harmonic mass of the remaining terms
+is $O(\ell_p/c)$.  The ordered off-diagonal is therefore at most the
+first reciprocal, which is at most $1/z$, times this tail twice, plus the
+square of the tail.  Dropping the $s$-restriction only enlarges these
+positive sums, so
+
+$$
+ (B_{p,c}^{(s)})^2
+ \leq\sum_{\substack{z<q\leq Q_p\\pq\equiv-1\ (4c)}}{1\over q^2}
+   +O\!\left({\ell_p\over cz}+{\ell_p^2\over c^2}\right). \tag{42.14}
+$$
+
+The sum of the first terms in (42.14), after multiplication by $1/p$ and
+summation over $p,c$, is $O(L^3)$.  Indeed set $M=pq$ and
+$A=(M+1)/4$.  The admissible $c$'s divide $A$, and
+
+$$
+ \sum_{p,c,q}{1\over pq^2}
+ \leq\sum_{\substack{M\leq X\\M\equiv3(4)}}{\tau(A)\over M^2}
+                    \sum_{p\mid M}p
+ \leq\sum_{\substack{M\leq X\\M\equiv3(4)}}{\tau(A)\over M}
+ \ll L^3.                                                   \tag{42.15}
+$$
+
+The middle inequality is the odd-composite estimate used in (40.12), and
+the last follows from $\tau(A)\leq\tau(A^2)\leq2F(M)+1$ and Theorem
+18.2.  For the error terms, $Q_p>z$ forces $p<X/z$, and Mertens'
+estimates give
+
+$$
+ \sum_{z<p<X/z}{1\over p}
+ \left({\ell_p\log(2p)\over z}+\ell_p^2\right)
+ \ll {L^2\over z}+L^2\log L.                              \tag{42.16}
+$$
+
+Equations (42.13)--(42.16) prove (42.10).  Finally
+$(\sum_{s\in\mathcal S}x_s)^2\leq K\sum_sx_s^2$ and another summation
+over the $K$ fibres give (42.11). $\square$
+
+This proof is deliberately positivity-based; it does not assume
+cancellation from a numerically declining energy.  It also identifies why
+the fixed $s=1$ and fixed-$s$ quadratic slices are not the endpoint wall.
+The moving choice $s\mid\operatorname {rad}(R)$ ranges over far more than
+the number of globally fixed fibres allowed by (42.11), and cross-fibre
+collisions in (42.6) receive no decay from the atom weight.
+
+### 42.3 A proved prime range and where the logarithmic loss remains
+
+**Proposition 42.3 (every fixed polylogarithmic prime range closes; proved).**
+For every fixed $B>3$,
+
+$$
+ \sum_{z<p\leq L^B}p\sum_a(u^{\rm end}_{p,a})^2
+                         =O_B(\Lambda^2).                  \tag{42.17}
+$$
+
+There are no endpoint incidences for $p>X/z$.
+
+*Proof.*  Let $T_p(z;\boldsymbol a)$ be the weighted incidence sum in
+Theorem 31.3.  The endpoint family is a retained subfamily of all distinct
+intrinsic classes, its conditioning factor is at most $2$, and the weight
+$W_{\boldsymbol a}$ in $T_p$ is at least one.  Therefore
+
+$$
+ t_p^{\rm end}\leq2T_p(z;\boldsymbol a)
+ \leq2A(b_p+u_p).                                          \tag{42.18}
+$$
+
+Uniformly for $p\leq L^B$,
+
+$$
+ pb_p={L^3\over\log z}=O(\Lambda),
+ \qquad
+ pu_p=\log(2p)\exp\!\left({C_d\log(2p)\over\log\log(3p)}\right)
+       =L^{o(1)}=o(\Lambda).                                \tag{42.19}
+$$
+
+Cauchy in the residue coordinate and Mertens' theorem now give
+
+$$
+ \sum_{z<p\leq L^B}p\sum_a(u^{\rm end}_{p,a})^2
+ \leq C_B\Lambda^2\sum_{z<p\leq L^B}{1\over p}
+ =O_B(\Lambda^2).                                          \tag{42.20}
+$$
+
+Finally $pq\leq X$ and $q>z$ imply $p<X/z$. $\square$
+
+Thus the loss in the available residue-blind estimate is now localized to
+
+$$
+                         L^B<p\leq X/z                     \tag{42.21}
+$$
+
+for every fixed $B$.  This is not a negligible harmonic range:
+
+$$
+                  \sum_{L^B<p\leq X/z}{1\over p}
+                    =\Theta(\log L).                       \tag{42.22}
+$$
+
+The unique-$q$ fact does not bound its cardinality.  For fixed $p$, as $R$
+varies, (42.1) supplies a new possible $q$ each time; equivalently, for
+fixed $c<p$, it supplies all
+
+$$
+ q\equiv-p^{-1}\pmod {4c},
+ \qquad z<q\leq X/p,
+ \qquad R={pq+1\over4c}.                                   \tag{42.23}
+$$
+
+Hence the endpoint has one cofactor per $(p,R)$, not one cofactor per $p$.
+
+### 42.4 Character audit and exact failure points
+
+Additive Parseval specializes to
+
+$$
+ \mathcal V_X^{\rm end}
+ =\sum_{z<p\leq X}\sum_{h\bmod p}
+ \left|{1\over p}
+ \sum_{i\in\mathcal I_p}{\kappa_i\over q_i}
+       e_p(-h\overline{4c_i^2s_i})\right|^2.                \tag{42.24}
+$$
+
+For one fixed $s$ with constant coefficients and
+$\alpha\not\equiv0\pmod p$, the suggested quadratic sum is genuine:
+inversion permutes $\mathbb F_p^*$ and
+
+$$
+ \left|\sum_{c=1}^{p-1}e_p(\alpha\bar c^{\,2})\right|
+ =\left|\sum_{y=1}^{p-1}e_p(\alpha y^2)\right|
+ \leq\sqrt p+1,                                            \tag{42.25}
+$$
+
+with the usual $O(\sqrt p\log p)$ incomplete bound by completion.  Theorem
+42.2 is stronger for the needed fixed-fibre energy because positivity and
+the two-to-one residue map avoid any cancellation hypothesis.
+
+**Failure log 42.4 (the coefficients are the unresolved family).**  In the
+actual sum, even before the canonical deletion, a fixed-$s$ coefficient is
+
+$$
+ \sum_{\substack{z<q\leq X/p,\ q\equiv-p^{-1}\ (4c)\\
+                  s\mid\operatorname {rad}((pq+1)/(4c))}}
+       {\kappa(pq)\over q},                                 \tag{42.26}
+$$
+
+and then all $s\mid\operatorname {rad}(R)$ are superposed.  A Gauss bound
+for the unweighted complete $c$-sum does not bound a sum with these moving
+nonnegative coefficients.  Replacing them by their absolute majorant before
+using (42.25) discards the cancellation and returns residue-blind Cauchy.
+Proving that (42.26) has sufficiently small correlation with the inverse
+quadratic phase is a hybrid rough-progression/subset-divisor estimate; no
+theorem cited in this notebook states it.
+
+The range is also not uniformly long enough for completion to win.  Near
+$p=X/z$, the cofactor interval $(z,X/p]$ has vanishing relative length,
+and its active $c$'s are divisors of $(pq+1)/4$, not an interval of length
+$\gg\sqrt p$.  At smaller fixed-polylogarithmic $p$ no cancellation is
+needed by Proposition 42.3.  Thus (42.25) is an exact model calculation, not
+a proof of (42.24).
+
+**Failure log 42.5 (nonzero divisibility alone does not count the pairs).**
+By (42.8), every off-diagonal collision has $p\mid D-D'\ne0$ and
+$D,D'\leq(X+1)^2/16$.  Summing over possible primes for a fixed pair gives
+
+$$
+ \sum_{\substack{p>z\\p\mid D-D'}}{1\over p}
+ \leq {2L\over z\log z}.                                   \tag{42.27}
+$$
+
+But after using $q,q'>z$, dropping the endpoint-incidence indicators would
+leave this bound summed over
+$\sum_{R\leq X}2^{\omega(R)}\asymp X\log X$ possible shifts.  That is
+catastrophic, not polylogarithmic.  Keeping the indicators means counting
+simultaneously (42.1) and (42.6), which is exactly the coupled endpoint
+problem.  Splitting at $p>X^{2/3}$ does not turn congruence into equality:
+active primes satisfy only $p\leq X/z$, while $|D-D'|$ can have size
+$\asymp X^2$.  Ordinary divisor counting therefore supplies no missing
+$1/\log L$ gain in the super-polylogarithmic range.
+
+### 42.5 Exact finite companion and verdict
+
+**Computational 42.6 (exact finite scope).**  `verify.py (ao)` independently
+rebuilds the §40 toy reduced systems, then obtains every endpoint incidence
+both from retained $(M,D)$ atoms and from the unique residue (42.1).  It
+checks (42.5)--(42.8), the exact per-prime collision count, the mass bound
+$t_p\leq\kappa_{\max}K_p/(pz)$, and endpoint Parseval in
+$\mathbb Q(\zeta_7)$.  The default exact census is
+
+$$
+\begin{array}{c|c|r|l|c|c}
+X&z&\sum_pK_p&(p:K_p/C_p)&\mathcal V_X^{\rm end}&
+ \mathcal V_{X,\rm diag}^{\rm end}\\ \hline
+80&2&25&3:5/10,\ 5:8/9,\ 7:2/0,\ 11:6/0,\ 13:4/0
+ &54609/67600&49211/135200\\
+120&3&59&5:14/23,\ 7:13/22,\ 11:6/0,\ 17:12/4,\ 19:14/0
+ &2371407/5216450&17395877/83463200\\
+200&5&51&7:11/15,\ 11:14/8,\ 13:14/4,\ 17:12/4
+ &150469/781456&71765/781456
+\end{array}                                                  \tag{42.28}
+$$
+
+Here $C_p$ counts unordered off-diagonal same-residue pairs; the block also
+prints the trivial comparator $\binom{K_p}{2}$.  `ES_FULL_SCAN=1` extends
+the same streaming, residue-bucket computation to $X=400,800$ without
+forming a Cartesian incidence array.  These finite collision counts verify
+the identities only; they are not evidence for an asymptotic estimate.
+
+**Assessment 42.7 (wave-14 verdict).**  The endpoint is now exact at the
+$(p,R,s)$ and complementary-divisor levels.  Its literal diagonal and every
+equal-integer-shift off-diagonal are removed; every fixed squarefree fibre,
+including $s=1$, is $o(\Lambda^2)$, and every fixed polylogarithmic prime
+range satisfies the target.  The remaining moving-$s$ collisions at
+$L^B<p\leq X/z$ are not bounded by unique-cofactor counting, nonzero
+divisibility, or an unweighted quadratic Gauss sum.  Therefore (40.19) and,
+by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
+(40.19) would still leave the multi-prime and prime-power hierarchy (40.28),
+the factorial moment (37.19), (33.16), and the refutation of
+$H_{\rm PF}'$ **OPEN**.  No earlier status line is superseded.
