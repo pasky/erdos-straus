@@ -81,6 +81,57 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 23 (2026-08-29, wave 19 — see notes.md §53 + §51.9–§51.10 + blind51.md; all hostile-reviewed/adjudicated → repaired)
+
+* **§53: almost-all \(H_{\rm SPF}\) — proved, EFFECTIVE — and the
+  genus-permission asymmetry derived.**  Theorem 53.1 (fixed box \(T\),
+  effective): per reduced hard class \(C\) mod \(Q_T\), the stacked
+  no-good-slice-prime sieve exponent is \(1+m_\#(C)\), \(m_\#\) the exact
+  root-union density (the naive mass \(\sum2/\varphi(4ck)\) is WRONG:
+  equal radicands \(c_1k_1^2=c_2k_2^2\) — e.g. (5,2) vs (20,1) — are
+  permanent root-class duplicates; Lemma 53.1a gives the sharp
+  \(4T^2\) disjointness threshold).  Single-slice case = Theorem 52.1.
+  **Theorem 53.3 (headline, max-severity reviewed):** for every fixed
+  \(A<1\), \(\#\{\)hard \(p\leq X\): no active slice \(ck\leq(\log X)^A\)
+  has a good prime factor\(\}\ll_A(X/\log X)\exp\{-c_A(\log\log
+  X)^{3/2}/\sqrt{\log\log\log X}\}\) — EFFECTIVE (uniform-in-dimension
+  beta-sieve fundamental lemma + Landau–Page-repaired Siegel–Walfisz;
+  no BV).  Corollary 53.4: the \(H_{\rm SPF}(A)\) event fails on at most
+  that many hard \(p\) — the pointwise frontier now holds almost-all in
+  BOTH frames.  The exponent is \((\log\log)^{3/2}\), not \((\log\log)^3\):
+  the genus-permission layer (escape classes of Theorem 50.5, smallest
+  active core \(q_0\) with mass \(\gg(\log(T/q_0))^2/q_0\) vs
+  \(\Pr(q_0>y)=2^{-\pi(y)}\)) costs exactly a square root vs the
+  permission-free Type-II stack (§51) — an honest structural asymmetry,
+  not a technical loss.  Review repairs: corollary cutoff direction, the
+  Page no-exception branch, exact growing-dimension sieve error, overlap
+  threshold, Dahan cross-reference.  Verify (az): overlap geometry for
+  all 111 slice labels \(ck\leq30\), \(Q_{30}=9{,}316{,}358{,}251{,}200\),
+  256-class \(m_\#\) census + explicit escape class, mass regressions,
+  \(ck_{\rm pr}\) consistency.
+* **§51.9–§51.10 + blind51.md: priority search, exact citations, and the
+  blind-construction adjudication of the effectivity headline.**
+  Priority (§51.9, honest register): PW's printed §4 chain is
+  Siegel-sensitive exactly at its BV lower bound — no effectivity claim
+  in the literature found for Vaughan-strength E-S bounds;
+  **Lenstra–Pomerance JEMS 2019 Lemma 11.2** verified as the precise
+  citable effective excluded-conductor BV form (repairs the review's
+  citation caveat); **Dahan arXiv:2608.24035 (2026)** found and archived:
+  his Theorem 4.17 reaches the SAME \((\log\log N)^3\) exponent shape at
+  polylog depth for a DIFFERENT statistic (two-parameter \(u,a\) search
+  depth, no genus gate, explicitly ineffective) — now cited prominently
+  at the cubic-variant statement *(wave-19 priority repair)*: the shape
+  antecedent is his; the minimal-congruence-modulus statistic and the
+  effective constants are ours.  Vaughan 1970 still inaccessible (new
+  routes tried, logged).  Blind adjudication (§51.10, protocol as
+  §41/§43.11; blind clone at the pre-wave-18 commit): CONVERGED-WITH-
+  DIVERGENCES — tails, windows, repair architecture and PW comparison
+  all reproduced; the one material divergence was a BLIND-side overclaim
+  (it asserted effectivity of Theorem 34.8's ancillary all-triples
+  \(o(1)\), which the deletion repair does not give; §51's narrower
+  perimeter is correct).  Labels unchanged: independent-construction
+  datum, not a status upgrade.
+
 ## Outcome 22 (2026-08-29, wave 18 — see notes.md §51–§52 + paper v5; all hostile-reviewed → repaired)
 
 * **§51: the record and the pointwise frontier are now one object — the
