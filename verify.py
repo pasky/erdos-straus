@@ -5688,7 +5688,7 @@ check_ah()
 
 # ---------------------------------------------------------------- (aj)
 def check_aj():
-    """Unit Y: residue-set transfer and composite factorial moments (§36)."""
+    """Unit Y: residue-set transfer and composite factorial moments (§37)."""
     from math import comb, factorial
 
     def is_prime(n):
@@ -5806,7 +5806,7 @@ def check_aj():
         actual = sum(m % 21 in allowed for m in range(1, H + 1))
         assert abs(Fraction(actual) - Fraction(H * len(allowed), 21)) <= len(allowed)
 
-    # Replay the pointwise odd-Bonferroni identity used in (36.13).
+    # Replay the pointwise odd-Bonferroni identity used in (37.13).
     for r in (1, 3, 5, 7):
         for h in range(1, 25):
             assert sum((-1) ** j * comb(h, j) for j in range(r + 1)) == -comb(h - 1, r)
@@ -5816,7 +5816,7 @@ def check_aj():
           "; odd Bonferroni identity exact")
 
 
-print("\n== (aj) Unit Y two-level hypergraph minorant (§36) ==")
+print("\n== (aj) Unit Y two-level hypergraph minorant (§37) ==")
 check_aj()
 
 print("\nall checks passed")

@@ -11584,10 +11584,7 @@ tuples; reconstructs the 535 maximum least-offset census; and checks all
 campaign-host calibration only, with no correctness assertion tied to a
 machine-dependent time limit.
 
-## 36. Two-level critical-window sieve: the prime half transfers, and the composite half is a residue-resolved moment wall
-
-**Numbering note.**  The next free number in this snapshot was §36, so this
-section and its equations use 36 rather than the merge-time §37 placeholder.
+## 37. Two-level critical-window sieve: the prime half transfers, and the composite half is a residue-resolved moment wall
 
 **Headline (proved statements and open boundary, with quantifiers).**  A
 corrected residue-set version of Lemma 33.3 is proved below: for every large
@@ -11607,14 +11604,14 @@ incidence at a prime and, even after granting their best \(L^3/(p\log z)\)
 shape, the direct second-moment summation loses a factor \(\asymp\log L\).
 Thus (33.16) and \(H_{\rm PF}'\) remain **OPEN**.
 
-### 36.1 The corrected residue-set transfer ledger
+### 37.1 The corrected residue-set transfer ledger
 
 After (31.23), write the quarantined integers as \(n=P_zm\); multiplication
 by \(P_z^{-1}\) transforms every surviving atom to a congruence in \(m\).
 For a set \(U\subseteq\mathbb Z/d\mathbb Z\), write
 \(1_{U,d}(m)=\mathbf1_{m\bmod d\in U}\) and \(\rho(U)=|U|\).
 
-**Lemma 36.1 (residue-set finite transfer; proved).**  Fix any specified
+**Lemma 37.1 (residue-set finite transfer; proved).**  Fix any specified
 family \(\mathcal F_X\) of surviving atoms, and let \(I_X\) be a finite
 index set.  For each \(\alpha\in I_X\), let
 \(U_\alpha\subseteq\mathbb Z/d_\alpha\mathbb Z\), where \(d_\alpha\) is
@@ -11623,7 +11620,7 @@ a divisor of the surviving CRT period (hence is coprime to \(P_z\)), and let
 
 \[
  B_X(m)=\sum_{\alpha\in I_X}c_\alpha1_{U_\alpha,d_\alpha}(m)
- \leq\mathbf1_{\{\text{no atom of }\mathcal F_X\text{ at }m\}} \tag{36.1}
+ \leq\mathbf1_{\{\text{no atom of }\mathcal F_X\text{ at }m\}} \tag{37.1}
 \]
 
 for every integer \(m\), and, in the exact CRT space,
@@ -11633,19 +11630,19 @@ for every integer \(m\), and, in the exact CRT space,
  \log\max_\alpha d_\alpha=o(L^4),\qquad
  \log\mathcal R_X=o(L^4),
  \quad
- \mathcal R_X:=\sum_\alpha|c_\alpha|\rho(U_\alpha).         \tag{36.2}
+ \mathcal R_X:=\sum_\alpha|c_\alpha|\rho(U_\alpha).         \tag{37.2}
 \]
 
 Then, uniformly for \(c_-L^4\leq\log N\leq c_+L^4\), where
 \(0<c_-<c_+\) are fixed,
 
 \[
- |\operatorname {Av}(\mathcal F_X;N)|\geq N e^{-o(L^3)}.    \tag{36.3}
+ |\operatorname {Av}(\mathcal F_X;N)|\geq N e^{-o(L^3)}.    \tag{37.3}
 \]
 
 In particular this is the claimed bound for \(\operatorname {Av}_X\) when
 \(\mathcal F_X\) is the complete surviving family.  The modulus condition
-in (36.2) records the intended critical-window
+in (37.2) records the intended critical-window
 locality; the counting proof itself only needs the weighted ledger
 \(\mathcal R_X\), not an unweighted number of terms.
 
@@ -11654,30 +11651,30 @@ classes modulo \(d_\alpha\) has
 
 \[
  \sum_{m\leq H}1_{U_\alpha,d_\alpha}(m)
-   =H{\rho(U_\alpha)\over d_\alpha}+O(\rho(U_\alpha)).     \tag{36.4}
+   =H{\rho(U_\alpha)\over d_\alpha}+O(\rho(U_\alpha)).     \tag{37.4}
 \]
 
 Consequently
 
 \[
  \sum_{m\leq H}B_X(m)
-   =H\mathbb E_{\rm CRT}B_X+O(\mathcal R_X).                \tag{36.5}
+   =H\mathbb E_{\rm CRT}B_X+O(\mathcal R_X).                \tag{37.5}
 \]
 
 The first term has logarithm
 \(\log N-O(z)-o(L^3)=\log N-o(L^3)\), while
 \(\log\mathcal R_X=o(L^4)\); since \(\log N\geq c_-L^4\),
-the error is negligible.  Equation (36.1) and
-\(P_z=\exp\{O(z)\}=\exp\{o(L^3)\}\) prove (36.3). \(\square\)
+the error is negligible.  Equation (37.1) and
+\(P_z=\exp\{O(z)\}=\exp\{o(L^3)\}\) prove (37.3). \(\square\)
 
 For an atom monomial, compatibility gives one class and incompatibility gives
-the empty set, so \(\rho\leq1\) and Lemma 36.1 recovers Lemma 33.3.  The
+the empty set, so \(\rho\leq1\) and Lemma 37.1 recovers Lemma 33.3.  The
 correction is essential for a tensor factor: the rounding error for one term
 is \(O(\rho(U))\), not \(O(1)\).  Thus replacing
 \(\sum|c_S|\) by a residue-set coefficient sum without the factor \(\rho\)
 would be false.
 
-### 36.2 The two-level construction closes the prime side
+### 37.2 The two-level construction closes the prime side
 
 Let \(f(\ell)=F(\ell)\) and, in the transformed \(m\)-coordinate, let
 \(S_\ell=P_z^{-1}\mathscr R(\ell)\pmod\ell\).  This unit dilation preserves
@@ -11689,7 +11686,7 @@ cardinality and every compatibility relation.  Lemma 24.3, applied once at
  {f(\ell)\over\ell}=\Theta(L^2),
  \qquad
  \sum_{\substack{\ell\leq L^{O(1)}\\\ell\equiv3(4)}}
- {f(\ell)\over\ell}=O((\log L)^2).                         \tag{36.6}
+ {f(\ell)\over\ell}=O((\log L)^2).                         \tag{37.6}
 \]
 
 Here and below \(\ell\) is prime.  Thus quarantine removes only
@@ -11697,7 +11694,7 @@ Here and below \(\ell\) is prime.  Thus quarantine removes only
 Choose any \(h(L)\to\infty\) slowly enough that
 
 \[
- z<Y={L^4\over h(L)}<X.                                    \tag{36.7}
+ z<Y={L^4\over h(L)}<X.                                    \tag{37.7}
 \]
 
 Put
@@ -11707,7 +11704,7 @@ Put
  \qquad
  U_0=\prod_{z<\ell\leq Y}
        ((\mathbb Z/\ell\mathbb Z)\setminus S_\ell),
- \qquad T_0=1_{U_0,d_0}.                                   \tag{36.8}
+ \qquad T_0=1_{U_0,d_0}.                                   \tag{37.8}
 \]
 
 The prime number theorem gives \(\log d_0=O(Y)=o(L^4)\), and
@@ -11721,39 +11718,39 @@ Let \(H_P(m)\) count the tail prime atoms violated at \(m\), put
 
 \[
  Q_r(H_P)=\sum_{j=0}^r(-1)^j{H_P\choose j},
- \qquad B_P=T_0Q_r(H_P).                                   \tag{36.9}
+ \qquad B_P=T_0Q_r(H_P).                                   \tag{37.9}
 \]
 
-**Theorem 36.2 (prime-side two-level minorant; proved).**  For every integer
+**Theorem 37.2 (prime-side two-level minorant; proved).**  For every integer
 \(m\),
 
 \[
  B_P(m)\leq\mathbf1_{\{m\text{ avoids every surviving prime atom}\}}.
-                                                                    \tag{36.10}
+                                                                    \tag{37.10}
 \]
 
 It has tail atom degree \(r=O(L^2)\), every term has modulus logarithm at
 most \(\log d_0+rL=o(L^4)\), and its exact CRT mean is
 
 \[
- \mathbb E_{\rm CRT}B_P\geq e^{-O(L^2)},                   \tag{36.11}
+ \mathbb E_{\rm CRT}B_P\geq e^{-O(L^2)},                   \tag{37.11}
 \]
 
 and ledger
 
 \[
- \log\sum_\alpha |c_\alpha|\rho(U_\alpha)=o(L^4).         \tag{36.12}
+ \log\sum_\alpha |c_\alpha|\rho(U_\alpha)=o(L^4).         \tag{37.12}
 \]
 
-Hence Lemma 36.1 transfers the lower bound
+Hence Lemma 37.1 transfers the lower bound
 \(|\operatorname {Av}^{\rm prime}_X(N)|\geq Ne^{-O(L^2)}\)
 to \(\log N\asymp L^4\).
 
-*Proof.*  If \(T_0=0\), the left side of (36.10) is zero.  If \(T_0=1\),
-odd Bonferroni gives (36.10).  For an integer \(h\geq1\),
+*Proof.*  If \(T_0=0\), the left side of (37.10) is zero.  If \(T_0=1\),
+odd Bonferroni gives (37.10).  For an integer \(h\geq1\),
 
 \[
- \sum_{j=0}^r(-1)^j{h\choose j}=-{h-1\choose r};            \tag{36.13}
+ \sum_{j=0}^r(-1)^j{h\choose j}=-{h-1\choose r};            \tag{37.13}
 \]
 
 therefore the loss from the exact tail void is at most
@@ -11763,13 +11760,13 @@ and atoms on one coordinate are disjoint, so
 \[
  \mathbb E{H_P\choose r+1}
  \leq {\mu_P^{r+1}\over(r+1)!}
- \leq\left({e\mu_P\over r+1}\right)^{r+1}.                \tag{36.14}
+ \leq\left({e\mu_P\over r+1}\right)^{r+1}.                \tag{37.14}
 \]
 
 The tail Euler product is at least \(e^{-2\mu_P}\), by Lemma 21.2 and
-\(-2u\leq\log(1-u)\) for \(u\leq1/2\).  The last member of (36.14), with
+\(-2u\leq\log(1-u)\) for \(u\leq1/2\).  The last member of (37.14), with
 \(r\geq8\mu_P\), is smaller than a fixed fraction of that product.  This
-proves (36.11), including the independent low tensor.
+proves (37.11), including the independent low tensor.
 
 Expand only the tail factor in atom indicators.  If
 \(W_P=\sum_{Y<\ell\leq X}f(\ell)\), then
@@ -11779,17 +11776,17 @@ has at most \(\rho(U_0)\) classes, and hence
 \[
  \mathcal R_X\leq\rho(U_0)\sum_{j\leq r}{W_P^j\over j!},
  \quad
- \log\mathcal R_X\leq o(L^4)+O(rL)=o(L^4).                \tag{36.15}
+ \log\mathcal R_X\leq o(L^4)+O(rL)=o(L^4).                \tag{37.15}
 \]
 
 Its modulus divides \(d_0X^r\), proving the other budgets. \(\square\)
 
 Theorem 24.4 already proves the same prime-slice lower bound, in the larger
-range \(\log N\geq C_3L^3\), by expanding all prime atoms.  Theorem 36.2 is
+range \(\log N\geq C_3L^3\), by expanding all prime atoms.  Theorem 37.2 is
 bankable here because it verifies the proposed residue-set ledger exactly;
 it does not improve that theorem.
 
-### 36.3 What the composite continuation would have to prove
+### 37.3 What the composite continuation would have to prove
 
 Delete a composite atom \(A\) whenever, for some prime \(p\mid M_A\), its
 transformed projection modulo \(p\) lies in \(S_p\) (equivalently, its
@@ -11804,55 +11801,55 @@ residue at each low prime dividing its modulus, and hence
 \[
  \Pr(A\mid T_0=1)={1\over M_A}
  \prod_{\substack{p\mid M_A\\z<p\leq Y}}
-       {p\over p-f(p)}={1+o(1)\over M_A}                   \tag{36.16}
+       {p\over p-f(p)}={1+o(1)\over M_A}                   \tag{37.16}
 \]
 
 uniformly in \(A\).  Indeed the maximal-order divisor bound gives
 \(f(p)=p^{o(1)}\), while
 \(p>z=L^{3+o(1)}\) and
 \(\omega(M_A)\leq L/\log z\); thus the logarithm of the product in
-(36.16) is at most \(L^{-2+o(1)}\).  The exact tensor does not create a
+(37.16) is at most \(L^{-2+o(1)}\).  The exact tensor does not create a
 hidden large conditional density.
 
 Let \(H\) count the tail prime atoms together with
 \(\mathcal C^\circ\) in this conditioned space, and put
 
 \[
-                         \Lambda={L^3\over\log L}.           \tag{36.17}
+                         \Lambda={L^3\over\log L}.           \tag{37.17}
 \]
 
-Equations (31.14), (33.8), and (36.16) give
+Equations (31.14), (33.8), and (37.16) give
 \(\mathbb EH=O(\Lambda)\).  Also the unconditional full void after
 quarantine is \(e^{-O(\Lambda)}\) by Theorem 31.4; dividing by
 \(\Pr(T_0=1)\leq1\) shows
 
 \[
-                 \Pr(H=0\mid T_0=1)\geq e^{-O(\Lambda)}.   \tag{36.18}
+                 \Pr(H=0\mid T_0=1)\geq e^{-O(\Lambda)}.   \tag{37.18}
 \]
 
-**Proposition 36.3 (the exact factorial-moment sufficient input; proved).**
+**Proposition 37.3 (the exact factorial-moment sufficient input; proved).**
 Suppose there are fixed constants \(C,D>0\), with \(D\) sufficiently large
-in terms of \(C\) and the constant in (36.18), and an even integer
+in terms of \(C\) and the constant in (37.18), and an even integer
 \(m\in[D\Lambda,D\Lambda+2]\), such that
 
 \[
-                  \mathbb E(H)_m\leq(C\Lambda)^m.           \tag{36.19}
+                  \mathbb E(H)_m\leq(C\Lambda)^m.           \tag{37.19}
 \]
 
-Then the two-level sieve satisfies Lemma 36.1 with
+Then the two-level sieve satisfies Lemma 37.1 with
 \(r=m-1=o(L^3)\), and consequently proves (33.16).
 
 *Proof.*  Use \(B=T_0Q_{m-1}(H)\).  It is pointwise below the full void by
-odd Bonferroni.  Equations (36.13) and
+odd Bonferroni.  Equations (37.13) and
 \({h-1\choose m-1}\leq{h\choose m}\) give
 
 \[
  \mathbb E(Q_{m-1}(H)\mid T_0=1)
- \geq\Pr(H=0\mid T_0=1)-{(C\Lambda)^m\over m!}.             \tag{36.20}
+ \geq\Pr(H=0\mid T_0=1)-{(C\Lambda)^m\over m!}.             \tag{37.20}
 \]
 
 Stirling's bound makes the second term at most
-\((eC/D)^m\), which is a small fixed fraction of (36.18) when \(D\) is
+\((eC/D)^m\), which is a small fixed fraction of (37.18) when \(D\) is
 large.  There are \(K=\exp\{O(L)\}\) atoms, so after multiplication by
 \(T_0\), every term is a residue set with at most \(\rho(U_0)\) classes and
 
@@ -11860,19 +11857,19 @@ large.  There are \(K=\exp\{O(L)\}\) atoms, so after multiplication by
  \operatorname {degree}=m-1=O(\Lambda)=o(L^3),\quad
  \log(\operatorname {modulus})\leq Y+O(\Lambda L)=o(L^4),
  \quad
- \log(\operatorname {ledger})\leq Y+O(\Lambda L)=o(L^4). \tag{36.21}
+ \log(\operatorname {ledger})\leq Y+O(\Lambda L)=o(L^4). \tag{37.21}
 \]
 
-Lemma 36.1 applies. \(\square\)
+Lemma 37.1 applies. \(\square\)
 
 Thus only one high factorial moment, rather than a full alternating tail, is
-needed.  No estimate in §§24, 27, 31, or 33 proves (36.19).  This is the
+needed.  No estimate in §§24, 27, 31, or 33 proves (37.19).  This is the
 precise point at which the two-level construction stops.
 
-### 36.4 Star clusters, the residue-square loss, and cluster expansions
+### 37.4 Star clusters, the residue-square loss, and cluster expansions
 
 The specific large-common-prime star proposed in the attack does **not**
-break (36.19).  Fix a prime \(p>z\), and let \(\mathcal Q\) be distinct
+break (37.19).  Fix a prime \(p>z\), and let \(\mathcal Q\) be distinct
 primes \(q>z\) for which \(pq\leq X\) and \(pq\equiv3\pmod4\).  Take only
 the \(D=1\) atom at every modulus \(pq\).  These atoms all prescribe
 \(-4\pmod p\) and are mutually compatible.  For every \(m\), their exact
@@ -11883,15 +11880,15 @@ unordered star contribution is
        \prod_{q\in S}{1\over q}
  \leq {1\over p\,m!}
        \left(\sum_{q\in\mathcal Q}{1\over q}\right)^m
- \ll { (\log L+1)^m\over p\,m!}.                           \tag{36.22}
+ \ll { (\log L+1)^m\over p\,m!}.                           \tag{37.22}
 \]
 
 The equality uses
 \(\operatorname {lcm}(pq:q\in S)=p\prod_{q\in S}q\); the last estimate is
 Mertens for primes.  In particular it remains true for
 \(p\asymp X^{1/2}\), the suggested worst scale.  Since the tail prime mass
-alone is \(\gg L^2\), (36.22) is far below the Poisson-sized allowance in
-(36.19).  The collapse factor \(p^{m-1}\) is real, but the incident harmonic
+alone is \(\gg L^2\), (37.22) is far below the Poisson-sized allowance in
+(37.19).  The collapse factor \(p^{m-1}\) is real, but the incident harmonic
 mass paid before collapse is too small.  This calculation concerns the
 \(D=1\) star; it is not a bound for all intrinsic classes at the same
 moduli.
@@ -11903,7 +11900,7 @@ Here is the actual missing estimate.  For a high prime \(p\) and a residue
  u_{p,a}=\sum_{\substack{A\in\mathcal C^\circ\\p\mid M_A\\
                          r_A\equiv a\ (p)}}
           \Pr(A\mid T_0=1),
- \qquad t_p=\sum_a u_{p,a}.                                \tag{36.23}
+ \qquad t_p=\sum_a u_{p,a}.                                \tag{37.23}
 \]
 
 For squarefree pairs whose moduli have gcd exactly \(p\), compatibility is
@@ -11912,36 +11909,36 @@ is \(p\) times the product of their marginals.  Thus their pair contribution
 is a sub-sum of the residue-square expression
 
 \[
-                         p\sum_{a\bmod p}u_{p,a}^2.          \tag{36.24}
+                         p\sum_{a\bmod p}u_{p,a}^2.          \tag{37.24}
 \]
 
 Theorem 31.3 controls the \(\ell^1\) incidence \(t_p\), not its distribution
 among residues.  Even granting the stronger, diagonal-free idealization
 
 \[
-                         t_p\ll{\Lambda\over p},            \tag{36.25}
+                         t_p\ll{\Lambda\over p},            \tag{37.25}
 \]
 
-Cauchy's worst case in (36.24), summed over high primes, gives only
+Cauchy's worst case in (37.24), summed over high primes, gives only
 
 \[
  \sum_{z<p\leq X}p\sum_a u_{p,a}^2
  \leq\sum_{z<p\leq X}p t_p^2
  \ll\Lambda^2\sum_{z<p\leq X}{1\over p}
- \asymp\Lambda^2\log L.                                   \tag{36.26}
+ \asymp\Lambda^2\log L.                                   \tag{37.26}
 \]
 
-The actual softened charge \(a_p=A(b_p+u_p)\) is weaker than (36.25) in its
+The actual softened charge \(a_p=A(b_p+u_p)\) is weaker than (37.25) in its
 short-cofactor term.  Therefore the present charge estimates lose a growing
 factor already at the pair audit.  Removing it requires a residue-dispersion
 bound such as
 
 \[
-              \sum_{z<p\leq X}p\sum_a u_{p,a}^2=O(\Lambda^2),\tag{36.27}
+              \sum_{z<p\leq X}p\sum_a u_{p,a}^2=O(\Lambda^2),\tag{37.27}
 \]
 
 followed by higher-codegree analogues strong enough for \(m\asymp\Lambda\).
-Equation (36.26) is not a counterexample to (36.27): it records the exact
+Equation (37.26) is not a counterexample to (37.27): it records the exact
 factor lost by the available \(\ell^1\) information.  The small exact data
 below show no growing-factor phenomenon at their scales.
 
@@ -11956,11 +11953,11 @@ literal polynomial
 
 \[
  \sum_{S\text{ independent in }G}(-1)^{|S|}
-             \prod_{A\in S}1_A(n)                           \tag{36.28}
+             \prod_{A\in S}1_A(n)                           \tag{37.28}
 \]
 
 is not a pointwise minorant: if the violated-event induced graph is the
-five-vertex path, (36.28) equals
+five-vertex path, (37.28) equals
 \(1-5+6-1=1\), whereas the void indicator is zero.  Truncating the Mayer
 series for \(\log Z_G\), or exponentiating that truncation, likewise gives a
 number in the CRT model rather than a pointwise polynomial in the event
@@ -11968,15 +11965,15 @@ indicators.  A one-sided surrogate exploiting the small cylinder activities
 would be new; adversarial approximate-inclusion--exclusion results do not
 construct it for this arithmetic measure.
 
-### 36.5 Exact finite companion and verdict
+### 37.5 Exact finite companion and verdict
 
-**Computational 36.4 (exact finite scope).**  `verify.py (aj)` enumerates all
+**Computational 37.4 (exact finite scope).**  `verify.py (aj)` enumerates all
 composite \(z\)-rough intrinsic atoms, merges compatible congruences by exact
 CRT, and computes the elementary intersection sums
 
 \[
  e_j=\sum_{|S|=j}\Pr\left(\bigcap_{A\in S}A\right),
- \qquad 1\leq j\leq4.                                      \tag{36.29}
+ \qquad 1\leq j\leq4.                                      \tag{37.29}
 \]
 
 “Reduced” deletes every composite atom implied by a prime atom as above.  The
@@ -11992,27 +11989,27 @@ X&z&\text{family}&K&\mu&j=1&j=2&j=3&j=4\\ \hline
 120&3&\text{reduced}&34&.41444&1&.986&.824&.419\\
 200&5&\text{raw}&55&.42975&1&.611&.191&.124\\
 200&5&\text{reduced}&28&.21273&1&.499&0&0
-\end{array}                                                 \tag{36.30}
+\end{array}                                                 \tag{37.30}
 \]
 
 All entries are computed as rational numbers; the decimals are display only.
-The block also checks (36.4) for residue sets and the exact pointwise
-Bonferroni identity (36.13).  These finite ratios are consistent with an
+The block also checks (37.4) for residue sets and the exact pointwise
+Bonferroni identity (37.13).  These finite ratios are consistent with an
 absolute-base moment bound but do not test \(m\asymp L^3/\log L\) and are
 not asymptotic evidence.
 
-**Assessment 36.5 (wave verdict).**  The residue-set correction and the
+**Assessment 37.5 (wave verdict).**  The residue-set correction and the
 prime-side minorant are proved and reusable.  The proposed common-prime
 \(D=1\) clique is not the obstruction.  The complete two-level construction
 is neither proved nor killed: its odd-Bonferroni continuation reduces to
-(36.19), while the
+(37.19), while the
 currently proved §31 input stops at total prime incidence and loses the
-factor in (36.26).  Weighted block truncations by largest prime merely
-redistribute (36.23); without (36.27) they do not control intersections
+factor in (37.26).  Weighted block truncations by largest prime merely
+redistribute (37.23); without (37.27) they do not control intersections
 between blocks.  The Scott--Sokal cluster expansion controls a partition
 function, not the required pointwise surrogate.  No LP dual certificate or
 universal low-degree lower bound was found, so no impossibility claim for all
 Lemma-33.3 minorants is made.  The next mathematical target is the
-residue-resolved hierarchy beginning with (36.27), or a genuinely one-sided
+residue-resolved hierarchy beginning with (37.27), or a genuinely one-sided
 cluster polynomial that bypasses factorial moments.  Until one of those is
 proved, (33.16) and \(H_{\rm PF}'\) remain open.
