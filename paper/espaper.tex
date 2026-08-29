@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft, August 2026}
+\date{Draft v5, 29 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -75,14 +75,19 @@ Separately, a weighted rough-modulus estimate and the Lov\'asz local lemma refut
        =\exp\{-o((\log X)^3)\}.
 \]
 That refutation does not apply in the critical window $\log N\asymp(\log X)^4$.  The provisional $3/4$ argument instead uses a fixed $c$-free atom family, residue-resolved factorial moments, a uniform conditioned void supplied by Theorem~\ref{thm:pruned}, and an even-Bonferroni majorant with the honest coefficient ledger $\exp\{O((\log X)^4)\}$.  The literal $\exp\{O(J)\}$ ledger clause of the earlier critical-window hypothesis is not proved and is deliberately bypassed.  At the separate residue-dispersion frontier, a nested divisor cube refutes
-the literal raw factorial-moment and codegree targets, but not the underlying
-critical-window hypothesis or the conjecture.  % (wave-17 fidelity repair)
-The implication-reduced hierarchy was the repaired wall and is subsequently
-refuted in source \S49.  The endpoint has a unique
-short cofactor, and its closed prefix now reaches
+the literal raw factorial-moment and codegree targets, while a complete
+bipartite grid of maximal $D=2$ semiprime atoms refutes their
+implication-antichain replacements.  These failures concern the proposed
+moment formulations, not the critical-window hypothesis, the pair endpoint,
+or the conjecture; the complete-system moment axis is now dormant.  The
+endpoint has a unique short cofactor, and its closed prefix reaches
 $4c^2s\ll(\log X)^5\log\log\log X/(\log\log X)^2$, with an additional
-large-$c$ wedge.  The exact residual distinct-cell collision sum remains
-\textsc{open}.
+large-$c$ wedge.  Its exact residual distinct-cell collision sum remains
+\textsc{open}.  On the pointwise side we prove a one-prime-factor slice
+criterion and isolate a bespoke unproved hypothesis implying Type-I
+representations for all sufficiently large hard primes.  The accompanying
+GRH, Bateman--Horn, Chebotarev, and Duke audit is a map of the missing input,
+not an unconditional pointwise theorem.
 \end{abstract}
 
 \maketitle
@@ -129,13 +134,16 @@ attested-blind thinned-window strengthening, its fixed-gap range, and the
 post-adjudication two-regime comparison with Pomerance--Weingartner.
 Section~\ref{sec:slices} records the moving genus obstruction, the exact
 fixed-divisor progression law and its residue-one escape, while keeping
-pointwise Type-I existence open.  Finally,
+pointwise Type-I existence open.  Section~\ref{sec:conditional-slices}
+then proves the one-prime-factor criterion, states the bespoke unproved
+slice-factor hypothesis, and audits why the named standard hypotheses do
+not supply its pointwise quantifier.  Finally,
 Section~\ref{sec:dispersion-frontier} gives the endpoint sparsity,
 Kloosterman-fraction audit, widened prefix and large-$c$ wedge, and exact
-open collision remainder.  The composite frontier also records why the
-literal raw hierarchy is refuted; its implication-antichain repair is
-subsequently refuted in source \S49.  % (wave-17 fidelity repair)
-Scott--Sokal's partition-function correspondence
+open collision remainder.  The composite frontier records both successive
+refutations: the divisor cube kills the raw hierarchy, and the maximal
+semiprime grid kills its implication-antichain repair.  Scott--Sokal's
+partition-function correspondence
 \cite{ScottSokal} does not itself provide the required pointwise minorant.
 \end{enumerate}
 
@@ -923,7 +931,7 @@ literal independent-set polynomial in violated-event indicators fails
 pointwise: on a five-vertex path its alternating sum is $1-5+6-1=1$
 although the void indicator is zero.
 
-\subsection{Nested implication and the repaired hierarchy}
+\subsection{Nested implication and the two hierarchy refutations}
 \label{sec:nested-wall}
 The more basic failure is logical redundancy among composite atoms.  For a
 compatible nonempty set $S$, put $Q_S=\lcm_{A\in S}M_A$ and let
@@ -971,7 +979,7 @@ were internal sufficient mechanisms: Theorem~\ref{thm:nested-cube} does
 not refute $H_{\rm PF}'$, \eqref{eq:dispersion}, or the Erd\H{o}s--Straus
 conjecture.
 
-The repair is to pass to the implication antichain $\mathcal A^*$: delete
+The proposed repair was to pass to the implication antichain $\mathcal A^*$: delete
 an atom $A$ whenever another retained atom $B$ has
 $M_B\mid M_A$ and $r_A\equiv r_B\pmod {M_B}$.  Then $A\subseteq B$, so
 the union and its void are unchanged.  For a candidate $B$ put
@@ -983,7 +991,7 @@ the union and its void are unchanged.  For a candidate $B$ put
        \frac{p-F(p)}p.
  \end{aligned}
 \]
-The exact repaired wall (source (47.16)) asks for fixed $C,D>0$ such that,
+The exact proposed wall (source (47.16)) asked for fixed $C,D>0$ such that,
 for every compatible $S\subset\mathcal A^*$ with $1\leq|S|<m$ and even
 $m\in[D\Lambda,D\Lambda+2]$,
 \begin{equation}\tag{47.16}\label{eq:antichain-wall}
@@ -993,9 +1001,231 @@ $m\in[D\Lambda,D\Lambda+2]$,
 \end{equation}
 The coprime part is already $O(\Lambda)$; hence
 \eqref{eq:antichain-wall} would recover the factorial-moment reduction for
-the reduced count.  Source \S49 subsequently refutes both this hierarchy
-and the reduced-count moment target.  % (wave-17 fidelity repair)
-The distinct routes $H_{\rm PF}'$ and \eqref{eq:dispersion} remain open.
+the reduced count.  It was the proposed repair; the following exact
+structure and grid show that this repair also fails.
+
+\subsection{The implication antichain and the semiprime grid}
+\label{sec:antichain-grid}
+Let $\mathcal A_X^\circ$ be the finite retained family counted by $H$:
+tail-prime atoms and composite atoms after prime-implied deletion, with
+classes deduplicated.  For an intrinsic class $r\pmod M$, put
+\begin{equation}\tag{49.1}
+ \delta_M(r)=\min\{D:D\mid A_M^2,\ -4D\equiv r\pmod M\},
+ \qquad A_M=\frac{M+1}{4}.
+\end{equation}
+
+\begin{theorem}[exact implication criterion; source Theorem 49.1]
+\label{thm:implication-criterion}
+For two distinct retained atoms,
+\begin{equation}\tag{49.2}
+ E_{M,r}\subseteq E_{m,s}
+ \quad\Longleftrightarrow\quad
+ m\mid M\ \hbox{ and }\ r\equiv s\pmod m
+ \quad\Longleftrightarrow\quad
+ m\mid M\ \hbox{ and }\
+ \delta_M(r)\equiv\delta_m(s)\pmod m.
+\end{equation}
+If $M=tm$, the intrinsic conditions unpack exactly as
+\begin{equation}\tag{49.3}
+ t\equiv1\pmod4,\qquad
+ A_M=tA_m-\frac{t-1}{4},\qquad D=D'+jm\quad(j\in\mathbb Z),
+\end{equation}
+where $D\mid A_M^2$, $D'\mid A_m^2$, and both corresponding classes
+survive the deletions.  There is no further division-by-four condition.
+At one modulus, distinct retained classes are disjoint and cannot nest.
+\end{theorem}
+\begin{proof}
+A full cylinder $E_{M,r}$ lies in $E_{m,s}$ exactly when reduction modulo
+$m$ is defined and equals $s$, giving the first equivalence.  Since every
+participating modulus is odd, multiplication by $-4^{-1}$ gives the second.
+If $M=tm$, reducing modulo four and comparing $4A_M=M+1$ with
+$4A_m=m+1$ gives (49.3).  Equal-modulus nesting is excluded by
+class deduplication.
+\end{proof}
+Consequently the antichain, now denoted $\mathcal A_X^\dagger$, is exactly
+\begin{equation}\tag{49.4}
+ \mathcal A_X^\dagger=
+ \{(M,r)\in\mathcal A_X^\circ:
+   \nexists(m,s)\in\mathcal A_X^\circ,
+   \ m<M,\ m\mid M,\ s\equiv r\pmod m\}.
+\end{equation}
+It keeps the inclusion-largest events, equivalently the
+divisibility-minimal compatible moduli.
+\begin{corollary}[pointwise void identity; source Corollary 49.2]
+\label{cor:antichain-void}
+If $H^\dagger$ counts $\mathcal A_X^\dagger$, then, on every integer and
+also pointwise inside the $T_0=1$ fibre,
+\begin{equation}\tag{49.5}
+ H=0\quad\Longleftrightarrow\quad H^\dagger=0.
+\end{equation}
+\end{corollary}
+\begin{proof}
+A deleted cylinder lies in a retained cylinder of smaller modulus; finite
+descent terminates in $\mathcal A_X^\dagger$.  Thus the two unions agree.
+\end{proof}
+Writing $w_A=\Pr(A\mid T_0=1)$, $\mu=\sum_{\mathcal A_X^\circ}w_A$,
+and $\mu^\dagger=\sum_{\mathcal A_X^\dagger}w_A$, only
+\begin{equation}\tag{49.6}
+ \Theta(L^2)=\mu_P\leq\mu^\dagger\leq\mu=O(\Lambda)
+\end{equation}
+is proved.  No $\Theta(\Lambda)$ first moment and no constant-factor lower
+bound $\mu^\dagger\gg\mu$ is available.  The void identity and all upper
+charge, degree, modulus, and ledger estimates survive reduction.
+
+For a divisor $g$ and a reduced class $a\pmod g$, define
+\begin{equation}\tag{49.8}
+ W^\dagger_{g,a}=
+ \sum_{A\in\mathcal A_X^\dagger\atop g\mid M_A,
+        \ r_A\equiv a\ (g)}w_A,
+ \qquad W^\dagger_g=\sum_{a\ (g)}W^\dagger_{g,a}.
+\end{equation}
+\begin{theorem}[uniform residue profile is false; source Theorem 49.4]
+\label{thm:antichain-profile}
+There is no absolute $C$ for which
+\begin{equation}\tag{49.9}
+ W^\dagger_{g,a}\leq\frac C{\varphi(g)}W^\dagger_g
+\end{equation}
+holds uniformly in $X,g,a$.  In fact, there are $g\asymp X$ and reduced
+$a\pmod g$ for which the ratio between the two sides without $C$ is
+$g^{1-o(1)}$.
+\end{theorem}
+\begin{proof}
+Choose primes $q\equiv3\pmod8$ and $p\equiv5\pmod8$, both in
+$(3X^{1/2}/4,4X^{1/2}/5)$, and put $M=qp$.  Then $X/2<M<X$ and, for large
+$X$, both primes exceed $z$ and $Y$.  Since $M\equiv7\pmod8$, the intrinsic
+$D=2$ atom is
+\begin{equation}\tag{49.10}
+                         n\equiv-8\pmod M.
+\end{equation}
+Its projection modulo $q$ has Legendre sign $(-8/q)=1$, opposite to every
+intrinsic prime-modulus class; the other prime is $1\pmod4$.  Thus the atom
+survives prime deletion.  Its proper modulus divisors $1,q,p$ carry no
+retained atom in this class, so Theorem~\ref{thm:implication-criterion}
+puts it in $\mathcal A_X^\dagger$.  Take $g=M$, $a=-8$.  Since $2M>X$,
+every atom in $W_g^\dagger$ has modulus $M$ and weight $1/M$.  Their number
+is at most $F(M)\leq\tau(A_M^2)=M^{o(1)}$, while the displayed bin is
+nonempty.  Hence
+\begin{equation}\tag{49.11}
+ \frac{\varphi(g)W^\dagger_{g,a}}{W^\dagger_g}
+ \geq\frac{\varphi(M)}{F(M)}=M^{1-o(1)}.
+\end{equation}
+\end{proof}
+For fixed $q\equiv3\pmod8$, every surviving semiprime atom with
+$p\equiv5\pmod8$ still projects to the one class $-8\pmod q$.  Thus the
+$D=2$ slice remains residue-concentrated after maximal reduction and cannot
+support a literal transplant of the $1/\varphi(g)$ cancellation used in the
+provisional record proof.  This does not refute a profile averaged over $g$
+or restricted to a sufficiently small range.
+
+Choose distinct primes
+\begin{equation}\tag{49.12}
+ q_1,\ldots,q_t\equiv3\pmod8,
+ \qquad p_1,\ldots,p_t\equiv5\pmod8,
+\end{equation}
+all greater than $z$ and with every $q_ip_j<X$.  By the preceding proof,
+every edge
+\begin{equation}\tag{49.13}
+ A_{ij}:\qquad n\equiv-8\pmod {q_ip_j}
+\end{equation}
+is a retained maximal atom, giving a complete bipartite grid in
+$\mathcal A_X^\dagger$.  Let $\mathcal L^\dagger(S)$ denote the same
+conditional extension load as $\mathcal L(S)$, but within this antichain.
+\begin{theorem}[collective-closure obstruction; source Theorem 49.5]
+\label{thm:grid-obstruction}
+For every fixed $C,D>0$, every sufficiently large $X$, and \emph{every}
+even integer $m\in[D\Lambda,D\Lambda+2]$, there is a compatible selected
+set $S\subset\mathcal A_X^\dagger$, with pairwise-coprime squarefree
+moduli and $|S|<m$, such that
+\begin{equation}\tag{49.14}
+                         \mathcal L^\dagger(S)>C\Lambda.
+\end{equation}
+For the same fixed $C,D$ and every such $m$, the factorial-moment input also
+fails for all sufficiently large $X$:
+\begin{equation}\tag{49.15}
+ \mathbb E((H^\dagger)_m\mid T_0=1)>(C\Lambda)^m.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For the hierarchy assertion take the diagonal matching
+$S=\{A_{ii}:1\leq i\leq t\}$.  Its merged class is $-8$ modulo
+\begin{equation}\tag{49.16}
+                         Q_S=\prod_{i=1}^tq_ip_i.
+\end{equation}
+For $i\ne j$, $q_ip_j\mid Q_S$ and the merged class projects to $A_{ij}$.
+Thus the intersection of the diagonal events implies every cross edge, and
+its exact conditional extension ratio is
+\begin{equation}\tag{49.17}
+ \frac{\Pr(\bigcap_{A\in S}A\cap A_{ij}\mid T_0=1)}
+      {\Pr(\bigcap_{A\in S}A\mid T_0=1)}=1.
+\end{equation}
+Set $t=m-1$.  For either required class $a=3,5\pmod8$, and any fixed
+$B_D>12D$, the prime number theorem gives
+\[
+ \#\{z<r\leq B_DL^3:r\equiv a\pmod8\}
+ =\left(\frac{B_D}{12}+o(1)\right)\Lambda.
+\]
+This supplies the grid for every admissible $m$; its products are
+$O_D(L^6)<X$.  The diagonal moduli are pairwise coprime and squarefree, and
+the $t(t-1)$ forced cross edges prove (49.14).
+
+For the moment assertion instead put
+\begin{equation}\tag{49.18}
+ t=\left\lfloor\frac m{2\log(2z)}\right\rfloor.
+\end{equation}
+There are enough primes of each class in $(z,2z)$, since their number is
+asymptotic to $z/(4\log z)$ and exceeds $t$ by a factor tending to infinity.
+Put $R=\prod_iq_ip_i$ and let $C_R$ be $n\equiv-8\pmod R$.  At each
+conditioned $q_i$, this class is allowed, so
+\begin{equation}\tag{49.19}
+ \Pr(C_R\mid T_0=1)=\frac1R
+ \prod_{q_i\leq Y}\frac{q_i}{q_i-F(q_i)}\geq\frac1R.
+\end{equation}
+On $C_R$ all $t^2$ grid atoms occur.  Since $R\leq(2z)^{2t}$,
+$t^2\geq2m$ for large $X$, and $(u)_m\geq(u/2)^m$ for $u\geq2m$,
+\begin{equation}\tag{49.20}
+ \mathbb E((H^\dagger)_m\mid T_0=1)
+ \geq\frac{(t^2)_m}{R}
+ \geq\left(\frac{t^2}{2}\right)^m(2z)^{-2t}.
+\end{equation}
+After division by $(C\Lambda)^m$, the logarithm is at least
+\begin{equation}\tag{49.21}
+ m\log\left(\frac{t^2}{2C\Lambda}\right)-2t\log(2z).
+\end{equation}
+The second term is at most $m$, whereas
+$t^2/\Lambda\gg_D\Lambda/(\log z)^2\to\infty$, proving (49.15).
+\end{proof}
+The point is collective: no diagonal edge contains an off-diagonal edge,
+but their intersection implies all cross edges.  Proposition 47.3's
+prime-only rung survives.  Bounded $\omega(M)$ does not repair these
+formulations because every grid atom has $\omega(M)=2$.
+
+The scope is exact.  Theorems~\ref{thm:implication-criterion} and
+\ref{thm:grid-obstruction} do not rule out a weighted count, a redesigned
+conditioning selector, a different pointwise minorant, or a further
+collective void-preserving reduction.  Blindly deleting grid atoms can
+enlarge the void and supplies no pointwise minorant.  The endpoint pair
+estimate (40.19), the corresponding pair target (37.27), the existence of
+some other minorant proving (33.16), (33.16) itself, and $H_{\rm PF}'$ all
+remain \textsc{open}.  Nothing here proves or refutes the Erd\H{o}s--Straus
+conjecture.
+
+\medskip\noindent\textbf{Computational 49.7 (exact finite scope).}
+Exact divisor-enumeration diagnostics reduce $1042$ retained atoms to $970$
+at $(X,z,Y)=(1000,2,1000)$, retaining conditional first-moment share
+$0.939936\ldots$; the maximum normalized profile there is $220$ at $g=943$.
+The exact square $(q_1,q_2;p_1,p_2)=(3,11;5,13)$ verifies that selected
+moduli $15,143$ force the cross atoms at $39,55$ with extension ratio one.
+These finite fractions are computational diagnostics, not asymptotic
+evidence.
+
+\medskip\noindent\textbf{Assessment 49.8 (wave-17 verdict).}
+The uniform profile, (47.16), and the ordinary factorial-moment target for
+$H^\dagger$ are \textsc{refuted}; the cube killed nesting and the grid kills
+antichains.  The complete-system moment axis is therefore \textsc{dormant}:
+its original stakes have largely collapsed since the
+\textsc{claimed/provisional} unconditional record of
+Theorem~\ref{thm:three-quarter}, and any revival needs a genuinely new
+pointwise formulation.
 
 \section{Provisional record context}\label{sec:records}
 This section is deliberately segregated.  Both records are \textsc{claimed/provisional}; neither is used in the refutation of $\PF$.
@@ -1785,6 +2015,17 @@ Theorem~\ref{thm:pruned}, the source \S39.7 qualifications, and the new
 headline as \textsc{claimed/provisional}; none of these passes was external
 refereeing or priority certification.
 
+Wave 17 added maximum-severity hostile reviews of the implication-antichain
+analysis and the conditional slice frontier.  The first returned
+\textsc{confirmed-after-repairs}: it checked the exact inclusion direction,
+semiprime-atom retention, every quantifier in the grid, the extension ratio
+one, and the direct reduced-moment lower bound.  The second returned
+\textsc{sound-after-repairs}: it independently rederived the prime-factor
+criterion and checked the genus, raw/primitive, admissibility, standard-
+hypothesis, and streamed-census boundaries.  These are internal reviews and
+computational bug hunts, not external validation of either provisional
+record.
+
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
 \begin{equation}\tag{43.1}
@@ -2420,6 +2661,365 @@ pointwise progress.  Proving $ck_{\min}(p)<\infty$ for every hard prime
 would already prove the Type-I form of Erd\H{o}s--Straus and hence the
 conjecture; it remains open.
 
+\section{Conditional pointwise routes through the slice frame}
+\label{sec:conditional-slices}
+\medskip\noindent\textbf{Scope and verdict.}
+This section isolates a one-prime-factor event sufficient for a Type-I
+solution and states the corresponding conditional theorem.  Its hypothesis
+is deliberately labelled \textsc{bespoke and unproved}: none of
+Bateman--Horn, Linnik, GRH for Dirichlet, Hecke, or ray-class $L$-functions,
+Elliott--Halberstam, or Duke-type equidistribution has this pointwise
+factorization conclusion in its standard form.  The audit makes the
+quantifier failure exact.  Two proved walls sharpen the earlier slice
+analysis: prime values of the norm have the wrong grade, and any bounded
+collection of squarefree cores is simultaneously genus-forced on infinitely
+many hard primes.  The deliverable is a rigorous conditional reduction and
+a map of its missing input, not an unconditional theorem and not a claim
+that a standard conjecture secretly settles Erd\H{o}s--Straus.
+
+\subsection{The good prime-factor class and exact reduction}
+Fix a hard prime $p$, an admissible slice $(c,k)\in\mathcal B_p$, and write
+\begin{equation}\tag{50.1}
+ c=st^2,\quad s=\operatorname {sf}(c),\qquad
+ h=4ck,\qquad N=N_{c,k}=p^2+4ck^2.
+\end{equation}
+Inflate the primitive genus character $\chi_s$ to
+$(\mathbb Z/h\mathbb Z)^\times$; its conductor divides $4s\mid h$.  Put
+\begin{equation}\tag{50.2}
+ K_s(h)=\ker\chi_s,
+ \qquad \mathcal G_p(c,k)=\{-p\pmod h\}\cap K_s(h).
+\end{equation}
+Every prime $q\mid N$ lies in $K_s(h)$, while
+\begin{equation}\tag{50.3}
+ \mathcal G_p(c,k)=
+ \begin{cases}
+   \{-p\pmod h\},&\chi_s(p)=-1,\\
+   \varnothing,&\chi_s(p)=1,
+ \end{cases}
+\end{equation}
+because $\chi_s(-1)=-1$.  Thus the moving-genus theorem is exactly the
+empty-good-set case.  On an unforced slice there is still only one good ray
+grade, not half the factor grades; a split prime is the wrong kind of
+divisor unless it is also $-p\pmod h$.
+
+\begin{theorem}[one-prime-factor slice criterion; source Theorem 50.1]
+\label{thm:one-prime-slice}
+Let $p$ be an odd prime and $(c,k)\in\mathcal B_p$.  If a prime $q$
+satisfies
+\begin{equation}\tag{50.4}
+ q\mid p^2+4ck^2,
+ \qquad q\pmod {4ck}\in\mathcal G_p(c,k),
+\end{equation}
+then the $(c,k)$-slice is positive and gives a Type-I Erd\H{o}s--Straus
+representation.  Explicitly, with
+\begin{equation}\tag{50.5}
+ e=\frac{p^2+4ck^2}{q},\qquad
+ a=\frac{p+q}{4ck},\qquad b=\frac{p+e}{4ck},
+\end{equation}
+one has $a,b\in\mathbb Z_{>0}$ and
+\begin{equation}\tag{50.6}
+ p(a+b)=k(4abc-1),\qquad
+ \frac4p=\frac1{ack}+\frac1{bck}+\frac1{pabc}.
+\end{equation}
+Primality of $q$ does not imply $(a,b)=1$, and no primitivity is needed.
+For example, $q=11$ at $(p,c,k)=(241,7,3)$ gives $(a,b)=(3,66)$.
+\end{theorem}
+\begin{proof}
+Admissibility gives $(p,ck)=1$, hence $(N,h)=1$ and $(q,h)=1$.  The target
+grade is $q\equiv-p\pmod h$, while $N\equiv p^2\pmod h$; therefore
+$e=Nq^{-1}\equiv-p\pmod h$.  This proves the integrality and positivity
+in (50.5).  Substitution of $q=ha-p$, $e=hb-p$, and $qe=N$, followed by
+cancellation of $p^2$, gives $4ck^2=h^2ab-hp(a+b)$.  Division by
+$h=4ck$ gives the first identity in (50.6), and the unit-fraction identity
+follows over the common denominator $pabck$.  Reduction of the first
+identity modulo $p$ gives $4abc\equiv1\pmod p$, so exactly the denominator
+$pabc$ is divisible by $p$.  This is Type I.
+\end{proof}
+The raw/primitive boundary is intentional: the selected prime is a raw
+target divisor, and a nonprimitive row still proves the displayed identity.
+The canonical decomposition can recover a primitive Type-I tuple if wanted.
+
+\begin{hypothesis}[slice prime factor $H_{\rm SPF}(A)$; bespoke and unproved]
+\label{hyp:SPF}
+Fix $A>0$.  There is a constant $p_0=p_0(A)$ such that every prime
+$p>p_0$, $p\equiv1\pmod {24}$, admits positive integers $c,k$ and a prime
+$q$ with
+\begin{equation}\tag{50.7}
+ \boxed{\quad ck\leq(\log p)^A,\qquad
+ q\mid p^2+4ck^2,\qquad q\equiv-p\pmod {4ck}.\quad}
+\end{equation}
+\end{hypothesis}
+This is a quantitative sufficient hypothesis, not the logically weakest
+one-prime-factor statement: deleting the log-power bound is weaker.  It
+puts no bound on $q$, prescribes no slice, imposes no primitivity, and needs
+no extra genus condition.  It is stronger than slice positivity, since a
+product of wrong-grade prime factors can hit the target even when no one
+prime does.
+
+\begin{theorem}[conditional pointwise consequence; source Theorem 50.2]
+\label{thm:SPF}
+If $H_{\rm SPF}(A)$ holds for some $A$, then every sufficiently large hard
+prime has a Type-I Erd\H{o}s--Straus representation.
+\end{theorem}
+\begin{proof}
+For sufficiently large $p$, (50.7) gives $ck<p$, $3k\leq2p$, and
+$4ck\leq2p+k$.  Hence $(p,ck)=1$ and $(c,k)\in\mathcal B_p$.  The
+congruence in (50.7) makes $q$ the unique good class in (50.2), so
+Theorem~\ref{thm:one-prime-slice} applies.
+\end{proof}
+If $q$ is fixed first, (50.4) is exactly the pair of root progressions
+\begin{equation}\tag{50.8}
+ p\equiv-q\pmod {4ck},\qquad
+ p\equiv\pm2k\sqrt{-c}\pmod q,
+ \qquad p\equiv1\pmod {24}.
+\end{equation}
+The fixed-divisor law preassigns $q$ and obtains a fixed CRT class; (50.7)
+asks the actual factorization attached to each $p$ to supply some $q$ after
+$p$ is known.  The residue-one escape walls bounded collections of the
+former, not the latter.
+
+\subsection{Prime values, bounded cores, and least nonresidues}
+\begin{lemma}[prime norms are wrong-grade; source Lemma 50.3]
+\label{lem:prime-norm}
+For a hard prime $p$ and any admissible $(c,k)$, if $N_{c,k}$ is prime then
+the slice vanishes.  More generally, a good prime factor in (50.4) is
+$3\pmod4$, its complementary divisor is also $3\pmod4$, and hence
+$N_{c,k}$ must be composite.
+\end{lemma}
+\begin{proof}
+The target grade is $-p\equiv3\pmod4$, whereas
+$N_{c,k}\equiv1\pmod4$.  If $N$ is prime, both divisors $1,N$ have grade
+$1\pmod4$.  Under (50.4), both $q$ and $N/q$ have the target grade by
+Theorem~\ref{thm:one-prime-slice}.
+\end{proof}
+
+\medskip\noindent\textbf{Assessment 50.4 (Bateman--Horn).}
+Standard Bateman--Horn gives an asymptotic in the variable for a fixed
+finite list of irreducible integer polynomials.  It neither controls every
+external coefficient $p$ uniformly down to a $(\log p)^A$ interval nor
+prescribes a prime factor of a composite value.  Applied literally to
+$p^2+4ck^2$ as a prime-value polynomial, success triggers
+Lemma~\ref{lem:prime-norm}, not (50.7).  A uniform assertion that every $p$
+has a logarithmic-box value with a factor in the moving grade
+$-p\pmod {4ck}$ would imply Theorem~\ref{thm:SPF}, but merely restates
+$H_{\rm SPF}$; it is not standard Bateman--Horn.  The same quantifier defect
+applies to Hardy--Littlewood prime tuples.  Standard smooth-value
+conjectures control factor sizes, not the bounded exponent box of grades in
+$(\mathbb Z/h\mathbb Z)^\times$.
+
+\begin{theorem}[bounded-core genus escape; source Theorem 50.5]
+\label{thm:bounded-core}
+For every fixed $B$, infinitely many hard primes satisfy
+\begin{equation}\tag{50.9}
+ \chi_s(p)=1\quad\hbox{for every squarefree }s\leq B.
+\end{equation}
+For each such prime, every admissible slice whose squarefree $c$-core is at
+most $B$ vanishes, for all $k$.  Consequently no absolute bound for a least
+active core, and no proof using only boundedly many cores with arbitrary
+$k$, can hold.
+\end{theorem}
+\begin{proof}
+Let
+$R_B=24\prod_{\substack{\ell\leq B\\ \ell\text{ prime}}}\ell$.
+Dirichlet's theorem gives infinitely many primes $p\equiv1\pmod {R_B}$.
+For every odd prime $\ell\leq B$, quadratic reciprocity and
+$p\equiv1\pmod4$ give $(\ell/p)=(p/\ell)=1$; the factor $24$ gives
+$(2/p)=(-1/p)=1$.  Multiplicativity proves (50.9), and
+Theorem~\ref{thm:moving-genus} makes every asserted slice zero.
+\end{proof}
+
+\begin{theorem}[GRH gives an active slice only; source Theorem 50.6]
+\label{thm:GRH-active}
+Conditional on the unproved Generalized Riemann Hypothesis, every
+sufficiently large hard prime $p$ has a squarefree
+$s\ll(\log p)^2$ with $\chi_s(p)=-1$; hence $(c,k)=(s,1)$ is an admissible
+unforced slice in a logarithmic box.  This does \emph{not} assert that the
+slice is positive.
+\end{theorem}
+\begin{proof}
+The standard Ankeny consequence of GRH gives an integer
+$n\ll(\log p)^2$ with $(n/p)=-1$.  Its squarefree kernel $s$ has the same
+Legendre symbol and is no larger.  Since $p\equiv1\pmod8$,
+$\chi_s(p)=(-s/p)=(s/p)=-1$.  Admissibility is automatic for large $p$;
+the residual exponent-box condition in (44.2) remains untouched.
+\end{proof}
+Thus least-nonresidue technology supplies permission for a slice, not the
+divisor in it.  Linnik similarly finds a small prime in
+$q\equiv-p\pmod h$ but gives no reason for that prime to divide the fixed
+integer $N_{c,k}$.  Asking for both properties is a bespoke form of (50.7),
+not an existing Linnik hypothesis.
+
+\subsection{The GRH/Chebotarev compositum wall}
+With the notation (50.1), put
+\begin{equation}\tag{50.10}
+ K=\mathbb Q(\sqrt{-s}),\qquad
+ \alpha=p+2tk\sqrt{-s},\qquad
+ N_{K/\mathbb Q}(\alpha)=N_{c,k}.
+\end{equation}
+For a prime $q\nmid2ck$,
+\begin{equation}\tag{50.11}
+ q\mid N_{c,k}
+ \quad\Longleftrightarrow\quad
+ \text{some }\mathfrak q\mid q\text{ in }K\text{ divides }(\alpha)
+ \quad\Longleftrightarrow\quad
+ p\equiv\pm2k\sqrt{-c}\pmod q.
+\end{equation}
+In particular $q$ splits in $K$, but the converse is much weaker: (50.11)
+selects a prime-ideal divisor of the one specified principal ideal
+$(\alpha)$.  Ring-class Chebotarev controls primes represented by form
+classes, not the factorization of a fixed represented integer.  Combining
+(50.11) with the ray condition gives (50.8), a condition on $p$ modulo $q$
+when $q$ is fixed, not a Frobenius condition on $p$ in one fixed field as
+$q$ varies.  Effective Chebotarev under GRH does not turn the infinite
+disjunction over actual divisors of $(\alpha)$ into a pointwise
+factorization theorem.
+
+A quantitative check exposes the scale.  Restrict $ck\leq L$ and fixed
+candidate primes $q\leq Z$.  Before deduplication, (50.8) supplies at most
+two classes modulo $4ckq$, so
+\begin{equation}\tag{50.12}
+ \begin{split}
+ \mu_{\rm raw}(L,Z)
+ &\leq\frac12\sum_{ck\leq L}\frac1{ck}
+       \sum_{\substack{q\leq Z\\q\equiv3\ (4)\\q\text{ prime}}}\frac1q\\
+ &=\left(\frac18+o(1)\right)(\log L)^2\log\log Z.
+ \end{split}
+\end{equation}
+This is a class-mass envelope, not a coverage theorem.  Although there are
+$L\log L+O(L)$ slices in the box, all $k$ over one core share one genus bit.
+
+\medskip\noindent\textbf{Assessment 50.7 (the compositum wall).}
+A literal joint-Chebotarev implementation introduces cyclotomic conductors
+containing $\lcm(1,\ldots,4L)$ and candidate primes through $Z$; its naive
+compositum degree is exponential on the $L+Z$ scale.  The same
+GRH-effective bookkeeping as the earlier Chebotarev audit limits a direct
+compositum to $L+Z=O(\log N)$ when $p\leq N$ is counted.  At
+$L,Z\asymp\log N$, even an ideal independent-events model applied to
+(50.12) predicts only
+\begin{equation}\tag{50.13}
+ \exp\{-O((\log\log N)^2\log\log\log N)\}
+\end{equation}
+for the survivor proportion.  Allowing an average sieve to take
+$Z=N^\theta$ changes the model exponent only to $O((\log\log N)^3)$.
+Both leave $N^{1-o(1)}$ possible survivors and are much weaker in shape
+than the \textsc{claimed/provisional} bound
+$N\exp\{-c(\log N)^{3/4}\}$.  GRH supplies no independence theorem for the
+overlapping root classes, so (50.13) is an audit ceiling, not a conditional
+exceptional-set theorem.  There is no GRH exceptional-set improvement to
+record here.  Elliott--Halberstam and Kloosterman-refined levels of
+distribution change average ranges but retain an exceptional set and do not
+imply (50.7) in standard form.
+
+\subsection{The exact genus pairing and the Duke wall}
+For a product cutoff $L$, the exact active-box mass is
+\begin{equation}\tag{50.14}
+ T_L^-(p)=
+ \sum_{\substack{ck\leq L,\ (c,k)\in\mathcal B_p\\
+                   \chi_{\operatorname {sf}(c)}(p)=-1}}
+ \frac1{\varphi(4ck)}\sum_{\chi\ ({\rm mod}\ 4ck)}
+ \overline{\chi(-p)}
+ \prod_{\ell^e\parallel p^2+4ck^2}
+       (1+\chi(\ell)+\cdots+\chi(\ell)^e).
+\end{equation}
+Inflate $\chi_s$ to modulus $h$.  Every factor $\ell\mid N$ has
+$\chi_s(\ell)=1$, while an active slice has $\chi_s(-p)=1$.  Therefore
+\begin{equation}\tag{50.15}
+ \text{the terms indexed by }\chi
+ \text{ and }\chi\chi_s\text{ are equal}.
+\end{equation}
+For a genus-forced slice they are opposites and cancel.  Restricting to
+active slices removes that one cancellation but leaves every character of
+the residual quotient of $K_s(h)$; it does not make the principal character
+dominant.  The principal/genus pair contributes
+\begin{equation}\tag{50.16}
+ P_L^-(p)=
+ \sum_{\substack{ck\leq L,\ (c,k)\in\mathcal B_p\\
+                   \chi_{\operatorname {sf}(c)}(p)=-1}}
+ \frac{2\tau(p^2+4ck^2)}{\varphi(4ck)}
+ \leq p^{o(1)}(\log L)^2\log\log(3L)
+\end{equation}
+when $L=p^{o(1)}$.  It is positive when the active box is nonempty, but the
+remaining ray characters can cancel it exactly.  At $p=2521$, for example,
+active cores $11,17,19,22,23,29$ occur in $ck\leq30$, yet every unforced
+slice in that box vanishes.
+
+\medskip\noindent\textbf{Assessment 50.8 (Duke/class-group GRH).}
+Summing (50.14) does not create a fixed theta series: the discriminant,
+ray modulus, norm, and active-core selection all move.  The
+Hurwitz--Kronecker identity restores class numbers only after removing the
+ray projector and changing to a weighted all-divisor mass.  Equation
+(50.15) removes exactly the genus character and no other part of that
+projector.  GRH for class-group or ray-class $L$-functions controls prime
+or ideal sums, not the target coefficient of the finite Euler product of
+one norm.  A Duke-type theorem would therefore need a new uniform
+statement for the whole moving family (50.14), with error $o(P_L^-)$; this
+is a genuinely new hypothesis, not a recognized consequence of GRH for the
+relevant $L$-functions.
+
+\subsection{Conditional frontier and census}
+The audit is summarized by
+\begin{equation}\tag{50.17}
+\begin{array}{c|c|c}
+\text{input}&\text{standard output}&\text{missing condition}\\ \hline
+\text{Bateman--Horn}&\text{prime polynomial values in the variable}
+ &\text{a good factor, uniformly for every }p\\
+\text{Linnik}&q\equiv-p\pmod h&q\mid N_{c,k}\\
+\text{GRH/Chebotarev}&\text{split/ray primes in fixed fields}
+ &\mathfrak q\mid(\alpha)\text{ for each fixed }\alpha\\
+\text{least nonresidue under GRH}&\chi_s(p)=-1
+ &\text{the residual exponent-box hit}\\
+\text{EH/GEH/Kloosterman}&\text{average distribution in }p
+ &\text{an empty exceptional set}\\
+\text{Duke/class-group GRH}&\text{unprojected or averaged form mass}
+ &\text{the moving ray projector}
+\end{array}
+\end{equation}
+The proved obstructions are Lemma~\ref{lem:prime-norm},
+Theorem~\ref{thm:bounded-core}, the fixed-divisor escape
+Theorem~\ref{thm:slice-residue-one}, and the exact pairing (50.15).  The
+claims about named hypotheses are assessments of their standard
+conclusions, not logical independence theorems.  The conditional frontier
+is (50.7); replacing ``prime factor'' by ``divisor'' returns the open
+unrestricted depth criterion.
+
+For finite comparison define
+\begin{equation}\tag{50.18}
+ ck_{\rm pr}(p)=\min\{ck:(c,k)\in\mathcal B_p,
+ \ \exists\hbox{ prime }q\mid p^2+4ck^2,
+ \ q\equiv-p\pmod {4ck}\}.
+\end{equation}
+\medskip\noindent\textbf{Computational 50.9 (exact stated range;
+informational).}
+A streamed exact computation finds $ck_{\rm pr}(p)$ for all $385$ hard
+primes below $30000$, checks the complete exponent box at every tested norm,
+and reconstructs (50.5)--(50.6) for each good-prime event.  Its distribution
+is
+\begin{equation}\tag{50.19}
+\begin{array}{c|rrrrrrrrrrr}
+ck_{\rm pr}&5&7&10&11&13&14&17&19&21&22&23\\
+\#&156&30&36&35&13&15&16&4&15&9&6\\ \hline
+ck_{\rm pr}&26&28&29&31&33&34&35&37&38&39&42\\
+\#&10&4&3&1&2&3&1&1&4&2&5\\ \hline
+ck_{\rm pr}&43&46&55&62&66&67&69&70&77&78&\\
+\#&1&1&2&1&4&1&1&1&1&1&
+\end{array}
+\end{equation}
+and the strict records are
+\begin{equation}\tag{50.20}
+\begin{array}{c|rrrrrrrr}
+p&73&193&241&1201&2521&4729&7489&9601\\
+ck_{\rm pr}&7&10&21&34&38&66&70&78.
+\end{array}
+\end{equation}
+The prime-factor minimum equals the unrestricted $ck_{\min}$ for $311$
+primes and is larger for $74$.  The largest gap is $55$ at $p=23689$:
+$ck_{\min}=11$ but $ck_{\rm pr}=66$, witnessed by
+$(c,k,q)=(33,2,77951)$.  The largest $ck_{\rm pr}$ is $78$ at $p=9601$.
+The optional memory-bounded scan over the $1181$ hard primes below $10^5$
+has maximum $282$ at $p=83689$.  These observations support no growth law
+and are not evidence for $H_{\rm SPF}$.  The verification factors one norm
+at a time and stores at most one residue set of size $4ck$.
+
 \section{Residue-dispersion frontier}\label{sec:dispersion-frontier}
 Put
 \[
@@ -2694,19 +3294,21 @@ The endpoint target (40.19) is equivalent to
 \end{equation}
 \end{corollary}
 Equation \eqref{eq:endpoint-core} is the current pair-level open core, not
-all $m>W_0$.  Even its proof would not establish the uniform
-multi-coordinate and prime-power antichain wall
-\eqref{eq:antichain-wall}.  Conversely, Theorem~\ref{thm:nested-cube}
-refutes the literal raw hierarchy (40.28) and raw-$H$ target (37.19), not
-(40.19), $H_{\rm PF}'$, or the conjecture.
+all $m>W_0$.  Theorem~\ref{thm:nested-cube} refutes the literal raw
+hierarchy (40.28) and raw-$H$ target (37.19), while
+Theorem~\ref{thm:grid-obstruction} refutes the antichain hierarchy
+\eqref{eq:antichain-wall} and the ordinary reduced-count moment target.
+Neither refutation reaches (40.19), (37.27), $H_{\rm PF}'$, or the
+conjecture.
 
 \medskip\noindent\textbf{Status.}
 This is not a submission.  Both $3/4$ headlines remain
 \textsc{claimed/provisional}, especially through Theorem~\ref{thm:pruned};
 the internal proofs and refutations above do not close the open
 critical-window ledger, \eqref{eq:endpoint-core}, or $H_{\rm PF}'$.
-Source \S49 subsequently refutes \eqref{eq:antichain-wall} and the
-reduced-count moment route.  % (wave-17 fidelity repair)
+The raw and antichain factorial-moment formulations are refuted and that
+axis is dormant; the pair endpoint and other possible pointwise minorants
+retain exactly the narrower open scope stated above.
 
 \begin{thebibliography}{99}
 \scriptsize
