@@ -15159,13 +15159,13 @@ theorem.
 
 ## 44. Slice conspiracies: joint vanishing structure of the ray-character mass
 
-**Scope and outcome.**  This section determines exactly when one
+**Scope and outcome.**  This section determines exactly when one raw, ordered
 \((c,k)\)-summand of Theorem 36.1 vanishes and packages simultaneous
 vanishing as an explicit moving-divisor locus.  It also proves a four-family
-wrong-grade obstruction that strictly extends Theorem 36.2, gives one
-structured progression on which a slice is always positive, and exhibits an
-exact two-slice counterexample to determination by the natural fixed ray
-modulus.  The small boxes do not close: among the 385 primes
+wrong-grade obstruction that strictly extends Theorem 36.2, recovers one
+previously known structured progression on which a slice is always positive,
+and exhibits an exact two-slice counterexample to determination by the
+natural fixed ray modulus.  *(wave-15 review repair)*  The small boxes do not close: among the 385 primes
 \(p\equiv1\pmod {24}\), \(p<30000\), fifteen have every slice
 \(ck\leq30\) equal to zero.  These are statements about this Type-I
 sub-count.  They do not assert that any prime lacks an Erdős--Straus
@@ -15220,6 +15220,32 @@ Thus (44.4), including the exponent bounds, is the requested factorization
 condition.  In character language it says that the inverse Fourier
 coefficient at grade \(-p\) in (44.3) is zero; vanishing need not come from
 one character factor being zero.
+
+**Raw/primitive and admissibility boundary (wave-15 review repair).**
+Theorem 44.1 characterizes the raw summand of (36.3), not the primitive
+summand of (36.5).  At a fixed admissible slice the latter is
+\[
+ M^*_{c,k}(p)=
+ \sum_{\substack{D\mid N\\D\equiv-p\ (h)}}
+ \sum_{g\mid a_D,\ g\mid b_D}\mu(g)
+ =\#\{D\mid N:D\equiv-p\pmod h,\ (a_D,b_D)=1\}.             \tag{44.4a}
+\]
+Consequently primitive vanishing means that no target divisor gives coprime
+\(a_D,b_D\), and is not equivalent to (44.4): raw vanishing implies
+primitive vanishing, but not conversely.  For example
+\((p,c,k)=(241,7,3)\) has target divisors \(11,5303\), giving the two raw
+rows \((a,b)=(3,66),(66,3)\); hence \(M_{7,3}(241)=2\) but
+\(M^*_{7,3}(241)=0\).
+
+The admissibility hypothesis is also essential.  If \(p\mid ck\), the target
+is not a unit and character orthogonality and the complementary-divisor step
+used here fail; for example \((p,c,k)=(3,1,3)\) has
+\(9\mid p^2+4ck^2\) and \(9\equiv-p\pmod {12}\), but it gives no row.  Such
+a pair is not in \(\mathcal B_p\).  In fact no Type-I tuple has \(p\mid ck\):
+if \(p\mid k\), division by \(p\) in the defining equation contradicts
+\(4abc-1>a+b\), and then \(p\mid c\) is excluded by reduction modulo \(p\).
+Pairs violating the size bounds in (36.1) likewise are not slices of
+(36.3).
 
 There is an equivalent progression description.  For every \(d\geq1\), let
 
@@ -15289,7 +15315,9 @@ Theorem 36.2 is the subfamily \(c=1\); even the extension to every square
 
 *Proof.*  Now
 \(N=p^2+4s(tk)^2\).  If a rational prime \(\ell\mid N\), then
-\(\ell\nmid2s\), and reduction modulo \(\ell\) gives
+\(\ell\nmid2stk\): divisibility by any prime factor of \(stk\) would give
+\(N\equiv p^2\not\equiv0\pmod\ell\).  Thus the inverse in the following
+reduction exists:
 
 \[
  \left(p(2tk)^{-1}\right)^2\equiv-s\pmod\ell.               \tag{44.9}
@@ -15310,8 +15338,12 @@ four kernels and the excluded grade are
 \]
 
 Every divisor grade, being a product of prime-factor grades, remains in the
-listed kernel.  But \(4s\mid24\), so \(p\equiv1\pmod {4s}\) and the target
-\(-p\) has the excluded grade \(-1\).  It cannot occur. \(\square\)
+listed kernel.  This is the complete reduction from \(c=st^2\): projection
+from the full ray modulus \(4st^2k\) to \(4s\) discards the square factor
+\(t^2\) and all \(k\)-dependence, but any full target divisor would still
+project to the target grade.  Since \(4s\mid24\),
+\(p\equiv1\pmod {4s}\), and the target \(-p\) projects to the excluded grade
+\(-1\).  It cannot occur.  *(wave-15 review repair)* \(\square\)
 
 **Corollary 44.2.1.**  Every one of the eight slices \(ck\leq4\) vanishes on
 every hard prime.  Among the 111 slices \(ck\leq30\), 80 vanish identically
@@ -15341,6 +15373,15 @@ swap have
 \(p\equiv17\pmod {20}\).  Hence \(3\mid p^2+20\) and
 \(3\equiv-p\pmod {20}\).  Theorem 44.1 gives the slice, and substituting its
 complementary divisor gives (44.12). \(\square\)
+
+**Prior-supply identification (wave-15 review repair).**  This is exactly the
+\(c=5,D=3\) branch already proved in Theorem 35.4, now read inside one ray
+slice.  Moreover the same hard-prime progression was already covered by the
+Type-II multiplier identity of Lemma 16.1: take
+\(k\ell=15\) and \((u,v,w)=(1,2,2)\), so
+\(p\equiv7\pmod {15}\); intersecting with \(p\equiv1\pmod {24}\) gives
+\(p\equiv97\pmod {120}\).  Thus Corollary 44.3 proves pointwise slice
+positivity but adds no new progression toward Erdős--Straus.
 
 Consequently, for any \(S\) containing \((5,1)\), \(\mathcal C_S\) excludes
 one of the four reduced hard-prime classes modulo 120.  The prime number
@@ -15392,10 +15433,15 @@ progressions and is not obtained here.
 
 **Computational 44.5 (exact stated range, not a theorem beyond it).**
 `verify.py (aq)` recomputes all 385 primes \(p<30000\) with
-\(p\equiv1\pmod {24}\), and all 111 pairs \(ck\leq30\).  For each of the
-42,735 instances it factors \(N\), multiplies the finite grade box (44.2),
-independently enumerates the literal divisors, requires exact equality at
-the target grade, and reconstructs every surviving Type-I row.  It also
+\(p\equiv1\pmod {24}\), and all 111 pairs \(ck\leq30\).  Here “hard” means
+exactly \(p\equiv1\pmod {24}\), with no additional no-witness filter.  Every
+listed pair is in \(\mathcal B_p\): the least such prime is 73, while
+\(k\leq30\leq2p/3\), \(4ck\leq120<2p+k\), and \((p,ck)=1\).
+*(wave-15 review repair)*
+For each of the 42,735 instances the block factors \(N\), builds both the
+finite grade box (44.2) and the literal-divisor list from that same exact
+factorization, requires exact equality at the target grade, and reconstructs
+every surviving Type-I row.  It also
 checks the quadratic character in Theorem 44.2 prime factor by prime factor.
 The computation is streamed one norm at a time.
 
@@ -15428,13 +15474,22 @@ The maximum depth 111 is attained at
 \]
 
 The two minimum-depth primes are 5953 and 11353, each with 99 vanishing
-slices.  In particular, 2521's \(k=1\) zero from (36.15) is accompanied by
-vanishing of **every** slice \(ck\leq30\).  This does not conflict with its
-twelve ordered Type-I rows in §36: those rows occur outside this box.
+slices.  To make the comparison with §36 explicit,
+\[
+ T_{k=1}(p)=\sum_{c:(c,1)\in\mathcal B_p}M_{c,1}(p),         \tag{44.18a}
+\]
+so Theorem 36.3's \(k=1\) count is the sum over every admissible \(c\), not
+the single \((1,1)\) slice.  Thus (36.15) already says every \(k=1\) slice
+vanishes at 2521; the present census additionally finds vanishing for every
+\(k\) in the box \(ck\leq30\).  This does not conflict with its twelve
+ordered Type-I rows in §36: those rows occur outside this box.
+*(wave-15 review repair)*
 
 ### 44.5 GRH audit and quantitative verdict
 
-The exact \(k=1\) formula permits a sharper version of Assessment 17.5(a).
+The exact Type-I \(k=1\) formula permits a parallel, more quantitative
+version of the technology audit in Assessment 17.5(a); it is not the
+Type-II \(k=1\) count (17.4).  *(wave-15 review repair)*
 For \(1\leq a\leq p/2\), define
 
 \[
@@ -15488,10 +15543,12 @@ cancellation, termwise use of the divisor bound gives only
 factor \(p^{1/2-o(1)}\) too large to prove positivity.  For one fixed
 \((c,k)\), (44.3) is still more literal: it is a finite Euler product over
 the prime factors of one value \(p^2+4ck^2\), not an interval character sum
-at all; GRH does not control its target coefficient pointwise.  This is the
-moving-divisor wall of §17.5 sharpened with the exact §36 formula, not a
-claim that GRH plus some presently unknown additional structure could never
-prove the conjecture.
+at all; GRH does not control its target coefficient pointwise.  Nor does this
+restore a Hurwitz argument: the nonprincipal term in (44.20) is ray-grade
+information of exactly the kind discarded by the unprojected, weighted mass
+in §36.4.  *(wave-15 review repair)*  This is the moving-divisor wall of
+§17.5 sharpened with the exact §36 formula, not a claim that GRH plus some
+presently unknown additional structure could never prove the conjecture.
 
 **Assessment 44.7 (quantitative failure log).**  Equations (44.4)--(44.7)
 give a characterization, not a sparse sequence: the complement of the
@@ -15500,8 +15557,10 @@ divisors.  Theorem 44.2 shows that 80 of the first 111 slices are perfectly
 correlated zeros, while (44.16)--(44.18) show that even the whole box has
 many exact finite conspiracies.  No effective all-large-prime bound and no
 new exceptional-set estimate follow.  The fixed progression (44.11) is the
-only pointwise structured-prime gain retained here, and (44.13) is much
-weaker than §16.4 and the CLAIMED/PROVISIONAL §39.7.  Section 16's displayed
+only pointwise structured-prime statement retained by this slice analysis;
+as noted after Corollary 44.3, it was already supplied by §§16 and 35, and
+(44.13) is much weaker than §16.4 and the CLAIMED/PROVISIONAL §39.7.
+*(wave-15 review repair)*  Section 16's displayed
 argument uses Bombieri--Vinogradov and Brun--Titchmarsh rather than the
 Siegel--Walfisz step that makes §§12--15 ineffective, so it is not labelled
 ineffective; it remains provisional and has no extracted numerical
