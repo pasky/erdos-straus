@@ -14859,12 +14859,11 @@ absolute \(c_0>0\) such that, for all sufficiently large \(N\),
  (\log N)^{2/3}(\log\log N)^{1/3}\right\}.                 \tag{43.13}
 \]
 
-The prime-denominator version of the same formula is uniform, for every
-fixed \(\epsilon>0\), in the range
-\(3\leq m\leq(\log N)^{2-\epsilon}\).  The all-denominator statement
-(43.13) is uniform in the deliberately smaller range
-\(3\leq m\leq(\log N)^{1-\epsilon}\), after increasing the lower
-threshold for \(N\) in terms of \(\epsilon\).
+The prime-denominator and all-denominator versions of the same formula are
+uniform, for every fixed \(\epsilon>0\), in the range
+\(3\leq m\leq(\log N)^{2-\epsilon}\), after increasing the lower
+threshold for \(N\) in terms of \(\epsilon\).  The matching all-denominator
+range is a wave-16 review repair.
 
 *Proof.*  Take \(K=\lfloor\delta\log N\rfloor\), use all
 \(k\leq K\) coprime to \(m\), and put
@@ -14901,15 +14900,40 @@ with
 \]
 
 The finitely many omitted primes contribute only \(O_m(1)\) to the Euler
-product.  For the asserted all-denominator uniformity, start the uniform
-prime estimate at
-\(x_0=\exp\{m^{1/(2-\epsilon/2)}\}\).  When
-\(m\leq(\log N)^{1-\epsilon}\), the Rankin parameter in (16.17) obeys
-\(\delta\log x_0=o(1)\); hence all primes below \(x_0\), even if declared
-exceptional, contribute only \(m^{O_\epsilon(1)}\).  Its logarithm is
-absorbed by the exponent in (43.13).  Above \(x_0\) the prime estimate is
-uniform with room in its exponent.  This proves (43.13) for (43.1),
-including unreduced pairs, in the stated ranges. \(\square\)
+product.  For the uniform all-denominator transfer, put
+\(\Theta_1=\varphi(m)/\eta_1(m)\asymp m\), fix the final margin
+\(0<\epsilon_0<2\), choose
+\(0<\epsilon'<\epsilon_0/(3-\epsilon_0)\), and, after a harmless fixed
+constant enlargement, start the uniform prime estimate at
+\[
+ \log x_0\asymp\Theta_1^{1/(2-\epsilon')}.
+\]
+The Rankin parameter is
+\(\delta\asymp\Theta_1^{-1/3}L^{-1/3}(\log L)^{1/3}\).  Uniformly for
+\(\Theta_1\ll L^{2-\epsilon_0}\),
+\[
+ \delta\log x_0
+ \ll L^{-1/3}(\log L)^{1/3}
+       \Theta_1^{1/(2-\epsilon')-1/3}
+ \ll L^{-\gamma}(\log L)^{1/3}=o(1),
+ \quad
+ \gamma={\epsilon_0(1+\epsilon')-3\epsilon'
+          \over3(2-\epsilon')}>0.
+\]
+Thus all smaller primes, even if declared exceptional, cost only
+\(\exp\{O(\log\Theta_1)\}\).  This is absorbed by the saving
+\(\gg\Theta_1^{-1/3}L^{2/3}(\log L)^{1/3}\).  Above \(x_0\), partial
+summation is uniform: (43.15) divided by its argument is decreasing, and
+\(g_m(\log x_0)\) is a positive power of \(\Theta_1\) when \(m\) grows
+(the bounded case is the fixed-\(m\) argument).  This proves (43.13) for
+(43.1), including unreduced pairs, throughout
+\(m\leq L^{2-\epsilon_0}\).  \(\square\)
+
+**Layer-1 range correction (wave-16 review repair).**  The former
+all-denominator range \(m\leq L^{1-\epsilon}\) was safe but conservative.
+The displayed cutoff pays the small-prime Euler product and proves the same
+\(L^{2-\epsilon}\) range as the prime theorem; no new prime-distribution
+input is used.
 
 The local factor is explicit: since \(\eta_1(m)\asymp\varphi(m)/m\), the
 coefficient in (43.13) is \(\asymp m^{-1/3}\).  The logarithmic
@@ -15151,33 +15175,23 @@ The argument after (43.15), now with
 **Failure log 43.9 (what is not being claimed).**
 
 1. Theorem 43.8 deliberately keeps the §39 choices \(y,r\asymp t^3\).
-   The thinner profiles in (43.20) and (43.27) suggest an \(m\)-dependent
-   smaller degree and a larger choice of \(X\), but the shrinking-
-   \(y\) bad-fibre estimate and every uniform rounding constant have not
-   been re-audited.  No stronger \(m^{-1/4}\)-type coefficient is claimed.
+   It remains a valid conservative replay, but the shrinking-window audit is
+   now completed in Theorem 43.12 and gives a stronger provisional theorem.
 2. The fixed-class asymptotic (43.6) is not uniform for \(m\gtrsim K\).
    The aggregate proof avoids this issue; it would be incorrect to infer
    pointwise per-\(\ell\)-class mass in that range.
-3. The range \(m\leq(\log N)^{3/4-\epsilon}\) is where the provisional
-   saving in (43.28) grows uniformly.  Beyond it, this replay is not offered
-   as a nontrivial uniform theorem.  This is an analytic uniformity limit,
-   not a failure of the algebraic identity.
+3. The range \(m\leq(\log N)^{3/4-\epsilon}\) is the nontrivial range of
+   the unoptimized replay (43.28).  The optimized theorem has the larger
+   range \(m\leq(\log N)^{3-\epsilon}\); no nontrivial uniform assertion is
+   made at the limiting scale \(m\asymp(\log N)^3\) or beyond.  These are
+   analytic uniformity limits, not failures of the algebraic identity.
 
-**Wave-16 blind-construction flag:** the frozen independent construction
-finds that the conservative degrees in (43.29) are not intrinsic.  The finite
-inequality
-\[
- \sum_{k\leq K,(k,m)=1,p\mid k}{\varphi(k)\over k^2}
- \leq p^{-1}\sum_{k\leq K,(k,m)=1}{\varphi(k)\over k^2}
-\]
-makes the bad-fibre tail \(e^{-cy}\) at a fixed relative-mass threshold.
-Together with (43.26), this permits
-\(y,r\asymp\eta_2(m)t^3/\varphi(m)\), a ledger of order
-\(\eta_2(m)t^4/\varphi(m)\), and the stronger provisional exponent
-\([\eta_2(m)(\log N)^3/\varphi(m)]^{1/4}\).  This is a substantive new
-record-class strengthening requiring hostile review, not a claim that
-Theorem 43.8 is false; (43.28) is left unchanged rather than silently
-rewritten.
+**Wave-16 provenance note (adjudicated).**  The frozen blind construction
+identified a finite relative-mass inequality which removes the first
+limitation above.  The complete argument, its honest range, and its inherited
+provisional qualifications are stated in Theorem 43.12 after the blindness
+attestation.  Theorem 43.8 is retained as the conservative direct replay,
+not silently rewritten.
 
 ### 43.3 Layer 3: the PW benchmark and the two regimes
 
@@ -15197,32 +15211,44 @@ larger-sieve Rankin truncation used in §16.  Thus their exponent is
 \((\log N)^{2/3}/\varphi(m)^{1/3}\), with no suppressed
 \(\log\log N\) factor.
 
-For the direct Layer-2 replay, compare the two exponent sizes
+**PW crossover correction (wave-16 review repair).**  For the optimized
+thinned-window Layer 2 of Theorem 43.12, compare
 
 \[
- {\eta_1(m)\over\varphi(m)}L^{3/4}
- \quad\hbox{and}\quad {L^{2/3}\over\varphi(m)^{1/3}},
+ R=\left({\eta_2(m)\over\varphi(m)}\right)^{1/4}L^{3/4}
+ \quad\hbox{and}\quad
+ P={L^{2/3}\over\varphi(m)^{1/3}},
  \qquad L=\log N.                                          \tag{43.33}
 \]
 
-Up to the absolute theorem constants, the first is larger precisely when
+The exact scale ratio and crossover are
 
 \[
- \varphi(m)\lesssim \eta_1(m)^{3/2}L^{1/8}.                \tag{43.34}
+ {R\over P}=\{\eta_2(m)^3\varphi(m)L\}^{1/12},
+ \qquad
+ R\geq P\ \Longleftrightarrow\
+ L^{1/12}\geq {1\over\varphi(m)^{1/3}}
+                 \left({\varphi(m)\over\eta_2(m)}\right)^{1/4}
+ \ \Longleftrightarrow\
+ L\geq{1\over\eta_2(m)^3\varphi(m)}.                      \tag{43.34}
 \]
 
-If the fixed local factor is suppressed, this is the parent-session
-calculation \(\varphi(m)\lesssim(\log N)^{1/8}\): raising
-\(L^{1/12}>\varphi(m)^{2/3}\) to the \(3/2\) power gives exactly
-\(L^{1/8}>\varphi(m)\).  Therefore Layer 2 wins for every fixed \(m\), and
-for sufficiently small growing \(m\); PW has the better
-\(\varphi(m)^{-1/3}\) uniformity once (43.34) is reversed.  In particular
-this notebook does **not** claim to beat PW uniformly.  PW remains valid
-through \(m\leq L^2\), whereas the nontrivial uniform Layer-2 statement
-above stops at \(m\leq L^{3/4-\epsilon}\).  The Layer-1 prime bound is
-uniform through \(m\leq L^{2-\epsilon}\), and its all-denominator form
-through \(m\leq L^{1-\epsilon}\); it gains \((\log L)^{1/3}\) but has
-the same basic \(m^{-1/3}\) scale as PW after (43.7).
+These are exponent-scale comparisons; unknown absolute constants prevent a
+literal finite crossover.  The honest regimes are now different from the
+conservative replay.  Throughout the common stated domain with PW
+(\(4\leq m\leq L^2\)), the provisional Layer-2 scale is larger once
+(43.34) holds; for every fixed \(m\) it eventually does.  The optimized
+provisional theorem is available farther, through every fixed-gap range
+\(m\leq L^{3-\epsilon}\), where PW's quoted theorem is not stated once
+\(m>L^2\).  At \(m\asymp L^3\) the new saving ceases to grow, so no
+uniform record claim is made there or beyond.  PW is a literature theorem,
+whereas Theorem 43.12 remains internally **CLAIMED/PROVISIONAL**; a larger
+formal exponent does not erase that evidentiary distinction.
+
+The Layer-1 prime and all-denominator bounds are now both uniform through
+\(m\leq L^{2-\epsilon}\) (wave-16 review repair).  Relative to PW their
+exponent ratio is \((\eta_1(m)\log L)^{1/3}\), so even that comparison
+retains the displayed local factor rather than suppressing it.
 
 **Computational 43.10 (finite companion only).**  `verify.py (ap)` simplifies
 (43.3) symbolically and checks it with exact `Fraction` arithmetic on 364
@@ -15248,23 +15274,157 @@ The blind derivation was frozen before opening §43 or its review at commit
 | item | comparison verdict |
 |---|---|
 | S1 identity | **CONVERGED** |
-| S2 supply/local factors | **CONVERGED** (same factors, different normalization) |
-| S3 Layer 1 | **DIVERGED-MINOR** (same theorem; the all-denominator range can be enlarged with a corrected cutoff) |
+| S2 supply/local factors | **CONVERGED** on the aggregate factors and pairing (the fixed-class short-range scope is governed by §43's clarification) |
+| S3 Layer 1 | **DIVERGED-MINOR** (same prime theorem; the stronger all-denominator range closes only after the post-freeze cutoff repair) |
 | S4 c-free atoms | **CONVERGED** |
 | S5 mass profile | **CONVERGED** |
-| S6 moments/void | **DIVERGED-SUBSTANTIVE** (thinned degrees close after the finite relative-mass inequality) |
-| S7 assembly/crossover | **DIVERGED-SUBSTANTIVE** (the optimized provisional exponent is stronger) |
+| S6 moments/void | **DIVERGED-SUBSTANTIVE** (the thinned degrees close after the finite relative-mass inequality and the wave-15 mixed-factor correction) |
+| S7 assembly/crossover | **DIVERGED-SUBSTANTIVE** (the optimized provisional exponent and range are stronger) |
 
 The wave-15 mixed local-factor repair is correct: at conditioned
 \(p\mid m\) deletion gives \(p/(p+1)\), but the upper bound (43.26) survives.
-The finite relative-mass inequality displayed in the Wave-16 flag supplies
-the missing shrinking-\(y\) audit; the resulting ledger and semigroup
-cutoffs are derived in full in the post-freeze part of `blind43.md`.
-Thus the printed §43 theorems remain correct but conservative; the stronger
-Wave-16 claim remains **CLAIMED/PROVISIONAL** and needs hostile review.
-As in §41, git records the text, freeze, and ordering only: blindness is a
-self-attestation enforced by instruction and read log, not a cryptographic
-or independently audited guarantee, and this check does not upgrade §39.
+The blind file's post-freeze finite inequality and corrected semigroup
+cutoffs are the inputs adjudicated below; its frozen S3 cutoff and exact
+local-deletion sentence are not treated as converged.  As in §41, git records
+the text, freeze, and ordering only: blindness is a self-attestation enforced
+by instruction and read log, not a cryptographic or independently audited
+guarantee, and this check does not upgrade §39.
+
+**Theorem 43.12 (thinned-window Layer 2; CLAIMED/PROVISIONAL;
+wave-16 review strengthening).**  Put \(L=\log N\).  For every fixed
+\(\epsilon>0\), uniformly for
+\(3\leq m\leq L^{3-\epsilon}\),
+\[
+ E_m(N)\ll_\epsilon N\exp\left\{-c_\epsilon
+ \left({\eta_2(m)L^3\over\varphi(m)}\right)^{1/4}\right\}. \tag{43.35}
+\]
+The same formula holds for exceptional primes.  It inherits Theorem 34.8,
+Theorem 43.7, and every maximum-severity qualification in §39.7; the
+wave-16 adjudication changes the exponent and uniform range, not the
+external status.
+
+*Proof.*  Write
+\[
+ \theta_m={\eta_2(m)\over\varphi(m)},\qquad
+ \Theta_m=\theta_m^{-1}\asymp m,\qquad M=\theta_mt^3.
+\]
+The load-bearing shrinking-window fact is finite, not an asymptotic in a
+short progression.  If
+\(H_m(K)=\sum_{k\leq K,(k,m)=1}\varphi(k)/k^2\), then for every prime
+\(p\nmid m\),
+\[
+ \begin{split}
+ \sum_{k\leq K,(k,m)=1,p\mid k}{\varphi(k)\over k^2}
+ &=\sum_{e\geq1}{1-p^{-1}\over p^e}
+   \sum_{\substack{a\leq K/p^e\\(a,pm)=1}}{\varphi(a)\over a^2}\\
+ &\leq {H_m(K)\over p}.                                    \tag{43.36}
+ \end{split}
+\]
+For \(p\mid m\) the left side is zero, so the inequality remains true.  Reveal the multiplier coordinates,
+put \(\mathcal J_c=\{k\leq K:(k,m)=(k,c)=1\}\), and define \(Z(c)\) as
+in the proof of Theorem 43.8.  The union bound and (43.36) give
+\(h(\mathcal J_c)\geq H_m(K)(1-Z(c))\).  For \(y\geq2\), independence of
+the coordinates above \(y\) gives exactly the same Chernoff calculation as
+(39.25):
+\[
+ \mathbb E e^{yZ}\leq
+ \exp\left\{Cy\sum_{p>y}p^{-2}\right\}=e^{O(1)},\qquad
+ \Pr\{Z>\eta_0\}\leq e^{-\eta_0y+O(1)}                   \tag{43.37}
+\]
+for a fixed \(0<\eta_0<1\).  Thus the retained multiplier mass is a fixed
+fraction of the actual mass \(H_m(K)\asymp\eta_1(m)\log K\); no
+\(1/\eta_1(m)\) is lost.
+
+Take \(y\) to be an integer of size \(B_0M\), with \(B_0\) a sufficiently
+large absolute constant.  On \(Z\leq\eta_0\), Theorem 43.7 gives active
+prime-coordinate mass
+\[
+ {t^2h(\mathcal J_c)\over\varphi(m)}
+ \gg {\eta_1(m)\over\varphi(m)}t^3\asymp M.
+\]
+The good-fibre void is therefore \(e^{-cM}\), while (43.37) makes the bad
+fibres at most \(e^{-cM}\) after increasing \(B_0\).  This is the full
+shrinking-\(y\) quarantine audit: the constants are chosen in that order,
+and \(y\sum_{p>y}p^{-2}=O(1)\) uniformly.
+
+Equation (43.27) gives every factorial moment the base \(CM\), uniformly in
+this \(y\).  Let \(r\) be the least even integer at least \(D_0M\).  For
+large enough absolute \(D_0\), Stirling's formula and the even Bonferroni
+identity (39.28) give
+\[
+ \mathbb E_{\rm CRT}\{S_yQ_r(H_{m,X})\}
+ \leq e^{-cM}+{(CM)^{r+1}\over(r+1)!}
+ \leq e^{-c'M}.                                            \tag{43.38}
+\]
+The range below makes \(M\to\infty\); a fixed even degree handles bounded
+\(M\) without a growing-saving claim.
+
+The exact expansion now has the thinned ledger
+\[
+ \deg=O(M),\qquad
+ \log d_{\rm term}\leq O(y)+r(t+\log K)=O(Mt),\qquad
+ \log\sum|c_{\rm term}|=O(rt)=O(Mt).                       \tag{43.39}
+\]
+Here \(\log K=\kappa t\), \(\log|\mathcal A_{m,X}|=O(t)\), and the atom
+modulus is \(k\ell\), not \(mk\ell\); \(m\) selects atoms but adds no
+ledger factor.  Hence finite-interval rounding is absorbed once
+\[
+ L\geq C_0Mt=C_0\theta_mt^4.                               \tag{43.40}
+\]
+Choose \(t=\alpha(L/\theta_m)^{1/4}\) with fixed sufficiently small
+\(\alpha\).  Then
+\[
+ M\asymp\theta_m^{1/4}L^{3/4},                             \tag{43.41}
+\]
+which proves the prime exponent in (43.35).
+
+All uniformity constraints have room in the stated range.  Since
+\(\Theta_m\asymp m\),
+\[
+ {t\over L}\asymp\left({\Theta_m\over L^3}\right)^{1/4}
+ \ll L^{-\epsilon/4},\qquad
+ M\gg L^{\epsilon/4}.
+\]
+Also \(m\leq t^B\) for one fixed \(B\) (indeed \(B=4\), after harmless
+absolute enlargement, suffices), so Theorems 43.6--43.7 apply; the modulus
+\(muv\) remains exponentially below the BV level, \(K=e^{\kappa t}\gg m\),
+\(2\leq y<X^{1/2}\), and the Lemma-39.3 Euler bound is uniform in the
+smaller cutoff.  Smaller \(y\) leaves more primes unconditioned, but
+(43.25)--(43.27) already sum their factors uniformly.  Finally
+\(\max(m,K,y)=e^{o(L)}\), so the omitted prime range is negligible.
+
+It remains to transfer uniformly to all denominators.  Fix the final margin
+\(0<\epsilon_0<3\), choose
+\(0<\epsilon'<\epsilon_0/(4-\epsilon_0)\), and, after a harmless fixed
+constant enlargement which ensures \(m\leq u_0^{3-\epsilon'}\), start the
+prime theorem at
+\[
+ u_0=\log x_0\asymp\Theta_m^{1/(3-\epsilon')}.
+\]
+With \(g_m(u)=\Theta_m^{-1/4}u^{3/4}\), Rankin's parameter is
+\(\delta\asymp\Theta_m^{-1/4}L^{-1/4}\), and
+\[
+ \delta u_0
+ \ll L^{-1/4}\Theta_m^{1/(3-\epsilon')-1/4}
+ \ll L^{-\gamma},\qquad
+ \gamma={\epsilon_0(1+\epsilon')-4\epsilon'
+          \over4(3-\epsilon')}>0.                          \tag{43.42}
+\]
+Declaring all primes below \(x_0\) exceptional therefore costs only
+\(\exp\{O(\log\Theta_m)\}=e^{o(g_m(L))}\).  Above \(x_0\), partial
+summation is uniform because \(g_m(u)/u\) decreases and
+\(g_m(u_0)=\Theta_m^{\epsilon'/(4(3-\epsilon'))}\) is a positive power
+when \(m\) grows; bounded \(m\) is the fixed-parameter case.  The
+Theorem-16.5 semigroup argument now preserves the exponent shape and proves
+(43.35) for all denominators. \(\square\)
+
+**Assessment 43.13 (wave-16 hostile-review verdict).**
+**STRENGTHENING CONFIRMED**, internally and with the displayed fixed-gap
+range.  The finite inequality (43.36) is the missing relative-mass input;
+it validates the thinned quarantine, moment degree, \(O(\theta_mt^4)\)
+ledger, range \(m\leq L^{3-\epsilon}\), and exponent in (43.35).  The
+verdict does not upgrade Theorem 34.8, §39, or this theorem beyond
+**CLAIMED/PROVISIONAL**.
 
 ## 44. Slice conspiracies: joint vanishing structure of the ray-character mass
 

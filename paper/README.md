@@ -64,3 +64,4 @@ Vaughan's primary paper is R. C. Vaughan, “On a problem of Erdős, Straus and 
 - Settle author metadata and final publication data for Pomerance–Weingartner and Bettin–Chandee.
 - Prove or disprove the endpoint bulk `4c^2s > W_0`, then address prime-power and multi-coordinate codegrees.
 - Add standard-reference citations if required by the target journal and perform a final line-by-line referee audit.
+- wave-16 adjudication of the thinned-window strengthening: STRENGTHENING CONFIRMED; paper update pending next paper pass.
