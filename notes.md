@@ -13401,6 +13401,19 @@ its dependency sum is \(\Theta(\mu^2)\), while the original
 established outside this campaign until an independent expert has checked
 the three steps above and the priority claim against the primary literature.
 
+**Priority-search note (2026-08-29, appended after review).**  A fresh web
+search (Jina) found no post-1970 improvement of Vaughan's
+\(N/\exp(c(\log N)^{2/3})\) for the \(4/n\) exceptional set: the
+Pomerance--Weingartner 2025 preprint (arXiv:2511.16817, = \,
+`sources/pomerance-weingartner-2025.pdf`) explicitly cites Vaughan 1970 as
+the state of the art (“strongly improved, though not recently”), and its
+own Theorem for general \(m\) reproduces the \(1/3\)-power of
+\((\log^2N/\varphi(m))\), i.e.\ the same \(2/3\) exponent at \(m=4\).
+OEIS A192787 and the Wikipedia article likewise cite only Vaughan.  If
+Theorem 39.7 survives external review it would therefore be the first
+exponent improvement since 1970.  This is a search result, not a
+literature guarantee; the CLAIMED/PROVISIONAL label stands.
+
 **Computational 39.9 (finite companion only).**  `verify.py (al)` uses the
 toy exponent \(\kappa_{\rm toy}=1/4\) and floor \(H_{\rm toy}=1\), because
 the genuine \(\kappa<1/240\), \(H=K^{10}\) regime has no nontrivial small
