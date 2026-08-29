@@ -9881,6 +9881,35 @@ def check_bb():
         assert product_formula == direct_local == expected_eta2[m]
         eta_rows[m] = product_formula
 
+    # The residue-side repair is a weighted multiplier-mass statement, not
+    # merely existence of both signs.  Check its finite shadow for r=5|m=5
+    # and for the concrete r=3|m=6 review case.  The asymptotic proof is the
+    # dyadic progression argument (55.17), not this bounded computation.
+    def euler_phi(n):
+        value = n
+        for q in factorint(n):
+            value = value // q * (q - 1)
+        return value
+
+    sign_balance = {}
+    for m, r in ((5, 5), (6, 3)):
+        signs = {
+            int(jacobi_symbol((-pow(b, -1, r)) % r, r))
+            for b in range(1, m + 1) if gcd(b, m) == 1
+        }
+        assert signs == {-1, 1}
+        total = sum((Fraction(euler_phi(k), k * k)
+                     for k in range(1, 1501) if gcd(k, m) == 1),
+                    start=Fraction(0))
+        favorable_mass = sum(
+            (Fraction(euler_phi(k), k * k)
+             for k in range(1, 1501) if gcd(k, m) == 1
+             and jacobi_symbol((-pow(k, -1, r)) % r, r) == -1),
+            start=Fraction(0))
+        ratio = favorable_mass / total
+        assert Fraction(1, 3) < ratio < Fraction(3, 4)
+        sign_balance[(m, r)] = round(float(ratio), 6)
+
     # If the Page conductor r=5 divides m=5, the BV modulus is q=muv, not uv.
     # Hence deletion is not vacuous: every such q is a multiple of 5.  The
     # effective repair instead keeps multipliers with chi_5(-k^{-1})=-1,
@@ -9909,6 +9938,7 @@ def check_bb():
           tail_rows)
     print("eta_2 exact values =", eta_rows)
     print("INFO fitted c by m (Layer-1,cubic) =", fit_rows)
+    print("finite favorable harmonic-mass ratios (m,r) =", sign_balance)
     print("r=5|m Page shadow (favorable,unfavorable,sample q=muv data) =",
           (favorable, unfavorable, tuple(page_data)))
 
