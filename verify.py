@@ -6532,4 +6532,173 @@ print("\n== (ak) fixed-value actions and k=2 -> k=1 hunt (§38) ==")
 check_ak()
 
 
+# ---------------------------------------------------------------- (am)
+def check_am():
+    """Section 40: exact residue dispersion for toy reduced composite systems."""
+    import ast
+    from collections import defaultdict
+
+    # Keep an explicit syntax check in the companion requested for this wave.
+    with open(__file__, encoding="utf-8") as source:
+        ast.parse(source.read(), filename=__file__)
+
+    def is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    def intrinsic_representatives(M):
+        """Least divisor representative for every distinct intrinsic class."""
+        representatives = {}
+        for D in divisors_of_square((M + 1) // 4):
+            representatives.setdefault((-4 * D) % M, D)
+        return representatives
+
+    def radical_root(D):
+        return prod(p ** ((e + 1) // 2) for p, e in factorint(D).items())
+
+    def toy_dispersion(X, z, Y):
+        # As in (aj), keep only composite z-rough moduli and delete every atom
+        # implied by a prime-modulus atom.  Y is the toy low-prime tensor cutoff.
+        prime_residues = {
+            p: set(intrinsic_representatives(p))
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        atoms = []
+        for M in range(3, X + 1, 4):
+            factors = factorint(M)
+            if is_prime(M) or any(p <= z for p in factors):
+                continue
+            beta = Fraction(1)
+            for p in factors:
+                if p <= Y and p in prime_residues:
+                    beta *= Fraction(p, p - len(prime_residues[p]))
+            for residue, D in intrinsic_representatives(M).items():
+                if any(
+                    p in prime_residues and residue % p in prime_residues[p]
+                    for p in factors
+                ):
+                    continue
+                atoms.append((M, residue, D, beta / M, tuple(factors)))
+
+        u = defaultdict(lambda: defaultdict(Fraction))
+        u_endpoint = defaultdict(lambda: defaultdict(Fraction))
+        u_regular = defaultdict(lambda: defaultdict(Fraction))
+        for M, residue, D, weight, factors in atoms:
+            R = radical_root(D)
+            k = ((M + 1) // 4) // R
+            assert 4 * R * k - 1 == M
+            for p in factors:
+                if p <= z:
+                    continue
+                a = residue % p
+                assert k % p == pow(4 * R, -1, p)
+                u[p][a] += weight
+                if k < p:
+                    q = M // p
+                    assert M == p * q and q > z and q < 4 * R
+                    u_endpoint[p][a] += weight
+                else:
+                    u_regular[p][a] += weight
+
+        def dispersion(vectors):
+            return sum((
+                p * sum((mass * mass for mass in by_residue.values()), Fraction())
+                for p, by_residue in vectors.items()
+            ), Fraction())
+
+        exact = dispersion(u)
+        endpoint = dispersion(u_endpoint)
+        regular = dispersion(u_regular)
+        t = {p: sum(by_residue.values(), Fraction()) for p, by_residue in u.items()}
+        cauchy = sum((p * mass * mass for p, mass in t.items()), Fraction())
+        assert exact <= cauchy
+
+        # Ordered-pair expansion of p sum_a u_{p,a}^2, checked as rationals.
+        pair_expansion = Fraction()
+        for M, residue, _, weight, factors in atoms:
+            for M1, residue1, _, weight1, factors1 in atoms:
+                pair_expansion += weight * weight1 * sum(
+                    p for p in set(factors).intersection(factors1)
+                    if p > z and (residue - residue1) % p == 0
+                )
+        assert pair_expansion == exact
+        assert exact >= endpoint + regular  # the omitted term is twice a nonnegative cross term
+        return atoms, u, exact, cauchy, endpoint, regular, t
+
+    cases = ((80, 2, 11), (120, 3, 13), (200, 5, 17))
+    expected = {
+        (80, 2, 11): (14, Fraction(127263, 135200), Fraction(1361, 676),
+                      Fraction(54609, 67600), Fraction(289, 27040)),
+        (120, 3, 13): (34, Fraction(48478967, 83463200),
+                       Fraction(26229391, 10432900), Fraction(2371407, 5216450),
+                       Fraction(353863, 16692640)),
+        (200, 5, 17): (28, Fraction(168865, 781456), Fraction(64248, 48841),
+                       Fraction(150469, 781456), Fraction(4651, 781456)),
+    }
+    rows = []
+    last_u = None
+    for X, z, Y in cases:
+        atoms, u, exact, cauchy, endpoint, regular, t = toy_dispersion(X, z, Y)
+        assert (len(atoms), exact, cauchy, endpoint, regular) == expected[(X, z, Y)]
+        Lambda = log(X) ** 3 / log(log(X))
+        harmonic_loss = sum(Fraction(1, p) for p in primerange(z + 1, X + 1))
+        rows.append((
+            X, z, Y, len(atoms), round(float(exact / Lambda ** 2), 7),
+            round(float(cauchy / Lambda ** 2), 7),
+            round(float(cauchy / exact), 3), round(float(endpoint / exact), 3),
+            round(float(harmonic_loss), 3),
+            tuple((p, round(float(t[p]), 5)) for p in sorted(t)),
+        ))
+        if X == 200:
+            last_u = u
+
+    # Exact additive-character Parseval spot check in Q(zeta_7).  Elements are
+    # coefficient vectors in the basis 1,zeta,...,zeta^5, with
+    # zeta^6=-(1+zeta+...+zeta^5).
+    p = 7
+    vector = [last_u[p].get(a, Fraction()) for a in range(p)]
+
+    def zeta_power(exponent):
+        exponent %= p
+        if exponent == p - 1:
+            return tuple(Fraction(-1) for _ in range(p - 1))
+        value = [Fraction() for _ in range(p - 1)]
+        value[exponent] = Fraction(1)
+        return tuple(value)
+
+    def add(left, right):
+        return tuple(a + b for a, b in zip(left, right))
+
+    def scale(scalar, value):
+        return tuple(scalar * coefficient for coefficient in value)
+
+    def multiply(left, right):
+        value = tuple(Fraction() for _ in range(p - 1))
+        for i, x in enumerate(left):
+            for j, y in enumerate(right):
+                if x and y:
+                    value = add(value, scale(x * y, zeta_power(i + j)))
+        return value
+
+    transforms = []
+    for h in range(p):
+        value = tuple(Fraction() for _ in range(p - 1))
+        for a, mass in enumerate(vector):
+            value = add(value, scale(mass, zeta_power(h * a)))
+        transforms.append(value)
+    parseval = tuple(Fraction() for _ in range(p - 1))
+    for h in range(p):
+        parseval = add(parseval, multiply(transforms[h], transforms[-h % p]))
+    target = [Fraction() for _ in range(p - 1)]
+    target[0] = p * sum((mass * mass for mass in vector), Fraction())
+    assert parseval == tuple(target)
+
+    print("dispersion (X,z,Y,K,S/Lambda^2,Cauchy/Lambda^2,C/S,endpoint/S,sum1/p,t_p) =",
+          rows)
+    print("ordered-pair and Q(zeta_7) additive-character Parseval identities exact")
+
+
+print("\n== (am) residue-dispersion companions (§40) ==")
+check_am()
+
+
 print("\nall checks passed")
