@@ -14589,8 +14589,11 @@ equal-integer-shift off-diagonal are removed; every fixed squarefree fibre,
 including $s=1$, is $o(\Lambda^2)$, and every fixed polylogarithmic prime
 range satisfies the target.  The remaining moving-$s$ collisions at
 $L^B<p\leq X/z$ are not bounded by unique-cofactor counting, nonzero
-divisibility, or an unweighted quadratic Gauss sum.  Therefore (40.19) and,
-by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
+divisibility, or an unweighted quadratic Gauss sum.  (Wave-15 update:
+Theorem 45.9 closes, by cell injectivity, every fibre with
+$m=4c^2s\leq W_0\asymp L^3/(\log L)^2$ uniformly over the whole prime
+range; the open core is the complementary range $m>W_0$.)  Therefore
+(40.19) and, by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
 (40.19) would still leave the multi-prime and prime-power hierarchy (40.28),
 the factorial moment (37.19), (33.16), and the refutation of
 $H_{\rm PF}'$ **OPEN**.  No earlier status line is superseded.
@@ -16047,11 +16050,89 @@ audited; the cofactor $q$ cannot serve as the modulus of the phase.  DFI can
 be applied after singular-value decomposition, yielding the proved bound
 (45.17), but its nuclear-norm and complete-frequency losses are larger by
 fixed powers than its scalar saving.  BC has the same defect at the
-$(h,p)$ level.  Therefore the strongest proved endpoint statement remains
-Proposition 45.3: fixed polylogarithmic $p$ and a controlled number of fixed
-$s$ fibres.  The moving-$s$ range (45.24), (40.19), and hence (37.27) remain
-**OPEN**.  Even a future proof of (40.19) would not prove the separate
+$(h,p)$ level.  Therefore the strongest proved endpoint statement within
+the DFI/BC axis remains Proposition 45.3: fixed polylogarithmic $p$ and a
+controlled number of fixed $s$ fibres.  (Superseded in the review round:
+Theorem 45.9 below closes every fibre with $m=4c^2s\leq W_0\asymp
+L^3/(\log L)^2$ over the entire prime range, by injectivity rather than
+cancellation; the open core of (45.24) is now its restriction to
+$m>W_0$.)  The moving-$s$ range (45.24) with $m>W_0$, (40.19), and hence
+(37.27) remain **OPEN**.  Even a future proof of (40.19) would not prove the separate
 multi-coordinate hierarchy (40.28); consequently (37.19), (33.16), and the
 refutation of $H_{\rm PF}'$ also remain **OPEN**.  This is an internal
 sieve-hypothesis arc and makes no claim to prove or refute the
 Erdős--Straus conjecture.
+
+### 45.6 Review round: the small-fibre moving-$s$ closure
+
+The wave-15 hostile review of this section found the following closure,
+recorded here after independent verification.  It rests on the fact that
+the endpoint relation pins the residue bucket to the *inverse of the cell
+index*: by Lemma 45.1 the phase of a cell is $e_p(-h\bar m)$, so two cells
+collide at $p$ exactly when $m\equiv m'\pmod p$.  No cancellation input is
+used.
+
+**Theorem 45.9 (small-fibre moving-$s$ closure; proved).**  For
+$W_0\geq4$, let $\mathcal E(W_0)$ be the endpoint subfamily of all
+incidences with $m=4c^2s\leq W_0$ (every $p$ in $(z,X/z]$, every $q$, $c$,
+$R$, $s$ as in (45.4)), and let $\mathcal V(\mathcal E(W_0))$ be its
+residue energy.  If $W_0\leq z/2$, then
+
+$$
+ \mathcal V(\mathcal E(W_0))
+ =\sum_{z<p\leq X/z}{1\over p}\sum_{4\leq m\leq W_0}G_{m,p}^2
+ \ll W_0\,(L^3+L^2\log L).                              \tag{45.26}
+$$
+
+In particular, with $W_0=\lfloor L^3/(\log L)^2\rfloor$ (admissible for
+large $X$ since $z=L^3\log\log L/\log L$), the subfamily
+$\mathcal E(W_0)$ satisfies the target of (40.19):
+$\mathcal V(\mathcal E(W_0))\ll L^6/(\log L)^2=\Lambda^2$, uniformly over
+the entire endpoint prime range.
+
+*Proof.*  Every supported cell has $p\nmid m$: indeed
+$4\leq m\leq W_0<p$.  If $4\leq m<m'\leq W_0$, then
+$0<m'-m<W_0<p$, so $m\not\equiv m'\pmod p$, and since inversion is a
+bijection of $(\mathbb Z/p\mathbb Z)^\times$, also
+$\bar m\not\equiv\bar m'\pmod p$.  Hence in the expansion of (45.3)
+restricted to $m\leq W_0$, orthogonality of the $h$-sum leaves no
+cross-cell terms:
+
+$$
+ \sum_{h\bmod p}\left|{1\over p}\sum_{m\leq W_0}G_{m,p}
+                  e_p(-h\bar m)\right|^2
+ ={1\over p}\sum_{m\leq W_0}G_{m,p}^2 .
+$$
+
+This proves the first equality in (45.26).  Each $m\leq W_0$ has the
+unique decomposition $m=4c^2s$ with $s$ squarefree, and $s\leq m/4\leq
+W_0/4$; the cells with a common $s$ form exactly the prescribed-$s$
+subfamily of (45.9).  Summing the uniform fixed-$s$ Frobenius bound (45.9)
+over the at most $W_0/4$ squarefree values of $s$ gives
+
+$$
+ \sum_{z<p\leq X/z}{1\over p}\sum_{m\leq W_0}G_{m,p}^2
+ \leq\sum_{s\leq W_0/4\ {\rm squarefree}}
+  \sum_p{1\over p}\sum_m|G^{(s),\leq W_0}_{m,p}|^2
+ \ll W_0\,(L^3+L^2\log L),
+$$
+
+which is (45.26).  The specialization uses
+$W_0(L^3+L^2\log L)\ll L^6/(\log L)^2=\Lambda^2$ and
+$W_0=o(z)$.  $\square$
+
+Three remarks keep the ledger exact.  (i) The mechanism is arithmetic
+injectivity of small cells, not cancellation; it is therefore insensitive
+to the moving coefficients that block DFI/BC, and it closes
+$\asymp L^3/(\log L)^2$ fibres where the union route of Proposition 45.3
+afforded only $O(L^{3/2}/\log L)$ arbitrary fibres.  This is the widest
+proved subfamily of (40.19) to date, and — unlike Proposition 42.3 — it is
+uniform over the whole prime range.  (ii) It does **not** prove (40.19):
+the complementary range $m=4c^2s>W_0$ (large squares $c^2$ or large
+squarefree parts $s$) is untouched, and there distinct cells genuinely
+collide modulo $p$.  By (45.4) the cell index reaches
+$m\leq c(pq+1)$, so the remaining family is the bulk.  (iii) No new
+computational block is added: at toy scale every $m$ exceeds the toy
+primes, so the injectivity hypothesis $W_0<z$ has no nontrivial finite
+instance; the analytic inputs ((45.3), (45.9)) are already exercised by
+`verify.py (ao)` and `(ar)`.
