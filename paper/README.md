@@ -1,23 +1,59 @@
 # Paper draft status
 
-`espaper.tex` is the v3 standalone `amsart` consolidation draft. It is about 40 pages and has two headline-class results:
+`espaper.tex` is the v4 standalone `amsart` consolidation draft (45 pages). Its two headline results are:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
-- for every fixed `m >= 3`, `E_m(N) ≪ N exp{-c eta_1(m)(log N)^(3/4)/phi(m)}`.
+- for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
+  `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
-Both remain visibly **CLAIMED/PROVISIONAL** and depend on the likewise provisional pruned cubic prime-slice theorem (the source notes' Theorem 34.8). “Unconditional” means that no unproved hypothesis is assumed; it does not mean externally validated. The draft does not claim a proof of the Erdős–Straus conjecture.
+Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
 
-## v3 additions
+## v4 changes
 
-- Full §43 general-numerator chain: the `m`-uniform identity, exact `eta_1` and `eta_2` thinning factors, aggregate `(k,m)=1` treatment, class-mass proof with modulus `muv`, first `2/3` layer, provisional cubic transfer, unequal-prime-power moment replay, conservative `y,r ~ (log X)^3` ledger, and the repaired `epsilon/4` semigroup cutoff.
-- Exact uniformity ranges: prime/all-denominator first layer through `m <= (log N)^(2-epsilon)` / `m <= (log N)^(1-epsilon)`, and the provisional `3/4` layer through `m <= (log N)^(3/4-epsilon)`.
-- Honest Pomerance–Weingartner comparison: the crossover is `phi(m) ≲ eta_1(m)^(3/2)(log N)^(1/8)` up to theorem constants; PW is better for larger `m`, so v3 makes no uniform-beating claim.
-- Verification pedigree: §41's attested-blind S1–S7 reconstruction and caveats, §34.5's third internal Theorem 34.8 check against Shiu's 1980 hypotheses, two v2 fidelity passes, and the three repaired wave-15 hostile reviews. These are explicitly internal checks, not external validation.
-- Brief §44 pointwise subsection: raw slice vanishing, the raw/primitive boundary, the squarefree-`c`-core obstruction, the exact small-box conspiracy census, and the explicit statement that all-prime slice positivity would prove the Type-I Erdős–Straus conjecture.
-- Expanded frontier: §42 unique-cofactor/complement-divisor normal forms, fixed-`s` and fixed-polylog-prime closure; §45's exact Kloosterman matrix, DFI/Bettin–Chandee quantifier audit; and Theorem 45.9 closing `4c^2s <= (log X)^3/(loglog X)^2` over the full endpoint prime range. The complementary bulk and all higher codegrees remain open.
-- Bibliography entries for Duke–Friedlander–Iwaniec and Bettin–Chandee. DFI is checked against the archived full 1997 PDF. Vaughan 1970 remains inaccessible and is discussed only through Pomerance–Weingartner plus confirmed metadata.
+- Promoted source Theorem 43.12 to the abstract, introduction, and general-`m` headline. Its proof includes the finite relative-mass inequality (43.36), thinned quarantine and Bonferroni degree, `O(Mt)` ledger, full `m <= (log N)^(3-epsilon)` audit, and uniform semigroup transfer. Source Theorem 43.8 remains as the one-sentence conservative linear-thinning variant.
+- Replaced the old Pomerance–Weingartner comparison by the adjudicated scales `R=(eta_2/phi)^(1/4)L^(3/4)` and `P=L^(2/3)/phi^(1/3)`, exact ratio/crossover (43.33)–(43.34), common-domain comparison, and separate `L^(3-epsilon)` range discussion. Layer 1 now has its repaired all-denominator range `m <= L^(2-epsilon)`.
+- Extended the verification pedigree with the source §43.11 attested-blind protocol, freeze commit, convergence/divergence scope, and hostile strengthening adjudication. It remains explicitly internal.
+- Added the §47 nested squarefree divisor cube. It refutes literal raw targets (40.28) and (37.19), not `H_PF'`, pair target (40.19), or the conjecture. The implication antichain preserves the void, and (47.16) is the exact replacement **OPEN** wall.
+- Extended the endpoint frontier from Theorem 45.9’s injective `W_0` prefix to `W_1 ~ L^5 loglog L/(log L)^2` and the wedge `c >= z, m <= zW_1`. The distinct-cell collision sum (46.13) is the exact current **OPEN** pair remainder.
+- Added source Theorem 48.1 in full, the fixed-divisor law (48.16)–(48.17), residue-one escape (48.20), and the finite depth census. Pointwise Type-I existence remains the conjectural target; no progress claim is made.
+- Updated the abstract/frontier/status register, compacted already-resolved bibliography entries without adding citation keys, and regenerated the tracked table of contents.
 
-## Compile status
+## Resolved v3 errata
+
+The pending v4 structural erratum in the wave-16 fidelity review is resolved: v4 no longer calls raw (37.19) or literal (40.28) open, states their precise refutation scope, and names implication-antichain (47.16) as the repaired open hierarchy. The review’s “do not insert an unadjudicated strengthening” guard is also resolved correctly: only the later hostile-adjudicated Theorem 43.12 is promoted, with every provisional label retained. The post-freeze Layer-1 all-denominator range correction and the §46 endpoint refinement are now incorporated.
+
+## Statement fidelity
+
+Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
+
+- notes Theorem 43.4, (43.13)–(43.15) ↔ `general-two-third`: unchanged exponent and local factor; both prime and all-denominator ranges are now exactly `m <= L^(2-epsilon)`.
+- notes Theorem 43.8, (43.28) ↔ `general-three-quarter-conservative`: `eta_1(m)/phi(m)`, `L^(3/4)`, range `m <= L^(3/4-epsilon)`, primes and all denominators, and inherited status all agree.
+- notes PW (43.32)–(43.34) ↔ paper (43.32)–(43.34): `R/P={eta_2(m)^3 phi(m)L}^(1/12)` and crossover `L >= 1/(eta_2(m)^3 phi(m))` agree; no old `eta_1` crossover or uniform-beating claim remains.
+- notes Theorem 43.12, (43.35) ↔ `general-three-quarter`: `≪_epsilon`, `c_epsilon`, fourth root, `eta_2(m)L^3/phi(m)`, exact `3 <= m <= L^(3-epsilon)` range, prime/all-denominator scope, and all inheritance caveats agree.
+- notes (43.36)–(43.42) ↔ the new proof: finite cutoff `K`, coefficient `(1-1/p)/p^e`, bound `H_m(K)/p`, fixed relative threshold, `M=eta_2(m)t^3/phi(m)`, `y,r=O(M)`, `O(Mt)` ledger, `t=alpha(L/theta_m)^(1/4)`, fixed-gap constraints, and semigroup `gamma` agree.
+- notes §43.11 and Assessment 43.13 ↔ `pedigree` and the thinned-window preface: allowed reads, freeze hash, self-attestation limitation, S3/S6/S7 qualifications, adjudicated checks, verdict, and unchanged provisional status agree.
+- notes Theorem 47.2, (47.10)–(47.14) ↔ `nested-cube`: squarefree top atom, `exp(cL/log L)` extension mass, conditioned raw-`H` moment failure for every fixed `C`, and the `Y`-to-`2Y` odd-subset mechanism agree.
+- notes (47.16) ↔ `antichain-wall`: deletion direction, unchanged union/void, `Q_S`, `w_B`, every shared prime-power factor in `Gamma_S`, compatible-set quantifiers, even `m in [D Lambda,D Lambda+2]`, and `C Lambda` right side agree.
+- notes Theorem 46.2, (46.8)–(46.10) ↔ `endpoint-wedge`: `W_1=floor(zL^2/log L)`, `W_2=floor(zW_1)`, full prefix, large-`c` wedge, and `O(Lambda^2)` conclusions agree. The preceding displayed diagonal/occupancy inequalities reproduce (46.3) and (46.9).
+- notes Corollary 46.3, (46.11)–(46.13) ↔ `endpoint-core`: the sets `A,B`, ordered distinct-cell condition `m != m'`, congruence modulo `p`, weight `G_{m,p}G_{m',p}/p`, prime range, and equivalence to (40.19) agree.
+- notes Theorem 48.1, (48.1)–(48.3) ↔ `moving-genus`: fundamental discriminant character, admissible hard-prime scope, implication `chi_s(p)=1 => M_{c,k}(p)=0`, exact set `{1,2,3,6}`, relative density `1/2`, and finite exclusions agree.
+- notes Theorem 48.4, (48.15)–(48.17) ↔ `fixed-divisor-slice`: paper `L_d` is the notes’ local `L`; all three congruences, reduced-class and admissibility scope, explicit `e,a,b`, necessity within the fixed-`d` shape, and refinement clause agree.
+- notes Theorem 48.5, (48.20)–(48.21) ↔ `slice-residue-one`: no residue one, bounded full-modulus union, `Lambda_Q`, infinite prime class, and factor-size contradiction agree.
+- notes (48.8)–(48.14) ↔ the depth paragraph: `D=ck_min-1`, `385`, `77`, `(12289,76)`, `1181`, `103`, and `(92401,102)` agree and remain computational only.
+
+The retained v3 correspondences were also rechecked after the edits:
+
+- notes (43.2)–(43.3) ↔ `m-identity`, including positivity;
+- notes (43.4), (43.6)–(43.9) ↔ `m-thinning`, including `eta_1`, `eta_2`, `C_2`, aggregate scope, and no `(uv,m)=1` assumption;
+- notes (43.10)–(43.23) ↔ `m-class-mass`, `m-profiles`, and `m-pruned`, including the prime domain, product modulus `muv`, reduced-fibre quantifier, and `1/phi(m)`;
+- notes (43.24)–(43.27) ↔ the unequal-prime-power moment replay and mixed local-factor correction;
+- notes (44.3)–(44.16) ↔ raw slice vanishing, primitive caveat, `80/111`, `15/385`, and the retained `p=2521` datum;
+- notes (42.1)–(42.17) and Theorem 45.9 ↔ endpoint uniqueness, collision law, fixed fibres, Kloosterman matrix, DFI/BC quantifiers, and `W_0` injectivity;
+- notes §41.1–§41.5 and §34.5 ↔ all verification counts and internal-only caveats.
+
+No statement discrepancy remains from this pass.
+
+## Build and hygiene
 
 Run from `paper/`:
 
@@ -26,48 +62,11 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v3 build completes with zero TeX errors and no undefined references or citations. The PDF and auxiliary files are generated locally and are not tracked. `espaper.toc` is tracked and updated. Manual source-style equation tags produce pre-existing duplicate-destination `hyperref` warnings; they are not unresolved references.
-
-## Included foundation
-
-- Complete prime-denominator criterion and forced identity families.
-- Exact intrinsic classes `{-4D mod M : D | ((M+1)/4)^2}`, cubic class mass, Jacobi-sign/square escape, prime-slice avoidance, and the multi-shift certificate.
-- Literal `H_PF`, its conditional consequence, weighted rough-modulus and local-lemma proofs, and the full-quantifier refutation.
-- Critical-window transfer walls, prime-side minorant, composite factorial-moment reduction, complete fixed-`c`-free §39 assembly, honest `exp(O(J log X))` ledger, and semigroup transfer.
-- The proved regular dispersion tail and the exact still-open endpoint target, now narrowed by §§42 and 45.
-
-## Fidelity note
-
-The v3 statements were checked directly against the post-review source text in `notes.md`. The following correspondences were rechecked symbol by symbol:
-
-- notes (43.2)–(43.3) ↔ Lemma `m-identity`: hypotheses `k ell = -1 (mod m)`, `A=(k ell+1)/m=uvw`, and all three denominators;
-- notes (43.4), (43.6)–(43.9) ↔ `m-thinning` and the exact `F_m` identity, including `eta_1`, `eta_2`, `C_2`, fixed-class versus aggregate scope, and no `(uv,m)=1` assumption;
-- notes (43.10)–(43.15) ↔ `m-class-mass` and `general-two-third`: product modulus `muv`, `1/phi(m)`, theorem exponent, and all three uniformity ranges;
-- notes (43.16)–(43.27) ↔ the c-free atoms, profiles, reduced-fibre quantifier in `m-pruned`, conditioned local-factor correction, and factorial-moment base;
-- notes (43.28)–(43.31) ↔ `general-three-quarter`: `eta_1(m)/phi(m)`, `m <= (log N)^(3/4-epsilon)`, conservative degree/ledger, and the repaired cutoff `x_0=exp{m^(1/(3/4-epsilon/4))}`;
-- notes (43.32)–(43.34) ↔ the PW theorem and two-regime crossover, with no uniform-beating claim;
-- notes (44.3)–(44.4a), (44.8)–(44.10), and (44.16) ↔ the raw vanishing law, primitive caveat, four squarefree cores, `80/111`, and the seven-column census;
-- notes (42.1)–(42.8), (42.10)–(42.11), and (42.17) ↔ endpoint uniqueness, collision law, fixed-fibre estimate, and fixed polylogarithmic prime range;
-- notes (45.2)–(45.5), DFI (45.10), BC (45.12), and Theorem 45.9 (45.26) ↔ the exact matrix, both reciprocity orientations, actual coefficient quantifiers, `W_0 <= z/2`, and `W_0=floor(L^3/(log L)^2)`;
-- notes §41.1–§41.5 and §34.5 ↔ the verification-pedigree counts and the attested-blind / internal-only caveats.
-
-The initial v3 assembly pass reported no old paper/notes transcription error. The later hostile wave-16 fidelity review found and repaired the statement-domain and source-provenance defects listed below; the earlier eaten-backslash repairs recorded by v2 remain intact.
-
-## Wave-16 v3 fidelity review
-
-`reviews/wave16-paper-v3-review.md` records a **FAITHFUL-AFTER-REPAIRS** verdict. The repair restored the positivity hypotheses in the general-numerator identity, restored the prime domain in the general-$m$ class-mass lemma, retained the specifically requested $p=2521$ census datum, and limited the Bettin--Chandee bibliography entry to the archived arXiv source. No unadjudicated $[\eta_2(m)/\varphi(m)]^{1/4}$ strengthening was inserted.
-
-**Pending v4 structural erratum (§47):** v3's statements that the raw factorial-moment target (37.19) and literal codegree target (40.28) remain open are now stale: notes §47 refutes both for the unreduced count $H$ and replaces them with the still-open implication-antichain target (47.16). The endpoint target (40.19) remains open; the v3 frontier text is intentionally not rewritten in this review.
-
-## Priority and verification status
-
-Vaughan's primary paper is R. C. Vaughan, “On a problem of Erdős, Straus and Schinzel,” *Mathematika* 17 (1970), 193–198, DOI `10.1112/S0025579300002886`. Its PDF remains access-blocked. Pomerance–Weingartner §4 reconstructs and cites Vaughan as the state of the art, and the campaign search found no post-1970 exponent improvement. This is search-limited evidence, not a literature guarantee. Do not remove any provisional label without independent expert review and a completed primary-literature check.
+The v4 build completes with zero TeX errors and no undefined references or citations. The PDF is 45 pages and is generated locally, not tracked; `espaper.toc` is tracked and updated. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero.
 
 ## Submission TODO
 
-- Obtain external expert review of Theorem 34.8, the §39 chain, and the full §43 transfer.
+- Obtain external expert review of Theorem 34.8, the §39 chain, and the full thinned-window §43 transfer.
 - Obtain/read Vaughan 1970 and complete the priority search.
-- Settle author metadata and final publication data for Pomerance–Weingartner and Bettin–Chandee.
-- Prove or disprove the endpoint bulk `4c^2s > W_0`, then address prime-power and multi-coordinate codegrees.
-- Add standard-reference citations if required by the target journal and perform a final line-by-line referee audit.
-- wave-16 adjudication of the thinned-window strengthening: STRENGTHENING CONFIRMED; paper update pending next paper pass.
+- Prove or disprove endpoint remainder (46.13), then address implication-antichain wall (47.16).
+- Settle author metadata and perform a final line-by-line referee audit.
