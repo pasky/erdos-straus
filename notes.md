@@ -18046,22 +18046,26 @@ to be prime. \(\square\)
 Here is the promised falsifiable hypothesis.  The logarithm is natural.
 
 **Hypothesis \(H_{\rm SPF}(A)\) (slice prime factor; bespoke and unproved).**
-There are absolute constants \(A>0\) and \(p_0\) such that every prime
-\(p>p_0\), \(p\equiv1\pmod {24}\), admits positive integers \(c,k\) and a
-prime \(q\) with
+Fix \(A>0\).  The assertion \(H_{\rm SPF}(A)\) is that there is a constant
+\(p_0=p_0(A)\) such that every prime \(p>p_0\),
+\(p\equiv1\pmod {24}\), admits positive integers \(c,k\) and a prime \(q\)
+with
 
 \[
  \boxed{\quad ck\leq(\log p)^A,\qquad
  q\mid p^2+4ck^2,\qquad q\equiv-p\pmod {4ck}.\quad}        \tag{50.7}
 \]
 
-This is the weakest hypothesis *within the one-prime-factor mechanism*: it
-puts no bound on \(q\), no prescribed \((c,k)\), no primitivity condition,
-and no extra genus condition.  The latter is automatic from (50.3).  It is
+This is a deliberately quantitative sufficient hypothesis, not the
+logically weakest hypothesis within the one-prime-factor mechanism: deleting
+the log-power bound and asking only for an admissible slice with such a prime
+factor is weaker.  Within the stated log-power slice box, (50.7) puts no bound
+on \(q\), prescribes no \((c,k)\), imposes no primitivity condition, and needs
+no extra genus condition; the latter is automatic from (50.3).  It is
 stronger than slice positivity, because a product of two or more wrong-grade
 prime factors can hit the target even when no individual prime does.
-Proposition 48.6 remains the weaker exact criterion without the
-one-prime restriction.
+Proposition 48.6 remains the weaker exact criterion without the one-prime
+restriction.  *(wave-17 review repair)*
 
 **Theorem 50.2 (conditional on \(H_{\rm SPF}(A)\); \(H_{\rm SPF}(A)\)
 unproved).**  If \(H_{\rm SPF}(A)\) holds for some \(A\), then every
@@ -18134,13 +18138,13 @@ least active core, and no proof using only boundedly many cores with arbitrary
 \(k\), can hold.
 
 *Proof.*  Let
-\(R_B=24\prod_{\ell\leq B,\ \ell\ {
-m prime}}\ell\).  Dirichlet's theorem
+\(R_B=24\prod_{\substack{\ell\leq B\\ \ell\ {\rm prime}}}\ell\).
+Dirichlet's theorem
 gives infinitely many primes \(p\equiv1\pmod {R_B}\).  For every odd prime
 \(\ell\leq B\), quadratic reciprocity and \(p\equiv1\pmod4\) give
 \((\ell/p)=(p/\ell)=1\); the factor 24 gives \((2/p)=(-1/p)=1\).
 Multiplicativity proves (50.9).  Theorem 48.1 then gives every asserted
-slice zero. \(\square\)
+slice zero.  *(wave-17 review repair)* \(\square\)
 
 **Theorem 50.6 (conditional on GRH; GRH unproved; active slice only).**
 The GRH least-quadratic-nonresidue theorem implies that every sufficiently
@@ -18209,13 +18213,15 @@ modulo \(4ckq\), so the rectangular analogue of (29.7) is
  \begin{split}
  \mu_{\rm raw}(L,Z)
  &\leq {1\over2}\sum_{ck\leq L}{1\over ck}
-       \sum_{\substack{q\leq Z\\q\equiv3\ (4)}}{1\over q}\\
+       \sum_{\substack{q\leq Z\\q\equiv3\ (4)\\q\ {\rm prime}}}{1\over q}\\
  &=\left({1\over8}+o(1)\right)(\log L)^2\log\log Z.
                                                                \tag{50.12}
  \end{split}
 \]
 
-This is a class-mass envelope, not a coverage theorem.  There are
+The prime condition in the second sum is now explicit.
+*(wave-17 review repair)*  This is a class-mass envelope, not a coverage
+theorem.  There are
 \(\sum_{n\leq L}\tau(n)=L\log L+O(L)\) slices, but Theorem 48.1 shows that
 all \(k\)'s over one core share the same genus bit; counting them as
 independent quadratic fields is already wrong.

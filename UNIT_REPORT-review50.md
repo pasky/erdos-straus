@@ -1,0 +1,11 @@
+# Unit review50 report
+- Verdict: **SOUND-AFTER-REPAIRS**; the prime-factor reduction survives full re-derivation.
+- Confirmed the exact good grade is `-p mod 4ck` iff `chi_s(p)=-1`; it is empty otherwise.
+- Confirmed coprimality, complementary grade, Type-I reconstruction, and all admissibility/size conditions.
+- Confirmed raw positivity is sufficient despite nonprimitivity; `(241,7,3,q=11)` is the regression.
+- Repaired `H_SPF(A)` quantifiers and removed its false “logically weakest” description.
+- Repaired Theorem 50.5's malformed prime product and made the prime sum in (50.12) explicit.
+- Confirmed the Bateman–Horn, GRH/Chebotarev, EH, least-nonresidue, and Duke obstruction audits.
+- Reproduced all 385 census minima; three independent exact instances passed.
+- Full verifier passed; isolated `ES_FULL_SCAN=1` `(aw)` passed all 1,181 hard primes.
+- Detailed audit: `reviews/wave17-sec50-review.md`.
