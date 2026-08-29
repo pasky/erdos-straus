@@ -7775,4 +7775,342 @@ print("\n== (ar) moving-s Kloosterman-matrix audit (§45) ==")
 check_ar()
 
 
+# ---------------------------------------------------------------- (au)
+def check_au():
+    """§48: unforced-slice census, conspiracy depth, and fixed guarantees."""
+    import os
+    from collections import defaultdict
+    from math import sqrt
+    from sympy import kronecker_symbol
+
+    scan_limit = 100_000 if os.environ.get("ES_FULL_SCAN") == "1" else 30_000
+    hard_all = tuple(p for p in primerange(2, scan_limit) if p % 24 == 1)
+    census_hard = tuple(p for p in hard_all if p < 30_000)
+    assert len(census_hard) == 385
+    if scan_limit == 100_000:
+        assert len(hard_all) == 1181
+
+    core_cache = {}
+
+    def squarefree_core(n):
+        if n not in core_cache:
+            core_cache[n] = prod(q for q, e in factorint(n).items() if e % 2)
+        return core_cache[n]
+
+    forced_cores = {1, 2, 3, 6}
+    box_slices = tuple((c, k) for k in range(1, 31)
+                       for c in range(1, 30 // k + 1))
+    unforced = tuple((c, k) for c, k in box_slices
+                     if squarefree_core(c) not in forced_cores)
+    assert len(box_slices) == 111 and len(unforced) == 31
+    assert sum(squarefree_core(c) in forced_cores
+               for c, k in box_slices) == 80
+
+    hit_cache = {}
+
+    def slice_hit(P, C, K):
+        """Exact bounded exponent-box test, storing only residues modulo 4CK."""
+        key = (P, C, K)
+        if key in hit_cache:
+            return hit_cache[key]
+        h = 4 * C * K
+        target = (-P) % h
+        residues = {1}
+        for q, e in factorint(P * P + 4 * C * K * K).items():
+            powers = []
+            power = 1
+            for _ in range(e + 1):
+                powers.append(power)
+                power = power * q % h
+            residues = {a * b % h for a in residues for b in powers}
+        hit_cache[key] = target in residues
+        return hit_cache[key]
+
+    # Columns are (c,k,total zeros, genus-forced zeros, residual box zeros,
+    # positives, least prime fixed divisor, one guaranteed residue, modulus).
+    expected_rows = (
+        (5, 1, 220, 185, 35, 165, 3, 97, 120),
+        (7, 1, 330, 182, 148, 55, 11, 73, 1848),
+        (10, 1, 313, 185, 128, 72, 7, 73, 840),
+        (11, 1, 273, 181, 92, 112, 3, 217, 264),
+        (13, 1, 334, 188, 146, 51, 7, 1657, 2184),
+        (14, 1, 299, 182, 117, 86, 23, 1489, 3864),
+        (15, 1, 348, 185, 163, 37, 23, 457, 2760),
+        (17, 1, 303, 186, 117, 82, 3, 337, 408),
+        (19, 1, 336, 181, 155, 49, 7, 601, 3192),
+        (20, 1, 334, 185, 149, 51, 7, 313, 1680),
+        (21, 1, 341, 182, 159, 44, 11, 409, 1848),
+        (22, 1, 365, 181, 184, 20, 23, 1033, 6072),
+        (23, 1, 346, 173, 173, 39, 3, 457, 552),
+        (26, 1, 318, 188, 130, 67, 7, 97, 2184),
+        (28, 1, 371, 182, 189, 14, 23, 3673, 7728),
+        (29, 1, 325, 189, 136, 60, 3, 577, 696),
+        (30, 1, 353, 185, 168, 32, 23, 337, 2760),
+        (5, 2, 293, 185, 108, 92, 7, 313, 840),
+        (7, 2, 358, 182, 176, 27, 23, 145, 3864),
+        (10, 2, 340, 185, 155, 45, 7, 1273, 1680),
+        (11, 2, 326, 181, 145, 59, 23, 769, 6072),
+        (13, 2, 353, 188, 165, 32, 7, 409, 2184),
+        (14, 2, 337, 182, 155, 48, 23, 3001, 7728),
+        (15, 2, 363, 185, 178, 22, 23, 937, 2760),
+        (5, 3, 348, 185, 163, 37, 23, 577, 2760),
+        (7, 3, 348, 182, 166, 37, 11, 241, 1848),
+        (10, 3, 348, 185, 163, 37, 23, 217, 2760),
+        (5, 4, 321, 185, 136, 64, 7, 73, 1680),
+        (7, 4, 368, 182, 186, 17, 23, 313, 7728),
+        (5, 5, 325, 185, 140, 60, 3, 97, 600),
+        (5, 6, 359, 185, 174, 26, 23, 1177, 2760),
+    )
+    assert tuple((row[0], row[1]) for row in expected_rows) == unforced
+
+    observed_rows = []
+    zero_sets = {}
+    for C, K in unforced:
+        zeros = frozenset(P for P in census_hard if not slice_hit(P, C, K))
+        genus = frozenset(P for P in census_hard
+                          if kronecker_symbol(-squarefree_core(C), P) == 1)
+        assert genus <= zeros
+        zero_sets[(C, K)] = zeros
+        observed_rows.append((C, K, len(zeros), len(genus),
+                              len(zeros - genus), len(census_hard) - len(zeros)))
+    assert tuple(observed_rows) == tuple(row[:6] for row in expected_rows)
+
+    # Reproduce §44's conventions and its aggregate counts without refactoring
+    # or repeating the 80 deterministically zero factorizations.
+    total_depth = Counter(80 + sum(P in zero_sets[s] for s in unforced)
+                          for P in census_hard)
+    assert dict(sorted(total_depth.items())) == {
+        99: 2, 100: 3, 101: 10, 102: 4, 103: 18, 104: 43, 105: 40,
+        106: 43, 107: 55, 108: 55, 109: 64, 110: 33, 111: 15,
+    }
+    cutoff_rows = []
+    for cutoff in (4, 5, 10, 15, 20, 25, 30):
+        slices = tuple((C, K) for C, K in box_slices if C * K <= cutoff)
+        all_zero = sum(all(squarefree_core(C) in forced_cores
+                           or P in zero_sets[(C, K)] for C, K in slices)
+                       for P in census_hard)
+        cutoff_rows.append((cutoff, len(slices), all_zero))
+    assert tuple(cutoff_rows) == (
+        (4, 8, 385), (5, 10, 220), (10, 27, 161), (15, 45, 63),
+        (20, 66, 41), (25, 87, 30), (30, 111, 15),
+    )
+
+    def admissible(P, C, K):
+        return (3 * K <= 2 * P and 4 * C * K <= 2 * P + K
+                and gcd(P, C * K) == 1)
+
+    # Find ck_min in product order.  Only unresolved primes continue, and each
+    # factor box stores at most 4ck residues.
+    unresolved = set(hard_all)
+    ck_min = {}
+    first_slice = {}
+    for n in range(1, 129):
+        pairs = tuple((C, n // C) for C in range(1, n + 1) if n % C == 0
+                      and squarefree_core(C) not in forced_cores)
+        for C, K in pairs:
+            for P in tuple(unresolved):
+                if admissible(P, C, K) and slice_hit(P, C, K):
+                    ck_min[P] = n
+                    first_slice[P] = (C, K)
+                    unresolved.remove(P)
+        if not unresolved:
+            break
+    assert not unresolved, ("ck_min guard exhausted", sorted(unresolved))
+    depth = {P: ck_min[P] - 1 for P in hard_all}
+
+    expected_depth_hist = {
+        4: 165, 6: 29, 9: 30, 10: 66, 12: 13, 13: 19, 16: 18,
+        18: 4, 20: 6, 21: 3, 22: 2, 25: 10, 27: 3, 28: 2, 30: 1,
+        33: 2, 34: 1, 37: 3, 38: 1, 41: 2, 43: 1, 58: 2, 66: 1,
+        76: 1,
+    }
+    assert dict(sorted(Counter(depth[P] for P in census_hard).items())) == expected_depth_hist
+
+    depth_records = []
+    running = -1
+    for P in census_hard:
+        if depth[P] > running:
+            running = depth[P]
+            depth_records.append((P, running))
+    assert tuple(depth_records) == (
+        (73, 6), (193, 9), (241, 10), (769, 12), (1321, 20),
+        (2281, 25), (2521, 37), (9601, 66), (12289, 76),
+    )
+
+    dyadic = []
+    for j in range(6, 15):
+        bucket = tuple(P for P in census_hard
+                       if 2**j <= P < min(2**(j + 1), 30_000))
+        if bucket:
+            maximum = max(depth[P] for P in bucket)
+            dyadic.append((2**j, min(2**(j + 1), 30_000), len(bucket),
+                           maximum, tuple(P for P in bucket if depth[P] == maximum)))
+    assert tuple(dyadic) == (
+        (64, 128, 2, 6, (73,)), (128, 256, 2, 10, (241,)),
+        (256, 512, 5, 10, (409,)), (512, 1024, 6, 12, (769,)),
+        (1024, 2048, 16, 20, (1321,)),
+        (2048, 4096, 31, 37, (2521,)),
+        (4096, 8192, 58, 27, (8161,)),
+        (8192, 16384, 99, 76, (12289,)),
+        (16384, 30_000, 166, 58, (29569,)),
+    )
+
+    def divisor_square_hit(n, modulus):
+        target = (-n) % modulus
+        residues = {1}
+        for q, e in factorint(n).items():
+            powers = []
+            power = 1
+            for _ in range(2 * e + 1):
+                powers.append(power)
+                power = power * q % modulus
+            residues = {a * b % modulus for a in residues for b in powers}
+        return target in residues
+
+    def w_star(P):
+        for w in range(3, 80, 4):
+            x = (P + w) // 4
+            if divisor_square_hit(x, w):
+                return w
+            z = (P * w + 1) // 4
+            if divisor_square_hit(z, w):
+                return w
+        raise AssertionError(("w* guard exhausted", P))
+
+    w_values = {P: w_star(P) for P in census_hard}
+    assert dict(sorted(Counter(w_values.values()).items())) == {
+        3: 304, 7: 62, 11: 14, 15: 2, 23: 2, 31: 1,
+    }
+
+    def pearson(xs, ys):
+        mean_x = sum(xs) / len(xs)
+        mean_y = sum(ys) / len(ys)
+        numerator = sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys))
+        denominator = sqrt(sum((x - mean_x)**2 for x in xs)
+                           * sum((y - mean_y)**2 for y in ys))
+        return numerator / denominator
+
+    def tied_ranks(values):
+        positions = defaultdict(list)
+        for i, value in enumerate(values):
+            positions[value].append(i)
+        ans = [0.0] * len(values)
+        first = 1
+        for value in sorted(positions):
+            indices = positions[value]
+            rank = (first + first + len(indices) - 1) / 2
+            for i in indices:
+                ans[i] = rank
+            first += len(indices)
+        return ans
+
+    D_values = [depth[P] for P in census_hard]
+    W_values = [w_values[P] for P in census_hard]
+    assert round(pearson(D_values, W_values), 6) == 0.525121
+    assert round(pearson(tied_ranks(D_values), tied_ranks(W_values)), 6) == 0.568502
+    grouped = []
+    for w in sorted(set(W_values)):
+        values = [depth[P] for P in census_hard if w_values[P] == w]
+        grouped.append((w, len(values), round(sum(values) / len(values), 3), max(values)))
+    assert tuple(grouped) == (
+        (3, 304, 7.303, 37), (7, 62, 17.258, 66),
+        (11, 14, 27.143, 76), (15, 2, 26.5, 37),
+        (23, 2, 21.0, 30), (31, 1, 38.0, 38),
+    )
+
+    def fixed_prime_classes(C, K, q):
+        """Hard CRT classes on which q is the target divisor."""
+        if gcd(q, 2 * C * K) != 1 or factorint(q) != {q: 1}:
+            return ()
+        h = 4 * C * K
+        modulus = lcm(24, h, q)
+        return tuple((r, modulus) for r in range(1, modulus, 24)
+                     if r % h == (-q) % h
+                     and (r * r + 4 * C * K * K) % q == 0)
+
+    # Least eligible prime q and one displayed class for every unforced slice.
+    for C, K, zeros, genus, residual, positives, q, r, modulus in expected_rows:
+        assert fixed_prime_classes(C, K, q)
+        assert (r, modulus) in fixed_prime_classes(C, K, q)
+        assert all(not fixed_prime_classes(C, K, smaller)
+                   for smaller in primerange(3, q))
+        scanned = 0
+        for P in hard_all:
+            if P % modulus != r:
+                continue
+            scanned += 1
+            h = 4 * C * K
+            norm = P * P + 4 * C * K * K
+            assert norm % q == 0 and q % h == (-P) % h
+            E = norm // q
+            A, B = (P + q) // h, (P + E) // h
+            assert A > 0 and B > 0
+            assert P * (A + B) == K * (4 * A * B * C - 1)
+            assert slice_hit(P, C, K)
+        assert scanned > 0
+
+    # Complete hard-compatible prime-divisor guarantees for q <= 7 and ck <= 30.
+    small_guarantees = tuple(
+        (C, K, q, r, modulus)
+        for q in (3, 5, 7) for C, K in unforced
+        for r, modulus in fixed_prime_classes(C, K, q)
+    )
+    assert all(not fixed_prime_classes(C, K, q)
+               for q in (3, 5, 7) for C, K in box_slices
+               if squarefree_core(C) in forced_cores)
+    expected_small = (
+        (5, 1, 3, 97, 120), (11, 1, 3, 217, 264),
+        (17, 1, 3, 337, 408), (23, 1, 3, 457, 552),
+        (29, 1, 3, 577, 696), (5, 5, 3, 97, 600),
+        (5, 1, 7, 433, 840), (5, 1, 7, 673, 840),
+        (10, 1, 7, 73, 840), (10, 1, 7, 193, 840),
+        (13, 1, 7, 1657, 2184), (13, 1, 7, 1969, 2184),
+        (17, 1, 7, 1081, 2856), (17, 1, 7, 2713, 2856),
+        (19, 1, 7, 601, 3192), (19, 1, 7, 1513, 3192),
+        (20, 1, 7, 313, 1680), (20, 1, 7, 793, 1680),
+        (26, 1, 7, 97, 2184), (26, 1, 7, 1345, 2184),
+        (5, 2, 7, 313, 840), (5, 2, 7, 793, 840),
+        (10, 2, 7, 1273, 1680), (10, 2, 7, 1513, 1680),
+        (13, 2, 7, 409, 2184), (13, 2, 7, 1033, 2184),
+        (5, 4, 7, 73, 1680), (5, 4, 7, 1033, 1680),
+        (5, 5, 7, 793, 4200), (5, 5, 7, 1993, 4200),
+    )
+    assert small_guarantees == expected_small
+    for C, K, q, r, modulus in small_guarantees:
+        matching = tuple(P for P in census_hard if P % modulus == r)
+        assert matching
+        for P in matching:
+            h = 4 * C * K
+            E = (P * P + 4 * C * K * K) // q
+            A, B = (P + q) // h, (P + E) // h
+            assert q % h == (-P) % h
+            assert P * (A + B) == K * (4 * A * B * C - 1)
+            assert slice_hit(P, C, K)
+
+    if scan_limit == 100_000:
+        full_records = []
+        running = -1
+        for P in hard_all:
+            if depth[P] > running:
+                running = depth[P]
+                full_records.append((P, running))
+        assert tuple(full_records[-2:]) == ((55_441, 82), (92_401, 102))
+        assert max(depth.values()) == 102
+
+    print("unforced slices / hard census =", (len(unforced), len(census_hard)))
+    print("per-slice (c,k,zeros,genus,residual,positive) =",
+          tuple(row[:6] for row in expected_rows))
+    print("D histogram / records / max =",
+          (expected_depth_hist, depth_records, max(depth[P] for P in census_hard)))
+    print("D versus w*: Pearson/Spearman =", (0.525121, 0.568502))
+    print("least-q guarantees / all q<=7 classes =",
+          (len(expected_rows), len(small_guarantees)))
+    if scan_limit == 100_000:
+        print("ES_FULL_SCAN hard primes / max D =", (len(hard_all), max(depth.values())))
+
+
+print("\n== (au) conspiracy depth and guaranteed slice positivity (§48) ==")
+check_au()
+
+
 print("\nall checks passed")
