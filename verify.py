@@ -6830,4 +6830,250 @@ print("\n== (am) residue-dispersion companions (§40) ==")
 check_am()
 
 
+# ---------------------------------------------------------------- (an)
+def check_an():
+    """Unit R: independent atom, CRT-moment, and residue-profile stress."""
+    import ast
+    import os
+    from collections import defaultdict
+    from pathlib import Path
+
+    ast.parse(Path(__file__).read_text(encoding="utf-8"), filename=__file__)
+
+    # This is intentionally a fresh enumerator, independent of (al).  The
+    # literal mode uses the §39 dyadic x^(1/6) cutoff.  The enlarged mode uses
+    # ell^(1/3), solely to make more residue classes visible at toy scale.
+    def root_floor(n, degree):
+        value = int(n ** (1 / degree))
+        while (value + 1) ** degree <= n:
+            value += 1
+        while value ** degree > n:
+            value -= 1
+        return value
+
+    def build_atoms(X, K, H_toy=1, enlarged=False):
+        blocks = []
+        if enlarged:
+            blocks.append((X ** 0.5, X, None))
+        else:
+            left = X ** 0.5
+            while left < X:
+                right = min(2 * left, X)
+                blocks.append((left, right, int(left ** (1 / 6))))
+                left = right
+
+        atoms = []
+        for left, right, block_z in blocks:
+            for ell in primerange(int(left) + 1, int(right) + 1):
+                if not left < ell <= right or ell % 4 != 3:
+                    continue
+                z = root_floor(ell, 3) if enlarged else block_z
+                for k in range(1, K + 1, 4):
+                    quotient = (k * ell + 1) // 4
+                    for u in range(H_toy + 1, z + 1):
+                        for v in range(H_toy + 1, z + 1):
+                            if gcd(u, v) != 1 or gcd(u * v, k) != 1:
+                                continue
+                            if len(factorint(u * v)) > 6:  # inactive toy omega cutoff
+                                continue
+                            if quotient % (u * v):
+                                continue
+                            modulus = k * ell
+                            residue = (-u * pow(v, -1, modulus)) % modulus
+                            atoms.append((k, ell, u, v, modulus, residue))
+        return atoms
+
+    def multiplier_crt(L, residue, k, atom_residue):
+        common = gcd(L, k)
+        if (residue - atom_residue) % common:
+            return None
+        quotient = k // common
+        shift = 0 if quotient == 1 else (
+            (atom_residue - residue) // common
+            * pow(L // common, -1, quotient)
+        ) % quotient
+        new_L = L * quotient
+        return new_L, (residue + L * shift) % new_L
+
+    def exact_moments(atoms, max_degree=6):
+        # Process one ell fibre at a time, choosing zero or one atom.  A state
+        # records only the compatible multiplier CRT class; no atom Cartesian
+        # products are materialized.
+        fibres = defaultdict(Counter)
+        for k, ell, u, v, modulus, residue in atoms:
+            fibres[ell][(k, residue % k)] += 1
+        states = {(0, 1, 0): Fraction(1)}
+        for ell, options in sorted(fibres.items()):
+            updated = dict(states)
+            for (degree, L, residue), weight in states.items():
+                if degree == max_degree:
+                    continue
+                for (k, atom_residue), multiplicity in options.items():
+                    merged = multiplier_crt(L, residue, k, atom_residue)
+                    if merged is None:
+                        continue
+                    new_L, new_residue = merged
+                    key = (degree + 1, new_L, new_residue)
+                    updated[key] = updated.get(key, Fraction()) + (
+                        weight * Fraction(multiplicity, ell)
+                    )
+            states = updated
+        values = [
+            sum((weight / L for (degree, L, residue), weight in states.items()
+                 if degree == j), Fraction())
+            for j in range(max_degree + 1)
+        ]
+        direct_mu = sum((Fraction(1, atom[4]) for atom in atoms), Fraction())
+        assert values[0] == 1 and values[1] == direct_mu
+        return values
+
+    def audit_family(atoms, K, check_pair_sum=False, scan_pairs=True):
+        by_ell = defaultdict(list)
+        fibre_modulus = 24 * lcm(*range(1, K + 1, 4))
+        for atom in atoms:
+            k, ell, u, v, modulus, residue = atom
+            by_ell[ell].append(atom)
+            # S1 coupling, plus the complete multiplier identity on one hit.
+            n = residue + 2 * modulus
+            c = n % fibre_modulus
+            assert (u + n * v) % k == 0 and (u + c * v) % k == 0
+            w = (k * ell + 1) // (4 * u * v)
+            s = (n * v + u) // modulus
+            assert Fraction(4, n) == (
+                Fraction(1, s * u * w)
+                + Fraction(1, n * s * v * w)
+                + Fraction(1, n * u * v * w)
+            )
+
+        for ell, rows in by_ell.items():
+            projections = [row[5] % ell for row in rows]
+            assert len(projections) == len(set(projections))
+
+        compatible_pairs = 0
+        pair_sum = Fraction()
+        if scan_pairs:
+            for index, left in enumerate(atoms):
+                for right in atoms[index + 1:]:
+                    common = gcd(left[4], right[4])
+                    if (left[5] - right[5]) % common == 0:
+                        compatible_pairs += 1
+                        assert left[1] != right[1]
+                        if check_pair_sum:
+                            pair_sum += Fraction(1, lcm(left[4], right[4]))
+        return len(by_ell), compatible_pairs, pair_sum
+
+    def integer_divisors(n):
+        return [d for d in range(1, n + 1) if n % d == 0]
+
+    def profile_summary(atoms):
+        rows_by_k = defaultdict(list)
+        for atom in atoms:
+            rows_by_k[atom[0]].append(atom)
+        normalized = []
+        for k, rows in rows_by_k.items():
+            W_k = sum((Fraction(1, row[4]) for row in rows), Fraction())
+            for g in integer_divisors(k):
+                if g == 1:
+                    continue
+                units = [a for a in range(g) if gcd(a, g) == 1]
+                phi_g = len(units)
+                masses = defaultdict(Fraction)
+                for row in rows:
+                    masses[row[5] % g] += Fraction(1, row[4])
+                for a in units:
+                    normalized.append(float(phi_g * masses[a] / W_k))
+        if not normalized:
+            return (0, 0.0, 0.0, 0.0, 0.0)
+        ordered = sorted(normalized)
+        return (
+            len(normalized),
+            round(ordered[0], 3),
+            round(ordered[len(ordered) // 2], 3),
+            round(ordered[-1], 3),
+            round(sum(abs(value - 1) for value in ordered) / len(ordered), 3),
+        )
+
+    # Literal dyadic families at the largest cheap toy scales.  Exact counts
+    # pin the endpoint convention and make future changes visible.
+    literal_cases = ((3000, 5), (6000, 9), (10000, 13))
+    expected = {(3000, 5): (138, 69), (6000, 9): (330, 147),
+                (10000, 13): (966, 409)}
+    literal = {}
+    moment_rows = []
+    profile_rows = []
+    coupling_atoms = compatible_total = 0
+    for X, K in literal_cases:
+        atoms = build_atoms(X, K)
+        literal[(X, K)] = atoms
+        ell_count, compatible_pairs, pair_sum = audit_family(
+            atoms, K, check_pair_sum=(X == 3000)
+        )
+        assert (len(atoms), ell_count) == expected[(X, K)]
+        moments = exact_moments(atoms)
+        if X == 3000:
+            assert moments[2] == pair_sum
+        mu = moments[1]
+        ratios = tuple(round(float(prod(range(1, j + 1)) * moments[j] / mu ** j), 6)
+                       for j in range(1, 7))
+        moment_rows.append(("literal", X, K, len(atoms), ell_count,
+                            round(float(mu), 6), ratios))
+        profile_rows.append(("literal", X, K, len(atoms), *profile_summary(atoms)))
+        coupling_atoms += len(atoms)
+        compatible_total += compatible_pairs
+
+    # The enlarged family supplies many (k,g,a), including k=9, while keeping
+    # the same arithmetic events.  It is a finite sparsity stress, not an
+    # approximation to the dyadic asymptotic.
+    enlarged_cases = ((3000, 5), (6000, 9), (10000, 13))
+    enlarged = {}
+    for X, K in enlarged_cases:
+        atoms = build_atoms(X, K, enlarged=True)
+        enlarged[(X, K)] = atoms
+        audit_family(atoms, K, scan_pairs=False)
+        coupling_atoms += len(atoms)
+        profile_rows.append(("enlarged", X, K, len(atoms), *profile_summary(atoms)))
+
+    unequal_power_atoms = build_atoms(3000, 9, enlarged=True)
+    ell_count, compatible_pairs, _ = audit_family(unequal_power_atoms, 9)
+    moments = exact_moments(unequal_power_atoms)
+    mu = moments[1]
+    moment_rows.append((
+        "enlarged", 3000, 9, len(unequal_power_atoms), ell_count,
+        round(float(mu), 6),
+        tuple(round(float(prod(range(1, j + 1)) * moments[j] / mu ** j), 6)
+              for j in range(1, 7)),
+    ))
+    coupling_atoms += len(unequal_power_atoms)
+    compatible_total += compatible_pairs
+
+    # Independent overlap regression against (al)'s documented parameters.
+    overlap = build_atoms(625, 5, enlarged=True)
+    overlap_classes = {(row[0], row[1], row[5]) for row in overlap}
+    overlap_ells = {row[1] for row in overlap}
+    assert (len(overlap), len(overlap_classes), len(overlap_ells)) == (134, 134, 34)
+
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        heavy = enlarged[(10000, 13)]
+        values = exact_moments(heavy)
+        mu = values[1]
+        moment_rows.append((
+            "enlarged-full", 10000, 13, len(heavy), len({row[1] for row in heavy}),
+            round(float(mu), 6),
+            tuple(round(float(prod(range(1, j + 1)) * values[j] / mu ** j), 6)
+                  for j in range(1, 7)),
+        ))
+
+    print("independent atom/moment rows (mode,X,K,atoms,ells,mu,j!e_j/mu^j j=1..6) =",
+          moment_rows)
+    print("W profile stress (mode,X,K,atoms,cells,min,median,max,mean|.-1|), normalized by 1/phi(g) =",
+          profile_rows)
+    print("S1/fixed-ell atoms checked and compatible pairs exhaustively scanned; (al) overlap =",
+          (coupling_atoms, compatible_total),
+          (len(overlap), len(overlap_classes), len(overlap_ells)))
+
+
+print("\n== (an) Unit R independent construction stress (§41) ==")
+check_an()
+
+
 print("\nall checks passed")

@@ -13817,3 +13817,336 @@ coefficient/endpoint quantifiers, and the conditioning shortcut at
 prime-power and multi-coordinate codegrees, (37.19), (33.16), and the
 refutation of \(H_{\rm PF}'\) all remain **OPEN**.  Accordingly no earlier
 status line is superseded.
+
+
+## 41. Unit R: blind parallel construction and stress test of the cubic-rate chain
+
+**Scope and status.**  This is an independent-construction datum for §39,
+not a status upgrade.  In particular, Theorem 34.8 was an allowed input and
+was not independently reproved here.  Theorem 39.7 remains
+**CLAIMED/PROVISIONAL**, and the priority caveat in §39.7 remains unchanged.
+
+### 41.1 Blind protocol and audit trail
+
+Unit R cloned the repository independently and worked at base
+`c489912bc704abb17af44c19ee830a3cb7421140`.  Before the blind-phase commit it
+read only the task brief, all of §16 (`notes.md` lines 2715--3239 at that
+commit), and all of §34 (lines 10741--11303).  It did not open §39 or inspect
+`verify.py (al)`.  The required baseline run was green; its console output did
+print `(al)`'s summary line, but its code was not read.  The complete blind
+derivation was committed as
+`347a570312f68141e364b9d385db52e6be58aa75` in `unit_r_blind.md` before §39
+was opened.  Phase 3 then read §39 and the wave-13 repair commit
+`41570a595f660adc3abc5cd51b7c7cc74917a0e1`.
+
+The construction below is a condensed self-contained record of that blind
+file.  Put `t=log X`; constants may depend on the fixed
+`0<kappa<1/240`, but are uniform in the displayed variables.
+
+### 41.2 Independent construction
+
+**Proposition 41.1 (S1--S2; proved).**  Every exceptional denominator avoids
+all the atoms.  An atom hit in the fibre `c=n (mod 24L_K)` obeys
+`k|u+cv`.  Compatible distinct atoms have distinct large-prime coordinates,
+and a compatible ordered `j`-set has probability
+
+after CRT
+\[
+ {1\over [k_1,\ldots,k_j]\prod_i\ell_i}.                    \tag{41.1}
+\]
+
+*Proof.*  For an atom put `w=(k ell+1)/(4uv)`.  A hit says
+`nv=-u (mod k ell)`, so Lemma 16.1 applied to
+`(k ell+1)/4=uvw` gives the representation.  Reduction modulo `k`, followed
+by `n=c (mod k)`, gives the coupling.
+
+At fixed `ell`, equality of two atom classes gives
+`ell|uv'-u'v`; the absolute value is at most `x^(1/3)<ell`, so reducedness
+makes the ordered pairs equal.  If the multipliers differed, their common
+`uv` would divide both `(k ell+1)/4` and `(k'ell+1)/4`, hence divide
+`(k-k')/4`, contrary to `uv>H^2>K>|k-k'|/4`.  Thus the atoms are equal.
+A compatible set can consequently use each `ell` only once.  Since
+`ell_i>K` and the `ell_i` are distinct, its lcm is the denominator in
+(41.1), and CRT finishes the proof.  This proves S1--S2. \(\square\)
+
+**Proposition 41.2 (S3, including the residue-resolved box; proved).**
+Uniformly for `k<=K`, `g|k`, and reduced `a (mod g)`,
+\[
+ W_{k,a}(g)\ll {t^2\varphi(k)^2\over\varphi(g)k^3},\qquad
+ W_k\asymp {t^2\varphi(k)^2\over k^3},\qquad
+ \mu_X\asymp t^3.                                           \tag{41.2}
+\]
+
+*Proof.*  The load-bearing box estimate is derived as follows.  In fixed
+relative boxes `u~U,v~V`, put `F(n)=n/phi(n)` and drop only `(u,v)=1` for
+the upper bound.  For each reduced `v (mod k)`, the condition
+`u=-av (mod g)` selects exactly `phi(k)/phi(g)` reduced classes modulo `k`.
+Shiu in those classes and, separately, in all reduced `v`-classes gives,
+after division by `UV`,
+\[
+ {C\over\varphi(g)}
+ \exp\{-2\sum_{p\mid k}(p-1)^{-1}\}
+ \leq {C\over\varphi(g)}\left({\varphi(k)\over k}\right)^2. \tag{41.3}
+\]
+Here `k<=K<U^(1/10),V^(1/10)`, and
+`exp(-1/(p-1))<=1-1/p`; hence the constant is uniform and there is no
+hidden divisor or logarithmic loss.  Summing `O(t^2)` box pairs gives
+\[
+ \sum_{H<u,v\leq z\atop (uv,k)=1,\ u+av=0\ (g)}
+ {1\over\varphi(u)\varphi(v)}
+ \ll {t^2\varphi(k)^2\over\varphi(g)k^2}.                  \tag{41.4}
+\]
+This is the independent D-a calculation.
+
+For fixed `(u,v)`, Brun--Titchmarsh in
+`ell=-k^{-1} (mod 4uv)`, where `4uv<=4x^(1/3)`, bounds the reciprocal prime
+mass by `C/(phi(u)phi(v)log x)`.  Equation (41.4), the factor `1/k`, and
+`O(t)` blocks give the first estimate in (41.2).
+
+Without the ratio condition, the pair-box density is uniformly comparable
+to `(phi(k)/k)^2`; the coprimality factor over primes not dividing `k` stays
+between two absolute constants.  The fixed-function Rankin argument removes
+the high-omega tail.  For this fixed `k`, each progression modulus has only
+`2^omega(uv)=(log X)^O(1)` allocations, so ordinary
+Bombieri--Vinogradov supplies the matching lower prime mass without a factor
+`K`.  This proves the estimate for `W_k`.  Finally weighted Cauchy, (16.6),
+and `sum_{k<=K,k=1(4)}1/k asymp log K` give
+\[
+ \sum_{k\leq K,k=1(4)}{\varphi(k)^2\over k^3}\asymp\log K\asymp t,
+\]
+which proves the mass assertion and S3. \(\square\)
+
+**Proposition 41.3 (S4, exact prime-power induction; proved).**  For
+`2<=y<X^(1/2)` and all `m>=1`,
+\[
+ \mathbb E((H_X)_m\mid(n,P_y)=1)\leq(Ct^3)^m.              \tag{41.5}
+\]
+
+*Proof.*  Let previous compatible atoms fix a reduced class modulo multiplier
+lcm `L`.  For a new atom with `p^e||k`, put `p^f||L`.  Conditional on the
+old set and roughness, the exact local probability is
+\[
+\begin{array}{c|c}
+ f\geq e&1\\
+ 0<f<e&p^{-(e-f)}\\
+ f=0,\ p\leq y&1/\varphi(p^e)\\
+ f=0,\ p>y&p^{-e}.
+\end{array}                                                  \tag{41.6}
+\]
+A residue inconsistency modulo `p^min(e,f)` instead gives zero.  The new
+`ell` costs `1/ell`.  Thus, with `g=(k,L)`, consistency modulo `g` leaves
+\[
+ {C(k,L;y)\over k\ell},\qquad
+ C(k,L;y)=g\prod_{p\mid k,\ p\nmid L,\ p\leq y}{p\over p-1}. \tag{41.7}
+\]
+The residue profile in (41.2) bounds the sum at fixed `k`.  Prime by prime,
+the factor outside the remaining `1/k` is
+\[
+ 1-1/p\quad(p\mid L),\qquad
+ 1-1/p\quad(p\nmid L,p\leq y),\qquad
+ (1-1/p)^2\quad(p\nmid L,p>y).                              \tag{41.8}
+\]
+Thus it is at most one pointwise, including all unequal exponent patterns,
+and
+\[
+ \sum_{k\leq K}{C(k,L;y)\varphi(k)^2\over\varphi(g)k^3}
+ \leq\sum_{k\leq K}{1\over k}\ll t.                       \tag{41.9}
+\]
+Each next atom therefore costs at most `Ct^3`.  Incompatible tuples vanish,
+old atoms are excluded by the falling factorial, and Proposition 41.1 gives
+a new `ell` at every step.  Iteration proves (41.5) and D-b. \(\square\)
+
+**Proposition 41.4 (S5, conditioned void; proved).**  For a sufficiently
+large fixed `B` and `y=Bt^3`,
+\[
+ \Pr(H_X=0\mid(n,P_y)=1)\leq e^{-ct^3}.                    \tag{41.10}
+\]
+
+*Proof.*  Reveal `c=n (mod 24L_K)` and take
+\[
+ \mathcal J(c)=\{k\leq K:k=1\ (4),(k,c)=1\},\qquad
+ h(c)=\sum_{k\in\mathcal J(c)}{\varphi(k)\over k^2}.
+\]
+This is a reduced fibre containing 1.  Theorem 34.8 supplies inside the
+c-free atoms a pruned active subfamily of prime-coordinate mass
+`>=c t^2h(c)`.  Proposition 41.1 makes its classes at each `ell` distinct;
+different `ell`-coordinates are independent.  Hence
+\[
+ \Pr(H_X=0\mid c,(n,P_y)=1)\leq e^{-ct^2h(c)}.             \tag{41.11}
+\]
+
+For an exponentially strong average, not a Markov bound, put
+`w_k=phi(k)/k^2`, `h_0=sum w_k asymp log K`, and
+\[
+ A_p=\sum_{p\mid k}w_k\ll{\log K\over p}.
+\]
+Roughness and a union bound give
+`h(c)>=h_0-sum_{p|c,p>y}A_p`.  The relevant large-prime divisibility
+indicators are independent with means `1/p`.  With `lambda=ct^2`, a large
+fixed `B` makes `lambda A_p=O(t^3/p)` uniformly small, and
+\[
+ \mathbb E\exp\{\lambda\sum_{p\mid c,p>y}A_p\}
+ \leq\exp\{C\lambda\log K\sum_{p>y}p^{-2}\}=O(1).         \tag{41.12}
+\]
+Averaging (41.11) now gives (41.10).  This is D-c.  Direct Janson is not a
+substitute: the usual dependency sum has quadratic order in the mass.
+\(\square\)
+
+**Proposition 41.5 (S6, Bonferroni and ledger; proved).**  Let `r` be the
+least even integer at least `D_Bt^3`, for a sufficiently large fixed `D_B`,
+and put
+\[
+ \nu_X=\mathbf1_{(n,P_y)=1}\sum_{j\leq r}(-1)^j{H_X\choose j}.
+\]
+It is at least one on every exceptional prime above `max(K,y)`, has CRT mean
+at most `e^{-ct^3}`, degree `O(t^3)`, per-term modulus logarithm `O(t^4)`,
+and coefficient-sum logarithm `O(t^4)`.  If `log N>=C_0t^4`, then
+\[
+ \sum_{n\leq N}\nu_X(n)\ll Ne^{-ct^3}.                    \tag{41.13}
+\]
+
+*Proof.*  For even `r`, the truncated sum is 1 at zero and
+`C(h-1,r)>=0` at `h>=1`; it therefore majorizes the void.  Moreover
+`C(h-1,r)<=C(h,r+1)`.  Propositions 41.3--41.4 and Stirling give
+\[
+ \mathbb E(Q_r(H_X)\mid(n,P_y)=1)
+ \leq e^{-ct^3}+{(Ct^3)^{r+1}\over(r+1)!}\leq e^{-c't^3}. \tag{41.14}
+\]
+
+Expand roughness over divisors of `P_y` and each binomial into atom sets.
+The crude inventory bound is `log |A_X|=O(t)`.  Consequently
+\[
+ 2^{\pi(y)}\sum_{j\leq r}{|\mathcal A_X|\choose j}
+       =\exp\{O(t^4)\}.                                    \tag{41.15}
+\]
+A term has at most `r+pi(y)=O(t^3)` factors and modulus dividing
+`P_y(KX)^r`, whose logarithm is `O(y)+O(rt)=O(t^4)`.  Every compatible term
+is one class; on `[1,N]` its count is `N/q+O(1)`.  The total rounding error is
+therefore `exp(O(t^4))`, and a sufficiently large `C_0` absorbs it into the
+main bound.  This is the complete D-d ledger and proves S6. \(\square\)
+
+**Corollary 41.6 (S7; proved from the allowed inputs).**  The preceding chain
+implies
+\[
+ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}.              \tag{41.16}
+\]
+
+*Proof.*  Take `t=alpha(log N)^(1/4)` with fixed `alpha` small enough for the
+ledger window.  Equation (41.13) gives the prime bound.  Every prime factor
+of an exceptional integer is exceptional.  The Rankin semigroup proof of
+Theorem 16.5 applies with `g(u)=u^(3/4)` and
+`delta=eta(log N)^(-1/4)`: for `u<=log N`,
+`delta u<=eta u^(3/4)`, so partial summation leaves a uniformly bounded Euler
+product.  This proves S7 and (41.16). \(\square\)
+
+### 41.3 Reconciliation with §39
+
+The classifications concern the proofs, not the publication status.
+“Same-method” means the blind route converged to the same load-bearing
+mechanism, even though it was derived without seeing §39.
+
+| item | verdict | reconciliation |
+|---|---|---|
+| S1 | **CONFIRMED-SAME-METHOD** | Both use Lemma 16.1 and reduce the atom congruence modulo `k`; no constant difference. |
+| S2 | **CONFIRMED-SAME-METHOD** | Both use the `z^2<ell` collision bound.  Unit R proves multiplier uniqueness from the gcd of `(k ell+1)/4` and `(k'ell+1)/4`; §39 instead says the congruence determines `k (mod 4uv)`.  The arguments are equivalent. |
+| S3 | **CONFIRMED-SAME-METHOD** | Both use Shiu for `F=n/phi(n)`, Brun--Titchmarsh for the upper prime mass, and fixed-`k` Bombieri--Vinogradov for the lower.  Unit R works in classes modulo `k`; repaired §39 uses `lcm(g,rad k)`.  Unit R gets (41.3) from the one-sided local inequality, while §39 records uniform comparability. |
+| S4 | **CONFIRMED-SAME-METHOD** | The local table (41.6) agrees exactly with §39's `q_y(k)b_y(g)/(k ell)`.  Unit R reduces the final summand pointwise to at most `1/k`; §39 packages the same cancellation in Lemma 39.3's Euler product.  The latter is correct but stronger machinery than needed for this bound. |
+| S5 | **CONFIRMED-SAME-METHOD** | Both reveal the multiplier fibre and invoke Theorem 34.8 on the surviving subfamily.  §39 splits at `Z(c)<=eta` and applies Chernoff with parameter `y`; Unit R directly averages (41.11) using the actual lost weights `A_p` and parameter `ct^2`.  Both give the same exponential order. |
+| S6 | **CONFIRMED-SAME-METHOD** | The Bonferroni identity, factorial tail, term count, lcm budget, and interval rounding match.  Unit R explicitly includes `theta(y)` in the modulus ledger; this is §39's `O(y)`. |
+| S7 | **CONFIRMED-SAME-METHOD** | The critical-window choice and the Theorem-16.5 semigroup transfer agree exactly. |
+
+**Wave-13 repair comparison.**  The repair commit reports that the original
+§39 residue-box paragraph omitted the extra exclusions.  Its inserted Shiu
+derivation is precisely the detail Unit R independently found necessary in
+D-a.  The same commit added `y<X^(1/2)`; Unit R used that restriction in the
+local `ell` factor.  Its restriction of the bad-fibre sum to primes actually
+supported by `L_K` is implicit in Unit R's `A_p` (which is zero unless a prime
+divides an admissible multiplier).  The proxy-share scope and the `D_B`
+renaming do not enter Unit R's proof.  No repaired line conflicts with the
+blind construction.
+
+**Divergences.**  There are four presentational/argument variants just listed:
+the multiplier-uniqueness algebra, modulus `k` versus `lcm(g,rad k)` in Shiu,
+the pointwise harmonic bound versus Lemma 39.3's Euler comparison, and direct
+weighted fibre averaging versus §39's good/bad split.  They produce no
+constant, quantifier, or range disagreement.  Unit R found no missing step in
+the repaired §39 text and no step there that it considers false.  It regards
+Lemma 39.3's Euler-product comparison as unnecessary, not erroneous.  No
+parallel-construction flag is appended to §39.7.
+
+### 41.4 Independent numerical stress
+
+`verify.py (an)` is fresh code and does not call or reuse `(al)`.  It parses
+the file before running, builds literal dyadic atoms at `X` up to 10000,
+processes one `ell` fibre at a time, and stores only a multiplier CRT state.
+Thus no Cartesian atom-set array is formed.  It computes the elementary CRT
+intersection sums `e_j` exactly as rational numbers through `j=6`.  The
+larger `ell^(1/3)` runs are explicitly structural sparsity tests; they are not
+the literal cutoff and support no asymptotic inference.  A heavier enlarged
+`X=10000` moment row is behind `ES_FULL_SCAN=1`.
+
+The literal results are
+\[
+\begin{array}{c|r|r|r|c|rrrrrr}
+X&K&|\mathcal A|&\#\ell&\mu&
+1!e_1/\mu&2!e_2/\mu^2&3!e_3/\mu^3&4!e_4/\mu^4&5!e_5/\mu^5&6!e_6/\mu^6\\\hline
+3000&5&138&69&.049793&1&1.063584&1.226192&1.531647&2.033861&2.798509\\
+6000&9&330&147&.062663&1&1.080129&1.279698&1.656250&2.294238&3.317229\\
+10000&13&966&409&.109744&1&1.085372&1.290092&1.670174&2.318299&3.388426
+\end{array}                                                  \tag{41.17}
+\]
+An enlarged `X=3000,K=9` family, included to exercise the prime power `9`,
+has 1202 atoms on 175 primes, `mu=.697545`, and normalized moments
+\[
+ (1,.990097,.971991,.947383,.917846,.884716).               \tag{41.18}
+\]
+The literal positive high-moment excess is finite dependency evidence, not a
+problem for the constant-base upper bound (41.5), and no asymptotic claim is
+made from either row.
+
+For each nontrivial `g|k` and every reduced `a (mod g)`, the block records
+\[
+ R_{k,g,a}=\varphi(g)W_{k,a}(g)/W_k,
+\]
+so the reference `1/phi(g)` profile is `R=1`:
+\[
+\begin{array}{c|r|r|r|r|rrrr}
+\text{cutoff}&X&K&|\mathcal A|&\#(k,g,a)&\min R&\operatorname{median}R&\max R&
+ \operatorname{mean}|R-1|\\\hline
+\text{literal}&3000&5&138&4&0&0&4.000&1.500\\
+\text{literal}&6000&9&330&4&0&.127&3.745&1.373\\
+\text{literal}&10000&13&966&16&0&0&5.552&1.476\\
+\text{enlarged}&3000&5&1000&4&.546&.748&1.958&.479\\
+\text{enlarged}&6000&9&2874&12&.361&.905&1.832&.446\\
+\text{enlarged}&10000&13&7700&24&.204&1.019&1.743&.385
+\end{array}                                                  \tag{41.19}
+\]
+The literal boxes are too sparse to populate every residue and show isolated
+large ratios.  In the denser structural stress the maximum and mean absolute
+deviation decrease across these three scales; no scale-growing systematic
+excess was found.  This is only a bug hunt, not evidence for (41.2).
+
+All 14,210 atoms across the literal and enlarged stress families passed the
+S1 coupling and exact multiplier identity, and every fixed-`ell` projection
+was distinct.  In the four pair-scanned families, all 1,128,378 compatible
+pairs had distinct `ell`-coordinates.  At the overlapping `(al)` parameters
+`X=625,K=5,H_toy=1`, the independent enlarged enumerator reproduced exactly
+134 atoms, 134 classes, and 34 primes.  The default block is memory-bounded
+and runs in under ten seconds; the repository's full default verification is
+green.
+
+### 41.5 Overall verdict
+
+**Independent-construction verdict: the repaired S1--S7 chain is sound from
+this protocol's standpoint, with all seven statements CONFIRMED-SAME-METHOD.**
+The blind derivation independently exposed the same three load-bearing needs
+highlighted in §39.7: the residue-resolved Shiu estimate with full local
+uniformity, prime-power collapse/consistency cancellation, and exponentially
+strong removal of bad multiplier fibres.  Reconciliation found no genuine
+error and numerical stress found no structural counterexample.
+
+This verdict is deliberately limited.  The protocol treated Theorem 34.8 as
+an input, did not perform a new literature-priority search, and mostly
+converged to §39's method rather than supplying a wholly different proof.
+It therefore adds insurance and a blind derivability record, but **does not
+upgrade Theorem 39.7 beyond CLAIMED/PROVISIONAL**.
