@@ -18608,6 +18608,16 @@ additional **CLAIMED/PROVISIONAL** estimate
  \ll_A N\exp\{-c A^3(\log\log N)^3\}.                     \tag{51.18}
 \]
 
+*(wave-19 priority repair.)*  The \((\log\log N)^3\) exponent shape at
+polylogarithmic depth has the near-simultaneous independent antecedent Dahan
+(arXiv:2608.24035, Theorem 4.17) for a different, two-parameter \((u,a)\)
+search-depth statistic with no genus gate; the \(o(1)\) in his printed bound is
+explicitly
+ineffective.  The statements here instead bound the minimal congruence
+modulus \(W\), and the repair in Lemmas 51.4--51.5 gives effective constants,
+subject to the displayed correctness labels.  See Section 51.9 for the full
+priority and effectivity audit.
+
 The formulas are interpreted after a fixed large threshold.  The constants
 in (51.17) may absorb the fixed powers of \(A\).  The same bounds hold with
 the varying cutoff \((\log p)^A\): split at \(N^{1/2}\), apply the displayed
@@ -18947,7 +18957,9 @@ parameter depth \(J=(\log N)^\lambda\).  It explicitly says
 that its o(1) is ineffective because its Bombieri--Vinogradov input rests on
 Siegel's theorem.  This is genuine witness-depth language, but its depth
 bounds the two parameters u,a while the divisor witness s may be much larger;
-it is not a tail for the minimal congruence modulus W in (51.1).
+it is not a tail for the minimal congruence modulus W in (51.1).  Thus Dahan
+is an antecedent for the cubic exponent shape at polylogarithmic depth, not
+for the W-statistic or for the effective W-tail asserted here.
 
 **Search result (phrase-level priority; not a literature guarantee).**  Exact
 and variant searches for “minimal/least/witness modulus,” “almost all primes,”
@@ -18961,6 +18973,107 @@ The absence of a hit is not a claim that none exists.
 current Cambridge/Wiley open-status routes produced no lawful full text.
 `sources/vaughan-1970-access-log.md` records the failures.  No direct Vaughan
 effectivity verdict or argument comparison is therefore claimed.
+
+### 51.10 Blind parallel construction (wave-19, adjudicated)
+
+**Protocol and status.**  The blind unit started from the pre-wave-18 commit
+`4dcf3b7e1e10e31f529f5e2862a2aa23c0820bb6`, on branch `blind51`, and froze
+its derivation at commit `7ecd7d514ae379e9c90d6a7b292d11e80840b360` before
+seeing Section 51.  The frozen artifact is `blind51.md`, SHA-256
+`b0a4a27dba52fb563b4667427f2200cc98e670c27e8fff390aa846b1039c8b7c`.
+The commit history verifies the base, artifact, and ordering; as in Section
+41, read isolation is a self-attestation rather than a cryptographic fact.
+This comparison adjudicates the mathematics, not the blindness claim.
+
+The following table compares every load-bearing component.  “Same method”
+allows harmless rebalancing of fixed powers between \(X\) and the witness
+budget \(T\); “different route” means that both arguments were replayed and
+close independently.
+
+| element | blind construction | Section 51 | adjudication |
+|---|---|---|---|
+| Definition of \(W\) | Minimizes \(k\ell\) subject to \((k\ell+1)/4=uvw\) and \(pv\equiv-u\pmod {k\ell}\), for prime \(p\). | The same minimum, written with \(v^{-1}\), and additionally defined for every positive integer. | **CONFIRMED-SAME-METHOD.**  Since \(v\mid(k\ell+1)/4\), it is invertible modulo \(k\ell\).  The blind file explicitly restricts both \(W\)-tail propositions to primes and independently avoids the integer-scope error repaired after the wave-18 review. |
+| Variant (a): tail and window | With \(K=t^5\) and \(KX\leq T\), obtains exponent \(t^2\log K\) and window \(\log N\geq Ct^3\log K\). | With \(X=T^{1/2}\), \(K=(\log X)^5\), obtains (51.12)--(51.13). | **CONFIRMED-SAME-METHOD.**  Both give exactly \(e^{-c(\log T)^2\log\log T}\) under \(\log N\geq C(\log T)^3\log\log T\); only constant-scale allocation differs. |
+| Variant (a): assembly replay | Canonical Lemma-16.3 boxes, c-free atoms, fibre quarantine with \(y=B\mu\), moments \((C\mu)^m\), even Bonferroni degree \(r\asymp\mu\), and ledger \(O(\mu t)\). | Lemma 51.1 parameterizes the same Section-39 chain by \(\mu=t^2\log K\). | **CONFIRMED-SAME-METHOD.**  Neither route uses Theorem 34.8; both inherit the Section-39 review qualification. |
+| Variant (b): tail and window | With \(K=X^\kappa\), \(t=(1+\kappa)^{-1}\log T\), obtains \(e^{-c_\kappa(\log T)^3}\) under \(\log N\geq C_\kappa(\log T)^4\). | Uses \(X=T^{1/2}\), \(K=X^\kappa\), and obtains (51.14)--(51.15). | **CONFIRMED-SAME-METHOD.**  Both satisfy \(KX\leq T\), and both use \(X^{1/12}>K^{20}\), hence the same strict \(\kappa<1/240\) range. |
+| Variant (b): recovery of Theorem 39.7 | At the top of the window obtains the prime saving \(e^{-c(\log N)^{3/4}}\), then explicitly invokes Theorem 16.5's semigroup transfer. | Identifies (51.15) there with the prime part of (39.35); Theorem 39.7 already contains the same transfer. | **CONFIRMED-SAME-METHOD.**  A prime exception has \(W(p)=\infty\), so the prime tail applies and the all-denominator recovery closes. |
+| Effectivity audit | Separates effective box, Shiu, incidence, moment, larger-sieve, and semigroup steps from the ineffective-as-written BV lower supplies. | The ingredient ledger (51.23) makes the same separation. | **CONFIRMED-SAME-METHOD**, with the Theorem-34.8 perimeter discrepancy isolated below. |
+| Exceptional-conductor repair | Formal induced-character lemma; top-scale Landau--Page selection; delete every \(4uv\) divisible by the one conductor; prove a pointwise harmonic-box retention lemma. | Lemma 51.4 plus its induced-character repair; one conductor selected for each dyadic block; Lemma 51.5 proves retention by splitting the selected prime at \(p\leq Ck\) and \(p>Ck\). | **CONFIRMED-DIFFERENT-ROUTE.**  The conductor deletion and induced-small-conductor accounting coincide.  The two retention proofs and conductor-selection granularities differ, but both close with uniform effective constants. |
+| Effectivity perimeter | The detailed repair proves effective (16.8), (34.18)--(34.19), and the downstream chains, but its final perimeter sentence calls all of Theorem 34.8 fully effective. | Theorem 51.6 claims exactly the class-mass and downstream conclusions and expressly excludes Theorem 34.8's ancillary all-triples \(o(1)\) sentence. | **DISCREPANT; SECTION 51 IS RIGHT.**  Excluded-conductor BV controls only the deletion-surviving subfamily and cannot make the original absolute-error sum over all low-congestion triples effective. |
+| PW truncation | Derives the square-log tail with \(\log N\geq C(\log T)^3\), explicitly for all integers and also records the general-\(m\) factor \(1/\varphi(m)\). | Records the fixed-\(m=4\) square-log tail (51.25) and its weaker position relative to both multiplier tails. | **CONFIRMED-SAME-METHOD.**  PW's larger-sieve argument itself counts integers, so the blind file's explicit all-integer scope is valid; its varying-\(m\) effectivity caveat agrees with Section 51.9. |
+
+The ingredient-by-ingredient effectivity comparison is exact as follows.
+
+| ingredient | adjudicated comparison |
+|---|---|
+| Lemmas 16.2--16.3 | Both audits find 16.2 effective and the BV lower half of 16.3 ineffective as printed; conductor deletion makes the class-mass conclusion (16.8) effective. |
+| Theorem 34.8 | Both repairs make (34.18)--(34.19) effective.  Only Section 51 correctly withholds effectivity from the original ancillary absolute-error \(o(1)\) assertion. |
+| Section 39 | The upper profile, exact CRT moments, Chernoff, Bonferroni, and rounding ledger are effective; the lower profile inherits the repaired supply.  Both constructions retain all correctness-review qualifications. |
+| Theorem 16.4 | Gallagher/PW larger sieve and Rankin truncation are effective once (16.8) is effective. |
+| Theorem 16.5 | Partial summation and the semigroup Rankin transfer are effective once the prime bound and its starting point are effective. |
+
+**Independent replays and discrepancies.**  In both tails the common
+parameter is
+\(\mu=t^2\log K\), the saving is \(e^{-c\mu}\), and finite CRT rounding
+costs \(e^{O(\mu t)}\).  In variant (a), the blind choice has
+\(t=\log T-5\log\log T+O(1)\), while Section 51 takes
+\(t=\tfrac12\log T\); both therefore give precisely the same two logarithmic
+shapes and window.  In variant (b), the corresponding choices are
+\(t=(1+\kappa)^{-1}\log T\) and \(t=\tfrac12\log T\); again these are fixed
+constant changes, and both meet the geometric floor and witness-budget
+constraints.  No stronger or weaker tail exponent, no lost
+\(\log\log T\), and no window disagreement survives this replay.
+
+For induced characters, both arguments use the exact lift weight
+\[
+ \sum_{q\leq Q,\ r\mid q}{1\over\varphi(q)}
+ \ll {\log(2Q)\over\varphi(r)}.
+\]
+Thus polynomially large progression moduli do not suppress a small
+primitive conductor.  Lenstra--Pomerance, Lemma 11.2, supplies the effective
+endpoint-maximal BV estimate after deleting multiples of one possible
+conductor.  The blind proof selects one conductor for the whole outer range
+\(X^{1/2}\leq x\leq X\), whereas Section 51 selects one at the upper endpoint
+of each dyadic block.  The latter follows directly from the cited maximum in
+\(y\); the former also survives the standard top-scale Landau--Page replay
+because all logarithms are comparable, but is not needed by Section 51.
+
+The deletion-tolerance divergence also closes.  The blind proof imposes
+\(p\nmid uv\) directly in each box and obtains the local ratio
+\[
+ { (1-1/p)^2\over1-1/p^2}={p-1\over p+1}\geq {1\over3},
+\]
+with the boundary still absorbed by \(H=K^{10}\); Section 51 obtains the
+same ratio for \(p\leq Ck\) and uses a direct discarded-mass estimate for
+\(p>Ck\).  Replaying the blind interval count as one progression modulo
+\(k\) minus its zero class modulo \(p\) introduces no hidden factor \(p\),
+so both routes are valid.
+
+The one genuine discrepancy is the blind file's last effectivity-perimeter
+sentence.  Its preceding step 2 proves only that the deletion-surviving
+low-congestion triples yield effective (34.18)--(34.19).  Restoring the
+deleted triples would restore the unresolved exceptional-character error,
+so that argument does not make Theorem 34.8's first, all-triples sentence
+effective.  Section 51's narrow caveat and Theorem 51.6 are therefore the
+correct statements.
+
+**Candidate strengthenings, not integrated.**  The blind Lemma B4.3 proves
+the box deletion statement for every integer \(r\nmid4\), rather than only
+primitive real conductors; the replay above confirms it, but the extra scope
+is not needed.  Lemma B4.2 also packages one conductor uniformly across the
+whole outer dyadic range.  That stronger convenience survives the internal
+replay but should receive a precise citation or a full quantitative proof
+before promotion; neither candidate changes an exponent, window, or status.
+
+**Overall adjudication: CONVERGED-WITH-DIVERGENCES.**  The two constructions
+independently converge on the definition, both exact tail shapes and windows,
+the Section-39 replay, the effective exceptional-conductor deletion needed
+for every downstream class-mass conclusion, the recovery of (39.35), and
+the PW comparison.  The only material disagreement is an overbroad sentence
+in the blind artifact; Section 51 already states the correct narrower
+perimeter.  Blind convergence is an independent-construction datum only: it
+does **not** upgrade Theorem 34.8, Theorem 39.7, the cubic statements, or
+Theorem 51.6, and every **CLAIMED/PROVISIONAL** label remains unchanged.
 
 ## 52. Per-slice vanishing frequency: the sieve upper bound and the empty third layer
 
