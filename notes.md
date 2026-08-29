@@ -15483,10 +15483,13 @@ swap have
 \(3\equiv-p\pmod {20}\).  Theorem 44.1 gives the slice, and substituting its
 complementary divisor gives (44.12). \(\square\)
 
-**Prior-supply identification (wave-15 review repair).**  This is exactly the
-\(c=5,D=3\) branch already proved in Theorem 35.4, now read inside one ray
-slice.  Moreover the same hard-prime progression was already covered by the
-Type-II multiplier identity of Lemma 16.1: take
+**Prior-supply identification (wave-15 review repair).**  This uses the same
+fixed divisor and hard progression as the \(c=5,D=3\) branch of Theorem 35.4,
+but not the same row or slice: at \(p=97\), Theorem
+35.4 gives \((a,b,c,k)=(1,34,5,5)\), whereas (44.12) gives
+\((5,162,5,1)\).  *(wave-16 review repair)*  Moreover the same hard-prime
+progression was already covered by the Type-II multiplier identity of Lemma
+16.1: take
 \(k\ell=15\) and \((u,v,w)=(1,2,2)\), so
 \(p\equiv7\pmod {15}\); intersecting with \(p\equiv1\pmod {24}\) gives
 \(p\equiv97\pmod {120}\).  Thus Corollary 44.3 proves pointwise slice
@@ -16915,11 +16918,11 @@ Erdős--Straus conjecture.
 
 **Scope and outcome.**  This section separates the 80 deterministic zeros in
 (44.16) from the 31 slices which can actually fluctuate.  A quadratic genus
-character forces exactly half of the hard prime classes to vanish for every
-one of those 31 slices, while a fixed prime divisor supplies a positive-density
-progression for every one; hence there is no further identically zero slice in
-the box.  The remaining zeros are genuine misses of the moving finite exponent
-box.  An exact census defines and computes a robust conspiracy depth through
+character forces vanishing on exactly one half of the hard prime classes for
+every one of those 31 slices, while a fixed prime divisor supplies a
+positive-density progression for every one; hence there is no further
+identically zero slice in the box.  *(wave-16 review repair)*  The remaining
+zeros are genuine misses of the moving finite exponent box.  An exact census defines and computes a robust conspiracy depth through
 30,000 (and optionally 100,000), and a fixed-divisor theorem classifies all
 arithmetic-progression guarantees of that shape.  Its residue-one escape is an
 exact slice-language mirror of Theorem 17.3.  None of this proves that every
@@ -16954,9 +16957,10 @@ and only if
                          s\in\{1,2,3,6\}.                   \tag{48.3}
 \]
 
-For every other squarefree \(s\), the primes satisfying (48.2) have relative
-Dirichlet density \(1/2\) among the hard primes (with the finitely many primes
-dividing \(s\) omitted).
+For every other squarefree \(s\), the hard primes with \(\chi_s(p)=1\) have
+relative Dirichlet density \(1/2\) (with the finitely many ramified primes
+omitted); imposing admissibility for a fixed \((c,k)\) removes only the further
+finite set dividing \(ck\).  *(wave-16 review repair)*
 
 *Proof.*  Every prime \(\ell\mid p^2+4s(tk)^2\) is odd and prime to
 \(stk\), and
@@ -17173,10 +17177,11 @@ w^*&3&7&11&15&23&31\\
 \end{array}                                                  \tag{48.14}
 \]
 
-The association is real in this census but far from an identification:
-\(9601\) has \((D,w^*)=(66,7)\), while the §19 record prime \(21169\) has
-\((38,31)\).  The two statistics inspect different factorizations and the
-correlations are informational only.  In particular the global record
+**Measured/informational only (wave-16 review repair).**  The finite-census
+association is nonzero but far from an identification: \(9601\) has
+\((D,w^*)=(66,7)\), while the §19 record prime \(21169\) has \((38,31)\).
+The two statistics inspect different factorizations; no population
+correlation or growth law is inferred.  In particular the global record
 \(w^*\leq71\) through \(10^{10}\) gives no bound on \(D\).
 
 ### 48.3 Every fixed-divisor guarantee, and its residue-one escape
@@ -17232,13 +17237,17 @@ when \((-4c\mid q)=1\), and one obtains the CRT classes
 
 Hard compatibility forces \(q\equiv3\pmod4\), and more precisely
 \(q\equiv-1\pmod{(h,24)}\), together with root compatibility when
-\(q\mid24\).  This is exactly Lemma 29.2 intersected with the hard
-progression.  Corollary 44.3 is \((c,k,q)=(5,1,3)\), while Theorem 35.4's
-\(c=5,D=3\) branch supplies the same row with \(a=1\).  The dictionary is
-therefore literal, not just a density analogy.
+\(q\mid24\).  Every prime-divisor class in (48.5) and (48.19) is exactly
+Lemma 29.2 intersected with the hard progression; no new fixed-prime-divisor supply is
+claimed.  Corollary 44.3 is \((c,k,q)=(5,1,3)\).  Theorem 35.4's
+\(c=5,D=3\) branch supplies the same hard progression but a different row
+and slice: at \(p=97\) it gives \((a,b,c,k)=(1,34,5,5)\), whereas
+Corollary 44.3 gives \((5,162,5,1)\).  Thus the progression dictionary is
+literal, but the rows must not be identified.  *(wave-16 review repair)*
 
-For reference, the complete list from (48.18) with \(ck\leq30\) and prime
-divisor \(q\leq7\) is
+**Computational 48.4a (finite prime-divisor list; wave-16 review repair).**
+The complete list generated from (48.18) with \(ck\leq30\) and prime divisor
+\(q\leq7\) is
 
 \[
 \begin{array}{c|l}
@@ -17356,10 +17365,12 @@ on \(ck_{\min}\):
   exceptional-set theorem for those classes.  Thus that inequality cannot be
   promoted to an almost-all bound on \(ck_{\min}\).
 
-The finite \(a=1\) result through \(10^7\) in §35 and the depth computations
-above support (48.24) empirically, but neither supplies an all-large-prime
-bound.  Proving merely \(D(p)<\infty\) for every hard prime would already
-prove the Type-I strengthening; bounding it by a log-power is a sharper
+**Informational only (wave-16 review repair).**  The finite \(a=1\) result
+through \(10^7\) in §35 and the depth computations above are consistent with
+(48.24), and with many competing growth laws, but do not support a growth
+law.  Neither supplies an all-large-prime bound.  Proving merely
+\(D(p)<\infty\) for every hard prime would already prove the Type-I
+strengthening; bounding it by a log-power is a sharper
 pointwise conjecture, not an implication of the campaign's present
 exceptional-set estimates.
 
@@ -17368,4 +17379,5 @@ of size \(4ck\) per requested norm.  It recomputes the 31 rows of (48.5),
 the 80+31 split and all §44 aggregate counts, every value behind
 (48.11)--(48.14), the least-prime guarantee in each row, all 30 classes in
 (48.19), and the explicit divisor reconstruction (48.17).  The optional
-`ES_FULL_SCAN=1` path extends only the streamed prime/depth scan to \(10^5\).
+`ES_FULL_SCAN=1` path extends the streamed prime/depth scan and the
+fixed-guarantee row replays to \(10^5\).  *(wave-16 review repair)*
