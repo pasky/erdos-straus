@@ -81,6 +81,54 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 24 (2026-08-29/30, wave 20 — see notes.md §54–§55 + paper v6 + reviews/external-auro-zera-lean-wave20.md; all hostile-reviewed → repaired)
+
+* **§54: the LOWER tail — logarithmic witness moduli are NECESSARY;
+  H_MOD(A) and H_SPF(A) are REFUTED for every A < 1 (proved, effective;
+  review CONFIRMED with no mathematical repairs).**  Theorem 54.1: every
+  prime \(p\equiv1\ ({\rm mod}\ M(T))\) has \(W(p)>T\) (the §17.3
+  residue-one size argument covers every Lemma-16.1 datum); effective
+  Linnik (Xylouris 5.18) then gives infinitely many \(p\) with
+  \(W(p)\geq c\log p\).  Theorem 54.3 (Type-I mirror): \(p\equiv1\ ({\rm
+  mod}\ R(T))\) forces \(\chi_s(p)=1\) for all \(s\leq T\) (Theorem 50.5's
+  construction) ⇒ every slice \(ck\leq T\) genus-forced ⇒ even
+  \(ck_{\min}(p)>T\); same Linnik quantification.  Corollaries: the
+  pointwise hypothesis space collapses to **A ≥ 1 exactly, in both
+  frames** — the two-sided W picture is now: typical size polylog^\(\epsilon\)
+  (a.a. tails, §51/§53), extremal size \(\geq c\log p\) i.o. (§54,
+  effective), sup conjecturally \(\asymp\log^{1..2}\) (census + Dahan/
+  auro-zera data); the full-lcm escape provably cannot beat log-scale
+  (the lcm cost is forced), so A ∈ [1, ~2] is the honest open window.
+* **§55: the general-m truncated tails and the m-uniform effectivity
+  perimeter (SOUND-AFTER-REPAIRS).**  \(W_m(p)\) tails in both supply
+  variants (Layer-1 \(\eta_1(m)/\varphi(m)\)-thinned square-log; thinned
+  cubic \(\theta_m(\log T)^3\), inherits Provisional 43.7) with
+  top-of-window consistency vs Theorem 43.12.  The E19-flagged
+  exceptional-conductor-divides-m subtlety RESOLVED: for \(r_1\nmid m\)
+  the §51.5 deletion transfers; for \(r_1\mid m\) every BV modulus is
+  divisible by \(r_1\) (deletion impossible) and the repair retains the
+  residue classes where the exceptional term has favorable sign — review
+  tightened the quantifiers (holds for the FULL Layer-1 family and
+  structured c-free fibres, NOT arbitrary sparse subfamilies; worst-case
+  fibre-retention inequality added; unfavorable k=1 case fixed).
+  Effectivity-perimeter table per row (Layer-1 / thinned-cubic / 43.12).
+* **paper v6 (66pp): §51–§53 absorbed** — the effectivity headline, the
+  witness-modulus tail, the empty third layer, almost-all H_SPF with the
+  genus-permission asymmetry, Dahan/Lenstra–Pomerance references,
+  blind-adjudication pedigree; §54–§55 queued for v7.
+* **External review (pasky request): the "auro-zera" Lean formalization
+  (github Suro-One) is NOT a proof** — sound algebraic identity layer
+  (witnesses replayed exact), complete mod-840 split, but ONE axiom
+  (`good_divisor_exists`) = exactly the open hard core, and its cited
+  support (Dyachenko arXiv:2511.07465) disclaims the infinite case in its
+  own Conclusion ("certainly not proven … conditional in nature" —
+  verbatim, PDF archived).  Reconciliation: their rigid primes = our
+  conspiracy set; their cascade = our escape walls; their axiom = the
+  unbounded cousin of H_MOD/H_SPF; our §51–§54 strictly quantify what
+  they assume.  No campaign statement needs revision.  Artifacts in
+  sources/auro-zera/ + sources/dyachenko-2511.07465.pdf; review in
+  reviews/external-auro-zera-lean-wave20.md.
+
 ## Outcome 23 (2026-08-29, wave 19 — see notes.md §53 + §51.9–§51.10 + blind51.md; all hostile-reviewed/adjudicated → repaired)
 
 * **§53: almost-all \(H_{\rm SPF}\) — proved, EFFECTIVE — and the
