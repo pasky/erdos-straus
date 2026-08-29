@@ -8544,4 +8544,250 @@ print("\n== (au) conspiracy depth and guaranteed slice positivity (§48) ==")
 check_au()
 
 
+# ---------------------------------------------------------------- (av)
+def check_av():
+    """§49: exact implication antichain and collective-closure obstruction."""
+    import os
+    from functools import lru_cache
+
+    def is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    @lru_cache(None)
+    def integer_divisors(n):
+        values = [1]
+        for p, e in factorint(n).items():
+            values = [d * p**j for d in values for j in range(e + 1)]
+        return tuple(sorted(values))
+
+    @lru_cache(None)
+    def intrinsic_representatives(M):
+        representatives = {}
+        for D in divisors_of_square((M + 1) // 4):
+            residue = (-4 * D) % M
+            representatives[residue] = min(representatives.get(residue, D), D)
+        return representatives
+
+    def merge_classes(d, a, M, b):
+        common = gcd(d, M)
+        if (a - b) % common:
+            return None
+        quotient = M // common
+        shift = 0 if quotient == 1 else (
+            (b - a) // common * pow(d // common, -1, quotient)
+        ) % quotient
+        modulus = d * quotient
+        return modulus, (a + d * shift) % modulus
+
+    def build_complete_H(X, z, Y):
+        prime_residues = {
+            p: set(intrinsic_representatives(p))
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        low = {p: len(classes) for p, classes in prime_residues.items() if p <= Y}
+        atoms = []
+
+        for p, classes in prime_residues.items():
+            if p > Y:
+                for residue in classes:
+                    atoms.append((p, residue,
+                                  intrinsic_representatives(p)[residue], "prime"))
+
+        for M in range(3, X + 1, 4):
+            factors = factorint(M)
+            if is_prime(M) or any(p <= z for p in factors):
+                continue
+            for residue, D in intrinsic_representatives(M).items():
+                if any(
+                    p in prime_residues
+                    and residue % p in prime_residues[p]
+                    for p in factors
+                ):
+                    continue
+                atoms.append((M, residue, D, "composite"))
+        return atoms, low
+
+    def implication_reduce(atoms):
+        atom_classes = {(M, residue) for M, residue, *_ in atoms}
+        reduced = []
+        deleted = []
+        for atom in atoms:
+            M, residue = atom[:2]
+            containers = tuple(
+                d for d in integer_divisors(M)
+                if d < M and (d, residue % d) in atom_classes
+            )
+            if containers:
+                deleted.append((atom, containers))
+            else:
+                reduced.append(atom)
+        return reduced, deleted
+
+    def conditional_weight(M, low):
+        probability = Fraction(1, M)
+        for p, forbidden in low.items():
+            if M % p == 0:
+                probability *= Fraction(p, p - forbidden)
+        return probability
+
+    # A nontrivial implication-reduction toy.  The full-space void identity
+    # is certified symbolically: every deleted class is contained in a class
+    # of the final antichain, so no lcm-sized residue array is formed.
+    raw, low = build_complete_H(1000, 2, 1000)
+    reduced, deleted = implication_reduce(raw)
+    assert (len(raw), len(reduced), len(deleted)) == (1042, 970, 72)
+    reduced_classes = {(M, residue) for M, residue, *_ in reduced}
+    assert len(reduced_classes) == len(reduced)
+    for M, residue, D, _ in raw:
+        if (M, residue) in reduced_classes:
+            continue
+        containers = tuple(
+            d for d in integer_divisors(M)
+            if d < M and (d, residue % d) in reduced_classes
+        )
+        assert containers
+        d = containers[0]
+        D0 = intrinsic_representatives(d)[residue % d]
+        assert D % d == D0 % d                 # (49.3), since 4 is a unit
+    for M, residue, *_ in reduced:
+        assert all(
+            (d, residue % d) not in reduced_classes
+            for d in integer_divisors(M) if d < M
+        )
+
+    raw_mu = sum((conditional_weight(M, low) for M, *_ in raw), Fraction())
+    reduced_mu = sum(
+        (conditional_weight(M, low) for M, *_ in reduced), Fraction()
+    )
+    mass_share = reduced_mu / raw_mu
+    assert round(float(mass_share), 6) == 0.939936
+
+    # Exact residue profiles W^dagger_{g,a}.  The largest normalized load is
+    # phi(g) max_a W(g,a)/W(g), with every mass retained as a Fraction.
+    profiles = {}
+    for M, residue, *_ in reduced:
+        weight = conditional_weight(M, low)
+        for g in integer_divisors(M):
+            if g == 1:
+                continue
+            if g not in profiles:
+                profiles[g] = [Fraction(), {}]
+            profiles[g][0] += weight
+            bins = profiles[g][1]
+            bins[residue % g] = bins.get(residue % g, Fraction()) + weight
+
+    profile_rows = []
+    for g, (total, bins) in profiles.items():
+        phi_g = g
+        for p in factorint(g):
+            phi_g = phi_g // p * (p - 1)
+        maximum = max(bins.values())
+        profile_rows.append((Fraction(phi_g) * maximum / total,
+                             g, maximum / total, len(bins)))
+    profile_rows.sort(reverse=True)
+    assert profile_rows[0] == (Fraction(220), 943, Fraction(1, 4), 4)
+
+    # Exact small-S hierarchy for the implication-reduced complete H toy.
+    def hierarchy_toy(X, z, Y, degree):
+        atoms, low_coordinates = build_complete_H(X, z, Y)
+        atoms, _ = implication_reduce(atoms)
+
+        @lru_cache(None)
+        def probability(modulus):
+            return conditional_weight(modulus, low_coordinates)
+
+        mu = sum((probability(M) for M, *_ in atoms), Fraction())
+        states = [((), 1, 0)]
+        counts, maxima = [], []
+        for _ in range(degree):
+            new_states = []
+            for indices, modulus, residue in states:
+                start = indices[-1] + 1 if indices else 0
+                for index in range(start, len(atoms)):
+                    merged = merge_classes(
+                        modulus, residue, atoms[index][0], atoms[index][1]
+                    )
+                    if merged is not None:
+                        new_states.append((indices + (index,), *merged))
+            states = new_states
+            counts.append(len(states))
+            extension_loads = []
+            for indices, modulus, residue in states:
+                selected = set(indices)
+                load = Fraction()
+                for index, (M, atom_residue, *_rest) in enumerate(atoms):
+                    if index in selected:
+                        continue
+                    merged = merge_classes(modulus, residue, M, atom_residue)
+                    if merged is not None:
+                        load += probability(merged[0]) / probability(modulus)
+                extension_loads.append(load)
+            maxima.append(max(extension_loads))
+        return len(atoms), mu, tuple(counts), tuple(maxima)
+
+    hierarchy = hierarchy_toy(40, 2, 7, 3)
+    assert hierarchy == (
+        28,
+        Fraction(27839083, 19372210),
+        (28, 316, 1868),
+        (Fraction(6342705, 3874442), Fraction(295533, 149017),
+         Fraction(14316, 7843)),
+    )
+    hierarchy_ratios = tuple(value / hierarchy[1] for value in hierarchy[3])
+    assert hierarchy_ratios == (
+        Fraction(31713525, 27839083),
+        Fraction(38419290, 27839083),
+        Fraction(35360520, 27839083),
+    )
+
+    # The minimal collective-implication square: diagonal semiprime atoms
+    # imply both off-diagonal atoms although all four survive the antichain.
+    grid_raw, grid_low = build_complete_H(143, 2, 143)
+    grid, _ = implication_reduce(grid_raw)
+    grid_classes = {(M, residue) for M, residue, *_ in grid}
+    q_values, p_values = (3, 11), (5, 13)
+    for q in q_values:
+        for p in p_values:
+            M = q * p
+            assert (M, (-8) % M) in grid_classes
+            assert intrinsic_representatives(M)[(-8) % M] == 2
+    selected = ((15, (-8) % 15), (143, (-8) % 143))
+    merged_selected = merge_classes(*selected[0], *selected[1])
+    assert merged_selected == (2145, (-8) % 2145)
+    collective_load = Fraction()
+    for M in (39, 55):
+        merged = merge_classes(*merged_selected, M, (-8) % M)
+        assert merged == merged_selected
+        collective_load += (
+            conditional_weight(merged[0], grid_low)
+            / conditional_weight(merged_selected[0], grid_low)
+        )
+    assert collective_load == 2
+
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        full_raw, full_low = build_complete_H(5655, 5, 5655)
+        full_reduced, full_deleted = implication_reduce(full_raw)
+        assert (len(full_raw), len(full_reduced), len(full_deleted)) == (6210, 6140, 70)
+        full_mu = sum(
+            (conditional_weight(M, full_low) for M, *_ in full_raw), Fraction()
+        )
+        full_reduced_mu = sum(
+            (conditional_weight(M, full_low) for M, *_ in full_reduced), Fraction()
+        )
+        assert round(float(full_reduced_mu / full_mu), 6) == 0.992549
+
+    print("antichain toy (raw,dagger,deleted,count-share,mass-share) =",
+          (len(raw), len(reduced), len(deleted),
+           Fraction(len(reduced), len(raw)), mass_share))
+    print("max residue concentration (phi(g)*share,g,share,bins) =",
+          profile_rows[0])
+    print("small-S (Lambda_dagger,counts,max ell/Lambda_dagger) =",
+          (hierarchy[1], hierarchy[2], hierarchy_ratios))
+    print("collective 2x2 semiprime-grid forced extension load =", collective_load)
+
+
+print("\n== (av) implication-reduced antichain (§49) ==")
+check_av()
+
+
 print("\nall checks passed")

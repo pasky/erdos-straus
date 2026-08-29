@@ -12094,9 +12094,9 @@ Thus (33.16) and \(H_{\rm PF}'\) remain **OPEN**.
 
 **Later status correction.**  Section 47 refutes the literal factorial-moment
 bound (37.19) for the only-prime-reduced count \(H\) defined below; Proposition
-37.3 remains a proved conditional implication, and §47.4 replaces its false
-input by the corresponding open input for the void-equivalent implication
-antichain.  (wave-16 review repair)
+37.3 remains a proved conditional implication.  Section 49 proves that the
+same bound is false for the void-equivalent implication antichain as well.
+(wave-17 update)
 
 ### 37.1 The corrected residue-set transfer ledger
 
@@ -12510,17 +12510,17 @@ prime-side minorant are proved and reusable.  The proposed common-prime
 status of the odd-Bonferroni continuation: its required bound (37.19) is
 false for the only-prime-reduced count \(H\), although Proposition 37.3
 remains a valid conditional implication for the void-equivalent
-implication-antichain count.  (wave-16 review repair)  The currently proved
-§31 input stops at total prime incidence and loses the factor in (37.26).
-Weighted block truncations by largest prime merely redistribute (37.23);
-without (37.27) they do not control intersections between blocks.  The
-Scott--Sokal cluster expansion controls a partition function, not the
-required pointwise surrogate.  No LP dual certificate or universal
-low-degree lower bound was found, so no impossibility claim for all
-Lemma-33.3 minorants is made.  The residue-dispersion target (37.27), the
-repaired hierarchy (47.16), and a genuinely one-sided cluster polynomial
-remain possible routes.  Until one is proved, (33.16) and \(H_{\rm PF}'\)
-remain open.
+implication-antichain count.  Section 49 subsequently refutes its premise for
+that count too.  The currently proved §31 input stops at total prime incidence
+and loses the factor in (37.26).  Weighted block truncations by largest prime
+merely redistribute (37.23); without (37.27) they do not control intersections
+between blocks.  The Scott--Sokal cluster expansion controls a partition
+function, not the required pointwise surrogate.  No LP dual certificate or
+universal low-degree lower bound was found, so no impossibility claim for all
+Lemma-33.3 minorants is made.  The residue-dispersion target (37.27) and a
+genuinely one-sided, closure-aware polynomial remain possible routes; the
+repaired hierarchy (47.16) is false.  Thus (33.16) and \(H_{\rm PF}'\) remain
+open.  (wave-17 update)
 
 ## 38. Fixed-value binary actions: a complete additive law, a disconnected fibre graph, and the multiplier-conversion failure
 
@@ -13825,9 +13825,9 @@ stars sharing one squarefree coordinate.  They are not sufficient for
 prime powers introduce the extra factors in (40.26).  No estimates
 (40.28), (40.29), or an equivalent averaged multi-coordinate hierarchy are
 proved here.  Section 47 subsequently refutes the literal (40.28) and the
-resulting raw-\(H\) bound (37.19); the one-coordinate hierarchy (40.29)
-remains open, and (47.16) is the replacement multi-coordinate wall.
-(wave-16 review repair)  Therefore even a future proof of the pair endpoint
+resulting raw-\(H\) bound (37.19); §49 refutes the replacement (47.16) and
+the reduced factorial-moment bound.  The one-coordinate hierarchy (40.29)
+remains open.  (wave-17 update)  Therefore even a future proof of the pair endpoint
 (40.19) would pass only the first test; it would not by itself activate
 Proposition 37.3 for either the original count or the repaired count.
 
@@ -13865,11 +13865,10 @@ is a genuine narrowing of the pair wall, not its closure.  Standard
 large-sieve and divisor-BDH statements do not contain the moving
 coefficient/endpoint quantifiers, and the conditioning shortcut at
 \(j\asymp\Lambda\) was arithmetically overstated.  The pair endpoint
-(40.19), the one-coordinate hierarchy (40.29), the repaired
-multi-coordinate hierarchy (47.16), (33.16), and the refutation of
-\(H_{\rm PF}'\) remain **OPEN**.  Section 47 refutes the literal (40.28) and
-raw-\(H\) (37.19), superseding this assessment's original status for those
-two targets.  (wave-16 review repair)
+(40.19), the one-coordinate hierarchy (40.29), (33.16), and the refutation
+of \(H_{\rm PF}'\) remain **OPEN**.  Section 47 refutes the literal (40.28)
+and raw-\(H\) (37.19); §49 refutes the repaired hierarchy (47.16) and the
+reduced moment bound.  (wave-17 update)
 
 
 ## 41. Unit R: blind parallel construction and stress test of the cubic-rate chain
@@ -14220,8 +14219,9 @@ prime range are **proved**.  They do not prove (40.19).  The unresolved part
 is the simultaneous sum over the moving divisors
 $s\mid\operatorname {rad}(R)$ at super-polylogarithmic primes; consequently
 (37.27), (33.16), and the refutation of $H_{\rm PF}'$ remain **OPEN**.
-Section 47 refutes raw-$H$ (37.19) and replaces it by the open antichain
-hierarchy (47.16).  (wave-16 review repair)
+Section 47 refutes raw-$H$ (37.19), and §49 refutes both its proposed
+antichain hierarchy (47.16) and the corresponding reduced moment bound.
+(wave-17 update)
 
 ### 42.1 Exact sparse and complement-divisor normal forms
 
@@ -14611,11 +14611,10 @@ Theorem 45.9 closes, by cell injectivity, every fibre with
 $m=4c^2s\leq W_0\asymp L^3/(\log L)^2$ uniformly over the whole prime
 range; the open core is the complementary range $m>W_0$.)  Therefore
 (40.19) and, by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even
-a proof of (40.19) would still leave (33.16), the refutation of
-$H_{\rm PF}'$, and the replacement hierarchy (47.16) **OPEN**.  Section 47
-refutes the literal hierarchy (40.28) and raw-$H$ factorial moment (37.19),
-superseding this assessment's original status for those two targets.
-(wave-16 review repair)
+a proof of (40.19) would still leave (33.16) and the refutation of
+$H_{\rm PF}'$ **OPEN**.  Section 47 refutes the literal hierarchy (40.28)
+and raw-$H$ factorial moment (37.19); §49 refutes the replacement (47.16)
+and the reduced moment bound.  (wave-17 update)
 
 ## 43. General numerators: the multiplier identity is m-uniform and the exceptional-set machinery transfers
 
@@ -16285,10 +16284,10 @@ L^3/(\log L)^2$ over the entire prime range, by injectivity rather than
 cancellation; the open core of (45.24) is now its restriction to
 $m>W_0$.)  The moving-$s$ range (45.24) with $m>W_0$, (40.19), and hence
 (37.27) remain **OPEN**.  Even a future proof of (40.19) would not prove the
-replacement multi-coordinate hierarchy (47.16); consequently (33.16) and
-the refutation of $H_{\rm PF}'$ also remain **OPEN**.  Section 47 refutes
-the literal (40.28) and raw-$H$ (37.19), superseding this assessment's
-original status for those two targets.  (wave-16 review repair)  This is an
+proposed replacement multi-coordinate hierarchy (47.16); §49 in fact
+refutes that hierarchy and the reduced moment bound.  Consequently (33.16) and the
+refutation of $H_{\rm PF}'$ remain **OPEN**.  Section 47 refutes the literal
+(40.28) and raw-$H$ (37.19).  (wave-17 update)  This is an
 internal sieve-hypothesis arc and makes no claim to prove or refute the
 Erdős--Straus conjecture.
 
@@ -16746,10 +16745,9 @@ cell collision sum (46.13).  The dyadic method loses there by the explicit
 factor $W/(CW_1)$, while direct large-$c$ divisor counting retains a cubic
 harmonic mass.  Therefore (40.19), (37.27), and the pair-level input to the
 internal hypothesis $H_{\rm PF}'$ remain **OPEN**.  Even a future proof of
-(40.19) would not establish the replacement codegree hierarchy (47.16), so
-it would not by itself prove (33.16).  Section 47 refutes the literal
-(40.28) and raw-$H$ (37.19), superseding this assessment's original status
-for those two targets.  (wave-16 review repair)  This arc neither proves nor
+(40.19) would not by itself prove (33.16).  Section 47 refutes the literal
+(40.28) and raw-$H$ (37.19); §49 refutes the replacement hierarchy (47.16)
+and reduced moment bound.  (wave-17 update)  This arc neither proves nor
 refutes the Erdős--Straus conjecture.
 ## 47. The codegree hierarchy: structure, partial theorems, and the exact remaining wall
 
@@ -16760,8 +16758,9 @@ part exponentially larger than $\Lambda$.  The same cube disproves (37.19)
 for the particular, only-prime-reduced count $H$ used in §37.  This refutes a
 proposed sufficient mechanism, **not** $H_{\rm PF}'$ and not the
 Erdős--Straus conjecture.  A complete implication reduction preserves the
-void and removes this example; the residue-resolved hierarchy for that
-reduced antichain remains open.
+void and removes this example.  Section 49 subsequently refutes the
+residue-resolved hierarchy for that reduced antichain by a collective
+semiprime-grid obstruction.  (wave-17 update)
 
 ### 47.1 Exact one-step structure
 
@@ -17070,10 +17069,11 @@ and the raw-$H$ factorial-moment target (37.19) are **REFUTED** by a retained
 squarefree divisor cube.  The coprime extension bound and the prime-only
 selected-set hierarchy are proved.  The compatibility-thinning analogy from
 §39 fails because the complete intrinsic family was not reduced under
-composite implication.  After the exact implication-antichain repair,
-(47.16) is the remaining wall; it is **OPEN**, as are (40.19), (33.16), and
-$H_{\rm PF}'$.  Nothing in this section proves or refutes the
-Erdős--Straus conjecture.
+composite implication.  Section 49 subsequently proves that, after the exact implication-antichain
+repair, (47.16) and the reduced factorial-moment bound are **REFUTED** by a
+collective semiprime-grid obstruction.  The pair endpoint (40.19), (33.16),
+and $H_{\rm PF}'$ remain **OPEN**.  Nothing in this section proves or refutes
+the Erdős--Straus conjecture.  (wave-17 update)
 ## 48. Conspiracy depth: the unforced slices, growth of the vanishing box, and guaranteed-positivity classification
 
 **Scope and outcome.**  This section separates the 80 deterministic zeros in
@@ -17541,3 +17541,385 @@ the 80+31 split and all §44 aggregate counts, every value behind
 (48.19), and the explicit divisor reconstruction (48.17).  The optional
 `ES_FULL_SCAN=1` path extends the streamed prime/depth scan and the
 fixed-guarantee row replays to \(10^5\).  *(wave-16 review repair)*
+
+
+## 49. The implication-reduced antichain: structure, residue-resolved profiles, and the surviving hierarchy question
+
+The implication reduction of §47.4 has an exact divisor-poset description
+and preserves the void pointwise.  It also preserves every upper
+first-moment and ledger bound needed in §37.  It does **not**, however,
+repair the high-moment route.  Fixed-\(D\) semiprime atoms are already
+maximal, remain residue-concentrated, and form complete bipartite grids.  A
+matching of grid edges collectively implies every cross edge although no
+one edge implies another.  This gives a new counterexample both to the
+reduced one-step hierarchy (47.16) and to (37.19) for the reduced count
+itself.  These are refutations of a proposed sufficient mechanism, not of
+(33.16), \(H_{\rm PF}'\), or the Erdős--Straus conjecture.
+
+### 49.1 Exact antichain structure and the void
+
+Let \(\mathcal A^\circ_X\) denote the finite §37-retained family counted by
+\(H\): the tail prime atoms and the composite atoms after the prime-implied
+deletion.  Its classes are deduplicated.  For an intrinsic class
+\(r\pmod M\), put
+
+\[
+ \delta_M(r)=\min\{D:D\mid A_M^2,\ -4D\equiv r\pmod M\},
+ \qquad A_M={M+1\over4}.                                  \tag{49.1}
+\]
+
+Thus an atom can be written unambiguously as \((M,r)\), with
+\(D=\delta_M(r)\) retained only as a canonical divisor label.
+
+**Theorem 49.1 (exact implication criterion; proved).**  For two distinct
+retained atoms,
+
+\[
+ E_{M,r}\subseteq E_{m,s}
+ \quad\Longleftrightarrow\quad
+ m\mid M\ \hbox{ and }\ r\equiv s\pmod m
+ \quad\Longleftrightarrow\quad
+ m\mid M\ \hbox{ and }\
+ \delta_M(r)\equiv\delta_m(s)\pmod m.                    \tag{49.2}
+\]
+
+If \(M=tm\), the intrinsic conditions in (49.2) unpack exactly as
+
+\[
+ t\equiv1\pmod4,
+ \qquad A_M=tA_m-{t-1\over4},
+ \qquad D=D'+jm\quad(j\in\mathbb Z),                     \tag{49.3}
+\]
+
+where \(D\mid A_M^2\), \(D'\mid A_m^2\), and both corresponding classes
+survive the §37 deletions.  There is no additional ``division by four''
+condition: every participating modulus is odd, so multiplying the class
+congruence by \(-4^{-1}\pmod m\) gives precisely \(D\equiv D'\pmod m\).
+At one modulus, distinct retained classes are disjoint and cannot nest.
+
+Consequently the implication antichain is exactly
+
+\[
+ \mathcal A^\dagger_X=
+ \{(M,r)\in\mathcal A^\circ_X:
+   \nexists\,(m,s)\in\mathcal A^\circ_X,
+   \ m<M,
+   \ m\mid M,
+   \ s\equiv r\pmod m\}.                                 \tag{49.4}
+\]
+
+In words, its moduli are divisibility-minimal along each compatible class
+tower.  This is only a partial-order statement: incomparable minimal moduli
+can carry projections of the same integer class.
+
+*Proof.*  An integer in \(E_{M,r}\) is congruent to \(r\) modulo \(M\).
+This cylinder is contained in \(E_{m,s}\) exactly when reduction modulo
+\(m\) is defined and equals \(s\), which is the first equivalence in
+(49.2).  Since \((4,m)=1\), the second follows from (49.1).  Reducing
+\(M=tm\) modulo four and comparing \(4A_M=M+1\) with \(4A_m=m+1\) gives
+(49.3).  Deduplication excludes strict nesting at equal modulus, so (49.4)
+is exactly the set of inclusion-maximal events. \(\square\)
+
+**Corollary 49.2 (pointwise void identity; proved).**  If
+\(H^\dagger\) counts \(\mathcal A^\dagger_X\), then on every integer and
+also pointwise inside the \(T_0=1\) fibre,
+
+\[
+                  H=0\quad\Longleftrightarrow\quad H^\dagger=0.
+                                                                    \tag{49.5}
+\]
+
+*Proof.*  If a deleted event is hit, (49.4) supplies a strictly larger
+retained event containing it.  Repeating strictly decreases the modulus and
+therefore terminates at an event in \(\mathcal A^\dagger_X\).  Thus the
+unions of the two finite families are equal.  The reverse inclusion is
+immediate. \(\square\)
+
+This verifies the orientation in §47.4: the **largest events under
+inclusion**, equivalently the divisibility-minimal compatible moduli, are
+kept.  Keeping the finest events instead would not preserve the union.
+
+### 49.2 What first-moment mass is actually preserved
+
+Write \(w_A=\Pr(A\mid T_0=1)\), as in (47.2), and
+\(\mu=\sum_{\mathcal A^\circ_X}w_A\),
+\(\mu^\dagger=\sum_{\mathcal A^\dagger_X}w_A\).  Positivity and §37 give
+
+\[
+ \Theta(L^2)=\mu_P\leq\mu^\dagger\leq\mu=O(\Lambda),
+ \qquad \Lambda={L^3\over\log L}.                         \tag{49.6}
+\]
+
+Here every tail prime atom is maximal and survives, giving the first
+inequality by (37.6).  The last inequality is the actual result quoted in
+§37.3; the record does **not** prove \(\mu=\Theta(\Lambda)\).  Therefore a
+claim that implication reduction preserves a \(\Theta(\Lambda)\) first
+moment would currently have an unproved premise.  All upper charge, degree,
+modulus, and coefficient-ledger estimates only improve, while the void
+probability is unchanged by (49.5).
+
+The §47 divisor cube loses negligible mass under this reduction.  In the
+notation of Theorem 47.2, put \(s=\sum_i1/p_i=o(1)\).  The surviving
+singleton edges have mass \(s/q\), whereas the deleted odd subsets of size
+at least three have total mass
+
+\[
+ {1\over2q}\left\{\prod_i(1+p_i^{-1})-
+                         \prod_i(1-p_i^{-1})\right\}-{s\over q}
+       =O\!\left({s^3\over q}\right).                     \tag{49.7}
+\]
+
+Thus that counterexample is removed at relative mass cost \(O(s^2)\).
+
+**Failure log 49.3 (general lower mass).**  No constant-factor lower bound
+\(\mu^\dagger\gg\mu\), and no asymptotic for the deleted mass, is proved.
+A deleted atom can have many divisor-containers, while the available
+shifted-divisor mean theorems are upper bounds and do not resolve that
+multiplicity.  This missing lower bound does not affect the conclusions
+below: their obstruction is carried entirely by atoms which provably
+survive.
+
+### 49.3 Residue concentration survives maximality
+
+For a divisor \(g\) and a reduced class \(a\pmod g\), define the direct
+analogue of the requested profile by
+
+\[
+ W^\dagger_{g,a}=
+  \sum_{A\in\mathcal A^\dagger_X\atop
+        g\mid M_A,
+        r_A\equiv a\ (g)}w_A,
+ \qquad
+ W^\dagger_g=\sum_{a\ (g)}W^\dagger_{g,a}.                \tag{49.8}
+\]
+
+**Theorem 49.4 (uniform \(1/\varphi(g)\) profile is false; proved).**  There
+is no absolute \(C\) for which
+
+\[
+       W^\dagger_{g,a}\leq {C\over\varphi(g)}W^\dagger_g  \tag{49.9}
+\]
+
+holds uniformly in \(X,g,a\).  In fact there are \(g\asymp X\) and reduced
+\(a\pmod g\) for which the ratio between the two sides without \(C\) is
+\(g^{1-o(1)}\).
+
+*Proof.*  By the prime number theorem in fixed classes modulo eight, choose
+primes \(q\equiv3\pmod8\) and \(p\equiv5\pmod8\), both in
+\((3X^{1/2}/4,4X^{1/2}/5)\).  Then
+\(X/2<M=qp<X\).  Both exceed \(z\) and \(Y\) for large \(X\).  Since
+\(M\equiv7\pmod8\), \(2\mid A_M\), and the \(D=2\) atom
+
+\[
+                         n\equiv-8\pmod M                  \tag{49.10}
+\]
+
+is intrinsic.  Its projection modulo \(q\) has Legendre sign
+\((-8/q)=+1\), whereas Lemma 21.2 gives sign \(-1\) for every intrinsic
+prime-modulus class.  The other prime is \(1\pmod4\).  Hence (49.10)
+survives the prime deletion.  Its only proper modulus divisors are
+\(1,q,p\); none carries a retained atom in this class.  Theorem 49.1
+therefore puts it in \(\mathcal A^\dagger_X\).
+
+Take \(g=M\) and \(a=-8\).  As \(2M>X\), every atom counted by
+\(W^\dagger_g\) has modulus exactly \(M\), and all have weight \(1/M\).
+The number of such atoms is at most
+\(F(M)\leq\tau(A_M^2)=M^{o(1)}\), while the bin \(a\) contains (49.10).
+Consequently
+
+\[
+ {\varphi(g)W^\dagger_{g,a}\over W^\dagger_g}
+ \geq {\varphi(M)\over F(M)}=M^{1-o(1)},                  \tag{49.11}
+\]
+
+which proves the assertion. \(\square\)
+
+The same failure is visible without taking \(g\) large.  For a fixed
+\(q\equiv3\pmod8\), every surviving semiprime atom
+\(E_{qp,-8}\), with \(p\equiv5\pmod8\), lies in the single projection
+\(-8\pmod q\).  Antichain reduction removes nested divisor cubes but cannot
+remove this fixed-\(D\) slice because semiprime moduli have no eligible
+proper composite divisor.  This proves concentration of the slice, not
+failure of an aggregate profile restricted to small \(g\); such a restricted
+or averaged estimate remains possible.  The uniform profile needed for a
+literal transplant of §39.2 is nevertheless false.
+
+### 49.4 Collective implication refutes the reduced hierarchy
+
+The surviving fixed-\(D\) slice has a stronger consequence.  Choose distinct
+primes
+
+\[
+ q_1,\ldots,q_t\equiv3\pmod8,
+ \qquad p_1,\ldots,p_t\equiv5\pmod8,                      \tag{49.12}
+\]
+
+all greater than \(z\) and with every product \(q_ip_j<X\).  Every edge
+
+\[
+                  A_{ij}:\quad n\equiv-8\pmod {q_ip_j}     \tag{49.13}
+\]
+
+is a retained maximal atom by the proof of Theorem 49.4.  Thus these atoms
+form a complete bipartite grid inside \(\mathcal A^\dagger_X\).
+
+**Theorem 49.5 (collective-closure obstruction; proved).**  The repaired
+hierarchy (47.16) is false.  More strongly, for every fixed \(C,D>0\), every
+sufficiently large \(X\), and an even
+\(m\in[D\Lambda,D\Lambda+2]\), there is a compatible, pairwise-coprime,
+squarefree selected set \(S\subset\mathcal A^\dagger_X\), \(|S|<m\), for
+which
+
+\[
+                         \mathcal L^\dagger(S)>C\Lambda.   \tag{49.14}
+\]
+
+The factorial-moment input itself also fails: for the same fixed \(C,D\),
+
+\[
+                 \mathbb E((H^\dagger)_m\mid T_0=1)
+                         >(C\Lambda)^m                    \tag{49.15}
+\]
+
+for all sufficiently large \(X\).
+
+*Proof of the hierarchy assertion.*  Take the diagonal matching
+\(S=\{A_{ii}:1\leq i\leq t\}\).  Its merged class is \(-8\) modulo
+
+\[
+                         Q_S=\prod_{i=1}^tq_ip_i.           \tag{49.16}
+\]
+
+For every \(i\ne j\), the candidate modulus \(q_ip_j\) divides \(Q_S\)
+and its class is the projection of the merged class.  Proposition 47.1, or
+direct event inclusion, therefore gives the exact conditional extension
+ratio
+
+\[
+ {\Pr(\bigcap_{A\in S}A\cap A_{ij}\mid T_0=1)
+   \over\Pr(\bigcap_{A\in S}A\mid T_0=1)}=1.              \tag{49.17}
+\]
+
+Choose \(t=m-1\).  The prime number theorem in the two classes modulo eight
+supplies the primes in (49.12), for example below \(B_DL^3\) with \(B_D\)
+a sufficiently large constant; here \(z=o(L^3)\), and all products are
+\(O_D(L^6)<X\).  The selected moduli are pairwise coprime and squarefree.
+The \(t(t-1)\) off-diagonal edges in (49.17) give
+\(\mathcal L^\dagger(S)\geq t(t-1)>C\Lambda\).  Notice the new logical
+point: no selected edge contains a cross edge, but their **intersection**
+does.
+
+For (49.15), instead put
+
+\[
+                   t=\left\lfloor {m\over2\log(2z)}\right\rfloor.  \tag{49.18}
+\]
+
+There are enough primes of each required class in \((z,2z)\): their number
+is asymptotic to \(z/(4\log z)\), while (31.11) and (49.18) give a ratio
+\(\asymp\log\log L\) to \(t\).  Put
+\(R=\prod_iq_ip_i\) and let \(C_R\) be the event
+\(n\equiv-8\pmod R\).  At every conditioned \(q_i\), the class \(-8\) is
+allowed by Lemma 21.2, so
+
+\[
+ \Pr(C_R\mid T_0=1)
+ ={1\over R}\prod_{q_i\leq Y}{q_i\over q_i-f(q_i)}
+ \geq {1\over R}.                                         \tag{49.19}
+\]
+
+On \(C_R\), all \(t^2\) atoms (49.13) occur.  Since
+\(R\leq(2z)^{2t}\), \(t^2\geq2m\) for large \(X\), and
+\((u)_m\geq(u/2)^m\) for \(u\geq2m\),
+
+\[
+ \mathbb E((H^\dagger)_m\mid T_0=1)
+ \geq{(t^2)_m\over R}
+ \geq\left({t^2\over2}\right)^m(2z)^{-2t}.               \tag{49.20}
+\]
+
+After division by \((C\Lambda)^m\), the logarithm of the right side is at
+least
+
+\[
+ m\log\!\left({t^2\over2C\Lambda}\right)-2t\log(2z).
+                                                                    \tag{49.21}
+\]
+
+The second term is at most \(m\), while
+\(t^2/\Lambda\gg_D\Lambda/(\log z)^2\to\infty\).  Hence (49.21) tends to
+\(+\infty\), proving (49.15). \(\square\)
+
+The smallest collective pattern is already a \(2\)-by-\(2\) square: the
+compatible diagonal atoms at moduli \(q_1p_1,q_2p_2\) jointly imply the two
+off-diagonal atoms, although all four are an antichain.  This is the exact
+new wall configuration.  Proposition 47.3's prime-only rung remains valid.
+For a singleton selected composite atom, antichain reduction does at least
+remove every candidate whose whole modulus divides the selected modulus,
+but no \(O(\Lambda)\) bound for all remaining singleton extensions is
+claimed.  Pairwise-coprime and squarefree selected sets do not help, by
+Theorem 49.5.
+
+### 49.5 Severity audit, computation, and verdict
+
+**Self-review 49.6 (maximum-severity checks; proved bookkeeping).**  Four
+possible escapes from Theorem 49.5 have been checked explicitly.
+
+* The inclusion orientation is the one proved in Theorem 49.1; every
+  semiprime edge is inclusion-maximal, not accidentally minimal.
+* The §37 prime deletion does not remove \(-8\): its sign at every
+  \(q_i\equiv3\pmod8\) is opposite to all intrinsic prime classes, and a
+  \(p_j\equiv1\pmod4\) has no prime atom in this system.
+* Conditioning cannot thin a forced cross edge.  Its coordinates already
+  occur in \(Q_S\), so (49.17) is exactly one; (49.19) also checks that the
+  forcing event is compatible with \(T_0\).
+* Equation (49.15), unlike failure of a sufficient one-step induction, is a
+  direct lower bound for the reduced factorial moment.  It still says
+  nothing adverse about the void itself, which is unchanged.
+
+**Computational 49.7 (exact finite scope).**  `verify.py (av)` implements
+(49.4) by divisor enumeration, never by a full-period array.  In the
+composite, fully conditioned toy \((X,z,Y)=(1000,2,1000)\), it reduces
+1,042 retained atoms to 970: \(72/1042=6.91\%\) of atoms are deleted, and
+the exact conditional first-moment share retained is
+\(0.939936\ldots\).  Every deleted cylinder is certified to lie in a final
+maximal cylinder, proving the full-space void equivalence symbolically.  The
+largest normalized profile in this toy is
+
+\[
+ \max_{g,a}{\varphi(g)W^\dagger_{g,a}\over W^\dagger_g}=220
+ \quad(g=943,\ \max_aW^\dagger_{g,a}/W^\dagger_g=1/4).    \tag{49.22}
+\]
+
+For the complete \((40,2,7)\) toy, implication reduction happens to delete
+nothing.  Exact enumeration of every compatible selected set through size
+three gives \(K=28\),
+\(\Lambda_{\rm toy}=27839083/19372210\), compatible-set counts
+\((28,316,1868)\), and
+
+\[
+ {\max\mathcal L^\dagger(S)\over\Lambda_{\rm toy}}
+ =\left({31713525\over27839083},
+         {38419290\over27839083},
+         {35360520\over27839083}\right)                  \tag{49.23}
+\]
+
+for \(|S|=1,2,3\).  Finally the exact square
+\((q_1,q_2;p_1,p_2)=(3,11;5,13)\) checks that selected moduli \(15,143\)
+jointly force the atoms at \(39,55\), each with extension ratio one.  With
+`ES_FULL_SCAN=1`, the reduction toy extends to
+\((5655,5,5655)\): \(6210\to6140\) atoms and conditional mass share
+\(0.992549\ldots\).  These finite fractions are diagnostics, not asymptotic
+evidence.
+
+**Assessment 49.8 (wave-17 verdict).**  The implication-antichain structure
+and pointwise void preservation are proved.  Existing upper mass and ledger
+bounds survive, but a \(\Theta(\Lambda)\) reduced first moment is not known.
+The uniform residue profile, the repaired hierarchy (47.16), and (37.19)
+for \(H^\dagger\) are all **REFUTED** by maximal fixed-\(D=2\) semiprime
+grids.  The failure is collective implication by an intersection, not the
+single-event nesting removed in §47.  Therefore Proposition 37.3's
+odd-Bonferroni route remains unavailable even after implication reduction.
+The pair endpoint (40.19), the existence of some different pointwise
+minorant proving (33.16), (33.16) itself, and \(H_{\rm PF}'\) remain
+**OPEN**.  Nothing here proves or refutes the Erdős--Straus conjecture.
