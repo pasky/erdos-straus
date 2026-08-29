@@ -9785,8 +9785,7 @@ More generally the cutoff in the last sentence of Theorem 31.3 gives
 \]
 
 For precision, let
-\(P_z=\prod_{3\leq p\leq z,\ p\ {
-m prime}}p\), and let \(K_X\) be the
+\(P_z=\prod_{3\leq p\leq z,\ p\text{ prime}}p\), and let \(K_X\) be the
 lcm of \(P_z\) and every participating modulus.  Work on the finite uniform
 probability space \(\mathbb Z/K_X\mathbb Z\), conditioned on (31.23).  The
 conditioning has cost
@@ -14557,3 +14556,355 @@ by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
 (40.19) would still leave the multi-prime and prime-power hierarchy (40.28),
 the factorial moment (37.19), (33.16), and the refutation of
 $H_{\rm PF}'$ **OPEN**.  No earlier status line is superseded.
+
+
+## 44. Slice conspiracies: joint vanishing structure of the ray-character mass
+
+**Scope and outcome.**  This section determines exactly when one
+\((c,k)\)-summand of Theorem 36.1 vanishes and packages simultaneous
+vanishing as an explicit moving-divisor locus.  It also proves a four-family
+wrong-grade obstruction that strictly extends Theorem 36.2, gives one
+structured progression on which a slice is always positive, and exhibits an
+exact two-slice counterexample to determination by the natural fixed ray
+modulus.  The small boxes do not close: among the 385 primes
+\(p\equiv1\pmod {24}\), \(p<30000\), fifteen have every slice
+\(ck\leq30\) equal to zero.  These are statements about this Type-I
+sub-count.  They do not assert that any prime lacks an Erdős--Straus
+representation.
+
+### 44.1 One slice: factor grades, characters, and root progressions
+
+Fix an odd prime \(p\) and an admissible \((c,k)\in\mathcal B_p\), and write
+
+\[
+ h=4ck,\qquad N=p^2+4ck^2=\prod_{j=1}^r\ell_j^{e_j},
+ \qquad G_h=(\mathbb Z/h\mathbb Z)^\times .                 \tag{44.1}
+\]
+
+The coprimality in (36.1) gives \((N,h)=1\).  In the integral group ring
+\(\mathbb Z[G_h]\), put
+
+\[
+ F_{p;c,k}=\prod_{j=1}^r
+  \bigl([1]+[\ell_j]+\cdots+[\ell_j^{e_j}]\bigr),\qquad
+ M_{c,k}(p)=[[{-p}]]F_{p;c,k}.                              \tag{44.2}
+\]
+
+Here \([[g]]\) extracts the coefficient of the grade \(g\).  Multiplicities
+are retained: two exponent vectors giving the same grade count twice.
+
+**Theorem 44.1 (exact slice-vanishing and conspiracy criterion; proved).**
+For the data above, the following integers are equal:
+
+\[
+ \begin{split}
+ M_{c,k}(p)
+ &=\#\{D:D\mid N,\ D\equiv-p\pmod h\}\\
+ &={1\over\varphi(h)}\sum_{\chi\ ({\rm mod}\ h)}
+   \overline{\chi(-p)}
+   \prod_{j=1}^r(1+\chi(\ell_j)+\cdots+\chi(\ell_j)^{e_j}).
+                                                               \tag{44.3}
+ \end{split}
+\]
+
+This is exactly the \((c,k)\)-summand of (36.3).  In particular, that slice
+vanishes at \(p\) if and only if
+
+\[
+ \boxed{\quad
+ \nexists(u_1,\ldots,u_r),\quad 0\leq u_j\leq e_j,\qquad
+ \prod_{j=1}^r\ell_j^{u_j}\equiv-p\pmod {4ck}.
+ \quad}                                                       \tag{44.4}
+\]
+
+Thus (44.4), including the exponent bounds, is the requested factorization
+condition.  In character language it says that the inverse Fourier
+coefficient at grade \(-p\) in (44.3) is zero; vanishing need not come from
+one character factor being zero.
+
+There is an equivalent progression description.  For every \(d\geq1\), let
+
+\[
+ \mathscr R_{c,k}(d)=\left\{r\pmod {\operatorname {lcm}(h,d)}:
+ r\equiv-d\pmod h,\quad r^2\equiv-4ck^2\pmod d\right\}.       \tag{44.5}
+\]
+
+Then
+
+\[
+ M_{c,k}(p)>0
+ \quad\Longleftrightarrow\quad
+ p\in\bigcup_{d\geq1}\mathscr R_{c,k}(d).                   \tag{44.6}
+\]
+
+Any class in (44.5) containing an eligible \(p\) automatically has
+\((d,h)=1\), and its second condition is equivalently
+\(-c\) being the square of \(p(2k)^{-1}\) modulo \(d\).  Formula (44.6) is
+an infinite union of explicit quadratic-root progressions, with the
+progression modulus moving with the prospective divisor \(d\).
+
+For a finite set \(S\) of slices, let
+\(\mathcal H_S\) be the hard primes for which every member of \(S\) lies in
+\(\mathcal B_p\).  Its **conspiracy locus** is therefore exactly
+
+\[
+ \mathcal C_S
+ =\left\{p\in\mathcal H_S:M_{c,k}(p)=0\ \hbox{for every }(c,k)\in S\right\}
+ =\mathcal H_S\cap\bigcap_{(c,k)\in S}
+  \left(\mathbb Z\setminus\bigcup_{d\geq1}\mathscr R_{c,k}(d)\right).
+                                                               \tag{44.7}
+\]
+
+*Proof.*  Expanding (44.2) selects exactly one exponent
+\(0\leq u_j\leq e_j\) for every prime factor, hence exactly one positive
+divisor of \(N\).  This proves the first line of (44.3) and (44.4).
+Fourier inversion on \(G_h\) gives the second line, exactly as in Theorem
+36.1.  A positive integer \(d\) is such a divisor precisely when
+\(p^2+4ck^2\equiv0\pmod d\); its target grade is precisely
+\(p\equiv-d\pmod h\).  These are the two conditions in (44.5), proving
+(44.6), and taking simultaneous complements proves (44.7).  Finally
+\(N\equiv p^2\pmod h\), so whenever \(D\) has target grade, its complementary
+divisor \(N/D\) does too.  For \(p\equiv1\pmod4\) the diagonal is absent by
+Theorem 36.1, and every positive slice mass is consequently even. \(\square\)
+
+The root-progression formulation is exact but does not make the union finite.
+It isolates the moving-divisor wall: replacing the actual divisors by all
+quadratic roots loses the divisibility condition, while retaining it is
+exactly the factorization problem for \(p^2+4ck^2\).
+
+### 44.2 A genus-grade obstruction beyond the Gaussian slice
+
+For a positive integer \(c\), write \(c=s t^2\), with \(s\) squarefree.
+
+**Theorem 44.2 (the wrong-grade quartet; proved).**  Suppose
+\(p\equiv1\pmod {24}\), \((p,ck)=1\), and
+
+\[
+                         s\in\{1,2,3,6\}.                    \tag{44.8}
+\]
+
+Then \(M_{c,k}(p)=0\).  Equivalently, every admissible slice whose
+squarefree \(c\)-core divides 6 vanishes identically on the hard primes.
+Theorem 36.2 is the subfamily \(c=1\); even the extension to every square
+\(c=t^2\) is already strict.
+
+*Proof.*  Now
+\(N=p^2+4s(tk)^2\).  If a rational prime \(\ell\mid N\), then
+\(\ell\nmid2s\), and reduction modulo \(\ell\) gives
+
+\[
+ \left(p(2tk)^{-1}\right)^2\equiv-s\pmod\ell.               \tag{44.9}
+\]
+
+Thus every prime-factor grade lies in the kernel of the quadratic character
+\(\psi_s(n)=\left(\frac{-s}{n}\right)\).  On the units modulo \(4s\), the
+four kernels and the excluded grade are
+
+\[
+\begin{array}{c|c|c}
+ s&\ker\psi_s&-1\pmod {4s}\\ \hline
+ 1&\{1\}&3\\
+ 2&\{1,3\}&7\\
+ 3&\{1,7\}&11\\
+ 6&\{1,5,7,11\}&23.
+\end{array}                                                   \tag{44.10}
+\]
+
+Every divisor grade, being a product of prime-factor grades, remains in the
+listed kernel.  But \(4s\mid24\), so \(p\equiv1\pmod {4s}\) and the target
+\(-p\) has the excluded grade \(-1\).  It cannot occur. \(\square\)
+
+**Corollary 44.2.1.**  Every one of the eight slices \(ck\leq4\) vanishes on
+every hard prime.  Among the 111 slices \(ck\leq30\), 80 vanish identically
+by Theorem 44.2 before any factorization depending on \(p\) is inspected.
+Therefore a small-box positivity argument must first remove this deterministic
+wrong-grade mass; adding many such slices adds no independent chance of a
+witness.
+
+### 44.3 What fixed progressions prove, and what they do not
+
+**Corollary 44.3 (one structured hard progression; proved).**  Every prime
+
+\[
+                         p\equiv97\pmod {120}                \tag{44.11}
+\]
+
+has a positive \((c,k)=(5,1)\) slice.  Indeed \(D=3\) divides \(p^2+20\)
+and satisfies \(D\equiv-p\pmod {20}\).  The resulting ordered row and its
+swap have
+
+\[
+ a={p+3\over20},\qquad b={p^2+3p+20\over60},
+ \qquad c=5,\quad k=1.                                     \tag{44.12}
+\]
+
+*Proof.*  Condition (44.11) gives \(p\equiv1\pmod3\) and
+\(p\equiv17\pmod {20}\).  Hence \(3\mid p^2+20\) and
+\(3\equiv-p\pmod {20}\).  Theorem 44.1 gives the slice, and substituting its
+complementary divisor gives (44.12). \(\square\)
+
+Consequently, for any \(S\) containing \((5,1)\), \(\mathcal C_S\) excludes
+one of the four reduced hard-prime classes modulo 120.  The prime number
+theorem in these fixed progressions gives the weak bound
+
+\[
+ \#\{p\leq X:p\in\mathcal C_S\}
+ \leq (3/4+o(1))\#\{p\leq X:p\equiv1\pmod {24}\}.           \tag{44.13}
+\]
+
+This is an effective fixed-congruence exclusion in principle, but it is only
+the old identity-family mechanism in ray language and is vastly weaker than
+the campaign's exceptional-set bounds.
+
+**Lemma 44.4 (two slices are not determined by their natural ray modulus;
+proved).**  Let \(S_0=\{(5,1),(7,1)\}\).  Joint vanishing on \(S_0\) is not
+a function of \(p\pmod {\operatorname {lcm}(24,20,28)}=p\pmod {840}\).
+Specifically,
+
+\[
+                         193\equiv1033\pmod {840},            \tag{44.14}
+\]
+
+both slices vanish at 193, while the \((5,1)\) slice is positive at 1033.
+
+*Proof.*  The exact factorizations are
+
+\[
+\begin{array}{c|c|c}
+(p,c,k)&p^2+4ck^2&-p\pmod {4ck}\\ \hline
+(193,5,1)&3^2\cdot41\cdot101&7\pmod {20}\\
+(193,7,1)&37277\ \hbox{(prime)}&3\pmod {28}\\
+(1033,5,1)&3\cdot67\cdot5309&7\pmod {20}.
+\end{array}                                                   \tag{44.15}
+\]
+
+In the first row the divisor grades are generated by 3 modulo 20, with the
+other factors graded 1, so they are \(1,3,9\), never 7.  In the second row
+neither divisor 1 nor 37277 has grade 3 modulo 28.  In the last row,
+\(D=67\equiv7\pmod {20}\) survives. \(\square\)
+
+Lemma 44.4 proves only failure at the natural product of the fixed ray
+moduli.  It does **not** prove that no larger congruence modulus can describe
+this particular two-slice locus.  Establishing such a statement for every
+modulus would require controlling factorizations in simultaneous polynomial
+progressions and is not obtained here.
+
+### 44.4 Exact finite conspiracy census
+
+**Computational 44.5 (exact stated range, not a theorem beyond it).**
+`verify.py (aq)` recomputes all 385 primes \(p<30000\) with
+\(p\equiv1\pmod {24}\), and all 111 pairs \(ck\leq30\).  For each of the
+42,735 instances it factors \(N\), multiplies the finite grade box (44.2),
+independently enumerates the literal divisors, requires exact equality at
+the target grade, and reconstructs every surviving Type-I row.  It also
+checks the quadratic character in Theorem 44.2 prime factor by prime factor.
+The computation is streamed one norm at a time.
+
+The number of primes for which the entire box through a cutoff vanishes is
+
+\[
+\begin{array}{c|rrrrrrr}
+ C&4&5&10&15&20&25&30\\ \hline
+ \#\{(c,k):ck\leq C\}&8&10&27&45&66&87&111\\
+ \#\{p:\hbox{all these slices vanish}\}&385&220&161&63&41&30&15.
+\end{array}                                                   \tag{44.16}
+\]
+
+For the full \(ck\leq30\) box, the exact depth histogram is
+
+\[
+\begin{array}{c|rrrrrrrrrrrrr}
+\#\hbox{ vanishing}&99&100&101&102&103&104&105&106&107&108&109&110&111\\ \hline
+\#\hbox{ primes}&2&3&10&4&18&43&40&43&55&55&64&33&15.
+\end{array}                                                   \tag{44.17}
+\]
+
+The maximum depth 111 is attained at
+
+\[
+\begin{split}
+ 2521,9601,12289,13729,15289,18481,19009,20089,21121,21169,\\
+ 21841,27361,27481,28921,29569.                              \tag{44.18}
+\end{split}
+\]
+
+The two minimum-depth primes are 5953 and 11353, each with 99 vanishing
+slices.  In particular, 2521's \(k=1\) zero from (36.15) is accompanied by
+vanishing of **every** slice \(ck\leq30\).  This does not conflict with its
+twelve ordered Type-I rows in §36: those rows occur outside this box.
+
+### 44.5 GRH audit and quantitative verdict
+
+The exact \(k=1\) formula permits a sharper version of Assessment 17.5(a).
+For \(1\leq a\leq p/2\), define
+
+\[
+ \begin{split}
+ J_a(p)&=\#\{f:f\mid pa+1,\ f\leq p,\ (f,4a)=1\},\\
+ I_a(p)&=\#\{f:f\mid pa+1,\ f\leq p,\ f\equiv-p\pmod {4a}\}.
+                                                               \tag{44.19}
+ \end{split}
+\]
+
+Separating the principal character in (36.13) gives the exact decomposition
+
+\[
+ T_{k=1}(p)=P_0(p)+E(p),\qquad
+ P_0(p)=2\sum_{a\leq p/2}{J_a(p)\over\varphi(4a)},\qquad
+ E(p)=2\sum_{a\leq p/2}\left(I_a(p)-{J_a(p)\over\varphi(4a)}\right).
+                                                               \tag{44.20}
+\]
+
+The principal term is rigorously subpower.  Since \(f=1\) always contributes,
+the standard reciprocal-totient estimate and the uniform divisor bound for
+\(pa+1\leq p^2\) give
+
+\[
+ \log p\ll P_0(p)
+ \ll \log p\,\exp\!\left(O\!\left({\log p\over\log\log p}\right)\right)
+ =p^{o(1)}.                                                   \tag{44.21}
+\]
+
+Its expected scale is polylogarithmic (consistent with the average counts in
+§36.5), but no fixed power of \(\log p\) is asserted pointwise.  At
+\(p=2521\), (36.15) says exactly \(E(p)=-P_0(p)\): the nonprincipal
+projector cancels the whole positive principal mass.
+
+**Assessment 44.6 (GRH does not supply slice positivity through the exact
+character formulas).**  Standard GRH character-sum estimates concern
+intervals or averaged families.  The inner sum in (36.13) is instead over the
+divisors of the single moving integer \(pa+1\), while its conductor \(4a\)
+also moves.  GRH by itself gives no square-root estimate for this selected
+divisor set.  Even granting, beyond that standard consequence of GRH, a
+square-root cancellation across the \(A=\lfloor p/2\rfloor\) normalized
+\(a\)-fibres in (44.20), with each fibre of subpower size, leaves
+
+\[
+                         E(p)=O(p^{1/2+o(1)}),                \tag{44.22}
+\]
+
+whereas (44.21) is only \(p^{o(1)}\).  Without this extra cross-fibre
+cancellation, termwise use of the divisor bound gives only
+\(E(p)=O(p^{1+o(1)})\).  Thus even the optimistic square-root benchmark is a
+factor \(p^{1/2-o(1)}\) too large to prove positivity.  For one fixed
+\((c,k)\), (44.3) is still more literal: it is a finite Euler product over
+the prime factors of one value \(p^2+4ck^2\), not an interval character sum
+at all; GRH does not control its target coefficient pointwise.  This is the
+moving-divisor wall of §17.5 sharpened with the exact §36 formula, not a
+claim that GRH plus some presently unknown additional structure could never
+prove the conjecture.
+
+**Assessment 44.7 (quantitative failure log).**  Equations (44.4)--(44.7)
+give a characterization, not a sparse sequence: the complement of the
+conspiracy locus is an infinite union whose moduli are the actual moving
+divisors.  Theorem 44.2 shows that 80 of the first 111 slices are perfectly
+correlated zeros, while (44.16)--(44.18) show that even the whole box has
+many exact finite conspiracies.  No effective all-large-prime bound and no
+new exceptional-set estimate follow.  The fixed progression (44.11) is the
+only pointwise structured-prime gain retained here, and (44.13) is much
+weaker than §16.4 and the CLAIMED/PROVISIONAL §39.7.  Section 16's displayed
+argument uses Bombieri--Vinogradov and Brun--Titchmarsh rather than the
+Siegel--Walfisz step that makes §§12--15 ineffective, so it is not labelled
+ineffective; it remains provisional and has no extracted numerical
+threshold.  The slice structure supplies neither an effective replacement
+nor a route from almost all primes to every prime.
