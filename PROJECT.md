@@ -81,6 +81,56 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 21 (2026-08-29, wave 17 — see notes.md §49–§50 + paper v4; all hostile-reviewed → repaired)
+
+* **§49: the ANTICHAIN repair is also refuted — the factorial-moment /
+  codegree route to the complete system is now structurally closed
+  (maximum-severity refutation review CONFIRMED).**  Theorem 49.1: exact
+  implication criterion between intrinsic atoms; §49.2: what first-moment
+  mass the implication reduction preserves; Theorem 49.4: the uniform
+  \(1/\varphi(g)\) residue profile FAILS even on the antichain (the
+  \(D=2\) slice stays residue-concentrated — the §39.3 cancellation has
+  no analog here).  Theorem 49.5 (collective-closure obstruction):
+  maximal \(D=2\) semiprime atoms \(n\equiv-8\ (q_ip_j)\),
+  \(q_i\equiv3\,(8)\), \(p_j\equiv5\,(8)\), form complete bipartite grids
+  in the antichain; the diagonal matching's INTERSECTION implies every
+  off-diagonal edge (extension ratio exactly 1), so
+  \(\mathcal L^\dagger(S)\geq t(t-1)\gg\Lambda\) for pairwise-coprime
+  squarefree \(S\), and one CRT class \(C_R\) (cost \((2z)^{-2t}\)) fires
+  all \(t^2\) atoms, exploding \(\mathbb E((H^\dagger)_m\mid T_0)\) past
+  \((C\Lambda)^m\) at \(m\asymp\Lambda\).  Lesson: no void-preserving
+  single-atom reduction can stop INTERSECTIONS from having rich divisor
+  shadows; the hierarchy/moment FORMULATIONS (40.27–28, 47.16,
+  37.19-for-any-reduced-count) are dead — the cube killed nesting, the
+  grid kills antichains.  Scope: H_PF′, (33.16), (40.19), (37.27)
+  untouched; Lemma 33.3's minorant now needs a non-moment construction;
+  Proposition 47.3's prime-only rung survives.  Strategic consequence
+  (Assessment): the H_PF′-refutation arc's stakes were already collapsed
+  by the unconditional §39 record; with the moment door closed this axis
+  is DORMANT unless a genuinely new mechanism appears.
+* **§50: the pointwise problem reduced to a named bespoke hypothesis, and
+  the conditional frontier mapped.**  Proved reduction: a prime
+  \(q\mid p^2+4ck^2\) with \(q\bmod4ck\) in the explicit good-class set
+  \(G(c,k)\) (\(\chi_s\)-compatible slices only) forces slice positivity,
+  hence a Type-I witness.  \(H_{\rm SPF}(A)\) (formalized, falsifiable):
+  every large hard \(p\) has such \((c,k)\), \(ck\leq(\log p)^A\) —
+  implies Type-I E-S for all large hard \(p\).  Audits (Assessment, each
+  with the exact failing step): Bateman–Horn is asymptotic-in-family, not
+  per-\(p\); GRH/Chebotarev stays compositum-limited even with the
+  polylog \((c,k)\) freedom (recomputed in the slice frame); EH is
+  exceptional-set-only.  Census (aw): minimal-\(ck\) distribution across
+  hard \(p<3\cdot10^4\) (+\(10^5\) scan), implication instances
+  machine-checked.  Register kept: \(H_{\rm SPF}\) is unproved; no
+  unconditional pointwise progress claimed.
+* **paper v4 (45pp, FAITHFUL-AFTER-REPAIRS): Theorem 43.12 promoted to
+  the general-m headline** (fourth-root thinning, range
+  \(m\leq(\log N)^{3-\epsilon}\), full proof incl. the finite
+  relative-mass inequality), §47 refutation + §46 endpoint widening +
+  §48 moving-genus material absorbed, PW comparison redone, pedigree
+  section updated; wave-17 fidelity pass fixed four stale (47.16)-open
+  claims (the §49 grid refutation postdates v4's drafting and is noted
+  as the v5 queue item together with §50).
+
 ## Outcome 20 (2026-08-29, wave 16 — see notes.md §46–§48, §43.11–§43.12, §47's refutation, paper v3; all hostile-reviewed → repaired)
 
 * **§47: the literal codegree hierarchy (40.28) and the raw-\(H\) moment
