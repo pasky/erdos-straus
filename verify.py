@@ -9408,4 +9408,225 @@ print("\n== (ay) per-slice sieve bookkeeping and residual census (§52) ==")
 check_ay()
 
 
+# ---------------------------------------------------------------- (az)
+def check_az():
+    """§53: corrected overlap mass, genus bits, and stacked-slice census."""
+    import os
+    from collections import defaultdict
+    from fractions import Fraction
+    from itertools import combinations
+    from random import Random
+    from statistics import median
+    from sympy import kronecker_symbol, sqrt_mod, totient
+
+    T = 30
+    forced_cores = {1, 2, 3, 6}
+    core_cache = {}
+
+    def squarefree_core(n):
+        if n not in core_cache:
+            core_cache[n] = prod(q for q, e in factorint(n).items() if e % 2)
+        return core_cache[n]
+
+    def discriminant(s):
+        return -s if (-s) % 4 == 1 else -4 * s
+
+    def genus(s, n):
+        return int(kronecker_symbol(discriminant(s), n))
+
+    slices = tuple(
+        (C, n // C, squarefree_core(C), n, C * (n // C)**2)
+        for n in range(1, T + 1)
+        for C in range(1, n + 1) if n % C == 0
+    )
+    unforced = tuple(row for row in slices if row[2] not in forced_cores)
+    assert (len(slices), len(unforced)) == (111, 31)
+
+    # The sharp resultant threshold is 4T^2, since CK^2=(CK)K<=T^2.
+    # The requested interval (4T^3,10^5] is empty at T=30, so check the
+    # stronger nonvacuous interval (4T^2,10^5] instead.  A common root is
+    # equivalent to equality of the two radicands modulo q.
+    radicands = tuple(sorted({row[4] for row in slices}))
+    high_primes = tuple(primerange(4 * T * T + 1, 100_001))
+    assert len(high_primes) == 9089
+    for q in high_primes:
+        rooted = tuple(d for d in radicands
+                       if pow((-4 * d) % q, (q - 1) // 2, q) == 1)
+        residues = tuple((-4 * d) % q for d in rooted)
+        assert len(residues) == len(set(residues))
+        assert all(q > 4 * abs(d1 - d2)
+                   for d1, d2 in combinations(rooted, 2))
+
+    # A genuine below-threshold collision, and the permanent equal-radicand
+    # collision which invalidates the uncorrected raw slice mass.
+    q_small, first, second = 3, (5, 1), (5, 2)
+    d_first, d_second = 5, 20
+    roots_first = tuple(sqrt_mod(-4 * d_first, q_small, all_roots=True))
+    roots_second = tuple(sqrt_mod(-4 * d_second, q_small, all_roots=True))
+    assert roots_first == roots_second == (1, 2)
+    assert q_small < 4 * T * T and (d_first - d_second) % q_small == 0
+    duplicate_a, duplicate_b = (5, 2), (20, 1)
+    assert duplicate_a[0] * duplicate_a[1]**2 == 20
+    assert duplicate_b[0] * duplicate_b[1]**2 == 20
+
+    L = 1
+    for n in range(1, T + 1):
+        L = lcm(L, n)
+    Q = lcm(24, 4 * L)
+    assert Q == 9_316_358_251_200
+
+    def slice_masses(C):
+        active = tuple(row for row in unforced if genus(row[2], C) == -1)
+        raw = sum((Fraction(2, int(totient(4 * row[3]))) for row in active),
+                  Fraction())
+
+        # For one radicand d, several slice ray conditions remove the same
+        # two roots.  Inclusion-exclusion over their h=4CK cylinders gives
+        # the corrected root-union density.
+        sharp = Fraction()
+        for d in {row[4] for row in active}:
+            moduli = tuple(sorted({4 * row[3] for row in active if row[4] == d}))
+            union = Fraction()
+            for size in range(1, len(moduli) + 1):
+                for subset in combinations(moduli, size):
+                    modulus = 1
+                    for h in subset:
+                        modulus = lcm(modulus, h)
+                    union += (-1)**(size + 1) * Fraction(
+                        1, int(totient(modulus)))
+            sharp += 2 * union
+        return raw, sharp, len(active), len({row[4] for row in active})
+
+    # One direct escape class plus 256 seeded uniform reduced hard classes.
+    rng = Random(530019)
+    classes = [1]
+    while len(classes) < 257:
+        C = 1 + 24 * rng.randrange(Q // 24)
+        if gcd(C, Q) == 1:
+            classes.append(C)
+    prime_cores = tuple(primerange(5, T + 1))
+    raw_masses, sharp_masses, patterns = [], [], Counter()
+    for C in classes:
+        raw, sharp, active_count, radicand_count = slice_masses(C)
+        assert 0 <= sharp <= raw
+        assert radicand_count <= active_count
+        raw_masses.append(raw)
+        sharp_masses.append(sharp)
+        patterns[tuple(genus(q, C) == -1 for q in prime_cores)] += 1
+
+    assert all(genus(q, 1) == 1 for q in prime_cores)
+    assert slice_masses(1) == (Fraction(), Fraction(), 0, 0)
+    assert tuple(round(float(x), 9) for x in
+                 (min(raw_masses), median(raw_masses), max(raw_masses))) == (
+                     0.0, 1.338510101, 2.428391053)
+    assert tuple(round(float(x), 9) for x in
+                 (min(sharp_masses), median(sharp_masses), max(sharp_masses))) == (
+                     0.0, 1.276010101, 2.324224387)
+
+    # Remove the constructed escape before the empirical independence check.
+    random_patterns = Counter()
+    for C in classes[1:]:
+        random_patterns[tuple(genus(q, C) == -1 for q in prime_cores)] += 1
+    negative_marginals = tuple(
+        sum(pattern[i] * count for pattern, count in random_patterns.items())
+        for i in range(len(prime_cores))
+    )
+    pair_correlations = tuple(
+        sum((1 if pattern[i] == pattern[j] else -1) * count
+            for pattern, count in random_patterns.items())
+        for i in range(len(prime_cores))
+        for j in range(i + 1, len(prime_cores))
+    )
+    assert (len(random_patterns), max(random_patterns.values())) == (159, 5)
+    assert negative_marginals == (138, 120, 132, 136, 128, 145, 128, 138)
+    assert (min(pair_correlations), max(pair_correlations),
+            sum(map(abs, pair_correlations))) == (-36, 30, 386)
+
+    # Finite tie-back.  Stream one norm at a time and retain no factor table.
+    scan_limit = 100_000 if os.environ.get("ES_FULL_SCAN") == "1" else 30_000
+    z_data = scan_limit
+    hard = tuple(p for p in primerange(2, scan_limit) if p % 24 == 1)
+    assert len(hard) == (1181 if scan_limit == 100_000 else 385)
+    least_histogram = Counter()
+    bounded_good_count = 0
+    mass_bands = defaultdict(lambda: [0, 0, Fraction()])
+    for P in hard:
+        raw_mass, _, _, _ = slice_masses(P)
+        least_good = None
+        bounded_good = False
+        for C, K, s, n, _d in unforced:
+            if genus(s, P) != -1:
+                continue
+            norm = P * P + 4 * C * K * K
+            for q in factorint(norm):
+                if q % (4 * n) != (-P) % (4 * n):
+                    continue
+                assert genus(s, P) == -1
+                least_good = n if least_good is None else min(least_good, n)
+                bounded_good |= q <= z_data
+        least_histogram[least_good] += 1
+        bounded_good_count += bounded_good
+
+        value = float(raw_mass)
+        band = (0 if value < 0.5 else 1 if value < 1.0 else
+                2 if value < 1.5 else 3 if value < 2.0 else 4)
+        mass_bands[band][0] += 1
+        mass_bands[band][1] += not bounded_good
+        mass_bands[band][2] += raw_mass
+
+    expected_histogram_small = {
+        5: 156, 7: 30, 10: 36, 11: 35, 13: 13, 14: 15, 17: 16,
+        19: 4, 21: 15, 22: 9, 23: 6, 26: 10, 28: 4, 29: 3,
+        None: 33,
+    }
+    expected_histogram_full = {
+        5: 492, 7: 100, 10: 97, 11: 95, 13: 41, 14: 35, 17: 50,
+        19: 19, 21: 50, 22: 19, 23: 17, 26: 34, 28: 7, 29: 9,
+        None: 116,
+    }
+    assert dict(least_histogram) == (expected_histogram_full
+                                     if scan_limit == 100_000
+                                     else expected_histogram_small)
+    assert sum(count for n, count in least_histogram.items() if n is not None) == (
+        1065 if scan_limit == 100_000 else 352)
+    assert bounded_good_count == (1040 if scan_limit == 100_000 else 345)
+
+    band_rows = tuple(
+        (band, count, no_good, round(float(total / count), 6))
+        for band, (count, no_good, total) in sorted(mass_bands.items())
+    )
+    expected_bands_small = (
+        (0, 76, 25, 0.324856), (1, 84, 14, 0.831566),
+        (2, 62, 1, 1.281912), (3, 88, 0, 1.698663),
+        (4, 75, 0, 2.198854),
+    )
+    expected_bands_full = (
+        (0, 259, 103, 0.292388), (1, 244, 36, 0.83155),
+        (2, 197, 2, 1.282395), (3, 225, 0, 1.684125),
+        (4, 256, 0, 2.195519),
+    )
+    assert band_rows == (expected_bands_full if scan_limit == 100_000
+                         else expected_bands_small)
+
+    print("overlap check (sharp threshold,primes,small collision,duplicate) =",
+          (4 * T * T, len(high_primes),
+           (q_small, first, second, roots_first), (duplicate_a, duplicate_b, 20)))
+    print("Q_30 / sampled raw mass min,median,max / sharp =",
+          (Q,
+           tuple(round(float(x), 6) for x in
+                 (min(raw_masses), median(raw_masses), max(raw_masses))),
+           tuple(round(float(x), 6) for x in
+                 (min(sharp_masses), median(sharp_masses), max(sharp_masses)))))
+    print("INFO prime-core independence (patterns,marginals,corr range) =",
+          (len(random_patterns), negative_marginals,
+           (min(pair_correlations), max(pair_correlations))))
+    print("ck_pr<=30 / good q<=z / INFO no-good mass bands =",
+          (sum(v for key, v in least_histogram.items() if key is not None),
+           bounded_good_count, band_rows))
+
+
+print("\n== (az) stacked slice sieve structure and genus asymmetry (§53) ==")
+check_az()
+
+
 print("\nall checks passed")

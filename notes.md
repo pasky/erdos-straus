@@ -19318,3 +19318,609 @@ The proved conclusion is narrower and exact: the third layer is empty at the
 residual vanishing is a factorization event of relative frequency tending to
 zero on every fixed unforced class.  Its infinitude per slice is open, while
 the finite census shows that it remains robust in the computed ranges.
+
+
+## 53. The stacked slice sieve: almost-all \(H_{\rm SPF}\) and the genus-permission asymmetry
+
+**Scope and outcome.**  The root sieves of §52 can be stacked, but not with
+the raw sum over slice labels suggested there.  Distinct labels can define
+the same norm: for example \((c,k)=(5,2)\) and \((20,1)\) both have
+\(ck^2=20\).  Their two root classes then coincide at every prime where both
+ray conditions hold.  This is a genuine overlap, not a lower-order error.
+After quotienting these duplicate radicands, the fixed-box stack has exactly
+the expected sieve exponent.  For a growing box it is cleaner to retain the
+canonical subfamily with squarefree \(c\); its radicands are automatically
+distinct and it already proves an effective almost-all form of
+\(H_{\rm SPF}(A)\) for every \(A<1\):
+
+\[
+ \#\{p\leq X:p\equiv1\pmod {24},\ H_{\rm SPF}(A)
+                       \text{ fails at }p\}
+ \ll_A {X\over\log X}
+ \exp\left\{-c_A{(\log\log X)^{3/2}\over
+                         \sqrt{\log\log\log X}}\right\}. \tag{53.1}
+\]
+
+The square-root loss relative to the provisional cubic Type-II tail (51.18)
+is structural.  Type II has no genus-permission gate.  Here a class must
+first acquire a negative quadratic bit, and rare classes postpone the first
+such bit.  Theorem 50.5 gives the fixed-box extremizers.  Nothing below is
+pointwise.
+
+### 53.1 Root geometry and the corrected fixed-box mass
+
+Fix \(T\geq1\), and put
+
+\[
+ Q_T=\operatorname {lcm}(24,\{4ck:ck\leq T\}).             \tag{53.2}
+\]
+
+For integral \(T\geq6\), this is \(4\operatorname {lcm}(1,\ldots,T)\), so
+Chebyshev's bounds for the prime-counting function \(\psi\) give
+\(\log Q_T=\psi(T)+O(1)=O(T)\).  Let \(C\pmod {Q_T}\) be reduced and
+\(C\equiv1\pmod {24}\).  A slice \((c,k)\), \(ck\leq T\), is called
+**active at \(C\)** when
+\(\chi_{\operatorname {sf}(c)}(C)=-1\).  This is well defined modulo
+\(Q_T\), because the conductor of that character divides
+\(4\operatorname {sf}(c)\mid4c\mid Q_T\).  For primes exceeding a constant
+depending on \(T\), every such slice is admissible; those finitely many
+exceptions will always be absorbed.
+
+The raw mass proposed by simply adding slice dimensions is
+
+\[
+ m_{\rm raw}(C)=
+   \sum_{\substack{ck\leq T\\(c,k)\ {
+m active\ at}\ C}}
+             {2\over\varphi(4ck)}.                         \tag{53.3}
+\]
+
+It is not the local-density mass of the union.  To define the latter, put
+\(d=ck^2\), let
+
+\[
+ \mathcal H_d(C)=\{4ck:ck\leq T,\ ck^2=d,
+                              (c,k)\text{ active at }C\},  \tag{53.4}
+\]
+
+and, for a reduced residue \(b\pmod {Q_T}\), set
+
+\[
+ J_C(b)=\#\{d:\exists h\in\mathcal H_d(C),\ b\equiv-C\pmod h\},
+ \qquad
+ m_\#(C)={2\over\varphi(Q_T)}
+       \sum_{b\in(\mathbb Z/Q_T\mathbb Z)^\times}J_C(b).  \tag{53.5}
+\]
+
+Thus a radicand is counted once at a prime even if several labels with that
+radicand accept the prime.  Equivalently, its contribution is twice the
+uniform density, among reduced residues modulo \(Q_T\), of the union of its
+ray conditions.
+
+**Lemma 53.1a (root overlap; proved).**  Put \(d_i=c_i k_i^2\).  If a root
+class of
+
+\[
+                   x^2\equiv-4d_1\pmod q                 \tag{53.6}
+\]
+
+coincides with a root class for \(d_2\), then
+
+\[
+                         q\mid4(d_1-d_2).                  \tag{53.7}
+\]
+
+Consequently, if \(d_1\ne d_2\), all root pairs belonging to slices
+\(c_i k_i\leq T\) are disjoint for \(q>4T^2\).  A root cannot be zero there.
+If \(d_1=d_2\), the two root sets coincide identically.
+
+*Proof.*  Squaring a common residue and subtracting gives (53.7).  Since
+\(d_i=(c_i k_i)k_i\leq T^2\), a nonzero difference has absolute value less
+than \(T^2\).  Also \(q>4T^2>4d_i\), so (53.6) has no zero root.  Equality
+of the radicands makes the congruences identical. \(\square\)
+
+The last case invalidates the assertion that *all slice-label roots* become
+pairwise distinct above a resultant threshold.  For the explicit duplicate
+\((5,2),(20,1)\), on a class with \(\chi_5(C)=-1\), the condition modulo 80
+is contained in the condition modulo 40.  Its correct contribution is
+\(2/\varphi(40)=1/8\), whereas (53.3) assigns
+\(2/\varphi(40)+2/\varphi(80)=3/16\).  Thus a theorem with exponent
+\(1+m_{\rm raw}(C)\) is not proved by the local sieve and its asserted exact
+local-density premise is false.  The next theorem is the corrected form.
+
+For \(z>0\), let \(E_C(X,z)\) count primes \(p\leq X\),
+\(p\equiv C\pmod {Q_T}\), for which there is no prime \(q\leq z\) and no
+active slice \((c,k)\), \(ck\leq T\), satisfying
+
+\[
+             q\mid p^2+4ck^2,\qquad q\equiv-C\pmod {4ck}. \tag{53.8}
+\]
+
+**Theorem 53.1 (fixed-box stacked sieve; proved, effective).**  For fixed
+\(T\), there is an effective \(\eta_T>0\) such that, uniformly over the
+finitely many reduced hard classes \(C\pmod {Q_T}\),
+
+\[
+ E_C(X,X^{\eta_T})
+       \ll_T {X\over(\log X)^{1+m_\#(C)}}.                 \tag{53.9}
+\]
+
+The same estimate therefore holds for primes having no good prime factor of
+any size in the box.
+
+*Proof.*  Take
+\(T_0>\max(Q_T,4T^2)\).  Sieving the integers
+
+\[
+                 \mathcal A_C=\{n\leq X:n\equiv C\pmod {Q_T}\} \tag{53.10}
+\]
+
+removes the zero class at every prime \(\ell\nmid Q_T\).  At a prime
+\(q>T_0\), it additionally removes the roots belonging to every radicand
+\(d\) for which one ray in \(\mathcal H_d(C)\) accepts \(q\).  The genus
+calculation (52.5)--(52.6) shows that each accepted radicand has exactly two
+roots.  Lemma 53.1a shows that roots for distinct radicands are disjoint.
+They are also disjoint from zero.  Hence the exact local count is
+
+\[
+ \rho_C(q)=1+2J_C(q\bmod Q_T)\quad(q>T_0),                 \tag{53.11}
+\]
+
+while at other sieving primes only the zero class is needed.  Primes dividing
+\(Q_T\) are omitted: the residue of \(n\) there is already fixed and
+nonzero.  If such a prime settles (53.8) for every integer in the class, the
+left side only decreases; no density is lost by this omission.
+
+For squarefree \(d\) prime to \(Q_T\), the Chinese remainder theorem gives
+
+\[
+ \#(\mathcal A_C)_d={X\rho_C(d)\over Q_Td}+O_T(\rho_C(d)),
+ \qquad \rho_C\text{ multiplicative}.                    \tag{53.12}
+\]
+
+Mertens' theorem in each fixed reduced progression modulo \(Q_T\) gives,
+effectively for this fixed modulus,
+
+\[
+ \sum_{T_0<q\leq z}{2J_C(q\bmod Q_T)\over q}
+       =m_\#(C)\log\log z+O_T(1).                         \tag{53.13}
+\]
+
+Together with ordinary Mertens, this gives
+
+\[
+ V_C(z)=\prod_{\ell\leq z}\left(1-{
+ho_C(\ell)\over\ell}\right)
+       \asymp_T(\log z)^{-1-m_\#(C)}.                     \tag{53.14}
+\]
+
+Here and below omitted primes merely alter a fixed constant.
+
+Apply the upper-bound fundamental lemma of the beta sieve in the form of
+Friedlander--Iwaniec, *Opera de Cribro*, Theorem 6.9: for fixed dimension
+\(\kappa\), the standard product-dimension hypothesis and
+\(s=\log D/\log z\) larger than a constant depending on \(\kappa\) give
+
+\[
+ S(\mathcal A_C,z)\ll_T {X\over Q_T}V_C(z)
+       +\sum_{d\leq D}\mu^2(d)O_T(\rho_C(d)).             \tag{53.15}
+\]
+
+The hypothesis follows directly from (53.13), including its versions on
+subintervals.  Take \(D=X^{1/2}\), then take
+\(z=D^{1/u_T}=X^{\eta_T}\) with fixed sufficiently large \(u_T\).  Since
+\(\rho_C(\ell)=O_T(1)\), the remainder is
+\(O_T(D(\log D)^{O_T(1)})\), negligible in (53.9).  A prime \(p>z\)
+avoids the zero classes automatically, and a prime counted by \(E_C\) avoids
+all added roots.  The \(O(z)\) smaller primes are also negligible.  Equations
+(53.14)--(53.15) prove (53.9). \(\square\)
+
+The named analytic inputs are the upper-bound beta-sieve fundamental lemma,
+ordinary Mertens, and Mertens in fixed arithmetic progressions.  No
+Bombieri--Vinogradov theorem, Siegel--Walfisz theorem, or Chebotarev theorem
+is used in Theorem 53.1.  Fixed-modulus prime-number-theorem constants can be
+made effective; no uniform Siegel issue occurs.
+
+**Corollary 53.2 (fixed-box dichotomy; proved).**  If \(C\) has an active
+slice, then \(m_\#(C)>0\), and the primes with no good factor in the box have
+relative density zero among primes in that class.  If \(C\) has no active
+slice, then \(m_\#(C)=0\), and this method gives only the ordinary
+one-dimensional primality bound.  Such escape classes exist for every fixed
+\(T\): the class \(C=1\pmod {Q_T}\) is one, and Theorem 50.5 supplies
+infinitely many primes in it.
+
+For one active slice there is no duplicate and
+\(m_\#=2/\varphi(4ck)\), so Theorem 52.1 is exactly the one-slice exponent
+inside Theorem 53.1.  The correction starts only when labels are stacked.
+
+### 53.2 Total mass, independent genus bits, and a deterministic permission bound
+
+The size of the full raw box is genuinely quadratic in \(\log T\).  Indeed
+
+\[
+ \mathfrak M(T)=\sum_{ck\leq T}{2\over\varphi(4ck)}
+       =\sum_{n\leq T}{2\tau(n)\over\varphi(4n)}
+       \sim C_{\rm sl}(\log T)^2,                          \tag{53.16}
+\]
+
+where
+
+\[
+ C_{\rm sl}={1\over2}\prod_{p\ {
+m odd}}
+ \left(1-{1\over p}\right)^2
+ \left(1+{p(2p-1)\over(p-1)^3}\right)>0.                 \tag{53.17}
+\]
+
+For completeness, writing \(n=2^a m\) with \(m\) odd factors the Dirichlet
+series as
+
+\[
+ \sum_{n\geq1}{2\tau(n)\over\varphi(4n)n^s}
+ =\left(\sum_{a\geq0}{a+1\over2^{a(1+s)}}\right)
+  \prod_{p\ {
+m odd}}
+   \left(1+\sum_{a\geq1}{a+1\over p^{a-1}(p-1)p^{as}}\right).
+                                                               \tag{53.18}
+\]
+
+After division by \(\zeta(1+s)^2\), the Euler product converges absolutely
+near \(s=0\) and has value \(2C_{\rm sl}\).  The standard
+Selberg--Delange theorem gives (53.16).  Only the weaker effective bound
+\(\mathfrak M(T)\ll(1+\log T)^2\) is used below; it also follows elementarily
+from
+\(n/\varphi(n)=\sum_{d\mid n}\mu^2(d)/\varphi(d)\) and
+\(\sum_{n\leq T}\tau(n)/n\ll(1+\log T)^2\).
+
+For the growing theorem retain only the **canonical slices**
+
+\[
+ \mathcal S_T(C)=\{(s,k):s\text{ squarefree},\ sk\leq T,
+                                      \chi_s(C)=-1\}.       \tag{53.19}
+\]
+
+Their radicands \(sk^2\) are distinct: equality of two such integers forces
+equality of their squarefree kernels and then of \(k\).  Define their mass
+
+\[
+                   m_0(C)=\sum_{(s,k)\in\mathcal S_T(C)}
+                                  {2\over\varphi(4sk)}.     \tag{53.20}
+\]
+
+This is a submass of the corrected full union and is
+\(O((\log T)^2)\) by (53.16).
+
+The genus distribution is exact, not heuristic.  If \(C\equiv1\pmod {24}\)
+is reduced modulo \(Q_T\), quadratic reciprocity gives
+
+\[
+ \chi_s(C)=\prod_{\substack{q\mid s\\q\geq5}}
+                         \left({C\over q}\right).          \tag{53.21}
+\]
+
+The factors from \(-1,2,3\) are pinned to one by the hard progression.  As
+\(C\) ranges uniformly over the reduced hard classes modulo \(Q_T\), the
+bits \((C/q)\), for distinct primes \(5\leq q\leq T\), are independent
+uniform signs.  This follows directly from the Chinese remainder theorem:
+for each odd \(q\), exactly half of the \(q-1\) nonzero residues have each
+sign, and the odd prime-power coordinates of \(Q_T\) are independent.  The
+shared 2-part of the character conductors causes no dependence because it is
+already fixed by \(C\equiv1\pmod {24}\).
+
+The following deterministic pairing extracts the full useful mass of the
+first negative bit.  It is the source of the squared logarithm in (53.1).
+
+**Lemma 53.2a (permission-pair mass; proved).**  Suppose \(5\leq q\leq T/2\)
+is prime and \(\chi_q(C)=-1\).  Then
+
+\[
+                         m_0(C)\gg {\log^2(T/q)\over q}.    \tag{53.22}
+\]
+
+The constant is absolute.  The same estimate, with another absolute
+constant, survives the deletion of every slice whose modulus \(4sk\) is
+divisible by one prescribed primitive real-character conductor \(r\),
+provided \(q\nmid r\).
+
+*Proof.*  Pair every squarefree \(u\leq T/q\), \((u,q)=1\), with \(qu\).
+By (53.21), exactly one of these two cores is active.  For
+\(k\leq T/(qu)\), the active slice has product at most \(T\), and its weight
+is at least
+
+\[
+                    {2\over\varphi(4quk)}\geq{1\over2quk}; \tag{53.23}
+\]
+
+if the active core is \(u\), divisibility and monotonicity of \(\varphi\) make
+its actual weight still larger.  Hence Möbius summation gives
+
+\[
+ m_0(C)\gg {1\over q}
+  \sum_{\substack{u\leq T/q\\u\ {
+m squarefree}\\(u,q)=1}}
+       {1\over u}\log{T/q\over u}
+       \gg {\log^2(T/q)\over q}.                           \tag{53.24}
+\]
+
+The last estimate follows, for example, by inserting
+\(\mu^2(u)=\sum_{d^2\mid u}\mu(d)\); excluding one prime changes only a
+uniform positive Euler factor.
+
+For the deletion statement, a primitive real conductor is an absolute
+fundamental discriminant.  If \(r\) has an odd prime factor \(\ell\),
+restrict (53.24) to \(\ell\nmid uk\).  Then \(r\nmid4sk\), whichever core
+in the pair is active, and the two restrictions cost fixed factors at least
+\((\ell-1)/(\ell+1)\) and \(1-1/\ell\).  If \(r=8\), restrict \(k\) to odd
+integers; all relevant cores may also be taken odd.  The conductor 4 is
+fixed and its \(L\)-function is effectively controlled, so it need not be
+deleted.  These restrictions leave (53.24) of the same order. \(\square\)
+
+Using only the single core \(q\) would give merely
+\(\gg\log(T/q)/q\).  Pairing \(u\) with \(qu\) is essential: regardless of
+all later genus bits, one member of every pair is active.
+
+### 53.3 The growing stack and the optimized tail
+
+Put
+
+\[
+ T=(\log X)^A,\quad L=\log\log X,\quad
+ K_T=C_0(1+\log^2T),\quad D=X^{1/3},
+ \quad z=\exp\left\{{\log D\over B K_T}\right\},          \tag{53.25}
+\]
+
+where \(C_0,B\) are sufficiently large absolute constants.  Thus
+\(\log z\asymp\log X/L^2\), while
+
+\[
+ \log\log z=L+O(\log L),\qquad
+ \log\log Q_T=A L+O(1).                                  \tag{53.26}
+\]
+
+The second formula uses \(\log Q_T=\psi(T)+O(1)\).  In particular
+\(Q_T<z\) for every fixed \(A<1\) and all sufficiently large \(X\).
+
+**Theorem 53.3 (growing stacked slice sieve; proved, effective).**  For every
+fixed \(0<A<1\), there are effectively computable constants \(c_A>0\) and
+\(X_A\) such that, for \(X\geq X_A\),
+
+\[
+ \begin{split}
+ \#\{p\leq X:p\equiv1\pmod {24},\ &\text{there is no active }(c,k),
+       \ ck\leq(\log X)^A,\text{ and no prime }q\leq z\text{ with}\\
+       &q\mid p^2+4ck^2,\quad q\equiv-p\pmod {4ck}\}
+ \ll_A {X\over\log X}
+ \exp\left\{-c_A{L^{3/2}\over\sqrt{\log L}}\right\}.   \tag{53.27}
+ \end{split}
+\]
+
+Here \(z\) is (53.25).  The theorem uses only the squarefree-\(c\) subfamily
+in its proof, so the displayed assertion for all slices follows a fortiori.
+
+*Proof.*  Partition the integers into the reduced hard classes
+\(C\pmod {Q_T}\).  There are \(\varphi(Q_T)/\varphi(24)\) such classes,
+and \(Q_T=\exp\{O(T)\}=X^{o(1)}\); this is the only place where \(A<1\) is
+needed at the class-partition level.
+
+There is one uniform-prime-distribution issue.  The standard
+Siegel--Walfisz theorem, applied directly to every modulus \(4sk\leq4T\),
+would make the constants ineffective.  Use instead its effective
+Landau--Page form: Page's theorem gives at most one primitive real conductor
+\(r=r_X\) whose induced characters are not covered by the effective
+zero-free region.  For moduli \(h\leq4T\) with \(r\nmid h\), the usual
+explicit-formula proof of Siegel--Walfisz gives, uniformly for \(x\geq Q_T\),
+
+\[
+ \psi(x;h,a)={x\over\varphi(h)}
+       +O\left(xe^{-c\sqrt{\log x}}\right),                \tag{53.28}
+\]
+
+with effective constants; if no exceptional conductor exists, take \(r=1\).
+This is the standard Page-deleted Siegel--Walfisz theorem, obtained from the
+Landau--Page assertion (at most one exceptional primitive real character),
+the classical effective zero-free region for every other Dirichlet
+\(L\)-function, and the explicit formula.  Unlike Chebotarev, it concerns
+only rational prime progressions.  Retain only canonical slices for which
+\(r\nmid4sk\).  A failure for all slices certainly avoids this retained
+subfamily.
+
+Let \(m_r(C)\) denote the retained version of (53.20).  At root-sieving
+primes restrict to \(Q_T<q\leq z\).  The radicands are distinct, so Lemma
+53.1a makes all their root pairs disjoint.  Partial summation in (53.28),
+together with (53.16), gives uniformly in \(C\)
+
+\[
+ \sum_{\substack{Q_T<q\leq z\\q\equiv-C\ (4sk)}}{1\over q}
+ ={\log\log z-\log\log Q_T\over\varphi(4sk)}+o(1/\varphi(4sk)), \tag{53.29}
+\]
+
+and the sum of the errors over all retained slices is \(o(1)\).  Indeed there
+are \(O(T\log T)\) labels, while the error at the lower endpoint is
+exponentially small in \(\sqrt{\log Q_T}\).  The quadratic terms in the
+local logarithm are also \(o(1)\), since the number of labels squared times
+\(\sum_{q>Q_T}q^{-2}\) is \(\exp\{-\Omega(T)\}\).
+
+At every prime \(\ell\leq z\), \(\ell\nmid Q_T\), also remove zero in order
+to majorize primality.  Thus the local product satisfies
+
+\[
+ V_C(z)\ll {Q_T\over\varphi(Q_T)\log z}
+  \exp\{-m_r(C)(\log\log z-\log\log Q_T)+o(1)\}
+ \ll_A {L^{O(1)}\over\log X}e^{-c_A m_r(C)L}.              \tag{53.30}
+\]
+
+The first omitted factor is ordinary Mertens; the elementary bound
+\(Q_T/\varphi(Q_T)\ll\log T\) is enough.
+
+We record the uniform sieve point because it is load-bearing.  The
+upper-bound beta-sieve fundamental lemma, again in the uniform-dimensional
+form of Friedlander--Iwaniec, Theorem 6.9, says that if
+
+\[
+ \prod_{w\leq\ell<y}(1-g_C(\ell))^{-1}
+       \leq K_0\left({\log y\over\log w}\right)^{\kappa_C} \tag{53.31}
+\]
+
+and \(s=\log D/\log z\geq B_0(\kappa_C+1)\), then its upper sieve function
+is bounded absolutely (indeed it is \(1+O(e^{-c s})\) once \(s\) is beyond
+the beta-sieve threshold), uniformly in \(\kappa_C\).  Here the interval
+versions of (53.28)--(53.29) give (53.31) with
+\(\kappa_C\ll1+m_r(C)\), an absolute \(K_0\), and
+\(\kappa_C\leq K_T\).  The choice (53.25) gives
+\(s=B K_T/3\), so the cited uniform condition holds for every class.  This
+is why taking a fixed-dimensional constant from Proposition 52.3 and then
+summing it would not suffice.
+
+For a squarefree sieve modulus \(d\), the progression count has remainder
+\(O(\rho_C(d))\), as in (53.12).  Crude domination by
+\(R_T^{\omega(d)}\), with \(R_T=O(T\log T)\), gives
+
+\[
+ Q_T\sum_{d\leq D}\mu^2(d)O(\rho_C(d))
+       \leq X^{1/3+o(1)}                                  \tag{53.32}
+\]
+
+when summed over all classes: its logarithmic overhead is
+\(O(T\log T\log\log X)=o(\log X)\), and \(\log Q_T=O(T)\).
+Thus (53.30), the uniform fundamental lemma, and (53.32) yield
+
+\[
+ \#\mathcal E(X)\ll_A {XL^{O(1)}\over\log X}
+ {1\over\#\mathcal C_T}\sum_{C\in\mathcal C_T}e^{-c_A m_r(C)L}, \tag{53.33}
+\]
+
+where \(\mathcal C_T\) is the reduced hard class set.  The factors
+\(Q_T/\varphi(Q_T)\) in (53.30) and the number of classes cancel in the
+usual way.
+
+It remains to average the permission mass.  Set
+
+\[
+                         y=L^{3/2}\sqrt{\log L}.            \tag{53.34}
+\]
+
+Among primes \(5\leq q\leq y\), ignore those dividing the Page conductor
+\(r\).  There are only
+\(\omega(r)=O(\log T)=O(L)\) such primes.  By the exact independence
+(53.21), the proportion of classes on which every remaining bit is positive
+is
+
+\[
+ 2^{-\pi(y)+O(L)}
+ \leq\exp\left\{-c{y\over\log y}\right\}
+ \leq\exp\left\{-c{L^{3/2}\over\sqrt{\log L}}\right\}.   \tag{53.35}
+\]
+
+For every other class choose a negative prime \(q\leq y\), \(q\nmid r\).
+Since \(y=T^{o(1)}\), Lemma 53.2a and its deletion clause give
+
+\[
+ m_r(C)\gg_A {L^2\over y},\qquad
+ e^{-c_A m_r(C)L}
+ \leq\exp\left\{-c_A{L^3\over y}\right\}
+ =\exp\left\{-c_A{L^{3/2}\over\sqrt{\log L}}\right\}.    \tag{53.36}
+\]
+
+Equations (53.33)--(53.36), with the harmless power of \(L\) absorbed by
+reducing \(c_A\), prove (53.27).  Every constant used after the one-conductor
+deletion is effective, so the theorem is effective. \(\square\)
+
+The optimization is transparent.  If permission is postponed beyond \(y\),
+its class probability costs \(\exp\{-c y/\log y\}\); if it occurs by \(y\),
+the slice sieve costs \(\exp\{-c_A L^3/y\}\).  Balancing
+\(y/\log y\) and \(L^3/y\) gives (53.34) and the exponent in (53.27).
+The restriction \(A<1\) also has a second, analytic meaning: root primes are
+started above \(Q_T\), so (53.26) leaves only
+\((1-A)L+O(\log L)\) of Mertens mass.  This is absorbed into \(c_A\) but
+vanishes at the endpoint \(A=1\).
+
+**Corollary 53.4 (almost-all \(H_{\rm SPF}\); proved, effective).**  For each
+fixed \(0<A<1\),
+
+\[
+ \#\{p\leq X:p\equiv1\pmod {24},\text{ the event (50.7) fails at }p\}
+ \ll_A {X\over\log X}
+ \exp\left\{-c_A{(\log\log X)^{3/2}\over
+                         \sqrt{\log\log\log X}}\right\}.  \tag{53.37}
+\]
+
+*Proof.*  A failure of (50.7) has no good prime at all and is therefore
+counted by (53.27).  Replacing the cutoff \((\log X)^A\) by
+\((\log p)^A\) is handled on dyadic intervals; on \([X/2,X]\) the two
+cutoffs are asymptotic, and the lower intervals form a convergent geometric
+sum after constants are adjusted. \(\square\)
+
+### 53.4 Comparison, effectivity ledger, and finite checks
+
+The contrast with §51 is now quantitative:
+
+\[
+\begin{array}{c|c|c}
+\text{mechanism}&\text{polylogarithmic failure exponent}&\text{permission}\ \hline
+\text{Type-I good slice prime, this section}&
+ (\log\log X)^{3/2}/\sqrt{\log\log\log X}&
+ \text{independent genus bits required}\
+\text{Type-II fixed-polylog supply, (51.17)}&
+ (\log\log X)^2\log\log\log X&\text{none}\
+\text{Type-II cubic supply, (51.18)}&
+ (\log\log X)^3&\text{none; CLAIMED/PROVISIONAL.}
+\end{array}                                                  \tag{53.38}
+\]
+
+Theorem 50.5's escape classes are precisely the fixed-\(T\) extreme of the
+first row.  Combining Type I and Type II into the statement “one of the two
+exists” gives no new rate: its failure set is already contained in the
+Type-II failure set.  No hybrid theorem is claimed.
+
+The effectivity ledger is as follows.  Theorem 53.1 uses fixed-modulus
+Mertens in arithmetic progressions and is effective.  The growing proof needs
+Siegel--Walfisz-grade uniformity for \(4sk\leq4(\log X)^A\).  Used naively,
+that theorem would be ineffective, exactly as in Proposition 52.3.  The
+Landau--Page theorem leaves at most one exceptional primitive real
+character; deleting all slice moduli induced by it is harmless by Lemma
+53.2a, so (53.27) and (53.37) are effective.  Mertens in arithmetic
+progressions follows from the same partial summation.  Bombieri--Vinogradov
+and Chebotarev are not used.  The Selberg--Delange asymptotic (53.16) merely
+records the total mass; only its elementary upper bound enters the sieve.
+
+**Computational 53.5 (exact ranges; informational).**  `verify.py (az)`
+checks all 111 labels with \(ck\leq30\).  Because the interval requested by
+the preliminary test, \((4\cdot30^3,10^5]\), is empty, it checks the sharper
+nonempty interval \((4\cdot30^2,10^5]\): at all 9,089 primes, every rooted
+distinct-radicand residue is different.  It also verifies the collision
+\((q;(c_1,k_1),(c_2,k_2))=(3;(5,1),(5,2))\), whose common roots are 1 and 2,
+and the permanent duplicate \((5,2),(20,1)\).
+
+Here
+
+\[
+                         Q_{30}=9,316,358,251,200.          \tag{53.39}
+\]
+
+On one constructed escape class and 256 seeded random reduced hard classes,
+the raw masses have minimum/median/maximum
+\(0,1.338510101,2.428391053\); the corrected masses have
+\(0,1.276010101,2.324224387\).  The escape is the direct CRT class
+\(C=1\pmod {Q_{30}}\), and every prime-core bit through 29 is positive
+there.  Among the 256 random classes, 159 of the 256 possible eight-bit
+patterns occur; negative-bit marginal counts range from 120 to 145.  These
+are seeded diagnostics, not distributional evidence; independence is proved
+by (53.21), not by the sample.
+
+Finally, the block streams the 31 unforced labels over every hard prime below
+30,000.  Exactly 352 of 385 primes have \(ck_{\rm pr}\leq30\), reproducing
+the corresponding part of (50.19), and 345 have such a good factor
+\(q\leq30,000\).  Binning by raw mass gives no-good counts
+\(25,14,1,0,0\) in the intervals
+\([0,.5),[.5,1),[1,1.5),[1.5,2),[2,\infty)\), with populations
+\(76,84,62,88,75\).  This monotonic finite pattern is informational only.
+With `ES_FULL_SCAN=1`, the same streamed check extends to all 1,181 hard
+primes below \(10^5\), finding 1,065 with \(ck_{\rm pr}\leq30\) and 1,040
+with a good factor at most \(10^5\).
+
+**What remains open.**  Corollary 53.4 does not prove \(H_{\rm SPF}(A)\) for
+every prime, does not bound the conspiracy depth \(D(p)\), and does not
+alter any wall in §17.  Fixed boxes still have genuine escape progressions,
+and growing boxes still leave the exceptional set (53.37), which may contain
+the true pointwise conspiracies.  The sieve is upper-bound only; it gives no
+lower bound for residual vanishing and crosses no parity barrier.
