@@ -14557,3 +14557,449 @@ by Corollary 40.4, (37.27) remain **OPEN**.  Independently, even a proof of
 (40.19) would still leave the multi-prime and prime-power hierarchy (40.28),
 the factorial moment (37.19), (33.16), and the refutation of
 $H_{\rm PF}'$ **OPEN**.  No earlier status line is superseded.
+
+
+## 45. The moving-s endpoint against Kloosterman-fraction bilinear forms
+
+Keep all canonical-representative and retention conventions of §§40 and 42.
+This section audits the Duke--Friedlander--Iwaniec (DFI) and
+Bettin--Chandee (BC) bounds with their actual coefficient quantifiers.  The
+result is a proved exact Kloosterman-matrix reduction, but **not** a proof of
+(40.19).  The obstruction is not merely an inconvenient range: the endpoint
+coefficient is a joint matrix in the inverse variable and its modulus, whereas
+DFI and BC allow arbitrary *separate* coefficient sequences.  Moreover,
+(42.24) asks for the full row-by-row Fourier norm; its complete $h$-sum
+undoes the saving of a scalar Kloosterman-fraction estimate.
+
+### 45.1 Exact bilinearization and the two orientations
+
+For a prime $p>z$, $c<p$, and squarefree $s$, define
+$\mathcal Q_{p,c,s}$ to be the set of integers $q$ satisfying
+
+$$
+ \begin{gathered}
+ q>1,\qquad z<q\leq X/p,\qquad P^-(q)>z,\qquad
+ pq\equiv-1\pmod {4c},                                    \tag{45.1}\\
+ R={pq+1\over4c}\in\mathbb Z,\qquad s\mid\operatorname {rad}(R),
+ \qquad c<p,\quad q<4R,\quad pq\equiv3\pmod4,
+ \end{gathered}
+$$
+
+together with the requirement that $D=R^2/s$ is the retained canonical
+representative at $pq$.  Some displayed conditions follow from the others,
+but they are retained to expose the whole endpoint domain.  In particular,
+$pq\leq X$ and $P^-(pq)>z$ are exactly present, including possible prime
+powers.  Put
+
+$$
+ G_{m,p}=\begin{cases}
+ \displaystyle\sum_{q\in\mathcal Q_{p,c,s}}{\kappa(pq)\over q},
+       &m=4c^2s\text{ with }s\text{ squarefree},\\
+ 0,&\text{otherwise}.
+ \end{cases}                                               \tag{45.2}
+$$
+
+The representation $m/4=c^2s$ with $s$ squarefree is unique.  Thus (45.2)
+does not conceal a second sum over $(c,s)$; it aggregates only the moving
+$q$'s in (42.26), now with the roughness and retention conditions restored.
+
+**Lemma 45.1 (exact endpoint Kloosterman matrix; proved).**  With
+$\bar m$ denoting the inverse of $m$ modulo $p$,
+
+$$
+ \boxed{\quad
+ \mathcal V_X^{\rm end}
+ =\sum_{z<p\leq X/z}\sum_{h\bmod p}
+   \left|{1\over p}\sum_{m\geq1}G_{m,p}
+                  e_p(-h\bar m)\right|^2 .\quad}           \tag{45.3}
+$$
+
+The support in (45.3) satisfies
+
+$$
+ \begin{gathered}
+ 4\leq m=4c^2s\leq c(pq+1)<p(X+1),\qquad (m,pq)=1,\\
+ z<q\leq X/p,\qquad q<4R,\qquad
+ {z\over4}<R={pq+1\over4c}\leq{X+1\over4},\qquad 1\leq c<p.
+                                                               \tag{45.4}
+ \end{gathered}
+$$
+
+For each incidence the two exact reciprocity identities are
+
+$$
+ e_p(-h\bar m)
+   =e_{pq}(-hq\,\overline m)
+   =e_m(h\bar p)\,e\!\left(-{h\over mp}\right),            \tag{45.5}
+$$
+
+where the inverses in the last two expressions are taken modulo $pq$ and
+$m$, respectively.
+
+*Proof.*  Proposition 42.1 gives a bijection between endpoint incidences and
+$(p,c,q,R,s)$ satisfying (45.1).  Equation (42.5) gives
+$-4D\equiv-\overline{4c^2s}=-\bar m\pmod p$, while the atom mass is
+$\kappa(pq)/(pq)$.  Aggregating all incidences with the same unique $(c,s)$
+gives (45.2), and substitution in (42.24) gives (45.3).  The bounds in
+(45.4) use $s\leq R$, $m\leq4c^2R=c(pq+1)$, (42.2), and $pq\leq X$;
+$(m,pq)=1$ follows from $pq=4Rc-1$.  The first identity in (45.5) follows by
+reducing $\overline m\pmod {pq}$ modulo $p$.  The second is additive
+reciprocity
+$\bar m/p+\bar p/m\equiv1/(mp)\pmod1$.  $\square$
+
+The tempting ``$q$-modulus orientation'' is therefore not an alternative
+bilinearization.  The valid lift has modulus $pq$ and numerator $hq$, and
+reciprocity has modulus $m$, not $q$.  Although $pq\equiv-1\pmod {4R}$
+gives $\bar p\equiv-q\pmod {4R}$, it does not give this congruence modulo
+$m=4c^2s$ unless the extra, generally false divisibility $c^2s\mid R$ holds.
+If $q$ happens to be prime, interchanging $p$ and $q$ produces a different
+coordinate of the energy, and only when $c<q$ is that coordinate itself an
+endpoint.  Thus neither the $M=pq$ symmetry nor the short interval for $q$
+turns the phase in (45.3) into a Kloosterman fraction with modulus $q$.
+
+The coefficient norms make the remaining issue explicit.  Write
+
+$$
+ A_p=\sum_mG_{m,p}=p\,t_p^{\rm end},\qquad
+ F_p^2=\sum_mG_{m,p}^2,\qquad
+ H_p={A_p^2\over F_p^2}\quad(F_p>0).                       \tag{45.6}
+$$
+
+Thus $H_p$ is the effective number of occupied $(c,s)$ cells.  If
+$x_i=\kappa(pq)/q$ is an unaggregated incidence coefficient, then
+
+$$
+ 0<x_i\leq {2\over z},\qquad
+ \sum_i x_i^2\leq {2A_p\over z},\qquad
+ 1\leq H_p\leq\#\{m:G_{m,p}>0\}.                           \tag{45.7}
+$$
+
+There is no proved lower bound tending to infinity for $H_p$.  At atom
+scale
+
+$$
+ {x_i\over p}={\kappa(pq)\over pq}\leq {1\over R}
+ ={h_D\over L},                                            \tag{45.8}
+$$
+
+but (42.9) shows that the sum of the corresponding $h_D$ still has cubic
+size.  Unlike (40.15), an endpoint has no progression-tail factor $L/p$.
+
+For fixed $s$, let $G^{(s)}$ denote the rows of (45.2) with this $s$.
+Theorem 42.2 and positivity of each residue bucket imply the genuine norm
+bound
+
+$$
+ \sum_p{1\over p}\sum_m|G^{(s)}_{m,p}|^2
+ \leq \mathcal V_X^{\rm end,(s)}
+ \ll L^3+L^2\log L.                                       \tag{45.9}
+$$
+
+It is uniform in a *prescribed* $s$.  It gives no summable majorant when
+$s=s(p,c,q)$ moves through all divisors of $\operatorname {rad}(R)$; that is
+exactly the distinction between (45.9) and the matrix $G$ in (45.2).
+
+### 45.2 The honest DFI and BC quantifiers and their scale windows
+
+The following are the statements actually available.  They are recorded
+because ``general coefficients'' means arbitrary entries of each one-variable
+sequence, not arbitrary coefficients on pairs or triples.
+
+For arbitrary complex $\alpha_m,\beta_n$ supported on
+$[M/2,M]$ and $[N/2,N]$, respectively, DFI's principal estimate, as quoted
+verbatim in the introduction of BC, is
+
+$$
+ \left|\sum_{\substack{m\sim M,\ n\sim N\\(m,n)=1}}
+       \alpha_m\beta_n e\!\left({a\bar m\over n}\right)\right|
+ \ll_\varepsilon \|\alpha\|_2\|\beta\|_2
+ (|a|+MN)^{3/8}(M+N)^{11/48+\varepsilon},                 \tag{45.10}
+$$
+
+for a nonzero integral $a$ (the negative case follows by conjugation).  The
+constant is uniform in $a,M,N$; $a=0$ is not covered.  There is no range
+hypothesis in the theorem.  When $|a|\leq MN$, comparison with the ambient
+$\ell^2$ trivial bound gives a power saving, with a fixed margin, in the true
+balanced window
+
+$$
+                N^{5/6+\eta}\leq M\leq N^{6/5-\eta}.       \tag{45.11}
+$$
+
+Outside it (45.10) need not beat that trivial bound.  DFI also has a different
+Poisson estimate useful in unbalanced ranges; it does not change the
+coefficient-factorization or Parseval issues below.  In particular,
+(45.11), not an assumed interval-length condition on the active support, is
+the window of the displayed amplifier bound.
+
+BC take arbitrary complex $\alpha_m,\beta_n,\nu_a$ on the same dyadic
+$M,N$ intervals and $a\in[A/2,A]$.  For nonzero real $\vartheta$ their
+Theorem 1 states
+
+$$
+ \begin{split}
+ \left|\sum_{\substack{a\sim A,m\sim M,n\sim N\\(m,n)=1}}
+  \nu_a\alpha_m\beta_n e\!\left(\vartheta{a\bar m\over n}\right)\right|
+ &\ll_\varepsilon \|\nu\|_2\|\alpha\|_2\|\beta\|_2
+ \left(1+{|\vartheta|A\over MN}\right)^{1/2}\\
+ &\quad\times\left
+ \{(AMN)^{7/20+\varepsilon}(M+N)^{1/4}
+ +(AMN)^{3/8+\varepsilon}(AN+AM)^{1/8}\right\}.
+                                                               \tag{45.12}
+ \end{split}
+$$
+
+Again there is no density or balance hypothesis and the displayed factor is
+the uniform dependence on $\vartheta$.  For $|\vartheta|A\leq MN$, the
+first term beats the ambient $\ell^2$ bound precisely when, up to power
+margins,
+
+$$
+              \max(M,N)<A^{3/2}\min(M,N)^{3/2},             \tag{45.13}
+$$
+
+and the second also requires both $M,N$ to grow.  In the formal endpoint
+assignment $A=N=P$, $M=W$ (the variables are $h,p,m$), this gives a power
+saving for the scalar trilinear form throughout
+
+$$
+                       P^\eta\leq W\leq P^{3-\eta}.         \tag{45.14}
+$$
+
+The source used for (45.10) and (45.12) is archived as
+`sources/bettin-chandee-1502.00769.pdf`.  Springer exposes the DFI article
+metadata but not an open full text; the legitimate ProQuest result located in
+this audit exposes only its first-page preview, so no incomplete file is
+represented as the DFI paper in `sources/`.
+
+Endpoint scales do not force either (45.11) or (45.14).  On $p\asymp P$ the
+inverse variable is $m=4c^2s$, and (45.4) permits every dyadic scale from a
+constant to $\ll PX$.  The DFI window is
+$P^{5/6+\eta}\leq4c^2s\leq P^{6/5-\eta}$; the broader BC scalar window is
+$P^\eta\leq4c^2s\leq P^{3-\eta}$.  Neither is a condition on $p$ alone.
+Even when $P\leq X^{1-\delta}$ makes the numerical $q$-interval long, the
+active $c$'s divide $(pq+1)/4$ and $q$ remains inside the joint coefficient
+$G_{m,p}$.  Near $P=X/z$ the interval $z<q\leq X/P$ can contain only a
+vanishing relative segment.  General one-variable coefficients tolerate a
+sparse support, but they do not turn this joint support into a product.
+
+For clarity, if a standard bilinear form really has separated coefficients,
+DFI improves its actual $\ell^1$ bound only if
+
+$$
+ \left({\|\alpha\|_1\over\|\alpha\|_2}\right)^2
+ \left({\|\beta\|_1\over\|\beta\|_2}\right)^2
+ > (|a|+MN)^{3/4}(M+N)^{11/24+2\varepsilon}.               \tag{45.15}
+$$
+
+Thus ambient interval lengths cannot replace effective coefficient support.
+The endpoint analogue (45.6) can be as small as $H_p=1$ under all currently
+proved fibre facts.
+
+### 45.3 What DFI gives after an exact rank decomposition
+
+There is a precise way to force (45.2) into DFI, and it quantifies the loss.
+Let $P<p\leq2P$, $W<m\leq2W$, and let $G^{P,W}$ be the resulting finite
+matrix.  Denote its nuclear norm (sum of singular values) by
+$\|G^{P,W}\|_*$.  Put
+
+$$
+ Y_{p,h}^{P,W}={1\over p}\sum_{W<m\leq2W}G_{m,p}e_p(-h\bar m),
+ \qquad
+ E_{P,W}=\sum_{P<p\leq2P}\sum_{0\leq h<p}|Y_{p,h}^{P,W}|^2. \tag{45.16}
+$$
+
+**Lemma 45.2 (DFI consequence for the joint endpoint matrix; proved).**  For
+every $\varepsilon>0$,
+
+$$
+ E_{P,W}\ll
+ \sum_{P<p\leq2P}{1\over p^2}
+       \left(\sum_{W<m\leq2W}G_{m,p}\right)^2
+ +{\mathcal K(P,W)^2\over P}\,\|G^{P,W}\|_*^2,             \tag{45.17}
+$$
+
+where
+
+$$
+       \mathcal K(P,W)=(PW)^{3/8}(P+W)^{11/48+\varepsilon}. \tag{45.18}
+$$
+
+*Proof.*  The first term in (45.17) is exactly the $h=0$ contribution.  For
+fixed $1\leq h<2P$, extend $Y_{p,h}$ by zero when $h\geq p$ and introduce
+independent Rademacher signs $\epsilon_p$.  Orthogonality of the signs gives
+
+$$
+ \sum_{P<p\leq2P}|Y_{p,h}|^2
+ =\mathbb E_\epsilon\left|
+   \sum_{p,m}{\epsilon_p\mathbf1_{h<p}G_{m,p}\over p}
+                   e_p(-h\bar m)\right|^2.                 \tag{45.19}
+$$
+
+Take a singular-value decomposition of the joint coefficient matrix inside
+the absolute value.  Each rank-one term is exactly a DFI form with $a=-h$,
+$m\asymp W$, and $n=p\asymp P$.  The sum of its coefficient-norm products
+is the nuclear norm, and the ideal property of that norm gives
+$\|G\,\operatorname {diag}(\epsilon_p\mathbf1_{h<p}/p)\|_*
+\leq P^{-1}\|G\|_*$.  Since $h\leq2P\ll PW$, (45.10) gives (45.18).
+Sum (45.19) over fewer than $2P$ values of $h$.  $\square$
+
+This lemma applies the theorem rather than merely matching the phase.  It
+also shows why the application does not close an endpoint range.  The fibre
+input controls a Frobenius norm, while
+
+$$
+ \|G^{P,W}\|_F\leq\|G^{P,W}\|_*
+ \leq \sqrt{\operatorname {rank}G^{P,W}}\,\|G^{P,W}\|_F
+ \leq\sqrt{\min(2W,\pi(2P)-\pi(P))}\,\|G^{P,W}\|_F.       \tag{45.20}
+$$
+
+No proved endpoint estimate removes this rank factor.  For one fixed $s$,
+(45.9) gives $\|G^{(s),P,W}\|_F^2\ll
+P(L^3+L^2\log L)$, but summing its nuclear norm over moving $s$ is worse
+than the $K^2$ fibre superposition already isolated in (42.11).
+
+At the balanced scale $W=P$, $\mathcal K(P,P)=P^{47/48+O(\varepsilon)}$,
+so the nonzero-frequency multiplier in (45.17) is
+$P^{23/24+O(\varepsilon)}$.  Even to bound this single block by
+$O(\Lambda^2)$ would require
+
+$$
+             \|G^{P,P}\|_*
+        \ll \Lambda P^{-23/48+O(\varepsilon)},              \tag{45.21}
+$$
+
+which is not implied by (45.7)--(45.9).  More intrinsically, when the
+$m$'s occupy distinct residues, exact Parseval gives a Frobenius contribution
+$\asymp\|G\|_F^2/P$, whereas (45.17), even with rank one, gives
+$P^{23/24+O(\varepsilon)}\|G\|_F^2$: it is worse by
+$P^{47/24+O(\varepsilon)}$.  The scalar DFI saving $P^{1/48}$ is squared and
+then overwhelmed by the $P$ complete frequencies.
+
+BC does not repair this norm mismatch.  It bounds a scalar contraction with
+coefficients $\nu_h\alpha_m\beta_p$.  The dual coefficient for the
+Frobenius norm in (45.16) is an arbitrary matrix $\eta_{h,p}$, not a product
+$\nu_h\beta_p$.  Decomposing it costs its nuclear norm, as large as
+$\sqrt P\|\eta\|_F$.  In the optimistic balanced rank-one model, BC saves
+only $P^{1/8}$ over the ambient trilinear bound, so this dual rank cost alone
+exceeds the saving by $P^{3/8}$; decomposing the actual joint $G_{m,p}$ adds
+a second projective-norm loss.  Consequently (45.12) supplies no bound for
+the complete Parseval norm (45.3).
+
+**Proposition 45.3 (strongest assembled closed subfamily; proved).**  Fix
+$B>3$ and a prescribed set $\mathcal S$ of $K$ squarefree integers.  The
+endpoint subfamily consisting of all incidences with $p\leq L^B$, together
+with those having $s\in\mathcal S$, has energy
+
+$$
+                       O_B(\Lambda^2+K^2L^3).               \tag{45.22}
+$$
+
+It therefore satisfies the target when
+$K=O(L^{3/2}/\log L)$.  More generally, any endpoint subfamily whose dyadic
+matrices satisfy the right side of (45.17), after the
+$O(L)$ Cauchy cost for its $m$-blocks, with total $O(\Lambda^2)$ also
+satisfies (40.19) for that subfamily.
+
+*Proof.*  The first assertion is Proposition 42.3 and (42.11), followed by
+$(x+y)^2\leq2x^2+2y^2$ in each nonnegative residue vector.  The second is
+(45.16)--(45.17), dyadic partition, and Cauchy.  $\square$
+
+This is not a new scale range such as $p\leq X^{1-\delta}$.  The DFI/BC
+audit gives no enlargement of the proved endpoint family in §42 because no
+known estimate supplies (45.21), or its unbalanced analogue, for the moving
+joint matrices.
+
+### 45.4 Exact failure logs
+
+**Failure log 45.4 (``general coefficients'' are not a general matrix).**
+The exact unresolved coefficient is
+
+$$
+ G_{4c^2s,p}=
+ \sum_{\substack{z<q\leq X/p,\ P^-(q)>z\\
+                  pq\equiv-1\ (4c)\\
+                  s\mid\operatorname {rad}((pq+1)/(4c))}}
+ {\kappa(pq)\over q}\,
+ \mathbf1_{\rm retained},                                 \tag{45.23}
+$$
+
+with all conditions of (45.1).  DFI would require
+$G_{m,p}=\alpha_m\beta_p$; BC would require the additional $h$ coefficient
+to separate as $\nu_h$.  An exact rank decomposition replaces the absent
+factorization by $\|G\|_*$ and leads to (45.17).  The missing estimate is a
+power-saving projective-norm bound for (45.23), for example (45.21) on
+balanced blocks.  Fixed-$s$ Frobenius bounds do not imply it, and the
+available inequality (45.20) loses up to
+$P^{1/2+o(1)}$ on a balanced block.
+
+**Failure log 45.5 (complete $h$ is the wrong output norm).**  DFI is a
+scalar estimate uniform in one nonzero integer $h$; BC is a scalar estimate
+with one separated $h$ sequence.  The endpoint asks for
+$\sum_{p,h}|Y_{p,h}|^2$.  Summing the DFI estimate over all $h$ produces the
+factor $P$ in (45.17).  Dualizing before BC produces an arbitrary
+$(h,p)$-matrix and the $\sqrt P$ projective-norm loss.  Orthogonality cannot
+be invoked a second time to claim cancellation: invoking it is exactly the
+collision identity (42.7).  Any future Kloosterman-fraction input must be a
+large-sieve/operator estimate for the joint coefficients (45.23), not merely
+a stronger scalar bilinear form.
+
+**Failure log 45.6 (the short cofactor is not a second modulus range).**
+The remaining domain is precisely
+
+$$
+ L^B<p\leq X/z,\qquad z<q\leq X/p,\qquad P^-(q)>z,\qquad
+ q<4R,\qquad pq=4Rc-1,\qquad s\mid\operatorname {rad}(R),     \tag{45.24}
+$$
+
+with moving retained $s$.  For $p$ near $X/z$ the $q$-interval can be
+arbitrarily short; for $p\leq X^{1-\delta}$ it is long but still appears
+inside (45.23), and the phase still has modulus $p$.  The exact reciprocity
+formula (45.5) gives modulus $m$ or $pq$, never $q$.  Thus no power of room
+in $X/p$ verifies a DFI/BC hypothesis or coefficient-norm condition by
+itself.
+
+### 45.5 Exact finite companion and status
+
+**Computational 45.7 (exact finite scope).**  `verify.py (ar)` independently
+rebuilds the §40 toy systems at $(X,z,Y)=(80,2,11),(120,3,13),(200,5,17)$.
+It forms (45.2), checks the unique square-times-squarefree index, (45.4), and
+both reciprocity identities in (45.5), and compares (45.3) with the endpoint
+residue energy as an exact rational number.  It reports, for information
+only, the number of incidences and occupied $(m,p)$ cells and the exact
+coefficient $\ell^1$, squared $\ell^2$, unaggregated squared $\ell^2$, and
+$p^{-1}$-weighted Frobenius norms.  Its default output is
+
+$$
+\begin{array}{c|c|r|r|c|c|c|c|c}
+X&z&I&C&\mathcal V_X^{\rm end}&\|G\|_1&\|G\|_F^2&
+ \sum_i x_i^2&\sum_pF_p^2/p\\ \hline
+80&2&25&23&54609/67600&1897/260&378617/135200&
+352357/135200&55711/135200\\
+120&3&59&57&2371407/5216450&17286/1615&201997063/83463200&
+194884603/83463200&18474697/83463200\\
+200&5&51&51&150469/781456&6509/884&485259/390728&
+485259/390728&71765/781456
+\end{array}                                                  \tag{45.25}
+$$
+
+Here $I$ is the incidence count and $C$ the number of occupied $(m,p)$
+cells.  The full-scan extension remains behind `ES_FULL_SCAN=1` and uses
+residue buckets, not incidence Cartesian products.  These identities and
+norms are finite checks, not asymptotic estimates.
+
+**Assessment 45.8 (wave-15 verdict).**  The moving endpoint is exactly a
+Kloosterman-fraction matrix, but not a DFI/BC bilinear or trilinear form with
+separated coefficients.  Both possible reciprocity orientations have been
+audited; the cofactor $q$ cannot serve as the modulus of the phase.  DFI can
+be applied after singular-value decomposition, yielding the proved bound
+(45.17), but its nuclear-norm and complete-frequency losses are larger by
+fixed powers than its scalar saving.  BC has the same defect at the
+$(h,p)$ level.  Therefore the strongest proved endpoint statement remains
+Proposition 45.3: fixed polylogarithmic $p$ and a controlled number of fixed
+$s$ fibres.  The moving-$s$ range (45.24), (40.19), and hence (37.27) remain
+**OPEN**.  Even a future proof of (40.19) would not prove the separate
+multi-coordinate hierarchy (40.28); consequently (37.19), (33.16), and the
+refutation of $H_{\rm PF}'$ also remain **OPEN**.  This is an internal
+sieve-hypothesis arc and makes no claim to prove or refute the
+Erdős--Straus conjecture.

@@ -4,6 +4,7 @@ Verbatim external papers used in `notes.md`.
 
 | File | Source | Retrieved 2026-08-17 | SHA-256 |
 |---|---|---|---|
+| `bettin-chandee-1502.00769.pdf` | https://arxiv.org/pdf/1502.00769 | direct download 2026-08-29 | `439665281e775e8369e222c959f2cad0221aa57dc7d1338efdae1c99029d7f20` |
 | `bright-loughran-1908.02526.pdf` | arXiv:1908.02526v2 | inherited from prior campaign | `09683c9a381a88730f906630b671e654c6ccc8622e1f2b3d1b19997ce7741d8e` |
 | `henriot-1102.1643.pdf` | https://arxiv.org/pdf/1102.1643 | inherited from prior campaign | `49f72f22547ccccf8f4ed01e645bf0f45255e1a3806a477ff6f9b4c2ed72e701` |
 | `nair-tenenbaum-1998.pdf` | https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6559-11511_2006_Article_BF02392880.pdf | direct download | `3a2caa937304c7e40d1e40f64ecb607395ae91f0dc07a5c68e9d04cb5e0a1b9d` |
