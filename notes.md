@@ -19158,9 +19158,13 @@ is performed here.
 
 **Computational 52.4 (exact ranges; informational).**  `verify.py (ay)`
 recomputes every prime \(p\equiv1\pmod {24}\) below 30,000, and optionally
-below \(10^5\) with `ES_FULL_SCAN=1`.  Each norm is factored once per test,
-the complete exponent box (44.4) is formed, and no asymptotic assertion is
-inferred.  There are 385 and 1,181 primes in the two ranges.
+below \(10^5\) with `ES_FULL_SCAN=1`.  Norms are processed one at a time;
+each individual slice evaluation reuses one factorization, although the
+independent panel, census, minimum, and correlation tests may refactor the
+same norm.  No factor cache or dense prime-by-slice array is retained.
+*(wave-18 review repair)*  The complete exponent box (44.4) is formed, and
+no asymptotic assertion is inferred.  There are 385 and 1,181 primes in the
+two ranges.
 
 First, on the least compatible active class \(a=73\) for four slices, the
 exact class counts are
