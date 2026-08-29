@@ -11583,3 +11583,425 @@ tuples; reconstructs the 535 maximum least-offset census; and checks all
 82,887 Type-I witnesses and their maximum.  Its elapsed time is reported as
 campaign-host calibration only, with no correctness assertion tied to a
 machine-dependent time limit.
+
+---
+
+## 36. The exact ray-character mass for Type I, and why it is not a positive class-number mass
+
+**Headline (proved statements have the displayed quantifiers).**  For every odd prime
+\(p\), the complete ordered, not-necessarily-primitive Type-I count is exactly
+a finite Dirichlet-character projection of the divisor masses of
+\(p^2+4ck^2\), and equivalently the integral-point count on the split quadrics
+\(r^2=ck(ck s^2-ps-k)\) in Theorem 36.1 below; the primitive count is the
+same projection with an explicit Möbius weight and is exactly Elsholtz--Tao's
+\(f_I(p)\).  For every prime \(p\equiv1\pmod4\), the entire \(c=1\)
+Gaussian slice is identically zero, while the \(k=1\) slice has the exact
+character formula (36.13) but already vanishes at \(p=2521\).  The classical
+Hurwitz--Kronecker mass forgets precisely the moving ray-class projector that
+defines Type I: two natural restorations fail at the explicit finite tests in
+§36.4.  Thus this section proves an exact structured count, not positivity;
+no all-prime Type-I theorem and no proof of Erdős--Straus is obtained.
+
+### 36.1 A finite ray-character formula and the split quadric
+
+Let \(T_I(p)\) denote the number of ordered positive quadruples
+\((a,b,c,k)\) satisfying
+\(p(a+b)=k(4abc-1)\), without imposing \((a,b)=1\), and let
+\(T_I^*(p)\) impose \((a,b)=1\).  Put
+
+\[
+ \mathcal B_p=\left\{(c,k):1\leq k\leq\lfloor2p/3\rfloor,
+  \ 1\leq c\leq\left\lfloor{2p+k\over4k}\right\rfloor,
+  \ (p,ck)=1\right\},                                      \tag{36.1}
+\]
+\[
+ h=4ck,\qquad N_{c,k}=p^2+4ck^2,
+ \qquad a_D={D+p\over h},\quad b_D={{N_{c,k}/D}+p\over h}.  \tag{36.2}
+\]
+
+**Theorem 36.1 (exact ray-character and quadric mass; proved).**  For every
+odd prime \(p\),
+
+\[
+ \begin{split}
+ T_I(p)
+ &=\sum_{(c,k)\in\mathcal B_p}{1\over\varphi(h)}
+   \sum_{\chi\ ({\rm mod}\ h)}\overline{\chi(-p)}
+   \sum_{D\mid N_{c,k}}\chi(D)\\
+ &=\sum_{(c,k)\in\mathcal B_p}{1\over\varphi(h)}
+   \sum_{\chi\ ({\rm mod}\ h)}\overline{\chi(-p)}
+   \prod_{\ell^e\parallel N_{c,k}}
+       (1+\chi(\ell)+\cdots+\chi(\ell)^e).                 \tag{36.3}
+ \end{split}
+\]
+
+Here all Dirichlet characters modulo \(h\), including imprimitive ones, are
+included.  If
+
+\[
+ w_p(D;c,k)=
+ \begin{cases}
+ \displaystyle\sum_{g\mid a_D,\ g\mid b_D}\mu(g),
+      &D\equiv-p\pmod h,\\
+ 0,&D\not\equiv-p\pmod h,
+ \end{cases}                                                \tag{36.4}
+\]
+
+(where the first case makes \(a_D,b_D\) integral), then the exact primitive
+version is
+
+\[
+ T_I^*(p)=\sum_{(c,k)\in\mathcal B_p}{1\over\varphi(h)}
+   \sum_{\chi\ ({\rm mod}\ h)}\overline{\chi(-p)}
+   \sum_{D\mid N_{c,k}}\chi(D)w_p(D;c,k).                   \tag{36.5}
+\]
+
+There is also the exact integral-point expression
+
+\[
+ T_I(p)=\sum_{(c,k)\in\mathcal B_p}
+ \#\left\{(s,r):
+ \begin{array}{l}
+ 2\leq s\leq (N_{c,k}+1+2p)/h,\quad r\in\mathbb Z,\\
+ r^2=ck(ck s^2-ps-k),\quad ck\mid r,\\
+ |r|<ck s,\quad s\equiv r/(ck)\pmod2
+ \end{array}\right\}.                                     \tag{36.6}
+\]
+
+For \(p\equiv1\pmod4\), no point in (36.6) has \(r=0\), so
+\(T_I(p)\) is twice the unordered count.
+
+*Proof.*  Theorem 26.1 and Lemma 26.2 say exactly that the desired rows are
+indexed by (36.1) and by divisors
+\(D\mid N_{c,k}\) with \(D\equiv-p\pmod h\).  Moreover
+\((N_{c,k},h)=1\): modulo every prime dividing \(ck\), the norm is
+\(p^2\), and it is odd.  Thus every divisor \(D\) is a unit modulo \(h\),
+and character orthogonality gives
+
+\[
+ {f1}_{D\equiv-p\ (h)}={1\over\varphi(h)}
+ \sum_{\chi\ ({\rm mod}\ h)}\chi(D)\overline{\chi(-p)}.
+\]
+
+Summing proves the first line of (36.3); multiplicativity in \(D\) proves
+the Euler product.  The elementary identity
+\({\bf1}_{(a_D,b_D)=1}=\sum_{g\mid a_D,\,g\mid b_D}\mu(g)\)
+proves (36.5).
+
+For the second description put \(s=a+b\), \(t=a-b\), and \(r=ck t\).
+The Type-I equation is precisely
+
+\[
+             ck(s^2-t^2)=ps+k,
+ \qquad r^2=ck(ck s^2-ps-k).                                \tag{36.7}
+\]
+
+The divisors paired with the row are
+\(D=4ack-p,D'=4bck-p\), and
+
+\[
+ D+D'=hs-2p,\quad DD'=N_{c,k},\quad
+ (D+D')^2-4N_{c,k}=(D-D')^2.                                \tag{36.8}
+\]
+
+Since \(D+D'\leq N_{c,k}+1\), (36.6)'s upper bound follows.  Conversely,
+the divisibility, parity and strict-size conditions in (36.6) make
+\(t=r/(ck)\) and \(a=(s+t)/2,b=(s-t)/2\) positive integers; (36.7)
+recovers the Type-I equation.  This proves the bijection.  Finally, if
+\(a=b\), parity first gives \(k=2\ell\), and
+\(pa=\ell(4a^2c-1)\).  Since \((a,4a^2c-1)=1\), write
+\(\ell=au\); primality forces \(u=1\) and
+\(p=4a^2c-1\equiv3\pmod4\), a contradiction when
+\(p\equiv1\pmod4\). ∎
+
+There is an entirely real square-indicator reading of (36.6).  When
+\(ck\mid ps+k\), put
+\(W=s^2-(ps+k)/(ck)\).  The identity
+
+\[
+                  {f1}_{W\text{ a square}}=
+                  \sum_{d\mid W}\lambda(d)                 \tag{36.9}
+\]
+
+for \(W>0\), with \(\lambda\) the Liouville function, turns (36.6) into
+twice a finite \((c,k,s)\)-sum of the right side of (36.9), restricted by
+\(\sqrt W<s\) and \(\sqrt W\equiv s\pmod2\).  This is exact, but it does
+not make positivity easier: the square indicator has merely been written as
+a cancelling divisor sum.  Geometrically (36.8) is a split hyperbola, not a
+Pell conic, in agreement with §§20.1 and 35.2.
+
+### 36.2 The \(c=1\) Gaussian slice vanishes on every hard prime
+
+**Theorem 36.2 (Gaussian-divisor formula and complete obstruction; proved).**
+For an odd prime \(p\), the \(c=1\) contribution to \(T_I(p)\) is
+
+\[
+ T_{c=1}(p)=\sum_{1\leq k\leq\lfloor2p/3\rfloor}
+ \ \sum_{[\alpha]\mid p+2ki\ {
+m in}\ \mathbb Z[i]}
+ {f1}_{N(\alpha)\equiv-p\pmod {4k}},                       \tag{36.10}
+\]
+
+where Gaussian divisors are taken modulo associates.  For every
+\(p\equiv1\pmod4\),
+
+\[
+                         T_{c=1}(p)=0.                       \tag{36.11}
+\]
+
+Thus, within the requested hard-prime domain, the exact failure set of the
+\(c=1\) sub-count is **all** primes, not a sparse exceptional set.
+
+*Proof.*  The bound on \(k\) is (36.1) with \(c=1\), and \(p\nmid k\).
+Set \(z=p+2ki\).  The Gaussian integers \(z,\bar z\) are coprime up to a
+unit: an odd common Gaussian prime would force its rational prime below it
+to divide both \(p\) and \(k\), while \(1+i\nmid z\).  Since
+\(N(z)=p^2+4k^2\), unique factorisation now gives a bijection
+
+\[
+ \{D:D\mid N(z)\}\longleftrightarrow
+ \{[\alpha]:\alpha\mid z\},\qquad D=N(\alpha).
+\]
+
+Indeed every rational prime dividing the primitive sum of two squares
+splits, exactly one prime above it occurs in \(z\), and its exponent in
+\(\alpha\) is the exponent selected in \(D\).  Theorem 26.1 therefore gives
+(36.10).  The same argument shows that every rational prime divisor of
+\(N(z)\) is \(1\pmod4\); hence every positive divisor \(D\) is
+\(1\pmod4\).  But the required grade for \(p\equiv1\pmod4\) is
+\(D\equiv-p\equiv3\pmod4\).  No term survives. ∎
+
+This is the sharp outcome of the class-number-one lead.  The form
+\(X^2+4Y^2\) has discriminant \(-16\) and class number one, but unique
+factorisation exposes a local **wrong-grade obstruction** rather than a
+positive mass.  For general \(c\), \(p^2+4ck^2\) is represented by
+\(X^2+4cY^2\), of discriminant \(-16c\); ordinary form classes do not encode
+the additional ray condition modulo \(4ck\), whose modulus itself contains
+the represented coordinate \(k\).
+
+### 36.3 The \(k=1\) slice is an exact character sum, but not always positive
+
+**Theorem 36.3 (the \(k=1\) divisor/character formula; proved).**  For every
+prime \(p\equiv1\pmod4\), the ordered \(k=1\) count, which is automatically
+primitive, is
+
+\[
+ T_{k=1}(p)=2\sum_{1\leq a\leq p/2}
+ \ \sum_{\substack{f\mid pa+1\\ f\leq p}}
+       {f1}_{f\equiv-p\pmod {4a}}                         \tag{36.12}
+\]
+\[
+ ={2}\sum_{1\leq a\leq p/2}{1\over\varphi(4a)}
+   \sum_{\chi\ ({\rm mod}\ 4a)}\overline{\chi(-p)}
+   \sum_{\substack{f\mid pa+1\\f\leq p}}\chi(f).        \tag{36.13}
+\]
+
+*Proof.*  A \(k=1\) row is primitive because a common divisor of \(a,b\)
+would divide both sides of \(p(a+b)=4abc-1\), hence divide 1.  There is no
+diagonal row because its left side is even and its right side odd.  Orient a
+row by \(a<b\), and set \(f=4ac-p\).  Solving for \(b\) gives
+
+\[
+                         bf=pa+1.                            \tag{36.14}
+\]
+
+The inequality \(a<b\) is equivalent here to \(f\leq p\), and
+\(p+f=4ac\) then gives \(a\leq p/2\).  Conversely a divisor in (36.12)
+makes \(c=(p+f)/(4a)\) and \(b=(pa+1)/f\) positive integers with
+\(a<b\), and reversing (36.14) proves the equation.  The factor two restores
+the other orientation.  Character orthogonality gives (36.13); nonunit
+\(f\)'s contribute zero on both sides because \(-p\) is a unit modulo
+\(4a\). ∎
+
+**Computational 36.1 (exact stated ranges).**  Direct generation from
+(36.12) for every one of the 143 primes \(p\equiv1\pmod {24}\),
+\(p<10^4\), finds exactly one zero:
+
+\[
+                              p=2521.                         \tag{36.15}
+\]
+
+The ordered \(k=1\) counts for the eleven primes in (26.8) are
+
+\[
+ 4,2,8,6,8,8,20,0,8,16,18,
+\]
+
+and for the nine primes in (32.14) they are
+
+\[
+ 14,14,22,16,44,24,24,72,52.
+\]
+
+Thus neither the Gaussian class-number-one slice nor the moving-discriminant
+\(k=1\) slice can prove positivity by itself.  The zero in (36.15) is only a
+slice failure: (26.8) gives twelve ordered Type-I rows for 2521.
+
+### 36.4 Hurwitz--Kronecker tests: where the projector is lost
+
+Use the convention that \(H(M)\) counts reduced, possibly imprimitive,
+positive definite forms of discriminant \(-M\), with generic weight 1,
+weights \(1/2\) and \(1/3\) for the square and hexagonal exceptional
+classes, \(H(0)=-1/12\), and \(H(M)=0\) unless
+\(M\equiv0,3\pmod4\).  For nonsquare \(n\), the classical relation is
+
+\[
+ \sum_{t\in\mathbb Z,\ t^2\leq4n}H(4n-t^2)
+       =\sum_{d\mid n}\max(d,n/d).                          \tag{36.16}
+\]
+
+It is important that (36.16) is an **unprojected, weighted** divisor mass.
+At a fixed Type-I slice, the actual trace \(D+D'\) in (36.8) lies on the
+hyperbolic side \((D+D')^2\geq4N_{c,k}\); Hurwitz forms occupy the elliptic
+side \(t^2\leq4N_{c,k}\).  Relation (36.16) bridges those sides only after
+summing every divisor and weighting it by its larger cofactor.  Type I asks
+instead for an unweighted divisor in one moving class
+\(-p\pmod {4ck}\).
+
+**Computational 36.2 (disciplined candidate log).**  Reduced-form enumeration
+with the convention above verifies (36.16) for every nonsquare
+\(2\leq n\leq40\), and at \(n=5369\).  The following two candidates, each
+with the stated derivation, fail.
+
+1. **Principal-ray deprojection.**  Dropping all nonprincipal characters in
+   (36.3) suggests that each of the \(\varphi(h)\) unit classes receives
+   \(1/\varphi(h)\) of the Hurwitz-weighted mass (36.16).  For
+   \((p,c,k)=(73,10,1)\),
+   \(N=5369=7\cdot13\cdot59\), \(h=40\), and the target divisors are
+   \(7,767\).  Their weighted mass is \(1534\), whereas the full mass is
+   \(13280\), whose proposed share is \(13280/\varphi(40)=830\).
+   Thus the ray classes are not exactly equidistributed; the first
+   nonprincipal characters cannot be discarded.
+
+2. **Single discriminant.**  Collapsing all moving forms to the most obvious
+   global discriminant suggests
+   \(T_I^*(p)/2=H(4p)\).  It happens to hold at \(p=73,193\): both sides
+   are 4.  It fails at the next tested value \(p=241\), where the primitive
+   unordered Type-I count is 4 but \(H(964)=12\).  This test is only on
+   \(p=73,193,241\); no fitted asymptotic is inferred.
+
+No further numerical linear combinations were fitted: without a map from a
+Type-I row to the proposed form classes, such fitting would be unconstrained.
+The exact form-theoretic statement retained from the hunt is instead the ray
+character formula (36.3)--(36.5).
+
+### 36.5 Exact reconciliation with Elsholtz--Tao and the square test
+
+Write an Elsholtz--Tao \(\Sigma_p^I\) sextuple as
+\((a_E,b_E,c_E,d_E,e_E,f_E)\).  Their equations (2.1)--(2.9) and map
+\(\pi_p^I\) give the exact dictionary
+
+\[
+ (a_E,b_E,c_E,d_E,e_E,f_E)
+   =(A,B,K,C,m,4ACK-p),\qquad m={A+B\over K},                \tag{36.17}
+\]
+\[
+ \pi_p^I=(pABC,ACK,BCK).                                    \tag{36.18}
+\]
+
+Thus their convention puts the unique \(p\)-divisible denominator first;
+the campaign puts it last.  This fixed permutation changes no count.
+Their reflection swaps \(A,B\), and their dilation
+
+\[
+ (A,B,K,C)\mapsto(gA,gB,gK,C/g^2),\qquad g^2\mid C,         \tag{36.19}
+\]
+
+is exactly the nonprimitive expansion recorded in §32.3.  Consequently
+
+\[
+                     f_I(p)=T_I^*(p),                        \tag{36.20}
+\]
+
+with both sides ordered in the two non-\(p\) denominators, while
+
+\[
+ T_I(p)=\sum_{(A,B,C,K)\ {
+m primitive,ordered}}
+             \prod_{\ell^e\parallel C}(\lfloor e/2\rfloor+1). \tag{36.21}
+\]
+
+For an odd prime, Elsholtz--Tao's total ordered count is therefore exactly
+\(f(p)=3T_I^*(p)+3f_{II}(p)\): the factor 3 chooses the position of the
+exceptional denominator, not an extra \(A,B\) swap.
+
+This dictionary supplies both structural sanity checks requested here.
+First, Elsholtz--Tao Proposition 1.6 proves
+\(f_I(n)=f_{II}(n)=0\) for every odd perfect square \(n\).  Formula (36.3)
+is deliberately a **prime-only raw-tuple formula**; extending it to composite
+\(n\) while dropping the coprimality and canonical conditions would not
+count \(f_I(n)\).  Its canonical version (36.20) has the required square
+vanishing, so no positive mass has been smuggled across the square-class
+escape of §17.3.  Second, their Theorem 1.1 gives
+
+\[
+ N\log^2N\ll\sum_{p\leq N}T_I^*(p)
+ \ll N\log^2N\log\log N,                                  \tag{36.22}
+\]
+
+which is exactly the prime-average scale required of the primitive formula
+and matches the divisor-function fluctuations they note.  The full identity
+supply remains subject to §18.2's cubic ceiling; (36.3) reorganizes that
+supply and does not create additional mass.
+
+### 36.6 Literature audit and positivity assessment
+
+**Literature audit (sources actually inspected).**
+
+* The supplied full Elsholtz--Tao arXiv:1107.1010v6 PDF was read through
+  §§1--11 and the appendix.  Equations (2.1)--(2.9), Propositions 2.2--2.3,
+  Lemma 2.8, Proposition 1.6, Theorem 1.1, Proposition 1.9, and the divisor
+  average in §7 are the sources used above.  Proposition 1.9 classifies the
+  fixed-parameter polynomial congruence families; it does not turn the
+  moving ray projector in (36.3) into a fixed class.  Their Type-I upper
+  bound explicitly reduces to averages of \(\tau(4a^2d+1)\), not class
+  numbers.
+* Yamamoto's 1965 primary J-STAGE scan (pp. 37--47) was downloaded; it is an
+  image PDF and was OCR-read.  His Lemma 4 assigns Kronecker symbol \(-1\)
+  to every nonempty covering in his system, and Theorem 2 concludes that
+  their union contains no perfect square.  This is a quadratic-residue
+  obstruction to polynomial/congruence coverings, not a positive
+  class-number formula.
+* Salez, arXiv:1406.6307v1, was downloaded and read.  It reproduces the
+  Rosati four-parameter alternatives, proves a seven-equation polynomial
+  classification, identifies which four equations were already in
+  Yamamoto, and reports the computation through \(10^{17}\).  The primary
+  Rosati PDF endpoint was found through EuDML/BDIM but timed out repeatedly;
+  no claim here is attributed to an unread Rosati primary text.
+* Elsholtz--Planitzer, arXiv:1805.02945v1, was downloaded and inspected.  Its
+  relevant result is the general \(O_\epsilon(n^{3/5+\epsilon})\) bound and
+  matching expected-time enumeration for fixed numerator, extending the
+  Elsholtz--Tao prime bound.  No Hurwitz or class-number identity appears in
+  the inspected text.
+
+**Assessment 36.1 (positivity).**  Equations (36.3) and (36.13) are exact
+character sums, but their principal terms do not dominate pointwise.  The
+nonprincipal part enforces the whole moving divisor grade, as the numerical
+failure \(1534\ne830\) shows.  Ordinary class groups for discriminant
+\(-16c\) forget this ray datum; even discriminant \(-16\), with unique
+factorisation, gives the universal hard-prime zero (36.11).  The broader
+\(k=1\) character mass also has a genuine zero (36.15).  Proving
+\(T_I^*(p)>0\) for every hard prime from (36.5) would itself prove the
+Type-I strengthening of Erdős--Straus, and no cancellation estimate capable
+of doing so is obtained here.
+
+**Assessment 36.2 (failure log).**  The quadric lead is exact but splits back
+into the original divisor pair; it supplies no Pell orbit (§§9.3, 20.1,
+35.2).  Gaussian factorisation solves the \(c=1\) bookkeeping but exposes
+the wrong residue grade.  The \(k=1\) ray-character sum is exact but not
+positive.  The Hurwitz--Kronecker identity controls the wrong weighted,
+unprojected mass, and both derived collapse candidates above fail.  Binary
+composition still has §26.3's \(+p\) versus \(-p\) sign obstruction, and
+bounded congruence extraction still has §17.3's square-class escape.  The
+realistic endpoint is therefore the exact ray-character structure theorem
+and a precise account of the missing projector, not a positivity theorem.
+
+**Verification companion.**  `verify.py (ai)` independently regenerates the
+20 stated raw and primitive counts by the cutoff-free denominator enumerator,
+including the unique nonprimitive dilations; compares the divisor and quadric
+rows for every odd prime below 50 (below 100 with `ES_FULL_SCAN=1`); checks
+the Gaussian and \(k=1\) slice formulas and the exact \(k=1\) failure set for
+all hard primes below \(10^4\); brute-counts reduced forms for (36.16); and
+replays both failed class-number candidates.  The divisor generation is
+streamed per \(x\); peak storage is the smallest-prime-factor array and one
+\(x\)-fiber, with no Cartesian-product array.

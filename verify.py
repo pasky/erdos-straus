@@ -5685,4 +5685,244 @@ def check_ah():
 print("\n== (ah) Unit W blind pointwise slices (§35) ==")
 check_ah()
 
+# ---------------------------------------------------------------- (ai)
+def check_ai():
+    """§36: exact Type-I character/quadric mass and slice obstructions."""
+    from fractions import Fraction as Q
+    from functools import lru_cache
+    from math import isqrt
+    import os
+
+    ground = (
+        73, 193, 241, 673, 1129, 1153, 2473, 2521, 3169, 3361, 5281,
+        409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321,
+    )
+    expected_raw = (
+        8, 8, 10, 26, 32, 30, 56, 12, 26, 26, 36,
+        22, 22, 40, 40, 196, 70, 106, 230, 150,
+    )
+    expected_primitive = (
+        8, 8, 8, 24, 28, 28, 48, 12, 26, 26, 30,
+        18, 22, 34, 34, 128, 64, 82, 184, 122,
+    )
+    expected_k1 = (
+        4, 2, 8, 6, 8, 8, 20, 0, 8, 16, 18,
+        14, 14, 22, 16, 44, 24, 24, 72, 52,
+    )
+
+    # Independent §32.3 denominator enumerator.  For Type I, a divisor d of
+    # (Px)^2 must be P-free: then P does not divide y and P divides z.  We
+    # apply this exact p-adic filter while generating divisors, rather than
+    # generating the irrelevant P-divisible parts of the divisor list.
+    limit = max(ground) + 1
+    spf = list(range(limit + 1))
+    for r in range(2, isqrt(limit) + 1):
+        if spf[r] == r:
+            for n in range(r * r, limit + 1, r):
+                if spf[n] == n:
+                    spf[n] = r
+
+    def fac(n):
+        out = []
+        while n > 1:
+            r, e = spf[n], 0
+            while n % r == 0:
+                n //= r
+                e += 1
+            out.append((r, e))
+        return out
+
+    def square_divisors_to_R(x, R):
+        values = [1]
+        for r, e0 in fac(x):
+            new, power = [], 1
+            for unused in range(2 * e0 + 1):
+                new.extend(d * power for d in values if d * power <= R)
+                power *= r
+            values = new
+        return values
+
+    def denominator_rows(P):
+        """Canonical primitive rows A<=B, with the p-denominator last."""
+        rows = []
+        for x in range(P // 4 + 1, 3 * P // 4 + 1):
+            q, R = 4 * x - P, P * x
+            for d in square_divisors_to_R(x, R):
+                if (d + R) % q:
+                    continue
+                y = (R + d) // q
+                if y < x or y % P == 0:
+                    continue
+                z = (R + R * R // d) // q
+                if z < y or z % P:
+                    continue
+                assert 4 * x * y * z == P * (x * y + x * z + y * z)
+                h0 = gcd(x, y)
+                A, B = x // h0, y // h0
+                C = z * h0 * h0 // (P * x * y)
+                K = h0 // C
+                assert (A, B) == (x // h0, y // h0) and gcd(A, B) == 1
+                assert min(A, B, C, K) > 0
+                assert P * (A + B) == K * (4 * A * B * C - 1)
+                rows.append((A, B, C, K))
+        assert len(rows) == len(set(rows))
+        return tuple(rows)
+
+    def square_multiplier_count(C):
+        return prod(e // 2 + 1 for r, e in fac(C))
+
+    canonical = {}
+    got_raw, got_primitive, got_c1, got_k1 = [], [], [], []
+    for P in ground:
+        rows = denominator_rows(P)
+        canonical[P] = rows
+        orientations = lambda row: 1 if row[0] == row[1] else 2
+        got_raw.append(sum(orientations(row) * square_multiplier_count(row[2])
+                           for row in rows))
+        got_primitive.append(sum(orientations(row) for row in rows))
+        # c=1 occurs in the unique dilation g^2|C exactly when C is a square.
+        got_c1.append(sum(orientations(row) for row in rows
+                          if isqrt(row[2]) ** 2 == row[2]))
+        # A raw k=1 row is necessarily primitive, so K=1 in the canonical row.
+        got_k1.append(sum(orientations(row) for row in rows if row[3] == 1))
+    assert tuple(got_raw) == expected_raw
+    assert tuple(got_primitive) == expected_primitive
+    assert tuple(got_c1) == (0,) * len(ground)
+    assert tuple(got_k1) == expected_k1
+
+    def ordinary_divisors(n):
+        values = [1]
+        for r, e in factorint(n).items():
+            values = [d * r**j for d in values for j in range(e + 1)]
+        return values
+
+    def divisor_rows(P):
+        """Theorem 26.1 enumeration, used only in the stated small range."""
+        rows = []
+        for K in range(1, 2 * P // 3 + 1):
+            for C in range(1, (2 * P + K) // (4 * K) + 1):
+                if gcd(P, C * K) != 1:
+                    continue
+                h0, norm = 4 * C * K, P * P + 4 * C * K * K
+                for D in ordinary_divisors(norm):
+                    if (D + P) % h0:
+                        continue
+                    E = norm // D
+                    assert (E + P) % h0 == 0
+                    A, B = (D + P) // h0, (E + P) // h0
+                    rows.append((A, B, C, K))
+                    # The hyperbolic/quadric reorganisation (36.3).
+                    s, t, r = A + B, A - B, C * K * (A - B)
+                    assert C * K * (s * s - t * t) == P * s + K
+                    assert r * r == C * K * (C * K * s * s - P * s - K)
+                    trace = 4 * C * K * s - 2 * P
+                    assert trace == D + E
+                    assert trace * trace - 4 * norm == (D - E) ** 2
+        assert len(rows) == len(set(rows))
+        return tuple(rows)
+
+    def expanded_rows(rows):
+        out = []
+        for A, B, C, K in rows:
+            gs = [1]
+            for r, e in fac(C):
+                gs = [g * r**j for g in gs for j in range(e // 2 + 1)]
+            for g in gs:
+                row = (g * A, g * B, C // (g * g), g * K)
+                out.append(row)
+                if A != B:
+                    out.append((row[1], row[0], row[2], row[3]))
+        return tuple(out)
+
+    exact_limit = 100 if os.environ.get("ES_FULL_SCAN") == "1" else 50
+    for P in primerange(3, exact_limit):
+        drows = divisor_rows(P)
+        erows = expanded_rows(denominator_rows(P))
+        assert set(drows) == set(erows) and len(drows) == len(erows)
+        c1_divisor = sum(row[2] == 1 for row in drows)
+        # Gaussian norm formula (36.7), written through rational norms.
+        c1_gaussian = 0
+        for K in range(1, 2 * P // 3 + 1):
+            norm, modulus = P * P + 4 * K * K, 4 * K
+            c1_gaussian += sum((D + P) % modulus == 0
+                               for D in ordinary_divisors(norm))
+        assert c1_divisor == c1_gaussian
+        if P % 4 == 1:
+            assert c1_gaussian == 0
+
+    # The k=1 trace/divisor formula (36.12), without factoring the moving
+    # values Pa+1: f=4ac-P is generated directly in its proved range.
+    def k1_character_count(P):
+        half = 0
+        for A in range(1, P // 2 + 1):
+            for C in range(P // (4 * A) + 1, P // (2 * A) + 1):
+                f = 4 * A * C - P
+                half += (P * A + 1) % f == 0
+        return 2 * half
+
+    assert tuple(k1_character_count(P) for P in ground) == expected_k1
+    k1_failures = [P for P in primerange(3, 10_000)
+                   if P % 24 == 1 and k1_character_count(P) == 0]
+    assert k1_failures == [2521]
+
+    # Hurwitz H(N): reduced (possibly imprimitive) positive forms of
+    # discriminant -N, generic weight 1, and exceptional weights 1/2,1/3.
+    @lru_cache(None)
+    def hurwitz(N):
+        if N == 0:
+            return Q(-1, 12)
+        if N < 0 or N % 4 not in (0, 3):
+            return Q(0)
+        ans = Q(0)
+        for A in range(1, isqrt(N // 3) + 2):
+            for B in range(-A, A + 1):
+                discr = B * B + N
+                if discr % (4 * A):
+                    continue
+                C = discr // (4 * A)
+                if A > C or ((abs(B) == A or A == C) and B < 0):
+                    continue
+                if A == C and B == 0:
+                    ans += Q(1, 2)
+                elif A == C and B == A:
+                    ans += Q(1, 3)
+                else:
+                    ans += 1
+        return ans
+
+    def kronecker_mass(n):
+        radius = isqrt(4 * n)
+        return sum((hurwitz(4 * n - t * t)
+                    for t in range(-radius, radius + 1) if t * t <= 4 * n), Q(0))
+
+    for n in range(2, 41):
+        if isqrt(n) ** 2 != n:
+            assert kronecker_mass(n) == sum(max(d, n // d)
+                                             for d in ordinary_divisors(n))
+    # A disciplined failed projection test: the unprojected Hurwitz mass
+    # does not split uniformly among the phi(4ck) ray classes.
+    P, C, K = 73, 10, 1
+    norm, modulus = P * P + 4 * C * K * K, 4 * C * K
+    ds = ordinary_divisors(norm)
+    target = sorted(D for D in ds if (D + P) % modulus == 0)
+    full_mass = sum(max(D, norm // D) for D in ds)
+    target_mass = sum(max(D, norm // D) for D in target)
+    assert kronecker_mass(norm) == full_mass == 13280
+    assert target == [7, 767] and target_mass == 1534
+    assert full_mass // 16 == 830 and target_mass != Q(full_mass, 16)
+    # The tempting single-discriminant formula happens twice, then fails.
+    assert 2 * hurwitz(4 * 73) == 8
+    assert 2 * hurwitz(4 * 193) == 8
+    assert 2 * hurwitz(4 * 241) == 24 != expected_primitive[2]
+
+    print("ground Type-I raw/primitive counts =", (tuple(got_raw), tuple(got_primitive)))
+    print("c=1 ground counts/k=1 hard failures <10^4 =",
+          (tuple(got_c1), k1_failures))
+    print("quadric exact range/Hurwitz projection failure =",
+          (exact_limit, (norm, full_mass, target_mass)))
+
+
+print("\n== (ai) Type-I character mass and class-number audit (§36) ==")
+check_ai()
+
 print("\nall checks passed")
