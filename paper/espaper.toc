@@ -1,32 +1,41 @@
-\contentsline {section}{\tocsection {}{1}{Introduction and statement map}}{2}{section.1}%
-\contentsline {section}{\tocsection {}{2}{Notation and elementary tools}}{3}{section.2}%
+\contentsline {section}{\tocsection {}{1}{Introduction and statement map}}{3}{section.1}%
+\contentsline {section}{\tocsection {}{2}{Notation and elementary tools}}{4}{section.2}%
 \contentsline {section}{\tocsection {}{3}{Criterion and identity families}}{4}{section.3}%
 \contentsline {subsection}{\tocsubsection {}{3.1}{A two-term lemma and the complete prime criterion}}{4}{subsection.3.1}%
 \contentsline {subsection}{\tocsubsection {}{3.2}{Forced identities}}{5}{subsection.3.2}%
-\contentsline {section}{\tocsection {}{4}{The complete intrinsic system}}{5}{section.4}%
+\contentsline {section}{\tocsection {}{4}{The complete intrinsic system}}{6}{section.4}%
 \contentsline {subsection}{\tocsubsection {}{4.1}{Shifted-divisor form}}{7}{subsection.4.1}%
-\contentsline {section}{\tocsection {}{5}{Squares and the prime slice}}{7}{section.5}%
-\contentsline {subsection}{\tocsubsection {}{5.1}{The square-class phenomenon}}{7}{subsection.5.1}%
+\contentsline {section}{\tocsection {}{5}{Squares and the prime slice}}{8}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{The square-class phenomenon}}{8}{subsection.5.1}%
 \contentsline {subsection}{\tocsubsection {}{5.2}{Harvesting prime classes}}{8}{subsection.5.2}%
-\contentsline {subsection}{\tocsubsection {}{5.3}{A growing multi-shift certificate}}{9}{subsection.5.3}%
-\contentsline {section}{\tocsection {}{6}{The cubic-mass hypothesis and its conditional consequence}}{10}{section.6}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{A growing multi-shift certificate}}{10}{subsection.5.3}%
+\contentsline {section}{\tocsection {}{6}{The cubic-mass hypothesis and its conditional consequence}}{11}{section.6}%
 \contentsline {section}{\tocsection {}{7}{Rough moduli and refutation of $H_{\mathrm {PF}}$}}{11}{section.7}%
 \contentsline {section}{\tocsection {}{8}{The critical window and transfer walls}}{14}{section.8}%
-\contentsline {subsection}{\tocsubsection {}{8.1}{Cylinder and tensor obstructions}}{14}{subsection.8.1}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Cylinder and tensor obstructions}}{15}{subsection.8.1}%
 \contentsline {subsection}{\tocsubsection {}{8.2}{The corrected finite-transfer criterion}}{15}{subsection.8.2}%
 \contentsline {subsection}{\tocsubsection {}{8.3}{The prime side transfers}}{16}{subsection.8.3}%
-\contentsline {subsection}{\tocsubsection {}{8.4}{The composite frontier}}{16}{subsection.8.4}%
+\contentsline {subsection}{\tocsubsection {}{8.4}{The composite frontier}}{17}{subsection.8.4}%
 \contentsline {section}{\tocsection {}{9}{Provisional record context}}{18}{section.9}%
 \contentsline {subsection}{\tocsubsection {}{9.1}{The provisional exceptional-set record}}{18}{subsection.9.1}%
-\contentsline {subsection}{\tocsubsection {}{9.2}{The pruned cubic prime slice}}{19}{subsection.9.2}%
-\contentsline {section}{\tocsection {}{10}{The fixed-$c$-free critical-window assembly}}{20}{section.10}%
-\contentsline {subsection}{\tocsubsection {}{10.1}{Removing the moving fibre and deduplicating the atoms}}{21}{subsection.10.1}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{The pruned cubic prime slice}}{20}{subsection.9.2}%
+\contentsline {section}{\tocsection {}{10}{The fixed-$c$-free critical-window assembly}}{21}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Removing the moving fibre and deduplicating the atoms}}{22}{subsection.10.1}%
 \contentsline {subsection}{\tocsubsection {}{10.2}{Exact mass profiles}}{22}{subsection.10.2}%
-\contentsline {subsection}{\tocsubsection {}{10.3}{Collapse versus consistency}}{23}{subsection.10.3}%
+\contentsline {subsection}{\tocsubsection {}{10.3}{Collapse versus consistency}}{24}{subsection.10.3}%
 \contentsline {subsection}{\tocsubsection {}{10.4}{The CRT void without partitioning by all of $M_0$}}{25}{subsection.10.4}%
-\contentsline {subsection}{\tocsubsection {}{10.5}{A low-degree majorant with the honest ledger}}{26}{subsection.10.5}%
-\contentsline {subsection}{\tocsubsection {}{10.6}{Exceptional denominators}}{27}{subsection.10.6}%
-\contentsline {subsection}{\tocsubsection {}{10.7}{Remarks on verification status}}{28}{subsection.10.7}%
-\contentsline {subsection}{\tocsubsection {}{10.8}{Residue-dispersion frontier}}{29}{subsection.10.8}%
-\contentsline {section}{\tocsection {}{}{Acknowledgment of status}}{30}{section*.43}%
-\contentsline {section}{\tocsection {}{}{References}}{30}{section*.44}%
+\contentsline {subsection}{\tocsubsection {}{10.5}{A low-degree majorant with the honest ledger}}{27}{subsection.10.5}%
+\contentsline {subsection}{\tocsubsection {}{10.6}{Exceptional denominators}}{28}{subsection.10.6}%
+\contentsline {subsection}{\tocsubsection {}{10.7}{Remarks on verification status}}{29}{subsection.10.7}%
+\contentsline {subsection}{\tocsubsection {}{10.8}{Internal verification pedigree}}{29}{subsection.10.8}%
+\contentsline {section}{\tocsection {}{11}{General numerators}}{30}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{The identity and the first exceptional-set layer}}{30}{subsection.11.1}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{The provisional cubic transfer}}{33}{subsection.11.2}%
+\contentsline {subsection}{\tocsubsection {}{11.3}{Comparison with the published general-$m$ bound}}{35}{subsection.11.3}%
+\contentsline {section}{\tocsection {}{12}{Pointwise Type-I slices}}{36}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Exact vanishing and finite conspiracies}}{36}{subsection.12.1}%
+\contentsline {section}{\tocsection {}{13}{Residue-dispersion frontier}}{37}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{Endpoint sparsity and proved ranges}}{38}{subsection.13.1}%
+\contentsline {subsection}{\tocsubsection {}{13.2}{Kloosterman-fraction audit}}{39}{subsection.13.2}%
+\contentsline {section}{\tocsection {}{}{Acknowledgment of status}}{40}{section*.83}%
+\contentsline {section}{\tocsection {}{}{References}}{40}{section*.84}%

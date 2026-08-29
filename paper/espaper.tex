@@ -27,7 +27,7 @@
 \newcommand{\PFp}{H_{\mathrm{PF}}'}
 
 % TODO(submission): replace anonymous author metadata after authorship is settled.
-\title[Intrinsic congruences and a provisional $3/4$ bound]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and a provisional improvement of the exceptional-set exponent}
+\title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
 \date{Draft, August 2026}
 
@@ -37,7 +37,29 @@ Subject to external verification, we obtain the unconditional bound
 \[
  E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}
 \]
-for Erd\H{o}s--Straus exceptional denominators.  This theorem is explicitly \textsc{claimed}/\allowbreak\textsc{provisional}; its load-bearing pruned cubic prime-slice input, Theorem~\ref{thm:pruned} (the analogue of Theorem~34.8 in the source notes), is likewise \textsc{claimed}/\allowbreak\textsc{provisional}.  No assertion in this draft should be cited as an established improvement before independent expert review.
+for Erd\H{o}s--Straus exceptional denominators.  More generally, if $E_m(N)$
+counts $n\leq N$ for which $m/n$ is not a sum of three positive unit
+fractions, then for every fixed $m\geq3$ we obtain the second headline
+\[
+ E_m(N)\ll N\exp\left\{-c\frac{\eta_1(m)}{\varphi(m)}
+                         (\log N)^{3/4}\right\},\qquad
+ \eta_1(m)=\prod_{p\mid m}\frac p{p+1}.
+\]
+Both $3/4$ theorems are explicitly
+\textsc{claimed}/\allowbreak\textsc{provisional}; their load-bearing pruned
+cubic prime-slice input, Theorem~\ref{thm:pruned} (the analogue of
+Theorem~34.8 in the source notes), is likewise
+\textsc{claimed}/\allowbreak\textsc{provisional}.  No assertion in this
+draft should be cited as an established improvement before independent
+expert review.  A separate, completely written internal layer gives
+\[
+ E_m(N)\ll_m N\exp\left\{-c
+ \left(\frac{\eta_1(m)}{\varphi(m)}\right)^{1/3}
+ (\log N)^{2/3}(\log\log N)^{1/3}\right\};
+\]
+because this too would improve the published general-numerator benchmark,
+it remains \textsc{claimed/provisional} pending external priority and
+referee checks, although it assumes no unproved hypothesis.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -50,7 +72,11 @@ Separately, a weighted rough-modulus estimate and the Lov\'asz local lemma refut
  \delta_X\geq\exp\!\left\{-O\!\left(\frac{(\log X)^3\log\log\log X}{\log\log X}\right)\right\}
        =\exp\{-o((\log X)^3)\}.
 \]
-That refutation does not apply in the critical window $\log N\asymp(\log X)^4$.  The provisional $3/4$ argument instead uses a fixed $c$-free atom family, residue-resolved factorial moments, a uniform conditioned void supplied by Theorem~\ref{thm:pruned}, and an even-Bonferroni majorant with the honest coefficient ledger $\exp\{O((\log X)^4)\}$.  The literal $\exp\{O(J)\}$ ledger clause of the earlier critical-window hypothesis is not proved and is deliberately bypassed.  At the separate residue-dispersion frontier, the regular progression tail is proved negligible; the short-cofactor endpoint remains \textsc{open}.
+That refutation does not apply in the critical window $\log N\asymp(\log X)^4$.  The provisional $3/4$ argument instead uses a fixed $c$-free atom family, residue-resolved factorial moments, a uniform conditioned void supplied by Theorem~\ref{thm:pruned}, and an even-Bonferroni majorant with the honest coefficient ledger $\exp\{O((\log X)^4)\}$.  The literal $\exp\{O(J)\}$ ledger clause of the earlier critical-window hypothesis is not proved and is deliberately bypassed.  At the separate residue-dispersion frontier, the regular progression tail
+is proved negligible.  The endpoint has a unique short cofactor, every
+fixed squarefree fibre and every fixed polylogarithmic prime range close,
+and the cells $4c^2s\ll(\log X)^3/(\log\log X)^2$ close over the full prime
+range; the complementary moving-fibre endpoint remains \textsc{open}.
 \end{abstract}
 
 \maketitle
@@ -63,12 +89,20 @@ The Erd\H{o}s--Straus conjecture asks whether, for every integer $n\geq2$, there
 \end{equation}
 It remains open.  The solution parametrizations and average counts of Elsholtz--Tao \cite{ElsholtzTao}, the divisor criterion presented by Bloom--Elsholtz \cite{BloomElsholtz}, and the exceptional-set argument reconstructed by Pomerance--Weingartner \cite{PomeranceWeingartner} form the nearest literature context.  Yamamoto's reciprocity analysis \cite{Yamamoto}, Salez's computation \cite{Salez}, and the later counting work of Elsholtz--Planitzer \cite{ElsholtzPlanitzer} provide additional context; none is used to promote a conditional or provisional statement below.
 
-The headline assertion of this draft is
+The two headline assertions of this draft are
 \[
- \boxed{\ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}\ }
- \qquad\text{\textsc{claimed/provisional}.}
+ \boxed{\ E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}\ },
+ \qquad
+ \boxed{\ E_m(N)\ll N\exp\left\{-c\frac{\eta_1(m)}{\varphi(m)}
+                         (\log N)^{3/4}\right\}\ }
 \]
-It is unconditional in the sense that no unproved hypothesis is assumed, but it is subject to external verification.  The load-bearing prime-slice input, Theorem~\ref{thm:pruned}, has the same provisional status.
+for every fixed $m\geq3$, both \textsc{claimed/provisional}.  Here
+$E_m(N)$ has the meaning given in the abstract.  The assertions are
+unconditional in the narrow sense that no unproved hypothesis is assumed,
+but they are subject to external verification.  Their load-bearing
+prime-slice input, Theorem~\ref{thm:pruned}, has the same provisional
+status.  The general-$m$ form and its uniform range are stated precisely in
+Theorem~\ref{thm:general-three-quarter}.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -76,12 +110,39 @@ The paper has five layers.
 \item Sections~\ref{sec:intrinsic}--\ref{sec:prime} determine that system exactly.  The distinct-modulus class mass is cubic, while the full prime slice and its avoidance exponent are quadratic.  Squares survive every modulus, and a multi-shift certificate gives a subcubic-cost lower bound for a growing part of the composite system.
 \item Sections~\ref{sec:hpf}--\ref{sec:refutation} state the literal cubic-mass majorant hypothesis $\PF$, prove its formerly desired conditional consequence, and then refute the hypothesis with all quantifiers visible.  The analytic inputs are upper mean-value estimates of Nair--Tenenbaum \cite{NairTenenbaum} and Henriot \cite{Henriot}; Shiu's theorem \cite{Shiu} is used in the prime-harvesting arguments.
 \item Section~\ref{sec:window} separates that all-range refutation from the critical window and records the cylinder, tensor, finite-transfer, and factorial-moment walls.
-\item Section~\ref{sec:records} states the provisional record inputs.  Section~\ref{sec:cfree} then gives the complete fixed-$c$-free assembly leading, provisionally, to the $3/4$ exponent.  Its final subsection, Section~\ref{sec:dispersion-frontier}, records the proved regular-tail result and the open short-cofactor endpoint from the residue-dispersion frontier.  Scott--Sokal's partition-function correspondence \cite{ScottSokal} does not itself provide the required pointwise minorant.
+\item Section~\ref{sec:records} states the provisional record inputs.
+Section~\ref{sec:cfree} then gives the complete fixed-$c$-free assembly
+leading, provisionally, to the $3/4$ exponent, followed by an explicit
+internal-verification pedigree.  Section~\ref{sec:general-m} proves the
+$m$-uniform identity and the two general-numerator layers, including their
+uniformity ranges and the two-regime comparison with
+Pomerance--Weingartner.  Section~\ref{sec:slices} records the exact
+pointwise Type-I slice obstruction.  Finally,
+Section~\ref{sec:dispersion-frontier} gives the endpoint sparsity,
+Kloosterman-fraction audit, widest proved small-fibre closure, and precise
+open remainder.  Scott--Sokal's partition-function correspondence
+\cite{ScottSokal} does not itself provide the required pointwise minorant.
 \end{enumerate}
 
-Labels are part of the assertions.  ``Proved'' means proved in this draft.  ``Open'' means no proof is claimed.  The results in Sections~\ref{sec:records} and~\ref{sec:cfree} are reproduced from the campaign record and remain \textsc{claimed/provisional}: writing out their internal arguments does not replace independent priority and referee checks.  In particular, no result of this paper proves the Erd\H{o}s--Straus conjecture.
+Labels are part of the assertions.  ``Proved'' means proved internally in
+this draft.  ``Open'' means no proof is claimed.  The record results in
+Sections~\ref{sec:records}--\ref{sec:general-m} remain
+\textsc{claimed/provisional}: writing out their internal arguments and
+recording internal reviews does not replace independent external priority
+and referee checks.  In particular, no result of this paper proves the
+Erd\H{o}s--Straus conjecture.
 
-The historical comparison is also provisional.  Vaughan's 1970 bound \cite{Vaughan} is the record identified by the search.  Pomerance--Weingartner's 2025 preprint \cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and a fresh search found no post-1970 improvement of the exceptional-set exponent.  Access to Vaughan's primary paper was blocked, although its DOI was confirmed.  Thus, if the $3/4$ theorem survives external review, it would be the first exponent improvement found since 1970.  This is a search result, not a literature guarantee.
+The historical comparison is also provisional.  Vaughan's 1970 bound
+\cite{Vaughan} is the record identified by the search.
+Pomerance--Weingartner's 2025 preprint
+\cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and
+a fresh search found no post-1970 improvement of the exceptional-set
+exponent.  Access to Vaughan's primary paper was blocked, although its DOI
+was confirmed; claims about its method have therefore been checked only
+through Pomerance--Weingartner.  Thus, if the $m=4$ theorem survives
+external review, it would be the first exponent improvement found since
+1970.  The general-$m$ comparison is made only with the precise 2025 theorem
+quoted in (43.22).  These are search results, not literature guarantees.
 
 \section{Notation and elementary tools}\label{sec:notation}
 All logarithms are natural.  We write $\tau_k(n)$ for the ordered $k$-fold divisor function, $\tau=\tau_2$, $\omega(n)$ for the number of distinct prime factors, $P^-(n)$ for the least prime factor, and $\varphi$ for Euler's function.  Constants implicit in $O,\ll,\asymp$ are absolute unless a subscript says otherwise.
@@ -1569,7 +1630,508 @@ be the first exponent improvement found since 1970.  This is a search
 result, not a literature guarantee; the \textsc{claimed/provisional} label
 stands.
 
-\subsection{Residue-dispersion frontier}\label{sec:dispersion-frontier}
+\subsection{Internal verification pedigree}\label{sec:pedigree}
+The counts in this subsection concern internal checks, not independent
+external validation.  Theorem~\ref{thm:pruned} has had three independent
+internal checks.  In the third, a fresh reviewer rederived the power-sized
+extension of the box argument, expanded the second incidence moment, paid
+all boundary errors, and rebuilt the low-congestion
+Bombieri--Vinogradov assembly.  The reviewer checked Shiu's 1980 paper
+\cite{Shiu} directly: the interval and modulus inequalities hold with
+Shiu's parameters $\alpha=\beta=1/4$, the residue classes are reduced, and
+both multiplicative-function hypotheses apply in the fixed-relative-length
+boxes with $H=K^{10}$.  The use of $1\in\mathcal J$, same-prime
+distinctness, the canonical lower boxes, and the data-dependent family
+$\mathcal J_c$ in Lemma~\ref{lem:conditioned-void} were separately replayed.
+That check was \textsc{confirmed-after-repairs}; the provisional register
+did not change.
+
+The downstream fixed-$c$-free chain has, in addition to its original
+construction, one attested-blind parallel construction and two paper
+fidelity passes.  For the blind construction, the unit read only the task
+brief and the source-note analogues of Sections~16 and~34 at repository
+commit \texttt{c489912b}, and froze its complete S1--S7 derivation at
+commit \texttt{347a570} before opening the source analogue of Section~39.
+It did not inspect the earlier verification program, although the mandatory
+baseline run printed that program's summary line.  Git verifies the
+snapshots, texts, and commit order; it cannot verify what was visible on
+screen or enforce read isolation.  The blindness claim is therefore an
+explicit self-attestation, not an independently audited fact.  Reconciliation
+classified all seven steps as \textsc{confirmed-same-method}; the variants
+(modulus $k$ versus $\lcm(g,\rad k)$ in Shiu, a pointwise Euler bound, and
+direct weighted-fibre averaging) made no quantifier or range change.  Its
+separate exact-rational stress test checked moments through order six,
+$14{,}210$ atoms, and $1{,}128{,}378$ compatible pairs.  Those finite checks
+are bug hunts, not asymptotic evidence, and the blind unit treated
+Theorem~\ref{thm:pruned} as an allowed input.
+
+Wave 15 then ran three separate maximum-severity hostile reviews, one each
+for the general-numerator transfer, the slice-conspiracy analysis, and the
+Kloosterman endpoint.  Each was repaired before inclusion here.  Thus the
+general-$m$ headline has one hostile review of its new transfer, in addition
+to the three internal checks of its shared pruned-slice input; it has no
+second independent construction.  The slice review repaired the
+raw/primitive boundary.  The endpoint review checked the actual DFI and
+Bettin--Chandee statements and discovered Theorem~\ref{thm:small-fibre},
+which was then independently verified internally.  None of these passes was
+an external referee report or a priority certification.
+
+\section{General numerators}\label{sec:general-m}
+For $m\geq3$, define
+\begin{equation}\tag{43.1}
+ E_m(N)=\#\{n\leq N:m/n\text{ is not a sum of three positive unit
+ fractions}\}.
+\end{equation}
+This concerns the rational number: reducing a common factor does not change
+representability.  We nevertheless count the unreduced pairs, as does
+Pomerance--Weingartner \cite{PomeranceWeingartner}.
+
+\subsection{The identity and the first exceptional-set layer}
+\begin{lemma}[general-numerator multiplier identity]\label{lem:m-identity}
+Let $k\ell\equiv-1\pmod m$ and
+$A=(k\ell+1)/m=uvw$.  If $n>0$, $nv\equiv-u\pmod{k\ell}$, and
+$s=(nv+u)/(k\ell)$, then
+\begin{equation}\tag{43.2}
+ \frac mn=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}.
+\end{equation}
+Moreover $(A,k\ell)=1$, so $v$ is invertible modulo $k\ell$.
+\end{lemma}
+\begin{proof}
+The congruence makes $s$ a positive integer.  The numerator over the common
+denominator $nsuvw$ is
+$nv+u+s=s(k\ell+1)=smuvw$.  A common divisor of $A$ and $k\ell$ divides
+$mA-k\ell=1$.
+\end{proof}
+No parity, primality, or coprimality condition on $m$ and $n$ occurs here.
+For a prime $\ell\nmid m$, the old condition $k\equiv1\pmod4$ is replaced
+by $k\equiv-\ell^{-1}\pmod m$.
+
+Put
+\begin{equation}\tag{43.3}
+ \eta_1(m)=\prod_{p\mid m}\frac p{p+1},\qquad
+ \eta_2(m)=\prod_{p\mid m}\frac {p^2}{p^2+p-1},\qquad
+ C_2=\prod_p(1-p^{-1})\left(1+\frac{p-1}{p^2}\right).
+\end{equation}
+\begin{lemma}[exact thinning factors]\label{lem:m-thinning}
+For fixed $m$ and every reduced $r\pmod m$,
+\begin{equation}\tag{43.4}
+ \begin{split}
+ \sum_{\substack{k\leq K\\k\equiv r\ (m)}}\frac{\varphi(k)}{k^2}
+ &\sim\frac{\eta_1(m)}{\varphi(m)\zeta(2)}\log K,\\
+ \sum_{\substack{k\leq K\\k\equiv r\ (m)}}
+       \frac{\varphi(k)^2}{k^3}
+ &\sim\frac{C_2\eta_2(m)}{\varphi(m)}\log K.
+ \end{split}
+\end{equation}
+If $\log m=O(\log K)$, the aggregate sums over $(k,m)=1$ are, up to
+constants depending only on that $O$-constant,
+$\eta_1(m)\log K$ and $\eta_2(m)\log K$.  Also
+\begin{equation}\tag{43.5}
+ \frac{\varphi(m)}m\leq\eta_1(m)\leq
+ \zeta(2)\frac{\varphi(m)}m,
+ \qquad \eta_2(m)\asymp\frac{\varphi(m)}m.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The Euler series for $\varphi(k)/k$ is
+$\zeta(s+1)/\zeta(s+2)$; removing multiples of $p\mid m$ deletes the
+local factor $1+1/p$.  For $b(k)=(\varphi(k)/k)^2$, the local harmonic
+factor is
+\[
+ 1+\sum_{e\geq1}\frac{(1-p^{-1})^2}{p^e}
+ =1+\frac{p-1}{p^2}.
+\]
+Character orthogonality divides the principal pole by $\varphi(m)$ and,
+for fixed $m$, each nonprincipal twist is regular there.  The same
+convolution argument without characters proves the uniform aggregate
+bounds.  Finally, divide each product in (43.3) by $\varphi(m)/m$; the
+resulting Euler products converge absolutely.
+\end{proof}
+The fixed-class asymptotics in (43.4) are deliberately not asserted
+uniformly for growing $m$.  In particular, no Siegel-uniform estimate and no
+equidistribution among short residue classes is used below.  Only the
+aggregate nonnegative family $(k,m)=1$ is used.
+
+Define the multiplicative function
+\[
+ F_m(p^a)=\begin{cases}1,&p\mid m,\\p/(p-1),&p\nmid m.
+ \end{cases}
+\]
+For $(u,v)=1$ one has the exact identity
+\begin{equation}\tag{43.6}
+ \frac1{\varphi(muv)}=\frac{F_m(u)F_m(v)}{\varphi(m)uv}.
+\end{equation}
+This avoids both a false extra factor $1/m$ and the false restriction
+$(uv,m)=1$.
+
+\begin{lemma}[general-$m$ class mass]\label{lem:m-class-mass}
+Fix $B>0$.  Let $K_0\leq K\leq(\log X)^B$, $H=K^{10}$,
+$m\leq(\log X)^B$, and
+$\mathcal J\subseteq\{k\leq K:(k,m)=1\}$ contain $1$.  Put
+$h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2$ and suppose
+$(c,L_{\mathcal J})=1$.  Let $f_{m,c}(\ell)$ count the distinct residues
+$-uv^{-1}\pmod\ell$ furnished by
+\begin{equation}\tag{43.7}
+ \begin{gathered}
+ k\in\mathcal J,\\ H<u,v\leq\ell^{1/3},\quad
+ (u,v)=(uv,k)=1,\quad \omega(uv)\leq D\log\log X,\\
+ muv\mid k\ell+1,
+ \qquad k\mid u+cv.
+ \end{gathered}
+\end{equation}
+Then, with constants depending only on $B$,
+\begin{equation}\tag{43.8}
+ \sum_{X^{1/2}<\ell\leq X}\frac{f_{m,c}(\ell)}\ell
+ \asymp_B\frac{(\log X)^2h(\mathcal J)}{\varphi(m)}.
+\end{equation}
+Each counted residue, combined with the congruence modulo $k$, is forced by
+Lemma~\ref{lem:m-identity}.
+\end{lemma}
+\begin{proof}
+For fixed $k$, the lattice congruence is still $u+cv\equiv0\pmod k$.
+Thus the box count, boundary ratio $O(K^2/H)$, low-$\omega$ Rankin tail,
+and Shiu modulus condition $k<U^{1/2},V^{1/2}$ are unchanged.  The
+condition $k\equiv-\ell^{-1}\pmod m$ is not a second lattice condition:
+after $(k,u,v)$ is fixed, all congruences are carried by the one reduced
+prime progression
+\begin{equation}\tag{43.9}
+ \ell\equiv-k^{-1}\pmod{muv}.
+\end{equation}
+The modulus is the product $muv$, not $\lcm(m,uv)$; common prime powers,
+including powers of $2$, are already present with their summed exponent.
+In the canonical boxes $uv\leq x^{1/3}$, so a fixed log-power $m$ remains
+below the Bombieri--Vinogradov level.  Each modulus has at most
+$K2^{\omega(uv)}$ descriptions, absorbed by choosing the logarithmic saving
+in terms of $B$.  Brun--Titchmarsh gives the upper half.  Identity (43.6)
+and the same two-variable harmonic calculation give exactly the factor
+$1/\varphi(m)$ on both sides.  Shiu's auxiliary modulus remains $k$; no
+condition $(uv,m)=1$ is inserted.
+
+For deduplication, a collision at one $\ell$ gives
+$\ell\mid uv'-u'v$ and $|uv'-u'v|<\ell^{2/3}<\ell$, hence reducedness gives
+$(u,v)=(u',v')$.  The two atoms then fix $k\pmod{muv}$, and
+$muv>mH^2>K$ gives $k=k'$.  Finally $n\equiv c\pmod{L_{\mathcal J}}$ and
+a hit modulo $\ell$ combine to $nv\equiv-u\pmod{k\ell}$.
+\end{proof}
+
+\begin{theorem}[first general-numerator layer; \textsc{claimed/provisional}]
+\label{thm:general-two-third}
+For every fixed $m\geq3$ there is an absolute $c_0>0$ such that, for all
+sufficiently large $N$,
+\begin{equation}\tag{43.10}
+ E_m(N)\ll_m N\exp\left\{-c_0
+ \left(\frac{\eta_1(m)}{\varphi(m)}\right)^{1/3}
+ (\log N)^{2/3}(\log\log N)^{1/3}\right\}.
+\end{equation}
+The prime-denominator form is uniform, for every fixed $\eps>0$, when
+$3\leq m\leq(\log N)^{2-\eps}$.  The all-denominator form is uniform in the
+smaller range $3\leq m\leq(\log N)^{1-\eps}$, after an
+$\eps$-dependent lower threshold.  This theorem has a complete internal
+proof but remains provisional externally because it would improve the
+published general-$m$ benchmark.
+\end{theorem}
+\begin{proof}[Internal argument; provisional status retained]
+Take $K=\lfloor\delta\log N\rfloor$, all $k\leq K$ coprime to $m$, and
+$M_0=\lcm_{k\leq K,(k,m)=1}k$.  Since
+$\log M_0\leq(1+o(1))K$, each reduced subsequence has length
+$N^{1-O(\delta)}$.  Apart from the $O(\log m)$ primes dividing $m$, every
+prime denominator above $K$ occurs in one.  Lemmas~\ref{lem:m-thinning}
+and~\ref{lem:m-class-mass} give uniformly in its residue $c$ the prime
+class mass
+\[
+ \asymp\lambda_m(\log X)^2\log K,
+ \qquad \lambda_m=\frac{\eta_1(m)}{\varphi(m)}.
+\]
+The upper mass has the same factor, so the larger-sieve Rankin truncation
+used in Theorem~\ref{thm:record} closes with
+\[
+ \log X=\alpha\left(\frac{\log N}{\lambda_m\log\log N}\right)^{1/3}.
+\]
+This gives (43.10) for primes.  In the stated range,
+$\log X=o(\log N)$ and $K,m$ are fixed powers of $\log X$; the sieve
+length and BV/Shiu levels follow with a saving chosen in terms of $\eps$,
+not $m$.
+
+If $a\mid n$ and $m/a$ is representable, scaling its denominators by $n/a$
+represents $m/n$.  Thus every divisor, in particular every prime factor, of
+an exceptional $n$ is exceptional.  The semigroup argument in
+Theorem~\ref{thm:three-quarter} applies with
+$g_m(u)=\lambda_m^{1/3}u^{2/3}(\log u)^{1/3}$.  For uniformity, start the
+prime estimate at $x_0=\exp\{m^{1/(2-\eps/2)}\}$.  If
+$m\leq(\log N)^{1-\eps}$, then the Rankin parameter has
+$\delta\log x_0=o(1)$; declaring every smaller prime exceptional costs only
+$m^{O_\eps(1)}$, whose logarithm is absorbed by the displayed saving.
+\end{proof}
+
+\subsection{The provisional cubic transfer}
+Fix $0<\kappa<1/240$, put $t=\log X$, $K=\lfloor X^\kappa\rfloor$,
+$H=K^{10}$, and use the dyadic blocks $x<\ell\leq2x$ in
+$(X^{1/2},X]$.  The general-$m$ $c$-free atoms are
+\begin{equation}\tag{43.11}
+ \begin{gathered}
+ A=(k,\ell,u,v),\quad k\leq K,\quad(k,m)=1,
+ \quad H<u,v\leq x^{1/6},\\
+ (u,v)=(uv,k)=1,
+ \quad\omega(uv)\leq D\log\log X,
+ \quad muv\mid k\ell+1,\\
+ E_A=\{n:n\equiv-uv^{-1}\pmod{k\ell}\}.
+ \end{gathered}
+\end{equation}
+The proof of Lemma~\ref{lem:cfree}, with $4uv$ replaced by $muv$, shows
+that the coupling $k\mid u+cv$ is automatic after revealing
+$c\equiv n\pmod{L_{m,K}}$, distinct compatible atoms have distinct
+$\ell$'s, and
+\begin{equation}\tag{43.12}
+ \Pr\left(\bigcap_{i\leq j}E_{A_i}\right)
+ =\frac{\mathbf1_{\rm compatible}}
+ {\lcm(k_1,\ldots,k_j)\prod_i\ell_i}.
+\end{equation}
+The two relevant inequalities only improve: $x^{1/3}<\ell$ makes $(u,v)$
+unique, and $muv>K$ then makes $k$ unique.
+
+\begin{lemma}[general-$m$ mass profiles]\label{lem:m-profiles}
+Uniformly for $m\leq t^B$, $g\mid k$, and reduced $a\pmod g$,
+\begin{equation}\tag{43.13}
+ W_{k,a}(g)\ll_B\frac{t^2}{\varphi(m)\varphi(g)}
+                  \frac{\varphi(k)^2}{k^3},
+ \qquad
+ W_k\asymp_B\frac{t^2}{\varphi(m)}\frac{\varphi(k)^2}{k^3}.
+\end{equation}
+Consequently
+\begin{equation}\tag{43.14}
+ \mu_{m,X}\asymp_B\frac{\eta_2(m)}{\varphi(m)}t^3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Identity (43.6) extracts $1/\varphi(m)$.  In boxes put
+$q_0=\lcm(g,\rad k)$.  Since $(k,m)=1$, there are still
+$\varphi(q_0)^2/\varphi(g)$ compatible reduced class pairs.  Shiu applies
+to $F_m\leq n/\varphi(n)$ because $q_0\leq k<U^{1/10},V^{1/10}$, and gives
+\[
+ \sum_{\rm boxes}\frac{F_m(u)F_m(v)}{uv}
+ \ll\frac{t^2}{\varphi(g)}\left(\frac{\varphi(k)}k\right)^2.
+\]
+Brun--Titchmarsh on modulus $muv$ proves the upper profile.  For the BV
+lower profile, replacing $n/\varphi(n)$ by $F_m(n)$ changes the coprime-pair
+factor at $p\mid m$ by
+$(p^2-1)/(p^2+1)$; the product is bounded away from zero.  The Rankin
+truncation and allocation multiplicity are unchanged.  Summation and the
+second aggregate formula in Lemma~\ref{lem:m-thinning} prove (43.14).
+\end{proof}
+
+\begin{theorem}[general-$m$ pruned cubic slice; \textsc{claimed/provisional}]
+\label{thm:m-pruned}
+For fixed $B$, uniformly for $m\leq t^B$, every
+$\mathcal J\subseteq\{k\leq K:(k,m)=1\}$ containing $1$, and every reduced
+fibre $(c,L_{\mathcal J})=1$, the restriction
+$r_{\mathcal J}(u,v;c)\leq t^4$ leaves
+\begin{equation}\tag{43.15}
+ \sum_{X^{1/2}<\ell\leq X}\frac{f^{\rm good}_{m,c}(\ell)}\ell
+ \asymp_B\frac{t^2h(\mathcal J)}{\varphi(m)}.
+\end{equation}
+For the full coprime family this is
+$\asymp\eta_1(m)t^3/\varphi(m)$.  This theorem inherits the provisional
+status of Theorem~\ref{thm:pruned}.
+\end{theorem}
+\begin{proof}[Proof ledger; provisional status retained]
+The incidence second moment is unchanged after restricting the outer
+$k$-set to $(k,m)=1$: it sees only $k\mid u+cv$, and its lcm boundary is
+at most $K^2$.  Markov pruning therefore removes
+$o(t^2h(\mathcal J))$.  Identity (43.6) leaves at least
+$1/\varphi(m)$ of the retained harmonic mass.  The retained multiplicity is
+$2^{\omega(uv)}t^4$, while BV runs over $muv\leq t^Bx^{1/3}$; increasing
+its fixed logarithmic saving by $B$ makes the error
+$o(x\log x\,h(\mathcal J)/\varphi(m))$.  Deduplication is (43.12), and the
+upper bound is Lemma~\ref{lem:m-profiles}.  These are all entries at which
+$m$ changes the proof of Theorem~\ref{thm:pruned}.
+\end{proof}
+
+For completeness, the prime-power moment cancellation also survives.
+Condition on $(n,P_y)=1$ and add a compatible atom with multiplier $k$ to a
+set whose multiplier lcm is $R$.  With $g=(k,R)$, the exact density ratio is
+$q_y(k)b_y(g)/(k\ell)$, while compatibility fixes one unit residue modulo
+$g$.  Lemma~\ref{lem:m-profiles} supplies $1/\varphi(g)$, leaving
+\begin{equation}\tag{43.16}
+ \frac{b_y(g)}{\varphi(g)}
+ =\prod_{p\mid g,\ p>y}\frac p{p-1}.
+\end{equation}
+Primes dividing $m$ do not divide $k$.  At an unmodified such prime, deleting
+the multiplier Euler factor gives $p^2/(p^2+p-1)$; if $p\leq y$, it instead
+gives the smaller $p/(p+1)$.  Thus the total deletion factor is at most
+$\eta_2(m)$, and
+\begin{equation}\tag{43.17}
+ \sum_{\substack{k\leq K\\(k,m)=1}}
+ \frac{\varphi(k)^2}{k^3}q_y(k)
+ \prod_{p\mid(k,R),\ p>y}\frac p{p-1}
+ \ll\eta_2(m)\log K.
+\end{equation}
+The ordered induction, including unequal prime-power exponents, gives
+\begin{equation}\tag{43.18}
+ \mathbb E(H_{m,X})_j\leq
+ \left(C\frac{\eta_2(m)}{\varphi(m)}t^3\right)^j
+ \leq(Ct^3)^j.
+\end{equation}
+
+\begin{theorem}[general-$m$ $3/4$ bound; \textsc{claimed/provisional}]
+\label{thm:general-three-quarter}
+There is an absolute $c_0>0$ such that, for every fixed $m\geq3$, and
+uniformly for every fixed $0<\eps<3/4$ in
+$3\leq m\leq(\log N)^{3/4-\eps}$,
+\begin{equation}\tag{43.19}
+ E_m(N)\ll N\exp\left\{-c_0\frac{\eta_1(m)}{\varphi(m)}
+                         (\log N)^{3/4}\right\}.
+\end{equation}
+This includes primes and all denominators and inherits the provisional status
+of Theorems~\ref{thm:pruned} and~\ref{thm:three-quarter}.
+\end{theorem}
+\begin{proof}[Internal argument; provisional status retained]
+Reveal the multiplier coordinates and take
+$\mathcal J_c=\{k\leq K:(k,m)=(k,c)=1\}$.  Its full harmonic mass is
+$\asymp\eta_1(m)\log K$.  The exponential argument in
+Lemma~\ref{lem:conditioned-void}, with
+$Z(c)=\sum_{y<p\leq K,\ p\mid c,\ p\mid L_{m,K}}1/p$, gives
+$\Pr(Z>C\eta_1(m))\leq\exp\{-c\eta_1(m)y\}$.  Use the conservative
+unchanged choices
+\[
+ y=Bt^3,
+ \qquad r=\text{the least even integer at least }D_Bt^3.
+\]
+On good fibres Theorem~\ref{thm:m-pruned} gives active $\ell$-mass
+$\gg\eta_1(m)t^3/\varphi(m)$; the bad-fibre tail is smaller and (43.18)
+controls the even-Bonferroni tail.  Hence
+\begin{equation}\tag{43.20}
+ \mathbb E_{\rm CRT}\{S_yQ_r(H_{m,X})\}
+ \leq\exp\left\{-c\frac{\eta_1(m)}{\varphi(m)}t^3\right\}.
+\end{equation}
+Since $m\leq t^B$, the extra $\log m$ per atom is smaller than the existing
+$O_B(t)$ inventory charge.  Exactly as in (39.31)--(39.34),
+\[
+ \deg=O(t^3),\qquad \log d_{\rm term}=O_B(t^4),\qquad
+ \log\sum|c_{\rm term}|=O_B(t^4).
+\]
+Taking $t=\alpha(\log N)^{1/4}$ with small fixed $\alpha$ absorbs every
+rounding error.  If $m\leq(\log N)^{3/4-\eps}$, the saving grows at least as
+a fixed multiple of $(\log N)^\eps$ and the required log-power uniformity
+holds.
+
+For the all-denominator transfer, start the uniform prime estimate at
+\begin{equation}\tag{43.21}
+ x_0=\exp\{m^{1/(3/4-\eps/4)}\}.
+\end{equation}
+This $\eps/4$ is essential.  With
+$\delta\asymp\eta_1(m)\varphi(m)^{-1}(\log N)^{-1/4}$, (43.5) gives
+\[
+ \delta\log x_0
+ \ll(\log N)^{-\eps^2/(3-\eps)}=o(1).
+\]
+Thus smaller primes cost only $m^{O_\eps(1)}$, absorbed by the saving.
+Above $x_0$, the prime tail is uniformly summable because
+$m^{-1}(\log x_0)^{3/4}\to\infty$.  The semigroup argument with
+$g(u)=\eta_1(m)\varphi(m)^{-1}u^{3/4}$ completes the proof.
+\end{proof}
+No smaller $m$-dependent Bonferroni degree, no uniform theorem beyond the
+stated range, and no pointwise equidistribution among the classes
+$k\pmod m$ is claimed.
+
+\subsection{Comparison with the published general-$m$ bound}
+Pomerance--Weingartner's Theorem~1.3 \cite{PomeranceWeingartner} states that
+there is an absolute $C>0$ such that, for
+$4\leq m\leq(\log N)^2$,
+\begin{equation}\tag{43.22}
+ E_m(N)\leq N\exp\left\{-C
+       \left(\frac{(\log N)^2}{\varphi(m)}\right)^{1/3}\right\}.
+\end{equation}
+Their prime mass is $(\log X)^2/\varphi(m)$, so no
+$(\log\log N)^{1/3}$ is hidden in (43.22).  Comparing (43.19) with (43.22),
+and writing $L=\log N$, the provisional layer is stronger up to theorem
+constants exactly in the regime
+\begin{equation}\tag{43.23}
+ \varphi(m)\lesssim\eta_1(m)^{3/2}L^{1/8}.
+\end{equation}
+Suppressing the bounded local factor gives the mnemonic
+$\varphi(m)\lesssim L^{1/8}$.  Thus (43.19) is stronger for every fixed
+$m$ and some slowly growing $m$, while (43.22) has better
+$\varphi(m)^{-1/3}$ dependence after the crossover and remains uniform up
+to $m\leq L^2$.  No uniform-beating claim is made.  The first layer gains
+$(\log L)^{1/3}$ over (43.22), with essentially the same $m^{-1/3}$ scale,
+but its all-denominator uniform range stops at $m\leq L^{1-\eps}$.
+
+\section{Pointwise Type-I slices}\label{sec:slices}
+\subsection{Exact vanishing and finite conspiracies}
+For an odd prime $p$, put
+\[
+ \mathcal B_p=\left\{(c,k):1\leq k\leq\lfloor2p/3\rfloor,
+  \ 1\leq c\leq\left\lfloor\frac{2p+k}{4k}\right\rfloor,
+  \ (p,ck)=1\right\}.
+\]
+For $(c,k)\in\mathcal B_p$, let $h=4ck$,
+$N_{c,k}=p^2+4ck^2$, and define the raw ordered Type-I slice
+\begin{equation}\tag{44.1}
+ M_{c,k}(p)=\#\{D:D\mid N_{c,k},\ D\equiv-p\pmod h\}.
+\end{equation}
+Each such divisor gives the ordered row
+$a=(D+p)/h$, $b=(N_{c,k}/D+p)/h$ in
+$p(a+b)=k(4abc-1)$, and every row arises this way.
+
+If $N_{c,k}=\prod_j\ell_j^{e_j}$, character orthogonality gives the exact
+vanishing law
+\begin{equation}\tag{44.2}
+ \begin{split}
+ M_{c,k}(p)
+ &=\frac1{\varphi(h)}\sum_{\chi\ ({\rm mod}\ h)}
+   \overline{\chi(-p)}
+   \prod_j(1+\chi(\ell_j)+\cdots+\chi(\ell_j)^{e_j}),\\
+ M_{c,k}(p)=0
+ &\Longleftrightarrow
+ \nexists(0\leq u_j\leq e_j):
+       \prod_j\ell_j^{u_j}\equiv-p\pmod{4ck}.
+ \end{split}
+\end{equation}
+The second line is an exponent-box condition, not merely subgroup
+membership; vanishing need not be caused by one character factor.  This is
+the raw count.  The primitive count additionally requires $(a,b)=1$ and can
+vanish when the raw count does not: for $(p,c,k)=(241,7,3)$ the two target
+divisors give $(a,b)=(3,66),(66,3)$, so $M_{7,3}(241)=2$ but the primitive
+mass is zero.
+
+There is a deterministic obstruction larger than the Gaussian $c=1$ slice.
+Write $c=st^2$ with $s$ squarefree.  If $p\equiv1\pmod{24}$ and
+$s\in\{1,2,3,6\}$, then
+\begin{equation}\tag{44.3}
+                         M_{c,k}(p)=0.
+\end{equation}
+Indeed each prime $\ell\mid p^2+4s(tk)^2$ satisfies
+$(p(2tk)^{-1})^2\equiv-s\pmod\ell$.  Thus every prime-factor grade lies in
+the kernel of $({-s}/\,\cdot\,)$ modulo $4s$.  For
+$s=1,2,3,6$ those kernels are respectively
+$\{1\}$, $\{1,3\}$, $\{1,7\}$, and $\{1,5,7,11\}$; none contains the
+target grade $-1$ modulo $4s$.  Consequently all eight slices $ck\leq4$
+and $80$ of the $111$ slices $ck\leq30$ vanish on every hard prime.
+
+The remaining slices can conspire beyond fixed congruence data:
+$193\equiv1033\pmod{840}$, both the $(5,1)$ and $(7,1)$ slices vanish at
+$193$, but the $(5,1)$ slice is positive at $1033$.  Conversely, every
+prime $p\equiv97\pmod{120}$ has a positive $(5,1)$ slice via $D=3$; this is
+the already known multiplier progression, not a new supply.
+
+An exact finite census over the $385$ primes $p<30000$,
+$p\equiv1\pmod{24}$, gives
+\[
+\begin{array}{c|rrrrrrr}
+ C&4&5&10&15&20&25&30\\ \hline
+ \#\{(c,k):ck\leq C\}&8&10&27&45&66&87&111\\
+ \#\{p:\text{all slices vanish}\}&385&220&161&63&41&30&15.
+\end{array}
+\]
+This is a finite exact factorization census, not an asymptotic theorem.
+Every depth-$111$ prime still has a Type-I witness outside the box.  Proving
+that at least one admissible slice is positive for every hard prime would
+prove the Type-I form of Erd\H{o}s--Straus and hence the conjecture; neither
+(44.2), the census, nor standard GRH character-sum bounds does so.  Even an
+idealized square-root cancellation across the $O(p)$ moving fibres leaves
+an error $p^{1/2+o(1)}$ against a principal term known only to be $p^{o(1)}$.
+
+\section{Residue-dispersion frontier}\label{sec:dispersion-frontier}
 Put
 \[
  L=\log X,\qquad z=\frac{L^3\log\log L}{\log L},\qquad
@@ -1634,24 +2196,208 @@ estimate
  \ll\Lambda^2.
 \end{aligned}
 \end{equation}
-Every term has $q>z$ and $q<4R$.  Estimate (40.19) is \textsc{open}.
-Standard additive large-sieve and ordinary divisor
-Barban--Davenport--Halberstam statements do not contain this moving
-inverse/short-cofactor family.  Even a proof of (40.19) would pass only the
-pair test: the prime-power and multi-coordinate codegrees through
-$m\asymp\Lambda$, the needed factorial-moment hierarchy, and the critical-
-window avoider assertion all remain \textsc{open}.  No theorem about
-$\PFp$ or the literal $H_{\rm PF}'$ follows from the proved regular tail.
+Every term has $q>z$ and $q<4R$.
+
+\subsection{Endpoint sparsity and proved ranges}
+For $(p,4R)=1$, let $q_p(R)$ be the unique integer in $[1,4R)$ with
+\begin{equation}\tag{42.1}
+                         pq_p(R)\equiv-1\pmod{4R}.
+\end{equation}
+Let $I_p(R,s)$ assert all the conditions in (40.19), including
+$s\mid\rad(R)$, $q_p(R)>z$, $pq_p(R)\leq X$, roughness, and canonical
+retention.  Then endpoint incidences are exactly the pairs with
+$I_p(R,s)=1$, and
+\begin{equation}\tag{42.2}
+ q=q_p(R),\quad z<q<4R,\quad 1\leq c=\frac{pq+1}{4R}<p,
+ \quad \frac z4<R\leq\frac{X+1}4.
+\end{equation}
+Thus there is one cofactor for each $(p,R)$, not one for each $p$; the
+moving multiplicity $2^{\omega(R)}$ in $s$ remains.
+
+Put $A=(pq+1)/4=Rc$.  The complementary divisor to $D=R^2/s$ is
+$A^2/D=c^2s$, and hence
+\begin{equation}\tag{42.3}
+ D\equiv\overline{16c^2s}\pmod p,
+ \qquad -4D\equiv-\overline{4c^2s}\pmod p.
+\end{equation}
+Two endpoint incidences over $p$ collide exactly when
+$c^2s\equiv c'^2s'\pmod p$.  Distinct incidences cannot have equal integer
+shifts: $R^2/s=R'^2/s'$ forces the common value's radical root
+$R=R_0(D)=R'$, then $s=s'$, and (42.1) gives the same $q$.  The endpoint
+energy therefore has only genuine nonzero divisibility coincidences off the
+diagonal.
+
+\begin{theorem}[fixed endpoint fibres]\label{thm:fixed-fibre}
+For every fixed squarefree $s$, uniformly in $s$,
+\begin{equation}\tag{42.4}
+ \sum_{z<p\leq X}p\sum_{a\bmod p}
+       (u^{\rm end,(s)}_{p,a})^2
+ \ll L^3+L^2\log L=o(\Lambda^2).
+\end{equation}
+A prescribed set of $K_0$ squarefree fibres has energy $O(K_0^2L^3)$ and
+therefore closes when $K_0=O(L^{3/2}/\log L)$.
+\end{theorem}
+\begin{proof}
+Drop canonical restrictions by positivity and use $\kappa\leq2$.  For
+$1\leq c<p$, put
+\[
+ B_{p,c}^{(s)}=\sum_{\substack{z<q\leq X/p\\pq\equiv-1\ (4c)\\
+                  s\mid\rad((pq+1)/(4c))}}\frac1q.
+\]
+If $p\nmid s$, the map $c\mapsto-\overline{4c^2s}$ has fibres of size at
+most two, and therefore
+\[
+ p\sum_a(u^{\rm end,(s)}_{p,a})^2
+ \leq\frac8p\sum_{c<p}(B_{p,c}^{(s)})^2.
+\]
+The $q$'s lie in one progression of spacing $4c$.  Separating
+its first member and writing $\ell_p=1+\log^+(X/(pz))$ gives
+\[
+ (B_{p,c}^{(s)})^2\leq
+ \sum_{q}\frac1{q^2}
+ +O\left(\frac{\ell_p}{cz}+\frac{\ell_p^2}{c^2}\right).
+\]
+After multiplication by $1/p$ and summation, the first terms cost
+$O(L^3)$: with $M=pq$ and $A=(M+1)/4$, their sum is at most
+$\sum_{M\leq X}\tau(A)/M\ll L^3$ by Theorem~\ref{thm:cubic}.
+Mertens' estimates bound the errors by $O(L^2/z+L^2\log L)$, proving
+(42.4).  Cauchy over the prescribed fibres gives the last assertion.
+\end{proof}
+
+For every fixed $B>3$, the endpoint also satisfies
+\begin{equation}\tag{42.5}
+ \sum_{z<p\leq L^B}p\sum_a(u^{\rm end}_{p,a})^2
+ =O_B(\Lambda^2),
+\end{equation}
+and there are no endpoint incidences for $p>X/z$.  Indeed
+Theorem~\ref{thm:soft-neighbor} gives
+$t_p^{\rm end}\leq2A(b_p+u_p)$; uniformly for $p\leq L^B$,
+$pb_p=O(\Lambda)$ and $pu_p=L^{o(1)}=o(\Lambda)$.  Residue Cauchy and
+Mertens prove (42.5).  The super-polylogarithmic moving-$s$ range remains
+nonempty and has harmonic length $\Theta(\log L)$.
+
+\subsection{Kloosterman-fraction audit}
+For an endpoint incidence put $m=4c^2s$ and aggregate its cofactors by
+\begin{equation}\tag{45.1}
+ G_{m,p}=\sum_{q}\frac{\kappa(pq)}q,
+\end{equation}
+where the sum includes every condition in (40.19); set it to zero unless
+$m/4=c^2s$ with $s$ squarefree.  This decomposition is unique.  Additive
+Parseval and (42.3) give the exact matrix identity
+\begin{equation}\tag{45.2}
+ \mathcal V_X^{\rm end}
+ =\sum_{z<p\leq X/z}\sum_{h\bmod p}
+   \left|\frac1p\sum_{m\geq1}G_{m,p}e_p(-h\bar m)\right|^2.
+\end{equation}
+The support has $(m,pq)=1$, $z<q\leq X/p$, and
+$m\leq c(pq+1)<p(X+1)$.  The only valid reciprocity orientations are
+\begin{equation}\tag{45.3}
+ e_p(-h\bar m)=e_{pq}(-hq\,\bar m)
+ =e_m(h\bar p)e\left(-\frac h{mp}\right).
+\end{equation}
+In particular, $q$ is never the phase modulus.
+
+The DFI theorem, checked directly against the obtained 1997 article
+\cite{DFI}, allows arbitrary \emph{separate} sequences $\alpha_m,\beta_n$
+and gives
+\begin{equation}\tag{45.4}
+ \left|\sum_{m\sim M,n\sim N\atop(m,n)=1}
+ \alpha_m\beta_ne(a\bar m/n)\right|
+ \ll_\eps\|\alpha\|_2\|\beta\|_2
+ (|a|+MN)^{3/8}(M+N)^{11/48+\eps}
+\end{equation}
+for every nonzero integer $a$, with no range hypothesis.  Its balanced
+power-saving window is $N^{5/6+\eps}\ll M\ll N^{6/5-\eps}$.
+Bettin--Chandee \cite{BettinChandee} similarly allow three separate
+sequences and prove, for nonzero real $\vartheta$,
+\begin{equation}\tag{45.5}
+ \begin{split}
+ \left|\sum_{a\sim A,m\sim M,n\sim N\atop(m,n)=1}
+ \nu_a\alpha_m\beta_ne(\vartheta a\bar m/n)\right|
+ &\ll_\eps\|\nu\|_2\|\alpha\|_2\|\beta\|_2
+ \left(1+\frac{|\vartheta|A}{MN}\right)^{1/2}\\
+ &\quad\times\{(AMN)^{7/20+\eps}(M+N)^{1/4}
+ +(AMN)^{3/8+\eps}(AN+AM)^{1/8}\}.
+ \end{split}
+\end{equation}
+Neither statement allows the joint coefficient matrix $G_{m,p}$.  An exact
+singular-value decomposition introduces its nuclear norm.  Worse, (45.2)
+asks for the complete row-by-row $h$-norm: summing DFI over $h$ loses the
+full number of frequencies, while dualizing for Bettin--Chandee introduces
+an arbitrary $(h,p)$ matrix.  Their scalar savings do not pay these
+projective-norm losses.  A long interval for $q$ does not help because $q$
+stays inside $G_{m,p}$, and near $p=X/z$ that interval can be arbitrarily
+short.  Thus the actual DFI PDF and the Bettin--Chandee theorem do not prove
+(40.19); the missing input is an operator/large-sieve estimate for the joint
+matrix, not a stronger scalar bilinear form.
+
+\begin{theorem}[small-fibre moving-$s$ closure]\label{thm:small-fibre}
+Let $\mathcal E(W_0)$ contain all endpoint incidences with
+$m=4c^2s\leq W_0$.  If $4\leq W_0\leq z/2$, then
+\begin{equation}\tag{45.6}
+ \mathcal V(\mathcal E(W_0))
+ =\sum_{z<p\leq X/z}\frac1p\sum_{4\leq m\leq W_0}G_{m,p}^2
+ \ll W_0(L^3+L^2\log L).
+\end{equation}
+Consequently $W_0=\lfloor L^3/(\log L)^2\rfloor$ gives
+$\mathcal V(\mathcal E(W_0))\ll\Lambda^2$ over the entire endpoint prime
+range.  This is the widest proved subfamily of (40.19).
+\end{theorem}
+\begin{proof}
+Here $m,m'<p$ and $|m-m'|<p$, so distinct supported cells are distinct
+modulo $p$; inversion preserves distinctness.  Orthogonality of the full
+$h$-sum in (45.2) therefore leaves no cross-cell terms and proves the
+equality in (45.6).  For each unique decomposition $m=4c^2s$, the cells
+with common $s$ lie in the fixed-$s$ family of
+Theorem~\ref{thm:fixed-fibre}.  Its positive diagonal gives
+\[
+ \sum_p\frac1p\sum_m|G^{(s)}_{m,p}|^2
+ \ll L^3+L^2\log L.
+\]
+There are at most $W_0/4$ possible squarefree $s$, which proves the upper
+bound.  The specialization uses $W_0=o(z)$ and
+$W_0(L^3+L^2\log L)\ll L^6/(\log L)^2=\Lambda^2$.
+\end{proof}
+
+Estimate (40.19) remains \textsc{open} precisely on the complementary bulk
+$m=4c^2s>W_0$ in the range $L^B<p\leq X/z$.  Even a proof would pass only
+the pair test: prime-power and multi-coordinate codegrees through
+$m\asymp\Lambda$, the factorial-moment hierarchy, and the critical-window
+avoider assertion remain \textsc{open}.  No theorem about $\PFp$ or the
+literal $H_{\rm PF}'$ follows from the regular tail or the small-fibre
+closure.
 
 \section*{Acknowledgment of status}
-This is a consolidation draft, not a submission.  Computational observations from the research log are omitted unless needed to state a status fact.  The mathematical headline is the \textsc{claimed/provisional} $3/4$ exceptional-set bound, subject to external verification of its full chain and especially Theorem~\ref{thm:pruned}.  The natural-density refutation of the literal $\PF$ quantifiers is proved independently; the literal critical-window ledger clause and the short-cofactor dispersion endpoint remain open.
+This is a consolidation draft, not a submission.  The two mathematical
+headlines are the \textsc{claimed/provisional} $3/4$ exceptional-set bounds
+for $m=4$ and for every fixed $m\geq3$, subject to external verification of
+the full chains and especially Theorem~\ref{thm:pruned}.  The
+natural-density refutation of the literal $\PF$ quantifiers and the stated
+endpoint subfamilies are proved internally.  The literal critical-window
+ledger clause, the endpoint bulk, and the higher codegree hierarchy remain
+open.
 
 \begin{thebibliography}{99}
+
+\bibitem{BettinChandee}
+S. Bettin and V. Chandee,
+\emph{Trilinear forms with Kloosterman fractions},
+arXiv:1502.00769v1 (2015); published in
+Adv. Math. \textbf{328} (2018), 1234--1262,
+DOI: \href{https://doi.org/10.1016/j.aim.2018.01.026}
+{10.1016/j.aim.2018.01.026}.
 
 \bibitem{BloomElsholtz}
 T.~F. Bloom and C. Elsholtz,
 \emph{Egyptian fractions},
 Nieuw Arch. Wiskd. (5) \textbf{23} (2022), no.~4, 237--245.
+
+\bibitem{DFI}
+W. Duke, J.~B. Friedlander, and H. Iwaniec,
+\emph{Bilinear forms with Kloosterman fractions},
+Invent. Math. \textbf{128} (1997), no.~1, 23--43,
+DOI: \href{https://doi.org/10.1007/s002220050135}
+{10.1007/s002220050135}.
 
 \bibitem{ElsholtzPlanitzer}
 C. Elsholtz and S. Planitzer,
