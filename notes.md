@@ -18398,3 +18398,470 @@ the genus sign, the exact exponent-box implication, the Type-I equation and
 unit-fraction identity, the complete histogram (50.19), records (50.20), and
 the comparison with \(D(p)\).  The optional full scan uses the same streamed
 algorithm.
+
+
+## 51. The witness-modulus tail: truncated windows, the polylog corollary, and the effectivity audit
+
+**Status.**  This section puts the exceptional-set bound and a pointwise
+frontier on one statistic.  The fixed-polylogarithmic supply result below is
+unconditional in the usual sense (it assumes no hypothesis) and does not use
+Theorem 34.8.  Its assembly reuses Lemmas 39.1--39.5 and the Bonferroni
+argument of Theorem 39.6, which the campaign labels proved internally but
+provisional pending hostile external review.  It therefore retains that
+review qualification.  The cubic result additionally inherits the explicitly
+**CLAIMED/PROVISIONAL** Theorem 34.8.  Nothing here upgrades Theorems 34.8 or
+39.7.
+
+### 51.1 One statistic and a parameterized truncation
+
+For a prime (or any positive integer) \(p\), define
+
+\[
+ W(p)=W_{\rm II}(p)=\min k\ell,                              \tag{51.1}
+\]
+
+where the minimum is over positive \(k,\ell,u,v,w\) such that
+
+\[
+ k\ell\equiv3\pmod4,\qquad {k\ell+1\over4}=uvw,
+ \qquad p\equiv-u v^{-1}\pmod {k\ell}.                    \tag{51.2}
+\]
+
+Put \(W(p)=+\infty\) if this set is empty.  No finiteness assertion is made
+in general.  Lemma 16.1 says exactly that \(W(p)\leq T\) supplies an explicit
+Erdos--Straus representation through a multiplier modulus at most \(T\).
+Notice that \(\ell\) is not required to be prime in this definition.  The
+proof below uses only the subfamily in which it is prime.
+
+The reusable form of the critical-window calculation is as follows.  Write
+\(t=\log X\), let \(K\geq K_0\), and suppose that the canonical dyadic boxes
+of (39.2)--(39.3) furnish, uniformly in every subfamily
+\(\mathcal J\subseteq\{k\leq K:k\equiv1\pmod4\}\) containing 1 and every
+reduced compatible fibre \(c\),
+
+\[
+ \sum_{X^{1/2}<\ell\leq X}{f_{c;\mathcal J}(\ell)\over\ell}
+       \asymp t^2h(\mathcal J),
+ \qquad h(\mathcal J)=\sum_{k\in\mathcal J}{\varphi(k)\over k^2}. \tag{51.3}
+\]
+
+Put
+
+\[
+ \mu=t^2\log K.                                             \tag{51.4}
+\]
+
+**Lemma 51.1 (truncated c-free assembly; proved internally, with the
+provisional review status of Section 39).**  Assume (51.3), \(KX\leq T\),
+\(\log K\ll t\), and
+
+\[
+             \log N\geq C\mu t.                            \tag{51.5}
+\]
+
+Then, with effective constants whenever the supply constants in (51.3) are
+effective,
+
+\[
+ \#\{p\leq N:p\hbox{ prime},\ W(p)>T\}
+       \ll N\exp\{-c\mu\}.                                 \tag{51.6}
+\]
+
+*Proof.*  Use the fixed c-free atoms (39.2)--(39.4), now with the displayed
+\(X,K\).  Every atom has modulus \(k\ell\leq KX\leq T\), so a prime counted
+on the left of (51.6) avoids every atom.  Lemma 39.1 is unchanged: its
+same-prime determinant uses \(u,v\leq X^{1/6}\), and its cross-multiplier
+step uses \(4uv>4H^2>K\).  Neither argument requires \(K=X^\kappa\).
+
+The upper profile proof in Lemma 39.2 gives, without replacing \(\log K\) by
+\(t\),
+
+\[
+ W_{k,a}(g)\ll {t^2\over\varphi(g)}{
+                    \varphi(k)^2\over k^3}.                \tag{51.7}
+\]
+
+Equations (39.14)--(39.17) are exact CRT and Euler-factor calculations.
+Consequently the induction in Theorem 39.4 gives the parameterized bound
+
+\[
+       {\mathbb E}(H_X)_m\leq(C\mu)^m                       \tag{51.8}
+\]
+
+for every \(m\geq1\).  There is no hidden lower bound on \(m\) or \(t\)
+other than the fixed sufficiently-large threshold needed by the supply
+estimate.  In particular this holds at every order used below.
+
+Take \(y=B\mu\).  The proof of Lemma 39.5 also remains parameterized.  Its
+Chernoff calculation gives
+
+\[
+ \Pr\{Z(c)>\eta\}\leq\exp\{-\eta B\mu+O(1)\},             \tag{51.9}
+\]
+
+and (39.26) gives
+\(h(\mathcal J_c)\gg\log K\) on the complementary fibres.  Applying
+(51.3) to this data-dependent \(\mathcal J_c\) gives
+
+\[
+ \Pr(H_X=0\mid S_y=1)\leq e^{-c\mu}.                       \tag{51.10}
+\]
+
+The canonical-box detail is important.  For the fixed-polylogarithmic case,
+the lower proof of Lemma 16.3 partitions into dyadic \(\ell\)-blocks and
+uses \(z=x^{1/6}\), exactly the boxes in (39.2).  Its low-\(\omega\) triples
+are therefore contained in the c-free family.  For the cubic case this is
+the explicit canonical-box sentence after (39.3) and the proof of Theorem
+34.8.  Thus (51.10) does not enlarge a supply theorem beyond the boxes in
+which it was proved.
+
+Let \(r\) be the least even integer at least \(D_B\mu\), and use
+\(S_yQ_r(H_X)\) as in (39.29).  Equations (51.8)--(51.10) and the same
+factorial-tail argument give CRT mean \(O(e^{-c\mu})\).  The exact ledger is
+
+\[
+ \begin{split}
+ \deg&=O(\mu),\\
+ \log d_{\rm term}&=O(y)+O(r(t+\log K))=O(\mu t),\\
+ \log\sum|c_{\rm term}|&=O(rt)=O(\mu t).                  \tag{51.11}
+ \end{split}
+\]
+
+Here \(y<X^{1/2}\) for large \(X\), and the crude atom count still has
+logarithm \(O(t)\).  Under (51.5), counting each resulting plain congruence
+class on \([1,N]\) as its CRT mean times \(N\), plus \(O(1)\), absorbs the
+whole rounding ledger.  The finitely many primes at most \(\max(K,y)\) are
+also absorbed.  This proves (51.6). \(\square\)
+
+**Theorem 51.2 (master witness-modulus tail; proved internally with the exact
+status below).**  There are effectively computable positive constants such
+that the following two statements hold.
+
+1. **Fixed-polylogarithmic supply, no Theorem 34.8.**  Uniformly when
+   \[
+    3\leq T,\qquad
+    \log N\geq C\{1+(\log T)^3\log(2+\log T)\},             \tag{51.12}
+   \]
+   one has
+   \[
+    \#\{p\leq N:W(p)>T\}
+      \ll N\exp\{-c(\log T)^2\log(2+\log T)\}.             \tag{51.13}
+   \]
+   This is unconditional and does not inherit Theorem 34.8.  It does inherit
+   the campaign's provisional-review qualification on the Section 39 moment
+   and Bonferroni machinery.
+2. **Cubic supply.**  Fix \(0<\kappa<1/240\).  Uniformly when
+   \[
+     3\leq T,\qquad \log N\geq C_\kappa\{1+(\log T)^4\},    \tag{51.14}
+   \]
+   one has
+   \[
+    \#\{p\leq N:W(p)>T\}
+       \ll_\kappa N\exp\{-c_\kappa(\log T)^3\}.            \tag{51.15}
+   \]
+   This statement inherits Theorem 34.8 and is
+   **CLAIMED/PROVISIONAL**.
+
+In particular both estimates are uniform throughout the simpler common
+range
+
+\[
+             3\leq T\leq\exp\{c(\log N)^{1/4}\}.           \tag{51.16}
+\]
+
+*Proof.*  For (1), set \(X=T^{1/2}\) and
+\(K=\lfloor(\log X)^5\rfloor\), with harmless fixed adjustments below the
+asymptotic threshold.  Then \(KX\leq T\) for large \(T\),
+\(\log K\asymp\log t\), and Lemma 16.3 supplies (51.3).  Its lower proof is
+in the canonical boxes, as checked in Lemma 51.1.  Thus
+\(\mu\asymp t^2\log t\), and (51.5) is precisely the scale in (51.12).
+For bounded \(T\), enlarge the implied constant.
+
+For (2), use the same \(X=T^{1/2}\) and put
+\(K=\lfloor X^\kappa\rfloor\).  Then \(KX\leq T\), after another harmless
+bounded adjustment, and Theorem 34.8 supplies (51.3) in the required boxes.
+Now \(\mu\asymp t^3\), while (51.5) is (51.14).  Lemma 51.1 proves both
+claims. \(\square\)
+
+At \(T=\exp\{\alpha(\log N)^{1/4}\}\), (51.15) is
+\(N\exp\{-c(\log N)^{3/4}\}\).  This is exactly the prime part of Theorem
+39.7, up to constants; it is a consistency check, not a new record.
+
+### 51.2 The polylogarithmic frontier
+
+**Corollary 51.3 (polylogarithmic tails; same status as Theorem 51.2).**  For
+each fixed \(A>0\),
+
+\[
+ \#\{p\leq N:W(p)>(\log N)^A\}
+ \ll_A N\exp\{-c_A(\log\log N)^2\log\log\log N\},         \tag{51.17}
+\]
+
+unconditionally and without Theorem 34.8.  The cubic supply gives the
+additional **CLAIMED/PROVISIONAL** estimate
+
+\[
+ \#\{p\leq N:W(p)>(\log N)^A\}
+ \ll_A N\exp\{-c A^3(\log\log N)^3\}.                     \tag{51.18}
+\]
+
+The formulas are interpreted after a fixed large threshold.  The constants
+in (51.17) may absorb the fixed powers of \(A\).  The same bounds hold with
+the varying cutoff \((\log p)^A\): split at \(N^{1/2}\), apply the displayed
+bound on the upper half with comparable logarithms, and absorb the lower
+half.
+
+Define the pointwise hypothesis
+
+\[
+ H_{\rm MOD}(A):\quad W(p)\leq(\log p)^A
+       \quad\hbox{for every sufficiently large prime }p.   \tag{51.19}
+\]
+
+By Lemma 16.1, \(H_{\rm MOD}(A)\) for any \(A\) implies the Erdos--Straus
+conjecture for every sufficiently large prime.  Corollary 51.3 says that its
+failure set is at most triple-logarithmically sparse in the cubic version.
+This does not prove that the failure set is empty.
+
+The relation with Section 50 is exact but not an implication.  The bespoke
+\(H_{\rm SPF}(A)\) is a Type-I slice-frame assertion: a prime factor of
+\(p^2+4ck^2\) must occur in one specified grade with \(ck\) polylogarithmic.
+The new \(H_{\rm MOD}(A)\) is the Type-II multiplier assertion (51.1).
+Neither hypothesis implies the other as stated; both imply a pointwise
+Erdos--Straus representation.  The unification is instead that Theorem 39.7
+is the tail of the same \(W\) whose pointwise polylogarithmic boundedness
+would settle all sufficiently large primes.  In that precise sense the
+record and the multiplier frontier are one object, and (51.18) confines the
+unresolved pointwise conspiracy to an
+\(\exp\{-c(\log\log N)^3\}\) proportion, provisionally.  For the conjecture
+itself, any finite bound on \(W(p)\), even an exponential one varying with
+\(p\), is enough; the polylogarithmic form is what this truncated sieve
+naturally measures.
+
+### 51.3 Effectivity and the exceptional character
+
+There is a correction to the tempting description of the first variant as
+an "elementary supply" argument.  Lemma 16.2 is a box calculation plus
+Shiu's Brun--Titchmarsh theorem for multiplicative functions, but the lower
+bound in Lemma 16.3 explicitly invokes Bombieri--Vinogradov in (16.9)--(16.10).
+It invokes neither Siegel--Walfisz separately nor prime equidistribution on
+the \(N\)-side.  Brun--Titchmarsh is used for its upper bound.  Thus the
+fixed-polylogarithmic variant is independent of Theorem 34.8, not independent
+of Bombieri--Vinogradov.
+
+Polynomially large moduli do not by themselves remove the possible Siegel
+zero from Bombieri--Vinogradov.  A character modulo a large composite \(q\)
+may be induced by a primitive character of small conductor \(r\mid q\).
+The standard reduction to primitive characters therefore reintroduces small
+conductors even when \(q\geq X^{20\kappa}\).  The following is the effective
+form actually needed.
+
+**Lemma 51.4 (effective Bombieri--Vinogradov away from one conductor;
+standard cited input, with dependency proof sketch).**  For every \(A>0\), there are effectively
+computable \(B,C,x_0\) such that, for \(x\geq x_0\) and
+\(Q\leq x^{1/2}/(\log x)^B\), there is either no exceptional conductor or
+one real primitive conductor \(r_x\geq3\) for which
+
+\[
+ \sum_{\substack{q\leq Q\\r_x\nmid q}}
+  \max_{(a,q)=1}\left|\psi(x;q,a)-{x\over\varphi(q)}\right|
+       \leq {Cx\over(\log x)^A}.                            \tag{51.20}
+\]
+
+The same statement holds for dyadic \(\pi\)-differences by effective partial
+summation.
+
+*Proof sketch with dependency ledger.*  Apply Vaughan's identity, reduce
+characters modulo \(q\) to their primitive conductors, and split those
+conductors at \((\log x)^{B_0}\).  The large-conductor Type I/II sums use
+only the large-sieve inequality and algebraic Vaughan identity, with explicit
+constants.  Landau--Page gives, effectively, at most one primitive real
+character in the small-conductor range with a zero in the exceptional strip.
+All other small conductors have an effective zero-free region and the
+explicit formula gives more than the required logarithmic saving.  The
+principal character uses the classical effective prime number theorem.
+Deleting moduli divisible by the one exceptional conductor removes exactly
+the imprimitive characters induced by it.  Summing the effective pieces is
+the standard Bombieri--Vinogradov proof (for example the Vaughan-identity and
+large-sieve treatment in Chapters 24 and 28 of Davenport's *Multiplicative
+Number Theory*).  This
+also explains why merely restricting \(q\) to a polynomially large interval
+does not prove (51.20) without its divisibility exclusion. \(\square\)
+
+For completeness, the supply survives that exclusion.
+
+**Lemma 51.5 (exceptional-conductor deletion tolerance; proved).**  In the
+boxes of Lemma 16.2, let \(r>1\) be a primitive real character conductor.
+Apart from the explicitly harmless conductor 4, there is a prime \(p\mid r\)
+(or \(p=2\) when the required extra factor is the third power of 2) such that
+
+\[
+                p\nmid uv\quad\Longrightarrow\quad r\nmid4uv. \tag{51.21}
+\]
+
+Uniformly in \(c,k\), the pairs satisfying (51.21) retain a fixed positive
+proportion of the harmonic box mass.  The low-\(\omega\) cutoff may be chosen
+so that it and (51.21) retain a fixed positive proportion simultaneously.
+The same remains true after the low-congestion pruning of Theorem 34.8.
+
+*Proof.*  A primitive real conductor is the absolute value of a fundamental
+discriminant.  If it has an odd prime factor, choose that factor.  For a pure
+2-power conductor other than 4, it is 8 and one takes \(p=2\), requiring
+\(uv\) odd.  Conductor 4 is fixed and its Dirichlet beta function can be
+handled effectively directly; it cannot be the unresolved Landau--Page
+conductor once the fixed finite conductors have been checked.  This proves
+(51.21).
+
+Fix \(k\).  If \(p\mid k\), the existing condition \((uv,k)=1\) already
+imposes \(p\nmid uv\).  Suppose \(p\nmid k\).  When \(p\leq Ck\), repeat the
+box count (16.4) with the additional reduced conditions modulo \(p\).  The
+local proportion, after the condition \((u,v)=1\), is
+
+\[
+ { (1-1/p)^2\over1-1/p^2}={p-1\over p+1}\geq {1\over3}.    \tag{51.22}
+\]
+
+The combined modulus is at most \(Ck^2\), and the floor \(H=K^{10}\)
+absorbs the resulting boundary errors uniformly.
+
+When \(p>Ck\), count the discarded pairs with \(p\mid u\) or \(p\mid v\)
+directly in each box.  Writing, for example, \(u=pa\), the congruence fixes
+one class of \(a\pmod k\).  After division by the box weights its main term
+is \(O(1/(pk))\), against
+\(\asymp\varphi(k)/k^2\) for (16.4).  Its ratio is at most
+\(O(k/(p\varphi(k)))\leq O(1/C)\); the endpoint errors sum to
+\(O((\log z)^2/H)\) and are absorbed as before.  Choose \(C\) large.  The
+two cases give a uniform positive retained proportion for every \(k\), hence
+for every subfamily \(\mathcal J\).
+
+In (16.5h), increasing the fixed integer \(D\) makes the low-\(\omega\)
+tail any prescribed fixed fraction of the uncut mass, rather than merely the
+one-half printed there.  Inclusion with (51.22) therefore retains positive
+mass.  Lemma 34.7 says that high-incidence triples have \(o(1)\) of the
+original mass, so deleting them as well still leaves the same order. \(\square\)
+
+**Theorem 51.6 (effectivity of the repaired chains; proved internally,
+record-adjacent and therefore CLAIMED/PROVISIONAL).**  The constants in the
+class-mass conclusions (16.8), (34.18)--(34.19), Theorems 16.4 and 39.7, and
+Theorem 51.2 may all be taken effectively computable.  The record statement
+retains every correctness and priority qualification already attached to
+Theorem 39.7.
+
+*Proof.*  In each dyadic prime block apply Lemma 51.4, and if its exceptional
+\(r_x\) exists, use only the triples with \(r_x\nmid4uv\).  Lemma 51.5 says
+that these triples retain the full order of the box mass, uniformly in every
+subfamily and fibre.  The retained triples are a subset of the original
+class family, so they prove the original lower class-mass conclusion.  This
+repairs the only potentially ineffective prime-progression input.  All later
+constants are obtained by finite choices in the effective inequalities.
+\(\square\)
+
+There is one deliberately narrow caveat.  The first sentence of Theorem
+34.8 also asserts an \(o(1)\) bound for the sum of absolute progression errors
+over **all** low-congestion triples.  Exceptional-conductor deletion proves
+its class-mass consequence (34.18) effectively, but does not make that
+ancillary all-triples error sum effective as printed.  Theorem 39.7 uses the
+class-mass consequence, not the ancillary assertion.  Thus Theorem 51.6 is
+an effectivity theorem for the full exceptional-set chain, not an upgrade of
+every clause in Theorem 34.8.
+
+Here is the promised ingredient-by-ingredient audit.
+
+\[
+\begin{array}{c|l}
+\text{ingredient}&\text{effectivity}\ \hline
+16.2&\text{effective box/Mobius count; effective Shiu and Mertens bounds}\\
+16.3&\text{lower bound uses BV, not elementary; effective by 51.4--51.5}\\
+16.4&\text{Gallagher/PW larger sieve and Rankin truncation are elementary and effective}\\
+34.7&\text{effective incidence expansion and box errors}\\
+34.8&\text{Shiu and pruning effective; supply effective after 51.5; caveat above}\\
+39.1&\text{finite determinant and exact CRT}\\
+39.2&\text{upper profile uses effective Shiu and Brun--Titchmarsh; lower supply repairable}\\
+39.3--39.4&\text{Euler factors and exact CRT moment induction}\\
+39.5&\text{effective Chernoff plus the repaired uniform class supply}\\
+39.6&\text{finite Bonferroni algebra and exact integer class counting}\\
+39.7&\text{effective parameter choice, conditional only on the correctness of its provisional chain}\\
+16.5&\text{effective partial summation and Rankin semigroup transfer.}
+\end{array}                                                  \tag{51.23}
+\]
+
+Accordingly, the old belief that the current Section 16 route is necessarily
+Siegel--Walfisz-ineffective is too coarse.  Earlier Sections 12--14 invoke
+Siegel--Walfisz directly and are ineffective as printed.  The Section 16
+supply invokes ordinary Bombieri--Vinogradov, whose textbook proof can carry
+the same issue through induced small-conductor characters, but Lemmas
+51.4--51.5 remove it.  Its \(N\)-side larger sieve is Gallagher's elementary
+larger sieve; PW Section 4 confirms that no prime equidistribution is used
+there after the class supply has been established.
+
+### 51.4 PW truncation and frontier placement
+
+Pomerance--Weingartner (PW) Section 4 defines \(f(\ell)\) k=1-type forced
+classes, proves
+
+\[
+             \sum_{\ell\leq X}{f(\ell)\over\ell}
+                    \asymp(\log X)^2                       \tag{51.24}
+\]
+
+for fixed numerator, and then applies the larger sieve.  Its lower proof of
+(51.24), like Lemma 16.3, explicitly uses Bombieri--Vinogradov after bounding
+the multiplicity of a product by a fixed log power; its upper proof uses
+Brun--Titchmarsh.  Truncating their displayed argument at \(X=T\) gives
+
+\[
+ \#\{p\leq N:W_{\rm PW}(p)>T\}
+       \ll N\exp\{-c(\log T)^2\},
+ \qquad \log N\geq C(\log T)^3,                            \tag{51.25}
+\]
+
+where \(W_{\rm PW}\) measures their k=1 prime-modulus subfamily.  Since
+those are Lemma-16.1 witnesses, (51.25) is also a valid weaker tail bound for
+\(W\).  The effectivity repair above applies to their BV supply in the same
+way.  Thus PW already contains the square-log truncated tail.  Section 51
+adds the multiplier factor \(\log\log T\) using the fixed-polylogarithmic
+family and the full extra \(\log T\) using the provisional cubic family; it
+also makes the induced-character effectivity issue explicit.
+
+\[
+\begin{array}{c|c|c}
+\text{supply}&\text{tail exponent}&\text{status}\ \hline
+\text{PW k=1}&(\log T)^2&\text{proved in PW, truncation of their argument}\\
+\text{Lemma 16.3 multipliers}&(\log T)^2\log\log T&
+ \text{unconditional; Section 39 review qualification}\\
+\text{Theorem 34.8 multipliers}&(\log T)^3&
+ \text{CLAIMED/PROVISIONAL.}
+\end{array}                                                  \tag{51.26}
+\]
+
+Vaughan's 1970 paper remains inaccessible in this campaign; the comparison
+is with PW's modern reconstruction, not a direct audit of Vaughan.
+
+In the frontier map, (39.35) is the tail at the largest admissible \(T\),
+while \(H_{\rm MOD}\) and \(H_{\rm SPF}\) ask for pointwise polylogarithmic
+witnesses in the Type-II and Type-I frames respectively.  Section 51 supplies
+the interpolation and an almost-all pointwise statement.  It does not remove
+a single pointwise obstruction, prove either hypothesis, or cross any wall
+in Section 17.
+
+### 51.5 Finite companion
+
+**Computational 51.7 (exact stated range, informational).**  `verify.py (ax)`
+directly harvests every Lemma-16.1 class for every
+\(M\leq3000\), \(M\equiv3\pmod4\), and computes \(W(p)\) in that truncated
+family for all 3,202 primes \(p<300000\), \(p\equiv1\pmod {24}\).  The
+numbers with \(W(p)>T\) at \(T=25,100,400,1600\) are respectively
+
+\[
+                         226,\quad19,\quad0,\quad0.          \tag{51.27}
+\]
+
+The maximum is 279.  Continuity-corrected fits to both exponents in Theorem
+51.2 have positive fitted decay constants; this is only a finite sanity
+check and supports no asymptotic claim.  The block also checks exact
+inclusion--exclusion against direct counting over a period 39,215 for a
+six-atom toy, verifies the compatible-atom distinct-prime rule there, and
+checks three toy instances of the conductor deletion for
+\(r=3,5,7\).  The toy floor is relaxed because \(H=K^{10}\) makes literal
+small instances empty.  No computational line is used as proof of an
+asymptotic statement.

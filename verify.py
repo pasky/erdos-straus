@@ -8958,6 +8958,167 @@ def check_aw():
 
 print("\n== (aw) conditional slice prime-factor reduction (§50) ==")
 check_aw()
+# ---------------------------------------------------------------- (ax)
+def check_ax():
+    """§51: witness-modulus tails and truncated CRT bookkeeping."""
+
+    def ordinary_divisors(n):
+        values = [1]
+        for q, e in factorint(n).items():
+            values = [d * q**j for d in values for j in range(e + 1)]
+        return values
+
+    # Direct Lemma-16.1 harvest.  Taking k=1, ell=M shows that every
+    # M=3 (mod 4) is a valid multiplier modulus; no primality is imposed.
+    modulus_classes = {}
+    for M in range(3, 3001, 4):
+        A = (M + 1) // 4
+        classes = set()
+        for u in ordinary_divisors(A):
+            for v in ordinary_divisors(A // u):
+                w = A // (u * v)
+                assert u * v * w == A and gcd(v, M) == 1
+                classes.add((-u * pow(v, -1, M)) % M)
+        # Independently replay Lemma 18.1's intrinsic divisor description.
+        intrinsic = {(-4 * D) % M for D in divisors_of_square(A)}
+        assert classes == intrinsic
+        modulus_classes[M] = classes
+
+    hard_primes = tuple(p for p in primerange(2, 300_000) if p % 24 == 1)
+    assert len(hard_primes) == 3202
+    witness_modulus = {p: None for p in hard_primes}
+    for M, classes in modulus_classes.items():
+        for p in hard_primes:
+            if witness_modulus[p] is None and p % M in classes:
+                witness_modulus[p] = M
+    assert all(M is not None and M <= 3000 for M in witness_modulus.values())
+    assert max(witness_modulus.values()) == 279
+
+    thresholds = (25, 100, 400, 1600)
+    tails = tuple(sum(M > T for M in witness_modulus.values())
+                  for T in thresholds)
+    assert tails == (226, 19, 0, 0)
+    assert all(a >= b for a, b in zip(tails, tails[1:]))
+
+    # Informational continuity-corrected log-linear fits.  Positivity of the
+    # fitted decay constants is only a weak finite sanity check.
+    def fitted_shape(feature):
+        xs = [feature(log(T)) for T in thresholds]
+        ys = [log((count + 0.5) / len(hard_primes)) for count in tails]
+        xbar = sum(xs) / len(xs)
+        ybar = sum(ys) / len(ys)
+        slope = (sum((x - xbar) * (y - ybar) for x, y in zip(xs, ys))
+                 / sum((x - xbar) ** 2 for x in xs))
+        intercept = ybar - slope * xbar
+        assert slope < 0
+        predictions = tuple(exp(intercept + slope * x) for x in xs)
+        assert all(a > b for a, b in zip(predictions, predictions[1:]))
+        return (intercept, -slope)
+
+    fit_elementary = fitted_shape(lambda t: t * t * log(t))
+    fit_cubic = fitted_shape(lambda t: t**3)
+
+    # A structural toy with the same determinant and 4uv>K size guards.
+    # Its genuine asymptotic floor H=K^10 would make every small instance
+    # empty, so H is omitted exactly as in the earlier §39 toy companion.
+    def toy_atoms(X, K, modulus_cap=200):
+        atoms = []
+        for ell in primerange(3, X + 1):
+            if ell % 4 != 3:
+                continue
+            z = int(ell ** (1 / 3) + 1e-12)
+            for k in range(1, K + 1, 4):
+                M = k * ell
+                if M > modulus_cap:
+                    continue
+                A = (M + 1) // 4
+                for u in ordinary_divisors(A):
+                    if u > z:
+                        continue
+                    for v in ordinary_divisors(A // u):
+                        if (v > z or gcd(u, v) != 1 or gcd(u * v, k) != 1
+                                or 4 * u * v <= K):
+                            continue
+                        residue = (-u * pow(v, -1, M)) % M
+                        atoms.append((k, ell, u, v, M, residue))
+        assert len(atoms) == len({(a[4], a[5]) for a in atoms})
+        return tuple(atoms)
+
+    atoms = toy_atoms(40, 5)
+    assert len(atoms) == 10
+
+    def merge_classes(left, right):
+        a, m = left
+        b, n = right
+        g = gcd(m, n)
+        if (b - a) % g:
+            return None
+        n1 = n // g
+        step = ((b - a) // g * pow(m // g, -1, n1)) % n1
+        modulus = m * n1
+        return ((a + m * step) % modulus, modulus)
+
+    # Every same-ell pair is incompatible, while compatible distinct atoms
+    # have distinct ell, replaying the content used in (39.5).
+    for A, B in combinations(atoms, 2):
+        merged = merge_classes((A[5], A[4]), (B[5], B[4]))
+        if A[1] == B[1]:
+            assert merged is None
+        elif merged is not None:
+            assert A[1] != B[1]
+
+    selected = tuple(A for A in atoms
+                     if A[1] in (11, 23, 31) and A[4] in (55, 23, 31))
+    assert len(selected) == 6
+    inclusion_exclusion = Fraction()
+    for j in range(len(selected) + 1):
+        for subset in combinations(selected, j):
+            merged = (0, 1)
+            for A in subset:
+                merged = merge_classes(merged, (A[5], A[4]))
+                if merged is None:
+                    break
+            if merged is not None:
+                inclusion_exclusion += Fraction((-1) ** j, merged[1])
+
+    period = 1
+    for A in selected:
+        period = lcm(period, A[4])
+    direct_void = sum(not any(n % A[4] == A[5] for A in selected)
+                      for n in range(period))
+    assert (period, direct_void) == (39_215, 32_277)
+    assert inclusion_exclusion == Fraction(direct_void, period)
+
+    # Finite checks of the exceptional-conductor deletion used in §51.3.
+    # These are class counts, not evidence for the asymptotic 1/3 lemma.
+    deletion_rows = []
+    for X, K, expected in ((40, 5, (10, 8, 10, 10)),
+                           (200, 13, (90, 54, 64, 90)),
+                           (300, 13, (144, 82, 98, 144))):
+        family = set()
+        for A in toy_atoms(X, K, modulus_cap=3000):
+            _, _, u, v, M, residue = A
+            family.add((M, residue, 4 * u * v))
+        retained = tuple(sum(q % r != 0 for _, _, q in family)
+                         for r in (3, 5, 7))
+        row = (len(family),) + retained
+        assert row == expected
+        assert all(10 * count >= 3 * len(family) for count in retained)
+        deletion_rows.append(((X, K), row))
+
+    print("W_II<=3000 hard-prime tails (T:count) =",
+          dict(zip(thresholds, tails)))
+    print("continuity-corrected fits (log C,c): elementary/cubic =",
+          (tuple(round(x, 6) for x in fit_elementary),
+           tuple(round(x, 6) for x in fit_cubic)))
+    print("toy CRT void (atoms,period,count,probability) =",
+          (len(selected), period, direct_void, inclusion_exclusion))
+    print("exceptional-conductor deletion toys ((X,K):(all,r=3,5,7)) =",
+          deletion_rows)
+
+
+print("\n== (ax) witness-modulus tail and effectivity audit (§51) ==")
+check_ax()
 
 
 print("\nall checks passed")
