@@ -7302,7 +7302,6 @@ def check_ao():
 print("\n== (ao) short-cofactor endpoint companions (§42) ==")
 check_ao()
 
-
 # ---------------------------------------------------------------- (ap)
 def check_ap():
     """Exact finite companions for the general-numerator transfer in §43."""
@@ -7485,6 +7484,134 @@ def check_ap():
 
 print("\n== (ap) general-numerator multiplier transfer (§43) ==")
 check_ap()
+
+
+# ---------------------------------------------------------------- (aq)
+def check_aq():
+    """§44: exact slice-vanishing grades and small-box conspiracies."""
+    from collections import defaultdict
+    from sympy import kronecker_symbol
+
+    hard = tuple(p for p in primerange(2, 30_000) if p % 24 == 1)
+    slices = tuple((c, k) for k in range(1, 31)
+                   for c in range(1, 30 // k + 1))
+    assert len(hard) == 385 and len(slices) == 111
+
+    def squarefree_core(n):
+        return prod(q for q, e in factorint(n).items() if e % 2)
+
+    def grade_data(P, C, K):
+        """Factor-box coefficient and an independent literal divisor list."""
+        h = 4 * C * K
+        norm = P * P + 4 * C * K * K
+        factors = factorint(norm)
+        coefficients = {1: 1}
+        literal_divisors = [1]
+        for q, e in factors.items():
+            updated = defaultdict(int)
+            power = 1
+            for _ in range(e + 1):
+                for residue, multiplicity in coefficients.items():
+                    updated[residue * power % h] += multiplicity
+                power = power * q % h
+            coefficients = dict(updated)
+            literal_divisors = [d * q**j for d in literal_divisors
+                                for j in range(e + 1)]
+        target = (-P) % h
+        target_divisors = tuple(sorted(d for d in literal_divisors
+                                       if d % h == target))
+        # The group-ring coefficient in (44.3) is exactly the literal grade.
+        assert coefficients.get(target, 0) == len(target_divisors)
+        assert len(literal_divisors) == prod(e + 1 for e in factors.values())
+
+        # Every surviving grade gives the exact Type-I row, and complementing
+        # a divisor preserves the grade because norm == P^2 (mod h).
+        for D in target_divisors:
+            E = norm // D
+            assert E % h == target
+            A, B = (D + P) // h, (E + P) // h
+            assert min(A, B) > 0
+            assert P * (A + B) == K * (4 * A * B * C - 1)
+        assert len(target_divisors) % 2 == 0
+        return factors, target_divisors
+
+    patterns = {}
+    forced_wrong_grade = 0
+    for P in hard:
+        vanished = set()
+        for C, K in slices:
+            factors, target_divisors = grade_data(P, C, K)
+            if not target_divisors:
+                vanished.add((C, K))
+
+            # Theorem 44.2: the four negative-norm genus characters exclude
+            # the target whenever sf(C) is 1, 2, 3, or 6.
+            core = squarefree_core(C)
+            if core in (1, 2, 3, 6):
+                assert not target_divisors
+                for q in factors:
+                    assert gcd(q, 4 * core) == 1
+                    assert kronecker_symbol(-core, q) == 1
+        patterns[P] = frozenset(vanished)
+
+    forced_wrong_grade = sum(squarefree_core(C) in (1, 2, 3, 6)
+                             for C, K in slices)
+    assert forced_wrong_grade == 80
+
+    depth_histogram = Counter(len(vanished) for vanished in patterns.values())
+    expected_histogram = {
+        99: 2, 100: 3, 101: 10, 102: 4, 103: 18, 104: 43, 105: 40,
+        106: 43, 107: 55, 108: 55, 109: 64, 110: 33, 111: 15,
+    }
+    assert dict(sorted(depth_histogram.items())) == expected_histogram
+    maximizers = tuple(P for P in hard if len(patterns[P]) == len(slices))
+    assert maximizers == (
+        2521, 9601, 12289, 13729, 15289, 18481, 19009, 20089,
+        21121, 21169, 21841, 27361, 27481, 28921, 29569,
+    )
+    assert tuple(P for P in hard if len(patterns[P]) == 99) == (5953, 11353)
+
+    cutoff_table = []
+    for cutoff in (4, 5, 10, 15, 20, 25, 30):
+        box = tuple((C, K) for C, K in slices if C * K <= cutoff)
+        all_zero = sum(all(s in patterns[P] for s in box) for P in hard)
+        cutoff_table.append((cutoff, len(box), all_zero))
+    assert tuple(cutoff_table) == (
+        (4, 8, 385), (5, 10, 220), (10, 27, 161), (15, 45, 63),
+        (20, 66, 41), (25, 87, 30), (30, 111, 15),
+    )
+
+    # Corollary 44.3: D=3 forces the (5,1) slice on p == 97 (mod 120).
+    progression = tuple(P for P in hard if P % 120 == 97)
+    assert len(progression) == 95
+    for P in progression:
+        assert (P * P + 20) % 3 == 0 and (P + 3) % 20 == 0
+        assert (5, 1) not in patterns[P]
+
+    # Lemma 44.4: joint vanishing is not determined by the natural product
+    # of the two ray moduli.  The exact factorizations expose the moving D.
+    assert 193 % 840 == 1033 % 840
+    assert (5, 1) in patterns[193] and (7, 1) in patterns[193]
+    assert (5, 1) not in patterns[1033] and (7, 1) in patterns[1033]
+    assert factorint(193**2 + 20) == {3: 2, 41: 1, 101: 1}
+    assert factorint(193**2 + 28) == {37277: 1}
+    assert factorint(1033**2 + 20) == {3: 1, 67: 1, 5309: 1}
+    assert 67 % 20 == (-1033) % 20
+
+    # The unique k=1 zero below 10^4 from §36 is a complete ck<=30
+    # conspiracy, not merely an isolated k=1 failure.
+    assert len(patterns[2521]) == 111
+
+    print("hard primes/slices/wrong-grade-forced slices =",
+          (len(hard), len(slices), forced_wrong_grade))
+    print("all-zero (ck cutoff, slice count, hard-prime count) =", cutoff_table)
+    print("vanishing-depth histogram =", dict(sorted(depth_histogram.items())))
+    print("depth-111 primes =", maximizers,
+          "; 2521 vanishes on all 111 slices")
+
+
+print("\n== (aq) slice-conspiracy characterizations (§44) ==")
+check_aq()
 
 
 print("\nall checks passed")
