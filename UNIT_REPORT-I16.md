@@ -1,0 +1,11 @@
+# UNIT I16 report
+- Produced paper v3 with the general-`m` result as the second CLAIMED/PROVISIONAL headline.
+- Added the full §43 identity, thinning, two proof layers, uniformity ranges, repaired semigroup cutoff, and honest PW crossover.
+- Added §41/§34.5 verification pedigree with exact internal-only and attested-blind caveats.
+- Added the brief §44 raw slice law, `c`-core obstruction, conspiracy census, and Type-I status register.
+- Expanded the frontier with §42 endpoint sparsity and fixed-fibre/range results.
+- Added the exact §45 Kloosterman matrix, actual DFI/BC quantifier audit, and proved Theorem 45.9 closure.
+- Added full DFI and Bettin–Chandee citations; retained the search-limited Vaughan/PW caveat.
+- Updated `paper/README.md` with v3 scope and symbol-level fidelity correspondences.
+- `pdflatex -interaction=nonstopmode espaper.tex` passed twice: 41 pages, zero errors, no undefined refs/citations.
+- Control-byte count: 0; `git diff --check`: clean; generated PDF is not tracked.
