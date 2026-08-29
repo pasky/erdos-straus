@@ -7335,6 +7335,7 @@ def check_ap():
     exact_checks = 0
     even_checks = 0
     composite_checks = 0
+    shared_factor_checks = 0
     per_m = Counter()
     for m in numerators:
         for _ in range(52):
@@ -7348,6 +7349,7 @@ def check_ap():
             k = k0 + m * rng.randrange(0, 8)
             assert (k * ell + 1) % m == 0
             A = (k * ell + 1) // m
+            assert A > 0 and gcd(A, k * ell) == 1
             u = rng.choice(ap_divisors(A))
             remaining = A // u
             v = rng.choice(ap_divisors(remaining))
@@ -7370,6 +7372,7 @@ def check_ap():
                     n = preferred[0]
             assert n > 0 and (n * v + u) % modulus == 0
             s = (n * v + u) // modulus
+            assert s > 0
             value = (Fraction(1, s * u * w)
                      + Fraction(1, n * s * v * w)
                      + Fraction(1, n * u * v * w))
@@ -7378,9 +7381,10 @@ def check_ap():
             per_m[m] += 1
             even_checks += (n % 2 == 0)
             composite_checks += (n > 3 and not bool(list(primerange(n, n + 1))))
+            shared_factor_checks += (gcd(m, n) > 1)
 
     assert exact_checks == 52 * len(numerators)
-    assert even_checks and composite_checks
+    assert even_checks and composite_checks and shared_factor_checks
 
     # Structural atom census for m=5.  The extra 5uv>K condition is the
     # finite analogue of mH^2>K in Lemma 43.6 and makes k unique.
@@ -7407,21 +7411,26 @@ def check_ap():
 
     assert atoms
     by_ell_residue = {}
-    by_modulus_pair = {}
+    by_modulus_class = {}
     coupling_checks = 0
+    ramified_atoms = 0
     for atom in atoms:
         k, ell, u, v, residue, modulus = atom
         assert (k * ell + 1) % (toy_m * u * v) == 0
         assert (residue * v + u) % k == 0
         assert (residue * v + u) % ell == 0
         coupling_checks += 1
+        ramified_atoms += (gcd(toy_m, u * v) > 1)
         ell_key = (ell, residue % ell)
         assert ell_key not in by_ell_residue, (ell_key, atom,
                                                by_ell_residue.get(ell_key))
         by_ell_residue[ell_key] = atom
-        modulus_key = (modulus, residue, u, v)
-        assert modulus_key not in by_modulus_pair
-        by_modulus_pair[modulus_key] = atom
+        modulus_key = (modulus, residue)
+        assert modulus_key not in by_modulus_class
+        by_modulus_class[modulus_key] = atom
+
+    # Exercise the genuinely product-modulus case where m and uv overlap.
+    assert ramified_atoms
 
     # Distinct atoms sharing ell cannot be CRT-compatible, since their ell
     # projections are distinct.  Check this without forming an all-atom
@@ -7474,10 +7483,12 @@ def check_ap():
                                                   if gcd(r, m) == 1), 6)))
 
     print("general-m identity exact/symbolic:", exact_checks,
-          "rational instances; even/composite =", (even_checks, composite_checks),
+          "rational instances; even/composite/shared(m,n) =",
+          (even_checks, composite_checks, shared_factor_checks),
           "; per m =", dict(per_m))
-    print("m=5 toy atoms/dedup/coupling/same-ell pairs =",
-          (len(atoms), len(by_ell_residue), coupling_checks, same_ell_pairs))
+    print("m=5 toy atoms/dedup/coupling/same-ell pairs/ramified =",
+          (len(atoms), len(by_ell_residue), coupling_checks,
+           same_ell_pairs, ramified_atoms))
     print("INFORMATIONAL eta_2 finite ratios",
           "(m,coprime actual/predicted,class ratios,predicted each) =", local_rows)
 

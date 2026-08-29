@@ -14714,11 +14714,17 @@ for the aggregate coprime sums.  Finally
 \prod_{p\mid m}p^3/(p^3-2p+1)\); both comparison products converge.
 \(\square\)
 
-The fixed-class asymptotics in (43.6) are not claimed uniformly when
-\(m\) is comparable with or exceeds \(K\): the class \(1\pmod m\), for
-example, then retains the exceptional term \(k=1\).  The proofs below use
-the aggregate condition \((k,m)=1\), not a false pointwise equidistribution
-among such short classes.
+**Character-uniformity clarification (wave-15 review repair).**  The
+fixed-class asymptotics in (43.6) are only fixed-\(m\) statements: after
+character orthogonality, the principal character supplies the displayed
+pole and every nonprincipal twist is regular there.  No bound for those
+regular values, effective or otherwise, is used uniformly in \(m\); in
+particular a possible exceptional real character cannot affect the proof
+below.  The fixed-class asymptotics are not claimed uniformly when \(m\) is
+comparable with or exceeds \(K\): the class \(1\pmod m\), for example, then
+retains the exceptional term \(k=1\).  The proofs below use only the
+aggregate condition \((k,m)=1\), obtained directly from the nonnegative
+Euler/convolution sum, not pointwise equidistribution among short classes.
 
 The following identity is the clean way to keep the prime-progression factor
 explicit.  Define the multiplicative function
@@ -14750,12 +14756,14 @@ an erroneous assumption \((uv,m)=1\).
 
 \[
  \begin{gathered}
- k\in\mathcal J,
-egthickspace\quad H<u,v\leq\ell^{1/3},\quad
+ k\in\mathcal J,\quad H<u,v\leq\ell^{1/3},\quad
  (u,v)=(uv,k)=1,\quad \omega(uv)\leq D\log\log X,\\
  muv\mid k\ell+1,\qquad k\mid u+cv .                       \tag{43.10}
  \end{gathered}
 \]
+
+**Notation note (wave-15 review repair).**  A stray non-TeX token before
+\(H\) was deleted; no condition changed.
 
 Then, with constants depending only on \(B\),
 
@@ -14772,11 +14780,15 @@ forced class from Lemma 43.1.
 For each fixed \(k\), the box congruence remains
 \(u+cv\equiv0\pmod k\); hence (16.4), its boundary ratio
 \(O(K^2/H)\), the low-\(\omega\) Rankin truncation, and Shiu's modulus
-condition \(k<U^{1/2},V^{1/2}\) are unchanged.  Organizing by a fixed
-\(\ell\pmod m\) merely restricts \(k\) to the one reduced class
-\(-\ell^{-1}\pmod m\); summing all reduced \(\ell\)-classes is exactly
-the aggregate family \((k,m)=1\).  No distribution among short
-\(k\)-classes is assumed.
+condition \(k<U^{1/2},V^{1/2}\) are unchanged.
+
+**Pairing/modulus ledger (wave-15 review repair).**  The constraint
+\(k\equiv-\ell^{-1}\pmod m\) is not an extra congruence on \(u,v\) inside
+that fixed-\(k\) lattice count.  After \((k,u,v)\) is fixed it is carried by
+the single prime progression (43.12).  Equivalently, fixing an
+\(\ell\)-class would select one reduced \(k\)-class, but the proof sums the
+aggregate nonnegative family \((k,m)=1\) and never invokes equidistribution
+of \(k\) among short classes.
 
 For fixed \((k,u,v)\), divisibility is the single reduced prime progression
 
@@ -14785,17 +14797,25 @@ For fixed \((k,u,v)\), divisibility is the single reduced prime progression
 \]
 
 It is the product modulus \(muv\), not \(\operatorname {lcm}(m,uv)\),
-because the condition is literally \(muv\mid k\ell+1\).  In the lower
-dyadic boxes \(uv\leq x^{1/3}\); since \(m\) is a fixed log power,
-\(muv\) lies below the Bombieri--Vinogradov level.  A fixed modulus has at
-most \(K2^{\omega(uv)}\) descriptions, exactly as in (16.9a).  Taking the
-BV logarithmic saving larger by \(B\) absorbs both this multiplicity and
-the main-term factor \(1/\varphi(m)\).  Brun--Titchmarsh gives the upper
-bound with the same modulus.  Formula (43.9), (16.2), and (16.3) then give
-the two sides of (43.11).  If one implements the coprimality conditions by
-residue classes before Shiu, the auxiliary modulus is an
-\(\operatorname {lcm}(m,k)\)-type modulus; here it is \(mk\), and the
-same fixed-log-power level check applies.
+because the condition is literally \(muv\mid k\ell+1\).  This also settles
+the potentially ramified case: no assumption \((m,uv)=1\) is made, and if
+one splits (43.12) into congruences modulo \(m\) and modulo \(uv\), their
+compatibility is automatic because both come from divisibility by their
+product.  When \(m\) is even, \((k,m)=1\) makes both \(k\) and the reduced
+residue \(-k^{-1}\pmod {muv}\) odd; common powers of 2 in \(m\) and \(uv\)
+are already present with their summed exponent in \(muv\).  Thus no
+spurious CRT step through \(\operatorname {lcm}(4uv,m)\) occurs.
+
+In the lower dyadic boxes \(uv\leq x^{1/3}\); since \(m\) is a fixed log
+power, \(muv\) lies below the Bombieri--Vinogradov level.  A fixed modulus
+has at most \(K2^{\omega(uv)}\) descriptions, exactly as in (16.9a).
+Taking the BV logarithmic saving larger by \(B\) absorbs both this
+multiplicity and the main-term factor \(1/\varphi(m)\).  Brun--Titchmarsh
+gives the upper bound with the same modulus.  Formula (43.9), (16.2), and
+(16.3) then give the two sides of (43.11).  Shiu's auxiliary modulus remains
+\(k\): there is no condition \((uv,m)=1\) to encode there.  The
+\(m\)-dependence is instead exactly in \(F_m\) and in the later prime
+modulus \(muv\).  (This last distinction is a wave-15 review repair.)
 
 It remains to check deduplication.  A collision at one \(\ell\) gives
 \(\ell\mid uv'-u'v\), while \(|uv'-u'v|<\ell^{2/3}<\ell\); reducedness
@@ -14965,8 +14985,12 @@ second formula of Lemma 43.2 proves (43.20). \(\square\)
 
 **Provisional Theorem 43.7 (general-\(m\) pruned cubic prime slice;
 inherits Theorem 34.8).**  For fixed \(B\), uniformly for \(m\leq t^B\)
-and subfamilies \(\mathcal J\) containing 1, the low-congestion restriction
+and subfamilies \(\mathcal J\subseteq\{k\leq K:(k,m)=1\}\) containing 1,
+with \((c,L_{\mathcal J})=1\), the low-congestion restriction
 \(r_{\mathcal J}(u,v;c)\leq t^4\) leaves
+
+**Quantifier note (wave-15 review repair).**  The omitted reduced-fibre
+quantifier was restored.
 
 \[
  \sum_{X^{1/2}<\ell\leq X}{f^{\rm good}_{m,c}(\ell)\over\ell}
@@ -15008,8 +15032,13 @@ Compatibility fixes one unit residue modulo \(g=(k,R)\); (43.19) supplies
 Primes dividing \(m\) never divide \(k\), so they create no missing case in
 this cancellation.  At every remaining modified prime the nonconstant local
 mass \((p-1)/p^2\) again becomes \(1/p\), and the quotient is
-\(1+O(p^{-2})\).  Deleting primes dividing \(m\) contributes exactly
-\(\eta_2(m)\).  Therefore the general form of (39.16) is
+\(1+O(p^{-2})\).  **Local-factor correction (wave-15 review repair).**
+If \(p\mid m\) is unmodified, deleting its local factor contributes
+\(p^2/(p^2+p-1)\), the \(p\)-factor of \(\eta_2\).  If it is modified
+because \(p\leq y\) (the \(p\mid R\) case cannot occur), deletion instead
+contributes \(p/(p+1)\), the smaller \(p\)-factor of \(\eta_1\).  Hence the
+total deletion factor is at most \(\eta_2(m)\), not always exactly equal to
+it.  This is the direction required for the following upper bound:
 
 \[
  \sum_{\substack{k\leq K\\(k,m)=1}}
@@ -15079,10 +15108,21 @@ range the exponent tends to infinity (use
 \(\eta_1(m)\asymp\varphi(m)/m\)), and \(m\leq t^{3-4\epsilon}\), so all
 prime-slice uniformity assumptions hold.  For the semigroup transfer, start
 the uniform prime estimate at
-\(x_0=\exp\{m^{1/(3/4-\epsilon/2)}\}\).  The Rankin parameter satisfies
-\(\delta\log x_0=o(1)\) in the stated range, so declaring every smaller
-prime exceptional costs only \(m^{O_\epsilon(1)}\), absorbed by the
-\(\gg(\log N)^\epsilon\) saving.  The argument after (43.15), now with
+\(x_0=\exp\{m^{1/(3/4-\epsilon/4)}\}\).  **Uniformity correction
+(wave-15 review repair).**  With
+\(\delta\asymp \eta_1(m)\varphi(m)^{-1}(\log N)^{-1/4}\) and
+\(m\leq(\log N)^{3/4-\epsilon}\), (43.7) gives
+\[
+ \delta\log x_0
+ \ll (\log N)^{-\epsilon^2/(3-\epsilon)}=o(1).
+\]
+(The former denominator \(3/4-\epsilon/2\) makes this exponent positive
+and did not justify the printed claim.)  Declaring every smaller prime
+exceptional therefore costs only \(m^{O_\epsilon(1)}\), absorbed by the
+\(\gg(\log N)^\epsilon\) saving.  Above \(x_0\), the prime-bound tail is
+uniformly summable because
+\(m^{-1}(\log x_0)^{3/4}=m^{(\epsilon/4)/(3/4-\epsilon/4)}\to\infty\).
+The argument after (43.15), now with
 \(g(u)=\eta_1(m)\varphi(m)^{-1}u^{3/4}\), transfers the prime result.
 \(\square\)
 
@@ -15150,9 +15190,11 @@ the same basic \(m^{-1/3}\) scale as PW after (43.7).
 (43.3) symbolically and checks it with exact `Fraction` arithmetic on 364
 random instances for
 \(m\in\{3,5,6,7,8,12,25\}\), explicitly including even and composite
-\(n\).  Its \(m=5\) atom census verifies divisibility, atom-implied
-coupling, fixed-\(\ell\) deduplication, and the distinct-large-coordinate
-claim without allocating a Cartesian array.  Finally it compares finite
+\(n\) and instances with \((m,n)>1\).  Its \(m=5\) atom census verifies
+divisibility, atom-implied coupling, direct modulus-class and fixed-\(\ell\)
+deduplication, the distinct-large-coordinate claim, and cases with
+\((m,uv)>1\), without allocating a Cartesian array.  (wave-15 review repair)
+Finally it compares finite
 multiplier sums with the exact \(\eta_2(m)\) formula in (43.4).  Those
 finite ratios are informational; they do not prove (43.6) or any asymptotic
 theorem.
