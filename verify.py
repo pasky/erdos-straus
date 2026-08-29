@@ -7775,4 +7775,201 @@ print("\n== (ar) moving-s Kloosterman-matrix audit (§45) ==")
 check_ar()
 
 
+# ---------------------------------------------------------------- (as)
+def check_as():
+    """Section 46: exact endpoint-bulk corner decomposition."""
+    import ast
+    import os
+    from collections import defaultdict
+
+    with open(__file__, encoding="utf-8") as source:
+        ast.parse(source.read(), filename=__file__)
+
+    def as_is_prime(n):
+        return n >= 2 and factorint(n) == {n: 1}
+
+    def as_representatives(M):
+        representatives = {}
+        for D in divisors_of_square((M + 1) // 4):
+            residue = (-4 * D) % M
+            representatives[residue] = min(representatives.get(residue, D), D)
+        return representatives
+
+    def as_radical_root(D):
+        return prod(r ** ((e + 1) // 2) for r, e in factorint(D).items())
+
+    def as_block(m, cutoff):
+        """j for cutoff*2^j < m <= cutoff*2^(j+1)."""
+        assert m > cutoff
+        return ((m - 1) // cutoff).bit_length() - 1
+
+    def as_build(X, z, Y):
+        """Build G[m,p], then split its residue energy without pair arrays."""
+        prime_residues = {
+            p: set(as_representatives(p))
+            for p in primerange(z + 1, X + 1) if p % 4 == 3
+        }
+        retained = {}
+        for M in range(3, X + 1, 4):
+            factors = factorint(M)
+            if as_is_prime(M) or any(r <= z for r in factors):
+                continue
+            kappa = Fraction(1)
+            for r in factors:
+                if r <= Y and r in prime_residues:
+                    kappa *= Fraction(r, r - len(prime_residues[r]))
+            kept = set()
+            for residue, D in as_representatives(M).items():
+                if any(
+                    r in prime_residues and residue % r in prime_residues[r]
+                    for r in factors
+                ):
+                    continue
+                kept.add(D)
+            retained[M] = (tuple(factors), kappa, kept)
+
+        coefficients = defaultdict(lambda: defaultdict(Fraction))
+        cell_parameters = {}
+        for M, (factors, kappa, kept) in retained.items():
+            A = (M + 1) // 4
+            for D in kept:
+                R = as_radical_root(D)
+                s = R * R // D
+                assert A % R == 0
+                c = A // R
+                m = 4 * c * c * s
+                assert cell_parameters.setdefault(m, (c, s)) == (c, s)
+                for p in factors:
+                    if p <= z or c >= p:
+                        continue
+                    q = M // p
+                    assert q > z and q < 4 * R and gcd(m, M) == 1
+                    coefficients[p][m] += kappa / q
+
+        # The finite analogue of W_1=z L^2/log L in (46.8).
+        cutoff = max(4, int(z * log(X) ** 2 / log(log(X))))
+        pieces = defaultdict(Fraction)
+        open_cells = closed_cells = 0
+        for p, row in coefficients.items():
+            buckets = defaultdict(list)
+            for m, coefficient in row.items():
+                c, _ = cell_parameters[m]
+                closed = m <= cutoff or (c >= z and m <= z * cutoff)
+                buckets[(-pow(m, -1, p)) % p].append(
+                    (m, coefficient, closed))
+                if closed:
+                    closed_cells += 1
+                else:
+                    open_cells += 1
+
+            for cells in buckets.values():
+                closed_sum = sum((g for _, g, closed in cells if closed),
+                                 Fraction())
+                open_rows = [(m, g) for m, g, closed in cells if not closed]
+                open_sum = sum((g for _, g in open_rows), Fraction())
+                open_diagonal = sum((g * g for _, g in open_rows), Fraction())
+                block_sums = defaultdict(Fraction)
+                block_squares = defaultdict(Fraction)
+                for m, g in open_rows:
+                    j = as_block(m, cutoff)
+                    block_sums[j] += g
+                    block_squares[j] += g * g
+                local = sum((block_sums[j] ** 2 - block_squares[j]
+                             for j in block_sums), Fraction())
+                far = open_sum ** 2 - sum(
+                    (value * value for value in block_sums.values()), Fraction())
+                assert local >= 0 and far >= 0
+
+                pieces["closed"] += closed_sum ** 2 / p
+                pieces["mixed"] += 2 * closed_sum * open_sum / p
+                pieces["open-diagonal"] += open_diagonal / p
+                pieces["open-local"] += local / p
+                pieces["open-far"] += far / p
+                pieces["total"] += (closed_sum + open_sum) ** 2 / p
+
+            # Arithmetic-progression occupancies used in Lemmas 46.3--46.4.
+            prefix_counts = Counter(m % p for m in row if m <= cutoff)
+            assert max(prefix_counts.values(), default=0) <= (cutoff + p - 1) // p
+            block_counts = defaultdict(Counter)
+            for m in row:
+                if m > cutoff:
+                    block_counts[as_block(m, cutoff)][m % p] += 1
+            for j, counts in block_counts.items():
+                width = cutoff * 2 ** j
+                assert max(counts.values(), default=0) <= width // p + 1
+
+        assert pieces["total"] == sum(
+            (pieces[name] for name in
+             ("closed", "mixed", "open-diagonal", "open-local", "open-far")),
+            Fraction())
+        assert (pieces["open-diagonal"] + pieces["open-local"]
+                + pieces["open-far"] >= 0)
+        return (cutoff, closed_cells, open_cells,
+                *(pieces[name] for name in
+                  ("closed", "mixed", "open-diagonal", "open-local",
+                   "open-far", "total")))
+
+    cases = [(80, 2, 11), (120, 3, 13), (200, 5, 17)]
+    if os.environ.get("ES_FULL_SCAN") == "1":
+        cases += [(400, 7, 23), (800, 11, 31)]
+
+    expected = {
+        (80, 2, 11): (
+            25, 12, 11, Fraction(16681, 33800), Fraction(5277, 27040),
+            Fraction(14419, 135200), Fraction(0), Fraction(1, 80),
+            Fraction(54609, 67600)),
+        (120, 3, 13): (
+            43, 28, 29, Fraction(735841, 3338528),
+            Fraction(1062997, 8346320), Fraction(6819677, 83463200),
+            Fraction(0), Fraction(2759, 109820),
+            Fraction(2371407, 5216450)),
+        (200, 5, 17): (
+            84, 30, 21, Fraction(7635, 91936), Fraction(95917, 1562912),
+            Fraction(29501, 781456), Fraction(0), Fraction(3, 289),
+            Fraction(150469, 781456)),
+        (400, 7, 23): (
+            140, 50, 34, Fraction(1149696311, 18401725888),
+            Fraction(13756187, 445716544),
+            Fraction(2612018711, 128812081216), Fraction(1, 832),
+            Fraction(203263, 36428756),
+            Fraction(1938623889, 16101510152)),
+        (800, 11, 31): (
+            258, 151, 150,
+            Fraction(77161480892545741127118439,
+                     2107339042676052674803557152),
+            Fraction(198624380002352137829660547,
+                     8429356170704210699214228608),
+            Fraction(313024080491417457652016507,
+                     16858712341408421398428457216),
+            Fraction(17451321, 15854098624),
+            Fraction(70610715947907451031165,
+                     7855877139519301676807296),
+            Fraction(1497652428663746795066282367,
+                     16858712341408421398428457216)),
+    }
+    rows = []
+    for case in cases:
+        values = as_build(*case)
+        if case in expected:
+            assert values == expected[case]
+        # Cross-check the total against the independently fixed §45 values.
+        known_total = {
+            (80, 2, 11): Fraction(54609, 67600),
+            (120, 3, 13): Fraction(2371407, 5216450),
+            (200, 5, 17): Fraction(150469, 781456),
+        }
+        if case in known_total:
+            assert values[-1] == known_total[case]
+        rows.append((*case, values[0], values[1], values[2],
+                     *(str(value) for value in values[3:])))
+
+    print("bulk corners (X,z,Y,W1,closed cells,open cells,"
+          "closed,mixed,open diag,open local,open far,total) =", rows)
+    print("five rational corners resum exactly; no incidence Cartesian arrays")
+
+
+print("\n== (as) endpoint-bulk collision audit (§46) ==")
+check_as()
+
+
 print("\nall checks passed")

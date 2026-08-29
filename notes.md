@@ -16136,3 +16136,387 @@ computational block is added: at toy scale every $m$ exceeds the toy
 primes, so the injectivity hypothesis $W_0<z$ has no nontrivial finite
 instance; the analytic inputs ((45.3), (45.9)) are already exercised by
 `verify.py (ao)` and `(ar)`.
+
+## 46. The endpoint bulk: collision structure above the injectivity threshold
+
+Keep the notation and all retention conventions of §§40, 42, and 45.  This
+section attacks the cells $m=4c^2s>W_0$ without discarding their joint
+support in $p$.  It proves a larger prefix and a large-$c$ wedge, but it does
+**not** prove (40.19).  The exact residual cross-cell sum in Corollary 46.3
+is the new pair-level open core.
+
+### 46.1 Cell diagonal and progression occupancy
+
+For any collection $\mathscr S$ of endpoint cells, let $G^{\mathscr S}_{m,p}$
+be $G_{m,p}$ when the supported cell $(m,p)$ belongs to $\mathscr S$, and
+zero otherwise.  Parseval in Lemma 45.1 gives the exact nonnegative form
+
+$$
+ \mathcal V(\mathscr S)
+ =\sum_{z<p\leq X/z}{1\over p}
+   \sum_{\substack{m,m'\in\mathscr S_p\\m\equiv m'\ (p)}}
+       G_{m,p}G_{m',p}.                                    \tag{46.1}
+$$
+
+Write
+
+$$
+ \mathcal D(\mathscr S)=\sum_p{1\over p}\sum_{m\in\mathscr S_p}G_{m,p}^2,
+ \qquad
+ \mathcal C(\mathscr S)=\sum_p{1\over p}
+   \sum_{\substack{m\ne m'\in\mathscr S_p\\m\equiv m'\ (p)}}
+       G_{m,p}G_{m',p}.                                    \tag{46.2}
+$$
+
+Thus $\mathcal V=\mathcal D+\mathcal C$ exactly; the off-diagonal sum is
+ordered.
+
+**Lemma 46.1 (global cell diagonal and its large-$c$ tail; proved).**  For
+$C\geq1$, let $\mathscr G_C$ consist of all endpoint cells whose unique
+factorization $m=4c^2s$ has $c\geq C$.  Then
+
+$$
+ \boxed{\quad
+ \mathcal D(\mathscr G_C)
+ \ll {L^4\over C\log z}+{L^4\over z(\log z)^2}.
+ \quad}                                                    \tag{46.3}
+$$
+
+In particular the complete cell diagonal satisfies
+
+$$
+ \mathcal D(\mathscr G_1)\ll {L^4\over\log L}
+                         =o(\Lambda^2).                    \tag{46.4}
+$$
+
+This includes collisions between different cofactors $q$ aggregated into
+the same $(m,p)$ cell; it is stronger than the literal-incidence diagonal
+of Lemma 40.2.
+
+*Proof.*  For fixed $(p,c,s)$, (45.1) puts every contributing $q$ in one
+progression modulo $4c$.  If $q_0$ is its first member above $z$, comparison
+of the remaining terms with an integral gives
+
+$$
+ \sum_{\substack{z<q\leq X/p\\q\equiv q_0\ (4c)}}{1\over q}
+ \leq {1\over z}+{1\over4c}\log {X/p\over z}
+ \leq {1\over z}+{L\over4c}.
+$$
+
+Since $\kappa\leq2$, this proves the pointwise cell bound
+
+$$
+                         G_{4c^2s,p}\leq {2\over z}+{L\over2c}.       \tag{46.5}
+$$
+
+Use $G^2\leq G(2/z+L/(2c))$ in the left side of (46.3), then expand one
+copy of $G$.  If $i=(p,R,s,c,q)$ denotes an endpoint incidence and
+$M_i=pq$, this gives
+
+$$
+ \mathcal D(\mathscr G_C)
+ \leq {2\over z}\sum_{i:c_i\geq C}{\kappa_i\over M_i}
+     +{L\over2}\sum_{i:c_i\geq C}{\kappa_i\over M_i c_i}. \tag{46.6}
+$$
+
+Every retained atom $(M,D)$ has at most
+$\omega(M)\leq L/\log z$ endpoint orientations $p$.  The zero-charge
+estimate used in (40.12) is
+$\sum_{M,D}1/M\ll L^3/\log z$.  Hence the first incidence sum in (46.6) is
+$O(L^4/(\log z)^2)$.
+
+For the second sum, drop roughness, primality, endpoint, canonical, and
+retention restrictions.  The parameters $R,s,c$ then only overcount, and
+$4Rc-1\geq3Rc$.  Therefore
+
+$$
+ \begin{split}
+ \sum_{i:c_i\geq C}{\kappa_i\over M_i c_i}
+ &\ll {L\over\log z}
+  \sum_{R\leq X}{2^{\omega(R)}\over R}
+  \sum_{c\geq C}{1\over c^2}\\
+ &\ll {L^3\over C\log z},                                 \tag{46.7}
+ \end{split}
+$$
+
+using the elementary Euler-product bound
+$\sum_{R\leq X}2^{\omega(R)}/R\ll L^2$.  Substitution in (46.6) proves
+(46.3), and $\log z\asymp\log L$ proves (46.4). $\square$
+
+The gain $1/C$ in (46.3) is real, but it appears only after the second
+$1/c$ in (46.5) has made the $c$-sum square-summable.  It is not a
+$1/C$ bound for total large-$c$ incidence mass; this distinction is used in
+Failure log 46.6.
+
+### 46.2 A larger prefix and a large-$c$ wedge
+
+Put
+
+$$
+ W_1=\left\lfloor {zL^2\over\log L}\right\rfloor
+ \asymp {L^5\log\log L\over(\log L)^2},
+ \qquad W_2=\lfloor zW_1\rfloor.                           \tag{46.8}
+$$
+
+Thus $W_1/W_0\asymp L^2\log\log L$: the following result reaches well
+above the injectivity threshold of Theorem 45.9.
+
+**Theorem 46.2 (prefix and large-$c$ wedge closure; proved).**  Let
+$\mathscr A(T,C)$ be the endpoint subfamily with $m\leq T$ and $c\geq C$.
+For all $T,C\geq1$,
+
+$$
+ \mathcal V(\mathscr A(T,C))
+ \leq\left(1+{T\over z}\right)\mathcal D(\mathscr G_C)
+ \ll\left(1+{T\over z}\right)
+       \left\{{L^4\over C\log z}
+                    +{L^4\over z(\log z)^2}\right\}.      \tag{46.9}
+$$
+
+Consequently both
+
+$$
+ \mathcal V(\mathscr A(W_1,1))=O(\Lambda^2),
+ \qquad
+ \mathcal V(\mathscr A(W_2,z))=O(\Lambda^2).              \tag{46.10}
+$$
+
+*Proof.*  In one residue class modulo $p$, the interval $1\leq m\leq T$
+contains at most $T/p+1$ integers, hence no more supported cells.  Cauchy's
+inequality inside each occupied residue bucket and (46.1) give
+
+$$
+ \mathcal V(\mathscr A(T,C))
+ \leq\sum_p{1\over p}\left(1+{T\over p}\right)
+       \sum_{\substack{m\leq T\\c(m)\geq C}}G_{m,p}^2
+ \leq\left(1+{T\over z}\right)\mathcal D(\mathscr G_C).
+$$
+
+Lemma 46.1 proves (46.9).  For $(T,C)=(W_1,1)$ its leading term is
+
+$$
+ {W_1\over z}{L^4\over\log z}
+ \asymp {L^6\over(\log L)^2}=\Lambda^2.
+$$
+
+For $(T,C)=(W_2,z)$ it is
+
+$$
+ {W_2\over z}{L^4\over z\log z}
+ \asymp W_1{L^4\over z\log L}\asymp\Lambda^2.
+$$
+
+The second term of (46.9) is smaller by at least a factor comparable with
+$\log L$ in the latter specialization, and is harmless in the former.
+This proves (46.10). $\square$
+
+This is the supported-cell version of the proposed large-$m$ count.  It
+uses the integer progression occupancy only after preserving the actual
+Frobenius mass; no sum over the $\asymp X\log X$ possible shifts of Failure
+log 42.5 occurs.
+
+Define the proved region and its complement by
+
+$$
+ \begin{split}
+ \mathscr A&=\{m\leq W_1\}\ \cup\
+             \{c\geq z,\ m\leq W_2\},\\
+ \mathscr B&=\{m>W_1\}\ \cap\
+             \bigl(\{c<z\}\ \cup\ \{m>W_2\}\bigr).
+                                                               \tag{46.11}
+ \end{split}
+$$
+
+The two sets partition every endpoint cell.  By (46.10) and
+$(x+y)^2\leq2x^2+2y^2$ in each residue bucket,
+
+$$
+                         \mathcal V(\mathscr A)=O(\Lambda^2).          \tag{46.12}
+$$
+
+**Corollary 46.3 (falsifiable refined open core; proved equivalence).**
+The endpoint estimate (40.19) is equivalent to
+
+$$
+ \boxed{\quad
+ \mathcal C_{\rm bulk}:=
+ \sum_{z<p\leq X/z}{1\over p}
+ \sum_{\substack{m\ne m'\in\mathscr B_p\\m\equiv m'\ (p)}}
+        G_{m,p}G_{m',p}=O(\Lambda^2).
+ \quad}                                                    \tag{46.13}
+$$
+
+*Proof.*  Deleting cells decreases every nonnegative residue bucket, so
+$\mathcal V(\mathscr B)\leq\mathcal V_X^{\rm end}$.  Conversely,
+
+$$
+ \mathcal V_X^{\rm end}
+ \leq2\mathcal V(\mathscr A)+2\mathcal V(\mathscr B).
+$$
+
+Thus (40.19) is equivalent to
+$\mathcal V(\mathscr B)=O(\Lambda^2)$ by (46.12).  Equations (46.2) and
+(46.4) give
+
+$$
+ \mathcal V(\mathscr B)
+ =\mathcal D(\mathscr B)+\mathcal C_{\rm bulk},
+ \qquad \mathcal D(\mathscr B)=o(\Lambda^2),
+$$
+
+and all terms are nonnegative.  This proves the equivalence. $\square$
+
+Equation (46.13), rather than all $m>W_0$, is the refined pair-level
+endpoint.  It contains only genuine collisions between distinct supported
+cells, after the whole cell diagonal, the prefix through $W_1$, and the
+specified large-$c$ wedge have been removed.
+
+### 46.3 Dyadic collision audit and exact loss
+
+For $W\geq1$, let $\mathscr S(W,C)$ be any supported subfamily with
+$W<m\leq2W$ and $c\geq C$, and let $\mathcal C(W,C)$ denote its ordered
+off-diagonal energy.
+
+**Lemma 46.4 (supported dyadic collision second moment; proved).**  One has
+
+$$
+ \mathcal C(W,C)
+ \leq {W\over z}\mathcal D(\mathscr S(W,C))
+ \leq {W\over z}\mathcal D(\mathscr G_C),                 \tag{46.14}
+$$
+
+and consequently
+
+$$
+ \mathcal C(W,C)
+ \ll {W\over z}\left\{{L^4\over C\log z}
+                   +{L^4\over z(\log z)^2}\right\}.       \tag{46.15}
+$$
+
+The leading term in (46.15) is $O(\Lambda^2)$ for $W=O(CW_1)$;
+when $1\leq C\leq z$, the second term is harmless and the full right side
+is $O(\Lambda^2)$ in this range.
+
+*Proof.*  A residue class modulo $p$ contains at most $W/p+1$ integers in
+$(W,2W]$.  If a bucket has $n$ supported cells with coefficients $g_j$,
+then
+
+$$
+ \left(\sum_jg_j\right)^2-\sum_jg_j^2
+ \leq(n-1)\sum_jg_j^2\leq {W\over p}\sum_jg_j^2.
+$$
+
+Sum this inequality with weight $1/p$, use $p>z$, and then apply Lemma
+46.1.  The last assertion follows from (46.8). $\square$
+
+This proves the proposed $N_p(m,W)\leq W/p+1$ step with the actual jointly
+supported cells.  It also pinpoints its limit.  For unrestricted $c$, its
+best available right side is
+
+$$
+ \mathcal C(W,1)\ll {W\over W_1}\Lambda^2;                \tag{46.16}
+$$
+
+for $c\geq C$ with $1\leq C\leq z$ the corresponding factor is
+$W/(CW_1)$.  The two boundaries $W_1$ and $zW_1=W_2$ are exactly why
+(46.11) removes the ranges it does.
+Above those boundaries no scale decay for
+$\mathcal D(\mathscr S(W,C))$ has been proved.
+
+**Failure log 46.5 (where the dyadic second moment stops).**  The
+arithmetic-progression count itself is valid and already includes supported-
+cell sparsity.  The loss occurs when $W/p$ multiplies the Frobenius norm.
+The only proved scale-free estimate is (46.3); inserting it gives (46.16),
+which exceeds the target in the first unrestricted block above $W_1$ and
+in the first $c\geq z$ block above $W_2$.  The per-prime alternative does
+not improve this: (42.18) gives
+$A_p=p t_p^{\rm end}\ll\Lambda+p u_p$, and $p u_p=p^{o(1)}$ is not
+uniformly polylogarithmic on the super-polylogarithmic range.  Bounds such
+as $F_p^2\leq A_p^2$ therefore discard, rather than exploit, the needed
+scale localization.
+
+Partitioning all $m$ dyadically does not fix the issue.  Lemma 46.4 controls
+pairs inside one block, whereas (46.13) also has pairs in different blocks.
+Cauchy over the $O(L)$ blocks costs $O(L)$ and gives no decay in $W$.
+Alternatively, putting all supported $m<p(X+1)$ into one progression count
+allows $O(X)$ integers per residue and is catastrophic.  A successful
+continuation needs a bound for the *scale-restricted* Frobenius mass or a
+direct correlation estimate for the separated-block pairs; neither is
+contained in (45.9), (46.3), or the scalar DFI/BC bounds.
+
+**Failure log 46.6 (where large-$c$ thinness stops).**  The second part of
+Lemma 46.1 verifies a genuine $1/C$ large-$c$ saving for cell Frobenius
+mass, and Theorem 46.2 converts it into the wedge $m\leq CW_1$ in the
+relevant range $1\leq C\leq z$.  The available positivity majorant for
+total incidence mass is not power-small.  Indeed, after using
+$M=4Rc-1\asymp Rc$, that majorant is
+
+$$
+ \sum_{R\leq X/(4C)}{2^{\omega(R)}\over R}
+       \sum_{C<c\leq X/(4R)}{1\over c}
+ \asymp \{\log(X/C)\}^3                                  \tag{46.17}
+$$
+
+through the broad range $C\leq X^{1-\epsilon}$, by the same elementary
+Euler product behind (42.9).  For polylogarithmic $C$, the cutoff
+$R<X/(4C)$ therefore removes no power of $L$; the $c$-sum is harmonic, not
+square-summable.  The $1/C$ in (46.3) appears only because (46.5) contributes
+an additional $1/c$.  Once collision occupancy contributes
+$W/p$, that saving closes (46.15) only for $W\ll CW_1$.  Thus “large $c$
+forces small $R$” proves the wedge in (46.10), but it does not control the
+part of (46.13) with $m>CW_1$.  Dropping endpoint indicators and summing
+(46.17) is precisely the divisor-counting failure warned against in
+Failure log 42.5.
+
+### 46.4 Exact finite corner census
+
+**Computational 46.7 (exact rational bulk split).**  `verify.py (as)`
+independently rebuilds the retained toy endpoint matrices without an
+incidence Cartesian product.  At finite $(X,z)$ it uses
+
+$$
+ W_{1,{\rm toy}}=
+ \max\left(4,\left\lfloor {z(\log X)^2\over\log\log X}\right\rfloor\right)
+                                                               \tag{46.18}
+$$
+
+and the exact analogue of (46.11).  It partitions every residue-bucket
+square into five rational corners:
+$\mathcal V(\mathscr A)$, the ordered mixed $\mathscr A$--$\mathscr B$
+term, $\mathcal D(\mathscr B)$, cross-cell pairs in the same anchored
+block $(2^jW_1,2^{j+1}W_1]$, and cross-cell pairs in different blocks.
+The five entries are asserted to resum $\mathcal V_X^{\rm end}$ exactly.
+The output is
+
+$$
+\begin{array}{c|c|r|r|r|c|c|c|c|c|c}
+X&z&W_1&A&B&\mathcal V(A)&\mathrm{mix}&\mathcal D(B)&
+ \mathcal C_{\rm local}&\mathcal C_{\rm far}&\mathcal V_X^{\rm end}\\ \hline
+80&2&25&12&11&16681/33800&5277/27040&14419/135200&0&1/80&54609/67600\\
+120&3&43&28&29&735841/3338528&1062997/8346320&6819677/83463200&0&2759/109820&2371407/5216450\\
+200&5&84&30&21&7635/91936&95917/1562912&29501/781456&0&3/289&150469/781456\\
+400&7&140&50&34&1149696311/18401725888&13756187/445716544&2612018711/128812081216&1/832&203263/36428756&1938623889/16101510152\\
+800&11&258&151&150&77161480892545741127118439/2107339042676052674803557152&198624380002352137829660547/8429356170704210699214228608&313024080491417457652016507/16858712341408421398428457216&17451321/15854098624&70610715947907451031165/7855877139519301676807296&1497652428663746795066282367/16858712341408421398428457216
+\end{array}
+$$
+
+Here $A,B$ are occupied $(m,p)$ cell counts.  The first three rows are the
+default run; $X=400,800$ are enabled by `ES_FULL_SCAN=1`.  The refined
+cross-cell corner $\mathcal C_{\rm local}+\mathcal C_{\rm far}$ accounts
+for the exact fractions $845/54609$, $8455/152994$, and $8112/150469$ of
+total endpoint energy at $X=80,120,200$, respectively.  At these toy
+scales most residual collisions are between separated dyadic blocks; this
+is an identity check, not asymptotic evidence.
+
+**Assessment 46.8 (wave-16 verdict).**  Supported-cell progression
+occupancy and a new global cell-diagonal estimate enlarge the closed prefix
+from $W_0\asymp L^3/(\log L)^2$ to
+$W_1\asymp L^5\log\log L/(\log L)^2$, and also close the large-$c$ wedge
+$c\geq z$, $m\leq zW_1$.  The exact equivalent remainder is the distinct-
+cell collision sum (46.13).  The dyadic method loses there by the explicit
+factor $W/(CW_1)$, while direct large-$c$ divisor counting retains a cubic
+harmonic mass.  Therefore (40.19), (37.27), and the pair-level input to the
+internal hypothesis $H_{\rm PF}'$ remain **OPEN**.  Even a future proof of
+(40.19) would not establish the separate codegree hierarchy (40.28), so it
+would not by itself prove (37.19) or (33.16).  This arc neither proves nor
+refutes the Erdős--Straus conjecture.
