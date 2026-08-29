@@ -9663,6 +9663,36 @@ def check_ba():
         modulus_classes[M] = classes
     assert len(modulus_classes) == (750 if modulus_cap == 3000 else 75)
 
+    # A deliberately awkward datum exercises the freedoms most likely to be
+    # lost in a product-modulus shorthand: composite ell, w > 1, and u = v.
+    exotic = (1, 95, 2, 2, 6)
+    k_ex, ell_ex, u_ex, v_ex, w_ex = exotic
+    m_ex = k_ex * ell_ex
+    assert not isprime(ell_ex) and u_ex == v_ex and w_ex > 1
+    assert u_ex * v_ex * w_ex == (m_ex + 1) // 4
+    assert (-u_ex * pow(v_ex, -1, m_ex)) % m_ex in modulus_classes[m_ex]
+    assert (-u_ex * pow(v_ex, -1, m_ex)) % m_ex != 1
+
+    # Construct M(T) literally, then find the least prime in its residue-one
+    # class.  These regressions complement the product-class harvest above.
+    expected_type_ii = ((3, 6, 7), (5, 60, 61),
+                        (7, 420, 421), (11, 27720, 55441))
+    type_ii_rows = []
+    for T, expected_M, expected_P in expected_type_ii:
+        M_T = 1
+        for n in range(1, T + 1):
+            M_T = lcm(M_T, n)
+        P = 1 + M_T
+        while not isprime(P):
+            P += M_T
+        assert (M_T, P) == (expected_M, expected_P)
+        assert all(M_T % n == 0 for n in range(1, T + 1))
+        eligible = tuple(M for M in modulus_classes if M <= T)
+        assert all(P % M == 1 and P % M not in modulus_classes[M]
+                   for M in eligible)
+        type_ii_rows.append((T, M_T, P, eligible,
+                             round(log(P) / log(M_T), 9)))
+
     def squarefree(n):
         return all(e == 1 for e in factorint(n).values())
 
@@ -9738,6 +9768,8 @@ def check_ba():
 
     print("residue-one Type-II escape (cap,moduli,data) =",
           (modulus_cap, len(modulus_classes), datum_count))
+    print("Type-II least-prime regressions (T,M,p,eligible,log p/log M) =",
+          type_ii_rows)
     print("Type-I least-prime regressions (T,R,p,slices,log p/log R) =", rows)
     print("INFO finite least-prime ratios versus effective Linnik L=5.2 =",
           tuple(row[-1] for row in rows))
