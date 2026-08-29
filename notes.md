@@ -17468,7 +17468,10 @@ composite \(d\); it does not wall a proof that controls the actual moving
 factorization.  A prime escaping all guarantees can still have a positive
 slice through a divisor depending on that prime.  Indeed (48.11) says that
 most census primes do.  “Not guaranteed” must not be read as “vanishing,”
-and the theorem supplies no infinite conspiracy sequence.
+and the theorem supplies no infinite conspiracy sequence.  *(wave-20 pointer)*
+Section 54 turns the related residue-one genus escape of Theorem 50.5---not
+the fixed-divisor non-guarantee here---into an effective logarithmic lower
+bound for \(ck_{\min}\).
 
 ### 48.4 The sharp reformulation and what existing bounds do not say
 
@@ -18065,7 +18068,9 @@ no extra genus condition; the latter is automatic from (50.3).  It is
 stronger than slice positivity, because a product of two or more wrong-grade
 prime factors can hit the target even when no individual prime does.
 Proposition 48.6 remains the weaker exact criterion without the one-prime
-restriction.  *(wave-17 review repair)*
+restriction.  *(wave-17 review repair)*  *(wave-20 pointer)*  Section 54
+proves that \(H_{\rm SPF}(A)\) is false for every \(0<A<1\); exactly the
+exponents \(A\geq1\) remain open.
 
 **Theorem 50.2 (conditional on \(H_{\rm SPF}(A)\); \(H_{\rm SPF}(A)\)
 unproved).**  If \(H_{\rm SPF}(A)\) holds for some \(A\), then every
@@ -18630,6 +18635,9 @@ Define the pointwise hypothesis
  H_{\rm MOD}(A):\quad W(p)\leq(\log p)^A
        \quad\hbox{for every sufficiently large prime }p.   \tag{51.19}
 \]
+
+*(wave-20 pointer)*  Section 54 proves that \(H_{\rm MOD}(A)\) is false for
+every \(0<A<1\); exactly the exponents \(A\geq1\) remain open.
 
 By Lemma 16.1, \(H_{\rm MOD}(A)\) for any \(A\) implies the Erdos--Straus
 conjecture for every sufficiently large prime.  Corollary 51.3 says that its
@@ -20122,3 +20130,215 @@ alter any wall in §17.  Fixed boxes still have genuine escape progressions,
 and growing boxes still leave the exceptional set (53.37), which may contain
 the true pointwise conspiracies.  The sieve is upper-bound only; it gives no
 lower bound for residual vanishing and crosses no parity barrier.
+
+## 54. The lower tail: logarithmic witness moduli are necessary
+
+**Scope and status.**  The upper tails in §§51 and 53 leave exceptional
+sets.  This section proves that those sets are genuinely nonempty infinitely
+often below the logarithmic exponent: residue-one progressions, combined
+with an effective form of Linnik's theorem, give both Type-II and Type-I
+minima of order at least \(\log p\).  The results are escape theorems, not
+nonsolvability theorems.  The only external inputs are the effective prime
+number theorem for Chebyshev's functions, Bertrand's postulate, quadratic
+reciprocity, and effective Linnik with exponent \(5.2\).
+
+### 54.1 Type II: the minimal multiplier modulus
+
+For real \(T\geq3\), put
+
+\[
+ M(T)=\operatorname {lcm}(1,2,\ldots,\lfloor T\rfloor),
+ \qquad \log M(T)=\psi(\lfloor T\rfloor).                 \tag{54.1}
+\]
+
+Using the full least common multiple is deliberate: the minimum (51.1)
+ranges over every \(k,\ell\), with no primality condition on \(\ell\), so
+all eligible products \(k\ell\leq T\) must be covered.
+
+**Theorem 54.1 (Type-II logarithmic lower tail; proved, effective).**  Every
+prime \(p\equiv1\pmod {M(T)}\) satisfies
+
+\[
+                         W(p)>T.                            \tag{54.2}
+\]
+
+There is an effectively computable absolute constant \(C_0\) such that, for
+every sufficiently large \(T\), one can choose such a prime with
+
+\[
+ p\leq C_0M(T)^{5.2}
+   =\exp\{(5.2+o(1))T\}.
+                                                               \tag{54.3}
+\]
+
+Consequently these primes are unbounded and
+
+\[
+       \limsup_{p\to\infty\atop p\ \hbox{ prime}}
+          {W(p)\over\log p}\geq {1\over5.2}
+          =0.192307\ldots>0.19.                            \tag{54.4}
+\]
+
+*Proof.*  Suppose data in (51.2) have \(m=k\ell\leq T\).  Then
+\(m\equiv3\pmod4\), \(uvw=(m+1)/4\), and \(p\equiv1\pmod m\).  If these
+data witnessed \(p\), multiplying
+\(1\equiv-uv^{-1}\pmod m\) by \(v\) would give \(m\mid u+v\).  But
+
+\[
+ 2\leq u+v\leq uv+1\leq {m+1\over4}+1<m,
+\]
+
+because \((u-1)(v-1)\geq0\); this also covers \(m=3\), where the upper
+bound is \(2<3\).  This contradiction proves (54.2), self-containedly
+replaying the residue-one instance of Theorem 17.3(c).
+
+The class \(1\pmod {M(T)}\) is reduced.  Xylouris's effective refinement of
+Linnik's theorem gives its least prime at most \(C_0M(T)^L\) with
+\(L=5.2\).  The effective prime number theorem gives
+\(\psi(T)=T+o(T)\), proving (54.3).  Finally a prime in this class is at
+least \(M(T)+1\); since \(M(T)\to\infty\), primes selected along an
+unbounded sequence of \(T\)'s are unbounded.  From (54.2)--(54.3),
+\(W(p)/\log p\geq1/(5.2+o(1))\), which proves (54.4). \(\square\)
+
+**Corollary 54.2 (the pointwise Type-II frontier; proved).**  For every
+\(0<A<1\), \(H_{\rm MOD}(A)\) is false.  Thus the remaining open
+pointwise exponent range is exactly \(A\geq1\).
+
+Indeed, along the primes in Theorem 54.1,
+\(W(p)>(1/(5.2+o(1)))\log p>(\log p)^A\).  There is no conflict with the
+almost-all upper bounds.  If
+
+\[
+ E_A(N)=\{p\leq N:p\hbox{ prime},\ W(p)>(\log N)^A\},
+
+the fixed-polylogarithmic part of Corollary 51.3 (with its stated internal
+review qualification) and Theorem 54.1 give the two-sided summary
+
+\[
+ \begin{array}{ll}
+ \#E_A(N)=o(\pi(N))&(A>0;\ \text{Corollary 51.3}),\\
+ \#E_A(N)\geq1\ \hbox{ for infinitely many }N
+        &(0<A<1;\ \text{Theorem 54.1}).
+ \end{array}                                                \tag{54.5}
+\]
+
+One may take \(N\) to be the selected prime.  The same sets have the
+additional cubic upper bound (51.18), with its
+**CLAIMED/PROVISIONAL** label retained.  The gap is large: for fixed \(T\),
+the exhibited progression has relative Dirichlet density
+
+\[
+ {1\over\varphi(M(T))}=\exp\{-(1+o(1))T\}
+
+down the primes, since \(\log\varphi(M(T))=T+o(T)\).  This is far smaller
+than even \(\exp\{-c(\log T)^3\}\), before accounting for the prime-density
+factor in a count by height.  Thus the new lower side is only nonemptiness
+infinitely often; the true order of \(\#E_A(N)\) for \(0<A<1\) remains
+open.
+
+### 54.2 Type I: simultaneous genus forcing
+
+Put
+
+\[
+ R(T)=\operatorname {lcm}\left(24,
+             \prod_{\substack{\ell\leq T\\ \ell\ \hbox{ prime}}}\ell\right),
+ \qquad \log R(T)=\vartheta(T)+\log4.                       \tag{54.6}
+\]
+
+The displayed identity holds for \(T\geq3\).  This is the squarefree-prime
+version of the modulus in Theorem 50.5, with the powers of 2 and 3 already
+absorbed by 24.
+
+**Theorem 54.3 (Type-I logarithmic lower tail; proved, effective).**  For
+every \(T\geq3\) and every prime \(p\equiv1\pmod {R(T)}\),
+
+\[
+ \chi_s(p)=1\quad(1\leq s\leq T,\ s\ \hbox{ squarefree}),
+ \qquad ck_{\rm pr}(p)>T,
+ \qquad ck_{\min}(p)>T.                                   \tag{54.7}
+\]
+
+In fact \(M_{c,k}(p)=0\) for every admissible slice with \(ck\leq T\), so
+the last inequality does not merely exclude a good prime factor.  There are
+unboundedly many such primes satisfying
+
+\[
+ p\leq C_0R(T)^{5.2}=\exp\{(5.2+o(1))T\},
+ \qquad
+ \limsup_{p\to\infty\atop p\equiv1\ (24)}
+       {ck_{\min}(p)\over\log p}\geq {1\over5.2}>0.19.     \tag{54.8}
+\]
+
+The convention \(ck_{\min}(p)=+\infty\) is allowed in this display.
+
+*Proof.*  For every odd prime \(\ell\leq T\), quadratic reciprocity and
+\(p\equiv1\pmod4\) give
+
+\[
+                 \left({\ell\over p}\right)
+                 =\left({p\over\ell}\right)=1.             \tag{54.9}
+\]
+
+The congruence modulo 24 also gives
+\((2/p)=(-1/p)=(3/p)=1\).  Since the sign and factor 4 in the fundamental
+discriminant \(\Delta_s\) have symbol one at \(p\), multiplicativity over
+the prime factors of a squarefree \(s\leq T\) proves
+\(\chi_s(p)=(\Delta_s/p)=1\).  This is the three-line calculation of
+Theorem 50.5, now with a growing modulus.
+
+If \(ck\leq T\), its core \(s=\operatorname {sf}(c)\) satisfies
+\(s\leq c\leq T\).  Equation (50.3) therefore makes
+\(\mathcal G_p(c,k)\) empty, so no prime divisor can have the target grade;
+and Theorem 48.1 gives \(M_{c,k}(p)=0\) for every admissible such slice.
+All positive pairs with \(ck\leq T\) are in fact admissible here:
+Bertrand's postulate (with \(3\leq T<7\) checked directly) gives
+\(R(T)>4T\), hence \(p>4T\), which supplies the coprimality and size
+conditions in \(\mathcal B_p\).  Thus both minima in (54.7) exceed \(T\).
+
+Apply the same effective Linnik theorem to the reduced class
+\(1\pmod {R(T)}\).  The effective prime number theorem gives
+\(\vartheta(T)=T+o(T)\), while any prime in the class is at least
+\(R(T)+1\).  The argument following (54.3) now proves (54.8). \(\square\)
+
+**Corollary 54.4 (the pointwise Type-I frontier; proved).**  For every
+\(0<A<1\), \(H_{\rm SPF}(A)\) is false; exactly the exponents \(A\geq1\)
+remain open.  More strongly, infinitely many hard primes have no positive
+slice at all with
+
+\[
+              ck\leq(1/(5.2+o(1)))\log p,                 \tag{54.10}
+\]
+
+not merely no one-prime-factor witness there.  For each \(0<A<1\), these
+primes also show that the failure set in Corollary 53.4 is nonempty at
+infinitely many heights, while (53.37) gives its effective almost-all upper
+bound.  Determining the true decay between those two statements is open.
+
+Theorem 48.5 by itself only says that residue one escapes every bounded
+fixed-divisor *guarantee* and explicitly does not imply slice vanishing.
+Theorem 54.3 instead quantifies Theorem 50.5's genus-forced zeros by Linnik;
+it is the effective logarithmic version of the same residue-one escape
+geometry, and a strict strengthening of the non-guarantee conclusion in the
+small box.
+
+**Classical inputs and effectivity.**  Xylouris, *Acta Arith.* **150**
+(2011), 65--91, “On the least prime in an arithmetic progression and
+estimates for the zeros of Dirichlet \(L\)-functions,” proves the usable
+Linnik exponent \(L=5.2\), refining Heath-Brown, *Proc. London Math. Soc.*
+(3) **64** (1992), 265--338.  In this form the implied constant and threshold
+are effectively computable; no ineffective Siegel lower bound is being
+invoked.  Rosser--Schoenfeld, *Illinois J. Math.* **6** (1962), 64--94,
+give the convenient explicit Chebyshev bounds
+\(\psi(x)<1.03883x\) and \(\vartheta(x)<1.01624x\); the classical effective
+prime number theorem supplies the sharper \((1+o(1))x\) used in the limsup.
+Thus every construction above is effective, although no numerical value of
+\(C_0\) is extracted here.
+
+**Honest scope.**  These primes may still have multiplier witnesses or
+positive slices at larger moduli, and they may have Erdős--Straus
+representations by either mechanism; the census in §19 is consistent with
+that expectation.  Nothing here constructs an exceptional denominator,
+changes the conjecture, or weakens the walls in §17.  Theorems 54.1 and 54.3
+only quantify the §17.3/Theorem-50.5 escape phenomena on the logarithmic
+scale.

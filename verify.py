@@ -9630,4 +9630,121 @@ print("\n== (az) stacked slice sieve structure and genus asymmetry (§53) ==")
 check_az()
 
 
+# ---------------------------------------------------------------- (ba)
+def check_ba():
+    """§54: logarithmic Type-II and Type-I residue-one escapes."""
+    import os
+    from sympy import isprime, kronecker_symbol
+
+    def ordinary_divisors(n):
+        values = [1]
+        for q, e in factorint(n).items():
+            values = [d * q**j for d in values for j in range(e + 1)]
+        return values
+
+    # Full Lemma-16.1 harvest for every eligible product modulus in the
+    # required range.  The optional extension duplicates (ax)'s conventions
+    # farther out without making the ordinary verification heavy.
+    modulus_cap = 3000 if os.environ.get("ES_FULL_SCAN") == "1" else 300
+    modulus_classes = {}
+    datum_count = 0
+    for M in range(3, modulus_cap + 1, 4):
+        A = (M + 1) // 4
+        classes = set()
+        for u in ordinary_divisors(A):
+            for v in ordinary_divisors(A // u):
+                w = A // (u * v)
+                assert u * v * w == A and gcd(v, M) == 1
+                # This is the self-contained size contradiction in §54.1.
+                assert 2 <= u + v <= u * v + 1 <= A + 1 < M
+                classes.add((-u * pow(v, -1, M)) % M)
+                datum_count += 1
+        assert 1 not in classes
+        modulus_classes[M] = classes
+    assert len(modulus_classes) == (750 if modulus_cap == 3000 else 75)
+
+    def squarefree(n):
+        return all(e == 1 for e in factorint(n).values())
+
+    def discriminant(s):
+        return -s if (-s) % 4 == 1 else -4 * s
+
+    def admissible(P, C, K):
+        return (gcd(P, C * K) == 1 and 3 * K <= 2 * P
+                and 4 * C * K <= 2 * P + K)
+
+    def direct_slice_mass(P, C, K):
+        """Stream (44.2)'s grade counts for one norm."""
+        h = 4 * C * K
+        factors = factorint(P * P + 4 * C * K * K)
+        grades = Counter({1: 1})
+        for q, e in factors.items():
+            powers = []
+            power = 1
+            for _ in range(e + 1):
+                powers.append(power)
+                power = power * q % h
+            updated = Counter()
+            for grade, count in grades.items():
+                for q_power in powers:
+                    updated[grade * q_power % h] += count
+            grades = updated
+        assert sum(grades.values()) == prod(e + 1 for e in factors.values())
+        target = (-P) % h
+        good_primes = tuple(q for q in factors if q % h == target)
+        return grades[target], good_primes
+
+    # Least primes in the three finite residue-one progressions, found by
+    # direct search and retained as regression constants.
+    expected = ((5, 120, 241), (7, 840, 2521), (11, 9240, 9241))
+    rows = []
+    for T, expected_R, expected_P in expected:
+        R = 24
+        for q in primerange(2, T + 1):
+            R = lcm(R, q)
+        P = 1 + R
+        while not isprime(P):
+            P += R
+        assert (R, P) == (expected_R, expected_P)
+        assert P % R == 1 and P % 24 == 1
+
+        # Check the actual quadratic characters, not only congruences.
+        for s in range(1, T + 1):
+            if not squarefree(s):
+                continue
+            assert jacobi_symbol(s, P) == 1
+            assert kronecker_symbol(discriminant(s), P) == 1
+
+        checked_slices = 0
+        for n in range(1, T + 1):
+            for C in range(1, n + 1):
+                if n % C:
+                    continue
+                K = n // C
+                assert admissible(P, C, K)
+                mass, good_primes = direct_slice_mass(P, C, K)
+                assert mass == 0 and not good_primes
+                checked_slices += 1
+        rows.append((T, R, P, checked_slices,
+                     round(log(P) / log(R), 9)))
+
+    # The T=11 Type-I prime also misses the complete (ax)-style Type-II
+    # harvest through modulus 11, as both residue-one conventions require.
+    P11 = expected[-1][2]
+    below_11 = tuple(M for M in modulus_classes if M <= 11)
+    assert below_11 == (3, 7, 11)
+    assert all(P11 % M == 1 and P11 % M not in modulus_classes[M]
+               for M in below_11)
+
+    print("residue-one Type-II escape (cap,moduli,data) =",
+          (modulus_cap, len(modulus_classes), datum_count))
+    print("Type-I least-prime regressions (T,R,p,slices,log p/log R) =", rows)
+    print("INFO finite least-prime ratios versus effective Linnik L=5.2 =",
+          tuple(row[-1] for row in rows))
+
+
+print("\n== (ba) logarithmic lower tails (§54) ==")
+check_ba()
+
+
 print("\nall checks passed")
