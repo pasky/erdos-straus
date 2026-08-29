@@ -11737,8 +11737,7 @@ For an odd prime \(p\), the \(c=1\) contribution to \(T_I(p)\) is
 
 \[
  T_{c=1}(p)=\sum_{1\leq k\leq\lfloor2p/3\rfloor}
- \ \sum_{[\alpha]\mid p+2ki\ {
-m in}\ \mathbb Z[i]}
+ \ \sum_{[\alpha]\mid p+2ki\ \text{ in }\mathbb Z[i]}
  {f1}_{N(\alpha)\equiv-p\pmod {4k}},                       \tag{36.10}
 \]
 
@@ -11916,8 +11915,7 @@ is exactly the nonprimitive expansion recorded in §32.3.  Consequently
 with both sides ordered in the two non-\(p\) denominators, while
 
 \[
- T_I(p)=\sum_{(A,B,C,K)\ {
-m primitive,ordered}}
+ T_I(p)=\sum_{(A,B,C,K)\ \text{primitive, ordered}}
              \prod_{\ell^e\parallel C}(\lfloor e/2\rfloor+1). \tag{36.21}
 \]
 
