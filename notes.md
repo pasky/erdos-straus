@@ -18535,7 +18535,10 @@ also absorbed.  This proves (51.6). \(\square\)
 
 **Theorem 51.2 (master witness-modulus tail; proved internally with the exact
 status below).**  There are effectively computable positive constants such
-that the following two statements hold.
+that the following two statements hold.  Throughout this theorem and
+Corollary 51.3, every set counted with the variable \(p\) is restricted to
+primes.  *(wave-18 review repair: the displayed sets had omitted this scope,
+while the proof uses the prime coprimality selector.)*
 
 1. **Fixed-polylogarithmic supply, no Theorem 34.8.**  Uniformly when
    \[
@@ -18684,9 +18687,35 @@ Deleting moduli divisible by the one exceptional conductor removes exactly
 the imprimitive characters induced by it.  Summing the effective pieces is
 the standard Bombieri--Vinogradov proof (for example the Vaughan-identity and
 large-sieve treatment in Chapters 24 and 28 of Davenport's *Multiplicative
-Number Theory*).  This
-also explains why merely restricting \(q\) to a polynomially large interval
-does not prove (51.20) without its divisibility exclusion. \(\square\)
+Number Theory*).
+
+*(wave-18 review repair.)*  Here is the induced-character count suppressed in
+that standard reduction.  Choose the small-conductor cutoff
+\(R=(\log x)^{B_0}\).  Away from the Page character, the explicit formula is
+effective and uniform for \(x\leq y\leq2x\), and gives, for primitive
+\(\chi^*\) of conductor \(r\leq R\),
+\[
+             |\psi(y,\chi^*)|\ll y\exp\{-c\sqrt{\log x}\}.
+\]
+Moreover
+\[
+ \sum_{\substack{q\leq Q\\r\mid q}}{1\over\varphi(q)}
+ \leq {1\over\varphi(r)}
+       \sum_{m\leq Q/r}{1\over\varphi(m)}
+ \ll {\log(2Q)\over\varphi(r)}.
+\]
+Since there are at most \(\varphi(r)\) primitive characters of conductor
+\(r\), summing over all \(r\leq R\) costs only
+\(O(R\log(2Q))\), which is absorbed by the exponential saving; the elementary
+errors from induction are smaller.  The finitely many fixed conductors,
+including 4, are checked effectively before Page is applied, so the selected
+unresolved conductor may be taken different from 4.  For the dyadic
+\(\pi\)-form, select the Page conductor once using the upper endpoint
+\(2x\) and use the preceding estimate uniformly on \([x,2x]\) before
+partial summation.  Thus two endpoint applications never introduce two
+different deleted conductors.  This also explains why merely restricting
+\(q\) to a polynomially large interval does not prove (51.20) without its
+divisibility exclusion. \(\square\)
 
 For completeness, the supply survives that exclusion.
 
