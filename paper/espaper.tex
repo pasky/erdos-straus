@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v5, 29 August 2026}
+\date{Draft v6, 29 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -61,7 +61,14 @@ expert review.  A separate, completely written internal layer gives
 \]
 because this too would improve the published general-numerator benchmark,
 it remains \textsc{claimed/provisional} pending external priority and
-referee checks, although it assumes no unproved hypothesis.
+referee checks, although it assumes no unproved hypothesis.  We further
+blind-adjudicate an exact, record-adjacent \textsc{claimed/provisional}
+effectivity perimeter, prove a two-scale tail for the minimal Type-II
+witness modulus $W$ (cubic variant \textsc{claimed/provisional}), and prove
+fixed-slice and stacked Type-I almost-all theorems.  Effectively, (50.7)
+fails on at most an
+$\exp\{-c_A(\log\log X)^{3/2}/\sqrt{\log\log\log X}\}$ proportion of hard
+primes for fixed $0<A<1$; no pointwise result follows.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -117,7 +124,11 @@ Theorem~\ref{thm:pruned}, has the same provisional status, and the general
 form inherits the source \S39.7 qualifications.  Its exact statement is
 Theorem~\ref{thm:general-three-quarter};
 Theorem~\ref{thm:general-three-quarter-conservative} records the weaker
-linear-thinning replay.
+linear-thinning replay.  Beyond the records, Theorems~\ref{thm:witness-tail}
+and~\ref{thm:effectivity} give the exact $W$ windows and effectivity
+perimeter, while Theorem~\ref{thm:per-slice-sieve} and
+Corollary~\ref{cor:almost-all-SPF} give the fixed-slice and stacked
+almost-all frontiers.  None is pointwise.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -137,8 +148,11 @@ fixed-divisor progression law and its residue-one escape, while keeping
 pointwise Type-I existence open.  Section~\ref{sec:conditional-slices}
 then proves the one-prime-factor criterion, states the bespoke unproved
 slice-factor hypothesis, and audits why the named standard hypotheses do
-not supply its pointwise quantifier.  Finally,
-Section~\ref{sec:dispersion-frontier} gives the endpoint sparsity,
+not supply its pointwise quantifier.  Sections~\ref{sec:witness-tail}--
+\ref{sec:stacked-sieve} add the witness tail, effectivity/priority register,
+fixed-slice sieve, and effective stacked almost-all theorem, without removing
+a pointwise obstruction.  Finally, Section~\ref{sec:dispersion-frontier}
+gives the endpoint sparsity,
 Kloosterman-fraction audit, widened prefix and large-$c$ wedge, and exact
 open collision remainder.  The composite frontier records both successive
 refutations: the divisor cube kills the raw hierarchy, and the maximal
@@ -149,10 +163,10 @@ partition-function correspondence
 
 Labels are part of the assertions.  ``Proved'' means proved internally in
 this draft.  ``Open'' means no proof is claimed.  The record results in
-Sections~\ref{sec:records}--\ref{sec:general-m} remain
-\textsc{claimed/provisional}: writing out their internal arguments and
-recording internal reviews does not replace independent external priority
-and referee checks.  In particular, no result of this paper proves the
+Sections~\ref{sec:records}--\ref{sec:general-m}, the cubic witness tail,
+and Theorem~\ref{thm:effectivity} remain \textsc{claimed/provisional} as
+labelled: writing out their internal arguments and recording internal
+reviews does not replace independent external priority and referee checks.  In particular, no result of this paper proves the
 Erd\H{o}s--Straus conjecture.
 
 The historical comparison is also provisional.  Vaughan's 1970 bound
@@ -2026,6 +2040,21 @@ hypothesis, and streamed-census boundaries.  These are internal reviews and
 computational bug hunts, not external validation of either provisional
 record.
 
+Wave 18's separate hostile reviews of the witness/effectivity and per-slice
+sections both returned \textsc{sound-after-repairs}: they repaired prime
+scope and the induced-character/dyadic-conductor ledger, and replayed the
+three local classes, exact exponent, elementary remainder, fixed-refinement
+corollary, and ineffective uniform scope.  Wave 19's stacked-sieve review
+returned the same verdict after repairs to the overlap threshold, empty Page
+branch, growing-dimensional sieve ledger, and varying-cutoff inclusion; it
+confirmed Theorem 53.3 as proved and effective.  The attested-blind protocol
+in Section~\ref{sec:witness-tail} was adjudicated
+\textsc{converged-with-divergences}: exact tails and effectivity converged,
+but its ancillary-$o(1)$ overclaim was rejected and no label changed.
+Blocks \texttt{(ax)}--\texttt{(az)} check respectively the $W$ tail, the
+fixed-slice sieve, and stacked geometry.  These three hostile reviews, the
+adjudication, and all finite checks remain internal, not external validation.
+
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
 \begin{equation}\tag{43.1}
@@ -2673,9 +2702,11 @@ factorization conclusion in its standard form.  The audit makes the
 quantifier failure exact.  Two proved walls sharpen the earlier slice
 analysis: prime values of the norm have the wrong grade, and any bounded
 collection of squarefree cores is simultaneously genus-forced on infinitely
-many hard primes.  The deliverable is a rigorous conditional reduction and
-a map of its missing input, not an unconditional theorem and not a claim
-that a standard conjecture secretly settles Erd\H{o}s--Straus.
+many hard primes.  This section's deliverable is a rigorous conditional
+reduction and a map of its missing pointwise input.  The later stacked sieve,
+Theorem~\ref{thm:growing-stack}, proves an almost-all form but still does not
+settle that pointwise quantifier or claim that a standard conjecture secretly
+settles Erd\H{o}s--Straus.
 
 \subsection{The good prime-factor class and exact reduction}
 Fix a hard prime $p$, an admissible slice $(c,k)\in\mathcal B_p$, and write
@@ -2982,9 +3013,10 @@ The proved obstructions are Lemma~\ref{lem:prime-norm},
 Theorem~\ref{thm:bounded-core}, the fixed-divisor escape
 Theorem~\ref{thm:slice-residue-one}, and the exact pairing (50.15).  The
 claims about named hypotheses are assessments of their standard
-conclusions, not logical independence theorems.  The conditional frontier
-is (50.7); replacing ``prime factor'' by ``divisor'' returns the open
-unrestricted depth criterion.
+conclusions, not logical independence theorems.  The pointwise frontier
+remains (50.7), but Corollary~\ref{cor:almost-all-SPF} proves that its
+failure set is triple-logarithmically small.  Replacing ``prime factor'' by
+``divisor'' returns the open unrestricted depth criterion.
 
 For finite comparison define
 \begin{equation}\tag{50.18}
@@ -3020,9 +3052,813 @@ primes and is larger for $74$.  The largest gap is $55$ at $p=23689$:
 $ck_{\min}=11$ but $ck_{\rm pr}=66$, witnessed by
 $(c,k,q)=(33,2,77951)$.  The largest $ck_{\rm pr}$ is $78$ at $p=9601$.
 The optional memory-bounded scan over the $1181$ hard primes below $10^5$
-has maximum $282$ at $p=83689$.  These observations support no growth law
-and are not evidence for $H_{\rm SPF}$.  The verification factors one norm
-at a time and stores at most one residue set of size $4ck$.
+has maximum $282$ at $p=83689$.  These observations support no pointwise
+growth law; the later almost-all theorem does not use them.  The verification
+factors one norm at a time and stores at most one residue set of size $4ck$.
+
+\begingroup
+\setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+\setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+\setlength{\abovedisplayshortskip}{2pt plus 1pt}
+\setlength{\belowdisplayshortskip}{4pt plus 1pt minus 1pt}
+\linespread{0.97}\selectfont
+\section{Witness-modulus tails and the effectivity repair}
+\label{sec:witness-tail}
+For a prime, or any positive integer, $p$, define
+\begin{equation}\tag{51.1}
+ W(p)=W_{\rm II}(p)=\min k\ell,
+\end{equation}
+where the minimum is over positive $k,\ell,u,v,w$ satisfying
+\begin{equation}\tag{51.2}
+ k\ell\equiv3\pmod4,\qquad \frac{k\ell+1}{4}=uvw,
+ \qquad p\equiv-uv^{-1}\pmod {k\ell}.
+\end{equation}
+Put $W(p)=+\infty$ if there is no such tuple; no general finiteness
+assertion is made.  Lemma~\ref{lem:multiplier} says exactly that $W(p)\leq T$
+supplies an explicit representation with multiplier modulus at most $T$.
+The definition allows composite $\ell$, although the proof uses a prime
+subfamily.
+
+\subsection{Parameterized truncation and the master tail}
+Write $t=\log X$, let $K\geq K_0$, and suppose that the canonical dyadic
+boxes (39.2)--(39.3) furnish, uniformly in every
+$\mathcal J\subseteq\{k\leq K:k\equiv1\pmod4\}$ containing $1$ and every
+reduced compatible fibre $c$,
+\begin{equation}\tag{51.3}
+ \sum_{X^{1/2}<\ell\leq X}\frac{f_{c;\mathcal J}(\ell)}\ell
+ \asymp t^2h(\mathcal J),\qquad
+ h(\mathcal J)=\sum_{k\in\mathcal J}\frac{\varphi(k)}{k^2}.
+\end{equation}
+Put
+\begin{equation}\tag{51.4}
+                         \mu=t^2\log K.
+\end{equation}
+
+\begin{lemma}[truncated $c$-free assembly; proved internally, with the
+provisional review status of the fixed-$c$-free chain]
+\label{lem:truncated-cfree}
+Assume (51.3), $KX\leq T$, $\log K\ll t$, and
+\begin{equation}\tag{51.5}
+                         \log N\geq C\mu t.
+\end{equation}
+Then, with effective constants whenever the supply constants in (51.3) are
+effective,
+\begin{equation}\tag{51.6}
+ \#\{p\leq N:p\text{ prime},\ W(p)>T\}
+       \ll N\exp\{-c\mu\}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Use the atoms (39.2)--(39.4), all of modulus at most $KX\leq T$.
+Lemma~\ref{lem:cfree}'s geometry needs only $u,v\leq X^{1/6}$ and
+$4uv>4H^2>K$.  The profile and exact CRT/Euler induction replay as
+\begin{equation}\tag{51.7--51.8}
+ W_{k,a}(g)\ll\frac{t^2}{\varphi(g)}\frac{\varphi(k)^2}{k^3},
+ \qquad \mathbb E(H_X)_m\leq(C\mu)^m.
+\end{equation}
+for every needed order.  With $y=B\mu$, the bad fibres cost
+$\exp\{-\eta B\mu+O(1)\}$, while the others have
+$h(\mathcal J_c)\gg\log K$; (51.3) therefore gives
+$\Pr(H_X=0\mid S_y=1)\leq e^{-c\mu}$.  The fixed-polylog lower proof of
+Lemma~\ref{lem:prime-harvest} and the cubic proof of
+Theorem~\ref{thm:pruned} both supply exactly these canonical dyadic boxes.
+
+Take the least even $r\geq D_B\mu$.  The same Bonferroni factorial tail has
+CRT mean $O(e^{-c\mu})$ and ledger
+\begin{equation}\tag{51.11}
+ \deg=O(\mu),\qquad \log d_{\rm term}=O(\mu t),\qquad
+ \log\sum|c_{\rm term}|=O(\mu t).
+\end{equation}
+Since $y<X^{1/2}$ and the atom count has logarithm $O(t)$, (51.5) absorbs
+rounding and the primes at most $\max(K,y)$.
+\end{proof}
+
+\begin{theorem}[master witness-modulus tail; proved internally with the
+exact status below]\label{thm:witness-tail}
+There are effectively computable positive constants such that the following
+hold.  Every set counted with variable $p$ in this theorem and
+Corollary~\ref{cor:witness-polylog} is restricted to primes.
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item \textbf{Fixed-polylogarithmic supply, without
+Theorem~\ref{thm:pruned}.}  Uniformly when
+\begin{equation}\tag{51.12}
+ 3\leq T,\qquad
+ \log N\geq C\{1+(\log T)^3\log(2+\log T)\},
+\end{equation}
+one has
+\begin{equation}\tag{51.13}
+ \#\{p\leq N:W(p)>T\}
+ \ll N\exp\{-c(\log T)^2\log(2+\log T)\}.
+\end{equation}
+This is unconditional in the no-unproved-hypothesis sense and does not
+inherit Theorem~\ref{thm:pruned}; it does inherit the campaign's
+provisional-review qualification on the Section~\ref{sec:cfree} moment and
+Bonferroni machinery.
+\item \textbf{Cubic supply.}  Fix $0<\kappa<1/240$.  Uniformly when
+\begin{equation}\tag{51.14}
+ 3\leq T,\qquad \log N\geq C_\kappa\{1+(\log T)^4\},
+\end{equation}
+one has
+\begin{equation}\tag{51.15}
+ \#\{p\leq N:W(p)>T\}
+ \ll_\kappa N\exp\{-c_\kappa(\log T)^3\}.
+\end{equation}
+This statement inherits Theorem~\ref{thm:pruned} and is
+\textsc{claimed/provisional}.
+\end{enumerate}
+Both estimates are uniform throughout the simpler common range
+\begin{equation}\tag{51.16}
+                    3\leq T\leq\exp\{c(\log N)^{1/4}\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For (1), set $X=T^{1/2}$ and
+$K=\lfloor(\log X)^5\rfloor$, with fixed adjustments below the asymptotic
+threshold.  Then $KX\leq T$, $\log K\asymp\log t$, and the canonical-box
+proof of \eqref{eq:mult-mass} supplies (51.3).  Thus
+$\mu\asymp t^2\log t$ and (51.5) is (51.12).  For (2), use the same $X$
+and $K=\lfloor X^\kappa\rfloor$.  Theorem~\ref{thm:pruned} supplies (51.3),
+$\mu\asymp t^3$, and (51.5) becomes (51.14).  Bounded $T$ is absorbed by
+enlarging the implied constants.
+\end{proof}
+At $T=\exp\{\alpha(\log N)^{1/4}\}$, (51.15) is
+$N\exp\{-c(\log N)^{3/4}\}$, exactly the prime part of (39.35) up to
+constants.  This is a consistency check, not a new record.
+
+\begin{corollary}[polylogarithmic tails; same status as
+Theorem~\ref{thm:witness-tail}]\label{cor:witness-polylog}
+For each fixed $A>0$,
+\begin{equation}\tag{51.17}
+ \#\{p\leq N:W(p)>(\log N)^A\}
+ \ll_A N\exp\{-c_A(\log\log N)^2\log\log\log N\},
+\end{equation}
+unconditionally and without Theorem~\ref{thm:pruned}.  The cubic supply
+gives the additional \textsc{claimed/provisional} estimate
+\begin{equation}\tag{51.18}
+ \#\{p\leq N:W(p)>(\log N)^A\}
+ \ll_A N\exp\{-cA^3(\log\log N)^3\}.
+\end{equation}
+\end{corollary}
+The $(\log\log N)^3$ exponent shape at polylogarithmic depth has the
+near-simultaneous independent antecedent Dahan
+\cite[Theorem~4.17]{Dahan} for a different two-parameter $(u,a)$
+search-depth statistic without a genus gate; his printed $o(1)$ is
+explicitly ineffective.  Equations (51.17)--(51.18) instead bound the
+minimal congruence modulus $W$, and Lemmas~\ref{lem:effective-BV}--
+\ref{lem:conductor-deletion} give effective constants subject to the
+labels displayed here.  This priority distinction is part of the statement,
+not an assertion that the statistics are interchangeable.
+
+The formulas are interpreted beyond a fixed large threshold.  The same
+bounds hold with cutoff $(\log p)^A$: split at $N^{1/2}$, use comparable
+logarithms on the upper half, and absorb the lower half.  Define
+\begin{equation}\tag{51.19}
+ H_{\rm MOD}(A):\qquad W(p)\leq(\log p)^A
+                 \quad\hbox{for every sufficiently large prime }p.
+\end{equation}
+This unproved pointwise hypothesis implies eventual prime solvability by
+Lemma~\ref{lem:multiplier}; the tail does not make its failure set empty.
+It is not equivalent to $H_{\rm SPF}(A)$: the former is the Type-II
+multiplier statistic (51.1), while the latter is the Type-I factor-in-one-
+specified-grade assertion (50.7).  Neither hypothesis implies the other as
+stated, although each implies an eventual representation.  Thus (39.35)
+and $H_{\rm MOD}$ are respectively a tail and a pointwise question for the
+same $W$; $H_{\rm SPF}$ is a different frontier.
+
+\subsection{Effective class supply away from one conductor}
+The lower half of the fixed-polylogarithmic supply uses
+Bombieri--Vinogradov, not merely the elementary box calculation.  Large
+composite progression moduli do not remove a possible Siegel zero, because
+their characters may be induced from a small primitive conductor.  The
+needed effective form is the following.
+
+\begin{lemma}[effective Bombieri--Vinogradov away from one conductor;
+standard cited input with dependency proof]\label{lem:effective-BV}
+For every $A>0$ there are effectively computable $B,C,x_0$ such that, for
+$x\geq x_0$ and $Q\leq x^{1/2}/(\log x)^B$, there is either no exceptional
+conductor or one real primitive conductor $r_x\geq3$ for which
+\begin{equation}\tag{51.20}
+ \sum_{\substack{q\leq Q\\r_x\nmid q}}
+ \max_{(a,q)=1}\left|\psi(x;q,a)-\frac{x}{\varphi(q)}\right|
+ \leq\frac{Cx}{(\log x)^A}.
+\end{equation}
+The same statement holds for dyadic $\pi$-differences by effective partial
+summation.
+\end{lemma}
+\begin{proof}
+Lenstra--Pomerance \cite[Lemma~11.2, pp.~1258--1260]
+{LenstraPomerance} give computable absolute constants, one excluded
+$s(x)\in[(\log x)^{1/2},e^{\sqrt{\log x}}]$, maxima over
+$2\leq y\leq x$ and reduced residues, and error
+$Cx^{1/2}Q(\log x)^5+Cxe^{-c\sqrt{\log x}}$ over $s(x)\nmid q$.
+Restricting to $Q\leq x^{1/2}(\log x)^{-B}$, and enlarging smaller $Q$ to
+$x^{1/3}\log x$, proves (51.20); the maximum in $y$ fixes one conductor
+through a dyadic interval.
+
+For completeness, set $R=(\log x)^{B_0}$.  Away from Page, the effective
+explicit formula gives $|\psi(y,\chi^*)|\ll ye^{-c\sqrt{\log x}}$ uniformly
+on $[x,2x]$, while
+$\sum_{q\leq Q,\ r\mid q}1/\varphi(q)\ll\log(2Q)/\varphi(r)$.
+At most $\varphi(r)$ primitive characters have conductor $r$, so all
+$r\leq R$ cost $O(R\log(2Q))$; the exponential saving absorbs this.
+Vaughan's identity and the large sieve handle larger conductors.  Fixed
+conductors, including $4$, are checked effectively, and selecting Page at
+$2x$ prevents two endpoint deletions.
+\end{proof}
+
+\begin{lemma}[exceptional-conductor deletion tolerance; proved]
+\label{lem:conductor-deletion}
+In the boxes used for \eqref{eq:mult-mass}, let $r>1$ be a primitive real
+character conductor.  Apart from the explicitly harmless conductor $4$,
+there is a prime $p\mid r$ (or $p=2$ when the required extra factor is the
+third power of $2$) such that
+\begin{equation}\tag{51.21}
+                  p\nmid uv\quad\Longrightarrow\quad r\nmid4uv.
+\end{equation}
+Uniformly in $c,k$, the pairs satisfying (51.21) retain a fixed positive
+proportion of the harmonic box mass.  The low-$\omega$ cutoff may be chosen
+so that it and (51.21) retain a fixed positive proportion simultaneously.
+The same remains true after the low-congestion pruning of
+Theorem~\ref{thm:pruned}.
+\end{lemma}
+\begin{proof}
+A primitive real conductor is the absolute value of a fundamental
+discriminant.  Choose an odd prime factor, or $p=2$ for conductor $8$;
+conductor $4$ is handled effectively directly.  Fix $k$.  If $p\mid k$,
+the condition $(uv,k)=1$ already excludes $p$.  If $p\nmid k$ and
+$p\leq Ck$, the box count with the extra reduced conditions modulo $p$
+retains the local proportion
+\begin{equation}\tag{51.22}
+ \frac{(1-1/p)^2}{1-1/p^2}=\frac{p-1}{p+1}\geq\frac13,
+\end{equation}
+and $H=K^{10}$ absorbs the boundary for combined modulus at most $Ck^2$.
+If $p>Ck$, direct counting of the discarded pairs with $p\mid u$ or
+$p\mid v$ costs $O(1/(pk))$ against main term
+$\asymp\varphi(k)/k^2$, a ratio $O(k/(p\varphi(k)))=O(1/C)$; endpoint
+errors are absorbed as before.  Choose $C$ large.  Increasing the fixed
+Rankin cutoff makes the high-$\omega$ tail smaller than any prescribed
+fixed fraction, and the high-incidence triples have $o(1)$ of the original
+mass by Lemma~\ref{lem:incidence}.  Both deletions therefore leave the same
+order of mass.
+\end{proof}
+
+\begin{theorem}[effectivity of the repaired chains; proved internally,
+record-adjacent and therefore \textsc{claimed/provisional}]
+\label{thm:effectivity}
+The constants in the source class-mass conclusions (16.8) and
+(34.18)--(34.19), in source Theorems 16.4 and 39.7
+(paper Theorems~\ref{thm:record} and~\ref{thm:three-quarter}), and in
+Theorem~\ref{thm:witness-tail} may all be taken effectively computable.
+The record statement retains every correctness and priority qualification
+already attached to Theorem~\ref{thm:three-quarter}.
+\end{theorem}
+\begin{proof}
+In each dyadic prime block apply Lemma~\ref{lem:effective-BV}; if its
+exceptional conductor exists, retain only triples with $r_x\nmid4uv$.
+Lemma~\ref{lem:conductor-deletion} preserves the full order of box mass,
+uniformly in every subfamily and fibre.  This retained subfamily proves the
+original lower class-mass conclusion.  All downstream choices in the
+larger sieve, exact CRT moments, Chernoff estimate, Bonferroni polynomial,
+integer class counting, and Rankin semigroup transfer are finite and
+effective.
+\end{proof}
+The perimeter is deliberately narrow.  The first sentence of
+Theorem~\ref{thm:pruned} also contains the source Theorem 34.8 ancillary
+$o(1)$ bound for the absolute progression-error sum over \emph{all}
+low-congestion triples.  Excluded-conductor deletion effectivizes the class
+supply (34.18)--(34.19), not that all-triples $o(1)$ as printed.  The
+exceptional-set chain uses the class supply only.  Thus
+Theorem~\ref{thm:effectivity} is not an effectivity upgrade of every clause
+of Theorem~\ref{thm:pruned}.
+
+\subsection{Pomerance--Weingartner, priority, and blind adjudication}
+Pomerance--Weingartner \cite[\S4]{PomeranceWeingartner} prove for their
+$k=1$ forced classes
+\begin{equation}\tag{51.24}
+                  \sum_{\ell\leq X}\frac{f(\ell)}\ell
+                  \asymp(\log X)^2.
+\end{equation}
+Stopping their larger-sieve argument at prime modulus $T$ gives
+\begin{equation}\tag{51.25}
+ \#\{p\leq N:W_{\rm PW}(p)>T\}
+ \ll N\exp\{-c(\log T)^2\},\qquad
+ \log N\geq C(\log T)^3,
+\end{equation}
+where $W_{\rm PW}$ measures that subfamily.  It is also a weaker tail for
+$W$.  Their lower class mass explicitly uses Bombieri--Vinogradov after a
+polylogarithmic multiplicity bound, their upper mass uses
+Brun--Titchmarsh, and their $N$-side is the elementary larger sieve and
+Rankin truncation.  Thus PW already contains the square-log truncated tail;
+the campaign-derived one-conductor deletion makes the fixed-$m=4$ supply
+effective, but PW do not print that repair, and no uniform varying-$m$
+effectivity is claimed when the exceptional conductor divides $m$.
+The resulting tail exponents are $(\log T)^2$ for the proved PW $k=1$
+truncation, $(\log T)^2\log\log T$ for the unconditional fixed-polylog
+multipliers with the Section~\ref{sec:cfree} review qualification, and
+$(\log T)^3$ for the \textsc{claimed/provisional} power multipliers.
+Vaughan's 1970 paper remains inaccessible to this campaign; this is a
+comparison with PW's reconstruction, not a direct audit of Vaughan.
+Searches found no paper explicitly claiming an effective Vaughan-strength
+constant or a Siegel-free proof, but that is a search result, not a
+literature guarantee.  PW Theorem 1.3 says only ``There is an absolute
+positive constant $C$,'' not that it or the threshold is computable; their
+Section 4 says ``We now use the Bombieri--Vinogradov theorem.''  They do not
+perform the effectivity repair.
+Dahan's statistic and cubic-shape priority are distinguished immediately
+after (51.18).
+
+The attested-blind protocol used branch \texttt{blind51}; base
+\texttt{4dcf3b7e}\allowbreak\texttt{1e10e31f}\allowbreak\texttt{529f5e28}\allowbreak\texttt{62a2aa23}\allowbreak\texttt{c0820bb6}; freeze
+\texttt{7ecd7d51}\allowbreak\texttt{4ae379e9}\allowbreak\texttt{c90d6a7b}\allowbreak\texttt{292d11e8}\allowbreak\texttt{0840b360}; and artifact
+\texttt{blind51.md}, SHA-256
+\texttt{b0a4a27d}\allowbreak\texttt{ba52fb56}\allowbreak\texttt{3b466742}\allowbreak\texttt{7f2200cc}\allowbreak\texttt{98e670c2}\allowbreak\texttt{7e8fff39}\allowbreak\texttt{0aa846b1}\allowbreak\texttt{039c8b7c}.
+Read isolation is self-attested.  Adjudication was
+\textsc{converged-with-divergences}: both tails, windows, the
+Section~\ref{sec:cfree} replay, conductor repair, (39.35), and PW truncation
+converged, but the blind side overclaimed effectivity of the ancillary
+all-triples $o(1)$.  The paper's narrower perimeter is correct; no label
+changed.
+
+\section{Per-slice vanishing frequency and the empty third layer}
+\label{sec:slice-sieve}
+The moving genus obstruction is the last fixed-congruence obstruction for
+one fixed slice.  On every reduced hard class where the genus permits
+positivity, an upper-bound sieve makes residual vanishing relatively sparse.
+This is a proved, nonprovisional per-slice almost-all result, not a pointwise
+bound or a stack over growing slices.  Here ``hard'' still means prime and
+$1\pmod {24}$.
+
+\subsection{The fixed-slice sieve}
+Fix positive $c,k$ and put
+\begin{equation}\tag{52.1}
+ c=st^2,\qquad s=\operatorname {sf}(c),\qquad
+ h=4ck,\qquad Q=\lcm(24,h).
+\end{equation}
+\begin{theorem}[per-slice sieve upper bound; proved]
+\label{thm:per-slice-sieve}
+Suppose $s\notin\{1,2,3,6\}$.  Fix a reduced class $a\pmod Q$ such that
+\begin{equation}\tag{52.2}
+ a\equiv1\pmod {24},\qquad (a,h)=1,\qquad \chi_s(a)=-1.
+\end{equation}
+Then
+\begin{equation}\tag{52.3}
+ \#\{p\leq X:p\text{ prime},\ p\equiv a\pmod Q,
+                    \ M_{c,k}(p)=0\}
+ \ll_{c,k}\frac{X}{(\log X)^{1+2/\varphi(h)}}.
+\end{equation}
+The finitely many $p$ for which $(c,k)\notin\mathcal B_p$ are included in
+the implied constant, which is uniform over the finitely many classes
+$a\pmod Q$ satisfying (52.2).
+\end{theorem}
+\begin{proof}
+The contrapositive of Theorem~\ref{thm:one-prime-slice}, followed by the
+genus calculation for every good $q\nmid Q$, is
+\begin{equation}\tag{52.4--52.7}
+ \begin{gathered}
+ M_{c,k}(p)=0\Longrightarrow
+ p^2+4ck^2\text{ has no prime divisor }q\equiv-a\pmod h,\\
+ \chi_s(q)=\chi_s(-a)=1,
+ \qquad \left(\frac{-4ck^2}{q}\right)
+ =\left(\frac{\Delta_s}{q}\right)=1,\\
+                         n^2\equiv-4ck^2\pmod q.
+ \end{gathered}
+\end{equation}
+The last congruence has exactly two distinct nonzero roots because
+$4,k^2,t^2$ are nonzero squares modulo $q$.
+
+Sieve $\mathcal A=\{n\leq X:n\equiv a\pmod Q\}$ by removing zero at every
+$\ell\nmid Q$ and the two roots at every good $q$.  For squarefree
+$d$ prime to $Q$, CRT and $\rho(\ell)\leq3$ give
+\begin{equation}\tag{52.8--52.10}
+ \#\mathcal A_d=\frac{X\rho(d)}{Qd}+O(\rho(d)),\qquad
+ \sum_{d\leq D}\mu^2(d)\rho(d)\ll D(\log D)^2.
+\end{equation}
+The exact dimension is $\kappa=1+2/\varphi(h)<2$.  With fixed sufficiently
+large $u=u(\kappa)$, $D=X^{1/2}$, and $z=D^{1/u}=X^\eta$, the upper
+fundamental lemma gives
+\begin{equation}\tag{52.12}
+ S(\mathcal A,z)\ll_\kappa\frac XQ V(z)
+       +\sum_{d\leq D}\mu^2(d)|r_d|.
+\end{equation}
+This avoids asserting that the endpoint sieve parameter $2$ works for every
+fractional dimension.  The local product is
+\begin{equation}\tag{52.13}
+ V(z)=\prod_{\substack{\ell\leq z\\\ell\nmid Q}}(1-1/\ell)
+ \prod_{\substack{q\leq z\\q\equiv-a\ (h)\\q\nmid Q}}
+       \frac{1-3/q}{1-1/q}.
+\end{equation}
+Mertens in the fixed ray says
+$\sum_{q\leq z,\ q\equiv-a\ (h)}q^{-1}
+=\varphi(h)^{-1}\log\log z+C(h,-a)+o(1)$, whence
+$V(z)\asymp_{c,k,a}(\log z)^{-1-2/\varphi(h)}$.
+The elementary remainder is $O(X^{1/2}(\log X)^2)$ and the $O(z)$ small
+primes are negligible, proving (52.3).
+\end{proof}
+The only analytic inputs are the upper-bound fundamental lemma, ordinary
+Mertens, and Mertens in one fixed reduced progression.  No
+Bombieri--Vinogradov, Siegel--Walfisz, or prime level of distribution is
+hidden: primality is majorized by the zero-class sieve.  For explicitly
+fixed $(c,k,a)$ these constants are effective in principle.
+
+\begin{corollary}[the congruence-level third layer is empty; proved]
+\label{cor:no-third-law}
+Under Theorem~\ref{thm:per-slice-sieve}, let $M'$ be any fixed multiple of
+$Q$ and let $a'\pmod {M'}$ be a reduced refinement of $a\pmod Q$.  The set
+\begin{equation}\tag{52.16}
+                  \{p:p\equiv a'\pmod {M'},\ M_{c,k}(p)=0\}
+\end{equation}
+does not contain all sufficiently large primes in that progression.
+Consequently no prime-bearing arithmetic progression inside an unforced
+slice-class is an identically vanishing progression.
+\end{corollary}
+\begin{proof}
+The fixed-progression prime number theorem gives
+\begin{equation}\tag{52.17}
+ \#\{p\leq X:p\equiv a'\pmod {M'}\}
+ \sim\frac X{\varphi(M')\log X}.
+\end{equation}
+The vanishing set in the refinement is bounded by (52.3), and the extra
+factor $(\log X)^{-2/\varphi(h)}$ tends to zero.
+\end{proof}
+Thus the universal cores $1,2,3,6$ and the moving genus half in
+Theorem~\ref{thm:moving-genus} are the complete congruence-level vanishing
+laws for a fixed slice.  The complementary half has no identically
+vanishing reduced subprogression.  This does not exclude infinitely many
+residual vanishers or a positive slice guaranteed by a fixed divisor.
+
+\begin{proposition}[polylogarithmic uniformity with an epsilon loss; proved,
+ineffective]\label{prop:slice-uniform}
+Fix $\theta>0$ and $0<\epsilon<1$.  Uniformly for slices and reduced classes
+satisfying (52.1)--(52.2) and
+\begin{equation}\tag{52.18}
+                             h\leq(\log X)^\theta,
+\end{equation}
+one has
+\begin{equation}\tag{52.19}
+ \#\{p\leq X:p\equiv a\pmod Q,\ M_{c,k}(p)=0\}
+ \ll_{\theta,\epsilon}
+ \frac X{\varphi(Q)(\log X)^{1+2(1-\epsilon)/\varphi(h)}}.
+\end{equation}
+The implied constant and threshold are ineffective.  No uniformity for
+arbitrary $h=X^{o(1)}$ is asserted.
+\end{proposition}
+\begin{proof}
+Retain the two extra root classes only for good primes in
+\begin{equation}\tag{52.20}
+ y=\exp\{(\log X)^\epsilon\}<q\leq z=X^\eta.
+\end{equation}
+For $q\geq y$, the hypothesis gives
+$h\leq(\log q)^{\theta/\epsilon}$, so Siegel--Walfisz with this fixed
+parameter and partial summation yield uniformly
+\begin{equation}\tag{52.21}
+ \sum_{\substack{y<q\leq z\\q\equiv-a\ (h)}}\frac1q
+ =\frac{(1-\epsilon)\log\log X+O(1)}{\varphi(h)}+o(1).
+\end{equation}
+Ordinary Mertens with primes dividing $Q$ omitted contributes
+$\ll Q/(\varphi(Q)\log z)$.  The coarse uniform dimension-three upper
+sieve and the elementary remainder $O(X^{1/2}(\log X)^2)$ now give
+(52.19).  The usual all-moduli Siegel--Walfisz constants are ineffective,
+which is exactly the label in the statement.
+\end{proof}
+
+\subsection{Finite residual structure and its limits}
+The memory-bounded verifier block \texttt{(ay)} factors one norm at a time
+and checks all $31$ unforced slices with $ck\leq30$ over the $385$ hard
+primes below $30000$; the optional full scan uses all $1181$ below $10^5$.
+The residual frequencies broadly track the fixed-slice log-power scale, but
+this is finite calibration only.
+
+The $74$ strict gaps $ck_{\rm pr}>ck_{\min}$ in the first range contain
+$98$ canonical target divisors at the minimal positive product; the full
+range has $221$ events and $308$ divisors.  Individual divisor shapes are
+$68,24,6$ below $30000$ and $199,93,16$ below $10^5$ for respectively two
+distinct primes, at least three prime factors, and a prime power.  Thus the
+majority mechanism is a product of two individually wrong-grade primes,
+but products of three or more factors and exponent caps are genuine.  For
+example $D=155=5\cdot31$ occurs at $(p,c,k)=(241,11,1)$, $D=75=3\cdot5^2$
+at $p=409$ on that slice, and $D=27=3^3$ at
+$(p,c,k)=(5953,5,1)$.
+
+After conditioning on both genus signs being negative, define
+\begin{equation}\tag{52.26}
+ R(A,B)=\frac{\Pr(M_A=0,M_B=0)}{\Pr(M_A=0)\Pr(M_B=0)}.
+\end{equation}
+Most tested pairs are near one, but stable anticorrelations remain:
+$(5,1)$ with $(5,2)$ gives $.529,.577$ and $(5,1)$ with $(10,1)$ gives
+$.714,.699$ in the two ranges.  Hence approximate independence is a useful
+first calibration for many pairs, not a blanket theorem.  No asymptotic
+constant, simultaneous-factorization law, lower bound for residual
+vanishing, or pointwise conclusion follows.  In particular, the sieve is
+upper-bound only and does not cross the prime-pair parity barrier.
+
+\section{The stacked slice sieve and almost-all $H_{\rm SPF}$}
+\label{sec:stacked-sieve}
+Distinct slice labels can define the same norm: $(5,2)$ and $(20,1)$ both
+have $ck^2=20$.  Their root classes then coincide whenever both ray
+conditions accept the prime.  Quotienting duplicate radicands gives the
+correct fixed-box exponent.  A canonical squarefree-core subfamily has no
+duplicates and proves, for every fixed $A<1$, the effective headline
+\begin{equation}\tag{53.1}
+ \#\mathcal F_A(X)\ll_A\frac X{\log X}
+ \exp\left\{-c_A\frac{(\log\log X)^{3/2}}
+                         {\sqrt{\log\log\log X}}\right\},
+\end{equation}
+where $\mathcal F_A(X)$ is the set of hard primes at which
+$H_{\rm SPF}(A)$ fails.
+It is an almost-all theorem only.  The square-root loss relative to the
+provisional Type-II cubic tail is caused by the Type-I genus-permission
+gate.
+
+\subsection{Duplicate-radicand geometry and the fixed stack}
+For fixed $T\geq1$, put
+\begin{equation}\tag{53.2}
+                  Q_T=\lcm(24,\{4ck:ck\leq T\}).
+\end{equation}
+For integral $T\geq6$, $Q_T=4\lcm(1,\ldots,T)$ and Chebyshev's bounds give
+$\log Q_T=\psi(T)+O(1)=O(T)$.  Let $C\pmod {Q_T}$ be reduced and
+$C\equiv1\pmod {24}$.  Call $(c,k)$ with $ck\leq T$ active at $C$ when
+$\chi_{\operatorname {sf}(c)}(C)=-1$.  The raw sum
+\begin{equation}\tag{53.3}
+ m_{\rm raw}(C)=
+ \sum_{\substack{ck\leq T\\(c,k)\ \text{active at }C}}
+                   \frac2{\varphi(4ck)}
+\end{equation}
+is not the local-density mass.  Put $d=ck^2$ and define
+\begin{equation}\tag{53.4}
+ \mathcal H_d(C)=\{4ck:ck\leq T,\ ck^2=d,
+                              (c,k)\text{ active at }C\}.
+\end{equation}
+For reduced $b\pmod {Q_T}$ set
+\begin{equation}\tag{53.5}
+ \begin{split}
+ J_C(b)&=\#\{d:\exists h\in\mathcal H_d(C),\ b\equiv-C\pmod h\},\\
+ m_\#(C)&=\frac2{\varphi(Q_T)}
+       \sum_{b\in(\mathbb Z/Q_T\mathbb Z)^\times}J_C(b).
+ \end{split}
+\end{equation}
+A radicand is thereby counted once whenever at least one of its rays accepts
+the prime.
+
+\begin{lemma}[root overlap; proved]\label{lem:root-overlap}
+Put $d_i=c_i k_i^2$.  If a root class of
+\begin{equation}\tag{53.6}
+                         x^2\equiv-4d_1\pmod q
+\end{equation}
+coincides with a root class for $d_2$, then
+\begin{equation}\tag{53.7}
+                              q\mid4(d_1-d_2).
+\end{equation}
+Consequently, if $d_1\ne d_2$, all root pairs belonging to slices
+$c_i k_i\leq T$ are disjoint at every odd prime $q>T^2$, and no root is
+zero there.  If $d_1=d_2$, the root sets coincide identically.
+\end{lemma}
+\begin{proof}
+Square a common root and subtract.  At odd $q$ this gives
+$q\mid d_1-d_2$.  Since $d_i=(c_i k_i)k_i\leq T^2$, a nonzero difference
+has absolute value less than $T^2$.  A zero root similarly forces
+$q\mid d_i$; equality of radicands gives identical congruences.
+\end{proof}
+For $(5,2)$ and $(20,1)$ the moduli are $40$ and $80$.  On an active class
+the modulus-$80$ ray lies inside the modulus-$40$ ray, so the corrected
+contribution is $2/\varphi(40)=1/8$, not the raw $3/16$.
+
+Let $E_C(X,z)$ count primes $p\leq X$, $p\equiv C\pmod {Q_T}$, for which
+there is no prime $q\leq z$ and active $(c,k)$, $ck\leq T$, with
+\begin{equation}\tag{53.8}
+ q\mid p^2+4ck^2,\qquad q\equiv-C\pmod {4ck}.
+\end{equation}
+\begin{theorem}[fixed-box stacked sieve; proved, effective]
+\label{thm:fixed-stack}
+For fixed $T$ there is an effective $\eta_T>0$ such that, uniformly over
+the finitely many reduced hard classes $C\pmod {Q_T}$,
+\begin{equation}\tag{53.9}
+                  E_C(X,X^{\eta_T})
+                  \ll_T\frac X{(\log X)^{1+m_\#(C)}}.
+\end{equation}
+The same estimate holds for primes having no good prime factor of any size
+in the box.
+\end{theorem}
+\begin{proof}
+Take $T_0>\max(Q_T,T^2)$ and sieve
+$\mathcal A_C=\{n\leq X:n\equiv C\pmod {Q_T}\}$.  Remove zero at ordinary
+primes and accepted root pairs at $q>T_0$.  The genus calculation supplies
+two roots, and Lemma~\ref{lem:root-overlap} makes distinct radicands
+disjoint, so
+\begin{equation}\tag{53.11--53.12}
+ \rho_C(q)=1+2J_C(q\bmod Q_T),\qquad
+ \#(\mathcal A_C)_d=\frac{X\rho_C(d)}{Q_Td}+O_T(\rho_C(d))
+\end{equation}
+for squarefree $d$ prime to $Q_T$, with multiplicative $\rho_C$.  Effective
+fixed-class Mertens gives
+\begin{equation}\tag{53.13--53.14}
+ \sum_{T_0<q\leq z}\frac{2J_C(q\bmod Q_T)}q
+ =m_\#(C)\log\log z+O_T(1),\qquad
+ V_C(z)\asymp_T(\log z)^{-1-m_\#(C)}.
+\end{equation}
+Apply Friedlander--Iwaniec \cite[Theorem~6.9]{FriedlanderIwaniec} with
+$D=X^{1/2}$ and $z=D^{1/u_T}=X^{\eta_T}$ for sufficiently large fixed
+$u_T$:
+\begin{equation}\tag{53.15}
+ S(\mathcal A_C,z)\ll_T\frac X{Q_T}V_C(z)
+ +\sum_{d\leq D}\mu^2(d)O_T(\rho_C(d)).
+\end{equation}
+Since $\rho_C(\ell)=O_T(1)$, the remainder and small primes are negligible.
+\end{proof}
+For one active slice, $m_\#=2/\varphi(4ck)$, so
+Theorem~\ref{thm:per-slice-sieve} is exactly the one-slice specialization.
+If a class has no active slice, $m_\#=0$ and only the ordinary
+one-dimensional bound remains.  Such escape classes exist for every fixed
+$T$: $C=1\pmod {Q_T}$ is one, and Theorem~\ref{thm:bounded-core} supplies
+infinitely many corresponding primes.
+
+\subsection{Exact genus bits and deterministic permission mass}
+The full raw box has the record-only Selberg--Delange asymptotic
+\begin{equation}\tag{53.16--53.17}
+ \begin{aligned}
+ \mathfrak M(T)&=\sum_{ck\leq T}\frac2{\varphi(4ck)}
+ =\sum_{n\leq T}\frac{2\tau(n)}{\varphi(4n)}
+ \sim C_{\rm sl}(\log T)^2,\\
+ C_{\rm sl}&=\frac12\prod_{p\ \mathrm{odd}}
+ (1-p^{-1})^2\left(1+\frac{p(2p-1)}{(p-1)^3}\right)>0.
+ \end{aligned}
+\end{equation}
+Only the effective bound $\mathfrak M(T)\ll(1+\log T)^2$ is used below.  Retain
+\begin{equation}\tag{53.19--53.20}
+ \mathcal S_T(C)=\{(s,k):s\text{ squarefree},\ sk\leq T,\ \chi_s(C)=-1\},
+ \qquad m_0(C)=\sum_{(s,k)\in\mathcal S_T(C)}\frac2{\varphi(4sk)}.
+\end{equation}
+Their radicands $sk^2$ are distinct.  Quadratic reciprocity gives exactly
+\begin{equation}\tag{53.21}
+ \chi_s(C)=\prod_{\substack{q\mid s\\q\geq5}}
+                         \left(\frac Cq\right).
+\end{equation}
+As $C$ ranges uniformly over reduced hard classes modulo $Q_T$, the bits
+$(C/q)$ for distinct primes $5\leq q\leq T$ are independent uniform signs.
+This is a finite Chinese-remainder theorem identity, not a heuristic: the
+$-1,2,3$ factors are pinned by $C\equiv1\pmod {24}$, and each odd
+prime-power coordinate is independent.
+
+\begin{lemma}[permission-pair mass; proved]\label{lem:permission-mass}
+Suppose $5\leq q\leq T/2$ is prime and $\chi_q(C)=-1$.  Then
+\begin{equation}\tag{53.22}
+                         m_0(C)\gg\frac{\log^2(T/q)}q.
+\end{equation}
+The constant is absolute.  The same estimate, with another absolute
+constant, survives deleting every slice whose modulus $4sk$ is divisible
+by one prescribed primitive real-character conductor $r$, provided
+$q\nmid r$.
+\end{lemma}
+\begin{proof}
+Pair each squarefree $u\leq T/q$, $(u,q)=1$, with $qu$.  Equation (53.21)
+makes exactly one core active.  For $k\leq T/(qu)$ its weight is at least $1/(2quk)$, and M\"obius
+summation gives
+\begin{equation}\tag{53.24}
+ m_0(C)\gg\frac1q
+ \sum_{\substack{u\leq T/q\\u\ \text{ squarefree}\\(u,q)=1}}
+ \frac1u\log\frac{T/q}{u}\gg\frac{\log^2(T/q)}q.
+\end{equation}
+If an exceptional conductor has odd prime factor $\ell$, restrict to
+$\ell\nmid uk$; if it is $8$, restrict the relevant cores and $k$ to odd
+integers.  These restrictions retain fixed Euler factors and ensure
+$r\nmid4sk$.  Conductor $4$ is effectively controlled directly.
+\end{proof}
+Using only core $q$ would provide one logarithm.  Pairing $u$ with $qu$
+provides the second regardless of every later genus bit.
+
+\subsection{The effective growing stack}
+Fix $0<A<1$ and put
+\begin{equation}\tag{53.25}
+ \begin{gathered}
+ T=(\log X)^A,\qquad L=\log\log X,\qquad
+ K_T=C_0(1+\log^2T),\\
+ D=X^{1/3},\qquad z=\exp\left\{\frac{\log D}{BK_T}\right\}.
+ \end{gathered}
+\end{equation}
+where $C_0,B$ are sufficiently large absolute constants.  Then
+\begin{equation}\tag{53.26}
+ \log z\asymp\frac{\log X}{L^2},\qquad
+ \log\log z=L+O(\log L),\qquad
+ \log\log Q_T=AL+O(1),
+\end{equation}
+and $Q_T<z$ for every fixed $A<1$ once $X$ is large.
+
+\begin{theorem}[growing stacked slice sieve; proved, effective]
+\label{thm:growing-stack}
+For every fixed $0<A<1$ there are effectively computable $c_A>0$ and $X_A$
+such that the following holds for $X\geq X_A$.  Let $\mathcal E_A(X)$ be
+the hard primes $p\leq X$ for which there do not exist an active $(c,k)$
+with $ck\leq(\log X)^A$ and a prime $q\leq z$ satisfying
+$q\mid p^2+4ck^2$ and $q\equiv-p\pmod {4ck}$.  Then
+\begin{equation}\tag{53.27}
+ \#\mathcal E_A(X)\ll_A\frac X{\log X}
+ \exp\left\{-c_A\frac{L^{3/2}}{\sqrt{\log L}}\right\}.
+\end{equation}
+The proof uses only the squarefree-$c$ subfamily, so the assertion for all
+slices follows a fortiori.
+\end{theorem}
+\begin{proof}
+Partition into the $\varphi(Q_T)/\varphi(24)$ reduced hard classes modulo
+$Q_T=\exp\{O(T)\}=X^{o(1)}$.  For ray moduli $4sk\leq4T$, effective
+Landau--Page-repaired Siegel--Walfisz leaves at most one primitive real
+conductor $r=r_X$, $|r|\leq4T$.  If it exists retain only
+$r\nmid4sk$; otherwise delete nothing.  Uniformly for retained moduli and
+$x\geq Q_T$, the effective explicit formula is
+$\psi(x;h,a)=x/\varphi(h)+O(xe^{-c\sqrt{\log x}})$.
+
+Write $m_r(C)$ for the retained mass and start root primes above $Q_T$.
+Distinct canonical radicands and partial summation give, uniformly in $C$,
+\[
+ \sum_{\substack{Q_T<q\leq z\\q\equiv-C\ (4sk)}}q^{-1}
+ =\frac{\log\log z-\log\log Q_T}{\varphi(4sk)}
+ +o(1/\varphi(4sk)).
+\]
+The errors over all $O(T\log T)$ labels and the quadratic local terms are
+$o(1)$.  Hence ordinary roughness and the added roots give
+\begin{equation}\tag{53.30}
+ V_C(z)\ll\frac{Q_T}{\varphi(Q_T)\log z}
+ e^{-m_r(C)(\log\log z-\log\log Q_T)+o(1)}
+ \ll_A\frac{L^{O(1)}}{\log X}e^{-c_A m_r(C)L}.
+\end{equation}
+
+The load-bearing uniform-in-dimension input is Friedlander--Iwaniec
+\cite[Theorem~6.9]{FriedlanderIwaniec}.  Under
+\begin{equation}\tag{53.31}
+ \prod_{w\leq\ell<y}(1-g_C(\ell))^{-1}
+ \leq K_0\left(\frac{\log y}{\log w}\right)^{\kappa_C},
+\end{equation}
+if $s=\log D/\log z>9\kappa_C+1$, its main multiplier is
+$1+O(e^{9\kappa_C-s}K_0^{10})$ with an absolute constant.  Here the interval
+prime estimates give absolute $K_0$, $\kappa_C\ll1+m_r(C)\leq K_T$, and
+$s=BK_T$; choose $C_0$ and then $B>9$ with room.  The class remainders,
+crudely dominated with $R_T=O(T\log T)$, and the resulting class average are
+\begin{equation}\tag{53.32--53.33}
+ \begin{gathered}
+ Q_T\sum_{d\leq D}\mu^2(d)O(\rho_C(d))\leq X^{1/3+o(1)},\\
+ \#\mathcal E(X)\ll_A\frac{XL^{O(1)}}{\log X}
+ \frac1{\#\mathcal C_T}\sum_{C\in\mathcal C_T}e^{-c_A m_r(C)L}.
+ \end{gathered}
+\end{equation}
+This sieves integers in each class; no prime number theorem modulo growing
+$Q_T$ is used.
+
+Set $y=L^{3/2}\sqrt{\log L}$ and ignore the $O(L)$ primes dividing $r$.
+Exact genus-bit independence handles delayed permission, while
+Lemma~\ref{lem:permission-mass} handles every other class:
+\begin{equation}\tag{53.35--53.36}
+ \begin{gathered}
+ 2^{-\pi(y)+O(L)}\leq e^{-cy/\log y}
+ \leq e^{-cL^{3/2}/\sqrt{\log L}},\\
+ m_r(C)\gg_A L^2/y,
+ \qquad e^{-c_A m_r(C)L}\leq e^{-c_A L^3/y}
+ =e^{-c_A L^{3/2}/\sqrt{\log L}}.
+ \end{gathered}
+\end{equation}
+Absorb $L^{O(1)}$ in the exponent.  Every threshold after the one-conductor
+deletion is effective.
+\end{proof}
+The balance is exact: delaying the first negative bit beyond $y$ costs
+$\exp\{-cy/\log y\}$, while permission by $y$ costs
+$\exp\{-c_A L^3/y\}$.  The endpoint $A=1$ is excluded both because
+$Q_T=X^{o(1)}$ is then lost and because the remaining Mertens length
+$(1-A)L+O(\log L)$ vanishes.
+
+\begin{corollary}[almost-all $H_{\rm SPF}$; proved, effective]
+\label{cor:almost-all-SPF}
+For each fixed $0<A<1$, if $\mathcal F_A(X)$ is the set of hard primes
+$p\leq X$ at which the event (50.7) fails, then
+\begin{equation}\tag{53.37}
+ \#\mathcal F_A(X)\ll_A\frac X{\log X}
+ \exp\left\{-c_A\frac{(\log\log X)^{3/2}}
+                         {\sqrt{\log\log\log X}}\right\}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+A failure of (50.7) has no good prime of any size.  Fix $A'<A$.  On
+$[X/2,X]$, eventually $(\log X)^{A'}\leq(\log p)^A$, so each failure is
+counted by Theorem~\ref{thm:growing-stack} with $A'$.  Summation over dyadic
+intervals gives (53.37), with constants renamed in terms of $A$.
+\end{proof}
+
+\subsection{The genus-permission asymmetry}
+The honest comparison is: Type I has failure exponent
+$(\log\log X)^{3/2}/\sqrt{\log\log\log X}$ and requires independent genus
+bits; fixed-polylog Type II has exponent
+$(\log\log X)^2\log\log\log X$ and no permission gate; cubic Type II has
+exponent $(\log\log X)^3$, no gate, and remains
+\textsc{claimed/provisional}.  Theorem~\ref{thm:bounded-core}'s escape
+classes are exactly the fixed-box
+extreme of the Type-I row.  The Type-II stack reaches cubic scale because it
+has no permission gate; Type I pays the square root while waiting for the
+first negative genus bit.  Dahan \cite[Theorem~4.17]{Dahan} obtains the
+cubic shape for his different stacked-shift two-parameter $(u,a)$ depth,
+again without a genus gate, and labels its error ineffective.  His statistic
+and the Type-I statistic here are not interchangeable; the Landau--Page
+deletion makes (53.27) effective.
+
+Corollary~\ref{cor:almost-all-SPF} does not prove the pointwise hypothesis,
+bound $D(p)$, remove fixed-box escape progressions, or cross the parity
+barrier.
+\endgroup
 
 \section{Residue-dispersion frontier}\label{sec:dispersion-frontier}
 Put
@@ -3328,6 +4164,12 @@ T.~F. Bloom and C. Elsholtz,
 \emph{Egyptian fractions},
 Nieuw Arch. Wiskd. (5) \textbf{23} (2022), no.~4, 237--245.
 
+\bibitem{Dahan}
+B. Dahan,
+\emph{Sieve dimension and search depth for the Erd\H{o}s--Straus conjecture,
+$n$ congruent to $1$ (mod $24$)},
+arXiv:2608.24035v1 (2026).
+
 \bibitem{DFI}
 W. Duke, J.~B. Friedlander, and H. Iwaniec,
 \emph{Bilinear forms with Kloosterman fractions},
@@ -3343,10 +4185,22 @@ C. Elsholtz and T. Tao,
 \emph{Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions},
 J. Aust. Math. Soc. \textbf{94} (2013), 50--105.
 
+\bibitem{FriedlanderIwaniec}
+J. Friedlander and H. Iwaniec,
+\emph{Opera de Cribro},
+American Mathematical Society Colloquium Publications, vol.~57,
+American Mathematical Society, Providence, RI, 2010.
+
 \bibitem{Henriot}
 K. Henriot,
 \emph{Nair--Tenenbaum bounds uniform with respect to the discriminant},
 Math. Proc. Cambridge Philos. Soc. \textbf{152} (2012), no.~3, 405--424.
+
+\bibitem{LenstraPomerance}
+H.~W. Lenstra Jr. and C. Pomerance,
+\emph{Primality testing with Gaussian periods},
+J. Eur. Math. Soc. \textbf{21} (2019), 1229--1269,
+\href{https://doi.org/10.4171/JEMS/861}{doi:10.4171/JEMS/861}.
 
 \bibitem{NairTenenbaum}
 M. Nair and G. Tenenbaum,
