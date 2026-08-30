@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v12, 30 August 2026}
+\date{Draft v13, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -115,7 +115,12 @@ prove the exact finite criterion
  \exists\,D\mid((p+a)/4)^2:\ D\equiv-(p+a)/4\pmod a.
 \]
 It is the distilled finite form of the Type-II pointwise problem, not a
-proof that the displayed divisor set is nonempty for every prime.
+proof that the displayed divisor set is nonempty for every prime.  We
+further rewrite this criterion as the exact condition that $-1$ lie in a
+finite divisor-ratio spectrum, prove exact local laws for
+$a=3,7,11,15,19,23$, and isolate the resulting finite conspiracy.  This is
+a change of coordinates and a collection of local tests, not a supply
+theorem, tail bound, pointwise result, or Erd\H{o}s--Straus progress.
 
 For $M\equiv3\pmod4$ and $A=(M+1)/4$, the intrinsic forbidden set is
 \[
@@ -205,7 +210,10 @@ for $sm^2$, while Theorem~\ref{thm:two-square-layers} proves the exact first
 residue layers for $2m^2$.  Theorem~\ref{thm:hard-prime-criterion} is the
 standalone finite divisor criterion for $p\equiv1\pmod {24}$.  Its gcd
 simplification is complete, including even divisors, but it does not prove
-that a criterion row always exists.  Theorem~\ref{thm:general-m-tails}
+that a criterion row always exists.  Theorem~\ref{thm:ratio-spectrum}
+reexpresses that criterion by an exact divisor-ratio spectrum, and
+Theorem~\ref{thm:small-a-laws} proves the six explicit small-$a$ laws;
+neither supplies pointwise nonemptiness.  Theorem~\ref{thm:general-m-tails}
 records the status-preserving general-$m$ truncation.
 
 The paper has five layers.
@@ -247,8 +255,12 @@ refutes $C_{\rm SQ}$, and states open $C_{\rm SQ}'$.  Section
 \ref{sec:decidable-census} runs that form forward to obtain the complete
 bounded census, proves the twisted-square first-layer laws, and distills the
 hard-prime pointwise problem to one finite divisor-class test, without
-asserting that the test always succeeds.  Section~\ref{sec:general-m-tails}
-gives the status-preserving general-numerator tails and their exact
+asserting that the test always succeeds.  Section~\ref{sec:ratio-spectrum}
+turns that test into the exact divisor-ratio spectrum, proves six local
+laws, and records the finite-conspiracy and bounded fourth-sporadic stress
+without promoting either to a supply or classification theorem.
+Section~\ref{sec:general-m-tails} gives the status-preserving
+general-numerator tails and their exact
 effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
 gives the endpoint sparsity,
@@ -272,10 +284,12 @@ $C_{\rm POLY}$ and $C_{\rm SQ}'$ remain open, while $C_{\rm SQ}$ is refuted
 and the three former finite-census survivors are proved to have
 $W=+\infty$.  Only the right-to-left inclusion in $C_{\rm SQ}'$ is proved;
 the complete bounded census is Computational stress evidence, not an
-unbounded classification.  The forward and hard-prime criteria and the
-$2m^2$ residue laws are proved, but the prime criterion does not prove that
-its finite set is nonempty.  These computer-assisted conclusions concern
-$W$, not all Egyptian-fraction decompositions.  The count-below-one and crossing
+unbounded classification.  The forward and hard-prime criteria, the divisor-ratio law, the six
+small-$a$ laws, and the $2m^2$ residue laws are proved, but the prime
+criterion and its ratio reformulation do not prove that their finite set is
+nonempty.  The ratio hunt and local failure tables are Computational only
+in their stated ranges.  These computer-assisted conclusions concern $W$,
+not all Egyptian-fraction decompositions.  The count-below-one and crossing
 implications are proved
 conditional on their explicitly \textsc{unproved} hypotheses; the
 mass-invariant proposition is only an architecture theorem.  The normalized
@@ -2286,9 +2300,25 @@ rows have even $D$.  Seeded samples of $2000$ integers through $200000$ and
 $500$ through $10^6$, and the optional complete million-point run, supplied
 separate finite replications.  Block \texttt{(bh)} checks the forward census,
 two-method overlap, twisted-square laws and box, all-hard-prime comparison,
-and later prime replays.  The internal verifier coverage used by this draft
-runs through \texttt{(bh)}.  These are internal reviews and bug hunts, not
-external validation.  A separate full-source review of
+and later prime replays.  These are internal reviews and bug hunts, not
+external validation.
+
+Wave 26's maximum-severity review of the divisor-ratio spectrum returned
+\textsc{sound-after-repairs}.  It independently rederived the ratio
+bijection and pairing, all six local laws (including the ten minimal
+mod-$11$ budgets and the $C_4\times C_2$ law at $15$), the four record-prime
+rows, and the staged-hunt maximum.  Fresh divisor-spectrum enumeration for
+every unit $h\leq10^5$ reproduced the six failure counts; an independent
+original-coordinate harvest rechecked all $146016$ members of the stated
+$(s,m)$-box and found the same unique maximum $W(9028800)=3359$.  The review
+retained the box-subset scope, the right-to-left-only proved inclusion for
+$C_{\rm SQ}'$, the exhibited-mechanisms-only assessment, and every
+Heuristic and no-pointwise caveat.  Block \texttt{(bi)} checks the ratio
+pairing, local laws, $1181$ hard primes through $10^5$, record and sporadic
+ledgers, and the gated staged hunt with Python integers and bounded live
+factor/divisor state.  The internal verifier coverage used by this draft
+runs through \texttt{(bi)}.  These checks and the verdict are internal
+validation, not external refereeing.  A separate full-source review of
 the auro-zera Lean file
 replayed its identities but did not compile it; its open-core
 characterization and the source paper's own conditional Conclusion are
@@ -6788,7 +6818,9 @@ observed value $2495$.  Its late resolution uses $a=815$, $D=576$, and $h$
 just above $p/4$; only $36$ quotient rows survive more than $26$ million
 divisor trials.  The other record rows have different $a,D$.  This small
 sample shows how residue-one lower-tail forcing and eventual dual resolution
-can coexist; it supports no asymptotic law.
+can coexist; it supports no asymptotic law.  Section~\ref{sec:ratio-spectrum}
+recasts this exact finite criterion in ratio coordinates and refines the
+exhibited-mechanism register without changing its no-claim scope.
 
 \subsection{Verification pedigree and exact scope}
 Block \texttt{(bh)} checks the complete forward census, the independent
@@ -6845,6 +6877,431 @@ importantly, Theorem~\ref{thm:hard-prime-criterion} is a terminating prime
 test and structural simplification, not a proof that its finite set is
 always nonempty.  No pointwise prime bound, fair-share estimate, or new
 Erd\H{o}s--Straus theorem is claimed.
+
+\section{The divisor-ratio spectrum and the finite conspiracy}
+\label{sec:ratio-spectrum}
+\medskip\noindent\textbf{Status and headline.}
+The ratio-spectrum law and the six small-$a$ laws below are \textbf{proved}.
+They are elementary consequences of Theorems~\ref{thm:witness-duality}
+and~\ref{thm:hard-prime-criterion} and inherit none of
+Theorem~\ref{thm:pruned} or the provisional machinery behind it.  The
+bounded replays and staged hunt are \textbf{Computational}, exact only in
+their stated ranges.  The ratio spectrum is an exact change of coordinates,
+not a new supply theorem; the Erd\H{o}s--Straus conjecture is untouched.
+
+\subsection{The exact ratio spectrum}
+For a positive integer $h$ coprime to an odd integer $a$, define
+\begin{equation}\tag{62.1}
+ \operatorname {Rat}_a(h)=
+ \left\{\prod_{q\mid h}q^{f_q}\pmod a:
+                  -v_q(h)\leq f_q\leq v_q(h)\right\}.
+\end{equation}
+Negative powers in (62.1) are taken in $(\mathbb Z/a\mathbb Z)^*$.  This is
+the \emph{divisor-ratio spectrum} of $h$ modulo $a$.
+
+\begin{theorem}[ratio-spectrum law; proved; source Theorem 62.1]
+\label{thm:ratio-spectrum}
+Let $p\equiv1\pmod {24}$ be prime, put $B=\lfloor(p+1)/3\rfloor$, and let
+\begin{equation}\tag{62.2}
+       1\leq a\leq2B,\qquad a\equiv3\pmod4,
+       \qquad h={p+a\over4}.
+\end{equation}
+Then
+\begin{equation}\tag{62.3}
+ \begin{split}
+ &\text{there is a witness at this }a\\
+ &\quad\Longleftrightarrow\quad
+   \exists D\mid h^2:\ D\equiv-h\pmod a\\
+ &\quad\Longleftrightarrow\quad
+   -1\pmod a\in\operatorname {Rat}_a(h).
+ \end{split}
+\end{equation}
+Moreover the divisors in the middle line pair under
+\begin{equation}\tag{62.4}
+                       D\longleftrightarrow D'={h^2\over D},
+\end{equation}
+and the target class $-h\pmod a$ is preserved by this pairing.  Each hit
+supplies
+\begin{equation}\tag{62.5}
+ A={D+h\over a},\qquad M=4A-1,
+ \qquad aM=p+4D,
+\end{equation}
+and the minimum of these $M$'s over all admissible $a$ is $W(p)$.
+Consequently
+\begin{equation}\tag{62.6}
+ W(p)<+\infty\quad\Longleftrightarrow\quad
+ \exists a\text{ as in (62.2) with }
+ -1\in\operatorname {Rat}_a((p+a)/4).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Since $p\equiv1\pmod4$, integrality of $h$ forces
+$a\equiv-p\equiv3\pmod4$; conversely this congruence makes $h$ an integer.
+The bound on $a$ is the finite normal-form bound (60.9).  In particular
+$a<p$.  Since $a$ is odd and $4h=p+a$,
+\[
+             (a,h)=(a,4h)=(a,p)=1.
+\]
+Thus every divisor of $h^2$ is a unit modulo $a$.
+
+If $DD'=h^2$ and $D\equiv-h\pmod a$, inversion gives
+\[
+ D'\equiv h^2D^{-1}\equiv-h\pmod a.
+\]
+The converse follows by applying the same involution, proving (62.4).
+Write $h=\prod q^{v_q}$ and $D=\prod q^{e_q}$, where
+$0\leq e_q\leq2v_q$.  Then
+\begin{equation}\tag{62.7}
+ Dh^{-1}\equiv\prod_{q\mid h}q^{e_q-v_q}\pmod a,
+ \qquad -v_q\leq e_q-v_q\leq v_q.
+\end{equation}
+Every bounded exponent in (62.1) arises uniquely by taking
+$e_q=v_q+f_q$.  Hence
+\begin{equation}\tag{62.8}
+ \{Dh^{-1}\pmod a:D\mid h^2\}=\operatorname {Rat}_a(h),
+\end{equation}
+and $D\equiv-h$ is equivalent to $Dh^{-1}\equiv-1$.
+Theorem~\ref{thm:hard-prime-criterion} identifies the middle line of
+(62.3) with a witness and proves (62.5), including automatic eligibility
+$D\mid A^2$.  Its minimization formula (61.15) proves (62.6).
+\end{proof}
+
+\subsection{Six exact small-$a$ laws}
+Here and below ``failure at $a$'' means that (62.3) fails for that fixed
+admissible $a$; it says nothing about the other values of $a$.  The
+following notation makes the laws finite and explicit.  For a prime
+$\ell\in\{3,7,11,19,23\}$, use the primitive root $g_\ell$ in the second
+column below and put
+\begin{equation}\tag{62.9}
+ V_{\ell,r}(h)=
+ \sum_{\substack{q^e\parallel h\\
+       q\bmod\ell\in\{g_\ell^r,g_\ell^{-r}\}}}e,
+ \qquad 1\leq r\leq{\ell-1\over2}.
+\end{equation}
+The inverse-paired classes, in increasing $r$, are
+\begingroup\scriptsize
+\begin{equation}\tag{62.10}
+\begin{array}{c|c|l}
+\ell&g_\ell&\{g_\ell^r,g_\ell^{-r}\}\ (1\leq r\leq(\ell-1)/2)\\ \hline
+3&2&2\\
+7&3&3/5,\ 2/4,\ 6\\
+11&2&2/6,\ 3/4,\ 7/8,\ 5/9,\ 10\\
+19&2&2/10,\ 4/5,\ 8/12,\ 6/16,\ 3/13,\ 7/11,\ 14/15,\ 9/17,\ 18\\
+23&5&5/14,\ 2/12,\ 7/10,\ 4/6,\ 15/20,\ 3/8,\ 17/19,\
+       13/16,\ 11/21,\ 9/18,\ 22
+\end{array}
+\end{equation}
+\endgroup
+A slash denotes a two-element pair, not division.
+
+\begin{theorem}[small-$a$ failure laws; proved; source Theorem 62.2]
+\label{thm:small-a-laws}
+Assume $(a,h)=1$.
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item At $a=3$, success occurs if and only if some prime $q\mid h$ has
+$q\equiv2\pmod3$.  Thus failure occurs exactly when every prime divisor of
+$h$ is $1\pmod3$; the assertion is vacuous for $h=1$.
+\item At $a=7$, writing $V_r=V_{7,r}(h)$, success occurs exactly when
+\begin{equation}\tag{62.11}
+ V_3\geq1,\quad\text{or}\quad V_1\geq1\text{ and }V_2\geq1,
+ \quad\text{or}\quad V_1\geq3.
+\end{equation}
+Failure is the negation of these three conditions.
+\item At $a=11$, success occurs if $V_{11,5}\geq1$.  Otherwise it occurs
+exactly when $(V_{11,1},\ldots,V_{11,4})$ componentwise dominates at least
+one row of
+\begingroup\scriptsize
+\begin{equation}\tag{62.12}
+\begin{array}{ccccc}
+(0,0,1,2)&(0,0,3,1)&(0,0,5,0)&(0,1,1,0)&(1,0,0,1)\\
+(1,0,2,0)&(1,2,0,0)&(2,0,1,0)&(3,1,0,0)&(5,0,0,0).
+\end{array}
+\end{equation}
+\endgroup
+Again failure is the exact negation.
+\item For $a=19$ or $23$, put $m=a-1$.  The completely explicit law is
+\begin{equation}\tag{62.13}
+\boxed{\quad\text{failure at }a\quad\Longleftrightarrow\quad
+ {m\over2}\notin
+ \left\{\sum_{r=1}^{m/2}rj_r\pmod m:
+                 |j_r|\leq V_{a,r}(h)\right\}.\quad}
+\end{equation}
+Together with the residue rows in (62.10), this is a finite calculation
+using only the residue classes and multiplicities of primes dividing $h$;
+no discrete logarithm remains to be found.
+\item At $a=15$, define
+\begin{equation}\tag{62.14}
+\begin{aligned}
+ U&=\sum_{q^e\parallel h,\ q\equiv2,8\ (15)}e,
+ &\qquad V&=\sum_{q^e\parallel h,\ q\equiv7,13\ (15)}e,\\
+ I_c&=\boldsymbol1_{\exists q\mid h:\ q\equiv c\ (15)}
+ &&\qquad(c=4,11,14).
+\end{aligned}
+\end{equation}
+Success occurs exactly when $I_{14}=1$, or $(U,V,I_4,I_{11})$ dominates
+one of
+\begin{equation}\tag{62.15}
+ (0,0,1,1),\quad(0,2,0,1),\quad
+ (1,1,0,0),\quad(2,0,0,1).
+\end{equation}
+Failure is the negation of this list.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+In the cyclic prime cases, take discrete logarithms to base $g_\ell$.  The
+primes in the two classes indexed by $r$ contribute $\mathord\pm r f_q$.
+Since each $f_q$ independently runs through a complete integer interval,
+their sum runs through every integer in
+$[-V_{\ell,r},V_{\ell,r}]$.  Since
+$-1=g_\ell^{(\ell-1)/2}$, (62.13) is necessary and sufficient.  For
+$\ell=3,7$, reducing this one-line congruence modulo 2 and 3 gives
+(1)--(2).  For $\ell=11$, replace each $j_r$ by a representative modulo 10
+with absolute value at most 5.  The finite $6^4$ budget check gives exactly
+the ten componentwise-minimal rows in (62.12); each displayed row visibly
+has a signed weighted sum congruent to 5, and testing the six possible
+capped budgets in each coordinate leaves no other minimal row.
+
+For 15, identify
+\[
+ (\mathbb Z/15\mathbb Z)^*=\langle2\rangle\times\langle11\rangle
+       \cong C_4\times C_2.
+\]
+The classes $2/8,4,11,7/13,14$ have coordinates, respectively,
+$(1,0),(2,0),(0,1),(1,1),(2,1)$, up to sign.  The target $-1=14$ is
+$(2,1)$.  If class 14 is absent, solving the two coordinate congruences
+produces exactly the four minimal rows in (62.15).  This also proves that
+all valuation budgets, including repeated use of one prime, have been
+retained.
+\end{proof}
+
+The budget cannot in general be replaced by the subgroup generated by the
+prime classes.  For example, $a=7,h=17$ has the single class
+$17\equiv3\pmod7$, which generates the whole unit group, but its valuation
+is one and
+\begin{equation}\tag{62.16}
+ \operatorname {Rat}_7(17)=\{3^{-1},1,3\}=\{5,1,3\};
+\end{equation}
+this misses $-1=6$.  Equivalently, the required exponent 3 is outside
+$[-1,1]$.  Thus bounded multiplicity is already essential at $a=7$.
+
+\medskip\noindent\textbf{Assessment 62.1 (the first-layer density scale).}
+The law at 3 is the classical multiplicative-semigroup condition with
+allowed primes $1\pmod3$.  Landau--Selberg--Delange theory gives
+\begin{equation}\tag{62.17}
+ \#\{h\leq H:(h,3)=1,\ h\text{ fails at }3\}
+       \sim C_3{H\over\sqrt{\log H}}
+\end{equation}
+for a positive constant $C_3$.  This contextual asymptotic is not used in
+any proof here.  Block \texttt{(bi)} exhaustively checks every unit
+$h\leq10^5$ against all six laws.  The numbers checked, followed by the
+exact failures, are
+\begin{equation}\tag{62.18}
+\begin{array}{c|rrrrrr}
+a&3&7&11&15&19&23\\ \hline
+\#\text{ checked}&66667&85715&90910&53333&94737&95653\\
+\#\text{ failures}&8814&25359&34046&26423&46679&54165.
+\end{array}
+\end{equation}
+This finite table is \textbf{Computational}; it is not a density estimate.
+
+\subsection{The finite conspiracy and late resolution}
+For a hard prime define
+\[
+ \mathcal A(p)=\{a:1\leq a\leq2\lfloor(p+1)/3\rfloor,
+                         \ a\equiv3\pmod4\},
+ \qquad F_a(p)=\{-1\notin\operatorname {Rat}_a((p+a)/4)\}.
+\]
+Theorem~\ref{thm:ratio-spectrum} gives the exact finite-conspiracy form
+\begin{equation}\tag{62.19}
+ \boxed{\qquad W(p)=+\infty
+       \quad\Longleftrightarrow\quad
+       F_a(p)\text{ holds for every }a\in\mathcal A(p).\qquad}
+\end{equation}
+Thus the Type-II pointwise problem is: some shifted value $h=(p+a)/4$, with
+$a\leq2B$, must represent $-1\pmod a$ by bounded products of its own prime
+factors.
+
+\medskip\noindent\textbf{Assessment 62.2 (mechanism register).}
+Squares fail by the global quadratic-character obstruction of
+Theorem~\ref{thm:square-escape}.  The three known nonsquare failures have
+quotient rows, but only in noncoprime branches, and uncancelled eligibility
+kills them (Section~\ref{sec:witness-duality}).  For primes that gcd branch
+is unavailable.  Accordingly a prime failure would require complete
+ratio-class avoidance in (62.19), the third mechanism described in
+Assessment 61.1.  This is a classification of the mechanisms presently
+exhibited, not a theorem that every conceivable obstruction has been
+classified.
+
+\medskip\noindent\textbf{Heuristic 62.1 (quantified independence model).}
+Let $\rho_a(H)$ denote a model probability that a unit $h$ of size $H$ fails
+its $a$-law, and let
+$\mathcal A_Y=\{a\leq Y:a\equiv3\pmod4\}$.  If the shifted events were
+independent, then
+\begin{equation}\tag{62.20}
+ \Pr\left(\bigcap_{a\in\mathcal A_Y}F_a\right)
+   \approx\prod_{a\in\mathcal A_Y}\rho_a(H)
+   =\exp\{-S(Y,H)\},
+ \quad S(Y,H)=\sum_{a\in\mathcal A_Y}\log{1\over\rho_a(H)}.
+\end{equation}
+The $a=3$ law alone contributes $\tfrac12\log\log H+O(1)$ to $S$, by
+(62.17).  More aggressively, if a fixed fraction $\delta$ of the roughly
+$Y/4$ admissible values had $\rho_a(H)\leq\rho<1$, then this model would
+give
+\begin{equation}\tag{62.21}
+ S(Y,H)\geq {\delta Y\over4}\log(1/\rho)+O(1),
+ \qquad \Pr(\text{all fail})\lesssim e^{-cY}.
+\end{equation}
+This is only a \textbf{Heuristic}.  The shifts $(p+a)/4$ share the same
+$p$, the moduli share factors, and the events are far from demonstrably
+independent.  Taking $Y\asymp p$ in (62.21) therefore does not constitute a
+tail bound, much less a pointwise proof.
+
+\medskip\noindent\textbf{Computational 62.1 (anatomy of late resolution;
+exact displayed rows).}
+Block \texttt{(bi)} gives both the first witnessing $a$ and the generally
+different $a$ attached to the minimum $W$:
+\begingroup\scriptsize
+\begin{equation}\tag{62.22}
+\begin{array}{r|r|r|r|l|r|r|r|l}
+p&W&a_W&D_W&h_W\text{ factorization}&a_{\rm first}&M_{\rm first}&D_{\rm first}&
+ h_{\rm first}\text{ factorization}\\ \hline
+225289&279&811&245&5^2\cdot7\cdot17\cdot19&31&7335&524&2\cdot5\cdot43\cdot131\\
+954409&335&2855&504&2^2\cdot3\cdot7^2\cdot11\cdot37&3&318495&269&269\cdot887\\
+1853329&383&4839&2&2\cdot13\cdot17\cdot1051&3&617815&29&13\cdot29\cdot1229\\
+2031121&2495&815&576&2^4\cdot3\cdot19\cdot557&11&185279&1737&3\cdot193\cdot877
+\end{array}
+\end{equation}
+\endgroup
+For $a=3,7,11,15,19,23$, respectively, the exact outcomes are
+\begin{equation}\tag{62.23}
+\begin{array}{r|llllll}
+p&3&7&11&15&19&23\\ \hline
+225289&F&F&F&F&F&F\\
+954409&P_{318495}&F&F&F&F&F\\
+1853329&P_{617815}&P_{264783}&P_{168503}&F&F&F\\
+2031121&F&F&P_{185279}&F&P_{107255}&F
+\end{array}
+\end{equation}
+Here $F$ means failure of the exact law and $P_M$ means success whose least
+modulus at that fixed $a$ is $M$.  To make every $F$ auditable, the
+corresponding budget vectors from (62.9), or from (62.14) at 15, are
+\begingroup\scriptsize
+\begin{verbatim}
+225289: 3:(0); 7:(0,3,0); 11:(0,2,0,2,0); 15:(2,0,0,0,0);
+        19:(0,1,1,0,1,0,0,0,0); 23:(0,3,0,0,0,1,0,0,0,0,0)
+954409: 7:(0,3,0); 11:(0,1,0,1,0); 15:(2,0,0,0,0);
+        19:(0,1,2,0,0,0,0,0,0); 23:(0,4,0,0,0,2,0,0,0,0,0)
+1853329: 15:(4,0,0,0,0); 19:(0,0,0,0,0,1,1,0,0);
+         23:(0,1,0,1,0,2,0,0,0,0,0)
+2031121: 3:(0); 7:(0,3,0); 15:(4,0,0,0,0);
+         23:(1,1,0,0,0,1,0,0,0,0,0)
+\end{verbatim}
+\endgroup
+The rows show an important distinction: a late minimum $W$ need not mean
+that all small $a$'s fail.  A small $a$ may hit the spectrum only through a
+very large divisor and hence a very large $M$; minimization can instead
+choose a much larger $a$ and a small $M$.  These four records support no
+asymptotic law.
+
+\subsection{Where the ratio frame degrades for the sporadics}
+For composites, $(a,h)=1$ is no longer automatic, so $h^{-1}\pmod a$ and
+(62.1) may not exist.  The raw congruence $D\equiv-h\pmod a$ remains valid,
+but it no longer makes $(a,D)=1$, and the final condition
+$D\mid((D+h)/a)^2$ must be restored.  Block \texttt{(bi)} gives the
+complete ledger
+\begin{equation}\tag{62.24}
+\begin{array}{r|r|r|r|r|r|r}
+n&\#a&(a,n)>1&(a,h)>1&\#\text{ quotient rows}&
+ \#\text{ eligible}&\#\text{ unit quotient rows}\\ \hline
+288&48&48&32&43&0&0\\
+336&56&56&40&65&0&0\\
+4545&757&357&357&188&0&0
+\end{array}
+\end{equation}
+For 288 and 336 every admissible $a$ is a multiple of 4; for 4545 the
+nonunit branches are exactly those in which $a$ shares one of $3,5,101$
+with $n$, with powers retained.  Every quotient row lies in a nonunit
+branch and every one fails uncancelled eligibility.  After the additional
+character filters, the surviving gcd supports and counts are exactly those
+in (60.21) and (61.6), including the four gcd-$9$ failures for 288.  Thus
+the ratio frame does not explain away the sporadics: it stops precisely at
+their diagnosed gcd/eligibility branch.
+
+\subsection{A staged fourth-sporadic stress}
+\medskip\noindent\textbf{Computational 62.2 (twisted-square staged hunt;
+exact box).}
+A streamed Python-integer scan covered every unique twisted square
+\begin{equation}\tag{62.25}
+ n=sm^2\in(10^6,10^8],\qquad 2\leq s\leq1000\text{ squarefree},
+                    \qquad1\leq m\leq300.
+\end{equation}
+This is exactly the intersection with the stated $(s,m)$-box, not the full
+interval: values whose unique coordinates have $s>1000$ or $m>300$ are
+outside the scan.  There are 607 squarefree kernels and 146016 pairs, hence
+146016 distinct integers, in the box.  Stage 1 harvested every modulus
+$M\leq10^4$, $M\equiv3\pmod4$, and found a witness for every pair.  Hence
+the survivor lists passed to the $M\leq10^6$ stage and to the complete
+finite dual $a$-decision were both empty.  The largest exact least value in
+the box was
+\begin{equation}\tag{62.26}
+ W(9{,}028{,}800)=3359,
+ \quad 9{,}028{,}800=627\cdot120^2,
+ \quad (M,D,a)=(3359,48,2688).
+\end{equation}
+All smaller eligible moduli were harvested, so the minimum in (62.26) is
+exact.  No fourth sporadic was found.  Thus $C_{\rm SQ}'$ survives this
+finite stress and is not proved; no $C_{\rm SQ}''$ is introduced.
+
+Block \texttt{(bi)} keeps the slice $s\leq200,m\leq150$ by default.  It
+contains 5105 pairs in (62.25), has no stage-1 survivor, and has maximum
+$W(1{,}666{,}170)=659$ at $(s,m)=(170,99)$.  With
+\texttt{ES\_FULL\_SCAN=1} it replays all of (62.25) and pins the counts and
+maximum above.  The research run used the same staged code; because stage 1
+had no survivor, the deeper two branches were vacuous rather than cutoff
+claims.
+
+\subsection{Verification, review pedigree, and honest walls}
+\medskip\noindent\textbf{Computational 62.3 (ratio replay; exact stated
+ranges).}
+Block \texttt{(bi)} checks (62.8) and the pairing on 500 seeded random unit
+pairs $(h,a)$, and checks each law in Theorem~\ref{thm:small-a-laws} by
+direct divisor enumeration for every unit $h\leq10^5$.  In prime chunks it
+then recomputes the exact minimum via the ratio form for all 1181 hard
+primes through $10^5$ and compares every value with the independent
+\texttt{(bc)}/\texttt{(bh)} harvest.  It tests 27107184 possible $(a,M,D)$
+rows, obtains maximum 167 and sum 15779, and finds no mismatch.  The block
+also pins (62.22)--(62.24) and the staged hunt.  Divisor products are Python
+integers; only one factorization/divisor list is live at a time.
+
+\medskip\noindent\textbf{Review attestation (wave 26).}
+The maximum-severity review returned \textsc{sound-after-repairs}; no
+mathematical counterexample or changed conclusion was found.  It
+independently rederived the ratio law and pairing, all six local laws, the
+record-prime anatomy, and the staged-hunt maximum; fresh enumeration for
+every unit $h\leq10^5$ reproduced (62.18), and a separate full dual scan
+reproduced (62.22)--(62.23), with respectively 24, 62, 112, and 36 quotient
+rows.  An independent original-coordinate harvest rechecked all 146016
+distinct members of the stated box and a seeded 2000-member witness sample,
+again finding the unique maximum $W(9028800)=3359$ with
+$(M,D,a)=(3359,48,2688)$.  The repaired text and executable pins make clear
+that the hunt covers the stated box subset rather than the whole interval,
+that $C_{\rm SQ}'$ remains open with only its right-to-left inclusion proved,
+and that the mechanism register classifies only exhibited mechanisms.  The
+full command completed green in 131 seconds under its 480-second timeout;
+the default block took about 7.3 seconds on the review host.  Block
+\texttt{(bi)} uses Python integers and bounded factor/divisor state, and the
+control-byte, malformed-TeX, and divisibility-command sweeps were clean.
+This attestation and its finite checks are internal validation, not external
+refereeing.
+
+\medskip\noindent\textbf{Honest walls.}
+The spectrum does not improve the witness-modulus tail, show pointwise
+nonemptiness, or control correlations among the shifts.  The small-$a$ laws
+are exact local tests, but failure at finitely many small values is
+compatible with later success, and success at small $a$ can produce a huge
+$M$.  The finite-conspiracy display is the terminal distillation of the
+Type-II pointwise problem and clarifies the three known mechanisms; it does
+not solve that problem, prove $C_{\rm SQ}'$, or prove Erd\H{o}s--Straus.
 
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
@@ -7455,10 +7912,13 @@ constant candidates have $W=+\infty$.  They are composite statistic-escapes
 with explicit Egyptian-fraction representations, not Erd\H{o}s--Straus
 counterexamples.  The complete census through $200{,}000$, and the optional
 replay through $10^6$, finds exactly the squares and those three values, but
-this proves no unbounded classification.  The proved hard-prime criterion
-is a terminating equivalence, including its even-$D$ branch; it does not
-prove its finite divisor list nonempty, a pointwise bound, a fair-share
-estimate, or a new Erd\H{o}s--Straus theorem.  The raw and antichain factorial-moment formulations are refuted
+this proves no unbounded classification.  The proved hard-prime criterion and its exact ratio-spectrum
+reformulation are terminating equivalences; the six small-$a$ laws are exact
+local tests.  They do not prove the finite divisor list nonempty, a pointwise
+bound, a fair-share estimate, or a new Erd\H{o}s--Straus theorem.  The
+staged twisted-square hunt covers only its stated coordinate box and proves
+no unbounded classification; only the right-to-left inclusion in
+$C_{\rm SQ}'$ is proved.  The raw and antichain factorial-moment formulations are refuted
 and that axis is dormant; the pair
 endpoint and other possible pointwise minorants retain exactly the narrower
 open scope stated above.
