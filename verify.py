@@ -15,7 +15,7 @@ from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
 from collections import Counter
 from itertools import combinations, product as cartesian_product
-from math import gcd, lcm, log, exp, ceil, prod
+from math import gcd, lcm, log, exp, ceil, prod, isqrt
 import cmath
 
 LIMIT = 100_000
@@ -9947,6 +9947,25 @@ print("\n== (bb) general-numerator tails and effectivity (§55) ==")
 check_bb()
 
 
+# Shared exact Lemma-16.1/Lemma-18.1 harvest.  Blocks (bc) and (bd) call
+# this with the same cap, so (bd) reuses the cached object rather than
+# silently rebuilding a second class system.
+_complete_multiplier_harvest_cache = {}
+
+
+def complete_multiplier_harvest(modulus_cap):
+    if modulus_cap not in _complete_multiplier_harvest_cache:
+        rows = []
+        for M in range(3, modulus_cap + 1, 4):
+            A = (M + 1) // 4
+            classes = frozenset(
+                (-4 * D) % M for D in divisors_of_square(A)
+            )
+            rows.append((M, classes))
+        _complete_multiplier_harvest_cache[modulus_cap] = tuple(rows)
+    return _complete_multiplier_harvest_cache[modulus_cap]
+
+
 # ---------------------------------------------------------------- (bc)
 def check_bc():
     """§56: congruence ceilings and streamed extremal censuses."""
@@ -9986,15 +10005,13 @@ def check_bc():
     # Full Lemma-16.1/Lemma-18.1 harvest through the fixed modulus cap.
     # The classes are small; primes are streamed and stop at their first hit.
     modulus_cap = 3000
-    modulus_classes = []
-    for M in range(3, modulus_cap + 1, 4):
+    modulus_classes = complete_multiplier_harvest(modulus_cap)
+    for M, classes in modulus_classes:
         A = (M + 1) // 4
-        classes = {(-4 * D) % M for D in divisors_of_square(A)}
         # D=1 is the class used in Theorem 56.1.  Its explicit dictionary is
         # (u,v,w)=(1,A,1), not merely an appeal to the intrinsic formula.
         assert A == 1 * A * 1 and gcd(A, M) == 1
         assert (-pow(A, -1, M)) % M == (-4) % M in classes
-        modulus_classes.append((M, classes))
     assert len(modulus_classes) == 750
 
     W_limit = 10_000_000 if full_scan else 1_000_000
@@ -10184,9 +10201,35 @@ def check_bd():
 
     started = perf_counter()
 
-    # Pure arithmetic replay of Theorem 57.1.  Write L=log N and
-    # t=log T=L^theta, and compare each saving exponent with 2L.
+    # Exact displayed logarithms from (57.4)--(57.5), followed by the
+    # fixed-margin asymptotic ratios used only for the printed calibration.
+    def cubic_log_rhs(L, theta, b=1.0, c=1.0, C=1.0):
+        return log(C) + L - c * b**3 * L ** (3 * theta)
+
+    def square_log_rhs(L, theta, b=1.0, c=1.0, C=1.0):
+        t = b * L**theta
+        return log(C) + L - c * t * t * log(2 + t)
+
     L_grid = (10**3, 10**4, 10**5, 10**6)
+    displayed_cubic = {
+        theta: tuple(cubic_log_rhs(L, theta) for L in L_grid)
+        for theta in (0.25, 0.40)
+    }
+    displayed_square = {
+        theta: tuple(square_log_rhs(L, theta) for L in L_grid)
+        for theta in (0.40, 0.50)
+    }
+    assert all(value > 0 for value in displayed_cubic[0.25])
+    assert all(value < 0 for value in displayed_cubic[0.40])
+    assert displayed_square[0.40][-1] > 0
+    assert all(value < 0 for value in displayed_square[0.50])
+    endpoint_L = 10**4
+    assert cubic_log_rhs(endpoint_L, 1 / 3, C=0.5) < 0
+    assert abs(cubic_log_rhs(endpoint_L, 1 / 3, C=1.0)) < 1e-10
+    assert cubic_log_rhs(endpoint_L, 1 / 3, C=2.0) > 0
+
+    # Write t=log T=L^theta and compare the dominant saving with 2L.
+    # The factor 2 is a display normalization, not the exact threshold.
     cubic_thetas = (0.25, 0.36, 0.40)
     cubic_ratios = {
         theta: tuple(L ** (3 * theta) / (2 * L) for L in L_grid)
@@ -10216,6 +10259,8 @@ def check_bd():
     square_half_crossing = exp(4)
     assert square_half_crossing < L_grid[0]
 
+    print("displayed log bounds (57.4), cubic =", displayed_cubic)
+    print("displayed log bounds (57.5), square-log =", displayed_square)
     print("threshold ratios saving/(2 log N), cubic =", cubic_ratios)
     print("threshold ratios saving/(2 log N), square-log =", square_ratios)
     print("threshold crossing log N (c=1) =",
@@ -10225,11 +10270,8 @@ def check_bd():
     # m(T)=sum omega(M)/M without floating-point loss.  The interval scan is
     # chunked, and each chunk retains only one byte per integer.
     thresholds = (100, 300, 1000, 3000)
-    modulus_classes = []
-    for M in range(3, thresholds[-1] + 1, 4):
-        A = (M + 1) // 4
-        classes = {(-4 * D) % M for D in divisors_of_square(A)}
-        modulus_classes.append((M, classes))
+    modulus_classes = complete_multiplier_harvest(thresholds[-1])
+    assert modulus_classes is complete_multiplier_harvest(thresholds[-1])
 
     masses = tuple(
         sum((Fraction(len(classes), M)
@@ -10274,10 +10316,22 @@ def check_bd():
                 not covered[P - low] for P in chunk_primes
             )
 
+        # At the final threshold, replay §58's square escape inside this
+        # exact finite box rather than treating the integer plateau as noise.
+        first_square = isqrt(low - 1) + 1
+        last_square = isqrt(high - 1)
+        assert all(not covered[s * s - low]
+                   for s in range(first_square, last_square + 1))
+
+    square_survivors = isqrt(scan_limit)
+    assert all(tail >= square_survivors for tail in integer_tails)
     if not full_scan:
+        assert square_survivors == 547
         assert total_primes == 25_997
         assert tuple(integer_tails) == (5516, 1064, 569, 550)
         assert tuple(prime_tails) == (76, 5, 0, 0)
+        assert (integer_tails[2] - square_survivors,
+                integer_tails[3] - square_survivors) == (22, 3)
 
     calibration = []
     for T, mass, integer_tail, prime_tail in zip(

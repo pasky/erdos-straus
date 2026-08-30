@@ -21088,11 +21088,14 @@ only the complete-class certificate architecture.  *(wave-21 review repair)*
 ## 57. The supercritical window: the count-below-one reduction, the mass-invariant gap, and the crossing localization
 
 **Status.**  The count-below-one implication in Theorem 57.1 is **proved
-conditional** on the displayed, falsifiable window hypotheses.  Its use with
-the fixed-polylogarithmic supply inherits only the provisional external-review
-qualification on the §39 moment/Bonferroni machinery; its use with cubic
-supply additionally inherits the **CLAIMED/PROVISIONAL** Theorem 34.8.  The
-mass-level arithmetic in Proposition 57.2 is proved inside the explicitly
+conditional** on the displayed, falsifiable window hypotheses, which are
+**UNPROVED**.  Its use with the fixed-polylogarithmic supply inherits the
+provisional external-review qualification on the §39 moment/Bonferroni
+machinery; its use with cubic supply additionally inherits the
+**CLAIMED/PROVISIONAL** Theorem 34.8.  The only currently realized common
+power window is the \(\theta=1/4\) window of Theorem 51.2, with exactly
+those inherited qualifications; it is below both count-below-one thresholds.
+The mass-level arithmetic in Proposition 57.2 is proved inside the explicitly
 defined absolute-remainder architecture.  Claims that every possible sieve or
 linear combination belongs to that architecture are Assessments, not
 theorems.  The crossing inputs below are open hypotheses.  In particular,
@@ -21152,39 +21155,54 @@ corresponding assertion holds for some \(b>0\).
    \(+\epsilon\) is needed.
 
 The threshold is effective if the constants in the relevant hypothesis are
-effective.  At the cubic endpoint \(\theta=1/3\), the same calculation is
-sufficient only with the additional constant inequality \(cb^3>1\).  If
-\(cb^3\leq1\), (57.2) alone does not make the count less than one.  Thus a
-constant-free cubic statement honestly needs \(\theta>1/3\).
+effective.  At the cubic endpoint \(\theta=1/3\), \(cb^3>1\) is sufficient.
+If \(cb^3=1\), the right side is the constant \(C\), so it forces zero
+exactly when \(C<1\); if \(cb^3<1\), it grows.  Thus a statement with no
+favourable endpoint-constant condition honestly needs \(\theta>1/3\).
 
-*Proof.*  In (57.2) take \(t=bL^\theta\).  The logarithm of its right side is
+*Proof (full quantifier chain).*  Assume first \(H_{\rm WIN}(\theta;b)\).
+Thus fixed constants \(b,c,C>0\) and \(N_0\) work for every \(N\geq N_0\)
+and every \(3\leq T\leq\exp\{b(\log N)^\theta\}\).  For such an \(N\), put
+\(L=\log N\) and choose the single admissible endpoint
+\(T_N=\exp\{bL^\theta\}\), once it is at least 3.  The logarithm of the
+right side of (57.2) is
 \[
              \log C+L-cb^3L^{3\theta}.                     \tag{57.4}
 \]
 For \(\theta>1/3\), this is negative for every sufficiently large \(L\),
-after absorbing both \(L\) and \(\log C\).  The count, being a nonnegative
-integer, is therefore zero.  At \(\theta=1/3\), (57.4) gives exactly the
-constant qualification in the statement.
+after accounting for both \(L\) and \(\log C\).  Hence (57.2) bounds the
+nonnegative integer
+\(A_N=\#\{p\leq N:p\text{ prime},\ W(p)>T_N\}\) by a number less than one,
+so \(A_N=0\).  At \(\theta=1/3\), (57.4) is
+\(\log C+(1-cb^3)L\), giving exactly the three endpoint cases stated above.
 
-For (57.3), the endpoint logarithm is
+For \(H'_{\rm WIN}(\theta;b)\), the same fixed-constants and endpoint-choice
+quantifiers apply, and the logarithm of the bound is
 \[
  \log C+L-cb^2L^{2\theta}\log(2+bL^\theta).                \tag{57.5}
 \]
 It tends to \(-\infty\) relative to \(L\) when \(\theta>1/2\).  At
 \(\theta=1/2\), its negative term is
-\((cb^2/2+o(1))L\log L\), which also dominates \(L+\log C\) for every
-\(b,c>0\).  For \(\theta<1/2\), the saving in (57.5) is
-\(o(L)\), so this inequality alone cannot force count below one.  This proves
-the sharp endpoint assertion for the stated reduction.
+\((cb^2/2+o(1))L\log L\), which dominates \(L+\log C\) for every fixed
+\(b,c>0\).  For \(\theta<1/2\), that saving is \(o(L)\), so this inequality
+alone cannot force count below one.  This proves the endpoint assertion for
+the stated reduction.
 
-By (57.1), a counterexample prime in \((\sqrt N,N]\) would belong to either
-zero tail just obtained, a contradiction.  Taking \(N\) successively through
-powers of two covers every sufficiently large prime: if \(p\leq N<2p\) and
-\(p>2\), then \(p>\sqrt N\).  This is the promised dyadic sweep.  Every
-threshold used above, including the point from which the count is below one,
-is computable when the hypothesis constants are. \(\square\)
+Finally let \(p\) be a counterexample prime in a sufficiently large dyadic
+range and choose a dyadic \(N\) with \(p\leq N<2p\).  The definition (51.1)
+and Lemma 16.1 give the quantified implication
+\[
+ p\in{\cal E}\ \Longrightarrow\ W(p)=+\infty
+ \ \Longrightarrow\ W(p)>T_N
+ \ \Longrightarrow\ p\text{ is counted by }A_N.
+\]
+The first implication holds for every counterexample prime and the second for
+every finite \(T_N\), not merely for the chosen endpoint.  But \(A_N=0\), a
+contradiction.  Successive dyadic \(N\) cover every sufficiently large prime.
+Every threshold used above, including the point from which the count is below
+one, is computable when \(b,c,C,N_0\) are. \(\square\)
 
-**Proved calibration against the present window (with inherited status).**
+**Calibration against the present internally proved/provisional window.**
 Theorem 51.2 supplies both tails only in the common power window
 \[
                     t\leq bL^{1/4}                         \tag{57.6}
@@ -21208,10 +21226,12 @@ Erdős--Straus result.
 
 ### 57.2 The mass-invariant gap
 
-The antecedents are not new here.  The partition-free budget is
-\(\min(K,J\log K)+Jt\lesssim L\) in (18.15), and Assessment 18.4 performs
-its square-log and cubic optimizations.  Lemma 33.3 gives the conditional
-finite-transfer ledger (33.6).  Most directly, the actual §51 assembly has
+The antecedents are not new here.  Section 18.2 isolates the prime-slice
+supply wall in Assessment 18.3(b), while §18.3 gives the partition-free
+budget \(\min(K,J\log K)+Jt\lesssim L\) in (18.15) and Assessment 18.4
+performs its square-log and cubic optimizations.  Lemma 33.3 gives the
+conditional finite-transfer ledger (33.6).  Most directly, the actual §51
+assembly has
 \[
  \deg=O(\mu),\qquad
  \log d_{\rm term}=O(\mu t),\qquad
@@ -21244,12 +21264,14 @@ absolutely.
 and an \({\rm AR}(\mu,t)\) argument gives a tail
 \(\ll N e^{-c_0\mu}\) in (57.10).
 
-1. Count below one needs
+1. If the implicit tail constant is \(A>0\), the exact requirement from this
+   upper bound is \(c_0\mu>L+\log A\).  A convenient fixed-margin sufficient
+   condition is
    \[
                        c_0\mu\geq(1+\epsilon)L             \tag{57.11}
    \]
-   for some fixed \(\epsilon>0\), after constants are absorbed.  Equations
-   (57.10)--(57.11) are incompatible as \(t\to\infty\).
+   for some fixed \(\epsilon>0\).  Either form implies \(\mu\gg L\), and is
+   incompatible with (57.10) as \(t\to\infty\).
 2. If \(\mu(t)\asymp t^a\) for a fixed \(a>0\), the largest saving exponent
    certified in the validity window is
    \[
@@ -21259,7 +21281,8 @@ and an \({\rm AR}(\mu,t)\) argument gives a tail
    Hence increasing the polynomial supply mass alone never reaches a
    pointwise conclusion in this architecture.
 
-*Proof.*  Combining (57.10) and (57.11) would give
+*Proof.*  The exact count-below-one inequality implies \(\mu\gg L\) for
+large \(L\); combining this with (57.10) gives
 \(L\gg\mu t\gg Lt\), impossible for unbounded \(t\).  If \(\mu\asymp t^a\),
 (57.10) says \(t^{a+1}\ll L\); substitution into \(\mu=t^a\) proves
 (57.12). \(\square\)
@@ -21321,11 +21344,13 @@ bound
        d_S\geq\prod_{A\in S}\ell_A\geq X^{r/2},
        \qquad \log d_S\geq {rt\over2}.                     \tag{57.16}
 \]
-At the void-detecting degree \(r\asymp\mu\), supercritical mass
-\(\mu>L\) makes \(d_S=e^{\Theta(\mu t)}\gg N\) for these top-degree terms.
-A nonempty class modulo such a \(d_S\) contains zero or one integer of
-\([1,N]\).  Its \(O(1)\) remainder is no longer a small perturbation of its
-fair share \(N/d_S\).
+In the §51 polynomial, the matching upper bound follows from
+\(k\ell=e^{O(t)}\).  Thus at its void-detecting degree
+\(r\asymp\mu\), the near-crossing relation \(\mu\asymp L\) makes
+\(d_S=e^{\Theta(\mu t)}\gg N\) for the top-degree terms.  A nonempty class
+modulo such a \(d_S\) contains zero or one integer of \([1,N]\).  Its
+\(O(1)\) remainder is no longer a small perturbation of its fair share
+\(N/d_S\).
 
 For any finite congruence expansion define its signed transfer remainder by
 \[
@@ -21347,61 +21372,88 @@ classes.  This is an upper-transfer mirror of Lemma 33.3: that lemma transfers a
 **lower** bound when its absolute ledger is affordable, whereas here one
 needs an upper bound after that ledger is unaffordable.
 
-**Hypothesis \(H_{\rm XW}\) (supercritical remainder cancellation; open and
-falsifiable).**  Along an unbounded family of depths, suppose there are
-nonnegative congruence majorants \(\nu_T\), equal to at least one on every
-prime \(p>e^{o(\mu)}\) with \(W(p)>T\), such that
+To make the next hypothesis literal, fix in advance a family
+\({\mathscr F}\) of pairs \((N,T)\) with \(N,T\to\infty\), and a specified
+supply mass \(\mu(T)\to\infty\).
+
+**Hypothesis \(H_{\rm XW}({\mathscr F},\mu)\) (supercritical remainder
+cancellation; open).**  There exist fixed \(c_1,\epsilon,A>0\) and specified
+functions \(\eta(T)\geq0\), \(\eta(T)\to0\), and
+\(h(T)\geq0\), \(h(T)=o(\mu(T))\), such that the following
+holds.  For every sufficiently large \((N,T)\in{\mathscr F}\), writing
+\(L=\log N\), if
 \[
- \mathbb E_{\rm CRT}\nu_T\leq e^{-c_1\mu},
- \qquad
- \operatorname {Rem}_{\nu_T}(N)\leq N e^{-c_1\mu+o(\mu)} \tag{57.19}
+             \mu(T)\leq AL,
+       \qquad c_1\mu(T)\geq(1+\epsilon)L,
 \]
-in the near-crossing range \(\mu=O(L)\), whenever
-\(c_1\mu\geq(1+\epsilon)L\).  The \(o(\mu)=o(L)\) is uniform in this
-range.  This is deliberately one-sided; absolute cancellation would be
-stronger than needed.
+there is a finite nonnegative congruence expansion \(\nu_{N,T}\), at least
+one on every prime \(e^{h(T)}<p\leq N\) with \(W(p)>T\), for which
+\[
+ \mathbb E_{\rm CRT}\nu_{N,T}\leq e^{-c_1\mu(T)},
+ \qquad
+ \operatorname {Rem}_{\nu_{N,T}}(N)
+       \leq N e^{-c_1\mu(T)+\eta(T)\mu(T)}.                \tag{57.19}
+\]
+All constants, the family, and the two error functions are quantified before
+\((N,T)\); this replaces the ambiguous phrases ``an unbounded family'' and
+\(e^{o(\mu)}\).  The remainder bound is deliberately one-sided; absolute
+cancellation would be stronger than needed.
 
 **Proposition 57.4 (crossing implication; proved conditional).**  Under
-\(H_{\rm XW}\), every sufficiently large prime in the covered depth family
-has an Erdős--Straus representation.  If the family supplies one such depth
-for every sufficiently large dyadic \(N\), the conjecture follows for all
-sufficiently large primes.
+\(H_{\rm XW}({\mathscr F},\mu)\), for every sufficiently large covered pair
+meeting the two displayed crossing conditions, no prime
+\(e^{h(T)}<p\leq N\) has \(W(p)>T\).  If \({\mathscr F}\) contains such a
+pair for every sufficiently large dyadic \(N\), the Erdős--Straus conjecture
+follows for all sufficiently large primes.
 
-*Proof.*  Equations (57.18)--(57.19) give
-\(\sum_{n\leq N}\nu_T(n)\leq N e^{-c_1\mu+o(\mu)}\).  The fixed
-\(\epsilon\) and uniform \(o(\mu)=o(L)\) make this less than one.  The majorant
-and (57.1) exclude a counterexample above its harmless cutoff.  Apply the
-same dyadic sweep as in Theorem 57.1. \(\square\)
+*Proof.*  Equations (57.18)--(57.19) give the honest two-term bound
+\[
+ \sum_{n\leq N}\nu_{N,T}(n)
+ \leq 2N e^{-c_1\mu(T)+\eta(T)\mu(T)}.
+\]
+Since \(\mu(T)\leq AL\), its logarithm is at most
+\(\log2-\epsilon L+\eta(T)AL<0\) eventually.  The majorant therefore
+excludes every stated tail prime.  If covered pairs occur at every large
+dyadic \(N\), then \(c_1\mu\geq(1+\epsilon)L\) and \(\mu\leq AL\) give
+\(\mu\asymp L\), hence \(h=o(L)\) and \(e^h<N/2\) eventually.  Every large
+prime lies in some \((N/2,N]\); (57.1) then excludes a counterexample.
+\(\square\)
 
 There is an alternative distributional target which avoids committing to a
 particular polynomial.  Let \({\cal C}_T\) be the union of exact CRT classes
-which avoid the chosen complete depth-\(T\) atom family, and let
-\(\delta_T\) be its density in the finite CRT product.
+which avoid **all** Lemma-16.1 witness classes of modulus at most \(T\), and
+let \(\delta_T\) be its density in the finite CRT product.  Thus
+\(W(n)>T\) implies \(n\in{\cal C}_T\).
 
-**Hypothesis \(H_{\rm EQ}\) (fair-share conspiracy classes; open).**  In a
-near-crossing supercritical range \(\mu=O(L)\), with
-\(\delta_T\leq e^{-c_2\mu}\),
+**Hypothesis \(H_{\rm EQ}({\mathscr F},\mu)\) (fair-share conspiracy
+classes; open).**  For a family and mass fixed as above, there exist fixed
+\(c_2,\epsilon,A>0\) and a specified \(\eta(T)\geq0\), \(\eta(T)\to0\),
+such that, for every
+sufficiently large \((N,T)\in{\mathscr F}\) satisfying
+\(\mu(T)\leq A\log N\), \(c_2\mu(T)\geq(1+\epsilon)\log N\), and
+\(\delta_T\leq e^{-c_2\mu(T)}\),
 \[
  \#\{p\leq N:p\hbox{ prime},\ p\in{\cal C}_T\}
-       \leq e^{o(\mu)}\,\delta_T\pi(N).                    \tag{57.20}
+       \leq e^{\eta(T)\mu(T)}\,\delta_T\pi(N).             \tag{57.20}
 \]
-Thus the conspiracy classes contain at most a subexponential-in-\(\mu\)
-factor times their fair share of primes; the \(o(\mu)\) is uniform.  If
-\(c_2\mu\geq(1+\epsilon)L\), (57.20) is less than one because
-\(\pi(N)\leq N\); by (57.1), \(H_{\rm EQ}\) implies the same large-prime
-conclusion.  Both (57.19) and (57.20) are falsifiable by supercritical
-arithmetic over-concentration.
+This is a falsifiable uniform assertion once \({\mathscr F}\), \(\mu\), and
+\(\eta\) are specified.  Its right side is at most
+\(\exp\{-\epsilon L+\eta(T)AL\}<1\) eventually.  Hence it gives no tail
+prime for each covered pair and, if the pairs cover all large dyadic \(N\),
+the same large-prime conclusion as Proposition 57.4.  Neither hypothesis is
+asserted here.
 
-**Assessment 57.5 (localization of the missing input).**  The
-residue-dispersion target (37.27), reduced exactly to the short-cofactor
-endpoint (40.19), is an earlier, pair-level request for cancellation across
-arithmetic residue fibres.  Both remain **OPEN**, and even their proof would
-not by itself supply the all-degree signed cancellation in (57.19).
-Nevertheless they locate the same type of missing information: total mass
-and absolute ledgers do not control where the compatible residues land.
-Theorem 33.1 is consistent with this diagnosis.  An all-avoider union of
-complete classes must have \(\log Q\geq(1/2+o(1))X\), so no hidden
-small-modulus cylinder can bypass the supercritical distribution problem.
+**Assessment (localization of the missing input).**  The residue-dispersion
+target (37.27), reduced exactly to the short-cofactor endpoint (40.19), is an
+earlier, pair-level request for cancellation across arithmetic residue
+fibres.  Both remain **OPEN**, and even their proof would not by itself
+supply the all-degree signed cancellation in (57.19).  Nevertheless they
+locate the same type of missing information: total mass and absolute ledgers
+do not control where the compatible residues land.  Theorem 33.1 is
+consistent only at the level of this diagnosis: for §33's complete intrinsic
+avoider \({\rm Av}_X\), a nonempty all-avoider union of complete classes has
+\(\log Q\geq(1/2+o(1))X\).  It is not a cylinder theorem for every c-free
+family or every possible supercritical assembly.
 
 The lower-tail primes of §54 do not contradict the proposed crossing.  For
 the least prime \(p_T\equiv1\pmod {M(T)}\), Theorem 54.1 and its proof give
@@ -21413,8 +21465,8 @@ the least prime \(p_T\equiv1\pmod {M(T)}\), Theorem 54.1 and its proof give
 Here the last mass is the cubic supply calibration (with its inherited
 status); the square-log mass is smaller,
 \(\asymp(\log\log p_T)^2\log\log\log p_T\).  These residue-one escapes are
-therefore subcritical, not counterexamples to \(H_{\rm XW}\) or
-\(H_{\rm EQ}\).
+therefore subcritical, not counterexamples to any proposed
+\(H_{\rm XW}({\mathscr F},\mu)\) or \(H_{\rm EQ}({\mathscr F},\mu)\).
 
 ### 57.4 Finite arithmetic replay
 
@@ -21425,8 +21477,9 @@ therefore subcritical, not counterexamples to \(H_{\rm XW}\) or
  \qquad
  \omega(M)=\#\{-4D\pmod M:D\mid((M+1)/4)^2\},             \tag{57.22}
 \]
-and performs a chunked complete-harvest scan through \(3\cdot10^5\).  The
-mass decimals are displays of exact fractions.  The tail counts include all
+using the same cached complete-harvest helper as block (bc), and performs a
+chunked scan through \(3\cdot10^5\).  The mass decimals are displays of exact
+fractions.  The tail counts include all
 positive integers or all primes, respectively:
 \[
 \begin{array}{c|r|r|r|r|r}
@@ -21440,19 +21493,24 @@ T&m(T)&\#\{n\leq3\cdot10^5:W(n)>T\}&
 \end{array}                                                \tag{57.23}
 \]
 The density denominators are \(300000\) and the exact \(25997\) primes in
-the interval.  These ratios are INFO, not estimates or growth laws.  The
-integer plateau is striking but finite (see §58).  Conversely, the isolated
-census point \((p,W)=(2031121,2495)\) in (56.11) warns that a larger prime
-box can contain an escape far above a naive small-box fair-share picture.
-Neither observation decides (57.19) or (57.20).
+the interval.  These ratios are INFO, not estimates or growth laws.  Section
+58 explains nearly all of the high-\(T\) integer excess: all 547 positive
+squares at most 300000 have \(W=+\infty\), accounting for 547 of the 569
+survivors at \(T=1000\) and 547 of 550 at \(T=3000\).  Conversely, the
+isolated census point \((p,W)=(2031121,2495)\) in (56.11) warns that a larger
+prime box can contain an escape far above a naive small-box fair-share
+picture.  Neither finite observation decides (57.19) or (57.20).
 
-The same block replays the threshold inequalities on
-\(L=10^3,10^4,10^5,10^6\).  With constants normalized to one, it checks
-\(t^3/(2L)\) at \(t=L^\theta\), and
-\(t^2\log t/(2L)\) for the square-log row.  The cubic \(\theta=0.40\)
-ratio crosses at \(L=32\), while \(\theta=0.25\) decreases; the square-log
-\(\theta=1/2\) ratio crosses at \(L=e^4\), confirming the exact endpoint
-arithmetic only.  This does not verify either window hypothesis.
+The same block replays (57.4)--(57.5) on
+\(L=10^3,10^4,10^5,10^6\) with constants normalized to one, including the
+three \(C\)-cases at the cubic endpoint.  For an additional display it uses
+the asymptotic, fixed-margin surrogates \(t^3/(2L)\) and
+\(t^2\log t/(2L)\) at \(t=L^\theta\).  In that surrogate normalization, the
+cubic \(\theta=0.40\) ratio crosses at \(L=32\), while \(\theta=0.25\)
+decreases, and the square-log \(\theta=1/2\) ratio crosses at \(L=e^4\).
+Both quoted values are crossings only in the surrogate normalization; in
+particular \(L=e^4\) is not an exact crossing for \(\log(2+t)\) in (57.5).
+This arithmetic does not verify either window hypothesis.
 
 **Computational 57.7 (exact toy only).**  For every distinct harvested atom
 through \(X=15,23,31\), `verify.py (bd)` enumerates compatible sets and
@@ -21470,15 +21528,34 @@ evidence.
 
 **What would falsify this picture / what it does not do.**  A sequence
 violating (57.2) or (57.3) in its stated moving window falsifies the
-corresponding hypothesis.  A signed remainder of positive size
-\(N e^{-c\mu+\Omega(\mu)}\), or conspiracy-prime concentration
-\(e^{\Omega(\mu)}\) above fair share, falsifies \(H_{\rm XW}\) or
-\(H_{\rm EQ}\).  Proposition 57.2 does not rule out a sparse identity,
-non-absolute transfer, or new distribution theorem, and the finite tables do
-not support either hypothesis.  The proved content is the conditional
-count-below-one implication, the arithmetic one-factor gap in the stated
-architecture, and the exact localization of the remainder one would have to
-control; no unconditional pointwise Erdős--Straus claim is made.
+corresponding hypothesis.  For a fixed \((\mathscr F,\mu)\), proving that
+every permitted candidate expansion violates (57.19), or that (57.20) fails
+for every allowed choice of its fixed constants and error function, would
+falsify the corresponding crossing hypothesis.  One bad candidate expansion
+alone would not falsify the existential
+\(H_{\rm XW}({\mathscr F},\mu)\).  Proposition 57.2
+does not rule out a sparse identity, non-absolute transfer, or new
+distribution theorem, and the finite tables do not support either hypothesis.
+The proved content is the conditional count-below-one implication, the
+arithmetic one-factor gap in the stated architecture, and the exact remainder
+identity (57.18) within a specified congruence expansion; no universal
+localization theorem and no unconditional pointwise Erdős--Straus claim is
+made.
+
+### 57.5 Review attestation (wave 22)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Theorem 57.1's conditional reduction and
+both threshold exponents survive independent rederivation.  The review made
+the full \(W=+\infty\)-to-zero-count quantifier chain explicit; corrected the
+\(cb^3=1\), \(C<1\) endpoint; retained the **UNPROVED** window hypotheses and
+the inherited §39 and **CLAIMED/PROVISIONAL** Theorem-34.8 statuses; restored
+the §18.2--§18.3 and Lemma-33.3 antecedents; changed (57.11) from a claimed
+necessary fixed margin to a sufficient one; scoped the modulus and cylinder
+claims to their proved architectures; replaced the ambiguous crossing
+hypotheses by fixed-family quantifiers and repaired their factor-two proof;
+and aligned block (bd) with its shared harvest, exact displayed logarithms,
+and §58's square explanation.  No unconditional Erdős--Straus conclusion is
+asserted.
 
 ## 58. The inverse census: least conspiracy elements, the Jacobsthal angle, and the integer/prime dichotomy
 
