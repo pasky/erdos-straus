@@ -1,12 +1,21 @@
 # Paper draft status
 
-`espaper.tex` is the v7 standalone `amsart` consolidation draft (74 pages). Its two record headlines remain:
+`espaper.tex` is the v8 standalone `amsart` consolidation draft (79 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v8 changes — 2026-08-30, wave 22
+
+- Absorbed source §56's proved, effective congruence-certificate ceilings with both proofs complete. Every prime or all-integer Type-II certificate for `W > T` carries `P_3(T)`, so `log Q >= (1/2+o(1))T`; the paper expressly withholds the full-lcm constant `1`. Every hard Type-I certificate through `T` carries every prime `5 <= ell <= T`, so `log Q >= T+o(T)`.
+- Added the scoped congruence/Linnik corollary, including the wave-21 repair that a least-prime bound must actually select a prime beyond an eventual certificate's finite exceptional prefix. The GRH consequence is visibly conditional. The congruence wall remains an architecture assessment, not a theorem that every superlogarithmic extremal argument must be noncongruential.
+- Added the exact informational census: `W` through `10^6` and the memory-bounded full scan through `10^7`, including `(2031121,2495)`; `ck_pr` through `3*10^5` and the full scan through `10^6`; and the corresponding unrestricted `D(p)` records. The normalized panels are INFO-only and retain the warning against mixing finite census maxima with §54's asymptotic construction.
+- Repaired the v7 two-sided-frontier wording to match §56: `[1, ~2]` is only a finite-search normalization panel, not a proved bound, conjectured limiting exponent, or monotonic trend. The pointwise frontier remains exactly `A < 1` impossible and `A >= 1` open; the new theorems constrain only complete-class certificates.
+- Updated the abstract, introduction, section map, internal pedigree, and verifier register. Block `(bc)` now covers the certificate data and all extended finite scans; the source §56 hostile review's finite-prefix, resident-memory, and architecture-pointer repairs are preserved.
+- Cleared the v8 queue: source §56 is absorbed. Source §§57–58 are queued for v9 only; no claims from those in-progress wave-22 sections are imported.
 
 ## v7 changes — 2026-08-30, wave 21
 
@@ -61,9 +70,14 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes Theorem 56.1, (56.1)–(56.3) ↔ `typeII-certificate`: prime and nonreduced all-integer certificate scopes, eventual quantifier, exact `P_3(T)` divisibility, effective `(1/2+o(1))T` constant, literal `D=1` multiplier datum, CRT/Dirichlet proof, and the explicit no-full-lcm/no-constant-`1` limitation agree.
+- notes Theorem 56.2, (56.4)–(56.7) ↔ `typeI-certificate`: reduced hard-class definition, every prime core `5 <= ell <= T`, `theta(T)-log 6`, nonresidue refinement, reciprocity computation, admissibility, Corollary 52.2 application, and additive-not-multiplicative primitivity warning agree.
+- notes (56.8)–(56.9) and Assessment 56.2a ↔ `certificate-Linnik`, `GRH-certificate`, and the congruence-wall paragraph: certified-prime finite-prefix repair, exact `1/(alpha L)` algebra, Type-II/Type-I coefficient ceilings, §54 saturation claims, conditional GRH label, and architecture-only perimeter all agree.
+- notes Computational 56.3–56.4, (56.10)–(56.15) ↔ the two census subsections: all endpoint counts, strict records, full-scan extensions, natural-log maxima, exact-minimum scope, INFO-only register, no-growth-law warning, and the repaired linear resident-memory description agree.
+- notes §56.5, (56.16) ↔ `remaining-window` and revised (54.12): the pointwise lower wall and open range are separated from the overlapping finite-search panel; `lesssim 2` is neither a bound nor a conjectured exponent, and the certificate ceilings do not alter the pointwise frontiers.
 - notes Theorem 54.1, (54.1)–(54.5) ↔ `W-lower` and `MOD-frontier`: full-lcm scope over every `k*ell`, effective Xylouris exponent `5.2`, unbounded selected primes, limsup constant `1/5.2`, every `0<A<1` refutation, and the provisional upper-tail label all agree.
 - notes Theorem 54.3, (54.6)–(54.10) ↔ `slice-lower` and `SPF-frontier`: squarefree-core genus forcing, every-slice vanishing, admissibility through `R(T)>4T`, effective Linnik quantification, `ck_pr`/`ck_min` scope, and every `0<A<1` refutation agree.
-- notes §54 sandwich ↔ the two-sided frontier: almost-all polylog-to-epsilon upper scale and effective logarithmic infinite lower scale are proved; the logarithm-squared-like ceiling and `[1, ~2]` window remain expressly data-guided and conjectural.
+- notes §54 sandwich as refined by §56 ↔ the two-sided frontier: almost-all polylog-to-epsilon upper scale and effective logarithmic infinite lower scale are proved; the former logarithm-squared motivation is now retained only in §56's finite-search normalization panel, not promoted to a bound or limiting-exponent conjecture.
 - notes Lemma 55.1 and Theorem 55.2, (55.1)–(55.13) ↔ `m-truncated` and `general-m-tails`: prime scope, `lambda_m`/`theta_m` masses, `t(1+M_i)` ledger, exact `(m,T,N)` windows, fixed-gap recoveries, and cubic **CLAIMED/PROVISIONAL** status agree.
 - notes Lemma 55.4 and Theorem 55.5, (55.14)–(55.18) ↔ `m-Page` and `m-effectivity`: literal modulus `muv`, all three conductor cases, favorable sign, full-family/structured-fibre-only quantifiers, inequalities (55.17a)–(55.17b), unfavorable `k=1` handling, and ancillary-all-triples exclusion agree.
 - notes (55.19)–(55.21) ↔ the PW and finite registers: formal crossovers are separated from the actual uniform window; proved/provisional status and unknown-constant caveats remain; block `(bb)` numbers and informational scope agree.
@@ -111,7 +125,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v7 build completes in 74 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are restored to the repository snapshot after this source-only validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the full verifier passes through block `(bb)`.
+The v8 build completes in 79 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the full verifier passes through block `(bc)`.
 
 ## Submission TODO
 
@@ -121,6 +135,9 @@ The v7 build completes in 74 pages with zero TeX errors and no undefined referen
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v8 queue
+## v9 queue
 
-- Absorb source §56, “Extremal census and congruence-certificate ceiling,” from the sibling wave-21 unit.
+- Absorb source §57, “supercritical window/count-below-one reduction,” when the parallel wave-22 notes section is complete.
+- Absorb source §58, “inverse census/Jacobsthal angle,” when the parallel wave-22 notes section is complete.
+
+These are queue titles only; v8 makes no content claim about either in-progress section.

@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v7, 30 August 2026}
+\date{Draft v8, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -71,7 +71,12 @@ $\exp\{-c_A(\log\log X)^{3/2}/\sqrt{\log\log\log X}\}$ proportion of hard
 primes for fixed $0<A<1$.  In the opposite direction, we prove effectively
 that $W(p)>c\log p$ and $ck_{\min}(p)>c\log p$ infinitely often; hence both
 $H_{\rm MOD}(A)$ and $H_{\rm SPF}(A)$ are false for every $0<A<1$, leaving
-exactly $A\geq1$ open in the two pointwise frames.
+exactly $A\geq1$ open in the two pointwise frames.  We also prove that a
+complete congruence-class certificate through depth $T$ has
+$\log Q\geq(1/2+o(1))T$ in Type II and $\log Q\geq T+o(T)$ in Type I.
+These are effective ceilings on the certificate-plus-least-prime
+architecture, not pointwise upper bounds on either depth statistic.  Exact
+finite censuses through the stated endpoints remain informational only.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -133,8 +138,12 @@ perimeter, while Theorem~\ref{thm:per-slice-sieve} and
 Corollary~\ref{cor:almost-all-SPF} give the fixed-slice and stacked
 almost-all frontiers.  These upper tails are not pointwise.
 Theorems~\ref{thm:W-lower} and~\ref{thm:slice-lower} supply the opposite,
-pointwise lower tail effectively, and Theorem~\ref{thm:general-m-tails}
-records the status-preserving general-$m$ truncation.
+pointwise lower tail effectively.  Theorems~\ref{thm:typeII-certificate}
+and~\ref{thm:typeI-certificate} then give the exact proved exponential
+modulus costs for complete-class certificates, while
+Corollary~\ref{cor:certificate-Linnik} records the scoped least-prime
+consequence.  Theorem~\ref{thm:general-m-tails} records the
+status-preserving general-$m$ truncation.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -156,11 +165,13 @@ then proves the one-prime-factor criterion, states the bespoke unproved
 slice-factor hypothesis, and audits why the named standard hypotheses do
 not supply its pointwise quantifier.  Sections~\ref{sec:witness-tail}--
 \ref{sec:stacked-sieve} add the witness tail, effectivity/priority register,
-fixed-slice sieve, and effective stacked almost-all theorem.  Sections
-~\ref{sec:lower-tail}--\ref{sec:general-m-tails} then prove the logarithmic
-lower tail, sharpen both pointwise exponent frontiers, and give the
-status-preserving general-numerator tails and their exact effectivity
-perimeter.  Finally, Section~\ref{sec:dispersion-frontier}
+fixed-slice sieve, and effective stacked almost-all theorem.  Section~\ref{sec:lower-tail} then proves the logarithmic lower tail and
+sharpens both pointwise exponent frontiers.  Section~\ref{sec:certificate-ceiling}
+proves the complete-class certificate ceilings, states their exact
+architecture-only perimeter, and extends all three finite depth censuses.
+Section~\ref{sec:general-m-tails} gives the status-preserving
+general-numerator tails and their exact effectivity perimeter.  Finally,
+Section~\ref{sec:dispersion-frontier}
 gives the endpoint sparsity,
 Kloosterman-fraction audit, widened prefix and large-$c$ wedge, and exact
 open collision remainder.  The composite frontier records both successive
@@ -175,9 +186,12 @@ this draft.  ``Open'' means no proof is claimed.  The record results in
 Sections~\ref{sec:records}--\ref{sec:general-m}, the cubic witness tail,
 Theorem~\ref{thm:effectivity}, and the cubic row of
 Theorem~\ref{thm:general-m-tails} remain \textsc{claimed/provisional} as
-labelled.  The logarithmic lower-tail theorems are proved and effective;
-writing out internal arguments and reviews for the provisional results does
-not replace independent external priority and referee checks.  In
+labelled.  The logarithmic lower-tail and congruence-certificate theorems
+are proved and effective.  The normalized census panels are informational,
+the GRH least-prime remark is conditional, and the congruence wall is an
+architecture assessment rather than a universal pointwise theorem.  Writing
+out internal arguments and reviews for the provisional results does not
+replace independent external priority and referee checks.  In
 particular, no result of this paper proves the
 Erd\H{o}s--Straus conjecture.
 
@@ -191,8 +205,9 @@ compilation of the file was not checked.  Its cited support is Dyachenko
 is not proved constructively and that the relevant finite-covering argument
 is conditional.  The development is nevertheless useful as a formal
 isolation of the same frontier: Sections~\ref{sec:witness-tail}--
-\ref{sec:lower-tail} quantify, almost everywhere and on the effective lower
-tail, the witness existence that its axiom assumes.  No result here depends
+\ref{sec:certificate-ceiling} quantify, almost everywhere, on the effective
+lower tail, and at the complete-class certificate perimeter, the witness
+existence that its axiom assumes.  No result here depends
 on that file or on Dyachenko's conditional existence claim.
 
 The historical comparison is also provisional.  Vaughan's 1970 bound
@@ -2095,11 +2110,19 @@ full Layer-1 family and the structured $c$-free fibres, inserted the
 worst-case fibre subtraction, and kept every inherited provisional label.
 Block \texttt{(ba)} checks the two residue-one lower-tail constructions, and
 block \texttt{(bb)} checks the general-$m$ finite harvest and favorable-sign
-mass.  The full internal verifier now runs through \texttt{(bb)}.  A separate
-full-source review of the auro-zera Lean file replayed its identities but did
-not compile it; its open-core characterization and the source paper's own
-conditional Conclusion are related-work checks, not validation of this
-paper.
+mass.  A wave-21 hostile review of the certificate ceilings and extremal
+census returned \textsc{sound-after-minimal-scope-repairs}.  It preserved
+both constants and proofs while making explicit that a generic least-prime
+bound must select a prime beyond an eventual certificate's finite exceptional
+prefix, correcting the census-memory description to a linear resident-state
+bound, and restoring the architecture-only pointwise pointer.  Block
+\texttt{(bc)} replays the certificate data, record tables, natural-log
+normalizations, and the memory-bounded full scans.  The full internal
+verifier now runs through \texttt{(bc)}.  These are internal reviews and bug
+hunts, not external validation.  A separate full-source review of the
+auro-zera Lean file replayed its identities but did not compile it; its
+open-core characterization and the source paper's own conditional Conclusion
+are related-work checks, not validation of this paper.
 
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
@@ -4074,21 +4097,354 @@ opposite extreme.  The resulting proved sandwich is
 \end{equation}
 The finite $W$ census, Dahan's different two-parameter depth statistic
 \cite{Dahan}, and the different statistic measured in the auro-zera file
-all have a logarithm-squared-like upper-envelope shape.  They motivate, but
-do not prove, a conjectural $O((\log p)^2)$-scale ceiling for $W$; the three
-statistics are not interchangeable.  Accordingly the exact proved
-pointwise restriction is $A\geq1$, and the honest data-guided search window
-is
+suggest logarithmic, logarithm--logarithm, and logarithm-squared
+normalizations worth plotting, but the statistics are not interchangeable
+and no finite envelope supplies a growth law.  The exact pointwise frontier
+is only
 \begin{equation}\tag{54.12}
- \boxed{\quad \underbrace{A\geq1}_{\text{proved necessary}},\qquad
-        \underbrace{1\leq A\lesssim2}_{\text{conjectural frontier window}}.
-       \quad}
+ \boxed{\quad
+ \underbrace{A<1}_{\text{proved impossible pointwise}}
+ \quad\big|\quad
+ \underbrace{A\geq1}_{\text{still open pointwise}}.
+ \quad}
 \end{equation}
-The same proved lower edge holds for $H_{\rm SPF}$.  Covering every
+The same proved lower edge holds for $H_{\rm SPF}$.  The extended census and
+its deliberately separate finite-search panel appear in
+\eqref{eq:remaining-window}; in particular, its symbol $\lesssim2$ is not a
+proved upper bound or a conjectured limiting exponent.  Covering every
 $m\leq T$ by residue one forces divisibility by $M(T)$, whose logarithm is
-$T+o(T)$; thus this full-lcm escape route is intrinsically logarithmic.  None
-of these lower-tail primes is asserted to be an Erd\H{o}s--Straus
-exception.
+$T+o(T)$, so the full-lcm escape route is intrinsically logarithmic.
+Theorems~\ref{thm:typeII-certificate}--\ref{thm:typeI-certificate} sharpen
+this observation: logarithmic order is optimal inside the
+complete-class-plus-generic-least-prime architecture, with a factor-two gap
+in the proved Type-II modulus constant and exact saturation in Type I.  They
+do not close any part of the open pointwise range in (54.12).  None of these
+lower-tail primes is asserted to be an Erd\H{o}s--Straus exception.
+
+\section{The congruence-certificate ceiling and extremal census}
+\label{sec:certificate-ceiling}
+This section closes the elementary two-sided certificate question left by
+Sections~\ref{sec:witness-tail} and~\ref{sec:lower-tail}.  A complete
+congruence class certifying escape through depth $T$ must itself have
+exponentially large modulus.  The Type-II statement is the prime-progression
+extension of the all-integer cylinder wall in
+Theorem~\ref{thm:cylinder}, not a new independent supply theorem.  The
+Type-I statement uses Corollary~\ref{cor:no-third-law} to turn every
+unforced prime core into a required conductor coordinate.  The theorems are
+asymptotic and effective.  The censuses below are exact only in their stated
+ranges and imply no growth law.
+
+\subsection{Type II: every certificate carries the $3\pmod4$ primes}
+Call $a\pmod Q$ a \emph{prime congruence certificate for $W>T$} if
+$(a,Q)=1$ and every sufficiently large prime $p\equiv a\pmod Q$ satisfies
+$W(p)>T$.  An all-integer certificate has the analogous meaning with every
+sufficiently large positive integer in the class; it need not be reduced.
+Put
+\begin{equation}\tag{56.1}
+ P_3(T)=\prod_{\substack{\ell\leq T\\
+                 \ell\ \mathrm{prime},\ \ell\equiv3\ (4)}}\ell.
+\end{equation}
+
+\begin{theorem}[Type-II congruence-certificate ceiling; proved, effective;
+source Theorem 56.1]\label{thm:typeII-certificate}
+If $a\pmod Q$ is either a prime or an all-integer congruence certificate for
+$W>T$, then
+\begin{equation}\tag{56.2}
+ P_3(T)\mid Q,\qquad
+ \log Q\geq\vartheta(T;4,3)=\left(\frac12+o(1)\right)T.
+\end{equation}
+Consequently, for every fixed $\epsilon>0$, there is an effectively
+computable $T_\epsilon$ such that
+$Q\geq\exp\{(1/2-\epsilon)T\}$ for $T\geq T_\epsilon$.
+\end{theorem}
+\begin{proof}
+Fix a prime $\ell\leq T$, $\ell\equiv3\pmod4$, and put
+$A=(\ell+1)/4$.  The divisor $D=1$ in
+Lemma~\ref{lem:exact-R} is not merely a formal intrinsic class: its
+Lemma~\ref{lem:multiplier} datum is
+\begin{equation}\tag{56.3}
+ k=1,\quad \ell=\ell,\quad (u,v,w)=(1,A,1),
+ \qquad -uv^{-1}\equiv-A^{-1}\equiv-4\pmod\ell.
+\end{equation}
+Thus every positive integer $n\equiv-4\pmod\ell$ has
+$W(n)\leq\ell\leq T$.
+
+Suppose $\ell\nmid Q$.  The Chinese remainder theorem gives infinitely many
+positive integers satisfying both $n\equiv a\pmod Q$ and
+$n\equiv-4\pmod\ell$, contradicting an all-integer certificate.  In the
+prime version their joint class modulo $Q\ell$ is reduced: it is reduced
+modulo $Q$ by hypothesis and $-4\not\equiv0\pmod\ell$.  Dirichlet's theorem
+therefore gives infinitely many primes in it, again contradicting the
+certificate.  Hence every factor in (56.1) divides $Q$.  The final estimate
+is the effective prime number theorem in the fixed progression
+$3\pmod4$.  This is exactly the mechanism of Theorem~\ref{thm:cylinder},
+with the prime-bearing conclusion added.
+\end{proof}
+
+The theorem uses only one harvested class at each prime modulus.  It does
+\emph{not} prove that the full $\lcm(1,\ldots,T)$ of
+Section~\ref{sec:lower-tail} is necessary for an arbitrary certificate.
+Composite moduli can meet a progression in only one coset modulo $(Q,M)$,
+and the full harvested set need not cover all such cosets.  Thus replacing
+the constant $1/2$ in (56.2) by $1$ would require an additional argument.
+
+\subsection{Type I: every prime core is forced into the conductor}
+A \emph{hard Type-I congruence certificate through $T$} is a reduced class
+$a\pmod Q$ with
+\begin{equation}\tag{56.4}
+                 24\mid Q,\qquad a\equiv1\pmod {24},
+\end{equation}
+such that every sufficiently large prime $p\equiv a\pmod Q$ has
+$ck_{\min}(p)>T$.  Equivalently, every admissible slice with $ck\leq T$
+vanishes on every sufficiently large prime in the class.
+
+\begin{theorem}[Type-I congruence-certificate ceiling; proved, effective;
+source Theorem 56.2]\label{thm:typeI-certificate}
+Every hard Type-I congruence certificate through $T$ satisfies
+\begin{equation}\tag{56.5}
+ \prod_{\substack{5\leq\ell\leq T\\\ell\ \mathrm{prime}}}\ell\mid Q,
+ \qquad \log Q\geq\vartheta(T)-\log6=T+o(T).
+\end{equation}
+In particular, for every $\epsilon>0$, effectively for all sufficiently
+large $T$, one has $Q\geq\exp\{(1-\epsilon)T\}$.
+\end{theorem}
+\begin{proof}
+Let $5\leq\ell\leq T$ be prime and suppose $\ell\nmid Q$.  The primitive
+quadratic character attached to the core $s=\ell$ is nonconstant modulo its
+prime coordinate.  Concretely, choose a nonzero quadratic nonresidue
+$b\pmod\ell$, and use the Chinese remainder theorem to refine the
+certificate to
+\begin{equation}\tag{56.6}
+                  p\equiv a\pmod Q,
+             \qquad p\equiv b\pmod\ell.
+\end{equation}
+This is a reduced class modulo $Q\ell$, hence contains infinitely many
+primes.  For every such hard prime, quadratic reciprocity and
+$p\equiv1\pmod4$ give
+\begin{equation}\tag{56.7}
+ \chi_\ell(p)=\left(\frac{\Delta_\ell}{p}\right)
+       =\left(\frac{-\ell}{p}\right)
+       =\left(\frac p\ell\right)=-1.
+\end{equation}
+The slice $(c,k)=(\ell,1)$ is therefore unforced and is admissible for all
+sufficiently large primes in (56.6).  Since $Q\ell$ is a multiple of
+$\lcm(24,4\ell)$, Corollary~\ref{cor:no-third-law} says that this reduced
+refinement cannot be identically vanishing: arbitrarily far out it contains
+a prime with $M_{\ell,1}(p)>0$.  That prime has
+$ck_{\min}(p)\leq\ell\leq T$, contradicting the certificate.  Therefore
+$\ell\mid Q$ for every prime $5\leq\ell\leq T$.  Taking logarithms and
+using the effective prime number theorem proves (56.5).
+\end{proof}
+
+The primitivity point in this proof is additive, not multiplicative: the
+progression modulo a conductor fills residue classes modulo every conductor
+coordinate omitted from $Q$.  Equation (56.6) exhibits both character signs
+directly.  No claim that a multiplicative subgroup generated by $Q$
+controls the progression is used.
+
+\begin{corollary}[congruence/Linnik recipe; proved within the stated recipe;
+source (56.8)]\label{cor:certificate-Linnik}
+Suppose a certificate construction at depth $T$ uses
+$Q=\exp\{(\alpha+o(1))T\}$, and a least-prime theorem with exponent $L$
+selects a certified prime $p\leq Q^{L+o(1)}$.  Here ``certified'' includes
+that $p$ lies beyond any finite exceptional prefix allowed by the
+certificate definition; a least-prime bound alone does not ensure this for
+an arbitrary eventual certificate.  Then
+\begin{equation}\tag{56.8}
+ W(p)>T\ \hbox{ or }\ ck_{\min}(p)>T,
+ \qquad T\geq\frac{1+o(1)}{\alpha L}\log p.
+\end{equation}
+Theorems~\ref{thm:typeII-certificate} and~\ref{thm:typeI-certificate} force
+respectively $\alpha\geq1/2$ and $\alpha\geq1$.  Thus the coefficient
+available from this generic recipe is at most $2/L$ in Type II and at most
+$1/L$ in Type I.  The residue-one choices of
+Theorems~\ref{thm:W-lower} and~\ref{thm:slice-lower} have $\alpha=1$ in
+both frames.  They therefore saturate the Type-I certificate rate and are
+within a factor two of the proved Type-II ceiling; in both frames they
+establish the optimal logarithmic order for a
+certificate-plus-least-prime argument, up to the least-prime exponent.
+With the conservative effective Linnik value $L=5.2$, their coefficient is
+$1/5.2$.
+\end{corollary}
+
+% wave-21 review repair: keep the GRH conclusion conditional and separate
+% from the unconditional effective certificate ceilings.
+\begin{remark}[GRH least-prime consequence; conditional; source (56.9)]
+\label{rem:GRH-certificate}
+Conditional on the unproved Generalized Riemann Hypothesis, the standard
+least-prime bound permits $L=2+\epsilon$.  The same residue-one
+constructions therefore give, respectively along unbounded prime sequences,
+\begin{equation}\tag{56.9}
+ W(p)> (1/2-\epsilon)\log p,
+ \qquad ck_{\min}(p)> (1/2-\epsilon)\log p,
+\end{equation}
+after harmlessly changing $\epsilon$.  This statement is conditional;
+(56.2) and (56.5) are unconditional and effective.
+\end{remark}
+
+\medskip\noindent\textbf{Assessment 56.2a (the congruence wall).}
+The proved conclusion is that a \emph{uniform complete-class} certificate
+through $T$ has exponential modulus.  Consequently, inside the
+Section~\ref{sec:lower-tail} architecture---complete congruence certificate,
+modulus $\exp\{\Theta(T)\}$, then a generic least-prime theorem---a
+superlogarithmic lower bound would have to abandon at least one ingredient.
+The natural alternative is a noncongruence certificate on a sifted set of
+primes, in the critical-window territory of Section~\ref{sec:window}.  The
+ceiling does not logically prohibit every congruence-informed construction:
+it says nothing about an accidentally tiny first prime in a chosen class,
+or a modulus much larger than $\exp\{\Theta(T)\}$.  Accordingly this is an
+architecture wall, not a theorem that every possible extremal proof beyond
+$C\log p$ must be noncongruential.
+
+\subsection{The exact $W$ census}
+\medskip\noindent\textbf{Computational 56.3 (exact stated ranges;
+informational).}
+Verifier block \texttt{(bc)} harvests the complete intrinsic class set of
+Lemmas~\ref{lem:multiplier} and~\ref{lem:exact-R},
+$\{-4D\pmod M:D\mid((M+1)/4)^2\}$, for every $M\leq3000$,
+$M\equiv3\pmod4$.  It then scans every hard prime in increasing order and
+stops at the first harvested modulus.  All $9{,}732$ hard primes below
+$10^6$ resolve within the cap.  Their strict records are
+\begin{equation}\tag{56.10}
+\begin{gathered}
+\begin{array}{c|rrrrrrr}
+p&73&193&1201&2521&3361&33289&90841\\
+W(p)&7&15&31&47&99&155&167
+\end{array}\\[3pt]
+\begin{array}{c|rrrrrr}
+p&144169&167521&225289&361321&915961&954409\\
+W(p)&191&259&279&287&303&335
+\end{array}
+\end{gathered}
+\end{equation}
+With \texttt{ES\_FULL\_SCAN=1}, the streamed, chunked scan covers all
+$82{,}887$ hard primes below $10^7$.  The only later records are
+\begin{equation}\tag{56.11}
+ (p,W(p))=(1853329,383),\qquad(2031121,2495),
+\end{equation}
+and the running maximum remains $2495$ through the endpoint.  These values
+are exact minima in the harvested family because every smaller eligible
+modulus was tested; the cap is not hit.
+
+The requested normalized maxima, using natural logarithms, are
+\textsc{info-only}:
+\begingroup
+\scriptsize
+\setlength{\arraycolsep}{3pt}
+\begin{equation}\tag{56.12}
+\begin{array}{c|c|c|c}
+ p\text{-range}&\max W/\log p&\max W/(\log p\log\log p)&
+                    \max W/(\log p)^2\\ \hline
+p<10^6&24.330286\ (954409,335)&9.277839\ (954409,335)&
+       1.836625\ (225289,279)\\
+p<10^7&171.783468\ (2031121,2495)&64.198698\ (2031121,2495)&
+       11.827479\ (2031121,2495)
+\end{array}
+\end{equation}
+\endgroup
+Each parenthesis is $(p,W(p))$.  At $p=10^7$, the unconditional
+Section~\ref{sec:lower-tail} coefficient gives
+$(1/5.2)\log p=3.0996\ldots$.  This comparison must not mix registers:
+Section~\ref{sec:lower-tail} guarantees rare residue-one escapes at a height
+bounded by $\exp\{(5.2+o(1))T\}$, whereas (56.10)--(56.12) record whatever
+finite primes happen to be extremal below a moderate endpoint.  For example,
+the generic height attached to $T=2495$ is astronomically beyond this scan.
+The census neither samples that constructed sequence nor estimates a tail
+density, and the large isolated jump in (56.11) supports no growth law.
+
+\subsection{The Type-I extremal extension}
+\medskip\noindent\textbf{Computational 56.4 (exact stated ranges;
+informational).}
+The same block factors one norm at a time, skips the exact genus-forced signs
+before factorization, and streams unresolved primes in product order.  For
+the $3{,}202$ hard primes below $3\cdot10^5$, the strict $ck_{\rm pr}$
+records are
+\begin{equation}\tag{56.13}
+\begin{gathered}
+\begin{array}{c|rrrrrrr}
+p&73&193&241&1201&2521&4729&7489\\
+ck_{\rm pr}&7&10&21&34&38&66&70
+\end{array}\\[3pt]
+\begin{array}{c|rrrrrr}
+p&9601&31081&51769&83689&113161&171481\\
+ck_{\rm pr}&78&110&249&282&378&461
+\end{array}
+\end{gathered}
+\end{equation}
+The unrestricted conspiracy-depth records in the same range are
+\begin{equation}\tag{56.14}
+\begin{gathered}
+\begin{array}{c|rrrrrr}
+p&73&193&241&769&1321&2281\\
+D(p)&6&9&10&12&20&25
+\end{array}\\[3pt]
+\begin{array}{c|rrrrr}
+p&2521&9601&12289&55441&92401\\
+D(p)&37&66&76&82&102
+\end{array}
+\end{gathered}
+\end{equation}
+With \texttt{ES\_FULL\_SCAN=1}, all $9{,}732$ hard primes below $10^6$ are
+scanned.  The later $ck_{\rm pr}$ records are
+$(319489,878),(538561,898)$; the sole later depth record is
+$(414241,217)$.  Every prime resolves by these maxima.  The normalized
+maxima are again \textsc{info-only}:
+\begingroup
+\scriptsize
+\setlength{\arraycolsep}{3pt}
+\begin{equation}\tag{56.15}
+\begin{array}{c|c|c|c}
+\text{statistic and range}&\max X/\log p&
+ \max X/(\log p\log\log p)&\max X/(\log p)^2\\ \hline
+ck_{\rm pr},\ p<3\cdot10^5&38.250190\ (171481,461)&
+ 15.366153\ (171481,461)&3.173703\ (171481,461)\\
+ck_{\rm pr},\ p<10^6&69.273069\ (319489,878)&
+ 27.277261\ (319489,878)&5.465556\ (319489,878)\\
+D,\ p<3\cdot10^5&8.920846\ (92401,102)&
+ 3.661213\ (92401,102)&0.857113\ (12289,76)\\
+D,\ p<10^6&16.777222\ (414241,217)&
+ 6.553922\ (414241,217)&1.297121\ (414241,217)
+\end{array}
+\end{equation}
+\endgroup
+Here $X$ in the header denotes the statistic in the first column, and each
+parenthesis is $(p,X(p))$.  These are census maxima, not estimates of
+$H_{\rm SPF}$, $ck_{\min}$, or a population exponent.
+% wave-21 review repair: state the actual resident memory, including resolved
+% minima maps and the hard-prime tuple, rather than only unresolved state.
+The block's persistent state is linear in the hard-prime count: it keeps the
+hard-prime tuple, unresolved sets, per-prime minimum maps, and a small core
+cache.  It keeps only one bounded residue set for the current norm.  Prime
+generation is chunked; no prime-by-slice factor table or interval-sized
+residue array is retained.
+
+\subsection{The remaining window}
+The exact logical frontier and the finite plotting window can be displayed
+together only if their labels remain separate:
+\begingroup
+\small
+\begin{equation}\label{eq:remaining-window}\tag{56.16}
+ \underbrace{A<1}_{\substack{\text{impossible pointwise}\\
+                    \text{Theorems~\ref{thm:W-lower},
+                    \ref{thm:slice-lower}}}}
+ \quad\big|\quad
+ \underbrace{1\leq A\ \lesssim\ 2}_{\substack{
+        \text{\bfseries Assessment: finite-search window only}\\
+        \log p,\ \log p\log\log p,\ (\log p)^2
+        \text{ are the census anchors}}}
+ \quad\big|\quad
+ \underbrace{A\geq1}_{\substack{H_{\rm MOD}(A),H_{\rm SPF}(A)\\
+                                  \text{still open pointwise}.}}
+\end{equation}
+\endgroup
+The symbol $\lesssim2$ in the middle is deliberately not a proved upper
+bound, a conjectured limiting exponent, or even a monotonic trend.  It only
+names the normalization panel in (56.12) and (56.15).  The proved lower wall
+is $A=1$; no finite census supplies the other side.  The pointwise-frontier
+statements in Sections~\ref{sec:witness-tail} and~\ref{sec:lower-tail}
+remain unchanged: Theorems~\ref{thm:typeII-certificate} and
+\ref{thm:typeI-certificate} constrain only the complete-class certificate
+architecture.
 
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
