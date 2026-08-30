@@ -81,6 +81,38 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 29 (2026-08-30, wave 25 — see notes.md §61 + paper v11; max-severity-reviewed → repaired / FAITHFUL)
+
+* **§61: the decidable census, the twisted-square laws, and the prime
+  criterion (SOUND-AFTER-REPAIRS; independently replicated).**
+  **Complete census: through \(10^6\), the \(W=+\infty\) set is EXACTLY
+  1{,}000 squares + \{288, 336, 4545\}** (default-committed 200{,}000;
+  reviewer's independent original-harvest replay: all \(n\leq5000\),
+  2{,}500 seeded random samples, and the full optional million — zero
+  disagreements) — C_SQ\' (squares ∪ the three sporadics) SURVIVES its
+  millionfold stress test; only \(\supseteq\) is proved.  Twisted-square
+  box (squarefree \(s\leq200\), \(m\leq30\); 3{,}630 entries replayed):
+  only \((2,12)\) and \((21,4)\) vanish ((505,3) outside the box);
+  proved exact residue laws for \(2m^2\) subfamilies (\(W=3\iff3\nmid
+  m\); \(W=11\)/\(W=19\) classes with explicit root sets and
+  smaller-\(M\) exclusions — all re-derived in review).  **The prime
+  criterion (proved equivalence, replayed on all 3{,}202 hard primes
+  \(\leq3\cdot10^5\) including even-\(D\) minima):** for
+  \(p\equiv1\ (24)\), \(W(p)<\infty\iff\exists a\equiv3\ (4)\),
+  \(a\leq2\lfloor(p+1)/3\rfloor\), with some \(D\mid h^2\),
+  \(D\equiv-h\ ({\rm mod}\ a)\), \(h=(p+a)/4\) — gcd-eligibility
+  automatic for primes; the sporadics' failure mechanism (gcd) and the
+  squares' (character) are BOTH structurally unavailable to primes; a
+  prime failure would need a third, unstructured mechanism (every
+  divisor of every \(h^2\) in wrong classes mod \(a\) simultaneously) —
+  the cleanest finite form of the hard core the campaign has reached.
+  No claim that primes cannot fail; register kept.  Verify (bh) ~12s +
+  reviewer's all-prime cross-check.
+* **paper v11 (106pp, FAITHFUL-AFTER-REPAIRS):** §60 absorbed (Section
+  22; C_SQ-supersession sweep complete — no stale live-C_SQ wording;
+  Theorem 60.3 kept explicitly computer-assisted with the
+  independent-reimplementation pedigree); v12 queue = §61.
+
 ## Outcome 28 (2026-08-30, wave 24 — see notes.md §60; hostile-reviewed → SOUND-AFTER-REPAIRS)
 
 * **§60: finite witness duality closes the survivor frontier.**  Every
