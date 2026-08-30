@@ -26071,6 +26071,8 @@ On the research host the isolated block took 0.234 seconds by default and
 1.33 seconds with `ES_FULL_SCAN=1`; the complete default suite finished green
 in 217.69 seconds under the 600-second timeout.
 
+## 68. External: the 2025 Pomerance--Weingartner exceptions paper
+
 **Source and version (wave 28).**  The current arXiv v2 is archived verbatim
 in `sources/pomerance-weingartner-2511.16817/`; the full reading audit is
 `reviews/external-pw-2511.16817-wave28.md`.  The older
