@@ -81,6 +81,79 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 31 (2026-08-30, wave 27 — see notes.md §63–§65 + paper v13; all max-severity-reviewed → repaired / FAITHFUL)
+
+* **§63: the algebraic-witness taxonomy in the dual frame
+  (SOUND-AFTER-REPAIRS; census independently replicated).**  Proved: the
+  DIV family (any divisor \(e\mid h\), \(e\equiv-1\pmod a\) ⇒ witness
+  \(D=h/e\)); the D1 family (\(a\mid p+4\iff h\equiv-1\pmod a\); both
+  \(D=1\) and \(D=h^2\) fire, \(M=(p+4)/a\)); the **square-root law**:
+  if \(p+4\) has ANY prime factor \(\equiv3\pmod4\) then
+  \(W(p)\leq\sqrt{p+4}\) (both parts of the factorization pair are
+  \(\equiv3\pmod4\); take \(a\) = the larger); the fixed-\(D\) dual laws
+  \(D=1..4\) (exact classes incl. 2-adic branches); the **universal
+  \(a\)-law** (success at any odd \(a\iff\) a bounded-coefficient
+  CRT-coupled integer feasibility — the same \(f_q\) feeds every
+  component; the six §62 laws are instances); effective
+  \(\ll N/(\log N)^{3/2}\) bound for the exceptional set (half-dimensional
+  sieve, no prime level-of-distribution input — review expanded the proof
+  with exact CRT remainders).  Honest register: change of coordinates on
+  Lemma-16.1 supply, weaker than §51's tails on both axes; its value is
+  elementarity + effectivity + EXPLICIT exceptional characterization
+  (\(p+4\) purely \(1\bmod4\)) — exactly the four §62.22 record primes'
+  signature.  New statistic \(a_1(p)\) (first witnessing \(a\)): census
+  9,732 hard primes \(\leq10^6\) (max \(a_1=63\) at 87,481), research
+  \(10^7\) (82,887 primes, max \(a_1=107\) at 8,803,369 — whose
+  \(W=139\) sits at \(a_W=63{,}335\): first-witness and minimal-\(W\)
+  coordinates separate at scale; \(a_W>a_1\) on every census row).
+  Verify (bj) ~2.4s; reviewer reimplemented the full \(10^6\) census +
+  200-prime research sample from scratch, zero disagreements.
+* **§64: the gcd mechanism structurally mapped; the sporadic hunt
+  enlarged 2.7× (SOUND-AFTER-REPAIRS; hunt independently fully
+  replayed).**  Proved: the cancellation-cover theorem (eligibility
+  fails exactly at primes in the window
+  \(2v_q(A)<v_q(D)\leq2v_q(a)+2v_q(A)\), all dividing \((a,D)\mid n\) —
+  so for prime \(p\) the mechanism is void, re-deriving Corollary 61.5
+  structurally); the cancellation-immune \(D=1,2\) shifted laws for ALL
+  \(n\) (any admissible factorization \(n+4=aM\) witnesses regardless of
+  gcd — \(W(n)=+\infty\) forces \(n+4\) divisor-purity); dyadic and
+  twisted-square family exclusions; the composite unit-branch ratio law
+  (odd \((a,n)=1\) branches behave exactly like primes).  Complete
+  failure-prime ledgers for 288/336/4545 (all quotient rows die at primes
+  dividing \(n\)).  **Enlarged hunt: 242,837 NEW pairs (squarefree
+  \(s\leq2000\), \(m\leq600\), \(n=sm^2\in(10^6,10^8]\); 388,853 total
+  with the old box), ZERO survivors at \(M\leq10^4\); max
+  \(W(3{,}201{,}660)=5303\) at \(15\cdot462^2\); thin \(10^8<n\leq10^9\)
+  slice (4,992 pts) zero survivors** — reviewer re-ran the ENTIRE
+  new-region scan independently (6.09s), exact match.  \(C_{\rm SQ}'\)
+  survives a 2.7×-wider stress; still only \(\supseteq\) proved;
+  finiteness of the sporadic set remains open (honest Assessment of
+  obstacles recorded).  Verify (bk) ~1s.
+* **§65: the two-decade census — \(W\)-records STOP at \(10^{6.3}\)
+  (SOUND-AFTER-REPAIRS; independent from-scratch full replay
+  committed).**  Complete exact census of all **719,781 hard primes
+  \(p<10^8\)**: the record list is 15 pairs ending at
+  \((2{,}031{,}121,\ 2495)\) — **no new record in \((10^7,10^8)\)**; the
+  suprema \(W/\log p=171.78\) and \(W/(\log p\log\log p)=64.20\) both
+  still sit at \(p=2031121\) and DECLINE for two decades after it
+  (INFO-only; no growth law claimed; \(H_{\rm MOD}\) untouched).
+  Even-\(D\) minimal-witness prevalence persists (60.293% at \(10^7\) vs
+  60.618% at \(3\cdot10^5\)); the §63 square-root prediction has zero
+  violations (all three applicable records have \(p+4\) purely
+  \(1\bmod4\)).  Review found the research scanner had not been
+  committed (HIGH) and committed its own full-replay
+  `scripts/review65_independent.py` (1.39s, Python-int divisor paths) —
+  the headline now rests on the committed independent implementation.
+  Verify (bl) ~0.03s default.
+* **paper v13 (118pp, FAITHFUL, zero defects):** §62 absorbed as Section
+  24 (all six laws, tables digit-checked, mechanism register with its
+  honesty clause, staged-hunt box scope); v14 queue = §63–§65.
+* **Ops lesson (norm update):** a truncated merge-output pipe hid a
+  notes.md conflict line and three merge-conflict sentinels got
+  committed; all three section reviewers caught them independently.  New
+  mandatory step: `grep -c '<<<<<<<\|>>>>>>>'` on notes.md AND verify.py
+  AND espaper.tex after EVERY merge, before commit.
+
 ## Outcome 30 (2026-08-30, wave 26 — see notes.md §62 + paper v12; max-severity-reviewed → repaired / FAITHFUL)
 
 * **§62: the divisor-ratio spectrum — the terminal distillation of the
