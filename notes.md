@@ -24139,3 +24139,493 @@ finite censuses neither prove a witness for every prime nor classify all
 nonsquare values with \(W=+\infty\).  Such witness-statistic failures are
 not Erdős--Straus counterexamples, and §62 claims no new tail bound,
 pointwise theorem, or Erdős--Straus progress.
+
+
+---
+
+
+## 63. The algebraic witness taxonomy: dual local laws, the square-root regime, and the first-witness index
+
+**Status.**  The DIV and D1 families, the fixed-\(D\) laws, the universal
+\(a\)-law, the square-root bound, and its effective
+exceptional-set estimate below are **proved**.  The two first-witness
+censuses are **Computational**, exact only in their displayed ranges.  The
+whole taxonomy is a consolidation of Theorems 60.1, 61.4, and 62.1 in two
+coordinate systems.  It creates no new identity family, gives no pointwise
+result, and does not improve the witness-modulus tails of Section 51.
+
+### 63.1 Two elementary families and the fixed-\(D\) coordinate
+
+Throughout this section, unless a statement explicitly says otherwise, let
+\(p\equiv1\pmod {24}\) be prime, put
+\[
+ B=\left\lfloor{p+1\over3}\right\rfloor,
+ \qquad 1\leq a\leq2B,
+ \qquad a\equiv3\pmod4,
+ \qquad h={p+a\over4}.                                    \tag{63.1}
+\]
+Theorem 61.4 says that a fixed \(a\) succeeds exactly when some
+\(D\mid h^2\) satisfies \(D\equiv-h\pmod a\).
+
+**Lemma 63.1 (DIV family; proved).**  If \(e\mid h\) and
+\(e\equiv-1\pmod a\), then
+\[
+                         D={h\over e}                       \tag{63.2}
+\]
+is a witness at \(a\).
+
+*Proof.*  The integer \(D\) is positive and divides \(h\), hence divides
+\(h^2\).  Since \(h=De\) and \(e\equiv-1\pmod a\), one has
+\(h\equiv-D\pmod a\), or \(D\equiv-h\pmod a\).  Theorem 61.4 now supplies
+the witness, including the automatic eligibility condition
+\(D\mid A^2\). \(\square\)
+
+This is a sufficient family, not a necessary one.  A general witness has
+\(D\mid h^2\), and its prime exponents need not fit inside those of \(h\).
+
+**Lemma 63.2 (D1 family; proved).**  For (63.1),
+\[
+ h\equiv-1\pmod a
+ \quad\Longleftrightarrow\quad a\mid p+4.                 \tag{63.3}
+\]
+When these conditions hold, both \(D=1\) and \(D=h^2\) are witnesses.  The
+first has
+\[
+                         M={p+4\over a}.                    \tag{63.4}
+\]
+
+*Proof.*  The identity \(4h=p+a\) gives
+\(4(h+1)=p+a+4\).  Since \(a\) is odd, multiplication by 4 is invertible
+modulo \(a\), proving (63.3).  If \(h\equiv-1\), then both
+\(1\equiv-h\) and \(h^2\equiv1\equiv-h\pmod a\); also
+\(1,h^2\mid h^2\).  Theorem 61.4 proves both witness assertions.  For
+\(D=1\), its equation \(aM=p+4D\) is (63.4). \(\square\)
+
+**Corollary 63.3 (explicit square-root law; proved).**  If \(p+4\) has a
+prime factor congruent to 3 modulo 4, then
+\[
+                              W(p)\leq\sqrt{p+4}.           \tag{63.5}
+\]
+
+*Proof.*  Put \(N=p+4\).  Then \(N\equiv1\pmod4\).  If a prime
+\(q\equiv3\pmod4\) divides \(N\), then
+\[
+              q\equiv {N\over q}\equiv3\pmod4.            \tag{63.6}
+\]
+The second factor cannot be 1.  Let \(a\) be the larger and \(M\) the
+smaller of these two factors.  Thus \(a,M\equiv3\pmod4\),
+\(aM=N\), \(a\geq\sqrt N\), and \(M\leq\sqrt N\).  Since \(M\geq3\),
+\(a\leq N/3\).  Write \(p=3r+1\).  Then \(B=r\), and the hard-prime range
+has \(r\geq2\), so
+\[
+             a\leq {p+4\over3}=r+{5\over3}\leq2r=2B.     \tag{63.7}
+\]
+Hence \(a\) satisfies every condition in (63.1).  Lemma 63.2 with \(D=1\)
+gives exactly the modulus \(M=N/a\), proving (63.5). \(\square\)
+
+The same datum has two useful readings: a factor of \(p+4\) is the dual
+coefficient \(a\), while its complementary factor is the witness modulus
+\(M\).  Choosing the larger one as \(a\) is what gives (63.5).
+
+The opposite coordinate freezes \(D\), not \(a\).
+
+**Theorem 63.4 (fixed-\(D\) divisor laws; proved).**  Fix a positive integer
+\(D\).  A witness for \(p\) with this \(D\) and modulus \(M\) exists if and
+only if
+\[
+ M\mid p+4D,
+ \qquad M\equiv3\pmod4,
+ \qquad D\mid\left({M+1\over4}\right)^2.                 \tag{63.8}
+\]
+Its dual coefficient and auxiliary integer are
+\[
+             a={p+4D\over M},
+             \qquad A={M+1\over4},
+             \qquad aM=p+4D.                              \tag{63.9}
+\]
+If \(D\) is squarefree, the eligibility condition in (63.8) is exactly
+\[
+                              M\equiv-1\pmod {4D}.          \tag{63.10}
+\]
+In particular the first four laws are
+\[
+\begin{array}{c|c|c}
+D&\text{shifted value}&\text{exact class of }M\\ \hline
+1&M\mid p+4&M\equiv3\pmod4\\
+2&M\mid p+8&M\equiv7\pmod8\\
+3&M\mid p+12&M\equiv11\pmod {12}\\
+4&M\mid p+16&M\equiv7\pmod8.
+\end{array}                                                \tag{63.11}
+\]
+
+*Proof.*  Definition (60.1) is precisely (63.8), and the divisibility in its
+first condition defines the positive integer \(a\) in (63.9).  Theorem 60.1
+then gives the dual datum and all its finite range conditions.  If \(D\) is
+squarefree, \(D\mid A^2\) is equivalent prime by prime to \(D\mid A\).
+Since \(A=(M+1)/4\), this is equivalent to \(4D\mid M+1\), proving
+(63.10).  Taking \(D=1,2,3\) gives the first three rows of (63.11).
+
+For \(D=4\), squarefree cancellation is unavailable.  Directly,
+\(4\mid A^2\) if and only if \(2\mid A\), which is equivalent to
+\(8\mid M+1\), not to \(16\mid M+1\).  This gives the last row and retains
+the full 2-adic branch. \(\square\)
+
+Thus the two exact views are
+\[
+\begin{array}{c|l|l}
+\text{coordinate}&\text{shifted integer}&\text{local question}\\ \hline
+D\text{ fixed}&p+4D&\text{a divisor }M\text{ in its eligibility class}\\
+a\text{ fixed}&(p+a)/4&-1\text{ in a bounded divisor-ratio spectrum}.
+\end{array}                                                \tag{63.12}
+\]
+The first row is exactly the classical Lemma-16.1/Lemma-18.1 atom frame.
+The second is Theorem 62.1.  Equations (60.4) and (60.10) identify their
+rows bijectively.  Therefore \(W(p)=+\infty\) means simultaneous avoidance
+in both coordinate systems, but these are the same finite system in dual
+coordinates.  This is consolidation, not additional witness supply.
+
+### 63.2 The universal bounded-coefficient law
+
+The prime-modulus formulas of Section 62 are instances of one finite group
+calculation.  The important feature for composite \(a\) is that its CRT
+components do not receive independent exponent choices.
+
+**Theorem 63.5 (universal \(a\)-law; proved).**  Let \(a\) be an odd positive
+integer, let \((a,h)=1\), and write
+\[
+ a=\prod_{i=1}^r\ell_i^{k_i},
+ \qquad m_i=\varphi(\ell_i^{k_i}).                         \tag{63.13}
+\]
+Choose a primitive root \(g_i\) modulo each odd prime power.  For every prime
+\(q\mid h\), define
+\[
+ \boldsymbol\lambda(q)
+   =\bigl(\log_{g_i}(q\bmod\ell_i^{k_i})\bmod m_i\bigr)_{i=1}^r,
+ \qquad
+ \boldsymbol\epsilon=(m_i/2)_{i=1}^r.                    \tag{63.14}
+\]
+Then \(-1\in{\rm Rat}_a(h)\), equivalently success at \(a\) when \(h\)
+comes from (63.1), is equivalent to the bounded-coefficient feasibility
+condition
+\[
+ \boxed{\quad
+ \boldsymbol\epsilon\in
+ \left\{\sum_{q\mid h}f_q\boldsymbol\lambda(q):
+                   -v_q(h)\leq f_q\leq v_q(h)\right\}
+ \subseteq\prod_{i=1}^r\mathbb Z/m_i\mathbb Z.
+ \quad}                                                    \tag{63.15}
+\]
+The same integer \(f_q\) is used in every CRT component of
+\(\boldsymbol\lambda(q)\).
+
+*Proof.*  The unit group decomposes as
+\[
+ (\mathbb Z/a\mathbb Z)^*
+   \cong\prod_i(\mathbb Z/\ell_i^{k_i}\mathbb Z)^*,       \tag{63.16}
+\]
+and each factor on the right is cyclic because \(\ell_i\) is odd.  Under
+the selected logarithms, \(-1\) maps to \(\boldsymbol\epsilon\).  By
+(62.1), an element of \({\rm Rat}_a(h)\) has the form
+\(\prod_{q\mid h}q^{f_q}\), with the displayed bounds on each exponent.
+Taking its logarithm in every component gives the right side of (63.15).
+Conversely any feasible vector exponentiates component by component and,
+by the Chinese remainder theorem, gives
+\(\prod q^{f_q}\equiv-1\pmod a\).  Theorem 62.1 proves that this is
+exactly success at \(a\).
+
+A prime \(q\) divides the single integer \(h\), so choosing its exponent
+chooses one integer \(f_q\), not one exponent per prime-power component of
+\(a\).  This proves the stated coupling and completes the equivalence.
+\(\square\)
+
+For \(a=3,7,11,19,23\), (63.15) in the cyclic group is exactly the weighted
+budget law used in (62.9)--(62.13).  For \(a=15\), its two components are
+\((\mathbb Z/3\mathbb Z)^*\times(\mathbb Z/5\mathbb Z)^*\cong C_2\times
+C_4\); collecting the residue vectors gives (62.14)--(62.15).  Thus all six
+laws in Theorem 62.2 are special cases, including the composite law at 15.
+
+**Computational-complexity remark.**  Condition (63.15) is a finite bounded
+integer-feasibility problem.  For fixed small \(a\), no discrete-log
+algorithm is needed: tabulate each unit residue once and update a reachable
+set.  This is the same finite calculation already used in Section 62, not an
+asymptotic algorithmic claim.
+
+### 63.3 Explicit coverage and the half-dimensional shifted layer
+
+**Corollary 63.6 (D1 congruence layer; proved).**  Let
+\(\ell\equiv3\pmod4\) be prime.  Every hard prime satisfying
+\[
+                              p\equiv-4\pmod\ell            \tag{63.17}
+\]
+has a witness at dual coefficient \(a=\ell\) with \(D=1\).  In particular,
+\(\ell=7\) covers \(p\equiv3\pmod7\).  The value \(\ell=3\) never applies,
+because a hard prime is 1 modulo 3 whereas \(-4\) is 2 modulo 3.
+
+*Proof.*  Condition (63.17) says \(\ell\mid p+4\), so Lemma 63.2 applies
+with \(a=\ell\), once the range is checked.  The complementary factor
+\((p+4)/\ell\) is also 3 modulo 4 and hence is at least 3.  Therefore
+\(\ell\leq(p+4)/3\leq2B\) by (63.7).  All conditions in (63.1) hold, and
+\(D=1\) gives the witness. \(\square\)
+
+This layer is exactly the classical \(D=1\) atom supply in the dual
+coordinate.  No novelty is claimed for the progression coverage itself.
+
+Define the explicitly checkable exceptional set
+\[
+ {\cal E}(N)=\{p\leq N:p\equiv1\pmod {24},\ p\text{ prime},
+       \ p+4\text{ has no prime factor }q\equiv3\pmod4\}. \tag{63.18}
+\]
+
+**Theorem 63.7 (effective half-dimensional shifted sieve; proved).**  With an
+effectively computable absolute implied constant,
+\[
+                         \#{\cal E}(N)
+             \ll {N\over(\log N)^{3/2}}.                  \tag{63.19}
+\]
+
+*Proof.*  Parameterize the hard progression by \(p=24m+1\), with
+\(m\leq N/24\).  Apart from the fixed primes 2 and 3, impose the following
+sieve classes modulo a prime \(\ell\): exclude the one class for which
+\(24m+1\equiv0\pmod\ell\), and, when \(\ell\equiv3\pmod4\), also exclude
+the class for which \(24m+5\equiv0\pmod\ell\).  The two classes are
+distinct, since their difference is 4.  Thus the local root count is
+\[
+ \rho(\ell)=
+ \begin{cases}
+ 1,&\ell\equiv1\pmod4,\\
+ 2,&\ell\equiv3\pmod4,
+ \end{cases}
+ \qquad(\ell\geq5).                                      \tag{63.20}
+\]
+Every member of \({\cal E}(N)\) with \(p>z\) avoids all these classes for
+\(\ell<z\): primality avoids the first, and the definition of
+\({\cal E}(N)\) avoids the second.
+
+For squarefree \(d\) supported on these primes, the Chinese remainder theorem
+gives exactly \(\rho(d)=\prod_{\ell\mid d}\rho(\ell)\) removed classes and
+an interval-counting remainder \(O(\rho(d))\).  Apply the standard
+fixed-dimensional Selberg upper-bound sieve, in precisely the form used in
+the proof of Theorem 52.1 at (52.8)--(52.10), with level
+\(D=N^{1/2}\) and fixed sieve ratio, for example \(z=N^{1/20}\).  Its
+upper bound is
+\[
+ N\prod_{5\leq\ell<z}\left(1-{\rho(\ell)\over\ell}\right), \tag{63.21}
+\]
+up to a constant; the summed exact remainders are absorbed at this fixed
+ratio.  The finitely many cases \(p\leq z\) contribute \(O(z)\).
+
+The effective Mertens estimates in the two fixed progressions modulo 4 give
+\[
+ \sum_{5\leq\ell<z}{\rho(\ell)\over\ell}
+   =\sum_{5\leq\ell<z}{1\over\ell}
+     +\sum_{\substack{5\leq\ell<z\\\ell\equiv3(4)}}{1\over\ell}
+   ={3\over2}\log\log z+O(1).                            \tag{63.22}
+\]
+Consequently the product in (63.21) is
+\(O((\log z)^{-3/2})=O((\log N)^{-3/2})\).  All moduli are fixed-progressions
+or exact CRT moduli, so the constants and threshold are effective.  This
+proves (63.19). \(\square\)
+
+The exponent \(3/2\) consists of dimension 1 for keeping \(p\) prime and an
+additional half dimension for excluding the 3-modulo-4 prime divisors of the
+single shift \(p+4\).
+
+**Corollary 63.8 (effective square-root coverage; proved).**  Every hard
+prime \(p\leq N\) outside \({\cal E}(N)\) satisfies (63.5).  Hence the
+number not certified by the explicit square-root law is
+\(O(N/(\log N)^{3/2})\), effectively.
+
+*Proof.*  Outside \({\cal E}(N)\), the hypothesis of Corollary 63.3 holds.
+The count is Theorem 63.7. \(\square\)
+
+The characterization in (63.18) is stronger operationally than the count:
+one can decide directly whether this particular elementary certificate
+applies to a given \(p\).
+
+Here is the mandatory comparison with the existing tails.
+
+\[
+\begin{array}{p{31mm}|p{35mm}|p{42mm}|p{38mm}}
+\text{result}&\text{threshold controlled}&\text{exceptional bound}&\text{status}\\ \hline
+\text{Corollary 63.8}&\sqrt{p+4}&N/(\log N)^{3/2}&
+ \text{elementary, effective, explicit exception}\\
+\text{Theorem 51.2(1)}&T\leq\exp\{c(\log N)^{1/4}\}&
+ N\exp\{-c(\log T)^2\log(2+\log T)\}&
+ \text{proved internally; Section 39 review qualification}\\
+\text{Theorem 51.2(2)}&T\leq\exp\{c(\log N)^{1/4}\}&
+ N\exp\{-c(\log T)^3\}&\text{CLAIMED/PROVISIONAL cubic supply}\\
+\text{Corollary 51.3}&T=(\log N)^A&
+ N\exp\{-c_A(\log\log N)^2\log\log\log N\}&
+ \text{fixed-polylogarithmic variant}.
+\end{array}                                                \tag{63.23}
+\]
+
+**Assessment 63.1 (honest comparison).**  The Section 51 events are much
+stronger: they control failure at far smaller moduli and give far smaller
+exceptional sets.  The only advantages of Corollary 63.8 are elementarity,
+effectivity, and the explicit factorization characterization (63.18).  It is
+not a new tail record and gives no pointwise progress.  Moreover
+\(\sqrt p\) lies far beyond the top proven Section 51 window
+\(T=\exp\{\alpha(\log N)^{1/4}\}\).  Thus the thresholds are not directly
+comparable.  Within this campaign the square-root statement is a new regime
+datum, but only a weak almost-all statement.
+
+The \(D=1\) gap is visible exactly at the late primes from (62.22):
+\[
+\begin{array}{r|l}
+p&p+4\\ \hline
+225289&225293=37\cdot6089\\
+954409&954413=181\cdot5273\\
+1853329&1853333\text{ is prime}\\
+2031121&2031125=5^3\cdot16249.
+\end{array}                                                \tag{63.24}
+\]
+Every displayed prime factor is 1 modulo 4.  Thus the D1 family misses all
+four deep examples globally, not merely below a cutoff.  This is the
+full-range version of Lemma 58.2's necessary condition
+\(W(n)>T\Rightarrow n+4\) has no 3-modulo-4 prime factor at most \(T\).
+It exhibits the exact gap in the elementary coverage without suggesting that
+these four are the only members of (63.18).
+
+### 63.4 The first-witness index
+
+Define the second minimization statistic
+\[
+ a_1(p)=\min\left\{a\in{\cal A}(p):
+       -1\in{\rm Rat}_a\left({p+a\over4}\right)\right\},   \tag{63.25}
+\]
+with \(+\infty\) for an empty set.  Unlike \(W\), this minimizes the dual
+coefficient and ignores the size of the resulting modulus.  For comparison,
+let \(a_W(p)\) be the least \(a\) among data attaining \(W(p)\), and then
+take the least \(D\) if that pair also ties.
+
+**Computational 63.1 (exact \(a_1\) censuses).**  Block (bj) factors
+\(h=(p+a)/4\) for successive \(a=3,7,11,\ldots\), applies the universal
+bounded-product law, and stops at the first hit.  It independently obtains
+\(W,a_W,D_W\) by an \(M\)-ascending complete Lemma-18.1 class scan through
+\(M=3000\).  The default range is all 9,732 hard primes through \(10^6\).
+The research range is all 82,887 hard primes through \(10^7\), replayed only
+with `ES_FULL_SCAN=1`.  The exact histograms are
+\[
+\begin{array}{c|rrrrrrrrrrrrrrrrrr}
+a_1&3&7&11&15&19&23&27&31&35&39&43&47&51&55&59&63&71&107\\ \hline
+p\leq10^6&5192&3551&584&131&113&96&8&33&4&9&1&3&2&2&2&1&0&0\\
+p\leq10^7&47137&28606&4419&961&766&637&63&183&27&44&7&23&2&4&4&1&2&1.
+\end{array}                                                \tag{63.26}
+\]
+The maxima and raw Pearson correlations are
+\[
+\begin{array}{r|r|r|r|r|r}
+\text{range}&\max a_1&p\text{ attaining it}&\max W&p\text{ attaining it}&
+ \operatorname {corr}(a_1,W)\\ \hline
+10^6&63&87481&335&954409&0.354836\\
+10^7&107&8803369&2495&2031121&0.271029.
+\end{array}                                                \tag{63.27}
+\]
+These correlations use the untransformed integer values and are descriptive
+only.
+
+The four late rows are
+\[
+\begin{array}{r|r|r|r|r}
+p&a_1&W&a_W&D_W\\ \hline
+225289&31&279&811&245\\
+954409&3&335&2855&504\\
+1853329&3&383&4839&2\\
+2031121&11&2495&815&576.
+\end{array}                                                \tag{63.28}
+\]
+This pins the three requested small values and computes
+\(a_1(225289)=31>23\), as predicted by (62.23).
+
+**Computational 63.2 (dual-minimum separation; exact displayed ranges).**  In
+both censuses every row has \(a_W>a_1\): 9,732 of 9,732 by default and
+82,887 of 82,887 in the research run.  The largest ratios are
+\[
+ \max_{p\leq10^6}{a_W\over a_1}=47597
+    \quad(p=999529;\ a_1=3,W=7,a_W=142791,D_W=2),
+                                                               \tag{63.29}
+\]
+\[
+ \max_{p\leq10^7}{a_W\over a_1}={1428563\over3}
+    \quad(p=9999937;\ a_1=3,W=7,a_W=1428563,D_W=1).        \tag{63.30}
+\]
+The corresponding largest differences are 142,788 and 1,428,560.  At the
+other extreme of the first minimization, the research maximum
+\(a_1(8803369)=107\) has \((W,a_W,D_W)=(139,63335,49)\).
+
+These are coordinate-separation anomalies, not large-\(W\) anomalies.  A
+small \(a\) can first hit through a huge \(D\) and modulus, while a tiny
+modulus can have a dual coefficient of order \(p\).  Thus \(a_1\) does not
+bound \(W\), and the finite ratios in (63.29)--(63.30) support no growth law.
+
+### 63.5 Honest walls and the positivity question
+
+**Assessment 63.3 (stacking wall).**  No new witness-modulus tail bound
+follows by stacking these local laws.  For a prime coefficient
+\(a\equiv3\pmod4\), the D1 containment progression has relative prime
+density about \(1/(a-1)\).  Summing over prime coefficients to depth \(Y\)
+gives only
+\[
+       \sum_{\substack{a\leq Y\\a\equiv3(4)\\a\ {\rm prime}}}
+                    {1\over a-1}
+                   ={1\over2}\log\log Y+O(1).             \tag{63.31}
+\]
+Without correlation control, class-exclusion stacking therefore recovers
+only log-log-strength exponents.  The richer per-\(a\) ratio laws share the
+same moving prime \(p\) and do not justify independence.  Corollary 63.8 is
+only the one-shift consequence already stated; nothing here improves
+Theorem 51.2 or Corollary 51.3.
+
+Nor does the finite feasibility theorem imply that some row is positive for
+each prime.  The count-below-one obstruction and absolute-remainder
+mass-invariant gap of Proposition 57.2 still apply to the known assemblies.
+The statistic \(a_1\) is infinite exactly when the whole finite conspiracy
+survives and, even when finite, says nothing quantitative about the first
+modulus.
+
+For a direct positivity formulation, put
+\[
+ N_{\rm hit}(p)=
+ \sum_{a\in{\cal A}(p)}
+   \#\left\{D\mid\left({p+a\over4}\right)^2:
+          D\equiv-{p+a\over4}\pmod a\right\}.             \tag{63.32}
+\]
+Then Theorem 61.4 proves
+\[
+                         N_{\rm hit}(p)>0
+                    \quad\Longleftrightarrow\quad W(p)<+\infty. \tag{63.33}
+\]
+
+**Assessment 63.2 (no hidden positivity identity).**  The summands in
+(63.32) are the raw Type-II witness count in the dual coordinate.  The exact
+Case-B dictionary of Section 17.1 and the Elsholtz--Tao reconciliation in
+Section 36.5 show that, after their canonical ordering and primitivity
+conventions, this is the same Type-II solution structure measured by
+\(f_{II}(p)\); see in particular the total-count relation following (36.21).
+An exact rearrangement of (63.32) may well exist, just as Section 36 gives an
+exact character projection for Type I.  But an identity with an automatic
+positive lower bound for every hard prime would prove Type-II positivity for
+every such prime and hence settle the remaining Erdos--Straus problem.  No
+such algebraic lower bound is known.  The square vanishing statement for
+\(f_I,f_{II}\) recalled after (36.21) is a warning that a formally positive
+mass cannot ignore the moving congruence projector.  This assessment is not
+a no-go theorem for a new signed, spectral, or geometric identity.
+
+### 63.6 Verification
+
+**Computational 63.3 (block (bj), exact stated ranges).**  The default block
+uses Python integers on every divisor path.  It checks S1--S3 and the full
+Theorem-61.4/Lemma-16.1 datum on 512 seeded hard primes, tests 7,146 direct
+fixed-\(D\) divisor rows, and compares the CRT-coupled feasibility law with
+direct divisor spectra on 360 seeded composite-modulus pairs.  It recomputes
+all 3,202 hard-prime minima through \(3\cdot10^5\): 1,517 have a
+3-modulo-4 factor in \(p+4\), all satisfy (63.5), and the only two values
+with \(W(p)>\sqrt{p+4}\) are
+\(p=193\), with \((W,p+4)=(15,197)\), and \(p=3361\), with
+\((W,p+4)=(99,5\cdot673)\); all three displayed factors are 1 modulo 4, as
+the contrapositive predicts.  It pins (63.24), both censuses, every
+histogram entry, both correlations, the separation extrema, and (63.28).
+The \(10^7\) replay is gated by `ES_FULL_SCAN=1`; prime generation is
+chunked and only one factorization or divisor list is live at a time.  The
+isolated default block takes about 2.4 seconds on the research host.

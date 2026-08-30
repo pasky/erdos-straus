@@ -11928,4 +11928,360 @@ print("\n== (bi) divisor-ratio spectra and finite conspiracy (§62) ==")
 check_bi()
 
 
+# ---------------------------------------------------------------- (bj)
+def check_bj():
+    """§63: witness taxonomy, universal a-law, sqrt regime, and a_1."""
+    import os
+    from random import Random
+
+    def factors_py(value):
+        return tuple((int(q), int(e)) for q, e in factorint(value).items())
+
+    def divisors_square_factors(factors):
+        divisors = [1]
+        for q, exponent in factors:
+            base = tuple(divisors)
+            power = 1
+            for _ in range(2 * exponent):
+                power = int(power * q)
+                divisors.extend(int(D * power) for D in base)
+        return divisors
+
+    def ratio_success(h, a, factors=None):
+        """Direct bounded-product form of the universal a-law."""
+        factors = factors_py(h) if factors is None else factors
+        residues = {1}
+        for q, exponent in factors:
+            powers = {pow(q, f, a)
+                      for f in range(-exponent, exponent + 1)}
+            residues = {int(x * y % a)
+                        for x in residues for y in powers}
+            # Later factors retain every old residue through exponent zero.
+            if a - 1 in residues:
+                return True
+        return a - 1 in residues
+
+    def check_prime_witness(p, a, D):
+        """Replay Theorem 61.4 and the original Lemma-16.1 class."""
+        p, a, D = int(p), int(a), int(D)
+        B = (p + 1) // 3
+        assert 1 <= a <= 2 * B and a % 4 == 3
+        assert (p + a) % 4 == 0
+        h = (p + a) // 4
+        assert h * h % D == 0 and (D + h) % a == 0
+        A = (D + h) // a
+        M = 4 * A - 1
+        assert M % 4 == 3 and a * M == p + 4 * D
+        assert A * A % D == 0
+        assert p % M == (-4 * D) % M
+        return M, A, h
+
+    # S1--S3 on a seeded random sample.  A 3 mod 4 prime factor q of p+4
+    # supplies two 3 mod 4 factors; taking the larger as a simultaneously
+    # exercises DIV (with e=h), both D1 divisors, and the sqrt construction.
+    hard_pool = [int(p) for p in primerange(2, 2_000_001)
+                 if int(p) % 24 == 1]
+    rng = Random(630027)
+    rng.shuffle(hard_pool)
+    family_rows = []
+    for p in hard_pool:
+        shifted = p + 4
+        factors = factors_py(shifted)
+        q = next((q for q, _ in factors if q % 4 == 3), None)
+        if q is None:
+            continue
+        cofactor = shifted // q
+        assert q % 4 == 3 and cofactor % 4 == 3
+        a, expected_M = max(q, cofactor), min(q, cofactor)
+
+        # S1: e=h is a divisor of h and is -1 modulo a, so D=h/e=1.
+        h = (p + a) // 4
+        e = h
+        assert h % e == 0 and e % a == a - 1
+        D_div = h // e
+        M, _, _ = check_prime_witness(p, a, D_div)
+        assert M == expected_M
+
+        # S2: the equivalence and both D=1 and D=h^2 witnesses.
+        assert (h % a == a - 1) == ((p + 4) % a == 0)
+        M_one, _, _ = check_prime_witness(p, a, 1)
+        check_prime_witness(p, a, h * h)
+
+        # S3: the selected factorization and all exact range constraints.
+        B = (p + 1) // 3
+        assert isqrt(shifted) <= a
+        assert a <= shifted // 3 <= 2 * B
+        assert M_one == expected_M and M_one * M_one <= shifted
+        family_rows.append((p, a, M_one))
+        if len(family_rows) == 512:
+            break
+    assert len(family_rows) == 512
+
+    # The equivalence in S2 is also checked away from successful rows.
+    for p, _, _ in family_rows:
+        B = (p + 1) // 3
+        for a in range(3, min(2 * B, 199) + 1, 4):
+            h = (p + a) // 4
+            assert (h % a == a - 1) == ((p + 4) % a == 0)
+
+    # Fixed-D laws.  Direct eligibility is compared with the asserted class
+    # for every divisor M of the shifted value in this seeded sample.
+    class_modulus = {1: (4, 3), 2: (8, 7),
+                     3: (12, 11), 4: (8, 7)}
+    fixed_D_rows = 0
+    for p, _, _ in family_rows:
+        for D in range(1, 5):
+            shifted = p + 4 * D
+            # Generate all ordinary divisors independently of eligibility.
+            ordinary = [1]
+            for q, exponent in factors_py(shifted):
+                ordinary = [int(d * q**j) for d in ordinary
+                            for j in range(exponent + 1)]
+            modulus, residue = class_modulus[D]
+            for M in ordinary:
+                if M % 4 != 3:
+                    continue
+                A = (M + 1) // 4
+                direct = A * A % D == 0
+                law = M % modulus == residue
+                assert direct == law
+                if direct:
+                    a = shifted // M
+                    check_prime_witness(p, a, D)
+                fixed_D_rows += 1
+    assert fixed_D_rows > 2_000
+
+    # General squarefree eligibility, including even squarefree D.
+    for D in range(1, 31):
+        if any(e > 1 for _, e in factors_py(D)):
+            continue
+        for M in range(3, 1_000, 4):
+            A = (M + 1) // 4
+            assert (A * A % D == 0) == (M % (4 * D) == 4 * D - 1)
+
+    # Universal CRT/log-vector law.  The same bounded coefficient is applied
+    # to every prime-power component, then compared with a direct divisor
+    # spectrum.  For fixed small components, logarithms are tabulated exactly.
+    def crt_log_feasible(h, a, factors):
+        components = []
+        log_tables = []
+        for ell, exponent in factors_py(a):
+            modulus = int(ell**exponent)
+            phi = int((ell - 1) * ell**(exponent - 1))
+            generator = int(primitive_root(modulus))
+            table = {}
+            value = 1
+            for j in range(phi):
+                table[value] = j
+                value = int(value * generator % modulus)
+            assert len(table) == phi and table[modulus - 1] == phi // 2
+            components.append((modulus, phi))
+            log_tables.append(table)
+
+        zero = tuple(0 for _ in components)
+        reachable = {zero}
+        for q, exponent in factors:
+            vector = tuple(log_tables[i][q % modulus]
+                           for i, (modulus, _) in enumerate(components))
+            updated = set()
+            for old in reachable:
+                for f in range(-exponent, exponent + 1):
+                    updated.add(tuple(
+                        int((old[i] + f * vector[i]) % components[i][1])
+                        for i in range(len(components))
+                    ))
+            reachable = updated
+        target = tuple(phi // 2 for _, phi in components)
+        return target in reachable
+
+    composite_a = (15, 27, 35, 39, 51, 63, 75, 99, 105)
+    lattice_rows = 0
+    while lattice_rows < 360:
+        a = composite_a[rng.randrange(len(composite_a))]
+        h = rng.randrange(1, 50_001)
+        if gcd(h, a) != 1:
+            continue
+        factors = factors_py(h)
+        inverse_h = pow(h, -1, a)
+        direct = {
+            int(D * inverse_h % a)
+            for D in divisors_square_factors(factors)
+        }
+        assert crt_log_feasible(h, a, factors) == (a - 1 in direct)
+        assert ratio_success(h, a, factors) == (a - 1 in direct)
+        lattice_rows += 1
+    assert lattice_rows == 360
+
+    # Build an M-ascending table retaining every Python-int D, rather than
+    # only the class sets cached by (bc).  It serves both the sqrt replay and
+    # the a_1/W census.
+    modulus_data = []
+    for M in range(3, 3_001, 4):
+        A = (M + 1) // 4
+        by_class = {}
+        for D in divisors_square_factors(factors_py(A)):
+            by_class.setdefault(int((-4 * D) % M), []).append(int(D))
+        modulus_data.append((M, {
+            residue: tuple(sorted(values))
+            for residue, values in by_class.items()
+        }))
+
+    def first_modulus_row(p):
+        for M, by_class in modulus_data:
+            values = by_class.get(p % M)
+            if values:
+                candidates = []
+                for D in values:
+                    assert (p + 4 * D) % M == 0
+                    a = (p + 4 * D) // M
+                    if a > 0:
+                        candidates.append((int(a), int(D)))
+                if candidates:
+                    a, D = min(candidates)
+                    check_prime_witness(p, a, D)
+                    return M, a, D
+        raise AssertionError(("modulus cap exhausted", p))
+
+    sqrt_total = sqrt_factored = sqrt_late = 0
+    sqrt_late_rows = []
+    for low in range(2, 300_001, 50_000):
+        high = min(300_001, low + 50_000)
+        for p0 in primerange(low, high):
+            p = int(p0)
+            if p % 24 != 1:
+                continue
+            sqrt_total += 1
+            W, _, _ = first_modulus_row(p)
+            shifted_factors = factors_py(p + 4)
+            has_three = any(q % 4 == 3 for q, _ in shifted_factors)
+            if has_three:
+                sqrt_factored += 1
+                assert W * W <= p + 4
+            if W * W > p + 4:
+                sqrt_late += 1
+                assert all(q % 4 == 1 for q, _ in shifted_factors)
+                sqrt_late_rows.append((p, W, shifted_factors))
+    assert (sqrt_total, sqrt_factored, sqrt_late) == (3202, 1517, 2)
+    assert sqrt_late_rows == [
+        (193, 15, ((197, 1),)),
+        (3_361, 99, ((5, 1), (673, 1))),
+    ]
+
+    # The four late/record values all miss D=1 globally, not just below W.
+    gap_expected = {
+        225_289: {37: 1, 6_089: 1},
+        954_409: {181: 1, 5_273: 1},
+        1_853_329: {1_853_333: 1},
+        2_031_121: {5: 3, 16_249: 1},
+    }
+    assert {p: {int(q): int(e) for q, e in factorint(p + 4).items()}
+            for p in gap_expected} == gap_expected
+    assert all(q % 4 == 1 for factors in gap_expected.values()
+               for q in factors)
+
+    def first_a(p):
+        B = (p + 1) // 3
+        for a in range(3, 2 * B + 1, 4):
+            h = (p + a) // 4
+            if ratio_success(h, a):
+                return a
+        return None
+
+    # The default census is complete through 10^6; the research replay to
+    # 10^7 is intentionally gated.  Prime generation is chunked and every
+    # factor/divisor value remains a Python int.
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    census_limit = 10_000_000 if full_scan else 1_000_000
+    census = {}
+    for low in range(2, census_limit + 1, 250_000):
+        high = min(census_limit + 1, low + 250_000)
+        for p0 in primerange(low, high):
+            p = int(p0)
+            if p % 24 != 1:
+                continue
+            a1 = first_a(p)
+            assert a1 is not None
+            W, a_W, D_W = first_modulus_row(p)
+            census[p] = (a1, W, a_W, D_W)
+
+    histogram = Counter(row[0] for row in census.values())
+    expected_histogram = (
+        {3: 47_137, 7: 28_606, 11: 4_419, 15: 961, 19: 766,
+         23: 637, 27: 63, 31: 183, 35: 27, 39: 44, 43: 7, 47: 23,
+         51: 2, 55: 4, 59: 4, 63: 1, 71: 2, 107: 1}
+        if full_scan else
+        {3: 5_192, 7: 3_551, 11: 584, 15: 131, 19: 113, 23: 96,
+         27: 8, 31: 33, 35: 4, 39: 9, 43: 1, 47: 3, 51: 2,
+         55: 2, 59: 2, 63: 1}
+    )
+    assert dict(sorted(histogram.items())) == expected_histogram
+    assert len(census) == (82_887 if full_scan else 9_732)
+
+    maximum_a1 = max((row[0], p) for p, row in census.items())
+    maximum_W = max((row[1], p) for p, row in census.items())
+    assert maximum_a1 == ((107, 8_803_369) if full_scan
+                          else (63, 87_481))
+    assert maximum_W == ((2_495, 2_031_121) if full_scan
+                         else (335, 954_409))
+
+    xs = [row[0] for row in census.values()]
+    ys = [row[1] for row in census.values()]
+    mean_x = sum(xs) / len(xs)
+    mean_y = sum(ys) / len(ys)
+    pearson = (
+        sum((x - mean_x) * (y - mean_y) for x, y in zip(xs, ys))
+        / (sum((x - mean_x)**2 for x in xs)
+           * sum((y - mean_y)**2 for y in ys))**0.5
+    )
+    assert round(pearson, 6) == (0.271029 if full_scan else 0.354836)
+
+    separation = Counter(
+        "equal" if row[2] == row[0] else
+        "a_W_larger" if row[2] > row[0] else "a_W_smaller"
+        for row in census.values()
+    )
+    assert separation == Counter({"a_W_larger": len(census)})
+    max_ratio = max((Fraction(row[2], row[0]), p, row)
+                    for p, row in census.items())
+    max_difference = max((row[2] - row[0], p, row)
+                         for p, row in census.items())
+    assert max_ratio == (
+        (Fraction(1_428_563, 3), 9_999_937,
+         (3, 7, 1_428_563, 1))
+        if full_scan else
+        (Fraction(142_791, 3), 999_529, (3, 7, 142_791, 2))
+    )
+    assert max_difference == (
+        (1_428_560, 9_999_937, (3, 7, 1_428_563, 1))
+        if full_scan else
+        (142_788, 999_529, (3, 7, 142_791, 2))
+    )
+
+    anatomy_pins = {
+        p: (first_a(p),) + first_modulus_row(p)
+        for p in gap_expected
+    }
+    assert anatomy_pins == {
+        225_289: (31, 279, 811, 245),
+        954_409: (3, 335, 2_855, 504),
+        1_853_329: (3, 383, 4_839, 2),
+        2_031_121: (11, 2_495, 815, 576),
+    }
+
+    print("taxonomy / fixed-D / CRT feasibility rows =",
+          (len(family_rows), fixed_D_rows, lattice_rows))
+    print("sqrt replay (hard,3mod4-shift-factor,W>sqrt) =",
+          (sqrt_total, sqrt_factored, sqrt_late))
+    print("a1 census (limit,count,hist,max a1,max W,Pearson) =",
+          (census_limit, len(census), dict(sorted(histogram.items())),
+           maximum_a1, maximum_W, round(pearson, 6)))
+    print("a1/a_W separation (directions,max ratio,max difference) =",
+          (dict(separation), max_ratio, max_difference))
+    print("late-prime a1/W/a_W/D pins =", anatomy_pins)
+
+
+print("\n== (bj) algebraic taxonomy, sqrt regime, and first-a index (§63) ==")
+check_bj()
+
+
 print("\nall checks passed")
