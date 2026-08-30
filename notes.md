@@ -22235,8 +22235,10 @@ escape.  The identity (59.10) is an identity of polynomials, not merely an
 agreement after the threshold \(m_0\).
 
 *Proof.*  If \(f\) is linear, \(f+4\) has a root modulo every prime not
-dividing its leading coefficient.  This contradicts the \(D=1\) subsystem
-at any such prime congruent to \(3\pmod4\).
+dividing its leading coefficient.  Infinitely many primes are
+\(3\pmod4\), and only finitely many divide that coefficient, so one of them
+contradicts the eligible \(D=1\) subsystem.  Thus no coprimality assumption
+on the leading coefficient is hidden here.
 
 Now write
 
@@ -22244,11 +22246,14 @@ Now write
                          f(X)=aX^2+bX+c.                   \tag{59.11}
 \]
 
-Eventual positivity gives \(a>0\).  Theorem 59.2 at \(D=1\) says that the
-root field of \(f+4\) contains \(\mathbb Q(i)\).  A reducible quadratic has
-a rational root field and is therefore impossible.  An irreducible
-quadratic has only its own quadratic root field, so that field must equal
-\(\mathbb Q(i)\).  Equivalently its discriminant is
+Eventual positivity gives \(a>0\); thus the \(a<0\) sign is excluded before
+any character argument.  Theorem 59.2 at \(D=1\) says that the root field
+of \(f+4\) contains \(\mathbb Q(i)\).  A reducible quadratic, including the
+degenerate discriminant-zero case, has a rational root field and is
+therefore impossible.  An irreducible quadratic has only its own quadratic
+root field, so that field must equal \(\mathbb Q(i)\).  This rules out every
+positive discriminant and every negative square class other than that of
+\(-1\).  Equivalently its integral discriminant is
 
 \[
               \Delta_1=b^2-4a(c+4)=-r^2                  \tag{59.12}
@@ -22293,10 +22298,20 @@ to \(b^2=4d^2c\).  Thus \(b=2de\) and \(c=e^2\) for an integer \(e\), and
 
 The proof shows why using only a short fixed list of shifts would be
 misleading: the decisive \(D\) is selected from the coefficients through a
-new prime \(q\).  For a small concrete replay,
-\(2X^2+2X-3\) passes the whole \(D=1\) prime test because its shifted
-discriminant is \(-4\), but
-\((M,D,x)=(11,3,3)\) hits it.
+new prime \(q\).  Concrete nonsquare replays which pass the *whole* \(D=1\)
+prime layer are
+\[
+\begin{array}{c|c|c}
+f&\operatorname {disc}(f+4)&(M,D,x)\text{ hitting }f(x)+4D\\ \hline
+2X^2+2X-3&-4&(11,3,3)\\
+X^2-4X+1&-4&(7,2,5)\\
+X^2-6X+30&-100&(11,3,3).
+\end{array}
+\]
+Here no prime \(3\pmod4\) divides the displayed square root of the negative
+discriminant.  `verify.py (bf)` checks the \(D=1\) assertion over a finite
+prime range and each exact later-shift hit.  The theorem, not that finite
+replay, proves that every nonsquare quadratic is eventually hit.
 
 **Conjecture \(C_{\rm POLY}\) (full polynomial escape classification).**
 Every uniform polynomial escape in Definition 59.1 is a square in
@@ -22371,8 +22386,11 @@ lower bound and the proposed upper bound are respectively
 \]
 
 The upper bound is smaller when \(c\lambda^3>1/2\), a contradiction.  If
-\(\theta>1/3\), taking the endpoint \(t=bL^\theta\) eventually passes every
-fixed \(\lambda L^{1/3}\). \(\square\)
+\(\theta>1/3\), choose any fixed
+\(\lambda>(1/(2c))^{1/3}\).  Then \(t=\lambda L^{1/3}\) lies inside the
+window \(t\leq bL^\theta\) for all large \(L\), and still has \(T<N\);
+applying the bound at that interior point gives the contradiction.
+\(\square\)
 
 Thus §57's count-below-one implication is prime-essential before one even
 asks whether its open window hypothesis can be proved.  This sharpens the
@@ -22394,8 +22412,10 @@ The right side already includes \(1\) and \(4\), so no exceptional union is
 needed.  This is falsifiable by one proved nonsquare escape.  It is strictly
 stronger than Erdős--Straus: every prime is a nonsquare, so (59.20) would
 give it a finite Type-II witness, and Lemma 16.1 would give an explicit
-three-unit-fraction representation.  It also implies \(C_{\rm POLY}\) by the following standard lemma.  Neither
-conjecture is asserted here.
+three-unit-fraction representation.  The reverse is not claimed:
+Erdős--Straus alone neither forces this particular witness type nor says
+anything about composite nonsquares.  It also implies \(C_{\rm POLY}\) by
+the following standard lemma.  Neither conjecture is asserted here.
 
 **Lemma 59.6 (eventual square values force a square polynomial; proved).**
 If \(f\in\mathbb Z[X]\) is eventually positive and \(f(n)\) is a square for
@@ -22416,9 +22436,73 @@ integral: writing it as \((u/v)G\) with \((u,v)=1\) and primitive
 \(G\in\mathbb Z[X]\), integrality of \((u^2/v^2)G^2\) forces \(v=1\).
 \(\square\)
 
-**Computational 59.7 (exact finite scan; potential \(C_{\rm SQ}\)
-candidates).**  `verify.py (bf)` replays the complete divisor harvest and,
-below \(3\cdot10^5\), removes the known squares from the tail.  The exact
+**Lemma 59.7 (twisted-square survivor reduction; proved).**  Put
+\(n=sm^2\), where \(s\) is squarefree.  If eligible \((M,D)\), with
+\(M=4A-1\) and \(D\mid A^2\), hits \(n\), then
+
+\[
+ (M,sm)=1,\qquad \left({s\over M}\right)=-1,
+ \qquad s\nmid D.                                         \tag{59.21}
+\]
+
+Moreover, if \(t\mid m\) and \(t^2\mid D\), then the hit is equivalent to
+the eligible auxiliary hit
+
+\[
+ M\mid s(m/t)^2+4D/t^2.                                   \tag{59.22}
+\]
+
+Conversely an auxiliary hit with divisor \(E\) lifts to \(sm^2\) through
+\(D=t^2E\) exactly when \(t^2E\mid A^2\).
+
+*Proof.*  The proof of Theorem 58.1 gives \((D/M)=1\) for every eligible
+\(D\), while \((-1/M)=-1\).  A hit makes \(-4D\), hence \(n\), a unit
+modulo \(M\).  Taking Jacobi symbols in \(sm^2\equiv-4D\pmod M\) gives the
+middle assertion of (59.21).  If \(D=sE\), then
+\(M\mid s(m^2+4E)\); cancelling the unit \(s\) would make the square \(m^2\)
+hit the eligible divisor \(E\), contrary to Theorem 58.1.  Finally
+\[
+ sm^2+4D=t^2\{s(m/t)^2+4D/t^2\}.
+\]
+Here \(t\) is a unit modulo \(M\), because \(t^2\mid D\) and \((D,M)=1\).
+This proves both directions and the stated lift condition. \(\square\)
+
+For the three survivors, Lemma 59.7 makes the remaining searches exact and
+substantially thinner.
+
+* For \(288=2\cdot12^2\), one must have \(M\equiv3\pmod8\),
+  \(3\nmid M\), and \(D\) odd, and the residual congruence is
+  \(D\equiv-72\pmod M\).  Directly, if \(D=2E\), then
+  \(288+4D=2(12^2+4E)\), an impossible square hit; the redundant deeper
+  layer \(D=8E\) gives \(8(6^2+4E)\).  Thus no even-\(D\) layer was left in
+  the scan.
+* For \(336=21\cdot4^2\), one must have
+  \((M,21)=1\),
+  \((M/3)(M/7)=-1\), \(21\nmid D\), and
+  \(D\equiv-84\pmod M\).  Here quadratic reciprocity gives
+  \((21/M)=(M/3)(M/7)\).  If \(D=21E\), then
+  \(336+4D=21(4^2+4E)\), which is impossible.  The exact scaling chain is
+  \(4\mid D\Rightarrow336\to84\) and
+  \(16\mid D\Rightarrow336\to21\).  Although
+  \(W(21)=11\) via \((M,E)=(11,3)\), lifting that datum would require
+  \(16E=48\mid A^2=9\), which fails.
+* For \(4545=505\cdot3^2\), one must have
+  \((M,3\cdot5\cdot101)=1\),
+  \((M/5)(M/101)=-1\), and \(505\nmid D\), with
+  \(D\equiv-4545A\pmod M\).  The forbidden layer is
+  \(4545+4(505E)=505(3^2+4E)\).  If \(9\mid D\), the datum scales down to
+  one for 505.  The least such datum, again \((11,3)\), does not lift:
+  \(9\cdot3\nmid3^2\).
+
+These are necessary filters plus an exact replay of the residual divisor
+congruence, not an infinitude proof.  In particular the character-permitted
+moduli are nonempty, and the argument does not force a nonsquare at one
+prime factor of every such \(M\).  The proof attempt therefore lands no
+claim that any of the three values has \(W=+\infty\).
+
+**Computational 59.8 (exact finite scan; live \(C_{\rm SQ}\) stress test).**
+`verify.py (bf)` replays the complete divisor harvest and, below
+\(3\cdot10^5\), removes the known squares from the tail.  The exact
 nonsquare counts are
 
 \[
@@ -22426,49 +22510,107 @@ nonsquare counts are
 T&100&300&1000&3000\\ \hline
 \#\{n\leq3\cdot10^5:n\ne\square,\ W(n)>T\}
  &4969&517&22&3.
-\end{array}                                                \tag{59.21}
+\end{array}                                                \tag{59.23}
 \]
 
 The three nonsquare survivors in the last column are
 
 \[
-                         288,\qquad336,\qquad4545.          \tag{59.22}
+                         288,\qquad336,\qquad4545.          \tag{59.24}
 \]
 
-A streamed exact extension through every eligible modulus \(M\leq10^5\)
-resolves none of them.  Thus the proved computational statement is only
+The default independent smallest-prime-factor scan uses Python integers for
+every divisor product and checks every eligible modulus through
+\(3\cdot10^6\).  It proves only the finite statement
 
 \[
-                  W(288),W(336),W(4545)>10^5,              \tag{59.23}
+             W(288),W(336),W(4545)>3\cdot10^6.             \tag{59.25}
 \]
 
-not that any value is infinite.  They are the smallest unresolved nonsquare
-candidates in this finite box and are a warning against presenting the
-census as positive evidence for (59.20).  With `ES_FULL_SCAN=1`, the
-population endpoint and targeted cap become \(10^6\).  The nonsquare counts
-at the same grid are \((17007,1841,77,4)\); the fourth depth-3000 survivor is
-\(643245\), and the exact extension resolves it at
-\(W(643245)=3119\), while the three values in (59.22) remain above
-\(10^6\).  All scans are streamed and retain only the bounded population
-bytearray plus the current modulus classes.
+The wave-23 deep run checked all moduli through \(1.5\cdot10^8\), after the
+character filters above, and enumerated 2,878,826,874 divisor values without
+a hit.  Thus the stronger exact computational frontier is
 
-The same block checks the local reduction on square and nonsquare sample
-polynomials, exhibits the \((7,2,2)\) and \((11,3,3)\) hits above, replays
-the discriminant character dichotomy for every nonzero discriminant in a
-fixed box, and verifies the coefficient-dependent prime construction in
-(59.14) over a coefficient box.  These are finite regression checks for the
-proved arguments, not substitutes for Chebotarev or for the unbounded
+\[
+             W(288),W(336),W(4545)>1.5\cdot10^8.           \tag{59.26}
+\]
+
+This run used Python integers throughout; it peaked below 170 MB.  The
+modulus/divisor phase streams one value of \(A\) at a time and retains no
+old divisor list.  The previous external quick-probe values
+\(506063,754379,652271\), respectively, came from fixed-width integer
+overflow (including impossible negative divisors).  They are false and are
+not \(W\)-values.  `ES_FULL_SCAN=1` reproduces (59.26).  It also raises the
+population endpoint to \(10^6\), where the nonsquare counts at the same
+threshold grid are \((17007,1841,77,4)\).  The fourth depth-3000 survivor is
+643245 and has the exact witness \(W(643245)=3119\).
+
+As a family control, block (bf) computes every least finite \(W\) for
+\(1\leq m\leq60\) in the three natural twisted-square families.  The table
+records histograms \(\{W:\#m\}\); the single lower-bound entry in each row
+is the candidate in (59.24).
+
+\[
+\begin{array}{c|l|c}
+ n&\{W(n):\#m\},\quad1\leq m\leq60&\text{deep survivor}\\ \hline
+ 2m^2&\{3:40,11:11,19:4,35:1,59:2,131:1\}&m=12\\
+ 21m^2&\{11:33,19:9,23:15,31:1,71:1\}&m=4\\
+ 505m^2&\{11:33,23:23,47:1,87:1,107:1\}&m=3.
+\end{array}                                                \tag{59.27}
+\]
+
+Thus the factorization \(n=sm^2\) is not by itself an escape mechanism:
+177 of the 180 controls are hit by \(M\leq131\).  The three exceptional
+multipliers are highly atypical in this finite sample, but that is not a
+proof in either direction.  The same block checks Lemma 59.7 exactly over a
+bounded complete harvest, pins all 180 table entries, tests three nonsquare
+quadratics passing the \(D=1\) layer, replays the discriminant-character
+dichotomy, and verifies the coefficient-dependent construction (59.14).
+None of these finite checks substitutes for Chebotarev or for an unbounded
 classification.
 
-**Walls and relation to the frontier.**  Both displayed nonsquare polynomial
-test cases are hit, but no systematic higher-degree search was made and no
-nonsquare escape was excluded in degree at least three.  More urgently, the
-three constant candidates (59.22) were not resolved at the default cap;
-they may have later finite witnesses or may falsify \(C_{\rm SQ}\).  The
-classification says nothing about nonpolynomial families, and no
-unconditional pointwise prime conclusion follows.  What is proved is the
-exact local formulation, the root-field obstruction in every degree, the
-full linear/quadratic classification, and the square-driven failure of the
-all-integer supercritical tail.  These respectively refine the completeness
-comparison with §52, the count-below-one dichotomy in §57, and the source
-square theorem and prime-survivor wall in §§58.2 and 58.4.
+**Walls and relation to the frontier.**  The three constant candidates
+(59.24), now open beyond \(1.5\cdot10^8\), are the live stress test for
+\(C_{\rm SQ}\), not positive evidence for it.  A later finite witness would
+preserve the conjecture; a proof that even one has \(W=+\infty\) would
+refute it.  No such proof landed.  The classification also says nothing
+about nonpolynomial families, and no unconditional pointwise prime
+conclusion follows.  In higher polynomial degree, Theorem 59.2 remains only
+a necessary, qualitatively ineffective obstruction and \(C_{\rm POLY}\)
+remains open.
+
+### 59.6 Review attestation (wave 23)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  The exact local criterion, the qualitative
+cyclotomic obstruction, and the complete linear/quadratic classification
+survive maximum-severity rederivation.  The square-count obstruction to an
+all-integer supercritical cubic tail also survives.  No result here inherits
+Theorem 34.8 or the §39 machinery.
+
+* **HIGH (survivor arithmetic and overflow defense):** the candidate scan is
+  now independently implemented with Python-integer divisor products.  It
+  rejects the false fixed-width-overflow values explicitly, proves the
+  default \(3\cdot10^6\) frontier, and records the completed
+  \(1.5\cdot10^8\) run.  No nonsquare \(W=+\infty\) proof was found.
+* **HIGH (missing structural stress test):** Lemma 59.7 now proves the exact
+  Jacobi, forbidden-divisor, and square-scaling reductions for all three
+  candidates.  The 180-member family control shows that their
+  twisted-square shape alone cannot explain the escapes.
+* **MEDIUM (tail-window quantifiers):** the proof of Proposition 59.5 used a
+  possibly inadmissible endpoint when \(\theta>1\).  It now chooses the
+  interior crossing \(t=\lambda L^{1/3}<L\), which lies in every stated
+  supercritical window and preserves \(N>T\).
+* **LOW (degree-two edge cases):** Theorem 59.3 now spells out the
+  leading-coefficient coprimality choice, \(a<0\), zero discriminant, and all
+  real/imaginary discriminant signs.  Three nonsquare quadratics passing the
+  complete \(D=1\) layer have explicit other-layer hits.
+* **LOW (implication and status hygiene):** the text now says explicitly why
+  \(C_{\rm SQ}\) implies Erdős--Straus and why no reverse implication is
+  claimed.  Chebotarev remains labeled qualitative and ineffective;
+  \(C_{\rm POLY}\), \(C_{\rm SQ}\), and all three constant candidates remain
+  open.
+
+The verification block checks the repaired reductions on a complete bounded
+system, the exact small-family tables, and the corrected default frontier.
+The deep frontier is a finite computation, not a theorem of infinite
+escape.

@@ -10647,8 +10647,25 @@ def check_bf():
         assert all(((2 * x + 1) ** 2) % M not in classes for x in range(M))
     assert (2**4 - 3 + 4 * 2) % 7 == 0
     assert 2 in divisors_of_square((7 + 1) // 4)
-    assert (2 * 3**2 + 2 * 3 - 3 + 4 * 3) % 11 == 0
-    assert 3 in divisors_of_square((11 + 1) // 4)
+
+    # Several nonsquare quadratics whose f+4 discriminant is a negative
+    # square pass the complete D=1 prime layer but are hit by another D.
+    d1_pass_samples = (
+        # (a,b,c, M,D,x)
+        (2, 2, -3, 11, 3, 3),
+        (1, -4, 1, 7, 2, 5),
+        (1, -6, 30, 11, 3, 3),
+    )
+    for a, b, c0, M, D, x in d1_pass_samples:
+        delta_1 = b * b - 4 * a * (c0 + 4)
+        assert delta_1 < 0 and isqrt(-delta_1) ** 2 == -delta_1
+        assert b * b != 4 * a * c0
+        for p in primerange(3, 2000):
+            if p % 4 == 3:
+                assert not any((a * y * y + b * y + c0 + 4) % p == 0
+                               for y in range(p))
+        assert D != 1 and D in divisors_of_square((M + 1) // 4)
+        assert (a * x * x + b * x + c0 + 4 * D) % M == 0
 
     # Finite discriminant-character replay of the D=1 dichotomy.  In this
     # box, exactly the negative-square discriminants have no QR value at a
@@ -10732,25 +10749,173 @@ def check_bf():
     assert tuple(nonsquare_counts) == expected_counts
     assert final_nonsquares == expected_final
 
-    # Extend only the tiny unresolved set, retaining one modulus harvest at a
-    # time.  This establishes exact minima when found and exact lower bounds
-    # at the cap otherwise; it does not infer W=+infinity.
-    resolution_cap = 1_000_000 if full_scan else 100_000
-    unresolved = set(final_nonsquares)
-    resolved = {}
-    for M in range(3003, resolution_cap + 1, 4):
+    # Exact twisted-square reduction (Lemma 59.7) on a bounded complete
+    # system.  The Jacobi and forbidden-D filters discard no hit.  Scaling a
+    # square factor out of both n and D gives exactly the auxiliary datum.
+    twisted_rows = ((288, 2, 12), (336, 21, 4), (4545, 505, 3))
+    scaling_divisors = {
+        m: tuple(t for t in range(1, m + 1) if m % t == 0)
+        for _n, _s, m in twisted_rows
+    }
+    reduction_checks = 0
+    for M, _classes in local_rows:
         A = (M + 1) // 4
-        classes = {(-4 * D) % M for D in divisors_of_square(A)}
-        for n in tuple(unresolved):
-            if n % M in classes:
-                resolved[n] = M
-                unresolved.remove(n)
-    if full_scan:
+        for D in divisors_of_square(A):
+            for n, s, m in twisted_rows:
+                hit = (n + 4 * D) % M == 0
+                permitted = (gcd(M, n) == 1
+                             and jacobi_symbol(s, M) == -1
+                             and D % s != 0)
+                assert not hit or permitted
+                for t in scaling_divisors[m]:
+                    if D % (t * t):
+                        continue
+                    auxiliary = s * (m // t) ** 2 + 4 * (D // (t * t))
+                    assert hit == (auxiliary % M == 0)
+                reduction_checks += 1
+
+            if D % 2 == 0:
+                E = D // 2
+                assert 288 + 4 * D == 2 * (144 + 4 * E)
+                assert (288 + 4 * D) % M
+            if D % 8 == 0:
+                E = D // 8
+                assert 288 + 4 * D == 8 * (36 + 4 * E)
+            if D % 21 == 0:
+                E = D // 21
+                assert 336 + 4 * D == 21 * (16 + 4 * E)
+                assert (336 + 4 * D) % M
+            if D % 505 == 0:
+                E = D // 505
+                assert 4545 + 4 * D == 505 * (9 + 4 * E)
+                assert (4545 + 4 * D) % M
+
+    for M in range(3, 3001, 4):
+        if gcd(M, 21) == 1:
+            assert jacobi_symbol(21, M) == jacobi_symbol(M, 21)
+        if gcd(M, 505) == 1:
+            assert jacobi_symbol(505, M) == jacobi_symbol(M, 505)
+        if jacobi_symbol(2, M) == -1:
+            assert M % 8 == 3
+
+    # Pin every least W in the first sixty members of each twisted-square
+    # family.  None means that the complete M<=3000 harvest has no hit; the
+    # targeted scan below strengthens exactly those three entries.
+    expected_family_W = {
+        2: (3, 3, 11, 3, 3, 19, 3, 3, 11, 3, 3, None, 3, 3, 11,
+            3, 3, 11, 3, 3, 59, 3, 3, 11, 3, 3, 19, 3, 3, 11,
+            3, 3, 59, 3, 3, 11, 3, 3, 35, 3, 3, 11, 3, 3, 131,
+            3, 3, 11, 3, 3, 11, 3, 3, 19, 3, 3, 11, 3, 3, 19),
+        21: (11, 11, 19, None, 11, 11, 23, 19, 11, 11, 19, 11, 11,
+             23, 23, 11, 11, 23, 71, 11, 11, 19, 11, 11, 19, 31, 11,
+             11, 23, 19, 11, 11, 23, 11, 11, 23, 23, 11, 11, 23, 19,
+             11, 11, 19, 11, 11, 23, 23, 11, 11, 19, 23, 11, 11, 23,
+             11, 11, 23, 23, 11),
+        505: (11, 11, None, 23, 11, 11, 23, 47, 11, 11, 23, 11, 11,
+              23, 107, 11, 11, 23, 23, 11, 11, 23, 11, 11, 23, 87, 11,
+              11, 23, 23, 11, 11, 23, 11, 11, 23, 23, 11, 11, 23, 23,
+              11, 11, 23, 11, 11, 23, 23, 11, 11, 23, 23, 11, 11, 23,
+              11, 11, 23, 23, 11),
+    }
+    family_W = {}
+    for s in (2, 21, 505):
+        values = []
+        for m in range(1, 61):
+            n = s * m * m
+            values.append(next((M for M, classes in local_rows
+                                if n % M in classes), None))
+        family_W[s] = tuple(values)
+    assert family_W == expected_family_W
+
+    # The fourth full-population survivor has the exact small witness stated
+    # in the text.  The three live candidates need a much deeper scan.
+    resolved = {}
+    if 643_245 in final_nonsquares:
+        for M in range(3003, 4000, 4):
+            A = (M + 1) // 4
+            if any((643_245 + 4 * D) % M == 0
+                   for D in divisors_of_square(A)):
+                resolved[643_245] = M
+                break
         assert resolved == {643_245: 3119}
-        assert unresolved == {288, 336, 4545}
-    else:
-        assert not resolved
-        assert unresolved == {288, 336, 4545}
+
+    # Independent smallest-prime-factor scan.  The SPF entries are storage
+    # only: every factor and every divisor product is explicitly converted to
+    # a Python int, avoiding the fixed-width overflow that invalidated an
+    # earlier external quick probe.  ES_FULL_SCAN reproduces the deep frontier.
+    def targeted_python_int_scan(cap):
+        from array import array
+
+        a_max = (cap + 1) // 4
+        spf = array("I", [0]) * (a_max + 1)
+        for p in range(2, isqrt(a_max) + 1):
+            if spf[p] == 0:
+                spf[p] = p
+                for multiple in range(p * p, a_max + 1, p):
+                    if spf[multiple] == 0:
+                        spf[multiple] = p
+
+        targets = (288, 336, 4545)
+        open_targets = set(targets)
+        divisor_values = 0
+
+        def legendre_at_prime(value, p):
+            residue = value % p
+            if residue == 0:
+                return 0
+            return 1 if pow(residue, (p - 1) // 2, p) == 1 else -1
+
+        for A in range(1, a_max + 1):
+            M = 4 * A - 1
+            active = []
+            if 288 in open_targets and M % 8 == 3:
+                active.append(288)
+            if (336 in open_targets
+                    and legendre_at_prime(M, 3)
+                    * legendre_at_prime(M, 7) == -1):
+                active.append(336)
+            if (4545 in open_targets
+                    and legendre_at_prime(M, 5)
+                    * legendre_at_prime(M, 101) == -1):
+                active.append(4545)
+            if not active:
+                continue
+
+            z = A
+            factors = []
+            while z > 1:
+                p = int(spf[z]) or int(z)
+                exponent = 0
+                while z % p == 0:
+                    z //= p
+                    exponent += 1
+                factors.append((p, 2 * exponent))
+
+            divisors = [1]
+            for p, exponent in factors:
+                base = divisors
+                extra = []
+                power = 1
+                for _ in range(exponent):
+                    power = int(power * p)
+                    extra.extend(int(D * power) for D in base)
+                divisors = base + extra
+            divisor_values += len(divisors)
+
+            for n in active:
+                target = int((-n * A) % M)  # A == 4^{-1} (mod M)
+                if any(int(D) % M == target for D in divisors):
+                    open_targets.remove(n)
+        return open_targets, divisor_values
+
+    resolution_cap = 150_000_000 if full_scan else 3_000_000
+    unresolved, targeted_divisor_values = targeted_python_int_scan(
+        resolution_cap
+    )
+    assert unresolved == {288, 336, 4545}
+    assert targeted_divisor_values == (
+        2_878_826_874 if full_scan else 36_611_608
+    )
 
     # Exact floor count and the one-half exponent crossing in Proposition
     # 59.5; these are arithmetic regressions, not a tail theorem.
@@ -10767,9 +10932,16 @@ def check_bf():
     print("nonsquare tail census (N, T-grid, counts, final survivors) =",
           (population_limit, thresholds, tuple(nonsquare_counts),
            tuple(final_nonsquares)))
-    print("targeted nonsquare resolution (cap,resolved,unresolved) =",
-          (resolution_cap, tuple(sorted(resolved.items())),
-           tuple(sorted(unresolved))))
+    family_histograms = {
+        s: dict(sorted(Counter(values).items(),
+                       key=lambda item: (-1 if item[0] is None else item[0])))
+        for s, values in family_W.items()
+    }
+    print("twisted-square reduction/family W checks =",
+          (reduction_checks, family_histograms))
+    print("targeted Python-int resolution (cap,divisor values,resolved,unresolved) =",
+          (resolution_cap, targeted_divisor_values,
+           tuple(sorted(resolved.items())), tuple(sorted(unresolved))))
 
 
 print("\n== (bf) polynomial escape classification and nonsquare census (§59) ==")
