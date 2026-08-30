@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v13, 30 August 2026}
+\date{Draft v14, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -121,6 +121,13 @@ finite divisor-ratio spectrum, prove exact local laws for
 $a=3,7,11,15,19,23$, and isolate the resulting finite conspiracy.  This is
 a change of coordinates and a collection of local tests, not a supply
 theorem, tail bound, pointwise result, or Erd\H{o}s--Straus progress.
+The dual taxonomy also proves effective $W(p)\leq\sqrt{p+4}$ coverage
+outside $O(N/(\log N)^{3/2})$ hard primes; this is weaker than Section 51 on
+both axes.  An exact gcd theorem localizes post-quotient eligibility failure,
+but the shifted laws and finite hunts do not classify nonsquare escapes.
+The Computational census of all $719781$ hard primes below $10^8$ has
+maximum $2495$ and no post-$10^7$ record; its INFO panels imply no growth
+law and leave $H_{\rm MOD}$ untouched.
 
 For $M\equiv3\pmod4$ and $A=(M+1)/4$, the intrinsic forbidden set is
 \[
@@ -213,8 +220,14 @@ simplification is complete, including even divisors, but it does not prove
 that a criterion row always exists.  Theorem~\ref{thm:ratio-spectrum}
 reexpresses that criterion by an exact divisor-ratio spectrum, and
 Theorem~\ref{thm:small-a-laws} proves the six explicit small-$a$ laws;
-neither supplies pointwise nonemptiness.  Theorem~\ref{thm:general-m-tails}
-records the status-preserving general-$m$ truncation.
+neither supplies pointwise nonemptiness.  Theorem~\ref{thm:fixed-D-laws} unifies the dual coordinate and
+Corollary~\ref{cor:effective-square-root} gives effective, but weaker,
+square-root coverage.  Theorems~\ref{thm:cancellation-cover}
+and~\ref{thm:shifted-support-laws} localize composite cancellation and give
+necessary shifted laws without a classification.  The Computational/INFO
+census in Section~\ref{sec:two-decade-census} does not advance
+$H_{\rm MOD}$.  Theorem~\ref{thm:general-m-tails} records the
+status-preserving general-$m$ truncation.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -259,6 +272,10 @@ asserting that the test always succeeds.  Section~\ref{sec:ratio-spectrum}
 turns that test into the exact divisor-ratio spectrum, proves six local
 laws, and records the finite-conspiracy and bounded fourth-sporadic stress
 without promoting either to a supply or classification theorem.
+Sections~\ref{sec:witness-taxonomy}--\ref{sec:two-decade-census} give the
+dual taxonomy and weaker square-root law, the exact gcd mechanism and
+coordinate-box hunts, and the independently replayed Computational/INFO
+census, without a classification, growth law, or changed pointwise frontier.
 Section~\ref{sec:general-m-tails} gives the status-preserving
 general-numerator tails and their exact
 effectivity perimeter.  Finally,
@@ -284,12 +301,14 @@ $C_{\rm POLY}$ and $C_{\rm SQ}'$ remain open, while $C_{\rm SQ}$ is refuted
 and the three former finite-census survivors are proved to have
 $W=+\infty$.  Only the right-to-left inclusion in $C_{\rm SQ}'$ is proved;
 the complete bounded census is Computational stress evidence, not an
-unbounded classification.  The forward and hard-prime criteria, the divisor-ratio law, the six
-small-$a$ laws, and the $2m^2$ residue laws are proved, but the prime
-criterion and its ratio reformulation do not prove that their finite set is
-nonempty.  The ratio hunt and local failure tables are Computational only
-in their stated ranges.  These computer-assisted conclusions concern $W$,
-not all Egyptian-fraction decompositions.  The count-below-one and crossing
+unbounded classification.  The forward, ratio, dual-taxonomy, square-root, gcd-cover, shifted-support,
+and displayed exclusion laws are proved, but do not force prime
+nonemptiness.  The $a_1$ data, ledgers, hunts, and hard-prime census are
+Computational in their exact ranges; normalized trajectories are INFO only.
+Square-root coverage is weaker than Section 51 on both axes, nonsquare
+finiteness and $C_{\rm SQ}'$ remain open with only its right-to-left
+inclusion proved, and $H_{\rm MOD}$ is unchanged.  These conclusions concern
+$W$, not all Egyptian-fraction decompositions.  The count-below-one and crossing
 implications are proved
 conditional on their explicitly \textsc{unproved} hypotheses; the
 mass-invariant proposition is only an architecture theorem.  The normalized
@@ -2316,10 +2335,24 @@ $C_{\rm SQ}'$, the exhibited-mechanisms-only assessment, and every
 Heuristic and no-pointwise caveat.  Block \texttt{(bi)} checks the ratio
 pairing, local laws, $1181$ hard primes through $10^5$, record and sporadic
 ledgers, and the gated staged hunt with Python integers and bounded live
-factor/divisor state.  The internal verifier coverage used by this draft
-runs through \texttt{(bi)}.  These checks and the verdict are internal
-validation, not external refereeing.  A separate full-source review of
-the auro-zera Lean file
+factor/divisor state.  These checks and the verdict are internal
+validation, not external refereeing.
+
+Wave 27's three maximum-severity reviews returned
+\textsc{sound-after-repairs}.  The taxonomy review rederived DIV/D1,
+fixed-$D$, CRT coupling, and the dimension-$3/2$ sieve, and reproduced the
+$9732$ default and $82887$ gated census scopes; block \texttt{(bj)} pins
+these laws, $7146$ fixed-$D$ rows, and the square-root and $a_1$ censuses.
+The gcd review rederived the valuation and shifted/unit laws and independently
+replayed all $242837$ new pairs, the $146016/242837/388853$ counts, ledgers,
+and $W(3201660)=5303$; block \texttt{(bk)} gates the full box and thin slice.
+Because the original full census runner was not preserved, the §65 review
+committed independent \texttt{scripts/review65\_independent.py}; without
+\texttt{verify.py} or SymPy it replayed all $719781$ hard primes below
+$10^8$ and asserted no survivor at $M=30000$.  Block \texttt{(bl)} instead
+replays records only, even when gated.  Coverage runs through \texttt{(bl)};
+all three reviews remain internal validation.  A separate full-source
+review of the auro-zera Lean file
 replayed its identities but did not compile it; its open-core
 characterization and the source paper's own conditional Conclusion are
 related-work checks, not validation of this paper.
@@ -7302,6 +7335,981 @@ compatible with later success, and success at small $a$ can produce a huge
 $M$.  The finite-conspiracy display is the terminal distillation of the
 Type-II pointwise problem and clarifies the three known mechanisms; it does
 not solve that problem, prove $C_{\rm SQ}'$, or prove Erd\H{o}s--Straus.
+Sections~\ref{sec:witness-taxonomy}--\ref{sec:two-decade-census} only
+reexpress this finite system, diagnose its gcd failures, and extend bounded
+censuses; they do not strengthen the finite-conspiracy equivalence.
+
+\section{Algebraic witness taxonomy, square-root coverage, and the first-witness index}
+\label{sec:witness-taxonomy}
+\medskip\noindent\textbf{Status and scope.}
+The DIV and D1 families, fixed-$D$ laws, universal $a$-law, square-root
+bound, and effective exceptional-set estimate below are \textbf{proved}.
+The two first-witness censuses are \textbf{Computational}, exact only in
+their displayed ranges.  This taxonomy consolidates
+Theorems~\ref{thm:witness-duality}, \ref{thm:hard-prime-criterion}, and
+\ref{thm:ratio-spectrum} in two coordinate systems.  It creates no new
+identity family or pointwise result and does not improve the
+witness-modulus tails of Section~\ref{sec:witness-tail}.
+
+\subsection{Elementary families and the fixed-$D$ coordinate}
+Unless stated otherwise in this section, let $p\equiv1\pmod {24}$ be prime
+and put
+\begin{equation}\tag{63.1}
+ B=\left\lfloor{p+1\over3}\right\rfloor,
+ \qquad1\leq a\leq2B,
+ \qquad a\equiv3\pmod4,
+ \qquad h={p+a\over4}.
+\end{equation}
+Theorem~\ref{thm:hard-prime-criterion} says that this fixed $a$ succeeds
+exactly when some $D\mid h^2$ satisfies $D\equiv-h\pmod a$.
+
+\begin{lemma}[DIV family; proved; source Lemma 63.1]\label{lem:DIV-family}
+If $e\mid h$ and $e\equiv-1\pmod a$, then
+\begin{equation}\tag{63.2}
+                         D={h\over e}
+\end{equation}
+is a witness at $a$.
+\end{lemma}
+\begin{proof}
+The positive integer $D$ divides $h^2$, and $h=De\equiv-D\pmod a$.
+Theorem~\ref{thm:hard-prime-criterion} supplies the witness, including
+$D\mid A^2$.
+\end{proof}
+This family is sufficient, not necessary: a general $D\mid h^2$ can have
+prime exponents larger than those in $h$.
+
+\begin{lemma}[D1 family; proved; source Lemma 63.2]\label{lem:D1-family}
+For (63.1),
+\begin{equation}\tag{63.3}
+ h\equiv-1\pmod a\quad\Longleftrightarrow\quad a\mid p+4.
+\end{equation}
+When these conditions hold, both $D=1$ and $D=h^2$ are witnesses.  The
+first has
+\begin{equation}\tag{63.4}
+                         M={p+4\over a}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Since $4(h+1)=p+a+4$ and $a$ is odd, multiplication by $4$ is invertible
+modulo $a$, proving (63.3).  Then
+$1\equiv h^2\equiv-h\pmod a$, and both divisors divide $h^2$.
+The criterion proves both claims, while $aM=p+4D$ gives (63.4) for
+$D=1$.
+\end{proof}
+
+\begin{corollary}[explicit square-root law; proved; source Corollary 63.3]
+\label{cor:square-root-law}
+If $p+4$ has a prime factor congruent to $3$ modulo $4$, then
+\begin{equation}\tag{63.5}
+                              W(p)\leq\sqrt{p+4}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Put $N=p+4\equiv1\pmod4$.  If $q\equiv3\pmod4$ divides $N$, then
+\begin{equation}\tag{63.6}
+                         q\equiv N/q\equiv3\pmod4.
+\end{equation}
+The second factor is not $1$.  Let $a$ be the larger factor and $M$ the
+smaller.  Then $a,M\equiv3\pmod4$, $aM=N$, and $M\leq\sqrt N$.  Also
+$M\geq3$, so $a\leq N/3$.  Writing $p=3r+1$ gives $B=r$, and the hard-prime
+range has $r\geq2$; hence
+\begin{equation}\tag{63.7}
+                a\leq{p+4\over3}=r+{5\over3}\leq2r=2B.
+\end{equation}
+Thus (63.1) holds, and Lemma~\ref{lem:D1-family} gives exactly
+$M=N/a$.
+\end{proof}
+The same datum reads the chosen factor of $p+4$ as $a$ and its complement
+as $M$; choosing the larger factor as $a$ gives the square-root bound.
+
+\begin{theorem}[fixed-$D$ divisor laws; proved; source Theorem 63.4]
+\label{thm:fixed-D-laws}
+Fix a positive integer $D$.  A witness for $p$ with this $D$ and modulus
+$M$ exists if and only if
+\begin{equation}\tag{63.8}
+ M\mid p+4D,\qquad M\equiv3\pmod4,
+ \qquad D\mid\left({M+1\over4}\right)^2.
+\end{equation}
+Its dual coefficient and auxiliary integer are
+\begin{equation}\tag{63.9}
+ a={p+4D\over M},\qquad A={M+1\over4},\qquad aM=p+4D.
+\end{equation}
+If $D$ is squarefree, the eligibility condition is exactly
+\begin{equation}\tag{63.10}
+                              M\equiv-1\pmod {4D}.
+\end{equation}
+In particular,
+\begin{equation}\tag{63.11}
+\begin{array}{c|c|c}
+D&\text{shifted value}&\text{exact class of }M\\ \hline
+1&M\mid p+4&M\equiv3\pmod4\\
+2&M\mid p+8&M\equiv7\pmod8\\
+3&M\mid p+12&M\equiv11\pmod {12}\\
+4&M\mid p+16&M\equiv7\pmod8.
+\end{array}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The witness definition is precisely (63.8), and its first condition
+defines the positive $a$ in (63.9);
+Theorem~\ref{thm:witness-duality} supplies all finite range conditions.  For
+squarefree $D$, primewise valuations give $D\mid A^2$ if and only if
+$D\mid A$, equivalent to $4D\mid M+1$.  This gives the first three rows.
+For $D=4$, however, $4\mid A^2$ if and only if $2\mid A$, hence only
+$8\mid M+1$; this gives the final row and retains the full $2$-adic branch.
+\end{proof}
+Thus the fixed-$D$ coordinate asks for an eligible divisor of $p+4D$,
+whereas the fixed-$a$ coordinate asks whether $-1$ lies in the bounded
+ratio spectrum of $(p+a)/4$.  Equations (60.4) and (60.10) identify the
+rows bijectively.  They are the same finite system in dual coordinates,
+not additional witness supply.
+
+\subsection{The universal bounded-coefficient law}
+\begin{theorem}[universal $a$-law; proved; source Theorem 63.5]
+\label{thm:universal-a-law}
+Let $a>1$ be odd, let $(a,h)=1$, and write
+\begin{equation}\tag{63.13}
+ a=\prod_{i=1}^r\ell_i^{k_i},\qquad m_i=\varphi(\ell_i^{k_i}).
+\end{equation}
+Choose a primitive root $g_i$ modulo each odd prime power.  For every prime
+$q\mid h$, define
+\begin{equation}\tag{63.14}
+ \boldsymbol\lambda(q)=
+  \bigl(\log_{g_i}(q\bmod\ell_i^{k_i})\bmod m_i\bigr)_{i=1}^r,
+ \qquad \boldsymbol\epsilon=(m_i/2)_{i=1}^r.
+\end{equation}
+Then $-1\in\operatorname {Rat}_a(h)$, equivalently success at $a$ when $h$
+comes from (63.1), is equivalent to
+\begin{equation}\tag{63.15}
+ \boxed{\quad
+ \boldsymbol\epsilon\in
+ \left\{\sum_{q\mid h}f_q\boldsymbol\lambda(q):
+            -v_q(h)\leq f_q\leq v_q(h)\right\}
+ \subseteq\prod_{i=1}^r\mathbb Z/m_i\mathbb Z.\quad}
+\end{equation}
+The same integer $f_q$ is used in every CRT component of
+$\boldsymbol\lambda(q)$.
+\end{theorem}
+\begin{proof}
+The unit group decomposes as
+\begin{equation}\tag{63.16}
+ (\mathbb Z/a\mathbb Z)^*\cong
+       \prod_i(\mathbb Z/\ell_i^{k_i}\mathbb Z)^*,
+\end{equation}
+and each factor is cyclic.  The chosen logarithms send $-1$ to
+$\boldsymbol\epsilon$.  Formula (62.1) says that a ratio-spectrum element is
+$\prod_{q\mid h}q^{f_q}$ with exactly the bounds in (63.15); taking
+all component logarithms proves necessity, and exponentiating followed by
+the Chinese remainder theorem proves sufficiency.  Each $q$ divides the
+single integer $h$, so one integer $f_q$, not independent component
+exponents, is chosen.  Theorem~\ref{thm:ratio-spectrum} identifies this with
+success at $a$.
+\end{proof}
+For $a=3,7,11,19,23$ this is the cyclic budget law of (62.9)--(62.13); for
+$a=15$ it is the coupled $C_2\times C_4$ calculation (62.14)--(62.15).
+For fixed small $a$, one may tabulate unit residues and update a reachable
+set; this finite calculation is not an asymptotic algorithmic claim.
+
+\subsection{Explicit coverage and the half-dimensional shifted layer}
+\begin{corollary}[D1 congruence layer; proved; source Corollary 63.6]
+\label{cor:D1-layer}
+Let $\ell\equiv3\pmod4$ be prime.  Every hard prime satisfying
+\begin{equation}\tag{63.17}
+                              p\equiv-4\pmod\ell
+\end{equation}
+has a witness at $a=\ell$ with $D=1$.  In particular, $\ell=7$ covers
+$p\equiv3\pmod7$.  The value $\ell=3$ never applies, because a hard prime
+is $1$ modulo $3$ whereas $-4$ is $2$ modulo $3$.
+\end{corollary}
+\begin{proof}
+The congruence says $\ell\mid p+4$.  Its complementary factor is also
+$3\pmod4$ and at least $3$, so
+$\ell\leq(p+4)/3\leq2B$ by (63.7).  Lemma~\ref{lem:D1-family} applies.
+\end{proof}
+This is exactly the classical $D=1$ atom supply in dual coordinates; no
+novelty is claimed for the progression coverage.
+
+Define the checkable exceptional set
+\begin{equation}\tag{63.18}
+ \begin{split}
+ \mathcal E(N)=\{p\leq N:{}&p\equiv1\pmod {24},\ p\text{ prime},\\
+                  &p+4\text{ has no prime factor }q\equiv3\pmod4\}.
+ \end{split}
+\end{equation}
+\begin{theorem}[effective half-dimensional shifted sieve; proved; source Theorem 63.7]
+\label{thm:half-dimensional-shifted-sieve}
+With an effectively computable absolute implied constant,
+\begin{equation}\tag{63.19}
+                         \#\mathcal E(N)\ll{N\over(\log N)^{3/2}}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Write $p=24m+1$, $m\leq N/24$.  Apart from $2,3$, exclude modulo each prime
+$\ell$ the class $24m+1\equiv0\pmod\ell$, and for
+$\ell\equiv3\pmod4$ also exclude $24m+5\equiv0\pmod\ell$.  Their
+difference is $4$, so for $\ell\geq5$ the local count is
+\begin{equation}\tag{63.20}
+ \rho(\ell)=\begin{cases}1,&\ell\equiv1\pmod4,\\
+                          2,&\ell\equiv3\pmod4.
+             \end{cases}
+\end{equation}
+Every member of $\mathcal E(N)$ with $p>z$ avoids these classes for
+$\ell<z$.
+
+Put $X=\lfloor(N-1)/24\rfloor$.  For squarefree $d$ supported on these
+primes, the Chinese remainder theorem gives $\rho(d)=\prod_{\ell\mid d}
+\rho(\ell)$ removed classes and the exact interval count
+\[
+ {X\rho(d)\over d}+O(\rho(d)).
+\]
+Since $\rho(\ell)\leq2$,
+$\sum_{d\leq D}\mu^2(d)\rho(d)\ll D\log D$.  Apply the fixed-dimensional
+upper-bound fundamental lemma in the form used in (52.8)--(52.12), with
+$D=X^{1/2}$ and $z=D^{1/u}\asymp N^\eta$, for fixed sufficiently large
+$u$ and fixed $\eta>0$.  It gives
+\begin{equation}\tag{63.21}
+ \#\mathcal E(N)\ll
+ X\prod_{5\leq\ell<z}\left(1-{\rho(\ell)\over\ell}\right)
+ +O(D\log D)+O(z).
+\end{equation}
+The final term covers $p\leq z$, and both errors are
+$o(N/(\log N)^{3/2})$.  This is an integer-progression upper-bound sieve;
+no level of distribution for primes is assumed.
+
+Effective Mertens estimates in the two fixed classes modulo $4$ give
+\begin{equation}\tag{63.22}
+ \sum_{5\leq\ell<z}{\rho(\ell)\over\ell}
+ =\sum_{5\leq\ell<z}{1\over\ell}
+ +\sum_{\substack{5\leq\ell<z\\\ell\equiv3(4)}}{1\over\ell}
+ ={3\over2}\log\log z+O(1).
+\end{equation}
+Thus the product in (63.21) is
+$O((\log z)^{-3/2})=O((\log N)^{-3/2})$.  All constants and the threshold
+are effective.
+\end{proof}
+
+\begin{corollary}[effective square-root coverage; proved; source Corollary 63.8]
+\label{cor:effective-square-root}
+Every hard prime $p\leq N$ outside $\mathcal E(N)$ satisfies
+(63.5).  Hence the number not certified by the explicit square-root
+law is $O(N/(\log N)^{3/2})$, effectively.
+\end{corollary}
+\begin{proof}
+Outside $\mathcal E(N)$, Corollary~\ref{cor:square-root-law} applies; the
+count is Theorem~\ref{thm:half-dimensional-shifted-sieve}.
+\end{proof}
+The factorization condition (63.18) is also a direct decision test for
+this elementary certificate.
+
+\medskip\noindent\textbf{Assessment 63.1 (honest comparison).}
+The exact comparison is
+\begingroup\scriptsize
+\begin{equation}\tag{63.23}
+\begin{array}{p{18mm}|p{24mm}|p{31mm}|p{28mm}}
+result&threshold controlled&exceptional bound&status\\ \hline
+Corollary \ref{cor:effective-square-root}&$\sqrt{p+4}$&
+ $N/(\log N)^{3/2}$&classical sieve; effective; explicit exception\\
+Theorem 51.2(1)&$T\leq\exp\{c(\log N)^{1/4}\}$&
+ $N\exp\{-c(\log T)^2\log(2+\log T)\}$&
+ proved internally; Section 39 review qualification\\
+Theorem 51.2(2)&$T\leq\exp\{c(\log N)^{1/4}\}$&
+ $N\exp\{-c(\log T)^3\}$&\textsc{claimed/provisional} cubic supply\\
+Corollary 51.3&$T=(\log N)^A$&
+ $N\exp\{-c_A(\log\log N)^2$\newline
+ $\mathbin\cdot\log\log\log N\}$&fixed-polylogarithmic variant.
+\end{array}
+\end{equation}
+\endgroup
+The Section~\ref{sec:witness-tail} events are stronger on both axes: they
+control much smaller moduli and have much smaller exceptional sets.  The
+advantages here are only relative elementarity, effectivity, and the
+explicit factorization test.  This is not a tail record or pointwise
+progress.  Moreover $\sqrt p$ lies far beyond the top proven Section 51
+window $\exp\{\alpha(\log N)^{1/4}\}$, so the thresholds are not directly
+comparable.  Within this campaign it is only a weak almost-all datum in a
+new regime.
+
+The $D=1$ gap at the late primes is exact:
+\begin{equation}\tag{63.24}
+\begin{array}{r|l}
+p&p+4\\ \hline
+225289&225293=37\cdot6089\\
+954409&954413=181\cdot5273\\
+1853329&1853333\text{ is prime}\\
+2031121&2031125=5^3\cdot16249.
+\end{array}
+\end{equation}
+Every displayed prime factor is $1\pmod4$, so D1 misses all four globally,
+not merely below a cutoff.  This is the full-range version of the necessary
+condition in Lemma~\ref{lem:shifted-sieve}; it does not suggest that these
+are the only elements of (63.18).
+
+\subsection{The first-witness index}
+Define, on first use,
+\begin{equation}\tag{63.25}
+ a_1(p)=\min\left\{a\in\mathcal A(p):
+ -1\in\operatorname {Rat}_a\left({p+a\over4}\right)\right\},
+\end{equation}
+with $+\infty$ when the set is empty.  Thus $a_1$ minimizes the dual
+coefficient and ignores the resulting modulus.  By contrast, let $a_W(p)$
+be the least $a$ among data attaining $W(p)$, and then choose the least $D$
+if that pair also ties.
+
+\medskip\noindent\textbf{Computational 63.1 (exact $a_1$ censuses).}
+Block \texttt{(bj)} factors $h=(p+a)/4$ for $a=3,7,11,\ldots$, applies
+Theorem~\ref{thm:universal-a-law}, and stops at the first hit.  Independently
+it obtains $W,a_W,D_W$ by an $M$-ascending complete class scan through
+$M=3000$.  The default range is all $9732$ hard primes through $10^6$; the
+\texttt{ES\_FULL\_SCAN=1} range is all $82887$ hard primes through $10^7$.
+The exact histograms are
+\begingroup\tiny
+\setlength{\arraycolsep}{2pt}
+\begin{equation}\tag{63.26}
+\begin{array}{c|rrrrrrrrrrrrrrrrrr}
+a_1&3&7&11&15&19&23&27&31&35&39&43&47&51&55&59&63&71&107\\ \hline
+p\leq10^6&5192&3551&584&131&113&96&8&33&4&9&1&3&2&2&2&1&0&0\\
+p\leq10^7&47137&28606&4419&961&766&637&63&183&27&44&7&23&2&4&4&1&2&1.
+\end{array}
+\end{equation}
+\endgroup
+The maxima and raw Pearson correlations are
+\begin{equation}\tag{63.27}
+\begin{array}{r|r|r|r|r|r}
+\text{range}&\max a_1&p&\max W&p&\operatorname {corr}(a_1,W)\\ \hline
+10^6&63&87481&335&954409&0.354836\\
+10^7&107&8803369&2495&2031121&0.271029.
+\end{array}
+\end{equation}
+The correlations use untransformed integers and are descriptive only.  The
+four late rows are
+\begin{equation}\tag{63.28}
+\begin{array}{r|r|r|r|r}
+p&a_1&W&a_W&D_W\\ \hline
+225289&31&279&811&245\\
+954409&3&335&2855&504\\
+1853329&3&383&4839&2\\
+2031121&11&2495&815&576.
+\end{array}
+\end{equation}
+This includes $a_1(225289)=31>23$ and the three requested small values.
+
+\medskip\noindent\textbf{Computational 63.2 (dual-minimum separation;
+exact displayed ranges).}
+Every row has $a_W>a_1$: $9732/9732$ by default and $82887/82887$ in the
+research run.  The largest ratios are
+\begin{equation}\tag{63.29}
+ \max_{p\leq10^6}{a_W\over a_1}=47597
+ \quad(p=999529;\ a_1=3,W=7,a_W=142791,D_W=2),
+\end{equation}
+\begin{equation}\tag{63.30}
+ \max_{p\leq10^7}{a_W\over a_1}={1428563\over3}
+ \quad(p=9999937;\ a_1=3,W=7,a_W=1428563,D_W=1).
+\end{equation}
+The largest differences are $142788$ and $1428560$.  At the opposite
+extreme, $a_1(8803369)=107$ has
+$(W,a_W,D_W)=(139,63335,49)$.  These are coordinate-separation anomalies,
+not large-$W$ anomalies: a small $a$ can first hit through huge $D,M$, while
+a tiny modulus can have $a$ of order $p$.  Hence $a_1$ does not bound $W$,
+and these finite ratios support no growth law.
+
+\subsection{Honest walls and verification}
+\medskip\noindent\textbf{Assessment 63.2 (stacking wall).}
+For prime $a\equiv3\pmod4$, $a>3$, the D1 progression has relative prime
+density about $1/(a-1)$; $a=3$ is incompatible with the hard class.  Thus
+\begin{equation}\tag{63.31}
+ \sum_{\substack{3<a\leq Y\\a\equiv3(4)\\a\ \mathrm{prime}}}{1\over a-1}
+ ={1\over2}\log\log Y+O(1).
+\end{equation}
+Without correlation control, stacking recovers only log-log-strength
+exponents.  The richer ratio laws share the moving $p$ and are not
+independent.  Nothing here improves Theorem 51.2 or Corollary 51.3.  Nor
+does finite feasibility imply a hit for every prime; the count-below-one
+and absolute-remainder mass gap of Proposition~\ref{prop:mass-gap} remain.
+The index $a_1$ is infinite exactly when the finite conspiracy survives and,
+when finite, says nothing quantitative about the first modulus.
+
+For the direct positivity question put
+\begin{equation}\tag{63.32}
+ N_{\rm hit}(p)=\sum_{a\in\mathcal A(p)}
+ \#\left\{D\mid\left({p+a\over4}\right)^2:
+ D\equiv-{p+a\over4}\pmod a\right\}.
+\end{equation}
+Then Theorem~\ref{thm:hard-prime-criterion} proves
+\begin{equation}\tag{63.33}
+                  N_{\rm hit}(p)>0\quad\Longleftrightarrow\quad W(p)<+\infty.
+\end{equation}
+\medskip\noindent\textbf{Assessment 63.3 (no hidden positivity identity).}
+The summands are the raw Type-II witness count in dual coordinates.  The
+Case-B dictionary and the Elsholtz--Tao reconciliation show that, after
+canonical ordering and primitivity conventions, this is the same solution
+structure measured by $f_{II}(p)$.  An exact rearrangement may exist, but an
+automatically positive lower bound for every hard prime would prove Type-II
+positivity and settle the remaining Erd\H{o}s--Straus problem.  None is
+known.  The square vanishing of $f_I,f_{II}$ warns that a formally positive
+mass cannot ignore the moving congruence projector.  This is not a no-go
+theorem for a new signed, spectral, or geometric identity.
+
+\medskip\noindent\textbf{Computational 63.3 and review pedigree (block
+\texttt{(bj)}; exact stated ranges).}
+The Python-integer block checks D1, the square-root construction, and the
+full original datum on $512$ seeded hard primes; $256$ proper-divisor DIV
+rows; all $7146$ direct fixed-$D$ rows; and the CRT-coupled law against
+direct spectra on $360$ seeded composite-modulus pairs, including an
+uncoupled-exponent false positive.  It recomputes all $3202$ hard-prime
+minima through $300000$: $1517$ shifts have a $3\pmod4$ factor and obey
+(63.5); the only values with $W(p)>\sqrt{p+4}$ are
+$(p,W,p+4)=(193,15,197)$ and $(3361,99,5\cdot673)$.  It pins
+(63.24) and every census, correlation, separation, and late-row datum.
+The $10^7$ run is gated; generation is chunked, with one factorization or
+divisor list live at a time.
+
+The wave-27 maximum-severity review returned
+\textsc{sound-after-repairs}.  It rederived the elementary range endpoints,
+fixed-$D$ valuations including the $D=2,4$ $2$-adic branches, and the
+single-exponent CRT coupling; rebuilt the dimension-$3/2$ sieve from exact
+$O(\rho(d))$ interval remainders without a prime level of distribution; and
+independently reproduced the default $9732$-prime census, its histogram,
+maxima, correlation, strict separation, square-root census, and all late
+rows.  A seeded $200$-prime sample from $(10^6,10^7]$ cross-checked direct
+and spectrum paths, while the gated block replayed all $82887$ research
+rows.  The repaired isolated block took about $2.1$ seconds by default and
+$8.7$ seconds gated; the prescribed full suite passed in $201$ seconds.
+This is internal validation only.  The residual uncertainty is exactly the
+stated open mathematics: these local laws and censuses do not force a
+witness for every hard prime, and the half-dimensional result is only an
+almost-all bound for the explicit $D=1$ layer.
+
+\section{The gcd mechanism: cancellation covers and shifted purity}
+\label{sec:gcd-mechanism}
+\medskip\noindent\textbf{Status and headline.}
+The cancellation-cover criterion, both shifted support laws, the dyadic and
+twisted-square exclusions, and the composite unit-branch ratio law are
+\textbf{proved}.  The sporadic ledgers and hunts are \textbf{Computational},
+exact only in their stated finite ranges.  Failure after the quotient stage
+has an exact necessary-and-sufficient description: every quotient row must
+lose eligibility at a prime dividing the candidate.  This identifies the
+gcd mechanism, but does not prove that every nonsquare failure has a quotient
+row, that only three sporadics exist, or the Erd\H{o}s--Straus conjecture.
+The cancellation-immune $D=1,2$ laws below are necessary conditions, not a
+characterization; all three known sporadics pass them.
+
+\subsection{The exact cancellation cover}
+Put $B=\lfloor(n+1)/3\rfloor$ and define the finite quotient-row set
+\begin{equation}\tag{64.1}
+ \begin{split}
+ \mathcal Q(n)=\{(a,D):\;&1\leq a\leq2B,\quad a\equiv-n\pmod4,
+       \quad h=(n+a)/4,\\
+ &D\mid h^2,\qquad a\mid D+h\}.
+ \end{split}
+\end{equation}
+For a row put
+\begin{equation}\tag{64.2}
+                         A={D+h\over a},\qquad M=4A-1.
+\end{equation}
+Only $D\mid A^2$ remains to make such a quotient-stage row a witness.
+
+\begin{theorem}[gcd-supported cancellation cover; proved; source Theorem 64.1]
+\label{thm:cancellation-cover}
+For every positive integer $n$,
+\[
+ W(n)=+\infty\quad\Longleftrightarrow\quad
+ \text{every }(a,D)\in\mathcal Q(n)\text{ has a prime }q\mid n\text{ for which}
+\]
+\begin{equation}\tag{64.3}
+ 2v_q(A)<v_q(D)\leq2v_q(a)+2v_q(A),\qquad q\mid(a,D).
+\end{equation}
+The universal statement includes $\mathcal Q(n)=\varnothing$.  Consequently
+one unit quotient row, $(a,D)=1$, proves $W(n)<+\infty$.  More generally,
+every failure of the last eligibility check is supported on primes dividing
+$n$; no outside prime can kill a quotient row.
+\end{theorem}
+\begin{proof}
+For a row, $h=aA-D$, so $h\equiv aA\pmod D$.  Since $D\mid h^2$, one has
+$D\mid a^2A^2$.  At a prime $q$, writing
+$d=v_q(D)$, $\alpha=v_q(a)$, and $\beta=v_q(A)$, this is
+$d\leq2\alpha+2\beta$.  Eligibility fails exactly when some $d>2\beta$;
+then $\alpha>0$ and $q\mid(a,D)$.  Also $aM=n+4D$, so $(a,D)\mid n$.
+Thus every failure has exactly the window in (64.3).  If no prime fails,
+$D\mid A^2$ and Theorem~\ref{thm:witness-duality} gives a witness;
+conversely every witness is a row with no failed prime.
+\end{proof}
+The mechanism can kill only an existing row, through prime powers already
+in $n$.  It does not make a row exist; $\mathcal Q(n)=\varnothing$ is the
+quotient-avoidance alternative in the finite conspiracy.
+
+\subsection{Two cancellation-immune shifted laws}
+For an integer, ``odd-prime support'' means its set of odd prime divisors,
+without multiplicity.
+\begin{theorem}[exact $D=1$ and $D=2$ support laws; proved]
+\label{thm:shifted-support-laws}
+\begin{enumerate}[leftmargin=*]
+\item The $D=1$ layer gives a witness for $n$ if and only if $n+4$ has a
+divisor $M\equiv3\pmod4$.  Equivalently it does so if and only if some
+prime $q\equiv3\pmod4$ divides $n+4$, and its least modulus is the least
+such prime.  In particular,
+\begin{equation}\tag{64.4}
+ W(n)=+\infty\quad\Longrightarrow\quad
+ \text{every odd prime dividing }n+4\text{ is }1\pmod4.
+\end{equation}
+\item The $D=2$ layer gives a witness if and only if $n+8$ has a divisor
+$M\equiv7\pmod8$.  Equivalently, its odd-prime support contains a prime
+$7\pmod8$, or contains both a prime $3\pmod8$ and a prime $5\pmod8$.
+Therefore
+\begin{equation}\tag{64.5}
+ W(n)=+\infty\quad\Longrightarrow\quad
+ \begin{cases}
+ q\not\equiv7\pmod8&\text{for every odd }q\mid n+8,\\
+ \text{not both residues }3,5\pmod8&\text{occur in the support.}
+ \end{cases}
+\end{equation}
+Equivalently, that support is contained in $\{1,3\}\pmod8$ or in
+$\{1,5\}\pmod8$.
+\end{enumerate}
+Every witness in part 1 has $M\leq n+4$, and every witness in part 2 has
+$M\leq n+8$.
+\end{theorem}
+\begin{proof}
+For $D=1$, eligibility is automatic and the datum equation is
+$M\mid n+4$.  Conversely any such $M\equiv3\pmod4$, with
+$A=(M+1)/4$, is a datum; $a=(n+4)/M$ satisfies
+$a\equiv3n\equiv-n\pmod4$.  A divisor $3\pmod4$ contains a prime in that
+class, which is itself a smaller allowed divisor.  This proves part 1.
+
+For $D=2$, eligibility is $2\mid A^2$, equivalent to $A$ even and hence to
+$M=4A-1\equiv7\pmod8$; the datum equation is $M\mid n+8$.  In the Klein
+four-group of odd residues modulo $8$, a divisor is $7$ exactly when one
+can select either a prime $7\pmod8$ or one prime from each of the classes
+$3,5\pmod8$.  This proves part 2, with multiplicities unrestricted.
+
+For either converse, $a=(n+4D)/M$ has the required congruence and
+$a\leq2\lfloor(n+1)/3\rfloor$ by Theorem~\ref{thm:witness-duality}.
+For $D=1$, $(a,D)=1$; for $D=2$, any common factor $2$ divides $n$, and
+the full $2$-adic condition is exactly that $A$ be even.  Thus no
+composite normal-form condition was omitted.
+\end{proof}
+For the known sporadics,
+\begin{equation}\tag{64.6}
+\begin{array}{r|l|l}
+n&n+4&n+8\\ \hline
+288&2^2\cdot73&2^3\cdot37\\
+336&2^2\cdot5\cdot17&2^3\cdot43\\
+4545&4549&29\cdot157.
+\end{array}
+\end{equation}
+Every middle-column odd factor is $1\pmod4$; the last-column supports use
+only $5$, only $3$, and only $5\pmod8$, respectively.  Thus all three pass
+both necessary laws.
+
+\begin{corollary}[explicit forbidden families; proved; source Corollary 64.3]
+\label{cor:dyadic-exclusions}
+For every $e,k\geq0$, whenever the displayed $n$ is positive,
+\begin{equation}\tag{64.7}
+ \begin{array}{rcll}
+ n&\equiv&3\cdot2^e-4\pmod {2^{e+2}}&\Longrightarrow W(n)<+\infty,\\
+ n&\equiv&7\cdot2^e-8\pmod {2^{e+3}}&\Longrightarrow W(n)<+\infty.
+ \end{array}
+\end{equation}
+The first line uses $(n+4)/2^e\equiv3\pmod4$, and the second uses
+$(n+8)/2^e\equiv7\pmod8$.  In particular no failure lies in
+$n\equiv3\pmod4$, $2\pmod8$, $8\pmod {16}$, $6\pmod {16}$,
+$20\pmod {32}$, or $48\pmod {64}$, with overlaps harmless.
+\end{corollary}
+
+\begin{corollary}[twisted-square $D=1$ exclusion; proved; source Corollary 64.4]
+\label{cor:twisted-D1-exclusion}
+Let $s>1$ be squarefree, let $q\equiv3\pmod4$ be prime with $q\nmid s$,
+and suppose
+\[
+                         \left({s\over q}\right)=-1.
+\]
+Then $sm^2\equiv-4\pmod q$ has exactly two classes of solutions for
+$m\pmod q$, and every integer $m$ in either class satisfies
+\begin{equation}\tag{64.8}
+                         W(sm^2)\leq q.
+\end{equation}
+Consequently a twisted-square failure must avoid those two classes for every
+such $q$.  At $q=3$ this recovers
+$s\equiv2\pmod3$, $3\nmid m\Rightarrow W(sm^2)=3$.
+\end{corollary}
+\begin{proof}
+Solubility is equivalent to
+\[
+ \left({-4s^{-1}\over q}\right)
+ =\left({-1\over q}\right)\left({s\over q}\right)
+ =-\left({s\over q}\right)=1.
+\]
+A nonzero quadratic residue has two roots.  For each, $q\mid sm^2+4$, so
+Theorem~\ref{thm:shifted-support-laws} gives the $D=1,M=q$ datum.  At $3$
+there is no smaller allowed modulus.
+\end{proof}
+These infinite-family exclusions leave many classes and do not classify the
+$s=2,21,505$ families.
+
+\subsection{Unit branches and complete sporadic ledgers}
+\begin{theorem}[composite unit-branch ratio law; proved; source Theorem 64.5]
+\label{thm:composite-unit-ratio}
+Let $n$ be odd, let
+\[
+ 1<a\leq2\lfloor(n+1)/3\rfloor,
+ \qquad a\equiv-n\pmod4,
+ \qquad h=(n+a)/4,
+ \qquad(a,n)=1.
+\]
+Then $(a,h)=1$, and a witness exists at this $a$ if and only if
+\begin{equation}\tag{64.9}
+                         -1\in\operatorname {Rat}_a(h).
+\end{equation}
+Every ratio hit is automatically eligible, even for composite $n$.  In
+particular, if $n\geq5$, $n\equiv1\pmod4$, $3\nmid n$, and
+$h=(n+3)/4$ has a prime divisor $2\pmod3$, then
+\begin{equation}\tag{64.10}
+                         W(n)<+\infty.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Both $a,n$ are odd and
+$(a,4h)=(a,n+a)=(a,n)=1$, so $(a,h)=1$.  The ratio bijection (62.7)--(62.8)
+identifies a hit with a quotient row.  Its congruence and $(a,h)=1$ force
+$(a,D)=1$, so Theorem~\ref{thm:cancellation-cover} makes eligibility
+automatic.  The converse uses the same bijection.  For $a=3$, the first
+small-$a$ law gives (64.10).
+\end{proof}
+Even $n$ has only even admissible $a$, so this shortcut is unavailable;
+that parity distinction does not explain odd $4545$.
+
+For a quotient row set
+\begin{equation}\tag{64.11}
+                         F(a,D)=\{q:v_q(D)>2v_q(A)\}.
+\end{equation}
+\medskip\noindent\textbf{Computational 64.1 (complete sporadic cancellation
+ledgers).}
+Block \texttt{(bk)} exhausts every row of $\mathcal Q(n)$.  Writing $g:c$
+when exactly $c$ rows have $(a,D)=g$, the full gcd distributions are
+\begin{verbatim}
+288 : 3:5, 4:2, 6:4, 9:6, 12:3, 16:3, 18:3, 24:2, 36:3, 96:12
+336 : 2:2, 3:6, 4:2, 6:8, 7:4, 8:3, 14:2, 16:1, 21:6,
+      24:2, 28:1, 42:4, 48:14, 112:10
+4545: 3:15, 5:13, 9:18, 15:73, 45:35, 101:3, 303:20,
+      909:3, 1515:8
+\end{verbatim}
+The failed-prime-set counts are
+\begingroup\scriptsize
+\begin{equation}\tag{64.12}
+\begin{array}{r|l}
+288&\{2\}:8,\ \{3\}:17,\ \{2,3\}:18\\
+336&\{2\}:12,\ \{3\}:11,\ \{7\}:10,\ \{2,3\}:15,
+     \ \{2,7\}:10,\ \{3,7\}:5,\ \{2,3,7\}:2\\
+4545&\{3\}:46,\ \{5\}:35,\ \{101\}:8,\ \{3,5\}:73,
+     \ \{3,101\}:18,\ \{5,101\}:2,\ \{3,5,101\}:6.
+\end{array}
+\end{equation}
+\endgroup
+The row totals are $43,65,188$, all failed sets are nonempty, and their
+unions are exactly the prime supports $\{2,3\}$, $\{2,3,7\}$, and
+$\{3,5,101\}$.  The character-filtered subledgers remain (60.21) and
+(61.6).  For $288,336$ every admissible $a$ shares a factor with $n$.  For
+$4545$, exactly $400$ of $757$ admissible $a$'s are unit branches; none has
+a quotient row, while all $188$ rows occur among the other $357$ values and
+are killed by cancellation.  Thus each sporadic passes both shifted tests,
+has quotient rows, and has every row covered by a failed prime dividing
+$n$.  This is a necessary-and-sufficient diagnosis of these inputs, not a
+congruence classification of all failures.
+
+\subsection{Finiteness wall and the wider hunt}
+\medskip\noindent\textbf{Assessment 64.1 (finiteness remains open).}
+No finiteness theorem is obtained for nonsquares with $W(n)=+\infty$.
+The finite box in Theorem~\ref{thm:witness-duality} grows with $n$; the
+shifted laws are only necessary and their survivor set contains every
+square; Theorem~\ref{thm:cancellation-cover} neither forces a quotient row
+nor an uncancelled or unit row, and even inputs have no unit $a$.
+Chebotarev, the generalized Riemann hypothesis (GRH), and standard
+shifted-prime conjectures do not by themselves control all pointwise divisor
+congruences in $\mathcal Q(n)$.  Nor is $C_{\rm POLY}$ sufficient: an
+infinite sparse set need contain no full polynomial or progression.
+$C_{\rm SQ}'$ would imply finiteness, but is precisely the open
+classification.  No unconditional or standard-conjectural finiteness claim
+is made.
+
+\medskip\noindent\textbf{Heuristic 64.1 (uniform-independent class model).}
+For $S_M=\{-4D\pmod M:D\mid((M+1)/4)^2\}$, uniformity of a nonsquare modulo
+each $M$, independence across $M$, and no additional squarefree-kernel
+character correlation would give
+\begin{equation}\tag{64.13}
+ \Pr(W(n)>10^4)\approx
+ \prod_{\substack{M\leq10^4\\M\equiv3(4)}}
+       \left(1-{|S_M|\over M}\right)
+ =1.033524640428\cdot10^{-12}.
+\end{equation}
+There are $2500$ moduli and $\sum|S_M|=64978$; the toy prediction is about
+$2.51\cdot10^{-7}$ stage-1 survivors among the $242837$ new points below,
+compatible with observing zero.  This is only a \textbf{Heuristic}:
+squares violate it globally, twisted squares have real character
+correlations, every modulus reuses the same integer, and no summable uniform
+error is known.  It cannot imply finiteness.
+
+\medskip\noindent\textbf{Computational 64.2 (expanded twisted-square hunt;
+exact box).}
+With \texttt{ES\_FULL\_SCAN=1}, block \texttt{(bk)} scans every unique
+\begin{equation}\tag{64.14}
+ n=sm^2\in(10^6,10^8],\quad2\leq s\leq2000\text{ squarefree},
+ \quad1\leq m\leq600,
+\end{equation}
+except the already-scanned subbox $s\leq1000,m\leq300$.  Its exact ledger is
+\begin{equation}\tag{64.15}
+\begin{array}{l|r}
+\text{squarefree kernels through 2000}&1214\\
+\text{new pairs}&242837\\
+\text{pass the }n+4\text{ support law}&50633\\
+\text{pass both shifted support laws}&18943\\
+\text{survive all }M\leq10^4&0\\
+\text{survive all }M\leq10^6&0\\
+\text{complete-normal-form infinities}&0.
+\end{array}
+\end{equation}
+Together with the $146016$ pairs of (62.25), this covers all $388853$ pairs
+in the enlarged box.  The unique largest exact least value among new pairs is
+\begin{equation}\tag{64.16}
+ \begin{aligned}
+ W(3{,}201{,}660)&=5303,&3{,}201{,}660&=15\cdot462^2,\\
+ (M,D,a)&=(5303,338,604).&&
+ \end{aligned}
+\end{equation}
+Every smaller eligible modulus was checked, and the row satisfies
+$D\mid((M+1)/4)^2$ and $n+4D=aM$.  Stage 1 had no survivor, so the
+$M\leq10^6$ and complete-decision stages received empty lists; their
+emptiness is exact, not a cutoff inference.  The default new subbox
+$s\leq400,m\leq350$ has $11833$ pairs, with $2406$ passing (64.4), $872$
+passing both laws, and none surviving $M\leq10^4$.  Its unique maximum is
+$W(1{,}359{,}015)=2147$ at $(s,m)=(15,301)$ and $(D,a)=(9,633)$.
+
+\medskip\noindent\textbf{Computational 64.3 (thin slice beyond $10^8$).}
+The optional run also scans
+\begin{equation}\tag{64.17}
+ 2\leq s\leq50\text{ squarefree},\quad1\leq m\leq2000,
+ \quad10^8<sm^2\leq10^9.
+\end{equation}
+There are $30$ kernels and $4992$ pairs; $904$ pass the first shifted law,
+$314$ pass both, and all resolve by $M\leq10^4$.  The unique maximum is
+\begin{equation}\tag{64.18}
+ \begin{aligned}
+ W(108{,}868{,}200)&=599,&
+ 108{,}868{,}200&=42\cdot1610^2,\\
+ (M,D,a)&=(599,7500,181800).&&
+ \end{aligned}
+\end{equation}
+This is a thin coordinate slice, not the full interval through $10^9$.
+Thus $C_{\rm SQ}'$ survives finite stress and remains open; only its
+right-to-left inclusion is proved, and no $C_{\rm SQ}''$ is introduced.
+
+\subsection{Verification and review pedigree}
+Block \texttt{(bk)} uses Python integers throughout.  It pins all $64978$
+classes through $10^4$, compares the two finite normal forms for $n\leq80$,
+checks $3523$ quotient rows including all $2347$ cancellation failures,
+checks both shifted laws for every $n\leq5000$, replays $460$ dyadic rows,
+$359$ twisted-square rows, and $300$ seeded unit branches, and recomputes all
+three ledgers.  The default hunt is streamed; the $242837$-point expansion
+and thin slice are gated.
+
+The wave-27 maximum-severity review returned
+\textsc{sound-after-repairs}.  It rederived the exact eligibility-failure
+window, including even $D$, every modulo-$4$ and modulo-$8$ support law, the
+Legendre-symbol roots, and composite unit-branch admissibility.  A fresh
+Python-integer implementation rebuilt all $64978$ classes, sampled $3000$
+new-box pairs, directly cross-checked $64$ minima, and independently resolved
+all $242837$ new pairs with the unique maximum (64.16).  It reproduced the
+old/new/enlarged counts $146016/242837/388853$, proved all enlarged values
+distinct by recovering their squarefree kernels, matched every gcd and
+failed-prime multiplicity, and matched all prefilter and thin-slice counts.
+The repaired isolated block took about $1.03$ seconds by default and $9.01$
+seconds gated; the prescribed suite passed in $185.25$ seconds.  This is
+internal validation only.  The hunts prove no growth law or unbounded
+classification; $W=+\infty$ is failure of the harvested Type-II mechanism,
+not failure of an Egyptian-fraction representation.
+
+\section{The two-decade hard-prime witness census and record anatomy}
+\label{sec:two-decade-census}
+\medskip\noindent\textbf{Computational 65.1 (exact range,
+informational).}
+This census extends
+\begin{equation}\tag{65.1}
+ W(p)=\min\{M\equiv3\pmod4:p\equiv-4D\pmod M
+              \text{ for some }D\mid((M+1)/4)^2\}
+\end{equation}
+through every hard prime $p<10^8$.  The original transient runner reported
+all $7500$ eligible rows through $M=30000$, containing $244216$ residue
+classes, a segmented NumPy prime bitmap, an increasing-modulus walk, exactly
+$719781$ hard primes, no unresolved prime, and Python-integer divisor
+arithmetic.  It was not committed, so its NumPy dtype, first-hit logic, and
+emergency-extension check cannot be source-audited and its timing below is
+historical.
+
+The committed independent replay
+\texttt{scripts/review65\_independent.py} supplies the durable full check.
+It imports neither \texttt{verify.py} nor SymPy.  Its private segmented
+Eratosthenes sieve uses explicit \texttt{int64} on the prime side; trial
+division and divisor expansion use Python integers; and an independent
+shrinking-survivor walk visits $M$ strictly upward and assigns each prime
+once.  An explicit leftover assertion fails if a prime requires $M>30000$.
+It independently obtains all $244216$ classes, all $719781$ primes and
+minima, and largest needed modulus $2495$.
+
+The transient staged $p<10^7$ run reported all $82887$ primes and the old
+record tables; its claimed second implementation on $1000$ seeded primes
+was also not preserved.  Block \texttt{(bl)} durably rebuilds both class
+systems and, between default and optional modes, replays the displayed
+records, four late rows, and $1000$ seeded hard primes below $10^5$.
+The independent review script instead recomputes the complete $10^8$ census
+and every table below from scratch.
+
+\subsection{The complete strict-record ledger}
+The complete strict-record table is
+\begingroup\scriptsize
+\begin{equation}\tag{65.2}
+\begin{array}{r|r|r|r|l|c}
+p&W(p)&a_W&D_W&p+4&W(p)>\sqrt{p+4}\\ \hline
+73&7&11&1&7\cdot11&N\\
+193&15&15&8&197&Y\\
+1201&31&39&2&5\cdot241&N\\
+2521&47&55&16&5^2\cdot101&N\\
+3361&99&39&125&5\cdot673&Y\\
+33289&155&215&9&13^2\cdot197&N\\
+90841&167&551&294&5\cdot18169&N\\
+144169&191&755&9&144173&N\\
+167521&259&647&13&5^2\cdot6701&N\\
+225289&279&811&245&37\cdot6089&N\\
+361321&287&1259&3&5^2\cdot97\cdot149&N\\
+915961&303&3023&2&5\cdot29\cdot6317&N\\
+954409&335&2855&504&181\cdot5273&N\\
+1853329&383&4839&2&1853333&N\\
+2031121&2495&815&576&5^3\cdot16249&Y.
+\end{array}
+\end{equation}
+\endgroup
+There is no new strict record in $10^7\leq p<10^8$; the running maximum
+remains $2495$.  At a minimum modulus with several firing divisors, the
+selected witness is the least positive firing $D$, equivalently the least
+$(a,D)$ used by the Section~\ref{sec:decidable-census} replay.  On all
+$82887$ rows below $10^7$ this happens also to be first in the existing
+factor-expansion order, but that coincidence is not the definition.  Every
+record satisfies $a_WW=p+4D_W$ and is a valid original-coordinate witness.
+The displayed $a_W$'s have minimum $11$, nearest-rank median $647$, and
+maximum $4839$: five are below $100$, six lie in $[100,1000)$, and four are
+at least $1000$.  The $D_W$'s split eight even and seven odd.  These are
+finite record-row descriptions, not distribution laws.
+
+Exactly three records, $193,3361,2031121$, satisfy
+$W(p)>\sqrt{p+4}$.  Their complete displayed factorizations contain only
+prime factors $1\pmod4$, so the $p+4$ prediction has zero violations in all
+$15$ rows.  This is a numerical check of the proved implication, not a proof
+of a parallel argument.
+
+\subsection{Minimum-row parity and distribution below $10^7$}
+\medskip\noindent\textbf{Computational 65.2 (exact $p<10^7$).}
+Under the selected-divisor convention, $49975$ of $82887$ minimum rows have
+even $D$ and $32912$ have odd $D$: $60.293\%$ versus $39.707\%$.  The
+$p<3\cdot10^5$ split was $1941/3202$, or $60.618\%$ even.  There are $458$
+rows where both parities fire at the same minimum $M$; the least firing $D$
+is odd in all $458$.  Intrinsically, $49975$ minima have only even firing
+divisors, $32454$ only odd, and $458$ both; none has more than two firing
+divisors.
+
+The exact histogram and nearest-rank percentiles are
+\begin{equation}\tag{65.3}
+\begin{array}{c|r@{\qquad}c|r}
+W\text{ interval}&\#p&\text{percentile}&W\\ \hline
+{[1,7]}&41577&50\%&7\\
+{[8,15]}&26959&75\%&15\\
+{[16,31]}&8632&90\%&23\\
+{[32,63]}&3989&95\%&39\\
+{[64,127]}&1463&99\%&87\\
+{[128,255]}&223&99.9\%&203\\
+{[256,511]}&40&99.99\%&351\\
+{[512,1023]}&3&100\%&2495\\
+{[1024,\mathord\infty)}&1&&
+\end{array}
+\end{equation}
+The $82887$ values occupy $67$ eligible moduli.  The counts sum to the exact
+population; prose percentages and quantile labels are descriptive only.
+
+\subsection{Blockwise normalized trajectories}
+\medskip\noindent\textbf{INFO 65.1 (finite block maxima only).}
+Each parenthesis below is $(p,W(p))$, logarithms are natural, and the final
+block is clipped at the exact census endpoint.
+\begingroup\tiny
+\begin{equation}\tag{65.4}
+\begin{array}{r|r|l|l}
+p\text{ range}&\#p&\sup W/\log p&\sup W/(\log p\log\log p)\\ \hline
+{[64,128)}&2&1.631527\ (73,7)&1.120251\ (73,7)\\
+{[128,256)}&2&2.850253\ (193,15)&1.716356\ (193,15)\\
+{[256,512)}&5&2.449106\ (457,15)&1.351360\ (457,15)\\
+{[512,1024)}&6&2.303530\ (673,15)&1.229462\ (673,15)\\
+{[1024,2048)}&16&4.371794\ (1201,31)&2.231858\ (1201,31)\\
+{[2048,4096)}&31&12.192127\ (3361,99)&5.821495\ (3361,99)\\
+{[4096,8192)}&58&4.521754\ (5569,39)&2.098591\ (5569,39)\\
+{[8192,16384)}&99&4.973014\ (12721,47)&2.214045\ (12721,47)\\
+{[16384,32768)}&200&8.451130\ (29569,87)&3.624593\ (29569,87)\\
+{[32768,65536)}&375&14.885265\ (33289,155)&6.352935\ (33289,155)\\
+{[65536,131072)}&704&14.627482\ (90841,167)&6.006953\ (90841,167)\\
+{[131072,262144)}&1331&22.636661\ (225289,279)&9.012698\ (225289,279)\\
+{[262144,524288)}&2548&22.426217\ (361321,287)&8.797177\ (361321,287)\\
+{[524288,1048576)}&4815&24.330286\ (954409,335)&9.277839\ (954409,335)\\
+{[1048576,2097152)}&9147&171.783468\ (2031121,2495)&64.198698\ (2031121,2495)\\
+{[2097152,4194304)}&17541&25.905959\ (3587809,391)&9.544481\ (3587809,391)\\
+{[4194304,8388608)}&33433&48.296787\ (5214049,747)&17.634931\ (5214049,747)\\
+{[8388608,16777216)}&64072&39.184586\ (13383241,643)&14.005192\ (13383241,643)\\
+{[16777216,33554432)}&123271&53.961431\ (21475609,911)&19.092786\ (21475609,911)\\
+{[33554432,67108864)}&236663&52.790268\ (39203761,923)&18.449734\ (39203761,923)\\
+{[67108864,10^8)}&225462&55.021338\ (88808281,1007)&18.927125\ (88808281,1007).
+\end{array}
+\end{equation}
+\endgroup
+Over the complete range, both normalized suprema remain at
+$(p,W)=(2031121,2495)$, respectively $171.783468$ and $64.198698$.  Later
+block maxima are local maxima, not strict records of $W$.
+
+\subsection{Replay scope, review pedigree, and honest walls}
+\medskip\noindent\textbf{Computational 65.3 (bounded replay).}
+By default block \texttt{(bl)} freshly builds both Python-integer class
+systems through $M=3000$, asserts rowwise equality, replays every record
+through $10^6$ and all four late rows including exact fraction sums, compares
+$1000$ seeded hard-prime minima below $10^5$, pins the small-prefix parity
+count $(706,475)$, and checks the $p+4$ prediction on records through
+$10^6$.  With \texttt{ES\_FULL\_SCAN=1}, it uses $M\leq30000$ and replays
+all $15$ record primes below $10^8$, certifying absence of smaller moduli for
+those primes only.  It does \emph{not} rerun the $719781$-prime census; that
+is the separate committed independent script.
+
+The original author reported $1.37$ seconds for the $10^7$ process and
+$2.65$ seconds with $120960$ KiB maximum resident memory for $10^8$; because
+the runner was not preserved, these are historical, not reproducible from
+those commits.  Block \texttt{(bl)} was reported at $0.029$ seconds by
+default and $0.663$ seconds in isolation with the full path.  Scan speed
+reflects tiny typical minima and replaces none of the exact checks.
+
+The wave-27 maximum-severity review returned
+\textsc{sound-after-repairs}.  Its durable from-scratch script enumerated
+exactly $719781$ hard primes in the exclusive range
+$73\leq p<100000000$, ending at $99999721$, produced all $7500$ rows and
+$244216$ classes, resolved every prime with last necessary row $M=2495$,
+and reproduced all $15$ records.  It matched every one of the $21$ block
+counts and both normalized columns to six decimals, the global suprema
+$171.783468/64.198698$, selected parity $49975/82887$, intrinsic split
+$(49975,32454,458)$, and zero $p+4$-prediction violations.  The review also
+repaired the selected-$D$ convention and narrowed claims about the missing
+transient source without changing a table entry.  The independent census
+passed in $1.39$ seconds with $108424$ KiB peak resident memory; bounded
+block \texttt{(bl)} remained deterministic and did not claim to rerun it.
+These are internal computational checks, not external validation.
+
+\medskip\noindent\textbf{Honest walls.}
+This census sharpens only the finite-search panel behind the informal
+$1\leq A\lesssim2$ window.  No new record after $10^7$, parity stability,
+and normalized block values prove nothing about $H_{\rm MOD}(A)$: they give
+no upper bound for any $A\geq1$ and do not alter the proved refutation for
+$A<1$.  No growth law, asymptotic fit, independence assertion, or tail-density
+claim follows from (65.2)--(65.4).  Every conclusion is
+Computational/INFO finite-range evidence; $H_{\rm MOD}$ and the
+Erd\H{o}s--Straus conjecture are untouched.
 
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
@@ -7913,12 +8921,18 @@ with explicit Egyptian-fraction representations, not Erd\H{o}s--Straus
 counterexamples.  The complete census through $200{,}000$, and the optional
 replay through $10^6$, finds exactly the squares and those three values, but
 this proves no unbounded classification.  The proved hard-prime criterion and its exact ratio-spectrum
-reformulation are terminating equivalences; the six small-$a$ laws are exact
-local tests.  They do not prove the finite divisor list nonempty, a pointwise
-bound, a fair-share estimate, or a new Erd\H{o}s--Straus theorem.  The
-staged twisted-square hunt covers only its stated coordinate box and proves
-no unbounded classification; only the right-to-left inclusion in
-$C_{\rm SQ}'$ is proved.  The raw and antichain factorial-moment formulations are refuted
+reformulation are terminating equivalences; the six small-$a$ laws, dual
+fixed-$D$ taxonomy, and gcd cancellation cover are exact local structure.
+The effective square-root law is weaker than the Section 51 tails on both
+axes and is only almost-all coverage of the explicit $D=1$ layer.  None of
+these proves the finite divisor list nonempty for every hard prime, a
+pointwise bound, a fair-share estimate, or a new Erd\H{o}s--Straus theorem.
+The enlarged twisted-square hunt covers only its exact coordinate boxes and
+proves no unbounded classification or finiteness; only the right-to-left
+inclusion in $C_{\rm SQ}'$ is proved.  The two-decade census is
+Computational/INFO finite-range evidence.  Its absent post-$10^7$ record,
+parity percentages, and normalized suprema imply no growth law and leave
+$H_{\rm MOD}$ untouched.  The raw and antichain factorial-moment formulations are refuted
 and that axis is dormant; the pair
 endpoint and other possible pointwise minorants retain exactly the narrower
 open scope stated above.
