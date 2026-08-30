@@ -27742,8 +27742,8 @@ Here $D$ is the paper's finite discriminant-supported integer defined in
 constant is allowed to depend on both $k$ and $D$.  No formula or growth
 rate in $k$ is stated.
 
-**Fact 71.3 (cited; Henriot 2011, Theorem 5 and Corollary 2, pp. 4--7,
-verbatim theorem statement).**  Henriot writes
+**Fact 71.3 (cited; Henriot 2011, Theorem 5, Corollary 2, and
+Theorem 7, pp. 4--8, verbatim statements).**  Henriot writes
 $Q=\prod_{j=1}^kQ_j=\prod_{h=1}^rR_h^{\gamma_h}$,
 $Q^*=\prod_hR_h$, lets $D^*$ be the nonzero discriminant of
 $Q^*$, and defines
@@ -27794,12 +27794,24 @@ with
  {\widehat\rho_{\mathbf R}(p^{\nu_1},\ldots,p^{\nu_r})
   \over p^{\max_h\nu_h+1}}\right).                       \tag{71.15}
 \]
-The corollary says its dependencies are those of Theorem 5.  Thus the
-implicit constant in Henriot is uniform in $D^*$; the exact finite factor
-(71.15) carries the discriminant dependence.  For $J$ linear forms,
-however, $g=J$.  The paper says only that the constants “depend at most
-on $g,\alpha,\delta,A,B$,” not $\exp(O(g))$,
-$\exp(O(g\log g))$, or any other rate.
+The corollary says its dependencies are those of Theorem 5.  Under the
+same assumptions and $Q(0)\ne0$, Theorem 7 also states the prime-input
+variant
+\[
+ \sum_{x<p\leq x+y}F(|Q_1(p)|,\ldots,|Q_k(p)|)
+ \ll {|Q(0)|\over\phi(|Q(0)|)}{\Delta_{D^*}y\over\log x}
+ \prod_{g<q\leq x}\left(1-{\rho(q)\over q}\right)
+ \sum_{n_1\cdots n_r\leq x}\widetilde F(\mathbf n)
+ {\widehat\rho_{\mathbf R}(\mathbf n)
+  \over[n_1\kappa(n_1),\ldots,n_r\kappa(n_r)]}.          \tag{71.15a}
+\]
+Its dependencies are again those of Theorem 5.  Thus the implicit constant
+in Henriot is uniform in $D^*$; the exact finite factor (71.15) carries the
+discriminant dependence.  Theorem 7 can supply the usual prime-density
+factor $1/\log x$ in the application below, but does not improve dimension
+uniformity.  For $J$ linear forms, $g=J$.  The paper says only that the
+constants “depend at most on $g,\alpha,\delta,A,B$,” not
+$\exp(O(g))$, $\exp(O(g\log g))$, or any other rate.
 
 **Assessment 71.1 (the actual $C(J)$ intelligence).**  Shiu has no
 multi-form parameter.  Nair--Tenenbaum has an unspecified constant depending
@@ -27853,6 +27865,17 @@ and
  \#\{t\leq X:f_a(R_a(t))=1\ (a\in\mathcal A)\}
  \ll_\mathcal AX(\log X)^{-J/2}.                       \tag{71.19}
 \]
+The corresponding prime-input estimates retain the prime-density saving:
+for $u_a=g_a$, respectively $u_a=f_a$,
+\[
+ \#\{p\leq X:p\equiv1\pmod {24},\
+             u_a(h_a(p))=1\ (a\in\mathcal A)\}
+ \ll_\mathcal A {X\over\log X}
+ \begin{cases}
+  (\log X)^{-\delta(\mathcal A)},&u_a=g_a,\\
+  (\log X)^{-J/2},&u_a=f_a.
+ \end{cases}                                             \tag{71.19a}
+\]
 
 *Proof.*  Apply Henriot's Theorem 5 and Corollary 2 with
 $Q_j=R_{a_j}$ and
@@ -27881,7 +27904,23 @@ for primes in arithmetic progressions gives
 (The single prime $q=a$ changes only the constant.)  Equations
 (71.20)--(71.21), and the fixed finite $\Delta_{D^*}$, prove each
 estimate on a dyadic interval.  Summing the dyadic intervals proves
-(71.18)--(71.19). $\square$
+(71.18)--(71.19).
+
+For (71.19a), put $S_a(T)=T+a$ and let $\bar u_a$ agree with $u_a$ at
+odd prime powers but have $\bar u_a(2^e)=1$.  If
+$p\equiv1\pmod {24}$, then
+\(\bar u_a(p+a)=u_a((p+a)/4)\): when $2\mid(p+a)/4$ one has
+$a\equiv7\pmod8$, so $u_a(2)=1$ for both indicators.  The monic linear
+forms $S_a$ have primitive product and nonzero constant term
+$\prod_{a\in\mathcal A}a$.  Apply Henriot's Theorem 7 to the
+$\bar u_a(S_a(p))$, dropping the progression restriction.  Extend its
+nonnegative truncated mean-value sum to the full Euler product.  Away from
+the fixed discriminant primes, distinct linear roots allow at most one
+nonzero valuation coordinate; summing the exact-valuation terms over
+$\nu\geq1$ gives $\bar u_a(q)/q$.  Thus the local factor is
+$1+\sum_a\bar u_a(q)/q$, and after multiplication by
+$1-J/q$ it has exactly the logarithmic expansion (71.20)--(71.21).
+The factor $1/\log X$ in (71.15a) proves (71.19a). $\square$
 
 The discriminant accounting is fully explicit here.  If
 $R_{a_i}(t)=u_it+v_i$, then
@@ -27913,12 +27952,12 @@ Each entry is the finite valuation count (71.12) substituted in
 $J$ moduli in (71.23),
 \[
  \#\{p\leq N:p\equiv1\pmod {24},\ a_1(p)>a_J\}
-       \ll_J N(\log N)^{-\delta_J},                       \tag{71.25}
+       \ll_J {N\over\log N}(\log N)^{-\delta_J},        \tag{71.25}
 \]
 where
 \[
 \begin{array}{c|c|c|c}
-J&a_J&\delta_J=\sum_{j\leq J}1/(a_j-1)&J/2\ (F1\hbox{-only})\\ \hline
+J&a_J&\delta_J=\sum_{j\leq J}1/(a_j-1)&J/2\ (F1\hbox{ stacking})\\ \hline
 1&3&1/2&1/2\\
 2&7&2/3&1\\
 3&11&23/30&3/2\\
@@ -27929,12 +27968,13 @@ J&a_J&\delta_J=\sum_{j\leq J}1/(a_j-1)&J/2\ (F1\hbox{-only})\\ \hline
 \]
 
 *Proof.*  Apart from the fixed range $p\leq3a_J/2$, a prime counted on the
-left fails at each selected $a_j$.  Lemma 71.1(3), (71.6), and (71.18), with
-$t=(p-1)/24$, prove (71.25); the fixed omitted range is absorbed in the
-implied constant.
-The last column is (71.19)'s exponent and is displayed only for the
-intersection of confinement events; by (71.4) it is not an unconditional
-first-witness exponent.  The fractions in the third column are direct sums.
+left fails at each selected $a_j$.  Lemma 71.1(3) and the $g_a$ case of
+(71.19a) prove (71.25); the fixed omitted range is absorbed in the implied
+constant.
+The last column is the additional stacking exponent in the $f_a$ case of
+(71.19a), so the F1-intersection bound itself is
+$N(\log N)^{-1-J/2}$.  By (71.4) it is not an unconditional first-witness
+exponent.  The fractions in the third column are direct sums.
 $\square$
 
 For every fixed $Z$, the same proof gives exponent
@@ -27946,7 +27986,8 @@ This is precisely the class-exclusion mass diagnosed in Assessment 63.2.
 Even if one were allowed to insert $Z\asymp\log N$ into the fixed-$J$
 formula (one is not, without uniform constants), it would yield only
 \[
- N\exp\{-(1/2+o(1))\log\log N\,\log\log\log N\}.          \tag{71.28}
+ {N\over\log N}
+ \exp\{-(1/2+o(1))\log\log N\,\log\log\log N\}.          \tag{71.28}
 \]
 Section 12.3 instead obtains $N\exp\{-c(\log\log N)^2\}$ by using
 all composite $w\equiv3\pmod4$ and further exclusion classes; its mass is
@@ -28180,9 +28221,13 @@ bounded-product transition
                      =L^{1.0986\ldots}                   \tag{71.47}
 \]
 lies above the corrected prime-modulus crossing depth $Z\asymp L$.
-Thus count below one is not *obviously* ruled out by that budget transition.
-This is only a scale assessment: neither uniform $F3$ control up to
-$a\asymp L$ nor growing-dimensional tensorization is known.
+This comparison is strictly asymptotic: against the coefficient $4$ in
+(71.46), $L^{\log3}>4L$ only for
+$L>4^{1/(\log3-1)}=1.274\ldots\times10^6$, so it gives no favorable
+finite-range evidence at ordinary sizes.  Thus count below one is not
+*asymptotically* ruled out by that budget transition.  This is only a scale
+assessment: neither uniform $F3$ control up to $a\asymp L$ nor
+growing-dimensional tensorization is known.
 
 ### 71.6 Honest walls and falsification register
 
