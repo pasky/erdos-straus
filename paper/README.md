@@ -19,6 +19,10 @@ Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inhe
 - Transcribed the wave-26 **SOUND-AFTER-REPAIRS** pedigree and block `(bi)` scope accurately: ratio/pairing checks, every unit `h <= 10^5`, 1181 hard primes through `10^5`, record and sporadic ledgers, bounded Python-integer state, and the gated full hunt.  These remain internal validation only.
 - Updated the abstract, introduction, section map, status register, internal and local pedigrees, final status, verifier endpoint, tracked table of contents, and PDF.  Block `(bi)` is the v13 verifier endpoint.
 
+## Wave-27 v13 fidelity review
+
+- Verdict **FAITHFUL**; no source-§62 transcription defects were found, all requested table digits and scope/status caveats agree, and the two-pass build is clean.
+
 ## v12 changes — 2026-08-30, wave 26
 
 - Absorbed source §61 as the new section immediately after the witness-duality section.  The proved forward normal-form sieve retains the exact simultaneous bounds, positivity argument, divisor-table bound, and finite-decision equivalence.
