@@ -81,6 +81,36 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 25 (2026-08-30, wave 21 — see notes.md §56 + paper v7; hostile-reviewed → repaired / FAITHFUL)
+
+* **§56: the congruence-certificate ceiling — §54's lower bound is optimal
+  among ALL congruence certificates (proved, effective).**  Theorem 56.1
+  (Type-II): ANY class \(a\ ({\rm mod}\ Q)\) — adaptive, not just the
+  §54 lcm construction — whose (primes/integers) all satisfy \(W>T\) must
+  have \(P_3(T)\mid Q\), so \(\log Q\geq(1/2+o(1))T\): the \(D=1\)
+  intrinsic datum (class \(-4\bmod\ell\), Lemma 18.1/16.1) is hit via
+  CRT+Dirichlet unless \(\ell\mid Q\), for every prime
+  \(\ell\equiv3\ (4)\), \(\ell\leq T\).  Honest limitation recorded: only
+  \(1/2\), not the full-lcm constant 1.  Theorem 56.2 (Type-I): a class
+  certifying \(ck_{\min}>T\) must be genus-forced on every slice
+  \(ck\leq T\) (Corollary 52.2 forbids identically-vanishing unforced
+  progressions!) ⇒ \(\chi_s\) constant on the class ⇒ (primitive
+  characters are nonconstant on proper-divisor classes) conductor
+  \(f_s\mid Q\) for every forced core ⇒ \(\log Q\gg T\).  Corollary:
+  §54 is Linnik-capped-optimal among congruence certificates (GRH remark
+  labeled); beyond-log extremal lower bounds need non-congruence
+  certificates (Assessment wall).  Computational 56.3/56.4 + verify (bc):
+  W-statistic records to \(10^6\) (full-scan \(10^7\)), \(ck_{\rm pr}\)
+  records to \(3\cdot10^5\) (full-scan \(10^6\)), conspiracy depth
+  \(D(p)\) extension — streamed/chunked, cross-checked exactly against
+  (ax)/(aw) overlaps; normalized maxima INFO-only, no growth-law claims.
+  Review: SOUND-AFTER-REPAIRS (eventual-certificate quantifiers, memory
+  wording, pointer fix).
+* **paper v7 (74pp, FAITHFUL, zero defects):** §54–§55 absorbed (two-sided
+  frontier display, A∈[1,~2] window, general-m effectivity perimeter with
+  review-tightened scope), Dyachenko/auro-zera external context absorbed
+  with the honest conditional characterization; §56 queued for v8.
+
 ## Outcome 24 (2026-08-29/30, wave 20 — see notes.md §54–§55 + paper v6 + reviews/external-auro-zera-lean-wave20.md; all hostile-reviewed → repaired)
 
 * **§54: the LOWER tail — logarithmic witness moduli are NECESSARY;
