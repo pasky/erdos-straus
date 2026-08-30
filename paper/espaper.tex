@@ -33,7 +33,7 @@
 
 \begin{document}
 \begin{abstract}
-\scriptsize
+\fontsize{7}{7.5}\selectfont
 Subject to external verification, we obtain the unconditional bound
 \[
  E_{\rm all}(N)\ll N\exp\{-c(\log N)^{3/4}\}
@@ -1110,12 +1110,14 @@ classes deduplicated.  For an intrinsic class $r\pmod M$, put
 \label{thm:implication-criterion}
 For two distinct retained atoms,
 \begin{equation}\tag{49.2}
+ \begin{aligned}
  E_{M,r}\subseteq E_{m,s}
- \quad\Longleftrightarrow\quad
- m\mid M\ \hbox{ and }\ r\equiv s\pmod m
- \quad\Longleftrightarrow\quad
+ &\quad\Longleftrightarrow\quad
+ m\mid M\ \hbox{ and }\ r\equiv s\pmod m\\
+ &\quad\Longleftrightarrow\quad
  m\mid M\ \hbox{ and }\
  \delta_M(r)\equiv\delta_m(s)\pmod m.
+ \end{aligned}
 \end{equation}
 If $M=tm$, the intrinsic conditions unpack exactly as
 \begin{equation}\tag{49.3}
@@ -3128,23 +3130,31 @@ relevant $L$-functions.
 
 \subsection{Conditional frontier and census}
 The audit is summarized by
+\begingroup
+\scriptsize
 \begin{equation}\tag{50.17}
 \begin{array}{c|c|c}
 \text{input}&\text{standard output}&\text{missing condition}\\ \hline
 % wave-18 fidelity repair: restore the source (50.17) Bateman--Horn and Linnik caveats.
-\text{Bateman--Horn}&\text{prime polynomial values on average in the variable}
- &\text{a composite value with a good factor, uniformly per }p\\
+\text{Bateman--Horn}&
+ \begin{gathered}\text{prime polynomial values on average}\\
+                 \text{in the variable}\end{gathered}
+ &\begin{gathered}\text{a composite value with a good factor,}\\
+                   \text{uniformly per }p\end{gathered}\\
 \text{Linnik}&\text{a prime }q\equiv-p\pmod h&q\mid N_{c,k}\\
 \text{GRH/Chebotarev}&\text{split/ray primes in fixed fields}
  &\mathfrak q\mid(\alpha)\text{ for each fixed }\alpha\\
-\text{least nonresidue under GRH}&\chi_s(p)=-1
- &\text{the residual exponent-box hit}\\
+\begin{gathered}\text{least nonresidue}\\\text{under GRH}\end{gathered}
+ &\chi_s(p)=-1&\text{the residual exponent-box hit}\\
 \text{EH/GEH/Kloosterman}&\text{average distribution in }p
  &\text{an empty exceptional set}\\
-\text{Duke/class-group GRH}&\text{unprojected or averaged form mass}
+\text{Duke/class-group GRH}&
+ \begin{gathered}\text{unprojected or averaged}\\
+                 \text{form mass}\end{gathered}
  &\text{the moving ray projector}
 \end{array}
 \end{equation}
+\endgroup
 The proved obstructions are Lemma~\ref{lem:prime-norm},
 Theorem~\ref{thm:bounded-core}, the fixed-divisor escape
 Theorem~\ref{thm:slice-residue-one}, and the exact pairing (50.15).  The
@@ -3262,7 +3272,7 @@ Theorem~\ref{thm:pruned} both supply exactly these canonical dyadic boxes.
 
 Take the least even $r\geq D_B\mu$.  The same Bonferroni factorial tail has
 CRT mean $O(e^{-c\mu})$ and ledger
-\begin{equation}\tag{51.11}
+\begin{equation}\tag{51.11}\label{eq:witness-ledger}
  \deg=O(\mu),\qquad \log d_{\rm term}=O(\mu t),\qquad
  \log\sum|c_{\rm term}|=O(\mu t).
 \end{equation}
@@ -4515,7 +4525,8 @@ The count-below-one implication below is \textbf{proved conditional} on
 explicit, falsifiable window hypotheses, which are \textsc{unproved}.  Its
 fixed-polylogarithmic use inherits the provisional external-review
 qualification on the Section~\ref{sec:cfree} moment/Bonferroni machinery;
-its cubic use additionally inherits the \textsc{claimed/provisional}
+its cubic use additionally inherits the
+\textsc{claimed}/\allowbreak\textsc{provisional}
 Theorem~\ref{thm:pruned}.  The only currently realized common power window
 is $\theta=1/4$ in Theorem~\ref{thm:witness-tail}, with exactly those
 qualifications, and it is below both thresholds.  Proposition~\ref{prop:mass-gap}
@@ -4569,8 +4580,8 @@ $H_{\rm WIN}(\theta)$ or $H'_{\rm WIN}(\theta)$ when the corresponding
 assertion holds for some $b>0$.
 \end{hypothesis}
 
-\begin{theorem}[count-below-one reduction; proved conditional; source
-Theorem 57.1]\label{thm:count-below-one}
+\begin{theorem}[count-below-one; proved conditional; source 57.1]
+\label{thm:count-below-one}
 \begin{enumerate}[leftmargin=*,label=\arabic*.]
 \item If $H_{\rm WIN}(\theta)$ holds with $\theta>1/3$, every sufficiently
 large prime satisfies the Erd\H{o}s--Straus conjecture.
@@ -4647,18 +4658,22 @@ extra factor $t$ beyond supply mass.  This calibrates a conditional
 reduction; it is not an unconditional Erd\H{o}s--Straus result.
 
 \subsection{The mass-invariant gap}
-The antecedents are not new here: source \S18.2 isolates the prime-slice
-supply wall in Assessment 18.3(b); source \S18.3 gives the partition-free
-budget $\min(K,J\log K)+Jt\lesssim L$ in (18.15), and Assessment 18.4
-performs its square-log and cubic optimizations.  Source Lemma 33.3 gives
-the conditional finite-transfer ledger (33.6).  Most directly, the actual
-Section~\ref{sec:witness-tail} assembly has
+The antecedents are not new here.  The proof of \eqref{eq:mult-mass} records
+the prime-slice supply wall and its summed Bombieri--Vinogradov multiplicity
+(source \S18.2, Assessment 18.3(b)).  Hypothesis~\ref{hyp:PF} and
+Theorem~\ref{thm:conditional} are the paper's earlier mass/product-tail
+budget and cubic optimization; source \S18.3 sharpens that budget to
+$\min(K,J\log K)+Jt\lesssim L$ in (18.15), and Assessment 18.4 performs
+both its square-log and cubic optimizations.  Lemma~\ref{lem:residue-transfer}
+and Corollary~\ref{cor:monomial-transfer} are the paper's corrected form of
+source Lemma 33.3 and its conditional finite-transfer ledger (33.6).  Most
+directly, the actual Section~\ref{sec:witness-tail} assembly has
 \begin{equation}\tag{57.8}
  \deg=O(\mu),\qquad \log d_{\rm term}=O(\mu t),\qquad
  \log\sum|c_{\rm term}|=O(\mu t)
 \end{equation}
-by (51.11).  The next definition isolates only the arithmetic common to
-those antecedents.
+by \eqref{eq:witness-ledger}, source (51.11).  The next definition isolates
+only the arithmetic common to those antecedents.
 
 \begin{definition}[absolute-remainder mass-level architecture]
 At depth $T=\e^{O(t)}$, an ${\rm AR}(\mu,t)$ argument has a nonnegative
@@ -5000,8 +5015,8 @@ Lemma~\ref{lem:exact-R} makes the inverse condition exact:
  W(n)>T\quad\Longleftrightarrow\quad
  n\not\equiv-4D\pmod M
  \quad\left(\begin{array}{l}M\leq T,\ M\equiv3\pmod4,\\
-                         D\mid((M+1)/4)^2.
-       \end{array}\right)
+                         D\mid((M+1)/4)^2
+       \end{array}\right).
 \end{equation}
 This ranges over the original data, not a selected subfamily.  Data (51.2)
 with $M=k\ell$ and $uvw=(M+1)/4$ give $D=u^2w$ and
@@ -5841,16 +5856,19 @@ for every nonzero integer $a$, with no range hypothesis.  Its balanced
 power-saving window is $N^{5/6+\eps}\ll M\ll N^{6/5-\eps}$.
 Bettin--Chandee \cite{BettinChandee} similarly allow three separate
 sequences and prove, for nonzero real $\vartheta$,
+\begingroup
+\footnotesize
 \begin{equation}\tag{45.5}
  \begin{split}
  \left|\sum_{a\sim A,m\sim M,n\sim N\atop(m,n)=1}
  \nu_a\alpha_m\beta_ne(\vartheta a\bar m/n)\right|
- &\ll_\eps\|\nu\|_2\|\alpha\|_2\|\beta\|_2
- \left(1+\frac{|\vartheta|A}{MN}\right)^{1/2}\\
+ &\ll_\eps\|\nu\|_2\|\alpha\|_2\|\beta\|_2\\
+ &\quad\times\left(1+\frac{|\vartheta|A}{MN}\right)^{1/2}\\
  &\quad\times\{(AMN)^{7/20+\eps}(M+N)^{1/4}
  +(AMN)^{3/8+\eps}(AN+AM)^{1/8}\}.
  \end{split}
 \end{equation}
+\endgroup
 Neither statement allows the joint coefficient matrix $G_{m,p}$.  An exact
 singular-value decomposition introduces its nuclear norm.  Worse, (45.2)
 asks for the complete row-by-row $h$-norm: summing DFI over $h$ loses the
