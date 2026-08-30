@@ -10176,4 +10176,165 @@ print("\n== (bc) congruence-certificate ceilings and extremal census (§56) ==")
 check_bc()
 
 
+# ---------------------------------------------------------------- (bd)
+def check_bd():
+    """§57: crossing arithmetic, exact harvested tails, and toy lcm growth."""
+    import os
+    from time import perf_counter
+
+    started = perf_counter()
+
+    # Pure arithmetic replay of Theorem 57.1.  Write L=log N and
+    # t=log T=L^theta, and compare each saving exponent with 2L.
+    L_grid = (10**3, 10**4, 10**5, 10**6)
+    cubic_thetas = (0.25, 0.36, 0.40)
+    cubic_ratios = {
+        theta: tuple(L ** (3 * theta) / (2 * L) for L in L_grid)
+        for theta in cubic_thetas
+    }
+    assert all(ratio < 1 for ratio in cubic_ratios[0.25])
+    assert cubic_ratios[0.36][0] < 1 < cubic_ratios[0.36][-1]
+    assert all(ratio > 1 for ratio in cubic_ratios[0.40])
+    cubic_crossings = {
+        theta: 2 ** (1 / (3 * theta - 1))
+        for theta in cubic_thetas if theta > 1 / 3
+    }
+    assert abs(cubic_crossings[0.40] - 32) < 1e-10
+
+    square_thetas = (0.40, 0.50, 0.55)
+    square_ratios = {
+        theta: tuple(
+            (L ** (2 * theta)) * log(L ** theta) / (2 * L)
+            for L in L_grid
+        )
+        for theta in square_thetas
+    }
+    assert all(ratio < 1 for ratio in square_ratios[0.40])
+    assert all(ratio > 1 for ratio in square_ratios[0.50])
+    assert all(ratio > 1 for ratio in square_ratios[0.55])
+    # At theta=1/2 the equation t^2 log(t)=2L is log L=4.
+    square_half_crossing = exp(4)
+    assert square_half_crossing < L_grid[0]
+
+    print("threshold ratios saving/(2 log N), cubic =", cubic_ratios)
+    print("threshold ratios saving/(2 log N), square-log =", square_ratios)
+    print("threshold crossing log N (c=1) =",
+          (cubic_crossings, (0.50, square_half_crossing)))
+
+    # Exact complete Lemma-16.1 harvest.  Fraction arithmetic computes
+    # m(T)=sum omega(M)/M without floating-point loss.  The interval scan is
+    # chunked, and each chunk retains only one byte per integer.
+    thresholds = (100, 300, 1000, 3000)
+    modulus_classes = []
+    for M in range(3, thresholds[-1] + 1, 4):
+        A = (M + 1) // 4
+        classes = {(-4 * D) % M for D in divisors_of_square(A)}
+        modulus_classes.append((M, classes))
+
+    masses = tuple(
+        sum((Fraction(len(classes), M)
+             for M, classes in modulus_classes if M <= T), Fraction())
+        for T in thresholds
+    )
+    expected_mass_decimals = (
+        4.248031290751, 7.349236274282, 12.171587320339, 18.126592298585,
+    )
+    assert tuple(round(float(mass), 12) for mass in masses) == (
+        expected_mass_decimals
+    )
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    scan_limit = 10_000_000 if full_scan else 300_000
+    chunk_size = 100_000
+    integer_tails = [0] * len(thresholds)
+    prime_tails = [0] * len(thresholds)
+    total_primes = 0
+
+    for low in range(1, scan_limit + 1, chunk_size):
+        high = min(scan_limit + 1, low + chunk_size)
+        size = high - low
+        covered = bytearray(size)
+        chunk_primes = tuple(primerange(max(2, low), high))
+        total_primes += len(chunk_primes)
+        modulus_index = 0
+
+        for threshold_index, T in enumerate(thresholds):
+            while (modulus_index < len(modulus_classes)
+                   and modulus_classes[modulus_index][0] <= T):
+                M, classes = modulus_classes[modulus_index]
+                for residue in classes:
+                    first = low + (residue - low) % M
+                    offset = first - low
+                    if offset < size:
+                        count = (size - 1 - offset) // M + 1
+                        covered[offset::M] = b"\1" * count
+                modulus_index += 1
+            integer_tails[threshold_index] += size - sum(covered)
+            prime_tails[threshold_index] += sum(
+                not covered[P - low] for P in chunk_primes
+            )
+
+    if not full_scan:
+        assert total_primes == 25_997
+        assert tuple(integer_tails) == (5516, 1064, 569, 550)
+        assert tuple(prime_tails) == (76, 5, 0, 0)
+
+    calibration = []
+    for T, mass, integer_tail, prime_tail in zip(
+            thresholds, masses, integer_tails, prime_tails):
+        fair_density = exp(-float(mass))
+        calibration.append((
+            T,
+            round(float(mass), 12),
+            integer_tail,
+            prime_tail,
+            (integer_tail / scan_limit) / fair_density,
+            (prime_tail / total_primes) / fair_density,
+        ))
+    print("exact-harvest calibration (T,m(T),integer tail,prime tail) =",
+          tuple(row[:4] for row in calibration))
+    print("INFO observed-density / exp(-m(T)) (T,integer,prime) =",
+          tuple((row[0], row[4], row[5]) for row in calibration))
+
+    # A finite structural toy for the degree/modulus transition.  At cap X,
+    # use every distinct harvested atom through X, take N_toy=X^2=e^(2t),
+    # and count compatible degree-m sets with lcm>N_toy exactly.
+    toy_rows = []
+    for cap in (15, 23, 31):
+        atoms = []
+        for M, classes in modulus_classes:
+            if M > cap:
+                break
+            atoms.extend((M, residue) for residue in classes)
+        for degree in (2, 3, 4):
+            compatible_count = exceeding_count = 0
+            for atom_set in combinations(atoms, degree):
+                compatible = all(
+                    (left[1] - right[1]) % gcd(left[0], right[0]) == 0
+                    for left, right in combinations(atom_set, 2)
+                )
+                if not compatible:
+                    continue
+                compatible_count += 1
+                atom_lcm = lcm(*(atom[0] for atom in atom_set))
+                exceeding_count += atom_lcm > cap * cap
+            toy_rows.append((cap, degree, len(atoms),
+                             compatible_count, exceeding_count))
+    expected_toy_rows = (
+        (15, 2, 11, 41, 0), (15, 3, 11, 57, 45),
+        (15, 4, 11, 18, 18), (23, 2, 23, 200, 0),
+        (23, 3, 23, 846, 765), (23, 4, 23, 1809, 1809),
+        (31, 2, 31, 393, 0), (31, 3, 31, 2653, 2418),
+        (31, 4, 31, 10389, 10371),
+    )
+    assert tuple(toy_rows) == expected_toy_rows
+    print("toy atom-lcm table (X,degree,atoms,compatible,lcm>X^2) =",
+          tuple(toy_rows))
+    print("verify (bd) runtime seconds =", round(perf_counter() - started, 3))
+
+
+print("\n== (bd) supercritical-window arithmetic and calibration (§57) ==")
+check_bd()
+
+
 print("\nall checks passed")
