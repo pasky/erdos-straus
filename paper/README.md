@@ -1,12 +1,23 @@
 # Paper draft status
 
-`espaper.tex` is the v8 standalone `amsart` consolidation draft (79 pages). Its two record headlines remain:
+`espaper.tex` is the v9 standalone `amsart` consolidation draft (91 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v9 changes — 2026-08-30, wave 23
+
+- Absorbed source §57 as Section 19, immediately after the congruence-certificate ceiling. The proved-conditional count-below-one reduction retains the exact thresholds: cubic `H_WIN(theta)` needs `theta > 1/3` without a favorable endpoint constant, while square-log `H'_WIN(theta)` includes `theta = 1/2`. Both window hypotheses are **UNPROVED**; the currently realized common power window remains only `theta = 1/4`, with the cubic row inheriting **CLAIMED/PROVISIONAL** Theorem 34.8 and the fixed-polylog row retaining the §39 review qualification.
+- Added the exact cubic endpoint cases, including `cb^3 = 1` forcing zero only for `C < 1`, and the full counterexample-prime → `W=+infinity` → zero-count quantifier chain. No unconditional pointwise Erdős–Straus conclusion is claimed.
+- Preserved Proposition 57.2 as proved arithmetic only inside the formal `AR(mu,t)` absolute-remainder architecture. Its source §18.2/(18.15)/Assessment 18.4, Lemma 33.3, and (51.11) antecedents remain explicit; the broader no-assembly statement is an **Assessment**, not the Proposition.
+- Added the open `H_XW` supercritical-remainder and `H_EQ` fair-share hypotheses with fixed-family quantifiers, Proposition 57.4's proved-conditional crossing implication, §54's subcritical consistency, and exact verifier block `(bd)` calibration. None of the crossing hypotheses is asserted.
+- Absorbed source §58 as Section 20, before the general-numerator truncation. The headline Theorem 58.1 is transcribed with its full repaired Jacobi proof: common-factor, nonunit, 2-adic, prime-power, global/local obstruction, and `(M,D)=(15,2)` cases are all explicit. It proves `W(m^2)=+infinity` for every positive integer and `T < L_int(T) <= T+2 sqrt(T)+1` under the moving inverse convention.
+- Separated `L_int`, all-prime `L_p`, and hard-prime `L_h` throughout, including the warning `L_p(335)=22621` versus `L_h(335)=1853329`. The integer/prime dichotomy makes count below one prime-essential and retroactively explains Theorem 51.2's prime restriction. The only proved prime upper end remains `L_p(T) <= exp{(5.2+o(1))T}`.
+- Added the exact inverse censuses, shifted-sieve lemma, the secondary-source-verified Iwaniec Jacobsthal bound and its strict scope, the prime-survivor technology audit, and Lemma 58.5's corrected `liminf` and `A`-window dualities. The primary 1978 Iwaniec PDF remains inaccessible; provenance is limited to the archived Costello–Watts and Ford–Green–Konyagin–Maynard–Tao full texts under `sources/jacobsthal-literature/`.
+- Updated the abstract, introduction, section map, status register, internal pedigree, final status, bibliography, and verifier register. Blocks `(bd)`–`(be)` and both wave-22 **SOUND-AFTER-REPAIRS** attestations are represented without promoting internal review to external validation.
 
 ## v8 changes — 2026-08-30, wave 22
 
@@ -70,6 +81,18 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §57 status and (57.1) ↔ Section 19 preface: `H_WIN`/`H'_WIN` are unproved, fixed-polylog use retains the §39 qualification, cubic use inherits **CLAIMED/PROVISIONAL** Theorem 34.8, the realized common exponent is only `1/4`, and the full counterexample-prime containment through `W=+infinity` agrees.
+- notes Theorem 57.1, (57.2)–(57.7) ↔ `count-below-one`: fixed constants and moving-window uniformity, cubic `theta > 1/3`, square-log `theta >= 1/2`, all three cubic endpoint-constant cases, effective thresholds, dyadic coverage, and present-window calibration agree.
+- notes Proposition 57.2, (57.8)–(57.15) ↔ `mass-gap`: source §18.2/(18.15)/Assessment 18.4, Lemma 33.3, and (51.11) antecedents; formal `AR(mu,t)` scope; exact versus sufficient fixed-margin inequalities; `a/(a+1)` ceiling; and Assessment-only general no-go language agree.
+- notes `H_XW`, Proposition 57.4, `H_EQ`, (57.16)–(57.21) ↔ the crossing subsection: fixed-family/error-function quantifiers, one-sided remainder, factor-two proof, dyadic coverage, pair-endpoint localization limits, cylinder scope, and §54 subcritical consistency agree.
+- notes Computational 57.6–57.7, (57.22)–(57.24) ↔ block `(bd)` register: exact mass/tail table, square explanation, endpoint replays and surrogate-only warnings, toy lcm table, and informational scope agree.
+- notes moving convention (58.1)–(58.3) ↔ Section 20.1: raw inverse corruption, distinct `L_int`/`L_p`/`L_h`, exact `22621` versus `1853329` warning, and both directions of the complete divisor harvest agree.
+- notes Theorem 58.1, (58.8)–(58.10) ↔ `square-escape`: `W(m^2)=+infinity` for every positive integer, the full common-factor/nonunit/2-adic/prime-power proof, the global Jacobi sign and `(15,2)` local warning, strict definitional lower bound, square upper bound, residue-one integer bound, and effective all-prime/hard-prime Linnik bounds agree.
+- notes Computational 58.1, (58.4)–(58.7) ↔ the inverse census: every default and optional row, witness brackets, hard-prime plateau, natural-log normalization, step-function warning, and no-growth-law scope agree.
+- notes Lemma 58.2 and Corollary 58.4, (58.11)–(58.12), (58.16)–(58.17) ↔ `shifted-sieve` and `integer-prime-dichotomy`: both shifts, contextual-only Selberg–Delange calculation, exact moving square count, near-linear interpretation, and prime-essential conclusion agree.
+- notes Theorem 58.3, (58.13)–(58.15) ↔ `jacobsthal`: literal `k >= 2`, all-`k` `log(2k)` form, absolute nonexplicit constant, archived secondary-source provenance, inaccessible primary disclaimer, one-way subsystem inclusion, composite-class obstruction, and maximal-gap/first-survivor distinction agree.
+- notes Assessment 58.1, (58.18), and Lemma 58.5, (58.19)–(58.20) ↔ the prime-survivor and inverse-duality subsections: parity/distribution audit, proved exponential prime upper end only, liminf rather than naive global `o(T)`, both inverse substitutions, and exact `A`-window restatement agree.
+- notes §57.5/§58.6 review attestations ↔ `pedigree`: every high/medium repair, `(bd)`/`(be)` scope, memory-bounded/chunked verification, exact finite replay counts, and secondary-source attestation are retained as internal review only.
 - notes Theorem 56.1, (56.1)–(56.3) ↔ `typeII-certificate`: prime and nonreduced all-integer certificate scopes, eventual quantifier, exact `P_3(T)` divisibility, effective `(1/2+o(1))T` constant, literal `D=1` multiplier datum, CRT/Dirichlet proof, and the explicit no-full-lcm/no-constant-`1` limitation agree.
 - notes Theorem 56.2, (56.4)–(56.7) ↔ `typeI-certificate`: reduced hard-class definition, every prime core `5 <= ell <= T`, `theta(T)-log 6`, nonresidue refinement, reciprocity computation, admissibility, Corollary 52.2 application, and additive-not-multiplicative primitivity warning agree.
 - notes (56.8)–(56.9) and Assessment 56.2a ↔ `certificate-Linnik`, `GRH-certificate`, and the congruence-wall paragraph: certified-prime finite-prefix repair, exact `1/(alpha L)` algebra, Type-II/Type-I coefficient ceilings, §54 saturation claims, conditional GRH label, and architecture-only perimeter all agree.
@@ -125,7 +148,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v8 build completes in 79 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v8-relevant verifier coverage passes through block `(bc)`.
+The v9 build completes in 91 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v9-relevant verifier coverage passes through block `(be)`.
 
 ## Submission TODO
 
@@ -135,9 +158,8 @@ The v8 build completes in 79 pages with zero TeX errors and no undefined referen
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v9 queue
+## v10 queue
 
-- Absorb source §57, “supercritical window/count-below-one reduction.”
-- Absorb source §58, “inverse census/Jacobsthal angle.”
+- Absorb source §59, “polynomial escape classification,” being written in parallel during wave 23.
 
-These are queue titles only; v8 makes no content claim about either section.
+This is a queue title only; v9 makes no content claim about §59.
