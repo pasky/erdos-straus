@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v9, 30 August 2026}
+\date{Draft v10, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -89,11 +89,20 @@ square-escape theorem
  T<L_{\rm int}(T)\leq T+2\sqrt T+1,
 \]
 under the moving inverse convention.  Thus all-integer tails always contain
-square survivors, making count below one a prime-essential route.  The
-all-prime inverse is proved only to satisfy
-$L_p(T)\leq\exp\{(5.2+o(1))T\}$; no subexponential prime-survivor theorem is
-claimed.  Exact finite censuses through the stated endpoints remain
-informational only.
+square survivors, making count below one a prime-essential route; more
+exactly, the all-integer cubic window fails beyond $\theta=1/3$, with
+endpoint obstruction $cb^3>1/2$.  The all-prime inverse is proved only to
+satisfy $L_p(T)\leq\exp\{(5.2+o(1))T\}$; no subexponential prime-survivor
+theorem is claimed.  We further classify uniform polynomial escapes
+completely through degree two: they are exactly the polynomial squares, so
+none takes a positive prime value.  In arbitrary degree we prove only a
+qualitative, ineffective root-field/cyclotomic obstruction.  The higher-
+degree classification $C_{\rm POLY}$ and the complete-square conjecture
+$C_{\rm SQ}$ remain open.  The latter would imply Erd\H{o}s--Straus for all
+primes and is strictly stronger; the reverse is not claimed.  Three explicit
+nonsquare candidates remain computationally unresolved past
+$1.5\cdot10^8$, and are stress tests, not positive evidence.  Exact finite
+censuses through the stated endpoints remain informational only.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -165,7 +174,13 @@ respectively $\theta>1/3$ and $\theta\geq1/2$, but both named hypotheses are
 unproved and the common realized window is only $\theta=1/4$.  Theorem
 \ref{thm:square-escape} proves $W(m^2)=+\infty$ for every $m$, while
 Corollary~\ref{cor:integer-prime-dichotomy} shows why this reduction must be
-prime-restricted.  Theorem~\ref{thm:general-m-tails} records the
+prime-restricted.  Theorem~\ref{thm:quadratic-escape} then classifies all
+linear and quadratic uniform polynomial escapes as exactly the squares;
+Theorem~\ref{thm:cyclotomic-obstruction} gives the qualitative, ineffective
+necessary root-field condition in every degree.  The higher-degree
+$C_{\rm POLY}$ and complete-square $C_{\rm SQ}$ statements are conjectures,
+not pointwise conclusions; $C_{\rm SQ}$ implies Erd\H{o}s--Straus for all
+primes and not conversely.  Theorem~\ref{thm:general-m-tails} records the
 status-preserving general-$m$ truncation.
 
 The paper has five layers.
@@ -197,6 +212,10 @@ window thresholds, the mass-invariant gap within its formalized
 absolute-remainder architecture, and the open crossing hypotheses.  Section
 \ref{sec:inverse-census} proves square escape, separates the all-integer and
 prime inverse scales, and audits the Jacobsthal and prime-survivor walls.
+Section~\ref{sec:polynomial-escape} gives the exact local escape criterion,
+the ineffective cyclotomic obstruction, the complete degree-two
+classification, the all-integer square-crossing obstruction, and the open
+$C_{\rm POLY}$ and $C_{\rm SQ}$ frontiers with their finite stress tests.
 Section~\ref{sec:general-m-tails} gives the status-preserving
 general-numerator tails and their exact effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
@@ -214,13 +233,16 @@ this draft.  ``Open'' means no proof is claimed.  The record results in
 Sections~\ref{sec:records}--\ref{sec:general-m}, the cubic witness tail,
 Theorem~\ref{thm:effectivity}, and the cubic row of
 Theorem~\ref{thm:general-m-tails} remain \textsc{claimed/provisional} as
-labelled.  The logarithmic lower-tail, congruence-certificate, and square-escape
-theorems are proved and effective.  The count-below-one and crossing
-implications are proved conditional on their explicitly \textsc{unproved}
-hypotheses; the mass-invariant proposition is only an architecture theorem.
-The normalized census panels are informational, the GRH least-prime remark
-is conditional, and the congruence and prime-survivor walls are Assessments
-rather than universal pointwise theorems.  Writing
+labelled.  The logarithmic lower-tail, congruence-certificate, square-escape, local
+polynomial-escape, and degree-at-most-two classification theorems are proved.
+The cyclotomic obstruction is proved but qualitatively ineffective;
+$C_{\rm POLY}$, $C_{\rm SQ}$, and the three constant survivor candidates
+remain open.  The count-below-one and crossing implications are proved
+conditional on their explicitly \textsc{unproved} hypotheses; the
+mass-invariant proposition is only an architecture theorem.  The normalized
+census panels are informational, the GRH least-prime remark is conditional,
+and the congruence and prime-survivor walls are Assessments rather than
+universal pointwise theorems.  Writing
 out internal arguments and reviews for the provisional results does not
 replace independent external priority and referee checks.  In
 particular, no result of this paper proves the
@@ -2181,9 +2203,30 @@ classes, and 750,000 square residues (15,754,000 $(M,D,m)$ incidences).
 These finite checks are regressions, not proofs.  Costello--Watts page 1 and
 Ford--Green--Konyagin--Maynard--Tao pages 2--3 were checked as complete
 archived secondary sources; Iwaniec's primary 1978 PDF remains uninspected.
-The internal verifier coverage used by this draft runs through
-\texttt{(be)}.  These are internal reviews and bug hunts, not external
-validation.  A separate full-source review of the auro-zera Lean file
+Wave 23's maximum-severity hostile review of the polynomial-escape section
+returned \textsc{sound-after-repairs}.  It rederived the exact local
+criterion, qualitative cyclotomic obstruction, complete linear/quadratic
+classification, and square-count tail obstruction.  The degree-two repair
+made the leading-coefficient choice, negative-leading sign, zero
+Discriminant, and every real/imaginary discriminant case explicit; three
+nonsquare quadratics passing the whole $D=1$ layer now have exact later-shift
+hits.  The tail proof chooses an interior $t=\lambda L^{1/3}$ even when the
+nominal power window extends beyond $T=N$.  The review also kept Chebotarev
+qualitative and ineffective, kept both conjectures and all three constants
+open, and recorded only the implication $C_{\rm SQ}\Rightarrow$
+Erd\H{o}s--Straus, not a converse.
+
+Block \texttt{(bf)} independently uses Python-integer divisor products,
+rejects the false fixed-width-overflow witnesses, proves the default
+$3\cdot10^6$ finite frontier, and records the completed
+$1.5\cdot10^8$ streamed run.  It also checks the exact Jacobi,
+forbidden-divisor, and square-scaling reductions and all 180 twisted-square
+controls; 177 are hit by $M\leq131$.  The deep run remained below 170 MB.
+These finite checks are regressions and stress tests, not evidence for
+$C_{\rm SQ}$ or proofs of infinite escape.  The internal verifier coverage
+used by this draft runs through \texttt{(bf)}.  These are internal reviews
+and bug hunts, not external validation.  A separate full-source review of
+the auro-zera Lean file
 replayed its identities but did not compile it; its open-core
 characterization and the source paper's own conditional Conclusion are
 related-work checks, not validation of this paper.
@@ -5370,6 +5413,508 @@ $L_p(T)>\exp(T^{1/A})$.  Neither (58.10) nor the census decides any
 $A\geq1$.  The $1\leq A\lesssim2$ display (56.16) remains a finite
 normalization window, not a claimed exponent.
 
+\section{Polynomial escape: complete through degree two, cyclotomic in general}
+\label{sec:polynomial-escape}
+\medskip\noindent\textbf{Status and stakes.}
+The local reduction, the qualitative Chebotarev obstruction, the complete
+degree-at-most-two classification, and the all-integer tail obstruction below
+are \textbf{proved}.  The classification in degree greater than two remains
+\textbf{Conjectural}; in particular, this section does not claim a full
+polynomial classification.  The finite censuses are \textbf{Computational}
+and exact only in their displayed ranges.  The algebraic results use
+Theorem~\ref{thm:square-escape}, qualitative Chebotarev, Schur's prime-divisor
+theorem, and the standard conductor description of quadratic fields.  They
+do not use Theorem~\ref{thm:pruned} or any of the Section~\ref{sec:cfree}
+moment/Bonferroni machinery, and inherit none of their provisional status.
+The Chebotarev obstruction is qualitative and \textbf{ineffective}: no
+effective least prime is extracted.
+
+The stakes are asymmetric.  The square family makes an all-integer cubic
+tail impossible as soon as its saving passes the one-half-density crossing:
+there are about $N^{1/2}$ structural survivors.  Thus the prime restriction
+in Theorems~\ref{thm:witness-tail} and~\ref{thm:count-below-one} is necessary,
+not cosmetic.  In the other direction, a uniform escape polynomial taking
+prime values infinitely often would give infinitely many primes with
+$W=+\infty$, permanently outside the Type-II frame and violating every
+pointwise $H_{\rm MOD}(A)$.  A proof that every such polynomial is
+square-valued would close this polynomial-family counterexample flank,
+because a positive square greater than one is composite.
+Theorem~\ref{thm:quadratic-escape} closes it only through degree two; the
+higher-degree flank and nonpolynomial thin families remain open.
+
+\subsection{Uniform escape and its exact local form}
+For $D=\prod r^{e_r}$, put
+\begin{equation}\tag{59.1}
+             R(D)=\prod_r r^{\lceil e_r/2\rceil}.
+\end{equation}
+Thus $D\mid A^2$ if and only if $R(D)\mid A$; this is the same radical
+with half-rounded exponents denoted $R_0(D)$ earlier.
+
+\begin{definition}[uniform polynomial escape; source Definition 59.1]
+\label{def:uniform-polynomial-escape}
+Let $f\in\mathbb Z[X]$ have degree at least one and be eventually positive
+on the positive integers.  It is a \emph{uniform polynomial escape} if there
+is an $m_0$ such that
+\begin{equation}\tag{59.2}
+                       W(f(m))=+\infty\qquad(m\geq m_0).
+\end{equation}
+\end{definition}
+The threshold permits the finitely many negative, zero, or exceptional
+initial values and nothing else.  A polynomial identity $f=g^2$, with
+$g\in\mathbb Z[X]$ nonconstant, is a uniform escape by
+Theorem~\ref{thm:square-escape}; take $m_0$ beyond the finitely many integral
+zeros of $g$.  Constants are excluded.  A positive constant $c$ would
+qualify exactly when $W(c)=+\infty$, so including degree zero would build the
+open constant classification into the definition.  Known examples include
+all positive square constants, in particular the anomalies $1$ and $4$ in
+(58.1).
+
+\begin{lemma}[exact local reduction; proved; source Lemma 59.1]
+\label{lem:polynomial-local}
+An eventually positive $f\in\mathbb Z[X]$ of positive degree is a uniform
+polynomial escape if and only if, for every $M\equiv3\pmod4$ and every
+$D\mid((M+1)/4)^2$,
+\begin{equation}\tag{59.3}
+                         f(x)\equiv-4D\pmod M
+\end{equation}
+has no solution $x\pmod M$.
+\end{lemma}
+\begin{proof}
+If (59.3) has a solution, its residue class contains infinitely many positive
+integers $m$, including arbitrarily large ones beyond both the positivity and
+escape thresholds.  Equation (58.3) then gives $W(f(m))\leq M$, a
+contradiction.  Conversely, any finite witness for a tail value $f(m)$
+supplies exactly one congruence (59.3) by the complete
+original-data/divisor-form equivalence in (58.3).  Thus absence of every
+local solution is equivalent to (59.2).
+\end{proof}
+
+There is a distinct progression variant.  Fix $a\pmod q$ and require (59.2)
+only for sufficiently large $m\equiv a\pmod q$.  The corresponding criterion
+is that (59.3) have no integral solution satisfying
+\begin{equation}\tag{59.4}
+                         x\equiv a\pmod{(M,q)}.
+\end{equation}
+Indeed, (59.4) is exactly the Chinese-remainder compatibility condition
+between a solution modulo $M$ and the chosen class modulo $q$.  This variant
+can admit more escape mechanisms and is not classified below.  It must also
+be separated from \emph{finite-depth} escape: for fixed $T$, the choice
+$q=\lcm(1,\ldots,T)$, $a=1$, and $f(X)=X$ gives the
+Section~\ref{sec:lower-tail} class with $W(m)>T$.  It is not an
+infinite-depth escape.  For any fixed $q$, a prime
+$\ell\equiv3\pmod4$, $\ell\nmid q$, lets the Chinese remainder theorem
+combine $m\equiv a\pmod q$ with $m\equiv-4\pmod\ell$, and the $D=1$ class
+then hits that progression.
+
+\subsection{The cyclotomic obstruction in every degree}
+The $D=1$ subsystem already has a precise Galois meaning.  The other shifts
+give a useful strengthened form of the same statement.
+
+\begin{theorem}[root-field/cyclotomic obstruction; proved using qualitative
+Chebotarev; ineffective; source Theorem 59.2]
+\label{thm:cyclotomic-obstruction}
+Fix $D\geq1$, put $Q_D=4R(D)$, and let
+$C_D=\mathbb Q(\zeta_{Q_D})$.  Let $\tau_D$ be complex conjugation on
+$C_D$.  For a root $\alpha$ of
+\begin{equation}\tag{59.5}
+                         h_D(X)=f(X)+4D,
+\end{equation}
+put $F_\alpha=\mathbb Q(\alpha)$.  Apart from the finite ramified and
+leading-coefficient primes, the polynomial $h_D$ has no root modulo any
+prime
+\begin{equation}\tag{59.6}
+                         p\equiv-1\pmod {Q_D}
+\end{equation}
+if and only if
+\begin{equation}\tag{59.7}
+ \tau_D|_{F_\alpha\cap C_D}\ne1
+                 \quad\hbox{for every root }\alpha.
+\end{equation}
+Consequently every uniform polynomial escape satisfies (59.7) for every
+$D$.  At $D=1$, this specializes to
+\begin{equation}\tag{59.8}
+              \mathbb Q(i)\subseteq\mathbb Q(\alpha)
+       \quad\hbox{for every root of }f(X)+4.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The eligibility condition for a prime modulus is
+\begin{equation}\tag{59.9}
+ D\mid((p+1)/4)^2
+ \quad\Longleftrightarrow\quad R(D)\mid(p+1)/4
+ \quad\Longleftrightarrow\quad p\equiv-1\pmod {Q_D}.
+\end{equation}
+Suppose first that $\tau_D$ is trivial on $F_\alpha\cap C_D$.  The identity
+on $F_\alpha$ and $\tau_D$ on $C_D$ then agree on the intersection, so they
+glue on $F_\alpha C_D$.  Extend the resulting automorphism to a Galois
+closure of $h_D$ composited with $C_D$.  It fixes $\alpha$ and restricts to
+$\tau_D$ on the cyclotomic field.  Qualitative Chebotarev supplies
+infinitely many unramified primes in its conjugacy class.  Their cyclotomic
+Frobenius is $-1$, hence they satisfy (59.6), while their polynomial
+Frobenius fixes a root, so $h_D$ has a root modulo each of them.
+
+Conversely, a good prime in (59.6) at which $h_D$ has a root has a Frobenius
+element restricting to $\tau_D$ and fixing some root.  Its restriction
+forces $\tau_D$ to be trivial on that root field's intersection with $C_D$.
+This proves the all-but-finitely-many equivalence.  Lemma~\ref{lem:polynomial-local}
+and the prime data (59.9) give the necessary condition for a uniform escape.
+When $D=1$, the cyclotomic field is $\mathbb Q(i)$; its intersection with a
+root field is either $\mathbb Q$ or $\mathbb Q(i)$, and complex conjugation
+is nontrivial only in the second case.  This is (59.8).
+\end{proof}
+
+No effective least prime is extracted here.  In permutation language, if
+$K$ is the splitting field of $f+4$, the union of conjugacy classes in
+${\rm Gal}(K/\mathbb Q)$ which fix a root lies inside
+${\rm Gal}(K/\mathbb Q(i))$.  The root-field formulation (59.8), rather
+than the looser statement merely that $K$ contains $i$, is the load-bearing
+conclusion.  For example, the nonsquare polynomial $f=X^4-3$ passes the
+$D=1$ test because $f+4=X^4+1$ has root field
+$\mathbb Q(\zeta_8)$.  It is not a uniform escape:
+$(M,D,x)=(7,2,2)$ solves (59.3).  Thus the other $D$'s really are needed.
+
+\subsection{Complete classification through degree two}
+\begin{theorem}[linear and quadratic uniform escapes; proved; source
+Theorem 59.3]
+\label{thm:quadratic-escape}
+Let $f\in\mathbb Z[X]$ be eventually positive and $1\leq\deg f\leq2$.
+Then $f$ is a uniform polynomial escape if and only if
+\begin{equation}\tag{59.10}
+                         f(X)=g(X)^2
+\end{equation}
+for some $g\in\mathbb Z[X]$.  In particular there is no linear uniform
+escape.  The identity (59.10) is an identity of polynomials, not merely an
+agreement after the threshold $m_0$.
+\end{theorem}
+\begin{proof}
+If $f$ is linear, $f+4$ has a root modulo every prime not dividing its
+leading coefficient.  Infinitely many primes are $3\pmod4$, and only
+finitely many divide that coefficient, so one of them contradicts the
+eligible $D=1$ subsystem.  Thus no coprimality assumption on the leading
+coefficient is hidden here.
+
+Now write
+\begin{equation}\tag{59.11}
+                         f(X)=aX^2+bX+c.
+\end{equation}
+Eventual positivity gives $a>0$; thus the $a<0$ sign is excluded before any
+character argument.  Theorem~\ref{thm:cyclotomic-obstruction} at $D=1$ says
+that the root field of $f+4$ contains $\mathbb Q(i)$.  A reducible
+quadratic, including the degenerate discriminant-zero case, has a rational
+root field and is therefore impossible.  An irreducible quadratic has only
+its own quadratic root field, so that field must equal $\mathbb Q(i)$.
+This rules out every positive discriminant and every negative square class
+other than that of $-1$.  Equivalently its integral discriminant is
+\begin{equation}\tag{59.12}
+              \Delta_1=b^2-4a(c+4)=-r^2
+\end{equation}
+for a nonzero integer $r$.
+
+For a general fixed $D$, the discriminant of $f+4D$ is
+\begin{equation}\tag{59.13}
+ \Delta_D=-S_D,
+ \qquad S_D=r^2+16a(D-1)=16aD+B,
+ \qquad B=r^2-16a.
+\end{equation}
+Suppose $B\ne0$.  Choose an odd prime $q\nmid2aB$.  The linear congruence
+$16aD+B\equiv0\pmod q$ has $q$ lifts modulo $q^2$, exactly one of which
+also vanishes modulo $q^2$.  Choose a positive $D$ in one of the other
+lifts.  Then
+\begin{equation}\tag{59.14}
+                q\parallel S_D,
+                \qquad q\nmid D,
+                \qquad q\nmid Q_D=4R(D).
+\end{equation}
+The quadratic field $\mathbb Q(\sqrt{-S_D})$ consequently has fundamental
+conductor divisible by $q$, so it is not contained in
+$\mathbb Q(\zeta_{Q_D})$.  Its intersection with that cyclotomic field is
+therefore $\mathbb Q$.  Complex conjugation acts trivially on the
+intersection, contradicting Theorem~\ref{thm:cyclotomic-obstruction}.
+Hence $B=0$, so $r^2=16a$.  Write $r=4d$; then $a=d^2$.
+Equation (59.12) now reduces to $b^2=4d^2c$.  Thus $b=2de$ and $c=e^2$
+for an integer $e$, and
+\begin{equation}\tag{59.15}
+                         f(X)=(dX+e)^2.
+\end{equation}
+The divisibilities follow prime by prime from $4d^2\mid b^2$.  Conversely
+every polynomial (59.15) escapes by Theorem~\ref{thm:square-escape}.
+\end{proof}
+
+The proof shows why using only a short fixed list of shifts would be
+misleading: the decisive $D$ is selected from the coefficients through a
+new prime $q$.  Concrete nonsquare replays which pass the \emph{whole}
+$D=1$ prime layer are
+\begin{equation*}
+\begin{array}{c|c|c}
+f&\operatorname {disc}(f+4)&(M,D,x)\text{ hitting }f(x)+4D\\ \hline
+2X^2+2X-3&-4&(11,3,3)\\
+X^2-4X+1&-4&(7,2,5)\\
+X^2-6X+30&-100&(11,3,3).
+\end{array}
+\end{equation*}
+Here no prime $3\pmod4$ divides the displayed square root of the negative
+discriminant.  Verifier block \texttt{(bf)} checks the $D=1$ assertion over
+a finite prime range and each exact later-shift hit.  The theorem, not that
+finite replay, proves that every nonsquare quadratic is eventually hit.
+
+\medskip\noindent\textbf{Conjecture $C_{\rm POLY}$ (full polynomial escape
+classification).}
+Every uniform polynomial escape in Definition~\ref{def:uniform-polynomial-escape}
+is a square in $\mathbb Z[X]$.
+
+This is a falsifiable higher-degree extension of
+Theorem~\ref{thm:quadratic-escape}, not a theorem.
+Theorem~\ref{thm:cyclotomic-obstruction} is only a necessary local structure
+theorem there.  Root fields such as $\mathbb Q(\zeta_8)$ show that its
+$D=1$ condition alone does not imply a square polynomial; pinning all shifts
+(59.5) in arbitrary degree is the remaining algebraic problem.
+
+\begin{corollary}[prime values in the classified range; proved; source
+Corollary 59.4]
+\label{cor:polynomial-primes}
+No positive-degree uniform escape of degree at most two takes a positive
+prime value.  Hence no linear or quadratic polynomial family can produce an
+unbounded sequence of primes with $W=+\infty$.  Conditional on
+$C_{\rm POLY}$, the same statement holds for every polynomial degree.
+\end{corollary}
+\begin{proof}
+By Theorem~\ref{thm:quadratic-escape} every positive value is an integer
+square.  It is then either $1$ or composite.  The conditional extension is
+identical.
+\end{proof}
+
+This is the Type-II polynomial-level mirror of Corollary~\ref{cor:no-third-law}
+only in a qualified sense.  Type I has no third fixed congruence-level
+vanishing law; Type II does have the square polynomial law, now proved
+unique through degree two.  Corollary~\ref{cor:polynomial-primes} closes the
+polynomial-family route to permanent Type-II-less primes only in that
+range.  Exponential sequences, recurrence orbits, arbitrary thin sets, the
+progression variant (59.4), and all higher-degree polynomials are outside
+its unconditional scope.
+
+\subsection{The all-integer cubic tail fails at the square crossing}
+\begin{proposition}[integer-tail obstruction; proved; source Proposition
+59.5]
+\label{prop:integer-tail-obstruction}
+For every $N>T\geq1$,
+\begin{equation}\tag{59.16}
+ \#\{n:T<n\leq N,\ W(n)>T\}
+ \geq \lfloor\sqrt N\rfloor-\lfloor\sqrt T\rfloor.
+\end{equation}
+Consequently an all-integer analogue of the cubic hypothesis (57.2),
+\begin{equation}\tag{59.17}
+ \#\{n:T<n\leq N,\ W(n)>T\}
+       \leq C N\exp\{-c(\log T)^3\},
+\end{equation}
+cannot hold uniformly in any window containing
+\begin{equation}\tag{59.18}
+ \log T=\lambda(\log N)^{1/3}
+ \quad\hbox{with}\quad \lambda>(1/(2c))^{1/3}.
+\end{equation}
+Any unshifted all-integer analogue also bounds the moving set in (59.17), so
+the same contradiction applies.  In particular it fails in every power
+window $\log T\leq b(\log N)^\theta$ with $b,c>0$ and $\theta>1/3$.
+At $\theta=1/3$, the square obstruction contradicts (59.17) when
+$cb^3>1/2$; equality leaves the prefactor and endpoint floors to decide.
+The constant $(1/(2c))^{1/3}$ is the exact crossing for this
+square-lower-bound comparison, not a claim that no other integer obstruction
+acts earlier.
+\end{proposition}
+\begin{proof}
+Every square in $(T,N]$ has $W=+\infty$ by
+Theorem~\ref{thm:square-escape}, which proves (59.16).  Put $L=\log N$ and
+$t=\log T$.  At $t=\lambda L^{1/3}$, one has $T=o(N)$, and the logarithms
+of the square lower bound and the proposed upper bound are respectively
+\begin{equation}\tag{59.19}
+             {1\over2}L+o(L),
+       \qquad \log C+L-c\lambda^3L.
+\end{equation}
+The upper bound is smaller when $c\lambda^3>1/2$, a contradiction.  If
+$\theta>1/3$, choose any fixed
+$\lambda>(1/(2c))^{1/3}$.  Then $t=\lambda L^{1/3}$ lies inside the window
+$t\leq bL^\theta$ for all large $L$, and still has $T<N$; applying the
+bound at that interior point gives the contradiction.
+\end{proof}
+
+Thus Section~\ref{sec:supercritical-window}'s count-below-one implication is
+prime-essential before one even asks whether its open window hypothesis can
+be proved.  This sharpens the integer/prime dichotomy (58.17): for the
+supercritical extension needed there, the prime restriction in
+Theorem~\ref{thm:witness-tail} is logically necessary, not cosmetic.  The
+presently realized $\theta=1/4$ window and all its inherited status labels
+are unchanged.
+
+\subsection{The complete-square conjecture and finite candidates}
+\medskip\noindent\textbf{Conjecture $C_{\rm SQ}$ (complete square escape).}
+\begin{equation}\tag{59.20}
+       \{n\in\mathbb Z_{>0}:W(n)=+\infty\}
+             =\{m^2:m\in\mathbb Z_{>0}\}.
+\end{equation}
+The right side already includes $1$ and $4$, so no exceptional union is
+needed.  This is falsifiable by one proved nonsquare escape.  It is
+\emph{strictly stronger} than Erd\H{o}s--Straus: every prime is a nonsquare,
+so (59.20) would give it a finite Type-II witness, and
+Lemma~\ref{lem:multiplier} would give an explicit three-unit-fraction
+representation.  The reverse is not claimed: Erd\H{o}s--Straus alone
+neither forces this particular witness type nor says anything about
+composite nonsquares.  It also implies $C_{\rm POLY}$ by the following
+standard lemma.  Neither conjecture is asserted here.
+
+\begin{lemma}[eventual square values force a square polynomial; proved;
+source Lemma 59.6]
+\label{lem:eventual-square-polynomial}
+If $f\in\mathbb Z[X]$ is eventually positive and $f(n)$ is a square for all
+sufficiently large integers $n$, then $f=g^2$ for some $g\in\mathbb Z[X]$.
+\end{lemma}
+\begin{proof}
+Remove the square factors of $f$ in $\mathbb Q[X]$.  If the remaining
+squarefree polynomial $H$ is nonconstant, Schur's theorem gives infinitely
+many prime divisors of its values.  Choose one avoiding the leading
+coefficient, discriminant, and the fixed rational content.  It has a simple
+root $a\pmod p$.  Of the $p$ lifts of $a$ modulo $p^2$, exactly one makes
+$p^2\mid H(n)$; any other lift contains arbitrarily large $n$ and makes the
+valuation of $f(n)$ odd, a contradiction.  Thus the squarefree part is
+constant.  That constant must be a rational square, because one nonzero
+square value has its square class.  Hence $f$ is a square in
+$\mathbb Q[X]$.  Gauss's lemma then makes its square root integral: writing
+it as $(u/v)G$ with $(u,v)=1$ and primitive $G\in\mathbb Z[X]$, integrality
+of $(u^2/v^2)G^2$ forces $v=1$.
+\end{proof}
+
+\begin{lemma}[twisted-square survivor reduction; proved; source Lemma 59.7]
+\label{lem:twisted-square}
+Put $n=sm^2$, where $s$ is squarefree.  If eligible $(M,D)$, with
+$M=4A-1$ and $D\mid A^2$, hits $n$, then
+\begin{equation}\tag{59.21}
+ (M,sm)=1,\qquad \left(\frac{s}{M}\right)=-1,
+ \qquad s\nmid D.
+\end{equation}
+Moreover, if $t\mid m$ and $t^2\mid D$, then the hit is equivalent to the
+eligible auxiliary hit
+\begin{equation}\tag{59.22}
+ M\mid s(m/t)^2+4D/t^2.
+\end{equation}
+Conversely an auxiliary hit with divisor $E$ lifts to $sm^2$ through
+$D=t^2E$ exactly when $t^2E\mid A^2$.
+\end{lemma}
+\begin{proof}
+The proof of Theorem~\ref{thm:square-escape} gives
+$\left(\frac{D}{M}\right)=1$ for every eligible $D$, while
+$\left(\frac{-1}{M}\right)=-1$.  A hit makes $-4D$, hence $n$, a unit
+modulo $M$.  Taking Jacobi symbols in $sm^2\equiv-4D\pmod M$ gives the
+middle assertion of (59.21).  If $D=sE$, then
+$M\mid s(m^2+4E)$; cancelling the unit $s$ would make the square $m^2$ hit
+the eligible divisor $E$, contrary to Theorem~\ref{thm:square-escape}.
+Finally
+\[
+ sm^2+4D=t^2\{s(m/t)^2+4D/t^2\}.
+\]
+Here $t$ is a unit modulo $M$, because $t^2\mid D$ and $(D,M)=1$.  This
+proves both directions and the stated lift condition.
+\end{proof}
+
+For the three survivors, Lemma~\ref{lem:twisted-square} makes the remaining
+searches exact and substantially thinner.
+\begin{itemize}[leftmargin=*]
+\item For $288=2\cdot12^2$, one must have $M\equiv3\pmod8$,
+$3\nmid M$, and $D$ odd, and the residual congruence is
+$D\equiv-72\pmod M$.  Directly, if $D=2E$, then
+$288+4D=2(12^2+4E)$, an impossible square hit; the redundant deeper layer
+$D=8E$ gives $8(6^2+4E)$.  Thus no even-$D$ layer was left in the scan.
+\item For $336=21\cdot4^2$, one must have $(M,21)=1$,
+$\left(\frac M3\right)\left(\frac M7\right)=-1$,
+$21\nmid D$, and $D\equiv-84\pmod M$.  Here quadratic reciprocity gives
+$\left(\frac {21}M\right)=
+ \left(\frac M3\right)\left(\frac M7\right)$.  If $D=21E$, then
+$336+4D=21(4^2+4E)$, which is impossible.  The exact scaling chain is
+$4\mid D\Rightarrow336\to84$ and $16\mid D\Rightarrow336\to21$.
+Although $W(21)=11$ via $(M,E)=(11,3)$, lifting that datum would require
+$16E=48\mid A^2=9$, which fails.
+\item For $4545=505\cdot3^2$, one must have
+$(M,3\cdot5\cdot101)=1$,
+$\left(\frac M5\right)\left(\frac M{101}\right)=-1$, and
+$505\nmid D$, with $D\equiv-4545A\pmod M$.  The forbidden layer is
+$4545+4(505E)=505(3^2+4E)$.  If $9\mid D$, the datum scales down to one for
+505.  The least such datum, again $(11,3)$, does not lift:
+$9\cdot3\nmid3^2$.
+\end{itemize}
+These are necessary filters plus an exact replay of the residual divisor
+congruence, not an infinitude proof.  In particular the character-permitted
+moduli are nonempty, and the argument does not force a nonsquare at one
+prime factor of every such $M$.  The proof attempt therefore lands no claim
+that any of the three values has $W=+\infty$.
+
+\medskip\noindent\textbf{Computational 59.8 (exact finite scan; live
+$C_{\rm SQ}$ stress test).}
+Verifier block \texttt{(bf)} replays the complete divisor harvest and, below
+$3\cdot10^5$, removes the known squares from the tail.  The exact nonsquare
+counts are
+\begin{equation}\tag{59.23}
+\begin{array}{c|rrrr}
+T&100&300&1000&3000\\ \hline
+\#\{n\leq3\cdot10^5:n\ne\square,\ W(n)>T\}
+ &4969&517&22&3.
+\end{array}
+\end{equation}
+The three nonsquare survivors in the last column are
+\begin{equation}\tag{59.24}
+                         288,\qquad336,\qquad4545.
+\end{equation}
+The default independent smallest-prime-factor scan uses Python integers for
+every divisor product and checks every eligible modulus through
+$3\cdot10^6$.  It proves only the finite statement
+\begin{equation}\tag{59.25}
+             W(288),W(336),W(4545)>3\cdot10^6.
+\end{equation}
+The wave-23 deep run checked all moduli through $1.5\cdot10^8$, after the
+character filters above, and enumerated $2{,}878{,}826{,}874$ divisor values
+without a hit.  Thus the stronger exact computational frontier is
+\begin{equation}\tag{59.26}
+             W(288),W(336),W(4545)>1.5\cdot10^8.
+\end{equation}
+This run used Python integers throughout; it peaked below 170 MB.  The
+modulus/divisor phase streams one value of $A$ at a time and retains no old
+divisor list.  Previous external quick-probe values
+$506063,754379,652271$, respectively, came from fixed-width integer overflow,
+including impossible negative divisors.  They are false and are explicitly
+rejected: they are not $W$-values.  Setting \texttt{ES\_FULL\_SCAN=1}
+reproduces (59.26).  It also raises the population endpoint to $10^6$, where
+the nonsquare counts at the same threshold grid are
+$(17007,1841,77,4)$.  The fourth depth-3000 survivor is 643245 and has the
+exact witness $W(643245)=3119$.
+
+As a family control, block \texttt{(bf)} computes every least finite $W$ for
+$1\leq m\leq60$ in the three natural twisted-square families.  The table
+records histograms $\{W:\#m\}$; the single lower-bound entry in each row is
+the candidate in (59.24).
+\begin{equation}\tag{59.27}
+\begin{array}{c|l|c}
+ n&\{W(n):\#m\},\quad1\leq m\leq60&\text{deep survivor}\\ \hline
+ 2m^2&\{3:40,11:11,19:4,35:1,59:2,131:1\}&m=12\\
+ 21m^2&\{11:33,19:9,23:15,31:1,71:1\}&m=4\\
+ 505m^2&\{11:33,23:23,47:1,87:1,107:1\}&m=3.
+\end{array}
+\end{equation}
+Thus the factorization $n=sm^2$ is not by itself an escape mechanism:
+177 of the 180 controls are hit by $M\leq131$.  The three exceptional
+multipliers are highly atypical in this finite sample, but that is not a
+proof in either direction.  The same block checks
+Lemma~\ref{lem:twisted-square} exactly over a bounded complete harvest, pins
+all 180 table entries, tests three nonsquare quadratics passing the $D=1$
+layer, replays the discriminant-character dichotomy, and verifies the
+coefficient-dependent construction (59.14).  None of these finite checks
+substitutes for Chebotarev or for an unbounded classification.
+
+\medskip\noindent\textbf{Walls and relation to the frontier.}
+The three constant candidates (59.24), now open beyond $1.5\cdot10^8$, are
+the live stress test for $C_{\rm SQ}$, \emph{not positive evidence for it}.
+A later finite witness would preserve the conjecture; a proof that even one
+has $W=+\infty$ would refute it.  No such proof landed.  The classification
+also says nothing about nonpolynomial families, and no unconditional
+pointwise prime conclusion follows.  In higher polynomial degree,
+Theorem~\ref{thm:cyclotomic-obstruction} remains only a necessary,
+qualitatively ineffective obstruction and $C_{\rm POLY}$ remains open.
+
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
 This section truncates the general-numerator machinery; it does not extend
@@ -5968,10 +6513,14 @@ the internal proofs and refutations above do not close the open
 critical-window ledger, \eqref{eq:endpoint-core}, $H_{\rm PF}'$, either
 $H_{\rm WIN}$ window, or either supercritical crossing hypothesis.  The
 count-below-one theorem is conditional, and the presently realized window
-is below its thresholds.  The square-escape theorem is proved, but it
-separates the all-integer inverse from the still-open prime-survivor problem
-rather than proving a prime representation.  The raw and antichain
-factorial-moment formulations are refuted and that axis is dormant; the pair
+is below its thresholds.  The square-escape theorem and complete
+linear/quadratic polynomial classification are proved, but they separate the
+all-integer and polynomial-family escape mechanisms from the still-open
+prime-survivor problem rather than proving a pointwise prime representation.
+The all-degree cyclotomic obstruction is qualitative and ineffective;
+$C_{\rm POLY}$, $C_{\rm SQ}$, and all three explicit constant candidates
+remain open.  The raw and antichain factorial-moment formulations are
+refuted and that axis is dormant; the pair
 endpoint and other possible pointwise minorants retain exactly the narrower
 open scope stated above.
 

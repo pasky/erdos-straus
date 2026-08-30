@@ -1,12 +1,22 @@
 # Paper draft status
 
-`espaper.tex` is the v9 standalone `amsart` consolidation draft (91 pages). Its two record headlines remain:
+`espaper.tex` is the v10 standalone `amsart` consolidation draft (99 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v10 changes — 2026-08-30, wave 24
+
+- Absorbed source §59 as the new section immediately after the inverse census. The proved exact local criterion retains the eventual-tail convention, every harvested divisor class, the distinct arithmetic-progression compatibility condition, and the warning that finite-depth residue-one escape is not uniform polynomial escape.
+- Added the all-degree root-field/cyclotomic obstruction with every shift `D`, the root-field rather than splitting-field conclusion, and the `X^4-3` counterexample to using only `D=1`. Its Chebotarev input is qualitative and **INEFFECTIVE**; no least-prime bound is claimed.
+- Proved the complete degree-at-most-two classification: uniform linear/quadratic escapes are exactly the polynomial squares, hence no linear escapes exist. The proof retains the leading-coefficient, eventual-sign, reducible/zero-discriminant, real/imaginary discriminant, coefficient-dependent new-prime, conductor, and divisibility cases, plus all three explicit later-shift replays.
+- Added open conjectures `C_POLY` and `C_SQ` without promotion. `C_SQ` says that the positive integers with `W=+infinity` are exactly the squares; it implies Erdős–Straus for all primes and is strictly stronger, while no reverse implication is claimed. The proved prime-value corollary closes only the polynomial-family route through degree two, conditionally all degrees under `C_POLY`; progressions, higher degrees, recurrence orbits, and arbitrary thin families remain outside the unconditional scope.
+- Added the proved all-integer tail obstruction. Squares force failure of the cubic supercritical hypothesis in every power window beyond `theta=1/3`; at the endpoint the displayed square comparison contradicts it for `cb^3>1/2`, while equality retains the prefactor/floor caveat. This retroactively makes the prime restriction in paper Theorem `witness-tail` logically necessary for the §57 count-below-one route.
+- Added the exact twisted-square reductions and survivor census. The three live nonsquare candidates are `288=2*12^2`, `336=21*4^2`, and `4545=505*3^2`, each unresolved past `M=1.5*10^8`. The paper explicitly quarantines and rejects the former fixed-width-overflow pseudo-witnesses, records the streamed Python-integer run and its memory bound, and reports that 177 of 180 family controls are ordinary finite hits. These candidates are stress tests for `C_SQ`, **not positive evidence**.
+- Updated the abstract, introduction, section map, status register, internal pedigree, final status, verifier register, and tracked table of contents. Block `(bf)` and the wave-23 **SOUND-AFTER-REPAIRS** attestation are represented as internal review only.
 
 ## v9 changes — 2026-08-30, wave 23
 
@@ -81,6 +91,15 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §59 status and Definition 59.1 ↔ `polynomial-escape` preface and `uniform-polynomial-escape`: proved versus Computational versus Conjectural labels, eventual positivity and threshold, positive-degree exclusion, square examples, and independence from Theorem 34.8/§39 agree.
+- notes Lemma 59.1, (59.1)–(59.4) ↔ `polynomial-local`: exact rounded radical, complete harvested-congruence equivalence, both tail directions, progression compatibility modulo `(M,q)`, finite-depth separation, and fixed-progression `D=1` hit agree.
+- notes Theorem 59.2, (59.5)–(59.9) ↔ `cyclotomic-obstruction`: every fixed shift, prime eligibility, root-field intersections, both Chebotarev directions, all-but-finitely-many perimeter, `Q(i)` specialization, root-field-not-splitting-field warning, `X^4-3` replay, and qualitative **ineffectivity** agree.
+- notes Theorem 59.3, (59.10)–(59.15) ↔ `quadratic-escape`: no linear escapes, leading-coefficient choice, `a>0`, reducible/zero and all discriminant-sign cases, coefficient-dependent `q`, exact conductor exclusion, integral square-root divisibilities, converse, and all three finite replays agree.
+- notes `C_POLY` and Corollary 59.4 ↔ `C_POLY` and `polynomial-primes`: higher-degree classification remains open; every classified positive value is `1` or composite; the unconditional conclusion is polynomial-family-only through degree two, with every named outside family retained.
+- notes Proposition 59.5, (59.16)–(59.19) ↔ `integer-tail-obstruction`: moving square count, exact interior crossing, every `theta>1/3`, endpoint `cb^3>1/2`, equality caveat, and no-earlier-obstruction disclaimer agree.
+- notes `C_SQ` and Lemmas 59.6–59.7, (59.20)–(59.22) ↔ the complete-square and twisted-square subsections: exact set equality, `C_SQ =>` Erdős–Straus direction only, strict-strength explanation, `C_SQ => C_POLY`, Schur/Gauss proof, Jacobi sign, `s` not dividing `D`, scaling/lift conditions, and all three candidate-specific classes agree.
+- notes Computational 59.8, (59.23)–(59.27) ↔ the survivor census: all nonsquare counts, the three factorizations, default and deep frontiers, 2,878,826,874 streamed values, Python-integer/<170 MB ledger, explicit overflow-artifact rejection, optional million endpoint, 643245 witness, all family histograms, 177/180 control result, and no-infinite-escape/no-positive-evidence warning agree.
+- notes §59.6 review attestation ↔ `pedigree`: every high/medium/low repair, block `(bf)` scope, and **SOUND-AFTER-REPAIRS** verdict are retained as internal review only.
 - notes §57 status and (57.1) ↔ Section 19 preface: `H_WIN`/`H'_WIN` are unproved, fixed-polylog use retains the §39 qualification, cubic use inherits **CLAIMED/PROVISIONAL** Theorem 34.8, the realized common exponent is only `1/4`, and the full counterexample-prime containment through `W=+infinity` agrees.
 - notes Theorem 57.1, (57.2)–(57.7) ↔ `count-below-one`: fixed constants and moving-window uniformity, cubic `theta > 1/3`, square-log `theta >= 1/2`, all three cubic endpoint-constant cases, effective thresholds, dyadic coverage, and present-window calibration agree.
 - notes Proposition 57.2, (57.8)–(57.15) ↔ `mass-gap`: source §18.2/(18.15)/Assessment 18.4, Lemma 33.3, and (51.11) antecedents; formal `AR(mu,t)` scope; exact versus sufficient fixed-margin inequalities; `a/(a+1)` ceiling; and Assessment-only general no-go language agree.
@@ -148,7 +167,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v9 build completes in 91 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v9-relevant verifier coverage passes through block `(be)`.
+The v10 build completes in 99 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v10-relevant verifier coverage passes through block `(bf)`.
 
 ## Submission TODO
 
@@ -158,8 +177,8 @@ The v9 build completes in 91 pages with zero TeX errors and no undefined referen
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v10 queue
+## v11 queue
 
-- Absorb source §59, “polynomial escape classification,” being written in parallel during wave 23.
+- Absorb source §60, “witness duality `aM = 4D+n` + survivor frontier,” being written in parallel during wave 24.
 
-This is a queue title only; v9 makes no content claim about §59.
+This is a queue title only; v10 makes no content claim about §60.
