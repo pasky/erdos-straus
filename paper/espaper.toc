@@ -114,15 +114,15 @@
 \contentsline {subsection}{\tocsubsection {}{26.4}{Finiteness wall and the wider hunt}}{119}{subsection.26.4}%
 \contentsline {subsection}{\tocsubsection {}{26.5}{Verification and review pedigree}}{120}{subsection.26.5}%
 \contentsline {section}{\tocsection {}{27}{The two-decade hard-prime witness census and record anatomy}}{121}{section.27}%
-\contentsline {subsection}{\tocsubsection {}{27.1}{The complete strict-record ledger}}{121}{subsection.27.1}%
+\contentsline {subsection}{\tocsubsection {}{27.1}{The complete strict-record ledger}}{122}{subsection.27.1}%
 \contentsline {subsection}{\tocsubsection {}{27.2}{Minimum-row parity and distribution below $10^7$}}{122}{subsection.27.2}%
-\contentsline {subsection}{\tocsubsection {}{27.3}{Blockwise normalized trajectories}}{122}{subsection.27.3}%
+\contentsline {subsection}{\tocsubsection {}{27.3}{Blockwise normalized trajectories}}{123}{subsection.27.3}%
 \contentsline {subsection}{\tocsubsection {}{27.4}{Replay scope, review pedigree, and honest walls}}{123}{subsection.27.4}%
-\contentsline {section}{\tocsection {}{28}{General-numerator tails and the effectivity perimeter}}{123}{section.28}%
+\contentsline {section}{\tocsection {}{28}{General-numerator tails and the effectivity perimeter}}{124}{section.28}%
 \contentsline {subsection}{\tocsubsection {}{28.1}{The minimal general-numerator witness modulus}}{124}{subsection.28.1}%
 \contentsline {subsection}{\tocsubsection {}{28.2}{The conductor coupled to $m$}}{125}{subsection.28.2}%
 \contentsline {subsection}{\tocsubsection {}{28.3}{Comparison and finite companion}}{127}{subsection.28.3}%
-\contentsline {section}{\tocsection {}{29}{Residue-dispersion frontier}}{127}{section.29}%
-\contentsline {subsection}{\tocsubsection {}{29.1}{Endpoint sparsity and proved ranges}}{128}{subsection.29.1}%
+\contentsline {section}{\tocsection {}{29}{Residue-dispersion frontier}}{128}{section.29}%
+\contentsline {subsection}{\tocsubsection {}{29.1}{Endpoint sparsity and proved ranges}}{129}{subsection.29.1}%
 \contentsline {subsection}{\tocsubsection {}{29.2}{Kloosterman-fraction audit}}{130}{subsection.29.2}%
 \contentsline {section}{\tocsection {}{}{References}}{132}{section*.457}%

@@ -21,6 +21,10 @@ Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inhe
 - Extended the internal pedigree through blocks `(bj)`–`(bl)` and all three wave-27 **SOUND-AFTER-REPAIRS** reviews.  These remain internal verification only.
 - Updated the abstract, introduction, section map, status register, §62 forward pointer, final status, verifier endpoint, tracked table of contents, and PDF.  The build grows by 15 pages, from 118 to 133.
 
+## Wave-28 v14 fidelity review
+
+- Verdict **FAITHFUL-AFTER-REPAIRS**; restored the omitted sporadic ledger triples `(48,43,0)/(56,65,0)/(757,188,0)` and made the enlarged hunt's coordinate-box-only scope explicit; all other source §63–§65 statements, digits, statuses, and caveats agree.
+
 ## v13 changes — 2026-08-30, wave 27
 
 - Absorbed source §62 as the new section immediately after the decidable-census section.  The proved ratio-spectrum law retains the exact bounded-exponent spectrum, divisor pairing, witness reconstruction, and `W(p)` minimization.
