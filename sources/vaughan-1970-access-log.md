@@ -55,3 +55,26 @@ Only legitimate publisher, author, institutional, and archive routes were pursue
 - **Other digitization probes:** Open Library had no matching full-text serial; guessed Internet Archive Serials-in-Microfilm identifiers for *Mathematika* 17(2) had no metadata item; UCL Discovery's repository/OAI endpoint was Cloudflare-blocked. Gallica's SRU endpoint denied access, while an e-periodica volume probe returned 404.
 - **DOI correction:** Crossref confirms Vaughan's paper is `10.1112/S0025579300002886`. The sometimes-suggested `10.1112/S0025579300002941` is a different paper (A. J. M. Spencer, pp. 275–286), not an alternate Vaughan route.
 - **Assessment:** no lawful public PDF was obtained.
+
+## 8. Wave-28 catalog recheck and new secondary source (2026-08-30)
+
+- **HathiTrust catalog:** the parent session newly checked the catalog record
+  route; no viewable full-text volume or article copy was found.  This does
+  not improve on the earlier blocked endpoint and yields no artifact.
+- **zbMATH Open:** the parent session newly checked the open bibliographic
+  route; no full-text link or deposited copy was found.  No Vaughan PDF was
+  obtained from this route.
+- **Fresh secondary description:** Pomerance--Weingartner,
+  arXiv:2511.16817v2, is now archived at
+  `sources/pomerance-weingartner-2511.16817/`.  Its Introduction (p. 2)
+  attributes to Vaughan the bound
+  `N/exp(c (log N)^(2/3))`.  Its Section 4, especially the opening and (4.1)
+  through Lemma 4.1 (pp. 8--11), says that the proof “largely follows the
+  argument in Vaughan,” attributes at least `f(p)` forced residue classes
+  modulo each auxiliary prime to Vaughan, and applies the large sieve after
+  proving square-log aggregate class mass.  This is a current secondary
+  description of Vaughan's statement and proof route, not direct access to
+  the 1970 text.
+- **Assessment:** status remains unchanged: no lawful public full text of
+  Vaughan (1970) has been obtained, so primary-source wording, hidden
+  hypotheses, and effectivity cannot be audited directly.

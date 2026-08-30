@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/H4k0cjOiNjaXvhmzDhXqBWEU0kU</id>
+  <title>arXiv Query: search_query=&amp;id_list=2511.16817&amp;start=0&amp;max_results=10</title>
+  <updated>2026-08-30T07:09:13Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2511.16817" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2511.16817v2</id>
+    <title>Exceptions to the Erd\H os--Straus--Schinzel conjecture</title>
+    <updated>2026-01-15T16:47:46Z</updated>
+    <link href="https://arxiv.org/abs/2511.16817v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.16817v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A famous conjecture of Erd\H os and Straus is that for every integer $n\ge2$, $4/n$ can be represented as $1/x+1/y+1/z$, where $x,y,z$ are positive integers. This conjecture was generalized to $5/n$ by Sierpiński, and then Schinzel conjectured that for every integer $m\ge4$ there is a bound $n_m$ such that the fraction $m/n$ is the sum of 3 unit fractions for all integers $n\ge n_m$. Leveraging and generalizing work of Elsholtz and Tao, we show that if $n_m$ exists it must be at least $\exp(m^{1/3+o(1)})$; that is, there are numbers $n$ this large for which $m/n$ is not the sum of 3 unit fractions. We prove a weaker, but numerically explicit version of this theorem, showing that for $m\ge 6.52\times10^9$ there is a prime $p\in(m^2,2m^2)$ with $m/p$ not the sum of 3 unit fractions, and report on some extensive numerical calculations that support this assertion with the much smaller bound $m\ge20$. A result of Vaughan is that for each $m$, most $n$'s have $m/n$ representable; we make the dependence on $m$ in this result explicit. In addition, we prove a result generalizing the problem to the sum of $j$ unit fractions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-20T21:41:03Z</published>
+    <arxiv:comment>25 pages, 1 table</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Carl Pomerance</name>
+    </author>
+    <author>
+      <name>Andreas Weingartner</name>
+    </author>
+  </entry>
+</feed>

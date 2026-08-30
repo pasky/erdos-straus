@@ -13375,4 +13375,35 @@ print("\n== (bn) record-stall anatomy and honest A-window (§67) ==")
 check_bn()
 
 
+def check_bo():
+    """Exact exponent arithmetic in the PW range-consistency audit (§68)."""
+    rows = []
+    for sigma in (Fraction(1, 4), Fraction(1, 2), Fraction(1, 1),
+                  Fraction(2, 1)):
+        campaign_power = Fraction(1, 1) / (3 - sigma)
+        gap = campaign_power - Fraction(1, 3)
+        assert gap == sigma / (3 * (3 - sigma)) > 0
+
+        # If log p = m^(1/3+o(1)), then
+        # m/(log p)^(3-sigma) = m^(sigma/3+o(1)).
+        pw_range_power = Fraction(1, 3) * (3 - sigma)
+        assert 1 - pw_range_power == sigma / 3 > 0
+        rows.append((sigma, campaign_power, gap, sigma / 3))
+
+    # In R/P, the eta, phi, L exponents are 1/4, 1/12, 1/12;
+    # raising to the twelfth power gives eta^3 phi L (§68.6).
+    ratio_exponents = (
+        Fraction(1, 4),
+        -Fraction(1, 4) + Fraction(1, 3),
+        Fraction(3, 4) - Fraction(2, 3),
+    )
+    assert tuple(12 * exponent for exponent in ratio_exponents) == (3, 1, 1)
+    print("PW/campaign exact power rows (sigma,threshold,gap,exclusion) =",
+          rows)
+
+
+print("\n== (bo) PW exception-range arithmetic (§68) ==")
+check_bo()
+
+
 print("\nall checks passed")
