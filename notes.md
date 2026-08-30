@@ -25229,26 +25229,31 @@ minimal harvested-modulus statistic
  W(p)=\min\{M\equiv3\pmod4:p\equiv-4D\pmod M
                     \text{ for some }D\mid((M+1)/4)^2\}                 \tag{65.1}
 \]
-through every hard prime \(p<10^8\).  For each of the 7,500 eligible
-\(M\leq30000\), the research code first built the complete `frozenset` of
-classes in (65.1), 244,216 stored residues in total.  Factorization, divisor
-expansion, products, and residues used Python integers only.  A segmented
-prime sieve then used a NumPy Boolean bitmap in intervals of \(10^7\)
-integers, and each hard prime walked the modulus rows in increasing order.
-The scan contains exactly 719,781 hard primes; every one resolves below the
-fixed cap, so the emergency on-the-fly extension is never entered.
+through every hard prime \(p<10^8\).  The original transient research runner
+reported building all 7,500 eligible rows through \(M=30000\), containing
+244,216 residue classes, with Python-integer divisor arithmetic.  It reported
+a segmented NumPy prime bitmap, an increasing-modulus walk, exactly 719,781
+hard primes, and no unresolved prime at the fixed cap.  That runner was not
+included in either §65 commit, so its NumPy dtype, first-hit implementation,
+and emergency-extension check cannot be source-audited after the fact.
 
-The staged \(p<10^7\) run first reproduced all 82,887 primes and the exact
-record tables (56.10)--(56.11).  The full run also reproduced
-\(W(225289)=279\), \(W(954409)=335\), \(W(1853329)=383\), and
-\(W(2031121)=2495\), with exactly the \((a_W,D_W)\) data in (62.22).
-A second implementation formed divisors with `sympy.divisors(A*A)` rather
-than factor expansion.  It agreed on 1,000 hard primes below \(10^7\),
-selected without replacement with seed 650027.  Block (bl) additionally
-rebuilds both class systems and independently replays every displayed record,
-the four late rows, and 1,000 seeded hard primes below \(10^5\).  Thus the
-cross-check uses a separate divisor-generation path as well as a separate
-bounded prime substream.
+The post-review `scripts/review65_independent.py` supplies the missing durable
+full replay.  It imports neither `verify.py` nor SymPy: a private segmented
+Eratosthenes sieve enumerates \(p<10^8\) with prime-side `int64`, trial
+division and divisor expansion use Python integers, and an independent
+shrinking-survivor walk assigns each prime exactly once while visiting \(M\)
+in strict increasing order.  An explicit leftover assertion would fail if
+any prime needed \(M>30000\).  It independently obtains the 244,216 classes,
+719,781 primes, all minima, and a largest needed modulus of 2495.
+
+The original staged \(p<10^7\) run reported all 82,887 primes and the exact
+record tables (56.10)--(56.11).  It also reported that a second
+`sympy.divisors(A*A)` implementation agreed on 1,000 seeded primes, but this
+research code was likewise not preserved.  Block (bl) durably rebuilds both
+class systems and, across its default and optional modes, replays the displayed
+records, the four late rows, and 1,000 seeded hard primes below \(10^5\).
+The independent review script instead recomputes the complete \(10^8\)
+census and all tables below from scratch.
 
 ### 65.1 The complete strict-record ledger
 
@@ -25275,11 +25280,13 @@ p&W(p)&a_W&D_W&p+4& W(p)>\sqrt{p+4}\\ \hline
 \]
 There is no new strict record in \(10^7\leq p<10^8\): the new-record list
 in that interval is empty, and the running maximum remains 2495.  For a
-minimum modulus with more than one firing divisor, the table retains the
-first \(D\) in the campaign's existing factor-expansion order, as in §61.3;
-every displayed row separately satisfies \(a_WW=p+4D_W\) and gives a valid
-Lemma-16.1 witness.  The \(a_W\)'s have minimum 11, nearest-rank median 647,
-and maximum 4839.  Five lie below 100, six in \([100,1000)\), and four at
+minimum modulus with more than one firing divisor, the selected witness is
+the least positive firing \(D\), equivalently the least \((a,D)\) used by
+the §61.3 replay.  Across all 82,887 rows below \(10^7\), this least \(D\)
+also happens to be the first firing divisor in the existing factor-expansion
+order, but that empirical coincidence is not the definition.  Every displayed
+row separately satisfies \(a_WW=p+4D_W\) and gives a valid Lemma-16.1 witness.
+The \(a_W\)'s have minimum 11, nearest-rank median 647, and maximum 4839.  Five lie below 100, six in \([100,1000)\), and four at
 least 1000.  The displayed \(D_W\)'s split 8 even and 7 odd.  These are
 finite record-row descriptions, not distribution laws.
 
@@ -25297,11 +25304,11 @@ parallel argument.
 convention as §61.3, 49,975 of 82,887 minimum rows have even \(D\), and
 32,912 have odd \(D\): 60.293% versus 39.707%.  The earlier
 \(p<3\cdot10^5\) split was 1,941/3,202, or 60.618% even, so the observed
-prevalence persists at this larger endpoint.  Selection matters in 458
-rows where both parities witness the same minimum \(M\).  Intrinsically,
-49,975 minima have only even firing divisors, 32,454 have only odd firing
-divisors, and 458 have both; no minimum here has more than two firing
-divisors.
+prevalence persists at this larger endpoint.  There are 458 rows where both
+parities witness the same minimum \(M\), so the convention matters in
+principle; the least firing \(D\) is odd in all 458.  Intrinsically, 49,975
+minima have only even firing divisors, 32,454 have only odd firing divisors,
+and 458 have both; no minimum here has more than two firing divisors.
 
 The exact coarse histogram and nearest-rank percentiles are
 \[
@@ -25379,8 +25386,11 @@ On the research host, the staged \(10^7\) process took 1.37 seconds wall
 seconds wall (2.04 seconds inside), with maximum resident memory 120,960 KiB.
 Block (bl) took 0.029 seconds on the default path and 0.663 seconds in an
 isolated full-path replay.  The complete default verification suite remained
-green in 177.99 seconds.  The scan speed reflects the very small typical
-minimum and does not replace any of the exact checks above.
+green in 177.99 seconds.  These are the original author's reported timings;
+the transient research runner was not included in the §65 commits, so its
+2.65-second timing is historical rather than reproducible from those commits.
+The scan speed reflects the very small typical minimum and does not replace
+any of the exact checks above.
 
 **Honest walls.**  This census sharpens only the empirical finite-search
 panel behind the informal \(1\leq A\lesssim2\) window.  The absence of a
@@ -25389,3 +25399,65 @@ values prove nothing about \(H_{\rm MOD}(A)\).  In particular they neither
 supply an upper bound for any \(A\geq1\) nor alter the proved refutation for
 \(A<1\).  No asymptotic law, fitted exponent, independence assertion, or
 tail-density claim is inferred from (65.2)--(65.4).
+
+### 65.5 Review attestation (wave 27)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Maximum-severity review independently
+reimplemented the entire \(p<10^8\) census and reproduced every numerical
+headline.  The repairs preserve the finite conclusions while making their
+source and replay scope auditable.
+
+* **CRITICAL:** none.  The fresh census found no fabricated residue, omitted
+  hard prime, premature first hit, cap escape, changed record, or false
+  statistic.
+* **HIGH (research-source preservation):** neither §65 commit preserved the
+  transient full scanner.  Consequently its divisor dtype, prime-side dtype,
+  shrinking-survivor logic, leftover handling, and 2.65-second timing could
+  not be inspected directly; the old prose had overstated source-level
+  auditability.  The new `scripts/review65_independent.py` is a from-scratch
+  durable replacement.  It imports neither `verify.py` nor SymPy, uses only
+  Python integers on the factor/divisor path and explicit NumPy `int64` on
+  the prime path, walks \(M\) strictly upward, assigns only unresolved primes,
+  and fails explicitly if any survivor remains at \(M=30000\).
+* **HIGH (document integrity):** literal unresolved merge markers enclosed
+  §§63--65.  They are removed without discarding either branch, and §65 is
+  again an ordinary final research section.
+* **MEDIUM (selected-\(D\) convention):** §65 called factor-expansion order
+  the §61.3 convention, while that replay actually chooses the least
+  \((a,D)\), equivalently the least firing \(D\) at fixed \(M\).  The text and
+  block (bl) now implement that rule.  The two conventions happen to agree
+  on every one of the 82,887 minima below \(10^7\), so no table entry or
+  parity count changes.
+* **MEDIUM (complete independent census):** the review enumerated exactly
+  719,781 primes \(p\equiv1\pmod {24}\) in the exclusive range
+  \(73\leq p<100,000,000\), ending at 99,999,721.  Trial-division expansion
+  produced all 7,500 rows and 244,216 classes.  Every prime resolved, the
+  last necessary row was \(M=2495\), and all 15 strict \((p,W,a,D)\) records
+  matched (65.2), including the four rows from (62.22).  Thus there is no
+  new record above \(10^7\) and the maximum remains
+  \((p,W)=(2031121,2495)\).
+* **MEDIUM (statistics and structure):** all 21 block counts and both
+  normalized columns in (65.4) match to six decimals.  Independent top-ten
+  rankings put both global suprema at 2031121, with values 171.783468 and
+  64.198698.  The \(p<10^7\) selected parity is exactly
+  \(49,975/82,887\) even, the intrinsic split is
+  \((49,975,32,454,458)\), and no row has more than two firing divisors.
+  Rechecking all records makes exactly 193, 3361, and 2031121 satisfy
+  \(W>\sqrt{p+4}\); their complete \(p+4\) factorizations have no
+  \(3\pmod4\) prime, so there are zero violations.
+* **LOW (bounded verifier):** block (bl) remains deterministic and honest:
+  default mode is a bounded replay, and `ES_FULL_SCAN=1` checks all record
+  primes but not the census.  Isolated post-repair runs took 0.064 seconds
+  inside the default block and 0.615 seconds inside the optional block
+  (3.01 and 1.48 seconds including startup), both below the 15-second default
+  budget.
+* **Verification:** the independent full census passed in 1.39 seconds wall
+  with 108,424 KiB peak RSS.  `ast.parse`, control-byte, conflict-marker, and
+  `git diff --check` sweeps passed.  The prescribed default command completed
+  green in 159.70 seconds with 309,872 KiB peak RSS.
+
+The only unrecovered artifact is the original transient runner itself and
+therefore its historical timing and implementation details.  The committed
+independent full replay now verifies the headline without relying on that
+artifact.  All conclusions remain Computational/INFO finite-range evidence;
+none advances \(H_{\rm MOD}\) or supports an asymptotic fit.

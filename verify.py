@@ -12826,8 +12826,10 @@ def check_bl():
         assert row_W(P, factor_rows) == M
         assert row_W(P, direct_rows) == M
         A = (M + 1) // 4
-        D = next(D for D in factor_square_divisors(A)
-                 if (P + 4 * D) % M == 0)
+        firing = tuple(D for D in factor_square_divisors(A)
+                       if (P + 4 * D) % M == 0)
+        D = min(firing)
+        assert D == firing[0]
         a = (P + 4 * D) // M
         assert (a, D) == (expected_a, expected_D)
         assert D in {int(d) for d in sympy_divisors(int(A * A))}
@@ -12847,13 +12849,17 @@ def check_bl():
         assert first is not None and first == second
 
     # Recompute the selected minimum D for the complete small exact prefix.
-    # This uses the same deterministic factor-expansion ordering as §61.3.
+    # The §61.3 convention is the least firing D (equivalently least (a,D)
+    # at fixed M).  Pin that it also equals the first expansion-order hit in
+    # this prefix; expansion order is an observed coincidence, not the rule.
     parity = Counter()
     for P in hard_spot:
         M = row_W(P, factor_rows)
         A = (M + 1) // 4
-        D = next(D for D in factor_square_divisors(A)
-                 if (P + 4 * D) % M == 0)
+        firing = tuple(D for D in factor_square_divisors(A)
+                       if (P + 4 * D) % M == 0)
+        D = min(firing)
+        assert D == firing[0]
         parity["even" if D % 2 == 0 else "odd"] += 1
     assert parity == Counter({"even": 706, "odd": 475})
 
