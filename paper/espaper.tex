@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v6, 29 August 2026}
+\date{Draft v7, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -68,7 +68,10 @@ witness modulus $W$ (cubic variant \textsc{claimed/provisional}), and prove
 fixed-slice and stacked Type-I almost-all theorems.  Effectively, (50.7)
 fails on at most an
 $\exp\{-c_A(\log\log X)^{3/2}/\sqrt{\log\log\log X}\}$ proportion of hard
-primes for fixed $0<A<1$; no pointwise result follows.
+primes for fixed $0<A<1$.  In the opposite direction, we prove effectively
+that $W(p)>c\log p$ and $ck_{\min}(p)>c\log p$ infinitely often; hence both
+$H_{\rm MOD}(A)$ and $H_{\rm SPF}(A)$ are false for every $0<A<1$, leaving
+exactly $A\geq1$ open in the two pointwise frames.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -128,7 +131,10 @@ linear-thinning replay.  Beyond the records, Theorems~\ref{thm:witness-tail}
 and~\ref{thm:effectivity} give the exact $W$ windows and effectivity
 perimeter, while Theorem~\ref{thm:per-slice-sieve} and
 Corollary~\ref{cor:almost-all-SPF} give the fixed-slice and stacked
-almost-all frontiers.  None is pointwise.
+almost-all frontiers.  These upper tails are not pointwise.
+Theorems~\ref{thm:W-lower} and~\ref{thm:slice-lower} supply the opposite,
+pointwise lower tail effectively, and Theorem~\ref{thm:general-m-tails}
+records the status-preserving general-$m$ truncation.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -150,8 +156,11 @@ then proves the one-prime-factor criterion, states the bespoke unproved
 slice-factor hypothesis, and audits why the named standard hypotheses do
 not supply its pointwise quantifier.  Sections~\ref{sec:witness-tail}--
 \ref{sec:stacked-sieve} add the witness tail, effectivity/priority register,
-fixed-slice sieve, and effective stacked almost-all theorem, without removing
-a pointwise obstruction.  Finally, Section~\ref{sec:dispersion-frontier}
+fixed-slice sieve, and effective stacked almost-all theorem.  Sections
+~\ref{sec:lower-tail}--\ref{sec:general-m-tails} then prove the logarithmic
+lower tail, sharpen both pointwise exponent frontiers, and give the
+status-preserving general-numerator tails and their exact effectivity
+perimeter.  Finally, Section~\ref{sec:dispersion-frontier}
 gives the endpoint sparsity,
 Kloosterman-fraction audit, widened prefix and large-$c$ wedge, and exact
 open collision remainder.  The composite frontier records both successive
@@ -164,10 +173,27 @@ partition-function correspondence
 Labels are part of the assertions.  ``Proved'' means proved internally in
 this draft.  ``Open'' means no proof is claimed.  The record results in
 Sections~\ref{sec:records}--\ref{sec:general-m}, the cubic witness tail,
-and Theorem~\ref{thm:effectivity} remain \textsc{claimed/provisional} as
-labelled: writing out their internal arguments and recording internal
-reviews does not replace independent external priority and referee checks.  In particular, no result of this paper proves the
+Theorem~\ref{thm:effectivity}, and the cubic row of
+Theorem~\ref{thm:general-m-tails} remain \textsc{claimed/provisional} as
+labelled.  The logarithmic lower-tail theorems are proved and effective;
+writing out internal arguments and reviews for the provisional results does
+not replace independent external priority and referee checks.  In
+particular, no result of this paper proves the
 Erd\H{o}s--Straus conjecture.
+
+\medskip\noindent\textbf{Related formalization and frontier.}
+A publicly available Lean development titled ``auro-zera'' formalizes a
+sound algebraic identity and finite case-split layer, then assumes one axiom,
+\texttt{good\_divisor\_exists}, for the remaining hard classes.  That axiom
+is the open divisor-existence core rather than a proof of it; local
+compilation of the file was not checked.  Its cited support is Dyachenko
+\cite{Dyachenko}, whose own Conclusion says that the infinite general case
+is not proved constructively and that the relevant finite-covering argument
+is conditional.  The development is nevertheless useful as a formal
+isolation of the same frontier: Sections~\ref{sec:witness-tail}--
+\ref{sec:lower-tail} quantify, almost everywhere and on the effective lower
+tail, the witness existence that its axiom assumes.  No result here depends
+on that file or on Dyachenko's conditional existence claim.
 
 The historical comparison is also provisional.  Vaughan's 1970 bound
 \cite{Vaughan} is the record identified by the search.
@@ -275,6 +301,11 @@ and hence covers exactly the class $p\equiv-4\pmod{4j-1}$.
 \begin{proof}
 The first right side has common denominator $pguv$ and numerator $p+u+v=4guv$.  For the second, substitute $q=(x_0+1)/j$ into $p=4x_0-q$.  Since $4j\equiv1\pmod{4j-1}$, integrality is equivalent to $p\equiv-4\pmod{4j-1}$; then $q\mid x_0+1=d+x_0$ and Theorem~\ref{thm:criterion} applies.
 \end{proof}
+Dyachenko's ED2 identity family \cite{Dyachenko} is an algebraic cousin of
+the identities in Proposition~\ref{prop:families} and of the multiplier
+supply below.  We cite it only at the identity level: the paper's own
+Conclusion characterizes its infinite general case as not constructively
+proved and the relevant finite-covering steps as conditional.
 
 The identity from which the complete intrinsic system arises is the following multiplier form.
 \begin{lemma}[intrinsic multiplier identity]\label{lem:multiplier}
@@ -2055,6 +2086,21 @@ Blocks \texttt{(ax)}--\texttt{(az)} check respectively the $W$ tail, the
 fixed-slice sieve, and stacked geometry.  These three hostile reviews, the
 adjudication, and all finite checks remain internal, not external validation.
 
+Wave 20 added hostile reviews of the logarithmic lower tail and the
+$m$-uniform effectivity perimeter.  The first returned
+\textsc{confirmed-after-repair}; the repair enlarged verifier coverage but
+did not change Section~\ref{sec:lower-tail}.  The second returned
+\textsc{sound-after-repairs}; it narrowed the favorable-sign claim to the
+full Layer-1 family and the structured $c$-free fibres, inserted the
+worst-case fibre subtraction, and kept every inherited provisional label.
+Block \texttt{(ba)} checks the two residue-one lower-tail constructions, and
+block \texttt{(bb)} checks the general-$m$ finite harvest and favorable-sign
+mass.  The full internal verifier now runs through \texttt{(bb)}.  A separate
+full-source review of the auro-zera Lean file replayed its identities but did
+not compile it; its open-core characterization and the source paper's own
+conditional Conclusion are related-work checks, not validation of this
+paper.
+
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
 \begin{equation}\tag{43.1}
@@ -2676,7 +2722,10 @@ Dirichlet's theorem supplies infinitely many primes in (48.20).
 This is the slice analogue of the residue-one compactness wall for the
 paper's fixed identity classes.  It does not control a divisor chosen from
 the moving factorization of each prime, and ``not guaranteed'' does not mean
-``vanishing.''
+``vanishing.''  The later Theorem~\ref{thm:slice-lower} instead quantifies
+the related residue-one \emph{genus} construction of
+Theorem~\ref{thm:bounded-core}; it proves actual slice vanishing through a
+logarithmic box, not a consequence of this fixed-divisor non-guarantee.
 
 For scale only, let $ck_{\min}(p)$ be the first positive admissible slice
 whose squarefree $c$-core is not in $\{1,2,3,6\}$ and put
@@ -2786,7 +2835,9 @@ one-prime-factor statement: deleting the log-power bound is weaker.  It
 puts no bound on $q$, prescribes no slice, imposes no primitivity, and needs
 no extra genus condition, which is automatic from (50.3).  It is stronger
 than slice positivity, since a product of wrong-grade prime factors can hit
-the target even when no one prime does.
+the target even when no one prime does.  Theorem~\ref{thm:slice-lower}
+proves that $H_{\rm SPF}(A)$ is false for every $0<A<1$; exactly the
+exponents $A\geq1$ remain open.
 
 % wave-18 fidelity repair: preserve the source theorem's unproved-hypothesis label.
 \begin{theorem}[conditional on $H_{\rm SPF}(A)$; $H_{\rm SPF}(A)$ unproved;
@@ -3013,9 +3064,10 @@ The proved obstructions are Lemma~\ref{lem:prime-norm},
 Theorem~\ref{thm:bounded-core}, the fixed-divisor escape
 Theorem~\ref{thm:slice-residue-one}, and the exact pairing (50.15).  The
 claims about named hypotheses are assessments of their standard
-conclusions, not logical independence theorems.  The pointwise frontier
-remains (50.7), but Corollary~\ref{cor:almost-all-SPF} proves that its
-failure set is triple-logarithmically small.  Replacing ``prime factor'' by
+conclusions, not logical independence theorems.  Within the pointwise
+frontier (50.7), Theorem~\ref{thm:slice-lower} refutes every $0<A<1$ and
+leaves exactly $A\geq1$ open, while Corollary~\ref{cor:almost-all-SPF}
+proves that the failure set is triple-logarithmically small.  Replacing ``prime factor'' by
 ``divisor'' returns the open unrestricted depth criterion.
 
 For finite comparison define
@@ -3216,9 +3268,11 @@ logarithms on the upper half, and absorb the lower half.  Define
  H_{\rm MOD}(A):\qquad W(p)\leq(\log p)^A
                  \quad\hbox{for every sufficiently large prime }p.
 \end{equation}
-This unproved pointwise hypothesis implies eventual prime solvability by
-Lemma~\ref{lem:multiplier}; the tail does not make its failure set empty.
-It is not equivalent to $H_{\rm SPF}(A)$: the former is the Type-II
+Theorem~\ref{thm:W-lower} proves that this hypothesis is false for every
+$0<A<1$; exactly the exponents $A\geq1$ remain open.  For any $A$ for which
+it holds, this unproved pointwise hypothesis implies eventual prime
+solvability by Lemma~\ref{lem:multiplier}; the upper tail does not make its
+failure set empty.  It is not equivalent to $H_{\rm SPF}(A)$: the former is the Type-II
 multiplier statistic (51.1), while the latter is the Type-I factor-in-one-
 specified-grade assertion (50.7).  Neither hypothesis implies the other as
 stated, although each implies an eventual representation.  Thus (39.35)
@@ -3858,6 +3912,489 @@ deletion makes (53.27) effective.
 Corollary~\ref{cor:almost-all-SPF} does not prove the pointwise hypothesis,
 bound $D(p)$, remove fixed-box escape progressions, or cross the parity
 barrier.
+
+\section{The lower tail and the two-sided frontier}\label{sec:lower-tail}
+The upper tails above leave exceptional sets.  Residue-one progressions,
+combined with effective Linnik, prove that those sets are genuinely nonempty
+infinitely often below logarithmic exponent one.  These are escape theorems,
+not nonsolvability theorems.
+
+\subsection{Type II: the minimal multiplier modulus}
+For real $T\geq3$, put
+\begin{equation}\tag{54.1}
+ M(T)=\lcm(1,2,\ldots,\lfloor T\rfloor),
+ \qquad \log M(T)=\psi(\lfloor T\rfloor).
+\end{equation}
+The full least common multiple is needed because (51.1) ranges over every
+product $k\ell$, with no primality condition on $\ell$.
+
+\begin{theorem}[Type-II logarithmic lower tail; proved, effective; source
+Theorem 54.1]\label{thm:W-lower}
+Every prime $p\equiv1\pmod {M(T)}$ satisfies
+\begin{equation}\tag{54.2}
+                              W(p)>T.
+\end{equation}
+There is an effectively computable absolute constant $C_0$ such that, for
+all sufficiently large $T$, one can choose such a prime with
+\begin{equation}\tag{54.3}
+ p\leq C_0M(T)^{5.2}=\exp\{(5.2+o(1))T\}.
+\end{equation}
+Consequently these primes are unbounded and
+\begin{equation}\tag{54.4}
+ \limsup_{p\to\infty\atop p\ \mathrm{prime}}\frac{W(p)}{\log p}
+ \geq\frac1{5.2}=0.192307\ldots>0.19.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Suppose data in (51.2) have $m=k\ell\leq T$.  Then $m\equiv3\pmod4$,
+$uvw=(m+1)/4$, and $p\equiv1\pmod m$.  If they witnessed $p$, multiplying
+$1\equiv-uv^{-1}\pmod m$ by $v$ would give $m\mid u+v$.  But
+\[
+ 2\leq u+v\leq uv+1\leq\frac{m+1}{4}+1<m;
+\]
+this includes $m=3$, where the upper bound is $2<3$.  Thus (54.2) holds.
+The class $1\pmod {M(T)}$ is reduced.  Xylouris's effective Linnik theorem
+\cite{Xylouris} gives its least prime at most $C_0M(T)^{5.2}$, and the
+effective prime number theorem gives $\psi(T)=T+o(T)$.  Any prime in the
+class is at least $M(T)+1$, so primes selected along unbounded $T$ are
+unbounded.  Equations (54.2)--(54.3) then give (54.4).
+\end{proof}
+
+\begin{corollary}[pointwise Type-II frontier; proved; source Corollary 54.2]
+\label{cor:MOD-frontier}
+For every $0<A<1$, $H_{\rm MOD}(A)$ is false.  Thus, in its defined
+positive-exponent range, exactly $A\geq1$ remains open.
+\end{corollary}
+\begin{proof}
+Along Theorem~\ref{thm:W-lower}'s primes,
+$W(p)>(1/(5.2+o(1)))\log p>(\log p)^A$.
+\end{proof}
+If
+\[
+ E_A(N)=\{p\leq N:p\text{ prime},\ W(p)>(\log N)^A\},
+\]
+then Corollary~\ref{cor:witness-polylog} and
+Theorem~\ref{thm:W-lower} give the two-sided summary
+\begin{equation}\tag{54.5}
+ \begin{array}{ll}
+  \#E_A(N)=o(\pi(N))& (A>0),\\
+  \#E_A(N)\geq1\text{ for infinitely many }N&(0<A<1).
+ \end{array}
+\end{equation}
+The first line retains the internal-review qualification of (51.17), and
+the additional cubic upper bound (51.18) remains
+\textsc{claimed/provisional}.  For fixed $T$, the exhibited progression has
+relative Dirichlet density
+$1/\varphi(M(T))=\exp\{-(1+o(1))T\}$ among the primes.  Thus the lower side
+asserts only nonemptiness infinitely often; the true size of $E_A(N)$ is
+open.
+
+\subsection{Type I: simultaneous genus forcing}
+Put
+\begin{equation}\tag{54.6}
+ R(T)=\lcm\left(24,
+       \prod_{\substack{\ell\leq T\\\ell\ \mathrm{prime}}}\ell\right),
+ \qquad \log R(T)=\vartheta(T)+\log4.
+\end{equation}
+The identity holds for $T\geq3$.
+
+\begin{theorem}[Type-I logarithmic lower tail; proved, effective; source
+Theorem 54.3]\label{thm:slice-lower}
+For every $T\geq3$ and every prime $p\equiv1\pmod {R(T)}$,
+\begin{equation}\tag{54.7}
+ \chi_s(p)=1\quad(1\leq s\leq T,\ s\ \mathrm{squarefree}),
+ \qquad ck_{\rm pr}(p)>T,\qquad ck_{\min}(p)>T.
+\end{equation}
+In fact $M_{c,k}(p)=0$ for every admissible slice with $ck\leq T$.
+There are unboundedly many such primes satisfying
+\begin{equation}\tag{54.8}
+ p\leq C_0R(T)^{5.2}=\exp\{(5.2+o(1))T\},\qquad
+ \limsup_{p\to\infty\atop p\equiv1\ (24)}
+ \frac{ck_{\min}(p)}{\log p}\geq\frac1{5.2}>0.19.
+\end{equation}
+The convention $ck_{\min}(p)=+\infty$ is allowed.
+\end{theorem}
+\begin{proof}
+For every odd prime $\ell\leq T$, quadratic reciprocity and
+$p\equiv1\pmod4$ give
+\begin{equation}\tag{54.9}
+ \left(\frac\ell p\right)=\left(\frac p\ell\right)=1.
+\end{equation}
+The congruence modulo $24$ also gives
+$(2/p)=(-1/p)=(3/p)=1$.  The sign and factor $4$ in the fundamental
+discriminant $\Delta_s$ therefore have symbol one at $p$; multiplicativity
+proves $\chi_s(p)=1$ for every squarefree $s\leq T$.  If $ck\leq T$, then
+$s=\operatorname {sf}(c)\leq T$, so (50.3) is empty and
+Theorem~\ref{thm:moving-genus} gives $M_{c,k}(p)=0$.
+
+All positive pairs $ck\leq T$ are admissible.  Bertrand's postulate, with
+$3\leq T<7$ checked directly, gives $R(T)>4T$, hence $p>4T$; this supplies
+the coprimality and size conditions in $\mathcal B_p$.  Apply effective
+Linnik to $1\pmod {R(T)}$ and use $\vartheta(T)=T+o(T)$.  Since every prime
+in the class is at least $R(T)+1$, the argument for (54.4) proves (54.8).
+\end{proof}
+
+\begin{corollary}[pointwise Type-I frontier; proved; source Corollary 54.4]
+\label{cor:SPF-frontier}
+For every $0<A<1$, $H_{\rm SPF}(A)$ is false; exactly $A\geq1$ remains
+open.  More strongly, infinitely many hard primes have no positive slice at
+all with
+\begin{equation}\tag{54.10}
+                  ck\leq(1/(5.2+o(1)))\log p.
+\end{equation}
+\end{corollary}
+For each $0<A<1$, these primes make the failure set in
+Corollary~\ref{cor:almost-all-SPF} nonempty at infinitely many heights,
+while (53.37) gives its effective almost-all upper bound.  This quantifies
+Theorem~\ref{thm:bounded-core}'s genus-forced zeros; it is strictly stronger
+than the fixed-divisor non-guarantee in
+Theorem~\ref{thm:slice-residue-one}.
+
+The classical effectivity register is exact.  Xylouris
+\cite{Xylouris} proves the usable exponent $5.2$, refining Heath--Brown
+\cite{HeathBrown}; the implied constant and threshold are effectively
+computable, with no ineffective Siegel lower bound.  Rosser--Schoenfeld
+\cite{RosserSchoenfeld} give the convenient explicit bounds
+$\psi(x)<1.03883x$ and $\vartheta(x)<1.01624x$.  The sharper
+$(1+o(1))x$ used above comes from the classical effective prime number
+theorem.  No numerical value of $C_0$ is extracted here.
+
+\subsection{The two-sided frontier}
+The census puts much of the observed mass at small constant depths, while
+(51.17) says that for every fixed $\eps>0$, all but $o(\pi(N))$ primes have
+$W(p)\leq(\log p)^\eps$.  Theorem~\ref{thm:W-lower} supplies the effective
+opposite extreme.  The resulting proved sandwich is
+\begin{equation}\tag{54.11}
+ \begin{array}{cl}
+ \text{typical:}&W(p)\leq(\log p)^\eps
+      \quad\text{for almost all primes, every fixed }\eps>0,\\
+ \text{extremal:}&W(p)\geq c\log p
+      \quad\text{for infinitely many primes, effectively}.
+ \end{array}
+\end{equation}
+The finite $W$ census, Dahan's different two-parameter depth statistic
+\cite{Dahan}, and the different statistic measured in the auro-zera file
+all have a logarithm-squared-like upper-envelope shape.  They motivate, but
+do not prove, a conjectural $O((\log p)^2)$-scale ceiling for $W$; the three
+statistics are not interchangeable.  Accordingly the exact proved
+pointwise restriction is $A\geq1$, and the honest data-guided search window
+is
+\begin{equation}\tag{54.12}
+ \boxed{\quad \underbrace{A\geq1}_{\text{proved necessary}},\qquad
+        \underbrace{1\leq A\lesssim2}_{\text{conjectural frontier window}}.
+       \quad}
+\end{equation}
+The same proved lower edge holds for $H_{\rm SPF}$.  Covering every
+$m\leq T$ by residue one forces divisibility by $M(T)$, whose logarithm is
+$T+o(T)$; thus this full-lcm escape route is intrinsically logarithmic.  None
+of these lower-tail primes is asserted to be an Erd\H{o}s--Straus
+exception.
+
+\section{General-numerator tails and the effectivity perimeter}
+\label{sec:general-m-tails}
+This section truncates the general-numerator machinery; it does not extend
+its range.  The fixed-polylogarithmic row has the internal review
+qualification of Lemma~\ref{lem:truncated-cfree} and Section~\ref{sec:cfree},
+but uses neither Theorem~\ref{thm:pruned} nor
+Theorem~\ref{thm:m-pruned}.  The cubic row and record recovery inherit them
+and remain \textsc{claimed/provisional}.  Effectivity below means
+computability of constants conditional on those correctness labels.  Put
+\begin{equation}\tag{55.1}
+ \lambda_m=\frac{\eta_1(m)}{\varphi(m)},\qquad
+ \theta_m=\frac{\eta_2(m)}{\varphi(m)};
+\end{equation}
+both are $\asymp1/m$ up to absolute constants.
+
+\subsection{The minimal general-numerator witness modulus}
+For $m\geq3$ and positive $p$, define
+\begin{equation}\tag{55.2}
+ W_m(p)=\min k\ell,
+\end{equation}
+where the minimum is over positive $k,\ell,u,v,w$ satisfying
+\begin{equation}\tag{55.3}
+ k\ell\equiv-1\pmod m,\qquad \frac{k\ell+1}{m}=uvw,
+ \qquad pv\equiv-u\pmod {k\ell};
+\end{equation}
+put $W_m(p)=+\infty$ if no datum exists.  The coordinate $\ell$ need not be
+prime.  Lemma~\ref{lem:m-identity} turns $W_m(p)\leq T$ into a representation
+of $m/p$, and at $m=4$ this is exactly (51.1)--(51.2).
+
+Let $t=\log X$, $KX\leq T$, and use the canonical boxes from the proof of
+Theorem~\ref{thm:m-pruned}.  Their two masses are
+\begin{equation}\tag{55.4}
+ M_1=\lambda_mt^2\log K,
+ \qquad M_2=\theta_mt^3\quad(K=X^\kappa).
+\end{equation}
+
+\begin{lemma}[$m$-uniform truncated assembly; proved internally with the
+Section~\ref{sec:cfree} review qualification; source Lemma 55.1]
+\label{lem:m-truncated}
+Fix $B>0$.  Uniformly for $m\leq t^B$, if $K$ is a sufficiently large fixed
+power of $t$, $KX\leq T$, and
+\begin{equation}\tag{55.6}
+                     \log N\geq C_Bt(1+M_1),
+\end{equation}
+then
+\begin{equation}\tag{55.5}
+ \#\{p\leq N:p\text{ prime},\ W_m(p)>T\}
+       \ll_B N\exp\{-c_BM_1\}.
+\end{equation}
+For fixed $0<\kappa<1/240$, if $K=X^\kappa$, $KX\leq T$, and
+\begin{equation}\tag{55.8}
+                     \log N\geq C_{B,\kappa}t(1+M_2),
+\end{equation}
+then
+\begin{equation}\tag{55.7}
+ \#\{p\leq N:p\text{ prime},\ W_m(p)>T\}
+       \ll_{B,\kappa}N\exp\{-c_{B,\kappa}M_2\}.
+\end{equation}
+The second assertion is \textsc{claimed/provisional} through
+Theorem~\ref{thm:m-pruned}.  Every constant is effective in the precise
+sense of Subsection~\ref{sec:m-effectivity}.
+\end{lemma}
+\begin{proof}
+The full coprime multiplier family has mass comparable to $M_1$; replacing
+$\eta_1$ by $\eta_2$ in the upper profile and moments changes only an
+absolute factor.  The cubic family has mass $M_2$ by (43.20), (43.27), and
+the relative-mass argument
+(43.36)--(43.38).  Choose the small-prime quarantine and even Bonferroni
+degree of order $M_i$ when it grows, and fixed degree otherwise.  The exact
+ledger is
+\begin{equation}\tag{55.9}
+ \deg=O(1+M_i),\qquad
+ \log d_{\rm term},\ \log\sum|c_{\rm term}|=O_B\{t(1+M_i)\}.
+\end{equation}
+Conditions (55.6) and (55.8) pay this ledger.  Every retained atom has
+modulus at most $KX\leq T$; primes dividing $m$ and fixed initial ranges are
+absorbed effectively.
+\end{proof}
+
+\begin{theorem}[general-$m$ master tails; status as in
+Lemma~\ref{lem:m-truncated}; source Theorem 55.2]
+\label{thm:general-m-tails}
+Fix $B>0$.  Uniformly for $m\leq(\log T)^B$, put
+\begin{equation}\tag{55.10}
+ \mathcal M_1(m,T)=\lambda_m(\log T)^2\log(2+\log T),\qquad
+ \mathcal M_2(m,T)=\theta_m(\log T)^3.
+\end{equation}
+Set $\mathcal P_{m,T}(N)=
+\#\{p\leq N:p\text{ prime},\ W_m(p)>T\}$.  With effective constants
+depending only on the displayed fixed parameters,
+\begin{equation}\tag{55.11}
+\begin{aligned}
+ \mathcal P_{m,T}(N)&\ll_BNe^{-c_B\mathcal M_1(m,T)},&
+ \log N&\geq C_B\{\log T+(\log T)\mathcal M_1(m,T)\},\\
+ \mathcal P_{m,T}(N)&\ll_{B,\kappa}Ne^{-c_{B,\kappa}\mathcal M_2(m,T)},&
+ \log N&\geq C_{B,\kappa}\{\log T+(\log T)\mathcal M_2(m,T)\}.
+\end{aligned}
+\end{equation}
+The first line uses only the Layer-1 supply.  The second is
+\textsc{claimed/provisional}.  No uniformity is asserted when $m$ exceeds
+every fixed power of $\log T$.
+\end{theorem}
+\begin{proof}
+Take $X=T^{1/2}$.  In the first row choose $K=t^{D(B)}$ large enough for the
+sign selection below; then $KX\leq T$ and
+$\log K\asymp_B\log(2+t)$.  In the second, rescale $X$ by a harmless fixed
+power so $K=X^\kappa$ and $KX\leq T$.  Lemma~\ref{lem:m-truncated} gives
+both rows; bounded $T$ is absorbed in the constants.
+\end{proof}
+At the top of the cubic window,
+$\log N\asymp\theta_m(\log T)^4$, so the saving is
+$\theta_m^{1/4}(\log N)^{3/4}$, exactly (43.35).  In the fixed-gap range
+$m\leq(\log N)^{3-\eps}$ the extra $\log T$ term is smaller and the
+$m\leq t^4$ ledger closes.  The first row similarly recovers the scale
+$\lambda_m^{1/3}(\log N)^{2/3}(\log\log N)^{1/3}$ and the fixed-gap range
+$m\leq(\log N)^{2-\eps}$.  These are consistency checks, not range or status
+upgrades.
+
+\begin{corollary}[general-$m$ polylogarithmic tails; source Corollary 55.3]
+Fix $A,B>0$ and $m\leq(\log\log N)^B$.  With $p$ restricted to primes,
+\begin{equation}\tag{55.12}
+ \begin{split}
+ \#\{p\leq N:W_m(p)>(\log N)^A\}
+ &\ll_{A,B}N\exp\{-c_{A,B}\lambda_m
+       (\log\log N)^2\log\log\log N\},\\
+ \#\{p\leq N:W_m(p)>(\log N)^A\}
+ &\ll_{A,B}N\exp\{-c_{A,B}\theta_m(\log\log N)^3\}.
+ \end{split}
+\end{equation}
+The second line is \textsc{claimed/provisional}.  The almost-all result does
+not prove the pointwise hypothesis
+\begin{equation}\tag{55.13}
+ H_{{\rm MOD},m}(A):\quad W_m(p)\leq(\log p)^A
+ \quad\hbox{for every sufficiently large prime }p.
+\end{equation}
+\end{corollary}
+
+\subsection{The conductor coupled to $m$}\label{sec:m-effectivity}
+The prime progression in the general-$m$ supply is
+\begin{equation}\tag{55.14}
+                  q=muv,\qquad \ell\equiv-k^{-1}\pmod q,
+\end{equation}
+not modulo $uv$ or $\lcm(m,uv)$.  Thus if a Page conductor $r$ divides
+$m$, every modulus is divisible by $r$ and deletion would erase the entire
+supply.  Retaining the exceptional term gives the effective form
+\begin{equation}\tag{55.15}
+ \begin{aligned}
+ \mathcal E_r(y;q,a)&=\psi(y;q,a)-\frac y{\varphi(q)}
+ +\frac{\1_{r\mid q}\chi_r(a)y^\beta}{\beta\varphi(q)},\\
+ \sum_{q\leq Q}\max_{(a,q)=1}\max_{x\leq y\leq2x}
+ |\mathcal E_r(y;q,a)|&\ll_A\frac x{(\log x)^A}.
+ \end{aligned}
+\end{equation}
+Here $Q\leq x^{1/2}/(\log x)^{B_A}$; constants and thresholds are
+effective, and the exceptional term is absent if there is no Page
+character.  This is the displayed-exceptional-character variant obtained by
+retaining the one primitive real character in the proof of
+Lenstra--Pomerance \cite[Lemma~11.2]{LenstraPomerance}; their lemma itself
+prints the excluded-conductor form.
+
+\begin{lemma}[$m$-uniform Page repair; proved; source Lemma 55.4]
+\label{lem:m-Page}
+Uniformly for $m\leq t^B$, effective aggregate lower class mass holds for
+exactly the full coprime multiplier family used by the Layer-1 chain and the
+structured fibres $\mathcal J_c$ used by the $c$-free chain.  This is not a
+per-multiplier lower profile and not an arbitrary-sparse-subfamily claim.
+The conductor cases are:
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item With no exceptional conductor, retain every box.
+\item If $r\nmid m$, choose a prime $a$ with
+$v_a(r)>v_a(m)$ and impose $a\nmid uv$.  Then $r\nmid muv$, including when
+$r$ and $m$ share other prime-power factors.
+\item If $r\mid m$, retain exactly the multipliers satisfying
+\begin{equation}\tag{55.16}
+                         \chi_r(-k^{-1})=-1.
+\end{equation}
+For every progression actually retained, the exceptional term in (55.15)
+then adds to the ordinary main term.  This family retains a fixed positive
+fraction of the aggregate mass needed downstream.
+\end{enumerate}
+The low-$\omega$ deletion and low-congestion pruning may be imposed
+simultaneously.
+\end{lemma}
+\begin{proof}
+In case 2, omitting $a$ from $uv$ leaves the $a$-adic exponent of $muv$
+below that of $r$; Lemma~\ref{lem:conductor-deletion}'s local proportion
+and large-$a$ estimate apply pointwise in $k$.
+
+Suppose $r\mid m$.  The lifted nonprincipal real character takes each sign
+on half the units modulo $m$.  Uniformly in reduced $b\pmod m$, M\"obius
+expansion gives
+\begin{equation}\tag{55.17}
+ \sum_{Y<k\leq2Y\atop k\equiv b\ (m)}\frac{\varphi(k)}k
+ =\frac Ym\prod_{p\nmid m}(1-p^{-2})+O(\log(2Y)).
+\end{equation}
+After summing favorable classes and dividing by $k\asymp Y$, intervals with
+$Y\geq Cm^2$ contribute $\gg\eta_1(m)$.  If $F_r$ is the set in (55.16),
+$H_m(K)=\sum_{k\leq K,(k,m)=1}\varphi(k)/k^2$, and $K\geq m^D$ for a fixed
+large $D$, then effectively
+\begin{equation}\tag{55.17a}
+ h(F_r)\geq c_0\eta_1(m)\log K\geq c_1H_m(K).
+\end{equation}
+The cubic family has $K=e^{\kappa t}\gg m^D$; the Layer-1 tail uses
+$K=t^{D(B)}$.
+
+For the structured fibre
+$\mathcal J_c=\{k:(k,m)=(k,c)=1\}$, (43.36) gives the adversarially safe
+subtraction
+\begin{equation}\tag{55.17b}
+ h(F_r\cap\mathcal J_c)
+ \geq h(F_r)-H_m(K)
+  \sum_{p\mid c,\ p\mid L_{m,K}}\frac1p
+ \geq(c_1-Z(c))H_m(K).
+\end{equation}
+Thus the same Chernoff event as (43.37), now with $Z(c)\leq c_1/2$, leaves
+a fixed positive favorable mass without asserting character balance in an
+arbitrary sparse family.  If an incidence statement formally requires
+$1\in\mathcal J$, adjoin it only for bookkeeping and omit its triples from
+the BV lower sum when its sign is unfavorable.  Increasing the low-$\omega$
+cutoff and applying the existing low-congestion pruning preserve the order
+of mass.
+\end{proof}
+
+This quantifier boundary is load-bearing: an arbitrary sparse
+$\mathcal J$ could contain only the unfavorable sign.  The full Layer-1
+family and the fibres $\mathcal J_c$ are exactly the two downstream families
+for which Lemma~\ref{lem:m-Page} proves enough positive mass.
+
+\begin{theorem}[effectivity perimeter; proved internally,
+status-preserving; source Theorem 55.5]\label{thm:m-effectivity}
+``Effective'' means that constants and thresholds are computable uniformly
+in the theorem's displayed fixed-gap range.  The exact perimeter is
+\begin{equation}\tag{55.18}
+\begin{array}{c|c|c}
+ \text{statement}&\text{effective?}&\text{inheritance}\\ \hline
+ \text{Layer-1 tails}&\text{yes}
+   &\substack{\text{Section~39 review}\\\text{no 34.8 or 43.7}}\\
+ \text{thinned-cubic tails}&\substack{\text{yes, conditional}\\
+                                      \text{on correctness}}
+   &\substack{\text{\textsc{claimed/provisional}}\\\text{34.8 and 43.7}}\\
+ \text{Theorem~43.12}&\substack{\text{yes, conditional}\\
+                                \text{on correctness}}
+   &\substack{\text{\textsc{claimed/provisional}}\\
+              \text{34.8, 43.7, and Section~39.7}}
+\end{array}
+\end{equation}
+In every row, $r\nmid m$ uses deletion in $uv$, while $r\mid m$ uses the
+favorable $k$-half.  The cubic rows effectivize only the surviving class
+mass, followed in Theorem~43.12 by the existing effective ledger and
+semigroup transfer.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:m-Page} repairs the only Siegel-sensitive lower
+prime-progression input.  Shiu, Brun--Titchmarsh, the box and incidence
+bounds, exact CRT moments, Chernoff, Bonferroni, integer class counting, and
+the Rankin semigroup transfer are effective.  At the cubic top, (55.8) is
+the existing (43.40) ledger, so no parameter or range changes.
+\end{proof}
+The table does not effectivize the inherited ancillary absolute-error
+assertion in Theorem~\ref{thm:m-pruned} over \emph{all} low-congestion
+triples.  Restoring deleted unfavorable triples restores the unresolved
+exceptional term; no row of (55.18) uses that assertion.
+
+\subsection{Comparison and finite companion}
+Truncating Pomerance--Weingartner's general-$m$, $k=1$ supply gives mass
+$\asymp(\log T)^2/\varphi(m)$.  The ratios of the two masses in (55.10) to
+that benchmark are
+\begin{equation}\tag{55.19}
+              \eta_1(m)\log\log T,
+              \qquad \eta_2(m)\log T.
+\end{equation}
+Thus PW's pure $\varphi(m)^{-1}$ dependence is formally stronger below the
+crossovers where either ratio is one, and the multiplier exponents are
+formally stronger above.  For every fixed $B$, the below-crossover regions
+eventually lie outside the proved window $m\leq(\log T)^B$; this separates
+the unrestricted formal comparison from actual uniformity.  The cubic side
+is provisional, PW is proved, and unknown constants preclude a finite
+crossover.  At the optimized $N$-window the standing comparison remains
+(43.33)--(43.34), including PW's $\varphi(m)^{1/3}$ uniformity.  No
+pointwise theorem or range extension follows.
+
+\medskip\noindent\textbf{Computational 55.6 (exact finite regression;
+informational).}
+Verifier block \texttt{(bb)} harvests all classes (55.3) for
+$m\in\{3,5,6,7\}$ and $k\ell\leq1500$.  For primes $p\leq10^5$ prime to
+$m$, the counts with $W_m(p)>25,100,400$ and those still unharvested are
+\begin{equation}\tag{55.20}
+\begin{array}{c|c|c|c}
+ m&\#p&\text{three tail counts}&\text{unharvested at }1500\\ \hline
+ 3&9591&(0,0,0)&0\\
+ 5&9591&(875,61,5)&1\\
+ 6&9590&(3136,663,77)&17\\
+ 7&9591&(2222,438,35)&10
+\end{array}
+\end{equation}
+The block independently checks the intrinsic class description, reproduces
+the $m=4$ classes from \texttt{(ax)}, and verifies
+\begin{equation}\tag{55.21}
+ \eta_2(3)=\frac9{11},\quad \eta_2(5)=\frac{25}{29},\quad
+ \eta_2(6)=\frac{36}{55},\quad \eta_2(7)=\frac{49}{55}.
+\end{equation}
+For the Page toys $(m,r)=(5,5),(6,3)$, both signs occur and the favorable
+side retains between one third and three quarters of the finite harmonic
+weight.  This is a finite shadow of (55.17a), not evidence for its
+asymptotic uniform assertion.
 \endgroup
 
 \section{Residue-dispersion frontier}\label{sec:dispersion-frontier}
@@ -4175,6 +4712,14 @@ W. Duke, J.~B. Friedlander, and H. Iwaniec,
 \emph{Bilinear forms with Kloosterman fractions},
 Invent. Math. \textbf{128} (1997), no.~1, 23--43.
 
+\bibitem{Dyachenko}
+E. Dyachenko,
+\emph{Constructive proofs of the Erd\H{o}s--Straus conjecture for prime
+numbers of the form $P\equiv1\pmod4$},
+arXiv:2511.07465v1 (2025).  The paper's Conclusion states that its infinite
+general case is not proved constructively and that the relevant Appendix D
+arguments are conditional.
+
 \bibitem{ElsholtzPlanitzer}
 C. Elsholtz and S. Planitzer,
 \emph{The number of solutions of the Erd\H{o}s--Straus equation and sums of $k$ unit fractions},
@@ -4196,6 +4741,12 @@ K. Henriot,
 \emph{Nair--Tenenbaum bounds uniform with respect to the discriminant},
 Math. Proc. Cambridge Philos. Soc. \textbf{152} (2012), no.~3, 405--424.
 
+\bibitem{HeathBrown}
+D.~R. Heath--Brown,
+\emph{Zero-free regions for Dirichlet $L$-functions, and the least prime in
+an arithmetic progression},
+Proc. London Math. Soc. (3) \textbf{64} (1992), no.~2, 265--338.
+
 \bibitem{LenstraPomerance}
 H.~W. Lenstra Jr. and C. Pomerance,
 \emph{Primality testing with Gaussian periods},
@@ -4212,6 +4763,11 @@ Acta Math. \textbf{180} (1998), 119--144.
 C. Pomerance and A. Weingartner,
 \emph{Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture},
 author-hosted draft dated 20 November 2025, arXiv:2511.16817.
+
+\bibitem{RosserSchoenfeld}
+J.~B. Rosser and L. Schoenfeld,
+\emph{Approximate formulas for some functions of prime numbers},
+Illinois J. Math. \textbf{6} (1962), 64--94.
 
 % TODO(submission): no journal publication was verified for this computational preprint.
 \bibitem{Salez}
@@ -4233,6 +4789,12 @@ J. Reine Angew. Math. \textbf{313} (1980), 161--170.
 R.~C. Vaughan,
 \emph{On a problem of Erd\H{o}s, Straus and Schinzel},
 Mathematika \textbf{17} (1970), 193--198.
+
+\bibitem{Xylouris}
+T. Xylouris,
+\emph{On the least prime in an arithmetic progression and estimates for the
+zeros of Dirichlet $L$-functions},
+Acta Arith. \textbf{150} (2011), no.~1, 65--91.
 
 \bibitem{Yamamoto}
 K. Yamamoto,

@@ -1,12 +1,23 @@
 # Paper draft status
 
-`espaper.tex` is the v6 standalone `amsart` consolidation draft (66 pages). Its two record headlines remain:
+`espaper.tex` is the v7 standalone `amsart` consolidation draft (74 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v7 changes — 2026-08-30, wave 21
+
+- Absorbed source §54's proved, effective logarithmic lower tails. Theorem 54.1 gives infinitely many primes with `W(p) >= c log p`; its Type-I mirror forces every slice through `ck <= c log p` to vanish infinitely often. Consequently `H_MOD(A)` and `H_SPF(A)` are false for every `0 < A < 1`, and exactly `A >= 1` remains open in both defined pointwise frames.
+- Added the two-sided frontier capstone: census-small and almost-all polylog-to-epsilon typical scale, an effective logarithmic extremal lower scale, and a clearly conjectural logarithm-squared-like ceiling suggested by distinct measured statistics. The data-guided window `[1, ~2]` is separated from the proved necessity `A >= 1`.
+- Absorbed source §55's general-`m` truncated tails and exact status-preserving effectivity perimeter. The fixed-polylogarithmic Layer-1 row retains the §39 review qualification; the cubic row and Theorem 43.12 recovery remain **CLAIMED/PROVISIONAL**.
+- Preserved the review-tightened Page-conductor quantifiers: when the exceptional conductor divides `m`, favorable-sign selection is proved only for the full Layer-1 multiplier family and the structured `c`-free fibres, never for arbitrary sparse subfamilies. The worst-case fibre subtraction and unfavorable formal `k=1` bookkeeping are explicit.
+- Added the general-`m` Pomerance–Weingartner truncation comparison and finite block `(bb)` companion without claiming a finite crossover, range extension, or pointwise theorem.
+- Added the related-work register for Dyachenko arXiv:2511.07465 and the auro-zera Lean formalization: the identity layer is sound, one axiom isolates the open core, compilation remains unverified, and Dyachenko's own Conclusion characterizes the needed infinite case as conditional. Sections 51–54 quantify what that axiom assumes; no paper theorem relies on it.
+- Updated the abstract, introduction, earlier `H_MOD`/`H_SPF` discussions, internal pedigree, and bibliography. Wave-20 hostile reviews are registered; verifier coverage now runs through `(bb)`.
+- Cleared the v7 queue: source §§54–55 are absorbed.
 
 ## v6 changes — 2026-08-29, wave 20
 
@@ -50,6 +61,12 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes Theorem 54.1, (54.1)–(54.5) ↔ `W-lower` and `MOD-frontier`: full-lcm scope over every `k*ell`, effective Xylouris exponent `5.2`, unbounded selected primes, limsup constant `1/5.2`, every `0<A<1` refutation, and the provisional upper-tail label all agree.
+- notes Theorem 54.3, (54.6)–(54.10) ↔ `slice-lower` and `SPF-frontier`: squarefree-core genus forcing, every-slice vanishing, admissibility through `R(T)>4T`, effective Linnik quantification, `ck_pr`/`ck_min` scope, and every `0<A<1` refutation agree.
+- notes §54 sandwich ↔ the two-sided frontier: almost-all polylog-to-epsilon upper scale and effective logarithmic infinite lower scale are proved; the logarithm-squared-like ceiling and `[1, ~2]` window remain expressly data-guided and conjectural.
+- notes Lemma 55.1 and Theorem 55.2, (55.1)–(55.13) ↔ `m-truncated` and `general-m-tails`: prime scope, `lambda_m`/`theta_m` masses, `t(1+M_i)` ledger, exact `(m,T,N)` windows, fixed-gap recoveries, and cubic **CLAIMED/PROVISIONAL** status agree.
+- notes Lemma 55.4 and Theorem 55.5, (55.14)–(55.18) ↔ `m-Page` and `m-effectivity`: literal modulus `muv`, all three conductor cases, favorable sign, full-family/structured-fibre-only quantifiers, inequalities (55.17a)–(55.17b), unfavorable `k=1` handling, and ancillary-all-triples exclusion agree.
+- notes (55.19)–(55.21) ↔ the PW and finite registers: formal crossovers are separated from the actual uniform window; proved/provisional status and unknown-constant caveats remain; block `(bb)` numbers and informational scope agree.
 - notes Theorem 43.4, (43.13)–(43.15) ↔ `general-two-third`: unchanged exponent and local factor; both prime and all-denominator ranges are now exactly `m <= L^(2-epsilon)`.
 - notes Theorem 43.8, (43.28) ↔ `general-three-quarter-conservative`: `eta_1(m)/phi(m)`, `L^(3/4)`, range `m <= L^(3/4-epsilon)`, primes and all denominators, and inherited status all agree.
 - notes PW (43.32)–(43.34) ↔ paper (43.32)–(43.34): `R/P={eta_2(m)^3 phi(m)L}^(1/12)` and crossover `L >= 1/(eta_2(m)^3 phi(m))` agree; no old `eta_1` crossover or uniform-beating claim remains.
@@ -94,7 +111,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v6 build completes in 66 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are restored to the repository snapshot after this source-only validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero.
+The v7 build completes in 74 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are restored to the repository snapshot after this source-only validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the full verifier passes through block `(bb)`.
 
 ## Submission TODO
 
@@ -104,8 +121,6 @@ The v6 build completes in 66 pages with zero TeX errors and no undefined referen
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v7 queue
+## v8 queue
 
-- Absorb notes §54, “Lower tail / frontier sharpening.”
-- Absorb notes §55, “General-`m` effectivity.”
-- Both sections are landing in sibling wave-20 units and are intentionally absent from this v6 snapshot.
+- Absorb source §56, “Extremal census and congruence-certificate ceiling,” from the sibling wave-21 unit.
