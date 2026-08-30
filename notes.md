@@ -24140,6 +24140,7 @@ nonsquare values with \(W=+\infty\).  Such witness-statistic failures are
 not Erdős--Straus counterexamples, and §62 claims no new tail bound,
 pointwise theorem, or Erdős--Straus progress.
 
+<<<<<<< HEAD
 
 ---
 
@@ -25045,3 +25046,173 @@ supply necessary conditions and exact finite criteria; they do not turn the
 three observed sporadics into a proved complete list.  As before,
 \(W=+\infty\) means failure of this harvested Type-II supply mechanism, not
 failure of an Egyptian-fraction representation.
+=======
+## 65. The two-decade hard-prime witness census and record anatomy
+
+**Computational 65.1 (exact range, informational).**  This census extends the
+minimal harvested-modulus statistic
+\[
+ W(p)=\min\{M\equiv3\pmod4:p\equiv-4D\pmod M
+                    \text{ for some }D\mid((M+1)/4)^2\}                 \tag{65.1}
+\]
+through every hard prime \(p<10^8\).  For each of the 7,500 eligible
+\(M\leq30000\), the research code first built the complete `frozenset` of
+classes in (65.1), 244,216 stored residues in total.  Factorization, divisor
+expansion, products, and residues used Python integers only.  A segmented
+prime sieve then used a NumPy Boolean bitmap in intervals of \(10^7\)
+integers, and each hard prime walked the modulus rows in increasing order.
+The scan contains exactly 719,781 hard primes; every one resolves below the
+fixed cap, so the emergency on-the-fly extension is never entered.
+
+The staged \(p<10^7\) run first reproduced all 82,887 primes and the exact
+record tables (56.10)--(56.11).  The full run also reproduced
+\(W(225289)=279\), \(W(954409)=335\), \(W(1853329)=383\), and
+\(W(2031121)=2495\), with exactly the \((a_W,D_W)\) data in (62.22).
+A second implementation formed divisors with `sympy.divisors(A*A)` rather
+than factor expansion.  It agreed on 1,000 hard primes below \(10^7\),
+selected without replacement with seed 650027.  Block (bl) additionally
+rebuilds both class systems and independently replays every displayed record,
+the four late rows, and 1,000 seeded hard primes below \(10^5\).  Thus the
+cross-check uses a separate divisor-generation path as well as a separate
+bounded prime substream.
+
+### 65.1 The complete strict-record ledger
+
+The complete strict-record table through \(p<10^8\) is
+\[
+\begin{array}{r|r|r|r|l|c}
+p&W(p)&a_W&D_W&p+4& W(p)>\sqrt{p+4}\\ \hline
+73&7&11&1&7\cdot11&N\\
+193&15&15&8&197&Y\\
+1201&31&39&2&5\cdot241&N\\
+2521&47&55&16&5^2\cdot101&N\\
+3361&99&39&125&5\cdot673&Y\\
+33289&155&215&9&13^2\cdot197&N\\
+90841&167&551&294&5\cdot18169&N\\
+144169&191&755&9&144173&N\\
+167521&259&647&13&5^2\cdot6701&N\\
+225289&279&811&245&37\cdot6089&N\\
+361321&287&1259&3&5^2\cdot97\cdot149&N\\
+915961&303&3023&2&5\cdot29\cdot6317&N\\
+954409&335&2855&504&181\cdot5273&N\\
+1853329&383&4839&2&1853333&N\\
+2031121&2495&815&576&5^3\cdot16249&Y
+\end{array}                                                           \tag{65.2}
+\]
+There is no new strict record in \(10^7\leq p<10^8\): the new-record list
+in that interval is empty, and the running maximum remains 2495.  For a
+minimum modulus with more than one firing divisor, the table retains the
+first \(D\) in the campaign's existing factor-expansion order, as in §61.3;
+every displayed row separately satisfies \(a_WW=p+4D_W\) and gives a valid
+Lemma-16.1 witness.  The \(a_W\)'s have minimum 11, nearest-rank median 647,
+and maximum 4839.  Five lie below 100, six in \([100,1000)\), and four at
+least 1000.  The displayed \(D_W\)'s split 8 even and 7 odd.  These are
+finite record-row descriptions, not distribution laws.
+
+The structural prediction involving \(p+4\) has an antecedent at exactly
+three record primes: 193, 3361, and 2031121.  Their displayed factorizations
+contain only prime factors congruent to 1 modulo 4.  Hence the prediction
+that a record with \(W(p)>\sqrt{p+4}\) has no prime factor
+\(3\pmod4\) in \(p+4\) has zero violations in all 15 record rows.  This is
+only a numerical check of the stated implication, not a proof of the
+parallel argument.
+
+### 65.2 Minimum-row parity and distribution below \(10^7\)
+
+**Computational 65.2 (exact \(p<10^7\)).**  Under the same selected-divisor
+convention as §61.3, 49,975 of 82,887 minimum rows have even \(D\), and
+32,912 have odd \(D\): 60.293% versus 39.707%.  The earlier
+\(p<3\cdot10^5\) split was 1,941/3,202, or 60.618% even, so the observed
+prevalence persists at this larger endpoint.  Selection matters in 458
+rows where both parities witness the same minimum \(M\).  Intrinsically,
+49,975 minima have only even firing divisors, 32,454 have only odd firing
+divisors, and 458 have both; no minimum here has more than two firing
+divisors.
+
+The exact coarse histogram and nearest-rank percentiles are
+\[
+\begin{array}{c|r@{\qquad}c|r}
+W\text{ interval}&\#p&\text{percentile}&W\\ \hline
+[1,7]&41577&50\%&7\\
+[8,15]&26959&75\%&15\\
+[16,31]&8632&90\%&23\\
+[32,63]&3989&95\%&39\\
+[64,127]&1463&99\%&87\\
+[128,255]&223&99.9\%&203\\
+[256,511]&40&99.99\%&351\\
+[512,1023]&3&100\%&2495\\
+[1024,\mathord\infty)&1&&
+\end{array}                                                           \tag{65.3}
+\]
+The 82,887 values occupy 67 distinct eligible moduli.  The interval counts
+sum to the exact population; percentages in the prose and quantile labels
+are descriptive summaries only.
+
+### 65.3 Blockwise normalized trajectories
+
+**INFO 65.1 (finite block maxima only).**  For each populated dyadic block,
+the next table gives the hard-prime count, then the two block suprema.  Each
+parenthesis is \((p,W(p))\), logarithms are natural, and the final block is
+clipped at the exact census endpoint.
+\[
+\begin{array}{r|r|l|l}
+p\text{ range}&\#p&\sup W/\log p&
+                      \sup W/(\log p\log\log p)\\ \hline
+[64,128)&2&1.631527\ (73,7)&1.120251\ (73,7)\\
+[128,256)&2&2.850253\ (193,15)&1.716356\ (193,15)\\
+[256,512)&5&2.449106\ (457,15)&1.351360\ (457,15)\\
+[512,1024)&6&2.303530\ (673,15)&1.229462\ (673,15)\\
+[1024,2048)&16&4.371794\ (1201,31)&2.231858\ (1201,31)\\
+[2048,4096)&31&12.192127\ (3361,99)&5.821495\ (3361,99)\\
+[4096,8192)&58&4.521754\ (5569,39)&2.098591\ (5569,39)\\
+[8192,16384)&99&4.973014\ (12721,47)&2.214045\ (12721,47)\\
+[16384,32768)&200&8.451130\ (29569,87)&3.624593\ (29569,87)\\
+[32768,65536)&375&14.885265\ (33289,155)&6.352935\ (33289,155)\\
+[65536,131072)&704&14.627482\ (90841,167)&6.006953\ (90841,167)\\
+[131072,262144)&1331&22.636661\ (225289,279)&9.012698\ (225289,279)\\
+[262144,524288)&2548&22.426217\ (361321,287)&8.797177\ (361321,287)\\
+[524288,1048576)&4815&24.330286\ (954409,335)&9.277839\ (954409,335)\\
+[1048576,2097152)&9147&171.783468\ (2031121,2495)&64.198698\ (2031121,2495)\\
+[2097152,4194304)&17541&25.905959\ (3587809,391)&9.544481\ (3587809,391)\\
+[4194304,8388608)&33433&48.296787\ (5214049,747)&17.634931\ (5214049,747)\\
+[8388608,16777216)&64072&39.184586\ (13383241,643)&14.005192\ (13383241,643)\\
+[16777216,33554432)&123271&53.961431\ (21475609,911)&19.092786\ (21475609,911)\\
+[33554432,67108864)&236663&52.790268\ (39203761,923)&18.449734\ (39203761,923)\\
+[67108864,10^8)&225462&55.021338\ (88808281,1007)&18.927125\ (88808281,1007)
+\end{array}                                                           \tag{65.4}
+\]
+Over the complete range, both normalized suprema still occur at
+\((p,W)=(2031121,2495)\): they are respectively 171.783468 and 64.198698.
+The later block maxima in (65.4) are local maxima, not strict records of
+\(W\).
+
+### 65.4 Replay scope, runtime, and walls
+
+**Computational 65.3 (bounded replay).**  By default block (bl) freshly
+builds both Python-integer class systems through \(M=3000\), asserts their
+rowwise equality, replays every record through \(10^6\), and always replays
+the four rows of (62.22), including exact Lemma-16.1 fraction sums.  It also
+compares the two minima on 1,000 seeded hard primes below \(10^5\), pins the
+small-prefix selected parity count \((706,475)\), and checks the \(p+4\)
+prediction on records through \(10^6\).  With `ES_FULL_SCAN=1`, block (bl)
+uses \(M\leq30000\) and replays all 15 claimed record primes below \(10^8\),
+certifying absence of smaller harvested moduli for those primes only.  It
+does not rerun the 719,781-prime research census; that distinction is
+deliberate.
+
+On the research host, the staged \(10^7\) process took 1.37 seconds wall
+(0.56 seconds inside the runner).  The full \(10^8\) process took 2.65
+seconds wall (2.04 seconds inside), with maximum resident memory 120,960 KiB.
+Block (bl) took 0.029 seconds on the default path and 0.663 seconds in an
+isolated full-path replay.  The complete default verification suite remained
+green in 177.99 seconds.  The scan speed reflects the very small typical
+minimum and does not replace any of the exact checks above.
+
+**Honest walls.**  This census sharpens only the empirical finite-search
+panel behind the informal \(1\leq A\lesssim2\) window.  The absence of a
+new record after \(10^7\), the parity stability, and the normalized block
+values prove nothing about \(H_{\rm MOD}(A)\).  In particular they neither
+supply an upper bound for any \(A\geq1\) nor alter the proved refutation for
+\(A<1\).  No asymptotic law, fitted exponent, independence assertion, or
+tail-density claim is inferred from (65.2)--(65.4).
+>>>>>>> uC27/main

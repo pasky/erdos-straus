@@ -12689,4 +12689,150 @@ print("\n== (bk) gcd mechanism, shifted constraints, and wider hunt (§64) ==")
 check_bk()
 
 
+# ---------------------------------------------------------------- (bl)
+def check_bl():
+    """§65: bounded W-record and anatomy replay (not a full prime rescan)."""
+    import os
+    from random import Random
+    from sympy import divisors as sympy_divisors
+    from time import perf_counter
+
+    started = perf_counter()
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    modulus_cap = 30_000 if full_scan else 3_000
+
+    # Rebuild both class systems locally.  The first expands factorint(A) to
+    # the divisors of A^2; the second calls SymPy's direct divisors(A*A).
+    # All divisor products and residues are explicitly ordinary Python ints.
+    def factor_square_divisors(A):
+        values = [1]
+        for q0, exponent0 in factorint(int(A)).items():
+            q, exponent = int(q0), int(exponent0)
+            values = [int(D * q**e) for D in values
+                      for e in range(2 * exponent + 1)]
+        return values
+
+    factor_rows = []
+    direct_rows = []
+    for M in range(3, modulus_cap + 1, 4):
+        A = (M + 1) // 4
+        factor_classes = frozenset(
+            int((-4 * D) % M) for D in factor_square_divisors(A)
+        )
+        direct_classes = frozenset(
+            int((-4 * int(D)) % M)
+            for D in sympy_divisors(int(A * A))
+        )
+        assert factor_classes == direct_classes
+        factor_rows.append((M, factor_classes))
+        direct_rows.append((M, direct_classes))
+    factor_rows, direct_rows = tuple(factor_rows), tuple(direct_rows)
+    assert len(factor_rows) == (modulus_cap + 1) // 4
+
+    def row_W(P, rows):
+        return next((M for M, classes in rows if P % M in classes), None)
+
+    records = (
+        (73, 7), (193, 15), (1201, 31), (2521, 47), (3361, 99),
+        (33_289, 155), (90_841, 167), (144_169, 191), (167_521, 259),
+        (225_289, 279), (361_321, 287), (915_961, 303), (954_409, 335),
+        (1_853_329, 383), (2_031_121, 2495),
+    )
+    default_records = tuple(row for row in records if row[0] <= 1_000_000)
+    replay_records = records if full_scan else default_records
+    for P, expected in replay_records:
+        assert row_W(P, factor_rows) == expected
+        assert row_W(P, direct_rows) == expected
+
+    # The four §62.22 rows are always replayed, including their exact (a,D)
+    # anatomy and a Lemma-16.1 fraction reconstruction.
+    late_rows = {
+        225_289: (279, 811, 245),
+        954_409: (335, 2855, 504),
+        1_853_329: (383, 4839, 2),
+        2_031_121: (2495, 815, 576),
+    }
+
+    def fraction_reconstruction(P, M, D):
+        A = (M + 1) // 4
+        D_factors = {int(q): int(e) for q, e in factorint(D).items()}
+        u = v = w = 1
+        for q0, exponent0 in factorint(A).items():
+            q, exponent = int(q0), int(exponent0)
+            d_exponent = D_factors.get(q, 0)
+            u_exponent = d_exponent // 2
+            w_exponent = d_exponent - 2 * u_exponent
+            v_exponent = exponent - u_exponent - w_exponent
+            assert v_exponent >= 0
+            u *= q**u_exponent
+            v *= q**v_exponent
+            w *= q**w_exponent
+        assert u * v * w == A and u * u * w == D
+        assert (P * v + u) % M == 0
+        s = (P * v + u) // M
+        x, y, z = s * u * w, P * s * v * w, P * u * v * w
+        assert (Fraction(1, x) + Fraction(1, y) + Fraction(1, z)
+                == Fraction(4, P))
+
+    for P, (M, expected_a, expected_D) in late_rows.items():
+        assert row_W(P, factor_rows) == M
+        assert row_W(P, direct_rows) == M
+        A = (M + 1) // 4
+        D = next(D for D in factor_square_divisors(A)
+                 if (P + 4 * D) % M == 0)
+        a = (P + 4 * D) // M
+        assert (a, D) == (expected_a, expected_D)
+        assert D in {int(d) for d in sympy_divisors(int(A * A))}
+        assert P % M == (-4 * D) % M and a * M == P + 4 * D
+        fraction_reconstruction(P, M, D)
+
+    # At least 1000 seeded random hard primes get independent-path minima.
+    hard_spot = tuple(int(P) for P in primerange(2, 100_000)
+                      if P % 24 == 1)
+    assert len(hard_spot) == 1181
+    rng = Random(650027)
+    spot = tuple(hard_spot[i]
+                 for i in rng.sample(range(len(hard_spot)), 1000))
+    for P in spot:
+        first = row_W(P, factor_rows)
+        second = row_W(P, direct_rows)
+        assert first is not None and first == second
+
+    # Recompute the selected minimum D for the complete small exact prefix.
+    # This uses the same deterministic factor-expansion ordering as §61.3.
+    parity = Counter()
+    for P in hard_spot:
+        M = row_W(P, factor_rows)
+        A = (M + 1) // 4
+        D = next(D for D in factor_square_divisors(A)
+                 if (P + 4 * D) % M == 0)
+        parity["even" if D % 2 == 0 else "odd"] += 1
+    assert parity == Counter({"even": 706, "odd": 475})
+
+    # Check the wave-27 p+4 prediction exactly on the requested default
+    # record prefix.  The full mode extends this only to the displayed full
+    # table; neither mode rescans all primes through the census endpoint.
+    structural_records = records if full_scan else default_records
+    antecedent = []
+    for P, M in structural_records:
+        if M > isqrt(P + 4):
+            antecedent.append(P)
+            assert all(int(q) % 4 != 3 for q in factorint(P + 4))
+    assert tuple(antecedent) == (
+        (193, 3361, 2_031_121) if full_scan else (193, 3361)
+    )
+
+    print("W-record bounded replay "
+          "(cap,records,late rows,seeded spots,small parity,seconds) =",
+          (modulus_cap, len(replay_records), len(late_rows), len(spot),
+           dict(parity), perf_counter() - started))
+    if full_scan:
+        print("ES_FULL_SCAN §65 scope: all 15 claimed record primes below "
+              "10^8; this is intentionally not a rescan of all 719781 primes")
+
+
+print("\n== (bl) W-record census and anatomy (§65) ==")
+check_bl()
+
+
 print("\nall checks passed")
