@@ -1,12 +1,25 @@
 # Paper draft status
 
-`espaper.tex` is the v13 standalone `amsart` consolidation draft (118 pages). Its two record headlines remain:
+`espaper.tex` is the v14 standalone `amsart` consolidation draft (133 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v14 changes — 2026-08-30, wave 28
+
+- Absorbed source §63 as the new algebraic-witness-taxonomy section.  The proved DIV/D1, fixed-`D`, universal CRT-coupled `a`, square-root, congruence-coverage, and effective half-dimensional-sieve laws retain all hypotheses and range checks.
+- Preserved the honest comparison: the square-root regime is weaker than §51 on both the modulus and exceptional-set axes, is not directly threshold-comparable to that window, and gives no pointwise progress or new supply family.
+- Added the exact `a_1` first-witness-index censuses through `10^6` and gated `10^7`, separating `a_1` from `a_W` and retaining every histogram, maximum, correlation, late row, and no-growth-law warning.
+- Absorbed source §64 as the gcd-mechanism section.  The cancellation-cover theorem keeps the exact eligibility-failure valuation window and empty-row possibility; the `D=1,2`, dyadic, twisted-square, and composite-unit-branch laws remain necessary/sufficient only at their stated scopes.
+- Added all three complete sporadic cancellation ledgers and the enlarged hunt: 146016 old plus 242837 new pairs, 388853 total distinct points, no survivor, and exact maximum `W(3201660)=5303` at `15*462^2`.  The `10^9` result remains a thin coordinate slice, not an interval scan.
+- Kept the classification walls explicit: nonsquare finiteness is open, `C_SQ'` remains open with only its right-to-left inclusion proved, and finite hunts concern the harvested `W` mechanism rather than all Egyptian-fraction representations.
+- Absorbed source §65 as the Computational/INFO two-decade census of all 719781 hard primes below `10^8`.  All 15 strict records, the empty post-`10^7` record list, parity split, histogram, and 21 dyadic block rows are retained without a growth-law or `H_MOD` claim.
+- Recorded the source-audit distinction exactly: block `(bl)` is a bounded record replay even under `ES_FULL_SCAN=1`; committed `scripts/review65_independent.py`, not `(bl)`, independently reruns the full census.
+- Extended the internal pedigree through blocks `(bj)`–`(bl)` and all three wave-27 **SOUND-AFTER-REPAIRS** reviews.  These remain internal verification only.
+- Updated the abstract, introduction, section map, status register, §62 forward pointer, final status, verifier endpoint, tracked table of contents, and PDF.  The build grows by 15 pages, from 118 to 133.
 
 ## v13 changes — 2026-08-30, wave 27
 
@@ -128,6 +141,19 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §63 status, Lemmas 63.1–63.2, Corollary 63.3, and (63.1)–(63.7) ↔ `witness-taxonomy`, `DIV-family`, `D1-family`, and `square-root-law`: exact hard-prime context, all range endpoints, paired `D=1,h^2` witnesses, complementary-factor choice, and square-root bound agree.
+- notes Theorems 63.4–63.5 and (63.8)–(63.16) ↔ `fixed-D-laws` and `universal-a-law`: if-and-only-if divisor conditions, squarefree and `D=4` branches, all four fixed-`D` rows, primitive-root vectors, bounded valuations, and one shared exponent across every CRT component agree.
+- notes Corollary 63.6, Theorem 63.7, Corollary 63.8, and (63.17)–(63.24) ↔ the coverage subsection: empty `a=3` branch, exact two-class sieve, `O(rho(d))` remainder, effective dimension `3/2`, explicit exceptional set, four late factorizations, and weaker-on-both-axes comparison agree.
+- notes Computational 63.1–63.3 and (63.25)–(63.33) ↔ the first-index and pedigree subsections: `a_1`/`a_W` definitions, both exact populations and histograms, all maxima/correlations/ratios/differences, four late rows, no-asymptotic and no-hidden-positivity walls, gated scope, and block `(bj)` review pedigree agree.
+- notes §64 status, Theorem 64.1, and (64.1)–(64.3) ↔ `gcd-mechanism` and `cancellation-cover`: exact quotient-row box, empty-set convention, eligibility-failure valuation window, gcd support inside `n`, unit-row consequence, and necessary-versus-sufficient boundary agree.
+- notes Theorem 64.2, Corollaries 64.3–64.4, Theorem 64.5, and (64.4)–(64.10) ↔ the shifted-law and unit-branch subsections: all-`n` quantifiers, exact support alternatives, six dyadic exclusions, two Legendre-symbol roots, `q=3` specialization, odd composite unit hypothesis, and no nonunit claim agree.
+- notes Computational 64.1 and (64.11)–(64.12) ↔ the complete ledgers: every gcd and failed-prime multiplicity, totals 43/65/188, exact support unions, 400 unit branches and zero unit rows for 4545, and input-specific rather than family-wide diagnosis agree.
+- notes Assessment/Heuristic 64.1 and Computational 64.2–64.3 ↔ the finiteness and hunt subsections: all open walls, heuristic-only assumptions, 64978-class product, exact 146016/242837/388853 box counts, prefilters, `W(3201660)=5303` datum, default box, thin `10^9` slice, right-to-left-only `C_SQ'`, and no-`C_SQ''` clause agree.
+- notes §64.6–§64.7 ↔ the local and global `(bk)` pedigrees: Python-integer and streaming scope, every review count, independent full hunt, **SOUND-AFTER-REPAIRS** verdict, and no-growth/no-classification perimeter agree.
+- notes Computational 65.1 and (65.1)–(65.2) ↔ `two-decade-census` and the strict-record ledger: exclusive `p<10^8` scope, 719781 primes, 7500 rows, 244216 classes, all 15 records, selected-least-`D` convention, empty post-`10^7` record list, and zero square-root-prediction violations agree.
+- notes Computational 65.2 and (65.3) ↔ the parity/histogram subsection: exact 49975/32912 split and percentages, intrinsic 49975/32454/458 split, every interval count and percentile, 67 occupied moduli, and no-distribution-law clause agree.
+- notes INFO 65.1 and (65.4) ↔ the blockwise table: all 21 populations and both six-decimal normalized columns, clipped endpoint, local-versus-strict-record distinction, and global suprema 171.783468/64.198698 agree.
+- notes Computational 65.3 and §65.5 ↔ the replay and review pedigree: block `(bl)` default/full distinction, historical transient-runner limitation, committed independent full replay script, explicit leftover assertion, memory scope, **SOUND-AFTER-REPAIRS** verdict, INFO-only status, no growth law, and `H_MOD` untouched agree.
 - notes §62 status, Theorem 62.1, and (62.1)–(62.8) ↔ `ratio-spectrum` and `thm:ratio-spectrum`: exact coprimality hypothesis, bounded exponent spectrum, hard-prime and `a` quantifiers, divisor pairing, reconstruction, automatic eligibility, and `W(p)` minimization agree.
 - notes Theorem 62.2 and (62.9)–(62.16) ↔ `small-a-laws`: all inverse-paired class rows, exact laws at `3,7,11,15,19,23`, ten mod-11 minimal budgets, four mod-15 rows, finite-log proof, repeated-prime budgets, and the full `a=7,h=17` multiplicity failure agree.
 - notes Assessment 62.1 and (62.17)–(62.18) ↔ the first-layer density paragraph: contextual-only Landau–Selberg–Delange status, all six checked counts, all six exact failure counts, and Computational-only finite scope agree.
@@ -226,7 +252,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v13 build completes in 118 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v13-relevant verifier coverage passes through block `(bi)`.
+The v14 build completes in 133 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v14-relevant verifier coverage passes through block `(bl)`.
 
 ## Submission TODO
 
@@ -236,8 +262,8 @@ The v13 build completes in 118 pages with zero TeX errors and no undefined refer
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v14 queue
+## v15 queue
 
-- Source §§63–65 are being written in parallel during wave 27.  They are unreviewed and pending; none is absorbed into v13.
+- Source §§66–68 are being written in parallel during wave 28.  They are unreviewed and pending; none is absorbed into v14.
 
-This is a queue record only; v13 makes no content claim about §§63–65.
+This is a queue record only; v14 makes no content claim about §§66–68.
