@@ -1,6 +1,6 @@
 # Vaughan (1970) access log
 
-**Status at 2026-08-29: no lawful public full-text copy obtained.** The publisher copy is access-controlled, the author and institutional records have no deposited manuscript, and Internet Archive Scholar explicitly reports “No known archive.” No PDF, extracted text, or comparison memo was created.
+**Status at 2026-08-30: no lawful public full-text copy obtained.** The publisher copy is access-controlled, the author and institutional records have no deposited manuscript, and Internet Archive Scholar explicitly reports “No known archive.” No PDF, extracted text, or comparison memo was created.
 
 ## 1. DOI and publisher routes
 
@@ -46,3 +46,12 @@ Only legitimate publisher, author, institutional, and archive routes were pursue
 - **Search result (zbMATH/EuDML):** the zbMATH API failed at its public proxy and the web record presented bot verification; EuDML's exact-title search returned no result record or full-text link.  These routes yielded no artifact.
 - **Search result (publisher migration/open-status recheck):** the current Cambridge legacy record still says “Get access” and offers purchase/institutional access; the current Wiley record exposes PDF/ePDF links but no open-access marker.  OpenAlex still reports `is_oa:false`, `oa_status:closed`, and no repository full text.  Crossref now records Portico and Wiley text-mining links, but Portico is not a public copy and Wiley's TDM API returned HTTP 400 without an artifact.
 - **Assessment:** no PDF was obtained, so no direct Vaughan comparison memo can responsibly be written; Section 16's Vaughan-method statements remain reconstruction-via-Pomerance--Weingartner rather than primary-source facts.
+
+## 7. Wave-22 new-route retry (2026-08-30)
+
+- **Google Books backfile scans:** the ISSN route (`0025-5793`) and Google Books edition clusters do expose digitized *Mathematika* holdings (for example `jawK0-xOLxAC`, an Indiana University scan of the 1961 volume), but the records found were other years, marked `noview`, and had `can_download_pdf:false`. No volume 17 (1970) record or target-paper preview/download surfaced.
+- **Sheffield/White Rose repository:** exact-title and `Vaughan Mathematika 1970` searches in White Rose Research Online, relevant because the paper lists Vaughan at Sheffield, returned zero records. Its OAI date query likewise yielded no 1970 record.
+- **Additional repository aggregators:** OpenAIRE's exact DOI record is `CLOSED` and contains only zbMATH/Crossref instances, with no repository file; HAL reports zero records for the DOI. BASE's public API denied this client IP, and HathiTrust catalog/full-text endpoints presented Cloudflare verification, so neither exposed an artifact.
+- **Other digitization probes:** Open Library had no matching full-text serial; guessed Internet Archive Serials-in-Microfilm identifiers for *Mathematika* 17(2) had no metadata item; UCL Discovery's repository/OAI endpoint was Cloudflare-blocked. Gallica's SRU endpoint denied access, while an e-periodica volume probe returned 404.
+- **DOI correction:** Crossref confirms Vaughan's paper is `10.1112/S0025579300002886`. The sometimes-suggested `10.1112/S0025579300002941` is a different paper (A. J. M. Spencer, pp. 275–286), not an alternate Vaughan route.
+- **Assessment:** no lawful public PDF was obtained.
