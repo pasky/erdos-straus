@@ -1,12 +1,23 @@
 # Paper draft status
 
-`espaper.tex` is the v12 standalone `amsart` consolidation draft (112 pages). Its two record headlines remain:
+`espaper.tex` is the v13 standalone `amsart` consolidation draft (118 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v13 changes — 2026-08-30, wave 27
+
+- Absorbed source §62 as the new section immediately after the decidable-census section.  The proved ratio-spectrum law retains the exact bounded-exponent spectrum, divisor pairing, witness reconstruction, and `W(p)` minimization.
+- Added the six exact small-`a` laws for `a=3,7,11,15,19,23`, including every inverse-paired residue row, the ten minimal mod-11 budgets, the `C4 x C2` law at 15, and the full multiplicity counterexample `Rat_7(17)={5,1,3}`.
+- Preserved Assessment 62.1 and the exact six-column failure census through unit `h <= 10^5`; the Landau–Selberg–Delange asymptotic is context only and is not used in a proof.
+- Added the finite-conspiracy equivalence, the exhibited-mechanisms-only register, and the explicitly Heuristic independence model with its shared-shift, shared-factor, no-tail, and no-pointwise caveats.
+- Transcribed all four late-resolution rows, all fixed-`a` outcomes and failure-budget vectors, and the exact composite degradation ledger.  Small-`a` success may still have huge `M`, while the sporadic quotient rows remain confined to nonunit gcd/eligibility branches.
+- Added the staged fourth-sporadic hunt over exactly the stated `(s,m)`-box subset: 146016 distinct integers, no stage-1 survivor, and exact maximum `W(9028800)=3359` at `(M,D,a)=(3359,48,2688)`.  This is bounded stress only: `C_SQ'` remains open, only its right-to-left inclusion is proved, and no `C_SQ''` is introduced.
+- Transcribed the wave-26 **SOUND-AFTER-REPAIRS** pedigree and block `(bi)` scope accurately: ratio/pairing checks, every unit `h <= 10^5`, 1181 hard primes through `10^5`, record and sporadic ledgers, bounded Python-integer state, and the gated full hunt.  These remain internal validation only.
+- Updated the abstract, introduction, section map, status register, internal and local pedigrees, final status, verifier endpoint, tracked table of contents, and PDF.  Block `(bi)` is the v13 verifier endpoint.
 
 ## v12 changes — 2026-08-30, wave 26
 
@@ -113,6 +124,13 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §62 status, Theorem 62.1, and (62.1)–(62.8) ↔ `ratio-spectrum` and `thm:ratio-spectrum`: exact coprimality hypothesis, bounded exponent spectrum, hard-prime and `a` quantifiers, divisor pairing, reconstruction, automatic eligibility, and `W(p)` minimization agree.
+- notes Theorem 62.2 and (62.9)–(62.16) ↔ `small-a-laws`: all inverse-paired class rows, exact laws at `3,7,11,15,19,23`, ten mod-11 minimal budgets, four mod-15 rows, finite-log proof, repeated-prime budgets, and the full `a=7,h=17` multiplicity failure agree.
+- notes Assessment 62.1 and (62.17)–(62.18) ↔ the first-layer density paragraph: contextual-only Landau–Selberg–Delange status, all six checked counts, all six exact failure counts, and Computational-only finite scope agree.
+- notes (62.19)–(62.21), Assessment 62.2, and Heuristic 62.1 ↔ the finite-conspiracy subsection: exact all-`a` equivalence, exhibited-mechanisms-only honesty clause, model-only independence product, shared-shift/shared-factor caveats, and no-tail/no-pointwise perimeter agree.
+- notes Computational 62.1 and (62.22)–(62.24) ↔ the late-resolution and composite ledgers: every table digit, all fixed-`a` outcomes, every displayed budget vector, small-`a`/large-`M` distinction, and exact nonunit/gcd/eligibility diagnosis agree.
+- notes Computational 62.2 and (62.25)–(62.26) ↔ the staged hunt: exact coordinate-box rather than full-interval scope, 607/146016 counts, empty deeper stages, exact maximum and witness tuple, default slice, optional gate, right-to-left-only `C_SQ'` status, and no-`C_SQ''` clause agree.
+- notes Computational 62.3 and §62.7 ↔ the local and global pedigrees: 500 seeded unit pairs, every unit `h <= 10^5`, all 1181 hard primes, 27107184 tested rows, exact maximum/sum, bounded Python-integer state, independent hunt replay, **SOUND-AFTER-REPAIRS** verdict, and internal-only status agree.
 - notes §61 status, Lemma 61.1, and (61.1)–(61.3) ↔ `decidable-census` and `forward-normal-form`: proved/Computational separation, exact simultaneous bounds, positivity and divisor-table arguments, both census endpoints, tuple counts, memory gate, two-method overlap, and all-hard-prime cross-check agree.
 - notes Theorem 61.2 and (61.4)–(61.6) ↔ `twisted-square-criterion`: finite if-and-only-if, all four automatic conditions, gcd cancellation warning, even-`D` coverage, exact near-miss supports, and no-family diagnosis agree.
 - notes Theorem 61.3 and (61.7)–(61.8) ↔ `two-square-layers`: exact `W=3` and `W=11` equivalences, root sets `±2,±3,±4 (mod 11)`, conditional `W=19` classes `±3,±6,±8 (mod 19)`, and every smaller-modulus exclusion agree.
@@ -204,7 +222,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v12 build completes in 112 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v12-relevant verifier coverage passes through block `(bh)`.
+The v13 build completes in 118 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v13-relevant verifier coverage passes through block `(bi)`.
 
 ## Submission TODO
 
@@ -214,8 +232,8 @@ The v12 build completes in 112 pages with zero TeX errors and no undefined refer
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v13 queue
+## v14 queue
 
-- Absorb source §62, “divisor-ratio spectrum, per-$a$ laws, finite conspiracy,” being written in parallel during wave 26.
+- Source §§63–65 are being written in parallel during wave 27.  They are unreviewed and pending; none is absorbed into v13.
 
-This is a queue title only; v12 makes no content claim about §62.
+This is a queue record only; v13 makes no content claim about §§63–65.
