@@ -21,6 +21,10 @@ Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inhe
 - Extended the global pedigree through blocks `(bm)`–`(bo)` and the three wave-28 attestations: **SOUND-AFTER-MINOR-REPAIRS**, **SOUND-AFTER-REPAIRS**, and **CONFIRMED AFTER REPAIRS, source-bounded only**.  These remain internal validation or source review, not external refereeing.
 - Updated the abstract, introduction, section map, status register, §65 forward pointer, final status, bibliography, verifier endpoint, tracked table of contents, and PDF.  The build grows by 12 pages, from 133 to 145.
 
+## Wave-29 v15 fidelity review
+
+- Verdict **FAITHFUL-AFTER-REPAIRS**; restored the four verbatim PW theorem quotations promised by the source register, made the Layer-1 range explicit in the PW consistency check, and retained every source §66–§68 status, quantifier, digit, caveat, and wave-28 attestation.
+
 ## v14 changes — 2026-08-30, wave 28
 
 - Absorbed source §63 as the new algebraic-witness-taxonomy section.  The proved DIV/D1, fixed-`D`, universal CRT-coupled `a`, square-root, congruence-coverage, and effective half-dimensional-sieve laws retain all hypotheses and range checks.
@@ -294,6 +298,6 @@ The v15 build completes in 145 pages with zero TeX errors and no undefined refer
 
 ## v16 queue
 
-- Source §69 is being written in parallel during wave 29.  It is unreviewed and pending; none of it is absorbed into v15.
+- Source §69 is pending v16 review and absorption; none of it is absorbed into v15.
 
 This is a queue record only; v15 makes no content claim about §69.
