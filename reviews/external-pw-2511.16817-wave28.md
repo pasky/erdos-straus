@@ -17,17 +17,26 @@ It neither formulates a minimal witness modulus nor states a witness-modulus
 tail or an effectivity theorem, and it does not cite Dahan.
 
 There is no conflict between its large-`m` exceptional-prime constructions
-and Theorem 43.12/Section 55.  The constructed primes live at
-`log p = m^(1/3+o(1))` (or `log p = O(log m)` in the explicit theorem), while
-the campaign's fixed-gap range starts at
-`log N >= m^(1/(3-epsilon))`, a strictly larger power.  The precise exponent
-gap is recorded below.
+and Theorem 43.12/Section 55, but the reasons differ.  The constructed primes
+live at `log p = m^(1/3+o(1))` (or `log p = O(log m)` in the explicit
+theorem), outside Theorem 43.12's fixed-gap range.  The explicit polynomial
+regime is also outside Section 55.  The asymptotic construction can enter
+Section 55's fixed-`B` parameter range, contrary to the original memo's
+wording, but both Section-55 saving masses then tend to zero and its theorem
+never claims zero exceptions.  The precise reverse check is recorded below.
 
 A source-control anomaly explains why the benchmark was already familiar:
-`sources/pomerance-weingartner-2025.pdf` is the November 2025 version of this
-same arXiv paper, not a different Pomerance--Weingartner paper.  Wave 28
-archives v2.  Theorem 1.3 and the priority conclusions are unchanged between
-the two versions.
+`sources/pomerance-weingartner-2025.pdf` is the November 20, 2025 version of
+this same arXiv paper, not a different Pomerance--Weingartner paper.  Wave 28
+archives v2.  Titles, authors, abstract theorem capsule, 25-page length, and
+all theorem numbering agree.  A fresh direct arXiv-v1 fetch is not
+byte-identical to the author PDF because arXiv regenerated and stamped it,
+but its source creation instant, abstract, theorem list, and full
+mathematical text match.  Theorem 1.3 and Section 4 are unchanged in
+substance.  V2 corrects the abstract's inconsistent numerical-support
+threshold from `m>=19` to `m>=20`, adds the introductory pre-Vaughan sieve
+explanation and Gottschlich reference, and otherwise makes
+notation/typesetting changes relevant to no campaign citation.
 
 ## Statements extracted from the paper
 
@@ -58,7 +67,9 @@ the campaign's Section 51.9 audit.
 
 ### 2. The lower exceptional-prime construction
 
-Theorem 1.1 itself says:
+The abstract first says that, if the eventual-representability threshold
+`n_m` exists, “it must be at least `exp(m^(1/3+o(1)))`” (p. 1).  The precise
+theorem behind that capsule says:
 
 > “For each epsilon > 0 there is a bound m(epsilon) such that for each
 > m >= m(epsilon) there is some n > exp(m^(1/3-epsilon)) with m/n not the
@@ -239,7 +250,7 @@ to change.
 
 ### Consistency with the lower exceptions
 
-Fix a campaign range gap `0<sigma<3`.  Theorem 43.12/Section 55 requires
+Fix a campaign range gap `0<sigma<3`.  Theorem 43.12 requires
 
 `m <= (log N)^(3-sigma)`, equivalently
 `log N >= m^(1/(3-sigma))`.
@@ -254,14 +265,29 @@ In the proof of Theorem 3.1, the exceptional primes lie below
 
 `m/(log p)^(3-sigma) = m^(sigma/3+o(1)) -> infinity`.
 
-So those primes violate the campaign's range hypothesis for every fixed
-`sigma>0`.  Equivalently, the campaign threshold has the larger power
+So those primes violate Theorem 43.12's range hypothesis for every fixed
+`sigma>0`; they also violate the smaller Layer-1 all-denominator range.
+Equivalently, the campaign threshold has the larger power
 `m^(1/3+sigma/(3(3-sigma)))`.  The explicit Theorem 1.2 primes satisfy
-`log p=2 log m+O(1)`, even farther outside:
-`m/(log p)^(3-sigma) -> infinity`.  **No contradiction exists.**  This is a
-range separation, not an assertion that exceptional primes cannot occur
-inside the campaign's range; the campaign theorem is an upper count, not a
-zero-exception theorem.
+`log p=2 log m+O(1)`, even farther outside both Section-43 ranges.
+
+The reverse Section-55 check is separate.  In the explicit regime take
+`N=2m^2`.  The necessary condition in (55.11) gives
+`log T=O(log N)=O(log m)`, while Section 55 assumes
+`m<=(log T)^B`; this fails for every fixed `B`.  In the asymptotic
+Theorem-3.1 regime, `log N_0=m^(1/3+o(1))`, so a fixed `B>3` can make that
+parameter hypothesis true.  But (55.11) still forces
+`t=log T<=O(log N_0)`, and the two saving masses satisfy
+
+`lambda_m t^2 log(2+t) = m^(-1/3+o(1)) -> 0`,
+
+`theta_m t^3 <= eta_2(m)/(C log^2 m) -> 0`.
+
+Thus the Section-55 estimate is exponent-scale vacuous there and, in any
+case, only upper-bounds the number of primes with `W_m(p)>T`; it does not
+assert representability of every prime.  **No contradiction exists.**  The
+original claim that both PW constructions were outside Section 55's stated
+range was too strong and is repaired here.
 
 ### Theorems 51.2 and 51.6
 
@@ -275,9 +301,27 @@ claim for Theorem 1.3, so it does not anticipate the record-adjacent,
 **CLAIMED/PROVISIONAL** effectivity assertion in Theorem 51.6.
 
 The bibliography on pp. 24--25 has 13 items and does not cite Benjamin Dahan
-or arXiv:2608.24035.  Nothing else in it occupies the campaign's minimal
-witness-modulus turf.  Chronologically, v2 predates that August 2026 arXiv
-identifier.
+or arXiv:2608.24035.  A complete classification gives no hidden priority
+threat:
+
+- [3] Elsholtz--Tao, [11] Obláth, and [13] Vaughan are the references directly
+  touching asymptotic exceptional sets or the admitting classes behind them.
+  The campaign already cites all three.  The archived Elsholtz--Tao PDF itself
+  repeats Vaughan's `N exp{-c log^(2/3)N}` bound and no stronger
+  all-denominator upper bound.
+- [8] Mihnea--Dumitru and [12] Salez are finite verification sources.  Salez
+  was already archived and read; Mihnea--Dumitru was the notes' `[MiDu25]`
+  placeholder, now resolved as arXiv:2509.00128 and `10^18`.
+- [1] Aigner and [9] Nakayama concern parametrizations.  [5] Gottschlich is an
+  elliptic-divisibility paper used only for a generic Hardy--Ramanujan-style
+  transfer lemma.  Gottschlich and Nakayama are newly named adjacent
+  references in the campaign, not competing exceptional-set bounds.
+- [2] Dusart, [7] Koukoulopoulos, and [10] Nicolas--Robin are analytic/divisor
+  tools; [4] Erdős--Graham and [6] Guy are surveys.
+
+No item formulates the minimal witness modulus `W`, a tail in `T`,
+polylogarithmic witness depth, or a competing effectivity theorem.
+Chronologically, v2 predates Dahan's August 2026 arXiv identifier.
 
 ### Repository and outcome cross-check
 
@@ -289,25 +333,28 @@ identifier.
   v2 Introduction's unchanged “strongly improved, though not recently”
   wording.  Its search-result caveat remains necessary.
 - Section 43's benchmark formula and Section 55.3's truncated comparison are
-  unchanged.  The exception construction adds the range-separation check,
-  not a new upper-bound regime.
+  unchanged.  The exception construction is range-separated from Section 43;
+  where the asymptotic construction enters Section 55, both tail masses
+  vanish.  It adds no new upper-bound regime.
 - Sections 51.4 and 51.9 already identify exactly what can be truncated from
   PW and exactly what PW does not claim about effectivity.  V2 supplies no
   amendment.
 - `PROJECT.md` Outcome 19's PW benchmark remains accurate; its campaign-side
   exponent capsule is historical and must be read through the later,
   strengthened Theorem 43.12 comparison.  Outcome 22's PW antecedent and
-  Theorem 51.6 perimeter remain accurate.  Outcome 26's general-`m` tail
-  window is consistent with (68.4)--(68.5); the lower exceptions lie outside
-  it.  Historical outcomes need no retroactive edit.
+  Theorem 51.6 perimeter remain accurate.  Outcome 24's general-`m` tail
+  window is consistent with the reverse check above: the explicit PW regime
+  is out of range, while the asymptotic regime has vanishing tail mass.
+  Historical outcomes need no retroactive edit.
 
 ## Final assessment
 
 The only priority-relevant update is evidentiary: v2 is a fresh, explicit
 secondary description of Vaughan's bound, good-class construction, and
 large-sieve route.  Substantively it is the same paper already serving as
-the Section 43/51 benchmark.  Theorem 39.7 remains a plausible first
-post-1970 exponent improvement **if** its provisional proof survives expert
-review; Theorem 43.12 retains the same proved-versus-provisional comparison;
-and Theorems 51.2/51.6 retain the same PW antecedent and effectivity
-qualification.  No campaign theorem is promoted by this audit.
+the Section 43/51 benchmark.  No threat was found **in this PDF or its
+bibliography** to Theorem 39.7's possible post-1970 improvement, Theorem
+43.12's fourth-root comparison, or Theorems 51.2/51.6's witness-tail and
+effectivity perimeter.  That source-bounded verdict is not a literature
+guarantee.  Every campaign theorem remains **CLAIMED/PROVISIONAL** where it
+was before, and no theorem is promoted by this audit.

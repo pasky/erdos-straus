@@ -14,8 +14,9 @@ of Erdős problems (Tao's Jan-2026 milestone post; Quanta 2026-08-03), #242 has 
 claimed solution, partial or complete. Known landscape (from the problem page and
 literature; citations below partly from memory, flagged where so):
 
-* Verified computationally for all n up to at least 10^17 (Salez 2014; a 2025
-  verification [MiDu25] extends this — exact bound not retained).
+* Verified computationally for all n up to 10^18 by Mihnea--Dumitru
+  (arXiv:2509.00128), as reported in Pomerance--Weingartner v2, §6; Salez
+  (2014) had reached 10^17.
 * Mordell (1969): identities cover all n except n ≡ 1², 11², 13², 17², 19², 23²
   (mod 840). Terzi (1971) extended the modulus to 120120.
 * Vaughan (1970): #exceptions below N is ≪ N·exp(−c(log N)^{2/3}).
@@ -4480,7 +4481,9 @@ F3 deficit rows exactly.
   equation on unit fractions", J. Aust. Math. Soc. (2013). *(venue from memory)*
 * M. Bright, D. Loughran, no Brauer–Manin obstruction (2020).
 * T. Bloom, C. Elsholtz (2022), Thm 1: divisor-condition equivalence.
-* Salez 2014: verification to 10^17; [MiDu25] further. *(from problem page)*
+* Salez 2014: verification to 10^17; S. Mihnea and B. C. Dumitru,
+  arXiv:2509.00128 (2025), extend this to 10^18. *(The latter bound and
+  citation were checked in Pomerance--Weingartner v2, §6.)*
 * erdosproblems.com/242 (accessed 2026-08-16, status: Open).
 
 ## 20. Frontal assault log
@@ -26127,10 +26130,10 @@ congruence obstruction.
 
 Theorem 1.2 says (quote): “For each integer m >= 6.52 x 10^9 there is a
 prime p in (m^2,2m^2) for which m/p is not the sum of 3 unit fractions”
-(p. 2).  Proposition 7.5 and Corollary 9.1 bound respectively the Type-I and
-Type-II primes below the explicit prime-count lower bound (proof, p. 23).
-Section 6 only computationally supports the conjectural extension `m>=20`
-(p. 12).
+(p. 2).  Proposition 7.5 bounds the Type-I primes (p. 20), Corollary 9.1
+bounds the Type-II primes (p. 23), and the proof compares their sum with the
+explicit prime-count lower bound (p. 23).  Section 6 only computationally
+supports the conjectural extension `m>=20` (p. 12).
 
 **Other scope.**  At `m=4`, (68.1) has exactly Vaughan's `2/3` exponent.  The
 paper states no improved `m=4` all-denominator upper bound; its `m=4,5`
@@ -26162,11 +26165,30 @@ By (68.3), the Pomerance--Weingartner constructed exceptions have
      =m^{\sigma/3+o(1)}\longrightarrow\infty.              \tag{68.5}
 \]
 
-They are outside Theorem 43.12/§55's stated range for every fixed positive
-`𝜎`.  The explicit `p in (m^2,2m^2)` has `log p=2log m+O(1)` and is farther
-outside.  There is **no contradiction**.  This range check does not say
-there are no exceptions later: Theorem 43.12 is an exceptional-set upper
-bound, not a zero-exception theorem.
+Thus they are outside Theorem 43.12's fixed-gap range for every fixed
+positive `σ`; they are also outside the smaller Layer-1 all-denominator
+range `m<=L^(2-epsilon)`.  The explicit `p in (m^2,2m^2)` has
+`log p=2log m+O(1)` and is farther outside both §43 ranges.
+
+The reverse check needs a separate statement for §55.  At the explicit
+`N=2m^2` scale, condition (55.11) forces `log T=O(log m)`, so its standing
+hypothesis `m<=(log T)^B` fails for every fixed `B`; no §55 tail applies.
+At the larger (68.3) scale, a §55 tail can formally enter its fixed-`B`
+parameter range when `B>3`, but it is then vacuous at the exponent scale.
+Indeed `t=log T<=O(log N_0)` and
+
+\[
+ \lambda_m t^2\log(2+t)=m^{-1/3+o(1)}\longrightarrow0,
+ \qquad
+ \theta_m t^3\leq {\eta_2(m)\over C\log^2m}\longrightarrow0, \tag{68.5a}
+\]
+
+using (55.1), (55.4), and (68.3).  Theorem 55.2 only upper-bounds the
+number of exceptions; it never asserts that this number is zero.  Hence
+neither §43's all-denominator statements nor §55's m-uniform tails imply
+representability in either PW construction regime.  There is **no
+contradiction**, but “outside §55's range” would have been false for the
+(68.3) regime.
 
 Since (68.1) is the existing (43.32), the crossover is unchanged.  With
 `L=log N`, PW scale `P` and the **CLAIMED/PROVISIONAL** Theorem 43.12 scale
@@ -26186,14 +26208,17 @@ inherits Theorem 34.8, Theorem 43.7, and §39.7 and remains
 
 ### 68.3 Priority impact and Vaughan secondary evidence
 
-* **Theorem 39.7:** no impact on the would-be record.  The paper quotes
-  Vaughan's `N/exp(c log^(2/3)N)` bound and calls the improvement “strongly
-  improved, though not recently” (Introduction, p. 2), while its own
-  `m=4` specialization remains `2/3`.  It contains no exponent beyond
-  `2/3`.  This strengthens the secondary-source search record; it is not a
-  literature guarantee.  Theorem 39.7 remains **CLAIMED/PROVISIONAL**.
+* **Theorem 39.7:** no priority threat was found in this PDF.  The paper
+  quotes Vaughan's `N/exp(c log^(2/3)N)` bound and calls the improvement
+  “strongly improved, though not recently” (Introduction, p. 2), while its
+  own `m=4` specialization remains `2/3`.  It states no `m=4`
+  all-denominator upper-bound exponent beyond `2/3`; its larger numerical
+  exponents occur in lower-exception results or heuristics, not a competing
+  upper bound.  This strengthens the secondary-source search record; it is
+  not a literature guarantee.  Theorem 39.7 remains
+  **CLAIMED/PROVISIONAL**.
 * **Theorem 43.12:** (68.1) is exactly the benchmark already audited, while
-  (68.2)--(68.5) are range-consistent lower results.  Status and crossover
+  (68.2)--(68.5a) are range-consistent lower results.  Status and crossover
   are unchanged; Theorem 43.12 remains **CLAIMED/PROVISIONAL**.
 * **Theorems 51.2/51.6:** Section 4's `k=1` good-class family is the already
   recorded PW square-log truncation in §51.4.  The paper does not define the
@@ -26212,3 +26237,94 @@ residue classes mod p” forcing representations (Section 4, p. 8).  Section 4
 then proves `sum f(p)/p asymp (log x)^2/phi(m)` and applies the large sieve
 (pp. 8--11).  This updates the Vaughan access record without pretending that
 the 1970 primary source was read.
+
+### 68.4 Review attestation (wave 28)
+
+**Hostile verdict: CONFIRMED AFTER REPAIRS, source-bounded only.**  A fresh
+maximum-severity pass read all 25 pages of the archived v2 PDF, searched its
+entire extracted text, compared v1 and v2, audited every campaign citation
+site, and replayed the range algebra.  No PW theorem, conditional result,
+heuristic, or cited third-party result threatens the three provisional
+priority positions.  This verdict says only that this source supplies no
+threat; it is not a complete priority certification.  Theorems 39.7,
+43.12, 51.2, and 51.6 remain **CLAIMED/PROVISIONAL**.
+
+**Statement and quote audit.**  The preceding quotations were checked
+against the PDF rather than against the wave-28 memo.
+
+| item | PDF check |
+|---|---|
+| abstract, p. 1 | Says that, if `n_m` exists, `n_m >= exp(m^(1/3+o(1)))`; this is the abstract reformulation of Theorem 1.1, not a separate uniform upper theorem. |
+| Theorem 1.1, p. 2 | Exact quantifiers and exponent are `for each epsilon>0`, all sufficiently large `m`, and some `n>exp(m^(1/3-epsilon))`; the headline does not say prime. |
+| Theorem 3.1, p. 6 and proof pp. 6--8 | Exact lower count is more than `exp{c phi(m)^(1/3)/(log m)^(2/3)}` prime exceptions for every `m>=8`.  The proof chooses `N_0` by `phi(m)/log^2m=C log^3N_0` and leaves most primes in `(N_0/2,N_0]` uncovered by both exhaustive types. |
+| Corollaries 2.2/2.4 and their use, pp. 4--7 | The Type-I conditions are `p=-f (mod mad)`, `f|ma^2d+1`; the Type-II conditions are `p=-e (mod mab)`, `e|a+b`.  The statements are on pp. 4--5 and their exceptional-prime uses are on pp. 6--7. |
+| Theorem 1.2, p. 2; Proposition 7.5 p. 20; Corollary 9.1 and proof p. 23 | Exact threshold is `m>=6.52*10^9` and the prime is in `(m^2,2m^2)`.  The counted Type-I and Type-II bounds and the final prime-count comparison have the quoted constants and pages. |
+| Theorem 1.3, p. 2; §4 pp. 8--11 | Exact range is `4<=m<=log^2N`, all integer `n<=N` are counted, and the exponent is `C log^(2/3)N/phi(m)^(1/3)`.  Lemma 4.1 uses Brun--Titchmarsh above and Bombieri--Vinogradov below; the denominator side says “We now employ the large sieve.” |
+| Theorem 1.4, p. 3; proof pp. 11--12 | Exact fixed-`j,k` statement and `m/(km+1)` denominator were quoted correctly; the proof is the fixed-length unit-fraction discreteness argument. |
+| finite and heuristic scope | Section 6 proves only finite checks and conjectures the interval claim for `m>=20`; Remark 8.2 is the stated `m=4,5` Type-II computation.  The `exp(m^(1/2+o(1)))` discussion on p. 3 is explicitly a Poisson heuristic, not a conditional or unconditional theorem. |
+| every Vaughan description | The five substantive descriptions listed in the review memo are the complete full-text hits apart from the bibliography.  They say `2/3`, “largely derivative,” “largely follows,” and attribute the `f(p)` residue classes; none claims a stronger `m=4` bound. |
+
+The exact crossover redivision gives eta, phi, and `L` powers
+`1/4,1/12,1/12`, hence (68.6).  Equations (68.4)--(68.5) are exact.
+The reverse audit found and repaired one scope error: the asymptotic PW
+construction is outside §43 but can enter §55's fixed-`B` parameter range;
+(68.5a), not range disjointness, explains why §55 is harmless there.  At
+the explicit `p in (m^2,2m^2)` scale, both §43 and §55 are genuinely out
+of range.  Verifier block `(bo)` now locks these three distinctions as
+symbolic exponent checks.
+
+**Bibliography sweep.**  All 13 references on pp. 24--25 were classified,
+not merely searched for Dahan.
+
+* [3] Elsholtz--Tao, [11] Obláth, and [13] Vaughan are the entries directly
+  touching asymptotic exceptional sets or their admitting classes.  The
+  archived Elsholtz--Tao PDF itself repeats Vaughan's `2/3` upper bound and
+  contains no stronger cited upper bound; it is already deeply audited in
+  §36.  Obláth and Vaughan were already in the notes, with Vaughan still
+  primary-access blocked.
+* [8] Mihnea--Dumitru and [12] Salez are finite verification references,
+  not asymptotic competitors.  Salez was already archived and read in §36;
+  the Mihnea--Dumitru `10^18` bound and exact arXiv identifier replace the
+  notes' stale `[MiDu25]` placeholder in this review.
+* [1] Aigner and [9] Nakayama concern solution parametrizations; [5]
+  Gottschlich supplies only the generic Hardy--Ramanujan-style transfer
+  lemma used in PW's introductory weaker count.  Of these, Gottschlich and
+  Nakayama are newly named adjacent references in the campaign, but neither
+  is cited by PW for a post-Vaughan exceptional-set upper bound.
+* [2] Dusart, [7] Koukoulopoulos, and [10] Nicolas--Robin are analytic or
+  divisor-estimate tools; [4] Erdős--Graham and [6] Guy are surveys.  They
+  supply no priority claim in PW.  No bibliography item concerns the
+  campaign's minimal witness modulus `W`, and Dahan is absent.
+
+Thus the sweep found **no new priority reference**.  The newly registered
+adjacent names are Gottschlich and Nakayama; Mihnea--Dumitru was already a
+placeholder but now has an exact citation.  The generic tools and surveys
+were not promoted into campaign antecedents.
+
+**Version and register audit.**  The older PDF has the same title, authors,
+25-page length, abstract theorem capsule, theorem/lemma/proposition numbering,
+Theorem 1.3, and §4 argument; its PDF metadata says 20 November 2025 and its
+SHA-256 matches the source index.  A fresh direct fetch of the arXiv v1 PDF
+(SHA-256 `cb4654e1b329ed5ff8c246ec766901d5d2aae0f720bfc105077ab6951f4c398d`)
+is not byte-identical to the author-hosted file because arXiv regenerated it
+with an arXiv stamp and new PDF metadata, but its source creation instant,
+abstract, theorem list, and full mathematical text match.  “V1” here is a
+content/version identity, not a binary-file claim.  V2 changes the abstract's
+erroneous numerical-support threshold from `m>=19` to `m>=20`, adds the
+introductory pre-Vaughan sieve explanation and Gottschlich citation, and makes only
+notation/typesetting changes in the cited proofs.  Every `Pomerance` citation
+site in `notes.md` and `paper/espaper.tex` was checked: campaign uses of
+Theorem 1.3, Lemma 4.1/§4, and the Vaughan description survive unchanged.
+The paper bibliography's explicit November-2025 draft description remains
+truthful, though v2 is now the current archived source.
+
+Core quotations precede campaign paraphrase, all record language remains
+would-be/**CLAIMED/PROVISIONAL**, and the verdict is expressly source-bounded.
+The HathiTrust and zbMATH entries in `sources/vaughan-1970-access-log.md`
+attribute those checks to the parent session, report only that no viewable
+copy/link was found, and do not claim a saved artifact or direct Vaughan
+reading.  The review repaired the §55 scope error, ambiguous Proposition
+7.5 page attribution, overbroad “no exponent beyond 2/3” wording, incomplete
+bibliography ledger, stale finite-verification note, source index, and the
+underpowered `(bo)` regression.  No quote, theorem number, threshold, or
+priority verdict required reversal.

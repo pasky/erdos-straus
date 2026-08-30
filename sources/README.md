@@ -11,7 +11,8 @@ Verbatim external papers used in `notes.md`.
 | `henriot-1102.1643.pdf` | https://arxiv.org/pdf/1102.1643 | inherited from prior campaign | `49f72f22547ccccf8f4ed01e645bf0f45255e1a3806a477ff6f9b4c2ed72e701` |
 | `lenstra-pomerance-jems-2019.pdf` | https://pure.mpg.de/rest/items/item_3185527/component/file_3451085/content | **Verbatim external artifact:** direct download 2026-08-29 from the Max Planck repository; H. W. Lenstra Jr. and C. Pomerance, *J. Eur. Math. Soc.* 21 (2019), 1229--1269, DOI 10.4171/JEMS/861 | `2c656816e71a6e3a11e8116c8d920bbc100c58ce844099cbeb673a84fb944efd` |
 | `nair-tenenbaum-1998.pdf` | https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6559-11511_2006_Article_BF02392880.pdf | direct download | `3a2caa937304c7e40d1e40f64ecb607395ae91f0dc07a5c68e9d04cb5e0a1b9d` |
-| `pomerance-weingartner-2025.pdf` | https://math.dartmouth.edu/~carlp/ESS-ExceptionsV8.pdf | author-hosted draft | `ffdedd4e7e3ba839aca70ff80539eea9ed78ecb72e7b28c8b2572c08af5a117b` |
+| `pomerance-weingartner-2025.pdf` | https://math.dartmouth.edu/~carlp/ESS-ExceptionsV8.pdf | author-hosted November 20, 2025 draft; same paper as arXiv:2511.16817v1 | `ffdedd4e7e3ba839aca70ff80539eea9ed78ecb72e7b28c8b2572c08af5a117b` |
+| `pomerance-weingartner-2511.16817/pomerance-weingartner-2511.16817v2.pdf` | https://arxiv.org/pdf/2511.16817v2 | **Verbatim external artifact:** current arXiv v2, direct download 2026-08-30; full provenance and metadata artifacts are in the containing directory | `87b34b8d24ca4f26f5c80ba8d1d7a335570f76a449df741d5995ee664273128f` |
 | `scott-sokal-0309352.pdf` | https://arxiv.org/pdf/cond-mat/0309352 | direct download 2026-08-29 | `62116fa01808d58fc9b43d67629d1386b4ca9758be44aa679b9d28c44cda28ba` |
 | `shiu-1980.pdf` | https://gdz.sub.uni-goettingen.de/download/pdf/PPN243919689_0313/PPN243919689_0313.pdf | article pp. 161–170 extracted losslessly from the GDZ volume scan | `a8fb444a14fe3d886a0c509e3133127c7a70fc05ef08a709bdd029b0b44d008a` |
 
