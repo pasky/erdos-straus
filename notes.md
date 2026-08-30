@@ -23199,11 +23199,13 @@ X&\#\{n\leq X:W(n)=+\infty\}&\#\text{ squares}&
 
 The first row is the default committed range.  The second is reproduced
 only with `ES_FULL_SCAN=1`; it streams tuples and retains only the divisor
-sieve and the least-\(W\) array, staying memory-bounded.  Thus the headline
-answer is exactly three nonsquare escapes through \(200000\) by default and
-through \(10^6\) in the optional scan.  This is finite evidence for
-\(C_{\rm SQ}'\), not evidence that its exceptional list is complete
-unboundedly.
+sieve and the least-\(W\) array, staying memory-bounded.  The census path is
+the simultaneous forward canonical \((g,v,d,u)\) sieve (61.2), not a
+per-\(n\) dual \(a\)-scan or an original-side \(M\)-sieve; the latter is used
+only for the independent overlaps below.  Thus the headline answer is
+exactly three nonsquare escapes through \(200000\) by default and through
+\(10^6\) in the optional scan.  This is finite evidence for \(C_{\rm SQ}'\),
+not evidence that its exceptional list is complete unboundedly.
 
 For an independent overlap, block (bh) also harvests the original
 \((M,D)\) side through \(M=100351\), tests 1074878 Python-integer divisor
@@ -23212,7 +23214,12 @@ exactly the 54 squares and \(288,336\) unresolved.  Every other nonsquare
 has an explicit least datum, while the two sporadics have been scanned
 through their exact ceilings in (60.19); Theorem 58.1 supplies the square
 side.  The resulting complete classification agrees with (61.2), including
-every finite least \(W\), not merely the survivor count.
+every finite least \(W\), not merely the survivor count.  As a wider
+cross-check, the default block runs the forward form through the auxiliary
+range \(n\leq300000\) and compares its exact minimum with the independent
+original-side harvest for all 3202 primes \(p\equiv1\pmod {24}\) there;
+every value agrees.  The census counts and tuple counts in (61.3) remain
+restricted to their displayed endpoints.
 
 ### 61.2 The exact twisted-square criterion
 
@@ -23485,10 +23492,13 @@ with the minimum of the empty set interpreted as \(+\infty\).
 
 *Proof.*  Theorem 60.1 gives necessity, the bound, and all formulas.  If a
 pair satisfies (61.12)--(61.13), then any common divisor of \(a,D\) also
-divides \(h\), hence divides \(4h-a=p\).  But \(a<p\) by (60.9), so
-\((a,D)=1\).  The cancellation identity (60.5) now gives \(D\mid A^2\),
-making the pair sufficient.  Minimizing its modulus gives (61.15).
-\(\square\)
+divides \(h\), hence divides \(4h-a=p\).  The bound
+\(a\leq2\lfloor(p+1)/3\rfloor<p\) therefore gives \((a,D)=1\).  The
+cancellation identity (60.5) now gives \(D\mid A^2\), making the pair
+sufficient.  This argument does not assume that \(D\) is odd: when \(D\)
+is even, the odd integer \(a\equiv3\pmod4\) is still a unit modulo every
+power of 2 in \(D\), so (60.5) retains the entire even branch.  Minimizing
+its modulus gives (61.15). \(\square\)
 
 The same proof works for every odd prime, with
 \(a\equiv-p\pmod4\); the hard class is stated because it is the unresolved
@@ -23532,9 +23542,14 @@ three composite sporadics had heuristic masses
 gcd eligibility killed all of them.  For a prime every exact quotient row
 is already a witness.
 
-**Computational 61.3 (late hard-prime replay).**  Block (bh) exhausts the
-prime criterion, not merely a modulus cutoff, for three record primes from
-(56.10)--(56.11).  The \(E(p)\) column is rounded to six decimals; all
+**Computational 61.3 (hard-prime replays).**  Block (bh) compares the exact
+forward-duality minimum with the independent original-side (bc) harvest for
+all 3202 hard primes through \(3\cdot10^5\), mapping every minimum back to
+an explicit row of (61.12)--(61.14); all values agree (the largest is 279,
+at \(p=225289\)), and 1941 of the selected minimum rows have even \(D\).
+It also exhausts the divisor criterion itself, not merely
+a modulus cutoff, for three later record primes from (56.10)--(56.11).  In
+the following table the \(E(p)\) column is rounded to six decimals; all
 integer columns are exact:
 
 \[
@@ -23560,10 +23575,10 @@ supports no asymptotic law.
 ### 61.4 Verification and scope
 
 `verify.py (bh)` checks the complete forward census, the independent
-original-side overlap, all 3630 twisted-square values and the \(s=505\)
-control, and the three exhaustive prime-criterion replays.  The default
-block is memory-bounded and uses no fixed-width products.  The million-point
-census is behind `ES_FULL_SCAN=1`.
+original-side overlap, the 3202-prime original/duality cross-check, all 3630
+twisted-square values and the \(s=505\) control, and the three exhaustive
+prime-criterion replays.  The default block is memory-bounded and uses no
+fixed-width products.  The million-point census is behind `ES_FULL_SCAN=1`.
 
 The census found no new nonsquare sporadic, so \(C_{\rm SQ}'\) survives and
 no \(C_{\rm SQ}''\) is introduced.  Theorem 61.3 is only a constructive
@@ -23572,3 +23587,84 @@ classification of twisted-square escapes has been proved.  Most importantly,
 Theorem 61.4 is a terminating prime test and a structural simplification,
 not a proof that its finite set is always nonempty.  No pointwise prime
 bound, no fair-share estimate, and no new Erdős--Straus theorem is claimed.
+
+### 61.5 Review attestation (wave 25)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Maximum-severity review found no
+counterexample to a headline, census entry, residue law, or equivalence.  The
+repairs strengthen the independent prime cross-check and make the even-
+\(D\) sufficiency argument explicit; no mathematical conclusion or census
+endpoint changed.
+
+* **HIGH (complete census and independent original-coordinate replay):**
+  The review rederived the full chain from an original datum:
+  \(a=(n+4D)/M\), \(aA=D+h\), \(D\mid A^2,h^2\), then
+  \(A=gu,h=gv,D=gd\), \((u,v)=1,d\mid g,au=d+v\).  Conversely these
+  equations give \(D\mid g^2\mid A^2\) and \(aM=n+4D\), including even
+  \(D\) and every composite branch with \((a,D)>1\).  The inequalities
+  \(a,u\leq g+v\) and \(4gv-g-v\leq n\) give the exact per-\(n\) bounds
+  (60.9); (61.2) is therefore an exhaustive simultaneous reordering, not a
+  heuristic sieve.  A fresh Python-integer implementation using only the
+  original \(D\mid((M+1)/4)^2\) harvest found 4927 finite values for
+  \(n\leq5000\), with largest least value 727, and exactly 73 unresolved:
+  the 70 squares and \(288,336,4545\).  The square cases are settled by the
+  independently rechecked Jacobi proof of Theorem 58.1.  Streaming to the
+  three exact normal-form ceilings tested respectively 748810, 1074878,
+  and 409000770 divisor values and found no datum.
+* **HIGH (random and optional-range replication):** with Python's seeded
+  sampler and seed 61250025, 2000 distinct integers in
+  \([5000,200000]\) gave 1996 direct harvested witnesses and four squares,
+  with no other unresolved value and largest least \(W=983\).  With seed
+  61250026, 500 distinct integers in \([200000,10^6]\) all resolved, with
+  largest least \(W=239\).  There was no disagreement with (bh).  The
+  optional complete forward run independently reproduced the \(10^6\) row:
+  1003 infinities, namely 1000 squares and the same three nonsquares, from
+  3400244 \((g,v)\) pairs and 173713414 \((g,v,d,u)\) tests.
+* **MEDIUM (twisted squares and low-modulus laws):** an independent original
+  harvest reproduced all 3630 entries in the stated box: 3628 finite, with
+  maximum least value 727, and only \((2,12),(21,4)\) vanishing.  The
+  \(s=505\) control is explicitly outside that box and only \(m=3\)
+  vanishes in its first 30 entries.  At \(M=3\), the sole divisor \(D=1\)
+  gives \(m^2\equiv1\pmod3\), exactly \(3\nmid m\).  Modulus 7 has no hit.
+  At \(M=11\), \(D=1,3,9\) give roots \(\mathord\pm3,\mathord\pm4,
+  \mathord\pm2\), respectively; this proves both the stated witness classes
+  and minimality after the \(M=3,7\) exclusions.  If these fail, \(M=15\)
+  is excluded by \((2/15)=1\); at \(M=19\), \(D=1,5,25\) give roots
+  \(\mathord\pm6,\mathord\pm3,\mathord\pm8\).  Thus (61.7)--(61.8),
+  including every lower-modulus exclusion, are exact.
+* **MEDIUM (prime criterion):** for \(p\equiv1\pmod {24}\), integrality
+  forces \(a\equiv3\pmod4\).  A common divisor of \(a,D\) divides
+  \(h\), hence the prime \(p=4h-a\), while \(a<p\); therefore it is 1.
+  Consequently \(D\mid h^2\) and \(h\equiv aA\pmod D\) imply
+  \(D\mid A^2\) with no parity assumption.  Defining
+  \(M=4(D+h)/a-1\) makes \(M\equiv3\pmod4\) and
+  \(aM=p+4D\), proving necessity and sufficiency, including even \(D\).
+  Block (bh) now compares the exact forward-duality minimum against the
+  independent (bc) harvest for every one of the 3202 hard primes through
+  300000, maps every minimum back to (61.12)--(61.14), and finds complete
+  agreement (maximum 279; sum 44426); 1941 selected minimum rows have even
+  \(D\), so that branch is materially exercised.  The three later exhaustive
+  rows also remain exact.  The §54 instance is consistent:
+  \(2031121=806\cdot2520+1\), so Theorem 54.1 gives only \(W>10\), while
+  the displayed criterion row gives the independently minimized 2495.
+* **LOW (repairs and hygiene):** (bh) gained the all-hard-prime
+  original/duality comparison; §61.1 and §61.3 now state its range and
+  method; Theorem 61.4 now spells out why even \(D\) is retained; and §61.4
+  records the added coverage.  The default isolated block takes about 13
+  seconds on the review host and the optional million census remains gated
+  by `ES_FULL_SCAN=1`.  The block uses Python integers on every divisor and
+  product path.  Historical \(C_{\rm SQ}\) is consistently marked refuted,
+  \(C_{\rm SQ}'\) consistently remains open, heuristic masses remain
+  labeled **Heuristic**, and the sporadics remain explicitly composite
+  escapes from one witness statistic rather than Erdős--Straus
+  counterexamples.
+* **Verification:** the prescribed full command completed green under its
+  460-second timeout.  The independent exact-ceiling scan streamed one
+  \(A\) at a time, with at most 6561 live divisors; no fixed-width arithmetic
+  or Cartesian-product allocation was used.  Control-byte and malformed-TeX
+  sweeps were clean.
+
+The residual doubt is exactly the stated open problem: finite censuses do
+not prove \(C_{\rm SQ}'\), and the prime criterion does not prove that its
+finite divisor set is nonempty for every prime.  No additional computational
+or logical doubt was found inside the stated ranges.

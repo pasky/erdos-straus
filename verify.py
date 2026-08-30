@@ -11172,35 +11172,46 @@ def check_bh():
 
     full_scan = os.environ.get("ES_FULL_SCAN") == "1"
     census_limit = 1_000_000 if full_scan else 200_000
+    # The auxiliary 300000 range cross-validates every hard prime in the
+    # default §56 (bc) range.  Census counters below still count exactly the
+    # displayed X-range, not this larger audit range.
+    prime_cross_limit = 300_000
+    work_limit = max(census_limit, prime_cross_limit)
     B_limit = (census_limit + 1) // 3
+    work_B_limit = (work_limit + 1) // 3
 
     # Forward-sieve the canonical normal form (60.7).  The inequality
     # 4gv-g-v <= X is necessary for n=4gv-(d+v)/u <= X because d<=g.
     # Conversely every retained tuple is a witness datum.  Lists contain
     # ordinary Python ints; no fixed-width divisor products occur here.
-    divisor_bound = B_limit + 1
+    divisor_bound = work_B_limit + 1
     small_divisors = [[] for _ in range(divisor_bound + 1)]
     for d in range(1, divisor_bound + 1):
         for multiple in range(d, divisor_bound + 1, d):
             small_divisors[multiple].append(d)
 
-    least_W = [0] * (census_limit + 1)
+    least_W = [0] * (work_limit + 1)
     pair_rows = divisor_tests = 0
-    for g in range(1, B_limit + 1):
-        v_max = (census_limit + g) // (4 * g - 1)
-        for v in range(1, v_max + 1):
-            pair_rows += 1
+    for g in range(1, work_B_limit + 1):
+        census_v_max = ((census_limit + g) // (4 * g - 1)
+                        if g <= B_limit else 0)
+        work_v_max = (work_limit + g) // (4 * g - 1)
+        for v in range(1, work_v_max + 1):
+            in_census_box = v <= census_v_max
+            if in_census_box:
+                pair_rows += 1
             for d in small_divisors[g]:
                 q = d + v
                 assert q <= divisor_bound
                 for u in small_divisors[q]:
-                    divisor_tests += 1
+                    if in_census_box:
+                        divisor_tests += 1
                     if gcd(u, v) != 1:
                         continue
                     a = q // u
                     n = 4 * g * v - a
                     assert n >= 1
-                    if n > census_limit:
+                    if n > work_limit:
                         continue
                     M = 4 * g * u - 1
                     if least_W[n] == 0 or M < least_W[n]:
@@ -11217,6 +11228,37 @@ def check_bh():
         (3_400_244, 173_713_414) if full_scan
         else (599_581, 24_246_108)
     )
+
+    # Compare exact forward-duality minima with the independent original-side
+    # harvest used by (bc), for every hard prime through its 300000 range.
+    # Then map each minimum back to an explicit (a,D) row of (61.12)-(61.15).
+    hard_cross = tuple(int(p) for p in primerange(2, prime_cross_limit + 1)
+                       if p % 24 == 1)
+    modulus_classes = complete_multiplier_harvest(3000)
+    original_prime_W = {
+        p: next((M for M, classes in modulus_classes if p % M in classes),
+                None)
+        for p in hard_cross
+    }
+    assert len(hard_cross) == 3202
+    assert all(original_prime_W[p] is not None for p in hard_cross)
+    assert all(least_W[p] == original_prime_W[p] for p in hard_cross)
+    assert (max(original_prime_W.values()), sum(original_prime_W.values())) == (
+        279, 44_426
+    )
+    prime_cross_even_D = 0
+    for p, M in original_prime_W.items():
+        A = (M + 1) // 4
+        D = next(int(D) for D in divisors_of_square(A)
+                 if (p + 4 * int(D)) % M == 0)
+        prime_cross_even_D += D % 2 == 0
+        a = (p + 4 * D) // M
+        h = (p + a) // 4
+        assert 1 <= a <= 2 * ((p + 1) // 3) and a % 4 == 3
+        assert h * h % D == 0 and (D + h) % a == 0
+        assert gcd(a, D) == 1 and (D + h) // a == A
+        assert A * A % D == 0 and a * M == p + 4 * D
+    assert prime_cross_even_D == 1941
 
     # Arithmetically independent M-side overlap.  M=100351 is the larger
     # exact global ceiling for 288 and 336.  Every other nonsquare <=3000
@@ -11434,6 +11476,10 @@ def check_bh():
     print("decidable W-infinity census (limit,infinities,nonsquares,pairs,tests) =",
           (census_limit, len(infinities), nonsquare_infinities,
            pair_rows, divisor_tests))
+    print("hard-prime original/duality cross-check "
+          "(limit,count,max W,sum W,even-D minima) =",
+          (prime_cross_limit, len(hard_cross), max(original_prime_W.values()),
+           sum(original_prime_W.values()), prime_cross_even_D))
     print("independent direct overlap (n cap,M cap,divisors,incidences,tail) =",
           (overlap_limit, direct_cap, direct_divisors, direct_incidences,
            tuple(n for n in direct_infinities if isqrt(n) ** 2 != n)))
