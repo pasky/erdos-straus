@@ -14037,4 +14037,207 @@ print("\n== (bq) a-frame fixed-modulus failure law (§70) ==")
 check_bq()
 
 
+# ---------------------------------------------------------------- (br)
+def check_br():
+    """Fixed-J exponents, local collisions, and finite F1 stacks (§71)."""
+    import os
+    from time import perf_counter
+
+    started = perf_counter()
+    moduli = (3, 7, 11, 19, 23, 31)
+
+    def is_f1(h, a):
+        """All prime factors of h are nonzero quadratic residues mod a."""
+        return all(
+            int(q) != a and pow(int(q) % a, (a - 1) // 2, a) == 1
+            for q in factorint(int(h))
+        )
+
+    # Lemma 71.5: brute-force complete local frames, including a capped
+    # coprimality product, and compare them with the exact root-union formula.
+    cap = 3 * 7 * 11
+    expected_local = {
+        5: Fraction(3, 5),
+        7: Fraction(2, 3),
+        11: Fraction(7, 10),
+        13: Fraction(9, 13),
+    }
+    local_rows = []
+    for ell, expected in expected_local.items():
+        period = lcm(24, 4 * ell * cap)
+        numerator = denominator = 0
+        for n in range(period):
+            if n % 24 != 1 or gcd(n, cap) != 1:
+                continue
+            denominator += 1
+            compatible = True
+            for a in moduli:
+                h = (int(n) + int(a)) // 4
+                if h % ell == 0 and (
+                    ell == a or pow(ell % a, (a - 1) // 2, a) != 1
+                ):
+                    compatible = False
+                    break
+            numerator += compatible
+
+        inv6 = pow(6, -1, ell)
+        bad_roots = {
+            (-((a + 1) // 4) * inv6) % ell
+            for a in moduli
+            if ell == a or pow(ell % a, (a - 1) // 2, a) != 1
+        }
+        excluded = (
+            {(-pow(24, -1, ell)) % ell} if cap % ell == 0 else set()
+        )
+        formula = Fraction(
+            ell - len(excluded) - len(bad_roots - excluded),
+            ell - len(excluded),
+        )
+        brute = Fraction(numerator, denominator)
+        assert brute == formula == expected
+        local_rows.append((ell, period, numerator, denominator, formula))
+
+    # Corollary 71.4's exact weak exponents.
+    cumulative = Fraction(0)
+    exponent_rows = []
+    expected_exponents = (
+        Fraction(1, 2),
+        Fraction(2, 3),
+        Fraction(23, 30),
+        Fraction(37, 45),
+        Fraction(859, 990),
+        Fraction(446, 495),
+    )
+    for j, a in enumerate(moduli, 1):
+        cumulative += Fraction(1, a - 1)
+        assert cumulative == expected_exponents[j - 1]
+        exponent_rows.append((j, a, cumulative, Fraction(j, 2)))
+
+    # The exact Henriot discriminant factors in (71.22)--(71.24).  All
+    # valuation and resultant paths stay in Python ints; factorint outputs are
+    # cast immediately at the boundary.
+    linear_forms = []
+    for a in moduli:
+        b = (a + 1) // 4
+        d = gcd(6, b)
+        linear_forms.append((6 // d, b // d))
+
+    expected_discriminants = (
+        ({}, Fraction(1, 1)),
+        ({3: 2}, Fraction(4, 3)),
+        ({2: 4, 3: 2}, Fraction(49, 18)),
+        ({2: 14, 3: 8}, Fraction(49, 18)),
+        ({2: 16, 3: 8, 5: 2}, Fraction(1472, 225)),
+        ({2: 16, 3: 18, 5: 4, 7: 2}, Fraction(20564, 1225)),
+    )
+    discriminant_rows = []
+    for width in range(1, len(moduli) + 1):
+        discriminant = 1
+        for i, j in combinations(range(width), 2):
+            ui, vi = linear_forms[i]
+            uj, vj = linear_forms[j]
+            resultant = int(ui) * int(vj) - int(uj) * int(vi)
+            discriminant *= resultant * resultant
+        factorization = {
+            int(q): int(e) for q, e in factorint(int(discriminant)).items()
+        }
+
+        delta = Fraction(1)
+        for ell in factorization:
+            # The all-zero valuation vector contributes 1/ell in (71.15).
+            local_sum = Fraction(1, ell)
+            allowed = tuple(ell % a != a - 1 for a in moduli[:width])
+            for mask in range(1, 1 << width):
+                selected = tuple(j for j in range(width) if mask & (1 << j))
+                if not all(allowed[j] for j in selected):
+                    continue
+                exact_once = 0
+                for t in range(ell * ell):
+                    if all(
+                        (linear_forms[j][0] * int(t) + linear_forms[j][1]) % ell == 0
+                        and (linear_forms[j][0] * int(t) + linear_forms[j][1])
+                        % (ell * ell) != 0
+                        for j in selected
+                    ):
+                        exact_once += 1
+                local_sum += Fraction(exact_once, ell * ell)
+            delta *= 1 + local_sum
+
+        assert (factorization, delta) == expected_discriminants[width - 1]
+        discriminant_rows.append((width, factorization, delta))
+
+    # Exact finite F1-stack census.  Predictions multiply the exact finite
+    # marginals; INFO ratios are descriptive and carry no assertion.
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    limit = 3_000_000 if full_scan else 300_000
+    active = moduli[:4]
+    total = (limit - 1) // 24 + 1
+    marginals = {a: 0 for a in active}
+    joints = [0, 0, 0]
+    for n in range(1, limit + 1, 24):
+        flags = []
+        for a in active:
+            flag = is_f1((int(n) + int(a)) // 4, a)
+            flags.append(flag)
+            marginals[a] += flag
+        joints[0] += all(flags[:2])
+        joints[1] += all(flags[:3])
+        joints[2] += all(flags[:4])
+
+    if full_scan:
+        assert (total, marginals, joints) == (
+            125_000,
+            {3: 61_068, 7: 27_548, 11: 31_912, 19: 38_925},
+            [12_827, 4_254, 1_625],
+        )
+    else:
+        assert (total, marginals, joints) == (
+            12_500,
+            {3: 6_689, 7: 3_046, 11: 3_540, 19: 4_282},
+            [1_564, 577, 257],
+        )
+
+    info_ratios = []
+    for width, observed in zip((2, 3, 4), joints):
+        prediction = Fraction(1, total ** (width - 1))
+        for a in active[:width]:
+            prediction *= marginals[a]
+        ratio = Fraction(observed, 1) / prediction
+        info_ratios.append((width, observed, prediction, float(ratio)))
+
+    # Theorem 71.6's threshold arithmetic, kept rational where it is exact.
+    milestones = (Fraction(2, 3), Fraction(3, 4))
+    assert Fraction(7, 10) > milestones[0]
+    assert Fraction(7, 10) < milestones[1]
+    assert Fraction(4, 5) > max(milestones)
+    threshold_rows = []
+    for theta in milestones:
+        j_coefficient = Fraction(1, 2) / theta
+        saving_coefficient = j_coefficient / 2
+        gamma_one_k_threshold = Fraction(1, 2) / theta
+        assert saving_coefficient == Fraction(1, 4) / theta
+        threshold_rows.append(
+            (theta, j_coefficient, saving_coefficient, gamma_one_k_threshold)
+        )
+    # If J=cL/log L, count below one needs c/2>1.  Since
+    # J~Z/(2 log Z), Z=dL gives c=d/2 and needs d/4>1.
+    assert Fraction(2, 1) * Fraction(1, 2) == 1
+    assert Fraction(4, 1) * Fraction(1, 4) == 1
+
+    elapsed = perf_counter() - started
+    if not full_scan:
+        assert elapsed < 15.0
+    print("J-form local factors (ell,period,good,total,factor) =", local_rows)
+    print("fixed-J exponents (J,a,weak,F1-only) =", exponent_rows)
+    print("Henriot discriminants (J,factors,Delta) =", discriminant_rows)
+    print("F1 finite stacks (limit,total,marginals,joints,INFO ratios) =",
+          (limit, total, marginals, joints, info_ratios))
+    print("conditional thresholds (theta,J coeff,saving coeff,Kcrit) =",
+          (threshold_rows, (Fraction(2), Fraction(4)), full_scan, elapsed))
+
+
+print("\n== (br) J-form stacking and local correlations (§71) ==")
+check_br()
+
+
 print("\nall checks passed")
