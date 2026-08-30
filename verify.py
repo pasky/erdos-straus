@@ -12469,7 +12469,7 @@ def check_bk():
 
     # The ratio law needs primality only to force a unit branch.  On any odd
     # composite unit branch it gives the same exact witness criterion.
-    unit_ratio_rows = unit_ratio_hits = 0
+    unit_ratio_rows = unit_ratio_hits = unit_composite_rows = 0
     for _ in range(300):
         n = rng.randrange(3, 3000, 2)
         B = (n + 1) // 3
@@ -12492,9 +12492,16 @@ def check_bk():
             assert gcd(a, D) == 1 and A * A % D == 0
         unit_ratio_rows += 1
         unit_ratio_hits += ratio_hit
+        n_factorization = factorint(n)
+        unit_composite_rows += (
+            len(n_factorization) != 1
+            or int(next(iter(n_factorization.values()))) != 1
+        )
 
     assert (dyadic_rows, twisted_residue_rows,
-            unit_ratio_rows, unit_ratio_hits) == (460, 359, 300, 9)
+            unit_ratio_rows, unit_ratio_hits, unit_composite_rows) == (
+                460, 359, 300, 9, 226
+            )
 
     # Full unfiltered quotient ledgers for the three sporadics.  These extend
     # (60.21)/(62.24): every failure-prime set lies in the support of n.
@@ -12673,7 +12680,8 @@ def check_bk():
     print("cancellation cover / shifted layers / unit branches =",
           (cancellation_rows, cancellation_failures,
            shifted_four_count, shifted_both_count, dyadic_rows,
-           twisted_residue_rows, unit_ratio_rows, unit_ratio_hits))
+           twisted_residue_rows, unit_ratio_rows, unit_ratio_hits,
+           unit_composite_rows))
     print("full sporadic gcd and failure-prime ledgers =",
           (gcd_ledgers, failure_ledgers))
     print("wider twisted-square hunt "

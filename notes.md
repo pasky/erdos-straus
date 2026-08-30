@@ -24140,8 +24140,6 @@ nonsquare values with \(W=+\infty\).  Such witness-statistic failures are
 not Erdős--Straus counterexamples, and §62 claims no new tail bound,
 pointwise theorem, or Erdős--Straus progress.
 
-<<<<<<< HEAD
-
 ---
 
 
@@ -24760,7 +24758,15 @@ Klein four-group of odd residues modulo 8, a divisor has residue 7 exactly
 when one can select either a prime of residue 7 or one prime of each residue
 3 and 5.  If neither occurs, divisors supported on \(\{1,3\}\) have only
 residues 1 and 3, and those supported on \(\{1,5\}\) have only residues 1
-and 5.  This proves part 2. \(\square\)
+and 5.  This proves part 2.
+
+For completeness, the dual quotient attached to either converse is
+\(a=(n+4D)/M\).  It satisfies \(a\equiv-n\pmod4\) and
+\(a\leq2\lfloor(n+1)/3\rfloor\) by Theorem 60.1.  Thus composite inputs
+introduce no omitted normal-form condition: for \(D=1\), \((a,D)=1\); for
+\(D=2\), the possible factor 2 in \((a,D)\) already divides \(n\), and the
+entire 2-adic eligibility condition is exactly the displayed requirement
+that \(A\) be even. \(\square\)
 
 For the known sporadics the exact factorizations are
 \[
@@ -25046,7 +25052,71 @@ supply necessary conditions and exact finite criteria; they do not turn the
 three observed sporadics into a proved complete list.  As before,
 \(W=+\infty\) means failure of this harvested Type-II supply mechanism, not
 failure of an Egyptian-fraction representation.
-=======
+
+### 64.7 Review attestation (wave 28)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Maximum-severity review found no false
+mathematical or computational conclusion.  It rederived every stated
+quantifier from the original witness definition and independently replayed
+the complete expanded hunt.  Repairs make the composite admissibility step
+explicit, strengthen the executable composite pin, and remove committed
+merge-conflict sentinels that bracketed Sections 63--65.
+
+* **HIGH (cancellation cover and shifted laws):** prime-adic rederivation
+  from \(h=aA-D\) gives \(D\mid a^2A^2\); eligibility fails exactly in the
+  window \(2v_q(A)<v_q(D)\leq2v_q(a)+2v_q(A)\).  Such a prime divides
+  \((a,D)\), and \((a,D)\mid n\) follows from \(aM=n+4D\), including the
+  even-\(D\) branch.  Conversely, no failed prime means \(D\mid A^2\), so
+  Theorem 60.1 supplies a witness.  The review also checked that the
+  \(D=1,2\) converses automatically have the required
+  \(a\equiv-n\pmod4\) class and \(a\leq2B\) range; the text now states this
+  explicitly rather than leaving it implicit in the original-coordinate
+  datum.
+* **HIGH (family and ratio exclusions):** the modulo-4 and modulo-8 support
+  arguments were rederived with prime multiplicities unrestricted.  The
+  dyadic progressions cover every positive member, and the Legendre-symbol
+  calculation gives exactly two nonzero roots in Corollary 64.4, including
+  the \(q=3\) specialization.  For odd composite unit branches,
+  \((a,n)=1\) gives \((a,h)=1\); a ratio hit forces \((a,D)=1\), so the
+  cancellation cover makes eligibility automatic.  No nonunit branch is
+  claimed by the ratio law.
+* **HIGH (independent full hunt):** a fresh Python-integer implementation
+  rebuilt all 64,978 classes for the 2,500 moduli through \(10^4\), sampled
+  3,000 new-box pairs uniformly with seed 640064, and found a witness for
+  every sample member.  A second direct divisor path agreed on 64 exact
+  minima.  The complete new-region replay then resolved all 242,837 pairs,
+  with no survivor and the unique maximum
+  \(W(3,201,660)=5303\) at \((s,m)=(15,462)\).  Direct inspection confirms
+  \(3,201,660=15\cdot462^2\), the datum \((M,D,a)=(5303,338,604)\), and
+  failure of every smaller allowed modulus.
+* **MEDIUM (counts and ledgers):** direct enumeration found 1,214 squarefree
+  kernels, 146,016 old pairs, 242,837 new pairs, and 388,853 enlarged-box
+  pairs.  Recovering the squarefree kernel from each integer proved all
+  388,853 values distinct.  The sporadic ledgers independently reproduced
+  \((\#a,\#\mathcal Q,\#\mathrm{eligible})=(48,43,0),(56,65,0),
+  (757,188,0)\), every gcd and failed-prime multiplicity in (64.12), and
+  the 400 unit branches but zero unit rows for 4545.  The prefilter counts
+  \((50,633,18,943)\) and the thin-slice counts
+  \((4,992,904,314,0)\), including its unique maximum 599, also match.
+* **MEDIUM (source-integrity repair):** literal merge-conflict sentinels had
+  been committed around Sections 63--65.  They were removed while preserving
+  all three sections; this was a document-integrity defect, not a change to
+  any theorem.
+* **LOW (verification hardening):** block (bk)'s 300 seeded unit-branch
+  checks included composites but did not pin their number.  It now asserts
+  that 226 are genuinely composite.  The final isolated block (bk) replay
+  took 1.03 seconds by default and 9.01 seconds with `ES_FULL_SCAN=1`; the
+  independent complete replay took 6.09 seconds.  No NumPy value enters a
+  factor, divisor, product, or congruence path.  The prescribed default suite
+  completed green in 185.25 seconds under its 600-second timeout; AST and
+  control-byte checks were also clean.
+
+The finite evidence does not imply a growth law or a finite nonsquare
+exceptional set.  Conjecture \(C_{\rm SQ}'\) remains open, with only its
+right-to-left inclusion proved, and the thin scan remains exactly the
+coordinate slice (64.17), not the full interval through \(10^9\).
+
+
 ## 65. The two-decade hard-prime witness census and record anatomy
 
 **Computational 65.1 (exact range, informational).**  This census extends the
@@ -25215,4 +25285,3 @@ values prove nothing about \(H_{\rm MOD}(A)\).  In particular they neither
 supply an upper bound for any \(A\geq1\) nor alter the proved refutation for
 \(A<1\).  No asymptotic law, fitted exponent, independence assertion, or
 tail-density claim is inferred from (65.2)--(65.4).
->>>>>>> uC27/main
