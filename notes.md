@@ -26468,3 +26468,320 @@ reading.  The review repaired the §55 scope error, ambiguous Proposition
 bibliography ledger, stale finite-verification note, source index, and the
 underpowered `(bo)` regression.  No quote, theorem number, threshold, or
 priority verdict required reversal.
+
+## 69. Forward-ray identities: pointwise divisibility collapses, and positivity propagates backward
+
+**Status and headline.**  The integer-wise polynomial-divisibility lemma, the
+shadow classification, and the forward-ray obstruction below are **proved**.
+They close the one-sided gap left in Proposition 66.5: no polynomial witness
+datum, even one required to be eligible only on a forward tail, exists on any
+of the three anchored rays.  The finite coefficient ledgers and the projected
+class calculation are **Computational**, exact only in their stated boxes.
+No new witness, fourth value with \(W=+\infty\), or classification of
+\(W(2m^2)\) follows.
+
+### 69.1 The pointwise definition and its algebraic closure
+
+Write \({\rm Int}(\mathbb Z)\) for the rational polynomials which take integer
+values at every integer.  A **forward-ray polynomial datum** for
+
+\[
+       n(t)=s m(t)^2,\qquad m(t)=m_0+Kt                 \tag{69.1}
+\]
+
+consists initially of \(M,D\in\mathbb Q[t]\), integer-valued for every
+integer \(t\geq1\), such that at every such integer
+
+\[
+\begin{gathered}
+ M(t)\equiv3\pmod4,\quad M(t)\geq3,\quad D(t)\geq1,\\
+ A(t)={M(t)+1\over4}\in\mathbb Z,\quad
+ D(t)\mid A(t)^2,
+ \quad M(t)\mid s m(t)^2+4D(t).                         \tag{69.2}
+\end{gathered}
+\]
+
+This pointwise definition is the right generality.  Requiring coefficients in
+\(\mathbb Z\) would unnecessarily omit such standard integer-valued
+polynomials as \(t(t-1)/2\); requiring polynomial cofactors turns out not to
+be an extra assumption.
+
+**Lemma 69.1 (integer-wise polynomial divisibility collapses; proved).**
+Let \(F,G\in\mathbb Q[t]\), with \(G\ne0\), be integer-valued at every
+sufficiently large integer, and suppose \(G(k)\ne0\) and
+\(G(k)\mid F(k)\) there.  Then
+
+\[
+                         F=GH\quad\hbox{in }\mathbb Q[t] \tag{69.3}
+\]
+
+for a polynomial \(H\in{\rm Int}(\mathbb Z)\).  In particular the quotient
+is an integer at every integer, including all arguments before the range on
+which divisibility was assumed.
+
+Equivalently, if \(g=(F,G)\) in \(\mathbb Q[t]\), \(G=g e\), and
+\(F=g b\), then the coprime residual factor \(e\) is constant.  Before this
+conclusion, clearing coefficients to coprime integer polynomials \(e_1,b_1\)
+gives the useful resultant bound
+
+\[
+ e_1(k)\mid {\rm Res}(e_1,b_1)                           \tag{69.4}
+\]
+
+at every point of integer-wise divisibility.  Thus the proposed
+“polynomial-divisibility core times a bounded factor” has no nonconstant
+bounded factor: a polynomial bounded on a forward sequence is constant.
+
+*Proof.*  First, a rational polynomial integral at all sufficiently large
+integers is integral at every integer.  Indeed its finite-difference Newton
+expansion based at any sufficiently large integer has integral coefficients
+in the binomial basis, and the binomial polynomials are integral on all
+integers.
+
+Divide in \(\mathbb Q[t]\): \(F=GH+R\), where \(\deg R<\deg G\).  Choose a
+positive integer \(c\) clearing the coefficients of \(H\).  At a sufficiently
+large integer \(k\),
+
+\[
+ {R(k)\over G(k)}={F(k)\over G(k)}-H(k)\in {1\over c}\mathbb Z.
+\]
+
+If \(G\) is nonconstant, the left side tends to zero.  It is therefore zero
+for all sufficiently large \(k\), so \(R\) has infinitely many zeros and is
+the zero polynomial.  If \(G\) is constant, (69.3) is immediate.  In either
+case \(H(k)=F(k)/G(k)\) is integral on the assumed tail, and the first
+paragraph gives \(H\in{\rm Int}(\mathbb Z)\).
+
+For the equivalent ledger, clear a common coefficient denominator from the
+coprime \(e,b\), without changing \(b/e\), to obtain
+\(e_1,b_1\in\mathbb Z[t]\).  Whenever \(b(k)/e(k)\) is integral,
+\(e_1(k)\mid b_1(k)\).  The integral Bezout identity for the nonzero
+resultant then gives (69.4).  Hence \(|e_1(k)|\) is bounded on the tail;
+so \(e_1\), and therefore \(e\), is constant.  This is also a second proof
+of the divisibility assertion. \(\square\)
+
+Apply the lemma first to \(D(t)\mid A(t)^2\), and then to
+\(M(t)\mid s m(t)^2+4D(t)\).  The congruence in (69.2) also puts
+\((M-3)/4\) in \({\rm Int}(\mathbb Z)\).  Consequently every pointwise ray
+datum automatically supplies \(A,D,E,M,Q\in{\rm Int}(\mathbb Z)\) with
+
+\[
+ M=4A-1,\qquad A^2=DE,
+ \qquad s m^2+4D=MQ                                    \tag{69.5}
+\]
+
+as polynomial identities.  In particular, specializing at zero gives
+
+\[
+ M(0)\mid s m_0^2+4D(0),
+ \qquad M(0)\equiv3\pmod4.                            \tag{69.6}
+\]
+
+**Lemma 69.2 (exact shadow blockage classification; proved).**  For a datum
+(69.5) which is eligible at every positive integer, the specialization at
+zero satisfies the congruence and divisibility parts of a witness.  If it is
+not a positive witness datum, then exactly the range/positivity obstruction
+
+\[
+                    M(0)\leq-1\quad\hbox{or}\quad D(0)<0 \tag{69.7}
+\]
+
+occurs.  Divisor eligibility cannot fail by itself.  More explicitly, if
+\(D(0)\ne0\), then \(D(0)\mid A(0)^2\) because
+\(A(0)^2=D(0)E(0)\); if \(D(0)=0\), then \(A(0)=0\) and
+\(M(0)=-1\).  Also \(M(0)\equiv3\pmod4\), so a nonpositive value of \(M(0)\)
+is at most \(-1\), while a positive value is at least 3.
+
+*Proof.*  All five values in (69.5) are integers at zero by Lemma 69.1 and
+the finite-difference observation.  Equations (69.5) give both claims in
+(69.6) and the asserted divisor relation when \(D(0)\ne0\).  The zero case
+and the mod-4 alternatives are as stated.  Thus \(M(0)\geq3,D(0)\geq1\)
+would be a witness, and every failure has exactly one of the forms in
+(69.7). \(\square\)
+
+This corrects the apparent split between two divisibility regimes.  For
+polynomial \(D\), integer-wise divisibility is no broader than polynomial
+divisibility with an integer-valued cofactor.  Computational 66.1 searched
+only the three special shapes \(d,dA,A^2/d\), not every polynomial divisor
+of \(A^2\); Proposition 66.5 covered every shape only when eligibility was
+assumed at \(t=0\).  Neither result by itself disposed of (69.7).
+
+### 69.2 One-step positivity and the all-ray obstruction
+
+The missing ingredient is a real-sign consequence of the two identities,
+not a larger coefficient search.
+
+**Lemma 69.3 (one-step positivity propagation; proved).**  Let \(s>0\), and
+let real polynomials satisfy (69.5).  Suppose
+\(M(1)>0\) and \(D(1)>0\).  If \(M(0)\ne0\), then
+
+\[
+                         M(0)>0,\qquad D(0)>0.          \tag{69.8}
+\]
+
+*Proof.*  At every real zero \(r\) of \(M\), one has \(A(r)=1/4\) and hence
+\(D(r)E(r)=1/16\).  On the other hand (69.5) gives
+
+\[
+             0=s m(r)^2+4D(r)                                      \tag{69.9}
+\]
+
+Thus \(D(r)\ne0\), \(m(r)\ne0\), and necessarily \(D(r)<0\).
+
+Suppose first that \(M(0)<0\).  There is a zero of \(M\) in \((0,1)\); let
+\(r\) be the largest one.  Then \(M>0\) throughout \((r,1]\).  But
+\(D(r)<0<D(1)\), so \(D\) has a zero \(u\in(r,1)\).  The identity
+\(A^2=DE\) gives \(A(u)=0\), whence \(M(u)=-1\), a contradiction.
+
+Now suppose \(M(0)>0\) but \(D(0)<0\).  A zero \(u\in(0,1)\) of \(D\)
+again has \(M(u)=-1\).  Since \(M(1)>0\), let \(r\in(u,1)\) be the largest
+zero of \(M\).  Then \(M>0\) on \((r,1]\), while (69.9) and
+\(D(1)>0\) force a zero of \(D\) there.  As before that zero makes
+\(M=-1\), a contradiction.  Finally \(D(0)=0\) implies \(A(0)=0\) and
+\(M(0)=-1\), already excluded. \(\square\)
+
+**Theorem 69.4 (no forward-ray polynomial witness family; proved).**  Let
+
+\[
+ (s,m_0)\in\{(2,12),(21,4),(505,3)\},\qquad K\geq1.    \tag{69.10}
+\]
+
+There is no forward-ray polynomial datum (69.1)--(69.2).  More strongly,
+there is none whose conditions are required only for all sufficiently large
+integer \(t\).  There is no degree, coefficient, or cylinder-period
+restriction in this statement.
+
+*Proof.*  Lemma 69.1 turns the pointwise conditions into (69.5), and makes
+all specializations integral.  If \(M\) is nonconstant, shift the variable so that any eligible integer
+position becomes 1 and apply Lemma 69.3 backward.  Iteration from the
+eligible tail gives \(M(0)>0,D(0)>0\); the
+mod-4 law then gives \(M(0)\geq3\), and Lemma 69.2 makes the zero
+specialization a witness for \(s m_0^2\).
+
+If \(M\) is constant, then \(A\) is a positive constant.  The positive
+polynomial \(D(t)\) takes values among the finitely many positive divisors
+of \(A^2\) on the tail, so \(D\) is also a positive constant.  Lemma 69.1
+again transfers the last congruence to zero, producing the same witness.
+In the three rows this contradicts Theorem 60.3. \(\square\)
+
+Thus the two candidate escape mechanisms in (69.7) are algebraically
+possible at an isolated specialization but impossible in a witness identity:
+a real zero of \(M\) forces \(D<0\), while a sign-restoring zero of \(D\)
+forces \(M=-1\).  This is the step missing from the wave-28 attestation.
+
+### 69.3 Constant divisors and the bounded hunt
+
+The constant-divisor stratum admits an elementary complete description.  Put
+\(M(t)=\alpha t+\beta=4(at+b)-1\) with integer coefficients.  For
+\(d=\prod p^{v_p(d)}>0\), set
+
+\[
+ q(d)=\prod_{p\mid d}p^{\lceil v_p(d)/2\rceil}.           \tag{69.11}
+\]
+
+Then
+
+\[
+ d\mid A(t)^2\ (t\geq1)
+ \quad\Longleftrightarrow\quad q(d)\mid a,\quad q(d)\mid b. \tag{69.12}
+\]
+
+Indeed \(d\mid x^2\) is equivalent to \(q(d)\mid x\), and two consecutive
+values of \(at+b\) give necessity; sufficiency is immediate.  In particular
+eligibility always transfers to \(t=0\).  For a general integer-valued
+polynomial the same conclusion follows either from Lemma 69.1 or directly:
+if a denominator \(c\) clears its coefficients, translation by \(cd\)
+preserves its value modulo \(d\), so a congruence true at every positive
+integer is true at zero.
+
+There are no constant-\(D\), linear-\(M\) anchored rays.  If \(\alpha\ne0\),
+polynomial divisibility by \(M\) would make
+\(s(m_0+Kt)^2+4d\) vanish at the real root \(-\beta/\alpha\), impossible.
+If \(\alpha=0\), finite differences show that validity is equivalent to
+
+\[
+ \begin{split}
+ \beta&\mid s m_0^2+4d,\\
+ \beta&\mid sK^2+2s m_0K,\\
+ \beta&\mid2sK^2,                                       \tag{69.13}
+ \end{split}
+\]
+
+besides \(\beta\equiv3\pmod4\), positivity, and \(d\mid((\beta+1)/4)^2\).
+The first congruence in (69.13) would be an anchor witness.  Thus (69.11)--
+(69.13) completely classify every tuple
+\((d,\alpha,\beta,m_0,K)\), including the degree-zero edge, and the valid
+anchored list is empty.
+
+**Computational 69.1 (proof-aware coefficient and cylinder replay; exact
+stated boxes).**  Block (bp) used the period panel
+
+\[
+ \begin{split}
+ {\cal K}=\{&12,24,36,44,48,72,84,88,132,168,231,252,\\
+             &264,396,462,627,693,1254,1881\},            \tag{69.14}
+ \end{split}
+\]
+
+the §66 periods \(12,24,44,84,132,231\), the projected modulus 627, and
+their two- and three-fold multiples.  For all three anchors it counted every
+integer monomial-coefficient array with \(\deg M\leq2\), \(\deg D\leq4\),
+and coefficient absolute value at most 500.  Exactly 31,375,250 of the
+\(M\)-arrays induce the polynomial-function law \(M(t)\equiv3\pmod4\);
+with all \(D\)-arrays and all 57 anchor-period rows this is
+
+\[
+                    1,797,349,098,035,336,234,639,250     \tag{69.15}
+\]
+
+syntactic candidates.  Theorem 69.4 certifies zero identities in this box;
+the count is a proof-aware exhaustive ledger, not independent numerical
+evidence obtained by iterating that enormous set.
+
+The direct constant-\(D\), linear-\(M\) reducer used (69.11).  At bound 500
+there are 56,226 triples \((d,\alpha,\beta)\) passing mod 4, positivity, and
+eligibility (1,240 constant and 54,986 nonconstant \(M\)); across (69.14)
+and the three anchors this gives 3,204,882 rows.  The root test disposes of
+all nonconstant rows, and the exact three coefficient congruences (69.13)
+dispose of every constant row.  Under `ES_FULL_SCAN=1`, the same reducer
+runs to coefficient bound 5,000: the corresponding counts are 5,792,112
+(21,390 constant and 5,770,722 nonconstant), or 330,150,384 anchor-period
+rows, again with no hit.  The full flag also pins the larger syntactic ledger
+178,285,380,203,533,476,742,414,087,642,500.
+
+Finally the block used all 65 classes in the exact projection (66.16), not
+only the anchor class 12.  For \(m(t)=r+627t\), the two nonconstant finite differences show that a
+fixed modulus must divide both \(4\cdot627^2\) and
+\(2\cdot627^2+4r\cdot627\).  Exhausting their common divisors gave
+445 moduli \(M\equiv3\pmod4\), and exhausting all 1,709 divisors of the
+corresponding \(((M+1)/4)^2\) gave no fixed-\((M,D)\) ray.  This last zero is
+complete for constant data on those 65 projected classes, but says nothing
+about their nonconstant polynomial rays; only the class \(r=12\) is covered
+by Theorem 69.4.
+
+Block (bp) also performs deterministic resultant pins, 128 constructed
+integer-wise examples, and an exhaustive anchor-shadow check for
+\(|A(0)|,|D(0)|\leq100\).  The latter finds 652 signed algebraic shadows,
+all blocked by (69.7), and no positive datum.  These are regression tests for
+the proofs, not substitutes for them.  On the research host block (bp) took
+0.04 seconds by default and 1.13 seconds for its isolated full scan.
+
+### 69.4 Consequence and honest walls
+
+The forward-ray escape hatch in §66 is closed for polynomial data in the
+maximal integer-valued sense: pointwise divisibility already supplies
+polynomial integer-valued cofactors, and even tail positivity propagates back
+to the infinite anchor.  Hence a polynomial witness family cannot settle an
+anchored escape cylinder by covering its whole forward ray.  This hardens,
+rather than resolves, the restricted prediction \(C_{\rm SQ}'\): a proof
+must use non-polynomial or nonuniform witness structure.
+
+Theorem 69.4 does not obstruct an arbitrary function
+\(t\mapsto(M_t,D_t)\), a different polynomial on each finite piece, or a ray
+whose zero specialization is not one of the three proved infinite anchors.
+The 64 unanchored projected classes in (66.16) therefore remain open to
+nonconstant identities.  Nor does the theorem prove that every fixed
+\(m\ne12\) has a witness, produce another \(W=+\infty\) value, or exchange
+the quantifiers in (66.19).  Higher-degree polynomial strata need no further
+hunt on the three anchored rays, but all genuinely non-polynomial supply and
+the pointwise classification of \(W(2m^2)\) remain beyond this obstruction.

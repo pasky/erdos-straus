@@ -13491,4 +13491,233 @@ print("\n== (bo) PW exception-range arithmetic (§68) ==")
 check_bo()
 
 
+# ---------------------------------------------------------------- (bp)
+def check_bp():
+    """Forward-ray collapse, shadow wall, and exact bounded ledgers (§69)."""
+    import os
+    from random import Random
+    from time import perf_counter
+
+    started = perf_counter()
+
+    def poly_mul(f, g):
+        out = [0] * (len(f) + len(g) - 1)
+        for i, x in enumerate(f):
+            for j, y in enumerate(g):
+                out[i + j] += x * y
+        return out
+
+    def poly_eval(f, x):
+        out = 0
+        for coefficient in reversed(f):
+            out = out * x + coefficient
+        return out
+
+    # Constructed integer-wise divisibility examples.  Their quotient is the
+    # polynomial E, as Lemma 69.1 predicts; all arithmetic is Python int.
+    rng = Random(690029)
+    for _ in range(128):
+        c = rng.randrange(1, 10)
+        G = [rng.randrange(1, 10), rng.randrange(-4, 5),
+             rng.randrange(1, 6)]
+        J = [rng.randrange(-5, 6), rng.randrange(1, 6)]
+        D = [c * x for x in G]
+        A = [c * x for x in poly_mul(G, J)]
+        E = [c * x for x in poly_mul(G, poly_mul(J, J))]
+        assert poly_mul(D, E) == poly_mul(A, A)
+        for t in range(0, 31):
+            dv, av, ev = (poly_eval(P, t) for P in (D, A, E))
+            assert av * av == dv * ev
+            if dv:
+                assert av * av % dv == 0
+
+    # Resultant-bound pins for random coprime linear residual factors.  For
+    # H=h1*t+h0 and B=b1*t+b0, Res(H,B)=h1*b0-b1*h0.
+    resultant_hits = 0
+    for _ in range(256):
+        while True:
+            h1 = rng.choice(tuple(range(-9, 0)) + tuple(range(1, 10)))
+            h0 = rng.randrange(-12, 13)
+            b1 = rng.choice(tuple(range(-9, 0)) + tuple(range(1, 10)))
+            b0 = rng.randrange(-12, 13)
+            R = h1 * b0 - b1 * h0
+            if R:
+                break
+        for t in range(1, 41):
+            hv, bv = h1 * t + h0, b1 * t + b0
+            if hv and bv % hv == 0:
+                assert R % hv == 0 and abs(hv) <= abs(R)
+                resultant_hits += 1
+    assert resultant_hits == 335
+
+    # Exhaust the signed zero-shadows in a small exact endpoint box.  E and Q
+    # are reconstructed, not searched; the three anchors have no positive row.
+    shadow_rows = shadow_blocked = shadow_positive = shadow_d_zero = 0
+    for s, m0 in ((2, 12), (21, 4), (505, 3)):
+        for A0 in range(-100, 101):
+            M0 = 4 * A0 - 1
+            for D0 in range(-100, 101):
+                if D0 == 0:
+                    if A0 != 0:
+                        continue
+                    E0 = 0
+                else:
+                    if A0 * A0 % D0:
+                        continue
+                    E0 = A0 * A0 // D0
+                N0 = s * m0 * m0 + 4 * D0
+                if N0 % M0:
+                    continue
+                Q0 = N0 // M0
+                assert A0 * A0 == D0 * E0
+                assert N0 == M0 * Q0 and M0 % 4 == 3
+                shadow_rows += 1
+                if M0 >= 3 and D0 >= 1:
+                    shadow_positive += 1
+                else:
+                    shadow_blocked += 1
+                    assert M0 <= -1 or D0 < 0
+                    if D0 == 0:
+                        shadow_d_zero += 1
+                        assert M0 == -1
+    assert (shadow_rows, shadow_blocked, shadow_positive,
+            shadow_d_zero) == (652, 652, 0, 3)
+
+    periods = (12, 24, 36, 44, 48, 72, 84, 88, 132, 168,
+               231, 252, 264, 396, 462, 627, 693, 1254, 1881)
+    assert len(periods) == 19
+
+    def ceil_div(a, b):
+        return -((-a) // b)
+
+    def square_root_kernel(d):
+        q = 1
+        for p, exponent in factorint(d).items():
+            q *= int(p) ** ((int(exponent) + 1) // 2)
+        return q
+
+    # Complete constant-D, linear-M reducer in the stated coefficient box.
+    # Integer-valued quadratic congruences use finite differences, avoiding
+    # the false assumption that the monomial coefficients must each vanish.
+    def constant_d_ledger(bound):
+        b_lo = ceil_div(1 - bound, 4)
+        b_hi = (bound + 1) // 4
+        a_hi = bound // 4
+        constant = nonconstant = congruence_hits = 0
+        for d in range(1, bound + 1):
+            q = square_root_kernel(d)
+            for a in range(0, a_hi + 1, q):
+                low = max(b_lo, 1 if a == 0 else 1 - a)
+                first_b = ceil_div(low, q) * q
+                for b in range(first_b, b_hi + 1, q):
+                    assert abs(4 * a) <= bound
+                    assert abs(4 * b - 1) <= bound
+                    assert 4 * (a + b) - 1 >= 3
+                    assert a % q == b % q == 0
+                    if a:
+                        nonconstant += 1
+                        # At the real root of M, s*m^2+4d is strictly positive.
+                        continue
+                    constant += 1
+                    M = 4 * b - 1
+                    for s, m0 in ((2, 12), (21, 4), (505, 3)):
+                        for K in periods:
+                            c2 = s * K * K
+                            c1 = 2 * s * m0 * K
+                            c0 = s * m0 * m0 + 4 * d
+                            if (c0 % M == 0 and (c1 + c2) % M == 0
+                                    and (2 * c2) % M == 0):
+                                congruence_hits += 1
+        return constant + nonconstant, constant, nonconstant, congruence_hits
+
+    default_constant = constant_d_ledger(500)
+    assert default_constant == (56_226, 1_240, 54_986, 0)
+
+    # Count all mod-4-compatible M coefficient arrays; Theorem 69.4, rather
+    # than an infeasible tuple loop, is the exact zero-survivor certificate.
+    def syntactic_ledger(bound):
+        residue_count = tuple(
+            sum(1 for x in range(-bound, bound + 1) if x % 4 == r)
+            for r in range(4)
+        )
+        m_count = 0
+        residue_patterns = []
+        for c0 in range(4):
+            for c1 in range(4):
+                for c2 in range(4):
+                    if all((c0 + c1 * t + c2 * t * t) % 4 == 3
+                           for t in range(4)):
+                        rows = (residue_count[c0] * residue_count[c1]
+                                * residue_count[c2])
+                        m_count += rows
+                        residue_patterns.append((c0, c1, c2))
+        total = 3 * len(periods) * m_count * (2 * bound + 1) ** 5
+        return m_count, tuple(residue_patterns), total
+
+    default_syntactic = syntactic_ledger(500)
+    assert default_syntactic == (
+        31_375_250, ((3, 0, 0), (3, 2, 2)),
+        1_797_349_098_035_336_234_639_250,
+    )
+
+    # Use every one of the 65 depth-1000 projection classes.  The fixed-M
+    # congruence is classified by the first two finite differences.
+    residues = tuple(
+        r for r in range(627)
+        if r % 3 == 0
+        and r % 11 in {0, 1, 10, 5, 6}
+        and r % 19 in {0, 1, 18, 2, 17, 4, 15, 5, 14, 7, 12, 9, 10}
+    )
+    assert len(residues) == 65 and 12 in residues
+
+    def integer_divisors(n):
+        out = [1]
+        for p, exponent in factorint(abs(n)).items():
+            out = [d * int(p) ** j for d in out
+                   for j in range(int(exponent) + 1)]
+        return tuple(sorted(out))
+
+    fixed_moduli = fixed_divisors = fixed_hits = 0
+    s, K = 2, 627
+    for r in residues:
+        c2 = s * K * K
+        c1 = 2 * s * r * K
+        common = gcd(2 * c2, c1 + c2)
+        for M in integer_divisors(common):
+            if M < 3 or M % 4 != 3:
+                continue
+            fixed_moduli += 1
+            A = (M + 1) // 4
+            for D in integer_divisors(A * A):
+                fixed_divisors += 1
+                if (s * r * r + 4 * D) % M == 0:
+                    fixed_hits += 1
+    assert (fixed_moduli, fixed_divisors, fixed_hits) == (445, 1709, 0)
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    deep_constant = deep_syntactic = None
+    if full_scan:
+        deep_constant = constant_d_ledger(5_000)
+        assert deep_constant == (5_792_112, 21_390, 5_770_722, 0)
+        deep_syntactic = syntactic_ledger(5_000)
+        assert deep_syntactic == (
+            31_262_502_500, ((3, 0, 0), (3, 2, 2)),
+            178_285_380_203_533_476_742_414_087_642_500,
+        )
+
+    print("forward-ray pins (examples,resultant,shadows,periods) =",
+          (128, resultant_hits, shadow_rows, len(periods)))
+    print("forward-ray hunts (constant,syntactic,projected,full,seconds) =",
+          (default_constant, default_syntactic[0],
+           (len(residues), fixed_moduli, fixed_divisors, fixed_hits),
+           full_scan, perf_counter() - started))
+    if full_scan:
+        print("forward-ray deep ledgers (constant,syntactic) =",
+              (deep_constant, deep_syntactic[0], deep_syntactic[2]))
+
+
+print("\n== (bp) forward-ray polynomial obstruction (§69) ==")
+check_bp()
+
+
 print("\nall checks passed")
