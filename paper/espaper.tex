@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v8, 30 August 2026}
+\date{Draft v9, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -76,8 +76,24 @@ exactly $A\geq1$ open in the two pointwise frames.  We also prove that a
 complete congruence-class certificate through depth $T$ has
 $\log Q\geq(1/2+o(1))T$ in Type II and $\log Q\geq T+o(T)$ in Type I.
 These are effective ceilings on the certificate-plus-least-prime
-architecture, not pointwise upper bounds on either depth statistic.  Exact
-finite censuses through the stated endpoints remain informational only.
+architecture, not pointwise upper bounds on either depth statistic.  A
+separate \textbf{proved-conditional} reduction shows that the cubic tail
+would settle all sufficiently large primes if its uniform depth window
+reached $\log T\leq b(\log N)^\theta$ for any $\theta>1/3$; the square-log
+tail needs $\theta\geq1/2$, including the endpoint.  Both named window
+hypotheses are \textsc{unproved}; the currently realized common exponent is
+only $1/4$, with every provisional inheritance retained.  We also prove the
+square-escape theorem
+\[
+ W(m^2)=+\infty\quad(m\geq1),\qquad
+ T<L_{\rm int}(T)\leq T+2\sqrt T+1,
+\]
+under the moving inverse convention.  Thus all-integer tails always contain
+square survivors, making count below one a prime-essential route.  The
+all-prime inverse is proved only to satisfy
+$L_p(T)\leq\exp\{(5.2+o(1))T\}$; no subexponential prime-survivor theorem is
+claimed.  Exact finite censuses through the stated endpoints remain
+informational only.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -143,7 +159,13 @@ pointwise lower tail effectively.  Theorems~\ref{thm:typeII-certificate}
 and~\ref{thm:typeI-certificate} then give the exact proved exponential
 modulus costs for complete-class certificates, while
 Corollary~\ref{cor:certificate-Linnik} records the scoped least-prime
-consequence.  Theorem~\ref{thm:general-m-tails} records the
+consequence.  Theorem~\ref{thm:count-below-one} is the proved-conditional
+count-below-one reduction: its cubic and square-log window thresholds are
+respectively $\theta>1/3$ and $\theta\geq1/2$, but both named hypotheses are
+unproved and the common realized window is only $\theta=1/4$.  Theorem
+\ref{thm:square-escape} proves $W(m^2)=+\infty$ for every $m$, while
+Corollary~\ref{cor:integer-prime-dichotomy} shows why this reduction must be
+prime-restricted.  Theorem~\ref{thm:general-m-tails} records the
 status-preserving general-$m$ truncation.
 
 The paper has five layers.
@@ -170,6 +192,11 @@ fixed-slice sieve, and effective stacked almost-all theorem.  Section~\ref{sec:l
 sharpens both pointwise exponent frontiers.  Section~\ref{sec:certificate-ceiling}
 proves the complete-class certificate ceilings, states their exact
 architecture-only perimeter, and extends all three finite depth censuses.
+Section~\ref{sec:supercritical-window} then isolates the exact conditional
+window thresholds, the mass-invariant gap within its formalized
+absolute-remainder architecture, and the open crossing hypotheses.  Section
+\ref{sec:inverse-census} proves square escape, separates the all-integer and
+prime inverse scales, and audits the Jacobsthal and prime-survivor walls.
 Section~\ref{sec:general-m-tails} gives the status-preserving
 general-numerator tails and their exact effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
@@ -187,10 +214,13 @@ this draft.  ``Open'' means no proof is claimed.  The record results in
 Sections~\ref{sec:records}--\ref{sec:general-m}, the cubic witness tail,
 Theorem~\ref{thm:effectivity}, and the cubic row of
 Theorem~\ref{thm:general-m-tails} remain \textsc{claimed/provisional} as
-labelled.  The logarithmic lower-tail and congruence-certificate theorems
-are proved and effective.  The normalized census panels are informational,
-the GRH least-prime remark is conditional, and the congruence wall is an
-architecture assessment rather than a universal pointwise theorem.  Writing
+labelled.  The logarithmic lower-tail, congruence-certificate, and square-escape
+theorems are proved and effective.  The count-below-one and crossing
+implications are proved conditional on their explicitly \textsc{unproved}
+hypotheses; the mass-invariant proposition is only an architecture theorem.
+The normalized census panels are informational, the GRH least-prime remark
+is conditional, and the congruence and prime-survivor walls are Assessments
+rather than universal pointwise theorems.  Writing
 out internal arguments and reviews for the provisional results does not
 replace independent external priority and referee checks.  In
 particular, no result of this paper proves the
@@ -206,9 +236,10 @@ compilation of the file was not checked.  Its cited support is Dyachenko
 is not proved constructively and that the relevant finite-covering argument
 is conditional.  The development is nevertheless useful as a formal
 isolation of the same frontier: Sections~\ref{sec:witness-tail}--
-\ref{sec:certificate-ceiling} quantify, almost everywhere, on the effective
-lower tail, and at the complete-class certificate perimeter, the witness
-existence that its axiom assumes.  No result here depends
+\ref{sec:inverse-census} quantify the almost-all tail, effective lower tail,
+complete-class certificate perimeter, conditional count-below-one window,
+and inverse scales surrounding the witness existence that its axiom
+assumes.  No result here depends
 on that file or on Dyachenko's conditional existence claim.
 
 The historical comparison is also provisional.  Vaughan's 1970 bound
@@ -2118,12 +2149,42 @@ bound must select a prime beyond an eventual certificate's finite exceptional
 prefix, correcting the census-memory description to a linear resident-state
 bound, and restoring the architecture-only pointwise pointer.  Block
 \texttt{(bc)} replays the certificate data, record tables, natural-log
-normalizations, and the memory-bounded full scans.  The internal verifier
-coverage used by this draft runs through \texttt{(bc)}.  These are internal
-reviews and bug hunts, not external validation.  A separate full-source
-review of the auro-zera Lean file replayed its identities but did not compile it; its
-open-core characterization and the source paper's own conditional Conclusion
-are related-work checks, not validation of this paper.
+normalizations, and the memory-bounded full scans.
+
+Wave 22 added separate hostile reviews of the supercritical-window and
+inverse-census sections; both returned \textsc{sound-after-repairs}.  The
+first independently rederived both threshold exponents, made the full
+$W=+\infty$ containment and dyadic quantifiers explicit, corrected the
+$cb^3=1$, $C<1$ endpoint, retained the \textsc{unproved} window hypotheses
+and every inherited Section~\ref{sec:cfree} and
+\textsc{claimed/provisional} label, restored the source \S18 and Lemma-33.3
+antecedents, made (57.11) sufficient rather than necessary, scoped every
+modulus/cylinder claim to its proved architecture, fixed the crossing
+families before quantification, and repaired the factor-two transfer proof.
+Block \texttt{(bd)} uses the shared exact harvest, reproduces the integer and
+prime tails and exact displayed logarithms, and checks only finite toy
+instances of the crossing geometry.
+
+The inverse review confirmed the square theorem only after expanding the
+nonunit, common-factor, 2-adic, prime-power, and local-obstruction cases in
+its full proof.  It changed the dichotomy to the moving count
+$T<n\leq N$, retained square density, restricted $(k\log k)^2$ to $k\geq2$,
+and made the secondary-source provenance and both directions of the liminf
+duality explicit.  Block \texttt{(be)} compares the original and divisor
+harvests, tests every harvested divisor and every $m^2\leq10^6$ for each
+eligible $M\leq3000$, checks leastness of each inverse row, and chunks prime
+generation; optional rows remain behind \texttt{ES\_FULL\_SCAN=1}.  Its
+independent replay covered 750 moduli, 15,754 divisor data, 14,745 distinct
+classes, and 750,000 square residues (15,754,000 $(M,D,m)$ incidences).
+These finite checks are regressions, not proofs.  Costello--Watts page 1 and
+Ford--Green--Konyagin--Maynard--Tao pages 2--3 were checked as complete
+archived secondary sources; Iwaniec's primary 1978 PDF remains uninspected.
+The internal verifier coverage used by this draft runs through
+\texttt{(be)}.  These are internal reviews and bug hunts, not external
+validation.  A separate full-source review of the auro-zera Lean file
+replayed its identities but did not compile it; its open-core
+characterization and the source paper's own conditional Conclusion are
+related-work checks, not validation of this paper.
 
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
@@ -4447,6 +4508,853 @@ remain unchanged: Theorems~\ref{thm:typeII-certificate} and
 \ref{thm:typeI-certificate} constrain only the complete-class certificate
 architecture.
 
+\section{The supercritical window and count-below-one reduction}
+\label{sec:supercritical-window}
+\medskip\noindent\textbf{Status.}
+The count-below-one implication below is \textbf{proved conditional} on
+explicit, falsifiable window hypotheses, which are \textsc{unproved}.  Its
+fixed-polylogarithmic use inherits the provisional external-review
+qualification on the Section~\ref{sec:cfree} moment/Bonferroni machinery;
+its cubic use additionally inherits the \textsc{claimed/provisional}
+Theorem~\ref{thm:pruned}.  The only currently realized common power window
+is $\theta=1/4$ in Theorem~\ref{thm:witness-tail}, with exactly those
+qualifications, and it is below both thresholds.  Proposition~\ref{prop:mass-gap}
+is proved only inside its explicitly defined absolute-remainder
+architecture.  Statements that every sieve or linear combination belongs to
+that architecture are Assessments, not theorems.  The crossing inputs are
+open hypotheses.  Nothing here gives unconditional pointwise progress on
+the Erd\H{o}s--Straus conjecture.
+
+Put $L=\log N$, $t=\log T$, and
+\[
+ \mathcal E=\{p:p\text{ is prime and }4/p\text{ has no three-unit-fraction
+ representation}\}.
+\]
+For every finite $T$ there is the load-bearing containment
+\begin{equation}\tag{57.1}
+ \mathcal E\subseteq\{p:W(p)=+\infty\}
+       \subseteq\{p:W(p)>T\}.
+\end{equation}
+Indeed, finite $W(p)$ supplies minimizing data (51.2), and
+Lemma~\ref{lem:multiplier} gives the explicit representation
+\eqref{eq:mult-id}.  That lemma has no primality, parity, or hard-class
+hypothesis.  Thus every prime carrying a datum is covered, including one
+also soluble by an easy identity; no classification is assumed.  The
+empty-datum convention $W=+\infty$ in (51.1) is essential.
+
+\subsection{Count below one}
+The endpoint constant cannot be suppressed in the literal hypotheses.
+
+\begin{hypothesis}[$H_{\rm WIN}(\theta;b)$; cubic window; open]
+\label{hyp:WIN-cubic}
+For some fixed $b,c,C>0$ and $N_0$, uniformly for $N\geq N_0$ and
+$3\leq T\leq\exp\{bL^\theta\}$,
+\begin{equation}\tag{57.2}
+ \#\{p\leq N:p\text{ prime},\ W(p)>T\}
+       \leq CN\exp\{-c(\log T)^3\}.
+\end{equation}
+The effective version requires all four constants to be effective.
+\end{hypothesis}
+
+\begin{hypothesis}[$H'_{\rm WIN}(\theta;b)$; square-log window; open]
+\label{hyp:WIN-square}
+With the same quantifier pattern and some fixed positive constants,
+\begin{equation}\tag{57.3}
+ \#\{p\leq N:p\text{ prime},\ W(p)>T\}
+ \leq CN\exp\{-c(\log T)^2\log(2+\log T)\}.
+\end{equation}
+Using $\log\log T$ is asymptotically equivalent; the displayed form is
+positive throughout the stated range and matches (51.13).  Write
+$H_{\rm WIN}(\theta)$ or $H'_{\rm WIN}(\theta)$ when the corresponding
+assertion holds for some $b>0$.
+\end{hypothesis}
+
+\begin{theorem}[count-below-one reduction; proved conditional; source
+Theorem 57.1]\label{thm:count-below-one}
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item If $H_{\rm WIN}(\theta)$ holds with $\theta>1/3$, every sufficiently
+large prime satisfies the Erd\H{o}s--Straus conjecture.
+\item If $H'_{\rm WIN}(\theta)$ holds with $\theta\geq1/2$, the same
+conclusion follows.  In particular, $\theta=1/2$ itself suffices; no
+$+\epsilon$ is needed.
+\end{enumerate}
+The threshold is effective if the constants in the relevant hypothesis are
+effective.  At the cubic endpoint $\theta=1/3$, $cb^3>1$ is sufficient.
+If $cb^3=1$, the right side is the constant $C$, so it forces zero exactly
+when $C<1$; if $cb^3<1$, it grows.  Without a favorable endpoint-constant
+condition, one honestly needs $\theta>1/3$.
+\end{theorem}
+\begin{proof}
+Assume first $H_{\rm WIN}(\theta;b)$.  Fixed constants $b,c,C>0$ and $N_0$
+work for every $N\geq N_0$ and every
+$3\leq T\leq\exp\{b(\log N)^\theta\}$.  For such $N$, choose the single
+admissible endpoint $T_N=\exp\{bL^\theta\}$ once it is at least 3.  The
+logarithm of the right side of (57.2) is
+\begin{equation}\tag{57.4}
+                    \log C+L-cb^3L^{3\theta}.
+\end{equation}
+For $\theta>1/3$ this is negative for every sufficiently large $L$, after
+accounting for both $L$ and $\log C$.  Hence the nonnegative integer
+$A_N=\#\{p\leq N:p\text{ prime},\ W(p)>T_N\}$ is less than one and is zero.
+At $\theta=1/3$, (57.4) is $\log C+(1-cb^3)L$, giving exactly the three
+endpoint cases in the statement.
+
+For $H'_{\rm WIN}(\theta;b)$ the same fixed-constant and endpoint-choice
+quantifiers give logarithm
+\begin{equation}\tag{57.5}
+ \log C+L-cb^2L^{2\theta}\log(2+bL^\theta).
+\end{equation}
+It tends to $-\infty$ relative to $L$ for $\theta>1/2$.  At
+$\theta=1/2$, its negative term is
+$(cb^2/2+o(1))L\log L$, which dominates $L+\log C$ for every fixed
+$b,c>0$.  For $\theta<1/2$ the saving is $o(L)$, so this inequality alone
+cannot force the count below one.
+
+Finally, let $p$ be a counterexample prime in a sufficiently large dyadic
+range and choose dyadic $N$ with $p\leq N<2p$.  The definition (51.1) and
+Lemma~\ref{lem:multiplier} give
+\[
+ p\in\mathcal E\Longrightarrow W(p)=+\infty
+ \Longrightarrow W(p)>T_N\Longrightarrow p\text{ is counted by }A_N.
+\]
+The first implication holds for every counterexample prime and the second
+for every finite $T_N$, not only for this endpoint.  But $A_N=0$.
+Successive dyadic $N$ cover every sufficiently large prime.  Every threshold
+is computable when $b,c,C,N_0$ are.
+\end{proof}
+
+\medskip\noindent\textbf{Calibration against the present
+internally proved/provisional window.}
+Theorem~\ref{thm:witness-tail} supplies both tails only in the common power
+window
+\begin{equation}\tag{57.6}
+                         t\leq bL^{1/4}
+\end{equation}
+for sufficiently small effective $b$; the cubic row is
+\textsc{claimed/provisional}, while the square-log row has only the
+Section~\ref{sec:cfree} machinery-review qualification.  This is a window
+exponent, not $H_{\rm WIN}(1/4;1)$: the endpoint constant matters.  The
+square-log row is stronger than (57.6), since (51.12) permits
+\begin{equation}\tag{57.7}
+ t^3\log(2+t)\ll L,
+       \qquad t\ll(L/\log L)^{1/3}.
+\end{equation}
+Thus it already has power-window exponent $1/3$, up to the displayed
+$\log L=\log\log N$ factor, but its count crosses one only when
+$t^2\log t\gg L$, at scale $(L/\log L)^{1/2}$.  The cubic row is valid at
+$t^4\ll L$ and crosses at $t^3\gg L$.  Both realized rows pay exactly one
+extra factor $t$ beyond supply mass.  This calibrates a conditional
+reduction; it is not an unconditional Erd\H{o}s--Straus result.
+
+\subsection{The mass-invariant gap}
+The antecedents are not new here: source \S18.2 isolates the prime-slice
+supply wall in Assessment 18.3(b); source \S18.3 gives the partition-free
+budget $\min(K,J\log K)+Jt\lesssim L$ in (18.15), and Assessment 18.4
+performs its square-log and cubic optimizations.  Source Lemma 33.3 gives
+the conditional finite-transfer ledger (33.6).  Most directly, the actual
+Section~\ref{sec:witness-tail} assembly has
+\begin{equation}\tag{57.8}
+ \deg=O(\mu),\qquad \log d_{\rm term}=O(\mu t),\qquad
+ \log\sum|c_{\rm term}|=O(\mu t)
+\end{equation}
+by (51.11).  The next definition isolates only the arithmetic common to
+those antecedents.
+
+\begin{definition}[absolute-remainder mass-level architecture]
+At depth $T=\e^{O(t)}$, an ${\rm AR}(\mu,t)$ argument has a nonnegative
+majorant $\nu=\sum_Sc_S1_{a_S\ (d_S)}$ for the relevant void or conspiracy
+set, uses truncation degree $J\asymp\mu$, and has CRT mean at most
+$\e^{-c_0\mu}$.  It transfers to $[1,N]$ using each class evaluation only
+through
+\begin{equation}\tag{57.9}
+ \#\{n\leq N:n\equiv a_S\pmod {d_S}\}={N\over d_S}+O(1)
+\end{equation}
+and the triangle inequality over the coefficient ledger.  The architecture
+books level and absolute-remainder cost $\e^{O(Jt)}$ and declares the clean
+main-term estimate valid only in the standard window
+\begin{equation}\tag{57.10}
+                              L\geq C_0\mu t.
+\end{equation}
+This formalizes one proof architecture; it does not assert that every linear
+combination has this ledger or must be evaluated absolutely.
+\end{definition}
+
+\begin{proposition}[mass-invariant gap; proved arithmetic in the
+${\rm AR}$ architecture; source Proposition 57.2]
+\label{prop:mass-gap}
+Suppose the supply mass is $\mu=\mu(t)$ and an ${\rm AR}(\mu,t)$ argument
+gives a tail $\ll N\e^{-c_0\mu}$ in (57.10).
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item If the implicit tail constant is $A>0$, the exact requirement from
+this upper bound is $c_0\mu>L+\log A$.  A convenient fixed-margin
+\emph{sufficient} condition is
+\begin{equation}\tag{57.11}
+                        c_0\mu\geq(1+\epsilon)L
+\end{equation}
+for some fixed $\epsilon>0$.  Either form implies $\mu\gg L$ and is
+incompatible with (57.10) as $t\to\infty$.
+\item If $\mu(t)\asymp t^a$ for fixed $a>0$, the largest saving exponent
+certified in the validity window is
+\begin{equation}\tag{57.12}
+ \mu\ll L^{a/(a+1)},\qquad \theta_{\rm AR}={a\over a+1}<1.
+\end{equation}
+Thus increasing the polynomial supply mass alone never reaches a pointwise
+conclusion in this architecture.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+The exact count-below-one inequality implies $\mu\gg L$ for large $L$;
+with (57.10), this gives $L\gg\mu t\gg Lt$, impossible for unbounded $t$.
+If $\mu\asymp t^a$, then (57.10) says $t^{a+1}\ll L$; substitution proves
+(57.12).
+\end{proof}
+For orientation, restoring the slowly varying $\log t$, $a=2$ is the
+square-log $2/3$ scale of source (18.16); $a=3$ is the cubic $3/4$ scale of
+Assessment 18.4 and Theorem~\ref{thm:witness-tail}.  The exponent changes
+with mass, but the one-factor gap does not.
+
+\medskip\noindent\textbf{Proved device check (Bonferroni--CRT).}
+The Sections~\ref{sec:cfree} and~\ref{sec:witness-tail} construction fits
+the formal architecture as an implemented certificate: it uses
+$J\asymp\mu$, and (51.11) gives the booked costs $\e^{O(\mu t)}$.  This is
+only a ledger statement; the tail retains the labels in this section's
+status paragraph.
+
+\medskip\noindent\textbf{Assessment 57.3 (two further standard devices,
+and the general moral).}
+In the standard growing-dimension fundamental-lemma/beta-sieve model, a void
+saving $\e^{-c\mu}$ requires truncation order proportional to dimension or
+mass, while its sieve level is a product of that many modulus scales,
+$D=\e^{\Theta(\mu t)}$.  Its usual parameter condition
+$s=\log D/t\gtrsim\mu$ reproduces (57.10).  This assesses that named
+uniform-in-dimension implementation; it is not a no-go theorem for all
+hypergraph or arithmetic sieves.
+
+The product-modulus Montgomery large sieve has the same arithmetic.  A
+product of $J$ modulus scales of entropy $t$ has
+$Q=\e^{\Theta(Jt)}$; the useful range $Q^2\leq N$ gives
+\begin{equation}\tag{57.13}
+                              J\leq {L\over2t}.
+\end{equation}
+In the usual truncated-exponential model, the available partial saving is
+\begin{equation}\tag{57.14}
+ F(J)=J\log{\e\mu\over J},\qquad
+ J\leq\min(\mu,L/(2t)).
+\end{equation}
+For $\mu=t^a$, put $t_0=(L/2)^{1/(a+1)}$.  If $t\leq t_0$, the maximum is
+$F(\mu)=\mu=O(L^{a/(a+1)})$.  If $t=t_0u$, $u>1$, the cap gives
+\begin{equation}\tag{57.15}
+ F\leq {t_0^a\over u}\log(\e u^{a+1})=O_a(t_0^a),
+\end{equation}
+since the last factor is maximized at $u=\e^{a/(a+1)}$.  Thus this modeled
+saving is $O_a(L^{a/(a+1)})=o(L)$ and cannot make the count less than one.
+The calculus is proved; the Assessment is that this product-modulus
+large-sieve implementation models a proposed assembly.  None of these three
+checks excludes a sparse formula, signed cancellation, or input seeing the
+actual remainder locations.  In particular, the broader claim ``no
+absolute-remainder assembly can ever work'' is an \textbf{Assessment}, not
+Proposition~\ref{prop:mass-gap}.
+
+\subsection{Where the crossing lives}
+For the $c$-free atoms, every compatible set of $r$ distinct atoms has
+distinct prime coordinates by Lemma~\ref{lem:cfree}, each in
+$(X^{1/2},X]$.  Hence
+\begin{equation}\tag{57.16}
+ d_S\geq\prod_{A\in S}\ell_A\geq X^{r/2},
+       \qquad \log d_S\geq {rt\over2}.
+\end{equation}
+In the witness-tail polynomial, the matching upper bound follows from
+$k\ell=\e^{O(t)}$.  At void-detecting degree $r\asymp\mu$, near crossing
+$\mu\asymp L$, top-degree moduli satisfy
+$d_S=\e^{\Theta(\mu t)}\gg N$.  A nonempty class modulo such $d_S$ contains
+zero or one integer of $[1,N]$, and its $O(1)$ remainder is no longer a
+small perturbation of $N/d_S$.
+
+For a finite congruence expansion define
+\begin{equation}\tag{57.17}
+ \operatorname {Rem}_\nu(N)=\sum_Sc_S\left(
+ \#\{n\leq N:n\equiv a_S\pmod {d_S}\}-{N\over d_S}\right).
+\end{equation}
+Then exactly
+\begin{equation}\tag{57.18}
+ \sum_{n\leq N}\nu(n)=N\mathbb E_{\rm CRT}\nu+
+                         \operatorname {Rem}_\nu(N).
+\end{equation}
+Below crossing, Section~\ref{sec:witness-tail} bounds the remainder by
+$\sum|c_S|$.  \textbf{Assessment (crossing model).}  Above crossing, the
+missing information is cancellation among signed zero-or-one remainders
+across an exponentially large subledger, modeled at void scale as
+$\e^{\Theta(\mu)}$ selected classes.  This is an upper-transfer mirror of
+source Lemma 33.3, which transfers a positive CRT lower bound only while its
+absolute ledger is affordable.
+
+Fix in advance a family $\mathscr F$ of pairs $(N,T)$ with $N,T\to\infty$
+and a specified mass $\mu(T)\to\infty$.
+
+\begin{hypothesis}[$H_{\rm XW}(\mathscr F,\mu)$; supercritical remainder
+cancellation; open]\label{hyp:XW}
+There are fixed $c_1,\epsilon,A>0$ and specified functions
+$\eta(T)\geq0$, $\eta(T)\to0$, and $h(T)\geq0$, $h(T)=o(\mu(T))$, such that
+for every sufficiently large $(N,T)\in\mathscr F$, writing $L=\log N$, if
+\[
+ \mu(T)\leq AL,\qquad c_1\mu(T)\geq(1+\epsilon)L,
+\]
+there is a finite nonnegative congruence expansion $\nu_{N,T}$, at least one
+on every prime $\e^{h(T)}<p\leq N$ with $W(p)>T$, for which
+\begin{equation}\tag{57.19}
+ \mathbb E_{\rm CRT}\nu_{N,T}\leq\e^{-c_1\mu(T)},\qquad
+ \operatorname {Rem}_{\nu_{N,T}}(N)
+ \leq N\e^{-c_1\mu(T)+\eta(T)\mu(T)}.
+\end{equation}
+All constants, the family, and both error functions are quantified before
+$(N,T)$.  The remainder bound is deliberately one-sided; absolute
+cancellation would be stronger than needed.
+\end{hypothesis}
+
+\begin{proposition}[crossing implication; proved conditional; source
+Proposition 57.4]\label{prop:crossing}
+Under $H_{\rm XW}(\mathscr F,\mu)$, every sufficiently large covered pair
+meeting the two crossing conditions has no prime
+$\e^{h(T)}<p\leq N$ with $W(p)>T$.  If $\mathscr F$ contains such a pair
+for every sufficiently large dyadic $N$, the Erd\H{o}s--Straus conjecture
+holds for all sufficiently large primes.
+\end{proposition}
+\begin{proof}
+Equations (57.18)--(57.19) give the honest two-term bound
+\[
+ \sum_{n\leq N}\nu_{N,T}(n)
+ \leq2N\e^{-c_1\mu(T)+\eta(T)\mu(T)}.
+\]
+Since $\mu(T)\leq AL$, its logarithm is at most
+$\log2-\epsilon L+\eta(T)AL<0$ eventually.  The majorant excludes every
+stated tail prime.  Under dyadic coverage, the two crossing inequalities
+give $\mu\asymp L$, hence $h=o(L)$ and $\e^h<N/2$ eventually.  Every large
+prime lies in some $(N/2,N]$, and (57.1) excludes a counterexample.
+\end{proof}
+
+Alternatively, let $\mathcal C_T$ be the union of exact CRT classes avoiding
+\emph{all} Lemma~\ref{lem:multiplier} witness classes of modulus at most
+$T$, and let $\delta_T$ be its density in the finite CRT product.  Thus
+$W(n)>T$ implies $n\in\mathcal C_T$.
+
+\begin{hypothesis}[$H_{\rm EQ}(\mathscr F,\mu)$; fair-share conspiracy
+classes; open]\label{hyp:EQ}
+For a fixed family and mass, there are fixed $c_2,\epsilon,A>0$ and a
+specified $\eta(T)\geq0$, $\eta(T)\to0$, such that for every sufficiently
+large $(N,T)\in\mathscr F$ satisfying $\mu(T)\leq A\log N$,
+$c_2\mu(T)\geq(1+\epsilon)\log N$, and
+$\delta_T\leq\e^{-c_2\mu(T)}$,
+\begin{equation}\tag{57.20}
+ \#\{p\leq N:p\text{ prime},\ p\in\mathcal C_T\}
+ \leq\e^{\eta(T)\mu(T)}\delta_T\pi(N).
+\end{equation}
+\end{hypothesis}
+This is falsifiable once $\mathscr F,\mu,\eta$ are specified.  Its right
+side is at most $\exp\{-\epsilon L+\eta(T)AL\}<1$ eventually, so it gives no
+tail prime at each covered pair and, with dyadic coverage, the same
+large-prime conclusion as Proposition~\ref{prop:crossing}.  Neither crossing
+hypothesis is asserted.
+
+\medskip\noindent\textbf{Assessment (localization of the missing input).}
+The residue-dispersion target (37.27), reduced to the short-cofactor endpoint
+\eqref{eq:endpoint-core}, is an earlier pair-level request for cancellation
+across arithmetic residue fibres.  Both remain \textsc{open}; even proving
+them would not itself give the all-degree cancellation in (57.19).  They
+nevertheless locate the same missing information: mass and absolute ledgers
+do not control where compatible residues land.  The
+all-avoider cylinder wall, Theorem~\ref{thm:cylinder} (source Theorem 33.1),
+is consistent only at this diagnostic level.  It concerns the complete
+intrinsic avoider, not every $c$-free family or every possible supercritical
+assembly.
+
+The lower-tail primes of Section~\ref{sec:lower-tail} do not contradict the
+proposed crossing.  For the least prime $p_T\equiv1\pmod {M(T)}$,
+Theorem~\ref{thm:W-lower} gives
+\begin{equation}\tag{57.21}
+ \begin{gathered}
+ T+o(T)\leq\log p_T\leq(5.2+o(1))T,
+ \qquad\log T=\log\log p_T+O(1),\\
+ \mu(T)\asymp(\log\log p_T)^3=o(\log p_T).
+ \end{gathered}
+\end{equation}
+The last mass is the cubic calibration with its inherited status; the
+square-log mass is smaller,
+$\asymp(\log\log p_T)^2\log\log\log p_T$.  These residue-one escapes are
+subcritical, not counterexamples to either crossing hypothesis.
+
+\subsection{Finite arithmetic replay}
+\medskip\noindent\textbf{Computational 57.6 (exact stated range;
+informational).}
+Verifier block \texttt{(bd)} computes with exact rational arithmetic
+\begin{equation}\tag{57.22}
+ m(T)=\sum_{\substack{M\leq T\\M\equiv3\ (4)}}{\omega(M)\over M},
+ \qquad
+ \omega(M)=\#\{-4D\pmod M:D\mid((M+1)/4)^2\},
+\end{equation}
+using the cached complete-harvest helper from block \texttt{(bc)}, and
+performs a chunked scan through $3\cdot10^5$.  The displayed mass decimals
+come from exact fractions.  The tails include all positive integers or all
+primes:
+\begingroup
+\tiny
+\setlength{\arraycolsep}{2pt}
+\begin{equation}\tag{57.23}
+\begin{array}{c|r|r|r|r|r}
+T&m(T)&\#\{n\leq3\cdot10^5:W(n)>T\}&
+ \#\{p\leq3\cdot10^5:W(p)>T\}&
+ \rho_{\rm int}/\e^{-m}&\rho_{\rm prime}/\e^{-m}\\ \hline
+100 &4.248031290751&5516&76&1.28647&0.20454\\
+300 &7.349236274282&1064&5&5.51510&0.29907\\
+1000&12.171587320339&569&0&366.47489&0\\
+3000&18.126592298585&550&0&136621.93932&0
+\end{array}
+\end{equation}
+\endgroup
+The density denominators are $300000$ and the exact $25997$ primes.  These
+ratios are \textsc{info}, not estimates or growth laws.  The next section
+explains almost all high-$T$ integer excess: all 547 positive squares at
+most 300000 have $W=+\infty$, accounting for 547 of 569 survivors at
+$T=1000$ and 547 of 550 at $T=3000$.  Conversely, the isolated
+$(p,W)=(2031121,2495)$ in (56.11) warns that a larger prime box may contain
+an escape far above a naive small-box fair-share picture.  Neither finite
+observation decides (57.19) or (57.20).
+
+Block \texttt{(bd)} also replays (57.4)--(57.5) at
+$L=10^3,10^4,10^5,10^6$ with constants normalized to one, including all
+three $C$-cases at the cubic endpoint.  Its additional asymptotic,
+fixed-margin surrogates are $t^3/(2L)$ and $t^2\log t/(2L)$ at
+$t=L^\theta$.  In that normalization, cubic $\theta=0.40$ crosses at
+$L=32$, while $\theta=0.25$ decreases, and square-log $\theta=1/2$ crosses
+at $L=\e^4$.  These are surrogate crossings only; $L=\e^4$ is not an exact
+crossing for $\log(2+t)$ in (57.5).  This arithmetic verifies neither window
+hypothesis.
+
+\medskip\noindent\textbf{Computational 57.7 (exact toy only).}
+For every distinct harvested atom through $X=15,23,31$, block \texttt{(bd)}
+enumerates compatible sets and counts exact lcms above
+$N_{\rm toy}=X^2$:
+\begin{equation}\tag{57.24}
+\begin{array}{c|r|r|r|r}
+X&r&\#\text{ atoms}&\#\text{ compatible}&\#\{d_S>X^2\}\\ \hline
+15&2&11&41&0\\15&3&11&57&45\\15&4&11&18&18\\
+23&2&23&200&0\\23&3&23&846&765\\23&4&23&1809&1809\\
+31&2&31&393&0\\31&3&31&2653&2418\\31&4&31&10389&10371
+\end{array}
+\end{equation}
+This is a finite structural illustration of (57.16), not asymptotic
+evidence.
+
+A sequence violating (57.2) or (57.3) in its moving window falsifies that
+hypothesis.  For fixed $(\mathscr F,\mu)$, universal failure of all permitted
+candidates in (57.19), or of every allowed fixed-constant/error-function
+choice in (57.20), would falsify the corresponding crossing hypothesis; one
+bad expansion does not falsify existential $H_{\rm XW}$.  Proposition
+\ref{prop:mass-gap} excludes neither a sparse identity, nonabsolute transfer,
+nor a new distribution theorem, and the finite tables support neither
+hypothesis.  The proved content is the conditional count-below-one
+implication, the one-factor arithmetic gap in the stated architecture, and
+the exact remainder identity (57.18).  There is no universal localization
+theorem and no unconditional pointwise Erd\H{o}s--Straus claim.
+
+\section{The inverse census and the integer/prime dichotomy}
+\label{sec:inverse-census}
+\medskip\noindent\textbf{Status and headline.}
+The definitions, inverse equivalences, Jacobi argument, and bounds below are
+proved.  The censuses are \textbf{Computational} and exact only on their
+stated grids.  The Iwaniec statement was checked in full secondary sources
+archived under \texttt{sources/jacobsthal-literature/}; the publisher did
+not deliver the 1978 primary PDF, so no primary-source verification is
+claimed.  The main structural fact is stronger than a generic Jacobsthal
+estimate: the full harvested system misses every square, so
+$W(m^2)=+\infty$ for every positive integer $m$.  The useful all-integer
+inverse is therefore near-linear, while finding a prime survivor remains
+open below the exponential congruence construction.  No finite table below
+suggests a growth law.
+
+\subsection{Moving inverses and an exact finite census}
+The literal least-positive-integer definition is corrupted at once:
+\begin{equation}\tag{58.1}
+ W(1)=W(4)=+\infty,\qquad W(2)=3,\qquad W(3)=7.
+\end{equation}
+Thus $\min\{n\geq1:W(n)>T\}=1$ for every $T$.  A fixed prime with infinite
+$W$, if one existed, would similarly corrupt a raw prime inverse without
+bearing on eventual pointwise behavior.  Throughout this section use the
+\textbf{moving convention}
+\begin{equation}\tag{58.2}
+ \begin{split}
+ L_{\rm int}(T)&=\min\{n>T:W(n)>T\},\\
+ L_p(T)&=\min\{p>T:p\text{ prime},\ W(p)>T\},\\
+ L_h(T)&=\min\{p>T:p\equiv1\pmod {24},\ p\text{ prime},\ W(p)>T\}.
+ \end{split}
+\end{equation}
+The minima are finite by Theorem~\ref{thm:square-escape}.  The hard-prime
+inverse $L_h$ is included because (56.10)--(56.11) use that class; it must
+not be substituted for the all-prime inverse $L_p$.  For example,
+\begin{equation*}
+                     L_p(335)=22621,
+       \qquad L_h(335)=1853329.
+\end{equation*}
+
+Lemma~\ref{lem:exact-R} makes the inverse condition exact:
+\begin{equation}\tag{58.3}
+ W(n)>T\quad\Longleftrightarrow\quad
+ n\not\equiv-4D\pmod M
+ \quad\left(\begin{array}{l}M\leq T,\ M\equiv3\pmod4,\\
+                         D\mid((M+1)/4)^2.
+       \end{array}\right)
+\end{equation}
+This ranges over the original data, not a selected subfamily.  Data (51.2)
+with $M=k\ell$ and $uvw=(M+1)/4$ give $D=u^2w$ and
+$-uv^{-1}\equiv-4D\pmod M$; conversely, the prime-by-prime construction in
+Lemma~\ref{lem:exact-R} recovers positive $u,v,w$ for every such $D$, while
+$k=1,\ell=M$ is allowed.  Thus no factorization, composite modulus, or
+duplicated class is lost.  To certify an inverse row it is enough to harvest
+all moduli through that row's threshold; no claim about a later or
+nonexistent witness is used.
+
+\medskip\noindent\textbf{Computational 58.1 (exact grid;
+informational).}
+Verifier block \texttt{(be)} harvests (58.3), streams integers and primes
+upward, and retains every unresolved threshold.  The default grid reaches
+$T=2000$; every entry and bracketed witness value is exact, with the bracket
+giving $W$ at the prime:
+\begingroup
+\scriptsize
+\begin{equation}\tag{58.4}
+\begin{array}{r|r|r@{\ }l|r@{\ }l}
+T&L_{\rm int}(T)&L_p(T)&[W]&L_h(T)&[W]\\ \hline
+3&4&7&[11]&73&[7]\\
+7&9&37&[15]&193&[15]\\
+15&16&79&[23]&1201&[31]\\
+31&36&211&[43]&2521&[47]\\
+63&64&1381&[83]&3361&[99]\\
+100&121&10399&[103]&33289&[155]\\
+200&225&22621&[419]&167521&[259]\\
+335&336&22621&[419]&1853329&[383]\\
+382&400&22621&[419]&1853329&[383]\\
+500&529&206299&[695]&2031121&[2495]\\
+750&784&2031121&[2495]&2031121&[2495]\\
+1000&1024&2031121&[2495]&2031121&[2495]\\
+1250&1296&2031121&[2495]&2031121&[2495]\\
+1500&1521&2031121&[2495]&2031121&[2495]\\
+1750&1764&2031121&[2495]&2031121&[2495]\\
+2000&2025&2031121&[2495]&2031121&[2495]
+\end{array}
+\end{equation}
+\endgroup
+The independent hard-prime replay gives exactly
+\begin{equation}\tag{58.5}
+                    L_h(T)=1853329\qquad(335\leq T\leq382),
+\end{equation}
+as required by the two records (56.10)--(56.11).  With
+\texttt{ES\_FULL\_SCAN=1}, the grid adds
+\begin{equation}\tag{58.6}
+\begin{array}{c|rrr}
+T&2200&2400&2494\\ \hline
+L_{\rm int}(T)&2209&2401&2500\\
+L_p(T)=L_h(T)&2031121&2031121&2031121.
+\end{array}
+\end{equation}
+
+For reference, each normalization cell below is
+$(\log L/\log T,\log L/T)$, with natural logarithms:
+\begin{equation}\tag{58.7}
+\begin{array}{r|c|c|c}
+T&L_{\rm int}&L_p&L_h\\ \hline
+31 &(1.044,.11560)&(1.558,.17264)&(2.281,.25266)\\
+100&(1.041,.04796)&(2.008,.09249)&(2.261,.10413)\\
+335&(1.001,.01736)&(1.725,.02993)&(2.482,.04308)\\
+382&(1.008,.01568)&(1.686,.02625)&(2.427,.03778)\\
+500&(1.009,.01254)&(1.969,.02447)&(2.337,.02905)\\
+1000&(1.003,.00693)&(2.103,.01452)&(2.103,.01452)\\
+2000&(1.002,.00381)&(1.911,.00726)&(1.911,.00726)
+\end{array}
+\end{equation}
+The integer first coordinate near one has a theorem behind it.  The prime
+columns are step functions: decreases across plateaux and jumps at a record
+are finite-table shapes only.  In particular, the isolated
+$W(2031121)=2495$ jump permits no asymptotic extrapolation.
+
+\subsection{Square escape and shifted constraints}
+\begin{theorem}[square escape and two inverse scales; proved; source
+Theorem 58.1]\label{thm:square-escape}
+For every positive integer $m$, $W(m^2)=+\infty$.  Consequently, for every
+real $T\geq3$,
+\begin{equation}\tag{58.8}
+ T<L_{\rm int}(T)
+ \leq(\lfloor\sqrt T\rfloor+1)^2
+ \leq T+2\sqrt T+1,
+\end{equation}
+and also
+\begin{equation}\tag{58.9}
+ L_{\rm int}(T)\leq M(T)+1=\exp\{(1+o(1))T\}.
+\end{equation}
+Moreover,
+\begin{equation}\tag{58.10}
+ L_{\rm int}(T)\leq L_p(T)
+ \leq\exp\{(5.2+o(1))T\}.
+\end{equation}
+The last upper bound also holds for $L_h(T)$.  All asymptotic upper bounds
+are effective in the same sense as Theorem~\ref{thm:W-lower}.
+\end{theorem}
+\begin{proof}
+We replay the full square quantifier chain.  Fix arbitrary $M=4A-1$ and
+$D\mid A^2$.  Since $(A,M)=1$, also $(D,M)=1$; thus the apparently
+degenerate case in which a prime dividing $M$ also divides $D$ is
+impossible.  A factor 2 in $D$ causes no common factor because $M$ is odd.
+Hence every class $-4D\pmod M$ is a unit.
+
+For every odd prime $r\mid A$, quadratic reciprocity,
+$M\equiv-1\pmod r$, and $M\equiv3\pmod4$ give
+\[
+ \left(\frac rM\right)
+ =\left(\frac Mr\right)(-1)^{(r-1)(M-1)/4}
+ =\left(\frac{-1}r\right)(-1)^{(r-1)/2}=1.
+\]
+If $2\mid A$, then $M\equiv7\pmod8$, so $(2/M)=1$.
+Multiplicativity therefore gives $(D/M)=1$ for every divisor $D\mid A^2$,
+whether or not $D$ is a square and with every possible 2-adic exponent.
+Since $(-1/M)=-1$ and $(4/M)=1$, one has $(-4D/M)=-1$.
+
+For a local reading, write $M=\prod q^{e_q}$.  The last Jacobi sign says
+that for at least one $q$ with odd $e_q$, $(-4D/q)=-1$; hence this class is
+not a square modulo $q$, and therefore not modulo $q^{e_q}$ or $M$.  One
+must not insist that this obstructing $q$ is itself $3\pmod4$: for
+$(M,D)=(15,2)$, the class is a square modulo 3 and a nonsquare modulo 5.
+The condition $M\equiv3\pmod4$ forces the \emph{global} Jacobi sign.
+Finally, a nonunit square cannot be congruent to the unit $-4D$.  Thus every
+square avoids every class for every eligible $M,D$; (58.3) gives
+$W(m^2)=+\infty$.
+
+The strict lower bound in (58.8) is definitional, not a claim that all
+integers at most $T$ were witnessed.  Taking
+$s=\lfloor\sqrt T\rfloor+1$ gives the upper bounds.
+
+For (58.9), $M(T)+1\equiv1\pmod m$ for every eligible $m\leq T$.  If its
+datum had $uvw=(m+1)/4$, the witness congruence would give $m\mid u+v$,
+whereas
+\[
+ 2\leq u+v\leq uv+1\leq(m+1)/4+1<m.
+\]
+This is the arithmetic part of Theorem~\ref{thm:W-lower} and uses no
+primality.  Finally, primes are a subset of the integers, and
+Theorem~\ref{thm:W-lower} supplies a prime in $1\pmod {M(T)}$ below
+$\exp\{(5.2+o(1))T\}$.  For $T\geq8$ that class is also
+$1\pmod {24}$, proving the hard-prime assertion.
+\end{proof}
+
+No lower bound $L_{\rm int}(T)\gg T\log T$, much less a superpolynomial one,
+is possible under (58.2).  The following elementary shifts explain why a
+naive lower-bound search can still look tempting.
+
+\begin{lemma}[two necessary shifted-sieve conditions; proved; source Lemma
+58.2]\label{lem:shifted-sieve}
+If $W(n)>T$, then
+\begin{equation}\tag{58.11}
+ \begin{split}
+ \ell\nmid n+4&\quad(\ell\leq T,\ \ell\equiv3\pmod4,
+                         \ \ell\text{ prime}),\\
+ \ell\nmid n+8&\quad(\ell\leq T,\ \ell\equiv7\pmod8,
+                         \ \ell\text{ prime}).
+ \end{split}
+\end{equation}
+\end{lemma}
+\begin{proof}
+For the first line choose $D=1$ in (58.3).  For a prime
+$\ell\equiv3\pmod4$, put $A=(\ell+1)/4$.  The divisor $D=2$ is eligible
+exactly when $2\mid A^2$, equivalently $A$ is even, equivalently
+$\ell\equiv7\pmod8$.  Its class is $-8\pmod\ell$.
+\end{proof}
+The first line says that every $3\pmod4$ prime factor of $n+4$ exceeds $T$.
+If $T\geq x+4$, the $n\leq x$ passing this one test are shifts of numbers
+supported on 2 and primes $1\pmod4$.  The contextual Selberg--Delange
+calculation has order $x/\sqrt{\log x}$, from the Dirichlet series
+\begin{equation}\tag{58.12}
+ \prod_{\substack{q=2\ \mathrm{or}\ q\equiv1\ (4)}}
+ (1-q^{-s})^{-1}=\zeta(s)^{1/2}H(s),
+\end{equation}
+where $H$ is holomorphic and positive at 1.  This classical calculation is
+not used as a new theorem.  It already shows why one shift cannot force a
+superpolynomial first survivor.  The full conjunction is stronger, but
+Theorem~\ref{thm:square-escape} gives an exact common escape.
+
+\subsection{What Jacobsthal does, and what it does not do}
+For $q>0$, let $g(q)$ be the least $G$ such that every $G$ consecutive
+integers contain one coprime to $q$; up to the conventional endpoint
+difference of one, this is the maximal gap between consecutive integers
+coprime to $q$.
+
+\begin{theorem}[Iwaniec's Jacobsthal bound; secondary-source-verified;
+source Theorem 58.3]\label{thm:jacobsthal}
+If $k=\omega(q)\geq2$, uniformly in $q$,
+\begin{equation}\tag{58.13}
+                              g(q)\ll(k\log k)^2.
+\end{equation}
+Equivalently, $g(q)\ll(k\log(2k))^2$ for all $q>1$, including the
+one-prime-factor case.  The constant is absolute but was not explicit in the
+checked formulation.  Page 1 of the archived full Costello--Watts paper
+\cite{CostelloWatts} calls this the best \emph{asymptotic} upper bound,
+displays $g(n)\leq X(k\log k)^2$ with unknown $X$, and attributes it to
+Iwaniec \cite{IwaniecJacobsthal}.  As an independent scope check, pages 2--3
+of the archived Ford--Green--Konyagin--Maynard--Tao paper
+\cite{FordGreenKonyaginMaynardTao} define the endpoint-shifted maximal-gap
+function $j$, identify $Y(x)=j(\prod_{p\leq x}p)-1$, and record Iwaniec's
+consequence $Y(x)\ll x^2$.  The primary DOI is
+\href{https://doi.org/10.1515/dema-1978-0121}{10.1515/dema-1978-0121};
+automated retrieval reached the publisher's human-verification page rather
+than a PDF.  This is secondary-source verification, not inspection of the
+1978 primary paper.
+\end{theorem}
+
+There is a precise one-way map to (58.3).  For $P_3(T)$ from (56.1), avoiding
+only $D=1$ is exactly
+\begin{equation}\tag{58.14}
+                         (n+4,P_3(T))=1.
+\end{equation}
+Since $\omega(P_3(T))=\pi(T;4,3)$, (58.13) says every interval of length
+$O(T^2)$ contains a survivor of this subsystem.  This does \emph{not}
+upper-bound $L_{\rm int}(T)$: avoiding the full system is harder, so the
+full survivor set is a subset of the set in (58.14).  Reversing this
+inclusion is the Jacobsthal direction error.
+
+The full system removes, for every composite as well as prime
+$M\equiv3\pmod4$, the structured family
+\begin{equation}\tag{58.15}
+ \{-4D\pmod M:D\mid((M+1)/4)^2\}.
+\end{equation}
+This is not deletion of one class modulo each prime.  A composite class in
+(58.15) is an intersection of coordinate conditions, not a union of fixed
+forbidden classes at its prime factors, so Iwaniec's theorem does not apply
+verbatim.  Ford--Konyagin--Maynard--Pomerance--Tao
+\cite{FordKonyaginMaynardPomeranceTao} allow bounded sets $I_p$ at each
+prime under a one-dimensional average hypothesis, but their theorem
+constructs \emph{large gaps} in a prime-indexed sifted set; it neither bounds
+the first survivor nor covers (58.15).  The same warning applies to the
+lower bounds in \cite{FordGreenKonyaginMaynardTao}: they concern a maximal,
+worst-position gap, not this specified least element.
+
+For the full all-integer system the Jacobsthal comparison is only historical
+context, and potentially context for prime- or nonsquare-restricted
+variants.  Theorem~\ref{thm:square-escape} instead proves
+\begin{equation}\tag{58.16}
+                         L_{\rm int}(T)=T+O(\sqrt T).
+\end{equation}
+This means exactly the two-sided interval (58.8), not an asymptotic constant
+for the difference.
+
+\begin{corollary}[integer/prime count-below-one dichotomy; proved; source
+Corollary 58.4]\label{cor:integer-prime-dichotomy}
+For all $N>T$,
+\begin{equation}\tag{58.17}
+ \begin{gathered}
+ \#\{T<n\leq N:W(n)>T\}
+ \geq\max\{0,\lfloor\sqrt N\rfloor-\lfloor\sqrt T\rfloor\},\\
+ N_0:=L_{\rm int}(T)\leq S:=(\lfloor\sqrt T\rfloor+1)^2,\\
+ S\leq T+2\sqrt T+1,\qquad W(S)=+\infty.
+ \end{gathered}
+\end{equation}
+The moving count excludes $n\leq T$, so its nonemptiness is not the vacuous
+result of $W(1)=W(4)=+\infty$.  At $N=N_0$ the left side is at least one by
+definition, and at $N=S$ the square is a structural survivor.  For fixed
+$T$, or $T=o(N)$, the all-integer tail contains
+$(1+o(1))\sqrt N$ squares.  Thus an all-integer moving-tail bound below one
+cannot hold at $N=N_0$ or $N=S$.  Any count-below-one route to a pointwise
+prime theorem must use primality essentially: $S$ is composite for every
+$T\geq3$.
+\end{corollary}
+This dichotomy retroactively explains the prime restriction in
+Theorem~\ref{thm:witness-tail}; an all-integer analogue could not support the
+count-below-one step in Section~\ref{sec:supercritical-window}.
+
+\subsection{Prime survivors: congruence wall and technology audit}
+Squares settle the integer inverse but provide no prime.  Theorem
+\ref{thm:typeII-certificate} says a complete congruence certificate for
+$W>T$ has modulus divisible by $P_3(T)$ and therefore at least
+$\exp\{(1/2+o(1))T\}$.  Coupling such a certificate to a generic least-prime
+theorem remains an $\exp\{\Theta(T)\}$ architecture.  Residue one and
+Linnik give (58.10).
+
+\medskip\noindent\textbf{Assessment 58.1 (the missing prime technology).}
+Density alone gives no least-prime theorem for an arbitrary sifted set, and
+ordinary upper-bound sieves have the parity obstruction: they bound
+survivors without producing a prime.  Bombieri--Vinogradov-type distribution
+handles many small progression conditions on average, but no theorem found
+in this audit produces a prime avoiding the complete $T$-dependent family
+(58.15) below $\exp\{o(T)\}$.  Work on divisors or smoothness of one shifted
+prime concerns sizes and locations of factors of $p+a$, not a least-prime
+theorem for all $p+4D$ here.  In particular, the first condition in (58.11)
+is not a substitute for the full harvest.
+
+The Generalized Riemann Hypothesis improves least primes in a specified
+progression but does not remove parity for this union of sifted classes.  A
+Cram\'er-type independent-prime model would put a first prime near the
+reciprocal of modeled survivor density, up to logarithmic factors.  That is
+a \textbf{Heuristic}, not a conditional theorem here.  The only proved prime
+bounds are
+\begin{equation}\tag{58.18}
+ T<L_{\rm int}(T)\leq L_p(T)
+          \leq\exp\{(5.2+o(1))T\}.
+\end{equation}
+Beating the exponential upper end requires aggregate information about
+primes in this sifted set, not merely one complete residue class.
+
+\subsection{Exact inverse dualities and the $A$-window}
+The slogan that superlogarithmic records are equivalent to
+$L_p(T)=\exp\{o(T)\}$ needs a quantifier correction.
+
+\begin{lemma}[record and pointwise inverse dualities; proved; source Lemma
+58.5]\label{lem:inverse-dualities}
+Under (58.2):
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item There are primes $p_j\to\infty$ with
+$W(p_j)/\log p_j\to\infty$ if and only if
+\begin{equation}\tag{58.19}
+             \liminf_{T\to\infty}{\log L_p(T)\over T}=0.
+\end{equation}
+The global statement $L_p(T)=\exp\{o(T)\}$, with a limit rather than a
+subsequence, is sufficient but is not equivalent without regularity
+controlling record gaps.
+\item For every fixed $A>0$,
+\begin{equation}\tag{58.20}
+ H_{\rm MOD}(A)\quad\Longleftrightarrow\quad
+ L_p((\log x)^A)>x\quad\text{for all sufficiently large }x.
+\end{equation}
+Equivalently, $H_{\rm MOD}(A)$ fails exactly when
+$L_p(T)\leq\exp(T^{1/A})$ for arbitrarily large $T$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Given a superlogarithmic sequence, choose
+$T_j<\min(W(p_j),p_j)$ with $T_j/\log p_j\to\infty$; this is possible
+because both $W(p_j)/\log p_j$ and $p_j/\log p_j$ diverge.  Then
+$L_p(T_j)\leq p_j$, so
+$0\leq\log L_p(T_j)/T_j\leq\log p_j/T_j\to0$.  Conversely, choose
+$T_j\to\infty$ along the liminf and put $p_j=L_p(T_j)$.  Then
+$p_j>T_j\to\infty$, $W(p_j)>T_j$, and
+$W(p_j)/\log p_j>T_j/\log L_p(T_j)\to\infty$.  This includes
+$W=+\infty$.
+
+For (58.20), negate both sides.  If $H_{\rm MOD}(A)$ fails at arbitrarily
+large primes $p$, put $x=p$.  Since $(\log p)^A<p$ eventually, that prime is
+admissible and $L_p((\log x)^A)\leq x$.  Conversely, if this inverse
+inequality holds at unbounded $x$, put
+$q=L_p((\log x)^A)\leq x$.  Then $q\to\infty$ and
+$W(q)>(\log x)^A\geq(\log q)^A$, so $H_{\rm MOD}(A)$ fails.  Substituting
+$T=(\log x)^A$ gives failures
+$L_p(T)\leq\exp(T^{1/A})$ at arbitrarily large $T$; conversely, any
+unbounded such $T$ gives $x=\exp(T^{1/A})$ and a failure of the right side
+of (58.20).
+\end{proof}
+
+Formula (58.20) is the exact inverse form of the remaining window.  For
+$A<1$, Theorem~\ref{thm:W-lower} gives
+$L_p(T)\leq\exp\{(5.2+o(1))T\}\ll\exp(T^{1/A})$, reproving failure of
+$H_{\rm MOD}(A)$.  At $A=1$, the hypothesis asks for the eventual lower
+bound $L_p(T)>\e^T$; for $A>1$, it asks for
+$L_p(T)>\exp(T^{1/A})$.  Neither (58.10) nor the census decides any
+$A\geq1$.  The $1\leq A\lesssim2$ display (56.16) remains a finite
+normalization window, not a claimed exponent.
+
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
 This section truncates the general-numerator machinery; it does not extend
@@ -5039,10 +5947,15 @@ conjecture.
 This is not a submission.  Both $3/4$ headlines remain
 \textsc{claimed/provisional}, especially through Theorem~\ref{thm:pruned};
 the internal proofs and refutations above do not close the open
-critical-window ledger, \eqref{eq:endpoint-core}, or $H_{\rm PF}'$.
-The raw and antichain factorial-moment formulations are refuted and that
-axis is dormant; the pair endpoint and other possible pointwise minorants
-retain exactly the narrower open scope stated above.
+critical-window ledger, \eqref{eq:endpoint-core}, $H_{\rm PF}'$, either
+$H_{\rm WIN}$ window, or either supercritical crossing hypothesis.  The
+count-below-one theorem is conditional, and the presently realized window
+is below its thresholds.  The square-escape theorem is proved, but it
+separates the all-integer inverse from the still-open prime-survivor problem
+rather than proving a prime representation.  The raw and antichain
+factorial-moment formulations are refuted and that axis is dormant; the pair
+endpoint and other possible pointwise minorants retain exactly the narrower
+open scope stated above.
 
 \begin{thebibliography}{99}
 \scriptsize
@@ -5057,6 +5970,12 @@ arXiv:1502.00769v1 (2015).
 T.~F. Bloom and C. Elsholtz,
 \emph{Egyptian fractions},
 Nieuw Arch. Wiskd. (5) \textbf{23} (2022), no.~4, 237--245.
+
+\bibitem{CostelloWatts}
+F. Costello and P. Watts,
+\emph{A short note on Jacobsthal's function},
+arXiv:1306.1064v1 (2013).  The archived full text is used only as a
+secondary source for Iwaniec's asymptotic bound.
 
 \bibitem{Dahan}
 B. Dahan,
@@ -5087,6 +6006,16 @@ C. Elsholtz and T. Tao,
 \emph{Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions},
 J. Aust. Math. Soc. \textbf{94} (2013), 50--105.
 
+\bibitem{FordGreenKonyaginMaynardTao}
+K. Ford, B. Green, S. Konyagin, J. Maynard, and T. Tao,
+\emph{Long gaps between primes},
+arXiv:1412.5029 (2014).
+
+\bibitem{FordKonyaginMaynardPomeranceTao}
+K. Ford, S. Konyagin, J. Maynard, C. Pomerance, and T. Tao,
+\emph{Long gaps in sieved sets},
+author-hosted preprint (2018).
+
 \bibitem{FriedlanderIwaniec}
 J. Friedlander and H. Iwaniec,
 \emph{Opera de Cribro},
@@ -5103,6 +6032,13 @@ D.~R. Heath--Brown,
 \emph{Zero-free regions for Dirichlet $L$-functions, and the least prime in
 an arithmetic progression},
 Proc. London Math. Soc. (3) \textbf{64} (1992), no.~2, 265--338.
+
+\bibitem{IwaniecJacobsthal}
+H. Iwaniec,
+\emph{On the problem of Jacobsthal},
+Demonstratio Math. \textbf{11} (1978), 225--231,
+\href{https://doi.org/10.1515/dema-1978-0121}{doi:10.1515/dema-1978-0121}.
+The primary PDF was inaccessible and is not claimed as inspected.
 
 \bibitem{LenstraPomerance}
 H.~W. Lenstra Jr. and C. Pomerance,
