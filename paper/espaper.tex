@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v10, 30 August 2026}
+\date{Draft v11, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -96,13 +96,19 @@ satisfy $L_p(T)\leq\exp\{(5.2+o(1))T\}$; no subexponential prime-survivor
 theorem is claimed.  We further classify uniform polynomial escapes
 completely through degree two: they are exactly the polynomial squares, so
 none takes a positive prime value.  In arbitrary degree we prove only a
-qualitative, ineffective root-field/cyclotomic obstruction.  The higher-
-degree classification $C_{\rm POLY}$ and the complete-square conjecture
-$C_{\rm SQ}$ remain open.  The latter would imply Erd\H{o}s--Straus for all
-primes and is strictly stronger; the reverse is not claimed.  Three explicit
-nonsquare candidates remain computationally unresolved past
-$1.5\cdot10^8$, and are stress tests, not positive evidence.  Exact finite
-censuses through the stated endpoints remain informational only.
+qualitative, ineffective root-field/cyclotomic obstruction, and the higher-
+degree classification $C_{\rm POLY}$ remains open.  We then prove a finite
+normal form for every witness datum at fixed $n$, with
+$a,u\leq2\lfloor(n+1)/3\rfloor$ and
+$M\leq8\lfloor(n+1)/3\rfloor^2-1$; thus $W(n)=+\infty$ is decidable by
+finite computation.  The resulting computer-assisted theorem proves
+$W(288)=W(336)=W(4545)=+\infty$, refuting the former complete-square
+conjecture $C_{\rm SQ}$.  Its open repair $C_{\rm SQ}'$ adds exactly these
+three composite sporadics to the squares and would still imply
+Erd\H{o}s--Straus.  The sporadics escape this witness statistic, but explicit
+unit-fraction representations show that they are not Erd\H{o}s--Straus
+counterexamples.  Exact finite censuses through the stated endpoints remain
+informational only.
 
 For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
 \[
@@ -177,11 +183,15 @@ Corollary~\ref{cor:integer-prime-dichotomy} shows why this reduction must be
 prime-restricted.  Theorem~\ref{thm:quadratic-escape} then classifies all
 linear and quadratic uniform polynomial escapes as exactly the squares;
 Theorem~\ref{thm:cyclotomic-obstruction} gives the qualitative, ineffective
-necessary root-field condition in every degree.  The higher-degree
-$C_{\rm POLY}$ and complete-square $C_{\rm SQ}$ statements are conjectures,
-not pointwise conclusions; $C_{\rm SQ}$ implies Erd\H{o}s--Straus for all
-primes and not conversely.  Theorem~\ref{thm:general-m-tails} records the
-status-preserving general-$m$ truncation.
+necessary root-field condition in every degree.  The higher-degree $C_{\rm POLY}$ statement remains a conjecture, not a
+pointwise conclusion.  Theorem~\ref{thm:witness-duality} then gives an exact
+finite normal form and terminating decision procedure for $W(n)$, without
+assuming an $a\leftrightarrow M$ swap.  The computer-assisted
+Theorem~\ref{thm:nonsquare-escapes} proves that $288$, $336$, and $4545$
+have $W=+\infty$, refutes the former $C_{\rm SQ}$, and motivates the open
+repair $C_{\rm SQ}'$.  These three values are composite statistic-escapes,
+not Erd\H{o}s--Straus counterexamples.  Theorem~\ref{thm:general-m-tails}
+records the status-preserving general-$m$ truncation.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -214,9 +224,12 @@ absolute-remainder architecture, and the open crossing hypotheses.  Section
 prime inverse scales, and audits the Jacobsthal and prime-survivor walls.
 Section~\ref{sec:polynomial-escape} gives the exact local escape criterion,
 the ineffective cyclotomic obstruction, the complete degree-two
-classification, the all-integer square-crossing obstruction, and the open
-$C_{\rm POLY}$ and $C_{\rm SQ}$ frontiers with their finite stress tests.
-Section~\ref{sec:general-m-tails} gives the status-preserving
+classification, the all-integer square-crossing obstruction, and the
+historical $C_{\rm SQ}$ proposal with its still-valid census and reductions.
+Section~\ref{sec:witness-duality} supersedes that proposal: it proves the
+finite decision normal form, closes the three-value survivor frontier,
+refutes $C_{\rm SQ}$, and states open $C_{\rm SQ}'$.  Section
+\ref{sec:general-m-tails} gives the status-preserving
 general-numerator tails and their exact effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
 gives the endpoint sparsity,
@@ -236,8 +249,11 @@ Theorem~\ref{thm:general-m-tails} remain \textsc{claimed/provisional} as
 labelled.  The logarithmic lower-tail, congruence-certificate, square-escape, local
 polynomial-escape, and degree-at-most-two classification theorems are proved.
 The cyclotomic obstruction is proved but qualitatively ineffective;
-$C_{\rm POLY}$, $C_{\rm SQ}$, and the three constant survivor candidates
-remain open.  The count-below-one and crossing implications are proved
+$C_{\rm POLY}$ and $C_{\rm SQ}'$ remain open, while $C_{\rm SQ}$ is refuted
+and the three former finite-census survivors are proved to have
+$W=+\infty$.  This computer-assisted conclusion concerns $W$, not all
+Egyptian-fraction decompositions.  The count-below-one and crossing
+implications are proved
 conditional on their explicitly \textsc{unproved} hypotheses; the
 mass-invariant proposition is only an architecture theorem.  The normalized
 census panels are informational, the GRH least-prime remark is conditional,
@@ -2212,9 +2228,10 @@ Discriminant, and every real/imaginary discriminant case explicit; three
 nonsquare quadratics passing the whole $D=1$ layer now have exact later-shift
 hits.  The tail proof chooses an interior $t=\lambda L^{1/3}$ even when the
 nominal power window extends beyond $T=N$.  The review also kept Chebotarev
-qualitative and ineffective, kept both conjectures and all three constants
-open, and recorded only the implication $C_{\rm SQ}\Rightarrow$
-Erd\H{o}s--Straus, not a converse.
+qualitative and ineffective and, at the source-Section-59 stage, kept both
+conjectures and all three constants open while recording only the implication
+$C_{\rm SQ}\Rightarrow$ Erd\H{o}s--Straus, not a converse.  That historical
+frontier is superseded by Theorem~\ref{thm:nonsquare-escapes}.
 
 Block \texttt{(bf)} independently uses Python-integer divisor products,
 rejects the false fixed-width-overflow witnesses, proves the default
@@ -2222,9 +2239,18 @@ $3\cdot10^6$ finite frontier, and records the completed
 $1.5\cdot10^8$ streamed run.  It also checks the exact Jacobi,
 forbidden-divisor, and square-scaling reductions and all 180 twisted-square
 controls; 177 are hit by $M\leq131$.  The deep run remained below 170 MB.
-These finite checks are regressions and stress tests, not evidence for
-$C_{\rm SQ}$ or proofs of infinite escape.  The internal verifier coverage
-used by this draft runs through \texttt{(bf)}.  These are internal reviews
+At the Section-59 stage these finite checks were regressions and stress
+tests, not evidence for $C_{\rm SQ}$ or proofs of infinite escape.
+
+Wave 24's maximum-severity review of the witness duality returned
+\textsc{sound-after-repairs}.  It independently rederived the normal form
+without an $a\leftrightarrow M$ assumption, checked the $2$-adic and gcd
+cancellation branches and the partial swap criterion, and independently
+reimplemented the original $M$-harvest to all three exact ceilings.  The
+largest replay streamed $409{,}000{,}770$ divisor incidences.  Block
+\texttt{(bg)} checks both finite normal-form parameterizations, near misses,
+coverage union, and bounded duality replay.  The internal verifier coverage
+used by this draft runs through \texttt{(bg)}.  These are internal reviews
 and bug hunts, not external validation.  A separate full-source review of
 the auro-zera Lean file
 replayed its identities but did not compile it; its open-core
@@ -5744,21 +5770,24 @@ Theorem~\ref{thm:witness-tail} is logically necessary, not cosmetic.  The
 presently realized $\theta=1/4$ window and all its inherited status labels
 are unchanged.
 
-\subsection{The complete-square conjecture and finite candidates}
-\medskip\noindent\textbf{Conjecture $C_{\rm SQ}$ (complete square escape).}
+\subsection{The refuted complete-square proposal and finite census}
+\medskip\noindent\textbf{Former Conjecture $C_{\rm SQ}$ (complete square
+escape; refuted in Section~\ref{sec:witness-duality}).}
 \begin{equation}\tag{59.20}
        \{n\in\mathbb Z_{>0}:W(n)=+\infty\}
              =\{m^2:m\in\mathbb Z_{>0}\}.
 \end{equation}
-The right side already includes $1$ and $4$, so no exceptional union is
-needed.  This is falsifiable by one proved nonsquare escape.  It is
-\emph{strictly stronger} than Erd\H{o}s--Straus: every prime is a nonsquare,
-so (59.20) would give it a finite Type-II witness, and
-Lemma~\ref{lem:multiplier} would give an explicit three-unit-fraction
-representation.  The reverse is not claimed: Erd\H{o}s--Straus alone
-neither forces this particular witness type nor says anything about
-composite nonsquares.  It also implies $C_{\rm POLY}$ by the following
-standard lemma.  Neither conjecture is asserted here.
+Source Section~59 proposed (59.20), whose right side already includes $1$
+and $4$.  The computer-assisted Theorem~\ref{thm:nonsquare-escapes} now
+refutes it by proving three nonsquare escapes.  Its implication structure
+remains useful: had (59.20) held, it would have been \emph{strictly
+stronger} than Erd\H{o}s--Straus, because every prime is a nonsquare and a
+finite Type-II witness yields an explicit three-unit-fraction representation
+by Lemma~\ref{lem:multiplier}.  The reverse implication was never claimed:
+Erd\H{o}s--Straus alone neither forces this witness type nor says anything
+about composite nonsquares.  The former conjecture would also have implied
+$C_{\rm POLY}$ by the following standard lemma.  The repaired open statement
+$C_{\rm SQ}'$ appears in (60.22); $C_{\rm POLY}$ remains open.
 
 \begin{lemma}[eventual square values force a square polynomial; proved;
 source Lemma 59.6]
@@ -5813,8 +5842,8 @@ Here $t$ is a unit modulo $M$, because $t^2\mid D$ and $(D,M)=1$.  This
 proves both directions and the stated lift condition.
 \end{proof}
 
-For the three survivors, Lemma~\ref{lem:twisted-square} makes the remaining
-searches exact and substantially thinner.
+For the three finite-census survivors, Lemma~\ref{lem:twisted-square} makes
+the historical searches exact and substantially thinner.
 \begin{itemize}[leftmargin=*]
 \item For $288=2\cdot12^2$, one must have $M\equiv3\pmod8$,
 $3\nmid M$, and $D$ odd, and the residual congruence is
@@ -5839,12 +5868,14 @@ $4545+4(505E)=505(3^2+4E)$.  If $9\mid D$, the datum scales down to one for
 $9\cdot3\nmid3^2$.
 \end{itemize}
 These are necessary filters plus an exact replay of the residual divisor
-congruence, not an infinitude proof.  In particular the character-permitted
-moduli are nonempty, and the argument does not force a nonsquare at one
-prime factor of every such $M$.  The proof attempt therefore lands no claim
-that any of the three values has $W=+\infty$.
+congruence, not by themselves an infinitude proof.  In particular the
+character-permitted moduli are nonempty, and the argument does not force a
+nonsquare at one prime factor of every such $M$.  At the source-Section-59
+stage these reductions therefore made no $W=+\infty$ claim; the additional
+finite normal form in Theorem~\ref{thm:witness-duality} is what closes the
+search in Theorem~\ref{thm:nonsquare-escapes}.
 
-\medskip\noindent\textbf{Computational 59.8 (exact finite scan; live
+\medskip\noindent\textbf{Computational 59.8 (exact finite scan; historical
 $C_{\rm SQ}$ stress test).}
 Verifier block \texttt{(bf)} replays the complete divisor harvest and, below
 $3\cdot10^5$, removes the known squares from the tail.  The exact nonsquare
@@ -5856,23 +5887,28 @@ T&100&300&1000&3000\\ \hline
  &4969&517&22&3.
 \end{array}
 \end{equation}
-The three nonsquare survivors in the last column are
+The three nonsquare survivors in the last column, now proved by
+Theorem~\ref{thm:nonsquare-escapes} to have $W=+\infty$, are
 \begin{equation}\tag{59.24}
                          288,\qquad336,\qquad4545.
 \end{equation}
 The default independent smallest-prime-factor scan uses Python integers for
 every divisor product and checks every eligible modulus through
-$3\cdot10^6$.  It proves only the finite statement
+$3\cdot10^6$.  At the Section-59 stage it proved only the finite statement
 \begin{equation}\tag{59.25}
              W(288),W(336),W(4545)>3\cdot10^6.
 \end{equation}
 The wave-23 deep run checked all moduli through $1.5\cdot10^8$, after the
 character filters above, and enumerated $2{,}878{,}826{,}874$ divisor values
-without a hit.  Thus the stronger exact computational frontier is
+without a hit.  Thus the stronger exact computational frontier at that stage was
 \begin{equation}\tag{59.26}
              W(288),W(336),W(4545)>1.5\cdot10^8.
 \end{equation}
-This run used Python integers throughout; it peaked below 170 MB.  The
+The global ceilings in (60.19) now show retrospectively that this finite run
+had crossed the whole witness space, while Theorem
+\ref{thm:nonsquare-escapes} supplies the proof through the finite normal
+form and an independent exhaustion.  The historical run used Python
+integers throughout; it peaked below 170 MB.  The
 modulus/divisor phase streams one value of $A$ at a time and retains no old
 divisor list.  Previous external quick-probe values
 $506063,754379,652271$, respectively, came from fixed-width integer overflow,
@@ -5886,7 +5922,7 @@ exact witness $W(643245)=3119$.
 As a family control, block \texttt{(bf)} computes every least finite $W$ for
 $1\leq m\leq60$ in the three natural twisted-square families.  The table
 records histograms $\{W:\#m\}$; the single lower-bound entry in each row is
-the candidate in (59.24).
+the former finite-census survivor in (59.24).
 \begin{equation}\tag{59.27}
 \begin{array}{c|l|c}
  n&\{W(n):\#m\},\quad1\leq m\leq60&\text{deep survivor}\\ \hline
@@ -5897,8 +5933,9 @@ the candidate in (59.24).
 \end{equation}
 Thus the factorization $n=sm^2$ is not by itself an escape mechanism:
 177 of the 180 controls are hit by $M\leq131$.  The three exceptional
-multipliers are highly atypical in this finite sample, but that is not a
-proof in either direction.  The same block checks
+multipliers are highly atypical in this finite sample.  This observation is
+not the proof of their escape; Theorem~\ref{thm:nonsquare-escapes} uses the
+separate exhaustive normal-form certificate.  The same block checks
 Lemma~\ref{lem:twisted-square} exactly over a bounded complete harvest, pins
 all 180 table entries, tests three nonsquare quadratics passing the $D=1$
 layer, replays the discriminant-character dichotomy, and verifies the
@@ -5906,14 +5943,439 @@ coefficient-dependent construction (59.14).  None of these finite checks
 substitutes for Chebotarev or for an unbounded classification.
 
 \medskip\noindent\textbf{Walls and relation to the frontier.}
-The three constant candidates (59.24), now open beyond $1.5\cdot10^8$, are
-the live stress test for $C_{\rm SQ}$, \emph{not positive evidence for it}.
-A later finite witness would preserve the conjecture; a proof that even one
-has $W=+\infty$ would refute it.  No such proof landed.  The classification
-also says nothing about nonpolynomial families, and no unconditional
-pointwise prime conclusion follows.  In higher polynomial degree,
-Theorem~\ref{thm:cyclotomic-obstruction} remains only a necessary,
-qualitatively ineffective obstruction and $C_{\rm POLY}$ remains open.
+The three values in (59.24) were the live finite stress test for
+$C_{\rm SQ}$, not positive evidence for it.  Section
+\ref{sec:witness-duality} now proves that all three have $W=+\infty$, refutes
+$C_{\rm SQ}$, and replaces it by open $C_{\rm SQ}'$.  This does not alter
+the degree-two classification or prove that there are no further nonsquare
+escapes.  It also yields no unconditional pointwise prime conclusion.  In
+higher polynomial degree, Theorem~\ref{thm:cyclotomic-obstruction} remains
+only a necessary, qualitatively ineffective obstruction, and
+$C_{\rm POLY}$ remains open.
+
+\section{Witness duality, finite decidability, and the survivor frontier}
+\label{sec:witness-duality}
+\medskip\noindent\textbf{Status and correction to the proposed frontier.}
+The dual criterion, its finite normal form, the bound on every possible
+datum, and the partial swap symmetry below are proved.  The resolution of
+the three Section~\ref{sec:polynomial-escape} survivors is a
+\textbf{computer-assisted theorem}: the reduction is proved, and verifier
+block \texttt{(bg)} exhausts its small exact integer certificate by two
+parameterizations.  The displayed replay and near-miss tables are
+\textbf{Computational}, exact only in their stated ranges.  No prime-tail or
+Erd\H{o}s--Straus theorem follows.
+
+The suggestion that fixed small $a$ can correspond to arbitrarily large
+$M$ is false for fixed $n$.  Eligibility on the $M$-side forces a second
+divisor condition on the $a$-side.  Together the two conditions put every
+datum for fixed $n$ in a finite box.  This correction resolves, rather than
+merely extends, the survivor frontier.
+
+\subsection{Exact duality, cancellation, and the finite normal form}
+Call $(M,D)$ a witness datum for $n$ when
+\begin{equation}\tag{60.1}
+ M\equiv3\pmod4,\qquad A={M+1\over4},\qquad D\mid A^2,
+ \qquad M\mid n+4D.
+\end{equation}
+This is the complete harvested criterion (58.3), not a selected Type-II
+subfamily.  It reparameterizes Lemma~\ref{lem:multiplier}'s intrinsic
+divisor system; it is not a new Egyptian-fraction identity family.  The new
+content is the dual cancellation ledger and finite normal form.
+
+\begin{theorem}[witness duality and finite normal form; proved; source
+Theorem 60.1]\label{thm:witness-duality}
+Let $n\geq1$.
+\begin{enumerate}[leftmargin=*]
+\item A datum (60.1) exists if and only if there are positive integers
+$a,D$ such that, on putting
+\begin{equation}\tag{60.2}
+ a\equiv-n\pmod4,\qquad h={n+a\over4},\qquad A={D+h\over a},
+\end{equation}
+one has
+\begin{equation}\tag{60.3}
+ D\mid h^2,\qquad a\mid D+h,\qquad D\mid A^2.
+\end{equation}
+The two maps are
+\begin{equation}\tag{60.4}
+ a={n+4D\over M},\qquad M=4A-1={n+4D\over a},
+\end{equation}
+and are inverse.  Thus all quantities in (60.2)--(60.4) are positive
+integers.
+
+\item Once $D\mid h^2$ and $a\mid D+h$ hold, the exact cancellation ledger
+is
+\begin{equation}\tag{60.5}
+ D\mid h^2\quad\Longleftrightarrow\quad
+ {D\over(D,a^2)}\mid A^2,\qquad h\equiv aA\pmod D.
+\end{equation}
+Hence the last check $D\mid A^2$ in (60.3) is redundant when $(a,D)=1$,
+but not in general.  If $q\mid(a,D)$, then $q\mid n$.  More precisely, for
+every prime $q$, with $d=v_q(D)$, $\alpha=v_q(a)$, and $\beta=v_q(A)$,
+the dual condition certifies
+\begin{equation}\tag{60.6}
+ \max(d-2\alpha,0)\leq2\beta,
+\end{equation}
+whereas eligibility requires $d\leq2\beta$.  This includes $q=2$: if $D$
+is even, no cancellation of the powers of $2$ in $a^2$ is free.
+
+\item There is a canonical normal form involving no divisors of large
+numbers.  Witness data are in bijection with positive integers $(g,u,v,d)$
+satisfying
+\begin{equation}\tag{60.7}
+ (u,v)=1,\qquad d\mid g,\qquad a:=4gv-n\geq1,\qquad au=d+v,
+\end{equation}
+through
+\begin{equation}\tag{60.8}
+ A=gu,\qquad h=gv,\qquad D=gd,\qquad M=4gu-1.
+\end{equation}
+If $B=\lfloor(n+1)/3\rfloor$, every datum satisfies
+\begin{equation}\tag{60.9}
+ g,v\leq B,\qquad a\leq2B,\qquad u\leq2B,
+ \qquad M\leq8B^2-1.
+\end{equation}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+From (60.1), define $a$ by (60.4).  Reduction modulo $4$ gives
+$a\equiv-n\pmod4$.  Direct expansion, stronger than merely squaring a
+congruence, gives
+\begin{equation}\tag{60.10}
+ aA={a(M+1)\over4}=D+{n+a\over4}=D+h.
+\end{equation}
+Thus $h\equiv aA\pmod D$, and $D\mid A^2$ implies $D\mid h^2$.
+Conversely, (60.2)--(60.3) make $A$ integral and positive.  With $M=4A-1$,
+equation (60.10) and $4h=n+a$ give $aM=n+4D$; the last condition in
+(60.3) gives eligibility.  This proves the first equivalence.
+
+Prime by prime, $D\mid a^2A^2$ says $d\leq2\alpha+2\beta$.  Removing from
+$D$ the part already supplied by $a^2$ gives exactly (60.5)--(60.6).  Also
+$(a,D)\mid aM-4D=n$.  This proves the cancellation claims, including the
+even branch.
+
+For the normal form, start with a datum and put
+\begin{equation}\tag{60.11}
+ g=(A,h),\qquad u=A/g,\qquad v=h/g.
+\end{equation}
+The divisor $D$ divides both $A^2$ and $h^2$, hence $D\mid g^2$.
+Equation $D=aA-h$ also gives $g\mid D$.  Therefore $D=gd$ with $d\mid g$,
+and division of (60.10) by $g$ gives $au=d+v$.  Conversely,
+(60.7)--(60.8) give $D\mid g^2\mid A^2$ and (60.10), hence a witness.  The
+coprimality in (60.7) makes the construction canonical.
+
+Finally $au=d+v\leq g+v$, so $a\leq g+v$ and $u\leq g+v$.  Since
+$a=4gv-n$,
+\begin{equation}\tag{60.12}
+ 4gv\leq n+g+v.
+\end{equation}
+Using first $v\geq1$ and then $g\geq1$ in (60.12) gives $3g\leq n+1$ and
+$3v\leq n+1$.  Thus $g,v\leq B$, and the remaining bounds in (60.9) follow
+from $u,a\leq g+v$ and $M=4gu-1$.  No comparison or swap between $a$ and
+$M$ is used.
+\end{proof}
+
+The factor $4$ in the seed congruence can therefore be removed without any
+oddness assumption: (60.10) always gives the necessary condition
+$D\mid((n+a)/4)^2$.  Oddness matters only when one tries to cancel $a$ and
+infer eligibility from that condition.
+
+For $n=288$, an eligible $D$ must be odd.  Indeed, if $D=2E$, then
+$E\mid A^2$ and
+\[
+ M\mid288+4D=2(144+4E),
+\]
+so the odd $M$ would make the square $144=12^2$ hit the eligible divisor
+$E$, contradicting Theorem~\ref{thm:square-escape}.  Lemma
+\ref{lem:twisted-square} gives $M\equiv3\pmod8$, and the defining equation
+then gives $a\equiv4\pmod8$.  Write $a=4r$, with $r$ odd.  Theorem
+\ref{thm:witness-duality} becomes the exact criterion
+\begin{equation}\tag{60.13}
+ \begin{gathered}
+ D\mid(72+r)^2,\qquad r\mid D+72,\qquad
+ M={D+72\over r}\equiv3\pmod8,\\
+ D\mid\left({M+1\over4}\right)^2.
+ \end{gathered}
+\end{equation}
+The last line is redundant if $(r,D)=1$.  In the noncoprime branch,
+$(r,D)\mid72$, and oddness reduces this to $(r,D)\mid9$; a $3$-adic
+eligibility check remains essential.  Bound (60.9) gives $a\leq192$, hence
+only odd $r\leq47$.  The apparently unbounded quadratic sequence in
+(60.13) is finite once both sides of the duality are enforced.
+
+For $336$, write $a=4r$ and $h=84+r$.  The exact quotient conditions are
+\begin{equation}\tag{60.13a}
+ D\mid(84+r)^2,\quad r\mid D+84,\quad
+ M=(D+84)/r\equiv3\pmod4,\quad
+ D\mid((M+1)/4)^2,
+\end{equation}
+in addition to the proved necessary conditions $(M,21)=1$,
+$(M/3)(M/7)=-1$, and $21\nmid D$.  Here $(a,D)\mid336$, so powers of $2$,
+$3$, and $7$ are precisely the possible cancellation branches; (60.9)
+gives $a\leq224$.  For $4545$, one has $a\equiv3\pmod4$,
+$h=(4545+a)/4$, and the unshortened criterion (60.2)--(60.3), with
+$(a,D)\mid4545=3^2\cdot5\cdot101$.  Its additional necessary filters are
+$(M,4545)=1$, $(M/5)(M/101)=-1$, and $505\nmid D$, and $a\leq3030$.  Since
+this last $a$ is odd, its $2$-adic dual condition already equals $2$-adic
+eligibility; only primes $3$, $5$, and $101$ can be lost to cancellation.
+
+\subsection{What swaps, and what does not}
+The equation in (60.4) is symmetric in $a,M$, but its eligibility data are
+not automatically symmetric.
+
+\begin{lemma}[partial witness involution; proved; source Lemma 60.2]
+\label{lem:witness-involution}
+Let $(M,D,a)$ be a witness triple for $n$.  Swapping $M$ and $a$ gives
+another witness triple for the same $n$ if and only if
+\begin{equation}\tag{60.14}
+ a\equiv3\pmod4,\qquad D\mid\left({a+1\over4}\right)^2.
+\end{equation}
+On this bi-eligible subset the map
+\begin{equation}\tag{60.15}
+ (M,D,a)\longmapsto(a,D,M)
+\end{equation}
+is a genuine involution, and $W(n)\leq\min(a,M)$.  Such a swap can occur
+only when $n\equiv1\pmod4$.
+\end{lemma}
+\begin{proof}
+The swapped equation is the same equation.  Conditions (60.14) are exactly
+the modulus class and harvested-divisor eligibility conditions for modulus
+$a$.  Applying the swap twice is the identity.  Finally
+$a\equiv-n\pmod4$, so $a\equiv3\pmod4$ forces $n\equiv1\pmod4$.
+\end{proof}
+For example, $(M,D,a)=(7,1,3)$ and $(3,1,7)$ are the paired data for
+$n=17$.  The triple $(7,1,7)$ for $n=45$ is a fixed point.  There is no
+universal involution even when $n\equiv1\pmod4$: $(23,36,7)$ is a datum for
+$17$, but $36\nmid((7+1)/4)^2=4$.
+
+Lemma~\ref{lem:multiplier} is the honest source of eligibility on each side:
+the bi-eligible set is an intersection of two intrinsic harvested-divisor
+systems.  It is not that lemma's divisor involution $D\mapsto A^2/D$, nor
+the four-parameter Case-B dictionary: equation (60.4) merely records the
+positive quotient of one intrinsic residue congruence.  Thus the raw
+symmetry was latent in that congruence, while closure under the swap is the
+additional condition (60.14), not a universal symmetry.
+
+\subsection{The survivor frontier closes}
+Before using the finite normal form, the suggested two-front scan has the
+wrong geometry.  From $D\mid h^2$,
+\begin{equation}\tag{60.16}
+ M={n+4D\over a}\leq {a\over4}+{n\over2}+{n^2/4+n\over a}.
+\end{equation}
+From the original eligibility $D\leq((M+1)/4)^2$,
+\begin{equation}\tag{60.17}
+ a\leq {M\over4}+{1\over2}+{n+1/4\over M}.
+\end{equation}
+Consequently fixed small $a$ never sees arbitrarily large $M$ for fixed
+$n$.  An $M$-scan through $M_0$ and an $a$-scan through $A_0$ cover exactly
+\begin{equation}\tag{60.18}
+ \{(M,D,a):M\leq M_0\ \hbox{or}\ a\leq A_0\};
+\end{equation}
+before using further structure; the uncovered region is exactly
+$M>M_0,a>A_0$.  It is not a mysterious middle-divisor regime.  Theorem
+\ref{thm:witness-duality} puts the whole witness space in (60.9), so
+$A_0=2B$, or $M_0=8B^2-1$, leaves no uncovered region.
+
+For the former finite-census survivors, the rigorous all-data bounds are
+\begin{equation}\tag{60.19}
+\begin{array}{c|r|r|r}
+ n&B&a_{\max}=2B&M_{\max}=8B^2-1\\ \hline
+ 288&96&192&73{,}727\\
+ 336&112&224&100{,}351\\
+ 4545&1515&3030&18{,}361{,}799
+\end{array}
+\end{equation}
+Thus even the historical exact $M\leq1.5\cdot10^8$ scan in (59.26) crossed
+each now-proved global ceiling.  Block \texttt{(bg)} supplies a much smaller
+independent certificate in the new coordinates.
+
+\begin{theorem}[three nonsquare escapes; computer-assisted, proved; source
+Theorem 60.3]\label{thm:nonsquare-escapes}
+\begin{equation}\tag{60.20}
+ W(288)=W(336)=W(4545)=+\infty.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:witness-duality} proves that every possible datum occurs
+with $1\leq a\leq2B$.  Block \texttt{(bg)} enumerates every admissible $a$
+in those three finite intervals, every positive divisor $D\mid h^2$, and
+checks both $a\mid D+h$ and the uncancelled eligibility $D\mid A^2$, using
+Python integers.  It finds no eligible row.  Independently, the same block
+enumerates every $(g,v)$ in (60.9), every $d\mid g$, and equation (60.7),
+again finding no row.  These are exhaustive finite certificates, not
+extrapolations from a cutoff.  Equivalence in Theorem
+\ref{thm:witness-duality} proves (60.20).
+\end{proof}
+Here ``escape'' means escape from the harvested
+Lemma~\ref{lem:multiplier} witness statistic $W$, not escape from
+Egyptian-fraction solvability.  None of these composite integers is an
+Erd\H{o}s--Straus counterexample; explicitly,
+\begin{equation}\tag{60.20a}
+ {4\over288}={1\over144}+{1\over216}+{1\over432},\qquad
+ {4\over336}={1\over168}+{1\over252}+{1\over504},\qquad
+ {4\over4545}={1\over1515}+{1\over6060}+{1\over18180}.
+\end{equation}
+
+\medskip\noindent\textbf{Computational 60.1 (exact survivor certificate
+and near misses).}
+Verifier block \texttt{(bg)} gives
+\begin{equation}\tag{60.21}
+\begin{array}{c|r|r|r|r|r|r}
+ n&D\mid h^2&a\mid D+h&\text{\S59 necessary filters}&D\mid A^2
+ &(g,v)\text{ pairs}&(g,v,d)\text{ tests}\\ \hline
+288&756&43&4&0&66&209\\
+336&912&65&37&0&78&262\\
+4545&22{,}995&188&62&0&1{,}152&5{,}405
+\end{array}
+\end{equation}
+The Section~\ref{sec:polynomial-escape} filter column applies, respectively,
+the odd-$D$, $M\equiv3\pmod8$, and unit conditions; the $21$-Jacobi and
+$21\nmid D$ conditions; and the $505$-Jacobi and $505\nmid D$ conditions.
+Every row surviving that column has $(a,D)>1$, and every one fails exactly
+the uncancelled prime-power eligibility check.  For $288$, all four have
+$(a,D)=9$ and fail at $3$.  This is the gcd caveat in (60.5), not an
+overflow artifact.
+
+\medskip\noindent\textbf{Assessment 60.1 (the failed character route).}
+There is no global mod-$8$ obstruction at the proposed first layer: for
+example, $D=1$ and $r\equiv3\pmod8$ already satisfy
+$D\mid(72+r)^2$ and $D\equiv3r\pmod8$.  The complete conditions add the
+quotient and uncancelled eligibility constraints.  Theorem
+\ref{thm:witness-duality} makes their range finite, and (60.21) shows that
+eligibility, not the Jacobi filters, is the final killer.  An asymptotic
+expected-count argument over unbounded $r$ therefore addresses a
+nonexistent frontier.
+
+\medskip\noindent\textbf{Heuristic 60.1 (uniform-residue comparison only).}
+If the divisors in the first numerical column of (60.21) were uniform
+modulo each $a$, the naive expected counts for $a\mid D+h$, namely
+$\sum_a\tau(h^2)/a$, would be $13.266827,15.617351,49.909726$.  The observed
+exact counts are $43,65,188$.  This mismatch is unsurprising for divisors of
+a square; neither list predicts an eligible witness.  The comparison is a
+finite diagnostic, not evidence for a tail law.
+
+Conjecture $C_{\rm SQ}$ in (59.20) is therefore refuted.  The minimal repair
+supported by current proofs is:
+
+\medskip\noindent\textbf{Conjecture $C_{\rm SQ}'$ (repaired complete escape
+set; open).}
+\begin{equation}\tag{60.22}
+ \{n\geq1:W(n)=+\infty\}
+ =\{m^2:m\geq1\}\cup\{288,336,4545\}.
+\end{equation}
+Only the inclusion from right to left is proved.  No claim is made that the
+three sporadics form a family or that there are no further nonsquare
+escapes.  Since all three are composite, (60.22), if proved, would still
+imply Erd\H{o}s--Straus.  It would also imply $C_{\rm POLY}$: an unbounded
+polynomial cannot remain in the three-value sporadic set, and
+Lemma~\ref{lem:eventual-square-polynomial} handles eventual square values.
+
+\subsection{The statistic and the prime side}
+Theorem~\ref{thm:witness-duality} gives an exact terminating algorithm for
+$W(n)$.  Set $B=\lfloor(n+1)/3\rfloor$ and enumerate
+\begin{equation}\tag{60.23}
+ 1\leq a\leq2B,\qquad a\equiv-n\pmod4,\qquad
+ h=(n+a)/4,\qquad D\mid h^2.
+\end{equation}
+Retain $a\mid D+h$ and $D\mid((D+h)/a)^2$, and minimize
+$M=4(D+h)/a-1$.  An empty list proves $W(n)=+\infty$.  Its divisor work is
+exactly
+\begin{equation}\tag{60.24}
+ \sum_{\substack{a\leq2B\\a\equiv-n\ (4)}}
+ \tau\!\left(((n+a)/4)^2\right),
+\end{equation}
+which has the usual average order $O(n(\log n)^2)$, apart from factoring
+cost; in particular the corresponding per-prime decision at $n=p$ has
+$O(p(\log p)^2)$ average divisor work.  A smallest-prime-factor sieve
+suffices at moderate scale, while a segmented sieve keeps large censuses
+memory-bounded.  By contrast, deciding from the original side using only
+(60.9) scans $O(n^2)$ moduli and has divisor work of average order
+$O(n^2(\log n)^2)$.  The $a$-algorithm is a genuine dimension reduction,
+not an extension to large $M$ at fixed small $a$.
+
+For an odd prime $p$, the gcd caveat disappears completely.  Indeed,
+$(a,D)\mid p$, while (60.9) gives
+$a\leq2\lfloor(p+1)/3\rfloor<p$.  Hence $(a,D)=1$, and (60.5) makes the
+last eligibility check redundant.  We obtain the proved equivalence
+\begin{equation}\tag{60.25}
+\begin{split}
+ W(p)<+\infty\quad\Longleftrightarrow\quad
+ &\exists a,D:\ 1\leq a\leq2\lfloor(p+1)/3\rfloor,
+       \quad a\equiv-p\pmod4,\\
+ &h=(p+a)/4,\quad D\mid h^2,\quad a\mid D+h,\\
+ &M=4(D+h)/a-1,
+\end{split}
+\end{equation}
+and the least such $M$ is $W(p)$.  The prime $p=2$ has the known separate
+datum $(M,D,a)=(3,1,2)$.  Formula (60.25) is a cheaper exact prime test and
+a structural simplification of the cancellation branches.  It does not
+prove that the finite list is nonempty for every prime, does not control
+pointwise tails, and does not prove Erd\H{o}s--Straus.  In particular, the
+gcd-structural mechanism behind the three sporadics is unavailable to odd
+primes.
+
+\subsection{Verification and finite coverage ledger}
+\medskip\noindent\textbf{Computational 60.2 (exact bounded replay).}
+Verifier block \texttt{(bg)} replays all $33{,}882$ incidences $(n,M,D)$
+with $n\leq2000$, $M\leq3000$, and $D\mid((M+1)/4)^2$ from the complete
+\texttt{(bc)} harvest.  Every incidence maps through (60.2)--(60.8) and
+back exactly.  Of these, $11{,}451$ have $(a,D)>1$, so the cancellation
+branch is materially represented rather than spot-checked.
+
+The same block brute-enumerates $1{,}070{,}466$ divisor values for
+$M\leq10^5$ and $n\in\{2,17,45,288,336,4545\}$.  There are nine witness
+data in that toy box.  The union of the $M\leq100$ scan and the $a\leq30$
+scan contains exactly the rows satisfying (60.18): eight arrive from the
+$M$-side, nine from the $a$-side, and eight are in the overlap.  This is a
+finite double-count check of the region identity, not a proof of its
+unbounded form; (60.18) itself is set-theoretic.
+
+Block \texttt{(bg)} also pins the swap examples, tests the swap criterion on
+the complete $33{,}882$-incidence replay, pins (60.21), the two independent
+survivor exhaustions, and the heuristic sums.  Of the replayed incidences,
+$1{,}196$ are bi-eligible under (60.14), including $54$ fixed points; all
+have $n\equiv1\pmod4$.  Block \texttt{(bf)} retains the independent
+Python-integer $M$-scan through $3\cdot10^6$ by default and through
+$1.5\cdot10^8$ under \texttt{ES\_FULL\_SCAN=1}.  The latter is now a
+redundant historical cross-check beyond all three ceilings in (60.19), not
+the logical frontier.
+
+\medskip\noindent\textbf{Internal review attestation (wave 24).}
+The maximum-severity review returned \textsc{sound-after-repairs}.  Its
+repairs were expository/register repairs plus a malformed TeX spacing
+command; no mathematical conclusion or ceiling changed.  It rederived $D\mid(A,h)^2$, $(A,h)\mid D$, and hence the canonical
+$A=gu,h=gv,D=gd$, $d\mid g$, $au=d+v$ form without assuming or swapping
+$a\leq M$.  Thus $au=d+v\leq g+v$ gives $4gv\leq n+g+v$, then
+$g,v\leq\lfloor(n+1)/3\rfloor$, and all four bounds in (60.9) are
+unconditional.  As a separate stress test, a direct $M$-harvest for every
+represented $n\leq2000$ through
+$M=7{,}118{,}223>2(8\lfloor2001/3\rfloor^2-1)$ checked $44{,}202$
+incidences, found no bound violation, and found no incidence past the
+global ceiling.
+
+A fresh memory-bounded implementation factored each $A=(M+1)/4$, generated
+every positive divisor of $A^2$ as a Python integer, and tested
+$M\mid n+4D$, using no character or dual filter.  At the exact ceilings
+$73{,}727$, $100{,}351$, and $18{,}361{,}799$ for $288$, $336$, and $4545$,
+it tested respectively $748{,}810$, $1{,}074{,}878$, and $409{,}000{,}770$
+divisor incidences and found no witness.  It streamed one $A$ at a time,
+with at most $6{,}561$ divisors for one $A$.  This independently confirms
+Theorem~\ref{thm:nonsquare-escapes}.
+
+Prime-adic rederivation confirmed (60.5)--(60.6), including at $2$, and
+proved $(a,D)\mid n$.  A separate dual scan reproduced the stage counts
+$(756,43,4,0)$, $(912,65,37,0)$, and $(22{,}995,188,62,0)$.  All filtered
+rows fail eligibility; the four $n=288$ rows have $(a,D)=9$ and fail at
+$3$.  An independent test of all $33{,}882$ replay incidences found exactly
+$1{,}196$ bi-eligible rows and $54$ fixed points, with (60.14) necessary and
+sufficient and every such $n\equiv1\pmod4$.
+
+The full prescribed verifier completed under its $460$-second timeout.
+Isolated block \texttt{(bg)} runs in under one second on the review host and
+pins the $33{,}882/11{,}451$ replay, survivor counts, swap sample, and
+$1{,}070{,}466$-divisor toy union.  The optional historical full scan remains
+gated.  These are internal exact checks, not external refereeing.  As
+throughout, identifying witness data with $W$ uses the already-proved
+Lemma~\ref{lem:multiplier}/(58.3) harvested-family equivalence; nothing here
+upgrades that family to all Egyptian-fraction decompositions.
 
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
@@ -6518,9 +6980,13 @@ linear/quadratic polynomial classification are proved, but they separate the
 all-integer and polynomial-family escape mechanisms from the still-open
 prime-survivor problem rather than proving a pointwise prime representation.
 The all-degree cyclotomic obstruction is qualitative and ineffective;
-$C_{\rm POLY}$, $C_{\rm SQ}$, and all three explicit constant candidates
-remain open.  The raw and antichain factorial-moment formulations are
-refuted and that axis is dormant; the pair
+$C_{\rm POLY}$ and repaired $C_{\rm SQ}'$ remain open.  The original
+$C_{\rm SQ}$ is refuted: a computer-assisted theorem proves the three former
+constant candidates have $W=+\infty$.  They are composite statistic-escapes
+with explicit Egyptian-fraction representations, not Erd\H{o}s--Straus
+counterexamples, and the finite prime criterion does not prove its list
+nonempty.  The raw and antichain factorial-moment formulations are refuted
+and that axis is dormant; the pair
 endpoint and other possible pointwise minorants retain exactly the narrower
 open scope stated above.
 

@@ -1,19 +1,22 @@
 # Paper draft status
 
-> **Source supersession notice (wave 24):** paper v10 predates source
-> `notes.md` §60.  Its statements that `C_SQ` is live and that 288, 336, and
-> 4545 are unresolved are now historical: Theorem 60.3 proves all three have
-> `W=+infinity`, refutes `C_SQ`, and replaces it by open `C_SQ'`.  This is a
-> result about the harvested witness statistic, not an Erdős--Straus
-> counterexample.  Source §60 has not yet been absorbed into the paper.
-
-`espaper.tex` is the v10 standalone `amsart` consolidation draft (99 pages). Its two record headlines remain:
+`espaper.tex` is the v11 standalone `amsart` consolidation draft (106 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v11 changes — 2026-08-30, wave 25
+
+- Absorbed source §60 as the new section immediately after the polynomial-escape section.  The proved witness duality retains the full `aM=4D+n` correspondence, exact cancellation ledger, `gcd(a,D) | n`, the nonredundant eligibility recheck when the gcd is nontrivial, and the 2-adic caveat.
+- Added the canonical `A=gu`, `h=gv`, `D=gd` normal form with `(u,v)=1`, `d | g`, `a=4gv-n`, and `au=d+v`.  Its unconditional bounds `a,u <= 2B` and `M <= 8B^2-1`, `B=floor((n+1)/3)`, use no `a <-> M` assumption and make `W(n)=+infinity` decidable by finite computation.
+- Added computer-assisted Theorem 60.3: `W(288)=W(336)=W(4545)=+infinity`.  The paper records both exact normal-form exhaustions and the maximum-severity review's independent original-coordinate scans through `73,727`, `100,351`, and `18,361,799`, including the `409,000,770`-incidence largest replay.
+- Reconciled every v10 frontier passage without deleting the still-valid §59 quadratic classification, twisted-square reductions, census, historical deep scan, or family controls.  Former `C_SQ` is now explicitly refuted; open `C_SQ'` adds exactly the three composite sporadics to the squares.  Only its right-to-left inclusion is proved, and the three displayed Egyptian-fraction representations make clear that these are statistic-escapes, not Erdős–Straus counterexamples.
+- Added the exact near-miss ledger: all rows surviving the §59 filters fail uncancelled prime-power eligibility, and the four rows for `288` all have `gcd(a,D)=9` and fail at 3.  Added the exact terminating algorithm, its average divisor-work order, the odd-prime gcd simplification, and the warning that no pointwise prime or Erdős–Straus theorem follows.
+- Added the conditional `a <-> M` involution, including bi-eligibility on both sides and the forced class `n = 1 mod 4`, plus the exact two-front coverage identity and the historical-scan supersession.
+- Updated the abstract, introduction, section map, status register, internal pedigree, final status, verifier register, and tracked table of contents.  Block `(bg)` and the wave-24 **SOUND-AFTER-REPAIRS** attestation remain internal validation only.
 
 ## v10 changes — 2026-08-30, wave 24
 
@@ -98,6 +101,14 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §60 status and (60.1)–(60.4) ↔ `witness-duality`: complete harvested-datum scope, inverse maps, positivity, and the distinction from a new identity family agree.
+- notes Theorem 60.1, (60.5)–(60.12) ↔ `witness-duality`: exact cancellation, `gcd(a,D) | n`, prime-adic and 2-adic caveats, canonical normal form, all four finite bounds, and the no-swap derivation agree.
+- notes (60.13)–(60.13a) ↔ the three specialized reductions: oddness, quotient and uncancelled checks, all §59 necessary filters, precise cancellation primes, and exact `a` bounds agree.
+- notes Lemma 60.2, (60.14)–(60.15) ↔ `witness-involution`: bi-eligibility if and only if, genuine involution scope, examples and counterexample, and forced `n = 1 mod 4` agree.
+- notes (60.16)–(60.19) and Theorem 60.3 ↔ the survivor-frontier subsection: exact two-front union, finite ceilings, no hidden middle regime, two exhaustive normal-form certificates, and computer-assisted status agree.
+- notes (60.20a)–(60.22) ↔ the scope, near-miss ledger, and repaired conjecture: explicit Egyptian fractions, gcd-structural failures, four `288` gcds equal to 9, failed character route, heuristic-only comparison, refutation of `C_SQ`, and only right-to-left proof for open `C_SQ'` agree.
+- notes (60.23)–(60.25) ↔ the statistic/prime subsection: terminating algorithm, exact divisor-work sum and average order, odd-prime gcd redundancy, separate `p=2` datum, and every no-tail/no-Erdős–Straus caveat agree.
+- notes §60.5–§60.6 ↔ the verification ledger and `pedigree`: bounded replay, two-front double count, swap counts, exact independent ceilings and incidence counts, memory bound, optional historical scan, and **SOUND-AFTER-REPAIRS** internal-only status agree.
 - notes §59 status and Definition 59.1 ↔ `polynomial-escape` preface and `uniform-polynomial-escape`: proved versus Computational versus Conjectural labels, eventual positivity and threshold, positive-degree exclusion, square examples, and independence from Theorem 34.8/§39 agree.
 - notes Lemma 59.1, (59.1)–(59.4) ↔ `polynomial-local`: exact rounded radical, complete harvested-congruence equivalence, both tail directions, progression compatibility modulo `(M,q)`, finite-depth separation, and fixed-progression `D=1` hit agree.
 - notes Theorem 59.2, (59.5)–(59.9) ↔ `cyclotomic-obstruction`: every fixed shift, prime eligibility, root-field intersections, both Chebotarev directions, all-but-finitely-many perimeter, `Q(i)` specialization, root-field-not-splitting-field warning, `X^4-3` replay, and qualitative **ineffectivity** agree.
@@ -174,7 +185,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v10 build completes in 99 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v10-relevant verifier coverage passes through block `(bf)`.
+The v11 build completes in 106 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v11-relevant verifier coverage passes through block `(bg)`.
 
 ## Submission TODO
 
@@ -184,8 +195,8 @@ The v10 build completes in 99 pages with zero TeX errors and no undefined refere
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v11 queue
+## v12 queue
 
-- Absorb source §60, “witness duality `aM = 4D+n` + survivor frontier,” being written in parallel during wave 24.
+- Absorb source §61, “decidable census, twisted-square law, prime criterion,” being written in parallel during wave 25.
 
-This is a queue title only; v10 makes no content claim about §60.
+This is a queue title only; v11 makes no content claim about §61.
