@@ -14097,7 +14097,8 @@ def check_br():
         assert brute == formula == expected
         local_rows.append((ell, period, numerator, denominator, formula))
 
-    # Corollary 71.4's exact weak exponents.
+    # Corollary 71.4's exact stacking exponents.  Henriot's prime-input
+    # theorem contributes the separate baseline exponent 1.
     cumulative = Fraction(0)
     exponent_rows = []
     expected_exponents = (
@@ -14111,7 +14112,13 @@ def check_br():
     for j, a in enumerate(moduli, 1):
         cumulative += Fraction(1, a - 1)
         assert cumulative == expected_exponents[j - 1]
-        exponent_rows.append((j, a, cumulative, Fraction(j, 2)))
+        prime_tail = 1 + cumulative
+        f1_prime_tail = 1 + Fraction(j, 2)
+        assert prime_tail - 1 == cumulative
+        assert f1_prime_tail - 1 == Fraction(j, 2)
+        exponent_rows.append(
+            (j, a, cumulative, prime_tail, Fraction(j, 2), f1_prime_tail)
+        )
 
     # The exact Henriot discriminant factors in (71.22)--(71.24).  All
     # valuation and resultant paths stay in Python ints; factorint outputs are
@@ -14228,7 +14235,8 @@ def check_br():
     if not full_scan:
         assert elapsed < 15.0
     print("J-form local factors (ell,period,good,total,factor) =", local_rows)
-    print("fixed-J exponents (J,a,weak,F1-only) =", exponent_rows)
+    print("fixed-J exponents (J,a,stack,prime-tail,F1-stack,F1-prime) =",
+          exponent_rows)
     print("Henriot discriminants (J,factors,Delta) =", discriminant_rows)
     print("F1 finite stacks (limit,total,marginals,joints,INFO ratios) =",
           (limit, total, marginals, joints, info_ratios))
