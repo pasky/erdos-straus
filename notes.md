@@ -24140,8 +24140,6 @@ nonsquare values with \(W=+\infty\).  Such witness-statistic failures are
 not Erdős--Straus counterexamples, and §62 claims no new tail bound,
 pointwise theorem, or Erdős--Straus progress.
 
-<<<<<<< HEAD
-
 ---
 
 
@@ -24291,7 +24289,7 @@ The prime-modulus formulas of Section 62 are instances of one finite group
 calculation.  The important feature for composite \(a\) is that its CRT
 components do not receive independent exponent choices.
 
-**Theorem 63.5 (universal \(a\)-law; proved).**  Let \(a\) be an odd positive
+**Theorem 63.5 (universal \(a\)-law; proved).**  Let \(a>1\) be an odd
 integer, let \((a,h)=1\), and write
 \[
  a=\prod_{i=1}^r\ell_i^{k_i},
@@ -24402,18 +24400,29 @@ Every member of \({\cal E}(N)\) with \(p>z\) avoids all these classes for
 \(\ell<z\): primality avoids the first, and the definition of
 \({\cal E}(N)\) avoids the second.
 
-For squarefree \(d\) supported on these primes, the Chinese remainder theorem
-gives exactly \(\rho(d)=\prod_{\ell\mid d}\rho(\ell)\) removed classes and
-an interval-counting remainder \(O(\rho(d))\).  Apply the standard
-fixed-dimensional Selberg upper-bound sieve, in precisely the form used in
-the proof of Theorem 52.1 at (52.8)--(52.10), with level
-\(D=N^{1/2}\) and fixed sieve ratio, for example \(z=N^{1/20}\).  Its
-upper bound is
+Put \(X=\lfloor(N-1)/24\rfloor\).  For squarefree \(d\) supported on
+these primes, the Chinese remainder theorem gives exactly
+\(\rho(d)=\prod_{\ell\mid d}\rho(\ell)\) removed classes and
 \[
- N\prod_{5\leq\ell<z}\left(1-{\rho(\ell)\over\ell}\right), \tag{63.21}
+ \#\{m\leq X:m\text{ lies in a removed class modulo }d\}
+       ={X\rho(d)\over d}+O(\rho(d)).
 \]
-up to a constant; the summed exact remainders are absorbed at this fixed
-ratio.  The finitely many cases \(p\leq z\) contribute \(O(z)\).
+Here \(\rho(\ell)\leq2\), so
+\(\sum_{d\leq D}\mu^2(d)\rho(d)\ll D\log D\).  Apply the standard
+fixed-dimensional upper-bound fundamental lemma in precisely the form stated
+in the proof of Theorem 52.1 at (52.8)--(52.12).  Take \(D=X^{1/2}\) and
+\(z=D^{1/u}\asymp N^\eta\), where the fixed \(u\) is sufficiently large for
+sieve dimension \(3/2\) and \(\eta>0\) is fixed.  It gives
+\[
+ \#{\cal E}(N)\ll
+ X\prod_{5\leq\ell<z}\left(1-{\rho(\ell)\over\ell}\right)
+       +O(D\log D)+O(z).                                  \tag{63.21}
+\]
+The last term covers the primes \(p\leq z\); both error terms are
+\(o(N/(\log N)^{3/2})\).  No level of distribution for primes is being
+assumed: primality is only majorized by sieving the zero class in this
+integer progression, and every remainder above is an exact interval-counting
+remainder.
 
 The effective Mertens estimates in the two fixed progressions modulo 4 give
 \[
@@ -24449,7 +24458,7 @@ Here is the mandatory comparison with the existing tails.
 \begin{array}{p{31mm}|p{35mm}|p{42mm}|p{38mm}}
 \text{result}&\text{threshold controlled}&\text{exceptional bound}&\text{status}\\ \hline
 \text{Corollary 63.8}&\sqrt{p+4}&N/(\log N)^{3/2}&
- \text{elementary, effective, explicit exception}\\
+ \text{classical sieve, effective, explicit exception}\\
 \text{Theorem 51.2(1)}&T\leq\exp\{c(\log N)^{1/4}\}&
  N\exp\{-c(\log T)^2\log(2+\log T)\}&
  \text{proved internally; Section 39 review qualification}\\
@@ -24463,7 +24472,8 @@ Here is the mandatory comparison with the existing tails.
 
 **Assessment 63.1 (honest comparison).**  The Section 51 events are much
 stronger: they control failure at far smaller moduli and give far smaller
-exceptional sets.  The only advantages of Corollary 63.8 are elementarity,
+exceptional sets.  The only advantages of Corollary 63.8 are its relative
+elementarity (only a classical upper-bound sieve and fixed-modulus Mertens),
 effectivity, and the explicit factorization characterization (63.18).  It is
 not a new tail record and gives no pointwise progress.  Moreover
 \(\sqrt p\) lies far beyond the top proven Section 51 window
@@ -24562,13 +24572,14 @@ bound \(W\), and the finite ratios in (63.29)--(63.30) support no growth law.
 
 ### 63.5 Honest walls and the positivity question
 
-**Assessment 63.3 (stacking wall).**  No new witness-modulus tail bound
+**Assessment 63.2 (stacking wall).**  No new witness-modulus tail bound
 follows by stacking these local laws.  For a prime coefficient
-\(a\equiv3\pmod4\), the D1 containment progression has relative prime
-density about \(1/(a-1)\).  Summing over prime coefficients to depth \(Y\)
-gives only
+\(a\equiv3\pmod4\), \(a>3\), the D1 containment progression has relative
+prime density about \(1/(a-1)\); the excluded coefficient \(a=3\) is
+incompatible with the hard class by Corollary 63.6.  Summing over the
+remaining prime coefficients to depth \(Y\) gives only
 \[
-       \sum_{\substack{a\leq Y\\a\equiv3(4)\\a\ {\rm prime}}}
+       \sum_{\substack{3<a\leq Y\\a\equiv3(4)\\a\ {\rm prime}}}
                     {1\over a-1}
                    ={1\over2}\log\log Y+O(1).             \tag{63.31}
 \]
@@ -24598,7 +24609,7 @@ Then Theorem 61.4 proves
                     \quad\Longleftrightarrow\quad W(p)<+\infty. \tag{63.33}
 \]
 
-**Assessment 63.2 (no hidden positivity identity).**  The summands in
+**Assessment 63.3 (no hidden positivity identity).**  The summands in
 (63.32) are the raw Type-II witness count in the dual coordinate.  The exact
 Case-B dictionary of Section 17.1 and the Elsholtz--Tao reconciliation in
 Section 36.5 show that, after their canonical ordering and primitivity
@@ -24616,20 +24627,107 @@ a no-go theorem for a new signed, spectral, or geometric identity.
 ### 63.6 Verification
 
 **Computational 63.3 (block (bj), exact stated ranges).**  The default block
-uses Python integers on every divisor path.  It checks S1--S3 and the full
-Theorem-61.4/Lemma-16.1 datum on 512 seeded hard primes, tests 7,146 direct
+uses Python integers on every divisor path.  It checks the D1 and square-root
+constructions and the full Theorem-61.4/Lemma-16.1 datum on 512 seeded hard
+primes, tests 256 additional proper-divisor DIV rows, pins all 7,146 direct
 fixed-\(D\) divisor rows, and compares the CRT-coupled feasibility law with
-direct divisor spectra on 360 seeded composite-modulus pairs.  It recomputes
+direct divisor spectra on 360 seeded composite-modulus pairs.  Explicit edge
+cases exercise one prime with different component orders, a prime that is
+1 in one component, and a case where uncoupled exponents give a false
+positive.  It recomputes
 all 3,202 hard-prime minima through \(3\cdot10^5\): 1,517 have a
 3-modulo-4 factor in \(p+4\), all satisfy (63.5), and the only two values
 with \(W(p)>\sqrt{p+4}\) are
 \(p=193\), with \((W,p+4)=(15,197)\), and \(p=3361\), with
 \((W,p+4)=(99,5\cdot673)\); all three displayed factors are 1 modulo 4, as
 the contrapositive predicts.  It pins (63.24), both censuses, every
-histogram entry, both correlations, the separation extrema, and (63.28).
-The \(10^7\) replay is gated by `ES_FULL_SCAN=1`; prime generation is
-chunked and only one factorization or divisor list is live at a time.  The
-isolated default block takes about 2.4 seconds on the research host.
+histogram entry, both correlations, the separation extrema, (63.28), and
+\((a_1,W,a_W,D_W)=(107,139,63335,49)\) at \(p=8803369\) even on the
+default path.  The \(10^7\) replay is gated by `ES_FULL_SCAN=1`; prime
+generation is chunked and only one factorization or divisor list is live at
+a time.  The isolated repaired default block takes about 2.3 seconds on the
+review host.
+
+### 63.7 Review attestation (wave 27)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Maximum-severity review found no false
+lemma, theorem, corollary, census entry, or asymptotic conclusion.  The
+repairs close a compressed sieve-remainder justification, make material CRT
+and computational pins executable, and remove adjacent merge debris.
+
+* **HIGH (full elementary chain and range endpoints):** from \(e\mid h\)
+  and \(e\equiv-1\pmod a\), the review rederived
+  \(D=h/e\mid h^2\) and \(D\equiv-h\pmod a\).  It also rederived
+  \(h\equiv-1\pmod a\Longleftrightarrow a\mid p+4\) and both paired
+  divisors \(D=1,h^2\).  If \(q\equiv3\pmod4\) divides \(N=p+4\), both
+  \(q,N/q\) are \(3\pmod4\); the smaller is at least 3, so the larger
+  \(a\leq N/3\).  Writing \(p=3r+1\) gives exactly
+  \(B=r\) and \(N/3=r+5/3\leq2r\).  Thus the larger factor never violates
+  \(a\leq2B\), including the complementary-factor-3 endpoint, and the
+  smaller modulus is at most \(\sqrt N\).  Corollary 63.6 uses the same
+  exact range check, while its \(a=3\) branch is correctly empty.
+* **HIGH (fixed \(D\), universal \(a\), and coupling):** direct valuation
+  analysis reproduced (63.8)--(63.11).  For squarefree \(D\),
+  \(D\mid A^2\Longleftrightarrow D\mid A\), including even \(D\); hence
+  \(D=2\) requires \(M\equiv7\pmod8\), \(D=3\) requires
+  \(M\equiv11\pmod {12}\), and \(D=4\) again requires only
+  \(M\equiv7\pmod8\).  Componentwise discrete logarithms send one integer
+  \(f_q\) to all prime-power components, even when their orders differ or
+  one component logarithm is zero.  The case \((a,h)=(15,4)\) explicitly
+  shows why independent component exponents would be false.  The harmless
+  ambiguous \(a=1\) endpoint was removed from Theorem 63.5.
+* **MEDIUM (effective sieve):** the review rebuilt the sieve on
+  \(p=24m+1\).  Its local counts are exactly 1 on primes \(1\pmod4\) and
+  2 on primes \(3\pmod4\); CRT gives exact remainders \(O(\rho(d))\), with
+  \(\sum_{d\leq D}\mu^2(d)\rho(d)\ll D\log D\).  A fixed-dimensional
+  upper-bound sieve at \(D=X^{1/2}\), \(z=X^\eta\), followed by effective
+  Mertens estimates in the two classes modulo 4, gives dimension
+  \(1+1/2=3/2\) and (63.19).  No prime level of distribution is used.
+  Corollary 63.8 is then immediate.  The text now records the remainder
+  calculation instead of merely saying it is absorbed.
+* **MEDIUM (independent computation):** a fresh Python-integer implementation
+  used its own byte sieve, trial factorization, bounded divisor-ratio sets,
+  and ascending-\(M\) class scan.  On all 9,732 hard primes through
+  \(10^6\), it reproduced every entry in the default row of (63.26), maxima
+  \((63,87481)\) and \((335,954409)\), Pearson correlation 0.354836,
+  strict \(a_W>a_1\) in all 9,732 rows, and both extrema in (63.29).
+  On 200 primes sampled without replacement from \((10^6,10^7]\) with
+  seed 631900027, spectrum and direct-divisor paths certified every first-hit
+  minimum and the original-coordinate scan certified every witness; the
+  ordered-row SHA-256 digest was
+  `3eb593d851b7625e530c53d4afa0d97738dd97be972cf9de3c78bfe473ae3cd5`.
+  It reproduced all four rows (63.28) and
+  \((a_1,W,a_W,D_W)=(107,139,63335,49)\) at 8803369.  The gated block
+  separately replayed all 82,887 research rows and reproduced the full
+  histogram, maxima, correlation 0.271029, and separation extrema.
+* **MEDIUM (square-root census):** the independent scan covered every one of
+  the 3,202 hard primes through \(300000\).  Exactly 1,517 shifts had a
+  \(3\pmod4\) prime factor and none violated \(W^2\leq p+4\).  The only
+  two primes with \(W^2>p+4\) were 193 and 3361; both are \(1\pmod {24}\),
+  and their shifts factor as 197 and \(5\cdot673\), entirely in
+  \(1\pmod4\).  The four factorizations (63.24) also matched exactly.
+* **LOW (register and executable coverage):** the comparison with Section 51
+  correctly calls the new event and exceptional bound weaker on both axes;
+  all finite results remain Computational and support no asymptotic law.
+  The stacking discussion now excludes the impossible coefficient \(a=3\),
+  Assessment numbers follow their textual order, and block (bj) now asserts
+  rather than merely prints the exact 7,146-row count and the research
+  maximum's full datum.  Three unresolved merge markers surrounding
+  Sections 63--65 were removed, preserving all three sections in order.
+* **Verification:** the repaired isolated block completed in 2.1 seconds by
+  default and 8.7 seconds with `ES_FULL_SCAN=1`.  The prescribed full suite
+  completed green with `all checks passed` in 201 seconds under its
+  600-second timeout; syntax and control-byte checks were also clean.
+
+The residual uncertainty is exactly the stated open mathematics: the local
+laws and finite censuses do not prove a witness for every hard prime, and
+the half-dimensional sieve is only an almost-all bound for the explicit
+\(D=1\) layer.  Nothing in Section 63 improves the Section 51 tails or
+proves the Erdos--Straus conjecture.
+
+
+---
+
 
 ## 64. The gcd mechanism: cancellation covers, shifted purity, and a wider twisted-square hunt
 
@@ -25046,7 +25144,11 @@ supply necessary conditions and exact finite criteria; they do not turn the
 three observed sporadics into a proved complete list.  As before,
 \(W=+\infty\) means failure of this harvested Type-II supply mechanism, not
 failure of an Egyptian-fraction representation.
-=======
+
+
+---
+
+
 ## 65. The two-decade hard-prime witness census and record anatomy
 
 **Computational 65.1 (exact range, informational).**  This census extends the
@@ -25215,4 +25317,3 @@ values prove nothing about \(H_{\rm MOD}(A)\).  In particular they neither
 supply an upper bound for any \(A\geq1\) nor alter the proved refutation for
 \(A<1\).  No asymptotic law, fitted exponent, independence assertion, or
 tail-density claim is inferred from (65.2)--(65.4).
->>>>>>> uC27/main

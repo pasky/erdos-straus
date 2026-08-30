@@ -11937,15 +11937,18 @@ def check_bj():
     def factors_py(value):
         return tuple((int(q), int(e)) for q, e in factorint(value).items())
 
-    def divisors_square_factors(factors):
+    def divisors_with_multiplier(factors, exponent_multiplier):
         divisors = [1]
         for q, exponent in factors:
             base = tuple(divisors)
             power = 1
-            for _ in range(2 * exponent):
+            for _ in range(exponent_multiplier * exponent):
                 power = int(power * q)
                 divisors.extend(int(D * power) for D in base)
         return divisors
+
+    def divisors_square_factors(factors):
+        return divisors_with_multiplier(factors, 2)
 
     def ratio_success(h, a, factors=None):
         """Direct bounded-product form of the universal a-law."""
@@ -12017,6 +12020,26 @@ def check_bj():
             break
     assert len(family_rows) == 512
 
+    # Exercise the actual DIV family away from its D=1 endpoint: e is a
+    # proper divisor of h, so D=h/e is generally neither 1 nor h^2.
+    proper_div_rows = []
+    for p in hard_pool:
+        B = (p + 1) // 3
+        for a in range(3, min(2 * B, 199) + 1, 4):
+            h = (p + a) // 4
+            e = next((e for e in divisors_with_multiplier(factors_py(h), 1)
+                      if e != h and e % a == a - 1), None)
+            if e is None:
+                continue
+            D = h // e
+            check_prime_witness(p, a, D)
+            proper_div_rows.append((p, a, h, e, D))
+            if len(proper_div_rows) == 256:
+                break
+        if len(proper_div_rows) == 256:
+            break
+    assert len(proper_div_rows) == 256
+
     # The equivalence in S2 is also checked away from successful rows.
     for p, _, _ in family_rows:
         B = (p + 1) // 3
@@ -12049,7 +12072,7 @@ def check_bj():
                     a = shifted // M
                     check_prime_witness(p, a, D)
                 fixed_D_rows += 1
-    assert fixed_D_rows > 2_000
+    assert fixed_D_rows == 7_146
 
     # General squarefree eligibility, including even squarefree D.
     for D in range(1, 31):
@@ -12093,6 +12116,17 @@ def check_bj():
             reachable = updated
         target = tuple(phi // 2 for _, phi in components)
         return target in reachable
+
+    # Coupling is material, not cosmetic.  For (a,h)=(15,4), the exponent
+    # of 2 could reach -1 separately modulo 3 and modulo 5, but no one
+    # f in [-2,2] reaches both targets.  Also exercise a prime that is 1 in
+    # one component (7 mod 3) but has order 4 in the other (7 mod 5).
+    assert not crt_log_feasible(4, 15, factors_py(4))
+    assert all(any(pow(2, f, component) == component - 1
+                   for f in range(-2, 3))
+               for component in (3, 5))
+    assert crt_log_feasible(7, 15, factors_py(7)) == ratio_success(7, 15)
+    assert 7 % 3 == 1 and {pow(7, f, 5) for f in range(4)} == {1, 2, 3, 4}
 
     composite_a = (15, 27, 35, 39, 51, 63, 75, 99, 105)
     lattice_rows = 0
@@ -12267,9 +12301,14 @@ def check_bj():
         1_853_329: (3, 383, 4_839, 2),
         2_031_121: (11, 2_495, 815, 576),
     }
+    research_maximum_pin = (
+        first_a(8_803_369),
+        *first_modulus_row(8_803_369),
+    )
+    assert research_maximum_pin == (107, 139, 63_335, 49)
 
-    print("taxonomy / fixed-D / CRT feasibility rows =",
-          (len(family_rows), fixed_D_rows, lattice_rows))
+    print("taxonomy (D1,proper-DIV) / fixed-D / CRT feasibility rows =",
+          ((len(family_rows), len(proper_div_rows)), fixed_D_rows, lattice_rows))
     print("sqrt replay (hard,3mod4-shift-factor,W>sqrt) =",
           (sqrt_total, sqrt_factored, sqrt_late))
     print("a1 census (limit,count,hist,max a1,max W,Pearson) =",
@@ -12278,6 +12317,7 @@ def check_bj():
     print("a1/a_W separation (directions,max ratio,max difference) =",
           (dict(separation), max_ratio, max_difference))
     print("late-prime a1/W/a_W/D pins =", anatomy_pins)
+    print("research maximum-a1 pin =", research_maximum_pin)
 
 
 print("\n== (bj) algebraic taxonomy, sqrt regime, and first-a index (§63) ==")
