@@ -11928,4 +11928,409 @@ print("\n== (bi) divisor-ratio spectra and finite conspiracy (§62) ==")
 check_bi()
 
 
+# ---------------------------------------------------------------- (bk)
+def check_bk():
+    """§64: cancellation cover, shifted sieves, and wider twisted hunt."""
+    import os
+    from random import Random
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+
+    # All products and divisors in this block are ordinary Python ints.
+    def square_divisors_int(value):
+        divisors = [1]
+        for q0, exponent0 in factorint(value).items():
+            q, exponent = int(q0), int(exponent0)
+            base = tuple(divisors)
+            power = 1
+            for _ in range(2 * exponent):
+                power = int(power * q)
+                divisors.extend(int(D * power) for D in base)
+        return divisors
+
+    def harvested_class_rows(cap):
+        rows = []
+        for M in range(3, cap + 1, 4):
+            A = (M + 1) // 4
+            classes = {int((-4 * D) % M)
+                       for D in square_divisors_int(A)}
+            rows.append((M, classes))
+        return rows
+
+    stage1_rows = harvested_class_rows(10_000)
+    assert (len(stage1_rows), sum(len(classes) for _, classes in stage1_rows),
+            max(len(classes) for _, classes in stage1_rows)) == (
+                2500, 64_978, 243
+            )
+
+    def valuation(value, q):
+        exponent = 0
+        while value % q == 0:
+            value //= q
+            exponent += 1
+        return exponent
+
+    def dual_rows(n):
+        B = (n + 1) // 3
+        for a in range(1, 2 * B + 1):
+            if (n + a) % 4:
+                continue
+            h = (n + a) // 4
+            for D in square_divisors_int(h):
+                if (D + h) % a:
+                    continue
+                A = (D + h) // a
+                yield a, h, D, A
+
+    # Exact small replay of the finite normal form.  The global bound for
+    # n<=80 is below 10^4, so this compares complete minima, including the
+    # empty square rows, with the independent M-side class harvest.
+    small_dual_W = {}
+    for n in range(1, 81):
+        dual_values = [4 * A - 1 for a, h, D, A in dual_rows(n)
+                       if A * A % D == 0]
+        dual_minimum = min(dual_values, default=None)
+        class_minimum = next(
+            (M for M, classes in stage1_rows if n % M in classes), None
+        )
+        assert dual_minimum == class_minimum
+        small_dual_W[n] = dual_minimum
+    assert (sum(W is None for W in small_dual_W.values()),
+            max(W for W in small_dual_W.values() if W is not None),
+            sum(W for W in small_dual_W.values() if W is not None)) == (
+                8, 47, 692
+            )
+
+    # The cancellation-cover criterion is checked on complete finite row
+    # sets for seeded n.  A failed eligibility prime must occur in a and D,
+    # divide n, and satisfy the exact valuation window (64.3).
+    rng = Random(640027)
+    cancellation_rows = cancellation_failures = 0
+    cancellation_targets = tuple(rng.sample(range(81, 1001), 64))
+    for n in cancellation_targets:
+        for a, h, D, A in dual_rows(n):
+            cancellation_rows += 1
+            assert (a * A - D) == h and h * h % D == 0
+            assert (a * a * A * A) % D == 0
+            bad = []
+            for q0 in factorint(D):
+                q = int(q0)
+                d = valuation(D, q)
+                alpha = valuation(a, q)
+                beta = valuation(A, q)
+                if d > 2 * beta:
+                    bad.append(q)
+                    assert alpha > 0 and n % q == 0
+                    assert 2 * beta < d <= 2 * alpha + 2 * beta
+            assert bool(bad) == (A * A % D != 0)
+            cancellation_failures += bool(bad)
+
+    assert (cancellation_rows, cancellation_failures) == (3523, 2347)
+
+    # D=1 and D=2 are cancellation-immune original-coordinate layers.  The
+    # direct factorizations below check the exact support descriptions.
+    def odd_prime_factors(value):
+        return tuple(int(q) for q in factorint(value)
+                     if int(q) != 2)
+
+    def shifted_four_passes(n):
+        return all(q % 4 == 1 for q in odd_prime_factors(n + 4))
+
+    def shifted_eight_passes(n):
+        residues = {q % 8 for q in odd_prime_factors(n + 8)}
+        return 7 not in residues and not ({3, 5} <= residues)
+
+    shifted_four_count = shifted_both_count = 0
+    for n in range(1, 5001):
+        pass_four = shifted_four_passes(n)
+        pass_eight = shifted_eight_passes(n)
+        shifted_four_count += pass_four
+        shifted_both_count += pass_four and pass_eight
+        q3 = tuple(q for q in odd_prime_factors(n + 4) if q % 4 == 3)
+        assert pass_four == (not q3)
+        if q3:
+            M = min(q3)
+            assert n % M in stage1_rows[(M - 3) // 4][1]
+            assert 1 in square_divisors_int((M + 1) // 4)
+        factors8 = odd_prime_factors(n + 8)
+        q7 = tuple(q for q in factors8 if q % 8 == 7)
+        q3s = tuple(q for q in factors8 if q % 8 == 3)
+        q5s = tuple(q for q in factors8 if q % 8 == 5)
+        divisor7 = (q7[0] if q7 else q3s[0] * q5s[0]
+                    if q3s and q5s else None)
+        assert pass_eight == (divisor7 is None)
+        if divisor7 is not None:
+            M = int(divisor7)
+            assert M % 8 == 7 and (n + 8) % M == 0
+            A = (M + 1) // 4
+            assert A % 2 == 0 and A * A % 2 == 0
+    assert (shifted_four_count, shifted_both_count) == (1170, 521)
+    assert {
+        n: (factorint(n + 4), factorint(n + 8))
+        for n in (288, 336, 4545)
+    } == {
+        288: ({2: 2, 73: 1}, {2: 3, 37: 1}),
+        336: ({2: 2, 5: 1, 17: 1}, {2: 3, 43: 1}),
+        4545: ({4549: 1}, {29: 1, 157: 1}),
+    }
+
+    # Every dyadic class in (64.7) carries the displayed D=1 or D=2 datum.
+    dyadic_rows = 0
+    for exponent in range(11):
+        for k in range(21):
+            n1 = (1 << exponent) * (4 * k + 3) - 4
+            if n1 > 0:
+                M = 4 * k + 3
+                assert M % 4 == 3 and (n1 + 4) % M == 0
+                dyadic_rows += 1
+            n2 = (1 << exponent) * (8 * k + 7) - 8
+            if n2 > 0:
+                M = 8 * k + 7
+                A = (M + 1) // 4
+                assert M % 8 == 7 and (n2 + 8) % M == 0
+                assert A * A % 2 == 0
+                dyadic_rows += 1
+
+    # Twisted-square D=1 residue exclusions: for q=3 mod 4 the congruence
+    # sm^2=-4 mod q has roots exactly when (s/q)=-1.
+    twisted_residue_rows = 0
+    for q0 in primerange(3, 200):
+        q = int(q0)
+        if q % 4 != 3:
+            continue
+        for s in range(2, 51):
+            if q == s or any(e != 1 for e in factorint(s).values()):
+                continue
+            if s % q == 0 or jacobi_symbol(s, q) != -1:
+                continue
+            roots = tuple(r for r in range(q) if (s * r * r + 4) % q == 0)
+            assert len(roots) == 2
+            m = int(roots[0] + q * rng.randrange(1, 8))
+            n = int(s * m * m)
+            assert (n + 4) % q == 0
+            assert n % q in stage1_rows[(q - 3) // 4][1]
+            twisted_residue_rows += 1
+
+    # The ratio law needs primality only to force a unit branch.  On any odd
+    # composite unit branch it gives the same exact witness criterion.
+    unit_ratio_rows = unit_ratio_hits = 0
+    for _ in range(300):
+        n = rng.randrange(3, 3000, 2)
+        B = (n + 1) // 3
+        choices = [a for a in range(1, 2 * B + 1)
+                   if (n + a) % 4 == 0 and gcd(a, n) == 1]
+        if not choices:
+            continue
+        a = int(rng.choice(choices))
+        h = (n + a) // 4
+        assert gcd(a, h) == 1
+        divisors = square_divisors_int(h)
+        inverse_h = pow(h, -1, a)
+        ratio_hit = (a - 1) in {
+            int(D * inverse_h % a) for D in divisors
+        }
+        quotient = [D for D in divisors if (D + h) % a == 0]
+        assert ratio_hit == bool(quotient)
+        for D in quotient:
+            A = (D + h) // a
+            assert gcd(a, D) == 1 and A * A % D == 0
+        unit_ratio_rows += 1
+        unit_ratio_hits += ratio_hit
+
+    assert (dyadic_rows, twisted_residue_rows,
+            unit_ratio_rows, unit_ratio_hits) == (460, 359, 300, 9)
+
+    # Full unfiltered quotient ledgers for the three sporadics.  These extend
+    # (60.21)/(62.24): every failure-prime set lies in the support of n.
+    gcd_ledgers = {}
+    failure_ledgers = {}
+    for n in (288, 336, 4545):
+        gcd_counts = Counter()
+        failure_counts = Counter()
+        for a, h, D, A in dual_rows(n):
+            G = gcd(a, D)
+            failures = tuple(
+                int(q) for q in factorint(D)
+                if valuation(D, int(q)) > 2 * valuation(A, int(q))
+            )
+            assert failures and all(n % q == 0 for q in failures)
+            gcd_counts[G] += 1
+            failure_counts[failures] += 1
+        gcd_ledgers[n] = gcd_counts
+        failure_ledgers[n] = failure_counts
+    assert gcd_ledgers == {
+        288: Counter({96: 12, 9: 6, 3: 5, 6: 4, 12: 3,
+                      16: 3, 18: 3, 36: 3, 4: 2, 24: 2}),
+        336: Counter({48: 14, 112: 10, 6: 8, 3: 6, 21: 6,
+                      7: 4, 42: 4, 8: 3, 2: 2, 4: 2, 14: 2,
+                      24: 2, 16: 1, 28: 1}),
+        4545: Counter({15: 73, 45: 35, 303: 20, 9: 18, 3: 15,
+                       5: 13, 1515: 8, 101: 3, 909: 3}),
+    }
+    assert failure_ledgers == {
+        288: Counter({(2, 3): 18, (3,): 17, (2,): 8}),
+        336: Counter({(2, 3): 15, (2,): 12, (3,): 11,
+                      (2, 7): 10, (7,): 10, (3, 7): 5,
+                      (2, 3, 7): 2}),
+        4545: Counter({(3, 5): 73, (3,): 46, (5,): 35,
+                       (3, 101): 18, (101,): 8,
+                       (3, 5, 101): 6, (5, 101): 2}),
+    }
+
+    # Exact support tests used to reduce the hunt before the general class
+    # walk.  Trial division is complete through sqrt(max n+8), and values are
+    # streamed one at a time.
+    def shifted_support_tests(candidates):
+        four = both = 0
+        for n, _, _ in candidates:
+            pass_four = shifted_four_passes(n)
+            four += pass_four
+            both += pass_four and shifted_eight_passes(n)
+        return four, both
+
+    def squarefree_values(cap):
+        return tuple(s for s in range(2, cap + 1)
+                     if all(int(e) == 1 for e in factorint(s).values()))
+
+    def make_candidates(s_cap, m_cap, low, high, exclude_old):
+        kernels = squarefree_values(s_cap)
+        candidates = []
+        for s in kernels:
+            for m in range(1, m_cap + 1):
+                if exclude_old and s <= 1000 and m <= 300:
+                    continue
+                n = int(s * m * m)
+                if low < n <= high:
+                    candidates.append((n, s, m))
+        assert len({n for n, _, _ in candidates}) == len(candidates)
+        return kernels, candidates
+
+    def complete_dual_decision(n):
+        best = None
+        for a, h, D, A in dual_rows(n):
+            if A * A % D:
+                continue
+            M = 4 * A - 1
+            if best is None or M < best:
+                best = M
+        return best
+
+    def staged_hunt(candidates):
+        # Walk moduli, not a candidate/modulus Cartesian array.  Resolved
+        # values are deleted immediately, so memory and work shrink at every
+        # stage; the first hit is the exact least W.
+        active = {n: (s, m) for n, s, m in candidates}
+        least = {}
+        for M, classes in stage1_rows:
+            for n in tuple(active):
+                if n % M in classes:
+                    least[n] = M
+                    del active[n]
+            if not active:
+                break
+        stage1_survivors = tuple(
+            (n, *active[n]) for n in sorted(active)
+        )
+
+        if active:
+            for M in range(10_003, 1_000_001, 4):
+                A = (M + 1) // 4
+                classes = {int((-4 * D) % M)
+                           for D in square_divisors_int(A)}
+                for n in tuple(active):
+                    if n % M in classes:
+                        least[n] = M
+                        del active[n]
+                if not active:
+                    break
+        stage2_survivors = tuple(
+            (n, *active[n]) for n in sorted(active)
+        )
+        final_infinities = tuple(
+            n for n in sorted(active) if complete_dual_decision(n) is None
+        )
+        maximum_W = max(least.values(), default=0)
+        maximum_rows = tuple(sorted(
+            (n, s, m) for n, s, m in candidates
+            if least.get(n) == maximum_W
+        ))
+        return (stage1_survivors, stage2_survivors, final_infinities,
+                maximum_W, maximum_rows)
+
+    if full_scan:
+        s_cap, m_cap = 2000, 600
+    else:
+        s_cap, m_cap = 400, 350
+    kernels, candidates = make_candidates(
+        s_cap, m_cap, 1_000_000, 100_000_000, True
+    )
+    shifted_counts = shifted_support_tests(candidates)
+    staged = staged_hunt(candidates)
+    hunt_summary = (
+        len(kernels), len(candidates), *shifted_counts,
+        len(staged[0]), len(staged[1]), staged[2],
+        (staged[3], staged[4]),
+    )
+    assert hunt_summary == (
+        (1214, 242_837, 50_633, 18_943, 0, 0, (),
+         (5303, ((3_201_660, 15, 462),)))
+        if full_scan else
+        (242, 11_833, 2_406, 872, 0, 0, (),
+         (2147, ((1_359_015, 15, 301),)))
+    )
+    if full_scan:
+        assert len(candidates) + 146_016 == 388_853
+        maximum_pin = (3_201_660, 5303, 338, 604)
+    else:
+        maximum_pin = (1_359_015, 2147, 9, 633)
+    n, M, D, a = maximum_pin
+    assert D in square_divisors_int((M + 1) // 4)
+    assert n + 4 * D == a * M
+
+    thin_summary = None
+    if full_scan:
+        thin_kernels, thin_candidates = make_candidates(
+            50, 2000, 100_000_000, 1_000_000_000, False
+        )
+        thin_shifted = shifted_support_tests(thin_candidates)
+        thin_staged = staged_hunt(thin_candidates)
+        thin_summary = (
+            len(thin_kernels), len(thin_candidates), *thin_shifted,
+            len(thin_staged[0]), len(thin_staged[1]), thin_staged[2],
+            (thin_staged[3], thin_staged[4]),
+        )
+        assert thin_summary == (
+            30, 4_992, 904, 314, 0, 0, (),
+            (599, ((108_868_200, 42, 1610),)),
+        )
+        n, M, D, a = (108_868_200, 599, 7500, 181_800)
+        assert D in square_divisors_int((M + 1) // 4)
+        assert n + 4 * D == a * M
+
+    # Uniform-independent comparison only; exact class sizes are pinned, but
+    # this product has no theorem status.
+    model_probability = 1.0
+    for M, classes in stage1_rows:
+        model_probability *= 1.0 - len(classes) / M
+    assert f"{model_probability:.12e}" == "1.033524640428e-12"
+
+    print("cancellation cover / shifted layers / unit branches =",
+          (cancellation_rows, cancellation_failures,
+           shifted_four_count, shifted_both_count, dyadic_rows,
+           twisted_residue_rows, unit_ratio_rows, unit_ratio_hits))
+    print("full sporadic gcd and failure-prime ledgers =",
+          (gcd_ledgers, failure_ledgers))
+    print("wider twisted-square hunt "
+          "(s,pop,D1-pass,D1+D2-pass,stage1,stage2,infinity,max) =",
+          hunt_summary)
+    if thin_summary is not None:
+        print("thin >10^8 twisted-square hunt =", thin_summary)
+    print("uniform-independent no-hit product through M=10^4 =",
+          model_probability)
+
+
+print("\n== (bk) gcd mechanism, shifted constraints, and wider hunt (§64) ==")
+check_bk()
+
+
 print("\nall checks passed")
