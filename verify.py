@@ -13140,8 +13140,11 @@ def check_bn():
             a += 4
         return a
 
-    def purity_first(P, cap=100):
-        for D in range(1, cap + 1):
+    def purity_first(P):
+        # This is exhaustive, including the possible infinite depth.  If an
+        # eligible M > 4D divides P+4D, its cofactor is 3 mod 4 and at least
+        # 3.  Thus M <= (P+4D)/3 and necessarily D < P/8.
+        for D in range(1, (P - 1) // 8 + 1):
             firing = []
             for M in divisors_int(P + 4 * D):
                 if M % 4 != 3 or M <= 4 * D:
@@ -13151,7 +13154,7 @@ def check_bn():
                     firing.append(M)
             if firing:
                 return D - 1, D, min(firing)
-        raise AssertionError((P, cap))
+        return float("inf"), None, None
 
     top = (
         (2_031_121, 2495, 11,
@@ -13261,6 +13264,41 @@ def check_bn():
         (15, 4_324_321, 23), (19, 232_792_561, 183),
     )
 
+    # Complete second replay requested for every strict record, not just the
+    # top-ten table.  The P=193 infinity is exact under (67.2)'s M>4D rule.
+    strict_anatomy = (
+        (73, 7, 7, (7, 11), 0, 1, 7),
+        (193, 15, 7, (7, 15), float("inf"), None, None),
+        (1_201, 31, 23, (23, 31, 39, 47), 1, 2, 31),
+        (2_521, 47, 23, (23, 31, 55), 7, 8, 111),
+        (3_361, 99, 3, (3, 39), 28, 29, 1159),
+        (33_289, 155, 3, (3, 31, 71, 79, 87, 119, 155, 167, 191),
+         7, 8, 383),
+        (90_841, 167, 7, (7, 15, 19, 23, 31, 55, 95, 167),
+         7, 8, 207),
+        (144_169, 191, 15, (15, 19, 23, 47, 59, 71, 87, 111, 151, 191),
+         4, 5, 1299),
+        (167_521, 259, 15, (15, 31, 43, 87, 143, 167), 12, 13, 259),
+        (225_289, 279, 31, (31, 47, 51, 79, 87, 119), 31, 32, 2591),
+        (361_321, 287, 19, (19, 23, 55, 79, 87, 119, 135, 183),
+         2, 3, 287),
+        (915_961, 303, 11, (11, 19, 31, 39, 55, 75, 83, 111, 119),
+         1, 2, 303),
+        (954_409, 335, 3, (3, 31, 39, 43, 51, 71, 111, 191),
+         7, 8, 1839),
+        (1_853_329, 383, 3, (3, 7, 11, 59, 95, 119, 135, 159, 171,
+                              187, 199), 1, 2, 383),
+        (2_031_121, 2495, 11,
+         (11, 19, 39, 55, 59, 95, 111, 139, 167, 179),
+         28, 29, 52_083),
+    )
+    for P, expected_W, expected_a1, expected_profile, tau, D, M in strict_anatomy:
+        assert row_W(P) == expected_W
+        assert first_a(P) == expected_a1
+        assert tuple(a for a in range(3, 201, 4)
+                     if succeeds_a(P, a)) == expected_profile
+        assert purity_first(P) == (tau, D, M)
+
     records = (
         (73, 7, 1.336115), (193, 15, 1.630725),
         (1201, 31, 1.753095), (2521, 47, 1.870574),
@@ -13293,7 +13331,13 @@ def check_bn():
         255: 0.871712, 383: 0.863214, 511: 0.844367,
         639: 0.852878, 767: 0.846176,
     }
+    expected_raw_at = {
+        255: "1.955681544e-04", 383: "3.757844433e-05",
+        511: "1.049874640e-05", 639: "3.501544731e-06",
+        767: "1.397322616e-06",
+    }
     for T, count in calibration_counts.items():
+        assert f"{raw_at[T]:.9e}" == expected_raw_at[T]
         beta = log(count / 719_781) / log(raw_at[T])
         assert round(beta, 6) == expected_betas[T]
 
@@ -13312,6 +13356,7 @@ def check_bn():
         5_761_455, 50_847_534,
     )
     future_population = (int(primepi(10**9)) - int(primepi(10**8))) / 8
+    assert future_population == 5_635_759.875
     expected_future = calibrated * future_population
     assert round(expected_now, 4) == 0.0169
     assert round(expected_future, 4) == 0.1497

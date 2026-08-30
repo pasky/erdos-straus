@@ -403,10 +403,13 @@ large-deviations against actual data for hard-class primes).
   \(ck_{\min}(p)>T\); same Linnik quantification.  Corollaries: the
   pointwise hypothesis space collapses to **A ≥ 1 exactly, in both
   frames** — the two-sided W picture is now: typical size polylog^\(\epsilon\)
-  (a.a. tails, §51/§53), extremal size \(\geq c\log p\) i.o. (§54,
-  effective), sup conjecturally \(\asymp\log^{1..2}\) (census + Dahan/
-  auro-zera data); the full-lcm escape provably cannot beat log-scale
-  (the lcm cost is forced), so A ∈ [1, ~2] is the honest open window.
+  (a.a. tails, §51/§53) and extremal size \(\geq c\log p\) i.o. (§54,
+  effective).  Every eventual exponent \(A\geq1\) remains open.  The old
+  \(\log p,\log p\log\log p,(\log p)^2\) panel from the census and
+  Dahan/auro-zera data is only a finite normalization window, not a
+  conjectural upper frontier; §67 records the finite value
+  \(A_{\rm emp}(2031121)=2.923244\).  The full-lcm escape cannot by itself
+  beat log-scale because its lcm cost is forced.
 * **§55: the general-m truncated tails and the m-uniform effectivity
   perimeter (SOUND-AFTER-REPAIRS).**  \(W_m(p)\) tails in both supply
   variants (Layer-1 \(\eta_1(m)/\varphi(m)\)-thinned square-log; thinned
