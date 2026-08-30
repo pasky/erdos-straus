@@ -10620,4 +10620,160 @@ print("\n== (be) inverse census and Jacobsthal integer/prime split (§58) ==")
 check_be()
 
 
+# ---------------------------------------------------------------- (bf)
+def check_bf():
+    """§59: polynomial escape obstructions and nonsquare tail candidates."""
+    import os
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+
+    def squarefree_kernel(n):
+        assert n > 0
+        return prod(p for p, e in factorint(n).items() if e % 2)
+
+    def negative_quadratic_discriminant(n):
+        """Fundamental discriminant of Q(sqrt(-n)), n>0."""
+        radicand = -squarefree_kernel(n)
+        return radicand if radicand % 4 == 1 else 4 * radicand
+
+    # Lemma 59.1 on a bounded complete local system.  Every square polynomial
+    # avoids every harvested class.  The two nonsquares pass D=1 but are hit
+    # by the displayed later shifts.
+    local_rows = complete_multiplier_harvest(3000)
+    for M, classes in local_rows:
+        if M > 199:
+            break
+        assert all((x * x) % M not in classes for x in range(M))
+        assert all(((2 * x + 1) ** 2) % M not in classes for x in range(M))
+    assert (2**4 - 3 + 4 * 2) % 7 == 0
+    assert 2 in divisors_of_square((7 + 1) // 4)
+    assert (2 * 3**2 + 2 * 3 - 3 + 4 * 3) % 11 == 0
+    assert 3 in divisors_of_square((11 + 1) // 4)
+
+    # Finite discriminant-character replay of the D=1 dichotomy.  In this
+    # box, exactly the negative-square discriminants have no QR value at a
+    # tested prime 3 mod 4 (away from the finite bad primes).
+    character_primes = tuple(p for p in primerange(3, 20_000) if p % 4 == 3)
+    discriminant_rows = 0
+    for delta in range(-200, 201):
+        if delta == 0:
+            continue
+        symbols = tuple(jacobi_symbol(delta, p) for p in character_primes
+                        if delta % p)
+        negative_square = delta < 0 and isqrt(-delta) ** 2 == -delta
+        if negative_square:
+            assert symbols and all(symbol == -1 for symbol in symbols)
+        else:
+            assert 1 in symbols, delta
+        discriminant_rows += 1
+    assert discriminant_rows == 400
+
+    # Replay the coefficient-dependent q construction in (59.14).  If
+    # B=r^2-16a is nonzero, q occurs once in S_D but not in 4R(D), so the
+    # quadratic field conductor has a cyclotomic coordinate omitted by Q_D.
+    construction_rows = 0
+    for a in range(1, 21):
+        for r in range(1, 21):
+            B = r * r - 16 * a
+            if B == 0:
+                continue
+            q = next(p for p in primerange(3, 200) if (2 * a * B) % p)
+            q2 = q * q
+            double_root_lift = (-B * pow(16 * a, -1, q2)) % q2
+            D = (double_root_lift + q) % q2
+            assert D > 0 and D % q
+            S_D = 16 * a * D + B
+            assert S_D > 0 and S_D % q == 0 and S_D % q2
+            R_D = prod(p ** ((e + 1) // 2)
+                       for p, e in factorint(D).items())
+            Q_D = 4 * R_D
+            field_conductor = abs(negative_quadratic_discriminant(S_D))
+            assert field_conductor % q == 0 and Q_D % q
+            construction_rows += 1
+    assert construction_rows == 396
+
+    # In the square case S_D=16d^2D, the quadratic field conductor is always
+    # already present in 4R(D), as required by the local obstruction.
+    for d in range(1, 21):
+        for D in range(1, 101):
+            conductor = abs(negative_quadratic_discriminant(16 * d * d * D))
+            R_D = prod(p ** ((e + 1) // 2)
+                       for p, e in factorint(D).items())
+            assert (4 * R_D) % conductor == 0
+
+    # Complete, memory-bounded nonsquare survivor census.  The bytearray is
+    # the only population-sized state; classes are added in threshold order.
+    population_limit = 1_000_000 if full_scan else 300_000
+    thresholds = (100, 300, 1000, 3000)
+    covered = bytearray(population_limit + 1)
+    modulus_index = 0
+    nonsquare_counts = []
+    final_nonsquares = []
+    for T in thresholds:
+        while (modulus_index < len(local_rows)
+               and local_rows[modulus_index][0] <= T):
+            M, classes = local_rows[modulus_index]
+            for residue in classes:
+                first = residue if residue else M
+                if first <= population_limit:
+                    count = (population_limit - first) // M + 1
+                    covered[first::M] = b"\1" * count
+            modulus_index += 1
+        survivors = [n for n in range(1, population_limit + 1)
+                     if not covered[n] and isqrt(n) ** 2 != n]
+        nonsquare_counts.append(len(survivors))
+        if T == thresholds[-1]:
+            final_nonsquares = survivors
+
+    expected_counts = ((17_007, 1841, 77, 4) if full_scan
+                       else (4969, 517, 22, 3))
+    expected_final = ([288, 336, 4545, 643_245] if full_scan
+                      else [288, 336, 4545])
+    assert tuple(nonsquare_counts) == expected_counts
+    assert final_nonsquares == expected_final
+
+    # Extend only the tiny unresolved set, retaining one modulus harvest at a
+    # time.  This establishes exact minima when found and exact lower bounds
+    # at the cap otherwise; it does not infer W=+infinity.
+    resolution_cap = 1_000_000 if full_scan else 100_000
+    unresolved = set(final_nonsquares)
+    resolved = {}
+    for M in range(3003, resolution_cap + 1, 4):
+        A = (M + 1) // 4
+        classes = {(-4 * D) % M for D in divisors_of_square(A)}
+        for n in tuple(unresolved):
+            if n % M in classes:
+                resolved[n] = M
+                unresolved.remove(n)
+    if full_scan:
+        assert resolved == {643_245: 3119}
+        assert unresolved == {288, 336, 4545}
+    else:
+        assert not resolved
+        assert unresolved == {288, 336, 4545}
+
+    # Exact floor count and the one-half exponent crossing in Proposition
+    # 59.5; these are arithmetic regressions, not a tail theorem.
+    for N, T in ((10_000, 100), (300_000, 3000), (1_000_000, 100_000)):
+        assert sum(T < m * m <= N for m in range(1, isqrt(N) + 1)) == (
+            isqrt(N) - isqrt(T)
+        )
+    c = Fraction(3, 5)
+    crossing_cube = Fraction(1, 2) / c
+    assert c * crossing_cube == Fraction(1, 2)
+
+    print("polynomial local/discriminant/conductor checks =",
+          (discriminant_rows, construction_rows))
+    print("nonsquare tail census (N, T-grid, counts, final survivors) =",
+          (population_limit, thresholds, tuple(nonsquare_counts),
+           tuple(final_nonsquares)))
+    print("targeted nonsquare resolution (cap,resolved,unresolved) =",
+          (resolution_cap, tuple(sorted(resolved.items())),
+           tuple(sorted(unresolved))))
+
+
+print("\n== (bf) polynomial escape classification and nonsquare census (§59) ==")
+check_bf()
+
+
 print("\nall checks passed")
