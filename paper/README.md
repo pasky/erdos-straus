@@ -15,7 +15,7 @@ Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inhe
 - Added the exact informational census: `W` through `10^6` and the memory-bounded full scan through `10^7`, including `(2031121,2495)`; `ck_pr` through `3*10^5` and the full scan through `10^6`; and the corresponding unrestricted `D(p)` records. The normalized panels are INFO-only and retain the warning against mixing finite census maxima with §54's asymptotic construction.
 - Repaired the v7 two-sided-frontier wording to match §56: `[1, ~2]` is only a finite-search normalization panel, not a proved bound, conjectured limiting exponent, or monotonic trend. The pointwise frontier remains exactly `A < 1` impossible and `A >= 1` open; the new theorems constrain only complete-class certificates.
 - Updated the abstract, introduction, section map, internal pedigree, and verifier register. Block `(bc)` now covers the certificate data and all extended finite scans; the source §56 hostile review's finite-prefix, resident-memory, and architecture-pointer repairs are preserved.
-- Cleared the v8 queue: source §56 is absorbed. Source §§57–58 are queued for v9 only; no claims from those in-progress wave-22 sections are imported.
+- Cleared the v8 queue: source §56 is absorbed. Source §§57–58 are queued for v9 only; no claims from those sections are imported.
 
 ## v7 changes — 2026-08-30, wave 21
 
@@ -125,7 +125,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v8 build completes in 79 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the full verifier passes through block `(bc)`.
+The v8 build completes in 79 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v8-relevant verifier coverage passes through block `(bc)`.
 
 ## Submission TODO
 
@@ -137,7 +137,7 @@ The v8 build completes in 79 pages with zero TeX errors and no undefined referen
 
 ## v9 queue
 
-- Absorb source §57, “supercritical window/count-below-one reduction,” when the parallel wave-22 notes section is complete.
-- Absorb source §58, “inverse census/Jacobsthal angle,” when the parallel wave-22 notes section is complete.
+- Absorb source §57, “supercritical window/count-below-one reduction.”
+- Absorb source §58, “inverse census/Jacobsthal angle.”
 
-These are queue titles only; v8 makes no content claim about either in-progress section.
+These are queue titles only; v8 makes no content claim about either section.
