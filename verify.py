@@ -12889,4 +12889,210 @@ print("\n== (bl) W-record census and anatomy (§65) ==")
 check_bl()
 
 
+# ---------------------------------------------------------------------- (bm)
+def check_bm():
+    """Twisted-family cylinders, identity no-go hunt, and bounded censuses."""
+    from hashlib import sha256
+    from time import perf_counter
+
+    started = perf_counter()
+
+    # Harvest with Python integers on every factor/divisor/congruence path.
+    def square_divisors_python(A):
+        out = [1]
+        for q0, e0 in factorint(int(A)).items():
+            q, e = int(q0), int(e0)
+            out = [int(d) * q**j for d in out for j in range(2 * e + 1)]
+        return tuple(int(d) for d in out)
+
+    rows = []
+    for M in range(3, 10_001, 4):
+        A = (M + 1) // 4
+        classes = frozenset(int((-4 * D) % M)
+                            for D in square_divisors_python(A))
+        rows.append((int(M), classes))
+    assert len(rows) == 2500
+    assert sum(len(classes) for _, classes in rows) == 64_978
+
+    def first_W(s, m, selected_rows=rows):
+        n = int(s) * int(m) * int(m)
+        return next((M for M, classes in selected_rows
+                     if n % M in classes), None)
+
+    scans = {}
+    for s in (2, 21, 505):
+        scans[s] = tuple(first_W(s, m) for m in range(1, 2001))
+    assert {s: tuple(i + 1 for i, W0 in enumerate(values) if W0 is None)
+            for s, values in scans.items()} == {2: (12,), 21: (4,), 505: (3,)}
+    assert {s: max((W0, i + 1) for i, W0 in enumerate(values)
+                   if W0 is not None)
+            for s, values in scans.items()} == {
+                2: (4019, 1530), 21: (695, 851), 505: (479, 1239)
+            }
+    assert {s: tuple((i + 1, W0) for i, W0 in enumerate(values)
+                     if W0 is None or W0 > 1000)
+            for s, values in scans.items()} == {
+                2: ((12, None), (264, 1499), (1050, 1259), (1530, 4019)),
+                21: ((4, None),),
+                505: ((3, None),),
+            }
+
+    # Exact projection of the full depth-1000 residual cylinder to K=627.
+    rows_1000 = tuple(row for row in rows if row[0] <= 1000)
+    K = 3 * 11 * 19
+    coordinate_rows = tuple(row for row in rows_1000 if K % row[0] == 0)
+    assert tuple(M for M, _ in coordinate_rows) == (3, 11, 19, 627)
+    residual = tuple(r for r in range(K)
+                     if first_W(2, r, coordinate_rows) is None)
+    crt_residual = tuple(r for r in range(K)
+                         if r % 3 == 0
+                         and r % 11 in {0, 1, 5, 6, 10}
+                         and r % 19 in {0, 1, 2, 4, 5, 7, 9,
+                                        10, 12, 14, 15, 17, 18})
+    assert residual == crt_residual and len(residual) == 65
+
+    # Every one of the 65 projected classes has an explicit full-depth lift.
+    # Search in increasing k so the encoded lift is auditable and minimal in
+    # this progression; this is a finite projection certificate, not a claim
+    # that the complete residual set has period 627.
+    lifts = []
+    for r in residual:
+        for k in range(280):
+            m = int(r + k * K)
+            if m >= 1 and first_W(2, m, rows_1000) is None:
+                lifts.append((int(r), m, int(k)))
+                break
+        else:
+            raise AssertionError(("missing depth-1000 lift", r))
+    assert len(lifts) == 65
+    assert max(lifts, key=lambda row: row[1]) == (606, 175_539, 279)
+    assert sha256(repr(lifts).encode()).hexdigest() == (
+        "7f385ae9b7ddb042e873f52883d4f90f43ddb551b34f89b1a377c2a57a0c4389"
+    )
+
+    # Exact prime-power reconstruction of L(1000).  If p^e is 3 mod 4 it
+    # occurs directly; if it is 1 mod 4, the least correcting multiplier is 3.
+    L1000 = 1
+    for M, _ in rows_1000:
+        L1000 = lcm(L1000, M)
+    prime_power_L = 1
+    for p0 in primerange(3, 1001):
+        p = int(p0)
+        power, exponent, best = p, 1, 0
+        while power <= 1000:
+            multiplier = 1 if power % 4 == 3 else 3
+            if multiplier * power <= 1000:
+                best = exponent
+            power *= p
+            exponent += 1
+        prime_power_L *= p**best
+    assert prime_power_L == L1000
+    assert len(str(L1000)) == 287
+    assert str(L1000).startswith("33327187069042472926")
+    assert str(L1000).endswith("96861351257431599625")
+    assert abs(log(L1000) - 659.7431249956927) < 1e-12
+    for s, anchor in ((2, 12), (21, 4), (505, 3)):
+        for j in (0, 1, 2, 17):
+            m = anchor + j * L1000
+            assert first_W(s, m, rows_1000) is None
+
+    # Exact coefficient/resultant hunt.  For m=u+Kt and the divisor shapes
+    # D=d, dA, A^2/d, divisibility reduces respectively to a degree-two M
+    # dividing 2m^2+4d, 2m^2+d, or 8dm^2+1.  These positive quadratics have
+    # no real linear factor.  Their quadratic factor is fixed up to a scalar
+    # divisor of the coefficient content, all of which are enumerated.
+    def integer_divisors(value):
+        low, high = [], []
+        for d in range(1, isqrt(value) + 1):
+            if value % d == 0:
+                low.append(d)
+                if d * d != value:
+                    high.append(value // d)
+        return tuple(low + high[::-1])
+
+    def coefficient_value(coefficients, t):
+        return (coefficients[0] + coefficients[1] * t
+                + coefficients[2] * t * t)
+
+    def square_root_ceiling(value):
+        result = 1
+        for p0, e0 in factorint(int(value)).items():
+            result *= int(p0)**((int(e0) + 1) // 2)
+        return int(result)
+
+    def A_always_divisible(M_coefficients, divisor):
+        # A=(M+1)/4 is an integer-valued quadratic.  Its first three values
+        # determine its finite-difference expansion, hence all its values.
+        return all(((coefficient_value(M_coefficients, t) + 1) // 4)
+                   % divisor == 0 for t in range(3))
+
+    def identity_hunt(K0, offset):
+        u = 12 + K0 * offset
+        m2 = (u * u, 2 * u * K0, K0 * K0)
+        raw = congruent = 0
+        hits = []
+        for d in range(1, 501):
+            root_ceiling = square_root_ceiling(d)
+            candidates = (
+                ("d", (2 * m2[0] + 4 * d, 2 * m2[1], 2 * m2[2])),
+                ("dA", (2 * m2[0] + d, 2 * m2[1], 2 * m2[2])),
+                ("A2/d", (8 * d * m2[0] + 1,
+                           8 * d * m2[1], 8 * d * m2[2])),
+            )
+            for shape, numerator in candidates:
+                content = gcd(gcd(numerator[0], numerator[1]), numerator[2])
+                for quotient_scalar in integer_divisors(content):
+                    raw += 1
+                    M_coefficients = tuple(c // quotient_scalar
+                                           for c in numerator)
+                    # An integer polynomial is constant 3 mod 4 on all
+                    # integers iff this holds on one complete period mod 4.
+                    if not all(coefficient_value(M_coefficients, t) % 4 == 3
+                               for t in range(4)):
+                        continue
+                    congruent += 1
+                    if shape == "d":
+                        eligible = A_always_divisible(
+                            M_coefficients, root_ceiling)
+                    elif shape == "dA":
+                        eligible = A_always_divisible(M_coefficients, d)
+                    else:
+                        eligible = A_always_divisible(
+                            M_coefficients, root_ceiling)
+                        total_quotient_numerator = (
+                            M_coefficients[0] + quotient_scalar + 2,
+                            M_coefficients[1], M_coefficients[2])
+                        eligible = eligible and all(
+                            c % (4 * d) == 0
+                            for c in total_quotient_numerator)
+                    if eligible:
+                        hits.append((shape, d, quotient_scalar,
+                                     M_coefficients))
+        return raw, congruent, tuple(hits)
+
+    expected_counts = {
+        12: (4703, 605), 24: (4786, 707), 44: (3733, 505),
+        84: (5377, 764), 132: (5127, 707), 231: (3769, 117),
+    }
+    hunt_counts = {}
+    for offset in (0, 1):
+        for K0 in expected_counts:
+            raw, congruent, hits = identity_hunt(K0, offset)
+            assert (raw, congruent) == expected_counts[K0]
+            assert hits == ()
+            hunt_counts[offset, K0] = (raw, congruent)
+    assert sum(raw for raw, _ in hunt_counts.values()) == 54_990
+    assert sum(congruent for _, congruent in hunt_counts.values()) == 6810
+
+    print("twisted cylinders (classes,lift max,scan maxima,hunt,seconds) =",
+          (len(residual), max(m for _, m, _ in lifts),
+           {s: max(W0 for W0 in values if W0 is not None)
+            for s, values in scans.items()},
+           (54_990, 6810, 0), perf_counter() - started))
+
+
+print("\n== (bm) twisted-family cylinders and bounded hunts (§66) ==")
+check_bm()
+
+
 print("\nall checks passed")

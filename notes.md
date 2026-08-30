@@ -25461,3 +25461,371 @@ therefore its historical timing and implementation details.  The committed
 independent full replay now verifies the headline without relying on that
 artifact.  All conclusions remain Computational/INFO finite-range evidence;
 none advances \(H_{\rm MOD}\) or supports an asymptotic fit.
+
+## 66. Twisted-family escape cylinders: unbounded depth, a family certificate ceiling, and the identity wall
+
+**Status and headline.**  The finite-depth class law, the asymptotic size of
+its period, the resulting unboundedness in all three proved sporadic
+families, the family certificate ceiling, and the anchored polynomial
+identity obstruction below are **proved**.  The coefficient hunt, projected
+residue panel, and three bounded censuses are **Computational**, exact only
+in their stated ranges.  In particular, this section proves
+
+\[
+ \limsup_{m\to\infty}W(2m^2)=
+ \limsup_{m\to\infty}W(21m^2)=
+ \limsup_{m\to\infty}W(505m^2)=+\infty,                  \tag{66.1}
+\]
+
+but it does not produce a fourth value with \(W=+\infty\).  The distinction
+between unbounded finite depth and pointwise infinite escape is essential.
+
+### 66.1 Finite-depth class decidability
+
+For real \(T\geq0\), use the convention that the least common multiple of
+an empty set is 1, and put
+
+\[
+ L(T)=\mathop{\rm lcm}_{\substack{M\leq T\\M\equiv3\ (4)}}M,
+ \qquad
+ S_M=\{-4D\pmod M:D\mid((M+1)/4)^2\}.                   \tag{66.2}
+\]
+
+All divisors in this section are positive.  As in §60, no primality
+condition is imposed on \(M\).
+
+**Theorem 66.1 (twisted-family class decidability; proved).**  Let \(s\geq2\)
+be squarefree and let \(T\geq0\).  Membership in
+
+\[
+                 \{m\geq1:W(sm^2)\leq T\}                \tag{66.3}
+\]
+
+depends only on \(m\pmod {L(T)}\).  More explicitly, (66.3) is the finite
+union, over \(M\leq T\), \(M\equiv3\pmod4\), and
+\(D\mid((M+1)/4)^2\), of the solution classes of
+
+\[
+                         sm^2\equiv-4D\pmod M.            \tag{66.4}
+\]
+
+*Proof.*  By the definition of \(W\), the inequality \(W(sm^2)\leq T\)
+holds exactly when at least one eligible modulus \(M\leq T\) fires, and
+that firing is exactly (66.4) for at least one eligible \(D\).  There are
+finitely many pairs \((M,D)\).  For a fixed pair, truth of (66.4) depends
+only on \(m\pmod M\).  Every such \(M\) divides \(L(T)\), so their finite
+union depends only on \(m\pmod {L(T)}\).  Conversely, every congruence in
+the union is a datum (60.1), so no non-witness class has been added.
+\(\square\)
+
+The period in (66.2) is smaller than \({\rm lcm}(1,\ldots,\lfloor T\rfloor)\),
+but its leading constant is not merely the \(1/2\) supplied by the
+\(3\pmod4\) primes.
+
+**Lemma 66.2 (exact exponential scale of the class period; proved).**  As
+\(T\to\infty\),
+
+\[
+ \begin{split}
+ \log L(T)
+   &=\vartheta(T;4,3)+\vartheta(T/3;4,1)
+       +O(\sqrt T\log T)\\
+   &=\left({2\over3}+o(1)\right)T.                       \tag{66.5}
+ \end{split}
+\]
+
+In particular \(P_3(T)\mid L(T)\), with \(P_3(T)\) as in (56.1), and
+\(\log L(T)\geq(1/2+o(1))T\).  More strongly, for every \(\epsilon>0\),
+effectively for all sufficiently large \(T\),
+\(L(T)\geq\exp((2/3-\epsilon)T)\).
+
+*Proof.*  No factor 2 occurs in \(L(T)\).  For an odd prime power \(p^e\),
+the least positive multiplier \(r\) for which
+\(rp^e\equiv3\pmod4\) is 1 when \(p^e\equiv3\pmod4\), and is 3 when
+\(p^e\equiv1\pmod4\).  Therefore \(p^e\mid L(T)\) exactly when
+
+\[
+ p^e\leq T\quad(p^e\equiv3\pmod4),
+ \qquad\hbox{or}\qquad
+ 3p^e\leq T\quad(p^e\equiv1\pmod4).                     \tag{66.6}
+\]
+
+For first powers this contributes every prime \(p\equiv3\pmod4\) through
+\(T\), and every prime \(p\equiv1\pmod4\) through \(T/3\).  All higher
+prime powers contribute \(O(\sqrt T\log T)\) in total.  The prime number
+theorem in the two fixed progressions gives
+\(\vartheta(T;4,3)=T/2+o(T)\) and
+\(\vartheta(T/3;4,1)=T/6+o(T)\), proving (66.5).  The divisibility by
+\(P_3(T)\) is also immediate from (66.6), and the effective versions of
+these fixed-progression estimates give the final assertion. \(\square\)
+
+Thus the honest leading constant is \(2/3\), not \(1/2\).  The latter is a
+valid lower bound and is exactly the one-prime-coordinate mechanism used in
+Theorem 56.1; the additional \(1/6\) comes from inserting a factor 3 before
+primes \(1\pmod4\) through \(T/3\).
+
+### 66.2 Unbounded depth inside the three sporadic families
+
+**Theorem 66.3 (twisted-family unboundedness; proved).**  For every
+\(T\geq0\),
+
+\[
+ \begin{array}{c|c|c}
+ s&m_0&\text{an infinite depth-}\!T\text{ class}\\ \hline
+ 2&12&m\equiv12\pmod {L(T)}\\
+ 21&4&m\equiv4\pmod {L(T)}\\
+ 505&3&m\equiv3\pmod {L(T)}
+ \end{array}                                               \tag{66.7}
+\]
+
+Every positive \(m\) in the displayed class satisfies \(W(sm^2)>T\).
+Consequently all three limsups in (66.1) are infinite.  Quantitatively, for
+each row and every \(X\geq1\),
+
+\[
+ \#\{m\leq X:W(sm^2)>T\}\geq {X\over L(T)}-1.            \tag{66.8}
+\]
+
+Thus the supplied lower-density bound is \(1/L(T)\), where
+\(\log L(T)=(2/3+o(1))T\).
+
+*Proof.*  Theorem 60.3 proves
+\(W(2\cdot12^2)=W(21\cdot4^2)=W(505\cdot3^2)=+\infty\).
+In particular each anchor is outside (66.3).  By Theorem 66.1, every
+integer in its class modulo \(L(T)\) is also outside (66.3), proving (66.7).
+Each such progression contains arbitrarily large positive integers, so for
+every fixed depth there are arbitrarily large \(m\) beyond it; this is
+exactly (66.1).  Counting one residue class modulo \(L(T)\) gives (66.8),
+and Lemma 66.2 gives its scale. \(\square\)
+
+The comparison with §54.1 is precise but limited.  Theorem 54.1 placed the
+input itself in the residue-one class modulo
+\({\rm lcm}(1,\ldots,\lfloor T\rfloor)\) and then used Linnik to find a
+prime there.  Here no prime selection is needed: the escape cylinders lie
+*inside the thin families* \(sm^2\), in their parameter \(m\), and are
+anchored at three proved \(W=+\infty\) points.  They are not the old
+residue-one construction in new notation.
+
+**Corollary 66.4 (family-level finite-certificate ceiling; proved).**  No
+finite collection of fixed harvested congruence laws proves
+
+\[
+                 W(2m^2)<+\infty\qquad(m\ne12).           \tag{66.9}
+\]
+
+Equivalently, at every finite harvested depth \(T\), infinitely many
+parameters \(m\ne12\) remain uncovered, including every positive
+\(m=12+kL(T)\), \(k\geq1\).  Any proof of the restricted prediction
+\(W(2m^2)=+\infty\Longleftrightarrow m=12\) must therefore use structure
+which is not a finite cover by fixed \((M,D)\) congruences.
+
+*Proof.*  A finite collection has some largest modulus \(T\).  Theorem 66.3
+puts every \(12+kL(T)\), \(k\geq1\), beyond all of its firing conditions.
+These parameters differ from 12, so the collection cannot prove (66.9).
+\(\square\)
+
+This is the family-parameter analogue of the congruence-certificate ceiling
+in §56, not a restatement of it.  Theorem 56.1 forces a large modulus on a
+prime or all-integer certificate; Corollary 66.4 uses an actual infinite
+parameter cylinder based at 288.  The finite-cover obstructions in Theorem
+5.1, Corollary 5.3, and Corollary 9.3 concern prime identities and
+quadratic-form families.  They motivate the same warning, but do not prove
+this corollary; Theorems 60.3 and 66.1 do.
+
+### 66.3 Polynomial-identity hunt in the residual classes
+
+For this hunt, an **admissible polynomial datum** on
+\(m(t)=12+Kt\) consists of \(M,Q\in\mathbb Z[t]\) and
+\(A,D,E\in\mathbb Q[t]\), all three latter polynomials integer-valued on
+integers, such that
+
+\[
+ M=4A-1,
+ \qquad A^2=D E,
+ \qquad 2m^2+4D=M Q                                      \tag{66.10}
+\]
+
+as polynomial identities, with \(2m^2+4D\in\mathbb Z[t]\), and such that
+for every integer \(t\geq0\),
+
+\[
+ M(t)>0,
+ \quad M(t)\equiv3\pmod4,
+ \quad D(t)>0.                                            \tag{66.11}
+\]
+
+Thus \(D(t)\mid A(t)^2\) as integers, with integer cofactor \(E(t)\), at
+every argument.  This is polynomial divisibility, not divisibility at 100
+sampled values.  Positivity and integrality at every nonnegative integer are
+part of the definition.
+
+There is an immediate all-degree obstruction which any search containing
+the anchor must respect.
+
+**Proposition 66.5 (anchored polynomial-identity obstruction; proved).**  For
+every \(K\geq1\), no admissible polynomial datum (66.10)--(66.11) exists on
+\(m(t)=12+Kt\).  The analogous statements hold on
+\(m(t)=4+Kt\) for \(s=21\), and on \(m(t)=3+Kt\) for \(s=505\), after
+replacing the leading 2 in (66.11) by the relevant kernel.
+
+*Proof.*  Specializing at \(t=0\) would give a positive eligible datum for
+288, 336, or 4545, respectively.  This contradicts Theorem 60.3.  The
+argument places no degree or coefficient bound on \(M\) or \(D\).
+\(\square\)
+
+Thus the exact anchored hunt is exhausted in all degrees, rather than merely
+returning no hit in a finite box.  A useful identity may still cover a
+one-sided subprogression while becoming nonpositive or ineligible at the
+anchor; this is why the following supplementary bounded search also moved
+one step forward.
+
+**Computational 66.1 (coefficient/resultant identity hunt; exact stated
+ansatz).**  Block (bm) used
+
+\[
+ K\in\{12,24,44,84,132,231\},
+ \qquad m(t)=12+K(t+e),\quad e\in\{0,1\},                 \tag{66.12}
+\]
+
+where \(231=3\cdot7\cdot11\).  It exhausted \(\deg M\in\{1,2\}\),
+\(1\leq d\leq500\), and the three polynomial-divisor shapes
+
+\[
+                         D=d,\qquad D=dA,\qquad D=A^2/d.  \tag{66.13}
+\]
+
+For each shape it imposed pointwise integer eligibility exactly.  If
+\(d=\prod p^v\), then \(d\mid A(t)^2\) for every integer \(t\) is equivalent
+to
+\(\prod p^{\lceil v/2\rceil}\mid A(t)\) for every \(t\); the first three
+values decide this for the integer-valued quadratic \(A\).  The polynomial
+identity reduces, respectively, to
+
+\[
+ M\mid2m^2+4d,
+ \qquad M\mid2m^2+d,
+ \qquad M\mid8dm^2+1.                                   \tag{66.14}
+\]
+
+Each polynomial on the right is a positive quadratic, so it has no real
+linear factor.  In degree 2, coefficient comparison fixes \(M\) up to a
+positive scalar dividing the content of all three coefficients.  Block
+(bm) enumerated every such scalar; hence there was no hidden coefficient
+cutoff on \(M\) or on the quotient.
+
+There were 54,990 exact \((K,e,d,\text{shape},\text{scalar})\) candidates.
+Of these, 6,810 made \(M(t)\equiv3\pmod4\) identically, and none passed the
+remaining identity and eligibility conditions.  The anchored half had
+27,495 and 3,405 candidates, respectively; Proposition 66.5 explains its
+zero.  The forward-ray half also had no hit, but that is only an exact
+negative result for (66.12)--(66.13), not an all-shape theorem.  Since no
+identity survived, there was no claimed identity for which a 100-value
+spot check could substitute for proof; the block instead checks the exact
+coefficient conditions.
+
+### 66.4 The depth-1000 projection and bounded family censuses
+
+Let \({\cal R}_{2,T}\subseteq\mathbb Z/L(T)\mathbb Z\) be the exact residual
+set defined by \(W(2m^2)>T\).  The full modulus \(L(1000)\) has 287 decimal
+digits, with
+
+\[
+                    \log L(1000)=659.7431249956927\ldots. \tag{66.15}
+\]
+
+It is neither useful nor honest to print its residue set.  A workable exact
+projection retains substantial structure.
+
+**Computational 66.2 (exact depth-1000 projection).**  Put
+\(K=3\cdot11\cdot19=627\), which divides \(L(1000)\).  Block (bm) computes
+
+\[
+ \begin{split}
+ \pi_K({\cal R}_{2,1000})=\{r\pmod {627}:\;&r\equiv0\pmod3,\\
+ &r\pmod {11}\in\{0,\mathord\pm1,\mathord\pm5\},\\
+ &r\pmod {19}\in
+ \{0,\mathord\pm1,\mathord\pm2,\mathord\pm4,
+          \mathord\pm5,\mathord\pm7,\mathord\pm9\}\}.
+                                                               \tag{66.16}
+ \end{split}
+\]
+
+This is exactly 65 classes; the other 562 classes are already covered by
+the \(M=3,11,19\) rows.  The only additional eligible modulus through 1000
+which divides 627 is \(M=627\), and it removes none of the 65.  To certify
+the reverse inclusion in the *full* depth-1000 projection, the block finds,
+for every displayed class, an explicit positive lift with no firing
+\(M\leq1000\).  The least searched lifts have maximum 175,539, in class
+606 with lift index 279; their ordered SHA-256 digest is
+`7f385ae9b7ddb042e873f52883d4f90f43ddb551b34f89b1a377c2a57a0c4389`.
+Thus (66.16) is an exact projection statement, not the false assertion that
+\({\cal R}_{2,1000}\) itself has period 627.  The full period is the one in
+Theorem 66.1.
+
+**Computational 66.3 (three multiplier censuses; exact stated box and cap).**
+Block (bm) walks every \(M\equiv3\pmod4\) in increasing order through
+\(10^4\), using Python integers on every factor, divisor, product, and
+congruence path.  For each of \(s=2,21,505\) and every \(1\leq m\leq2000\),
+it obtains the exact minimum whenever a row fires.  Its complete cap-survivor
+and finite-maximum ledger is
+
+\[
+\begin{array}{c|c|c|c}
+ s&\text{no hit through }10^4&
+   \max\{W(sm^2):m\leq2000,\ W<\infty\}&\text{where}\\ \hline
+ 2&12&4019&1530\\
+ 21&4&695&851\\
+ 505&3&479&1239.
+\end{array}                                                \tag{66.17}
+\]
+
+The three cap survivors are exactly the proved infinite anchors, so there
+is no second survivor in any of these boxes.  This does not infer infinity
+from the cap.  Every other entry fires by \(10^4\), and its displayed
+minimum is exact because every smaller eligible modulus was checked.  At
+depth 1000 the only additional \(s=2\) parameters in the box are
+
+\[
+ W(2\cdot264^2)=1499,
+ \qquad W(2\cdot1050^2)=1259,
+ \qquad W(2\cdot1530^2)=4019.                             \tag{66.18}
+\]
+
+For \(s=21\) and 505, only the relevant anchor survives depth 1000 in this
+box.  This extends the \(m\leq30\) codebook of §61.2 and the wider but
+differently sliced hunts of §§62.5 and 64.5; it remains a finite census.
+
+On the research host, block (bm) took 0.151 seconds.  The complete prescribed
+verification suite remained green in 210.08 seconds with 342,224 KiB peak
+resident memory.  These timings are informational and do not replace the
+exact assertions.
+
+### 66.5 Honest walls
+
+Theorem 66.3 has the quantifiers
+
+\[
+ \forall T\ \exists\text{ infinitely many }m:
+                         W(2m^2)>T,                       \tag{66.19}
+\]
+
+not \(\exists m\ne12:W(2m^2)=+\infty\).  Each fixed
+\(m=12+kL(T)\) may acquire a witness at a deeper modulus, and the residue
+class changes when \(T\) changes.  Neither (66.16) nor (66.17) changes this.
+
+Accordingly,
+
+\[
+                   W(2m^2)=+\infty\quad\Longleftrightarrow
+                   \quad m=12                             \tag{66.20}
+\]
+
+remains open.  Deciding it requires a proof that for every fixed
+\(m\ne12\) there exists at least one eligible pair
+\(M\equiv3\pmod4\), \(D\mid((M+1)/4)^2\), with
+\(M\mid2m^2+4D\), or else one explicit second parameter for which the
+complete finite normal form of Theorem 61.2 is empty.  The first alternative
+has the same pointwise \(\forall m\,\exists(M,D)\) character as the hard-prime
+problem: finite covers and bounded searches do not exchange those
+quantifiers.  The restricted classification, and hence the full conjecture
+\(C_{\rm SQ}'\), is not proved.
