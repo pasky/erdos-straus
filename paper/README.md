@@ -1,12 +1,24 @@
 # Paper draft status
 
-`espaper.tex` is the v11 standalone `amsart` consolidation draft (106 pages). Its two record headlines remain:
+`espaper.tex` is the v12 standalone `amsart` consolidation draft (112 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v12 changes — 2026-08-30, wave 26
+
+- Absorbed source §61 as the new section immediately after the witness-duality section.  The proved forward normal-form sieve retains the exact simultaneous bounds, positivity argument, divisor-table bound, and finite-decision equivalence.
+- Added the complete Computational census: through `200000` by default and `10^6` under `ES_FULL_SCAN=1`, the `W=+infinity` set is exactly the squares plus `288,336,4545`; the optional row is `1003 = 1000 + 3`.  The forward canonical sieve, original-coordinate overlap, and all-3202-hard-prime comparison are kept methodologically distinct.
+- Preserved the exact register for open `C_SQ'`: only the right-to-left inclusion is proved.  The bounded census is finite stress evidence, not an unbounded classification, and no `C_SQ''` is introduced.
+- Added the finite twisted-square criterion with every gcd, uncancelled-eligibility, character, and even-`D` caveat.  The complete box has 3630 entries for squarefree `2 <= s <= 200`, `1 <= m <= 30`, with only `(2,12)` and `(21,4)` vanishing; `(505,3)` is explicitly a control outside the box.
+- Proved the exact first-layer laws for `2m^2`: `W=3` iff `3` does not divide `m`; the `W=11` roots are `±2,±3,±4 (mod 11)` after the `M=3,7` exclusions; and, when those fail, roots `±3,±6,±8 (mod 19)` give `W=19` after the `M=15` exclusion.  The full root arithmetic and minimality proof are included without promoting this to a complete family classification.
+- Added the standalone hard-prime criterion: for prime `p = 1 (mod 24)`, `W(p) < infinity` iff some `a = 3 (mod 4)`, `a <= 2 floor((p+1)/3)`, has a divisor `D | h^2` in the class `-h (mod a)`, `h=(p+a)/4`.  The proof makes `gcd(a,D)=1` automatic and explicitly retains all even `D`; it is a terminating equivalence, not a nonemptiness theorem.
+- Retained the no-claim mechanism register, the `H_EQ` localization link, Heuristic-only divisor masses, the three later exact prime rows, and the §54 residue-one instance.  The all-hard-prime replay through `3*10^5` agrees in all 3202 cases; 1941 selected minimum rows have even `D`.
+- Transcribed the wave-25 **SOUND-AFTER-REPAIRS** pedigree accurately: fresh original-coordinate classification for every `n <= 5000`, seeded samples `2000@[5000,200000]` and `500@[200000,10^6]`, optional complete million replay, independent twisted-square box replay, exact-ceiling scans, and memory bounds.  These remain internal validation only.
+- Updated the abstract, introduction, section map, status register, internal pedigree, final status, verifier register, tracked table of contents, and PDF.  Block `(bh)` is the v12 verifier endpoint.
 
 ## v11 changes — 2026-08-30, wave 25
 
@@ -101,6 +113,13 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §61 status, Lemma 61.1, and (61.1)–(61.3) ↔ `decidable-census` and `forward-normal-form`: proved/Computational separation, exact simultaneous bounds, positivity and divisor-table arguments, both census endpoints, tuple counts, memory gate, two-method overlap, and all-hard-prime cross-check agree.
+- notes Theorem 61.2 and (61.4)–(61.6) ↔ `twisted-square-criterion`: finite if-and-only-if, all four automatic conditions, gcd cancellation warning, even-`D` coverage, exact near-miss supports, and no-family diagnosis agree.
+- notes Theorem 61.3 and (61.7)–(61.8) ↔ `two-square-layers`: exact `W=3` and `W=11` equivalences, root sets `±2,±3,±4 (mod 11)`, conditional `W=19` classes `±3,±6,±8 (mod 19)`, and every smaller-modulus exclusion agree.
+- notes Computational 61.2 and (61.9)–(61.11) ↔ the complete twisted-square box: 3630/3628 counts, two vanishing pairs, exact histogram, digest scope, explicit `s=505` outside-box control, and no unbounded-classification claim agree.
+- notes Theorem 61.4, Corollary 61.5, and (61.12)–(61.15) ↔ `hard-prime-criterion` and `prime-third-mechanism`: exact hard-prime quantifiers, automatic coprimality, all formulas, even-`D` sufficiency, minimum convention, the two unavailable mechanisms, and exact no-claim assessment agree.
+- notes Heuristic 61.1, Computational 61.3, and (61.16)–(61.17) ↔ the prime diagnostics: Heuristic label, nonindependence warning, all composite mass/row counts, all-3202-prime replay, 1941 even-`D` minima, later prime table, §54 instance, and no asymptotic-law claim agree.
+- notes §61.4–§61.5 ↔ the scope and `pedigree`: every default/optional gate, all-`n <= 5000` independent original replay, both exact seeded samples, optional million replication, twisted-box replay, exact-ceiling incidence and memory bounds, **SOUND-AFTER-REPAIRS** verdict, and internal-only status agree.
 - notes §60 status and (60.1)–(60.4) ↔ `witness-duality`: complete harvested-datum scope, inverse maps, positivity, and the distinction from a new identity family agree.
 - notes Theorem 60.1, (60.5)–(60.12) ↔ `witness-duality`: exact cancellation, `gcd(a,D) | n`, prime-adic and 2-adic caveats, canonical normal form, all four finite bounds, and the no-swap derivation agree.
 - notes (60.13)–(60.13a) ↔ the three specialized reductions: oddness, quotient and uncancelled checks, all §59 necessary filters, precise cancellation primes, and exact `a` bounds agree.
@@ -185,7 +204,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v11 build completes in 106 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v11-relevant verifier coverage passes through block `(bg)`.
+The v12 build completes in 112 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v12-relevant verifier coverage passes through block `(bh)`.
 
 ## Submission TODO
 
@@ -195,8 +214,8 @@ The v11 build completes in 106 pages with zero TeX errors and no undefined refer
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v12 queue
+## v13 queue
 
-- Absorb source §61, “decidable census, twisted-square law, prime criterion,” being written in parallel during wave 25.
+- Absorb source §62, “divisor-ratio spectrum, per-$a$ laws, finite conspiracy,” being written in parallel during wave 26.
 
-This is a queue title only; v11 makes no content claim about §61.
+This is a queue title only; v12 makes no content claim about §62.

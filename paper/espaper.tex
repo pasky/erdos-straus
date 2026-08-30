@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v11, 30 August 2026}
+\date{Draft v12, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -102,8 +102,20 @@ conjecture $C_{\rm SQ}$.  Its open repair $C_{\rm SQ}'$ adds exactly these
 three composite sporadics to the squares and would still imply
 Erd\H{o}s--Straus.  The sporadics escape this witness statistic, but explicit
 unit-fraction representations show that they are not Erd\H{o}s--Straus
-counterexamples.  Exact finite censuses through the stated endpoints remain
-informational only.
+counterexamples.  A simultaneous forward normal form gives the complete
+computer-assisted census through $200{,}000$, and an optional full replay
+through $10^6$: the $W=+\infty$ set is exactly the squares together with
+$288,336,4545$ in both ranges.  This is finite stress evidence for
+$C_{\rm SQ}'$, not a proof.  For every prime $p\equiv1\pmod {24}$ we further
+prove the exact finite criterion
+\[
+ W(p)<+\infty\ \Longleftrightarrow\
+ \exists\,a\equiv3\pmod4,\quad
+ 1\leq a\leq2\lfloor(p+1)/3\rfloor,\quad
+ \exists\,D\mid((p+a)/4)^2:\ D\equiv-(p+a)/4\pmod a.
+\]
+It is the distilled finite form of the Type-II pointwise problem, not a
+proof that the displayed divisor set is nonempty for every prime.
 
 For $M\equiv3\pmod4$ and $A=(M+1)/4$, the intrinsic forbidden set is
 \[
@@ -184,7 +196,16 @@ assuming an $a\leftrightarrow M$ swap.  The computer-assisted
 Theorem~\ref{thm:nonsquare-escapes} proves that $288$, $336$, and $4545$
 have $W=+\infty$, refutes the former $C_{\rm SQ}$, and motivates the open
 repair $C_{\rm SQ}'$.  These three values are composite statistic-escapes,
-not Erd\H{o}s--Straus counterexamples.  Theorem~\ref{thm:general-m-tails}
+not Erd\H{o}s--Straus counterexamples.  Lemma~\ref{lem:forward-normal-form}
+then reorders the finite normal form into a simultaneous census: the
+complete $W=+\infty$ set through $200{,}000$, and through $10^6$ in the
+optional full replay, is exactly the squares and those three sporadics.
+Theorem~\ref{thm:twisted-square-criterion} retains every cancellation branch
+for $sm^2$, while Theorem~\ref{thm:two-square-layers} proves the exact first
+residue layers for $2m^2$.  Theorem~\ref{thm:hard-prime-criterion} is the
+standalone finite divisor criterion for $p\equiv1\pmod {24}$.  Its gcd
+simplification is complete, including even divisors, but it does not prove
+that a criterion row always exists.  Theorem~\ref{thm:general-m-tails}
 records the status-preserving general-$m$ truncation.
 
 The paper has five layers.
@@ -223,8 +244,12 @@ historical $C_{\rm SQ}$ proposal with its still-valid census and reductions.
 Section~\ref{sec:witness-duality} supersedes that proposal: it proves the
 finite decision normal form, closes the three-value survivor frontier,
 refutes $C_{\rm SQ}$, and states open $C_{\rm SQ}'$.  Section
-\ref{sec:general-m-tails} gives the status-preserving
-general-numerator tails and their exact effectivity perimeter.  Finally,
+\ref{sec:decidable-census} runs that form forward to obtain the complete
+bounded census, proves the twisted-square first-layer laws, and distills the
+hard-prime pointwise problem to one finite divisor-class test, without
+asserting that the test always succeeds.  Section~\ref{sec:general-m-tails}
+gives the status-preserving general-numerator tails and their exact
+effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
 gives the endpoint sparsity,
 Kloosterman-fraction audit, widened prefix and large-$c$ wedge, and exact
@@ -245,8 +270,12 @@ polynomial-escape, and degree-at-most-two classification theorems are proved.
 The cyclotomic obstruction is proved but qualitatively ineffective;
 $C_{\rm POLY}$ and $C_{\rm SQ}'$ remain open, while $C_{\rm SQ}$ is refuted
 and the three former finite-census survivors are proved to have
-$W=+\infty$.  This computer-assisted conclusion concerns $W$, not all
-Egyptian-fraction decompositions.  The count-below-one and crossing
+$W=+\infty$.  Only the right-to-left inclusion in $C_{\rm SQ}'$ is proved;
+the complete bounded census is Computational stress evidence, not an
+unbounded classification.  The forward and hard-prime criteria and the
+$2m^2$ residue laws are proved, but the prime criterion does not prove that
+its finite set is nonempty.  These computer-assisted conclusions concern
+$W$, not all Egyptian-fraction decompositions.  The count-below-one and crossing
 implications are proved
 conditional on their explicitly \textsc{unproved} hypotheses; the
 mass-invariant proposition is only an architecture theorem.  The normalized
@@ -2243,9 +2272,23 @@ cancellation branches and the partial swap criterion, and independently
 reimplemented the original $M$-harvest to all three exact ceilings.  The
 largest replay streamed $409{,}000{,}770$ divisor incidences.  Block
 \texttt{(bg)} checks both finite normal-form parameterizations, near misses,
-coverage union, and bounded duality replay.  The internal verifier coverage
-used by this draft runs through \texttt{(bg)}.  These are internal reviews
-and bug hunts, not external validation.  A separate full-source review of
+coverage union, and bounded duality replay.
+
+Wave 25's maximum-severity review of the decidable census, twisted-square
+laws, and prime criterion returned \textsc{sound-after-repairs}.  It
+independently rederived the simultaneous forward bounds, reproduced the
+complete original-coordinate classification through $n=5000$, replayed the
+twisted-square box, and checked necessity and sufficiency of the prime
+criterion without any odd-$D$ assumption.  The repairs added an
+original/duality comparison for every one of the $3202$ hard primes through
+$300000$ and made the even-$D$ argument explicit; $1941$ selected minimum
+rows have even $D$.  Seeded samples of $2000$ integers through $200000$ and
+$500$ through $10^6$, and the optional complete million-point run, supplied
+separate finite replications.  Block \texttt{(bh)} checks the forward census,
+two-method overlap, twisted-square laws and box, all-hard-prime comparison,
+and later prime replays.  The internal verifier coverage used by this draft
+runs through \texttt{(bh)}.  These are internal reviews and bug hunts, not
+external validation.  A separate full-source review of
 the auro-zera Lean file
 replayed its identities but did not compile it; its open-core
 characterization and the source paper's own conditional Conclusion are
@@ -6371,6 +6414,427 @@ throughout, identifying witness data with $W$ uses the already-proved
 Lemma~\ref{lem:multiplier}/(58.3) harvested-family equivalence; nothing here
 upgrades that family to all Egyptian-fraction decompositions.
 
+\section{The complete decidable census, twisted-square laws, and the prime criterion}
+\label{sec:decidable-census}
+\medskip\noindent\textbf{Status and headline.}
+The forward normal-form sieve, the exact specializations, and the hard-prime
+criterion below are \textbf{proved}.  The bounded censuses and tables are
+\textbf{Computational}, exact only in their displayed ranges.  The default
+complete census reaches $n\leq200000$; the optional full replay reaches
+$n\leq10^6$.  In both ranges the set with $W=+\infty$ is exactly the
+squares together with
+\begin{equation}\tag{61.1}
+                         288,\qquad336,\qquad4545.
+\end{equation}
+Thus Conjecture $C_{\rm SQ}'$, (60.22), survives this stress test; it is not
+proved.  Every integer has a unique form $sm^2$ with $s$ squarefree, so the
+coordinate description ``twisted square'' is not by itself a mechanism.
+The three squarefree kernels and multipliers are
+$(s,m)=(2,12),(21,4),(505,3)$.
+
+\subsection{A forward finite decision and the complete census}
+The normal form can be run simultaneously in the opposite direction,
+without a separate quadratic modulus scan for each $n$.
+
+\begin{lemma}[forward normal-form sieve; proved; source Lemma 61.1]
+\label{lem:forward-normal-form}
+Fix $X\geq1$.  Every witness datum for some $n\leq X$, and no false datum,
+occurs among
+\begin{equation}\tag{61.2}
+ \begin{gathered}
+ 1\leq g\leq\lfloor(X+1)/3\rfloor,
+ \qquad 1\leq v\leq\left\lfloor {X+g\over4g-1}\right\rfloor,\\
+ d\mid g,\qquad u\mid d+v,\qquad (u,v)=1,\\
+ a={d+v\over u},\qquad n=4gv-a,\qquad M=4gu-1.
+ \end{gathered}
+\end{equation}
+Consequently, marking every resulting $n\leq X$, while retaining its least
+$M$, decides $W(n)$ simultaneously for all $n\leq X$.
+\end{lemma}
+\begin{proof}
+Equations (60.7)--(60.8) give
+$a=(d+v)/u$, $n=4gv-a$, and $M=4gu-1$, so every tuple in (61.2) is a
+canonical datum.  It has $a\leq d+v\leq g+v<4gv$, hence $n>0$.
+Conversely every datum has $g\leq\lfloor(n+1)/3\rfloor$ by (60.9), and
+\[
+             n=4gv-{d+v\over u}\geq4gv-g-v.
+\]
+Thus $g\leq\lfloor(X+1)/3\rfloor$ and
+$(4g-1)v\leq X+g$, exactly the bounds in (61.2).  Also
+$gv\geq g+v-1$, so the latter inequality gives
+\[
+ g+v\leq\lfloor(X+4)/3\rfloor
+       =\lfloor(X+1)/3\rfloor+1;
+\]
+this is the divisor-table bound used in verifier block \texttt{(bh)}.  The
+remaining conditions are precisely the canonical normal form.
+\end{proof}
+
+The number of $(g,v)$ pairs is hyperbolic, of order $X\log X$, rather than
+$X^2$.  This preserves an exhaustive certificate while making a simultaneous
+census practical.
+
+\medskip\noindent\textbf{Computational 61.1 (complete bounded
+$W=+\infty$ census).}
+Block \texttt{(bh)} applies Lemma~\ref{lem:forward-normal-form} with Python
+integers throughout.  Its exact results are
+\begingroup\scriptsize
+\begin{equation}\tag{61.3}
+\begin{array}{r|r|r|l|r|r}
+X&\#\{n\leq X:W(n)=+\infty\}&\#\text{ squares}&
+ \text{nonsquares}&(g,v)\text{ pairs}&(g,v,d,u)\text{ tests}\\ \hline
+200000&450&447&288,336,4545&599581&24246108\\
+1000000&1003&1000&288,336,4545&3400244&173713414
+\end{array}
+\end{equation}
+\endgroup
+The first row is the default committed range.  The second is reproduced
+only with \texttt{ES\_FULL\_SCAN=1}; it streams tuples and retains only the
+divisor sieve and least-$W$ array, so it remains memory-bounded.  This path
+is the simultaneous canonical $(g,v,d,u)$ sieve (61.2), not a per-$n$ dual
+$a$-scan or an original-side $M$-sieve.  Thus the exact headline is three
+nonsquare escapes through $200000$ by default and through $10^6$ in the
+optional full scan.  This is finite evidence for $C_{\rm SQ}'$, not evidence
+that its exceptional list is complete without a bound on $n$.
+
+The committed two-method overlap harvests the original $(M,D)$ side through
+$M=100351$, tests $1074878$ Python-integer divisor values and $73105$
+incidences, and compares every $n\leq3000$.  It finds exactly the $54$
+squares and $288,336$ unresolved.  Every other nonsquare has an explicit
+least datum, while the two sporadics are scanned through their exact
+ceilings in (60.19); Theorem~\ref{thm:square-escape} supplies the square
+side.  The forward and original methods agree on every finite least $W$,
+not merely on the survivor count.  As a wider independent-method
+cross-check, the default block runs the forward form through $n\leq300000$
+and compares its exact minimum with the original-side harvest for all
+$3202$ primes $p\equiv1\pmod {24}$ there.  Every value agrees.  The census
+and tuple counts in (61.3) remain restricted to their displayed endpoints.
+
+\subsection{The exact twisted-square criterion and first layers}
+The character filter of Lemma~\ref{lem:twisted-square} and the finite
+duality combine without discarding the cancellation branch.
+
+\begin{theorem}[finite twisted-square vanishing criterion; proved; source
+Theorem 61.2]
+\label{thm:twisted-square-criterion}
+Let $s>1$ be squarefree, $m\geq1$, $n=sm^2$, and
+$B=\lfloor(n+1)/3\rfloor$.  Then $W(sm^2)=+\infty$ if and only if the
+following finite set is empty:
+\begin{equation}\tag{61.4}
+ \begin{split}
+ \mathcal F_{s,m}=\{(a,D):\;&1\leq a\leq2B,
+     \ a\equiv-sm^2\pmod4,
+     \ h=(sm^2+a)/4,\\
+   &D\mid h^2,\quad a\mid D+h,\quad
+     D\mid((D+h)/a)^2\}.
+ \end{split}
+\end{equation}
+For every row, with $A=(D+h)/a$ and $M=4A-1$, one automatically has
+\begin{equation}\tag{61.5}
+ (M,sm)=1,
+ \qquad \left({s\over M}\right)=-1,
+ \qquad s\nmid D,
+ \qquad (a,D)\mid sm^2.
+\end{equation}
+Thus the first three conditions in (61.5) are sound early filters, but the
+last test in (61.4) may be deleted only when $(a,D)=1$.
+\end{theorem}
+\begin{proof}
+Apply Theorem~\ref{thm:witness-duality} with $n=sm^2$ to obtain the
+equivalence and finite bound.  Lemma~\ref{lem:twisted-square} gives the first three necessary
+conditions in (61.5), and (60.5) gives the gcd assertion and the exact
+uncancelled eligibility test.  No parity case is omitted: (61.4) retains all
+powers of $2$ in $D$.
+\end{proof}
+
+The three sporadics do not have one coarse local signature:
+\begingroup\scriptsize
+\begin{equation}\tag{61.6}
+\begin{array}{c|c|c|c|c|l}
+(s,m)&s\bmod24&\omega(s)&\gcd(s,m)&\#\{a\text{ classes}\}&
+ \text{gcds of filtered near misses}\\ \hline
+(2,12)&2&1&2&48&9\ (4\text{ times})\\
+(21,4)&21&2&1&56&3,4,6,7,8,14,16,24,28,48,112\\
+(505,3)&1&2&1&757&5,9,15,45,101,303,909
+\end{array}
+\end{equation}
+\endgroup
+Here $\omega$ counts distinct prime factors.  Block \texttt{(bh)} pins the
+complete gcd multiplicity distributions; only their supports are displayed.
+Neither $s\bmod24$, factor count, $(s,m)$, nor one fixed gcd explains all
+three.  What they share is narrower: quotient-congruence near misses exist,
+every character-filtered near miss has $(a,D)>1$, and every one fails the
+uncancelled eligibility test.  This is a finite diagnosis, not a family
+theorem.  In particular $m=24,36,48$ in the $s=2$ family are witnessed, so
+$m=12$ is not one instance of a ``multiple of 12'' escape law.
+
+There is nevertheless an exact infinite low-modulus law in that family.
+
+\begin{theorem}[the first layers for $2m^2$; proved; source Theorem 61.3]
+\label{thm:two-square-layers}
+For every $m\geq1$,
+\begin{equation}\tag{61.7}
+\begin{array}{ll}
+W(2m^2)=3
+ &\Longleftrightarrow 3\nmid m,\\
+W(2m^2)=11
+ &\Longleftrightarrow 3\mid m\ \text{ and }\
+ m\bmod11\in\{\mathord\pm2,\mathord\pm3,\mathord\pm4\}.
+\end{array}
+\end{equation}
+Moreover, if $3\mid m$, the second residue condition fails, and
+\begin{equation}\tag{61.8}
+ m\bmod19\in\{\mathord\pm3,\mathord\pm6,\mathord\pm8\},
+\end{equation}
+then $W(2m^2)=19$.
+\end{theorem}
+\begin{proof}
+At $M=3$, one has $A=D=1$, and the hit condition is
+$3\mid2m^2+4$, equivalently $m^2\equiv1\pmod3$.  This is exactly
+$3\nmid m$.  If it fails, the only additional modulus below $11$ is $7$;
+Lemma~\ref{lem:twisted-square} excludes it because $(2/7)=1$.
+
+At $M=11$, one has $A=3$ and $D\in\{1,3,9\}$.  The hit condition is
+$m^2\equiv-2D\pmod {11}$.  For $D=1,3,9$ its roots are respectively
+$\mathord\pm3,\mathord\pm4,\mathord\pm2$.  Their union is exactly the six
+classes in (61.7).  The already imposed $3\mid m$ excludes $M=3$, and the
+character calculation excludes $M=7$, so these hits have least modulus
+$11$; conversely a least-$11$ hit must lie in one of the three displayed
+root sets.
+
+If all six mod-$11$ classes fail, the only additional modulus below $19$ is
+$15$, and it is excluded by $(2/15)=1$.  At $M=19$, one has $A=5$ and
+$D\in\{1,5,25\}$.  The congruences
+$m^2\equiv-2D\pmod {19}$ have roots respectively
+$\mathord\pm6,\mathord\pm3,\mathord\pm8$.  Hence (61.8) supplies a hit at
+$19$, while the preceding arithmetic excludes every smaller eligible
+modulus.
+\end{proof}
+The theorem constructs many witnesses but does not classify vanishing in
+the remaining residue classes.  In particular, it does not prove that
+$m=12$ is the only escape in the $s=2$ family.
+
+\medskip\noindent\textbf{Computational 61.2 (complete twisted-square box).}
+Block \texttt{(bh)} computes the exact least $W(sm^2)$ for every squarefree
+$2\leq s\leq200$ and $1\leq m\leq30$, a total of $3630$ entries.  Only
+\begin{equation}\tag{61.9}
+                    (s,m)=(2,12),(21,4)
+\end{equation}
+vanish in this box.  Across the $3628$ finite entries, the most frequent
+least values are
+\begin{equation}\tag{61.10}
+\begin{array}{c|rrrrrrrrrrrr}
+W&3&7&11&15&19&23&31&35&39&43&47&55\\
+\#&940&1064&449&154&177&334&86&31&51&30&104&24
+\end{array}
+\end{equation}
+The remaining $184$ entries have $W$ between $59$ and $727$.  The verifier
+pins the full $3630$-entry codebook by SHA-256 digest as well as by this
+histogram and the per-$s$ vanishing sets.
+
+The third sporadic kernel, $s=505$, is explicitly outside the box
+$s\leq200$.  Its first thirty entries are
+\begin{equation}\tag{61.11}
+\begin{split}
+&(11,11,+\infty,23,11,11,23,47,11,11,23,11,11,23,107,\\
+&\hspace{17mm}11,11,23,23,11,11,23,11,11,23,87,11,11,23,23),
+\end{split}
+\end{equation}
+so only $m=3$ vanishes there.  Equations (61.9)--(61.11) show finite
+isolation, not a shared congruence family.  The repaired global conjecture
+remains exactly $C_{\rm SQ}'$, (60.22).  Only the inclusion from right to
+left is proved:
+\[
+ \{m^2:m\geq1\}\cup\{288,336,4545\}
+ \subseteq\{n\geq1:W(n)=+\infty\}
+\]
+is proved.  The census is stress evidence for the reverse inclusion, not a
+proof, and no $C_{\rm SQ}''$ is introduced.
+
+\subsection{The hard-prime criterion and the missing third mechanism}
+For a hard prime the cancellation check disappears identically, not merely
+for most rows.
+
+\begin{theorem}[standalone hard-prime divisor criterion; proved; source
+Theorem 61.4]
+\label{thm:hard-prime-criterion}
+Let $p\equiv1\pmod {24}$ be prime and put
+$B=\lfloor(p+1)/3\rfloor$.  Then a Type-II witness exists if and only if
+there are
+\begin{equation}\tag{61.12}
+ 1\leq a\leq2B,\qquad a\equiv3\pmod4,
+ \qquad h={p+a\over4},
+\end{equation}
+with
+\begin{equation}\tag{61.13}
+ D\mid h^2,
+ \qquad D\equiv-h\pmod a.
+\end{equation}
+Every such pair gives
+\begin{equation}\tag{61.14}
+ A={D+h\over a},\qquad M=4A-1\equiv3\pmod4,
+ \qquad aM=p+4D,
+\end{equation}
+and $D\mid A^2$ automatically.  Moreover
+\begin{equation}\tag{61.15}
+ W(p)=\min_{(a,D)\text{ satisfying }(61.12)\text{--}(61.13)}
+              \left(4{D+h\over a}-1\right),
+\end{equation}
+with the minimum of the empty set interpreted as $+\infty$.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:witness-duality} gives necessity, the bound, and all the
+formulas.  Conversely, suppose (61.12)--(61.13) hold.  Any common divisor of
+$a$ and $D$ also divides $h$, hence divides $4h-a=p$.  But
+$a\leq2\lfloor(p+1)/3\rfloor<p$, so $(a,D)=1$.  Since
+$h\equiv aA\pmod D$ and $D\mid h^2$, multiplication by the inverse of $a$
+modulo every prime power dividing $D$ gives $D\mid A^2$.  Equivalently,
+this is the no-cancellation case of (60.5), and it makes the pair sufficient.
+
+Nothing in this argument assumes that $D$ is odd.  When $D$ is even, the
+odd integer $a\equiv3\pmod4$ is a unit modulo every power of $2$ in $D$;
+therefore the same inference retains the entire even-$D$ branch.  Formula
+(61.14) gives the witness modulus, and minimizing it gives (61.15).
+\end{proof}
+The same proof works for every odd prime, with
+$a\equiv-p\pmod4$.  The hard class is stated because it is the unresolved
+pointwise frontier.
+
+\begin{corollary}[the two known escape mechanisms are unavailable for
+primes; proved; source Corollary 61.5]
+\label{cor:prime-third-mechanism}
+An odd prime is not in the square family of
+Theorem~\ref{thm:square-escape}, and no prime candidate passing the quotient
+congruence can be killed by the cancellation/gcd failure in (60.5).
+Therefore, if an odd prime had $W(p)=+\infty$, every divisor of every $h^2$
+in its finite range would have to avoid the single class $-h\pmod a$.
+\end{corollary}
+
+This does \emph{not} prove that a prime cannot fail.
+\medskip\noindent\textbf{Assessment 61.1 (mechanism trichotomy).}
+Squares fail by a global quadratic-character obstruction.  The three known
+nonsquare failures reach the quotient stage only in noncoprime branches and
+then fail uncancelled eligibility.  Corollary~\ref{cor:prime-third-mechanism}
+removes both diagnosed mechanisms for primes, so a prime failure would
+require a third, currently unstructured mechanism: complete quotient-class
+avoidance across all the varying $(a,h)$.  The word ``third'' classifies only the mechanisms currently
+exhibited; it is not a theorem that every possible obstruction has been
+classified.
+
+This is the pointwise form of the localization problem behind $H_{\rm EQ}$
+in Section~\ref{sec:supercritical-window}.  A prime with $W=+\infty$ would
+lie in every finite complete avoider $\mathcal C_T$, while
+(61.12)--(61.13) says pointwise that its entire finite divisor system has
+zero hits.  The fair-share hypothesis would control such residue
+concentration statistically.  The criterion supplies no such theorem,
+because $h=(p+a)/4$ and its divisors vary with $p$.
+
+\medskip\noindent\textbf{Heuristic 61.1 (divisor-chance mass, not
+independence).}
+Define
+\begin{equation}\tag{61.16}
+ R(p)=\sum_a\tau(h^2),\qquad
+ E(p)=\sum_a{\tau(h^2)\over a},
+\end{equation}
+where $a$ runs through (61.12).  There are about $p/6$ admissible $a$'s.
+Treating each divisor residue as uniform would make $E(p)$ the expected
+quotient-row count.  Divisors of squares are neither uniform nor independent,
+so this is only a mass diagnostic.  For comparison, the three composite
+sporadics have heuristic masses
+$13.266827,15.617351,49.909726$, but have $43,65,188$ exact quotient rows;
+gcd eligibility kills all of them.  For a prime, every exact quotient row is
+already a witness.
+
+\medskip\noindent\textbf{Computational 61.3 (hard-prime replays).}
+Block \texttt{(bh)} compares the exact forward-duality minimum with the
+independent original-side \texttt{(bc)} harvest for all $3202$ hard primes
+through $3\cdot10^5$, maps every minimum back to a row of
+(61.12)--(61.14), and finds complete agreement.  The largest minimum is
+$279$, at $p=225289$; the sum of the minima is $44426$.  Among the selected
+minimum rows, $1941$ have even $D$, so the even branch is materially
+exercised.  The block also exhausts the divisor criterion itself, rather
+than merely a modulus cutoff, for three later record primes.  In the table,
+$E(p)$ is rounded to six decimals and every integer column is exact:
+\begingroup\scriptsize
+\begin{equation}\tag{61.17}
+\begin{array}{r|r|r|r|r|r|r|r}
+p&R(p)&E(p)&\#\text{ quotient rows}&W(p)&a&D&h\\ \hline
+954409&11465930&192.502348&62&335&2855&504&239316\\
+1853329&24242528&247.180398&112&383&4839&2&464542\\
+2031121&26874324&222.590291&36&2495&815&576&507984
+\end{array}
+\end{equation}
+\endgroup
+Each last quadruple satisfies (61.12)--(61.14), and exhaustive minimization
+in (61.15) gives the displayed $W$.  The final prime is literally the
+Section~\ref{sec:lower-tail} residue-one instance at depth $10$:
+\[
+ 2031121=806\cdot2520+1,
+ \qquad M(10)=2520.
+\]
+Theorem~\ref{thm:W-lower} therefore proves only $W(2031121)>10$, not the
+observed value $2495$.  Its late resolution uses $a=815$, $D=576$, and $h$
+just above $p/4$; only $36$ quotient rows survive more than $26$ million
+divisor trials.  The other record rows have different $a,D$.  This small
+sample shows how residue-one lower-tail forcing and eventual dual resolution
+can coexist; it supports no asymptotic law.
+
+\subsection{Verification pedigree and exact scope}
+Block \texttt{(bh)} checks the complete forward census, the independent
+original-side overlap, the $3202$-prime original/duality comparison, all
+$3630$ twisted-square values and the $s=505$ control, both residue laws, and
+the three exhaustive prime-criterion replays.  The default block is
+memory-bounded and uses no fixed-width products.  The million-point census
+is gated by \texttt{ES\_FULL\_SCAN=1}.
+
+The wave-25 maximum-severity review returned
+\textsc{sound-after-repairs}.  Its fresh Python-integer implementation used
+only the original $D\mid((M+1)/4)^2$ harvest and classified every
+$n\leq5000$: $4927$ values were finite, with largest least $W=727$, and
+exactly $73$ were unresolved, namely the $70$ squares and
+$288,336,4545$.  The square cases were settled by an independent recheck of
+the Jacobi proof of Theorem~\ref{thm:square-escape}.  Streaming through the
+three exact normal-form ceilings tested respectively $748810$, $1074878$,
+and $409000770$ divisor values and found no datum.
+
+With Python's seeded sampler and seed $61250025$, $2000$ distinct integers
+in $[5000,200000]$ gave $1996$ direct harvested witnesses and four squares,
+with no other unresolved value and largest least $W=983$.  With seed
+$61250026$, $500$ distinct integers in $[200000,10^6]$ all resolved, with
+largest least $W=239$.  Neither sample disagreed with block \texttt{(bh)}.
+The optional complete forward run independently reproduced the million row:
+$1003=1000+3$ infinities, namely $1000$ squares and the same three
+nonsquares, from $3400244$ $(g,v)$ pairs and $173713414$ $(g,v,d,u)$ tests.
+
+An independent original harvest reproduced all $3630$ twisted-square box
+entries: $3628$ finite, maximum least value $727$, and only
+$(2,12),(21,4)$ vanishing.  It separately checked that $s=505$ is outside
+the box and that only $m=3$ vanishes among its first $30$ multipliers.  The
+review also rederived every root set and every lower-modulus exclusion in
+(61.7)--(61.8).
+
+For primes, the review rederived $(a,D)=1$ from $p=4h-a$ and $a<p$, then
+proved $D\mid A^2$ prime-power by prime-power without a parity assumption.
+The repaired verifier compares all $3202$ hard primes through $300000$
+against the independent original harvest, obtaining maximum $279$, sum
+$44426$, and $1941$ even-$D$ selected minima.  It also checks
+$2031121=806\cdot2520+1$ against the independently minimized $W=2495$ row.
+The full prescribed verifier completed under its $460$-second review
+timeout, while isolated block \texttt{(bh)} took about $13$ seconds on the
+review host.  The largest independent scan streamed one $A$ at a time with at
+most $6561$ live divisors; it used neither fixed-width arithmetic nor a
+Cartesian-product allocation.  These checks and the review verdict are
+internal validation, not external refereeing.
+
+The census found no new nonsquare sporadic, so $C_{\rm SQ}'$ survives and
+no $C_{\rm SQ}''$ is introduced.  Theorem~\ref{thm:two-square-layers} is
+only a constructive classification of the first layers of one family; no
+unbounded classification of twisted-square escapes has been proved.  Most
+importantly, Theorem~\ref{thm:hard-prime-criterion} is a terminating prime
+test and structural simplification, not a proof that its finite set is
+always nonempty.  No pointwise prime bound, fair-share estimate, or new
+Erd\H{o}s--Straus theorem is claimed.
+
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
 This section truncates the general-numerator machinery; it does not extend
@@ -6978,8 +7442,12 @@ $C_{\rm POLY}$ and repaired $C_{\rm SQ}'$ remain open.  The original
 $C_{\rm SQ}$ is refuted: a computer-assisted theorem proves the three former
 constant candidates have $W=+\infty$.  They are composite statistic-escapes
 with explicit Egyptian-fraction representations, not Erd\H{o}s--Straus
-counterexamples, and the finite prime criterion does not prove its list
-nonempty.  The raw and antichain factorial-moment formulations are refuted
+counterexamples.  The complete census through $200{,}000$, and the optional
+replay through $10^6$, finds exactly the squares and those three values, but
+this proves no unbounded classification.  The proved hard-prime criterion
+is a terminating equivalence, including its even-$D$ branch; it does not
+prove its finite divisor list nonempty, a pointwise bound, a fair-share
+estimate, or a new Erd\H{o}s--Straus theorem.  The raw and antichain factorial-moment formulations are refuted
 and that axis is dormant; the pair
 endpoint and other possible pointwise minorants retain exactly the narrower
 open scope stated above.
