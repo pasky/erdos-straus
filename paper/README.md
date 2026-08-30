@@ -1,12 +1,25 @@
 # Paper draft status
 
-`espaper.tex` is the v14 standalone `amsart` consolidation draft (133 pages). Its two record headlines remain:
+`espaper.tex` is the v15 standalone `amsart` consolidation draft (145 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v15 changes — 2026-08-30, wave 29
+
+- Absorbed source §66 as the twisted-family escape-cylinder section.  Membership in `{m: W(sm²) <= T}` is class-decidable modulo `L(T)`, with `log L(T)=(2/3+o(1))T`; the three anchored families have unbounded finite depth and density at least `1/L(T)` at each fixed depth, but no new fixed `W=+infinity` member is produced.
+- Added the family finite-certificate ceiling and all-degree anchored polynomial-identity obstruction while preserving the repaired forward-ray leak: polynomial equalities extend backward, but positivity and positive-divisor eligibility need not, so the forward-ray gap remains open.
+- Added the exact 54,990-candidate identity hunt, 65-class depth-1000 projection modulo 627 with digest, and all three `m <= 2000` censuses.  The sole cap survivors are the proved anchors; finite maxima are `4019/695/479`, and no infinity is inferred from a cap.
+- Absorbed source §67 as the finite record-stall anatomy.  The purity depth is an integer supremum allowing `+infinity`, with `tau(193)=+infinity`; all top-ten profiles, depths, four-shift factors, and residue-one rows are retained exactly.
+- Preserved the no-evidence register for the fragile spacing model: `P_raw=1.222901698e-9`, `P_0.85=2.656334824e-8`, and formal expectations `0.0169180/0.1497047` are reproducible toy arithmetic, not a tail claim or evidence about the stall.
+- Restated the exponent frontier exactly: `A_emp(2031121)=2.923244`, every eventual `A < 1` is refuted, every `A >= 1` remains open, and “1–2” is only the historical finite-normalization panel.
+- Absorbed source §68’s full Pomerance–Weingartner arXiv:2511.16817v2 audit: exact Theorems 1.1–1.4, lower-exception regimes, crossover algebra, and the repaired §55 fixed-`B` nuance.  All verdicts are source-bounded, and Theorems 39.7, 43.12, 51.2, and 51.6 remain **CLAIMED/PROVISIONAL** where labelled.
+- Registered Gottschlich and Nakayama as adjacent bibliography entries, updated the current PW citation and Vaughan secondary-access record, and retained the no-full-literature-certification caveat.
+- Extended the global pedigree through blocks `(bm)`–`(bo)` and the three wave-28 attestations: **SOUND-AFTER-MINOR-REPAIRS**, **SOUND-AFTER-REPAIRS**, and **CONFIRMED AFTER REPAIRS, source-bounded only**.  These remain internal validation or source review, not external refereeing.
+- Updated the abstract, introduction, section map, status register, §65 forward pointer, final status, bibliography, verifier endpoint, tracked table of contents, and PDF.  The build grows by 12 pages, from 133 to 145.
 
 ## v14 changes — 2026-08-30, wave 28
 
@@ -145,6 +158,19 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §66 status, Theorem 66.1, Lemma 66.2, and (66.1)–(66.6) ↔ `escape-cylinders`, `twisted-class-decidability`, and `class-period`: exact squarefree/real-depth quantifiers, empty-lcm convention, finite union, prime-power iff, theta decomposition, effective `2/3` scale, and no-new-infinite-member boundary agree.
+- notes Theorem 66.3, Corollary 66.4, and (66.7)–(66.9) ↔ `twisted-family-unbounded` and `family-certificate-ceiling`: all three anchors and classes, every-`X` density count, limsup quantifiers, finite-fixed-harvested-law scope, and distinction from the §56 certificate architecture agree.
+- notes Proposition 66.5 and (66.10)–(66.14) ↔ `anchored-identity-wall` and Computational 66.1: exact integer-valued/positivity eligibility, all-degree anchor specialization, forward-ray positivity leak, all twelve `(K,e)` families, three shapes, 54,990/6,810 totals, and no hidden coefficient cutoff agree.
+- notes Computational 66.2–66.3 and (66.15)–(66.20) ↔ the projection, censuses, and honest walls: 287 digits, exact logarithm, 65/562 classes, lift maximum and digest, all survivor/maximum/where rows, depth-1000 exceptions, cap caveat, changing-class quantifier, and open `C_SQ'` status agree.
+- notes §66.6 ↔ local and global `(bm)` pedigrees: `2/3` recomputation, all finite independent replays, exact forward-ray repair, deterministic Python-integer scope, and **SOUND-AFTER-MINOR-REPAIRS** internal-only verdict agree.
+- notes §67 status, (67.1)–(67.4), and Computational 67.1 ↔ `record-stall`: exact 50-law profile, integer-supremum/infinity convention for `tau`, `M>4D` diagnostic scope, `D<p/8` exhaustion, `tau(193)=infinity`, every top-ten row/depth/profile, four-shift factor, and nonmonotonicity statement agree.
+- notes Computational 67.2 and (67.5)–(67.6) ↔ the residue-one subsection: full lcm rather than eligible-only modulus, all four `(T,M,k,p,W,W-T,a_1)` rows, strict guarantee, logarithmic-column scope, and no improved Linnik estimate agree.
+- notes Heuristic 67.1 and (67.7)–(67.11) ↔ the fragile-spacing subsection: every class input and calibration row, deliberately false independence, exact raw/calibrated probabilities and expectations, proxy population, formal Poisson mass, and explicit no-evidence/no-tail/no-next-record register agree.
+- notes Computational/Assessment 67.3 and (67.12)–(67.13) ↔ the empirical-exponent subsection: all 15 rows, natural logarithms, exact `2.923244`, sufficiently-large quantifier, every `A >= 1` open, “1–2” finite-normalization-only gloss, and no eventual-limsup inference agree.
+- notes §§67.5–67.6 ↔ local and global `(bn)` pedigrees: default/gated ranking scope, bounded-memory method, all-record `a_1/tau` vectors, exact toy recomputation, **SOUND-AFTER-REPAIRS** verdict, and no-growth/no-pointwise perimeter agree.
+- notes §68.1 and (68.1)–(68.3) ↔ `PW-v2-audit`: exact Theorems 1.1–1.4 quantifiers, exponents, thresholds, all-denominator/prime distinctions, Type-I/Type-II admitting classes, finite-versus-theorem scope, and no-effectivity-claim wording agree.
+- notes §68.2 and (68.4)–(68.6) ↔ range consistency and crossover: fixed-gap algebra, both exception regimes, repaired §55 fixed-`B > 3` entry with vanishing masses, exact `eta_2/phi/L` powers, unknown-constant caveat, and inherited **CLAIMED/PROVISIONAL** status agree.
+- notes §§68.3–68.4 ↔ the priority, Vaughan, bibliography, version, and `(bo)` registers: all four source-bounded no-threat verdicts, five secondary Vaughan descriptions, complete 13-item sweep, Gottschlich/Nakayama registration, v1 content-not-binary identity, access-log limits, **CONFIRMED AFTER REPAIRS** verdict, and no full-literature-certification caveat agree.
 - notes §63 status, Lemmas 63.1–63.2, Corollary 63.3, and (63.1)–(63.7) ↔ `witness-taxonomy`, `DIV-family`, `D1-family`, and `square-root-law`: exact hard-prime context, all range endpoints, paired `D=1,h^2` witnesses, complementary-factor choice, and square-root bound agree.
 - notes Theorems 63.4–63.5 and (63.8)–(63.16) ↔ `fixed-D-laws` and `universal-a-law`: if-and-only-if divisor conditions, squarefree and `D=4` branches, all four fixed-`D` rows, primitive-root vectors, bounded valuations, and one shared exponent across every CRT component agree.
 - notes Corollary 63.6, Theorem 63.7, Corollary 63.8, and (63.17)–(63.24) ↔ the coverage subsection: empty `a=3` branch, exact two-class sieve, `O(rho(d))` remainder, effective dimension `3/2`, explicit exceptional set, four late factorizations, and weaker-on-both-axes comparison agree.
@@ -256,7 +282,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v14 build completes in 133 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the two-pass validation. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v14-relevant verifier coverage passes through block `(bl)`.
+The v15 build completes in 145 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the final two-pass validation (both passes are stable). Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v15-relevant verifier coverage passes through block `(bo)`.
 
 ## Submission TODO
 
@@ -266,8 +292,8 @@ The v14 build completes in 133 pages with zero TeX errors and no undefined refer
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v15 queue
+## v16 queue
 
-- Source §§66–68 are being written in parallel during wave 28.  They are unreviewed and pending; none is absorbed into v14.
+- Source §69 is being written in parallel during wave 29.  It is unreviewed and pending; none of it is absorbed into v15.
 
-This is a queue record only; v14 makes no content claim about §§66–68.
+This is a queue record only; v15 makes no content claim about §69.
