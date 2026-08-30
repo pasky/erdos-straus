@@ -8965,10 +8965,12 @@ certification.
 
 \subsection{Exact statements and proof routes}
 \medskip\noindent\textbf{Upper bound.}
-Pomerance--Weingartner Theorem 1.3 states that there is an absolute positive
-constant $C$ such that, for every pair $m,N$ with
-$4\leq m\leq\log^2N$, the number of integers $n\leq N$ for which $m/n$ is
-not a sum of three unit fractions is at most the right side of
+Pomerance--Weingartner Theorem 1.3 says (quote): ``There is an absolute
+positive constant $C$ such that for each pair $m,N$ with
+$4\leq m\leq\log^2N$ the number of $n\leq N$ with $m/n$ not the sum of
+$3$ unit fractions is at most
+$N/\exp(C\log^{2/3}(N)/\varphi(m)^{1/3})$'' (p.~2).  In the notation of
+Section~\ref{sec:general-m}, this is exactly
 \begin{equation}\tag{68.1}
  E_m(N)\ll N\exp\{-C(\log N)^{2/3}/\varphi(m)^{1/3}\},
  \qquad4\leq m\leq(\log N)^2.
@@ -8979,10 +8981,10 @@ Bombieri--Vinogradov (Lemma 4.1, p.~9), and the denominator side invokes the
 large sieve (p.~10); it supplies no exceptional-conductor repair.
 
 \medskip\noindent\textbf{Lower exceptions.}
-Theorem 1.1 says: for every $\epsilon>0$ there is $m(\epsilon)$ such that for
-every $m\geq m(\epsilon)$ there is some
-$n>\exp(m^{1/3-\epsilon})$ for which $m/n$ is not a sum of three unit
-fractions.  The headline does not say prime.  Theorem 3.1 gives the stronger
+Theorem 1.1 says (quote): ``For each $\epsilon>0$ there is a bound
+$m(\epsilon)$ such that for each $m\geq m(\epsilon)$ there is some
+$n>\exp(m^{1/3-\epsilon})$ with $m/n$ not the sum of $3$ unit fractions''
+(p.~2).  The headline does not say prime.  Theorem 3.1 gives the stronger
 count
 \begin{equation}\tag{68.2}
               >\exp\{c\varphi(m)^{1/3}/(\log m)^{2/3}\}
@@ -9000,21 +9002,22 @@ solution-admitting families misses most primes in the selected interval.
 This avoids every admitting class; it is not one fixed congruence
 obstruction.
 
-Theorem 1.2 says that for every integer
-$m\geq6.52\cdot10^9$ there is a prime $p\in(m^2,2m^2)$ for which $m/p$ is
-not a sum of three unit fractions.  Proposition 7.5 bounds the Type-I primes
-(p.~20), Corollary 9.1 bounds the Type-II primes (p.~23), and their sum is
-compared with an explicit prime-count lower bound (p.~23).  Section 6 only
-computationally supports the conjectural extension $m\geq20$; it is not a
-theorem.
+Theorem 1.2 says (quote): ``For each integer
+$m\geq6.52\mathbin{\times}10^9$ there is a prime $p$ in $(m^2,2m^2)$ for
+which $m/p$ is not the sum of $3$ unit fractions'' (p.~2).  Proposition 7.5
+bounds the Type-I primes (p.~20), Corollary 9.1 bounds the Type-II primes
+(p.~23), and their sum is compared with an explicit prime-count lower bound
+(p.~23).  Section 6 only computationally supports the conjectural extension
+$m\geq20$; it is not a theorem.
 
 At $m=4$, (68.1) has exactly Vaughan's $2/3$ exponent.  The paper states no
 stronger $m=4$ all-denominator upper bound; its $m=4,5$ claims beyond this
-are finite verifications.  Theorem 1.4 says: for every pair of positive
-integers $j,k$, there is $m(j,k)$ such that for every $m\geq m(j,k)$,
-$m/(km+1)$ is not a sum of $j$ unit fractions.  Its proof is a discreteness
-argument for fixed-length sums (Lemmas 5.1--5.2, pp.~11--12), not a
-modification of the three-summand Type-I/Type-II split.
+are finite verifications.  Theorem 1.4 says (quote): ``For each pair of
+positive integers $j,k$, there is a number $m(j,k)$ such that for each
+$m\geq m(j,k)$, we have $m/(km+1)$ not the sum of $j$ unit fractions''
+(p.~3).  Its proof is a discreteness argument for fixed-length sums
+(Lemmas 5.1--5.2, pp.~11--12), not a modification of the three-summand
+Type-I/Type-II split.
 
 \subsection{Range consistency and crossover}
 Fix the fixed-gap parameter $0<\sigma<3$ in
@@ -9032,8 +9035,9 @@ The exceptions at (68.3) have $\log p=m^{1/3+o(1)}$, hence
        =m^{\sigma/3+o(1)}\longrightarrow\infty.
 \end{equation}
 They lie outside every fixed-gap range of
-Theorem~\ref{thm:general-three-quarter} and the smaller Layer-1 range.  The
-explicit $p\in(m^2,2m^2)$ has $\log p=2\log m+O(1)$ and lies farther outside.
+Theorem~\ref{thm:general-three-quarter} and the smaller Layer-1 range
+$m\leq L^{2-\epsilon}$.  The explicit $p\in(m^2,2m^2)$ has
+$\log p=2\log m+O(1)$ and lies farther outside.
 
 Section~\ref{sec:general-m-tails} requires a separate reverse check.  At
 $N=2m^2$, condition (55.11) forces $\log T=O(\log m)$, so
