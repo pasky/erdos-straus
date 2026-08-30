@@ -13805,4 +13805,236 @@ print("\n== (bp) forward-ray polynomial obstruction (§69) ==")
 check_bp()
 
 
+# ---------------------------------------------------------------- (bq)
+def check_bq():
+    """§70: prime-a confinement, budget failures, and wall freeness."""
+    import os
+    from time import perf_counter
+
+    started = perf_counter()
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    scan_limit = 200_000 if full_scan else 20_000
+
+    # A Python-int smallest-prime-factor table.  No fixed-width value enters
+    # any factorization, divisor, subgroup, or bounded-product path.
+    spf = list(range(scan_limit + 1))
+    for q in range(2, isqrt(scan_limit) + 1):
+        if spf[q] == q:
+            for multiple in range(q * q, scan_limit + 1, q):
+                if spf[multiple] == multiple:
+                    spf[multiple] = q
+
+    def factors_spf(value):
+        value = int(value)
+        factors = []
+        while value > 1:
+            q = int(spf[value])
+            exponent = 0
+            while value % q == 0:
+                value //= q
+                exponent += 1
+            factors.append((q, exponent))
+        return tuple(factors)
+
+    def ratio_spectrum(value, modulus):
+        residues = {1}
+        for q, exponent in factors_spf(value):
+            powers = {pow(q, f, modulus)
+                      for f in range(-exponent, exponent + 1)}
+            residues = {int(x * y % modulus)
+                        for x in residues for y in powers}
+        return residues
+
+    def generated_subgroup(value, modulus):
+        subgroup = {1}
+        for q, _ in factors_spf(value):
+            cyclic = {1}
+            x = 1
+            while True:
+                x = int(x * q % modulus)
+                cyclic.add(x)
+                if x == 1:
+                    break
+            subgroup = {int(x * y % modulus)
+                        for x in subgroup for y in cyclic}
+        return subgroup
+
+    # Every subgroup of a cyclic group is indexed by its order d | a-1.
+    subgroup_rows = 0
+    for a0 in primerange(3, 200):
+        a = int(a0)
+        if a % 4 != 3:
+            continue
+        generator = int(primitive_root(a))
+        quadratics = {int(x * x % a) for x in range(1, a)}
+        avoiding = []
+        odd = []
+        contained = []
+        for d in range(1, a):
+            if (a - 1) % d:
+                continue
+            subgroup = frozenset(
+                pow(generator, (a - 1) // d * j, a) for j in range(d)
+            )
+            assert len(subgroup) == d
+            if a - 1 not in subgroup:
+                avoiding.append(subgroup)
+            if d % 2 == 1:
+                odd.append(subgroup)
+            if subgroup <= quadratics:
+                contained.append(subgroup)
+            subgroup_rows += 1
+        assert set(avoiding) == set(odd) == set(contained)
+
+    moduli = (3, 7, 11, 19, 23)
+    decomposition = {}
+    for a in moduli:
+        counts = Counter()
+        for h in range(1, scan_limit + 1):
+            if gcd(h, a) != 1:
+                continue
+            factors = factors_spf(h)
+            sigma = sum(
+                1 for q, _ in factors
+                if pow(q, (a - 1) // 2, a) == a - 1
+            )
+            failed = a - 1 not in ratio_spectrum(h, a)
+            if failed:
+                if sigma == 0:
+                    counts["F1"] += 1
+                else:
+                    counts["F3"] += 1
+                    assert a - 1 in generated_subgroup(h, a)
+            if sigma == 0:
+                assert failed
+            counts["units"] += 1
+        counts["fail"] = counts["F1"] + counts["F3"]
+        decomposition[a] = (
+            counts["units"], counts["F1"], counts["F3"], counts["fail"]
+        )
+
+    expected_default = {
+        3: (13_334, 1_896, 0, 1_896),
+        7: (17_143, 3_350, 2_149, 5_499),
+        11: (18_182, 2_861, 4_532, 7_393),
+        19: (18_948, 2_427, 7_666, 10_093),
+        23: (19_131, 4_888, 6_722, 11_610),
+    }
+    expected_full = {
+        3: (133_334, 17_132, 0, 17_132),
+        7: (171_429, 30_145, 18_992, 49_137),
+        11: (181_819, 25_758, 40_171, 65_929),
+        19: (189_474, 21_866, 68_722, 90_588),
+        23: (191_305, 43_748, 61_744, 105_492),
+    }
+    assert decomposition == (expected_full if full_scan else expected_default)
+
+    # The valuation-one obstruction (62.16) is genuinely a budget failure.
+    assert ratio_spectrum(17, 7) == {1, 3, 5}
+    assert 6 in generated_subgroup(17, 7)
+
+    # Informational normalization only: no finite-ratio assertion is made.
+    scale_ratios = {
+        a: failures / (units / (log(scan_limit) ** 0.5))
+        for a, (units, _, _, failures) in decomposition.items()
+    }
+
+    # Every residue modulo 12 already has successes, although convergence to
+    # the proved density-one law is slow at this deliberately small endpoint.
+    wall_rows = []
+    for residue in range(12):
+        first = residue if residue else 12
+        units = successes = 0
+        for h in range(first, 20_001, 12):
+            if gcd(h, 7) != 1:
+                continue
+            units += 1
+            successes += 6 in ratio_spectrum(h, 7)
+        assert units and successes * 5 > units * 2  # honest finite threshold: 40%
+        wall_rows.append((units, successes))
+    expected_wall = (
+        (1428, 1428), (1429, 634), (1429, 1014), (1429, 1132),
+        (1429, 977), (1429, 638), (1429, 1429), (1428, 635),
+        (1429, 978), (1428, 1132), (1428, 1011), (1428, 636),
+    )
+    assert tuple(wall_rows) == expected_wall
+
+    # Independent a_1 implementations: bounded products versus literal
+    # D | h^2 enumeration from Theorem 61.4.  Every divisor is a Python int.
+    prime_count = 2_000 if full_scan else 200
+    hard_primes = []
+    for p0 in primerange(2, 1_000_000):
+        p = int(p0)
+        if p % 24 == 1:
+            hard_primes.append(p)
+            if len(hard_primes) == prime_count:
+                break
+    assert len(hard_primes) == prime_count
+
+    def ratio_success(value, modulus):
+        return modulus - 1 in ratio_spectrum(value, modulus)
+
+    def square_divisors_independent(value):
+        divisors = [1]
+        for q0, exponent0 in factorint(int(value)).items():
+            q, exponent = int(q0), int(exponent0)
+            base = tuple(divisors)
+            power = 1
+            for _ in range(2 * exponent):
+                power = int(power * q)
+                divisors.extend(int(D * power) for D in base)
+        return divisors
+
+    def a1_ratio(p):
+        B = (p + 1) // 3
+        for a in range(3, 2 * B + 1, 4):
+            h = (p + a) // 4
+            if ratio_success(h, a):
+                return a
+        return None
+
+    def a1_divisor_scan(p):
+        B = (p + 1) // 3
+        for a in range(3, 2 * B + 1, 4):
+            h = (p + a) // 4
+            if any((int(D) + h) % a == 0
+                   for D in square_divisors_independent(h)):
+                return a
+        return None
+
+    a1_values = []
+    for p in hard_primes:
+        by_ratio = a1_ratio(p)
+        by_divisors = a1_divisor_scan(p)
+        assert by_ratio == by_divisors and by_ratio is not None
+        a1_values.append(by_ratio)
+    a1_summary = (
+        hard_primes[-1], dict(sorted(Counter(a1_values).items())),
+        max(a1_values), sum(a1_values),
+    )
+    expected_a1_default = (
+        14_929, {3: 84, 7: 98, 11: 11, 15: 1, 19: 4, 23: 2}, 23, 1_196,
+    )
+    expected_a1_full = (
+        179_041,
+        {3: 992, 7: 796, 11: 130, 15: 22, 19: 21,
+         23: 28, 31: 8, 35: 1, 59: 1, 63: 1},
+        63, 11_756,
+    )
+    assert a1_summary == (expected_a1_full if full_scan else expected_a1_default)
+
+    elapsed = perf_counter() - started
+    if not full_scan:
+        assert elapsed < 15.0
+    print("subgroup / decomposition limit =", (subgroup_rows, scan_limit, decomposition))
+    print("failure / (unit-count/sqrt(log H)) INFO =", scale_ratios)
+    print("a=7 wall rows mod 12 (units,successes) =", tuple(wall_rows))
+    print("hard-prime independent a1 replay =", a1_summary)
+    print("bq full/seconds =", (full_scan, elapsed))
+
+
+print("\n== (bq) a-frame fixed-modulus failure law (§70) ==")
+check_bq()
+
+
 print("\nall checks passed")
