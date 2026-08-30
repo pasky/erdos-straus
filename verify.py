@@ -9947,4 +9947,233 @@ print("\n== (bb) general-numerator tails and effectivity (§55) ==")
 check_bb()
 
 
+# ---------------------------------------------------------------- (bc)
+def check_bc():
+    """§56: congruence ceilings and streamed extremal censuses."""
+    import os
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+
+    def hard_primes_below(limit, chunk_size=100_000):
+        """Stream hard primes through bounded sieve intervals."""
+        for low in range(2, limit, chunk_size):
+            high = min(limit, low + chunk_size)
+            for P in primerange(low, high):
+                if P % 24 == 1:
+                    yield P
+
+    def strict_records(values, ordered_primes):
+        records, running = [], -1
+        for P in ordered_primes:
+            if values[P] > running:
+                running = values[P]
+                records.append((P, running))
+        return tuple(records)
+
+    def normalized_maxima(values, ordered_primes):
+        rows = []
+        for mode in range(3):
+            best = (-1.0, -1, -1)
+            for P in ordered_primes:
+                log_P = log(P)
+                denominator = (log_P, log_P * log(log_P), log_P * log_P)[mode]
+                candidate = (values[P] / denominator, P, values[P])
+                if candidate[0] > best[0]:
+                    best = candidate
+            rows.append(best)
+        return tuple(rows)
+
+    # Full Lemma-16.1/Lemma-18.1 harvest through the fixed modulus cap.
+    # The classes are small; primes are streamed and stop at their first hit.
+    modulus_cap = 3000
+    modulus_classes = []
+    for M in range(3, modulus_cap + 1, 4):
+        A = (M + 1) // 4
+        classes = {(-4 * D) % M for D in divisors_of_square(A)}
+        # D=1 is the class used in Theorem 56.1.  Its explicit dictionary is
+        # (u,v,w)=(1,A,1), not merely an appeal to the intrinsic formula.
+        assert A == 1 * A * 1 and gcd(A, M) == 1
+        assert (-pow(A, -1, M)) % M == (-4) % M in classes
+        modulus_classes.append((M, classes))
+    assert len(modulus_classes) == 750
+
+    W_limit = 10_000_000 if full_scan else 1_000_000
+    W_records, W_running, W_count = [], -1, 0
+    W_maxima = [(-1.0, -1, -1) for _ in range(3)]
+    for P in hard_primes_below(W_limit):
+        W_count += 1
+        witness = next((M for M, classes in modulus_classes
+                        if P % M in classes), None)
+        assert witness is not None, ("W cap exhausted", P, modulus_cap)
+        if witness > W_running:
+            W_running = witness
+            W_records.append((P, witness))
+        log_P = log(P)
+        for mode, denominator in enumerate(
+                (log_P, log_P * log(log_P), log_P * log_P)):
+            candidate = (witness / denominator, P, witness)
+            if candidate[0] > W_maxima[mode][0]:
+                W_maxima[mode] = candidate
+
+    expected_W_default = (
+        (73, 7), (193, 15), (1201, 31), (2521, 47), (3361, 99),
+        (33_289, 155), (90_841, 167), (144_169, 191), (167_521, 259),
+        (225_289, 279), (361_321, 287), (915_961, 303), (954_409, 335),
+    )
+    expected_W_full = expected_W_default + (
+        (1_853_329, 383), (2_031_121, 2495),
+    )
+    assert W_count == (82_887 if full_scan else 9_732)
+    assert tuple(W_records) == (expected_W_full if full_scan
+                                else expected_W_default)
+    expected_W_maxima = (
+        ((171.783468, 2_031_121, 2495),
+         (64.198698, 2_031_121, 2495),
+         (11.827479, 2_031_121, 2495))
+        if full_scan else
+        ((24.330286, 954_409, 335),
+         (9.277839, 954_409, 335),
+         (1.836625, 225_289, 279))
+    )
+    assert tuple((round(value, 6), P, W)
+                 for value, P, W in W_maxima) == expected_W_maxima
+
+    # Joint ck_pr and unrestricted-slice scan.  Product order and unresolved
+    # sets avoid recomputation.  Genus-forced pairs are skipped before
+    # factorization; every surviving norm is factored and discarded at once.
+    slice_limit = 1_000_000 if full_scan else 300_000
+    hard = tuple(hard_primes_below(slice_limit))
+    assert len(hard) == (9_732 if full_scan else 3_202)
+    unresolved_prime, unresolved_slice = set(hard), set(hard)
+    prime_min, slice_min = {}, {}
+    core_cache = {}
+
+    def squarefree_core(n):
+        if n not in core_cache:
+            core_cache[n] = prod(q for q, e in factorint(n).items() if e % 2)
+        return core_cache[n]
+
+    def exponent_box_hit(P, C, K, factors):
+        h = 4 * C * K
+        residues = {1}
+        for q, e in factors.items():
+            powers, power = [], 1
+            for _ in range(e + 1):
+                powers.append(power)
+                power = power * q % h
+            residues = {a * b % h for a in residues for b in powers}
+            assert len(residues) <= h
+        return (-P) % h in residues
+
+    guard = 1000 if full_scan else 500
+    factorizations = 0
+    for n in range(1, guard + 1):
+        for C in range(1, n + 1):
+            if n % C:
+                continue
+            K = n // C
+            core = squarefree_core(C)
+            if core in (1, 2, 3, 6):
+                continue
+            for P in tuple(unresolved_prime | unresolved_slice):
+                if (gcd(P, n) != 1 or 3 * K > 2 * P
+                        or 4 * n > 2 * P + K):
+                    continue
+                # On hard primes chi_core(P)=(core/P).  A +1 sign is the
+                # exact genus-forced zero and cannot resolve either minimum.
+                if pow(core, (P - 1) // 2, P) != P - 1:
+                    continue
+                norm = P * P + 4 * C * K * K
+                factors = factorint(norm)
+                factorizations += 1
+
+                if P in unresolved_slice and exponent_box_hit(
+                        P, C, K, factors):
+                    slice_min[P] = n
+                    unresolved_slice.remove(P)
+
+                if P in unresolved_prime:
+                    good_primes = tuple(q for q in factors
+                                        if q % (4 * n) == (-P) % (4 * n))
+                    if good_primes:
+                        q = min(good_primes)
+                        E = norm // q
+                        A, B = (P + q) // (4 * n), (P + E) // (4 * n)
+                        assert min(A, B) > 0
+                        assert q % (4 * n) == E % (4 * n) == (-P) % (4 * n)
+                        assert P * (A + B) == K * (4 * A * B * C - 1)
+                        assert (Fraction(1, A * C * K)
+                                + Fraction(1, B * C * K)
+                                + Fraction(1, P * A * B * C)
+                                == Fraction(4, P))
+                        prime_min[P] = n
+                        unresolved_prime.remove(P)
+        if not unresolved_prime and not unresolved_slice:
+            break
+    assert not unresolved_prime, ("ck_pr guard exhausted", sorted(unresolved_prime))
+    assert not unresolved_slice, ("ck_min guard exhausted", sorted(unresolved_slice))
+    assert n == (898 if full_scan else 461)
+    assert factorizations == (47_100 if full_scan else 14_143)
+    assert all(prime_min[P] >= slice_min[P] for P in hard)
+
+    prime_records_default = (
+        (73, 7), (193, 10), (241, 21), (1201, 34), (2521, 38),
+        (4729, 66), (7489, 70), (9601, 78), (31_081, 110),
+        (51_769, 249), (83_689, 282), (113_161, 378), (171_481, 461),
+    )
+    prime_records_full = prime_records_default + (
+        (319_489, 878), (538_561, 898),
+    )
+    slice_records_default = (
+        (73, 7), (193, 10), (241, 11), (769, 13), (1321, 21),
+        (2281, 26), (2521, 38), (9601, 67), (12_289, 77),
+        (55_441, 83), (92_401, 103),
+    )
+    slice_records_full = slice_records_default + ((414_241, 218),)
+    assert strict_records(prime_min, hard) == (
+        prime_records_full if full_scan else prime_records_default)
+    assert strict_records(slice_min, hard) == (
+        slice_records_full if full_scan else slice_records_default)
+
+    D_values = {P: slice_min[P] - 1 for P in hard}
+    prime_maxima = normalized_maxima(prime_min, hard)
+    D_maxima = normalized_maxima(D_values, hard)
+    expected_prime_maxima = (
+        ((69.273069, 319_489, 878),
+         (27.277261, 319_489, 878),
+         (5.465556, 319_489, 878))
+        if full_scan else
+        ((38.250190, 171_481, 461),
+         (15.366153, 171_481, 461),
+         (3.173703, 171_481, 461))
+    )
+    expected_D_maxima = (
+        ((16.777222, 414_241, 217),
+         (6.553922, 414_241, 217),
+         (1.297121, 414_241, 217))
+        if full_scan else
+        ((8.920846, 92_401, 102),
+         (3.661213, 92_401, 102),
+         (0.857113, 12_289, 76))
+    )
+    assert tuple((round(value, 6), P, depth)
+                 for value, P, depth in prime_maxima) == expected_prime_maxima
+    assert tuple((round(value, 6), P, depth)
+                 for value, P, depth in D_maxima) == expected_D_maxima
+
+    print("W census (limit,count,cap,max,records) =",
+          (W_limit, W_count, modulus_cap, W_running, tuple(W_records)))
+    print("INFO W normalized maxima (ratio,p,W) =", tuple(W_maxima))
+    print("ck_pr/D census (limit,count,max ck_pr,max D,factorizations) =",
+          (slice_limit, len(hard), max(prime_min.values()),
+           max(D_values.values()), factorizations))
+    print("ck_pr records / D records =",
+          (strict_records(prime_min, hard), strict_records(D_values, hard)))
+    print("INFO ck_pr / D normalized maxima =", (prime_maxima, D_maxima))
+
+
+print("\n== (bc) congruence-certificate ceilings and extremal census (§56) ==")
+check_bc()
+
+
 print("\nall checks passed")

@@ -20775,3 +20775,302 @@ a computational shadow of (55.17a), not evidence for its asymptotic or
 uniform assertion.  *(wave-20 review repair: the two effectivity
 cross-references now point to §55.2, and the test checks finite weighted
 retention rather than mere existence of both signs.)*
+
+## 56. The extremal window: the congruence-certificate ceiling, and the census
+
+This section closes the elementary two-sided question left by §§51 and 54.
+A complete congruence class which certifies a depth-
+\(T\) escape must itself have exponentially large modulus.  The Type-II
+statement is the prime-progression extension of the all-integer cylinder wall
+in Theorem 33.1, not a new independent supply theorem.  The Type-I statement
+uses Corollary 52.2 to turn every unforced prime core into a required
+conductor coordinate.  The finite computations then extend the three
+minimal-depth statistics.  The theorems are asymptotic and effective; the
+censuses are exact only in their displayed ranges and imply no growth law.
+
+### 56.1 Type II: every certificate carries the \(3\pmod4\) primes
+
+Call \(a\pmod Q\) a **prime congruence certificate for \(W>T\)** if
+\((a,Q)=1\) and every sufficiently large prime \(p\equiv a\pmod Q\)
+satisfies \(W(p)>T\).  An all-integer certificate has the analogous meaning
+with every sufficiently large positive integer in the class; it need not be
+reduced.  Put
+
+\[
+ P_3(T)=\prod_{\substack{\ell\leq T\\
+        \ell\ \operatorname{prime},\ \ell\equiv3\ (4)}}\ell .     \tag{56.1}
+\]
+
+**Theorem 56.1 (Type-II congruence-certificate ceiling; proved,
+effective).**  If \(a\pmod Q\) is either a prime or an all-integer
+congruence certificate for \(W>T\), then
+
+\[
+                   P_3(T)\mid Q,
+ \qquad \log Q\geq\vartheta(T;4,3)
+                 =\left({1\over2}+o(1)\right)T.            \tag{56.2}
+\]
+
+Consequently, for every fixed \(\epsilon>0\), there is an effectively
+computable \(T_\epsilon\) such that
+\(Q\geq\exp\{(1/2-\epsilon)T\}\) for \(T\geq T_\epsilon\).
+
+*Proof.*  Fix a prime \(\ell\leq T\), \(\ell\equiv3\pmod4\), and put
+\(A=(\ell+1)/4\).  The divisor \(D=1\) in Lemma 18.1 is not merely a
+formal intrinsic class: its Lemma-16.1 datum is
+
+\[
+       k=1,\quad \ell=\ell,\quad (u,v,w)=(1,A,1),
+       \qquad -uv^{-1}\equiv-A^{-1}\equiv-4\pmod\ell .    \tag{56.3}
+\]
+
+Thus every positive integer \(n\equiv-4\pmod\ell\) has
+\(W(n)\leq\ell\leq T\).
+
+Suppose \(\ell\nmid Q\).  The Chinese remainder theorem gives infinitely
+many positive integers satisfying both
+\(n\equiv a\pmod Q\) and \(n\equiv-4\pmod\ell\), contradicting an
+all-integer certificate.  In the prime version their joint class modulo
+\(Q\ell\) is reduced: it is reduced modulo \(Q\) by hypothesis and
+\(-4\not\equiv0\pmod\ell\).  Dirichlet's theorem therefore gives infinitely
+many primes in it, again contradicting the certificate.  Hence every factor
+in (56.1) divides \(Q\).  The final estimate is the effective prime number
+theorem in the fixed progression \(3\pmod4\).  This is also exactly the
+mechanism of Theorem 33.1, with the prime-bearing conclusion added. \(\square\)
+
+The theorem uses only one harvested class at each prime modulus.  It does
+**not** prove that the full \({\rm lcm}(1,\ldots,T)\) of §54 is necessary
+for an arbitrary certificate.  Composite moduli can meet a progression in
+only one coset modulo \((Q,M)\), and the full harvested set need not cover
+all such cosets.  Thus replacing the constant \(1/2\) in (56.2) by 1 would
+require an additional argument.
+
+### 56.2 Type I: Corollary 52.2 forces every prime core
+
+A **hard Type-I congruence certificate through \(T\)** is a reduced class
+\(a\pmod Q\) with
+
+\[
+        24\mid Q,\qquad a\equiv1\pmod {24},                \tag{56.4}
+\]
+
+such that every sufficiently large prime \(p\equiv a\pmod Q\) has
+\(ck_{\min}(p)>T\).  Equivalently, every admissible slice with \(ck\leq T\)
+vanishes on every sufficiently large prime in the class.
+
+**Theorem 56.2 (Type-I congruence-certificate ceiling; proved,
+effective).**  Every hard Type-I congruence certificate through \(T\)
+satisfies
+
+\[
+ \prod_{\substack{5\leq\ell\leq T\\
+                   \ell\ \operatorname{prime}}}\ell\mid Q,
+ \qquad
+ \log Q\geq\vartheta(T)-\log6=T+o(T).                    \tag{56.5}
+\]
+
+In particular, for every \(\epsilon>0\), effectively for all sufficiently
+large \(T\), one has \(Q\geq\exp\{(1-\epsilon)T\}\).
+
+*Proof.*  Let \(5\leq\ell\leq T\) be prime and suppose \(\ell\nmid Q\).
+The primitive quadratic character attached to the core \(s=\ell\) is
+nonconstant modulo its prime coordinate.  Concretely, choose a nonzero
+quadratic nonresidue \(b\pmod\ell\), and use the Chinese remainder theorem
+to refine the certificate to
+
+\[
+                     p\equiv a\pmod Q,
+             \qquad p\equiv b\pmod\ell .                  \tag{56.6}
+\]
+
+This is a reduced class modulo \(Q\ell\), hence contains infinitely many
+primes.  For every such hard prime,
+quadratic reciprocity and \(p\equiv1\pmod4\) give
+
+\[
+ \chi_\ell(p)=\left({\Delta_\ell\over p}\right)
+       =\left({-\ell\over p}\right)
+       =\left({p\over\ell}\right)=-1.                     \tag{56.7}
+\]
+
+The slice \((c,k)=(\ell,1)\) is therefore unforced and is admissible for all
+sufficiently large primes in (56.6).  Since \(Q\ell\) is a multiple of
+\({\rm lcm}(24,4\ell)\), Corollary 52.2 says that this reduced refinement
+cannot be identically vanishing: arbitrarily far out it contains a prime
+with \(M_{\ell,1}(p)>0\).  That prime has
+\(ck_{\min}(p)\leq\ell\leq T\), contradicting the certificate.  Therefore
+\(\ell\mid Q\) for every prime \(5\leq\ell\leq T\).  Taking logarithms and
+using the effective prime number theorem proves (56.5). \(\square\)
+
+The primitivity point in this proof is additive, not multiplicative: the
+progression modulo a conductor fills residue classes modulo every conductor
+coordinate omitted from \(Q\).  Equation (56.6) exhibits both character
+signs directly.  No claim that a multiplicative subgroup generated by
+\(Q\) controls the progression is used.
+
+**Congruence/Linnik corollary (proved within the stated recipe).**  Suppose a
+certificate construction at depth \(T\) uses
+\(Q=\exp\{(\alpha+o(1))T\}\), and a least-prime theorem with exponent
+\(L\) selects a certified prime
+\(p\leq Q^{L+o(1)}\).  It then gives
+
+\[
+       W(p)>T\ \hbox{ or }\ ck_{\min}(p)>T,
+       \qquad T\geq {1+o(1)\over\alpha L}\log p.           \tag{56.8}
+\]
+
+Theorems 56.1--56.2 force respectively \(\alpha\geq1/2\) and
+\(\alpha\geq1\).  Thus the coefficient available from this generic recipe
+is at most \(2/L\) in Type II and at most \(1/L\) in Type I.  The §54
+residue-one choices have \(\alpha=1\) in both frames.  They therefore
+saturate the Type-I certificate rate and are within a factor two of the
+proved Type-II ceiling; in both frames they establish the optimal
+**logarithmic order** for a certificate-plus-least-prime argument, up to the
+least-prime exponent.  With §54's conservative effective Linnik value
+\(L=5.2\), the coefficient is \(1/5.2\).  Conditional on GRH, the standard
+least-prime bound permits \(L=2+\epsilon\), so the same §54 constructions
+give
+
+\[
+       W(p),\ ck_{\min}(p)>
+               (1/2-\epsilon)\log p                       \tag{56.9}
+\]
+
+respectively along unbounded prime sequences, after harmlessly changing
+\(\epsilon\).  The GRH statement is conditional; (56.2) and (56.5) are unconditional and
+effective.
+
+**Assessment 56.2a (the congruence wall).**  The proved conclusion is that a
+*uniform complete-class* certificate through \(T\) has exponential modulus.
+Consequently, inside the §54 architecture---complete congruence certificate,
+modulus \(\exp\{\Theta(T)\}\), then a generic least-prime theorem---a
+superlogarithmic lower bound would have to abandon at least one ingredient.
+The natural alternative is a non-congruence certificate on a sifted set of
+primes, in the critical-window territory discussed in §33.  The ceiling does
+not logically prohibit every congruence-informed construction: it says
+nothing about an accidentally tiny first prime in a chosen class, or a
+modulus much larger than \(\exp\{\Theta(T)\}\).  Accordingly this is an
+architecture wall, not a theorem that every possible extremal proof beyond
+\(C\log p\) must be non-congruential.
+
+### 56.3 The exact \(W\)-census
+
+**Computational 56.3 (exact stated ranges, informational).**  `verify.py
+(bc)` harvests the complete Lemma-16.1 class set
+\(\{-4D\pmod M:D\mid((M+1)/4)^2\}\) for every
+\(M\leq3000\), \(M\equiv3\pmod4\).  It then scans every hard prime in
+increasing order and stops at the first harvested modulus.  All 9,732 hard
+primes below \(10^6\) resolve within the cap.  Their strict records are
+
+\[
+\begin{array}{c|rrrrrrrrrrrrr}
+p&73&193&1201&2521&3361&33289&90841&144169&167521&225289&361321&915961&954409\\
+W(p)&7&15&31&47&99&155&167&191&259&279&287&303&335
+\end{array}                                                  \tag{56.10}
+\]
+
+With `ES_FULL_SCAN=1`, the streamed, chunked scan covers all 82,887 hard
+primes below \(10^7\).  The only later records are
+
+\[
+             (p,W(p))=(1853329,383),\quad(2031121,2495),    \tag{56.11}
+\]
+
+and the running maximum remains 2495 through the endpoint.  These values are
+exact minima in the harvested family because every smaller eligible modulus
+was tested; the cap is not hit.
+
+The requested normalized maxima, with natural logarithms, are
+
+\[
+\begin{array}{c|c|c|c}
+ p\text{-range}&\max W/\log p&\max W/(\log p\log\log p)&
+                    \max W/(\log p)^2\\ \hline
+p<10^6&24.330286\ (954409,335)&9.277839\ (954409,335)&
+       1.836625\ (225289,279)\\
+p<10^7&171.783468\ (2031121,2495)&64.198698\ (2031121,2495)&
+       11.827479\ (2031121,2495)
+\end{array}                                                  \tag{56.12}
+\]
+
+Each parenthesis is \((p,W(p))\).  At \(p=10^7\), the unconditional §54
+coefficient gives \((1/5.2)\log p=3.0996\ldots\).  This comparison must not
+mix registers: §54 guarantees rare residue-one escapes at a height bounded
+by \(\exp\{(5.2+o(1))T\}\), whereas (56.10)--(56.12) record whatever
+finite primes happen to be extremal below a moderate endpoint.  For example,
+the generic §54 height attached to \(T=2495\) is astronomically beyond this
+scan.  The census neither samples that constructed sequence nor estimates a
+tail density, and the large isolated jump in (56.11) supports no growth law.
+
+### 56.4 The Type-I extremal extension
+
+**Computational 56.4 (exact stated ranges, informational).**  The same block
+factors one norm at a time, skips the exact genus-forced signs before
+factorization, and streams unresolved primes in product order.  For the 3,202
+hard primes below \(3\cdot10^5\), the strict \(ck_{\rm pr}\) records are
+
+\[
+\begin{array}{c|rrrrrrrrrrrrr}
+p&73&193&241&1201&2521&4729&7489&9601&31081&51769&83689&113161&171481\\
+ck_{\rm pr}&7&10&21&34&38&66&70&78&110&249&282&378&461
+\end{array}                                                  \tag{56.13}
+\]
+
+The unrestricted conspiracy-depth records in the same range are
+
+\[
+\begin{array}{c|rrrrrrrrrrr}
+p&73&193&241&769&1321&2281&2521&9601&12289&55441&92401\\
+D(p)&6&9&10&12&20&25&37&66&76&82&102.
+\end{array}                                                  \tag{56.14}
+\]
+
+With `ES_FULL_SCAN=1`, all 9,732 hard primes below \(10^6\) are scanned.
+The later \(ck_{\rm pr}\) records are
+\((319489,878),(538561,898)\); the sole later depth record is
+\((414241,217)\).  Every prime resolves by these maxima.  The normalized
+maxima are
+
+\[
+\begin{array}{c|c|c|c|c}
+\text{statistic and range}&\max X/\log p&
+ \max X/(\log p\log\log p)&\max X/(\log p)^2\\ \hline
+ck_{\rm pr},\ p<3\cdot10^5&38.250190\ (171481,461)&
+ 15.366153\ (171481,461)&3.173703\ (171481,461)\\
+ck_{\rm pr},\ p<10^6&69.273069\ (319489,878)&
+ 27.277261\ (319489,878)&5.465556\ (319489,878)\\
+D,\ p<3\cdot10^5&8.920846\ (92401,102)&
+ 3.661213\ (92401,102)&0.857113\ (12289,76)\\
+D,\ p<10^6&16.777222\ (414241,217)&
+ 6.553922\ (414241,217)&1.297121\ (414241,217)
+\end{array}                                                  \tag{56.15}
+\]
+
+Here \(X\) in the header denotes the statistic in the first column, and each
+parenthesis is \((p,X(p))\).  These are census maxima, not estimates of
+\(H_{\rm SPF}\), \(ck_{\min}\), or a population exponent.  The block keeps
+only the unresolved-prime maps, one bounded residue set for the current norm,
+and fixed record data.  Prime generation is chunked; no prime-by-slice factor
+table or interval-sized residue array is retained.
+
+### 56.5 The remaining window
+
+The exact logical frontier and the finite plotting window can be displayed
+together only if their labels remain separate:
+
+\[
+ \underbrace{A<1}_{\substack{\text{impossible pointwise}\\
+                    \text{Theorems 54.1, 54.3}}}
+ \quad\big|\quad
+ \underbrace{1\leq A\ \lesssim\ 2}_{\substack{\textbf{Assessment: finite-search window only}\\
+        \log p,\ \log p\log\log p,\ (\log p)^2
+        \text{ are the census anchors}}}
+ \quad\big|\quad
+ \underbrace{A\geq1}_{\substack{H_{\rm MOD}(A),H_{\rm SPF}(A)\\
+                                  \text{still open pointwise}.}}             \tag{56.16}
+\]
+
+The symbol \(\lesssim2\) in the middle is deliberately not a proved upper
+bound, a conjectured limiting exponent, or even a monotonic trend.  It only
+names the normalization panel in (56.12) and (56.15).  The proved lower wall
+is \(A=1\); no finite census supplies the other side.  *(wave-21 pointer)*
