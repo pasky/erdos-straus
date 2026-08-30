@@ -24035,8 +24035,11 @@ Python-integer scan covered every unique twisted square
  n=sm^2\in(10^6,10^8],\qquad 2\leq s\leq1000\text{ squarefree},
                     \qquad1\leq m\leq300.                \tag{62.25}
 \]
-There are 607 squarefree kernels and 146,016 pairs in this box.  Stage 1
-harvested every modulus \(M\leq10^4\), \(M\equiv3\pmod4\), and found a
+This is exactly the intersection with the stated \((s,m)\)-box, not the
+full interval: values whose unique coordinates have \(s>1000\) or \(m>300\)
+are outside the scan.  There are 607 squarefree kernels and 146,016 pairs,
+hence 146,016 distinct integers, in the box.  Stage 1 harvested every modulus
+\(M\leq10^4\), \(M\equiv3\pmod4\), and found a
 witness for every pair.  Hence the survivor lists passed to the
 \(M\leq10^6\) stage and to the complete finite dual \(a\)-decision were both
 empty.  The largest exact least value in the box was
@@ -24076,3 +24079,63 @@ produce a huge \(M\).  The finite-conspiracy display is the terminal
 distillation of the Type-II pointwise problem and clarifies the three known
 mechanisms; it does not solve that problem, prove \(C_{\rm SQ}'\), or prove
 Erdos--Straus.
+
+### 62.7 Review attestation (wave 26)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Maximum-severity review independently
+rederived the ratio law, all six local laws, the record-prime anatomy, and the
+staged-hunt maximum.  No mathematical counterexample or changed conclusion
+was found.  The repairs make the hunt's box scope unambiguous and strengthen
+its executable pins.
+
+* **HIGH (ratio law and prime criterion):** from \(4h=p+a\), \(a<p\), and
+  primality, the review obtained \((a,h)=(a,p)=1\).  It then rederived the
+  bijection \(e_q\leftrightarrow f_q=e_q-v_q(h)\), hence (62.8), and checked
+  that \(D\mapsto h^2/D\) preserves \(D\equiv-h\pmod a\).  Multiplication by
+  \(h^{-1}\) gives exactly the criterion \(-1\in{\rm Rat}_a(h)\), with the
+  same bounds, congruences, eligibility, and minimization as Theorem 61.4;
+  this is an exact restatement, not tail or pointwise progress.
+* **HIGH (six laws):** direct cyclic-group derivation reproduced every
+  inverse-paired row in (62.10).  The bounded coefficient equation gives the
+  three conditions at 7, the ten and only ten componentwise-minimal budgets
+  at 11, and (62.13) at 19 and 23.  An independent
+  \(C_4\times C_2\) calculation at 15 reproduced exactly the four rows in
+  (62.15), including repeated-prime budgets.  A fresh divisor-spectrum
+  enumeration for every unit \(h\leq10^5\) found no law mismatch: the six
+  checked and failure counts are exactly (62.18).
+* **MEDIUM (multiplicity and records):** for \(a=7,h=17\), the review found
+  \(\langle3\rangle=(\mathbb Z/7\mathbb Z)^*\) but
+  \({\rm Rat}_7(17)=\{5,1,3\}\); the exponent needed for \(-1=3^3\) is
+  outside \([-1,1]\), so the example is numerically and logically exact.
+  A separate full dual scan reproduced all four rows of (62.22)--(62.23),
+  with respectively 24, 62, 112, and 36 quotient rows.  In particular
+  \(p=2031121\) first succeeds at \(a=11\), giving \(M=185279\), whereas
+  its exact minimum is \(W=2495\) at \((a,D)=(815,576)\).
+* **MEDIUM (fourth-sporadic hunt):** an independent original-coordinate
+  harvest rechecked all 146,016 distinct members of the stated box and a
+  seeded 2,000-member sample of explicit witness data.  Every member has
+  \(W\leq10^4\); the unique maximum is again
+  \(W(9028800)=3359\), with \((M,D,a)=(3359,48,2688)\).  The text now says
+  explicitly that this is the stated \((s,m)\)-box subset, not the whole
+  interval.  This strengthens only bounded evidence for \(C_{\rm SQ}'\):
+  the conjecture and its open status are unchanged, and only its stated
+  right-to-left inclusion remains proved.
+* **LOW (register and executable coverage):** the squares/character,
+  sporadics/gcd-eligibility, and primes/ratio-avoidance trichotomy matches
+  §§60--61 without claiming completeness of all conceivable mechanisms.
+  The independence model remains labeled **Heuristic** with its shared-shift
+  and shared-factor caveats.  Block (bi) now directly pins the displayed
+  failure-budget vectors and the maximum's \((M,D,a)\) datum; its default
+  path takes about 7.3 seconds on the review host, while the 146,016-row hunt
+  remains gated by `ES_FULL_SCAN=1`.
+* **Verification:** the prescribed full command completed green in 131
+  seconds under its 480-second timeout.  Block (bi) uses Python integers,
+  keeps factor/divisor work bounded, and replays all 1,181 hard primes
+  through \(10^5\).
+  Control-byte, malformed-TeX, and divisibility-command sweeps were clean.
+
+The residual doubt is only the stated open mathematics: local laws and
+finite censuses neither prove a witness for every prime nor classify all
+nonsquare values with \(W=+\infty\).  Such witness-statistic failures are
+not Erdős--Straus counterexamples, and §62 claims no new tail bound,
+pointwise theorem, or Erdős--Straus progress.

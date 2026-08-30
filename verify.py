@@ -11772,6 +11772,37 @@ def check_bi():
         anatomy[p] = (minimum_row, first, tuple(small))
     assert anatomy == anatomy_expected
 
+    # Pin the displayed failure-budget ledger, not only its P/F outcomes.
+    failure_budgets_expected = {
+        (225_289, 3): (0,),
+        (225_289, 7): (0, 3, 0),
+        (225_289, 11): (0, 2, 0, 2, 0),
+        (225_289, 15): (2, 0, 0, 0, 0),
+        (225_289, 19): (0, 1, 1, 0, 1, 0, 0, 0, 0),
+        (225_289, 23): (0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+        (954_409, 7): (0, 3, 0),
+        (954_409, 11): (0, 1, 0, 1, 0),
+        (954_409, 15): (2, 0, 0, 0, 0),
+        (954_409, 19): (0, 1, 2, 0, 0, 0, 0, 0, 0),
+        (954_409, 23): (0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0),
+        (1_853_329, 15): (4, 0, 0, 0, 0),
+        (1_853_329, 19): (0, 0, 0, 0, 0, 1, 1, 0, 0),
+        (1_853_329, 23): (0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 0),
+        (2_031_121, 3): (0,),
+        (2_031_121, 7): (0, 3, 0),
+        (2_031_121, 15): (4, 0, 0, 0, 0),
+        (2_031_121, 23): (1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+    }
+    failure_budgets = {}
+    for (p, a), expected in failure_budgets_expected.items():
+        factors = tuple((int(q), int(exponent)) for q, exponent in
+                        factorint((p + a) // 4).items())
+        failure_budgets[p, a] = (
+            fifteen_budgets(factors) if a == 15
+            else prime_budgets(factors, a)
+        )
+    assert failure_budgets == failure_budgets_expected
+
     # For the three composite sporadics the unit normalization can fail.
     # Every raw quotient row lies in such a nonunit branch and all are killed
     # by the uncancelled D|A^2 eligibility check.
@@ -11875,6 +11906,11 @@ def check_bi():
         if full_scan else
         (121, 5_105, 0, 0, (), (659, (1_666_170, 170, 99)))
     )
+    if full_scan:
+        maximum_M, (maximum_n, _, _) = maximum
+        maximum_D, maximum_a = 48, 2_688
+        assert maximum_D in divisors_of_square((maximum_M + 1) // 4)
+        assert maximum_n + 4 * maximum_D == maximum_a * maximum_M
 
     print("ratio-spectrum identity / small-law exhaustive counts =",
           (random_identity_rows, dict(checked_counts), dict(failure_counts)))
