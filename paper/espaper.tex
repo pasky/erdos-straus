@@ -54,15 +54,12 @@ Theorem~34.8 in the source notes), is likewise
 \textsc{claimed}/\allowbreak\textsc{provisional}, and the second headline
 inherits the three qualifications of the source \S39.7.  No assertion in
 this draft should be cited as an established improvement before independent
-expert review.  A separate, completely written internal layer gives
-\[
- E_m(N)\ll_m N\exp\left\{-c
- \left(\frac{\eta_1(m)}{\varphi(m)}\right)^{1/3}
- (\log N)^{2/3}(\log\log N)^{1/3}\right\};
-\]
-because this too would improve the published general-numerator benchmark,
-it remains \textsc{claimed/provisional} pending external priority and
-referee checks, although it assumes no unproved hypothesis.  We further
+expert review.  A separate, completely written fixed-$m$ layer gives
+$E_m(N)\ll_m N\exp\{-c(\eta_1(m)/\varphi(m))^{1/3}
+(\log N)^{2/3}(\log\log N)^{1/3}\}$.  Because this too would improve the
+published general-numerator benchmark, it remains
+\textsc{claimed/provisional} pending external priority and referee checks,
+although it assumes no unproved hypothesis.  We further
 blind-adjudicate an exact, record-adjacent \textsc{claimed/provisional}
 effectivity perimeter, prove a two-scale tail for the minimal Type-II
 witness modulus $W$ (cubic variant \textsc{claimed/provisional}), and prove
@@ -72,17 +69,15 @@ $\exp\{-c_A(\log\log X)^{3/2}/\sqrt{\log\log\log X}\}$ proportion of hard
 primes for fixed $0<A<1$.  In the opposite direction, we prove effectively
 that $W(p)>c\log p$ and $ck_{\min}(p)>c\log p$ infinitely often; hence both
 $H_{\rm MOD}(A)$ and $H_{\rm SPF}(A)$ are false for every $0<A<1$, leaving
-exactly $A\geq1$ open in the two pointwise frames.  We also prove that a
-complete congruence-class certificate through depth $T$ has
-$\log Q\geq(1/2+o(1))T$ in Type II and $\log Q\geq T+o(T)$ in Type I.
-These are effective ceilings on the certificate-plus-least-prime
-architecture, not pointwise upper bounds on either depth statistic.  A
-separate \textbf{proved-conditional} reduction shows that the cubic tail
-would settle all sufficiently large primes if its uniform depth window
-reached $\log T\leq b(\log N)^\theta$ for any $\theta>1/3$; the square-log
-tail needs $\theta\geq1/2$, including the endpoint.  Both named window
-hypotheses are \textsc{unproved}; the currently realized common exponent is
-only $1/4$, with every provisional inheritance retained.  We also prove the
+exactly $A\geq1$ open in the two pointwise frames.  Complete congruence-class certificates through depth $T$ satisfy the
+effective lower bounds $\log Q\geq(1/2+o(1))T$ in Type II and
+$\log Q\geq T+o(T)$ in Type I; these constrain only the
+certificate-plus-least-prime architecture.  A \textbf{proved-conditional}
+reduction would settle all sufficiently large primes if the cubic depth
+window reached any $\theta>1/3$, or the square-log window reached
+$\theta\geq1/2$.  Both window hypotheses are \textsc{unproved}; the
+currently realized common exponent is only $1/4$, with every provisional
+inheritance retained.  We also prove the
 square-escape theorem
 \[
  W(m^2)=+\infty\quad(m\geq1),\qquad
@@ -110,31 +105,30 @@ unit-fraction representations show that they are not Erd\H{o}s--Straus
 counterexamples.  Exact finite censuses through the stated endpoints remain
 informational only.
 
-For each $M\equiv3\pmod4$, put $A=(M+1)/4$.  The congruence identities studied here give the intrinsic forbidden set
+For $M\equiv3\pmod4$ and $A=(M+1)/4$, the intrinsic forbidden set is
 \[
  \Rcal(M)=\{-4D\pmod M:D\mid A^2\}.
 \]
-We prove this description with honest deduplication and show that its total class mass through $X$ is of exact order $(\log X)^3$.  The prime-modulus subsystem has mass $\Theta((\log X)^2)$ and avoider density $\exp\{-\Theta((\log X)^2)\}$.  Every square avoids the full intrinsic system.
+Its deduplicated mass through $X$ is $\Theta((\log X)^3)$; the prime-modulus
+subsystem has mass $\Theta((\log X)^2)$ and avoider density
+$\exp\{-\Theta((\log X)^2)\}$.  Every square avoids the full system.
 
-Separately, a weighted rough-modulus estimate and the Lov\'asz local lemma refute the literal all-range partition-free hypothesis $\PF$ by proving
+A weighted rough-modulus estimate and the Lov\'asz local lemma refute the
+literal all-range partition-free hypothesis $\PF$ by proving
 \[
- \delta_X\geq\exp\!\left\{-O\!\left(\frac{(\log X)^3\log\log\log X}{\log\log X}\right)\right\}
-       =\exp\{-o((\log X)^3)\}.
+ \delta_X\geq\exp\!\left\{-O\!\left(\frac{(\log X)^3\log\log\log X}
+ {\log\log X}\right)\right\}=\exp\{-o((\log X)^3)\}.
 \]
-That refutation does not apply in the critical window $\log N\asymp(\log X)^4$.  The provisional $3/4$ argument instead uses a fixed $c$-free atom family, residue-resolved factorial moments, a uniform conditioned void supplied by Theorem~\ref{thm:pruned}, and an even-Bonferroni majorant with the honest coefficient ledger $\exp\{O((\log X)^4)\}$.  The literal $\exp\{O(J)\}$ ledger clause of the earlier critical-window hypothesis is not proved and is deliberately bypassed.  At the separate residue-dispersion frontier, a nested divisor cube refutes
-the literal raw factorial-moment and codegree targets, while a complete
-bipartite grid of maximal $D=2$ semiprime atoms refutes their
-implication-antichain replacements.  These failures concern the proposed
-moment formulations, not the critical-window hypothesis, the pair endpoint,
-or the conjecture; the complete-system moment axis is now dormant.  The
-endpoint has a unique short cofactor, and its closed prefix reaches
-$4c^2s\ll(\log X)^5\log\log\log X/(\log\log X)^2$, with an additional
-large-$c$ wedge.  Its exact residual distinct-cell collision sum remains
-\textsc{open}.  On the pointwise side we prove a one-prime-factor slice
-criterion and isolate a bespoke unproved hypothesis implying Type-I
-representations for all sufficiently large hard primes.  The accompanying
-GRH, Bateman--Horn, Chebotarev, and Duke audit is a map of the missing input,
-not an unconditional pointwise theorem.
+This does not reach the critical window $\log N\asymp(\log X)^4$.  The
+provisional $3/4$ argument instead uses the fixed $c$-free family,
+residue-resolved moments, Theorem~\ref{thm:pruned}'s conditioned void, and
+an even-Bonferroni majorant with the honest $\exp\{O((\log X)^4)\}$ ledger;
+the earlier $\exp\{O(J)\}$ clause remains unproved and is bypassed.  At the
+residue-dispersion frontier, divisor-cube and semiprime-grid constructions
+refute the raw and implication-antichain moment formulations, not the
+critical-window hypothesis, pair endpoint, or conjecture.  The exact
+residual collision sum remains \textsc{open}.  A proved slice criterion reduces the pointwise question to a bespoke
+unproved hypothesis; the standard-hypothesis audit does not prove it.
 \end{abstract}
 
 \maketitle
