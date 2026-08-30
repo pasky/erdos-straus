@@ -81,6 +81,37 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 30 (2026-08-30, wave 26 — see notes.md §62 + paper v12; max-severity-reviewed → repaired / FAITHFUL)
+
+* **§62: the divisor-ratio spectrum — the terminal distillation of the
+  Type-II pointwise problem (SOUND-AFTER-REPAIRS; every law
+  independently re-derived).**  Theorem (spectrum law): for prime \(p\),
+  admissible \(a\): \(\{Dh^{-1}\bmod a:D\mid h^2\}=\{\prod_{q\mid
+  h}q^{f_q}:|f_q|\leq v_q(h)\}\), so \(p\) is witnessed at \(a\iff-1\
+  ({\rm mod}\ a)\) is a bounded-exponent product of \(h\)'s primes,
+  \(h=(p+a)/4\).  **Explicit per-\(a\) laws proved for a =
+  3,7,11,15,19,23** (subgroup/coset + CRT; reviewer re-derived all six
+  and checked every unit \(h\leq10^5\) — zero disagreements; failure
+  counts recorded).  **Multiplicity-budget phenomenon (new, verified):**
+  \(a=7,h=17\): \(\langle3\rangle=(\mathbb Z/7)^*\ni-1\), yet \(-1=3^3\)
+  needs exponent 3 \(>\) budget 1 — subgroup membership ≠ spectrum
+  membership; the budget is real.  Late-record anatomy (recomputed
+  independently): first-witness vs minimal-\(W\) data separate — e.g.
+  \(p=2031121\) first succeeds at \(a=11\) (\(M=185279\)) while
+  \(W=2495\) comes from \(a=815\).  Finite-conspiracy display: a prime
+  failure needs EVERY admissible \(a\leq2B\) to fail its law — the
+  trichotomy (squares: character; sporadics: gcd; primes: neither
+  available) + Heuristic joint-failure mass with dependence caveat.
+  **Fourth-sporadic hunt: all 146{,}016 nonsquare twisted squares
+  \(sm^2\in(10^6,10^8]\) in the box \(s\leq1000\), \(m\leq300\) resolve
+  by \(M\leq10^4\)** (max \(W(9028800)=3359\); box-subset framing
+  repaired in review; 2{,}000 seeded independent replays) — C_SQ\'
+  strengthened, still only \(\supseteq\) proved.  Verify (bi) ~7s.
+* **paper v12 (112pp, FAITHFUL-AFTER-MINOR-REPAIR):** §61 absorbed
+  (Section 23; census pedigree, residue laws, prime criterion,
+  trichotomy; 3630-entry codebook condensed to histogram + displayed
+  SHA-256 digest); v13 queue = §62.
+
 ## Outcome 29 (2026-08-30, wave 25 — see notes.md §61 + paper v11; max-severity-reviewed → repaired / FAITHFUL)
 
 * **§61: the decidable census, the twisted-square laws, and the prime
