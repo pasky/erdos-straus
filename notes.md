@@ -24629,3 +24629,419 @@ histogram entry, both correlations, the separation extrema, and (63.28).
 The \(10^7\) replay is gated by `ES_FULL_SCAN=1`; prime generation is
 chunked and only one factorization or divisor list is live at a time.  The
 isolated default block takes about 2.4 seconds on the research host.
+
+## 64. The gcd mechanism: cancellation covers, shifted purity, and a wider twisted-square hunt
+
+**Status and headline.**  The cancellation-cover criterion, both shifted
+support laws, the dyadic exclusions, the twisted-square residue exclusion,
+and the composite unit-branch ratio law below are **proved**.  The three
+sporadic ledgers and both hunts are **Computational**, exact only in their
+stated finite ranges.  The strongest common structural conclusion is an
+exact necessary-and-sufficient description of failure after the quotient
+stage: every quotient row must lose eligibility at a prime dividing the
+candidate itself.  This identifies the gcd mechanism but does not prove that
+every nonsquare failure has a quotient row, does not prove that only three
+sporadics exist, and does not prove the Erdos--Straus conjecture.
+
+The two smallest original-coordinate layers sharpen this description in a
+way that is completely immune to gcd cancellation.  In particular,
+\(W(n)=+\infty\) forces the odd part of \(n+4\) to be supported only on
+primes \(1\pmod4\), and forces the odd-prime support of \(n+8\) to lie in
+one of the two sets \(\{1,3\}\) or \(\{1,5\}\pmod8\).  These are necessary
+conditions, not a characterization.  All three known sporadics pass them.
+
+### 64.1 The exact cancellation cover
+
+Put \(B=\lfloor(n+1)/3\rfloor\), and define the finite set of **quotient
+rows**
+
+\[
+ \begin{split}
+ {\cal Q}(n)=\{(a,D):\;&1\leq a\leq2B,\quad a\equiv-n\pmod4,
+       \quad h=(n+a)/4,\\
+   &D\mid h^2,\qquad a\mid D+h\}.
+                                                               \tag{64.1}
+ \end{split}
+\]
+
+For a row put
+\[
+             A={D+h\over a},\qquad M=4A-1.
+                                                               \tag{64.2}
+\]
+The row has reached the quotient stage of Theorem 60.1; only
+\(D\mid A^2\) remains to make it a witness.
+
+**Theorem 64.1 (gcd-supported cancellation cover; proved).**  For every
+positive integer \(n\),
+\[
+ W(n)=+\infty
+ \quad\Longleftrightarrow\quad
+ \text{every }(a,D)\in{\cal Q}(n)\text{ has a prime }q\mid n
+ \text{ for which}
+\]
+\[
+ 2v_q(A)<v_q(D)\leq2v_q(a)+2v_q(A),
+ \qquad q\mid(a,D).                                      \tag{64.3}
+\]
+The universal statement includes the possibility that \({\cal Q}(n)\) is
+empty.  Consequently, one unit quotient row, meaning
+\((a,D)=1\), proves \(W(n)<+\infty\).  More generally, every failure of the
+last eligibility check is supported on the prime divisors of \(n\); no
+outside prime can kill a quotient row.
+
+*Proof.*  For every row, \(h=aA-D\), so
+\(h\equiv aA\pmod D\).  Since \(D\mid h^2\), this gives
+\(D\mid a^2A^2\).  At a prime \(q\), with
+\(d=v_q(D),\alpha=v_q(a),\beta=v_q(A)\), this is exactly
+\(d\leq2\alpha+2\beta\).  Eligibility fails exactly when some
+\(d>2\beta\).  Such a prime has \(\alpha>0\), hence
+\(q\mid(a,D)\).  Also (64.2) gives
+\[
+                         aM=n+4D,
+\]
+so \((a,D)\mid n\).  This proves (64.3).  If no prime fails, then
+\(D\mid A^2\), and Theorem 60.1 makes the row a witness.  Conversely every
+witness is a row of (64.1) with no failed prime. \(\square\)
+
+Thus the gcd mechanism has an exact scope.  It can kill a row only through
+prime powers already present in \(n\).  It does not itself ensure that a row
+exists.  The alternative \({\cal Q}(n)=\varnothing\) is the complete
+quotient-avoidance mechanism already isolated for a hypothetical prime in
+(62.19).
+
+### 64.2 Two cancellation-immune shifted laws
+
+For a positive integer \(N\), its odd-prime support means the set of odd
+primes dividing \(N\), without multiplicity.
+
+**Theorem 64.2 (exact \(D=1\) and \(D=2\) support laws; proved).**
+
+1. The \(D=1\) layer gives a witness for \(n\) if and only if \(n+4\) has a
+   divisor \(M\equiv3\pmod4\).  Equivalently, it gives a witness if and
+   only if some prime \(q\equiv3\pmod4\) divides \(n+4\).  Its least
+   modulus is the least such prime.  In particular,
+   \[
+   W(n)=+\infty\quad\Longrightarrow\quad
+   \text{every odd prime dividing }n+4\text{ is }1\pmod4.
+                                                               \tag{64.4}
+   \]
+
+2. The \(D=2\) layer gives a witness if and only if \(n+8\) has a divisor
+   \(M\equiv7\pmod8\).  Equivalently, its odd-prime support either contains
+   a prime \(7\pmod8\), or contains both a prime \(3\pmod8\) and a prime
+   \(5\pmod8\).  Therefore
+   \[
+   W(n)=+\infty\quad\Longrightarrow\quad
+   \begin{cases}
+   q\not\equiv7\pmod8&\text{for every odd }q\mid n+8,\\
+   \text{not both residues }3,5\pmod8&\text{occur in the support.}
+   \end{cases}                                             \tag{64.5}
+   \]
+   Equivalently, that support is contained in \(\{1,3\}\pmod8\) or in
+   \(\{1,5\}\pmod8\).
+
+Every witness in part 1 has \(M\leq n+4\), and every witness in part 2 has
+\(M\leq n+8\).
+
+*Proof.*  At \(D=1\), eligibility is automatic and the datum equation is
+\(M\mid n+4\).  Conversely any such divisor \(M\equiv3\pmod4\), with
+\(A=(M+1)/4\), is a datum; its quotient
+\(a=(n+4)/M\) automatically satisfies
+\(a\equiv3n\equiv-n\pmod4\).  A divisor \(3\pmod4\) contains a prime
+\(3\pmod4\), and that prime is itself a smaller allowed divisor.  This
+proves part 1, including the minimum claim.
+
+At \(D=2\), eligibility is
+\(2\mid A^2\), equivalently \(A\) is even, equivalently
+\(M=4A-1\equiv7\pmod8\); the datum equation is \(M\mid n+8\).  In the
+Klein four-group of odd residues modulo 8, a divisor has residue 7 exactly
+when one can select either a prime of residue 7 or one prime of each residue
+3 and 5.  If neither occurs, divisors supported on \(\{1,3\}\) have only
+residues 1 and 3, and those supported on \(\{1,5\}\) have only residues 1
+and 5.  This proves part 2. \(\square\)
+
+For the known sporadics the exact factorizations are
+\[
+\begin{array}{r|l|l}
+ n&n+4&n+8\\ \hline
+288&2^2\cdot73&2^3\cdot37\\
+336&2^2\cdot5\cdot17&2^3\cdot43\\
+4545&4549&29\cdot157.
+\end{array}                                                \tag{64.6}
+\]
+Here every odd factor in the middle column is \(1\pmod4\).  In the last
+column the supports use, respectively, only residue 5, only residue 3, and
+only residue 5 modulo 8.  Thus all three pass both necessary laws.
+
+**Corollary 64.3 (explicit forbidden families; proved).**  For every
+\(e,k\geq0\), whenever the displayed \(n\) is positive,
+\[
+ \begin{array}{rcll}
+ n&\equiv&3\cdot2^e-4\pmod {2^{e+2}}&\Longrightarrow W(n)<+\infty,\\
+ n&\equiv&7\cdot2^e-8\pmod {2^{e+3}}&\Longrightarrow W(n)<+\infty.
+ \end{array}                                                \tag{64.7}
+\]
+The first line uses the odd divisor \((n+4)/2^e\equiv3\pmod4\); the second
+uses \((n+8)/2^e\equiv7\pmod8\).  In particular no failure lies in
+\(n\equiv3\pmod4\), \(n\equiv2\pmod8\), \(n\equiv8\pmod {16}\),
+\(n\equiv6\pmod {16}\), \(n\equiv20\pmod {32}\), or
+\(n\equiv48\pmod {64}\), with overlaps harmless.
+
+For twisted squares, (64.4) becomes an explicit infinite residue sieve.
+
+**Corollary 64.4 (twisted-square \(D=1\) exclusion; proved).**  Let \(s>1\)
+be squarefree, let \(q\equiv3\pmod4\) be prime with \(q\nmid s\), and
+suppose
+\[
+                         \left({s\over q}\right)=-1.
+\]
+Then \(sm^2\equiv-4\pmod q\) has exactly two classes of solutions for
+\(m\pmod q\), and every integer \(m\) in either class satisfies
+\[
+                         W(sm^2)\leq q.                    \tag{64.8}
+\]
+Consequently a twisted-square failure must avoid these two classes for every
+such \(q\).  At \(q=3\), this recovers the broad family
+\(s\equiv2\pmod3,\ 3\nmid m\Rightarrow W(sm^2)=3\).
+
+*Proof.*  The congruence is soluble exactly when
+\[
+ \left({-4s^{-1}\over q}\right)
+   =\left({-1\over q}\right)\left({s\over q}\right)=-
+     \left({s\over q}\right)=1.
+\]
+A nonzero quadratic residue has two roots.  For either root, \(q\mid
+sm^2+4\), so Theorem 64.2 supplies the \(D=1,M=q\) datum.  At 3 there is no
+smaller allowed modulus. \(\square\)
+
+These exclusions are genuine infinite-family progress, but they leave many
+residue classes.  They do not classify the \(s=2,21,505\) families.
+
+### 64.3 Unit branches and the three complete ledgers
+
+Primality was stronger than necessary in the ratio-spectrum argument.  What
+it supplied was a unit branch.
+
+**Theorem 64.5 (composite unit-branch ratio law; proved).**  Let \(n\) be
+odd, let
+\[
+ 1<a\leq2\lfloor(n+1)/3\rfloor,
+ \qquad a\equiv-n\pmod4,
+ \qquad h=(n+a)/4,
+ \qquad (a,n)=1.
+\]
+Then \((a,h)=1\), and a witness exists at this \(a\) if and only if
+\[
+                         -1\in {\rm Rat}_a(h).             \tag{64.9}
+\]
+Every ratio hit is automatically eligible, even when \(n\) is composite.
+In particular, if \(n\geq5\), \(n\equiv1\pmod4\), \(3\nmid n\), and
+\(h=(n+3)/4\) has a prime divisor \(2\pmod3\), then
+\[
+                         W(n)<+\infty.                     \tag{64.10}
+\]
+
+*Proof.*  Both \(a\) and \(n\) are odd, and
+\((a,4h)=(a,n+a)=(a,n)=1\), so \((a,h)=1\).  The divisor-ratio bijection
+(62.7)--(62.8) says that \(-1\in{\rm Rat}_a(h)\) exactly when some
+\(D\mid h^2\) satisfies \(D\equiv-h\pmod a\), hence gives a quotient row.
+That congruence and \((a,h)=1\) force \((a,D)=1\).  Theorem 64.1 then makes
+eligibility automatic.  The converse is immediate from the same bijection.
+For \(a=3\), Theorem 62.2(1) gives (64.10). \(\square\)
+
+For even \(n\), every admissible \(a\) is even, so this unit shortcut is
+unavailable.  This explains a real parity distinction, but not the whole
+sporadic list: \(4545\) is odd.
+
+For a quotient row define its failed-prime set
+\[
+ F(a,D)=\{q:v_q(D)>2v_q(A)\}.                             \tag{64.11}
+\]
+The following is the unfiltered extension of (60.21), (61.6), and (62.24).
+The notation \(g:c\) means that exactly \(c\) quotient rows have
+\((a,D)=g\).
+
+**Computational 64.1 (complete sporadic cancellation ledgers).**  Block
+(bk) exhausts every row of \({\cal Q}(n)\) for all three values.  The full
+gcd distributions are
+
+```text
+288 : 3:5, 4:2, 6:4, 9:6, 12:3, 16:3, 18:3, 24:2, 36:3, 96:12
+336 : 2:2, 3:6, 4:2, 6:8, 7:4, 8:3, 14:2, 16:1, 21:6,
+      24:2, 28:1, 42:4, 48:14, 112:10
+4545: 3:15, 5:13, 9:18, 15:73, 45:35, 101:3, 303:20,
+      909:3, 1515:8
+```
+
+The corresponding failed-prime-set counts are
+\[
+\begin{array}{r|l}
+288&\{2\}:8,\ \{3\}:17,\ \{2,3\}:18\\
+336&\{2\}:12,\ \{3\}:11,\ \{7\}:10,\ \{2,3\}:15,
+     \ \{2,7\}:10,\ \{3,7\}:5,\ \{2,3,7\}:2\\
+4545&\{3\}:46,\ \{5\}:35,\ \{101\}:8,\ \{3,5\}:73,
+     \ \{3,101\}:18,\ \{5,101\}:2,\ \{3,5,101\}:6.
+\end{array}                                                \tag{64.12}
+\]
+The row totals are \(43,65,188\), and every row has a nonempty failed set.
+For each \(n\), the union of the failed primes is exactly the prime support
+of \(n\): \(\{2,3\}\), \(\{2,3,7\}\), and \(\{3,5,101\}\).  The
+character-filtered subledgers remain those in (60.21) and (61.6).
+
+For 288 and 336, every admissible \(a\) shares a factor with \(n\), as
+parity already forces.  For 4545, exactly 400 of the 757 admissible values
+of \(a\) are unit branches.  None of those 400 has a quotient row; all 188
+rows occur among the other 357 values, and cancellation kills all of them.
+Thus the common exact signature of
+\((s,m)=(2,12),(21,4),(505,3)\) is now:
+
+1. both shifted support tests (64.4)--(64.5) pass;
+2. quotient rows exist;
+3. every quotient row is covered by a failed prime dividing \(sm^2\).
+
+This is a necessary-and-sufficient finite diagnosis for these three inputs,
+not a congruence characterization of all twisted-square failures.  The gcd
+supports differ substantially, and the nearby multiples recorded in §61.2
+resolve.
+
+### 64.4 Is the nonsquare exceptional set finite?
+
+**Assessment 64.1 (finiteness remains open).**  No finiteness theorem for
+\[
+        \{n: n\text{ is not a square and }W(n)=+\infty\}
+\]
+is presently obtained.  The exact obstacles are these.
+
+* Theorem 60.1 makes each individual decision finite, but its box grows with
+  \(n\).  It gives no uniform last candidate.
+* The shifted laws are only necessary.  Their simultaneous survivor set
+  contains every square and is not known to contain only finitely many
+  nonsquares.
+* Theorem 64.1 localizes every cancellation failure to primes of \(n\), but
+  does not force a quotient row, a unit row, or an uncancelled row as
+  \(n\) grows.  Even inputs have no unit \(a\) at all.
+* Chebotarev, GRH, and standard shifted-prime conjectures do not by
+  themselves control the simultaneous, pointwise divisor congruences in
+  \({\cal Q}(n)\).  No standard conjecture located earlier in this campaign
+  yields the required uniform row.
+* Conjecture \(C_{\rm POLY}\) is insufficient.  It forbids a whole
+  nonsquare polynomial from escaping at every integer argument, but an
+  infinite sparse exceptional set need not contain all values of any
+  polynomial or progression.  Conjecture \(C_{\rm SQ}'\) would of course
+  imply finiteness, but that is exactly the open classification at issue.
+
+Accordingly no unconditional or standard-conjectural finiteness claim is
+made.
+
+**Heuristic 64.1 (uniform-independent class model).**  For
+\[
+ S_M=\{-4D\pmod M:D\mid((M+1)/4)^2\},
+\]
+treat a nonsquare candidate as uniform modulo every \(M\), treat the events
+for different \(M\)'s as independent, and assume that restricting to
+squarefree-kernel coordinates introduces no further character correlation.
+Those three assumptions give
+\[
+ \Pr(W(n)>10^4)\approx
+ \prod_{\substack{M\leq10^4\\M\equiv3(4)}}
+          \left(1-{|S_M|\over M}\right)
+ =1.033524640428\cdot10^{-12}.                            \tag{64.13}
+\]
+There are 2,500 moduli and \(\sum|S_M|=64,978\) in this product.  It predicts
+about \(2.51\cdot10^{-7}\) stage-1 survivors among the 242,837 new points
+below.  The observed count zero is compatible with that toy model.
+
+This is only a **Heuristic**.  Squares violate the model globally, Lemma
+59.7 gives real character correlations for twisted squares, the same
+integer is reused across all moduli, and no summable uniform error is known
+as the candidate range and modulus ceiling grow.  Therefore (64.13) is not
+evidence sufficient to deduce finiteness.
+
+### 64.5 Theory-guided wider hunt
+
+The shifted theorems provide a cheap exact diagnostic prefilter.  A
+candidate passing the first count below has the \(n+4\) purity in (64.4);
+one passing the second also has the \(n+8\) support restriction in (64.5).
+The general stage still walks every candidate in \(M\)-ascending order, so
+that it retains exact minima, and uses the complete class set \(S_M\).
+Thus every reported hit is a genuine Lemma-16.1 datum for a composite as
+well as a prime.
+
+**Computational 64.2 (expanded twisted-square hunt; exact box).**  With
+`ES_FULL_SCAN=1`, block (bk) scans every unique
+\[
+ n=sm^2\in(10^6,10^8],\qquad
+ 2\leq s\leq2000\text{ squarefree},\qquad1\leq m\leq600,
+                                                               \tag{64.14}
+\]
+except the already-scanned subbox \(s\leq1000,m\leq300\).  The exact ledger
+is
+\[
+\begin{array}{l|r}
+\text{squarefree kernels through 2000}&1214\\
+\text{new pairs}&242837\\
+\text{pass the }n+4\text{ support law}&50633\\
+\text{pass both shifted support laws}&18943\\
+\text{survive all }M\leq10^4&0\\
+\text{survive all }M\leq10^6&0\\
+\text{complete-normal-form infinities}&0.
+\end{array}                                                \tag{64.15}
+\]
+Together with §62.5 this covers all 388,853 pairs in the enlarged box.  The
+unique largest exact least value among the new pairs is
+\[
+ \begin{split}
+ W(3,201,660)&=5303,
+ &3,201,660&=15\cdot462^2,\\
+ (M,D,a)&=(5303,338,604).
+ \end{split}                                               \tag{64.16}
+\]
+The ascending class walk checked every smaller eligible modulus, and the
+displayed row satisfies \(D\mid((M+1)/4)^2\) and
+\(n+4D=aM\).  No fourth sporadic was found.  Since stage 1 had no survivor,
+the coded \(M\leq10^6\) and complete finite-decision stages received empty
+lists; their emptiness is exact, not a cutoff inference.
+
+The default replay is the new subbox \(s\leq400,m\leq350\), still excluding
+the old box.  It contains 11,833 pairs; 2,406 pass (64.4), 872 pass both
+shifted laws, and none survives \(M\leq10^4\).  Its unique maximum is
+\(W(1,359,015)=2147\) at \((s,m)=(15,301)\), with
+\((D,a)=(9,633)\).
+
+**Computational 64.3 (thin slice beyond \(10^8\)).**  The optional run also
+scans
+\[
+ 2\leq s\leq50\text{ squarefree},\quad1\leq m\leq2000,
+ \quad10^8<sm^2\leq10^9.                                 \tag{64.17}
+\]
+There are 30 kernels and 4,992 pairs.  Exactly 904 pass the first shifted
+law and 314 pass both; all resolve by \(M\leq10^4\).  The unique maximum is
+\[
+ W(108,868,200)=599,
+ \quad108,868,200=42\cdot1610^2,
+ \quad(M,D,a)=(599,7500,181800).                          \tag{64.18}
+\]
+This is a thin coordinate slice, not the full interval through \(10^9\).
+
+Thus \(C_{\rm SQ}'\) survives both finite stresses and remains open.  No
+\(C_{\rm SQ}''\) is introduced.
+
+### 64.6 Verification and scope
+
+Block (bk) uses Python integers on every factor, divisor, product, and
+congruence path.  It pins the 64,978 harvested classes through \(10^4\),
+compares the two finite normal-form coordinates completely for \(n\leq80\),
+checks 3,523 quotient rows on a seeded sample including all 2,347
+cancellation failures, checks both shifted laws for every \(n\leq5000\),
+replays 460 dyadic data, 359 twisted-square residue data, and 300 seeded
+unit branches, and recomputes all three complete ledgers.  The default wider
+hunt is streamed and takes about 1.5 seconds for the isolated block on the
+research host.  The 242,837-point expansion and the thin slice are gated by
+`ES_FULL_SCAN=1`.
+
+The hunts establish no unbounded classification.  The structural theorems
+supply necessary conditions and exact finite criteria; they do not turn the
+three observed sporadics into a proved complete list.  As before,
+\(W=+\infty\) means failure of this harvested Type-II supply mechanism, not
+failure of an Egyptian-fraction representation.
