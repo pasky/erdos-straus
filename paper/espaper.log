@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.8.10)  30 AUG 2026 09:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.8.10)  30 AUG 2026 09:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -10357,7 +10357,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
                    \relax 
 l.7997 \begin{equation}
                        \tag{64.12}
-Overfull \hbox (7.13647pt too wide) in paragraph at lines 8033--8037
+Overfull \hbox (14.19179pt too wide) in paragraph at lines 8005--8018
+\T1/lmr/m/n/10 (-20) The cor-re-spond-ing $\OT1/lmr/m/n/10 (-20) (#\OML/lmm/m/i
+t/10 a; \OT1/lmr/m/n/10 (-20) #\OMS/lmsy/m/n/10 Q\OML/lmm/m/it/10 ; \OT1/lmr/m/
+n/10 (-20) #[])$ \T1/lmr/m/n/10 (-20) triples are $\OT1/lmr/m/n/10 (-20) (48\OM
+L/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20) 43\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20
+) 0)$\T1/lmr/m/n/10 (-20) , $\OT1/lmr/m/n/10 (-20) (56\OML/lmm/m/it/10 ; \OT1/l
+mr/m/n/10 (-20) 65\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20) 0)$\T1/lmr/m/n/10 (-
+20) , and $\OT1/lmr/m/n/10 (-20) (757\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20) 1
+88\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20) 0)$\T1/lmr/m/n/10 (-20) .
+ []
+
+
+Overfull \hbox (7.13647pt too wide) in paragraph at lines 8034--8038
 \T1/lmr/bx/n/10 (-20) Heuristic 64.1 (uniform-independent class model). \T1/lmr
 /m/n/10 (-20) For $\OML/lmm/m/it/10 S[] \OT1/lmr/m/n/10 (-20) = \OMS/lmsy/m/n/1
 0 f^^@\OT1/lmr/m/n/10 (-20) 4\OML/lmm/m/it/10 D\OT1/lmr/m/n/10 (-20) ([]\OML/lm
@@ -10369,25 +10381,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8037 \begin{equation}
+l.8038 \begin{equation}
                        \tag{64.13}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8037 \begin{equation}
+l.8038 \begin{equation}
                        \tag{64.13}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8037 \begin{equation}
+l.8038 \begin{equation}
                        \tag{64.13}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8037 \begin{equation}
+l.8038 \begin{equation}
                        \tag{64.13}
 
 [119]
@@ -10395,121 +10407,121 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8053 \begin{equation}
+l.8054 \begin{equation}
                        \tag{64.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8053 \begin{equation}
+l.8054 \begin{equation}
                        \tag{64.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8053 \begin{equation}
+l.8054 \begin{equation}
                        \tag{64.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8053 \begin{equation}
+l.8054 \begin{equation}
                        \tag{64.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8058 \begin{equation}
+l.8059 \begin{equation}
                        \tag{64.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8058 \begin{equation}
+l.8059 \begin{equation}
                        \tag{64.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8058 \begin{equation}
+l.8059 \begin{equation}
                        \tag{64.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8058 \begin{equation}
+l.8059 \begin{equation}
                        \tag{64.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8071 \begin{equation}
+l.8074 \begin{equation}
                        \tag{64.16}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8071 \begin{equation}
+l.8074 \begin{equation}
                        \tag{64.16}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8071 \begin{equation}
+l.8074 \begin{equation}
                        \tag{64.16}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8071 \begin{equation}
+l.8074 \begin{equation}
                        \tag{64.16}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8087 \begin{equation}
+l.8090 \begin{equation}
                        \tag{64.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8087 \begin{equation}
+l.8090 \begin{equation}
                        \tag{64.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8087 \begin{equation}
+l.8090 \begin{equation}
                        \tag{64.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8087 \begin{equation}
+l.8090 \begin{equation}
                        \tag{64.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8093 \begin{equation}
+l.8096 \begin{equation}
                        \tag{64.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8093 \begin{equation}
+l.8096 \begin{equation}
                        \tag{64.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8093 \begin{equation}
+l.8096 \begin{equation}
                        \tag{64.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8093 \begin{equation}
+l.8096 \begin{equation}
                        \tag{64.18}
 
 [120]
@@ -10517,114 +10529,119 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8134 \begin{equation}
+l.8137 \begin{equation}
                        \tag{65.1}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8134 \begin{equation}
+l.8137 \begin{equation}
                        \tag{65.1}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8134 \begin{equation}
+l.8137 \begin{equation}
                        \tag{65.1}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8134 \begin{equation}
+l.8137 \begin{equation}
                        \tag{65.1}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8167 \begin{equation}
+l.8170 \begin{equation}
                        \tag{65.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8167 \begin{equation}
+l.8170 \begin{equation}
                        \tag{65.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8167 \begin{equation}
+l.8170 \begin{equation}
                        \tag{65.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8167 \begin{equation}
+l.8170 \begin{equation}
                        \tag{65.2}
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 [121]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 8207.
+(hyperref)                removing `math shift' on input line 8210.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 8207.
+(hyperref)                removing `superscript' on input line 8210.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 8207.
+(hyperref)                removing `math shift' on input line 8210.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8217 \begin{equation}
+l.8220 \begin{equation}
                        \tag{65.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8217 \begin{equation}
+l.8220 \begin{equation}
                        \tag{65.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8217 \begin{equation}
+l.8220 \begin{equation}
                        \tag{65.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8217 \begin{equation}
+l.8220 \begin{equation}
                        \tag{65.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8239 \begin{equation}
+l.8242 \begin{equation}
                        \tag{65.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8239 \begin{equation}
+l.8242 \begin{equation}
                        \tag{65.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8239 \begin{equation}
+l.8242 \begin{equation}
                        \tag{65.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8239 \begin{equation}
+l.8242 \begin{equation}
                        \tag{65.4}
-Overfull \hbox (8.10384pt too wide) in paragraph at lines 8264--8269
+
+[122]
+Overfull \hbox (8.10384pt too wide) in paragraph at lines 8267--8272
 \T1/lmr/m/n/10 (-20) Over the com-plete range, both nor-mal-ized suprema re-mai
 n at $\OT1/lmr/m/n/10 (-20) (\OML/lmm/m/it/10 p; W\OT1/lmr/m/n/10 (-20) ) = (20
 31121\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20) 2495)$\T1/lmr/m/n/10 (-20) ,
@@ -10632,286 +10649,284 @@ n at $\OT1/lmr/m/n/10 (-20) (\OML/lmm/m/it/10 p; W\OT1/lmr/m/n/10 (-20) ) = (20
 
 
 
-[122]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8323 \begin{equation}
-                       \tag{55.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8323 \begin{equation}
-                       \tag{55.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8323 \begin{equation}
-                       \tag{55.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8323 \begin{equation}
-                       \tag{55.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8331 \begin{equation}
-                       \tag{55.2}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8331 \begin{equation}
-                       \tag{55.2}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8331 \begin{equation}
-                       \tag{55.2}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8331 \begin{equation}
-                       \tag{55.2}
-
 [123]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8335 \begin{equation}
+l.8326 \begin{equation}
+                       \tag{55.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8326 \begin{equation}
+                       \tag{55.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8326 \begin{equation}
+                       \tag{55.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8326 \begin{equation}
+                       \tag{55.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8334 \begin{equation}
+                       \tag{55.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8334 \begin{equation}
+                       \tag{55.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8334 \begin{equation}
+                       \tag{55.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8334 \begin{equation}
+                       \tag{55.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8338 \begin{equation}
                        \tag{55.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8335 \begin{equation}
+l.8338 \begin{equation}
                        \tag{55.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8335 \begin{equation}
+l.8338 \begin{equation}
                        \tag{55.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8335 \begin{equation}
+l.8338 \begin{equation}
                        \tag{55.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8345 \begin{equation}
+l.8348 \begin{equation}
                        \tag{55.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8345 \begin{equation}
+l.8348 \begin{equation}
                        \tag{55.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8345 \begin{equation}
+l.8348 \begin{equation}
                        \tag{55.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8345 \begin{equation}
+l.8348 \begin{equation}
                        \tag{55.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8355 \begin{equation}
+l.8358 \begin{equation}
                        \tag{55.6}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8355 \begin{equation}
+l.8358 \begin{equation}
                        \tag{55.6}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8355 \begin{equation}
+l.8358 \begin{equation}
                        \tag{55.6}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8355 \begin{equation}
+l.8358 \begin{equation}
                        \tag{55.6}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8359 \begin{equation}
+l.8362 \begin{equation}
                        \tag{55.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8359 \begin{equation}
+l.8362 \begin{equation}
                        \tag{55.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8359 \begin{equation}
+l.8362 \begin{equation}
                        \tag{55.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8359 \begin{equation}
+l.8362 \begin{equation}
                        \tag{55.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8364 \begin{equation}
+l.8367 \begin{equation}
                        \tag{55.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8364 \begin{equation}
+l.8367 \begin{equation}
                        \tag{55.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8364 \begin{equation}
+l.8367 \begin{equation}
                        \tag{55.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8364 \begin{equation}
+l.8367 \begin{equation}
                        \tag{55.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8368 \begin{equation}
+l.8371 \begin{equation}
                        \tag{55.7}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8368 \begin{equation}
+l.8371 \begin{equation}
                        \tag{55.7}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8368 \begin{equation}
+l.8371 \begin{equation}
                        \tag{55.7}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8368 \begin{equation}
+l.8371 \begin{equation}
                        \tag{55.7}
 
 LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
-(Font)              using `T1/lmr/m/scsl' instead on input line 8372.
+(Font)              using `T1/lmr/m/scsl' instead on input line 8375.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8384 \begin{equation}
+l.8387 \begin{equation}
                        \tag{55.9}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8384 \begin{equation}
+l.8387 \begin{equation}
                        \tag{55.9}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8384 \begin{equation}
+l.8387 \begin{equation}
                        \tag{55.9}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8384 \begin{equation}
+l.8387 \begin{equation}
                        \tag{55.9}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8397 \begin{equation}
-                       \tag{55.10}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8397 \begin{equation}
-                       \tag{55.10}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8397 \begin{equation}
-                       \tag{55.10}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8397 \begin{equation}
-                       \tag{55.10}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8404 \begin{equation}
-                       \tag{55.11}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8404 \begin{equation}
-                       \tag{55.11}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8404 \begin{equation}
-                       \tag{55.11}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8404 \begin{equation}
-                       \tag{55.11}
-
-LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
-(Font)              using `T1/lmr/m/scsl' instead on input line 8413.
-
-
 
 [124]
-Overfull \hbox (1.10985pt too wide) in paragraph at lines 8423--8431
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8400 \begin{equation}
+                       \tag{55.10}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8400 \begin{equation}
+                       \tag{55.10}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8400 \begin{equation}
+                       \tag{55.10}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8400 \begin{equation}
+                       \tag{55.10}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8407 \begin{equation}
+                       \tag{55.11}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8407 \begin{equation}
+                       \tag{55.11}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8407 \begin{equation}
+                       \tag{55.11}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8407 \begin{equation}
+                       \tag{55.11}
+
+LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
+(Font)              using `T1/lmr/m/scsl' instead on input line 8416.
+
+
+Overfull \hbox (1.10985pt too wide) in paragraph at lines 8426--8434
 []\T1/lmr/m/n/10 (-20) At the top of the cu-bic win-dow, $[] \OML/lmm/m/it/10 N
  \OMS/lmsy/m/n/10 ^^P \OML/lmm/m/it/10 ^^R[]\OT1/lmr/m/n/10 (-20) ([] \OML/lmm/
 m/it/10 T\OT1/lmr/m/n/10 (-20) )[]$\T1/lmr/m/n/10 (-20) , so the sav-ing is $\O
@@ -10924,318 +10939,320 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8434 \begin{equation}
+l.8437 \begin{equation}
                        \tag{55.12}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8434 \begin{equation}
+l.8437 \begin{equation}
                        \tag{55.12}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8434 \begin{equation}
+l.8437 \begin{equation}
                        \tag{55.12}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8434 \begin{equation}
+l.8437 \begin{equation}
                        \tag{55.12}
 
 LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
-(Font)              using `T1/lmr/m/scsl' instead on input line 8443.
+(Font)              using `T1/lmr/m/scsl' instead on input line 8446.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8445 \begin{equation}
+l.8448 \begin{equation}
                        \tag{55.13}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8445 \begin{equation}
+l.8448 \begin{equation}
                        \tag{55.13}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8445 \begin{equation}
+l.8448 \begin{equation}
                        \tag{55.13}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8445 \begin{equation}
+l.8448 \begin{equation}
                        \tag{55.13}
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 8452.
+(hyperref)                removing `math shift' on input line 8455.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 8452.
+(hyperref)                removing `math shift' on input line 8455.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8453 \begin{equation}
+l.8456 \begin{equation}
                        \tag{55.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8453 \begin{equation}
+l.8456 \begin{equation}
                        \tag{55.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8453 \begin{equation}
+l.8456 \begin{equation}
                        \tag{55.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8453 \begin{equation}
+l.8456 \begin{equation}
                        \tag{55.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8459 \begin{equation}
+l.8462 \begin{equation}
                        \tag{55.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8459 \begin{equation}
+l.8462 \begin{equation}
                        \tag{55.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8459 \begin{equation}
+l.8462 \begin{equation}
                        \tag{55.15}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8459 \begin{equation}
+l.8462 \begin{equation}
                        \tag{55.15}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8487 \begin{equation}
-                       \tag{55.16}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8487 \begin{equation}
-                       \tag{55.16}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8487 \begin{equation}
-                       \tag{55.16}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8487 \begin{equation}
-                       \tag{55.16}
 
 [125]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8505 \begin{equation}
+l.8490 \begin{equation}
+                       \tag{55.16}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8490 \begin{equation}
+                       \tag{55.16}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8490 \begin{equation}
+                       \tag{55.16}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8490 \begin{equation}
+                       \tag{55.16}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8508 \begin{equation}
                        \tag{55.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8505 \begin{equation}
+l.8508 \begin{equation}
                        \tag{55.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8505 \begin{equation}
+l.8508 \begin{equation}
                        \tag{55.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8505 \begin{equation}
+l.8508 \begin{equation}
                        \tag{55.17}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8513 \begin{equation}
+l.8516 \begin{equation}
                        \tag{55.17a}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8513 \begin{equation}
+l.8516 \begin{equation}
                        \tag{55.17a}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8513 \begin{equation}
+l.8516 \begin{equation}
                        \tag{55.17a}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8513 \begin{equation}
+l.8516 \begin{equation}
                        \tag{55.17a}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8522 \begin{equation}
+l.8525 \begin{equation}
                        \tag{55.17b}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8522 \begin{equation}
+l.8525 \begin{equation}
                        \tag{55.17b}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8522 \begin{equation}
+l.8525 \begin{equation}
                        \tag{55.17b}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8522 \begin{equation}
+l.8525 \begin{equation}
                        \tag{55.17b}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8546 \begin{equation}
-                       \tag{55.18}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8546 \begin{equation}
-                       \tag{55.18}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8546 \begin{equation}
-                       \tag{55.18}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8546 \begin{equation}
-                       \tag{55.18}
-
-LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
-(Font)              using `T1/lmr/m/scsl' instead on input line 8553.
-
-
-LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
-(Font)              using `T1/lmr/m/scsl' instead on input line 8557.
-
-
 
 [126]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8581 \begin{equation}
+l.8549 \begin{equation}
+                       \tag{55.18}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8549 \begin{equation}
+                       \tag{55.18}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8549 \begin{equation}
+                       \tag{55.18}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8549 \begin{equation}
+                       \tag{55.18}
+
+LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
+(Font)              using `T1/lmr/m/scsl' instead on input line 8556.
+
+
+LaTeX Font Warning: Font shape `T1/lmr/m/scit' undefined
+(Font)              using `T1/lmr/m/scsl' instead on input line 8560.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8584 \begin{equation}
                        \tag{55.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8581 \begin{equation}
+l.8584 \begin{equation}
                        \tag{55.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8581 \begin{equation}
+l.8584 \begin{equation}
                        \tag{55.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8581 \begin{equation}
+l.8584 \begin{equation}
                        \tag{55.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8600 \begin{equation}
+l.8603 \begin{equation}
                        \tag{55.20}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8600 \begin{equation}
+l.8603 \begin{equation}
                        \tag{55.20}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8600 \begin{equation}
+l.8603 \begin{equation}
                        \tag{55.20}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8600 \begin{equation}
+l.8603 \begin{equation}
                        \tag{55.20}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8611 \begin{equation}
+l.8614 \begin{equation}
                        \tag{55.21}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8611 \begin{equation}
+l.8614 \begin{equation}
                        \tag{55.21}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8611 \begin{equation}
+l.8614 \begin{equation}
                        \tag{55.21}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8611 \begin{equation}
+l.8614 \begin{equation}
                        \tag{55.21}
-Overfull \hbox (4.52054pt too wide) detected at line 8637
+
+[127]
+Overfull \hbox (4.52054pt too wide) detected at line 8640
 \OML/lmm/m/it/10 ^^T\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 M\OT1/lmr/m/n/10 ) = [] [
 ]\OML/lmm/m/it/10 ;  n[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 a\OT1/lmr/m/n/10 ) = 
 #\OMS/lmsy/m/n/10 f\OML/lmm/m/it/10 D \OMS/lmsy/m/n/10 2 D[]\OT1/lmr/m/n/10 (\O
@@ -11245,452 +11262,452 @@ mm/m/it/10 D \OMS/lmsy/m/n/10 ^^Q \OML/lmm/m/it/10 a\OT1/lmr/m/n/10 ([]\OML/lmm
  []
 
 
-
-[127]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8639 \begin{equation}
+l.8642 \begin{equation}
                        \tag{40.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8639 \begin{equation}
+l.8642 \begin{equation}
                        \tag{40.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8639 \begin{equation}
+l.8642 \begin{equation}
                        \tag{40.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8639 \begin{equation}
+l.8642 \begin{equation}
                        \tag{40.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8655 \begin{equation}
+l.8658 \begin{equation}
                        \tag{40.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8655 \begin{equation}
+l.8658 \begin{equation}
                        \tag{40.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8655 \begin{equation}
+l.8658 \begin{equation}
                        \tag{40.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8655 \begin{equation}
+l.8658 \begin{equation}
                        \tag{40.14}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8668 \begin{equation}
+l.8671 \begin{equation}
                        \tag{40.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8668 \begin{equation}
+l.8671 \begin{equation}
                        \tag{40.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8668 \begin{equation}
+l.8671 \begin{equation}
                        \tag{40.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8668 \begin{equation}
+l.8671 \begin{equation}
                        \tag{40.18}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8675 \begin{equation}
+l.8678 \begin{equation}
                        \tag{40.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8675 \begin{equation}
+l.8678 \begin{equation}
                        \tag{40.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8675 \begin{equation}
+l.8678 \begin{equation}
                        \tag{40.19}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8675 \begin{equation}
+l.8678 \begin{equation}
                        \tag{40.19}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8690 \begin{equation}
-                       \tag{42.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8690 \begin{equation}
-                       \tag{42.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8690 \begin{equation}
-                       \tag{42.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8690 \begin{equation}
-                       \tag{42.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8697 \begin{equation}
-                       \tag{42.2}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8697 \begin{equation}
-                       \tag{42.2}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8697 \begin{equation}
-                       \tag{42.2}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8697 \begin{equation}
-                       \tag{42.2}
 
 [128]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8706 \begin{equation}
+l.8693 \begin{equation}
+                       \tag{42.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8693 \begin{equation}
+                       \tag{42.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8693 \begin{equation}
+                       \tag{42.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8693 \begin{equation}
+                       \tag{42.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8700 \begin{equation}
+                       \tag{42.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8700 \begin{equation}
+                       \tag{42.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8700 \begin{equation}
+                       \tag{42.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8700 \begin{equation}
+                       \tag{42.2}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8709 \begin{equation}
                        \tag{42.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8706 \begin{equation}
+l.8709 \begin{equation}
                        \tag{42.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8706 \begin{equation}
+l.8709 \begin{equation}
                        \tag{42.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8706 \begin{equation}
+l.8709 \begin{equation}
                        \tag{42.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8719 \begin{equation}
+l.8722 \begin{equation}
                        \tag{42.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8719 \begin{equation}
+l.8722 \begin{equation}
                        \tag{42.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8719 \begin{equation}
+l.8722 \begin{equation}
                        \tag{42.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8719 \begin{equation}
+l.8722 \begin{equation}
                        \tag{42.4}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8755 \begin{equation}
-                       \tag{42.5}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8755 \begin{equation}
-                       \tag{42.5}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8755 \begin{equation}
-                       \tag{42.5}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8755 \begin{equation}
-                       \tag{42.5}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8768 \begin{equation}
-                       \tag{45.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8768 \begin{equation}
-                       \tag{45.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8768 \begin{equation}
-                       \tag{45.1}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8768 \begin{equation}
-                       \tag{45.1}
 
 [129]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8774 \begin{equation}
+l.8758 \begin{equation}
+                       \tag{42.5}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8758 \begin{equation}
+                       \tag{42.5}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8758 \begin{equation}
+                       \tag{42.5}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8758 \begin{equation}
+                       \tag{42.5}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8771 \begin{equation}
+                       \tag{45.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8771 \begin{equation}
+                       \tag{45.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8771 \begin{equation}
+                       \tag{45.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8771 \begin{equation}
+                       \tag{45.1}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8777 \begin{equation}
                        \tag{45.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8774 \begin{equation}
+l.8777 \begin{equation}
                        \tag{45.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8774 \begin{equation}
+l.8777 \begin{equation}
                        \tag{45.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8774 \begin{equation}
+l.8777 \begin{equation}
                        \tag{45.2}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8781 \begin{equation}
+l.8784 \begin{equation}
                        \tag{45.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8781 \begin{equation}
+l.8784 \begin{equation}
                        \tag{45.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8781 \begin{equation}
+l.8784 \begin{equation}
                        \tag{45.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8781 \begin{equation}
+l.8784 \begin{equation}
                        \tag{45.3}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8790 \begin{equation}
+l.8793 \begin{equation}
                        \tag{45.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8790 \begin{equation}
+l.8793 \begin{equation}
                        \tag{45.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8790 \begin{equation}
+l.8793 \begin{equation}
                        \tag{45.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8790 \begin{equation}
+l.8793 \begin{equation}
                        \tag{45.4}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8802 \begin{equation}
+l.8805 \begin{equation}
                        \tag{45.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8802 \begin{equation}
+l.8805 \begin{equation}
                        \tag{45.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8802 \begin{equation}
+l.8805 \begin{equation}
                        \tag{45.5}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8802 \begin{equation}
+l.8805 \begin{equation}
                        \tag{45.5}
-Overfull \hbox (19.52533pt too wide) detected at line 8811
+Overfull \hbox (19.52533pt too wide) detected at line 8814
 []
  []
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8827 \begin{equation}
-                       \tag{45.6}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8827 \begin{equation}
-                       \tag{45.6}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8827 \begin{equation}
-                       \tag{45.6}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8827 \begin{equation}
-                       \tag{45.6}
 
 [130]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8866 \begin{equation}
+l.8830 \begin{equation}
+                       \tag{45.6}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8830 \begin{equation}
+                       \tag{45.6}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8830 \begin{equation}
+                       \tag{45.6}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8830 \begin{equation}
+                       \tag{45.6}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8869 \begin{equation}
                        \tag{46.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8866 \begin{equation}
+l.8869 \begin{equation}
                        \tag{46.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8866 \begin{equation}
+l.8869 \begin{equation}
                        \tag{46.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8866 \begin{equation}
+l.8869 \begin{equation}
                        \tag{46.8}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8872 \begin{equation}
+l.8875 \begin{equation}
                        \tag{46.10}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8872 \begin{equation}
+l.8875 \begin{equation}
                        \tag{46.10}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8872 \begin{equation}
+l.8875 \begin{equation}
                        \tag{46.10}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8872 \begin{equation}
+l.8875 \begin{equation}
                        \tag{46.10}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8890 \begin{equation}
+l.8893 \begin{equation}
                        \tag{46.13}\label{eq:endpoint-core}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8890 \begin{equation}
+l.8893 \begin{equation}
                        \tag{46.13}\label{eq:endpoint-core}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8890 \begin{equation}
+l.8893 \begin{equation}
                        \tag{46.13}\label{eq:endpoint-core}
 pdfTeX warning (ext4): destination with the same identifier (name{equation.22})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.8890 \begin{equation}
+l.8893 \begin{equation}
                        \tag{46.13}\label{eq:endpoint-core}
-Overfull \hbox (1.1342pt too wide) in paragraph at lines 8905--8939
+
+[131]
+Overfull \hbox (1.1342pt too wide) in paragraph at lines 8908--8942
 \T1/lmr/bx/n/10 (-20) Status. \T1/lmr/m/n/10 (-20) This is not a sub-mis-sion. 
 Both $\OT1/lmr/m/n/10 (-20) 3\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (-20) 4$ \T1/lmr
 /m/n/10 (-20) head-lines re-main \T1/lmr/m/sc/10 (-20) claimed/provisional\T1/l
@@ -11699,16 +11716,14 @@ mr/m/n/10 (-20) ,
 
 
 
-[131]
-Underfull \hbox (badness 2443) in paragraph at lines 9017--9022
+[132]
+Underfull \hbox (badness 2443) in paragraph at lines 9020--9025
 []\T1/lmr/m/n/7 (+20) H. Iwaniec, \T1/lmr/m/it/7 (+20) On the prob-lem of Ja-co
 b-sthal\T1/lmr/m/n/7 (+20) , Demon-stra-tio Math. \T1/lmr/bx/n/7 (+20) 11 \T1/l
 mr/m/n/7 (+20) (1978), 225--231,
  []
 
 
-
-[132]
 
 [133] (./espaper.aux)
  ***********
@@ -11721,11 +11736,11 @@ Package rerunfilecheck Info: File `espaper.out' has not changed.
 Here is how much of TeX's memory you used:
  15571 strings out of 474262
  235071 string characters out of 5738914
- 674878 words of memory out of 5000000
+ 681878 words of memory out of 5000000
  36761 multiletter control sequences out of 15000+600000
  706676 words of font info for 409 fonts, out of 8000000 for 9000
  634 hyphenation exceptions out of 8191
- 75i,23n,79p,1004b,896s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,23n,79p,1004b,891s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr
 /share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/pub
@@ -11754,7 +11769,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb>
-Output written on espaper.pdf (133 pages, 1365487 bytes).
+Output written on espaper.pdf (133 pages, 1365929 bytes).
 PDF statistics:
  2804 PDF objects out of 2984 (max. 8388607)
  2551 compressed objects within 26 object streams
