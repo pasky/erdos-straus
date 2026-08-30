@@ -1,12 +1,21 @@
 # Paper draft status
 
-`espaper.tex` is the v15 standalone `amsart` consolidation draft (145 pages). Its two record headlines remain:
+`espaper.tex` is the v16 standalone `amsart` consolidation draft (151 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v16 changes — 2026-08-30, wave 30
+
+- Absorbed source §69 as Section 31.  Integer-wise polynomial divisibility on a tail collapses to a polynomial identity with an integer-valued cofactor, including all earlier integer arguments; the exact shadow blockage is therefore only failed positivity/range.
+- Added the one-step real-sign lemma and Theorem 69.4: no single polynomial witness datum covers a forward tail on any ray anchored at `288`, `336`, or `4545`.  Both pointwise and polynomial divisibility regimes, every degree, every period `K >= 1`, and every tail start are covered.
+- Preserved the strict perimeter: this is an obstruction to polynomial witness families only.  Arbitrary non-polynomial functions, finite-piece polynomial choices, and unanchored rays remain untouched; no fourth `W=+infinity` value, classification of `W(2m²)`, or evidence for `C_SQ′` follows.
+- Added the complete constant-divisor classification and block `(bp)` ledgers.  The independent bound-5,000 replay has 5,792,112 candidates and zero hits; the 65-class fixed-data projection has 1,709 divisor rows and zero hits.  These bounded zeros are regression checks, not the all-degree proof.
+- Retained the wave-29 **SOUND-AFTER-REPAIRS** refutation-class attestation, including the backward-positivity case split, tail induction, integer-valued quotient caveat, and independent finite replays.
+- Updated the abstract, introduction, status registers, §66 forward pointer, global pedigree, final status, verifier endpoint, tracked table of contents, and PDF.  The build grows by 6 pages, from 145 to 151.
 
 ## v15 changes — 2026-08-30, wave 29
 
@@ -162,6 +171,12 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §69 status, definition, Lemma 69.1, and (69.1)–(69.4) ↔ `forward-ray` and `integerwise-collapse`: maximal rational integer-valued scope, sufficiently-large tail, nonzero divisor values, integer-valued quotient on every integer, resultant bound, and no coefficient-wise `Z[t]` claim agree.
+- notes Lemma 69.2 and (69.5)–(69.7) ↔ `shadow-blockage`: both polynomial identities and integer-valued cofactors, exact `M(0) <= -1` or `D(0) < 0` alternatives, zero-divisor edge, and no standalone eligibility failure agree.
+- notes Lemma 69.3, Theorem 69.4, and (69.8)–(69.10a) ↔ `positivity-propagation` and `forward-ray-obstruction`: both forced-sign arguments, nonzero premise, original-anchor induction, all three Theorem-60.3 anchors, every degree, every `K >= 1`, every tail start, and constant-`M` edge agree.
+- notes (69.11)–(69.15) and Computational 69.1 ↔ the constant-divisor classification and block `(bp)` register: exact three finite differences, 19-period panel, 57 rows, all syntactic totals, bound-500 and bound-5,000 ledgers, 5,792,112 zero-hit candidates, 65-class `445/1,709/0` projection, collapse examples, shadow check, runtimes, and bounded-regression-only caveat agree.
+- notes §69.4 ↔ the consequence and honest walls: polynomial witness families only; pointwise and polynomial divisibility both covered; no degree, period, or tail-start restriction; arbitrary non-polynomial, piecewise-polynomial, and unanchored rays untouched; no new infinite value, `W(2m²)` classification, quantifier exchange, or evidence for `C_SQ′` agree.
+- notes §69.5 ↔ the local and global `(bp)` pedigrees: every critical/high repair, independent bound-500 and bound-5,000 replay, 50,000 seeded rows, 65-class projection, full-suite time/memory, **SOUND-AFTER-REPAIRS** verdict, and internal-only status agree.
 - notes §66 status, Theorem 66.1, Lemma 66.2, and (66.1)–(66.6) ↔ `escape-cylinders`, `twisted-class-decidability`, and `class-period`: exact squarefree/real-depth quantifiers, empty-lcm convention, finite union, prime-power iff, theta decomposition, effective `2/3` scale, and no-new-infinite-member boundary agree.
 - notes Theorem 66.3, Corollary 66.4, and (66.7)–(66.9) ↔ `twisted-family-unbounded` and `family-certificate-ceiling`: all three anchors and classes, every-`X` density count, limsup quantifiers, finite-fixed-harvested-law scope, and distinction from the §56 certificate architecture agree.
 - notes Proposition 66.5 and (66.10)–(66.14) ↔ `anchored-identity-wall` and Computational 66.1: exact integer-valued/positivity eligibility, all-degree anchor specialization, forward-ray positivity leak, all twelve `(K,e)` families, three shapes, 54,990/6,810 totals, and no hidden coefficient cutoff agree.
@@ -286,7 +301,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v15 build completes in 145 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the final two-pass validation (both passes are stable). Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v15-relevant verifier coverage passes through block `(bo)`.
+The v16 build completes in 151 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the final two-pass validation (both passes are stable). Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v16-relevant verifier coverage passes through block `(bp)`.
 
 ## Submission TODO
 
@@ -296,8 +311,6 @@ The v15 build completes in 145 pages with zero TeX errors and no undefined refer
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v16 queue
+## v17 queue
 
-- Source §69 is pending v16 review and absorption; none of it is absorbed into v15.
-
-This is a queue record only; v15 makes no content claim about §69.
+- v17 queue: wave-30 sections (§70–§72) upon their review.
