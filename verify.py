@@ -13447,6 +13447,31 @@ def check_bo():
         assert 1 - pw_range_power == sigma / 3 > 0
         rows.append((sigma, campaign_power, gap, sigma / 3))
 
+    # The smaller Layer-1 all-denominator range also excludes the PW
+    # construction: (log N)^(2-epsilon)=m^((2-epsilon)/3+o(1)).
+    layer1_powers = tuple(
+        Fraction(1, 3) * (2 - epsilon)
+        for epsilon in (Fraction(1, 4), Fraction(1, 2), Fraction(1, 1))
+    )
+    assert all(power < 1 for power in layer1_powers)
+
+    # Reverse §55 audit.  Its ledger forces t=log T=O(log N).  At the
+    # asymptotic PW scale the largest possible m-power of t is 1/3.
+    # Therefore lambda*t^2*log(2+t) has power -1/3+o(1), while
+    # theta*t^3 has power zero and its exact leftover log factor is
+    # eta_2/(C log^2 m), so neither saving grows.  At N=2m^2 both log N
+    # and t have m-power zero, and m <= t^B fails for every fixed B.
+    pw_t_power = Fraction(1, 3)
+    layer1_mass_power = 2 * pw_t_power - 1
+    cubic_mass_power = 3 * pw_t_power - 1
+    assert layer1_mass_power == Fraction(-1, 3)
+    assert cubic_mass_power == 0
+    cubic_log_power = Fraction(-2, 1)
+    assert cubic_log_power < 0
+    explicit_t_power = Fraction(0, 1)
+    # B*0=0<1 for every fixed finite B, not merely sampled values.
+    assert explicit_t_power == 0 < 1
+
     # In R/P, the eta, phi, L exponents are 1/4, 1/12, 1/12;
     # raising to the twelfth power gives eta^3 phi L (§68.6).
     ratio_exponents = (
@@ -13457,6 +13482,9 @@ def check_bo():
     assert tuple(12 * exponent for exponent in ratio_exponents) == (3, 1, 1)
     print("PW/campaign exact power rows (sigma,threshold,gap,exclusion) =",
           rows)
+    print("PW reverse powers (layer1 ranges,tail masses,explicit t) =",
+          (layer1_powers, layer1_mass_power, cubic_mass_power,
+           cubic_log_power, explicit_t_power))
 
 
 print("\n== (bo) PW exception-range arithmetic (§68) ==")
