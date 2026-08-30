@@ -13513,6 +13513,61 @@ def check_bp():
             out = out * x + coefficient
         return out
 
+    def poly_trim(f):
+        out = list(f)
+        while len(out) > 1 and out[-1] == 0:
+            out.pop()
+        return out
+
+    def poly_divmod_q(f, g):
+        remainder = list(map(Fraction, f))
+        divisor = list(map(Fraction, poly_trim(g)))
+        assert divisor != [0]
+        quotient = [Fraction(0)] * max(1, len(remainder) - len(divisor) + 1)
+        while len(remainder) >= len(divisor) and any(remainder):
+            coefficient = remainder[-1] / divisor[-1]
+            shift = len(remainder) - len(divisor)
+            quotient[shift] = coefficient
+            for i, value in enumerate(divisor):
+                remainder[i + shift] -= coefficient * value
+            remainder = poly_trim(remainder)
+        return poly_trim(quotient), poly_trim(remainder)
+
+    # Complete small-box classification pin for Lemma 69.1.  This is not a
+    # finite proof of the lemma: it makes the executable distinguish Q[t]
+    # factorization with an integer-valued quotient from the false Z[t]
+    # coefficient-wise statement.  Every pair in the stated box which is
+    # pointwise divisible at all 21 tail arguments has zero exact remainder.
+    collapse_rows = fractional_quotients = 0
+    for G in cartesian_product(range(-2, 3), repeat=3):
+        if G == (0, 0, 0):
+            continue
+        for F in cartesian_product(range(-2, 3), repeat=4):
+            if not all((gv := poly_eval(G, k)) != 0
+                       and poly_eval(F, k) % gv == 0
+                       for k in range(20, 41)):
+                continue
+            H, R = poly_divmod_q(F, G)
+            assert not any(R)
+            assert all(poly_eval(H, k).denominator == 1
+                       for k in range(-10, 11))
+            collapse_rows += 1
+            fractional_quotients += any(c.denominator != 1 for c in H)
+    assert (collapse_rows, fractional_quotients) == (3_472, 280)
+    H, R = poly_divmod_q((0, 1, 1), (2,))
+    assert H == [Fraction(0), Fraction(1, 2), Fraction(1, 2)]
+    assert not any(R) and all(poly_eval(H, k).denominator == 1
+                              for k in range(-100, 101))
+
+    # Adversarial D=t^2+t+2 box.  Its only surviving quadratic A are exact
+    # multiples, as irreducibility plus Lemma 69.1 requires.
+    quadratic_d_rows = []
+    for c0, c1, c2 in cartesian_product(range(-20, 21), repeat=3):
+        if all((c2 * k * k + c1 * k + c0) ** 2
+               % (k * k + k + 2) == 0 for k in range(1, 41)):
+            quadratic_d_rows.append((c0, c1, c2))
+    assert quadratic_d_rows == [(2 * c, c, c) for c in range(-10, 11)]
+
     # Constructed integer-wise divisibility examples.  Their quotient is the
     # polynomial E, as Lemma 69.1 predicts; all arithmetic is Python int.
     rng = Random(690029)
@@ -13549,6 +13604,32 @@ def check_bp():
                 assert R % hv == 0 and abs(hv) <= abs(R)
                 resultant_hits += 1
     assert resultant_hits == 335
+
+    # Explicit resultant-4/Bezout pin for the adversarial quadratic:
+    # e=t^2+t+2, b=(t+1)^2, 4=(t+3)e-(t+2)b.
+    fixed_resultant_hits = []
+    for t in range(-100, 101):
+        e = t * t + t + 2
+        b = (t + 1) ** 2
+        assert (t + 3) * e - (t + 2) * b == 4
+        if b % e == 0:
+            assert 4 % e == 0 and abs(e) <= 4
+            fixed_resultant_hits.append((t, e, b))
+    assert fixed_resultant_hits == [(-1, 2, 0), (1, 4, 4)]
+
+    # Exact local identities driving Lemma 69.3: M=0 forces D<0, whereas
+    # D=0 forces A=0 and M=-1.  The interval/sign argument remains a proof,
+    # not a sampled assertion.
+    sign_rng = Random(690030)
+    for _ in range(128):
+        s = sign_rng.randrange(1, 50)
+        mr = sign_rng.choice(tuple(range(-20, 0)) + tuple(range(1, 21)))
+        Dr = -Fraction(s * mr * mr, 4)
+        Er = Fraction(1, 16) / Dr
+        assert s * mr * mr + 4 * Dr == 0 and Dr < 0
+        assert Dr * Er == Fraction(1, 16)
+        Au = Fraction(0)
+        assert Au * Au == 0 and 4 * Au - 1 == -1
 
     # Exhaust the signed zero-shadows in a small exact endpoint box.  E and Q
     # are reconstructed, not searched; the three anchors have no positive row.
@@ -13705,12 +13786,16 @@ def check_bp():
             178_285_380_203_533_476_742_414_087_642_500,
         )
 
-    print("forward-ray pins (examples,resultant,shadows,periods) =",
-          (128, resultant_hits, shadow_rows, len(periods)))
+    elapsed = perf_counter() - started
+    if not full_scan:
+        assert elapsed < 15.0
+    print("forward-ray pins (examples,collapse,fractional,resultant,shadows,periods) =",
+          (128, collapse_rows, fractional_quotients, resultant_hits,
+           shadow_rows, len(periods)))
     print("forward-ray hunts (constant,syntactic,projected,full,seconds) =",
           (default_constant, default_syntactic[0],
            (len(residues), fixed_moduli, fixed_divisors, fixed_hits),
-           full_scan, perf_counter() - started))
+           full_scan, elapsed))
     if full_scan:
         print("forward-ray deep ledgers (constant,syntactic) =",
               (deep_constant, deep_syntactic[0], deep_syntactic[2]))

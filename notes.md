@@ -25871,7 +25871,10 @@ forward-ray wall explicit, and strengthen the executable prime-power pins.
   did not make that extension; the repaired text now states the boundary
   explicitly.  The shifted \(e=1\) result remains only the bounded
   three-shape computation.  The erroneous reference to the kernel in
-  (66.11), rather than (66.10), was corrected.
+  (66.11), rather than (66.10), was corrected.  **Forward pointer:**
+  Theorem 69.4 subsequently closes this one-sided gap for polynomial data in
+  \({\rm Int}(\mathbb Z)\); its obstruction does not cover arbitrary
+  non-polynomial witness functions.
 * **MEDIUM (independent finite replay):** a fresh trial-division,
   ascending-\(M\), Python-integer implementation reproduced the sole cap
   survivors \((2,12),(21,4),(505,3)\), finite maxima
@@ -26560,6 +26563,20 @@ resultant then gives (69.4).  Hence \(|e_1(k)|\) is bounded on the tail;
 so \(e_1\), and therefore \(e\), is constant.  This is also a second proof
 of the divisibility assertion. \(\square\)
 
+The conclusion is deliberately in \(\mathbb Q[t]\) with an
+integer-**valued** quotient, not coefficient-wise divisibility in
+\(\mathbb Z[t]\).  Thus \(G=2\), \(F=t(t+1)\) gives the legitimate quotient
+\(H=t(t+1)/2\).  As an adversarial nonconstant example, for
+\(e=t^2+t+2\) and \(b=(t+1)^2\),
+\[
+        4=(t+3)e-(t+2)b,
+\]
+so every integer point with \(e(k)\mid b(k)\) has \(e(k)\mid4\); this is
+(69.4) with \(|{\rm Res}(e,b)|=4\).  In particular, because
+\(t^2+t+2\) is irreducible over \(\mathbb Q\), applying the lemma to
+\(D=t^2+t+2\) and \(F=A^2\) forces \(D\mid A\) in \(\mathbb Q[t]\).
+There is no residue-class exception hidden by coefficient content.
+
 Apply the lemma first to \(D(t)\mid A(t)^2\), and then to
 \(M(t)\mid s m(t)^2+4D(t)\).  The congruence in (69.2) also puts
 \((M-3)/4\) in \({\rm Int}(\mathbb Z)\).  Consequently every pointwise ray
@@ -26651,18 +26668,29 @@ there is none whose conditions are required only for all sufficiently large
 integer \(t\).  There is no degree, coefficient, or cylinder-period
 restriction in this statement.
 
-*Proof.*  Lemma 69.1 turns the pointwise conditions into (69.5), and makes
-all specializations integral.  If \(M\) is nonconstant, shift the variable so that any eligible integer
-position becomes 1 and apply Lemma 69.3 backward.  Iteration from the
-eligible tail gives \(M(0)>0,D(0)>0\); the
-mod-4 law then gives \(M(0)\geq3\), and Lemma 69.2 makes the zero
-specialization a witness for \(s m_0^2\).
+*Proof.*  Lemma 69.1 turns the tail pointwise conditions into (69.5) and
+makes all specializations integral.  It also gives
+\(B=(M-3)/4\in{\rm Int}(\mathbb Z)\), so
+\[
+                        M(j)=4B(j)+3\ne0                 \tag{69.10a}
+\]
+for **every** integer \(j\), not merely on the eligible tail.
 
-If \(M\) is constant, then \(A\) is a positive constant.  The positive
-polynomial \(D(t)\) takes values among the finitely many positive divisors
-of \(A^2\) on the tail, so \(D\) is also a positive constant.  Lemma 69.1
-again transfers the last congruence to zero, producing the same witness.
-In the three rows this contradicts Theorem 60.3. \(\square\)
+Choose an integer \(T\geq1\) from which all conditions are eligible.  Start
+with \(M(T)>0,D(T)>0\).  For \(j=T,T-1,\ldots,1\), apply Lemma 69.3 to the
+translated polynomials \(P_j(x)=P(x+j-1)\).  Its value at \(x=1\) is the
+already-positive pair at \(j\), and (69.10a) supplies its required
+\(M_j(0)=M(j-1)\ne0\).  Hence it gives
+\(M(j-1)>0,D(j-1)>0\).  This is a literal finite induction back to the
+**original** parameter value zero; translation is used only inside each
+one-step application and does not move the anchor.
+
+The identities and their integer-valued cofactors then make every recovered
+positive-integer position eligible as well.  In particular
+\(M(0)>0,D(0)>0\), while (69.10a) gives \(M(0)\equiv3\pmod4\) and hence
+\(M(0)\geq3\).  Lemma 69.2 makes the zero specialization a witness for
+\(s m_0^2\).  In each of the three rows this contradicts Theorem 60.3.
+The argument applies unchanged when \(M\) is constant. \(\square\)
 
 Thus the two candidate escape mechanisms in (69.7) are algebraically
 possible at an isolated specialization but impossible in a witness identity:
@@ -26760,11 +26788,19 @@ about their nonconstant polynomial rays; only the class \(r=12\) is covered
 by Theorem 69.4.
 
 Block (bp) also performs deterministic resultant pins, 128 constructed
-integer-wise examples, and an exhaustive anchor-shadow check for
-\(|A(0)|,|D(0)|\leq100\).  The latter finds 652 signed algebraic shadows,
-all blocked by (69.7), and no positive datum.  These are regression tests for
-the proofs, not substitutes for them.  On the research host block (bp) took
-0.04 seconds by default and 1.13 seconds for its isolated full scan.
+integer-wise examples, and a complete small-coefficient collapse ledger.
+For \(\deg G\leq2\), \(\deg F\leq3\), all monomial coefficients in
+\([-2,2]\), and \(20\leq k\leq40\), exactly 3,472 pairs have
+\(G(k)\ne0\) and \(G(k)\mid F(k)\) throughout; every one has zero exact
+polynomial remainder and an integer-valued quotient, including 280
+quotients outside \(\mathbb Z[t]\).  It separately pins the
+\(t^2+t+2\) adversarial box and the exact resultant-4 Bezout identity above.
+An exhaustive anchor-shadow check for
+\(|A(0)|,|D(0)|\leq100\) finds 652 signed endpoint pairs, all blocked by
+(69.7), and no positive datum.  These are regression tests for the proofs,
+not substitutes for them.  The default block has an executable 15-second
+budget.  After the wave-29 pins, it took 0.60 seconds by default and 2.06
+seconds for its isolated full scan on the review host.
 
 ### 69.4 Consequence and honest walls
 
@@ -26785,3 +26821,63 @@ nonconstant identities.  Nor does the theorem prove that every fixed
 the quantifiers in (66.19).  Higher-degree polynomial strata need no further
 hunt on the three anchored rays, but all genuinely non-polynomial supply and
 the pointwise classification of \(W(2m^2)\) remain beyond this obstruction.
+
+### 69.5 Review attestation (wave 29)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Refutation-class review rederived the
+full quantifier chain and found no counterexample to the polynomial-ray
+obstruction.  The repairs expose the integer-valued quotient issue, make the
+\(t_0>1\) induction and its nonzero premise explicit, add the §66 forward
+pointer, and strengthen block (bp).  The theorem remains strictly about one
+polynomial datum on an anchored ray; no non-polynomial witness function or
+classification claim is covered.
+
+* **CRITICAL (backward positivity):** the proof uses two forced signs.  At a
+  real zero \(r\) of \(M\), one has \(A(r)=1/4\), so \(D(r)E(r)=1/16\),
+  while \(s m(r)^2+4D(r)=0\); hence \(m(r)\ne0\) and \(D(r)<0\).  At a real
+  zero \(u\) of \(D\), the identity \(A^2=DE\) gives \(A(u)=0\), hence
+  \(M(u)=-1\).  If \(M\) changes from negative at 0 to positive at 1, its
+  last zero forces \(D<0\), and any restoration to \(D(1)>0\) forces
+  \(M=-1\) inside a subinterval where \(M>0\).  If instead \(M(0)>0\) and
+  \(D(0)<0\), a first \(D\)-zero gives \(M=-1\); the last later \(M\)-zero
+  repeats the same contradiction.  Finally \(D(0)=0\) forces
+  \(M(0)=-1\).  This case split is complete under the stated
+  \(M(0)\ne0\) hypothesis; positivity of an arbitrary polynomial alone is
+  never invoked.
+* **CRITICAL (tail quantifiers):** tail congruence implies
+  \((M-3)/4\in{\rm Int}(\mathbb Z)\), so every integer specialization of
+  \(M\) is \(3\pmod4\) and therefore nonzero.  Starting at any eligible
+  \(T\geq t_0\), Lemma 69.3 applies successively to
+  \(P(x+j-1)\) for \(j=T,\ldots,1\).  Each step inherits the identities and
+  uses the positivity just recovered at the preceding step.  It ends at the
+  original \(t=0\), not at a shifted anchor.  Thus every degree, every
+  integer \(K\geq1\), every tail start, and all three Theorem-60.3 anchors
+  are covered uniformly.
+* **HIGH (integer-wise collapse):** Euclidean division gives a remainder
+  ratio \(R(k)/G(k)\to0\) lying in the discrete group
+  \(c^{-1}\mathbb Z\), hence \(R=0\).  Tail-integrality of the quotient
+  extends to all integers in its Newton/binomial basis.  This allows
+  \(t(t+1)/2\) and does not assert coefficient-wise divisibility in
+  \(\mathbb Z[t]\).  Independently, the coprime residual satisfies
+  \(e_1(k)\mid{\rm Res}(e_1,b_1)\), so it is constant.  The explicit
+  \(t^2+t+2\) test and resultant-4 Bezout identity found no content or
+  periodic-residue loophole.
+* **HIGH (independent finite replay):** a fresh standard-library
+  implementation reproduced the bound-500 constant-divisor ledger
+  \((56,226;1,240;54,986;0)\), the bound-5,000 ledger
+  \((5,792,112;21,390;5,770,722;0)\), both syntactic totals, and the
+  65-class fixed-data counts \((445,1,709,0)\).  It also screened 50,000
+  seeded compatible coefficient rows with no 12-point survivor.  The zeros
+  remain bounded-hunt facts; Theorem 69.4, not sampling, supplies the
+  all-degree anchored conclusion.
+* **REGISTER:** §66 now points forward to this theorem.  Together the two
+  sections show only that anchored forward cylinders resist a single
+  polynomial witness family.  This hardens the difficulty of
+  \(C_{\rm SQ}'\); it is not evidence for that conjecture and leaves
+  arbitrary non-polynomial \(t\mapsto(M_t,D_t)\) untouched.
+* **Verification:** block (bp) now pins the collapse classification,
+  integer-valued/non-integer-coefficient quotient cases, resultant bound,
+  shadow blockage, all default ledgers, and a default runtime below 15
+  seconds.  Its full-scan path pins the bound-5,000 ledgers.  The prescribed
+  full suite completed green in 210.01 seconds with 341,704 KiB peak resident
+  memory; syntax parse and the control-byte sweep were also clean.
