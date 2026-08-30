@@ -10340,24 +10340,46 @@ def check_be():
     import os
 
     full_scan = os.environ.get("ES_FULL_SCAN") == "1"
-    modulus_cap = 3000 if full_scan else 2500
+    # The structural replay always reaches 3000.  ES_FULL_SCAN gates only the
+    # additional inverse thresholds, not correctness coverage of square escape.
+    modulus_cap = 3000
     grid = [3, 7, 15, 31, 63, 100, 200, 335, 382, 500, 750,
             1000, 1250, 1500, 1750, 2000]
     if full_scan:
         grid += [2200, 2400, 2494]
 
-    # Complete Lemma-18.1 harvest through every threshold in the grid.
+    def primes_below_chunked(limit, chunk_size=100_000):
+        """Generate primes in bounded-memory intervals [low, high)."""
+        for low in range(2, limit, chunk_size):
+            high = min(limit, low + chunk_size)
+            yield from primerange(low, high)
+
+    # Complete Lemma-18.1 harvest, independently compared with every original
+    # (u,v,w) class.  Taking k=1, ell=M covers the original k*ell quantifier.
+    from sympy import divisors as _divisors
     modulus_classes = []
     class_by_modulus = {}
+    divisor_data_count = distinct_class_count = 0
     for M in range(3, modulus_cap + 1, 4):
         A = (M + 1) // 4
-        classes = {(-4 * D) % M for D in divisors_of_square(A)}
-        modulus_classes.append((M, classes))
+        square_divs = divisors_of_square(A)
+        classes = {(-4 * D) % M for D in square_divs}
+        original_classes = {
+            (-u * pow(v, -1, M)) % M
+            for u in _divisors(A) for v in _divisors(A // u)
+        }
+        assert original_classes == classes, (M, original_classes ^ classes)
+        divisor_data_count += len(square_divs)
+        distinct_class_count += len(classes)
+        modulus_classes.append((M, classes, square_divs))
         class_by_modulus[M] = classes
+    assert len(modulus_classes) == 750
+    assert divisor_data_count == 15_754
+    assert distinct_class_count == 14_745
     assert modulus_cap >= max(grid)
 
     def W_through_cap(n):
-        return next((M for M, classes in modulus_classes
+        return next((M for M, classes, _ in modulus_classes
                      if n % M in classes), None)
 
     # The tiny values explain why the moving convention n,p>T is used.
@@ -10384,7 +10406,7 @@ def check_be():
     # the last §56 record needed by every default/full threshold here.
     unresolved_p, unresolved_h = set(grid), set(grid)
     L_p, L_h = {}, {}
-    for P in primerange(2, 2_031_122):
+    for P in primes_below_chunked(2_031_122):
         witness = W_through_cap(P)
         for T in tuple(unresolved_p):
             if P > T and (witness is None or witness > T):
@@ -10426,6 +10448,18 @@ def check_be():
                     L_h[T][0], L_h[T][1]) for T in grid)
     assert actual == expected_default + (expected_full_tail if full_scan else ())
 
+    # Replay the definition, including every nonsurvivor before each reported
+    # minimum.  In particular L_int(2000)=2025 checks all 2001..2024 rather
+    # than inferring the answer merely because 2025 is the next square.
+    for T in grid:
+        for n in range(int(T) + 1, L_int[T]):
+            witness = W_through_cap(n)
+            assert witness is not None and witness <= T, (T, n, witness)
+        witness = W_through_cap(L_int[T])
+        assert witness is None or witness > T
+    assert all(W_through_cap(n) is not None and W_through_cap(n) <= 2000
+               for n in range(2001, 2025))
+
     # Exact consistency with the two hard-prime records in §56.
     assert W_through_cap(954_409) == 335
     assert W_through_cap(1_853_329) == 383
@@ -10442,18 +10476,22 @@ def check_be():
         A = (ell + 1) // 4
         assert ((A * A) % 2 == 0) == (ell % 8 == 7)
 
-    # Replay representative Jacobi signs at every modulus, then check the
-    # constructive square escape against every harvested class directly.
-    # Avoiding a Jacobi call per divisor keeps this block below its runtime
-    # budget; the exhaustive residue-set check is the stronger finite replay.
-    for M, classes in modulus_classes:
+    # Exhaust every harvested divisor and every square m^2<=10^6 at every
+    # eligible M<=3000.  Set membership against the complete class set checks
+    # all 15,754,000 (M,D,m) incidences without materializing that product.
+    square_membership_checks = 0
+    for M, classes, divs in modulus_classes:
         A = (M + 1) // 4
-        divs = divisors_of_square(A)
-        for D in {divs[0], divs[len(divs) // 2], divs[-1]}:
+        assert gcd(A, M) == 1
+        for D in divs:
+            assert gcd(D, M) == 1
             assert jacobi_symbol(D, M) == 1
             assert jacobi_symbol(-4 * D, M) == -1
-        for s in range(1, 21):
-            assert (s * s) % M not in classes
+        for m in range(1, 1001):
+            assert (m * m) % M not in classes, (M, m)
+            square_membership_checks += 1
+    assert square_membership_checks == 750_000
+    assert divisor_data_count * 1000 == 15_754_000
 
     # Explicit D=1 and D=2 shifted classes, including actual least-W replay.
     for ell in primes_3:
@@ -10517,7 +10555,10 @@ def check_be():
         assert got == expected
 
     print("moving inverse census (T,L_int,L_p,Wp,L_h,Wh) =", actual)
-    print("square/full-system bound checked through cap =", modulus_cap)
+    print("square/full-system replay (moduli,divisor data,distinct classes,"
+          "square checks,incidences) =",
+          (len(modulus_classes), divisor_data_count, distinct_class_count,
+           square_membership_checks, divisor_data_count * 1000))
     print("D=1/D=2 shifted conditions and hard-record interval checked")
 
 

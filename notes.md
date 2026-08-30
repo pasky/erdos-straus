@@ -21484,16 +21484,16 @@ control; no unconditional pointwise Erdős--Straus claim is made.
 
 **Status and headline.**  The definitions, inverse equivalences, Jacobi
 argument, and bounds below are proved.  The displayed censuses are
-**Computational** and exact only on their stated grids.  The literature
-statements were checked in the full sources archived under
+**Computational** and exact only on their stated grids.  The Iwaniec statement
+was checked in full secondary sources archived under
 `sources/jacobsthal-literature/`; the publisher did not deliver the 1978
-primary PDF, and the provenance file says so.  The main structural fact is
-stronger than a generic Jacobsthal estimate: the *full* harvested system
-misses every square.  Thus the useful all-integer inverse is
-
-affine-linear in the threshold, whereas obtaining a prime survivor remains
-open beyond the exponential congruence construction.  Nothing in the finite
-tables suggests a growth law.
+primary PDF, so no primary-source verification is claimed.  The main
+structural fact is stronger than a generic Jacobsthal estimate: the *full*
+harvested system misses every square, so
+\(W(m^2)=+\infty\) for every positive integer \(m\).  Thus the useful
+all-integer inverse is near-linear in the threshold, whereas obtaining a
+prime survivor remains open beyond the exponential congruence construction.
+Nothing in the finite tables suggests a growth law.
 
 ### 58.1 Moving inverses and an exact finite census
 
@@ -21512,10 +21512,8 @@ use the following **moving convention** throughout this section:
 \[
  \begin{split}
  L_{\rm int}(T)&=\min\{n>T:W(n)>T\},\\
- L_p(T)&=\min\{p>T:p\ {
-m prime},\ W(p)>T\},\\
- L_h(T)&=\min\{p>T:p\equiv1\pmod {24},\ p\ {
-m prime},\ W(p)>T\}.
+ L_p(T)&=\min\{p>T:p\ \hbox{prime},\ W(p)>T\},\\
+ L_h(T)&=\min\{p>T:p\equiv1\pmod {24},\ p\ \hbox{prime},\ W(p)>T\}.
  \end{split}                                                \tag{58.2}
 \]
 
@@ -21533,8 +21531,15 @@ For \(A_M=(M+1)/4\), Lemma 18.1 makes the inverse condition exact:
                          D\mid A_M^2\end{array}\right).     \tag{58.3}
 \]
 
-Thus no assertion about a later or nonexistent witness is needed to certify
-one row of an inverse table: all moduli only through that row's threshold are
+This equivalence quantifies over the original data, not merely a selected
+subfamily.  Indeed, a datum (51.2) with \(M=k\ell\) and \(uvw=A_M\) gives
+\(D=u^2w\mid A_M^2\) and
+\(-uv^{-1}\equiv-4D\pmod M\).  Conversely, the prime-by-prime construction
+in Lemma 18.1 recovers positive \(u,v,w\) with \(uvw=A_M\) from every
+\(D\mid A_M^2\), and \(k=1,\ell=M\) is an allowed factorization.  Thus no
+choice of \(k,\ell,u,v,w\), composite modulus, or duplicated class is lost.
+No assertion about a later or nonexistent witness is needed to certify one
+row of an inverse table: all moduli only through that row's threshold are
 harvested.
 
 **Computational 58.1 (exact grid, informational).**  `verify.py (be)`
@@ -21605,7 +21610,9 @@ at a new record are finite-table shapes only.  In particular the isolated
 
 ### 58.2 Two-sided bounds and the shifted constraints
 
-**Theorem 58.1 (two inverse scales; proved).**  For every real \(T\geq3\),
+**Theorem 58.1 (square escape and two inverse scales; proved).**  For every
+positive integer \(m\), \(W(m^2)=+\infty\).  Consequently, for every real
+\(T\geq3\),
 
 \[
  T<L_{\rm int}(T)
@@ -21629,13 +21636,39 @@ Moreover
 The last upper bound also holds for \(L_h(T)\).  All asymptotic upper bounds
 are effective in the same sense as Theorem 54.1.
 
-*Proof.*  The strict lower bound is part of the moving convention.  Put
-\(s=\lfloor\sqrt T\rfloor+1\).  Lemma 21.2 proves that every square avoids
-every harvested class, so \(W(s^2)=+\infty\), proving (58.8).  To replay the
-sign, if \(M=4A-1\) and \(D\mid A^2\), quadratic reciprocity gives
-\((D/M)=1\), while \((-1/M)=-1\); hence \((-4D/M)=-1\), and a square unit
-cannot occupy that class.  A nonunit square cannot occupy it either because
-all harvested classes are units.
+*Proof.*  We first replay the full square quantifier chain.  Fix arbitrary
+\(M=4A-1\) and \(D\mid A^2\).  Since \((A,M)=1\), also \((D,M)=1\): in
+particular, the apparently degenerate case in which a prime dividing \(M\)
+also divides \(D\) is impossible.  The factor 2 in \(D\) causes no common
+factor because \(M\) is odd.  Thus every class \(-4D\pmod M\) is a unit.
+
+For each odd prime \(r\mid A\), quadratic reciprocity, \(M\equiv-1\pmod r\),
+and \(M\equiv3\pmod4\) give
+\[
+ \left({r\over M}\right)
+ =\left({M\over r}\right)(-1)^{(r-1)(M-1)/4}
+ =\left({-1\over r}\right)(-1)^{(r-1)/2}=1.
+\]
+If \(2\mid A\), then \(M\equiv7\pmod8\), so \((2/M)=1\).  Multiplicativity
+therefore gives \((D/M)=1\) for every divisor \(D\mid A^2\), whether or not
+\(D\) is itself a square and with every possible 2-adic exponent.  Since
+\((-1/M)=-1\) and \((4/M)=1\),
+\((-4D/M)=-1\).
+
+For a local reading, write \(M=\prod q^{e_q}\).  The last Jacobi sign says
+that for at least one \(q\) with odd \(e_q\),
+\((-4D/q)=-1\); hence the class is not a square modulo \(q\), and therefore
+not modulo \(q^{e_q}\) or \(M\).  One must not insist that this obstructing
+\(q\) is itself \(3\pmod4\): for \((M,D)=(15,2)\), the class is a square
+modulo 3 and a nonsquare modulo 5.  The condition \(M\equiv3\pmod4\) is what
+forces the *global* Jacobi sign.  Finally, if a nonunit square were congruent
+to \(-4D\), it would equal a unit modulo \(M\), a contradiction.  Thus every
+square avoids every class for every eligible \(M,D\); (58.3) gives
+\(W(m^2)=+\infty\).
+
+The strict lower bound in (58.8) is definitional, not a claim that integers
+at most \(T\) were all witnessed.  Taking
+\(s=\lfloor\sqrt T\rfloor+1\) proves its upper bounds.
 
 For (58.9), \(M(T)+1\equiv1\pmod m\) for every eligible \(m\leq T\).  If
 its datum had \(uvw=(m+1)/4\), the witness congruence would give
@@ -21657,11 +21690,9 @@ nevertheless looks tempting.
 \[
  \begin{split}
  \ell\nmid n+4&\quad(\ell\leq T,\ \ell\equiv3\pmod4,
-                         \ \ell\ {
-m prime}),\\
+                         \ \ell\ \hbox{prime}),\\
  \ell\nmid n+8&\quad(\ell\leq T,\ \ell\equiv7\pmod8,
-                         \ \ell\ {
-m prime}).
+                         \ \ell\ \hbox{prime}).
  \end{split}                                                \tag{58.11}
 \]
 
@@ -21678,8 +21709,7 @@ Selberg--Delange calculation has order \(x/\sqrt{\log x}\): its Dirichlet
 series has the form
 
 \[
- \prod_{q=2\ {
-m or}\ q\equiv1(4)}(1-q^{-s})^{-1}
+ \prod_{\substack{q=2\ \mathrm{or}\ q\equiv1\ (4)}}(1-q^{-s})^{-1}
        =\zeta(s)^{1/2}H(s),                                 \tag{58.12}
 \]
 
@@ -21696,23 +21726,27 @@ every \(G\) consecutive integers contain one coprime to \(q\).  Equivalently,
 up to the conventional endpoint difference of one, it is the maximal gap
 between consecutive integers coprime to \(q\).
 
-**Theorem 58.3 (Iwaniec's Jacobsthal bound; literature-verified).**  If
-\(k=\omega(q)\), then, uniformly in \(q\),
+**Theorem 58.3 (Iwaniec's Jacobsthal bound; secondary-source-verified).**
+If \(k=\omega(q)\geq2\), then, uniformly in \(q\),
 
 \[
                          g(q)\ll(k\log k)^2.                \tag{58.13}
 \]
 
-The constant is absolute but was not made explicit in the checked
-formulation.  The exact statement was verified on page 1 of the archived
-full Costello--Watts paper, which explicitly attributes it to Iwaniec,
-*Demonstratio Math.* **11** (1978), 225--231.  As an independent scope
-check, the archived Ford--Green--Konyagin--Maynard--Tao paper defines the
-same maximal-gap function and records the primorial consequence
-\(g(\prod_{p\leq x}p)\ll x^2\).  The primary DOI is
-`10.1515/dema-1978-0121`; automated retrieval reached the publisher's human
-verification page rather than a PDF, so this section does not pretend that
-the primary scan was inspected.
+Equivalently one may write \(g(q)\ll(k\log(2k))^2\) for all \(q>1\), which
+also covers the one-prime-factor case.  The constant is absolute but was not
+made explicit in the checked formulation.  Page 1 of the archived full
+Costello--Watts paper calls this the best *asymptotic* upper bound, displays
+\(g(n)\leq X(k\log k)^2\) for an unknown constant \(X\), and explicitly
+attributes the proof to Iwaniec, *Demonstratio Math.* **11** (1978),
+225--231.  As an independent scope check, pages 2--3 of the archived
+Ford--Green--Konyagin--Maynard--Tao paper define the endpoint-shifted
+maximal-gap function \(j\), identify
+\(Y(x)=j(\prod_{p\leq x}p)-1\), and record Iwaniec's consequence
+\(Y(x)\ll x^2\).  The primary DOI is `10.1515/dema-1978-0121`; automated
+retrieval reached the publisher's human-verification page rather than a PDF,
+so this is secondary-source verification, not inspection of the primary
+paper.
 
 There is a precise but one-way map to (58.3).  Put
 
@@ -21751,9 +21785,12 @@ conditions (58.15).  The same scope warning applies to the lower bounds for
 Jacobsthal/prime gaps in the Ford--Green--Konyagin--Maynard--Tao paper: they
 concern a maximal, worst-position gap, not this specified least element.
 
-**Structural resolution of the full-system upper-bound question.**  No
-published Jacobsthal generalization is needed: Lemma 21.2 supplies the
-missing full-system avoider explicitly, and (58.8) proves
+**Structural resolution of the full-system upper-bound question.**  The
+Jacobsthal material above is retained only as a historical one-class
+comparison and as possible context for prime- or nonsquare-restricted
+variants.  It cannot improve the all-integer problem.  No published
+Jacobsthal generalization is needed: Theorem 58.1 supplies the full-system
+avoider explicitly, and (58.8) proves
 
 \[
                          L_{\rm int}(T)=T+O(\sqrt T).        \tag{58.16}
@@ -21763,19 +21800,28 @@ Here (58.16) means the two-sided interval in (58.8), not an assertion that
 the difference has an asymptotic constant.  This is a genuine
 \(T^{O(1)}\), indeed near-linear, upper bound for the full system.
 
-**Corollary 58.4 (integer/prime count-below-one dichotomy; proved).**  Put
-\(N_0=L_{\rm int}(T)\) and \(S=(\lfloor\sqrt T\rfloor+1)^2\).  Then
+**Corollary 58.4 (integer/prime count-below-one dichotomy; proved).**  For
+all \(N>T\),
 
 \[
- \#\{n\leq N_0:W(n)>T\}\geq1,
- \qquad N_0\leq S\leq T+2\sqrt T+1,\qquad W(S)=+\infty.     \tag{58.17}
+ \#\{T<n\leq N:W(n)>T\}
+ \geq\max\{0,\lfloor\sqrt N\rfloor-\lfloor\sqrt T\rfloor\}.
+ \quad
+ \begin{gathered}
+ N_0:=L_{\rm int}(T)\leq S:=(\lfloor\sqrt T\rfloor+1)^2,\\
+ S\leq T+2\sqrt T+1,\qquad W(S)=+\infty.
+ \end{gathered}                                             \tag{58.17}
 \]
 
-Consequently an all-integer upper tail of the form
-\(\#\{n\leq N:W(n)>T\}\leq N e^{-\mu(T)}<1\) cannot hold at
-\(N=N_0\) (or at \(N=S\)) in this window.  Any count-below-one route to a
-pointwise prime statement must use primality essentially (see §57): the
-explicit survivor \(S\) is composite for every \(T\geq3\).
+The moving count deliberately excludes \(n\leq T\), so this conclusion is
+not the vacuous consequence of the fixed anomalies \(W(1)=W(4)=+\infty\).
+At \(N=N_0\), the left side is at least one by definition; at \(N=S\), the
+square \(S\) supplies one structurally.  For fixed \(T\), or more generally
+\(T=o(N)\), the all-integer tail contains \((1+o(1))\sqrt N\) squares.
+Consequently an all-integer moving-tail upper bound below one cannot hold at
+\(N=N_0\) or \(N=S\).  Any count-below-one route to a pointwise prime
+statement must use primality essentially (see §57): the explicit survivor
+\(S\) is composite for every \(T\geq3\).
 
 ### 58.4 Prime survivors: congruence wall and technology audit
 
@@ -21845,18 +21891,26 @@ moving convention (58.2):
 
 *Proof.*  Given a superlogarithmic sequence, choose
 \(T_j<\min(W(p_j),p_j)\) with
-\(T_j/\log p_j\to\infty\); then \(L_p(T_j)\leq p_j\), proving the forward
-half of (58.19).  Conversely, at thresholds realizing the liminf, put
-\(p_j=L_p(T_j)\).  Then
-\(W(p_j)>T_j\) and \(W(p_j)/\log p_j>T_j/\log L_p(T_j)\to\infty\).
-This proves (58.19), including the possibility \(W=+\infty\).
+\(T_j/\log p_j\to\infty\); this is possible because both
+\(W(p_j)/\log p_j\) and \(p_j/\log p_j\) tend to infinity.  Then
+\(L_p(T_j)\leq p_j\), so
+\(0\leq\log L_p(T_j)/T_j\leq\log p_j/T_j\to0\).  Conversely, choose
+\(T_j\to\infty\) along the liminf in (58.19) and put
+\(p_j=L_p(T_j)\).  Then \(p_j>T_j\to\infty\), \(W(p_j)>T_j\), and
+\(W(p_j)/\log p_j>T_j/\log L_p(T_j)\to\infty\).  This proves (58.19),
+including the possibility \(W=+\infty\).
 
-If \(H_{\rm MOD}(A)\) fails at arbitrarily large primes \(p\), take
-\(x=p\) in (58.20); the offending prime is admissible in the inverse because
-\((\log p)^A<p\).  Conversely, if the right side fails at unbounded \(x\),
-put \(q=L_p((\log x)^A)\leq x\).  Then \(q\to\infty\) and
-\(W(q)>(\log x)^A\geq(\log q)^A\).  Substituting
-\(T=(\log x)^A\) gives the final formulation. \(\square\)
+It is clearest to prove (58.20) by negating both sides.  If
+\(H_{\rm MOD}(A)\) fails at arbitrarily large primes \(p\), put \(x=p\).
+For large \(p\), \((\log p)^A<p\), so that prime is admissible and
+\(L_p((\log x)^A)\leq x\).  Conversely, if this inverse inequality holds at
+unbounded \(x\), put \(q=L_p((\log x)^A)\leq x\).  Then \(q\to\infty\) and
+\(W(q)>(\log x)^A\geq(\log q)^A\), so \(H_{\rm MOD}(A)\) fails.
+Substitution \(T=(\log x)^A\) gives failures
+\(L_p(T)\leq\exp(T^{1/A})\) for arbitrarily large \(T\).  Conversely, any
+unbounded sequence of such \(T\)'s gives
+\(x=\exp(T^{1/A})\), and the same inequality is a failure of the right side
+of (58.20). \(\square\)
 
 Formula (58.20) is the exact inverse form of the remaining window.  If
 \(A<1\), Theorem 54.1 gives
@@ -21866,3 +21920,53 @@ eventual lower bound \(L_p(T)>e^T\); for \(A>1\), it asks for
 \(L_p(T)>\exp(T^{1/A})\).  Neither the upper bound (58.10) nor the census
 decides any \(A\geq1\).  Thus the honest \(1\leq A\lesssim2\) display in
 (56.16) remains a finite normalization window, not a claimed exponent.
+
+### 58.6 Review attestation (wave 22)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  The headline theorem is confirmed: every
+perfect square avoids every original Lemma-16.1 datum, hence
+\(W(m^2)=+\infty\), and (58.8) follows for the moving inverse.  The following
+repairs were required.
+
+* **HIGH (load-bearing proof audit):** the previous replay compressed the
+  Jacobi argument and did not expose the nonunit, common-factor, 2-adic, and
+  prime-power cases.  Theorem 58.1 now gives the full quantifier chain and
+  records why a chosen \(3\pmod4\) prime need not itself be the local
+  obstruction.
+* **HIGH (counting formulation):** (58.17) used an unshifted count, making
+  its nonemptiness vacuous because of \(n=1,4\), and hid the square-density
+  conclusion.  It now counts \(T<n\leq N\) and proves the exact square lower
+  bound.
+* **HIGH (verification coverage):** `verify.py (be)` previously tested only
+  twenty square roots per modulus and used an unchunked prime iterator.  It
+  now compares the original and divisor harvests, checks every harvested
+  divisor and every \(m^2\leq10^6\) for every eligible \(M\leq3000\),
+  explicitly checks leastness of every inverse row, and chunks prime
+  generation.  The optional census rows remain gated by `ES_FULL_SCAN=1`.
+* **MEDIUM (literature quantifier/provenance):** (58.13) was written uniformly
+  for \(k=\omega(q)\) although \((k\log k)^2=0\) at \(k=1\), and its title
+  did not itself identify secondary verification.  The theorem now states
+  \(k\geq2\), gives the all-\(k\) \(\log(2k)\) form, and identifies exact
+  secondary-source provenance; the primary paper remains uninspected.
+* **MEDIUM (inverse duality proof):** the endpoint choices and reverse
+  direction of the last reformulation were implicit.  Lemma 58.5 now writes
+  both liminf directions and both substitutions explicitly.
+* **LOW (source integrity):** broken text-mode TeX tokens in (58.2), (58.11),
+  and (58.12) were repaired.  The section contains no control bytes or
+  malformed spacing or divisibility commands.
+
+**Independent finite replay.**  Across all 750 moduli
+\(M\leq3000\), \(M\equiv3\pmod4\), the check enumerated 15,754 divisor data
+(and 14,745 distinct classes), compared them with all original
+\((u,v,w)\)-classes, and rejected every one of 750,000 square residues
+\(m^2\) with \(1\leq m\leq1000\).  Equivalently, 15,754,000
+\((M,D,m)\) incidences were excluded.  This is a finite regression check,
+not the proof of the unbounded theorem.
+
+**Archived-source attestation.**  Costello--Watts, page 1, defines \(g(n)\)
+as the least interval length forcing a coprime integer and states
+\(g(n)\leq X(k\log k)^2\), \(k=\omega(n)\), as Iwaniec's best asymptotic
+bound, with unknown \(X\).  Ford--Green--Konyagin--Maynard--Tao, pages 2--3,
+defines \(j\), gives \(Y(x)=j(P(x))-1\), and attributes
+\(Y(x)\ll x^2\) to Iwaniec.  These are full archived secondary sources;
+the inaccessible 1978 primary PDF is not claimed as verified.
