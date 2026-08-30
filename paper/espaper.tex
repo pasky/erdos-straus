@@ -6628,9 +6628,20 @@ W&3&7&11&15&19&23&31&35&39&43&47&55\\
 \#&940&1064&449&154&177&334&86&31&51&30&104&24
 \end{array}
 \end{equation}
-The remaining $184$ entries have $W$ between $59$ and $727$.  The verifier
-pins the full $3630$-entry codebook by SHA-256 digest as well as by this
-histogram and the per-$s$ vanishing sets.
+The remaining $184$ entries have $W$ between $59$ and $727$.  In the
+canonical encoding
+\texttt{$s$:$W(s\cdot1^2)$,\ldots,$W(s\cdot30^2)$;$\ldots$}, ordered by
+increasing squarefree $s$ and with $0$ for $+\infty$, the full
+$3630$-entry codebook has SHA-256 digest (with the displayed line break
+ignored)
+\[
+\begin{gathered}
+\texttt{3c6c31f96adce8ea9180cc86e93da841}\\
+\texttt{e49d71f7a25a8d094e58c05fd5047007}.
+\end{gathered}
+\]
+The verifier pins this digest, the displayed histogram, and the per-$s$
+vanishing sets.
 
 The third sporadic kernel, $s=505$, is explicitly outside the box
 $s\leq200$.  Its first thirty entries are
