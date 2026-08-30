@@ -25904,17 +25904,21 @@ Thus every member of \({\cal A}_{200}\setminus S_{200}(p)\) fails, and
 listing \(S_{200}\) gives the complete 50-law failure profile.  For a second,
 fixed-\(D\) diagnostic define
 \[
- \tau(p)=\max\left\{T:\begin{array}{l}
+ \tau(p)=\sup\left\{T\in\mathbb Z_{\geq0}:\begin{array}{l}
   \text{for every }1\leq D\leq T,\ p+4D\text{ has no divisor }M\text{ with}\\
   M\equiv3\pmod4,\ M>4D,\quad
   D\mid((M+1)/4)^2
- \end{array}\right\}.                                    \tag{67.2}
+ \end{array}\right\}\in\mathbb Z_{\geq0}\cup\{+\infty\}. \tag{67.2}
 \]
 The inequality \(M>4D\) is part of this diagnostic.  Hence \(\tau\) is not
 another name for \(W\), and it deliberately ignores eligible divisors on the
-other side of that inequality.  Write \((D_*,M_*)\) for the first failing
-pair after the pure prefix, so \(D_*=\tau+1\), taking the least eligible
-\(M_*\) if there is a tie.
+other side of that inequality.  When \(\tau<+\infty\), write \((D_*,M_*)\)
+for the first failing pair after the pure prefix, so \(D_*=\tau+1\), taking
+the least eligible \(M_*\) if there is a tie.  This is always a finite
+decision: the cofactor \((p+4D)/M\) is \(3\pmod4\) and at least 3, so
+\(M>4D\) forces \(D<p/8\).  The value infinity really can occur under this
+truncation: exhaustive use of that bound gives \(\tau(193)=+\infty\), even
+though \(W(193)=15\) via \((D,M)=(8,15)\), which is excluded by \(M>4D\).
 
 **Computational 67.1 (complete \(p<10^8\) top ten; exact).**  An ascending-
 \(M\) replay of the §65 census has 98 hard primes with \(W\geq400\).  Its ten
@@ -26007,35 +26011,43 @@ progressions, not an improvement to (54.3).
 ### 67.3 A deliberately fragile record-spacing model
 
 **Heuristic 67.1 (calibrated independent-hit Poisson model).**  For eligible
-\(M\), let \({\cal C}_M\) be the harvested residue set in (65.1), and let
-\(u_M\) be the proportion of reduced residues modulo \(M\), compatible with
-\(p\equiv1\pmod {24}\), which lie in \({\cal C}_M\).  The raw model treats
-all modulus hits as independent--equivalently, it suppresses the shared-
-\(p\), shared-factor, and cross-\(a\) dependencies in the dual frame--and
-uses
+\(M\), make the inputs explicit:
+\[
+ \begin{split}
+ {\cal C}_M&=\{-4D\pmod M:D\mid((M+1)/4)^2\},\\
+ {\cal R}_M&=\{r\pmod M:(r,M)=1,\ r\equiv1
+                         \pmod{(M,24)}\},\\
+ u_M&=|{\cal C}_M\cap{\cal R}_M|/|{\cal R}_M|.
+ \end{split}                                                \tag{67.7}
+\]
+The raw model treats all modulus hits as independent--equivalently, it
+suppresses the shared-\(p\), shared-factor, and cross-\(a\) dependencies in
+the dual frame--and uses
 \[
  P_{\rm raw}(W>T)=\prod_{\substack{M\leq T\\M\equiv3(4)}}(1-u_M).
-                                                               \tag{67.7}
+                                                               \tag{67.8}
 \]
 At \(T=2495\), direct class enumeration gives
 \[
  -\log P_{\rm raw}=20.522039,
- \qquad P_{\rm raw}=1.222902\cdot10^{-9}.                 \tag{67.8}
+ \qquad P_{\rm raw}=1.222902\cdot10^{-9}.                 \tag{67.9}
 \]
-This raw value visibly understates the finite tail.  To absorb dependence
-without pretending to derive it, replace it by
+At the five lower calibration thresholds below, not at the zero-count
+threshold 2495 itself, the raw values are smaller than the observed finite
+frequencies.  To absorb dependence without pretending to derive it, replace
+the raw model by
 \(P_\beta=P_{\rm raw}^{\,\beta}\).  Calibration against the complete §65
 census gives:
 \[
-\begin{array}{r|r|c}
-T&\#\{p<10^8:W(p)>T\}&
+\begin{array}{r|r|c|c}
+T&\#\{p<10^8:W(p)>T\}&P_{\rm raw}(W>T)&
  \beta={\log(\# /719781)\over\log P_{\rm raw}(W>T)}\\ \hline
-255&421&0.871712\\
-383&109&0.863214\\
-511&45&0.844367\\
-639&16&0.852878\\
-767&8&0.846176
-\end{array}                                                \tag{67.9}
+255&421&1.955681544\cdot10^{-4}&0.871712\\
+383&109&3.757844433\cdot10^{-5}&0.863214\\
+511&45&1.049874640\cdot10^{-5}&0.844367\\
+639&16&3.501544731\cdot10^{-6}&0.852878\\
+767&8&1.397322616\cdot10^{-6}&0.846176
+\end{array}                                                \tag{67.10}
 \]
 The central choice \(\beta=0.85\) is therefore a finite calibration, not an
 estimated constant of nature.  As a separate dependence warning, multiplying
@@ -26046,29 +26058,34 @@ is diagnostic only.
 
 At 2495 the calibrated per-prime probability is
 \(P_{0.85}=2.6563\cdot10^{-8}\).  Keeping it fixed across the next decade
-and using one eighth of the ordinary-prime count as the future hard-prime
-population gives the requested spacing estimate:
+and using the uniform-residue proxy
+\[
+ {\pi(10^9)-\pi(10^8)\over8}
+ ={50,847,534-5,761,455\over8}=5,635,759.875
+\]
+for the future hard-prime population gives the toy arithmetic:
 \[
 \begin{array}{c|c|c|c|c}
 p\text{ interval}&\#\text{ hard primes used}&
  E\#\{W>2495\}&\beta\in[0.80,0.90]&\text{observed}\\ \hline
 (10^7,10^8)&636894&0.0169&[0.0061,0.0472]&0\\
-(10^8,10^9)&5.636\cdot10^6\ \text{(PNT)}&0.1497&[0.0537,0.4177]&--
-\end{array}                                                \tag{67.10}
+(10^8,10^9)&5,635,759.875\ \text{(proxy)}&0.1497&[0.0537,0.4177]&--
+\end{array}                                                \tag{67.11}
 \]
-The model assigns probability \(e^{-0.0169}=0.9832\) to the observed zero
-in the first interval.  This says only that the stall is consistent with
-this calibrated toy model.  Independence is false in detail, the calibration
+The corresponding formal Poisson zero mass in the first interval is
+\(e^{-0.0169}=0.9832\).  This is not a p-value and supplies no evidence for
+or against the stall.  Independence is false in detail, the calibration
 range stops at 767, the extrapolation crosses an unobserved tail, the future
-population is only a prime-number-theorem estimate, and selection of the old
-record is ignored.  **Nothing about a tail density, a next-record location,
-or a growth law is inferred.**
+hard-class population is only a one-eighth proxy despite the exact ordinary
+prime counts, and selection of the old record is ignored.  **Nothing about a
+tail density, a next-record location, a growth law, or support for the model
+is inferred.**
 
 ### 67.4 The empirical exponent and the eventual window
 
-For a finite row put
+All logarithms in this subsection are natural.  For a finite row put
 \[
-                     A_{\rm emp}(p)={\log W(p)\over\log\log p}. \tag{67.11}
+                     A_{\rm emp}(p)={\log W(p)\over\log\log p}. \tag{67.12}
 \]
 This is the exponent that makes \(W(p)=(\log p)^{A_{\rm emp}(p)}\) at that
 single prime; it is not a fitted population exponent.
@@ -26085,7 +26102,7 @@ p&W&A_{\rm emp}&p&W&A_{\rm emp}\\ \hline
 33289&155&2.152501&1853329&383&2.228161\\
 90841&167&2.101766&2031121&2495&2.923244\\
 144169&191&2.122345&&&
-\end{array}                                                \tag{67.12}
+\end{array}                                                \tag{67.13}
 \]
 
 **Assessment 67.1 (the honest \(A\)-window).**  The precise hypothesis is
@@ -26096,34 +26113,103 @@ the phrase ``\(1\leq A\lesssim2\) honest open window'' in §56.5 has two
 registers: \(A\geq1\) is the exact eventual hypothesis frontier, whereas
 \(\lesssim2\) names only the old finite normalization panel and is not an
 upper frontier.  The one early value \(A_{\rm emp}(2031121)=2.923244\) is
-ignored by every sufficiently-large quantifier, and §65.4 shows that every
-later dyadic normalized block remains below that record through \(10^8\).
-Those two facts are consistent with eventual \(\limsup A_{\rm emp}\) equal
-to 1, equal to any larger finite value, or unbounded; they select none of
-these possibilities.
+ignored by every sufficiently-large quantifier.  Section 65's complete
+census has no later \(W\)-record through \(10^8\); since later \(p\) are
+larger, it also has no later \(A_{\rm emp}\)-record.  These two finite facts
+do not rule out eventual \(\limsup A_{\rm emp}\) equal to 1, equal to any
+larger finite value, or unbounded; they select none of these possibilities.
 
-Accordingly PROJECT.md Outcome 24's informal ``sup conjecturally
-\(\asymp\log^{1..2}\)'' should be read with the §56.5/§65/§67 finite-window
-caveat: the point \(2031121\) lies above exponent 2, and no eventual upper
-exponent is known.  This is a caveat pointer, not a change to an older
-result.
+PROJECT.md Outcome 24 now records the same distinction: its old
+\(\log p,\log p\log\log p,(\log p)^2\) panel is finite normalization only.
+The point \(2031121\) lies above exponent 2, and no eventual upper exponent
+is known.  This alignment changes no proved result.
 
 ### 67.5 Verification and scope
 
 **Computational 67.4.**  Block (bn) rebuilds every displayed top-ten minimum,
 small-\(a\) spectrum, purity depth, and four-shift factorization with Python
-integers.  It recomputes the top three \(a_1\)'s and depths rather than merely
-checking stored witnesses, exhausts the least-prime searches for \(T=15,19\),
-replays all four residue-one rows, checks every value in (67.12), and performs
-seeded dual/class spot checks.  It also rebuilds (67.7)--(67.10).  The full
+integers.  It separately recomputes \(W\), \(a_1\), the complete
+\({\cal A}_{200}\) profile, and the exhaustive depth for all 15 strict
+records, including \(\tau(193)=+\infty\), exhausts all four least-prime
+searches, replays all four residue-one rows, checks every value in (67.13),
+and performs seeded dual/class spot checks.  It also rebuilds
+(67.7)--(67.11).  The full
 \(p<10^8\) ranking and calibration counts are gated by
 `ES_FULL_SCAN=1` and use the memory-bounded, shrinking-survivor census of
 `scripts/review65_independent.py`; default mode checks the displayed primes
 but does not claim to rescan their ranking.  All divisor paths use Python
 integers, and only one shifted factorization/divisor list is live at a time.
-On the research host the isolated block took 0.234 seconds by default and
-1.33 seconds with `ES_FULL_SCAN=1`; the complete default suite finished green
-in 217.69 seconds under the 600-second timeout.
+In the post-review replay the isolated block took 0.34 seconds by default
+and 1.39 seconds with `ES_FULL_SCAN=1`; the complete default suite finished
+green in 215.85 seconds under the 700-second timeout.
+
+### 67.6 Review attestation (wave 28)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  Maximum-severity review found no wrong
+entry in the top-ten anatomy, residue-one table, exponent table, or toy-model
+arithmetic, and no contradiction with the §65 census or §63 local laws.  It
+did find material definition and register defects.  The repairs make the
+depth total, make every heuristic input reproducible, remove an evidential
+overclaim, and align the project register with the exact open frontier.
+
+* **CRITICAL:** none.  A fresh standard-library implementation, using its own
+  trial factorization, divisor expansion, deterministic primality test, and
+  ascending-modulus scan, reproduced all displayed finite arithmetic.
+* **HIGH (depth definition):** the old maximum did not specify integer
+  \(T\), so even a finite prefix had no real maximum, and it had no infinity
+  convention.  This is substantive: \(p=193\) has \(W=15\) but
+  \(\tau=+\infty\), because its \((D,M)=(8,15)\) witness is excluded by
+  \(M>4D\).  Equation (67.2) now takes a supremum over nonnegative integers
+  and allows infinity.  The cofactor argument proves the exhaustive bound
+  \(D<p/8\).
+* **HIGH (heuristic register and inputs):** the old prose called the
+  threshold-2495 raw probability an underestimate even though the observed
+  strict tail there is zero, called an exact \(\pi\)-difference divided by
+  eight a prime-number-theorem estimate, and promoted the formal Poisson
+  mass to “consistent with” evidence.  The repair confines the underestimate
+  comparison to the five nonzero calibration thresholds, displays
+  \({\cal C}_M,{\cal R}_M,u_M\), every calibration raw probability, and the
+  exact prime-count proxy, and states that the model supplies no evidence.
+* **HIGH (eventual-exponent register):** PROJECT.md still called
+  \(A\in[1,\sim2]\) the honest open window and described a conjectural
+  \(\log^{1..2}\) upper scale, despite §§51, 54, and 56 leaving every
+  \(A\geq1\) open.  It now labels 1--2 only as the historical finite
+  normalization panel.  Natural logarithms are explicit, and direct
+  recomputation gives
+  \(\log2495/\log\log2031121=2.923244274\ldots\).
+* **MEDIUM (independent anatomy coverage):** the old default block checked
+  the displayed top ten but, for the remaining strict records, checked only
+  their exponent arithmetic.  Block (bn) now independently pins all 15
+  values of \(W\), \(a_1\), every hit in \({\cal A}_{200}\), and exhaustive
+  \(\tau\).  In strict-record order the new cross-check gives
+  \(a_1=(7,7,23,23,3,3,7,15,15,31,19,11,3,3,11)\) and
+  \(\tau=(0,\infty,1,7,28,7,7,4,12,31,2,1,7,1,28)\).
+  The complete §65 replay still has 719,781 hard primes, 98 with
+  \(W\geq400\), exactly the displayed top ten, and no new record in
+  \((10^7,10^8)\).
+* **MEDIUM (residue-one and spacing recomputation):** the full lcm
+  construction gives
+  \((T,M,k,p,W,W-T)=(15,360360,12,4324321,23,8)\),
+  \((19,232792560,1,232792561,183,164)\),
+  \((23,5354228880,2,10708457761,47,24)\), and
+  \((27,80313433200,5,401567166001,71,44)\).  Independent class enumeration
+  gives \(-\log P_{\rm raw}=20.522039361\ldots\),
+  \(P_{\rm raw}=1.222901698\cdot10^{-9}\),
+  \(P_{0.85}=2.656334824\cdot10^{-8}\), and the purely formal expectations
+  0.0169180 and 0.1497047.  These are reproducible toy outputs, not a tail
+  claim.
+* **LOW (executable scope):** default block (bn) takes 0.34 seconds and has
+  real arithmetic assertions; its isolated `ES_FULL_SCAN=1` path takes 1.39
+  seconds and replays the complete ranking and calibration counts through
+  \(10^8\) with bounded memory.  The default full suite completed with
+  `all checks passed` in 215.85 seconds at 340,808 KiB peak RSS.  AST,
+  control-byte, conflict-marker, and diff checks were clean.
+
+The residual uncertainty is exactly what the labels say: the anatomy and
+residue rows are finite computation, the spacing model has deliberately
+false independence and no evidential force, and no eventual upper exponent
+is known.  Nothing in §67 proves a tail density, predicts a next record, or
+advances the pointwise Erdős--Straus problem.
 
 ## 68. External: the 2025 Pomerance--Weingartner exceptions paper
 
