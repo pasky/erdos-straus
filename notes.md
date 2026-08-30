@@ -25461,3 +25461,145 @@ therefore its historical timing and implementation details.  The committed
 independent full replay now verifies the headline without relying on that
 artifact.  All conclusions remain Computational/INFO finite-range evidence;
 none advances \(H_{\rm MOD}\) or supports an asymptotic fit.
+
+## 68. External: the 2025 Pomerance--Weingartner exceptions paper
+
+**Source and version (wave 28).**  The current arXiv v2 is archived verbatim
+in `sources/pomerance-weingartner-2511.16817/`; the full reading audit is
+`reviews/external-pw-2511.16817-wave28.md`.  The older
+`sources/pomerance-weingartner-2025.pdf` is the November 2025 version of this
+same arXiv paper, not a second paper.  Thus this is a v2 refresh and priority
+re-audit of the source already underlying §§43 and 51.  Theorem 1.3 is
+unchanged in substance.
+
+### 68.1 Exact statements and proof routes
+
+**Upper bound.**  Pomerance--Weingartner Theorem 1.3 says (quote): “There is
+an absolute positive constant C such that for each pair m, N with
+4 <= m <= log^2 N the number of n <= N with m/n not the sum of 3 unit
+fractions is at most N/exp(C log^(2/3)(N)/phi(m)^(1/3))” (p. 2).  In the
+notation of §43 this is exactly
+
+\[
+ E_m(N)\ll N\exp\{-C(\log N)^{2/3}/\varphi(m)^{1/3}\},
+ \qquad 4\leq m\leq(\log N)^2.                            \tag{68.1}
+\]
+
+It counts all integer denominators.  The paper says only “absolute positive
+constant,” not effective or computable.  Its lower class-mass proof says
+“We now use the Bombieri--Vinogradov theorem” (Lemma 4.1, p. 9), and its
+N-side says “We now employ the large sieve” (p. 10); no
+exceptional-conductor repair is given.
+
+**Lower exceptions.**  Theorem 1.1 says (quote): “For each epsilon > 0 there
+is a bound m(epsilon) such that for each m >= m(epsilon) there is some
+n > exp(m^(1/3-epsilon)) with m/n not the sum of 3 unit fractions” (p. 2).
+Although that headline does not say prime, Theorem 3.1 actually gives more
+than
+
+\[
+ \exp\{c\varphi(m)^{1/3}/(\log m)^{2/3}\}                 \tag{68.2}
+\]
+
+**prime** exceptions for every `m>=8` (Theorem 3.1, p. 6), and its proof
+places most of them in `(N_0/2,N_0]`, where
+
+\[
+ \log N_0=\{\varphi(m)/(C\log^2m)\}^{1/3}                 \tag{68.3}
+\]
+
+(pp. 7--8).  The complete prime-denominator split is used: Type I solutions
+force `p == -f (mod mad)`, `f|ma^2d+1` (Corollary 2.2/Theorem 3.1, p. 6),
+and Type II solutions force `p == -e (mod mab)`, `e|a+b` (Corollary
+2.4/Theorem 3.1, p. 7).  Brun--Titchmarsh shows that the union of these two
+families of solution-admitting congruences misses most primes in the chosen
+interval.  This is avoidance of all admitting classes, not one fixed
+congruence obstruction.
+
+Theorem 1.2 says (quote): “For each integer m >= 6.52 x 10^9 there is a
+prime p in (m^2,2m^2) for which m/p is not the sum of 3 unit fractions”
+(p. 2).  Proposition 7.5 and Corollary 9.1 bound respectively the Type-I and
+Type-II primes below the explicit prime-count lower bound (proof, p. 23).
+Section 6 only computationally supports the conjectural extension `m>=20`
+(p. 12).
+
+**Other scope.**  At `m=4`, (68.1) has exactly Vaughan's `2/3` exponent.  The
+paper states no improved `m=4` all-denominator upper bound; its `m=4,5`
+claims beyond that are finite verifications (pp. 12--13, Remark 8.2 p. 21).
+Theorem 1.4 says (quote): “For each pair of positive integers j,k, there is a
+number m(j,k) such that for each m >= m(j,k), we have m/(km+1) not the sum
+of j unit fractions” (p. 3).  Its proof is a discreteness argument for fixed
+sums of unit fractions (Lemmas 5.1--5.2, pp. 11--12), not a modification of
+the three-summand Type-I/Type-II split.
+
+### 68.2 Range consistency and crossover
+
+Fix the fixed-gap parameter `0<sigma<3` in Theorem 43.12.  Its range is
+
+\[
+ m\leq(\log N)^{3-\sigma}
+ \quad\Longleftrightarrow\quad
+ \log N\geq m^{1/(3-\sigma)},
+ \qquad
+ {1\over3-\sigma}-{1\over3}
+ ={\sigma\over3(3-\sigma)}>0.                              \tag{68.4}
+\]
+
+By (68.3), the Pomerance--Weingartner constructed exceptions have
+`log p=m^(1/3+o(1))`; hence
+
+\[
+ {m\over(\log p)^{3-\sigma}}
+     =m^{\sigma/3+o(1)}\longrightarrow\infty.              \tag{68.5}
+\]
+
+They are outside Theorem 43.12/§55's stated range for every fixed positive
+`𝜎`.  The explicit `p in (m^2,2m^2)` has `log p=2log m+O(1)` and is farther
+outside.  There is **no contradiction**.  This range check does not say
+there are no exceptions later: Theorem 43.12 is an exceptional-set upper
+bound, not a zero-exception theorem.
+
+Since (68.1) is the existing (43.32), the crossover is unchanged.  With
+`L=log N`, PW scale `P` and the **CLAIMED/PROVISIONAL** Theorem 43.12 scale
+`R` satisfy
+
+\[
+ P={L^{2/3}\over\varphi(m)^{1/3}},\qquad
+ R=\left({\eta_2(m)L^3\over\varphi(m)}\right)^{1/4},\qquad
+ {R\over P}=\{\eta_2(m)^3\varphi(m)L\}^{1/12}.             \tag{68.6}
+\]
+
+Formally `R>=P` iff `L>=1/(eta_2(m)^3 phi(m))`; below that scale PW is
+larger.  Unknown constants preclude a finite crossover.  PW is proved on
+`m<=L^2`; Theorem 43.12 reaches every fixed-gap `m<=L^(3-epsilon)` but
+inherits Theorem 34.8, Theorem 43.7, and §39.7 and remains
+**CLAIMED/PROVISIONAL**.  No comparison row changes.
+
+### 68.3 Priority impact and Vaughan secondary evidence
+
+* **Theorem 39.7:** no impact on the would-be record.  The paper quotes
+  Vaughan's `N/exp(c log^(2/3)N)` bound and calls the improvement “strongly
+  improved, though not recently” (Introduction, p. 2), while its own
+  `m=4` specialization remains `2/3`.  It contains no exponent beyond
+  `2/3`.  This strengthens the secondary-source search record; it is not a
+  literature guarantee.  Theorem 39.7 remains **CLAIMED/PROVISIONAL**.
+* **Theorem 43.12:** (68.1) is exactly the benchmark already audited, while
+  (68.2)--(68.5) are range-consistent lower results.  Status and crossover
+  are unchanged; Theorem 43.12 remains **CLAIMED/PROVISIONAL**.
+* **Theorems 51.2/51.6:** Section 4's `k=1` good-class family is the already
+  recorded PW square-log truncation in §51.4.  The paper does not define the
+  minimal witness modulus `W`, state a tail in `T`, claim polylogarithmic
+  witness depth, or address computability.  It does not cite Dahan
+  (arXiv:2608.24035); its 13-item bibliography is on pp. 24--25.  The cubic
+  part of Theorem 51.2 and record-adjacent effectivity Theorem 51.6 retain
+  their **CLAIMED/PROVISIONAL** qualifications.
+
+For the inaccessible original, the exact new secondary descriptions are:
+“In 1970, Vaughan [13] gave the upper bound N/exp(c log^(2/3) N)”
+(Introduction, p. 2); “Exploiting the large sieve, the proof is largely
+derivative of Vaughan's theorem” (p. 2); “Our proof largely follows the
+argument in Vaughan” and “As shown in [13] for each p there are at least f(p)
+residue classes mod p” forcing representations (Section 4, p. 8).  Section 4
+then proves `sum f(p)/p asymp (log x)^2/phi(m)` and applies the large sieve
+(pp. 8--11).  This updates the Vaughan access record without pretending that
+the 1970 primary source was read.
