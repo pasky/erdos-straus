@@ -12889,4 +12889,285 @@ print("\n== (bl) W-record census and anatomy (§65) ==")
 check_bl()
 
 
+# ---------------------------------------------------------------- (bn)
+def check_bn():
+    """§67: extremal anatomy, residue-one examples, and spacing inputs."""
+    import importlib.util
+    import os
+    from random import Random
+    from time import perf_counter
+    from sympy import isprime, primepi
+
+    started = perf_counter()
+
+    # Every divisor product below is an ordinary Python int.  Keep no
+    # factorization table: one shifted integer is live at a time.
+    def divisors_int(n):
+        values = [1]
+        for q0, e0 in factorint(int(n)).items():
+            q, e = int(q0), int(e0)
+            values = [int(D * q**j) for D in values for j in range(e + 1)]
+        return tuple(values)
+
+    def square_divisors_int_local(n):
+        values = [1]
+        for q0, e0 in factorint(int(n)).items():
+            q, e = int(q0), int(e0)
+            values = [int(D * q**j) for D in values
+                      for j in range(2 * e + 1)]
+        return tuple(values)
+
+    def factor_string(n):
+        return "*".join(
+            str(int(q)) if int(e) == 1 else f"{int(q)}^{int(e)}"
+            for q, e in sorted(factorint(int(n)).items())
+        )
+
+    def succeeds_a(P, a):
+        h = (P + a) // 4
+        assert 4 * h == P + a and gcd(a, h) == 1
+        target = (-h) % a
+        return any(D % a == target for D in square_divisors_int_local(h))
+
+    def first_a(P):
+        a = 3
+        while not succeeds_a(P, a):
+            a += 4
+        return a
+
+    def purity_first(P, cap=100):
+        for D in range(1, cap + 1):
+            firing = []
+            for M in divisors_int(P + 4 * D):
+                if M % 4 != 3 or M <= 4 * D:
+                    continue
+                A = (M + 1) // 4
+                if (A * A) % D == 0:
+                    firing.append(M)
+            if firing:
+                return D - 1, D, min(firing)
+        raise AssertionError((P, cap))
+
+    top = (
+        (2_031_121, 2495, 11,
+         (11, 19, 39, 55, 59, 95, 111, 139, 167, 179),
+         28, 29, 52_083,
+         ("5^3*16249", "3^3*75227", "13*156241", "2031137")),
+        (88_808_281, 1007, 3,
+         (3, 15, 19, 23, 35, 43, 59, 127, 131, 135, 159),
+         7, 8, 2783,
+         ("5*349*50893", "3*17*1741339", "7*331*38329", "88808297")),
+        (39_203_761, 923, 7,
+         (7, 11, 27, 47, 71, 107, 127, 143, 159, 167),
+         10, 11, 94_467,
+         ("5*401*19553", "3*11*1187993", "7^2*800077", "67*585131")),
+        (43_371_241, 923, 7,
+         (7, 35, 43, 71, 103, 179, 187, 199),
+         1, 2, 1223,
+         ("5*8674249", "3*1223*11821", "43371253", "43371257")),
+        (21_475_609, 911, 7,
+         (7, 27, 35, 51, 71, 103, 107, 111, 119, 151, 183, 191),
+         9, 10, 15_439,
+         ("21475613", "3*7158539", "21475621", "5^4*34361")),
+        (23_836_201, 911, 11,
+         (11, 19, 27, 31, 35, 47, 55, 59, 63, 71, 87, 111, 131, 135, 183),
+         1, 2, 1759,
+         ("5*4767241", "3*1759*4517", "23836213", "433*55049")),
+        (62_850_769, 911, 3,
+         (3, 23, 43, 47, 51, 55, 67, 71, 75, 83, 95, 99, 103, 111, 119, 131, 151),
+         6, 7, 1987,
+         ("62850773", "3*11*601*3169", "7^2*211*6079", "5*17*101*7321")),
+        (22_706_161, 783, 11,
+         (11, 19, 47, 55, 59, 79, 131, 143),
+         13, 14, 783,
+         ("5*4541233", "3*17*41*10859", "7*3243739", "13*1746629")),
+        (5_214_049, 747, 3,
+         (3, 7, 11, 15, 39, 47, 71, 83, 95, 131, 191),
+         14, 15, 27_299,
+         ("13*17*23593", "3*1738019", "5214061", "5*89*11717")),
+        (5_309_329, 719, 7,
+         (7, 11, 23, 31, 39, 63, 107, 111, 131, 171),
+         1, 2, 1047,
+         ("5309333", "3*11*349*461", "19*103*2713", "5*1061869")),
+    )
+
+    # One ascending class system gives every displayed W and the spacing
+    # masses.  Its largest row is the observed record itself.
+    class_rows = []
+    for M in range(3, 2496, 4):
+        A = (M + 1) // 4
+        classes = frozenset(int((-4 * D) % M)
+                            for D in square_divisors_int_local(A))
+        class_rows.append((M, classes))
+    class_rows = tuple(class_rows)
+
+    def row_W(P):
+        return next((M for M, classes in class_rows
+                     if P % M in classes), None)
+
+    profiles = []
+    for P, expected_W, expected_a1, expected_success, expected_tau, expected_D, expected_M, expected_factors in top:
+        assert row_W(P) == expected_W
+        success = tuple(a for a in range(3, 201, 4) if succeeds_a(P, a))
+        assert success == expected_success
+        assert 50 - len(success) in (33, 35, 38, 39, 40, 42)
+        assert first_a(P) == expected_a1
+        assert purity_first(P) == (expected_tau, expected_D, expected_M)
+        observed_factors = tuple(factor_string(P + 4 * D) for D in range(1, 5))
+        assert observed_factors == expected_factors
+        assert all(int(q) % 4 == 1 for q in factorint(P + 4))
+        profiles.append((P, expected_W, expected_a1, expected_tau))
+    assert tuple(50 - len(row[3]) for row in top) == (
+        40, 39, 40, 42, 38, 35, 33, 42, 39, 40,
+    )
+    # Explicitly pin the requested independently recomputed top-three rows.
+    assert tuple((first_a(P),) + purity_first(P)
+                 for P, *_ in top[:3]) == (
+        (11, 28, 29, 52_083),
+        (3, 7, 8, 2783),
+        (7, 10, 11, 94_467),
+    )
+
+    # §54.1 uses the full lcm(1,...,T).  Exhaust k in order, then replay W
+    # and a_1 from the same direct definitions as above.
+    residue_rows = (
+        (15, 360_360, 12, 4_324_321, 23, 8, 3, 0.229656),
+        (19, 232_792_560, 1, 232_792_561, 183, 164, 27, 0.192308),
+        (23, 5_354_228_880, 2, 10_708_457_761, 47, 24, 7, 0.198258),
+        (27, 80_313_433_200, 5, 401_567_166_001, 71, 44, 7, 0.204634),
+    )
+    for T, expected_L, expected_k, expected_p, expected_W, excess, expected_a1, linnik_ratio in residue_rows:
+        L = 1
+        for n in range(1, T + 1):
+            L = lcm(L, n)
+        assert L == expected_L and L % 24 == 0
+        k = 1
+        while not isprime(1 + k * L):
+            k += 1
+        P = 1 + k * L
+        assert (k, P) == (expected_k, expected_p)
+        observed_W = row_W(P)
+        assert observed_W == expected_W and observed_W > T
+        assert observed_W - T == excess
+        assert first_a(P) == expected_a1
+        assert round(log(P) / (5.2 * log(L)), 6) == linnik_ratio
+    # The task specifically requires default least-prime/W replays at 15,19.
+    assert tuple((row[0], row[3], row[4]) for row in residue_rows[:2]) == (
+        (15, 4_324_321, 23), (19, 232_792_561, 183),
+    )
+
+    records = (
+        (73, 7, 1.336115), (193, 15, 1.630725),
+        (1201, 31, 1.753095), (2521, 47, 1.870574),
+        (3361, 99, 2.194077), (33_289, 155, 2.152501),
+        (90_841, 167, 2.101766), (144_169, 191, 2.122345),
+        (167_521, 259, 2.234072), (225_289, 279, 2.242045),
+        (361_321, 287, 2.220056), (915_961, 303, 2.181299),
+        (954_409, 335, 2.217096), (1_853_329, 383, 2.228161),
+        (2_031_121, 2495, 2.923244),
+    )
+    for P, W, expected in records:
+        assert round(log(W) / log(log(P)), 6) == expected
+
+    # Rebuild the independent-hit product conditional on the hard residue.
+    raw = 1.0
+    raw_at = {}
+    thresholds = {255, 383, 511, 639, 767, 2495}
+    for M, classes in class_rows:
+        g = gcd(M, 24)
+        allowed = tuple(r for r in range(M)
+                        if r % g == 1 % g and gcd(r, M) == 1)
+        hits = sum(r in classes for r in allowed)
+        raw *= 1.0 - hits / len(allowed)
+        if M in thresholds:
+            raw_at[M] = raw
+    assert round(-log(raw), 6) == 20.522039
+    assert f"{raw:.6e}" == "1.222902e-09"
+    calibration_counts = {255: 421, 383: 109, 511: 45, 639: 16, 767: 8}
+    expected_betas = {
+        255: 0.871712, 383: 0.863214, 511: 0.844367,
+        639: 0.852878, 767: 0.846176,
+    }
+    for T, count in calibration_counts.items():
+        beta = log(count / 719_781) / log(raw_at[T])
+        assert round(beta, 6) == expected_betas[T]
+
+    six_failure_product = prod((
+        8814 / 66_667, 25_359 / 85_715, 34_046 / 90_910,
+        26_423 / 53_333, 46_679 / 94_737, 54_165 / 95_653,
+    ))
+    assert round(six_failure_product, 6) == 0.002025
+    assert sum((63, 183, 27, 44, 7, 23, 2, 4, 4, 1, 2, 1)) == 361
+    assert round(361 / 82_887, 6) == 0.004355
+
+    calibrated = raw**0.85
+    assert f"{calibrated:.5e}" == "2.65633e-08"
+    expected_now = calibrated * 636_894
+    assert (int(primepi(10**8)), int(primepi(10**9))) == (
+        5_761_455, 50_847_534,
+    )
+    future_population = (int(primepi(10**9)) - int(primepi(10**8))) / 8
+    expected_future = calibrated * future_population
+    assert round(expected_now, 4) == 0.0169
+    assert round(expected_future, 4) == 0.1497
+    assert f"{future_population:.3e}" == "5.636e+06"
+    now_band = (raw**0.90 * 636_894, raw**0.80 * 636_894)
+    future_band = (raw**0.90 * future_population,
+                   raw**0.80 * future_population)
+    assert tuple(round(x, 4) for x in now_band) == (0.0061, 0.0472)
+    assert tuple(round(x, 4) for x in future_band) == (0.0537, 0.4177)
+    assert round(exp(-expected_now), 4) == 0.9832
+
+    # Seeded links between the class and dual-a coordinates.  This is not a
+    # census: it independently reconstructs one firing divisor on each row.
+    hard_spot = tuple(int(P) for P in primerange(73, 100_000)
+                      if P % 24 == 1)
+    rng = Random(670028)
+    for P in (hard_spot[i]
+              for i in rng.sample(range(len(hard_spot)), 128)):
+        M = row_W(P)
+        assert M is not None
+        A = (M + 1) // 4
+        firing = tuple(D for D in square_divisors_int_local(A)
+                       if P % M == (-4 * D) % M)
+        assert firing
+        D = min(firing)
+        a = (P + 4 * D) // M
+        h = (P + a) // 4
+        assert a % 4 == 3 and h * h % D == 0
+        assert D % a == (-h) % a and succeeds_a(P, a)
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    if full_scan:
+        # Reuse only the durable independent scanner, not verify.py helpers.
+        spec = importlib.util.spec_from_file_location(
+            "review65_for_bn", "scripts/review65_independent.py"
+        )
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        full_rows, _ = module.build_rows(2495)
+        hard = module.hard_primes_below(100_000_000)
+        full_W, last_M = module.scan_minima(hard, full_rows, 2495)
+        assert last_M == 2495 and len(hard) == 719_781
+        ranked = tuple(sorted(
+            ((int(P), int(W)) for P, W in zip(hard, full_W)),
+            key=lambda row: (-row[1], row[0]),
+        )[:10])
+        assert ranked == tuple((row[0], row[1]) for row in top)
+        assert int((full_W >= 400).sum()) == 98
+        assert int(((hard >= 10_000_000) & (hard < 100_000_000)).sum()) == 636_894
+        for T, count in calibration_counts.items():
+            assert int((full_W > T).sum()) == count
+        assert int(((hard >= 10_000_000) & (full_W > 2495)).sum()) == 0
+
+    print("record-stall anatomy (top rows,residue rows,A rows,spots,full,seconds) =",
+          (len(top), len(residue_rows), len(records), 128, full_scan,
+           perf_counter() - started))
+
+
+print("\n== (bn) record-stall anatomy and honest A-window (§67) ==")
+check_bn()
+
+
 print("\nall checks passed")
