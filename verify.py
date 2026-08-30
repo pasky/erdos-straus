@@ -11495,4 +11495,401 @@ print("\n== (bh) decidable census, twisted squares, and prime criterion (§61) =
 check_bh()
 
 
+# ---------------------------------------------------------------- (bi)
+def check_bi():
+    """§62: ratio spectra, exact small-a laws, and twisted-square stress."""
+    import os
+    from hashlib import sha256
+    from random import Random
+
+    # One bounded smallest-prime-factor table serves the exhaustive h<=10^5
+    # laws.  Every generated divisor is an ordinary Python int.
+    h_limit = 100_000
+    spf = list(range(h_limit + 1))
+    for q in range(2, isqrt(h_limit) + 1):
+        if spf[q] == q:
+            for multiple in range(q * q, h_limit + 1, q):
+                if spf[multiple] == multiple:
+                    spf[multiple] = q
+
+    def factors_from_spf(value):
+        factors = []
+        z = value
+        while z > 1:
+            q = int(spf[z])
+            exponent = 0
+            while z % q == 0:
+                z //= q
+                exponent += 1
+            factors.append((q, exponent))
+        return tuple(factors)
+
+    def divisors_from_factors(factors):
+        divisors = [1]
+        for q, exponent in factors:
+            base = tuple(divisors)
+            power = 1
+            for _ in range(2 * exponent):
+                power = int(power * q)
+                divisors.extend(int(D * power) for D in base)
+        return divisors
+
+    def product_spectrum(factors, a):
+        residues = {1}
+        for q, exponent in factors:
+            powers = {pow(q, f, a) for f in range(-exponent, exponent + 1)}
+            residues = {int(x * y % a) for x in residues for y in powers}
+        return residues
+
+    def divisor_ratio_spectrum(factors, h, a):
+        inverse_h = pow(h, -1, a)
+        return {int(D * inverse_h % a)
+                for D in divisors_from_factors(factors)}
+
+    # The spectrum identity and self-pairing are checked directly on random
+    # unit pairs, independently generating the two sides.
+    rng = Random(620026)
+    random_identity_rows = 0
+    while random_identity_rows < 500:
+        h = rng.randrange(1, h_limit + 1)
+        a = rng.randrange(3, 400, 2)
+        if gcd(h, a) != 1:
+            continue
+        factors = factors_from_spf(h)
+        direct = divisor_ratio_spectrum(factors, h, a)
+        bounded = product_spectrum(factors, a)
+        assert direct == bounded
+        divisors = divisors_from_factors(factors)
+        hits = {D for D in divisors if D % a == (-h) % a}
+        assert hits == {h * h // D for D in hits}
+        random_identity_rows += 1
+
+    # Primitive roots and inverse-paired residue classes in Theorem 62.2.
+    prime_tables = {
+        3: ((2,),),
+        7: ((3, 5), (2, 4), (6,)),
+        11: ((2, 6), (3, 4), (7, 8), (5, 9), (10,)),
+        19: ((2, 10), (4, 5), (8, 12), (6, 16), (3, 13),
+             (7, 11), (14, 15), (9, 17), (18,)),
+        23: ((5, 14), (2, 12), (7, 10), (4, 6), (15, 20),
+             (3, 8), (17, 19), (13, 16), (11, 21), (9, 18),
+             (22,)),
+    }
+
+    def prime_budgets(factors, ell):
+        classes = prime_tables[ell]
+        lookup = {residue: r for r, pair in enumerate(classes, 1)
+                  for residue in pair}
+        budgets = [0] * len(classes)
+        for q, exponent in factors:
+            residue = q % ell
+            if residue != 1:
+                budgets[lookup[residue] - 1] += exponent
+        return tuple(budgets)
+
+    def prime_budget_hit(budgets):
+        modulus = 2 * len(budgets)
+        target = len(budgets)
+        residues = {0}
+        for r, budget in enumerate(budgets, 1):
+            residues = {(x + r * j) % modulus for x in residues
+                        for j in range(-budget, budget + 1)}
+        return target in residues
+
+    eleven_patterns = (
+        (0, 0, 1, 2), (0, 0, 3, 1), (0, 0, 5, 0),
+        (0, 1, 1, 0), (1, 0, 0, 1), (1, 0, 2, 0),
+        (1, 2, 0, 0), (2, 0, 1, 0), (3, 1, 0, 0),
+        (5, 0, 0, 0),
+    )
+
+    def fifteen_budgets(factors):
+        values = {2: 0, 7: 0, 4: 0, 11: 0, 14: 0}
+        for q, exponent in factors:
+            residue = q % 15
+            if residue in (2, 8):
+                values[2] += exponent
+            elif residue in (7, 13):
+                values[7] += exponent
+            elif residue in (4, 11, 14):
+                values[residue] = 1
+            elif residue != 1:
+                raise AssertionError((q, residue))
+        return tuple(values[k] for k in (2, 7, 4, 11, 14))
+
+    def fifteen_law(budgets):
+        v2, v7, i4, i11, i14 = budgets
+        patterns = ((0, 0, 1, 1), (0, 2, 0, 1),
+                    (1, 1, 0, 0), (2, 0, 0, 1))
+        return bool(i14 or any(
+            all(x >= y for x, y in zip((v2, v7, i4, i11), pattern))
+            for pattern in patterns
+        ))
+
+    checked_counts = Counter()
+    failure_counts = Counter()
+    for h in range(1, h_limit + 1):
+        factors = factors_from_spf(h)
+        divisors = divisors_from_factors(factors)
+        for a in (3, 7, 11, 15, 19, 23):
+            if gcd(h, a) != 1:
+                continue
+            inverse_h = pow(h, -1, a)
+            brute_hit = any(D * inverse_h % a == a - 1 for D in divisors)
+            checked_counts[a] += 1
+            failure_counts[a] += not brute_hit
+            if a == 15:
+                law_hit = fifteen_law(fifteen_budgets(factors))
+            else:
+                budgets = prime_budgets(factors, a)
+                law_hit = prime_budget_hit(budgets)
+                if a == 3:
+                    assert law_hit == (budgets[0] >= 1)
+                elif a == 7:
+                    assert law_hit == (
+                        budgets[2] >= 1
+                        or (budgets[0] >= 1 and budgets[1] >= 1)
+                        or budgets[0] >= 3
+                    )
+                elif a == 11:
+                    assert law_hit == (
+                        budgets[4] >= 1
+                        or any(all(x >= y for x, y in zip(
+                            budgets[:4], pattern))
+                               for pattern in eleven_patterns)
+                    )
+            assert brute_hit == law_hit, (h, a, factors)
+
+    assert checked_counts == Counter({
+        3: 66_667, 7: 85_715, 11: 90_910,
+        15: 53_333, 19: 94_737, 23: 95_653,
+    }), checked_counts
+    assert failure_counts == Counter({
+        3: 8_814, 7: 25_359, 11: 34_046,
+        15: 26_423, 19: 46_679, 23: 54_165,
+    }), failure_counts
+
+    # Multiplicity cannot be replaced by subgroup generation: 3 mod 7 is a
+    # generator, but h=17 supplies it only once and cannot reach -1.
+    surprise_factors = factors_from_spf(17)
+    assert product_spectrum(surprise_factors, 7) == {1, 3, 5}
+    assert pow(3, 3, 7) == 6 and 6 not in product_spectrum(
+        surprise_factors, 7
+    )
+
+    # Recompute every hard-prime minimum through 10^5 in bounded prime chunks.
+    # The independent (bc)/(bh) harvest supplies only an exact comparison cap.
+    # For each a and every M<=that cap, D=a(M+1)/4-h is the sole possible
+    # divisor; testing D|h^2 is exactly the ratio-spectrum condition.
+    modulus_rows = complete_multiplier_harvest(3000)
+    prime_W = {}
+    ratio_candidate_tests = 0
+    ratio_hits = 0
+    for low in range(2, 100_001, 20_000):
+        high = min(100_001, low + 20_000)
+        for p0 in primerange(low, high):
+            p = int(p0)
+            if p % 24 != 1:
+                continue
+            reference = next(M for M, classes in modulus_rows
+                             if p % M in classes)
+            best = None
+            B = (p + 1) // 3
+            for a in range(3, 2 * B + 1, 4):
+                h = (p + a) // 4
+                for A in range(h // a + 1, (reference + 1) // 4 + 1):
+                    ratio_candidate_tests += 1
+                    D = int(a * A - h)
+                    if (h * h) % D:
+                        continue
+                    ratio_hits += 1
+                    assert D * pow(h, -1, a) % a == a - 1
+                    z = D
+                    normalized = 1
+                    for q, exponent in factors_from_spf(h):
+                        d_exponent = 0
+                        while z % q == 0:
+                            z //= q
+                            d_exponent += 1
+                        f = d_exponent - exponent
+                        assert -exponent <= f <= exponent
+                        normalized = normalized * pow(q, f, a) % a
+                    assert z == 1 and normalized == a - 1
+                    M = 4 * A - 1
+                    if best is None or M < best:
+                        best = M
+            assert best == reference
+            prime_W[p] = best
+
+    encoding = ";".join(f"{p}:{prime_W[p]}" for p in prime_W)
+    assert (len(prime_W), max(prime_W.values()), sum(prime_W.values()),
+            ratio_candidate_tests) == (1181, 167, 15_779, 27_107_184)
+    assert sha256(encoding.encode()).hexdigest() == (
+        "2acabc3ad120e2f6b02c86f42677bc1b49c89152175bcfd59de0070cdde3a6ea"
+    )
+
+    # Both meanings of "early": first witnessing a and the a attached to the
+    # least M.  Small-a entries are None on failure and (M,D) on success.
+    anatomy_expected = {
+        225_289: ((279, 811, 245, 56_525),
+                  (31, 7_335, 524, 56_330),
+                  (None, None, None, None, None, None)),
+        954_409: ((335, 2_855, 504, 239_316),
+                  (3, 318_495, 269, 238_603),
+                  ((318_495, 269), None, None, None, None, None)),
+        1_853_329: ((383, 4_839, 2, 464_542),
+                    (3, 617_815, 29, 463_333),
+                    ((617_815, 29), (264_783, 38),
+                     (168_503, 51), None, None, None)),
+        2_031_121: ((2_495, 815, 576, 507_984),
+                    (11, 185_279, 1_737, 507_783),
+                    (None, None, (185_279, 1_737), None,
+                     (107_255, 1_681), None)),
+    }
+    anatomy = {}
+    for p, (minimum_row, _, _) in anatomy_expected.items():
+        reference = next(M for M, classes in modulus_rows
+                         if p % M in classes)
+        W, best_a, best_D, best_h = minimum_row
+        assert reference == W and best_h == (p + best_a) // 4
+        assert best_h * best_h % best_D == 0
+        assert (best_D + best_h) % best_a == 0
+        assert 4 * ((best_D + best_h) // best_a) - 1 == W
+
+        first = None
+        small = []
+        for a in range(3, 32, 4):
+            h = (p + a) // 4
+            candidates = sorted(
+                (4 * ((D + h) // a) - 1, int(D))
+                for D in divisors_of_square(h) if (D + h) % a == 0
+            )
+            if a in (3, 7, 11, 15, 19, 23):
+                small.append(candidates[0] if candidates else None)
+            if first is None and candidates:
+                first = (a, candidates[0][0], candidates[0][1], h)
+        assert first is not None
+        anatomy[p] = (minimum_row, first, tuple(small))
+    assert anatomy == anatomy_expected
+
+    # For the three composite sporadics the unit normalization can fail.
+    # Every raw quotient row lies in such a nonunit branch and all are killed
+    # by the uncancelled D|A^2 eligibility check.
+    sporadic_rows = {}
+    for n in (288, 336, 4545):
+        B = (n + 1) // 3
+        admissible = gcd_n = gcd_h = quotient = eligible = unit_quotient = 0
+        for a in range(1, 2 * B + 1):
+            if (n + a) % 4:
+                continue
+            admissible += 1
+            h = (n + a) // 4
+            gcd_n += gcd(a, n) > 1
+            gcd_h += gcd(a, h) > 1
+            for D0 in divisors_of_square(h):
+                D = int(D0)
+                if (D + h) % a:
+                    continue
+                quotient += 1
+                unit_quotient += gcd(a, h) == 1
+                A = (D + h) // a
+                eligible += A * A % D == 0
+        sporadic_rows[n] = (
+            admissible, gcd_n, gcd_h, quotient, eligible, unit_quotient
+        )
+    assert sporadic_rows == {
+        288: (48, 48, 32, 43, 0, 0),
+        336: (56, 56, 40, 65, 0, 0),
+        4545: (757, 357, 357, 188, 0, 0),
+    }
+
+    # Staged C_SQ' stress.  The default is a pinned slice; ES_FULL_SCAN=1
+    # replays the full research box.  Rows are streamed and only survivors
+    # are retained.  Stage 2 and the terminating dual decision are live code,
+    # but the pinned run has no stage-1 survivor to pass to them.
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    s_cap, m_cap = ((1000, 300) if full_scan else (200, 150))
+    stage1_rows = complete_multiplier_harvest(10_000)
+    squarefree_values = tuple(
+        s for s in range(2, s_cap + 1)
+        if all(exponent == 1 for exponent in factorint(s).values())
+    )
+    population = 0
+    stage1_survivors = []
+    maximum = (0, None)
+    for s in squarefree_values:
+        for m in range(1, m_cap + 1):
+            n = int(s * m * m)
+            if not 1_000_000 < n <= 100_000_000:
+                continue
+            population += 1
+            W = next((M for M, classes in stage1_rows if n % M in classes),
+                     None)
+            if W is None:
+                stage1_survivors.append((n, s, m))
+            elif W > maximum[0]:
+                maximum = (W, (n, s, m))
+
+    stage2_survivors = list(stage1_survivors)
+    if stage2_survivors:
+        active = {n: (s, m) for n, s, m in stage2_survivors}
+        for M in range(10_003, 1_000_001, 4):
+            A = (M + 1) // 4
+            classes = {int((-4 * D) % M) for D in divisors_of_square(A)}
+            for n in tuple(active):
+                if n % M in classes:
+                    del active[n]
+            if not active:
+                break
+        stage2_survivors = [(n, *active[n]) for n in sorted(active)]
+
+    def complete_dual_decision(n):
+        B = (n + 1) // 3
+        best = None
+        for a in range(1, 2 * B + 1):
+            if (n + a) % 4:
+                continue
+            h = (n + a) // 4
+            for D0 in divisors_of_square(h):
+                D = int(D0)
+                if (D + h) % a:
+                    continue
+                A = (D + h) // a
+                if A * A % D:
+                    continue
+                M = 4 * A - 1
+                if best is None or M < best:
+                    best = M
+        return best
+
+    final_infinities = tuple(
+        n for n, _, _ in stage2_survivors
+        if complete_dual_decision(n) is None
+    )
+    hunt_summary = (
+        len(squarefree_values), population, len(stage1_survivors),
+        len(stage2_survivors), final_infinities, maximum
+    )
+    assert hunt_summary == (
+        (607, 146_016, 0, 0, (), (3359, (9_028_800, 627, 120)))
+        if full_scan else
+        (121, 5_105, 0, 0, (), (659, (1_666_170, 170, 99)))
+    )
+
+    print("ratio-spectrum identity / small-law exhaustive counts =",
+          (random_identity_rows, dict(checked_counts), dict(failure_counts)))
+    print("hard-prime spectrum replay (count,candidates,hits,max,sum,digest) =",
+          (len(prime_W), ratio_candidate_tests, ratio_hits,
+           max(prime_W.values()), sum(prime_W.values()),
+           sha256(encoding.encode()).hexdigest()))
+    print("late-prime spectrum anatomy =", anatomy)
+    print("sporadic nonunit anatomy =", sporadic_rows)
+    print("twisted-square staged hunt (s,population,stage1,stage2,infinity,max) =",
+          hunt_summary)
+
+
+print("\n== (bi) divisor-ratio spectra and finite conspiracy (§62) ==")
+check_bi()
+
+
 print("\nall checks passed")

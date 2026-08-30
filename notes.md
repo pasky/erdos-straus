@@ -23668,3 +23668,411 @@ The residual doubt is exactly the stated open problem: finite censuses do
 not prove \(C_{\rm SQ}'\), and the prime criterion does not prove that its
 finite divisor set is nonempty for every prime.  No additional computational
 or logical doubt was found inside the stated ranges.
+
+
+---
+
+## 62. The divisor-ratio spectrum: per-\(a\) solvability laws and the finite conspiracy
+
+**Status.**  The ratio-spectrum law and the six small-\(a\) laws below are
+**proved**.  They are elementary consequences of Theorems 60.1 and 61.4 and
+do not inherit Theorem 34.8 or any of the provisional machinery of Section
+39.  The bounded replays and staged hunt are **Computational**, exact only in
+their stated ranges.  The ratio spectrum is an exact change of coordinates,
+not a new supply theorem; the Erdos--Straus conjecture is untouched.
+
+### 62.1 The exact ratio spectrum
+
+For a positive integer \(h\) coprime to an odd integer \(a\), define
+
+\[
+ {\rm Rat}_a(h)=
+ \left\{\prod_{q\mid h}q^{f_q}\pmod a:
+                  -v_q(h)\leq f_q\leq v_q(h)\right\}.
+                                                               \tag{62.1}
+\]
+
+Negative powers in (62.1) are taken in \((\mathbb Z/a\mathbb Z)^*\).  This
+is the **divisor-ratio spectrum** of \(h\) modulo \(a\).
+
+**Theorem 62.1 (ratio-spectrum law; proved).**  Let \(p\equiv1\pmod {24}\)
+be prime, put \(B=\lfloor(p+1)/3\rfloor\), and let
+
+\[
+       1\leq a\leq2B,\qquad a\equiv3\pmod4,
+       \qquad h={p+a\over4}.                              \tag{62.2}
+\]
+
+Then
+
+\[
+ \begin{split}
+ &\text{there is a witness at this }a\\
+ &\quad\Longleftrightarrow\quad
+   \exists D\mid h^2:\ D\equiv-h\pmod a\\
+ &\quad\Longleftrightarrow\quad -1\pmod a\in{\rm Rat}_a(h).
+                                                               \tag{62.3}
+ \end{split}
+\]
+
+Moreover the divisors in the middle line pair under
+
+\[
+                       D\longleftrightarrow D'={h^2\over D},  \tag{62.4}
+\]
+
+and the target class \(-h\pmod a\) is preserved by this pairing.  Each hit
+supplies
+
+\[
+ A={D+h\over a},\qquad M=4A-1,
+ \qquad aM=p+4D,                                          \tag{62.5}
+\]
+
+and the minimum of these \(M\)'s over all admissible \(a\) is \(W(p)\).
+Consequently
+
+\[
+ W(p)<+\infty\quad\Longleftrightarrow\quad
+ \exists a\text{ as in (62.2) with }-1\in{\rm Rat}_a((p+a)/4).
+                                                               \tag{62.6}
+\]
+
+*Proof.*  Since \(p\equiv1\pmod4\), integrality of \(h\) forces
+\(a\equiv-p\equiv3\pmod4\); conversely this congruence makes \(h\) an
+integer.  The bound on \(a\) is the finite normal-form bound (60.9).  In
+particular \(a<p\).  Since \(a\) is odd and \(4h=p+a\),
+\[
+             (a,h)=(a,4h)=(a,p)=1.
+\]
+Thus every divisor of \(h^2\) is a unit modulo \(a\).
+
+If \(DD'=h^2\) and \(D\equiv-h\pmod a\), inversion gives
+\[
+ D'\equiv h^2D^{-1}\equiv-h\pmod a.
+\]
+The converse follows by applying the same involution, proving (62.4).
+Write \(h=\prod q^{v_q}\) and \(D=\prod q^{e_q}\), where
+\(0\leq e_q\leq2v_q\).  Then
+\[
+ Dh^{-1}\equiv\prod_{q\mid h}q^{e_q-v_q}\pmod a,
+ \qquad -v_q\leq e_q-v_q\leq v_q.                       \tag{62.7}
+\]
+Every bounded exponent in (62.1) arises uniquely by taking
+\(e_q=v_q+f_q\).  Hence
+\[
+ \{Dh^{-1}\pmod a:D\mid h^2\}={\rm Rat}_a(h),             \tag{62.8}
+\]
+and \(D\equiv-h\) is equivalent to \(Dh^{-1}\equiv-1\).
+Theorem 61.4 identifies the middle line of (62.3) with a witness and proves
+(62.5), including automatic eligibility \(D\mid A^2\).  Its minimization
+formula (61.15) proves (62.6). \(\square\)
+
+### 62.2 Six exact small-\(a\) laws
+
+Here and below “failure at \(a\)” means that (62.3) fails for that fixed
+admissible \(a\); it says nothing about the other values of \(a\).  The
+following notation makes the laws finite and explicit.  For a prime
+\(\ell\in\{3,7,11,19,23\}\), use the primitive root \(g_\ell\) in the
+second column below and put
+
+\[
+ V_{\ell,r}(h)=
+ \sum_{\substack{q^e\parallel h\\
+       q\bmod\ell\in\{g_\ell^r,g_\ell^{-r}\}}}e,
+ \qquad 1\leq r\leq{\ell-1\over2}.                       \tag{62.9}
+\]
+
+The inverse-paired classes, in increasing \(r\), are
+
+\[
+\begin{array}{c|c|l}
+\ell&g_\ell&\{g_\ell^r,g_\ell^{-r}\}\ (1\leq r\leq(\ell-1)/2)\\ \hline
+3&2&2\\
+7&3&3/5,\ 2/4,\ 6\\
+11&2&2/6,\ 3/4,\ 7/8,\ 5/9,\ 10\\
+19&2&2/10,\ 4/5,\ 8/12,\ 6/16,\ 3/13,\ 7/11,\ 14/15,\ 9/17,\ 18\\
+23&5&5/14,\ 2/12,\ 7/10,\ 4/6,\ 15/20,\ 3/8,\ 17/19,\
+       13/16,\ 11/21,\ 9/18,\ 22
+\end{array}                                                \tag{62.10}
+\]
+
+A slash denotes a two-element pair, not division.
+
+**Theorem 62.2 (small-\(a\) failure laws; proved).**  Assume \((a,h)=1\).
+
+1. At \(a=3\), success occurs if and only if some prime \(q\mid h\) has
+   \(q\equiv2\pmod3\).  Thus failure occurs exactly when every prime divisor
+   of \(h\) is \(1\pmod3\); the assertion is vacuous for \(h=1\).
+2. At \(a=7\), writing \(V_r=V_{7,r}(h)\), success occurs exactly when
+   \[
+       V_3\geq1,
+       \quad\text{or}\quad V_1\geq1\text{ and }V_2\geq1,
+       \quad\text{or}\quad V_1\geq3.                    \tag{62.11}
+   \]
+   Failure is the negation of these three conditions.
+3. At \(a=11\), success occurs if \(V_{11,5}\geq1\).  Otherwise it occurs
+   exactly when \((V_{11,1},\ldots,V_{11,4})\) componentwise dominates at
+   least one row of
+   \[
+   \begin{array}{rrrrrrrrrr}
+   (0,0,1,2)&(0,0,3,1)&(0,0,5,0)&(0,1,1,0)&(1,0,0,1)&
+   (1,0,2,0)&(1,2,0,0)&(2,0,1,0)&(3,1,0,0)&(5,0,0,0).
+   \end{array}                                             \tag{62.12}
+   \]
+   Again failure is the exact negation.
+4. For \(a=19\) or \(23\), put \(m=a-1\).  The completely explicit law is
+   \[
+   \boxed{\quad\text{failure at }a\quad\Longleftrightarrow\quad
+    {m\over2}\notin
+       \left\{\sum_{r=1}^{m/2}rj_r\pmod m:
+                 |j_r|\leq V_{a,r}(h)\right\}.\quad}       \tag{62.13}
+   \]
+   Together with the residue rows in (62.10), this is a finite calculation
+   using only the residue classes and multiplicities of primes dividing
+   \(h\); no discrete logarithm remains to be found.
+5. At \(a=15\), define
+   \[
+   \begin{split}
+    U&=\sum_{q^e\parallel h,\ q\equiv2,8(15)}e,
+    &V&=\sum_{q^e\parallel h,\ q\equiv7,13(15)}e,\\
+    I_c&=\boldsymbol1_{\exists q\mid h:\ q\equiv c(15)}
+    &&(c=4,11,14).
+   \end{split}                                             \tag{62.14}
+   \]
+   Success occurs exactly when \(I_{14}=1\), or
+   \((U,V,I_4,I_{11})\) dominates one of
+   \[
+                (0,0,1,1),\quad(0,2,0,1),\quad
+                (1,1,0,0),\quad(2,0,0,1).                 \tag{62.15}
+   \]
+   Failure is the negation of this list.
+
+*Proof.*  In the cyclic prime cases, take discrete logarithms to base
+\(g_\ell\).  The primes in the two classes indexed by \(r\) contribute
+\(\mathord\pm r f_q\).  Since each \(f_q\) independently runs through a
+complete integer interval, their sum runs through every integer in
+\([-V_{\ell,r},V_{\ell,r}]\).  Since \(-1=g_\ell^{(\ell-1)/2}\), (62.13)
+is necessary and sufficient.  For \(\ell=3,7\), reducing this one-line
+congruence modulo 2 and 3 gives (1)--(2).  For \(\ell=11\), replace each
+\(j_r\) by a representative modulo 10 with absolute value at most 5.  The
+finite \(6^4\) budget check gives exactly the ten componentwise-minimal rows
+in (62.12); each displayed row visibly has a signed weighted sum congruent
+to 5, and testing the six possible capped budgets in each coordinate leaves
+no other minimal row.
+
+For 15, identify
+\[
+ (\mathbb Z/15\mathbb Z)^*=\langle2\rangle\times\langle11\rangle
+       \cong C_4\times C_2.
+\]
+The classes \(2/8,4,11,7/13,14\) have coordinates, respectively,
+\((1,0),(2,0),(0,1),(1,1),(2,1)\), up to sign.  The target \(-1=14\) is
+\((2,1)\).  If class 14 is absent, solving the two coordinate congruences
+produces exactly the four minimal rows in (62.15).  This also proves that
+all valuation budgets, including repeated use of one prime, have been
+retained. \(\square\)
+
+The budget cannot in general be replaced by the subgroup generated by the
+prime classes.  For example, \(a=7,h=17\) has the single class
+\(17\equiv3\pmod7\), which generates the whole unit group, but its valuation
+is one and
+\[
+               {\rm Rat}_7(17)=\{3^{-1},1,3\}=\{5,1,3\};  \tag{62.16}
+\]
+this misses \(-1=6\).  Equivalently, the required exponent 3 is outside
+\([-1,1]\).  Thus bounded multiplicity is already essential at \(a=7\).
+
+**Assessment 62.1 (the first-layer density scale).**  The law at 3 is the
+classical multiplicative-semigroup condition with allowed primes
+\(1\pmod3\).  Landau--Selberg--Delange theory gives
+\[
+ \#\{h\leq H:(h,3)=1,\ h\text{ fails at }3\}
+       \sim C_3{H\over\sqrt{\log H}}                     \tag{62.17}
+\]
+for a positive constant \(C_3\).  This contextual asymptotic is not used in
+any proof here.  Block (bi) exhaustively checks every unit \(h\leq10^5\)
+against all six laws.  The numbers checked, followed by the exact failures,
+are
+\[
+\begin{array}{c|rrrrrr}
+a&3&7&11&15&19&23\\ \hline
+\#\text{ checked}&66667&85715&90910&53333&94737&95653\\
+\#\text{ failures}&8814&25359&34046&26423&46679&54165.
+\end{array}                                                \tag{62.18}
+\]
+This finite table is **Computational**; it is not a density estimate.
+
+### 62.3 The finite conspiracy and late resolution
+
+For a hard prime define
+\[
+ {\cal A}(p)=\{a:1\leq a\leq2\lfloor(p+1)/3\rfloor,
+                         \ a\equiv3\pmod4\},
+ \qquad F_a(p)=\{-1\notin{\rm Rat}_a((p+a)/4)\}.
+\]
+Theorem 62.1 gives the exact finite-conspiracy form
+\[
+ \boxed{\qquad W(p)=+\infty
+       \quad\Longleftrightarrow\quad
+       F_a(p)\text{ holds for every }a\in{\cal A}(p).\qquad} \tag{62.19}
+\]
+Thus the Type-II pointwise problem is: some shifted value
+\(h=(p+a)/4\), with \(a\leq2B\), must represent \(-1\pmod a\) by bounded
+products of its own prime factors.
+
+**Assessment 62.2 (mechanism register).**  Squares fail by the global
+quadratic-character obstruction of Theorem 58.1.  The three known
+nonsquare failures have quotient rows, but only in noncoprime branches, and
+uncancelled eligibility kills them (§60.3).  For primes that gcd branch is
+unavailable.  Accordingly a prime failure would require complete
+ratio-class avoidance in (62.19), the third mechanism described in
+Assessment 61.1.  This is a classification of the mechanisms presently
+exhibited, not a theorem that every conceivable obstruction has been
+classified.
+
+**Heuristic 62.1 (quantified independence model).**  Let
+\(\rho_a(H)\) denote a model probability that a unit \(h\) of size \(H\)
+fails its \(a\)-law, and let
+\({\cal A}_Y=\{a\leq Y:a\equiv3\pmod4\}\).  If the shifted events were
+independent, then
+\[
+ \Pr\left(\bigcap_{a\in{\cal A}_Y}F_a\right)
+   \approx\prod_{a\in{\cal A}_Y}\rho_a(H)
+   =\exp\{-S(Y,H)\},
+ \quad S(Y,H)=\sum_{a\in{\cal A}_Y}\log{1\over\rho_a(H)}. \tag{62.20}
+\]
+The \(a=3\) law alone contributes
+\(\tfrac12\log\log H+O(1)\) to \(S\), by (62.17).  More aggressively, if
+a fixed fraction \(\delta\) of the roughly \(Y/4\) admissible values had
+\(\rho_a(H)\leq\rho<1\), then this model would give
+\[
+ S(Y,H)\geq {\delta Y\over4}\log(1/\rho)+O(1),
+ \qquad \Pr(\text{all fail})\lesssim e^{-cY}.             \tag{62.21}
+\]
+This is only a **Heuristic**.  The shifts \((p+a)/4\) share the same \(p\),
+the moduli share factors, and the events are far from demonstrably
+independent.  Taking \(Y\asymp p\) in (62.21) therefore does not constitute
+a tail bound, much less a pointwise proof.
+
+**Computational 62.1 (anatomy of late resolution; exact displayed rows).**
+Block (bi) gives both the first witnessing \(a\) and the generally different
+\(a\) attached to the minimum \(W\):
+
+\[
+\begin{array}{r|r|r|r|l|r|r|r|l}
+p&W&a_W&D_W&h_W\text{ factorization}&a_{\rm first}&M_{\rm first}&D_{\rm first}&
+ h_{\rm first}\text{ factorization}\\ \hline
+225289&279&811&245&5^2\cdot7\cdot17\cdot19&31&7335&524&2\cdot5\cdot43\cdot131\\
+954409&335&2855&504&2^2\cdot3\cdot7^2\cdot11\cdot37&3&318495&269&269\cdot887\\
+1853329&383&4839&2&2\cdot13\cdot17\cdot1051&3&617815&29&13\cdot29\cdot1229\\
+2031121&2495&815&576&2^4\cdot3\cdot19\cdot557&11&185279&1737&3\cdot193\cdot877
+\end{array}                                                \tag{62.22}
+\]
+
+For \(a=3,7,11,15,19,23\), respectively, the exact outcomes are
+\[
+\begin{array}{r|llllll}
+p&3&7&11&15&19&23\\ \hline
+225289&F&F&F&F&F&F\\
+954409&P_{318495}&F&F&F&F&F\\
+1853329&P_{617815}&P_{264783}&P_{168503}&F&F&F\\
+2031121&F&F&P_{185279}&F&P_{107255}&F
+\end{array}                                                \tag{62.23}
+\]
+Here \(F\) means failure of the exact law and \(P_M\) means success whose
+least modulus at that fixed \(a\) is \(M\).  To make every \(F\) auditable,
+the corresponding budget vectors from (62.9), or from (62.14) at 15, are
+
+```text
+225289: 3:(0); 7:(0,3,0); 11:(0,2,0,2,0); 15:(2,0,0,0,0);
+        19:(0,1,1,0,1,0,0,0,0); 23:(0,3,0,0,0,1,0,0,0,0,0)
+954409: 7:(0,3,0); 11:(0,1,0,1,0); 15:(2,0,0,0,0);
+        19:(0,1,2,0,0,0,0,0,0); 23:(0,4,0,0,0,2,0,0,0,0,0)
+1853329: 15:(4,0,0,0,0); 19:(0,0,0,0,0,1,1,0,0);
+         23:(0,1,0,1,0,2,0,0,0,0,0)
+2031121: 3:(0); 7:(0,3,0); 15:(4,0,0,0,0);
+         23:(1,1,0,0,0,1,0,0,0,0,0)
+```
+
+The rows show an important distinction: a late minimum \(W\) need not mean
+that all small \(a\)'s fail.  A small \(a\) may hit the spectrum only through
+a very large divisor and hence a very large \(M\); minimization can instead
+choose a much larger \(a\) and a small \(M\).  These four records support no
+asymptotic law.
+
+### 62.4 Where the ratio frame degrades for the sporadics
+
+For composites, \((a,h)=1\) is no longer automatic, so \(h^{-1}\pmod a\)
+and (62.1) may not exist.  The raw congruence \(D\equiv-h\pmod a\) remains
+valid, but it no longer makes \((a,D)=1\), and the final condition
+\(D\mid((D+h)/a)^2\) must be restored.  Block (bi) gives the complete ledger
+
+\[
+\begin{array}{r|r|r|r|r|r|r}
+n&\#a&(a,n)>1&(a,h)>1&\#\text{ quotient rows}&
+ \#\text{ eligible}&\#\text{ unit quotient rows}\\ \hline
+288&48&48&32&43&0&0\\
+336&56&56&40&65&0&0\\
+4545&757&357&357&188&0&0
+\end{array}                                                \tag{62.24}
+\]
+
+For 288 and 336 every admissible \(a\) is a multiple of 4; for 4545 the
+nonunit branches are exactly those in which \(a\) shares one of
+\(3,5,101\) with \(n\), with powers retained.  Every quotient row lies in a
+nonunit branch and every one fails uncancelled eligibility.  After the
+additional character filters, the surviving gcd supports and counts are
+exactly those in (60.21) and (61.6), including the four gcd-9 failures for
+288.  Thus the ratio frame does not explain away the sporadics: it stops
+precisely at their diagnosed gcd/eligibility branch.
+
+### 62.5 A staged fourth-sporadic stress
+
+**Computational 62.2 (twisted-square staged hunt; exact box).**  A streamed
+Python-integer scan covered every unique twisted square
+\[
+ n=sm^2\in(10^6,10^8],\qquad 2\leq s\leq1000\text{ squarefree},
+                    \qquad1\leq m\leq300.                \tag{62.25}
+\]
+There are 607 squarefree kernels and 146,016 pairs in this box.  Stage 1
+harvested every modulus \(M\leq10^4\), \(M\equiv3\pmod4\), and found a
+witness for every pair.  Hence the survivor lists passed to the
+\(M\leq10^6\) stage and to the complete finite dual \(a\)-decision were both
+empty.  The largest exact least value in the box was
+\[
+ W(9,028,800)=3359,
+ \quad 9,028,800=627\cdot120^2,
+ \quad (M,D,a)=(3359,48,2688).                            \tag{62.26}
+\]
+All smaller eligible moduli were harvested, so the minimum in (62.26) is
+exact.  No fourth sporadic was found.  Thus \(C_{\rm SQ}'\) survives this
+finite stress and is not proved; no \(C_{\rm SQ}''\) is introduced.
+
+Block (bi) keeps the slice \(s\leq200,m\leq150\) by default.  It contains
+5,105 pairs in (62.25), has no stage-1 survivor, and has maximum
+\(W(1,666,170)=659\) at \((s,m)=(170,99)\).  With
+`ES_FULL_SCAN=1` it replays all of (62.25) and pins the counts and maximum
+above.  The research run used the same staged code; because stage 1 had no
+survivor, the deeper two branches were vacuous rather than cutoff claims.
+
+### 62.6 Verification and honest walls
+
+**Computational 62.3 (ratio replay; exact stated ranges).**  Block (bi)
+checks (62.8) and the pairing on 500 seeded random unit pairs \((h,a)\), and
+checks each law in Theorem 62.2 by direct divisor enumeration for every unit
+\(h\leq10^5\).  In prime chunks it then recomputes the exact minimum via the
+ratio form for all 1,181 hard primes through \(10^5\) and compares every
+value with the independent (bc)/(bh) harvest.  It tests 27,107,184 possible
+\((a,M,D)\) rows, obtains maximum 167 and sum 15,779, and finds no mismatch.
+The block also pins (62.22)--(62.24) and the staged hunt.  Divisor products
+are Python integers; only one factorization/divisor list is live at a time.
+
+**Honest walls.**  The spectrum does not improve the witness-modulus tail,
+show pointwise nonemptiness, or control correlations among the shifts.  The
+small-\(a\) laws are exact local tests, but failure at finitely many small
+values is compatible with later success, and success at small \(a\) can
+produce a huge \(M\).  The finite-conspiracy display is the terminal
+distillation of the Type-II pointwise problem and clarifies the three known
+mechanisms; it does not solve that problem, prove \(C_{\rm SQ}'\), or prove
+Erdos--Straus.
