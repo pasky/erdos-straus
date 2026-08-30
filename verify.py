@@ -14240,4 +14240,298 @@ print("\n== (br) J-form stacking and local correlations (§71) ==")
 check_br()
 
 
+# ---------------------------------------------------------------- (bs)
+def check_bs():
+    """Exact finite a-frame failure and first-a census pins (§72)."""
+    import os
+    from random import Random
+    from time import perf_counter
+
+    started = perf_counter()
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+
+    def factors_py(value):
+        return tuple((int(q), int(e))
+                     for q, e in factorint(int(value)).items())
+
+    def ratio_success(a, factors):
+        a = int(a)
+        reachable = {1}
+        for q, budget in factors:
+            powers = {int(pow(q % a, exponent, a))
+                      for exponent in range(-budget, budget + 1)}
+            reachable = {int(r * power % a)
+                         for r in reachable for power in powers}
+            assert len(reachable) <= a
+            if a - 1 in reachable:
+                return True
+        return a - 1 in reachable
+
+    def first_a(p):
+        B = (p + 1) // 3
+        for a in range(3, 2 * B + 1, 4):
+            factors = factors_py((p + a) // 4)
+            if ratio_success(a, factors):
+                return a
+        raise AssertionError(("admissible range exhausted", p, 2 * B))
+
+    def first_a_histogram(limit):
+        histogram = Counter()
+        count = 0
+        for low in range(2, limit, 250_000):
+            for p0 in primerange(low, min(limit, low + 250_000)):
+                p = int(p0)
+                if p % 24 == 1:
+                    histogram[first_a(p)] += 1
+                    count += 1
+        return count, dict(sorted(histogram.items()))
+
+    expected_1m = {
+        3: 5_192, 7: 3_551, 11: 584, 15: 131, 19: 113, 23: 96,
+        27: 8, 31: 33, 35: 4, 39: 9, 43: 1, 47: 3, 51: 2,
+        55: 2, 59: 2, 63: 1,
+    }
+    expected_10m = {
+        3: 47_137, 7: 28_606, 11: 4_419, 15: 961, 19: 766,
+        23: 637, 27: 63, 31: 183, 35: 27, 39: 44, 43: 7,
+        47: 23, 51: 2, 55: 4, 59: 4, 63: 1, 71: 2, 107: 1,
+    }
+    expected_100m = {
+        3: 430_409, 7: 235_146, 11: 35_036, 15: 7_736,
+        19: 5_323, 23: 4_040, 27: 437, 31: 1_059, 35: 143,
+        39: 227, 43: 33, 47: 120, 51: 16, 55: 20, 59: 20,
+        63: 6, 71: 7, 79: 1, 91: 1, 107: 1,
+    }
+    count, histogram = first_a_histogram(10_000_000 if full_scan
+                                          else 1_000_000)
+    assert (count, histogram) == (
+        (82_887, expected_10m) if full_scan else (9_732, expected_1m)
+    )
+    assert sum(expected_100m.values()) == 719_781
+    assert first_a(8_803_369) == 107
+    assert first_a(22_605_361) == 91
+    assert first_a(66_222_601) == 79
+
+    prime_moduli = (
+        3, 7, 11, 19, 23, 31, 43, 47, 59, 67, 71, 79, 83,
+        103, 107, 127, 131, 139, 151, 163, 167, 179, 191, 199,
+    )
+    expected_windows = {
+        (100_000, 200_000): {
+            3: (500, 500, 0), 7: (257, 257, 0),
+            11: (372, 302, 70), 19: (771, 373, 398),
+            23: (247, 227, 20), 31: (585, 325, 260),
+            43: (909, 224, 685), 47: (386, 240, 146),
+            59: (788, 335, 453), 67: (946, 201, 745),
+            71: (503, 289, 214), 79: (809, 332, 477),
+            83: (859, 288, 571), 103: (857, 275, 582),
+            107: (871, 242, 629), 127: (882, 265, 617),
+            131: (912, 371, 541), 139: (995, 363, 632),
+            151: (891, 331, 560), 163: (1_011, 161, 850),
+            167: (717, 284, 433), 179: (948, 330, 618),
+            191: (771, 315, 456), 199: (933, 369, 564),
+        },
+        (1_000_000, 1_200_000): {
+            3: (821, 821, 0), 7: (433, 433, 0),
+            11: (598, 492, 106), 19: (1_302, 595, 707),
+            23: (416, 390, 26), 31: (977, 543, 434),
+            43: (1_544, 412, 1_132), 47: (618, 388, 230),
+            59: (1_301, 559, 742), 67: (1_626, 363, 1_263),
+            71: (802, 466, 336), 79: (1_326, 539, 787),
+            83: (1_411, 454, 957), 103: (1_403, 473, 930),
+            107: (1_491, 442, 1_049), 127: (1_479, 426, 1_053),
+            131: (1_525, 598, 927), 139: (1_741, 634, 1_107),
+            151: (1_542, 536, 1_006), 163: (1_734, 277, 1_457),
+            167: (1_164, 472, 692), 179: (1_627, 533, 1_094),
+            191: (1_225, 509, 716), 199: (1_607, 575, 1_032),
+        },
+        (10_000_000, 10_200_000): {
+            3: (676, 676, 0), 7: (340, 340, 0),
+            11: (474, 393, 81), 19: (1_030, 478, 552),
+            23: (315, 296, 19), 31: (734, 399, 335),
+            43: (1_277, 342, 935), 47: (471, 326, 145),
+            59: (1_044, 473, 571), 67: (1_354, 308, 1_046),
+            71: (618, 362, 256), 79: (1_071, 442, 629),
+            83: (1_137, 365, 772), 103: (1_148, 353, 795),
+            107: (1_212, 336, 876), 127: (1_201, 340, 861),
+            131: (1_285, 481, 804), 139: (1_455, 499, 956),
+            151: (1_236, 423, 813), 163: (1_494, 225, 1_269),
+            167: (910, 353, 557), 179: (1_335, 427, 908),
+            191: (974, 392, 582), 199: (1_321, 479, 842),
+        },
+        (100_000_000, 100_200_000): {
+            3: (522, 522, 0), 7: (275, 275, 0),
+            11: (392, 327, 65), 19: (846, 369, 477),
+            23: (255, 240, 15), 31: (608, 333, 275),
+            43: (1_057, 280, 777), 47: (368, 256, 112),
+            59: (859, 370, 489), 67: (1_144, 219, 925),
+            71: (487, 292, 195), 79: (902, 364, 538),
+            83: (924, 309, 615), 103: (971, 305, 666),
+            107: (996, 267, 729), 127: (994, 267, 727),
+            131: (1_053, 372, 681), 139: (1_254, 417, 837),
+            151: (1_036, 341, 695), 163: (1_275, 172, 1_103),
+            167: (728, 278, 450), 179: (1_137, 335, 802),
+            191: (785, 320, 465), 199: (1_109, 379, 730),
+        },
+    }
+
+    def subgroup_has_minus_one(a, factors):
+        subgroup = {1}
+        for q, _ in factors:
+            powers = []
+            value = 1
+            while value not in powers:
+                powers.append(value)
+                value = int(value * (q % a) % a)
+            assert value == 1
+            subgroup = {int(r * power % a)
+                        for r in subgroup for power in powers}
+        return a - 1 in subgroup
+
+    def classify_failure(a, factors):
+        sigma = 0
+        for q, _ in factors:
+            symbol = int(jacobi_symbol(q, a))
+            assert symbol in (-1, 1)
+            sigma += symbol == -1
+        if sigma == 0:
+            return "F1", sigma
+        assert subgroup_has_minus_one(a, factors)
+        return "F3", sigma
+
+    pair_moduli = (3, 7, 11, 19, 23, 31)
+    budget_moduli = (31, 43, 59, 79, 103, 127, 151, 199)
+
+    def window_rows(low, high, moduli, collect_details=False):
+        rows = {a: Counter() for a in moduli}
+        joint = Counter()
+        budget = Counter()
+        n = 0
+        for p0 in primerange(low, high):
+            p = int(p0)
+            if p % 24 != 1:
+                continue
+            n += 1
+            failures = {}
+            for a in moduli:
+                factors = factors_py((p + a) // 4)
+                failed = not ratio_success(a, factors)
+                failures[a] = failed
+                if not failed:
+                    continue
+                kind, _ = classify_failure(a, factors)
+                rows[a][kind] += 1
+                if collect_details and low == 10_000_000 \
+                        and a in budget_moduli:
+                    omega = len(factors)
+                    label = omega if omega <= 4 else 5
+                    budget[(a, label, kind)] += 1
+            if collect_details and all(a in failures for a in pair_moduli):
+                for i, a in enumerate(pair_moduli):
+                    for b in pair_moduli[i + 1:]:
+                        joint[(a, b)] += failures[a] and failures[b]
+        observed = {
+            a: (rows[a]["F1"] + rows[a]["F3"],
+                rows[a]["F1"], rows[a]["F3"])
+            for a in moduli
+        }
+        return n, observed, joint, budget
+
+    n, default_window, _, _ = window_rows(
+        100_000, 200_000, (3, 7, 11)
+    )
+    assert n == 1_031
+    assert default_window == {
+        a: expected_windows[(100_000, 200_000)][a] for a in (3, 7, 11)
+    }
+
+    # Seeded structural audit.  F1 is automatic when sigma=0; every observed
+    # sigma-positive failure must still have -1 in the unbudgeted subgroup.
+    pool = [int(p) for p in primerange(200_000, 1_500_000)
+            if int(p) % 24 == 1]
+    rng = Random(720030)
+    rng.shuffle(pool)
+    taxonomy = Counter()
+    for p in pool[:256]:
+        for a in (11, 19, 31, 43, 59, 103, 199):
+            factors = factors_py((p + a) // 4)
+            success = ratio_success(a, factors)
+            sigma = sum(int(jacobi_symbol(q, a)) == -1 for q, _ in factors)
+            if sigma == 0:
+                assert not success
+                taxonomy["F1"] += 1
+            elif not success:
+                assert subgroup_has_minus_one(a, factors)
+                taxonomy["F3"] += 1
+    assert taxonomy["F1"] and taxonomy["F3"]
+
+    expected_joint = {
+        (1_000_000, 1_200_000): (
+            177, 291, 570, 251, 431, 163, 274, 92, 214, 417,
+            141, 296, 305, 679, 219,
+        ),
+        (10_000_000, 10_200_000): (
+            112, 214, 433, 180, 283, 119, 203, 71, 136, 321,
+            93, 229, 213, 458, 140,
+        ),
+    }
+    expected_budget = {
+        31: ((0, 0), (290, 109), (364, 199), (78, 27), (2, 0)),
+        43: ((287, 138), (622, 470), (328, 289), (40, 38), (0, 0)),
+        59: ((0, 0), (306, 137), (539, 319), (186, 108), (13, 7)),
+        79: ((0, 0), (297, 129), (545, 327), (212, 162), (17, 11)),
+        103: ((0, 0), (261, 124), (594, 440), (267, 208), (26, 23)),
+        127: ((0, 0), (304, 143), (591, 459), (280, 233), (26, 26)),
+        151: ((0, 0), (284, 136), (601, 403), (312, 243), (39, 31)),
+        199: ((0, 0), (322, 157), (596, 385), (361, 266), (42, 34)),
+    }
+    full_window_rows = None
+    if full_scan:
+        full_window_rows = {}
+        for interval, expected in expected_windows.items():
+            window_n, observed, joint, budget = window_rows(
+                *interval, prime_moduli, collect_details=True
+            )
+            assert observed == expected
+            if interval in expected_joint:
+                observed_joint = tuple(
+                    joint[(a, b)]
+                    for i, a in enumerate(pair_moduli)
+                    for b in pair_moduli[i + 1:]
+                )
+                assert observed_joint == expected_joint[interval]
+            if interval == (10_000_000, 10_200_000):
+                observed_budget = {
+                    a: tuple((budget[(a, omega, "F1")]
+                              + budget[(a, omega, "F3")],
+                              budget[(a, omega, "F3")])
+                             for omega in (1, 2, 3, 4, 5))
+                    for a in budget_moduli
+                }
+                assert observed_budget == expected_budget
+            full_window_rows[interval] = window_n
+        assert full_window_rows == {
+            (100_000, 200_000): 1_031,
+            (1_000_000, 1_200_000): 1_817,
+            (10_000_000, 10_200_000): 1_561,
+            (100_000_000, 100_200_000): 1_355,
+        }
+
+    elapsed = perf_counter() - started
+    if not full_scan:
+        assert elapsed < 15.0
+    print("a-frame a1 replay (limit,count,hist) =",
+          (10_000_000 if full_scan else 1_000_000, count, histogram))
+    print("a-frame pins (100m count,max/near-max,first-window,taxonomy) =",
+          (sum(expected_100m.values()),
+           ((107, 8_803_369), (91, 22_605_361), (79, 66_222_601)),
+           default_window, dict(taxonomy)))
+    print("a-frame wider windows / seconds =",
+          (full_window_rows, elapsed))
+
+
+print("\n== (bs) a-frame failure census (§72) ==")
+check_bs()
+
+
 print("\nall checks passed")
