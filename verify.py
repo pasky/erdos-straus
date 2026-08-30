@@ -12970,23 +12970,35 @@ def check_bm():
         "7f385ae9b7ddb042e873f52883d4f90f43ddb551b34f89b1a377c2a57a0c4389"
     )
 
-    # Exact prime-power reconstruction of L(1000).  If p^e is 3 mod 4 it
+    # Exact prime-power reconstruction of L(T).  If p^e is 3 mod 4 it
     # occurs directly; if it is 1 mod 4, the least correcting multiplier is 3.
-    L1000 = 1
-    for M, _ in rows_1000:
-        L1000 = lcm(L1000, M)
-    prime_power_L = 1
-    for p0 in primerange(3, 1001):
-        p = int(p0)
-        power, exponent, best = p, 1, 0
-        while power <= 1000:
-            multiplier = 1 if power % 4 == 3 else 3
-            if multiplier * power <= 1000:
-                best = exponent
-            power *= p
-            exponent += 1
-        prime_power_L *= p**best
-    assert prime_power_L == L1000
+    # Pin both a small value and the displayed T=1000 value, and test the
+    # iff criterion for every odd prime power in each range.
+    def reconstruct_period(T):
+        direct = 1
+        for M in range(3, T + 1, 4):
+            direct = lcm(direct, M)
+        reconstructed = 1
+        for p0 in primerange(3, T + 1):
+            p = int(p0)
+            power, best = p, 1
+            while power <= T:
+                multiplier = 1 if power % 4 == 3 else 3
+                occurs = multiplier * power <= T
+                assert (direct % power == 0) == occurs
+                if occurs:
+                    best = power
+                power *= p
+            reconstructed *= best
+        assert reconstructed == direct
+        return direct
+
+    L100 = reconstruct_period(100)
+    L1000 = reconstruct_period(1000)
+    assert L100 == 16_783_578_362_773_649_226_474_675
+    assert abs(log(L100) - 58.08244316181642) < 1e-12
+    assert log(L100) / 100 < log(L1000) / 1000 < 2 / 3
+    assert L1000 == lcm(*(M for M, _ in rows_1000))
     assert len(str(L1000)) == 287
     assert str(L1000).startswith("33327187069042472926")
     assert str(L1000).endswith("96861351257431599625")

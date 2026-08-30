@@ -25666,7 +25666,7 @@ the anchor must respect.
 every \(K\geq1\), no admissible polynomial datum (66.10)--(66.11) exists on
 \(m(t)=12+Kt\).  The analogous statements hold on
 \(m(t)=4+Kt\) for \(s=21\), and on \(m(t)=3+Kt\) for \(s=505\), after
-replacing the leading 2 in (66.11) by the relevant kernel.
+replacing the leading 2 in (66.10) by the relevant kernel.
 
 *Proof.*  Specializing at \(t=0\) would give a positive eligible datum for
 288, 336, or 4545, respectively.  This contradicts Theorem 60.3.  The
@@ -25674,10 +25674,14 @@ argument places no degree or coefficient bound on \(M\) or \(D\).
 \(\square\)
 
 Thus the exact anchored hunt is exhausted in all degrees, rather than merely
-returning no hit in a finite box.  A useful identity may still cover a
-one-sided subprogression while becoming nonpositive or ineligible at the
-anchor; this is why the following supplementary bounded search also moved
-one step forward.
+returning no hit in a finite box.  This argument does **not** extend to an
+all-degree obstruction on a forward ray.  Polynomial equalities holding at
+all sufficiently large integers do extend identically back to the anchor,
+but the positivity and positive-divisor eligibility hypotheses need not do
+so; without them, specialization at the anchor is not a datum for \(W\).
+A useful identity may therefore still cover a one-sided subprogression while
+becoming nonpositive or ineligible at the anchor.  This is why the following
+supplementary bounded search also moved one step forward.
 
 **Computational 66.1 (coefficient/resultant identity hunt; exact stated
 ansatz).**  Block (bm) used
@@ -25829,6 +25833,56 @@ has the same pointwise \(\forall m\,\exists(M,D)\) character as the hard-prime
 problem: finite covers and bounded searches do not exchange those
 quantifiers.  The restricted classification, and hence the full conjecture
 \(C_{\rm SQ}'\), is not proved.
+
+### 66.6 Review attestation (wave 28)
+
+**Verdict: SOUND-AFTER-MINOR-REPAIRS.**  Maximum-severity review rederived
+all proved quantifiers and independently recomputed every finite result.  No
+mathematical counterexample, changed constant, new \(W=+\infty\) member, or
+retraction was found.  The repairs correct one equation reference, make the
+forward-ray wall explicit, and strengthen the executable prime-power pins.
+
+* **HIGH (period constant):** for every odd prime power \(p^e\), the least
+  positive correcting multiplier is 1 when \(p^e\equiv3\pmod4\) and 3 when
+  \(p^e\equiv1\pmod4\); no power of 2 occurs.  Thus first powers contribute
+  \(\vartheta(T;4,3)+\vartheta(T/3;4,1)\), while all higher powers contribute
+  \(O(\sqrt T\log T)\).  The leading constant is therefore exactly
+  \(1/2+1/6=2/3\), as claimed.  A fresh direct-lcm computation gave
+  \(\log L(100)/100=0.5808244316\ldots\) and
+  \(\log L(1000)/1000=0.6597431250\ldots\), and independently reproduced
+  the 287-digit \(L(1000)\).  Block (bm) now pins both thresholds and the
+  prime-power iff criterion.
+* **HIGH (class and anchor quantifiers):** every eligible \(M\leq T\) is
+  literally one of the entries defining \(L(T)\), hence divides it.  The
+  firing event is consequently constant on parameter classes modulo
+  \(L(T)\).  Applying this to the three proved infinite anchors gives
+  infinitely many arbitrarily large parameters beyond each fixed \(T\),
+  which proves the three limsups and (66.8), but does not give one new fixed
+  parameter with infinite depth.  The finite-certificate corollary applies
+  only to finite collections of fixed harvested \((M,D)\) laws.
+* **HIGH (identity wall):** Proposition 66.5 is an all-degree theorem only
+  for data whose eligibility includes the anchor \(t=0\), where
+  specialization would contradict Theorem 60.3.  An attempted all-degree
+  extension to forward rays leaks: polynomial equalities extend backward,
+  but positivity and positive-divisor eligibility need not.  The section
+  did not make that extension; the repaired text now states the boundary
+  explicitly.  The shifted \(e=1\) result remains only the bounded
+  three-shape computation.  The erroneous reference to the kernel in
+  (66.11), rather than (66.10), was corrected.
+* **MEDIUM (independent finite replay):** a fresh trial-division,
+  ascending-\(M\), Python-integer implementation reproduced the sole cap
+  survivors \((2,12),(21,4),(505,3)\), finite maxima
+  \((4019,1530),(695,851),(479,1239)\), and all depth-1000 exceptions.  It
+  independently recovered the 65 projected classes modulo 627, maximum
+  least lift \((606,175539,279)\), and the displayed SHA-256 digest.  A
+  separate coefficient implementation replayed all 54,990 candidates in
+  every one of the twelve \((K,e)\) families and all three divisor shapes;
+  6,810 had the required mod-4 law and none was eligible.
+* **Verification:** block (bm) is deterministic (no random seed is involved),
+  uses Python integers, and completed in 0.30 seconds internally on the
+  review host, well below the 15-second default budget.  Its assertions pin
+  the complete finite boxes rather than sampled outputs.  The full
+  prescribed verification command was rerun green after the repairs.
 
 ## 67. Anatomy of the record stall: two local frames, residue-one examples, and the honest exponent window
 
