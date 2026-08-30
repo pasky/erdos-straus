@@ -106,6 +106,16 @@ large-deviations against actual data for hard-class primes).
   `C_SQ`/survivor state historically.  `paper/README.md` now flags those
   passages as superseded pending source §60 absorption; no paper theorem has
   silently been updated.
+* **Wave-25 lead (from §60's near-miss diagnosis):** the three sporadics
+  fail eligibility through shared-factor structure (\(\gcd(a,D)>1\),
+  possible only because \(\gcd(a,D)\mid n\)); for an odd PRIME \(p\) the
+  normal form forces \(a<p\), hence \(\gcd(a,D)=1\) always — the sporadic
+  failure mechanism is structurally unavailable to primes, and the
+  per-prime witness question is a clean finite divisor condition
+  (\(O(p(\log p)^2)\)-average scan).  Open: full \(W=\infty\) census
+  via decidability (more sporadics? all twisted squares?), the
+  twisted-square vanishing law, and what the prime/composite asymmetry
+  yields for the pointwise frontier.
 
 ## Outcome 27 (2026-08-30, wave 23 — historical state superseded by Outcome 28; see notes.md §59 + paper v9; hostile-reviewed → repaired / FAITHFUL)
 
