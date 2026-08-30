@@ -21081,3 +21081,390 @@ names the normalization panel in (56.12) and (56.15).  The proved lower wall
 is \(A=1\); no finite census supplies the other side.  The pointwise-frontier
 statements in §§51 and 54 remain unchanged: Theorems 56.1--56.2 constrain
 only the complete-class certificate architecture.  *(wave-21 review repair)*
+
+## 58. The inverse census: least conspiracy elements, the Jacobsthal angle, and the integer/prime dichotomy
+
+**Status and headline.**  The definitions, inverse equivalences, Jacobi
+argument, and bounds below are proved.  The displayed censuses are
+**Computational** and exact only on their stated grids.  The literature
+statements were checked in the full sources archived under
+`sources/jacobsthal-literature/`; the publisher did not deliver the 1978
+primary PDF, and the provenance file says so.  The main structural fact is
+stronger than a generic Jacobsthal estimate: the *full* harvested system
+misses every square.  Thus the useful all-integer inverse is
+
+affine-linear in the threshold, whereas obtaining a prime survivor remains
+open beyond the exponential congruence construction.  Nothing in the finite
+tables suggests a growth law.
+
+### 58.1 Moving inverses and an exact finite census
+
+The literal least-positive-integer definition has a fatal small-denominator
+anomaly.  Lemma 21.2 gives
+
+\[
+ W(1)=W(4)=+\infty,\qquad W(2)=3,\qquad W(3)=7.             \tag{58.1}
+\]
+
+Consequently \(\min\{n\geq1:W(n)>T\}=1\) for every \(T\).  A fixed prime
+with \(W(p)=+\infty\), if one existed, would similarly corrupt a raw inverse
+without saying anything about an eventual pointwise assertion.  We therefore
+use the following **moving convention** throughout this section:
+
+\[
+ \begin{split}
+ L_{\rm int}(T)&=\min\{n>T:W(n)>T\},\\
+ L_p(T)&=\min\{p>T:p\ {
+m prime},\ W(p)>T\},\\
+ L_h(T)&=\min\{p>T:p\equiv1\pmod {24},\ p\ {
+m prime},\ W(p)>T\}.
+ \end{split}                                                \tag{58.2}
+\]
+
+The minima are finite by Theorem 58.1 below.  The hard-prime variant \(L_h\)
+is displayed because the census in (56.10)--(56.11) was restricted to that
+class; it must not be silently substituted for the all-prime inverse \(L_p\).
+For example, \(L_p(335)=22621\), while \(L_h(335)=1853329\).
+
+For \(A_M=(M+1)/4\), Lemma 18.1 makes the inverse condition exact:
+
+\[
+ W(n)>T\quad\Longleftrightarrow\quad
+ n\not\equiv-4D\pmod M
+ \quad\left(\begin{array}{l}M\leq T,\ M\equiv3\pmod4,\\
+                         D\mid A_M^2\end{array}\right).     \tag{58.3}
+\]
+
+Thus no assertion about a later or nonexistent witness is needed to certify
+one row of an inverse table: all moduli only through that row's threshold are
+harvested.
+
+**Computational 58.1 (exact grid, informational).**  `verify.py (be)`
+harvests (58.3), streams integers and primes upward, and keeps every
+unresolved threshold.  The default grid reaches \(T=2000\); all entries and
+the witness values in brackets are exact.  The bracket is \(W\) at the
+reported prime.
+
+\[
+\begin{array}{r|r|r@{\ }l|r@{\ }l}
+T&L_{\rm int}(T)&L_p(T)&[W]&L_h(T)&[W]\\ \hline
+3&4&7&[11]&73&[7]\\
+7&9&37&[15]&193&[15]\\
+15&16&79&[23]&1201&[31]\\
+31&36&211&[43]&2521&[47]\\
+63&64&1381&[83]&3361&[99]\\
+100&121&10399&[103]&33289&[155]\\
+200&225&22621&[419]&167521&[259]\\
+335&336&22621&[419]&1853329&[383]\\
+382&400&22621&[419]&1853329&[383]\\
+500&529&206299&[695]&2031121&[2495]\\
+750&784&2031121&[2495]&2031121&[2495]\\
+1000&1024&2031121&[2495]&2031121&[2495]\\
+1250&1296&2031121&[2495]&2031121&[2495]\\
+1500&1521&2031121&[2495]&2031121&[2495]\\
+1750&1764&2031121&[2495]&2031121&[2495]\\
+2000&2025&2031121&[2495]&2031121&[2495]
+\end{array}                                                  \tag{58.4}
+\]
+
+In particular the independent hard-prime replay gives
+
+\[
+                 L_h(T)=1853329\qquad(335\leq T\leq382),    \tag{58.5}
+\]
+
+exactly as required by the two records in (56.10)--(56.11).  With
+`ES_FULL_SCAN=1`, the grid also includes
+
+\[
+\begin{array}{c|rrr}
+T&2200&2400&2494\\ \hline
+L_{\rm int}(T)&2209&2401&2500\\
+L_p(T)=L_h(T)&2031121&2031121&2031121.
+\end{array}                                                  \tag{58.6}
+\]
+
+Here is the requested normalization panel.  Each cell is
+\((\log L/\log T,\log L/T)\), with natural logarithms.
+
+\[
+\begin{array}{r|c|c|c}
+T&L_{\rm int}&L_p&L_h\\ \hline
+31 &(1.044,.11560)&(1.558,.17264)&(2.281,.25266)\\
+100&(1.041,.04796)&(2.008,.09249)&(2.261,.10413)\\
+335&(1.001,.01736)&(1.725,.02993)&(2.482,.04308)\\
+382&(1.008,.01568)&(1.686,.02625)&(2.427,.03778)\\
+500&(1.009,.01254)&(1.969,.02447)&(2.337,.02905)\\
+1000&(1.003,.00693)&(2.103,.01452)&(2.103,.01452)\\
+2000&(1.002,.00381)&(1.911,.00726)&(1.911,.00726)
+\end{array}                                                  \tag{58.7}
+\]
+
+The integer first coordinate near one has a theorem behind it below.  The
+prime columns are step functions: their decreases across plateaux and jumps
+at a new record are finite-table shapes only.  In particular the isolated
+\(W(2031121)=2495\) jump supports no asymptotic extrapolation.
+
+### 58.2 Two-sided bounds and the shifted constraints
+
+**Theorem 58.1 (two inverse scales; proved).**  For every real \(T\geq3\),
+
+\[
+ T<L_{\rm int}(T)
+ \leq \bigl(\lfloor\sqrt T\rfloor+1\bigr)^2
+ \leq T+2\sqrt T+1,                                        \tag{58.8}
+\]
+
+and also
+
+\[
+ L_{\rm int}(T)\leq M(T)+1=\exp\{(1+o(1))T\}.              \tag{58.9}
+\]
+
+Moreover
+
+\[
+ L_{\rm int}(T)\leq L_p(T)
+ \leq\exp\{(5.2+o(1))T\}.                                  \tag{58.10}
+\]
+
+The last upper bound also holds for \(L_h(T)\).  All asymptotic upper bounds
+are effective in the same sense as Theorem 54.1.
+
+*Proof.*  The strict lower bound is part of the moving convention.  Put
+\(s=\lfloor\sqrt T\rfloor+1\).  Lemma 21.2 proves that every square avoids
+every harvested class, so \(W(s^2)=+\infty\), proving (58.8).  To replay the
+sign, if \(M=4A-1\) and \(D\mid A^2\), quadratic reciprocity gives
+\((D/M)=1\), while \((-1/M)=-1\); hence \((-4D/M)=-1\), and a square unit
+cannot occupy that class.  A nonunit square cannot occupy it either because
+all harvested classes are units.
+
+For (58.9), \(M(T)+1\equiv1\pmod m\) for every eligible \(m\leq T\).  If
+its datum had \(uvw=(m+1)/4\), the witness congruence would give
+\(m\mid u+v\), whereas
+\(2\leq u+v\leq uv+1\leq(m+1)/4+1<m\).  This is the arithmetic part of
+Theorem 54.1 and uses no primality.  Finally primes form a subset of the
+integers, and Theorem 54.1 supplies a prime in the class
+\(1\pmod {M(T)}\) below \(\exp\{(5.2+o(1))T\}\).  For \(T\geq8\), that
+class is also \(1\pmod {24}\), proving the hard-prime assertion. \(\square\)
+
+Thus no lower bound \(L_{\rm int}(T)\gg T\log T\), let alone a
+superpolynomial one, is possible under the meaningful convention (58.2).
+The elementary shifted restrictions explain why a naive lower-bound search
+nevertheless looks tempting.
+
+**Lemma 58.2 (two necessary shifted-sieve conditions; proved).**  If
+\(W(n)>T\), then
+
+\[
+ \begin{split}
+ \ell\nmid n+4&\quad(\ell\leq T,\ \ell\equiv3\pmod4,
+                         \ \ell\ {
+m prime}),\\
+ \ell\nmid n+8&\quad(\ell\leq T,\ \ell\equiv7\pmod8,
+                         \ \ell\ {
+m prime}).
+ \end{split}                                                \tag{58.11}
+\]
+
+*Proof.*  For the first line choose \(D=1\) in (58.3).  For a prime
+\(\ell\equiv3\pmod4\), put \(A=(\ell+1)/4\).  The divisor \(D=2\) is
+eligible exactly when \(2\mid A^2\), equivalently \(A\) is even, equivalently
+\(\ell\equiv7\pmod8\).  Its class is \(-8\pmod\ell\), proving the second
+line. \(\square\)
+
+The first line says that every \(3\pmod4\) prime factor of \(n+4\) exceeds
+\(T\).  If \(T\geq x+4\), the integers \(n\leq x\) passing this one test
+are shifts of numbers supported on 2 and primes \(1\pmod4\).  The standard
+Selberg--Delange calculation has order \(x/\sqrt{\log x}\): its Dirichlet
+series has the form
+
+\[
+ \prod_{q=2\ {
+m or}\ q\equiv1(4)}(1-q^{-s})^{-1}
+       =\zeta(s)^{1/2}H(s),                                 \tag{58.12}
+\]
+
+with \(H\) holomorphic and positive at 1.  This contextual classical
+calculation is not used as a new theorem here.  It already shows why the
+single shift cannot force a superpolynomial first survivor.  The conjunction
+of all shifts is much stronger, but (58.8) identifies an exact common escape:
+every square survives every one of them.
+
+### 58.3 What Jacobsthal does, and what it does not do
+
+For a positive integer \(q\), let \(g(q)\) be the least \(G\) such that
+every \(G\) consecutive integers contain one coprime to \(q\).  Equivalently,
+up to the conventional endpoint difference of one, it is the maximal gap
+between consecutive integers coprime to \(q\).
+
+**Theorem 58.3 (Iwaniec's Jacobsthal bound; literature-verified).**  If
+\(k=\omega(q)\), then, uniformly in \(q\),
+
+\[
+                         g(q)\ll(k\log k)^2.                \tag{58.13}
+\]
+
+The constant is absolute but was not made explicit in the checked
+formulation.  The exact statement was verified on page 1 of the archived
+full Costello--Watts paper, which explicitly attributes it to Iwaniec,
+*Demonstratio Math.* **11** (1978), 225--231.  As an independent scope
+check, the archived Ford--Green--Konyagin--Maynard--Tao paper defines the
+same maximal-gap function and records the primorial consequence
+\(g(\prod_{p\leq x}p)\ll x^2\).  The primary DOI is
+`10.1515/dema-1978-0121`; automated retrieval reached the publisher's human
+verification page rather than a PDF, so this section does not pretend that
+the primary scan was inspected.
+
+There is a precise but one-way map to (58.3).  Put
+
+\[
+ P_3(T)=\prod_{\ell\leq T,\ \ell\equiv3(4)}\ell.
+\]
+
+Avoiding only the \(D=1\) subsystem is exactly
+
+\[
+                         (n+4,P_3(T))=1.                    \tag{58.14}
+\]
+
+Since \(\omega(P_3(T))=\pi(T;4,3)\), (58.13) says that every interval of
+length \(O(T^2)\) contains a survivor of this subsystem.  This does **not**
+upper-bound \(L_{\rm int}(T)\): avoiding the full system is harder, so its
+survivor set is a subset of the set in (58.14).  Reversing that inclusion
+would be the Jacobsthal direction error.
+
+The full system removes, for every composite as well as prime
+\(M\equiv3\pmod4\), the structured family
+
+\[
+       \{-4D\pmod M:D\mid((M+1)/4)^2\}.                     \tag{58.15}
+\]
+
+It is not a system obtained by deleting one class modulo each prime.  Nor is
+a composite class in (58.15) a union of fixed forbidden classes at its prime
+factors; it is an intersection of coordinate conditions.  Therefore
+Iwaniec's theorem does not apply verbatim to (58.15).  The archived Ford--
+Konyagin--Maynard--Pomerance--Tao paper does allow a bounded collection
+\(I_p\) at each prime under a one-dimensional average hypothesis, but its
+main theorem constructs *large gaps* in that prime-indexed sifted set.  It
+neither upper-bounds its first survivor nor covers the composite-modulus
+conditions (58.15).  The same scope warning applies to the lower bounds for
+Jacobsthal/prime gaps in the Ford--Green--Konyagin--Maynard--Tao paper: they
+concern a maximal, worst-position gap, not this specified least element.
+
+**Structural resolution of the full-system upper-bound question.**  No
+published Jacobsthal generalization is needed: Lemma 21.2 supplies the
+missing full-system avoider explicitly, and (58.8) proves
+
+\[
+                         L_{\rm int}(T)=T+O(\sqrt T).        \tag{58.16}
+\]
+
+Here (58.16) means the two-sided interval in (58.8), not an assertion that
+the difference has an asymptotic constant.  This is a genuine
+\(T^{O(1)}\), indeed near-linear, upper bound for the full system.
+
+**Corollary 58.4 (integer/prime count-below-one dichotomy; proved).**  Put
+\(N_0=L_{\rm int}(T)\) and \(S=(\lfloor\sqrt T\rfloor+1)^2\).  Then
+
+\[
+ \#\{n\leq N_0:W(n)>T\}\geq1,
+ \qquad N_0\leq S\leq T+2\sqrt T+1,\qquad W(S)=+\infty.     \tag{58.17}
+\]
+
+Consequently an all-integer upper tail of the form
+\(\#\{n\leq N:W(n)>T\}\leq N e^{-\mu(T)}<1\) cannot hold at
+\(N=N_0\) (or at \(N=S\)) in this window.  Any count-below-one route to a
+pointwise prime statement must use primality essentially (see §57): the
+explicit survivor \(S\) is composite for every \(T\geq3\).
+
+### 58.4 Prime survivors: congruence wall and technology audit
+
+Squares settle the integer inverse but furnish no prime.  Theorem 56.1 says
+that a complete congruence certificate for \(W>T\) has modulus divisible by
+\(P_3(T)\), hence at least \(\exp\{(1/2+o(1))T\}\).  Combining such a
+certificate with a generic least-prime theorem therefore remains an
+\(\exp\{\Theta(T)\}\) architecture.  The residue-one construction and
+Linnik give the unconditional upper end (58.10).
+
+**Assessment 58.1 (the missing prime technology).**  Density alone gives no
+least-prime theorem for an arbitrary sifted set, and ordinary upper-bound
+sieves have the parity obstruction: they can bound survivors without
+proving that one is prime.  Bombieri--Vinogradov-type distribution can treat
+many small progression conditions on average, but no theorem located in
+this audit produces a prime avoiding the complete, \(T\)-dependent family
+(58.15) below \(\exp\{o(T)\}\).  Literature on divisors or smoothness of a
+single shifted prime studies such questions as the size or location of
+factors of \(p+a\); that is not a least-prime result for the simultaneous
+conditions on \(p+4D\) here.  In particular, the first line of (58.11) alone
+is not a substitute for the full harvest.
+
+GRH improves least primes in a *specified arithmetic progression*, but does
+not remove the parity problem for this union of sifted classes.  A Cramér-
+type independent-prime model would place a first prime near the reciprocal
+of the modeled survivor density, up to logarithmic factors.  That is a
+**Heuristic**, not a conditional theorem quoted here.  The presently proved
+prime bounds are only
+
+\[
+       T<L_{\rm int}(T)\leq L_p(T)
+          \leq\exp\{(5.2+o(1))T\}.                          \tag{58.18}
+\]
+
+Beating the exponential upper end requires genuinely aggregate information
+about primes in this sifted set, not merely choosing one complete residue
+class.
+
+### 58.5 Exact inverse dualities and the \(A\)-window
+
+The frequently used slogan “superlogarithmic records are equivalent to
+\(L_p(T)=\exp\{o(T)\}\)” needs a quantifier correction.
+
+**Lemma 58.5 (record and pointwise inverse dualities; proved).**  Under the
+moving convention (58.2):
+
+1. There is a sequence of primes \(p_j\to\infty\) with
+   \(W(p_j)/\log p_j\to\infty\) if and only if
+
+   \[
+                  \liminf_{T\to\infty}{\log L_p(T)\over T}=0. \tag{58.19}
+   \]
+
+   The global statement \(L_p(T)=\exp\{o(T)\}\), meaning a limit rather
+   than a subsequence, is sufficient but is not logically equivalent without
+   extra regularity controlling record gaps.
+
+2. For every fixed \(A>0\),
+
+   \[
+   H_{\rm MOD}(A)\quad\Longleftrightarrow\quad
+   L_p((\log x)^A)>x\quad\hbox{for all sufficiently large }x. \tag{58.20}
+   \]
+
+   Equivalently, \(H_{\rm MOD}(A)\) fails exactly when
+   \(L_p(T)\leq\exp(T^{1/A})\) for arbitrarily large \(T\).
+
+*Proof.*  Given a superlogarithmic sequence, choose
+\(T_j<\min(W(p_j),p_j)\) with
+\(T_j/\log p_j\to\infty\); then \(L_p(T_j)\leq p_j\), proving the forward
+half of (58.19).  Conversely, at thresholds realizing the liminf, put
+\(p_j=L_p(T_j)\).  Then
+\(W(p_j)>T_j\) and \(W(p_j)/\log p_j>T_j/\log L_p(T_j)\to\infty\).
+This proves (58.19), including the possibility \(W=+\infty\).
+
+If \(H_{\rm MOD}(A)\) fails at arbitrarily large primes \(p\), take
+\(x=p\) in (58.20); the offending prime is admissible in the inverse because
+\((\log p)^A<p\).  Conversely, if the right side fails at unbounded \(x\),
+put \(q=L_p((\log x)^A)\leq x\).  Then \(q\to\infty\) and
+\(W(q)>(\log x)^A\geq(\log q)^A\).  Substituting
+\(T=(\log x)^A\) gives the final formulation. \(\square\)
+
+Formula (58.20) is the exact inverse form of the remaining window.  If
+\(A<1\), Theorem 54.1 gives
+\(L_p(T)\leq\exp\{(5.2+o(1))T\}\ll\exp(T^{1/A})\), reproving the failure
+of \(H_{\rm MOD}(A)\).  At \(A=1\), the pointwise hypothesis asks for the
+eventual lower bound \(L_p(T)>e^T\); for \(A>1\), it asks for
+\(L_p(T)>\exp(T^{1/A})\).  Neither the upper bound (58.10) nor the census
+decides any \(A\geq1\).  Thus the honest \(1\leq A\lesssim2\) display in
+(56.16) remains a finite normalization window, not a claimed exponent.

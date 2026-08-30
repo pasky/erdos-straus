@@ -10176,4 +10176,195 @@ print("\n== (bc) congruence-certificate ceilings and extremal census (§56) ==")
 check_bc()
 
 
+# ---------------------------------------------------------------- (be)
+def check_be():
+    """§58: moving inverse censuses, shifted classes, and square escape."""
+    import os
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    modulus_cap = 3000 if full_scan else 2500
+    grid = [3, 7, 15, 31, 63, 100, 200, 335, 382, 500, 750,
+            1000, 1250, 1500, 1750, 2000]
+    if full_scan:
+        grid += [2200, 2400, 2494]
+
+    # Complete Lemma-18.1 harvest through every threshold in the grid.
+    modulus_classes = []
+    class_by_modulus = {}
+    for M in range(3, modulus_cap + 1, 4):
+        A = (M + 1) // 4
+        classes = {(-4 * D) % M for D in divisors_of_square(A)}
+        modulus_classes.append((M, classes))
+        class_by_modulus[M] = classes
+    assert modulus_cap >= max(grid)
+
+    def W_through_cap(n):
+        return next((M for M, classes in modulus_classes
+                     if n % M in classes), None)
+
+    # The tiny values explain why the moving convention n,p>T is used.
+    assert W_through_cap(1) is None
+    assert W_through_cap(2) == 3
+    assert W_through_cap(3) == 7
+    assert W_through_cap(4) is None
+
+    # Stream once and resolve all integer thresholds as soon as both strict
+    # inequalities n>T and W(n)>T hold.
+    unresolved = set(grid)
+    L_int = {}
+    for n in range(1, (int(max(grid) ** 0.5) + 2) ** 2 + 1):
+        witness = W_through_cap(n)
+        for T in tuple(unresolved):
+            if n > T and (witness is None or witness > T):
+                L_int[T] = n
+                unresolved.remove(T)
+        if not unresolved:
+            break
+    assert not unresolved
+
+    # Prime and hard-prime inverses are streamed together.  The endpoint is
+    # the last §56 record needed by every default/full threshold here.
+    unresolved_p, unresolved_h = set(grid), set(grid)
+    L_p, L_h = {}, {}
+    for P in primerange(2, 2_031_122):
+        witness = W_through_cap(P)
+        for T in tuple(unresolved_p):
+            if P > T and (witness is None or witness > T):
+                L_p[T] = (P, witness)
+                unresolved_p.remove(T)
+        if P % 24 == 1:
+            for T in tuple(unresolved_h):
+                if P > T and (witness is None or witness > T):
+                    L_h[T] = (P, witness)
+                    unresolved_h.remove(T)
+        if not unresolved_p and not unresolved_h:
+            break
+    assert not unresolved_p and not unresolved_h
+
+    expected_default = (
+        (3, 4, 7, 11, 73, 7),
+        (7, 9, 37, 15, 193, 15),
+        (15, 16, 79, 23, 1201, 31),
+        (31, 36, 211, 43, 2521, 47),
+        (63, 64, 1381, 83, 3361, 99),
+        (100, 121, 10_399, 103, 33_289, 155),
+        (200, 225, 22_621, 419, 167_521, 259),
+        (335, 336, 22_621, 419, 1_853_329, 383),
+        (382, 400, 22_621, 419, 1_853_329, 383),
+        (500, 529, 206_299, 695, 2_031_121, 2495),
+        (750, 784, 2_031_121, 2495, 2_031_121, 2495),
+        (1000, 1024, 2_031_121, 2495, 2_031_121, 2495),
+        (1250, 1296, 2_031_121, 2495, 2_031_121, 2495),
+        (1500, 1521, 2_031_121, 2495, 2_031_121, 2495),
+        (1750, 1764, 2_031_121, 2495, 2_031_121, 2495),
+        (2000, 2025, 2_031_121, 2495, 2_031_121, 2495),
+    )
+    expected_full_tail = (
+        (2200, 2209, 2_031_121, 2495, 2_031_121, 2495),
+        (2400, 2401, 2_031_121, 2495, 2_031_121, 2495),
+        (2494, 2500, 2_031_121, 2495, 2_031_121, 2495),
+    )
+    actual = tuple((T, L_int[T], L_p[T][0], L_p[T][1],
+                    L_h[T][0], L_h[T][1]) for T in grid)
+    assert actual == expected_default + (expected_full_tail if full_scan else ())
+
+    # Exact consistency with the two hard-prime records in §56.
+    assert W_through_cap(954_409) == 335
+    assert W_through_cap(1_853_329) == 383
+    assert W_through_cap(2_031_121) == 2495
+    for T in range(335, 383):
+        # There is no new hard prime to rescan: strict record order makes the
+        # endpoint 1,853,329 the inverse throughout this entire interval.
+        assert 335 <= T < 383
+        assert W_through_cap(954_409) <= T < W_through_cap(1_853_329)
+
+    # D=2 is eligible at a prime ell≡3 (mod 4) exactly for ell≡7 (mod 8).
+    primes_3 = tuple(P for P in primerange(3, 3001) if P % 4 == 3)
+    for ell in primes_3:
+        A = (ell + 1) // 4
+        assert ((A * A) % 2 == 0) == (ell % 8 == 7)
+
+    # Replay representative Jacobi signs at every modulus, then check the
+    # constructive square escape against every harvested class directly.
+    # Avoiding a Jacobi call per divisor keeps this block below its runtime
+    # budget; the exhaustive residue-set check is the stronger finite replay.
+    for M, classes in modulus_classes:
+        A = (M + 1) // 4
+        divs = divisors_of_square(A)
+        for D in {divs[0], divs[len(divs) // 2], divs[-1]}:
+            assert jacobi_symbol(D, M) == 1
+            assert jacobi_symbol(-4 * D, M) == -1
+        for s in range(1, 21):
+            assert (s * s) % M not in classes
+
+    # Explicit D=1 and D=2 shifted classes, including actual least-W replay.
+    for ell in primes_3:
+        if ell > modulus_cap:
+            continue
+        assert (-4) % ell in class_by_modulus[ell]
+        for multiplier in (2, 3):
+            n = multiplier * ell - 4
+            assert n > 0 and W_through_cap(n) <= ell
+        if ell % 8 == 7:
+            assert (-8) % ell in class_by_modulus[ell]
+            for multiplier in (2, 3):
+                n = multiplier * ell - 8
+                assert n > 0 and W_through_cap(n) <= ell
+
+    # Necessary shifted conditions replayed against every inverse row and a
+    # bounded population census at a representative threshold.
+    census_values = set(L_int.values())
+    census_values.update(P for P, witness in L_p.values())
+    census_values.update(P for P, witness in L_h.values())
+    for T in grid:
+        for n in (L_int[T], L_p[T][0], L_h[T][0]):
+            witness = W_through_cap(n)
+            assert n > T and (witness is None or witness > T)
+            assert all((n + 4) % ell for ell in primes_3 if ell <= T)
+            assert all((n + 8) % ell for ell in primes_3
+                       if ell <= T and ell % 8 == 7)
+    spot_T = 335
+    for n in range(spot_T + 1, 10_001):
+        witness = W_through_cap(n)
+        if witness is None or witness > spot_T:
+            assert all((n + 4) % ell for ell in primes_3 if ell <= spot_T)
+            assert all((n + 8) % ell for ell in primes_3
+                       if ell <= spot_T and ell % 8 == 7)
+
+    # Both constructive integer upper bounds, and comparison with the true
+    # moving inverse on the complete finite grid.
+    for T in grid:
+        square_bound = (int(T ** 0.5) + 1) ** 2
+        assert T < L_int[T] <= square_bound <= T + 2 * T ** 0.5 + 1 + 1e-12
+    for T in (3, 7, 15, 31, 63):
+        MT = 1
+        for m in range(1, T + 1):
+            MT = lcm(MT, m)
+        witness = W_through_cap(MT + 1)
+        assert witness is None or witness > T
+
+    expected_ratios = {
+        31: ((1.044, .11560), (1.558, .17264), (2.281, .25266)),
+        100: ((1.041, .04796), (2.008, .09249), (2.261, .10413)),
+        335: ((1.001, .01736), (1.725, .02993), (2.482, .04308)),
+        382: ((1.008, .01568), (1.686, .02625), (2.427, .03778)),
+        500: ((1.009, .01254), (1.969, .02447), (2.337, .02905)),
+        1000: ((1.003, .00693), (2.103, .01452), (2.103, .01452)),
+        2000: ((1.002, .00381), (1.911, .00726), (1.911, .00726)),
+    }
+    for T, expected in expected_ratios.items():
+        values = (L_int[T], L_p[T][0], L_h[T][0])
+        got = tuple((round(log(value) / log(T), 3),
+                     round(log(value) / T, 5)) for value in values)
+        assert got == expected
+
+    print("moving inverse census (T,L_int,L_p,Wp,L_h,Wh) =", actual)
+    print("square/full-system bound checked through cap =", modulus_cap)
+    print("D=1/D=2 shifted conditions and hard-record interval checked")
+
+
+print("\n== (be) inverse census and Jacobsthal integer/prime split (§58) ==")
+check_be()
+
+
 print("\nall checks passed")
