@@ -81,6 +81,69 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 26 (2026-08-30, wave 22 — see notes.md §57–§58 + paper v8; all hostile-reviewed → repaired / FAITHFUL)
+
+* **§57: the supercritical window — the count-below-one reduction, the
+  mass-invariant gap, and the crossing localization (SOUND-AFTER-REPAIRS).**
+  Theorem 57.1 (proved conditional): the named falsifiable window
+  hypotheses — \(H_{\rm WIN}(\theta)\) (cubic tail
+  \(N\exp\{-c(\log T)^3\}\) valid to \(T=\exp\{(\log N)^\theta\}\)) and
+  \(H'_{\rm WIN}(\theta)\) (square-log mirror) — imply E-S for all
+  sufficiently large primes at \(\theta>1/3\) resp. \(\theta\geq1/2\)
+  (endpoint \(1/2\) suffices exactly; effective if the constants are);
+  mechanism: counterexamples have \(W=\infty\), one valid supercritical
+  \(T\) forces the count below one, dyadic sweep.  Proved validity today is
+  \(\theta=1/4\) (Theorem 51.2; cubic variant CLAIMED/PROVISIONAL via
+  34.8) and \(\theta=1/3^-\) for square-log — each variant sits exactly
+  ONE factor \(t=\log T\) short of its own crossing.  Proposition 57.2
+  (mass-invariant gap; proved in the formalized absolute-remainder
+  architecture; antecedents §18.2/(18.15)/Assessment 18.4 + Lemma 33.3 +
+  (51.11) cited, not re-derived): supply mass \(\mu=t^a\) at
+  condition-entropy \(t\) caps the exceptional-set exponent at
+  \(\theta=a/(a+1)<1\) for EVERY \(a\) — no supply-mass improvement can
+  ever cross to pointwise within Bonferroni-CRT / fundamental-lemma /
+  large-sieve devices (each checked; the \(\mu t\leq\log N\) budget is
+  the CRT information cost).  §57.3 localizes the crossing: hypotheses
+  \(H_{\rm XW}\) (supercritical remainder cancellation across
+  \(e^{\Theta(\mu)}\) classes at joint moduli \(>N\); the upper-transfer
+  mirror of Lemma 33.3) and \(H_{\rm EQ}\) (fair-share conspiracy
+  non-concentration for primes) — either implies large-\(p\) E-S
+  (Proposition 57.4); §54's residue-one escapes verified subcritical
+  (consistency).  Verify (bd): threshold arithmetic + exact harvested-mass
+  calibration (integer survivors at \(T{=}3000\) below \(3\cdot10^5\):
+  550, of which 547 are squares — see §58; prime tails empty there).
+* **§58: the inverse census — Theorem 58.1 (square escape; proved,
+  max-severity replayed): \(W(m^2)=+\infty\) for EVERY positive integer
+  \(m\)** — every harvested Lemma-16.1 class misses every perfect square
+  (quadratic-character eligibility conspiracy; the naive per-factor
+  shortcut is FALSE — \(M{=}15,D{=}2\) counterexample — the repaired
+  proof handles composite/prime-power/2-adic/\(\ell\mid D\) cases; 750k
+  square-residue incidences replayed exact).  Consequently, under the
+  moving convention (58.2) (\(L_{\rm int}(T)=\min\{n>T:W(n)>T\}\), the
+  raw inverse being corrupted by \(W(1)=W(4)=\infty\)):
+  \(T<L_{\rm int}(T)\leq T+2\sqrt T+1\) — the all-integer inverse is
+  NEAR-LINEAR, so the **integer/prime dichotomy is PROVED**: all-integer
+  supercritical fair-share is false (squares over-concentrate,
+  \(\sim\sqrt N\) permanent conspirators \(\leq N\)), and any
+  count-below-one route to E-S (§57) is prime-essential.
+  \(L_p(T)\leq\exp\{(5.2+o(1))T\}\) (§54).  Exact censuses to
+  \(T=2000\) (\(L_p\) vs hard-only \(L_h\) kept distinct:
+  \(L_p(335)=22621\) vs \(L_h(335)=1853329\)); Lemma 58.2
+  (shifted-sieve necessary conditions: \(W(n)>T\Rightarrow n+4\) free of
+  primes \(\equiv3\ (4)\leq T\), \(n+8\) free of \(\equiv7\ (8)\));
+  Theorem 58.3 Iwaniec's Jacobsthal bound \(g(n)\ll(\omega\log\omega)^2\)
+  secondary-source-verified (Costello–Watts 2013 + FGKMT PDFs archived in
+  sources/jacobsthal-literature/ with honest provenance — primary 1978
+  paper inaccessible); Lemma 58.5 duality: superlog prime \(W\)-records
+  \(\iff\liminf\log L_p(T)/T=0\) (§56 caps congruence routes;
+  technology audit finds no sifted-set least-prime tool).  Review:
+  SOUND-AFTER-REPAIRS.
+* **paper v8 (79pp, FAITHFUL-AFTER-REPAIRS):** §56 absorbed (certificate
+  ceilings with every wave-21 caveat, censuses digit-checked, (56.16)
+  three-label window display); §57–§58 queued for v9.  Vaughan 1970:
+  wave-22 retry failed again (new routes logged; DOI corrected to
+  …2886 in the access log).
+
 ## Outcome 25 (2026-08-30, wave 21 — see notes.md §56 + paper v7; hostile-reviewed → repaired / FAITHFUL)
 
 * **§56: the congruence-certificate ceiling — §54's lower bound is optimal
