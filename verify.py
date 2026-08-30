@@ -10948,4 +10948,203 @@ print("\n== (bf) polynomial escape classification and nonsquare census (§59) ==
 check_bf()
 
 
+# ---------------------------------------------------------------- (bg)
+def check_bg():
+    """§60: exact witness duality, finite normal form, and survivors."""
+
+    def is_eligible(M, D):
+        return M >= 3 and M % 4 == 3 and ((M + 1) // 4) ** 2 % D == 0
+
+    # Replay every divisor datum in the complete §56/(bc) modulus range, for
+    # every represented positive n <= 2000.  Forward dualization and the
+    # canonical (g,u,v,d) normal form are both inverted exactly.
+    replay_limit = 2000
+    replay_rows = 0
+    correction_rows = 0
+    for M in range(3, 3001, 4):
+        A = (M + 1) // 4
+        for D in divisors_of_square(A):
+            residue = (-4 * D) % M
+            first = residue or M
+            for n in range(first, replay_limit + 1, M):
+                a = (n + 4 * D) // M
+                assert a * M == n + 4 * D
+                assert (n + a) % 4 == 0
+                h = (n + a) // 4
+                assert a * A == D + h
+                assert h * h % D == 0
+                assert (D + h) % a == 0
+
+                # Exact cancellation ledger.  The dual divisor condition
+                # certifies only the part of D left after a^2 is removed.
+                reduced_D = D // gcd(D, a * a)
+                assert (h * h % D == 0) == (A * A % reduced_D == 0)
+                assert A * A % D == 0
+                assert gcd(a, D) == 1 or n % gcd(a, D) == 0
+                correction_rows += gcd(a, D) > 1
+
+                g = gcd(A, h)
+                u, v = A // g, h // g
+                assert gcd(u, v) == 1 and D % g == 0
+                d = D // g
+                assert g % d == 0
+                assert a == 4 * g * v - n
+                assert a * u == d + v
+                assert M == 4 * g * u - 1
+                replay_rows += 1
+
+    assert (replay_rows, correction_rows) == (33_882, 11_451)
+
+    # Direct finite a-enumeration and an arithmetically independent canonical
+    # enumeration.  The successive columns count D|h^2, integral A, the
+    # survivor-specific Jacobi/forbidden-layer filters, and exact eligibility.
+    targets = (288, 336, 4545)
+    expected_near_misses = {
+        288: (756, 43, 4, 0),
+        336: (912, 65, 37, 0),
+        4545: (22_995, 188, 62, 0),
+    }
+    expected_normal = {
+        288: (96, 66, 209, 0),
+        336: (112, 78, 262, 0),
+        4545: (1515, 1152, 5405, 0),
+    }
+    near_misses = {}
+    normal_counts = {}
+    uniform_models = {}
+
+    for n in targets:
+        B = (n + 1) // 3
+        divisor_rows = integral_rows = filtered_rows = eligible_rows = 0
+        model_sum = Fraction(0, 1)
+        for a in range(1, 2 * B + 1):
+            if (n + a) % 4:
+                continue
+            h = (n + a) // 4
+            h_divisors = divisors_of_square(h)
+            model_sum += Fraction(len(h_divisors), a)
+            for D in h_divisors:
+                divisor_rows += 1
+                if (D + h) % a:
+                    continue
+                integral_rows += 1
+                A = (D + h) // a
+                M = 4 * A - 1
+                if n == 288:
+                    filtered = (D % 2 == 1 and M % 8 == 3
+                                and gcd(M, 288) == 1)
+                elif n == 336:
+                    filtered = (gcd(M, 336) == 1
+                                and jacobi_symbol(21, M) == -1
+                                and D % 21 != 0)
+                else:
+                    filtered = (gcd(M, 4545) == 1
+                                and jacobi_symbol(505, M) == -1
+                                and D % 505 != 0)
+                if not filtered:
+                    continue
+                filtered_rows += 1
+                if A * A % D:
+                    # Every surviving near miss is exactly a forbidden
+                    # cancellation: no coprime case can fail eligibility.
+                    assert gcd(a, D) > 1 and n % gcd(a, D) == 0
+                    if n == 288:
+                        assert gcd(a, D) == 9
+                        three_part, z = 1, D
+                        while z % 3 == 0:
+                            three_part *= 3
+                            z //= 3
+                        assert (A * A) % three_part != 0
+                    continue
+                eligible_rows += 1
+                assert a * M == n + 4 * D
+        near_misses[n] = (divisor_rows, integral_rows,
+                          filtered_rows, eligible_rows)
+        uniform_models[n] = round(float(model_sum), 6)
+
+        pair_rows = divisor_tests = normal_hits = 0
+        for g in range(1, B + 1):
+            divisors_g = tuple(d for d in range(1, g + 1) if g % d == 0)
+            v_min = max(1, (n + 4 * g) // (4 * g))
+            for v in range(v_min, B + 1):
+                a = 4 * g * v - n
+                if a < 1 or a > g + v:
+                    continue
+                pair_rows += 1
+                for d in divisors_g:
+                    divisor_tests += 1
+                    if (d + v) % a:
+                        continue
+                    u = (d + v) // a
+                    if gcd(u, v) != 1:
+                        continue
+                    M, D = 4 * g * u - 1, g * d
+                    assert is_eligible(M, D)
+                    assert a * M == n + 4 * D
+                    normal_hits += 1
+        normal_counts[n] = (B, pair_rows, divisor_tests, normal_hits)
+
+    assert near_misses == expected_near_misses
+    assert normal_counts == expected_normal
+    assert uniform_models == {288: 13.266827, 336: 15.617351,
+                              4545: 49.909726}
+
+    # The raw equation is symmetric, but eligibility is not.  These pin a
+    # bi-eligible pair, a fixed point, and a failure of universal swapping.
+    involution_rows = ((7, 1, 3, 17), (3, 1, 7, 17))
+    for M, D, a, n in involution_rows:
+        assert is_eligible(M, D) and is_eligible(a, D)
+        assert a * M == n + 4 * D
+    assert is_eligible(7, 1) and 7 * 7 == 45 + 4
+    assert is_eligible(23, 36) and 7 * 23 == 17 + 4 * 36
+    assert not is_eligible(7, 36)
+
+    # Toy-box coverage identity.  Brute-force all data through M=10^5 and
+    # compare the exact union M<=100 or a<=30 with an independent a-scan.
+    toy_n = (2, 17, 45, 288, 336, 4545)
+    brute_rows = set()
+    divisor_values = 0
+    for M in range(3, 100_001, 4):
+        A = (M + 1) // 4
+        for D in divisors_of_square(A):
+            divisor_values += 1
+            for n in toy_n:
+                total = n + 4 * D
+                if total % M == 0:
+                    brute_rows.add((n, M, D, total // M))
+
+    a_rows = set()
+    for n in toy_n:
+        for a in range(1, 31):
+            if (n + a) % 4:
+                continue
+            h = (n + a) // 4
+            for D in divisors_of_square(h):
+                if (D + h) % a:
+                    continue
+                A = (D + h) // a
+                M = 4 * A - 1
+                if M <= 100_000 and is_eligible(M, D):
+                    a_rows.add((n, M, D, a))
+    m_rows = {row for row in brute_rows if row[1] <= 100}
+    claimed_region = {row for row in brute_rows
+                      if row[1] <= 100 or row[3] <= 30}
+    assert m_rows | a_rows == claimed_region
+    assert (divisor_values, len(brute_rows), len(m_rows), len(a_rows),
+            len(m_rows & a_rows), len(claimed_region)) == (
+                1_070_466, 9, 8, 9, 8, 9)
+
+    print("duality replay (n cap,rows,gcd-correction rows) =",
+          (replay_limit, replay_rows, correction_rows))
+    print("survivor dual near misses / canonical exhaustions / uniform models =",
+          (near_misses, normal_counts, uniform_models))
+    print("toy union coverage (M box,divisors,all,M-side,a-side,overlap) =",
+          (100_000, divisor_values, len(brute_rows), len(m_rows),
+           len(a_rows), len(m_rows & a_rows)))
+
+
+print("\n== (bg) witness duality and resolved survivor frontier (§60) ==")
+check_bg()
+
+
 print("\nall checks passed")
