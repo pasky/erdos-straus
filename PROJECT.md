@@ -81,6 +81,75 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 34 (2026-08-30, wave 30 — see notes.md §70–§72 + paper v16; all max-severity-reviewed → repaired / CONFIRMED / FAITHFUL)
+
+* **§70: the a-frame failure law — the first congruence-wall-free frame
+  (SOUND-AFTER-REPAIRS).**  For prime \(a\equiv3\pmod4\): subgroups of
+  \((\mathbb Z/a)^*\) avoiding \(-1\) \(\iff\) odd order \(\iff\) inside the
+  QR subgroup; hence the failure event \(F_a=\{-1\notin{\rm Rat}_a(h)\}\)
+  splits EXACTLY as \(F_1\) (all prime factors of \(h\) QR mod \(a\) —
+  failure automatic) \(\sqcup\) \(F_3\) (\(\geq1\) non-residue factor,
+  bounded-multiplicity budget block); F2 (proper-subgroup miss with even
+  order) is EMPTY — the old §19.2 empirical taxonomy is now a theorem in
+  the dual frame.  Selberg–Delange confinement asymptotic
+  \(\#F_{1,a}(H)\sim C_aH/\sqrt{\log H}\) (incl. hard-class progressions;
+  review added the required character-twist hypothesis); budget bound
+  \(\#F_{3,a}(H)\ll_a H(\log\log H)^{K_a}/(\log H)^{1/2+1/(a-1)}\) ⇒
+  \(F_3/F\to0\) at fixed \(a\); integer failure law
+  \(\#F_a(H)\sim C_aH/\sqrt{\log H}\); shifted-prime upper bound
+  \(\ll_a N/(\log N)^{3/2}\) (elementary half-dim sieve, primitive-forms
+  repair, no BV).  **Congruence-wall freeness (headline): success at every
+  fixed \(a\) has full density in EVERY fixed compatible progression — no
+  residue class forces \(a_1>Z\)** (maximal contrast with §54's M-frame
+  wall, where \(\{W>T\}\supseteq\) explicit progressions).  Composite-\(a\)
+  classification corrected in-flight: 'odd quadratic-character kernels' is
+  FALSE (\(a=15\) counterexample); correct = kernels through the cyclic
+  \(2^k\)-quotients.  Verify (bq).
+* **§71: fixed-\(J\) stacking + the uniformity frontier
+  (SOUND-AFTER-REPAIRS).**  Literature verdict from the archived PDFs
+  (faithfulness-audited): Shiu 1980 = one function; Nair–Tenenbaum 1998 =
+  fixed-\(k\), constants with NO stated \(k\)-growth; Henriot 1102.1643 =
+  discriminant-uniform but constant still \(k\)-unquantified — **no cited
+  theorem gives \(C(J)\leq e^{O(J)}\) or any moving-\(J\) rate; the
+  \(C(J)\) uniformity (old Phase-1's exact question) is THE isolated open
+  crux.**  Review found Henriot's Theorem 7 retains the prime-density
+  factor: fixed-\(J\) unconditional tails strengthened to
+  \(N(\log N)^{-1-\delta_J}\), \(\delta_J=\sum1/(a-1)\) (exact:
+  1/2, 2/3, 23/30, 37/45, 859/990, 446/495 for \(J\leq6\)); F1-only
+  intersection \(N(\log N)^{-1-J/2}\).  Local collision lemma proved
+  (verified factors 3/5, 2/3, 7/10, 9/13; honest aggregate
+  \(\exp\{-Z\log\log Z/(4\log Z)\}\)).  Named open hypotheses
+  \(H_{\rm FAIL}\) (per-modulus uniformity) and \(H_{\rm STACK}\)
+  (\(k\)-form constant growth); conditional chain: tail
+  \(N\exp\{-(1+o(1))(\log N)^\theta/(4\theta)\}\), beating the
+  Vaughan/PW \(2/3\)-shape at \(\theta>2/3\) and the provisional §39
+  \(3/4\)-shape at \(\theta>3/4\); count-below-one needs prime-modulus
+  depth \(Z>(4+o(1))\log N\) — asymptotically below the
+  \((\log N)^{\log3}\) budget transition, with the enormous finite
+  crossover honestly recorded.  Verify (br).
+* **§72: the a-frame failure census (CONFIRMED-AFTER-REPAIRS; full
+  independent replay of all 719,781 hard primes \(<10^8\)).**  \(a_1\)
+  census to \(10^8\): **max \(a_1=107\) survives its third decade**
+  (unique, at 8,803,369); tail histogram through \(a_1=107\) pinned; new
+  deep values \(a_1=79\) (66,222,601) and composite \(a_1=91\)
+  (22,605,361).  Per-modulus failure frequencies × 4 windows: consistent
+  with the \((\log)^{-1/2}\) scale (INFO); **\(F_3\) shares GROW with
+  \(a\)** (73.2% at \(a=43\) in the \(10^7\) window) and are strongly
+  nonmonotone (6.0% at \(a=23\), where \((a-1)/2=11\) is prime — the
+  subgroup-lattice fingerprint); dependence ratios 0.761–1.335;
+  \(a_1\)-record primes show 13.63× \(F_3\)-enrichment (19.478% vs
+  1.429%) — the §19.2 record-anatomy pattern reproduced in the new frame
+  and the honest empirical warning for \(H_{\rm FAIL}\) uniformity.
+  Verify (bs) + scripts/afr_census.py.
+* **paper v16 (151pp, FAITHFUL, zero repairs):** §69 absorbed as Section
+  31; v17 queue = §70–§72.
+* **Strategic register:** the pointwise frontier gains a second,
+  independent-method, elementary/effective track (a-frame stacking) whose
+  growth crux is isolated as \(C(J)\)+\(H_{\rm FAIL}\); its crossing
+  arithmetic is honest (\(\theta>3/4\) conditional-record, \(Z\asymp4\log
+  N\) count-below-one) and nothing unconditional beyond fixed-\(J\) is
+  claimed.
+
 ## Outcome 33 (2026-08-30, wave 29 — see notes.md §69 + paper v15; max-severity refutation-class review → repaired / FAITHFUL)
 
 * **§69: the ALL-RAYS polynomial obstruction — the §66 forward-ray gap is
