@@ -24139,3 +24139,13 @@ finite censuses neither prove a witness for every prime nor classify all
 nonsquare values with \(W=+\infty\).  Such witness-statistic failures are
 not Erdős--Straus counterexamples, and §62 claims no new tail bound,
 pointwise theorem, or Erdős--Straus progress.
+
+## 65. The two-decade hard-prime witness census and record anatomy
+
+**Computational 65.1 (staged exact census).**  The required first stage scans
+all 82,887 hard primes \(p<10^7\) against the complete Python-integer
+Lemma-18.1 harvest through \(M=30000\).  It exactly reproduces (56.10)--
+(56.11), including the four rows of (62.22), and no prime reaches the cap.
+At the selected minimum row, 49,975 values of \(D\) are even and 32,912 are
+odd.  The extension to \(10^8\), record anatomy, and replay block are staged
+next; no claim beyond this completed prefix is made here.                 \tag{65.1}
