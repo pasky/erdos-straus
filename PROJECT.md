@@ -81,6 +81,49 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 27 (2026-08-30, wave 23 — see notes.md §59 + paper v9; hostile-reviewed → repaired / FAITHFUL)
+
+* **§59: the polynomial escape classification (SOUND-AFTER-REPAIRS).**
+  Exact local criterion (uniform escape ⟺ every harvested congruence
+  \(f(x)\equiv-4D\ ({\rm mod}\ M)\) unsolvable); **degrees 1–2 complete:
+  no linear uniform escape exists, and quadratic uniform escapes are
+  EXACTLY the squares \(g(x)^2\)** (D=1-layer character/discriminant
+  arithmetic + higher-\(D\) pinning); general degree: a cyclotomic
+  root-field obstruction (Chebotarev, ineffective, labeled) — full
+  classification open as named conjecture C_POLY.  Prime-value corollary:
+  classified escapes are square-valued, hence contain no primes — the
+  polynomial-family route cannot produce \(W=\infty\) primes (scope:
+  polynomial families only).  Proposition: the ALL-INTEGER supercritical
+  tail fails beyond \(\theta=1/3\) exactly (\(\sqrt N\) squares vs a
+  below-one prediction) — the wave-18 prime-restriction of Theorem 51.2
+  was necessary, not cosmetic.  **C_SQ named (falsifiable): the
+  \(W=+\infty\) set is exactly the squares; C_SQ ⇒ E-S for all primes
+  (strictly stronger).**  Census stress test: three nonsquare survivors
+  **288 = 2·12², 336 = 21·4², 4545 = 505·3² remain unwitnessed past
+  \(M=1.5\cdot10^8\)** (review deep scan, 2.9G divisor values; an
+  int32-overflow artifact that briefly 'resolved' them was caught and
+  quarantined — the false values are explicitly rejected in the text);
+  review derived the exact twisted-square reduction (hits require
+  \((s/M)=-1\), \(s\nmid D\); per-survivor: 288 → odd \(D\),
+  \(M\equiv3\ (8)\); 336 → \(21\nmid D\), \((M/3)(M/7)=-1\); 4545 →
+  \(505\nmid D\), \((M/5)(M/101)=-1\)); family controls: 177/180 members
+  of \(2m^2/21m^2/505m^2\) resolve by \(M\leq131\) — the three are
+  sporadic individuals, not family escapes (consistent with the
+  classification).  No \(W=\infty\) proof landed; C_SQ live with three
+  explicit stress candidates.  Verify (bf): criterion replays, family
+  tables, committed Python-int survivor scan (int32 overflow lesson
+  baked into the block).
+* **paper v9 (91pp, FAITHFUL-AFTER-REPAIRS):** §57–§58 absorbed as
+  paper §§19–20 (conditional-reduction thresholds, mass-invariant gap
+  with antecedent citations restored in review, square-escape full
+  repaired proof, censuses digit-checked, liminf duality); §59 = v10
+  queue.
+* **Next-wave lead (derived in-session, unformalized):** writing a
+  witness as \(aM=4D+n\) gives \(16a^2A^2=(a(M+1))^2\equiv(n+a)^2\ ({\rm
+  mod}\ D)\), so for odd \(D\): \(D\mid A^2\iff D\mid(n+a)^2\) — an
+  exact \(a\)-parameterized duality turning the survivor question into
+  divisor-class structure of \((n+a)^2\); wave-24 target.
+
 ## Outcome 26 (2026-08-30, wave 22 — see notes.md §57–§58 + paper v8; all hostile-reviewed → repaired / FAITHFUL)
 
 * **§57: the supercritical window — the count-below-one reduction, the
