@@ -13886,6 +13886,39 @@ def check_bq():
             subgroup_rows += 1
         assert set(avoiding) == set(odd) == set(contained)
 
+    # Composite counterexample in Theorem 70.10: enumerate every subgroup
+    # of G_15 directly, then take the inclusion-maximal avoiders of -1.
+    units15 = tuple(x for x in range(15) if gcd(x, 15) == 1)
+    subgroups15 = []
+    for mask in range(1 << len(units15)):
+        subgroup = frozenset(
+            units15[j] for j in range(len(units15)) if mask & (1 << j)
+        )
+        if 1 in subgroup and all(
+            int(x * y % 15) in subgroup for x in subgroup for y in subgroup
+        ):
+            subgroups15.append(subgroup)
+    avoiding15 = [H for H in subgroups15 if 14 not in H]
+    maximal15 = {
+        H for H in avoiding15
+        if not any(H < J for J in avoiding15)
+    }
+    expected_maximal15 = {
+        frozenset((1, 11)),
+        frozenset((1, 2, 4, 8)),
+        frozenset((1, 4, 7, 13)),
+    }
+    assert len(subgroups15) == 8
+    assert maximal15 == expected_maximal15
+    higher_kernel15 = frozenset((1, 11))
+    quotient_cosets15 = {
+        frozenset(int(x * y % 15) for y in higher_kernel15)
+        for x in (1, 2, 4, 8)
+    }
+    assert len(quotient_cosets15) == 4
+    assert frozenset((4, 14)) in quotient_cosets15  # -1 is the involution coset
+    assert all(len(H) == 4 for H in maximal15 - {higher_kernel15})
+
     moduli = (3, 7, 11, 19, 23)
     decomposition = {}
     for a in moduli:
@@ -14026,7 +14059,8 @@ def check_bq():
     elapsed = perf_counter() - started
     if not full_scan:
         assert elapsed < 15.0
-    print("subgroup / decomposition limit =", (subgroup_rows, scan_limit, decomposition))
+    print("subgroup / composite / decomposition limit =",
+          (subgroup_rows, len(subgroups15), len(maximal15), scan_limit, decomposition))
     print("failure / (unit-count/sqrt(log H)) INFO =", scale_ratios)
     print("a=7 wall rows mod 12 (units,successes) =", tuple(wall_rows))
     print("hard-prime independent a1 replay =", a1_summary)

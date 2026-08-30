@@ -27011,10 +27011,14 @@ where
 \[
  \sum_{n\geq1}{f(n)\over n^s}=\zeta(s)^\delta G(s)
 \]
-has \(G\) holomorphic and nonzero in a neighbourhood of \(s=1\).  The same
-statement applies after a fixed reduced progression is selected by Dirichlet
-characters; all twists having a strictly smaller real pole exponent are
-lower order.
+has \(G\) holomorphic and nonzero in a neighbourhood of \(s=1\).  A fixed
+reduced progression may be selected by Dirichlet-character
+orthogonality.  The expected principal-character main term applies when the
+integers counted are automatically coprime to the progression modulus and
+every nonprincipal twist has a strictly smaller real pole exponent.  This is
+a hypothesis to check, not a blanket progression theorem: tied twists can
+cancel the principal term when a progression is incompatible with the
+prime semigroup.
 
 A standard coefficient corollary will also be used.  If disjoint fixed-class
 prime sets \({\cal P}_0,{\cal P}_1\) have densities
@@ -27097,15 +27101,20 @@ For (70.10), take the least nonnegative residue \(r\equiv b\pmod6\), put
 For \(a>3\), every prime dividing \(d\) is a residue modulo \(a\), while
 every prime dividing \(6/d\) is a nonresidue; these four assertions follow
 immediately from the supplementary laws for \((2/a)\) and \((3/a)\).
-Thus \(f_a(dn)=f_a(n)\), and the reduced condition
-\(n\equiv r/d\pmod {6/d}\) merely chooses one of
-\(\varphi(6/d)\) classes.  Since \((a,6/d)=1\), the Chinese remainder
-theorem makes every nonprincipal character twist modulo \(6/d\) have zero
-mean over the allowed prime classes; the progression clause of Standard
-Fact 70.1 gives the factor \(1/(d\varphi(6/d))\).  These factors are the
-last four entries of (70.11).  When \(a=3\), all allowed primes are
-\(1\pmod3\) and odd, so every integer counted by \(f_3\) is already
-\(1\pmod6\); the first entry follows. \(\square\)
+Thus \(f_a(dn)=f_a(n)\).  Put \(M=6/d\).  Every prime dividing
+\(M\) is a nonresidue modulo \(a\), so an integer counted by \(f_a\) is
+automatically coprime to \(M\).  Character orthogonality may therefore be
+applied to the reduced condition \(n\equiv r/d\pmod M\).  Since
+\((a,M)=1\), the Chinese remainder theorem gives prime-pole exponent
+\(1/2\) for the principal character and exponent zero for every
+nonprincipal character modulo \(M\): the sum of that character over
+\((\mathbb Z/M\mathbb Z)^*\) vanishes independently of the quadratic-
+residue condition modulo \(a\).  Hence all nonprincipal twists are lower
+order and the main term acquires the factor
+\(1/(d\varphi(M))\).  These factors are the last four entries of (70.11).
+When \(a=3\), all allowed primes are \(1\pmod3\) and odd, so every integer
+counted by \(f_3\) is already \(1\pmod6\); the first entry follows.
+\(\square\)
 
 This proves, in particular, the asymptotic that was only contextual in
 Assessment 62.1 at \(a=3\).
@@ -27273,22 +27282,35 @@ The same bounds hold, with constants depending also on the modulus, after
 intersecting with any fixed compatible reduced progression of hard primes.
 
 *Proof.*  Write \(p=24m+1\) and
-\(h=6m+(a+1)/4\).  Sieve the zero class of the first form for every prime,
-which contributes dimension one.  For F1, also sieve the zero class of the
-second form for primes \(q\) with \((q/a)=-1\).  These have density one
-half by Dirichlet's theorem.  The two roots are distinct except at the
-finite primes dividing the resultant \(4h-p=a\).  Standard Fact 70.2 with
-\(\theta=1/2\) gives the first bound for F1.
+\(h=6m+(a+1)/4\).  The second form need not itself be primitive: with
+\(d=((a+1)/4,6)\), as tabulated in (70.14), put
+\(L_1(m)=h/d\).  This is a primitive integral affine form.  For \(a>3\),
+every prime factor of the fixed content \(d\) is a residue modulo \(a\);
+for \(a=3\), \(d=1\).  Thus removing the content changes neither F1 nor
+the nonresidue budget.  Sieve the zero class of the prime form
+\(L_0(m)=24m+1\) for every prime, which contributes dimension one.  For
+F1, also sieve the zero class of \(L_1\) for primes \(q\) with
+\((q/a)=-1\).  These have density one half by Dirichlet's theorem.  The two
+roots are distinct outside the finite set of primes dividing \(4da\), by
+\(4dL_1-L_0=a\).  Standard Fact 70.2 with \(\theta=1/2\) gives the first
+bound for F1.
 
 For F3, Lemma 70.6 permits at most \(K_a\) nonresidue prime factors and,
 after one of finitely many classes \(g\) is chosen, excludes every prime in
-the additional class \(c_g\).  In (70.26) the two second-form prime sets
+the additional class \(c_g\).  If the fixed content \(d\) contains such a
+prime, that choice of \(g\) gives the empty event; otherwise it contributes
+only a finite local factor.  In (70.26) the two second-form prime sets
 therefore have densities \(1/2\) and \(1/(a-1)\).  This proves (70.28).
-Adding F1 and using (70.5) proves (70.27).  A further fixed progression only
-changes the affine parameterization and finitely many local factors; its
-compatibility makes the prime form primitive, and the same root calculation
-applies.  All Mertens estimates are in fixed progressions and the upper
-sieve is effective. \(\square\)
+Adding F1 and using (70.5) proves (70.27).
+
+After imposing a further fixed compatible progression, the prime form is
+primitive.  Divide the second form by its fixed content as above.  If that
+content contains a nonresidue, F1 is empty; in F3 its fixed multiplicity
+uses part of the at-most-\(K_a\) budget.  A chosen correction class already
+present in the content likewise makes that subcase empty.  In every
+remaining subcase the same two primitive forms and root calculation apply,
+with only finitely many local factors changed.  All Mertens estimates are in
+fixed progressions and the upper sieve is effective. \(\square\)
 
 No matching prime-frame lower bound is proved.  Such a lower bound would
 require shifted primes \(p\) for which \((p+a)/4\) has its entire
@@ -27435,7 +27457,10 @@ exclude a moving congruence modulus or a correlated growing family.
 **Computational 70.1 (finite structural replay).**  Block (bq) enumerates
 every subgroup of \((\mathbb Z/a\mathbb Z)^*\) for primes
 \(a\equiv3\pmod4\), \(a\leq199\), and checks all three sets in (70.4).
-For \(a=3,7,11,19,23\), it computes every ratio spectrum for unit
+It also enumerates all eight subgroups of \(G_{15}\), finds exactly the
+three maximal \(-1\)-avoiding subgroups, and pins the higher-order kernel
+\(\{1,11\}\) with cyclic quotient of order four.  For
+\(a=3,7,11,19,23\), it computes every ratio spectrum for unit
 \(h\leq20,000\), with exact counts
 \[
 \begin{array}{c|rrrrr}
