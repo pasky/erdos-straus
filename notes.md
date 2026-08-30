@@ -27048,8 +27048,7 @@ where the positive constant is
 \[
  C_a={1\over\sqrt\pi}
  \left\{\left(1-{1\over a}\right)L(1,\chi_a)
-       \prod_{\substack{q\ {
-m prime}\\\chi_a(q)=-1}}
+       \prod_{\substack{q\ {\rm prime}\\\chi_a(q)=-1}}
                     (1-q^{-2})\right\}^{1/2},             \tag{70.9}
 \]
 and \(\chi_a=(\cdot/a)\).  Put \(b=(a+1)/4\).  In the progression forced
