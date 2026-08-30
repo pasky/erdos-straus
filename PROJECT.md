@@ -81,6 +81,34 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 33 (2026-08-30, wave 29 — see notes.md §69 + paper v15; max-severity refutation-class review → repaired / FAITHFUL)
+
+* **§69: the ALL-RAYS polynomial obstruction — the §66 forward-ray gap is
+  CLOSED (SOUND-AFTER-REPAIRS; refutation-class protocol).**  Theorem
+  69.4: NO polynomial witness family (M(t), D(t)) exists on any anchored
+  class m(t) = m₀ + Kt of the three sporadic families — for every
+  degree, every period K, every eventual-validity start t₀, both
+  divisibility regimes (polynomial cofactor AND pointwise integer-wise).
+  Mechanism: Lemma 69.1 (integer-wise polynomial divisibility forces an
+  integer-VALUED polynomial quotient — Newton/binomial basis — with
+  constant resultant residual; the t(t+1)/2-type subtlety handled),
+  Lemma 69.3 (backward propagation via real-zero analysis: at every real
+  zero of M the eligibility chain forces D < 0 there, and at every zero
+  of D it forces M = −1 — so the constraints CANNOT die between t = 1
+  and t = 0; review added the explicit t₀ > 1 tail induction on shifted
+  parameterizations, anchor fixed), then the congruence at t = 0 hits
+  W(288/336/4545) = +∞.  Hunt exhaustions independently replayed
+  (bound-5000: 5,792,112 candidates, zero hits; 65-class projection:
+  1,709 divisor rows, zero).  Consequence, honestly scoped: combined
+  with §66's certificate ceiling, the anchored cylinders are
+  undecidable by finite harvested laws AND by polynomial witness
+  families of every shape — any resolution of C_SQ′ on the twisted
+  families requires non-polynomial structure.  Scope strict: polynomial
+  families only; NOT evidence for C_SQ′.  Verify (bp) 0.6s/2.1s deep.
+* **paper v15 (145pp, FAITHFUL-AFTER-REPAIRS):** §66–§68 absorbed as
+  Sections 28–30 (verbatim PW Theorem 1.1–1.4 quotes restored in
+  review; Layer-1 range made explicit); v16 queue = §69.
+
 ## Outcome 32 (2026-08-30, wave 28 — see notes.md §66–§68 + paper v14; all max-severity-reviewed → repaired / FAITHFUL)
 
 * **§66: twisted-family escape cylinders (SOUND-AFTER-MINOR-REPAIRS;
