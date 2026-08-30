@@ -28275,7 +28275,7 @@ shares, and comparisons are **INFO** summaries of those counts.  In
 particular, no finite-window stability, dependence ratio, transition pattern,
 or record stall below is an asymptotic claim.
 
-### 72.1 Method and four equal-width windows
+### 72.1 Method and four finite windows
 
 The committed runner `scripts/afr_census.py` uses a segmented NumPy Boolean
 bitmap only to enumerate primes, converts every prime immediately to a Python
