@@ -29,7 +29,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v14, 30 August 2026}
+\date{Draft v15, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -127,7 +127,21 @@ both axes.  An exact gcd theorem localizes post-quotient eligibility failure,
 but the shifted laws and finite hunts do not classify nonsquare escapes.
 The Computational census of all $719781$ hard primes below $10^8$ has
 maximum $2495$ and no post-$10^7$ record; its INFO panels imply no growth
-law and leave $H_{\rm MOD}$ untouched.
+law and leave $H_{\rm MOD}$ untouched.  At finite depth $T$, the three
+proved sporadic twisted-square families contain whole parameter cylinders
+modulo $L(T)$, where $\log L(T)=(2/3+o(1))T$.  This proves unbounded finite
+witness depth in each family, with density at least $1/L(T)$ for each fixed
+$T$, but creates no new fixed member with $W=+\infty$.  The associated
+finite-certificate and anchored polynomial-identity ceilings retain this
+quantifier boundary; the all-degree identity obstruction does not cover
+forward rays whose positivity or eligibility fails at the anchor.  A finite
+record-stall anatomy defines an exhaustive purity depth (allowing infinity),
+while its spacing model is explicitly a no-evidence toy.  The exact eventual
+exponent frontier remains: every $A<1$ is refuted and every $A\geq1$ is
+open; $1$--$2$ is only a finite-normalization gloss.  Finally, a
+source-bounded audit of Pomerance--Weingartner arXiv:2511.16817v2 leaves all
+four cited campaign theorems \textsc{claimed/provisional} where labelled and
+is not a complete literature certification.
 
 For $M\equiv3\pmod4$ and $A=(M+1)/4$, the intrinsic forbidden set is
 \[
@@ -226,8 +240,17 @@ square-root coverage.  Theorems~\ref{thm:cancellation-cover}
 and~\ref{thm:shifted-support-laws} localize composite cancellation and give
 necessary shifted laws without a classification.  The Computational/INFO
 census in Section~\ref{sec:two-decade-census} does not advance
-$H_{\rm MOD}$.  Theorem~\ref{thm:general-m-tails} records the
-status-preserving general-$m$ truncation.
+$H_{\rm MOD}$.  Theorems~\ref{thm:twisted-class-decidability} and
+\ref{thm:twisted-family-unbounded} prove finite-depth parameter cylinders and
+unbounded depth in the three sporadic families without producing a new
+$W=+\infty$ member; Proposition~\ref{prop:anchored-identity-wall} leaves the
+forward-ray eligibility leak open.  Section~\ref{sec:record-stall} gives
+finite stall anatomy and an explicitly no-evidence toy model, and restates
+the eventual frontier as every $A\geq1$ open.  Section
+\ref{sec:PW-v2-audit} audits the current Pomerance--Weingartner source and its
+bibliography without promoting any provisional theorem.  Theorem
+\ref{thm:general-m-tails} records the status-preserving general-$m$
+truncation.
 
 The paper has five layers.
 \begin{enumerate}[leftmargin=*,label=(\roman*)]
@@ -275,8 +298,16 @@ without promoting either to a supply or classification theorem.
 Sections~\ref{sec:witness-taxonomy}--\ref{sec:two-decade-census} give the
 dual taxonomy and weaker square-root law, the exact gcd mechanism and
 coordinate-box hunts, and the independently replayed Computational/INFO
-census, without a classification, growth law, or changed pointwise frontier.
-Section~\ref{sec:general-m-tails} gives the status-preserving
+census, without a classification or growth law.  Section
+\ref{sec:escape-cylinders} proves finite-depth class decidability,
+three unbounded limsups, a family finite-certificate ceiling, and only an
+anchor-containing identity obstruction; its projected classes and censuses
+remain bounded computation.  Section~\ref{sec:record-stall} separates two
+finite local diagnostics from a deliberately fragile no-evidence spacing
+model and restores the exact open exponent frontier.  Section
+\ref{sec:PW-v2-audit} records the exact Pomerance--Weingartner statements,
+range algebra, source-bounded priority verdicts, and Vaughan secondary
+access record.  Section~\ref{sec:general-m-tails} gives the status-preserving
 general-numerator tails and their exact
 effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
@@ -303,12 +334,19 @@ $W=+\infty$.  Only the right-to-left inclusion in $C_{\rm SQ}'$ is proved;
 the complete bounded census is Computational stress evidence, not an
 unbounded classification.  The forward, ratio, dual-taxonomy, square-root, gcd-cover, shifted-support,
 and displayed exclusion laws are proved, but do not force prime
-nonemptiness.  The $a_1$ data, ledgers, hunts, and hard-prime census are
-Computational in their exact ranges; normalized trajectories are INFO only.
+nonemptiness.  The $a_1$ data, ledgers, hunts, hard-prime census, depth-$1000$ projection,
+and multiplier censuses are Computational in their exact ranges; normalized
+trajectories are INFO only.  The escape-cylinder limsups are proved but do
+not produce a new fixed $W=+\infty$ input, the harvested ceiling concerns
+only finite fixed laws, and the anchored all-degree obstruction does not
+close the forward-ray positivity/eligibility leak.  Purity depth is a
+separate diagnostic and the record-spacing model has no evidential force.
 Square-root coverage is weaker than Section 51 on both axes, nonsquare
 finiteness and $C_{\rm SQ}'$ remain open with only its right-to-left
-inclusion proved, and $H_{\rm MOD}$ is unchanged.  These conclusions concern
-$W$, not all Egyptian-fraction decompositions.  The count-below-one and crossing
+inclusion proved, every eventual exponent $A\geq1$ remains open, and
+$H_{\rm MOD}$ is unchanged.  The Pomerance--Weingartner verdicts are
+source-bounded and preserve every \textsc{claimed/provisional} label.  These
+conclusions concern $W$, not all Egyptian-fraction decompositions.  The count-below-one and crossing
 implications are proved
 conditional on their explicitly \textsc{unproved} hypotheses; the
 mass-invariant proposition is only an architecture theorem.  The normalized
@@ -337,16 +375,18 @@ assumes.  No result here depends
 on that file or on Dyachenko's conditional existence claim.
 
 The historical comparison is also provisional.  Vaughan's 1970 bound
-\cite{Vaughan} is the record identified by the search.
-Pomerance--Weingartner's 2025 preprint
-\cite[\S4]{PomeranceWeingartner} cites Vaughan as the state of the art, and
-a fresh search found no post-1970 improvement of the exceptional-set
-exponent.  Access to Vaughan's primary paper was blocked, although its DOI
-was confirmed; claims about its method have therefore been checked only
-through Pomerance--Weingartner.  Thus, if the $m=4$ theorem survives
-external review, it would be the first exponent improvement found since
-1970.  The general-$m$ comparison is made only with the precise 2025 theorem
-quoted in (43.22).  These are search results, not literature guarantees.
+\cite{Vaughan} is the record identified by the search.  The full
+source-bounded audit in Section~\ref{sec:PW-v2-audit} checks all $25$ pages
+and the bibliography of Pomerance--Weingartner v2
+\cite{PomeranceWeingartner}.  That source quotes Vaughan's $2/3$ exponent,
+uses his large-sieve route, and states no stronger $m=4$ upper bound.  It
+therefore supplies no threat from that PDF to the would-be record, but this
+is not a complete literature guarantee.  Access to Vaughan's primary paper
+remains blocked, although its DOI is confirmed.  Thus, if the $m=4$ theorem
+survives external review and a complete priority search, it would be the
+first exponent improvement found since 1970.  The general-$m$ comparison is
+only with exact Theorem 1.3 as displayed in (68.1) and (68.6); all record
+language remains \textsc{claimed/provisional}.
 
 \section{Notation and elementary tools}\label{sec:notation}
 All logarithms are natural.  We write $\tau_k(n)$ for the ordered $k$-fold divisor function, $\tau=\tau_2$, $\omega(n)$ for the number of distinct prime factors, $P^-(n)$ for the least prime factor, and $\varphi$ for Euler's function.  Constants implicit in $O,\ll,\asymp$ are absolute unless a subscript says otherwise.
@@ -2356,6 +2396,28 @@ review of the auro-zera Lean file
 replayed its identities but did not compile it; its open-core
 characterization and the source paper's own conditional Conclusion are
 related-work checks, not validation of this paper.
+
+Wave 28 added three maximum-severity reviews.  The escape-cylinder review
+returned \textsc{sound-after-minor-repairs}: it independently rederived the
+$2/3$ period constant and all class quantifiers, scoped the all-degree
+identity obstruction to rays containing the anchor, and replayed all
+$54{,}990$ candidates, $65$ projected classes, and three censuses.  Block
+\texttt{(bm)} pins the prime-power criterion, cylinders, projection, digest,
+and bounded hunt.  The record-stall review returned
+\textsc{sound-after-repairs}: it made the purity depth an integer supremum
+allowing infinity, exposed every toy-model input and removed evidential
+language, and restored the exact frontier that every $A\geq1$ is open.
+Block \texttt{(bn)} checks the full displayed anatomy, all $15$ records,
+residue-one rows, exponent table, and calibrated toy arithmetic, with the
+complete ranking gated and memory-bounded.  The Pomerance--Weingartner v2
+audit returned \textsc{confirmed after repairs, source-bounded only}; it
+read all $25$ pages and the bibliography, repaired the Section 55 range
+comparison, and found no threat in that source to any provisional priority
+position.  Block \texttt{(bo)} pins the crossover and all three range
+regimes symbolically.  These attestations and computations remain internal
+validation and source-bounded literature review, not external refereeing or
+complete priority certification.  Coverage now runs through
+\texttt{(bo)}.
 
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
@@ -8305,14 +8367,802 @@ block \texttt{(bl)} remained deterministic and did not claim to rerun it.
 These are internal computational checks, not external validation.
 
 \medskip\noindent\textbf{Honest walls.}
-This census sharpens only the finite-search panel behind the informal
-$1\leq A\lesssim2$ window.  No new record after $10^7$, parity stability,
-and normalized block values prove nothing about $H_{\rm MOD}(A)$: they give
-no upper bound for any $A\geq1$ and do not alter the proved refutation for
-$A<1$.  No growth law, asymptotic fit, independence assertion, or tail-density
+This census sharpens only the historical finite-normalization panel denoted
+$1\leq A\lesssim2$ in (56.16).  Section~\ref{sec:record-stall} records the
+exact interpretation: every $A\geq1$ remains open, while $1$--$2$ is not an
+upper frontier.  No new record after $10^7$, parity stability, and normalized
+block values prove nothing about $H_{\rm MOD}(A)$: they give no upper bound
+for any $A\geq1$ and do not alter the proved refutation for $A<1$.  No growth law, asymptotic fit, independence assertion, or tail-density
 claim follows from (65.2)--(65.4).  Every conclusion is
 Computational/INFO finite-range evidence; $H_{\rm MOD}$ and the
 Erd\H{o}s--Straus conjecture are untouched.
+
+\section{Twisted-family escape cylinders and the identity wall}
+\label{sec:escape-cylinders}
+\medskip\noindent\textbf{Status and headline.}
+The finite-depth class law, the asymptotic size of its period, the resulting
+unboundedness in all three proved sporadic families, the family certificate
+ceiling, and the anchored polynomial-identity obstruction below are
+\textbf{proved}.  The coefficient hunt, projected residue panel, and three
+bounded censuses are \textbf{Computational}, exact only in their stated
+ranges.  In particular,
+\begin{equation}\tag{66.1}
+ \limsup_{m\to\infty}W(2m^2)=
+ \limsup_{m\to\infty}W(21m^2)=
+ \limsup_{m\to\infty}W(505m^2)=+\infty.
+\end{equation}
+This produces no fourth value with $W=+\infty$: unbounded finite depth is
+not pointwise infinite escape.
+
+\subsection{Finite-depth class decidability}
+For real $T\geq0$, with the least common multiple of an empty set defined to
+be $1$, put
+\begin{equation}\tag{66.2}
+ L(T)=\mathop{\rm lcm}_{\substack{M\leq T\\M\equiv3\ (4)}}M,
+ \qquad
+ S_M=\{-4D\pmod M:D\mid((M+1)/4)^2\}.
+\end{equation}
+All divisors in this section are positive, and no primality condition is
+imposed on $M$.
+
+\begin{theorem}[twisted-family class decidability; proved; source Theorem 66.1]
+\label{thm:twisted-class-decidability}
+Let $s\geq2$ be squarefree and let $T\geq0$.  Membership in
+\begin{equation}\tag{66.3}
+                         \{m\geq1:W(sm^2)\leq T\}
+\end{equation}
+depends only on $m\pmod {L(T)}$.  More explicitly, (66.3) is the finite
+union, over $M\leq T$, $M\equiv3\pmod4$, and
+$D\mid((M+1)/4)^2$, of the solution classes of
+\begin{equation}\tag{66.4}
+                              sm^2\equiv-4D\pmod M.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The inequality holds exactly when one eligible modulus $M\leq T$ fires,
+which is exactly (66.4) for one eligible $D$.  There are finitely many such
+pairs, and truth for a fixed pair depends only on $m\pmod M$.  Every such
+$M$ divides $L(T)$.  Conversely, every class in the union is a witness datum,
+so none has been added.
+\end{proof}
+
+\begin{lemma}[exact exponential scale of the class period; proved; source Lemma 66.2]
+\label{lem:class-period}
+As $T\to\infty$,
+\begin{equation}\tag{66.5}
+ \begin{split}
+ \log L(T)&=\vartheta(T;4,3)+\vartheta(T/3;4,1)
+                  +O(\sqrt T\log T)\\
+          &=\left({2\over3}+o(1)\right)T.
+ \end{split}
+\end{equation}
+In particular $P_3(T)\mid L(T)$, with $P_3(T)$ as in (56.1), and
+$\log L(T)\geq(1/2+o(1))T$.  More strongly, for every $\epsilon>0$,
+effectively for all sufficiently large $T$,
+$L(T)\geq\exp((2/3-\epsilon)T)$.
+\end{lemma}
+\begin{proof}
+No factor $2$ occurs in $L(T)$.  For an odd prime power $p^e$, the least
+positive multiplier $r$ for which $rp^e\equiv3\pmod4$ is $1$ when
+$p^e\equiv3\pmod4$, and $3$ when $p^e\equiv1\pmod4$.  Hence
+\begin{equation}\tag{66.6}
+ p^e\mid L(T)\quad\Longleftrightarrow\quad
+ \begin{cases}
+ p^e\leq T,&p^e\equiv3\pmod4,\\
+ 3p^e\leq T,&p^e\equiv1\pmod4.
+ \end{cases}
+\end{equation}
+First powers contribute every prime $3\pmod4$ through $T$ and every prime
+$1\pmod4$ through $T/3$; higher powers contribute
+$O(\sqrt T\log T)$.  The prime number theorem in the two fixed progressions
+gives $T/2+o(T)$ and $T/6+o(T)$.  Formula (66.6) also gives the divisibility
+by $P_3(T)$, and effective fixed-progression estimates give the final claim.
+\end{proof}
+Thus the leading constant is $2/3$, not merely the valid lower bound $1/2$
+used in Theorem~\ref{thm:typeII-certificate}; the extra $1/6$ comes from
+multiplying primes $1\pmod4$ through $T/3$ by $3$.
+
+\subsection{Unbounded depth in the three sporadic families}
+\begin{theorem}[twisted-family unboundedness; proved; source Theorem 66.3]
+\label{thm:twisted-family-unbounded}
+For every $T\geq0$,
+\begin{equation}\tag{66.7}
+ \begin{array}{c|c|c}
+ s&m_0&\text{an infinite depth-$T$ class}\\ \hline
+ 2&12&m\equiv12\pmod {L(T)}\\
+ 21&4&m\equiv4\pmod {L(T)}\\
+ 505&3&m\equiv3\pmod {L(T)}.
+ \end{array}
+\end{equation}
+Every positive $m$ in the displayed class satisfies $W(sm^2)>T$.
+Consequently all three limsups in (66.1) are infinite.  Quantitatively, for
+each row and every $X\geq1$,
+\begin{equation}\tag{66.8}
+ \#\{m\leq X:W(sm^2)>T\}\geq {X\over L(T)}-1.
+\end{equation}
+Thus the supplied lower-density bound is $1/L(T)$, where
+$\log L(T)=(2/3+o(1))T$.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:nonsquare-escapes} gives
+$W(2\cdot12^2)=W(21\cdot4^2)=W(505\cdot3^2)=+\infty$.  Each anchor is
+therefore outside (66.3), and Theorem~\ref{thm:twisted-class-decidability}
+puts its whole class modulo $L(T)$ outside.  The progressions contain
+arbitrarily large positive integers, proving (66.1), and counting one class
+gives (66.8).
+\end{proof}
+This differs from Theorem~\ref{thm:W-lower}: there the input itself is put
+in the residue-one class modulo $\lcm(1,\ldots,\lfloor T\rfloor)$ and Linnik
+selects a prime.  Here no prime selection occurs; the cylinders lie inside
+the thin families $sm^2$ in their parameter $m$, anchored at proved
+$W=+\infty$ points.
+
+\begin{corollary}[family-level finite-certificate ceiling; proved; source Corollary 66.4]
+\label{cor:family-certificate-ceiling}
+No finite collection of fixed harvested congruence laws proves
+\begin{equation}\tag{66.9}
+                         W(2m^2)<+\infty\qquad(m\ne12).
+\end{equation}
+Equivalently, at every finite harvested depth $T$, infinitely many parameters
+$m\ne12$ remain uncovered, including every
+$m=12+kL(T)$, $k\geq1$.  Any proof of
+$W(2m^2)=+\infty\Longleftrightarrow m=12$ must use structure other than a
+finite cover by fixed $(M,D)$ congruences.
+\end{corollary}
+\begin{proof}
+A finite collection has a largest modulus $T$, and
+Theorem~\ref{thm:twisted-family-unbounded} puts every
+$12+kL(T)$, $k\geq1$, beyond all its firing conditions.
+\end{proof}
+This is the family-parameter analogue of Section~\ref{sec:certificate-ceiling},
+not a restatement of it.  It uses an actual cylinder based at $288$ and only
+rules out finite collections of fixed harvested $(M,D)$ laws.  The older
+prime-identity and quadratic-form finite-cover obstructions motivate the
+same warning but do not prove this corollary.
+
+\subsection{Polynomial identities in the residual classes}
+For this hunt, an \emph{admissible polynomial datum} on $m(t)=12+Kt$
+consists of $M,Q\in\mathbb Z[t]$ and $A,D,E\in\mathbb Q[t]$, with the latter
+three integer-valued on integers, such that
+\begin{equation}\tag{66.10}
+ M=4A-1,\qquad A^2=DE,\qquad 2m^2+4D=MQ
+\end{equation}
+as polynomial identities, with $2m^2+4D\in\mathbb Z[t]$, and such that for
+every integer $t\geq0$,
+\begin{equation}\tag{66.11}
+                 M(t)>0,\qquad M(t)\equiv3\pmod4,\qquad D(t)>0.
+\end{equation}
+Thus $D(t)\mid A(t)^2$ with integer cofactor $E(t)$ at every argument.
+Polynomial divisibility, positivity, and integrality at every nonnegative
+integer are part of the definition.
+
+\begin{proposition}[anchored polynomial-identity obstruction; proved; source Proposition 66.5]
+\label{prop:anchored-identity-wall}
+For every $K\geq1$, no admissible polynomial datum (66.10)--(66.11) exists
+on $m(t)=12+Kt$.  The analogous statements hold on $m(t)=4+Kt$ for $s=21$
+and on $m(t)=3+Kt$ for $s=505$, after replacing the leading $2$ in
+(66.10) by the relevant kernel.
+\end{proposition}
+\begin{proof}
+Specialization at $t=0$ would give a positive eligible datum for $288$,
+$336$, or $4545$, contradicting Theorem~\ref{thm:nonsquare-escapes}.  No
+degree or coefficient bound is used.
+\end{proof}
+This all-degree obstruction applies only when eligibility includes the
+anchor.  It does \emph{not} extend to a forward ray.  Polynomial equalities
+holding at every sufficiently large integer extend identically back to the
+anchor, but positivity and positive-divisor eligibility need not; without
+them, specialization there is not a datum for $W$.  A useful identity may
+therefore cover a one-sided subprogression while becoming nonpositive or
+ineligible at the anchor.  This forward-ray gap remains \textsc{open}.
+
+\medskip\noindent\textbf{Computational 66.1 (coefficient/resultant identity
+hunt; exact stated ansatz).}
+Block \texttt{(bm)} used
+\begin{equation}\tag{66.12}
+ K\in\{12,24,44,84,132,231\},\qquad
+ m(t)=12+K(t+e),\quad e\in\{0,1\},
+\end{equation}
+where $231=3\cdot7\cdot11$.  It exhausted $\deg M\in\{1,2\}$,
+$1\leq d\leq500$, and
+\begin{equation}\tag{66.13}
+                         D=d,\qquad D=dA,\qquad D=A^2/d.
+\end{equation}
+For each shape it imposed pointwise integer eligibility exactly.  If
+$d=\prod p^v$, then $d\mid A(t)^2$ for every integer $t$ is equivalent to
+$\prod p^{\lceil v/2\rceil}\mid A(t)$ for every $t$; the first three values
+decide this for integer-valued quadratic $A$.  The identities reduce to
+\begin{equation}\tag{66.14}
+             M\mid2m^2+4d,\qquad M\mid2m^2+d,\qquad M\mid8dm^2+1.
+\end{equation}
+Each right side is a positive quadratic and has no real linear factor.  In
+degree $2$, coefficient comparison fixes $M$ up to a positive scalar
+dividing the content of all three coefficients; every such scalar was
+enumerated, so there was no hidden cutoff on $M$ or the quotient.
+
+There were exactly $54{,}990$ candidates
+$(K,e,d,\text{shape},\text{scalar})$; $6{,}810$ made
+$M(t)\equiv3\pmod4$ identically, and none passed the remaining identity and
+eligibility conditions.  The anchored half had $27{,}495$ and $3{,}405$
+candidates respectively.  The forward-ray half also had no hit, but this is
+only a negative result for (66.12)--(66.13), not an all-shape theorem.  No
+sampled-value test substitutes for the exact coefficient checks.
+
+\subsection{The depth-$1000$ projection and bounded censuses}
+Let $\mathcal R_{2,T}\subseteq\mathbb Z/L(T)\mathbb Z$ be the exact residual
+set defined by $W(2m^2)>T$.  The full $L(1000)$ has $287$ decimal digits and
+\begin{equation}\tag{66.15}
+                         \log L(1000)=659.7431249956927\ldots.
+\end{equation}
+\medskip\noindent\textbf{Computational 66.2 (exact depth-$1000$ projection).}
+Put $K=3\cdot11\cdot19=627$, which divides $L(1000)$.  Block
+\texttt{(bm)} computes
+\begin{equation}\tag{66.16}
+ \begin{split}
+ \pi_K(\mathcal R_{2,1000})=\{r\pmod {627}:{}&r\equiv0\pmod3,\\
+ &r\pmod {11}\in\{0,\mathord\pm1,\mathord\pm5\},\\
+ &r\pmod {19}\in
+ \{0,\mathord\pm1,\mathord\pm2,\mathord\pm4,
+            \mathord\pm5,\mathord\pm7,\mathord\pm9\}\}.
+ \end{split}
+\end{equation}
+These are exactly $65$ classes; the other $562$ are covered by the
+$M=3,11,19$ rows.  The only additional eligible modulus through $1000$
+dividing $627$ is $627$, and it removes none.  For every displayed class
+the block finds an explicit positive lift with no firing $M\leq1000$, which
+certifies reverse inclusion in the full projection.  The least searched
+lifts have maximum $175{,}539$, in class $606$ with lift index $279$; their
+ordered SHA-256 digest is
+\texttt{7f385ae9b7ddb042e873f52883d4f90f43ddb551b34f89b1a377c2a57a0c4389}.
+This is a projection statement, not a claim that the full residual set has
+period $627$; its full period is $L(1000)$.
+
+\medskip\noindent\textbf{Computational 66.3 (three multiplier censuses;
+exact stated box and cap).}
+Block \texttt{(bm)} walks every $M\equiv3\pmod4$ upward through $10^4$ with
+Python integers.  For each $s=2,21,505$ and every $1\leq m\leq2000$, it
+finds the exact minimum whenever a row fires:
+\begin{equation}\tag{66.17}
+\begin{array}{c|c|c|c}
+ s&\text{no hit through }10^4&
+ \max\{W(sm^2):m\leq2000,\ W<\infty\}&\text{where}\\ \hline
+ 2&12&4019&1530\\
+ 21&4&695&851\\
+ 505&3&479&1239.
+\end{array}
+\end{equation}
+The cap survivors are exactly the proved infinite anchors; no second
+survivor occurs in any box, and infinity is not inferred from the cap.
+Every other entry fires by $10^4$, and its minimum is exact because every
+smaller eligible modulus was checked.  At depth $1000$, the only additional
+$s=2$ parameters in the box are
+\begin{equation}\tag{66.18}
+ W(2\cdot264^2)=1499,\qquad W(2\cdot1050^2)=1259,
+ \qquad W(2\cdot1530^2)=4019.
+\end{equation}
+For $s=21,505$, only the relevant anchor survives depth $1000$.  This
+extends earlier, differently sliced finite codebooks and remains a finite
+census.  On the research host block \texttt{(bm)} took $0.151$ seconds; the
+complete prescribed suite remained green in $210.08$ seconds with
+$342{,}224$ KiB peak resident memory.  Timings are informational.
+
+\subsection{Honest walls and review attestation}
+The quantifiers proved are
+\begin{equation}\tag{66.19}
+ \forall T\ \exists\text{ infinitely many }m:\quad W(2m^2)>T,
+\end{equation}
+not $\exists m\ne12:W(2m^2)=+\infty$.  A fixed
+$m=12+kL(T)$ may acquire a deeper witness, and the class changes with $T$.
+Neither (66.16) nor (66.17) changes this.  Accordingly,
+\begin{equation}\tag{66.20}
+                    W(2m^2)=+\infty\quad\Longleftrightarrow\quad m=12
+\end{equation}
+remains open.  It requires either, for every fixed $m\ne12$, one eligible
+pair $M\equiv3\pmod4$, $D\mid((M+1)/4)^2$ with
+$M\mid2m^2+4D$, or an explicit second parameter whose complete finite normal
+form is empty.  Finite covers and bounded searches do not exchange the
+pointwise $\forall m\,\exists(M,D)$ quantifiers.  Thus the restricted
+classification and $C_{\rm SQ}'$ remain open.
+
+\medskip\noindent\textbf{Review attestation (wave 28).}
+The maximum-severity verdict was \textsc{sound-after-minor-repairs}.  The
+review independently rederived the class quantifiers and the
+$1/2+1/6=2/3$ period constant, reproduced the $287$-digit $L(1000)$ and
+$\log L(100)/100=0.5808244316\ldots$,
+$\log L(1000)/1000=0.6597431250\ldots$, and confirmed that the limsups and
+(66.8) create no new $W=+\infty$ member.  It restricted the certificate
+ceiling to finite fixed harvested laws and identified the exact
+forward-ray leak: equalities extend backward but positivity and eligibility
+need not.  The shifted $e=1$ result remains only the bounded three-shape
+computation.
+
+A fresh ascending-$M$ Python-integer replay reproduced sole survivors
+$(2,12),(21,4),(505,3)$, maxima
+$(4019,1530),(695,851),(479,1239)$, every depth-$1000$ exception, all $65$
+projected classes, maximum least lift $(606,175539,279)$, and the digest.
+A separate coefficient implementation replayed all $54{,}990$ candidates in
+the twelve $(K,e)$ families and all three shapes; $6{,}810$ had the mod-$4$
+law and none was eligible.  Block \texttt{(bm)} is deterministic, has no
+random seed, uses Python integers, and pins complete boxes rather than
+samples.  It took $0.30$ seconds on the review host, and the full prescribed
+verification command reran green.  This is internal validation, not external
+refereeing.
+
+\section{Record-stall anatomy and the honest exponent window}
+\label{sec:record-stall}
+\medskip\noindent\textbf{Status.}
+The extremal anatomy, residue-one examples, and exponent table below are
+\textbf{Computational}, exact in their stated finite sets.  The record-spacing
+calculation is explicitly \textbf{Heuristic}.  The final window statement is
+an \textbf{Assessment} of existing quantifiers, not a new bound.  No growth
+law, tail theorem, or pointwise conclusion is claimed.
+
+\subsection{The top-ten obstruction anatomy}
+Let
+\begin{equation}\tag{67.1}
+ \mathcal A_{200}=\{3,7,11,\ldots,199\},\qquad
+ S_{200}(p)=\left\{a\in\mathcal A_{200}:
+ -1\in\operatorname {Rat}_a((p+a)/4)\right\}.
+\end{equation}
+Thus $\mathcal A_{200}\setminus S_{200}(p)$ is the complete $50$-law
+failure profile.  For a second, fixed-$D$ diagnostic define the exhaustive
+purity depth
+\begin{equation}\tag{67.2}
+ \tau(p)=\sup\left\{T\in\mathbb Z_{\geq0}:\begin{array}{l}
+  \text{for every }1\leq D\leq T,\ p+4D\text{ has no divisor }M\text{ with}\\
+  M\equiv3\pmod4,\ M>4D,\quad D\mid((M+1)/4)^2
+ \end{array}\right\}\in\mathbb Z_{\geq0}\cup\{+\infty\}.
+\end{equation}
+The inequality $M>4D$ is part of the diagnostic, so $\tau$ is not $W$ and
+ignores eligible divisors on the other side.  When $\tau<+\infty$, write
+$(D_*,M_*)$ for the first failing pair after the pure prefix, with
+$D_*=\tau+1$ and the least eligible $M_*$ in a tie.  The decision is finite:
+the cofactor $(p+4D)/M$ is $3\pmod4$ and at least $3$, so $M>4D$ forces
+$D<p/8$.  Infinity genuinely occurs: exhaustive use of this bound gives
+$\tau(193)=+\infty$, although $W(193)=15$ via $(D,M)=(8,15)$, excluded by
+$M>4D$.
+
+\medskip\noindent\textbf{Computational 67.1 (complete $p<10^8$ top ten;
+exact).}
+The Section~\ref{sec:two-decade-census} replay has $98$ hard primes with
+$W\geq400$.  Its ten largest values, ordered by decreasing $W$ then
+increasing $p$, have the two-frame anatomy
+\begingroup\scriptsize
+\begin{equation}\tag{67.3}
+\begin{array}{r|r|r|l|r|r}
+p&W&a_1&S_{200}(p)&\tau&(D_*,M_*)\\ \hline
+2031121&2495&11&11,19,39,55,59,95,111,139,167,179&28&(29,52083)\\
+88808281&1007&3&3,15,19,23,35,43,59,127,131,135,159&7&(8,2783)\\
+39203761&923&7&7,11,27,47,71,107,127,143,159,167&10&(11,94467)\\
+43371241&923&7&7,35,43,71,103,179,187,199&1&(2,1223)\\
+21475609&911&7&7,27,35,51,71,103,107,111,119,151,183,191&9&(10,15439)\\
+23836201&911&11&11,19,27,31,35,47,55,59,63,71,87,111,131,135,183&1&(2,1759)\\
+62850769&911&3&3,23,43,47,51,55,67,71,75,83,95,99,103,111,119,131,151&6&(7,1987)\\
+22706161&783&11&11,19,47,55,59,79,131,143&13&(14,783)\\
+5214049&747&3&3,7,11,15,39,47,71,83,95,131,191&14&(15,27299)\\
+5309329&719&7&7,11,23,31,39,63,107,111,131,171&1&(2,1047)
+\end{array}
+\end{equation}
+\endgroup
+The rows fail respectively $40,39,40,42,38,35,33,42,39,40$ of the $50$
+laws.  A large $W$ need not require all small $a$ to fail: an early spectrum
+hit can use a large divisor and produce a much larger modulus.
+
+The exact four-shift ledger used by the fixed-$D$ side is
+\begingroup\scriptsize
+\begin{equation}\tag{67.4}
+\begin{array}{r|l|l|l|l}
+p&p+4&p+8&p+12&p+16\\ \hline
+2031121&5^3\cdot16249&3^3\cdot75227&13\cdot156241&2031137\\
+88808281&5\cdot349\cdot50893&3\cdot17\cdot1741339&7\cdot331\cdot38329&88808297\\
+39203761&5\cdot401\cdot19553&3\cdot11\cdot1187993&7^2\cdot800077&67\cdot585131\\
+43371241&5\cdot8674249&3\cdot1223\cdot11821&43371253&43371257\\
+21475609&21475613&3\cdot7158539&21475621&5^4\cdot34361\\
+23836201&5\cdot4767241&3\cdot1759\cdot4517&23836213&433\cdot55049\\
+62850769&62850773&3\cdot11\cdot601\cdot3169&7^2\cdot211\cdot6079&5\cdot17\cdot101\cdot7321\\
+22706161&5\cdot4541233&3\cdot17\cdot41\cdot10859&7\cdot3243739&13\cdot1746629\\
+5214049&13\cdot17\cdot23593&3\cdot1738019&5214061&5\cdot89\cdot11717\\
+5309329&5309333&3\cdot11\cdot349\cdot461&19\cdot103\cdot2713&5\cdot1061869
+\end{array}
+\end{equation}
+\endgroup
+Every $p+4$ here is free of prime factors $3\pmod4$, so the global $D=1$
+law misses all ten.  This is a common mechanistic first filter.  The exact
+$D=2$ class $M\equiv7\pmod8$ fires next only for the three rows with
+$\tau=1$.  Thereafter depth does not order $W$: the two $W=923$ rows have
+depths $10,1$, the three $W=911$ rows have depths $9,1,6$, and the smaller
+$W=747$ row has depth $14$.  The isolated record has the largest depth $28$,
+but the other nine give no monotone relation.  These finite facts partly
+explain the gate, not the duration of the stall.
+
+\subsection{The residue-one construction at its first primes}
+Section~\ref{sec:lower-tail} uses exactly
+\begin{equation}\tag{67.5}
+                         M(T)=\lcm(1,2,\ldots,\lfloor T\rfloor),
+\end{equation}
+not merely eligible $3\pmod4$ moduli.  For the four values below,
+$24\mid M(T)$, so combining $p\equiv1\pmod {M(T)}$ with the hard-prime
+condition changes no modulus.  Exhausting $p=1+kM(T)$ upward and then
+scanning eligible witness moduli gives
+\begin{equation}\tag{67.6}
+\begin{array}{r|r|r|r|r|r|r|c}
+T&M(T)&k&p& W(p)&W-T&a_1&{\log p\over5.2\log M(T)}\\ \hline
+15&360360&12&4324321&23&8&3&0.229656\\
+19&232792560&1&232792561&183&164&27&0.192308\\
+23&5354228880&2&10708457761&47&24&7&0.198258\\
+27&80313433200&5&401567166001&71&44&7&0.204634
+\end{array}
+\end{equation}
+The last column compares only logarithmic sizes with the bare $M(T)^{5.2}$
+scale and omits the unknown effective constant $C_0$; it is not a sharper
+Linnik estimate.  The guaranteed $W>T$ is strict in every row.  The excesses
+are $8,164,24,44$, with the $T=19$ row a conspicuous finite outlier.  Small
+$k$ puts these examples far below the generic ceiling by arithmetic luck,
+not an improvement to the theorem.
+
+\subsection{A deliberately fragile record-spacing model}
+\medskip\noindent\textbf{Heuristic 67.1 (calibrated independent-hit Poisson
+model).}
+For eligible $M$, define all model inputs by
+\begin{equation}\tag{67.7}
+ \begin{split}
+ \mathcal C_M&=\{-4D\pmod M:D\mid((M+1)/4)^2\},\\
+ \mathcal R_M&=\{r\pmod M:(r,M)=1,\ r\equiv1\pmod{(M,24)}\},\\
+ u_M&=|\mathcal C_M\cap\mathcal R_M|/|\mathcal R_M|.
+ \end{split}
+\end{equation}
+The raw model falsely treats all modulus hits as independent, suppressing
+the shared-$p$, shared-factor, and cross-$a$ dependencies, and uses
+\begin{equation}\tag{67.8}
+ P_{\rm raw}(W>T)=\prod_{\substack{M\leq T\\M\equiv3\ (4)}}(1-u_M).
+\end{equation}
+At $T=2495$, direct class enumeration gives
+\begin{equation}\tag{67.9}
+ -\log P_{\rm raw}=20.522039361\ldots,\qquad
+ P_{\rm raw}=1.222901698\cdot10^{-9}.
+\end{equation}
+At the five lower, nonzero-count calibration thresholds---not at $2495$---the
+raw values are below observed finite frequencies.  Replacing the raw model
+by $P_\beta=P_{\rm raw}^{\,\beta}$ gives
+\begin{equation}\tag{67.10}
+\begin{array}{r|r|c|c}
+T&\#\{p<10^8:W(p)>T\}&P_{\rm raw}(W>T)&
+ \beta={\log(\#/719781)\over\log P_{\rm raw}(W>T)}\\ \hline
+255&421&1.955681544\cdot10^{-4}&0.871712\\
+383&109&3.757844433\cdot10^{-5}&0.863214\\
+511&45&1.049874640\cdot10^{-5}&0.844367\\
+639&16&3.501544731\cdot10^{-6}&0.852878\\
+767&8&1.397322616\cdot10^{-6}&0.846176
+\end{array}
+\end{equation}
+Thus $\beta=0.85$ is a finite calibration, not a constant of nature.  As a
+separate warning, multiplying the six uniform-$h$ failure frequencies from
+the local-law census gives $0.002025$, whereas $361/82887=0.004355$ hard
+primes have $a_1>23$; the populations differ, so even this factor-two
+discrepancy is only diagnostic.
+
+At $2495$ the calibrated per-prime probability is exactly the toy output
+$P_{0.85}=2.656334824\cdot10^{-8}$.  Holding it fixed and using
+\[
+ {\pi(10^9)-\pi(10^8)\over8}
+ ={50{,}847{,}534-5{,}761{,}455\over8}=5{,}635{,}759.875
+\]
+as the future hard-prime proxy gives
+\begin{equation}\tag{67.11}
+\begin{array}{c|c|c|c|c}
+p\text{ interval}&\#\text{ hard primes used}&E\#\{W>2495\}&
+ \beta\in[0.80,0.90]&\text{observed}\\ \hline
+(10^7,10^8)&636894&0.0169180&[0.0061,0.0472]&0\\
+(10^8,10^9)&5{,}635{,}759.875\ \text{(proxy)}&0.1497047&[0.0537,0.4177]&--
+\end{array}
+\end{equation}
+The formal first-row Poisson zero mass is $e^{-0.0169}=0.9832$.  It is not a
+$p$-value and supplies no evidence for or against the stall.  Independence
+is false, calibration stops at $767$, extrapolation crosses an unobserved
+tail, one eighth is only a proxy despite exact ordinary prime counts, and
+selection of the old record is ignored.  Nothing about a tail density,
+next-record location, growth law, or support for the model is inferred.
+
+\subsection{The empirical exponent and eventual window}
+All logarithms here are natural.  For a finite row put
+\begin{equation}\tag{67.12}
+                         A_{\rm emp}(p)={\log W(p)\over\log\log p}.
+\end{equation}
+It is the exponent making $W(p)=(\log p)^{A_{\rm emp}(p)}$ at that one
+prime, not a fitted population exponent.
+
+\medskip\noindent\textbf{Computational 67.3 (all $15$ strict records; exact
+inputs).}
+\begin{equation}\tag{67.13}
+\begin{array}{r|r|c@{\qquad}r|r|c}
+p&W&A_{\rm emp}&p&W&A_{\rm emp}\\ \hline
+73&7&1.336115&167521&259&2.234072\\
+193&15&1.630725&225289&279&2.242045\\
+1201&31&1.753095&361321&287&2.220056\\
+2521&47&1.870574&915961&303&2.181299\\
+3361&99&2.194077&954409&335&2.217096\\
+33289&155&2.152501&1853329&383&2.228161\\
+90841&167&2.101766&2031121&2495&2.923244\\
+144169&191&2.122345&&&
+\end{array}
+\end{equation}
+
+\medskip\noindent\textbf{Assessment 67.1 (the honest $A$-window).}
+The hypothesis $H_{\rm MOD}(A)$ asks for
+$W(p)\leq(\log p)^A$ for every sufficiently large prime.  Theorem
+\ref{thm:W-lower} refutes every $A<1$, while every $A\geq1$ remains open.
+Thus the $1\leq A\lesssim2$ display (56.16) has two registers: $A\geq1$ is
+the exact eventual frontier, while $1$--$2$ is only the historical finite
+normalization panel, not an upper frontier.  The finite value
+$A_{\rm emp}(2031121)=2.923244$ is ignored by every sufficiently-large
+quantifier.  The complete census has no later $W$-record through $10^8$;
+since later $p$ are larger, it also has no later $A_{\rm emp}$ record.  These
+finite facts do not choose among eventual $\limsup A_{\rm emp}$ equal to
+$1$, any larger finite value, or infinity.  No eventual upper exponent is
+known.
+
+\subsection{Verification, review, and scope}
+Block \texttt{(bn)} rebuilds every displayed top-ten minimum, small-$a$
+spectrum, purity depth, and four-shift factorization with Python integers.
+It separately recomputes $W,a_1,S_{200}$ and exhaustive $\tau$ for all $15$
+strict records, including $\tau(193)=+\infty$; exhausts all four least-prime
+searches; replays all residue-one and exponent rows; performs seeded
+dual/class checks; and rebuilds (67.7)--(67.11).  The full $p<10^8$ ranking
+and calibration counts are gated by \texttt{ES\_FULL\_SCAN=1} and use the
+memory-bounded shrinking-survivor census in
+\texttt{scripts/review65\_independent.py}.  Default mode checks displayed
+primes but does not claim a ranking rescan.  One shifted factorization and
+divisor list is live at a time.  Post-review timings were $0.34$ seconds by
+default, $1.39$ seconds gated, and $215.85$ seconds for the complete default
+suite under the $700$-second timeout.
+
+\medskip\noindent\textbf{Review attestation (wave 28).}
+The maximum-severity verdict was \textsc{sound-after-repairs}.  A fresh
+standard-library implementation with independent trial factorization,
+divisor expansion, primality testing, and ascending-modulus scan reproduced
+all displayed finite arithmetic.  The substantive repair made $\tau$ an
+integer supremum with an infinity convention and proved the exhaustive
+$D<p/8$ bound.  The heuristic repair confined underestimation to the five
+nonzero calibration thresholds, exposed every input, called the one-eighth
+quantity a proxy, and removed all evidential language.  The eventual window
+was corrected to every $A\geq1$ open, with $1$--$2$ only finite
+normalization; direct recomputation gives
+$\log2495/\log\log2031121=2.923244274\ldots$.
+
+For all $15$ records the independent check found
+\[
+ a_1=(7,7,23,23,3,3,7,15,15,31,19,11,3,3,11)
+\]
+and
+\[
+ \tau=(0,\infty,1,7,28,7,7,4,12,31,2,1,7,1,28).
+\]
+The complete replay retained $719{,}781$ hard primes, $98$ with $W\geq400$,
+exactly the displayed top ten, and no record in $(10^7,10^8)$.  It reproduced
+all four tuples
+$(T,M,k,p,W,W-T)$ in (67.6),
+$P_{\rm raw}=1.222901698\cdot10^{-9}$,
+$P_{0.85}=2.656334824\cdot10^{-8}$, and the toy expectations
+$0.0169180,0.1497047$.  The full suite passed with ``all checks passed'' in
+$215.85$ seconds at $340{,}808$ KiB peak resident memory; AST, control-byte,
+conflict-marker, and diff checks were clean.  These are reproducible toy
+outputs and internal finite validation, not a tail claim or external
+refereeing.  No eventual upper exponent, tail density, next record, or
+pointwise Erd\H{o}s--Straus conclusion follows.
+
+\section{The 2025 Pomerance--Weingartner exceptions paper}
+\label{sec:PW-v2-audit}
+\medskip\noindent\textbf{Source, version, and scope.}
+The current arXiv:2511.16817v2 is archived verbatim in
+\texttt{sources/pomerance-weingartner-2511.16817/}; the full reading audit is
+\texttt{reviews/external-pw-2511.16817-wave28.md}.  The older
+\texttt{sources/pomerance-weingartner-2025.pdf} is the November 2025 version
+of the same paper, not a second paper.  This section refreshes the source
+already underlying Sections~\ref{sec:general-m} and
+\ref{sec:witness-tail}; Theorem 1.3 is unchanged in substance.  All verdicts
+below are bounded to this PDF and its bibliography, not complete literature
+certification.
+
+\subsection{Exact statements and proof routes}
+\medskip\noindent\textbf{Upper bound.}
+Pomerance--Weingartner Theorem 1.3 states that there is an absolute positive
+constant $C$ such that, for every pair $m,N$ with
+$4\leq m\leq\log^2N$, the number of integers $n\leq N$ for which $m/n$ is
+not a sum of three unit fractions is at most the right side of
+\begin{equation}\tag{68.1}
+ E_m(N)\ll N\exp\{-C(\log N)^{2/3}/\varphi(m)^{1/3}\},
+ \qquad4\leq m\leq(\log N)^2.
+\end{equation}
+It counts all integer denominators.  The paper says only ``absolute positive
+constant,'' not effective or computable.  Its lower class-mass proof invokes
+Bombieri--Vinogradov (Lemma 4.1, p.~9), and the denominator side invokes the
+large sieve (p.~10); it supplies no exceptional-conductor repair.
+
+\medskip\noindent\textbf{Lower exceptions.}
+Theorem 1.1 says: for every $\epsilon>0$ there is $m(\epsilon)$ such that for
+every $m\geq m(\epsilon)$ there is some
+$n>\exp(m^{1/3-\epsilon})$ for which $m/n$ is not a sum of three unit
+fractions.  The headline does not say prime.  Theorem 3.1 gives the stronger
+count
+\begin{equation}\tag{68.2}
+              >\exp\{c\varphi(m)^{1/3}/(\log m)^{2/3}\}
+\end{equation}
+of \emph{prime} exceptions for every $m\geq8$, most in
+$(N_0/2,N_0]$, where
+\begin{equation}\tag{68.3}
+                  \log N_0=\{\varphi(m)/(C\log^2m)\}^{1/3}.
+\end{equation}
+The complete prime-denominator split is used.  Type I forces
+$p\equiv-f\pmod {mad}$ with $f\mid ma^2d+1$; Type II forces
+$p\equiv-e\pmod {mab}$ with $e\mid a+b$ (Corollaries 2.2 and 2.4 as used
+in Theorem 3.1, pp.~6--7).  Brun--Titchmarsh shows that the union of these
+solution-admitting families misses most primes in the selected interval.
+This avoids every admitting class; it is not one fixed congruence
+obstruction.
+
+Theorem 1.2 says that for every integer
+$m\geq6.52\cdot10^9$ there is a prime $p\in(m^2,2m^2)$ for which $m/p$ is
+not a sum of three unit fractions.  Proposition 7.5 bounds the Type-I primes
+(p.~20), Corollary 9.1 bounds the Type-II primes (p.~23), and their sum is
+compared with an explicit prime-count lower bound (p.~23).  Section 6 only
+computationally supports the conjectural extension $m\geq20$; it is not a
+theorem.
+
+At $m=4$, (68.1) has exactly Vaughan's $2/3$ exponent.  The paper states no
+stronger $m=4$ all-denominator upper bound; its $m=4,5$ claims beyond this
+are finite verifications.  Theorem 1.4 says: for every pair of positive
+integers $j,k$, there is $m(j,k)$ such that for every $m\geq m(j,k)$,
+$m/(km+1)$ is not a sum of $j$ unit fractions.  Its proof is a discreteness
+argument for fixed-length sums (Lemmas 5.1--5.2, pp.~11--12), not a
+modification of the three-summand Type-I/Type-II split.
+
+\subsection{Range consistency and crossover}
+Fix the fixed-gap parameter $0<\sigma<3$ in
+Theorem~\ref{thm:general-three-quarter}.  Its range is
+\begin{equation}\tag{68.4}
+ m\leq(\log N)^{3-\sigma}
+ \quad\Longleftrightarrow\quad
+ \log N\geq m^{1/(3-\sigma)},
+ \qquad {1\over3-\sigma}-{1\over3}
+       ={\sigma\over3(3-\sigma)}>0.
+\end{equation}
+The exceptions at (68.3) have $\log p=m^{1/3+o(1)}$, hence
+\begin{equation}\tag{68.5}
+ {m\over(\log p)^{3-\sigma}}
+       =m^{\sigma/3+o(1)}\longrightarrow\infty.
+\end{equation}
+They lie outside every fixed-gap range of
+Theorem~\ref{thm:general-three-quarter} and the smaller Layer-1 range.  The
+explicit $p\in(m^2,2m^2)$ has $\log p=2\log m+O(1)$ and lies farther outside.
+
+Section~\ref{sec:general-m-tails} requires a separate reverse check.  At
+$N=2m^2$, condition (55.11) forces $\log T=O(\log m)$, so
+$m\leq(\log T)^B$ fails for every fixed $B$; no Section 55 tail applies.  At
+the larger scale (68.3), a tail can formally enter its fixed-$B$ parameter
+range when $B>3$, but is vacuous at the exponent scale.  With
+$t=\log T\leq O(\log N_0)$,
+\begin{equation}\tag{68.5a}
+ \lambda_mt^2\log(2+t)=m^{-1/3+o(1)}\longrightarrow0,
+ \qquad
+ \theta_mt^3\leq{\eta_2(m)\over C\log^2m}\longrightarrow0.
+\end{equation}
+Theorem~\ref{thm:general-m-tails} only upper-bounds the number of exceptions;
+it never asserts zero.  Thus neither Section 43 nor Section 55 implies
+representability in a Pomerance--Weingartner construction regime.  There is
+no contradiction.  Saying the asymptotic regime was outside Section 55's
+range would be false; its saving masses instead vanish.
+
+Since (68.1) is the existing benchmark, the crossover is unchanged.  With
+$L=\log N$, published scale $P$, and the
+\textsc{claimed/provisional} Theorem~\ref{thm:general-three-quarter} scale
+$R$,
+\begin{equation}\tag{68.6}
+ P={L^{2/3}\over\varphi(m)^{1/3}},\qquad
+ R=\left({\eta_2(m)L^3\over\varphi(m)}\right)^{1/4},\qquad
+ {R\over P}=\{\eta_2(m)^3\varphi(m)L\}^{1/12}.
+\end{equation}
+Formally $R\geq P$ exactly when
+$L\geq1/(\eta_2(m)^3\varphi(m))$; below that scale $P$ is larger.  Unknown
+constants preclude a finite crossover.  The published theorem is proved on
+$m\leq L^2$.  Theorem~\ref{thm:general-three-quarter} reaches every fixed-gap
+$m\leq L^{3-\epsilon}$ but inherits Theorems~\ref{thm:pruned} and
+\ref{thm:m-pruned} and Section~\ref{sec:verification-remarks}; it remains
+\textsc{claimed/provisional}.  No comparison row changes.
+
+\subsection{Priority impact and Vaughan secondary evidence}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Theorem 39.7.}  No priority threat was found in this PDF.  It
+quotes Vaughan's $N/\exp(c\log^{2/3}N)$ bound, calls the improvement
+``strongly improved, though not recently,'' and retains $2/3$ at $m=4$.
+It states no larger $m=4$ all-denominator upper exponent.  This strengthens a
+secondary-source search record, not a literature guarantee.
+Theorem~\ref{thm:three-quarter} remains \textsc{claimed/provisional}.
+\item \textbf{Theorem 43.12.}  Equation (68.1) is the already-audited
+benchmark and (68.2)--(68.5a) are range-consistent lower results.  Status and
+crossover are unchanged; Theorem~\ref{thm:general-three-quarter} remains
+\textsc{claimed/provisional}.
+\item \textbf{Theorems 51.2/51.6.}  Section 4's $k=1$ good-class family is
+the already recorded square-log truncation.  The paper does not define $W$,
+state a tail in $T$, claim polylogarithmic witness depth, address
+computability, or cite Dahan.  The cubic part of
+Theorem~\ref{thm:witness-tail} and record-adjacent
+Theorem~\ref{thm:effectivity} retain their \textsc{claimed/provisional}
+qualifications.
+\end{itemize}
+All three verdicts are source-bounded, not a complete priority search.
+
+For the inaccessible Vaughan original, the five substantive secondary
+descriptions are: ``A result of Vaughan is that for each $m$, most $n$'s
+have $m/n$ representable; we make the dependence on $m$ explicit''; ``In
+1970, Vaughan [13] gave the upper bound $N/\exp(c\log^{2/3}N)$'';
+``Exploiting the large sieve, the proof is largely derivative of Vaughan's
+theorem''; ``Our proof largely follows the argument in Vaughan''; and ``As
+shown in [13] for each $p$ there are at least $f(p)$ residue classes mod $p$''
+forcing representations.  Section 4 proves
+$\sum f(p)/p\asymp(\log x)^2/\varphi(m)$ and applies the large sieve.  This
+updates the access record without claiming the 1970 primary source was read.
+
+\subsection{Review attestation and source register}
+\medskip\noindent\textbf{Review attestation (wave 28).}
+The hostile maximum-severity verdict was
+\textsc{confirmed after repairs, source-bounded only}.  The reviewer read all
+$25$ pages of archived v2, searched its full extracted text, compared v1 and
+v2, audited every campaign citation site, and replayed the range algebra.
+No theorem, conditional result, heuristic, or cited third-party result in
+this source threatens the three provisional priority positions.  This does
+not certify the full literature; Theorems~\ref{thm:three-quarter},
+\ref{thm:general-three-quarter}, \ref{thm:witness-tail}, and
+\ref{thm:effectivity} remain \textsc{claimed/provisional} where so labelled.
+
+The PDF audit confirmed the exact quantifiers above: Theorem 1.1 has every
+$\epsilon>0$, all sufficiently large $m$, and one
+$n>\exp(m^{1/3-\epsilon})$; Theorem 3.1 has more than (68.2) prime exceptions
+for every $m\geq8$; Theorem 1.2 has exact threshold $6.52\cdot10^9$ and
+interval $(m^2,2m^2)$; Theorem 1.3 has range $4\leq m\leq\log^2N$, all
+integer $n\leq N$, and exponent
+$C\log^{2/3}N/\varphi(m)^{1/3}$; and Theorem 1.4 has fixed positive $j,k$ and
+denominator $km+1$.  It also confirmed the Type-I/Type-II congruences and
+that Section 6 proves only finite checks while conjecturing $m\geq20$.
+The $\exp(m^{1/2+o(1)})$ discussion is explicitly a Poisson heuristic.
+
+The crossover redivision gives the $\eta_2,\varphi,L$ powers
+$1/4,1/12,1/12$.  Equations (68.4)--(68.5) are exact.  The reverse audit
+found and repaired the Section 55 scope error: the asymptotic construction
+can enter fixed-$B$ range, and (68.5a), not range disjointness, explains why
+it is harmless.  At the explicit polynomial scale, both Sections 43 and 55
+are out of range.  Verifier block \texttt{(bo)} locks these distinctions as
+symbolic exponent checks.
+
+All $13$ bibliography entries on pp.~24--25 were classified.  Elsholtz--Tao,
+Obl\'ath, and Vaughan touch asymptotic exceptional sets or admitting classes;
+Mihnea--Dumitru and Salez are finite-verification references.  Aigner and
+Nakayama \cite{Nakayama} concern parametrizations, while Gottschlich
+\cite{Gottschlich} supplies only a generic Hardy--Ramanujan-style transfer
+lemma.  Dusart, Koukoulopoulos,
+Nicolas--Robin, Erd\H{o}s--Graham, and Guy are tools or surveys.  No item
+concerns the minimal witness modulus $W$, and Dahan is absent.  The newly
+registered adjacent references are Gottschlich and Nakayama; neither is a
+post-Vaughan exceptional-set upper bound.  Mihnea--Dumitru's former
+placeholder is resolved as arXiv:2509.00128 and a $10^{18}$ finite bound.
+No new priority reference was found.
+
+The older PDF has the same title, authors, $25$-page length, abstract theorem
+capsule, numbering, Theorem 1.3, and Section 4 argument.  A fresh arXiv-v1
+fetch has SHA-256
+\texttt{cb4654e1b329ed5ff8c246ec766901d5d2aae0f720bfc105077ab6951f4c398d};
+it is not byte-identical to the author PDF because arXiv regenerated it,
+but the source creation instant and full mathematical text match.  Thus
+``v1'' is a content identity, not a binary-file claim.  V2 repairs the
+abstract's numerical-support threshold from $m\geq19$ to $m\geq20$, adds an
+introductory pre-Vaughan sieve explanation and Gottschlich citation, and
+otherwise changes notation/typesetting in no cited proof.
+
+Every Pomerance citation site survived the version audit.  The HathiTrust
+and zbMATH access-log entries record only that the parent session found no
+viewable Vaughan copy or link; they claim neither a saved artifact nor a
+direct reading.  Core quotations precede campaign paraphrase, record
+language remains would-be/\textsc{claimed/provisional}, and every verdict in
+this section remains expressly source-bounded.
 
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
@@ -8932,10 +9782,15 @@ these proves the finite divisor list nonempty for every hard prime, a
 pointwise bound, a fair-share estimate, or a new Erd\H{o}s--Straus theorem.
 The enlarged twisted-square hunt covers only its exact coordinate boxes and
 proves no unbounded classification or finiteness; only the right-to-left
-inclusion in $C_{\rm SQ}'$ is proved.  The two-decade census is
-Computational/INFO finite-range evidence.  Its absent post-$10^7$ record,
-parity percentages, and normalized suprema imply no growth law and leave
-$H_{\rm MOD}$ untouched.  The raw and antichain factorial-moment formulations are refuted
+inclusion in $C_{\rm SQ}'$ is proved.  The two-decade census and record-stall anatomy are Computational/INFO
+finite-range evidence.  Its absent post-$10^7$ record, parity percentages,
+purity depths, and normalized suprema imply no growth law; the spacing model
+supplies no evidence, and every $A\geq1$ remains open.  The twisted-family
+cylinders prove three unbounded limsups but no new fixed infinite escape;
+the family certificate ceiling covers only finite harvested laws, and the
+forward-ray identity gap is open.  The Pomerance--Weingartner audit is
+source-bounded and changes no provisional priority status.  The raw and
+antichain factorial-moment formulations are refuted
 and that axis is dormant; the pair
 endpoint and other possible pointwise minorants retain exactly the narrower
 open scope stated above.
@@ -8999,6 +9854,12 @@ K. Ford, S. Konyagin, J. Maynard, C. Pomerance, and T. Tao,
 \emph{Long gaps in sieved sets},
 author-hosted preprint (2018).
 
+\bibitem{Gottschlich}
+A. Gottschlich,
+\emph{On positive integers $n$ dividing the $n$th term of an elliptic
+divisibility sequence},
+New York J. Math. \textbf{18} (2012), 409--420.
+
 \bibitem{FriedlanderIwaniec}
 J. Friedlander and H. Iwaniec,
 \emph{Opera de Cribro},
@@ -9034,11 +9895,17 @@ M. Nair and G. Tenenbaum,
 \emph{Short sums of certain arithmetic functions},
 Acta Math. \textbf{180} (1998), 119--144.
 
+\bibitem{Nakayama}
+M. Nakayama,
+\emph{On the decomposition of a rational number into ``Stammbr\"uche''},
+T\^ohoku Math. J. \textbf{46} (1939), 1--21.
+
 % TODO(submission): update this draft citation if final publication metadata is used.
 \bibitem{PomeranceWeingartner}
 C. Pomerance and A. Weingartner,
 \emph{Exceptions to the Erd\H{o}s--Straus--Schinzel conjecture},
-author-hosted draft dated 20 November 2025, arXiv:2511.16817.
+arXiv:2511.16817v2 (2026); the archived author-hosted draft is dated
+20 November 2025.
 
 \bibitem{RosserSchoenfeld}
 J.~B. Rosser and L. Schoenfeld,
