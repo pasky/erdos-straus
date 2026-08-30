@@ -25829,3 +25829,244 @@ has the same pointwise \(\forall m\,\exists(M,D)\) character as the hard-prime
 problem: finite covers and bounded searches do not exchange those
 quantifiers.  The restricted classification, and hence the full conjecture
 \(C_{\rm SQ}'\), is not proved.
+
+## 67. Anatomy of the record stall: two local frames, residue-one examples, and the honest exponent window
+
+**Status.**  The extremal anatomy, residue-one examples, and exponent table
+below are **Computational**, exact in their stated finite sets.  The
+record-spacing calculation is explicitly **Heuristic**.  The final window
+statement is an **Assessment** of the existing quantifiers, not a new bound.
+No growth law, tail theorem, or pointwise conclusion is claimed.
+
+### 67.1 The top-ten obstruction anatomy
+
+Let
+\[
+ {\cal A}_{200}=\{3,7,11,\ldots,199\},\qquad
+ S_{200}(p)=\left\{a\in{\cal A}_{200}:
+ -1\in {\rm Rat}_a((p+a)/4)\right\}.                       \tag{67.1}
+\]
+Thus every member of \({\cal A}_{200}\setminus S_{200}(p)\) fails, and
+listing \(S_{200}\) gives the complete 50-law failure profile.  For a second,
+fixed-\(D\) diagnostic define
+\[
+ \tau(p)=\max\left\{T:\begin{array}{l}
+  \text{for every }1\leq D\leq T,\ p+4D\text{ has no divisor }M\text{ with}\\
+  M\equiv3\pmod4,\ M>4D,\quad
+  D\mid((M+1)/4)^2
+ \end{array}\right\}.                                    \tag{67.2}
+\]
+The inequality \(M>4D\) is part of this diagnostic.  Hence \(\tau\) is not
+another name for \(W\), and it deliberately ignores eligible divisors on the
+other side of that inequality.  Write \((D_*,M_*)\) for the first failing
+pair after the pure prefix, so \(D_*=\tau+1\), taking the least eligible
+\(M_*\) if there is a tie.
+
+**Computational 67.1 (complete \(p<10^8\) top ten; exact).**  An ascending-
+\(M\) replay of the §65 census has 98 hard primes with \(W\geq400\).  Its ten
+largest values, ordered by decreasing \(W\) and then increasing \(p\), have
+the following two-frame anatomy.  Each shifted integer \((p+a)/4\) was
+factored separately and its divisors were enumerated directly; no small-
+\(a\) closed-form law was substituted for the spectrum test.
+\[
+\begin{array}{r|r|r|l|r|r}
+p&W&a_1&S_{200}(p)&\tau&(D_*,M_*)\\ \hline
+2031121&2495&11&11,19,39,55,59,95,111,139,167,179&28&(29,52083)\\
+88808281&1007&3&3,15,19,23,35,43,59,127,131,135,159&7&(8,2783)\\
+39203761&923&7&7,11,27,47,71,107,127,143,159,167&10&(11,94467)\\
+43371241&923&7&7,35,43,71,103,179,187,199&1&(2,1223)\\
+21475609&911&7&7,27,35,51,71,103,107,111,119,151,183,191&9&(10,15439)\\
+23836201&911&11&11,19,27,31,35,47,55,59,63,71,87,111,131,135,183&1&(2,1759)\\
+62850769&911&3&3,23,43,47,51,55,67,71,75,83,95,99,103,111,119,131,151&6&(7,1987)\\
+22706161&783&11&11,19,47,55,59,79,131,143&13&(14,783)\\
+5214049&747&3&3,7,11,15,39,47,71,83,95,131,191&14&(15,27299)\\
+5309329&719&7&7,11,23,31,39,63,107,111,131,171&1&(2,1047)
+\end{array}                                                \tag{67.3}
+\]
+In particular these rows fail respectively 40, 39, 40, 42, 38, 35, 33, 42,
+39, and 40 of the 50 laws.  A large \(W\) plainly does not require all small
+\(a\)'s to fail: as in §62.3, an early spectrum hit can use a large divisor
+and yield a modulus much larger than the minimum found elsewhere.
+
+Here is the exact four-shift ledger used by the fixed-\(D\) side.
+\[
+\begin{array}{r|l|l|l|l}
+p&p+4&p+8&p+12&p+16\\ \hline
+2031121&5^3\cdot16249&3^3\cdot75227&13\cdot156241&2031137\\
+88808281&5\cdot349\cdot50893&3\cdot17\cdot1741339&7\cdot331\cdot38329&88808297\\
+39203761&5\cdot401\cdot19553&3\cdot11\cdot1187993&7^2\cdot800077&67\cdot585131\\
+43371241&5\cdot8674249&3\cdot1223\cdot11821&43371253&43371257\\
+21475609&21475613&3\cdot7158539&21475621&5^4\cdot34361\\
+23836201&5\cdot4767241&3\cdot1759\cdot4517&23836213&433\cdot55049\\
+62850769&62850773&3\cdot11\cdot601\cdot3169&7^2\cdot211\cdot6079&5\cdot17\cdot101\cdot7321\\
+22706161&5\cdot4541233&3\cdot17\cdot41\cdot10859&7\cdot3243739&13\cdot1746629\\
+5214049&13\cdot17\cdot23593&3\cdot1738019&5214061&5\cdot89\cdot11717\\
+5309329&5309333&3\cdot11\cdot349\cdot461&19\cdot103\cdot2713&5\cdot1061869
+\end{array}                                                \tag{67.4}
+\]
+
+**INFO 67.1 (what the depth does and does not explain).**  Every \(p+4\) in
+(67.4) is free of prime factors congruent to 3 modulo 4, so the global
+\(D=1\) law misses all ten.  This is a uniform, mechanistic first filter.
+The exact \(D=2\) class is \(M\equiv7\pmod8\); it fires immediately after
+that filter for only the three rows with \(\tau=1\).  Beyond this, depth
+does not order the scores: the two rows with \(W=923\) have depths 10 and 1,
+the three rows with \(W=911\) have depths 9, 1, and 6, while the smaller
+\(W=747\) row has depth 14.  The isolated record has the largest depth, 28,
+but the other nine provide no monotone relation.  These are finite anatomy
+facts, not a fitted law.  They make the stall partly mechanistic--all extreme
+rows pass the same first shifted-purity gate--but do not turn its duration
+into a deterministic consequence of \(\tau\).
+
+### 67.2 The residue-one construction at its first primes
+
+Section 54.1 uses exactly
+\[
+              M(T)={\rm lcm}(1,2,\ldots,\lfloor T\rfloor), \tag{67.5}
+\]
+not merely the eligible \(3\pmod4\) moduli.  For the four values below,
+\(24\mid M(T)\), so combining \(p\equiv1\pmod {M(T)}\) with the hard-prime
+condition changes no modulus.  Exhausting \(p=1+kM(T)\) in increasing \(k\)
+and then scanning eligible witness moduli upward gives:
+
+**Computational 67.2 (exact residue-one table).**
+\[
+\begin{array}{r|r|r|r|r|r|r|c}
+T&M(T)&k&p=1+kM(T)&W(p)&W-T&a_1&
+ {\log p\over5.2\log M(T)}\\ \hline
+15&360360&12&4324321&23&8&3&0.229656\\
+19&232792560&1&232792561&183&164&27&0.192308\\
+23&5354228880&2&10708457761&47&24&7&0.198258\\
+27&80313433200&5&401567166001&71&44&7&0.204634
+\end{array}                                                \tag{67.6}
+\]
+The last column only compares logarithmic sizes with the bare
+\(M(T)^{5.2}\) scale in (54.3); it omits the unknown effective constant
+\(C_0\) and is not a sharpened Linnik estimate.  Theorem 54.1's guaranteed
+\(W>T\) is strict in all four rows.  Three excesses are 8, 24, and 44, while
+the first prime for \(T=19\) is the conspicuous finite outlier
+\(W-T=164\).  Thus the first residue-one prime need not resolve close to the
+forced cutoff.  The small \(k\)'s also place all four examples enormously
+below the generic Linnik ceiling; that is arithmetic luck in these four
+progressions, not an improvement to (54.3).
+
+### 67.3 A deliberately fragile record-spacing model
+
+**Heuristic 67.1 (calibrated independent-hit Poisson model).**  For eligible
+\(M\), let \({\cal C}_M\) be the harvested residue set in (65.1), and let
+\(u_M\) be the proportion of reduced residues modulo \(M\), compatible with
+\(p\equiv1\pmod {24}\), which lie in \({\cal C}_M\).  The raw model treats
+all modulus hits as independent--equivalently, it suppresses the shared-
+\(p\), shared-factor, and cross-\(a\) dependencies in the dual frame--and
+uses
+\[
+ P_{\rm raw}(W>T)=\prod_{\substack{M\leq T\\M\equiv3(4)}}(1-u_M).
+                                                               \tag{67.7}
+\]
+At \(T=2495\), direct class enumeration gives
+\[
+ -\log P_{\rm raw}=20.522039,
+ \qquad P_{\rm raw}=1.222902\cdot10^{-9}.                 \tag{67.8}
+\]
+This raw value visibly understates the finite tail.  To absorb dependence
+without pretending to derive it, replace it by
+\(P_\beta=P_{\rm raw}^{\,\beta}\).  Calibration against the complete §65
+census gives:
+\[
+\begin{array}{r|r|c}
+T&\#\{p<10^8:W(p)>T\}&
+ \beta={\log(\# /719781)\over\log P_{\rm raw}(W>T)}\\ \hline
+255&421&0.871712\\
+383&109&0.863214\\
+511&45&0.844367\\
+639&16&0.852878\\
+767&8&0.846176
+\end{array}                                                \tag{67.9}
+\]
+The central choice \(\beta=0.85\) is therefore a finite calibration, not an
+estimated constant of nature.  As a separate dependence warning, multiplying
+the six uniform-\(h\) failure frequencies in (62.18) gives 0.002025, whereas
+the hard-prime census has \(361/82887=0.004355\) rows with \(a_1>23\).
+Those populations are not identical, so even this factor-of-two discrepancy
+is diagnostic only.
+
+At 2495 the calibrated per-prime probability is
+\(P_{0.85}=2.6563\cdot10^{-8}\).  Keeping it fixed across the next decade
+and using one eighth of the ordinary-prime count as the future hard-prime
+population gives the requested spacing estimate:
+\[
+\begin{array}{c|c|c|c|c}
+p\text{ interval}&\#\text{ hard primes used}&
+ E\#\{W>2495\}&\beta\in[0.80,0.90]&\text{observed}\\ \hline
+(10^7,10^8)&636894&0.0169&[0.0061,0.0472]&0\\
+(10^8,10^9)&5.636\cdot10^6\ \text{(PNT)}&0.1497&[0.0537,0.4177]&--
+\end{array}                                                \tag{67.10}
+\]
+The model assigns probability \(e^{-0.0169}=0.9832\) to the observed zero
+in the first interval.  This says only that the stall is consistent with
+this calibrated toy model.  Independence is false in detail, the calibration
+range stops at 767, the extrapolation crosses an unobserved tail, the future
+population is only a prime-number-theorem estimate, and selection of the old
+record is ignored.  **Nothing about a tail density, a next-record location,
+or a growth law is inferred.**
+
+### 67.4 The empirical exponent and the eventual window
+
+For a finite row put
+\[
+                     A_{\rm emp}(p)={\log W(p)\over\log\log p}. \tag{67.11}
+\]
+This is the exponent that makes \(W(p)=(\log p)^{A_{\rm emp}(p)}\) at that
+single prime; it is not a fitted population exponent.
+
+**Computational 67.3 (all 15 strict records; exact inputs).**
+\[
+\begin{array}{r|r|c@{\qquad}r|r|c}
+p&W&A_{\rm emp}&p&W&A_{\rm emp}\\ \hline
+73&7&1.336115&167521&259&2.234072\\
+193&15&1.630725&225289&279&2.242045\\
+1201&31&1.753095&361321&287&2.220056\\
+2521&47&1.870574&915961&303&2.181299\\
+3361&99&2.194077&954409&335&2.217096\\
+33289&155&2.152501&1853329&383&2.228161\\
+90841&167&2.101766&2031121&2495&2.923244\\
+144169&191&2.122345&&&
+\end{array}                                                \tag{67.12}
+\]
+
+**Assessment 67.1 (the honest \(A\)-window).**  The precise hypothesis is
+(51.19): \(H_{\rm MOD}(A)\) asks for
+\(W(p)\leq(\log p)^A\) for every *sufficiently large* prime.  Section 54
+refutes every \(A<1\), while every \(A\geq1\) remains open.  Consequently
+the phrase ``\(1\leq A\lesssim2\) honest open window'' in §56.5 has two
+registers: \(A\geq1\) is the exact eventual hypothesis frontier, whereas
+\(\lesssim2\) names only the old finite normalization panel and is not an
+upper frontier.  The one early value \(A_{\rm emp}(2031121)=2.923244\) is
+ignored by every sufficiently-large quantifier, and §65.4 shows that every
+later dyadic normalized block remains below that record through \(10^8\).
+Those two facts are consistent with eventual \(\limsup A_{\rm emp}\) equal
+to 1, equal to any larger finite value, or unbounded; they select none of
+these possibilities.
+
+Accordingly PROJECT.md Outcome 24's informal ``sup conjecturally
+\(\asymp\log^{1..2}\)'' should be read with the §56.5/§65/§67 finite-window
+caveat: the point \(2031121\) lies above exponent 2, and no eventual upper
+exponent is known.  This is a caveat pointer, not a change to an older
+result.
+
+### 67.5 Verification and scope
+
+**Computational 67.4.**  Block (bn) rebuilds every displayed top-ten minimum,
+small-\(a\) spectrum, purity depth, and four-shift factorization with Python
+integers.  It recomputes the top three \(a_1\)'s and depths rather than merely
+checking stored witnesses, exhausts the least-prime searches for \(T=15,19\),
+replays all four residue-one rows, checks every value in (67.12), and performs
+seeded dual/class spot checks.  It also rebuilds (67.7)--(67.10).  The full
+\(p<10^8\) ranking and calibration counts are gated by
+`ES_FULL_SCAN=1` and use the memory-bounded, shrinking-survivor census of
+`scripts/review65_independent.py`; default mode checks the displayed primes
+but does not claim to rescan their ranking.  All divisor paths use Python
+integers, and only one shifted factorization/divisor list is live at a time.
+On the research host the isolated block took 0.234 seconds by default and
+1.33 seconds with `ES_FULL_SCAN=1`; the complete default suite finished green
+in 217.69 seconds under the 600-second timeout.
