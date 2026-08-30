@@ -81,6 +81,63 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 32 (2026-08-30, wave 28 — see notes.md §66–§68 + paper v14; all max-severity-reviewed → repaired / FAITHFUL)
+
+* **§66: twisted-family escape cylinders (SOUND-AFTER-MINOR-REPAIRS;
+  censuses + hunt independently replayed).**  Proved: {m : W(sm²) ≤ T}
+  is a union of residue classes mod L(T) = lcm{M ≡ 3 (4), M ≤ T}, with
+  **log L(T) = (2/3 + o(1))T** (review re-derived: 1/2 from 3-mod-4
+  primes + 1/6 from 1-mod-4 primes through T/3); since W(2·12²) = ∞,
+  the whole class m ≡ 12 (mod L(T)) escapes depth T — so
+  **limsup_m W(2m²) = +∞** (density ≥ 1/L(T)); same for 21m² (anchor
+  4) and 505m² (anchor 3).  Corollary: family-level certificate ceiling
+  — no finite set of harvested congruence laws decides C_SQ′ even on
+  {2m²}; any classification proof must be non-covering.  **Anchored
+  polynomial-identity obstruction (proved):** no polynomial witness
+  family (any degree) covers a class through the anchor — the congruence
+  transfers to t = 0 against W(288) = ∞; forward rays honestly scoped as
+  NOT obstructed (positivity/eligibility need not extend backward —
+  review repair).  54,990-candidate hunt: zero identities.  Censuses to
+  m ≤ 2000 (caps stated): only the three anchors unresolved; maxima
+  W(2·1530²) = 4019, W(21·851²) = 695, W(505·1239²) = 479.  Verify
+  (bm).
+* **§67: record-stall anatomy (SOUND-AFTER-REPAIRS).**  All top-10
+  census primes pass the D=1 purity gate (p+4 free of 3-mod-4 primes);
+  exhaustive purity depth does NOT rank W (2031121 has depth 28, others
+  1–14; τ repaired to an integer supremum allowing +∞; τ(193) = ∞).
+  Residue-one empirics (T, p, W, W−T): (15, 4324321, 23, 8),
+  (19, 232792561, 183, 164), (23, 10708457761, 47, 24),
+  (27, 401567166001, 71, 44) — the §54.1 guarantee W > T is loose at
+  T = 19.  Heuristic record-spacing (toy, all inputs displayed,
+  explicitly no-evidence): expected #{W > 2495} ≈ 0.017 in (10⁷, 10⁸)
+  — observed 0 is unremarkable — and ≈ 0.15 in (10⁸, 10⁹).
+  A_emp(2031121) = 2.9232; the honest frontier restated: **A < 1
+  refuted, every A ≥ 1 open** (PROJECT.md's old '[1, ~2] window'
+  wording repaired — review — to finite-normalization gloss only).
+  Verify (bn).
+* **§68: external — the 2025 Pomerance–Weingartner exceptions paper
+  (arXiv:2511.16817v2; confirmed-after-repairs, source-bounded).**
+  Discovery: our sources/pomerance-weingartner-2025.pdf IS v1 of this
+  paper (arXiv regenerated; numbering unchanged).  v2 archived with
+  SHA-256 + provenance; full reading audit in reviews/.  Their results:
+  Schinzel exceptions n_m ≥ exp(m^{1/3+o(1)}); explicit prime
+  exceptions p ∈ (m², 2m²) for m ≥ 6.52×10⁹ (conjecturally m ≥ 20);
+  explicit-in-m Vaughan bound at exactly the 2/3 exponent for
+  4 ≤ m ≤ log²N.  **Priority verdicts: no threat to Theorems 39.7,
+  43.12, 51.2/51.6** (no m = 4 bound beyond 2/3, no effectivity, no
+  witness-modulus statistic, no Dahan citation); crossover algebra
+  (68.6) re-derived; consistency: their exception regimes lie outside
+  §43/§55's stated ranges (review repaired one overbroad '§55' blanket
+  — the asymptotic regime can enter §55 at fixed B > 3 but both tail
+  masses vanish; no contradiction).  Two adjacent refs newly registered
+  (Gottschlich, Nakayama) — no priority impact.  Vaughan 1970: five
+  accurate secondary descriptions extracted (method + statement);
+  access log updated (HathiTrust/zbMATH checked — no full text).
+  Verify (bo).
+* **paper v14 (133pp, FAITHFUL-AFTER-REPAIRS):** §63–§65 absorbed as
+  Sections 25–27 (sporadic ledger triples restored, box-scope caveat
+  added in review); v15 queue = §66–§68.
+
 ## Outcome 31 (2026-08-30, wave 27 — see notes.md §63–§65 + paper v13; all max-severity-reviewed → repaired / FAITHFUL)
 
 * **§63: the algebraic-witness taxonomy in the dual frame
