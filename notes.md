@@ -23124,3 +23124,451 @@ No residual mathematical doubt was found in §60.  As throughout the chapter,
 identifying witness data with the statistic \(W\) uses the already-proved
 Lemma 18.1/(58.3) harvested-family equivalence; nothing here upgrades that
 family to all possible Egyptian-fraction decompositions.
+
+
+---
+
+## 61. The decidable census: the complete \(W=+\infty\) set in bounded ranges, the twisted-square law, and the prime criterion
+
+**Status and headline.**  The forward normal-form sieve, the exact
+specializations, and the prime criterion below are **proved**.  The bounded
+censuses and tables are **Computational**, exact only in their displayed
+ranges.  The default complete census reaches \(n\leq200000\); its only
+nonsquare values with \(W=+\infty\) are
+
+\[
+                         288,\qquad336,\qquad4545.          \tag{61.1}
+\]
+
+Thus Conjecture \(C_{\rm SQ}'\), (60.22), survives this stress test; it is
+not proved.  Every integer has a unique form \(sm^2\) with \(s\) squarefree,
+so calling the three values twisted squares is a coordinate description,
+not by itself a mechanism.  Their squarefree kernels and multipliers are
+\((s,m)=(2,12),(21,4),(505,3)\).
+
+### 61.1 A forward form of the finite decision and the complete census
+
+The normal form can be run in the opposite direction without scanning a
+quadratic interval of moduli.
+
+**Lemma 61.1 (forward normal-form sieve; proved).**  Fix \(X\geq1\).  Every
+witness datum for some \(n\leq X\), and no false datum, occurs among
+
+\[
+ \begin{gathered}
+ 1\leq g\leq\lfloor(X+1)/3\rfloor,
+ \qquad 1\leq v\leq\left\lfloor {X+g\over4g-1}\right\rfloor,\\
+ d\mid g,\qquad u\mid d+v,\qquad (u,v)=1,\\
+ a={d+v\over u},\qquad n=4gv-a,\qquad M=4gu-1.            \tag{61.2}
+ \end{gathered}
+\]
+
+Consequently, marking every resulting \(n\leq X\), while retaining its
+least \(M\), decides \(W(n)\) simultaneously for all \(n\leq X\).
+
+*Proof.*  Equations (60.7)--(60.8) give
+\(a=(d+v)/u\), \(n=4gv-a\), and \(M=4gu-1\), so every tuple in (61.2)
+is a canonical datum.  It has \(a\leq d+v\leq g+v<4gv\), hence \(n>0\).
+Conversely every datum has \(g\leq\lfloor(n+1)/3\rfloor\) by (60.9), and
+\[
+             n=4gv-{d+v\over u}\geq4gv-g-v.
+\]
+Thus \(g\leq\lfloor(X+1)/3\rfloor\) and
+\((4g-1)v\leq X+g\), exactly the bounds in (61.2).  Also
+\(gv\geq g+v-1\), so this last inequality gives
+\(g+v\leq\lfloor(X+4)/3\rfloor=\lfloor(X+1)/3\rfloor+1\);
+this is the divisor-table bound used in block (bh).  The remaining
+conditions are the canonical normal form. \(\square\)
+
+The number of \((g,v)\) pairs is hyperbolic, of order \(X\log X\), rather
+than \(X^2\).  This makes a census larger than the proposed direct
+\(a\)-by-\(n\) scan practical while preserving an exhaustive certificate.
+
+**Computational 61.1 (complete bounded \(W=+\infty\) census).**
+`verify.py (bh)` applies Lemma 61.1 with Python integers throughout.  The
+exact results are
+
+\[
+\begin{array}{r|r|r|l|r|r}
+X&\#\{n\leq X:W(n)=+\infty\}&\#\text{ squares}&
+ \text{nonsquares}&(g,v)\text{ pairs}&(g,v,d,u)\text{ tests}\\ \hline
+200000&450&447&288,336,4545&599581&24246108\\
+1000000&1003&1000&288,336,4545&3400244&173713414
+\end{array}                                                \tag{61.3}
+\]
+
+The first row is the default committed range.  The second is reproduced
+only with `ES_FULL_SCAN=1`; it streams tuples and retains only the divisor
+sieve and the least-\(W\) array, staying memory-bounded.  Thus the headline
+answer is exactly three nonsquare escapes through \(200000\) by default and
+through \(10^6\) in the optional scan.  This is finite evidence for
+\(C_{\rm SQ}'\), not evidence that its exceptional list is complete
+unboundedly.
+
+For an independent overlap, block (bh) also harvests the original
+\((M,D)\) side through \(M=100351\), tests 1074878 Python-integer divisor
+values and 73105 incidences, and compares every \(n\leq3000\).  It finds
+exactly the 54 squares and \(288,336\) unresolved.  Every other nonsquare
+has an explicit least datum, while the two sporadics have been scanned
+through their exact ceilings in (60.19); Theorem 58.1 supplies the square
+side.  The resulting complete classification agrees with (61.2), including
+every finite least \(W\), not merely the survivor count.
+
+### 61.2 The exact twisted-square criterion
+
+The character filter of Lemma 59.7 and the finite duality combine without
+losing the cancellation branch.
+
+**Theorem 61.2 (finite twisted-square vanishing criterion; proved).**  Let
+\(s>1\) be squarefree, \(m\geq1\), \(n=sm^2\), and
+\(B=\lfloor(n+1)/3\rfloor\).  Then \(W(sm^2)=+\infty\) if and only if the
+following finite set is empty:
+
+\[
+ \begin{split}
+ \mathcal F_{s,m}=\{(a,D):\;&1\leq a\leq2B,
+     \ a\equiv-sm^2\pmod4,
+     \ h=(sm^2+a)/4,\\
+   &D\mid h^2,\quad a\mid D+h,\quad
+     D\mid((D+h)/a)^2\}.                                  \tag{61.4}
+ \end{split}
+\]
+
+For every row, with \(A=(D+h)/a\) and \(M=4A-1\), one automatically has
+
+\[
+ (M,sm)=1,
+ \qquad \left({s\over M}\right)=-1,
+ \qquad s\nmid D,
+ \qquad (a,D)\mid sm^2.                                  \tag{61.5}
+\]
+
+Thus the first three conditions in (61.5) are sound early filters, but the
+last test in (61.4) may be deleted only when \((a,D)=1\).
+
+*Proof.*  The equivalence and finite bound are Theorem 60.1 with
+\(n=sm^2\).  Lemma 59.7 gives the first three necessary conditions in
+(61.5), and (60.5) gives the gcd assertion and the exact uncancelled
+eligibility test.  No parity case is omitted: (61.4) retains all powers of
+2 in \(D\). \(\square\)
+
+The three sporadics do not share a coarse local signature:
+\[
+\begin{array}{c|c|c|c|c|c}
+(s,m)&s\bmod24&\omega(s)&\gcd(s,m)&\#\{a\text{ classes}\}&
+ \text{gcds of filtered near misses}\\ \hline
+(2,12)&2&1&2&48&9\ (4\text{ times})\\
+(21,4)&21&2&1&56&3,4,6,7,8,14,16,24,28,48,112\\
+(505,3)&1&2&1&757&5,9,15,45,101,303,909
+\end{array}                                                \tag{61.6}
+\]
+Here \(\omega\) counts distinct prime factors.  Block (bh) pins the complete
+gcd multiplicity distributions; their supports are displayed only
+to show that neither \(s\bmod24\), factor count, \((s,m)\), nor one fixed
+gcd explains all three.  What they do share is exact and narrower: the
+quotient congruence has near misses, every character-filtered near miss has
+\((a,D)>1\), and every one dies in the uncancelled eligibility test.  This
+is a finite diagnosis, not a family theorem.  In particular \(m=24,36,48\)
+in the \(s=2\) family are witnessed, so the escape at \(m=12\) is not a
+``multiple of 12'' law.
+
+There is nevertheless an exact infinite low-modulus law in that family.
+
+**Theorem 61.3 (the first layers for \(2m^2\); proved).**  For every
+\(m\geq1\),
+
+\[
+\begin{array}{ll}
+W(2m^2)=3
+ &\Longleftrightarrow 3\nmid m,\\
+W(2m^2)=11
+ &\Longleftrightarrow 3\mid m\ \text{ and }\
+ m\bmod11\in\{\mathord\pm2,\mathord\pm3,\mathord\pm4\}. \tag{61.7}
+\end{array}
+\]
+
+Moreover, if \(3\mid m\), the second residue condition fails, and
+\[
+ m\bmod19\in\{\mathord\pm3,\mathord\pm6,\mathord\pm8\},  \tag{61.8}
+\]
+then \(W(2m^2)=19\).
+
+*Proof.*  At \(M=3\), \(A=D=1\), and
+\(3\mid2m^2+4\) exactly when \(3\nmid m\).  If this fails, the moduli below
+11 are 3 and 7; Lemma 59.7 excludes 7 because \((2/7)=1\).  At \(M=11\),
+\(A=3\) and \(D\in\{1,3,9\}\).  The three congruences
+\(m^2\equiv-2D\pmod {11}\) give exactly the six residues in (61.7).
+If those fail, the only additional modulus below 19 is 15, excluded by
+\((2/15)=1\).  At \(M=19\), \(A=5\) and
+\(D\in\{1,5,25\}\); the corresponding square roots are exactly the six
+residues in (61.8). \(\square\)
+
+This theorem constructs many witnesses but does not classify vanishing in
+the remaining residue classes.  In particular it does not prove that
+\(m=12\) is the only escape in the \(s=2\) family.
+
+**Computational 61.2 (complete twisted-square box).**  Block (bh) computes
+the exact least \(W(sm^2)\) for every squarefree \(2\leq s\leq200\) and
+\(1\leq m\leq30\), a total of 3630 entries.  Only
+
+\[
+                    (s,m)=(2,12),(21,4)                   \tag{61.9}
+\]
+
+vanish in this box.  Across the 3628 finite entries, the most frequent least
+values are
+\[
+\begin{array}{c|rrrrrrrrrrrr}
+W&3&7&11&15&19&23&31&35&39&43&47&55\\
+\#&940&1064&449&154&177&334&86&31&51&30&104&24
+\end{array}                                                \tag{61.10}
+\]
+The remaining 184 entries have \(W\) between 59 and 727.  The grouped
+codebook below is the full table: each left-hand group of \(s\)'s has the
+same row, entries are ordered by \(m=1,\ldots,30\), and `I` means
+\(+\infty\).  Block (bh) pins all entries by a SHA-256 digest in addition
+to the histogram and per-\(s\) vanishing sets.
+
+```text
+2 : 3,3,11,3,3,19,3,3,11,3,3,I,3,3,11,3,3,11,3,3,59,3,3,11,3,3,19,3,3,11
+3 : 7,7,7,7,7,7,19,7,7,7,7,7,7,19,7,7,7,7,7,7,67,7,7,7,7,7,7,19,7,7
+5,17,83,143 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,23,3,3,7,3,3,7,3,3,7
+6 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,79,7,7,7,7,7,7,11,7,7
+7 : 11,15,11,15,11,11,15,11,23,11,15,11,15,11,23,11,11,43,11,23,11,15,11,23,11,15,11,11,15,11
+10 : 7,7,7,7,7,7,19,7,7,7,7,7,7,99,7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7
+11 : 3,3,23,3,3,103,3,3,23,3,3,23,3,3,47,3,3,23,3,3,23,3,3,23,3,3,23,3,3,23
+13 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,19,7,7,7,7,7,7,15,7,7
+14 : 3,3,23,3,3,23,3,3,23,3,3,23,3,3,19,3,3,19,3,3,19,3,3,127,3,3,23,3,3,23
+15 : 19,31,23,23,19,23,23,23,19,19,23,23,47,19,23,23,23,19,23,19,47,23,31,19,47,23,23,19,19,23
+19,195 : 7,7,7,7,7,7,11,7,7,7,7,7,7,23,7,7,7,7,7,7,11,7,7,7,7,7,7,23,7,7
+21 : 11,11,19,I,11,11,23,19,11,11,19,11,11,23,23,11,11,23,71,11,11,19,11,11,19,31,11,11,23,19
+22 : 15,15,35,15,19,23,15,15,19,19,15,19,15,15,47,15,15,23,15,31,23,15,15,19,23,15,23,15,15,23
+23 : 3,3,35,3,3,35,3,3,47,3,3,47,3,3,31,3,3,35,3,3,59,3,3,47,3,3,31,3,3,31
+26 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,31,3,3,7,3,3,7,3,3,7
+29 : 3,3,11,3,3,11,3,3,47,3,3,11,3,3,31,3,3,47,3,3,11,3,3,55,3,3,11,3,3,11
+30 : 11,11,23,11,47,23,11,23,11,11,23,11,11,23,11,23,23,11,23,11,11,23,11,11,47,11,23,43,11,23
+31 : 7,7,7,7,7,7,19,7,7,7,7,7,7,19,7,7,7,7,7,7,47,7,7,7,7,7,7,59,7,7
+33 : 7,7,7,7,7,7,23,7,7,7,7,7,7,79,7,7,7,7,7,7,19,7,7,7,7,7,7,23,7,7
+34 : 7,7,7,7,7,7,23,7,7,7,7,7,7,19,7,7,7,7,7,7,23,7,7,7,7,7,7,19,7,7
+35 : 3,3,11,3,3,71,3,3,11,3,3,47,3,3,11,3,3,11,3,3,83,3,3,11,3,3,47,3,3,11
+37 : 15,15,23,15,103,23,15,15,19,19,15,23,15,15,23,15,15,19,15,19,19,15,15,31,23,15,23,15,15,23
+38 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,215,3,3,7,3,3,7,3,3,7
+39 : 43,47,11,11,11,11,11,11,55,47,43,47,47,11,11,11,11,11,11,47,43,43,47,47,11,11,11,11,11,11
+41,62,131,173,194 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,11,3,3,7,3,3,7,3,3,7
+42 : 23,23,23,59,23,23,23,23,23,31,23,23,31,23,23,23,23,23,59,23,23,23,55,23,23,23,59,23,23,23
+43 : 11,11,23,15,11,11,15,15,11,11,15,11,11,15,23,11,11,23,15,11,11,15,11,11,23,15,11,11,15,59
+46 : 31,11,11,11,39,47,11,11,11,39,19,47,11,11,11,19,39,11,11,11,223,19,19,11,11,11,19,47,11,11
+47 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,55,3,3,7,3,3,7,3,3,7
+51 : 11,19,11,19,11,11,23,11,95,11,19,11,23,11,19,11,11,23,11,23,11,71,11,71,11,23,11,11,23,11
+53 : 3,3,23,3,3,23,3,3,19,3,3,23,3,3,23,3,3,19,3,3,31,3,3,19,3,3,23,3,3,23
+55 : 7,7,7,7,7,7,31,7,7,7,7,7,7,31,7,7,7,7,7,7,127,7,7,7,7,7,7,31,7,7
+57 : 23,11,11,11,23,47,11,11,11,23,23,23,11,11,11,23,35,11,11,11,23,23,103,11,11,11,23,23,11,11
+58 : 15,15,35,15,727,35,15,15,47,59,15,55,15,15,31,15,15,35,15,39,95,15,15,95,39,15,31,15,15,31
+59,110 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,127,3,3,7,3,3,7,3,3,7
+61 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,59,7,7,7,7,7,7,11,7,7
+65 : 3,3,19,3,3,11,3,3,11,3,3,11,3,3,19,3,3,23,3,3,11,3,3,11,3,3,11,3,3,19
+66 : 7,7,7,7,7,7,79,7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7
+67 : 15,15,19,15,23,19,15,15,23,23,15,19,15,15,23,15,15,23,15,167,23,15,15,23,19,15,419,15,15,23
+69 : 7,7,7,7,7,7,19,7,7,7,7,7,7,19,7,7,7,7,7,7,59,7,7,7,7,7,7,47,7,7
+70 : 39,19,71,19,39,71,39,19,47,39,19,47,79,39,19,39,19,71,39,39,19,43,19,47,39,71,19,47,39,19
+71 : 3,3,107,3,3,107,3,3,43,3,3,95,3,3,19,3,3,19,3,3,19,3,3,95,3,3,95,3,3,119
+73 : 7,7,7,7,7,7,15,7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7
+74 : 3,3,23,3,3,23,3,3,11,3,3,11,3,3,11,3,3,11,3,3,11,3,3,11,3,3,23,3,3,23
+77 : 3,3,47,3,3,47,3,3,79,3,3,47,3,3,31,3,3,79,3,3,47,3,3,47,3,3,31,3,3,31
+78 : 47,35,19,35,47,19,47,19,55,47,19,35,19,55,67,19,55,55,55,47,47,19,35,35,19,47,19,55,71,19
+79 : 23,11,11,11,19,23,11,11,11,19,87,19,11,11,11,23,23,11,11,11,23,23,67,11,11,11,23,19,11,11
+82 : 7,7,7,7,7,7,15,7,7,7,7,7,7,15,7,7,7,7,7,7,43,7,7,7,7,7,7,15,7,7
+85 : 11,11,71,11,39,79,11,31,11,11,47,11,11,47,11,31,39,11,39,11,11,39,11,11,47,11,31,47,11,31
+86 : 3,3,19,3,3,19,3,3,23,3,3,19,3,3,23,3,3,23,3,3,23,3,3,23,3,3,23,3,3,79
+87 : 7,7,7,7,7,7,95,7,7,7,7,7,7,95,7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7
+89,146,185 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,19,3,3,7,3,3,7,3,3,7
+91 : 19,23,95,23,19,23,23,31,19,19,23,23,23,19,31,23,23,19,23,19,23,23,31,19,23,107,23,19,19,23
+93 : 35,47,35,47,47,35,43,47,55,47,71,47,59,43,59,55,35,35,47,47,127,59,47,47,43,79,47,47,35,71
+94 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,19,7,7,7,7,7,7,11,7,7
+95 : 3,3,11,3,3,11,3,3,107,3,3,11,3,3,167,3,3,107,3,3,11,3,3,119,3,3,11,3,3,11
+97,103,157 : 7,7,7,7,7,7,15,7,7,7,7,7,7,15,7,7,7,7,7,7,23,7,7,7,7,7,7,15,7,7
+101 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,59,3,3,7,3,3,7,3,3,7
+102 : 23,23,23,23,23,23,23,23,95,23,71,35,23,55,23,23,23,23,23,23,23,23,35,23,23,23,23,23,23,23
+105 : 47,47,11,11,11,11,11,11,47,71,47,19,19,11,11,11,11,11,11,43,227,19,43,31,11,11,11,11,11,11
+106 : 11,23,11,23,11,11,23,11,23,11,23,11,23,11,23,11,11,31,11,23,11,31,11,43,11,23,11,11,23,11
+107 : 3,3,23,3,3,19,3,3,11,3,3,11,3,3,11,3,3,11,3,3,11,3,3,11,3,3,23,3,3,23
+109 : 11,11,23,19,11,11,39,23,11,11,23,11,11,23,19,11,11,19,23,11,11,23,11,11,23,23,11,11,39,47
+111,159 : 7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7
+113 : 3,3,47,3,3,23,3,3,19,3,3,23,3,3,23,3,3,19,3,3,19,3,3,23,3,3,43,3,3,23
+114 : 23,23,47,23,23,23,23,47,23,23,23,23,23,23,47,23,23,23,23,31,23,23,103,23,23,31,23,23,23,23
+115 : 7,7,7,7,7,7,39,7,7,7,7,7,7,39,7,7,7,7,7,7,31,7,7,7,7,7,7,39,7,7
+118 : 7,7,7,7,7,7,11,7,7,7,7,7,7,15,7,7,7,7,7,7,11,7,7,7,7,7,7,15,7,7
+119 : 3,3,43,3,3,67,3,3,31,3,3,139,3,3,167,3,3,31,3,3,31,3,3,143,3,3,215,3,3,179
+122 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,71,3,3,7,3,3,7,3,3,7
+123 : 31,11,11,11,239,43,11,11,11,167,47,43,11,11,11,31,47,11,11,11,71,35,31,11,11,11,31,47,11,11
+127 : 15,15,11,11,11,11,11,11,35,71,15,31,15,11,11,11,11,11,11,71,19,15,15,31,11,11,11,11,11,11
+129 : 7,7,7,7,7,7,11,7,7,7,7,7,7,19,7,7,7,7,7,7,11,7,7,7,7,7,7,19,7,7
+130 : 23,71,23,23,23,23,23,23,23,271,23,23,71,23,23,23,23,23,23,23,239,23,119,23,31,23,23,23,23,23
+133 : 15,15,47,15,47,47,15,15,55,47,15,47,15,15,71,15,15,55,15,47,47,15,15,47,71,15,47,15,15,71
+134 : 3,3,11,3,3,23,3,3,11,3,3,23,3,3,11,3,3,11,3,3,23,3,3,11,3,3,479,3,3,11
+137 : 3,3,47,3,3,23,3,3,23,3,3,23,3,3,79,3,3,23,3,3,23,3,3,23,3,3,23,3,3,23
+138 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,335,7,7,7,7,7,7,11,7,7
+139 : 7,7,7,7,7,7,47,7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7
+141 : 59,71,19,19,43,31,31,19,119,43,19,31,95,31,19,19,31,59,31,59,59,19,19,31,31,71,19,31,119,19
+142 : 11,11,59,15,11,11,15,15,11,11,15,11,11,15,119,11,11,59,15,11,11,15,11,11,119,15,11,11,15,119
+145 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,31,7,7,7,7,7,7,39,7,7
+149,182 : 3,3,11,3,3,11,3,3,23,3,3,23,3,3,11,3,3,11,3,3,23,3,3,23,3,3,11,3,3,11
+151 : 11,11,47,11,39,47,11,31,11,11,39,11,11,39,11,31,19,11,59,11,11,39,11,11,39,11,31,19,11,31
+154 : 31,31,19,31,47,19,39,19,79,39,19,47,19,39,31,19,47,79,39,39,47,19,31,47,19,47,19,39,31,19
+155 : 3,3,23,3,3,127,3,3,19,3,3,19,3,3,23,3,3,23,3,3,23,3,3,19,3,3,23,3,3,167
+158 : 3,3,23,3,3,23,3,3,23,3,3,31,3,3,23,3,3,23,3,3,23,3,3,23,3,3,23,3,3,43
+161 : 3,3,11,3,3,11,3,3,47,3,3,11,3,3,47,3,3,47,3,3,11,3,3,31,3,3,11,3,3,11
+163 : 15,15,35,15,39,35,15,15,47,39,15,199,15,15,43,15,15,35,15,39,55,15,15,119,87,15,47,15,15,143
+165 : 59,19,71,19,59,71,71,19,163,59,19,119,71,71,19,59,19,71,71,223,19,67,19,179,119,71,19,67,59,19
+166 : 7,7,7,7,7,7,23,7,7,7,7,7,7,87,7,7,7,7,7,7,19,7,7,7,7,7,7,23,7,7
+167 : 3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,7,3,3,47,3,3,7,3,3,7,3,3,7
+170 : 3,3,59,3,3,79,3,3,19,3,3,59,3,3,31,3,3,19,3,3,19,3,3,59,3,3,31,3,3,31
+174 : 7,7,7,7,7,7,19,7,7,7,7,7,7,19,7,7,7,7,7,7,47,7,7,7,7,7,7,19,7,7
+177 : 71,55,55,35,31,55,151,35,31,31,31,43,31,151,71,55,167,31,43,31,31,31,71,35,239,31,35,71,55,71
+178 : 7,7,7,7,7,7,11,7,7,7,7,7,7,11,7,7,7,7,7,7,23,7,7,7,7,7,7,15,7,7
+179 : 3,3,19,3,3,31,3,3,47,3,3,31,3,3,19,3,3,43,3,3,59,3,3,31,3,3,19,3,3,19
+181 : 7,7,7,7,7,7,19,7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7
+183 : 11,23,11,23,11,11,19,11,23,11,23,11,19,11,143,11,11,23,11,71,11,23,11,19,11,19,11,11,23,11
+186 : 11,11,55,47,11,11,47,55,11,11,71,11,11,19,71,11,11,19,47,11,11,71,11,11,71,47,11,11,19,71
+187 : 7,7,7,7,7,7,15,7,7,7,7,7,7,15,7,7,7,7,7,7,59,7,7,7,7,7,7,15,7,7
+190 : 39,39,59,39,39,59,59,39,43,83,39,83,43,39,167,127,39,59,103,83,103,39,83,59,39,43,119,39,59,43
+191 : 3,3,23,3,3,23,3,3,23,3,3,23,3,3,23,3,3,199,3,3,499,3,3,23,3,3,23,3,3,23
+193 : 15,15,11,11,11,11,11,11,19,19,15,19,15,11,11,11,11,11,11,39,47,15,15,19,11,11,11,11,11,11
+197 : 3,3,35,3,3,11,3,3,11,3,3,11,3,3,119,3,3,31,3,3,11,3,3,11,3,3,11,3,3,119
+199 : 7,7,7,7,7,7,23,7,7,7,7,7,7,23,7,7,7,7,7,7,31,7,7,7,7,7,7,23,7,7
+```
+
+For the third kernel outside this box, \(s=505\), the first thirty entries
+are
+\[
+\begin{split}
+&(11,11,\infty,23,11,11,23,47,11,11,23,11,11,23,107,\\
+&\hspace{17mm}11,11,23,23,11,11,23,11,11,23,87,11,11,23,23),
+                                                               \tag{61.11}
+\end{split}
+\]
+so only \(m=3\) vanishes there.  Together (61.9)--(61.11) show isolation,
+not a shared congruence family.  The repaired global conjecture remains
+exactly \(C_{\rm SQ}'\): squares and the three values in (61.1), with no
+new supersession warranted by this census.
+
+### 61.3 The hard-prime criterion and the missing third mechanism
+
+For a hard prime the cancellation check disappears, not merely most of the
+time but identically.
+
+**Theorem 61.4 (standalone hard-prime divisor criterion; proved).**  Let
+\(p\equiv1\pmod {24}\) be prime and put
+\(B=\lfloor(p+1)/3\rfloor\).  Then a Type-II witness exists if and only if
+there are
+
+\[
+ 1\leq a\leq2B,\qquad a\equiv3\pmod4,
+ \qquad h={p+a\over4},                                    \tag{61.12}
+\]
+\[
+ D\mid h^2,
+ \qquad D\equiv-h\pmod a.                                \tag{61.13}
+\]
+
+Every such pair gives
+\[
+ A={D+h\over a},\qquad M=4A-1\equiv3\pmod4,
+ \qquad aM=p+4D,                                          \tag{61.14}
+\]
+and \(D\mid A^2\) automatically.  Moreover
+\[
+ W(p)=\min_{(a,D)\text{ satisfying }(61.12)-(61.13)}
+              \left(4{D+h\over a}-1\right),              \tag{61.15}
+\]
+with the minimum of the empty set interpreted as \(+\infty\).
+
+*Proof.*  Theorem 60.1 gives necessity, the bound, and all formulas.  If a
+pair satisfies (61.12)--(61.13), then any common divisor of \(a,D\) also
+divides \(h\), hence divides \(4h-a=p\).  But \(a<p\) by (60.9), so
+\((a,D)=1\).  The cancellation identity (60.5) now gives \(D\mid A^2\),
+making the pair sufficient.  Minimizing its modulus gives (61.15).
+\(\square\)
+
+The same proof works for every odd prime, with
+\(a\equiv-p\pmod4\); the hard class is stated because it is the unresolved
+pointwise frontier.  It also proves the following precise asymmetry.
+
+**Corollary 61.5 (two known escape mechanisms are unavailable for primes;
+proved).**  An odd prime is not in the square family of Theorem 58.1, and no
+prime candidate passing the quotient congruence can be killed by the
+cancellation/gcd failure in (60.5).  Therefore, if an odd prime had
+\(W(p)=+\infty\), every divisor of every \(h^2\) in its finite range would
+have to avoid the single class \(-h\pmod a\).
+
+This does **not** prove that a prime cannot fail.  **Assessment 61.1.**  The
+squares fail by a global quadratic-character obstruction.  The three known
+nonsquare failures reach the quotient stage only in noncoprime branches and
+then fail uncancelled eligibility.  Corollary 61.5 removes both diagnosed
+mechanisms for primes, so a prime failure would require a third mechanism:
+complete quotient-class avoidance across all the varying \((a,h)\).  The
+word ``third'' classifies the mechanisms currently exhibited; it is not a
+theorem that every possible obstruction has been classified.
+
+This is the pointwise form of the localization problem behind
+\(H_{\rm EQ}\) in §57.  A prime with \(W=+\infty\) would lie in every finite
+complete avoider \({\cal C}_T\), while (61.12)--(61.13) says pointwise that
+its entire finite divisor system has zero hits.  The fair-share hypothesis
+would control such residue concentration statistically.  The finite
+criterion supplies no such distribution theorem, because \(h=(p+a)/4\)
+and its divisors vary with \(p\).
+
+**Heuristic 61.1 (divisor-chance mass, not independence).**  Define
+\[
+ R(p)=\sum_{a}\tau(h^2),\qquad
+ E(p)=\sum_a{\tau(h^2)\over a},                            \tag{61.16}
+\]
+where \(a\) runs through (61.12).  There are about \(p/6\) admissible
+\(a\)-values.  Treating each divisor residue as uniform would make \(E(p)\)
+the expected quotient-row count.  Divisors of squares are neither uniform
+nor independent, so this is only a mass diagnostic.  For comparison, the
+three composite sporadics had heuristic masses
+\(13.266827,15.617351,49.909726\), but had 43, 65, 188 exact quotient rows;
+gcd eligibility killed all of them.  For a prime every exact quotient row
+is already a witness.
+
+**Computational 61.3 (late hard-prime replay).**  Block (bh) exhausts the
+prime criterion, not merely a modulus cutoff, for three record primes from
+(56.10)--(56.11).  The \(E(p)\) column is rounded to six decimals; all
+integer columns are exact:
+
+\[
+\begin{array}{r|r|r|r|r|r|r|r}
+p&R(p)&E(p)&\#\text{ quotient rows}&W(p)&a&D&h\\ \hline
+954409&11465930&192.502348&62&335&2855&504&239316\\
+1853329&24242528&247.180398&112&383&4839&2&464542\\
+2031121&26874324&222.590291&36&2495&815&576&507984
+\end{array}                                                \tag{61.17}
+\]
+
+Each last quadruple satisfies (61.12)--(61.14), and exhaustive minimization
+in (61.15) gives the displayed \(W\).  The last prime is literally in the
+§54 residue-one construction at depth 10:
+\(2031121\equiv1\pmod {M(10)}\), with \(M(10)=2520\).  Theorem 54.1
+therefore proves only \(W(2031121)>10\), not the observed value 2495.  Its
+late resolution uses \(a=815\), \(D=576\), and \(h\) just above \(p/4\);
+only 36 quotient rows survive among more than 26 million divisor trials.
+The other record rows have different \(a,D\).  This small sample illustrates
+how residue-one lower-tail forcing and eventual dual resolution coexist; it
+supports no asymptotic law.
+
+### 61.4 Verification and scope
+
+`verify.py (bh)` checks the complete forward census, the independent
+original-side overlap, all 3630 twisted-square values and the \(s=505\)
+control, and the three exhaustive prime-criterion replays.  The default
+block is memory-bounded and uses no fixed-width products.  The million-point
+census is behind `ES_FULL_SCAN=1`.
+
+The census found no new nonsquare sporadic, so \(C_{\rm SQ}'\) survives and
+no \(C_{\rm SQ}''\) is introduced.  Theorem 61.3 is only a constructive
+classification of the first layers of one family; no unbounded
+classification of twisted-square escapes has been proved.  Most importantly,
+Theorem 61.4 is a terminating prime test and a structural simplification,
+not a proof that its finite set is always nonempty.  No pointwise prime
+bound, no fair-share estimate, and no new Erdős--Straus theorem is claimed.

@@ -11164,4 +11164,289 @@ print("\n== (bg) witness duality and resolved survivor frontier (§60) ==")
 check_bg()
 
 
+# ---------------------------------------------------------------- (bh)
+def check_bh():
+    """§61: complete bounded W-infinity census and prime dual criterion."""
+    import os
+    from hashlib import sha256
+
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    census_limit = 1_000_000 if full_scan else 200_000
+    B_limit = (census_limit + 1) // 3
+
+    # Forward-sieve the canonical normal form (60.7).  The inequality
+    # 4gv-g-v <= X is necessary for n=4gv-(d+v)/u <= X because d<=g.
+    # Conversely every retained tuple is a witness datum.  Lists contain
+    # ordinary Python ints; no fixed-width divisor products occur here.
+    divisor_bound = B_limit + 1
+    small_divisors = [[] for _ in range(divisor_bound + 1)]
+    for d in range(1, divisor_bound + 1):
+        for multiple in range(d, divisor_bound + 1, d):
+            small_divisors[multiple].append(d)
+
+    least_W = [0] * (census_limit + 1)
+    pair_rows = divisor_tests = 0
+    for g in range(1, B_limit + 1):
+        v_max = (census_limit + g) // (4 * g - 1)
+        for v in range(1, v_max + 1):
+            pair_rows += 1
+            for d in small_divisors[g]:
+                q = d + v
+                assert q <= divisor_bound
+                for u in small_divisors[q]:
+                    divisor_tests += 1
+                    if gcd(u, v) != 1:
+                        continue
+                    a = q // u
+                    n = 4 * g * v - a
+                    assert n >= 1
+                    if n > census_limit:
+                        continue
+                    M = 4 * g * u - 1
+                    if least_W[n] == 0 or M < least_W[n]:
+                        least_W[n] = M
+
+    infinities = tuple(n for n in range(1, census_limit + 1)
+                       if least_W[n] == 0)
+    nonsquare_infinities = tuple(
+        n for n in infinities if isqrt(n) ** 2 != n
+    )
+    assert nonsquare_infinities == (288, 336, 4545)
+    assert len(infinities) == isqrt(census_limit) + 3
+    assert (pair_rows, divisor_tests) == (
+        (3_400_244, 173_713_414) if full_scan
+        else (599_581, 24_246_108)
+    )
+
+    # Arithmetically independent M-side overlap.  M=100351 is the larger
+    # exact global ceiling for 288 and 336.  Every other nonsquare <=3000
+    # has already acquired an explicit datum; squares are excluded by
+    # Theorem 58.1.  Divisor products are explicitly converted to Python int.
+    overlap_limit = 3000
+    direct_cap = 100_351
+    direct_W = [0] * (overlap_limit + 1)
+    direct_divisors = direct_incidences = 0
+    for M in range(3, direct_cap + 1, 4):
+        A = (M + 1) // 4
+        for divisor in divisors_of_square(A):
+            D = int(divisor)
+            direct_divisors += 1
+            residue = int((-4 * D) % M)
+            first = residue or M
+            for n in range(first, overlap_limit + 1, M):
+                direct_incidences += 1
+                if direct_W[n] == 0:
+                    direct_W[n] = M
+    direct_infinities = tuple(n for n in range(1, overlap_limit + 1)
+                              if direct_W[n] == 0)
+    assert (direct_divisors, direct_incidences) == (1_074_878, 73_105)
+    assert tuple(n for n in direct_infinities if isqrt(n) ** 2 != n) == (
+        288, 336
+    )
+    assert direct_infinities == tuple(
+        n for n in range(1, overlap_limit + 1) if least_W[n] == 0
+    )
+    assert all(direct_W[n] == least_W[n]
+               for n in range(1, overlap_limit + 1) if direct_W[n])
+
+    # Pin the complete gcd distributions behind the supports in (61.6).
+    # These are the character-filtered near misses of (60.21), before the
+    # final uncancelled eligibility check.
+    near_miss_gcds = {}
+    for n in (288, 336, 4545):
+        B = (n + 1) // 3
+        distribution = Counter()
+        for a in range(1, 2 * B + 1):
+            if (n + a) % 4:
+                continue
+            h = (n + a) // 4
+            for divisor in divisors_of_square(h):
+                D = int(divisor)
+                if (D + h) % a:
+                    continue
+                A = (D + h) // a
+                M = 4 * A - 1
+                if n == 288:
+                    filtered = (D % 2 == 1 and M % 8 == 3
+                                and gcd(M, n) == 1)
+                elif n == 336:
+                    filtered = (gcd(M, n) == 1
+                                and jacobi_symbol(21, M) == -1
+                                and D % 21 != 0)
+                else:
+                    filtered = (gcd(M, n) == 1
+                                and jacobi_symbol(505, M) == -1
+                                and D % 505 != 0)
+                if filtered:
+                    assert A * A % D != 0
+                    distribution[gcd(a, D)] += 1
+        near_miss_gcds[n] = distribution
+    assert near_miss_gcds == {
+        288: Counter({9: 4}),
+        336: Counter({48: 11, 3: 6, 112: 5, 7: 4, 6: 3,
+                      8: 2, 4: 2, 14: 1, 24: 1, 16: 1, 28: 1}),
+        4545: Counter({15: 19, 45: 16, 9: 11, 5: 9, 303: 5,
+                       101: 1, 909: 1}),
+    }
+
+    # Full s<=200 squarefree, m<=30 table.  The digest pins every displayed
+    # finite W, while the histogram and per-s vanishing rows keep failures
+    # inspectable.  The largest argument is 180000, inside the default census.
+    squarefree_s = tuple(
+        s for s in range(2, 201)
+        if all(s % (q * q) for q in range(2, isqrt(s) + 1))
+    )
+    twisted_rows = tuple(
+        tuple(least_W[s * m * m] for m in range(1, 31))
+        for s in squarefree_s
+    )
+    encoding = ";".join(
+        f"{s}:" + ",".join(map(str, row))
+        for s, row in zip(squarefree_s, twisted_rows)
+    )
+    assert len(squarefree_s) == 121
+    assert sha256(encoding.encode()).hexdigest() == (
+        "3c6c31f96adce8ea9180cc86e93da841e49d71f7a25a8d094e58c05fd5047007"
+    )
+
+    # Parse the grouped codebook printed in §61, so the digest cannot hide a
+    # transcription error in the human-readable table.
+    from pathlib import Path
+    notes_text = Path(__file__).with_name("notes.md").read_text()
+    table_text = notes_text.split(
+        "Block (bh) pins all entries by a SHA-256 digest", 1
+    )[1].split("```text\n", 1)[1].split("\n```", 1)[0]
+    displayed_rows = {}
+    for line in table_text.splitlines():
+        s_text, values_text = line.split(" : ")
+        values = tuple(0 if value == "I" else int(value)
+                       for value in values_text.split(","))
+        assert len(values) == 30
+        for s in map(int, s_text.split(",")):
+            assert s not in displayed_rows
+            displayed_rows[s] = values
+    assert displayed_rows == dict(zip(squarefree_s, twisted_rows))
+
+    twisted_vanishing = {
+        s: tuple(m for m, W in enumerate(row, 1) if W == 0)
+        for s, row in zip(squarefree_s, twisted_rows) if 0 in row
+    }
+    assert twisted_vanishing == {2: (12,), 21: (4,)}
+    assert Counter(W or None for row in twisted_rows for W in row) == {
+        3: 940, 7: 1064, 11: 449, 15: 154, 19: 177, 23: 334,
+        31: 86, 35: 31, 39: 51, 43: 30, 47: 104, 55: 24,
+        59: 37, 67: 6, 71: 44, 79: 13, 83: 5, 87: 3, 95: 11,
+        99: 1, 103: 6, 107: 5, 119: 14, 127: 7, 139: 1,
+        143: 3, 151: 2, 163: 1, 167: 7, 179: 2, 199: 2,
+        215: 2, 223: 2, 227: 1, 239: 3, 271: 1, 335: 1,
+        419: 1, 479: 1, 499: 1, 727: 1, None: 2,
+    }
+
+    # The third sporadic kernel lies outside the s<=200 box.  Replay its
+    # first thirty values from the small M-side harvest, using the complete
+    # normal-form census to distinguish the one true infinity from a cutoff.
+    row_505 = []
+    for m in range(1, 31):
+        n = 505 * m * m
+        if n == 4545:
+            assert least_W[n] == 0
+            row_505.append(None)
+            continue
+        witness = next(
+            (M for M in range(3, 3001, 4)
+             if any((n + 4 * int(D)) % M == 0
+                    for D in divisors_of_square((M + 1) // 4))),
+            None,
+        )
+        row_505.append(witness)
+    assert tuple(row_505) == (
+        11, 11, None, 23, 11, 11, 23, 47, 11, 11,
+        23, 11, 11, 23, 107, 11, 11, 23, 23, 11,
+        11, 23, 11, 11, 23, 87, 11, 11, 23, 23,
+    )
+
+    # Independently enumerate the exact prime criterion (60.25), all the way
+    # through a<=2B, for three late hard-prime record holders.  SPF storage is
+    # bounded below 10^6; generated divisors and products remain Python ints.
+    prime_targets = (954_409, 1_853_329, 2_031_121)
+    h_cap = max((5 * p + 3) // 12 + 2 for p in prime_targets)
+    spf = list(range(h_cap + 1))
+    for q in range(2, isqrt(h_cap) + 1):
+        if spf[q] == q:
+            for multiple in range(q * q, h_cap + 1, q):
+                if spf[multiple] == multiple:
+                    spf[multiple] = q
+
+    def square_divisors_from_spf(value):
+        factors = []
+        z = value
+        while z > 1:
+            q = int(spf[z])
+            exponent = 0
+            while z % q == 0:
+                z //= q
+                exponent += 1
+            factors.append((q, exponent))
+        divisors = [1]
+        for q, exponent in factors:
+            base = tuple(divisors)
+            power = 1
+            for _ in range(2 * exponent):
+                power = int(power * q)
+                divisors.extend(int(D * power) for D in base)
+        return divisors
+
+    prime_rows = {}
+    for p in prime_targets:
+        B = (p + 1) // 3
+        raw_trials = congruence_rows = 0
+        uniform_mass = 0.0
+        best = None
+        for a in range(3, 2 * B + 1, 4):
+            h = (p + a) // 4
+            divisors = square_divisors_from_spf(h)
+            raw_trials += len(divisors)
+            uniform_mass += len(divisors) / a
+            for D in divisors:
+                if (D + h) % a:
+                    continue
+                congruence_rows += 1
+                A = (D + h) // a
+                M = 4 * A - 1
+                assert gcd(a, D) == 1
+                assert D > 0 and D <= h * h and h * h % D == 0
+                assert A * A % D == 0 and M % 4 == 3
+                assert a * M == p + 4 * D
+                candidate = (M, a, D, h)
+                if best is None or candidate < best:
+                    best = candidate
+        prime_rows[p] = (raw_trials, round(uniform_mass, 6),
+                         congruence_rows, best)
+    assert prime_rows == {
+        954_409: (11_465_930, 192.502348, 62,
+                  (335, 2855, 504, 239316)),
+        1_853_329: (24_242_528, 247.180398, 112,
+                    (383, 4839, 2, 464542)),
+        2_031_121: (26_874_324, 222.590291, 36,
+                    (2495, 815, 576, 507984)),
+    }
+
+    print("decidable W-infinity census (limit,infinities,nonsquares,pairs,tests) =",
+          (census_limit, len(infinities), nonsquare_infinities,
+           pair_rows, divisor_tests))
+    print("independent direct overlap (n cap,M cap,divisors,incidences,tail) =",
+          (overlap_limit, direct_cap, direct_divisors, direct_incidences,
+           tuple(n for n in direct_infinities if isqrt(n) ** 2 != n)))
+    print("twisted-square box (s count,m cap,vanishing,W histogram,digest) =",
+          (len(squarefree_s), 30, twisted_vanishing,
+           Counter(W or None for row in twisted_rows for W in row),
+           sha256(encoding.encode()).hexdigest()))
+    print("hard-prime dual criterion (p:(raw,uniform mass,rows,(W,a,D,h))) =",
+          prime_rows)
+
+
+print("\n== (bh) decidable census, twisted squares, and prime criterion (§61) ==")
+check_bh()
+
+
 print("\nall checks passed")
