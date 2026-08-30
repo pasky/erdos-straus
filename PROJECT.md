@@ -81,7 +81,33 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
-## Outcome 27 (2026-08-30, wave 23 — see notes.md §59 + paper v9; hostile-reviewed → repaired / FAITHFUL)
+## Outcome 28 (2026-08-30, wave 24 — see notes.md §60; hostile-reviewed → SOUND-AFTER-REPAIRS)
+
+* **§60: finite witness duality closes the survivor frontier.**  Every
+  harvested datum has the canonical form
+  \(A=gu,h=gv,D=gd\), \((u,v)=1\), \(d\mid g\),
+  \(a=4gv-n\geq1\), \(au=d+v\).  With
+  \(B=\lfloor(n+1)/3\rfloor\), this proves the unconditional bounds
+  \(a,u\leq2B\) and \(M\leq8B^2-1\), without any invalid \(a\leftrightarrow
+  M\) swap.  Exact Python-integer exhaustion, independently replayed from
+  the original \(D\mid((M+1)/4)^2\) harvest at ceilings 73,727, 100,351,
+  and 18,361,799, proves
+  **\(W(288)=W(336)=W(4545)=+\infty\)**.  Thus historical `C_SQ` is
+  **REFUTED** and superseded by the open, falsifiable `C_SQ'` asserting
+  squares plus exactly these three sporadics.  This concerns only the
+  Lemma-16.1 witness statistic: all three composites have ordinary explicit
+  Egyptian-fraction representations and are not Erdős--Straus
+  counterexamples.  The repaired conjecture would still imply
+  Erdős--Straus because its entire exceptional set is composite (or 1).
+  Verify block `(bg)` is green; the wave-24 attestation records the independent
+  409,000,770-incidence largest-ceiling replay and all cancellation/symmetry
+  checks.
+* **Paper status:** paper v10 predates §60 and still presents the wave-23
+  `C_SQ`/survivor state historically.  `paper/README.md` now flags those
+  passages as superseded pending source §60 absorption; no paper theorem has
+  silently been updated.
+
+## Outcome 27 (2026-08-30, wave 23 — historical state superseded by Outcome 28; see notes.md §59 + paper v9; hostile-reviewed → repaired / FAITHFUL)
 
 * **§59: the polynomial escape classification (SOUND-AFTER-REPAIRS).**
   Exact local criterion (uniform escape ⟺ every harvested congruence

@@ -22645,7 +22645,9 @@ Call \((M,D)\) a witness datum for \(n\) when
 \]
 
 This is the complete harvested criterion (58.3), not a selected Type-II
-subfamily.
+subfamily.  It is a reparameterization of Lemma 18.1's intrinsic divisor
+system, not a new Egyptian-fraction identity family; the new content is the
+dual cancellation ledger and finite normal form.
 
 **Theorem 60.1 (witness duality and finite normal form; proved).**  Let
 \(n\geq1\).
@@ -22668,7 +22670,7 @@ subfamily.
 
    \[
        a={n+4D\over M},
-       \\qquad M=4A-1={n+4D\over a},                      \tag{60.4}
+       \qquad M=4A-1={n+4D\over a},                       \tag{60.4}
    \]
 
    and are inverse.  Thus all quantities in (60.2)--(60.4) are positive
@@ -22927,6 +22929,17 @@ enumerates every \((g,v)\) in (60.9), every \(d\mid g\), and equation
 not extrapolations from a cutoff.  Equivalence in Theorem 60.1 then proves
 (60.20). \(\square\)
 
+Here “escape” means escape from the harvested Lemma-16.1 witness statistic
+\(W\), not escape from Egyptian-fraction solvability.  In particular none of
+these composite integers is an Erdős--Straus counterexample; explicit triples
+are
+\[
+ {4\over288}={1\over144}+{1\over216}+{1\over432},\qquad
+ {4\over336}={1\over168}+{1\over252}+{1\over504},\qquad
+ {4\over4545}={1\over1515}+{1\over6060}+{1\over18180}.
+                                                               \tag{60.20a}
+\]
+
 The exact failure ledger is informative:
 
 **Computational 60.1 (exact survivor certificate and near misses).**
@@ -23050,9 +23063,64 @@ data in that toy box.  The union of the \(M\leq100\) scan and the
 eight are in the overlap.  This is a finite double-count check of the region
 identity, not a proof of its unbounded form; (60.18) itself is set-theoretic.
 
-Block (bg) also pins the swap examples, (60.21), the two independent
-survivor exhaustions, and the heuristic sums.  Block (bf) retains the
-independent Python-integer \(M\)-scan through \(3\cdot10^6\) by default and
-through \(1.5\cdot10^8\) under `ES_FULL_SCAN=1`.  The latter is now a
-redundant historical cross-check beyond all three ceilings in (60.19), not
-the logical frontier.
+Block (bg) also pins the swap examples, tests the swap criterion on the
+complete 33,882-incidence replay, pins (60.21), the two independent survivor
+exhaustions, and the heuristic sums.  Of the replayed incidences, 1,196 are
+bi-eligible under (60.14), including 54 fixed points; all have
+\(n\equiv1\pmod4\).  Block (bf) retains the independent Python-integer
+\(M\)-scan through \(3\cdot10^6\) by default and through
+\(1.5\cdot10^8\) under `ES_FULL_SCAN=1`.  The latter is now a redundant
+historical cross-check beyond all three ceilings in (60.19), not the logical
+frontier.
+
+### 60.6 Review attestation (wave 24)
+
+**Verdict: SOUND-AFTER-REPAIRS.**  The duality, cancellation ledger, finite
+normal form, and partial involution survived full-quantifier rederivation.
+The computer-assisted conclusion (60.20) was independently reimplemented
+from the original harvested-witness definition and confirmed.  The repairs
+were expository/register repairs, plus a malformed TeX spacing command; no
+mathematical conclusion or ceiling changed.
+
+* **HIGH (normal-form load bearing):** the review rederived
+  \(D\mid(A,h)^2\), \((A,h)\mid D\), and hence the canonical
+  \(A=gu,h=gv,D=gd\), \(d\mid g\), \(au=d+v\) form without assuming or
+  swapping \(a\leq M\).  From \(au=d+v\leq g+v\) it follows directly that
+  \(4gv\leq n+g+v\), then \(g,v\leq\lfloor(n+1)/3\rfloor\); all four bounds
+  in (60.9) are therefore unconditional.  As a separate stress test, a
+  direct \(M\)-harvest for every represented \(n\leq2000\) through
+  \(M=7,118,223>2(8\lfloor2001/3\rfloor^2-1)\) checked 44,202 incidences,
+  found no bound violation, and found no incidence past the global ceiling.
+* **HIGH (independent exhaustive certificate):** a fresh memory-bounded
+  implementation factored every \(A=(M+1)/4\), generated every positive
+  divisor of \(A^2\) as a Python integer, and tested \(M\mid n+4D\), with no
+  character or dual filter.  At the exact ceilings
+  \((73,727,100,351,18,361,799)\) for \((288,336,4545)\), respectively, it
+  tested \((748,810,1,074,878,409,000,770)\) divisor incidences and found no
+  witness for any target.  The scan streamed one \(A\) at a time (at most
+  6,561 divisors for one \(A\)); this independently confirms Theorem 60.3.
+* **MEDIUM (cancellation and near misses):** prime-adic rederivation confirms
+  (60.5)--(60.6) also at 2 and proves \((a,D)\mid n\).  A separate dual scan
+  reproduced the stage counts \((756,43,4,0)\), \((912,65,37,0)\), and
+  \((22,995,188,62,0)\).  All filtered rows fail eligibility; the four
+  \(n=288\) rows have \((a,D)=9\) and fail at 3.
+* **LOW (swap and framing):** an independent test of all 33,882 replay
+  incidences found exactly 1,196 bi-eligible rows and 54 fixed points, with
+  (60.14) necessary and sufficient and every such \(n\equiv1\pmod4\).
+  The text now cites Lemma 18.1 at first contact and explicitly distinguishes
+  \(W=+\infty\) from failure of an Egyptian-fraction representation, with
+  representations for all three composites.  The project and paper-status
+  registers now point from the historical live-\(C_{\rm SQ}\) state to this
+  refutation; \(C_{\rm SQ}'\) remains a falsifiable conjecture, and only its
+  right-to-left inclusion is proved.
+* **Verification:** the full prescribed command completed green under its
+  460-second timeout.  Isolated block (bg) takes under one second on the
+  review host and pins the 33,882/11,451 replay, survivor counts, swap sample,
+  and 1,070,466-divisor toy union.  The optional \(1.5\cdot10^8\) historical
+  scan remains gated by `ES_FULL_SCAN=1`; the independent exact-ceiling
+  results are pinned above rather than added to the default path.
+
+No residual mathematical doubt was found in §60.  As throughout the chapter,
+identifying witness data with the statistic \(W\) uses the already-proved
+Lemma 18.1/(58.3) harvested-family equivalence; nothing here upgrades that
+family to all possible Egyptian-fraction decompositions.

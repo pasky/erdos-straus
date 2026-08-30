@@ -10961,6 +10961,8 @@ def check_bg():
     replay_limit = 2000
     replay_rows = 0
     correction_rows = 0
+    swap_rows = 0
+    fixed_swap_rows = 0
     for M in range(3, 3001, 4):
         A = (M + 1) // 4
         for D in divisors_of_square(A):
@@ -10983,6 +10985,18 @@ def check_bg():
                 assert gcd(a, D) == 1 or n % gcd(a, D) == 0
                 correction_rows += gcd(a, D) > 1
 
+                # Test Lemma 60.2 on the whole harvested sample, not only
+                # on its three displayed examples.
+                swap_condition = (
+                    a >= 3 and a % 4 == 3
+                    and ((a + 1) // 4) ** 2 % D == 0
+                )
+                assert swap_condition == is_eligible(a, D)
+                if swap_condition:
+                    assert n % 4 == 1 and a * M == n + 4 * D
+                    swap_rows += 1
+                    fixed_swap_rows += a == M
+
                 g = gcd(A, h)
                 u, v = A // g, h // g
                 assert gcd(u, v) == 1 and D % g == 0
@@ -10993,7 +11007,9 @@ def check_bg():
                 assert M == 4 * g * u - 1
                 replay_rows += 1
 
-    assert (replay_rows, correction_rows) == (33_882, 11_451)
+    assert (replay_rows, correction_rows, swap_rows, fixed_swap_rows) == (
+        33_882, 11_451, 1_196, 54
+    )
 
     # Direct finite a-enumeration and an arithmetically independent canonical
     # enumeration.  The successive columns count D|h^2, integral A, the
@@ -11134,8 +11150,9 @@ def check_bg():
             len(m_rows & a_rows), len(claimed_region)) == (
                 1_070_466, 9, 8, 9, 8, 9)
 
-    print("duality replay (n cap,rows,gcd-correction rows) =",
-          (replay_limit, replay_rows, correction_rows))
+    print("duality replay (n cap,rows,gcd-correction,swap,fixed rows) =",
+          (replay_limit, replay_rows, correction_rows,
+           swap_rows, fixed_swap_rows))
     print("survivor dual near misses / canonical exhaustions / uniform models =",
           (near_misses, normal_counts, uniform_models))
     print("toy union coverage (M box,divisors,all,M-side,a-side,overlap) =",

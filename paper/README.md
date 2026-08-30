@@ -1,5 +1,12 @@
 # Paper draft status
 
+> **Source supersession notice (wave 24):** paper v10 predates source
+> `notes.md` §60.  Its statements that `C_SQ` is live and that 288, 336, and
+> 4545 are unresolved are now historical: Theorem 60.3 proves all three have
+> `W=+infinity`, refutes `C_SQ`, and replaces it by open `C_SQ'`.  This is a
+> result about the harvested witness statistic, not an Erdős--Straus
+> counterexample.  Source §60 has not yet been absorbed into the paper.
+
 `espaper.tex` is the v10 standalone `amsart` consolidation draft (99 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
