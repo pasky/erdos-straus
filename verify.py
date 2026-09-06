@@ -15117,4 +15117,98 @@ print("\n== (bu) F3 strata and target transversals (§74) ==")
 check_bu()
 
 
+
+# ---------------------------------------------------------------- (bv)
+def check_bv():
+    """paper/vaughan-loglog-note.tex: multiplier identity, class distinctness,
+    and the elementary lattice lemma (Lemma 3.1) at small parameters."""
+    from time import perf_counter
+    from sympy import divisors, isprime, mod_inverse
+    t0 = perf_counter()
+    # (1) Lemma 2.1: 4/n = 1/(suw) + 1/(nsvw) + 1/(nuvw) on every class,
+    #     for k = 1 (mod 4) <= 21 and primes l = 3 (mod 4) < 300, all
+    #     ordered factorizations A = uvw, three n per class (n need not be prime).
+    ident = 0
+    for k in range(1, 22, 4):
+        for l in primerange(3, 300):
+            if l % 4 != 3:
+                continue
+            A = (k * l + 1) // 4
+            assert 4 * A == k * l + 1
+            for u in divisors(A):
+                for v in divisors(A // u):
+                    w = A // (u * v)
+                    n0 = (-u * mod_inverse(v, k * l)) % (k * l)
+                    for n in (n0 + k * l * j for j in (1, 2, 5)):
+                        s_ = (n * v + u) // (k * l)
+                        assert (n * v + u) % (k * l) == 0 and s_ > 0
+                        assert Fraction(1, s_ * u * w) + Fraction(1, n * s_ * v * w) \
+                            + Fraction(1, n * u * v * w) == Fraction(4, n)
+                        ident += 1
+    # (2) Lemma 4.1 distinctness: with K = 5 (k in {1, 5}), H = 1, z = l^{1/3},
+    #     coprime pairs H < u, v <= z with 4uv | kl + 1 and the k-condition
+    #     u + cv = 0 (k) give pairwise distinct residues -u/v mod l, for every
+    #     reduced c mod lcm(1,5) = 5, and every prime l = 3 (4) in (10^4, 10^4 + 3000].
+    coll = 0
+    trip = 0
+    for l in primerange(10_000, 13_000):
+        if l % 4 != 3:
+            continue
+        z = int(round(l ** (1 / 3)))
+        while (z + 1) ** 3 <= l:
+            z += 1
+        while z ** 3 > l:
+            z -= 1
+        for c in (1, 2, 3, 4):
+            seen = {}
+            for k in (1, 5):
+                if gcd(c, k) != 1:
+                    continue
+                A = (k * l + 1) // 4
+                for u in range(2, z + 1):
+                    for v in range(2, z + 1):
+                        if gcd(u, v) != 1 or gcd(v, k) != 1 or (u + c * v) % k:
+                            continue
+                        if A % (u * v):
+                            continue
+                        r = (-u * mod_inverse(v, l)) % l
+                        trip += 1
+                        if r in seen and seen[r] != (k, u, v):
+                            coll += 1
+                        seen[r] = (k, u, v)
+    assert coll == 0, coll
+    # (3) Lemma 3.1 (lower bound) at k <= 9, H = 9^{10} is out of reach
+    #     numerically; check the *shape* phi(k)/k^2 * Lambda^2 at H = 30,
+    #     z = 30^2 = 900 for every k <= 9, reduced c: the ratio
+    #     sum 1/(uv) / (phi(k)/k^2 Lambda^2) should be near P(k) = prod_{p !| k}(1-p^-2)
+    #     (informational; the lemma's constant 1/4 is for K >= K_0).
+    from sympy import totient
+    H, z = 30, 900
+    Lam = log(z / H)
+    ratios = {}
+    for k in range(1, 10):
+        for c in range(1, k + 1):
+            if gcd(c, k) != 1:
+                continue
+            tot = Fraction(0)
+            for v in range(H + 1, z + 1):
+                if gcd(v, k) != 1:
+                    continue
+                u0 = (-c * v) % k
+                for u in range(H + 1, z + 1):
+                    if (u - u0) % k == 0 and gcd(u, v) == 1:
+                        tot += Fraction(1, u * v)
+            ratios[(k, c)] = float(tot) / (int(totient(k)) / k ** 2 * Lam ** 2)
+    rmin, rmax = min(ratios.values()), max(ratios.values())
+    assert 0.45 < rmin and rmax < 1.2, (rmin, rmax)
+    print("bv identity checks =", ident, " distinct-class triples =", trip,
+          " collisions =", coll)
+    print("bv lattice ratio range over k<=9, reduced c (H=30,z=900) =",
+          (round(rmin, 3), round(rmax, 3)), " seconds =", round(perf_counter() - t0, 2))
+
+
+print("\n== (bv) Vaughan loglog note: identity, distinctness, lattice lemma ==")
+check_bv()
+
+
 print("\nall checks passed")
