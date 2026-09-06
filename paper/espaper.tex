@@ -4,6 +4,7 @@
 \usepackage{microtype}
 \usepackage{amsmath,amssymb,mathtools,mathrsfs}
 \usepackage{enumitem}
+\usepackage{graphicx}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -29,7 +30,7 @@
 % TODO(submission): replace anonymous author metadata after authorship is settled.
 \title[Intrinsic congruences and provisional $3/4$ bounds]{The complete intrinsic congruence system for the Erd\H{o}s--Straus conjecture:\\ exact structure and provisional exceptional-set bounds for general numerators}
 \author{Anonymous}
-\date{Draft v16, 30 August 2026}
+\date{Draft v17, 30 August 2026}
 
 \begin{document}
 \begin{abstract}
@@ -123,7 +124,23 @@ a change of coordinates and a collection of local tests, not a supply
 theorem, tail bound, pointwise result, or Erd\H{o}s--Straus progress.
 The dual taxonomy also proves effective $W(p)\leq\sqrt{p+4}$ coverage
 outside $O(N/(\log N)^{3/2})$ hard primes; this is weaker than Section 51 on
-both axes.  An exact gcd theorem localizes post-quotient eligibility failure,
+both axes.  In the same $a$-frame, for every fixed prime
+$a\equiv3\pmod4$ we prove
+\[
+ \#\{h\leq H:(h,a)=1,\ -1\notin\operatorname {Rat}_a(h)\}
+   =(C_a+o_a(1))H/\sqrt{\log H},
+\]
+with fixed-progression and shifted-prime upper laws.  This proves that no
+fixed compatible congruence class forces failure at fixed $a$, but gives no
+uniformity for a growing family of coefficients.  Shifted-form stacking is
+unconditional only for fixed $J$.  The moving-$J$ tail is conditional on the
+two named open hypotheses $H_{\rm FAIL}$ and $H_{\rm STACK}$; no
+unconditional result on this route beats the standing literature.  The
+Computational $a_1$ census through all $719781$ hard primes below $10^8$
+has maximum $107$, uniquely at $8803369$.  Its frequency, dependence,
+conditioning, and budget panels are finite INFO only and imply no tail,
+independence, or pointwise theorem.  An exact gcd theorem localizes
+post-quotient eligibility failure,
 but the shifted laws and finite hunts do not classify nonsquare escapes.
 The Computational census of all $719781$ hard primes below $10^8$ has
 maximum $2495$ and no post-$10^7$ record; its INFO panels imply no growth
@@ -238,7 +255,16 @@ simplification is complete, including even divisors, but it does not prove
 that a criterion row always exists.  Theorem~\ref{thm:ratio-spectrum}
 reexpresses that criterion by an exact divisor-ratio spectrum, and
 Theorem~\ref{thm:small-a-laws} proves the six explicit small-$a$ laws;
-neither supplies pointwise nonemptiness.  Theorem~\ref{thm:fixed-D-laws} unifies the dual coordinate and
+neither supplies pointwise nonemptiness.  Theorems~\ref{thm:integer-confinement},
+\ref{thm:fixed-modulus-budget}, and~\ref{thm:congruence-wall-free} then give
+the exact fixed-$a$ failure law, lower-order budget term, and absence of a
+fixed congruence wall.  These theorems have no growing-$a$ uniformity.
+Theorem~\ref{thm:fixed-J-means} is unconditional for every fixed $J$, while
+Theorem~\ref{thm:moving-J-tail} is conditional on the open
+Hypotheses~\ref{hyp:H-FAIL} and~\ref{hyp:H-STACK}; its conditional tail is
+not an unconditional record.  Section~\ref{sec:a-frame-census} is wholly
+Computational/INFO and gives no asymptotic or pointwise conclusion.
+Theorem~\ref{thm:fixed-D-laws} unifies the dual coordinate and
 Corollary~\ref{cor:effective-square-root} gives effective, but weaker,
 square-root coverage.  Theorems~\ref{thm:cancellation-cover}
 and~\ref{thm:shifted-support-laws} localize composite cancellation and give
@@ -320,7 +346,15 @@ polynomial divisibility supplies integer-valued polynomial cofactors and
 propagates tail positivity back to each of the three anchors.  It rules out
 one polynomial witness family on every anchored forward ray, not
 non-polynomial or nonuniform supply, and does not support $C_{\rm SQ}'$.
-Section~\ref{sec:general-m-tails} gives the status-preserving
+Section~\ref{sec:a-frame-failure} proves the fixed-modulus subgroup,
+confinement, budget, shifted-prime, composite-kernel, and congruence-wall
+laws, with all constants and errors allowed to depend on fixed $a$.
+Section~\ref{sec:fixed-J-stacking} quotes the three mean-value inputs,
+proves only fixed-$J$ stacking unconditionally, computes the exact local
+collision factor, and isolates the open $H_{\rm FAIL}$ and $H_{\rm STACK}$
+requirements for moving $J$.  Section~\ref{sec:a-frame-census} records the
+Computational third-decade $a_1$ census and finite dependence anatomy; its
+INFO panels establish no uniformity or decorrelation.  Section~\ref{sec:general-m-tails} gives the status-preserving
 general-numerator tails and their exact
 effectivity perimeter.  Finally,
 Section~\ref{sec:dispersion-frontier}
@@ -347,7 +381,13 @@ $W=+\infty$.  Only the right-to-left inclusion in $C_{\rm SQ}'$ is proved;
 the complete bounded census is Computational stress evidence, not an
 unbounded classification.  The forward, ratio, dual-taxonomy, square-root, gcd-cover, shifted-support,
 and displayed exclusion laws are proved, but do not force prime
-nonemptiness.  The $a_1$ data, ledgers, hunts, hard-prime census, depth-$1000$ projection,
+nonemptiness.  The fixed-$a$ failure and congruence-wall laws are proved,
+but their constants and errors are not uniform in growing $a$.  The
+shifted-indicator theorem is unconditional only at fixed $J$; every moving-$J$
+conclusion assumes both explicitly open hypotheses $H_{\rm FAIL}$ and
+$H_{\rm STACK}$, and no unconditional result in that section improves the
+standing literature.  The $a_1$ data, ledgers, hunts, hard-prime census,
+depth-$1000$ projection,
 and multiplier censuses are Computational in their exact ranges; normalized
 trajectories are INFO only.  The escape-cylinder limsups are proved but do
 not produce a new fixed $W=+\infty$ input, and the harvested ceiling concerns
@@ -2446,7 +2486,27 @@ counts $(445,1{,}709,0)$.  Block \texttt{(bp)} pins these ledgers, the
 integer-valued quotient and resultant tests, and the shadow blockage.  The
 review and bounded zeros are internal checks; the proof, not the hunts,
 supplies the all-degree anchored conclusion, and no non-polynomial or
-classification claim follows.  Coverage now runs through \texttt{(bp)}.
+classification claim follows.  At that stage coverage ran through
+\texttt{(bp)}.
+
+Wave 30's three maximum-severity reviews were repaired before the present
+absorption.  The fixed-$a$ review returned \textsc{sound-after-repairs}; it
+added the required character-twist hypothesis to the progression asymptotic,
+repaired the primitive two-form sieve scope, and rejected the false
+quadratic-character-only composite classification using the $a=15$
+example.  Block \texttt{(bq)} checks the subgroup laws, finite spectra,
+progressions, and independent divisor comparisons.  The fixed-$J$ review
+returned \textsc{sound-after-repairs}; it audited the verbatim Shiu,
+Nair--Tenenbaum, and Henriot statements and restored Henriot's prime-density
+factor while retaining fixed-$J$ scope and both named open hypotheses.
+Block \texttt{(br)} checks the discriminant factors, exponent sums, and
+exact local collisions.  The census review returned
+\textsc{confirmed-after-repairs}; its independent replay covered all
+$719781$ hard primes below $10^8$ and reproduced the complete $a_1$
+histogram and finite anatomy.  Block \texttt{(bs)} carries the bounded and
+gated census checks.  These are internal reviews and finite replications,
+not external validation, asymptotic evidence, or pointwise progress.
+Coverage now runs through \texttt{(bs)}.
 
 \section{General numerators}\label{sec:general-m}
 For $m\geq3$, define
@@ -9594,6 +9654,1701 @@ $341{,}704$ KiB peak resident memory; syntax parse and the control-byte sweep
 were also clean.
 \end{itemize}
 
+\section{The a-frame failure law: confinement, the fixed-modulus scale, and congruence-wall freeness}
+\label{sec:a-frame-failure}
+
+\medskip\noindent\textbf{Status and headline.}
+The subgroup classification, the integer-frame
+Selberg--Delange asymptotics, the fixed-prime budget bound, the fixed-modulus
+upper bounds on shifted primes, the composite-modulus subgroup
+classification, and congruence-wall freeness below are \textbf{proved}.  They use
+only elementary finite-group theory and the standard fixed-modulus
+Selberg--Delange and upper-bound-sieve facts stated explicitly below.  They
+inherit \textbf{nothing} from the provisional machinery elsewhere in this paper.
+Block \texttt{(bq)} is \textbf{Computational}, exact only in its displayed finite ranges.
+All results are for each fixed modulus; no uniformity sufficient to stack a
+growing family of moduli is proved, and no pointwise Erd\H{o}s--Straus result is
+claimed.
+
+Fix for now a prime
+\begin{equation}
+                    a\equiv3\pmod4,
+ \qquad G=({\mathbb Z}/a{\mathbb Z})^*,
+ \qquad Q=G^2.                                             \tag{70.1}
+\end{equation}
+Thus $G\cong C_{a-1}$, $Q$ is the subgroup of quadratic residues, and
+$|Q|=(a-1)/2$ is odd.  For $(h,a)=1$, write
+\begin{equation}
+ F_a(h)=\{-1\notin {\rm Rat}_a(h)\},\qquad
+ \sigma_a(h)=\#\{q:q\mid h,\ (q/a)=-1\},                 \tag{70.2}
+\end{equation}
+where $(q/a)$ is the Legendre symbol and $\sigma_a$ counts distinct
+prime divisors.  The ratio spectrum is the one in (62.1).  In the
+hard-prime application $(h,a)=1$ is automatic by Theorem~\ref{thm:ratio-spectrum}.
+
+\subsection{The unique involution and the exact failure decomposition}
+
+\begin{lemma}[unique-involution subgroup classification; proved; source Lemma 70.1]\label{lem:a-frame-involution}  Let
+$K$ be a finite group.  Every even-order subgroup of $K$ contains an
+element of order two.  Consequently, if $K$ has a unique element
+$\tau$ of order two, then
+\begin{equation}
+                 \tau\notin H\quad\Longleftrightarrow\quad |H|\text{ is odd}
+                                                               \tag{70.3}
+\end{equation}
+for every subgroup $H\leq K$.  In the particular cyclic group
+$G=C_{2n}$, where $n=(a-1)/2$ is odd, one furthermore has
+\begin{equation}
+ -1\notin H\quad\Longleftrightarrow\quad |H|\text{ is odd}
+             \quad\Longleftrightarrow\quad H\subseteq Q.      \tag{70.4}
+\end{equation}
+
+\end{lemma}
+\begin{proof} Cauchy's theorem gives an element of order two in every finite
+even-order group.  If the ambient group has the unique involution $\tau$,
+that element must be $\tau$.  Conversely a subgroup containing $\tau$
+has even order, proving (70.3).  A cyclic even-order group has the unique
+involution represented here by $-1$.  Its subgroup $Q$ has odd order
+$n$.  Every subgroup of odd order is contained in the unique subgroup of
+order $n$, while every subgroup of $Q$ has odd order.  This proves
+(70.4).
+\end{proof}
+
+\begin{corollary}[quadratic confinement forces failure; proved; source Corollary 70.2]\label{cor:quadratic-confinement}  If
+$\sigma_a(h)=0$, then $F_a(h)$ holds.
+
+\end{corollary}
+\begin{proof} Every prime factor of $h$, every inverse of such a factor, and
+hence every bounded product in ${\rm Rat}_a(h)$, lies in $Q$.  Quadratic
+reciprocity gives $(-1/a)=-1$, so $-1\notin Q$.
+\end{proof}
+
+\begin{corollary}[the prime-modulus F2 class is empty; proved; source Corollary 70.3]\label{cor:prime-F2-empty}  If
+$\sigma_a(h)\geq1$, then the subgroup generated by the residue classes of
+the prime factors of $h$ contains $-1$.  Thus a failure with
+$\sigma_a(h)\geq1$ is caused solely by the bounded exponent budgets, not
+by a subgroup miss.
+
+\end{corollary}
+\begin{proof} A nonresidue $g$ has nontrivial image in $G/Q\cong C_2$, so
+its order is even.  The cyclic group $\langle g\rangle$ therefore contains
+an involution.  The involution is the unique one, namely $-1$, by Lemma~\ref{lem:a-frame-involution}.  Since $\langle g\rangle$ is contained in the subgroup generated by
+all prime-factor classes, the conclusion follows.
+\end{proof}
+
+In the taxonomy of source \S19.2 this proves, rather than samples, that F2 is empty
+for every prime $a\equiv3\pmod4$.  The zero F2 column in the random part of
+that old-frame table is consistent with the theorem; the table included
+other moduli and targets, so it was not itself a proof of this statement.
+The criterion is the same signed-subset-product mechanism as source Lemma 12.3,
+now in the fixed-$a$ ratio coordinate of Theorem~\ref{thm:ratio-spectrum}.
+
+\begin{corollary}[F1/F3 decomposition; proved; source Corollary 70.4]\label{cor:F1-F3}  Among units modulo $a$,
+\begin{equation}
+ \begin{split}
+ F_a&=F_{1,a}\ \dot\cup\ F_{3,a},\\
+ F_{1,a}&=\{h:\sigma_a(h)=0\},\\
+ F_{3,a}&=\{h:\sigma_a(h)\geq1,
+                         -1\notin{\rm Rat}_a(h)\}.
+ \end{split}                                                \tag{70.5}
+\end{equation}
+Here F1 is all-quadratic-residue confinement and F3 is pure finite-budget
+failure.
+
+\end{corollary}
+\begin{proof} Corollary~\ref{cor:quadratic-confinement} puts all of the first set in $F_a$.  Every other
+failure has $\sigma_a(h)\geq1$, and Corollary~\ref{cor:prime-F2-empty} identifies it as a
+budget failure.  The alternatives are disjoint and exhaustive.
+\end{proof}
+
+The distinction is load-bearing: at $a=7,h=17$, (62.16) has a generated
+subgroup equal to all of $G$, but the valuation-one spectrum still misses
+$-1$.
+
+\subsection{The confinement semigroup and its half-dimensional law}
+
+Let $f_a(h)$ be the indicator that $(h,a)=1$ and every prime divisor of
+$h$ is a quadratic residue modulo $a$.  Then $f_a$ is multiplicative
+(in fact its value is determined prime by prime), and $F_{1,a}$ has
+indicator $f_a$.
+
+We use the following standard fixed-modulus form of Selberg--Delange.  It is
+stated here to make all analytic input visible.
+
+\medskip\noindent\textbf{Standard Fact 70.1 (fixed-class Selberg--Delange and fixed-mark
+corollary).}  Suppose a set ${\mathcal P}$ of primes is a union of reduced
+residue classes modulo a fixed integer $k$, of relative Dirichlet density
+$\delta$, with finitely many primes added or removed.  If $f$ is the
+indicator of integers all of whose prime factors lie in ${\mathcal P}$, then
+\begin{equation}
+ \sum_{n\leq x}f(n)
+     ={G(1)\over\Gamma(\delta)}x(\log x)^{\delta-1}
+       +o_k\bigl(x(\log x)^{\delta-1}\bigr),               \tag{70.6}
+\end{equation}
+where
+\[
+ \sum_{n\geq1}{f(n)\over n^s}=\zeta(s)^\delta G(s)
+\]
+has $G$ holomorphic and nonzero in a neighbourhood of $s=1$.  A fixed
+reduced progression may be selected by Dirichlet-character
+orthogonality.  The expected principal-character main term applies when the
+integers counted are automatically coprime to the progression modulus and
+every nonprincipal twist has a strictly smaller real pole exponent.  This is
+a hypothesis to check, not a blanket progression theorem: tied twists can
+cancel the principal term when a progression is incompatible with the
+prime semigroup.
+
+A standard coefficient corollary will also be used.  If disjoint fixed-class
+prime sets ${\mathcal P}_0,{\mathcal P}_1$ have densities
+$\delta_0,\delta_1$, then, for each fixed $K$,
+\begin{equation}
+ \#\{n\leq x:p\mid n\Rightarrow p\in{
+        \mathcal P}_0\cup{\mathcal P}_1,
+       \ \Omega_{{\mathcal P}_1}(n)\leq K\}
+ \ll_{k,K}x(\log x)^{\delta_0-1}(\log\log(3x))^K.          \tag{70.7}
+\end{equation}
+Here $\Omega_{{\mathcal P}_1}$ counts with multiplicity.  Formula (70.7)
+follows by inserting a marker $z$ in the Euler factors for
+${\mathcal P}_1$, applying (70.6) uniformly on a small circle about $z=0$,
+and extracting the first $K+1$ coefficients.  This is the customary
+Selberg--Delange theorem and its fixed-order Landau--Sathe corollary (for
+example the Selberg--Delange theorem in Tenenbaum, \emph{Introduction to Analytic
+and Probabilistic Number Theory}, Chapter III.5, Theorem 5.2).  Only fixed
+$k,\delta,K$ are asserted here.
+
+\begin{theorem}[integer confinement law; proved; source Theorem 70.5]\label{thm:integer-confinement}  For each fixed prime
+$a\equiv3\pmod4$,
+\begin{equation}
+ \#\{h\leq H:F_{1,a}(h)\}
+       \sim C_a{H\over\sqrt{\log H}},                      \tag{70.8}
+\end{equation}
+where the positive constant is
+\begin{equation}
+ C_a={1\over\sqrt\pi}
+ \left\{\left(1-{1\over a}\right)L(1,\chi_a)
+       \prod_{\substack{q\ {\rm prime}\\\chi_a(q)=-1}}
+                    (1-q^{-2})\right\}^{1/2},             \tag{70.9}
+\end{equation}
+and $\chi_a=(\cdot/a)$.  Put $b=(a+1)/4$.  In the progression forced
+by the hard class,
+\begin{equation}
+ \#\{h\leq H:h\equiv b\pmod6,\ F_{1,a}(h)\}
+       \sim C_a^{\rm hard}{H\over\sqrt{\log H}},           \tag{70.10}
+\end{equation}
+with
+\begin{equation}
+ {C_a^{\rm hard}\over C_a}=
+ \begin{cases}
+ 1,&a=3,\\
+ 1/4,&a\equiv7\pmod {24},\\
+ 1/3,&a\equiv11\pmod {24},\\
+ 1/2,&a\equiv19\pmod {24},\\
+ 1/6,&a\equiv23\pmod {24}.
+ \end{cases}                                               \tag{70.11}
+\end{equation}
+In particular, both constants are strictly positive.  The exponent
+$1/2=1-1/2$ is one minus the density of quadratic-residue prime classes.
+
+\end{theorem}
+\begin{proof} The Euler series is
+\begin{equation}
+       \sum_{h\geq1}{f_a(h)\over h^s}
+       =\prod_{\chi_a(q)=1}(1-q^{-s})^{-1}.                \tag{70.12}
+\end{equation}
+Comparison of Euler factors gives
+\begin{equation}
+ \left(\sum {f_a(h)\over h^s}\right)^2
+ =\zeta(s)L(s,\chi_a)(1-a^{-s})
+       \prod_{\chi_a(q)=-1}(1-q^{-2s}).                   \tag{70.13}
+\end{equation}
+The product on the right converges absolutely at $s=1$, and
+$L(1,\chi_a)>0$.  Taking the local analytic square root writes (70.12) as
+$\zeta(s)^{1/2}G_a(s)$, with the value at one displayed in (70.9).
+Standard Fact 70.1 proves (70.8).
+
+For (70.10), take the least nonnegative residue $r\equiv b\pmod6$, put
+$d=(r,6)$, and write $h=dn$.  The possibilities for a prime $a$ are
+\begin{equation}
+\begin{array}{c|ccccc}
+ a\bmod24&3&7&11&19&23\\ \hline
+ r&1&2&3&5&0\\
+ d&1&2&3&1&6\\
+ 6/d&6&3&2&6&1.
+\end{array}                                                \tag{70.14}
+\end{equation}
+For $a>3$, every prime dividing $d$ is a residue modulo $a$, while
+every prime dividing $6/d$ is a nonresidue; these four assertions follow
+immediately from the supplementary laws for $(2/a)$ and $(3/a)$.
+Thus $f_a(dn)=f_a(n)$.  Put $M=6/d$.  Every prime dividing
+$M$ is a nonresidue modulo $a$, so an integer counted by $f_a$ is
+automatically coprime to $M$.  Character orthogonality may therefore be
+applied to the reduced condition $n\equiv r/d\pmod M$.  Since
+$(a,M)=1$, the Chinese remainder theorem gives prime-pole exponent
+$1/2$ for the principal character and exponent zero for every
+nonprincipal character modulo $M$: the sum of that character over
+$(\mathbb Z/M\mathbb Z)^*$ vanishes independently of the quadratic-
+residue condition modulo $a$.  Hence all nonprincipal twists are lower
+order and the main term acquires the factor
+$1/(d\varphi(M))$.  These factors are the last four entries of (70.11).
+When $a=3$, all allowed primes are $1\pmod3$ and odd, so every integer
+counted by $f_3$ is already $1\pmod6$; the first entry follows.
+\end{proof}
+
+This proves, in particular, the asymptotic that was only contextual in
+Assessment 62.1 at $a=3$.
+
+\subsection{Fixed-$a$ budget failures are lower order}
+
+For an inversion orbit ${\mathcal O}=\{g,g^{-1}\}$ of nonresidues in $G$,
+put
+\begin{equation}
+ k_{\mathcal O}={\operatorname {ord}(g)\over2},\qquad
+ K_a=\sum_{{\mathcal O}\subseteq G\setminus Q}(k_{\mathcal O}-1),
+ \qquad \beta_a={1\over2}+{1\over a-1}.                   \tag{70.15}
+\end{equation}
+Because $G=C_{2n}$ with $n$ odd, every nonresidue has order twice an
+odd number.  Hence $k_{\mathcal O}$ is an odd positive integer and
+$g^{k_{\mathcal O}}=-1$.  The self-inverse orbit $\{-1\}$ contributes zero
+to $K_a$.
+
+\begin{lemma}[budget rigidity; proved; source Lemma 70.6]\label{lem:budget-rigidity}  If $h\in F_{3,a}$, then
+\begin{equation}
+             \Omega_{G\setminus Q}(h)\leq K_a.             \tag{70.16}
+\end{equation}
+Moreover, if a nonresidue class $g$ contains a prime divisor of $h$,
+then no prime divisor of $h$ lies in the quadratic-residue class
+\begin{equation}
+                         c_g=-g^{-1}.                      \tag{70.17}
+\end{equation}
+
+\end{lemma}
+\begin{proof} Let $V_{\mathcal O}$ be the sum of the valuations in $h$ of
+primes whose classes lie in ${\mathcal O}$.  Using only those primes, their
+signed exponent intervals realize every power $g^j$ with
+$|j|\leq V_{\mathcal O}$: changing from $g$ to $g^{-1}$ only reverses
+one interval, and sums of integer intervals remain complete intervals.  If
+$V_{\mathcal O}\geq k_{\mathcal O}$, the spectrum therefore contains
+$g^{k_{\mathcal O}}=-1$, contrary to failure.  Hence
+$V_{\mathcal O}\leq k_{\mathcal O}-1$ for every orbit.  Summing proves (70.16).
+
+Now choose a prime factor $q\mid h$ in class $g$.  The class $c_g$ is
+a residue, since both $-1$ and $g^{-1}$ are nonresidues.  If a prime
+factor $r\mid h$ had class $c_g$, choosing exponent one on $q,r$ and
+zero on every other factor would give $qr\equiv-1\pmod a$.  This is
+forbidden in $F_{3,a}$, proving (70.17).
+\end{proof}
+
+\begin{theorem}[fixed-modulus budget bound; proved; source Theorem 70.7]\label{thm:fixed-modulus-budget}  For every fixed
+prime $a\equiv3\pmod4$,
+\begin{equation}
+ \#\{h\leq H:F_{3,a}(h)\}
+ \ll_a {H(\log\log(3H))^{K_a}\over(\log H)^{\beta_a}}.     \tag{70.18}
+\end{equation}
+Consequently, for every fixed $\beta<\beta_a$,
+\begin{equation}
+             \#\{h\leq H:F_{3,a}(h)\}
+                    \ll_{a,\beta}H(\log H)^{-\beta},      \tag{70.19}
+\end{equation}
+and
+\begin{equation}
+ {\#\{h\leq H:F_{3,a}(h)\}
+  \over \#\{h\leq H:F_a(h)\}}\longrightarrow0.           \tag{70.20}
+\end{equation}
+For $a=3$, $K_a=0$ and $F_{3,3}$ is empty.  For $a>3$, the
+proved logarithmic exponent is
+$\beta_a=1/2+1/(a-1)>1/2$; its infimum as $a$ varies is only $1/2$,
+so this gain is not uniform in $a$.
+
+\end{theorem}
+\begin{proof} By Lemma~\ref{lem:budget-rigidity}, every $h\in F_{3,a}$ has at most $K_a$
+nonresidue prime factors with multiplicity.  It also has at least one such
+factor.  Choose one of its at most $(a-1)/2$ nonresidue classes $g$.
+Lemma~\ref{lem:budget-rigidity} excludes the one residue class $c_g$ from all prime factors.
+The unrestricted residue classes other than $c_g$ have prime density
+\begin{equation}
+             \delta_0={1\over2}-{1\over a-1};             \tag{70.21}
+\end{equation}
+the nonresidue classes are the marked set.  Standard Fact 70.1, (70.7),
+therefore bounds this one choice of $g$ by
+\[
+ H(\log H)^{\delta_0-1}(\log\log(3H))^{K_a}
+ ={H(\log\log(3H))^{K_a}\over(\log H)^{1/2+1/(a-1)}}.
+\]
+The finite union over $g$ proves (70.18), and a fixed power of
+$\log\log H$ is absorbed by every positive loss in the exponent, proving
+(70.19).  Finally (70.8) is a positive lower bound of order
+$H/\sqrt{\log H}$ for the denominator in (70.20); division of (70.18)
+by it tends to zero.
+\end{proof}
+
+This proof does not use the quadratic-character moment alone.  That moment
+only bounds the number of nonresidue factors and leaves the larger
+$(\log H)^{-1/2}(\log\log H)^{O_a(1)}$ scale.  The extra
+$1/(a-1)$ comes from the deterministically forbidden correction class
+(70.17).  The Fourier large-deviation criterion of source Lemma 12.4 remains a useful
+more general reduction, but no unproved transfer step from source \S12.5 is being
+imported here.
+
+\begin{corollary}[integer per-modulus failure law; proved; source Corollary 70.8]\label{cor:integer-failure-law}  For every
+fixed prime $a\equiv3\pmod4$,
+\begin{equation}
+ \#\{h\leq H:F_a(h)\}
+       =(C_a+o_a(1)){H\over\sqrt{\log H}},                 \tag{70.22}
+\end{equation}
+and, in the hard-class progression,
+\begin{equation}
+ \#\{h\leq H:h\equiv(a+1)/4\pmod6,\ F_a(h)\}
+       =(C_a^{\rm hard}+o_a(1)){H\over\sqrt{\log H}}.     \tag{70.23}
+\end{equation}
+
+\end{corollary}
+\begin{proof} Use the disjoint decomposition (70.5), Theorem~\ref{thm:integer-confinement} for F1, and
+Theorem~\ref{thm:fixed-modulus-budget} for F3.  Restricting F3 to a progression can only decrease its
+global count, so it remains lower order in (70.23).
+\end{proof}
+
+\subsection{Transfer to shifted primes: an upper law}
+
+For clarity, the only sieve input needed here is recorded separately.
+
+\medskip\noindent\textbf{Standard Fact 70.2 (fixed two-form upper sieve).}  Let $L_0(n),L_1(n)$
+be fixed primitive affine linear forms with nonzero determinant.  Let
+${\mathcal P}$ be a fixed union of prime residue classes with
+\begin{equation}
+             \sum_{q<z,\ q\in{\mathcal P}}{1\over q}
+                    =\theta\log\log z+O(1).               \tag{70.24}
+\end{equation}
+Outside the finitely many primes dividing the coefficients or determinant,
+the roots $L_0(n)\equiv0\pmod q$ and
+$L_1(n)\equiv0\pmod q$ are distinct.  The fixed-dimensional
+upper-bound fundamental lemma then gives
+\begin{equation}
+ \#\{n\leq X:L_0(n)\text{ is prime},\
+                    q\nmid L_1(n)\ (q\in{\mathcal P})\}
+       \ll {X\over(\log X)^{1+\theta}}.                   \tag{70.25}
+\end{equation}
+If at most a fixed $K$ prime factors from ${\mathcal P}_1$ are permitted
+and all factors from a disjoint set ${\mathcal P}_0$ are excluded, then the
+right side is
+\begin{equation}
+ {X(\log\log(3X))^K\over
+       (\log X)^{1+\theta_0+\theta_1}}.                   \tag{70.26}
+\end{equation}
+Here each $\theta_i$ is the coefficient in (70.24).
+
+This is the standard upper-bound beta-sieve fundamental lemma (for example
+Friedlander--Iwaniec, \emph{Opera de Cribro}, Theorem 6.9) plus its fixed-$K$
+almost-prime variant.  To see (70.26), select the at most $K$ exceptional
+small prime divisors, apply the same upper sieve after those roots are
+fixed by the Chinese remainder theorem, and sum their reciprocal products;
+the latter sum is $O((\log\log z)^K)$.  Prime factors above the sifting
+limit need no exception.  Taking a fixed power $z=X^\eta$, and covering
+$L_0(n)\leq z$ separately, proves the displayed bounds.  This is exactly
+the elementary exact-remainder technology used in Theorem~\ref{thm:half-dimensional-shifted-sieve}, not a level
+of distribution assertion about primes.
+
+\begin{theorem}[fixed-$a$ prime-frame upper law; proved, effective; source Theorem 70.9]\label{thm:prime-frame-upper}  Let
+$a\equiv3\pmod4$ be a fixed prime.  Then
+\begin{equation}
+ \#\left\{p\leq N:p\equiv1\pmod {24},\ p\text{ prime},\
+       F_a\left({p+a\over4}\right)\right\}
+       \ll_a {N\over(\log N)^{3/2}}
+       \ll_a {\pi(N)\over\sqrt{\log N}}.                 \tag{70.27}
+\end{equation}
+More precisely, the F3 part satisfies
+\begin{equation}
+ \#\left\{p\leq N:p\equiv1\pmod {24},\ p\text{ prime},\
+       F_{3,a}\left({p+a\over4}\right)\right\}
+ \ll_a {N(\log\log(3N))^{K_a}
+              \over(\log N)^{3/2+1/(a-1)}}.              \tag{70.28}
+\end{equation}
+The same bounds hold, with constants depending also on the modulus, after
+intersecting with any fixed compatible reduced progression of hard primes.
+
+\end{theorem}
+\begin{proof} Write $p=24m+1$ and
+$h=6m+(a+1)/4$.  The second form need not itself be primitive: with
+$d=((a+1)/4,6)$, as tabulated in (70.14), put
+$L_1(m)=h/d$.  This is a primitive integral affine form.  For $a>3$,
+every prime factor of the fixed content $d$ is a residue modulo $a$;
+for $a=3$, $d=1$.  Thus removing the content changes neither F1 nor
+the nonresidue budget.  Sieve the zero class of the prime form
+$L_0(m)=24m+1$ for every prime, which contributes dimension one.  For
+F1, also sieve the zero class of $L_1$ for primes $q$ with
+$(q/a)=-1$.  These have density one half by Dirichlet's theorem.  The two
+roots are distinct outside the finite set of primes dividing $4da$, by
+$4dL_1-L_0=a$.  Standard Fact 70.2 with $\theta=1/2$ gives the first
+bound for F1.
+
+For F3, Lemma~\ref{lem:budget-rigidity} permits at most $K_a$ nonresidue prime factors and,
+after one of finitely many classes $g$ is chosen, excludes every prime in
+the additional class $c_g$.  If the fixed content $d$ contains such a
+prime, that choice of $g$ gives the empty event; otherwise it contributes
+only a finite local factor.  In (70.26) the two second-form prime sets
+therefore have densities $1/2$ and $1/(a-1)$.  This proves (70.28).
+Adding F1 and using (70.5) proves (70.27).
+
+After imposing a further fixed compatible progression, the prime form is
+primitive.  Divide the second form by its fixed content as above.  If that
+content contains a nonresidue, F1 is empty; in F3 its fixed multiplicity
+uses part of the at-most-$K_a$ budget.  A chosen correction class already
+present in the content likewise makes that subcase empty.  In every
+remaining subcase the same two primitive forms and root calculation apply,
+with only finitely many local factors changed.  All Mertens estimates are in
+fixed progressions and the upper sieve is effective.
+\end{proof}
+
+No matching prime-frame lower bound is proved.  Such a lower bound would
+require shifted primes $p$ for which $(p+a)/4$ has its entire
+factorization in prescribed residue classes; the upper sieve does not cross
+that parity-type obstacle.  Thus (70.27) is an upper law, not a prime-frame
+asymptotic.
+
+\subsection{Composite coefficients: the correct confinement kernels}
+
+The tempting statement that every maximal $-1$-avoiding subgroup is the
+kernel of an odd quadratic character is false for composite moduli.  The
+following gives the exact replacement.
+
+\begin{theorem}[composite confinement classification; proved; source Theorem 70.10]\label{thm:composite-confinement}  Let
+$a\equiv3\pmod4$ be any odd integer, put
+$G_a=({\mathbb Z}/a{\mathbb Z})^*$, and let $\tau=-1$.  A subgroup
+$H\leq G_a$ is maximal, by inclusion, subject to $\tau\notin H$ if and
+only if
+\begin{equation}
+ G_a/H\cong C_{2^k}\quad(k\geq1),
+ \qquad \tau H\text{ is its unique involution}.           \tag{70.29}
+\end{equation}
+Equivalently, the maximal avoiding subgroups are the kernels of surjective
+characters
+\begin{equation}
+        \psi:G_a\longrightarrow\mu_{2^k},
+        \qquad \psi(-1)=-1,                               \tag{70.30}
+\end{equation}
+where characters differing by an automorphism of $\mu_{2^k}$ have the
+same kernel.  Their exact number is therefore
+\begin{equation}
+ \sum_{k\geq1}{1\over\varphi(2^k)}
+ \#\{\psi:G_a\to\mu_{2^k}:\operatorname {ord}\psi=2^k,
+                                      \ \psi(-1)=-1\}.     \tag{70.31}
+\end{equation}
+The sum is finite.  If $\omega(a)$ is the number of distinct prime
+factors of $a$, the $k=1$ term consists of exactly
+\begin{equation}
+                         2^{\omega(a)-1}                  \tag{70.32}
+\end{equation}
+odd quadratic characters.  Higher-$k$ kernels can occur.
+
+For $(h,a)=1$, let $B_a(h)$ denote the budget event in which $-1$
+lies in the subgroup generated by the prime-factor classes but not in
+${\rm Rat}_a(h)$.  Then
+\begin{equation}
+ F_a(h)\subseteq
+ \bigcup_{\substack{\psi\text{ as in }(70.30)\\
+                    \ker\psi\text{ maximal}}}
+ \{h:q\mid h\Rightarrow q\bmod a\in\ker\psi\}
+       \ \cup\ B_a(h).                                    \tag{70.33}
+\end{equation}
+Thus subgroup confinement remains a bounded union of multiplicative
+semigroup conditions.
+
+\end{theorem}
+\begin{proof} Suppose first that $H$ is maximal avoiding $\tau$, and set
+$A=G_a/H$.  Every nonzero subgroup of $A$ contains $\tau H$, since
+otherwise its inverse image would be a strictly larger avoiding subgroup.
+There can be no subgroup of odd prime order.  Hence $A$ is a 2-group.
+It has only one subgroup of order two, generated by $\tau H$; a finite
+abelian 2-group with a unique subgroup of order two is cyclic, by its
+invariant-factor decomposition.  This proves the forward implication in
+(70.29).  Conversely every nonzero subgroup of a cyclic $2^k$-group
+contains its unique order-two subgroup.  Therefore any subgroup strictly
+above the kernel in (70.29) contains $\tau$, proving maximality.
+Characters (70.30) are exactly the quotient maps, and the
+$\varphi(2^k)$ automorphisms of the cyclic quotient act freely on them,
+which proves (70.31).
+
+By the Chinese remainder theorem, $G_a/G_a^2\cong C_2^{\omega(a)}$.  Since
+$a\equiv3\pmod4$, at least one prime divisor is $3\pmod4$, so $-1$
+is not a square modulo that divisor.  Evaluation at $-1$ is therefore a
+nonzero linear functional on the $2^{\omega(a)}$ quadratic characters;
+exactly half have value $-1$, proving (70.32).
+
+Finally, if the subgroup generated by the prime factors of $h$ misses
+$-1$, enlarge it to a maximal avoiding subgroup.  The classification puts
+all prime-factor classes in one kernel in (70.33).  If the generated
+subgroup contains $-1$ but the bounded spectrum misses it, the event is
+$B_a(h)$.  These are the only two possibilities.
+\end{proof}
+
+For example $G_{15}\cong C_2\times C_4$, with
+$-1=(1,2)$.  The subgroup $C_2\times\{0\}$ is maximal avoiding and has
+cyclic quotient of order four; it is not the kernel of any quadratic
+character.  This explicit counterexample is why replacing (70.30) by only
+odd quadratic characters would make (70.33) false.
+
+\subsection{Congruence-wall freeness}
+
+A progression $h\equiv r\pmod m$ will be called unit-compatible if it
+contains infinitely many integers coprime to $a$, equivalently it is not
+the case that $a\mid m$ and $a\mid r$.
+
+\begin{theorem}[fixed-$a$ congruence-wall freeness; proved; source Theorem 70.11]\label{thm:congruence-wall-free}  For every
+fixed prime $a\equiv3\pmod4$ and every fixed unit-compatible progression,
+\begin{equation}
+ {\#\{h\leq H:h\equiv r\pmod m,\ (h,a)=1,\ F_a(h)\}
+  \over
+  \#\{h\leq H:h\equiv r\pmod m,\ (h,a)=1\}}
+       \ll_{a,m}{1\over\sqrt{\log H}}.                   \tag{70.34}
+\end{equation}
+In particular success has conditional density one, and every such
+progression contains successful $h$.
+
+Let $p\equiv c\pmod Q_0$ be any fixed progression whose intersection with
+$p\equiv1\pmod {24}$ is a reduced class and hence contains infinitely
+many primes.  Then
+\begin{equation}
+ {\#\{p\leq N:p\text{ in that hard-prime class},\
+          F_a((p+a)/4)\}
+  \over
+  \#\{p\leq N:p\text{ in that hard-prime class}\}}
+       \ll_{a,Q_0}{1\over\sqrt{\log N}}.                 \tag{70.35}
+\end{equation}
+Thus no fixed congruence class of hard primes forces failure at this
+$a$.  For every fixed $Z\geq3$, the hard primes with $a_1(p)>Z$
+contain no complete compatible hard-prime progression; indeed they have
+relative density zero in every such progression.
+
+\end{theorem}
+\begin{proof} Corollary~\ref{cor:integer-failure-law} gives the global upper bound
+$O_a(H/\sqrt{\log H})$ for failures.  Its intersection with a progression
+is no larger.  Unit compatibility makes the denominator in (70.34)
+asymptotic to a positive constant times $H$, proving the estimate.  This
+argument also handles a fixed prime divisor of $m$ which is a nonresidue
+and divides every member: it may annihilate F1, but it changes only a fixed
+local condition and cannot force the budget failure F3.
+
+For primes, Theorem~\ref{thm:prime-frame-upper} in the additional fixed progression gives a
+numerator $O_{a,Q_0}(N/(\log N)^{3/2})$.  The prime number theorem in the
+fixed reduced progression gives a denominator asymptotic to a positive
+constant times $N/\log N$, proving (70.35).  Finally, for all sufficiently
+large hard primes the coefficient $a=3$ is admissible.  The condition
+$a_1(p)>Z$ implies failure at $a=3$, so (70.35) with $a=3$ proves the
+last assertion.
+\end{proof}
+
+This is the precise contrast with Theorem~\ref{thm:W-lower}.  In the $M$-frame the
+residue-one trick puts \textbf{every} prime in explicit progressions inside
+$\{W(p)>T\}$.  In the fixed-$a$ frame every compatible progression has
+asymptotically full-density success, both for integers and, by an upper
+sieve plus the fixed-progression prime number theorem, for hard primes.
+The result concerns fixed coefficients and fixed progressions; it does not
+exclude a moving congruence modulus or a correlated growing family.
+
+\medskip\noindent\textbf{Computational 70.1 (finite structural replay).}  Block \texttt{(bq)} enumerates
+every subgroup of $(\mathbb Z/a\mathbb Z)^*$ for primes
+$a\equiv3\pmod4$, $a\leq199$, and checks all three sets in (70.4).
+It also enumerates all eight subgroups of $G_{15}$, finds exactly the
+three maximal $-1$-avoiding subgroups, and pins the higher-order kernel
+$\{1,11\}$ with cyclic quotient of order four.  For
+$a=3,7,11,19,23$, it computes every ratio spectrum for unit
+$h\leq20,000$, with exact counts
+\begin{equation}
+\begin{array}{c|rrrrr}
+ a&3&7&11&19&23\\ \hline
+ \#\text{ units}&13334&17143&18182&18948&19131\\
+ \#F1&1896&3350&2861&2427&4888\\
+ \#F3&0&2149&4532&7666&6722\\
+ \#F_a&1896&5499&7393&10093&11610.
+\end{array}                                                \tag{70.36}
+\end{equation}
+It verifies F2 emptiness on every row, replays (62.16), and prints the
+finite ratios normalized by $H/\sqrt{\log H}$ as information only.  For
+$a=7$, every one of the twelve progressions modulo 12 has a success by
+20,000; their finite success proportions range from 44.37\% to 100\%, not yet
+near the asymptotic density one.  Finally, for the first 200 hard primes it
+compares an exact bounded-spectrum computation of $a_1$ with an
+independent literal divisor scan $D\mid h^2$ from Theorem~\ref{thm:hard-prime-criterion}.  All agree;
+the maximum is 23.  With \texttt{ES\_FULL\_SCAN=1}, the spectrum census extends to
+$h\leq200,000$ and the independent comparison to the first 2,000 hard
+primes, where the maximum is 63.  These are bounded regression checks, not
+proofs of any asymptotic.
+
+\subsection{Honest walls and heuristic outlook}
+
+All constants, error terms, the budget $K_a$, and the character/sieve
+unions above may depend on the \textbf{fixed} modulus $a$.  A stacking argument
+would need, at minimum, uniform Selberg--Delange constants and errors for
+$a\leq(\log H)^\theta$, uniform control of the number and conductors of
+the characters in (70.31), and a budget argument whose
+$(\log\log H)^{K_a}$ cost does not explode.  None is supplied here.  The
+22\% F3 share among the old-frame record-prime failures in source \S19.2 is an
+empirical warning that conditioning on deep records can strongly enrich the
+nominally lower-order budget mechanism.
+
+This does not contradict Assessment 63.2.  Its mass
+$\sum1/(a-1)=\tfrac12\log\log Y+O(1)$ stacks the low-mass D1
+class-exclusion slices.  The event isolated here is different: confinement
+loses about half the prime-factor classes at each fixed prime modulus.  A
+larger marginal deficit does not create independence.  The same moving
+prime $p$ controls every shift $(p+a)/4$, exactly the correlation warning
+in Assessment 63.2.  The stacking analysis of Section~\ref{sec:fixed-J-stacking} addresses separately what current
+joint technology yields.
+
+\medskip\noindent\textbf{Heuristic 70.1 (displayed independence model; no evidence claim).}  If,
+in addition to the proved prime-modulus laws, one \emph{postulates} that all
+admissible coefficients $a\equiv3\pmod4$ have comparable failure scale
+$c_a(\log p)^{-1/2}$, that their geometric-mean constants stay bounded,
+and that distinct coefficients are quasi-independent, then there are
+$Z/4+O(1)$ such coefficients up to $Z$, and
+\begin{equation}
+ \begin{split}
+ \Pr[a_1(p)>Z]
+ &\approx\prod_{\substack{a\leq Z\\a\equiv3(4)}}
+             c_a(\log p)^{-1/2}\\
+ &=\exp\left\{-{Z\over8}(1+o(1))\log\log p+O(Z)\right\}.
+ \end{split}
+                                                               \tag{70.37}
+\end{equation}
+On this model, making $N\Pr[a_1>Z]<1$ asks for
+\begin{equation}
+                       Z\asymp {\log N\over\log\log N},    \tag{70.38}
+\end{equation}
+inside the conceivable depth $a\leq(\log N)^{1+o(1)}$.  The extrapolation
+to composite coefficients in (70.37) is part of the heuristic, not a
+consequence of Theorem~\ref{thm:composite-confinement}.  If one multiplies only the prime moduli
+actually covered by (70.22), their number is instead
+$(1+o(1))Z/(2\log Z)$, giving the different prime-only model
+\begin{equation}
+ \exp\left\{-(1+o(1)){Z\log\log p\over4\log Z}\right\};    \tag{70.39}
+\end{equation}
+this arithmetic distinction cannot honestly be suppressed.
+
+The attraction of (70.37) is structural only.  The $M$-frame crossing is
+blocked by the genuine progressions of Theorem~\ref{thm:W-lower}, whereas Theorem~\ref{thm:congruence-wall-free}
+shows no analogous fixed-congruence wall in this frame.  This is not a
+count-below-one theorem.  Proposition~\ref{prop:mass-gap} excludes only its named
+absolute-remainder architectures and explicitly leaves room for inputs that
+see actual locations; the present fixed-$a$ laws do see those locations,
+but no joint growing-$a$ transfer has been proved.
+
+\textbf{What would falsify the outlook; what this section does not do.}  Persistent
+large positive correlations between different shifted failures, rapidly
+decaying constants, or budget costs overwhelming the confinement term in
+the growing-$a$ range would invalidate (70.37) as a useful model.  The
+finite census cannot decide those alternatives.  The proved statements do
+not give uniformity in $a$, a lower bound along shifted primes, independence,
+a tail estimate for growing $Z$, a bound for every $a_1(p)$, or a proof
+that $a_1(p)<\infty$.  Since Theorems~\ref{thm:hard-prime-criterion} and~\ref{thm:ratio-spectrum} give
+$W(p)=+\infty\Longleftrightarrow a_1(p)=+\infty$ for hard primes, any one
+of those missing joint steps is load-bearing for the exceptional set.  No
+such step is claimed here.
+
+\section{Fixed-$J$ stacking in the first-witness frame: proved finite dimension and the uniformity frontier}
+\label{sec:fixed-J-stacking}
+
+\medskip\noindent\textbf{Status and headline.}
+The group-theoretic separation of confinement from the
+bounded-multiplicity obstruction, the finite-local factor, the count-below-one
+reduction, and the fixed-$J$ mean-value bounds below are \textbf{proved}.  The
+mean-value input in the last item is quoted from Nair--Tenenbaum and Henriot
+with its exact fixed-dimension hypotheses.  Shiu's one-function theorem is
+also quoted.  None of those papers gives a quantitative growth rate for its
+constant as the number of forms grows.  The moving-$J$ tail is therefore
+\textbf{conditional} on the two named hypotheses below, and the local-product
+discussion is explicitly a \textbf{Heuristic}.  The unconditional first-witness
+bound here has only fixed-$J$, one-excluded-class strength.  It is weaker than
+source \S12.3, Vaughan's cited $2/3$ exceptional-set shape, Pomerance--Weingartner's
+modern $2/3$ version, and the \textsc{claimed/provisional} $3/4$ campaign bound.
+No unconditional Erd\H{o}s--Straus record or pointwise conclusion is claimed.
+
+Put $L=\log N$.  For $Z\geq3$ let
+\begin{equation}
+ \mathcal P_Z=\{a\leq Z:a\equiv3\pmod4,\ a\hbox{ prime}\},\qquad
+ h_a(n)={n+a\over4}.                                      \tag{71.1}
+\end{equation}
+For $n\equiv1\pmod {24}$, every $h_a(n)$ in (71.1) is an
+integer.  Restricting to prime $a$ is deliberate: it gives a cyclic unit
+group and a clean quadratic-residue subgroup.  Omitting composite admissible
+$a$ can only weaken an upper bound obtained from necessary conditions.
+
+\subsection{Confinement, budget failure, and the integer frame}
+
+\begin{lemma}[prime-$a$ separation; proved; source Lemma 71.1]\label{lem:prime-a-separation}  Let $a\equiv3\pmod4$ be
+prime and let $(h,a)=1$.  Write $F1_a(h)$ for the assertion that every
+prime divisor of $h$ is a quadratic residue modulo $a$.  Then:
+
+\begin{enumerate}[leftmargin=*]
+\item $F1_a(h)$ implies failure at $a$.
+\item If $F1_a(h)$ is false, the subgroup generated by the prime-divisor
+   classes of $h$ contains $-1$.  Any remaining failure is solely a
+   failure of the bounded ranges $|f_q|\leq v_q(h)$ to reach that subgroup
+   element.  Call this disjoint event $F3_a(h)$.  Thus
+   \begin{equation}
+       \{\hbox{failure at }a\}=F1_a\,\dot\cup\,F3_a.       \tag{71.2}
+   \end{equation}
+\item Failure at $a$ implies the completely multiplicative necessary
+   condition
+   \begin{equation}
+    G_a(h):\quad q\not\equiv-1\pmod a\quad(q\mid h\hbox{ prime}).
+                                                                  \tag{71.3}
+   \end{equation}
+\end{enumerate}
+
+\end{lemma}
+\begin{proof} The group $(\mathbb Z/a\mathbb Z)^*$ is cyclic of order
+$a-1=2m$ with $m$ odd.  Its quadratic-residue subgroup has order
+$m$ and therefore does not contain the unique element of order two,
+$-1$.  This proves (1) from Theorem~\ref{thm:ratio-spectrum}.  If a prime class is a
+non-residue, its discrete logarithm to a primitive root is odd, so its order
+is even; the midpoint power in its cyclic subgroup is the unique involution
+$-1$.  This proves the subgroup assertion and makes (71.2) a definition
+of exactly the residual bounded-budget event.  Finally, if some $q\mid h$
+satisfied $q\equiv-1\pmod a$, the permitted choice $f_q=1$ and
+$f_r=0$ for the other primes would put $-1$ in $\operatorname{Rat}_a(h)$.
+Theorem~\ref{thm:ratio-spectrum} would give success, proving (3).
+\end{proof}
+
+The first implication is one-way: confinement is sufficient for failure,
+not necessary.  Consequently an intersection of $F1_a$ events does \textbf{not}
+majorize the all-failure event.  The exact pointwise majorant is
+\begin{equation}
+  \prod_{a\in\mathcal P_Z}{\bf1}_{\rm fail,a}
+  \leq\prod_{a\in\mathcal P_Z}
+       ({\bf1}_{F1_a}+{\bf1}_{F3_a}),                    \tag{71.4}
+\end{equation}
+whose expansion has one term for each choice of the $F3$ coordinates.
+Without an $F3$ estimate, (71.3), not $F1$, is the unconditional
+multiplicative majorant.
+
+For hard primes, Theorems~\ref{thm:hard-prime-criterion} and~\ref{thm:ratio-spectrum} and definition (63.25) give, for
+every $Z$,
+\begin{equation}
+ \{p\leq N:p\hbox{ is an Erd\H{o}s--Straus counterexample}\}
+ \subseteq\{p\leq N:a_1(p)>Z\},                           \tag{71.5}
+\end{equation}
+and $a_1(p)>Z$ means failure at every admissible $a\leq Z$.
+For $p>3Z/2$, every $a\in\mathcal P_Z$ is admissible.  Therefore
+\begin{equation}
+ \#\{3Z/2<p\leq N:a_1(p)>Z\}
+ \leq\#\{n\leq N:n\equiv1\pmod {24},
+       \ G_a(h_a(n))\ (a\in\mathcal P_Z)\}.             \tag{71.6}
+\end{equation}
+Including composite $n$ and values with $(a,n)>1$ only enlarges the
+right side.  The omitted primes contribute $O(Z)$ to a global tail and are
+absent in a dyadic range $(N/2,N]$ once $Z=o(N)$.  This is the promised
+integer frame.
+
+\begin{lemma}[the $a_1$ count-below-one reduction; proved; source Lemma 71.2]\label{lem:a1-count-below-one}  Suppose a
+proved estimate, in its stated validity window, gives
+\begin{equation}
+             \#\{p\leq N:a_1(p)>Z(N)\}<1                 \tag{71.7}
+\end{equation}
+for every member of an unbounded covering sequence of endpoints $N$.
+Then every sufficiently large prime satisfies the Erd\H{o}s--Straus
+conjecture.  The conclusion is effective if the estimate, its validity
+threshold, and $Z(N)$ are effective.
+
+\end{lemma}
+\begin{proof} The count in (71.7) is a nonnegative integer, hence zero.  By
+(71.5) no counterexample is at most such an $N$.  A sequence of endpoints
+whose intervals cover the tail, for example all sufficiently large dyadic
+endpoints, proves the assertion.
+\end{proof}
+
+This is the direct $a_1$ analogue of Theorem~\ref{thm:count-below-one}.  Unlike the
+absolute-remainder architectures in Proposition~\ref{prop:mass-gap}, the route below asks
+for a mean value of products of multiplicative functions on shifted linear
+forms.  Assessment 57.3 explicitly did not exclude such a new mean-value
+input.  Theorem~\ref{thm:W-lower}'s residue-one construction forces the different
+statistic $W$ to be large; it does not force $a_1$ to be large (compare
+Section~\ref{sec:a-frame-failure}).  Thus the $M$-frame congruence wall is not a wall for (71.6).
+
+\subsection{What the three cited mean-value theorems actually say}
+
+The quotations in this subsection preserve the hypotheses and dependency
+sentences of the archived papers.  Notation is converted only to the present
+LaTeX typography.
+
+\medskip\noindent\textbf{Fact 71.1 (cited; Shiu 1980, Theorem 1, pp. 162--163, verbatim
+statement).}  Shiu defines $\mathcal M$ to consist of nonnegative
+multiplicative $f$ satisfying
+\[
+ f(p^l)\leq A_1^l\quad(p\ {\rm prime},l\geq1),\qquad
+ (\forall\epsilon>0)(\exists A_2>0)\ f(n)\leq A_2n^\epsilon.
+\]
+His theorem reads:
+
+\begin{quote}
+Let $f\in\mathcal M$, $0<\alpha<1/2$, $0<\beta<1/2$ and let
+$a,k$ be integers satisfying $0<a<k$, $(a,k)=1$.  Then, as
+$x\to\infty$,
+\begin{equation}
+\sum_{\substack{x-y<n\leq x\\n\equiv a\pmod k}}f(n)
+\ll {y\over\phi(k)}{1\over\log x}
+\exp\left\{\sum_{\substack{p\leq x\\p\nmid k}}{f(p)\over p}\right\},
+\tag{71.8}
+\end{equation}
+uniformly in $a,k,y$ provided that
+\[
+k<y^{1-\alpha},\qquad x^\beta<y\leq x.
+\]
+\end{quote}
+
+The paper then states: ``All the constants implied by the $\ll$ and
+$O$ notations depend at most on $\alpha,\beta,f$.''  This is a
+one-function theorem; it contains no number-of-forms parameter.
+
+\medskip\noindent\textbf{Fact 71.2 (cited; Nair--Tenenbaum 1998, Theorem 1, pp. 123--126,
+verbatim statement with its defined notation).}  For fixed $k,A,B,\epsilon$
+the paper defines $\mathcal M_k(A,B,\epsilon)$ by
+\begin{equation}
+ F(m_1n_1,\ldots,m_kn_k)
+ \leq\min(A^{\Omega(m)},Bm^\epsilon)F(n_1,\ldots,n_k),
+ \quad m=m_1\cdots m_k,                                  \tag{71.9}
+\end{equation}
+when $(m_j,n_j)=1$ for every $j$.  It factors
+$Q=\prod_jQ_j=\prod_{h=1}^rR_h^{\gamma_h}$, writes
+$Q_j=\prod_hR_h^{\gamma_{jh}}$, lets $\rho,$ respectively
+$\rho_h$, count roots of $Q$, respectively $R_h$, and defines
+\begin{equation}
+ v(n;F,\boldsymbol\rho)=
+ \sum_{n_1\cdots n_r=n}^{\dagger}
+ F\!\left(\prod_hn_h^{\gamma_{1h}},\ldots,
+          \prod_hn_h^{\gamma_{kh}}\right)
+ {\rho_1(n_1)\cdots\rho_r(n_r)\over n_1\cdots n_r},      \tag{71.10}
+\end{equation}
+where the dagger requires the $n_h$ to be pairwise coprime and
+coprime to the discriminant $D^*$ of $\prod_hR_h$.  The theorem reads:
+
+\begin{quote}
+Let $k$ be an arbitrary positive integer and let
+$Q_j\in\mathbb Z[X]$ ($1\leq j\leq k$) be such that
+$Q=\prod_{j=1}^kQ_j$ has no fixed prime divisor.  Denote by $g$ the
+degree of $Q$, by $r$ the number of irreducible factors of $Q$ and
+put $\rho=\rho_Q$.  Then for any $A\geq1$, $B\geq1$,
+$0<\epsilon<1/(8g^2)$, $0<\delta<1$ and
+$F\in\mathcal M_k(A,B,\epsilon)$, we have
+\begin{equation}
+\sum_{x<n\leq x+y}F(|Q_1(n)|,\ldots,|Q_k(n)|)
+\ll y\prod_{p\leq x}\left(1-{\rho(p)\over p}\right)
+\sum_{n\leq x}v(n;F,\boldsymbol\rho)           \tag{71.11}
+\end{equation}
+uniformly for $x\geq c_0\|Q\|^\delta$ and
+$x^{4g^2\epsilon}\leq y\leq x$.  The implicit constant in the
+$\ll$-sign depends at most on
+$A,B,\epsilon,\delta,k,r,g,D$ and the constant $c_0$ depends at
+most on $A,B,\epsilon,\delta,k,r,g$.
+\end{quote}
+
+Here $D$ is the paper's finite discriminant-supported integer defined in
+\S2.  In particular, the bound is a fixed-$k$ theorem and its implicit
+constant is allowed to depend on both $k$ and $D$.  No formula or growth
+rate in $k$ is stated.
+
+\medskip\noindent\textbf{Fact 71.3 (cited; Henriot 2011, Theorem 5, Corollary 2, and
+Theorem 7, pp. 4--8, verbatim statements).}  Henriot writes
+$Q=\prod_{j=1}^kQ_j=\prod_{h=1}^rR_h^{\gamma_h}$,
+$Q^*=\prod_hR_h$, lets $D^*$ be the nonzero discriminant of
+$Q^*$, and defines
+\begin{equation}
+ \widehat\rho_{\mathbf R}(n_1,\ldots,n_r)
+ =\#\{n\bmod[n_1\kappa(n_1),\ldots,n_r\kappa(n_r)]:
+                         n_h\parallel R_h(n)\ (1\leq h\leq r)\}. \tag{71.12}
+\end{equation}
+His main theorem reads:
+
+\begin{quote}
+Let $k$ be a positive integer and let $Q_j\in\mathbb Z[X]$
+($1\leq j\leq k$).  Let $Q=\prod_{j=1}^kQ_j$ and assume that $Q$
+is primitive.  Let (2.1) be the decomposition of $Q$ in irreducible
+factors and define $g,\rho,\widehat\rho_{\mathbf R}$ as in the previous
+section.  Let $0<\alpha<1$, $0<\delta<1$, $A\geq1$ and
+$B\geq1$.  Let also
+\[
+0<\epsilon<{\alpha\over50g(g+1/\delta)}
+\quad\hbox{and}\quad F\in\mathcal M_k(A,B,\epsilon).
+\]
+Then we have, uniformly in $x\geq c_0\|Q\|^\delta$ and
+$x^\alpha\leq y\leq x$,
+\begin{equation}
+\begin{split}
+&\sum_{x<n\leq x+y}F(|Q_1(n)|,\ldots,|Q_k(n)|)\\
+&\quad\ll y\prod_{g<p\leq x}\left(1-{\rho(p)\over p}\right)
+\sum_{n_1\cdots n_r\leq x}
+\widetilde F(n_1,\ldots,n_r)
+{\widehat\rho_{\mathbf R}(n_1,\ldots,n_r)
+\over[n_1\kappa(n_1),\ldots,n_r\kappa(n_r)]},
+\end{split}                                               \tag{71.13}
+\end{equation}
+where $c_0$ and the implicit constant depend at most on
+$g,\alpha,\delta,A,B$.
+\end{quote}
+
+Corollary 2 gives the more legible upper bound
+\begin{equation}
+ \Delta_{D^*}y\prod_{g<p\leq x}\left(1-{\rho(p)\over p}\right)
+ \prod_{\substack{p\leq x\\p\nmid D^*}}
+ \prod_{h=1}^r\left(1+\widetilde G^{(h)}(p)
+                      {\rho_{R_h}(p)\over p}\right),      \tag{71.14}
+\end{equation}
+with
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+ \Delta_{D^*}=\prod_{p\mid D^*}\left(1+
+ \sum_{\nu_h\leq\deg R_h\ (1\leq h\leq r)}
+ \widetilde G(p^{\nu_1},\ldots,p^{\nu_r})
+ {\widehat\rho_{\mathbf R}(p^{\nu_1},\ldots,p^{\nu_r})
+  \over p^{\max_h\nu_h+1}}\right).
+$}                                                          \tag{71.15}
+\end{equation}
+The corollary says its dependencies are those of Theorem 5.  Under the
+same assumptions and $Q(0)\ne0$, Theorem 7 also states the prime-input
+variant
+\begin{equation}
+ \sum_{x<p\leq x+y}F(|Q_1(p)|,\ldots,|Q_k(p)|)
+ \ll {|Q(0)|\over\phi(|Q(0)|)}{\Delta_{D^*}y\over\log x}
+ \prod_{g<q\leq x}\left(1-{\rho(q)\over q}\right)
+ \sum_{n_1\cdots n_r\leq x}\widetilde F(\mathbf n)
+ {\widehat\rho_{\mathbf R}(\mathbf n)
+  \over[n_1\kappa(n_1),\ldots,n_r\kappa(n_r)]}.          \tag{71.15a}
+\end{equation}
+Its dependencies are again those of Theorem 5.  Thus the implicit constant
+in Henriot is uniform in $D^*$; the exact finite factor (71.15) carries the
+discriminant dependence.  Theorem 7 can supply the usual prime-density
+factor $1/\log x$ in the application below, but does not improve dimension
+uniformity.  For $J$ linear forms, $g=J$.  The paper says only that the
+constants ``depend at most on $g,\alpha,\delta,A,B$,'' not
+$\exp(O(g))$, $\exp(O(g\log g))$, or any other rate.
+
+\medskip\noindent\textbf{Assessment 71.1 (the actual $C(J)$ intelligence).}  Shiu has no
+multi-form parameter.  Nair--Tenenbaum has an unspecified constant depending
+on $k,r,g,D$.  Henriot removes $D$ from that implicit constant but leaves
+an unspecified dependence on total degree $g$, which equals $J$ here;
+its displayed $\Delta_{D^*}$ is not a bound for that hidden dependence.
+Therefore none of the three archived papers proves
+$C(J)\leq\exp(O(J))$, $\exp(O(J\log J))$, or even a stated
+computable asymptotic rate as $J\to\infty$.  They prove exactly fixed
+$J$.  This is the unresolved Phase-1 $C(k)$ question in
+\texttt{PROJECT.md}, not a technicality that can be absorbed into $\ll$.
+
+\subsection{The best unconditional fixed-$J$ consequences}
+
+For $a\in\mathcal P_Z$ put $b_a=(a+1)/4$,
+$d_a=(6,b_a)$, and
+\begin{equation}
+                  R_a(t)={6t+b_a\over d_a}\in\mathbb Z[t]. \tag{71.16}
+\end{equation}
+The $R_a$ are primitive, pairwise nonassociate linear polynomials.
+The discarded constant $d_a$ causes no problem.  If $2\mid d_a$ then
+$a\equiv7\pmod8$ and $2$ is a quadratic residue modulo $a$; if
+$3\mid d_a$ then $a\equiv11\pmod {12}$ and $3$ is a quadratic
+residue modulo $a$.  Also neither $2$ nor $3$ is $-1\pmod a$
+in the cases where it occurs.  Thus both indicators below take value one on
+$d_a$.
+
+Define completely multiplicative $0/1$ functions by their prime-power
+values
+\begin{equation}
+ \begin{split}
+ g_a(q^e)&={\bf1}_{q\not\equiv-1\pmod a},\\
+ f_a(q^e)&={\bf1}_{q\ne a}\,{\bf1}_{(q/a)=1}
+       \qquad(e\geq1),
+ \end{split}                                               \tag{71.17}
+\end{equation}
+and give both value one at $1$.  Then $G_a(h_a(24t+1))$ is
+$g_a(R_a(t))=1$, while $F1_a(h_a(24t+1))$ is
+$f_a(R_a(t))=1$.
+
+\begin{theorem}[fixed-$J$ shifted-indicator means; proved from the cited
+Henriot theorem; source Theorem 71.3]\label{thm:fixed-J-means}  Let $\mathcal A$ be any fixed finite set of $J$ primes
+$a\equiv3\pmod4$.  As $X\to\infty$,
+\begin{equation}
+ \#\{t\leq X:g_a(R_a(t))=1\ (a\in\mathcal A)\}
+ \ll_\mathcal AX(\log X)^{-\delta(\mathcal A)},
+ \quad \delta(\mathcal A)=\sum_{a\in\mathcal A}{1\over a-1}, \tag{71.18}
+\end{equation}
+and
+\begin{equation}
+ \#\{t\leq X:f_a(R_a(t))=1\ (a\in\mathcal A)\}
+ \ll_\mathcal AX(\log X)^{-J/2}.                       \tag{71.19}
+\end{equation}
+The corresponding prime-input estimates retain the prime-density saving:
+for $u_a=g_a$, respectively $u_a=f_a$,
+\begin{equation}
+ \#\{p\leq X:p\equiv1\pmod {24},\
+             u_a(h_a(p))=1\ (a\in\mathcal A)\}
+ \ll_\mathcal A {X\over\log X}
+ \begin{cases}
+  (\log X)^{-\delta(\mathcal A)},&u_a=g_a,\\
+  (\log X)^{-J/2},&u_a=f_a.
+ \end{cases}                                             \tag{71.19a}
+\end{equation}
+
+\end{theorem}
+\begin{proof} Apply Henriot's Theorem 5 and Corollary 2 with
+$Q_j=R_{a_j}$ and
+$F(n_1,\ldots,n_J)=\prod_jg_{a_j}(n_j)$, respectively
+$\prod_jf_{a_j}(n_j)$.  These products lie in
+$\mathcal M_J(1,1,\epsilon)$ for every $\epsilon>0$.  The product
+of the primitive $R_a$ is primitive.  Choose fixed
+$\alpha,\delta\in(0,1)$ and a sufficiently small $\epsilon$; all
+hypotheses of Fact 71.3 then hold.
+
+Outside the finite set of primes dividing the leading coefficients or the
+discriminant, the $J$ roots are distinct, so the logarithm of the Euler
+product in (71.14) is
+\begin{equation}
+ -\sum_{q\leq X}{1\over q}
+       \sum_{a\in\mathcal A}(1-u_a(q))+O_\mathcal A(1),       \tag{71.20}
+\end{equation}
+where $u_a=g_a$ or $f_a$.  The fixed-modulus Mertens theorem
+for primes in arithmetic progressions gives
+\begin{equation}
+ \sum_{q\leq X}{1-g_a(q)\over q}
+       ={1\over a-1}\log\log X+O_a(1),\qquad
+ \sum_{q\leq X}{1-f_a(q)\over q}
+       ={1\over2}\log\log X+O_a(1).                      \tag{71.21}
+\end{equation}
+(The single prime $q=a$ changes only the constant.)  Equations
+(71.20)--(71.21), and the fixed finite $\Delta_{D^*}$, prove each
+estimate on a dyadic interval.  Summing the dyadic intervals proves
+(71.18)--(71.19).
+
+For (71.19a), put $S_a(T)=T+a$ and let $\bar u_a$ agree with $u_a$ at
+odd prime powers but have $\bar u_a(2^e)=1$.  If
+$p\equiv1\pmod {24}$, then
+$\bar u_a(p+a)=u_a((p+a)/4)$: when $2\mid(p+a)/4$ one has
+$a\equiv7\pmod8$, so $u_a(2)=1$ for both indicators.  The monic linear
+forms $S_a$ have primitive product and nonzero constant term
+$\prod_{a\in\mathcal A}a$.  Apply Henriot's Theorem 7 to the
+$\bar u_a(S_a(p))$, dropping the progression restriction.  Extend its
+nonnegative truncated mean-value sum to the full Euler product.  Away from
+the fixed discriminant primes, distinct linear roots allow at most one
+nonzero valuation coordinate; summing the exact-valuation terms over
+$\nu\geq1$ gives $\bar u_a(q)/q$.  Thus the local factor is
+$1+\sum_a\bar u_a(q)/q$, and after multiplication by
+$1-J/q$ it has exactly the logarithmic expansion (71.20)--(71.21).
+The factor $1/\log X$ in (71.15a) proves (71.19a).
+\end{proof}
+
+The discriminant accounting is fully explicit here.  If
+$R_{a_i}(t)=u_it+v_i$, then
+\begin{equation}
+ D^*_\mathcal A=\prod_{i<j}(u_iv_j-u_jv_i)^2
+ =\prod_{i<j}\left({6(b_{a_j}-b_{a_i})\over d_{a_i}d_{a_j}}\right)^2. \tag{71.22}
+\end{equation}
+For the weak indicators $g_a$ and the first six moduli
+\begin{equation}
+                     3,7,11,19,23,31,                    \tag{71.23}
+\end{equation}
+(71.15) evaluates exactly as follows; this is the discriminant penalty,
+not the hidden fixed-degree constant.
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+\begin{array}{c|c|c}
+J&\operatorname{factor}(D^*)&\Delta_{D^*}\\ \hline
+1&1&1\\
+2&3^2&4/3\\
+3&2^4 3^2&49/18\\
+4&2^{14}3^8&49/18\\
+5&2^{16}3^8 5^2&1472/225\\
+6&2^{16}3^{18}5^4 7^2&20564/1225.
+\end{array}
+$}                                                          \tag{71.24}
+\end{equation}
+Each entry is the finite valuation count (71.12) substituted in
+(71.15); no estimate for $D^*$ is being hidden.
+
+\begin{corollary}[fixed-$J$ first-witness tails; proved; source Corollary 71.4]\label{cor:fixed-J-tail}  For the first
+$J$ moduli in (71.23),
+\begin{equation}
+ \#\{p\leq N:p\equiv1\pmod {24},\ a_1(p)>a_J\}
+       \ll_J {N\over\log N}(\log N)^{-\delta_J},        \tag{71.25}
+\end{equation}
+where
+\begin{equation}
+\begin{array}{c|c|c|c}
+J&a_J&\delta_J=\sum_{j\leq J}1/(a_j-1)&J/2\ (F1\hbox{ stacking})\\ \hline
+1&3&1/2&1/2\\
+2&7&2/3&1\\
+3&11&23/30&3/2\\
+4&19&37/45&2\\
+5&23&859/990&5/2\\
+6&31&446/495&3.
+\end{array}                                                \tag{71.26}
+\end{equation}
+
+\end{corollary}
+\begin{proof} Apart from the fixed range $p\leq3a_J/2$, a prime counted on the
+left fails at each selected $a_j$.  Lemma~\ref{lem:prime-a-separation}(3) and the $g_a$ case of
+(71.19a) prove (71.25); the fixed omitted range is absorbed in the implied
+constant.
+The last column is the additional stacking exponent in the $f_a$ case of
+(71.19a), so the F1-intersection bound itself is
+$N(\log N)^{-1-J/2}$.  By (71.4) it is not an unconditional first-witness
+exponent.  The fractions in the third column are direct sums.
+\end{proof}
+
+For every fixed $Z$, the same proof gives exponent
+\begin{equation}
+ \delta(\mathcal P_Z)=\sum_{a\in\mathcal P_Z}{1\over a-1}
+       ={1\over2}\log\log Z+O(1).                         \tag{71.27}
+\end{equation}
+This is precisely the class-exclusion mass diagnosed in Assessment 63.2.
+Even if one were allowed to insert $Z\asymp\log N$ into the fixed-$J$
+formula (one is not, without uniform constants), it would yield only
+\begin{equation}
+ {N\over\log N}
+ \exp\{-(1/2+o(1))\log\log N\,\log\log\log N\}.          \tag{71.28}
+\end{equation}
+Source \S12.3 instead obtains $N\exp\{-c(\log\log N)^2\}$ by using
+all composite $w\equiv3\pmod4$ and further exclusion classes; its mass is
+of order $\log W$ rather than (71.27)'s $\log\log W$.  Thus the
+$a$-frame is new bookkeeping, not a stronger unconditional estimate.
+
+\subsection{Exact finite-prime correlations}
+
+The shifted values are not locally independent.  The exact collision can be
+written without an asymptotic theorem.
+
+\begin{lemma}[one-prime local confinement factor; proved; source Lemma 71.5]\label{lem:local-confinement-factor}  Let
+$\mathcal A$ be a finite set of primes $a\equiv3\pmod4$, let $C$ be a
+squarefree product of any subset of $\mathcal A$, and let $\ell\geq5$ be
+prime.  Parameterize $n=24t+1$ and put
+\begin{equation}
+ r_a(\ell)\equiv-6^{-1}b_a\pmod\ell,\qquad
+ B_\ell=\{r_a(\ell):a\in\mathcal A,\ (\ell/a)\ne1\}.    \tag{71.29}
+\end{equation}
+Here $(\ell/a)=0$ when $\ell=a$, so that placement is bad.
+Let
+\begin{equation}
+ E_\ell=\begin{cases}\{-24^{-1}\pmod\ell\},&\ell\mid C,\\
+                       \varnothing,&\ell\nmid C.
+       \end{cases}                                        \tag{71.30}
+\end{equation}
+Among residues $n$ modulo
+$\operatorname {lcm}(24,4\ell C)$ satisfying
+$n\equiv1\pmod {24}$ and $(n,C)=1$, the exact proportion for
+which every forced divisibility $\ell\mid h_a(n)$ is compatible with
+all the confinement conditions $F1_a$ is
+\begin{equation}
+ \boxed{\quad
+ \lambda_\ell(\mathcal A;C)
+ ={\ell-|E_\ell|-|B_\ell\setminus E_\ell|
+   \over\ell-|E_\ell|}.\quad}                             \tag{71.31}
+\end{equation}
+
+\end{lemma}
+\begin{proof} Since $h_a(24t+1)=6t+b_a$,
+$\ell\mid h_a$ holds in exactly the residue $t=r_a(\ell)$.  If
+several $a$ give the same residue, all are forced there; compatibility
+fails exactly when at least one has $(\ell/a)\ne1$.  Hence the union of
+bad $t$-residues is the set $B_\ell$, with collisions counted once.
+The coprimality condition $(n,C)=1$ is independent at primes other than
+$\ell$ by the Chinese remainder theorem.  When $\ell\mid C$ it removes
+the single residue $24t+1\equiv0\pmod\ell$, namely $E_\ell$; when
+$\ell\nmid C$ it removes none.  Counting the remaining good residues
+gives (71.31).
+\end{proof}
+
+For example, with
+$\mathcal A=\{3,7,11,19,23,31\}$ and $C=3\cdot7\cdot11$, (71.31)
+gives
+\begin{equation}
+\begin{array}{c|rrrr}
+\ell&5&7&11&13\\ \hline
+\lambda_\ell&3/5&2/3&7/10&9/13.
+\end{array}                                                \tag{71.32}
+\end{equation}
+Block \texttt{(br)} enumerates the complete residue frames and checks these exact
+fractions.
+
+\medskip\noindent\textbf{Heuristic 71.1 (displayed model, no evidential force).}  Let
+$J=|\mathcal P_Z|\sim Z/(2\log Z)$.  In a balls-in-residue-classes model,
+a given modulus $a$ contributes a bad placement at $\ell$ with
+probability about $1/2$, and its root is spread over $\ell$ bins.  A bin
+is then safe with probability
+\begin{equation}
+        (1-1/(2\ell))^J\approx e^{-J/(2\ell)},             \tag{71.33}
+\end{equation}
+so the model suggested by the exact collision formula is
+\begin{equation}
+ \prod_{\ell\leq Z}\lambda_\ell
+ \approx\exp\left\{-{J\over2}\sum_{\ell\leq Z}{1\over\ell}\right\}
+ =\exp\left\{-(1+o(1)){Z\log\log Z\over4\log Z}\right\}. \tag{71.34}
+\end{equation}
+This is only a heuristic: for fixed small $\ell$ the bad roots may even
+cover every available residue, making the exact factor zero.
+
+A $2^{-\pi(Z)+o(\pi(Z))}$ factor would arise from the different sparse toy
+assumption of one forced, random-character placement per rational prime:
+\begin{equation}
+ 2^{-\pi(Z)+o(\pi(Z))}
+   =\exp\{-(\log2+o(1))Z/\log Z\}.                        \tag{71.35}
+\end{equation}
+The actual prime-modulus system has about $J/\ell$ placements, not one,
+so (71.35) is not its precise aggregate.  Both (71.34) and the sparser
+(71.35) are subdominant, when $Z=L^\theta$, to the putative independent
+one-form saving
+\begin{equation}
+ \exp\{-(J/2)\log L\}
+       =\exp\{-(1+o(1))Z/(4\theta)\}.                     \tag{71.36}
+\end{equation}
+This correction matters: with prime $a$ only, the main exponent is
+order $Z$, not $Z\log\log N$.
+
+\subsection{A named conditional frontier and its exact thresholds}
+
+The first hypothesis isolates the bounded-budget problem.  Its normalization
+is relative to the size of the progression; omitting that normalization
+would not express a $(\log x)^{-1/2}$ failure probability.
+
+\begin{hypothesis}[$H_{\rm FAIL}(\theta_0)$; open; source Hypothesis $H_{\rm FAIL}$]\label{hyp:H-FAIL}  There are effective
+$C_0,N_0>0$ such that, uniformly for $x\geq N_0$, primes
+$a\equiv3\pmod4$ with $a\leq(\log x)^{\theta_0}$, and compatible
+reduced classes $r\pmod {24a}$,
+\begin{equation}
+ \#\{n\leq x:n\equiv r\pmod {24a},\
+       -1\notin\operatorname {Rat}_a(h_a(n))\}
+ \leq {C_0x\over24a}(\log x)^{-1/2}.                     \tag{71.37}
+\end{equation}
+Replacing $24a$ by $\phi(24a)$ under a reduced-residue
+normalization is equivalent up to an absolute constant.  The hypothesis includes $F3$.  Section~\ref{sec:a-frame-failure} proves the corresponding
+fixed-$a$ statement; it does not provide the displayed uniformity as $a$
+moves with $x$.
+
+\end{hypothesis}
+\begin{hypothesis}[$H_{\rm STACK}(\theta,\gamma)$; open; source Hypothesis $H_{\rm STACK}$]\label{hyp:H-STACK}  For
+$Z=L^\theta$, $\mathcal A=\mathcal P_Z$ and
+$J=|\mathcal A|$, the one-form estimates (71.37) tensorize on the hard
+frame with
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+ \#\{n\leq N:n\equiv1\pmod {24},\ (n,\prod_{a\in\mathcal A}a)=1,\
+               n\hbox{ fails at every }a\in\mathcal A\}
+ \leq C_*N\exp\{KJ(\log(2J))^\gamma\}
+                 \{C_0L^{-1/2}\}^{J},
+$}                                                          \tag{71.38}
+\end{equation}
+for fixed effective $C_*,K$.  Local factors such as (71.31) may be
+retained if they are at most one.  This is required only for
+$0<\theta\leq\theta_0$.  The exponent $\gamma$ is a parameter, not a
+literature claim: Facts 71.1--71.3 provide no admissible value for growing
+$J$.
+
+\end{hypothesis}
+
+\begin{theorem}[conditional moving-$J$ tail; proved implication; source Theorem 71.6]\label{thm:moving-J-tail}  Assume
+$H_{\rm FAIL}(\theta_0)$ and $H_{\rm STACK}(\theta,\gamma)$ with
+$0<\theta\leq\theta_0$.  In the dyadic range $N/2<p\leq N$,
+\begin{equation}
+ \log{\#\{N/2<p\leq N:a_1(p)>L^\theta\}\over N}
+ \leq-{J\over2}\log L+KJ(\log(2J))^\gamma+O(J),          \tag{71.39}
+\end{equation}
+where
+\begin{equation}
+ J=|\mathcal P_{L^\theta}|
+   =(1+o(1)){L^\theta\over2\theta\log L}.                \tag{71.40}
+\end{equation}
+Consequently:
+
+\begin{itemize}[leftmargin=*]
+\item if $\gamma<1$, then
+  \begin{equation}
+   \#\{N/2<p\leq N:a_1(p)>L^\theta\}
+   \leq N\exp\{-(1+o(1))L^\theta/(4\theta)\};            \tag{71.41}
+  \end{equation}
+\item if $\gamma=1$, (71.41) follows only when the actual constant is
+  favorable, specifically $K<1/(2\theta)$ in the normalization
+  (71.38), with a correspondingly reduced positive exponent;
+\item if $\gamma>1$, (71.38) by itself gives no saving, because its stated
+  prefactor is larger than the negative main term.
+\end{itemize}
+
+\end{theorem}
+\begin{proof} Here $Z=L^\theta=o(N)$, so every selected modulus is admissible
+for all primes in the dyadic range.  A prime with $a_1(p)>Z$ fails at every
+selected prime modulus, and (71.38) applies.  Taking logarithms and absorbing
+$C_0^J$ and $C_*$ gives (71.39).  The prime number theorem in the progression $3\pmod4$
+gives (71.40).  Hence
+\begin{equation}
+ {J\over2}\log L=(1+o(1)){L^\theta\over4\theta},\qquad
+ J(\log J)^\gamma
+ =(1+o(1)){\theta^{\gamma-1}\over2}
+       L^\theta(\log L)^{\gamma-1}.                      \tag{71.42}
+\end{equation}
+For $\gamma<1$ the second expression is $o(L^\theta)$.  For
+$\gamma=1$ it is $(1/2+o(1))L^\theta$, giving the displayed
+constant condition.  For $\gamma>1$ it dominates.
+\end{proof}
+
+For each fixed $\theta<1$, summing dyadic ranges gives the same exponent
+shape for counterexample primes up to $N$: a counterexample has
+$a_1=+\infty$, and the initial range $p\leq N^{1/2}$ is negligible compared
+with $N\exp\{-cL^\theta\}$.  At the count-below-one endpoint one must instead
+use (71.39) directly on successive dyadic ranges; this also avoids any
+small-$p$ admissibility issue.
+
+Under the favorable $\gamma<1$ branch, (71.41) beats the cited
+Vaughan/Pomerance--Weingartner shape $\exp(-cL^{2/3})$ when
+$\theta>2/3$, and beats the \textsc{claimed/provisional} Theorem~\ref{thm:three-quarter} shape
+$\exp(-cL^{3/4})$ when $\theta>3/4$.  Equality of powers does not
+by itself beat either bound because the constants are not comparable.
+
+\medskip\noindent\textbf{Fact 71.4 (cited; Pomerance--Weingartner 2025, Theorem 1.3, p. 2).}
+There is an absolute positive constant $C$ such that, for
+$4\leq m\leq(\log N)^2$, the number of $n\leq N$ for which $m/n$ is
+not a sum of three unit fractions is at most
+\begin{equation}
+ {N\over\exp\{C(\log^2N/\phi(m))^{1/3}\}}.               \tag{71.43}
+\end{equation}
+At $m=4$ this has power $2/3$.  The paper says its proof largely
+follows Vaughan.  Theorem~\ref{thm:three-quarter}'s $3/4$ statement remains
+\textsc{claimed/provisional} as recorded in source \S39.7.  Theorem~\ref{thm:witness-tail} and
+Corollary~\ref{cor:witness-polylog} also give much stronger witness-modulus tails in their stated windows,
+with their exact source \S51 review qualifications; although $W$ and $a_1$ are
+different statistics, either tail already bounds counterexamples.  Thus
+every unconditional result in the fixed-$J$ subsection above is weaker than the standing literature
+bound and the campaign's existing record shapes.
+
+For count below one, suppose the two hypotheses are strengthened only enough
+to remain uniform when $Z$ is a fixed positive multiple of $L$ (the present
+$Z=L^\theta$ notation does not itself provide this endpoint freedom).
+Then (71.39) has the exact requirement
+\begin{equation}
+                 {J\over2}\log L-\log C(J)>L+O(J).        \tag{71.44}
+\end{equation}
+If $\log C(J)=o(J\log J)$, this requires
+\begin{equation}
+        J>(2+o(1)){L\over\log L}.                         \tag{71.45}
+\end{equation}
+Since the selected moduli are primes $3\pmod4$,
+$J\sim Z/(2\log Z)$.  Therefore (71.45) corresponds to
+\begin{equation}
+                         Z>(4+o(1))L,                     \tag{71.46}
+\end{equation}
+not $Z\asymp L/\log L$.  At $Z=L/\log L$ one has only
+$J\sim L/(2(\log L)^2)$ and saving $L/(4\log L)=o(L)$.
+Equivalently, if $J$ denotes the number of prime forms, the needed
+$J\asymp L/\log L=\log N/\log\log N$ has largest prime modulus of order
+$L$.  Using every admissible (including composite) $a$ would put the
+largest modulus near $L/\log L$, but that is a different system and is
+not covered by Lemma~\ref{lem:prime-a-separation} or the hypotheses above.  This is a necessary
+logarithmic-bookkeeping correction to the tempting prime-only formulation.
+
+\medskip\noindent\textbf{Assessment 71.2 (budget-transition comparison).}  A typical integer
+$h\asymp N$ has $\omega(h)\approx\log\log N=\log L$, so the informal
+bounded-product transition
+\begin{equation}
+                  3^{\omega(h)}\approx L^{\log3}
+                     =L^{1.0986\ldots}                   \tag{71.47}
+\end{equation}
+lies above the corrected prime-modulus crossing depth $Z\asymp L$.
+This comparison is strictly asymptotic: against the coefficient $4$ in
+(71.46), $L^{\log3}>4L$ only for
+$L>4^{1/(\log3-1)}=1.274\ldots\times10^6$, so it gives no favorable
+finite-range evidence at ordinary sizes.  Thus count below one is not
+\emph{asymptotically} ruled out by that budget transition.  This is only a scale
+assessment: neither uniform $F3$ control up to $a\asymp L$ nor
+growing-dimensional tensorization is known.
+
+\subsection{Honest walls and falsification register}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{The hidden constant is the main analytic wall.}  Facts 71.1--71.3
+   justify fixed $J$ only.  No cited theorem supplies even
+   $\exp(O(J\log J))$, much less the $\gamma<1$ regime required for
+   (71.41) without a favorable leading constant.  Discriminant uniformity
+   and $J$ uniformity are different questions.
+\item \textbf{The budget wall is independent.}  Confinement has the natural
+   $L^{-1/2}$ scale (Assessment 62.1 gives the $a=3$ case), but failure
+   also contains $F3$.  Hypothesis $H_{\rm FAIL}$ is open beyond fixed
+   $a$; the subgroup argument and Section~\ref{sec:a-frame-failure}'s fixed-$a$ result do not supply its
+   moving-modulus uniformity.
+\item \textbf{Even the dream chain nearly reaches logarithmic depth.}  Any fixed
+   $\theta<1$ leaves the exponent in (71.41) $o(L)$.  Count below one
+   needs (71.45)--(71.46), including its endpoint constants.  Theorem~\ref{thm:count-below-one}'s
+   moral therefore survives: a strong exceptional set is not yet a
+   pointwise proof.
+\item \textbf{Correlation can help or hurt locally, but does not prove tensorization.}
+   Lemma~\ref{lem:local-confinement-factor} computes one rational prime exactly.  Multiplying its factors,
+   exchanging the $a$- and $\ell$-limits, or treating Legendre symbols
+   as random are the unproved steps isolated in Heuristic 71.1.
+\end{enumerate}
+
+The value of the fixed-$J$ result is therefore an independent shifted-form
+route, an elementary exact treatment of its local collisions, and a precise
+map of the conditional frontier---not an improved numerical tail.  The cited
+implicit constants are not numerically printed, so no explicit numerical
+constant is claimed.
+
+A violation of (71.37) for an unbounded sequence of allowed $(a,x)$
+falsifies $H_{\rm FAIL}$.  A family for which the left side of (71.38)
+exceeds its right side for every proposed fixed $C_*,K$ falsifies the
+corresponding $H_{\rm STACK}(\theta,\gamma)$.  One unfavorable finite
+sample does neither.  Conversely, the exact checks in block \texttt{(br)} establish
+only the displayed finite local factors, exponent fractions, and bounded
+counts.  They do not validate either hypothesis, an independence model, or
+an Erd\H{o}s--Straus conclusion.  This is the same scope discipline as the
+closing register of Section~\ref{sec:supercritical-window}.
+
+\section{The a-frame failure census: per-modulus frequencies, dependence, and the third decade of $a_1$}
+\label{sec:a-frame-census}
+
+\medskip\noindent\textbf{Status and headline.}
+Every census and count in this section is \textbf{Computational} and
+exact only in its displayed finite, half-open range.  The normalized ratios,
+shares, and comparisons are \textbf{INFO} summaries of those counts.  In
+particular, no finite-window stability, dependence ratio, transition pattern,
+or record stall below is an asymptotic claim.
+
+\subsection{Method and four finite windows}
+
+The committed runner \texttt{scripts/afr\_census.py} uses a segmented NumPy Boolean
+bitmap only to enumerate primes, converts every prime immediately to a Python
+integer, and keeps all factorization, exponent, and residue paths in Python
+integers.  It factors
+\begin{equation}
+                         h_a(p)={p+a\over4}                 \tag{72.1}
+\end{equation}
+with \texttt{sympy.factorint}.  For each prime $a\equiv3\pmod4$, it starts with
+$R=\{1\}$ and replaces
+\begin{equation}
+ R\quad\hbox{by}\quad
+ \{r(q\bmod a)^e\bmod a:r\in R,\ -v_q(h_a)\leq e\leq v_q(h_a)\}.
+                                                               \tag{72.2}
+\end{equation}
+Thus failure means exactly $a-1\notin R$, as in Theorem~\ref{thm:ratio-spectrum}.  On every
+scanned failure the runner computes
+$\sigma=\#\{q\mid h_a:(q/a)=-1\}$: F1 means $\sigma=0$, and F3 means
+$\sigma>0$.  It asserts F1-or-F3 exhaustiveness and, independently of the
+budget, asserts $-1$ belongs to the subgroup generated by the factor
+classes on every F3 row.  There was no counterexample.
+
+The four windows are exactly
+\begin{equation}
+ [10^5,2\cdot10^5),\quad[10^6,1.2\cdot10^6),\quad
+ [10^7,1.02\cdot10^7),\quad[10^8,1.002\cdot10^8),             \tag{72.3}
+\end{equation}
+with respectively 1,031, 1,817, 1,561, and 1,355 hard primes.  The next table
+shows the required compact panel: each cell is
+$F=F1+F3;I;s$, where the first three numbers are exact counts,
+$I=(F/n)\sqrt{\log\bar p}$ is INFO, $\bar p$ is the arithmetic mean of
+hard primes in that window, and $s=F3/F$ is an INFO percentage.  The runner
+also records the same data for every prime $a\equiv3\pmod4$, $a\leq199$.
+
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+\begin{array}{r|c|c|c|c}
+a&[10^5,2\cdot10^5)&[10^6,1.2\cdot10^6)&[10^7,1.02\cdot10^7)&[10^8,1.002\cdot10^8)\\ \hline
+3&500=500+0;1.6744;0.0&821=821+0;1.6852;0.0&676=676+0;1.7391;0.0&522=522+0;1.6535;0.0\\
+7&257=257+0;0.8606;0.0&433=433+0;0.8888;0.0&340=340+0;0.8747;0.0&275=275+0;0.8711;0.0\\
+11&372=302+70;1.2457;18.8&598=492+106;1.2275;17.7&474=393+81;1.2195;17.1&392=327+65;1.2417;16.6\\
+19&771=373+398;2.5819;51.6&1302=595+707;2.6725;54.3&1030=478+552;2.6499;53.6&846=369+477;2.6798;56.4\\
+23&247=227+20;0.8271;8.1&416=390+26;0.8539;6.2&315=296+19;0.8104;6.0&255=240+15;0.8077;5.9\\
+31&585=325+260;1.9590;44.4&977=543+434;2.0054;44.4&734=399+335;1.8884;45.6&608=333+275;1.9259;45.2\\
+43&909=224+685;3.0440;75.4&1544=412+1132;3.1692;73.3&1277=342+935;3.2853;73.2&1057=280+777;3.3481;73.5\\
+59&788=335+453;2.6388;57.5&1301=559+742;2.6705;57.0&1044=473+571;2.6859;54.7&859=370+489;2.7209;56.9\\
+103&857=275+582;2.8698;67.9&1403=473+930;2.8798;66.3&1148=353+795;2.9535;69.3&971=305+666;3.0757;68.6\\
+199&933=369+564;3.1243;60.5&1607=575+1032;3.2986;64.2&1321=479+842;3.3985;63.7&1109=379+730;3.5128;65.8
+\end{array}
+$}                                                          \tag{72.4}
+\end{equation}
+
+At fixed $a$, the four INFO values of $I$ are fairly close in these
+windows: among all 24 scanned prime moduli, the largest max/min spread is
+19.3\%, and among the displayed moduli it is 12.4\%.  This is consistent with
+the proposed $(\log p)^{-1/2}$ scale in these four windows, but it does not
+establish that scale.  The F3 share is not monotone in $a$: for example, in
+the third window it is 53.6\% at 19, 6.0\% at 23, 73.2\% at 43, 54.7\% at 59,
+69.3\% at 103, and 63.7\% at 199.  Larger coefficients often have a larger F3
+share in this panel, but modulus-specific oscillation is substantial.
+
+\subsection{Pairwise dependence on different shifts}
+
+For the two middle windows, the exact marginal failure counts for
+$a=(3,7,11,19,23,31)$ are respectively
+\begin{equation}
+ (821,433,598,1302,416,977)\quad(n=1817),\qquad
+ (676,340,474,1030,315,734)\quad(n=1561).                  \tag{72.5}
+\end{equation}
+In each cell below, $J$ is the exact joint count,
+$E=f_af_b/n$ is the displayed INFO product-of-marginals count, and
+$r=J/E$ is INFO.
+
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+\begin{array}{c|c|c}
+(a,a')&[10^6,1.2\cdot10^6):J/E/r&[10^7,1.02\cdot10^7):J/E/r\\ \hline
+3,7&177/195.6/0.905&112/147.2/0.761\\
+3,11&291/270.2/1.077&214/205.3/1.043\\
+3,19&570/588.3/0.969&433/446.0/0.971\\
+3,23&251/188.0/1.335&180/136.4/1.320\\
+3,31&431/441.5/0.976&283/317.9/0.890\\
+7,11&163/142.5/1.144&119/103.2/1.153\\
+7,19&274/310.3/0.883&203/224.3/0.905\\
+7,23&92/99.1/0.928&71/68.6/1.035\\
+7,31&214/232.8/0.919&136/159.9/0.851\\
+11,19&417/428.5/0.973&321/312.8/1.026\\
+11,23&141/136.9/1.030&93/95.7/0.972\\
+11,31&296/321.5/0.921&229/222.9/1.027\\
+19,23&305/298.1/1.023&213/207.8/1.025\\
+19,31&679/700.1/0.970&458/484.3/0.946\\
+23,31&219/223.7/0.979&140/148.1/0.945
+\end{array}
+$}                                                          \tag{72.6}
+\end{equation}
+
+Most displayed ratios are near 1 on this finite panel, but two repeatable
+departures are visible: $(3,23)$ is 1.335 and 1.320, while $(7,11)$ is
+1.144 and 1.153.  The lowest value is 0.761 for $(3,7)$ in the second
+window.  These are not same-integer events: they concern
+$(p+a)/4$ and $(p+a')/4$, respectively.  Near-independence across those
+different shifts is the question, and (72.6) is only finite evidence; it is
+not an independence claim.
+
+\subsection{Complete third-decade $a_1$ census}
+
+For every hard prime $p<10^8$, the runner tests all admissible coefficients
+$a=3,7,11,15,\ldots$, including composites, until the first exact hit.  It
+streams one million integers at a time and writes an atomically replaced
+per-chunk partial histogram when \texttt{--checkpoint} is supplied.  The complete
+histogram is
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+\begin{array}{c|rrrrrrrrrrrrrrrrrrrr}
+a_1&3&7&11&15&19&23&27&31&35&39&43&47&51&55&59&63&71&79&91&107\\ \hline
+\#p&430409&235146&35036&7736&5323&4040&437&1059&143&227&33&120&16&20&20&6&7&1&1&1.
+\end{array}
+$}                                                          \tag{72.7}
+\end{equation}
+The count is exactly 719,781, agreeing with Section~\ref{sec:two-decade-census}.  Restricting the same run to
+$p<10^6$ and $p<10^7$ reproduces every entry of (63.26), respectively
+9,732 and 82,887 hard primes.  The maximum remains
+\begin{equation}
+                         \max_{p<10^8}a_1(p)=107
+                         \quad\hbox{only at }p=8803369.     \tag{72.8}
+\end{equation}
+Thus the new decade does not move the old maximum.  It does add the values
+$a_1=79$ at 66,222,601 and the composite $a_1=91$ at 22,605,361.  The
+complete upper tail is
+\begin{equation}
+\begin{array}{c|l}
+63&87481,34103161,37767409,57399241,67824409,90108841\\
+71&1430641,2451289,12426481,20322481,36740929,54932329,77599729\\
+79&66222601\\91&22605361\\107&8803369.
+\end{array}                                                        \tag{72.9}
+\end{equation}
+
+\subsection{Deep-failure anatomy}
+
+For a prime failed modulus, write $a:Fj_\sigma$.  Composite failed moduli
+are marked \texttt{C} by the runner but have no F1/F3 label, because this taxonomy
+was defined only for prime $a$.  The complete strict-record anatomy on the
+prime moduli is
+\begin{equation}
+\resizebox{\textwidth}{!}{$
+\begin{array}{r|r|l}
+p&a_1&\hbox{failed prime moduli in order}\\ \hline
+73&7&3:F1_0\\
+1129&11&3:F1_0,7:F1_0\\
+1201&23&3:F1_0,7:F1_0,11:F3_1,19:F1_0\\
+21169&31&3:F1_0,7:F1_0,11:F1_0,19:F3_1,23:F1_0\\
+67369&35&3:F1_0,7:F1_0,11:F1_0,19:F3_1,23:F1_0,31:F3_1\\
+87481&63&3:F1_0,7:F1_0,11:F1_0,19:F1_0,23:F1_0,31:F3_1,43:F3_1,47:F1_0,59:F3_1\\
+1430641&71&3:F1_0,7:F1_0,11:F3_2,19:F1_0,23:F1_0,31:F3_1,43:F1_0,47:F1_0,59:F1_0,67:F3_1\\
+8803369&107&3:F1_0,7:F1_0,11:F1_0,19:F1_0,23:F1_0,31:F1_0,43:F3_1,47:F1_0,59:F3_1,67:F3_1,71:F1_0,79:F3_2,83:F3_1,103:F3_1.
+\end{array}
+$}                                                          \tag{72.10}
+\end{equation}
+
+There are exactly 225 record-class/near-record primes with $a_1\geq43$.
+Their $a_1$-counts are
+$(43,47,51,55,59,63,71,79,91,107)\mapsto
+(33,120,16,20,20,6,7,1,1,1)$.  The next table aggregates their complete
+prime-modulus failure ledger; the last entry gives the exact histogram
+$\sigma:\#$.  It therefore records every F1/F3 and sigma count along all
+225 paths, while the runner emits the individual per-prime rows.
+\begin{equation}
+\begin{array}{r|r|r|l}
+a&F1&F3&\sigma:\#\\ \hline
+3&225&0&0:225\\7&225&0&0:225\\
+11&204&21&0:204,1:12,2:9\\
+19&148&77&0:148,1:38,2:39\\
+23&214&11&0:214,1:11\\
+31&166&59&0:166,1:42,2:17\\
+43&74&118&0:74,1:83,2:31,3:4\\
+47&60&12&0:60,1:9,2:3\\
+59&8&8&0:8,1:6,2:2\\
+67&0&10&1:9,3:1\\
+71&2&1&0:2,1:1\\79&1&1&0:1,2:1\\
+83&0&2&1:2\\103&0&1&1:1.
+\end{array}                                                        \tag{72.11}
+\end{equation}
+For auditability, the canonical 225-row tuple
+$(p,a_1,[(a,\mathrm{kind},\sigma)])$, including composite \texttt{C} rows, has
+SHA-256
+\texttt{5d1f08c0054b6ff858259c8dd59c8a5c8d60c0cde83b37d1d19d77af9e2bf1e8}.
+Among all 371,903 failed prime-modulus pairs encountered before the first hit
+for all 719,781 primes, 5,314 are F3 (1.429\% INFO).  Among the corresponding
+1,648 pairs for the 225 deep primes, 321 are F3 (19.478\% INFO), a 13.63-fold
+finite enrichment.  On the eight strict-record primes the split is 35 F1 and
+16 F3 (31.373\% INFO).  This is the a-frame analogue of the source \S19.2
+record-conditioning observation, not a selection-free distribution law.
+
+\subsection{Budget transition by $\omega(h)$}
+
+In the third window, the exact entries below are \texttt{failures/F3/F3-percent}
+for each number $\omega(h)$ of distinct prime factors.  A dash means that
+there was no failure in that cell.
+\begin{equation}
+\begin{array}{r|ccccc}
+a&\omega=1&2&3&4&5+\\ \hline
+31&-&290/109/37.6&364/199/54.7&78/27/34.6&2/0/0.0\\
+43&287/138/48.1&622/470/75.6&328/289/88.1&40/38/95.0&-\\
+59&-&306/137/44.8&539/319/59.2&186/108/58.1&13/7/53.8\\
+79&-&297/129/43.4&545/327/60.0&212/162/76.4&17/11/64.7\\
+103&-&261/124/47.5&594/440/74.1&267/208/77.9&26/23/88.5\\
+127&-&304/143/47.0&591/459/77.7&280/233/83.2&26/26/100.0\\
+151&-&284/136/47.9&601/403/67.1&312/243/77.9&39/31/79.5\\
+199&-&322/157/48.8&596/385/64.6&361/266/73.7&42/34/81.0
+\end{array}                                                        \tag{72.12}
+\end{equation}
+The proposed transition near $a\sim3^{\omega(h)}$ is visible only
+irregularly.  At fixed $\omega=3$, for example, the share moves from 54.7\%
+at $a=31$ to 77.7\% at 127, but is already 88.1\% at 43 and falls to 64.6\%
+at 199.  The $\omega=4$ row likewise rises broadly after 31 but is not
+monotone.  These cells show that budget blocking is numerically material in
+the predicted coefficient range; they do not identify a transition law.
+The empty $\omega=1$ cells are genuine exact zeros in this window, except
+at 43; congruence restrictions on $h_a(p)$ differ with $a$.
+
+\subsection{Replay scope, timings, and honest wall}
+
+A 9,732-prime pilot through $10^6$ took 0.374 seconds inside the scanner
+(2.55 seconds including environment startup), so the full extrapolation was
+well inside the fallback threshold.  The complete $p<10^8$ run took 40.74
+seconds inside and 41.36 seconds wall, with 72,328 KiB peak resident memory.
+Its 100 one-million-integer chunk histograms were checkpointed.  The four
+failure/dependence windows took 33.54 seconds inside and 35.91 seconds wall,
+with 79,372 KiB peak resident memory.  Block \texttt{(bs)} recomputes the full
+$p<10^6$ histogram and the three smallest-modulus first window by default,
+pins the full $10^8$ histogram and three deep values, and structurally
+audits a seeded sample.  With \texttt{ES\_FULL\_SCAN=1} it recomputes (63.26) through
+$10^7$, all 24 prime-modulus rows in all four windows, both dependence
+panels, and the budget-conditioning table.  Isolated final runs took 1.90
+seconds on the default path and 56.78 seconds on the full path.  The
+prescribed default suite completed green in 206.20 seconds wall with 345,272
+KiB peak resident memory.
+
+The evidence is limited to four short windows and one initial census segment.
+Different windows, larger coefficients, or deeper record conditioning could
+change every INFO comparison.  In particular, (72.4) supplies no uniform
+failure estimate, (72.6) supplies no decorrelation theorem, (72.12) supplies
+no threshold theorem, and the unchanged maximum in (72.8) supplies no bound
+on $a_1(p)$.  None of these finite computations proves that $a_1$ is
+finite for the next hard prime, let alone for every hard prime.
+
 \section{General-numerator tails and the effectivity perimeter}
 \label{sec:general-m-tails}
 This section truncates the general-numerator machinery; it does not extend
@@ -10206,14 +11961,22 @@ replay through $10^6$, finds exactly the squares and those three values, but
 this proves no unbounded classification.  The proved hard-prime criterion and its exact ratio-spectrum
 reformulation are terminating equivalences; the six small-$a$ laws, dual
 fixed-$D$ taxonomy, and gcd cancellation cover are exact local structure.
+The fixed-$a$ confinement, budget, shifted-prime, composite-kernel, and
+congruence-wall laws are proved only with fixed-modulus constants and errors.
+The shifted-form mean values are unconditional only for each fixed $J$.
+Every moving-$J$ tail and count-below-one consequence in that frame remains
+conditional on both open hypotheses $H_{\rm FAIL}$ and $H_{\rm STACK}$; no
+unconditional result there beats the standing literature.
 The effective square-root law is weaker than the Section 51 tails on both
 axes and is only almost-all coverage of the explicit $D=1$ layer.  None of
 these proves the finite divisor list nonempty for every hard prime, a
 pointwise bound, a fair-share estimate, or a new Erd\H{o}s--Straus theorem.
 The enlarged twisted-square hunt covers only its exact coordinate boxes and
 proves no unbounded classification or finiteness; only the right-to-left
-inclusion in $C_{\rm SQ}'$ is proved.  The two-decade census and record-stall anatomy are Computational/INFO
-finite-range evidence.  Its absent post-$10^7$ record, parity percentages,
+inclusion in $C_{\rm SQ}'$ is proved.  The two-decade witness census, third-decade $a_1$ census, and record-stall
+anatomy are Computational/INFO finite-range evidence.  Their maxima,
+dependence ratios, F3 shares, budget histograms, absent post-$10^7$ witness
+record, parity percentages,
 purity depths, and normalized suprema imply no growth law; the spacing model
 supplies no evidence, and every $A\geq1$ remains open.  The twisted-family
 cylinders prove three unbounded limsups but no new fixed infinite escape;

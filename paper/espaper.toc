@@ -1,151 +1,173 @@
 \contentsline {section}{\tocsection {}{1}{Introduction and statement map}}{6}{section.1}%
-\contentsline {section}{\tocsection {}{2}{Notation and elementary tools}}{10}{section.2}%
-\contentsline {section}{\tocsection {}{3}{Criterion and identity families}}{10}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{A two-term lemma and the complete prime criterion}}{10}{subsection.3.1}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Forced identities}}{11}{subsection.3.2}%
-\contentsline {section}{\tocsection {}{4}{The complete intrinsic system}}{12}{section.4}%
-\contentsline {subsection}{\tocsubsection {}{4.1}{Shifted-divisor form}}{13}{subsection.4.1}%
-\contentsline {section}{\tocsection {}{5}{Squares and the prime slice}}{14}{section.5}%
-\contentsline {subsection}{\tocsubsection {}{5.1}{The square-class phenomenon}}{14}{subsection.5.1}%
-\contentsline {subsection}{\tocsubsection {}{5.2}{Harvesting prime classes}}{14}{subsection.5.2}%
-\contentsline {subsection}{\tocsubsection {}{5.3}{A growing multi-shift certificate}}{16}{subsection.5.3}%
-\contentsline {section}{\tocsection {}{6}{The cubic-mass hypothesis and its conditional consequence}}{17}{section.6}%
-\contentsline {section}{\tocsection {}{7}{Rough moduli and refutation of $H_{\mathrm {PF}}$}}{17}{section.7}%
-\contentsline {section}{\tocsection {}{8}{The critical window and transfer walls}}{20}{section.8}%
-\contentsline {subsection}{\tocsubsection {}{8.1}{Cylinder and tensor obstructions}}{21}{subsection.8.1}%
-\contentsline {subsection}{\tocsubsection {}{8.2}{The corrected finite-transfer criterion}}{21}{subsection.8.2}%
-\contentsline {subsection}{\tocsubsection {}{8.3}{The prime side transfers}}{22}{subsection.8.3}%
-\contentsline {subsection}{\tocsubsection {}{8.4}{The composite frontier}}{23}{subsection.8.4}%
-\contentsline {subsection}{\tocsubsection {}{8.5}{Nested implication and the two hierarchy refutations}}{24}{subsection.8.5}%
-\contentsline {subsection}{\tocsubsection {}{8.6}{The implication antichain and the semiprime grid}}{25}{subsection.8.6}%
-\contentsline {section}{\tocsection {}{9}{Provisional record context}}{28}{section.9}%
-\contentsline {subsection}{\tocsubsection {}{9.1}{The provisional exceptional-set record}}{28}{subsection.9.1}%
-\contentsline {subsection}{\tocsubsection {}{9.2}{The pruned cubic prime slice}}{30}{subsection.9.2}%
-\contentsline {section}{\tocsection {}{10}{The fixed-$c$-free critical-window assembly}}{31}{section.10}%
-\contentsline {subsection}{\tocsubsection {}{10.1}{Removing the moving fibre and deduplicating the atoms}}{32}{subsection.10.1}%
-\contentsline {subsection}{\tocsubsection {}{10.2}{Exact mass profiles}}{32}{subsection.10.2}%
-\contentsline {subsection}{\tocsubsection {}{10.3}{Collapse versus consistency}}{34}{subsection.10.3}%
-\contentsline {subsection}{\tocsubsection {}{10.4}{The CRT void without partitioning by all of $M_0$}}{35}{subsection.10.4}%
-\contentsline {subsection}{\tocsubsection {}{10.5}{A low-degree majorant with the honest ledger}}{37}{subsection.10.5}%
-\contentsline {subsection}{\tocsubsection {}{10.6}{Exceptional denominators}}{38}{subsection.10.6}%
-\contentsline {subsection}{\tocsubsection {}{10.7}{Remarks on verification status}}{39}{subsection.10.7}%
-\contentsline {subsection}{\tocsubsection {}{10.8}{Internal verification pedigree}}{39}{subsection.10.8}%
-\contentsline {section}{\tocsection {}{11}{General numerators}}{43}{section.11}%
-\contentsline {subsection}{\tocsubsection {}{11.1}{The identity and the first exceptional-set layer}}{44}{subsection.11.1}%
-\contentsline {subsection}{\tocsubsection {}{11.2}{The provisional cubic transfer}}{46}{subsection.11.2}%
-\contentsline {subsection}{\tocsubsection {}{11.3}{Pomerance--Weingartner comparison}}{48}{subsection.11.3}%
-\contentsline {subsection}{\tocsubsection {}{11.4}{The attested-blind thinned window}}{48}{subsection.11.4}%
-\contentsline {section}{\tocsection {}{12}{Pointwise Type-I slices}}{50}{section.12}%
-\contentsline {subsection}{\tocsubsection {}{12.1}{Exact vanishing and finite conspiracies}}{50}{subsection.12.1}%
-\contentsline {subsection}{\tocsubsection {}{12.2}{Fixed divisors, residue-one escape, and depth}}{51}{subsection.12.2}%
-\contentsline {section}{\tocsection {}{13}{Conditional pointwise routes through the slice frame}}{52}{section.13}%
-\contentsline {subsection}{\tocsubsection {}{13.1}{The good prime-factor class and exact reduction}}{53}{subsection.13.1}%
-\contentsline {subsection}{\tocsubsection {}{13.2}{Prime values, bounded cores, and least nonresidues}}{54}{subsection.13.2}%
-\contentsline {subsection}{\tocsubsection {}{13.3}{The GRH/Chebotarev compositum wall}}{55}{subsection.13.3}%
-\contentsline {subsection}{\tocsubsection {}{13.4}{The exact genus pairing and the Duke wall}}{56}{subsection.13.4}%
-\contentsline {subsection}{\tocsubsection {}{13.5}{Conditional frontier and census}}{57}{subsection.13.5}%
-\contentsline {section}{\tocsection {}{14}{Witness-modulus tails and the effectivity repair}}{57}{section.14}%
-\contentsline {subsection}{\tocsubsection {}{14.1}{Parameterized truncation and the master tail}}{58}{subsection.14.1}%
-\contentsline {subsection}{\tocsubsection {}{14.2}{Effective class supply away from one conductor}}{60}{subsection.14.2}%
-\contentsline {subsection}{\tocsubsection {}{14.3}{Pomerance--Weingartner, priority, and blind adjudication}}{61}{subsection.14.3}%
-\contentsline {section}{\tocsection {}{15}{Per-slice vanishing frequency and the empty third layer}}{62}{section.15}%
-\contentsline {subsection}{\tocsubsection {}{15.1}{The fixed-slice sieve}}{62}{subsection.15.1}%
-\contentsline {subsection}{\tocsubsection {}{15.2}{Finite residual structure and its limits}}{64}{subsection.15.2}%
-\contentsline {section}{\tocsection {}{16}{The stacked slice sieve and almost-all $H_{\rm SPF}$}}{64}{section.16}%
-\contentsline {subsection}{\tocsubsection {}{16.1}{Duplicate-radicand geometry and the fixed stack}}{65}{subsection.16.1}%
-\contentsline {subsection}{\tocsubsection {}{16.2}{Exact genus bits and deterministic permission mass}}{66}{subsection.16.2}%
-\contentsline {subsection}{\tocsubsection {}{16.3}{The effective growing stack}}{67}{subsection.16.3}%
-\contentsline {subsection}{\tocsubsection {}{16.4}{The genus-permission asymmetry}}{68}{subsection.16.4}%
-\contentsline {section}{\tocsection {}{17}{The lower tail and the two-sided frontier}}{69}{section.17}%
-\contentsline {subsection}{\tocsubsection {}{17.1}{Type II: the minimal multiplier modulus}}{69}{subsection.17.1}%
-\contentsline {subsection}{\tocsubsection {}{17.2}{Type I: simultaneous genus forcing}}{70}{subsection.17.2}%
-\contentsline {subsection}{\tocsubsection {}{17.3}{The two-sided frontier}}{71}{subsection.17.3}%
-\contentsline {section}{\tocsection {}{18}{The congruence-certificate ceiling and extremal census}}{71}{section.18}%
-\contentsline {subsection}{\tocsubsection {}{18.1}{Type II: every certificate carries the $3\pmod 4$ primes}}{71}{subsection.18.1}%
-\contentsline {subsection}{\tocsubsection {}{18.2}{Type I: every prime core is forced into the conductor}}{72}{subsection.18.2}%
-\contentsline {subsection}{\tocsubsection {}{18.3}{The exact $W$ census}}{74}{subsection.18.3}%
-\contentsline {subsection}{\tocsubsection {}{18.4}{The Type-I extremal extension}}{74}{subsection.18.4}%
-\contentsline {subsection}{\tocsubsection {}{18.5}{The remaining window}}{75}{subsection.18.5}%
-\contentsline {section}{\tocsection {}{19}{The supercritical window and count-below-one reduction}}{75}{section.19}%
-\contentsline {subsection}{\tocsubsection {}{19.1}{Count below one}}{76}{subsection.19.1}%
-\contentsline {subsection}{\tocsubsection {}{19.2}{The mass-invariant gap}}{77}{subsection.19.2}%
-\contentsline {subsection}{\tocsubsection {}{19.3}{Where the crossing lives}}{79}{subsection.19.3}%
-\contentsline {subsection}{\tocsubsection {}{19.4}{Finite arithmetic replay}}{80}{subsection.19.4}%
-\contentsline {section}{\tocsection {}{20}{The inverse census and the integer/prime dichotomy}}{81}{section.20}%
-\contentsline {subsection}{\tocsubsection {}{20.1}{Moving inverses and an exact finite census}}{82}{subsection.20.1}%
-\contentsline {subsection}{\tocsubsection {}{20.2}{Square escape and shifted constraints}}{83}{subsection.20.2}%
-\contentsline {subsection}{\tocsubsection {}{20.3}{What Jacobsthal does, and what it does not do}}{84}{subsection.20.3}%
-\contentsline {subsection}{\tocsubsection {}{20.4}{Prime survivors: congruence wall and technology audit}}{86}{subsection.20.4}%
-\contentsline {subsection}{\tocsubsection {}{20.5}{Exact inverse dualities and the $A$-window}}{86}{subsection.20.5}%
-\contentsline {section}{\tocsection {}{21}{Polynomial escape: complete through degree two, cyclotomic in general}}{87}{section.21}%
-\contentsline {subsection}{\tocsubsection {}{21.1}{Uniform escape and its exact local form}}{87}{subsection.21.1}%
-\contentsline {subsection}{\tocsubsection {}{21.2}{The cyclotomic obstruction in every degree}}{88}{subsection.21.2}%
-\contentsline {subsection}{\tocsubsection {}{21.3}{Complete classification through degree two}}{89}{subsection.21.3}%
-\contentsline {subsection}{\tocsubsection {}{21.4}{The all-integer cubic tail fails at the square crossing}}{91}{subsection.21.4}%
-\contentsline {subsection}{\tocsubsection {}{21.5}{The refuted complete-square proposal and finite census}}{91}{subsection.21.5}%
-\contentsline {section}{\tocsection {}{22}{Witness duality, finite decidability, and the survivor frontier}}{94}{section.22}%
-\contentsline {subsection}{\tocsubsection {}{22.1}{Exact duality, cancellation, and the finite normal form}}{94}{subsection.22.1}%
-\contentsline {subsection}{\tocsubsection {}{22.2}{What swaps, and what does not}}{96}{subsection.22.2}%
-\contentsline {subsection}{\tocsubsection {}{22.3}{The survivor frontier closes}}{97}{subsection.22.3}%
-\contentsline {subsection}{\tocsubsection {}{22.4}{The statistic and the prime side}}{98}{subsection.22.4}%
-\contentsline {subsection}{\tocsubsection {}{22.5}{Verification and finite coverage ledger}}{99}{subsection.22.5}%
-\contentsline {section}{\tocsection {}{23}{The complete decidable census, twisted-square laws, and the prime criterion}}{100}{section.23}%
-\contentsline {subsection}{\tocsubsection {}{23.1}{A forward finite decision and the complete census}}{100}{subsection.23.1}%
-\contentsline {subsection}{\tocsubsection {}{23.2}{The exact twisted-square criterion and first layers}}{101}{subsection.23.2}%
-\contentsline {subsection}{\tocsubsection {}{23.3}{The hard-prime criterion and the missing third mechanism}}{103}{subsection.23.3}%
-\contentsline {subsection}{\tocsubsection {}{23.4}{Verification pedigree and exact scope}}{105}{subsection.23.4}%
-\contentsline {section}{\tocsection {}{24}{The divisor-ratio spectrum and the finite conspiracy}}{106}{section.24}%
-\contentsline {subsection}{\tocsubsection {}{24.1}{The exact ratio spectrum}}{106}{subsection.24.1}%
-\contentsline {subsection}{\tocsubsection {}{24.2}{Six exact small-$a$ laws}}{107}{subsection.24.2}%
-\contentsline {subsection}{\tocsubsection {}{24.3}{The finite conspiracy and late resolution}}{108}{subsection.24.3}%
-\contentsline {subsection}{\tocsubsection {}{24.4}{Where the ratio frame degrades for the sporadics}}{110}{subsection.24.4}%
-\contentsline {subsection}{\tocsubsection {}{24.5}{A staged fourth-sporadic stress}}{110}{subsection.24.5}%
-\contentsline {subsection}{\tocsubsection {}{24.6}{Verification, review pedigree, and honest walls}}{110}{subsection.24.6}%
-\contentsline {section}{\tocsection {}{25}{Algebraic witness taxonomy, square-root coverage, and the first-witness index}}{111}{section.25}%
-\contentsline {subsection}{\tocsubsection {}{25.1}{Elementary families and the fixed-$D$ coordinate}}{111}{subsection.25.1}%
-\contentsline {subsection}{\tocsubsection {}{25.2}{The universal bounded-coefficient law}}{113}{subsection.25.2}%
-\contentsline {subsection}{\tocsubsection {}{25.3}{Explicit coverage and the half-dimensional shifted layer}}{114}{subsection.25.3}%
-\contentsline {subsection}{\tocsubsection {}{25.4}{The first-witness index}}{115}{subsection.25.4}%
-\contentsline {subsection}{\tocsubsection {}{25.5}{Honest walls and verification}}{116}{subsection.25.5}%
-\contentsline {section}{\tocsection {}{26}{The gcd mechanism: cancellation covers and shifted purity}}{117}{section.26}%
-\contentsline {subsection}{\tocsubsection {}{26.1}{The exact cancellation cover}}{117}{subsection.26.1}%
-\contentsline {subsection}{\tocsubsection {}{26.2}{Two cancellation-immune shifted laws}}{118}{subsection.26.2}%
-\contentsline {subsection}{\tocsubsection {}{26.3}{Unit branches and complete sporadic ledgers}}{119}{subsection.26.3}%
-\contentsline {subsection}{\tocsubsection {}{26.4}{Finiteness wall and the wider hunt}}{120}{subsection.26.4}%
-\contentsline {subsection}{\tocsubsection {}{26.5}{Verification and review pedigree}}{122}{subsection.26.5}%
-\contentsline {section}{\tocsection {}{27}{The two-decade hard-prime witness census and record anatomy}}{122}{section.27}%
-\contentsline {subsection}{\tocsubsection {}{27.1}{The complete strict-record ledger}}{123}{subsection.27.1}%
-\contentsline {subsection}{\tocsubsection {}{27.2}{Minimum-row parity and distribution below $10^7$}}{123}{subsection.27.2}%
-\contentsline {subsection}{\tocsubsection {}{27.3}{Blockwise normalized trajectories}}{124}{subsection.27.3}%
-\contentsline {subsection}{\tocsubsection {}{27.4}{Replay scope, review pedigree, and honest walls}}{124}{subsection.27.4}%
-\contentsline {section}{\tocsection {}{28}{Twisted-family escape cylinders and the identity wall}}{125}{section.28}%
-\contentsline {subsection}{\tocsubsection {}{28.1}{Finite-depth class decidability}}{125}{subsection.28.1}%
-\contentsline {subsection}{\tocsubsection {}{28.2}{Unbounded depth in the three sporadic families}}{126}{subsection.28.2}%
-\contentsline {subsection}{\tocsubsection {}{28.3}{Polynomial identities in the residual classes}}{127}{subsection.28.3}%
-\contentsline {subsection}{\tocsubsection {}{28.4}{The depth-$1000$ projection and bounded censuses}}{128}{subsection.28.4}%
-\contentsline {subsection}{\tocsubsection {}{28.5}{Honest walls and review attestation}}{128}{subsection.28.5}%
-\contentsline {section}{\tocsection {}{29}{Record-stall anatomy and the honest exponent window}}{129}{section.29}%
-\contentsline {subsection}{\tocsubsection {}{29.1}{The top-ten obstruction anatomy}}{129}{subsection.29.1}%
-\contentsline {subsection}{\tocsubsection {}{29.2}{The residue-one construction at its first primes}}{130}{subsection.29.2}%
-\contentsline {subsection}{\tocsubsection {}{29.3}{A deliberately fragile record-spacing model}}{131}{subsection.29.3}%
-\contentsline {subsection}{\tocsubsection {}{29.4}{The empirical exponent and eventual window}}{131}{subsection.29.4}%
-\contentsline {subsection}{\tocsubsection {}{29.5}{Verification, review, and scope}}{132}{subsection.29.5}%
-\contentsline {section}{\tocsection {}{30}{The 2025 Pomerance--Weingartner exceptions paper}}{133}{section.30}%
-\contentsline {subsection}{\tocsubsection {}{30.1}{Exact statements and proof routes}}{133}{subsection.30.1}%
-\contentsline {subsection}{\tocsubsection {}{30.2}{Range consistency and crossover}}{134}{subsection.30.2}%
-\contentsline {subsection}{\tocsubsection {}{30.3}{Priority impact and Vaughan secondary evidence}}{134}{subsection.30.3}%
-\contentsline {subsection}{\tocsubsection {}{30.4}{Review attestation and source register}}{135}{subsection.30.4}%
-\contentsline {section}{\tocsection {}{31}{Forward-ray identities: pointwise divisibility collapses, and positivity propagates backward}}{136}{section.31}%
-\contentsline {subsection}{\tocsubsection {}{31.1}{The pointwise definition and its algebraic closure}}{136}{subsection.31.1}%
-\contentsline {subsection}{\tocsubsection {}{31.2}{One-step positivity and the all-ray obstruction}}{138}{subsection.31.2}%
-\contentsline {subsection}{\tocsubsection {}{31.3}{Constant divisors and the bounded hunt}}{139}{subsection.31.3}%
-\contentsline {subsection}{\tocsubsection {}{31.4}{Consequence and honest walls}}{140}{subsection.31.4}%
-\contentsline {subsection}{\tocsubsection {}{31.5}{Review attestation (wave 29)}}{141}{subsection.31.5}%
-\contentsline {section}{\tocsection {}{32}{General-numerator tails and the effectivity perimeter}}{142}{section.32}%
-\contentsline {subsection}{\tocsubsection {}{32.1}{The minimal general-numerator witness modulus}}{142}{subsection.32.1}%
-\contentsline {subsection}{\tocsubsection {}{32.2}{The conductor coupled to $m$}}{143}{subsection.32.2}%
-\contentsline {subsection}{\tocsubsection {}{32.3}{Comparison and finite companion}}{145}{subsection.32.3}%
-\contentsline {section}{\tocsection {}{33}{Residue-dispersion frontier}}{146}{section.33}%
-\contentsline {subsection}{\tocsubsection {}{33.1}{Endpoint sparsity and proved ranges}}{147}{subsection.33.1}%
-\contentsline {subsection}{\tocsubsection {}{33.2}{Kloosterman-fraction audit}}{148}{subsection.33.2}%
-\contentsline {section}{\tocsection {}{}{References}}{150}{section*.518}%
+\contentsline {section}{\tocsection {}{2}{Notation and elementary tools}}{11}{section.2}%
+\contentsline {section}{\tocsection {}{3}{Criterion and identity families}}{11}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{A two-term lemma and the complete prime criterion}}{11}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Forced identities}}{12}{subsection.3.2}%
+\contentsline {section}{\tocsection {}{4}{The complete intrinsic system}}{13}{section.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1}{Shifted-divisor form}}{14}{subsection.4.1}%
+\contentsline {section}{\tocsection {}{5}{Squares and the prime slice}}{15}{section.5}%
+\contentsline {subsection}{\tocsubsection {}{5.1}{The square-class phenomenon}}{15}{subsection.5.1}%
+\contentsline {subsection}{\tocsubsection {}{5.2}{Harvesting prime classes}}{15}{subsection.5.2}%
+\contentsline {subsection}{\tocsubsection {}{5.3}{A growing multi-shift certificate}}{17}{subsection.5.3}%
+\contentsline {section}{\tocsection {}{6}{The cubic-mass hypothesis and its conditional consequence}}{18}{section.6}%
+\contentsline {section}{\tocsection {}{7}{Rough moduli and refutation of $H_{\mathrm {PF}}$}}{18}{section.7}%
+\contentsline {section}{\tocsection {}{8}{The critical window and transfer walls}}{21}{section.8}%
+\contentsline {subsection}{\tocsubsection {}{8.1}{Cylinder and tensor obstructions}}{22}{subsection.8.1}%
+\contentsline {subsection}{\tocsubsection {}{8.2}{The corrected finite-transfer criterion}}{22}{subsection.8.2}%
+\contentsline {subsection}{\tocsubsection {}{8.3}{The prime side transfers}}{23}{subsection.8.3}%
+\contentsline {subsection}{\tocsubsection {}{8.4}{The composite frontier}}{24}{subsection.8.4}%
+\contentsline {subsection}{\tocsubsection {}{8.5}{Nested implication and the two hierarchy refutations}}{25}{subsection.8.5}%
+\contentsline {subsection}{\tocsubsection {}{8.6}{The implication antichain and the semiprime grid}}{26}{subsection.8.6}%
+\contentsline {section}{\tocsection {}{9}{Provisional record context}}{29}{section.9}%
+\contentsline {subsection}{\tocsubsection {}{9.1}{The provisional exceptional-set record}}{29}{subsection.9.1}%
+\contentsline {subsection}{\tocsubsection {}{9.2}{The pruned cubic prime slice}}{31}{subsection.9.2}%
+\contentsline {section}{\tocsection {}{10}{The fixed-$c$-free critical-window assembly}}{32}{section.10}%
+\contentsline {subsection}{\tocsubsection {}{10.1}{Removing the moving fibre and deduplicating the atoms}}{33}{subsection.10.1}%
+\contentsline {subsection}{\tocsubsection {}{10.2}{Exact mass profiles}}{33}{subsection.10.2}%
+\contentsline {subsection}{\tocsubsection {}{10.3}{Collapse versus consistency}}{35}{subsection.10.3}%
+\contentsline {subsection}{\tocsubsection {}{10.4}{The CRT void without partitioning by all of $M_0$}}{36}{subsection.10.4}%
+\contentsline {subsection}{\tocsubsection {}{10.5}{A low-degree majorant with the honest ledger}}{38}{subsection.10.5}%
+\contentsline {subsection}{\tocsubsection {}{10.6}{Exceptional denominators}}{39}{subsection.10.6}%
+\contentsline {subsection}{\tocsubsection {}{10.7}{Remarks on verification status}}{40}{subsection.10.7}%
+\contentsline {subsection}{\tocsubsection {}{10.8}{Internal verification pedigree}}{40}{subsection.10.8}%
+\contentsline {section}{\tocsection {}{11}{General numerators}}{45}{section.11}%
+\contentsline {subsection}{\tocsubsection {}{11.1}{The identity and the first exceptional-set layer}}{45}{subsection.11.1}%
+\contentsline {subsection}{\tocsubsection {}{11.2}{The provisional cubic transfer}}{48}{subsection.11.2}%
+\contentsline {subsection}{\tocsubsection {}{11.3}{Pomerance--Weingartner comparison}}{49}{subsection.11.3}%
+\contentsline {subsection}{\tocsubsection {}{11.4}{The attested-blind thinned window}}{50}{subsection.11.4}%
+\contentsline {section}{\tocsection {}{12}{Pointwise Type-I slices}}{51}{section.12}%
+\contentsline {subsection}{\tocsubsection {}{12.1}{Exact vanishing and finite conspiracies}}{51}{subsection.12.1}%
+\contentsline {subsection}{\tocsubsection {}{12.2}{Fixed divisors, residue-one escape, and depth}}{53}{subsection.12.2}%
+\contentsline {section}{\tocsection {}{13}{Conditional pointwise routes through the slice frame}}{54}{section.13}%
+\contentsline {subsection}{\tocsubsection {}{13.1}{The good prime-factor class and exact reduction}}{54}{subsection.13.1}%
+\contentsline {subsection}{\tocsubsection {}{13.2}{Prime values, bounded cores, and least nonresidues}}{55}{subsection.13.2}%
+\contentsline {subsection}{\tocsubsection {}{13.3}{The GRH/Chebotarev compositum wall}}{56}{subsection.13.3}%
+\contentsline {subsection}{\tocsubsection {}{13.4}{The exact genus pairing and the Duke wall}}{57}{subsection.13.4}%
+\contentsline {subsection}{\tocsubsection {}{13.5}{Conditional frontier and census}}{58}{subsection.13.5}%
+\contentsline {section}{\tocsection {}{14}{Witness-modulus tails and the effectivity repair}}{59}{section.14}%
+\contentsline {subsection}{\tocsubsection {}{14.1}{Parameterized truncation and the master tail}}{59}{subsection.14.1}%
+\contentsline {subsection}{\tocsubsection {}{14.2}{Effective class supply away from one conductor}}{61}{subsection.14.2}%
+\contentsline {subsection}{\tocsubsection {}{14.3}{Pomerance--Weingartner, priority, and blind adjudication}}{62}{subsection.14.3}%
+\contentsline {section}{\tocsection {}{15}{Per-slice vanishing frequency and the empty third layer}}{63}{section.15}%
+\contentsline {subsection}{\tocsubsection {}{15.1}{The fixed-slice sieve}}{63}{subsection.15.1}%
+\contentsline {subsection}{\tocsubsection {}{15.2}{Finite residual structure and its limits}}{65}{subsection.15.2}%
+\contentsline {section}{\tocsection {}{16}{The stacked slice sieve and almost-all $H_{\rm SPF}$}}{66}{section.16}%
+\contentsline {subsection}{\tocsubsection {}{16.1}{Duplicate-radicand geometry and the fixed stack}}{66}{subsection.16.1}%
+\contentsline {subsection}{\tocsubsection {}{16.2}{Exact genus bits and deterministic permission mass}}{67}{subsection.16.2}%
+\contentsline {subsection}{\tocsubsection {}{16.3}{The effective growing stack}}{68}{subsection.16.3}%
+\contentsline {subsection}{\tocsubsection {}{16.4}{The genus-permission asymmetry}}{70}{subsection.16.4}%
+\contentsline {section}{\tocsection {}{17}{The lower tail and the two-sided frontier}}{70}{section.17}%
+\contentsline {subsection}{\tocsubsection {}{17.1}{Type II: the minimal multiplier modulus}}{70}{subsection.17.1}%
+\contentsline {subsection}{\tocsubsection {}{17.2}{Type I: simultaneous genus forcing}}{71}{subsection.17.2}%
+\contentsline {subsection}{\tocsubsection {}{17.3}{The two-sided frontier}}{72}{subsection.17.3}%
+\contentsline {section}{\tocsection {}{18}{The congruence-certificate ceiling and extremal census}}{73}{section.18}%
+\contentsline {subsection}{\tocsubsection {}{18.1}{Type II: every certificate carries the $3\pmod 4$ primes}}{73}{subsection.18.1}%
+\contentsline {subsection}{\tocsubsection {}{18.2}{Type I: every prime core is forced into the conductor}}{73}{subsection.18.2}%
+\contentsline {subsection}{\tocsubsection {}{18.3}{The exact $W$ census}}{75}{subsection.18.3}%
+\contentsline {subsection}{\tocsubsection {}{18.4}{The Type-I extremal extension}}{76}{subsection.18.4}%
+\contentsline {subsection}{\tocsubsection {}{18.5}{The remaining window}}{76}{subsection.18.5}%
+\contentsline {section}{\tocsection {}{19}{The supercritical window and count-below-one reduction}}{76}{section.19}%
+\contentsline {subsection}{\tocsubsection {}{19.1}{Count below one}}{77}{subsection.19.1}%
+\contentsline {subsection}{\tocsubsection {}{19.2}{The mass-invariant gap}}{78}{subsection.19.2}%
+\contentsline {subsection}{\tocsubsection {}{19.3}{Where the crossing lives}}{80}{subsection.19.3}%
+\contentsline {subsection}{\tocsubsection {}{19.4}{Finite arithmetic replay}}{82}{subsection.19.4}%
+\contentsline {section}{\tocsection {}{20}{The inverse census and the integer/prime dichotomy}}{83}{section.20}%
+\contentsline {subsection}{\tocsubsection {}{20.1}{Moving inverses and an exact finite census}}{83}{subsection.20.1}%
+\contentsline {subsection}{\tocsubsection {}{20.2}{Square escape and shifted constraints}}{84}{subsection.20.2}%
+\contentsline {subsection}{\tocsubsection {}{20.3}{What Jacobsthal does, and what it does not do}}{86}{subsection.20.3}%
+\contentsline {subsection}{\tocsubsection {}{20.4}{Prime survivors: congruence wall and technology audit}}{87}{subsection.20.4}%
+\contentsline {subsection}{\tocsubsection {}{20.5}{Exact inverse dualities and the $A$-window}}{87}{subsection.20.5}%
+\contentsline {section}{\tocsection {}{21}{Polynomial escape: complete through degree two, cyclotomic in general}}{88}{section.21}%
+\contentsline {subsection}{\tocsubsection {}{21.1}{Uniform escape and its exact local form}}{89}{subsection.21.1}%
+\contentsline {subsection}{\tocsubsection {}{21.2}{The cyclotomic obstruction in every degree}}{89}{subsection.21.2}%
+\contentsline {subsection}{\tocsubsection {}{21.3}{Complete classification through degree two}}{90}{subsection.21.3}%
+\contentsline {subsection}{\tocsubsection {}{21.4}{The all-integer cubic tail fails at the square crossing}}{92}{subsection.21.4}%
+\contentsline {subsection}{\tocsubsection {}{21.5}{The refuted complete-square proposal and finite census}}{93}{subsection.21.5}%
+\contentsline {section}{\tocsection {}{22}{Witness duality, finite decidability, and the survivor frontier}}{95}{section.22}%
+\contentsline {subsection}{\tocsubsection {}{22.1}{Exact duality, cancellation, and the finite normal form}}{95}{subsection.22.1}%
+\contentsline {subsection}{\tocsubsection {}{22.2}{What swaps, and what does not}}{97}{subsection.22.2}%
+\contentsline {subsection}{\tocsubsection {}{22.3}{The survivor frontier closes}}{98}{subsection.22.3}%
+\contentsline {subsection}{\tocsubsection {}{22.4}{The statistic and the prime side}}{100}{subsection.22.4}%
+\contentsline {subsection}{\tocsubsection {}{22.5}{Verification and finite coverage ledger}}{100}{subsection.22.5}%
+\contentsline {section}{\tocsection {}{23}{The complete decidable census, twisted-square laws, and the prime criterion}}{101}{section.23}%
+\contentsline {subsection}{\tocsubsection {}{23.1}{A forward finite decision and the complete census}}{101}{subsection.23.1}%
+\contentsline {subsection}{\tocsubsection {}{23.2}{The exact twisted-square criterion and first layers}}{103}{subsection.23.2}%
+\contentsline {subsection}{\tocsubsection {}{23.3}{The hard-prime criterion and the missing third mechanism}}{104}{subsection.23.3}%
+\contentsline {subsection}{\tocsubsection {}{23.4}{Verification pedigree and exact scope}}{106}{subsection.23.4}%
+\contentsline {section}{\tocsection {}{24}{The divisor-ratio spectrum and the finite conspiracy}}{107}{section.24}%
+\contentsline {subsection}{\tocsubsection {}{24.1}{The exact ratio spectrum}}{107}{subsection.24.1}%
+\contentsline {subsection}{\tocsubsection {}{24.2}{Six exact small-$a$ laws}}{108}{subsection.24.2}%
+\contentsline {subsection}{\tocsubsection {}{24.3}{The finite conspiracy and late resolution}}{110}{subsection.24.3}%
+\contentsline {subsection}{\tocsubsection {}{24.4}{Where the ratio frame degrades for the sporadics}}{111}{subsection.24.4}%
+\contentsline {subsection}{\tocsubsection {}{24.5}{A staged fourth-sporadic stress}}{111}{subsection.24.5}%
+\contentsline {subsection}{\tocsubsection {}{24.6}{Verification, review pedigree, and honest walls}}{112}{subsection.24.6}%
+\contentsline {section}{\tocsection {}{25}{Algebraic witness taxonomy, square-root coverage, and the first-witness index}}{113}{section.25}%
+\contentsline {subsection}{\tocsubsection {}{25.1}{Elementary families and the fixed-$D$ coordinate}}{113}{subsection.25.1}%
+\contentsline {subsection}{\tocsubsection {}{25.2}{The universal bounded-coefficient law}}{114}{subsection.25.2}%
+\contentsline {subsection}{\tocsubsection {}{25.3}{Explicit coverage and the half-dimensional shifted layer}}{115}{subsection.25.3}%
+\contentsline {subsection}{\tocsubsection {}{25.4}{The first-witness index}}{117}{subsection.25.4}%
+\contentsline {subsection}{\tocsubsection {}{25.5}{Honest walls and verification}}{118}{subsection.25.5}%
+\contentsline {section}{\tocsection {}{26}{The gcd mechanism: cancellation covers and shifted purity}}{119}{section.26}%
+\contentsline {subsection}{\tocsubsection {}{26.1}{The exact cancellation cover}}{119}{subsection.26.1}%
+\contentsline {subsection}{\tocsubsection {}{26.2}{Two cancellation-immune shifted laws}}{120}{subsection.26.2}%
+\contentsline {subsection}{\tocsubsection {}{26.3}{Unit branches and complete sporadic ledgers}}{121}{subsection.26.3}%
+\contentsline {subsection}{\tocsubsection {}{26.4}{Finiteness wall and the wider hunt}}{122}{subsection.26.4}%
+\contentsline {subsection}{\tocsubsection {}{26.5}{Verification and review pedigree}}{123}{subsection.26.5}%
+\contentsline {section}{\tocsection {}{27}{The two-decade hard-prime witness census and record anatomy}}{123}{section.27}%
+\contentsline {subsection}{\tocsubsection {}{27.1}{The complete strict-record ledger}}{124}{subsection.27.1}%
+\contentsline {subsection}{\tocsubsection {}{27.2}{Minimum-row parity and distribution below $10^7$}}{124}{subsection.27.2}%
+\contentsline {subsection}{\tocsubsection {}{27.3}{Blockwise normalized trajectories}}{125}{subsection.27.3}%
+\contentsline {subsection}{\tocsubsection {}{27.4}{Replay scope, review pedigree, and honest walls}}{125}{subsection.27.4}%
+\contentsline {section}{\tocsection {}{28}{Twisted-family escape cylinders and the identity wall}}{126}{section.28}%
+\contentsline {subsection}{\tocsubsection {}{28.1}{Finite-depth class decidability}}{126}{subsection.28.1}%
+\contentsline {subsection}{\tocsubsection {}{28.2}{Unbounded depth in the three sporadic families}}{127}{subsection.28.2}%
+\contentsline {subsection}{\tocsubsection {}{28.3}{Polynomial identities in the residual classes}}{128}{subsection.28.3}%
+\contentsline {subsection}{\tocsubsection {}{28.4}{The depth-$1000$ projection and bounded censuses}}{129}{subsection.28.4}%
+\contentsline {subsection}{\tocsubsection {}{28.5}{Honest walls and review attestation}}{130}{subsection.28.5}%
+\contentsline {section}{\tocsection {}{29}{Record-stall anatomy and the honest exponent window}}{130}{section.29}%
+\contentsline {subsection}{\tocsubsection {}{29.1}{The top-ten obstruction anatomy}}{131}{subsection.29.1}%
+\contentsline {subsection}{\tocsubsection {}{29.2}{The residue-one construction at its first primes}}{131}{subsection.29.2}%
+\contentsline {subsection}{\tocsubsection {}{29.3}{A deliberately fragile record-spacing model}}{132}{subsection.29.3}%
+\contentsline {subsection}{\tocsubsection {}{29.4}{The empirical exponent and eventual window}}{133}{subsection.29.4}%
+\contentsline {subsection}{\tocsubsection {}{29.5}{Verification, review, and scope}}{133}{subsection.29.5}%
+\contentsline {section}{\tocsection {}{30}{The 2025 Pomerance--Weingartner exceptions paper}}{134}{section.30}%
+\contentsline {subsection}{\tocsubsection {}{30.1}{Exact statements and proof routes}}{134}{subsection.30.1}%
+\contentsline {subsection}{\tocsubsection {}{30.2}{Range consistency and crossover}}{135}{subsection.30.2}%
+\contentsline {subsection}{\tocsubsection {}{30.3}{Priority impact and Vaughan secondary evidence}}{136}{subsection.30.3}%
+\contentsline {subsection}{\tocsubsection {}{30.4}{Review attestation and source register}}{136}{subsection.30.4}%
+\contentsline {section}{\tocsection {}{31}{Forward-ray identities: pointwise divisibility collapses, and positivity propagates backward}}{137}{section.31}%
+\contentsline {subsection}{\tocsubsection {}{31.1}{The pointwise definition and its algebraic closure}}{137}{subsection.31.1}%
+\contentsline {subsection}{\tocsubsection {}{31.2}{One-step positivity and the all-ray obstruction}}{139}{subsection.31.2}%
+\contentsline {subsection}{\tocsubsection {}{31.3}{Constant divisors and the bounded hunt}}{140}{subsection.31.3}%
+\contentsline {subsection}{\tocsubsection {}{31.4}{Consequence and honest walls}}{142}{subsection.31.4}%
+\contentsline {subsection}{\tocsubsection {}{31.5}{Review attestation (wave 29)}}{142}{subsection.31.5}%
+\contentsline {section}{\tocsection {}{32}{The a-frame failure law: confinement, the fixed-modulus scale, and congruence-wall freeness}}{143}{section.32}%
+\contentsline {subsection}{\tocsubsection {}{32.1}{The unique involution and the exact failure decomposition}}{143}{subsection.32.1}%
+\contentsline {subsection}{\tocsubsection {}{32.2}{The confinement semigroup and its half-dimensional law}}{144}{subsection.32.2}%
+\contentsline {subsection}{\tocsubsection {}{32.3}{Fixed-$a$ budget failures are lower order}}{146}{subsection.32.3}%
+\contentsline {subsection}{\tocsubsection {}{32.4}{Transfer to shifted primes: an upper law}}{148}{subsection.32.4}%
+\contentsline {subsection}{\tocsubsection {}{32.5}{Composite coefficients: the correct confinement kernels}}{149}{subsection.32.5}%
+\contentsline {subsection}{\tocsubsection {}{32.6}{Congruence-wall freeness}}{150}{subsection.32.6}%
+\contentsline {subsection}{\tocsubsection {}{32.7}{Honest walls and heuristic outlook}}{151}{subsection.32.7}%
+\contentsline {section}{\tocsection {}{33}{Fixed-$J$ stacking in the first-witness frame: proved finite dimension and the uniformity frontier}}{153}{section.33}%
+\contentsline {subsection}{\tocsubsection {}{33.1}{Confinement, budget failure, and the integer frame}}{153}{subsection.33.1}%
+\contentsline {subsection}{\tocsubsection {}{33.2}{What the three cited mean-value theorems actually say}}{154}{subsection.33.2}%
+\contentsline {subsection}{\tocsubsection {}{33.3}{The best unconditional fixed-$J$ consequences}}{156}{subsection.33.3}%
+\contentsline {subsection}{\tocsubsection {}{33.4}{Exact finite-prime correlations}}{159}{subsection.33.4}%
+\contentsline {subsection}{\tocsubsection {}{33.5}{A named conditional frontier and its exact thresholds}}{160}{subsection.33.5}%
+\contentsline {subsection}{\tocsubsection {}{33.6}{Honest walls and falsification register}}{162}{subsection.33.6}%
+\contentsline {section}{\tocsection {}{34}{The a-frame failure census: per-modulus frequencies, dependence, and the third decade of $a_1$}}{163}{section.34}%
+\contentsline {subsection}{\tocsubsection {}{34.1}{Method and four finite windows}}{163}{subsection.34.1}%
+\contentsline {subsection}{\tocsubsection {}{34.2}{Pairwise dependence on different shifts}}{164}{subsection.34.2}%
+\contentsline {subsection}{\tocsubsection {}{34.3}{Complete third-decade $a_1$ census}}{165}{subsection.34.3}%
+\contentsline {subsection}{\tocsubsection {}{34.4}{Deep-failure anatomy}}{165}{subsection.34.4}%
+\contentsline {subsection}{\tocsubsection {}{34.5}{Budget transition by $\omega (h)$}}{166}{subsection.34.5}%
+\contentsline {subsection}{\tocsubsection {}{34.6}{Replay scope, timings, and honest wall}}{166}{subsection.34.6}%
+\contentsline {section}{\tocsection {}{35}{General-numerator tails and the effectivity perimeter}}{167}{section.35}%
+\contentsline {subsection}{\tocsubsection {}{35.1}{The minimal general-numerator witness modulus}}{167}{subsection.35.1}%
+\contentsline {subsection}{\tocsubsection {}{35.2}{The conductor coupled to $m$}}{169}{subsection.35.2}%
+\contentsline {subsection}{\tocsubsection {}{35.3}{Comparison and finite companion}}{170}{subsection.35.3}%
+\contentsline {section}{\tocsection {}{36}{Residue-dispersion frontier}}{171}{section.36}%
+\contentsline {subsection}{\tocsubsection {}{36.1}{Endpoint sparsity and proved ranges}}{172}{subsection.36.1}%
+\contentsline {subsection}{\tocsubsection {}{36.2}{Kloosterman-fraction audit}}{173}{subsection.36.2}%
+\contentsline {section}{\tocsection {}{}{References}}{176}{section*.618}%

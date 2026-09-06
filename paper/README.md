@@ -1,12 +1,29 @@
 # Paper draft status
 
-`espaper.tex` is the v16 standalone `amsart` consolidation draft (151 pages). Its two record headlines remain:
+`espaper.tex` is the v17 standalone `amsart` consolidation draft (177 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
 - for every fixed `epsilon > 0`, uniformly for `3 <= m <= (log N)^(3-epsilon)`,
   `E_m(N) ≪_epsilon N exp{-c_epsilon(eta_2(m)(log N)^3/phi(m))^(1/4)}`.
 
 Both remain visibly **CLAIMED/PROVISIONAL**. The general-numerator headline inherits the likewise provisional source Theorem 34.8, paper Theorem `m-pruned`, and every source §39.7 qualification. “Unconditional” means only that no unproved hypothesis is assumed; it does not mean externally validated. The paper does not claim a proof of the Erdős–Straus conjecture.
+
+## v17 changes — 2026-08-30, wave 31
+
+- Absorbed source §70 as Section 32.  For each fixed prime `a = 3 mod 4`, failure splits exactly into quadratic-residue confinement F1 and bounded-budget F3; F2 is empty, F1 has the exact `H/sqrt(log H)` asymptotic, and F3 is lower order with exponent `1/2 + 1/(a-1)`.
+- Added the effective shifted-prime upper law and fixed-congruence-wall freeness.  Every compatible fixed progression has density-one success at fixed `a`; all constants and errors may depend on fixed `a`, and no growing-`a`, joint-tail, or pointwise result follows.
+- Preserved the composite-modulus correction exactly: maximal avoiding subgroups are kernels of cyclic `2^k` quotients, not merely odd quadratic characters.  The `a=15`, `C_2 x C_4` counterexample is explicit, and table (70.36) remains Computational only.
+- Absorbed source §71 as Section 33.  The Shiu, Nair–Tenenbaum, and Henriot theorem statements remain explicit verbatim quotations with their exact page references and dependency sentences.  They prove fixed dimension only; no cited source gives a growth rate for the hidden constant `C(J)`.
+- Added the unconditional fixed-`J` shifted-form means, exact discriminant table (71.24), collision-factor table (71.32), and local-correlation formula.  These fixed-`J` bounds are weaker than the standing literature and the campaign’s provisional record shapes.
+- Preserved the exact open hypotheses `H_FAIL(theta_0)` and `H_STACK(theta,gamma)`.  Every moving-`J` tail and count-below-one consequence is conditional on both; the favorable branch has exponent `L^theta/(4 theta)`, while prime-only count below one requires `Z > (4+o(1)) log N`.
+- Absorbed source §72 as Section 34, wholly Computational/INFO.  The complete `a_1` census covers all 719,781 hard primes below `10^8`, retains maximum 107 uniquely at 8,803,369, and transcribes the per-modulus panel, dependence panel, full tail histogram, strict-record anatomy, F3-share ledger, and omega-conditioned table digit-for-digit.
+- Extended the internal pedigree through blocks `(bq)`–`(bs)` and the wave-30 `SOUND-AFTER-REPAIRS`, `SOUND-AFTER-REPAIRS`, and `CONFIRMED-AFTER-REPAIRS` verdicts.  These are internal proof/source reviews and bounded computational replays, not external validation.
+- Updated the abstract, introduction roadmap and status register, global pedigree, final status, verifier endpoint, tracked table of contents, and PDF.  The build grows by 26 pages, from 151 to 177.
+- Typesetting/reference judgment calls (explicitly recorded by the fidelity review): inserted the missing `\\` before `\hline` in (71.24); used `\resizebox` on wide tables/displays without changing their contents; mapped §70's correlation-warning pointer from source §63.2 to Assessment 63.2 (the actual warning is in source §63.5).  All three are fidelity-preserving.
+
+## Wave-31 v17 fidelity review
+
+- Verdict **FAITHFUL-AFTER-REPAIRS**; restored the abstract's unit hypothesis and escaped 18 percent signs that silently erased census digits, INFO labels, and caveats in Sections 32 and 34.  All 100 tagged displays, the reviewed character-twist and prime-density hypotheses, exact census tables, conditional/provisional statuses, and three judgment calls agree; the two-pass build remains clean at 177 pages.  Review: `reviews/wave31-paper-v17-review.md`.
 
 ## v16 changes — 2026-08-30, wave 30
 
@@ -171,6 +188,19 @@ The pending v4 structural erratum in the wave-16 fidelity review was resolved in
 
 Every new or changed theorem statement was diffed against the post-review `notes.md` text symbol by symbol:
 
+- notes §70 status, Lemma 70.1, Corollaries 70.2–70.4, and (70.1)–(70.5) ↔ `a-frame-failure`, `a-frame-involution`, `quadratic-confinement`, `prime-F2-empty`, and `F1-F3`: exact fixed-prime/unit hypotheses, unique-involution equivalence, quadratic confinement, F2 emptiness, F1/F3 disjoint decomposition, and the `a=7,h=17` budget warning agree.
+- notes Standard Fact 70.1, Theorem 70.5, and (70.6)–(70.14) ↔ `integer-confinement`: the progression-compatibility caveat, fixed-mark bound, exact constants, all five hard-class ratios, tied-twist warning, and strictly positive fixed-`a` asymptotics agree.
+- notes Lemma 70.6, Theorem 70.7, Corollary 70.8, and (70.15)–(70.23) ↔ `budget-rigidity`, `fixed-modulus-budget`, and `integer-failure-law`: inversion-orbit budget, forbidden correction class, exact `K_a` and `beta_a`, lower-order F3 ratio, hard progression, and nonuniformity in `a` agree.
+- notes Standard Fact 70.2, Theorem 70.9, and (70.24)–(70.28) ↔ `prime-frame-upper`: primitive two-form hypotheses, fixed-`K` sieve, effective `N/(log N)^(3/2)` law, sharper F3 exponent, fixed-progression extension, and no prime-frame lower bound agree.
+- notes Theorems 70.10–70.11 and (70.29)–(70.35) ↔ `composite-confinement` and `congruence-wall-free`: cyclic `2^k` quotient classification, exact kernel count, `2^(omega(a)-1)` quadratic term, `a=15` counterexample, unit compatibility, density-one success, and fixed-only perimeter agree.
+- notes Computational/Heuristic 70.1 and (70.36)–(70.39) ↔ the finite replay and outlook: every count, finite gate, `ES_FULL_SCAN` scope, composite extrapolation warning, distinct all-coefficient/prime-only models, and complete no-joint-tail register agree.
+- notes §71 status, Lemmas 71.1–71.2, and (71.1)–(71.7) ↔ `fixed-J-stacking`, `prime-a-separation`, and `a1-count-below-one`: prime-only selection, exact F1/F3 separation, one-excluded-class majorant, admissibility cutoff, integer-frame enlargement, endpoint covering sequence, and no congruence-wall transfer agree.
+- notes Facts 71.1–71.3 and (71.8)–(71.15a) ↔ the quotation subsection: Shiu pp. 162–163, Nair–Tenenbaum pp. 123–126, and Henriot pp. 4–8 are retained as explicit verbatim quotations; every fixed-dimension, range, discriminant, prime-density, and dependency sentence agrees, with no claimed growth rate for `C(J)`.
+- notes Theorem 71.3, Corollary 71.4, and (71.16)–(71.28) ↔ `fixed-J-means` and `fixed-J-tail`: both indicator means, prime-input factor, exact Euler deficits, discriminant table (71.24), all six exponent fractions, F1-only warning, and weaker-than-standing-literature assessment agree.
+- notes Lemma 71.5, Heuristic 71.1, and (71.29)–(71.36) ↔ `local-confinement-factor` and the local model: exact collision set, coprimality deletion, boxed local factor, table (71.32), all three heuristic scales, and no-tensorization caveat agree.
+- notes `H_FAIL`, `H_STACK`, Theorem 71.6, Fact 71.4, Assessment 71.2, and (71.37)–(71.47) ↔ `H-FAIL`, `H-STACK`, and `moving-J-tail`: both hypotheses’ exact displayed forms, effective constants, gamma branches, conditional comparison thresholds, Pomerance–Weingartner statement, `Z>(4+o(1))L` correction, finite crossover, falsification register, and no-unconditional-record conclusion agree.
+- notes §72 status and (72.1)–(72.6) ↔ `a-frame-census` method, four-window panel, and dependence panel: exact half-open ranges, populations, every F1/F3/INFO cell, all 15 joint rows, and no scale or independence claim agree.
+- notes (72.7)–(72.12) ↔ the third-decade census and anatomy: all 20 histogram counts, total 719781, unique maximum and deep values, complete upper tail, eight strict-record rows, every sigma count, digest, F3 shares, all omega-conditioned cells, timings, memory, gates, and no-asymptotic/no-pointwise wall agree.
 - notes §69 status, definition, Lemma 69.1, and (69.1)–(69.4) ↔ `forward-ray` and `integerwise-collapse`: maximal rational integer-valued scope, sufficiently-large tail, nonzero divisor values, integer-valued quotient on every integer, resultant bound, and no coefficient-wise `Z[t]` claim agree.
 - notes Lemma 69.2 and (69.5)–(69.7) ↔ `shadow-blockage`: both polynomial identities and integer-valued cofactors, exact `M(0) <= -1` or `D(0) < 0` alternatives, zero-divisor edge, and no standalone eligibility failure agree.
 - notes Lemma 69.3, Theorem 69.4, and (69.8)–(69.10a) ↔ `positivity-propagation` and `forward-ray-obstruction`: both forced-sign arguments, nonzero premise, original-anchor induction, all three Theorem-60.3 anchors, every degree, every `K >= 1`, every tail start, and constant-`M` edge agree.
@@ -301,7 +331,7 @@ pdflatex -interaction=nonstopmode espaper.tex
 pdflatex -interaction=nonstopmode espaper.tex
 ```
 
-The v16 build completes in 151 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the final two-pass validation (both passes are stable). Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v16-relevant verifier coverage passes through block `(bp)`.
+The v17 build completes in 177 pages with zero TeX errors and no undefined references or citations. Generated PDF and auxiliary files are updated by the final validation passes. Manual source-style equation tags retain the pre-existing duplicate-destination `hyperref` warnings, which are not unresolved references. The control-byte scan of `espaper.tex` is zero; the v17-relevant verifier coverage passes through block `(bs)`.
 
 ## Submission TODO
 
@@ -311,6 +341,6 @@ The v16 build completes in 151 pages with zero TeX errors and no undefined refer
 - Obtain external expert review of the proved §49 and §50 theorem transcriptions and the §50 standard-hypothesis assessments.
 - Settle author metadata and perform a final line-by-line referee audit.
 
-## v17 queue
+## v18 queue
 
-- v17 queue: wave-30 sections (§70–§72) upon their review.
+- v18 queue: source §§73–§74, being written in parallel; no claims from those sections are imported into v17.
