@@ -512,8 +512,16 @@ at most
 \end{equation}
 Uniformity for sparse subfamilies uses $h(\J)\geq1$ from $1\in\J$;
 indeed the relative error is $O_\kappa(1/t)$ even in that worst case.
-We have pruned \emph{weighted harmonic/main-term mass}, not asserted that
-the discarded actual prime count is small.
+This proves the negligible loss of \emph{harmonic} mass.  To obtain the
+same assertion for the actual prime main-term weight, use the elementary
+Mertens consequence $n/\varphi(n)\ll\log\log(3n)$: split its prime product
+at $\log(3n)$; the smaller primes cost $O(\log\log(3n))$ and the larger
+ones a bounded factor.  Since $4uv\leq4X^{1/3}$, the removed
+$1/\varphi(4uv)$ mass is at most $O(\log t)$ times the removed harmonic
+mass.  Relative to the original main-term mass, which is
+$\gg(\log z)^2h(\J)$, its loss is $O_\kappa(\log t/t)=o(1)$.
+Thus both weighted masses are controlled; no assertion is made that the
+discarded \emph{actual prime count} is small.
 
 Each retained triple asks that
 \begin{equation}\label{eq:primeAP}
@@ -1053,7 +1061,7 @@ After fixing $\kappa$ absolutely, all constants are absolute, completing
 the claimed argument.
 \end{proof}
 
-\section{Why the natural mass-driven ceiling is three quarters}\label{sec:ceiling}
+\section{The heuristic mass-driven three-quarter ceiling}\label{sec:ceiling}
 We record the large-sieve convention of \cite[Section~5]{LL}, even though
 our interval transfer is Bonferroni rather than an invocation of that sieve.
 Montgomery \cite[\S8, p.~561]{Montgomery} states, for an integer set in an
@@ -1112,13 +1120,16 @@ already has exponent three; counting the same $M$ again through another
 factorization $M=k\ell$ does not create new supply.
 
 \begin{remark}[scope of the ceiling]
-No improvement in a fixed level of distribution changes $3/4$ for a sieve
-whose saving comes only from this summed identity-class mass and whose
-product or polynomial truncation has the stated $t\mu$ budget.
-This is the natural ceiling of the method, not a theorem ruling out
-\emph{every} congruence-and-sieve argument, extra identities, or use of
-arithmetic arrangement beyond total mass.  The stronger universal
-formulation does not follow from the supply calculation; notes \S18
+The mass-and-budget calculation suggests that changing only a fixed level
+of distribution does not change the predicted exponent $3/4$ when the
+saving comes only from this summed identity-class mass and the truncation
+retains the stated $t\mu$ budget.  This is a \emph{heuristic ceiling}, not
+an optimality theorem: a sufficient product-tail or coefficient budget has
+not been proved necessary for every implementation of the method.
+In particular it does not rule out other congruence-and-sieve arguments,
+extra identities, or use of arithmetic arrangement beyond total mass.  The
+stronger universal formulation does not follow from the supply calculation;
+notes \S18
 explicitly makes this same restriction.  Nothing about the ceiling is
 used in the proof of Theorem~\ref{thm:main}.
 \end{remark}
