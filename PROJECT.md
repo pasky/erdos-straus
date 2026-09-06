@@ -81,6 +81,140 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 36 (2026-09-06, wave 32 — "the hard things": H_BLK, the 3/4 note, pointwise)
+
+Two unit branches (§75, §76 + note), five hostile reviews in total (§75:
+DEFECTIVE → DEFECTIVE → SOUND-AFTER-REPAIRS over three rounds; §76/note:
+SOUND-AFTER-REPAIRS), all repairs applied, merged by tail-reassembly, full
+`verify.py` green (173 s) with new blocks (bw), (bx).  Reviews:
+`reviews/wave32-sec75-review{,-round2,-round3}.md`, `reviews/wave32-sec76-review.md`.
+
+**1. The joint large-prime problem (§75).  Honest scorecard.**
+
+* *Proved.*  (a) Lemma 75.1 (signed-product union bound: with `m` independent
+  uniform classes mod `a`, `P(−1 ∈ signed products) ≤ (3^m−1)/(a−1)`).
+  (b) **The hypothesis `H_BLK(θ)` of (73.43) is miscalibrated**: its per-block
+  saving `L^{−(1−θ)/2}` was copied from the F1 density `1/2`, whereas the
+  low-ω block-producing family has model exponent `δ(λ_θ) = δ(θ/log 3)`
+  (`δ(ρ) = ρ log ρ − ρ + 1`), and `δ(λ_θ) < (1−θ)/2` exactly on
+  `(θ₁, θ_hi) = (0.3357…, 0.9899…)` — i.e. on the whole range `[2/3, 0.99)`
+  where Corollary 73.C(ii) would have mattered, the literal hypothesis is in
+  tension with the independent block-rate model (the all-block instance is
+  empty because `BLK₃ = ∅`; the calibration uses a mixed instance).  A
+  corrected hypothesis `H'_BLK(θ, δ_B)` (per-block saving `L^{−δ_B}`, any
+  fixed `δ_B > 0`) is defined, and **Corollary 75.3 (proved implication)**
+  re-derives (73.44) from it with exponent `min((1−θ)/2, δ_B)/(2θ)·L^θ`,
+  plus the Rankin transfer to all denominators.  (c) **The sharpest sufficient
+  statement** is isolated in lower-tail form: `H⁺_LT(θ, λ, c₀)` (75.9), a
+  joint bound over partitions `𝒫_Z = 𝒜 ⊔ ℬ₁ ⊔ ℬ₂` with confinement on 𝒜,
+  `ω(h_b) ≤ λ log L` on ℬ₁, structured blocks on ℬ₂, constant
+  `e^{CJ log log L}`; its instance `𝒜 = ℬ₂ = ∅` is exactly the joint lower
+  tail `#{m ≡ 0 (6), m ≤ (N−1)/4 : ω(m + (b+1)/4) ≤ λ log L ∀ b ∈ 𝒫_Z}
+  ≤ N e^{CJ log log L} e^{−c₀ J log L}` demanded in Outcome 35.
+  **Theorem 75.4 (proved implication):** `H⁺_LT(θ, λ, c₀)` for any `λ > 0`
+  ⟹ `H'_BLK(θ, c₀)` ⟹ `E(N) ≪ N exp{−c L^θ}`.  This is the exact
+  *conditional* answer to the task's question; nothing weaker was found.
+  (d) **Proposition 75.5P (proved):** a level-of-distribution statement for one
+  shifted multiplicative function enters a `J`-shift correlation only through
+  an absolute-error expansion that leaves a `(J−1)`-dimensional sieve of the
+  same level, with modulus multiplicity `m(d) ≤ J^{ω(d)} e^{O(J log log Z)}`
+  (75.13) — the sufficient error condition is therefore an *exponential*
+  saving `N exp{−L^{θ−o(1)}}`, which no Elliott–Halberstam-type input
+  provides; the integer frame already has level `N^{1−η}` with error one.
+  **Level of distribution is not the missing input; the number of shifts
+  is.**
+* *Refuted / withdrawn (by the reviews, of my own first drafts).*  "STR is
+  negligible under (EQ)" (false: the referee's index-six family — one
+  generator class, the rest in the index-6 subgroup, `a ≡ 7 (12)` — gives
+  full-generation blocks at every `ω`, with mass `H (log H)^{−5/6}`, which
+  even dominates the low-ω family for `θ < 0.0432`); "false for every
+  `θ > θ₁`" (second root `θ_hi`); a universal "sieve ceiling" (only a
+  restricted-architecture model survives); a k-wise "free deficit" (a
+  square-root error: the free profile is `e^{w/2}/√J`, total `O(1)`); the
+  claim that the witness supply of one prime is concentrated in polylog
+  many moduli (an all-modulus proxy gives `(log p)²` per *polynomial* scale
+  and `(log p)³` total, but only `(log p)^{1.73}` at `Q = (log p)²`).
+* *Model computations (Assessments, not theorems; every input named).*
+  (i) In the product-over-smooth-parts architecture actually used by
+  §§70–74, with any common or subfamily cutoff, the modeled exponent is
+  `g(θ, θ′)` (75.10) with `∂g/∂θ′ = 2 − ρ`, maximum **`max f = 0.5823…` at
+  `θ = 0.6348…`, strictly below Vaughan's 2/3** (`f(2/3) = 0.5766`,
+  `f(3/4) = 0.4969`); `θ* = 0.5235` of §14.4 is where the per-coordinate
+  saving stops being a power of `L`, not the peak.  Consequence: **the
+  a-frame stacking track is dead as a sieve program**, not merely "unless a
+  non-sieve idea appears".  (ii) In the level-`N^{O(1)}` statistics model,
+  the size-feasible "almost-prime tuple" gap configuration has candidate
+  cost `L^{1−θ/log 3+o(1)}` (75.14), below the target `L^θ` for
+  `θ > θ*`; this is a candidate exponent only — no joint measure is
+  constructed, and the residual-fluctuation cost of the simultaneous event
+  is `exp{−L^{θ+o(1)}}` under independent coordinates.  (iii) The
+  non-majorant routes (Hardy–Ramanujan log-weight induction → a
+  Hardy–Littlewood system of `J` linear forms after one extraction;
+  bilinear/dispersion; MR/Chowla-type averaged correlations) all reduce to
+  the `J`-point correlation itself.  **No unconditional `H⁺_LT` for any
+  `θ > θ*`, `c₀ > 0` was found, and no obstruction theorem was proved**;
+  the LP-dual measure with exact level-`D` statistics on size-feasible
+  patterns is the precise missing object (§75.6).
+
+**2. The 3/4 note is now internally proved (§76; `paper/es-threequarter-note.tex`
+v2, 21 pp).**  All three §39.7 checkpoints were re-derived from the
+statements: (i) residue-resolved factors — correct and **not load-bearing**
+(only the ordered-atom replay uses it; the conditional-independence proof of
+the moment bound needs only the fibre masses); (ii) pruned supply — correct
+line by line; (iii) CRT independence, atom deduplication, `e^{O(t⁴)}` ledger
+— correct.  Two off-list items (Rankin transfer, `κ < 1/240` parameter
+inequalities) also correct.  **The optional simplification works:** Lemma
+76.1 (weighted second incidence moment `Σ 2^{ω(uv)} r² /φ(4uv) ≪ (log z)⁴
+(1+log K)³`, one Shiu application for `2^ω n/φ(n)` in progressions mod
+`d ≤ K²` above `K^{10}`, plus the elementary modulus-one case) and Theorem
+76.2 (unpruned prime slice via Cauchy–Schwarz against BV with `R = 26`)
+give the same cubic fibre masses for the **full** triple family;
+Corollary 76.3 traces the dependency graph: the ω-cutoff `D`, the
+congestion pruning `T_X = t⁴`, the low-ω lemma, Lemma 34.7 (unweighted
+second moment), the ordered-atom replay and the lower-`W_k` calculation
+are no longer used; exponent, cubic mass, Bonferroni degree and ledger
+unchanged; `H_kBV` is irrelevant rather than unassumed.  The note gained
+Section 5 with this route, Section 11 annotated per checkpoint, and the
+label **"INTERNALLY PROVED; internal checks only, not externally
+refereed"**, with the internal record stated precisely in Theorem 1.1
+(self-review §39.7, blind construction §41 with self-attested blindness,
+one standalone hostile audit, the §76.4 re-derivation, the §76 review with
+an independent prime-first enumeration) — the reviewer correctly refused
+"three independent hostile reviews".  Machine checks (bx): `φ(4uv) ≥
+2φ(u)φ(v)`, the Cauchy–Schwarz multiplicity inequality on a finite
+lattice, the pair sum, and an 18,332-incidence toy replay with zero class
+collisions.
+
+**3. Pointwise (§75.7).**  The single-AP / moving-modulus idea was examined
+and rejected honestly: in the a-frame the moduli `q` up to `p` all carry
+witnesses in expectation (`≍ (log p)²` per polynomial dyadic scale in the
+proxy), so a pointwise argument may choose its scale — but at every scale
+it must control a quantity of polylogarithmic mean for *every* `p`, which
+is Wall (i) of §10.6; at `Q = p^α` the condition is a divisor pair
+`ab | h` with `4h − p | a + b` for some `h ∈ [p/4, p/4 + p^α]`, a
+divisor-in-a-moving-class condition tied to the offset, with no
+equidistribution statement uniform in `p` known.  No pointwise mechanism
+consistent with the walls was found; no impossibility theorem was proved.
+
+**What remains open, exactly.**  (1) `H⁺_LT(θ, λ, c₀)` for some
+`θ > 3/4`: a uniform Hardy–Littlewood/Nair–Tenenbaum-type bound with
+constant `e^{O(J log log L)}` for `J ≍ L^θ/log L` shifts.  (2) The
+obstruction theorem: an LP-dual measure on residue patterns with exact
+level-`N^{O(1)}` statistics, supported on size-feasible patterns, under
+which the joint lower tail has probability `≥ exp{−L^{1−θ/log 3+o(1)}}`
+(would make Wall 2 a theorem).  (3) (EQ), uniform Selberg–Delange with
+characters mod `a ≤ (log H)^{1−ε}` conditional on `ω`, which would turn
+Assessment 75.2's block-rate lower bound into a theorem and make the
+miscalibration of (73.43) rigorous.  (4) External refereeing of the two
+notes.
+
+**Recommendation.**  Unchanged in direction, sharpened in content: show
+`vaughan-loglog-note` and now `es-threequarter-note` (internally proved)
+to a human analytic number theorist; do not spend further sessions on the
+a-frame stacking track (its sieve-visible part caps at `L^{0.58}`); the
+only mathematics left with a clear payoff is (1)/(2) above, and both are
+genuinely new-tool problems.
+
 ## Outcome 35 (2026-09-06, wave 31 + independent strategic reassessment by a fresh session)
 
 **Housekeeping (wave 31 closed).**  Units A (§73 block reduction, verify
