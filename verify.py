@@ -15701,14 +15701,13 @@ def check_by():
                     seen = seen or ((-p) % q in R)
             assert seen, (p, x, y, z)
             n_sol_checked += 1
-    # Lemma 77.2 symmetric form: kp+a has a divisor ≡ -1 or -p (mod 4ak)  <=> ES(p);
-    # check that for every prime p < 400, p≡1(4), some (a,k) <= 40 works and that
-    # every hit reconstructs.
+    # Lemma 77.2 (77.4): every divisor D ≡ -1 or -p (mod 4ak) of kp+a, a,k <= 40,
+    # reconstructs an exact solution (both readings); every prime p<400, p≡1(4) has one.
     n_l2 = 0
     for p in primerange(5, 400):
         if p % 4 != 1:
             continue
-        hit = None
+        hits = 0
         for a in range(1, 41):
             for k in range(1, 41):
                 N = k * p + a
@@ -15718,23 +15717,42 @@ def check_by():
                         c = (D + 1) // M
                         b = N // D
                         assert 4 * a * b * c * k - a - b == k * p
-                        hit = ('II', a, b, c, k)
-                        break
-                if not hit:
-                    for D in range((-p) % M or M, N + 1, M):
-                        if N % D == 0:
-                            c = (D + p) // M
-                            b = N // D
-                            # Type I data is (k, b, c, a): a*(4kbc-1) = p*(k+b)
-                            assert a * (4 * k * b * c - 1) == p * (k + b)
-                            hit = ('I', k, b, c, a)
-                            break
-                if hit:
-                    break
-            if hit:
-                break
-        assert hit, p
-        n_l2 += 1
+                        sol = (Fraction(1, a * b * c) + Fraction(1, p * a * c * k)
+                               + Fraction(1, p * b * c * k))
+                        assert sol == Fraction(4, p)
+                        hits += 1
+                for D in range((-p) % M or M, N + 1, M):
+                    if N % D == 0:
+                        c = (D + p) // M
+                        b = N // D
+                        # Type I data is (k, b, c, a): a*(4kbc-1) = p*(k+b)
+                        assert a * (4 * k * b * c - 1) == p * (k + b)
+                        sol = (Fraction(1, k * c * a) + Fraction(1, b * c * a)
+                               + Fraction(1, p * k * b * c))
+                        assert sol == Fraction(4, p)
+                        hits += 1
+        assert hits > 0, p
+        n_l2 += hits
+    # (77.5): both alternatives with the positivity 4ack > p, a,c,k <= 40, p < 400:
+    # every hit reconstructs; the negative pseudo-divisor 4ack-p = -1 is not a witness.
+    n_775 = 0
+    for p in primerange(5, 400):
+        if p % 4 != 1:
+            continue
+        for a in range(1, 41):
+            for c in range(1, 41):
+                for k in range(1, 41):
+                    if (4 * a * a * c + p) % (4 * a * c * k - 1) == 0:
+                        b = (k * p + a) // (4 * a * c * k - 1)
+                        assert 4 * a * b * c * k - a - b == k * p
+                        n_775 += 1
+                    if 4 * a * c * k > p and (4 * a * a * c + 1) % (4 * a * c * k - p) == 0:
+                        b = (p * a + k) // (4 * a * c * k - p)
+                        assert b * (4 * a * c * k - p) == p * a + k
+                        assert k * (4 * a * b * c - 1) == p * (a + b)
+                        n_775 += 1
+        c0 = (p - 1) // 4
+        assert 4 * 1 * c0 * 1 - p == -1 and (4 * c0 + 1) % 1 == 0  # divides, yet not a witness
 
     # ------------------------------------------- (ii) Proposition 77.3: the n=1 principle
     # (4ack-1) | (a+k) has no solution; equivalently -1 ∉ Rat_{4s-1}(s).
@@ -15801,8 +15819,8 @@ def check_by():
     for p in primerange(5, 400):
         if p % 4 != 1:
             continue
-        for a in range(1, 60):
-            for k in range(1, 30):
+        for a in range(1, 61):          # Type II: a <= 60, k <= 30; Type I data (k,b,c,a): a_I <= 30, k_I <= 60
+            for k in range(1, 31):
                 N = k * p + a
                 M = 4 * a * k
                 D = M - 1
@@ -15865,7 +15883,7 @@ def check_by():
     # ----------------------- (vii) Proposition 77.9: the progression family count
     # |Omega_p| = sum_{(a,b) in W(p)} floor(p/(4ab)); harmonic witness mass H(p);
     # mean of H over integers n in [1,N] (n ≡ 1 mod 4) against the constant C0.
-    def witness_pairs(n, A):
+    def witness_triples(n, A):
         W = []
         for a in range(1, A + 1):
             for b in range(1, A + 1):
@@ -15873,45 +15891,53 @@ def check_by():
                 if gcd(n, M) != 1:
                     continue
                 d2 = (-n) % M
-                ninv = pow(n % M, -1, M)
-                d1 = (-ninv) % M
-                if (a + b) % d2 == 0 or (a + b) % d1 == 0:
-                    W.append((a, b))
+                d1 = (-pow(n % M, -1, M)) % M
+                if (a + b) % d2 == 0:
+                    W.append((a, b, 1))
+                if (a + b) % d1 == 0:
+                    W.append((a, b, -1))
         return W
     A = 30
-    # C0 truncated: sum over a,b<=A of (1/(4ab)) * (#{d | a+b : d ≡ 3 (4), gcd(d,4ab)=1} * 2 - overlap)/phi(4ab)
-    # -- computed empirically instead: mean of H(n) over n ≡ 1 (mod 4), n <= N.
     Ns = 4000
     Hsum = 0.0
     cnt = 0
     for n in range(5, Ns, 4):
-        W = witness_pairs(n, A)
-        Hsum += sum(1.0 / (4 * a * b) for a, b in W)
+        W = witness_triples(n, A)
+        Hsum += sum(1.0 / (4 * a * b) for a, b, _ in W)
         cnt += 1
     Hmean = Hsum / cnt
-    # exact expectation for uniform residues: sum_{a,b} (1/4ab) * |C_{a,b}| / phi(4ab)
     # n uniform in the class 1 (mod 4) lands in a fixed class r ≡ 1 (mod 4) modulo
-    # M = 4ab with probability 4/M, so E[H] = sum_{a,b} |C_1(a,b)| / (4 a^2 b^2),
-    # C_1 = the witness classes {-d, -d^{-1}} (mod 4ab), d | a+b, d ≡ 3 (mod 4).
+    # M = 4ab with probability 4/M; typed count: 2 tau_3^*(a,b) classes.
     C0 = 0.0
     for a in range(1, A + 1):
         for b in range(1, A + 1):
             M = 4 * a * b
-            classes = set()
-            for d in range(3, a + b + 1, 4):
-                if (a + b) % d == 0 and gcd(d, M) == 1:
-                    classes.add((-d) % M)
-                    classes.add((-pow(d, -1, M)) % M)
-            C0 += len(classes) / (4 * a * a * b * b)
+            t3 = sum(1 for d in range(3, a + b + 1, 4) if (a + b) % d == 0 and gcd(d, M) == 1)
+            C0 += 2 * t3 / (4 * a * a * b * b)
     assert abs(Hmean - C0) < 0.05 * C0, (Hmean, C0)
-    # and for primes the identity |Omega_p| = p*H(p)+O(|W|) is definitional; check one p
-    p = 409
-    W = witness_pairs(p, 60)
-    Omega = sum(p // (4 * a * b) for a, b in W)
-    assert Omega > 0 and abs(Omega - p * sum(1 / (4 * a * b) for a, b in W)) <= len(W)
+    # (77.7): independent enumeration of Omega_p = {(a,b,eps,n): 1<=n<=p, n≡p (4ab), (a,b,eps) in W(n)}
+    for p in (409, 97):
+        A2 = 60
+        Wp = witness_triples(p, A2)
+        formula = sum(p // (4 * a * b) + 1 for a, b, _ in Wp)
+        direct = 0
+        for a in range(1, A2 + 1):
+            for b in range(1, A2 + 1):
+                M = 4 * a * b
+                for n in range(p % M or M, p + 1, M):
+                    if gcd(n, M) != 1:
+                        continue
+                    d2 = (-n) % M
+                    d1 = (-pow(n % M, -1, M)) % M
+                    direct += ((a + b) % d2 == 0) + ((a + b) % d1 == 0)
+        assert direct == formula, (p, direct, formula)
+        assert abs(formula - p * sum(1 / (4 * a * b) for a, b, _ in Wp)) <= len(Wp)
+        if p == 409:
+            omega409 = formula
 
     # ------------- (viii) Lemma 77.10: F1 kills both targets when (p|q)=1; stats
     both_f1 = one_f1 = neither = 0
+    sub_conf = 0
     n_windows = 0
     for p in primerange(5, 20000):
         if p % 24 != 1:
@@ -15933,18 +15959,41 @@ def check_by():
                 assert not allqr  # x is a QNR, so it has a QNR prime factor
                 # -p is a QR mod q, -1 a QNR: the two targets lie in different cosets
                 assert jacobi_symbol(-p, q) == 1
+                # subgroup generated by the prime factors: contains -1 always; may miss -p
+                H = {1}
+                frontier = [1]
+                gens = [r % q for r in factorint(x0)]
+                while frontier:
+                    nxt = []
+                    for h in frontier:
+                        for g in gens:
+                            hg = (h * g) % q
+                            if hg not in H:
+                                H.add(hg)
+                                nxt.append(hg)
+                    frontier = nxt
+                assert (q - 1) in H
+                if (-p) % q not in H:
+                    sub_conf += 1
+                    assert not hit
             n_windows += 1
             if hit:
                 break
-    assert both_f1 > 100
+    assert both_f1 > 100 and sub_conf > 0
+    R = rat_set(107, 19)
+    assert R == {1, 8, 12} and (-409) % 19 == 9 and 9 not in R
+    H107 = {pow(107, j, 19) for j in range(18)}
+    assert H107 == {1, 7, 8, 11, 12, 18} and 9 not in H107
 
     print("by single-window criterion: primes reconstructed =", n_recon,
-          " brute solutions matched =", n_sol_checked, " Lemma 77.2 hits =", n_l2)
+          " brute solutions matched =", n_sol_checked, " Lemma 77.2 hits =", n_l2,
+          " (77.5) hits =", n_775)
     print("by tau: images checked =", n_tau, " |<S3,tau>| =", len(group),
           " quadratic-constraint data (II, I) =", (stats['II'], stats['I']),
           " free S3 orbits =", n_free)
     print("by pigeonhole instances =", n_pig, " H-mean vs C0 (A=30) =",
-          (round(Hmean, 4), round(C0, 4)), " F1-both-fail windows =", both_f1,
+          (round(Hmean, 4), round(C0, 4)), " |Omega_409| (a,b<=60) =", omega409,
+          " F1-both-fail windows =", both_f1, " -p outside subgroup =", sub_conf,
           " of", n_windows, " seconds =", round(perf_counter() - t0, 1))
 
 
