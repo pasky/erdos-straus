@@ -30561,6 +30561,7 @@ count.
 
 
 
+
 ---
 
 ## 77. Pointwise hunt: candidate mechanisms outside the three doors, with the obstructions that close them
@@ -30663,9 +30664,13 @@ integer \(kp+a\) has a positive divisor \(D\) with
 \[
  D\equiv-1\pmod{4ak}\qquad\text{or}\qquad D\equiv-p\pmod{4ak}.     \tag{77.4}
 \]
-In the first case \(D=4ack-1\) and \((a,b,c,k)\) with \(b=(kp+a)/D\) is
-Type II data of Theorem 17.1(i); in the second \(D=4ack-p\) and
-\((k,b,c,a)\) with \(b=(kp+a)/D\) is Type I data of Theorem 17.1(ii).
+In the first case \(D=4ack-1\) and \((a,b,c,k)\) with \(b=(kp+a)/D\)
+satisfies the Type II identity (17.1); in the second \(D=4ack-p\) and
+\((k,b,c,a)\) with \(b=(kp+a)/D\) satisfies the Type I identity (17.2).
+These are unrestricted positive parameter data: the coprimality of
+Theorem 17.1's canonical tuples is not imposed (e.g. \(p=29\), \(a=k=2\),
+\(D=15\) gives \((2,4,1,2)\)), and canonical data are recovered by the
+re-decomposition of Theorem 17.1(i).
 Equivalently: **\(4/p\) is solvable iff for some \(a,c,k\geq1\)**
 \[
  (4ack-1)\mid(4a^2c+p)\qquad\text{or}\qquad
@@ -30837,11 +30842,13 @@ spaces.  (b) The non-obvious involution
 that does exist, \(\tau\), is exactly the algebraic shadow of the
 positivity dichotomy of Bright–Loughran (Theorems 1.2/1.5 of §10.1): it
 exchanges the positive component with the signed one, never preserving
-integrality.  (c) Fixing one coordinate \(x\), the fibre is the punctured split conic
-\((qy-px)(qz-px)=p^2x^2\) of §10.4, a \(\mathbb G_m\)-torsor whose
-relevant integral points (those with \(qy-px\equiv-px\ (q)\)) are
-finitely many divisor pairs permuted only by the swap \(y\leftrightarrow
-z\); the parity-type argument of Zagier for \(x^2+4yz=p\) needs a set
+integrality.  (c) Fixing one coordinate \(x\) with \(p\nmid x\), the fibre of
+\(U_p^\circ\) is the hyperbola \((qy-px)(qz-px)=p^2x^2\) of §10.4 with
+the point \(y=z=0\) removed (a \(\mathbb P^1\) minus three points, not a
+torsor); its points with \(y,z\geq1\) integers are the divisor pairs
+\((D,p^2x^2/D)\) with \(D\equiv-px\pmod q\) (Theorem 3.1; the cofactor
+congruence is automatic because \(\gcd(px,q)=1\)), finitely many and
+permuted only by the swap \(y\leftrightarrow z\); the parity-type argument of Zagier for \(x^2+4yz=p\) needs a set
 with an involution having an odd number of fixed points, and Lemma 77.13
 below shows the natural solution set has none.  (d) Correspondences that
 are not automorphisms (secant and tangent constructions on the cubic
@@ -30993,7 +31000,7 @@ converges as \(N\to\infty\) to
                                                                    \tag{77.8}
 \]
 and \(C_0:=\lim_{A\to\infty}C_0(A)<\infty\) (truncation \(A=30\):
-\(C_0(30)=0.4722\), empirical mean over \(n<4000\): \(0.4715\); `(by)`).
+\(C_0(30)=0.4722\), empirical mean over \(5\leq n<4000\), \(n\equiv1\ (4)\): \(0.4715\); `(by)`).
 Whether the untruncated mean equals \(C_0\) needs a tail estimate not
 supplied here.
 
@@ -31020,8 +31027,9 @@ Monotone convergence and \(\tau_3^*\leq\tau(a+b)\) give \(C_0<\infty\). ∎
 shows the count is *polynomial exactly because a free parameter of size
 \(p\) was adjoined to a witness*: \(|\Omega_p|=p\cdot H(p)+O(|W(p)|)\)
 where \(H(p)\) has bounded (truncated) mean and vanishes iff \(ES(p)\)
-fails.  Proving \(|\Omega_p|>0\) is proving \(H(p)>0\), a statement of
-mean \(C_0\) — worse than polylogarithmic.  In every counting approach we
+fails.  Proving \(|\Omega_p|>0\) is proving \(H(p)>0\), a positivity question
+for a function whose fixed-cutoff means tend to the constants \(C_0(A)\) —
+not even a polylogarithmic main term.  In every counting approach we
 know of, a family mapping to \({\rm Sol}(p)\) is bounded below by
 evaluating \(\sum_s|\text{fibre}|\) from the *dual* side, i.e. for each
 auxiliary object \(\omega\) by an independent count of the solutions
@@ -31030,9 +31038,9 @@ not a consequence of (i)).  When \(\omega\) ranges over integers
 \(n<p\) (all solvable, by the minimal-counterexample hypothesis), the
 compatible solutions are those of \(4/n\) that transfer to \(p\) — which
 is precisely the open transfer slot (P4) of §17.6, executed for every
-known law in §§17.7, 20–26, 30 with no total transfer.  A polynomial main
-term without a transfer is a polylogarithmic main term multiplied by a
-trivially counted factor.  Likewise a Thue/Minkowski pigeonhole cannot
+known law in §§17.7, 20–26, 30 with no total transfer.  In the family examined, the
+polynomial main term is a bounded-mean quantity multiplied by a trivially
+counted factor, and we found no family for which this is otherwise.  Likewise a Thue/Minkowski pigeonhole cannot
 substitute for the count: Thue's lemma produces small solutions of a
 *linear* congruence and then exploits a *positive-definite* form (a small
 value of \(u^2+v^2\) divisible by \(p\) must equal \(p\)); the forms
@@ -31072,7 +31080,10 @@ bounded-budget miss (F3 of §70); the target \(-p\) may lie *outside*
 that subgroup, in which case no exponent budget reaches it
 (\(p=409\), \(x=107\), \(q=19\): \({\rm Rat}_{19}(107)=\{1,8,12\}\),
 \(\langle107\rangle=\{1,7,8,11,12,18\}\not\ni9=-p\); this is the only
-such window among the 455 of the replay in `(by)`).
+such window among the 455 of the replay in `(by)`; the two targets are
+independent in this respect: at \(p=1609\), \(x=407=11\cdot37\),
+\(q=19\), \(-p\equiv6\) lies outside \(\langle11,37\rangle\) while
+\(37\equiv-1\) hits the Type II target).
 
 *Proof.*  \(\chi(x)=\chi(4^{-1}p)=(p/q)\) since \(4x\equiv p\); \(\chi(-1)=-1\)
 and \(\chi(-p)=-(p/q)\).  Under F1 every element of \({\rm Rat}_q(x)\)
@@ -31091,8 +31102,8 @@ prime moduli \(q\leq63\) up to and including the first success, 183 of
 contradiction would have to come from *different* windows, whose
 factorisations are unrelated beyond the character constraints of
 Propositions 8.1/9.2 (the pairwise gcds of the window values \(t+s\),
-\(t+s'\) are bounded by \(|s-s'|\)), i.e. from an argument of the
-almost-all type.  **Assessment:** the joint failure is not
+\(t+s'\) are bounded by \(|s-s'|\)); every way we know of exploiting
+several windows at once is an argument of the almost-all type.  **Assessment:** the joint failure is not
 self-contradictory for any finite set of moduli, and no cross-window
 identity relating \({\rm Rat}_q(t+s)\) to \({\rm Rat}_{q'}(t+s')\) was
 found beyond the trivial inclusion \({\rm Rat}_q(y)\subseteq{\rm
@@ -31162,9 +31173,10 @@ to the map, each with a proof or an exact reason:
    property of \(p\) invisible modulo every fixed modulus.  The only such
    property identified inside the criterion is a quadratic non-residue of \(p\)
    (Lemma 77.6: every solution exhibits one), and Lemma 17.2 says the
-   quadratic layer does not force witnesses.  A proof therefore has to
-   turn the existence of non-residues into a divisor in a moving coset;
-   the class-group reading of §77.3 restates this and offers no forcing.
+   quadratic layer does not force witnesses.  Every approach examined
+   here would have to turn the existence of non-residues into a divisor
+   in a moving coset; the class-group reading of §77.3 restates this and
+   offers no forcing.
 3. **Polynomial families.**  The natural polynomial family has count
    \(p\cdot H(p)+O(|W(p)|)\) with \(H\) of bounded truncated mean (77.7);
    in every counting approach we know, a polynomial main term requires a
@@ -31181,11 +31193,16 @@ to the map, each with a proof or an exact reason:
 
 **What a proof would still have to look like** (unchanged in kind,
 sharpened in statement): for every \(t\geq1\) with \(4t+1\) prime, some
-\(s\geq1\) has \({\rm Rat}_{4s-1}(t+s)\ni-1\) or \(-(4t+1)\), where the
-small-prime part of \(t+s\) is the useless self-part \(s\) whenever
-\(4t+1\equiv1\pmod L\); the hit must come from the large prime factors of
-\(t+s\), and the number of candidate \(s\) up to any scale carries a
-polylogarithmic expected number of hits (Assessment 75.9).  The honest
+\(s\geq1\) has \({\rm Rat}_{4s-1}(t+s)\ni-1\) or \(-(4t+1)\).  For
+\(p=4t+1\equiv1\pmod L\) and a modulus \(q=4s-1\) dividing \(L\), both
+targets are \(-1\) and the prime factors of \(t+s\) dividing \(L/4\) are
+those of \(s\) (with the valuation proviso of §77.1), which never produce
+\(-1\); so at such moduli the hit must come from prime factors of \(t+s\)
+coprime to \(L\), whose residues the class does not control, while at
+moduli \(q\nmid L\) the residue of \(p\) is free and hits may be trivial
+(\(p=97\), \(q=7\): \(-p\equiv1\)) — but those are congruence families,
+each escaped by a larger \(L\).  The number of candidate \(s\) up to any
+scale carries a polylogarithmic expected number of hits (Assessment 75.9).  The honest
 output of this hunt is therefore: **no non-walled pointwise mechanism was
 found; the candidates listed in the task were each either reduced to a
 proved obstruction (77.3, 77.4, 77.6, 77.13) or an exact count (77.9), or

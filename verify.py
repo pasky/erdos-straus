@@ -15975,7 +15975,7 @@ def check_by():
                 assert (q - 1) in H
                 if (-p) % q not in H:
                     sub_conf += 1
-                    assert not hit
+                    assert (-p) % q not in R
             n_windows += 1
             if hit:
                 break
@@ -15984,6 +15984,10 @@ def check_by():
     assert R == {1, 8, 12} and (-409) % 19 == 9 and 9 not in R
     H107 = {pow(107, j, 19) for j in range(18)}
     assert H107 == {1, 7, 8, 11, 12, 18} and 9 not in H107
+    # -p outside the subgroup does not exclude a Type II hit: p=1609, x=407=11*37, q=19
+    R2 = rat_set(407, 19)
+    H2 = {(pow(11, i, 19) * pow(37, j, 19)) % 19 for i in range(18) for j in range(18)}
+    assert (-1609) % 19 == 6 and 6 not in H2 and 18 in R2 and 37 % 19 == 18
 
     print("by single-window criterion: primes reconstructed =", n_recon,
           " brute solutions matched =", n_sol_checked, " Lemma 77.2 hits =", n_l2,
