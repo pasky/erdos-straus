@@ -19,13 +19,13 @@
 \newcommand{\lcm}{\operatorname{lcm}}
 \newcommand{\rad}{\operatorname{rad}}
 \newcommand{\e}{\mathrm e}
-\title[A provisional three-quarter exceptional-set bound]{A three-quarter exceptional-set bound for the\ Erd\H{o}s--Straus equation: a provisional research note}
+\title[An internally proved three-quarter exceptional-set bound]{A three-quarter exceptional-set bound for the\ Erd\H{o}s--Straus equation: an internally proved research note}
 \author{Anonymous}
-\date{CLAIMED/PROVISIONAL draft; not externally refereed}
+\date{INTERNALLY PROVED; internal checks only, not externally refereed}
 \begin{document}
 \begin{abstract}
-This \textbf{CLAIMED/PROVISIONAL} note, not externally refereed, records the
-internally reviewed argument for
+This note, \textbf{internally proved but not externally refereed},
+records the internally reviewed argument for
 \[
  E(N)\ll N\exp\{-c(\log N)^{3/4}\},
 \]
@@ -37,8 +37,15 @@ congruence classes is then assembled on the integers, using exact CRT
 probabilities, a small-prime selector, and an even Bonferroni polynomial.
 The complete coefficient and rounding ledger costs $\exp\{O((\log X)^4)\}$.
 All proof ingredients and their uniformities are given below; the three
-external-referee checkpoints are retained explicitly.  This is not a
-proof of the Erd\H{o}s--Straus conjecture, nor a claim of publication priority.
+external-referee checkpoints are retained explicitly, and
+Section~\ref{sec:unpruned} gives a shorter route to the class supply
+(Cauchy--Schwarz against Bombieri--Vinogradov) that removes the
+distinct-prime-factor cutoff, the congestion pruning, and the unweighted
+incidence-moment lemma (Lemma~\ref{lem:congestion}) from the proof.  The
+argument has undergone the internal checks described in
+Theorem~\ref{thm:main}; these do not constitute external refereeing,
+and ``internally proved'' means exactly that.  This is not a proof of the
+Erd\H{o}s--Straus conjecture, nor a claim of publication priority.
 \end{abstract}
 \maketitle
 
@@ -58,15 +65,23 @@ The denominators $x_i$ need not be distinct.  Put
 The contribution of $n=1$ is harmless.  The conjecture asks for no
 exceptions for $n\geq2$; a density bound does not establish that assertion.
 
-\begin{theorem}[CLAIMED/PROVISIONAL]\label{thm:main}
+\begin{theorem}[internally proved; not externally refereed]\label{thm:main}
 There are absolute $c_*,C_*>0$ such that, for every real
 $N\geq3$,
 \[
  E_{\rm pr}(N)\leq E(N)\leq C_*N\exp\{-c_*(\log N)^{3/4}\}.
 \]
-The argument for this statement has undergone internal review only.
-Its status remains provisional pending external verification, especially
-of the steps in Section~\ref{sec:checkpoints}.
+The argument for this statement has undergone internal checks only.
+The internal record comprises a self-review (\cite[\S39.7]{Notes}), a
+blind construction and reconciliation taking Theorem~34.8 there as
+input (\cite[\S41]{Notes}; the blindness is self-attested, not
+independently audited), a standalone internal audit (the repository
+file \texttt{reviews/es-threequarter-note-review.md}, which found no
+load-bearing gap and recorded repairs), a checkpoint re-derivation
+(\cite[\S76.4]{Notes}), and a hostile review of Section~\ref{sec:unpruned}
+(the file \texttt{reviews/wave32-sec76-review.md}).  These records are not three
+independent full-chain hostile reviews, and the theorem has not been
+verified by an external expert.
 \end{theorem}
 
 This note follows \cite[\S\S16,34,39]{Notes}; \cite[\S41]{Notes} is an
@@ -107,6 +122,11 @@ no constant depends on a residue, subfamily, moment order, or $N$.
 Fixing, for example, $\kappa=1/480$ makes the final constants absolute.
 Constants are not asserted to be effective: standard Bombieri--Vinogradov
 is used without an effectivity refinement.
+This $D$-dependent list describes the retained original route.  For the
+simplified route of Section~\ref{sec:unpruned}, omit $D$ and its choice,
+use the family $\A'_X$, and delete $D$ from all dependencies; the
+remaining choices occur in the same order: $\kappa$, $K_0$, $\eta$ and
+the void constant, $B$, $D_B$, $C_0$, and $\alpha$.
 
 The central distinction is between using prime distribution at scale $X$
 to \emph{construct} many classes and counting those classes on
@@ -587,6 +607,183 @@ same $\J_c$.  Finally use Lemma~\ref{lem:h} and $\log K\leq\kappa t$.
 For reduced $c$, $\J_c=\K(K)$ and $\log K\geq\kappa t/2$ once $X$ is
 large.  This checks explicitly the data-dependent-subfamily quantifiers.
 \end{proof}
+
+
+\section{Unpruned supply by Cauchy--Schwarz (simplification)}\label{sec:unpruned}
+This section, added after the independent re-derivation recorded in
+\cite[\S76]{Notes}, gives Theorem~\ref{thm:harvest} for the
+\emph{full} triple family, with no cutoff on $\omega(uv)$ and no
+congestion pruning.  With it, Lemma~\ref{lem:omega}, Lemma~\ref{lem:congestion}
+as a pruning device, the constant $D$, and the cutoff $T_X$ are no
+longer used anywhere in the proof of Theorem~\ref{thm:main}
+(Corollary~\ref{cor:noD}).  Section~\ref{sec:harvest} is retained as
+the reviewed original route.
+
+\begin{lemma}[weighted second incidence moment]\label{lem:wsecond}
+There is an absolute constant $C_3$ such that for every $K\geq K_0$,
+$H=K^{10}$, $z\geq H^2$, every $\J\subseteq\K(K)$ and every
+$(c,L_{\J})=1$,
+\begin{equation}\label{eq:wsecond}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+ \frac{2^{\omega(uv)}\,r_{\J}(u,v;c)^2}{\varphi(4uv)}
+ \leq C_3(\log z)^4(1+\log K)^3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For coprime $u,v$ one has $\varphi(4uv)\geq2\varphi(u)\varphi(v)$: if
+$uv$ is odd this is an equality, and if $u=2^am$ with $a\geq1$, $m$ odd,
+then $\varphi(4u)=2^{a+1}\varphi(m)=4\varphi(u)$.  Expand the square as
+in Lemma~\ref{lem:congestion}: a pair $k,k'\in\J$ imposes the single
+congruence $d=[k,k']\mid u+cv$ with $d\leq K^2$ and $(c,d)=1$.  For
+coprime $u,v$ with $d\mid u+cv$ one has $(v,d)=1$, so dropping $(u,v)=1$
+while keeping $(v,d)=1$ is an upper bound, and the residue
+$u\equiv-cv\pmod d$ is reduced.  Thus each pair contributes at most
+\[
+ \tfrac12\sum_{\substack{H<v\leq z\\(v,d)=1}}\frac{2^{\omega(v)}}{\varphi(v)}
+ \sum_{\substack{H<u\leq z\\u\equiv-cv\ (d)}}\frac{2^{\omega(u)}}{\varphi(u)}.
+\]
+Cover $(H,z]$ by consecutive boxes $(U,(1+\delta_0)U]$ starting at
+$U=H$, enlarging the last box when necessary; all endpoints are then at
+most $(21/20)z$, which affects no logarithmic bound.  For $d\geq2$ apply
+\eqref{eq:Shiu} to $F(n)=2^{\omega(n)}n/\varphi(n)$, which is
+multiplicative with $F(p^a)=2p/(p-1)\leq4\leq4^a$ and
+$F(n)\leq4^{\omega(n)}\leq\tau(n)^2\ll_\epsilon n^\epsilon$, in these full
+boxes, with modulus $d\leq K^2\leq U^{1/5}$ and a reduced residue.  For
+$d=1$ (the pair $k=k'=1$, always present since $1\in\J$), the
+nonnegative convolution $F=1*h$ below gives $\sum_{n\leq V}F(n)\ll V\log V$,
+hence each box contributes at most $U^{-1}\sum_{n\leq(21/20)U}F(n)\ll\log U$,
+which is the same estimate since $\varphi(1)/1^2=1$.  Since
+$\sum_{p\leq V}F(p)/p=2\log\log V+O(1)$ and
+$\exp\{-\sum_{p\mid d}2/(p-1)\}\asymp(\varphi(d)/d)^2$ (the logarithm
+of the ratio is $\sum_{p\mid d}O(p^{-2})$), the inner box sum of
+$2^{\omega(u)}/\varphi(u)\leq F(u)/U$ is $\ll(\log U)\varphi(d)/d^2$.
+There are $O(\log z)$ boxes, so the inner sum is
+$\ll(\log z)^2\varphi(d)/d^2$, uniformly in the residue.  For the outer
+sum drop $(v,d)=1$; $F=1*h$ with $h\geq0$ supported on squarefree
+integers, $h(p)=(p+1)/(p-1)$ (indeed $h(p^a)=F(p^a)-F(p^{a-1})=0$ for
+$a\geq2$), gives $\sum_{n\leq V}F(n)\ll V\log V$ and,
+by partial summation, $\sum_{H<v\leq z}2^{\omega(v)}/\varphi(v)\ll(\log z)^2$.
+Hence each pair contributes $\ll(\log z)^4\varphi(d)/d^2$, and
+$\sum_{k,k'\leq K}\varphi([k,k'])/[k,k']^2\ll(1+\log K)^3$ exactly as in
+Lemma~\ref{lem:congestion}.
+\end{proof}
+
+For $1\in\J\subseteq\K(K)$ and $(c,L_{\J})=1$ let $f^{\rm all}_{c;\J}(\ell)$
+count the triples $(k,u,v)$ with $k\in\J$, $(u,v)\in\Sset(k,c;H,z_j)$
+for the block $I_j\ni\ell$, and $4uv\mid k\ell+1$.  By
+Lemma~\ref{lem:CRT}, whose distinctness argument uses coprimality,
+$u,v\leq z_j$ with $z_j^2<\ell$, $H<u,v$ with $4H^2>K$, and
+$4uv\mid k\ell+1$, but no $\omega$ cutoff, these triples have
+pairwise distinct residues modulo $\ell$, so $f^{\rm all}$ also counts
+distinct classes.
+
+\begin{theorem}[unpruned prime slice]\label{thm:unpruned}
+Fix $0<\kappa<1/240$.  There are $a_h,A_h>0$ and $X_h=X_h(\kappa)$ such
+that for every $X\geq X_h$, every $K_0\leq K\leq X^\kappa$, every
+$1\in\J\subseteq\K(K)$ and every $(c,L_{\J})=1$,
+\begin{equation}\label{eq:unpruned}
+ a_ht^2h(\J)\leq\sum_{X^{1/2}<\ell\leq X}\frac{f^{\rm all}_{c;\J}(\ell)}{\ell}
+ \leq A_ht^2h(\J).
+\end{equation}
+\end{theorem}
+\begin{proof}
+The upper bound is the last paragraph of the proof of
+Theorem~\ref{thm:harvest}, which used no pruning.  For the lower bound
+fix a full block $(x,2x]$ with $z=x^{1/6}$, so that $4uv\leq4x^{1/3}$
+and $\Lambda\geq\frac12\log z\asymp t$ by \eqref{eq:floor}.  Then
+\[
+ \sum_{x<\ell\leq2x}f^{\rm all}_{c;\J}(\ell)
+ =\sum_{k\in\J}\sum_{(u,v)\in\Sset(k,c;H,z)}
+ \bigl[\pi(2x;4uv,-k^{-1})-\pi(x;4uv,-k^{-1})\bigr],
+\]
+the residue being reduced since $(k,4uv)=1$.  Write each bracket as
+$(\li(2x)-\li(x))/\varphi(4uv)+E(x;4uv,-k^{-1})$.  By \eqref{eq:latlower}
+the main term is at least
+\[
+ \frac{x}{\log(2x)}\sum_{k\in\J}\sum_{\Sset(k,c;H,z)}\frac1{4uv}
+ \geq\frac{x}{16\log(2x)}\Lambda^2h(\J)\gg x\,t\,h(\J).
+\]
+For the error, group the triples by $q=4uv$ and put
+$W_c(q)=\sum_{(u,v):\,4uv=q}r_{\J}(u,v;c)$, the sum over coprime
+$H<u,v\leq z$ with $uv=q/4$; there are at most $2^{\omega(q/4)}$ such
+ordered pairs, so by Cauchy--Schwarz
+$W_c(q)^2\leq2^{\omega(q/4)}\sum_{4uv=q}r_{\J}(u,v;c)^2$.  A second
+Cauchy--Schwarz gives
+\[
+ \Bigl|\sum_{\rm triples}E\Bigr|\leq\sum_qW_c(q)E^*_x(q)
+ \leq\Bigl(\sum_qW_c(q)^2E^*_x(q)\Bigr)^{1/2}
+ \Bigl(\sum_{q\leq4x^{1/3}}E^*_x(q)\Bigr)^{1/2}.
+\]
+For $q\leq4x^{1/3}$, \eqref{eq:BT} and $\li(2x)-\li(x)\leq x/\log x$ give
+$E^*_x(q)\ll x/(\varphi(q)\log x)$, so by Lemma~\ref{lem:wsecond}
+\[
+ \begin{aligned}
+ \sum_qW_c(q)^2E^*_x(q)
+ &\ll\frac{x}{\log x}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+ \frac{2^{\omega(uv)}r_{\J}(u,v;c)^2}{\varphi(4uv)}\\
+ &\ll\frac{x}{\log x}(\log z)^4(1+\log K)^3\ll x\,t^6,
+ \end{aligned}
+\]
+using $\log z\asymp\log x\asymp t$ and $\log K\leq\kappa t$.  With the
+fixed choice $R=26$ in \eqref{eq:BV},
+$\sum_{q\leq4x^{1/3}}E^*_x(q)\leq C_{26}x(\log x)^{-26}$ for
+$x\geq x_{26}$.  The total error is therefore $\ll x\,t^{-10}$, which is
+$o(x\,t\,h(\J))$ because $h(\J)\geq1$ from $1\in\J$.  Divide by $2x$ and
+sum over the $\asymp t$ full blocks.  All constants depend only on
+$\kappa$ and on the absolute Shiu, Brun--Titchmarsh and
+Bombieri--Vinogradov constants; none depends on $c$, $\J$, $K$ or $x$.
+\end{proof}
+
+\begin{corollary}[the theorem without $D$, pruning, or
+Lemma~\ref{lem:congestion}]\label{cor:noD}
+Let $\A'_X$ be the atom family \eqref{eq:atomdef} with the condition
+$\omega(uv)\leq D\log\log X$ deleted.  Then Lemma~\ref{lem:CRT},
+Corollary~\ref{cor:fibremass}, Theorem~\ref{thm:moments}
+(conditional-independence proof), Lemma~\ref{lem:void},
+Theorem~\ref{thm:assembly} and Section~\ref{sec:all} hold with $\A_X$
+replaced by $\A'_X$, Theorem~\ref{thm:harvest} replaced by
+Theorem~\ref{thm:unpruned}, the references to a pruned lower estimate
+replaced by the unpruned supply estimate, and $D$ deleted from all
+parameter dependencies; and Theorem~\ref{thm:main} follows with the
+same order for the surviving parameters and without any use of
+Lemma~\ref{lem:omega}, Lemma~\ref{lem:congestion}, the lower $W_k$
+calculation of Lemma~\ref{lem:profile}, the ordered-atom replay, $D$,
+or $T_X$.
+\end{corollary}
+\begin{proof}
+In the original route, the cutoff and the congestion threshold are
+used to establish low-$\omega$ mass (Lemma~\ref{lem:omega}), to control
+the retained main-term mass \eqref{eq:prunedmass}, and to bound the
+Bombieri--Vinogradov multiplicity \eqref{eq:Wgood}; the optional lower
+$W_k$ calculation in Lemma~\ref{lem:profile} also uses the cutoff.
+Theorem~\ref{thm:unpruned} replaces the entire pruned-supply argument.
+The proof of the main theorem then uses only the conditional-independence
+proof of Theorem~\ref{thm:moments}, not Lemma~\ref{lem:profile} or the
+ordered-atom replay.  Lemma~\ref{lem:CRT} does not use the cutoff.  Corollary~\ref{cor:fibremass}
+uses the lower bound of the supply theorem for the subfamily
+$\J_c\ni1$ with $(c,L_{\J_c})=1$, and the unpruned upper bound; both
+are \eqref{eq:unpruned}.  The conditional-independence proof of
+Theorem~\ref{thm:moments} needs only Corollary~\ref{cor:fibremass};
+Lemma~\ref{lem:void} needs only the fibre lower bound and the selector
+computation; Theorem~\ref{thm:assembly} needs the moment bound, the
+void bound, and the crude inventory \eqref{eq:inventory}, which never
+used the cutoff.  The transfer to all denominators is untouched.
+\end{proof}
+
+\begin{remark}
+The device is the one used for the fixed-multiplier theorem in
+\cite[Section~4]{LL}: a multiplicity as large as $X^\kappa$ at one
+modulus $q$ is harmless when the error is controlled in mean square,
+because it is paid for by its own weight $1/\varphi(q)$ in
+$\sum_qW_c(q)^2/\varphi(q)$.  In the power range the weight
+$2^{\omega(uv)}$ makes the allocation count explicit, and Shiu's
+theorem for $2^{\omega(n)}n/\varphi(n)$ costs two extra powers of
+$\log z$, which the fixed logarithmic saving of Bombieri--Vinogradov
+absorbs.  The unused hypothesis \eqref{eq:HkBV} is now irrelevant to the
+proof rather than merely unassumed.  The exponent, the cubic mass per
+fibre, the Bonferroni degree and the ledger are unchanged.
+\end{remark}
 
 \section{Residue profiles and factorial moments}\label{sec:moments}
 This section retains the residue-resolved estimate and the local induction
@@ -1137,8 +1334,12 @@ used in the proof of Theorem~\ref{thm:main}.
 \section{The three external-referee checkpoints}\label{sec:checkpoints}
 The following are exactly the three mathematical checkpoints identified
 in notes \S39.7, with their locations in this standalone presentation.
-Internal re-derivation is not external refereeing.  The theorem and every
-new ingredient feeding it retain the \textbf{CLAIMED/PROVISIONAL} label.
+Internal re-derivation is not external refereeing.  Each checkpoint has
+now been re-derived independently, from the statements rather than by
+transcription (\cite[\S76.4]{Notes}); the findings are recorded after
+each item.  The theorem carries the label \textbf{internally proved;
+internal checks only, not externally refereed}, with the internal
+record described in Theorem~\ref{thm:main}.
 
 \begin{enumerate}
 \item \emph{Residue-resolved local factors.}
@@ -1149,6 +1350,10 @@ factor $\exp\{-2\sum_{p\mid k}(p-1)^{-1}\}$ must all be retained.
 The upper bound uses BT, not a BV main term below its error.
 Lemma~\ref{lem:profile} gives the full calculation and separately checks
 that its fixed-$k$ lower main term does dominate the BV error.
+\emph{Re-derivation:} confirmed.  The checkpoint is not load-bearing:
+it enters only the ordered-atom replay of Theorem~\ref{thm:moments},
+whose conditional-independence proof needs only
+Corollary~\ref{cor:fibremass}.
 
 \item \emph{Pruned supply for the data-dependent subfamily.}
 Check Theorem~\ref{thm:harvest} (notes Theorem~34.8) and its use with
@@ -1159,6 +1364,14 @@ pruning, the polylogarithmic modulus multiplicity after pruning, and the
 fact that the lower mass occurs in the \emph{canonical} $z=x^{1/6}$ boxes.
 These boxes, not a larger per-prime cutoff, define our fixed atom family.
 The exponential bad-fibre calculation uses only primes supported by $L_K$.
+\emph{Re-derivation:} confirmed line by line.  The pruned-supply
+component is replaced by Theorem~\ref{thm:unpruned}, i.e.\ by
+Lemma~\ref{lem:wsecond} (one Shiu application in progressions modulo
+$d\leq K^2$ in boxes above $K^{10}$, plus the elementary modulus-one
+case), Cauchy--Schwarz, and Bombieri--Vinogradov with a fixed $R$; the
+elementary lattice estimates, the $\J_c$ quantifiers and fibre bounds,
+and the selector's exponentially small bad-fibre estimate remain
+required.
 
 \item \emph{Prime-power consistency versus lcm collapse.}
 Replay \eqref{eq:localrelative}--\eqref{eq:cancel} and the ordered moment
@@ -1169,15 +1382,23 @@ in the latter case.  Any missed factor would be raised through
 $r\asymp t^3$.  The independent-Bernoulli proof of
 Theorem~\ref{thm:moments} provides a further check, using the uniform
 all-fibre upper bound rather than a Poisson approximation.
+\emph{Re-derivation:} confirmed, including the exact conditional
+independence on $\mathbb Z/\mathcal M$, the distinctness of atoms at a
+common $\ell$, the exact falling-factorial identity, the local
+prime-power table, and the $\e^{O(t^4)}$ ledger.
 \end{enumerate}
+
+Two further items outside the list were checked in the re-derivation:
+the Rankin transfer of Section~\ref{sec:all} and the parameter
+inequalities \eqref{eq:floor} from $\kappa<1/240$.  Both are correct.
 
 No step in the displayed implication is supplied by the unproved literal
 $H_{k\mathrm{BV}}$ or by a partition-free sieve hypothesis, and none invokes
 Elliott--Halberstam.  The proof calculations above have been checked in
 preparing this condensation; no unresolved step has been silently replaced
-by an assumption.  Nevertheless these three load-bearing checks and a
-primary-literature priority audit are still required before treating the
-claimed theorem as externally established.  The stronger universal sieve
+by an assumption.  Nevertheless an external expert's reading of these checks and a
+primary-literature priority audit are still required before treating
+the theorem as externally established.  The stronger universal sieve
 ceiling and an exact finite-truncation interpretation of the proxy Euler
 share are not asserted.
 
@@ -1198,8 +1419,8 @@ H. L. Montgomery and R. C. Vaughan, The large sieve,
 \emph{Mathematika} \textbf{20} (1973), 119--134.
 \bibitem[N]{Notes}
 \emph{Erd\H{o}s--Straus research notebook}, \texttt{notes.md}, this
-repository, \S\S16,18,34,39,41; internally reviewed working notes,
-CLAIMED/PROVISIONAL, 2026.
+repository, \S\S16,18,34,39,41,76; internally reviewed working notes,
+2026.
 \bibitem[S]{Shiu}
 P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.

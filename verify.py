@@ -15467,4 +15467,133 @@ print("\n== (bw) §75: signed-product union bound, calibration roots, sieve ceil
 check_bw()
 
 
+# ---------------------------------------------------------------- (bx)
+def check_bx():
+    """§76: phi(4uv) >= 2 phi(u) phi(v), the Cauchy-Schwarz multiplicity
+    inequality on a finite lattice, the weighted second moment (76.1) and
+    the multiplier pair sum, and a small-scale prime-slice replay."""
+    from time import perf_counter
+    from sympy import totient, li, isprime, mod_inverse
+    t0 = perf_counter()
+
+    # Euler phi by sieve up to 4 * 400 * 400 (Python ints only).
+    PHI_N = 4 * 400 * 400
+    phi = list(range(PHI_N + 1))
+    for pp in range(2, PHI_N + 1):
+        if phi[pp] == pp:
+            for mult in range(pp, PHI_N + 1, pp):
+                phi[mult] -= phi[mult] // pp
+
+    # (i) phi(4uv) >= 2 phi(u) phi(v) for coprime u, v <= 300; equality iff uv odd.
+    eq_odd = eq_even = 0
+    for u in range(1, 301):
+        for v in range(1, 301):
+            if gcd(u, v) != 1:
+                continue
+            lhs, rhs = phi[4 * u * v], 2 * phi[u] * phi[v]
+            assert lhs >= rhs, (u, v)
+            if lhs == rhs:
+                assert (u * v) % 2 == 1
+                eq_odd += 1
+            else:
+                assert (u * v) % 2 == 0 and lhs == 2 * rhs
+                eq_even += 1
+    assert eq_odd > 0 and eq_even > 0
+
+    # (ii) finite lattice K = 21, H = 1, z = 400: r_J(u,v;c), W_c(q), the CS
+    #      inequality W^2 <= 2^omega(uv) sum r^2, and the weighted second moment.
+    K, Hh, z = 21, 1, 400
+    Jset = [k for k in range(1, K + 1) if k % 4 == 1]
+    LJ = 1
+    for k in Jset:
+        LJ = lcm(LJ, k)
+    Lz, LK = log(z), log(K)
+    ratios = []
+    for c in range(1, 61):
+        if gcd(c, LJ) != 1:
+            continue
+        r = {}
+        for u in range(Hh + 1, z + 1):
+            for v in range(Hh + 1, z + 1):
+                if gcd(u, v) != 1:
+                    continue
+                cnt = sum(1 for k in Jset if (u + c * v) % k == 0)
+                if cnt:
+                    r[(u, v)] = cnt
+        W = Counter()
+        S2 = Counter()
+        for (u, v), cnt in r.items():
+            W[4 * u * v] += cnt
+            S2[4 * u * v] += cnt * cnt
+        for q, w in W.items():
+            om = len(factorint(q // 4))
+            assert w * w <= 2 ** om * S2[q], (c, q, w, S2[q])
+        moment = sum(2 ** len(factorint(u * v)) * cnt * cnt / phi[4 * u * v]
+                     for (u, v), cnt in r.items())
+        ratios.append(moment / (Lz ** 4 * (1 + LK) ** 3))
+    assert 0 < min(ratios) and max(ratios) < 1.0, (min(ratios), max(ratios))
+
+    # (iii) multiplier pair sum vs (1 + log K)^3, K in {100, 200, 400, 800}
+    #       (lcm <= 640000 = PHI_N); the ratio is bounded (about 0.11-0.14).
+    pair_ratios = []
+    for KK in (100, 200, 400, 800):
+        tot = 0.0
+        for k in range(1, KK + 1):
+            for k2 in range(1, KK + 1):
+                d = lcm(k, k2)
+                tot += phi[d] / d ** 2
+        pair_ratios.append(tot / (1 + log(KK)) ** 3)
+    assert max(pair_ratios) < 1.0 and min(pair_ratios) > 0.05, pair_ratios
+
+    # (iv) small-scale prime-slice replay with the toy floor H = 1 (not the
+    #      theorem's K^10): x = 2e5, z = floor(x^{1/6}) = 7, K = 5, J = {1,5},
+    #      c = 2.  Enumerates the progression side of the triple-counting
+    #      identity over primes l in (x, 2x], compares (informationally) with
+    #      the li main term, and checks zero class collisions at each l.
+    x = 200_000
+    zz = int(round(x ** (1 / 6)))
+    while (zz + 1) ** 6 <= x:
+        zz += 1
+    while zz ** 6 > x:
+        zz -= 1
+    c = 2
+    trip_count = 0.0
+    main = 0.0
+    lival = float(li(2 * x) - li(x))
+    seen = {}
+    coll = 0
+    for k in (1, 5):
+        if gcd(c, k) != 1:
+            continue
+        for u in range(Hh + 1, zz + 1):
+            for v in range(Hh + 1, zz + 1):
+                if gcd(u, v) != 1 or gcd(v, k) != 1 or (u + c * v) % k:
+                    continue
+                q = 4 * u * v
+                a = (-mod_inverse(k, q)) % q
+                main += lival / phi[q]
+                for l in range(x + 1 + ((a - (x + 1)) % q), 2 * x + 1, q):
+                    if isprime(l):
+                        trip_count += 1
+                        rr = (-u * mod_inverse(v, l)) % l
+                        key = (l, rr)
+                        if key in seen and seen[key] != (k, u, v):
+                            coll += 1
+                        seen[key] = (k, u, v)
+    assert coll == 0
+    assert 0.8 < trip_count / main < 1.25, (trip_count, main)
+    print("bx phi(4uv) equality cases (odd, even) =", (eq_odd, eq_even),
+          " CS weighted-moment ratio range =",
+          (round(min(ratios), 4), round(max(ratios), 4)))
+    print("bx pair-sum/(1+log K)^3 for K=100,200,400,800 =",
+          [round(r_, 4) for r_ in pair_ratios],
+          " slice replay x=2e5,K=5: incidences =", int(trip_count),
+          " main term =", round(main, 1), " collisions =", coll,
+          " seconds =", round(perf_counter() - t0, 2))
+
+
+print("\n== (bx) §76: weighted second moment, Cauchy-Schwarz supply, checkpoints ==")
+check_bx()
+
+
 print("\nall checks passed")

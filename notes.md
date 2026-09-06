@@ -30200,3 +30200,361 @@ bound is supplied by the proof, not by this finite test.
 4. Theorem 75.4 makes the conditional route honest but does not make it
    easier: \(H^+_{\rm LT}\) with \(\mathcal A=\mathcal B_2=\varnothing\) is
    already beyond every known correlation estimate.
+
+## 76. The three-quarter chain: independent re-derivation of the three checkpoints, and an unpruned supply theorem by Cauchy--Schwarz
+
+**Status.**  Lemma 76.1 and Theorem 76.2 are **proved**; Corollary 76.3
+is a proved statement about the dependency graph of
+`paper/es-threequarter-note.tex`; Lemma 76.1, Theorem 76.2, and
+Corollary 76.3 appear there as Section 5 (Lemma 5.1, Theorem 5.2,
+Corollary 5.3).  The re-derivation record in §76.4 is
+this session's independent check of the three referee checkpoints of
+§39.7 / Section 11 of that note; it confirms them, finds no gap, and
+shows that checkpoint (i) is not load-bearing and that the
+pruned-supply component of checkpoint (ii) can be replaced by a weighted
+second moment with Cauchy--Schwarz against Bombieri--Vinogradov (the
+lattice estimates, the \(\mathcal J_c\) quantifiers and fibre bounds, and
+the selector's bad-fibre estimate remain required).  The resulting simplification removes the
+distinct-prime-factor cutoff \(D\), the congestion pruning
+\(r\leq t^4\), Lemma 34.7 as a pruning device, and the low-\(\omega\)
+mass lemma from the proof of the \(3/4\) bound; the theorem and its
+exponent are unchanged.  The label of the theorem is raised in the note
+from CLAIMED/PROVISIONAL to **internally proved; internal checks only,
+not externally refereed**.  The internal record is: a self-review (§39.7),
+a blind construction and reconciliation taking Theorem 34.8 as input
+(§41, blindness self-attested), one standalone hostile audit
+(`reviews/es-threequarter-note-review.md`, SOUND-AFTER-REPAIRS), this
+checkpoint re-derivation (§76.4), and the hostile review of this section
+(`reviews/wave32-sec76-review.md`, SOUND-AFTER-REPAIRS, with an
+independent prime-first enumeration of the counting identity).  These
+are not three independent full-chain hostile reviews.  Block (bx) is **Computational**, exact only in
+its displayed finite ranges.
+
+Notation is that of `paper/es-threequarter-note.tex` (henceforth [TQ]):
+\(t=\log X\), \(K=\lfloor X^\kappa\rfloor\) with \(0<\kappa<1/240\),
+\(H=K^{10}\), \(\mathcal K(K)=\{k\leq K:k\equiv1\ (4)\}\),
+\(L_{\mathcal J}={\rm lcm}(\mathcal J)\), \(h(\mathcal J)=\sum_{k\in\mathcal J}\varphi(k)/k^2\),
+blocks \(I_j=(x_j,2x_j]\), \(x_j=2^jX^{1/2}\), \(z_j=x_j^{1/6}\),
+\(\Lambda=\log(z/H)\), and for \((c,k)=1\)
+\[
+ \mathcal S(k,c;H,z)=\{(u,v):H<u,v\leq z,\ (u,v)=1,\ (v,k)=1,\ u\equiv-cv\ (k)\},
+ \qquad
+ r_{\mathcal J}(u,v;c)=\#\{k\in\mathcal J:k\mid u+cv\}.
+\]
+Shiu's theorem is used exactly in the form [TQ, (10)]: for
+nonnegative multiplicative \(F\) with \(F(p^a)\leq A_1^a\) and
+\(F(n)\ll_\epsilon n^\epsilon\), in boxes \((U,(1+\delta_0)U]\),
+\(\delta_0=1/20\), with modulus \(q\leq U^{1/5}\) and a reduced residue,
+\(\sum_{u\in{\rm box},\ u\equiv a\ (q)}F(u)\ll(U/(\varphi(q)\log U))
+\exp\{\sum_{p\leq U,\ p\nmid q}F(p)/p\}\), the constant depending only
+on \(A_1\) and the growth data.
+
+### 76.1 The weighted second incidence moment
+
+**Lemma 76.1 (weighted second incidence moment; proved).**  There is an
+absolute \(C_3\) such that for every \(K\geq K_0\), \(H=K^{10}\),
+\(z\geq H^2\), every \(\mathcal J\subseteq\mathcal K(K)\), and every
+\((c,L_{\mathcal J})=1\),
+\[
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+  {2^{\omega(uv)}\,r_{\mathcal J}(u,v;c)^2\over\varphi(4uv)}
+ \leq C_3(\log z)^4(1+\log K)^3.                              \tag{76.1}
+\]
+
+*Proof.*  For coprime \(u,v\), \(\varphi(4uv)\geq2\varphi(u)\varphi(v)\):
+if \(uv\) is odd, \(\varphi(4uv)=2\varphi(u)\varphi(v)\); if, say,
+\(u=2^am\) with \(a\geq1\) and \(m\) odd, then
+\(\varphi(4u)=2^{a+1}\varphi(m)=4\varphi(u)\).  Expanding the square,
+\(r_{\mathcal J}^2=\sum_{k,k'\in\mathcal J}\ind_{d\mid u+cv}\) with
+\(d=[k,k']\leq K^2\) and \((c,d)=1\).  For coprime \(u,v\) with
+\(d\mid u+cv\) one has \((v,d)=1\), since a prime dividing \(v\) and
+\(d\) would divide \(u\).  Dropping \((u,v)=1\) and keeping \((v,d)=1\)
+gives, for each pair \(k,k'\),
+\[
+ \sum_{\substack{H<v\leq z\\(v,d)=1}}{2^{\omega(v)}\over\varphi(v)}
+ \sum_{\substack{H<u\leq z\\u\equiv-cv\ (d)}}{2^{\omega(u)}\over\varphi(u)}.
+\]
+The inner residue is reduced.  Cover \((H,z]\) by consecutive boxes
+\((U,(1+\delta_0)U]\) starting at \(U=H\), enlarging the last box when
+necessary (all endpoints are then at most \((21/20)z\), which affects no
+logarithmic bound).  For \(d\geq2\) apply Shiu to
+\(F(n)=2^{\omega(n)}n/\varphi(n)\), which is multiplicative with
+\(F(p^a)=2p/(p-1)\leq4\leq4^a\) and
+\(F(n)\leq4^{\omega(n)}\leq\tau(n)^2\ll_\epsilon n^\epsilon\), in each box
+with modulus \(d\leq K^2\leq U^{1/5}\).  For \(d=1\) (the pair
+\(k=k'=1\), always present since \(1\in\mathcal J\)) the nonnegative
+convolution \(F=1*h\) below gives \(\sum_{n\leq V}F(n)\ll V\log V\), hence
+each box contributes at most \(U^{-1}\sum_{n\leq(21/20)U}F(n)\ll\log U\),
+the same estimate as \(\varphi(1)/1^2=1\).  Since \(\sum_{p\leq V}F(p)/p=2\log\log V+O(1)\)
+and \(\exp\{-\sum_{p\mid d}2/(p-1)\}\asymp(\varphi(d)/d)^2\) (the
+logarithm of the ratio is \(\sum_{p\mid d}O(p^{-2})\)),
+\[
+ \sum_{\substack{u\in{\rm box}\\u\equiv a\ (d)}}{2^{\omega(u)}\over\varphi(u)}
+ \leq{1\over U}\sum_{\substack{u\in{\rm box}\\u\equiv a\ (d)}}F(u)
+ \ll{\log U\over\varphi(d)}\Bigl({\varphi(d)\over d}\Bigr)^2
+ =\log U\,{\varphi(d)\over d^2}.
+\]
+There are \(O(\log z)\) boxes, so the inner sum is
+\(\ll(\log z)^2\varphi(d)/d^2\), uniformly in the reduced residue.  For
+the outer sum drop \((v,d)=1\): with \(F=1*h\), \(h\geq0\) supported on
+squarefree integers with \(h(p)=(p+1)/(p-1)\) (indeed \(h(p^a)=F(p^a)-F(p^{a-1})=0\)
+for \(a\geq2\)),
+\(\sum_{n\leq V}F(n)\leq V\sum_{e\leq V}h(e)/e\ll V\log V\), and partial
+summation gives \(\sum_{H<v\leq z}2^{\omega(v)}/\varphi(v)\ll(\log z)^2\).
+Hence each pair \(k,k'\) contributes \(\ll(\log z)^4\varphi(d)/d^2\), and
+\[
+ \sum_{k,k'\leq K}{\varphi([k,k'])\over[k,k']^2}
+ \leq\sum_{k,k'\leq K}{(k,k')\over kk'}
+ \leq\sum_{g\leq K}{1\over g}\Bigl(\sum_{a\leq K/g}{1\over a}\Bigr)^2
+ \ll(1+\log K)^3,
+\]
+exactly as in [TQ, Lemma 4.1].  The factor \(1/2\) from
+\(\varphi(4uv)\geq2\varphi(u)\varphi(v)\) is absorbed. \(\square\)
+
+The lemma differs from Lemma 34.7 only by the weight
+\(2^{\omega(uv)}uv/\varphi(4uv)\), which costs two extra powers of
+\(\log z\); it needs no \(\omega\)-restriction, no pruning, and no
+structure of \(\mathcal J\) beyond \(\mathcal J\subseteq\mathcal K(K)\).
+
+### 76.2 Unpruned cubic supply
+
+For \(1\in\mathcal J\subseteq\mathcal K(K)\) and \((c,L_{\mathcal J})=1\),
+let \(f^{\rm all}_{c;\mathcal J}(\ell)\) be the number of triples
+\((k,u,v)\) with \(k\in\mathcal J\), \((u,v)\in\mathcal S(k,c;H,z_j)\) for
+the block \(I_j\ni\ell\), and \(4uv\mid k\ell+1\); by [TQ, Lemma 2.2]
+(whose distinctness argument uses coprimality, \(u,v\leq z_j\) with
+\(z_j^2<\ell\), \(H<u,v\) with \(4H^2>K\), and \(4uv\mid k\ell+1\), but no
+\(\omega\) cutoff) these triples give pairwise distinct residues
+modulo \(\ell\), so \(f^{\rm all}\) also counts distinct classes.
+
+**Theorem 76.2 (unpruned prime slice; proved).**  Fix \(0<\kappa<1/240\).
+There are \(a_h,A_h>0\) and \(X_h=X_h(\kappa)\) such that for every
+\(X\geq X_h\), every \(K_0\leq K\leq X^\kappa\), every
+\(1\in\mathcal J\subseteq\mathcal K(K)\), and every \((c,L_{\mathcal J})=1\),
+\[
+ a_ht^2h(\mathcal J)\leq\sum_{X^{1/2}<\ell\leq X}
+   {f^{\rm all}_{c;\mathcal J}(\ell)\over\ell}\leq A_ht^2h(\mathcal J).
+                                                              \tag{76.2}
+\]
+No triple is discarded: there is no cutoff on \(\omega(uv)\) and no
+congestion condition on \(r_{\mathcal J}(u,v;c)\).
+
+*Proof.*  The upper bound is [TQ, proof of Theorem 4.2, last paragraph]
+(Brun--Titchmarsh and the lattice upper bound [TQ, (12)]), which never
+used any pruning.  For the lower bound fix a full block \((x,2x]\),
+\(z=x^{1/6}\), so that \(4uv\leq4z^2=4x^{1/3}\) and, by [TQ, (3)],
+\(\Lambda\geq\tfrac12\log z\asymp t\).  Then
+\[
+ \sum_{x<\ell\leq2x}f^{\rm all}_{c;\mathcal J}(\ell)
+ =\sum_{k\in\mathcal J}\sum_{(u,v)\in\mathcal S(k,c;H,z)}
+   \bigl[\pi(2x;4uv,-k^{-1})-\pi(x;4uv,-k^{-1})\bigr],
+\]
+because \(4uv\mid k\ell+1\iff\ell\equiv-k^{-1}\pmod{4uv}\), the residue
+being reduced since \((k,4uv)=1\).  Write each bracket as
+\((\li(2x)-\li(x))/\varphi(4uv)+E(x;4uv,-k^{-1})\).  The main term is at
+least
+\[
+ {x\over\log(2x)}\sum_{k\in\mathcal J}\sum_{\mathcal S(k,c;H,z)}{1\over4uv}
+ \geq{x\over4\log(2x)}\cdot{1\over4}\Lambda^2h(\mathcal J)
+ \gg x\,t\,h(\mathcal J)
+\]
+by the lattice lower bound [TQ, (11)], valid for every \(k\leq K\) and
+\((c,k)=1\).  For the error, group the triples by \(q=4uv\) and put
+\(W_c(q)=\#\{(k,u,v):4uv=q\}=\sum_{(u,v):\,4uv=q}r_{\mathcal J}(u,v;c)\),
+the inner sum over coprime \(H<u,v\leq z\) with \(uv=q/4\); there are at
+most \(2^{\omega(uv)}\) such ordered pairs, so by Cauchy--Schwarz
+\(W_c(q)^2\leq2^{\omega(q/4)}\sum_{(u,v):\,4uv=q}r_{\mathcal J}(u,v;c)^2\).
+With \(E^*_x(q)=\max_{(a,q)=1}|E(x;q,a)|\), a second Cauchy--Schwarz gives
+\[
+ \Bigl|\sum_{\rm triples}E\Bigr|\leq\sum_qW_c(q)E^*_x(q)
+ \leq\Bigl(\sum_qW_c(q)^2E^*_x(q)\Bigr)^{1/2}
+      \Bigl(\sum_{q\leq4x^{1/3}}E^*_x(q)\Bigr)^{1/2}.
+\]
+For \(q\leq4x^{1/3}\), Brun--Titchmarsh [TQ, (8)] and
+\(\li(2x)-\li(x)\leq x/\log x\) give \(E^*_x(q)\ll x/(\varphi(q)\log x)\),
+so by Lemma 76.1
+\[
+ \sum_qW_c(q)^2E^*_x(q)\ll{x\over\log x}
+   \sum_{\substack{H<u,v\leq z\\(u,v)=1}}
+   {2^{\omega(uv)}r_{\mathcal J}(u,v;c)^2\over\varphi(4uv)}
+ \ll{x\over\log x}(\log z)^4(1+\log K)^3\ll x\,t^6,
+\]
+using \(\log z\asymp\log x\asymp t\) and \(\log K\leq\kappa t\).
+Bombieri--Vinogradov [TQ, (9)] with the fixed choice \(R=26\) gives
+\(\sum_{q\leq4x^{1/3}}E^*_x(q)\leq C_{26}x(\log x)^{-26}\) for
+\(x\geq x_{26}\).  Hence the total error is \(\ll x\,t^{3-13}=x\,t^{-10}\),
+which is \(o(x\,t\,h(\mathcal J))\) because \(h(\mathcal J)\geq1\) from
+\(1\in\mathcal J\).  Divide by \(2x\) and sum over the \(\asymp t\) full
+blocks.  All constants depend only on \(\kappa\) (through \(K_0\) and the
+block floor) and on the absolute Shiu, BT, and BV constants; none
+depends on \(c\), \(\mathcal J\), \(K\), or \(x\). \(\square\)
+
+**Corollary 76.3 (the \(3/4\) bound without \(D\), pruning, or Lemma 34.7;
+proved).**  Let \(\mathcal A'_X\) be the atom family of [TQ, (4)] with
+the condition \(\omega(uv)\leq D\log\log X\) deleted.  Then [TQ,
+Lemma 2.2] (deduplication and conditional independence), [TQ,
+Corollary 4.3] (uniform fibre masses), [TQ, Theorem 6.3]
+(conditional-independence proof), [TQ, Lemma 7.1, Theorem 8.2] and
+[TQ, Section 9] hold with \(\mathcal A_X\) replaced by \(\mathcal A'_X\),
+[TQ, Theorem 4.2] replaced by Theorem 76.2, the references to a pruned
+lower estimate replaced by the unpruned supply estimate, and \(D\)
+deleted from all parameter dependencies; and
+\[
+ E(N)\ll N\exp\{-c_*(\log N)^{3/4}\}
+\]
+follows with the same order for the surviving parameters, the constant
+\(D\), the cutoff \(T_X=t^4\), [TQ, Lemma 3.3] (low-\(\omega\) mass), the
+ordered-atom replay, the lower \(W_k\) calculation of [TQ, Lemma 6.1],
+and [TQ, Lemma 4.1] (second incidence moment, Lemma 34.7) being no
+longer used.
+
+*Proof.*  Trace every use of the \(\omega\)-cutoff and of pruning in
+[TQ].  In the original route the cutoff and the congestion threshold
+are used to establish low-\(\omega\) mass ([TQ, Lemma 3.3]), to control
+the retained main-term mass ([TQ, (24)]), and to bound the BV
+multiplicity ([TQ, (26)]); the optional lower-\(W_k\) calculation in
+[TQ, Lemma 6.1] also uses the cutoff.  Theorem 76.2 replaces the
+entire pruned-supply argument, and the proof of the main theorem then
+uses only the conditional-independence proof of [TQ, Theorem 6.3], not
+[TQ, Lemma 6.1] or the ordered-atom replay.  [TQ, Lemma 2.2] does not
+use the cutoff.  [TQ, Corollary 4.3] uses the lower bound of the supply
+theorem for the subfamily \(\mathcal J_c\) (which contains \(1\), with
+\((c,L_{\mathcal J_c})=1\)) and the unpruned Brun--Titchmarsh upper bound;
+both are (76.2).  [TQ, Lemma 6.1] (residue-resolved profiles) is not
+used in the conditional-independence proof of [TQ, Theorem 6.3], which
+needs only [TQ, Corollary 4.3]; [TQ, Lemma 7.1] needs only the fibre
+lower bound and the selector computation; [TQ, Theorem 8.2] needs the
+moment bound, the void bound, and the crude inventory
+\(|\mathcal A'_X|\leq KX^{4/3}\), which never used the cutoff.  The
+prime-to-integer transfer is untouched. \(\square\)
+
+### 76.3 What changes and what does not
+
+The exponent is unchanged: the supply per fibre is still
+\(\asymp t^2h(\mathcal J_c)\asymp t^3\) for reduced \(c\), the Bonferroni
+degree is still \(r\asymp t^3\), the ledger is still \(e^{O(t^4)}\), and
+\(t=\alpha(\log N)^{1/4}\).  What is removed is every device whose only
+purpose was to make the Bombieri--Vinogradov error absorbable termwise
+under a polynomial-in-\(t\) multiplicity: with the error controlled in
+mean square against the second moment of the incidence weights, a
+multiplicity as large as \(X^{\kappa}\) at a single modulus is harmless,
+because it is paid for by its own \(1/\varphi(q)\) weight in
+\(\sum_qW_c(q)^2/\varphi(q)\).  The same device was used by the
+independent re-derivation of the fixed-multiplier theorem in
+`paper/vaughan-loglog-note.tex`; here it is applied in the power range
+\(K=X^\kappa\), where the weight \(2^{\omega(uv)}\) is what makes the
+allocation count explicit.  The unused hypothesis \(H_{k{\rm BV}}(\kappa)\)
+of notes (34.2) and [TQ, (21)] is now irrelevant to the proof rather
+than merely unassumed.
+
+### 76.4 Independent re-derivation of the three checkpoints
+
+The three checkpoints of §39.7 / [TQ, Section 11] were re-derived from
+the statements, not transcribed.  Findings:
+
+1. **Checkpoint (i), residue-resolved local factors [TQ, Lemma 6.1].**
+   Re-derived: with \(q_0={\rm lcm}(g,{\rm rad}\,k)\), the reduction
+   \((\mathbb Z/q_0)^*\to(\mathbb Z/g)^*\) is surjective with fibres of
+   size \(\varphi(q_0)/\varphi(g)\), so exactly \(\varphi(q_0)^2/\varphi(g)\)
+   ordered unit-class pairs satisfy \(-uv^{-1}\equiv a\ (g)\); Shiu for
+   \(n/\varphi(n)\) in each class gives \(\ll(U/\varphi(q_0))\varphi(k)/k\)
+   per class since \({\rm rad}\,q_0={\rm rad}\,k\); multiplying,
+   dividing by \(UV\), and summing \(O((\log z)^2)\) box pairs gives
+   [TQ, (31)]; Brun--Titchmarsh then gives [TQ, (30)].  Correct.
+   **Not load-bearing:** it is used only in the ordered-atom replay of
+   the moment bound, which [TQ] includes for transparency; the
+   conditional-independence proof of [TQ, Theorem 6.3] needs only the
+   fibre masses.
+2. **Checkpoint (ii), pruned supply for \(\mathcal J_c\) [TQ, Theorem 4.2,
+   Corollary 4.3, Lemma 7.1].**  Re-derived line by line: Lemma 34.7
+   (the pair \(k,k'\) reduces to one congruence modulo \([k,k']\leq K^2\)
+   with a reduced residue; the harmonic count \(\varphi(d)\Lambda^2/d^2+
+   O(\Lambda\tau(d)/H)\); the \(\sum(k,k')/(kk')\ll(1+\log K)^3\) bound;
+   errors \(O(K^3(\log z)^2/H)\) absorbed by \(H=K^{10}\)); the pruned
+   harmonic loss \(\ll(\log z)^2(1+\log K)^3/t^4=O(t)=o(t^2h(\mathcal J))\)
+   using \(h(\mathcal J)\geq1\); the low-\(\omega\) lemma via Shiu for
+   \((3/2)^{\omega}\) in reduced classes modulo \(k\leq U^{1/10}\) with
+   the local factor comparison \(\exp\{\sum_{p\mid k}(2-2a_0)/p+O(p^{-2})\}\leq C\);
+   the multiplicity \(W_{\rm good}\leq2^{\omega(uv)}T_X\leq t^{4+D\log2}\);
+   BV with \(R>4+D\log2+10\); the fibre lower bound applied to
+   \(\mathcal J_c\ni1\) with \(c\) reduced modulo \(L_{\mathcal J_c}\);
+   the selector's exponential moment \(\prod_{p}(1+(e^{y/p}-1)/p)\leq e^{C_Z}\)
+   and \(h(\mathcal J_c)\geq(a_0-2Z(c))\log K\).  All correct.
+   **Pruned-supply component replaced:** Theorem 76.2 gives the same
+   fibre masses for the full family with no pruning, so that component
+   reduces to Lemma 76.1 (one Shiu application in progressions modulo
+   \(d\leq K^2\) in boxes above \(K^{10}\), plus the elementary modulus-one
+   case), Cauchy--Schwarz, and BV with a fixed \(R\); the elementary
+   lattice estimates, the \(\mathcal J_c\) quantifiers and fibre bounds,
+   and the selector's exponentially small bad-fibre estimate remain
+   required.
+3. **Checkpoint (iii), CRT independence and the ledger [TQ, Lemma 2.2,
+   Theorem 6.3, Theorem 8.2].**  Re-derived: on \(\mathbb Z/\mathcal M\)
+   with \(\mathcal M={\rm lcm}(L_K,P_y)\prod\ell\), all \(\ell>X^{1/2}>K>y\)
+   are distinct primes coprime to \(L_KP_y\), so conditionally on
+   \(c\bmod L_K\) and on \((n,P_y)=1\) the coordinates \(n\bmod\ell\) are
+   independent and uniform; distinct atoms at the same \(\ell\) have
+   distinct classes modulo \(\ell\) (\(|uv'-u'v|<z_j^2<x_j<\ell\) forces
+   \(uv'=u'v\), reducedness forces \((u,v)=(u',v')\), and then
+   \(k\equiv k'\ (4uv)\) with \(4uv>K\) forces \(k=k'\)), so
+   \(H_X=\sum_\ell I_\ell\) is a sum of independent indicators with
+   means \(f_c(\ell)/\ell\), and \(\mathbb E((H_X)_m\mid c)=\sum_{\rm distinct}
+   \prod f_c(\ell_i)/\ell_i\leq\mu_c^m\) exactly; the ordered-atom local
+   factor table (unequal exponents, \(\varphi(p^e)\) for shared
+   conditioned \(p^e\), \(p^e\) for unconditioned, cancellation
+   \(b_y(g)/\varphi(g)=\prod_{p\mid g,p>y}p/(p-1)\)) is a second route to
+   the same bound and is consistent; the Bonferroni majorant
+   \(Q_r(h)=\binom{h-1}r\) for \(h\geq1\), the expansion into single
+   classes modulo \(q\mid\mathcal M\) with signed coefficients, the
+   count \(N/q+O(1)\), and the ledger \(\log T_{\rm abs}\leq C_Lt^4\)
+   from \(\pi(y)\log2+r\log|\mathcal A_X|\) with \(r\asymp t^3\) and
+   \(\log|\mathcal A_X|\leq(4/3+\kappa)t\).  All correct, and
+   \(\log N\geq C_0t^4\) then gives \(t=\alpha(\log N)^{1/4}\).
+
+Two further items were checked because they are easy to get wrong and
+were not on the list: the Rankin transfer to all denominators (the
+choice \(\delta=\eta_0(\log x)^{-1/4}\), the bound \(\delta u\leq\eta_0u^{3/4}\)
+for \(u\leq\log x\), and the convergence of \(\int e^{-(c_0-\eta_0)u^{3/4}}du\));
+and the parameter inequalities \(z_j\geq X^{1/12}>K^{20}\) and
+\(\Lambda_j\geq\tfrac12\log z_j\) from \(\kappa<1/240\).  Both correct.
+No load-bearing gap was found anywhere in the chain (the first draft of
+Lemma 76.1 itself omitted the modulus-one case, repaired above after
+review).
+
+### 76.5 Computational replay
+
+**Computational 76.1.**  Block (bx): (i) \(\varphi(4uv)\geq2\varphi(u)\varphi(v)\)
+for all coprime \(u,v\leq300\), with equality exactly when \(uv\) is
+odd; (ii) on the finite lattice \(K=21\) (\(\mathcal J=\mathcal K(21)\)),
+\(H=1\), \(z=400\), and every reduced \(c\) modulo \(L_{\mathcal J}\) with
+\(c\leq60\): exact computation of \(r_{\mathcal J}(u,v;c)\), of
+\(W_c(q)\) for every \(q=4uv\), and of the Cauchy--Schwarz inequality
+\(W_c(q)^2\leq2^{\omega(uv)}\sum_{4uv=q}r^2\) (no violation), together
+with the ratio of the weighted second moment (76.1) to
+\((\log z)^4(1+\log K)^3\) (informational; the lemma's constant is for
+\(K\geq K_0\), \(H=K^{10}\)); (iii) the multiplier pair sum
+\(\sum_{k,k'\leq K}\varphi([k,k'])/[k,k']^2\) against \((1+\log K)^3\) for
+\(K\in\{100,200,400,800\}\), ratio bounded (about \(0.11\)--\(0.14\)); (iv) a small-scale prime-slice replay:
+with \(H_{\rm toy}=1\), \(x=2\cdot10^5\), \(\lfloor x^{1/6}\rfloor=7\),
+\(K=5\), \(\mathcal J=\{1,5\}\) and \(c=2\), the code enumerates the
+progression side of the triple-counting identity (18,332 incidences
+over 25 triples) and checks that the resulting classes at each prime are
+distinct; the comparison to the logarithmic-integral main term (ratio
+\(1.007\)) is informational, not an asymptotic test in the theorem's
+\(H=K^{10}\) range, and distinctness is what makes the same count a class
+count.
+
+### 76.6 Honest walls
+
+1. The theorem remains not externally refereed.  "Internally proved"
+   means: the chain has been written out in full in [TQ] and has passed
+   the internal checks listed in the Status paragraph, none of which
+   found a load-bearing gap; it does not mean validated by a human
+   expert, and the internal checks are not three independent full-chain
+   hostile reviews.
+2. The simplification does not change the exponent or its ceiling: the
+   mass per modulus scale is still cubic (Elsholtz--Tao total), and the
+   heuristic ceiling of [TQ, Section 10] stands.
+3. The bound is not effective as stated (Bombieri--Vinogradov is used
+   without an effectivity refinement); the constant \(R=26\) is a
+   convenience.

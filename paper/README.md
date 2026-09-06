@@ -8,11 +8,23 @@ CORRECT-AFTER-REPAIRS (`reviews/vaughan-loglog-note-review.md`); machine
 checks in `verify.py (bv)`.  This is the artifact to show a human referee
 first.  It does **not** contain the provisional 3/4 theorem.
 
-**Also new (2026-09-06): `es-threequarter-note.tex` / `.pdf`** — an 18-page
-standalone CLAIMED/PROVISIONAL write-up of the 3/4 theorem (source §16/§34/§39),
-importing the loglog note's lemmas; hostile-reviewed SOUND-AFTER-REPAIRS
+**Also new (2026-09-06): `es-threequarter-note.tex` / `.pdf`** — a 21-page
+standalone write-up of the 3/4 theorem (source §16/§34/§39), importing the
+loglog note's lemmas; hostile-reviewed SOUND-AFTER-REPAIRS
 (`reviews/es-threequarter-note-review.md`, with per-checkpoint verdicts for the
-three §39.7 referee points).  Second in line for a human referee.
+three §39.7 referee points).  **Wave 32 (2026-09-06): label promoted from
+CLAIMED/PROVISIONAL to INTERNALLY PROVED; internal checks only, not
+externally refereed** after an independent re-derivation of all three
+checkpoints (source §76.4; all confirmed, (i) not load-bearing at all) and
+the addition of Section 5, an unpruned supply theorem by Cauchy–Schwarz
+against Bombieri–Vinogradov that removes the ω-cutoff `D`, the congestion
+pruning `T_X`, the low-ω lemma, and the unweighted incidence-moment lemma
+from the proof (source §76.1–76.3, machine checks `verify.py (bx)`; hostile
+review `reviews/wave32-sec76-review.md`, SOUND-AFTER-REPAIRS).  The internal
+record (self-review §39.7, blind construction §41, one standalone hostile
+audit, the §76.4 re-derivation, the §76 review) is stated precisely in
+Theorem 1.1; it is not "three independent hostile reviews".  Second in line
+for a human referee.
 
 `espaper.tex` is the v17 standalone `amsart` consolidation draft (177 pages). Its two record headlines remain:
 
