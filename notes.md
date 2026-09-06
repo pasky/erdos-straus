@@ -30564,6 +30564,7 @@ count.
 
 
 
+
 ---
 
 ## 77. Pointwise hunt: candidate mechanisms outside the three doors, with the obstructions that close them
@@ -31172,8 +31173,8 @@ to the map, each with a proof or an exact reason:
 
 1. **Automorphisms.**  \({\rm Aut}(U_p^\circ)=S_4\) (Theorem 77.4), the
    extra involutions are explicit and integrality-breaking, and on the
-   open fibres (punctured split conics) only the swap carries solution
-   points to integral points.  No regular automorphism of the surface gives a Vieta-type
+   open fibres (punctured split conics) only the identity and the swap
+   carry solution points to integral points.  No regular automorphism of the surface gives a Vieta-type
    mechanism, obvious or not.  The natural solution set carries a free
    \(S_3\)-action (Lemma 77.13), so no Zagier-type parity argument on it
    exists.
