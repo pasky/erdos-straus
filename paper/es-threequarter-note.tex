@@ -1,0 +1,1199 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\K}{\mathcal K}
+\newcommand{\J}{\mathcal J}
+\newcommand{\A}{\mathcal A}
+\newcommand{\Sset}{\mathcal S}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\ind}{\mathbf1}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\e}{\mathrm e}
+\title[A provisional three-quarter exceptional-set bound]{A three-quarter exceptional-set bound for the\ Erd\H{o}s--Straus equation: a provisional research note}
+\author{Anonymous}
+\date{CLAIMED/PROVISIONAL draft; not externally refereed}
+\begin{document}
+\begin{abstract}
+This \textbf{CLAIMED/PROVISIONAL} note, not externally refereed, records the
+internally reviewed argument for
+\[
+ E(N)\ll N\exp\{-c(\log N)^{3/4}\},
+\]
+where $E(N)$ counts denominators
+$n\leq N$ for which $4/n$ is not a sum of three positive unit fractions.
+Power-sized multipliers supply cubic logarithmic class mass after an
+incidence-congestion pruning and Bombieri--Vinogradov.  A fixed family of
+congruence classes is then assembled on the integers, using exact CRT
+probabilities, a small-prime selector, and an even Bonferroni polynomial.
+The complete coefficient and rounding ledger costs $\exp\{O((\log X)^4)\}$.
+All proof ingredients and their uniformities are given below; the three
+external-referee checkpoints are retained explicitly.  This is not a
+proof of the Erd\H{o}s--Straus conjecture, nor a claim of publication priority.
+\end{abstract}
+\maketitle
+
+\section{Statement, status, and parameter order}\label{sec:intro}
+For a positive integer $n$, call $n$ \emph{representable} if there exist
+positive integers $x_1,x_2,x_3$ with
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1{x_1}+\frac1{x_2}+\frac1{x_3}.
+\end{equation}
+The denominators $x_i$ need not be distinct.  Put
+\[
+ \begin{aligned}
+ E(N)&=\#\{1\leq n\leq N:n\text{ is not representable}\},\\
+ E_{\rm pr}(N)&=\#\{p\leq N:p\text{ prime and not representable}\}.
+ \end{aligned}
+\]
+The contribution of $n=1$ is harmless.  The conjecture asks for no
+exceptions for $n\geq2$; a density bound does not establish that assertion.
+
+\begin{theorem}[CLAIMED/PROVISIONAL]\label{thm:main}
+There are absolute $c_*,C_*>0$ such that, for every real
+$N\geq3$,
+\[
+ E_{\rm pr}(N)\leq E(N)\leq C_*N\exp\{-c_*(\log N)^{3/4}\}.
+\]
+The argument for this statement has undergone internal review only.
+Its status remains provisional pending external verification, especially
+of the steps in Section~\ref{sec:checkpoints}.
+\end{theorem}
+
+This note follows \cite[\S\S16,34,39]{Notes}; \cite[\S41]{Notes} is an
+internal blind re-derivation, not an independent published source.
+We use the reviewed weaker-bound note \cite{LL} as follows:
+its Lemma~2.1 supplies the multiplier identity; Lemmas~3.1 and~3.2
+supply elementary lattice sums and the multiplier harmonic sum;
+the distinctness argument is that of its Lemma~4.1; its Section~5 fixes
+our large-sieve conventions; and its Section~6 supplies the final
+semigroup argument.  These ingredients are restated, and their proofs
+are reproduced or lightly adapted, so no consultation of a working
+notebook is needed to follow the calculation.  We do \emph{not} import
+\cite[Lemma~4.1]{LL}'s prime-counting conclusion outside its stated
+polylogarithmic multiplier range.  That extension is the work of
+Section~\ref{sec:harvest}.
+
+Here is the order of constants.  Fix once and for all
+\begin{equation}\label{eq:parameters}
+ \begin{gathered}
+ 0<\kappa<1/240,\quad t=\log X,\quad
+ K=\lfloor X^\kappa\rfloor,\quad H=K^{10},\\
+ \K(K)=\{1\leq k\leq K:k\equiv1\pmod4\},\quad
+ L_K=\lcm_{k\in\K(K)}k.
+ \end{gathered}
+\end{equation}
+An absolute sufficiently large $K_0$ is chosen in the lattice estimates.
+The distinct-prime-factor cutoff $D$ is a fixed absolute integer chosen
+in Lemma~\ref{lem:omega}.  Constants in the analytic estimates are
+absolute once $D$ is fixed, with thresholds allowed to depend on
+$\kappa,D$.  In Section~\ref{sec:void} we choose an absolute small
+$\eta>0$, obtain a positive void constant $c_v=c_v(\kappa,D)$, and then
+fix a sufficiently large $B=B(\kappa,D)$ for $y=Bt^3$.
+The Bonferroni constant $D_B=D_B(\kappa,D,B)$ is distinct from $D$.
+Finally choose $C_0=C_0(\kappa,D,B,D_B)$ for the ledger and
+$\alpha=\alpha(C_0)>0$ for $t=\alpha(\log N)^{1/4}$.
+All subsequent sufficiently-large thresholds have only these dependencies;
+no constant depends on a residue, subfamily, moment order, or $N$.
+Fixing, for example, $\kappa=1/480$ makes the final constants absolute.
+Constants are not asserted to be effective: standard Bombieri--Vinogradov
+is used without an effectivity refinement.
+
+The central distinction is between using prime distribution at scale $X$
+to \emph{construct} many classes and counting those classes on
+\emph{all integers} up to $N$.  A prime-progression error
+$N/(\log N)^A$, with fixed $A$, is much larger than the desired
+$N\e^{-ct^3}$ in the final window.  Such an error is never used at scale
+$N$.  Exact integer counts, each with error at most one, replace it.
+
+\section{Forced classes and a fixed atom family}\label{sec:atoms}
+\begin{lemma}[multiplier identity; {\cite[Lemma 2.1]{LL}}]\label{lem:identity}
+Let $k,\ell$ be positive integers with $k\ell\equiv3\pmod4$, and let
+$A=(k\ell+1)/4=uvw$ be any factorization into positive integers.  If $n\geq1$
+satisfies $nv\equiv-u\pmod{k\ell}$, then $s=(nv+u)/(k\ell)$ is a positive
+integer and
+\[
+ \frac4n=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}.
+\]
+In particular every positive integer in the class $-uv^{-1}\pmod{k\ell}$ is
+representable; the inverse exists since $(A,k\ell)=1$.
+\end{lemma}
+\begin{proof}
+On the common denominator $nsuvw$ the three numerators sum to
+$nv+u+s=sk\ell+s=s(k\ell+1)=4suvw$.  Positivity and integrality of $s$
+follow directly from the hypotheses.
+\end{proof}
+
+For a precise endpoint convention take $x_j=2^jX^{1/2}$ and use the disjoint
+blocks
+\[
+ I_j=(x_j,\min(2x_j,X)],\qquad
+ 0\leq j<\left\lceil\frac{\log X}{2\log2}\right\rceil.
+\]
+The last may be partial.  In a block put $z_j=x_j^{1/6}$; we discard the
+last block for lower estimates if it is partial and enlarge it to a full
+block for upper estimates.  There are $\asymp t$ full blocks and
+$\log x_j\asymp t$.  Because $\kappa<1/240$, for all sufficiently large
+$X$ each block satisfies
+\begin{equation}\label{eq:floor}
+ z_j\geq X^{1/12}>K^{20}=H^2,
+ \qquad \Lambda_j:=\log(z_j/H)\geq\tfrac12\log z_j.
+\end{equation}
+
+Let $\A_X$ consist of all quadruples $A=(k,\ell,u,v)$ such that
+\begin{equation}\label{eq:atomdef}
+ \begin{gathered}
+ k\in\K(K),\quad \ell\in I_j\text{ prime},\quad H<u,v\leq z_j,\\
+ (u,v)=(uv,k)=1,\quad \omega(uv)\leq D\log\log X,
+ \quad 4uv\mid k\ell+1.
+ \end{gathered}
+\end{equation}
+Here $\omega(m)$ counts distinct prime factors.  Divisibility already forces
+$\ell\equiv3\pmod4$.  The atom denotes the cylinder
+\begin{equation}\label{eq:cylinder}
+ E_A=\{n:n\equiv-uv^{-1}\pmod{k\ell}\},\qquad
+ H_X(n)=\sum_{A\in\A_X}\ind_{E_A}(n).
+\end{equation}
+This is a fixed, unpruned, residue-independent family.  Pruning will be used
+only to prove a lower mass bound within a fibre, never to define the
+polynomial on the integers.
+
+\begin{lemma}[deduplication and conditional independence]\label{lem:CRT}
+For every sufficiently large $X$ in \eqref{eq:parameters} the following hold.
+Every exceptional integer avoids every atom.  At a fixed $\ell$ all
+atoms have distinct projections modulo $\ell$.  Consequently a compatible
+set of distinct atoms has distinct large primes $\ell_i$, and its exact
+CRT probability is
+\begin{equation}\label{eq:intersection}
+ \Prob\left(\bigcap_i E_{A_i}\right)
+ =\frac{\ind_{\rm compatible}}
+ {\lcm(k_1,\ldots,k_j)\prod_i\ell_i}.
+\end{equation}
+Conditional on any fixed residue $c\pmod{L_K}$, the coordinates
+$n\pmod\ell$ are independent and uniform.  An atom is active in that
+fibre precisely when $u+cv\equiv0\pmod k$.
+\end{lemma}
+\begin{proof}
+The identity proves avoidance and reduction modulo $k$ proves the activation
+condition.  If two atoms at the same $\ell\in I_j$ have the same projection,
+then $\ell\mid uv'-u'v$, but $|uv'-u'v|<z_j^2<\ell$.
+Thus $uv'=u'v$, and both fractions being reduced gives $(u,v)=(u',v')$.
+Now $k\ell\equiv k'\ell\equiv-1\pmod{4uv}$.  Since $(\ell,4uv)=1$,
+we get $k\equiv k'\pmod{4uv}$; as $4uv>4H^2>K$, this means $k=k'$.
+In particular there are at most $z_j^2\leq\ell^{1/3}$ atoms at that prime.
+This is the distinctness argument of \cite[Lemma~4.1]{LL}.
+Finally all $\ell>X^{1/2}>K$ are distinct primes coprime to $L_K$.
+The Chinese remainder theorem proves both the density and independence
+assertions.  Incompatible intersections are empty.
+\end{proof}
+
+All probability spaces below are finite and exact.  When the selector
+$S_y$ is present we use the uniform residue $n$ modulo
+\begin{equation}\label{eq:space}
+ \mathcal M=\lcm(L_K,P_y)\prod_{\substack{X^{1/2}<\ell\leq X\\\ell\ \mathrm{prime}}}\ell,
+ \qquad P_y=\prod_{p\leq y}p,\quad 2\leq y<X^{1/2}.
+\end{equation}
+Without the selector one can take $P_y=1$.  A congruence whose modulus
+ divides $\mathcal M$ has probability the reciprocal of its modulus.
+The possibly enormous size of $\mathcal M$ is a device for defining
+probabilities, not a partition of $[1,N]$ that will be counted term by term.
+The factor 24 used in the notebooks may be included in $\mathcal M$ without
+changing any argument; no multiplier here requires it.
+
+\section{Analytic inputs and the power-range lattice estimates}\label{sec:lattice}
+We record the external inputs precisely.  For $q\geq1$ and $(a,q)=1$,
+Brun--Titchmarsh in the Montgomery--Vaughan form \cite{MV} gives
+\begin{equation}\label{eq:BT}
+ \pi(V;q,a)\leq\frac{2V}{\varphi(q)\log(V/q)}\qquad(V>q).
+\end{equation}
+Only $q\leq4x^{1/3}$, $V=2x$ is needed.  For every fixed $R>0$,
+Bombieri--Vinogradov \cite[Chapter~28]{Davenport} supplies constants
+$A_R,C_R,x_R>0$ such that, for all $x\geq x_R$,
+\begin{equation}\label{eq:BV}
+ \sum_{q\leq x^{1/2}(\log x)^{-A_R}}E_x^*(q)
+ \leq C_Rx(\log x)^{-R},
+\end{equation}
+where
+\[
+ E_x^*(q)=\max_{(a,q)=1}\left|
+ \pi(2x;q,a)-\pi(x;q,a)-\frac{\li(2x)-\li(x)}{\varphi(q)}\right|.
+\]
+The two endpoints follow from the usual maximal version with only a factor
+two in the constant.  In particular $4x^{1/3}$ is below the level for
+every fixed $R$ and all sufficiently large $x$.
+
+We also use Shiu \cite[Theorem~1, pp.~162--163]{Shiu}.
+If $F$ is nonnegative and multiplicative,
+$F(p^a)\leq A_1^a$ for every prime power, and for each $\epsilon>0$
+there is $A_2(\epsilon)$ with $F(n)\leq A_2(\epsilon)n^\epsilon$, then
+for fixed $0<\alpha_s,\beta_s<1/2$,
+\begin{equation}\label{eq:Shiu}
+ \sum_{\substack{V-Y<n\leq V\\n\equiv a\ (q)}}F(n)
+ \ll_{\alpha_s,\beta_s,F}\frac{Y}{\varphi(q)\log V}
+ \exp\left\{\sum_{p\leq V,\ p\nmid q}\frac{F(p)}p\right\}
+\end{equation}
+uniformly for $q\geq2$, $(a,q)=1$, $q<Y^{1-\alpha_s}$ and
+$V^{\beta_s}<Y\leq V$.  The constant includes the growth data of $F$.
+In our applications $F(n)=a_0^{\omega(n)}$ for fixed $1<a_0<2$, or
+$F(n)=n/\varphi(n)$.  Both satisfy these hypotheses.  For the first use
+$F(n)\leq\tau(n)^{\log_2a_0}\ll_{a_0,\epsilon}n^\epsilon$;
+for the second use the divisor expansion below.  Fix boxes
+$(U,(1+\delta_0)U]$ with $\delta_0=1/20$, and take
+$V=(1+\delta_0)U$, $Y=\delta_0 U$ and
+$\alpha_s=\beta_s=1/4$.  For every $q\leq K$ and $U\geq H=K^{10}$,
+both inequalities hold with room to spare once $K\geq K_0$.
+The unrestricted $q=1$ upper estimates needed here follow elementarily
+from $F=1*h$: for these two functions $h$ is nonnegative and supported
+on squarefree integers, with $h(p)=a_0-1$ and $1/(p-1)$ respectively.
+Indeed $\sum_{n\leq V}F(n)\leq V\sum_{d\leq V}h(d)/d$;
+the Euler product gives $O_{a_0}(V(\log V)^{a_0-1})$ and $O(V)$.
+Thus no endpoint convention about modulus one in Shiu is required.
+
+For $k\geq1$, $(c,k)=1$, and $1\leq H<z$, put $\Lambda=\log(z/H)$ and set
+\[
+ \Sset(k,c;H,z)=\left\{(u,v):\begin{array}{l}
+ H<u,v\leq z,\ (u,v)=1,\ (v,k)=1,\\
+ u\equiv-cv\pmod k
+ \end{array}\right\}.
+\]
+Here $(u,k)=1$ follows automatically.
+
+\begin{lemma}[elementary lattice sums; {\cite[Lemma 3.1]{LL}}]\label{lem:lattice}
+There exist absolute $K_0,C_1>0$ such that for every real $K\geq K_0$,
+every integer $1\leq k\leq K$, every $(c,k)=1$, and every $z\geq H^2$
+with $H=K^{10}$,
+\begin{align}
+ \sum_{\Sset(k,c;H,z)}\frac1{uv}
+ &\geq\frac14\frac{\varphi(k)}{k^2}\Lambda^2,\label{eq:latlower}\\
+ \sum_{\Sset(k,c;H,z)}\frac1{\varphi(u)\varphi(v)}
+ &\leq C_1\frac{\varphi(k)}{k^2}\Lambda^2.\label{eq:latupper}
+\end{align}
+There is no polylogarithmic restriction on $K$.
+\end{lemma}
+\begin{proof}
+We recall the elementary proof to make this uniformity explicit.  For
+$H'\geq1$, $z'>H'$, $\Lambda'=\log(z'/H')$, and $(a,k)=1$, integral
+comparison and M\"obius inversion give
+\begin{align}
+ \sum_{\substack{H'<u\leq z'\\u\equiv a\ (k)}}\frac1u
+ &=\frac{\Lambda'}k+O(1/H'),\label{eq:apone}\\
+ \sum_{\substack{H'<v\leq z'\\(v,k)=1}}\frac1v
+ &=\frac{\varphi(k)}k\Lambda'+O(\tau(k)/H').\label{eq:aptwo}
+\end{align}
+These include empty progressions.  Write $T(H',z')$ for the double sum
+without $(u,v)=1$.  For $\Lambda'\geq1$,
+\[
+ T(H',z')=\frac{\varphi(k)}{k^2}\Lambda'^2
+              +O(\Lambda'\tau(k)/H').
+\]
+Inverting $(u,v)=1$, using $(d,k)=1$ for a common divisor, and separating
+$d\leq H$ from $d>H$, gives
+\[
+ \sum_{\Sset}\frac1{uv}
+ =\frac{\varphi(k)}{k^2}\Lambda^2
+       \sum_{\substack{d\leq H\\(d,k)=1}}\frac{\mu(d)}{d^2}
+ +O\left(\frac{\Lambda\tau(k)\log z}{H}+\frac{\Lambda^2}{H}\right).
+\]
+For the tail use $T(H/d,z/d)\leq(1+\log z)^2$ and
+$\log z\leq2\Lambda$.  The main coefficient is
+$\prod_{p\nmid k}(1-p^{-2})+O(H^{-1})\geq6/\pi^2-O(H^{-1})$.
+Since $\tau(k)k^2/\varphi(k)\leq k\tau(k)^2\leq4K^2$, the relative
+error is $O(K^2/H)=O(K^{-8})$.  This proves \eqref{eq:latlower}.
+
+For the upper estimate drop $(u,v)=1$ and use
+\[
+ \frac1{\varphi(m)}=\frac1m\sum_{d\mid m}\frac{\mu^2(d)}{\varphi(d)}.
+\]
+Applying \eqref{eq:apone} for $d\leq H$ and the trivial harmonic bound
+for $d>H$ shows, uniformly for reduced $a$,
+\[
+ \sum_{\substack{H<u\leq z\\u\equiv a\ (k)}}\frac1{\varphi(u)}
+ \ll\frac\Lambda k+\frac{\log H}{H}+\frac\Lambda{\sqrt H}.
+\]
+Here $\sum_d\mu^2(d)/(d\varphi(d))<\infty$,
+$\sum_{d\leq H}\mu^2(d)/\varphi(d)\ll\log H$, and
+$\sum_{d>H}1/(d\varphi(d))\ll H^{-1/2}$.
+For clarity the middle estimate follows by another use of the divisor
+expansion and the convergent first sum; the tail follows from
+$\varphi(d)\gg\sqrt d$.  These elementary bounds also prove convergence
+of the first sum.  Similarly \eqref{eq:aptwo} gives
+\[
+ \sum_{\substack{H<v\leq z\\(v,k)=1}}\frac1{\varphi(v)}
+ \ll\frac{\varphi(k)}k\Lambda+
+        \frac{\tau(k)\log H}{H}+\frac\Lambda{\sqrt H}.
+\]
+Since $\tau(k)\leq2\sqrt K$, $\varphi(k)/k\geq1/(2\sqrt K)$ and
+$\Lambda\geq10\log K$, the secondary terms are absorbed uniformly.
+Multiply the last two estimates, applying the first with $a=-cv$, to
+obtain \eqref{eq:latupper}.
+\end{proof}
+
+\begin{lemma}[multiplier harmonic sum; {\cite[Lemma 3.2]{LL}}]\label{lem:h}
+For every real $K\geq5$,
+\begin{equation}\label{eq:hfull}
+ h(\K(K)):=\sum_{k\in\K(K)}\frac{\varphi(k)}{k^2}
+       =\frac2{\pi^2}\log K+O(1),
+\end{equation}
+with absolute error constant.  For every prime $p\leq K$,
+\begin{equation}\label{eq:hremove}
+ \sum_{\substack{k\leq K\\p\mid k}}\frac{\varphi(k)}{k^2}
+        \leq\frac{1+\log K}{p}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Expand $\varphi(k)/k=\sum_{d\mid k}\mu(d)/d$.  The progression
+$k\equiv1\pmod4$ gives
+\[
+ h(\K(K))=\sum_{\substack{d\leq K\\d\ \mathrm{odd}}}\frac{\mu(d)}{d^2}
+ \left(\frac14\log\frac Kd+O(1)\right).
+\]
+Now $\sum_{d\ \mathrm{odd}}\mu(d)/d^2=8/\pi^2$ and
+$\sum_d(1+\log d)/d^2<\infty$.  The second assertion follows by
+$\varphi(k)/k^2\leq1/k$ and writing $k=pm$.
+\end{proof}
+
+\begin{lemma}[low-$\omega$ mass in the full power range]\label{lem:omega}
+There is a fixed absolute integer $D\geq1$ such that, for all $K\geq K_0$,
+$H=K^{10}$, $z\geq H^2$ sufficiently large, $k\leq K$ and $(c,k)=1$,
+\begin{equation}\label{eq:lowomega}
+ \sum_{\substack{(u,v)\in\Sset(k,c;H,z)\\
+                 \omega(uv)\leq D\log\log z}}\frac1{uv}
+ \geq\frac18\frac{\varphi(k)}{k^2}\Lambda^2.
+\end{equation}
+The threshold and constants are absolute once $D$ is fixed.  Thus in
+\eqref{eq:parameters}, uniformly over every $\J\subseteq\K(K)$ and every
+$(c,L_{\J})=1$, summing \eqref{eq:lowomega} over $k\in\J$ gives a lower
+bound $\gg(\log z)^2 h(\J)$, also with cutoff $D\log\log X$ when $z\leq X$.
+Here $L_{\J}=\lcm_{k\in\J}k$ and $h(\J)=\sum_{k\in\J}\varphi(k)/k^2$.
+\end{lemma}
+\begin{proof}
+Fix $a_0=3/2$.  Apply \eqref{eq:Shiu} in the boxes described above to
+$F(n)=a_0^{\omega(n)}$.  For each reduced $v$ the $u$-congruence is
+reduced; summing the second variable over all reduced classes gives,
+after division by $UV$, a bound
+\[
+ C\frac1{\varphi(k)}(\log U\log V)^{a_0-1}
+                    \exp\{-2a_0\sum_{p\mid k}p^{-1}\}.
+\]
+The ratio of its local coefficient to $\varphi(k)/k^2$ has logarithm
+\[
+ \sum_{p\mid k}\{-2\log(1-1/p)-2a_0/p\}
+ \leq C_{a_0}\sum_p p^{-2};
+\]
+the linear terms are nonpositive.  All primes dividing $k$ are below the
+box endpoints, so none is lost from this calculation.  Drop $(u,v)=1$
+for this upper estimate, cover the interval by full boxes (enlarging the
+last), and sum $O(\Lambda^2)$ box pairs.  It follows that
+\begin{equation}\label{eq:omegamoment}
+ \sum_{\Sset}\frac{a_0^{\omega(u)+\omega(v)}}{uv}
+ \ll_{a_0}\frac{\varphi(k)}{k^2}\Lambda^2
+                       (\log z)^{2(a_0-1)}.
+\end{equation}
+On the coprime pairs $\omega(uv)=\omega(u)+\omega(v)$.  The omitted tail
+is consequently at most the right side of \eqref{eq:omegamoment}
+multiplied by $(\log z)^{-D\log a_0}$.  Fix any integer $D$ with
+$D\log(3/2)>1+2$ and enlarge the threshold until this tail is at most
+one eighth of $\varphi(k)\Lambda^2/k^2$.
+Lemma~\ref{lem:lattice} then proves the claim.  No application of Shiu
+has growing function parameters or an unreduced residue, and no step
+requires $K$ to be a power of a logarithm.
+\end{proof}
+
+\section{Congestion pruning and cubic prime-slice mass}\label{sec:harvest}
+For $(c,L_{\J})=1$, define
+\[
+ r_{\J}(u,v;c)=\#\{k\in\J:k\mid u+cv\}.
+\]
+If $(u,v)=1$ and $k\mid u+cv$, reducedness of $c$ modulo $k$ implies
+$(uv,k)=1$.  Thus this incidence counts precisely the multiplier choices
+in the lattice, before the prime progression is imposed.
+
+\begin{lemma}[second incidence moment; notes Lemma 34.7]\label{lem:congestion}
+There is an absolute constant $C_2$ such that for every $K\geq K_0$,
+$H=K^{10}$, $z\geq H^2$, every $\J\subseteq\K(K)$ and every
+$(c,L_{\J})=1$,
+\begin{equation}\label{eq:second}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1}}\frac{r_{\J}(u,v;c)^2}{uv}
+ \leq C_2(\log z)^2(1+\log K)^3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Expand the square.  A pair $k,k'$ requires the single congruence
+$d=[k,k']\mid u+cv$, with $(c,d)=1$ and $d\leq K^2$.
+The same calculation \eqref{eq:apone}--\eqref{eq:aptwo}, now at modulus
+$d$ and without the coprimality restriction on the pair, gives
+\begin{equation}\label{eq:lcmdensity}
+ \sum_{\substack{H<u,v\leq z\\(u,v)=1,\ d\mid u+cv}}\frac1{uv}
+ \ll\frac{\varphi(d)}{d^2}(\log z)^2+
+                       \frac{\tau(d)(\log z)^2}{H}.
+\end{equation}
+Indeed the original coprime pairs have $(v,d)=1$, so dropping $(u,v)=1$
+while retaining $(v,d)=1$ is an upper bound.  The direct harmonic
+calculation gives even $O(\Lambda\tau(d)/H)$ here; the weaker displayed
+error is the box-boundary estimate in notes (34.15).  This does not
+misapply Lemma~\ref{lem:lattice} with floor $(K^2)^{10}$.
+
+For the main coefficients,
+\[
+ \sum_{k,k'\leq K}\frac{\varphi([k,k'])}{[k,k']^2}
+ \leq\sum_{k,k'\leq K}\frac{(k,k')}{kk'}
+ \leq\sum_{d\leq K}\frac1d(1+\log(K/d))^2
+ \ll(1+\log K)^3.
+\]
+Here writing $k=da,k'=db$, $(a,b)=1$, and then dropping this last
+condition proves the middle bound.  The total errors in
+\eqref{eq:lcmdensity} are $O(K^3(\log z)^2/H)$, because
+$\tau([k,k'])\leq2K$ and there are at most $K^2$ pairs.
+Since $H=K^{10}$ these errors are absorbed in \eqref{eq:second}.
+\end{proof}
+
+We state the unused hypothesis to distinguish precisely what pruning proves.
+The literal $H_{k\mathrm{BV}}(\kappa)$ of notes (34.2) asserts the existence
+of a function $\rho_\kappa(X)\to0$ such that, for all sufficiently large
+$X$, simultaneously for $X^{1/2}\leq x\leq X$, $K_0\leq K\leq X^\kappa$,
+every $1\in\J\subseteq\K(K)$ and every reduced $c\pmod{24L_{\J}}$,
+\begin{equation}\label{eq:HkBV}
+ \sum_{k\in\J}\sum_{\substack{(u,v)\in\Sset(k,c;H,z)\\
+                         \omega(uv)\leq D\log\log X}}
+ |E(x;4uv,-k^{-1})|
+ \leq\rho_\kappa(X)x\log x\,h(\J),
+\end{equation}
+where $H=K^{10}$, $z=x^{1/6}$ and $E$ is the error defining $E_x^*$.
+Every triple retains its multiplicity.  The reducedness modulo $24L_{\J}$
+can be replaced in the harvesting proof by reducedness modulo $L_{\J}$:
+since $L_{\J}$ is odd, every such class lifts to a reduced class modulo
+$24L_{\J}$, without changing any multiplier congruence.
+This hypothesis is \emph{not}
+assumed or proved.  Plain BV would multiply \eqref{eq:BV} by as much as
+$K(\log X)^{D\log2}$, which cannot be absorbed for $K=X^\kappa$ by a
+fixed logarithmic saving.
+
+\begin{theorem}[pruned prime slice; notes Theorem 34.8]\label{thm:harvest}
+Fix $0<\kappa<1/240$ and $D$ from Lemma~\ref{lem:omega}.  There are
+$a_h,A_h>0$ and $X_h=X_h(\kappa,D)$ such that for every $X\geq X_h$,
+every $K_0\leq K\leq X^\kappa$, every $1\in\J\subseteq\K(K)$, and
+ every $(c,L_{\J})=1$, the following holds.  Within each canonical block
+keep only triples with
+\begin{equation}\label{eq:pruning}
+ \begin{gathered}
+ (u,v)\in\Sset(k,c;H,z_j),\quad k\in\J,\quad
+ \omega(uv)\leq D\log\log X,\\
+ r_{\J}(u,v;c)\leq T_X:=t^4,\quad4uv\mid k\ell+1.
+ \end{gathered}
+\end{equation}
+Let $f^{\rm good}_{c;\J}(\ell)$ count their distinct classes modulo $\ell$.
+Then uniformly in all these data,
+\begin{equation}\label{eq:harvest}
+ a_ht^2h(\J)\leq\sum_{X^{1/2}<\ell\leq X}
+                  \frac{f^{\rm good}_{c;\J}(\ell)}\ell
+                    \leq A_ht^2h(\J).
+\end{equation}
+Moreover \eqref{eq:HkBV} restricted by $r_{\J}\leq T_X$ is
+$o(x\log x\,h(\J))$ uniformly, without assuming $H_{k\mathrm{BV}}$.
+\end{theorem}
+\begin{proof}
+In a full block put $z=x^{1/6}$.  By \eqref{eq:floor} and
+Lemma~\ref{lem:omega} the low-$\omega$ harmonic triple mass is
+$\gg(\log z)^2h(\J)$.  The mass removed by the congestion condition is
+at most
+\begin{equation}\label{eq:prunedmass}
+ \frac1{t^4}\sum_{u,v}\frac{r_{\J}(u,v;c)^2}{uv}
+ \ll\frac{(\log z)^2(1+\log K)^3}{t^4}
+ =o((\log z)^2h(\J)).
+\end{equation}
+Uniformity for sparse subfamilies uses $h(\J)\geq1$ from $1\in\J$;
+indeed the relative error is $O_\kappa(1/t)$ even in that worst case.
+We have pruned \emph{weighted harmonic/main-term mass}, not asserted that
+the discarded actual prime count is small.
+
+Each retained triple asks that
+\begin{equation}\label{eq:primeAP}
+ \ell\equiv-k^{-1}\pmod{4uv},\qquad q=4uv\leq4x^{1/3}.
+\end{equation}
+The residue is reduced and already is $3\pmod4$.  For a fixed $q=4uv$,
+coprimality allows at most $2^{\omega(uv)}$ ordered allocations of its
+prime powers to $u,v$.  Each allocation has at most $T_X$ admissible
+multipliers.  Hence its entire retained multiplicity is
+\begin{equation}\label{eq:Wgood}
+ W_{\rm good}(q)\leq t^{4+D\log2}.
+\end{equation}
+Choose once and for all $R>4+D\log2+10$ in \eqref{eq:BV}.
+Since $\log x\asymp t$ and $q\leq4x^{1/3}$ lies below the BV level,
+grouping by $q$ bounds the whole retained triple error by
+$O_D(x(\log x)^{-10})$.  All constants and thresholds here are independent
+of $c,\J,K,x$ in their specified ranges.
+
+For the main term use $\li(2x)-\li(x)\geq x/\log(2x)$ and
+$1/\varphi(4uv)\geq1/(4uv)$.  Equation~\eqref{eq:prunedmass} therefore
+gives at least $a x\log x\,h(\J)$ retained incidences.  Lemma~\ref{lem:CRT}
+proves that these are genuinely distinct classes for each $\ell$; in
+particular repeated occurrences of a prime are not an overcount of a
+single class.  Dividing by $2x$ gives $\gg\log x\,h(\J)$ reciprocal mass
+in each full block.
+
+For the upper bound drop both prunings.  Brun--Titchmarsh and
+$\varphi(4uv)\geq2\varphi(u)\varphi(v)$ for coprime $u,v$ give
+\[
+ \sum_{x<\ell\leq2x} f_{c;\J}(\ell)
+ \ll\frac{x}{\log x}\sum_{k\in\J}\sum_{\Sset(k,c;H,z)}
+                            \frac1{\varphi(u)\varphi(v)}
+ \ll x\log x\,h(\J)
+\]
+by Lemma~\ref{lem:lattice}.  Divide by $x$ and sum over the blocks.
+There are $\asymp t$ full blocks for the lower bound; enlarging the last
+block gives the upper bound.  This proves all assertions.
+\end{proof}
+
+\begin{corollary}[uniform fibre masses]\label{cor:fibremass}
+For every $X\geq X_h$ with $K=\lfloor X^\kappa\rfloor$ and every residue
+$c\pmod{L_K}$, put
+\[
+ \begin{gathered}
+ \J_c=\{k\in\K(K):(k,c)=1\},\qquad\mu_c=\sum_\ell f_c(\ell)/\ell,\\
+ f_c(\ell)=\#\{A\in\A_X:\ell_A=\ell,\ k_A\mid u_A+cv_A\}.
+ \end{gathered}
+\]
+There are constants $a_h,C_u>0$, depending at most on $\kappa,D$, such that
+\begin{equation}\label{eq:fibremass}
+ a_ht^2h(\J_c)\leq\mu_c\leq A_ht^2h(\J_c)\leq C_ut^3
+\end{equation}
+uniformly in \emph{all} $c$, not only reduced residues modulo $L_K$.
+For reduced $c$ the mass is $\asymp_\kappa t^3$.
+\end{corollary}
+\begin{proof}
+An active atom necessarily has $(k,c)=1$, since its residue modulo $k$ is
+a unit.  Thus active atoms have multipliers in $\J_c$, which contains 1,
+and $(c,L_{\J_c})=1$.  The lower bound of Theorem~\ref{thm:harvest}
+applies to this very subfamily, and its canonical good triples are contained
+in $\A_X$.  The unpruned BT upper bound in that proof applies with the
+same $\J_c$.  Finally use Lemma~\ref{lem:h} and $\log K\leq\kappa t$.
+For reduced $c$, $\J_c=\K(K)$ and $\log K\geq\kappa t/2$ once $X$ is
+large.  This checks explicitly the data-dependent-subfamily quantifiers.
+\end{proof}
+
+\section{Residue profiles and factorial moments}\label{sec:moments}
+This section retains the residue-resolved estimate and the local induction
+of notes \S\S39.2--39.3, including the referee-sensitive factors.  We also
+give the conditional-independence formulation of the same moment bound;
+Corollary~\ref{cor:fibremass} makes its uniform upper hypothesis explicit.
+
+For $k\in\K(K)$, $g\mid k$, and a reduced residue $a\pmod g$, define
+\[
+ W_{k,a}(g)=\sum_{\substack{A\in\A_X,\ k_A=k\\-u_Av_A^{-1}\equiv a\ (g)}}
+                    \frac1{k\ell_A},\qquad
+ W_k=\sum_{\substack{A\in\A_X\\k_A=k}}\frac1{k\ell_A}.
+\]
+The sole class modulo $g=1$ is understood as reduced.
+
+\begin{lemma}[residue-resolved upper bound; notes (39.11)]\label{lem:profile}
+For fixed $\kappa,D$ there are $a_p,A_p>0$ and $X_p=X_p(\kappa,D)$ such
+that for every $X\geq X_p$, every $k\in\K(K)$, every $g\mid k$ and every
+reduced $a\pmod g$,
+\begin{equation}\label{eq:profiles}
+ W_{k,a}(g)\leq\frac{A_pt^2}{\varphi(g)}\frac{\varphi(k)^2}{k^3},
+ \qquad
+ a_pt^2\frac{\varphi(k)^2}{k^3}\leq W_k
+       \leq A_pt^2\frac{\varphi(k)^2}{k^3}.
+\end{equation}
+In particular $\mu_X:=\sum_A1/(k_A\ell_A)\asymp_\kappa t^3$.
+\end{lemma}
+\begin{proof}
+Fix a block and put $q_0=\lcm(g,\rad k)\leq k$.  In boxes
+$u\asymp U$, $v\asymp V$, the conditions $(uv,k)=1$ and
+$-uv^{-1}\equiv a\pmod g$ permit exactly
+$\varphi(q_0)^2/\varphi(g)$ ordered pairs of unit classes modulo $q_0$.
+Indeed reduction of units modulo $q_0$ onto units modulo $g$ is
+surjective, with all fibres of size $\varphi(q_0)/\varphi(g)$.
+Apply Shiu to $F(n)=n/\varphi(n)$ in each class.  Its prime value is
+$p/(p-1)$, whence Mertens' estimate gives
+\[
+ \frac1{\log U}\exp\left\{\sum_{p\leq(1+\delta_0)U,\ p\nmid q_0}
+                              \frac1{p-1}\right\}
+ \ll\exp\left\{-\sum_{p\mid k}\frac1{p-1}\right\}
+ \asymp\frac{\varphi(k)}k.
+\]
+The last comparability is uniform: the logarithm of its ratio is a sum
+of $O(p^{-2})$.  Shiu applies since $q_0\leq K\leq U^{1/10},V^{1/10}$,
+with the interval conditions already checked in Section~\ref{sec:lattice}.
+Drop only $(u,v)=1$ for an upper bound.  Multiplying the two one-class
+estimates by the number of compatible pairs and dividing by $UV$ gives
+\[
+ \sum_{\rm box}\frac1{\varphi(u)\varphi(v)}
+ \ll\frac1{\varphi(g)}\left(\frac{\varphi(k)}k\right)^2.
+\]
+Summing the $O((\log z)^2)$ box pairs proves the full residue estimate
+\begin{equation}\label{eq:residuebox}
+ \sum_{\substack{H<u,v\leq z,\ (uv,k)=1\\-uv^{-1}\equiv a\ (g)}}
+ \frac1{\varphi(u)\varphi(v)}
+ \ll\frac{(\log z)^2}{\varphi(g)}\frac{\varphi(k)^2}{k^2}.
+\end{equation}
+No divisor factor or $k^\epsilon$ is suppressed.  When applying BT we
+restrict back to coprime pairs, so that
+$1/\varphi(4uv)\leq1/(2\varphi(u)\varphi(v))$ is valid.
+Equation~\eqref{eq:BT} implies
+\[
+ \sum_{\substack{x<\ell\leq2x\\\ell\equiv-k^{-1}\ (4uv)}}\frac1\ell
+ \ll\frac1{\varphi(4uv)\log x}.
+\]
+Combine this with \eqref{eq:residuebox}, divide by $k$ and sum $O(t)$
+blocks to get the first inequality of \eqref{eq:profiles}.
+
+For completeness the lower $W_k$ bound does not assume a polynomially
+small BV main term can survive a fixed logarithmic error.  For a fixed $k$,
+sum Lemma~\ref{lem:omega} over the $\varphi(k)$ residues $c\pmod k$.
+Each reduced coprime pair occurs in exactly one of them, giving low-$\omega$
+harmonic mass $\gg(\log z)^2\varphi(k)^2/k^2$ without a ratio condition.
+For this fixed $k$, a modulus has at most $t^{D\log2}$ ordered allocations;
+there is no factor $K$.  BV with fixed $R>D\log2+10$ makes its error
+$O_D(x(\log x)^{-10})$.
+The elementary Mertens product implies
+$\varphi(k)/k\geq\prod_{p\leq K}(1-1/p)\gg1/\log K$ for $K\geq3$.
+Thus the block main term
+$\gg x\log x\,(\varphi(k)/k)^2$ is uniformly $\gg_\kappa x/t$,
+and dominates that error.  Division by $2xk$ and summation over full
+blocks prove the lower bound.
+
+Finally, writing $b(k)=(\varphi(k)/k)^2$, Cauchy--Schwarz and
+Lemma~\ref{lem:h} give
+\[
+ \sum_{k\in\K(K)}\frac{b(k)}k
+ \geq\frac{h(\K(K))^2}{\sum_{k\in\K(K)}1/k}\gg\log K;
+\]
+the reverse inequality follows from $b(k)\leq1$.  This proves the mass
+assertion.  Notice that $\mu_X$ is an \emph{unconditional cylinder mass},
+whereas $\mu_c$ in \eqref{eq:fibremass} is a conditional prime-coordinate
+mass.  They are not interchangeable term by term.
+\end{proof}
+
+At an odd prime $p$ the nonconstant part of the proxy Euler factor for
+$b(k)/k$ is
+\[
+ \sum_{e\geq1}\frac{(1-1/p)^2}{p^e}=\frac{p-1}{p^2}.
+\]
+Its share of the full local factor is $(p-1)/(p^2+p-1)$.
+This is an exact \emph{Euler-factor} identity, not an exact finite-$K$
+share of $W_k$, for which only comparability has been proved.
+
+Define, for $y\geq2$,
+\[
+ q_y(k)=\prod_{p\mid k,\ p\leq y}\frac p{p-1},\qquad
+ b_y(g)=\prod_{p^e\Vert g,\ p\leq y}\varphi(p^e)
+                    \prod_{p^e\Vert g,\ p>y}p^e.
+\]
+\begin{lemma}[uniform multiplier bound; notes Lemma 39.3]\label{lem:euler}
+For every real $y\geq2$, integer $R\geq1$, and real $K\geq3$,
+\begin{equation}\label{eq:euler}
+ \sum_{k\in\K(K)}\frac{\varphi(k)^2}{k^3}q_y(k)
+            \prod_{p\mid(k,R),\ p>y}\frac p{p-1}\ll\log K,
+\end{equation}
+with an absolute constant independent of $R,y$.
+\end{lemma}
+\begin{proof}
+Enlarge to all odd $k$ and to their Euler product with $p\leq K$.
+An unmodified nonconstant local mass is $(p-1)/p^2$; either permitted
+modification changes it to $1/p$.  The ratio of the modified full factor
+to the original is $1+O(p^{-2})$, with a convergent product.  The original
+product is bounded by $\prod_{p\leq K}(1-1/p)^{-1}\ll\log K$.
+All terms are nonnegative, so the product enlargement is legitimate.
+\end{proof}
+
+\begin{theorem}[all upper factorial moments; notes Theorem 39.4]\label{thm:moments}
+For fixed $\kappa,D$ there are $C_F,X_F>0$ such that, for every
+$X\geq X_F$, every real $2\leq y<X^{1/2}$, and \emph{every} integer
+$m\geq1$,
+\begin{equation}\label{eq:moments}
+ \E((H_X)_m\mid S_y=1)\leq(C_Ft^3)^m.
+\end{equation}
+Here $S_y=\ind_{(n,P_y)=1}$ and $(h)_m=h(h-1)\cdots(h-m+1)$.
+In particular the base $C_F$ is independent of the order $m$.
+\end{theorem}
+\begin{proof}[Conditional-independence proof]
+Reveal $c\pmod{L_K}$, retaining the condition $S_y=1$.
+Since $y<X^{1/2}$, this does not condition any large-prime coordinate.
+By Lemma~\ref{lem:CRT}, in this fibre $H_X$ is a sum of independent
+Bernoulli variables $I_\ell$ with means $f_c(\ell)/\ell$; at most one
+atom at each $\ell$ can be hit.  Expanding the falling factorial gives
+\[
+ \E((H_X)_m\mid c,S_y=1)
+ =\sum_{\ell_1,\ldots,\ell_m\ \mathrm{distinct}}
+                 \prod_{i=1}^m\frac{f_c(\ell_i)}{\ell_i}
+ \leq\mu_c^m\leq(C_ut^3)^m.
+\]
+Corollary~\ref{cor:fibremass} applies to every $c$ admitted by the selector.
+Averaging over these fibres proves \eqref{eq:moments} with $C_F=C_u$.
+This conditioning is solely in the CRT probability space and creates
+no finite-interval coefficient cost.
+\end{proof}
+
+For transparency we also replay the notes' ordered-atom proof, so the
+third referee checkpoint is not bypassed by the formulation just given.
+Given previous compatible atoms with multiplier lcm $R$, a new atom with
+multiplier $k$, $g=(k,R)$, and a new $\ell$, has relative probability
+\begin{equation}\label{eq:localrelative}
+ \frac{q_y(k)}{k\ell}b_y(g)
+\end{equation}
+if its unit residue agrees modulo $g$, and zero otherwise.  Here is the
+prime-power check.  If $p^e\Vert k$ and $p^f\Vert R$ (allow $f=0$),
+the new local probability, subject to agreement, is
+\[
+\begin{array}{c|c}
+ f\geq e&1\\
+ 0<f<e&p^{-(e-f)}\\
+ f=0,\ p\leq y&1/\varphi(p^e)\\
+ f=0,\ p>y&p^{-e}.
+\end{array}
+\]
+For $p\leq y$ the factor in \eqref{eq:localrelative} is
+$[p/(p-1)]p^{-e}\varphi(p^{\min(e,f)})$ when $f>0$;
+this is precisely $p^{\min(e,f)-e}$.  The other cases follow immediately.
+Unequal prime-power exponents are thus included, not replaced by radicals.
+
+Compatibility fixes one unit residue modulo $g$.  Apply
+Lemma~\ref{lem:profile} to its atom sum, multiply by $q_y(k)b_y(g)$,
+and use the exact cancellation
+\begin{equation}\label{eq:cancel}
+ \frac{b_y(g)}{\varphi(g)}
+       =\prod_{p\mid g,\ p>y}\frac p{p-1}.
+\end{equation}
+The sum of the relative probabilities of all permissible new atoms is
+at most
+\[
+ A_pt^2\sum_{k\in\K(K)}\frac{\varphi(k)^2}{k^3}q_y(k)
+               \prod_{p\mid(k,R),\ p>y}\frac p{p-1}
+ \ll t^2\log K\ll_\kappa t^3
+\]
+by Lemma~\ref{lem:euler}.  Excluding old $\ell$ only decreases this sum.
+Iteration over ordered compatible distinct atoms proves
+\eqref{eq:moments} again, with another fixed base constant.
+Discarding consistency would instead charge shared primes by their full
+lcm-collapse factors.  That estimate is too large; a naive Janson
+argument is neither used nor justified here.
+
+\section{An exponentially small conditioned void}\label{sec:void}
+The all-integer CRT distribution contains nonreduced multiplier fibres,
+even though exceptional primes larger than $K$ are reduced.  One cannot
+replace this distribution by a uniform distribution on reduced residues
+without paying for that replacement.  We use the exact small-prime selector
+\begin{equation}\label{eq:selector}
+ y=Bt^3,\qquad S_y(n)=\ind_{(n,P_y)=1}
+       =\sum_{d\mid P_y}\mu(d)\ind_{d\mid n}.
+\end{equation}
+For any fixed $B$, eventually $2\leq y<K<X^{1/2}$.  Its expansion has
+$2^{\pi(y)}$ terms, with $\pi(y)\ll y/\log y$ and
+$\log P_y=\vartheta(y)\ll y$ by Chebyshev's elementary bounds.
+Every exceptional prime larger than $y$ satisfies $S_y=1$.
+
+\begin{lemma}[conditioned c-free void; notes Lemma 39.5]\label{lem:void}
+For fixed $\kappa,D$ there are $B_0>0$ and $c_v>0$ such that, for every
+fixed $B\geq B_0$ and all $X\geq X_v(\kappa,D,B)$,
+\begin{equation}\label{eq:void}
+ \Prob(H_X=0\mid S_y=1)\leq\e^{-c_vt^3},\qquad y=Bt^3.
+\end{equation}
+One may choose $c_v$ depending only on $\kappa,D$, uniformly in fixed
+$B\geq B_0$ after allowing the threshold to depend on $B$.
+\end{lemma}
+\begin{proof}
+Reveal $c\pmod{L_K}$ and retain the selector condition.  Put
+\begin{equation}\label{eq:Z}
+ Z(c)=\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac1p.
+\end{equation}
+The restriction $p\mid L_K$ is important: otherwise divisibility by $p$
+is not defined on the residue $c$.  In particular not every prime
+$p\equiv3\pmod4$ up to $K$ divides an admissible multiplier.
+For supported $p>y$ the events $p\mid c$ are independent with probabilities
+$1/p$, also after conditioning on $S_y=1$.
+Since $0<y/p<1$ and $\e^u-1\leq(\e-1)u$ on $[0,1]$,
+\begin{align}
+ \E(\e^{yZ}\mid S_y=1)
+ &=\prod_{y<p\leq K,\ p\mid L_K}
+           \left(1+\frac{\e^{y/p}-1}{p}\right)\notag\\
+ &\leq\exp\left\{(\e-1)y\sum_{p>y}p^{-2}\right\}\leq\e^{C_Z},
+                                                        \label{eq:Zmoment}\\
+ \Prob(Z>\eta\mid S_y=1)&\leq\e^{-\eta y+C_Z}.
+                                                        \label{eq:Ztail}
+\end{align}
+Here $C_Z$ is absolute; even summing over all integers $>y$ bounds the
+exponent by an absolute constant.
+
+Choose absolute $a_0>0$, $K_1$ such that
+$h(\K(K))\geq a_0\log K$ for $K\geq K_1$ by Lemma~\ref{lem:h}.
+The selector rules out every supported $p\leq y$ dividing $c$.
+By \eqref{eq:hremove} and a union bound over the remaining prime divisors,
+\[
+ h(\J_c)\geq h(\K(K))-
+       \sum_{y<p\leq K,\ p\mid L_K,\ p\mid c}
+          \sum_{k\leq K,\ p\mid k}\frac{\varphi(k)}{k^2}
+ \geq (a_0-2Z(c))\log K
+\]
+for $K$ large.  Fix $0<\eta\leq a_0/4$.  On $Z(c)\leq\eta$ this gives
+$h(\J_c)\geq(a_0/2)\log K\geq a_0\kappa t/4$.
+Theorem~\ref{thm:harvest} applies to this arbitrary subfamily because
+$1\in\J_c$ and $(c,L_{\J_c})=1$; no reducedness modulo all of $L_K$
+is being assumed.
+
+Conditional independence and distinctness now give the exact product for
+the unpruned active family, followed by its pruned lower estimate:
+\begin{align}
+ \Prob(H_X=0\mid c,S_y=1)
+ &=\prod_\ell(1-f_c(\ell)/\ell)\notag\\
+ &\leq\exp\{-\mu_c\}
+ \leq\exp\{-a_ht^2h(\J_c)\}
+ \leq\e^{-a_ht^3a_0\kappa/4}                 \label{eq:fibrevoid}
+\end{align}
+on the good event.  The equality remains valid if the selector has prime
+coordinates not in $L_K$, as all of them are below $X^{1/2}$ and independent
+of the $\ell$-coordinates.  Put $a_v=a_ha_0\kappa/4$ and choose
+$B_0$ with $\eta B_0\geq2a_v$.  Averaging \eqref{eq:fibrevoid} and
+using \eqref{eq:Ztail} gives
+$\Prob(H_X=0\mid S_y=1)\leq\e^{-a_vt^3}+\e^{-2a_vt^3+C_Z}$.
+For sufficiently large $X$, this is at most $\e^{-a_vt^3/2}$.
+Take $c_v=a_v/2$.
+\end{proof}
+
+The role of the selector is quantitative.  A merely Markov bound for the
+lost multiplier mass would be far too weak.  The exponential parameter
+$y\asymp t^3$ in \eqref{eq:Zmoment} makes the bad fibres as rare as the
+required saving, while its own congruence expansion still has acceptable
+size.  Revealing $c$ above is not an expansion into the $L_K$ possible
+integer progressions; that distinction is crucial in the next section.
+
+\section{Bonferroni assembly on the integers}\label{sec:assembly}
+\begin{lemma}[an even Bonferroni majorant]\label{lem:Bonferroni}
+For every even integer $r\geq0$ and every integer $h\geq0$, let
+$Q_r(h)=\sum_{j=0}^r(-1)^j\binom hj$, with $\binom hj=0$ for $j>h$.
+Then
+\begin{equation}\label{eq:Bonferroni}
+ \begin{gathered}
+ Q_r(0)=1,\quad Q_r(h)=\binom{h-1}r\geq0\quad(h\geq1),\\
+ \ind_{h=0}\leq Q_r(h)\leq\ind_{h=0}+\binom h{r+1}.
+ \end{gathered}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Pascal's identity telescopes the alternating sum to
+$(-1)^r\binom{h-1}r$ for $h\geq1$.
+If $h\leq r$ this is zero; if $h\geq r+1$, then
+$\binom h{r+1}=h\binom{h-1}r/(r+1)\geq\binom{h-1}r$.
+The case $h=0$ is immediate.
+\end{proof}
+
+\begin{theorem}[critical-window assembly; notes Theorem 39.6]\label{thm:assembly}
+Fix $\kappa,D$ and $B\geq B_0$ as above.  There are positive constants
+$c_a,D_B,C_0$ and $X_a$, depending only on these fixed choices, such that
+for every $X\geq X_a$, if $r$ is the least even integer at least $D_Bt^3$,
+then
+\begin{equation}\label{eq:majorant}
+ \nu_X(n)=S_y(n)Q_r(H_X(n))\geq0,\qquad
+ \E_{\rm CRT}\nu_X\leq\e^{-c_at^3}.
+\end{equation}
+It is at least one on every exceptional prime $n>\max(K,y)$.
+Its expansion into plain congruence classes has degree at most
+$r+\pi(y)$, maximum modulus $q_{\max}$ and total absolute coefficient
+sum $T_{\rm abs}$ satisfying
+\begin{equation}\label{eq:ledger}
+ \begin{aligned}
+ r+\pi(y)&=O_{B,D_B}(t^3),\\
+ q_{\max}&\leq P_y(KX)^r,\\
+ \log q_{\max}&\leq C_\vartheta Bt^3+r(1+\kappa)t,\\
+ T_{\rm abs}&\leq2^{\pi(y)}\sum_{j=0}^r\binom{|\A_X|}j,
+ \qquad\log T_{\rm abs}\leq C_Lt^4.
+ \end{aligned}
+\end{equation}
+Here $C_\vartheta$ is an absolute Chebyshev constant and
+$C_L=C_L(\kappa,B,D_B)$.  For every real $N$ with $\log N\geq C_0t^4$,
+\begin{equation}\label{eq:integermean}
+ \sum_{1\leq n\leq N}\nu_X(n)\ll_{\kappa,D,B,D_B}N\e^{-c_at^3}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:Bonferroni}, Lemma~\ref{lem:void}, and
+Theorem~\ref{thm:moments},
+\begin{align}
+ \E(Q_r(H_X)\mid S_y=1)
+ &\leq\e^{-c_vt^3}+
+             \frac{\E((H_X)_{r+1}\mid S_y=1)}{(r+1)!}\notag\\
+ &\leq\e^{-c_vt^3}+
+             \left(\frac{\e C_Ft^3}{r+1}\right)^{r+1}.
+                                                    \label{eq:Btail}
+\end{align}
+Here $m!\geq(m/\e)^m$ for all integers $m\geq1$.
+Choose $D_B>\e C_F$ so large that
+$D_B\log(D_B/(\e C_F))\geq2c_v$.  As $r+1\geq D_Bt^3$, the last
+term is at most $\e^{-2c_vt^3}$.  Increasing the threshold and setting
+$c_a=c_v/2$ gives \eqref{eq:majorant}, after multiplication by
+$\Prob(S_y=1)\leq1$.  Positivity, and its value at an exceptional prime
+larger than $y$, follow from the identity lemma and \eqref{eq:Bonferroni}.
+
+We now account for \emph{every} term, including the selector.  The identity
+\[
+ \binom{H_X(n)}j=\sum_{\substack{\mathcal B\subseteq\A_X\\|\mathcal B|=j}}
+                              \prod_{A\in\mathcal B}\ind_{E_A}(n)
+\]
+holds for all integers $n$.  Expanding this and \eqref{eq:selector}
+produces terms with coefficients $(-1)^j\mu(d)$ for $d\mid P_y$.
+Each intersection is empty or one plain congruence class, by CRT,
+with modulus
+\begin{equation}\label{eq:termq}
+ q=\lcm(d,k_1\ell_1,\ldots,k_j\ell_j)
+             \leq P_y(KX)^j.
+\end{equation}
+In fact any selector divisor sharing a prime with an atom multiplier
+makes the term empty, because atom residues are units; ignoring that
+cancellation only enlarges our upper ledger.
+Every nonempty term modulus divides $\mathcal M$ in \eqref{eq:space}.
+
+For a completely crude inventory, choose $k\leq K$, $\ell\leq X$ and
+$u,v\leq X^{1/6}$.  There are at most
+\begin{equation}\label{eq:inventory}
+ |\A_X|\leq KX^{4/3}\leq\exp\{(4/3+\kappa)t\}
+\end{equation}
+possibilities.  Conditions of primality, coprimality and divisibility
+only reduce this bound.  Therefore
+\begin{align}
+ \log T_{\rm abs}
+ &\leq\pi(y)\log2+\log(r+1)
+               +r\log\max(1,|\A_X|)\notag\\
+ &\leq C_\pi Bt^3\log2+\log(r+1)
+                         +r(4/3+\kappa)t\leq C_Lt^4.\label{eq:termcount}
+\end{align}
+An absolute $C_\pi$ with $\pi(y)\leq C_\pi y$ suffices in this line;
+the sharper $\pi(y)\ll y/\log y$ gives the stated selector degree.
+The exponent is $O(rt)$, not $O(r)$; we retain this loss explicitly.
+Equation~\eqref{eq:termq} and Chebyshev give the modulus ledger.
+Since $r\leq D_Bt^3+2$, all bounds in \eqref{eq:ledger} follow with fixed
+constants of the dependencies stated.
+
+For every residue class $a\pmod q$, without any primality restriction,
+\[
+ \#\{1\leq n\leq N:n\equiv a\pmod q\}=N/q+O(1),
+\]
+with absolute error at most one.  Summing with the signed coefficients,
+and bounding rounding errors by their absolute sum, yields
+\begin{equation}\label{eq:transfer}
+ \sum_{n\leq N}\nu_X(n)
+ =N\E_{\rm CRT}\nu_X+O(T_{\rm abs})
+ \leq N\e^{-c_at^3}+\e^{C_Lt^4}.
+\end{equation}
+Choose $C_0$ greater than twice $C_L$ and twice a fixed upper constant
+for $\log q_{\max}/t^4$.  Then $\log N\geq C_0t^4$ ensures both
+$T_{\rm abs}\leq N^{1/2}$ and $q_{\max}\leq N^{1/2}$.
+The latter is convenient but not necessary for the exact $O(1)$ count.
+For large $X$, $N^{1/2}\leq N\e^{-c_at^3}$, since
+$\tfrac12\log N\geq(C_0/2)t^4\geq c_at^3$.
+This proves \eqref{eq:integermean}.
+\end{proof}
+
+This theorem does not establish the literal hypothesis
+$H_{\rm PF}'(k\ell;{\rm good})$ of notes \S34.4.  That hypothesis demands
+coefficient sum $\e^{O(r)}$ and a majorant of the larger,
+$c$-dependently pruned avoider predicate.  Here the family is fixed and
+unpruned, its avoider is smaller but still contains every exception, and
+the ledger is honestly $\e^{O(rt)}$.  The entire $L_K$-fibre partition
+is absent from \eqref{eq:termcount}.  No assertion about a prime-counting
+mean for $\nu_X$ is required.
+
+\section{Exceptional primes and all denominators}\label{sec:all}
+\begin{proof}[Proof of Theorem~\ref{thm:main} for primes]
+For large $N$, put $L=\log N$, take
+$t=\alpha L^{1/4}$ and $X=\e^t$, with fixed
+$0<\alpha\leq C_0^{-1/4}$.  Every exceptional prime larger than
+$\max(K,y)$ is counted with weight at least one by $\nu_X$, so
+\[
+ E_{\rm pr}(N)\leq K+y+\sum_{n\leq N}\nu_X(n)
+ \ll K+y+N\exp\{-c_a\alpha^3L^{3/4}\}.
+\]
+The omitted range is negligible: $K\leq\e^{\kappa\alpha L^{1/4}}$ and
+$y=B\alpha^3L^{3/4}$, whereas the logarithm of the last main bound is
+$L-c_a\alpha^3L^{3/4}$.  Reducing the saving constant if needed gives
+$E_{\rm pr}(N)\ll N\e^{-c_p(\log N)^{3/4}}$ for a fixed $c_p>0$.
+Increasing the outer constant covers bounded $N\geq3$.
+\end{proof}
+
+\begin{proof}[Transfer to all denominators; {\cite[Section 6]{LL}}]
+If $p\mid n$ and $4/p=\sum_i1/x_i$, then
+$4/n=\sum_i1/((n/p)x_i)$.  Every prime factor of an exceptional integer
+is therefore exceptional.  Thus exceptional integers lie in the
+multiplicative semigroup generated by exceptional primes, including the
+empty product 1.  This containment, not its converse, is all that is used.
+
+Put $g(u)=u^{3/4}$.  Choose $c_0>0$ and $x_0\geq\e$ such that for every
+$x\geq x_0$ the prime bound reads
+$E_{\rm pr}(x)\leq x\e^{-c_0g(\log x)}$; a decrease of the saving
+constant absorbs its prefactor.  Fix $0<\eta_0<c_0$, let $L=\log x$,
+and put $\delta=\eta_0g(L)/L=\eta_0L^{-1/4}$, which is less than
+$1/4$ for large $x$.  Rankin's inequality gives
+\begin{equation}\label{eq:Rankin}
+ E(x)\leq x^{1-\delta}
+       \prod_{p\leq x,\ p\ \mathrm{exceptional}}(1-p^{-1+\delta})^{-1}.
+\end{equation}
+The higher prime-power terms in the logarithm of the product are
+$O(\sum_p p^{-3/2})=O(1)$ uniformly for $\delta<1/4$.
+The finitely many primes below $x_0$ also cost a fixed constant.
+Partial summation gives
+\[
+ \sum_{x_0<p\leq x,\ p\ \mathrm{exceptional}}p^{-1+\delta}
+ \ll1+\e^{\delta L-c_0g(L)}+
+             \int_{\log x_0}^{L}\e^{\delta u-c_0g(u)}\,du.
+\]
+Since $g(u)/u=u^{-1/4}$ decreases, $\delta u\leq\eta_0g(u)$ for
+$u\leq L$.  The endpoint is bounded by one and the integral by
+$\int_{\log x_0}^{\infty}\e^{-(c_0-\eta_0)u^{3/4}}\,du<\infty$.
+The Euler product in \eqref{eq:Rankin} is bounded uniformly in $x$.
+Consequently $E(x)\ll x^{1-\delta}=x\e^{-\eta_0(\log x)^{3/4}}$.
+After fixing $\kappa$ absolutely, all constants are absolute, completing
+the claimed argument.
+\end{proof}
+
+\section{Why the natural mass-driven ceiling is three quarters}\label{sec:ceiling}
+We record the large-sieve convention of \cite[Section~5]{LL}, even though
+our interval transfer is Bonferroni rather than an invocation of that sieve.
+Montgomery \cite[\S8, p.~561]{Montgomery} states, for an integer set in an
+interval of length $Y$ avoiding $0\leq\omega(\ell)<\ell$ classes at each
+prime in a finite set $\mathcal P$,
+\[
+ |\mathcal N|\leq\frac{Y+Q^2}{S(Q)},\qquad
+ S(Q)=\sum_{s\leq Q,\ s\mid\prod\mathcal P}\mu^2(s)
+                   \prod_{\ell\mid s}\frac{\omega(\ell)}{\ell-\omega(\ell)}.
+\]
+This is the large sieve, not the distinct larger sieve.  Writing
+$g(\ell)=\omega(\ell)/(\ell-\omega(\ell))$ and
+$G=\prod(1+g(\ell))$, the Rankin tail with $v=1/\log X$ gives,
+when $\ell\leq X$ and $\omega(\ell)\leq\ell/2$,
+\[
+ \frac{G-S(Q)}G\leq
+ \exp\left\{-\frac{\log Q}{\log X}
+                     +2(\e-1)\sum_\ell\frac{\omega(\ell)}\ell\right\}.
+\]
+Thus mass $\mu\asymp t^{\mathcal B}$ and this product-tail budget balance
+$t\mu\lesssim\log N$.  Our Bonferroni ledger has the same balance:
+$r\asymp\mu$ and $\log T_{\rm abs}=O(rt)$.
+The resulting exponent is $\theta=\mathcal B/(\mathcal B+1)$.
+Vaughan's prime-only supply has $\mathcal B=2$; here $\mathcal B=3$.
+(The symbol $\mathcal B$ in this paragraph is not the selector constant $B$.)
+
+For completeness, the cubic total identity-class supply asserted in notes
+\S18 has a short elementary verification.  For $M\equiv3\pmod4$, put
+$A=(M+1)/4$ and let $F(M)$ count the distinct multiplier-identity classes
+modulo $M$, using every factorization $A=uvw$ once as a source and then
+deduplicating residues.  They are exactly $-4D\pmod M$ with $D\mid A^2$:
+one direction uses $D=u^2w$; conversely at $p^e\Vert A$, $p^d\Vert D$,
+set the exponents in $u,w,v$ to
+$\lfloor d/2\rfloor$, $d-2\lfloor d/2\rfloor$,
+$e-\lfloor d/2\rfloor-(d-2\lfloor d/2\rfloor)$.
+The divisors $D<A$ give distinct residues since $0<4D<M$, so
+\[
+ \tfrac12(\tau(A^2)-1)\leq F(M)\leq\tau(A^2).
+\]
+The coefficient identity
+$\tau(n^2)=\sum_{d^2\mid n}\mu(d)\tau_3(n/d^2)$ follows from
+$\sum_{e\geq0}(2e+1)z^e=(1-z^2)/(1-z)^3$.
+Also $\sum_{m\leq x}\tau_3(m)=\frac12x\log^2x+O(x\log x)$:
+sum $\lfloor x/(ab)\rfloor$ over $ab\leq x$, whose total rounding
+error is $O(x\log x)$, and use the elementary harmonic sums for
+$\sum_{ab\leq x}1/(ab)=\frac12\log^2x+O(\log x)$.
+Summing over $d$ and then partially summing yields
+\[
+ \sum_{n\leq x}\frac{\tau(n^2)}n
+     =\frac{\log^3x}{6\zeta(2)}+O(\log^2x),\qquad
+ \sum_{M\leq Q,\ M\equiv3\ (4)}\frac{F(M)}M\asymp\log^3Q.
+\]
+Changing $1/(4A-1)$ to $1/(4A)$ costs only $O(1)$.
+Thus the entire identity-class supply, with distinct moduli and residues,
+already has exponent three; counting the same $M$ again through another
+factorization $M=k\ell$ does not create new supply.
+
+\begin{remark}[scope of the ceiling]
+No improvement in a fixed level of distribution changes $3/4$ for a sieve
+whose saving comes only from this summed identity-class mass and whose
+product or polynomial truncation has the stated $t\mu$ budget.
+This is the natural ceiling of the method, not a theorem ruling out
+\emph{every} congruence-and-sieve argument, extra identities, or use of
+arithmetic arrangement beyond total mass.  The stronger universal
+formulation does not follow from the supply calculation; notes \S18
+explicitly makes this same restriction.  Nothing about the ceiling is
+used in the proof of Theorem~\ref{thm:main}.
+\end{remark}
+
+\section{The three external-referee checkpoints}\label{sec:checkpoints}
+The following are exactly the three mathematical checkpoints identified
+in notes \S39.7, with their locations in this standalone presentation.
+Internal re-derivation is not external refereeing.  The theorem and every
+new ingredient feeding it retain the \textbf{CLAIMED/PROVISIONAL} label.
+
+\begin{enumerate}
+\item \emph{Residue-resolved local factors.}
+Re-derive \eqref{eq:residuebox} (notes (39.11)) uniformly for every
+$k\leq X^\kappa$, every divisor $g\mid k$, and every unit residue.
+The $q_0=\lcm(g,\rad k)$ class count, Shiu interval hypotheses, and the
+factor $\exp\{-2\sum_{p\mid k}(p-1)^{-1}\}$ must all be retained.
+The upper bound uses BT, not a BV main term below its error.
+Lemma~\ref{lem:profile} gives the full calculation and separately checks
+that its fixed-$k$ lower main term does dominate the BV error.
+
+\item \emph{Pruned supply for the data-dependent subfamily.}
+Check Theorem~\ref{thm:harvest} (notes Theorem~34.8) and its use with
+$\J_c$ in Corollary~\ref{cor:fibremass} and Lemma~\ref{lem:void}
+(notes Lemma~39.5).  This includes the power-range lattice and Shiu
+estimates, every second-moment boundary error, $1\in\J_c$ for uniform
+pruning, the polylogarithmic modulus multiplicity after pruning, and the
+fact that the lower mass occurs in the \emph{canonical} $z=x^{1/6}$ boxes.
+These boxes, not a larger per-prime cutoff, define our fixed atom family.
+The exponential bad-fibre calculation uses only primes supported by $L_K$.
+
+\item \emph{Prime-power consistency versus lcm collapse.}
+Replay \eqref{eq:localrelative}--\eqref{eq:cancel} and the ordered moment
+induction (notes (39.14)--(39.19)), including unequal prime-power exponents.
+A shared conditioned $p^e$ contributes $\varphi(p^e)$, an unconditioned one
+$p^e$; the residue share cancels $\varphi(p^e)$, leaving only $p/(p-1)$
+in the latter case.  Any missed factor would be raised through
+$r\asymp t^3$.  The independent-Bernoulli proof of
+Theorem~\ref{thm:moments} provides a further check, using the uniform
+all-fibre upper bound rather than a Poisson approximation.
+\end{enumerate}
+
+No step in the displayed implication is supplied by the unproved literal
+$H_{k\mathrm{BV}}$ or by a partition-free sieve hypothesis, and none invokes
+Elliott--Halberstam.  The proof calculations above have been checked in
+preparing this condensation; no unresolved step has been silently replaced
+by an assumption.  Nevertheless these three load-bearing checks and a
+primary-literature priority audit are still required before treating the
+claimed theorem as externally established.  The stronger universal sieve
+ceiling and an exact finite-truncation interpretation of the proxy Euler
+share are not asserted.
+
+\begin{thebibliography}{99}
+\bibitem[D]{Davenport}
+H. Davenport, \emph{Multiplicative Number Theory}, third edition,
+revised by H. L. Montgomery, Graduate Texts in Mathematics 74,
+Springer, 2000, Chapter 28.
+\bibitem[LL]{LL}
+\emph{A logarithmic improvement of Vaughan's bound for the
+Erd\H{o}s--Straus exceptional set}, internally reviewed standalone note,
+\texttt{paper/vaughan-loglog-note.tex}, this repository, 2026.
+\bibitem[M]{Montgomery}
+H. L. Montgomery, The analytic principle of the large sieve,
+\emph{Bull. Amer. Math. Soc.} \textbf{84} (1978), 547--567.
+\bibitem[MV]{MV}
+H. L. Montgomery and R. C. Vaughan, The large sieve,
+\emph{Mathematika} \textbf{20} (1973), 119--134.
+\bibitem[N]{Notes}
+\emph{Erd\H{o}s--Straus research notebook}, \texttt{notes.md}, this
+repository, \S\S16,18,34,39,41; internally reviewed working notes,
+CLAIMED/PROVISIONAL, 2026.
+\bibitem[S]{Shiu}
+P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
+\emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[V]{Vaughan}
+R. C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
+\emph{Mathematika} \textbf{17} (1970), 193--198.
+\end{thebibliography}
+\end{document}
