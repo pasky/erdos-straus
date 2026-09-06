@@ -8,6 +8,12 @@ CORRECT-AFTER-REPAIRS (`reviews/vaughan-loglog-note-review.md`); machine
 checks in `verify.py (bv)`.  This is the artifact to show a human referee
 first.  It does **not** contain the provisional 3/4 theorem.
 
+**Also new (2026-09-06): `es-threequarter-note.tex` / `.pdf`** — an 18-page
+standalone CLAIMED/PROVISIONAL write-up of the 3/4 theorem (source §16/§34/§39),
+importing the loglog note's lemmas; hostile-reviewed SOUND-AFTER-REPAIRS
+(`reviews/es-threequarter-note-review.md`, with per-checkpoint verdicts for the
+three §39.7 referee points).  Second in line for a human referee.
+
 `espaper.tex` is the v17 standalone `amsart` consolidation draft (177 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;

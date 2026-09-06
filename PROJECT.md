@@ -174,11 +174,23 @@ from scratch before touching anything).**  Findings, in order of importance:
    unexplored non-walled angle was found; the campaign's wall-map (§14.5,
    §10.6) is confirmed by an independent derivation.**
 
+**Addendum (same session): the 3/4 theorem now also exists as a standalone
+note.**  `paper/es-threequarter-note.tex` (18 pp, CLAIMED/PROVISIONAL label
+kept throughout; drafted from §16/§34/§39 + [LL] by a deep unit, then a
+separate max-severity referee tasked to *break* the three §39.7 checkpoints:
+verdict SOUND-AFTER-REPAIRS, `reviews/es-threequarter-note-review.md`, with
+explicit per-checkpoint decisions (i) PROVED, (ii) PROVED-AFTER-REPAIR
+(an omitted harmonic-vs-totient weight comparison in an ancillary claim; the
+lower supply never needed it), (iii) PROVED; the "3/4 ceiling" remark is
+worded as a heuristic about the method, not a theorem).  This is the third
+internal review of the chain with no load-bearing gap found; the label stays
+until a human expert has read Section 10 of that note.
+
 **Strategic recommendation.**  (a) Get the loglog note in front of a human
 analytic number theorist now; it is publishable on its own and is the
 cleanest possible advertisement for the rest.  (b) Treat the 3/4 theorem as a
-second paper *after* an external expert has checked §39.7's three points;
-do not merge it into the note.  (c) Freeze the 177-page consolidation draft
+second paper (`es-threequarter-note.tex`) *after* an external expert has
+checked its Section 10; keep it separate from the loglog note.  (c) Freeze the 177-page consolidation draft
 as an internal record; it will not be refereed as is.  (d) Stop the census/
 frame expansion: the last ~10 sections added structure but no leverage.
 (e) If the campaign continues on mathematics, the only open problem with a
