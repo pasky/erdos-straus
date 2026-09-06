@@ -30562,6 +30562,7 @@ count.
 
 
 
+
 ---
 
 ## 77. Pointwise hunt: candidate mechanisms outside the three doors, with the obstructions that close them
@@ -30842,13 +30843,14 @@ spaces.  (b) The non-obvious involution
 that does exist, \(\tau\), is exactly the algebraic shadow of the
 positivity dichotomy of Bright–Loughran (Theorems 1.2/1.5 of §10.1): it
 exchanges the positive component with the signed one, never preserving
-integrality.  (c) Fixing one coordinate \(x\) with \(p\nmid x\), the fibre of
-\(U_p^\circ\) is the hyperbola \((qy-px)(qz-px)=p^2x^2\) of §10.4 with
+integrality.  (c) Fixing one coordinate at an integer window \(x>p/4\) with
+\(p\nmid x\), the fibre of \(U_p^\circ\) is the punctured hyperbola \((qy-px)(qz-px)=p^2x^2\) of §10.4 with
 the point \(y=z=0\) removed (a \(\mathbb P^1\) minus three points, not a
 torsor); its points with \(y,z\geq1\) integers are the divisor pairs
 \((D,p^2x^2/D)\) with \(D\equiv-px\pmod q\) (Theorem 3.1; the cofactor
-congruence is automatic because \(\gcd(px,q)=1\)), finitely many and
-permuted only by the swap \(y\leftrightarrow z\); the parity-type argument of Zagier for \(x^2+4yz=p\) needs a set
+congruence is automatic because \(\gcd(px,q)=1\)), finitely many; the
+only regular automorphism of the fibre preserving them is the swap
+\(y\leftrightarrow z\); the parity-type argument of Zagier for \(x^2+4yz=p\) needs a set
 with an involution having an odd number of fixed points, and Lemma 77.13
 below shows the natural solution set has none.  (d) Correspondences that
 are not automorphisms (secant and tangent constructions on the cubic
@@ -31039,8 +31041,8 @@ not a consequence of (i)).  When \(\omega\) ranges over integers
 compatible solutions are those of \(4/n\) that transfer to \(p\) — which
 is precisely the open transfer slot (P4) of §17.6, executed for every
 known law in §§17.7, 20–26, 30 with no total transfer.  In the family examined, the
-polynomial main term is a bounded-mean quantity multiplied by a trivially
-counted factor, and we found no family for which this is otherwise.  Likewise a Thue/Minkowski pigeonhole cannot
+polynomial main term is a quantity with uniformly bounded fixed-cutoff
+means multiplied by a trivially counted factor, and we found no family for which this is otherwise.  Likewise a Thue/Minkowski pigeonhole cannot
 substitute for the count: Thue's lemma produces small solutions of a
 *linear* congruence and then exploits a *positive-definite* form (a small
 value of \(u^2+v^2\) divisible by \(p\) must equal \(p\)); the forms
@@ -31162,9 +31164,9 @@ The three doors of §10.6 remain closed; this section adds the following
 to the map, each with a proof or an exact reason:
 
 1. **Automorphisms.**  \({\rm Aut}(U_p^\circ)=S_4\) (Theorem 77.4), the
-   extra involutions are explicit and integrality-breaking, and the fibres
-   are split conics whose relevant integral points are permuted only by
-   the swap.  No regular automorphism of the surface gives a Vieta-type
+   extra involutions are explicit and integrality-breaking, and the open
+   fibres are punctured split conics whose positive solution points are
+   permuted only by the swap.  No regular automorphism of the surface gives a Vieta-type
    mechanism, obvious or not.  The natural solution set carries a free
    \(S_3\)-action (Lemma 77.13), so no Zagier-type parity argument on it
    exists.
@@ -31198,10 +31200,13 @@ sharpened in statement): for every \(t\geq1\) with \(4t+1\) prime, some
 targets are \(-1\) and the prime factors of \(t+s\) dividing \(L/4\) are
 those of \(s\) (with the valuation proviso of §77.1), which never produce
 \(-1\); so at such moduli the hit must come from prime factors of \(t+s\)
-coprime to \(L\), whose residues the class does not control, while at
-moduli \(q\nmid L\) the residue of \(p\) is free and hits may be trivial
-(\(p=97\), \(q=7\): \(-p\equiv1\)) — but those are congruence families,
-each escaped by a larger \(L\).  The number of candidate \(s\) up to any
+not dividing \(L/4\) (for \(8\mid L\) these are the primes not dividing
+\(L\); for \(v_2(L)=2\) the prime \(2\) is uncontrolled: \(p=13\),
+\(L=12\), \(q=3\), \(x=4\), \(2\equiv-1\)), whose residues the class does
+not control, while at moduli \(q\nmid L\) the residue of \(p\) is free
+modulo \(q/\gcd(q,L)\) and hits may be trivial (\(p=97\), \(q=7\):
+\(-p\equiv1\)) — but those are congruence families, each escaped by a
+larger \(L\).  The number of candidate \(s\) up to any
 scale carries a polylogarithmic expected number of hits (Assessment 75.9).  The honest
 output of this hunt is therefore: **no non-walled pointwise mechanism was
 found; the candidates listed in the task were each either reduced to a

@@ -15862,8 +15862,9 @@ def check_by():
     assert any(s[0] == s[1] for s in brute_solutions(7))
 
     # ------------------------------ (vi) Lemma 77.11 pigeonhole sufficient condition
-    # If #(Div(x) mod q) > phi(q)/2 then -1 ∈ Rat_q(x) and -p ∈ Rat_q(x). Test on
-    # random x,q; also record how often it holds at the first witness of hard primes.
+    # If #(Div(x) mod q) > phi(q)/2 then -t ∈ Rat_q(x) for every unit t. Deterministic
+    # sweep over x < 400, q < 60 (the 1149/1181 first-window statistic of the text is
+    # an offline computation, not replayed here).
     from sympy import totient
     n_pig = 0
     for x0 in range(2, 400):
@@ -15881,8 +15882,8 @@ def check_by():
     assert n_pig > 50
 
     # ----------------------- (vii) Proposition 77.9: the progression family count
-    # |Omega_p| = sum_{(a,b) in W(p)} floor(p/(4ab)); harmonic witness mass H(p);
-    # mean of H over integers n in [1,N] (n ≡ 1 mod 4) against the constant C0.
+    # |Omega_p| = sum_{(a,b,eps) in W(p)} (floor(p/(4ab)) + 1) with typed witnesses;
+    # harmonic witness mass H(p); mean of H_30 over n ≡ 1 (mod 4), 5 <= n < 4000, vs C0(30).
     def witness_triples(n, A):
         W = []
         for a in range(1, A + 1):
