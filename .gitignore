@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/vaughan-loglog-note.toc
