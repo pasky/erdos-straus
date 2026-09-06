@@ -3,8 +3,8 @@
 **Erdős–Straus is not solved here.** I checked the complete criteria and the
 latest pointwise hunt (§77), then tried constructions on auxiliary spaces
 that its automorphism and finite-covering arguments do not exclude. Two
-concrete constructions survive the tests below; neither has a termination
-or positivity proof. No novelty or improvement of the verification frontier
+concrete constructions survive the tests below; neither is proved to return
+a positive certificate for every input. No novelty or improvement of the verification frontier
 is claimed. The experiment is about these restricted constructions, not
 about checking ES beyond its already much larger verified range.
 
@@ -137,7 +137,10 @@ For example, `[11,6,230]` at `p=2521` gives `x=638,q=31,d=44`, hence
   prime `r≠p` divides such a coefficient and `-p` is a square modulo `r`,
   then both `p` and `-p` are squares modulo `r`, so `r≡1 mod4`.
   The possible factor `p` is also `1 mod4`; a factor `4` is impossible.
-  Hence the associated primitive form has genus character `χ_{-4}=+1`,
+  If `A=2A₀`, then `A₀≡1 mod4`, `b=B/2` is odd, and our restriction
+  `p≡1 mod8` gives `C=(p+b²)/(2A₀)≡1 mod4`. Thus in either parity there
+  is an odd represented coefficient `1 mod4`, and the associated primitive
+  form has genus character `χ_{-4}=+1`,
   invariant under reduction. At `2521` **all 16 principal-genus classes
   are sterile**; `[11,6,230]` lies in the other genus. Extending the same
   norm-divisor extraction to more Pell periods cannot repair this.
