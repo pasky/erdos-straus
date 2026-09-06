@@ -29563,8 +29563,9 @@ consequence, and no pointwise mechanism consistent with the walls was
 found.  Block (bw) is **Computational**, exact only in its displayed
 finite ranges.  This section was max-severity reviewed twice
 (`reviews/wave32-sec75-review.md`, `reviews/wave32-sec75-review-round2.md`,
-both DEFECTIVE on the model subsections, with the proved core confirmed
-each time); the first draft's erroneous conclusions are withdrawn or
+both DEFECTIVE: round 1 also rejected the then-stated Proposition 75.5
+and its multiplicity proof; round 2 confirmed the repaired proved core
+but rejected several model conclusions); the first draft's erroneous conclusions are withdrawn or
 restricted below, the unresolved model steps are explicitly separated
 from the proved implications, and the withdrawn claims are listed in
 §75.9.
@@ -29714,8 +29715,8 @@ block-rate model on \((\theta_1,\theta_{\rm hi})\), which contains
 would have improved on Vaughan except for a sliver at the top where the
 asserted saving \((1-\theta)/(4\theta)L^\theta\) is itself minute.  The
 defect is a calibration, not a logical error: the factor
-\(|\mathcal B|/2\) was copied from the F1 density \(1/2\), whereas a
-block is a *lower tail of \(\omega\)* with exponent
+\(|\mathcal B|/2\) was copied from the F1 density \(1/2\), whereas the
+low-\(\omega\) block-producing family in (75.4) already has model exponent
 \(\delta(\lambda_\theta)\), which decreases from \(1\) at \(\theta=0\)
 to \(0.0567\) at \(\theta=3/4\).  For \(\theta\leq\theta_1\) the
 literal hypothesis is consistent with the model but of no use, since
@@ -29758,7 +29759,7 @@ into the \(o(1)\), and (73.38) gives (75.8).  Every prime
 \(p\equiv1\pmod{24}\) with \(a_1(p)\leq L^\theta\) is representable,
 primes in the other classes modulo 24 are representable classically,
 and the transfer from primes to all denominators is the Rankin
-semigroup argument of `paper/es-threequarter-note.tex`, Section 8,
+semigroup argument of `paper/es-threequarter-note.tex`, Section 9,
 which applies verbatim to the saving function \(g(u)=u^\theta\),
 \(0<\theta<1\), since \(u^{\theta-1}\) decreases and the resulting
 exponential-tail integral converges. \(\square\)
@@ -30021,12 +30022,15 @@ indicators of a set of primes near parameter \(w\) only for sets of size
 Per unit of \(w\) the mean over the \(J\) shifts is \(\mu\asymp J\), so a
 full gap (no prime factor of any \(n+h\) with parameter in a unit window
 at \(w\)) has \(t^2\asymp J\) and, with \(k=e^w\) available, model cost
-\(\asymp(e^w/2)\log(CJe^{-w})\), against the true cost \(J\).  A block at
-modulus \(a\approx L^\theta\) needs, by Lemma 75.1 and (75.4), a
-per-shift deficit \((1-\lambda_\theta)\log L\) with the small primes
-typical.  The size constraint \(\sum_ie^{-w_i}=1\) per shift forces
-prime factors at bounded \(w\) but nothing else.  A size-feasible
-candidate configuration has one or two primes \(\geq N^{1/e}\) per shift
+\(\asymp(e^w/2)\log(CJe^{-w})\), against the true cost \(J\).  To model the
+low-\(\omega\) family used in (75.4) at modulus \(a\approx L^\theta\), seek
+a per-shift deficit \((1-\lambda_\theta)\log L\) while retaining a typical
+residual small-prime count; this is not a necessary condition for
+\({\rm BLK}\) (the index-six family has full-generation blocks at
+arbitrarily large \(\omega\)).  The exact size identity, counting prime
+factors with multiplicity, is \(\sum_ie^{-w_i}=\log(n+h)/\log N=1+o(1)\)
+when \(n\asymp N\); it does not by itself force a prime at bounded
+\(w\).  A size-feasible candidate configuration has one or two primes \(\geq N^{1/e}\) per shift
 and a subpower cofactor, with a gap \(w\in[1,w_b]\),
 \(w_b=1+(1-\lambda_\theta)\log L\), containing no prime factor of any
 \(n+h\) — an "almost-prime tuple".  This gap has positive width for
@@ -30039,10 +30043,16 @@ a candidate exponent dominated by the top of the gap,
  =L^{1-\theta/\log3+o(1)},                                     \tag{75.14}
 \]
 since \(\log J-w_b=(\theta+\lambda_\theta-1)\log L-O(\log\log L)\).
-Widening the gap by \(O(\sqrt{\log L})\) units of \(w\) pushes the
-residual small-prime mean far enough below \(\lambda_\theta\log L\) that
-the per-shift fluctuation cost is not \(\log2\) per coordinate, at no
-change of the exponent in (75.14).  This calculation does **not**
+Write \(s=\log L\).  Widening the gap by \(\Delta=c\sqrt s\), fixed
+\(c>0\), changes the residual per-shift \({\rm LT}\) probability to
+\(\Phi(c/\sqrt{\lambda_\theta})+o(1)\), not to one; widening by
+\(\Delta=s^{2/3}\) makes that probability tend to one and leaves the
+candidate exponent in (75.14) unchanged.  Nevertheless, under independent
+residual Poisson coordinates, this still incurs a simultaneous-event cost
+\(\exp\{-L^{\theta+o(1)}\}\): no sublinear-in-\(s\) widening removes the
+joint fluctuation obstruction at the candidate power \(1-\lambda_\theta\).
+This is another reason the scalar gap calculation does not establish a
+joint \({\rm LT}\) or \({\rm BLK}\) mass.  This calculation does **not**
 establish the mass of a simultaneous \({\rm LT}\) or \({\rm BLK}\)
 event under any measure: the signed-product transition, all joint
 level-\(D\) constraints, and the multivariate matching are unhandled,
@@ -30140,7 +30150,7 @@ function \(f\) and its two-parameter version \(g\): continuity at
 on the sampled grid for \(\theta<2\log3/(1+2\log3)\) and
 \(g(\theta,\theta')\leq\max_uf(u)\) on the whole sampled grid,
 fine-grid maximum \(0.58230\ldots\) at \(0.6348\ldots\),
-\(f<2/3\) throughout, the crossing of \(f\) and \(1-\lambda_\theta\) at
+\(f<2/3\) on the sampled \(\theta\) grid, the crossing of \(f\) and \(1-\lambda_\theta\) at
 \(0.9176\ldots\), and the index-six exponent \(5/6\) with its threshold
 \(0.04323\ldots\); these validate the formulas as numerical formulas,
 not the model assumptions; (iii) the finite echo at \(a=43\): among
@@ -30156,9 +30166,13 @@ bound is supplied by the proof, not by this finite test.
 
 ### 75.9 Honest walls and withdrawn claims
 
-1. Assessments 75.2, 75.5, 75.7, 75.9 rest on (EQ), on asymptotic
-   independence across shifts, and (75.5) on the specific product
-   architecture; none of these is proved.  (EQ) is a uniform
+1. Assessment 75.2 uses (EQ); Assessment 75.5 uses the specified
+   iid-Poisson residue model, joint independence and the restricted
+   product architecture; Assessment 75.7 additionally assumes (CM),
+   without a joint matching construction; Assessment 75.9 uses an
+   explicitly artificial all-modulus Poisson witness proxy.  None of
+   these model transfers to the required arithmetic joint law is
+   proved.  (EQ) is a uniform
    Selberg--Delange statement with characters modulo \(a\leq(\log H)^{1-\epsilon}\)
    and is plausibly provable; the independence is the open problem
    itself.
@@ -30172,7 +30186,13 @@ bound is supplied by the proof, not by this finite test.
    and the "\(2J/(p-1)+1\)" occupancy in Proposition 75.5P; the
    "rigorous" exponent-scale moment bounds, the gap-model certifiability
    claim, and the uniform every-dyadic-scale witness count of the second
-   draft.
+   draft.  Also withdrawn are the confinement-blind exact marginal
+   failure law, the unrestricted comparison
+   \(g(\theta,\theta')\leq f(\theta)\), the claim that the weighted
+   absolute-error condition is necessary for every distribution-based
+   argument, the inclusion of general squared Selberg weights in the
+   bounded-coefficient class, and the identification of proxy
+   successful-modulus counts with arithmetic representations.
 3. Nothing here improves any unconditional exponent: the record remains
    \(2/3\) (Vaughan) and the internally proved \((\log N)^{2/3}(\log\log N)^{1/3}\)
    of `paper/vaughan-loglog-note.tex`, with the \(3/4\) chain of §76 and
