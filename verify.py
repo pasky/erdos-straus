@@ -15211,4 +15211,169 @@ print("\n== (bv) Vaughan loglog note: identity, distinctness, lattice lemma ==")
 check_bv()
 
 
+# ---------------------------------------------------------------- (bw)
+def check_bw():
+    """§75: Lemma 75.1 by exact enumeration, the thresholds theta_1, theta_*,
+    theta_2, theta_tilt and the refined a-frame sieve ceiling max f = 0.5823
+    (Assessment 75.5), and a finite echo of (75.4) at a = 43."""
+    from time import perf_counter
+    from itertools import product as iproduct
+    t0 = perf_counter()
+    L3 = log(3)
+
+    # (i) Lemma 75.1: exact hit probability of -1 by signed products of m
+    #     independent uniform classes, all (a-1)^m tuples, a in {7,11,19,23}.
+    lemma_rows = []
+    for a in (7, 11, 19, 23):
+        units = list(range(1, a))
+        for m in (1, 2, 3):
+            hits = 0
+            for tup in iproduct(units, repeat=m):
+                reach = {1}
+                for g in tup:
+                    ginv = pow(g, -1, a)
+                    reach = {(x * y) % a for x in reach for y in (1, g, ginv)}
+                if (a - 1) in reach:
+                    hits += 1
+            prob = Fraction(hits, (a - 1) ** m)
+            bound = Fraction(3 ** m - 1, a - 1)
+            assert prob <= bound, (a, m, prob, bound)
+            if m == 1:
+                # exactly the two classes g = -1 (g^{+1}) and g = -1 (g^{-1}):
+                # a single class hits iff g = -1, so prob = 1/(a-1) = bound/2.
+                assert prob == Fraction(1, a - 1)
+            lemma_rows.append((a, m, float(prob), float(bound)))
+
+    # (ii) thresholds and the ceiling f(theta).
+    def delta(rho):
+        return rho * log(rho) - rho + 1
+
+    def dB(th):
+        return delta(th / L3)
+
+    def bisect(fun, lo, hi, it=200):
+        flo = fun(lo)
+        for _ in range(it):
+            mid = (lo + hi) / 2
+            fm = fun(mid)
+            if (fm > 0) == (flo > 0):
+                lo, flo = mid, fm
+            else:
+                hi = mid
+        return (lo + hi) / 2
+
+    theta_1 = bisect(lambda t: dB(t) - (1 - t) / 2, 0.05, 0.9)
+    theta_star = L3 / (1 + L3)
+    theta_2 = 1 / (0.5 + 1 / L3)
+    theta_tilt = 3 * L3 / (1 + 3 * L3)
+    assert abs(theta_1 - 0.335711) < 2e-6, theta_1
+    assert abs(theta_star - 0.5234946) < 2e-7
+    assert abs(theta_2 - 0.709) < 6e-4, theta_2
+    assert abs(theta_tilt - 0.7672) < 6e-5, theta_tilt
+    assert abs(dB(0.75) - 0.0567) < 2e-4
+    # (75.6): delta(lambda_theta) < (1-theta)/2 exactly for theta > theta_1
+    for t in (0.1, 0.2, 0.3, 0.33):
+        assert dB(t) > (1 - t) / 2
+    for t in (0.34, 0.4, 0.5, 2 / 3, 0.75, 0.9):
+        assert dB(t) < (1 - t) / 2
+    # theta_2: free deficit (theta/2) log L covers (1 - lambda_theta) log L
+    assert abs(theta_2 / 2 + theta_2 / L3 - 1) < 1e-12
+
+    def f(th):
+        lam = th / L3
+        if lam <= 1 - th:
+            return th
+        if th < theta_tilt:
+            return th - (1 - th) * delta(lam / (1 - th))
+        return 2 * (1 - th)
+
+    grid = [i / 20000 for i in range(1, 20000)]
+    vals = [(f(t), t) for t in grid]
+    fmax, targ = max(vals)
+    assert abs(fmax - 0.58230) < 2e-5, fmax
+    assert abs(targ - 0.63481) < 2e-4, targ
+    assert all(v < 2 / 3 for v, _ in vals)
+    # continuity at theta_* and theta_tilt, and f = theta below theta_*
+    eps = 1e-7
+    assert abs(f(theta_star - eps) - f(theta_star + eps)) < 1e-5
+    assert abs(f(theta_tilt - eps) - f(theta_tilt + eps)) < 1e-5
+    assert f(0.3) == 0.3
+    assert abs(f(2 / 3) - 0.5766) < 2e-4 and abs(f(0.75) - 0.4969) < 2e-4
+    # the large-prime certifiable exponent theta(1+1/log3)-1 (Assessment
+    # 75.7) is below f on (theta_*, theta_2)
+    for t in (0.55, 0.6, 0.65, 0.7):
+        assert t * (1 + 1 / L3) - 1 < f(t)
+
+    # (iii) finite echo of (75.4) at a = 43: among squarefree units h <= 20000
+    #      with omega(h) = m, the block frequency is at least the Lemma 75.1
+    #      floor 1 - (3^m - 1)/42 - (non-generation frequency).  Inequality
+    #      check on real data; the classes are of course not independent.
+    a = 43
+    limit = 20000
+    spf = list(range(limit + 1))
+    for q in range(2, isqrt(limit) + 1):
+        if spf[q] == q:
+            for mult in range(q * q, limit + 1, q):
+                if spf[mult] == mult:
+                    spf[mult] = q
+    by_m = {1: [0, 0, 0], 2: [0, 0, 0], 3: [0, 0, 0]}  # [count, blocks, nongen]
+    for h in range(2, limit + 1):
+        if h % a == 0:
+            continue
+        fac = []
+        v = h
+        sqf = True
+        while v > 1:
+            q = spf[v]
+            e = 0
+            while v % q == 0:
+                v //= q
+                e += 1
+            if e > 1:
+                sqf = False
+            fac.append(q)
+        m = len(fac)
+        if not sqf or m not in by_m:
+            continue
+        reach = {1}
+        sub = {1}
+        for q in fac:
+            g = q % a
+            ginv = pow(g, -1, a)
+            reach = {(x * y) % a for x in reach for y in (1, g, ginv)}
+            cyc = set()
+            val = 1
+            while val not in cyc:
+                cyc.add(val)
+                val = val * g % a
+            sub = {(x * y) % a for x in sub for y in cyc}
+        by_m[m][0] += 1
+        gen = len(sub) == a - 1
+        if (a - 1) not in reach and gen:
+            by_m[m][1] += 1          # genuine block: full generation, -1 missed
+        if not gen:
+            by_m[m][2] += 1
+    echo = {}
+    for m, (cnt, blk, nongen) in by_m.items():
+        assert cnt > 0
+        floor = 1 - (3 ** m - 1) / (a - 1) - nongen / cnt
+        # P(-1 not reached) >= 1 - (3^m-1)/(a-1) by Lemma 75.1 (if the classes
+        # were independent uniform); removing the confined tuples bounds the
+        # genuine block share from below.  Real data: inequality check only.
+        assert blk / cnt >= floor - 1e-12, (m, blk / cnt, floor)
+        echo[m] = (cnt, round(blk / cnt, 4), round(floor, 4))
+    print("bw Lemma 75.1 exact rows (a, m, prob, bound):",
+          [(r[0], r[1], round(r[2], 4), round(r[3], 4)) for r in lemma_rows])
+    print("bw thresholds theta_1 =", round(theta_1, 6), " theta_* =",
+          round(theta_star, 6), " theta_2 =", round(theta_2, 4),
+          " theta_tilt =", round(theta_tilt, 4),
+          " max f =", round(fmax, 5), "at theta =", round(targ, 4))
+    print("bw a=43 echo m -> (count, block share, Lemma 75.1 floor):", echo,
+          " seconds =", round(perf_counter() - t0, 2))
+
+
+print("\n== (bw) §75: signed-product union bound, thresholds, sieve ceiling ==")
+check_bw()
+
+
 print("\nall checks passed")
