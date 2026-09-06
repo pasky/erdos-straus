@@ -15596,4 +15596,360 @@ print("\n== (bx) §76: weighted second moment, Cauchy-Schwarz supply, checkpoint
 check_bx()
 
 
+# ---------------------------------------------------------------- (by)
+# §77: pointwise hunt -- single-window criterion, the S_4 automorphism group,
+# quadratic signature of parameters, fibre identity, joint-failure lemmas.
+def check_by():
+    from time import perf_counter
+    from fractions import Fraction
+    from itertools import product as cartesian_product
+    from sympy import symbols, simplify, isprime, totient
+    t0 = perf_counter()
+
+    # ---------------------------------------------------------------- helpers
+    def rat_set(x, q):
+        """Rat_q(x) = {prod r^{f_r} : |f_r| <= v_r(x)} as residues mod q."""
+        s = {1 % q}
+        for r, e in factorint(x).items():
+            rinv = pow(r % q, -1, q)
+            pows = [pow(r, f, q) for f in range(e + 1)] + [pow(rinv, f, q) for f in range(1, e + 1)]
+            s = {(a * b) % q for a in s for b in pows}
+        return s
+
+    def divisors(n):
+        f = factorint(n)
+        ds = [1]
+        for r, e in f.items():
+            ds = [d * r**j for d in ds for j in range(e + 1)]
+        return ds
+
+    def brute_solutions(p):
+        """All positive (x,y,z), x<=y<=z, with 4/p = 1/x+1/y+1/z (divisor enumeration)."""
+        sols = []
+        for x in range(p // 4 + 1, 3 * p // 4 + 1):
+            num, den = 4 * x - p, p * x
+            g = gcd(num, den)
+            r, s_ = num // g, den // g
+            # r/s = 1/y + 1/z  <=>  (ry - s)(rz - s) = s^2
+            for d in divisors(s_ * s_):
+                if d > s_ or (d + s_) % r:
+                    continue
+                y = (d + s_) // r
+                z = (s_ * s_ // d + s_) // r
+                if y >= x:
+                    assert Fraction(1, x) + Fraction(1, y) + Fraction(1, z) == Fraction(4, p)
+                    sols.append((x, y, z))
+        return sols
+
+    # --------------------------------------------------- (i) Lemma 77.1 / 77.2
+    # Single-window criterion: ES(p) <=> exists x > p/4, p∤x, Rat_{4x-p}(x) meets {-1,-p}.
+    # Check: for every prime 5 <= p < 700 with p ≡ 1 (4), the first x giving a hit
+    # reconstructs an exact solution; and every brute-force solution has a p-free
+    # denominator x at which the criterion holds with the predicted target.
+    n_recon = 0
+    n_sol_checked = 0
+    for p in primerange(5, 700):
+        if p % 4 != 1:
+            continue
+        found = False
+        for x in range(p // 4 + 1, 3 * p):
+            if x % p == 0:
+                continue
+            q = 4 * x - p
+            R = rat_set(x, q)
+            hit2 = (q - 1) % q in R
+            hit1 = (-p) % q in R
+            if hit2 or hit1:
+                # reconstruct: find u,v with uv | x and u ≡ -v (II) or u ≡ -p v (I)
+                divs = [d for d in range(1, x + 1) if x % d == 0]
+                ok = False
+                for u in divs:
+                    for v in divs:
+                        if x % (u * v):
+                            continue
+                        if hit2 and (u + v) % q == 0:
+                            y = Fraction(p * x * (u + v), q * u)
+                            z = Fraction(p * x * (u + v), q * v)
+                            ok = y.denominator == 1 and z.denominator == 1 and \
+                                Fraction(1, x) + 1 / y + 1 / z == Fraction(4, p)
+                        elif hit1 and (u + p * v) % q == 0:
+                            y = Fraction(p * x * (u + p * v), q * u)
+                            z = Fraction(x * (u + p * v), q * v)
+                            ok = y.denominator == 1 and z.denominator == 1 and \
+                                Fraction(1, x) + 1 / y + 1 / z == Fraction(4, p)
+                        if ok:
+                            break
+                    if ok:
+                        break
+                assert ok, (p, x, hit1, hit2)
+                n_recon += 1
+                found = True
+                break
+        assert found, p
+        # every brute solution is seen by the criterion at a p-free denominator
+        for (x, y, z) in brute_solutions(p):
+            seen = False
+            for w in (x, y, z):
+                if w % p == 0:
+                    continue
+                q = 4 * w - p
+                R = rat_set(w, q)
+                typeII = sum(1 for t in (x, y, z) if t % p == 0) == 2
+                if typeII:
+                    seen = seen or ((q - 1) % q in R)
+                else:
+                    seen = seen or ((-p) % q in R)
+            assert seen, (p, x, y, z)
+            n_sol_checked += 1
+    # Lemma 77.2 symmetric form: kp+a has a divisor ≡ -1 or -p (mod 4ak)  <=> ES(p);
+    # check that for every prime p < 400, p≡1(4), some (a,k) <= 40 works and that
+    # every hit reconstructs.
+    n_l2 = 0
+    for p in primerange(5, 400):
+        if p % 4 != 1:
+            continue
+        hit = None
+        for a in range(1, 41):
+            for k in range(1, 41):
+                N = k * p + a
+                M = 4 * a * k
+                for D in range(M - 1, N + 1, M):
+                    if N % D == 0:
+                        c = (D + 1) // M
+                        b = N // D
+                        assert 4 * a * b * c * k - a - b == k * p
+                        hit = ('II', a, b, c, k)
+                        break
+                if not hit:
+                    for D in range((-p) % M or M, N + 1, M):
+                        if N % D == 0:
+                            c = (D + p) // M
+                            b = N // D
+                            # Type I data is (k, b, c, a): a*(4kbc-1) = p*(k+b)
+                            assert a * (4 * k * b * c - 1) == p * (k + b)
+                            hit = ('I', k, b, c, a)
+                            break
+                if hit:
+                    break
+            if hit:
+                break
+        assert hit, p
+        n_l2 += 1
+
+    # ------------------------------------------- (ii) Proposition 77.3: the n=1 principle
+    # (4ack-1) | (a+k) has no solution; equivalently -1 ∉ Rat_{4s-1}(s).
+    for a, c, k in cartesian_product(range(1, 31), repeat=3):
+        assert (a + k) % (4 * a * c * k - 1) != 0
+    for s in range(1, 3000):
+        assert (4 * s - 2) not in rat_set(s, 4 * s - 1)
+
+    # ---------------------------------------------- (iii) Theorem 77.4: the involution tau
+    x, y, z, p_ = symbols('x y z p', positive=True)
+    X, Y, Z = -p_ * x / (4 * z), -p_ * y / (4 * z), p_**2 / (16 * z)
+    expr = 1 / X + 1 / Y + 1 / Z - 4 / p_
+    # on the surface 1/z = 4/p - 1/x - 1/y
+    zsurf = 1 / (4 / p_ - 1 / x - 1 / y)
+    assert simplify(expr.subs(z, zsurf)) == 0
+    # tau is an involution
+    X2, Y2, Z2 = -p_ * X / (4 * Z), -p_ * Y / (4 * Z), p_**2 / (16 * Z)
+    assert simplify(X2 - x) == 0 and simplify(Y2 - y) == 0 and simplify(Z2 - z) == 0
+    # the xi-coordinates: tau corresponds to swapping the boundary line zeta=0 with infinity
+    # numeric: tau never sends a positive integral solution to an integral point
+    n_tau = 0
+    for p in primerange(5, 200):
+        for (x0, y0, z0) in brute_solutions(p):
+            for perm in ((x0, y0, z0), (x0, z0, y0), (y0, z0, x0)):
+                a0, b0, c0 = perm
+                img = (Fraction(-p * a0, 4 * c0), Fraction(-p * b0, 4 * c0), Fraction(p * p, 16 * c0))
+                assert sum(1 / t for t in img) == Fraction(4, p)
+                assert img[0] < 0 and img[1] < 0 and img[2].denominator != 1
+                n_tau += 1
+    # the group generated by S3 and tau on the xi-plane has order 24: verify by
+    # acting on the 4 boundary lines as permutations (matrices on (xi,eta,zeta))
+    import itertools
+    def mat_mul(A, B):
+        return tuple(tuple(sum(A[i][k] * B[k][j] for k in range(3)) for j in range(3)) for i in range(3))
+    def normalize(A):
+        # projective: scale so first nonzero entry is 1 (rationals)
+        for row in A:
+            for e in row:
+                if e != 0:
+                    s = e
+                    return tuple(tuple(Fraction(v) / s for v in row) for row in A)
+    I3 = ((1, 0, 0), (0, 1, 0), (0, 0, 1))
+    P12 = ((0, 1, 0), (1, 0, 0), (0, 0, 1))
+    P23 = ((1, 0, 0), (0, 0, 1), (0, 1, 0))
+    # tau in homogeneous (xi:eta:zeta:w) restricted to the plane: (xi,eta,zeta) -> (xi, eta, -(xi+eta+zeta))
+    T = ((1, 0, 0), (0, 1, 0), (-1, -1, -1))
+    gens = [normalize(P12), normalize(P23), normalize(T)]
+    group = {normalize(I3)}
+    frontier = [normalize(I3)]
+    while frontier:
+        new = []
+        for g in frontier:
+            for h in gens:
+                gh = normalize(mat_mul(g, h))
+                if gh not in group:
+                    group.add(gh)
+                    new.append(gh)
+        frontier = new
+    assert len(group) == 24, len(group)
+
+    # ----------------------------------------- (iv) Lemma 77.6: quadratic constraints
+    # Enumerate all Type II and Type I data for primes p < 400, p ≡ 1 (4):
+    stats = {'II': 0, 'I': 0}
+    for p in primerange(5, 400):
+        if p % 4 != 1:
+            continue
+        for a in range(1, 60):
+            for k in range(1, 30):
+                N = k * p + a
+                M = 4 * a * k
+                D = M - 1
+                while D <= N:
+                    if N % D == 0:
+                        c = (D + 1) // M
+                        b = N // D
+                        assert jacobi_symbol(D, p) == -1, (p, a, b, c, k)
+                        assert jacobi_symbol(4 * b * c * k - 1, p) == -1, (p, a, b, c, k)
+                        assert jacobi_symbol(a * b, p) == -1
+                        stats['II'] += 1
+                    D += M
+                D = (-p) % M
+                if D == 0:
+                    D = M
+                while D <= N:
+                    if N % D == 0:
+                        c = (D + p) // M
+                        b = N // D
+                        # Type I data (a_I, b, c, k_I) = (k, b, c, a)
+                        assert a * (4 * k * b * c - 1) == p * (k + b)
+                        assert jacobi_symbol(c, p) == -1, (p, k, b, c, a)
+                        assert jacobi_symbol(k * b, p) == -1, (p, k, b, c, a)
+                        stats['I'] += 1
+                    D += M
+    assert stats['II'] > 100 and stats['I'] > 100
+
+    # --------------------------------- (v) Lemma 77.13: no two equal denominators
+    n_free = 0
+    for p in primerange(5, 400):
+        sols = brute_solutions(p)
+        if p % 4 == 1:
+            for (x0, y0, z0) in sols:
+                assert x0 < y0 < z0, (p, x0, y0, z0)
+                n_free += 1
+        else:
+            pass
+    # p ≡ 3 (4) does have x=y solutions: 4/p = 2/((p+1)/2) ... check one instance
+    assert any(s[0] == s[1] for s in brute_solutions(7))
+
+    # ------------------------------ (vi) Lemma 77.11 pigeonhole sufficient condition
+    # If #(Div(x) mod q) > phi(q)/2 then -1 ∈ Rat_q(x) and -p ∈ Rat_q(x). Test on
+    # random x,q; also record how often it holds at the first witness of hard primes.
+    from sympy import totient
+    n_pig = 0
+    for x0 in range(2, 400):
+        for q in range(3, 60, 4):
+            if gcd(x0, q) != 1:
+                continue
+            divs = [d % q for d in range(1, x0 + 1) if x0 % d == 0]
+            if len(set(divs)) * 2 > int(totient(q)):
+                R = rat_set(x0, q)
+                assert (q - 1) in R
+                for t in range(1, q):
+                    if gcd(t, q) == 1:
+                        assert (-t) % q in R
+                n_pig += 1
+    assert n_pig > 50
+
+    # ----------------------- (vii) Proposition 77.9: the progression family count
+    # |Omega_p| = sum_{(a,b) in W(p)} floor(p/(4ab)); harmonic witness mass H(p);
+    # mean of H over integers n in [1,N] (n ≡ 1 mod 4) against the constant C0.
+    def witness_pairs(n, A):
+        W = []
+        for a in range(1, A + 1):
+            for b in range(1, A + 1):
+                M = 4 * a * b
+                if gcd(n, M) != 1:
+                    continue
+                d2 = (-n) % M
+                ninv = pow(n % M, -1, M)
+                d1 = (-ninv) % M
+                if (a + b) % d2 == 0 or (a + b) % d1 == 0:
+                    W.append((a, b))
+        return W
+    A = 30
+    # C0 truncated: sum over a,b<=A of (1/(4ab)) * (#{d | a+b : d ≡ 3 (4), gcd(d,4ab)=1} * 2 - overlap)/phi(4ab)
+    # -- computed empirically instead: mean of H(n) over n ≡ 1 (mod 4), n <= N.
+    Ns = 4000
+    Hsum = 0.0
+    cnt = 0
+    for n in range(5, Ns, 4):
+        W = witness_pairs(n, A)
+        Hsum += sum(1.0 / (4 * a * b) for a, b in W)
+        cnt += 1
+    Hmean = Hsum / cnt
+    # exact expectation for uniform residues: sum_{a,b} (1/4ab) * |C_{a,b}| / phi(4ab)
+    # n uniform in the class 1 (mod 4) lands in a fixed class r ≡ 1 (mod 4) modulo
+    # M = 4ab with probability 4/M, so E[H] = sum_{a,b} |C_1(a,b)| / (4 a^2 b^2),
+    # C_1 = the witness classes {-d, -d^{-1}} (mod 4ab), d | a+b, d ≡ 3 (mod 4).
+    C0 = 0.0
+    for a in range(1, A + 1):
+        for b in range(1, A + 1):
+            M = 4 * a * b
+            classes = set()
+            for d in range(3, a + b + 1, 4):
+                if (a + b) % d == 0 and gcd(d, M) == 1:
+                    classes.add((-d) % M)
+                    classes.add((-pow(d, -1, M)) % M)
+            C0 += len(classes) / (4 * a * a * b * b)
+    assert abs(Hmean - C0) < 0.05 * C0, (Hmean, C0)
+    # and for primes the identity |Omega_p| = p*H(p)+O(|W|) is definitional; check one p
+    p = 409
+    W = witness_pairs(p, 60)
+    Omega = sum(p // (4 * a * b) for a, b in W)
+    assert Omega > 0 and abs(Omega - p * sum(1 / (4 * a * b) for a, b in W)) <= len(W)
+
+    # ------------- (viii) Lemma 77.10: F1 kills both targets when (p|q)=1; stats
+    both_f1 = one_f1 = neither = 0
+    n_windows = 0
+    for p in primerange(5, 20000):
+        if p % 24 != 1:
+            continue
+        for q in range(3, 64, 4):
+            if not isprime(q):
+                continue
+            x0 = (p + q) // 4
+            if x0 % q == 0:
+                continue
+            R = rat_set(x0, q)
+            hit = ((q - 1) in R) or ((-p) % q in R)
+            allqr = all(jacobi_symbol(r, q) == 1 for r in factorint(x0))
+            if jacobi_symbol(p, q) == 1:
+                if allqr:
+                    assert not hit
+                    both_f1 += 1
+            else:
+                assert not allqr  # x is a QNR, so it has a QNR prime factor
+                # -p is a QR mod q, -1 a QNR: the two targets lie in different cosets
+                assert jacobi_symbol(-p, q) == 1
+            n_windows += 1
+            if hit:
+                break
+    assert both_f1 > 100
+
+    print("by single-window criterion: primes reconstructed =", n_recon,
+          " brute solutions matched =", n_sol_checked, " Lemma 77.2 hits =", n_l2)
+    print("by tau: images checked =", n_tau, " |<S3,tau>| =", len(group),
+          " quadratic-constraint data (II, I) =", (stats['II'], stats['I']),
+          " free S3 orbits =", n_free)
+    print("by pigeonhole instances =", n_pig, " H-mean vs C0 (A=30) =",
+          (round(Hmean, 4), round(C0, 4)), " F1-both-fail windows =", both_f1,
+          " of", n_windows, " seconds =", round(perf_counter() - t0, 1))
+
+
+print("\n== (by) §77: pointwise hunt (criterion, S_4, quadratic signature, fibres) ==")
+check_by()
+
+
 print("\nall checks passed")

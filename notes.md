@@ -30558,3 +30558,595 @@ count.
 3. The bound is not effective as stated (Bombieri--Vinogradov is used
    without an effectivity refinement); the constant \(R=26\) is a
    convenience.
+
+
+---
+
+## 77. Pointwise hunt: candidate mechanisms outside the three doors, with the obstructions that close them
+
+**Status and headline.**  This section is a dedicated search for a
+*pointwise* mechanism — a route to \(E(N)=0\), the conjecture itself —
+restricted by design to candidates that are **not** of the three walled
+types of §10.6/§17 (analytic arguments with polylogarithmic main terms;
+finite coverings by congruence classes; polynomial identity families and
+polynomial descents).  Every candidate examined is recorded below, either
+pushed to a proved lemma or closed by a theorem or counterexample.  **No
+pointwise mechanism consistent with the walls was found.**  What was
+obtained: a two-target single-window criterion that puts both solution
+types at one window (Lemma 77.1) and its \(p\leftrightarrow1\)-symmetric
+form (Lemma 77.2); the observation that every residue-one escape theorem of
+this campaign (Thm 5.1, Thm 17.3(c)–(e)) is the single inequality \(4>3\)
+transported along the class of \(n=1\) (Proposition 77.3); the complete
+automorphism group of the Erdős–Straus surface (Theorem 77.4: it is
+\(S_4\), not \(S_3\); the twelve non-permutation elements are explicit and
+destroy positivity and integrality, so the Vieta/involution door is closed
+by a theorem rather than by the multilinearity remark of §10.5); the
+quadratic constraints every solution carries (Lemma 77.6: every solution
+of \(4/p\), \(p\equiv1\ (4)\), exhibits a quadratic non-residue modulo
+\(p\)), with the consequence that a pointwise proof must construct a
+non-residue and Lemma 17.2 says the quadratic layer does not force one; the
+fibre identity that turns every "polynomially large witness family" back
+into a polylogarithmic one (Proposition 77.9, with the natural progression
+family computed exactly); and the analysis of the joint failure of both
+types (Lemmas 77.10–77.11).  Labels: **Theorem/Lemma/Proposition** =
+proved here; **Assessment** = argued, not proved; one cited input is
+flagged where used.  Machine checks: `verify.py (by)`.
+
+### 77.1 Two exact reformulations and the class of one
+
+Throughout, \(p\equiv1\pmod4\) is prime and, for \(q\geq1\) coprime to
+\(x\),
+\[
+ {\rm Rat}_q(x)=\Bigl\{\prod_{r\mid x}r^{f_r}\bmod q:\ |f_r|\leq v_r(x)\Bigr\}
+ \subset(\mathbb Z/q)^\times
+\]
+is the divisor-ratio set of Theorem 62.1 (\({\rm Rat}_q(x)=\{u/v:\ uv\mid
+x\}\); it is symmetric under inversion and contains \(1\)).
+
+**Lemma 77.1 (single-window, two-target criterion; proved).**
+\(4/p\) is a sum of three unit fractions if and only if there is an
+integer \(x>p/4\) with \(p\nmid x\) such that, with \(q=4x-p\),
+\[
+ {\rm Rat}_q(x)\cap\{-1,\,-p\}\neq\varnothing .                   \tag{77.1}
+\]
+More precisely, if \(uv\mid x\) and \(u\equiv-v\pmod q\) then
+\[
+ \frac4p=\frac1x+\frac{qu}{px(u+v)}+\frac{qv}{px(u+v)}          \tag{77.2}
+\]
+is a Type II solution (the last two denominators divisible by \(p\)), and if
+\(uv\mid x\) and \(u\equiv-pv\pmod q\) then
+\[
+ \frac4p=\frac1x+\frac{qu}{px(u+pv)}+\frac{qv}{x(u+pv)}          \tag{77.3}
+\]
+is a Type I solution; conversely every solution arises this way at each of
+its denominators coprime to \(p\), with the target \(-1\) for Type II and
+\(-p\) for Type I.  Since \(4x\equiv p\pmod q\), the two targets are
+\(-1\) and \(-4x\); equivalently, some divisor of \(x^2\) lies in the class
+\(-x\) or in the class \(-4x^2\pmod q\).
+
+*Proof.*  Every solution has a denominator \(x\) coprime to \(p\) (both
+types have at least one), and \(x>p/4\).  Then \(4/p-1/x=q/(px)\) with
+\(q=4x-p>0\), and \(\gcd(q,px)=\gcd(4x,p)\cdot\gcd(p,x)=1\).  For a
+reduced fraction \(r/s\) one has \(r/s=1/y+1/z\) in positive integers if
+and only if there are coprime \(d_1,d_2\) with \(d_1d_2\mid s\) and
+\(r\mid d_1+d_2\), the solutions being \(y=s(d_1+d_2)/(rd_1)\),
+\(z=s(d_1+d_2)/(rd_2)\) (sufficiency is the displayed identity; for
+necessity write \(y=gy_1\), \(z=gz_1\) with \(\gcd(y_1,z_1)=1\), so
+\(r\,g\,y_1z_1=s(y_1+z_1)\), whence \(y_1z_1\mid s\) and \(r\mid y_1+z_1\)
+because \(\gcd(y_1+z_1,y_1z_1)=\gcd(r,s)=1\)).  Apply this with
+\(r=q\), \(s=px\).  As \(d_1,d_2\) are coprime, \(p\) divides at most one
+of them.  If neither, put \(u=d_1\), \(v=d_2\): then \(uv\mid x\),
+\(q\mid u+v\), and (77.2) is the two-term formula; \(y,z\) are divisible by
+\(p\), so the solution is Type II; and \(u\equiv-v\) is \(-1\in{\rm
+Rat}_q(x)\).  If \(p\mid d_2=pv\), put \(u=d_1\): then \(uv\mid x\),
+\(q\mid u+pv\), (77.3) follows, exactly one of \(y,z\) is divisible by
+\(p\) (Type I), and \(u\equiv-pv\) is \(-p\in{\rm Rat}_q(x)\) (using the
+symmetry of \({\rm Rat}_q\), also \(-p^{-1}\in{\rm Rat}_q(x)\)).  The
+converse direction is the same computation read backwards.  For the last
+sentence: \(u/v\equiv t\) with \(uv\mid x\) is \(u^2w\equiv tx\) for
+\(w=x/(uv)\), and \(u^2w\) runs over the divisors of \(x^2\); with
+\(t=-1\) the class is \(-x\), with \(t=-p\equiv-4x\) it is \(-4x^2\). ∎
+
+Lemma 77.1 is Theorem 3.1 with both halves placed at the same window and
+the same modulus (Theorem 3.1(A) indexes Type I by \(m=(a+b)/k\) and the
+window \(z_0=(pm+1)/4\); here Type I is indexed by the denominator
+\(x=ack\) and the modulus \(q=4ack-p\), which is the divisor \(D\) of
+\(p^2+4ck^2\) in the notation of §26).  In the coordinates
+\(t=(p-1)/4\), \(s=(q+1)/4\) (so \(x=t+s\), \(4s\equiv1\pmod q\)) the
+criterion reads: some \(s\geq1\) has \({\rm Rat}_{4s-1}(t+s)\ni-1\) or
+\(-(4t+1)\).
+
+**Lemma 77.2 (the \(p\leftrightarrow1\)-symmetric form; proved).**
+\(4/p\) is solvable if and only if there are \(a,k\geq1\) such that the
+integer \(kp+a\) has a positive divisor \(D\) with
+\[
+ D\equiv-1\pmod{4ak}\qquad\text{or}\qquad D\equiv-p\pmod{4ak}.     \tag{77.4}
+\]
+In the first case \(D=4ack-1\) and \((a,b,c,k)\) with \(b=(kp+a)/D\) is
+Type II data of Theorem 17.1(i); in the second \(D=4ack-p\) and
+\((k,b,c,a)\) with \(b=(kp+a)/D\) is Type I data of Theorem 17.1(ii).
+Equivalently: **\(4/p\) is solvable iff for some \(a,c,k\geq1\)**
+\[
+ (4ack-1)\mid(4a^2c+p)\qquad\text{or}\qquad(4ack-p)\mid(4a^2c+1).  \tag{77.5}
+\]
+
+*Proof.*  Theorem 17.1(i): \(kp=4abck-a-b\) is \(b(4ack-1)=kp+a\), i.e.
+\(D=4ack-1\) divides \(kp+a\); conversely a divisor \(D\equiv-1\ (4ak)\)
+of \(kp+a\) is \(4akc-1\) with \(c=(D+1)/(4ak)\geq1\), and
+\(b=(kp+a)/D\) gives \(4abck-a-b=kp\).  Theorem 17.1(ii) with the
+parameters renamed \((a,k)\to(k,a)\): \(a(4kbc-1)=p(k+b)\) is
+\(b(4ack-p)=kp+a\), i.e. \(D=4ack-p\) divides \(kp+a\); a positive
+divisor \(D\equiv-p\ (4ak)\) is \(4akc-p\) with \(c=(D+p)/(4ak)\geq1\)
+because \(D+p>0\).  For (77.5): modulo \(4ack-1\) one has
+\(4ac\equiv k^{-1}\), so \(4a^2c+p\equiv k^{-1}(a+kp)\); modulo
+\(4ack-p\) one has \(4ac\equiv pk^{-1}\), so \(4a^2c+1\equiv
+k^{-1}(pa+k)\), and \(pa+k\) is \(kp+a\) with \((a,k)\) renamed. ∎
+
+The symmetry is exact: (77.5) is invariant under \(p\leftrightarrow1\)
+combined with exchanging the two alternatives.  At \(n=1\) the two
+alternatives coincide and the criterion is \((4ack-1)\mid(a+k)\), which is
+impossible because \(0<a+k<4ack-1\) for all \(a,c,k\geq1\)
+(\(4ack-a-k-1\geq(4a-1)(4k-1)/4-5/4\geq1\)).  This is the source of every
+residue-one escape in this campaign:
+
+**Proposition 77.3 (the class of one; unifying reproof).**  Let a
+*forced-class family* consist of a modulus \(M\), a class \(r\bmod M\),
+fixed positive integers, and one of the linear rules
+\[
+ c(n)=\frac{n+q}{4ab}\ \ (q\mid a+b),\qquad c(n)=\frac{nm+1}{4ab}\ \ (m\mid a+b),
+ \qquad s(n)=\frac{nv+u}{M}\ \ (uvw=\tfrac{M+1}4),
+\]
+such that for every integer \(n\geq1\) with \(n\equiv r\ (M)\) the rule
+gives a positive integer and the corresponding identity of Theorem
+17.3(e), (d) or Lemma 16.1 solves \(4/n\) in positive integers.  Then
+\(1\not\equiv r\pmod M\).  Consequently no such family contains a prime
+\(p\equiv1\pmod M\), and no finite union of such families covers the
+primes \(\equiv1\) modulo the lcm of their moduli (Corollary 17.3.1).
+
+*Proof.*  If \(1\equiv r\ (M)\), the rule is a positive integer at
+\(n=1\) (positivity is automatic since \(1+q\), \(m+1\), \(v+u\) are
+positive; integrality is the class condition), and the identity at
+\(n=1\) reads \(4=1/(abc)+1/(ack)+1/(bck)\) (resp. the Type I or
+multiplier form), a sum of three positive unit fractions, which is at most
+\(3\). ∎
+
+Theorem 17.3(c) is the multiplier case (at \(n=1\), \(s=(u+v)/M\) is a
+positive integer and \(4=1/(suw)+1/(svw)+1/(uvw)\)); Theorem 5.1's
+\((q,d,R)\) families are the same phenomenon through the reconstruction of
+Theorem 3.1(B): if \(1\) lies in the class, \(x=(1+q)/4\) is a positive
+integer with \(R\mid x\), \(d\mid x^2\), \(q\mid d+x\), and the
+reconstructed denominators are positive integers summing to \(4\).  Theorem
+17.3(c) is literally the assertion \(-1\notin{\rm Rat}_{4s-1}(s)\) for all
+\(s\geq1\), i.e. the criterion (77.1) at \(t=0\).  The conceptual content
+is this: *the escape class is the class of \(n=1\), and every congruential
+mechanism is \(n\)-uniform on its class, so it would solve \(4/1\).*  A
+pointwise proof must therefore use a property of \(p\) that is invisible
+modulo every fixed \(L\) — the size of \(p\), its primality, the prime
+factorisation of \(p-1=4t\), or a quadratic non-residue of \(p\) (Lemma
+77.6 below shows the last is unavoidable).  Since \(t\equiv0\pmod{L/4}\)
+when \(p\equiv1\ (L)\), both windows \(t+s\) and \(qt+s\) of the criterion
+agree with \(s\) modulo every prime dividing \(L/4\): the small-prime part
+of every window is the "self" part \(s=(q+1)/4\), which never produces
+\(-1\); only the large prime factors of the windows can.
+
+### 77.2 The automorphism group of the surface: \(S_4\), and why it does not help
+
+§10.5 closed the Vieta door by observing that \(4xyz=p(xy+yz+zx)\) is
+multilinear.  That remark excludes Vieta flips in the given coordinates but
+not automorphisms invisible in them.  Here is the complete answer.
+
+**Theorem 77.4 (the automorphism group; the \(S_4\) and the integrality
+statement proved, the maximality with one cited input).**  Let
+\(U_p^\circ=\{(x,y,z)\in\mathbb G_m^3:4xyz=p(xy+yz+zx)\}\) be the
+Erdős–Straus surface with the three coordinate axes removed (every
+solution of \(4/p\) lies on \(U_p^\circ\)).  Then:
+
+(i) The map
+\[
+ \tau(x,y,z)=\Bigl(-\frac{px}{4z},\ -\frac{py}{4z},\ \frac{p^2}{16z}\Bigr)
+                                                                   \tag{77.6}
+\]
+is an involutive automorphism of \(U_p^\circ\) over \(\mathbb Q\), and
+together with the coordinate permutations it generates a group
+\(G\cong S_4\).
+
+(ii) Every element of \(G\setminus S_3\) maps every positive integral point
+of \(U_p^\circ\) to a point with exactly two negative coordinates whose
+third coordinate is not an integer.  In particular no element of
+\(G\setminus S_3\) maps any solution of \(4/p\) to a solution of \(4/p\).
+
+(iii) \({\rm Aut}_{\mathbb Q}(U_p^\circ)=G\); in particular the
+automorphism group is finite.  *(Cited input: \(U_p^\circ\) is isomorphic to
+\(\mathbb P^2\) minus four lines in general position, a surface of log
+general type whose log canonical model is \((\mathbb P^2,D)\) itself; every
+automorphism of the open surface extends to the log canonical model
+[Iitaka, log Kodaira dimension and the finiteness of automorphism groups
+of varieties of log general type, 1976/77 — cited from memory, flagged].)*
+
+*Proof.*  Put \(\xi=1/x\), \(\eta=1/y\), \(\zeta=1/z\).  Then
+\(U_p^\circ\cong V=\{(\xi,\eta,\zeta)\in\mathbb G_m^3:\xi+\eta+\zeta=4/p\}\),
+the affine plane minus the three lines \(\xi=0\), \(\eta=0\),
+\(\zeta=0\), which together with the line at infinity form four lines in
+general position in \(\mathbb P^2\) (pairwise intersections
+\((0,0),(0,4/p),(4/p,0)\) and three distinct points at infinity).  The
+projective linear map \((\xi:\eta:\zeta:w)\mapsto(\xi:\eta:-\xi-\eta-\zeta:w)\)
+on the plane \(\xi+\eta+\zeta=4w/p\) exchanges the line \(\zeta=0\) with
+the line at infinity \(\xi+\eta+\zeta=0\) and fixes the other two; in the
+affine chart it is
+\[
+ (\xi,\eta,\zeta)\longmapsto\Bigl(-\frac{4\xi}{p\zeta},\ -\frac{4\eta}{p\zeta},\
+ \frac{16}{p^2\zeta}\Bigr),
+\]
+which in the \((x,y,z)\) coordinates is (77.6); one checks directly
+\(1/X+1/Y+1/Z=(4z/p)(4/p-1/x-1/y)=4/p\) and \(\tau^2={\rm id}\)
+(`verify.py (by)`, symbolic).  Coordinate permutations permute the three
+affine lines and fix the line at infinity; \(\tau\) transposes
+\(\zeta=0\) with infinity; the group they generate acts faithfully on the
+four lines (a projective transformation fixing four lines in general
+position is the identity) and contains \(S_3\) and a transposition outside
+it, hence is all of \(S_4\) (the 24 matrices are enumerated in `(by)`).
+This proves (i).
+
+(ii)  \(S_4=S_3\sqcup S_3\tau S_3\) (the double coset has \(36/2=18\)
+elements).  A positive integral solution is sent by an element of \(S_3\)
+to a positive integral solution, by \(\tau\) to
+\((-px/4z,-py/4z,p^2/16z)\): the first two coordinates are negative, and
+\(p^2/(16z)\) is an integer only if \(16z\mid p^2\), impossible for odd
+\(p\) and \(z\geq1\); a further permutation does not change this.
+
+(iii)  The four lines are a simple normal crossings divisor \(D\) on
+\(\mathbb P^2\) with \(K_{\mathbb P^2}+D=\mathcal O(1)\) ample, so
+\((\mathbb P^2,D)\) is the log canonical model of \(V\), and by the cited
+theorem every automorphism of \(V\) extends to an automorphism of
+\(\mathbb P^2\) preserving \(D\); these form the group \(S_4\) of (i). ∎
+
+**Consequences for the hunt.**  (a) There is no infinite group acting on
+the integral points: the Markov/Vieta/Ghosh–Sarnak mechanism is
+structurally absent, now by a theorem (finiteness of \({\rm Aut}\)) and not
+only by the coordinate remark of §10.5.  (b) The non-obvious involution
+that does exist, \(\tau\), is exactly the algebraic shadow of the
+positivity dichotomy of Bright–Loughran (Theorems 1.2/1.5 of §10.1): it
+exchanges the positive component with the signed one, never preserving
+integrality.  (c) Fixing one coordinate, the fibres of \(U_p^\circ\) are
+the split conics \((qu_2-px)(qu_3-px)=p^2x^2\) of §10.4, whose integral
+automorphisms are the swap and the sign change only (an automorphism of the
+affine hyperbola \(XY=N\) over \(\mathbb Z\) permutes the two branches of
+units of its coordinate ring); the parity-type argument of Zagier for
+\(x^2+4yz=p\) needs a set with an involution having an odd number of fixed
+points, and Lemma 77.13 below shows the natural set has none.  (d)
+Correspondences that are not automorphisms (secant and tangent
+constructions on the cubic surface, which is rational) produce rational
+points with new denominators and carry no integrality; the campaign's
+transfer laws of §§20–26 are the exhaustive record of the ones that do
+preserve the integral structure, and none is total.
+
+**Lemma 77.13 (free \(S_3\)-action; elementary, possibly known).**  For
+prime \(p\equiv1\pmod4\) no solution of \(4/p=1/x+1/y+1/z\) has two equal
+denominators; hence the number of ordered solutions is divisible by \(6\),
+and no parity argument on the solution set itself can prove
+non-emptiness.
+
+*Proof.*  If \(x=y\) then \(x(4z-p)=2pz\).  If \(p\mid x\), \(x=px'\),
+then \(z(4x'-2)=px'\), so \(2x'-1\mid p\), i.e. \(2x'-1=p\) and
+\(z=(p+1)/4\notin\mathbb Z\).  If \(p\mid z\), \(z=pz'\), then
+\(x(4z'-1)=2pz'\), so \(4z'-1\mid 2p\), i.e. \(4z'-1=p\), again
+\(p\equiv3\ (4)\).  The case \(y=z\) is the same computation. ∎
+
+### 77.3 The quadratic constraints every solution carries
+
+**Lemma 77.6 (quadratic signature of the parameters; proved).**  Let
+\(p\equiv1\pmod4\) be prime.
+
+(i) If \((a,b,c,k)\) is Type II data (\(kp=4abck-a-b\)), then
+\[
+ \Bigl(\frac{4ack-1}{p}\Bigr)=\Bigl(\frac{4bck-1}{p}\Bigr)=-1
+ \qquad\text{and}\qquad\Bigl(\frac{ab}{p}\Bigr)=-1 .
+\]
+
+(ii) If \((a,b,c,k)\) is Type I data (\(k(4abc-1)=p(a+b)\)), then
+\[
+ \Bigl(\frac{c}{p}\Bigr)=-1\qquad\text{and}\qquad\Bigl(\frac{ab}{p}\Bigr)=-1 .
+\]
+
+In particular **every solution of \(4/p\) exhibits a quadratic non-residue
+modulo \(p\)** among the integers \(4ack-1\), \(a\), \(b\), \(c\) attached
+to it, and Type I data always has \(c\) a non-square; for \(p\equiv1\
+(24)\), \(c\notin\{1,2,3,4,6,8,9,12,\dots\}\) (any \(c\) with
+\((c/p)=+1\) is excluded).
+
+*Proof.*  All data are normalised as in Theorem 17.1, so
+\(p\nmid abck\).  Write \(c=2^ec_0\) with \(c_0\) odd, and use Jacobi
+symbols throughout (all lower arguments are positive and odd).
+
+(i) Put \(D=4ack-1\), \(D'=4bck-1\); Theorem 17.1(iii) gives
+\(DD'=4ck^2p+1\).  A prime \(r\mid D\) satisfies \(r\nmid2ck\) (as
+\(D\equiv-1\ (4ck)\)) and \(r\neq p\) (as \(DD'\equiv1\ (p)\)), and
+\(-cp\equiv(2k)^{-2}\pmod r\); hence \((-cp/r)=1\) for every such \(r\)
+and, multiplying, \((-cp/D)=(-c/D)(p/D)=1\).  Now \(D\equiv-1\pmod{4c}\)
+gives \((-1/D)=-1\); \((c_0/D)=(D/c_0)(-1)^{(c_0-1)(D-1)/4}
+=(-1/c_0)(-1)^{(c_0-1)/2}=1\) because \(D\equiv-1\ (c_0)\) and
+\(D\equiv3\ (4)\); and if \(e\geq1\) then \(D\equiv-1\ (8)\), so
+\((2/D)=1\).  Thus \((-c/D)=-1\), so \((p/D)=-1\), and
+\((D/p)=(p/D)\) because \(p\equiv1\ (4)\).  The same for \(D'\).  For
+\((ab/p)\): with \(q=(a+b)/k\equiv3\ (4)\) one has \(b\equiv-a\pmod q\)
+and \(\gcd(a,q)=1\), so \((ab/q)=(-a^2/q)=(-1/q)=-1\); and
+\((ab/q)=(ab/p)\), because \(q=4abc-p\equiv-p\pmod{4ab}\) gives, for
+\(ab=2^vm\) with \(m\) odd, \((m/q)=(q/m)(-1)^{(m-1)/2}=(-p/m)(-1)^{(m-1)/2}
+=(p/m)=(m/p)\), and for \(v\geq1\) also \(q\equiv-p\pmod8\), so
+\((2/q)=(2/p)\) (negation modulo \(8\) preserves the classes
+\(\{\pm1\}\) and \(\{\pm3\}\)).
+
+(ii) Put \(D=4ack-p\), \(D'=4bck-p\); expanding with
+\(k(4abc-1)=p(a+b)\) gives \(DD'=p^2+4ck^2\).  A prime \(r\mid D\)
+satisfies \(r\nmid2ckp\) (a common factor with \(ck\) would divide \(p\),
+and \(p\mid D\) would force \(p\mid ac\)), and \(-c\equiv(p/2k)^2\pmod
+r\); so \((-c/D)=1\).  Now \(D\equiv-p\pmod{4c}\): \((-1/D)=-1\);
+\((c_0/D)=(D/c_0)(-1)^{(c_0-1)/2}=(-p/c_0)(-1)^{(c_0-1)/2}=(p/c_0)=(c_0/p)\);
+and for \(e\geq1\), \(D\equiv-p\ (8)\) gives \((2/D)=(2/p)\).  Hence
+\(1=(-c/D)=-(c/p)\), i.e. \((c/p)=-1\).  Finally
+\((D/p)(D'/p)=(DD'/p)=(4ck^2/p)=(c/p)=-1\), while \(D\equiv4ack\) and
+\(D'\equiv4bck\pmod p\), so \((ac/p)(bc/p)=(ab/p)=-1\). ∎
+
+*Verification:* all Type II and Type I data with \(a\leq60\), \(k\leq30\)
+for the primes \(p<400\), \(p\equiv1\ (4)\) (442 resp. 707 tuples), zero
+violations (`(by)`).
+
+**What this closes and what it does not (Assessment).**  (a) The Lemma
+is the parameter-level form of the one quadratic bit (§10.2), consistent
+with Theorem 58.1: for a square \(n=m^2\) every symbol \((\cdot/n)\) is
+\(+1\), so no data of either type with parameters coprime to \(m\) can
+exist, which is why squares escape.  (b) It says that a pointwise proof
+must *produce* a non-residue modulo \(p\) — the only global property
+separating \(p\) from \(1\) and from the squares that the criterion can
+see.  Producing a non-residue is easy (the least one is \(\ll
+p^{1/(4\sqrt e)+\varepsilon}\), Burgess), but Lemma 17.2 shows the
+quadratic layer never *forces* a witness: all window values have
+\(\lambda_p=+1\) identically.  Concretely, Type I with a prescribed
+non-residue \(c\) is the statement that \(p^2+4ck^2\) factors, for some
+\(k\), into two factors both \(\equiv-p\pmod{4ck}\); for the seven values
+\(c\) with \(h(-4c)=1\) (\(c=1,2,3,4,7\) and the non-fundamental cases)
+this says \(p+2k\sqrt{-c}\) factors in \(\mathbb Z[\sqrt{-c}]\) into two
+elements with norms \(\equiv-p\pmod{4ck}\), and for general \(c\) the same
+in the form class group of discriminant \(-4c\) restricted to the genus of
+\(-p\).  This is a genuine reformulation through Gauss composition; it
+trades the divisor-in-a-coset problem for a factorisation-in-an-order
+problem with the *same* residue condition, and no element of class field
+theory forces a factorisation with a prescribed norm residue modulo a
+modulus \(4ck\) that moves with the unknown \(k\).  The special cases are
+instructive: \(c=1\) is impossible outright (a sum of two coprime squares
+has no divisor \(\equiv3\pmod4\)), and \(c=2\) is impossible for
+\(p\equiv1\pmod8\) (all prime factors of \(p^2+8k^2\) are \(\equiv1,3\
+(8)\), while \(D\equiv-p\equiv7\ (8)\)); both are instances of
+\((c/p)=-1\).
+
+### 77.4 Polynomially large witness families
+
+The walls of §10.6 exclude analytic arguments whose main term is
+polylogarithmic.  Could a different auxiliary object per \(p\), with a
+*polynomially* large count, be provably nonempty and imply \(ES(p)\)?  Let
+\({\rm Sol}(p)\) be the (finite) set of solutions and
+\(W(p)=\{(a,b):\rho_{4ab}(-p)\mid a+b\text{ or }\rho_{4ab}(-p^{-1})\mid
+a+b\}\) the witness pairs of Outcome 35 (\(\rho_M\) = least positive
+residue), so that \(ES(p)\iff W(p)\neq\varnothing\), and \(W(p)\) is
+finite up to the trivial rescalings of non-coprime pairs — each
+\((a,b)\in W(p)\) determines \(c,k\) uniquely.
+
+**Proposition 77.9 (fibre identity and the progression family; proved).**
+(i) For any set \(\Omega\) and any map \(\varphi:\Omega\to{\rm Sol}(p)\),
+\(|\Omega|=\sum_{s\in{\rm Sol}(p)}|\varphi^{-1}(s)|\); in particular
+\(\Omega\neq\varnothing\iff\) some fibre is nonempty, and a lower bound for
+\(|\Omega|\) that does not presuppose \(ES(p)\) must be obtained from an
+independent evaluation of the fibre sizes.
+
+(ii) The natural polynomial family is the transfer along progressions of
+Theorem 17.3(d)–(e): \(\Omega_p=\{(a,b,n):n\leq p,\ n\equiv p\
+({\rm mod}\ 4ab),\ (a,b)\in W(n)\}\), each element of which yields a
+solution of \(4/p\) by moving \(c\).  Since \((a,b)\in W(n)\) depends only
+on \(n\bmod 4ab\),
+\[
+ |\Omega_p|=\sum_{(a,b)\in W(p)}\Bigl\lfloor\frac p{4ab}\Bigr\rfloor
+          =p\,H(p)+O(|W(p)|),\qquad
+ H(p):=\sum_{(a,b)\in W(p)}\frac1{4ab}.                            \tag{77.7}
+\]
+(iii) The mean of \(H\) over integers \(n\equiv1\pmod4\) is the absolute
+constant
+\[
+ C_0=\sum_{a,b\geq1}\frac{|C_1(a,b)|}{4a^2b^2},\qquad
+ C_1(a,b)=\{-d^{\pm1}\bmod 4ab:\ d\mid a+b,\ d\equiv3\ (4)\},        \tag{77.8}
+\]
+because \(n\) uniform in the class \(1\ (4)\) lies in a prescribed class
+\(\equiv1\ (4)\) modulo \(4ab\) with probability \(4/(4ab)\)
+(truncation \(a,b\leq30\): \(C_0=0.3174\), empirical mean over
+\(n<4000\): \(0.3167\); `(by)`).
+
+*Proof.*  (i) is the definition of a fibre.  (ii): the pair
+\((a,b)\) is a witness for \(n\) iff \(\rho_{4ab}(-n^{\pm1})\mid a+b\),
+which depends on \(n\) only modulo \(4ab\); hence for \((a,b)\in W(p)\)
+every \(n\equiv p\ (4ab)\), \(n\leq p\), contributes, and no other
+\((a,b)\) does.  (iii): expand \(\mathbb E\,H=\sum_{a,b}(4ab)^{-1}\,
+\mathbb P\bigl((a,b)\in W(n)\bigr)\) and use that the witness classes
+modulo \(4ab\) are exactly \(C_1(a,b)\) (the divisor \(d\) of \(a+b\) must
+be \(\equiv-n\equiv3\ (4)\), and the Type I class \(-d^{-1}\) is
+\(\equiv1\ (4)\) for the same \(d\)); the series converges since
+\(|C_1|\leq2\tau(a+b)\). ∎
+
+**Assessment 77.9′ (what a polynomial count can and cannot do).**  (77.7)
+shows the count is *polynomial exactly because a free parameter of size
+\(p\) was adjoined to a witness*: \(|\Omega_p|=p\cdot H(p)\) where
+\(H(p)\) has bounded mean and vanishes iff \(ES(p)\) fails.  Proving
+\(|\Omega_p|>0\) is proving \(H(p)>0\), a statement of mean \(C_0\) — worse
+than polylogarithmic.  This is the general shape: by (i), any family that
+maps to \({\rm Sol}(p)\) has count \(\sum_s|\text{fibre}|\), and a
+counting proof needs the fibre sizes from the *dual* side, i.e. for each
+auxiliary object \(\omega\) an independent count of the solutions
+compatible with \(\omega\).  When \(\omega\) ranges over integers
+\(n<p\) (all solvable, by the minimal-counterexample hypothesis), the
+compatible solutions are those of \(4/n\) that transfer to \(p\) — which
+is precisely the open transfer slot (P4) of §17.6, executed for every
+known law in §§17.7, 20–26, 30 with no total transfer.  A polynomial main
+term without a transfer is a polylogarithmic main term multiplied by a
+trivially counted factor.  Likewise a Thue/Minkowski pigeonhole cannot
+substitute for the count: Thue's lemma produces small solutions of a
+*linear* congruence and then exploits a *positive-definite* form (a small
+value of \(u^2+v^2\) divisible by \(p\) must equal \(p\)); the forms
+here, \(DD'=4ck^2p+1\) and \(DD'=p^2+4ck^2\) in the factor coordinates,
+are split (§20.1, §35.2), their small representations carry no
+information, and the residue conditions \(D\equiv D'\equiv-1\) resp.
+\(-p\) modulo \(4ck\) are conditions on a coset of index \((4ck)^2\) in
+the lattice of pairs — precisely the coset-hitting problem, not a
+pigeonhole.  **No witness family with a provable polynomial main term was
+found, and (77.7)–(77.8) exhibit why the natural one is illusory; a
+general impossibility theorem is not claimed** (the trivial family
+\({\rm Sol}(p)\times[1,p]\) shows that "polynomial families" must be
+qualified by how their count is obtained, which is not a mathematical
+class of objects).
+
+### 77.5 Both types failing at once
+
+By Lemma 77.1, failure of \(ES(p)\) is: for every window \(x\), the set
+\({\rm Rat}_{4x-p}(x)\) avoids both \(-1\) and \(-p\).  Could the two
+avoidances contradict each other?
+
+**Lemma 77.10 (the two targets at one window; proved).**  Let
+\(q=4x-p\) be prime (\(q\equiv3\ (4)\)) and \(\chi=(\cdot/q)\).
+
+(i) If \((p/q)=+1\) then \(x\) has an even number of prime factors that
+are non-residues mod \(q\) (counted with multiplicity), both targets
+\(-1\) and \(-p\) are non-residues mod \(q\), and the event F1 of §70
+("every prime factor of \(x\) is a residue mod \(q\)") kills both targets
+simultaneously.
+
+(ii) If \((p/q)=-1\) then \(x\) has an odd number of non-residue prime
+factors (so F1 is impossible), \(-1\) is a non-residue and \(-p\) a
+residue mod \(q\): the two targets lie in different cosets of the squares,
+and each can only be missed by a coset-hitting failure (F3 of §70).
+
+*Proof.*  \(\chi(x)=\chi(4^{-1}p)=(p/q)\) since \(4x\equiv p\); \(\chi(-1)=-1\)
+and \(\chi(-p)=-(p/q)\).  Under F1 every element of \({\rm Rat}_q(x)\)
+is a square. ∎
+
+So at windows with \((p/q)=+1\) the two failures are *positively
+correlated* (one event, F1, produces both), and at windows with
+\((p/q)=-1\) they are independent coset misses in different cosets.
+Neither case contains a contradiction: for the hard primes
+\(p<20000\), \(p\equiv1\ (24)\), and prime moduli \(q\leq63\) before the
+first success, 183 of 455 windows fail by F1 for both targets at once
+(`(by)`).  A joint contradiction would have to come from *different*
+windows, whose factorisations are unrelated (the pairwise gcds of the
+window values \(t+s\), \(t+s'\) are bounded by \(|s-s'|\)), i.e. from an
+argument of the almost-all type.  **Assessment:** the joint failure is not
+self-contradictory for any finite set of moduli, and no cross-window
+identity relating \({\rm Rat}_q(t+s)\) to \({\rm Rat}_{q'}(t+s')\) exists
+beyond the trivial inclusion \({\rm Rat}_q(y)\subseteq{\rm Rat}_q(y')\)
+for \(y\mid y'\).
+
+**Lemma 77.11 (a pigeonhole sufficient condition; proved).**  If the
+divisors of \(x\) occupy more than \(\varphi(q)/2\) residue classes in
+\((\mathbb Z/q)^\times\), then \(-t\in{\rm Rat}_q(x)\) for every unit
+\(t\), in particular for \(t=1\) and \(t=p\), so \(ES(p)\) holds via
+\(x\).
+
+*Proof.*  Let \(\mathcal D\) be the set of residue classes of divisors
+of \(x\).  The sets \(\mathcal D\) and \(-t\mathcal D\) each have more
+than \(\varphi(q)/2\) elements of a group of order \(\varphi(q)\), so they
+meet: \(u\equiv-tu'\pmod q\) for divisors \(u,u'\) of \(x\).  With
+\(g=\gcd(u,u')\) (invertible mod \(q\) since \(g\mid x\)), the coprime
+divisors \(u/g\), \(u'/g\) satisfy \((u/g)(u'/g)\mid x\) and
+\(u/g\equiv-t\,u'/g\), i.e. \(-t\in{\rm Rat}_q(x)\). ∎
+
+This is the pigeonhole of §10.6(ii) made exact, and it displays the
+coset-structure factor precisely: the hypothesis fails whenever all prime
+factors of \(x\) lie in a proper subgroup (F1 and its composite-modulus
+analogues, Theorem 70.10), so it is never necessary and is not implied by
+\(\tau(x)>\varphi(q)/2\).  Empirically it holds at 1149 of the 1181 first
+witness windows of the hard primes below \(10^5\) — only because the
+first successful modulus is at most \(31\) there, where the hypothesis
+nearly coincides with the criterion.  To make it a *mechanism* one would
+need, for every \(p\), a window \(x\in(p/4,p/4+Q/4]\) with
+\(\tau(x)>q/2\) whose divisors are not confined to a proper subgroup mod
+\(q=4x-p\): a smooth-number-in-a-short-interval statement together with
+equidistribution of the prime factors of that particular \(x\) modulo
+that particular \(q\), uniformly in \(p\) — Wall (i) of §10.6 in its
+sharpest form, not a way around it.
+
+### 77.6 Descent through neighbouring denominators
+
+The remaining listed candidate — using the solvability of \(4/n\) for
+\(n<p\) — was run once more in the two forms suggested by Lemma 77.2.
+(a) The Type II condition for \(p\) at parameter \(d\) with \(d\mid p-1\)
+is, on the same \((a,b,c,k)\), the Type I condition for
+\(n'=1+(p-1)/d<p\) (Theorem 26.5 with \(Q=p\), \(m=d\)); \(4/n'\) is
+solvable by induction, but its solvability by *that* shape at *that* \(d\)
+is literally the same equation \(4abc=p+d=n'd+1\): the transfer is a
+relabelling, and other solutions of \(4/n'\) (of which composite \(n'\)
+has many more shapes) do not read back.  (b) Multiplicativity (Lemma
+1.1) goes upward only; a solution of \(4/(mp)\) descends iff all three
+denominators are divisible by \(m\) (§17.7(1)), which in the parameters
+means \(m\mid c\) — again the original condition.  Nothing here is new,
+and it is recorded only so that the audit of listed candidates is
+complete.
+
+### 77.7 Assessment: the enlarged wall-map
+
+The three doors of §10.6 remain closed; this section adds the following
+to the map, each with a proof or an exact reason:
+
+1. **Automorphisms.**  \({\rm Aut}(U_p^\circ)=S_4\) (Theorem 77.4), the
+   extra involutions are explicit and integrality-breaking, and the fibres
+   are split conics with trivial integral automorphisms.  There is no
+   dynamical/Vieta mechanism of any kind, obvious or not.  The natural
+   solution set carries a free \(S_3\)-action (Lemma 77.13), so no parity
+   argument on it exists.
+2. **The class of one.**  All residue-one escape theorems are the
+   inequality \(4>3\) at \(n=1\) (Proposition 77.3); a proof must use a
+   property of \(p\) invisible modulo every fixed modulus.  The only such
+   property identified inside the criterion is a quadratic non-residue of \(p\)
+   (Lemma 77.6: every solution exhibits one), and Lemma 17.2 says the
+   quadratic layer does not force witnesses.  So a proof must convert a
+   non-residue into a divisor in a moving coset — the Gauss-composition
+   reformulation of §77.3 states this exactly and offers no forcing.
+3. **Polynomial families.**  Every family maps to \({\rm Sol}(p)\) with
+   the fibre identity (77.7); the natural polynomial family is
+   \(p\cdot H(p)\) with \(H\) of bounded mean; a polynomial main term
+   requires a transfer (P4), and no total transfer exists among all laws
+   classified in §§20–30.  Thue-type pigeonholes fail because the relevant
+   forms are split.
+4. **Joint failure.**  At each window the two types are killed together
+   by F1 when \((p/q)=1\) and miss in different cosets when \((p/q)=-1\)
+   (Lemma 77.10); across windows there is no algebraic relation.  The
+   pigeonhole condition (Lemma 77.11) is exact and is Wall (i) restated.
+
+**What a proof would still have to look like** (unchanged in kind,
+sharpened in statement): for every \(t\geq1\) with \(4t+1\) prime, some
+\(s\geq1\) has \({\rm Rat}_{4s-1}(t+s)\ni-1\) or \(-(4t+1)\), where the
+small-prime part of \(t+s\) is the useless self-part \(s\) whenever
+\(4t+1\equiv1\pmod L\); the hit must come from the large prime factors of
+\(t+s\), and the number of candidate \(s\) up to any scale carries a
+polylogarithmic expected number of hits (Assessment 75.9).  The honest
+output of this hunt is therefore: **no non-walled pointwise mechanism was
+found; the candidates listed in the task were each either reduced to a
+proved obstruction (77.3, 77.4, 77.6, 77.9, 77.13) or shown to be a
+restatement of Wall (i) (77.10, 77.11); the enlarged map is consistent with
+the low prior stated in Outcome 36.**  No claim is made that a proof is
+impossible: the map excludes classes of mechanisms, not the conjecture's
+provability.
+
+### 77.8 Computational replay
+
+**Computational 77.1.**  Block (by), about two seconds: (i) Lemma 77.1
+for every prime \(5\leq p<700\), \(p\equiv1\ (4)\): the first window
+satisfying (77.1) reconstructs an exact solution by (77.2)/(77.3), and all
+1262 brute-force solutions (enumerated through the divisors of \((px)^2\))
+are seen by the criterion at a \(p\)-free denominator with the predicted
+target; Lemma 77.2 for \(p<400\) with \(a,k\leq40\), both readings
+reconstructed.  (ii) \((4ack-1)\nmid(a+k)\) for \(a,c,k\leq30\) and
+\(-1\notin{\rm Rat}_{4s-1}(s)\) for \(s<3000\).  (iii) \(\tau\) symbolic
+(sum \(4/p\) on the surface; \(\tau^2={\rm id}\)); 2847 images of positive
+solutions for \(p<200\) all have two negative coordinates and a
+non-integral third; the group generated by the two transpositions and
+\(\tau\) on the plane has exactly 24 elements.  (iv) Lemma 77.6 on all
+data with \(a\leq60\), \(k\leq30\), \(p<400\).  (v) Lemma 77.13 for
+\(p<400\) (and the existence of \(x=y\) solutions for \(p=7\)).  (vi)
+Lemma 77.11 on 688 instances.  (vii) (77.7) for \(p=409\); the mean of
+\(H\) against \(C_0\) at truncation \(30\).  (viii) Lemma 77.10 on the
+hard primes below 20000 and prime moduli \(\leq63\).
