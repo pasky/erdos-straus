@@ -81,6 +81,110 @@ large-deviations against actual data for hard-class primes).
   don't rediscover them.
 * GRH and Schinzel H do not shortcut Phase 2 (notes §10.5).
 
+## Outcome 35 (2026-09-06, wave 31 + independent strategic reassessment by a fresh session)
+
+**Housekeeping (wave 31 closed).**  Units A (§73 block reduction, verify
+(bt)) and B (§74 F3 stratification / target-transversal bound, verify (bu))
+max-severity-reviewed → both SOUND-AFTER-REPAIRS (reviews/wave31-sec73-
+review.md, wave31-sec74-review.md), merged by tail-reassembly, full
+verify.py green (165 s).  Unit C (paper v17, 177 pp, §70–§72 as Sections
+32–34) fidelity-reviewed → FAITHFUL-AFTER-REPAIRS (18 unescaped `%` had
+silently eaten digits/labels; `(h,a)=1` restored in the abstract) and merged.
+WAVE31-STATE.md deleted.
+
+**Independent big-picture review (this session re-derived the architecture
+from scratch before touching anything).**  Findings, in order of importance:
+
+1. **The unconditional fixed-multiplier theorem (§16.4/16.5) is correct.**
+   Re-derived line by line: multiplier identity → uniform lattice count →
+   class-mass lemma via BV → Montgomery large sieve on progressions mod
+   `L_K ≤ N^{2δ}` → PW tail → semigroup step.  In the re-derivation the
+   Shiu-theorem machinery of §16.2 (needed there only to bound the BV
+   multiplicity through an ω-tail) turned out to be unnecessary: the modulus
+   multiplicity `W(q) ≤ K·τ(q)` is absorbed by Cauchy–Schwarz against BV, and
+   the weighted bound `Σ 1/(φ(u)φ(v)) ≪ (φ(k)/k²)Λ²` follows from elementary
+   progression sums.  Written up as a **9-page standalone note,
+   `paper/vaughan-loglog-note.tex`**: `E(N) ≪ N exp{−c(log N)^{2/3}(log log
+   N)^{1/3}}`, using only BV, Brun–Titchmarsh and the large sieve.  Hostile
+   review (reviews/vaughan-loglog-note-review.md): **CORRECT-AFTER-REPAIRS**
+   (12 medium/low defects, all repaired; theorem and exponent unchanged;
+   Montgomery locator corrected to BAMS 1978 §8 p. 561).  The reviewer's
+   literature check (PW 2025 Thm 1.3; arXiv:2608.24035 of Aug 2026, which
+   explicitly does *not* beat Vaughan) found no prior improvement of
+   Vaughan's fixed-numerator rate.  Machine checks: verify (bv).  **This is
+   the project's first referee-sized, self-contained, unconditional new
+   result and should be the first thing shown to a human expert.**  It is
+   also the ceiling of its own device: `Σ_{k|L} φ(k)/k² ≪ log log L`.
+
+2. **The 3/4 chain (§16 → §18 → §34 → §39) is architecturally sound; its
+   status stays CLAIMED/PROVISIONAL.**  Architecture as re-derived: cubic
+   class supply from multipliers `k ≤ X^κ`; supply lemma (Thm 34.8) proved
+   at scale `X` by BV after congestion pruning (multiplicity per modulus
+   must be polylog, not `X^κ`); assembly on the *integers* by Brun's pure
+   sieve (Bonferroni degree `r ≍ t³`, moduli products `exp(O(t⁴)) ≤ N^{1/2}`,
+   hence `t = (log N)^{1/4}`), which is exactly what sidesteps the
+   `N/(log N)^A` BV-error wall that would kill any prime-counting version.
+   The exponent is the natural one: `θ = B/(B+1)` with `B` = class supply
+   per modulus scale, `B = 2` (prime moduli, Vaughan) → 2/3, `B = 3`
+   (composite/multiplier moduli) → 3/4; and `B = 3` is the *total* solution
+   mass (Elsholtz–Tao), so **3/4 is a hard ceiling for every
+   congruence+sieve method at any level of distribution** (a larger level
+   changes constants only).  The three self-flagged weak spots of §39.7
+   remain the correct external-referee checklist; this session did not
+   re-prove them line by line and does not upgrade the label.
+
+3. **The a-frame stacking program (§70–§74) cannot beat 3/4 — and this was
+   already in the notes.**  Re-derived independently and then found in
+   §14.4–14.6/(W1): the q-frame (a-frame) witnesses at modulus `q ≈ (log
+   N)^θ` need `3^{ω(h)} ≳ q` signed products, so with a sieve of dimension
+   `J = (log N)^θ` (which only sees primes `≤ N^{1/J}`, i.e. `(1−θ)·log log
+   N` of the `log log N` prime-factor mass) the failure event is
+   sieve-visible only for `θ < log 3/(1+log 3) = 0.5235` (Thm 14.9 realises
+   every `θ < θ*`).  Above `θ*` the failure is dominated by *large* prime
+   factors of the shifted values (`F3`/"block", `≈ (log N)^{−δ(θ)}` per
+   modulus, `δ(3/4) ≈ 0.06 ≪ 1/2`), i.e. by the joint lower tail of
+   `ω(h_{q_j})` over `J → ∞` shifts — a problem of the same nature as
+   "many consecutive `N^{1/J}`-smooth-ish integers", for which no
+   Nair–Tenenbaum-type bound with `C(J) ≤ exp(o(J log log N))` is known and
+   none is likely to come from sieve-based arguments (they *are* the small-
+   prime model).  Consequently: `H_BLK(θ)` for `θ > θ*` is not a technical
+   constant-tracking problem but a genuinely new-tool problem; the
+   unconditional "no-block stacking for every θ < 1" of §73 is a theorem
+   about the F1 intersection only and must never be quoted as an
+   exceptional-set bound.  **Recommendation: stop investing in the a-frame
+   stacking track unless a non-sieve idea for large prime factors appears.**
+
+4. **Pointwise (the conjecture itself).**  Re-examined with fresh
+   reformulations (both types in one line: `ES(p) ⟺ ∃ a,b,c, d | a+b with
+   4abc ∈ {p+d, pd+1}`, equivalently `ρ_{4ab}(−p) | a+b` or `ρ_{4ab}(−p^{-1})
+   | a+b` with `ρ_M(x)` the least positive residue).  Every road leads back
+   to the three walls of §10.6/§17: (i) polylog representation count ⇒ no
+   analytic pointwise method (all known pointwise theorems — Linnik,
+   Burgess, Chen — have polynomially many representations); (ii) covering
+   by classes ⇒ dead by the `n ≡ 1 (mod L)` escape (Schinzel/Thm 17.3);
+   (iii) the only structural difference between primes and the provable
+   escapers (squares) is the single quadratic bit, which is pointwise inert
+   (Lemma 17.2).  Brainstormed and discarded this session: Vieta/descent
+   (multilinear, none), Croot/Bloom dense-set methods (three terms, no
+   room), Bateman–Horn/GRH (no prime-value structure anywhere in ES), class
+   groups of `Q(√−pc)` (not pointwise controllable), Freiman/Kneser
+   structure of signed subset sums (irrelevant below `|X| ≪ log q`),
+   p-dependent choices of the shift making `h` a square or `4cp+1` a square
+   (all collapse to polynomial families, dead by §5/§59/§69).  **No
+   unexplored non-walled angle was found; the campaign's wall-map (§14.5,
+   §10.6) is confirmed by an independent derivation.**
+
+**Strategic recommendation.**  (a) Get the loglog note in front of a human
+analytic number theorist now; it is publishable on its own and is the
+cleanest possible advertisement for the rest.  (b) Treat the 3/4 theorem as a
+second paper *after* an external expert has checked §39.7's three points;
+do not merge it into the note.  (c) Freeze the 177-page consolidation draft
+as an internal record; it will not be refereed as is.  (d) Stop the census/
+frame expansion: the last ~10 sections added structure but no leverage.
+(e) If the campaign continues on mathematics, the only open problem with a
+clear payoff is the joint large-prime problem of item 3, and it needs a new
+tool, not more of the same.
+
 ## Outcome 34 (2026-08-30, wave 30 — see notes.md §70–§72 + paper v16; all max-severity-reviewed → repaired / CONFIRMED / FAITHFUL)
 
 * **§70: the a-frame failure law — the first congruence-wall-free frame

@@ -1,5 +1,13 @@
 # Paper draft status
 
+**New (2026-09-06): `vaughan-loglog-note.tex` / `.pdf`** — a 9-page standalone,
+self-contained note proving the unconditional bound
+`E(N) ≪ N exp{-c (log N)^(2/3) (log log N)^(1/3)}` (Theorems 1.1/1.2; source
+notes §16.4/16.5, with the Shiu machinery removed).  Hostile-reviewed
+CORRECT-AFTER-REPAIRS (`reviews/vaughan-loglog-note-review.md`); machine
+checks in `verify.py (bv)`.  This is the artifact to show a human referee
+first.  It does **not** contain the provisional 3/4 theorem.
+
 `espaper.tex` is the v17 standalone `amsart` consolidation draft (177 pages). Its two record headlines remain:
 
 - `E_all(N) ≪ N exp{-c(log N)^(3/4)}`;
