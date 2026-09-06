@@ -30563,6 +30563,7 @@ count.
 
 
 
+
 ---
 
 ## 77. Pointwise hunt: candidate mechanisms outside the three doors, with the obstructions that close them
@@ -30848,9 +30849,15 @@ integrality.  (c) Fixing one coordinate at an integer window \(x>p/4\) with
 the point \(y=z=0\) removed (a \(\mathbb P^1\) minus three points, not a
 torsor); its points with \(y,z\geq1\) integers are the divisor pairs
 \((D,p^2x^2/D)\) with \(D\equiv-px\pmod q\) (Theorem 3.1; the cofactor
-congruence is automatic because \(\gcd(px,q)=1\)), finitely many; the
-only regular automorphism of the fibre preserving them is the swap
-\(y\leftrightarrow z\); the parity-type argument of Zagier for \(x^2+4yz=p\) needs a set
+congruence is automatic because \(\gcd(px,q)=1\)), finitely many.  The
+automorphism group of the punctured fibre is the \(S_3\) permuting its
+three punctures \(Y:=qy-px\in\{0,\infty,-px\}\); besides the identity,
+only the swap \(Y\mapsto p^2x^2/Y\) carries a solution point to a point
+with integer coordinates, since the other four elements send \(Y=D\) to
+\(-D-px\), \(-p^2x^2/D-px\), \(-p^2x^2/(D+px)\) or \(-pxD/(D+px)\),
+for which \(y'=(Y'+px)/q\) is \(-D/q\), \(-D'/q\), \(pxD/(q^2m)\) or
+\(p^2x^2/(q^2m)\) (\(D'=p^2x^2/D\), \(D+px=qm\)), none an integer as
+\(\gcd(pxDD',q)=1\); the parity-type argument of Zagier for \(x^2+4yz=p\) needs a set
 with an involution having an odd number of fixed points, and Lemma 77.13
 below shows the natural solution set has none.  (d) Correspondences that
 are not automorphisms (secant and tangent constructions on the cubic
@@ -31164,9 +31171,9 @@ The three doors of §10.6 remain closed; this section adds the following
 to the map, each with a proof or an exact reason:
 
 1. **Automorphisms.**  \({\rm Aut}(U_p^\circ)=S_4\) (Theorem 77.4), the
-   extra involutions are explicit and integrality-breaking, and the open
-   fibres are punctured split conics whose positive solution points are
-   permuted only by the swap.  No regular automorphism of the surface gives a Vieta-type
+   extra involutions are explicit and integrality-breaking, and on the
+   open fibres (punctured split conics) only the swap carries solution
+   points to integral points.  No regular automorphism of the surface gives a Vieta-type
    mechanism, obvious or not.  The natural solution set carries a free
    \(S_3\)-action (Lemma 77.13), so no Zagier-type parity argument on it
    exists.
@@ -31203,9 +31210,9 @@ those of \(s\) (with the valuation proviso of §77.1), which never produce
 not dividing \(L/4\) (for \(8\mid L\) these are the primes not dividing
 \(L\); for \(v_2(L)=2\) the prime \(2\) is uncontrolled: \(p=13\),
 \(L=12\), \(q=3\), \(x=4\), \(2\equiv-1\)), whose residues the class does
-not control, while at moduli \(q\nmid L\) the residue of \(p\) is free
-modulo \(q/\gcd(q,L)\) and hits may be trivial (\(p=97\), \(q=7\):
-\(-p\equiv1\)) — but those are congruence families, each escaped by a
+not control, while at moduli \(q\nmid L\) the class constrains \(p\) modulo \(q\)
+only through \(p\equiv1\pmod{\gcd(q,L)}\), and hits may be trivial
+(\(p=97\), \(q=7\): \(-p\equiv1\)) — but those are congruence families, each escaped by a
 larger \(L\).  The number of candidate \(s\) up to any
 scale carries a polylogarithmic expected number of hits (Assessment 75.9).  The honest
 output of this hunt is therefore: **no non-walled pointwise mechanism was
