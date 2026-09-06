@@ -14576,4 +14576,545 @@ print("\n== (bs) a-frame failure census (§72) ==")
 check_bs()
 
 
+# ---------------------------------------------------------------- (bt)
+def check_bt():
+    """§73: mechanism trichotomy, explicit Brun bound, and block replay."""
+    import os
+    from math import comb
+    from time import perf_counter
+
+    started = perf_counter()
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    scan_limit = 200_000 if full_scan else 20_000
+
+    # Python-int SPF table.  Factor, subgroup, and bounded-product paths never
+    # receive a NumPy scalar or fixed-width integer.
+    spf = list(range(scan_limit + 1))
+    for q in range(2, isqrt(scan_limit) + 1):
+        if spf[q] == q:
+            for multiple in range(q * q, scan_limit + 1, q):
+                if spf[multiple] == multiple:
+                    spf[multiple] = q
+
+    def factors_spf(value):
+        value = int(value)
+        factors = []
+        while value > 1:
+            q = int(spf[value])
+            exponent = 0
+            while value % q == 0:
+                value //= q
+                exponent += 1
+            factors.append((q, exponent))
+        return tuple(factors)
+
+    def ratio_spectrum(a, factors):
+        reachable = {1}
+        for q, budget in factors:
+            powers = {int(pow(q % a, exponent, a))
+                      for exponent in range(-budget, budget + 1)}
+            reachable = {int(x * y % a)
+                         for x in reachable for y in powers}
+        return reachable
+
+    def generated_subgroup(a, factors):
+        subgroup = {1}
+        for q, _ in factors:
+            cyclic = set()
+            value = 1
+            while value not in cyclic:
+                cyclic.add(value)
+                value = int(value * (q % a) % a)
+            assert value == 1
+            subgroup = {int(x * y % a)
+                        for x in subgroup for y in cyclic}
+        return subgroup
+
+    def classify_failed(a, factors):
+        spectrum = ratio_spectrum(a, factors)
+        assert a - 1 not in spectrum
+        subgroup = generated_subgroup(a, factors)
+        if a - 1 not in subgroup:
+            # Lemma 70.1: this is exactly quadratic confinement.
+            assert len(subgroup) % 2 == 1
+            assert all(pow(q % a, (a - 1) // 2, a) == 1
+                       for q, _ in factors)
+            return "F1", None
+        if len(subgroup) < a - 1:
+            assert len(subgroup) % 2 == 0
+            assert all(q % a in subgroup for q, _ in factors)
+            index = int((a - 1) // len(subgroup))
+            assert index >= 3 and index % 2 == 1
+            return "CF3", index
+        assert len(subgroup) == a - 1
+        return "BLK", None
+
+    # Exact trichotomy replay on every unit h in the displayed box.
+    trichotomy = {}
+    for a in (7, 11, 19, 23, 31, 43):
+        counts = Counter()
+        confined_indices = Counter()
+        units = failures = 0
+        for h in range(1, scan_limit + 1):
+            if gcd(h, a) != 1:
+                continue
+            units += 1
+            factors = factors_spf(h)
+            spectrum = ratio_spectrum(a, factors)
+            subgroup = generated_subgroup(a, factors)
+            # The unbudgeted alternatives are exhaustive and disjoint even
+            # when the bounded box succeeds.
+            group_flags = (
+                a - 1 not in subgroup,
+                a - 1 in subgroup and len(subgroup) < a - 1,
+                len(subgroup) == a - 1,
+            )
+            assert sum(group_flags) == 1
+            if a - 1 in spectrum:
+                continue
+            failures += 1
+            kind, index = classify_failed(a, factors)
+            counts[kind] += 1
+            if kind == "CF3":
+                confined_indices[index] += 1
+        assert failures == sum(counts.values())
+        trichotomy[a] = (
+            units, failures, counts["F1"],
+            tuple(sorted(confined_indices.items())), counts["BLK"],
+        )
+
+    expected_default = {
+        # Changing one mechanism changes a pinned row and requires an explicit
+        # review of the classification.
+        7: (17_143, 5_499, 3_350, (), 2_149),
+        11: (18_182, 7_393, 2_861, (), 4_532),
+        19: (18_948, 10_093, 2_427, ((3, 275),), 7_391),
+        23: (19_131, 11_610, 4_888, (), 6_722),
+        31: (19_355, 13_029, 4_421, ((3, 473), (5, 154)), 7_981),
+        43: (19_535, 14_120, 1_935, ((3, 1_007), (7, 139)), 11_039),
+    }
+    if not full_scan:
+        assert trichotomy == expected_default
+
+    # A toy F1 stack.  Bonferroni through the even level k=2 is an exact
+    # pointwise upper bound.  The second bound replaces every CRT count by
+    # N/(24d)+1, exactly as in Lemma 73.2.
+    toy_moduli = (3, 7, 11, 19, 23, 31, 43, 47)
+    toy_Z, toy_N, k = toy_moduli[-1], 1_000_000, 2
+    toy_primes = tuple(int(q) for q in primerange(toy_Z + 1, 201))
+    omega = {
+        q: frozenset(
+            (-a) % q for a in toy_moduli
+            if pow(q % a, (a - 1) // 2, a) == a - 1
+        )
+        for q in toy_primes
+    }
+    assert all(len(omega[q]) == sum(
+        pow(q % a, (a - 1) // 2, a) == a - 1
+        for a in toy_moduli
+    ) for q in toy_primes)
+
+    exact_survivors = exact_bonferroni = 0
+    for n in range(1, toy_N + 1, 24):
+        bad = sum(n % q in omega[q] for q in toy_primes)
+        exact_survivors += bad == 0
+        exact_bonferroni += sum(
+            (-1) ** j * comb(bad, j) for j in range(min(k, bad) + 1)
+        )
+    assert exact_bonferroni >= exact_survivors
+
+    elementary_x = [Fraction(1)] + [Fraction(0)] * k
+    elementary_w = [1] + [0] * k
+    for q in toy_primes:
+        xq = Fraction(len(omega[q]), q)
+        wq = len(omega[q])
+        for j in range(k, 0, -1):
+            elementary_x[j] += elementary_x[j - 1] * xq
+            elementary_w[j] += elementary_w[j - 1] * wq
+    truncated_density = sum(
+        (-1) ** j * elementary_x[j] for j in range(k + 1)
+    )
+    crt_error = sum(elementary_w)
+    fl_upper = Fraction(toy_N, 24) * truncated_density + crt_error
+    fl_upper_integer = (fl_upper.numerator + fl_upper.denominator - 1) \
+        // fl_upper.denominator
+    assert fl_upper_integer >= exact_survivors
+
+    # Finite Mertens calibration only; this is not used as an analytic proof.
+    mertens_limit = 100_000
+    mertens_primes = tuple(int(q) for q in primerange(2, mertens_limit + 1))
+    mertens_C = 2.0
+    mertens_rows = []
+    for a in (7, 11, 43, 103):
+        observed = sum(
+            1.0 / q for q in mertens_primes
+            if q != a and pow(q % a, (a - 1) // 2, a) == a - 1
+        )
+        baseline = 0.5 * log(log(mertens_limit))
+        deficit = baseline - observed
+        allowance = 0.5 * log(mertens_C * log(a)) + mertens_C
+        assert deficit <= allowance
+        mertens_rows.append((a, observed, baseline, deficit, allowance))
+
+    # Replay the same first-a paths used by §72.  Compare all failed prime-a
+    # rows before the first hit with the paths whose first hit lies above 43.
+    census_limit = 10_000_000 if full_scan else 1_000_000
+
+    def factors_sympy(value):
+        return tuple((int(q), int(e))
+                     for q, e in factorint(int(value)).items())
+
+    all_paths = Counter()
+    deep_paths = Counter()
+    deep_primes = []
+    hard_count = 0
+    for p0 in primerange(2, census_limit + 1):
+        p = int(p0)
+        if p % 24 != 1:
+            continue
+        hard_count += 1
+        path = []
+        B = (p + 1) // 3
+        for a in range(3, 2 * B + 1, 4):
+            factors = factors_sympy((p + a) // 4)
+            if a - 1 in ratio_spectrum(a, factors):
+                first = a
+                break
+            # The F1/CF3/BLK taxonomy is only asserted for prime a.
+            if a >= 3 and all(a % q for q in range(2, isqrt(a) + 1)):
+                path.append(classify_failed(a, factors)[0])
+        else:
+            raise AssertionError(("admissible range exhausted", p))
+        all_paths.update(path)
+        if first > 43:
+            deep_paths.update(path)
+            deep_primes.append((p, first))
+
+    if not full_scan:
+        assert hard_count == 9_732
+        assert deep_primes == [
+            (87_481, 63), (118_801, 59), (386_401, 55),
+            (496_609, 51), (526_681, 47), (529_489, 51),
+            (532_249, 55), (806_521, 59), (878_641, 47),
+            (944_329, 47),
+        ]
+        assert all_paths == Counter({"F1": 6_054, "BLK": 136, "CF3": 12})
+        assert deep_paths == Counter({"F1": 64, "BLK": 10, "CF3": 4})
+
+    all_total = sum(all_paths.values())
+    deep_total = sum(deep_paths.values())
+    assert deep_total
+    # Both full-generation blocks and all budget failures are enriched along
+    # these finite deep paths.  The assertions are exact cross-products.
+    assert deep_paths["BLK"] * all_total > all_paths["BLK"] * deep_total
+    assert (deep_paths["BLK"] + deep_paths["CF3"]) * all_total > \
+        (all_paths["BLK"] + all_paths["CF3"]) * deep_total
+
+    elapsed = perf_counter() - started
+    if not full_scan:
+        assert elapsed < 15.0
+    print("trichotomy (a: units,fail,F1,CF3(index:count),BLK) =", trichotomy)
+    print("toy Brun (N,Z,k,q-count,exact,exact-Bonf,FL-upper,ratio) =",
+          (toy_N, toy_Z, k, len(toy_primes), exact_survivors,
+           exact_bonferroni, fl_upper_integer,
+           float(fl_upper / exact_survivors)))
+    print("Mertens finite rows (a,observed,half-loglog,deficit,allowance; C=2) =",
+          mertens_rows)
+    print("block replay (limit,hard,deep,all-mix,deep-mix,seconds) =",
+          (census_limit, hard_count, deep_primes, dict(all_paths),
+           dict(deep_paths), elapsed))
+
+
+print("\n== (bt) block reduction and dimension-uniform Brun sieve (§73) ==")
+check_bt()
+
+
+# ---------------------------------------------------------------- (bu)
+def check_bu():
+    """§74: F3 subgroup strata and the target-transversal obstruction."""
+    import os
+    from time import perf_counter
+
+    started = perf_counter()
+    full_scan = os.environ.get("ES_FULL_SCAN") == "1"
+    scan_limit = 200_000 if full_scan else 20_000
+
+    # Python-int SPF table; all downstream factor, product, order, and
+    # subgroup paths remain Python-int-only.
+    spf = list(range(scan_limit + 1))
+    for q in range(2, isqrt(scan_limit) + 1):
+        if spf[q] == q:
+            for multiple in range(q * q, scan_limit + 1, q):
+                if spf[multiple] == multiple:
+                    spf[multiple] = q
+
+    def factors_spf(value):
+        value = int(value)
+        factors = []
+        while value > 1:
+            q = int(spf[value])
+            exponent = 0
+            while value % q == 0:
+                value //= q
+                exponent += 1
+            factors.append((q, exponent))
+        return tuple(factors)
+
+    def ratio_spectrum(factors, a):
+        reachable = {1}
+        for q, exponent in factors:
+            powers = {int(pow(q % a, j, a))
+                      for j in range(-exponent, exponent + 1)}
+            reachable = {int(r * power % a)
+                         for r in reachable for power in powers}
+        return reachable
+
+    def generated_subgroup(factors, a):
+        subgroup = {1}
+        for q, _ in factors:
+            residue = int(q % a)
+            cyclic = {int(pow(residue, j, a)) for j in range(a - 1)}
+            subgroup = {int(x * y % a)
+                        for x in subgroup for y in cyclic}
+        return subgroup
+
+    def element_order(g, a):
+        value = 1
+        for order in range(1, a):
+            value = int(value * g % a)
+            if value == 1:
+                return order
+        raise AssertionError(("order not found", g, a))
+
+    def orbit_budget(subgroup, quadratics, a):
+        marked = set(subgroup) - set(quadratics)
+        seen = set()
+        budget = 0
+        for g in sorted(marked):
+            if g in seen:
+                continue
+            inverse = int(pow(g, -1, a))
+            orbit = {g, inverse}
+            assert orbit <= marked
+            seen.update(orbit)
+            order = element_order(g, a)
+            assert order % 2 == 0 and pow(g, order // 2, a) == a - 1
+            budget += order // 2 - 1
+        assert seen == marked
+        return budget
+
+    moduli = (7, 11, 19, 23, 31, 43)
+    group_data = {}
+    budget_table = {}
+    for a in moduli:
+        n = (a - 1) // 2
+        generator = int(primitive_root(a))
+        quadratics = {int(x * x % a) for x in range(1, a)}
+        assert len(quadratics) == n
+        subgroups = {}
+        budgets = {}
+        for d in range(1, n + 1):
+            if n % d:
+                continue
+            subgroup = {
+                int(pow(generator, (a - 1) // (2 * d) * j, a))
+                for j in range(2 * d)
+            }
+            assert len(subgroup) == 2 * d
+            assert len(subgroup & quadratics) == d
+            subgroups[d] = subgroup
+            budgets[d] = orbit_budget(subgroup, quadratics, a)
+        group_data[a] = (quadratics, subgroups, budgets)
+        budget_table[a] = tuple(sorted(budgets.items()))
+
+    expected_budget_table = {
+        7: ((1, 0), (3, 2)),
+        11: ((1, 0), (5, 8)),
+        19: ((1, 0), (3, 2), (9, 26)),
+        23: ((1, 0), (11, 50)),
+        31: ((1, 0), (3, 2), (5, 8), (15, 66)),
+        43: ((1, 0), (3, 2), (7, 18), (21, 140)),
+    }
+    assert budget_table == expected_budget_table
+    assert dict(budget_table[7])[3] == 2  # the K_7 pin from (70.15)
+
+    strata = {}
+    blk_counts = {}
+    target_g_checks = {}
+    for a in moduli:
+        n = (a - 1) // 2
+        quadratics, subgroups, budgets = group_data[a]
+        counts = Counter()
+        blk = checked_g = 0
+        for h in range(1, scan_limit + 1):
+            if gcd(h, a) != 1:
+                continue
+            factors = factors_spf(h)
+            reachable = ratio_spectrum(factors, a)
+            failed = a - 1 not in reachable
+            all_quadratic = all(int(q % a) in quadratics for q, _ in factors)
+            if all_quadratic:
+                assert failed
+                continue
+            if not failed:
+                continue
+
+            # This is F3.  Replay the exact generated subgroup stratum.
+            subgroup = generated_subgroup(factors, a)
+            assert len(subgroup) % 2 == 0 and a - 1 in subgroup
+            d = len(subgroup) // 2
+            assert subgroup == subgroups[d]
+            assert all(int(q % a) in subgroup for q, _ in factors)
+            omega_marked = sum(
+                exponent for q, exponent in factors
+                if int(q % a) in subgroup - quadratics
+            )
+            assert omega_marked <= budgets[d]
+            counts[d] += 1
+
+            if d != n:
+                continue
+            blk += 1
+
+            # For every realized nonresidue class, replay Lemma 74.5's
+            # involutive pairing of Q and its multiplicity-one fixed point.
+            class_multiplicity = Counter()
+            for q, exponent in factors:
+                class_multiplicity[int(q % a)] += int(exponent)
+            realized_nr = [
+                g for g in class_multiplicity if g not in quadratics
+            ]
+            assert realized_nr
+            for g in realized_nr:
+                checked_g += 1
+                assert g != a - 1
+                t = int((-pow(g, -1, a)) % a)
+                assert t in quadratics and t != 1
+                c0 = int(pow(t, (n + 1) // 2, a))
+                assert c0 in quadratics and int(c0 * c0 % a) == t
+                assert class_multiplicity[c0] <= 1
+                for c in quadratics:
+                    mate = int(t * pow(c, -1, a) % a)
+                    assert mate in quadratics
+                    if c == c0:
+                        assert mate == c0
+                    else:
+                        assert not (
+                            class_multiplicity[c]
+                            and class_multiplicity[mate]
+                        )
+        strata[a] = dict(sorted(counts.items()))
+        blk_counts[a] = blk
+        target_g_checks[a] = checked_g
+        assert blk and checked_g >= blk
+
+    expected_default = {
+        7: {3: 2_149},
+        11: {5: 4_532},
+        19: {3: 275, 9: 7_391},
+        23: {11: 6_722},
+        31: {3: 154, 5: 473, 15: 7_981},
+        43: {3: 139, 7: 1_007, 21: 11_039},
+    }
+    expected_full = {
+        7: {3: 18_992},
+        11: {5: 40_171},
+        19: {3: 2_296, 9: 66_426},
+        23: {11: 61_744},
+        31: {3: 1_313, 5: 3_991, 15: 74_180},
+        43: {3: 1_135, 7: 8_300, 21: 102_673},
+    }
+    assert strata == (expected_full if full_scan else expected_default)
+    assert blk_counts == (
+        {7: 18_992, 11: 40_171, 19: 66_426,
+         23: 61_744, 31: 74_180, 43: 102_673}
+        if full_scan else
+        {7: 2_149, 11: 4_532, 19: 7_391,
+         23: 6_722, 31: 7_981, 43: 11_039}
+    )
+
+    # Prime n=11 has no nonempty proper F3 stratum.  For n=21 the d=7
+    # channel is the largest proper subgroup stratum and is actually seen.
+    assert {d for d, count in strata[23].items() if d < 11 and count} <= {1}
+    assert not strata[23].get(1, 0)
+    proper_43 = {d for d, count in strata[43].items() if d < 21 and count}
+    assert proper_43 and max(proper_43) == 7 and strata[43][7] > 0
+
+    # Independent all-prime table through 60.  Its full-group entry is K_a;
+    # subgroup entries are B_{a,K}.  This also catches accidental dependence
+    # on just the six scan moduli above.
+    small_budget_table = {}
+    for a0 in primerange(3, 61):
+        a = int(a0)
+        if a % 4 != 3:
+            continue
+        n = (a - 1) // 2
+        generator = int(primitive_root(a))
+        quadratics = {int(x * x % a) for x in range(1, a)}
+        rows = []
+        for d in range(1, n + 1):
+            if n % d:
+                continue
+            subgroup = {
+                int(pow(generator, (a - 1) // (2 * d) * j, a))
+                for j in range(2 * d)
+            }
+            rows.append((d, orbit_budget(subgroup, quadratics, a)))
+        small_budget_table[a] = tuple(rows)
+    assert small_budget_table == {
+        3: ((1, 0),),
+        7: ((1, 0), (3, 2)),
+        11: ((1, 0), (5, 8)),
+        19: ((1, 0), (3, 2), (9, 26)),
+        23: ((1, 0), (11, 50)),
+        31: ((1, 0), (3, 2), (5, 8), (15, 66)),
+        43: ((1, 0), (3, 2), (7, 18), (21, 140)),
+        47: ((1, 0), (23, 242)),
+        59: ((1, 0), (29, 392)),
+    }
+
+    # INFO/Assessment arithmetic from §74.2.  These are scale factors only;
+    # unknown Selberg--Delange constants make them non-predictions.
+    x = 10_000_000
+    log_x = log(x)
+    loglog_x = log(log_x)
+    f1_order = log_x ** (-0.5)
+    transient = {}
+    census_shares = {23: 19 / 315, 43: 935 / 1_277}
+    for a, d in ((23, 1), (43, 7)):
+        n = (a - 1) // 2
+        B = dict(small_budget_table[a])[d]
+        K_a = dict(small_budget_table[a])[n]
+        pure = log_x ** (d / n - 1)
+        refined = log_x ** (d / (2 * n) - 1) * loglog_x ** B
+        beta_target = (3 * n + 1) / (4 * n)
+        target = log_x ** (-beta_target) * loglog_x ** (K_a + 1)
+        transient[a] = {
+            "F1": f1_order,
+            "proper_pure": pure,
+            "proper_pure/F1": pure / f1_order,
+            "proper_budget": refined,
+            "proper_budget/F1": refined / f1_order,
+            "target_bound": target,
+            "target_bound/F1": target / f1_order,
+            "census_F3_share": census_shares[a],
+        }
+    assert 0.060 < transient[23]["census_F3_share"] < 0.061
+    assert 0.732 < transient[43]["census_F3_share"] < 0.733
+
+    elapsed = perf_counter() - started
+    if not full_scan:
+        assert elapsed < 15.0
+    print("F3 subgroup strata (a -> d:count; limit) =", (strata, scan_limit))
+    print("B_(a,K) / K_a tables through 60 =", small_budget_table)
+    print("BLK target-pair replay (BLK h, realized-g checks) =",
+          (blk_counts, target_g_checks))
+    print("transient orders at x=10^7 INFO/Assessment =", transient)
+    print("bu full/seconds =", (full_scan, elapsed))
+
+
+print("\n== (bu) F3 strata and target transversals (§74) ==")
+check_bu()
+
+
 print("\nall checks passed")

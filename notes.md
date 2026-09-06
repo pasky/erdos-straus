@@ -28513,3 +28513,1015 @@ failure estimate, (72.6) supplies no decorrelation theorem, (72.12) supplies
 no threshold theorem, and the unchanged maximum in (72.8) supplies no bound
 on \(a_1(p)\).  None of these finite computations proves that \(a_1\) is
 finite for the next hard prime, let alone for every hard prime.
+
+## 73. Block reduction at the dimension-uniform Brun level
+
+**Status.**  The mechanism trichotomy, its maximal-subgroup cover, the
+explicit dimension-uniform Bonferroni--Brun lemma, the uniform one-coordinate
+confinement bounds, and the no-block moving-dimensional stack below are
+**proved**.  The analytic inputs are the classical effective character PNT,
+Mertens theorem, and fixed-modulus PNT stated below.  The possible real
+exceptional zero is displayed, and its favorable sign is used explicitly.
+The resulting **confinement-only** stack is unconditional for every fixed
+\(0<\theta<1\), but its exponent contains the genuine factor \(1-\theta\).
+It bounds F1 and proper-subgroup confinement majorants of CF3, not the full
+failure intersection or the Erdős--Straus exceptional set.  Blocks are still
+uncontrolled; no unconditional improvement on Vaughan's \(2/3\) or the
+notes' claimed/provisional \(3/4\) follows.
+Block (bt) is **Computational**, exact only in its displayed finite ranges.
+
+There are three corrections to the motivating sketch.  First, the confined
+budget event cannot be covered by one largest proper even subgroup: such
+subgroups need not be nested.  A union over the prime divisors of
+\((a-1)/2\) is required.  Second, the elementary Brun truncation loses
+\(1-\theta\), and at one coordinate it leaves polylogarithmic factors; it
+therefore proves the exponent-level, not the literal constant-normalized,
+\(H_{\rm FAIL}\) statement (71.37).  Third, an absolute upper bound for
+non-block-dominated deep primes gives no conditional-density statement among
+deep primes without a lower bound for the latter.  No such density claim is
+made here.
+
+Put
+\[
+ G_a=({\mathbb Z}/a{\mathbb Z})^*,\qquad
+ n_a={a-1\over2},\qquad Q_a=G_a^2,                       \tag{73.1}
+\]
+where throughout this section \(a\equiv3\pmod4\) is prime.  Thus \(n_a\) is
+odd.  For \((h,a)=1\), let \(S_a(h)\) be the set of classes of the prime
+divisors of \(h\), and put \(K_a(h)=\langle S_a(h)\rangle\).  A **block**
+means full generation but failure of the bounded ratio spectrum:
+\[
+ {\rm BLK}_a(h):\quad K_a(h)=G_a,
+                  \qquad -1\notin {\rm Rat}_a(h).        \tag{73.2}
+\]
+All integer counts below are over positive integers.  Extend the indicators
+of F1, CF3, BLK, and the confinement events (73.4) by zero when \((h,a)>1\);
+the subgroup and ratio spectrum themselves are used only for units.  This
+makes the integer-frame statements unambiguous and loses no hard prime
+\(p>3Z/2\) with \(a\leq Z\).
+
+### 73.1 The exact three mechanisms and the necessary subgroup union
+
+**Lemma 73.1 (mechanism trichotomy; proved).**  If \((h,a)=1\) and
+\(-1\notin{\rm Rat}_a(h)\), exactly one of the following holds.
+
+1. \(K_a(h)\) has odd order, equivalently \(K_a(h)\subseteq Q_a\).
+   This is exactly \(F1_a(h)\): every prime divisor of \(h\) is a quadratic
+   residue modulo \(a\).
+2. \(K_a(h)\) is a proper even-order subgroup.  Write this event, including
+   the bounded-spectrum failure, as \({\rm CF3}_a(h)\).
+3. \(K_a(h)=G_a\).  This is \({\rm BLK}_a(h)\).
+
+If case 2 holds, then \(|K_a(h)|=2d\) for a proper divisor \(d\mid n_a\),
+and every prime factor of \(h\) lies in \(K_a(h)\).  In particular its
+allowed-class density is
+\[
+             {|K_a(h)|\over a-1}={d\over n_a}\leq{1\over3}.       \tag{73.3}
+\]
+
+*Proof.*  Lemma 70.1 says that a subgroup of the cyclic group \(G_a\) misses
+its unique involution \(-1\) if and only if it has odd order, if and only if
+it is contained in \(Q_a\).  In that case all members of \(S_a(h)\) are
+quadratic residues; conversely, all-residue prime factors generate a subgroup
+of \(Q_a\).  This proves the equivalences in case 1.  If \(-1\in K_a(h)\),
+then \(|K_a(h)|\) is even.  It is either proper or all of \(G_a\), giving the
+disjoint alternatives 2 and 3.  They exhaust every failure.
+
+Every even-order subgroup of the cyclic group of order \(2n_a\) has order
+\(2d\) for a unique \(d\mid n_a\).  Properness says \(d<n_a\).  Since
+\(n_a\) is odd, every prime divisor of \(n_a/d\) is at least three, whence
+\(d/n_a\leq1/3\).  Finally, the generators \(S_a(h)\) lie in the subgroup
+they generate. \(\square\)
+
+There is generally no single proper even subgroup containing all the others.
+For example, if \(15\mid n_a\), the subgroups of orders \(2n_a/3\) and
+\(2n_a/5\) are incomparable.  The correct economical cover is as follows.
+For each prime \(\ell\mid n_a\), let
+\[
+ K_{a,\ell}\leq G_a,
+ \qquad |K_{a,\ell}|={2n_a\over\ell},
+ \qquad {\rm C}_{a,\ell}(h)=
+   \{q\mid h\Rightarrow q\bmod a\in K_{a,\ell}\}.       \tag{73.4}
+\]
+Then
+\[
+       {\rm CF3}_a\subseteq
+       \bigcup_{\ell\mid n_a,\ \ell\ {\rm prime}}{\rm C}_{a,\ell}. \tag{73.5}
+\]
+Indeed, choose a prime \(\ell\mid n_a/d\) in Lemma 73.1; the unique subgroup
+of order \(2d\) is contained in the unique subgroup of order
+\(2n_a/\ell\).  Each event in (73.4) is a completely multiplicative
+zero--one condition and excludes density \(1-1/\ell\geq2/3\) of the reduced
+prime classes.  The price is \(\omega(n_a)\) alternatives, not one
+``CF3 letter.''  Across \(J\) coordinates this costs at most
+\[
+ \prod_a(1+\omega(n_a))
+       \leq\exp\{O(J\log\log(3Z))\},                     \tag{73.6}
+\]
+which will be lower order, but it must not be replaced by \(3^J\) without
+this subgroup expansion.
+
+### 73.2 An explicit dimension-uniform Bonferroni--Brun lemma
+
+The following lemma is proved from scratch.  It is not attributed to any
+uniform-in-dimension sieve theorem.
+
+**Lemma 73.2 (dimension-uniform fundamental lemma; proved, effective).**
+Let \(N\geq3\), let \(M\geq1\) be an integer, let \(b\pmod M\) be one
+residue class, and let \({\cal Q}\) be a finite set of primes not dividing
+\(M\).  For each \(q\in{\cal Q}\),
+let \(\Omega_q\) contain \(0\leq\omega_q<q\) residue classes modulo \(q\).
+Put
+\[
+ x_q={\omega_q\over q},\quad
+ G=\sum_{q\in{\cal Q}}x_q,\quad
+ B=\sum_{q\in{\cal Q}}x_q^2,\quad
+ A=\sum_{q\in{\cal Q}}\omega_q,\quad
+ V=\prod_{q\in{\cal Q}}(1-x_q).                         \tag{73.7}
+\]
+For an even integer \(k=2r\geq2\), put \(m=k+1\).  The sifted set
+\[
+ {\cal S}=\{t\in\mathbb Z:1\leq t\leq N,\ t\equiv b\pmod M,
+                    \ t\bmod q\notin\Omega_q\ (q\in{\cal Q})\}
+\]
+satisfies, **provided \(m\geq2G\)**,
+\[
+ |{\cal S}|\leq {N\over M}V(1+E_1)+E_2,                \tag{73.8}
+\]
+where, whenever \(m\geq2G\),
+\[
+ E_1=2\exp\left\{G+{B\over2(1-\eta)}\right\}
+              \left({eG\over m}\right)^m,
+ \quad \eta=\max_qx_q<1,\quad(\eta=0\hbox{ if }\mathcal Q=\varnothing),                               \tag{73.9}
+\]
+and in all cases
+\[
+ E_2=\sum_{j=0}^{k}e_j((\omega_q)_{q\in{\cal Q}})
+       \leq\sum_{j=0}^{k}{A^j\over j!}.                \tag{73.10}
+\]
+Here \(e_j\) is the elementary symmetric polynomial.  If \(A\geq k\),
+then explicitly
+\[
+                  E_2\leq(k+1)\left({eA\over k}\right)^k;        \tag{73.11}
+\]
+if \(A<k\), the always-valid bound \(E_2\leq e^A\) applies.  In particular,
+(73.11) is at most \(N^{1/2}\) under the level condition
+\[
+       k\log(eA/k)+\log(k+1)\leq\tfrac12\log N.          \tag{73.12}
+\]
+If \(\eta\leq1/3\) and \(m\geq8G\), then
+\[
+ E_1\leq2\exp\{-(8\log8-37/4)G\};                     \tag{73.13}
+\]
+thus the relative error tends to zero as \(G\to\infty\), uniformly over
+all the other parameters subject to these inequalities.
+
+*Proof.*  For squarefree \(d\mid\prod_{q\in{\cal Q}}q\), let
+\(\rho(d)=\prod_{q\mid d}\omega_q\).  The Chinese remainder theorem gives
+\[
+ \#\{t\leq N:t\equiv b\pmod M,
+                 \ t\bmod q\in\Omega_q\ (q\mid d)\}
+       ={N\rho(d)\over Md}+R_d,
+       \qquad |R_d|\leq\rho(d),                         \tag{73.14}
+\]
+because there are exactly \(\rho(d)\) classes modulo \(Md\), and each
+class count differs from \(N/(Md)\) by at most one.
+
+The even Bonferroni inequality truncates inclusion--exclusion from above at
+\(k\).  Substitution of (73.14), followed by absolute values only on the
+remainders, gives
+\[
+ |{\cal S}|\leq {N\over M}\sum_{j=0}^{k}(-1)^je_j((x_q))
+                  +\sum_{j=0}^{k}e_j((\omega_q)).        \tag{73.15}
+\]
+The full first sum is \(V\).  Its omitted absolute tail is at most
+\[
+ \sum_{j\geq m}e_j((x_q))
+       \leq\sum_{j\geq m}{G^j\over j!}
+       \leq2\left({eG\over m}\right)^m                \tag{73.16}
+\]
+when \(m\geq2G\): the terms after the first are bounded by a geometric
+series of ratio at most \(G/(m+1)\leq1/2\), and
+\(m!\geq(m/e)^m\).  Also
+\[
+ -\log V\leq G+{B\over2(1-\eta)},                       \tag{73.17}
+\]
+since \(-\log(1-x)-x\leq x^2/(2(1-\eta))\) for
+\(0\leq x\leq\eta\).  Thus
+\(V\geq\exp\{-G-B/(2(1-\eta))\}\); dividing (73.16) by this lower bound
+proves (73.8)--(73.10).
+
+The inequality \(e_j((\omega_q))\leq A^j/j!\) follows by expanding
+\(A^j\): each product with \(j\) distinct indices occurs \(j!\) times.
+If \(A\geq k\), the terms \(A^j/j!\) increase through \(j=k\), and
+\(k!\geq(k/e)^k\) proves (73.11); summing the full exponential proves the
+other case.  This also proves (73.12).  Finally \(B\leq\eta G\leq G/3\),
+so the exponent preceding the last factor in (73.9) is at most \(5G/4\).
+If \(G=0\), (73.13) is immediate.  Otherwise the function
+\(u(1-\log u)\) decreases for \(u>1\); putting \(m/G\geq8\) gives
+\[
+ {5G\over4}+m\log(eG/m)
+ \leq\{5/4+8(1-\log8)\}G
+ =-(8\log8-37/4)G,
+\]
+which is (73.13). \(\square\)
+
+The lemma also records exactly what ``level'' means here.  There is no
+suppressed constant depending on the number of forms.  Its price is that
+\(k\) must track the full mass \(G\), while (73.12) forces roughly
+\(k\log z\ll\log N\).  This price creates the \(1-\theta\) below.
+
+### 73.3 Uniform prime-class mass, including the exceptional-zero sign
+
+We use the following classical input in precisely the one-sided form needed.
+
+**Standard Fact 73.1 (effective character PNT with the exceptional term).**
+There are effective absolute constants \(c,C>0\) such that, for a primitive
+nonprincipal Dirichlet character \(\chi\pmod k\) and
+\(y\geq\exp\{C(\log(3k))^2\}\),
+\[
+ \vartheta(y,\chi)=
+ -{\bf1}_{\chi\ {\rm real\ and\ exceptional}}{y^\beta\over\beta}
+ +O\{y\exp(-c\sqrt{\log y})\}.                          \tag{73.18}
+\]
+Fix an effective absolute zero-free-region constant \(c_0>0\), small
+enough that at most one zero can lie in the real interval
+\((1-c_0/\log(3k),1)\).  Here ``exceptional'' means that this zero
+\(\beta\) exists; it is simple and belongs to a real character.  There is
+no such term for a nonreal character.  The constants and threshold are
+effective after this possible zero is displayed; no effective lower bound
+on \(1-\beta\) is used.  This is the standard
+exceptional-zero form of the prime number theorem for Dirichlet characters;
+see Montgomery--Vaughan, *Multiplicative Number Theory I: Classical Theory*,
+Cambridge Studies in Advanced Mathematics 97 (2007), Chapter 11, the
+zero-free-region and prime-number-theorem argument in §§11.2--11.3.  Its
+stated hypotheses are primitivity, nonprincipality, and the displayed
+relation between \(y\) and the conductor.  Passing from \(\psi\) there to
+\(\vartheta\) changes the error by \(O(\sqrt y\log^2(2ky))\), which is
+absorbed in (73.18).
+
+We also use the effective second Mertens theorem
+\[
+ \sum_{q\leq y}{1\over q}=\log\log y+B_1+O(1/\log y)     \tag{73.19}
+\]
+for primes \(q\), and the prime number theorem in the fixed progression
+\(3\pmod4\).  These are the classical Mertens and fixed-modulus PNT
+statements (for example Montgomery--Vaughan, Chapters 2 and 11); all uses
+below are effective.  No prime number theorem with a growing progression
+modulus is assumed.
+
+**Lemma 73.3 (uniform one-sided character Mertens bound; proved).**  There is
+an effective absolute \(C_\chi\), independent of the character, such that
+for every **primitive nonprincipal** Dirichlet character \(\chi\pmod k\)
+and every \(v\geq u\geq k\geq3\),
+\[
+ \begin{array}{ll}
+ \displaystyle\Re\sum_{u<q\leq v}{\chi(q)\over q}
+       \leq C_\chi\log\log(3k),&\chi\hbox{ real},\\[6pt]
+ \displaystyle\left|\sum_{u<q\leq v}{\chi(q)\over q}\right|
+       \leq C_\chi\log\log(3k),&\chi\hbox{ nonreal}.
+ \end{array}                                             \tag{73.20}
+\]
+The first inequality is one-sided deliberately.
+
+*Proof.*  Put \(Y=\exp\{C(\log(3k))^2\}\), enlarging the constant from
+Standard Fact 73.1 if necessary.  On \((u,\min(v,Y)]\), absolute values and
+(73.19) cost at most
+\[
+       \log\log Y-\log\log k+O(1)
+       \leq\log\log(3k)+O(1).                            \tag{73.21}
+\]
+On \([\max(u,Y),v]\), partial summation in (73.18) makes the error contribute
+\(O(1)\), uniformly in the endpoints.  For a nonreal character this proves
+the second line.  For a real exceptional character, the Stieltjes
+contribution of the displayed main term is
+\[
+ \int_s^v{1\over t\log t}\,d(-t^\beta/\beta)
+       =-\int_s^v{t^{\beta-2}\over\log t}\,dt\leq0.     \tag{73.22}
+\]
+It therefore biases primes toward \(\chi(q)=-1\), and can only decrease the
+sum whose upper bound is needed.  Dropping this favorable term and combining
+with (73.21) proves the real line effectively. \(\square\)
+
+For reference, the elementary bound requested in the \(L\)-value
+formulation is also available:
+\[
+             |L(1,\chi)|\leq\log(3k)+C,
+ \qquad \log^+|L(1,\chi)|\leq\log(C\log(3k)).            \tag{73.23}
+\]
+Indeed, sum the first period absolutely, and group the remaining Dirichlet
+series into complete periods; \(\sum_{r=1}^k\chi(r)=0\), and subtracting the
+last reciprocal in each period makes the \(j\)-th block \(O(j^{-2})\).
+This proves (73.23) without ineffectivity.  We use (73.20), which avoids a
+need to identify \(\sum_q\chi(q)/q\) with \(\log L(1,\chi)\) at a moving
+cutoff.
+
+For \(a\) prime and \(a\leq u<v\), (73.19)--(73.20) now give
+\[
+ \sum_{u<q\leq v\atop(q/a)=-1}{1\over q}
+ \geq {1\over2}(\log\log v-\log\log u)
+             -C_1\log\log(3a).                          \tag{73.24}
+\]
+This proves the desired one-sided statement in the presence of a Siegel
+zero: its sign is favorable, not an omitted error term.
+
+More generally, let \(K<G_a\) be an even subgroup of index \(m\).  Since
+\(|G_a|=2n_a\) with \(n_a\) odd, \(m\) is odd; hence every nonprincipal
+character of \(G_a/K\) is nonreal.  Character orthogonality gives
+\[
+ {\bf1}_{g\notin K}=1-{1\over m}\sum_{\chi\in(G_a/K)^\wedge}\chi(g).
+                                                               \tag{73.25}
+\]
+Applying the nonreal line of (73.20) to the \(m-1\) nonprincipal terms and
+averaging by \(1/m\) yields, uniformly in \(K\),
+\[
+ \sum_{u<q\leq v\atop q\bmod a\notin K}{1\over q}
+ \geq\left(1-{1\over m}\right)
+       (\log\log v-\log\log u)-C_2\log\log(3a).          \tag{73.26}
+\]
+This is why the confined-budget classes introduce no additional
+exceptional-real-character problem.  The quotient has odd order, contrary
+to the even-quotient description in the motivating sketch.
+
+### 73.4 Uniform components and the no-block stack
+
+For \(n\equiv1\pmod {24}\), recall \(h_a(n)=(n+a)/4\).  If \(q>Z\geq a\)
+and \(q\geq5\), then
+\[
+                       q\mid h_a(n)\quad\Longleftrightarrow\quad
+                       n\equiv-a\pmod q.                 \tag{73.27}
+\]
+For distinct \(a\leq Z<q\), these are distinct classes modulo \(q\).
+Thus a collection of component conditions has exactly
+\[
+ \omega_q=\#\{a:q\hbox{ belongs to the excluded classes for }a\},
+ \qquad G=\sum_a\sum_{Z<q\leq z\atop q\ {\rm excluded\ at}\ a}{1\over q}.
+                                                               \tag{73.28}
+\]
+There is no collision loss in (73.28).
+
+**Theorem 73.A (uniform per-coordinate component bounds; proved,
+effective).**  There are effective absolute constants \(c,C>0\).  Let
+\(x\) be sufficiently large, put \(\Lambda=\log x\), and let
+\[
+ a\equiv3\pmod4\hbox{ be prime},\qquad
+ a\leq\exp\{c\sqrt{\Lambda/\log\Lambda}\}.              \tag{73.29}
+\]
+Uniformly for classes \(r\pmod {24a}\) with \(r\equiv1\pmod {24}\) and
+\((r,a)=1\),
+\[
+ \#\{n\leq x:n\equiv r\pmod {24a},\ F1_a(h_a(n))\}
+ \leq {Cx\over24a}\,
+ { (\log\Lambda)^{1/2}(\log(3a))^C\over\Lambda^{1/2}}, \tag{73.30}
+\]
+and, for every proper even subgroup \(K<G_a\) of index \(m\),
+\[
+ \#\{n\leq x:n\equiv r\pmod {24a},\
+                 q\mid h_a(n)\Rightarrow q\bmod a\in K\}
+ \leq {Cx\over24a}\,
+ { (\log\Lambda)^{1-1/m}(\log(3a))^C
+       \over\Lambda^{1-1/m}}.                            \tag{73.31}
+\]
+Consequently the union majorizing \({\rm CF3}_a\) has exponent at least
+\(2/3-o(1)\) uniformly for \(a\leq\Lambda^A\), for each fixed \(A\), and
+(73.30) has exponent \(1/2-o(1)\) there.
+
+*Proof.*  Apply Lemma 73.2 in the class modulo \(M=24a\), using only primes
+\(a<q\leq z\) in the excluded classes.  Take
+\[
+ r_0=\lceil4(\log\Lambda+C_3)\rceil,
+ \quad k=2r_0,
+ \quad \log z={\Lambda\over16k},                         \tag{73.32}
+\]
+where \(C_3\) is an effective upper-Mertens constant in
+\(\sum_{q\leq y}1/q\leq\log\log y+C_3\).  Then
+\(G\leq\log\Lambda+C_3\), so \(k+1\geq8G\).  Also
+\(A\leq z\).  If \(A\geq k\), (73.11) gives
+\(E_2\leq x^{1/16+o(1)}\); if \(A<k\), (73.10) instead gives
+\(E_2\leq e^A\leq e^k=x^{o(1)}\).  Both are negligible against
+the main term.  Here \(a=x^{o(1)}\), \(G=O(\log\Lambda)\), and (73.17)
+shows the main term is \(x^{1-o(1)}/(24a)\), so this comparison is uniform.
+The local ratios satisfy \(x_q\leq1/q<1/3\).
+
+The range (73.29), with \(c\) small enough, ensures
+\(\log z\geq C(\log(3a))^2\), as required in Standard Fact 73.1.
+Equations (73.24) and (73.26), with lower endpoint \(a\), give respectively
+\[
+ G\geq\delta\log\log z-C_4\log\log(3a),
+ \qquad \delta={1\over2}\quad\hbox{or}\quad1-{1\over m}. \tag{73.33}
+\]
+Since \(\log\log z=\log\Lambda-\log\log\Lambda+O(1)\), substitution in
+(73.8) proves (73.30)--(73.31).  Finally use (73.5),
+\(1-1/m\geq2/3\), and absorb \(\omega(n_a)\leq\log(3a)/\log2\) in the
+power of \(\log(3a)\). \(\square\)
+
+Thus the non-block pieces of \(H_{\rm FAIL}\) are proved with logarithmic
+exponents \(1/2-o(1)\) and at least \(2/3-o(1)\) throughout its
+polylogarithmic modulus range.  This does **not** prove (71.37) literally:
+that hypothesis asks for an absolute \(C_0\) with no
+\((\log\log x)^{O(1)}\) or \((\log a)^{O(1)}\) loss.  The distinction is
+material and is retained below.
+
+Now put \(L=\log N\), fix \(0<\theta<1\), set \(Z=L^\theta\), and let
+\(J=|\mathcal P_Z|\).  A no-block selection chooses at each selected
+coordinate either \(F1_a\), with excluded density \(\delta_a=1/2\), or a
+proper even subgroup \(K_a\) of order \(2d_a\), with
+\[
+       \delta_a=1-{d_a\over n_a}\geq{2\over3},\qquad
+       \kappa(\sigma)=\sum_a\delta_a.                    \tag{73.34}
+\]
+The event attached to the latter letter is the multiplicative majorant that
+all prime factors lie in \(K_a\), not the bounded-spectrum event itself.
+
+**Theorem 73.B (dimension-uniform no-block stacking; proved, effective).**
+For every fixed \(0<\theta<1\), uniformly over all no-block selections
+\(\sigma\) on \(\mathcal P_Z\),
+\[
+ \#\{n\leq N:n\equiv1\pmod {24},\
+       \sigma(a)\hbox{ holds for every }a\in\mathcal P_Z\}
+ \leq N\exp\{-(1-\theta-o(1))\kappa(\sigma)\log L\}.    \tag{73.35}
+\]
+The \(o(1)\) and the effective large-\(N\) threshold are uniform in the
+selection, with \(\theta\) fixed.  The same statement holds for any
+subfamily of at least \(\rho J\) coordinates, for fixed \(0<\rho\leq1\),
+with \(\kappa\) summed only over that subfamily and the threshold also
+allowed to depend on \(\rho\).
+
+**Scope of (73.35).**  This is only a confinement intersection: F1 and the
+proper-subgroup multiplicative majorants of CF3.  In particular, its F1-only
+case has exponent \(((1-\theta)/(4\theta)+o(1))L^\theta\), but is a
+subset, not a majorant, of the full failure set.  The no-block union also
+omits BLK.  Neither is an unconditional first-witness-tail or
+Erdős--Straus exceptional-set estimate.
+
+*Proof.*  Calibrate Lemma 73.2 with the full value of \(J\):
+\[
+ r=\lceil4J(\log L+C_3)\rceil,
+ \quad k=2r,
+ \quad \log z={L\over16k}.                               \tag{73.36}
+\]
+By (73.27), \(\omega_q\) is exactly the number in (73.28), and
+\(\omega_q/q\leq J/Z<1/3\) for all sufficiently large \(N\).  Ordinary
+Mertens gives \(G\leq J(\log L+C_3)\), so \(k+1\geq8G\) and (73.13)
+applies.  Moreover \(A\leq J\pi(z)\leq Jz\), while \(k\geq eJ\)
+eventually.  The lower bound (73.40) below gives \(G\gg_\theta J\log L\),
+and \(G\leq A/Z\), so \(A\geq k\) for all sufficiently large \(N\).
+Hence (73.11) and (73.36) give
+\[
+ \log E_2\leq k\log(eA/k)+O(\log k)
+             \leq k\log z+o(L)\leq L/16+o(L).           \tag{73.37}
+\]
+This is negligible against \(NV\), because \(G=O(J\log L)=O(L^\theta)\).
+All constants are explicit in Lemma 73.2 and no hidden dimension-dependent
+mean-value theorem has entered.
+
+The fixed-modulus prime number theorem gives
+\[
+ J=(1+o(1)){L^\theta\over2\theta\log L}.                \tag{73.38}
+\]
+Consequently (73.36) has
+\[
+ \log\log z-\log\log Z
+      =(1-\theta)\log L+O(\log\log L).                  \tag{73.39}
+\]
+It also has \(\log z\gg L^{1-\theta}\gg(\log(3Z))^2\), so the uniform
+character input applies to every \(a\leq Z\).  Summing (73.24) and (73.26)
+over the coordinates gives
+\[
+ G\geq\kappa(\sigma)(\log\log z-\log\log Z)
+                 -O(J\log\log(3Z)).                     \tag{73.40}
+\]
+The error is \(o(J\log L)\), uniformly in \(\sigma\).  Since
+\(V\leq e^{-G}\), equations (73.8), (73.37), and (73.39)--(73.40) prove
+(73.35).  If at least \(\rho J\) coordinates remain, the same argument uses
+the level (73.36) calibrated by the full \(J\); then \(G\gg_\rho J\log L\),
+so the relative Bonferroni error still tends to zero. \(\square\)
+
+The factor \(1-\theta\) is prominent rather than hidden in an \(o(1)\).
+It comes from \(z=\exp\{O(L/(J\log L))\}\), which is forced by the exact
+remainder sum in (73.37).  The conditional chain in §71 assumed a full
+\(\tfrac12\log L\) saving per modulus; that assumption contains precisely
+the range which the elementary dimension-uniform sieve does not reach.
+
+### 73.5 The block reduction
+
+**Corollary 73.C(i) (unconditional absolute block reduction; proved).**
+Fix \(0<\theta<1\) and \(0<\rho<1\), put \(Z=L^\theta\), and count only
+prime coefficients in \(\mathcal P_Z\).  Then
+\[
+ \begin{split}
+ \#\{p\leq N:p\equiv1\pmod {24},\ p\hbox{ prime},\ a_1(p)>Z,\\
+ \#\{a\in\mathcal P_Z:{\rm BLK}_a(h_a(p))\}
+                         \leq(1-\rho)J\}
+ \leq N\exp\left\{-\left({\rho(1-\theta)\over4\theta}+o(1)\right)
+                         L^\theta\right\}.              \tag{73.41}
+ \end{split}
+\]
+
+*Proof.*  Apart from \(O(Z)\) small primes, \(a_1(p)>Z\) forces failure at
+every \(a\in\mathcal P_Z\).  A prime counted in (73.41) has at least
+\(\rho J\) non-block coordinates.  Choose \(\lceil\rho J\rceil\) of them.
+At each chosen coordinate Lemma 73.1 gives F1 or CF3, and (73.5) replaces a
+CF3 event by one of its maximal-subgroup multiplicative majorants.  The
+number of subset and letter choices is at most
+\[
+       2^J\prod_{a\in\mathcal P_Z}(1+\omega(n_a))
+       =\exp\{O(J\log\log(3Z))\}.                        \tag{73.42}
+\]
+For each choice Theorem 73.B has \(\kappa\geq\rho J/2\).  The logarithm of
+(73.42) is \(o(J\log L)\), and (73.38) gives
+\[
+ {\rho J\over2}(1-\theta)\log L
+       =(1+o(1)){\rho(1-\theta)\over4\theta}L^\theta.
+\]
+This proves (73.41), with the small-prime term absorbed. \(\square\)
+
+Equation (73.41) says that the set of deep primes having a fixed positive
+proportion of non-block failures has a strong absolute upper bound.  It does
+**not** say that asymptotically almost every deep prime is block-dominated:
+the total number of deep primes has no proved lower bound, so division by
+that unknown denominator is unavailable.  It is consistent with the
+F3-enrichment in §72, and block (bt) gives a finite echo, but it does not
+prove that census observation or a conditional frequency.
+
+The remaining joint statement can now be named using only events containing
+blocks.  In (73.36), let
+\(\Delta_N=\log\log z-\log\log Z\).
+
+**Hypothesis \(H_{\rm BLK}(\theta)\) (open, joint and falsifiable).**  For this
+fixed \(\theta\), there are an effective constant \(C=C(\theta)\) and a
+threshold \(N_0(\theta)\), independent of the partition and
+selection, such that for every \(N\geq N_0(\theta)\), every partition
+\(\mathcal P_Z=\mathcal A\dot\cup\mathcal B\), and every no-block component
+selection \(\sigma\) on \(\mathcal A\),
+\[
+ \begin{split}
+ \#\{n\leq N:n\equiv1\pmod {24},\
+       \sigma(a)\ (a\in\mathcal A),\
+       {\rm BLK}_b(h_b(n))\ (b\in\mathcal B)\}\\
+ \leq N\exp\{CJ\log\log L\}
+       \exp\{-\Delta_N(\kappa(\sigma)+|\mathcal B|/2)\}. \tag{73.43}
+ \end{split}
+\]
+For \(\mathcal B=\varnothing\), (73.43), with a possibly changed effective
+\(C\), follows from the proof of Theorem 73.B: (73.40) has error
+\(O(J\log\log L)\), while (73.13) and (73.37) contribute only a bounded
+multiplicative loss for sufficiently large \(N\).  This case is not part
+of the hypothesis.  Thus every open case in (73.43) contains at least one
+genuine full-generation block.
+
+**Corollary 73.C(ii) (conditional full tail; proved implication).**  If
+\(H_{\rm BLK}(\theta)\) holds for a fixed \(0<\theta<1\), then
+\[
+ \#\{p\leq N:p\equiv1\pmod {24},\ p\hbox{ prime},\ a_1(p)>L^\theta\}
+ \leq N\exp\left\{-\left({1-\theta\over4\theta}+o(1)\right)L^\theta\right\}.
+                                                               \tag{73.44}
+\]
+
+*Proof.*  Expand every failed coordinate by Lemma 73.1, and use (73.5) for
+CF3.  The number of terms has the bound (73.42), with one additional block
+choice already included by the subset factor.  In every term
+\(\kappa(\sigma)+|\mathcal B|/2\geq J/2\).  Apply (73.43), absorb
+\(O(J\log\log L)\), and use (73.38)--(73.39). \(\square\)
+
+This is the precise reduction achieved here.  The one-coordinate non-block
+portion has the unconditional upper bound \(x(\log x)^{-1/2+o(1)}\) in
+the polylogarithmic modulus range.  The all-non-block stack is unconditional
+only at the reduced range \(\Delta_N\sim(1-\theta)\log L\), not at the
+full-range saving asserted by \(H_{\rm STACK}\).  The remaining joint
+cases at this reduced range are exactly \(H_{\rm BLK}\).  The literal
+\(C_0(\log x)^{-1/2}\) normalization in (71.37), the full-log-range tensorization in (71.38), and their
+\(\theta\to1\) endpoint are not proved.  Formula (73.44) has the same power
+\(L^\theta\) as (71.41) for fixed \(\theta\), but its leading exponent is
+smaller by \(1-\theta\).  It still beats a \(2/3\)-power tail when
+\(\theta>2/3\), conditionally on (73.43); it does not reproduce §71's
+constant.
+
+### 73.6 Computational replay
+
+**Computational 73.1 (exact finite checks).**  Block (bt) classifies every
+unit \(h\leq20,000\) at six moduli.  Its exact rows are
+\[
+\begin{array}{r|r|r|r|l|r}
+a&\#\text{units}&\#\text{fail}&F1&{\rm CF3}\ (\text{index}:\#)&{\rm BLK}\\ \hline
+7&17143&5499&3350&-&2149\\
+11&18182&7393&2861&-&4532\\
+19&18948&10093&2427&3:275&7391\\
+23&19131&11610&4888&-&6722\\
+31&19355&13029&4421&3:473,\ 5:154&7981\\
+43&19535&14120&1935&3:1007,\ 7:139&11039
+\end{array}                                                \tag{73.45}
+\]
+It independently constructs every generated subgroup and bounded spectrum,
+checks disjointness and exhaustiveness, and checks that every CF3 factor
+class lies in the displayed proper subgroup.
+
+For the first eight prime moduli through \(47\), with sifting primes
+\(47<q\leq200\) and \(n\leq10^6\), the exact survivor count is 12,676.
+The even Bonferroni truncation at \(k=2\) is 20,281, while the fully explicit
+main-plus-CRT-error bound (73.15) rounds up to 28,075, a ratio
+2.21474.  This is an inequality check and calibration, not an asymptotic.
+At \(10^5\), the nonresidue reciprocal sums for
+\(a=7,11,43,103\) are respectively
+\(1.33116,1.43922,1.80045,1.27096\), versus
+\(\tfrac12\log\log10^5=1.22174\); the displayed finite deficits satisfy
+the runner's stated \(C=2\) allowance.  This is not a proof of (73.24).
+
+Finally, among the 9,732 hard primes \(p\leq10^6\), the complete prime-modulus
+failure paths before the first \(a\)-hit contain
+\[
+ (F1,{\rm CF3},{\rm BLK})=(6054,12,136).                 \tag{73.46}
+\]
+The ten paths with \(a_1(p)>43\) contain \((64,4,10)\).  Thus the block
+share is 2.193% versus 12.821%, and the total budget share
+\((\mathrm{CF3}+\mathrm{BLK})\) is 2.386% versus 17.949%, in this exact
+finite comparison.  The enrichment directions are asserted by integer
+cross-products.  With `ES_FULL_SCAN=1`, the structural scan extends to
+\(h\leq200,000\) and the path census to \(p\leq10^7\).
+
+### 73.7 Honest walls
+
+1. **Blocks remain open.**  No upper bound is proved for
+   \({\rm BLK}_a\) at growing \(a\), and no correlation estimate for block
+   events at different shifts is proved.  Blocks could carry the entire
+   deep-failure mass.
+2. **The range loss is real in this proof.**  The explicit Brun remainder
+   forces \(\log z\ll L/(J\log L)\), producing \(1-\theta\).  The method
+   degenerates as \(\theta\to1\); no uniform endpoint is asserted.
+3. **The exact old hypotheses remain stronger.**  Polylogarithmic losses in
+   (73.30) prevent a literal proof of (71.37), and (73.35) does not give the
+   full \(\log\log N\) per-coordinate range hidden in (71.38).
+4. **No pointwise crossing.**  The count-below-one depth
+   \(Z>(4+o(1))\log N\) from (71.46) lies outside every fixed
+   \(Z=L^\theta\), \(\theta<1\), covered here.  At \(Z\asymp L\), the level
+   in (73.36) leaves no interval \((Z,z]\) to sieve.
+5. **No lower bound or conditional proportion.**  Neither (73.41) nor
+   (73.44) supplies a lower bound for deep primes, a prime-frame asymptotic,
+   or a density statement conditioned on depth.  There is no Erdős--Straus
+   consequence beyond the displayed upper-bound implications.
+6. **The census is a warning, not support for a theorem.**  Section 72 finds
+   growing and highly nonmonotone F3 shares, with 13.63-fold enrichment on
+   its record-class paths.  Block (bt) splits that finite budget category
+   further, but neither finite computation controls the asymptotic block
+   mass.
+7. **No entropy-wall crossing.**  Sections 14.4--14.6 bound witness
+   stacking under their independent-uniform mixing and rounding model by
+   \(\theta_* = \log3/(1+\log3)\).  Here we sieve confinement components,
+   which do not cover all witness-free patterns.  The \(3^K\)
+   signed-witness entropy there is not the mechanism-label entropy here:
+   the latter costs at most \(2^J\prod_a(1+\omega(n_a))\), as in (73.42).
+   Proving confinement rare does not prove witnesses common, because BLK
+   is missing.  Only the open joint bound (73.43) would control that gap;
+   no unconditional \(2/3\)- or \(3/4\)-power exceptional-set improvement
+   is obtained.
+
+The unconditional gain is therefore sharply scoped: once full-generation
+blocks are removed, growing-dimensional tensorization follows from an
+explicit elementary sieve for every fixed \(\theta<1\).  Recovering the
+missing block factors, the full range constant, or logarithmic depth remains
+open.
+
+## 74. The F3 subgroup fingerprint and the target-transversal bound
+
+**Status.**  The subgroup stratification, the within-stratum budget law, and
+the target-transversal bound below are **proved** for every fixed prime
+coefficient in their stated ranges.  The only analytic input is Standard
+Fact 70.1, with exactly its fixed-modulus hypotheses.  The comparisons with
+§72 and the recursion discussion are **Assessments**, not asymptotic claims.
+Block (bu) is **Computational**, exact only in its displayed finite ranges.
+No estimate here is uniform enough in the coefficient to be stacked over a
+growing family, and no pointwise Erdős--Straus conclusion is claimed.
+
+Fix a prime
+\[
+a\equiv3\pmod4,\qquad n={a-1\over2},\qquad
+G=({\mathbb Z}/a{\mathbb Z})^*,\qquad Q=G^2.              \tag{74.1}
+\]
+Thus \(G\cong C_{2n}\), \(Q\cong C_n\), and \(n\) is odd.  Unless stated
+otherwise \(a\geq7\).  For an integer \(h\) coprime to \(a\), put
+\[
+K(h)=\langle q\bmod a:q\mid h\rangle\leq G.              \tag{74.2}
+\]
+The events \(F_a,F_{1,a},F_{3,a}\) and the global nonresidue budget \(K_a\)
+are those of (70.5) and (70.15).
+
+### 74.1 Exact subgroup strata and their fixed-modulus laws
+
+**Lemma 74.1 (exact F3 stratification; proved).**  Every \(h\in F_{3,a}\)
+has \(|K(h)|\) even and \(-1\in K(h)\).  There is one subgroup \(K_d\) of
+order \(2d\) for each divisor \(d\mid n\), and
+\[
+ F_{3,a}=\mathop{\dot\bigcup}_{d\mid n}F_{3,a}^{(K_d)},
+ \qquad F_{3,a}^{(K)}=\{h\in F_{3,a}:K(h)=K\}.             \tag{74.3}
+\]
+Thus there are \(\tau(n)\) strata, empty strata included.  A stratum is
+proper precisely when \(d<n\), and every prime factor of a member of
+\(F_{3,a}^{(K_d)}\) lies in \(K_d\).
+
+*Proof.*  An F3 integer has a nonresidue prime-factor class \(g\).  Its
+image in \(G/Q\) is nontrivial, so \({\rm ord}(g)\) is even.  Thus
+\(\langle g\rangle\), and hence \(K(h)\), contains the unique involution
+\(-1\), exactly as in Lemma 70.1.  A cyclic group has one subgroup of every
+order dividing its order.  Since every even divisor of \(2n\) is uniquely
+\(2d\) with \(d\mid n\), these are all possibilities and they are disjoint.
+The final assertion is immediate from the definition of \(K(h)\). \(\square\)
+
+For an even subgroup \(K=K_d\), put
+\[
+ Q_K=K\cap Q,\qquad
+ B_{a,K}=\sum_{{\cal O}\subseteq K\setminus Q_K}
+       \left({\operatorname {ord}(g_{\cal O})\over2}-1\right),             \tag{74.4}
+\]
+where \({\cal O}=\{g_{\cal O},g_{\cal O}^{-1}\}\) runs over inversion
+orbits.  The group \(Q_K\) has order \(d\): it is both the unique odd-order
+subgroup of \(K\cong C_{2d}\) and an index-two subgroup of \(K\).
+Consequently \(K\setminus Q_K=K\setminus Q\).
+
+**Lemma 74.2 (within-stratum budget rigidity; proved).**  If
+\(h\in F_{3,a}^{(K)}\), then
+\[
+                  \Omega_{K\setminus Q_K}(h)\leq B_{a,K}.                 \tag{74.5}
+\]
+In particular, \(F_{3,a}^{(K_1)}\) is empty.
+
+*Proof.*  The group \(K=C_{2d}\) has odd \(d\), unique involution \(-1\),
+and index-two odd subgroup \(Q_K\).  The proof of Lemma 70.6 therefore
+applies word for word inside \(K\): in an inversion orbit \({\cal O}\), a
+total valuation at least \({\rm ord}(g_{\cal O})/2\) realizes \(-1\).
+Summing the resulting orbit bounds gives (74.5).  If \(d=1\), generating
+\(K_1=\{1,-1\}\) requires a prime factor in class \(-1\), but exponent one
+on that factor already puts \(-1\) in the ratio spectrum.  Such an integer
+cannot fail. \(\square\)
+
+**Theorem 74.3 (per-stratum fixed-\(a\) laws; proved).**  For each fixed
+\(a\) and \(d\mid n\), there is a constant \(C_{a,K_d}>0\) such that
+\[
+ \#\{h\leq H:q\mid h\Rightarrow q\bmod a\in K_d\}
+ \sim C_{a,K_d}H(\log H)^{d/n-1}.                         \tag{74.6}
+\]
+Moreover,
+\[
+ \#F_{3,a}^{(K_d)}(H)
+ \ll_a H(\log H)^{d/(2n)-1}
+                 (\log\log(3H))^{B_{a,K_d}}.              \tag{74.7}
+\]
+Without using the budget one also has
+\[
+ \#F_{3,a}^{(K_d)}(H)\ll_a H(\log H)^{d/n-1}.             \tag{74.8}
+\]
+For every proper stratum, \(d\leq n/3\), so the last logarithmic exponent is
+at most \(-2/3\).
+
+*Proof.*  The \(2d\) classes in \(K_d\) have relative prime density
+\(2d/(a-1)=d/n\).  Standard Fact 70.1, (70.6), gives (74.6); the omitted
+prime \(a\) is only one local factor.  For (74.7), take as the unmarked
+prime set the \(d\) classes in \(Q_K\), of density \(d/(2n)\), and as the
+marked set the \(d\) classes in \(K\setminus Q_K\).  Lemma 74.2 and the
+fixed-mark corollary (70.7) give the result.  No progression is selected, so
+the character-twist caveat in Standard Fact 70.1 is not invoked.  Inclusion
+in the semigroup counted by (74.6) proves (74.8).  Finally \(n/d\) is an odd
+integer at least three when \(d<n\). \(\square\)
+
+Everything in this proof is fixed-modulus.  In particular, the notation
+\(\ll_a\) in (74.7)--(74.8) is essential; no character-uniform
+Selberg--Delange error term is being asserted.
+
+### 74.2 The subgroup-lattice fingerprint
+
+Let \(\iota(n)\) be the least prime factor of \(n>1\), and set
+\(\iota(1)=\infty\).  Thus, if \(n\) is prime, \(\iota(n)=n\), not
+\(\infty\); this convention is necessary for the divisor formula below.
+The largest proper divisor of \(n>1\) is
+\[
+                         d_{\max}={n\over\iota(n)}.         \tag{74.9}
+\]
+For \(n=1\) there is no proper even subgroup.  Notice also that the formal
+\(d_{\max}=1\) stratum when \(n\) is prime is empty by Lemma 74.2.
+
+**Theorem 74.4 (subgroup-lattice exponent fingerprint; proved).**  If
+\(n\) is composite, the largest proper subgroup channel has the two bounds
+\[
+ \begin{array}{c|c}
+ \hbox{majorant}&\hbox{power of }\log H\\ \hline
+ \hbox{pure confinement}&-1+1/\iota(n),\\
+ \hbox{budget refined}&-1+1/(2\iota(n)),
+ \end{array}                                                \tag{74.10}
+\]
+with the latter multiplied by
+\((\log\log(3H))^{B_{a,K_{d_{\max}}}}\).  Every other proper channel has at
+least as large a logarithmic saving.  If \(n\) is prime, every F3 integer
+lies in the full-group stratum \(K(h)=G\).
+
+*Proof.*  Formula (74.9) is the elementary largest-proper-divisor formula.
+Substitution in (74.7) and (74.8) gives (74.10).  For prime \(n\), the only
+proper candidate is \(d=1\), which is empty by Lemma 74.2. \(\square\)
+
+Two coefficients from (72.4) expose the fingerprint.  At \(a=23\),
+\(n=11\) is prime, so **all** F3 failures, not merely almost all, generate
+\(G\).  At \(a=43\), \(n=21=3\cdot7\), and the top proper channel has
+\(d=7\), \(|K|=14\),
+\[
+ \#F_{3,43}^{(K_7)}(H)
+ \ll H(\log H)^{-5/6}(\log\log(3H))^{18},                 \tag{74.11}
+\]
+while pure confinement gives \(O(H(\log H)^{-2/3})\).  Here the exact orbit
+budget is \(B_{43,K_7}=3(7-1)=18\).
+
+**Assessment 74.1 (finite-scale confrontation; no asymptotic claim).**  Put
+\(H=10^7\), \(L=\log H=16.1181\), and \(\ell=\log L=2.77994\).  The
+logarithmic scale factors, before unknown constants, are
+
+\[
+\begin{array}{c|c|c|c|c}
+a&L^{-1/2}\ (F1)&L^{d/n-1}\ (\hbox{proper pure})
+ &L^{d/(2n)-1}\ell^{B}&
+ L^{-(3n+1)/(4n)}\ell^{K_a+1}\ (\hbox{full target})\\ \hline
+23&0.2491&0.07988\ (0.321\,F1)&0.07040\ (0.283\,F1)&5.16\cdot10^{21}\\
+43&0.2491&0.15672\ (0.629\,F1)&9.70\cdot10^6&4.89\cdot10^{61}
+\end{array}                                                  \tag{74.12}
+\]
+
+The \(a=23\) proper F3 count is in fact zero.  Its pure-confinement
+entry is only a scale factor for the containing \(\{\pm1\}\)-semigroup;
+the budget-refined entry instead uses the class-\(1\) semigroup, since
+\(B_{23,K_1}=0\) forbids every class-\(-1\) factor.  Neither entry counts
+proper F3 failures.  At \(a=43\), the much larger proper semigroup is a
+real additional channel.  Conversely the factors
+\(\ell^{18}\), \(\ell^{51}\), and \(\ell^{141}\) make the rigorous
+budget bounds numerically vacuous at this scale.  Thus the subgroup lattice
+qualitatively anticipates strong nonmonotonicity and is consistent with the
+third-window F3 shares 6.0% at 23 and 73.2% at 43, but (74.12) does **not**
+predict either percentage: constants, the exact-generation condition, and
+the shifted-prime conditioning are uncontrolled.
+
+### 74.3 A target transversal in the quadratic residues
+
+For a residue class \(c\), write
+\[
+                 m_c(h)=\sum_{q\mid h,\ q\equiv c\ (a)}v_q(h).             \tag{74.13}
+\]
+**Lemma 74.5 (target-pair exclusion; proved).**  Let \(h\in F_{3,a}\), and
+let \(g\in G\setminus Q\) be any class with \(m_g(h)>0\).  Then
+\(g\neq-1\).  Put
+\[
+ t=-g^{-1}\in Q,\qquad c_0=t^{(n+1)/2}\in Q.              \tag{74.14}
+\]
+The map \(c\mapsto tc^{-1}\) partitions \(Q\) into the fixed point
+\(c_0\) and \((n-1)/2\) unordered two-element pairs.  The realized
+quadratic-residue classes of \(h\) meet at most one member of each pair, and
+\[
+                              m_{c_0}(h)\leq1.              \tag{74.15}
+\]
+*Proof.*  A realized class \(-1\) itself gives a ratio-spectrum witness with
+exponent one, so it cannot occur in a failure.  Hence \(t\neq1\).  Since
+\(Q=C_n\) has odd order, squaring is an automorphism; (74.14) is the unique
+solution of \(c^2=t\).  This proves the stated orbit decomposition.
+
+If distinct paired classes \(c,c'\) were both realized, choose exponent one
+on one prime in each class and on one prime in class \(g\).  These are three
+distinct primes because \(g\notin Q\) and \(c\neq c'\), and
+\(gcc'=gt=-1\).  If \(m_{c_0}\geq2\), use two distinct class-\(c_0\) primes,
+or exponent two on one such prime when its valuation is at least two.  In
+either case \(gc_0^2=-1\).  Each choice lies within the valuation box,
+contradicting \(h\in F_{3,a}\). \(\square\)
+
+The pair \(\{1,t\}\) is among the two-element pairs.  In fact Lemma 70.6
+already excludes \(t=-g^{-1}\) outright; this lowers the finite side-choice
+constant but not the logarithmic exponent below.
+
+**Theorem 74.6 (target-transversal F3 bound; proved).**  For every fixed
+prime \(a\equiv3\pmod4\), \(a\geq7\),
+\[
+ \boxed{\displaystyle
+ \#F_{3,a}(H)\ll_a
+ {H(\log\log(3H))^{K_a+1}
+  \over(\log H)^{\,3/4+1/(4n)}}.}                         \tag{74.16}
+\]
+In particular the same bound holds for the full-group block
+\({\rm BLK}_a=F_{3,a}^{(G)}\).  The exponent
+\[
+ {3n+1\over4n}={3\over4}+{1\over4n}                       \tag{74.17}
+\]
+is strictly larger than the exponent
+\(1/2+1/(a-1)=1/2+1/(2n)\) in Theorem 70.7.
+
+*Proof.*  Fix one realized nonresidue class \(g\).  By Lemma 74.5, choose
+one side from each of its \((n-1)/2\) two-element pairs so that every
+realized QR class other than \(c_0\) is on a chosen side.  For each fixed
+choice, the unmarked, unrestricted prime set consists of
+\[
+                         {n-1\over2}                       \tag{74.18}
+\]
+reduced classes, of density \((n-1)/(4n)\).  Mark the class \(c_0\), whose
+total multiplicity is at most one, together with all \(n\) nonresidue
+classes, whose total multiplicity is at most \(K_a\) by Lemma 70.6.  Thus
+the total marked multiplicity is at most \(K_a+1\).  Standard Fact 70.1,
+(70.7), bounds this fixed event by
+\[
+ H(\log H)^{(n-1)/(4n)-1}(\log\log(3H))^{K_a+1}.           \tag{74.19}
+\]
+There are at most \(n-1\) possible \(g\)'s and at most
+\(2^{(n-1)/2}\) side choices.  Both are constants at fixed \(a\), so their
+union proves (74.16).
+
+The argument used only that \(h\) is F3, not that \(K(h)=G\).  This is a
+useful strengthening of the initial full-block formulation: no combination
+with the proper-stratum bounds is needed.  Finally
+\[
+ \left({3\over4}+{1\over4n}\right)
+ -\left({1\over2}+{1\over2n}\right)={n-1\over4n}>0,
+\]
+which proves the strict improvement. \(\square\)
+
+For comparison, (74.7) gives a saving at least \(5/6\) on every proper
+stratum because \(d\leq n/3\); its budget satisfies
+\(B_{a,K}\leq K_a\), since its inversion orbits are a subset of the global
+ones.  This is compatible with (74.16), whose weakest saving is the
+full-density transversal exponent (74.17).
+
+**Corollary 74.7 (upgraded fixed-\(a\) F1 dominance; proved).**  For every
+fixed \(a\geq7\) as above,
+\[
+ \#F_a(H)=\#F_{1,a}(H)
+ \left\{1+O_a\left((\log H)^{-1/4-1/(4n)}
+             (\log\log(3H))^{K_a+1}\right)\right\}
+ =\#F_{1,a}(H)\{1+O_a((\log H)^{-1/4+o(1)})\}.            \tag{74.20}
+\]
+*Proof.*  Divide (74.16) by the positive asymptotic in Theorem 70.5 and use
+the disjoint decomposition (70.5). \(\square\)
+
+### 74.4 Computational replay and structural continuation
+
+**Computational 74.1 (exact finite stratification and transversal replay).**
+Block (bu) computes every unit \(h\leq20,000\) for
+\(a=7,11,19,23,31,43\).  Its exact F3 stratum counts \(d: \#\) are
+
+\[
+\begin{array}{c|l}
+a&d:\#F_{3,a}^{(K_d)}\\ \hline
+7&3:2149\\11&5:4532\\19&3:275,\ 9:7391\\
+23&11:6722\\31&3:154,\ 5:473,\ 15:7981\\
+43&3:139,\ 7:1007,\ 21:11039.
+\end{array}                                                  \tag{74.21}
+\]
+
+For every F3 row it independently constructs \(K(h)\), checks even order
+and membership of \(-1\), verifies (74.5), and checks all prime factors lie
+in the recorded subgroup.  On every full-group row, and for **every**
+realized nonresidue class \(g\), it checks both exclusions in Lemma 74.5;
+there are zero exceptions.  The exact \((d,B_{a,K_d})\) tables through
+prime \(a\leq60\) are
+
+\[
+\begin{array}{c|l}
+3&(1,0)\\7&(1,0),(3,2)\\11&(1,0),(5,8)\\
+19&(1,0),(3,2),(9,26)\\23&(1,0),(11,50)\\
+31&(1,0),(3,2),(5,8),(15,66)\\
+43&(1,0),(3,2),(7,18),(21,140)\\
+47&(1,0),(23,242)\\59&(1,0),(29,392).
+\end{array}                                                  \tag{74.22}
+\]
+
+Thus the full-group entries independently pin \(K_7=2\), \(K_{23}=50\),
+and \(K_{43}=140\).  With `ES_FULL_SCAN=1`, the \(h\)-scan in (74.21) and
+the target-pair replay extend to \(200,000\).  These are finite regression
+checks, not proofs of Lemmas 74.1--74.5 or of any asymptotic.
+
+**Assessment 74.2 (block recursion).**  Lemma 74.5 uses only the first odd
+power of one realized nonresidue.  More generally, if the inversion orbit of
+\(g\) has total valuation \(V_{\mathcal O(g)}\), its signed interval realizes
+\(g^j\) for every odd \(|j|\leq V_{\mathcal O(g)}\).  Failure therefore
+forces the ratio spectrum of the QR part of \(h\) to miss each target
+\[
+                         -g^{-j}\in Q.                     \tag{74.23}
+\]
+This is a deficiency problem internal to the odd cyclic group \(Q=C_n\).
+Iterating such target transversals inside \(C_n\) is the natural continuation,
+but no recursive bound is claimed here.
+
+**Assessment 74.3 (record conditioning).**  Section 72's 13.63-fold F3
+enrichment concerns primes selected to have failures at many earlier
+coefficients.  Theorem 74.6 instead says that F3 is thin in the unconditioned
+integer population at each one fixed coefficient.  There is no conflict:
+the record event conditions simultaneously on many correlated shifts and,
+at census scale, the large budgets in (74.22) make the fixed-\(a\) upper
+bounds numerically weak.  The enrichment is a conditional finite-scale
+phenomenon, not evidence against (74.16), and (74.16) does not control it.
+
+### 74.5 Honest-walls register
+
+Section 74 is a fixed-\(a\) theory.  The union in Theorem 74.6 costs up to
+\((n-1)2^{(n-1)/2}\), its marker contributes
+\((\log\log H)^{K_a+1}\), and both \(K_a\) and the hidden Selberg--Delange
+constant grow with \(a\).  None is controlled uniformly.  Even (74.8) has
+an \(a\)-dependent analytic constant: what survives without new uniform
+analysis is the exact pure-confinement inclusion and its class-density
+fingerprint, not a growing-\(a\) estimate with a uniform constant.  The
+separate \(H_{\rm FAIL}\)/sieve program of §71 remains load-bearing.
+
+The proved results do not give a shifted-prime lower bound, an asymptotic for
+any F3 stratum, uniformity in \(a\), decorrelation between coefficients, a
+moving-depth tail, or a pointwise bound on \(a_1(p)\).  Assessment 74.2 is
+only a proposed route: no inductive contraction in \(C_n\) has been proved.
+The qualitative census match in Assessment 74.1 has unknown constants and
+selection effects and cannot be used as evidence for the numerical shares.
