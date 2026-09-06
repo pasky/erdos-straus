@@ -15213,11 +15213,15 @@ check_bv()
 
 # ---------------------------------------------------------------- (bw)
 def check_bw():
-    """§75: Lemma 75.1 by exact enumeration, the thresholds theta_1, theta_*,
-    theta_2, theta_tilt and the refined a-frame sieve ceiling max f = 0.5823
-    (Assessment 75.5), and a finite echo of (75.4) at a = 43."""
+    """§75: Lemma 75.1 by exact enumeration, the index-six structured blocks,
+    the calibration roots theta_1 / theta_hi of (75.6), theta_*, theta_tilt,
+    the restricted-model ceiling max f = 0.5823 (Assessment 75.5, with its
+    two-parameter version g), the crossing with 1 - lambda_theta, a finite
+    echo of (75.4) at a = 43, and the two regression examples of the review
+    (shifted endpoint; occupancy t_199 = 2 at Z = 1000)."""
     from time import perf_counter
     from itertools import product as iproduct
+    from sympy import totient
     t0 = perf_counter()
     L3 = log(3)
 
@@ -15239,12 +15243,44 @@ def check_bw():
             bound = Fraction(3 ** m - 1, a - 1)
             assert prob <= bound, (a, m, prob, bound)
             if m == 1:
-                # exactly the two classes g = -1 (g^{+1}) and g = -1 (g^{-1}):
-                # a single class hits iff g = -1, so prob = 1/(a-1) = bound/2.
+                # one class g: -1 in {1, g, g^-1} iff g = -1 (the two exponent
+                # choices refer to the same class), so prob = 1/(a-1).
                 assert prob == Fraction(1, a - 1)
             lemma_rows.append((a, m, float(prob), float(bound)))
 
-    # (ii) thresholds and the ceiling f(theta).
+    # (i') index-six structured blocks (a = 7 mod 12): one generator class,
+    #      all other classes in the index-six subgroup K -> full generation
+    #      and -1 not in the signed-product set, for every m <= 4.
+    idx6 = {}
+    for a in (7, 19, 31, 43):
+        assert (a - 1) % 6 == 0 and ((a - 1) // 6) % 2 == 1
+        pdiv = [r for r in range(2, a) if (a - 1) % r == 0
+                and all(r % s_ for s_ in range(2, r))]
+        gens = [g for g in range(1, a)
+                if all(pow(g, (a - 1) // r, a) != 1 for r in pdiv)]
+        assert len(gens) == int(totient(a - 1))
+        K = [x for x in range(1, a) if pow(x, (a - 1) // 6, a) == 1]
+        assert len(K) == (a - 1) // 6
+        checked = 0
+        for m in (1, 2, 3, 4):
+            for g in gens:
+                for rest in iproduct(K, repeat=m - 1):
+                    tup = (g,) + rest
+                    reach = {1}
+                    sub = {1}
+                    for x in tup:
+                        xinv = pow(x, -1, a)
+                        reach = {(u * v) % a for u in reach for v in (1, x, xinv)}
+                        cyc, val = set(), 1
+                        while val not in cyc:
+                            cyc.add(val)
+                            val = val * x % a
+                        sub = {(u * v) % a for u in sub for v in cyc}
+                    assert len(sub) == a - 1 and (a - 1) not in reach, (a, tup)
+                    checked += 1
+        idx6[a] = checked
+
+    # (ii) thresholds, the ceiling f(theta), and the two-parameter g.
     def delta(rho):
         return rho * log(rho) - rho + 1
 
@@ -15253,6 +15289,7 @@ def check_bw():
 
     def bisect(fun, lo, hi, it=200):
         flo = fun(lo)
+        assert (flo > 0) != (fun(hi) > 0), (lo, hi)
         for _ in range(it):
             mid = (lo + hi) / 2
             fm = fun(mid)
@@ -15262,51 +15299,73 @@ def check_bw():
                 hi = mid
         return (lo + hi) / 2
 
-    theta_1 = bisect(lambda t: dB(t) - (1 - t) / 2, 0.05, 0.9)
+    v = lambda t: dB(t) - (1 - t) / 2
+    theta_1 = bisect(v, 0.05, 0.9)
+    theta_hi = bisect(v, 0.9, 0.9999)
     theta_star = L3 / (1 + L3)
-    theta_2 = 1 / (0.5 + 1 / L3)
     theta_tilt = 3 * L3 / (1 + 3 * L3)
+    theta_two = 2 * L3 / (1 + 2 * L3)
     assert abs(theta_1 - 0.335711) < 2e-6, theta_1
+    assert abs(theta_hi - 0.989861) < 2e-6, theta_hi
     assert abs(theta_star - 0.5234946) < 2e-7
-    assert abs(theta_2 - 0.709) < 6e-4, theta_2
     assert abs(theta_tilt - 0.7672) < 6e-5, theta_tilt
+    assert abs(theta_two - 0.687) < 6e-4, theta_two
     assert abs(dB(0.75) - 0.0567) < 2e-4
-    # (75.6): delta(lambda_theta) < (1-theta)/2 exactly for theta > theta_1
-    for t in (0.1, 0.2, 0.3, 0.33):
-        assert dB(t) > (1 - t) / 2
-    for t in (0.34, 0.4, 0.5, 2 / 3, 0.75, 0.9):
-        assert dB(t) < (1 - t) / 2
-    # theta_2: free deficit (theta/2) log L covers (1 - lambda_theta) log L
-    assert abs(theta_2 / 2 + theta_2 / L3 - 1) < 1e-12
+    assert abs(v(1.0) - 0.0041548) < 2e-7
+    # (75.6): delta(lambda_theta) < (1-theta)/2 exactly on (theta_1, theta_hi)
+    for t in (0.1, 0.2, 0.3, 0.33, 0.992, 0.999):
+        assert v(t) > 0, t
+    for t in (0.34, 0.4, 0.5, 2 / 3, 0.75, 0.9, 0.98):
+        assert v(t) < 0, t
+    # index-six exponent: min_lambda delta(lambda) + lambda log 6 = 5/6 at 1/6,
+    # and delta(lambda_theta) > 5/6 exactly for theta < 0.04323...
+    lam_grid = [i / 100000 for i in range(1, 100000)]
+    m6 = min(delta(l) + l * log(6) for l in lam_grid)
+    assert abs(m6 - 5 / 6) < 1e-8, m6
+    th6 = bisect(lambda t: dB(t) - 5 / 6, 0.001, 0.5)
+    assert abs(th6 - 0.043234) < 2e-6, th6
+
+    def g(th, thp):
+        lam = th / L3
+        rho = lam / (1 - thp)
+        if rho <= 1:
+            return thp
+        if rho < 3:
+            return thp - (1 - thp) * delta(rho)
+        return thp - th + 2 * (1 - thp)
 
     def f(th):
-        lam = th / L3
-        if lam <= 1 - th:
-            return th
-        if th < theta_tilt:
-            return th - (1 - th) * delta(lam / (1 - th))
-        return 2 * (1 - th)
+        return g(th, th)
 
     grid = [i / 20000 for i in range(1, 20000)]
     vals = [(f(t), t) for t in grid]
     fmax, targ = max(vals)
     assert abs(fmax - 0.58230) < 2e-5, fmax
     assert abs(targ - 0.63481) < 2e-4, targ
-    assert all(v < 2 / 3 for v, _ in vals)
-    # continuity at theta_* and theta_tilt, and f = theta below theta_*
+    assert all(val < 2 / 3 for val, _ in vals)
     eps = 1e-7
     assert abs(f(theta_star - eps) - f(theta_star + eps)) < 1e-5
     assert abs(f(theta_tilt - eps) - f(theta_tilt + eps)) < 1e-5
     assert f(0.3) == 0.3
     assert abs(f(2 / 3) - 0.5766) < 2e-4 and abs(f(0.75) - 0.4969) < 2e-4
-    # the large-prime certifiable exponent theta(1+1/log3)-1 (Assessment
-    # 75.7) is below f on (theta_*, theta_2)
-    for t in (0.55, 0.6, 0.65, 0.7):
-        assert t * (1 + 1 / L3) - 1 < f(t)
+    # subfamily cutoffs never beat the full family below theta = 0.687, and
+    # never beat max f anywhere
+    for th in [i / 100 for i in range(53, 100)]:
+        for thp in [j / 200 for j in range(1, int(th * 200) + 1)]:
+            val = g(th, thp)
+            assert val <= fmax + 1e-12, (th, thp, val)
+            if th < theta_two:
+                assert val <= f(th) + 1e-12, (th, thp, val)
+    # crossing of f and 1 - lambda_theta at 0.9176, with 1 - lambda < f below
+    cross = bisect(lambda t: f(t) - (1 - t / L3), 0.8, 0.999)
+    assert abs(cross - 0.91763) < 2e-5, cross
+    for t in (0.55, 0.6, 0.7, 0.8, 0.9):
+        assert 1 - t / L3 < f(t)
+    assert abs(f(theta_star) - (1 - theta_star / L3)) < 1e-12
 
     # (iii) finite echo of (75.4) at a = 43: among squarefree units h <= 20000
-    #      with omega(h) = m, the block frequency is at least the Lemma 75.1
-    #      floor 1 - (3^m - 1)/42 - (non-generation frequency).  Inequality
+    #      with omega(h) = m, the genuine block share is at least the Lemma
+    #      75.1 floor 1 - (3^m - 1)/42 - (non-generation share).  Inequality
     #      check on real data; the classes are of course not independent.
     a = 43
     limit = 20000
@@ -15321,13 +15380,13 @@ def check_bw():
         if h % a == 0:
             continue
         fac = []
-        v = h
+        vv = h
         sqf = True
-        while v > 1:
-            q = spf[v]
+        while vv > 1:
+            q = spf[vv]
             e = 0
-            while v % q == 0:
-                v //= q
+            while vv % q == 0:
+                vv //= q
                 e += 1
             if e > 1:
                 sqf = False
@@ -15338,14 +15397,14 @@ def check_bw():
         reach = {1}
         sub = {1}
         for q in fac:
-            g = q % a
-            ginv = pow(g, -1, a)
-            reach = {(x * y) % a for x in reach for y in (1, g, ginv)}
+            gg = q % a
+            ginv = pow(gg, -1, a)
+            reach = {(x * y) % a for x in reach for y in (1, gg, ginv)}
             cyc = set()
             val = 1
             while val not in cyc:
                 cyc.add(val)
-                val = val * g % a
+                val = val * gg % a
             sub = {(x * y) % a for x in sub for y in cyc}
         by_m[m][0] += 1
         gen = len(sub) == a - 1
@@ -15357,22 +15416,47 @@ def check_bw():
     for m, (cnt, blk, nongen) in by_m.items():
         assert cnt > 0
         floor = 1 - (3 ** m - 1) / (a - 1) - nongen / cnt
-        # P(-1 not reached) >= 1 - (3^m-1)/(a-1) by Lemma 75.1 (if the classes
-        # were independent uniform); removing the confined tuples bounds the
-        # genuine block share from below.  Real data: inequality check only.
         assert blk / cnt >= floor - 1e-12, (m, blk / cnt, floor)
         echo[m] = (cnt, round(blk / cnt, 4), round(floor, 4))
+
+    # (iv) regression examples from the review of the first draft.
+    #      Shifted endpoint: sum_{n<=N} F(n+h0) with F = 1_{N+1}, h0 = 1 is 1,
+    #      while sum_{m<=N} F(m) = 0 -> the error must live on (h0, N+h0].
+    Nn, h0 = 50, 1
+    F = lambda m: 1 if m == Nn + 1 else 0
+    assert sum(F(n + h0) for n in range(1, Nn + 1)) == 1
+    assert sum(F(m) for m in range(1, Nn + 1)) == 0
+    assert sum(F(m) for m in range(h0 + 1, Nn + h0 + 1)) == 1
+    #      Occupancy: Z = 1000, shifts (q+1)/4 for primes q = 3 (4) <= Z; at
+    #      p = 199 two shifts share a class, exceeding 2J/(p-1) + 1 < 2.
+    Zc = 1000
+    shifts = [(q + 1) // 4 for q in primerange(3, Zc + 1) if q % 4 == 3]
+    Jc = len(shifts)
+    occ = Counter(sh % 199 for sh in shifts)
+    t199 = max(occ.values())
+    assert Jc == 87 and t199 >= 2 and 2 * Jc / 198 + 1 < 2
+    assert 8 in shifts and 207 in shifts and (207 - 8) == 199
+    #      and the repaired bound: sum_p (t_p - 1) over p <= Z is O(J log log Z)
+    tsum = 0
+    for pp in primerange(2, Zc + 1):
+        tsum += max(Counter(sh % pp for sh in shifts).values()) - 1
+    assert tsum < 6 * Jc * log(log(Zc)), (tsum, Jc)
+
     print("bw Lemma 75.1 exact rows (a, m, prob, bound):",
           [(r[0], r[1], round(r[2], 4), round(r[3], 4)) for r in lemma_rows])
-    print("bw thresholds theta_1 =", round(theta_1, 6), " theta_* =",
-          round(theta_star, 6), " theta_2 =", round(theta_2, 4),
-          " theta_tilt =", round(theta_tilt, 4),
-          " max f =", round(fmax, 5), "at theta =", round(targ, 4))
+    print("bw index-six structured blocks verified (a -> tuples):", idx6)
+    print("bw roots theta_1 =", round(theta_1, 6), " theta_hi =", round(theta_hi, 6),
+          " theta_* =", round(theta_star, 6), " theta_tilt =", round(theta_tilt, 4),
+          " 2log3/(1+2log3) =", round(theta_two, 4),
+          " max f =", round(fmax, 5), "at theta =", round(targ, 4),
+          " f/(1-lambda) crossing =", round(cross, 5),
+          " index-six threshold =", round(th6, 5))
     print("bw a=43 echo m -> (count, block share, Lemma 75.1 floor):", echo,
+          " occupancy sum_p(t_p-1) at Z=1000 =", tsum, "(J =", Jc, ")",
           " seconds =", round(perf_counter() - t0, 2))
 
 
-print("\n== (bw) §75: signed-product union bound, thresholds, sieve ceiling ==")
+print("\n== (bw) §75: signed-product union bound, calibration roots, sieve ceiling ==")
 check_bw()
 
 
