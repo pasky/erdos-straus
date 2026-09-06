@@ -29529,7 +29529,7 @@ selection effects and cannot be used as evidence for the numerical shares.
 ## 75. The joint large-prime problem: exact hypotheses, a miscalibration in \(H_{\rm BLK}\), the modeled a-frame sieve ceiling, and why level of distribution is not the missing input
 
 **Status.**  Lemma 75.1, Corollary 75.3, Theorem 75.4, and Proposition
-75.5 are **proved**; their hypotheses are explicitly open hypotheses, and
+75.5P are **proved**; their hypotheses are explicitly open hypotheses, and
 no heuristic enters their proofs.  Every item labelled Assessment (75.2,
 75.5, 75.6, 75.7, 75.8, 75.9) is a heuristic or restricted-model
 computation whose unproved inputs are named where it is stated; none is
@@ -29549,19 +29549,25 @@ it; (c) in the product-majorant architecture actually used by §§70--74
 ceiling \(\max f=0.5823\ldots\) at \(\theta=0.6348\ldots\), strictly
 below Vaughan's \(2/3\); this is not a universal sieve theorem;
 (d) a level-of-distribution hypothesis for one shifted multiplicative
-function removes one shift and, through the absolute-error expansion,
-would need an *exponential* saving (Proposition 75.5 with the
-multiplicity bound (75.13)); (e) in the level-\(N^{O(1)}\) statistics
-model the block's large-prime deficit is certifiable only to
-\(\exp\{-L^{1-\theta/\log3+o(1)}\}\), below the target \(L^\theta\) for
-every \(\theta>\theta_*\); (f) the pointwise a-frame spreads its
-\((\log p)^{3}\) expected witnesses over all scales of moduli, and no
-pointwise mechanism consistent with the walls was found.  Block (bw)
-is **Computational**, exact only in its displayed finite ranges.
-This section was max-severity reviewed
-(`reviews/wave32-sec75-review.md`, verdict DEFECTIVE on the first
-draft); every HIGH and MEDIUM item there is repaired in this text, and
-the withdrawn claims are listed in §75.9.
+function removes one shift; the absolute-error expansion gives a
+sufficient weighted exponential-saving condition (Proposition 75.5P
+with the multiplicity bound (75.13)), and fixed-power logarithmic
+distribution estimates alone do not establish that condition; (e) a
+formal scalar-window gap calculation in the level-\(N^{O(1)}\)
+statistics model suggests the candidate exponent \(1-\theta/\log3\) for
+what majorants could certify of the block's large-prime deficit; no
+matching joint statistics-model obstruction is established; (f) a
+qualified all-modulus proxy gives a polylogarithmic expected witness
+count for the pointwise a-frame, without any pointwise location
+consequence, and no pointwise mechanism consistent with the walls was
+found.  Block (bw) is **Computational**, exact only in its displayed
+finite ranges.  This section was max-severity reviewed twice
+(`reviews/wave32-sec75-review.md`, `reviews/wave32-sec75-review-round2.md`,
+both DEFECTIVE on the model subsections, with the proved core confirmed
+each time); the first draft's erroneous conclusions are withdrawn or
+restricted below, the unresolved model steps are explicitly separated
+from the proved implications, and the withdrawn claims are listed in
+§75.9.
 
 Notation is that of §73: \(L=\log N\), fixed \(0<\theta<1\),
 \(Z=L^\theta\), \(\mathcal P_Z\) the primes \(a\equiv3\pmod4\) with
@@ -29610,13 +29616,16 @@ blocks** exist in quantity.  (i) For squarefree \(h\) with all
 prime-factor classes in \(\{g,g^{-1}\}\), \(g\) a generator,
 \({\rm Rat}_a(h)=\{g^j:|j|\leq\omega(h)\}\) misses \(-1\) for every
 \(\omega(h)<(a-1)/2\).  (ii) More substantially (found by the referee of
-this section): if \(6\mid a-1\), let \(K<G_a\) be the subgroup of index
-six, which has odd order; if exactly one prime class of \(h\) is a
-generator of \(G_a\) and all others lie in \(K\), then \(K(h)=G_a\) while
+this section): for squarefree \(h\) and primes \(a\equiv7\pmod{12}\),
+let \(K<G_a\) be the subgroup of index six; its order \((a-1)/6\) is
+odd.  If exactly one prime-factor class of \(h\) is a generator of
+\(G_a\) and every other prime-factor class lies in \(K\), then
+\(K(h)=G_a\) while
 the image of \({\rm Rat}_a(h)\) in \(G_a/K\cong C_6\) lies in
 \(\{0,\pm1\}\), which misses the image \(3\) of \(-1\).  This is a
-full-generation block for every \(\omega(h)\), of random-residue
-probability \(m\,{\varphi(a-1)\over a-1}6^{-(m-1)}\) at \(\omega(h)=m\);
+full-generation block for every \(\omega(h)\) (squarefreeness is
+needed: \(h=27\), \(a=7\) has \(3^3\equiv-1\)), of squarefree
+random-residue probability \(m\,{\varphi(a-1)\over a-1}6^{-(m-1)}\) at \(\omega(h)=m\);
 optimising \(m=\lambda\log\log H\) against Sathe--Selberg gives
 structured-block mass at least
 \(H(\log H)^{-\min_\lambda[\delta(\lambda)+\lambda\log6]+o(1)}
@@ -29656,9 +29665,9 @@ family shows that the equality version of (75.4) is false for small
 \(\theta\): its exponent \(5/6\) beats \(\delta(\lambda_\theta)\) exactly
 when \(\theta<0.04323\ldots\).  Whether the bulk rate
 \((\log H)^{-\delta(\lambda_\theta)}\) is the true block rate for larger
-\(\theta\) is an open modelling question (call it (BR)); nothing below
-uses (BR), and everything that needs an upper bound on structured blocks
-assumes it explicitly.  The value \(\delta(\lambda_{3/4})=0.0567\ldots\)
+\(\theta\) is an open modelling question (call it (BR)); (BR) is a statement
+about the total rate and does not bound the structured part, and
+nothing below is derived from it.  The value \(\delta(\lambda_{3/4})=0.0567\ldots\)
 is the calibration quoted in Outcome 35, item 3.
 
 ### 75.2 The hypothesis \(H_{\rm BLK}(\theta)\) of (73.43) is miscalibrated
@@ -29694,9 +29703,11 @@ exactly when
  \theta_1<\theta<\theta_{\rm hi},\qquad
  \theta_1=0.335711\ldots,\ \ \theta_{\rm hi}=0.989860\ldots,     \tag{75.6}
 \]
-the two roots of \(\delta(\theta/\log3)=(1-\theta)/2\) (the left side is
-convex in \(\theta\), positive at \(0^+\), and equals
-\(\delta(1/\log3)=0.00415\ldots>0\) at \(\theta=1\); block (bw)).  So
+the two roots of \(\delta(\theta/\log3)=(1-\theta)/2\): for
+\(v(\theta)=\delta(\theta/\log3)-(1-\theta)/2\) one has
+\(v''=1/(\theta\log3)>0\), \(v(0^+)=1/2\), \(v(3/4)<0\), and
+\(v(1)=\delta(1/\log3)=0.00415\ldots>0\), hence exactly two roots
+(block (bw)).  So
 \(H_{\rm BLK}(\theta)\) as stated is in tension with the independent
 block-rate model on \((\theta_1,\theta_{\rm hi})\), which contains
 \([2/3,\theta_{\rm hi})\), the entire range in which Corollary 73.C(ii)
@@ -29792,13 +29803,14 @@ by (75.3), the event in (75.7) is contained in the union over the
 Sum (75.9) over the splittings; \(e^J=e^{o(J\log\log L)}\) is absorbed
 into \(C\).  Corollary 75.3 finishes. \(\square\)
 
-The implication holds for every \(\lambda\); the parameter is a modelling
-choice.  Taking \(\lambda>\lambda_\theta\) puts the bulk block mass of
-Assessment 75.2 into the \({\rm LT}\) coordinates and leaves in
-\({\rm STR}\) only blocks with more than \(\log_3a+\epsilon\log\log N\)
-prime factors, which under (BR) are the rare ones; taking
-\(\lambda<\lambda_\theta\) would move the bulk into \({\rm STR}\).  The
-natural lower-tail constant \(\delta(\lambda)\) concerns \(0<\lambda<1\).
+The implication holds for every \(\lambda>0\).  Taking
+\(\lambda>\lambda_\theta\) includes in \({\rm LT}\) the particular
+low-\(\omega\) family used to prove the lower bound (75.4).  It does not
+show that most blocks lie there: this needs a separate structured-block
+coverage estimate, not merely the proposed equality (BR) for the total
+block rate.  The required joint \({\rm STR}\) estimate is assumed directly
+in (75.9).  The natural lower-tail constant \(\delta(\lambda)\) concerns
+\(0<\lambda<1\).
 
 ### 75.4 The modeled ceiling of the product-majorant architecture
 
@@ -29822,13 +29834,17 @@ Then \(\Pr(M_a^c)\) has exponent
  -\bigl(\theta-2(1-\theta')\bigr)\quad(\rho\geq3),
 \]
 the second from the tilt \(\mathbb E\,3^{\omega(s_a)}/a=L^{2(1-\theta')-\theta}\)
-whose saddle sits at \(K=3\mu\); for \(\rho\leq1\) the coordinate
-fails with a positive power of \(L\) (the exact exponent must include
-confinement, \(\Pr(F1)=L^{-(1-\theta')/2}\), which dominates
-\(\delta(\rho)\) for \(\theta<0.170\ldots\)).  The logarithm of the
-product expectation is \(-(1+o(1))\sum_a\Pr(M_a^c)\), so with all
-\(L^{\theta'}\) coordinates at modulus scale \(L^\theta\)
-(\(\theta'\leq\theta\)) the modeled saving is \(\exp\{-L^{g(\theta,\theta')-o(1)}\}\),
+whose saddle sits at \(K=3\mu\); for fixed \(\rho<1\) the model gives
+\(L^{-C}\ll\Pr(M_a)\ll L^{-c}\) for some constants \(C\geq c>0\) (no
+exact failure exponent is asserted; confinement, \(\Pr(F1)=L^{-(1-\theta')/2}\),
+dominates \(\delta(\rho)\) for \(\theta<0.170\ldots\)), and at
+\(\rho=1\) the failure probability stays of constant order.  For fixed
+\(\rho>1\) the hit probability tends to zero and the logarithm of the
+product expectation is \(-(1+o(1))\sum_a\Pr(M_a^c)\); for \(\rho<1\) it
+is \(\sum_a\log\Pr(M_a)=-L^{\theta'+o(1)}\log L\), and for \(\rho=1\)
+it is \(-L^{\theta'+o(1)}\).  So with all \(L^{\theta'}\) coordinates at
+modulus scale \(L^\theta\) (\(\theta'\leq\theta\)) the modeled saving is
+\(\exp\{-L^{g(\theta,\theta')-o(1)}\}\),
 \[
  g(\theta,\theta')=\begin{cases}
  \theta'&\rho\leq1,\\
@@ -29886,7 +29902,7 @@ version of the bound below.  Let \(h_0,\ldots,h_{J-1}\) be the shifts
 \((q+1)/4\), \(q\in\mathcal P_Z\), so that \(0<h_i\leq Z\) and, for a
 prime \(p>Z\), the \(h_i\) are distinct modulo \(p\).
 
-**Proposition 75.5 (one hypothesis, one shift; proved).**  Let
+**Proposition 75.5P (one hypothesis, one shift; proved).**  Let
 \(F:\mathbb N\to[0,1]\), \(\eta>0\), and let \(G_1,\ldots,G_{J-1}\) be
 nonnegative bounded-coefficient level-\(D_i\) sieve functions with
 \(\prod_iD_i\leq N^{1-\eta}\).  Then
@@ -29931,10 +29947,11 @@ class modulo \(p\) come from primes \(q\leq Z\) in one class modulo
 group \(p\asymp Z/2^k\): there are \(O(Z/(2^k\log Z))\) such primes and
 each has \(t_p\ll1+2^k/k\), so the total is
 \(O((Z/\log Z)\sum_k1/k)=O(J\log\log Z)\).  For \(Z/8<p\leq Z\) the
-shifts are at most \(Z/4<2p\), so \(t_p\leq2\), costing \(O(J)\).
+diameter of the shift set is at most \((Z-3)/4<2p\), so \(t_p\leq2\),
+costing \(O(J)\).
 \(\square\)
 
-**Assessment 75.6 (consequence).**  Proposition 75.5 describes the
+**Assessment 75.6 (consequence).**  Proposition 75.5P describes the
 standard absolute-error expansion through which a level-of-distribution
 statement enters a shifted correlation, and it shows two things.
 First, it evaluates one shifted factor and leaves a
@@ -29977,16 +29994,29 @@ with \(\prod e_h\leq D\), which pin the joint law of the divisibility
 indicators of a set of primes near parameter \(w\) only for sets of size
 \(k=O(e^{w})\).  Two ingredients:
 
-* (upper direction, rigorous Chebyshev--Markov) for a sum of indicators
-  of mean \(\mu\) whose first \(k\) moments are those of the independent
-  model, a deficit of \(t\sqrt\mu\) below the mean is certified with cost
-  \(t^2/2\) if \(t^2\leq k\), and \((k/2)\log(et^2/k)\) if \(t^2\geq k\);
-* (lower direction, model) a probability measure matching those \(k\)
-  moments can place mass \(\exp\{-(k/2)\log(Ct^2/k)\}\) at \(t\sqrt\mu\)
-  below the mean when \(t^2\geq k\) (Christoffel-function asymptotics for
-  the Charlier/Hermite system; the previous draft's claim of mass
-  \(\gg1/k\) for all \(t\leq c\sqrt k\) was false and is withdrawn:
-  for \(t^2\leq k\) the mass is Gaussian, \(e^{-t^2/2}\)).
+* (upper direction, rigorous) write \(M_{2r}=\mathbb E(S_{\rm ind}-\mu)^{2r}\)
+  for the centred moments of the specified independent reference law;
+  if \(S\) matches its first \(k\geq2\) moments then, for \(t>0\),
+  \(\Pr(S\leq\mu-t\sqrt\mu)\leq\min_{1\leq r\leq\lfloor k/2\rfloor}
+  M_{2r}/(t^2\mu)^r\).  Gaussian moment asymptotics, in a regime where
+  they hold uniformly through the optimising even order, give the
+  *leading* costs \(t^2/2\) and \((k/2)\log(et^2/k)\), with rounding,
+  prefactors and asymptotic errors; these are not exact bounds for
+  arbitrary indicator sums (a pairwise-independent sum can have
+  \(\Pr(S=0)\) above the \(k=2\) template by a constant factor);
+* (lower direction, additional model assumption (CM)) for the specified
+  Poisson reference law, even \(k=o(\mu)\), feasible
+  \(x=\mu-t\sqrt\mu\geq0\), and \(t^2\) much larger than \(k\), assume a
+  measure on nonnegative real counts matching the first \(k\) moments
+  and putting mass at least \(\exp\{-(k/2)\log(Ct^2/k)-O(\log k)\}\) at
+  \(x\) (the scale is supported by the Poisson endpoint Christoffel
+  bound: with \(k=2d\), the atom at zero of any matching measure is at
+  most \([\sum_{j\leq d}\mu^j/j!]^{-1}\), of logarithmic cost
+  \(d\log(e\mu/d)+O(\log(d+1))\) for \(d=o(\mu)\)).  This is not a
+  construction on integer residue patterns nor a multivariate matching
+  theorem, and no prefactor-free formula is asserted in the central
+  regime; the previous draft's claim of mass \(\gg1/k\) for all
+  \(t\leq c\sqrt k\) was false and is withdrawn.
 
 Per unit of \(w\) the mean over the \(J\) shifts is \(\mu\asymp J\), so a
 full gap (no prime factor of any \(n+h\) with parameter in a unit window
@@ -29995,32 +30025,41 @@ at \(w\)) has \(t^2\asymp J\) and, with \(k=e^w\) available, model cost
 modulus \(a\approx L^\theta\) needs, by Lemma 75.1 and (75.4), a
 per-shift deficit \((1-\lambda_\theta)\log L\) with the small primes
 typical.  The size constraint \(\sum_ie^{-w_i}=1\) per shift forces
-prime factors at bounded \(w\) but nothing else.  The cheapest
-size-feasible model configuration is therefore: each \(n+h\) is a
-product of at most three primes \(\geq N^{1/e}\) times an \(N^{o(1)}\)
-cofactor with no prime factor in the gap \(w\in[1,1+(1-\lambda_\theta)\log L]\)
-— an "almost-prime tuple" — whose model cost is dominated by the top of
-the gap,
+prime factors at bounded \(w\) but nothing else.  A size-feasible
+candidate configuration has one or two primes \(\geq N^{1/e}\) per shift
+and a subpower cofactor, with a gap \(w\in[1,w_b]\),
+\(w_b=1+(1-\lambda_\theta)\log L\), containing no prime factor of any
+\(n+h\) — an "almost-prime tuple".  This gap has positive width for
+every \(0<\theta<1\); it lies below the sieve boundary, with
+\(k=e^{w}=o(J)\) throughout, precisely for fixed \(\theta>\theta_*\).
+Summing the assumed scalar window costs over the gap in that range gives
+a candidate exponent dominated by the top of the gap,
 \[
- \asymp e^{1+(1-\lambda_\theta)\log L}\,(\theta+\lambda_\theta-1)\log L
+ \tfrac12e^{w_b}(\log J-w_b+1)
  =L^{1-\theta/\log3+o(1)},                                     \tag{75.14}
 \]
-which is positive-width exactly when \(\theta>\theta_*\).  Hence, in this
-model, level-\(N^{O(1)}\) majorant methods certify at most
-\(\exp\{-L^{1-\theta/\log3+o(1)}\}\) for the large-prime part of the
-block event, against the target \(\exp\{-cL^\theta\}\); the two
-exponents cross at \(\theta_*\), and \(1-\theta/\log3<f(\theta)\) for
-\(\theta_*<\theta<0.9176\ldots\) (block (bw)), so the modeled ceiling of
-the whole a-frame track is \(\max(f,1-\lambda_\theta)\leq0.5823\).  The
-previous draft's "free deficit \((\theta/2)\log L\)" and threshold
-\(\theta_2=0.709\) rested on a square-root error (\(e^{w}\) for
-\(e^{w/2}\)) and are withdrawn.  A rigorous version would be an
-LP-duality theorem: a measure on residue patterns with exact
-level-\(D\) statistics, supported on size-feasible patterns, under which
-the lower-tail event has the model probability; the multivariate gluing
-is **not done here**, so this remains a model statement — consistent
-with, and quantifying, Wall 2 of Outcome 35, but not sharper than it as
-a theorem.
+since \(\log J-w_b=(\theta+\lambda_\theta-1)\log L-O(\log\log L)\).
+Widening the gap by \(O(\sqrt{\log L})\) units of \(w\) pushes the
+residual small-prime mean far enough below \(\lambda_\theta\log L\) that
+the per-shift fluctuation cost is not \(\log2\) per coordinate, at no
+change of the exponent in (75.14).  This calculation does **not**
+establish the mass of a simultaneous \({\rm LT}\) or \({\rm BLK}\)
+event under any measure: the signed-product transition, all joint
+level-\(D\) constraints, and the multivariate matching are unhandled,
+neither cheapest-configuration optimality nor a ceiling for the
+statistics model follows, and the previous draft's "free deficit
+\((\theta/2)\log L\)" and threshold \(\theta_2=0.709\) rested on a
+square-root error (\(e^{w}\) for \(e^{w/2}\)) and are withdrawn.
+Numerically, \(1-\lambda_\theta<f(\theta)\) on
+\((\theta_*,\,0.9176\ldots)\), the crossing being
+\(1/(2-1/\log3)\) on the tilt branch (block (bw)); this is a comparison
+of candidate formulas only.  A rigorous version would be an LP-duality
+theorem — a measure on residue patterns with exact level-\(D\)
+statistics, supported on size-feasible patterns, under which the
+lower-tail event has a prescribed probability; nothing of the kind is
+done here.  What survives is only the qualitative content of Wall 2 of
+Outcome 35: the required deficit sits on primes above the sieve range
+for \(\theta>\theta_*\).
 
 **Assessment 75.8 (non-majorant routes examined; negative).**
 (a) *Hardy--Ramanujan/log-weight induction.*  Writing
@@ -30044,7 +30083,7 @@ shifts with no averaging, at the Hardy--Littlewood constant level.  No
 unconditional bound of the shape (75.9), for any \(\theta>\theta_*\) and
 any \(c_0>0\), was found or is known to us.
 
-### 75.7 Pointwise: the witnesses of one prime are spread over all scales
+### 75.7 Pointwise: a qualified witness-count proxy, and no location theorem
 
 **Assessment 75.9 (the single-AP idea; negative, heuristic).**  Fix a
 prime \(p\equiv1\pmod{24}\).  In the reformulation of Outcome 35,
@@ -30053,21 +30092,29 @@ or \(\rho_{4ab}(-p^{-1})\mid a+b\) (Type I), \(\rho_M\) the least positive
 residue.  The Type II witnesses at moduli \(q\leq Q\) concern the integers
 \(h_q=(p+q)/4\) in the interval \([p/4,p/4+Q/4]\) and require
 \(-1\in{\rm Rat}_q(h_q)\); the target \(-1\) is fixed and the modulus
-moves.  In the random-residue model with the exponential tilt
-\(\mathbb E\,3^{\omega(h)}\asymp(\log p)^2\), the expected number of
-witnesses with \(q\in[Q,2Q]\) is \(\asymp\sum_{q\in[Q,2Q]}
-\mathbb E\min(1,3^{\omega(h_q)}/q)\asymp(\log p)^2\) for every dyadic
-scale \((\log p)^{2}\leq Q\leq p^{1-\epsilon}\), and the total over the
-\(\asymp\log p\) scales is \((\log p)^{3}\), the Elsholtz--Tao count.
-So the witness supply of a single prime is *not* concentrated in
-polylogarithmically many moduli (the previous draft claimed this and
-it is withdrawn): every scale \(Q\) carries \(\asymp(\log p)^2\) expected
-witnesses, and a pointwise argument may choose its scale.  What the
-computation does show is that at *every* scale the expected count is
+moves.  In an explicitly all-integer-modulus iid proxy (moduli \(q\equiv3\ (4)\)
+in \([Q,2Q]\), \(\omega(h_q)\) Poisson of mean \(\log\log p\), hit
+probability \(\min(1,3^{\omega}/q)\)), polynomial dyadic scales
+\(Q=p^\alpha\), fixed \(0<\alpha<1\), give order \((\log p)^2\) expected
+successful moduli from the untruncated moment
+\(\mathbb E\,3^{\omega}\asymp(\log p)^2\); extending the proxy over the
+order \(\log p\) such scales gives total order \((\log p)^3\).  This is
+not an identification with the number of arithmetic representations.
+At polylogarithmic \(Q=(\log p)^\beta\) the expectation must be computed
+with the truncation: the proxy exponent is \(\beta\) for
+\(\beta\leq\log3\), \(\beta-\delta(\beta/\log3)\) for
+\(\log3<\beta<3\log3\), and \(2\) only for \(\beta\geq3\log3=3.2958\ldots\)
+(at \(\beta=2\) it is \(1.7298\ldots\)); restricting to prime moduli
+introduces their density \(1/\log Q\) and makes the proxy total
+\((\log p)^2\log\log p\).  None of these expected counts gives a
+pointwise location theorem or forces a witness into a polylogarithmic
+interval; the previous draft's claim that the supply is concentrated in
+polylogarithmically many moduli, and the second draft's uniform
+"\((\log p)^2\) at every dyadic scale", are both withdrawn.  What the
+proxy shows is that at every scale the expected count is at most
 polylogarithmic, so a pointwise statement must control a quantity of
-polylogarithmic mean for *every* \(p\), which is Wall (i) of §10.6 in
-the a-frame: no analytic pointwise theorem with a polylogarithmic main
-term is known in any comparable problem.  Restricting to
+polylogarithmic mean for *every* \(p\): Wall (i) of §10.6 in the
+a-frame.  Restricting to
 \(Q=(\log p)^{O(1)}\) makes it a factorisation question in an interval
 of polylogarithmic length; choosing \(Q=p^{\alpha}\) makes it a question
 about \(\{h\in[p/4,p/4+p^\alpha]\}\) having a divisor pair \(ab\mid h\)
@@ -30090,7 +30137,9 @@ checks on both sides of each, of \(\theta_*\), \(\theta_{\rm tilt}\),
 \(2\log3/(1+2\log3)\), and of the explicitly defined restricted-model
 function \(f\) and its two-parameter version \(g\): continuity at
 \(\theta_*\) and \(\theta_{\rm tilt}\), \(g(\theta,\theta')\leq f(\theta)\)
-on a grid, fine-grid maximum \(0.58230\ldots\) at \(0.6348\ldots\),
+on the sampled grid for \(\theta<2\log3/(1+2\log3)\) and
+\(g(\theta,\theta')\leq\max_uf(u)\) on the whole sampled grid,
+fine-grid maximum \(0.58230\ldots\) at \(0.6348\ldots\),
 \(f<2/3\) throughout, the crossing of \(f\) and \(1-\lambda_\theta\) at
 \(0.9176\ldots\), and the index-six exponent \(5/6\) with its threshold
 \(0.04323\ldots\); these validate the formulas as numerical formulas,
@@ -30099,9 +30148,11 @@ squarefree units \(h\leq20{,}000\) with \(\omega(h)=m\), the
 full-generation block share is at least the Lemma 75.1 floor
 \(1-(3^m-1)/42-(\hbox{non-generation share})\) for \(m=1,2,3\) — an
 inequality check on real data; (iv) the two regression examples of the
-review: the shifted-endpoint example for Proposition 75.5 and the
-occupancy \(t_{199}=2\) at \(Z=1000\) (shifts \(8\) and \(207\)), which
-exceeds \(2J/(p-1)+1\).
+review: the shifted-endpoint example for Proposition 75.5P and the
+occupancy counterexample \(t_{199}=2\) at \(Z=1000\) (shifts \(8\) and
+\(207\)), which exceeds \(2J/(p-1)+1<2\), together with the finite check
+\(\sum_{p\leq1000}(t_p-1)=227<6J\log\log1000\); the asymptotic occupancy
+bound is supplied by the proof, not by this finite test.
 
 ### 75.9 Honest walls and withdrawn claims
 
@@ -30118,7 +30169,10 @@ exceeds \(2J/(p-1)+1\).
    universality of the sieve ceiling; the "free deficit
    \((\theta/2)\log L\)" and \(\theta_2\); the polylogarithmic-interval
    necessity in the pointwise assessment; and the unshifted error term
-   and the "\(2J/(p-1)+1\)" occupancy in Proposition 75.5.
+   and the "\(2J/(p-1)+1\)" occupancy in Proposition 75.5P; the
+   "rigorous" exponent-scale moment bounds, the gap-model certifiability
+   claim, and the uniform every-dyadic-scale witness count of the second
+   draft.
 3. Nothing here improves any unconditional exponent: the record remains
    \(2/3\) (Vaughan) and the internally proved \((\log N)^{2/3}(\log\log N)^{1/3}\)
    of `paper/vaughan-loglog-note.tex`, with the \(3/4\) chain of §76 and

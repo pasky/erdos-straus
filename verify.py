@@ -15363,6 +15363,13 @@ def check_bw():
         assert 1 - t / L3 < f(t)
     assert abs(f(theta_star) - (1 - theta_star / L3)) < 1e-12
 
+    # (ii') pointwise proxy (Assessment 75.9): truncated exponent at beta = 2
+    #       is 2 - delta(2/log 3) = 1.7298..., and 2 only from beta = 3 log 3.
+    r_beta = lambda b: b if b <= L3 else (b - delta(b / L3) if b < 3 * L3 else 2.0)
+    assert abs(r_beta(2.0) - 1.72983) < 2e-5, r_beta(2.0)
+    assert abs(r_beta(3 * L3) - 2.0) < 1e-12 and r_beta(3.0) < 2.0
+    assert abs(r_beta(L3 + 1e-9) - L3) < 1e-6
+
     # (iii) finite echo of (75.4) at a = 43: among squarefree units h <= 20000
     #      with omega(h) = m, the genuine block share is at least the Lemma
     #      75.1 floor 1 - (3^m - 1)/42 - (non-generation share).  Inequality
@@ -15434,7 +15441,7 @@ def check_bw():
     Jc = len(shifts)
     occ = Counter(sh % 199 for sh in shifts)
     t199 = max(occ.values())
-    assert Jc == 87 and t199 >= 2 and 2 * Jc / 198 + 1 < 2
+    assert Jc == 87 and t199 == 2 and 2 * Jc / 198 + 1 < 2
     assert 8 in shifts and 207 in shifts and (207 - 8) == 199
     #      and the repaired bound: sum_p (t_p - 1) over p <= Z is O(J log log Z)
     tsum = 0
