@@ -13,7 +13,7 @@ from fractions import Fraction
 from math import prod
 import unittest
 
-from sympy import factorint, isprime, primerange
+from sympy import divisors, factorint, isprime, primerange
 
 from pointwise_incidence import negative_fibre_transfer, quadratic_signature
 from pointwise_refactor import seed, seed_path, signed_solutions
@@ -183,6 +183,23 @@ class EscapeChecks(unittest.TestCase):
         self.assertEqual(path[-2:], [(-6643, -1638, 18), (-6643, 28, 52)])
         # This is the already-known one-neighbour trap, not a positive exit.
         self.assertEqual(quadratic_signature(73, path[-1]), 1)
+
+    def test_factorization_guard_and_large_h_branch(self):
+        self.assertEqual(factor_with_known(1, 13), {})
+        self.assertEqual(factor_with_known(4 * 3 * 13**2 * 17, 13), {2: 2, 3: 1, 13: 2, 17: 1})
+        for n in (0, -1, 2**64 + 1):
+            with self.assertRaises(ValueError):
+                factor_with_known(n, 13)
+        for q in (13, 17, 19, 43):
+            p, t = 24 * q + 1, 6 * q
+            for c in (1, 2, 3, 4, 6, 9, 12, 18, 36):
+                h = c * q * q
+                r, m = 4 * h - 1, p * h - t
+                # Independently exhaust the original residual divisor fibre,
+                # rather than reusing the a-window inequality.
+                exists = any((int(d) + m) % r == 0 for d in divisors(m * m) if d <= m)
+                self.assertEqual(positive_type_i_pair(p, h, q) is not None, exists)
+                self.assertGreater((4 * 16 - 1) * h - 16 - (t + 16)**2, 0)
 
     def test_invalid_inputs(self):
         for p in (73, 5374009, LIMIT + 1):

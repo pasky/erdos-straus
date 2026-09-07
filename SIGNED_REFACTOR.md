@@ -149,8 +149,8 @@ This proves (2a) for Type I.
 **Proof for Type II.** At a positive p-divisible denominator `pu`, the
 residual is `(4u-1)/(pu)`. Its factor corresponding to the p-free coordinate
 is a signed divisor D of `u²`, satisfying `D≡-pu mod(4u-1)`.
-Every prime factor of u is a quadratic residue in the Jacobi symbol modulo
-`4u-1`. For an all-positive vertex D is positive, so
+Every prime factor of u has Jacobi symbol +1 modulo `4u-1`.
+For an all-positive vertex D is positive, so
 `1=(-pu/(4u-1))=-(p/(4u-1))`. Reciprocity gives
 `(lambda(pu)/p)=-1`.
 
