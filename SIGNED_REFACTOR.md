@@ -124,6 +124,11 @@ The corresponding triple is
                          (x,pm,pxm/f).                     \tag{4}
 \]
 
+**Retain only nodes incident to at least one edge.** An unused denominator
+is not a graph component: for example, the eligible value `p=5,x=-1`
+has an empty fibre. This qualification is necessary for the component
+correspondence below.
+
 **Proof of exactness.** Put `q=4x-p`. Since `gcd(q,x)=1`, also
 `gcd(q,f)=1`. The relation `qm=f+x` shows that
 `f|pxm` is equivalent to `f|px²`. Thus (3) gives integral nonzero (4),

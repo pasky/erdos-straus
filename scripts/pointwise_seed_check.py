@@ -107,6 +107,9 @@ class SeedChecks(unittest.TestCase):
             self.assertEqual(sector_one, {seed(p)})
 
     def test_incidence_component_correspondence(self):
+        # Eligible but unused denominators are not isolated incidence components.
+        self.assertEqual(independent_fibre(5, -1), set())
+        self.assertTrue(all(-1 not in v for v in self.graphs[5]))
         for p, vertices in self.graphs.items():
             adjacency = defaultdict(set)
             edge_owner = {}
