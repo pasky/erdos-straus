@@ -52,6 +52,42 @@ def type_i_vertex(p: int, a: int, h: int) -> tuple[int, int, int]:
     return incidence_vertex(p, x, m)
 
 
+def quadratic_signature(p: int, vertex: tuple[int, int, int]) -> int:
+    """The same-p-valuation pair has character -1 iff the triple is positive.
+
+    This assertion concerns actual signed ES vertices, not arbitrary triples.
+    For Type I take the two p-free denominators; for Type II divide the two
+    p-divisible denominators by p first. See SIGNED_REFACTOR.md, section 2.
+    """
+    _require_prime(p)
+    if len(vertex) != 3 or not all(vertex):
+        raise ValueError("expected three nonzero denominators")
+    x, y, z = vertex
+    if 4 * x * y * z != p * (x * y + x * z + y * z):
+        raise ValueError("not a signed ES vertex at p")
+    free = [x for x in vertex if x % p]
+    pair = free if len(free) == 2 else [x // p for x in vertex if x % p == 0]
+    assert len(pair) == 2 and all(x % p for x in pair)
+    value = pow((pair[0] * pair[1]) % p, (p - 1) // 2, p)
+    assert value in (1, p - 1)
+    return 1 if value == 1 else -1
+
+
+def negative_fibre_transfer(p: int, c: int, d: int) -> list[tuple[int, int, int]]:
+    """A legal two-edge path through h=-c, not a promised positive exit.
+
+    c|t², d|(pc+t)², and d=-c mod(4c+1). The reached p-free anchor is
+    t+(d+c)/(4c+1). The last vertex still has its p-divisible denominator
+    negative; either positive p-free anchor may now be refactored.
+    """
+    _require_prime(p)
+    t = (p - 1) // 4
+    if c <= 0 or d <= 0 or t * t % c or (p * c + t) ** 2 % d or (d + c) % (4 * c + 1):
+        raise ValueError("inadmissible negative-fibre transfer")
+    a = (d + c) // (4 * c + 1)
+    return [seed(p), type_i_vertex(p, 0, -c), type_i_vertex(p, a, -c)]
+
+
 def dual_hub_path(p: int) -> list[tuple[int, int, int]]:
     """An unconditional three-edge path to the second unit-residual hub."""
     _require_prime(p)

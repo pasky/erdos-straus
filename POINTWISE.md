@@ -75,6 +75,15 @@ reaches explicit divisor sets on both axes; forcing a positive exit remains
 unproved. A second complete enumerator checks this arithmetic model using
 the sharper positive p-free anchor bound `(p-1)/2`.
 
+The continuation now also proves an exact **signed character theorem**:
+the two coordinates with the same p-adic valuation, after removing p,
+have opposite quadratic characters modulo p if and only if the triple
+is all-positive. In particular Type II p-divisible buckets cannot mix
+positive and signed vertices. This reduces every possible two-move seed
+exit to Type I. Two targeted sparse-seed inputs have no positive neighbour
+of either entire unit-residual fibre, but have certified three-edge escapes;
+these are not counterexamples to seed reachability.
+
 ## 2. Choose windows using reduced quadratic forms
 
 Let `[A,B,C]` run over primitive reduced positive definite forms of

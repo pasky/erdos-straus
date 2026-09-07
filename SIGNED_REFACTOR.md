@@ -105,6 +105,68 @@ For `x≤t`, equality is possible only at `x=t` with `m=n=-2t`; for `x≥t+1`,
 `4-p/x≥3/(t+1)>1/t`. This proves uniqueness. In particular `-2pt` occurs
 in **no other vertex**: every nontrivial first move preserves t.
 
+### Quadratic colour detects positivity exactly
+
+**Signed character theorem.** Select the two coordinates with the same
+p-adic valuation, and remove their factors of p if necessary. Call the
+resulting integers A,B. Then
+
+\[
+ \left(\frac{AB}{p}\right)=
+ \begin{cases}
+ -1,&\text{the triple is all-positive},\\
+ +1,&\text{the triple has a negative denominator}.
+ \end{cases}                                                \tag{2a}
+\]
+
+Thus A,B have opposite quadratic characters **exactly** in the positive
+case. This is not a character heuristic for arbitrary integer triples;
+it uses the exact signed ES identity.
+
+**Proof for Type I.** Write the p-divisible denominator as pm and put
+`u=|m|`. The residual is `R/u`, with R positive. If `m>0`, then
+`R≡3 mod4` and `4u-pR=1`; if `m<0`, then `R≡1 mod4` and `pR-4u=1`.
+Quadratic reciprocity gives, for each prime `ell|u`,
+
+\[
+                  (\ell/R)=(\ell/p).
+\]
+
+For odd ell, use `-R≡p^{-1} mod ell` in the first case and
+`R≡p^{-1} mod ell` in the second. For ell=2, reduction modulo 8 gives the
+same equality. Jacobi symbols with denominator 1 have value 1.
+For the two p-free coordinates x,y, put `D=Rx-u`. Then
+`D|u²`, `D≡-u mod R`, and `Dy=ux`. Also `(u/p)=1`, since
+`m≡1/4 mod p` and `(-1/p)=1`. Consequently `(xy/p)=(D/p)`.
+
+If `m>0,D>0`, both x,y are positive, and
+`(D/p)=(D/R)=(-u/R)=-1`, since `4u≡1 mod R`.
+If `m>0,D<0`, write `d=-D`; then `d≡u mod R`, giving
+`(D/p)=(d/R)=1`. These are the mixed-sign pairs. If `m<0`, both signs
+of D give character +1: here `(-1/R)=1` and `4u≡-1 mod R`.
+This proves (2a) for Type I.
+
+**Proof for Type II.** At a positive p-divisible denominator `pu`, the
+residual is `(4u-1)/(pu)`. Its factor corresponding to the p-free coordinate
+is a signed divisor D of `u²`, satisfying `D≡-pu mod(4u-1)`.
+Every prime factor of u is a quadratic residue in the Jacobi symbol modulo
+`4u-1`. For an all-positive vertex D is positive, so
+`1=(-pu/(4u-1))=-(p/(4u-1))`. Reciprocity gives
+`(lambda(pu)/p)=-1`.
+
+A nonpositive Type II vertex has a negative p-divisible coordinate `-pu`.
+Now the residual numerator is `4u+1`. Every signed divisor of `u²` has
+Jacobi symbol +1 modulo `4u+1`; hence its required congruence gives
+`(p/(4u+1))=1`, and therefore `(lambda(-pu)/p)=1`.
+Finally (2) implies `n lambda(pm)=m mod p`, so
+`(lambda(pm)/p)=(mn/p)`. This proves (2a) for Type II. ∎
+
+**Graph consequence.** A Type II p-divisible bucket is entirely positive
+or entirely nonpositive according as its nonzero label is a nonresidue
+or residue modulo p. Thus a Type II move retaining a p-divisible denominator
+**cannot cross the positivity boundary**. This is stronger than invariance
+of the inversion sector alone. Type I buckets need not have this property.
+
 ## 3. An exact bipartite denominator graph
 
 Use two sets of nodes:
@@ -242,6 +304,36 @@ right side is `(t+a)²`, not `(t+h)²`. No unproved transposition is being
 used as a graph move. This is the current constructive foothold, not a
 replacement conjecture asserting a uniform path-length bound.
 
+### Exactly which two-move seed exits are possible
+
+The character theorem removes the Type II branch from this question.
+Every first move preserves t (§2); t is too small to occur in a positive
+vertex. A positive p-divisible denominator at a first-step Type II vertex
+has a residue label, so its entire bucket is nonpositive. At a first-step
+Type I vertex the only possible retained positive exit denominator is
+`p(ph-t)`, with `h>0` and `h|t²`. Thus **a two-move seed exit exists if and
+only if**, for some positive divisor h of t², the rational number
+
+\[
+                         \frac{4h-1}{ph-t}                  \tag{9}
+\]
+
+has a positive integral two-term decomposition. This is an exact reduction
+for every prime `p=4t+1`, not just for the sparse-seed experiments.
+
+A useful legal excursion in the other direction is also explicit. Choose
+
+\[
+ c>0,\quad c\mid t^2,\qquad d>0,\quad d\mid(pc+t)^2,
+ \qquad d\equiv-c\pmod{4c+1}.
+\]
+
+Put `a=(d+c)/(4c+1)`. The path from the seed to Type I coordinates
+`(0,-c)` and then `(a,-c)` consists of two legal edges. Its new positive
+p-free denominator is `t+a`; its p-divisible denominator remains negative.
+A further character-mismatching refactor would necessarily be positive by
+(2a). The transfer itself does **not** guarantee that mismatch.
+
 ## 5. Exact checks and scope
 
 The auxiliary claim that *all two-negative vertices belong to the seed
@@ -250,10 +342,64 @@ component* is false, even for primitive Type II vertices. At the hard prime
 exhausts all three of its divisor fibres, independently of any height bound.
 This is **not** a counterexample to the seed-component conjecture.
 
+### Beyond the two unit fibres
+
+A targeted sparse-seed search found `p=2271767935369`, with
+`q=(p-1)/24=94656997307` also prime. There is **no positive vertex adjacent
+to any vertex in either the t-fibre or the -pt-fibre**. Nevertheless there
+is a three-edge seed escape. The negative-fibre transfer above uses
+
+\[
+                  c=4,\quad d=26^2,\quad a=40.
+\]
+
+It reaches the Type I vertex `(a,h)=(40,-4)`. Retaining `x=t+40` then gives
+the positive Type II vertex
+
+\[
+ (567941983882,\;p\cdot3572092160,\;p\cdot98151160656640).
+\]
+
+Here `4x-p=159`, and the Type II divisor certificate is
+`20669558=2*7*13*337²`, a divisor of `x²` congruent to `-x mod159`.
+This last refactor enters a **nonresidue-labelled** Type II bucket, exactly
+as (2a) requires. A second such example, `p=772045387369`, escapes using
+`c=2,d=700`, reaching `a=78` before the positive step.
+
+The checker exhausts the short-exit criteria, **not these entire large
+graphs**. Thus it proves minimum seed distance 3 from (9) and the supplied
+path. The -pt-fibre exclusion is not a claim about all two-edge paths
+starting at the vertex `(-pt,2t,2t)`: such a path could first retain `2t`
+instead of `-pt`. No uniform three-move conjecture is inferred.
+
+For these sparse inputs `t=6q`, the divisors h in (9) are `c q^j`,
+`c|36`, `j=0,1,2`. The largest ones need no huge factorization. In any
+positive Type I pair choose `x=t+a≤2t`; then
+
+\[
+                0<e=(4a-1)h-a\le(t+a)^2.
+\]
+
+For `h≥q²`, we have `h>t` and `e-(t+a)²` strictly increases for `1≤a≤t`.
+The checker tests each admissible a and stops only when this necessary
+inequality fails. For `q≥13` it fails by `a=16`, since the difference there
+is at least `27q²-192q-272>0`. All other h require only factorizations of
+linear forms in q after removing the known factor q. The dual-fibre test
+similarly factors `t+d`, `d|t²`, by removing known factors before working
+on the remaining linear factor. Every fresh factorization is guarded
+below `2^64`, where the primality checks are deterministic. Resource
+limits or unsupported inputs are errors, never graph counterexamples.
+
+These examples defeat direct exits from the two-fibre core, not the seed
+conjecture. The character theorem supplies a sharper target: **force a
+legal refactor with opposite quadratic colours on the same-valuation
+pair**. It does not yet force the required integral divisor.
+
 ```sh
 (ulimit -v 524288
  timeout 60s uv run python scripts/pointwise_seed_check.py
  timeout 60s uv run python scripts/pointwise_forms_check.py
+ timeout 60s uv run python scripts/pointwise_escape_check.py
  timeout 30s uv run python scripts/pointwise_incidence.py 297049)
 ```
 

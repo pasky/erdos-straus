@@ -15,6 +15,7 @@ from pointwise_incidence import (
     dual_hub_path,
     incidence_solutions,
     incidence_vertex,
+    quadratic_signature,
     type_i_vertex,
 )
 from pointwise_refactor import components, seed, seed_path, signed_solutions
@@ -82,10 +83,11 @@ class SeedChecks(unittest.TestCase):
     def test_p_colours_incidence_and_anchor_bound(self):
         for p, vertices in self.graphs.items():
             t = (p - 1) // 4
-            bucket_types = {}
+            bucket_types, type_ii_positivity = {}, {}
             sector_one = set()
             for vertex in vertices:
                 self.assertEqual(reciprocal_sum(vertex), Fraction(4, p))
+                self.assertEqual(quadratic_signature(p, vertex), -1 if vertex[0] > 0 else 1)
                 free = [x for x in vertex if x % p]
                 multiples = [x for x in vertex if x % p == 0]
                 self.assertIn(len(multiples), (1, 2))
@@ -100,6 +102,8 @@ class SeedChecks(unittest.TestCase):
                     self.assertEqual((4 * (multiples[0] // p) - 1) % p, 0)
                 else:
                     m, n = (w // p for w in multiples)
+                    for w in multiples:
+                        self.assertEqual(type_ii_positivity.setdefault(w, vertex[0] > 0), vertex[0] > 0)
                     self.assertGreater(free[0], 0)
                     self.assertEqual(((4 * m - 1) * (4 * n - 1)) % p, 1)
                     if (4 * m - 1) % p == 1:
@@ -181,6 +185,8 @@ class SeedChecks(unittest.TestCase):
         self.assertEqual(vertices, signed_solutions(p))
         self.assertEqual(len(vertices), 1143)
         self.assertEqual(sum(v[0] > 0 for v in vertices), 67)
+        for vertex in vertices:
+            self.assertEqual(quadratic_signature(p, vertex), -1 if vertex[0] > 0 else 1)
         path = seed_path(p, vertices)
         self.assertIsNotNone(path)
         self.assertEqual(len(path), 4)
@@ -208,6 +214,9 @@ class SeedChecks(unittest.TestCase):
         for x, m in ((0, 1), (1, 0), (73, 1), (1, 73), (1, 1)):
             with self.assertRaises(ValueError):
                 incidence_vertex(73, x, m)
+        for vertex in ((0, 1, 1), (1, 2, 3), (1, 2)):
+            with self.assertRaises(ValueError):
+                quadratic_signature(73, vertex)
         for a, h in ((0, 0), (-18, 0), (1, 1), (55, 1)):
             with self.assertRaises(ValueError):
                 type_i_vertex(73, a, h)
