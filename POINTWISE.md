@@ -67,6 +67,14 @@ are failures of specific proofs, not a sterile seed-component example.
 The missing step is a structural reason that the **seed component**, rather
 than an arbitrary component, must reach positivity.
 
+**Continuation:** [SIGNED_REFACTOR.md](SIGNED_REFACTOR.md) proves a universal
+three-edge bridge to `(-pt,2t,2t)`, saturating both unit-residual fibres. It
+also gives an exact two-colour denominator graph and Type I coordinates
+`e=4ah-a-h | (t+a)²`, in which positivity is exactly `a,h≥1`. The seed
+reaches explicit divisor sets on both axes; forcing a positive exit remains
+unproved. A second complete enumerator checks this arithmetic model using
+the sharper positive p-free anchor bound `(p-1)/2`.
+
 ## 2. Choose windows using reduced quadratic forms
 
 Let `[A,B,C]` run over primitive reduced positive definite forms of
