@@ -84,6 +84,13 @@ exit to Type I. Two targeted sparse-seed inputs have no positive neighbour
 of either entire unit-residual fibre, but have certified three-edge escapes;
 these are not counterexamples to seed reachability.
 
+The latest continuation proves that every Type II p-divisible fibre has at
+most two vertices, recoverable without factoring, and that p-free anchors
+outside `[1,(p-1)/2]` cannot transmit a nonpositive path. An exact lazy
+component search implements these bounds, with budget failure explicitly
+separated from sterile-component exhaustion. This still does not force an
+exit from the remaining seed core.
+
 ## 2. Choose windows using reduced quadratic forms
 
 Let `[A,B,C]` run over primitive reduced positive definite forms of

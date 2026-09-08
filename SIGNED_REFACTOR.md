@@ -3,8 +3,10 @@
 **The seed-component conjecture remains open.** This continuation proves an
 input-defined bridge, identifies the arithmetic types of denominator fibres,
 and gives exact coordinates in which Type I positivity is a positive-quadrant
-condition. It neither proves seed reachability of a positive vertex for every
-prime nor finds a counterexample to that conjecture.
+condition. The latest deductions bound Type II fibres by two vertices and
+remove large p-free denominators from any putative sterile transmitting core.
+They neither prove seed reachability of a positive vertex for every
+prime nor find a counterexample to that conjecture.
 
 Throughout, `p=4t+1` is prime. **Type I means one p-divisible denominator;
 Type II means two.** Denominators are signed, nonzero integers. The original
@@ -334,7 +336,127 @@ p-free denominator is `t+a`; its p-divisible denominator remains negative.
 A further character-mismatching refactor would necessarily be positive by
 (2a). The transfer itself does **not** guarantee that mismatch.
 
-## 5. Exact checks and scope
+## 5. Rigidity of transmitting fibres
+
+These bounds hold for every prime `p=4t+1`. They give exact pruning and
+factorization-free moves, **not a reason that the remaining core must exit**.
+
+### Type II fibres have at most two vertices
+
+Fix a Type II denominator `pm`, and write the other two coordinates as
+`x,pn`. Put `K=4m-1` and `A=4-1/m≥3`. The identity gives
+
+\[
+ nK\equiv m\pmod p,\qquad x=\frac{p}{A-1/n}.
+\]
+
+There is exactly one representative `n₀` of this nonzero residue class in
+`[-2t,2t]`. Every other representative has `|n|≥2t+1=(p+1)/2`. For those
+representatives, with `η=2/(p+1)`,
+
+\[
+ \left|x-\frac{pm}{K}\right|
+ \le\frac{p\eta}{A(A-\eta)}
+ \le\frac{2p}{9p+3}<\frac14.
+\]
+
+Thus all noncentered representatives force the **same** integer x: the
+nearest integer to `pm/K`. Each x determines n uniquely. Together with the
+centered representative, this gives at most two vertices in the entire
+fibre, whether positive or nonpositive.
+
+This is also a complete factorization-free construction. Test exactly:
+
+1. `n=n₀`, with `x=pmn/(4mn-m-n)` integral;
+2. `x=nearestInteger(pm/K)`, with `D=Kx-pm≠0` and `D|m²`, giving `n=mx/D`.
+
+Discard inadmissible candidates and deduplicate. The second divisibility
+condition is sufficient because `gcd(K,m)=1`; from `D=Kx-pm`, it follows
+that `D|mx` whenever `D|m²`. This does not presume that the two divisors of
+a double fibre have ratio `4m`: at `p=6089,m=-60`, the actual factors
+`D=-16,225` are a counterexample to that tempting strengthening.
+
+**Moreover, `|m|≥2t` makes the denominator private.** If both quotients
+satisfy `|m|,|n|≥2t`, then `|1/m+1/n|≤1/t`. For `x≥t+1`,
+`4-p/x≥3/(t+1)>1/t`, impossible. For `x≤t`, the opposite gap is at least
+`1/t`, with equality only at the seed `x=t,m=n=-2t`. Hence the partner of
+any fixed large m lies in `[-2t,2t]`, where its residue class has only one
+representative.
+
+Consequently the Type II graph using **only p-divisible retained
+coordinates** has components of at most three vertices: an isolated
+vertex, an edge, or a three-vertex star. A nontrivial block has a central
+vertex with both quotients in `[-2t,2t]`; each outer vertex has a large,
+private quotient. This bound does not apply after allowing moves retaining
+p-free coordinates. By the signed character theorem, each such block is
+wholly positive or wholly nonpositive.
+
+### P-free denominators outside the small interval cannot hide a chain
+
+Fix a p-free denominator `z<0` or `z>2t`. Type II is impossible there.
+The other p-free denominator x is positive and at most `2t`, and the
+remaining coordinate is `pm`, with `m≤-t` or `m≥3t+1`. Put
+`R=4/p-1/z`. Every possible x lies in the exact interval
+
+\[
+ \frac1{R+1/(pt)}\ \le x\ \le\frac1{R-1/[p(3t+1)]}.       \tag{10}
+\]
+
+Each integer in (10) determines the last denominator; testing its
+integrality exhausts the fibre without factoring z.
+
+* For `z<0`, `R>4/p`, so the interval width is less than `1/3`:
+  **the entire fibre is empty or a singleton**.
+* For `z>2t`, use `R≥(4t+3)/(p(2t+1))`. The width is at most
+  `(2t+1)²/((t+1)(3t+2))<2`, so there are **at most two vertices**.
+* For `z≥p`, the stronger `R≥3/p` makes the width at most
+  `p²/((3t+1)(9t+2))<1`: the full fibre is again empty or a singleton.
+
+For a **nonpositive** vertex with `z>2t`, both p-free coordinates are
+positive, so `m<0`. The upper endpoint in (10) improves to the strict
+bound `x<1/R`. This interval has width at most
+
+\[
+ \frac{(2t+1)^2}{(4t+3)(t+1)}<1.
+\]
+
+Thus there is at most one nonpositive vertex at any such z. In particular,
+**any legal move retaining a p-free z outside `[1,2t]` either is impossible
+or immediately reaches positivity**. This subsumes the large p-free
+singleton calculation in terminal square-lift examples; growing that
+coordinate cannot create a long hidden signed escape route.
+
+### Exact lazy exhaustion, with unknown status kept separate
+
+`scripts/pointwise_fibres.py` implements these constant-candidate fibres.
+At a Type I p-divisible anchor it additionally uses
+
+\[
+ |a|\le\left\lfloor\frac{4t^2+|h|}{|4h-1|}\right\rfloor,
+ \qquad 1-t\le a\le t,
+\]
+
+which follows from `|(4h-1)a-h|≤(t+a)²≤4t²`. When short, this interval
+exhausts **both signs** of the fibre; otherwise the search uses the full
+signed-divisor equation. Fresh factors must be certified below `2^64`;
+known factors may be stripped from larger integers first. Divisor and
+vertex budgets are explicit, and partially processed fibres are never
+cached as complete.
+
+The BFS emits `FOUND` with a shortest positive path, or `STERILE` only
+when every denominator in the entire start component has been expanded.
+Unsupported or budget-exhausted work is `UNKNOWN` (exit 2); an externally
+interrupted run has no exhaustion verdict. Unused labels are not starts.
+Tests compare every bucket against independent complete graphs, including
+empty labels, and exhaust known nonseed sterile components, including the
+nine-vertex cyclic one at `10477`.
+
+**The existence gap is unchanged:** no closure contradiction for the seed
+core, and no exhausted sterile seed component, has been obtained. The new
+bounds remove entire classes of possible transmitting branches; they do
+not supply a character-changing divisor in the remaining ones.
+
+## 6. Exact checks and scope
 
 The auxiliary claim that *all two-negative vertices belong to the seed
 component* is false, even for primitive Type II vertices. At the hard prime
@@ -400,7 +522,9 @@ pair**. It does not yet force the required integral divisor.
  timeout 60s uv run python scripts/pointwise_seed_check.py
  timeout 60s uv run python scripts/pointwise_forms_check.py
  timeout 60s uv run python scripts/pointwise_escape_check.py
- timeout 30s uv run python scripts/pointwise_incidence.py 297049)
+ timeout 60s uv run python scripts/pointwise_fibres_check.py
+ timeout 30s uv run python scripts/pointwise_incidence.py 297049
+ timeout 30s uv run python scripts/pointwise_fibres.py 297049)
 ```
 
 The incidence enumerator stores an SPF array, actual vertices, and sparse
