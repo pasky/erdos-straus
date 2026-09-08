@@ -16,6 +16,7 @@ from dataclasses import dataclass
 from fractions import Fraction
 import json
 from math import gcd, prod
+from operator import index
 
 from sympy import factorint, isprime
 
@@ -29,8 +30,15 @@ class IncompleteSearch(RuntimeError):
     """A resource/certification limit, not a mathematical counterexample."""
 
 
+def require_integer(value, label: str) -> int:
+    try:
+        return index(value)
+    except TypeError as error:
+        raise ValueError(f"{label} must be an integer") from error
+
+
 def checked_vertex(p: int, values) -> Vertex:
-    vertex = tuple(sorted(values))
+    vertex = tuple(sorted(require_integer(value, "denominator") for value in values))
     if len(vertex) != 3 or not all(vertex):
         raise ValueError("expected three nonzero denominators")
     x, y, z = vertex
@@ -46,6 +54,11 @@ def ceil_fraction(value: Fraction) -> int:
 class FibreOracle:
     def __init__(self, p: int, *, max_divisors=200_000, max_fibre=100_000,
                  interval_budget=20_001, factor_limit=100_000):
+        p = require_integer(p, "p")
+        max_divisors, max_fibre, interval_budget, factor_limit = (
+            require_integer(value, "budget")
+            for value in (max_divisors, max_fibre, interval_budget, factor_limit)
+        )
         if not 5 <= p < 2**64 or p % 4 != 1 or not isprime(p):
             raise ValueError("expected a prime p=1 mod4 below 2^64")
         if min(max_divisors, max_fibre, interval_budget, factor_limit) < 1:
@@ -53,14 +66,15 @@ class FibreOracle:
         self.p, self.t = p, (p - 1) // 4
         self.max_divisors, self.max_fibre = max_divisors, max_fibre
         self.interval_budget, self.factor_limit = interval_budget, factor_limit
-        self.known_primes = {2, 3, p}
-        self.cache: dict[int, set[Vertex]] = {}
+        self._known_primes = {2, 3, p}
+        self._cache: dict[int, frozenset[Vertex]] = {}
 
     def factor(self, n: int) -> dict[int, int]:
+        n = require_integer(n, "factorization input")
         if n < 1:
             raise ValueError("expected a positive integer to factor")
         original, factors = n, {}
-        for ell in sorted(self.known_primes):
+        for ell in sorted(self._known_primes):
             exponent = 0
             while n % ell == 0:
                 n //= ell
@@ -75,7 +89,7 @@ class FibreOracle:
         for ell, exponent in fresh.items():
             factors[ell] = factors.get(ell, 0) + exponent
         assert prod(ell**e for ell, e in factors.items()) == original
-        self.known_primes.update(fresh)
+        self._known_primes.update(fresh)
         return factors
 
     def square_divisors(self, n: int):
@@ -159,11 +173,12 @@ class FibreOracle:
                     self._add(out, (z, y, other))
         return out
 
-    def fibre(self, z: int) -> set[Vertex]:
+    def fibre(self, z: int) -> frozenset[Vertex]:
+        z = require_integer(z, "denominator")
         if z == 0:
             raise ValueError("zero is not an eligible denominator")
-        if z in self.cache:
-            return self.cache[z]
+        if z in self._cache:
+            return self._cache[z]
         p, t = self.p, self.t
         if z % (p * p) == 0:
             out = set()  # The p-adic valuation theorem excludes these labels.
@@ -188,8 +203,9 @@ class FibreOracle:
                 out = self._divisor_fibre(z)
         else:
             out = self._divisor_fibre(z)
-        self.cache[z] = out  # Never cache a partial fibre after an exception.
-        return out
+        # Never cache partial work, or expose a mutable certified fibre.
+        self._cache[z] = frozenset(out)
+        return self._cache[z]
 
 
 @dataclass
@@ -206,6 +222,7 @@ def explore(oracle: FibreOracle, start: Vertex | None = None, *, max_vertices=10
     IncompleteSearch interrupts traversal without any component verdict.
     An arbitrary valid start is supported for independent sterile-component tests.
     """
+    max_vertices = require_integer(max_vertices, "vertex budget")
     if max_vertices < 1:
         raise ValueError("vertex budget must be positive")
     root = checked_vertex(oracle.p, seed(oracle.p) if start is None else start)

@@ -106,17 +106,40 @@ class FibreChecks(unittest.TestCase):
             vertex = tuple(sorted((t, -t * (p + 1), -p * t * (p + 1))))
             self.assertEqual(oracle.fibre(-t * (p + 1)), {vertex})
 
+    def test_cached_certificates_are_immutable_and_starts_integral(self):
+        oracle = FibreOracle(73)
+        certificate = oracle.fibre(18)
+        self.assertIsInstance(certificate, frozenset)
+        # Caller filtering/consumption cannot silently turn a complete fibre
+        # into a false empty one for the subsequent component search.
+        with self.assertRaises(AttributeError):
+            certificate.clear()
+        copied = set(certificate)
+        copied.clear()
+        self.assertEqual(oracle.fibre(18), certificate)
+        self.assertEqual(explore(oracle).status, "FOUND")
+        for vertex in ((Fraction(5, 2), 5, 5), (2.5, 5, 5)):
+            with self.assertRaises(ValueError):
+                explore(FibreOracle(5), vertex)
+        for operation in (lambda: FibreOracle(73.0),
+                          lambda: FibreOracle(73, max_fibre=1.5),
+                          lambda: oracle.fibre(Fraction(1, 2)),
+                          lambda: oracle.factor(25.0),
+                          lambda: explore(oracle, max_vertices=1.5)):
+            with self.assertRaises(ValueError):
+                operation()
+
     def test_limits_are_unknown_never_sterile(self):
         with self.assertRaises(IncompleteSearch):
             explore(FibreOracle(73), max_vertices=1)
         oracle = FibreOracle(73, max_divisors=1)
         with self.assertRaises(IncompleteSearch):
             oracle.fibre(18)
-        self.assertNotIn(18, oracle.cache)
+        self.assertNotIn(18, oracle._cache)
         oracle = FibreOracle(73, max_fibre=1)
         with self.assertRaises(IncompleteSearch):
             oracle.fibre(18)
-        self.assertNotIn(18, oracle.cache)
+        self.assertNotIn(18, oracle._cache)
         with self.assertRaises(IncompleteSearch):
             FibreOracle(73).factor(2**64 + 1)
         oracle = FibreOracle(73)

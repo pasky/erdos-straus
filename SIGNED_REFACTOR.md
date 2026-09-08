@@ -421,8 +421,8 @@ bound `x<1/R`. This interval has width at most
 \]
 
 Thus there is at most one nonpositive vertex at any such z. In particular,
-**any legal move retaining a p-free z outside `[1,2t]` either is impossible
-or immediately reaches positivity**. This subsumes the large p-free
+**starting from a nonpositive vertex, a move retaining a p-free z outside
+`[1,2t]` either is impossible or immediately reaches positivity**. This subsumes the large p-free
 singleton calculation in terminal square-lift examples; growing that
 coordinate cannot create a long hidden signed escape route.
 
@@ -441,7 +441,8 @@ exhausts **both signs** of the fibre; otherwise the search uses the full
 signed-divisor equation. Fresh factors must be certified below `2^64`;
 known factors may be stripped from larger integers first. Divisor and
 vertex budgets are explicit, and partially processed fibres are never
-cached as complete.
+cached as complete. Returned fibres are immutable, and public inputs must
+be integers, including arbitrary start vertices.
 
 The BFS emits `FOUND` with a shortest positive path, or `STERILE` only
 when every denominator in the entire start component has been expanded.
