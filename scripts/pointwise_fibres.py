@@ -38,6 +38,7 @@ def require_integer(value, label: str) -> int:
 
 
 def checked_vertex(p: int, values) -> Vertex:
+    p = require_integer(p, "p")
     vertex = tuple(sorted(require_integer(value, "denominator") for value in values))
     if len(vertex) != 3 or not all(vertex):
         raise ValueError("expected three nonzero denominators")

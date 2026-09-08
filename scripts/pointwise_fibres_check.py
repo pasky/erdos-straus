@@ -3,7 +3,7 @@ from fractions import Fraction
 import unittest
 from unittest.mock import patch
 
-from pointwise_fibres import FibreOracle, IncompleteSearch, explore
+from pointwise_fibres import FibreOracle, IncompleteSearch, checked_vertex, explore
 from pointwise_refactor import components, denominator_buckets, seed, seed_path, signed_solutions
 from pointwise_seed_check import independent_fibre
 
@@ -122,6 +122,7 @@ class FibreChecks(unittest.TestCase):
             with self.assertRaises(ValueError):
                 explore(FibreOracle(5), vertex)
         for operation in (lambda: FibreOracle(73.0),
+                          lambda: checked_vertex(Fraction(8, 3), (2, 2, 2)),
                           lambda: FibreOracle(73, max_fibre=1.5),
                           lambda: oracle.fibre(Fraction(1, 2)),
                           lambda: oracle.factor(25.0),
