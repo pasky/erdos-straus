@@ -534,3 +534,47 @@ It reproduces the full old enumeration, including the 1143 vertices and
 minimum distance 3 at `297049`. The tests also check (1), both full hub
 fibres, the p-colours, coordinate reconstruction and positivity equivalence,
 and (8). None of these finite checks supplies the missing universal exit.
+
+## 7. Survey of seed-exit distances (finite evidence, 2026-09-26)
+
+**Literature check (arXiv, through 2026-09-26).** No proof of Erdős–Straus
+has appeared. The only recent "proof" claim (Dyachenko, 2511.07465) was
+already audited (`reviews/external-auro-zera-lean-wave20.md`). New since the
+last wave: 2609.09204 (counting Type I/II solutions; *does not address the
+conjecture*). Its real-character annihilation criteria are related in spirit
+to the signed character theorem (2a) and should be compared before any
+novelty claim for (2a). 2608.16977's "Erdős–Straus" item is the unrelated
+1977 binomial-divisibility question.
+
+**Survey.** `scripts/pointwise_seed_survey.py` runs the exact lazy BFS from
+the seed; `scripts/pointwise_two_move.py` tests the two-move criterion (9)
+directly, and every certificate it returns is checked as an exact rational
+identity, so no factorization certification is needed for FOUND.
+
+| range | primes | distance 2 | distance 3 | ≥4 / sterile |
+|---|---|---|---|---|
+| all `p≡1 (4)`, `p<3·10^5` | 12980 | 12979 | 1 (`297049`) | 0 |
+| `p≡1 (24)`, `3·10^5<p≤5·10^6` | 40244 | 40235* | 9 | 0 |
+| `p=4kq+1`, `q` prime `>10^9`, `k=1,2,6` | 3×300 | all | 0 | 0 |
+
+\* 1938 of these exceeded the BFS divisor budget (`UNKNOWN`) and were
+settled by (9). The nine distance-3 primes are 513529, 710089, 1083289,
+1103449, 1708009, 2469289, 3389929, 3942409, 4762489. Every distance-3 prime
+found has `t=6q` or `t=6qr` with `q,r` prime (squarefree cofactor, so `t²` has few
+divisors), matching the sparse-seed construction of §6.
+
+**What the h=1 branch is.** For `h=1`, (9) is `3/(3t+1)`. Since
+`3/n=1/y+1/z` with positive y,z is equivalent to a positive divisor
+`D|n²` with `D≡-n (mod 3)`, it holds for `n=3t+1≡1 (mod 3)` **iff
+`3t+1=(3p+1)/4` has a prime factor `≡2 (mod 3)`**. This fails for
+3052 of the 12980 primes above; all ten distance-3 primes are among them.
+
+**Assessment (not a theorem).** Each fixed-h branch of (9) is a
+single-shift divisor-class condition of exactly the kind that has infinitely many
+failures (cf. the `c=7` obstruction in 2608.24035, and notes §5/§9.3). A
+bounded-depth proof of the seed conjecture would therefore need a covering
+by the `τ(t²)` branches `h|t²` (plus depth-3 transfers) that works for every p. That
+is a restricted form of the classical ES criterion, not an easier problem.
+The survey supports "distance ≤3" as a working conjecture, but that
+conjecture **implies ES for primes `p≡1 (4)`**, so it cannot be cheaper than ES itself.
+A proof must use global structure of the seed component, not path length.
