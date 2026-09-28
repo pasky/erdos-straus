@@ -65,6 +65,12 @@ Code: `scripts/windmill_*.{cpp,py}`. Data were regenerated in `/tmp/wm/`
    ES-flavoured sets (§3.5) is explained by a central or ambiguous fixed
    point that is not a positive ES object. No handshake subgraph (§3.4) and no
    GF(2) component law (§3.6) gives more. **Verdict: no proof from the constructions tried (§5).**
+6. **By-product (PROVED, §2.7, Theorem 7).** Every p-free denominator outside
+   `[1,2t]` lies in exactly one signed vertex. This closes the case `2t<z<p`
+   that SIGNED_REFACTOR §5 left at "at most two". The mixed case reduces to a
+   Vieta quadratic whose discriminant would need `-k` to be a square modulo
+   `4kλ-1`, which the Jacobi symbol forbids. So all graph edges pass
+   through small p-free or p-divisible denominators.
 
 ## 1. The reduction lemma
 
@@ -232,7 +238,7 @@ fibre by fibre. The c=1 slice of Type II can be read at nonzero
 discriminant (`[U,4a,W]`, disc `-4p`, §4), but the ES condition
 `U≡-1 (mod 4a)` is then a cusp congruence, not a class condition.
 
-### 2.7 A small rigidity lemma for Type I
+### 2.7 Rigidity: Type I leaves and private large p-free denominators
 
 **Lemma 6 (PROVED).** `(2t,2t,-pt)` is the only signed Type I vertex whose
 two p-free denominators both lie in `[1,2t]`.
@@ -246,14 +252,98 @@ put `e=(4a-1)h-a<0`. The other p-free denominator is
 For `|h|=H≥1`, `(t+a)(4t+1)-(8at-2t)=4t(t-a)+3t+a>0` and
 `t(t+a)≥2ta`, so `y>2t`. ∎
 
-EVIDENCE. For all 385 primes `p≡1 (24)` below `3·10^4`, every p-free
-denominator outside `[1,2t]` occurs in exactly one signed vertex. There
-are 213,024 such buckets, and all are singletons: 58,543 with `z≥p`, 8,695 with `2t<z<p`, and 145,786 with `z<0`. SIGNED_REFACTOR §5
-proves this for `z<0` and `z≥p`, and proves at most two for `2t<z<p`.
-Together with Lemma 6, every Type I vertex other than `(2t,2t,-pt)` is a
-leaf with respect to its large p-free denominator. Every crossing
-between positive and nonpositive vertices therefore goes through a small
-p-free bucket or a Type I p-divisible bucket.
+**Theorem 7 (PROVED).** Let `p=4t+1` be prime. Every p-free denominator
+`z` outside `[1,2t]` occurs in at most one signed vertex.
+
+SIGNED_REFACTOR §5 proved this for `z<0` and `z≥p`, and proved at most two
+vertices for `2t<z<p`. We now close the remaining case `2t<z<p`.
+
+*Setup.* Every vertex containing z is of Type I, because a Type II vertex
+has only one p-free denominator and that one is at most `2t`. The other
+p-free denominator x satisfies `1≤x≤2t` (SIGNED_REFACTOR §3). Use the
+symmetric chart anchored at z:
+
+* `A=4z-p`, with `4t+3≤A≤3p-4`;
+* `m=(pH+1)/4` for the p-divisible denominator `pm`, where `H=4h-1`;
+* `e=(AH-1)/4`, with `e|z²` and `Hz=m+e`.
+
+Then `x=zm/e=Hz²/e-z`. Put `f=z²/e`, a signed divisor of `z²`. Using
+`AH=4e+1`, this gives
+
+\[
+  x+z=Hf,\qquad A(x+z)=4z^2+f .                               \tag{2.7a}
+\]
+
+The vertex is positive exactly when `h≥1`, i.e. `H≥3`. Then `f>0` and
+`f≤(x+z)/3≤2t`. Otherwise `H≤-1` and `f<0`.
+
+*Two vertices.* Suppose vertices 1 and 2 share z, with `x₁≠x₂`. Distinct
+vertices at z have distinct h, hence distinct x by (2.7a). By (2.7a),
+`f₂-f₁=A(x₂-x₁)`.
+
+* **Both positive.** Then `0<f₁,f₂≤2t<A`, which is impossible.
+* **Mixed.** Let P be the positive vertex and N the nonpositive one.
+  Then `f_P>0>f_N`, so `x_P>x_N`. Since `|f_N|≤x_N+z≤6t` and `f_P≤2t`,
+  we get `A(x_P-x_N)≤8t<2A`, so `x_P=x_N+1` and `f_P=f_N+A`. It follows
+  that `|f_N|=A-f_P≥2t+3`. If `H_N≤-5`, then `|f_N|≤6t/5`, a
+  contradiction. So `H_N=-1`, i.e. `h=0` and `m=-t`. The vertex N is
+  therefore `(x_N,z,-pt)` with `1/x_N+1/z=1/t`.
+
+  Write `x_N=t+d` and `z=t+u` with `du=t²` and `d<t<u`. Parametrise
+  `d=λα²`, `u=λβ²`, `t=λαβ` with `α<β`, and put `γ=β-α`. Then (2.7a) gives
+
+  \[
+   f_P=f_N+A=3u-2t-d-1=\lambda\gamma(4\alpha+3\gamma)-1=\lambda\gamma(4\beta-\gamma)-1,
+  \]
+  \[
+   x_P+z=\lambda(\alpha+\beta)^2+1=:w+1,\qquad z^2=\lambda\beta^2 w .
+  \]
+
+  The positive vertex needs `f_P|z²` and `f_P|x_P+z=w+1`. Then
+  `gcd(f_P,w)=1`, so `f_P|λβ²`. Since `f_P≡-1 (mod λ)`, in fact
+  `f_P|β²`. Write `β²=k f_P` with `k≥1`. This says that β is a root of
+
+  \[
+   \beta^2-4k\lambda\gamma\,\beta+k(\lambda\gamma^2+1)=0 .
+  \]
+
+  The quarter-discriminant `k(λγ²M-1)` must then be a square `s²`, where
+  `M=4kλ-1≥3`. So `s²≡-k (mod M)`. But `(-k|M)=-(k|M)=-1`:
+
+  * if `k=2^j k'` with `k'` odd and `j≥1`, then `M≡7 (mod 8)`, so
+    `(2|M)=1`;
+  * `(k'|M)=(M|k')(-1)^{(k'-1)/2}=(-1|k')(-1)^{(k'-1)/2}=1`, because
+    `M≡-1 (mod k')` and `(M-1)/2` is odd;
+  * `gcd(k,M)=1`.
+
+  A Jacobi symbol of `-1` excludes a square. This is a contradiction.
+* **Both nonpositive.** Here SIGNED_REFACTOR §5 applies. Directly: from
+  `|f₁|=|f₂|+A≥4t+4`, as above `H₁=-1`, and then
+  `|f₂|=x₁+z-A=2t+d-3u+1<1`, which is impossible.
+
+∎
+
+The derivation was checked on data. All 8,695 vertices with `2t<z<p` at
+the 385 primes below `3·10^4` satisfy (2.7a), with `f|z²`, `H≡3 (4)`,
+`4m=pH+1` and `1≤x≤2t`. The factorisation-free mixed-case scan
+`scripts/windmill_singleton.cpp` finds no candidate. It runs over **all**
+`t≤2.5·10^6`, not only those with `4t+1` prime, so it covers every
+`p≤10^7`. It enumerates the divisor pairs `d<t<u` of `t²` with
+`u-t≤(d+1)/2`, which is necessary for `H_P≥3`. That is 2,939,478 pairs, and
+none satisfies the two divisibilities. This is consistent with the proof.
+
+The previous census counted 213,024 p-free buckets outside `[1,2t]` below
+`3·10^4`: 58,543 with `z≥p`, 8,695 with `2t<z<p`, and 145,786 with
+`z<0`. All are singletons, as Theorem 7 now guarantees.
+
+**Consequence.** Together with Lemma 6, every Type I vertex other than
+`(2t,2t,-pt)` has exactly one p-free denominator in `[1,2t]`. Its other
+p-free denominator is private to it, so the vertex is a leaf there.
+All edges of the signed refactor graph therefore pass through p-free
+denominators in `[1,2t]` or through p-divisible denominators. In
+particular, every crossing between positive and nonpositive vertices
+goes through a small p-free bucket or a Type I p-divisible bucket, since
+(2a) forbids Type II crossings.
 
 ## 3. Catalogue of computational tests (all negative)
 
@@ -321,7 +411,7 @@ I/II label, small/mid/large p-free, the hubs, and bucket size. Classes
 with no mixing are identically even:
 
 * by (2a) for Type II;
-* by §2.7 for large p-free buckets;
+* by Theorem 7 for large p-free buckets;
 * for negative buckets, since positive vertices have only positive
   denominators.
 
@@ -444,4 +534,5 @@ uv run python windmill_handshake.py /tmp/wm/signed30k.txt
 uv run python windmill_component_laws.py /tmp/wm/signed30k.txt
 uv run python windmill_zoo.py 12000                 # ~10 min
 uv run python windmill_misc_checks.py            # runs lam cross nonlocal signs pairs genzag
+g++ -O2 -std=c++17 windmill_singleton.cpp -o /tmp/wm_single && /tmp/wm_single 2500000 | tail -1
 ```
