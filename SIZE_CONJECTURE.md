@@ -125,14 +125,18 @@ Complete enumeration (every component of every sampled prime; `signed_components
 | [30,31) | 64 (sample) | 40 | 16.08 | 0.98 | 0.36 | 1445 |
 
 Beyond `2^31`, `scripts/sterile_hub_scan.py` runs the exact lazy BFS from all
-negative-quadrant hubs `x=t-k`, `h=-c` (`k,c<=60`) of 48 random primes per
-scale and records the largest component proved sterile. This is a **lower
-bound** for the per-p maximum (on 61 primes near `2^28` it matched the
-complete maximum in 50 cases and was below it otherwise; mean 12.4 vs 15.9):
+negative-quadrant hubs `x=t-k`, `h=-c` (`k,c<=60`, explorations capped at
+5000 vertices) of 48 random primes per scale and records the largest
+component proved sterile. This is a **lower bound** for the per-p maximum.
+Matched validation (same parameters, the first 64 primes of the `2^28`
+complete sample): it equals the complete maximum for 48/64 primes, mean
+15.3 vs 16.2 (`hubscan_validate_2e28_K60.jsonl`). An independent random
+sample of 48 primes near `2^28` gave hub-scan mean 11.9 (sampling
+variation plus 29 capped explorations), so the scan can undershoot.
 
 | scale | mean of hub-scan max | largest found |
 |---|---|---|
-| `p~2^28` | 12.4 | 22 |
+| `p~2^28` (48 other primes) | 11.9 | 22 |
 | `p~10^12` | 27.6 | 80 |
 | `p~10^15` | 56.4 | **339** (CERTIFIED, `p=1960717994383909`) |
 | `p~10^18` | >=54 (213 hubs hit the 5000-vertex cap) | 157 |
@@ -141,8 +145,8 @@ The 339-vertex component at the *random* prime `p=1960717994383909` is a
 natural dead hub: `x=t-47=2·5·11^2·13·41·313·1019·2383`, `tau(x^2)=10935`,
 filtered modulo `4·47+1=189`.
 
-* **Growth law (EVIDENCE).** The mean per-prime maximum fits
-  `(log2 p)^2/50` well (5.1, 8.0, 12.5, 15.7, 32.8, 50.8 predicted at
+* **Growth law (EVIDENCE).** The mean per-prime maximum is consistent with
+  `(log2 p)^2/50` (5.1, 8.0, 12.5, 15.7, 32.8, 50.8 predicted at
   `log2 p = 16,20,25,28,40.5,50.4`, vs 5.3, 8.0, 12.2, 15.9, >=27.6, >=56.4
   observed); a pure `C log p` law with fixed C fits worse (slope per doubling
   rises from 0.6 to 1.0 and beyond). The aggregate size histogram decays
