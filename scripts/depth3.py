@@ -134,6 +134,7 @@ class Depth3:
         self.F.add_known(p)
         t = self.t
         self.tf = t_factors or self.F(t)
+        self.F.add_known(*self.tf.keys())
         self.T2 = sorted(sq_divisors(self.tf))  # positive divisors of t^2
 
     # positive vertices containing the positive p-free denominator z

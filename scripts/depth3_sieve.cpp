@@ -7,7 +7,11 @@
 // Survivors are re-checked (and families A/B run) by scripts/depth3.py.
 //
 // Build: g++ -O3 -march=native -std=c++17 -pthread -o /tmp/d3sieve scripts/depth3_sieve.cpp
-// Run:   /tmp/d3sieve S Q0 Q1 THREADS  > survivors.txt
+// Run:   /tmp/d3sieve S Q0 Q1 THREADS [hard]  > survivors.txt
+// With the optional 5th argument "hard" (only for S=6): test only q = 2 (mod 5)
+// and q = 1,5 (mod 7). The mod-5 restriction is PROVED lossless (see DEPTH3.md 5):
+// q = 3,4 (mod 5) have a forced (9)-exit and q = 1 (mod 5) gives 5 | p.
+// The mod-7 restriction (p a residue mod 7) is a search heuristic only.
 #include <algorithm>
 #include <atomic>
 #include <cstdint>
@@ -17,6 +21,7 @@
 #include <thread>
 #include <vector>
 #include <map>
+#include <string>
 typedef unsigned long long u64;
 typedef __uint128_t u128;
 typedef __int128 i128;
@@ -149,6 +154,7 @@ int main(int argc, char** argv) {
     if (argc < 5) { fprintf(stderr, "usage: S Q0 Q1 THREADS\n"); return 1; }
     u64 s = strtoull(argv[1], 0, 10), Q0 = strtoull(argv[2], 0, 10), Q1 = strtoull(argv[3], 0, 10);
     int T = atoi(argv[4]);
+    bool hard = argc > 5 && std::string(argv[5]) == "hard";
     for (u64 k = 2; smallp.size() < NSMALL; ++k) if (isprime64(k)) smallp.push_back(k);
     std::vector<u64> cs;
     for (u64 c = 1; c <= s * s; ++c) if ((s * s) % c == 0) cs.push_back(c);
@@ -165,6 +171,7 @@ int main(int argc, char** argv) {
             for (u64 q = lo | 1; q < hi; q += 2) {
                 // cheap prefilter by small primes for q and p
                 u64 p = 4 * s * q + 1;
+                if (hard && (q % 5 != 2 || (q % 7 != 1 && q % 7 != 5))) continue;
                 bool bad = false;
                 for (int i = 1; i < 30; ++i) { u64 r = smallp[i]; if ((q % r == 0 && q != r) || (p % r == 0 && p != r)) { bad = true; break; } }
                 if (bad || !isprime64(q) || !isprime64(p) || s % q == 0) continue;
