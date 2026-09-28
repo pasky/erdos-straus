@@ -19,9 +19,11 @@ from depth3 import Depth3, Uncertified, check_path
 
 
 def run(args):
-    p, all_hits = args
+    p, all_hits, skip9 = args
     try:
-        r = Depth3(p).run(all_hits)
+        r = Depth3(p).run(all_hits, skip9=skip9)
+        if skip9 and r["dist"] == ">=4":
+            r = Depth3(p).run(all_hits)  # full re-check including (9)
     except Uncertified as e:
         return {"p": p, "status": "UNKNOWN", "reason": str(e)}
     for h in r["hits"]:
@@ -37,11 +39,13 @@ def main():
     ap.add_argument("file")
     ap.add_argument("--jobs", type=int, default=16)
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--skip9", action="store_true",
+                    help="trust the prefilter's (9)-failure (reported dist 3 then means <=3); >=4 is re-checked in full")
     a = ap.parse_args()
     ps = [int(line.split()[0]) for line in open(a.file) if line.strip()]
     hist = Counter()
     with Pool(a.jobs) as pool:
-        for r in pool.imap_unordered(run, [(p, a.all) for p in ps], chunksize=1):
+        for r in pool.imap_unordered(run, [(p, a.all, a.skip9) for p in ps], chunksize=1):
             print(json.dumps(r, default=str), flush=True)
             hist[str(r.get("dist", r.get("status")))] += 1
     print("SUMMARY", dict(hist), file=sys.stderr)

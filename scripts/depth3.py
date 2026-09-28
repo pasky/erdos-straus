@@ -208,7 +208,9 @@ class Depth3:
     def famA(self, all_hits=False):
         p, t = self.p, self.t
         hits = []
-        for c in self.T2:
+        # order only affects speed (first-hit mode): empirically frequent c first
+        pri = {2: 0, 6: 1, 12: 2, 3: 3, 1: 4, 18: 5, 9: 6, 4: 7, 36: 8}
+        for c in sorted(self.T2, key=lambda c: (pri.get(c, 9), c)):
             M = p * c + t
             K = 4 * c + 1
             V1 = vertex_ok(p, (t, -p * M, -t * M // c))
@@ -280,8 +282,10 @@ class Depth3:
                                 return hits
         return hits
 
-    def run(self, all_hits=False):
-        r9 = self.crit9(all_hits)
+    def run(self, all_hits=False, skip9=False):
+        # skip9: caller already certified that (9) fails (e.g. the C++ prefilter);
+        # a ">=4" verdict must then be re-checked with skip9=False.
+        r9 = [] if skip9 else self.crit9(all_hits)
         if r9 and not all_hits:
             return {"p": self.p, "dist": 2, "hits": r9}
         rA = self.famA(all_hits)
