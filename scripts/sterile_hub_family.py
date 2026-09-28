@@ -31,7 +31,7 @@ def _alarm(*_):
 
 
 def job(args):
-    p, x, k, qs, timeout, maxv = args
+    p, x, k, qs, timeout, maxv, seedsize = args
     signal.signal(signal.SIGALRM, _alarm)
     signal.alarm(timeout)
     t0 = time.time()
@@ -40,8 +40,13 @@ def job(args):
         r = hub_component(p, x, max_vertices=maxv)
         out.update(status=r["status"], visited=r.get("visited"), hubfibre=r.get("hubfibre"),
                    pathlen=(len(r["path"]) - 1) if r.get("path") else None)
+        if seedsize and out["status"] == "STERILE":
+            from pointwise_fibres_big import BigFibreOracle, exhaust_component
+            from pointwise_refactor import seed
+            S, pos = exhaust_component(BigFibreOracle(p), seed(p))
+            out.update(seedcomp=len(S), seedpos=pos)
     except IncompleteSearch as e:
-        out.update(status="UNKNOWN", reason=str(e))
+        out.update(status=out.get("status", "UNKNOWN"), reason=str(e))
     except Timeout:
         out.update(status="TIMEOUT")
     finally:
@@ -50,7 +55,7 @@ def job(args):
     return out
 
 
-def candidates(k, r, count, pmin, pool, expmax, rng, pmax, guard=0, mod4=0):
+def candidates(k, r, count, pmin, pool, expmax, rng, pmax, guard=0, mod4=0, tprime=False):
     M = 4 * k + 1
     Q = [q for q in primerange(pmin, 10**6) if q % M == 1 and (not mod4 or q % 4 == mod4)][:pool]
     G = [q for q in primerange(guard, 2 * guard) if q % M == 1 and q % 4 == 3] if guard else []
@@ -65,6 +70,8 @@ def candidates(k, r, count, pmin, pool, expmax, rng, pmax, guard=0, mod4=0):
         t = x + k
         p = 4 * t + 1
         if x in seen or p >= pmax or (t * t) % k == 0 or flint.fmpz(p).is_prime() != 1:
+            continue
+        if tprime and math.prod(2 * int(e) + 1 for _, e in flint.fmpz(t).factor()) > tprime:
             continue
         seen.add(x)
         out.append((p, x, k, exps))
@@ -84,14 +91,16 @@ if __name__ == "__main__":
                     help="add one prime q0=1 mod M, 3 mod 4 in [G,2G) (use with --mod4 1): "
                          "then every descent divisor d=x/w, w|x, w=1 mod 4, has d>=q0")
     ap.add_argument("--mod4", type=int, default=0)
+    ap.add_argument("--tprime", type=int, default=0, help="require tau(t^2) <= this (sparse seed hubs)")
+    ap.add_argument("--seedsize", action="store_true", help="also exhaust the seed component")
     ap.add_argument("--jobs", type=int, default=16)
     ap.add_argument("--timeout", type=int, default=1800)
     ap.add_argument("--maxv", type=int, default=10**6)
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
     rng = random.Random(a.seed)
-    C = candidates(a.k, a.r, a.count, a.pmin, a.pool, a.expmax, rng, a.pmax, a.guard, a.mod4)
+    C = candidates(a.k, a.r, a.count, a.pmin, a.pool, a.expmax, rng, a.pmax, a.guard, a.mod4, a.tprime)
     with Pool(a.jobs) as pool:
-        for res in pool.imap_unordered(job, [(p, x, k, e, a.timeout, a.maxv) for p, x, k, e in C]):
+        for res in pool.imap_unordered(job, [(p, x, k, e, a.timeout, a.maxv, a.seedsize) for p, x, k, e in C]):
             res["primes"] = {str(q): e for q, e in res["primes"].items()}
             print(json.dumps(res), flush=True)

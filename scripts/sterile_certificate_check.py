@@ -2,7 +2,9 @@
 
 PYTHONPATH=scripts uv run --with python-flint python scripts/sterile_certificate_check.py CERT.json.gz [...]
 
-A certificate is {"p":..., "vertices": [[x,y,z],...]} (decimal integers).
+A certificate is {"p":..., "vertices": [[x,y,z],...]} (decimal integers);
+with "kind": "seed" it certifies the entire seed component instead (positive
+vertices allowed, the seed (-2pt,-2pt,t) must belong to it).
 Checks, for the claimed vertex set S:
   (1) every triple is a signed ES solution 4/p = 1/x+1/y+1/z, nonzero,
       sorted, and NOT all-positive;
@@ -65,9 +67,12 @@ def check(cert):
     t = (p - 1) // 4
     S = {tuple(sorted(int(v) for v in vv)) for vv in cert["vertices"]}
     assert len(S) == len(cert["vertices"])
+    seedcert = cert.get("kind") == "seed"
     for x, y, z in S:
         assert x and y and z and 4 * x * y * z == p * (x * y + x * z + y * z)
-        assert x < 0, "positive vertex in a claimed sterile component"
+        assert seedcert or x < 0, "positive vertex in a claimed sterile component"
+    if seedcert:
+        assert (-2 * p * t, -2 * p * t, t) in S
     # connectivity
     buckets = {}
     for v in S:
@@ -112,4 +117,5 @@ if __name__ == "__main__":
     for fn in sys.argv[1:]:
         cert = json.load(gzip.open(fn, "rt"))
         p, n, kinds = check(cert)
-        print(f"OK {fn}: p={p} sterile component of {n} vertices, entire and closed; denominators {kinds}")
+        what = "SEED component" if cert.get("kind") == "seed" else "sterile component"
+        print(f"OK {fn}: p={p} {what} of {n} vertices, entire and closed; denominators {kinds}")
