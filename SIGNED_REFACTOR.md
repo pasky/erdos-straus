@@ -109,6 +109,23 @@ in **no other vertex**: every nontrivial first move preserves t.
 
 ### Quadratic colour detects positivity exactly
 
+**Attribution (see [LITERATURE_2026.md](LITERATURE_2026.md) §1).**
+
+* **Theorem (2a) is not new.** It is Bright–Loughran, *Brauer–Manin
+  obstruction for Erdős–Straus surfaces*, Bull. LMS 52 (2020),
+  arXiv:1908.02526, Theorems 1.2 and 1.5 (p. 2), specialised to `n=p`.
+  Their Lemma 3.4 (p. 11) evaluates the local invariant. Combining these
+  with the signed valuation lemma above gives (2a).
+* **The positive direction** goes back to Yamamoto (1965), per BL
+  Appendix A.
+* **The labels λ and the §8 chart symmetry** are Elsholtz–Tao coordinates
+  (arXiv:1107.1010, equations (2.1), (2.7), (2.18) and (2.21)), on positive
+  points.
+* **The Type I/II rigidity** is Jiang, arXiv:2609.09204v1, Thm 3.2, in the
+  positive case. Jiang's v2 is withdrawn.
+
+What follows is a self-contained elementary proof, not a priority claim.
+
 **Signed character theorem.** Select the two coordinates with the same
 p-adic valuation, and remove their factors of p if necessary. Call the
 resulting integers A,B. Then
@@ -541,9 +558,9 @@ and (8). None of these finite checks supplies the missing universal exit.
 has appeared. The only recent "proof" claim (Dyachenko, 2511.07465) was
 already audited (`reviews/external-auro-zera-lean-wave20.md`). New since the
 last wave: 2609.09204 (counting Type I/II solutions; *does not address the
-conjecture*). Its real-character annihilation criteria are related in spirit
-to the signed character theorem (2a) and should be compared before any
-novelty claim for (2a). 2608.16977's "Erdős–Straus" item is the unrelated
+conjecture*; v2 since withdrawn). Its characters are conditional criteria
+modulo `4n−p`, not (2a). (2a) itself is Bright–Loughran 2020; the comparison
+is in [LITERATURE_2026.md](LITERATURE_2026.md) §1(b). 2608.16977's "Erdős–Straus" item is the unrelated
 1977 binomial-divisibility question.
 
 **Survey.** `scripts/pointwise_seed_survey.py` runs the exact lazy BFS from
