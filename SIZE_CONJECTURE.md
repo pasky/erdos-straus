@@ -42,9 +42,9 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
    component. So *no* size threshold, and no BGS-style "one giant
    component + small rest" statement with the seed as the giant, can force
    positivity in the seed component.
-3. Variants also fail: sterile components with ~280 **Type I** vertices, and
-   with 140+ **positive-capable denominators ("tests")**, are found by the same
-   method (§3.6). Size-type invariants do not see the arithmetic that makes
+3. Variants also fail: certified sterile components with **243 distinct Type I
+   buckets**, and with **146 failing positive-capable denominators ("tests")**,
+   come from the same method (§3.6). Size-type invariants do not see the arithmetic that makes
    the seed escape.
 4. For random p the maximal sterile size grows slowly (about
    `0.6 log_2 p`; §2), and every large sterile component found is a "hub"
@@ -212,17 +212,26 @@ asymptotically under a mild heuristic**; an unconditional disproof of the
 
 ### 3.6 Other size-type invariants fail too
 
-* **Type I count.** Take `M=13`, `k=3`, prime factors in the odd-order
-  subgroup `{1,3,9}` mod 13 (contains `k=-1/4`, not `-1`), all `>= 3000`.
-  Then the hub fibre also has Type I vertices `e=d = 3 (mod 13)`, `h=(3-d)/13<=0`.
-  13/16 such hubs (r=5, `p~10^23`) were sterile, each with **~280 Type I
-  vertices**.
-* **Tests.** A positive vertex has p-free denominators `>t` and Type I
-  buckets `h>=1` ("positive-capable denominators", tests). Allowing residues
-  `{±1,±3,±9}` mod 13 produces Type I spokes with `h=(3+d)/13>=1`: 2/16 such
-  hubs were sterile with **140-146 failing tests** at `p~4·10^23`
-  (`ln p ~ 54`). The tests are weak (smallest modulus 1231), which is the
-  point: a failing test with huge modulus is cheap.
+* **Type I count / Type I buckets.** Take `M=13`, `k=3`, prime factors in the
+  odd-order subgroup `{1,3,9}` mod 13 (it contains `k=-1/4` but not `-1`), all
+  `>= 3000`, plus a guard. Then the hub fibre also has Type I vertices,
+  `e=d = 3 (mod 13)`, `h=(3-d)/13<=0`, each in its own bucket. 13/16 such hubs
+  (r=5, `p~10^24`) were sterile, each with ~280 Type I vertices.
+  CERTIFIED: `p=691188894734138813322041`, a 409-vertex sterile component
+  with **243 distinct Type I p-divisible buckets**
+  (`certs/p691188894734138813322041_typeI.json.gz`).
+* **Tests.** A positive vertex has p-free denominators `>t` and a Type I
+  bucket `h>=1` or non-residue Type II labels ("positive-capable
+  denominators", tests). Allowing residues `{±1,±3,±9}` mod 13 produces Type I
+  spokes with `h=(3+d)/13>=1`. 2/16 such hubs were sterile; CERTIFIED:
+  `p=433393973269554421280441` (`ln p = 54.4`), a 412-vertex sterile component
+  containing **146 failing tests** (smallest modulus 1231)
+  (`certs/p433393973269554421280441_tests.json.gz`). The tests are weak, which
+  is the point: a failing test with huge modulus is cheap. Pushing r up
+  should give `3^r`-many failing tests, at a lower sterility rate (untested).
+
+So "bounded number of Type I buckets", "O(log p) Type I vertices" and
+"O(log p) failing tests" are all refuted in the same practical sense.
 
 ## 4. Proved lemmas
 
