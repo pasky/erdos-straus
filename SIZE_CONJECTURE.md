@@ -1,0 +1,336 @@
+# The size conjecture for the signed ES graph is false (dead hubs)
+
+Status labels: **PROVED** = written proof here (plus a numerical check
+script); **CERTIFIED** = an exact, exhaustive finite computation whose
+output is re-verified by an independent checker; **EVIDENCE** = finite data
+or heuristic; **CONJECTURE** = open statement.
+
+Setting as in SIGNED_REFACTOR.md: `p=4t+1` prime, vertices are signed
+solutions of `4/p=1/x+1/y+1/z`, edges join triples sharing a denominator;
+Type I/II = one/two p-divisible denominators; the Type I chart is
+`x=t+a`, `m=ph-t`, `e=(4a-1)h-a | (t+a)^2`, positive iff `a,h>=1`.
+The **size conjecture** (SIGNED_REFACTOR §8(ii)) asked: every component with
+more than `K(p)=O(log p)` vertices contains an all-positive vertex.
+
+## 0. Verdict (short)
+
+1. **The size conjecture is false in every practically meaningful sense.**
+   An explicit construction ("dead hubs", §3) produces sterile
+   (positive-free) components whose size grows like `3^r` while `log p`
+   grows like `r log r`, i.e. like `exp(c log p / log log p)` --
+   faster than any power of `log p`. The construction is exact up to a finite
+   list of "residual checks" which are verified by exhaustive search; they
+   passed for 122 of 126 guarded instances tried (§3.4).
+   **CERTIFIED** examples (entire components exhausted, independently re-checked):
+
+   | p | sterile component | `ln p` | size / `ln p` |
+   |---|---|---|---|
+   | 165426666927637 | 398 | 32.7 | 12 |
+   | 475041241432047253 | 3469 | 40.7 | 85 |
+   | 2192882958603411108997 | 3407 | 49.1 | 69 |
+   | 274159709010072908384347957 | **30035** | 61.9 | **485** |
+
+   Strictly, an `O(log p)` statement cannot be refuted by finitely many p;
+   what is refuted is any version with a usable constant, and the family
+   gives every reason (§3.5, heuristic) to expect `exp(c log p/log log p)`
+   growth. Proving sterility of an *infinite* family is open (§3.5).
+2. **Sterile components can be larger than the seed component.** At
+   `p=274159709010072908384347957` the certified sterile component has 30035
+   vertices, the certified seed component 10155 (both exhausted; the seed
+   component does contain 2811 positive vertices). In 13 of 14 such
+   primes tried the sterile hub component was larger than the seed
+   component. So *no* size threshold, and no BGS-style "one giant
+   component + small rest" statement with the seed as the giant, can force
+   positivity in the seed component.
+3. Variants also fail: sterile components with ~280 **Type I** vertices, and
+   with 140+ **positive-capable denominators ("tests")**, are found by the same
+   method (§3.6). Size-type invariants do not see the arithmetic that makes
+   the seed escape.
+4. For random p the maximal sterile size grows slowly (about
+   `0.6 log_2 p`; §2), and every large sterile component found is a "hub"
+   around a **negative-quadrant** denominator (anchor `x=t-k`, or Type I bucket
+   `h=-c`), exactly the mechanism the construction amplifies.
+5. **Proved lemmas** (§4): negative-quadrant fibres are nonpositive (A); exact
+   dead-hub fibre (B); descent identity and Type II bucket structure (C);
+   sign-flip exits (E): an anchor `t+a`, `a>=1`, having a prime factor
+   `l = -1 (mod 4a-1)`, or a bucket `h>=1` whose `m=ph-t` has such a factor mod
+   `4h-1`, has an empty fibre or a positive vertex. No component-size
+   congruences exist (§5).
+
+## 1. Tools (all exact)
+
+* `scripts/signed_components.cpp` - complete enumeration of the graph for
+  `p<2^31` (x in `[1,2t]`, divisors of `x^2` filtered by residue class
+  mod `4x-p`, segmented sieve, OpenMP, `__int128`), union-find components,
+  `--dump S` (sterile components of size >= S), `--query D`, `--path D`
+  (shortest path from the fibre of D to a positive vertex). Runs in 1.9 s at
+  `p=10^8`, ~40 s near `2^31` (16 threads).
+  `scripts/signed_components_check.py`: agrees with the Python complete
+  enumerator (`pointwise_incidence`) on vertex counts, seed component and full
+  sterile histograms for 34 primes, and every dumped sterile component is
+  re-exhausted by the lazy BFS.
+* `scripts/pointwise_fibres_big.py` - lazy exact oracle for any p (tested to
+  `~10^28`): fresh factorizations by FLINT with **every prime factor proved**
+  (`fmpz.is_prime()==1`); Type I buckets by an exact C interval scan
+  (`typei_scan.c`) or by a meet-in-the-middle divisor search using the
+  symmetric-chart identity `e | x^2 <=> e | m^2` and `gcd(m,4h-1)=1`;
+  general divisor fibres also by meet-in-the-middle. Budget failures raise
+  `IncompleteSearch`; never a verdict. Check: `pointwise_fibres_big_check.py`
+  (every bucket of complete graphs at 8 primes, both Type I methods; sterile
+  components re-exhausted at 4 primes).
+* `scripts/sterile_certificate_make.py` / `sterile_certificate_check.py` -
+  certificates `data/sterile/certs/*.json.gz`. The checker verifies each
+  triple exactly, nonpositivity, connectivity, and **closure**: every
+  denominator's full fibre (recomputed; anchors by the independent §3
+  incidence enumeration *and* the divisor method, Type I buckets by scan
+  *and* meet-in-the-middle) lies inside the set. Closure + connectivity =
+  an entire component.
+* Surveys: `sterile_survey.py` (complete enumeration over primes),
+  `sterile_stats.py`, `sterile_anatomy.py`, `sterile_diameter.py`,
+  `sterile_tests_count.py`, `component_congruences.py`; construction search
+  `sterile_hub_family.py`; lemma checks `size_conjecture_check.py`.
+
+## 2. Random primes: growth law and anatomy (EVIDENCE)
+
+Complete enumeration of **all** primes `p=1 (mod 4)` below `2·10^6`, plus
+random samples at larger scales (`data/sterile/*.jsonl`).
+
+GROWTH_TABLE_PLACEHOLDER
+
+* The mean of the per-prime maximum sterile size grows roughly linearly in
+  `log p` (about +0.6 per doubling of p); the aggregate size histogram decays
+  roughly geometrically (tail ratio ~0.7 per unit size), while the number of
+  sterile components per prime grows like a small power of p. This is
+  consistent with "max sterile ~ C log p" **for typical p**, and it is what
+  made the size conjecture plausible.
+* The seed component's share of all vertices declines (minimum 0.45 in
+  `[2^19,2^20)`), so "the seed always holds >= 58%" does not persist.
+* **Anatomy.** Every dumped sterile component (size >= 12, `p<2·10^6`) has
+  a hub: the denominator shared by most vertices. In 6181 of 6658 it is a
+  negative-quadrant denominator: a p-free anchor `x=t+a` with `a<=0` (5011)
+  or a Type I bucket with `h<=0` (1170); only 386 hubs are anchors with
+  `a>=1` and 91 buckets with `h>=1`. Negative-quadrant fibres are exactly those
+  of Lemma A, whose entire fibre is
+  nonpositive; e.g. the 43-vertex component at `p=663557` is the fibre of
+  `x=t-3` (31 vertices) plus 12 satellites. Diameters are small (<= 8).
+* No component-size congruence (§5).
+
+## 3. Dead hubs: the construction
+
+### 3.1 The hub fibre (Lemma B, PROVED in §4)
+
+Fix `k>=2`, `M=4k+1`, and let `x=t-k>=1` have **all prime factors
+`= 1 (mod M)`**. Then the fibre of x is exactly
+
+\[
+ V_d=\Bigl(x,\;-\frac{p(x-d)}{M},\;\frac{p\,x(x-d)}{Md}\Bigr),
+ \qquad d\mid x^2,\ d<x,
+\]
+
+`(tau(x^2)-1)/2` Type II vertices, all nonpositive, and none of them is Type I.
+(So x is automatically not in the `-pt` hub fibre of the seed.)
+
+### 3.2 Where the spokes lead (Lemma C, PROVED)
+
+For a spoke `V_d` write `mu=(x-d)/M`, `n=x mu/d`. If `n>=2t` the bucket `pn`
+is `{V_d}` (privacy, SIGNED_REFACTOR §5). The bucket `-p mu` consists of the
+Type II vertices given by signed divisors `D | mu^2` with `D = d (mod 4mu+1)`,
+at most two in total; `D=d` is `V_d`. If `d | x` and `w=x/d = 1 (mod 4)`,
+the second one is always present: it is the **descent vertex**
+
+\[
+ D_d=\Bigl(x-d,\;-\frac{p(x-d)}{M},\;-\frac{p(w-1)}{4}\Bigr),
+\]
+
+whose p-free anchor `x-d=d(w-1)` is again `< t`, so its whole fibre is
+nonpositive (Lemma A). Numerically, *every* live spoke of the unguarded hubs
+was of this form.
+
+### 3.3 The guard
+
+Descents with small d lead to anchors `x-d` with small modulus `M+4d`, whose
+fibres are large and may escape. Choose all prime factors `= 1 (mod 4M)`
+except one "guard" prime `q0 = 1 (mod M)`, `q0 = 3 (mod 4)`, `q0 ~ 10^4`.
+Then `w | x`, `w = 1 (mod 4)` forces `q0 ∤ w`, so every descent has
+`d >= q0`, and the descent anchors have moduli `>= 4q0`. In the typical
+outcome the component is **exactly** the hub plus the `2^r-1` descents:
+
+\[
+ |C| = \frac{3^{r+1}-1}{2} + 2^r - 1
+\]
+
+for x = q0 times r primes (e.g. 30035 = 29524 + 511 at r=9).
+
+### 3.4 Results (CERTIFIED where certificates exist; otherwise exhaustive lazy BFS)
+
+All runs: `k=2` (`M=9`), exact lazy BFS to exhaustion (`STERILE`) or to a
+positive vertex (`FOUND`); `data/sterile/hubs/*.jsonl`.
+
+| family | r | hub fibre | sterile / tried | component size | p range |
+|---|---|---|---|---|---|
+| unguarded, primes = 1 mod 9 | 6 | 364 | 7/32 (+3 unknown) | 397-442 | 6e12-3e16 |
+| unguarded | 7 | 1093 | 3/32 | 1175-1183 | 4e15-2e18 |
+| unguarded | 8 | 3280 | 1/32 | 3469 | 6e16-2e18 |
+| guarded, q0~10^4 | 5 | 364 | 31/32 | 395-397 | 1e15-2e18 |
+| guarded | 6 | 1093 | 32/32 | 1156-1161 | 5e17-2e18 |
+| guarded | 7 | 3280 | 15/16 | 3407-3415 | 4e20-3e23 |
+| guarded | 8 | 9841 | 14/16 | 10096-10098 | 1e23-2e25 |
+| guarded, sparse t (tau(t^2)<=9) | 7 | 3280 | 16/16 | 3407-3408 | 4e20-6e22 |
+| guarded, sparse t | 9 | 29524 | 14/14 | 30035-30039 | 2e26-1e28 |
+
+(`k=3`, `M=13` gives the same picture.) For the sparse-t runs the entire
+seed component was also exhausted: sizes 6032-22605 at r=7 and 9431-78704 at
+r=9; **the sterile component exceeded the seed component in 13 of the 14
+r=9 cases.** Certificates: `data/sterile/certs/` (the r=9 prime has both a
+sterile and a seed certificate).
+
+```sh
+PYTHONPATH=scripts uv run --with python-flint python scripts/sterile_certificate_check.py data/sterile/certs/*.json.gz
+```
+
+### 3.5 Growth law and what is not proved
+
+With the r smallest admissible primes, `log p ~ r log r`, so the family has
+size `~3^r = exp((log 3+o(1)) log p / log log p)` **provided** its members are
+sterile and `p=4(x+k)+1` is prime for suitable choices. Neither is proved:
+
+* primality of `4(x+k)+1` over products of primes in progressions is a
+  standard heuristic, unproved for this thin set;
+* sterility needs finitely many *residual checks* per prime (no extra
+  divisor `D` in the spoke buckets, descent anchors and descent third
+  coordinates with trivial fibres, or, if not trivial, no route to a
+  positive-capable denominator). Each check is a divisor-in-residue-class
+  event with modulus `>= 4q0` (descents) or `~x/M` (spoke buckets); summing
+  the naive probabilities gives a quantity that stays bounded (descents:
+  `sum_{d>=q0} tau/d`) or tends to 0 (spokes), which is the **heuristic** reason
+  the guarded family is sterile with probability bounded below (observed
+  122/126 across r=5..9).
+
+So: **the size conjecture is false for all practical constants, and false
+asymptotically under a mild heuristic**; an unconditional disproof of the
+`O(log p)` form would need an infinite family with provable residual checks.
+
+### 3.6 Other size-type invariants fail too
+
+* **Type I count.** Take `M=13`, `k=3`, prime factors in the odd-order
+  subgroup `{1,3,9}` mod 13 (contains `k=-1/4`, not `-1`), all `>= 3000`.
+  Then the hub fibre also has Type I vertices `e=d = 3 (mod 13)`, `h=(3-d)/13<=0`.
+  13/16 such hubs (r=5, `p~10^23`) were sterile, each with **~280 Type I
+  vertices**.
+* **Tests.** A positive vertex has p-free denominators `>t` and Type I
+  buckets `h>=1` ("positive-capable denominators", tests). Allowing residues
+  `{±1,±3,±9}` mod 13 produces Type I spokes with `h=(3+d)/13>=1`: 2/16 such
+  hubs were sterile with **140-146 failing tests** at `p~4·10^23`
+  (`ln p ~ 54`). The tests are weak (smallest modulus 1231), which is the
+  point: a failing test with huge modulus is cheap.
+
+## 4. Proved lemmas
+
+**Lemma A (negative quadrant; PROVED).** If a p-free `1<=x<=t` or a Type I
+bucket `p(ph-t)` with `h<=0` occurs in a vertex, that vertex is nonpositive.
+*Proof.* `4/p-1/x=(4x-p)/(px)<0`, so the other two denominators cannot both be
+positive. For `h<=0`, `m=ph-t<0`. ∎
+
+**Lemma B (dead-hub fibre; PROVED).** Let `k>=2`, `M=4k+1`, `x=t-k>=1`, and
+suppose every prime factor of x is `1 (mod M)`. Then the vertices containing
+x are exactly `V_d` (§3.1), `d | x^2`, `d<x`; there are `(tau(x^2)-1)/2` of
+them, all Type II and nonpositive.
+
+*Proof.* `q=4x-p=-M`. By the exact incidence model (SIGNED_REFACTOR §3) the
+vertices containing x are `(x,pm,pxm/f)` with `f=qm-x` a nonzero divisor of
+`px^2`, i.e. `f=±p^j d`, `d | x^2`, `j∈{0,1}`, subject to `f = -x (mod M)`.
+All divisors of `x^2`, and x itself, are `1 (mod M)`, and
+`p=4x+M = 4 (mod M)`. Hence `d = 1`, `-d = -1`, `pd = 4`, `-pd = -4 (mod M)`.
+The target is `-x = -1`. `+d` would need `M | 2`; `pd` needs `M | 5` (k=1);
+`-pd` needs `M | 3`. Only `f=-d` survives. Then `m=(x-d)/(-M)=(d-x)/M`
+(integral as `d = x = 1`), nonzero iff `d≠x`, and the third denominator is
+`pxm/f = p x(x-d)/(Md)`. Since `f` is prime to p this is Type II.
+Replacing d by `x^2/d` swaps the two p-divisible coordinates, so the vertices
+are indexed by the pairs `{d, x^2/d}` with `d≠x`; distinct pairs give distinct
+`m`-sets. Exactly one of `m, n` is negative. ∎
+
+**Lemma C (descent; PROVED).** (i) Let `d,w>=1`, `w = 1 (mod 4)`, `x=dw`,
+`M=p-4x>0` with `M | x-d`. Then `V_d` and
+`D_d=(x-d, -p(x-d)/M, -p(w-1)/4)` are signed solutions sharing `-p(x-d)/M`.
+(ii) Under Lemma B, the bucket of `-p mu` (`mu=(x-d)/M`) consists of the
+vertices `(y,-p mu, z)` with `y=(p mu+D)/K`, `K=4mu+1`, for signed p-free
+`D | mu^2`, `D = d (mod K)`; `V_d` is `D=d` and `D_d` is `D=-4d mu`.
+
+*Proof.* (i) `1/x - M/(p(x-d)) + Md/(px(x-d)) = (p-M)/(px) = 4/p`, and
+`1/(d(w-1)) - M/(pd(w-1)) - 4/(p(w-1)) = (p-M-4d)/(pd(w-1)) = 4/p`; integrality:
+`M | x-d`, `4 | w-1`, `w(x-d)/M` integral. (ii) With `1/y+1/z=(4mu+1)/(p mu)`
+one has `(Ky-p mu)(Kz-p mu)=p^2mu^2`. The label `-(4mu+1)` of `-p mu` is
+nonzero mod p (it is Type II), so for the p-free coordinate y,
+`D=Ky-p mu = Ky (mod p)` is prime to p, hence `D | mu^2`. For `y=x`:
+`Kx-p mu = d` (direct computation using `p=4x+M`,
+`K=(p-4d)/M`), and all admissible D share its class mod K. For `D=d-Kd=-4d mu`,
+`y=x-d`; `D | mu^2` iff `4d | mu = d(w-1)/M` iff `w = 1 (mod 4)`. ∎
+
+**Lemma E (sign flip; PROVED).** Let `x=t+a`, `1<=a<=t`, `q=4a-1`, and let
+`l | x` be a prime with `l = -1 (mod q)`. If x occurs in any vertex, it occurs
+in a positive one. Likewise, if `h>=1`, `H=4h-1`, and `m=ph-t` has a prime
+factor `l = -1 (mod H)`, then the Type I bucket `pm` is empty or contains a
+positive vertex.
+
+*Proof.* Anchor. By SIGNED_REFACTOR §3 the vertices containing x are
+`(x,pm,pxm/f)` where `f=qm-x` is a nonzero divisor of `px^2` with
+`f = -x (mod q)`, `m=(x+f)/q`; since `q>0`, such a vertex is positive iff
+`f>0` (then `m>0`; criterion (5) there). Suppose x occurs, via some `f`. If
+`f>0` we are done. Otherwise `f=-p^j d` with `j∈{0,1}`, `d | x^2`, `d>0`,
+and `p^j d = x (mod q)`. Put `d'=l d` if `v_l(d)<2v_l(x)`, else `d'=d/l`
+(then `v_l(d)=2v_l(x)>=2`). In both cases `d' | x^2` and, as
+`l = l^{-1} = -1 (mod q)`, `d' = -d (mod q)`. Hence `f'=p^j d'>0` divides
+`px^2` and `f' = -x (mod q)`, so `m'=(x+f')/q` is a positive integer and
+`(x,pm',pxm'/f')` is a positive signed solution (`p ∤ m'` automatically,
+by the valuation lemma of SIGNED_REFACTOR §2).
+
+Bucket. Every vertex of the Type I bucket `pm` has chart coordinates
+`(a,h)` with `x=t+a` p-free, `e=aH-h≠0`, `e | x^2`; it is positive iff
+`a>=1` (as `h>=1`). For `a>=1`, `e>=3h-1>0`; for `a<=0`, `e<=-h<0`. By the
+symmetric chart (SIGNED_REFACTOR §8: `Hx=m+e`, `gcd(H,e)=1`) and
+`4m-pH=1` (so `gcd(m,H)=1`), a positive integer `e'` prime to H satisfies
+`e' | m^2 <=> e' | (t+a')^2` whenever `e'=a'H-h`. Given a vertex with `e<0`,
+flip `d=-e | m^2` to `d'=l^{±1}d | m^2` as above; then `e':=d'>0` and
+`e' = -d = e = -h (mod H)`, so `a'=(e'+h)/H` is a positive integer, and
+`e' | (t+a')^2`. The triple `(t+a', pm, (t+a')m/e')` is then a signed
+solution with `a',h>=1`, i.e. positive (§4 there); `t+a'` is prime to p, as
+otherwise all three denominators would be p-divisible (`e' | m^2` is prime
+to p), contradicting §2 there. ∎
+
+(The same argument works with `l^j = -1 (mod q)` for some `j <= v_l(x)`.)
+Consequence: in a sterile component every positive-capable anchor/bucket has
+no prime factor `= -1` modulo its own modulus - a classical-type
+restriction, **not** a bound on size (dead hubs contain no positive-capable
+denominator at all).
+
+Checks: `scripts/size_conjecture_check.py` (Lemma A on 181358 fibres,
+Lemma E on 1442 anchors and 1387 buckets of complete graphs, Lemma B on 115
+small and 48 large hubs, Lemma C on 4367 random instances).
+
+## 5. Congruences and a BGS-type statement
+
+Following LITERATURE_2026 §3 (Markoff mod p: BGS giant component, W. Chen's
+divisibility): over 64k primes, seed-component size, total vertex count and
+sterile sizes are equidistributed modulo 2,3,4,5,6,8,12, and seed size is
+`0 mod tau(t^2)` for 1216/20000 primes vs 1184 expected at random
+(`scripts/component_congruences.py`). **No Chen-type congruence.** A
+BGS-type "seed = unique giant, everything else small" statement is refuted
+by §3.4 (a sterile component three times larger than the seed component).
+(The signed character theorem (2a) is Bright–Loughran 2020, Thm 1.2+1.5.)
+
+## 6. What this means for the programme
+
+* A proof of seed reachability cannot come from "large components exit" plus
+  "the seed is large": sterile components can be larger than the seed.
+* What the seed has and dead hubs lack is **cheap tests**: the seed component
+  always contains the Type I buckets `h=d` and anchors `t+d` for all
+  `d | t^2`, in particular the modulus-3 tests `h=1`, `a=1` (SIGNED_REFACTOR §7);
+  guarded dead hubs contain *no* positive-capable denominator at all, and the
+  test-rich sterile hubs of §3.6 contain only tests of large modulus. Any
+  replacement statement must weigh tests by their modulus (the chance that a
+  divisor of `m^2` lands in one class mod `4h-1`), which is again the
+  classical ES divisor-class problem.
+* **CONJECTURE (weak replacement, untested beyond this data):** every
+  component containing a positive-capable denominator of modulus
+  `<= (log p)^A` with "generic" factorization exits; this is essentially the
+  ES heuristic, not a structural shortcut.

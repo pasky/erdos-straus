@@ -40,6 +40,15 @@ def job(args):
         r = hub_component(p, x, max_vertices=maxv)
         out.update(status=r["status"], visited=r.get("visited"), hubfibre=r.get("hubfibre"),
                    pathlen=(len(r["path"]) - 1) if r.get("path") else None)
+        if out["status"] == "STERILE":
+            from pointwise_fibres_big import BigFibreOracle, exhaust_component
+            O = BigFibreOracle(p)
+            S, _ = exhaust_component(O, sorted(O.fibre(x))[0])
+            out["typeI"] = sum(1 for v in S if sum(z % p == 0 for z in v) == 1)
+            from sterile_tests_count import tests
+            ta, th = tests(p, S)
+            out["tests"] = len(ta) + len(th)
+            out["min_test_modulus"] = min([4 * a - 1 for a in ta] + [4 * h - 1 for h in th], default=None)
         if seedsize and out["status"] == "STERILE":
             from pointwise_fibres_big import BigFibreOracle, exhaust_component
             from pointwise_refactor import seed
@@ -55,10 +64,10 @@ def job(args):
     return out
 
 
-def candidates(k, r, count, pmin, pool, expmax, rng, pmax, guard=0, mod4=0, tprime=False):
+def candidates(k, r, count, pmin, pool, expmax, rng, pmax, guard=0, mod4=0, tprime=False, res=(1,)):
     M = 4 * k + 1
-    Q = [q for q in primerange(pmin, 10**6) if q % M == 1 and (not mod4 or q % 4 == mod4)][:pool]
-    G = [q for q in primerange(guard, 2 * guard) if q % M == 1 and q % 4 == 3] if guard else []
+    Q = [q for q in primerange(pmin, 10**6) if q % M in res and (not mod4 or q % 4 == mod4)][:pool]
+    G = [q for q in primerange(guard, 2 * guard) if q % M in res and q % 4 == 3] if guard else []
     seen, out, tries = set(), [], 0
     while len(out) < count and tries < 10**6:
         tries += 1
@@ -91,6 +100,8 @@ if __name__ == "__main__":
                     help="add one prime q0=1 mod M, 3 mod 4 in [G,2G) (use with --mod4 1): "
                          "then every descent divisor d=x/w, w|x, w=1 mod 4, has d>=q0")
     ap.add_argument("--mod4", type=int, default=0)
+    ap.add_argument("--res", default="1", help="allowed residues mod M of the primes of x, e.g. 1,3,9 for M=13 "
+                    "(an odd-order subgroup containing k=-1/4 gives Type I spokes, cf. SIZE_CONJECTURE.md)")
     ap.add_argument("--tprime", type=int, default=0, help="require tau(t^2) <= this (sparse seed hubs)")
     ap.add_argument("--seedsize", action="store_true", help="also exhaust the seed component")
     ap.add_argument("--jobs", type=int, default=16)
@@ -99,7 +110,7 @@ if __name__ == "__main__":
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
     rng = random.Random(a.seed)
-    C = candidates(a.k, a.r, a.count, a.pmin, a.pool, a.expmax, rng, a.pmax, a.guard, a.mod4, a.tprime)
+    C = candidates(a.k, a.r, a.count, a.pmin, a.pool, a.expmax, rng, a.pmax, a.guard, a.mod4, a.tprime, tuple(int(v) for v in a.res.split(',')))
     with Pool(a.jobs) as pool:
         for res in pool.imap_unordered(job, [(p, x, k, e, a.timeout, a.maxv, a.seedsize) for p, x, k, e in C]):
             res["primes"] = {str(q): e for q, e in res["primes"].items()}
