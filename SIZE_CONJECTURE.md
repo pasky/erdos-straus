@@ -95,16 +95,52 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
 Complete enumeration of **all** primes `p=1 (mod 4)` below `2·10^6`, plus
 random samples at larger scales (`data/sterile/*.jsonl`).
 
-GROWTH_TABLE_PLACEHOLDER
+Complete enumeration (every component of every sampled prime; `signed_components.cpp`):
 
-* The mean of the per-prime maximum sterile size grows roughly linearly in
-  `log p` (about +0.6 per doubling of p); the aggregate size histogram decays
-  roughly geometrically (tail ratio ~0.7 per unit size), while the number of
-  sterile components per prime grows like a small power of p. This is
-  consistent with "max sterile ~ C log p" **for typical p**, and it is what
-  made the size conjecture plausible.
-* The seed component's share of all vertices declines (minimum 0.45 in
-  `[2^19,2^20)`), so "the seed always holds >= 58%" does not persist.
+| `log2 p` range | primes | max sterile | mean of per-p max | frac. with max>=8 | min seed share | mean # sterile comps |
+|---|---|---|---|---|---|---|
+| [14,15) | 805 (all) | 16 | 4.15 | 0.06 | 0.58 | 76 |
+| [16,17) | 2837 (all) | 32 | 5.28 | 0.14 | 0.54 | 131 |
+| [18,19) | 10186 (all) | 34 | 6.60 | 0.29 | 0.48 | 210 |
+| [20,21) | 33464 (all `<2·10^6`) | 76 | 8.01 | 0.46 | 0.41 | 315 |
+| [22,23) | 2826 (sample) | 50 | 9.73 | 0.65 | 0.41 | 457 |
+| [25,26) | 941 (sample) | 51 | 12.23 | 0.86 | 0.37 | 747 |
+| [28,29) | 300 (sample) | 50 | 15.91 | 0.98 | 0.36 | 1140 |
+| [30,31) | 64 (sample) | 40 | 16.08 | 0.98 | 0.36 | 1445 |
+
+Beyond `2^31`, `scripts/sterile_hub_scan.py` runs the exact lazy BFS from all
+negative-quadrant hubs `x=t-k`, `h=-c` (`k,c<=60`) of 48 random primes per
+scale and records the largest component proved sterile. This is a **lower
+bound** for the per-p maximum (on 61 primes near `2^28` it matched the
+complete maximum in 50 cases and was below it otherwise; mean 12.4 vs 15.9):
+
+| scale | mean of hub-scan max | largest found |
+|---|---|---|
+| `p~2^28` | 12.4 | 22 |
+| `p~10^12` | 27.6 | 80 |
+| `p~10^15` | 56.4 | **339** (CERTIFIED, `p=1960717994383909`) |
+| `p~10^18` | >=54 (213 hubs hit the 5000-vertex cap) | 157 |
+
+The 339-vertex component at the *random* prime `p=1960717994383909` is a
+natural dead hub: `x=t-47=2·5·11^2·13·41·313·1019·2383`, `tau(x^2)=10935`,
+filtered modulo `4·47+1=189`.
+
+* **Growth law (EVIDENCE).** The mean per-prime maximum fits
+  `(log2 p)^2/50` well (5.1, 8.0, 12.5, 15.7, 32.8, 50.8 predicted at
+  `log2 p = 16,20,25,28,40.5,50.4`, vs 5.3, 8.0, 12.2, 15.9, >=27.6, >=56.4
+  observed); a pure `C log p` law with fixed C fits worse (slope per doubling
+  rises from 0.6 to 1.0 and beyond). The aggregate size histogram decays
+  roughly geometrically for small sizes with a heavier tail; the number of
+  sterile components per prime grows like `p^{0.2}`. Heuristically, the
+  maximum is governed by the largest filtered divisor count
+  `tau((t-k)^2)/phi(4k+1)` among dead-looking hubs, which is polylogarithmic
+  for typical p but unbounded by any polylog for adversarial p (§3).
+* **Typical p, BGS-like picture (EVIDENCE).** For all 78416 primes of the
+  complete surveys up to `2^25` the seed component is the largest component,
+  and every other component has at most 0.16 of its size (0.05 at `2^30`).
+  The seed's share of all vertices declines slowly (0.58 -> 0.36), so the
+  old ">= 58%" observation does not persist. This typical-p dichotomy is
+  destroyed at adversarial p (§3.4).
 * **Anatomy.** Every dumped sterile component (size >= 12, `p<2·10^6`) has
   a hub: the denominator shared by most vertices. In 6181 of 6658 it is a
   negative-quadrant denominator: a p-free anchor `x=t+a` with `a<=0` (5011)
