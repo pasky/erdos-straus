@@ -354,7 +354,107 @@ character argument predicts. Numerically, this branch succeeds only when
 mod 7. The latter never occurs among survivors of (9): all survivors are
 residues mod 5 and 7, in Mordell's hard classes.
 
-## 4. Search for depth ≥4 (EVIDENCE; in progress)
+## 4. Theorem 3: unconditional upper bounds for the exceptional sets
+
+Theorem 2 gives, under Bateman–Horn, `#{p≤N: dist(p)>k} ≫ N/(log N)^{C_k}`. In
+the other direction, a standard upper-bound sieve proves a polylogarithmic
+saving.
+
+**Lemma 4 (explicit short paths).** Let `p=4t+1` be prime.
+
+1. **(H-branch, 2 edges.)** Let `h|t²` and `K=4h-1`. Suppose `m=ph-t` has a
+   prime factor `ℓ≡-1/4 (mod K)`. Then `D=ℓ` satisfies (9), since
+   `-h≡-1/4 (mod K)`. The path is
+   `σ, (t,pm,-tm/h), (pm,(m+ℓ)/K,(m+m²/ℓ)/K)`.
+2. **(X-branch, 5 edges.)** Let `d|t²` and `K=4d-1`. Suppose `z=t+d` has a
+   prime factor `ℓ≡-1/4 (mod K)`. Then there is the path
+   `σ,B1,B2,(2t,2t,-pt), (z,-pt,tz/d), (z,(p²ℓ+pz)/K,(z²/ℓ+pz)/K)`.
+   Here `B1,B2` are the bridge vertices of SIGNED_REFACTOR (1). The fourth
+   vertex is the point `(a,h)=(d,0)` of the chart axis (8).
+3. **(forced, 5 edges.)** If `p≡2 (mod 3)`, then `t≡1 (mod 3)`, and the
+   anchor `t+1` has the Type II exit with `D=1`. So `dist(p)≤5`.
+4. **(forced, 2 edges.)** If `p≡5 (mod 8)`, then t is odd, and `ℓ=2` divides
+   `3t+1`. So `dist(p)=2`.
+
+All identities are verified by `scripts/depth5_branches.py`, which builds and
+checks every path for each prime in a range. For `p<2·10^6`, the only primes
+with no H-branch lie in the classes 1 and 17 mod 24. The only primes with no
+branch at all lie in the class 1 mod 24: 879 of its 18507 primes. The branch
+list is sufficient, not necessary: all of these primes have `dist≤3`.
+
+**Theorem 3 (PROVED, modulo a standard sieve theorem).** Put
+
+\[
+ \kappa_2 = \tfrac12+\tfrac16+\tfrac18 = \tfrac{19}{24}\approx0.79,\qquad
+ \kappa_5 = 2\sum_{d\mid 36}\frac1{\varphi(4d-1)}\approx 2.046 .
+\]
+
+Then
+
+\[
+ \#\{p\le N:\ \mathrm{dist}(p)>2\}\ll \frac{N}{(\log N)^{1+\kappa_2}},
+ \qquad
+ \#\{p\le N:\ \mathrm{dist}(p)>5\}\ll \frac{N}{(\log N)^{1+\kappa_5}} .
+\]
+
+*Proof.* By Lemma 4(3,4), `dist(p)>5` forces `p≡1 (mod 24)`. Then `6|t`, so
+`d|t²` for all nine `d|36`.
+
+* `dist(p)>5` implies that no H-branch with `h|36` and no X-branch with
+  `d|36` applies.
+* `dist(p)>2` forces `p≡1 (mod 8)`, so `4|t²`. It implies that no H-branch
+  with `h∈{1,2,4}` applies. For `p≡1 (mod 24)` there are nine such h, so the
+  bound is stronger there.
+
+In terms of p:
+
+* `ℓ|ph-t` iff `p≡-(4h-1)^{-1} (mod ℓ)`, since `4(ph-t)=p(4h-1)+1`;
+* `ℓ|t+d` iff `p≡1-4d (mod ℓ)`.
+
+Thus each branch excludes one residue class of p modulo every prime ℓ in a
+fixed class mod `4h-1` (resp. `4d-1`). Apart from finitely many ℓ, the classes
+excluded by different branches are distinct. For example, H(h) and X(h)
+coincide only if `ℓ|8h(2h-1)`.
+
+Let `ω(ℓ)` be the number of excluded classes. By the prime number theorem in
+progressions, `Σ_{ℓ≤z}ω(ℓ)/ℓ = κ log log z+O(1)`, with κ the sum of
+`1/φ(4h-1)` over the branches used. The upper-bound Selberg sieve has
+dimension κ. The sequence is the primes `p≤N` in the relevant class, and
+Bombieri–Vinogradov supplies level `N^{1/2-ε}`. Sifting to `z=N^{1/5}` gives
+
+\[
+ \ll \frac{N}{\log N}\prod_{\ell\le z}\Bigl(1-\frac{\omega(\ell)}{\ell-1}\Bigr)
+ \ll\frac{N}{(\log N)^{1+\kappa}}.
+\]
+
+Here `κ=κ_5` counts the H- and X-branches for `d,h|36`, with moduli
+`3,7,11,15,23,35,47,71,143` each used twice. For `dist>2`, the worst class is
+`p≡17 (mod 24)`, where only `h∈{1,2,4}` are available; this gives `κ_2`. ∎
+
+**Remarks.**
+
+* The case `h=1` alone gives exponent `3/2`: `(3p+1)/4` has only prime
+  factors `≡1 (mod 3)`. This is the half-dimensional sieve in the shape of
+  Dahan (arXiv:2608.24035) Thm 4.14. Equivalently, `(3p+1)/4` is
+  *primitively* represented by `x²+xy+y²`. A matching lower bound would need
+  FHRSS-type input (arXiv:2504.20289); it is not claimed.
+* These bounds are far weaker than the ES exceptional-set bounds of
+  DISCOVERIES.md (A): `N exp(-c(log N)^{2/3}…)` unconditionally, and
+  `exp(-c(log N)^{3/4})` internally. Bounded seed distance is a much more
+  restrictive certificate than an arbitrary ES solution. By Theorem 2 it can
+  only ever have a polylogarithmic, not a quasi-polynomial, saving: under
+  Bateman–Horn the exceptional set is `≫_k N/(log N)^{C_k}`.
+* **Open.** Does the exponent `c_k` tend to infinity? The constant-shift
+  anchors forced for all `p≡1 (24)` found so far are the chart axes `a,h|36`.
+  The symmetric-chart computation below finds no off-axis forced constant
+  edge for `t≡0 (mod 6)`. A constant edge `(a,h)` with `|e|` dividing a fixed
+  number satisfies `(4a-1)(4h-1)=4e+1`. For `|e|≤36` with `e|36`, every
+  solution is either on an axis or needs `t` odd or `3∤t`. If only boundedly
+  many constant anchors exist at every depth, the heuristic exponent would
+  stay bounded, `c_k≤2+κ_∞`: take `q=t/6` prime and let the polynomial
+  anchors fail generically. This is **CONJECTURE/heuristic**, not proved.
+
+## 5. Search for depth ≥4 (EVIDENCE; in progress)
 
 The pipeline is exhaustive for depth ≤3:
 
