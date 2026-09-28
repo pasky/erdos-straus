@@ -46,6 +46,20 @@ static bool operator<(const Vtx& u, const Vtx& v) {
 }
 static bool operator==(const Vtx& u, const Vtx& v) { return u.a == v.a && u.b == v.b && u.c == v.c; }
 
+static i128 parse128(const char* str) {
+    bool neg = false;
+    if (*str == '-') { neg = true; ++str; }
+    if (!*str) { fprintf(stderr, "bad integer\n"); exit(1); }
+    u128 v = 0;
+    const u128 lim = ((u128)1 << 127) - 1;
+    for (; *str; ++str) {
+        if (*str < '0' || *str > '9') { fprintf(stderr, "bad integer\n"); exit(1); }
+        if (v > (lim - (u128)(*str - '0')) / 10) { fprintf(stderr, "integer out of 128-bit range\n"); exit(1); }
+        v = v * 10 + (u128)(*str - '0');
+    }
+    return neg ? -(i128)v : (i128)v;
+}
+
 static i128 gcd128(i128 a, i128 b) {
     if (a < 0) a = -a;
     if (b < 0) b = -b;
@@ -84,8 +98,8 @@ int main(int argc, char** argv) {
     for (int i = 2; i < argc; ++i) {
         if (!strcmp(argv[i], "--threads") && i + 1 < argc) threads = atoi(argv[++i]);
         else if (!strcmp(argv[i], "--dump") && i + 1 < argc) dump = atol(argv[++i]);
-        else if (!strcmp(argv[i], "--path") && i + 1 < argc) paths.push_back((i128)strtoll(argv[++i], nullptr, 10));
-        else if (!strcmp(argv[i], "--query") && i + 1 < argc) queries.push_back((i128)strtoll(argv[++i], nullptr, 10));
+        else if (!strcmp(argv[i], "--path") && i + 1 < argc) paths.push_back(parse128(argv[++i]));
+        else if (!strcmp(argv[i], "--query") && i + 1 < argc) queries.push_back(parse128(argv[++i]));
         else { fprintf(stderr, "bad arg %s\n", argv[i]); return 1; }
     }
     if (p < 5 || p % 4 != 1 || p >= (1ULL << 31)) { fprintf(stderr, "need p=1 mod 4, 5<=p<2^31\n"); return 1; }

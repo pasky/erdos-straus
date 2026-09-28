@@ -26,7 +26,7 @@ def tests(p, comp):
 if __name__ == "__main__":
     rows = []
     for fn in sys.argv[1:]:
-        if fn.endswith(".gz"):
+        if fn.endswith(".json.gz"):  # certificate (single JSON object)
             c = json.load(gzip.open(fn, "rt"))
             p = int(c["p"])
             comp = [tuple(map(int, v)) for v in c["vertices"]]

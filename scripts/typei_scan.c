@@ -8,7 +8,11 @@
 #include <stdint.h>
 
 typedef __int128 i128;
-static i128 mk(int64_t hi, uint64_t lo) { return ((i128)hi << 64) | (i128)lo; }
+static i128 mk(int64_t hi, uint64_t lo) {
+    // assemble in unsigned arithmetic (no signed left shift), then convert
+    unsigned __int128 u = ((unsigned __int128)(uint64_t)hi << 64) | (unsigned __int128)lo;
+    return (i128)u;  // two's complement conversion (GCC/Clang-defined)
+}
 static i128 ab(i128 v) { return v < 0 ? -v : v; }
 
 // returns number of hits written to out (capacity cap), or -1 on overflow of cap

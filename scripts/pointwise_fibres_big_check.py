@@ -18,12 +18,12 @@ from pointwise_fibres_big import BigFibreOracle
 for p in (13, 73, 97, 1009, 6089, 10477, 30637, 297049):
     V = incidence_solutions(p)
     B = denominator_buckets(V)
-    for sb in (300_000_000, 1):
+    for sb in (300_000_000, 0):
         O = BigFibreOracle(p, scan_budget=sb)
         for z, idx in B.items():
             assert O.fibre(z) == {V[i] for i in idx}, (p, z, sb)
     # unused labels near the hubs are empty
-    O = BigFibreOracle(p, scan_budget=1)
+    O = BigFibreOracle(p, scan_budget=0)
     t = (p - 1) // 4
     for h in range(-30, 31):
         z = p * (p * h - t)
@@ -43,7 +43,7 @@ for p in (30637, 663557, 1094629, 1999957):
             comps.append([])
         else:
             comps[-1].append(tuple(map(int, f[1:])))
-    O = BigFibreOracle(p, scan_budget=1)
+    O = BigFibreOracle(p, scan_budget=0)
     for C in comps:
         r = explore(O, random.choice(C), max_vertices=10**5)
         assert r.status == "STERILE" and r.visited == len(C), (p, len(C), r.status, r.visited)

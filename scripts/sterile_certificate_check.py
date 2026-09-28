@@ -16,8 +16,13 @@ Checks, for the claimed vertex set S:
           (f | p z^2, f = -z mod 4z-p), enumerated here from scratch with
           FLINT-proved factors, AND the divisor-fibre method of
           pointwise_fibres_big; results must agree;
-        - Type I p-divisible z: C interval scan (if available) AND the
-          meet-in-the-middle divisor method; results must agree;
+        - Type I p-divisible z: C interval scan (if available) or the
+          meet-in-the-middle divisor method, AND a second implementation
+          sharing no enumeration code: the generic full square-divisor fibre
+          of pointwise_fibres.FibreOracle (residual-decomposition equation)
+          or, if its divisor count is too large, the size-pruned DFS over
+          divisors of m^2; results must agree (buckets exceeding both budgets
+          are counted and reported);
         - Type II / p-free outside [1,2t]: the factorization-free constant
           candidate tests of pointwise_fibres (SIGNED_REFACTOR §5).
 (1)-(3) imply S is an entire connected component without positive vertex.
@@ -28,6 +33,7 @@ from math import prod
 
 import flint
 
+from pointwise_fibres import FibreOracle, IncompleteSearch
 from pointwise_fibres_big import BigFibreOracle
 
 
@@ -90,13 +96,31 @@ def check(cert):
     assert seen == S, "not connected"
     # closure
     A = BigFibreOracle(p)                       # scan where possible
-    B = BigFibreOracle(p, scan_budget=1)         # meet-in-the-middle only
-    kinds = {"anchor": 0, "typeI": 0, "typeII": 0, "outer": 0}
+    B = BigFibreOracle(p, scan_budget=0)         # meet-in-the-middle only
+    C = BigFibreOracle(p, scan_budget=0, max_divisors=3_000_000)
+    kinds = {"anchor": 0, "typeI": 0, "typeII": 0, "outer": 0, "typeI_single_method": 0}
     for z in buckets:
         if z % p == 0:
             if (4 * (z // p) - 1) % p == 0:
                 fa, fb = A.fibre(z), B.fibre(z)
                 assert fa == fb, ("Type I methods disagree", z)
+                m = z // p
+                h = (m + t) // p
+                try:
+                    fc = frozenset(FibreOracle._divisor_fibre(C, z))
+                except IncompleteSearch:
+                    bound = (4 * t * t + abs(h)) // abs(4 * h - 1)
+                    lo, hi = max(1 - t, -bound), min(t, bound)
+                    try:
+                        C.max_divisors = 20_000_000
+                        fc = frozenset(C._typei_divisors_dfs(m, h, lo, hi))
+                    except IncompleteSearch:
+                        fc = None
+                    C.max_divisors = 3_000_000
+                if fc is None:
+                    kinds["typeI_single_method"] += 1
+                else:
+                    assert fc == fa, ("independent Type I method disagrees", z)
                 kinds["typeI"] += 1
             else:
                 fa = A.fibre(z)

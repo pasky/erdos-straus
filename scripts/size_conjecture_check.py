@@ -95,7 +95,7 @@ print(f"Lemma B: {cnt} large-p hub fibres (exact oracle) equal the formula")
 n = 0
 for _ in range(20000):
     d = rng.randint(1, 10**6)
-    w = 4 * rng.randint(1, 10**6) + 1
+    w = 4 * rng.randint(1, 10**6) + 1  # w > 1 (w = 1 would give zero denominators)
     x = d * w
     # choose p = 4x + M prime with M | x - d
     for M in sorted(set(divisors(x - d)))[:40]:
@@ -107,5 +107,45 @@ for _ in range(20000):
             assert set(v1) & set(v2)
             n += 1
             break
-print(f"Lemma C: descent identity verified on {n} random instances")
+print(f"Lemma C(i): descent identity verified on {n} random instances (w>1)")
+
+# ---- Lemma C(ii): the bucket of -p*mu equals the divisor description, and
+# contains D_d exactly when d | x and x/d = 1 (mod 4)
+def bucket_prediction(p, mu, d):
+    K = 4 * mu + 1
+    out = set()
+    for D0 in divisors(mu * mu):
+        for D in (D0, -D0):
+            if (D - d) % K or (p * mu + D) % K:
+                continue
+            y = (p * mu + D) // K
+            num = p * mu + p * p * mu * mu // D
+            if y == 0 or y % p == 0 or num % K or num == 0:
+                continue
+            out.add(tuple(sorted((y, -p * mu, num // K))))
+    return out
+
+nb = nd = 0
+rng2 = random.Random(9)
+for k in (2, 3):
+    M = 4 * k + 1
+    Q = [q for q in primerange(3, 400) if q % M == 1]
+    for _ in range(600):
+        x = math.prod(rng2.sample(Q, rng2.randint(2, 4)))
+        p = 4 * (x + k) + 1
+        if flint.fmpz(p).is_prime() != 1:
+            continue
+        O = BigFibreOracle(p)
+        for d in divisors(x * x):
+            if d >= x:
+                continue
+            mu = (x - d) // M
+            got = set(O.fibre(-p * mu))
+            assert got == bucket_prediction(p, mu, d), (p, x, d)
+            w = x // d if x % d == 0 else None
+            Dd = tuple(sorted((x - d, -p * mu, -p * (w - 1) // 4))) if w and w % 4 == 1 else None
+            if Dd is not None:
+                assert Dd in got; nd += 1
+            nb += 1
+print(f"Lemma C(ii): {nb} spoke buckets match the divisor description; {nd} contain the predicted descent")
 print("OK")

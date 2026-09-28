@@ -1,4 +1,4 @@
-# The size conjecture for the signed ES graph is false (dead hubs)
+# Large sterile components: evidence against the size conjecture (dead hubs)
 
 Status labels: **PROVED** = written proof here (plus a numerical check
 script); **CERTIFIED** = an exact, exhaustive finite computation whose
@@ -14,13 +14,16 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
 
 ## 0. Verdict (short)
 
-1. **The size conjecture is false in every practically meaningful sense.**
+1. **The size conjecture fails at every scale tested, with any small
+   constant; as an asymptotic `O(log p)` statement it is NOT disproved.**
    An explicit construction ("dead hubs", §3) produces sterile
-   (positive-free) components whose size grows like `3^r` while `log p`
-   grows like `r log r`, i.e. like `exp(c log p / log log p)` --
-   faster than any power of `log p`. The construction is exact up to a finite
-   list of "residual checks" which are verified by exhaustive search; they
-   passed for 122 of 126 guarded instances tried (§3.4).
+   (positive-free) components of size about `3^r/2` at primes with
+   `log p ~ r log r`. The hub fibre is exact (Lemma B, PROVED); sterility of
+   the whole component needs a finite list of "residual checks", verified by
+   exhaustive search for each instance (122 of 126 guarded instances passed,
+   §3.4). If a positive proportion of the family is sterile (a heuristic,
+   §3.5), sterile sizes reach `exp(c log p/log log p)`, beyond any power of
+   `log p`.
    **CERTIFIED** examples (entire components exhausted, independently re-checked):
 
    | p | sterile component | `ln p` | size / `ln p` |
@@ -31,10 +34,11 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
    | 1960717994383909 (random p, natural) | 339 | 35.2 | 9.6 |
    | 274159709010072908384347957 | **30035** | 61.9 | **485** |
 
-   Strictly, an `O(log p)` statement cannot be refuted by finitely many p;
-   what is refuted is any version with a usable constant, and the family
-   gives every reason (§3.5, heuristic) to expect `exp(c log p/log log p)`
-   growth. Proving sterility of an *infinite* family is open (§3.5).
+   An `O(log p)` statement with an unspecified constant cannot be refuted by
+   finitely many p. What the certificates refute is every version with
+   `K(p) <= 480 ln p` at the tested primes, and in particular the use of such
+   a statement as a lever (item 2). Proving sterility of an *infinite* family
+   (and primality of its p) is open (§3.5).
 2. **Sterile components can be larger than the seed component.** At
    `p=274159709010072908384347957` the certified sterile component has 30035
    vertices, the certified seed component 10155 (both exhausted; the seed
@@ -58,8 +62,8 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
    dead-hub fibre (B); descent identity and Type II bucket structure (C);
    sign-flip exits (E): an anchor `t+a`, `a>=1`, having a prime factor
    `l = -1 (mod 4a-1)`, or a bucket `h>=1` whose `m=ph-t` has such a factor mod
-   `4h-1`, has an empty fibre or a positive vertex. No component-size
-   congruences exist (§5).
+   `4h-1`, has an empty fibre or a positive vertex. The specific
+   component-size congruences tested (§5) do not hold.
 
 ## 1. Tools (all exact)
 
@@ -86,9 +90,17 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
   certificates `data/sterile/certs/*.json.gz`. The checker verifies each
   triple exactly, nonpositivity, connectivity, and **closure**: every
   denominator's full fibre (recomputed; anchors by the independent §3
-  incidence enumeration *and* the divisor method, Type I buckets by scan
-  *and* meet-in-the-middle) lies inside the set. Closure + connectivity =
-  an entire component.
+  incidence enumeration *and* the meet-in-the-middle divisor method; Type I
+  buckets by scan-or-MITM *and* by a second implementation sharing no
+  enumeration code - the generic full square-divisor fibre of
+  `pointwise_fibres.FibreOracle`, or a size-pruned DFS over divisors of `m^2`)
+  lies inside the set. Closure + connectivity = an entire component. Only
+  the factorizations (FLINT, primes proved) are common to both methods. In
+  the seed certificate 11 of 3099 Type I buckets exceeded both second-method
+  budgets and were checked by MITM alone; all other certificates have every
+  Type I bucket checked twice. Type II and outer p-free fibres use the
+  factorization-free tests of SIGNED_REFACTOR §5 (single method, validated
+  against complete graphs).
 * Surveys: `sterile_survey.py` (complete enumeration over primes),
   `sterile_stats.py`, `sterile_anatomy.py`, `sterile_diameter.py`,
   `sterile_tests_count.py`, `component_congruences.py`; construction search
@@ -240,11 +252,18 @@ sterile and `p=4(x+k)+1` is prime for suitable choices. Neither is proved:
   divisor `D` in the spoke buckets, descent anchors and descent third
   coordinates with trivial fibres, or, if not trivial, no route to a
   positive-capable denominator). Each check is a divisor-in-residue-class
-  event with modulus `>= 4q0` (descents) or `~x/M` (spoke buckets); summing
-  the naive probabilities gives a quantity that stays bounded (descents:
-  `sum_{d>=q0} tau/d`) or tends to 0 (spokes), which is the **heuristic** reason
-  the guarded family is sterile with probability bounded below (observed
-  122/126 across r=5..9).
+  event with modulus `>= 4q0` (descents) or `~x/M` (spoke buckets). The
+  descents are `d = q0·u`, `u | x/q0`, so the naive expected number of
+  extra neighbours is about `q0^{-1} sum_{u | x/q0} tau(...)/u`, and
+  `sum_{u} 1/u = prod(1+1/q_i)` **grows** (slowly) with r. For a *fixed*
+  guard this does not give a probability bounded below; the heuristic
+  version is: let the guard grow with r, e.g. `q0 >= prod(1+1/q_i)·(log p)^A`,
+  which costs only a factor `q0` (polylog) in p and leaves the
+  `exp(c log p/log log p)` size law intact. Spoke-bucket failures have
+  naive probability `O(3^r·tau/x)`, tending to 0. In the data a fixed guard
+  `q0~10^4` sufficed up to r=9 (122/126 sterile), but this is finite evidence
+  only; also a failed check need not destroy sterility, since extra
+  neighbours of anchors `<t` are themselves nonpositive (Lemma A).
 
 So: **the size conjecture is false for all practical constants, and false
 asymptotically under a mild heuristic**; an unconditional disproof of the
@@ -298,12 +317,14 @@ Replacing d by `x^2/d` swaps the two p-divisible coordinates, so the vertices
 are indexed by the pairs `{d, x^2/d}` with `d≠x`; distinct pairs give distinct
 `m`-sets. Exactly one of `m, n` is negative. ∎
 
-**Lemma C (descent; PROVED).** (i) Let `d,w>=1`, `w = 1 (mod 4)`, `x=dw`,
+**Lemma C (descent; PROVED).** (i) Let `d>=1`, `w>1`, `w = 1 (mod 4)`, `x=dw`,
 `M=p-4x>0` with `M | x-d`. Then `V_d` and
 `D_d=(x-d, -p(x-d)/M, -p(w-1)/4)` are signed solutions sharing `-p(x-d)/M`.
-(ii) Under Lemma B, the bucket of `-p mu` (`mu=(x-d)/M`) consists of the
+(`w=1` would give zero denominators.) (ii) Under Lemma B, for a spoke
+`d<x`, the bucket of `-p mu` (`mu=(x-d)/M`) consists of the
 vertices `(y,-p mu, z)` with `y=(p mu+D)/K`, `K=4mu+1`, for signed p-free
-`D | mu^2`, `D = d (mod K)`; `V_d` is `D=d` and `D_d` is `D=-4d mu`.
+`D | mu^2`, `D = d (mod K)` (and y, z nonzero); `V_d` is `D=d`; if moreover
+`d | x` and `w=x/d = 1 (mod 4)`, then `D=-4d mu` gives `D_d`.
 
 *Proof.* (i) `1/x - M/(p(x-d)) + Md/(px(x-d)) = (p-M)/(px) = 4/p`, and
 `1/(d(w-1)) - M/(pd(w-1)) - 4/(p(w-1)) = (p-M-4d)/(pd(w-1)) = 4/p`; integrality:
@@ -349,20 +370,29 @@ to p), contradicting §2 there. ∎
 (The same argument works with `l^j = -1 (mod q)` for some `j <= v_l(x)`.)
 Consequence: in a sterile component every positive-capable anchor/bucket has
 no prime factor `= -1` modulo its own modulus - a classical-type
-restriction, **not** a bound on size (dead hubs contain no positive-capable
-denominator at all).
+restriction, **not** a bound on size (the certified dead-hub components
+contain 0, 0, 1 and 17 positive-capable denominators, all of large modulus:
+the hub fibre itself has none by Lemma B, but satellites can).
 
 Checks: `scripts/size_conjecture_check.py` (Lemma A on 181358 fibres,
 Lemma E on 1442 anchors and 1387 buckets of complete graphs, Lemma B on 115
-small and 48 large hubs, Lemma C on 4367 random instances).
+small and 48 large hubs, Lemma C(i) on 4367 random instances, Lemma C(ii):
+1313 spoke buckets equal the divisor description, 291 predicted descents
+present).
 
 ## 5. Congruences and a BGS-type statement
 
 Following LITERATURE_2026 §3 (Markoff mod p: BGS giant component, W. Chen's
-divisibility): over 64k primes, seed-component size, total vertex count and
-sterile sizes are equidistributed modulo 2,3,4,5,6,8,12, and seed size is
-`0 mod tau(t^2)` for 1216/20000 primes vs 1184 expected at random
-(`scripts/component_congruences.py`). **No Chen-type congruence.** A
+divisibility): over 64k primes (`p<2^23`), the seed-component size and the
+total vertex count are close to equidistributed modulo 2,3,4,5,6,8,12, and
+seed size is `0 mod tau(t^2)` for 1216/20000 primes vs 1184 expected at
+random (`scripts/component_congruences.py`). Sterile sizes are *not*
+equidistributed (about 8:1 odd:even), but only because the size histogram
+is dominated by singletons and other small sizes; every residue occurs, so
+there is no divisibility constraint of Chen type for sterile components.
+Thus none of the tested congruences (seed size, V, or sterile sizes modulo
+these m, seed size modulo `tau(t^2)`) holds; other moduli, e.g. p, are
+moot since all components are far smaller than p. A
 BGS-type "seed = unique giant, everything else small" statement is refuted
 by §3.4 (a sterile component three times larger than the seed component).
 (The signed character theorem (2a) is Bright–Loughran 2020, Thm 1.2+1.5.)
@@ -374,8 +404,12 @@ by §3.4 (a sterile component three times larger than the seed component).
 * What the seed has and dead hubs lack is **cheap tests**: the seed component
   always contains the Type I buckets `h=d` and anchors `t+d` for all
   `d | t^2`, in particular the modulus-3 tests `h=1`, `a=1` (SIGNED_REFACTOR §7);
-  guarded dead hubs contain *no* positive-capable denominator at all, and the
-  test-rich sterile hubs of §3.6 contain only tests of large modulus. Any
+  the certified guarded dead hubs contain none or only a few
+  positive-capable denominators, all of large modulus (>= 4·8963-1 in the
+  certificates), and the test-rich sterile hubs of §3.6 likewise only tests
+  of large modulus (>= 1231). By contrast the natural 339-vertex sterile
+  component at a random p has 118 failing tests, smallest modulus
+  `4·645-1`. Any
   replacement statement must weigh tests by their modulus (the chance that a
   divisor of `m^2` lands in one class mod `4h-1`), which is again the
   classical ES divisor-class problem.

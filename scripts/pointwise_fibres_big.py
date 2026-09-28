@@ -36,8 +36,10 @@ def _lib():
         so = f"/tmp/typei_scan_{os.getuid()}.so"
         src = os.path.join(here, "typei_scan.c")
         if not os.path.exists(so) or os.path.getmtime(so) < os.path.getmtime(src):
-            subprocess.run(["gcc", "-O3", "-shared", "-fPIC", src, "-o", so + ".tmp"], check=True)
-            os.replace(so + ".tmp", so)
+            # unique temporary + atomic publication: safe under parallel first use
+            tmp = f"{so}.{os.getpid()}.tmp"
+            subprocess.run(["gcc", "-O3", "-shared", "-fPIC", src, "-o", tmp], check=True)
+            os.replace(tmp, so)
         lib = ctypes.CDLL(so)
         lib.typei_scan.restype = ctypes.c_long
         lib.typei_scan.argtypes = [ctypes.c_int64, ctypes.c_uint64, ctypes.c_int64, ctypes.c_uint64,
@@ -109,7 +111,7 @@ class BigFibreOracle(FibreOracle):
             h = (m + t) // p
             bound = (4 * t * t + abs(h)) // abs(4 * h - 1)
             lo, hi = max(1 - t, -bound), min(t, bound)
-            if hi - lo + 1 <= self.scan_budget and abs(h) < 2**100 and t < 2**61:
+            if self.scan_budget > 0 and hi - lo + 1 <= self.scan_budget and abs(h) < 2**100 and t < 2**61:
                 cap = 1 << 16
                 buf = (ctypes.c_int64 * cap)()
                 n = _lib().typei_scan(*_split(t), *_split(h), lo, hi, buf, cap)
