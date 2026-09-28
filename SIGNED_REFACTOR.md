@@ -605,6 +605,18 @@ non-seed components contain positive vertices. This suggests the clean
 contains a positive vertex**. It is consistent with the data, but it is no
 easier to prove than ES.
 
+**Update: refuted in practice (see [SIZE_CONJECTURE.md](SIZE_CONJECTURE.md)).**
+"Dead hubs" (an anchor `x=t-k` all of whose prime factors are `1 mod 4k+1`)
+give certified sterile components of size about `3^r/2`. At
+`p=274159709010072908384347957` a certified **30035-vertex sterile component
+is larger than the certified seed component (10155 vertices)**, so no size
+threshold can force seed exits. The asymptotic `O(log p)` form is not formally
+disproved, since sterility of an infinite family is unproved. The 58% seed
+share also does not persist (0.36 near `2^30`). The same file proves
+**Lemma E (sign flip)**: an anchor `t+a` (`a>=1`) with a prime factor
+`= -1 (mod 4a-1)`, or a Type I bucket `h>=1` whose `m=ph-t` has a prime
+factor `= -1 (mod 4h-1)`, has an empty fibre or contains a positive vertex.
+
 **(iii) Colour.** By (2a), a component is sterile iff every Type I vertex
 satisfies `(xz/p)=+1` and every Type II vertex `(mn/p)=+1`. Each p-free
 denominator carries a coin-like Legendre colour, so sterility requires many
