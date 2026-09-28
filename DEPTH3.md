@@ -31,8 +31,8 @@ Summary.
    polylogarithmic can hold.
 4. **EVIDENCE.** All 10 known distance-3 primes below `5·10^6` escape
    through family A. So does every prime `p=24q+1` with q prime,
-   `q≤10^11`, that fails (9). The search continues to `q≤10^13`; no prime of
-   distance `≥4` has been found (§5).
+   `q≤10^13` (`p<2.4·10^14`), that fails (9): 1113907 primes. Every prime
+   `p<10^11` has `dist(p)≤3`. No prime of distance `≥4` has been found (§5).
 
 The signed character theorem (2a) used below is, in substance, Bright–Loughran
 (2020), Thm 1.2 with Thm 1.5 (the local-invariant computation for the
@@ -144,6 +144,22 @@ Conversely, every listed path is legal. ∎
 * In A, `d≤(pc+t)²` ranges over divisors, so `a` can be large. Anchors with
   `a>t` are the same vertices charted from their other positive p-free
   entry `w∈(t,2t]`.
+
+**Lemma 5 (every exit needs a fresh non-residue; PROVED from (2a)).**
+
+1. A (9)-exit at h, with certificate `D|m²` and `m=ph-t`, is positive iff
+   `(D/p)=-1`. Indeed, the p-free pair satisfies
+   `yz=m(m+D)²/(DK²)`, and `m≡-t≡1/4 (mod p)`. Hence the exit needs a prime
+   `ℓ|ph-t` with `(ℓ/p)=-1`.
+2. At a positive p-free anchor `z>t` with certificate `D|z²`:
+   * a Type I exit has `zw=z²(z+pD)/(Dq_z)`, and `q_z≡4z (mod p)`, so it
+     needs `(D/p)=-1`;
+   * a Type II exit has `mn=z(z+D)²/(Dq_z²)`, so it needs `(zD/p)=-1`.
+
+   Every prime dividing t is a residue mod p. The hub quantities built from
+   t cannot supply this sign: it must come from a prime factor of a new shift
+   (`ph-t`, `pc+t`, `t+a`, …). This is the quantitative form of the
+   "principal-genus trap" of SIGNED_REFACTOR §8, and it drives Theorem 2.
 
 **Validation (EVIDENCE for the implementation, not needed for the proof).**
 `scripts/depth3_validate.py` uses the exact lazy fibres of
@@ -541,7 +557,7 @@ twice, by H(h) and X(h), giving `κ_5`. ∎
   are forced at every depth, the heuristic exponent stays bounded; this
   suggests, but does **not** prove, that `c_k` is bounded. **CONJECTURE/heuristic.**
 
-## 5. Search for depth ≥4 (EVIDENCE; in progress)
+## 5. Search for depth ≥4 (EVIDENCE)
 
 The pipeline is exhaustive for depth ≤3:
 
@@ -557,7 +573,7 @@ The pipeline is exhaustive for depth ≤3:
 | `t=6q`, all q (q, 24q+1 prime) | `q≤10^8` | 217 | 217 | 0 |
 | same | `10^8<q≤10^10` | 5304 | 5304 | 0 |
 | same | `10^10<q≤10^11` | 25232 | 25232 | 0 |
-| `t=6q`, p a residue mod 5 and 7 (lossless by Lemma 4(5)) | `10^11<q≤10^13` | running | | |
+| `t=6q`, p a residue mod 5 and 7 (lossless by Lemma 4(5)) | `10^11<q≤10^13` | 1083154 | 1083154 | 0 |
 
 **Complete survey of all primes.** `scripts/depth3_allp.cpp` treats all primes
 `p≡1 (24)` that are residues mod 5 and 7; the others have `dist=2` by
@@ -570,9 +586,10 @@ full by `depth3.py`: (9), then A and B.
 |---|---|---|---|
 | `p<10^8` | 179468 | 70 | 0 |
 | `10^8≤p<10^10` | 14036239 | 1306 | 0 |
+| `10^10≤p<10^11` | 114455512 | 6196 | 0 |
 
-**EVIDENCE: every prime `p<10^10` has seed distance at most 3.** Exactly
-1376 of them have distance 3.
+**EVIDENCE: every prime `p<10^11` has seed distance at most 3.** Exactly
+7572 of them have distance 3.
 
 All 70 distance-3 primes below `10^8` have `t=2·3^b·u` with u squarefree
 or nearly so, and `v_2(t)=1`. Thus `p≡9 (mod 16)` in every case; for
@@ -583,6 +600,20 @@ survivor list exactly (1054 primes, identical sorted output).
 
 Among the 5304 survivors with `q≤10^10`, the number of distinct productive
 A/B anchors has median about 14. The minimum is 2, attained twice.
+
+**Why nothing was found (heuristic, not proved).** Among the survivors, the
+number of productive anchors *grows* with p. Its mean is 14.7 for `q≤10^10`,
+15.4 for `q≤10^11`, and 17.3 in a sample of 853 near `q≈5·10^12`, whose
+minimum is 4. The lower tail thins as p grows, because the shifts
+`pc+t` acquire more divisors in the required classes. So the per-survivor
+chance of depth ≥4 appears to *decrease*, and the smallest p searched were
+the most promising. In Theorem 2 a depth-4 prime needs all polynomials of
+`S_3` to be prime simultaneously. That has Bateman–Horn density
+`(log N)^{-|S_3|}`, with `|S_3|` in the hundreds. Nothing contradicts the
+two pictures together: depth-4 primes should exist, but the first one may
+be far beyond `10^14`. **Assessment:** within reach, "distance ≤3" will keep
+looking true, but by Theorem 2 it is (conditionally) false. The survey
+cannot distinguish these.
 
 ## Replay
 
