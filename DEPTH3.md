@@ -559,6 +559,25 @@ The pipeline is exhaustive for depth ≤3:
 | same | `10^10<q≤10^11` | 25232 | 25232 | 0 |
 | `t=6q`, p a residue mod 5 and 7 (lossless by Lemma 4(5)) | `10^11<q≤10^13` | running | | |
 
+**Complete survey of all primes.** `scripts/depth3_allp.cpp` treats all primes
+`p≡1 (24)` that are residues mod 5 and 7; the others have `dist=2` by
+Lemma 4. For each such prime it tests every `h|t²`. The test is exact, by
+a-interval or 64-bit factorization, whenever it applies; a prime is printed
+unless some h certifiably succeeds. Every printed candidate is re-checked in
+full by `depth3.py`: (9), then A and B.
+
+| range | primes tested | dist 3 | dist ≥4 |
+|---|---|---|---|
+| `p<10^8` | 179468 | 70 | 0 |
+| `10^8≤p<10^10` | 14036239 | 1306 | 0 |
+
+**EVIDENCE: every prime `p<10^10` has seed distance at most 3.** Exactly
+1376 of them have distance 3.
+
+All 70 distance-3 primes below `10^8` have `t=2·3^b·u` with u squarefree
+or nearly so, and `v_2(t)=1`. Thus `p≡9 (mod 16)` in every case; for
+`p≡1 (mod 16)`, t² has more divisors.
+
 For `q≤10^9`, the class-restricted sieve (`hard`) reproduces the unrestricted
 survivor list exactly (1054 primes, identical sorted output).
 
