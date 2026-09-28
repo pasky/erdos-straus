@@ -53,7 +53,7 @@ static u64 rho(u64 n) {
     for (u64 c = 1;; ++c) {
         u64 y = 2, x = 2, g = 1, q = 1, ys = 2;
         u64 m = 128, r = 1;
-        auto f = [&](u64 v) { return (mulmod(v, v, n) + c) % n; };
+        auto f = [&](u64 v) { return (u64)(((u128)mulmod(v, v, n) + c) % n); };
         do {
             x = y;
             for (u64 i = 0; i < r; ++i) y = f(y);

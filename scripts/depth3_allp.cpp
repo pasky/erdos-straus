@@ -47,7 +47,7 @@ static u64 rho(u64 n) {
     for (u64 c = 1;; ++c) {
         u64 y = 2, x = 2, g = 1, q = 1, ys = 2;
         u64 m = 128, r = 1;
-        auto f = [&](u64 v) { return (mulmod(v, v, n) + c) % n; };
+        auto f = [&](u64 v) { return (u64)(((u128)mulmod(v, v, n) + c) % n); };
         do {
             x = y;
             for (u64 i = 0; i < r; ++i) y = f(y);
@@ -116,14 +116,17 @@ static std::atomic<u64> ntested{0}, nsurv{0};
 static bool crit9_general(u64 p) {
     u64 t = (p - 1) / 4;
     Fac ft = factor(t);
-    std::vector<u64> hs{1};
+    // divisors of t^2 in 128-bit arithmetic (t^2 < 2^80 for p < 2^40)
+    std::vector<u128> hs{1};
     for (auto [q, e] : ft) {
-        size_t n0 = hs.size(); u64 pw = 1;
+        size_t n0 = hs.size(); u128 pw = 1;
         for (int k = 1; k <= 2 * e; ++k) { pw *= q; for (size_t i = 0; i < n0; ++i) hs.push_back(hs[i] * pw); }
     }
     std::sort(hs.begin(), hs.end());
-    for (u64 h64 : hs) {
-        u128 h = h64, K = 4 * h - 1;
+    const u128 tt = (u128)t * t;
+    for (u128 h : hs) {
+        if (tt % h != 0) { fprintf(stderr, "divisor invariant failed at p=%llu\n", p); abort(); }
+        u128 K = 4 * h - 1;
         u128 bound = ((u128)4 * t * t + h) / K;
         if (bound <= 200000) {
             u128 amax = std::min<u128>(bound, t);

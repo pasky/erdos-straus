@@ -31,7 +31,10 @@ def run(args):
     fam = Counter(h["family"] for h in r["hits"])
     firsts = [(h["family"], h.get("h"), h.get("c"), h.get("d"), h.get("a"), h.get("via"), h.get("delta"))
               for h in r["hits"][:40]]
-    return {"p": p, "t": (p - 1) // 4, "dist": r["dist"], "families": dict(fam), "hits": firsts}
+    out = {"p": p, "t": (p - 1) // 4, "dist": r["dist"], "families": dict(fam), "hits": firsts}
+    if skip9 and r["dist"] == 3:
+        out["dist_is_upper_bound"] = True  # (9) was not re-tested here
+    return out
 
 
 def main():

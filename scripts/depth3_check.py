@@ -32,6 +32,8 @@ class Depth3Checks(unittest.TestCase):
     def test_rejects_composite(self):
         with self.assertRaises(ValueError):
             depth3.Depth3(9)
+        with self.assertRaises(ValueError):
+            depth3.Depth3(25)
 
     def test_forced_branches_and_mordell_classes(self):
         for p in primerange(13, 200000):
