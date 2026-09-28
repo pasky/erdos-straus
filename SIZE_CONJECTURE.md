@@ -28,6 +28,7 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
    | 165426666927637 | 398 | 32.7 | 12 |
    | 475041241432047253 | 3469 | 40.7 | 85 |
    | 2192882958603411108997 | 3407 | 49.1 | 69 |
+   | 1960717994383909 (random p, natural) | 339 | 35.2 | 9.6 |
    | 274159709010072908384347957 | **30035** | 61.9 | **485** |
 
    Strictly, an `O(log p)` statement cannot be refuted by finitely many p;
@@ -46,10 +47,13 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
    buckets**, and with **146 failing positive-capable denominators ("tests")**,
    come from the same method (§3.6). Size-type invariants do not see the arithmetic that makes
    the seed escape.
-4. For random p the maximal sterile size grows slowly (about
-   `0.6 log_2 p`; §2), and every large sterile component found is a "hub"
-   around a **negative-quadrant** denominator (anchor `x=t-k`, or Type I bucket
-   `h=-c`), exactly the mechanism the construction amplifies.
+4. For random p the maximal sterile size grows slowly, but faster than
+   `C log p`: the mean per-prime maximum fits `(log2 p)^2/50` from `2^14`
+   to `10^15` (§2), and a *random* prime `p=1960717994383909` already has a
+   certified 339-vertex sterile component. Nearly every large sterile
+   component is a "hub" around a **negative-quadrant** denominator (anchor
+   `x=t-k`, or Type I bucket `h=-c`), exactly the mechanism the construction
+   amplifies. For typical p the seed component is the unique giant (§2).
 5. **Proved lemmas** (§4): negative-quadrant fibres are nonpositive (A); exact
    dead-hub fibre (B); descent identity and Type II bucket structure (C);
    sign-flip exits (E): an anchor `t+a`, `a>=1`, having a prime factor
@@ -93,7 +97,7 @@ more than `K(p)=O(log p)` vertices contains an all-positive vertex.
 ## 2. Random primes: growth law and anatomy (EVIDENCE)
 
 Complete enumeration of **all** primes `p=1 (mod 4)` below `2·10^6`, plus
-random samples at larger scales (`data/sterile/*.jsonl`).
+random samples at larger scales (`data/sterile/*.jsonl[.gz]`).
 
 Complete enumeration (every component of every sampled prime; `signed_components.cpp`):
 
