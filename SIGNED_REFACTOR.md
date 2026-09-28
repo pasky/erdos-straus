@@ -429,6 +429,10 @@ integrality exhausts the fibre without factoring z.
 * For `z≥p`, the stronger `R≥3/p` makes the width at most
   `p²/((3t+1)(9t+2))<1`: the full fibre is again empty or a singleton.
 
+**Update (WINDMILL.md §2.7, Theorem 7, proved):** for `2t<z<p` the fibre
+is also empty or a singleton. So every p-free denominator outside `[1,2t]`
+lies in at most one signed vertex.
+
 For a **nonpositive** vertex with `z>2t`, both p-free coordinates are
 positive, so `m<0`. The upper endpoint in (10) improves to the strict
 bound `x<1/R`. This interval has width at most
