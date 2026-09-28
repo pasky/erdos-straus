@@ -129,6 +129,9 @@ def vertex_ok(p, v):
 # ---------------------------------------------------------------- the test
 class Depth3:
     def __init__(self, p: int, factor: Factorizer | None = None, t_factors=None):
+        if not (isinstance(p, int) and p >= 13 and p % 4 == 1 and isprime(p)
+                and (p < 2**64 or pocklington(p))):
+            raise ValueError("expected a certified prime p = 1 (mod 4), p >= 13")
         self.p, self.t = p, (p - 1) // 4
         self.F = factor or Factorizer()
         self.F.add_known(p)

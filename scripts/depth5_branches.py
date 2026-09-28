@@ -12,6 +12,9 @@ from the seed, and every vertex and edge is verified with exact rationals.
                       -> seed, B1, B2, (2t,2t,-pt), (t+d,-pt,t(t+d)/d), positive  [5 edges]
   X2(1), p=2 (mod 3): Type II exit at t+1 with D=1 (forced)           [5 edges]
   F2,   p=17 (mod 24): h=2, D=12 divides (7t+2)^2, 12=-2 (mod 7) (forced) [2 edges]
+  F5/F7, p=1 (mod 24) and p a non-residue mod 5 or 7: forced (9) certificates
+         p=3 (5): h=1,D=5; p=2 (5): h=2,D=5; p=3 (7): h=6,D=63;
+         p=5 (7): h=3,D=63; p=6 (7): h=4,D=(4p-t)/14                   [2 edges]
 
 It reports primes where no branch applies (the sieve's exceptional set, which
 is a superset of {dist>5}), and the counts per residue class of p mod 24.
@@ -70,6 +73,18 @@ def branches(p):
         assert (m * m) % D == 0 and (D + 2) % K == 0
         path = [seed, (t, p * m, -t * m // 2), (p * m, (m + D) // K, (m + m * m // D) // K)]
         out.append(("F2", 2, check_path(p, path)))
+    if p % 24 == 1:
+        # Mordell-easy classes mod 5 and 7: forced (9)-certificates (h, D)
+        forced = {5: {3: (1, 5), 2: (2, 5)}, 7: {3: (6, 63), 5: (3, 63), 6: (4, None)}}
+        for ell, table in forced.items():
+            if p % ell in table:
+                h, D = table[p % ell]
+                m, K = p * h - t, 4 * h - 1
+                if D is None:
+                    D = m // 14
+                assert (m * m) % D == 0 and (D + h) % K == 0, (p, h, D)
+                path = [seed, (t, p * m, -t * m // h), (p * m, (m + D) // K, (m + m * m // D) // K)]
+                out.append(("F%d" % ell, h, check_path(p, path)))
     if p % 3 == 2:
         x, K = t + 1, 3
         P = (x, p * (x + 1) // K, p * (x + x * x) // K)
@@ -80,17 +95,22 @@ def branches(p):
 def main():
     lo, hi = int(sys.argv[1]), int(sys.argv[2])
     fail, fail2, tot = Counter(), Counter(), Counter()
+    bad840 = 0
     for p in primerange(max(lo, 13), hi):
         if p % 4 != 1:
             continue
         b = branches(p)
         tot[p % 24] += 1
-        if not any(x[0] in ("H", "F2") for x in b):
+        if p % 24 == 1 and (p % 840) not in (1, 121, 169, 289, 361, 529) and \
+                not any(x[0] in ("H", "F5", "F7") for x in b):
+            bad840 += 1
+        if not any(x[0] in ("H", "F2", "F5", "F7") for x in b):
             fail2[p % 24] += 1
         if not b:
             fail[p % 24] += 1
             print("no branch:", p, flush=True)
     print("primes by p mod 24:", dict(tot))
+    print("primes p=1 (24) outside Mordell's six classes mod 840 without a (9)-exit:", bad840)
     print("no H-branch (superset of dist>2 among branch-tested):", dict(fail2))
     print("no branch at all (superset of dist>5):", dict(fail))
 
