@@ -376,6 +376,10 @@ saving.
 4. **(forced, 2 edges.)** If `p≡5 (mod 8)`, then t is odd, and `ℓ=2` divides
    `3t+1`. So `dist(p)=2`.
 
+**Corollary (PROVED).** Every prime `p≢1 (mod 24)` has `dist(p)≤5`: the
+seed-component conjecture needs only to be settled for `p≡1 (mod 24)`. These are
+classical Mordell-easy classes, so this is not new information about ES.
+
 All identities are verified by `scripts/depth5_branches.py`, which builds and
 checks every path for each prime in a range. For `p<2·10^6`, the only primes
 with no H-branch lie in the classes 1 and 17 mod 24. The only primes with no
