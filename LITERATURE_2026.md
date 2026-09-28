@@ -521,10 +521,26 @@ Sanden–Schindler–Stange, arXiv:2410.00177).
   quadratic or quartic reciprocity invariant would *refute* the seed
   conjecture on a residue class of `p`. The campaign checked only quadratic
   colours (§8(iii)).
-* **Recommendation:** test quartic symbols as potential seed-component
-  invariants. Candidates are `(λ/p)₄` of Type II labels, and `(x/p)₄` of
-  p-free anchors along seed paths versus sterile components. HKRS's quartic
-  obstruction shows that this is not idle.
+* **Quartic test (done here; negative).** On nonpositive vertices `(AB/p)=+1`
+  by (2a), so the quartic symbol `(AB/p)₄ ∈ {±1}` is defined.
+  `scripts/literature_quartic_component_test.py` enumerates every component
+  for all 761 primes `p≡1 (4)` below 6000 (the complete graph from
+  `pointwise_incidence`) and asks whether this symbol is constant on the
+  component's nonpositive vertices.
+  * **Seed components:** constant in 0 of 383.
+  * **Sterile components:** 14 have 5 nonpositive vertices, 4 have 6, 1 has
+    7, and 5 have 8 or more. Every one of these 24 is mixed.
+  * **Smaller components:** the fraction that happen to be constant is close
+    to the iid null `2^{1−k}` (k=2: 0.49 vs 0.50; k=3: 0.33 vs 0.25; k=4:
+    0.26 vs 0.13). The mild excess at k=3–4 is expected, because vertices
+    sharing a Type II bucket share a pair.
+
+  So this quartic candidate carries no HKRS-type component invariant. This
+  fits BL Thm 1.6: there is no quartic algebraic Brauer class. An HKRS-style
+  obstruction would have to come from the thin (component) structure
+  itself, and none is visible in this candidate. Other quartic candidates
+  remain untested: `(λ/p)₄` of Type II labels, and `(x/p)₄` of single
+  anchors.
 * **Orbit "class numbers".** Ghosh–Sarnak (arXiv:1706.06712 abstract):
   the Markoff morphisms act on `V_k(Z)` with *finitely many orbits*, which
   they study numerically as "class numbers". These orbits are the exact
@@ -610,8 +626,8 @@ Schindler–Stange, arXiv:2504.20289, Thm 1.1 p. 1).
   seed.
 * **The only literature mechanism that could *disprove* the seed conjecture
   on a residue class** is an HKRS-style component-level reciprocity
-  invariant. Testing quartic symbols on the existing census is the cheapest
-  informative experiment.
+  invariant. The natural quartic candidate was tested here and fails to be
+  invariant (§3(vi)).
 * **Citation changes.** In any write-up, (2a) must be cited to Bright–Loughran
   (and Yamamoto), the labels and the §8 symmetry to Elsholtz–Tao
   coordinates, and the Type I/II rigidity to Jiang Thm 3.2 (positive case).
