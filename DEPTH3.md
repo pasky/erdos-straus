@@ -173,6 +173,35 @@ transfers are:
 | 513529 | (2,16,2), (2,169,19), (2,880,98), (6,19,1), (12,1458,30), (18,128,2) |
 | 3942409 | (1,19,4), (1,209,42), (1,289,58), (2,520,58), (2,1744,194) |
 
+**Which families succeed for sparse `t=6q` (EVIDENCE).** Consider the
+(9)-survivors with `q≤10^10` (5304 primes, all transfers enumerated) and a
+sample of 4255 with `10^10<q≤10^11`. Every one has an A-escape. B also
+succeeds for 54–55% of them, and never alone. The most frequent
+successful transfers, as the fraction of survivors in each range, are:
+
+| (c,d,a) | anchor, modulus | `q≤10^10` | `10^10<q≤10^11` |
+|---|---|---|---|
+| (6,144,6) | t+6, 23 | 0.63 | 0.64 |
+| (2,25,3) | t+3, 11 | 0.55 | 0.57 |
+| (2,16,2) | t+2, 7 | 0.45 | 0.44 |
+| (6,294,12) | t+12, 47 | 0.35 | 0.36 |
+| (2,160,18) | t+18, 71 | 0.37 | 0.36 |
+| (2,700,78) | t+78, 311 | 0.34 | 0.36 |
+| (12,135,3) | t+3, 11 | 0.26 | 0.26 |
+| (2,7,1) | t+1, 3 | 0.22 | 0.24 |
+
+A survivor has on average 165 candidate anchors in `(t,2t]` (sample of 300),
+of which about 12 are productive. The number of distinct productive A/B
+anchors has mean 14.7, resp. 15.4. Its lower tail is:
+
+| productive anchors | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|
+| `q≤10^10` (5304) | 2 | 5 | 15 | 37 |
+| `10^10<q≤10^11` (4255) | 1 | 5 | 7 | 17 |
+
+Some transfer exists for every survivor, but it is a different one each
+time. No single transfer is forced.
+
 The recurring transfers are **forced by congruences**. For `t≡2 (mod 4)`:
 `16 | (2p+t)²=(9t+2)²` and `16≡-2 (mod 9)`. So `(c,d)=(2,16)` always gives the
 anchor `t+2`, with modulus 7. Similarly, `(6,144)` always gives `t+6` when
