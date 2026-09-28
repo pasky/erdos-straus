@@ -252,7 +252,10 @@ many (S,Λ)-admissible q.
 * **Integrality.** The Taylor coefficients `g^{(j)}(q̃)/j!` are integers.
   Hence every non-constant coefficient is divisible by
   `M^j`, which is divisible by `C_g`. The constant term `g(q̃)` is divisible by `C_g`.
-  So `f_g∈Z[y]`. It is irreducible and has positive leading coefficient.
+  So `f_g∈Z[y]`. It has positive leading coefficient. It is primitive: for
+  `ℓ∈Λ` its constant term is an ℓ-unit (next bullet), and for `ℓ∉Λ` its
+  leading coefficient `lc(g)M^{deg g}/C_g` is. Being irreducible over Q, it
+  is irreducible over Z.
 * **Primes in Λ.** Here `g(My+q̃)≡g(q̃)` mod `ℓ^{E_ℓ}`, so `f_g(y)`
   is an ℓ-unit.
 * **Primes outside Λ.** Neither `lc(f_g)` nor `C_g` is divisible by ℓ.
@@ -298,6 +301,13 @@ value at q of a member of `𝒱(Z)`.
 
 Only finitely many D occur. None of this depends on q beyond admissibility.
 The constants `C_h` are fixed once and for all by q*. ∎
+
+Enlarging (S,Λ) keeps everything already fixed. The constants `C_g` depend
+only on q*. Each old exponent `E_ℓ` may be kept or increased, and the
+congruence `q≡q*_ℓ (mod ℓ^{E_ℓ})` only becomes finer. New primes, including
+those `≤Σdeg g` and those dividing new leading coefficients, are simply
+adjoined to Λ. Old thresholds are kept by taking the maximum. Hence
+`(S',Λ')`-admissibility implies `(S,Λ)`-admissibility.
 
 Apply Lemma 3 to every denominator of every triple, starting from
 `σ=(6X,-12XP,-12XP)` over `S_0={X,P}` and `Λ_0={2,3}`. After k rounds,
