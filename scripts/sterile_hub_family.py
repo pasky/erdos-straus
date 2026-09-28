@@ -50,14 +50,17 @@ def job(args):
     return out
 
 
-def candidates(k, r, count, pmin, pool, expmax, rng, pmax):
+def candidates(k, r, count, pmin, pool, expmax, rng, pmax, guard=0, mod4=0):
     M = 4 * k + 1
-    Q = [q for q in primerange(pmin, 10**6) if q % M == 1][:pool]
+    Q = [q for q in primerange(pmin, 10**6) if q % M == 1 and (not mod4 or q % 4 == mod4)][:pool]
+    G = [q for q in primerange(guard, 2 * guard) if q % M == 1 and q % 4 == 3] if guard else []
     seen, out, tries = set(), [], 0
     while len(out) < count and tries < 10**6:
         tries += 1
         qs = sorted(rng.sample(Q, r))
         exps = {q: rng.randint(1, expmax) for q in qs}
+        if G:
+            exps[rng.choice(G)] = 1
         x = math.prod(q**e for q, e in exps.items())
         t = x + k
         p = 4 * t + 1
@@ -77,13 +80,17 @@ if __name__ == "__main__":
     ap.add_argument("--pool", type=int, default=30)
     ap.add_argument("--expmax", type=int, default=1)
     ap.add_argument("--pmax", type=int, default=2**61)
+    ap.add_argument("--guard", type=int, default=0,
+                    help="add one prime q0=1 mod M, 3 mod 4 in [G,2G) (use with --mod4 1): "
+                         "then every descent divisor d=x/w, w|x, w=1 mod 4, has d>=q0")
+    ap.add_argument("--mod4", type=int, default=0)
     ap.add_argument("--jobs", type=int, default=16)
     ap.add_argument("--timeout", type=int, default=1800)
     ap.add_argument("--maxv", type=int, default=10**6)
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
     rng = random.Random(a.seed)
-    C = candidates(a.k, a.r, a.count, a.pmin, a.pool, a.expmax, rng, a.pmax)
+    C = candidates(a.k, a.r, a.count, a.pmin, a.pool, a.expmax, rng, a.pmax, a.guard, a.mod4)
     with Pool(a.jobs) as pool:
         for res in pool.imap_unordered(job, [(p, x, k, e, a.timeout, a.maxv) for p, x, k, e in C]):
             res["primes"] = {str(q): e for q, e in res["primes"].items()}

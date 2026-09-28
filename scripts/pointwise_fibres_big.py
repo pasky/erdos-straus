@@ -20,7 +20,7 @@ of denominator X and prints FOUND/STERILE/UNKNOWN as JSON.
 from __future__ import annotations
 
 import argparse, ctypes, json, os, subprocess, sys
-from math import prod
+from math import gcd, prod
 
 import flint
 
@@ -46,6 +46,18 @@ def _lib():
     return _LIB
 
 
+def _all_square_divisors(factors):
+    ds = [1]
+    for ell, k in factors:
+        old = ds
+        ds = []
+        pw = 1
+        for _ in range(2 * k + 1):
+            ds.extend(d * pw for d in old)
+            pw *= ell
+    return ds
+
+
 def _split(v: int):
     return v >> 64, v & ((1 << 64) - 1)
 
@@ -54,11 +66,14 @@ class BigFibreOracle(FibreOracle):
     def __init__(self, p: int, *, max_divisors=5_000_000, max_fibre=1_000_000,
                  scan_budget=300_000_000):
         p = require_integer(p, "p")
-        if not (5 <= p < 2**61 and p % 4 == 1 and flint.fmpz(p).is_prime() == 1):
-            raise ValueError("expected a proven prime p=1 mod 4 below 2^61")
-        # parent validation uses sympy isprime only below 2^64; fine here.
-        super().__init__(p, max_divisors=max_divisors, max_fibre=max_fibre,
-                         interval_budget=1, factor_limit=1)
+        if not (5 <= p < 2**200 and p % 4 == 1 and flint.fmpz(p).is_prime() == 1):
+            raise ValueError("expected a proven prime p=1 mod 4")
+        # Parent initialisation, bypassing its 2^64 sympy range check.
+        self.p, self.t = p, (p - 1) // 4
+        self.max_divisors, self.max_fibre = max_divisors, max_fibre
+        self.interval_budget, self.factor_limit = 1, 1
+        self._known_primes = {2, 3, p}
+        self._cache = {}
         self.scan_budget = scan_budget
 
     def factor(self, n: int) -> dict[int, int]:
@@ -94,7 +109,7 @@ class BigFibreOracle(FibreOracle):
             h = (m + t) // p
             bound = (4 * t * t + abs(h)) // abs(4 * h - 1)
             lo, hi = max(1 - t, -bound), min(t, bound)
-            if hi - lo + 1 <= self.scan_budget and abs(h) < 2**100:
+            if hi - lo + 1 <= self.scan_budget and abs(h) < 2**100 and t < 2**61:
                 cap = 1 << 16
                 buf = (ctypes.c_int64 * cap)()
                 n = _lib().typei_scan(*_split(t), *_split(h), lo, hi, buf, cap)
@@ -113,7 +128,89 @@ class BigFibreOracle(FibreOracle):
             return out
         return super().fibre(z)
 
+    def _mitm(self, factors, R, targets):
+        """All positive divisors d of N^2 (N=prod ell^k over `factors`) with
+        d mod |R| in `targets`, where gcd(N,R)=1.  Meet in the middle: split
+        the primes into two halves with balanced divisor counts; for every
+        divisor d2 of the second half look up d1 = target/d2 (mod |R|).
+        Exact and complete; cost ~ tau(A^2)+tau(B^2)+#hits."""
+        R = abs(R)
+        if R == 1:
+            total = prod(2 * k + 1 for _, k in factors)
+            if total > self.max_divisors:
+                raise IncompleteSearch("divisor budget exceeded (modulus 1)")
+            yield from _all_square_divisors(factors)
+            return
+        fs = sorted(factors, key=lambda f: -(2 * f[1] + 1))
+        A, B, ta, tb = [], [], 1, 1
+        for f in fs:
+            if ta <= tb:
+                A.append(f); ta *= 2 * f[1] + 1
+            else:
+                B.append(f); tb *= 2 * f[1] + 1
+        if ta + tb > self.max_divisors:
+            raise IncompleteSearch("meet-in-the-middle budget exceeded")
+        table = {}
+        for d1 in _all_square_divisors(A):
+            table.setdefault(d1 % R, []).append(d1)
+        hits = 0
+        for d2 in _all_square_divisors(B):
+            inv = pow(d2, -1, R)
+            for tg in targets:
+                for d1 in table.get((tg * inv) % R, ()):
+                    hits += 1
+                    if hits > self.max_divisors:
+                        raise IncompleteSearch("meet-in-the-middle hit budget exceeded")
+                    yield d1 * d2
+
+    def _divisor_fibre(self, z):
+        # Same equation as the parent: d | s^2, (+-d + s) = 0 mod r.
+        p = self.p
+        r, s = 4 * z - p, p * z
+        common = gcd(r, s)
+        r, s = r // common, s // common
+        if s < 0:
+            r, s = -r, -s
+        out = set()
+        R = abs(r)
+        factors = sorted(self.factor(s).items())
+        for d in set(self._mitm(factors, R, {(-s) % R, s % R})):
+            if d > s:
+                continue
+            for signed_d in (d, -d):
+                if (signed_d + s) % r:
+                    continue
+                y = (signed_d + s) // r
+                cofactor = s * s // signed_d
+                assert (cofactor + s) % r == 0
+                other = (cofactor + s) // r
+                if y and other:
+                    self._add(out, (z, y, other))
+        return out
+
     def _typei_divisors(self, m, h, lo, hi):
+        # Symmetric chart (SIGNED_REFACTOR.md \u00a78): with H=4h-1, x=t+a,
+        # e=aH-h, one has H*x = m+e and gcd(H,e)=1, so e | x^2 <=> e | m^2.
+        # Also 4m - pH = 1, so gcd(m,H)=1 and meet-in-the-middle applies.
+        p, t = self.p, self.t
+        H = 4 * h - 1
+        R = abs(H)
+        factors = sorted(self.factor(abs(m)).items())
+        out = set()
+        for d in set(self._mitm(factors, R, {(-h) % R, h % R})):
+            for e in (d, -d):
+                if (e + h) % H:
+                    continue
+                a = (e + h) // H
+                if not lo <= a <= hi:
+                    continue
+                x = t + a
+                assert (4 * a - 1) * h - a == e
+                if (x * x) % e == 0:
+                    self._add(out, (x, p * m, x * m // e))
+        return out
+
+    def _typei_divisors_dfs(self, m, h, lo, hi):
         # Symmetric chart (SIGNED_REFACTOR.md §8): with H=4h-1, x=t+a,
         # e=aH-h, one has H*x = m+e and gcd(H,e)=1, so e | x^2 <=> e | m^2.
         # Enumerate positive divisors d <= E of m^2 (size-pruned DFS), both
@@ -149,6 +246,27 @@ class BigFibreOracle(FibreOracle):
                 stack.append((i + 1, v))
                 v *= ell
         return out
+
+
+def exhaust_component(oracle, start, max_vertices=10**6):
+    """Full BFS of a component (does not stop at positive vertices).
+
+    Returns (vertices, number_positive).  IncompleteSearch propagates."""
+    from collections import deque
+    seen, todo, done = {tuple(start)}, deque([tuple(start)]), set()
+    while todo:
+        v = todo.popleft()
+        for z in set(v):
+            if z in done:
+                continue
+            done.add(z)
+            for w in oracle.fibre(z):
+                if w not in seen:
+                    seen.add(w)
+                    if len(seen) > max_vertices:
+                        raise IncompleteSearch("component-vertex budget exceeded")
+                    todo.append(w)
+    return seen, sum(v[0] > 0 for v in seen)
 
 
 def hub_component(p: int, x: int, max_vertices=10**6, **kw):
