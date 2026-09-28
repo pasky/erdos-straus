@@ -110,6 +110,24 @@ def gf2_solve(A, b):
     return w
 
 
+def gf2_rank(A):
+    M = A.copy() % 2
+    r = 0
+    for c in range(M.shape[1]):
+        rows = np.nonzero(M[r:, c])[0]
+        if len(rows) == 0:
+            continue
+        k = r + rows[0]
+        M[[r, k]] = M[[k, r]]
+        others = np.nonzero(M[:, c])[0]
+        others = others[others != r]
+        M[others] ^= M[r]
+        r += 1
+        if r == M.shape[0]:
+            break
+    return r
+
+
 def main():
     data = load(sys.argv[1])
     primes = sorted(data)
@@ -140,7 +158,7 @@ def main():
               'combo', [names[i] for i in np.nonzero(w)[0]])
     w = gf2_solve(A, np.ones(len(primes), dtype=np.uint8))
     print('full solvable:', w is not None)
-    print('rank', np.linalg.matrix_rank(A.astype(float)))
+    print('GF(2) rank', gf2_rank(A))
 
 
 if __name__ == '__main__':

@@ -18,23 +18,33 @@ Code: `scripts/windmill_*.{cpp,py}`. Data were regenerated in `/tmp/wm/`
    p. With `w≡1` this would say `f(p)` is odd; that is false (`f(97)=8`,
    `f(193)=6`). So the whole question is whether some *explicit* weighted count
    of positive solutions is odd for every p.
-2. **No such weight among ~7,000 natural candidates (EVIDENCE, §3).** For the 732 primes
-   `p≡1 (24)` below `6·10^4`, GF(2) linear algebra over 114 basic features,
-   338 derived-quantity features, and all 6,555 pairwise ANDs of the basic
-   features gives no combination whose count is always odd. With the
-   pairwise features it overfits the training primes, then predicts held-out parities at
-   chance (48–49%). The parities of `f`, `f_I`, and `f_II` show no correlation with 93
-   arithmetic invariants of p, including Legendre and quartic symbols, `x²+32y²`
-   representability, and `h(-4p)`, `h(-8p)`, `h(-3p)` and others mod 32. They are
-   also independent of 27 global signed-graph counts (§3.3).
+2. **No generalising weight among the tested candidates (EVIDENCE, §3).** The
+   sample is the 732 primes `p≡1 (24)` below `6·10^4`. No GF(2) combination of
+   the 114 basic features, nor of the 338 derived-quantity features, has an
+   always-odd count, even on these finite data. With all 6,555 pairwise ANDs of
+   the basic features, which outnumber the primes, interpolation is possible. A
+   386-term combination is odd on all 732 primes. But combinations fitted on a
+   training prefix predict the held-out primes at chance (43–49% odd). So no
+   *generalising* law was found. The parities of `f`, `f_I`, and `f_II` showed no
+   usable correlation with 93 arithmetic invariants of p: the best single
+   agreement was 55%, and no GF(2) combination fits even the training half. The
+   invariants include Legendre and quartic symbols, `x²+32y²`
+   representability, and bits of `h(-4p)`, `h(-8p)`, `h(-3p)`, and others.
+   Parities of 27 global signed-graph counts have marginal odd frequencies of
+   45–56% (§3.3). These are marginal frequencies only; no independence test
+   was made. Note that `Vpos=f`.
 3. **Structural obstructions (PROVED, §2).**
-   (a) The affine symmetry group of the Type II equation
-   `k(4abc-p)=a+b` has order 4. On positive tuples only the swap `a↔b` survives, so no
-   p-uniform piecewise-affine windmill exists in this model. In Zagier's
+   (a) The integral affine maps (`AGL_4(ℤ)`) preserving the Type II
+   polynomial `k(4abc-p)-a-b` up to a constant form a group of order 4. On positive
+   tuples only the swap `a↔b` survives. So no windmill whose pieces are
+   integral affine maps preserving the equation identically exists in this
+   model. Pieces that preserve the equation only on the finite point set are
+   not excluded. In Zagier's
    argument, by contrast, every piece lies in the infinite group
    `O(x²+4yz)(ℤ)`.
-   (b) In every fibre of the refactor fibration, the only integral involution is
-   divisor complementation. Its fixed points are the central divisors
+   (b) In every fibre of the refactor fibration, the only integrality-preserving
+   *regular automorphism* is divisor complementation (notes §77 (c)).
+   Arbitrary set-theoretic involutions of the divisor set are not excluded. Its fixed points are the central divisors
    `D=±s`, which never lie in the positive class `-s (mod r)`. The odd object in
    each fibre is the zero-denominator point `D=-s` or the
    central divisor `D=s`. Consequently fibrewise parity certifies only **mixed-sign**
@@ -44,11 +54,17 @@ Code: `scripts/windmill_*.{cpp,py}`. Data were regenerated in `/tmp/wm/`
    `(t,-2pt,-2pt)` and `(2t,2t,-pt)`. So coordinate permutations have exactly
    two non-free orbits, both nonpositive.
 4. **Generalised windmill identities do not reach ES moduli (EVIDENCE, §2.4).**
-   Among `m≤12`, the parity identity `#{n=x²+my²}≡#{n=UV,U<V,U≡V (m)}` holds
-   (for odd n prime to m, up to rare exceptions) only for `m=3,4,8` (and partly 12). These are
-   the idoneal-type moduli. Parity laws for divisors in residue classes
-   exist only where genus theory makes representation a congruence
-   condition. There, Mordell/Schinzel-type obstructions already rule out ES identities.
+   We tested `m≤40` on odd, non-square `n<6000` prime to `m`. The parity
+   identity `#{n=x²+my²}≡#{n=UV,U<V,U≡V (m)}` holds exactly only for
+   `m=3,4,8,12,24`, the `m≥3` dividing 24. These are the moduli whose unit
+   group has exponent 2. Among ES moduli `q=4x-p≡3 (4)`, only `q=3` is of
+   this kind, and there the Type II condition is a congruence event (notes §6).
+5. **The natural odd set sees ES with weight 6 (PROVED, §2.5).** The set
+   `S_{112}` of solutions of `1/x+1/y+2/z=4/p` is always odd, but its z-even
+   part is exactly `6f(p)`. Every always-odd set found in a zoo of
+   ES-flavoured sets (§3.5) is explained by a central or ambiguous fixed
+   point that is not a positive ES object. No handshake subgraph (§3.4) and no
+   GF(2) component law (§3.6) gives more. **Verdict: no proof from the constructions tried (§5).**
 
 ## 1. The reduction lemma
 
@@ -76,25 +92,34 @@ from the `(a,b,c,k)` parametrisation (§3.1).
 ### 2.1 No windmill in the four-parameter model
 
 Type II solutions are `(x,y,z)=(abc, pkbc, pkac)` with
-`E:=k(4abc-p)-a-b=0`. Type I solutions are the same with `k(4abc-1)=p(a+b)`.
+`E:=k(4abc-p)-a-b=0`. Type I solutions are `(pabc,kbc,kac)` with
+`k(4abc-1)=p(a+b)`.
 
-**Proposition 2 (PROVED).** Let `g(v)=Av+β`, `A∈GL_4(ℚ)`, and suppose
-`E∘g=λE` for a constant `λ≠0`. Then `g` is the identity, the swap `a↔b`,
+**Proposition 2 (PROVED).** Let `g(v)=Av+β` with `A∈GL_4(ℤ)`, `β∈ℤ⁴`, and
+suppose `E∘g=λE` for a constant `λ≠0`. Then `g` is the identity, the swap `a↔b`,
 `(a,b,c,k)↦(-a,-b,c,-k)`, or their composition. The same holds for the Type I polynomial.
 
-*Proof.* The quartic part `4abck` must be preserved up to λ, so `A` is
-monomial (a permutation matrix times a diagonal matrix): a linear map carrying a product of four
-independent linear forms to a scalar multiple of itself permutes the forms up to scalars. A
-translation `β≠0` would create a cubic monomial such as `β_a·bck`, but E has no cubic
-part. The linear part `-pk-a-b` must go to `λ(-pk-a-b)`. Hence `k` is fixed with
-scale λ, `{a,b}` is preserved with scale λ, and `c` is fixed with scale `λ^{-2}`.
-Integrality forces `λ=±1`. ∎
+*Proof.* The quartic part `4abck` must be preserved up to λ. By unique
+factorisation in `ℚ[a,b,c,k]`, `A` permutes the four coordinate forms up
+to scalars. Integrality and invertibility over ℤ make those scalars `ε_i=±1`,
+so `λ=∏ε_i=±1`. A translation `β≠0` would create a cubic monomial such as
+`β_a·bck`, but E has no cubic part. The linear part `-pk-a-b` must go to
+`λ(-pk-a-b)`. If k were sent to `±a` or `±b`, the coefficient `p` would
+have to equal `±1`, and E has no linear c-term. Hence k is fixed with sign λ.
+Then `{a,b}` is preserved with sign λ, and c is fixed with sign
+`λ/λ³=1`. ∎
+
+Over `ℚ` there are more symmetries, for example
+`(a,b,c,k)↦(2a,2b,c/4,2k)`, with `E∘g=2E`, and for Type II
+`(a,b,c,k)↦(pk,b,c,a/p)`. They do not preserve the lattice.
 
 Zagier's pieces preserve `x²+4yz`, whose integral orthogonal group is
 infinite. The four-parameter ES surface is multilinear, with degree one in each
-variable. It has no Vieta involutions, and by Proposition 2 no affine symmetry
-beyond the swap. A windmill whose pieces are uniform in p is therefore impossible in this
-model. This complements the finite `S_4` automorphism group of the projective
+variable. It has no Vieta involutions, and by Proposition 2 no integral
+affine symmetry beyond the swap and the sign change. Hence no windmill exists
+whose pieces are integral affine maps preserving `E` identically, uniformly in
+p. A piece need only preserve the finite point set on its region. That weaker
+possibility is not excluded by this argument. This complements the finite `S_4` automorphism group of the projective
 surface (notes §77.2), which concerns regular automorphisms rather than
 piecewise-affine ones.
 
@@ -102,8 +127,10 @@ piecewise-affine ones.
 
 Fix a denominator `x` of a signed vertex, and write `4/p-1/x=r/s`, `s>0`.
 The fibre is the set of signed divisors `D|s²` with `D≡-s (mod r)`,
-`D≠-s`, modulo `D↔s²/D` (SIGNED_REFACTOR §1). notes §77 (c) shows that `D↔s²/D` is the
-only nontrivial fibre automorphism preserving integrality.
+`D≠-s`, modulo `D↔s²/D` (SIGNED_REFACTOR §1), with `r/s` in lowest terms.
+notes §77 (c) shows that `D↔s²/D` is the only nontrivial *regular automorphism*
+of the punctured fibre that preserves integrality. This does not classify
+arbitrary set-theoretic involutions of the finite divisor set.
 
 **Lemma 3 (PROVED).** Suppose `r≥3` and `x>p/4`, so `r=4x-p>0` for p-free x. Put
 `N^±=#{D>0: D|s², D≡∓s (mod r)}`. Then `N^+` is even, `N^-` is odd, the
@@ -140,20 +167,24 @@ If instead the repeated coordinate is `pm`, then `x=pm/(2(2m-1))`, so
 Every other orbit of `S_3` on ordered signed vertices is free. Hence any
 parity must come from a non-permutation involution.
 
-### 2.4 Windmill identities exist only for idoneal-type moduli (EVIDENCE)
+### 2.4 Windmill-type parity identities for moduli m≤40 (EVIDENCE)
 
 The Zagier windmill proves
 `#{n=x²+4y²}≡#{n=UV: U<V, U≡V (mod 4)} (mod 2)`. The analogous statement for
 modulus `m` would be the natural route to parity laws for divisors of
-`s²` in classes mod `q=4x-p`. For `n<4000` odd and prime to `m`, this is the
+`s²` in classes mod `q=4x-p`. Squares must be excluded: at `n=9`, `m=4`, the left side is 0
+and the right side is 1. For `n<4000` odd, non-square, and prime to `m`, this is the
 agreement rate:
 
 | m | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| agreement | 0* | .80 | .99 | .99 | .72 | .83 | .73 | .99 | .80 | .73 | .77 | .94 |
+| agreement | .62 | .81 | 1 | 1 | .72 | .88 | .73 | 1 | .74 | .72 | .77 | 1 |
 
-(*m=1: exact anti-identity.) Only `m=3,4,8`, the one-class-per-genus cases,
-carry an identity. The moduli `q=4x-p` of ES range over all integers `≡3 (mod 4)`.
+Extending to `m≤40` and `n<6000`, the identity is exact exactly for
+`m∈{3,4,8,12,24}`. These are the `m≥3` with `m|24`, whose unit group mod m
+has exponent 2. The ES moduli `q=4x-p` range over all integers `≡3 (mod 4)`.
+Only `q=3` is of this kind, and there witness existence is already a
+congruence event (notes §6).
 
 ### 2.5 Coefficient patterns: the natural odd set sees ES with weight 6
 
@@ -169,9 +200,13 @@ Windmill parity usually comes from a symmetric "trivial" point. For
 **Proposition 5 (PROVED).** `S_{112}(p)` is finite and has odd cardinality.
 Its elements with z even number exactly `6f(p)`.
 
-*Proof.* The swap `x↔y` fixes exactly the solutions of `1/x+1/z=2/p`,
+*Proof.* Finiteness: one of `1/x,1/y,2/z` is at least `4/(3p)`, so
+`x≤3p/4`, `y≤3p/4`, or `z≤3p/2`. Fix that variable. The rest is
+`a/b=1/u+c/v` with `c∈{1,2}`, i.e. `(au-b)(av-cb)=cb²`, which has finitely
+many positive solutions. Parity: the swap `x↔y` fixes exactly the
+solutions of `1/x+1/z=2/p`,
 i.e. `(2x-p)(2z-p)=p²`. These are `(p,p)`, `((p+1)/2, p(p+1)/2)`, and
-`(p(p+1)/2,(p+1)/2)`: three points, all with z odd. For z even,
+`(p(p+1)/2,(p+1)/2)`: three points, all with z odd (`(p+1)/2` is odd since `p≡1 (4)`). For z even,
 `(x,y,z)↦{x,y,z/2}` is an ES solution with a marked coordinate `z/2` and an
 ordered pair `(x,y)`. ES coordinates are distinct (Lemma 4 / notes Lemma
 77.13), so each unordered solution arises exactly `3·2` times. ∎
@@ -213,7 +248,7 @@ For `|h|=H≥1`, `(t+a)(4t+1)-(8at-2t)=4t(t-a)+3t+a>0` and
 
 EVIDENCE. For all 385 primes `p≡1 (24)` below `3·10^4`, every p-free
 denominator outside `[1,2t]` occurs in exactly one signed vertex. There
-are 67,238 such buckets, and all are singletons. SIGNED_REFACTOR §5
+are 213,024 such buckets, and all are singletons: 58,543 with `z≥p`, 8,695 with `2t<z<p`, and 145,786 with `z<0`. SIGNED_REFACTOR §5
 proves this for `z<0` and `z≥p`, and proves at most two for `2t<z<p`.
 Together with Lemma 6, every Type I vertex other than `(2t,2t,-pt)` is a
 leaf with respect to its large p-free denominator. Every crossing
@@ -222,7 +257,7 @@ p-free bucket or a Type I p-divisible bucket.
 
 ## 3. Catalogue of computational tests (all negative)
 
-Data: all 732 primes `p≡1 (24)`, `p<6·10^4`. There are 53,333 unordered positive
+Data: all 732 primes `p≡1 (24)`, `p<6·10^4`. There are 52,601 unordered positive
 solutions, enumerated exactly by `windmill_enum.cpp` over `p/4<x≤3p/4` and
 divisors of `(px)²`. Signed data cover all 385 primes `p≡1 (24)`, `p<3·10^4`: 280,569
 signed vertices, enumerated exactly by `windmill_signed.cpp` via the incidence model of
@@ -232,10 +267,10 @@ SIGNED_REFACTOR §3. The count for `p=97`, 116 vertices, matches `pointwise_inci
 
 | family | size | result |
 |---|---|---|
-| basic features: type, position of p-multiples, residues mod 2,3,4,5,7,8 of each coordinate, squareness, Legendre symbols, divisibility among coordinates, gcds, `z=lcm(x,y)`, window position | 114 | column rank 99; `1` not in span |
+| basic features: type, position of p-multiples, residues mod 2,3,4,5,7,8 of each coordinate, squareness, Legendre symbols, divisibility among coordinates, gcds, `z=lcm(x,y)`, window position | 114 | GF(2) rank 71; `1` not in span |
 | derived quantities `Y,Z,q or m,D,D',g,a,b,c,k,Y±Z,YZ,D±D',(4Y-1)(4Z-1),…`, per type: square, 2·square, even, 3∣, ≡1 (4), 8∣, Legendre, =1 | 338 | not in span |
 | λ-multiplicity counts `N_I/2`, `N_II/2`, `N/2` of the `(a,b,c,k)` model (weight `#{λ:λ²∣c₀}`) | 3 | odd 350–380/732 |
-| pairwise ANDs of basic features | 6555 | training-solvable, validation 43–49% odd |
+| pairwise ANDs of basic features | 6555 | more columns than primes: a 386-term interpolant is odd on all 732 primes, but fits on training prefixes (400/500/600 primes) validate at 49%/49%/43% odd, so nothing generalises |
 | non-local counts: distinct smallest, middle, largest, p-free, and p-divisible denominators; x-values with odd multiplicity; multiplicity of the minimal x | 10 | all ~50%, except obviously skewed small-value counts |
 | signed character sums `Σ(x/p)`, `Σ(q/p)`, `Σ(m/p)`, `Σ(-1)^x`, … | 10 | no constant value and no constant residue mod 4 |
 
@@ -357,11 +392,11 @@ parts, are equidistributed mod 2, 3, 4, 5, and 8.
 ## 5. Assessment
 
 HEURISTIC. Positive ES certificates are divisor-class events in the
-"−1 coset" of classes containing central divisors (§2.2). Every natural
-involution — coordinate swap, divisor complement, and the S₃ action — fixes only
-central or degenerate objects. Parity laws for divisors in classes mod m
-exist only for idoneal-type m (§2.4). A windmill proof would need a new,
-explicit odd weight on positive solutions. None of about 7,000 candidate weights
+"−1 coset" of classes containing central divisors (§2.2). The natural
+involutions examined here fix only central or degenerate objects: the
+coordinate swap, divisor complement, and the S₃ action. Parity laws for divisors in classes mod m
+exist, among the tested `m≤40`, only for `m|24` (§2.4). A windmill proof would need a new,
+explicit odd weight on positive solutions. None of about 7,000 tested candidate weights
 generalises beyond chance. Every always-odd set found (§3.5) is explained
 by a central or ambiguous fixed point that is not a positive ES object.
 The natural odd set containing ES, `S_{112}` (§2.5), sees ES only with the
@@ -372,15 +407,25 @@ the character (2a), so Legendre-symbol weightings of coordinates add
 nothing beyond (2a). Elsholtz (2010, §3) shows that finite windmill
 partitions close only for special forms, matching §2.4.
 
-**Verdict (after this wave):** ideas exhausted at the level of natural
-constructions. A parity proof of ES would require an explicit weight on
-positive solutions whose total is odd for every p. It cannot come from any
-coordinate symmetry, divisor complement, genus/ambiguous-form structure,
-or PL map uniform in p (§§1–2). Nor does it appear among the candidate
-weights, sets, graphs, or component laws tested (§3). We do not claim that
-no such weight exists. **CONJECTURE (heuristic):** `f(p) mod 2`, and every
-natural weighted variant, is asymptotically equidistributed and
-independent of the Frobenius data of p.
+**Verdict (after this wave):** the constructions tried here did not yield
+a proof. A parity proof of ES would require an explicit weight on positive
+solutions whose total is odd for every p (Lemma 1). The following did not
+supply one:
+
+* coordinate permutations (Lemma 4);
+* regular fibre automorphisms, i.e. divisor complement (Lemma 3);
+* ambiguous-form structure in the tested sets;
+* integral affine maps preserving the four-parameter equation identically
+  (Proposition 2).
+
+Nor did any of the tested candidate weights, sets, handshake graphs, or
+component laws (§3). This is not an impossibility theorem. Arbitrary
+set-theoretic involutions, and pieces preserving only the finite point set,
+remain unexcluded. **CONJECTURE (heuristic):** `f(p) mod 2` is
+asymptotically equidistributed and uncorrelated with the Frobenius data of p. So
+are the tested natural weighted variants, excluding those that are
+identically even for a known reason: free swaps, (2a), and Jiang's ordered
+counts.
 
 ## 6. Replay
 
@@ -398,5 +443,5 @@ uv run python windmill_signed_parity.py /tmp/wm/signed30k.txt
 uv run python windmill_handshake.py /tmp/wm/signed30k.txt
 uv run python windmill_component_laws.py /tmp/wm/signed30k.txt
 uv run python windmill_zoo.py 12000                 # ~10 min
-uv run python windmill_misc_checks.py {lam,cross,nonlocal,signs,pairs,genzag}
+uv run python windmill_misc_checks.py            # runs lam cross nonlocal signs pairs genzag
 ```

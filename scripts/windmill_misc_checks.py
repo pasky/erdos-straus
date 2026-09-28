@@ -148,7 +148,7 @@ for split in (400,500,600):
 '''
 BLOCKS['genzag'] = r'''
 # test parity identity: #{x^2+m y^2=n, x,y>0}  vs  #{UV=n, 0<U<V, U=V mod m}  (x>0 variant)
-from math import isqrt
+from math import isqrt, gcd
 def reps(n,m):
     c=0; y=1
     while m*y*y<n:
@@ -169,10 +169,12 @@ for m in range(1,13):
     for n in range(2,4000):
         a=reps(n,m)%2; b=facts(n,m)%2
         tot+=1; agree+= a==b
-        if n%2 and n%m: tot_odd+=1; agree_odd+= a==b
+        if n%2 and gcd(n,m)==1 and isqrt(n)**2!=n: tot_odd+=1; agree_odd+= a==b
     print(m, round(agree/tot,3), round(agree_odd/max(tot_odd,1),3))
 '''
 if __name__ == "__main__":
-    code = BLOCKS[sys.argv[1]]
-    sys.argv = [sys.argv[0]]
-    exec(compile(code, sys.argv[0], "exec"), {"__name__": "__main__"})
+    modes = sys.argv[1:] or list(BLOCKS)
+    for mode in modes:
+        print('==', mode)
+        sys.argv = [sys.argv[0]]
+        exec(compile(BLOCKS[mode], mode, "exec"), {"__name__": "__main__"})
