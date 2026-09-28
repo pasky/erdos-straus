@@ -22,9 +22,16 @@ Summary.
    proved, and no bounded-depth argument from the seed can prove ES for
    `p≡1 (24)`. Under Bateman–Horn the number of such `p≤N` is
    `≫_k N/(log N)^{C_k}`.
-3. **EVIDENCE.** All 10 known distance-3 primes below `5·10^6`, and all
-   primes `p=24q+1` (q prime) with `q≤10^11` that fail (9), escape through
-   family A. See §4 for the search to date.
+3. **PROVED (Theorem 3 + Corollary).** Every `p≢1 (mod 24)` has
+   `dist(p)=2`. Standard upper-bound sieves give
+   `#{p≤N: dist(p)>2} ≪ N/(log N)^{2.02}` and
+   `#{p≤N: dist(p)>5} ≪ N/(log N)^{3.04}`. These are polylogarithmic
+   savings; by Theorem 2, nothing better than polylogarithmic can hold
+   (conditionally).
+4. **EVIDENCE.** All 10 known distance-3 primes below `5·10^6` escape
+   through family A. So does every prime `p=24q+1` with q prime,
+   `q≤10^11`, that fails (9). The search continues to `q≤10^13`; no prime of
+   distance `≥4` has been found (§5).
 
 The signed character theorem (2a) used below is, in substance, Bright–Loughran
 (2020), Thm 1.2 with Thm 1.5 (the local-invariant computation for the
