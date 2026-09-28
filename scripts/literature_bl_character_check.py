@@ -34,4 +34,6 @@ for p in primerange(3,400):
         pos=all(u>0 for u in t)
         ok = (leg(-A*B,p)==-1)==pos
         tot+=1; bad+= (not ok)
+        if not ok: print("VIOLATION", p, t)
 print("signed solutions checked:",tot,"violations:",bad)
+raise SystemExit(1 if bad else 0)

@@ -14,8 +14,10 @@ def vp(n,p):
     while n%p==0: n//=p; k+=1
     return k
 def q4(a,p):
+    # quartic symbol of a quadratic residue: +1 -> 0, -1 -> 2
     a%=p; r=pow(a,(p-1)//4,p)
-    return 0 if r==1 else (2 if r==p-1 else 1)
+    assert r in (1,p-1), ("not a quadratic residue", a, p)  # (2a): AB is a QR on nonpositive vertices
+    return 0 if r==1 else 2
 st=defaultdict(Counter)
 for p in primerange(int(sys.argv[1]),int(sys.argv[2])):
     if p%4!=1: continue
@@ -35,4 +37,5 @@ for p in primerange(int(sys.argv[1]),int(sys.argv[2])):
         st[(kind,b)]['const' if len(set(vals))==1 else 'mixed']+=1
 for k in sorted(st):
     c=st[k]; tot=c['const']+c['mixed']
-    print(k, dict(c), "const-frac %.3f"%(c['const']/tot), " iid-null %.3f"%(2*0.5**k[1] if k[1]<8 else 0))
+    null = "%.3f"%(2*0.5**k[1]) if k[1]<8 else "n/a (bucket >=8)"
+    print(k, dict(c), "const-frac %.3f"%(c['const']/tot), " iid-null", null)
