@@ -32,6 +32,9 @@ from sympy import factorint, isprime, primerange
 from pointwise_fibres import FibreOracle, checked_vertex
 
 
+INTERVAL = 200_000
+
+
 class Uncertified(RuntimeError):
     pass
 
@@ -129,7 +132,6 @@ class Depth3:
         self.p, self.t = p, (p - 1) // 4
         self.F = factor or Factorizer()
         self.F.add_known(p)
-        self.oracle = FibreOracle(p, max_divisors=10**7, max_fibre=10**7) if p < 2**64 else None
         t = self.t
         self.tf = t_factors or self.F(t)
         self.T2 = sorted(sq_divisors(self.tf))  # positive divisors of t^2
@@ -173,6 +175,20 @@ class Depth3:
         for h in self.T2:
             M = p * h - t
             K = 4 * h - 1
+            bound = (4 * t * t + h) // K
+            if bound <= INTERVAL:
+                # positive bucket vertices are exactly (a,h), 1<=a<=t, e=(4a-1)h-a | (t+a)^2
+                for a in range(1, min(t, bound) + 1):
+                    e = (4 * a - 1) * h - a
+                    if ((t + a) ** 2) % e == 0:
+                        x = t + a
+                        P = vertex_ok(p, (x, p * M, x * M // e))
+                        V1 = vertex_ok(p, (t, p * M, -t * M // h))
+                        hits.append({"family": "9", "h": h, "a": a, "path": [V1, P]})
+                        break
+                if hits and not all_hits:
+                    return hits
+                continue
             Mf = self.F(M)
             for D in sq_divisors(Mf):
                 if (D + h) % K == 0:
@@ -192,10 +208,15 @@ class Depth3:
             M = p * c + t
             K = 4 * c + 1
             V1 = vertex_ok(p, (t, -p * M, -t * M // c))
-            for d in sorted(sq_divisors(self.F(M))):
-                if (d + c) % K:
-                    continue
-                a = (d + c) // K
+            bound = (4 * t * t + c) // K
+            if bound <= INTERVAL:
+                # all bucket vertices with a>=1 have a representative 1<=a<=t with
+                # E=(4c+1)a-c | (t+a)^2 and E <= (t+a)^2 <= 4t^2
+                cands = [((4 * c + 1) * a - c, a) for a in range(1, min(t, bound) + 1)
+                         if ((t + a) ** 2) % ((4 * c + 1) * a - c) == 0]
+            else:
+                cands = [(d, (d + c) // K) for d in sorted(sq_divisors(self.F(M))) if (d + c) % K == 0]
+            for d, a in cands:
                 x = t + a
                 if x % p == 0:
                     continue
