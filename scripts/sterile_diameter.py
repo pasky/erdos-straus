@@ -27,7 +27,7 @@ def diameter(comp):
 
 rows = []
 for fn in sys.argv[1:]:
-    for line in open(fn):
+    for line in (__import__("gzip").open(fn, "rt") if fn.endswith(".gz") else open(fn)):
         r = json.loads(line)
         for C in r.get("dumped", []):
             rows.append((diameter(C), len(C), r["p"]))

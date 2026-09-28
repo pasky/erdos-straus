@@ -7,7 +7,7 @@ from collections import Counter, defaultdict
 
 rows = {}
 for fn in sys.argv[1:]:
-    for line in open(fn):
+    for line in (__import__("gzip").open(fn, "rt") if fn.endswith(".gz") else open(fn)):
         r = json.loads(line)
         rows[r["p"]] = r
 by = defaultdict(list)

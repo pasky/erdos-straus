@@ -33,7 +33,7 @@ if __name__ == "__main__":
             a, h = tests(p, comp)
             print(f"{fn}: p={p} size={len(comp)} tests={len(a)+len(h)} anchors(a>=1)={a[:20]} h>=1={h[:20]}")
         else:
-            for line in open(fn):
+            for line in (__import__("gzip").open(fn, "rt") if fn.endswith(".gz") else open(fn)):
                 r = json.loads(line)
                 for C in r.get("dumped", []):
                     comp = [tuple(map(int, v)) for v in C]
