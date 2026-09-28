@@ -450,15 +450,16 @@ twice, by H(h) and X(h), giving `κ_5`. ∎
   restrictive certificate than an arbitrary ES solution. By Theorem 2 it can
   only ever have a polylogarithmic, not a quasi-polynomial, saving: under
   Bateman–Horn the exceptional set is `≫_k N/(log N)^{C_k}`.
-* **Open.** Does the exponent `c_k` tend to infinity? The constant-shift
-  anchors forced for all `p≡1 (24)` found so far are the chart axes `a,h|36`.
-  The symmetric-chart computation below finds no off-axis forced constant
-  edge for `t≡0 (mod 6)`. A constant edge `(a,h)` with `|e|` dividing a fixed
-  number satisfies `(4a-1)(4h-1)=4e+1`. For `|e|≤36` with `e|36`, every
-  solution is either on an axis or needs `t` odd or `3∤t`. If only boundedly
-  many constant anchors exist at every depth, the heuristic exponent would
-  stay bounded, `c_k≤2+κ_∞`: take `q=t/6` prime and let the polynomial
-  anchors fail generically. This is **CONJECTURE/heuristic**, not proved.
+* **Open.** Does the exponent `c_k` tend to infinity? For `t≡0 (mod 6)`, a
+  constant chart edge `(a,h)` is forced for *every* such t iff
+  `e=4ah-a-h` divides `gcd_{t∈6Z}(t+a)² = gcd(a,6)²`. A direct search over
+  `0<|a|≤10^5` finds **no off-axis solution** (`h≠0`). On the other axis,
+  `a=0`, the forced edges are exactly `h|36`. Thus, for the whole class
+  `p≡1 (24)`, the forced constant anchors at the first levels are just the
+  axis values `a,h|36` used above. Finer classes, e.g. `t≡2 (mod 4)`, give a
+  few more, such as `(c,d)=(2,16)`. If only boundedly many constant anchors
+  are forced at every depth, the heuristic exponent stays bounded; this
+  suggests, but does **not** prove, that `c_k` is bounded. **CONJECTURE/heuristic.**
 
 ## 5. Search for depth ≥4 (EVIDENCE; in progress)
 
