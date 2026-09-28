@@ -155,6 +155,71 @@ agreement rate:
 (*m=1: exact anti-identity.) Only `m=3,4,8`, the one-class-per-genus cases,
 carry an identity. The moduli `q=4x-p` of ES range over all integers `≡3 (mod 4)`.
 
+### 2.5 Coefficient patterns: the natural odd set sees ES with weight 6
+
+Windmill parity usually comes from a symmetric "trivial" point. For
+`4/p=Σ c_i/x_i` with `Σc_i=4`, the point `x_i=p` exists, whereas ES has
+`Σc_i=3` and no such point. The closest odd set is
+
+\[
+ S_{112}(p)=\{(x,y,z)\in\mathbb Z_{>0}^3:\ 1/x+1/y+2/z=4/p\},
+ \qquad (x,y)\ \text{ordered}.
+\]
+
+**Proposition 5 (PROVED).** `S_{112}(p)` is finite and has odd cardinality.
+Its elements with z even number exactly `6f(p)`.
+
+*Proof.* The swap `x↔y` fixes exactly the solutions of `1/x+1/z=2/p`,
+i.e. `(2x-p)(2z-p)=p²`. These are `(p,p)`, `((p+1)/2, p(p+1)/2)`, and
+`(p(p+1)/2,(p+1)/2)`: three points, all with z odd. For z even,
+`(x,y,z)↦{x,y,z/2}` is an ES solution with a marked coordinate `z/2` and an
+ordered pair `(x,y)`. ES coordinates are distinct (Lemma 4 / notes Lemma
+77.13), so each unordered solution arises exactly `3·2` times. ∎
+
+So the natural odd set contains ES only with the symmetric weight 6, and
+its odd part lives entirely in the z-odd (non-ES) half. The map
+`(x,y,z)↦(x,z/2,2y)` is a free involution on the z-even half, and there is
+no natural map mixing z-parities. The same happens for 4-term
+representations. The ordered count is odd because of `(p,p,p,p)`, which
+is not mergeable into ES because `2/p` is not a unit fraction. ES-derived
+4-tuples again come with full `S_3` multiplicity.
+
+### 2.6 ES is the discriminant-zero case of Borwein–Choi
+
+Borwein–Choi (`xy+yz+zx=n`) work through forms `[x+z,2z,y+z]` of
+discriminant `-4n`, where class-group and genus theory apply. The ES fibre
+equations are exactly the discriminant-zero case. For Type II,
+`(qY-x)(qZ-x)=x²`, and the form `[qY-x,2x,qZ-x]` has discriminant 0. For
+Type I, `(mX-z₀)(mY-z₀)=z₀²`. At discriminant 0 the class group
+degenerates to the divisor lattice of a square, whose only involution is
+complementation (§2.2). This is why no class-number parity is available
+fibre by fibre. The c=1 slice of Type II can be read at nonzero
+discriminant (`[U,4a,W]`, disc `-4p`, §4), but the ES condition
+`U≡-1 (mod 4a)` is then a cusp congruence, not a class condition.
+
+### 2.7 A small rigidity lemma for Type I
+
+**Lemma 6 (PROVED).** `(2t,2t,-pt)` is the only signed Type I vertex whose
+two p-free denominators both lie in `[1,2t]`.
+
+*Proof.* If `m>0`, the vertex is positive, so `1/x+1/y<4/p`. But
+`1/x+1/y≥1/t>4/p`, a contradiction. So `m<0`. If both p-free
+denominators are at most t, then `1/x+1/y≥8/(p-1)>5/p≥4/p+1/(p|m|)`,
+again impossible. So write `x=t+a` with `1≤a≤t` and `m=ph-t`, `h≤0`, and
+put `e=(4a-1)h-a<0`. The other p-free denominator is
+`y=(t+a)(p|h|+t)/((4a-1)|h|+a)`. For `h=0`, `y=t+t²/a≤2t` forces `a=t`.
+For `|h|=H≥1`, `(t+a)(4t+1)-(8at-2t)=4t(t-a)+3t+a>0` and
+`t(t+a)≥2ta`, so `y>2t`. ∎
+
+EVIDENCE. For all 385 primes `p≡1 (24)` below `3·10^4`, every p-free
+denominator outside `[1,2t]` occurs in exactly one signed vertex. There
+are 67,238 such buckets, and all are singletons. SIGNED_REFACTOR §5
+proves this for `z<0` and `z≥p`, and proves at most two for `2t<z<p`.
+Together with Lemma 6, every Type I vertex other than `(2t,2t,-pt)` is a
+leaf with respect to its large p-free denominator. Every crossing
+between positive and nonpositive vertices therefore goes through a small
+p-free bucket or a Type I p-divisible bucket.
+
 ## 3. Catalogue of computational tests (all negative)
 
 Data: all 732 primes `p≡1 (24)`, `p<6·10^4`. There are 53,333 unordered positive
@@ -208,6 +273,59 @@ For all 385 primes, the parities of the following are each odd for 45–56% of p
 The nonpositive count is also uniform mod 4. The seed component
 is odd for 187/385 primes. See `windmill_signed_parity.py`.
 
+### 3.4 Handshake arguments
+
+A graph H on signed vertices in which the seed has odd degree and every
+other nonpositive vertex has even degree would force a positive vertex.
+This is more flexible than an involution, but by Lemma 1 it is still an
+odd weighted count (`w=deg_H`). We took H to be the refactor edges through
+a bucket class. The resulting parity is
+`#{buckets d in class: a_d,b_d both odd}`, where `a_d,b_d` count positive
+and nonpositive members. We tested 18 classes: sign, p-divisibility, Type
+I/II label, small/mid/large p-free, the hubs, and bucket size. Classes
+with no mixing are identically even:
+
+* by (2a) for Type II;
+* by §2.7 for large p-free buckets;
+* for negative buckets, since positive vertices have only positive
+  denominators.
+
+The remaining classes are odd for 48–53% of primes. No GF(2) combination
+exists (`windmill_handshake.py`).
+
+### 3.5 A zoo of ES-flavoured sets
+
+`windmill_zoo.py` covers 164 primes below 12000. The only always-odd sets
+are explained by an obvious involution with a central or ambiguous fixed
+point:
+
+| set | parity | explanation |
+|---|---|---|
+| Zagier `x²+4yz=p` | always odd | control |
+| reduced forms, disc `-4p` | always even | genus theory |
+| reduced forms with `a≡3 (4)` | always even | non-principal genus, free inversion |
+| reduced forms with `4∣b` | always odd | inversion fixes only `[1,0,p]` there |
+| `{D∣x²: D≡+x (q)}` over odd-length windows | always odd | central divisor `D=x`, mixed class |
+| `{D∣x²: D≡-x (q)}` over any window | always even | positive Type II, free complementation |
+| `UW-4a²=p`, `U≡-1 (4a)` (c=1 Type II), with various cutoffs | 14–54% | — |
+| `UW-4a²=p`, `U≡+1 (4a)` (two-negative Type II) | 51%, and 161/164 with the cutoff `a≤t/4` | cutoff artefact; nonpositive anyway |
+| signed Type I chart boxes `\|h\|≤1,2,5` | 44–57% | — |
+| reduced forms with `b>0`, `a≡-1 (mod b)` | 54% | — |
+
+### 3.6 Laws holding on every component (Chen-type test)
+
+The literature suggests Chen's Markoff theorem, that every component size
+is divisible by p, as the model "size congruence". We tested it as
+follows. For every component of every signed graph (`p<3·10^4`), we
+recorded the parities of 20 statistics: size, positive count, Type I
+count, counts by sign pattern and type, denominator classes, edges,
+incidences, odd buckets, and seed membership. We then computed the GF(2)
+relations holding on all components (`windmill_component_laws.py`). All
+seven relations are bookkeeping identities, or consequences of Lemma 4,
+Lemma 6, and the singleton-bucket evidence above. There is no
+nontrivial component law. Seed-component sizes, and their nonpositive
+parts, are equidistributed mod 2, 3, 4, 5, and 8.
+
 ## 4. Other mechanisms considered
 
 * **Zagier set of p itself (`x²+4yz=p`) with a different τ.** Every
@@ -244,7 +362,25 @@ involution — coordinate swap, divisor complement, and the S₃ action — fixe
 central or degenerate objects. Parity laws for divisors in classes mod m
 exist only for idoneal-type m (§2.4). A windmill proof would need a new,
 explicit odd weight on positive solutions. None of about 7,000 candidate weights
-generalises beyond chance. (Continuation below.)
+generalises beyond chance. Every always-odd set found (§3.5) is explained
+by a central or ambiguous fixed point that is not a positive ES object.
+The natural odd set containing ES, `S_{112}` (§2.5), sees ES only with the
+symmetric weight 6. The literature is consistent with this. Jiang
+(arXiv:2609.09204, Thm 5.3(iii)) shows that the ordered `f_I,f_II` are even
+for `p≡1 (4)`. Bright–Loughran (Thm 1.6) show that the only Brauer class is
+the character (2a), so Legendre-symbol weightings of coordinates add
+nothing beyond (2a). Elsholtz (2010, §3) shows that finite windmill
+partitions close only for special forms, matching §2.4.
+
+**Verdict (after this wave):** ideas exhausted at the level of natural
+constructions. A parity proof of ES would require an explicit weight on
+positive solutions whose total is odd for every p. It cannot come from any
+coordinate symmetry, divisor complement, genus/ambiguous-form structure,
+or PL map uniform in p (§§1–2). Nor does it appear among the candidate
+weights, sets, graphs, or component laws tested (§3). We do not claim that
+no such weight exists. **CONJECTURE (heuristic):** `f(p) mod 2`, and every
+natural weighted variant, is asymptotically equidistributed and
+independent of the Frobenius data of p.
 
 ## 6. Replay
 
@@ -259,4 +395,8 @@ uv run python windmill_parity_features.py /tmp/wm/pos60k.txt
 uv run python windmill_parity_features2.py /tmp/wm/pos60k.txt
 uv run python windmill_invariants.py /tmp/wm/pos60k.txt
 uv run python windmill_signed_parity.py /tmp/wm/signed30k.txt
+uv run python windmill_handshake.py /tmp/wm/signed30k.txt
+uv run python windmill_component_laws.py /tmp/wm/signed30k.txt
+uv run python windmill_zoo.py 12000                 # ~10 min
+uv run python windmill_misc_checks.py {lam,cross,nonlocal,signs,pairs,genzag}
 ```
