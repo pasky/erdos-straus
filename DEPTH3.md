@@ -525,3 +525,17 @@ survivor list exactly (1054 primes, identical sorted output).
 
 Among the 5304 survivors with `q≤10^10`, the number of distinct productive
 A/B anchors has median about 14. The minimum is 2, attained twice.
+
+## Replay
+
+```sh
+cd scripts
+(ulimit -v 8000000
+ timeout 600 uv run python depth3_check.py            # regression checks
+ timeout 900 uv run python depth3_validate.py 13 30000 --jobs 8
+ timeout 600 uv run python depth5_branches.py 13 3000000
+ timeout 60  uv run python depth3.py --all 297049)
+g++ -O3 -march=native -std=c++17 -pthread -o /tmp/d3sieve depth3_sieve.cpp
+/tmp/d3sieve 6 1 1000000000 8 hard > /tmp/surv.txt    # (9)-survivors, t=6q
+uv run python depth3_batch.py /tmp/surv.txt --jobs 8   # families A,B on survivors
+```
