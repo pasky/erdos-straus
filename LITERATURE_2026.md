@@ -524,7 +524,7 @@ Sanden–Schindler–Stange, arXiv:2410.00177).
 * **Quartic test (done here; negative).** On nonpositive vertices `(AB/p)=+1`
   by (2a), so the quartic symbol `(AB/p)₄ ∈ {±1}` is defined.
   `scripts/literature_quartic_component_test.py` enumerates every component
-  for all 761 primes `p≡1 (4)` below 6000 (the complete graph from
+  for all 383 primes `p≡1 (4)` below 6000 (the complete graph from
   `pointwise_incidence`) and asks whether this symbol is constant on the
   component's nonpositive vertices.
   * **Seed components:** constant in 0 of 383.
