@@ -11,6 +11,7 @@ from the seed, and every vertex and edge is verified with exact rationals.
   X(d), d|36, d|t^2 : t+d has a prime factor l = -1/4 (mod 4d-1)
                       -> seed, B1, B2, (2t,2t,-pt), (t+d,-pt,t(t+d)/d), positive  [5 edges]
   X2(1), p=2 (mod 3): Type II exit at t+1 with D=1 (forced)           [5 edges]
+  F2,   p=17 (mod 24): h=2, D=12 divides (7t+2)^2, 12=-2 (mod 7) (forced) [2 edges]
 
 It reports primes where no branch applies (the sieve's exceptional set, which
 is a superset of {dist>5}), and the counts per residue class of p mod 24.
@@ -63,6 +64,12 @@ def branches(p):
                 P = (x, (p * p * D + p * x) // K, (x * x // D + p * x) // K)
                 out.append(("X", d, check_path(p, bridge + [anchor, P])))
                 break
+    if p % 24 == 17:
+        # t even, t = 1 (mod 3): m = 2p - t = 7t + 2 is divisible by 6, D = 12 = -2 (mod 7)
+        m, K, D = 2 * p - t, 7, 12
+        assert (m * m) % D == 0 and (D + 2) % K == 0
+        path = [seed, (t, p * m, -t * m // 2), (p * m, (m + D) // K, (m + m * m // D) // K)]
+        out.append(("F2", 2, check_path(p, path)))
     if p % 3 == 2:
         x, K = t + 1, 3
         P = (x, p * (x + 1) // K, p * (x + x * x) // K)
@@ -78,7 +85,7 @@ def main():
             continue
         b = branches(p)
         tot[p % 24] += 1
-        if not any(x[0] == "H" for x in b):
+        if not any(x[0] in ("H", "F2") for x in b):
             fail2[p % 24] += 1
         if not b:
             fail[p % 24] += 1

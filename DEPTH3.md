@@ -371,26 +371,31 @@ saving.
    `σ,B1,B2,(2t,2t,-pt), (z,-pt,tz/d), (z,(p²ℓ+pz)/K,(z²/ℓ+pz)/K)`.
    Here `B1,B2` are the bridge vertices of SIGNED_REFACTOR (1). The fourth
    vertex is the point `(a,h)=(d,0)` of the chart axis (8).
-3. **(forced, 5 edges.)** If `p≡2 (mod 3)`, then `t≡1 (mod 3)`, and the
-   anchor `t+1` has the Type II exit with `D=1`. So `dist(p)≤5`.
+3. **(forced, 2 edges.)** Let `p≡17 (mod 24)`. Then t is even and
+   `t≡1 (mod 3)`, so `6 | 7t+2 = 2p-t`. Thus `h=2` divides `t²`, and `D=12`
+   divides `(2p-t)²` with `12≡-2 (mod 7)`. Criterion (9) holds.
+   This is Mordell's `p≡2 (mod 3)` identity seen in the chart.
 4. **(forced, 2 edges.)** If `p≡5 (mod 8)`, then t is odd, and `ℓ=2` divides
    `3t+1`. So `dist(p)=2`.
+5. **(forced, 5 edges; subsumed by 3 but kept as a check.)** If `p≡2 (mod 3)`,
+   then `t≡1 (mod 3)`, and the anchor `t+1` has the Type II exit with `D=1`.
 
-**Corollary (PROVED).** Every prime `p≢1 (mod 24)` has `dist(p)≤5`: the
-seed-component conjecture needs only to be settled for `p≡1 (mod 24)`. These are
-classical Mordell-easy classes, so this is not new information about ES.
+**Corollary (PROVED).** Every prime `p≢1 (mod 24)` has `dist(p)=2`. The
+seed-component conjecture, and every question about its distance, concerns
+only `p≡1 (mod 24)`. These are the classical Mordell-easy classes, so this is
+no new information about ES.
 
 All identities are verified by `scripts/depth5_branches.py`, which builds and
 checks every path for each prime in a range. For `p<2·10^6`, the only primes
-with no H-branch lie in the classes 1 and 17 mod 24. The only primes with no
+with no H- or forced branch lie in the class 1 mod 24. The only primes with no
 branch at all lie in the class 1 mod 24: 879 of its 18507 primes. The branch
 list is sufficient, not necessary: all of these primes have `dist≤3`.
 
 **Theorem 3 (PROVED, modulo a standard sieve theorem).** Put
 
 \[
- \kappa_2 = \tfrac12+\tfrac16+\tfrac18 = \tfrac{19}{24}\approx0.79,\qquad
- \kappa_5 = 2\sum_{d\mid 36}\frac1{\varphi(4d-1)}\approx 2.046 .
+ \kappa_2 = \sum_{h\mid 36}\frac1{\varphi(4h-1)}\approx 1.023,\qquad
+ \kappa_5 = 2\kappa_2\approx 2.046 .
 \]
 
 Then
@@ -401,14 +406,11 @@ Then
  \#\{p\le N:\ \mathrm{dist}(p)>5\}\ll \frac{N}{(\log N)^{1+\kappa_5}} .
 \]
 
-*Proof.* By Lemma 4(3,4), `dist(p)>5` forces `p≡1 (mod 24)`. Then `6|t`, so
-`d|t²` for all nine `d|36`.
+*Proof.* By Lemma 4(3,4), `dist(p)>2` forces `p≡1 (mod 24)`. Then `6|t`,
+so `d|t²` for all nine `d|36`. Moreover:
 
-* `dist(p)>5` implies that no H-branch with `h|36` and no X-branch with
-  `d|36` applies.
-* `dist(p)>2` forces `p≡1 (mod 8)`, so `4|t²`. It implies that no H-branch
-  with `h∈{1,2,4}` applies. For `p≡1 (mod 24)` there are nine such h, so the
-  bound is stronger there.
+* `dist(p)>2` implies that no H-branch with `h|36` applies;
+* `dist(p)>5` implies, in addition, that no X-branch with `d|36` applies.
 
 In terms of p:
 
@@ -431,9 +433,9 @@ Bombieri–Vinogradov supplies level `N^{1/2-ε}`. Sifting to `z=N^{1/5}` gives
  \ll\frac{N}{(\log N)^{1+\kappa}}.
 \]
 
-Here `κ=κ_5` counts the H- and X-branches for `d,h|36`, with moduli
-`3,7,11,15,23,35,47,71,143` each used twice. For `dist>2`, the worst class is
-`p≡17 (mod 24)`, where only `h∈{1,2,4}` are available; this gives `κ_2`. ∎
+The moduli are `4h-1∈{3,7,11,15,23,35,47,71,143}`. For `dist>2`, the branches
+are the nine H-branches, giving `κ=κ_2`. For `dist>5`, each modulus is used
+twice, by H(h) and X(h), giving `κ_5`. ∎
 
 **Remarks.**
 
