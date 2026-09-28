@@ -578,3 +578,62 @@ is a restricted form of the classical ES criterion, not an easier problem.
 The survey supports "distance ≤3" as a working conjecture, but that
 conjecture **implies ES for primes `p≡1 (4)`**, so it cannot be cheaper than ES itself.
 A proof must use global structure of the seed component, not path length.
+
+## 8. Looking for global structure: three candidates, none closes
+
+The seed conjecture implies ES for all primes `p≡1 (4)`, so a proof must
+create positivity globally. Three candidate mechanisms were tested.
+
+**(i) Parity / Zagier-type counting.** For all 383 primes `p≡1 (4)` below
+6000, each of the counts total, positive, nonpositive, and positive or
+nonpositive Type I or Type II is odd about half the time. There is no free
+parity invariant. A natural second involution also fails. At fixed x, divisor
+complementation `f↦x²/f` on Type II incidences is exactly the swap of the two
+p-divisible coordinates. On Type I incidences it sends the class `-1/4` to
+`-p²/4 (mod 4x-p)`, so it leaves the set.
+
+**(ii) Size.** Complete enumeration of all 3018 primes `p≡1 (4)` below
+`6·10^4` (`scripts/pointwise_components_survey.py`) gives the following. Sterile
+(positive-free) components have sizes 1…16, with counts decaying roughly
+geometrically:
+`194311, 25302, 4137, 1361, 598, 266, 169, 74, 66, 25, 16, 5, 3, 3, 2, 1`.
+The largest is 16 vertices, at `30637`. The seed component always holds at
+least 58% of all vertices, and its minimum size grows with p (304 in
+`[2^14,2^15)`). The largest sterile size also grows, but slowly. 58699
+non-seed components contain positive vertices. This suggests the clean
+**size conjecture: every component with more than `K(p)=O(log p)` vertices
+contains a positive vertex**. It is consistent with the data, but it is no
+easier to prove than ES.
+
+**(iii) Colour.** By (2a), a component is sterile iff every Type I vertex
+satisfies `(xz/p)=+1` and every Type II vertex `(mn/p)=+1`. Each p-free
+denominator carries a coin-like Legendre colour, so sterility requires many
+coincidences at once. That explains the geometric decay in (ii), but only
+heuristically. No colour invariant separates the seed component. On a
+sample of `p∈[1000,12000]`, 3223 of 3543 sterile components contain
+non-residue primes, and 67 contain p-free denominators of both colours. Every
+seed component contains both colours, as do many sterile and positive
+components.
+
+**A symmetric form of the Type I chart (proved).** Put `A=4a-1`,
+`H=4h-1`, `x=(p+A)/4`, `m=(pH+1)/4`, `e=(AH-1)/4`. Then `Hx=m+e` and
+`gcd(H,e)=1` (since `AH-4e=1`), so
+
+\[
+ e\mid x^2 \iff e\mid m^2 .
+\]
+
+The integrality condition (6) is therefore symmetric between the two
+coordinates of the chart: `e` must divide the square of either retained
+denominator. In these terms (2a) reads: for `e|x²` with
+`e≡-1/4 (mod 4x-p)`, `(e/p)=sign(e)`. The identity was checked on
+`3·10^7` pairs `(a,h)`.
+
+**Where this leaves the problem.** At every reachable anchor x, a positive
+exit is the classical event "some divisor of `x²` lies in the class `-1/4`
+modulo `4x-p`". Hub denominators are built from divisors of t, all of which
+are residues mod p (`ℓ|t ⇒ (ℓ/p)=(p/ℓ)=1`). This is the principal-genus trap
+of POINTWISE.md §2 in a new guise. Escape needs fresh primes from factoring
+new shifts `t+a`, and controlling those factorizations for *every* p is
+exactly the problem the exceptional-set machinery handles only on average.
+None of (i)–(iii) supplies that control.
