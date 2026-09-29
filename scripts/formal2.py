@@ -40,6 +40,7 @@ from math import gcd, prod
 from multiprocessing import Pool
 
 import flint
+sys.set_int_max_str_digits(0)
 from sympy import factorint, primerange
 
 PX = flint.fmpz_poly([1, 24])  # 24X+1
@@ -66,6 +67,16 @@ def model_point(B, seed):
     import formal_closure as fc
     F = fc.Formal(B, seed)
     return F.qt
+
+
+def build_qt(residues, seed, bits=400):
+    """qt = res_ell mod ell^k for all ell, plus a random multiple of the modulus"""
+    import random
+    from sympy.ntheory.modular import crt
+    mods = [l**k for l, (r, k) in sorted(residues.items())]
+    res = [r % (l**k) for l, (r, k) in sorted(residues.items())]
+    q0 = int(crt(mods, res)[0])
+    return q0 + prod(mods) * random.Random(seed).getrandbits(bits)
 
 
 class Engine:
@@ -212,7 +223,7 @@ class Engine:
 
     # ----- the fibre
     def fibre(self, Z):
-        info = {"aux": [], "needE": {}, "budget": {}, "fragile": [], "rprimes": [],
+        info = {"aux": [], "needE": {}, "budget": {}, "fragile": {}, "rprimes": [],
                 "ncand": 0, "nsurv": 0, "nfact": 0}
         Zn, Zd = self.polyq(Z)
         Nn = 4 * Zn - PX * Zd
@@ -347,7 +358,18 @@ class Engine:
         ell, idx = max(fails)
         Fn, L = Fs[idx]
         prim = Fn // Fn.content()
-        info["fragile"].append([ell, [int(a) % ell for a in prim.coeffs()]])
+        c = [int(a) % ell for a in prim.coeffs()]
+        while c and c[-1] == 0:
+            c.pop()
+        if len(c) >= 2:
+            if len(c) == 2:
+                rts = [(-c[0] * pow(c[1], -1, ell)) % ell]
+            else:
+                rts = [int(x) for x, _ in flint.nmod_poly(c, ell).roots()]
+            d = info["fragile"].setdefault(ell, {})
+            for x in rts:
+                d[x] = d.get(x, 0) + 1
+        info["nfragile"] = info.get("nfragile", 0) + 1
         return None
 
 
@@ -380,17 +402,24 @@ def main():
     ap.add_argument("--dump", default=None)
     ap.add_argument("--explicit", default=None, help="file with r-primes to treat explicitly")
     ap.add_argument("--noprune", action="store_true")
+    ap.add_argument("--lam-file", default=None, help="JSON {residues: {ell: [res, k]}, seed}: LAM and qt = res mod ell^k")
     ap.add_argument("--qt-from", default=None, help="take the model point qt from a previous dump")
     a = ap.parse_args()
-    lam = [int(l) for l in primerange(2, a.B + 1)]
-    qt = model_point(a.B, a.seed) if not a.qt_from else int(json.load(gzip.open(a.qt_from, "rt"))["qt"])
+    if a.lam_file:
+        LF = json.load(open(a.lam_file))
+        lam = sorted(int(l) for l in LF["residues"])
+        qt = build_qt({int(l): tuple(v) for l, v in LF["residues"].items()}, LF.get("seed", 1))
+    else:
+        lam = [int(l) for l in primerange(2, a.B + 1)]
+        qt = model_point(a.B, a.seed) if not a.qt_from else int(json.load(gzip.open(a.qt_from, "rt"))["qt"])
     explicit = []
     if a.explicit:
         explicit = [int(x) for x in open(a.explicit).read().split()]
     E = Engine(qt, lam, explicit)
     s0 = E.seed()
     V, done, frontier = {s0}, set(), [s0]
-    AUX, NEEDE, BUDGET, FRAG, RP = set(), {}, {}, [], set()
+    AUX, NEEDE, BUDGET, FRAG, RP = set(), {}, {}, {}, set()
+    NFRAG = 0
     FIB = {}
     t0 = time.time()
     stable = False
@@ -416,7 +445,11 @@ def main():
                     NEEDE[l] = max(NEEDE.get(l, 0), v)
                 for l, b in info["budget"].items():
                     BUDGET[l] = BUDGET.get(l, 0) + b
-                FRAG.extend(info["fragile"])
+                for l, d in info["fragile"].items():
+                    D = FRAG.setdefault(l, {})
+                    for x, c in d.items():
+                        D[x] = D.get(x, 0) + c
+                NFRAG += info.get("nfragile", 0)
                 RP.update(info["rprimes"])
                 FIB[Z] = (len(ws), info["ncand"], info["nsurv"], info["nfact"])
                 for w in ws:
@@ -430,7 +463,7 @@ def main():
             npos = sum(1 for w in new if all(z[0] > 0 for z in w))
             st = {"round": rnd, "expanded": len(todo), "new": len(new), "vertices": len(V),
                   "positive_new": npos, "polys": len(E.polys), "rprimes": len(RP),
-                  "fragile": len(FRAG), "time": round(time.time() - t0)}
+                  "fragile": NFRAG, "time": round(time.time() - t0)}
             print(json.dumps(st), flush=True)
             if not new:
                 stable = True
@@ -448,13 +481,14 @@ def main():
                       "max_deg": max(E.polys[k][3] for k in S),
                       "positive_vertices": sum(1 for w in V if all(z[0] > 0 for z in w))}), flush=True)
     if a.dump:
-        state = {"B": a.B, "seed": a.seed, "qt": str(qt), "stabilized": stable, "pruned": not a.noprune,
+        state = {"B": a.B, "lam": lam, "seed": a.seed, "qt": str(qt), "stabilized": stable, "pruned": not a.noprune,
                  "explicit": explicit,
                  "S": [[list(k), E.polys[k][1], k in AUX, k in entry] for k in sorted(S)],
                  "needE": {str(l): v for l, v in NEEDE.items()},
                  "maxval": {str(l): v for l, v in maxval.items()},
                  "budget": {str(l): b for l, b in BUDGET.items()},
-                 "rprimes": sorted(RP), "fragile": FRAG,
+                 "rprimes": sorted(RP), "nfragile": NFRAG,
+                 "fragile": {str(l): {str(x): c for x, c in d.items()} for l, d in FRAG.items()},
                  "fibres": [[jsonable_formal(Z), list(x)] for Z, x in FIB.items()],
                  "vertices": [[jsonable_formal(z) for z in v] for v in V]}
         with gzip.open(a.dump, "wt") as fh:
