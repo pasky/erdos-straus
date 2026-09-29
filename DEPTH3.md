@@ -32,7 +32,7 @@ Summary.
 4. **EVIDENCE.** All 10 known distance-3 primes below `5·10^6` escape
    through family A. So does every prime `p=24q+1` with q prime,
    `q≤10^13` (`p<2.4·10^14`), that fails (9): 1113907 primes. Every prime
-   `p≡1 (4)` with `p<10^10` has `dist(p)≤3`. No prime of distance `≥4` has been found (§5).
+   `p≡1 (4)` with `p<10^12` has `dist(p)≤3`. No prime of distance `≥4` has been found (§5).
 
 The signed character theorem (2a) used below is, in substance, Bright–Loughran
 (2020), Thm 1.2 with Thm 1.5 (the local-invariant computation for the
@@ -590,16 +590,18 @@ full by `depth3.py`: (9), then A and B.
 |---|---|---|---|
 | `p<10^8` | 179468 | 70 | 0 |
 | `10^8≤p<10^10` | 14036239 | 1306 | 0 |
-| `10^10≤p<10^11` | (rerun pending) | | |
-| `10^11≤p<10^12` | (rerun pending) | | |
+| `10^10≤p<10^11` | 114455512 | 6196 | 0 |
+| `10^11≤p<10^12` | 1046544177 | 36625 | 0 |
 
 The first runs of the last two ranges used a 64-bit enumeration of the
-divisors of `t²`, which overflows for `t>2^32`. Their results (6196, resp.
-36625, candidates, all of distance 3) are **withdrawn** until rerun with the
-128-bit version, which checks `h|t²` explicitly.
+divisors of `t²`, which overflows for `t>2^32`. They were rerun with the
+128-bit version, which asserts `h|t²` for every tested h. The candidate lists
+are **identical**: equal md5 of the sorted lists. Every candidate was
+re-checked in full by `depth3.py`, with (9) recomputed, and all have
+distance exactly 3.
 
-**EVIDENCE: every prime `p≡1 (4)`, `p<10^10`, has seed distance at most 3.**
-Exactly 1376 of them have distance 3.
+**EVIDENCE: every prime `p≡1 (4)`, `p<10^12`, has seed distance at most 3.**
+Exactly 44197 of them have distance 3.
 
 All 70 distance-3 primes below `10^8` have `t=2·3^b·u` with u squarefree
 or nearly so, and `v_2(t)=1`. Thus `p≡9 (mod 16)` in every case; for

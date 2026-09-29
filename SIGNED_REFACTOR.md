@@ -581,7 +581,7 @@ A proof must use global structure of the seed component, not path length.
 
 **Update (DEPTH3.md).** The depth ≤3 escapes are now classified exactly: (9),
 negative-fibre transfers A, and Type II swaps B (Theorem 1). Every prime
-`p≡1 (4)` below `10^10` has distance ≤3. But **under Schinzel's Hypothesis H the seed
+`p≡1 (4)` below `10^12` has distance ≤3. But **under Schinzel's Hypothesis H the seed
 distance is unbounded** (DEPTH3 Theorem 2): for every k, infinitely many
 `p=24q+1` have an entirely nonpositive radius-k ball around the seed. This
 turns the assessment above into a conditional theorem.
