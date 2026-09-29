@@ -600,12 +600,12 @@ The survey supports "distance ≤3" as a working conjecture, but that
 conjecture **implies ES for primes `p≡1 (4)`**, so it cannot be cheaper than ES itself.
 A proof must use global structure of the seed component, not path length.
 
-**Update (DEPTH3.md).** The depth ≤3 escapes are now classified exactly: (9),
-negative-fibre transfers A, and Type II swaps B (Theorem 1). Every prime
-`p≡1 (4)` below `10^12` has distance ≤3. But **under Schinzel's Hypothesis H the seed
-distance is unbounded** (DEPTH3 Theorem 2): for every k, infinitely many
-`p=24q+1` have an entirely nonpositive radius-k ball around the seed. This
-turns the assessment above into a conditional theorem.
+**Update: this assessment is now CONDITIONAL THEOREM 2 of DEPTH3.md.**
+Under Schinzel's Hypothesis H the seed distance is unbounded: for every k,
+infinitely many `p=24q+1` have an entirely nonpositive radius-k ball.
+Unconditionally, depth ≤3 escapes are classified exactly (DEPTH3 Theorem 1),
+and **every prime `p≡1 (4)` below `10^12` has seed distance ≤3** (EVIDENCE).
+Exactly 44197 of them have distance 3.
 
 ## 8. Looking for global structure: three candidates, none closes
 

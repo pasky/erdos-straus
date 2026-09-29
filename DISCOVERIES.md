@@ -107,6 +107,22 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 4. The refactor graph and seed `(t,-2pt,-2pt)`; the three-edge dual-hub bridge; hub fibre sizes `3τ(t²)`, `τ(t²)`; Type II fibres have at most 2 vertices; singleton bounds for p-free anchors outside `[1,2t]`. **PROVED (elementary; no prior source found)** — SIGNED_REFACTOR §§1, 5.
 5. Seed-component conjecture (the seed component contains a positive vertex); it implies ES for `p≡1 (4)`. **OPEN/UNPROVED**. EVIDENCE: seed distance ≤3 for all `p≡1 (4)` below `3·10⁵` and all `p≡1 (24)` up to `5·10⁶` (SIGNED_REFACTOR §7).
 
+6. Exact classification of seed escapes of length ≤3. Such an escape exists iff (9), (A) a negative-fibre transfer `c|t²`, `d|(pc+t)²`, `d≡-c (mod 4c+1)` with a productive anchor `t+(d+c)/(4c+1)` or `w`, or (B) a Type II swap holds. **PROVED** — DEPTH3.md Theorem 1. Validated against brute-force BFS layers.
+7. Under Schinzel's Hypothesis H, the seed distance is unbounded. For every k, infinitely many `p=24q+1` have every vertex within distance k of the seed nonpositive. Under Bateman–Horn there are `≫_k N/(log N)^{C_k}` such `p≤N`. This is a graph version of Schinzel's polynomial-identity obstruction, via a profinite generic base point and the character dichotomy (2a). **CONDITIONAL on H (proved implication); novelty unchecked** — DEPTH3.md Theorem 2, §3.
+8. Forced exits and exceptional-set bounds.
+   * Every prime outside Mordell's six classes mod 840 has seed distance exactly 2.
+   * `#{p≤N: dist>2} ≪ N/(log N)^{1+κ₂}`, where `κ₂=Σ_{h|36}1/φ(4h-1)≈1.023`.
+   * `#{p≤N: dist>5} ≪ N/(log N)^{1+2κ₂}`.
+   * Every exit needs a prime factor of a new shift that is a non-residue mod p (DEPTH3 Lemma 5).
+
+   **PROVED modulo a standard sieve theorem (Corollary PROVED outright)** — DEPTH3.md Lemma 4, Corollary, Theorem 3, Lemma 5.
+9. Survey results.
+   * Every prime `p≡1 (4)` below `10^12` has seed distance ≤3; exactly 44197 have distance 3.
+   * All 1113907 primes `p=24q+1` (q prime, `q≤10^13`) that fail (9) escape at depth 3.
+   * No prime of distance ≥4 is known.
+
+   **EVIDENCE** — DEPTH3.md §5.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
