@@ -99,6 +99,14 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 9. The old conjecture `C_SQ` (“`W=+∞` iff square”) is refuted by `W(288)=W(336)=W(4545)=+∞`; the replacement `C'_SQ` adds these three sporadics and remains open. **REFUTED; OPEN replacement** — notes §60.2, Thm 60.3 and §61 status; review status recorded as SOUND-AFTER-REPAIRS in PROJECT.md Outcome 28.
 10. The pointwise hypotheses `H_MOD(A)` and `H_SPF(A)` are refuted for every `A<1`; the exact remaining frontier is `A≥1`. **REFUTED** — notes §54.1, Thms 54.1 and 54.3; review CONFIRMED with no mathematical repairs (PROJECT.md Outcome 24).
 
+## (G) Pointwise signed refactor graph (SIGNED_REFACTOR.md, POINTWISE.md §1; attributions per LITERATURE_2026.md)
+
+1. Signed character dichotomy (2a): a signed vertex is all-positive iff its same-valuation pair has opposite Legendre characters mod `p`. **KNOWN** — Bright–Loughran 2020 (arXiv:1908.02526) Thm 1.2 + Thm 1.5 at `n=p`, combined with the signed valuation lemma; the positive direction is Yamamoto 1965. The campaign's elementary proof re-derives it. It is not a campaign discovery.
+2. Finiteness of the signed solution set. **KNOWN** — Bright–Loughran Lemma 3.10.
+3. Labels `(4m-1)(4n-1)≡1 (mod p)` and the symmetric Type I chart `e|x²⇔e|m²`. **KNOWN in disguise** — Elsholtz–Tao coordinates, (2.1), (2.6), (2.7), (2.21). Type I/II p-divisible rigidity in the positive case: Jiang arXiv:2609.09204v1 Thm 3.2 (v2 withdrawn).
+4. The refactor graph and seed `(t,-2pt,-2pt)`; the three-edge dual-hub bridge; hub fibre sizes `3τ(t²)`, `τ(t²)`; Type II fibres have at most 2 vertices; singleton bounds for p-free anchors outside `[1,2t]`. **PROVED (elementary; no prior source found)** — SIGNED_REFACTOR §§1, 5.
+5. Seed-component conjecture (the seed component contains a positive vertex); it implies ES for `p≡1 (4)`. **OPEN/UNPROVED**. EVIDENCE: seed distance ≤3 for all `p≡1 (4)` below `3·10⁵` and all `p≡1 (24)` up to `5·10⁶` (SIGNED_REFACTOR §7).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

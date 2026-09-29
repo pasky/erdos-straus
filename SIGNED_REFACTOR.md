@@ -109,6 +109,23 @@ in **no other vertex**: every nontrivial first move preserves t.
 
 ### Quadratic colour detects positivity exactly
 
+**Attribution (see [LITERATURE_2026.md](LITERATURE_2026.md) §1).**
+
+* **Theorem (2a) is not new.** It is Bright–Loughran, *Brauer–Manin
+  obstruction for Erdős–Straus surfaces*, Bull. LMS 52 (2020),
+  arXiv:1908.02526, Theorems 1.2 and 1.5 (p. 2), specialised to `n=p`.
+  Their Lemma 3.4 (p. 11) evaluates the local invariant. Combining these
+  with the signed valuation lemma above gives (2a).
+* **The positive direction** goes back to Yamamoto (1965), per BL
+  Appendix A.
+* **The labels λ and the §8 chart symmetry** are Elsholtz–Tao coordinates
+  (arXiv:1107.1010, equations (2.1), (2.7), (2.18) and (2.21)), on positive
+  points.
+* **The Type I/II rigidity** is Jiang, arXiv:2609.09204v1, Thm 3.2, in the
+  positive case. Jiang's v2 is withdrawn.
+
+What follows is a self-contained elementary proof, not a priority claim.
+
 **Signed character theorem.** Select the two coordinates with the same
 p-adic valuation, and remove their factors of p if necessary. Call the
 resulting integers A,B. Then
@@ -412,6 +429,10 @@ integrality exhausts the fibre without factoring z.
 * For `z≥p`, the stronger `R≥3/p` makes the width at most
   `p²/((3t+1)(9t+2))<1`: the full fibre is again empty or a singleton.
 
+**Update (WINDMILL.md §2.7, Theorem 7, proved):** for `2t<z<p` the fibre
+is also empty or a singleton. So every p-free denominator outside `[1,2t]`
+lies in at most one signed vertex.
+
 For a **nonpositive** vertex with `z>2t`, both p-free coordinates are
 positive, so `m<0`. The upper endpoint in (10) improves to the strict
 bound `x<1/R`. This interval has width at most
@@ -541,9 +562,9 @@ and (8). None of these finite checks supplies the missing universal exit.
 has appeared. The only recent "proof" claim (Dyachenko, 2511.07465) was
 already audited (`reviews/external-auro-zera-lean-wave20.md`). New since the
 last wave: 2609.09204 (counting Type I/II solutions; *does not address the
-conjecture*). Its real-character annihilation criteria are related in spirit
-to the signed character theorem (2a) and should be compared before any
-novelty claim for (2a). 2608.16977's "Erdős–Straus" item is the unrelated
+conjecture*; v2 since withdrawn). Its characters are conditional criteria
+modulo `4n−p`, not (2a). (2a) itself is Bright–Loughran 2020; the comparison
+is in [LITERATURE_2026.md](LITERATURE_2026.md) §1(b). 2608.16977's "Erdős–Straus" item is the unrelated
 1977 binomial-divisibility question.
 
 **Survey.** `scripts/pointwise_seed_survey.py` runs the exact lazy BFS from
@@ -611,6 +632,18 @@ non-seed components contain positive vertices. This suggests the clean
 **size conjecture: every component with more than `K(p)=O(log p)` vertices
 contains a positive vertex**. It is consistent with the data, but it is no
 easier to prove than ES.
+
+**Update: refuted in practice (see [SIZE_CONJECTURE.md](SIZE_CONJECTURE.md)).**
+"Dead hubs" (an anchor `x=t-k` all of whose prime factors are `1 mod 4k+1`)
+give certified sterile components of size about `3^r/2`. At
+`p=274159709010072908384347957` a certified **30035-vertex sterile component
+is larger than the certified seed component (10155 vertices)**, so no size
+threshold can force seed exits. The asymptotic `O(log p)` form is not formally
+disproved, since sterility of an infinite family is unproved. The 58% seed
+share also does not persist (0.36 near `2^30`). The same file proves
+**Lemma E (sign flip)**: an anchor `t+a` (`a>=1`) with a prime factor
+`= -1 (mod 4a-1)`, or a Type I bucket `h>=1` whose `m=ph-t` has a prime
+factor `= -1 (mod 4h-1)`, has an empty fibre or contains a positive vertex.
 
 **(iii) Colour.** By (2a), a component is sterile iff every Type I vertex
 satisfies `(xz/p)=+1` and every Type II vertex `(mn/p)=+1`. Each p-free

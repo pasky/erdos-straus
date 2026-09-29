@@ -4,3 +4,5 @@ paper/*.aux
 paper/*.log
 paper/*.out
 paper/vaughan-loglog-note.toc
+data/sterile/all_2e6.jsonl
+data/sterile/s_2e22.jsonl
