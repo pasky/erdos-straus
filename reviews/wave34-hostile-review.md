@@ -415,3 +415,17 @@ only the divisibility identity. It must still be corrected.
 | `t_vieta.py` | Thm 7 mixed-case Diophantine condition, brute force |
 | `t_sign.py`, `t_sign2.py` | SR §8 sign claim (false) and its corrected form |
 | `t_cert.py`, `t_skip.py`, `t_mut.py` | independent certificate closure, skipped-denominator types, mutation test |
+
+## Addendum: the large certificates
+
+The shipped checker also passes on both certificates at
+`p=274159709010072908384347957`. The run took about 30 minutes under
+`ulimit -v 12e6`.
+
+* **Seed component: 10155 vertices, entire and closed.** Denominators:
+  5490 anchor, 3099 Type I (11 single-method, as disclosed), 3106 Type II,
+  8575 outer.
+* **Sterile component: 30035 vertices, entire and closed.** Denominators:
+  512 anchor, 59559 Type II, and no Type I or outer.
+
+So the §0 claim "sterile 30035 > seed 10155" is reproduced.
