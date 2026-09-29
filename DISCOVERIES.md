@@ -108,14 +108,16 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 5. Seed-component conjecture (the seed component contains a positive vertex); it implies ES for `p≡1 (4)`. **OPEN/UNPROVED**. EVIDENCE: seed distance ≤3 for all `p≡1 (4)` below `3·10⁵` and all `p≡1 (24)` up to `5·10⁶` (SIGNED_REFACTOR §7).
 
 6. Exact classification of seed escapes of length ≤3. Such an escape exists iff (9), (A) a negative-fibre transfer `c|t²`, `d|(pc+t)²`, `d≡-c (mod 4c+1)` with a productive anchor `t+(d+c)/(4c+1)` or `w`, or (B) a Type II swap holds. **PROVED** — DEPTH3.md Theorem 1. Validated against brute-force BFS layers.
-7. Under Schinzel's Hypothesis H, the seed distance is unbounded. For every k, infinitely many `p=24q+1` have every vertex within distance k of the seed nonpositive. Under Bateman–Horn there are `≫_k N/(log N)^{C_k}` such `p≤N`. This is a graph version of Schinzel's polynomial-identity obstruction, via a profinite generic base point and the character dichotomy (2a). **CONDITIONAL on H (proved implication); novelty unchecked** — DEPTH3.md Theorem 2, §3.
+7. Under Schinzel's Hypothesis H, the seed distance is unbounded. For every k, infinitely many `p=24q+1` have every vertex within distance k of the seed nonpositive. Under Bateman–Horn there are `≫_k N/(log N)^{C_k}` such `p≤N`. This is a graph version of Schinzel's polynomial-identity obstruction, via a profinite generic base point and the character dichotomy (2a). **CONDITIONAL on H (proved implication); novelty unchecked**. Informal antecedent: Elsholtz–Tao arXiv:1107.1010 p. 5 ("methods must fail for odd squares"); see also Schinzel, Bright–Loughran Cor 1.4, and Dahan Prop 3.8 / Thm 4.14. It is best read as the H-conditional form of that principle — DEPTH3.md Theorem 2, §3.
 8. Forced exits and exceptional-set bounds.
    * Every prime outside Mordell's six classes mod 840 has seed distance exactly 2.
-   * `#{p≤N: dist>2} ≪ N/(log N)^{1+κ₂}`, where `κ₂=Σ_{h|36}1/φ(4h-1)≈1.023`.
-   * `#{p≤N: dist>5} ≪ N/(log N)^{1+2κ₂}`.
+   * `#{p≤N: dist>2} ≪ N/(log N)^{11/2}`.
+   * `#{p≤N: dist>5} ≪ N/(log N)^{10}`.
+   * Both use Dahan's half-dimension (Lemma 4.2 / Thm 4.3). The first version's
+     crude exponents were `1+κ₂≈2.02` and `1+2κ₂`.
    * Every exit needs a prime factor of a new shift that is a non-residue mod p (DEPTH3 Lemma 5).
 
-   * Note: the Theorem 3 exponents are crude. Dahan's half-dimension argument (arXiv:2608.24035 Lemma 4.2 / Thm 4.3) gives exponent `1+9/2` for dist>2. The data suggest a local exponent ≈6.2 (review wave34 §1).
+   * Note: after the wave34 review repair, DEPTH3 Theorem 3 states the half-dimension exponents. The data suggest a local exponent ≈6.2, so these are still not sharp.
 
    **PROVED modulo a standard sieve theorem (Corollary PROVED outright)** — DEPTH3.md Lemma 4, Corollary, Theorem 3, Lemma 5.
 9. Survey results.

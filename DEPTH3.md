@@ -23,10 +23,13 @@ Summary.
    proved, and no bounded-depth argument from the seed can prove ES for
    `p≡1 (24)`. Under the (stronger) Bateman–Horn conjecture for the
    same finite family, the number of such `p≤N` is `≫_k N/(log N)^{C_k}`.
+   This is the H-conditional form of the Elsholtz–Tao "must fail for odd
+   squares" principle (p. 5 of arXiv:1107.1010). Novelty is unconfirmed.
 3. **PROVED (Theorem 3 + Corollary).** Every prime outside Mordell's six
-   hard classes mod 840 has `dist(p)=2`. Standard upper-bound sieves give
-   `#{p≤N: dist(p)>2} ≪ N/(log N)^{2.02}` and
-   `#{p≤N: dist(p)>5} ≪ N/(log N)^{3.04}`. These are polylogarithmic
+   hard classes mod 840 has `dist(p)=2`. Standard upper-bound sieves, with
+   Dahan's half-dimension lemma, give
+   `#{p≤N: dist(p)>2} ≪ N/(log N)^{11/2}` and
+   `#{p≤N: dist(p)>5} ≪ N/(log N)^{10}`. These are polylogarithmic
    savings. Under Bateman–Horn, Theorem 2 shows that nothing better than
    polylogarithmic can hold.
 4. **EVIDENCE.** All 10 known distance-3 primes below `5·10^6` escape
@@ -67,9 +70,10 @@ D ≡ -z (mod q_z)     [Type II exit (z, p(z+D)/q_z, p(z+z²/D)/q_z)]
 D ≡ -1/4 (mod q_z)   [Type I exit (z, (p²D+pz)/q_z, (z²/D+pz)/q_z)].
 ```
 
-This is the classical anchor criterion. For `z>2t`, the fibre has at most two
-vertices; they are found from the interval (10) of SIGNED_REFACTOR §5,
-without factoring.
+This is the classical anchor criterion. For `z>2t`, the fibre has at most
+**one** vertex (WINDMILL.md Theorem 7, sharpening the bound of two in
+SIGNED_REFACTOR §5). It is found from the interval (10) of SIGNED_REFACTOR
+§5, without factoring.
 
 ## 2. Theorem 1: the complete list of escapes of length at most 3
 
@@ -288,8 +292,10 @@ An integer q is **(S,Λ)-admissible** if the following hold:
 * `q≡q*_ℓ (mod ℓ^{E_ℓ})` for all `ℓ∈Λ`;
 * for every `g∈S`, `r_g:=g(q)/C_g` is a prime outside Λ;
 * the `r_g` are pairwise distinct;
-* q exceeds a threshold depending only on (S,Λ); it is used below for
-  sign and valuation stabilisation.
+* q exceeds a threshold, used for sign stabilisation and for the
+  distinctness of the `r_g`. The threshold depends on the construction
+  through round k, i.e. on the finite list of formal expressions (`D+s`,
+  signs) built in Lemma 3.
 
 Then `v_ℓ(g(q))=v_ℓ(C_g)` for `ℓ∈Λ`. Also `r_X=q` and `r_P=p`.
 
@@ -310,8 +316,9 @@ many (S,Λ)-admissible q.
 * **Primes outside Λ.** Neither `lc(f_g)` nor `C_g` is divisible by ℓ.
   So `∏f_g` is nonzero mod ℓ, of degree `<ℓ`, and has a non-root.
 
-Thus there is no fixed prime divisor. Large H-solutions y give distinct
-`r_g`, since distinct elements of 𝒫 are non-proportional. ∎
+Thus there is no fixed prime divisor. The ℓ-unit property at `ℓ∈Λ` shows
+that `r_g∉Λ`. Large H-solutions y give distinct `r_g`, since distinct
+elements of 𝒫 are non-proportional. ∎
 
 A **formal number** over (S,Λ) is a rational function of the form
 
@@ -335,8 +342,8 @@ value at q of a member of `𝒱(Z)`.
 
 * **The quantity 4Z−P.** It is a nonzero polynomial in `Q[X]`, since
   `z=p/4` is impossible. Factor it as `κ∏h_i^{e_i}` with `h_i∈𝒫` and
-  `κ∈Q^×`. Adjoin the `h_i` to S. Adjoin the primes of κ and of the `C_{h_i}`
-  to Λ. Then `4z-p` and `pz` are formal.
+  `κ∈Q^×`. Adjoin the `h_i` to S; this is a union, and an `h_i` may already
+  lie in S. Adjoin the primes of κ and of the `C_{h_i}` to Λ. Then `4z-p` and `pz` are formal.
 * **Reduction.** Distinct primes make the reduced form `r/s` formal.
   The exponents are minima, and s is normalised positive. For large q, signs
   of polynomial values are those of their leading coefficients.
@@ -346,7 +353,9 @@ value at q of a member of `𝒱(Z)`.
 * **New denominators.** For each such D with `D+s≢0`, factor `D+s` in
   `Q[X]` as above, and adjoin its factors and constants. Treat `s²/D+s`
   the same way. Then `y=(D+s)/r` and `w=(s²/D+s)/r` are formal numbers.
-  If they are integers, they are formal integers, since the primes are distinct.
+  If they are integers, they are formal integers, since the primes are
+  distinct. Formal triples with a negative exponent are never integral at an
+  admissible q, and they are discarded.
 
 Only finitely many D occur. None of this depends on q beyond admissibility.
 The constants `C_h` are fixed once and for all by q*. ∎
@@ -380,8 +389,8 @@ Let q be admissible for the enlarged set. The following hold:
   Lemma 1(1).
 * **g∈S_k\{P}.** Since `24q≡-1 (mod p)`, `24^{deg g}g(q)≡H_g (mod p)`.
   Also `(24/p)=1`, and every prime of `C_g` and of `H_g` is in Λ.
-  Hence `(r_g/p)=(g(q)/p)(C_g/p)=(H_g/p)=1`. This needs `p∤H_g`, which
-  holds for q large.
+  Hence `(r_g/p)=(g(q)/p)(C_g/p)=(H_g/p)=1`. Here `p∤H_g` is automatic:
+  every prime of `H_g` lies in Λ, while `p=r_P∉Λ`.
 * **Signs.** `(-1/p)=1`.
 
 Take any vertex within distance k. Take its two same-valuation coordinates
@@ -396,10 +405,22 @@ Lemma 2 gives infinitely many admissible q. This proves Theorem 2. ∎
   exploration of the graph from formally given vertices. In particular it
   holds for every "universal" path built from divisors that exist for all p
   in a residue class.
-* **Relation to Schinzel's theorem.** Schinzel's theorem rules out
-  polynomial identities on square classes. Theorem 2 adds, under H, that
-  divisor-dependent branches cannot help at any bounded depth either: H
-  forces all those divisors to be formal.
+* **Relation to prior work (modest statement).** Theorem 2 is best read as
+  the H-conditional form of the principle stated informally by
+  Elsholtz–Tao (arXiv:1107.1010, p. 5). There, a method that does not
+  distinguish p from an odd square must fail, which rules out finite
+  covering-congruence strategies. The profinite base point q* makes p a local
+  square at every prime ever met, and the Bright–Loughran class, (2a), is the
+  invariant.
+  * Schinzel's theorem (and EST Prop 1.6, Bright–Loughran Cor 1.4) rule out
+    *identities*, i.e. methods blind to factorisation.
+  * Theorem 2 rules out, under H, bounded-depth searches that do factor.
+  * Related unconditional obstructions for specific branches are Dahan
+    (arXiv:2608.24035) Prop 3.8 and Thm 4.14, and Pomerance–Weingartner.
+
+  No prior source stating the graph-distance version was found, but
+  **novelty is unconfirmed**. It is a clean corollary at folklore level,
+  not a headline result.
 * **Consequence for strategy.** A proof of the seed-component conjecture
   cannot proceed by bounding the escape length. This sharpens the assessment
   in SIGNED_REFACTOR §7 from heuristic to a conditional theorem.
@@ -480,60 +501,73 @@ classes has an H-branch or a forced branch. The only primes with no
 branch at all lie in the class 1 mod 24: 689 of its 26983 primes. The branch
 list is sufficient, not necessary: all of these primes have `dist≤3`.
 
-**Theorem 3 (PROVED, modulo a standard sieve theorem).** Put
+For `k≥0` define
 
 \[
- \kappa_2 = \sum_{h\mid 36}\frac1{\varphi(4h-1)}\approx 1.023,\qquad
- \kappa_5 = 2\kappa_2\approx 2.046 .
+ c_k=\sup\{c:\ \#\{p\le N:\ \mathrm{dist}(p)>k\}\ll N/(\log N)^{c}\}.
 \]
 
-Then
+`c_k` is nondecreasing in k. Under Bateman–Horn, Theorem 2 gives `c_k<∞` for
+every k.
+
+**Theorem 3 (PROVED, modulo a standard sieve theorem).**
 
 \[
- \#\{p\le N:\ \mathrm{dist}(p)>2\}\ll \frac{N}{(\log N)^{1+\kappa_2}},
+ \#\{p\le N:\ \mathrm{dist}(p)>2\}\ll \frac{N}{(\log N)^{1+9/2}},
  \qquad
- \#\{p\le N:\ \mathrm{dist}(p)>5\}\ll \frac{N}{(\log N)^{1+\kappa_5}} .
+ \#\{p\le N:\ \mathrm{dist}(p)>5\}\ll \frac{N}{(\log N)^{1+9}} .
 \]
 
-*Proof.* By Lemma 4(3,4), `dist(p)>2` forces `p≡1 (mod 24)`. Lemma 4(5)
-could also restrict the residues mod 5 and 7; this only changes constants. Then `6|t`,
-so `d|t²` for all nine `d|36`. Moreover:
+So `c_2,c_3,c_4≥11/2` and `c_5≥10`. The data suggest that these are not
+sharp: the cumulative distance-3 counts 7572 below `10^11` and 44197 below
+`10^12` fit `N/(log N)^A` with local `A≈6.2`.
 
-* `dist(p)>2` implies that no H-branch with `h|36` applies;
-* `dist(p)>5` implies, in addition, that no X-branch with `d|36` applies.
+*Proof.* By Lemma 4(3,4,5), `dist(p)>2` forces `p≡1 (mod 24)`, with p a
+residue mod 5 and 7. Then `6|t`, so all nine `h|36` and `d|36` divide `t²`.
 
-In terms of p:
+* `dist(p)>2` implies that the (9)-branch fails for every `h|36`: no divisor
+  of `m_h²`, `m_h=ph-t`, lies in the class `c_h=-1/4 (mod K_h)`, where
+  `K_h=4h-1`.
+* `dist(p)>5` implies, in addition, the following for every `d|36`. At the
+  anchor `z_d=t+d` of Lemma 4(2), no divisor of `z_d²` lies in `-1/4 (mod
+  4d-1)`. This is exactly the absence of a Type I exit at `z_d`, reached in
+  4 edges.
+
+**Half-dimension (Dahan, arXiv:2608.24035, Lemma 4.2 / Thm 4.3).** Let N
+be `m_h` or `z_d`, with modulus K and target class c. Here `gcd(N,K)=1`:
+`m_h≡h (mod K_h)` with `gcd(h,4h-1)=1`, and `4z_d=p+4d-1`.
+
+1. Let R be the set of residues mod K of the prime factors of N.
+2. Failure forces `c∉R`, taking `D=ℓ`.
+3. Failure also forces `R∩cR^{-1}=∅`, taking `D=ℓℓ'` or `D=ℓ²`.
+4. Hence `|R|≤φ(K)/2`.
+
+Now fix one admissible R for each branch; there are finitely many choices.
+The p counted are those for which every prime factor of each `m_h` (resp.
+`z_d`) lies in the chosen classes. For a prime ℓ outside the moduli and
+the finitely many coincidence primes:
 
 * `ℓ|ph-t` iff `p≡-(4h-1)^{-1} (mod ℓ)`, since `4(ph-t)=p(4h-1)+1`;
 * `ℓ|t+d` iff `p≡1-4d (mod ℓ)`.
 
-Thus each branch excludes one residue class of p modulo every prime ℓ in a
-fixed class mod `4h-1` (resp. `4d-1`). Apart from finitely many ℓ, the classes
-excluded by different branches are distinct. For example, H(h) and X(h)
-coincide only if `ℓ|8h(2h-1)`.
+A branch excludes this one class whenever `ℓ mod K∉R`, that is, for a set of
+ℓ of relative density `1-|R|/φ(K)≥1/2`. As in the previous version, sift the
+integers `n≤N` in the fixed class mod `24·35`, and remove also `n≡0 (mod ℓ)`
+for primality. This is an upper-bound sieve of dimension
 
-Sift the *integers* `n≤N`, `n≡1 (mod 24)`, rather than the primes. This
-avoids Bombieri–Vinogradov. For each prime `ℓ>3` not dividing any of the
-moduli `4h-1`, and not among the finitely many coincidence primes, remove:
+* `1+Σ_branches(1-|R|/φ(K)) ≥ 1+9/2` for `dist>2`, and
+* `≥ 1+18/2` for `dist>5`,
 
-* the class `n≡0 (mod ℓ)`, since p is prime;
-* the `ω(ℓ)` branch classes above.
+with the trivial level of distribution for integers in progressions. The
+large sieve, or Selberg's upper bound (Halberstam–Richert, Thm 5.1), gives
+`≪N/(log N)^{dimension}` for each choice of R. Summing over the finitely
+many choices proves the theorem. ∎
 
-In total `1+ω(ℓ)` classes are removed. By the prime number theorem in
-progressions, `Σ_{ℓ≤z}ω(ℓ)(log ℓ)/ℓ = κ log z+O(1)`, where κ is the sum of
-`1/φ(4h-1)` over the branches used. This is a sieve problem of dimension
-`1+κ`. The large sieve (Montgomery), or Selberg's upper-bound sieve
-(Halberstam–Richert, *Sieve Methods*, Thm. 5.1), both with the trivial level
-of distribution for integers in progressions, gives
-
-\[
- \ll N\prod_{\ell\le \sqrt N}\Bigl(1-\frac{1+\omega(\ell)}{\ell}\Bigr)
- \ll\frac{N}{(\log N)^{1+\kappa}} .
-\]
-
-The moduli are `4h-1∈{3,7,11,15,23,35,47,71,143}`. For `dist>2`, the branches
-are the nine H-branches, giving `κ=κ_2`. For `dist>5`, each modulus is used
-twice, by H(h) and X(h), giving `κ_5`. ∎
+*Superseded crude version.* Counting only branches with a *prime* factor in
+the target class gives dimension `1/φ(K)` per branch. This yields the weaker
+exponents `1+κ_2≈2.02` and `1+2κ_2≈3.05`, where
+`κ_2=Σ_{h|36}1/φ(4h-1)≈1.023`. Those were the exponents in the first
+version; the wave-34 review pointed out the half-dimension.
 
 **Remarks.**
 
@@ -548,7 +582,7 @@ twice, by H(h) and X(h), giving `κ_5`. ∎
   restrictive certificate than an arbitrary ES solution. By Theorem 2 it can
   only ever have a polylogarithmic, not a quasi-polynomial, saving: under
   Bateman–Horn the exceptional set is `≫_k N/(log N)^{C_k}`.
-* **Open.** Does the exponent `c_k` tend to infinity? For `t≡0 (mod 6)`, a
+* **Open.** Does `c_k` tend to infinity? For `t≡0 (mod 6)`, a
   constant chart edge `(a,h)` is forced for *every* such t iff
   `e=4ah-a-h` divides `gcd_{t∈6Z}(t+a)² = gcd(a,6)²`. For nonzero a,h,
   `|e|≥3|a|-1` and `|e|≥3|h|-1`, so `|a|,|h|≤12`. Exhausting this finite
