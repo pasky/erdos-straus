@@ -104,7 +104,7 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 1. Signed character dichotomy (2a): a signed vertex is all-positive iff its same-valuation pair has opposite Legendre characters mod `p`. **KNOWN** — Bright–Loughran 2020 (arXiv:1908.02526) Thm 1.2 + Thm 1.5 at `n=p`, combined with the signed valuation lemma; the positive direction is Yamamoto 1965. The campaign's elementary proof re-derives it. It is not a campaign discovery.
 2. Finiteness of the signed solution set. **KNOWN** — Bright–Loughran Lemma 3.10.
 3. Labels `(4m-1)(4n-1)≡1 (mod p)` and the symmetric Type I chart `e|x²⇔e|m²`. **KNOWN in disguise** — Elsholtz–Tao coordinates, (2.1), (2.6), (2.7), (2.21). Type I/II p-divisible rigidity in the positive case: Jiang arXiv:2609.09204v1 Thm 3.2 (v2 withdrawn).
-4. The refactor graph and seed `(t,-2pt,-2pt)`; the three-edge dual-hub bridge; hub fibre sizes `3τ(t²)`, `τ(t²)`; Type II fibres have at most 2 vertices; singleton bounds for p-free anchors outside `[1,2t]`. **PROVED (elementary; no prior source found)** — SIGNED_REFACTOR §§1, 5.
+4. The refactor graph and seed `(t,-2pt,-2pt)`; the three-edge dual-hub bridge; hub fibre sizes `3τ(t²)`, `τ(t²)`; Type II fibres have at most 2 vertices; p-free buckets outside `[1,2t]` are singletons (SR §5 + WINDMILL Thm 7); singleton bounds for p-free anchors outside `[1,2t]`. **PROVED (elementary; no prior source found)** — SIGNED_REFACTOR §§1, 5.
 5. Seed-component conjecture (the seed component contains a positive vertex); it implies ES for `p≡1 (4)`. **OPEN/UNPROVED**. EVIDENCE: seed distance ≤3 for all `p≡1 (4)` below `3·10⁵` and all `p≡1 (24)` up to `5·10⁶` (SIGNED_REFACTOR §7).
 
 6. Exact classification of seed escapes of length ≤3. Such an escape exists iff (9), (A) a negative-fibre transfer `c|t²`, `d|(pc+t)²`, `d≡-c (mod 4c+1)` with a productive anchor `t+(d+c)/(4c+1)` or `w`, or (B) a Type II swap holds. **PROVED** — DEPTH3.md Theorem 1. Validated against brute-force BFS layers.
@@ -115,6 +115,8 @@ This ledger records mathematical discoveries formulated by this campaign, rather
    * `#{p≤N: dist>5} ≪ N/(log N)^{1+2κ₂}`.
    * Every exit needs a prime factor of a new shift that is a non-residue mod p (DEPTH3 Lemma 5).
 
+   * Note: the Theorem 3 exponents are crude. Dahan's half-dimension argument (arXiv:2608.24035 Lemma 4.2 / Thm 4.3) gives exponent `1+9/2` for dist>2. The data suggest a local exponent ≈6.2 (review wave34 §1).
+
    **PROVED modulo a standard sieve theorem (Corollary PROVED outright)** — DEPTH3.md Lemma 4, Corollary, Theorem 3, Lemma 5.
 9. Survey results.
    * Every prime `p≡1 (4)` below `10^12` has seed distance ≤3; exactly 44197 have distance 3.
@@ -122,6 +124,9 @@ This ledger records mathematical discoveries formulated by this campaign, rather
    * No prime of distance ≥4 is known.
 
    **EVIDENCE** — DEPTH3.md §5.
+
+10. Windmill/parity search. Any two-involution parity argument yields an explicit weight on positive solutions with odd total (Lemma 1). Only the swap and the sign change are integral affine symmetries of the four-parameter model (Prop 2). Fibre parity certifies only mixed-sign vertices (Lemma 3). The natural odd set `S_112` sees ES with weight 6 (Prop 5). No generalising parity law among the tested features. **PROVED (lemmas) / EVIDENCE (negative scans)** — WINDMILL.md.
+11. Size conjecture refuted in practice: certified "dead-hub" sterile components of up to 30035 vertices, larger than the seed component (10155) at `p=274159709010072908384347957`. Lemmas A (negative quadrant), B (dead-hub fibre), C (descent), E (sign flip via a prime `≡-1` mod the anchor/bucket modulus). **CERTIFIED / PROVED** — SIZE_CONJECTURE.md; certificates re-checked in reviews/wave34-hostile-review.md.
 
 ## Items to verify by the maintainer
 

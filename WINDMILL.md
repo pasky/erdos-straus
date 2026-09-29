@@ -66,7 +66,7 @@ Code: `scripts/windmill_*.{cpp,py}`. Data were regenerated in `/tmp/wm/`
    point that is not a positive ES object. No handshake subgraph (§3.4) and no
    GF(2) component law (§3.6) gives more. **Verdict: no proof from the constructions tried (§5).**
 6. **By-product (PROVED, §2.7, Theorem 7).** Every p-free denominator outside
-   `[1,2t]` lies in exactly one signed vertex. This closes the case `2t<z<p`
+   `[1,2t]` lies in at most one signed vertex. This closes the case `2t<z<p`
    that SIGNED_REFACTOR §5 left at "at most two". The mixed case reduces to a
    Vieta quadratic whose discriminant would need `-k` to be a square modulo
    `4kλ-1`, which the Jacobi symbol forbids. So all graph edges pass
@@ -319,7 +319,7 @@ vertices at z have distinct h, hence distinct x by (2.7a). By (2.7a),
   A Jacobi symbol of `-1` excludes a square. This is a contradiction.
 * **Both nonpositive.** Here SIGNED_REFACTOR §5 applies. Directly: from
   `|f₁|=|f₂|+A≥4t+4`, as above `H₁=-1`, and then
-  `|f₂|=x₁+z-A=2t+d-3u+1<1`, which is impossible.
+  `|f₂|=x₁+z-A(x₂-x₁)≤x₁+z-A=2t+d-3u+1<1`, which is impossible.
 
 ∎
 

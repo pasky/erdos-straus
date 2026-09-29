@@ -665,9 +665,14 @@ components.
 
 The integrality condition (6) is therefore symmetric between the two
 coordinates of the chart: `e` must divide the square of either retained
-denominator. In these terms (2a) reads: for `e|x²` with
-`e≡-1/4 (mod 4x-p)`, `(e/p)=sign(e)`. The identity was checked on
-`3·10^7` pairs `(a,h)`.
+denominator. In these terms (2a) reads: if `w` is the other p-free
+coordinate, then `(xw/p)=(m/p)(e/p)=(e/p)`, because `m≡1/4 (mod p)`. So
+`(e/p)=-1` iff the vertex is all-positive. Equivalently, `(e/p)=-sign(e)`
+for `x>t`, and `(e/p)=+1` for `1≤x≤t`. *(Corrected per
+reviews/wave34-hostile-review.md §4. An earlier version said
+`(e/p)=sign(e)`, which is false: at `p=13` the positive vertex
+`(4,18,468)` has `e=8`, `(8/13)=-1`.)* The divisibility identity was
+checked on `3·10^7` pairs `(a,h)`.
 
 **Where this leaves the problem.** At every reachable anchor x, a positive
 exit is the classical event "some divisor of `x²` lies in the class `-1/4`

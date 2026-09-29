@@ -338,7 +338,7 @@ nonzero mod p (it is Type II), so for the p-free coordinate y,
 `D=Ky-p mu = Ky (mod p)` is prime to p, hence `D | mu^2`. For `y=x`:
 `Kx-p mu = d` (direct computation using `p=4x+M`,
 `K=(p-4d)/M`), and all admissible D share its class mod K. For `D=d-Kd=-4d mu`,
-`y=x-d`; `D | mu^2` iff `4d | mu = d(w-1)/M` iff `w = 1 (mod 4)`. ∎
+`y=x-d`; `D | mu^2` iff `4d | mu = d(w-1)/M` iff `4M | w-1`. Here `M | w-1` holds automatically, because `M | d(w-1)` and `gcd(d,M)=1` under Lemma B's hypothesis (every prime of `x` is `1 (mod M)`). So the condition is `w = 1 (mod 4)`. ∎
 
 **Lemma E (sign flip; PROVED).** Let `x=t+a`, `1<=a<=t`, `q=4a-1`, and let
 `l | x` be a prime with `l = -1 (mod q)`. If x occurs in any vertex, it occurs
