@@ -210,11 +210,14 @@ def main():
     assert not c3
     # ---- precision
     E = {ell: maxval.get(ell, 0) + 1 for ell in lam}
-    for l, v in st["needE"].items():
+    for l, v in st["needE"].items():  # recomputed independently by formal2_verify_extra.py
         E[int(l)] = max(E[int(l)], v)
     report["E_max"] = max(E.values())
     report["log10_M"] = round(sum(e * __import__("math").log10(l) for l, e in E.items()), 1)
-    report["OK"] = True
+    report["OK"] = not a.skip_fibres
+    if a.skip_fibres:
+        report["PARTIAL"] = "fibres not checked"
+        a.cert = None
     print(json.dumps(report))
     if a.cert:
         cert = {"q0_mod": {str(l): [qt % l**E[l], E[l]] for l in lam},

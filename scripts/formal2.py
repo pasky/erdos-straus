@@ -8,8 +8,8 @@ with E as large as needed (reported).  For a primitive irreducible g in Z[X] wit
 lc>0, C_g = LAM-part of g(qt); R_g = g(qt)/C_g is the model value of the formal
 prime r_g.  A FORMAL INTEGER is (c, ((key,e),...)) meaning c*prod (g/C_g)^e, c a
 nonzero integer.  At an admissible q (q = qt mod prod ell^E_ell, every r_g prime
-and outside LAM, q large) its prime factorisation is c * prod r_g^e, and for every
-prime ell NOT in LAM, v_ell(g(q)) = 0 for g in S.
+and outside LAM, q large) its prime factorisation is c * prod r_g^e; for every FIXED
+prime ell not in LAM, v_ell(g(q)) = 0 for g in S once q is large (r_g > ell).
 
 Fibre of Z (as in DEPTH3 Lemma 3): r/s = (4Z-P)/(PZ) reduced, D runs over formal
 signed divisors of s^2, y=(D+s)/r, w=(s^2/D+s)/r.  Decision per candidate D:

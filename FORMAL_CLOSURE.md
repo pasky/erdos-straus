@@ -24,10 +24,12 @@ explicit list of 7883 formal vertices, all nonpositive.
   exponent can be taken to be **6402**.
 * The family is so large that no example is within computational reach, and none of this
   touches ES itself (ES solutions for these p exist under H too; they lie in other
-  components). It shows that **no proof of the seed-component conjecture can work from
-  the local (congruence) data of p alone**: it must use a property that fails for a
-  "formally generic" p — the Elsholtz–Tao odd-square principle, now for the whole
-  component rather than a bounded ball (DEPTH3 Theorem 2).
+  components). Informally (not a formal metatheorem): an unconditional proof of the
+  seed-component conjecture must use some property of p that fails for a
+  "formally generic" p of this shape, i.e. it cannot rest on congruence data plus
+  the shape of factorisations alone — the Elsholtz–Tao odd-square principle, now for
+  the whole component rather than a bounded ball (DEPTH3 Theorem 2). Since H is
+  believed, the conjecture should be regarded as false.
 
 The certificate is `data/formal_closure/` (§3); the checks are
 `scripts/formal2_verify.py` (§3.2).
@@ -47,8 +49,9 @@ subject to the conditions (C1)–(C5) below. An integer q is **admissible** if
 `q≡q0 (M)`, every `r_g:=g(q)/C_g` (`g∈S`) is a prime outside Λ, the `r_g` are pairwise
 distinct, and q exceeds a threshold depending only on the certificate.
 
-**Basic fact.** At admissible q, `g(q)=C_g r_g` with `C_g` Λ-supported. Hence for a prime
-`ℓ∉Λ` and `g∈S`, `ℓ∤g(q)` (for q large, `r_g≠ℓ`). So the factorisation of the value of a
+**Basic fact.** At admissible q, `g(q)=C_g r_g` with `C_g` Λ-supported. Hence for every
+*fixed* prime `ℓ∉Λ` (e.g. any prime of any of the finitely many constants that occur)
+and `g∈S`, `ℓ∤g(q)` once q is large (then `r_g>ℓ`). So the factorisation of the value of a
 formal integer is `c·∏r_g^{e_g}` *for every prime*, and the ℓ-adic valuation of a
 polynomial expression whose factors lie in S is that of its rational constant.
 
@@ -60,7 +63,8 @@ the graph of p containing `z=Z(q)` is `(z,y,w)` with `1/y+1/w=r(q)/s(q)`; then
 `D=r(q)y−s(q)` satisfies `(ry−s)(rw−s)=s²`, so **D divides `s(q)²`** (reducedness of `r/s`
 at q is not needed). Since the polynomials of s lie in S, the divisors of `s(q)²` are
 exactly the values of the finitely many formal divisors `D=±d∏(g/C_g)^{j_g}` (`d|c_s²`,
-`0≤j_g≤2e_g`). For each D the candidate is `y=(D+s)/r`, `w=(s²/D+s)/r`. At admissible q
+`0≤j_g≤2e_g`). The divisor `D=−s` gives `y=w=0` and is excluded. For each other D the
+candidate is `y=(D+s)/r`, `w=(s²/D+s)/r`. At admissible q
 (large) the candidate is integral iff
 
 * **(A)** `g^{β_g} | D+s` in `Q[X]` for every g occurring in r with exponent `β_g`, and
@@ -76,7 +80,7 @@ previous agent**: factors of *rejected* candidates were not in S, so such reject
 not justified. The certificate closes it by condition (C2):
 
 * **(C1) closure.** For every denominator Z of every member of 𝒱 which is not *dead*,
-  every candidate D satisfying (A) and (B) gives a triple `(Z,y,w)∈𝒱` (y, w formal
+  every candidate `D≠−s` satisfying (A) and (B) gives a triple `(Z,y,w)∈𝒱` (y, w formal
   integers over S). *Dead* means p-free and (negative, or `Z>12X` eventually: degree ≥2,
   or degree 1 with `lc>12` or `lc=12`, constant `>0`).
 * **(C2)** every prime of every `c_r` lies in Λ (with the precision above), and every
@@ -130,8 +134,9 @@ realises the class `q0` at LAM. `C_g` = LAM-part of `g(qt)`, `R_g=g(qt)/C_g`. Fi
 in §1.1. Candidate filter: numeric test at qt modulo
 `L'=lcm_g(R_g^{β_g})·(LAM-part of c_r)` — failing it is a robust rejection (it implies the
 failure of (A) or of (B) at a Λ-prime); survivors are factored (flint) to decide (A)
-exactly. With `M1=L'·(…)>2c_s²` the congruence pins the constant of D to ≤2 values per
-monomial. For primes of `c_r` outside LAM ("r-primes") the engine uses the *generic*
+exactly. When `M1=L'·(…)>2c_s²` and the monomial value `E(qt)` is prime to `M1`, the
+congruence pins the constant of D to ≤2 values per monomial; otherwise all constants are
+enumerated and tested (no counting claim is made in that case). For primes of `c_r` outside LAM ("r-primes") the engine uses the *generic*
 decision (valuation of the content) and records *fragile* candidates (only generic
 failures): these need `q mod ℓ` to avoid the roots of their `D+s`. For large ℓ a root
 budget is kept (counting argument); for the others (`--explicit`) the roots themselves.
@@ -221,6 +226,14 @@ with ~10^8 formal divisor candidates).
 5. (C3) for all primes `ℓ∉LAM`, `ℓ≤Σdeg=17631`;
 6. precision `E_ℓ=max(1+max_g v_ℓ(g(qt)), v_ℓ(c_r)+v_ℓ(den))`, reported.
 
+`scripts/formal2_verify_extra.py` (4 min) independently re-derives the generator's
+metadata: entry flags; the 7883 formal vertices form **one** component containing the
+seed (so the seed component at admissible q is exactly their value set: containment by
+Prop. 1, and every formal vertex is a genuine vertex at admissible q, connected to σ);
+every factor of every `4Z−P` (non-dead Z) is in S; every prime of every `c_r` is in Λ;
+`needE` recomputed and equal to the dump's. Output: `data/formal_closure/verify_extra.json`.
+(`formal2_verify.py --skip-fibres` reports `PARTIAL`, never `OK`.)
+
 ## 4. What this does and does not say
 
 * **CONDITIONAL:** the seed-component conjecture fails under H (for a 6402-member family).
@@ -236,7 +249,33 @@ with ~10^8 formal divisor candidates).
 
 ## 5. Real q (EVIDENCE)
 
-REALQ_PLACEHOLDER
+**Engine vs. ground truth.** The old engine (identical output to `formal2.py`) was
+validated by the previous agent (`scripts/formal_validate.py`, small model B=13, real
+q≈10^10–10^11 as model point, exact fibres from `pointwise_fibres.py`): radius 2, 486/486
+formal fibres contained in the actual ones and 40/40 exact where every formal prime value
+involved was an actual prime; radius 3, 1409/1409 contained, 609/609 dead denominators
+with singleton actual fibres, and 88/112 exact, the 24 failures all at an "accidental"
+prime of `c_r` (e.g. the anchor `6X−22` with `4z−p=89`) — i.e. at non-admissible q.
+
+**Actual seed components in the certificate's class** (`scripts/formal2_realq.py`,
+`data/formal_closure/realq_mod13.jsonl`). 40 primes `q∈[10^9,10^11]`, `p=24q+1` prime,
+`q≡q0` modulo `2^4·3^3·5^2·7·11·13` (powers ≤30). F(q) = formal vertices whose value at q
+is integral (median 508 of 7883). Exact layered BFS from the seed:
+
+* layer 1 (80 vertices, the t- and −pt-fibres): **always entirely formal**;
+* layer 2: 352–4757 vertices (median 881), of which 227–369 are formal; **every one of
+  the 40 components has a positive vertex at distance 2**;
+* on every escape path (seed, formal, non-formal positive) the path leaves F(q) at a
+  formal denominator `Z(q)` one of whose formal primes is not an actual prime:
+  in 31/40 cases `g(q)/C_g` is not even an integer (q does not match q0 at a larger
+  prime of `C_g`, e.g. `(21X+1)/23`, `(143X+6)/1289`), in 9/40 it is an integer but
+  composite.
+
+So real components agree with the formal one exactly as far as the admissibility
+conditions actually hold, and escape at the first formal prime that fails to be prime;
+this is the predicted behaviour, not a test of H. A search for q in this class with no
+positive vertex within distance 2 (40 CPU-minutes) found none; the formal family is far
+too large for any real q to satisfy a noticeable fraction of it.
 
 ## 6. Replay
 
