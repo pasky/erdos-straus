@@ -1,0 +1,11 @@
+{"round": 1, "expanded": 2, "new": 80, "vertices": 81, "positive_new": 0, "polys": 71, "rprimes": 0, "fragile": 0, "time": 1}
+{"round": 2, "expanded": 106, "new": 784, "vertices": 865, "positive_new": 0, "polys": 628, "rprimes": 0, "fragile": 0, "time": 5}
+{"round": 3, "expanded": 765, "new": 5363, "vertices": 6228, "positive_new": 0, "polys": 5477, "rprimes": 0, "fragile": 0, "time": 28}
+{"round": 4, "expanded": 7105, "new": 747, "vertices": 6975, "positive_new": 0, "polys": 11616, "rprimes": 0, "fragile": 0, "time": 202}
+{"round": 5, "expanded": 780, "new": 833, "vertices": 7808, "positive_new": 0, "polys": 12545, "rprimes": 0, "fragile": 0, "time": 235}
+{"round": 6, "expanded": 1114, "new": 51, "vertices": 7859, "positive_new": 0, "polys": 13456, "rprimes": 0, "fragile": 0, "time": 264}
+{"round": 7, "expanded": 60, "new": 23, "vertices": 7882, "positive_new": 0, "polys": 13499, "rprimes": 0, "fragile": 0, "time": 265}
+{"round": 8, "expanded": 28, "new": 1, "vertices": 7883, "positive_new": 0, "polys": 13521, "rprimes": 0, "fragile": 0, "time": 266}
+{"round": 9, "expanded": 1, "new": 0, "vertices": 7883, "positive_new": 0, "polys": 13521, "rprimes": 0, "fragile": 0, "time": 266}
+STABILIZED
+{"S": 13521, "entry": 6402, "aux_only": 7119, "sum_deg": 17631, "max_deg": 2, "positive_vertices": 0}

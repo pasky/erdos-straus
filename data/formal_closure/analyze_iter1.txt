@@ -1,0 +1,1 @@
+{"S": 13521, "sum_deg": 17631, "vertices": 7883, "rprimes_outside": 1746, "explicit_ok": 779, "need_explicit": [], "n_need_explicit": 0, "obstacles": 2, "obst_list": [[1831, 1, 0, "r"], [1759, 1, 0, "C3"]], "positive": 0}
