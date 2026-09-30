@@ -23,13 +23,13 @@ explicit list of 7883 formal vertices, all nonpositive.
   need to be prime (Σdeg 7795); the other 7119 (factors of `4Z−P`) need not. So the BH
   exponent can be taken to be **6402**.
 * The family is so large that no example is within computational reach, and none of this
-  touches ES itself (ES solutions for these p exist under H too; they lie in other
-  components). Informally (not a formal metatheorem): an unconditional proof of the
+  touches ES itself (nothing here decides whether these p have positive solutions;
+  if they do — as ES predicts — those lie in other components). Informally (not a formal metatheorem): an unconditional proof of the
   seed-component conjecture must use some property of p that fails for a
   "formally generic" p of this shape, i.e. it cannot rest on congruence data plus
   the shape of factorisations alone — the Elsholtz–Tao odd-square principle, now for
   the whole component rather than a bounded ball (DEPTH3 Theorem 2). Since H is
-  believed, the conjecture should be regarded as false.
+  widely believed, the conjecture should (heuristically) be regarded as false.
 
 The certificate is `data/formal_closure/` (§3); the checks are
 `scripts/formal2_verify.py` (§3.2).
