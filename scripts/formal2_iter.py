@@ -191,5 +191,30 @@ def cmd_analyze(argv):
         json.dump(LF, open(argv[2], "w"))
 
 
+def cmd_finalize(argv):
+    """all r-primes become model primes: explicit ones get the generic rho found by analyze
+    (stored in the NEW lam file), the others a random residue avoiding the roots of S."""
+    st = json.load(gzip.open(argv[0], "rt"))
+    LF = json.load(open(argv[1]))
+    S = [k for k, C, a, e in st["S"]]
+    lam = set(int(l) for l in LF["residues"])
+    rng = random.Random(12345)
+    gr = {int(l): r for l, r in LF.get("generic_rho", {}).items()}
+    nnew = 0
+    for ell in sorted(set(st["rprimes"]) - lam):
+        if ell in gr:
+            rho = gr[ell]
+        else:
+            while True:
+                rho = rng.randrange(1, ell)
+                if all(sum(a * pow(rho, i, ell) for i, a in enumerate(k)) % ell for k in S):
+                    break
+        LF["residues"][str(ell)] = [rho, 1]
+        nnew += 1
+    LF["finalized_from"] = argv[0]
+    json.dump(LF, open(argv[2], "w"))
+    print(json.dumps({"added_model_primes": nnew, "lam": len(LF["residues"])}))
+
+
 if __name__ == "__main__":
-    {"init": cmd_init, "explicit": cmd_explicit, "analyze": cmd_analyze}[sys.argv[1]](sys.argv[2:])
+    {"init": cmd_init, "explicit": cmd_explicit, "analyze": cmd_analyze, "finalize": cmd_finalize}[sys.argv[1]](sys.argv[2:])

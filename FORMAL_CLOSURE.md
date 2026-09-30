@@ -7,6 +7,19 @@ PROVED / CONDITIONAL / EVIDENCE.
 
 * (start) Analysis of the accidental-prime gap (§1 below); new engine
   `scripts/formal2.py` being written.
+* formal2.py (python-flint) reproduces the old engine exactly (B=200 seed 1:
+  734/4162/4460 vertices after rounds 2-4; it1 model point, B=1500: 7807
+  vertices, 13359 polys, 1775 r-primes) in 35 s instead of ~30 min.
+* Iteration (model point of it1, LAM = primes<=1500): iter0: 816 r-primes fail
+  the counting certificate; explicit fragile analysis leaves 50 obstacles
+  (25 primes 1511..2053 where the roots of S (incl. aux) cover all residues,
+  11 fragile-dense r-primes 2089..26729, 14 C3 primes). Obstacles added to LAM
+  with a QR residue minimising damage. iter1: 7883 vertices, 13521 polys,
+  2 obstacles (1831, 1759). iter2 running.
+* Plan for the final certificate: make every r-prime a model prime (residue
+  = generic rho for explicit ones, random S-root-avoiding for the others) and
+  recompute the closure *exactly* at the model point; then every decision is
+  a numeric test at one integer qv with post hoc precision, no genericity.
 
 ## 1. Analysis (what exactly must be certified)
 
