@@ -433,8 +433,16 @@ Lemma 2 gives infinitely many admissible q. This proves Theorem 2. ∎
   Bateman–Horn density `(log N)^{-|S_k|}` is tiny. Actual depth-4 primes, if
   they exist in computable range, must come from *partial* genericity; see
   §4.
-* It says nothing about the whole seed component, which is finite for each
-  p. ES itself is untouched.
+* By itself it says nothing about the whole seed component, which is finite
+  for each p. ES itself is untouched.
+  **Update ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md), CONDITIONAL + CERTIFIED):**
+  for one explicit choice of q* the closure *stabilises* after 9 rounds at
+  7883 formal vertices, all nonpositive. Hence under H for an explicit family
+  of 6402 polynomials (13521 in the literal Lemma-3 form) infinitely many
+  `p=24q+1` have a seed component with **no** positive vertex: the
+  seed-component conjecture is false under H. The closure needs every prime
+  of every constant `c_r` in Λ (the "accidental-prime" gap), handled by a
+  fixed-point choice of q* at those primes.
 
 ### 3.4 A consistency check of the mechanism
 
