@@ -122,6 +122,7 @@ def main():
     P = (1, 24)
     X = (0, 1)
     assert P in S and X in S
+    assert S[P][1] == 1 and S[X][1] == 1, "C_P = C_X = 1 needed for p, q prime"
 
     def polyq(z):
         c, ex = z

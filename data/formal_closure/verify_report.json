@@ -1,0 +1,1 @@
+{"LAM": 2036, "maxLAM": 33687685065358097, "S": 13521, "S_entry": 6402, "sum_deg": 17631, "sum_deg_entry": 7795, "max_deg": 2, "vertices": 7883, "denominators": {"pdiv": 8412, "anchor": 1549, "dead": 5726}, "fibres_checked": 9961, "fibre_mismatches": 0, "r_primes_outside_LAM": [], "fixed_prime_divisors": [], "E_max": 17, "log10_M": 12087.8, "OK": true}
