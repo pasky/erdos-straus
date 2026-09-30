@@ -1,6 +1,9 @@
 # The signed seed: two hubs and an arithmetic incidence model
 
-**The seed-component conjecture remains open.** This continuation proves an
+**The seed-component conjecture remains open unconditionally, and is false
+under Schinzel's Hypothesis H** ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md):
+a certified finite formal closure of the seed component, 7883 formal
+vertices, all nonpositive). This continuation proves an
 input-defined bridge, identifies the arithmetic types of denominator fibres,
 and gives exact coordinates in which Type I positivity is a positive-quadrant
 condition. The latest deductions bound Type II fibres by two vertices and
