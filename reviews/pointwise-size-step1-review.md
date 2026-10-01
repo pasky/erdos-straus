@@ -195,9 +195,18 @@ family. It is then no longer "exactly" theirs. FORMAL_CLOSURE's own precision ru
 `E_ℓ≥v_ℓ(D)` implies (Prec). For a quotient that is a formal monomial
 `c∏(g/C_g)^{e}`, (Prec) already holds when `E_ℓ>max_g v_ℓ(g(q*_ℓ))`, because every
 factor is an ℓ-adic unit throughout that ball. For the `R=0` tests
-`DIVIDES(D+s,r)`, the quotient is `k∏C_h^β/c_r`, and (Prec) follows from
-`E_ℓ≥v_ℓ(c_r)+v_ℓ(den(D+s))`, which is exactly FORMAL_CLOSURE's (C2). With (Prec),
-the certificate's `Λ, E_ℓ` do serve.
+`DIVIDES(D+s,r)`, the quotient is the polynomial `Q=k∏C_h^β/c_r`, where
+`k=(D+s)/∏h^β`, and (Prec) holds at every ℓ:
+
+* At ℓ|c_r: `den(k)=den(D+s)` (Gauss), so
+  `Q(x)−Q(q*)∈ℓ^{E_ℓ−v_ℓ(den)−v_ℓ(c_r)}Z_ℓ`. This is integral under
+  FORMAL_CLOSURE's (C2), `E_ℓ≥v_ℓ(c_r)+v_ℓ(den(D+s))`.
+* At ℓ∤c_r it is automatic. D and s are formal monomials, hence integral on the
+  ball, and r is `c_r` times a unit there.
+
+The remaining divmods of `BFS_∞` are also monomial quotients. These are `s²/D`, the
+exact quotients y and w, and the reduction `(4Z−P)/gcd`. With (Prec), the
+certificate's `Λ, E_ℓ` do serve.
 
 I also checked the other half of "exactly": the literal S of `BFS_∞` is {P} together
 with the factors of `4z−p` and `pz` over the *non-dead* z. Polynomials occurring only
@@ -307,7 +316,7 @@ what the proof gives.
     and a `√p` size filter) and T3 (a Theorem C scan);
   * runs mutation tests.
 
-  Output: `data/review_pointwise_size/engine_run.txt` (≈45 min).
+  Output: `data/review_pointwise_size/engine_run.txt` (under 50 min).
 * `scripts/review_pointwise_size_ct.py`: independent Lemma CT enumeration.
   Output: `data/review_pointwise_size/ct_5000.txt`, `ct_20000.txt`.
 * `scripts/review_pointwise_size_fc_dict.py`: the D1 data (S_M vs S_FC; precision).
