@@ -44,7 +44,9 @@ with its status label. Read it before starting new work.
     Dickson's conjecture for only **159 linear forms**, and it exhibits a
     positive ES solution outside the sterile component (on a subprogression;
     that conclusion needs Dickson for the restricted tuple, PAPER_B_ISSUES 11).
-    Cite that version first. Write-up: `paper/pointwise-obstruction.tex`.
+    Cite that version first. Write-up: `paper/pointwise-obstruction.tex`
+    (29 pp; internal hostile referee `reviews/pointwise-obstruction-paper-review.md`,
+    round 2 ACCEPT pending the authorship/[AS] citation decision).
 * **Supporting results.**
   * `DEPTH3.md`: exact classification of escapes of length ≤3. Every
     prime `p<10^12` escapes within distance ≤3. Under H the distance is
