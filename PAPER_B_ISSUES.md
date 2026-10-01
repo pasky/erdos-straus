@@ -55,6 +55,42 @@ None of them invalidates a stated theorem.
    state. With the cruder bound R > 4/p alone, the width is only below 5/12. Either
    way it is below 1, which is all that is used. The paper gives the 1/t step.
 
+9. **DEPTH3 summary item 4 (an unverified per-family claim).** It says every one
+   of the 1113907 survivors p=24q+1, q≤10^13, escapes "through family A". The
+   committed text supports this only for the 10 distance-3 primes below 5·10^6
+   and for the 5304 survivors with 10^8<q≤10^10, where all transfers were
+   enumerated (DEPTH3 §2 tables). The batch logs for the other ranges are not in
+   the repo, and `depth3.py` may stop at a first hit, so "through A" could not be
+   checked for every prime. The paper claims distance 3 for all 1113907 and the
+   (A)-escape only for those two sets.
+
+10. **DEPTH3 Theorem 2, "explicit finite family" (wording).** The family S_k
+    depends on the profinite base point q*. Lemma 1 chooses q* non-constructively
+    (transcendental lifts), so the family is finite but not exhibited. The paper
+    says "a finite set depending on k and on the base point". An effective version
+    would need a fixed-point construction like the one FORMAL_CLOSURE uses for
+    Theorem F.
+
+11. **The positive witness of the astra result requires Dickson for the
+    restricted tuple (precision; affects STATUS.md/DISCOVERIES wording).**
+    Dickson for the 159 original forms gives infinitely many sterile seed
+    components. It does not by itself put infinitely many of them in the
+    subprogression n≡507 (mod 857) that carries the positive solution. Astra
+    checks that the restricted tuple is admissible, so Dickson for the restricted
+    159 forms gives the "positive solution outside the sterile component"
+    conclusion. The paper states it this way. STATUS.md's one-line summary
+    ("it exhibits a positive ES solution outside the sterile component") is fine
+    as a description, but strictly that conclusion is conditional on the
+    restricted tuple.
+
+12. **Self-review findings fixed in the paper itself, not in the sources.** The
+    paper's chart converse first omitted `t+a≠0`; SR (6) has it. Its first
+    formal-frame lemma stated "distinct formal integers have distinct values"
+    without fixing a finite set and threshold. The paper also first omitted
+    C_P=1 in the formal-fibre lemma and the unit condition on the base point.
+    FC/DEPTH3 have these, implicitly or explicitly. All four are corrected in the
+    paper.
+
 No mathematical gap was found in the proofs transcribed: SR §§1–5, DEPTH3
 Theorems 1–3, Lemmas 4–5 and the Corollary, FC Propositions 1–2 and §2.3,
 WINDMILL Lemmas 1, 3, 4, Proposition 5 and Theorem 7, and SIZE_CONJECTURE
