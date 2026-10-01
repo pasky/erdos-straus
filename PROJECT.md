@@ -1,5 +1,7 @@
 # Project: explicit-k correlation bounds → Erdős–Straus exceptional set
 
+> **Current status and entry point: [STATUS.md](STATUS.md)** (2026-10-01). The pointwise signed-graph line is closed: the seed-component conjecture is conditionally false; see `FORMAL_CLOSURE.md` and `../erdos-straus-astra`.
+
 Successor session to the campaign logged in `notes.md` (read it first, §3, §6,
 §8.3, §11 are the load-bearing sections; `verify.py` re-checks every
 computational companion claim in about 55 s). Goal: execute the one actionable
