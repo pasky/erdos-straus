@@ -749,7 +749,7 @@ This is the delicate part. Every step was re-derived.
 
 * **Location.** Thm 8.5's citation gives only "author PDF". Please add the journal data if
   published. I believe it is Int. J. Number Theory 4 (2008), but did not verify this.
-* The archived PDF's sha256 matches `sources/lit2026/README.md`; I checked only the pointer there.
+* The archived PDF's sha256 (`4b17e69d…`) matches `sources/lit2026/README.md` (checked).
 
 **R2-6 — NIT (D5 residue).**
 
@@ -797,5 +797,5 @@ export PYTHONPATH=scripts
  uv run python scripts/review_omega_haar.py 10000 --extras 20 100 --theta 0.05   # ~3 s
  uv run python scripts/review_omega_haar.py 20000 150                       # ~2 s
  uv run python scripts/review_omega_haar.py 100000 5 20 100 300 1000 --theta 0.05  # ~10 s
- uv run python scripts/review_omega_haar.py 1000000 1000 3000)             # ~4 min, ~3 GB
+ uv run python scripts/review_omega_haar.py 1000000 1000 3000)             # ~4 min (under the 8 GB ulimit)
 ```
