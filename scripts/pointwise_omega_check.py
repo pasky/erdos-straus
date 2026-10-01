@@ -234,6 +234,55 @@ def cmd_pairs(T, theta):
               f"{[c % l for l in rough]}")
 
 
+def cmd_typeI(X, cklim):
+    """Section 8 (EVIDENCE): for primes p=1 (mod 24), p<X, compute ck_min(p) (notes (48.9): least ck over
+    admissible slices with sf(c) not in {1,2,3,6} having a divisor of p^2+4ck^2 that is = -p mod 4ck) and
+    the least quadratic non-residue n_p; check Lemma 8.1 (ck_min >= n_p)."""
+    from sympy import isprime, factorint, divisors
+    from sympy.functions.combinatorial.numbers import legendre_symbol
+
+    def sf(c):
+        r = 1
+        for q, e in factorint(c).items():
+            if e % 2:
+                r *= q
+        return r
+    viol = n = eq = 0
+    worst = []
+    for p in range(25, X, 24):
+        if not isprime(p):
+            continue
+        n += 1
+        npq = 2
+        while legendre_symbol(npq, p) == 1:
+            npq += 1
+        ckm = None
+        for P in range(1, cklim + 1):
+            for c in divisors(P):
+                k = P // c
+                if sf(c) in (1, 2, 3, 6) or k > 2 * p // 3 or c > (2 * p + k) // (4 * k) or P % p == 0:
+                    continue
+                h = 4 * c * k
+                N = p * p + 4 * c * k * k
+                if any(d % h == (-p) % h for d in divisors(N)):
+                    ckm = P
+                    break
+            if ckm:
+                break
+        if ckm is not None and ckm < npq:
+            viol += 1
+        if ckm == npq:
+            eq += 1
+        worst.append((npq, ckm, p))
+    cens = sum(1 for _, c, _ in worst if c is None)
+    worst.sort(key=lambda t: (t[0], -1 if t[1] is None else t[1]), reverse=True)
+    print(f"typeI X={X}: {n} primes p=1 (24); violations of ck_min>=n_p: {viol}; ck_min==n_p: {eq}; "
+          f"censored (ck_min>{cklim}): {cens}")
+    print("  largest n_p (n_p, ck_min, p):", worst[:6])
+    if viol:
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     c = sys.argv[1]
     if c == "local":
@@ -244,5 +293,7 @@ if __name__ == "__main__":
         cmd_primes(int(sys.argv[2]), int(sys.argv[3]))
     elif c == "pairs":
         cmd_pairs(int(sys.argv[2]), float(sys.argv[3]))
+    elif c == "typeI":
+        cmd_typeI(int(sys.argv[2]), int(sys.argv[3]))
     elif c == "hub":
         cmd_hub(int(sys.argv[2]), float(sys.argv[3]))

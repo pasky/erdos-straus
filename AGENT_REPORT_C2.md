@@ -138,3 +138,62 @@ A reviewer subagent ran a deep, hostile review. Its findings:
 
 Replay: see `POINTWISE_OMEGA.md` § Replay. All scripts run in under 30
 minutes at a 12 GB limit.
+
+---
+
+# Checkpoint 2 (tasks (c) then (a)); §§1–6 unchanged
+
+New material is in `POINTWISE_OMEGA.md` §8 (Type I), §9 (Haar), and §0 item 5. A
+deep self-review was run; no fatal gap was found and all of its findings are
+repaired (last commit).
+
+## (c) Type-I frame (`ck_min`), §8
+
+**Answer: no `(log p)^{2−o(1)}` for `ck_min` by congruence methods, and there
+is a precise reason.**
+
+| Result | Status |
+|---|---|
+| Lemma 8.1. For p ≡ 1 (24), `ck_min(p) ≥ n_p`, the least quadratic non-residue. Genus forcing, notes Thm 48.1. | PROVED |
+| Cor 8.2 (joint). Infinitely many hard p with `W ≥ (log p)^{2−o(1)}` **and** `ck_min ≥ (log p)^{1−o(1)}`. Uses Theorem 5.1's primes, which are QR mod all ℓ ≤ y. | PROVED modulo TZ |
+| Prop 8.3. A complete Type-I certificate (class a mod L) forces `ℓ \| L` **and** `(a/ℓ)=1` for every prime 5 ≤ ℓ ≤ T. This sharpens notes Thm 56.2. | PROVED |
+| Cor 8.4. Any fixed-period congruence minorant for `ck_min > T` (the analogue of Thm 4.1) can only fire at primes with `n_p > T`. So the congruence-certifiable Type-I depth is exactly `n_p`. | PROVED |
+| Thm 8.5 (new). `ck_min(p) ≫ log p · log log log p` i.o. This is the first superlinear Type-I result, beating Thm 11.2′'s 5/12. Lau–Wu Prop 5.1 supplies primes ≡ 1 (4) that are QRs mod every q ≤ δ log x log₃ x; the self-review found it in the archived source. Effectivity not claimed. | PROVED modulo Lau–Wu Prop 5.1 (archived author PDF; their proof follows Graham–Ringrose, and we did not check it) |
+
+The obstruction:
+- Proving `ck_min > (log p)^{1+δ}` i.o. by congruences would beat every known Ω-result for the least non-residue, both unconditional (`log p·log₃ p`) and under GRH (`log p·log₂ p`).
+- It would also exceed the random-model maximum `log p·log log p` (Assessment).
+- Under GRH, Ankeny's bound caps the congruence route at `O((log p)²)`.
+- Beyond `n_p`, slice vanishing is a factorisation event (no divisor in the target grade). That puts it behind the slice dimension barrier (Assessment).
+
+EVIDENCE: `ck_min ≥ n_p` holds for all 385 primes p ≡ 1 (24) below 30000, with equality for 238 of them. The engine reproduces the notes (48.12) records.
+
+## (a) Haar side, §9 (Haar only; nothing about primes)
+
+| Result | Status |
+|---|---|
+| Lemma 9.1 (structural). Every surviving atom M = m·r with m \| 4D+1 has `m ≤ r²+1`. There is an exact `(s,r',v)` parametrisation of single-prime atoms, so `F_ℓ^{full}` is independent of T. | PROVED |
+| Lemma 9.2. After any class-of-one quarantine, the global surviving mass is `≪ (log T)^4 log log T`, uniformly in z. | PROVED modulo Elsholtz–Tao Prop 1.4 (archived; `T^{o(1)}` without it) |
+| **Theorem 9.3 (new, unconditional): `log(1/δ*(T)) ≤ T^{1/3+o(1)}`.** Improves POINTWISE_SIZE Lemma 11.7 (`T^{1/2+o(1)}`). Construction: quarantine at T^{1/3+ε}; the T^{o(1)} bad primes (g > 1/4, counted via Lemma 9.2) are quarantined too; single-coordinate events handled exactly; pair events by the local lemma under the conditioned product measure. | PROVED |
+| Theorem 9.4. Under the per-prime Hypothesis H_PP(z) (`w_ℓ ≤ log z/(8 log T)` for all primes ℓ > z), δ*(T) ≥ exp(−π(z) log T − O((log T)^4 log log T)). With z = (log T)^C this is the polylog bound of step (i). | PROVED implication; H_PP open |
+
+H_PP is open. The exact gap is a congruence saving at **fixed** ℓ: it needs equidistribution of `(4sr')^{-1} mod ℓ` against divisor weights, which is Kloosterman/Henriot-type, as in notes Thm 31.3.
+- The uniform form `ℓ·w_ℓ ≤ (log T)^C` is false. Linnik primes ℓ ≡ −1 (mod 4P) have `|𝓡(ℓ)| ≥ (3^K−1)/2`.
+- EVIDENCE:
+  - `|F_ℓ^{full}| ≈ (log ℓ)^{2+}` for 10² < ℓ < 4·10⁴.
+  - The multi-prime per-prime mass is small: `max ℓ·w^{multi}_ℓ = 0.68` at T = 10⁵, z = 300.
+  - The full H_PP ratio drops below 1 only at z ≈ T^{0.6} for accessible T, so the polylog regime is not tested numerically.
+
+What this means (Assessment):
+- Under RA, Theorem 9.3 predicts `W > (log p)^{3−ε}`.
+- On the prime side, the same construction is exactly H_MIN(1/3); it would give exponent 3, but it is blocked by the hub obstruction of §6.3.
+
+## Files
+
+- `POINTWISE_OMEGA.md` §§0, 7 (Type-I pointer), 8 and 9, and Replay.
+- `scripts/pointwise_omega_check.py`: new `typeI` command.
+- `scripts/pointwise_omega_haar.py`: new script; includes `F_full`.
+- `data/pointwise_omega/{Ffull,haar_1e5,haar_1e6}.txt`.
+- `sources/lit2026/lau-wu-least-quadratic-nonresidue.{pdf,txt}`, plus README.
+
+Stopping for parent review. I have received no forwarded repairs for §§1–6 yet.

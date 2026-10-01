@@ -90,6 +90,33 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
      single-prime atoms (51–65% of the multi-prime atoms are irredundant at
      `T=10^4, 10^5`).
 
+5. **Checkpoint 2 additions (§§8–9).**
+   * **Type-I frame (§8).**
+     * `ck_min(p) ≥ n_p` (Lemma 8.1, PROVED).
+     * Jointly, `W ≥ (log p)^{2−o(1)}` and `ck_min ≥ (log p)^{1−o(1)}` hold
+       i.o. (Cor. 8.2, PROVED modulo Thm 3.1).
+     * Complete Type-I certificates force quadratic residuosity at every
+       `5≤ℓ≤T` (Prop. 8.3, PROVED).
+     * Hence a fixed-period congruence minorant can certify `ck_min>T`
+       only at primes with `n_p>T`. Together with Lemma 8.1, the
+       certifiable depth is exactly `n_p`, i.e. `ck_min≥n_p` (Cor. 8.4,
+       PROVED).
+     * Unconditionally, `ck_min(p) ≫ log p·log log log p` i.o.
+       (Thm 8.5, PROVED modulo Lau–Wu Prop. 5.1, which follows
+       Graham–Ringrose). This is the first superlinear Type-I result. Exponent `1+δ` for `ck_min` by congruences would
+       beat every known Ω-result for the least quadratic non-residue.
+   * **Haar side (§9; Haar only, says nothing about primes).**
+     * Structural lemma: surviving atoms have smooth part `m≤r²+1`
+       (Lemma 9.1, PROVED).
+     * The global surviving mass is `≪(log T)^4 log log T` for every
+       class-of-one quarantine (Lemma 9.2, PROVED modulo Elsholtz–Tao
+       Prop. 1.4).
+     * **`log(1/δ*(T)) ≤ T^{1/3+o(1)}` unconditionally** (Theorem 9.3,
+       PROVED). This improves POINTWISE_SIZE Lemma 11.7's `1/2`.
+     * The polylogarithmic bound `δ*(T) ≥ exp(−(log T)^{O(1)})` follows
+       from the per-prime Hypothesis H_PP (Theorem 9.4, PROVED
+       implication). H_PP itself is open, with EVIDENCE.
+
 ## 1. Setting
 
 Fix `T` large and put `𝓛=log T`. Throughout,
@@ -631,8 +658,428 @@ handled: (ii) the transfer with moduli `exp(T^{θ})` in the Linnik range, and
   Theorem 5.1, which supplies at least one such prime for infinitely many N.
   The two results bracket the exceptional set at this threshold: it is
   non-empty i.o., and it has density `≤ exp{−c'(log log N)^{2+o(1)}}`.
-* **Type I frame** (`ck_min`, Thm 11.2′). Not treated. A prime-local
-  analysis of the genus-forcing atoms would be needed (open).
+* **Type I frame** (`ck_min`, Thm 11.2′). Treated in §8 (checkpoint 2).
+
+## 8. The Type-I frame (`ck_min`): the congruence route is the least-quadratic-non-residue problem
+
+Checkpoint 2, task (c). Notation as in notes §§44, 48, 50. A slice is a
+pair `(c,k)∈𝓑_p` (notes (36.1)), with `h=4ck`, `N_{c,k}=p²+4ck²`, core
+`s=sf(c)`, and genus character `χ_s=(Δ_s/·)`, where `Δ_s<0` is the
+fundamental discriminant of `ℚ(√−s)`. `M_{c,k}(p)` is the number of divisors
+of `N_{c,k}` that are `≡−p (mod h)` (notes (44.2)). Finally
+`ck_min(p)=min{ck : (c,k)∈𝓑_p, sf(c)∉{1,2,3,6}, M_{c,k}(p)>0}`
+(notes (48.9)).
+
+The question was whether the prime-local analysis gives `(log p)^{2−o(1)}`
+for `ck_min` too, alone or jointly with W.
+
+**Answer.** Only `(log p)^{1−o(1)}` jointly with Theorem 5.1. Every congruence
+method for `ck_min` is exactly the least-quadratic-non-residue Ω-problem. A
+congruence proof of `ck_min(p)>(log p)^{1+δ}` i.o. would beat every known
+Ω-result for the least non-residue.
+
+The structural reason is a contrast between the two frames.
+
+* `W(p)>T` is a pure congruence condition on p (notes (58.3)).
+* `M_{c,k}(p)=0` is a congruence condition only through the genus character
+  (Theorem 48.1). On an unforced class it is a factorisation event for
+  `p²+4ck²`, and no congruence class forces it (notes Cor. 52.2).
+
+**Lemma 8.1 (genus depth ≥ least non-residue; PROVED from notes Thm 48.1).**
+Let `p≡1 (mod 24)` be prime, `B≥1`, and suppose `(ℓ/p)=1` for every prime
+`5≤ℓ≤B`. Then `ck_min(p)>B`. In particular, if `n_p` denotes the least
+quadratic non-residue mod p, then `ck_min(p) ≥ n_p` for every prime
+`p≡1 (24)`.
+
+*Proof.* Take `(c,k)∈𝓑_p` with `ck≤B`, and put `s=sf(c)≤B`. Since
+`Δ_s∈{−s,−4s}`, we have `χ_s(p)=(−s/p)=(−1/p)∏_{q|s}(q/p)`. Each factor is
+1:
+
+* `(−1/p)=(2/p)=(3/p)=1` because `p≡1 (24)`;
+* `(q/p)=1` for `5≤q≤B` by hypothesis.
+
+Theorem 48.1 then gives `M_{c,k}(p)=0`. For the second sentence: `n_p` is
+prime, and 2 and 3 are residues, so `n_p≥5` and every prime `5≤ℓ<n_p` is a
+residue. ∎
+
+*EVIDENCE* (`pointwise_omega_check.py typeI 30000 200`). Among the 385
+primes `p≡1 (24)` below 30000, every one has `ck_min(p)≥n_p`, and 238 of
+them have equality. The engine reproduces the notes (48.12) records
+(`ck_min=7, 10, 11, 13, 21, 26, 38, 67, 77` at `p=73, …, 12289`). So the genus
+depth is often the exact depth at small p. The large records, e.g.
+`ck_min(12289)=77` against `n_p=11`, are factorisation conspiracies.
+
+**Corollary 8.2 (joint Ω-result; PROVED modulo Theorem 3.1).** There are
+infinitely many hard primes with both:
+
+```
+W(p) ≥ (log p)^2·exp(−C log log p/log log log p),
+ck_min(p) ≥ log p · exp(−C log log p/log log log p).
+```
+
+*Proof.* The primes of Theorem 5.1 satisfy `p≡1 (mod ℓ)` for every
+`ℓ≤y`, hence `(ℓ/p)=1`. Lemma 8.1 gives `ck_min(p)>y`. From §5,
+`y=√T e^{3𝓛/log 𝓛}` and `log p ≤ √T e^{(3+log 2+o(1))𝓛/log 𝓛}`. Hence
+`y ≥ log p·e^{−(log 2+o(1))𝓛/log 𝓛}`. Here `𝓛∼2 log log p`, because
+also `log p ≥ log Q ≫ y ≥ √T`. ∎
+
+For `ck_min` alone, POINTWISE_SIZE Thm 11.2′ gives `(5/12−ε)log p`, which is
+linear. Corollary 8.2 trades a factor `(log p)^{o(1)}` in `ck_min` for
+exponent 2 in W. It does not improve `ck_min` alone.
+
+**Proposition 8.3 (complete Type-I certificates force quadratic residuosity; PROVED).**
+Let `24 | L`, and let `a mod L` be a reduced class with `a≡1 (24)`. Suppose
+every sufficiently large prime `p≡a (mod L)` has `ck_min(p)>T`. Then every
+prime `5≤ℓ≤T` divides L, and `(a/ℓ)=1`.
+
+The divisibility statement is notes Thm 56.2; the residuosity statement is
+new.
+
+*Proof.* Suppose a prime `5≤ℓ≤T` has `ℓ∤L` or `(a/ℓ)=−1`. We produce
+primes in the class with `M_{ℓ,1}(p)>0`.
+
+1. **A class mod 4ℓ.** Choose `c_0 mod 4ℓ` with `c_0≡a (mod gcd(L,4ℓ))`,
+   `c_0≡1 (4)`, and `(c_0/ℓ)=−1`. This is possible: if `ℓ∤L` the residue mod
+   ℓ is free, and otherwise take `c_0≡a`.
+2. **The genus value.** For `n≡1 (4)`, reciprocity gives
+   `χ_ℓ(n)=(−ℓ/n)=(n/ℓ)`, so `χ_ℓ(c_0)=−1`.
+3. **An auxiliary prime q.** By Dirichlet choose a prime `q≡−c_0 (mod 4ℓ)`
+   with `q∤L`. Then `χ_ℓ(q)=χ_ℓ(−1)χ_ℓ(c_0)=1`, i.e. `(−ℓ/q)=1`, so there
+   is an ρ with `ρ²≡−4ℓ (mod q)`.
+4. **The primes p.** By CRT and Dirichlet there are infinitely many primes
+   p with `p≡a (L)`, `p≡c_0 (4ℓ)` and `p≡ρ (q)`. These conditions are
+   compatible because `c_0≡a` on `gcd(L,4ℓ)` and `q∤4ℓL`.
+5. **Conclusion.** For each such p, `q | p²+4ℓ=N_{ℓ,1}` and
+   `q≡−c_0≡−p (mod 4ℓ=h)`. So q is a divisor in the target grade and
+   `M_{ℓ,1}(p)≥1` (notes Thm 50.1). Also `(ℓ,1)∈𝓑_p` for large p, and
+   `sf(ℓ)=ℓ∉{1,2,3,6}`. Hence `ck_min(p)≤ℓ≤T`, a contradiction. ∎
+
+**Corollary 8.4 (the Type-I congruence route certifies exactly `n_p`; PROVED).**
+Let `24 | Q`. Let `B(n)=Σ_i c_i 1[n≡b_i (d_i)]` be any finite congruence
+combination with `B(p) ≤ 1[ck_min(p)>T]` for all sufficiently large primes
+`p≡1 (mod Q)`, e.g. a minorant as in Theorem 4.1 with `ck_min` in place of
+W. Then every sufficiently large prime p with `p≡1 (Q)` and `B(p)>0` has
+`n_p>T`.
+
+*Proof.* B is periodic mod `L=lcm(Q,d_i)`. If `B(p)>0`, then B is the same
+positive value on the whole class `a=p mod L`. So every large prime in that
+class has `ck_min>T`. Proposition 8.3 gives `(a/ℓ)=1` for `5≤ℓ≤T`, hence
+`(ℓ/p)=(p/ℓ)=1` by reciprocity (`p≡1 (4)`). Also `(2/p)=(3/p)=1`, so
+`n_p>T`. ∎
+
+So Lemma 8.1 and Corollary 8.4 together say: **the `ck_min` depth that any
+congruence method can certify at p is exactly `n_p`** (for `p≡1 (24)`). The
+consequences follow.
+
+* **Known Ω-results for `n_p` transfer only in part.** These are stated in
+  the archived secondary source `sources/lit2026/lau-wu-least-quadratic-nonresidue.pdf`,
+  Lau–Wu §1; the primary sources were not obtained:
+  * unconditionally, Graham–Ringrose (1990): `n_p=Ω(log p·log log log p)`;
+  * under GRH, Montgomery: `Ω(log p·log log p)`;
+  * under GRH, Ankeny: `n_p ≪ (log p)²`.
+
+  The congruence restriction needed to apply Lemma 8.1 is supplied by
+  Lau–Wu's Proposition 5.1, which gives Theorem 8.5 below.
+**Theorem 8.5 (superlinear Type-I Ω-result; PROVED modulo a cited proposition).**
+`ck_min(p) ≫ log p·log log log p` for infinitely many hard primes p.
+
+The cited input is Lau–Wu, *On the least quadratic non-residue* (author
+PDF, archived; their proof follows Graham–Ringrose 1990), Proposition 5.1,
+read in `sources/lit2026/lau-wu-least-quadratic-nonresidue.txt`
+ll. 378–405. Put
+`P_y={p : p≡1 (mod 4), χ_p(q)=1 for all primes q≤y}`, where
+`χ_p(q)=(q/p)`. Let `δ>0` be small and let
+`y(x)=δ log x·log₃x` (any increasing y in the range (5.1) works). Then
+there are `x_n→∞` with
+`#{p∈P_{y(x_n)} : x_n^{1/2}<p≤x_n log x_n} ≫ x_n e^{−c y/log y} > 0`.
+
+*Proof.* Take `p∈P_{y(x_n)}` from that interval. Then:
+
+* `(2/p)=1` and `p≡1 (4)` give `p≡1 (8)`;
+* `(3/p)=1` and `p≡1 (4)` give `p≡1 (3)`.
+
+So `p≡1 (24)`. Since also `(5/p)=(7/p)=1`, p is a square mod 840, i.e. it
+lies in a Mordell class. Since
+`(q/p)=1` for every prime `q≤y`, Lemma 8.1 gives `ck_min(p)>y(x_n)`. Since
+`log p ≤ log x_n + log log x_n`,
+`y(x_n) ≥ (δ/2) log p·log₃ p`. ∎
+
+This improves POINTWISE_SIZE Thm 11.2′ (`(5/12−ε)log p`) and notes
+Thm 54.3, but only by a `log₃` factor. By Corollary 8.4, any further
+improvement by congruence methods is equivalent to improving
+Graham–Ringrose for primes `≡1 (24)`. Effectivity is not claimed: the
+source handles possible exceptional zeros only along a sequence `x_n`.
+
+* **The ceiling.** Corollary 8.4 shows that a congruence proof of
+  `ck_min(p)>(log p)^{1+δ}` i.o. would prove `n_p>(log p)^{1+δ}` i.o. That
+  exceeds every known Ω-result above, unconditional or under GRH. It also
+  exceeds the standard random-model prediction
+  `max_{p≤x} n_p ≍ log x·log log x`, where
+  `#{p≤x}·2^{−π(T)} ≈ 1` gives `π(T)≈log x/log 2` (Assessment). Even under
+  GRH, Ankeny's bound caps the congruence-certified `ck_min` at
+  `O((log p)²)`.
+* **Comparison with W.** For W, the prime-local construction reaches
+  exponent 2 because a single quarantine `p≡1 (mod ℓ)` kills every atom of
+  every y-smooth modulus. For `ck_min`, the only congruence-killable slices
+  are those with `χ_s(p)=1`. Killing all slices with `ck≤T` forces `(ℓ/p)=1`
+  at every `ℓ≤T`. As a sieve condition this has local density `1/2` at every
+  free prime: mass `≍T/log T`, not `T^{o(1)}`. So no quarantine-plus-sieve
+  design helps.
+* **The true size of `ck_min`.** Beyond `n_p`, slice vanishing is a
+  factorisation event. It says that **no divisor** of `p²+4ck²` (prime or
+  composite) lies in the target grade `−p mod 4ck`.
+  * Example: `p=193`, `(c,k)=(26,2)`. Here `N=3⁵·5·31` and `h=208`. The
+    divisors 15 and 2511 hit `−193≡15 (mod 208)`, but no prime-power
+    divisor does.
+  * A sufficient condition for vanishing is the absence of good prime
+    factors. A sieve lower bound for that (sufficient) event has growing
+    dimension `≍Σ_{ck≤T}1/φ(4ck)≍(log T)²` on polynomial values sifted to
+    `√N`. This is the dimension barrier of POINTWISE_SIZE Assessment 11.5,
+    now for slices.
+  * The exact vanishing event is even less sieve-like, because composite
+    divisors also count (Assessment).
+
+## 9. The Haar side: a structural lemma, the global mass, `δ*(T) ≥ exp(−T^{1/3+o(1)})`, and the polylog bound under a per-prime hypothesis
+
+Checkpoint 2, task (a). **Everything in this section is about the Haar
+(CRT) measure only.** It says nothing about primes: the local lemma is not
+a pointwise minorant (notes §33), and the transfer to primes still needs
+H_MIN (§6.2). Recall POINTWISE_SIZE §7.1:
+
+* `δ*(T)` is the Haar measure of `{n∈Ẑ^× : n≡1 (24), n mod M∉𝓡(M) ∀M≤T}`,
+  normalised within the class `1 (24)`;
+* Lemma 11.7 proves `log(1/δ*) ≤ T^{1/2+o(1)}`;
+* the measured value is `log(1/δ*) ≍ (log T)^{2.3…2.6}`.
+
+**Setting.** Quarantine the class of one at all primes `≤z` (`z≥3`):
+`n≡1 (mod Q_z)`, `Q_z=lcm(24, ℓ^{e_ℓ}: ℓ≤z, ℓ^{e_ℓ}≤T maximal)`. For
+`M≤T`, `M≡3 (4)`, write `M=m·r`, with m the z-smooth part and r the
+z-rough part. If `r=1`, M is killed by the class of one (Fact 1.1).
+Otherwise the atoms of M that survive the conditioning are the `D | A_M²`
+with `m | 4D+1`. Each gives the event `n≡−4D (mod r)`, of conditional Haar
+probability `1/φ(r)`.
+
+**Lemma 9.1 (structural lemma: the smooth part is at most quadratic in the rough part; PROVED).**
+Let `M≡3 (4)`, `D | A_M²`, and `M=m·r` with `m | 4D+1`. Then `m ≤ r²+1`, so
+`M ≤ r³+r`. Moreover, for a prime ℓ the single-prime atoms with `r=ℓ` and
+`D≤A` correspond bijectively to triples `(s,r',v)` with:
+
+* s squarefree, `n:=sr' ≤ ℓ/2`;
+* `v | 4nr'+1` and `4n | ℓ+v`;
+* `k := m(ℓ+v)/(4n) − r' ≥ r'`, where `m=(4nr'+1)/v`, and `mℓ≡3 (4)`.
+
+The atom is `D=sr'²`, `A=sr'k`. Its class is `−4D mod ℓ`, and the partner
+`A²/D` has class `−(4D)^{−1} mod ℓ`.
+
+*Proof.* By the involution of Lemma 2.3, which preserves `m | 4D+1`
+because `m | M`, we may take `D≤A`. Write `D=sr'²` and `A=sr'k` with
+`k≥r'`. As in Lemma 2.3, `m | r'+k`, so `m ≤ r'+k ≤ 2k`. Then
+
+```
+r = (4sr'k−1)/m ≥ 2sr' − 1/(2k)   ⇒   r ≥ 2sr'.
+```
+
+Hence `m ≤ 4sr'²+1 ≤ 4(sr')²+1 ≤ r²+1`.
+
+For the parametrisation, put `v=(4sr'²+1)/m`. Then
+
+```
+m(vk−ℓr') = (4sr'²+1)k − (4sr'k−1)r' = r'+k,
+```
+
+so `vk−ℓr'=(r'+k)/m =: e`. Substituting `k=me−r'` gives
+`e(mv−1)=r'(ℓ+v)`, i.e. `e=(ℓ+v)/(4sr')`. This yields the stated
+conditions. The converse is direct. The partner class follows from
+`4A≡1 (mod ℓ)`. ∎
+
+*Consequence.* The single-prime forbidden set
+`F_ℓ^{(z)}⊆F_ℓ^{full}` (the set over all m) is a T-independent object. It
+is determined by atoms with `M≤ℓ³+ℓ`. In particular the `F_ℓ` of §2 satisfy
+`F_ℓ⊆F_ℓ^{full}`.
+
+EVIDENCE:
+
+* `pointwise_omega_haar.py`: 0 violations of `m≤r²+1` over all 3.8·10⁶
+  surviving atoms at `T=10^6` and 0.3–0.8·10⁶ at `T=10^5`.
+* The parametrisation agrees with direct enumeration for all primes
+  `ℓ<200` (0 mismatches).
+* `|F_ℓ^{full}|` grows polylogarithmically: `|F_ℓ^{full}|/(log ℓ)²` lies
+  between 0.4 and 4.8 for sampled primes `10²<ℓ<4·10⁴`, and
+  `g=|F|/(ℓ−1)` falls from about 0.16 to 0.004
+  (`data/pointwise_omega/Ffull.txt`).
+
+**Lemma 9.2 (global mass after any class-of-one quarantine; PROVED, the polylog form modulo a cited bound).**
+For every `2≤z≤T`,
+
+```
+S_tot(T,z) := Σ_{surviving atoms} 1/φ(r) ≤ C (log log T)(3+log T) Σ_{sr'²≤T} τ(4sr'²+1)/(sr').
+```
+
+The right-hand side is `≤ exp(O(log T/log log T))` by the divisor bound
+alone. It is `≪ (log T)^4 log log T` by Elsholtz–Tao (arXiv:1107.1010,
+Prop. 1.4, archived as `sources/elsholtz-tao-1107.1010.pdf`; cited):
+`Σ_{a≤A,b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)` for `k≪(AB)^{O(1)}`.
+
+*Proof.* Since r has all prime factors `>z≥2`,
+`1/φ(r) ≤ C log log T/r = C log log T·m/M`. From here the proof is that of
+Lemma 2.3, with `m=m_M` and the prime ℓ replaced by `r=M/m`. The only
+change is the weight: `m/M ≤ m/(3A)` replaces `2m/(3A)`. Every surviving
+atom has `m | gcd(4D+1, M)`, so `m | r'+k` as before, and the k-sum gives
+`(3+log X)/m`. For the polylog form, split s and r′ dyadically and apply
+Prop. 1.4 with `k=4` on each block. Each of the `O((log T)²)` blocks
+contributes `O(log T)`. ∎
+
+The bound is uniform in z. For `z≥√T` it is Lemma 2.3. `S_tot` is the
+raw atom mass. The local-lemma proofs use the mass of distinct events
+`(r,a)`, `S_ev ≤ S_tot`, which is what the script prints (as `S_tot=`).
+At `(T,z)=(20000,150)`, for example, the raw mass is 19.39 and the
+event mass 16.16. EVIDENCE (event mass): at
+`T=10^5`, `S_ev=49.7, 39.2, 29.8, 24.2, 17.9` for
+`z=5, 20, 100, 300, 1000`; at `T=10^6`, `S_ev=38.5` and `30.6` for
+`z=10³` and `3·10³`.
+
+**Theorem 9.3 (unconditional: `log(1/δ*(T)) ≤ T^{1/3+o(1)}`; PROVED, Haar only).**
+This improves POINTWISE_SIZE Lemma 11.7 (`T^{1/2+o(1)}`).
+
+*Proof.* Fix `ε>0` and put `y=T^{1/3+ε}`, quarantining as above with
+`z=y`.
+
+1. **The events.** Every z-rough part `r≤T` has at most two prime factors
+   with multiplicity, so `r∈{ℓ, ℓ², ℓ_1ℓ_2}`. Use the independent
+   coordinates `X_ℓ = n mod ℓ^{e_ℓ}`, with `e_ℓ∈{1,2}`.
+   * Single atoms (`r=ℓ` or `ℓ²`) form a forbidden set `G_ℓ` with
+     `g_ℓ ≤ Σ 1/φ(r)` over these atoms.
+   * `1∉G_ℓ` by Fact 1.1.
+   * Pair atoms are classes mod `ℓ_1ℓ_2`.
+2. **Bad primes.** Let `B={ℓ : g_ℓ>1/4}`. Then
+   `|B| ≤ 4S_tot ≤ T^{o(1)}` (Lemma 9.2). Quarantine B as well, with
+   `n≡1 (mod ℓ^{e_ℓ})` for `ℓ∈B`. This costs `|B| log T = T^{o(1)}`.
+   * Pair atoms with both primes in B become impossible, by Fact 1.1.
+   * A pair atom `(ℓb, a)` with `b∈B` becomes the residue `a mod ℓ` at ℓ if
+     `a≡1 (b)`, and is impossible otherwise.
+   * The enlarged forbidden set `G'_ℓ` at a good prime satisfies
+     `g'_ℓ ≤ 1/4 + |B|·τ(·)²_{max}·T/(ℓ y(ℓ−1)) ≤ 1/4 + T^{−3ε+o(1)} ≤ 1/2`.
+   * The added mass is
+     `Σ_ℓ (g'_ℓ−g_ℓ) ≤ |B| τ²_{max} T/y² = T^{1/3−2ε+o(1)}`.
+3. **Good pairs by the local lemma.** Under the product measure μ′
+   (uniform on the allowed residues at each good prime), a good pair event
+   `E=(ℓ_1ℓ_2,a)` has `μ'(E) ≤ 4/((ℓ_1−1)(ℓ_2−1))`. Its per-prime weight is
+
+   ```
+   w'_ℓ ≤ Σ_{ℓ'>y} (T/(ℓℓ'))τ²_max · 4/((ℓ−1)(ℓ'−1)) ≤ 16 τ²_max T/(ℓ² y) ≤ T^{1−3(1/3+ε)+o(1)} = T^{−3ε+o(1)},
+   ```
+
+   where `τ²_max=max_{A≤T}τ(A²)=T^{o(1)}`. Every event has at most two
+   primes. The asymmetric local lemma (Erdős–Lovász; Alon–Spencer
+   Lemma 5.1.1; classical) with `x_E=2μ'(E)` therefore applies for large T.
+   It gives
+   `μ'(no good pair event) ≥ ∏(1−2μ'(E)) ≥ exp(−16 S_tot)`.
+4. **Collecting.**
+
+   ```
+   δ*(T) ≥ (8/φ(Q')) · ∏_{good}(1−g'_ℓ) · exp(−16S_tot)
+         ≥ exp(−π(y) log T − |B| log T − 2(S_tot + T^{1/3−2ε+o(1)}) − 16 S_tot)
+         = exp(−T^{1/3+ε+o(1)}).  ∎
+   ```
+
+Where the exponent `1/3` comes from: it is the crude per-prime bound for
+multi-prime events, `N(M)≤τ(A²)` with no congruence saving at fixed ℓ.
+That bound gives `w_ℓ^{multi} ≲ T/(ℓ²y)` regardless of the number of rough
+primes. Since that bound carries a `T^{o(1)}` divisor factor,
+`y=T^{1/3+ε}` suffices. Failure of the crude estimate for smaller y does not
+imply failure of the local lemma.
+
+**Hypothesis H_PP(z) (per-prime mass).** For all primes `z<ℓ≤T`:
+
+```
+w_ℓ(T,z) := Σ_{surviving events E : ℓ | r_E} 1/φ(r_E) ≤ log z/(8 log T).
+```
+
+**Theorem 9.4 (PROVED implication; Haar only).**
+
+* If H_PP(z) holds, then
+  `δ*(T) ≥ (8/φ(Q_z))·exp(−4S_tot(T,z)) ≥ exp(−(1+o(1))π(z)log T − O((log T)^4 log log T))`.
+* If H_PP(`(log T)^C`) holds for all large T, then
+  `log(1/δ*(T)) ≪ (log T)^{max(C+1,4)+o(1)}`. This is the polylogarithmic
+  Haar bound of the brief's step (i).
+
+*Proof.*
+
+* **The space and the graph.** Take the product space of the coordinates
+  `X_ℓ` (`ℓ>z`), uniform on units, and the distinct events `E=(r,a)`.
+  Join two events when their rough parts share a prime.
+* **Local lemma.** Use `x_E=2/φ(r_E) ≤ 1/2`. Each E has at most
+  `ω(r_E) ≤ log T/log z` primes, so
+  `∏_{E'∼E}(1−x_{E'}) ≥ exp(−4Σ_{ℓ|r_E}w_ℓ) ≥ e^{−1/2}`. This verifies
+  the asymmetric condition, and
+  `P(no event) ≥ ∏(1−x_E) ≥ exp(−4S_tot)`.
+* **Quarantine cost.** It is `φ(24)/φ(Q_z)`, with
+  `log φ(Q_z) ≤ π(z) log T`. ∎
+
+**What H_PP needs, and the evidence.** `w_ℓ` splits into two parts.
+
+* **The single-coordinate part** (rough part a power `ℓ^e`). For `e=1`
+  it is `|F_ℓ^{(z)}|/(ℓ−1) ≤ |F_ℓ^{full}|/(ℓ−1)`, a T-independent
+  quantity, with `|F^{full}_ℓ| ≈ (log ℓ)^{2+}` (Lemma 9.1 evidence). So at
+  `ℓ>z=(log T)^C` it is about `(C log log T)^{2+}/(log T)^C`.
+  * `F^{full}_ℓ` covers only `r=ℓ`. Atoms with `r=ℓ^e`, `e≥2`, also project
+    to coordinate ℓ. Example: `z=17`, `M=19³`, `A=1715`, `D=7` gives class
+    `10 mod 19`, which is not in `F^{full}_{19}={8,12,14,15,18}`.
+  * These atoms have Haar weight `1/φ(ℓ^e)`. They are included in `w_ℓ`
+    and in the script's numbers, but they are not controlled by the
+    `F^{full}` heuristic.
+* **The multi-prime part.** EVIDENCE: `max_ℓ ℓ·w^{multi}_ℓ` is 13 at
+  `z=100` and 0.68 at `z=300` (`T=10^5`).
+
+The full ratio `max_ℓ w_ℓ·8 log T/log z` at `T=10^5` is:
+
+| z | 100 | 300 | 1000 |
+|---|---|---|---|
+| ratio | 5.7 | 2.6 | 0.96 |
+
+At `T=10^6` it is 0.81 for `z=3000`
+(`data/pointwise_omega/haar_1e5.txt`, `haar_1e6.txt`). At accessible T the
+ratio reaches 1 only near `z≈T^{0.6}`, where `log T/log z` is small. So
+this evidence is consistent with H_PP for polylogarithmic z, but it does
+not test that regime. The obstacle to a proof is the following.
+
+* For a fixed prime ℓ, `ℓw_ℓ ≈ Σ_{j≤T/ℓ} m_j N(ℓj)/j`. This is the sum
+  of Lemma 2.3 with ℓ fixed instead of averaged.
+* The congruence saving `m | r'+k` then leaves a "first term"
+  `ℓ/k_0`. Here `k_0` is the least solution of `k≡−r' (m)` and
+  `4sr'k≡1 (ℓ)`.
+* Bounding the first term needs the equidistribution of `(4sr')^{−1} mod ℓ`
+  against the weights `τ(4sr'²+1)/(sr')`, uniformly in ℓ. This is a
+  Kloosterman/Henriot-type input, cf. notes Thm 31.3, where the integer
+  analogue needed Henriot's uniform Nair–Tenenbaum bound and still yielded
+  only a softened charge.
+* `ℓw_ℓ` is not polylogarithmic for all ℓ (PROVED modulo Linnik's
+  theorem).
+  * Let P be the product of the first K odd primes. By Linnik there is a
+    prime `ℓ≡−1 (mod 4P)` with `log ℓ ≪ log P ≍ K log K`.
+  * Then `P | A=(ℓ+1)/4`. The events `(ℓ,−4D)` for the distinct classes
+    of `𝓡(ℓ)` give `ℓw_ℓ ≥ |𝓡(ℓ)| ≥ (τ(A²)−1)/2 ≥ (3^K−1)/2`, using notes
+    (B.1) / Lemma 18.1.
+  * So `ℓw_ℓ ≥ exp(c log ℓ/log log ℓ)`, which is not `(log T)^{O(1)}` at
+    `T=ℓ`.
+  * Numerically, `ℓ=87359` with `(ℓ+1)/4=2^4·3·5·7·13` gives `ℓw_ℓ≈681`
+    at `T=10^5`.
+
+  Such ℓ satisfy H_PP easily, since `w_ℓ` itself is tiny there. So the
+  hypothesis must be the relative form stated, not `ℓw_ℓ≤(log T)^C` for
+  all ℓ.
+
+**Consequences (Assessment).**
+
+* Under RA (POINTWISE_SIZE §7.3), Theorem 9.3 predicts
+  `W(p)>(log p)^{3−ε}` i.o. Previously Lemma 11.7 gave `2−ε`, which is now
+  proved without RA by Theorem 5.1.
+* Under RA and H_PP, the prediction is `W(p)>(log p)^A` for every A.
+* On the prime side, Theorem 9.3's construction is a quarantine at
+  `T^{1/3+ε}` plus pair events. Its prime analogue is exactly H_MIN(1/3),
+  which would give exponent `3−ε` by Theorem 6.2. The local lemma does not
+  supply the needed pointwise minorant, and §6.3's hub obstruction applies
+  verbatim to pair events.
 
 ## Replay
 
@@ -647,4 +1094,9 @@ $C local 4095 5000 2               # ~3 min
 $C primes 1000 5                   # example primes, ~1 min
 $C pairs 10000 0.3; $C pairs 10000 0.4; $C pairs 10000 0.45     # §6.3, ~1 min each
 $C pairs 100000 0.4                # ~5 min -> data/pointwise_omega/pairs_1e5_0.4.txt
+$C typeI 30000 200                 # §8: ck_min >= n_p for p=1 (24) < 30000, ~2 min
+H="uv run python scripts/pointwise_omega_haar.py"
+$H 100000 100 300 1000             # §9 (Lemma 9.1 check, S_tot, w_l, H_PP ratio), ~3 min -> data/pointwise_omega/haar_1e5.txt
+(ulimit -v 12000000; $H 1000000 1000 3000)   # ~20 min -> data/pointwise_omega/haar_1e6.txt
+# F_l^full sample (Lemma 9.1 parametrisation): see data/pointwise_omega/Ffull.txt (F_full() in pointwise_omega_haar.py)
 ```

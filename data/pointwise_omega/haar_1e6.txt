@@ -1,0 +1,2 @@
+T=1000000 z=1000: atoms=3813403 events=3606313 S_tot=38.491 max w_l=0.0827 (l=1319) LLL ratio max w*8logT/logz=1.323 max l*w_l=1977.00 (l=942479) structural violations m>r^2+1: 0
+T=1000000 z=3000: atoms=3794860 events=3591856 S_tot=30.552 max w_l=0.0587 (l=3359) LLL ratio max w*8logT/logz=0.810 max l*w_l=1977.00 (l=942479) structural violations m>r^2+1: 0
