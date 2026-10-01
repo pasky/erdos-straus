@@ -72,7 +72,7 @@ None affects a theorem.
 | **LW** | Int. J. Number Theory 4 (2008), 423–435, web-verified at worldscientific.com and HAL. Prop 5.1 was read in the archived author preprint, so the published numbering is not checked (R11). ✓ |
 | **Chang** | J. Anal. Math. 123 (2014), 1–33, web-verified at Springer. Cor. 11 is present in the archived text. ✓ |
 | **ET** | J. Aust. Math. Soc. 94 (2013), 50–105; the archived copy is arXiv:1107.1010v6. Prop 1.4 ("for any A,B>1, k≪(AB)^{O(1)}") ✓. Theorem 1.1, `N log²N ≪ Σ_{p≤N}f(p) ≪ N log²N log log N`, supports "average `(log N)^3` up to `log log N`". ✓ |
-| **PW** | arXiv:2511.16817, title ✓. Its Vaughan quote `N/exp(c(log N)^{2/3})` ✓. But the 10⁸ⁱ⁸ verification is credited wrongly (R5). |
+| **PW** | arXiv:2511.16817, title ✓. Its Vaughan quote `N/exp(c(log N)^{2/3})` ✓. But the 10¹⁸ verification is credited wrongly (R5). |
 | **Vaughan** | Mathematika 17 (1970), 193–198 (as in PW's references). ✓ |
 | **McCurley** | J. Number Theory 19 (1984), 7–32 (TZ ref. [10]). ✓ |
 | **GR** | Progr. Math. 85, Birkhäuser 1990, 269–309 (as in LW ref. [13]). ✓ |
