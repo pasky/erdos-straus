@@ -193,6 +193,8 @@ depends only on `x_T` and `Σ_{i∈T} s_i ≤ λ`.
     log(1/E f) ≤ 19αλ + C₄ Σ_{i: s_i≤λ} p_i e^{−α s_i}
                  + G·(75 + log(2+λ/s_*)) + (G/2)·log(16μ+16).        (2.3)
 
+(If λ < s_*, f is constant and E f ≥ 1.)
+
 *Proof.*
 
 *Step 0 (top coordinates are invisible).* A term `f_T` cannot contain any i
@@ -268,6 +270,14 @@ because `{c} × {x=0} ⊆ 𝒜`.
 
 Proposition 2.4 applies fibrewise. Jensen over `c ∈ R` turns the fibre
 profiles into `p̄_ℓ` and `μ̄`. ∎
+
+**Scope remark (where the theorem stops).** ν must be nonnegative on all of
+ℤ. Every sieve majorant in use satisfies this: Bonferroni truncations
+`Q_r(H) = C(H−1,r)` and Selberg squares. If positivity is only demanded on
+[1,N], the span of level-N class indicators already contains every function
+on [1,N], since `1[n ≡ b (mod N)]` restricted to [1,N] is `δ_b`. So the
+relaxed LP is the exact count, and evaluating it presupposes knowing the
+avoider set. Methods of that kind are "non-CRT" (§6(iii)), not sieves.
 
 **Remark 2.6 (large sieve, and what the theorem says).**
 
@@ -464,14 +474,21 @@ So in the 3/4 note `r ≍ t³` is forced. The ledger `log T_abs ≍ r·t` then
 forces `t⁴ ≲ L`. Replacing Bonferroni by the optimal majorant (Selberg, §2.5)
 changes only constants, by Lemma 4.1.
 
-**Lemma 4.3 (level of distribution; PROVED).** The BV level ϑ enters the
-3/4 proof only through `z = x^{ϑ'}` in the supply lemma, and
-`μ_c ≍_ϑ' t³` for every fixed `0 < ϑ' < 1/2`. Elliott–Halberstam
-(`ϑ' → 1/2`) multiplies `μ_c` by a bounded factor. The integer assembly uses
-exact counts `N/q + O(1)` and no level of distribution.
+**Lemma 4.3 (level of distribution; PROVED).** The BV level enters the 3/4
+proof only through the box size `z = x^{ϑ'}` of the supply lemma. That lemma
+needs `4uv ≤ 4z²` below the BV level, so `ϑ' < 1/4`; the note takes
+`ϑ' = 1/6`.
 
-*Proof.* The block mass is `≍ (log z)² h = ϑ'² t² h` (Theorem 5.2 of the note
-with z replaced). ∎
+Elliott–Halberstam would allow any `ϑ' < 1/2`. That is also the distinctness
+limit `z² < ℓ`, so EH can multiply `μ_c` by at most `(3)² = 9` times a
+constant. The integer assembly uses exact counts `N/q + O(1)` and no level of
+distribution.
+
+*Proof.* The block mass is `≍ (log z)² h = ϑ'² t² h`. This is the
+unpruned-supply theorem of the note (thm:unpruned) with `x^{1/6}` replaced by
+`x^{ϑ'}`; the lattice and Brun–Titchmarsh steps are unchanged. Theorem 2.5
+then caps the saving through the profile, which changes only by this
+bounded factor. ∎
 
 **Lemma 4.4 (2/3-loglog note: what binds; PROVED).** The note:
 * splits into progressions mod `L_K`, with `log L_K ≈ K ≤ δL`;
