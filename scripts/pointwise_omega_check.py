@@ -137,6 +137,96 @@ def cmd_primes(T, K):
               f"W(p)={W if W else '>'+str(50*T)} W/log p={'' if W is None else round(W/lp, 1)}")
 
 
+def cmd_hub(T, theta):
+    """Section 6.3: for y=T^theta<sqrt T, the single-prime forbidden sets F_l (atoms M=m*l<=T with
+    m y-smooth, conditioned on n=1 mod Q_y) and the irredundant pair hub -2: count primes
+    l in (y, sqrt(T/3)], l = 3 or 7 (mod 8), with -2 not in F_l."""
+    y = T ** theta
+    spf = spf_table(4 * T + 8)
+
+    def smooth(m):
+        return all(p <= y for p in factor(m, spf)) if m > 1 else True
+    top = isqrt(T // 3)
+    tot = {3: 0, 7: 0}
+    free = {3: 0, 7: 0}
+    for l in primerange(int(y) + 1, top + 1):
+        if l % 8 not in (3, 7):
+            continue
+        tot[l % 8] += 1
+        hit = False
+        for m in range(1, T // l + 1):
+            if (m * l) % 4 != 3 or not smooth(m):
+                continue
+            A = (m * l + 1) // 4
+            f = {p: 2 * e for p, e in factor(A, spf).items()}
+            for D in divisors_from(f):
+                if (4 * D + 1) % m == 0 and (4 * D - 2) % l == 0:
+                    hit = True
+                    break
+            if hit:
+                break
+        if not hit:
+            free[l % 8] += 1
+    print(f"hub T={T} theta={theta} y={y:.1f} sqrt(T/3)={top}: primes l=3 (8): {free[3]}/{tot[3]} "
+          f"have -2 not in F_l;  l=7 (8): {free[7]}/{tot[7]}")
+
+
+def cmd_pairs(T, theta):
+    """Section 6.3: for y=T^theta, list the multi-prime atoms (rough part r = product of >=2 primes
+    > y) after the class-of-one quarantine, and test whether each is implied by a single-prime atom
+    (its residue mod some l | r lies in F_l)."""
+    y = T ** theta
+    spf = spf_table(4 * T + 8)
+    F = {}
+    multi = []
+    for M in range(3, T + 1, 4):
+        f = factor(M, spf)
+        rough = [p for p in f if p > y]
+        if not rough:
+            continue
+        r = 1
+        for p in rough:
+            r *= p ** f[p]
+        m = M // r
+        A = (M + 1) // 4
+        fa = {p: 2 * e for p, e in factor(A, spf).items()}
+        cls = {(-4 * D) % r for D in divisors_from(fa) if (4 * D + 1) % m == 0}
+        if len(rough) == 1 and f[rough[0]] == 1:
+            F.setdefault(rough[0], set()).update(cls)
+        else:
+            multi.append((M, m, tuple(rough), cls))
+    n_at = n_irr = 0
+    irr_examples = []
+    for M, m, rough, cls in multi:
+        for c in cls:
+            n_at += 1
+            if not any((c % l) in F.get(l, ()) for l in rough):
+                n_irr += 1
+                if len(irr_examples) < 8:
+                    irr_examples.append((M, m, rough, c))
+    # irredundant hub classes -d: graph on primes l with (-d mod l) not in F_l, edge if -d mod l1*l2
+    # is an irredundant two-prime atom
+    hubs = {}
+    for M, m, rough, cls in multi:
+        if len(rough) != 2:
+            continue
+        r = M // m
+        for c in cls:
+            d = r - c
+            if d <= 60 and not any((c % l) in F.get(l, ()) for l in rough):
+                hubs.setdefault(d, set()).add(rough)
+    best = sorted(((len(E), d) for d, E in hubs.items()), reverse=True)[:6]
+    for ne, d in best:
+        V = {l for e in hubs[d] for l in e}
+        print(f"   hub class -{d}: {ne} irredundant two-prime atoms on {len(V)} primes")
+    print(f"pairs T={T} theta={theta} y={y:.1f}: multi-prime moduli={len(multi)} atoms={n_at} "
+          f"irredundant w.r.t. single-prime atoms={n_irr}")
+    for e in irr_examples:
+        M, m, rough, c = e
+        print(f"   e.g. M={M} m={m} rough={rough} class {c} mod {M//m}: residues "
+              f"{[c % l for l in rough]}")
+
+
 if __name__ == "__main__":
     c = sys.argv[1]
     if c == "local":
@@ -145,3 +235,7 @@ if __name__ == "__main__":
         cmd_lemma(int(sys.argv[2]))
     elif c == "primes":
         cmd_primes(int(sys.argv[2]), int(sys.argv[3]))
+    elif c == "pairs":
+        cmd_pairs(int(sys.argv[2]), float(sys.argv[3]))
+    elif c == "hub":
+        cmd_hub(int(sys.argv[2]), float(sys.argv[3]))
