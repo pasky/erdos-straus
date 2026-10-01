@@ -48,23 +48,26 @@ denominator.  The \emph{seed} $(t,-2pt,-2pt)$ is available for every such
 $p$, and the \emph{seed-component conjecture} asserts that its component
 always contains an all-positive solution; it would imply the
 Erd\H{o}s--Straus conjecture for $p\equiv1\pmod4$.  We explain why this
-pointwise programme cannot succeed by any argument that uses only
-congruence data and the shape of factorisations.  Unconditionally, we
+pointwise programme is blocked.  Arguments that use only congruence data
+and the shape of factorisations fail at ``formally generic'' primes, and we
+prove precise forms of this principle.  Unconditionally, we
 classify all escapes from the seed of length at most three, show that every
 prime outside Mordell's six classes modulo $840$ escapes in two moves, and
 bound the exceptional sets by $N(\log N)^{-11/2}$ (distance $>2$) and
 $N(\log N)^{-10}$ (distance $>5$).  Under Schinzel's Hypothesis~H the seed
-distance is unbounded.  Moreover, the whole seed component is free of positive
-vertices for infinitely many primes.  This was proved first, and in a
-stronger form, by a companion computation assuming Dickson's conjecture for
-$159$ linear forms only; that construction also exhibits a positive
-solution outside the sterile component.  We give an independent
+distance is unbounded.  Under prime-tuple hypotheses, moreover, the whole
+seed component has no positive vertex for infinitely many primes.  This
+was proved first, and in a stronger form, by a companion computation that
+assumes only Dickson's conjecture for $159$ linear forms.  On a
+subprogression, that construction also exhibits a positive solution
+outside the sterile component.  We give an independent
 confirmation from Hypothesis~H for $6402$ explicit polynomials of degree at
-most two, via a certified finite closure of $7883$ formal vertices.  A
-common mechanism lies behind these results, the Elsholtz--Tao
-``odd-square'' remark and Schinzel's polynomial-identity theorem: at a
-formally generic prime every number the argument meets factors formally, and
-by the Bright--Loughran character dichotomy no formal solution is positive.
+most two, via a certified finite closure of $7883$ formal vertices.  The
+bounded-radius result, the Elsholtz--Tao ``odd-square'' remark and
+Schinzel's polynomial-identity theorem share one mechanism.  At a formally
+generic prime every number the argument meets factors formally, and in a
+square class the Bright--Loughran character dichotomy leaves no formal
+solution positive.
 We also record further obstructions: sterile components larger than the
 seed component, the triviality of large $p$-free buckets, and parity
 obstructions.  The Erd\H{o}s--Straus conjecture itself is untouched.
@@ -181,7 +184,8 @@ $\#\{p\le N:\dist(p)>5\}\ll N(\log N)^{-10}$.
 For every $k$ there are infinitely many primes $p=24q+1$, with $q$ prime,
 such that every vertex within distance $k$ of the seed is nonpositive.  Under
 the Bateman--Horn conjecture there are $\gg_k N(\log N)^{-C_k}$ of them up to
-$N$.  Hence no bounded-depth search from the seed proves ES.
+$N$.  Hence, under H, no bounded-depth search from the seed proves ES for
+all primes $p\equiv1\pmod4$.
 \end{introthm}
 
 \begin{introthm}[\status{conditional}; \S\ref{sec:whole}]\label{thmC}
