@@ -9,14 +9,14 @@ We print, for several (mu, m):
   * logV  : -log of the LP value with the dual restricted to the support
             {0..kmax} (a LOWER bound for W: every dual-feasible pi gives
             W >= pi(0));
-  * logL  : -log of the Lagrange-node bound of Lemma 2.4 with the explicit
+  * logL  : -log of the Lagrange-node bound of Lemma 2.2 with the explicit
             node recipe of the lemma (a rigorous LOWER bound for W);
   * logLopt: the same bound with the best nodes found by a small search;
   * claim : the explicit right-hand side (k/2)log(C1 mu/k)+(1/2)log(16 mu)
-            of Lemma 2.4 (must be >= logL).
+            of Lemma 2.2 (must be >= logL).
 All logs are natural; "saving" = -log W.  Larger saving = stronger sieve.
 
-Also checks Lemma 2.4's inequality on a grid of (z, q, k) with exact
+Also checks Lemma 2.2's inequality on a grid of (z, q, k) with exact
 binomial pmf (lgamma), and the Rankin step
     (k/2) log(C1 mu/k) <= a k s + (C1 mu/(2e)) exp(-2 a s).
 
@@ -53,7 +53,7 @@ def lagrange_bound(nodes, logpmf):
 
 
 def recipe_nodes(mu, k):
-    """Node recipe of Lemma 2.4: W=ceil(sqrt(k mu)/2), h=ceil(2W/k), a=ceil(mu)-W."""
+    """Node recipe of Lemma 2.2: W=ceil(sqrt(k mu)/2), h=ceil(2W/k), a=ceil(mu)-W."""
     W = math.ceil(math.sqrt(k * mu) / 2)
     h = math.ceil(2 * W / k)
     a = math.ceil(mu) - W
@@ -144,7 +144,9 @@ def table():
                   f"{(m/2)*math.log(mu/m):15.3f}")
             # consistency: Selberg value is an upper bound on W, LP value a lower bound
             # on W (so logV >= saving >= logU), Lagrange bound a lower bound (logL >= logV)
-            if not math.isnan(v):  # LP may fail numerically for large instances
+            if math.isnan(v):  # LP may fail numerically for large instances
+                print(f"   (LP solver failed for mu={mu}, m={m}; row has no LP value)")
+            else:
                 assert u <= v + 1e-3, (mu, m, u, v)
                 assert v <= lo + 1e-6 and v <= lr + 1e-6, (mu, m, v, lo, lr)
             assert u <= lo + 1e-6 and u <= lr + 1e-6, (mu, m, u, lo, lr)
@@ -152,7 +154,7 @@ def table():
 
 
 def check_lemma_grid():
-    """Lemma 2.4 for binomial laws: recipe nodes, all k in [1, mu/16], mu >= 64."""
+    """Lemma 2.2 for binomial laws: recipe nodes, all k in [1, mu/16], mu >= 64."""
     bad = 0
     n = 0
     for z in [10 ** 3, 10 ** 4, 10 ** 6]:
@@ -171,7 +173,7 @@ def check_lemma_grid():
                 if lb > claim_rhs(mu, k) + 1e-9:
                     bad += 1
                     print("VIOLATION", z, q, k, lb, claim_rhs(mu, k))
-    print(f"Lemma 2.4 grid: {n} cases, {bad} violations")
+    print(f"Lemma 2.2 grid: {n} cases, {bad} violations")
     assert bad == 0
 
 

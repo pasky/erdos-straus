@@ -5,7 +5,10 @@
 (b) Exact class masses (distinct residues) of the three forced-class families,
     against (log x)^3:
       B-M  : multiplier/M-grouping,  classes -4D mod M, D | A^2      (notes 18.1)
-      B-aD : a-frame grouping,       classes -(4D+a) mod 4a g(D)     (Lemma 3.2)
+      B-aD : a-frame grouping,       classes -(4D+a) mod 4a g(D)     (Lemma 3.2;
+             computed only for a = 3 (mod 4) [the n = 1 (mod 4) case] and
+             gcd(a,D) = 1 [the witness-relevant classes]; other classes are
+             forced too but excluded here by choice)
       A    : Case-A mirror,          classes -m^{-1} mod 4g(d), m | 4d+1 (Lemma 3.3)
     For B-aD and A the residue sets per modulus are built explicitly and
     deduplicated, so the printed numbers are exact union masses.

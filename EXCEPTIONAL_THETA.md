@@ -19,20 +19,25 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 
 | item | statement | label |
 |---|---|---|
-| Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. | PROVED |
-| Cor 3.4 | Take any prime-slice family of forced classes (multiplier identity, both groupings, with small parts k ≤ ℓ^C, C<1). Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A) (log N)^{3/4}`. So **3/4 is sharp for this class, and no power of log log N can be gained.** | PROVED |
+| Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `(|R|/Q₀)·exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. Here λ charges only the slice primes. | PROVED |
+| Cor 3.4 | Take any family of Case-B forced classes (both groupings) that are all slice conditions, with small parts k ≤ ℓ^C (C<1) and a selector admissible set. Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A)(log N)^{3/4} + log(P/φ(P))`, where the last term is O(log log log P). So **3/4 is sharp for this class, and no power of log log N can be gained.** This assumes the final bound has the form `N·Eν + (nonnegative rounding bound)`. | PROVED |
 | Cor 3.5 | Polylogarithmic multipliers, or multipliers whose lcm is at most N (the 2/3 note's architecture), cap the saving at `C L^{2/3}(log L)^{1/3}`. **The 2/3-loglog note is sharp for its architecture.** | PROVED (given the notes' BT upper bounds) |
 | §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, level). Bonferroni depth, the BV level and the selector are not binding: they change constants only. | PROVED (Lemmas 4.1–4.4) |
-| §5 | Levers. Cost-per-condition, beyond-identity supply, both halves and Bonferroni→Selberg are closed by proved statements. Case A needs the numerically supported bound H_A3. Halász is closed by a counterexample plus Assessment. The ET first moment is consistent with B = 3. One door stays open: multi-slice moduli and multipliers larger than the slice prime (H_MS). | see table §5.0 |
+| §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed conditional on H_A3. Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: multi-slice moduli, multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
-| §2.5 | In the exchangeable model, the exact LP optimum equals the Selberg/Christoffel value 1/Σ_{j≤m/2} μ^j/j! to 3 decimals. So Selberg Λ² is essentially optimal, and Bonferroni loses only a constant factor. | EVIDENCE |
+| §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. | EVIDENCE |
 
-**Verdict.** No route to θ > 3/4 survives inside the prime-slice CRT world. The
-Rankin functional `inf_α[αλ + Σ p̄_ℓ ℓ^{−α}]` is an exact two-sided description
-of what any such sieve can save. The lower side is the large sieve or the 3/4
-note; the upper side is Theorem 2.5. The identity supply profile satisfies
-`Σ p̄_ℓ ℓ^{−α} ≍ α^{−3}`, which gives λ^{3/4}. Beating 3/4 requires one of
-three things:
+**Verdict.** No route to θ > 3/4 survives inside the prime-slice CRT world.
+That world is: slice conditions only, a selector-type admissible set, and a
+final bound of the form `N·Eν + (nonnegative rounding bound)`.
+
+The Rankin functional `Ψ = inf_α[αλ + Σ p̄_ℓ ℓ^{−α}]` bounds what any such
+sieve can save (Theorem 2.5). For fibre-uniform families, such as those of
+both campaign notes, it is also attained up to constants, by the large sieve
+or the 3/4 note. The Case-B identity profile satisfies
+`Σ p̄_ℓ ℓ^{−α} ≪ α^{−3}` (Lemmas 3.1–3.2), which gives λ^{3/4}.
+
+Beating 3/4 requires one of three things:
 1. conditions whose modulus has **two or more large prime factors at
    comparable scales**, used *jointly*. Theorem 2.5 does not cover these
    (hypothesis H_MS, §5.6);
@@ -186,19 +191,22 @@ Take independent `x_i ~ Bern(p_i)` (i ∈ I) with weights `s_i ≥ s_* > 0`. A
 function `f` on `{0,1}^I` is *λ-level* if `f = Σ_T f_T`, where each `f_T`
 depends only on `x_T` and `Σ_{i∈T} s_i ≤ λ`.
 
-**Proposition 2.4 (PROVED).** Assume `p_i ≤ 1/4` for every i. Let f be
-λ-level with `f ≥ 0` and `f(0) ≥ 1`. Put `G = ⌊log₂(λ/s_*)⌋ + 1` and
+**Proposition 2.4 (PROVED).** Assume `p_i ≤ 1/4` for every i with
+`s_i ≤ λ`, and `p_i < 1` for every i. Let f be λ-level with `f ≥ 0` and
+`f(0) ≥ 1`. Assume `λ ≥ s_*`, and put `G = ⌊log₂(λ/s_*)⌋ + 1` and
 `μ = Σ_{s_i≤λ} p_i`. Then for every α > 0,
 
     log(1/E f) ≤ 19αλ + C₄ Σ_{i: s_i≤λ} p_i e^{−α s_i}
                  + G·(75 + log(2+λ/s_*)) + (G/2)·log(16μ+16).        (2.3)
 
-(If λ < s_*, f is constant and E f ≥ 1.)
+If λ < s_*, f is constant, so E f = f(0) ≥ 1.
 
 *Proof.*
 
 *Step 0 (top coordinates are invisible).* A term `f_T` cannot contain any i
-with `s_i > λ`. So f ignores those coordinates, and we discard them.
+with `s_i > λ`. So f ignores those coordinates, and we discard them, as well
+as coordinates with `p_i = 0` (f's restriction to `x_i = 0` is still λ-level)
+and empty bands. All sets below are finite, and Λ is a finite lower set.
 
 *Step 1 (bands).* Put `B_g = {i : 2^g s_* ≤ s_i < 2^{g+1}s_*}` for
 `0 ≤ g < G`, `s_g = 2^g s_*` and `q_g = max_{i∈B_g} p_i ≤ 1/4`.
@@ -233,7 +241,9 @@ Reducing with `Π_{i=0}^{z_g}(K_g−i) = 0` on the support, we may assume
 points, where `Q ≥ 0`. This gives
 
     1 ≤ Q(0) ≤ Σ_{j∈Λ'} |c_j| Π_g B_g(j_g) · Σ_{y∈grid_j} ψ(y)Q(y)
-             ≤ (2^G |Λ| max_{j∈Λ} Π_g B_g(j_g)) · E Q(K).
+             ≤ (2^G |Λ'| max_{j∈Λ'} Π_g B_g(j_g)) · E Q(K).
+
+If `z_g = 0`, then `K_g ≡ 0`, `j_g = 0` on Λ', and `B_g(0) = 1` (node 0).
 
 *Step 5 (bounds).* Use (2.2) for each g with `s = s_g` and `μ' = q_g z_g`,
 together with:
@@ -250,26 +260,53 @@ Finally `e^{−2αs_g} ≤ e^{−αs_i}` on `B_g`, and `Σ_g log(16μ_g+16) ≤ 
 ### 2.4 The CRT form
 
 **Theorem 2.5 (sieve limit for prime-slice systems; PROVED).** Take a
-prime-slice system as in §1. Assume `|F_ℓ(c)| ≤ ℓ/4` for every `c ∈ R` and
-every `ℓ ∈ 𝒫` with `ℓ ≤ e^λ`. Let ν be any majorant of level λ, and put
-`s_* = log min 𝒫`. Then for every α > 0,
+prime-slice system as in §1. Assume that for every `c ∈ R`:
+* `|F_ℓ(c)| ≤ ℓ/4` for every `ℓ ∈ 𝒫` with `ℓ ≤ e^λ`;
+* `|F_ℓ(c)| < ℓ` for every `ℓ ∈ 𝒫`, so every admissible fibre has avoiders.
+
+Let ν be any majorant of level λ ≥ s_*, where `s_* = log min 𝒫`. (If
+λ < s_*, ν depends only on the small residue and the bound below holds
+without the λ-terms.) Then for every α > 0,
 
     log(1/Eν) ≤ log(Q₀/|R|) + 19αλ + C₄ Σ_{ℓ∈𝒫, ℓ≤e^λ} p̄_ℓ ℓ^{−α}
                 + G(75+log(2+λ/s_*)) + (G/2)·log(16μ̄+16).          (2.4)
 
 *Proof.* Use uniform measure on `ℤ/Q_tot`, a common period. By CRT, the
-coordinates `c = n mod Q₀*` (the Q₀-primary part), `n mod ℓ^{e_ℓ}` (ℓ∈𝒫) and
-the rest are independent and uniform. We have
-`Eν ≥ (|R|/Q₀) · avg_{c∈R} E[ν | c]`.
+coordinates `n mod Q₀*` (Q₀* is the Q₀-primary part of Q_tot), `n mod ℓ^{e_ℓ}`
+(ℓ∈𝒫) and the rest are independent and uniform. We condition on
+`c := n mod Q₀`, which is a function of the first coordinate. We have
+`Eν = Q₀⁻¹ Σ_c E[ν | c] ≥ (|R|/Q₀) · avg_{c∈R} E[ν | c]`, since ν ≥ 0.
 
 Fix `c ∈ R`. The hit indicators `x_ℓ = 1[n mod ℓ ∈ F_ℓ(c)]` are independent
-`Bern(p_ℓ(c))`. Each term of ν, conditioned on `(c, x)`, depends only on
-`x_{T_i}`, where `T_i = {ℓ∈𝒫 : ℓ | d_i}`. So `ν_c := E[ν | c, x]` is λ-level
-with weights `s_ℓ = log ℓ`, satisfies `ν_c ≥ 0`, and has `ν_c(0) ≥ 1`
-because `{c} × {x=0} ⊆ 𝒜`.
+`Bern(p_ℓ(c))`, independent of the finer digits of `n mod Q₀*`. Each term of
+ν, conditioned on `(c, x)`, depends only on `x_{T_i}`, where
+`T_i = {ℓ∈𝒫 : ℓ | d_i}`. So `ν_c := E[ν | c, x]` is λ-level with weights
+`s_ℓ = log ℓ`, and `ν_c ≥ 0`.
+
+The event `{c} × {x=0}` has positive probability, since every `p_ℓ(c) < 1`,
+and it is contained in 𝒜. So `ν_c(0) ≥ 1`.
 
 Proposition 2.4 applies fibrewise. Jensen over `c ∈ R` turns the fibre
-profiles into `p̄_ℓ` and `μ̄`. ∎
+profiles into `p̄_ℓ` and `μ̄`. Here μ̄ may be read as the truncated mass
+`Σ_{ℓ≤e^λ} p̄_ℓ`. ∎
+
+**Two caveats on (2.4).**
+
+*The R-term is a saving the theorem leaves uncontrolled.* `log(Q₀/|R|)` is
+part of the *upper* bound on saving. For example, `ν = 1_R` is a majorant
+with no slice cost and saving exactly `log(Q₀/|R|)`.
+
+* For the selector `R = {(c,P)=1}`, this term is
+  `log(P/φ(P)) ≤ log log log P + O(1)`, which is negligible.
+* If R itself encodes forced classes whose moduli divide Q₀ (pure
+  small-modulus conditions), this term is the CRT void of a *non-slice*
+  subsystem. Theorem 2.5 says nothing about it; see H_MS, §5.6.
+
+*Interval-counting methods.* The theorem bounds the CRT mean Eν. A method
+whose final bound for `#(𝒜∩[1,N])` has the form `N·Eν + (a nonnegative bound
+on the rounding term)` is therefore capped. A method that proves *signed*
+cancellation among the rounding errors `Σ_{n≤N}ν(n) − N·Eν` is outside the
+scope.
 
 **Scope remark (where the theorem stops).** ν must be nonnegative on all of
 ℤ. Every sieve majorant in use satisfies this: Bonferroni truncations
@@ -287,11 +324,20 @@ avoider set. Methods of that kind are "non-CRT" (§6(iii)), not sieves.
 that its bound obeys the same functional directly. No duality is needed in
 that case.
 
-*Two-sided description.* The theorem is the converse of the large-sieve and
-Rankin calculation. Up to absolute constants and O(log²λ), the best saving
-of *any* level-λ CRT majorant on a prime-slice system is
+*One-sided in general, two-sided for uniform families.* Put
 
     Ψ(λ) := inf_{α>0} [ αλ + Σ_ℓ p̄_ℓ ℓ^{−α} ].                      (2.5)
+
+Theorem 2.5 shows that no level-λ majorant saves more than `C·Ψ(λ) + O(log²λ)`
+beyond the R-term.
+
+The reverse inequality fails in general. Fibres may differ wildly: if one
+fibre has no conditions at all, the saving is at most `log 2`, whatever
+Ψ is. Jensen only gives the upper bound.
+
+For *fibre-uniform* families, i.e. `p_ℓ(c) ≍ p̄_ℓ` on all but a negligible
+set of fibres, the large sieve in each fibre matches Ψ up to constants. The
+families of the 2/3 and 3/4 notes are of this kind (§4).
 
 *Coordinates beyond the level.* Conditions at primes `ℓ > e^λ` contribute
 nothing (Step 0).
@@ -307,8 +353,9 @@ follows from the same proof by interpolating at the point `(κ_g)` with
 `scripts/theta_sieve_limit.py` solves the exchangeable LP
 `min{E Q(K) : deg Q ≤ m, Q ≥ 1_{0} on ℤ_{≥0}}` for `K ~ Poisson(μ)`. It uses
 the dual on a truncated support, which is a rigorous lower bound, in a
-Charlier basis. The Selberg value `[Σ_{j≤m/2} μ^j/j!]^{−1}` is an upper
-bound on the LP optimum W, which equals the Christoffel function at 0.
+Charlier basis. The Selberg value `[Σ_{j≤m/2} μ^j/j!]^{−1}` is the
+Christoffel function at 0, i.e. the optimum over square majorants. It is an
+upper bound on the LP optimum W.
 
 | μ | m | −log Selberg | −log W (LP) | Lagrange, best nodes | Lagrange, recipe of Lemma 2.2 | claimed bound (c) |
 |---:|---:|---:|---:|---:|---:|---:|
@@ -318,8 +365,15 @@ bound on the LP optimum W, which equals the Christoffel function at 0.
 | 512 | 8 | 21.783 | 21.784 | 25.574 | 30.946 | 56.231 |
 
 Three observations:
-* The LP optimum equals the Selberg value to about 10⁻³. So the square
-  majorant is essentially optimal among *all* degree-m majorants.
+* In the tested cases, the numerical LP optimum and the Selberg value agree
+  to within 0.01 in −log, relative 10⁻³. So the square majorant is
+  near-optimal among degree-m majorants nonnegative on ℤ_{≥0}. This is
+  floating-point and uncertified, so it is EVIDENCE.
+
+  Equality does not hold in general. The Christoffel value is the optimum
+  over *square* majorants only, and integer-nonnegative polynomials can do
+  better. For Poisson(1/2) and degree 2, `Q(k) = (k−1)(k−2)/2` has mean
+  5/8 < 2/3, the square optimum.
 * The rigorous Lagrange bound is within a factor of about 1.15 (best nodes)
   or 1.45 (recipe) of the truth.
 * Bonferroni of degree r has `E Q_r(H) ≥ P(H ≥ r+1)` (Lemma 4.2). It is
@@ -360,11 +414,15 @@ is forced for n ≥ 1. Indeed, write `n+4D+a = 4a·g·j` with j ≥ 1. Then
 `D | g² | A_M²` and `n ≡ −4D (mod M)`. Hence n lies in a class of ℛ(M),
 which is forced by Lemmas 16.1 and 18.1.
 
-Every Case-B witness (q, d) of Theorem 3.1(B) lies in the class with a = q,
-D = d. To see this:
+Every Case-B witness (q, d) of Theorem 3.1(B) for a prime `p ∤ q` lies in
+the class with a = q, D = d. To see this:
 * `D | x²` is equivalent to `g(D) | x`;
 * `q | d+x` gives `p+a ≡ −4D (mod 4a)`;
-* `gcd(q, x) = 1` gives `gcd(a, g) = 1`.
+* `4x = p+q` gives `gcd(q,x) | p`, hence `gcd(q,x) = 1` and so
+  `gcd(a, g) = 1`.
+
+The coprimality is needed. For example `p = 5`, `q = 15`, `x = 5`, `D = 25`
+is a witness, but `p ∉ 185 (mod 300)`.
 
 So the (a,D) family is the *exact criterion* `D | x², D ≡ −x (mod a)` of
 notes §§61–62, written as congruences.
@@ -379,40 +437,54 @@ classes `n ≡ −m^{−1} (mod 4g(d))` with `m | 4d+1`. The reason is that
 `nm ≡ −1 (mod 4g(d))`. This reduction is PROVED.
 
 Its exact union mass up to `x = 10², 10³, 4000` is 0.0280, 0.0257 and 0.0254
-times `(log x)³`. That is EVIDENCE that this profile is also cubic. A proof
-(of a bound `Σ_{rh≤x} τ(4rh²+1) ≪ x log²x`) is not written out. Case-A
-families are therefore covered by Cor 3.4 only under this numerically
-supported bound (named **H_A3**). No existing proof uses Case A.
+times `(log x)³`. That is EVIDENCE that this profile is also cubic.
+
+The bound needed for Cor 3.4 is a weighted one. Write each d uniquely as
+`d = r h²` with r squarefree; then `g(d) = rh`. The selector introduces the
+weight `G/φ(G)`, so we need:
+
+> **H_A3 (open; numerically supported in its unweighted form).**
+> `Σ_{r sqfree, rh≤x} τ(4rh²+1)·(rh/φ(rh)) ≪ x(log 2x)²`.
+
+Under H_A3 the Case-A profile is `≪ β^{−3}`, and Cor 3.4 extends to
+families containing Case-A classes. No proof is written out here; it is a
+divisor sum over a binary quadratic family. No existing proof uses Case A.
 
 **Corollary 3.4 (the 3/4 ceiling for prime-slice forced-class architectures;
-PROVED).** Fix `0 < C < 1` and `A ≥ 1`. Take a prime-slice system whose
-conditions are forced classes of Lemma 16.1 (any multiplier grouping) or of
-Lemma 3.2, with:
+PROVED).** Fix `0 < C < 1` and `A ≥ 1`. Take a prime-slice system with
+*every* condition a slice condition, i.e. there are no pure small-modulus
+conditions, and with:
+* every condition a forced class of Lemma 16.1 (any multiplier grouping) or
+  of Lemma 3.2;
 * each condition modulus `q₀ℓ` satisfying `q₀ ≤ ℓ^C`;
-* `R = {c : (c,P)=1}` for some `P | Q₀`;
+* `R = {c : (c,P)=1}` for some `P | Q₀` (a selector);
 * `ℓ ≥ ℓ₀(C)`.
 
 Then every majorant of level `λ ≤ A·log N` satisfies
 
-    log(1/Eν) ≤ C₇(A,C) (log N)^{3/4} + log(Q₀/|R|).
+    log(1/Eν) ≤ C₇(A,C) (log N)^{3/4} + log(P/φ(P)),
+    where log(P/φ(P)) ≤ log log log P + O(1).
 
-The same bound holds for the large-sieve bound of Remark 2.6. In particular
-no such architecture gives `E(N) ≤ N exp{−(log N)^{3/4}·ω(N)}` with
-`ω → ∞`. A factor `(log log N)^ε` is excluded as well.
+The same bound holds for the large-sieve bound of Remark 2.6, in each
+fibre. In particular, no such architecture whose final bound is
+`N·Eν + (nonnegative rounding bound)` gives
+`E(N) ≤ N exp{−(log N)^{3/4}·ω(N)}` with `ω → ∞`. This includes
+`ω = (log log N)^ε`, provided the selector satisfies
+`log log log P = o((log N)^{3/4})`.
 
 *Proof.* Three checks.
 * Since `q₀ ≤ ℓ^C` and `|ℛ(M)| ≤ M^{o(1)}`, we have
   `|F_ℓ(c)| ≤ ℓ^{C+o(1)} ≤ ℓ/4`.
-* For the selector-type R, `P(c ≡ b (q₀) | R) ≤ (q₀/φ(q₀))/q₀`. Hence
-  `p̄_ℓ ≤ Σ_{M=q₀ℓ} |ℛ(M)|(M/φ(M))/M`.
+* For the selector-type R, `P(c ≡ b (q₀) | R) ≤ 1/φ(q₀)`. Hence
+  `p̄_ℓ ≤ Σ_{M=q₀ℓ} |𝒞(M)|·(M/φ(M))/M`, where `|𝒞(M)|` is the number of
+  family classes mod M. It is at most `|ℛ(M)| ≤ τ(A²)` for Lemma 16.1
+  classes, and the (a,D)-multiplicity for Lemma 3.2 classes.
 * `ℓ ≥ M^{1/(1+C)}` gives `ℓ^{−α} ≤ M^{−α/2}`.
 
 Lemmas 3.1 and 3.2 give `Σ p̄_ℓ ℓ^{−α} ≪ α^{−3}`. Take `α = λ^{−1/4}` in
-(2.4). Here `G = O(log λ)` and `μ̄ ≪ λ³`. ∎
+(2.4). Here `G = O(log λ)` and the truncated mass satisfies `μ̄_λ ≪ λ³`. ∎
 
-In practice `log(Q₀/|R|)` is `log log y` for the selector, which is
-negligible. It is at most `log N` in general, and it is a *loss* for the
-method, not a gain.
+For the 3/4 note's selector, `log(P_y/φ(P_y)) = log log y + O(1)`.
 
 **Corollary 3.5 (restricted multiplier sets; PROVED given the cited upper
 bounds).** Suppose a family at scale `X = e^t` uses slice primes
@@ -447,12 +519,14 @@ Notation: `μ_c` is the fibre mass and `r` the Bonferroni degree.
 * `𝒫 = primes in (X^{1/2}, X]`;
 * `R = {(c,P_y)=1}`;
 * `|F_ℓ(c)| = f_c(ℓ) ≤ ℓ^{1/3}`;
-* `Σ_ℓ p_ℓ(c) ℓ^{−α} ≤ C_u t³ X^{−α/2}` (note, Cor. 3.6, upper half).
+* `Σ_ℓ p_ℓ(c) ℓ^{−α} ≤ C_u t³ X^{−α/2}`. This is the upper half of the
+  note's Corollary "uniform fibre masses" (cor:fibremass), valid for all c.
 
 Its majorant `S_y·Q_r(H_X)` has level `λ = r·t`.
 
 By Theorem 2.5, *every* majorant on this family has
-`saving ≤ min{C t³, C(λ/t)log(Ct⁴/λ) + Cλ/t} + O(log²λ)`. With `λ ≤ A L`,
+`saving ≤ log log y + min{C t³, C(λ/t)(1 + log⁺(Ct⁴/λ))} + O(log²λ)`,
+where `log log y` is the selector term. With `λ ≤ A L`,
 the maximum over t is `≍ L^{3/4}`, attained only for `t ≍ L^{1/4}`.
 
 So the binding constraint in the 3/4 proof is the following conjunction. It is
@@ -470,18 +544,22 @@ below depth `μ − 2√μ`.
 *Proof.* `Q_r(h) = C(h−1,r) ≥ 1` for `h ≥ r+1`, and `Var H ≤ μ`, so
 Chebyshev applies. ∎
 
-So in the 3/4 note `r ≍ t³` is forced. The ledger `log T_abs ≍ r·t` then
-forces `t⁴ ≲ L`. Replacing Bonferroni by the optimal majorant (Selberg, §2.5)
-changes only constants, by Lemma 4.1.
+So in the 3/4 note `r ≫ t³` is forced. The note's ledger is an *upper*
+bound `log T_abs = O(rt)`, which suffices when `t⁴ ≲ L`. The ledger is not
+proved necessary, and it need not be: the necessity of `t ≲ L^{1/4}`, in the
+sense that no larger saving is possible, comes from Theorem 2.5 via
+Lemma 4.1, not from the ledger. Replacing Bonferroni by any other majorant,
+e.g. Selberg (§2.5), changes only constants.
 
 **Lemma 4.3 (level of distribution; PROVED).** The BV level enters the 3/4
 proof only through the box size `z = x^{ϑ'}` of the supply lemma. That lemma
 needs `4uv ≤ 4z²` below the BV level, so `ϑ' < 1/4`; the note takes
 `ϑ' = 1/6`.
 
-Elliott–Halberstam would allow any `ϑ' < 1/2`. That is also the distinctness
-limit `z² < ℓ`, so EH can multiply `μ_c` by at most `(3)² = 9` times a
-constant. The integer assembly uses exact counts `N/q + O(1)` and no level of
+Elliott–Halberstam would allow any `ϑ' < 1/2`, which is also the
+distinctness limit `z² < ℓ`. So EH multiplies `μ_c` by a factor bounded in
+terms of the chosen box exponents. The order of magnitude, and the exponent,
+are unchanged. The integer assembly uses exact counts `N/q + O(1)` and no level of
 distribution.
 
 *Proof.* The block mass is `≍ (log z)² h = ϑ'² t² h`. This is the
@@ -518,9 +596,9 @@ giving `L^{2/3}`. ∎
 | lever (brief) | outcome | where |
 |---|---|---|
 | cost per condition below log X; weighting moduli by mass; `ΣF(M)/M·log M ≍ t⁴` vs `t³` | **closed** (Thm 2.5 + Lemma 3.1): mixing scales optimally is exactly the Rankin functional (2.5); the identity profile gives `λ^{3/4}` | §5.1 |
-| Rankin/Halász on `x=(p+a)/4` | **closed as a lever beyond 3/4** (explicit non-multiplicativity counterexample, PROVED; joint route = stacking, Assessment θ* ≈ 0.52) | §5.2 |
+| Rankin/Halász on `x=(p+a)/4` | **not closed; model Assessment only.** The non-multiplicativity counterexample is PROVED. The multiplicative slices lead to the stacking model, whose Assessment gives θ* ≈ 0.52. No universal obstruction is proved. | §5.2 |
 | beyond-identity supply / exact criterion `−1∈Rat_a(h)` / large deviations of class counts | **closed** for prime-slice systems (Lemma 3.2: the criterion *is* the (a,D) forced classes; Lemma 5.3: effective mass = mass); complete system: EVIDENCE of sub-additivity (ratio ≈ 0.80) | §5.3 |
-| combining both halves / both solution types | **closed** (union profile ≤ sum; Theorem 2.5 needs no independence between halves; constants only) | §5.4 |
+| combining both halves / both solution types | Case-B groupings **closed** (Lemmas 3.1–3.2). Adding Case A is closed **conditional on H_A3 (weighted form)**. Theorem 2.5 needs no independence between halves. | §5.4 |
 | Elsholtz–Tao average as first-moment limit | **consistent**; the correct currency is the profile `Σp̄ℓ^{−α}`, which is exactly cubic (no loglog) | §5.5 |
 | multi-slice moduli; multipliers ≫ slice prime | **open** (outside Theorem 2.5); hypothesis H_MS named; mass-cost Assessment predicts closure | §5.6 |
 | Bonferroni → Selberg/large sieve | constants only (Lemma 4.2, §2.5 numerics) | §4 |
@@ -623,8 +701,8 @@ data are consistent with H_EM and give no sign against it.
 ### 5.4 Both halves, both types
 
 Theorem 2.5 takes any family of conditions. The union of Case-B classes
-(either grouping) and Case-A classes has profile at most the sum, which is
-cubic (Lemmas 3.1, 3.2 and H_A3). So the shared quadratic bit (DISCOVERIES
+(either grouping) and Case-A classes has profile at most the sum. That sum
+is cubic for Case B by Lemmas 3.1–3.2, and for Case A under H_A3. So the shared quadratic bit (DISCOVERIES
 (C)6) is irrelevant to the cap: dependence can only lower the effective
 mass. No independence between halves is used anywhere in §§2–3.
 
@@ -660,8 +738,11 @@ uncharged. The resulting bound `λ^{2/3}(log K)^{1/3}` exceeds `λ^{3/4}` only
 if `log K ≫ λ^{1/4}`, i.e. multipliers far larger than the slice primes. For
 `K ≫ z²` the lattice equidistribution behind the 3/4 supply also fails:
 `(u,v)`-boxes of size `z² < k` no longer equidistribute mod k, so `μ_c` stops
-being uniform in c. Any concrete majorant pays `lcm(k_i) ≥ K^{r(1−o(1))}`
-(Bonferroni/Selberg) or one `L_𝒦 ≤ N` (progression split, Cor 3.5).
+being uniform in c. The existing architectures pay for multipliers through
+the term moduli (3/4 note: `lcm(k_i) ≤ K^r` as an *upper* ledger) or through
+one progression modulus `L_𝒦 ≤ N` (Cor 3.5). No lower bound on the
+multiplier cost of a general majorant is proved. Atoms may share
+multipliers, so `lcm(k_i)` can be small. This is part of the open door.
 
 > **H_MS (named, open, falsifiable in models).** For every CRT system of forced classes
 > with moduli ≤ e^λ (no slice restriction), every level-λ majorant has
@@ -683,16 +764,20 @@ These are consequences of Theorem 2.5 and Lemmas 3.1–3.2, Lemma 5.3 and 4.2.
 1. It cannot be a sieve or large sieve over prime-slice forced classes with
    multipliers `≤ ℓ^{C}`, at any level `N^{O(1)}`, with any weights
    (Cor 3.4).
-2. Using both halves, both groupings, the exact a-frame criterion,
-   Elliott–Halberstam, or a better Bonferroni/Selberg polynomial changes
-   constants only (§§4, 5.3–5.4).
+2. The following change constants only (§§4, 5.3–5.4): both Case-B
+   groupings, the exact a-frame criterion, Elliott–Halberstam, or a better
+   Bonferroni/Selberg polynomial. Adding Case A is also constants-only,
+   conditionally on H_A3.
 3. It needs one of:
    * (i) a joint use of multi-large-prime moduli that beats their mass
      (H_MS false in the relevant regime);
-   * (ii) multipliers larger than the slice primes, with lcm cost below
-     `r log K` per term;
-   * (iii) non-CRT arithmetic of the integers (Halász/Type I–II/moment
-     methods). §5.2 indicates (iii) via multiplicative slices sits at θ*.
+   * (ii) multipliers larger than the slice primes, used without paying
+     their lcm in level. No lower bound on that cost is proved;
+   * (iii) a small-modulus admissible set R that is not of selector type
+     and carries a large saving `log(Q₀/|R|)` of its own (H_MS again);
+   * (iv) non-CRT arithmetic of the integers (Halász, Type I/II sums,
+     moment methods), or signed cancellation in the rounding errors.
+     §5.2 assesses (iv) via multiplicative slices at θ*, as a model only.
 
 ---
 
@@ -706,6 +791,7 @@ uv run --with scipy python scripts/theta_reduction_check.py
 # §3: S_B(x)/(x log^2 x) to 1e6; exact union masses of B-M, B-aD, Case A to 4000 (~3 s)
 uv run python scripts/theta_profile.py 1000000          # -> data/theta/profile.txt
 # §5.3: complete-system void among real primes (4 processes x ~150 s, < 100 MB each)
+mkdir -p /tmp/theta
 g++ -O2 -std=c++17 -o /tmp/theta_void_primes scripts/theta_void_primes.cpp
 for i in 0 1 2 3; do /tmp/theta_void_primes 4000 $((10**12 + i*28000000000)) 28000000000 > /tmp/theta/void_$i.txt & done; wait
 # merge: sum the 'voids' column and the prime counts (see data/theta/void_primes_Q4000.txt header)
