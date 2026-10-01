@@ -1,0 +1,5 @@
+primes p=1(4), 5<=p<=5000: 329; solutions (x<=y<=z): 15555
+  Type I: 10656, Type II: 4899; brute-force completeness check for p<1000: OK
+  violations of CT-a/b/c: 0
+  Type II with BOTH y',z' having a QNR factor: 3325/4899 (not claimed)
+OK

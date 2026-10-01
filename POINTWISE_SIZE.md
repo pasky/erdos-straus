@@ -1,0 +1,714 @@
+# The formal-genericity obstruction as a meta-theorem, and what escapes it
+
+Task (c), Step 1. The obstruction behind Theorem F, DEPTH3 Theorem 2,
+notes Theorems 5.1/17.3 and the Elsholtz–Tao odd-square remark is stated
+here as one theorem about *procedures*, and proved. Then we determine
+exactly which features of a mechanism put it outside that theorem's scope.
+Step 2 (constructing mechanisms in the escaping class) has not started; it
+waits for parent review.
+
+Labels: **PROVED**; **CONDITIONAL** (proved from a named hypothesis);
+**EVIDENCE** (finite computation); **Assessment** (heuristic).
+Erdős–Straus (ES) is not solved here, and nothing below touches it.
+
+## 0. Results at a glance
+
+* **Theorem M (transfer principle; PROVED, plus CONDITIONAL existence).**
+  Take a deterministic procedure on input p built from:
+  * ring operations;
+  * floor division;
+  * sign tests, including size comparisons;
+  * full factorisations and divisor lists;
+  * loops over the lists so produced.
+
+  Run it *formally* at a profinite point q*, i.e. on a polynomial input,
+  with every polynomial met declared to factor "generically". If this
+  formal run is finite, then for every *admissible* q the actual run on
+  `p=P(q)` follows it step by step. Admissible means: q lies in one
+  congruence class, every polynomial met has prime value up to a fixed
+  constant, and q is large. In particular the output is the formal output.
+  * Under Hypothesis H for the explicit finite family met, there are
+    infinitely many admissible q.
+  * Under Bateman–Horn there are `≫N^{1/deg P}/(log N)^{|S|}` of them.
+  * Dickson's conjecture suffices if the family is linear. Dirichlet
+    (and Linnik) suffice if nothing but p is factored.
+* **Corollary M1 (PROVED/CONDITIONAL).** This is the static version asked
+  for in the brief. Let a predicate depend only on `p mod M` and on the
+  factorisation shapes of `f_1(p),…,f_k(p)`. Then it takes its formal value
+  at every admissible p.
+* **Lemma CT (character trap; PROVED from notes Lemma 77.6; EVIDENCE
+  p≤5000).** Let `p≡1 (4)`. In every positive solution of `4/p`, every
+  denominator prime to p has a prime factor ℓ with `(ℓ/p)=−1`.
+* **Theorem C (formal odd-square principle; CONDITIONAL on H).** Every
+  *bounded* witness-producing procedure fails for infinitely many primes
+  `p≡1 (24)`. One fixed profinite point (DEPTH3 Lemma 1) serves for all procedures. The
+  same holds for unbounded procedures whose formal run at a
+  square-mimicking point is finite.
+* **Instances (§3).** Corollary 17.3.1 / Thms 5.1, 17.3 / Prop. 77.3
+  (unconditional, from the rational point "1"; with Linnik this gives
+  Thm 54.1, and Thm 54.3 is its genus analogue), DEPTH3 Theorem 2, Theorem F (its literal 13521-polynomial form),
+  and the Elsholtz–Tao remark are all special cases. The dictionary is
+  exact.
+* **Scope (§4).**
+  1. **Size information about boundedly many formal quantities is inside
+     the scope** (Proposition A). Comparisons with `p^θ`, "is there a
+     divisor in `[p^θ,2p^θ]`", and the dead-denominator test of Theorem F
+     are all covered. So "using the size of p" does *not* escape by itself.
+  2. A correct pointwise proof of ES needs, at every square-mimicking
+     point, an infinite or undefined formal run (Corollary E). This means
+     one of:
+     * (E1) an unbounded, p-dependent family of consulted integers;
+     * (E2) primitives that are not eventually quasi-polynomial (`⌊p^θ⌋`,
+       the least non-residue, orders, …), whose actual factorisations are
+       then used.
+
+     Fixed non-abelian information does not escape, modulo a
+     Schinzel–Chebotarev hypothesis. Non-witness (Boolean) certificates
+     are outside the scope, but trivially so.
+  3. Quantitatively, congruence-only mechanisms need `≥(1/5.2−ε)log p`
+     moduli. This is **PROVED** by Linnik (notes §54). Mechanisms that
+     factor need `≳log p/log log p` factorised values: an **Assessment**
+     based on uniform Bateman–Horn.
+* **EVIDENCE (§5).**
+  * Lemma CT holds for all 15555 solutions with `p≤5000`.
+  * Toy check of Theorem M/C on 331 + 323 actual admissible primes
+    (`p` up to `≈2.6·10^13`). The actual output always equals the formal
+    output. At the square-mimicking point it is always FAIL.
+  * In the same class, non-admissible primes succeed 98.5% of the time,
+    always through a composite formal prime.
+
+## 1. The transfer principle
+
+### 1.1 Procedures
+
+A **program** Π has integer registers and list registers, and the
+following instructions.
+
+* **(P1)** `r←c` (a constant of the program); `r←p` (the input).
+* **(P2)** `r←r₁±r₂`, `r←r₁·r₂`.
+* **(P3)** `(r,r')←divmod(r₁,r₂)`. This gives `r=⌊r₁/r₂⌋` and
+  `r'=r₁−r₂r`; it is an error if `r₂=0`.
+* **(P4)** Branch on `sign(r)∈{−,0,+}`.
+* **(P5)** `L←FACTOR(r)` (with `r≠0`) gives the pairs `(ℓ,v_ℓ(r))` for the
+  primes `ℓ|r`, in increasing order of ℓ. `L←DIVISORS(r)` gives the
+  positive divisors of `|r|`, in increasing order.
+* **(P6)** List operations: empty list, append, length.
+* **(P7)** `for e in L do B`, where L is not modified inside B; and
+  `for i=1..c` with c constant.
+* **(P8)** `halt` with a symbol from a finite alphabet and finitely many
+  registers.
+
+A **bounded program** uses only (P1)–(P8). It halts on every input, by
+induction on loop nesting: every loop runs over a list fixed at entry.
+
+Derived bounded operations include:
+
+* comparisons `r₁<r₂` and `r^b ≶ c^b p^a`;
+* `r mod c`, `r₁|r₂`, gcd, valuations, primality of `r`;
+* Jacobi symbols `(r/c)` for constant c;
+* sorting finite lists, and membership tests.
+
+An **extended program** may also use `while` loops, and further primitive
+functions `g:Z^k→Z` (e.g. `⌊√r⌋`, the least quadratic non-residue mod r).
+It is required to halt on the inputs considered.
+
+A program is **witness-producing** if on input p it halts with `FAIL` or
+with `(SUCCESS,x,y,z)`. It is **correct** if every SUCCESS output satisfies
+`x,y,z≥1` and `4xyz=p(xy+yz+zx)`. Appending a bounded check makes any
+witness-producing program correct, at the cost of turning bogus successes
+into FAILs.
+
+*Why witnesses.* The bounded program "halt with SUCCESS" is correct as a
+Boolean predicate iff ES holds. Hence no extensional statement ("this
+predicate of p is refuted") can single out bad methods. The obstruction is
+a statement about procedures that produce, or certify by a bounded
+computation, the solution.
+
+### 1.2 Formal numbers and the formal run
+
+* **Polynomials.** `𝒫` is the set of primitive irreducible `h∈Z[X]` with
+  positive leading coefficient.
+* **Base polynomial.** Fix `P∈𝒫`; inputs are `p=P(q)`. The main case is
+  `P=24X+1`, and `P=X` gives Dirichlet-type statements.
+* **Points.** A **point** is `q*=(q*_ℓ)_ℓ∈Ẑ=∏_ℓZ_ℓ`.
+* **Nondegeneracy.** h is **nondegenerate at q*** if `h(q*_ℓ)≠0` for every
+  ℓ, and `ℓ∤h(q*_ℓ)` for all but finitely many ℓ. Then
+  `C_h:=∏_ℓℓ^{v_ℓ(h(q*_ℓ))}` is a positive integer. For a rational point
+  `q*∈Z` this just says `h(q*)≠0`, and then `C_h=|h(q*)|`.
+* **Universal points.** DEPTH3 Lemma 1 constructs a point `q*_univ` with
+  three properties: every `h∈𝒫` is nondegenerate at it; every `q*_ℓ` is a
+  unit; and `24q*_ℓ+1` is a nonzero square unit for all ℓ.
+
+**Lemma D (formal floor; PROVED).** Let `A,B∈Q[X]`, `B≠0`, and write
+`A=QB+R` with `deg R<deg B` (`R=0` if B is constant). Let D be the least
+positive integer with `F:=DQ∈Z[X]`. Put `ρ:=F(q*) mod D∈{0,…,D−1}`, and let
+`σ` be the eventual sign of `R/B`. Define
+
+```
+⌊A/B⌋_* := (F−ρ)/D − [ρ=0 and σ<0]  ∈ Q[X].
+```
+
+Then `⌊A(q)/B(q)⌋=⌊A/B⌋_*(q)` for all large `q≡q* (mod D)`.
+The remainder `A−B⌊A/B⌋_*` is the zero polynomial iff `R=0` and `ρ=0`.
+
+*Proof.* For such q, `F(q)≡ρ (mod D)`. Also `A(q)/B(q)=F(q)/D+ε(q)`, where
+`ε=R/B` eventually has sign σ and satisfies `|ε|<1/D`. Hence
+`⌊A/B⌋=(F(q)−ρ)/D+⌊ρ/D+ε⌋`.
+* If `ρ≥1`, then `ρ/D+ε` lies in `((ρ−1)/D,(ρ+1)/D)⊂[0,1]` and is `<1`,
+  so the last floor is 0.
+* If `ρ=0`, the last floor is 0 or −1 according to σ.
+
+The remainder is `B·(ρ/D+[…])+R`. When `R≠0` this is a nonzero polynomial,
+because `deg R<deg B`. ∎
+
+The **formal run** of Π at `(P,q*)` executes Π with registers holding
+elements of `Q[X]` ("formal values") and lists of them. It starts with
+`p↦P(X)` and constants `c↦c`.
+
+* **(F2)** Ring operations are done in `Q[X]`.
+* **(F3)** `divmod` uses Lemma D.
+* **(F4)** `sign` is the sign of the leading coefficient.
+* **(F5)** `FACTOR(A)` for `A≠0`:
+  1. Factor `A=κ∏h^{e_h}` in `Q[X]`, with distinct `h∈𝒫` and `κ∈Q^×`.
+  2. Every h must be nondegenerate at q*.
+  3. Put `K_A:=κ∏C_h^{e_h}`, which must be an integer.
+  4. The output is the pairs `(ℓ,v_ℓ(K_A))` for `ℓ|K_A`, in increasing ℓ.
+     These are followed by the **formal primes** `(h/C_h, e_h)`, in the
+     eventual order of their values at large X.
+
+  `DIVISORS(A)` is the list of `d∏(h/C_h)^{j_h}` (`d|K_A`,
+  `0≤j_h≤e_h`), in eventual order. Distinct formal divisors are distinct
+  polynomials, by unique factorisation, since the h are pairwise
+  non-proportional. So the eventual order is a strict total order.
+* **(F6)–(F8)** Lists, loops and output work verbatim, on formal objects.
+  A `while` test is decided by (F4).
+* **(F9)** An extra primitive g has **formal semantics** at the formal
+  arguments `(A_1,…,A_k)` if there are `G∈Q[X]` and a modulus `M_g` with
+  the following property: `g(A_1(q),…,A_k(q))=G(q)` for all large
+  `q≡q* (mod M_g)`. The formal run then uses G.
+
+The formal run is **undefined** if it executes:
+
+* a FACTOR of a degenerate polynomial;
+* a FACTOR with `K_A∉Z` (this never happens if admissible q exist, see the
+  proof below);
+* a divmod by 0;
+* a primitive without formal semantics.
+
+It is **finite** if it halts. For a bounded program it is finite whenever
+it is defined.
+
+**Data of a finite formal run.**
+
+* `S:={P}∪{h: h occurs in some formal FACTOR or DIVISORS}`.
+* `Λ` is any finite set of primes containing:
+  * the primes of `C_h` and of `lc(h)` for `h∈S`;
+  * every prime `≤Σ_{h∈S}deg h`;
+  * the primes of every D in (F3) and of every `M_g` in (F9).
+* `E_ℓ>max_{h∈S}v_ℓ(h(q*_ℓ))`, with `E_ℓ≥v_ℓ(D),v_ℓ(M_g)`.
+* `M:=∏_{ℓ∈Λ}ℓ^{E_ℓ}`.
+
+Λ may be enlarged at will, keeping q*. This only refines the congruence
+class. S and the `C_h` do not change.
+
+An integer q is **admissible** if:
+
+1. `q≡q*_ℓ (mod ℓ^{E_ℓ})` for all `ℓ∈Λ`;
+2. `r_h(q):=h(q)/C_h` is prime for every `h∈S`;
+3. `q≥q_0`, a threshold that depends only on the formal run.
+
+### 1.3 The theorem
+
+**Theorem M (PROVED; (b)–(d) CONDITIONAL as stated).** Let Π be an
+extended program whose formal run at `(P,q*)` is defined and finite, and
+let `C_P=1`. Then:
+
+**(a)** There is `q_0` with the following property. For every admissible q,
+`p=P(q)` is prime and the actual run of Π on p executes the same
+instructions as the formal run. Every register value is the corresponding
+formal value at `X=q`, and every list is the formal list evaluated at q.
+In particular the output is the formal output, evaluated at q.
+
+**(b)** If Hypothesis H holds for `{f_h(y):=h(My+q̃)/C_h : h∈S}` (any
+`q̃∈Z`, `q̃≡q*` mod M), there are infinitely many admissible q.
+
+**(c)** If the Bateman–Horn conjecture holds for that family, then
+`#{admissible q: P(q)≤N} ≫ N^{1/deg P}/(log N)^{|S|}`.
+
+**(d)** If all `h∈S` are linear, Dickson's prime k-tuples conjecture (and
+its Hardy–Littlewood form) suffices. If `S={P}` with P linear,
+Dirichlet's theorem gives (b) unconditionally, and Linnik's theorem gives
+an admissible q with `P(q)≪(uM)^{5.2}` (`u=lc P`; Xylouris).
+
+*Proof.* (a) We use induction along the (finite) formal path. The
+invariant is that the actual registers equal the formal registers at q.
+
+* **Constants, p, ring operations, list operations.** Immediate.
+* **Signs.** A nonzero polynomial has eventually constant sign.
+* **divmod.** Lemma D. Admissibility (1) gives `q≡q* (mod D)`.
+* **FACTOR(A).** At q, `A(q)=K_A∏_h r_h(q)^{e_h}`, and the `r_h(q)` are
+  primes, by (2). Beyond a threshold, the following hold.
+  * The `r_h(q)` are pairwise distinct. Distinct members of 𝒫 are
+    non-proportional, so `h/C_h−g/C_g` is a nonzero polynomial.
+  * Each `r_h(q)` exceeds every prime dividing the numerator or the
+    denominator of `K_A`.
+  * The `r_h(q)` are pairwise ordered as their eventual order says.
+
+  Since `A(q)∈Z` and the `r_h(q)` are primes prime to `den(K_A)`, we get
+  `K_A∈Z`. Hence the actual factorisation of `A(q)` is literally the formal
+  one, in the same order.
+* **DIVISORS.** Distinct formal divisors take distinct, eventually
+  ordered values.
+* **(F9) primitives.** Immediate from their definition.
+* **Loops.** Same lists, so the same iterations. A `while` loop makes
+  the same tests.
+
+The formal run is finite, so finitely many thresholds occur; take
+`q_0` as their maximum. Finally, `r_P(q)=p/C_P=p` is prime.
+
+(b) This is DEPTH3 Lemma 2.
+
+* **Integrality.** The Taylor coefficients `h^{(j)}(q̃)/j!` are integers.
+  Since `C_h|M`, the coefficients of `y^j`, `j≥1`, are divisible by `C_h`.
+  So is the constant term `h(q̃)`, because `v_ℓ(h(q̃))=v_ℓ(h(q*_ℓ))` for
+  `ℓ∈Λ`. So `f_h∈Z[y]`.
+* **Primitivity.** `f_h` is primitive: at `ℓ∈Λ` its constant term is an
+  ℓ-unit, and at `ℓ∉Λ` its leading coefficient `lc(h)M^{deg h}/C_h` is.
+* **Irreducibility and sign.** `f_h` is irreducible with positive leading
+  coefficient.
+* **No fixed prime divisor of `∏f_h`.**
+  * At `ℓ∈Λ` all values are units.
+  * At `ℓ∉Λ` we have `ℓ>Σdeg`, and the product is a nonzero polynomial
+    mod ℓ of degree `<ℓ`.
+
+Every H-solution y with large `My+q̃` gives an admissible q.
+
+(c) The Bateman–Horn count of `y≤Y` is `≫Y/(log Y)^{|S|}`.
+
+(d) Clear. For `S={P}`, note that `gcd(uM,P(q̃))=1`. ∎
+
+**Corollary M1 (static shape predicates; PROVED, (b)–(d) as in M).** Fix
+the following data:
+
+* nonzero `f_1,…,f_k∈Z[X]` and integers `M_0,m≥1`;
+* `shape_m(n):=(sign n, the multiset {(v_ℓ(n), ℓ mod m) : ℓ|n})`;
+* an *arbitrary* function Φ;
+* the predicate
+  `𝒮(p):=Φ(p mod M_0, shape_m(f_1(p)),…,shape_m(f_k(p)))`.
+
+Let q* be nondegenerate for P and for every irreducible factor of every
+`f_i∘P`, with `C_P=1`. Then there is a formal value `𝒮*`, computed from the
+formal factorisations and `q*`, with `𝒮(P(q))=𝒮*` for every admissible q.
+Here we take:
+
+* `S` = {P} ∪ the irreducible factors of the `f_i∘P`;
+* `Λ` additionally containing the primes of `mM_0`;
+* `E_ℓ≥v_ℓ(m)+v_ℓ(C_h)+1`.
+
+In particular, if `𝒮*` is "fail", then under H (or under Dickson, if every
+`f_i∘P` splits into linear factors) 𝒮 fails for infinitely many primes.
+
+*Proof.* At admissible q the factorisation of `f_i(p)` is the formal one,
+by the FACTOR step of Theorem M. Each `r_h(q) mod m` equals `h(q)/C_h mod m`.
+This is fixed by `q mod mC_h·∏ℓ^{…}`, i.e. by (1). The constants' residues
+are fixed. Φ need not be computable. ∎
+
+The static form does **not** capture DEPTH3 or Theorem F. There, *which*
+integers get factored depends on earlier factorisations. Only the
+adaptive form (Theorem M) covers them. A posteriori, along admissible q,
+the adaptive procedure's choices are frozen into a static list.
+
+## 2. The character trap and the formal odd-square principle
+
+**Lemma CT (PROVED).** Let `p≡1 (mod 4)` be prime, and let `(x₁,x₂,x₃)` be
+a positive solution of `4/p=Σ1/x_i`.
+
+* **(a)** Every `x_i` with `p∤x_i` has a prime factor ℓ with `(ℓ/p)=−1`.
+* **(b)** If exactly one `x_i` is divisible by p, then `x_i/p` has such a
+  prime factor.
+* **(c)** If exactly two are divisible by p, the product of their
+  cofactors `x_ix_j/p²` has such a prime factor. In (c) this cannot be
+  sharpened to each cofactor separately: 1574 of the 4899 Type II
+  solutions with `p≤5000` have a cofactor without one.
+
+*Proof.* By notes Lemma 1.3, p divides one or two denominators. By notes
+Thm 17.1 every solution has the following form, with `gcd(a,b)=1` and
+`p∤abck`:
+
+* Type II: `(abc, pack, pbck)`;
+* Type I: `(ack, bck, pabc)`.
+
+Notes Lemma 77.6 (proved there and machine-checked) gives:
+
+* in Type II, `(ab/p)=−1`;
+* in Type I, `(c/p)=−1` and `(ab/p)=−1`.
+
+A positive integer with Jacobi symbol −1 has a prime factor with symbol −1.
+Now:
+
+* `ab` divides the p-free `abc` (Type II), and also the cofactor `abc`
+  (Type I).
+* `c` divides both p-free entries `ack`, `bck` (Type I).
+* `ab` divides `ack·bck` (Type II). ∎
+
+This is the prime-side reading of the one quadratic bit: Yamamoto, and
+Bright–Loughran Thm 1.2/Cor 1.3, which is (2a) of SIGNED_REFACTOR. At an
+odd square `n=m²`, every `ℓ∤m` has `(ℓ/n)=+1`. That is why ET Prop 1.6
+(no Type I/II solutions for odd squares) is the same computation.
+
+**Definition.** A point q* is **square-mimicking** for P if, for every
+prime ℓ, `P(q*_ℓ)` is a square of a unit of `Z_ℓ`. For ℓ=2 this means
+`P(q*_2)≡1 (mod 8)`. Then `C_P=1`. Two examples:
+
+* `q*_univ` for `P=24X+1`;
+* the rational point `q*=1` for `P=X`, since `1=1²`.
+
+**Theorem C (formal odd-square principle).** Let `P=uX+v∈𝒫` be linear, and
+let q* be square-mimicking for P and nondegenerate for every `h∈𝒫` (e.g.
+`q*_univ`). Let Π be a correct witness-producing extended program whose
+formal run at `(P,q*)` is defined and finite. Then there are explicit
+finite `S'⊇S` and `Λ'⊇Λ` with the following property (PROVED): **every
+`(S',Λ')`-admissible q has `Π(P(q))=FAIL`.** Under H for the family of
+`S'` there are infinitely many such q; under Bateman–Horn there are
+`≫N/(log N)^{|S'|}` with `P(q)≤N` (CONDITIONAL). In particular:
+
+> **Corollary C1.** Assume H for one explicit finite family depending on
+> Π. Then every correct **bounded** witness-producing program fails for
+> infinitely many primes `p≡1 (mod 24)`.
+
+*Proof.* Let Π' be Π followed, on a SUCCESS output, by `FACTOR(x)`,
+`FACTOR(y)`, `FACTOR(z)`. Its formal run is defined, since q* is
+nondegenerate for all of 𝒫, and finite. Let `S'` be its polynomial set.
+Let Λ' be its Λ, enlarged by:
+
+* 2, with `E_2≥3`;
+* the primes of u;
+* the primes of every constant `K_A`;
+* for every `h∈S'∖{P}`, the primes of the nonzero integer
+  `H_h:=u^{deg h}h(−v/u)`.
+
+`H_h≠0`, because `h(−v/u)=0` would force `P|h`, i.e. `h=P`. Let q be
+`(S',Λ')`-admissible. Π' follows Π, so `Π(p)` is the formal output of Π.
+Suppose it is SUCCESS. Let `x_i` be a p-free denominator of the output; it
+exists by notes Lemma 1.3. By Theorem M(a), its prime factors are of two
+kinds:
+
+* primes `ℓ∈Λ'` (the primes of its constant `K`);
+* formal primes `r_h(q)` with `h≠P`, because `r_P(q)=p∤x_i`.
+
+**Characters of ℓ∈Λ'.** For odd `ℓ∈Λ'`:
+`(ℓ/p)=(p/ℓ)=(P(q*_ℓ) mod ℓ / ℓ)=+1`, because `p≡P(q*_ℓ) (mod ℓ)` is a
+nonzero square. For ℓ=2: `(2/p)=+1`, as `p≡1 (8)`. Also `(−1/p)=+1`.
+
+**Characters of formal primes.** `uq≡−v (mod p)` gives
+`u^{deg h}h(q)≡H_h (mod p)`. Here `p∤H_h`, since `p=r_P(q)∉Λ'`. So
+`(r_h/p)=(H_h/p)(u/p)^{−deg h}(C_h/p)=+1`, because every prime involved
+lies in Λ'.
+
+So every prime factor of `x_i` is a residue mod p, contradicting
+Lemma CT(a). Hence the formal output is FAIL, or no admissible q exists
+beyond the thresholds. Either way, every admissible q gives FAIL. The
+counting statements are Theorem M(b)–(c) for `S'`. Admissible q have
+`p≡P(q*_2)≡1 (8)`. For `P=24X+1` also `p≡1 (3)`, so `p≡1 (24)`. ∎
+
+**Remarks.**
+
+1. **What "looks like a square" means, precisely.** At admissible q,
+   every prime the procedure ever sees is a quadratic residue mod p, just
+   as every `ℓ∤m` is a residue mod `m²`. The congruence and factorisation
+   data of p are those of a "formal odd square". Lemma CT is the only
+   input about ES, and it is the one quadratic bit (notes §10.2).
+2. **Linearity of P** is used only in computing `(r_h/p)`. For `deg P≥2`,
+   Theorem M still applies, but a FAIL output must be certified another
+   way, e.g. directly as in Theorem F.
+3. **Weak genericity.** Primality of `r_h(q)` is more than the control
+   flow needs. If a value is only divided into or compared, Λ-freeness
+   suffices. This is FORMAL_CLOSURE §2.3 (13521→6402 prime conditions),
+   and it is the sibling project's current direction: replacing the 159
+   prime conditions of its packet by checkable divisor conditions.
+   Theorem C needs only the character conclusion "every prime factor of
+   every factored value is a residue mod p", plus exact control flow.
+
+## 3. The known obstructions as instances
+
+**3.1 Congruence identities: notes Thm 5.1, Lemma 5.2, Thm 17.3,
+Cor 17.3.1, Prop 77.3 (unconditional).** Let 𝔉 be a finite list of forced
+classes `r_j mod M_j`, of any shape in Thm 17.3(a)–(e) or Lemma 5.2, each
+with its identity. The program `Π_𝔉` tests `p mod M_j=r_j` and, if so,
+outputs the identity's denominators, computed by divmod by constants. It
+is bounded and never factors anything.
+
+Run it formally at `P=X`, `q*=1`. Then `S={X}`, and the formal tests read
+`1≡r_j (mod M_j)`, all false by those theorems (Prop. 77.3: such a class
+would solve `4/1`). So the formal output is FAIL. Theorem M(d) gives
+infinitely many primes `p≡1 (mod lcm M_j)` with `Π_𝔉(p)=FAIL`; this is
+Cor 17.3.1.
+
+The program "all multiplier moduli ≤T" consists of the congruence tests
+`p mod M∈𝓡(M)`, `M≤T` (notes (58.3)). With Linnik's bound in M(d) it
+gives notes Thm 54.1 verbatim, including `W(p)>log p/(5.2+o(1))`
+infinitely often. Notes Thm 54.3 (Type-I slices `ck≤T`) is the analogous
+unconditional statement. There the slices are not congruence classes, and
+genus theory at an actual prime `p≡1 (mod R(T))` plays the role of
+Lemma CT: every character of conductor `≤T` is `+1` at p. In this
+language it is the character-trap argument at a rational square point,
+with the needed characters forced by the congruence instead of by H.
+
+The class of one is a *rational* square-mimicking point. That is why no
+factorisation hypothesis is needed. At `q*_univ`, Theorem C reproves
+Cor 17.3.1, but only under H for the factors of the identity
+denominators. Schinzel's general theorem says that no polynomial identity
+covers a square class (cited via EST p. 8, refs [44], [68]). It is the
+*unconditional* counterpart of Theorem C for programs with no FACTOR
+instructions. Theorem C does not reprove it unconditionally.
+
+**3.2 DEPTH3 Theorem 2.** `BFS_k` is breadth-first search from the seed
+for k rounds; it outputs the first all-positive vertex. It is a correct,
+bounded, witness-producing program.
+
+* **Fibres.** The fibre of z is computed by FACTOR of `4z−p` and `pz`
+  (giving the reduced `r/s`), then DIVISORS of `s²` with both signs, a
+  divmod test `r|D+s`, and the two quotients.
+* **Deduplication.** Done by equality tests against a visited list that is
+  never modified inside its own scan loop.
+
+Theorem C at `q*_univ` says: under H, infinitely many `p=24q+1` have
+`BFS_k(p)=FAIL`, i.e. `dist(p)>k`. Put X into S if q itself is to be
+prime. The proof in DEPTH3 is this proof: its "enlarge Λ by the primes of
+`H_g`" is our Λ'. Its vertex-wise use of (2a) is Lemma CT(a)/(c).
+
+**3.3 Theorem F (FORMAL_CLOSURE).** `BFS_∞` is "repeat rounds until no new
+vertex". Dead denominators (p-free, and `<0` or `>2t`) get a singleton
+fibre (SR §5, WINDMILL Thm 7). It is an *extended* program (while-loop).
+On every input it computes the seed component exactly and reports a
+positive vertex if there is one. Its formal run at the certificate's point
+is the closure computation:
+
+| FORMAL_CLOSURE | here |
+|---|---|
+| (C1) closure stabilises (7883 vertices, 9 rounds) | formal run of `BFS_∞` is finite |
+| (C2) every prime of every `c_r` is in Λ; aux factors in S | Λ ⊇ primes of the D in (F3); S ⊇ all FACTORed polynomials |
+| (C3) no fixed prime divisor | Λ ⊇ primes `≤Σdeg` (cruder; to keep the certificate's `C_g`, choose `q*_ℓ` at the extra ℓ off the roots of S, possible by (C3)) |
+| (C4) every vertex has a negative entry | formal output FAIL |
+| (C5) seed, `C_X=C_P=1` | start of the run, `C_P=1` |
+| dead test `Z>12X` etc. | (F4) comparisons |
+
+The certificate's point is a class `q0 mod M`. Lift it to `q*∈Ẑ` by
+choosing `q*_ℓ` off the roots of S for `ℓ∉Λ`; the `C_g` are unchanged.
+Theorem M then gives Theorem F in its literal 13521-polynomial form. The
+"accidental-prime gap" of FORMAL_CLOSURE is exactly an attempt to use
+Lemma D without the primes of D in Λ. The 6402 refinement is Remark 3.
+Theorem C is *not* what proves FAIL here: the certificate's point is not
+square-mimicking at every r-prime. FAIL is certified directly by (C4).
+
+**3.4 The Elsholtz–Tao odd-square remark** (EST printed p. 6, right after
+Prop 1.6; DEPTH3 cites it as "p. 5":
+"one can only use methods that must necessarily fail when p is replaced by
+an odd square … rules out … covering congruence strategies, or the circle
+method").
+
+* EST Prop 1.6 is the statement at *actual* squares.
+* Lemma CT is the same computation at primes.
+* Theorem C is the precise H-conditional form of the remark *for
+  procedures*: a bounded witness-producing method cannot distinguish p
+  from a square, because at admissible p it sees only data that a square
+  would show.
+* Covering congruences are §3.1.
+
+The circle method is **not** a bounded procedure. It averages over
+p-dependent ranges (feature E1 below). ET's remark about it concerns main
+terms, which is an analytic sense not covered by Theorem M. The campaign's
+`W(m²)=+∞` (notes Thm 58.1) is the actual-square instance for the full
+harvested witness system.
+
+## 4. Scope: what escapes
+
+### 4.1 Size comparisons of formal quantities are inside the scope
+
+**Proposition A (PROVED).** Let `A∈Q[X]`, `c>0` and `θ≥0` be real. Then
+`sign(A(q)−c·P(q)^θ)` is eventually constant. Hence an instruction
+"compare r with `c·p^θ`" has formal semantics. Theorems M and C hold for
+programs using it.
+
+*Proof.* Put `f(t)=A(t)−cP(t)^θ`; it is continuous for large real t.
+
+* If `θ∉Q`, the exponent `θ·deg P` is irrational, while `deg A` is an
+  integer, so the larger of the two leading terms dominates.
+* If `θ=a/b`, we may assume `A(t)>0` eventually (otherwise `f<0`). Then
+  `f(t)=0` iff `A(t)^b=c^bP(t)^a`. This is either an identity (then
+  `f≡0`) or has finitely many roots. ∎
+
+Consequently all of the following are bounded-type:
+
+* "is the divisor d at most `√p`";
+* "does `x²` have a divisor in `[p^θ,2p^θ]`", for x a formal (factored)
+  quantity;
+* "is this window within `p^θ` of `p/4`";
+* the dead-denominator test of Theorem F.
+
+At admissible p, these tests return the formal answer. **"Use the size of
+p" (STATUS.md) is therefore not an escape by itself.** Size can help only
+by making the set of consulted integers p-dependent and unbounded (E1), or
+by producing non-polynomial integers such as `⌊p^θ⌋` (E2).
+
+### 4.2 The escape criterion
+
+Call Π **formally refuted** if its formal run at some point q* (with
+`C_P=1`) is defined, finite and outputs FAIL. Under H, a formally refuted
+program fails for infinitely many primes (Theorem M). Π **escapes** if it
+is not formally refuted at any point.
+
+**Corollary E (CONDITIONAL on H).** Suppose a correct witness-producing
+extended program succeeds for all large primes `p≡1 (24)`. Then its formal
+run at every square-mimicking, universally nondegenerate point is
+undefined or infinite.
+
+*Proof.* Otherwise Theorem C gives infinitely many failures. ∎
+
+So a pointwise ES mechanism must have at least one of the following
+features. They are listed with the brief's (i)–(iv).
+
+* **(E1) Unbounded search** (brief (i); also (ii) when the interval grows).
+  A loop or `while` whose formal iteration count is infinite: ranges of
+  p-dependent length (`a≤p^θ`, windows `x∈(p/4,p/4+H(p)]` with
+  `H(p)→∞`), or "iterate until success". *Example.* The full ES search
+  "for `a≡3 (4)`, `a≤2⌊(p+1)/3⌋`, test window a" (notes Thm 61.4) escapes.
+  Every finite truncation is bounded, so Theorem C makes every iteration
+  formally FAIL at `q*_univ`, and the formal loop never terminates. So the
+  meta-theorem never says anything about ES itself.
+* **(E2) Non-formal integers** (brief (iii)). Primitives without formal
+  semantics (F9) produce integers whose *actual* factorisations are not
+  fixed polynomials in q. Examples:
+  * `⌊p^θ⌋` for `θ∉Z`. A polynomial cannot grow like `q^θ`, so there are
+    no formal semantics on any class.
+  * The least quadratic non-residue `n_p`. At a square-mimicking point,
+    `n_p` exceeds every prime of Λ. A constant value c would have to be
+    a prime outside Λ, and adjoining c to Λ (as a residue) excludes it.
+    A nonconstant polynomial value is impossible, since `n_p<√p+1`.
+    Under H, which makes the admissible q exist, `n_p` therefore has no
+    formal semantics. Note that every
+    solution exhibits a non-residue (Lemma CT; notes Lemma 77.6), so
+    "use the least non-residue" is a natural E2 mechanism.
+  * `ord_p(2)`, discrete logarithms, primes in p-dependent intervals, and
+    the digits of p.
+  * Solutions of `4/n` (`n<p`) used as a black box, i.e. descent oracles.
+    notes §77.6 closes the natural ones by a different argument.
+* **(E3) Fixed non-abelian information does not escape** (part of (iv)).
+  Examples are "is 2 a cube mod p" and representation by a non-principal
+  form (notes §9.3(b)). Under a Schinzel–Chebotarev hypothesis `H_K` (H
+  with prescribed Frobenius classes in a fixed Galois `K/Q` for the prime
+  values), add an instruction `FROB_K(r)` for formal primes. It has formal
+  semantics once q* also prescribes the Frobenius classes. Theorem M then
+  extends verbatim. Theorem C is unaffected, because it uses Legendre
+  symbols only. Notes Cor 9.3 is the unconditional single-polynomial case
+  (Chebotarev). Only p-dependent families of fields escape, and that is
+  E1. *(CONDITIONAL on `H_K`; stated, not developed.)*
+* **(E4) Non-witness certificates** (rest of (iv)). Boolean predicates
+  whose correctness is a theorem, such as "the number of solutions is
+  positive" proved analytically, lie outside the meta-theorem. They are
+  not refuted by it. Any proof of ES makes the (E1) brute-force search
+  correct, so the meta-theorem excludes no *proof*. It excludes proofs
+  whose witness comes from a procedure with a finite formal run.
+  Exceptional-set statements are also untouched: formal-generic primes
+  have density `(log N)^{−|S|}→0`, consistent with DEPTH3 Thm 3 and
+  `E(N)=o(π(N))`.
+
+### 4.3 How unbounded? Quantitative thresholds
+
+* **(Q1) PROVED** (notes Thms 54.1/54.3, = §3.1 with Linnik).
+  * **Multiplier moduli.** A congruence-only multiplier mechanism
+    "`W(p)≤T(p)`" fails infinitely often if `T(p)≤(1/5.2−ε)log p`; the
+    same holds for slices `ck≤T(p)`.
+  * **Conditional sharpening.** If the least prime `≡1 (mod m)` is
+    `≪m^{1+ε}`, the threshold becomes `(1−ε)log p`.
+  * **Beyond `(log p)^{1+ε}`.** The class of one cannot reach this range:
+    `p≡1 (mod lcm(1..T))` forces `log p≥(1+o(1))T`. Escaping it is
+    necessary, not sufficient. In the independent-model heuristic with
+    the cubic intrinsic supply (notes Thm 18.2), the bound `W(p)≤(log p)^A`
+    fails infinitely often for every A. That is a Step-2 matter, so we
+    flag it and do not claim it.
+* **(Q2) Assessment (uniform Bateman–Horn; heuristic).** Take a
+  truncation with K linear formal-prime conditions. Λ contains all primes
+  `≤K`, so `log M≳K`. The local factors at `ℓ≤K` contribute about
+  `(e^γlog K)^K`, and the primes `ℓ>K` contribute `e^{O(K)}`. So the
+  expected number of admissible `p≤N` is
+  `N·exp{−K log log N+K log log K+O(K)}`. This is `≥1` when
+  `K≲log N/log log N`. Thus mechanisms that factor only
+  `K(p)=o(log p/log log p)` p-dependent values are heuristically refuted
+  by formal genericity alone. Mechanism-specific random models (Step 2)
+  will typically demand more.
+
+### 4.4 Map
+
+| feature of the mechanism | inside Theorems M/C? | why |
+|---|---|---|
+| residues of p mod fixed moduli | yes | (P3); class of one, Dirichlet |
+| factorisation shapes of fixed polynomials in p, adaptively chosen | yes | Theorem M |
+| quadratic characters of everything met | yes, all `+1` at square-mimicking points | Theorem C |
+| size comparisons of formal quantities (incl. vs `p^θ`, short intervals of formal divisors) | yes | Prop. A |
+| floors, gcds, Euclid on formal quantities | yes | Lemma D, FACTOR |
+| fixed non-abelian Frobenius data | yes, modulo `H_K` | E3 |
+| p-dependent unbounded ranges / iterate-until-success | **no** | E1 (Q1/Q2: need `≳log p`) |
+| integers that are not eventually polynomial (`⌊p^θ⌋`, `n_p`, `ord_p 2`) and their factorisations | **no** | E2 |
+| Boolean / counting certificates, almost-all statements | **no (silent)** | E4 |
+
+## 5. Machine checks (EVIDENCE)
+
+**Lemma CT.** `scripts/pointwise_size_ct_check.py 5000 1000` enumerates
+every positive solution `x≤y≤z` for all 329 primes `p≡1 (4)`, `p≤5000`,
+by the divisor method. Completeness is cross-checked against a naive
+search for `p<1000`. Over the 15555 solutions (10656 Type I, 4899 Type
+II) there are 0 violations of CT(a)–(c). In Type II, both cofactors have
+a QNR factor in only 3325/4899 cases, so (c) cannot be split. Output:
+`data/pointwise_size/ct_check_5000.txt`.
+
+**Toy Theorem M/C.** `scripts/pointwise_size_toy_formal.py 20000000`
+checks the bounded program "Type II windows `a∈{3,7,11}`, Type I windows
+`m∈{3,7}` (notes Thm 3.1), full divisor search".
+
+* **Formal data.** `P=24X+1`, and
+  `S=P∪{2X+1,3X+1,6X+1,18X+1,21X+1}`, with `C=(1,4,1,1,2)`.
+  `Λ={2,3,5,7,11}`, `M=55440`.
+* **The formal run** is computed from the residues of q* alone (formal
+  divisors `c·r^j`).
+* **The actual run** on admissible q (all six forms prime, found by a
+  sieve, `q<1.1·10^{12}`) is performed with sympy factorisations.
+
+Results:
+
+| point | `p*` square at | formal output | admissible q found | actual ≠ formal |
+|---|---|---|---|---|
+| `sq` (`q*=11585 mod M`) | all of Λ | FAIL | 331 | 0 |
+| `nsq` (`q*=27425`, differs at 7) | not at 7 | SUCCESS (Type II, a=7, `d=2r²`) | 323 | 0 |
+
+At the `sq` point there are also 3000 non-admissible primes in the same
+class (p prime, the window values unconstrained). Of these, 2955 succeed.
+For every success:
+
+* the window's formal prime `r_h` is composite;
+* the solution's p-free denominator has a QNR prime factor.
+
+So success comes exactly from the non-formal factorisations, as
+Theorem M/C predict. Output: `data/pointwise_size/toy_formal_2e7.txt`.
+This tests the bookkeeping on a small family. It is not a test of H.
+
+## 6. Consequences for Step 2 (plan, not results)
+
+A candidate must be of type E1 or E2, and its proof of escape is
+Corollary E's criterion: an infinite formal run. It must survive (Q1)/(Q2)
+and a mechanism-specific random model. Natural candidates are:
+
+* short-interval and smooth-window statements with interval length
+  `p^θ`, `θ>0`;
+* Hooley-Δ / Erdős–Hall type divisor distribution of an unbounded set of
+  windows, in moving residue classes;
+* mechanisms seeded by the actual least non-residue.
+
+These are to be developed after parent review.
+
+## Replay
+
+```
+(ulimit -v 4000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_ct_check.py 5000 1000)   # ~20 s
+(ulimit -v 8000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_toy_formal.py 20000000)  # ~3 min
+```
