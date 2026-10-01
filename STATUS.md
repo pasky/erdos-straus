@@ -88,3 +88,23 @@ pointwise multiplier mechanism needs witness moduli beyond `(log p)^2`.
   section.
 * Status labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE.
   "Verified numerically" never means "proved".
+
+## In progress (2026-10-01 evening; agents paused by an API usage block)
+
+* `side-agent/theta-beyond-34` (worktree 0001, **not merged**):
+  `EXCEPTIONAL_THETA.md`. It claims a proved "sieve-limit" theorem
+  (Thm 2.5/2.7, Cor 3.4–3.6): every nonnegative CRT majorant built from
+  dominant-prime Case-B forced classes saves at most `C(log N)^{3/4}`. On
+  this reading 3/4 is sharp for that class, and the 2/3-loglog note is sharp
+  for its own architecture. Case A is settled via Elsholtz–Tao Prop 1.4.
+  Balanced moduli carry a positive share of the cubic supply and remain the
+  open door (H_MS). The independent hostile review
+  (`side-agent/review-theta`, worktree 0006) was interrupted before
+  finishing. Its only output so far is an uncommitted literature note,
+  `reviews/theta-lit-notes.md`, which found no prior source for the
+  theorem. **Do not cite these results until that review is complete.**
+* `paper/es-omega-note.tex` (branch `side-agent/pointwise-omega`, commit
+  `0e06282`) is an 11-page note on the Ω-results. A referee report exists
+  (`side-agent/review-omega:reviews/es-omega-note-review.md`, MINOR
+  REVISION, R1–R17). The repairs were started but are uncommitted in
+  worktree 0002.
