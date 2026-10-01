@@ -982,6 +982,357 @@ factorisations sit at the opposite end, with small window modulus (§8).
 Nothing here changes a proved statement of notes §54. It changes which
 pointwise target is worth stating.
 
+## 8. The window frame: `a_min(p)=O(log p)`, just above the formal obstruction
+
+### 8.1 The statistic and the reduction
+
+For a prime `p≡1 (4)` and `q≡3 (4)`, put `x_q=(p+q)/4`, so that
+`q=4x_q−p`. Write `Rat_q(x)={u/v mod q : uv|x, gcd(u,v)=1}` (notes
+Thm 62.1). By notes **Lemma 77.1**, `4/p` has a solution with p-free
+denominator `x_q` iff `Rat_q(x_q)∩{−1,−p}≠∅`. The target −1 gives Type II
+and −p gives Type I. Define
+
+```
+a_min(p) := min{ q≡3 (mod 4) : Rat_q((p+q)/4) ∩ {−1,−p} ≠ ∅ }.
+```
+
+**Theorem 8.1 (PROVED).** `ES(p)⟺a_min(p)<∞`. Consider, for a constant
+`C>0`:
+
+> **X_win(C).** For every prime `p≡1 (24)`, `p>10^18`, `a_min(p)≤C log p`.
+> Equivalently, with `t=(p−1)/4`, some `s≤(C log p+1)/4` has coprime
+> `u,v` with `uv|t+s` and `4s−1|u+v` or `4s−1|u+pv`.
+
+Then X_win(C), for any C, implies the Erdős–Straus conjecture.
+
+*Proof.* The first sentence is Lemma 77.1. The window x is the p-free
+denominator of the solution, and every solution has one. For the second:
+* Mordell's identities settle all `p≢1 (24)`.
+* The verification to `10^18` (Mihnea–Dumitru, as cited in notes §0)
+  settles `p≤10^18`.
+* Notes Lemma 1.1 reduces ES to primes. ∎
+
+The window search is the "search over p-dependent ranges" of feature E1.
+Its unbounded length is essential (Prop. 8.4). Its parameter is the
+*small* end of the duality `aM=4D+p`: a small window modulus a means a
+huge multiplier `M≈p/a`. So the actual factorisation of `x_q` is used,
+not a congruence on p. This is the opposite end from §7.
+
+### 8.2 Window reciprocity
+
+**Lemma 8.2 (PROVED).** Let `p≡1 (8)` be prime, `q≡3 (4)` with
+`0<q<3p`, and `x=(p+q)/4`. Then every prime `r|x` is prime to q, and the
+Jacobi symbol satisfies `(r/q)=(r/p)`.
+
+*Proof.* If `r|q`, then `r|4x−q=p`, so `r=p`; but `r≤x<p`.
+
+* **r odd.** Jacobi reciprocity for `q≡3 (4)` gives
+  `(r/q)=(−1/r)(q/r)=(−q/r)`. Then `(−q/r)=(p/r)`, because `r|p+q`. And
+  `(p/r)=(r/p)`, because `p≡1 (4)`.
+* **r=2.** Then `8|p+q`, so `q≡7 (8)` and `(2/q)=1=(2/p)`. ∎
+
+This is the window form of the reciprocity collapse of notes Prop 8.1 /
+Lemma 77.10. Combined with Lemma CT it gives:
+
+**Corollary 8.3 (PROVED).** Let `q=4s−1` and `x=x_q`.
+
+* **(a) F1.** If every prime factor of x is a residue mod p, the window
+  fails for both targets. Then every element of `Rat_q(x)` has Jacobi
+  symbol +1 mod q, while `(−1/q)=−1` and `(−p/q)=−(x/q)=−1`.
+* **(b) Prime q.** Conversely, for prime q the prime factors of x
+  generate a subgroup of `(Z/q)^×` containing −1 iff some prime factor of
+  x is a non-residue mod p. (The group is cyclic of order `2m` with m odd;
+  a subgroup contains −1 iff its order is even, iff it is not inside the
+  squares.) So at a prime window, the *subgroup-level* failure is exactly
+  F1, i.e. the Lemma CT obstruction. Any other failure is a failure of
+  the exponent budget `|f_r|≤v_r(x)` (notes §70's F3).
+* **(c) Small prime factors.** Every prime `r<n_p` (the least quadratic
+  non-residue mod p) is a residue mod q. Prime factors of x below `n_p`
+  therefore never lift a window out of F1.
+
+### 8.3 The search length must be unbounded: escape, proved
+
+**Proposition 8.4.**
+
+* **(a) PROVED.** Fix `K≥3`. Suppose p, a prime `≡1 (24)`, satisfies:
+  * p is a quadratic residue mod every prime `ℓ≤K`;
+  * for every `a≡3 (4)`, `a≤K`, the value `(p+a)/4` is `2^i3^j` times a
+    prime.
+
+  Then `a_min(p)>K`.
+* **(b) CONDITIONAL on Dickson.** There are infinitely many such p. They
+  are the values `24q+1` with q in a fixed square-mimicking class modulo
+  `72∏_{5≤ℓ≤K}ℓ`, at which `⌊(K+1)/4⌋+1` linear forms are simultaneously
+  prime. Hardy–Littlewood gives `≫N/(log N)^{⌊(K+1)/4⌋+1}` of them up to
+  N. So `a_min` is unbounded.
+* **(c) PROVED.** Every truncation "windows `q≤K`" is a bounded program
+  that is formally refuted at `q*_univ` (Theorem C). The unbounded search
+  "q=3,7,11,… until success" has an infinite formal run there. The escape
+  is in the necessary sense of Corollary E, and no bounded version
+  survives.
+
+*Proof of (a).* Let `x=(p+a)/4=2^i3^j r`. Then
+`(r/p)=(x/p)=(4x/p)=(a/p)`, because `(2/p)=(3/p)=1`. Moreover
+`(a/p)=∏_{ℓ|a}(p/ℓ)^{v_ℓ(a)}=+1` (Jacobi; every `ℓ|a` is `≤K`). So every
+prime factor of x is a residue mod p, and Corollary 8.3(a) applies. ∎
+
+(b) is Theorem C/M(d) with the explicit family. **EVIDENCE**
+(`pointwise_size_amin.py formal K`):
+
+| K | forms | modulus | p found | `a_min` of the found p |
+|---|---|---|---|---|
+| 15 | 5 | 360360 | 552 (`p≈3·10^9…10^11`) | all in [19, 59] |
+| 23 | 7 | 5.4·10^8 | 16 (`p≈10^15…2·10^17`) | all in [27, 39] |
+| 31 | 9 | 6.9·10^10 | 0 in `3·10^7` sieve steps | — |
+
+So the formal adversary controls exactly the windows it fixes. The next
+few windows succeed.
+
+### 8.4 Random model and the threshold `log p/log log p` (Assessment)
+
+**Marginals.**
+
+* For a fixed window, the failure probability is of order
+  `(log p)^{−1/2}`. Over shifted primes, notes Thm 70.9 proves the upper
+  bound `≪N/(log N)^{3/2}`. Over integers, notes Thm 70.5 gives the
+  matching scale `C_aH/√log H`. A pointwise-in-p lower bound is not
+  claimed.
+* The source is F1. By Corollary 8.3, F1 asks that x have no prime factor
+  among the non-residues mod p, a set of primes of relative density 1/2.
+* At `q=3`, failure *is* F1. Over Mordell-hard primes it is 0.60, 0.425,
+  0.342, 0.288 at `p≈3·10^6, 10^12, 10^18, 10^24`. The fitted exponent in
+  `log p` is 0.56.
+
+**Correlations.**
+
+* Windows are positively correlated through the quadratic-residue
+  pattern of p, i.e. through `n_p` (Corollary 8.3(c)). In the `10^8`
+  census, the per-window failure is 0.16–0.37 for `n_p≤11` but 0.68–0.73
+  for `n_p≥30`.
+* The joint tail exceeds the independence product, by a factor of 18 at
+  14 windows.
+* The record `a_min(8803369)=107` has `n_p=41`: p is a residue mod every
+  prime `≤37`.
+
+**Model.** Conditionally on p, treat the windows as independent with
+failure `g(p)≈c(log p)^{−1/2}`, so that `P(a_min(p)>Q)≈g(p)^{(Q+1)/4}`.
+The Mordell-hard samples (§8.5) give `c≈1.9`, from `g=0.351` at `10^12`
+and `0.300` at `10^18`, with 8 windows. Predicted maxima over
+Mordell-hard `p≤N` (`π_M(N)≈π(N)/32`):
+
+| N | `10^8` | `10^12` | `10^18` | `10^30` | `10^100` |
+|---|---|---|---|---|---|
+| predicted `max a_min` | 58 | 81 | 111 | 166 | 424 |
+| `/log N` | 3.2 | 2.9 | 2.7 | 2.4 | 1.8 |
+
+The observed census maximum below `10^8` is 107 (`/log p=6.7`). Otherwise
+the dyadic maxima are 47–63 (`/log p≈3–3.9`).
+
+**Assessment 8.5.**
+
+* **Upper threshold.** Under the model,
+  `log P(a_min(p)>Q) = −(Q/8)(log log p)(1+o(1))`. The tail is summable
+  over p as soon as `Q≥(8+ε)log p/log log p`. Hence **X_win(C) is
+  heuristically true for every fixed `C>0`**, and
+  `a_min(p)≤(8+o(1))log p/log log p` for all large p.
+* **Lower threshold.** The formal adversary (Prop. 8.4, with the (Q2)
+  count) and the F1 adversary both produce, heuristically, `p≤N` with
+  `a_min(p)≥c·log N/log log N`. So the window frame's true scale is
+  `Θ(log p/log log p)`.
+* **Margin.** `X_win(C)` sits above this scale by a factor `≍log log p`,
+  and the formal-genericity obstruction sits exactly at it. (The
+  multiplier frame of §7 needs `exp((log p)^{1/3})`.)
+* **Data.** `X_win(10)` holds for every hard `p<10^8` (maximum ratio 6.69).
+  It also holds in all samples at `10^12`, `10^18` and `10^24`, and for
+  all class-of-one and formal-adversary primes tested (§8.5).
+
+### 8.5 Numerical tests (EVIDENCE)
+
+| family | primes | `max a_min` | `P(a_min>7)` | `P(a_min>23)` |
+|---|---|---|---|---|
+| all hard `p<10^8` (census) | 719781 | 107 | 0.0753 | 2.4e−3 |
+| Mordell-hard `p<10^8` (census) | 179468 | 107 | 0.302 | 9.7e−3 |
+| Mordell-hard, random `p∈[10^12,2·10^12)` | 30000 | 39 | 0.184 | 1.7e−3 |
+| Mordell-hard, random `p∈[10^18,2·10^18)` | 30000 | 43 | 0.121 | 3.3e−4 |
+| class of one, `p≡1 (lcm(24,1..23))`, `p≈10^15` | 2000 | 67 | 0.226 | 0.0165 |
+| class of one, `p≡1 (lcm(24,1..41))`, `p≈10^23` | 1000 | 43 | 0.158 | 0.006 |
+| formal adversary K=15 / 23 | 552 / 16 | 59 / 39 | 1 / 1 | — / 1 |
+| W-record primes (notes (65.2)) and the hard `p<10^9` with `W>2047` | 17 | 23 | — | 0 |
+
+The two frames are nearly independent.
+
+* **W-records have small windows.** The record `W(2031121)=2495` has
+  `a_min=11`. The two hard primes `p<10^9` with `W>2047`, namely
+  605531161 and 610747201 (`W=3263` and `2071`), have `a_min=23` and 3.
+  The class of one ruins small multipliers but leaves windows alone,
+  because windows see the free prime factors of `x_q` (notes §77.1).
+* **Type mix of the minimal window.** Type II is the more frequent
+  minimiser: 545986 against 173795 of the 719781 hard primes `<10^8`.
+
+### 8.6 Position relative to known results and conjectures
+
+* **Single windows: known.** The fixed-window laws are proved (notes
+  §70): the failure scale, density-one success in compatible
+  progressions, and the F1/F3 split.
+* **Joint windows: the exceptional-set problem.** X_win needs the *joint*
+  failure of `J≍log p` windows to be `o(1/p)` **for every p**. Its
+  average version over p is the stacking hypothesis `H_STACK` of notes
+  §71, with `J` growing. X_win is the pointwise version, far beyond sieve
+  uniformity. It is the precise pointwise counterpart of the campaign's
+  exceptional-set line.
+* **Erdős–Hall type.** Per window, the relevant set is `Rat_q(x)`, with up
+  to `3^{ω(x)}≈(log p)^{log 3}` elements. Divisors alone number
+  `2^{ω(x)}`.
+  * The window range `q≤C log p` lies inside the range
+    `q≤(log x)^{log 3−ε}`. Heuristically, the ratio sets equidistribute
+    there.
+  * It lies outside the classical divisor range `q≤(log x)^{log 2−ε}`.
+    The Erdős–Hall almost-all theorem for divisors in residue classes
+    lives there (recalled from memory, not re-checked).
+  * **A structural consequence.** Any mechanism that only uses
+    equidistribution of *divisors* (e.g. notes Lemma 77.11's pigeonhole)
+    at moduli `q≤(log p)^{log 2}` has only `≍(log p)^{0.69}` windows. That
+    is fewer than the `≍log p/log log p` that formal genericity requires
+    (§4.3(Q2), Prop. 8.4). Such a mechanism is heuristically refuted. The
+    pointwise problem needs the ratio sets, up to moduli `≍log p`.
+* **Jacobsthal / covering flavour.** By Corollary 8.3, X_win implies the
+  following necessary statement. Among the `≍C log p/4` consecutive
+  values `(p+q)/4`, at least one has a prime factor that is a
+  non-residue mod p. This is a "no long runs of p-residue-smooth shifted
+  values" statement. The formal adversary (all values prime, all
+  constants residues) shows that it fails for runs of length
+  `o(log p/log log p)` under Dickson.
+
+## 9. Seeding by the least non-residue (E2)
+
+Every solution exhibits a non-residue mod p: by Lemma CT, the p-free
+denominator has a prime factor ℓ with `(ℓ/p)=−1`. Let `n_p` be the least
+one. For Mordell-hard p it satisfies `n_p≥11`, since 2, 3, 5, 7 are
+residues there.
+
+**Lemma 9.1 (seeded windows; PROVED).** Let `n=n_p`, and let `q>0` with
+`q≡−p (mod 4n)`. Then:
+
+* `q≡3 (4)`;
+* `n|x_q=(p+q)/4`;
+* `(n/q)=−1` (Jacobi).
+
+In particular a seeded window is never F1. For prime q, the subgroup
+generated by the prime factors of `x_q` contains −1 (Cor. 8.3(b)). Such
+a window can fail only through the exponent budget (F3).
+
+*Proof.* `4n|p+q`. Then apply Lemma 8.2 with `r=n`:
+`(n/q)=(n/p)=−1`. ∎
+
+**The mechanism.** Use the seeded windows `q_j=q_0+4n_pj`, `j=0,1,…`,
+where `q_0=(−p mod 4n_p)<4n_p`.
+
+> **X_QNR(C).** For every prime `p≡1 (24)`, `p>10^18`, some `j<C log p`
+> has `Rat_{q_j}(x_{q_j})∩{−1,−p}≠∅`.
+
+* **ES ⇐ X_QNR(C)** (PROVED). The argument is that of Theorem 8.1.
+* **Search range.** Under GRH, `n_p≤2(log p)^2` (Bach; cited, not
+  re-checked), so the search is polylogarithmic: `q<8C(log p)^3`.
+* **Escape (PROVED, in the sense of §4.2).** The window positions depend
+  on `n_p`, a primitive without formal semantics at square-mimicking
+  points (§4.2, E2). The length must still grow (E1).
+  * **Fixed n_p does not escape.** At a point that is square-mimicking
+    except at one prime `ℓ_0`, the least non-residue is formally `ℓ_0`.
+    The first J seeded windows then form a bounded formal program.
+  * **Plausible refutation (Assessment, not proved).** For large enough
+    windows, choosing the residues of the formal primes `x/(Cℓ_0)` can
+    make every such window fail. So we expect X_QNR with *fixed* J to be
+    formally refuted.
+
+**Data** (`pointwise_size_amin.py seeded 100000000 20 1` and
+`sample_seeded`). Mordell-hard primes. "Seeded J" means the first J
+seeded windows all fail; "unseeded" means the first J windows `q≤4J−1`
+all fail.
+
+| p range | primes | seeded J=1 | J=2 | J=3 | J=5 | unseeded J=1 | J=2 | J=3 | J=5 |
+|---|---|---|---|---|---|---|---|---|---|
+| `10^5–3·10^6` (all) | 6355 | 0.071 | 0.015 | 6.5e−3 | 1.1e−3 | 0.60 | 0.38 | 0.15 | 0.049 |
+| `10^5–10^8` (all) | 179195 | 0.058 | 9.1e−3 | 3.3e−3 | 6.0e−4 | — | — | — | — |
+| `[10^12,2·10^12)` | 20000 | 0.042 | 3.3e−3 | 7e−4 | 1e−4 | 0.425 | 0.183 | 0.050 | 8.1e−3 |
+| `[10^18,2·10^18)` | 20000 | 0.029 | 2.3e−3 | 3e−4 | 0 | 0.342 | 0.123 | 0.027 | 2.8e−3 |
+| `[10^24,2·10^24)` | 5000 | 0.022 | 1.2e−3 | 2e−4 | 0 | 0.288 | 0.082 | 0.014 | 8e−4 |
+
+Lemma 9.1 has 0 violations over all windows tested.
+
+**Assessment 9.2.**
+
+* **Single windows.** Seeded first-window failure decays like
+  `(log p)^{−0.9}`. Unseeded windows decay like `(log p)^{−0.56}`. This is
+  as predicted: seeding removes F1 exactly, and F3 needs `x/n_p` to have
+  few prime factors, at probability `(log p)^{−1+o(1)}`.
+* **Joint windows.** With J windows the gain compounds. At `10^18`, two
+  seeded windows fail together 50 times less often than two unseeded
+  ones.
+* **Scale.** The threshold is still `Θ(log p/log log p)` windows. The
+  formal and F1 adversaries are replaced by an F3 adversary at
+  `(log p)^{−1}` per window, which roughly halves the constant. X_QNR(C)
+  is heuristically true for every `C>0`.
+* **The price is size.** Seeded windows are sparse, with moduli
+  `≈4n_pj`. The first successful seeded modulus has median 3.1×`a_min(p)`
+  (1-in-50 subsample `<10^8`).
+* **Caveat (not quantified).** Part of the seeded successes are
+  congruence-forced. For instance, when `q_0=3` and `n_p≡2 (3)`, the
+  window always succeeds; this is a Mordell-type identity in disguise.
+  For Mordell-hard p, `n_p≥11` makes such forcing rarer.
+
+**What E2 contributes.** Lemma CT and Cor. 8.3 identify the obstruction's
+coordinate. Unseeded windows fail mainly when `x_q` has no prime factor
+among the non-residues mod p. The least non-residue is the cheapest such
+factor to plant, and it can be planted by a congruence on q that depends
+on p. That is exactly what formal genericity cannot see.
+
+E2 does not, however, give a deterministic mechanism. After seeding, the
+success of a window still depends on the factorisation of
+`x_q/n_p` (budget F3). This is the same kind of divisor-ratio event, with
+a better exponent.
+
+## 10. Summary of Step 2
+
+| frame | consulted objects | proved lower bound i.o. | heuristic true scale | pointwise hypothesis | status |
+|---|---|---|---|---|---|
+| multiplier `W(p)` (congruence-only, §7) | `p mod M`, `M≤T` | `W>log p/5.2` (notes Thm 54.1) | `log W≍(log p)^{1/3}`; `W≈(log p)^{2.5–3.4}` for `10^8≤p≤10^50` | `W≤(log p)^A` | **heuristically false ∀A** (Assessment 7.2) |
+| window `a_min(p)` (§8) | factorisations of `(p+q)/4`, `q≤Q` | unbounded under Dickson (Prop 8.4); for each found p, `a_min>K` PROVED | `Θ(log p/log log p)` | **X_win(C)**: `a_min≤C log p` | heuristically true ∀C>0 (Assessment 8.5); `C=10` holds on all data |
+| seeded windows (§9) | factorisations of `(p+q)/4`, `q≡−p (4n_p)` | none beyond §8 | `Θ(log p/log log p)` windows, better constant | **X_QNR(C)** | heuristically true ∀C>0 (Assessment 9.2) |
+
+Answers to the brief's Step 2 items (a)–(d):
+
+* **(a) Escape.** X_win and X_QNR escape the meta-theorem in the
+  necessary sense (Prop. 8.4(c), §9). Their bounded truncations are
+  formally refuted.
+* **(b) Heuristics.**
+  * The formal-genericity threshold `≍log p/log log p` lies below `C log p`
+    (§4.3(Q2), Assessment 8.5).
+  * The multiplier frame is refuted for all polylog bounds.
+  * Divisor equidistribution in the Erdős–Hall range is too short
+    (§8.6).
+* **(c) Numerics.** The tested families are:
+  * all hard and Mordell-hard primes `<10^8`;
+  * random samples at `10^12`, `10^18`, `10^24`;
+  * class-of-one primes (`≡1 mod lcm(1..41)`);
+  * formal-adversary primes (`p=24q+1` with all shifted windows prime);
+  * the W-record primes.
+* **(d) Reductions.** ES ⇐ X_win(C), and ES ⇐ X_QNR(C), for any C. Both
+  are PROVED (Theorem 8.1), using Lemma 77.1 and the verification to
+  `10^18`.
+
+**What was not obtained.** There is no unconditional partial result
+beyond the trivial ones. Seeded and forced windows reproduce congruence
+families. A positive-density set of p that is not a finite union of
+classes, proved via size, was not found. X_win is the pointwise form of
+the J-window stacking problem with `J≍log p`. Its average version is the
+open exceptional-set input `H_STACK` (notes §71). We know no route to
+its pointwise form. It is precisely Wall (i) of notes §10.6: divisors
+hitting a moving coset in one of `≍log p` shifts. What Step 2 adds is the
+correct *length* of that search (`≍log p/log log p`, versus
+`exp((log p)^{1/3})` in the multiplier parametrisation), and the correct
+*coordinate* of its obstruction (non-residue prime factors; F1 versus
+F3).
+
 ## Replay
 
 ```
@@ -996,4 +1347,17 @@ $P census 8191 1000000000            # all hard p < 1e9, ~10 s, 12 GB limit
 $P primes 1023 18 200000 5           # sample near 1e18
 uv run python scripts/pointwise_size_indep.py 1048575         # I(T), ~2 min
 uv run python scripts/pointwise_size_wtail_table.py           # table.txt
+# Step 2, sections 8-9 (window frame, seeding); outputs in data/pointwise_size/window/
+A="PYTHONPATH=scripts uv run python scripts/pointwise_size_amin.py"
+$A census 100000000 [1]              # all hard [Mordell-hard] p < 1e8, ~2 min
+$A windows 100000000 127             # per-window marginals / joint / by n_p, ~25 min
+$A sample 12 30000 11; $A sample 18 30000 12        # Mordell-hard samples
+$A class1 23 2000 3; $A class1 41 1000 4            # class-of-one primes
+$A formal 15 3000000; $A formal 23 30000000; $A formal 31 30000000   # formal adversary
+$A seeded 100000000 20 1             # seeded windows, Mordell-hard p < 1e8
+$A sample_seeded 12 20000 21; $A sample_seeded 18 20000 22; $A sample_seeded 24 5000 23
+PYTHONPATH=scripts uv run python scripts/pointwise_size_wrecords.py   # W-records vs a_min
 ```
+(`amin_s12.json`/`amin_s18.json` in `data/pointwise_size/window/` are earlier all-hard samples,
+seeds 1/2, produced before the Mordell filter was added to `sample`; `amin_m12/m18.json` are the
+Mordell-hard ones quoted in §8.5.)
