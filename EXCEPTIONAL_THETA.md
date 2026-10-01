@@ -21,15 +21,18 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 |---|---|---|
 | Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `(|R|/Q₀)·exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. Here λ charges only the slice primes. | PROVED |
 | Cor 3.4 | Take any family of Case-B forced classes (both groupings) that are all slice conditions, with small parts k ≤ ℓ^C (C<1) and a selector admissible set. Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A)(log N)^{3/4} + log(P/φ(P))`, where the last term is O(log log log P). So **3/4 is sharp for this class, and no power of log log N can be gained.** This assumes the final bound has the form `N·Eν + (nonnegative rounding bound)`. | PROVED |
+| Thm 2.7, Cor 3.6 | **Sequential extension.** The same cap `C(A,C)(log N)^{3/4}` holds for every Case-B forced-class family whose moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1). The other prime factors are arbitrary and may be shared, so this covers about `log 2 ≈ 69%` of the cubic supply (Dickman; Assessment). | PROVED |
 | Cor 3.5 | Polylogarithmic multipliers, or multipliers whose lcm is at most N (the 2/3 note's architecture), cap the saving at `C L^{2/3}(log L)^{1/3}`. **The 2/3-loglog note is sharp for its architecture.** | PROVED (given the notes' BT upper bounds) |
 | §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, level). Bonferroni depth, the BV level and the selector are not binding: they change constants only. | PROVED (Lemmas 4.1–4.4) |
-| §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed conditional on H_A3. Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: multi-slice moduli, multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
+| §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed conditional on H_A3. Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
 | §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. | EVIDENCE |
 
-**Verdict.** No route to θ > 3/4 survives inside the prime-slice CRT world.
-That world is: slice conditions only, a selector-type admissible set, and a
-final bound of the form `N·Eν + (nonnegative rounding bound)`.
+**Verdict.** No route to θ > 3/4 survives inside the *dominant-prime* CRT
+world. That world is: every condition's modulus has a prime factor
+`≥ M^{1/(1+C)}`, the admissible set has bounded saving, and the final bound
+has the form `N·Eν + (nonnegative rounding bound)`. It contains the
+prime-slice world of Cor 3.4.
 
 The Rankin functional `Ψ = inf_α[αλ + Σ p̄_ℓ ℓ^{−α}]` bounds what any such
 sieve can save (Theorem 2.5). For fibre-uniform families, such as those of
@@ -38,9 +41,9 @@ or the 3/4 note. The Case-B identity profile satisfies
 `Σ p̄_ℓ ℓ^{−α} ≪ α^{−3}` (Lemmas 3.1–3.2), which gives λ^{3/4}.
 
 Beating 3/4 requires one of three things:
-1. conditions whose modulus has **two or more large prime factors at
-   comparable scales**, used *jointly*. Theorem 2.5 does not cover these
-   (hypothesis H_MS, §5.6);
+1. conditions whose modulus is **balanced** (two or more large prime
+   factors at comparable scales, no dominant prime), used *jointly*.
+   Theorems 2.5 and 2.7 do not cover these (hypothesis H_MS, §5.6);
 2. multipliers far larger than the slice prime, without per-condition lcm
    cost (§5.6);
 3. a non-CRT ingredient, i.e. arithmetic of the actual integers beyond
@@ -382,6 +385,93 @@ Three observations:
 
 ---
 
+### 2.6 Sequential windows: shared large primes
+
+Theorem 2.5 needs the slice primes to be disjoint from the small modulus. So
+a large prime cannot be the slice prime of one condition and part of the
+small modulus of another. The following extension removes that restriction.
+
+**Setting.** Take a modulus `Q₀`, `R ⊆ ℤ/Q₀`, and a set 𝒫 of primes not
+dividing `Q₀`, split into ordered *windows* `𝒫 = W₁ ⊔ … ⊔ W_J`. A
+*condition* C is an event
+
+    E_C = {n ≡ a_C (mod q_C), n ≡ b_{C,ℓ} (mod ℓ) for ℓ ∈ S(C)},
+
+with `q_C | Q₀` and `∅ ≠ S(C) ⊆ 𝒫`. Assume:
+
+**(U)** the last window meeting S(C) meets it in exactly one prime `ℓ(C)`.
+
+The *history* before window j is `H_{<j} = (n mod Q₀, (n mod ℓ)_{ℓ∈W_{<j}})`.
+For `ℓ ∈ W_j` and a history h, let `F_ℓ(h)` be the set of `b_{C,ℓ}` over the
+conditions C with `ℓ(C) = ℓ` whose other requirements are met by h. Put
+`p_ℓ(h) = |F_ℓ(h)|/ℓ`. The avoider set is
+`𝒜 = {n : n mod Q₀ ∈ R, n ∉ E_C for all C}`.
+
+Let `Q_seq` be the law of the history built window by window:
+* `c = n mod Q₀` is uniform on R;
+* given `H_{<j}`, the residues `n mod ℓ` (ℓ ∈ W_j) are independent and
+  uniform on `ℤ/ℓ ∖ F_ℓ(H_{<j})`.
+
+Majorants of level λ are defined as in §1, with all primes of 𝒫 charged.
+
+**Theorem 2.7 (sequential sieve limit; PROVED).** Assume that on the support
+of `Q_seq`:
+* `p_ℓ(h) ≤ 1/4` whenever `log ℓ ≤ λ`;
+* `p_ℓ(h) < 1` always.
+
+Then for every choice of `α_1,…,α_J > 0`,
+
+    log(1/Eν) ≤ log(Q₀/|R|) + Σ_j E_{Q_seq}[Φ_j(H_{<j})],               (2.6)
+
+where `Φ_j(h)` is the right side of (2.3) for the window-j coordinates
+(`ℓ ∈ W_j`, `log ℓ ≤ λ`) with probabilities `p_ℓ(h)` and `α = α_j`. A window
+with `log min W_j > λ` contributes 0.
+
+*Proof.* Let g_j be the uniform conditional expectation
+`g_j(h) = E[ν | H_{<j} = h]`. Let `𝒜_{<j}` be the set of histories that lie
+in R and satisfy no condition with last window < j. Such conditions are
+decided by `H_{<j}`. We show by downward induction that, for `h ∈ 𝒜_{<j}`,
+
+    −log g_j(h) ≤ E_{Q_seq}[ Σ_{i≥j} Φ_i(H_{<i}) | H_{<j} = h ].
+
+*Base case j = J+1.* `H_{<J+1}` determines membership in 𝒜, and ν ≥ 1 on 𝒜.
+
+*Induction step.* Fix `h ∈ 𝒜_{<j}`. Given `H_{<j} = h`, the residues
+`n mod ℓ` (ℓ∈W_j) are independent and uniform. So the indicators
+`x_ℓ = 1[n mod ℓ ∈ F_ℓ(h)]` are independent `Bern(p_ℓ(h))`. Put
+
+    f(x) = E[ g_{j+1}(H_{<j+1}) | H_{<j}=h, x ].
+
+Then:
+* `E f = g_j(h)` and `f ≥ 0`;
+* f is λ-level on W_j, because each term of ν, after conditioning,
+  depends on `x_{T_i∩W_j}` only;
+* `x = 0` is exactly the event that no condition with last window j holds.
+  Given `x = 0`, `H_{<j+1}` lies in `𝒜_{<j+1}`, and its conditional law is
+  the `Q_seq` transition.
+
+The induction hypothesis and Jensen give
+`f(0) ≥ exp(−E_{Q_seq}[Σ_{i>j}Φ_i | H_{<j}=h]) > 0`. Proposition 2.4,
+applied to `f/f(0)`, gives `E f ≥ f(0)e^{−Φ_j(h)}`.
+
+*Conclusion.* `Eν ≥ (|R|/Q₀)·avg_{c∈R} g_1(c)`, and Jensen over `c ∈ R`
+finishes the proof. In `Φ_j` the logarithmic term is concave and the rest is
+linear in `p_ℓ`. ∎
+
+**Lemma 2.8 (profile under Q_seq; PROVED).** For `ℓ ∈ W_j`,
+
+    E_{Q_seq} p_ℓ(H_{<j}) ≤ Σ_{C: ℓ(C)=ℓ} (1/ℓ) · P(c ≡ a_C (q_C) | c∈R)
+                             · Π_{ℓ'∈S(C)∖{ℓ}} 1/(ℓ'(1−p*_{ℓ'})),
+
+where `p*_{ℓ'} = sup_h p_{ℓ'}(h)`.
+
+*Proof.* Apply the chain rule over windows. Given the past, `n mod ℓ'` is
+uniform on at least `ℓ'(1−p*_{ℓ'})` residues. ∎
+
+So Theorem 2.7 has the same shape as Theorem 2.5. The profile is replaced by
+the *sequential* profile, which exceeds the uniform one by the factors
+`(1−p*)^{−1}`, and the level term `19α_jλ` is paid once per window.
+
 ## 3. Supply profiles and the main corollary
 
 **Lemma 3.1 (PROVED).** Put
@@ -509,6 +599,60 @@ Put `t₀ = (λ/h)^{1/3}`. For t ≤ t₀ the first entry is at most
 
 ---
 
+**Corollary 3.6 (dominant-prime forced classes; PROVED).** Fix `0 < C < 1`
+and `A ≥ 1`. Consider any family of Case-B forced classes (classes of ℛ(M),
+Lemma 18.1, or (a,D)-classes mod `G = 4a·g(D)`, Lemma 3.2) such that every
+modulus M has a prime factor `ℓ(M) ≥ M^{1/(1+C)}`. Such a prime is the
+largest prime factor, since it exceeds √M.
+
+The other prime factors of M are unrestricted. They may be large, and they
+may be the dominant prime of *other* moduli of the family. Let
+`w₀ = w₀(C)` be large, `Q₀ = ` the `w₀`-smooth part of the moduli, and
+`R = {c : (c,P_{w₀}) = 1, c satisfies no condition with all primes ≤ w₀}`.
+
+Then every majorant of level `λ ≤ A log N` (all primes `> w₀` charged)
+satisfies
+
+    log(1/Eν) ≤ C₈(A,C) (log N)^{3/4} + log(Q₀/|R|).
+
+The last term is `O_C(1)` when no modulus is `w₀`-smooth. Such moduli are
+at most `w₀^{1+C}`, so they are finitely many.
+
+*Proof.* Take windows `W_j = (e^{s₀C^{−j}}, e^{s₀C^{−j−1}}]` with `s₀ = log w₀`,
+and condition C attached to `ℓ(C) = ℓ(M)`.
+
+*(U) holds.* Every other prime ℓ' of M satisfies `ℓ' ≤ M/ℓ ≤ ℓ^C`, so it
+lies in an earlier window.
+
+*The hypotheses of Theorem 2.7 hold.* The number of conditions with
+dominant prime ℓ is at most `Σ_{q≤ℓ^C} ℓ^{o(1)} = ℓ^{C+o(1)}`. Hence
+`p*_ℓ ≤ ℓ^{C−1+o(1)} ≤ ℓ^{−(1−C)/2} ≤ 1/4` for `ℓ > w₀`.
+
+*The sequential profile.* By Lemma 2.8, each condition contributes at most
+`(M/φ(M))·g(M)/M`, where `g(M) = Π_{ℓ'|M, ℓ'>w₀}(1−ℓ'^{−(1−C)/2})^{−1}`.
+The proof of Lemma 3.1 goes through with `M/φ(M)` replaced by
+`(M/φ(M))g(M) = Σ_{d|M} h(d)`, where `h(p) ≤ 1/(p−1) + 3p^{−(1−C)/2}`, since
+`Σ_d h(d)/φ(d) < ∞`. The same holds for Lemma 3.2's grouping.
+
+*Per window.* Since `M ≤ ℓ^{1+C} ≤ e^{2s_j/C}` for `ℓ ∈ W_j`, the window
+mass is `Σ_{ℓ∈W_j} E p_ℓ ≪ s_j³`, and its profile is
+`≤ e^{−α s_j}·O(s_j³)`. Choosing `α_j` optimally per window gives
+`E Φ_j ≪ min{s_j³, (λ/s_j)(1+log⁺(s_j⁴/λ))} + O(log²λ)`.
+
+*Summing.* The windows are geometric in `s_j`. Both branches are geometric
+sums dominated by `s_j ≍ λ^{1/4}`, and there are `J ≪_C log λ` windows. So
+`Σ_j E Φ_j ≪_C λ^{3/4}`. ∎
+
+**What Cor 3.6 adds.** Corollary 3.4 required the multiplier part to consist
+of "small" primes, never slice primes. Corollary 3.6 drops this, so it
+covers the *complete* Case-B forced-class family restricted to moduli with
+a dominant prime. By Dickman's theorem, in logarithmic density, the fraction
+of moduli M with `P(M) ≥ M^{1/(1+C)}` is `1 − ρ(1+C) = log(1+C)`. That is
+`log 2 ≈ 69%` as `C → 1`, and the same proportion holds for the cubic
+supply. *This proportion statement is an Assessment.* What is left
+uncovered is the **balanced moduli** (`P(M) ≤ M^{1/2+o(1)}`), i.e. moduli
+with at least two comparable large primes. See §5.6.
+
 ## 4. Exact accounting of the two campaign proofs
 
 Notation: `μ_c` is the fibre mass and `r` the Bonferroni degree.
@@ -600,7 +744,8 @@ giving `L^{2/3}`. ∎
 | beyond-identity supply / exact criterion `−1∈Rat_a(h)` / large deviations of class counts | **closed** for prime-slice systems (Lemma 3.2: the criterion *is* the (a,D) forced classes; Lemma 5.3: effective mass = mass); complete system: EVIDENCE of sub-additivity (ratio ≈ 0.80) | §5.3 |
 | combining both halves / both solution types | Case-B groupings **closed** (Lemmas 3.1–3.2). Adding Case A is closed **conditional on H_A3 (weighted form)**. Theorem 2.5 needs no independence between halves. | §5.4 |
 | Elsholtz–Tao average as first-moment limit | **consistent**; the correct currency is the profile `Σp̄ℓ^{−α}`, which is exactly cubic (no loglog) | §5.5 |
-| multi-slice moduli; multipliers ≫ slice prime | **open** (outside Theorem 2.5); hypothesis H_MS named; mass-cost Assessment predicts closure | §5.6 |
+| shared large primes in multipliers | **closed** for dominant-prime moduli (Thm 2.7, Cor 3.6) | §2.6 |
+| balanced moduli; multipliers ≫ slice prime | **open**; hypothesis H_MS named; mass-cost Assessment predicts closure | §5.6 |
 | Bonferroni → Selberg/large sieve | constants only (Lemma 4.2, §2.5 numerics) | §4 |
 
 ### 5.1 Truncation cost per condition
@@ -724,53 +869,87 @@ while the mean is `(log p)³`. The solution count is heavily skewed, which is
 consistent with the clumping ratio ≈ 0.8 of §5.3(iii). Clumping can only
 enlarge voids.
 
-### 5.6 The open door: multi-slice moduli and large multipliers
+### 5.6 The open door: balanced moduli and large multipliers
 
-Theorem 2.5 needs each condition to touch exactly one free large prime. Two
-kinds of condition fall outside it.
+Theorem 2.7 and Corollary 3.6 cover every forced-class family in which each
+modulus has a dominant prime `P(M) ≥ M^{1/(1+C)}`, C < 1. Two kinds of
+condition fall outside:
 
-* (a) Moduli with ≥2 prime factors at comparable large scales. They carry a
-  positive proportion of the cubic supply, which is a Dickman-type fraction.
-* (b) Prime-slice conditions with small part `q₀ ≫ ℓ`.
+* **(a) Balanced moduli.** These have `P(M) ≤ M^{1/2+o(1)}`, i.e. at least
+  two large primes of comparable size, or many medium ones. Their share of
+  the cubic supply is `≈ 1 − log 2 ≈ 31%`, by Dickman (Assessment).
 
-In (b), Theorem 2.5's free conditioning on `c` leaves the k-part
-uncharged. The resulting bound `λ^{2/3}(log K)^{1/3}` exceeds `λ^{3/4}` only
-if `log K ≫ λ^{1/4}`, i.e. multipliers far larger than the slice primes. For
-`K ≫ z²` the lattice equidistribution behind the 3/4 supply also fails:
-`(u,v)`-boxes of size `z² < k` no longer equidistribute mod k, so `μ_c` stops
-being uniform in c. The existing architectures pay for multipliers through
-the term moduli (3/4 note: `lcm(k_i) ≤ K^r` as an *upper* ledger) or through
-one progression modulus `L_𝒦 ≤ N` (Cor 3.5). No lower bound on the
-multiplier cost of a general majorant is proved. Atoms may share
-multipliers, so `lcm(k_i)` can be small. This is part of the open door.
+  The failure is structural. Every two primes `ℓ₁, ℓ₂` of the same scale
+  occur together in some modulus `kℓ₁ℓ₂ ≤ Q`. So no window partition gives
+  (U), and the "same-window pair" conditions carry a positive fraction of
+  the mass at every scale.
 
-> **H_MS (named, open, falsifiable in models).** For every CRT system of forced classes
-> with moduli ≤ e^λ (no slice restriction), every level-λ majorant has
+  A level-λ term that sees m primes of a scale sees about m²/2 pair
+  conditions, versus m single-slice ones. However, pair hits on a clique
+  are determined by only m residues. So it is unclear whether this
+  "quadratic visibility" can beat the Rankin functional (see below).
+
+* **(b) Multipliers much larger than the dominant prime.** These are
+  prime-slice conditions with small part `q₀ ≫ ℓ`.
+
+  Theorem 2.5's free conditioning leaves such a k-part uncharged. The
+  resulting bound `λ^{2/3}(log K)^{1/3}` exceeds `λ^{3/4}` only if
+  `log K ≫ λ^{1/4}`. For `K ≫ z²` the lattice equidistribution behind the
+  3/4 supply also fails: `(u,v)`-boxes of size `z² < k` no longer
+  equidistribute mod k, so `μ_c` stops being uniform in c.
+
+  The existing architectures pay for multipliers through the term moduli
+  (3/4 note: `lcm(k_i) ≤ K^r`, as an *upper* ledger) or through one
+  progression modulus `L_𝒦 ≤ N` (Cor 3.5). No lower bound on the multiplier
+  cost of a general majorant is proved. Atoms may share multipliers, so
+  `lcm(k_i)` can be small.
+
+> **H_MS (named, open).** For every CRT system of forced classes with moduli
+> ≤ e^λ, every level-λ majorant has
 > `log(1/Eν) ≤ C·inf_α[αλ + Σ_cond P(cond)·(mod cond)^{−α}] + O(log²λ)`.
+> Falsifiable in small models by exact LP. It is open even for the toy
+> "random pair conditions on one scale".
 
-**Assessment 5.4.** H_MS is what the mass-cost model predicts. Theorem 2.5 is
-its single-slice case. A proof needs a dual measure for AND-events of shared
-coordinates. Thinning and symmetrisation do not apply, because the hit
-variables of conditions sharing a prime are dependent. Under H_MS, every
-CRT-majorant architecture for ES is capped at `(log N)^{3/4}`. Without it, a
-θ > 3/4 attempt *must* exploit joint multi-prime moduli or multiplier-sharing.
+**Assessment 5.4.** H_MS is what the mass-cost model predicts. Theorem 2.7
+proves it whenever (U) can be arranged, which covers all dominant-prime
+moduli.
+
+What is missing is a dual for AND-events of *same-scale* coordinates.
+Thinning needs independent hit variables, and the sequential argument needs
+one undetermined coordinate per condition at the moment it is decided.
+Both fail for pairs inside one window.
+
+* Under H_MS, every CRT-majorant architecture for ES is capped at
+  `(log N)^{3/4}`.
+* Without H_MS, a θ > 3/4 attempt *must* exploit balanced moduli jointly,
+  or multiplier sharing beyond Cor 3.5.
+
 §5.3(iii) gives no sign that the complete system does better than its mass.
+
+**Concrete next step.** Settle H_MS for one scale with pair conditions only.
+Take N primes ~e^s, one forbidden residue pair per pair of primes, and
+level m = λ/s primes per term. Compute the exact LP for small N, then try a
+"clique-aware" dual: mix over the number of hit pairs, conditioned on the
+residues. A counterexample here would be the first architecture-level hint
+of θ > 3/4.
 
 ---
 
 ## 6. What a θ > 3/4 proof must contain
 
-These are consequences of Theorem 2.5 and Lemmas 3.1–3.2, Lemma 5.3 and 4.2.
-1. It cannot be a sieve or large sieve over prime-slice forced classes with
-   multipliers `≤ ℓ^{C}`, at any level `N^{O(1)}`, with any weights
-   (Cor 3.4).
+These are consequences of Theorems 2.5 and 2.7, Lemmas 3.1–3.2, 4.2 and
+5.3.
+1. It cannot be a sieve or large sieve over Case-B forced classes whose
+   moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1), at any level
+   `N^{O(1)}`, with any weights (Cor 3.4, Cor 3.6). The multiplier parts are
+   arbitrary, including large primes shared between conditions.
 2. The following change constants only (§§4, 5.3–5.4): both Case-B
    groupings, the exact a-frame criterion, Elliott–Halberstam, or a better
    Bonferroni/Selberg polynomial. Adding Case A is also constants-only,
    conditionally on H_A3.
 3. It needs one of:
-   * (i) a joint use of multi-large-prime moduli that beats their mass
-     (H_MS false in the relevant regime);
+   * (i) a joint use of *balanced* moduli (`P(M) ≤ M^{1/2+o(1)}`) that beats
+     their mass (H_MS false in the relevant regime);
    * (ii) multipliers larger than the slice primes, used without paying
      their lcm in level. No lower bound on that cost is proved;
    * (iii) a small-modulus admissible set R that is not of selector type
