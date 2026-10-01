@@ -303,8 +303,9 @@ The following repairs were applied.
 * **Missing piece for a rigorous §7.** The unit-avoider lower bound needs
   a mean value of divisors of `((M+1)/4)^2` in the class
   `−(M+1)/4 mod m`. That could be a self-contained follow-up task.
-* **The K=31 formal-adversary run** was still running at commit time. It
-  is not used.
+* **The K=31 formal-adversary run** (`M≈8.4·10^13`, `3·10^7` sieve
+  steps) found no p. Larger searches would be needed to reach that
+  depth.
 
 ## Replay
 
