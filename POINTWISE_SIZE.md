@@ -1617,12 +1617,30 @@ error below the sifted density V. Known PNT-in-AP errors decay like
   is `mℓ` with one prime `ℓ>y`, and the system becomes a *standard*
   sieve: `p mod ℓ∉F_ℓ` with `|F_ℓ|≤T^{1/2−η+o(1)}`. The proved bounds give
   `log Q_y≈T^{1/2+η}` and `log(1/V)≤T^{1/2−η+o(1)}`, so the product is
-  `T^{1+o(1)}`. That is again linear. This construction also yields the
-  first *proved* unit-avoider bound,
-  `log(1/δ*(T))≤T^{1/2+o(1)}` (§7's missing input (i), at a weak level).
-  The proof is two lines: the quarantine costs `e^{−T^{1/2+η}}`, and given
-  it the ℓ-conditions are independent with product
-  `≥exp(−2Σf_ℓ/ℓ)≥exp(−T^{1/2−η+o(1)})`.
+  `T^{1+o(1)}`. That is again linear. The construction does give a
+  sub-exponential Haar bound (Lemma 11.7 below).
+  > **Lemma 11.7 (PROVED; a sub-exponential unit-avoider bound).**
+  > `log(1/δ*(T))≤T^{1/2+o(1)}`. Compare the class of one,
+  > `δ*≥e^{−(2/3+o(1))T}`. This is §7's missing input (i) at a weak level.
+  >
+  > *Proof.* Fix `η>0` and `y=T^{1/2+η}`. Let `Q_y=lcm(24, ℓ^{e_ℓ} : ℓ≤y)`,
+  > with `ℓ^{e_ℓ}≤T` maximal.
+  >
+  > * **Smooth moduli.** Condition on `n≡1 (mod Q_y)`. This costs
+  >   `1/φ_h(Q_y)=e^{−(1+o(1))y}`, because `log Q_y=θ(y)+O(√T log T)`. It
+  >   kills every y-smooth `M≤T`, by notes Thm 17.3(c).
+  > * **Rough moduli.** Every other eligible `M≤T` is `mℓ` with a single
+  >   prime `ℓ>y>√T` and `m<T/y<y`, so `m|Q_y`. Given the conditioning,
+  >   the atoms of M reduce to the ℓ-coordinate condition `n mod ℓ∉F_ℓ`.
+  >   Here F_ℓ collects the classes `−4D` with `D|((mℓ+1)/4)^2` and
+  >   `−4D≡1 (mod m)`. So `|F_ℓ|≤f_ℓ:=Σ_{m<T/ℓ}τ(((mℓ+1)/4)^2)≤T^{1/2−η+o(1)}<ℓ/2`.
+  > * **Independence.** The coordinates mod distinct primes `ℓ∈(y,T]` are
+  >   independent under Haar measure. Hence the conditional probability of
+  >   avoidance is `∏(1−|F_ℓ|/(ℓ−1))≥exp(−2Σ_ℓf_ℓ/(ℓ−1))`, and this is
+  >   `≥exp(−T^{1+o(1)}/y)`.
+  >
+  > Multiplying, `δ*(T)≥exp(−T^{1/2+η+o(1)})` for every `η>0`. ∎
+
 * **What superlinear W would need.** A quarantine with `log Q=L^{O(1)}`
   (`L=log T`) and conditional density `V≥exp(−L^{O(1)})`, i.e. the prime
   analogue of notes Thm 31.4. With z polylogarithmic, the rough moduli
@@ -1669,7 +1687,7 @@ error below the sifted density V. Known PNT-in-AP errors decay like
 * **Notes §56 (certificate ceilings).** Thm 56.1: every Type-II
   congruence certificate for `W>T` contains `P_3(T)`, so
   `log Q≥(1/2+o(1))T`. Lemma 11.1's `2/3` sits above it, with the gap
-  `[1/2,2/3]` open. Thm 56.2 (Type I, `log Q≥T+o(1)`) matches
+  `[1/2,2/3]` open. Thm 56.2 (Type I, `log Q≥T+o(T)`) matches
   Theorem 11.2' exactly.
 * **Notes §58 (Jacobsthal angle).**
   * (58.18) is improved by Thm 11.2(b).
