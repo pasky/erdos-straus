@@ -1,0 +1,5 @@
+   multi-prime part: max w^multi_l=0.1289 (l=101), ratio*20.0=2.578, max l*w^multi_l=13.02 (l=101)
+T=100000 z=100: atoms=388562 events=364081 S_tot=29.809 max w_l=0.2854 (l=103) LLL ratio max w*8logT/logz=5.709 max l*w_l=681.01 (l=87359) structural violations m>r^2+1: 0
+   multi-prime part: max w^multi_l=0.0022 (l=311), ratio*16.1=0.036, max l*w^multi_l=0.68 (l=311)
+T=100000 z=300: atoms=318170 events=297425 S_tot=24.224 max w_l=0.1592 (l=359) LLL ratio max w*8logT/logz=2.571 max l*w_l=681.01 (l=87359) structural violations m>r^2+1: 0
+T=100000 z=1000: atoms=313013 events=293433 S_tot=17.874 max w_l=0.0721 (l=1319) LLL ratio max w*8logT/logz=0.961 max l*w_l=681.01 (l=87359) structural violations m>r^2+1: 0

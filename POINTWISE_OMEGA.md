@@ -779,6 +779,225 @@ consequences follow.
   the dimension barrier of POINTWISE_SIZE Assessment 11.5, now for slices
   (Assessment).
 
+## 9. The Haar side: a structural lemma, the global mass, `δ*(T) ≥ exp(−T^{1/3+o(1)})`, and the polylog bound under a per-prime hypothesis
+
+Checkpoint 2, task (a). **Everything in this section is about the Haar
+(CRT) measure only.** It says nothing about primes: the local lemma is not
+a pointwise minorant (notes §33), and the transfer to primes still needs
+H_MIN (§6.2). Recall POINTWISE_SIZE §7.1:
+
+* `δ*(T)` is the Haar measure of `{n∈Ẑ^× : n≡1 (24), n mod M∉𝓡(M) ∀M≤T}`,
+  normalised within the class `1 (24)`;
+* Lemma 11.7 proves `log(1/δ*) ≤ T^{1/2+o(1)}`;
+* the measured value is `log(1/δ*) ≍ (log T)^{2.3…2.6}`.
+
+**Setting.** Quarantine the class of one at all primes `≤z`:
+`n≡1 (mod Q_z)`, `Q_z=lcm(24, ℓ^{e_ℓ}: ℓ≤z, ℓ^{e_ℓ}≤T maximal)`. For
+`M≤T`, `M≡3 (4)`, write `M=m·r`, with m the z-smooth part and r the
+z-rough part. If `r=1`, M is killed by the class of one (Fact 1.1).
+Otherwise the atoms of M that survive the conditioning are the `D | A_M²`
+with `m | 4D+1`. Each gives the event `n≡−4D (mod r)`, of conditional Haar
+probability `1/φ(r)`.
+
+**Lemma 9.1 (structural lemma: the smooth part is at most quadratic in the rough part; PROVED).**
+Let `M≡3 (4)`, `D | A_M²`, and `M=m·r` with `m | 4D+1`. Then `m ≤ r²+1`, so
+`M ≤ r³+r`. Moreover, for a prime ℓ the single-prime atoms with `r=ℓ` and
+`D≤A` correspond bijectively to triples `(s,r',v)` with:
+
+* s squarefree, `n:=sr' ≤ ℓ/2`;
+* `v | 4nr'+1` and `4n | ℓ+v`;
+* `k := m(ℓ+v)/(4n) − r' ≥ r'`, where `m=(4nr'+1)/v`, and `mℓ≡3 (4)`.
+
+The atom is `D=sr'²`, `A=sr'k`. Its class is `−4D mod ℓ`, and the partner
+`A²/D` has class `−(4D)^{−1} mod ℓ`.
+
+*Proof.* By the involution of Lemma 2.3, which preserves `m | 4D+1`
+because `m | M`, we may take `D≤A`. Write `D=sr'²` and `A=sr'k` with
+`k≥r'`. As in Lemma 2.3, `m | r'+k`, so `m ≤ r'+k ≤ 2k`. Then
+
+```
+r = (4sr'k−1)/m ≥ 2sr' − 1/(2k)   ⇒   r ≥ 2sr'.
+```
+
+Hence `m ≤ 4sr'²+1 ≤ 4(sr')²+1 ≤ r²+1`.
+
+For the parametrisation, put `v=(4sr'²+1)/m`. Then
+
+```
+m(vk−ℓr') = (4sr'²+1)k − (4sr'k−1)r' = r'+k,
+```
+
+so `vk−ℓr'=(r'+k)/m =: e`. Substituting `k=me−r'` gives
+`e(mv−1)=r'(ℓ+v)`, i.e. `e=(ℓ+v)/(4sr')`. This yields the stated
+conditions. The converse is direct. The partner class follows from
+`4A≡1 (mod ℓ)`. ∎
+
+*Consequence.* The single-prime forbidden set
+`F_ℓ^{(z)}⊆F_ℓ^{full}` (the set over all m) is a T-independent object. It
+is determined by atoms with `M≤ℓ³+ℓ`. In particular the `F_ℓ` of §2 satisfy
+`F_ℓ⊆F_ℓ^{full}`.
+
+EVIDENCE:
+
+* `pointwise_omega_haar.py`: 0 violations of `m≤r²+1` over all 3.8·10⁶
+  surviving atoms at `T=10^6` and 0.3–0.8·10⁶ at `T=10^5`.
+* The parametrisation agrees with direct enumeration for all primes
+  `ℓ<200` (0 mismatches).
+* `|F_ℓ^{full}|` grows polylogarithmically: `|F_ℓ^{full}|/(log ℓ)²` lies
+  between 0.4 and 4.8 for sampled primes `10²<ℓ<4·10⁴`, and
+  `g=|F|/(ℓ−1)` falls from about 0.16 to 0.004
+  (`data/pointwise_omega/Ffull.txt`).
+
+**Lemma 9.2 (global mass after any class-of-one quarantine; PROVED, the polylog form modulo a cited bound).**
+For every `2≤z≤T`,
+
+```
+S_tot(T,z) := Σ_{surviving atoms} 1/φ(r) ≤ C (log log T)(3+log T) Σ_{sr'²≤T} τ(4sr'²+1)/(sr').
+```
+
+The right-hand side is `≤ exp(O(log T/log log T))` by the divisor bound
+alone. It is `≪ (log T)^4 log log T` by Elsholtz–Tao (arXiv:1107.1010,
+Prop. 1.4, archived as `sources/elsholtz-tao-1107.1010.pdf`; cited):
+`Σ_{a≤A,b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)` for `k≪(AB)^{O(1)}`.
+
+*Proof.* Since r has all prime factors `>z≥2`,
+`1/φ(r) ≤ C log log T/r = C log log T·m/M`. From here the proof is that of
+Lemma 2.3, with `m=m_M` and the prime ℓ replaced by `r=M/m`. The only
+change is the weight: `m/M ≤ m/(3A)` replaces `2m/(3A)`. Every surviving
+atom has `m | gcd(4D+1, M)`, so `m | r'+k` as before, and the k-sum gives
+`(3+log X)/m`. For the polylog form, split s and r′ dyadically and apply
+Prop. 1.4 with `k=4` on each block. Each of the `O((log T)²)` blocks
+contributes `O(log T)`. ∎
+
+The bound is uniform in z. For `z≥√T` it is Lemma 2.3. EVIDENCE: at
+`T=10^5`, `S_tot=49.7, 39.2, 29.8, 24.2, 17.9` for
+`z=5, 20, 100, 300, 1000`; at `T=10^6`, `S_tot=38.5` and `30.6` for
+`z=10³` and `3·10³`.
+
+**Theorem 9.3 (unconditional: `log(1/δ*(T)) ≤ T^{1/3+o(1)}`; PROVED, Haar only).**
+This improves POINTWISE_SIZE Lemma 11.7 (`T^{1/2+o(1)}`).
+
+*Proof.* Fix `ε>0` and put `y=T^{1/3+ε}`, quarantining as above with
+`z=y`.
+
+1. **The events.** Every z-rough part `r≤T` has at most two prime factors
+   with multiplicity, so `r∈{ℓ, ℓ², ℓ_1ℓ_2}`. Use the independent
+   coordinates `X_ℓ = n mod ℓ^{e_ℓ}`, with `e_ℓ∈{1,2}`.
+   * Single atoms (`r=ℓ` or `ℓ²`) form a forbidden set `G_ℓ` with
+     `g_ℓ ≤ Σ 1/φ(r)` over these atoms.
+   * `1∉G_ℓ` by Fact 1.1.
+   * Pair atoms are classes mod `ℓ_1ℓ_2`.
+2. **Bad primes.** Let `B={ℓ : g_ℓ>1/4}`. Then
+   `|B| ≤ 4S_tot ≤ T^{o(1)}` (Lemma 9.2). Quarantine B as well, with
+   `n≡1 (mod ℓ^{e_ℓ})` for `ℓ∈B`. This costs `|B| log T = T^{o(1)}`.
+   * Pair atoms with both primes in B become impossible, by Fact 1.1.
+   * A pair atom `(ℓb, a)` with `b∈B` becomes the residue `a mod ℓ` at ℓ if
+     `a≡1 (b)`, and is impossible otherwise.
+   * The enlarged forbidden set `G'_ℓ` at a good prime satisfies
+     `g'_ℓ ≤ 1/4 + |B|·τ(·)²_{max}·T/(ℓ y(ℓ−1)) ≤ 1/4 + T^{−3ε+o(1)} ≤ 1/2`.
+   * The added mass is
+     `Σ_ℓ (g'_ℓ−g_ℓ) ≤ |B| τ²_{max} T/y² = T^{1/3−2ε+o(1)}`.
+3. **Good pairs by the local lemma.** Under the product measure μ′
+   (uniform on the allowed residues at each good prime), a good pair event
+   `E=(ℓ_1ℓ_2,a)` has `μ'(E) ≤ 4/((ℓ_1−1)(ℓ_2−1))`. Its per-prime weight is
+
+   ```
+   w'_ℓ ≤ Σ_{ℓ'>y} (T/(ℓℓ'))τ²_max · 4/((ℓ−1)(ℓ'−1)) ≤ 16 τ²_max T/(ℓ² y) ≤ T^{1−3(1/3+ε)+o(1)} = T^{−3ε+o(1)},
+   ```
+
+   where `τ²_max=max_{A≤T}τ(A²)=T^{o(1)}`. Every event has at most two
+   primes. The asymmetric local lemma (Erdős–Lovász; Alon–Spencer
+   Lemma 5.1.1; classical) with `x_E=2μ'(E)` therefore applies for large T.
+   It gives
+   `μ'(no good pair event) ≥ ∏(1−2μ'(E)) ≥ exp(−16 S_tot)`.
+4. **Collecting.**
+
+   ```
+   δ*(T) ≥ (8/φ(Q')) · ∏_{good}(1−g'_ℓ) · exp(−16S_tot)
+         ≥ exp(−π(y) log T − |B| log T − 2(S_tot + T^{1/3−2ε+o(1)}) − 16 S_tot)
+         = exp(−T^{1/3+ε+o(1)}).  ∎
+   ```
+
+Where the exponent `1/3` comes from: it is the crude per-prime bound for
+multi-prime events, `N(M)≤τ(A²)` with no congruence saving at fixed ℓ.
+That bound gives `w_ℓ^{multi} ≲ T/(ℓ²y)` regardless of the number of rough
+primes. So with the quarantine at y, the local lemma closes iff `y³>T`.
+
+**Hypothesis H_PP(z) (per-prime mass).** For all primes `z<ℓ≤T`:
+
+```
+w_ℓ(T,z) := Σ_{surviving events E : ℓ | r_E} 1/φ(r_E) ≤ log z/(8 log T).
+```
+
+**Theorem 9.4 (PROVED implication; Haar only).**
+
+* If H_PP(z) holds, then
+  `δ*(T) ≥ (8/φ(Q_z))·exp(−4S_tot(T,z)) ≥ exp(−(1+o(1))π(z)log T − O((log T)^4 log log T))`.
+* If H_PP(`(log T)^C`) holds for all large T, then
+  `log(1/δ*(T)) ≪ (log T)^{max(C+1,4)+o(1)}`. This is the polylogarithmic
+  Haar bound of the brief's step (i).
+
+*Proof.*
+
+* **The space and the graph.** Take the product space of the coordinates
+  `X_ℓ` (`ℓ>z`), uniform on units, and the distinct events `E=(r,a)`.
+  Join two events when their rough parts share a prime.
+* **Local lemma.** Use `x_E=2/φ(r_E) ≤ 1/2`. Each E has at most
+  `ω(r_E) ≤ log T/log z` primes, so
+  `∏_{E'∼E}(1−x_{E'}) ≥ exp(−4Σ_{ℓ|r_E}w_ℓ) ≥ e^{−1/2}`. This verifies
+  the asymmetric condition, and
+  `P(no event) ≥ ∏(1−x_E) ≥ exp(−4S_tot)`.
+* **Quarantine cost.** It is `φ(24)/φ(Q_z)`, with
+  `log φ(Q_z) ≤ π(z) log T`. ∎
+
+**What H_PP needs, and the evidence.** `w_ℓ` splits into two parts.
+
+* **The single-prime part `|F_ℓ^{(z)}|/(ℓ−1)`.** It is at most
+  `|F_ℓ^{full}|/(ℓ−1)`, a T-independent quantity, with
+  `|F^{full}_ℓ| ≈ (log ℓ)^{2+}` (Lemma 9.1 evidence). So at
+  `ℓ>z=(log T)^C` it is about `(C log log T)^{2+}/(log T)^C`.
+* **The multi-prime part.** EVIDENCE: `max_ℓ ℓ·w^{multi}_ℓ` is 13 at
+  `z=100` and 0.68 at `z=300` (`T=10^5`).
+
+The full ratio `max_ℓ w_ℓ·8 log T/log z` at `T=10^5` is:
+
+| z | 100 | 300 | 1000 |
+|---|---|---|---|
+| ratio | 5.7 | 2.6 | 0.96 |
+
+At `T=10^6` it is 0.81 for `z=3000`
+(`data/pointwise_omega/haar_1e5.txt`, `haar_1e6.txt`). At accessible T the
+ratio reaches 1 only near `z≈T^{0.6}`, where `log T/log z` is small. So
+this evidence is consistent with H_PP for polylogarithmic z, but it does
+not test that regime. The obstacle to a proof is the following.
+
+* For a fixed prime ℓ, `ℓw_ℓ ≈ Σ_{j≤T/ℓ} m_j N(ℓj)/j`. This is the sum
+  of Lemma 2.3 with ℓ fixed instead of averaged.
+* The congruence saving `m | r'+k` then leaves a "first term"
+  `ℓ/k_0`. Here `k_0` is the least solution of `k≡−r' (m)` and
+  `4sr'k≡1 (ℓ)`.
+* Bounding the first term needs the equidistribution of `(4sr')^{−1} mod ℓ`
+  against the weights `τ(4sr'²+1)/(sr')`, uniformly in ℓ. This is a
+  Kloosterman/Henriot-type input, cf. notes Thm 31.3, where the integer
+  analogue needed Henriot's uniform Nair–Tenenbaum bound and still yielded
+  only a softened charge.
+* `ℓw_ℓ` is genuinely not polylogarithmic for all ℓ. At `ℓ=87359`,
+  `(ℓ+1)/4=2^4·3·5·7·13`, so `|𝓡(ℓ)|` alone gives `ℓw_ℓ≈681` (EVIDENCE).
+  So the hypothesis must be the relative form stated, not
+  `ℓw_ℓ≤(log T)^C` for all ℓ.
+
+**Consequences (Assessment).**
+
+* Under RA (POINTWISE_SIZE §7.3), Theorem 9.3 predicts
+  `W(p)>(log p)^{3−ε}` i.o. Previously Lemma 11.7 gave `2−ε`, which is now
+  proved without RA by Theorem 5.1.
+* Under RA and H_PP, the prediction is `W(p)>(log p)^A` for every A.
+* On the prime side, Theorem 9.3's construction is a quarantine at
+  `T^{1/3+ε}` plus pair events. Its prime analogue is exactly H_MIN(1/3),
+  which would give exponent `3−ε` by Theorem 6.2. The local lemma does not
+  supply the needed pointwise minorant, and §6.3's hub obstruction applies
+  verbatim to pair events.
+
 ## Replay
 
 ```
@@ -793,4 +1012,8 @@ $C primes 1000 5                   # example primes, ~1 min
 $C pairs 10000 0.3; $C pairs 10000 0.4; $C pairs 10000 0.45     # §6.3, ~1 min each
 $C pairs 100000 0.4                # ~5 min -> data/pointwise_omega/pairs_1e5_0.4.txt
 $C typeI 30000 200                 # §8: ck_min >= n_p for p=1 (24) < 30000, ~2 min
+H="uv run python scripts/pointwise_omega_haar.py"
+$H 100000 100 300 1000             # §9 (Lemma 9.1 check, S_tot, w_l, H_PP ratio), ~3 min -> data/pointwise_omega/haar_1e5.txt
+(ulimit -v 12000000; $H 1000000 1000 3000)   # ~20 min -> data/pointwise_omega/haar_1e6.txt
+# F_l^full sample (Lemma 9.1 parametrisation): see data/pointwise_omega/Ffull.txt (F_full() in pointwise_omega_haar.py)
 ```
