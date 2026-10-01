@@ -143,3 +143,49 @@ items are these:
 * **Length:** 27 pages kept. The build is clean.
 
 Stopping here, waiting for the hostile referee's findings.
+
+## Revision 1 (referee report `reviews/pointwise-obstruction-paper-review.md`, branch side-agent/review-obstruction-paper)
+
+All of D1–D22 are applied. The build is clean: two pdflatex passes, no errors,
+no undefined references, no overfull boxes. The paper is now 29 pages. The two
+remaining TODOs are LaTeX comments only, for authorship and for the [AS] form;
+neither appears in the PDF.
+
+| item | fix |
+|---|---|
+| D1 | Thm 2.10, case 2t<z<p: new display (eq:sixt) `x+z≤6t` with two proofs. The direct one: x∈[1,2t] by Lemma 2.4, since z∉[1,2t], and z≤p−1=4t. The referee's convexity bound g(z)=4z²/(4z−p−1/3) is added as an independent check. All three later uses now cite (eq:sixt). **WINDMILL Thm 7 has no real gap**: its setup states `1≤x≤2t` and z<p. The bound was left implicit, so I added a one-line parenthetical citing the review. Note that the paper's "gap" came from my transcription dropping x≤2t from the setup sentence. |
+| D2 | BL Cor 1.4 is no longer cited for the polynomial-identity obstruction; that now cites ET p. 8. BL Cor 1.4 is cited separately as the Brauer–Manin proof of ET Prop 1.6. |
+| D3 | The main message cites ET Prop 1.6 (vanishing), ET p. 6 (covering congruences) and ET p. 8 (polynomial identities) separately. |
+| D4 | The status vocabulary gains **reported** (proved elsewhere; what was re-checked is stated). Thm 4.11 header: "reported [AS]; conditional on Dickson", with a status line "finite packet re-checked here; eventual-closure argument not re-verified here". Thm C(1) is labelled the same way. Thm C's conclusion, the §4.7 preamble and §7 now say that "Conjecture 1.2 false under H" rests on **Theorem 4.13 alone**. |
+| D5 | Author stays Anonymous. Both TODOs are `%` comments; the PDF contains no "TODO". |
+| D6 | Shared early history is stated (signed graph, seed, outer-anchor cases z<0 and z≥p, all predating the separation; the Vieta–Jacobi case is this project's only). Remark 4.12 says astra uses only the z<0 / z≥p cases. A timeline is added: 800-form version before Thm 4.13; 159-form reduction after it. The acknowledgements carry the same wording. |
+| D7 | "ES holds at the primes of the subprogression n≡507 (mod 857)", in Thm C, in the paragraph after it, and in Remark 4.12. |
+| D8 | Sieve: ω(ℓ) is defined explicitly. Ω₁ (ω≤19<ℓ), Ω₂(κ) via the prime number theorem in progressions mod each K_b, and R (\|r_d\|≤ω(d)) are verified. Cites HR Thm 2.2. That number is recalled, not checked against the book, which is not archived; this is still PAPER_B_ISSUES item 5. "p≡1 (4)" is added to Thm A(4) and Thm 3.6. |
+| D9 | ET coordinates are subscripted a_ET…f_ET, with the explicit maps (abdp, acd, bcd) / (abd, acdp, bcdp), H=e_ET, 4x−p=f_ET, e=a_ET²d_ET. |
+| D10 | The four-parameter model is defined, mapped to ET (2.3)/(2.15)/(2.22), and the maps are AGL₄(ℤ). |
+| D11 | Added Vaughan 1970 (Mathematika 17) and BGS arXiv:1607.01530 (title verified on arXiv). |
+| D12 | Permutation invariance cites BL Prop 2.6. The unsupported "elementary proof" sentence is deleted. |
+| D13 | Elsholtz is cited at §3. |
+| D14 | The h=1 exponent is compared with Dahan Thm 4.3 (single pair). Thm 4.14 is described as a two-sided estimate for shift c=7. Prop 3.8 is described as a finite computed list. |
+| D15 | Guarded-hub count: hypotheses stated (squarefree x; ℓ_i≡1 mod 4𝓜; guard ≡1 mod 𝓜 and ≡3 mod 4). The hub and descent counts are derived; the closure is labelled **evidence** (122/126 instances). |
+| D16 | Replay appendix rewritten: a `PY=PYTHONPATH=scripts uv run --with python-flint python` line, `scripts/` prefixes, build lines for depth3_allp/depth3_sieve/windmill_singleton (T mandatory), usage of every binary, and measured runtimes (details below). It explains how certificate.json.gz relates to lam_final.json + closure_final.json.gz, and points formal2_iter to FORMAL_CLOSURE §6. |
+| D17 | Removed the redundant "j≥2". |
+| D18 | Title: "Under Hypothesis H, formally generic primes block the pointwise signed-graph approach to the Erdős–Straus conjecture". The first claim sentence of the abstract is conditional on H. The abstract also says the astra result is reported, not re-proved. |
+| D19 | The Jaroma identity is displayed for odd n≥3, attributed via BL §1 and its ref. 14. |
+| D20 | The "Elsholtz–Tao principle in graph form" sentence now refers only to Prop 4.6 and Thm 4.9. Thm 4.13 is explicitly not a square-class instance (Remark 4.14). |
+| D21 | V_{j+1} ⊇ V_j. (B) is decided after the E_ℓ are raised to the (F2) precision. |
+| D22 | The anchor criterion cites ET Prop 2.3 (Type I: p=4acd−f, f\|4a²d+1) and Prop 2.7 (Type II). |
+
+Measured replay runtimes (D16), all re-run for this revision with ≤4 cores:
+
+* Python checks: 3–34 s each.
+* `d3allp 13 1e8`: 2 s; 179468 tested, 70 candidates.
+* `depth3_batch`: 2 s; all distance 3.
+* `d3sieve … hard`: 217 survivors.
+* `formal2_realq`: 6 s.
+* Sterile certificates:
+  * the 2192… certificate: 11 s;
+  * the tests and typeI variants: about 40 s each;
+  * the 30035-vertex certificate: 4.5 min (the referee's figure);
+  * the **seed certificate: 23 min (OK; 10155 vertices)**.
+* `wm_single 2500000`: 1 s, 0 hits.
