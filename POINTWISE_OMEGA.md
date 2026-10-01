@@ -634,6 +634,144 @@ handled: (ii) the transfer with moduli `exp(T^{θ})` in the Linnik range, and
 * **Type I frame** (`ck_min`, Thm 11.2′). Not treated. A prime-local
   analysis of the genus-forcing atoms would be needed (open).
 
+## 8. The Type-I frame (`ck_min`): the congruence route is the least-quadratic-non-residue problem
+
+Checkpoint 2, task (c). Notation as in notes §§44, 48, 50. A slice is a
+pair `(c,k)∈𝓑_p` (notes (36.1)), with `h=4ck`, `N_{c,k}=p²+4ck²`, core
+`s=sf(c)`, and genus character `χ_s=(Δ_s/·)`, where `Δ_s<0` is the
+fundamental discriminant of `ℚ(√−s)`. `M_{c,k}(p)` is the number of divisors
+of `N_{c,k}` that are `≡−p (mod h)` (notes (44.2)). Finally
+`ck_min(p)=min{ck : (c,k)∈𝓑_p, sf(c)∉{1,2,3,6}, M_{c,k}(p)>0}`
+(notes (48.9)).
+
+The question was whether the prime-local analysis gives `(log p)^{2−o(1)}`
+for `ck_min` too, alone or jointly with W.
+
+**Answer.** Only `(log p)^{1−o(1)}` jointly with Theorem 5.1. Every congruence
+method for `ck_min` is exactly the least-quadratic-non-residue Ω-problem. A
+congruence proof of `ck_min(p)>(log p)^{1+δ}` i.o. would beat every known
+Ω-result for the least non-residue.
+
+The structural reason is a contrast between the two frames.
+
+* `W(p)>T` is a pure congruence condition on p (notes (58.3)).
+* `M_{c,k}(p)=0` is a congruence condition only through the genus character
+  (Theorem 48.1). On an unforced class it is a factorisation event for
+  `p²+4ck²`, and no congruence class forces it (notes Cor. 52.2).
+
+**Lemma 8.1 (genus depth ≥ least non-residue; PROVED from notes Thm 48.1).**
+Let `p≡1 (mod 24)` be prime, `B≥1`, and suppose `(ℓ/p)=1` for every prime
+`5≤ℓ≤B`. Then `ck_min(p)>B`. In particular, if `n_p` denotes the least
+quadratic non-residue mod p, then `ck_min(p) ≥ n_p` for every prime
+`p≡1 (24)`.
+
+*Proof.* Take `(c,k)∈𝓑_p` with `ck≤B`, and put `s=sf(c)≤B`. Since
+`Δ_s∈{−s,−4s}`, we have `χ_s(p)=(−s/p)=(−1/p)∏_{q|s}(q/p)`. Each factor is
+1:
+
+* `(−1/p)=(2/p)=(3/p)=1` because `p≡1 (24)`;
+* `(q/p)=1` for `5≤q≤B` by hypothesis.
+
+Theorem 48.1 then gives `M_{c,k}(p)=0`. For the second sentence: `n_p` is
+prime, and 2 and 3 are residues, so `n_p≥5` and every prime `5≤ℓ<n_p` is a
+residue. ∎
+
+**Corollary 8.2 (joint Ω-result; PROVED modulo Theorem 3.1).** There are
+infinitely many hard primes with both:
+
+```
+W(p) ≥ (log p)^2·exp(−C log log p/log log log p),
+ck_min(p) ≥ log p · exp(−C log log p/log log log p).
+```
+
+*Proof.* The primes of Theorem 5.1 satisfy `p≡1 (mod ℓ)` for every
+`ℓ≤y`, hence `(ℓ/p)=1`. Lemma 8.1 gives `ck_min(p)>y`. From §5,
+`y=√T e^{3𝓛/log 𝓛}` and `log p ≤ √T e^{(3+log 2+o(1))𝓛/log 𝓛}`. Hence
+`y ≥ log p·e^{−(log 2+o(1))𝓛/log 𝓛}`, with `𝓛∼2 log log p`. ∎
+
+For `ck_min` alone, POINTWISE_SIZE Thm 11.2′ gives `(5/12−ε)log p`, which is
+linear. Corollary 8.2 trades a factor `(log p)^{o(1)}` in `ck_min` for
+exponent 2 in W. It does not improve `ck_min` alone.
+
+**Proposition 8.3 (complete Type-I certificates force quadratic residuosity; PROVED).**
+Let `24 | L`, and let `a mod L` be a reduced class with `a≡1 (24)`. Suppose
+every sufficiently large prime `p≡a (mod L)` has `ck_min(p)>T`. Then every
+prime `5≤ℓ≤T` divides L, and `(a/ℓ)=1`.
+
+The divisibility statement is notes Thm 56.2; the residuosity statement is
+new.
+
+*Proof.* Suppose a prime `5≤ℓ≤T` has `ℓ∤L` or `(a/ℓ)=−1`. We produce
+primes in the class with `M_{ℓ,1}(p)>0`.
+
+1. **A class mod 4ℓ.** Choose `c_0 mod 4ℓ` with `c_0≡a (mod gcd(L,4ℓ))`,
+   `c_0≡1 (4)`, and `(c_0/ℓ)=−1`. This is possible: if `ℓ∤L` the residue mod
+   ℓ is free, and otherwise take `c_0≡a`.
+2. **The genus value.** For `n≡1 (4)`, reciprocity gives
+   `χ_ℓ(n)=(−ℓ/n)=(n/ℓ)`, so `χ_ℓ(c_0)=−1`.
+3. **An auxiliary prime q.** By Dirichlet choose a prime `q≡−c_0 (mod 4ℓ)`
+   with `q∤L`. Then `χ_ℓ(q)=χ_ℓ(−1)χ_ℓ(c_0)=1`, i.e. `(−ℓ/q)=1`, so there
+   is an ρ with `ρ²≡−4ℓ (mod q)`.
+4. **The primes p.** By CRT and Dirichlet there are infinitely many primes
+   p with `p≡a (L)`, `p≡c_0 (4ℓ)` and `p≡ρ (q)`. These conditions are
+   compatible because `c_0≡a` on `gcd(L,4ℓ)` and `q∤4ℓL`.
+5. **Conclusion.** For each such p, `q | p²+4ℓ=N_{ℓ,1}` and
+   `q≡−c_0≡−p (mod 4ℓ=h)`. So q is a divisor in the target grade and
+   `M_{ℓ,1}(p)≥1` (notes Thm 50.1). Also `(ℓ,1)∈𝓑_p` for large p, and
+   `sf(ℓ)=ℓ∉{1,2,3,6}`. Hence `ck_min(p)≤ℓ≤T`, a contradiction. ∎
+
+**Corollary 8.4 (the Type-I congruence route certifies exactly `n_p`; PROVED).**
+Let `24 | Q`. Let `B(n)=Σ_i c_i 1[n≡b_i (d_i)]` be any finite congruence
+combination with `B(p) ≤ 1[ck_min(p)>T]` for all sufficiently large primes
+`p≡1 (mod Q)`, e.g. a minorant as in Theorem 4.1 with `ck_min` in place of
+W. Then every sufficiently large prime p with `p≡1 (Q)` and `B(p)>0` has
+`n_p>T`.
+
+*Proof.* B is periodic mod `L=lcm(Q,d_i)`. If `B(p)>0`, then B is the same
+positive value on the whole class `a=p mod L`. So every large prime in that
+class has `ck_min>T`. Proposition 8.3 gives `(a/ℓ)=1` for `5≤ℓ≤T`, hence
+`(ℓ/p)=(p/ℓ)=1` by reciprocity (`p≡1 (4)`). Also `(2/p)=(3/p)=1`, so
+`n_p>T`. ∎
+
+So Lemma 8.1 and Corollary 8.4 together say: **the `ck_min` depth that any
+congruence method can certify at p is exactly `n_p`** (for `p≡1 (24)`). The
+consequences follow.
+
+* **Known Ω-results for `n_p` transfer only in part.** These are stated in
+  the archived secondary source `sources/lit2026/lau-wu-least-quadratic-nonresidue.pdf`,
+  Lau–Wu §1; the primary sources were not obtained:
+  * unconditionally, Graham–Ringrose (1990): `n_p=Ω(log p·log log log p)`;
+  * under GRH, Montgomery: `Ω(log p·log log p)`;
+  * under GRH, Ankeny: `n_p ≪ (log p)²`.
+
+  If the Graham–Ringrose primes can be taken `≡1 (mod 24)`, Lemma 8.1 gives
+  `ck_min(p) ≫ log p·log log log p` infinitely often, which would be the
+  first superlinear `ck_min` result. **Not claimed.** We have not checked
+  that their construction allows this congruence condition; `p≡1 (4)` is the
+  issue, since `(2/p)=(3/p)=1` is automatic once `n_p>3`.
+* **The ceiling.** Corollary 8.4 shows that a congruence proof of
+  `ck_min(p)>(log p)^{1+δ}` i.o. would prove `n_p>(log p)^{1+δ}` i.o. That
+  exceeds every known Ω-result above, unconditional or under GRH. It also
+  exceeds the standard random-model prediction
+  `max_{p≤x} n_p ≍ log x·log log x`, where
+  `#{p≤x}·2^{−π(T)} ≈ 1` gives `π(T)≈log x/log 2` (Assessment). Even under
+  GRH, Ankeny's bound caps the congruence-certified `ck_min` at
+  `O((log p)²)`.
+* **Comparison with W.** For W, the prime-local construction reaches
+  exponent 2 because a single quarantine `p≡1 (mod ℓ)` kills every atom of
+  every y-smooth modulus. For `ck_min`, the only congruence-killable slices
+  are those with `χ_s(p)=1`. Killing all slices with `ck≤T` forces `(ℓ/p)=1`
+  at every `ℓ≤T`. As a sieve condition this has local density `1/2` at every
+  free prime: mass `≍T/log T`, not `T^{o(1)}`. So no quarantine-plus-sieve
+  design helps.
+* **The true size of `ck_min`.** Beyond `n_p`, slice vanishing is a
+  factorisation event: there is no good prime-power factor of
+  `p²+4ck²` in a single ray class. Making all unforced slices with `ck≤T`
+  vanish is a lower-bound sieve problem of growing dimension
+  `≍Σ_{ck≤T}1/φ(4ck)≍(log T)²` on polynomial values sifted to `√N`. This is
+  the dimension barrier of POINTWISE_SIZE Assessment 11.5, now for slices
+  (Assessment).
+
 ## Replay
 
 ```
