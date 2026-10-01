@@ -120,8 +120,11 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
      * **`log(1/δ*(T)) ≤ T^{1/3+o(1)}` unconditionally** (Theorem 9.3,
        PROVED). This improves POINTWISE_SIZE Lemma 11.7's `1/2`.
      * The polylogarithmic bound `δ*(T) ≥ exp(−(log T)^{O(1)})` follows
-       from the per-prime Hypothesis H_PP (Theorem 9.4, PROVED
-       implication). H_PP itself is open, with EVIDENCE.
+       from the per-prime Hypothesis H_PP (Theorem 9.4: PROVED
+       implication, modulo Elsholtz–Tao Prop. 1.4 for the polylogarithmic
+       mass of Lemma 9.2). H_PP itself is open, with EVIDENCE. It holds
+       literally at `(T,z)=(10^5,10^3)` and `(10^6,3·10^3)`, which gives
+       finite-T certificates (§9).
 
 ## 1. Setting
 
@@ -810,6 +813,11 @@ combination with `B(p) ≤ 1[ck_min(p)>T]` for all sufficiently large primes
 W. Then every sufficiently large prime p with `p≡1 (Q)` and `B(p)>0` has
 `n_p>T`.
 
+*Scope.* The proof uses only `a≡1 (24)`. It therefore holds verbatim for
+minorants on any reduced class `a mod Q` with `24 | Q` and `a≡1 (24)`. Such
+classes contain all hard primes. This is the precise sense of "every
+congruence method" in this section.
+
 *Proof.* B is periodic mod `L=lcm(Q,d_i)`. If `B(p)>0`, then B is the same
 positive value on the whole class `a=p mod L`. So every large prime in that
 class has `ck_min>T`. Proposition 8.3 gives `(a/ℓ)=1` for `5≤ℓ≤T`, hence
@@ -832,8 +840,11 @@ consequences follow.
 **Theorem 8.5 (superlinear Type-I Ω-result; PROVED modulo a cited proposition).**
 `ck_min(p) ≫ log p·log log log p` for infinitely many hard primes p.
 
-The cited input is Lau–Wu, *On the least quadratic non-residue* (author
-PDF, archived; their proof follows Graham–Ringrose 1990), Proposition 5.1,
+The cited input is Y.-K. Lau and J. Wu, *On the least quadratic
+non-residue*, Int. J. Number Theory 4 (2008), no. 3, 423–435,
+doi:10.1142/S1793042108001432. The bibliographic data were checked via the
+publisher's page; the text read is the archived author PDF. Their proof
+follows Graham–Ringrose 1990. We use Proposition 5.1,
 read in `sources/lit2026/lau-wu-least-quadratic-nonresidue.txt`
 ll. 378–405. Put
 `P_y={p : p≡1 (mod 4), χ_p(q)=1 for all primes q≤y}`, where
@@ -969,7 +980,7 @@ alone. It is `≪ (log T)^4 log log T` by Elsholtz–Tao (arXiv:1107.1010,
 Prop. 1.4, archived as `sources/elsholtz-tao-1107.1010.pdf`; cited):
 `Σ_{a≤A,b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)` for `k≪(AB)^{O(1)}`.
 
-*Proof.* Since r has all prime factors `>z≥2`,
+*Proof.* For every `r≤T`,
 `1/φ(r) ≤ C log log T/r = C log log T·m/M`. From here the proof is that of
 Lemma 2.3, with `m=m_M` and the prime ℓ replaced by `r=M/m`. The only
 change is the weight: `m/M ≤ m/(3A)` replaces `2m/(3A)`. Every surviving
@@ -1044,7 +1055,9 @@ imply failure of the local lemma.
 w_ℓ(T,z) := Σ_{surviving events E : ℓ | r_E} 1/φ(r_E) ≤ log z/(8 log T).
 ```
 
-**Theorem 9.4 (PROVED implication; Haar only).**
+**Theorem 9.4 (PROVED implication, modulo Elsholtz–Tao Prop. 1.4 for the polylogarithmic mass of Lemma 9.2; Haar only).**
+Without Elsholtz–Tao, `S_tot` is only `exp(O(log T/log log T))`, and the
+first bullet then gives only `exp(−π(z)log T − T^{o(1)})`.
 
 * If H_PP(z) holds, then
   `δ*(T) ≥ (8/φ(Q_z))·exp(−4S_tot(T,z)) ≥ exp(−(1+o(1))π(z)log T − O((log T)^4 log log T))`.
@@ -1117,6 +1130,26 @@ not test that regime. The obstacle to a proof is the following.
   Such ℓ satisfy H_PP easily, since `w_ℓ` itself is tiny there. So the
   hypothesis must be the relative form stated, not `ℓw_ℓ≤(log T)^C` for
   all ℓ.
+
+**Finite-T status (reviewer R2-7; remark).**
+
+* Theorem 9.3 is purely asymptotic. Its local-lemma margin `T^{−3ε}` is
+  not reached at accessible T: the reviewer measured the relevant product
+  `≈0.34<1/2` at `T=10^4` and `T=10^5`. So it has no numerical instance.
+* Conversely, Theorem 9.4's hypothesis H_PP holds literally at
+  `(T,z)=(10^5,1000)` (ratio 0.961) and `(10^6,3000)` (ratio 0.810).
+* The reviewer checked the LLL condition directly on the event graph:
+  `min_E ∏_{E'∼E}(1−x_{E'}) ≥ 0.75` and `0.79`. So Theorem 9.4 gives
+  rigorous finite-T Haar lower bounds there:
+
+  ```
+  δ*(T) ≥ (8/φ(Q_z))·exp(−4S_ev).
+  ```
+
+  With `S_ev=17.87` and `30.55` this gives `δ*(10^5) ≥ exp(−log φ(Q_{1000})−71.5)` and
+  `δ*(10^6) ≥ exp(−log φ(Q_{3000})−122.2)`. These are far below the measured
+  values, because the quarantine at `z≈T^{0.6}` dominates. (EVIDENCE-level
+  certificates: the event lists are computed by `pointwise_omega_haar.py`.)
 
 **Consequences (Assessment).**
 

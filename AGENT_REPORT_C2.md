@@ -1,4 +1,4 @@
-# AGENT_REPORT_C2: unconditional superlinear Ω-result for W(p) (checkpoint 1)
+# AGENT_REPORT_C2: superlinear Ω-result for W(p) (PROVED modulo TZ Cor. 1.4) (checkpoint 1)
 
 Branch `side-agent/pointwise-omega`. All work is in this worktree; nothing
 has been merged. The deliverable is `POINTWISE_OMEGA.md`.
@@ -175,7 +175,7 @@ EVIDENCE: `ck_min ≥ n_p` holds for all 385 primes p ≡ 1 (24) below 30000, wi
 | Lemma 9.1 (structural). Every surviving atom M = m·r with m \| 4D+1 has `m ≤ r²+1`. There is an exact `(s,r',v)` parametrisation of single-prime atoms, so `F_ℓ^{full}` is independent of T. | PROVED |
 | Lemma 9.2. After any class-of-one quarantine, the global surviving mass is `≪ (log T)^4 log log T`, uniformly in z. | PROVED modulo Elsholtz–Tao Prop 1.4 (archived; `T^{o(1)}` without it) |
 | **Theorem 9.3 (new, unconditional): `log(1/δ*(T)) ≤ T^{1/3+o(1)}`.** Improves POINTWISE_SIZE Lemma 11.7 (`T^{1/2+o(1)}`). Construction: quarantine at T^{1/3+ε}; the T^{o(1)} bad primes (g > 1/4, counted via Lemma 9.2) are quarantined too; single-coordinate events handled exactly; pair events by the local lemma under the conditioned product measure. | PROVED |
-| Theorem 9.4. Under the per-prime Hypothesis H_PP(z) (`w_ℓ ≤ log z/(8 log T)` for all primes ℓ > z), δ*(T) ≥ exp(−π(z) log T − O((log T)^4 log log T)). With z = (log T)^C this is the polylog bound of step (i). | PROVED implication; H_PP open |
+| Theorem 9.4. Under the per-prime Hypothesis H_PP(z) (`w_ℓ ≤ log z/(8 log T)` for all primes ℓ > z), δ*(T) ≥ exp(−π(z) log T − O((log T)^4 log log T)). With z = (log T)^C this is the polylog bound of step (i). | PROVED implication, modulo Elsholtz–Tao Prop 1.4 for the polylog mass; H_PP open |
 
 H_PP is open. The exact gap is a congruence saving at **fixed** ℓ: it needs equidistribution of `(4sr')^{-1} mod ℓ` against divisor weights, which is Kloosterman/Henriot-type, as in notes Thm 31.3.
 - The uniform form `ℓ·w_ℓ ≤ (log T)^C` is false. Linnik primes ℓ ≡ −1 (mod 4P) have `|𝓡(ℓ)| ≥ (3^K−1)/2`.
@@ -186,7 +186,7 @@ H_PP is open. The exact gap is a congruence saving at **fixed** ℓ: it needs eq
 
 What this means (Assessment):
 - Under RA, Theorem 9.3 predicts `W > (log p)^{3−ε}`.
-- On the prime side, the same construction is exactly H_MIN(1/3); it would give exponent 3, but it is blocked by the hub obstruction of §6.3.
+- On the prime side, the same construction is exactly H_MIN(1/3), which would give exponent 3. Event-level Bonferroni on the raw atom list is blocked (Prop 6.3). H_MIN(1/3) itself is open.
 
 ## Files
 
@@ -197,3 +197,22 @@ What this means (Assessment):
 - `sources/lit2026/lau-wu-least-quadratic-nonresidue.{pdf,txt}`, plus README.
 
 Stopping for parent review. I have received no forwarded repairs for §§1–6 yet.
+
+---
+
+# Round 2 review repairs (§§8–9)
+
+The reviewer's round 2 (`reviews/pointwise-omega-review.md`, "Round 2") is
+SOUND-AFTER-REPAIRS; all items are mathematically sound. Repairs applied:
+
+* **R2-1.** Theorem 9.4 and §0 now carry the label "modulo Elsholtz–Tao Prop 1.4 for the polylog mass". The table above is updated too.
+* **R2-2.** H_MIN(1/3) is now described as open, not "blocked".
+* **R2-3.** Cor 8.4 has a scope note: the proof uses only a≡1 (24).
+* **R2-4.** The premise in Lemma 9.2's weight bound is dropped.
+* **R2-5.** Lau–Wu bibliographic data added: Int. J. Number Theory 4 (2008), no. 3, 423–435, doi:10.1142/S1793042108001432.
+* **R2-6 (= D5 residue).** The report title no longer says "unconditional".
+* **R2-7.** New finite-T remark after Theorem 9.4.
+  * Theorem 9.3 has no numerical instance.
+  * H_PP holds literally at (10⁵, 10³) and (10⁶, 3·10³), so Theorem 9.4 gives rigorous finite-T Haar bounds there. These are labelled EVIDENCE-level certificates.
+
+Ready for merge. Ledger and STATUS updates are left to the parent.
