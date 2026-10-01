@@ -24,7 +24,7 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 | Thm 2.7, Cor 3.6 | **Sequential extension.** For nonnegative CRT majorants (no large-sieve claim), the cap `C(A,C)(log N)^{3/4} + O_C(1)` holds for every Case-B forced-class family whose moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1). The other prime factors are arbitrary (higher powers allowed) and may be shared between conditions. By Dickman, this is a positive proportion `log(1+C)` of unweighted moduli; the weighted share of the supply is conjectural. | PROVED |
 | Cor 3.5 | Polylogarithmic multipliers, or multipliers whose lcm is at most N (the 2/3 note's architecture), cap the saving at `C L^{2/3}(log L)^{1/3}`. **The 2/3-loglog note is sharp for its architecture.** | PROVED (given the notes' BT upper bounds) |
 | §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, level). Bonferroni depth, the BV level and the selector are not binding: they change constants only. | PROVED (Lemmas 4.1–4.4) |
-| §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed conditional on H_A3. Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
+| §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed via H_A3, which is proved from Elsholtz–Tao Prop. 1.4 (§3.7). Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
 | §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. | EVIDENCE |
 
@@ -545,7 +545,7 @@ The bound needed for Cor 3.4 is a weighted one. Write each d uniquely as
 `d = r h²` with r squarefree; then `g(d) = rh`. The selector introduces the
 weight `G/φ(G)`, so we need:
 
-> **H_A3 (open; numerically supported in its unweighted form).**
+> **H_A3 (now PROVED, §3.7, from Elsholtz–Tao Prop. 1.4).**
 > `Σ_{r sqfree, rh≤x} τ(4rh²+1)·(rh/φ(rh)) ≪ x(log 2x)²`.
 
 Under H_A3 the Case-A profile is `≪ β^{−3}`, and Cor 3.4 extends to
@@ -700,6 +700,130 @@ What is left uncovered is the **balanced moduli** (`P(M) ≤ M^{1/2+o(1)}`),
 i.e. moduli with at least two comparable large primes, or with
 `P(M) ∈ (M^{1/2}, M^{1/(1+C)})` for the chosen C. See §5.6.
 
+### 3.7 Case A: H_A3 holds (follow-up 2)
+
+**Lemma 3.7 (weighted Case-A divisor sum; PROVED modulo Elsholtz–Tao
+Prop. 1.4).** For `x ≥ 2`,
+
+    Σ_{r,h ≥ 1, rh ≤ x} τ(4rh²+1) · (rh/φ(rh)) ≪ x (log x)².             (3.7)
+
+So H_A3 holds, even without the restriction to squarefree r. The same bound
+holds with the extra weight `γ(rh)` of Cor 3.6.
+
+*Source.* Elsholtz–Tao, arXiv 1107.1010 (J. Aust. Math. Soc. 2013),
+Proposition 1.4: for `A, B > 1` and every positive integer
+`k ≪ (AB)^{O(1)}`,
+
+    Σ_{a≤A} Σ_{b≤B} τ(k a b² + 1) ≪ AB log(A+B) log(1+k).
+
+Their equation (8.2) is exactly the dyadic form of (3.7), with a = h and
+d = r. It is the input of their bound `Σ_{p≤N} f_I(p) ≪ N log²N log log N`.
+
+*Proof.* Use `n/φ(n) ≤ (π²/6)Σ_{d|n} 1/d`, which holds since the ratio of the
+Euler factors is `Π(1−p^{−2}) ≥ 6/π²`. Write `r = s r'`, `h = t h'`, so that
+`4rh² = (4st²)·r'h'²`. The left side of (3.7) is then at most
+
+    C Σ_{s,t} (1/(st)) Σ_{r'h' ≤ x/(st)} τ(4st²·r'h'² + 1).
+
+*Case `st ≤ √x`.* Split `r'h' ≤ x/(st)` into dyadic boxes and apply
+Prop. 1.4 with `k = 4st² ≤ 4x^{3/2} ≪ (AB)^{O(1)}` on boxes with
+`AB ≥ √x`. The boxes with `AB < √x` contribute `O(x^{1/2+ε})` trivially.
+The inner sum is `≪ (x/st) log²x · log(1+4st²)`, and
+`Σ_{s,t} log(1+4st²)/(st)² < ∞`.
+
+*Case `st > √x`.* Here `r'h' < √x`, and `τ ≪ x^{ε}` gives `O(x^{1/2+2ε})`.
+
+*The γ-weight.* Write `γ(n)n/φ(n) = Σ_{d|n} η(d)`, with η multiplicative,
+supported on squarefree d, and `η(p) = O(p^{−1} + p^{−(1−C)/2})`. Repeat the
+argument with η in place of `1/d`. This needs only
+`Σ_s η(s)log(2+s)/s < ∞`. ∎
+
+*Consequence.* The Case-A class mass up to modulus G, `Σ F_A(G')/G'` for
+`G' ≤ G`, is at most `Σ_{4rh≤G} τ(4rh²+1)/(4rh)`, with r squarefree. By
+partial summation from (3.7) its profile, with the selector weight, is
+`≪ β^{−3}`. So Corollaries 3.4 and 3.6 hold for families containing Case-A
+classes, with the dominant prime taken in `G = 4rh`. The "conditional on
+H_A3" qualifications elsewhere in this file are now discharged. They rely
+on a published but externally sourced Proposition 1.4, which was not
+re-proved here.
+
+Numerically, the Case-A union mass is about `0.0254 (log x)³` at x = 4000
+(§3, `data/theta/profile.txt`), consistent with (3.7).
+
+### 3.8 Balanced moduli carry a positive proportion of the supply (follow-up 2)
+
+Call M **balanced** if `P(M) ≤ M^{1/2}`. These moduli lie outside Cor 3.6
+for every C < 1.
+
+**Lemma 3.8 (PROVED; standard inputs).** There are `c > 0` and `x₀` such that
+for `x ≥ x₀`,
+
+    Σ_{M≤x, M≡3 (4), P(M)≤M^{1/2}} |ℛ(M)|/M ≥ c (log x)³.
+
+More precisely, fix any η ∈ (0, 1/480]. The moduli
+`M = k ℓ₁ ℓ₂` with:
+* primes `ℓ₁ ∈ (Y, Y^{1+η/2}]` and `ℓ₂ ∈ (Y^{1+η/2}, Y^{1+η}]`;
+* odd `k ∈ (Y^{2η}, Y^{3η}]`;
+* `Y = x^{1/(2+4.5η)}`
+
+already contribute `≥ c(η)(log x)³`. These are *same-scale* pairs:
+`log ℓ₂/log ℓ₁ ≤ 1+η`.
+
+*Proof.*
+
+*Structure of M.*
+* Each such M satisfies `M ≤ x`.
+* M is balanced: `M ≥ Y^{2+2.5η}`, so `√M ≥ Y^{1+1.25η} ≥ ℓ₂ = P(M)`.
+* The triple `(k,ℓ₁,ℓ₂)` is determined by M. All primes of k are below `Y`,
+  so ℓ₁ and ℓ₂ are the only prime factors of M above Y.
+
+*Classes of ℛ(M).* For coprime `u, v ≤ z := Y^{1/8}` with `(uv,k)=1` and
+`4uv | M+1`, the class `−uv^{−1} (mod M)` lies in ℛ(M) by the multiplier
+identity. Distinct (u,v) give distinct classes already mod ℓ₂, because
+`|uv'−u'v| < z² < ℓ₂`. Since `(uv, ℓ₁ℓ₂) = 1` automatically,
+
+    S ≥ Σ_{k,ℓ₁} (1/(kℓ₁)) Σ_{(u,v)} Σ_{ℓ₂ ∈ I₂, ℓ₂ ≡ −(kℓ₁)^{−1} (mod 4uv)} 1/ℓ₂.
+
+*The ℓ₂-sum.* Split `I₂` into dyadic blocks `(y,2y]`. With `q = 4uv ≤ 4Y^{1/4}`,
+which is far below `y^{1/2}`, each block gives
+`(li(2y)−li(y))/(yφ(q)) + O(E*_y(q)/y)`.
+
+The main terms total `(c'_η + o(1))/φ(q)`, where
+`c'_η = log((1+η)/(1+η/2))`.
+
+For the error terms, a modulus q arises from at most τ(q) pairs. Over
+`(k, ℓ₁)` with weight `1/(kℓ₁)`, of total `≪ log Y`, Cauchy–Schwarz against
+Brun–Titchmarsh and Bombieri–Vinogradov gives
+`Σ_q τ(q)E*_y(q) ≪ y(log y)^{−10}` per block. This is the argument of the
+2/3 note's mass lemma. Summed over `O(log Y)` blocks, it is `o(1)`.
+
+*The (u,v)-sum.* By the 3/4 note's lattice lemma (eq. latlower) summed over
+the φ(k) residues c mod k, exactly as in its lower `W_k` bound,
+`Σ_{(u,v)} 1/(uv) ≥ (1/4)(φ(k)/k)²Λ²` with `Λ ≥ ½log z`. This needs
+`z ≥ K^{20}` with `K = Y^{3η}`, i.e. `η ≤ 1/480`.
+
+*Conclusion.* `Σ_{k∈(Y^{2η},Y^{3η}], k odd} (φ(k)/k)²/k ≫ η log Y`, and
+`Σ_{ℓ₁∈I₁} 1/ℓ₁ ≫ η`. So `S ≫ η³ (log Y)³ ≍_η (log x)³`. ∎
+
+*Numerics (EVIDENCE).* `scripts/theta_balanced_share.py` computes the share
+of the weighted Case-B mass `Σ τ(A²)/M` carried by balanced moduli:
+
+| x | 10³ | 10⁴ | 10⁵ | 10⁶ | 10⁷ |
+|---|---:|---:|---:|---:|---:|
+| weighted | 0.098 | 0.121 | 0.141 | 0.157 | 0.171 |
+| unweighted log-density | 0.095 | 0.117 | 0.134 | 0.148 | 0.159 |
+
+The exact deduplicated |ℛ(M)| gives the same values to about 10⁻³. Both
+shares still grow slowly toward Dickman's limiting log-density
+`1 − log 2 = 0.307` for the unweighted set. The weighted share stays
+slightly *above* the unweighted one.
+
+**Consequence.** The open door of §5.6(a) is not a lower-order effect.
+Same-scale balanced moduli, at any fixed log-ratio 1+η, carry `≫_η (log x)³`
+supply. This also proves the claim in §5.6 that windows of bounded
+log-ratio always contain a positive proportion of the mass in internal
+pairs.
+
 ## 4. Exact accounting of the two campaign proofs
 
 Notation: `μ_c` is the fibre mass and `r` the Bonferroni degree.
@@ -789,10 +913,10 @@ giving `L^{2/3}`. ∎
 | cost per condition below log X; weighting moduli by mass; `ΣF(M)/M·log M ≍ t⁴` vs `t³` | **closed** (Thm 2.5 + Lemma 3.1): mixing scales optimally is exactly the Rankin functional (2.5); the identity profile gives `λ^{3/4}` | §5.1 |
 | Rankin/Halász on `x=(p+a)/4` | **not closed; model Assessment only.** The non-multiplicativity counterexample is PROVED. The multiplicative slices lead to the stacking model, whose Assessment gives θ* ≈ 0.52. No universal obstruction is proved. | §5.2 |
 | beyond-identity supply / exact criterion `−1∈Rat_a(h)` / large deviations of class counts | **closed** for prime-slice systems (Lemma 3.2: the criterion *is* the (a,D) forced classes; Lemma 5.3: effective mass = mass); complete system: EVIDENCE of sub-additivity (ratio ≈ 0.80) | §5.3 |
-| combining both halves / both solution types | Case-B groupings **closed** (Lemmas 3.1–3.2). Adding Case A is closed **conditional on H_A3 (weighted form)**. Theorem 2.5 needs no independence between halves. | §5.4 |
+| combining both halves / both solution types | **closed**: Case-B groupings (Lemmas 3.1–3.2), and Case A via Lemma 3.7 (H_A3 proved from Elsholtz–Tao Prop. 1.4). Theorem 2.5 needs no independence between halves. | §5.4, §3.7 |
 | Elsholtz–Tao average as first-moment limit | **consistent**; the correct currency is the profile `Σp̄ℓ^{−α}`, which is exactly cubic (no loglog) | §5.5 |
 | shared large primes in multipliers | **closed** for dominant-prime moduli (Thm 2.7, Cor 3.6) | §2.6 |
-| balanced moduli; multipliers ≫ slice prime | **open**; hypothesis H_MS named; mass-cost Assessment predicts closure | §5.6 |
+| balanced moduli; multipliers ≫ slice prime | **open**, but sharpened. Balanced moduli carry `≫(log x)³` (Lemma 3.8). Theorem 5.5 gives a sieve limit for Λ²-majorants on *arbitrary* systems, reducing H_MS for Λ² to the noise-stability bound H_MS^{Sel}. The toy LP shows no counterexample. | §5.6–5.8 |
 | Bonferroni → Selberg/large sieve | constants only (Lemma 4.2, §2.5 numerics) | §4 |
 
 ### 5.1 Truncation cost per condition
@@ -894,7 +1018,7 @@ data are consistent with H_EM and give no sign against it.
 
 Theorem 2.5 takes any family of conditions. The union of Case-B classes
 (either grouping) and Case-A classes has profile at most the sum. That sum
-is cubic for Case B by Lemmas 3.1–3.2, and for Case A under H_A3. So the shared quadratic bit (DISCOVERIES
+is cubic for Case B by Lemmas 3.1–3.2, and for Case A by H_A3, which is proved in §3.7. So the shared quadratic bit (DISCOVERIES
 (C)6) is irrelevant to the cap: dependence can only lower the effective
 mass. No independence between halves is used anywhere in §§2–3.
 
@@ -971,7 +1095,7 @@ one undetermined coordinate per condition at the moment it is decided.
 Both fail for pairs inside one window.
 
 * Under H_MS, every CRT-majorant architecture for ES built from Case-B
-  forced classes (and Case A under H_A3), with a bounded-saving admissible
+  forced classes (Case A included, via §3.7), with a bounded-saving admissible
   set and rounding treated in absolute value, is capped at `(log N)^{3/4}`.
 * Without H_MS, a θ > 3/4 attempt *must* exploit balanced moduli jointly,
   or multiplier sharing beyond Cor 3.5.
@@ -984,6 +1108,167 @@ level m = λ/s primes per term. Compute the exact LP for small N, then try a
 "clique-aware" dual: mix over the number of hit pairs, conditioned on the
 residues. A counterexample here would be the first architecture-level hint
 of θ > 3/4.
+
+### 5.7 Balanced moduli for Selberg-type majorants (follow-up 2)
+
+This subsection proves a sieve limit with **no structural hypothesis on the
+conditions**. Balanced, multi-prime and shared-prime moduli are all
+allowed. The price is that the majorant must be of Selberg type, a square
+`g²`. The result reduces H_MS for such majorants to a concrete
+noise-stability quantity.
+
+**Setting.** Take a finite product probability space `Ω = Π_i Ω_i` (CRT
+coordinates: residues modulo prime powers, and possibly one aggregated
+small coordinate). Each coordinate has a cost `s_i ≥ 0`: `s_i = log ℓ` for
+a slice prime ℓ, and 0 for coordinates that are free and not charged.
+`A ⊆ Ω` is an arbitrary event (the avoider set of an *arbitrary* condition
+family). Let `V_κ` be the span of functions of `ω_T` over sets T with
+`Σ_{i∈T} s_i ≤ κ`; since this family of T is down-closed, `V_κ` is the sum
+of the Efron–Stein components `H_T`.
+
+**Theorem 5.5 (Selberg-type sieve limit for arbitrary systems; PROVED).**
+Let `g ∈ V_{λ/2}` with `g ≥ 1` on A, so `ν = g²` is a majorant of level λ.
+Then for every α > 0,
+
+    E g² ≥ e^{−αλ/2} · P(A)² / P(ω ∈ A, ω' ∈ A),                      (5.1)
+
+where ω' is the ρ-correlated copy: independently for each i, `ω'_i = ω_i`
+with probability `ρ_i = e^{−α s_i}`, and otherwise `ω'_i` is a fresh
+sample. Equivalently, `saving(ν) ≤ αλ/2 + Ξ_A(α)`, where
+
+    Ξ_A(α) := log [ P(A ∩ A'_α) / P(A)² ] ∈ [0, log(1/P(A))].
+
+*Proof.* `E[g1_A] ≥ P(A)`. Since `g ∈ V_{λ/2}`,
+`E[g1_A] = ⟨g, Π_{V}1_A⟩ ≤ ‖g‖·‖Π_V 1_A‖`. Next,
+
+    ‖Π_V 1_A‖² = Σ_{c(T)≤λ/2} ‖(1_A)_T‖² ≤ e^{αλ/2} Σ_T e^{−αc(T)}‖(1_A)_T‖²
+               = e^{αλ/2} ⟨1_A, T_ρ 1_A⟩ = e^{αλ/2} P(A ∩ A').
+
+Here `T_ρ` is the noise operator; it acts on `H_T` by `Π_{i∈T}ρ_i`. ∎
+
+It covers Selberg's Λ² sieve, where `g = Σ_{d} λ_d 1[d | ·]` with `λ₁ = 1`
+equals 1 on A. Like Theorem 2.5 it is a statement about CRT means. It may
+be applied fibrewise over zero-cost coordinates, followed by Cauchy–Schwarz
+over fibres.
+
+**Corollary 5.6 (slice systems; PROVED).** For a prime-slice system,
+fibrewise, `Ξ_{A_c}(α) = Σ_ℓ log(1 + ρ_ℓ p_ℓ(c)/(1−p_ℓ(c)))
+≤ (4/3)Σ_ℓ p_ℓ(c)ℓ^{−α}`. This is exact, since coordinates factor. So
+Theorem 5.5 reproduces the Rankin functional for Λ²-majorants. Theorem 2.5
+already covers *all* majorants of slice systems.
+
+**Proposition 5.7 (derivative formula; PROVED).** Take a slice prime ℓ.
+Condition on all other coordinates of both copies ("the rest"). Let `F, F'`
+be the sets of residues at ℓ that would complete some condition in copy 1
+and copy 2 respectively, and `p = |F|/ℓ`, `p' = |F'|/ℓ`. Put
+
+    Cov_ℓ = |F∩F'|/ℓ − pp',
+    J_ℓ = ρ_ℓ(1 − |F∪F'|/ℓ) + (1−ρ_ℓ)(1−p)(1−p').
+
+Then
+
+    ∂/∂ρ_ℓ log P(A∩A'_ρ) = E[ Cov_ℓ / J_ℓ | A ∩ A'_ρ ].
+
+Along `ρ_ℓ = t ℓ^{−α}` (t from 0 to 1, zero-cost coordinates fixed at ρ = 1),
+
+    Ξ_A(α) = Ξ_A^{fib} + ∫₀¹ Σ_ℓ ℓ^{−α} E_{μ_t}[Cov_ℓ/J_ℓ] dt,         (5.2)
+
+with `μ_t` the joint law conditioned on `A∩A'`. Here
+`Ξ^{fib} = log(E_c P(A_c)²/(E_c P(A_c))²) ≥ 0` is the fibre-variance term.
+
+*Proof.* Given the rest, the joint avoidance probability at ℓ is
+`J_ℓ·1[rest avoids conditions not involving ℓ, in both copies]`. J is affine
+in ρ_ℓ with slope `Cov_ℓ`, and dividing by `P(A∩A')` produces the
+conditioned expectation. ∎
+
+**What (5.2) says about balanced moduli (Assessment 5.8).** Expand
+`|F∩F'|` over pairs of conditions (C, C') through the same residue b at ℓ.
+There are three parts.
+
+* *(D) Diagonal, C = C'.* The rest of C must hold in *both* copies, which
+  costs `Π_{ℓ'∈S(C)∖ℓ}(ρ_{ℓ'} + 1/ℓ')`. Integrating in t gives exactly the
+  H_MS term `P(C)·M_C^{−α}`. So the diagonal part of Ξ is the H_MS
+  functional, with full-modulus cost. That includes balanced C.
+* *(O) Off-diagonal, C ≠ C' with disjoint rests.* These are not
+  ρ-suppressed. Per residue b their contribution is about `θ·min(1, m_b)²`,
+  where `m_b` is the expected number of conditions through (ℓ, b) with rest
+  set, and θ = 1/ℓ.
+  * Values b with small `m_b` contribute negligibly.
+  * Values with `m_b ≳ 1` ("deadly values", e.g. `b ≡ −4D` for small D)
+    behave like single-slice classes at ℓ, of cost log ℓ. For the identity
+    system their number per prime is `≈ (log ℓ)²·polylog`, which again
+    gives a cubic profile with a polylog factor.
+* *(S) Small primes.* Primes below `w = λ^{3+ε}` must be treated as zero-cost
+  coordinates. Otherwise they are nearly determined by the rest, and each
+  contributes its full void cost. Taken at full price, the w-smooth
+  subsystem costs only `O((log λ)³)`. Its mass is
+  `∫ s² ρ_Dickman(s/log w) ds ≪ (log w)³`.
+
+Summing, the model predicts `Ξ ≲ α^{−3}·polylog(λ)`. That means saving
+`≲ λ^{3/4}·polylog(λ)` for Λ²-majorants *including balanced moduli*.
+
+**Hypothesis H_MS^{Sel}** (named; open; falsifiable). For the complete
+Case-B (and Case-A) forced-class system with moduli ≤ e^λ, taken fibrewise
+over primes ≤ λ^{4},
+
+    Ξ(α) ≪ α^{−3}(log λ)^{O(1)}   uniformly for λ^{−1} ≤ α ≤ 1.
+
+Under H_MS^{Sel}, Theorem 5.5 caps Selberg-type majorants at
+`λ^{3/4}(log λ)^{O(1)}` for *all* moduli, balanced included.
+
+**The two missing ingredients.** These are precise statements, and neither
+is proved here.
+1. *A correlation inequality.* Under the jointly conditioned law μ_t, the
+   probability that the rest of a condition is set must be at most its
+   unconditioned value. In an independent-indicator model (one Bernoulli per
+   (prime, residue)) this is Harris/FKG: the coupled pair measure is a
+   product of positively correlated binary pairs, avoidance is decreasing,
+   and setups are increasing. The CRT model is one-hot per prime instead.
+   One-hot laws are not FKG, so a transfer is needed.
+2. *Lower bound for J.* `J_ℓ ≥ c` needs `p_ℓ, p'_ℓ ≤ 1/4` for all
+   configurations of the rest, with large primes only. This fails on rare
+   configurations, which need a separate tail bound.
+
+**Why Theorem 2.7's window method cannot be extended directly.** By Lemma
+3.8, every window partition of bounded log-ratio leaves `≫ (log x)³` of mass
+in internal same-window pairs. Those pairs would have to be paid at full
+price. Windows of vanishing ratio instead multiply the per-window level
+charge `19α_jλ` by the number of windows. Theorem 5.5 avoids both problems,
+because its level charge `αλ/2` is paid *once*, for Λ²-majorants only.
+
+### 5.8 Toy LP: pair conditions versus single conditions (follow-up 2; EVIDENCE)
+
+`scripts/theta_pair_lp.py` compares two systems on 5 coordinates, each
+uniform on ℤ/5:
+* a *pair system*, which forbids r random value-pairs for each of the 10
+  coordinate pairs (AND-conditions, i.e. "balanced moduli");
+* a *single system* of comparable mass, which forbids f values per
+  coordinate.
+
+It gives the exact LP optimum over *all* majorants of level m (terms
+depending on at most m coordinates). It also gives the Theorem 5.5 bound,
+computed exactly by Efron–Stein, which caps only Λ²-majorants.
+
+| system (mass) | m=1 | m=2 | m=3 | m=4 | void −log P(A) |
+|---|---:|---:|---:|---:|---:|
+| pair r=2 (0.80) | 0.000 | 0.301 | 0.611 | 0.839 | 0.863 |
+| single (1.00) | 0.223 | 0.916 | 1.044 | 1.115 | 1.116 |
+| pair r=3 (1.20) | 0.000 | 0.446 | 0.841 | 1.256 | 1.369 |
+| pair r=4 (1.60) | 0.000 | 0.491 | 1.002 | 1.469 | 1.696 |
+| single (1.50) | 0.357 | 1.204 | 1.435 | 1.769 | 1.783 |
+
+The Theorem 5.5 bounds on Λ²-savings for the pair systems at m = 2 and 4
+are 0.274/0.715 (r=2), 0.364/1.042 (r=3) and 0.563/1.251 (r=4). The LP
+optimum over all majorants can exceed them slightly, which is consistent:
+non-square majorants can beat squares, as in §2.5.
+
+At equal level, pair systems save *less* than single systems of similar
+mass. At level 1 they save nothing, since a pair needs two coordinates to
+be seen. The savings track the void at about twice the level. This matches
+the H_MS picture, in which a pair costs the log of its full modulus. No
+instance in which balanced conditions beat the dominant-prime behaviour was
+found. Toy sizes cannot probe the asymptotic regime, so this is weak
+evidence only.
 
 ---
 
@@ -999,10 +1284,12 @@ These are consequences of Theorems 2.5 and 2.7, Lemmas 3.1–3.2, 4.2 and
 2. The following change constants only (§§4, 5.3–5.4): both Case-B
    groupings, the exact a-frame criterion, Elliott–Halberstam, or a better
    Bonferroni/Selberg polynomial. Adding Case A is also constants-only,
-   conditionally on H_A3.
+   via H_A3 (§3.7).
 3. It needs one of:
    * (i) a joint use of *balanced* moduli (`P(M) ≤ M^{1/2+o(1)}`) that beats
-     their mass (H_MS false in the relevant regime);
+     their mass (H_MS false in the relevant regime). These moduli carry
+     `≫ (log x)³` supply (Lemma 3.8). For Λ²-majorants this would need
+     H_MS^{Sel} to fail (§5.7);
    * (ii) multipliers larger than the slice primes, used without paying
      their lcm in level. No lower bound on that cost is proved;
    * (iii) a small-modulus admissible set R that is not of selector type
@@ -1022,6 +1309,10 @@ uv run --with scipy python scripts/theta_sieve_limit.py
 uv run --with scipy python scripts/theta_reduction_check.py
 # §3: S_B(x)/(x log^2 x) to 1e6; exact union masses of B-M, B-aD, Case A to 4000 (~3 s)
 uv run python scripts/theta_profile.py 1000000          # -> data/theta/profile.txt
+# §3.8: weighted share of balanced moduli to 1e7 (~10 s)
+uv run python scripts/theta_balanced_share.py 10000000  # -> data/theta/balanced_share.txt
+# §5.8: toy LP, pair vs single conditions (~5 s)
+uv run --with scipy python scripts/theta_pair_lp.py     # -> data/theta/pair_lp.txt
 # §5.3: complete-system void among real primes (4 processes x ~150 s, < 100 MB each)
 mkdir -p /tmp/theta
 g++ -O2 -std=c++17 -o /tmp/theta_void_primes scripts/theta_void_primes.cpp
