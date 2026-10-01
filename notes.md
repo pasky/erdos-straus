@@ -20207,6 +20207,12 @@ unbounded sequence of \(T\)'s are unbounded.  From (54.2)--(54.3),
 \(0<A<1\), \(H_{\rm MOD}(A)\) is false.  Thus the remaining open
 pointwise exponent range is exactly \(A\geq1\).
 
+*Update (2026-10-01).*  `POINTWISE_OMEGA.md` Theorem 5.1 (reviewed,
+proved modulo Thorner–Zaman Cor. 1.4) gives \(W(p)\geq(\log p)^{2-o(1)}\)
+for infinitely many hard primes, so \(H_{\rm MOD}(A)\) is false for every
+\(A<2\); the open range is now \(A\geq2\), and \(H_{\rm MOD}(A)\) is
+heuristically false for every \(A\) (POINTWISE_SIZE Assessment 7.2).
+
 Indeed, along the primes in Theorem 54.1,
 \(W(p)>(1/(5.2+o(1)))\log p>(\log p)^A\).  There is no conflict with the
 almost-all upper bounds.  If

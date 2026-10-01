@@ -82,6 +82,9 @@ Erdős–Straus (ES) is not solved here, and nothing below touches it.
      "`W(p)≤T(p)`" fails infinitely often if `T(p)≤(5/8−ε)log p`. The
      Type-I slice mechanism "`ck_min(p)≤T(p)`" fails infinitely often if
      `T(p)≤(5/12−ε)log p`.
+     **Superseded for W:** POINTWISE_OMEGA Theorem 5.1 proves
+     `W(p)≥(log p)^{2−o(1)}` i.o. (modulo Thorner–Zaman), and Thm 8.5 there
+     gives `ck_min≫log p·log₃p` i.o. (modulo Lau–Wu).
      These bound the *size* of the witness parameters, not the number of
      consulted objects. For window mechanisms that factor the first K
      windows, a restricted Bateman–Horn model (**Assessment**) suggests
@@ -1523,7 +1526,7 @@ empirical exponent.
 
 | frame | consulted objects | proved lower bound i.o. | heuristic true scale | pointwise hypothesis | status |
 |---|---|---|---|---|---|
-| multiplier `W(p)` (congruence-only, §7) | `p mod M`, `M≤T` | `W≥(5/8−ε)log p` (Thm 11.2, modulo Chang; notes Thm 54.1: `1/5.2`) | `log W≍(log p)^{1/3}`; `W≈(log p)^{2.5–3.4}` for `10^8≤p≤10^50` | `W≤(log p)^A` | **heuristically false ∀A** (Assessment 7.2) |
+| multiplier `W(p)` (congruence-only, §7) | `p mod M`, `M≤T` | `W≥(5/8−ε)log p` (Thm 11.2, modulo Chang; notes Thm 54.1: `1/5.2`); superseded by `W≥(log p)^{2−o(1)}` (POINTWISE_OMEGA Thm 5.1) | `log W≍(log p)^{1/3}`; `W≈(log p)^{2.5–3.4}` for `10^8≤p≤10^50` | `W≤(log p)^A` | **heuristically false ∀A** (Assessment 7.2) |
 | window `a_min(p)` (§8) | factorisations of `(p+q)/4`, `q≤Q` | unbounded under Dickson (Prop 8.4); for each found p, `a_min>K` PROVED | `Θ(log p/log log p)` (model; conjectural) | **X_win(10)** (cutoff `10^18`); eventual form X_win^∞(C) | X_win^∞(C) heuristically true ∀C>0 (Assessment 8.5); ratio `<10` on all data |
 | seeded windows (§9) | factorisations of `(p+q)/4`, `q≡−p (4n_p)` | none beyond §8 | `Θ(log p/log log p)` windows (model; conjectural) | **X_QNR(C)** / X_QNR^∞(C) | X_QNR^∞(C) heuristically true ∀C>0 (Assessment 9.2) |
 

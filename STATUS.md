@@ -75,7 +75,9 @@ length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
 the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
-scale). Unconditionally, `W(p)≥(5/8−ε)log p` infinitely often (Thm 11.2).
+scale). Unconditionally, `W(p)≥(log p)^{2−o(1)}` infinitely often
+(`POINTWISE_OMEGA.md` Thm 5.1, modulo Thorner–Zaman; reviewed), so any
+pointwise multiplier mechanism needs witness moduli beyond `(log p)^2`.
 
 ## Housekeeping
 
