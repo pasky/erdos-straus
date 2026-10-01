@@ -839,9 +839,161 @@ are:
 
 These are to be developed after parent review.
 
+# Step 2
+
+Step 2 follows the plan of §6. §7 quantifies the multiplier-frame
+heuristic flagged in the Step-1 report. §8 treats the window frame,
+which is the main candidate. §9 covers mechanisms seeded by the least
+non-residue. §10 is the summary.
+
+## 7. The multiplier frame: `W(p)≤(log p)^A` is heuristically false for every A
+
+Recall `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (notes (51.1),
+(58.3)). Write `𝓡(M)` for the set of these classes. Hard primes are
+`p≡1 (24)`.
+
+### 7.1 What is exact
+
+**Proposition 7.1 (PROVED).**
+
+* **(a)** For fixed T, the set `{p : W(p)>T}` is a union of unit classes
+  modulo `L(T)=lcm(24, M≤T)`. Hence
+  `#{p≤N hard : W(p)>T} ~ δ*(T)·π_h(N)` as `N→∞` (PNT in APs). Here
+  `π_h(N)=#{p≤N, p≡1 (24)}`, and `δ*(T)` is the Haar measure of
+  `{n∈Ẑ^× : n≡1 (24), n∉𝓡(M) mod M for all M≤T}`, normalised within the
+  class `1 (24)`.
+* **(b)** `δ*(T)≥1/φ_h(L(T))=e^{−(1+o(1))T}` (class of one: notes
+  Thm 17.3(c), and Thm 54.1 with the effective PNT).
+* **(c)** The independence exponent is
+  `I(T):=Σ_{M≤T} −log(1−h_M)`, where `h_M` is the proportion of hard unit
+  classes mod M lying in `𝓡(M)`. Since `h_M≍|𝓡(M)|/φ(M)` on average,
+  notes Thm 18.2's cubic mass suggests `I(T)≍(log T)^3`. We have not
+  re-proved this for the hard-class normalisation. Numerically the local
+  exponent `d log I/d log log T` is 2.80 at `T=2^20` and rising.
+
+(a) is the only rigorous link between δ* and primes, and it holds for
+fixed T only. For `T=(log N)^A` the modulus `L(T)=e^{(1+o(1))T}` is far
+beyond N, and no distribution theorem applies.
+
+### 7.2 Measuring `δ*(T)`
+
+`scripts/pointwise_size_wtail.py split` samples n from Haar measure on
+Ẑ. It draws independent uniform unit residues mod `ℓ^k≤T` for every
+prime ℓ, with `n≡1 (3)`; `n mod M` is obtained by CRT, and M runs upward.
+*Multilevel splitting* (survivors are cloned with their drawn residues;
+fresh primes are drawn per clone; the weights are divided) makes the
+estimator unbiased down to `10^{−17}`. Over five independent runs the
+batch-weighted means are:
+
+| T | `δ*(T)` | `−log δ*` | `I(T)` | ratio | actual count, hard `p<10^9` (W>T) | `δ*·π_h(10^9)` |
+|---|---|---|---|---|---|---|
+| 7 | 0.500 | 0.69 | 0.69 | 1.00 | 3176725 | 3177213 |
+| 31 | 0.0716 | 2.64 | 2.63 | 1.00 | 454772 | 454874 |
+| 127 | 4.21e−3 | 5.47 | 6.17 | 0.89 | 25782 | 26752 |
+| 511 | 8.24e−5 | 9.40 | 11.46 | 0.82 | 430 | 524 |
+| 1023 | 6.05e−6 | 12.02 | 15.01 | 0.80 | 33 | 38 |
+| 2047 | 2.73e−7 | 15.11 | 19.19 | 0.79 | 3 | 1.7 |
+| 4095 | 7.06e−9 | 18.77 | 24.11 | 0.78 | 0 | 0.04 |
+| 8191 | 9.5e−11 | 23.08 | 29.80 | 0.77 | | |
+| 16383 | 7.0e−13 | 27.99 | 36.35 | 0.77 | | |
+| 32767 | 3.2e−15 | 33.4 | 43.81 | 0.76 | | (noisy) |
+| 65535 | ~2e−17 | ~38.5 | 52.24 | ~0.74 | | (two of four runs gave 0) |
+
+The comparison with actual primes is exact: `pointwise_size_wtail.py
+census` computes `W(p)` for all 6354932 hard primes `p<10^9`. It agrees
+with `δ*·π_h` to within 4% for `T≤127`, and to within 17% at `T=511`.
+This holds although `L(T)` exceeds `10^9` already for `T≈30`. A sample
+of 200000 hard primes near `10^18` gives a tail of 6.4e−4 at T=255
+(δ*: 7.2e−4) and 6.0e−5 at T=511 (8.2e−5). The census mild deficit is a
+finite-size effect, in the conservative direction.
+
+Two observations.
+
+* **The avoidance events are positively correlated.** We find
+  `−log δ*≈0.77·I(T)`, stably for `4095≤T≤16383`, i.e. `δ*` exceeds the
+  independence prediction `e^{−I}`. This is the class-of-one effect: a p
+  that is ≡1 modulo many small primes escapes many moduli at once.
+* **The decay is polylogarithmic in T.** The local exponent of
+  `−log δ*` in `log T` rises from 2.26 (T≈127–1023) to 2.58
+  (T≈8191–32767).
+
+### 7.3 Assessment
+
+**Heuristic RA (random avoider).** `#{p≤N hard : W(p)>T}≈δ*(T)π_h(N)`
+whenever the right side is ≥1, uniformly in T. This is the step that
+cannot be proved: it is Prop 7.1(a) used beyond the range of any
+distribution theorem. The `10^9` census tests it in the regime
+`L(T)≫N`.
+
+**Assessment 7.2.** Under RA, the largest `W(p)`, `p≤N` hard, is the T
+with `−log δ*(T)≈log π_h(N)`. Beyond `T=16383` we use
+`−log δ*=0.774·I(T)`, with `I` computed exactly to `2^20` and
+extrapolated by its second differences beyond that.
+
+| N | `10^8` | `10^9` | `10^12` | `10^18` | `10^30` | `10^50` |
+|---|---|---|---|---|---|---|
+| predicted `max_{p≤N}W(p)` | 1.4e3 | 2.3e3 | 7.2e3 | 3.9e4 | 4.4e5 | 8.4e6 |
+| as `(log N)^A`, A = | 2.49 | 2.55 | 2.67 | 2.84 | 3.07 | 3.36 |
+
+Census check:
+
+* For `p<10^8` the actual maximum is 2495 (`p=2031121`, an outlier that
+  is ≡1 modulo `16·9·5·7·13·31`). The maxima of the later dyadic ranges
+  are 391–1007 (notes §65).
+* For `p<10^9`, three primes have `W>2047` and none has `W>4095`, against
+  a prediction of `≈2250`.
+
+**Consequences (Assessment).**
+
+* **All exponents A.** If `I(T)≍(log T)^3` (§7.1(c)) and the ratio
+  `−log δ*/I` stays bounded away from 0, then under RA
+  `log max_{p≤N}W(p)≍(log N)^{1/3}`. Then `W(p)>(log p)^A` for
+  infinitely many p, for **every** A. The only property needed is
+  `log(1/δ*(T))=T^{o(1)}`, i.e. that `−log δ*` is polylogarithmic in T;
+  that is what the measurements show.
+* **The frontier of notes §54 is heuristically empty.** It says that
+  `H_MOD(A)` is open for `A≥1`. That frontier is real as a statement about
+  what is *proved*: the class of one gives only `W>log p/5.2`, and nothing
+  better is proved. But heuristically no fixed A works. Already at
+  `10^30`, `W` should exceed `(log p)^3`.
+* **The relevant multiplier statement.** It is `W(p)≤exp(C(log p)^{1/3})`
+  (or any bound with `log W/(log log p)→∞`). This is not of polylog type.
+
+This is consistent with the duality `aM=4D+p` (notes §60): a small M
+means a window modulus `a≈p/M` close to p, where only the congruence
+`p mod M` is used. Such a mechanism is congruence-only, and it pays for
+it with the class-of-one correlations. The mechanisms that use actual
+factorisations sit at the opposite end, with small window modulus (§8).
+
+**What would make 7.2 rigorous.** Two inputs are missing.
+
+* **(i) A lower bound for unit avoiders.** One would need
+  `log(1/δ*(T))≪(log T)^C`, the prime-compatible analogue of notes
+  Thm 31.4, which is proved there for integer residues (`δ_X≥e^{−o(L^3)}`).
+  The integer proof quarantines `n≡0` at small primes, and that is not
+  available for units. Quarantining `n≡1 (mod ℓ^{e_ℓ})` instead kills
+  every z-smooth modulus (class of one). But mixed moduli survive with
+  the condition `D≡−A (mod m)`, `m` the smooth part. The Lovász
+  local-lemma bookkeeping then needs a mean value for divisors of
+  `((M+1)/4)²` in the class `−(M+1)/4 mod m`. We have not proved this.
+* **(ii) Primes in the avoider set for moduli `L(T)≫N`.** This is RA, and
+  it is beyond current technology.
+
+Nothing here changes a proved statement of notes §54. It changes which
+pointwise target is worth stating.
+
 ## Replay
 
 ```
 (ulimit -v 4000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_ct_check.py 5000 1000)   # ~20 s
 (ulimit -v 8000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_toy_formal.py 20000000)  # ~3 min
+# Step 2, section 7 (multiplier tail); outputs in data/pointwise_size/wtail/
+P="PYTHONPATH=scripts uv run python scripts/pointwise_size_wtail.py"
+$P split 4095 20 200000 3            # ~2 min
+for s in 11 12 13 14; do $P split 16383 6 50000 $s; done     # ~1 min each
+for s in 21 22 23 24; do $P split 65535 10 50000 $s; done    # ~15 min each
+$P census 8191 1000000000            # all hard p < 1e9, ~10 s, 12 GB limit
+$P primes 1023 18 200000 5           # sample near 1e18
+uv run python scripts/pointwise_size_indep.py 1048575         # I(T), ~2 min
+uv run python scripts/pointwise_size_wtail_table.py           # table.txt
 ```
