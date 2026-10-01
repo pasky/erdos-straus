@@ -1,0 +1,18 @@
+Prop 6.1 T=10000: 15 odd primes <= sqrt(T/3), uncovered pairs: 0
+T=10000 theta=0.3: multi-prime atoms=13168, irredundant=6858 (52.1%)
+   hub -12: 115 edges on 50 primes, max degree 26
+   hub -36: 113 edges on 49 primes, max degree 25
+   hub -16: 84 edges on 39 primes, max degree 23
+   hub -5: 56 edges on 39 primes, max degree 17
+Prop 6.1 T=10000: 15 odd primes <= sqrt(T/3), uncovered pairs: 0
+T=10000 theta=0.4: multi-prime atoms=4556, irredundant=2368 (52.0%)
+   hub -36: 35 edges on 20 primes, max degree 11
+   hub -12: 35 edges on 20 primes, max degree 11
+   hub -16: 34 edges on 19 primes, max degree 10
+   hub -24: 16 edges on 16 primes, max degree 6
+Prop 6.1 T=10000: 15 odd primes <= sqrt(T/3), uncovered pairs: 0
+T=10000 theta=0.45: multi-prime atoms=1237, irredundant=628 (50.8%)
+   hub -36: 9 edges on 8 primes, max degree 5
+   hub -12: 9 edges on 8 primes, max degree 5
+   hub -32: 5 edges on 5 primes, max degree 3
+   hub -16: 5 edges on 5 primes, max degree 3

@@ -1,0 +1,7 @@
+Lemma 9.1 parametrisation vs direct enumeration, primes 5<=l<200: mismatching primes 0
+F^full_19 = [8, 12, 14, 15, 18]; 19^3 example: A=1715={5: 1, 7: 3}, 7 | A^2: True, class mod 19 = 10
+l=87359 prime: True, (l+1)/4 = {2: 4, 3: 1, 5: 1, 7: 1, 13: 1}, tau(A^2)=729
+T=10000 z=20: atoms=34952 events=32337 Lemma9.1 viol=0 S_tot=23.93 S_ev=18.95 chain-bound=511.5 (>=S_tot: True) H_PP ratio=22.036
+T=10000 z=100: atoms=24918 events=22936 Lemma9.1 viol=0 S_tot=16.26 S_ev=13.56 chain-bound=477.1 (>=S_tot: True) H_PP ratio=3.373
+Thm 9.3 at T=10000, eps=0.05: y=34.1, rough parts with >2 prime factors: 0, 1 in G_l at 0 primes, |B|=3, pairs: total 5928, impossible 2146, converted 34, good events 3529; max g'=0.227; max w'=0.1346; LLL min prod >= 0.347 (need 0.5)
+ALL OK

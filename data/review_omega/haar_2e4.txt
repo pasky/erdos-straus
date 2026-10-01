@@ -1,0 +1,2 @@
+T=20000 z=150: atoms=54260 events=50170 Lemma9.1 viol=0 S_tot=19.39 S_ev=16.16 chain-bound=603.9 (>=S_tot: True) H_PP ratio=3.334
+ALL OK

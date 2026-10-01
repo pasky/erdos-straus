@@ -1,0 +1,4 @@
+(58.3) vs (51.2) on M<1200: mismatches=0
+T=4095 log Q=131.7 #U=546: random n=1 (Q): 20000 draws, 0 with W>T, mismatches=0
+forced survivors: 500, with W<=T: 0;  forced single hits with W>T: 0
+ALL OK
