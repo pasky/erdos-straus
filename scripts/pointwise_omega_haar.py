@@ -60,10 +60,13 @@ def run(T, z, spf):
         lm = max((v * p, p) for p, v in wm.items())
         print(f"   multi-prime part: max w^multi_l={mm[1]:.4f} (l={mm[0]}), ratio*{Lf:.1f}={mm[1]*Lf:.3f}, "
               f"max l*w^multi_l={lm[0]:.2f} (l={lm[1]})")
+    if not w:
+        print(f"T={T} z={z}: no surviving events (S_ev=0)")
+        return viol
     lll = max(v for v in w.values()) * 8 * log(T) / log(z)
     lmax, worst = max((v * p, p) for p, v in w.items())
     lw = max(w.items(), key=lambda kv: kv[1])
-    print(f"T={T} z={z}: atoms={natoms} events={sum(len(c) for c in events.values())} S_tot={S:.3f} "
+    print(f"T={T} z={z}: atoms={natoms} events={sum(len(c) for c in events.values())} S_ev(distinct-event mass)={S:.3f} "
           f"max w_l={lw[1]:.4f} (l={lw[0]}) LLL ratio max w*8logT/logz={lll:.3f} "
           f"max l*w_l={lmax:.2f} (l={worst}) structural violations m>r^2+1: {viol}")
     return viol

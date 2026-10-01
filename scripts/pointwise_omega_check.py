@@ -274,8 +274,10 @@ def cmd_typeI(X, cklim):
         if ckm == npq:
             eq += 1
         worst.append((npq, ckm, p))
-    worst.sort(reverse=True)
-    print(f"typeI X={X}: {n} primes p=1 (24); violations of ck_min>=n_p: {viol}; ck_min==n_p: {eq}")
+    cens = sum(1 for _, c, _ in worst if c is None)
+    worst.sort(key=lambda t: (t[0], -1 if t[1] is None else t[1]), reverse=True)
+    print(f"typeI X={X}: {n} primes p=1 (24); violations of ck_min>=n_p: {viol}; ck_min==n_p: {eq}; "
+          f"censored (ck_min>{cklim}): {cens}")
     print("  largest n_p (n_p, ck_min, p):", worst[:6])
     if viol:
         sys.exit(1)
