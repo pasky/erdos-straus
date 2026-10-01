@@ -451,3 +451,39 @@ applied.
 ```
 PYTHONPATH=scripts uv run python scripts/pointwise_size_omega.py   # log L(T)/T to 1e7; least primes = 1 mod L*(T); < 1 min
 ```
+
+---
+
+# Round 2 review repairs (commit "Round 2 review repairs")
+
+Verdict: SOUND-AFTER-REPAIRS (minor). The following repairs were applied.
+
+* **R1.** (Prec): the Taylor condition is now *sufficient*, not
+  equivalent. The reviewer's counterexample is included.
+* **R2.** Prop 7.1(b): `δ*≥1/φ_h(L(T))=e^{−(2/3+o(1))T}`, citing
+  Lemma 11.1 / notes Lemma 66.2. The §7.1 text now has
+  `L(T)=e^{(2/3+o(1))T}`, and points to Lemma 11.7's stronger bound.
+* **R3.** Prop 8.4(c) is relabelled: PROVED modulo Schinzel (via the E1
+  route), or CONDITIONAL on H via Theorem C.
+* **R4.** Lemma 9.1 now covers n=2 (`p≡5 (8)` gives `(2/q)=−1`), and the
+  prime-q subgroup step is argued directly.
+* **R5.** Stale cross-references are updated to 5/8 and 5/12: §0 Scope 3,
+  §4.3 (Q1), §7.3 and the §10 table. The X_QNR escape is now
+  unconditional. "Hard" is defined per section.
+* **R6.** Theorem 11.2' is labelled. Chang Cor. 11 is stated to be
+  unconditional, with Siegel zeros handled via Heath-Brown. Effectivity is
+  not claimed, in contrast with notes §54.
+* **R7.** A note that `log P⁺(q)≍log log q` puts us far inside Chang's
+  safe range.
+* **R8.** `gcd(x,q)=gcd(x,p)` holds for every q.
+* **D6 nit.** We pass to the subclass mod `lcm(M_g,8c)` compatible with
+  q*, which also covers c=2 and the `c|M_g` case.
+* **§7.2.** The splitting estimator is unbiased but heavy-tailed. A
+  few-run mean typically underestimates δ*, so the deepest rows are
+  biased toward faster decay. The reviewer's plain-MC agreement at
+  T=127 and T=511 is recorded.
+* **Reviewer's remark (Assessment, next to 7.2).** Lemma 11.7 plus RA
+  predicts `W(p)>(log p)^{2−ε}` infinitely often, with RA the only
+  unproved input.
+
+The work is complete pending merge.

@@ -77,9 +77,11 @@ Erdős–Straus (ES) is not solved here, and nothing below touches it.
      Schinzel–Chebotarev hypothesis, but it is not proved here.
      Non-witness (Boolean) certificates are outside the scope, but
      trivially so.
-  3. Quantitatively (**PROVED**, notes §54, via Linnik): the multiplier
-     mechanism "`W(p)≤T(p)`" and the Type-I slice mechanism
-     "`ck_min(p)≤T(p)`" fail infinitely often if `T(p)≤(1/5.2−ε)log p`.
+  3. Quantitatively (**PROVED** modulo Chang's Cor. 11, Thms 11.2/11.2';
+     notes §54 had `1/5.2` via Linnik): the multiplier mechanism
+     "`W(p)≤T(p)`" fails infinitely often if `T(p)≤(5/8−ε)log p`. The
+     Type-I slice mechanism "`ck_min(p)≤T(p)`" fails infinitely often if
+     `T(p)≤(5/12−ε)log p`.
      These bound the *size* of the witness parameters, not the number of
      consulted objects. For window mechanisms that factor the first K
      windows, a restricted Bateman–Horn model (**Assessment**) suggests
@@ -265,15 +267,18 @@ FACTOR, `K_A∈Z`.
   quotient `F/D'`, the condition (Prec) must hold:
 
   > **(Prec)** For every `ℓ|D`, `F mod ℓ^{v_ℓ(D)}` is constant on the ball
-  > `q*_ℓ+ℓ^{E_ℓ}Z_ℓ`. Equivalently,
+  > `q*_ℓ+ℓ^{E_ℓ}Z_ℓ`. A sufficient condition (not an equivalent one) is
   > `v_ℓ(F^{(j)}(q*_ℓ)/j!)+jE_ℓ≥v_ℓ(D)` for all `j≥1`.
 
   The condition `E_ℓ≥v_ℓ(D)` implies (Prec), but (Prec) is weaker. For
   instance, when `F/D` is a formal monomial `c∏(g/C_g)^{e_g}` (an exact
   quotient of formal integers), (Prec) already follows from
   `E_ℓ>max_g v_ℓ(g(q*_ℓ))`. Every factor `g/C_g` is then an ℓ-adic unit
-  throughout the ball, constant modulo `ℓ^{E_ℓ−v_ℓ(C_g)}`. (Proof of the
-  equivalence: Taylor expansion of F at `q*_ℓ`; reviewer's D1 repair.)
+  throughout the ball, constant modulo `ℓ^{E_ℓ−v_ℓ(C_g)}`. The Taylor
+  condition implies (Prec), by expanding F at `q*_ℓ`. The converse fails.
+  For example, take `ℓ=2`, `F=(X−a)²−2^E(X−a)` and `D=2^{2E+1}`: F is
+  constant mod D on the ball, but the `j=1` term fails. Nothing below uses
+  the converse.
 * `M:=∏_{ℓ∈Λ}ℓ^{E_ℓ}`.
 
 Λ may be enlarged at will, keeping q*. This only refines the congruence
@@ -753,11 +758,13 @@ features. They are listed with the brief's (i)–(iv).
     class `q*+M_gZ` with `P(q)` prime. At a square-mimicking point for a
     linear P this is impossible, **unconditionally**.
     * A nonconstant G is excluded, since `n_p<√p+1`.
-    * Suppose `G=c` is constant (a prime). If `c|M_g`, then `P(q)≡P(q*)`
-      is a nonzero square mod c on the class, so `(c/p)=(p/c)=+1` and
-      `n_p≠c`. If `c∤M_g`, pass to the subclass on which `P(q)` is a
-      nonzero square mod c. By Dirichlet it contains primes `P(q)`, and
-      for them `n_p≠c`.
+    * Suppose `G=c` is constant (a prime). Pass to the subclass mod
+      `lcm(M_g,8c)` that is compatible with q*, chosen so that
+      `P(q)≡1 (8)` and `P(q)` is a nonzero square mod c (for c odd). This
+      is possible because q* is square-mimicking at 2 and at c. By
+      Dirichlet the subclass contains primes `p=P(q)`. For them,
+      `(c/p)=(p/c)=+1` when c is odd (as `p≡1 (4)`), and `(2/p)=+1` when
+      c=2 (as `p≡1 (8)`). So `n_p≠c`.
 
     Note that every
     solution exhibits a non-residue (Lemma CT; notes Lemma 77.6), so
@@ -802,10 +809,12 @@ features. They are listed with the brief's (i)–(iv).
 
 ### 4.3 How unbounded? Quantitative thresholds
 
-* **(Q1) PROVED** (notes Thms 54.1/54.3, = §3.1 with Linnik).
+* **(Q1) PROVED** (notes Thms 54.1/54.3, = §3.1 with Linnik; sharpened in
+  §11).
   * **Multiplier moduli.** A congruence-only multiplier mechanism
     "`W(p)≤T(p)`" fails infinitely often if `T(p)≤(1/5.2−ε)log p`; the
-    same holds for slices `ck≤T(p)`.
+    same holds for slices `ck≤T(p)`. §11 improves the constants to `5/8`
+    (Thm 11.2) and `5/12` (Thm 11.2'), modulo Chang's Cor. 11.
   * **Conditional sharpening.** If the least prime `≡1 (mod m)` is
     `≪m^{1+ε}`, the threshold becomes `(1−ε)log p`.
   * **Beyond `(log p)^{1+ε}`.** The class of one cannot reach this range:
@@ -933,8 +942,9 @@ non-residue. §10 is the summary.
 ## 7. The multiplier frame: `W(p)≤(log p)^A` is heuristically false for every A
 
 Recall `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (notes (51.1),
-(58.3)). Write `𝓡(M)` for the set of these classes. Hard primes are
-`p≡1 (24)`.
+(58.3)). Write `𝓡(M)` for the set of these classes. In §7, "hard" means
+`p≡1 (24)`. (From §8.5 on, the Mordell-hard primes are named
+explicitly, and §11 uses "hard" for Mordell-hard.)
 
 ### 7.1 What is exact, and what is not
 
@@ -947,8 +957,9 @@ Recall `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (notes (51.1),
   `π_h(N)=#{p≤N, p≡1 (24)}`, and `δ*(T)` is the Haar measure of
   `{n∈Ẑ^× : n≡1 (24), n∉𝓡(M) mod M for all M≤T}`, normalised within the
   class `1 (24)`.
-* **(b)** `δ*(T)≥1/φ_h(L(T))=e^{−(1+o(1))T}` (class of one: notes
-  Thm 17.3(c), and Thm 54.1 with the effective PNT).
+* **(b)** `δ*(T)≥1/φ_h(L(T))=e^{−(2/3+o(1))T}`. The inequality is the
+  class of one (notes Thm 17.3(c)); the asymptotic is Lemma 11.1 (notes
+  Lemma 66.2). Lemma 11.7 improves this to `e^{−T^{1/2+o(1)}}`.
 * **(c) (Assessment, not proved.)** The independence exponent is
   `I(T):=Σ_{M≤T} −log(1−h_M)`, where `h_M` is the proportion of hard unit
   classes mod M lying in `𝓡(M)`. Since `h_M≍|𝓡(M)|/φ(M)` on average,
@@ -958,7 +969,7 @@ Recall `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (notes (51.1),
 
 (a) is the only rigorous link between δ* and primes, and it holds for
 fixed T only. For `T=(log N)^A` with `A>1`, the modulus
-`L(T)=e^{(1+o(1))T}` is far beyond N, and no distribution theorem
+`L(T)=e^{(2/3+o(1))T}` is far beyond N, and no distribution theorem
 applies.
 
 ### 7.2 Measuring `δ*(T)`
@@ -970,8 +981,16 @@ prime ℓ, with `n≡1 (3)`; `n mod M` is obtained by CRT, and M runs upward.
 fresh primes are drawn per clone; the weights are divided) makes the
 estimator unbiased. Unbiasedness is not accuracy, though: below about
 `10^{−14}` the runs scatter by factors of 2–5, and at T=65535 two of four
-runs return 0. Over nine independent runs (`split4k_3`, `split16k_*`,
-`split64k_*`) the batch-weighted means are:
+runs return 0. Splitting clones up to `batch` copies of one particle, so
+the estimator is very heavy-tailed. Its median lies below its mean, and
+an average over a few runs therefore typically *underestimates* δ*.
+Consequently the deepest rows (T≥32767, `−log δ*≈33–38.5`, and the ratio
+0.74) are biased toward faster decay, and should be read as upper
+estimates of `−log δ*`. At `T=127` and `T=511` an independent plain Monte
+Carlo, by the reviewer, agrees with the split estimates
+(`4.29e−3±1.0e−4` vs `4.21e−3`; `8.20e−5±5.2e−6` vs `8.24e−5`). Over nine
+independent runs (`split4k_3`, `split16k_*`, `split64k_*`) the
+batch-weighted means are:
 
 | T | `δ*(T)` | `−log δ*` | `I(T)` | ratio | actual count, hard `p<10^9` (W>T) | `δ*·π_h(10^9)` |
 |---|---|---|---|---|---|---|
@@ -1046,12 +1065,19 @@ Census check:
   the exceedance level is `log T_N≍(log N)^{1/3}`.
 * **The frontier of notes §54 is heuristically empty.** It says that
   `H_MOD(A)` is open for `A≥1`. That frontier is real as a statement about
-  what is *proved*: the class of one gives only `W>log p/5.2`, and nothing
-  better is proved. But heuristically no fixed A works. Already at
+  what is *proved*: the class of one gives only a linear lower bound,
+  `W>log p/5.2` in notes §54 and `W≥(5/8−ε)log p` by Thm 11.2. Nothing
+  superlinear is proved. But heuristically no fixed A works. Already at
   `10^30`, `W` should exceed `(log p)^3`.
 * **The relevant multiplier statement.** It is of the form
   `W(p)≤exp(C(log p)^{1/3})`, not of polylog type. This assumes the
   two-sided relation of the previous bullet.
+* **From a proved Haar input (Assessment; reviewer's remark).** Lemma 11.7
+  proves `δ*(T)≥exp(−T^{1/2+o(1)})`. Combined with RA alone, and with none
+  of the numerical extrapolation, this already predicts primes `p≤N`
+  with `W(p)>T` as soon as `T^{1/2+o(1)}≤log π_h(N)`. That is, it predicts
+  `W(p)>(log p)^{2−ε}` for infinitely many p, for every `ε>0`. The only
+  unproved input here is RA.
 
 This is consistent with the duality `aM=4D+p` (notes §60): a small M
 means a window modulus `a≈p/M` close to p, where only the congruence
@@ -1090,8 +1116,8 @@ and −p gives Type I. Define
 a_min(p) := min{ q≡3 (mod 4) : p∤x_q, Rat_q(x_q) ∩ {−1,−p} ≠ ∅ },   x_q=(p+q)/4.
 ```
 
-Lemma 77.1 needs `p∤x` and `gcd(x,q)=1`. For `q<3p` the second follows
-from the first, since `gcd(x,q)|p`. The code skips any window that
+Lemma 77.1 needs `p∤x` and `gcd(x,q)=1`. The second always follows from
+the first, since `4x−q=p` gives `gcd(x,q)=gcd(x,p)`. The code skips any window that
 violates them.
 
 **Theorem 8.1 (PROVED).** `ES(p)⟺a_min(p)<∞`. Consider, for a constant
@@ -1185,8 +1211,10 @@ Lemma 77.10. Combined with Lemma CT it gives:
   `p≡4 (5)`, then `x_11=5·3^j` and `x_31=5·2^i`, so `2^i−3^j=1`, which
   forces `p=49`. (Reviewer's argument.) Allowing `Λ_K`-primes in `C_a`
   repairs it.
-* **(c) PROVED.** Every truncation "windows `q≤K`" is a bounded program
-  that is formally refuted at `q*_univ` (Theorem C). The unbounded search
+* **(c)** Every truncation "windows `q≤K`" is a bounded program that is
+  formally refuted at `q*_univ`. This is PROVED modulo Schinzel's theorem
+  (cited), by the §4.2 E1 route: a formal SUCCESS of a window test is a
+  polynomial identity. It also holds CONDITIONAL on H, via Theorem C. The unbounded search
   "q=3,7,11,… until success" has an infinite formal run there. The escape
   is in the necessary sense of Corollary E, and no bounded version
   survives.
@@ -1371,13 +1399,22 @@ residues there.
 * `(n/q)=−1` (Jacobi).
 
 In particular a seeded window is never F1. For **prime** q, the subgroup
-generated by the prime factors of `x_q` contains −1 (Cor. 8.3(b)). Such a
-window can fail only through the exponent budget (F3).
+generated by the prime factors of `x_q` contains −1. Such a window can
+fail only through the exponent budget (F3).
 
 *Proof.* `4n|p+q` gives the first two claims, and `gcd(n,q)=1` because
-`q≡−p (mod n)` and `n∤p`. Jacobi reciprocity with `q≡3 (4)` gives
-`(n/q)=(−1/n)(q/n)=(−q/n)`. Then `(−q/n)=(p/n)`, since `q≡−p (mod n)`,
-and `(p/n)=(n/p)=−1`. This needs no bound on q. ∎
+`q≡−p (mod n)` and `n∤p`.
+
+* **Odd n.** Jacobi reciprocity with `q≡3 (4)` gives
+  `(n/q)=(−1/n)(q/n)=(−q/n)`. Then `(−q/n)=(p/n)`, since `q≡−p (mod n)`,
+  and `(p/n)=(n/p)=−1`.
+* **n=2.** This occurs when `p≡5 (8)`. Then `q≡−p≡3 (8)`, so
+  `(2/q)=−1`.
+
+No bound on q is needed. For prime q, `(n/q)=−1` makes the prime factor n
+of `x_q` a non-square mod q. The group `(Z/q)^×` is cyclic of order 2m
+with m odd, so any subgroup containing a non-square has even order and
+contains −1. ∎
 
 **Composite seeded windows keep subgroup obstructions.** Take
 `p=349801`, so `n_p=23`, and the first seeded window `q=75`. Then
@@ -1399,8 +1436,9 @@ The heuristic statements below concern the eventual form X_QNR^∞(C).
 * **ES ⇐ X_QNR(C)** (PROVED). The argument is that of Theorem 8.1.
 * **Search range.** Under GRH, `n_p≤2(log p)^2` (Bach; cited, not
   re-checked), so the search is polylogarithmic: `q<8C(log p)^3`.
-* **Escape, in the necessary sense of Corollary E** (CONDITIONAL on H,
-  through §4.2's argument for `n_p`). The window positions depend on
+* **Escape, in the necessary sense of Corollary E.** This is
+  unconditional, by §4.2's argument for `n_p`, which needs only
+  Dirichlet. The window positions depend on
   `n_p`, which has no formal semantics at square-mimicking points (§4.2,
   E2). So the formal run there is undefined. This is *not* the global
   escape of §4.2, i.e. absence of formal refutation at every point; see
@@ -1472,7 +1510,7 @@ empirical exponent.
 
 | frame | consulted objects | proved lower bound i.o. | heuristic true scale | pointwise hypothesis | status |
 |---|---|---|---|---|---|
-| multiplier `W(p)` (congruence-only, §7) | `p mod M`, `M≤T` | `W>log p/5.2` (notes Thm 54.1) | `log W≍(log p)^{1/3}`; `W≈(log p)^{2.5–3.4}` for `10^8≤p≤10^50` | `W≤(log p)^A` | **heuristically false ∀A** (Assessment 7.2) |
+| multiplier `W(p)` (congruence-only, §7) | `p mod M`, `M≤T` | `W≥(5/8−ε)log p` (Thm 11.2, modulo Chang; notes Thm 54.1: `1/5.2`) | `log W≍(log p)^{1/3}`; `W≈(log p)^{2.5–3.4}` for `10^8≤p≤10^50` | `W≤(log p)^A` | **heuristically false ∀A** (Assessment 7.2) |
 | window `a_min(p)` (§8) | factorisations of `(p+q)/4`, `q≤Q` | unbounded under Dickson (Prop 8.4); for each found p, `a_min>K` PROVED | `Θ(log p/log log p)` (model; conjectural) | **X_win(10)** (cutoff `10^18`); eventual form X_win^∞(C) | X_win^∞(C) heuristically true ∀C>0 (Assessment 8.5); ratio `<10` on all data |
 | seeded windows (§9) | factorisations of `(p+q)/4`, `q≡−p (4n_p)` | none beyond §8 | `Θ(log p/log log p)` windows (model; conjectural) | **X_QNR(C)** / X_QNR^∞(C) | X_QNR^∞(C) heuristically true ∀C>0 (Assessment 9.2) |
 
@@ -1481,7 +1519,8 @@ Answers to the brief's Step 2 items (a)–(d):
 * **(a) Escape.**
   * X_win escapes the meta-theorem in the necessary sense, and every
     bounded truncation of it is formally refuted (Prop. 8.4(c), proved).
-  * X_QNR escapes in the necessary sense, conditionally on H (§9).
+  * X_QNR escapes in the necessary sense, unconditionally (§9, via §4.2's
+    `n_p` argument).
     Formal refutation of its fixed-J truncations is only plausible
     (Assessment, §9).
 * **(b) Heuristics.**
@@ -1560,7 +1599,13 @@ at 10³. The notes-§54 modulus `lcm(1..T)` has ratio `≈1.000`
   composite moduli*, J. Anal. Math. 123 (2014), Corollary 11: if
   `log ℓ=o(log q)` for every prime `ℓ|q`, then every reduced class mod q
   contains a prime `<q^{12/5+o(1)}`).
-  `limsup_{p hard} W(p)/log p ≥ 5/8`. More strongly, the construction
+  The corollary is unconditional. Siegel zeros are handled inside its
+  proof through Heath-Brown's Deuring–Heilbronn result [HB2, Cor. 2], so no
+  Siegel caveat is needed here. Effectivity is neither claimed nor
+  checked; notes Thms 54.1/54.3 are explicitly effective.
+  The hypothesis is used far inside its safe range. For `q=L*(T)` (and
+  likewise `R(T)`), `log P⁺(q)≈log T≍log log q`.
+  Conclusion: `limsup_{p hard} W(p)/log p ≥ 5/8`. More strongly, the construction
   gives, in the notation of notes (58.2), `L_h(T)≤exp{(8/5+o(1))T}` for
   *all* large T. (The limsup statement alone would only give this along a
   subsequence; cf. notes Lemma 58.5.)
@@ -1636,7 +1681,8 @@ at 10³. The notes-§54 modulus `lcm(1..T)` has ratio `≈1.000`
 `T/log p` between 1.20 and 1.64, near the conjectural 3/2. Its actual
 `W(p)` is between 1.7 and 4.4 times `log p` (`data/pointwise_size/omega.txt`).
 
-**The Type-I slice frame (Theorem 11.2'; same proof).** The genus-forcing
+**The Type-I slice frame (Theorem 11.2'; PROVED modulo Chang Cor. 11,
+cited; same proof; effectivity not claimed).** The genus-forcing
 modulus of notes Thm 54.3, `R(T)=lcm(24,∏_{ℓ≤T}ℓ)`, is also smooth. So
 `limsup ck_min(p)/log p≥5/12` (notes: `1/5.2`). Primes
 `p≡1 (mod lcm(R(T),L*(T)))`, whose log is `(1+o(1))T`, have **both**
@@ -1850,8 +1896,10 @@ supports, not a lower bound for every construction.
     consistent with Assessment 11.6, which quantifies the error budget
     `log Q·log(1/V)` of one specific transfer method.
 * **Notes §54.** Thms 54.1 and 54.3 are superseded in their constants by
-  Thm 11.2 and 11.2' (5/8 and 5/12 instead of 1/5.2). Their proofs and
-  statements remain correct as weaker results.
+  Thm 11.2 and 11.2' (5/8 and 5/12 instead of 1/5.2). The new constants
+  come *without* a stated effectivity claim, whereas notes §54 is
+  explicitly effective. The §54 proofs and statements remain correct as
+  weaker, effective results.
 * **Notes §6 / §70.** Prop. 11.4's window-3 event is the §6
   `q=3`-parity mechanism. Lemma 11.3 is the precise form of "the class
   of one does not transfer to windows" (§77.1's free prime factors).
