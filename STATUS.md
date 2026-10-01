@@ -67,9 +67,15 @@ Elsholtz–Tao "odd-square" remark is this: **any argument that uses only
 congruence data and the *shape* of factorisations fails for formally
 generic primes.**
 
-A pointwise proof of ES must therefore control actual factorisations of
-specific shifted integers, for example by using the size of p. Otherwise
-the work should return to the exceptional-set line.
+This is now a theorem about procedures (`POINTWISE_SIZE.md`, Theorems M
+and C, reviewed). Caution: eventual-sign *size comparisons* of formal
+quantities (against `p^θ`, `log p`, short intervals) are still inside the
+obstruction (Proposition A). A pointwise proof must use (E1) a search whose
+length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
+the least non-residue, and then control actual factorisations. The natural
+E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
+heuristically `a_min≍log p/log log p`, just above the formal-obstruction
+scale). Unconditionally, `W(p)≥(5/8−ε)log p` infinitely often (Thm 11.2).
 
 ## Housekeeping
 
