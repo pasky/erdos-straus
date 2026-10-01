@@ -97,3 +97,9 @@ WINDMILL Lemmas 1, 3, 4, Proposition 5 and Theorem 7, and SIZE_CONJECTURE
 Lemmas A, B and E. Every proof was re-derived line by line, and the algebraic
 identities were checked symbolically (`/tmp/pb/sym.py`, reproduced in the
 report).
+
+**Propagation (parent decision).** Items 1, 2, 4, 7, 8, 9, 10 and 11 were applied
+with minimal edits to DEPTH3.md, FORMAL_CLOSURE.md, LITERATURE_2026.md,
+DISCOVERIES.md (G), STATUS.md and SIGNED_REFACTOR.md. Each edit cites its item
+number. Items 3, 5, 6 and 12 needed no source change. Review files under
+`reviews/` were left untouched as historical records.

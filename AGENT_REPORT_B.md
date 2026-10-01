@@ -130,4 +130,16 @@ items are these:
    wanted, the obvious cuts are §5.3 parity, Evidence 6.2–6.3 and the
    appendix.
 
-Stopping here for parent review.
+## Update after the parent's decisions
+
+* **[AS] citation:** set to the provisional form, "Companion project,
+  `erdos-straus-astra` repository: SIGNED_SEED_COUNTEREXAMPLE.md and
+  PRIMARY_SEED_PACKET.md (unpublished computational campaign, 2026)". Exactly one
+  `% TODO(parent)` comment remains, and it does not appear in the PDF. The author
+  stays "Anonymous".
+* **PAPER_B_ISSUES propagated:** items 1, 2, 4, 7, 8, 9, 10 and 11 went into
+  DEPTH3, FORMAL_CLOSURE, LITERATURE_2026, DISCOVERIES (G), STATUS and
+  SIGNED_REFACTOR. These are minimal edits, each citing its item number.
+* **Length:** 27 pages kept. The build is clean.
+
+Stopping here, waiting for the hostile referee's findings.
