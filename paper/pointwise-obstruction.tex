@@ -1219,7 +1219,25 @@ Each result below rules out a natural route to Conjecture~\ref{conj:seed}
 or to a pointwise proof.
 
 \subsection{Large denominators and Type~II buckets}
-By Theorem~\ref{thm:outer}, Corollary~\ref{cor:typeII} and
+
+\begin{lemma}[\status{proved}]\label{lem:leaf}
+The vertex $(2t,2t,-pt)$ is the only Type~I vertex whose two $p$-free
+denominators both lie in $[1,2t]$.  Consequently every other Type~I vertex
+is the unique vertex at its second $p$-free denominator.
+\end{lemma}
+
+\begin{proof}
+Let $(x,y,pm)$ have $x,y\in[1,2t]$.  Then $1/x+1/y\ge1/t>4/p$, so $m<0$.  If
+$x,y\le t$, then $1/x+1/y\ge8/(p-1)>5/p\ge4/p+1/(p|m|)$, which is
+impossible.  So say $x=t+a$ with $1\le a\le t$, and chart the vertex from
+$x$ with $h\le0$ (Lemma~\ref{lem:chart}).  Then
+$y=(t+a)(p|h|+t)/((4a-1)|h|+a)$.  For $h=0$, $y=t+t^2/a\le2t$ forces $a=t$,
+which gives $(2t,2t,-pt)$.  For $|h|\ge1$ we get $y>2t$, because
+$(t+a)(4t+1)-2t(4a-1)=4t(t-a)+3t+a>0$ and $t(t+a)\ge2ta$.  The last
+sentence follows from Theorem~\ref{thm:outer}.
+\end{proof}
+
+By Theorem~\ref{thm:outer}, Lemma~\ref{lem:leaf}, Corollary~\ref{cor:typeII} and
 Corollary~\ref{cor:crossing}, every edge of $G_p$ passes through a $p$-free
 denominator in $[1,2t]$ or through a $p$-divisible one.  Type~II buckets
 never mix signs and have at most two vertices.  Every sign change happens at
@@ -1267,6 +1285,25 @@ sign $+$ needs $\mathcal M\mid8$.  Since $\mathcal M\ge9$ is odd, only
 $D=-pd$ survives.  It gives the entries $-p(x-d)/\mathcal M$ and
 $px(x-d)/(\mathcal Md)$.  The value $d=x$ is the excluded $D=-s$, and
 $d\mapsto x^2/d$ swaps the two $p$-divisible entries.
+\end{proof}
+
+\begin{lemma}[descent; \status{proved}]\label{lem:C}
+In the situation of Lemma~\ref{lem:B}, let $d\mid x$ with $w=x/d>1$ and
+$w\equiv1\pmod4$.  Then
+\[
+ D_d=\Bigl(x-d,\ -\frac{p(x-d)}{\mathcal M},\ -\frac{p(w-1)}{4}\Bigr)
+\]
+is a vertex sharing $-p(x-d)/\mathcal M$ with $V_d$, and the bucket of this
+denominator is exactly $\{V_d,D_d\}$.  Its $p$-free entry
+$x-d=d(w-1)<t$ is again a negative-quadrant anchor.
+\end{lemma}
+
+\begin{proof}
+Integrality follows from $\mathcal M\mid x-d$ (all prime factors of $x$ are
+$\equiv1\pmod{\mathcal M}$) and $4\mid w-1$.  The identity is
+$1/(d(w-1))-\mathcal M/(pd(w-1))-4/(p(w-1))=(p-\mathcal M-4d)/(pd(w-1))=4/p$,
+using $p=4dw+\mathcal M$.  The bucket is of Type~II, so it has at most two
+vertices (Lemma~\ref{lem:typeII}).
 \end{proof}
 
 If, in addition, a guard prime keeps the descents of the spokes away from
