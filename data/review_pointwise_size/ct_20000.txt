@@ -1,0 +1,5 @@
+primes p=1(4), 5<=p<=20000: 1125; solutions x<=y<=z: 83652
+  exactly one p-divisible: 58173; exactly two: 25479; Lemma 1.3 violations: 0
+  CT(a) violations: 0; CT(b): 0; CT(c): 0
+  two-p-divisible solutions with some single cofactor lacking a QNR factor: 6947
+OK

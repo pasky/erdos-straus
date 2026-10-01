@@ -1,0 +1,6 @@
+S flags (f1,f2) counts: {(True, False): 7119, (False, True): 6157, (True, True): 245}
+distinct entries: 15687 dead: 5726 non-dead: 9961
+polys in entries: 6402  in non-dead entries: 6402  only in dead entries: 0
+S polys not in any entry (aux): 7119
+Theorem M literal S = {P} u non-dead-entry polys u aux: 13521  vs |S_FC| = 13521
+E_l < v_l(den W) for some entry W (Theorem M precision violated): 2 primes; worst excess 6 [(2, 6), (233, 1)]
