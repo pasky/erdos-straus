@@ -272,7 +272,7 @@ pages, accessed 2026-09-28); the teorth AI-contributions wiki (frozen
   fractions whose denominators are all divisible by 4. Dividing by 4, these
   are exactly the decompositions of `4/n`
   (Thm 5), compared with Type I/II. A reformulation.
-* **Mihnea–Bogdan**, arXiv:2509.00128. Verification to `10¹⁸` and data on
+* **Mihnea–Dumitru** (Spiridon Mihnea, Bogdan C. Dumitru; PAPER_B_ISSUES 7), arXiv:2509.00128. Verification to `10¹⁸` and data on
   `f(p)`; erdosproblems cites it as the current verification record.
 * **Salez**, arXiv:1406.6307 (2014, pre-2020 baseline). Verification to
   `10¹⁷` and modular filters.

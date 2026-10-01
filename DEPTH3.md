@@ -24,7 +24,8 @@ Summary.
    `p≡1 (24)`. Under the (stronger) Bateman–Horn conjecture for the
    same finite family, the number of such `p≤N` is `≫_k N/(log N)^{C_k}`.
    This is the H-conditional form of the Elsholtz–Tao "must fail for odd
-   squares" principle (p. 5 of arXiv:1107.1010). Novelty is unconfirmed.
+   squares" principle (p. 6 of arXiv:1107.1010v6, remark after Prop 1.6;
+   PAPER_B_ISSUES 1). Novelty is unconfirmed.
 3. **PROVED (Theorem 3 + Corollary).** Every prime outside Mordell's six
    hard classes mod 840 has `dist(p)=2`. Standard upper-bound sieves, with
    Dahan's half-dimension lemma, give
@@ -33,8 +34,11 @@ Summary.
    savings. Under Bateman–Horn, Theorem 2 shows that nothing better than
    polylogarithmic can hold.
 4. **EVIDENCE.** All 10 known distance-3 primes below `5·10^6` escape
-   through family A. So does every prime `p=24q+1` with q prime,
-   `q≤10^13` (`p<2.4·10^14`), that fails (9): 1113907 primes. Every prime
+   through family A. Every prime `p=24q+1` with q prime,
+   `q≤10^13` (`p<2.4·10^14`), that fails (9) has distance exactly 3: 1113907 primes.
+   An A-escape is documented for all of them only for `10^8<q≤10^10` (§2 tables);
+   "through A" for the remaining ranges is not checkable from committed data
+   (PAPER_B_ISSUES 9). Every prime
    `p≡1 (4)` with `p<10^12` has `dist(p)≤3`. No prime of distance `≥4` has been found (§5).
 
 The signed character theorem (2a) used below is, in substance, Bright–Loughran
@@ -407,7 +411,7 @@ Lemma 2 gives infinitely many admissible q. This proves Theorem 2. ∎
   in a residue class.
 * **Relation to prior work (modest statement).** Theorem 2 is best read as
   the H-conditional form of the principle stated informally by
-  Elsholtz–Tao (arXiv:1107.1010, p. 5). There, a method that does not
+  Elsholtz–Tao (arXiv:1107.1010v6, p. 6; PAPER_B_ISSUES 1). There, a method that does not
   distinguish p from an odd square must fail, which rules out finite
   covering-congruence strategies. The profinite base point q* makes p a local
   square at every prime ever met, and the Bright–Loughran class, (2a), is the
@@ -425,7 +429,8 @@ Lemma 2 gives infinitely many admissible q. This proves Theorem 2. ∎
   cannot proceed by bounding the escape length. This sharpens the assessment
   in SIGNED_REFACTOR §7 from heuristic to a conditional theorem.
 * **Why H is used only in a finite form.** For a fixed k, only H for the
-  explicit finite family `{f_g : g∈S_k}` is needed.
+  finite family `{f_g : g∈S_k}` is needed. (It is finite but not exhibited:
+  it depends on the non-constructive choice of q* in Lemma 1; PAPER_B_ISSUES 10.)
 
 **What the construction does *not* give.**
 

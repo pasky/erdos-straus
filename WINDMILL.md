@@ -275,7 +275,8 @@ Then `x=zm/e=Hz²/e-z`. Put `f=z²/e`, a signed divisor of `z²`. Using
 \]
 
 The vertex is positive exactly when `h≥1`, i.e. `H≥3`. Then `f>0` and
-`f≤(x+z)/3≤2t`. Otherwise `H≤-1` and `f<0`.
+`f≤(x+z)/3≤2t`. Otherwise `H≤-1` and `f<0`. (Here and below, `x+z≤6t` because
+`x≤2t` by the setup and `z≤p-1=4t`; this step was implicit — reviews/pointwise-obstruction-paper-review.md D1.)
 
 *Two vertices.* Suppose vertices 1 and 2 share z, with `x₁≠x₂`. Distinct
 vertices at z have distinct h, hence distinct x by (2.7a). By (2.7a),

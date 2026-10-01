@@ -427,7 +427,8 @@ remaining coordinate is `pm`, with `m≤-t` or `m≥3t+1`. Put
 Each integer in (10) determines the last denominator; testing its
 integrality exhausts the fibre without factoring z.
 
-* For `z<0`, `R>4/p`, so the interval width is less than `1/3`:
+* For `z<0`, `R>4/p`, hence `R-1/(p(3t+1))>3/(3t+1)` and `R+1/(pt)>1/t`, so the
+  interval width is less than `1/3` (PAPER_B_ISSUES 8):
   **the entire fibre is empty or a singleton**.
 * For `z>2t`, use `R≥(4t+3)/(p(2t+1))`. The width is at most
   `(2t+1)²/((t+1)(3t+2))<2`, so there are **at most two vertices**.
