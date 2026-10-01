@@ -1,0 +1,23 @@
+OK  1 - 1/(13 log 6) > 1/2  (beta_1 > 1/2, so 1/beta_1 < 2)
+OK  lambda_*>0 at log x=2.0001 for all beta in [1/2,1)
+OK  lambda_*>0 at log x=3 for all beta in [1/2,1)
+OK  lambda_*>0 at log x=10 for all beta in [1/2,1)
+OK  lambda_*>0 at log x=100 for all beta in [1/2,1)
+OK  lambda_*>0 at log x=10000.0 for all beta in [1/2,1)
+OK  u^{3/5}/(log u)^{1/5} >= u^{1/2} for u in (1, e^200]
+OK  e/22 <= e^{-2}  (so (eS/J)^J <= e^{-2J} for J >= 22S+10)
+OK  (1/2) log(11/e) >= 0.69
+OK  0.69*(22S+10) >= 15S+6 for S>=0
+OK  (1/2)log16*(22S+10) - S >= 29S
+OK  V/15 + e^{-6}e^{-13S} V <= 0.99V/4 (worst S=0)
+OK  1-g >= e^{-2g} for g<=1/16
+OK  e^{-44S-20} <= 0.01 e^{-2S}
+OK  Case A/B brackets positive at C0=0.5
+OK  Case A/B brackets positive at C0=1
+OK  Case A/B brackets positive at C0=10
+OK  Case A/B brackets positive at C0=1000000.0
+OK  (2 sqrt2 /log 4)^2 = 4.16...
+(2 sqrt2/log4)^2 = 4.1627
+theorem's y = sqrt(T)exp(3L/logL): y < T (U nonempty) iff log L > 6.00, i.e. log T > 403.4
+theorem's y = sqrt(T)exp(3L/logL): y < T^0.9 iff log L > 7.50, i.e. log T > 1808
+ALL OK

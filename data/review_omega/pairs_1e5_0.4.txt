@@ -1,0 +1,6 @@
+Prop 6.1 T=100000: 41 odd primes <= sqrt(T/3), uncovered pairs: 0
+T=100000 theta=0.4: multi-prime atoms=66356, irredundant=43410 (65.4%)
+   hub -16: 331 edges on 72 primes, max degree 37
+   hub -36: 320 edges on 73 primes, max degree 37
+   hub -12: 299 edges on 72 primes, max degree 37
+   hub -5: 169 edges on 61 primes, max degree 21
