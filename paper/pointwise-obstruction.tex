@@ -119,29 +119,36 @@ paper explains why that programme is blocked.
 
 \subsection{The main message}
 The obstruction is an instance of a principle that is informally familiar
-from Elsholtz--Tao \cite[\S1, remark after Prop.~1.6]{ET}: an argument proving
-ES at $p$ must fail when $p$ is replaced by an odd square, which rules out
-covering congruences and polynomial identities.  We make this precise for
-the signed graph.
+from Elsholtz--Tao \cite[\S1, remark after Prop.~1.6]{ET}.  Type~I and
+Type~II solutions do not exist at odd squares, so a method showing that
+they exist at $p$ must fail when $p$ is replaced by an odd square.  This
+rules out covering congruences and polynomial identities.  (ES itself
+holds at odd squares, e.g.\ $4/9=1/4+1/6+1/36$; the obstruction concerns
+the methods.)  We make this precise for explorations of the signed graph.
 
-\begin{principle}[formal blindness]
+\begin{principle}[formal blindness; informal]
 Call an argument \emph{formal} if, along a residue class
-$q\equiv q_0\pmod M$ of the parameter $q=(p-1)/24$, every integer it
-inspects is the value at $q$ of a fixed polynomial expression, and every
-decision it takes depends only on the class of $q$ and on the \emph{shape} of
-the factorisations of these values (which irreducible polynomial factors
-occur, with which exponents).  Then, at a \emph{formally generic} prime
-(where all polynomial values met are primes), the argument sees only
-\emph{formal} solutions.  In a square class there is no formally positive
-solution (Schinzel; Bright--Loughran).  Hence, under Hypothesis~H, every
-formal argument fails for infinitely many primes.
+$q\equiv q_0\pmod M$ of the parameter $q=(p-1)/24$, it inspects only the
+values at $q$ of \emph{finitely many} fixed polynomial expressions.  Every
+decision it takes must also depend only on the class of $q$ and on the
+\emph{shape} of the factorisations of these values (which irreducible
+polynomial factors occur, with which exponents).  At a \emph{formally
+generic} prime, where all polynomial values met are primes, such an argument
+sees only \emph{formal} solutions.  If the class is a square class, there is
+no formally positive solution (Schinzel; Bright--Loughran).  So, under
+Hypothesis~H, a formal argument confined to a square class fails for
+infinitely many primes.
 \end{principle}
 
-Theorem~\ref{thm:closed} makes this precise for explorations of $G_p$, and
-Proposition~\ref{prop:schinzel} is its unconditional core.  We prove it in
-three cases: polynomial identities (Schinzel, unconditional), explorations
-of bounded radius (Theorem~\ref{thm:unbounded}), and the whole seed
-component (Theorems~\ref{thm:astra} and~\ref{thm:F}).  The conclusion
+The principle is a heuristic summary, not a theorem.  Its precise content
+is given by the following results.  Proposition~\ref{prop:schinzel} is its
+unconditional core: there is no formally positive vertex in a square class.
+Theorem~\ref{thm:closed} shows that closed formal explorations of $G_p$ are
+sterile.  Theorem~\ref{thm:unbounded} covers explorations of bounded radius
+from the seed, under H.  The whole seed component is handled by finite
+closures (Theorems~\ref{thm:astra} and~\ref{thm:F}).  For these,
+nonpositivity is verified directly rather than deduced from the square-class
+mechanism.  The conclusion
 (\S\ref{sec:discussion}) is that a pointwise proof must control the
 \emph{actual} factorisations of specific shifted integers, for instance by
 using the size of~$p$.
@@ -185,8 +192,10 @@ are $159$ explicit linear forms $F_i(n)$, among them $q$ and $p=24q+1$, with
 the following property.  For all sufficiently large $n$ at which every
 $F_i(n)$ is prime, the seed component of $p$ has no positive vertex.  On an
 admissible subprogression, $p$ nevertheless has an explicit positive
-solution, which therefore lies outside $C_\sigma(p)$.  Under Dickson's
-conjecture for these $159$ forms there are infinitely many such primes.
+solution, which therefore lies outside $C_\sigma(p)$.  Dickson's conjecture
+for these $159$ forms gives infinitely many sterile seed components.  For
+the $159$ forms restricted to the subprogression, it gives infinitely many
+such primes that also have a positive solution.
 \item \emph{(This paper; independent confirmation.)}  Under Hypothesis~H for
 an explicit family of $6402$ polynomials of degree at most two, infinitely
 many primes $p=24q+1$ have a seed component with no positive vertex.  That
@@ -369,7 +378,7 @@ Put $H=4h-1$ and $e=(4a-1)h-a$.  Then:
 \begin{enumerate}
 \item $e\ne0$, $e\mid x^2$, and the third denominator is $xm/e$;
 \item $Hx=m+e$ and $(4a-1)H-4e=1$, so $e\mid x^2\iff e\mid m^2$;
-\item conversely, if $e\ne0$ and $e\mid(t+a)^2$, then
+\item conversely, if $t+a\ne0$, $e\ne0$ and $e\mid(t+a)^2$, then
 $(t+a,\,p(ph-t),\,(t+a)(ph-t)/e)$ is a Type~I vertex.  In particular $t+a$
 is automatically $p$-free;
 \item if $x\ge1$, the vertex is positive if and only if $a\ge1$ and $h\ge1$.
@@ -730,15 +739,18 @@ $\ell$ outside a finite exceptional set, $\ell\mid N_h$ if and only if
 $p\equiv-K_h^{-1}\pmod\ell$, and $\ell\mid N_d$ if and only if
 $p\equiv-K_d\pmod\ell$.  For large $\ell$ these classes are pairwise
 distinct and different from $0$, since $(1-4d)(4h-1)+1=4(h+d-4dh)\ne0$.
-So the primes counted lie in a fixed class modulo $840$ and avoid, for
-each $\ell\le N^{1/2}$, the class $0$ and every class of a branch $b$ with
-$\ell\bmod K_b\notin R_b$.  By the prime number theorem in progressions,
+Discard the primes $p\le N^{1/2}$, which are negligible.  The remaining
+primes counted lie in a fixed class modulo $840$.  For each prime
+$\ell\le N^{1/2}$ outside the exceptional set, they avoid the class $0$ and
+every class of a branch $b$ with $\ell\bmod K_b\notin R_b$.  By the prime number theorem in progressions,
 this is a sieve problem of dimension
 \[
  \kappa=1+\sum_b\Bigl(1-\frac{|R_b|}{\varphi(K_b)}\Bigr)\ge1+\frac B2 ,
 \]
-where $B=9$, respectively $18$, is the number of branches.  It has trivial
-level of distribution, so an upper-bound sieve \cite{HR} gives
+where $B=9$, respectively $18$, is the number of branches.  The sifted set
+is the integers $n\le N$ in one class modulo $840$, whose remainders satisfy
+$|r_d|\le\omega(d)$ for squarefree $d$.  So an upper-bound sieve of
+dimension $\kappa$ at level $N^{1/2}$ \cite{HR} gives
 $\ll N(\log N)^{-\kappa}$.  Summing over the choices of $(R_b)$ proves the
 theorem.
 \end{proof}
@@ -791,20 +803,35 @@ formal integers with $1/a+1/b+1/c=4/\Pp$ in $\Q(X)$.  It is
 \begin{lemma}[\status{proved}]\label{lem:values}
 Let $q\equiv q_0\pmod M$ and $g\in S$.  Then $n_g(q):=g(q)/C_g$ is an
 integer prime to every $\ell\in\Lambda$, and $n_g(q)\to\infty$ as
-$q\to\infty$.  Suppose moreover that $C_X=C_\Pp=1$ and that $q$ is large
-and admissible.  Then $q$ and $p=24q+1$ are prime.  The value of a formal
-integer is a nonzero integer with the sign of $c$, and its $p$-adic valuation
-is the exponent of $\Pp$.  Distinct formal integers have distinct values.
-The values of a formal vertex form a vertex of $G_p$.
+$q\to\infty$.  Now suppose that $C_X=C_\Pp=1$, fix a finite set $\Phi$ of
+formal integers, and let $q$ be admissible and larger than a threshold
+depending on $\Phi$.  Then:
+\begin{enumerate}
+\item $q$ and $p=24q+1$ are prime;
+\item the value of each $\varphi\in\Phi$ is a nonzero integer with the sign
+of its constant, and its $p$-adic valuation is the exponent of $\Pp$;
+\item distinct members of $\Phi$ have distinct values;
+\item the values of a formal vertex with entries in $\Phi$ form a vertex of
+$G_p$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
 $v_\ell(g(q)-g(q_0))\ge E_\ell>v_\ell(g(q_0))$, so
 $v_\ell(g(q))=v_\ell(C_g)$.  At admissible $q$ the value is
-$c\prod r_g^{e_g}$, a factorisation into the distinct primes $r_g$.  These
-exceed $|c|$ once $q$ is large, and $r_{\Pp}=p$.  Signs: every $g\in\cP$ has
-positive leading coefficient.
+$c\prod r_g^{e_g}$, a factorisation into the distinct primes $r_g$, and
+$r_X=q$, $r_{\Pp}=p$.  Choose the threshold so that every $r_g$ exceeds the
+absolute values of all constants of members of $\Phi$.  Then the
+factorisations of the values are read off from the formal expressions,
+which gives (2) and (3).  Signs: every $g\in\cP$ has positive leading
+coefficient.
 \end{proof}
+
+Throughout this section, ``for large admissible $q$'' means: for admissible
+$q$ beyond a threshold depending on the finitely many formal expressions
+involved (constants, collision and sign bounds, and the resultant bounds in
+the proof of Lemma~\ref{lem:formalfibre}).  Every application below
+involves finitely many expressions.
 
 \begin{lemma}[H gives admissible values; \status{conditional}]\label{lem:H}
 Assume that $C_X=C_\Pp=1$ and
@@ -854,7 +881,7 @@ Let $\Fib(Z)$ be the set of $D\ne-s$ such that both $D$ and $s^2/D$ satisfy
 (A) and (B).  For $D\in\Fib(Z)$ put $y_D=(D+s)/r$.
 
 \begin{lemma}[formal fibres; \status{proved}]\label{lem:formalfibre}
-Suppose that
+Suppose that $C_X=C_\Pp=1$ and
 \begin{itemize}
 \item[(F1)] every irreducible factor of $N$ lies in $S$;
 \item[(F2)] every prime of $c_r$ lies in $\Lambda$, and
@@ -981,15 +1008,15 @@ vertices, and none of them is positive.
 \subsection{Bounded radius: unbounded seed distance}
 
 \begin{lemma}[a generic base point; \status{proved}]\label{lem:generic}
-There is $q^*=(q^*_\ell)\in\prod_\ell\Z_\ell$ such that (1) each
-$24q^*_\ell+1$ is a nonzero square unit in $\Z_\ell$; (2) $g(q^*_\ell)\ne0$
+There is $q^*=(q^*_\ell)\in\prod_\ell\Z_\ell$ such that (1) each $q^*_\ell$
+is a unit and each $24q^*_\ell+1$ is a nonzero square unit in $\Z_\ell$; (2) $g(q^*_\ell)\ne0$
 for every $g\in\cP$ and every $\ell$; (3) for each $g\in\cP$,
 $v_\ell(g(q^*_\ell))=0$ for all but finitely many $\ell$.
 \end{lemma}
 
 \begin{proof}
-For $\ell=2,3$ every unit works, since $24u+1\equiv1$ modulo $8$,
-respectively $3$.  Enumerate $\cP=\{g_1,g_2,\dots\}$.  For $\ell\ge5$ let
+For $\ell=2,3$ take a transcendental unit; $24u+1\equiv1$ modulo $8$,
+respectively $3$, is a square.  Enumerate $\cP=\{g_1,g_2,\dots\}$.  For $\ell\ge5$ let
 $n(\ell)$ be maximal with $\sum_{i\le n(\ell)}\deg g_i<(\ell-3)/2$.  There
 are $(\ell-3)/2$ residues $r\not\equiv0$ with $24r+1$ a nonzero square.
 Each primitive $g_i$ has at most $\deg g_i$ roots modulo $\ell$, so some such
@@ -1002,8 +1029,9 @@ whose $\Lambda$ contains the primes of these $C_g$ ($g\in S$), and with
 $q_0\equiv q^*_\ell\pmod{\ell^{E_\ell}}$, has the same constants $C_g$.
 
 \begin{theorem}[unbounded seed distance; \status{conditional} on H]\label{thm:unbounded}
-For every $k\ge0$ there is an explicit finite set $\Se^{(k)}\subset\cP$
-with the following property.  Under Hypothesis~H for the associated
+For every $k\ge0$ there is a finite set $\Se^{(k)}\subset\cP$, depending on
+$k$ and on the base point of Lemma~\ref{lem:generic}, with the following
+property.  Under Hypothesis~H for the associated
 $\{f_g\}$, there are infinitely many primes $q$ with $p=24q+1$ prime such
 that every vertex within distance $k$ of $\sigma$ is nonpositive.  In
 particular $\dist(p)>k$.  Under Bateman--Horn there are
@@ -1083,17 +1111,20 @@ is a positive solution.  It is the Type~I chart point $a=7$, $h=32$, $e=857$.
 Under the hypotheses of (1) it lies outside the seed component.
 \end{enumerate}
 Consequently, under Dickson's conjecture for these $159$ forms, there are
-infinitely many primes with a positive ES solution but a sterile seed
-component.  An earlier version uses $800$ forms; it has the explicit
+infinitely many primes with a sterile seed component.  Under Dickson's
+conjecture for the restricted tuple $F_i(507+857k)$, whose admissibility is
+verified in \cite{AS}, infinitely many of them also have a positive ES
+solution.  An earlier version uses $800$ forms; it has the explicit
 threshold $q>(Q+16)^{393600}$ and the positive point $a=10$, $h=33$,
 $e=1277$ on $n\equiv1248\pmod{1277}$.
 \end{theorem}
 
 \begin{remark}[on Theorem~\ref{thm:astra}]
 The proof in \cite{AS} combines a finite certificate with eventual
-arguments.  The certificate is a packet of $302$ constant nodes and
-$315{,}642$ signed divisor monomials, over a modulus of $287$ digits with
-$91$ support primes.  The eventual arguments use polynomial division, with
+arguments.  The certificate is a packet of $159$ constant nodes ($84$
+offsets $a$ and $75$ rows $h$) and $315{,}642$ signed divisor monomials,
+over a modulus of $287$ digits with $91$ support primes.  The earlier
+$800$-form packet had $302$ nodes.  The eventual arguments use polynomial division, with
 one common threshold.  They also use ``one-prime'' fibre lemmas, which
 exhaust the fibre of an affine anchor whose auxiliary partner is not
 assumed prime.  This is why only the primary forms $t+a$ and $ph-t$ need
@@ -1158,15 +1189,18 @@ the precision condition (F2);
 $\ell\le17631$;
 \item connectivity of $\cV$.
 \end{itemize}
-The checks were run three times.  The verifier \texttt{formal2\_verify.py}
-reported \texttt{OK} with $0$ mismatches.  It was re-run by the parent
-session, together with \texttt{formal2\_verify\_extra.py}.  A hostile
-reviewer then wrote a fibre engine from scratch that shares no code with the
-generator.  It recomputed all $9961$ fibres: $533{,}011{,}471$ candidates
-passed (A), and all fibres equal those of $\cV$, with no prime of a $c_r$
-outside $\Lambda$ and no auxiliary factor outside $S$.  The reviewer also
-brute-forced $16$ fibres at actual $q$ chosen to make the relevant values
-prime, and all $16$ agree with the formal prediction.
+The verifier \texttt{formal2\_verify.py} reported \texttt{OK} with $0$
+mismatches.  It was re-run by a second session, together with
+\texttt{formal2\_verify\_extra.py}.  A hostile reviewer then wrote a fibre
+engine from scratch that shares no code with the generator.  It recomputed
+all $9961$ fibres: $533{,}011{,}471$ candidates passed (A), and all fibres
+equal those of $\cV$, with no prime of a $c_r$ outside $\Lambda$ and no
+auxiliary factor outside $S$.  The reviewer also brute-forced $16$ fibres at
+actual $q$ chosen to make the relevant values prime, and all $16$ agree with
+the formal prediction.  For this paper, \texttt{formal2\_verify\_extra.py},
+the reviewer's global check and the reviewer's fibre engine were run once
+more.  All three report \texttt{OK}, and the fibre engine again finds
+$9961/9961$ equal fibres.
 
 \emph{Replay.}
 {\small
@@ -1312,9 +1346,13 @@ $2^r-1$ descent vertices.  It has size $(3^{r+1}-1)/2+2^r-1$ when $x$ is a
 guard prime times $r$ primes.
 
 \begin{evidence}[\status{certified} sterile components]\label{ev:sterile}
-Each component below was exhausted and closed, and the result was
-re-checked by an independent checker: every denominator's full fibre was
-recomputed by two methods, and connectivity was verified.
+Each component below was exhausted.  An independent checker verified every
+vertex identity, nonpositivity, connectivity and closure: the full fibre of
+every denominator lies in the set.  Anchors and almost all Type~I buckets
+were recomputed by two independent methods; Type~II and outer fibres use
+the factorisation-free rules of Lemma~\ref{lem:typeII} and
+Theorem~\ref{thm:outer}.  A hostile review re-ran the checker, together
+with its own fibre code, on four certificates.
 \begin{center}
 \begin{tabular}{rrrr}
 \toprule
@@ -1331,9 +1369,10 @@ component has $30035$.  In $13$ of $14$ comparable dead-hub primes the
 sterile component was larger than the seed component.
 \end{evidence}
 
-\emph{What this kills:} every size threshold, and every
-``giant component'' statement in the style of Bourgain--Gamburd--Sarnak with
-the seed as the giant.  Variants of the same construction give certified
+\emph{What this kills:} any argument that forces positivity in the seed
+component because it is large.  At the prime above, a larger component is
+sterile.  The same applies to any ``giant component'' statement in the
+style of Bourgain--Gamburd--Sarnak with the seed as the giant.  Variants of the same construction give certified
 sterile components with $243$ distinct Type~I buckets, and with $146$
 failing positive-capable denominators.  The asymptotic $O(\log p)$ form is
 not formally refuted, since sterility of an infinite family is not proved.
@@ -1508,13 +1547,16 @@ residue (a ``principal-genus trap'').
 \item \emph{Formal arguments cannot supply them.}  If every number met
 factors formally in a square class, every prime met is a residue
 (Proposition~\ref{prop:schinzel}).  Under H this happens for infinitely
-many primes, for any finite exploration (Theorems~\ref{thm:closed}
-and~\ref{thm:unbounded}) and even for the whole seed component
-(Theorems~\ref{thm:astra} and~\ref{thm:F}).  This is the Elsholtz--Tao
-odd-square principle in graph form.
-\item \emph{Global invariants do not help.}  Component size (\S5.2), parity
-(\S5.3) and quadratic or quartic colourings give no invariant that forces
-positivity.  Sterile components can be larger than the seed component.
+many primes, for every bounded-radius exploration from the seed
+(Theorem~\ref{thm:unbounded}).  The whole seed component is closed by
+explicit finite certificates under Dickson or H
+(Theorems~\ref{thm:astra} and~\ref{thm:F}); their nonpositivity is checked
+directly.  This is the Elsholtz--Tao odd-square principle in graph form.
+\item \emph{The global invariants we tested do not help.}  Component size
+(\S5.2), the parity constructions of \S5.3, and quadratic or quartic
+colourings gave no invariant that forces positivity.  Sterile components
+can be larger than the seed component.  This is a record of failed
+attempts, not an impossibility theorem.
 \end{enumerate}
 
 A pointwise proof of ES must therefore use information that a formally
@@ -1527,9 +1569,9 @@ families.  For the seed graph this is exactly the problem that the
 exceptional-set machinery controls only on average: Vaughan-type bounds
 $E(N)\ll N\exp(-c(\log N)^{2/3})$ and their refinements.  Conditionally on
 H, Conjecture~\ref{conj:seed} is false.  By Theorem~\ref{thm:astra},
-reachability fails even at primes where ES holds.  So the signed graph is
-not a route to ES, and further work should return to the exceptional-set
-problem or find genuinely non-formal input.
+reachability fails even at primes where ES holds.  So universal seed
+reachability is not a route to ES.  Further work should return to the
+exceptional-set problem, or find genuinely non-formal input.
 
 \section*{Acknowledgements}
 % TODO(parent): settle the exact citation/authorship form of the companion
