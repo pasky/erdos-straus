@@ -170,3 +170,95 @@ which is computationally unreachable.
 
 The note compiles cleanly (`pdflatex` ×3, 21 pages, no undefined
 references).
+
+## Post-blind phase
+
+### Repairs applied on this branch (cosmetic only)
+
+* B1: line 424 now reads `$D\log(3/2)>1$ (any larger fixed $D$ also works)`.
+* B2: removed the stray `\ ` in the title.
+* B5: added before "Iteration over ordered compatible distinct atoms":
+  "Distinct compatible atoms have distinct primes $\ell_i$ by Lemma 2.2,
+  so each step contributes a fresh factor $1/\ell$."
+* B3 and B4 are left as is, since they are correct.
+* The label is unchanged ("INTERNALLY PROVED; internal checks only, not
+  externally refereed").
+* `pdflatex` ×2 compiles cleanly: 21 pages, no undefined references, no
+  over/underfull boxes. `paper/es-threequarter-note.pdf` was rebuilt.
+
+### Comparison with earlier reviews
+
+After committing the blind verdict (commit `886ed70`), I read
+`reviews/es-threequarter-note-review.md` (standalone audit,
+SOUND-AFTER-REPAIRS) and `reviews/wave32-sec76-review.md` (§5/§76 hostile
+review, SOUND-AFTER-REPAIRS).
+
+**Agreement.** All three reviews find no load-bearing gap, and the
+load-bearing calculations agree in every case:
+
+* the all-fibre BT upper mass;
+* global same-ℓ distinctness;
+* the Bernoulli factorial-moment bound with an order-independent base;
+* the selector exponential moment;
+* the even-Bonferroni ledger `e^{O(t⁴)}`;
+* exact `N/q + O(1)` counts, including `q > N`;
+* the Shiu hypotheses with `α = β = 1/4`, `δ₀ = 1/20`;
+* the Lemma 5.1 Shiu and convolution bounds;
+* Cauchy–Schwarz plus BV with `R = 26`;
+* the Rankin transfer.
+
+**Earlier findings that were already resolved in the text I audited.** I
+did not re-flag these because the repaired text already handles them.
+
+* Standalone review #1: the `1/φ(4uv)` versus harmonic mass comparison
+  for the pruned main term (the `n/φ(n) ≪ log log` paragraph).
+* Standalone review #2: the heuristic labelling of the §10 ceiling.
+* §76 review #1 (HIGH): provenance and label wording. The current
+  Theorem 1.1 text is the repaired version.
+* §76 review #2: Shiu at modulus `d = 1` and the last-box convention. My
+  blind pass confirmed the repaired text, which has the `d = 1` paragraph.
+* §76 review #3: the dependency account in Cor 5.3.
+* §76 review #4: the distinctness scope must include `4H² > K`. My blind
+  re-derivation used that floor and noted it is essential: my toy script
+  takes `4H_s² > K` for exactly this reason.
+* §76 review #6: the "unweighted" wording.
+* §76 review #8: the overfull hbox, now gone.
+
+**Earlier findings that do not concern the `.tex`.** §76 review #5 (a
+notes.md reference to Lemma 3.4) and #7 (the toy replay scope in notes
+§76.5) are outside the note, so I did not audit them.
+
+**What I flagged that the earlier reviews did not.** All of these are
+cosmetic (B1–B5):
+
+* The standalone review restates "`D log(3/2) > 3`" as the requirement
+  without noting that `> 1` suffices (B1).
+* The title spacing (B2).
+* The loose but correct Lemma 3.1 error (B3).
+* The unnecessary `n > K` (B4).
+* The missing distinct-ℓ cross-reference in the replay iteration (B5). The
+  standalone review uses this fact implicitly ("excluding old large primes
+  only decreases it") but did not ask for the text to say it.
+
+**What the earlier reviews checked that I did not independently
+emphasise.** The standalone review remarks that `3y < K` eventually, so
+every odd selector prime is supported by `L_K`. That is not needed, since
+the proof restricts `Z` to supported primes, and I agree.
+
+**Net.** No disagreement on any mathematical point. My independent blind
+verdict, **SOUND**, is consistent with the two earlier
+SOUND-AFTER-REPAIRS verdicts, whose repairs are all present in the
+audited text.
+
+### Caveats on this audit's independence
+
+* The task brief named the generic failure modes to probe. This audit
+  probed them and they do not occur.
+* I am an AI agent working in the same campaign repository. This is a
+  further *internal* check, not an external referee report.
+* Bombieri–Vinogradov, Montgomery–Vaughan BT, and Shiu Thm 1 were
+  accepted in their published forms. Only Shiu's statement was compared
+  against the source scan.
+* The Davenport Ch. 28 BV statement is for ψ and π with
+  `max_{y≤x}`. The interval-difference form used in (eq:BV) follows with
+  a factor 2, as the note says.

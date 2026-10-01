@@ -19,7 +19,7 @@
 \newcommand{\lcm}{\operatorname{lcm}}
 \newcommand{\rad}{\operatorname{rad}}
 \newcommand{\e}{\mathrm e}
-\title[An internally proved three-quarter exceptional-set bound]{A three-quarter exceptional-set bound for the\ Erd\H{o}s--Straus equation: an internally proved research note}
+\title[An internally proved three-quarter exceptional-set bound]{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus equation: an internally proved research note}
 \author{Anonymous}
 \date{INTERNALLY PROVED; internal checks only, not externally refereed}
 \begin{document}
@@ -421,7 +421,7 @@ last), and sum $O(\Lambda^2)$ box pairs.  It follows that
 On the coprime pairs $\omega(uv)=\omega(u)+\omega(v)$.  The omitted tail
 is consequently at most the right side of \eqref{eq:omegamoment}
 multiplied by $(\log z)^{-D\log a_0}$.  Fix any integer $D$ with
-$D\log(3/2)>1+2$ and enlarge the threshold until this tail is at most
+$D\log(3/2)>1$ (any larger fixed $D$ also works) and enlarge the threshold until this tail is at most
 one eighth of $\varphi(k)\Lambda^2/k^2$.
 Lemma~\ref{lem:lattice} then proves the claim.  No application of Shiu
 has growing function parameters or an unreduced residue, and no step
@@ -977,6 +977,8 @@ at most
  \ll t^2\log K\ll_\kappa t^3
 \]
 by Lemma~\ref{lem:euler}.  Excluding old $\ell$ only decreases this sum.
+Distinct compatible atoms have distinct primes $\ell_i$ by
+Lemma~\ref{lem:CRT}, so each step contributes a fresh factor $1/\ell$.
 Iteration over ordered compatible distinct atoms proves
 \eqref{eq:moments} again, with another fixed base constant.
 Discarding consistency would instead charge shared primes by their full
