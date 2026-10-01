@@ -200,7 +200,7 @@ Executed under `ulimit -v 8000000` and `timeout`, with ≤4 cores. Details are i
 | `formal2_verify.py` (2 h 50 min) | Not run in full. Startup and usage are OK. Note: it imports `formal2.build_qt` from the generator. |
 | `.cpp` files | They compile, but the appendix gives no build command. `windmill_singleton` **segfaults without its argument**. |
 | `formal2_iter.py --help` | Raises `KeyError`. Subcommand help works. |
-| `sterile_certificate_check.py` | p=1654…637 and p=1960…909: OK, 16 s together. p=4750…253: OK, about 10 s. p=2741…957 (30035 vertices): see the addendum. The batch over all seven certificates did not finish in 20 min, and the paper gives no runtime. |
+| `sterile_certificate_check.py` | p=1654…637 and p=1960…909: OK, 16 s together. p=4750…253: OK, about 10 s. p=2741…957 (30035 vertices): OK, 4 min 30 s, 1.6 GB RSS. The batch over all seven certificates did not finish in 20 min, and the paper gives no runtime. |
 | Astra checker | OK (on a copy). |
 
 ---
@@ -433,4 +433,4 @@ until a citable source exists (D4). The submission blockers are D1, D2, D4 and D
 rest are routine.
 
 ## Addendum: sterile certificate p=274159709010072908384347957 (30035 vertices)
-(Filled in after the background run; see below.)
+`OK … sterile component of 30035 vertices, entire and closed; denominators {'anchor': 512, 'typeI': 0, 'typeII': 59559, 'outer': 0, 'typeI_single_method': 0}`. The run took 4 min 30 s wall time with 1.6 GB RSS. So the headline certificate of Evidence 5.5 replays. The other three Evidence 5.5 certificates also replay (see §4). I did not run the seed-component certificate (`…_seed.json.gz`) or the two variant certificates; they are presumably what made the subagent's batch run exceed 20 min. The appendix should state their runtimes.
