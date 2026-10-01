@@ -101,12 +101,33 @@ def formal_run(M, qt, wins, polys):
         cdivs = [1]
         for l, e in Kfac.items():
             cdivs = [c * l ** i for c in cdivs for i in range(e + 1)]
-        for c in cdivs:
-            for j in range(3):
+        # formal divisors c*r^j of window^2 in EVENTUAL numerical order (r -> infinity):
+        # c r^j < c' r^j' eventually  <=>  (j, c) < (j', c')
+        for j in range(3):
+            for c in sorted(cdivs):
                 d_mod = (c * pow(r_mod, j, mod)) % mod
                 if (d_mod + x_mod) % mod == 0:
                     return ('SUCCESS', kind, mod, c, j)
     return ('FAIL',)
+
+
+def formal_eval(fo, q, wins, polys):
+    """Evaluate the complete formal output (incl. the witness triple) at q."""
+    if fo[0] == 'FAIL':
+        return ('FAIL',)
+    _, kind, mod, c, j = fo
+    w = [w for w in wins if w[0] == kind and w[1] == mod][0]
+    (alpha, beta), g = w[3], w[2]
+    C = polys[w[3]]
+    r = (alpha * q + beta) // C
+    win = g * C * r
+    d = c * r ** j
+    p = 24 * q + 1
+    if kind == 'II':
+        sol = (win, p * (win + d) // mod, p * (win + win * win // d) // mod)
+    else:
+        sol = ((win + d) // mod, (win + win * win // d) // mod, p * win)
+    return ('SUCCESS', kind, mod, sol)
 
 
 def actual_run(p):
@@ -174,9 +195,9 @@ def main():
         mism = 0
         for q in adm:
             ar = actual_run(24 * q + 1)
-            if ar[0] != fo[0] or (fo[0] == 'SUCCESS' and (ar[1], ar[2]) != (fo[1], fo[2])):
+            if ar != formal_eval(fo, q, wins, polys):     # complete output, witness included
                 mism += 1
-        print(f"   admissible q found (k<{KMAX}): {len(adm)}; actual output != formal: {mism}")
+        print(f"   admissible q found (k<{KMAX}): {len(adm)}; complete actual output (incl. witness) != formal: {mism}")
         if adm:
             print(f"   e.g. q={adm[0]}, p={24*adm[0]+1}")
         ok &= (mism == 0) and len(adm) > 0
