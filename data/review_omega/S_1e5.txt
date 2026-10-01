@@ -1,0 +1,7 @@
+T=100000 y=T^0.5=316.23;  theorem's y=sqrt(T)exp(3L/logL)=4.35e+08  -> U EMPTY at the theorem's parameter
+#U=9527  S=23.9360  g_max=0.1592 (l=359)  S/(logT)^2.5=0.0532  S/(logT)^2=0.1806  S/(logT)^3=0.0157
+Fact 1.1 failures on quarantined moduli: 0;  l with 0 in F_l: 0
+(a) triple sum = 28.1514  (>= S: True)
+(b) parametrised sum = 348.5127  (>= triple: True)
+(c) Lemma 2.3 first display = 1985.0199  (>= (b): True)
+ALL OK
