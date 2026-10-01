@@ -1,0 +1,208 @@
+{
+ "realq": [
+  {
+   "Z": "(87901, (((-1, 6), 1),))",
+   "log10_Mp": 38,
+   "q_digits": 47,
+   "n_actual": 121,
+   "n_formal": 121,
+   "equal": true,
+   "nonint": 0,
+   "c_r": -5,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(6, (((0, 1), 1),))",
+   "log10_Mp": 13,
+   "q_digits": 21,
+   "n_actual": 81,
+   "n_formal": 81,
+   "equal": true,
+   "nonint": 0,
+   "c_r": -1,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(402220, (((2629, 3), 1),))",
+   "log10_Mp": 44,
+   "q_digits": 53,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 21031,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-54544, (((-15, 1), 1), ((1, 24), 1)))",
+   "log10_Mp": 41,
+   "q_digits": 49,
+   "n_actual": 2,
+   "n_formal": 2,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 3,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-54, (((-1, 2), 1), ((1, 24), 1), ((264, -11, 24), 1)))",
+   "log10_Mp": 33,
+   "q_digits": 42,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 1,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-654, (((-35, 34, 48), 1), ((1, 24), 1), ((2, 3), 1)))",
+   "log10_Mp": 28,
+   "q_digits": 37,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 5,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-280, (((-267, 1), 1), ((1, 24), 1)))",
+   "log10_Mp": 36,
+   "q_digits": 45,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 241,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-7, (((1, 6), 1), ((1, 24), 1)))",
+   "log10_Mp": 11,
+   "q_digits": 20,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 1,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(2241200, (((-107741, 3), 1),))",
+   "log10_Mp": 41,
+   "q_digits": 49,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": -861929,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-165564, (((1, 24), 1), ((19, 457), 1)))",
+   "log10_Mp": 41,
+   "q_digits": 50,
+   "n_actual": 4,
+   "n_formal": 4,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 457,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-72160, (((1, 24), 1), ((2531, 60747), 1)))",
+   "log10_Mp": 36,
+   "q_digits": 44,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 20249,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-3655885, (((-17449, 2), 1), ((1, 24), 1)))",
+   "log10_Mp": 45,
+   "q_digits": 54,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 991,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(84136, (((-906617, 3), 1),))",
+   "log10_Mp": 25,
+   "q_digits": 34,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": -7252937,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(-21, (((0, 1), 1), ((1, 24), 1), ((2, 3, 72), 1)))",
+   "log10_Mp": 29,
+   "q_digits": 38,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 125,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(1060, (((1, 24), 1), ((59, 1413), 1)))",
+   "log10_Mp": 37,
+   "q_digits": 45,
+   "n_actual": 1,
+   "n_formal": 1,
+   "equal": true,
+   "nonint": 0,
+   "c_r": 471,
+   "extra_actual": [],
+   "missing_actual": []
+  },
+  {
+   "Z": "(4, (((0, 1), 1),))",
+   "log10_Mp": 18,
+   "q_digits": 26,
+   "n_actual": 2,
+   "n_formal": 2,
+   "equal": true,
+   "nonint": 0,
+   "c_r": -1139,
+   "extra_actual": [],
+   "missing_actual": []
+  }
+ ],
+ "thm7": {
+  "PMAX": 400,
+  "ZMAX": 4000,
+  "buckets": 287662,
+  "violations": [],
+  "n_viol": 0
+ },
+ "summary": {
+  "realq_fibres": 16,
+  "realq_equal": 16,
+  "realq_vertices": 221
+ }
+}

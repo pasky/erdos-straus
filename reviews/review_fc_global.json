@@ -1,0 +1,53 @@
+{
+ "E_max": 17,
+ "log10_M_digits": 12088,
+ "lam_equal": true,
+ "qt_matches_q0": true,
+ "lam_final_consistent": [
+  true,
+  2036,
+  "residue precision < E at",
+  []
+ ],
+ "S": {
+  "n": 13521,
+  "sumdeg": 17631,
+  "nonprimitive": 0,
+  "reducible": 0,
+  "lc_nonpos": 0,
+  "C_mismatch": 0,
+  "C_precision_fail": 0,
+  "X_in": true,
+  "P_in": true,
+  "C_X": 1,
+  "C_P": 1,
+  "maxdeg": 2
+ },
+ "n_vertices": 7883,
+ "vertices_distinct": true,
+ "cert_equals_closure_vertices": true,
+ "vertex_checks": {
+  "identity_fail": 0,
+  "not_formal_over_S": 0,
+  "zero_const": 0,
+  "no_negative_entry": 0,
+  "seed_present": true
+ },
+ "entry_flags": {
+  "n_entry_recomputed": 6402,
+  "flags_equal": true,
+  "sumdeg_entry": 7795
+ },
+ "denominators": {
+  "pdiv": 8412,
+  "dead": 5726,
+  "anchor": 1549
+ },
+ "dead_in_more_than_one_vertex": 0,
+ "components": 1,
+ "C3": {
+  "primes_checked": 1271,
+  "failures": []
+ },
+ "dead_examples": []
+}
