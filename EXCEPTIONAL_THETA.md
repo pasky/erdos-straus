@@ -21,7 +21,7 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 |---|---|---|
 | Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `(|R|/Q₀)·exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. Here λ charges only the slice primes. | PROVED |
 | Cor 3.4 | Take any family of Case-B forced classes (both groupings) that are all slice conditions, with small parts k ≤ ℓ^C (C<1) and a selector admissible set. Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A)(log N)^{3/4} + log(P/φ(P))`, where the last term is O(log log log P). So **3/4 is sharp for this class, and no power of log log N can be gained.** This assumes the final bound has the form `N·Eν + (nonnegative rounding bound)`. | PROVED |
-| Thm 2.7, Cor 3.6 | **Sequential extension.** The same cap `C(A,C)(log N)^{3/4}` holds for every Case-B forced-class family whose moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1). The other prime factors are arbitrary (higher powers allowed) and may be shared between conditions. By Dickman, this is a positive proportion `log(1+C)` of unweighted moduli; the weighted share of the supply is conjectural. | PROVED |
+| Thm 2.7, Cor 3.6 | **Sequential extension.** For nonnegative CRT majorants (no large-sieve claim), the cap `C(A,C)(log N)^{3/4} + O_C(1)` holds for every Case-B forced-class family whose moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1). The other prime factors are arbitrary (higher powers allowed) and may be shared between conditions. By Dickman, this is a positive proportion `log(1+C)` of unweighted moduli; the weighted share of the supply is conjectural. | PROVED |
 | Cor 3.5 | Polylogarithmic multipliers, or multipliers whose lcm is at most N (the 2/3 note's architecture), cap the saving at `C L^{2/3}(log L)^{1/3}`. **The 2/3-loglog note is sharp for its architecture.** | PROVED (given the notes' BT upper bounds) |
 | §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, level). Bonferroni depth, the BV level and the selector are not binding: they change constants only. | PROVED (Lemmas 4.1–4.4) |
 | §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed conditional on H_A3. Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
@@ -40,17 +40,19 @@ notes, at their parameters, the notes' achieved savings match this cap up to
 constants (§4). No general converse is claimed. The Case-B identity profile satisfies
 `Σ p̄_ℓ ℓ^{−α} ≪ α^{−3}` (Lemmas 3.1–3.2), which gives λ^{3/4}.
 
-Beating 3/4 requires one of three things:
+Beating 3/4 requires one of the following:
 1. conditions whose modulus is **balanced** (two or more large prime
    factors at comparable scales, no dominant prime), used *jointly*.
    Theorems 2.5 and 2.7 do not cover these (hypothesis H_MS, §5.6);
 2. multipliers far larger than the slice prime, without per-condition lcm
    cost (§5.6);
-3. a non-CRT ingredient, i.e. arithmetic of the actual integers beyond
-   residue counting.
+3. a small-modulus admissible set with a large saving of its own;
+4. a non-CRT ingredient: arithmetic of the actual integers beyond residue
+   counting, or signed cancellation in rounding errors.
 
-The a-frame and multiplicative route (§5.2) is of type 3. Under its model it
-sits at θ* ≈ 0.52 < 3/4.
+The full list is in §6. The a-frame and multiplicative route (§5.2) is of
+type 4. Under its model it sits at θ* ≈ 0.52 < 3/4, which is an Assessment,
+not a theorem.
 
 ---
 
