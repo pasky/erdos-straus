@@ -16,8 +16,14 @@ with its status label. Read it before starting new work.
   `paper/`.
 * **Best proved bound.** Vaughan-type
   `E(N) ≪ N exp(-c(log N)^{2/3}(log log N)^{1/3})`
-  (`paper/vaughan-loglog-note.tex`), plus the provisional 3/4 note.
-* **Open target.** θ > 2/3. See `PROJECT.md`, Outcome 36.
+  (`paper/vaughan-loglog-note.tex`), plus the 3/4 note
+  `E(N) ≪ N exp(-c(log N)^{3/4})` (`paper/es-threequarter-note.tex`),
+  INTERNALLY PROVED: three internal reviews, the last a blind from-scratch
+  audit (`reviews/es-threequarter-blind-audit.md`, SOUND). It has not been
+  externally refereed.
+* **Open target.** θ > 3/4 (the 3/4 note's mass-driven heuristic ceiling
+  is θ=B/(B+1) with B=3). See `PROJECT.md`, Outcome 36, and the agent
+  workstream `EXCEPTIONAL_THETA.md` (in progress).
 
 ### 2. Pointwise signed-graph line (wave 33–34): CLOSED
 
