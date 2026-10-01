@@ -676,6 +676,13 @@ Theorem 48.1 then gives `M_{c,k}(p)=0`. For the second sentence: `n_p` is
 prime, and 2 and 3 are residues, so `n_p≥5` and every prime `5≤ℓ<n_p` is a
 residue. ∎
 
+*EVIDENCE* (`pointwise_omega_check.py typeI 30000 200`). Among the 385
+primes `p≡1 (24)` below 30000, every one has `ck_min(p)≥n_p`, and 238 of
+them have equality. The engine reproduces the notes (48.12) records
+(`ck_min=7, 10, 11, 13, 21, 26, 38, 67, 77` at `p=73, …, 12289`). So the genus
+depth is often the exact depth at small p. The large records, e.g.
+`ck_min(12289)=77` against `n_p=11`, are factorisation conspiracies.
+
 **Corollary 8.2 (joint Ω-result; PROVED modulo Theorem 3.1).** There are
 infinitely many hard primes with both:
 
@@ -785,4 +792,5 @@ $C local 4095 5000 2               # ~3 min
 $C primes 1000 5                   # example primes, ~1 min
 $C pairs 10000 0.3; $C pairs 10000 0.4; $C pairs 10000 0.45     # §6.3, ~1 min each
 $C pairs 100000 0.4                # ~5 min -> data/pointwise_omega/pairs_1e5_0.4.txt
+$C typeI 30000 200                 # §8: ck_min >= n_p for p=1 (24) < 30000, ~2 min
 ```
