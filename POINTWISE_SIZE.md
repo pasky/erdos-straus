@@ -1793,14 +1793,18 @@ supports, not a lower bound for every construction.
 
   Prime-side technology for (ii) exists: PNT in APs uniformly for
   `q≤exp(c√log N)`, with error `N exp(−c√log N)`, far below the needed
-  `exp(−L^{O(1)})`. The Siegel zero is handled by the twisted-density
-  argument: if `q_1∤Q`, its twisted density carries the extra local
-  factor `f_ℓ/ℓ`; otherwise there is a uniform factor
-  `1−x^{β_1−1}>0`. What is missing is (i), plus control of the Bonferroni
-  terms under the positive correlations of atoms that share a rough prime.
-  (The notes' §39 factorial-moment machinery is of exactly this type, and
-  is CLAIMED/PROVISIONAL.) **We do not claim this route works**; it is the
-  precise list of missing inputs.
+  `exp(−L^{O(1)})`. An exceptional (Siegel) character still needs control.
+  Positivity of `1−x^{β_1−1}` is not a quantitative lower bound beating
+  the error. Its twisted density would also need an actual estimate in
+  this multi-prime, correlated system. Besides (i), the missing inputs
+  therefore include:
+  * exceptional-character control;
+  * control of the accumulated Bonferroni truncation errors under the
+    positive correlations of atoms that share a rough prime.
+
+  The notes' §39 factorial-moment machinery is of this type, and is
+  CLAIMED/PROVISIONAL. **We do not claim this route works**, and the list
+  above is not claimed to be complete.
 * **The Jacobsthal remark** (cf. notes §58.3). For *arbitrary* forbidden
   classes, one per prime `ℓ≤T`, primes below `e^{O(T)}` can be avoided
   entirely in short ranges. These are Erdős–Rankin/FGKMT-type
