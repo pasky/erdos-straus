@@ -99,8 +99,9 @@ previous agent**: factors of *rejected* candidates were not in S, so such reject
 not justified. The certificate closes it by condition (C2):
 
 * **(C1) closure.** For every denominator Z of every member of 𝒱 which is not *dead*,
-  every candidate `D≠−s` satisfying (A) and (B) gives a triple `(Z,y,w)∈𝒱` (y, w formal
-  integers over S). *Dead* means p-free and (negative, or `Z>12X` eventually: degree ≥2,
+  every candidate `D≠−s` such that both D and `s²/D` satisfy (A) and (B) gives a triple
+  `(Z,y,w)∈𝒱` (y, w formal integers over S). (Both are needed since `r(q),s(q)` need not
+  be coprime; both engines test both — PAPER_B_ISSUES 2.) *Dead* means p-free and (negative, or `Z>12X` eventually: degree ≥2,
   or degree 1 with `lc>12` or `lc=12`, constant `>0`).
 * **(C2)** every prime of every `c_r` lies in Λ (with the precision above), and every
   factor of every `N=4Z−P` for non-dead Z lies in S ("aux" polynomials).
@@ -136,7 +137,9 @@ Theorem F follows from Propositions 1 and 2 and the certificate of §3.
 **Remark (characters).** Proposition 1 never uses (2a). The character theorem only
 *explains* (C4): for `ℓ∈Λ` with `24q0+1` a square mod ℓ, `(ℓ/p)=+1`, etc. We chose
 square residues wherever the residue was forced to be non-generic (§2.2), but (C4) is
-checked directly.
+checked directly. In fact q0 is **not** a square class: `24q0+1` is a non-residue modulo
+870 of the 2036 primes of Λ (all >1500, i.e. obstacle/r-primes), so the "every prime met
+is a residue" explanation does not literally apply to Theorem F (PAPER_B_ISSUES 4).
 
 ### 1.2 Is stabilisation well defined and finitely checkable? (answer: yes)
 

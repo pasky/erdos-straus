@@ -108,7 +108,7 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 5. Seed-component conjecture (the seed component contains a positive vertex); it implies ES for `p≡1 (4)`. **OPEN unconditionally; FALSE under H** (item 12). EVIDENCE: seed distance ≤3 for all `p≡1 (4)` below `3·10⁵` and all `p≡1 (24)` up to `5·10⁶` (SIGNED_REFACTOR §7).
 
 6. Exact classification of seed escapes of length ≤3. Such an escape exists iff (9), (A) a negative-fibre transfer `c|t²`, `d|(pc+t)²`, `d≡-c (mod 4c+1)` with a productive anchor `t+(d+c)/(4c+1)` or `w`, or (B) a Type II swap holds. **PROVED** — DEPTH3.md Theorem 1. Validated against brute-force BFS layers.
-7. Under Schinzel's Hypothesis H, the seed distance is unbounded. For every k, infinitely many `p=24q+1` have every vertex within distance k of the seed nonpositive. Under Bateman–Horn there are `≫_k N/(log N)^{C_k}` such `p≤N`. This is a graph version of Schinzel's polynomial-identity obstruction, via a profinite generic base point and the character dichotomy (2a). **CONDITIONAL on H (proved implication); novelty unchecked**. Informal antecedent: Elsholtz–Tao arXiv:1107.1010 p. 5 ("methods must fail for odd squares"); see also Schinzel, Bright–Loughran Cor 1.4, and Dahan Prop 3.8 / Thm 4.14. It is best read as the H-conditional form of that principle — DEPTH3.md Theorem 2, §3.
+7. Under Schinzel's Hypothesis H, the seed distance is unbounded. For every k, infinitely many `p=24q+1` have every vertex within distance k of the seed nonpositive. Under Bateman–Horn there are `≫_k N/(log N)^{C_k}` such `p≤N`. This is a graph version of Schinzel's polynomial-identity obstruction, via a profinite generic base point and the character dichotomy (2a). **CONDITIONAL on H (proved implication); novelty unchecked**. Informal antecedent: Elsholtz–Tao arXiv:1107.1010v6 p. 6, remark after Prop 1.6 ("methods must fail for odd squares"; PAPER_B_ISSUES 1); see also Schinzel, Bright–Loughran Cor 1.4, and Dahan Prop 3.8 / Thm 4.14. It is best read as the H-conditional form of that principle — DEPTH3.md Theorem 2, §3.
 8. Forced exits and exceptional-set bounds.
    * Every prime outside Mordell's six classes mod 840 has seed distance exactly 2.
    * `#{p≤N: dist>2} ≪ N/(log N)^{11/2}`.
@@ -134,6 +134,8 @@ This ledger records mathematical discoveries formulated by this campaign, rather
    * The proof is a finite certificate: S, Λ (2036 primes), `q0 mod M≈10^{12088}`, and the 7883 formal vertices, closed under all formal fibres. Dead denominators are handled by WINDMILL Thm 7.
    * The "accidental-prime" gap is closed by putting every prime of every constant `c_r` into Λ, via a fixed-point choice of `q0`.
    * ES itself is untouched. No example is within computational reach.
+   * The class q0 is not a square class (`24q0+1` is a non-residue mod 870 of the 2036 primes of Λ); (C4) is checked directly, not explained by "every prime met is a residue" (PAPER_B_ISSUES 4).
+   * Stronger companion version: `../erdos-straus-astra` (Dickson for 159 linear forms). Its positive solution outside the sterile component needs Dickson for the forms restricted to the subprogression `n≡507 (857)` (admissibility checked there; PAPER_B_ISSUES 11).
 
    **CONDITIONAL on H (proved implication) + CERTIFIED; independently reviewed.** The review (reviews/formal-closure-review.md) used a from-scratch engine: all 9961 fibres equal, logic CORRECT. The parent re-ran `formal2_verify.py` and `formal2_verify_extra.py`: OK — FORMAL_CLOSURE.md, data/formal_closure/.
 
