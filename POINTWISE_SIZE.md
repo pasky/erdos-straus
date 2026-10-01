@@ -1529,7 +1529,10 @@ not check.
 
 Let `L*(T)=lcm(24, all M≡3 (mod 4) with M≤T)`.
 
-**Lemma 11.1 (PROVED).** `log L*(T)=(2/3+o(1))T`.
+**Lemma 11.1 (PROVED; this is notes Lemma 66.2, (66.5)–(66.6)).**
+`log L*(T)=(2/3+o(1))T`. Notes §66 already introduced the odd part
+`L(T)=lcm{M≤T, M≡3 (4)}` (so `L*=8L`) as the class period of the
+twisted families. What is new here is its use with prime selection.
 
 *Proof.* For an odd prime ℓ and `e≥1`, some `M≡3 (4)` with `M≤T` is
 divisible by `ℓ^e` iff one of two things holds:
@@ -1543,19 +1546,24 @@ iff `ℓ≡3 (4)`. Higher prime powers involve only primes `≤√T`. By the
 prime number theorem for progressions mod 4,
 `log L*(T)=θ(T/3)+θ(T;4,3)−θ(T/3;4,3)+O(√T log T)=T/3+T/3+o(T)`. ∎
 
-Exact values of `log L*(T)/T`: 0.581 (T=10²), 0.660 (10³), 0.665 (10⁴),
-0.6667 (10⁶), 0.6666 (10⁷). The notes-§54 modulus `lcm(1..T)` has ratio
-`≈1.000` (`pointwise_size_omega.py`).
+Numerical values (rounded) of `log L(T)/T` for the odd part `L=L*/8`:
+0.581 (T=10²), 0.660 (10³), 0.665 (10⁴), 0.6667 (10⁶), 0.6666 (10⁷).
+For `L*` itself, add `log 8/T`: for example 0.602 at T=10², and 0.662
+at 10³. The notes-§54 modulus `lcm(1..T)` has ratio `≈1.000`
+(`pointwise_size_omega.py`).
 
 **Theorem 11.2.**
 
-* **(a) PROVED.** Every prime `p≡1 (mod L*(T))` is hard and has `W(p)>T`.
+* **(a) PROVED.** Every prime `p≡1 (mod L*(T))` has `W(p)>T`. For
+  `T≥15` it is also hard (Mordell's classes).
 * **(b) PROVED modulo a cited theorem** (Chang, *Short character sums for
   composite moduli*, J. Anal. Math. 123 (2014), Corollary 11: if
   `log ℓ=o(log q)` for every prime `ℓ|q`, then every reduced class mod q
   contains a prime `<q^{12/5+o(1)}`).
-  `limsup_{p hard} W(p)/log p ≥ 5/8`. Equivalently, in the notation of
-  notes (58.2), `L_h(T)≤exp{(8/5+o(1))T}`.
+  `limsup_{p hard} W(p)/log p ≥ 5/8`. More strongly, the construction
+  gives, in the notation of notes (58.2), `L_h(T)≤exp{(8/5+o(1))T}` for
+  *all* large T. (The limsup statement alone would only give this along a
+  subsequence; cf. notes Lemma 58.5.)
 * **(c) Other least-prime inputs.**
   * Linnik's theorem with Xylouris's exponent `L=5` (dissertation 2011,
     as listed; cited, not checked) gives `3/(2·5)=0.30`. With the 5.2 of
@@ -1563,9 +1571,10 @@ Exact values of `log L*(T)/T`: 0.581 (T=10²), 0.660 (10³), 0.665 (10⁴),
   * GRH, via Bach–Sorenson's bound on the least prime in a progression,
     `≤(1+o(1))(φ(q)log q)^2` (cited), gives `3/4`.
   * The conjecture "least prime `≡a (q)` is `≪q^{1+ε}`" gives `3/2`.
-* **(d) Ceiling of this architecture.** Any `p≡1 (mod L*(T))` satisfies
-  `p>L*(T)`, so this architecture can never certify more than
-  `W(p)/log p<3/2+o(1)`.
+* **(d) Ceiling of the certified coefficient.** Any `p≡1 (mod L*(T))`
+  satisfies `p>L*(T)`, so the threshold certified by this construction
+  obeys `T/log p<3/2+o(1)`. This bounds the *certified* coefficient only.
+  The actual `W(p)` can be larger; see the evidence below.
 
 *Proof.*
 
@@ -1589,13 +1598,41 @@ Exact values of `log L*(T)/T`: 0.581 (T=10²), 0.660 (10³), 0.665 (10⁴),
     Linnik's 5 (a factor ≈2.1).
 * **The upper end.** Notes (58.18), `L_p(T)≤exp{(5.2+o(1))T}`, becomes
   `exp{(1.6+o(1))T}` for hard p, hence also for all p.
-* **The lower limit.** Notes Thm 56.1 says every complete congruence
-  certificate for `W>T` has modulus divisible by `P_3(T)`, so
-  `log Q≥(1/2+o(1))T`. Our certificate has `log Q=(2/3+o(1))T`. Whether a
-  complete certificate of size `e^{(1/2+o(1))T}` exists is open. It would
-  give `5/6` with Chang.
+* **The lower limit: the class of one is optimal (Proposition 11.2'').**
+
+  > **Proposition 11.2'' (PROVED; due to the Step-3 reviewer).** Let a
+  > reduced class `c mod Q` be a complete prime certificate for `W>T`,
+  > i.e. every prime `p≡c (mod Q)` has `W(p)>T`. Then
+  > `log Q≥(2/3−o(1))T`.
+  >
+  > *Proof.*
+  > 1. **The primes ≡3 (4).** By notes Thm 56.1, `P_3(T)|Q`, which
+  >    contributes `θ(T;4,3)=T/2+o(T)`.
+  > 2. **The class mod 3.** `𝓡(3)={2}`, so `c≡1 (mod 3)`.
+  > 3. **A forced prime ≡1 (4).** Let `ℓ≡1 (4)` be prime, `ℓ≤T/3`, and
+  >    `A=(3ℓ+1)/4`. Suppose some prime `r≡2 (3)` divides A. The atom
+  >    `M=3ℓ`, `D=r` has class `−4r mod 3ℓ`, and
+  >    `−4r≡−r≡1 (mod 3)`. If `ℓ∤Q`, this class is compatible with
+  >    `c mod Q`. The combined class is reduced, since `r∤ℓ`. By Dirichlet
+  >    it contains primes, which then have `W(p)≤3ℓ≤T`, a contradiction.
+  >    So `ℓ|Q`.
+  > 4. **The exceptional ℓ are negligible.** These are the ℓ for which
+  >    `(3ℓ+1)/4` has no prime factor `≡2 (3)`. For any finite set S of
+  >    primes `r≥5`, `r≡2 (3)`, they avoid the classes
+  >    `ℓ≡−3^{−1} (mod r)`, `r∈S`. By PNT in progressions, their
+  >    `log`-weight up to X is at most
+  >    `(1/2)∏_{r∈S}(1−1/(r−1))·X+o(X)`, and this tends to 0 as S grows.
+  >
+  > Hence `log Q≥T/2+T/6−o(T)`. ∎
+
+  So, to leading exponential order, the class of one `c=1`,
+  `Q=L*(T)` (Lemma 11.1) is an optimal complete certificate. Notes
+  Thm 56.1's `1/2` is not sharp. With Chang's exponent, no complete
+  certificate does better than `5/8` by this route. A certificate class
+  other than `c=1` could, however, contain a prime below Q.
 
 **EVIDENCE.** For `T=7,15,…,63`, the least prime `≡1 (mod L*(T))` has
+(the row T=7 has `p=337`, which is not Mordell-hard, since `T<15`)
 `T/log p` between 1.20 and 1.64, near the conjectural 3/2. Its actual
 `W(p)` is between 1.7 and 4.4 times `log p` (`data/pointwise_size/omega.txt`).
 
@@ -1640,22 +1677,31 @@ so `a_min(p)≥7`.
    `≡2 (3)` up to `z=x^{1/2−ε}`. This is a half-dimensional problem.
    Iwaniec's semi-linear sieve has sieving limit `β=1`. With the
    Bombieri–Vinogradov level `D=x^{1/2−ε/2}` (`s=log D/log z>1`), it gives
-   `≫_ε x/(log x)^{3/2}` survivors. (Iwaniec, *Acta Arith.* 21 (1972); and
-   Friedlander–Iwaniec, *Opera de Cribro*, ch. 14; cited.)
+   `≫_ε x/(log x)^{3/2}` survivors. (Cited: H. Iwaniec, *The half
+   dimensional sieve*, Acta Arith. 29 (1976) 69–95; H. Iwaniec, *Primes of
+   the type φ(x,y)+A where φ is a quadratic form*, Acta Arith. 21 (1972)
+   203–234; Friedlander–Iwaniec, *Opera de Cribro*, ch. 14.)
 3. **Large bad primes.** A survivor can still have prime factors `≡2 (3)`
-   above z. There are at most two, and by step 1 an even number, so zero or
-   two. The survivors with exactly two are `n=m r_1 r_2`, with
+   above z. For `ε<1/6` there are at most two, and by step 1 an even
+   number, so zero or two. The survivors with exactly two are `n=m r_1 r_2`, with
    `r_i>x^{1/2−ε}` and `m≤x^{2ε}` composed of primes `≡1 (3)`.
 4. **Removing them.** An upper-bound sieve on `(p, r_2)` counts these as
    `≪ε^{3/2}x/(log x)^{3/2}`. The semi-linear lower bound near `s=1`
    behaves like `(s−1)^{1/2}≍ε^{1/2}`. Small ε then leaves a positive
    proportion.
 
-We have not written out the sieve constants. This is the classical
+We have not written out the uniform prime-pair upper-bound sieve, the
+weighted summation over m, or the constants. This is the classical
 "shifted primes free of a half-set of primes" result type (cf. Linnik's
 `p=x²+y²+1`). Status: **standard but unchecked here**.
 
-**Assessment 11.5 (why `a_min(p)≥c log p` is out of reach unconditionally).**
+**Assessment 11.5 (why the simultaneous-F1 sieve cannot give
+`a_min(p)≥c log p`).** Scope: this is a barrier for the specific
+construction "make every window ≤K fail by F1, via a lower-bound sieve".
+It is not a theorem about all methods. Window failure can also occur
+through exponent-budget failures (F3), and through non-Jacobi subgroup
+failures at composite windows (§§8–9). Lemma 11.3 excludes only complete
+congruence forcing.
 
 * **A dimension barrier.** By Lemma 11.3, K consecutive windows must fail
   through K factorisation events on the shifted primes `(p+q)/4`. The
@@ -1672,43 +1718,48 @@ We have not written out the sieve constants. This is the classical
     configurations of large bad primes are of the same order as the main
     term. A Chen-type switching argument would be needed; we have not
     attempted it.
-  * For `K→∞` no level of distribution (not even Elliott–Halberstam,
-    level 1) suffices.
+  * For `K→∞` this sieve construction fails at every level of
+    distribution, even Elliott–Halberstam (level 1). This is not a claim
+    about other methods.
 * **Why the combinatorial tools do not help.**
   * Maynard–Tao produces many prime values among K forms, but never all,
     and we need all K windows to fail.
   * Erdős–Rankin/FGKMT coverings produce "has a small prime factor",
     which is a dimension-0 local condition. F1 is the opposite: a global
     absence condition.
-* **Conclusion.** The best unconditional window statement is
-  Prop. 11.4 (a sketch). `a_min` is unbounded under Dickson (Prop 8.4). It
+* **Conclusion.** The unconditional lower-bound construction developed
+  here remains the sketch Prop. 11.4. `a_min` is unbounded under Dickson (Prop 8.4). It
   is `Ω(log p/log log p)` only under the uniform Hardy–Littlewood model
   (Assessment 8.5).
 
 ### 11.3 Why superlinear `W(p)>(log p)^{1+δ}` is not reached
 
-**Assessment 11.6 (a linear barrier for all quarantine + sieve
-constructions; partly a computation).** Any certificate of `W(p)>T`
-built as "a quarantine class c mod Q" plus a sieve for the remaining
-atoms needs prime equidistribution in classes mod `Q·d` with relative
-error below the sifted density V. Known PNT-in-AP errors decay like
-`exp(−c log x/log q)` in the Linnik range. So such a construction needs
-`log x≳log Q·log(1/V)/c`.
+**Assessment 11.6 (heuristic error-budget calculation for one transfer
+method; not a barrier theorem).** Consider certifying `W(p)>T` by "a
+quarantine class c mod Q" plus a fundamental-lemma sieve for the
+remaining atoms, transferred to primes with the known PNT-in-AP error
+terms. Those errors decay like `exp(−c log x/log q)` in the Linnik range,
+while the sieve needs relative error below the sifted density V. A
+*sufficient* working range for this particular method is therefore
+`log x≳log Q·log(1/V)/c`. That is a statement about what this error budget
+supports, not a lower bound for every construction.
 
-* **The class of one.** Here `V≈1` and `log Q≈(2/3)T`, which gives
-  §11.1.
+* **The class of one.** Here `V=1` and no sieve is needed. The least
+  prime theorem (Chang) is applied directly, which gives §11.1.
 * **The intermediate quarantine.** Take `p≡1 (mod Q_y)`, with all prime
   powers of primes `≤y` and `y=T^{1/2+η}`. Then every remaining modulus
   is `mℓ` with one prime `ℓ>y`, and the system becomes a *standard*
-  sieve: `p mod ℓ∉F_ℓ` with `|F_ℓ|≤T^{1/2−η+o(1)}`. The proved bounds give
-  `log Q_y≈T^{1/2+η}` and `log(1/V)≤T^{1/2−η+o(1)}`, so the product is
-  `T^{1+o(1)}`. That is again linear. The construction does give a
+  sieve: `p mod ℓ∉F_ℓ` with `|F_ℓ|≤T^{1/2−η+o(1)}`. We have the *upper*
+  bounds `log Q_y≈T^{1/2+η}` and `log(1/V)≤T^{1/2−η+o(1)}`, so the
+  budget above is met once `log x≥T^{1+o(1)}`. So this route, analysed
+  this way, again gives only a linear range. No matching lower bound
+  shows the route cannot do better. The construction does give a
   sub-exponential Haar bound (Lemma 11.7 below).
   > **Lemma 11.7 (PROVED; a sub-exponential unit-avoider bound).**
   > `log(1/δ*(T))≤T^{1/2+o(1)}`. Compare the class of one,
   > `δ*≥e^{−(2/3+o(1))T}`. This is §7's missing input (i) at a weak level.
   >
-  > *Proof.* Fix `η>0` and `y=T^{1/2+η}`. Let `Q_y=lcm(24, ℓ^{e_ℓ} : ℓ≤y)`,
+  > *Proof.* Fix `0<η<1/2` and `y=T^{1/2+η}`. Let `Q_y=lcm(24, ℓ^{e_ℓ} : ℓ≤y)`,
   > with `ℓ^{e_ℓ}≤T` maximal.
   >
   > * **Smooth moduli.** Condition on `n≡1 (mod Q_y)`. This costs
@@ -1718,18 +1769,22 @@ error below the sifted density V. Known PNT-in-AP errors decay like
   >   prime `ℓ>y>√T` and `m<T/y<y`, so `m|Q_y`. Given the conditioning,
   >   the atoms of M reduce to the ℓ-coordinate condition `n mod ℓ∉F_ℓ`.
   >   Here F_ℓ collects the classes `−4D` with `D|((mℓ+1)/4)^2` and
-  >   `−4D≡1 (mod m)`. So `|F_ℓ|≤f_ℓ:=Σ_{m<T/ℓ}τ(((mℓ+1)/4)^2)≤T^{1/2−η+o(1)}<ℓ/2`.
+  >   `−4D≡1 (mod m)`, over the eligible `m≤T/ℓ` with `mℓ≡3 (4)`. So
+  >   `|F_ℓ|≤f_ℓ:=Σ_m τ(((mℓ+1)/4)^2)≤(T/ℓ)T^{o(1)}≤T^{1/2−η+o(1)}<ℓ/2`
+  >   for large T.
   > * **Independence.** The coordinates mod distinct primes `ℓ∈(y,T]` are
   >   independent under Haar measure. Hence the conditional probability of
   >   avoidance is `∏(1−|F_ℓ|/(ℓ−1))≥exp(−2Σ_ℓf_ℓ/(ℓ−1))`, and this is
   >   `≥exp(−T^{1+o(1)}/y)`.
   >
-  > Multiplying, `δ*(T)≥exp(−T^{1/2+η+o(1)})` for every `η>0`. ∎
+  > Multiplying, `δ*(T)≥exp(−T^{1/2+η+o(1)})` for every `0<η<1/2`. ∎
 
-* **What superlinear W would need.** A quarantine with `log Q=L^{O(1)}`
+* **One possible route to superlinear W (heuristic; we do not claim it
+  works).** A quarantine with `log Q=L^{O(1)}`
   (`L=log T`) and conditional density `V≥exp(−L^{O(1)})`, i.e. the prime
   analogue of notes Thm 31.4. With z polylogarithmic, the rough moduli
-  carry several primes. The system is then not prime-local, and one needs:
+  carry several primes. The system is then not prime-local, and the route
+  would need at least the following:
   * **(i)** an LLL-type Haar lower bound. Its key input is a mean value
     for divisors of `((M+1)/4)^2` in the class `−(M+1)/4 mod m`, which is a
     lattice count in the spirit of notes Lemma 16.2.
@@ -1750,39 +1805,46 @@ error below the sifted density V. Known PNT-in-AP errors decay like
   classes, one per prime `ℓ≤T`, primes below `e^{O(T)}` can be avoided
   entirely in short ranges. These are Erdős–Rankin/FGKMT-type
   constructions; they produce large prime-free gaps, not
-  least-prime statements. So no density-only argument works, and any
-  superlinear proof must use the specific structure of `𝓡(ℓ)`.
+  least-prime statements. This suggests that a density-only argument
+  will not suffice, and that a superlinear proof would have to use the
+  specific structure of `𝓡(ℓ)`. That is an expectation, not a theorem.
 
 ## 12. Cross-checks against the literature and the notes
 
 * **Pomerance–Weingartner, arXiv:2511.16817v2** (archived; notes §68 audit).
   * **Thm 3.1.** It gives many exceptional primes for large numerator m.
     The method is a union bound over all Type I/II admitting classes, via
-    Brun–Titchmarsh, possible because their total mass is
-    `≍(log N)^3/φ(m)<1/2` at `log N_0=(φ(m)/C log²m)^{1/3}`.
-  * **m=4.** At `m=4` that mass is `≍(log N)^3≫1` (cubic supply, notes
-    Thm 18.2), so the union bound is empty. This is exactly why §7 works
+    Brun–Titchmarsh (pw.txt ll. 318–448). The upper bounds proved there
+    for the covered-prime proportion are, for Type I,
+    `O((log N)^3 log²m/φ(m))`, and similarly for Type II with an extra
+    `log log N` factor before simplification. These are below 1/2 at
+    `log N_0=(φ(m)/C log²m)^{1/3}`.
+  * **m=4.** At `m=4` the corresponding mass is `≍(log N)^3≫1` (cubic
+    supply, notes Thm 18.2), so the union bound is empty. This is exactly why §7 works
     with the avoider density δ*(T) and §11.1 with the class of one. Their
     Poisson heuristic (p. 3, with intensity `(log p)^3/m`; at m=4 it is
     Elsholtz–Tao Remark 1.1) is the same cubic-mass model as §7's
     independence exponent `I(T)≍(log T)^3`.
-  * **Scope.** PW define no truncated statistic (W, `a_min`). They make no
-    statement for m=4 other than the upper bound (68.1) with Vaughan's
-    2/3. Prop 8.4, Lemma 11.3 and Thm 11.2 are **not** in PW.
+  * **Scope.** PW define no truncated statistic (W, `a_min`). For m=4
+    they give no improved asymptotic exception bound and no
+    truncated-statistic theorem. What they do give for m=4 is the upper
+    bound (68.1), with Vaughan's 2/3, finite verifications, and the
+    heuristic. Prop 8.4, Lemma 11.3 and Thm 11.2 are **not** in PW.
 * **Notes §56 (certificate ceilings).** Thm 56.1: every Type-II
   congruence certificate for `W>T` contains `P_3(T)`, so
-  `log Q≥(1/2+o(1))T`. Lemma 11.1's `2/3` sits above it, with the gap
-  `[1/2,2/3]` open. Thm 56.2 (Type I, `log Q≥T+o(T)`) matches
-  Theorem 11.2' exactly.
+  `log Q≥(1/2+o(1))T`. Prop. 11.2'' sharpens this to `(2/3−o(1))T`, which
+  matches Lemma 11.1. So the class of one is optimal to leading order.
+  Thm 56.2 (Type I, `log Q≥T+o(T)`) matches Theorem 11.2' exactly.
 * **Notes §58 (Jacobsthal angle).**
   * (58.18) is improved by Thm 11.2(b).
   * Lemma 58.5 says that `W(p_j)/log p_j→∞` along some sequence iff
-    `liminf log L_p(T)/T=0`. Thm 11.2 gives `limsup≤8/5`, so the
-    superlinear question is exactly whether the liminf is 0. §7 predicts
-    `log L_p(T)=T^{1/3+o(1)}` heuristically, hence liminf 0.
+    `liminf log L_p(T)/T=0`. Thm 11.2 gives `log L_h(T)/T≤8/5+o(1)`, so
+    the superlinear question is exactly whether the liminf is 0. Under RA
+    and the two-sided assumption of Assessment 7.2, §7 predicts
+    `log L_p(T)=(log T)^{3+o(1)}`, hence liminf 0 (heuristic).
   * Assessment 58.1 ("density alone gives no least-prime theorem…") is
-    consistent with Assessment 11.6, which makes the obstruction
-    quantitative: `log Q·log(1/V)`.
+    consistent with Assessment 11.6, which quantifies the error budget
+    `log Q·log(1/V)` of one specific transfer method.
 * **Notes §54.** Thms 54.1 and 54.3 are superseded in their constants by
   Thm 11.2 and 11.2' (5/8 and 5/12 instead of 1/5.2). Their proofs and
   statements remain correct as weaker results.
