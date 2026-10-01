@@ -347,3 +347,107 @@ Verdict: SOUND-AFTER-REPAIRS. All repairs are in one separate commit,
   under E2, in §0 and in §4.1.
 * **D8.** Positive d with `d||K_A|`; `q_0` forward reference; `σ:=0` when
   `R=0`; E3 wording made consistent ("open").
+
+---
+
+# Step 3 report (POINTWISE_SIZE §§11–12): unconditional Ω-results
+
+## Results
+
+1. **Theorem 11.2: `limsup_{p hard} W(p)/log p ≥ 5/8`.** This is PROVED
+   modulo one cited theorem. Notes Thm 54.1 has `1/5.2≈0.19`. Two
+   ingredients:
+   * **The modulus.** Only moduli `M≡3 (4)` matter, so the class-of-one
+     modulus is `L*(T)=lcm(24, M≤T, M≡3 (4))`, with
+     `log L*=(2/3+o(1))T`. This is notes Lemma 66.2; the notes used it
+     only for twisted families, not with prime selection.
+   * **The least prime.** `L*(T)` is `O(log q)`-smooth. Chang (J. Anal.
+     Math. 123 (2014), Cor. 11) gives a prime `≡1 mod q` below
+     `q^{12/5+o(1)}` when `log P⁺(q)=o(log q)`; the statement was read in
+     the author's PDF, archived in `sources/lit2026/`.
+
+   More strongly, `L_h(T)≤exp{(8/5+o(1))T}` for all large T, which
+   improves notes (58.18) (`5.2`). Other inputs give:
+   * Linnik with Xylouris's exponent 5: 0.30;
+   * GRH (Bach–Sorenson): 3/4;
+   * a least prime `≪q^{1+ε}`: 3/2.
+
+   The certified coefficient of this construction is capped at 3/2.
+2. **Prop 11.2'' (PROVED; argument due to the Step-3 reviewer).** Every
+   complete reduced prime-congruence certificate for `W>T` has
+   `log Q≥(2/3−o(1))T`. So the class of one is optimal to leading order,
+   and notes Thm 56.1's 1/2 is not sharp.
+3. **Theorem 11.2': `limsup ck_min(p)/log p≥5/12`** (Type-I slices,
+   notes Thm 54.3 modulus plus Chang). W and `ck_min` are both
+   `≥(5/12−ε)log p` simultaneously, infinitely often.
+4. **Lemma 11.3 (PROVED).** Window failure is never congruence-forced:
+   every class of primes contains primes at which any given finite set of
+   windows succeeds (CRT and Dirichlet). The class of one has no window
+   analogue.
+5. **Prop 11.4 (SKETCH).** `a_min(p)≥7` for `≫x/(log x)^{3/2}` hard
+   `p≤x`, via the semi-linear sieve (Iwaniec, cited) and the parity of
+   `(p+3)/4≡1 (3)`. The sieve details are not written out.
+6. **Lemma 11.7 (PROVED).** `log(1/δ*(T))≤T^{1/2+o(1)}`. This is the
+   first sub-exponential prime-compatible avoider bound, from a quarantine
+   at `y=T^{1/2+η}` with CRT independence. It is still far from
+   polylogarithmic, which is what superlinear W would need.
+7. **Assessments 11.5 and 11.6 (method-specific, not barrier theorems).**
+   * Windows: the simultaneous-F1 sieve has dimension `≈K/8` and fails
+     for `K≥7` at BV level, and for `K→∞` at any level.
+   * Superlinear W: the quarantine-plus-sieve error budget reaches only a
+     linear range with the proved bounds.
+   * A possible route to superlinear W is listed, with its missing inputs:
+     an LLL-type Haar bound with polylogarithmic quarantine (the prime
+     analogue of Thm 31.4), exceptional-character control, and control of
+     the Bonferroni truncation under correlations.
+
+## Answers to the brief
+
+* **`a_min(p)>C log p` unconditionally.** Not obtained. The best
+  construction here is the sketch `a_min≥7`.
+* **`W(p)>(log p)^{1+δ}` unconditionally.** Not obtained. The best is the
+  linear `W≥(5/8−ε)log p`.
+* **A Bombieri–Vinogradov-averaged route avoiding Linnik.** The Linnik
+  constant is avoided by Chang's smooth-moduli exponent, not by BV. BV
+  averaging fails here because the needed moduli are sparse and
+  structured, with only log-power savings available.
+
+## Cross-checks (§12)
+
+* **PW 2511.16817.** Thm 3.1 is a union bound with mass
+  `≈(log N)^3/φ(m)<1/2` for large numerator m; at `m=4` the mass is
+  `≫1`. PW define no truncated statistic. None of Prop 8.4, Lemma 11.3
+  or Theorem 11.2 is in PW.
+* **Notes §56, §58, §66.** Lemma 11.1 is notes Lemma 66.2. (58.18) is
+  improved. Lemma 58.5 frames the remaining superlinear question.
+
+## Self-review of Step 3 (deep reviewer) and repairs applied
+
+The reviewer confirmed the headline constants 5/8 and 5/12, Chang's
+applicability, Lemma 11.3 and Lemma 11.7. The following repairs were
+applied.
+
+* The certificate "gap [1/2,2/3]" was not open; it is replaced by
+  Prop 11.2''.
+* Assessments 11.5 and 11.6 are rescoped as method-specific; "all",
+  "needs" and "precise list" are removed.
+* Siegel-zero control is now listed as a missing input.
+* Thm 11.2(d) now speaks of the certified coefficient.
+* "Equivalently" is now "more strongly".
+* The `log L` numbers are relabelled as the odd part `L=L*/8`.
+* `T≥15` is required for hardness.
+* Lemma 11.7: `0<η<1/2`, and the sum runs over eligible m.
+* Prop 11.4: citations fixed (Iwaniec 1972 and 1976), and `ε<1/6`.
+* The PW mass statement and the m=4 scope are corrected.
+
+## Commits
+
+* "Step 1 review repairs" (D1–D8), a separate commit.
+* §11–§12 (Step 3).
+* The Step-3 self-review repairs.
+
+## Replay (Step 3)
+
+```
+PYTHONPATH=scripts uv run python scripts/pointwise_size_omega.py   # log L(T)/T to 1e7; least primes = 1 mod L*(T); < 1 min
+```
