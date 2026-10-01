@@ -189,3 +189,15 @@ Measured replay runtimes (D16), all re-run for this revision with ≤4 cores:
   * the 30035-vertex certificate: 4.5 min (the referee's figure);
   * the **seed certificate: 23 min (OK; 10155 vertices)**.
 * `wm_single 2500000`: 1 s, 0 hits.
+
+## Revision 2 (referee round 2: ACCEPT pending authorship and the [AS] citation)
+
+* **R2.3(a):** "sterile" no longer reads as "no further vertex". The text now
+  uses the referee's wording: 122/126 guarded instances were sterile, with
+  components of the predicted size or at most 8 vertices larger (size ranges
+  listed for r=5..9). The formula holds exactly in the typical case,
+  30035=29524+511 at r=9.
+* **R2.3(b):** the guard prime is renamed g_0, so it no longer clashes with the
+  frame base point q_0.
+* **R2.3(c):** built from scratch with three pdflatex passes: no errors, no
+  undefined references, no overfull boxes; 29 pages.

@@ -1424,16 +1424,19 @@ vertices (Lemma~\ref{lem:typeII}).
 \end{proof}
 
 \emph{Guarded hubs} (\status{evidence} for the closure).  Take $x$
-squarefree, $x=q_0\ell_1\cdots\ell_r$.  The primes $\ell_i$ are
-$\equiv1\pmod{4\mathcal M}$, and the guard $q_0\sim10^4$ is
+squarefree, $x=g_0\ell_1\cdots\ell_r$.  The primes $\ell_i$ are
+$\equiv1\pmod{4\mathcal M}$, and the guard $g_0\sim10^4$ is
 $\equiv1\pmod{\mathcal M}$ and $\equiv3\pmod4$.  Then the hub fibre has
 $(3^{r+1}-1)/2$ vertices (Lemma~\ref{lem:B}).  The divisors $w>1$ of $x$
-with $w\equiv1\pmod4$ are exactly the $2^r-1$ divisors $w>1$ of $x/q_0$,
+with $w\equiv1\pmod4$ are exactly the $2^r-1$ divisors $w>1$ of $x/g_0$,
 so Lemma~\ref{lem:C} gives exactly $2^r-1$ descents, all with
-$d\ge q_0$.  In most computed instances no further vertex appears
-(\S3.4 of the source notes: $122$ of $126$ guarded instances were sterile).
-The component then has $(3^{r+1}-1)/2+2^r-1$ vertices.  That closure is
-verified instance by instance, not proved.
+$d\ge g_0$.  In the computed instances (\S3.4 of the source notes), $122$ of $126$
+guarded instances were sterile, with components of the predicted size
+$(3^{r+1}-1)/2+2^r-1$ or at most $8$ vertices larger (sizes $395$--$397$,
+$1156$--$1161$, $3407$--$3415$, $10096$--$10098$ and $30035$--$30039$ for
+$r=5,\dots,9$).  The formula is attained in the typical case, e.g.\
+$30035=29524+511$ at $r=9$.  This closure is verified instance by instance,
+not proved.
 
 \begin{evidence}[\status{certified} sterile components]\label{ev:sterile}
 Each component below was exhausted.  An independent checker verified every
