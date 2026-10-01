@@ -1,0 +1,20 @@
+1. M<=20000 with 1 in R(M): [] count 0
+2. T=100: log L*(T)/T = 0.6016
+2. T=1000: log L*(T)/T = 0.6618
+2. T=10000: log L*(T)/T = 0.6655
+2. T=100000: log L*(T)/T = 0.6662
+3. T=15: p=9241, W(p)=39, W>T: True, Mordell-hard: True, T/log p=1.643
+3. T=23: p=4037881, W(p)=59, W>T: True, Mordell-hard: True, T/log p=1.512
+3. T=31: p=4506274081, W(p)=47, W>T: True, Mordell-hard: True, T/log p=1.395
+3. T=39: p=73226953801, W(p)=43, W>T: True, Mordell-hard: True, T/log p=1.559
+3. T=47: p=59196669451921, W(p)=139, W>T: True, Mordell-hard: True, T/log p=1.482
+4. Lemma 8.2: 40292 (p,q,r) checks, violations 0
+5. Cor 8.3(b): 7345 prime windows, violations 0
+6. Lemma 9.1: 6750 seeded windows (3414 with n_p=2), violations 0
+7. Lemma 11.3: 120 constructed primes, windows without -1 in Rat_q: 0
+8. Prop 11.2'' step 3: 9 explicit atoms, failures 0
+9. Lemma 11.7 reduction at T=4095, y=101: max |F_l|/l = 0.186; exact conditional density 0.0001, MC 0.0000; direct-vs-local mismatches 0/20000
+9b. local survivors with W(n) <= T (should be 0): 0/2000
+10. plain MC delta*(127) = 4.290e-03 +- 1.0e-04 (n=400000)
+10. plain MC delta*(511) = 8.200e-05 +- 5.2e-06 (n=3000000)
+OK
