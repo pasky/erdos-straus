@@ -1,0 +1,682 @@
+                                                   REFINEMENTS TO THE PRIME NUMBER THEOREM FOR
+                                                             ARITHMETIC PROGRESSIONS
+
+                                                                           JESSE THORNER AND ASIF ZAMAN
+arXiv:2108.10878v2 [math.NT] 21 Sep 2021
+
+
+
+
+                                                   Abstract. We prove a version of the prime number theorem for arithmetic progressions
+                                                   that is uniform enough to deduce the Siegel–Walfisz theorem, Hoheisel’s asymptotic for in-
+                                                   tervals of length x1−δ , a Brun–Titchmarsh bound, and Linnik’s bound on the least prime in
+                                                   an arithmetic progression as corollaries. Our proof uses the Vinogradov–Korobov zero-free
+                                                   region, a log-free zero density estimate, and the Deuring–Heilbronn zero repulsion phenom-
+                                                   enon. Improvements exist when the modulus is sufficiently powerful.
+
+
+
+                                                                  1. Introduction and statement of results
+                                           1.1. Main result. Let q ≥ 2. The prime number theorem for arithmetic progressions states
+                                           that as x → ∞, the primes p ≤ x equidistribute in the ϕ(q) residue classes a (mod q) with
+                                           gcd(a, q) = 1. Under the generalized Riemann hypothesis (GRH),   √ primes2 in intervals of
+                                           length h equidistribute in residue classes modulo q once h/ϕ(q) ≥ x(log x) ; that is,
+                                                                       X                     h       √
+                                           (1.1)                                  log p =        + O( x(log x)2 ),   x ≥ q.
+                                                                                            ϕ(q)
+                                                                     x−h<p≤x
+                                                                    p≡a (mod q)
+
+                                              Unconditional progress towards (1.1) has classical origins; the latest benchmarks are de-
+                                           scribed in Section 1.2. Each such result usually addresses a specific feature: long intervals
+                                           (e.g., h = x), short intervals (e.g., h = x1−δ ), small moduli (e.g., q ≤ (log x)100 ), or large
+                                           moduli (e.g., q ≤ xδ ). We prove a version of the prime number theorem for arithmetic pro-
+                                           gressions that interpolates these benchmarks, giving the most uniform progress towards (1.1)
+                                           that current results on Dirichlet L-functions permit. A major obstacle to uniformity is the
+                                           possible existence ofQreal zeros of Dirichlet L-functions near s = 1. It follows from work of
+                                           McCurley [10] that χ (mod q) L(s, χ) 6= 0 in the region Re(s) ≥ 1 − 1/(13 log(q(|Im(s)| + 3)))
+                                           apart from at most one real zero, say β1 . If β1 exists, then it is simple, and there exists a
+                                           unique nontrivial real Dirichlet character χ1 (mod q) such that L(β1 , χ1 ) = 0.
+                                           Theorem 1.1. Let q ≥ 2 and a be coprime integers and 4 ≤ h ≤ x. Define λ and θ by
+                                                                Z x
+                                                               1
+                                                                                                               (
+                                                                      (1 − χ1 (a)tβ1 −1 )dt if β1 exists,       32/37 if β1 exists,
+                                           λ = λ(x, q, a, h) := h x−h                                     θ :=
+                                                               
+                                                                1                           otherwise,          7/12 otherwise.
+
+                                           For all 0 < ε < 1 − θ, there is a constant c1 = c1 (ε) > 0 such that if λh/ϕ(q) ≥ xθ+ε , then
+                                              X               λh h                                      −c1 log x                          i
+                                                     log p =       1 + Oε exp                 x 32      +     x 31           2             1    .
+                                            x−h<p≤x
+                                                             ϕ(q)                log q + (log   )  (log   log   )  + (log x) 5 (log log x) 5
+                                                                                              h               h
+                                           p≡a (mod q)
+
+                                           The implied constant and c1 are effectively computable, and log+ (u) = max{0, log u}.
+                                                                                                   1
+2                                 JESSE THORNER AND ASIF ZAMAN
+
+                                                                                          7
+Remark 1.2. Let A ≥ 1. If β1 exists and q ≤ (log x)A , then Theorem 1.1 holds with θ = 12   ,
+but at a cost: c1 will depend ineffectively on A. We justify this in Section 4 using Siegel’s
+theorem [2, Ch. 21]: For all ε > 0, there exists a constant bε > 0 such that
+(1.2)                                      1 − β1 ≥ bε q −ε .
+The constant bε is effectively computable when ε ≥ 21 [13, Thm 3].
+                                                                                     c2
+Remark 1.3. If there exists a constant c2 > 0, independent of q, such that β1 ≤ 1 − log q
+                                                                                          , then
+                                 7
+one may take λ = 1 and θ = 12 in Theorem 1.1. The implied constant and c1 will depend
+effectively on c2 . We justify these assertions in Section 4.
+                                          h
+   If β1 does not exist, then λ = 1 and ϕ(q) is the main term in Theorem 1.1. If β1 exists,
+then the notion of a “main term” and an “error term” in Theorem 1.1 depends on how one
+views the role of β1 . We suggest the perspective of viewing
+                             λh       h         χ1 (a) xβ1 − (x − h)β1
+(1.3)                             =          −
+                            ϕ(q)     ϕ(q)       ϕ(q)          β1
+as the sum of a “primary main term” and a “secondary main term”, leaving
+                λh                                 −c1 log x                          
+(1.4)               exp                    2               1           2             1
+               ϕ(q)       log q + (log x ) 3 (log+ log x ) 3 + (log x) 5 (log log x) 5
+                                           h             h
+as an “error term”. A similar perspective is implicit in Linnik’s work on the least prime
+p ≡ a (mod q) [9]. In light of our piecewise definition of λ, this perspective accommodates
+all ranges of q and h under our consideration, regardless of whether β1 exists.
+   If β1 exists, then there exists ξ ∈ (x − h, x) such that
+(1.5)                                    λ = 1 − χ1 (a)ξ β1−1 .
+                                                                                 1
+Furthermore, if there exists A ≥ 1 such that q ≤ (log x)A , then (1.2) with ε = 3A shows that
+(1.6)                             λ = 1 + O(exp(−b 1 (log x)2/3 )).
+                                                       3A
+
+The O-term in (1.6) is readily absorbed by (1.4). When q is larger, we allow the contribution
+from β1 in (1.3) to function as a “secondary main term” rather than attempt to push the
+contribution into any sort of “error term”. This permits Theorem 1.1 to effectively count
+primes in arithmetic progressions modulo q as long as the expected number of primes con-
+gruent to a (mod q) in the interval (x − h, x], namely λh/ϕ(q), exceeds xθ+ε . If, in addition,
+one has (log x)/(log q) → ∞, then the expected number of primes becomes an effective as-
+ymptotic count, even if β1 exists. The point is that (1.3) and (1.4) are each scaled by λ,
+so the existence of β1 proportionally affects both quantities. This differs from traditional
+presentations of the prime number theorem for arithmetic progressions (e.g., [2]) where the
+contribution from β1 is viewed as an “error term” instead of a “secondary main term.”
+   Even if β1 exists, we can always effectively estimate λ using the effective upper bound
+β1 ≤ 1 − b1/2 q −1/2 from (1.2) as well as the bounds
+                                  1
+(1.7)                             8
+                                    min{1, (1 − β1 ) log x} < λ < 2,
+which we prove in Section 4. Therefore, even in the most restrictive case, for all 0 < ε < 1−θ,
+there exists an effectively computable constant c3 = c3 (ε) > 0 such that the condition
+λh/ϕ(q) ≥ xθ+ε in Theorem 1.1 is satisfied when x ≥ c3 and
+                                                      3
+(1.8)                 h ≥ x1−δ1 ,   q ≤ xδ2 ,     δ1 + δ2 ≤ 1 − θ − ε.
+                                                      2
+      REFINEMENTS TO THE PRIME NUMBER THEOREM FOR ARITHMETIC PROGRESSIONS                          3
+
+If β1 does not exist, then the 23 can be replaced by 1.
+                           1
+   Taking h = x and ε = 555   in Theorem 1.1, we arrive at the following result using (1.8).
+Corollary 1.4. There exists a constant c4 > 0 such that if q ≥ 2 and a are coprime integers,
+x ≥ q 12 , and λ = λ(x, q, a, x) is as in Theorem 1.1, then
+            X               λx h                log x              (log x)3/5 i
+                  log p =         1 + O exp − c4          + exp − c4             1/5
+                                                                                     .
+            p≤x
+                           ϕ(q)                    log q             (log log x)
+       p≡a (mod q)
+
+The implied constant and c4 are absolute and effectively computable.
+Remark 1.5. If β1 exists, then λ(x, q, a, x) = 1 − χ1 (a)xβ1 −1 /β1 .
+1.2. Connections with classical results. To display the uniformity of Theorem 1.1,
+we deduce the Siegel–Walfisz theorem with the best known error term, Hoheisel’s asymp-
+totic prime number theorem for short intervals with the best known error term, a Brun–
+Titchmarsh type bound for short intervals, and Linnik’s bound on the least prime in an
+arithmetic progression as corollaries of Theorem 1.1, the ineffective bound (1.6), and the
+effective bound (1.7). While all of these results can be proved individually, the point here
+is that Theorem 1.1 provides a single asymptotic result that is uniform enough to deduce
+all of them. These deductions, which require no information on β1 except for (1.2) and
+the effective computability of b1/2 , showcase the flexibility of Theorem 1.1 in handling any
+combination of large, medium, or small moduli with short, medium, or long intervals.
+   If A ≥ 1, and q ≤ (log x)A , then (1.6) and Theorem 1.1 with h = x imply that there exists
+an ineffective constant cA > 0 such that
+                    X                x                      (log x)3/5 
+                           log p =        1 + O exp − cA                 1/5
+                                                                             .
+                    p≤x
+                                    ϕ(q)                     (log log x)
+                     p≡a (mod q)
+
+(See also Koukoulopoulos [8, Thm 1.1].) If ε > 0 and one adds the condition that h ≥
+x7/12+ε (log x)A , then (1.6), Theorem 1.1, and Remark 1.2 recover the strongest known version
+of Hoheisel’s short interval prime number theorem [4] for arithmetic progressions to moduli
+q ≤ (log x)A : There exists an ineffective constant cA,ε > 0 such that
+                     X               h                      (log x)1/3 
+                            log p =      1 + Oε exp − cA,ε                    .
+                                    ϕ(q)                     (log log x)1/3
+                  x−h<p≤x
+                 p≡a (mod q)
+                                                                              3
+  Consider now the situation where q is large. Applying Theorem 1.1 with ε = 110 , we find
+                   4/5
+that if λh/ϕ(q) ≥ x and (log x)/(log q) → ∞, then
+                                    X               λh
+                                           log p ∼      .
+                                                   ϕ(q)
+                                      x−h<p≤x
+                                     p≡a (mod q)
+
+If β1 exists, then λ satisfies (1.7). Consequently, for all fixed δ > 0, there exists an effectively
+computable constant c5 = c5 (δ) > 0 such that if x ≥ q c5 , then
+                        h                        X                        h
+                             (1 − β1 ) log x ≪         log p ≤ (2 + δ)       .
+                       ϕ(q)                    x−h<p≤x
+                                                                        ϕ(q)
+                                              p≡a (mod q)
+4                               JESSE THORNER AND ASIF ZAMAN
+
+When β1 does not exist, the (1 − β1 ) log x factor is deleted, and 2 + δ becomes 1 + δ. The
+upper bound is a weak form of the Brun–Titchmarsh theorem for short intervals (cf. [12,
+Theorem 1.2]). Since β1 < 1, the lower bound implies that there exists a prime p ≤ q c5 such
+that p ≡ a (mod q), as Linnik proved [9].
+Organization. In Section 2, we state a new version of the prime number theorem
+                                                                            Q       for arith-
+metic progressions (Theorem 2.3) that depends only on a zero-free region for χ (mod q) L(s, χ).
+The proof of Theorem 2.3 uses a certain log-free zero density estimate (Theorem 2.1) and the
+Vinogradov–Korobov zero-free region  Qfor Dirichlet L-functions. In Section 3, we use The-
+orem 2.3 and a zero-free region for χ (mod q) L(s, χ) due to Iwaniec to refine Theorem 1.1
+when q is sufficiently “powerful” and provide an application to primes with prescribed digits.
+We also contrast our results with those of Gallagher [3]. We prove Theorem 2.3 in Section 4.
+Acknowledgements. We thank Kevin Ford, Andrew Granville, Kannan Soundararajan,
+and Joni Teräväinen for their encouragement and helpful conversations. We especially thank
+Roger Heath-Brown for his comments regarding the proof of Theorem 2.1.
+
+                                 2. Proof of Theorem 1.1
+    Let q ≥ 2, T ≥ 1 and 0 ≤ σ ≤ 1. For all Dirichlet characters χ (mod q), we define
+             Nχ (σ, T ) := |{ρ = β + iγ : β, γ ∈ R, β ≥ σ, |γ| ≤ T, L(ρ, χ) = 0}|.
+If β1 exists, then we define
+         Nχ∗1 (σ, T ) := |{ρ = β + iγ : β, γ ∈ R, β ≥ σ, |γ| ≤ T, ρ 6= β1 L(ρ, χ) = 0}|.
+Let                                                    X
+                                  Nq (σ, T ) :=               Nχ (σ, T ).
+                                                  χ (mod q)
+If β1 exists, then let                       X
+                          Nq∗ (σ, T ) :=               Nχ (σ, T ) + Nχ∗1 (σ, T ).
+                                           χ (mod q)
+                                             χ6=χ1
+Along with the standard theory of Dirichlet L-functions [2], we use a log-free zero density
+estimate
+Q           that encodes the phenomenon that if β1 exists, then β1 repels all other zeros of
+  χ (mod q) L(s, χ).
+
+Theorem 2.1. Let ε > 0. Let T ≥ 1, q ≥ 2, and 0 ≤ σ ≤ 1. We have the unconditional
+bound
+                                                             12
+(2.1)                             Nq (σ, T ) ≪ε (qT )( 5 +ε)(1−σ) .
+If β1 exists and ν(U) := min{1, (1 − β1 ) log U}, then
+                                                                  37
+(2.2)                          Nq∗ (σ, T ) ≪ε ν(qT )(qT )( 5 +ε)(1−σ) .
+Remark 2.2. Bombieri’s original proof in [1, Ch. 6] of the existence of an absolute and
+effectively computable constant c6 > 0 such that Nq∗ (σ, T ) ≪ ν(qT )(qT )c6(1−σ) is fairly
+complicated. In an earlier version of this manuscript, we had pushed Bombieri’s strategy to
+its limit, proving that one can take c6 to be slightly smaller than 75
+                                                                    4
+                                                                       . The idea behind the
+simple proof below, which has the added benefit of producing stronger numerical exponents,
+was later communicated to us by Heath-Brown.
+        REFINEMENTS TO THE PRIME NUMBER THEOREM FOR ARITHMETIC PROGRESSIONS                       5
+
+Proof. It is well-known that (2.1) follows from the work of Huxley [5] and Jutila [7]. To
+deduce (2.2), let 0 < ε < 1 and let νε an effectively computable and sufficiently small
+positive constant depending only on ε. If ν(qT ) > νε , then the conclusion follows from (2.1)
+by inflating the implied constant if necessary. Therefore, we assume that ν(qT ) ≤ νε , in
+which case our effective lower bound for β1 implies that qT is sufficiently large (depending
+only on ε). The version of the Deuring–Heilbronn phenomenon proved by Jutila [7, Thm 2]
+implies that if σ > 65 and
+                                     1
+(2.3)                      ν(qT ) < (qT )−(2+ε)(1−σ)/(6σ−5) (6σ − 5),
+                                     8
+       ∗
+then Nq (σ, T ) = 0. Hence, (2.2) holds under these assumptions. For the remaining cases,
+our starting point is a trivial consequence from (2.1), namely
+                                                                        12
+                    Nq∗ (σ, T ) ≤ Nq (σ, T ) ≪ε ν(qT )−1 ν(qT )(qT )( 5 +ε)(1−σ) .
+Since we can rescale ε accordingly, it therefore suffices to show ν(qT ) ≫ q −(5+3ε)(1−σ) to
+                                        9
+complete the proof of (2.2). If σ ≤ 10    , then our effective lower bound for β1 implies that
+           −1/2    −5(1−σ)                                    9
+ν(qT ) ≫ q      ≥q         , as required. Otherwise, if σ > 10  and (2.3) does not hold, then
+                                                      10
+                          ν(qT ) ≫ (qT )−(2+ε)(1−σ) 4 ≫ (qT )−(5+3ε)(1−σ) ,
+as required. This proves (2.2).                                                                   
+  Using Theorem 2.1, we prove a highly uniform version of the prime number theorem for
+arithmetic progressions that depends only on a zero-free region for Dirichlet L-functions.
+Theorem 2.3. Let q ≥ 2 and a be coprime integers, and let 4 ≤ h ≤ x. Let λ and θ be as
+in Theorem 1.1. LetQ0 < ε < 1 − θ, and let δ : [1, ∞) → [0, 1] be a function such that for all
+T ≥ e, the product χ (mod q) L(s, χ) does not vanish in the region
+                            {s ∈ C : Re(s) ≥ 1 − δ(T ), |Im(s)| ≤ T }
+except possibly for β1 , if it exists. If λh/ϕ(q) ≥ xθ+ε , then
+    X               λh n           r x log x       n x−ε2 δ(t) ex     x(1−θ)(1−ε) o         o
+          log p =          1 + Oε               sup     √ :        ≤t≤               + x−εθ/2 .
+                   ϕ(q)                 h log q           t     h          q
+  x−h<p≤x
+ p≡a (mod q)
+
+The implied constant is effectively computable and depends at most on ε.
+Remark 2.4. If β1 exists (resp. does not exist) and the exponent 22
+                                                                 5
+                                                                    (resp. 12
+                                                                            5
+                                                                              ) in Theorem 2.1
+is improved to some constant c7 > 0, then Theorem 2.3 holds with θ = 1 − c17 .
+Proof of Theorem 1.1. We use the Vinogradov–Korobov zero-free region for Dirichlet L-
+functions [11, Ch. 9] in Theorem 2.3. In particular, there exists an absolute and effectively
+computable constant c8 > 0 such that for t ≥ e,
+(2.4)                       δ(t) ≥ c8 /(log q + (log t)2/3 (log+ log t)1/3 ).
+           1          1           1        1
+Since e− u+v ≤ e− 2 max{u,v} ≤ e− 2u + e− 2v for u, v > 0, it follows that
+        2
+    x−ε δ(t)         ε2 c log x 1
+                              8
+                                                                  ε2 c8 log x         1     
+      √      ≤ exp −                 − log t + exp −                                   − log t
+         t                  2 log q    2                    2(log t)2/3 (log+ log t)1/3 2
+6                                  JESSE THORNER AND ASIF ZAMAN
+
+for t ≥ e. We maximize these two exponentials over t ∈ [ ex             h
+                                                                          , ∞). The first exponential is
+maximized at the leftmost endpoint t = ex/h. For the second exponential, notice 21 log t and
+        ε2 c8 log x
+2(log t)2/3 (log+ log t)1/3
+                            are the same order of magnitude when log t ≍ (log x)3/5 (log log x)−1/5 .
+Thus, the second exponential is maximized on the interval [ ex          h
+                                                                           , ∞) for a value of t = t0 such
+                                                 3/5            −1/5
+that either t0 = ex/h, or log t0 ≍ε (log x) (log log x)               and t0 ≥ ex/h. This implies that
+              n x−ε2 δ(t) o     r
+                                  h     ε2 c log x      r
+                                                              h                     ε2 c8 log x           
+                                              8
+      sup           √        ≤      exp −              +        exp −
+    t≥ex/h             t          x         2 log q           x            2(log t0 )2/3 (log+ log t0 )1/3
+                                 r
+                                   h                     ε2 c8 log x                 
+                             ≤2      exp −                                              ,
+                                   x        2 log q + 2(log t0 )2/3 (log+ log t0 )1/3
+          1      1          1
+since e− u + e− v ≤ 2e− u+v for u, v > 0. Therefore, by the conditions on t0 , there exists an
+effectively computable constant c1 = c1 (ε) > 0, depending at most on ε, such that
+            r
+               x log x      n x−ε2 δ(t) ex            x(1−θ)(1−ε) o
+                        sup     √ :          ≤t≤                    + x−εθ/2
+               h log q            t      h                  q
+                2 log x                          ε2 c8 log x               
+(2.5)        ≤           exp −                          2/3     +       1/3
+                                                                              + x−εθ/2
+                 log q           2 log q + 2(log t0 ) (log log t0 )
+                                                         c1 log x                            
+             ≪ε exp −                                                                          .
+                           log q + (log hx )2/3 (log+ log xh )1/3 + (log x)2/5 (log log x)1/5
+Inserting this estimate in the conclusion of Theorem 2.3 proves Theorem 1.1.                             
+   The quality of the zero-free region does not impose constraints on the range of q or the
+length of the interval (x−h, x]. These ranges are determined only by the log-free zero density
+estimate in Theorem 2.1. The zero-free region only influences quality of the O-term.
+
+                                     3. Further refinements
+   Zero-free regions other than (2.4) can be used with Theorem 2.3. In some situations, this
+substitution can lead to improvements over Theorem 1.1. We consider two such examples.
+                                                        Q
+3.1. Powerful moduli. Let q ≥ 2, and let d = d(q) = p|q p be the squarefree part of q. It
+follows from work of Iwaniec [6] that in Theorem 2.3, we may take
+(3.1)                  δ(t) ≥ 1/(4 · 104 (log d + (log qt)3/4 (log+ log(qt))3/4 )).
+Inserting (3.1) into Theorem 2.3, we immediately obtain another highly uniform version of
+the prime number theorem for arithmetic progressions.
+                                                                                                   Q
+Corollary 3.1. Let q ≥ 2 and a be coprime integers and let 3 ≤ h < x. Let d = p|q p
+be the squarefree part of q, let λ and θ be as in Theorem 1.1. For all ε > 0, there exists a
+constant c9 = c9 (ε) > 0 such that if λh/ϕ(q) ≥ xθ+ε then
+   X               λh h                                       −c9 log x                            i
+         log p =        1+Oε exp                        3            qx 43           3             3    .
+ x−h<p≤x
+                  ϕ(q)                log d + (log qx
+                                                   h
+                                                      ) 4 (log
+                                                               +
+                                                                 log  h
+                                                                        )  + (log x) 7 (log log x) 7
+
+p≡a (mod q)
+
+The implied constant and c9 are effectively computable.
+        REFINEMENTS TO THE PRIME NUMBER THEOREM FOR ARITHMETIC PROGRESSIONS                                       7
+
+   Corollary 3.1 is a substantial improvement over Theorem 1.1 when q is sufficiently large
+relative to d, in which case q is “powerful.” If β1 exists, then by [15, Lem 6.2], √        there exists
+an absolute and effectively
+                   √        computable constant c10 > 0 such that β1 < 1 − c10 /( d(log d)2 ).
+Thus, if q > exp( d(log d)2 /(50c10 )), then β1 does not exist, λ = 1, and if h/ϕ(q) ≥ x7/12+ε ,
+then there exists an effectively computable congmstant c11 = c11 (d) > 0 such that
+          X               h h                                    −c11 log x                        i
+(3.2)            log p =       1+Od,ε exp               3                3           3             3    .
+        x−h<p≤x
+                         ϕ(q)                 (log qx ) 4 (log+ log qx ) 4 + (log x) 7 (log log x) 7
+                                                            h                h
+        p≡a (mod q)
+
+This can be used to study primes with prescribed digits. Namely, one can asymptotically
+count primes while simultaneously specifying 41.6% of the first and last digits.
+Corollary 3.2. Let A, B, N ≥ 1 and ℓ ≥ 2 be integers with A+B < N. Let Pℓ (N) be the set
+of primes with N digits in their base ℓ expansions. For a prime p ∈ Pℓ (N), write its base ℓ
+              PN −1
+expansion as j=0     dj (p)ℓj . Fix d0 , d1 , . . . , dA−1, dN −B , dN −B+1 , . . . , dN −1 ∈ {0, 1, . . . , ℓ − 1},
+                                                              5
+with dN −1 6= 0 and gcd(d1 , ℓ) = 1. For all 0 < ε < 12         , there exists a constant c12 = c12 (ε, ℓ) >
+                           5
+0 such that if A + B ≤ ( 12 − ε)N, then
+ #{p ∈ Pℓ (N) : dj (p) = dj for 0 ≤ j ≤ A − 1 and N − B + 1 ≤ j ≤ N − 1}
+                                               ℓN −A−B               c12 N 1/4 
+                                            =           1 + Oε,ℓ exp −                 .
+                                                 ϕ(ℓ)                  (log N)3/4
+The implied constant and c12 are effectively computable.
+   The proof is nearly immediate from (3.2). The arithmetic progression condition prescribes
+the A least significant digits, while the short interval condition prescribes the B most signif-
+icant digits. Corollary 3.2 complements work of Swaenepoel [15] wherein a small proportion
+of the digits can be prescribed without any restriction on how significant the digits are.
+3.2. Comparison with work of Gallagher. As far as the authors know, the result closest
+to Theorem 1.1 in the existing literature follows from the seminal work of Gallagher [3, Thm
+7], which we now describe using our notation. Recall the definition of λ in Theorem 1.1.
+With the effective bounds in (1.7), Gallagher’s work implies that there exist absolute and
+effectively computable constants c13 , c14 > 0 such that if
+                                                 p
+(3.3)                    x/q ≤ h ≤ x,        exp( log x) ≤ q ≤ xc13 ,
+then
+                                                                        log x 
+                                                              
+                ϕ(q) X
+                                        
+                                         (1 − β1 )(log q) exp   − c 14         if β1 exists,
+(3.4)        1−                 log p ≪                                 log q
+                 λh
+                                                     log x 
+                     x−h<p≤x            exp − c14
+                                                                               otherwise.
+                    p≡a (mod q)                       log q
+The proof of (3.4) uses a log-free bound on Nq (σ, T ) as in Theorem 2.1, the “standard” zero-
+                                c15
+free region β1 6= β ≤ 1 − log(q(|γ|+3)) and, when β1 exists, the zero-free region (2.3) derived
+from the zero repulsion phenomenon of Deuring and Heilbronn [3, (27)]. This contrasts with
+our use of Nq∗ (σ, T ) when β1 exists and the Vinogradov–Korobov zero-free region (2.4).
+                                         √
+   When β1 does not exist and q ≥ exp( log x), Theorem 1.1 achieves the asymptotic (3.4) in
+a stronger range than (3.3). When β1 exists, an exact comparison of (3.4) with Theorem 1.1
+depends on how large β1 is as an explicit function of q. We observe here that we can estimate
+8                                      JESSE THORNER AND ASIF ZAMAN
+
+(2.5) using both the Vinogradov–Korobov zero-free region and (2.3). This observation leads
+to a mutual refinement of Theorem 1.1 and (3.4) in a range that improves upon (3.3).
+Corollary 3.3. Let q ≥ 2 and a be coprime integers and 4 ≤ h ≤ x. If β1 exists and λ is as
+in Theorem 1.1, then there exist c16 , c17 ∈ (0, 1) such that if λh/ϕ(q) ≥ xc16 , then
+     ϕ(q)      X                                                                −c17 log x                             
+1−                        log p ≪ (1−β1 )(log q) exp                      2              1          2               1    .
+      λh                                                   log q + (log xh ) (log+ log hx ) + (log x) (log log x)
+                                                                          3              3          5               5
+             x−h<p≤x
+            p≡a (mod q)
+
+The implied constant, c16 , and c17 are absolute and effectively computable.
+Proof. Let θ be defined as in Theorem 1.1 and let 0 < ε < 1 − θ. Without loss of
+generality, we may assume that λh/ϕ(q) ≥ xθ+ε and that q is sufficiently large. The
+Deuring–Heilbronn zero-free region (2.3) implies that there exists an absolute and effec-
+tively computable constant c18 > 0 such that δ(t) ≥ (c18 log+ ( (1−β1 )1log(qt) ))/(log(qt)) ≥
+(c18 log+ ( (1−β11) log x ))/(10 log(qt)) for e ≤ t ≤ xq . Consequently, if e ≤ t ≤ xq , then
+                                                   2          +       1
+                                                                               
+                    x −ε2 δ(t)
+                                  √             ε   c 18 log    (1−β1 ) log x
+                                                                                 log x 1         
+                       √       ≤ q exp −                                               − log(qt) .
+                          t                                   10 log(qt)                  2
+                                                                    ex
+The maximum value of this exponential over t ∈ [ h , ∞) occurs at a value t = t1 such that
+either t1 = ex/h, or log(qt1 ) ≍ε (log+ ( (1−β11) log x ) log x)1/2 and t1 ≥ ex/h. Therefore, there
+exists an effectively computable constant c19 = c19 (ε) > 0 such that if λh/ϕ(q) ≥ xθ+ε , then
+                  r
+                       x log x       n x−ε2 δ(t) ex              x(1−θ)(1−ε) o
+                                 sup     √ :              ≤t≤                      + x−εθ/2
+                       h log q             t         h                 q
+(3.5)                                             c19 log+ ( (1−β11) log x ) log x
+                          log x                                                          
+                                                                                              −εθ/2
+                    ≪ε           exp −                                                1/2 + x      .
+                           log q                qx            +      1
+                                          log h + log ( (1−β1 ) log x ) log x
+  This estimate, in conjunction with (2.5), leads to the best bound that Theorem 2.3 and
+(2.3) allow. We slightly weaken this bound for easy comparison with (3.4). Let 0 < η <
+                                                   2
+1 − θ − ε. Henceforth, assume that λh/ϕ(q) ≥ x1−η , in which case (1.7) implies
+            log q ≤ log(qx/h) ≤ (1 + ε) log(ϕ(q)x/h) + Oε (1) ≤ (1 + ε)η 2 log x + Oε (1).
+Using (1 − β1 ) log q ≫ q −1/2 in (1.2), we obtain the bounds
+               1                          1                                                               2
+log+                        ≤ log+                     + O(1) ≪ log q,             x−1 ≪ (1 − β1 ) log q)1/η .
+          (1 − β1 ) log x            (1 − β1 ) log q
+Collecting these estimates, we deduce that there exists effectively computable constant c20 =
+c20 (ε) > 0 such that (3.5) is ≪η,ε log      x
+                                         log q
+                                               ((1 − β1 ) log x)c20 /η = ( log x 3
+                                                                           log q
+                                                                                 ) ((1 − β1 ) log q)2 . The last
+equality follows upon fixing η = c220 . Taking the minimum of this estimate for (3.5) and the
+unconditional bound (2.5), the result follows since min{u, v} ≤ u1/2 v 1/2 for u, v > 0. Powers
+of log  x
+    log q
+           are absorbed by the exponential when c17 is chosen to be suitably small.                           
+
+             4. A flexible prime number theorem: Proof of Theorem 2.3
+  We provide the details in the most complicated case where β1 exists using Nq∗ (σ, T ) and
+    32
+θ = 37 . All implied constants here are effectively computable. We begin by proving (1.7).
+Lemma 4.1. If β1 exists and 4 ≤ x1/2 ≤ h ≤ x, then 18 min{1, (1 − β1 ) log x} < λ < 2.
+        REFINEMENTS TO THE PRIME NUMBER THEOREM FOR ARITHMETIC PROGRESSIONS                      9
+
+                                          1
+Proof. If β1 exists, then β1 ≥ 1 − 13 log(3q)     per the aforementioned work of McCurley [10].
+               6
+If q ≤ 2 × 10 and χ (mod q) is primitive, then L(s, χ) has no real nontrivial zeros [14].
+                                99
+Therefore, if β1 exists, then 100  < β1 < 1. If ξ ∈ (x − h, x) satisfies (1.5), then we have the
+                            β1 h/x
+explicit equality ξ = x( 1−(1−h/x)β1 )1/(1−β1 ) . The bounds x3 < ξ < x follow from our ranges
+for β1 and h. Since x ≥ 4, we have ξ > 1 and log x ≤ 5 log ξ, which we will use repeatedly.
+   To bound λ from above, we have λ = 1 − χ1 (a)ξ β1 −1 < 1 + (x/3)β1 −1 < 2. For lower
+bounds, we use casework. If χ1 (a) = −1, then min{1, (1 − β1 ) log x} ≤ 1 < 1 + ξ β1−1 = λ.
+Recall that ν(U) = min{1, (1 − β1 ) log U}, so 0 < ν(ξ) ≤ 1. If χ1 (a) = 1 and ν(ξ) = 1, then
+              min{1, (1 − β1 ) log x} ≤ 5ν(ξ) = 5 < 5(1 − e−1 ) ≤ 5(1 − ξ β1 −1 ) = 5λ.
+If χ1 (a) = 1 and 0 < ν(ξ) < 1, then λ = 1 − e−ν(ξ) , and the bound
+                                          ν(ξ) ν(ξ)2                   95
+   min{1, (1 − β1 ) log x} ≤ 5ν(ξ) < 5 1 +      +         (1 − e−ν(ξ) ) < (1 − e−ν(ξ) ) < 8λ
+                                            2       12                   12
+                                         t
+follows from the Taylor expansion of 1−e−t at t = 0. These cases exhaust all possibilities. 
+Proof of Theorem 2.3. It suffices to consider h ≤ x − 1. Fix 0 < ε < 1 − θ, and assume that
+(4.1)                                       λh/ϕ(q) ≥ xθ+ε .
+The explicit formula [2, Ch. 17–20] implies that if q, T, x ≥ 2, then
+  ∞
+  X        X                     x     χ1 (a) xβ1 X χ̄(a)  X′ xρ X 1 
+                      log p =        −           −               −
+  k=1
+                                ϕ(q)   ϕ(q) β1     χ
+                                                     ϕ(q) β>0 ρ     ρ
+          pk ≤x                                                       |γ|<1
+        p≡a (mod q)                                         |γ|≤T
+           1  x log x + T                  x(log x)(log T )                     x(log x)2 
+        +O                  log q + log x +                     + (log x)(log q) +             ,
+           ϕ(q)       T                             T                                  T
+where χ is a sum over characters χ (mod q) and ′ is a sum over non-trivial zeros ρ =
+      P                                               P
+
+β +√iγ 6= β1 of L(s, χ). The contribution
+                                 P         from pk ≤ x with k ≥ 2 is trivially bounded by
+≪ x using Chebyshev’s bound p≤x log p ≪ x, leading to the equation
+             X                    x     χ1 (a) xβ1 X χ̄(a) X′  xρ X 1 
+(4.2)                  log p =        −           −               −
+            p≤x
+                                 ϕ(q)   ϕ(q) β1     χ
+                                                      ϕ(q) β>0
+                                                                ρ    ρ
+                                                                       |γ|<1
+         p≡a (mod q)                                        |γ|≤T
+      1  x log x + T                 x(log x)(log T )                     x(log x)2 √ 
++O                     log q + log x +                    + (log x)(log q) +          + x .
+      ϕ(q)      T                             T                                  T
+We apply (4.2) twice with T = x(1−θ)(1−ε) (once with p ≤ x and once with p ≤ x − h). Our
+assumption (4.1) then yields
+          λh        X                 1 X        X′       xρ − (x − h)ρ    λh −εθ/2
+    E :=      −           log p ≪ε                                      +      x    .
+         ϕ(q)     x−h<p≤x
+                                   ϕ(q) χ        β>0
+                                                                ρ         ϕ(q)
+                        p≡a (mod q)                 |γ|≤x(1−θ)(1−ε)
+
+  Recall that h ≤ x − 1. Using the bounds
+                   Z x             Z x
+ xρ − (x − h)ρ           ρ−1                                                   xρ − (x − h)ρ   xβ
+                =       τ dτ ≪          τ β−1 dτ ≪ h(x − h)β−1 ,                             ≪
+       ρ            x−h             x−h                                              ρ         |ρ|
+10                                    JESSE THORNER AND ASIF ZAMAN
+                                          s       s
+as well as Taylor’s theorem for x −(x−h)
+                                    s
+                                         when |s| ≤ log1 x , we find that
+                                  
+                                  hx
+                                      β−1
+                                           log x if 0 < β < 14 and |γ| ≤ ex/h,
+                xρ − (x − h)ρ
+                                  
+                               ≪ hxβ−1           if β ≥ 41 and |γ| ≤ ex/h,
+                      ρ           xβ /|γ|
+                                  
+                                                 if |γ| > ex/h.
+(Separately consider the cases where h ≤ x2 and x2 < h ≤ x − 1.) For t ∈ R, there are
+≪ log(q(|t| + 1)) zeros of L(s, χ) such that |t − γ| ≤ 1 [2, §16]. Once we use this to trivially
+estimate the contribution from the ρ with β ≤ θ + ε − εθ, it follows from (4.1) that
+                   1 X X′ xβ                 1 X             X′        xβ     λh −εθ/2
+(4.3)      E ≪ε                          +                                 +      x     .
+                 ϕ(q) χ β>θ+ε−εθ x/h ϕ(q) χ               β>θ+ε−εθ
+                                                                       |γ|   ϕ(q)
+                                   |γ|≤ex/h                        ex/h<|γ|≤x(1−θ)(1−ε)
+
+We dyadically decompose [ex/h, x(1−θ)(1−ε) ] into O(log x) subintervals, so that (4.3) leads to
+                                    ⌈(1−θ)(1−ε) log x⌉ 
+                              1           X                X      X′    xβ     λh −εθ/2
+(4.4)                   E ≪ε                                             k
+                                                                             +      x    .
+                             ϕ(q)                          χ   β>θ+ε−εθ
+                                                                        e      ϕ(q)
+                                     k=⌈log(ex/h)⌉
+                                                                 |γ|≤ek
+
+  We claim that if ex/h ≤ T ≤ ex(1−θ)(1−ε) , then
+      X X′ xβ             log x  x      n x−ε2 δ(t) ex     x(1−θ)(1−ε) o                
+(4.5)                ≪ε λ        √ sup         √ :      ≤t≤               +qxθ+ε−εθ log x .
+      χ β>θ+ε−εθ
+                   T      log q    T            t     h         q
+                |γ|≤T
+
+Assuming this claim, we sum over k, applying (4.4) and (4.5), to obtain
+              r
+         λh  x log x        n x−ε2 δ(t) ex     x(1−θ)(1−ε) o qxθ+ε−εθ log x         
+   E ≪ε                  sup     √ :        ≤t≤              +               + x−εθ/2 .
+        ϕ(q)     h log q           t     h          q                h
+                     λh     2h
+Notice that xθ+ε ≤ ϕ(q)  < ϕ(q) by Lemma 4.1 and (4.1). Also, since h ≤ x, it follows that
+log q ≪ε log x, hence q ≪ε ϕ(q)xεθ/4 . Overall, this shows that qxθ+ε−εθ log x ≪ε hx−εθ/2 .
+This establishes Theorem 2.3 subject to our claim, which we now prove.
+  Let ex/h ≤ T ≤ ex(1−θ)(1−ε) . By partial summation and Theorem 2.1, we find that
+ X X′ xβ            xθ+ε−εθ ∗                    x log x 1−δ(T ) ∗
+                                                        Z
+                 ≤         Nq (θ + ε − εθ, T ) +                Nq (σ, T )xσ−1 dσ
+  χ β>θ+ε−εθ
+               T       T                            T    θ+ε−εθ
+        |γ|≤T
+                                                                                      Z 1−δ(T )    1+ε
+                                   xθ+ε−εθ             1+ε                 x log x    (qT ) 1−θ 1−σ 
+                                                      ( 1−θ )(1−θ−ε+εθ)
+                        ≪ε ν(qT )         (qT )                           +                           dσ
+                                      T                                        T
+                                                                             θ+ε−εθ       x
+                                                                                              1+ε
+                                  
+                                    1−ε2 θ+ε−εθ                 x log x             1  (qT ) 1−θ δ(T ) 
+                        ≪ε ν(qT ) q     x       log x +               1+ε        ·                        .
+                                                        | log(x/(qT ) 1−θ )| + 1 T         x
+Since T ≤ ex(1−θ)(1−ε) and log q ≪ε log x, the definition of ν implies that ν(qT ) ≪ε ν(q) log      x
+                                                                                                log q
+                                                                                                      .
+                                                   2
+The bounds for λ in (1.7) and the inequality q 1−ε < q then imply that
+                                                                                        1+ε
+      X X′ xβ                log x  θ+ε−εθ                 x log x           1  (qT ) 1−θ δ(T ) 
+(4.6)                  ≪ε λ         qx      log x +               1+ε       ·                       .
+       χ β>θ+ε−εθ
+                    T        log q                  | log(x/(qT ) 1−θ )| + 1 T       x
+                |γ|≤T
+      REFINEMENTS TO THE PRIME NUMBER THEOREM FOR ARITHMETIC PROGRESSIONS                                  11
+
+To estimate the second term in the parentheses, consider cases depending on the size of T .
+                                                                                              1+ε
+First, suppose that x(1−θ)(1−ε) /q ≤ T ≤ ex(1−θ)(1−ε) . In this range, the ratio (qT ) 1−θ /x may
+exceed 1. Since 0 ≤ δ(T ) ≤ 1 − θ − ε < (1 − θ)(1 − ε), this implies that
+                                    1+ε                                    1+ε
+        x log x           1  (qT ) 1−θ δ(T )   x log x       h  (qT ) 1−θ   (1−θ)(1−ε) i
+               1+ε                             ≪          min 1,
+| log(x/(qT ) 1−θ )| + 1 T        x                 T                    x
+                                                       h x log x                      i
+                                                                    1−ε2 θ+ε−εθ −ε2
+                                               ≪ε min            ,q     x        T      ≪ε qxθ+ε−εθ log x,
+                                                            T
+                   (1−θ)(1−ε)
+because T ≥ x                 /q and T ≥ e by assumption. This proves the claim (4.5) when
+x(1−θ)(1−ε) /q ≤ T ≤ ex(1−θ)(1−ε) . Finally, if ex/h ≤ T < x(1−θ)(1−ε) /q, then
+                                    1+ε                   2                    2
+      (x/T ) log x           (qT ) 1−θ δ(T )        x1−ε δ(T )     x    n x−ε δ(t) ex     x(1−θ)(1−ε) o
+               1+ε                               ≪ε              ≪ε √ sup     √     :   ≤t≤               .
+ | log(x/(qT ) 1−θ )| + 1         x                      T            T         t     h         q
+These observations and (4.6) complete the proof of the claim.                                              
+  Remark 1.2 follows by using (1.6) instead of (1.7) to deduce (4.6). Remark 1.3 follows by
+using the bound for Nq (σ, T ) in Theorem 2.1 instead of Nq∗ (σ, T ) in our proof of Theorem 2.3;
+                                                                                             c2
+the point is that ν(qT ) ≍ 1 when there exists a fixed constant c2 > 0 such that β1 ≤ 1 − log   q
+                                                                                                  .
+
+                                                      References
+ [1] E. Bombieri. Le grand crible dans la théorie analytique des nombres. Asterisque, (18):103, 1987.
+ [2] H. Davenport. Multiplicative number theory, volume 74 of Graduate Texts in Mathematics. Springer-
+     Verlag, New York, third edition, 2000. Revised and with a preface by Hugh L. Montgomery.
+ [3] P. X. Gallagher. A large sieve density estimate near σ = 1. Invent. Math., 11:329–339, 1970.
+ [4] G. Hoheisel. Primzahl probleme in der Analysis. S.-B. Preuss. Akad. Wiss., 8:580–588, 1930.
+ [5] M. N. Huxley. Large values of Dirichlet polynomials. III. Acta Arith., 26(4):435–444, 1974/75.
+ [6] H. Iwaniec. On zeros of Dirichlet’s L series. Invent. Math., 23:97–104, 1974.
+ [7] M. Jutila. On Linnik’s constant. Math. Scand., 41(1):45–62, 1977.
+ [8] D. Koukoulopoulos. Pretentious multiplicative functions and the prime number theorem for arithmetic
+     progressions. Compos. Math., 149(7):1129–1149, 2013.
+ [9] U. V. Linnik. On the least prime in an arithmetic progression. I. The basic theorem. Rec. Math. [Mat.
+     Sbornik] N.S., 15(57):139–178, 1944.
+[10] K. S. McCurley. Explicit zero-free regions for Dirichlet L-functions. J. Number Theory, 19(1):7–32, 1984.
+[11] H. L. Montgomery. Ten lectures on the interface between analytic number theory and harmonic analysis,
+     volume 84 of CBMS Regional Conference Series in Mathematics. Published for the Conference Board
+     of the Mathematical Sciences, Washington, DC; by the Amer. Math. Soc., Providence, RI, 1994.
+[12] H. L. Montgomery and R. C. Vaughan. The large sieve. Mathematika, 20:119–134, 1973.
+[13] J. Pintz. Elementary methods in the theory of L-functions. II. On the greatest real zero of a real
+     L-function. Acta Arith., 31(3):273–289, 1976.
+[14] D. J. Platt. Numerical computations concerning the GRH. Math. Comp., 85(302):3009–3027, 2016.
+[15] C. Swaenepoel. Prime numbers with a positive proportion of preassigned digits. Proc. Lond. Math. Soc.
+     (3), 121(1):83–151, 2020.
+
+  Department of Mathematics, University of Illinois, Urbana, IL 61801, United States
+  Email address: jesse.thorner@gmail.com
+
+ Department of Mathematics, University of Toronto, 40 St. George Street, Toronto,
+ON, Canada M5S 2E4
+ Email address: zaman@math.toronto.edu
+

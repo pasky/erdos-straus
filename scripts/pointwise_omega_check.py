@@ -1,0 +1,299 @@
+#!/usr/bin/env python3
+"""POINTWISE_OMEGA.md machine checks (EVIDENCE; the theorems do not depend on them).
+
+  local  T nsamp seed : the prime-local reduction (Lemma 2.1).  For y=sqrt(T) and Q_y, draw random
+                        n = 1 (mod Q_y) and compare  W(n)>T  (direct, all M<=T, M=3 mod 4, via (58.3))
+                        with  "n mod l not in F_l for every prime y<l<=T".  Also re-checks every
+                        sampled survivor directly.  Must report 0 mismatches.
+  lemma  X            : brute-force check of the algebra in Lemma 2.3 for all M<=X:
+                        (i) D -> A^2/D preserves m | 4D+1;  (ii) for D<=A, D=s r^2 (s squarefree),
+                        A = s r k with k>=r and m | r+k.
+  primes T K          : the first K primes p = 1 (mod Q_y) passing the prime-local sieve (hence W(p)>T),
+                        with log p, T/log p, log T/log log p and the actual W(p) (scan to 50*T).
+Usage: PYTHONPATH=scripts uv run python scripts/pointwise_omega_check.py local 4095 20000 1
+"""
+import sys
+import random
+from math import log, gcd, isqrt
+from sympy import isprime, primerange
+from pointwise_omega_S import spf_table, factor, divisors_from, residual_system
+
+
+def Qy(T, y):
+    Q = 24
+    for l in primerange(2, int(y) + 1):
+        e = 1
+        while l ** (e + 1) <= T:
+            e += 1
+        Q = Q * l ** e // gcd(Q, l ** e)
+    return Q
+
+
+def R_tables(Tmax, spf):
+    """M -> set R(M) = {-4D mod M : D | A^2}, A=(M+1)/4, all M<=Tmax, M=3 (4)."""
+    R = {}
+    for M in range(3, Tmax + 1, 4):
+        A = (M + 1) // 4
+        f = {p: 2 * e for p, e in factor(A, spf).items()}
+        R[M] = {(-4 * D) % M for D in divisors_from(f)}
+    return R
+
+
+def W_direct(n, R, Tmax):
+    for M in range(3, Tmax + 1, 4):
+        if n % M in R[M]:
+            return M
+    return None  # > Tmax
+
+
+def cmd_local(T, nsamp, seed):
+    y = isqrt(T)
+    if y * y < T:
+        y += 0  # y = floor(sqrt T); prime-locality needs l > y >= T/l
+    spf = spf_table(4 * T + 8)
+    F = residual_system(T, y, spf)
+    Q = Qy(T, y)
+    R = R_tables(T, spf)
+    rng = random.Random(seed)
+    mism = surv = 0
+    for _ in range(nsamp):
+        n = 1 + Q * rng.randrange(1, 10 ** 30)
+        avoid = all((n % l) not in Fl for l, Fl in F.items())
+        wbig = W_direct(n, R, T) is None
+        if avoid != wbig:
+            mism += 1
+        surv += avoid
+    # force survivors: sample n residue-wise (CRT) conditioned on avoidance, check directly
+    forced_fail = 0
+    for _ in range(min(2000, nsamp)):
+        n, mod = 1, Q
+        for l, Fl in F.items():
+            a = rng.randrange(1, l)
+            while a in Fl:
+                a = rng.randrange(1, l)
+            # CRT: n = 1 (Q...), n = a (l)
+            t = ((a - n) * pow(mod, -1, l)) % l
+            n, mod = n + mod * t, mod * l
+        if W_direct(n, R, T) is not None:
+            forced_fail += 1
+    print(f"local T={T} y={y} log Q_y={log(Q):.2f} #free primes={len(F)} samples={nsamp} "
+          f"survivors={surv} mismatches={mism} forced-survivor failures={forced_fail}")
+    if mism or forced_fail:
+        sys.exit(1)
+
+
+def cmd_lemma(X):
+    spf = spf_table(4 * X + 8)
+    bad1 = bad2 = cnt = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        f = {p: 2 * e for p, e in factor(A, spf).items()}
+        Ds = divisors_from(f)
+        for m in range(1, M + 1):
+            if M % m:
+                continue
+            for D in Ds:
+                if (4 * D + 1) % m:
+                    continue
+                cnt += 1
+                if (4 * (A * A // D) + 1) % m:
+                    bad1 += 1
+                if D <= A:
+                    fd = factor(D, spf) if D > 1 else {}
+                    s = 1
+                    r = 1
+                    for p, e in fd.items():
+                        if e % 2:
+                            s *= p
+                        r *= p ** (e // 2)
+                    if A % (s * r):
+                        bad2 += 1
+                        continue
+                    k = A // (s * r)
+                    if k < r or (r + k) % m:
+                        bad2 += 1
+    print(f"lemma X={X}: checked {cnt} (M,m,D) with m|M, D|A^2, m|4D+1; "
+          f"involution failures={bad1}; (s,r,k) failures={bad2}")
+    if bad1 or bad2:
+        sys.exit(1)
+
+
+def cmd_primes(T, K):
+    y = isqrt(T)
+    spf = spf_table(4 * 50 * T + 8)
+    F = residual_system(T, y, spf)
+    Q = Qy(T, y)
+    R = R_tables(50 * T, spf)
+    print(f"primes T={T} y={y} log Q_y={log(Q):.2f}  (class of one: log L*(T) ~ {2*T/3:.0f})")
+    found, k = 0, 0
+    while found < K:
+        k += 1
+        p = 1 + k * Q
+        if any((p % l) in Fl for l, Fl in F.items()):
+            continue
+        if not isprime(p):
+            continue
+        found += 1
+        W = W_direct(p, R, 50 * T)
+        assert W is None or W > T
+        lp = log(p)
+        print(f"  k={k} log p={lp:.2f} T/log p={T/lp:.2f} log T/log log p={log(T)/log(lp):.3f} "
+              f"W(p)={W if W else '>'+str(50*T)} W/log p={'' if W is None else round(W/lp, 1)}")
+
+
+def cmd_hub(T, theta):
+    """Section 6.3: for y=T^theta<sqrt T, the single-prime forbidden sets F_l (atoms M=m*l<=T with
+    m y-smooth, conditioned on n=1 mod Q_y) and the irredundant pair hub -2: count primes
+    l in (y, sqrt(T/3)], l = 3 or 7 (mod 8), with -2 not in F_l."""
+    y = T ** theta
+    spf = spf_table(4 * T + 8)
+
+    def smooth(m):
+        return all(p <= y for p in factor(m, spf)) if m > 1 else True
+    top = isqrt(T // 3)
+    tot = {3: 0, 7: 0}
+    free = {3: 0, 7: 0}
+    for l in primerange(int(y) + 1, top + 1):
+        if l % 8 not in (3, 7):
+            continue
+        tot[l % 8] += 1
+        hit = False
+        for m in range(1, T // l + 1):
+            if (m * l) % 4 != 3 or not smooth(m):
+                continue
+            A = (m * l + 1) // 4
+            f = {p: 2 * e for p, e in factor(A, spf).items()}
+            for D in divisors_from(f):
+                if (4 * D + 1) % m == 0 and (4 * D - 2) % l == 0:
+                    hit = True
+                    break
+            if hit:
+                break
+        if not hit:
+            free[l % 8] += 1
+    print(f"hub T={T} theta={theta} y={y:.1f} sqrt(T/3)={top}: primes l=3 (8): {free[3]}/{tot[3]} "
+          f"have -2 not in F_l;  l=7 (8): {free[7]}/{tot[7]}")
+
+
+def cmd_pairs(T, theta):
+    """Section 6.3: for y=T^theta, list the multi-prime atoms (rough part r = product of >=2 primes
+    > y) after the class-of-one quarantine, and test whether each is implied by a single-prime atom
+    (its residue mod some l | r lies in F_l)."""
+    y = T ** theta
+    spf = spf_table(4 * T + 8)
+    F = {}
+    multi = []
+    ppow = 0  # atoms whose free part is a single prime power l^e, e>=2 (not multi-prime)
+    for M in range(3, T + 1, 4):
+        f = factor(M, spf)
+        rough = [p for p in f if p > y]
+        if not rough:
+            continue
+        r = 1
+        for p in rough:
+            r *= p ** f[p]
+        m = M // r
+        A = (M + 1) // 4
+        fa = {p: 2 * e for p, e in factor(A, spf).items()}
+        cls = {(-4 * D) % r for D in divisors_from(fa) if (4 * D + 1) % m == 0}
+        if len(rough) == 1 and f[rough[0]] == 1:
+            F.setdefault(rough[0], set()).update(cls)
+        elif len(rough) == 1:
+            ppow += len(cls)
+        else:
+            multi.append((M, m, tuple(rough), cls))
+    n_at = n_irr = 0
+    irr_examples = []
+    for M, m, rough, cls in multi:
+        for c in cls:
+            n_at += 1
+            if not any((c % l) in F.get(l, ()) for l in rough):
+                n_irr += 1
+                if len(irr_examples) < 8:
+                    irr_examples.append((M, m, rough, c))
+    # irredundant hub classes -d: graph on primes l with (-d mod l) not in F_l, edge if -d mod l1*l2
+    # is an irredundant two-prime atom
+    hubs = {}
+    for M, m, rough, cls in multi:
+        if len(rough) != 2:
+            continue
+        r = M // m
+        for c in cls:
+            d = r - c
+            if d <= 60 and not any((c % l) in F.get(l, ()) for l in rough):
+                hubs.setdefault(d, set()).add(rough)
+    best = sorted(((len(E), d) for d, E in hubs.items()), reverse=True)[:6]
+    for ne, d in best:
+        V = {l for e in hubs[d] for l in e}
+        print(f"   hub class -{d}: {ne} irredundant two-prime atoms on {len(V)} primes")
+    print(f"pairs T={T} theta={theta} y={y:.1f}: multi-prime moduli={len(multi)} atoms={n_at} "
+          f"irredundant w.r.t. single-prime atoms={n_irr} (separately: {ppow} prime-power atoms l^e, e>=2)")
+    for e in irr_examples:
+        M, m, rough, c = e
+        print(f"   e.g. M={M} m={m} rough={rough} class {c} mod {M//m}: residues "
+              f"{[c % l for l in rough]}")
+
+
+def cmd_typeI(X, cklim):
+    """Section 8 (EVIDENCE): for primes p=1 (mod 24), p<X, compute ck_min(p) (notes (48.9): least ck over
+    admissible slices with sf(c) not in {1,2,3,6} having a divisor of p^2+4ck^2 that is = -p mod 4ck) and
+    the least quadratic non-residue n_p; check Lemma 8.1 (ck_min >= n_p)."""
+    from sympy import isprime, factorint, divisors
+    from sympy.functions.combinatorial.numbers import legendre_symbol
+
+    def sf(c):
+        r = 1
+        for q, e in factorint(c).items():
+            if e % 2:
+                r *= q
+        return r
+    viol = n = eq = 0
+    worst = []
+    for p in range(25, X, 24):
+        if not isprime(p):
+            continue
+        n += 1
+        npq = 2
+        while legendre_symbol(npq, p) == 1:
+            npq += 1
+        ckm = None
+        for P in range(1, cklim + 1):
+            for c in divisors(P):
+                k = P // c
+                if sf(c) in (1, 2, 3, 6) or k > 2 * p // 3 or c > (2 * p + k) // (4 * k) or P % p == 0:
+                    continue
+                h = 4 * c * k
+                N = p * p + 4 * c * k * k
+                if any(d % h == (-p) % h for d in divisors(N)):
+                    ckm = P
+                    break
+            if ckm:
+                break
+        if ckm is not None and ckm < npq:
+            viol += 1
+        if ckm == npq:
+            eq += 1
+        worst.append((npq, ckm, p))
+    cens = sum(1 for _, c, _ in worst if c is None)
+    worst.sort(key=lambda t: (t[0], -1 if t[1] is None else t[1]), reverse=True)
+    print(f"typeI X={X}: {n} primes p=1 (24); violations of ck_min>=n_p: {viol}; ck_min==n_p: {eq}; "
+          f"censored (ck_min>{cklim}): {cens}")
+    print("  largest n_p (n_p, ck_min, p):", worst[:6])
+    if viol:
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    c = sys.argv[1]
+    if c == "local":
+        cmd_local(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]))
+    elif c == "lemma":
+        cmd_lemma(int(sys.argv[2]))
+    elif c == "primes":
+        cmd_primes(int(sys.argv[2]), int(sys.argv[3]))
+    elif c == "pairs":
+        cmd_pairs(int(sys.argv[2]), float(sys.argv[3]))
+    elif c == "typeI":
+        cmd_typeI(int(sys.argv[2]), int(sys.argv[3]))
+    elif c == "hub":
+        cmd_hub(int(sys.argv[2]), float(sys.argv[3]))

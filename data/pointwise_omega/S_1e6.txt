@@ -1,0 +1,2 @@
+T=1000000 y=T^0.5=1000.0 #primes=78330 S=38.4911 g_max=0.0827 (l=1319) max|F_l|=1977 crude_mass=1951.69 logT=13.82
+  Lemma 2.3 majorant = 4044.2

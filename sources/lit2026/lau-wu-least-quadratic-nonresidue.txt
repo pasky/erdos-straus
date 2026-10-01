@@ -1,0 +1,641 @@
+                 ON THE LEAST QUADRATIC NON-RESIDUE
+
+                                   YUK-KAM LAU AND JIE WU
+
+
+        Abstract. We prove that for almost all real primitive characters χd of modulus |d|,
+        the least positive integer nχd at which χd takes a value not equal to 0 and 1 satisfies
+        nχd  log |d|, and give a quite precise estimate on the size of the exceptional set.
+
+
+
+
+                                          1. Introduction
+
+   Let q ≥ 2 be an integer and χ a non principal Dirichlet character modulo q. Here the
+evaluation of the least integer nχ among all positive integers n for which χ(n) 6= 0, 1 is
+referred as Linnik’s problem. In case χ coincides with the Legendre symbol, nχ is a least
+quadratic non-residue. Concerning the size of nχ , Pólya-Vinogradov’s inequality
+                                     X
+(1.1)                           max      χ(n)  q 1/2 log q
+                                    x≥1
+                                           n≤x
+
+implies trivially nχ  q 1/2 log q. But for prime q, Vinogradov [21] proved the better bound
+                                                    √
+(1.2)                                  nχ  q 1/(2 e) (log q)2
+by combining a simple argument with (1.1). He also conjectured that nχ ε q ε for all
+integers q ≥ 2 and any ε > 0. Under the Generalized Riemann Hypothesis (GRH), Linnik
+[16] settled this conjecture, and later Ankeny [1] gave a sharper estimate
+(1.3)                                       nχ  (log q)2
+(still assuming GRH). Burgess ([3], [4], [5]) wrote a series of important papers on sharp-
+ening (1.1). His well known estimate on character sums is as follows: For any ε > 0, there
+is δ(ε) > 0 such that
+                                  X
+(1.4)                                  χ(n) ε xq −δ(ε)
+                                          n≤x
+
+provided x ≥ q 1/3+ε . The last condition can be improved to x ≥ q 1/4+ε if q is cubefree.
+When q is prime, Burgess deduced, via (1.4) and Vinogradov’s argument,
+                                                        √
+(1.5)                                     nχ ε q 1/(4 e)+ε .
+An entirely straightforward modification yields
+                                (        √
+                                   q 1/(4 e)+ε if q is cubefree,
+                          nχ ε          √
+                                   q 1/(3 e)+ε otherwise.
+(However we would remark that we could not find this result in literature.)
+
+  2000 Mathematics Subject Classification. 11K31.
+  Key words and phrases. Special sequences.
+                                                    1
+2                                 YUK-KAM LAU AND JIE WU
+
+   Let us now focus on real primitive characters. Denote D (resp. D(Q)) to be the set of
+fundamental discriminants d (resp. with |d| ≤ Q), that is, the set of non-zero integers d
+which are products of coprime factors of the form −4, 8, −8, p0 where p0 := (−1)(p−1)/2 p
+(p odd prime). Also, we write K (resp. K(Q)) for the set of real primitive characters (resp.
+with modulus q ≤ Q). Then there is a bijection between D and K given by
+                                                  
+                                                  d
+                                   d 7→ χd (·) =
+                                                  · K
+where d· K is the Kronecker symbol. Note that the modulus of χd equals |d| and
+         
+
+                                                 6
+(1.6)                        |D(Q)| = |K(Q)| =     Q + O(Q1/2 ).
+                                                π2
+   In the opposite direction of (1.2), Fridlender [12], Salié [20] and Chowla & Turán (see
+[10]) independently showed that there are infinitely many primes p for which
+(1.7)                                     nχp0  log p,
+or in other words, nχp0 = Ω(log p). Under GRH, Montgomery [18] gave a stronger result
+nχp0 = Ω(log p log2 p), where logk denotes the k-fold iterated logarithm. Without any
+assumption Graham & Ringrose [13] obtained nχp0 = Ω(log p log3 p). In view of these
+results, it is natural to wonder what is the size of the majority of nχp0 , or more generally
+nχd . Indeed the density of p0 for which nχp0 satisfies (1.7) is low. This can be seen from
+Erdős’ result [11],
+                                     1 X
+(1.8)                           lim          nχp0 = constant,
+                               x→∞ π(x)
+                                            p≤x
+
+where π(x) denotes the number of primes up to x. This result is extended and refined by
+Elliott in [7] and [8]. Using (1.8) or its refinement in [7], it follows, for any fixed constant
+δ > 0, that
+                                      X                x
+(1.9)                                          1 δ          .
+                                                    (log x)2
+                                       p≤x
+                                   nχp0 ≥δ log p
+
+In [6], Duke & Kowalski indicated: Let α > 1 be given. Denote by N (Q, α) the number
+of primitive characters χ (not necessarily real) of modulus q ≤ Q such that χ(n) = 1 for
+all n ≤ (log Q)α and (n, q) = 1. Then one has
+                                      N (Q, α) ε Q2/α+ε
+for all ε > 0. Therefore
+                           |{|d| ≤ Q : nχd ≥ (log Q)α }| ε Q2/α+ε .
+However, in view of (1.6) this result is non-trivial only when α > 2 and it tells that
+nχd ≤ (log |d|)2+ε for almost all fundamental discriminants d. Very recently Baier [2]
+improved 2 + ε to 1 + ε by using the large sieve inequality of Heath-Brown [14] for real
+primitive characters. However, the argument is unable to cover the case α = 1 or to
+provide information on the sparsity of the primes p with nχp0  log p as in (1.9).
+   The purpose of this paper is two-fold. The first goal is to supplement the case α = 1,
+using the large sieve inequality of Elliott-Montgomery-Vaughan (see [9] and [19]). We
+obtain an almost all result, which is strong enough to yield a tighter estimate on the low
+density of exceptional non-residues than in (1.9).
+                            ON THE LEAST QUADRATIC NON-RESIDUE                               3
+
+Theorem 1.1. For 2 ≤ P ≤ Q, define
+              E(Q, P ) := {d ∈ D(Q) : χd (p) = 1 for P < p ≤ 2P and p - |d|}.
+Then there are two absolute positive constants C and c such that
+(1.10)                           |E(Q, P )|  Qe−c(log Q)/ log2 Q
+holds uniformly for Q ≥ 10 and C log Q ≤ P ≤ (log Q)2 . In particular we have
+(1.11)                                    nχd  log |d|
+for all but except O Qe−c(log Q)/ log2 Q characters χd ∈ K(Q).
+                                        
+
+  Sections 2 and 3 are devoted to the proof of Theorem 1.1.
+  Our second goal is to point out that the upper bound (1.10) for exceptional real primitive
+characters set is quite optimal.
+
+Theorem 1.2. For any fixed constant δ > 0, there are a sequence of positive real numbers
+{Qn }∞
+     n=1 with Qn → ∞ and a positive constant c such that
+                           X
+(1.12)                            1 δ Qn e−c(log Qn )/ log2 Qn .
+                               1/2
+                             Qn <p≤Qn
+                             nχp ≥δ log p
+
+Further if we assume that both L1 (s, Py ) and L4 (s, Py ) defined in (4.3) below have no
+exceptional zeros in the region (4.4), then (1.12) holds for all Q ≥ 10.
+   Theorem 1.2 is essentially due to Graham & Ringrose [13]. Graham & Ringrose consid-
+ered a problem of the quasi-random graphs (Paley graphs) which leads to study the lower
+bound for the sum of the right-hand side of (5.5) below. Their work will be the core of our
+proof. In Sections 4 and 5, we shall provide the salient points along the line of arguments
+in [13] to prove Theorem 1.2.
+
+
+               2. A large sieve inequality of Montgomery-Vaughan
+
+   Our key tool for proving Theorem 1.1 is a large sieve inequality of Montgomery &
+Vaughan in ([19], page 1050) following from ([19], Lemma 2). Here we state a slightly
+refined version. Their original statement absorbs the factors (6/ log P )j and {6/(log P )2 }j
+in the implied constant. We reproduce here their proof with a minuscule modification.
+
+Lemma 2.1. We have
+                                     χd (p) 2j
+                                                          j            j
+             X               X                        6j           6P
+(2.1)                                          Q            +
+                                       p           P log P      (log P )2
+                  d∈D(Q) P <p≤2P
+
+uniformly for 2 ≤ P ≤ Q and j ≥ 1. The implied constant is absolute.
+Proof. Since χd (n) is completely multiplicative on n, we can write
+                                χd (p) j
+                        X                     X       aj (m)
+                                         =                     χd (m),
+                                  p          j        j
+                                                          m
+                          P <p≤2P                 P <m≤(2P )
+
+where
+                aj (m) := |{(p1 , . . . , pj ) : p1 · · · pj = m, P < pi ≤ 2P }|.
+By Lemma 2 of [19] with the choice of parameters
+                    X = P j,         Y = (2P )j      and       am = aj (m)/m,
+4                                    YUK-KAM LAU AND JIE WU
+
+it follows that as aj (m1 )aj (m2 ) ≤ a2j (n2 ) for n2 = m1 m2 ,
+                              χd (p) 2j
+                                                                                                     2j
+                                                                 a2j (n2 )
+                                                                                
+              X       X                              X                               X         1
+(2.2)                                   Q                                 +                               .
+                                p                                  n2                         p1/2
+             d∈D(Q) P <p≤2P                     P j <n≤(2P )   j                    P <p≤2P
+
+Writing n = pν11 · · · pνi i with ν1 + · · · + νi = j, we have
+                                                 (2j)!
+                              a2j (n2 ) =
+                                           (2ν1 )! · · · (2νi )!
+                                           (2j)! ν1 !             νi !
+                                         =                 ···           aj (n).
+                                            j! (2ν1 )!           (2νi )!
+¿From this, it is easy to see a2j (n2 ) ≤ j j aj (n), and thus
+                             X         a2j (n2 )      j
+                                                          X                aj (n)
+                                                  ≤ j
+                           j        j
+                                         n2             j                j
+                                                                            n2
+                            P <n≤(2P )                      P <n≤(2P )
+                                                                          j
+                                                                X  1
+                                                     = j
+                                                                  p2
+                                                          P <p≤2P
+                                                                j
+                                                            6j
+                                                     ≤              .
+                                                         P log P
+Inserting this into (2.2) and using the estimate
+                                     X      1     6P 1/2
+                                                ≤        ,
+                                   P <p≤2P
+                                           p1/2   log P
+
+we obtain the required result (2.1).                                                                           
+
+
+                                  3. Proof of Theorem 1.1
+    Define
+      E ∗ (Q, P ) := d ∈ D(Q) : Q1/2 ≤ |d| ≤ Q and χd (p) = 1 (P < p ≤ 2P, p - |d|) .
+                    
+
+Let C log Q ≤ P ≤ (log Q)2 . For d ∈ E ∗ (Q, P ), we invoke the prime number theorem to
+deduce
+                     X χd (p)         X 1              X      1
+                                  =             −
+                              p               p               p
+                        P <p≤2P               P <p≤2P          P <p≤2P, p||d|
+                                         log 2 + o(1) {1 + o(1)} log Q
+                                          ≥            −
+                                             log P           P log2 Q
+                                         log 2 − 2/C + o(1)
+                                       ≥
+                                                 log P
+                                             1
+                                       >          ,
+                                         2 log P
+provided C is sufficiently large. It is apparent from (2.1) that
+                        |E ∗ (Q, P )|    X          X χd (p) 2j
+                                      ≤
+                        (2 log P )2j                      p
+                                        d∈D(Q) P <p≤2P
+                                                    j              j
+                                                6j             6P
+                                      Q                +                .
+                                             P log P        (log P )2
+                             ON THE LEAST QUADRATIC NON-RESIDUE                                     5
+
+Hence we obtain
+                                              12j log P j
+                                                      
+                               ∗
+                             |E (Q, P )|  Q              + (12P )j
+                                                  P
+uniformly for C log Q ≤ P ≤ (log Q)2 and j ≥ 1. Taking
+                                                
+                                         log Q
+                                  j=               + 1,
+                                        48 log P
+a simple calculation shows that
+                                   |E ∗ (Q, P )|  Qe−c(log Q)/ log2 Q
+with c = (log 2)/48. This implies (1.10).
+  Finally let
+                    E ∗ (Q) := d ∈ D(Q) : d ≤ Q1/2 ∪ E ∗ (Q, C log Q).
+                              
+
+Then by (1.10), we have
+                                    |E ∗ (Q)|  Qe−c(log Q)/ log2 Q ;
+and for any d ∈ D(Q) \ E ∗ (Q) there is a prime number p  log Q  log |d| such that
+χd (p) 6= 1, which implies (1.11). The proof is complete.
+
+
+                               4. Graham-Ringrose’s method
+
+   In this section, we shall state and extend the main results of ([13], Theorems 2, 3 and
+4) for our purposes. For characters of certain moduli, Graham & Ringrose [13] obtained
+a wide zero-free region and good zero density estimates for the corresponding Dirichlet
+L-functions. The main ingredient of their method is an q-analogue of van der Corput’s
+result, which can be stated as follows: Suppose that q = 2ν r, where 0 ≤ ν ≤ 3 and r is
+an odd squarefree integer, and that χ is a non-prinicipal character mod q. Let p be the
+largest prime factor of q. Suppose that k is a non-negative integer, and K = 2k . Finally,
+assume that N ≤ M . Then
+               X                     k+3 k2 +3k+4  1      32k2 +11k+8      k+3
+(4.1)                 χ(n)  M 1− 8K−2 p 32K−8 q 8K−2 d(q) 16K−4 (log q) 8K−2 σ−1 (q),
+          M <n≤M +N
+                          a and d(q) := σ (q). The implied constant is absolute.
+                  P
+where σa (q) :=   d|q d                  0
+  Recall that for any odd prime p,
+                                      
+                2                  q      q
+    χ8 (p) =       ,    χq0 (p) =      =                      (q odd prime, q 0 := (−1)(q−1)/2 q)
+                p                  p K    p
+                                                             Q
+by definition. For squarefree m ≥ 2, the character χm := p|m χp0 for odd m or χm :=
+χ8 χm0 for m = 2m0 is a real primitive of modulus m or 4m, respectively. By convention, we
+set χ1 ≡ 1. Moreover, if χ4 is the real primitive character mod 4, i.e. χ4 (n) = (−1)(n−1)/2
+for odd n, then χ4m := χ4 χm is also a real primitive character of modulus 4m.
+   Let
+                                 Y
+(4.2)                      Py :=     p = e{1+o(1)}y     (y → ∞),
+                                      p≤y
+
+and define for ` = 1 or 4,
+                                                     Y
+(4.3)                               L` (s, Py ) :=          L(s, χ`m ),
+                                                     m|Py
+6                                 YUK-KAM LAU AND JIE WU
+
+where L(s, χ`m ) is the Dirichlet L-function associated to χ`m . Denote by N` (α) the number
+of zeros of L` (s, Py ) in the rectangle
+                             α≤σ≤1            and        |τ | ≤ log Py .
+Here and in the sequel we implicitly define the real numbers σ and τ by the relation
+s = σ + iτ .
+   The next lemmas 4.1, 4.2 and 4.3 are trivial extensions of Theorems 2, 3 and 4 of [13],
+respectively.
+Lemma 4.1.Q Let y ≥ 100. Then there is an absolute positive constant C1 such that the
+L-function `=1,4 L` (s, Py ) has at most one zero in the region
+                               C1 (log2 Py )1/2
+(4.4)                 σ ≥1−                             and        |τ | ≤ log Py .
+                                    log Py
+The exceptional zero, if exists, is real.
+Proof. As the crucial estimate (4.1) holds for all non-principal primitive characters of
+modulus q = 2ν r ≥ 2 with 0 ≤ ν ≤ 3 and r being odd squarefree. Consider the case
+ν = 0 or 3, and ν = 2 or 3, respectively. We see that (4.1) applies to χm and χ4m for
+any m|Py . It follows that ([13], Lemma 6.1) is valid for these characters. Q Proceeding
+with the same argument, we have ([13], Lemma 6.2) for our L-function `=1,4 L` (s, Py )
+in place of L(s, Py ) there. Then the same proof of ([13], Theorem 2) will give the desired
+result. (Note that the value of φ suffers a negligible change when Py is replaced by 4Py
+or 8Py .) The exceptional zero must be real, for otherwise, its conjugate is another zero in
+the specified region.                                                                     
+Lemma 4.2. Let C1 be as in Lemma 4.1. There is a sequence of positive real numbers
+{yn }∞
+     n=1 with yn → ∞ such that both L1 (s, Pyn ) and L4 (s, Pyn ) have no zeros in the region
+(4.5)                     σ ≥ 1 − η(yn )        and       |τ | ≤ log Pyn ,
+where
+                                              C1 (log2 Py )1/2
+                                    η(y) :=                    .
+                                                  2 log Py
+Proof. Similar to ([13], Theorem 3), our proof is also based on an interesting argument
+attributed to Maier [17]. Suppose that for some y, the product L1 (s, Py )L4 (s, Py ) has an
+exceptional zero in the region (4.4). That is, it has a real zero β > 1 − 2η(y). In view of
+(4.2), we can take yn ≥ y such that
+(4.6)                          η(yn ) < 1 − β < 2η(yn ).
+                                               Q
+By Lemma 4.1, β is the only exceptional zero of `=1,4 L` (s, Pyn ) in the region
+                          σ > 1 − 2η(yn )         and  |τ | ≤ log Pyn .
+                                                          Q
+Together with the first inequality in (4.6), this forces `=1,4 L` (s, Pyn ) to have no zero in
+the region (4.5). It follows that we can find a sequence of positive real numbers {yn }∞  n=1
+with yn → ∞ such that both L1 (s, Pyn ) and L4 (s, Pyn ) have no zero in this region.       
+Lemma 4.3. Let ` = 1 or 4 and y ≥ 100. Then there is an absolute constant C2 such
+that
+                                                     
+                          C2 (1 − α) log Py   log3 Py
+                  
+                  
+                   exp       p             +           if α ≥ 1 − η1 (y),
+                  
+                               log2 Py          2
+(4.7)    N` (α)                           
+                  
+                         C2 (1 − α) log Py
+                  exp
+                                                       if α < 1 − η1 (y),
+                           log(1/(1 − α))
+                              ON THE LEAST QUADRATIC NON-RESIDUE                                 7
+
+where
+                                                                                 k0 (y)
+                k0 (y) := (log2 Py )1/2
+                                       
+                                                       and        η1 (y) :=                  .
+                                                                              2(2 0 (y) − 2)
+                                                                                 k
+
+Proof. The case of ` = 1 has been done in ([13], Sections 7 and 8) and N4 (α) can be
+treated in the same way by applying (4.1) to our χ4m .                            
+
+
+                                      5. Proof of Theorem 1.2
+
+  In this section, we denote by p and q prime numbers. Define
+                   Py := {p : p ≡ 1 (mod 4) and χp (q) = 1 for all q ≤ y}.
+Clearly we have nχp > y for any p ∈ Py . We shall first show that the set Py is not too
+small for suitable y.
+Proposition 5.1. Let δ > 0 be a fixed small constant and y(x) be an strictly increasing
+function defined on [120, ∞) satisfying
+                                                 1/2
+(5.1)                    (log x)e−δ(log2 x)            ≤ y(x) ≤ δ(log x) log3 x.
+Then there is a positive constant c = c(δ) and a sequence of positive real numbers {xn }∞
+                                                                                        n=1
+with xn → ∞ such that
+                                X
+(5.2)                                    1  xn e−cy(xn )/ log y(xn ) .
+                               1/2
+                              xn <p≤xn log xn
+                                 p∈Py(xn )
+
+Further if we assume that both L1 (s, Py ) and L4 (s, Py ) have no zeros in the region (4.4)
+for all y ≥ 100, then there is a positive constant c such that for all x ≥ 100 we have
+                                  X
+(5.3)                                      1  x e−cy(x)/ log y(x) .
+                                   x1/2 <p≤x log x
+                                        p∈Py
+
+Proof. First let 10 ≤ y ≤ x1/2 . As usual, π(y) denotes the number of prime numbers ≤ y.
+Clearly we have
+                                                          (
+                                        Y                   1 if p ∈ Py ,
+                   2−π(y)−1 1 + χ4 (p)
+                                                     
+(5.4)                                       1 + χp (q) =
+                                        q≤y                 0 if p ∈
+                                                                   / Py .
+
+When p and q are odd primes with p ≡ 1 (mod 4), i.e. χ4 (p) = 1, we infer by quadratic
+reciprocity law that
+                               
+                             p   q
+                   χp (q) =    =    = χq0 (p) (q 0 := (−1)(q−1)/2 q).
+                             q   p
+Note also for odd prime p,
+                                            
+                                      p        2
+                            χp (2) =       =       = χ8 (p).
+                                      2 K      p
+                                  
+Thus we can replace χp (q) by qp in (5.4) to write
+                                                                                   
+                 X                     1             X                     Y       q
+                              1=                                 1 + χ4 (p)     1+      .
+                                     2π(y)+1                                  q≤y
+                                                                                    p
+            x1/2 <p≤x log x                    x1/2 <p≤x log x
+                p∈Py
+8                                    YUK-KAM LAU AND JIE WU
+
+It is convenient to introduce the weight factor (log p) e−p/(2x) − e−p/x to the summands,
+                                                                        
+
+                X                 1           X
+                                                      (log p) e−p/(2x) − e−p/x ×
+                                                                              
+                         1 ≥ π(y)+2
+            1/2
+                             2      log x 1/2
+           x     <p≤x log x                      x     <p≤x log x
+                 p∈Py
+                                                       
+                                               Y       q
+                                   × 1 + χ4 (p)     1+      .
+                                                        p
+                                                      q≤y
+
+We want to relax the range of the sum over p. To this end, we observe that by the prime
+number theorem and integration by parts,
+                                                                            
+         1           X
+                                      −p/(2x)    −p/x
+                                                                 Y         q
+     π(y)
+                             (log p) e        −e        1 + χ4 (p)       1+
+    2     log x                                                              p
+                x log x<p≤x2                                       q≤y
+                    X
+                               −p/(2x)    −p/x
+                                               
+                             e        −e
+                  x log x<p≤x2
+
+                x1/2 / log x.
+Combining this with the preceeding inequality, we obtain
+                                                                       1/2 
+              X                  1        X                           x
+(5.5)                 1≥           π(y)+2
+                                              S x (m) + S x (4m)  + O         ,
+          1/2
+                          (log x)2                                     log x
+           x     <p≤x log x                          m|Py
+                 p∈Py
+
+where ` = 1 or 4, and
+                                      X
+                                                (log p) e−p/(2x) − e−p/x χ`m (p).
+                                                                        
+                      Sx (`m) :=
+                                   x1/2 <p≤x2
+
+   By the Perron formula, we can write
+                                  L0
+                         Z 2+i∞
+                      1
+                                − (s, χ`m )(2s − 1)Γ(s)xs ds + O x1/2 log x .
+                                                                           
+(5.6)      Sx (`m) =
+                     2πi 2−i∞     L
+We shift the line of integration to σ = −34. The function (2s − 1)Γ(s)xs has no pole in the
+strip −34 ≤ σ ≤ 2 since the pole of Γ(s) at s = 0 is canceled by the zero of (2s − 1). Thus
+the only poles of the integrand in (5.6) occur at s = 1 if `m = 1 (note that L(s, χ1 ) is the
+Riemann ζ-function), or at the zeros ρ(`m) = β(`m) + iγ(`m) of L(s, χ`m ). It follows that
+                                 X
+                                     (2ρ(`m) − 1)Γ(ρ(`m))xρ(`m) + O x1/2 log x ,
+                                                                              
+           Sx (`m) = δ`m,1 x −
+                                   ρ(`m)
+
+where δj,1 = 1 if j = 1 and 0 otherwise, and the sum is over all zeros with 0 ≤ β(`m) < 1.
+  We write N (T, χ`m ) for the number of zeros of L(s, χ`m ) in the rectangle 0 < β(`m) < 1
+and |γ| ≤ T . Then we have the classical bound
+(5.7)                                N (T, χ`m )  T log(T m),
+which implies, for any α ∈ (0, 1),
+                                         X
+(5.8)                         N` (α) ≤          N (log Py , χ`m )  2π(y) y 2 .
+                                         m|Py
+
+On the other hand, by means of (2s − 1)Γ(s)xs  xσ |τ |e−(π/2)|τ | , the contribution of the
+zeros with |γ(`m)| ≥ log Py to Sx (`m) is  1. Let ε be an arbitrarily small positive
+number. The zeros with β(`m) ≤ 1 − ε and |γ(`m)| ≤ log Py contribute
+                        x1−ε N (log Py , χ`m )  x1−ε (log Py )2  x1−ε y 2 .
+                             ON THE LEAST QUADRATIC NON-RESIDUE                                       9
+
+Combining these with (5.5), we conclude
+                                                                               
+               X                  x           1−ε π(y) 2  T1 (x, y) + T4 (x, y)
+(5.9)                 1≥                  +O x 2      y +
+           1/2
+                           (log x)2π(y)+2                     (log x)2π(y)
+            x   <p≤x log x
+                p∈Py
+
+uniformly for x ≥ 10 and 1 ≤ y ≤ x1/2 , where
+                                   X          X
+                      T` (x, y) :=                                       xβ(`m)
+                                      m|Py           ρ(`m)
+                                             β(`m)≥1−ε, |γ(`m)|≤log Py
+                                        Z 1
+                                   =−            xα dN` (α).
+                                           1−ε
+  It remains to estimate T` (x, y). ¿From now on we take y = y(x). By integration by
+parts and by using (5.8), we can deduce
+(5.10)                        T` (x, y)  x1−ε 2π(y) y 2 + x(log x)I` ,
+where                                      Z ε
+                                   I` :=         x−β N` (1 − β)dβ.
+                                             0
+Let η = η(y) and η1 = η1 (y) be defined as in Lemmas 3 and 4, respectively. Set η2 :=
+2y(x)/(log x) log y. It is easy to verify that 0 < η < η1 < η2 < ε. (The inequality η1 < η2
+governs the lower bound of y(x) in (5.1).) Thus we can divide the interval [0, ε] into four
+subintervals [0, η], [η, η1 ], [η1 , η2 ] and [η2 , ε], and denote by I`,0 , I`,1 , I`,2 and I`,3 the
+corresponding contribution to I` . Plainly we have
+   1          η              C2 log Py  1               C2 log Py   1               y     η2
+     log3 Py ≤ log x,        p         ≤ log x,                    ≤ log x,             =    log x.
+   2          4                log2 Py  4               log(1/η2 )  2             log y   2
+(The third inequality governs the upper bound of y(x) in (5.1).) ¿From Lemma 4.3 and
+(5.8), we deduce that
+                                                                       x−η/2
+                   Z η1                                          
+                                        C2 β log Py     1
+            I`,1       exp − β log x + p           + log3 Py dβ            ,
+                    η                      log2 Py      2              log x
+
+                                                             x−η1 /2
+                   Z η2                            
+                                        C2 β log Py
+            I`,2       exp − β log x +               dβ            ,
+                    η1                   log(1/β)              log x
+                                                     x−η2 /2
+                   Z ε                      
+                                         y
+            I`,3      exp − β log x +        dβ            .
+                    η2                 log y           log x
+Hence, all of them satisfy
+                               I`,i = o (log x)−1
+                                                    
+                                                          (i = 1, 2, 3).
+   If we assume that both L1 (s, Py ) and L4 (s, Py ) have no zeros in the region (4.4) for all
+y ≥ 100, then I`,0 = 0. Otherwise we use Lemma 4.2 to ensure the existence of {yn }∞       n=1
+such that I`,0 = 0.
+   With (5.10), our conclusion is
+                                                         
+                                                xn
+                      T` (xn , yn ) = o                       (n → ∞),
+                                         (log xn )2π(yn )
+or                                                    
+                                                x
+                         T` (x, y) = o                      (x → ∞)
+                                          (log x)2π(y)
+10                                    YUK-KAM LAU AND JIE WU
+
+under the assumption that both L1 (s, Py ) and L4 (s, Py ) have no exceptional zeros. Clearly
+this and (5.9) imply the required result. This completes the proof of Proposition 5.1. 
+   Now we are ready to prove Theorem 1.2.
+   Taking Qn = xn log xn and y(x) = 100δ log x in Proposition 5.1 and noticing that
+p ∈ Py ⇒ nχp ≥ y, we have
+                              X
+                                          1  Qn e−c1 (log Qn )/ log2 Qn .
+                          (Qn / log Qn )1/2 <p≤Qn
+                             nχp ≥100δ log Qn
+
+It implies the first assertion of Theorem 1.2, and the second one can be treated similarly.
+This concludes Theorem 1.2.                                                              
+
+
+                                             References
+ [1] N.C. Ankeny, The least quadratic non residue, Ann. of Math. (2) 55 (1952), 65–72.
+ [2] S. Baier, A remark on the least n with χ(n) 6= 1, Preprint.
+ [3] D.A. Burgess, The distribution of quadratic residues and non-residues, Mathematika 4 (1957), 106–
+     112.
+ [4] D.A. Burgess, On character sums and L-series. II, Proc. London Math. Soc. (3) 13 (1963), 524–536.
+ [5] D.A. Burgess, The character sum estimate with r = 3, J. London Math. Soc. (2) 33 (1986), 219–226.
+ [6] W. Duke & E. Kowalski, A problem of Linnik for elliptic curves and mean-value estimates for au-
+     tomorphic representations, With an appendix by Dinakar Ramakrishnan, Invent. Math. 139 (2000),
+     no. 1, 1–39.
+ [7] P.D.T.A. Elliott, A problem of Erdős concerning power residue sums, Acta Arith. 13 (1967/1968),
+     131–149.
+ [8] P.D.T.A. Elliott, The distribution of power residues and certain related results, Acta Arith. 17 (1970),
+     141–159.
+ [9] P.D.T.A. Elliott, On the mean value of f (p), Proc. London Math. Soc. (3) 21 (1970), 28–796.
+[10] P. Erdős, MR 0045159 on the paper [1] by N.C. Ankeny.
+[11] P. Erdős, Remarks on number theory. I, Mat. Lapok 12 1961, 10–17.
+[12] V.R. Fridlender, On the least n-th power non-residue, Dokl. Akad. Nauk SSSR 66 (1949), 351–352.
+[13] S.W. Graham & C.J. Ringrose, Lower bounds for least quadratic nonresidues, in: Analytic number
+     theory, 269–309, Progr. Math., 85, Birkhäuser Boston, 1990.
+[14] D.R. Heath-Brown, A mean value estimate for real character sums, Acta Arith. 72 (1995), 235–275.
+[15] E. Kowalski, Variants of recognition problems for modular forms, Arch. Math. (Basel) 84 (2005), no.
+     1, 57–70.
+[16] U.V. Linnik, A remark on the least quadratic non-residue, C. R. (Doklady) Acad. Sci. URSS (N.S.)
+     36 (1942), 119–120.
+[17] H. Maier, Chains of large gaps between consecutive primes, Adv. in Math. 39 (3) (1981), 257–269.
+[18] H.L. Montgomery, Topics in multiplicative number theory, Lecture Notes in Math. 227, Springer-
+     Verlag, New York, 1971.
+[19] H.L. Montgomery & R.C. Vaughan, Extreme values of Dirichlet L-functions at 1, in: Number theory
+     in progress, Vol. 2, Zakopane-Kościelisko, 1997 (K. Györy, H. Iwaniec & J. Urbanowicz, Eds), 1039–
+     1052, de Gruyter, Berlin, 1999.
+[20] H. Salié, Uber den kleinsten positiven quadratischen Nichtrest nach einer Primzahl, Math. Nachr. 3
+     (1949), 7–8.
+[21] I.M. Vinogradov, Sur la distribution des résidus et non résidus de puissances, Permski J. Phys. Isp.
+     Ob. -wa 1 (1918), 18–28 and 94–98.
+
+     Department of Mathematics, The University of Hong Kong, Pokfulam Road, Hong Kong
+     E-mail address: yklau@maths.hku.hk
+
+  Institut Elie Cartan, Université Henri Poincaré (Nancy 1), 54506 Vandœuvre-lès-Nancy,
+France
+  E-mail address: wujie@iecn.u-nancy.fr
+
