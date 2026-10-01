@@ -25,7 +25,7 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 | §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, level). Bonferroni depth, the BV level and the selector are not binding: they change constants only. | PROVED (Lemmas 4.1–4.4) |
 | §5 | Levers. Cost-per-condition, beyond-identity supply, both halves and Bonferroni→Selberg are closed by proved statements. Case A needs the numerically supported bound H_A3. Halász is closed by a counterexample plus Assessment. The ET first moment is consistent with B = 3. One door stays open: multi-slice moduli and multipliers larger than the slice prime (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
-| §2.6 | In the exchangeable model, the exact LP optimum equals the Selberg/Christoffel value 1/Σ_{j≤m/2} μ^j/j! to 3 decimals. So Selberg Λ² is essentially optimal, and Bonferroni loses only a constant factor. | EVIDENCE |
+| §2.5 | In the exchangeable model, the exact LP optimum equals the Selberg/Christoffel value 1/Σ_{j≤m/2} μ^j/j! to 3 decimals. So Selberg Λ² is essentially optimal, and Bonferroni loses only a constant factor. | EVIDENCE |
 
 **Verdict.** No route to θ > 3/4 survives inside the prime-slice CRT world. The
 Rankin functional `inf_α[αλ + Σ p̄_ℓ ℓ^{−α}]` is an exact two-sided description
