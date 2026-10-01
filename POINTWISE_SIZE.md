@@ -991,7 +991,7 @@ factorisations sit at the opposite end, with small window modulus (§8).
 Nothing here changes a proved statement of notes §54. It changes which
 pointwise target is worth stating.
 
-## 8. The window frame: `a_min(p)=O(log p)`, just above the formal obstruction
+## 8. The window frame: conjecturally `a_min(p)=O(log p)`, just above the formal obstruction
 
 ### 8.1 The statistic and the reduction
 

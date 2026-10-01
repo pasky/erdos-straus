@@ -170,3 +170,144 @@ random-model check before numerics.
 (ulimit -v 4000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_ct_check.py 5000 1000)   # ~20 s
 (ulimit -v 8000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_toy_formal.py 20000000)  # ~3 min
 ```
+
+---
+
+# Step 2 report (POINTWISE_SIZE §§7–10)
+
+§§0–5 are unchanged except for the intro sentence. Step 2 is in new
+sections §7–§10. All scripts live under `scripts/pointwise_size_*.py`;
+data under `data/pointwise_size/{wtail,window}/`. The Replay section is
+updated.
+
+## Results
+
+1. **§7. The multiplier frame: the W(p)≤(log p)^A flag, quantified (Assessment).**
+   * **What is exact.** For fixed T, `#{p≤N hard: W(p)>T} ~ δ*(T)π_h(N)`
+     (PROVED). Here δ*(T) is the profinite avoider density.
+   * **Measuring δ\*(T).** Exact Monte Carlo on Ẑ with multilevel
+     splitting, nine runs, out to T=65535: `δ*(16383)≈7·10^{−13}`,
+     `δ*(65535)≈2·10^{−17}`. The last value is noisy.
+   * **Check against primes.** A census of all 6.35M hard p<10^9 matches
+     `δ*·π_h` within 4% for T≤127, and within 18% (a deficit) at T=511.
+   * **Shape.** `−log δ*≈0.77·I(T)`, where I is the independence exponent,
+     computed to 2^20. The local exponent of `−log δ*` in `log T` rises
+     from 2.3 to 2.6.
+   * **Prediction.** Under the random-avoider heuristic RA, the
+     one-expected-exceedance level of W over p≤N is about `(log N)^A`,
+     with A = 2.5 (10^8), 2.8 (10^18), 3.1 (10^30) and 3.4 (10^50). The
+     census is consistent with this.
+   * **Consequence.** `H_MOD(A)` (notes §54) is **heuristically false for
+     every A**. All that is needed is `log(1/δ*)=T^{o(1)}`. With the
+     two-sided `−log δ*≍I≍(log T)^3`, the natural multiplier statement
+     is `W≤exp(C(log p)^{1/3})`.
+   * **What would make it rigorous.** (i) A prime-compatible analogue of
+     notes Thm 31.4 (a unit-avoider lower bound). (ii) RA itself.
+2. **§8. The window frame: the main candidate.**
+   * **The statistic.** `a_min(p)` is the least q≡3 (4) with
+     `Rat_q((p+q)/4)∋−1` or `−p`.
+   * **Theorem 8.1 (PROVED).** `ES(p)⟺a_min(p)<∞`. The fixed-cutoff
+     **X_win(C)**, `a_min(p)≤C log p` for all hard `p>10^18`, implies ES
+     for any C.
+   * **Lemma 8.2 (window reciprocity, PROVED).** `(r/q)=(r/p)` for every
+     prime `r|(p+q)/4`. Hence (Cor 8.3) F1 is exactly the character trap,
+     and for prime q every other failure is a budget failure.
+   * **Prop 8.4 (escape).**
+     * (a) PROVED: if p is a residue mod all primes ≤K, and every window
+       a≤K is (residue constant)×prime, then `a_min>K`.
+     * (b) Dickson gives infinitely many such p.
+     * (c) Every bounded truncation is formally refuted.
+     * Evidence: the self-checking adversary generator found 730/161/50/4
+       such p for K=15/19/23/27, with `a_min` only slightly above K.
+   * **Random model (Assessment).** The per-window marginal is
+     `≈1.8(log p)^{−1/2}`, calibrated on single-window marginals at
+     10^12 and 10^18. The model gives an extremal scale
+     `Θ(log p/log log p)`, so X_win^∞(C) is heuristically true for every
+     C>0. The formal-genericity obstruction sits exactly at
+     `log p/log log p`. Data: `a_min/log p<10` everywhere tested (maximum
+     6.69, at `p=8803369`, n_p=41). The concrete conjecture is
+     **X_win(10)**.
+   * **Numerics.**
+     * Census of all hard and all Mordell-hard primes <10^8.
+     * Samples at 10^12, 10^18 and 10^24.
+     * Class-of-one primes, `p≡1 mod lcm(1..41)`: harder windows, but
+       `a_min≤67`.
+     * The formal adversaries.
+     * W-record primes: their windows are small, e.g. W=2495 with
+       `a_min=11`, and W=3263 with `a_min=23`.
+   * **Position.** X_win is the *pointwise* form of J-window stacking with
+     `J≍log p` (notes H_STACK §71), i.e. Wall (i). One structural
+     consequence: equidistribution of divisors in the Erdős–Hall range
+     `q≤(log p)^{log 2}` uses too few windows. Ratio sets up to `q≍log p`
+     are needed.
+3. **§9. Seeding by the least non-residue (E2).**
+   * **Lemma 9.1 (PROVED).** Windows `q≡−p (mod 4n_p)` contain `n_p`, with
+     `(n_p/q)=−1`, so they are never F1. For prime q they fail only by
+     budget. Composite seeded q can still fail at the subgroup level; the
+     reviewer's example is `p=349801`, `q=75`.
+   * **Data.** The first seeded window fails 7.1% → 2.2% of the time from
+     3·10^6 to 10^24 (fit `(log p)^{−0.9}`). Unseeded windows fail 60% →
+     29% (fit `(log p)^{−0.56}`). At 10^18, two seeded windows fail jointly
+     50× less often than two unseeded ones.
+   * **Status.** `ES⇐X_QNR` (PROVED). It escapes in the necessary sense,
+     conditionally on H. Refutation of its fixed-J truncations is only
+     plausible.
+4. **§10. Summary table, and an honest statement of what was not
+   obtained.** There is no unconditional partial result beyond trivial
+   or congruence-forced ones. No route to X_win itself is known.
+
+## Self-review (deep reviewer subagent) and repairs applied
+
+The review confirmed the following:
+* the profinite sampler and the unbiasedness of the splitting estimator;
+* Lemma 8.2;
+* Prop 8.4(a), as originally stated;
+* the reduction;
+* the cheap replays;
+* rat_hits against independent enumeration (1216 windows).
+
+The following repairs were applied.
+
+* **Prop 8.4(b) as first stated was false.** With `C_a=2^i3^j` no prime
+  exists for K≥31. Generalised to `C_a` supported on Λ-primes that are
+  residues mod p.
+* **The formal-adversary generator was buggy.** It dropped square
+  conditions and stripped factors from p itself. It is rebuilt and
+  re-checks every hypothesis per p (0 rejections), and the table is
+  regenerated.
+* **X_win(C) with a fixed 10^18 cutoff is false for C<0.072.** The fixed
+  form is now separated from the eventual form X_win^∞; the conjecture is
+  X_win(10). The same is done for X_QNR.
+* **Composite seeded windows** are added as a caveat; the F3-only
+  statement is restricted to prime q.
+* **The type label** in rat_hits was order-dependent. It is now intrinsic:
+  Type II is available at the minimal window for 718191/719781 primes.
+* **Assessment 7.2** now states its two-sided assumption, the sub-power
+  versus polylog distinction, and that the predictions are
+  one-expected-exceedance levels.
+* **Model calibration** now uses measured single-window marginals, not
+  joint tails with 2–7 observations.
+* **Wording and data fixes.** Escape is now "necessary sense" where
+  appropriate; nine runs, not five; 18%, not 17%; three primes with
+  W>2047, not two; the K=15 p-range; "frames independent" softened; the
+  Replay variable bug; the stale intro.
+
+## Open points / for the parent
+
+* **Thm 70.5 / Thm 70.9.** The per-window marginal `(log p)^{−1/2}` is
+  cited from notes Thm 70.5/70.9: integer scale and shifted-prime upper
+  bound. I did not re-verify those theorems.
+* **Unproved model steps.** The window model's uniformity in growing q,
+  and its neglect of rare correlated families, are not proved. The
+  constant 8 in `8 log p/log log p` is a model output.
+* **Missing piece for a rigorous §7.** The unit-avoider lower bound needs
+  a mean value of divisors of `((M+1)/4)^2` in the class
+  `−(M+1)/4 mod m`. That could be a self-contained follow-up task.
+* **The K=31 formal-adversary run** was still running at commit time. It
+  is not used.
+
+## Replay
+
+See POINTWISE_SIZE.md, Replay. The heaviest steps are the `split 65535`
+runs (~15 min each), `windows 1e8 127` (~25 min) and `formal 23/27`
+(~10 min each).
