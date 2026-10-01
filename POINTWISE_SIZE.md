@@ -1431,6 +1431,262 @@ hitting a moving coset in one of `≍log p` shifts. What Step 2 adds is:
 * the coordinate of its obstruction: non-residue prime factors (Lemma CT,
   Cor. 8.3), with F1 versus F3 at prime windows.
 
+# Step 3: unconditional Ω-results
+
+## 11. What can be proved unconditionally on the Ω side
+
+Throughout, "hard" means Mordell-hard (p in one of Mordell's six square
+classes mod 840). Labels are as before. **Cited** marks external
+theorems whose statements we read in the source, but whose proofs we did
+not check.
+
+### 11.1 The multiplier frame: `W(p)≥(5/8−ε)log p` infinitely often
+
+Let `L*(T)=lcm(24, all M≡3 (mod 4) with M≤T)`.
+
+**Lemma 11.1 (PROVED).** `log L*(T)=(2/3+o(1))T`.
+
+*Proof.* For an odd prime ℓ and `e≥1`, some `M≡3 (4)` with `M≤T` is
+divisible by `ℓ^e` iff one of two things holds:
+
+* `ℓ^e≡3 (4)` and `ℓ^e≤T` (take `M=ℓ^e`);
+* `3ℓ^e≤T`. Then take `M=3ℓ^e` if `ℓ^e≡1 (4)`. If `ℓ^e≡3 (4)`, the
+  first case already applies.
+
+Hence every prime `ℓ≤T/3` divides `L*(T)`. A prime `ℓ∈(T/3,T]` divides it
+iff `ℓ≡3 (4)`. Higher prime powers involve only primes `≤√T`. By the
+prime number theorem for progressions mod 4,
+`log L*(T)=θ(T/3)+θ(T;4,3)−θ(T/3;4,3)+O(√T log T)=T/3+T/3+o(T)`. ∎
+
+Exact values of `log L*(T)/T`: 0.581 (T=10²), 0.660 (10³), 0.665 (10⁴),
+0.6667 (10⁶), 0.6666 (10⁷). The notes-§54 modulus `lcm(1..T)` has ratio
+`≈1.000` (`pointwise_size_omega.py`).
+
+**Theorem 11.2.**
+
+* **(a) PROVED.** Every prime `p≡1 (mod L*(T))` is hard and has `W(p)>T`.
+* **(b) PROVED modulo a cited theorem** (Chang, *Short character sums for
+  composite moduli*, J. Anal. Math. 123 (2014), Corollary 11: if
+  `log ℓ=o(log q)` for every prime `ℓ|q`, then every reduced class mod q
+  contains a prime `<q^{12/5+o(1)}`).
+  `limsup_{p hard} W(p)/log p ≥ 5/8`. Equivalently, in the notation of
+  notes (58.2), `L_h(T)≤exp{(8/5+o(1))T}`.
+* **(c) Other least-prime inputs.**
+  * Linnik's theorem with Xylouris's exponent `L=5` (dissertation 2011,
+    as listed; cited, not checked) gives `3/(2·5)=0.30`. With the 5.2 of
+    notes §54 it gives 0.288.
+  * GRH, via Bach–Sorenson's bound on the least prime in a progression,
+    `≤(1+o(1))(φ(q)log q)^2` (cited), gives `3/4`.
+  * The conjecture "least prime `≡a (q)` is `≪q^{1+ε}`" gives `3/2`.
+* **(d) Ceiling of this architecture.** Any `p≡1 (mod L*(T))` satisfies
+  `p>L*(T)`, so this architecture can never certify more than
+  `W(p)/log p<3/2+o(1)`.
+
+*Proof.*
+
+* **(a).** `p≡1 (mod M)` for every eligible `M≤T`, and `1∉𝓡(M)` (notes
+  Thm 17.3(c)). Hence `W(p)>T`. Moreover `8, 3, 5, 7 | L*(T)` for `T≥15`
+  (`15≡3 (4)`), so `p≡1 (840)`, which is a Mordell class.
+* **(b).** Every prime factor of `q=L*(T)` is `≤T=O(log q)`, so
+  `log ℓ=o(log q)`. Chang's Corollary 11 gives a prime `p≡1 (mod q)` with
+  `log p≤(12/5+o(1))log q=(8/5+o(1))T`. Then `W(p)>T≥(5/8−o(1))log p`,
+  and `p>q→∞`.
+* **(c).** Substitute the exponent.
+* **(d).** Immediate. ∎
+
+**Improvements over the notes.**
+
+* **The coefficient.** Notes Thm 54.1 / (54.4) used `lcm(1..T)` and
+  Linnik with 5.2, giving `limsup W/log p≥1/5.2≈0.192`. The gain comes
+  from two independent sources:
+  * only moduli `≡3 (4)` matter (a factor 3/2);
+  * the certificate modulus is `O(log q)`-smooth, so Chang's 12/5 replaces
+    Linnik's 5 (a factor ≈2.1).
+* **The upper end.** Notes (58.18), `L_p(T)≤exp{(5.2+o(1))T}`, becomes
+  `exp{(1.6+o(1))T}` for hard p, hence also for all p.
+* **The lower limit.** Notes Thm 56.1 says every complete congruence
+  certificate for `W>T` has modulus divisible by `P_3(T)`, so
+  `log Q≥(1/2+o(1))T`. Our certificate has `log Q=(2/3+o(1))T`. Whether a
+  complete certificate of size `e^{(1/2+o(1))T}` exists is open. It would
+  give `5/6` with Chang.
+
+**EVIDENCE.** For `T=7,15,…,63`, the least prime `≡1 (mod L*(T))` has
+`T/log p` between 1.20 and 1.64, near the conjectural 3/2. Its actual
+`W(p)` is between 1.7 and 4.4 times `log p` (`data/pointwise_size/omega.txt`).
+
+**The Type-I slice frame (Theorem 11.2'; same proof).** The genus-forcing
+modulus of notes Thm 54.3, `R(T)=lcm(24,∏_{ℓ≤T}ℓ)`, is also smooth. So
+`limsup ck_min(p)/log p≥5/12` (notes: `1/5.2`). Primes
+`p≡1 (mod lcm(R(T),L*(T)))`, whose log is `(1+o(1))T`, have **both**
+`W(p)` and `ck_min(p)` `≥(5/12−ε)log p` infinitely often.
+
+### 11.2 The window frame: failure is never congruence-forced
+
+**Lemma 11.3 (PROVED).** Let `q≡3 (4)` be a window modulus, let `Q≥1`, and
+let c be a unit mod Q with `c≡1 (mod gcd(Q,4))`. Then infinitely many
+primes `p≡c (mod Q)` have a Type II solution at the window `x_q=(p+q)/4`.
+The same holds simultaneously for any finite set of windows.
+
+*Proof.* By Dirichlet, choose a prime `r≡−1 (mod q)` with `r∤2qQ`.
+Impose `p≡c (mod Q)`, `p≡1 (mod 4)` and `p≡−q (mod r)`. These are
+compatible by CRT, and Dirichlet supplies infinitely many such primes.
+Then `r|x_q` and `r≡−1 (mod q)`, so `u=r`, `v=1` gives
+`−1∈Rat_q(x_q)` (Lemma 77.1; `gcd(x_q,q)=1` for `q<3p`). For several
+windows, use distinct primes `r_q`. ∎
+
+So the class-of-one mechanism of §11.1 and notes §54 has **no** analogue
+for windows. Every set of primes defined by congruences contains primes
+with any prescribed finite set of successful windows. A lower bound
+`a_min(p)>K` must come from a *factorisation* event at each of the
+`≈K/4` windows: F1, i.e. no prime factor that is a non-residue mod p
+(Cor. 8.3), or a formal-prime event (Prop. 8.4).
+
+**Proposition 11.4 (a_min(p)≥7 infinitely often; SKETCH, relying on the
+cited semi-linear sieve).** There are `≫x/(log x)^{3/2}` hard primes
+`p≤x` for which `(p+3)/4` has no prime factor `≡2 (mod 3)`. For these p
+the window `q=3` fails (notes §6: success at q=3 iff such a factor exists),
+so `a_min(p)≥7`.
+
+*Sketch.*
+
+1. **Parity.** For `p≡1 (3)`, `n=(p+3)/4≡1 (mod 3)`. So the number of prime
+   factors `≡2 (3)` of n, counted with multiplicity, is even.
+2. **The sieve.** Sift the shifted primes `(p+3)/4`, p hard, by the primes
+   `≡2 (3)` up to `z=x^{1/2−ε}`. This is a half-dimensional problem.
+   Iwaniec's semi-linear sieve has sieving limit `β=1`. With the
+   Bombieri–Vinogradov level `D=x^{1/2−ε/2}` (`s=log D/log z>1`), it gives
+   `≫_ε x/(log x)^{3/2}` survivors. (Iwaniec, *Acta Arith.* 21 (1972); and
+   Friedlander–Iwaniec, *Opera de Cribro*, ch. 14; cited.)
+3. **Large bad primes.** A survivor can still have prime factors `≡2 (3)`
+   above z. There are at most two, and by step 1 an even number, so zero or
+   two. The survivors with exactly two are `n=m r_1 r_2`, with
+   `r_i>x^{1/2−ε}` and `m≤x^{2ε}` composed of primes `≡1 (3)`.
+4. **Removing them.** An upper-bound sieve on `(p, r_2)` counts these as
+   `≪ε^{3/2}x/(log x)^{3/2}`. The semi-linear lower bound near `s=1`
+   behaves like `(s−1)^{1/2}≍ε^{1/2}`. Small ε then leaves a positive
+   proportion.
+
+We have not written out the sieve constants. This is the classical
+"shifted primes free of a half-set of primes" result type (cf. Linnik's
+`p=x²+y²+1`). Status: **standard but unchecked here**.
+
+**Assessment 11.5 (why `a_min(p)≥c log p` is out of reach unconditionally).**
+
+* **A dimension barrier.** By Lemma 11.3, K consecutive windows must fail
+  through K factorisation events on the shifted primes `(p+q)/4`. The
+  cheapest event, F1, is half-dimensional; a prime cofactor (the formal
+  adversary) is one-dimensional with parity. So the joint event is a
+  lower-bound sieve problem of dimension `≥K/8` on the primes (`≈K/4`
+  windows, each `≥1/2`).
+  * F1 means the *complete* absence of non-residue factors. The sieve
+    must therefore reach `z≈x^{1/2}`, or handle every configuration of
+    large bad primes.
+  * For dimension `κ>1/2` the sieving limit `β_κ>1` (`β_1=2`), and
+    `β_κ` grows linearly in κ.
+  * Already for `K=7` (windows 3 and 7, dimension 1), the leftover
+    configurations of large bad primes are of the same order as the main
+    term. A Chen-type switching argument would be needed; we have not
+    attempted it.
+  * For `K→∞` no level of distribution (not even Elliott–Halberstam,
+    level 1) suffices.
+* **Why the combinatorial tools do not help.**
+  * Maynard–Tao produces many prime values among K forms, but never all,
+    and we need all K windows to fail.
+  * Erdős–Rankin/FGKMT coverings produce "has a small prime factor",
+    which is a dimension-0 local condition. F1 is the opposite: a global
+    absence condition.
+* **Conclusion.** The best unconditional window statement is
+  Prop. 11.4 (a sketch). `a_min` is unbounded under Dickson (Prop 8.4). It
+  is `Ω(log p/log log p)` only under the uniform Hardy–Littlewood model
+  (Assessment 8.5).
+
+### 11.3 Why superlinear `W(p)>(log p)^{1+δ}` is not reached
+
+**Assessment 11.6 (a linear barrier for all quarantine + sieve
+constructions; partly a computation).** Any certificate of `W(p)>T`
+built as "a quarantine class c mod Q" plus a sieve for the remaining
+atoms needs prime equidistribution in classes mod `Q·d` with relative
+error below the sifted density V. Known PNT-in-AP errors decay like
+`exp(−c log x/log q)` in the Linnik range. So such a construction needs
+`log x≳log Q·log(1/V)/c`.
+
+* **The class of one.** Here `V≈1` and `log Q≈(2/3)T`, which gives
+  §11.1.
+* **The intermediate quarantine.** Take `p≡1 (mod Q_y)`, with all prime
+  powers of primes `≤y` and `y=T^{1/2+η}`. Then every remaining modulus
+  is `mℓ` with one prime `ℓ>y`, and the system becomes a *standard*
+  sieve: `p mod ℓ∉F_ℓ` with `|F_ℓ|≤T^{1/2−η+o(1)}`. The proved bounds give
+  `log Q_y≈T^{1/2+η}` and `log(1/V)≤T^{1/2−η+o(1)}`, so the product is
+  `T^{1+o(1)}`. That is again linear. This construction also yields the
+  first *proved* unit-avoider bound,
+  `log(1/δ*(T))≤T^{1/2+o(1)}` (§7's missing input (i), at a weak level).
+  The proof is two lines: the quarantine costs `e^{−T^{1/2+η}}`, and given
+  it the ℓ-conditions are independent with product
+  `≥exp(−2Σf_ℓ/ℓ)≥exp(−T^{1/2−η+o(1)})`.
+* **What superlinear W would need.** A quarantine with `log Q=L^{O(1)}`
+  (`L=log T`) and conditional density `V≥exp(−L^{O(1)})`, i.e. the prime
+  analogue of notes Thm 31.4. With z polylogarithmic, the rough moduli
+  carry several primes. The system is then not prime-local, and one needs:
+  * **(i)** an LLL-type Haar lower bound. Its key input is a mean value
+    for divisors of `((M+1)/4)^2` in the class `−(M+1)/4 mod m`, which is a
+    lattice count in the spirit of notes Lemma 16.2.
+  * **(ii)** a transfer to primes, by pointwise Bonferroni truncation with
+    moduli `≤exp(L^{O(1)})`.
+
+  Prime-side technology for (ii) exists: PNT in APs uniformly for
+  `q≤exp(c√log N)`, with error `N exp(−c√log N)`, far below the needed
+  `exp(−L^{O(1)})`. The Siegel zero is handled by the twisted-density
+  argument: if `q_1∤Q`, its twisted density carries the extra local
+  factor `f_ℓ/ℓ`; otherwise there is a uniform factor
+  `1−x^{β_1−1}>0`. What is missing is (i), plus control of the Bonferroni
+  terms under the positive correlations of atoms that share a rough prime.
+  (The notes' §39 factorial-moment machinery is of exactly this type, and
+  is CLAIMED/PROVISIONAL.) **We do not claim this route works**; it is the
+  precise list of missing inputs.
+* **The Jacobsthal remark** (cf. notes §58.3). For *arbitrary* forbidden
+  classes, one per prime `ℓ≤T`, primes below `e^{O(T)}` can be avoided
+  entirely in short ranges. These are Erdős–Rankin/FGKMT-type
+  constructions; they produce large prime-free gaps, not
+  least-prime statements. So no density-only argument works, and any
+  superlinear proof must use the specific structure of `𝓡(ℓ)`.
+
+## 12. Cross-checks against the literature and the notes
+
+* **Pomerance–Weingartner, arXiv:2511.16817v2** (archived; notes §68 audit).
+  * **Thm 3.1.** It gives many exceptional primes for large numerator m.
+    The method is a union bound over all Type I/II admitting classes, via
+    Brun–Titchmarsh, possible because their total mass is
+    `≍(log N)^3/φ(m)<1/2` at `log N_0=(φ(m)/C log²m)^{1/3}`.
+  * **m=4.** At `m=4` that mass is `≍(log N)^3≫1` (cubic supply, notes
+    Thm 18.2), so the union bound is empty. This is exactly why §7 works
+    with the avoider density δ*(T) and §11.1 with the class of one. Their
+    Poisson heuristic (p. 3, with intensity `(log p)^3/m`; at m=4 it is
+    Elsholtz–Tao Remark 1.1) is the same cubic-mass model as §7's
+    independence exponent `I(T)≍(log T)^3`.
+  * **Scope.** PW define no truncated statistic (W, `a_min`). They make no
+    statement for m=4 other than the upper bound (68.1) with Vaughan's
+    2/3. Prop 8.4, Lemma 11.3 and Thm 11.2 are **not** in PW.
+* **Notes §56 (certificate ceilings).** Thm 56.1: every Type-II
+  congruence certificate for `W>T` contains `P_3(T)`, so
+  `log Q≥(1/2+o(1))T`. Lemma 11.1's `2/3` sits above it, with the gap
+  `[1/2,2/3]` open. Thm 56.2 (Type I, `log Q≥T+o(1)`) matches
+  Theorem 11.2' exactly.
+* **Notes §58 (Jacobsthal angle).**
+  * (58.18) is improved by Thm 11.2(b).
+  * Lemma 58.5 says that `W(p_j)/log p_j→∞` along some sequence iff
+    `liminf log L_p(T)/T=0`. Thm 11.2 gives `limsup≤8/5`, so the
+    superlinear question is exactly whether the liminf is 0. §7 predicts
+    `log L_p(T)=T^{1/3+o(1)}` heuristically, hence liminf 0.
+  * Assessment 58.1 ("density alone gives no least-prime theorem…") is
+    consistent with Assessment 11.6, which makes the obstruction
+    quantitative: `log Q·log(1/V)`.
+* **Notes §54.** Thms 54.1 and 54.3 are superseded in their constants by
+  Thm 11.2 and 11.2' (5/8 and 5/12 instead of 1/5.2). Their proofs and
+  statements remain correct as weaker results.
+* **Notes §6 / §70.** Prop. 11.4's window-3 event is the §6
+  `q=3`-parity mechanism. Lemma 11.3 is the precise form of "the class
+  of one does not transfer to windows" (§77.1's free prime factors).
+
 ## Replay
 
 ```
@@ -1456,6 +1712,8 @@ $A sample_windows 12 10000 31 31; $A sample_windows 18 10000 32 31   # single-wi
 $A seeded 100000000 20 1             # seeded windows, Mordell-hard p < 1e8
 $A sample_seeded 12 20000 21; $A sample_seeded 18 20000 22; $A sample_seeded 24 5000 23
 PYTHONPATH=scripts uv run python scripts/pointwise_size_wrecords.py   # W-records vs a_min
+# Step 3, section 11
+PYTHONPATH=scripts uv run python scripts/pointwise_size_omega.py      # log L*(T)/T, least primes = 1 mod L*(T)
 ```
 (`amin_s12.json`/`amin_s18.json` in `data/pointwise_size/window/` are earlier all-hard samples,
 seeds 1/2, produced before the Mordell filter was added to `sample`; `amin_m12/m18.json` are the
