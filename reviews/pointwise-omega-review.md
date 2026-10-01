@@ -456,3 +456,346 @@ R="uv run python"
  $R scripts/review_omega_primes.py 1000 5                             # <1 s
  $R scripts/review_omega_constants.py)                                # <5 s
 ```
+
+---
+
+# Round 2: checkpoint 2 (§8 Type-I frame, §9 Haar side) and the status of D1–D12
+
+## What was reviewed
+
+* **Subject.** `POINTWISE_OMEGA.md` §§8–9 and §0 item 5, plus the checkpoint-2 part of
+  `AGENT_REPORT_C2.md`.
+  * Head `1dd87a3` holds the checkpoint-2 material.
+  * The repair commit `c13e7a0` ("review repairs D1–D12") leaves §§8–9 untouched.
+  * My worktree is synced to `c13e7a0`, including its `POINTWISE_SIZE.md` edits.
+* **Sources read.**
+  * notes (36.1), (44.2), Thm 48.1, (48.7)–(48.12), Thm 50.1, Thm 54.3, Thm 56.2.
+  * Lau–Wu, archived author PDF/txt: §1, §4 (Lemmas 4.1–4.3), and §5 (the definition of `P_y`,
+    Prop 5.1 and its proof through (5.10)).
+  * Elsholtz–Tao arXiv:1107.1010 (`sources/elsholtz-tao-1107.1010.pdf`), Prop 1.4 and Remark 1.5.
+* **Code.** Independent code in `scripts/review_omega_typeI.py` and
+  `scripts/review_omega_haar.py`, with output in `data/review_omega/{typeI_30000,haar_*}.txt`.
+  Nothing is imported from `pointwise_omega_*` or `verify.py`.
+
+## Verdict (round 2): **SOUND-AFTER-REPAIRS** (all items mathematically sound; minor label repairs)
+
+| Item | Verdict |
+|---|---|
+| Lemma 8.1 (`ck_min ≥ n_p`) | **SOUND** |
+| Cor 8.2 (joint `W≥(log p)^{2−o(1)}`, `ck_min≥(log p)^{1−o(1)}`) | **SOUND** (modulo Thm 3.1) |
+| Prop 8.3 (complete Type-I certificate forces `ℓ\|L` and `(a/ℓ)=1`) | **SOUND** |
+| Cor 8.4 (congruence route certifies exactly `n_p`) | **SOUND** (scope nit R2-3) |
+| Thm 8.5 (`ck_min ≫ log p·log₃p` i.o.) | **SOUND modulo Lau–Wu Prop 5.1**. The statement was read and the application is correct; the primes are Mordell-hard. |
+| Lemma 9.1 (`m≤r²+1`, parametrisation) | **SOUND** |
+| Lemma 9.2 (global mass) | **SOUND**. The divisor-bound form is PROVED; the polylog form holds modulo ET Prop 1.4, with k=4 inside ET's range. |
+| Thm 9.3 (`log(1/δ*)≤T^{1/3+o(1)}`, unconditional) | **SOUND** (asymptotic; no numerical instance, see R2-7) |
+| Thm 9.4 (H_PP ⇒ polylog) | **SOUND-AFTER-REPAIRS** (label must mention ET: R2-1) |
+| D1–D12 | 11 FIXED, 1 PARTIAL (D5; see the table at the end) |
+
+## R2.1 §8: the Type-I frame
+
+### Lemma 8.1
+
+Re-derived.
+
+* Take `(c,k)∈𝓑_p` with `ck≤B`. Then `s=sf(c)≤B`.
+* `Δ_s∈{−s,−4s}`, so `χ_s(p)=(−s/p)=(−1/p)∏_{q|s}(q/p)`.
+* Each factor is 1:
+  * `(−1/p)=(2/p)=1` from `p≡1 (8)`;
+  * `(3/p)=(p/3)=1` from `p≡1 (12)`;
+  * the primes `5≤q≤B` by hypothesis.
+* Notes Thm 48.1 (whose hypotheses are exactly `p≡1 (24)` and `(c,k)∈𝓑_p`) then gives `M_{c,k}=0`.
+* For `ck_min≥n_p`, take `B=n_p−1`. This is fine even when `n_p−1<5`, since unforced slices
+  have `c≥5`.
+
+**EVIDENCE.** My own `ck_min`, written directly from (36.1)/(44.2)/(48.9) with divisor
+enumeration, matches the doc.
+
+* Across the 385 primes `p≡1 (24)` below 30000: 0 violations of `ck_min≥n_p`, and 238 equalities.
+* The strict records come out exactly as notes (48.12): `(73,7)…(12289,77)`.
+* The example `p=193`, `(c,k)=(26,2)`: `N=3⁵·5·31`, `h=208`, `−p≡15`. The hitting divisors are
+  {15, 2511} and no prime power hits, as stated.
+
+### Cor 8.2
+
+* The primes of Thm 5.1 are `≡1 (mod ℓ)` for every `ℓ≤y`. So `(p/ℓ)=1`, hence `(ℓ/p)=1` by
+  reciprocity (`p≡1 (4)`).
+* Lemma 8.1 then gives `ck_min>y`.
+* `y/log p ≥ e^{−(log 2+o(1))𝓛/log𝓛}`, with the constant `C_2` absorbed. Also
+  `𝓛 = (2+o(1))log log p`: the upper bound is `log p ≥ log Q ≫ √T`, the lower bound is
+  `log p ≤ T^{1/2+o(1)}`.
+* Correct; the label is PROVED modulo Thm 3.1.
+
+### Prop 8.3
+
+Re-derived step by step.
+
+* **Step 1.** `gcd(L,4ℓ)` is 4 if `ℓ∤L`, and `4ℓ` otherwise (`24|L`). So `c_0` exists in both
+  branches of the contrapositive.
+* **Step 2.** `χ_ℓ(n)=(n/ℓ)` for `n≡1 (4)`. This holds in both cases `Δ_ℓ=−ℓ` and `Δ_ℓ=−4ℓ`.
+* **Step 3.** `χ_ℓ(−1)=−1` because `Δ_ℓ<0`. So `χ_ℓ(q)=1`, i.e. `−ℓ` is a square mod q. Also
+  `q≠ℓ` and `q∤L`, which is possible by choosing q large.
+* **Step 4.** CRT compatibility holds on `gcd(L,4ℓ)`. Moreover `ρ≢0`, so the class is reduced.
+* **Step 5.** `q | p²+4ℓ = N_{ℓ,1}` and `q≡−c_0≡−p (mod 4ℓ=h)`. So the coefficient of grade `−p`
+  in (44.2) is `≥1`.
+* **Admissibility.** `(ℓ,1)∈𝓑_p` holds for `p>2ℓ`, and `sf(ℓ)=ℓ≥5`.
+
+**Machine check.** I ran the construction on four instances, covering both branches (`ℓ∤L`, and
+`ℓ|L` with `(a/ℓ)=−1`):
+
+| ℓ | L | a | `c_0` | q | ρ |
+|---|---|---|---|---|---|
+| 5 | 168 | 1 | 13 | 47 | 11 |
+| 7 | 120 | 1 | 5 | 23 | 8 |
+| 13 | 312 | 73 | 21 | 31 | 14 |
+| 11 | 1320 | 241 | 21 | 23 | 5 |
+
+In every instance, the first 20 primes of the constructed class all have `M_{ℓ,1}(p)>0` (0
+failures).
+
+### Cor 8.4
+
+* B is periodic mod `L=lcm(Q,d_i)`. A large prime p has `p∤L`, so `a=p mod L` is reduced.
+* `24|Q|L` and `a≡1 (Q)`, so `a≡1 (24)`.
+* Prop 8.3 then gives `(a/ℓ)=(p/ℓ)=(ℓ/p)=1` for `5≤ℓ≤T`, so `n_p>T`. Correct.
+* The proof never uses `a≡1 (Q)` beyond `a≡1 (24)`, so it holds for every class with `a≡1 (24)`.
+  The §8 rhetoric ("every congruence method") is therefore justified once that is said (R2-3).
+* Conversely, Lemma 8.1 *is* a fixed-period certificate: the QR conditions mod `∏_{ℓ≤T}ℓ`. So
+  "exactly `n_p`" is right.
+
+### Thm 8.5 and Lau–Wu Prop 5.1
+
+* **The statement**, read in `lau-wu-least-quadratic-nonresidue.txt` ll. 378–405:
+  * **Definitions.** "In this section, we denote by p and q prime numbers.
+    `P_y:={p : p≡1 (mod 4) and χ_p(q)=1 for all q≤y}`."
+  * **Hypotheses.** Let δ>0 be a fixed small constant, and let y(x) be strictly increasing on
+    `[120,∞)` with `(log x)e^{−δ(log₂x)^{1/2}} ≤ y(x) ≤ δ(log x)log₃x`.
+  * **Conclusion.** There are `c=c(δ)>0` and `x_n→∞` such that
+    `Σ_{x_n^{1/2}<p≤x_n log x_n, p∈P_{y(x_n)}} 1 ≫ x_n e^{−c y(x_n)/log y(x_n)}`.
+
+  The doc's quotation is accurate.
+* **Meaning of `χ_p`.** Here `χ_p=(p/·)_K`, the Kronecker symbol of the fundamental discriminant
+  `p` (`p≡1 (4)`).
+  * For odd q, `χ_p(q)=(p/q)=(q/p)`.
+  * For `q=2`, LW themselves note `χ_p(2)=(2/p)` (l. 435ff.).
+
+  So the doc's gloss "`χ_p(q)=(q/p)`" is correct.
+* **The application.**
+  * `y(x)=δ log x log₃ x` is the allowed upper end. It is strictly increasing on `[120,∞)`, since
+    `log₃120=0.449>0`.
+  * The count `x_n^{1−O(δ log₃x_n/log₂x_n)}` is eventually ≥1, so `P_{y(x_n)}` meets the interval.
+* **Hardness.**
+  * `(2/p)=1` and `p≡1 (4)` give `p≡1 (8)`.
+  * `(3/p)=1` gives `p≡1 (3)`.
+  * `(5/p)=(7/p)=1` give `(p/5)=(p/7)=1`.
+  * So `p mod 840` is a unit square: one of the 6 Mordell classes `{1,121,169,289,361,529}`, all
+    `≡1 (24)`. Lemma 8.1 applies with `B=y(x_n)`.
+* **Size.** `log p ≤ log x_n + log log x_n` gives `y(x_n) ≥ (δ/2)log p·log₃p` for large n.
+* **Effectivity.** Not claimed, which is correct: the sequence `x_n` comes from LW Lemma 4.2,
+  which uses Maier's argument to avoid exceptional zeros.
+* **Label.** "PROVED modulo Lau–Wu Prop 5.1", with the proof following Graham–Ringrose and not
+  checked, is right. Bibliographic data are missing (R2-5).
+
+## R2.2 §9: the Haar side
+
+### Lemma 9.1
+
+* **The bound `m≤r²+1`.** The involution argument needs only `m | M=4A−1`, so `4A≡1 (m)`. Then
+  `m|r'+k≤2k`, so `r≥2sr'−1/(2k)`, hence `r≥2sr'`. So
+  `m ≤ 4sr'²+1 ≤ 4(sr')²+1 ≤ r²+1`.
+* **The parametrisation.** Algebra re-derived:
+  * `m(vk−ℓr')=r'+k`, `e(mv−1)=r'(ℓ+v)`, `e=(ℓ+v)/(4sr')`;
+  * conversely `srk = (mℓ+mv−4nr')/4 = (mℓ+1)/4`. So `mℓ≡3 (4)` is automatic, but harmless.
+* **The partner class.** `−4A²/D = −(4A)²/(4D) ≡ −(4D)^{−1} (mod ℓ)`.
+
+**Checks.**
+
+* **Parametrisation.** It agrees with direct enumeration of all `(m,D)` with `m≤ℓ²+1`,
+  `D≤A`, `m|4D+1`, for every prime `5≤ℓ<200` (0 mismatches).
+* **`m≤r²+1`.** No surviving atom violates it, over all z tested:
+  * T=10⁴: z = 20, 100;
+  * T=2·10⁴: z = 150;
+  * T=10⁵: z = 5, 20, 100, 300, 1000 (0.31–0.81·10⁶ atoms);
+  * T=10⁶: z = 1000, 3000 (3.8·10⁶ atoms).
+* **Examples.**
+  * `F^{full}_{19}={8,12,14,15,18}`.
+  * The `19³` example is reproduced: `A=1715=5·7³`, `D=7`, class 10 mod 19.
+  * `87359` is prime, `(ℓ+1)/4=2⁴·3·5·7·13` and `τ(A²)=729`. Also `ℓw_ℓ=681.0` at
+    `(T,z)=(10⁵,100)`.
+
+### Lemma 9.2
+
+* **The weight.** `1/φ(r) ≤ C log log T/r` holds for every `r≤T`; the "prime factors >z" remark
+  is not needed (R2-4).
+* **Halving.** The involution preserves `m|4D+1`.
+* **Injectivity.** The injection into `(m,s,r',k)` overcounts by summing over all
+  `m|4sr'²+1`, which is harmless for an upper bound.
+* **The k-sum.** `m|r'+k` and `k_0≥m/2` give `(3+log X)/m`.
+* **Elsholtz–Tao Prop 1.4** (pdf p. 3): "For any `A,B>1`, and any positive integer
+  `k≪(AB)^{O(1)}`, one has `ΣΣ_{a≤A,b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)`."
+  * Here `k=4` is fixed, and the dyadic blocks have `A=2S`, `B=2R≥2>1`, so the hypotheses hold.
+    Restricting to squarefree a only drops nonnegative terms.
+  * Each block gives `O(log T)`. There are `O((log T)²)` blocks, so the total is
+    `≪(log T)^4 log log T`.
+
+**EVIDENCE matches.**
+
+* `(T,z)=(2·10⁴,150)`: `S_tot=19.39`, `S_ev=16.16`.
+* T=10⁵: `S_ev=49.65, 39.20, 29.81, 24.22, 17.87` for `z=5…1000`.
+* T=10⁶: `S_ev=38.49, 30.55`.
+* The proof's chain bound `(2/3)max(r/φ(r))(3+log X)Στ/(sr')` dominates `S_tot` in every case.
+
+### Theorem 9.3
+
+This is the delicate part. Every step was re-derived.
+
+1. **Structure.** `y³>T`, so z-rough parts are `ℓ`, `ℓ²` or `ℓ_1ℓ_2`.
+   * Single atoms are events on one coordinate `X_ℓ=n mod ℓ^{e_ℓ}`.
+   * `g_ℓ ≤ Σ1/φ(r)` holds, since an `r=ℓ` atom removes `ℓ^{e−1}` of the `φ(ℓ^e)` units.
+   * `1∉G_ℓ`: `−4D≡1 (mod ℓ or ℓ²)` together with `m|4D+1` gives `M|4D+1`, contradicting Fact 1.1.
+2. **Bad primes.** `|B| ≤ 4Σg_ℓ ≤ 4S_tot = T^{o(1)}`. This uses only the divisor-bound form of
+   Lemma 9.2, *not* ET, so Thm 9.3 is unconditional as labelled.
+   * Quarantining b at `n≡1 (b^{e_b})` costs `≤ log φ(b^{e_b}) ≤ log T` each.
+   * Since `1∉G_b`, all single atoms at b die.
+   * A pair with both primes bad dies by Fact 1.1.
+   * A pair `(ℓb,a)` with ℓ good becomes `X_ℓ≡a (ℓ)` exactly when `a≡1 (b)`, and is impossible
+     otherwise.
+   * **The count.** At most `|B|·(T/(ℓy))·τ²_max` such atoms involve a given ℓ, each of weight
+     `1/(ℓ−1)`. So `g'_ℓ−g_ℓ ≤ T^{−3ε+o(1)}`, and the total added mass is
+     `≤|B|τ²T/y² = T^{1/3−2ε+o(1)}`. Correct.
+3. **The local lemma.**
+   * **The measure.** μ′ is the product of uniform measures on the allowed units at each good
+     prime. This is exactly Haar conditioned on avoiding the single sets: a product set in a
+     product space.
+   * **The dependency graph.** A pair event depends only on `(X_{ℓ_1} mod ℓ_1, X_{ℓ_2} mod ℓ_2)`.
+     It is therefore mutually independent of all events that share no prime with it, so "join if
+     they share a prime" is a valid dependency graph.
+   * **Event sizes.** `μ'(E) ≤ ∏ 1/((ℓ_i−1)(1−g'_{ℓ_i})) ≤ 4/((ℓ_1−1)(ℓ_2−1))`.
+   * **Per-prime weight.**
+     `w'_ℓ ≤ (8T/ℓ²)τ²Σ_{ℓ'>y}1/(ℓ'(ℓ'−1)) ≤ 16τ²T/(ℓ²y) ≤ T^{−3ε+o(1)}`.
+   * **The LLL condition.** It needs `∏_{E'∼E}(1−2μ'(E')) ≥ 1/2`. Since
+     `Σ_{E'∼E}x_{E'} ≤ 2(w'_{ℓ_1}+w'_{ℓ_2}) → 0`, this holds for large T.
+   * **The conclusion.** `∏(1−x_E) ≥ exp(−4Σμ'(E)) ≥ exp(−16S_tot)`.
+4. **Collecting.**
+   * The conditioning costs `8/φ(Q')`, with `log φ(Q') ≤ (π(y)+|B|)log T`.
+   * The single sets cost `∏(1−g'_ℓ) ≥ exp(−2Σg'_ℓ)`, valid since `g'≤1/2`.
+   * Total: `exp(−T^{1/3+ε+o(1)})`. Correct.
+
+**Numerics** (`review_omega_haar.py --theta 0.05`, with `y=T^{0.383}`).
+
+* The structural claims hold literally:
+  * 0 rough parts with more than 2 prime factors;
+  * `1∈G_ℓ` at 0 primes;
+  * pairs that are impossible or converted after the bad-prime quarantine behave as described.
+    At T=10⁴ there are 3 bad primes, 2146 impossible pairs and 34 converted pairs.
+* `max g'_ℓ = 0.23`.
+* The LLL product is ≈0.34<1/2 at T=10⁴ and T=10⁵, so the asymptotic condition is not met at
+  accessible T. That is expected, since the margin is `T^{−3ε}`. So Theorem 9.3 has no numerical
+  instance (R2-7, remark only).
+
+### Theorem 9.4
+
+* **The setup.** `x_E=2/φ(r_E)≤1/2` holds since every rough prime is `≥5` (`z≥3`).
+* **The LLL condition.** `Σ_{E'∼E}x_{E'} ≤ 2Σ_{ℓ|r_E}w_ℓ`, and `ω(r_E) ≤ log T/log z`. Under
+  H_PP this gives `∏ ≥ e^{−1/2} ≥ 1/2`.
+* **The conclusion.** `P ≥ exp(−4S_ev)`. Correct.
+* **The label.** The polylogarithmic conclusions use ET's `(log T)^4 log log T`. Without ET,
+  `S_tot` is only `exp(O(log T/log log T))` and nothing polylogarithmic follows (R2-1).
+* **A finite certificate.** H_PP holds literally at `(T,z)=(10⁵,1000)` (ratio 0.961) and
+  `(10⁶,3000)` (ratio 0.810), as in the doc. My literal check of the LLL hypothesis on the event
+  graph gives `min_E ∏_{E'∼E}(1−x_{E'}) ≥ 0.75` and `0.79` respectively. So Thm 9.4 yields a
+  rigorous finite-T certificate there; a pleasant side remark the author could add.
+* **The Linnik remark** ("`ℓw_ℓ` is not polylogarithmic for all ℓ") is correct.
+  * `P|A` gives `|𝓡(ℓ)| ≥ #{D≤A : D|A²} = (τ(A²)+1)/2 ≥ 3^K/2`, because the classes `−4D`,
+    `D≤A<ℓ`, are distinct mod ℓ.
+  * Linnik gives `log ℓ ≪ K log K`.
+
+## R2.3 Defect list (round 2)
+
+**R2-1 — LOW (label).**
+
+* **Location.** Thm 9.4 heading "(PROVED implication; Haar only)", and §0 item 5 ("follows from
+  the per-prime Hypothesis H_PP (Theorem 9.4, PROVED implication)").
+* **Problem.** The explicit bound `−O((log T)^4 log log T)`, and with it the whole polylogarithmic
+  conclusion, needs Elsholtz–Tao Prop 1.4. Without ET it fails, since `S_tot` is only `T^{o(1)}`.
+* **Fix.** Use "PROVED implication, modulo Elsholtz–Tao Prop. 1.4 for the polylogarithmic mass
+  (Lemma 9.2)" in both places, and in the AGENT_REPORT table.
+
+**R2-2 — LOW (overstatement).**
+
+* **Location.** AGENT_REPORT checkpoint 2, l. 189.
+* **Quote.** "On the prime side, the same construction is exactly H_MIN(1/3); it would give
+  exponent 3, but it is blocked by the hub obstruction of §6.3."
+* **Problem.** Prop 6.3 proves only that *event-level Bonferroni on the raw atom list* fails.
+  §6.3 itself says that deduplicated or other minorants are not ruled out. H_MIN(1/3) is open, not
+  blocked. The doc's own sentence (§9 end) is accurate.
+* **Fix.** Write "…blocked for event-level Bonferroni (Prop 6.3); H_MIN(1/3) itself is open".
+
+**R2-3 — NIT (scope).**
+
+* **Location.** Cor 8.4 is stated for minorants on the class `1 mod Q`. The §8 text claims "Every
+  congruence method for `ck_min` is exactly the least-quadratic-non-residue Ω-problem".
+* **Fix.** Add "(the proof uses only `a≡1 (24)`; it holds verbatim for minorants on any reduced
+  class `a mod Q` with `a≡1 (24)`, which contains all hard primes)".
+
+**R2-4 — COSMETIC.**
+
+* **Location.** Lemma 9.2 proof: "Since r has all prime factors `>z≥2`,
+  `1/φ(r) ≤ C log log T/r`".
+* **Problem.** The bound holds for every `r≤T`; the premise is irrelevant.
+* **Fix.** Drop the premise or replace it with "for every `r≤T`".
+
+**R2-5 — NIT (citation data).**
+
+* **Location.** Thm 8.5's citation gives only "author PDF". Please add the journal data if
+  published. I believe it is Int. J. Number Theory 4 (2008), but did not verify this.
+* The archived PDF's sha256 matches `sources/lit2026/README.md`; I checked only the pointer there.
+
+**R2-6 — NIT (D5 residue).**
+
+* **Location.** AGENT_REPORT_C2.md title: "unconditional superlinear Ω-result for W(p)".
+* **Fix.** Use "superlinear Ω-result … (PROVED modulo TZ Cor. 1.4)".
+
+**R2-7 — REMARK (no defect).**
+
+* Theorem 9.3 is purely asymptotic: its LLL margin `T^{−3ε}` is not reached at `T≤10⁵`.
+* Conversely, Theorem 9.4's hypothesis H_PP holds literally at `(10⁵,1000)` and `(10⁶,3000)`.
+  This gives rigorous finite-T Haar lower bounds there. Optionally state it as EVIDENCE.
+
+## R2.4 Status of round-1 defects at `c13e7a0`
+
+| # | Status | Where / how |
+|---|---|---|
+| D1 | **FIXED** | §0 "one cited source (TZ Cor. 1.4 together with the McCurley-region statement…)". There is a Convention paragraph after Thm 3.1, Lemma 3.2 is relabelled "PROVED modulo the McCurley-region statement quoted by TZ", and a Landau–Page alternative remark is added. AGENT_REPORT l.15 is updated. |
+| D2 | **FIXED** | Thm 3.1 heading: "statement and numbering as in arXiv v2, published version not compared". |
+| D3 | **FIXED** | The §6.2 sentence now reads "known for `θ≥1/2` (Lemma 11.7) and for `θ>1/3` (Theorem 9.3) … open (§9, H_PP)". The `θ>1/3` claim is verified in R2.2 above. |
+| D4 | **FIXED** | §0 item 2: "in the prime-local setting (global mass). The per-prime version … remains open (§9, H_PP)". |
+| D5 | **PARTIAL** | Fixed in §7 ("PROVED modulo Theorem 3.1: no GRH, no Siegel caveat"), at AGENT_REPORT l.68 (Thm 6.2) and in ledger (F). The AGENT_REPORT title still says "unconditional" (R2-6). |
+| D6 | **FIXED** | §7 upper-side bullet now carries Thm 51.2's provisional-review qualification. |
+| D7 | **FIXED** | The column is relabelled "slightly weakened Lemma 2.3 majorant¹", with a footnote giving the exact values. |
+| D8 | **FIXED** | New paragraph "Scope of this EVIDENCE (reviewer D8)", with all points included. |
+| D9 | **FIXED** | "≈51%–65%". |
+| D10 | **FIXED** | "(necessarily `A≥1`)". |
+| D11 | **FIXED** | "the least prime `p≡1 (24)` with `W>T` (notes (58.2)'s `L_h`; the primes produced are also Mordell-hard)". |
+| D12 | **FIXED** | It is now "*Assessment (a statement about methods, not a proved ceiling).*" |
+
+**The `POINTWISE_SIZE.md` edits in `c13e7a0`** are accurate and correctly labelled. They are the
+dated update notes in §7.3 Assessment 7.2, "What would make 7.2 rigorous", the §11.3 title,
+Assessment 11.6, and §12's Lemma 58.5 bullet. One of them checks out explicitly: "`log(1/V) ≤ 2S ≤
+T^{o(1)}`" is true under the theorem's parameter (`g≤1/16`).
+
+**Still for the parent at merge (round-1 §7):** notes §51 pointer, Cor. 54.2, DISCOVERIES (F)10 and
+(H)6, STATUS l.78. Also any new ledger entries for §§8–9: they should carry the labels above, with
+the ET qualification for Lemma 9.2's polylog form and Thm 9.4 (R2-1).
+
+## Replay (round 2)
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000
+ uv run python scripts/review_omega_typeI.py 30000                          # <5 s
+ uv run python scripts/review_omega_haar.py 10000 --extras 20 100 --theta 0.05   # ~3 s
+ uv run python scripts/review_omega_haar.py 20000 150                       # ~2 s
+ uv run python scripts/review_omega_haar.py 100000 5 20 100 300 1000 --theta 0.05  # ~10 s
+ uv run python scripts/review_omega_haar.py 1000000 1000 3000)             # ~4 min, ~3 GB
+```

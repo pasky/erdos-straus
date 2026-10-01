@@ -1,0 +1,4 @@
+T=1000000 z=1000: atoms=3813403 events=3606313 Lemma9.1 viol=0 S_tot=44.51 S_ev=38.49 chain-bound=1857.2 (>=S_tot: True) H_PP ratio=1.323
+T=1000000 z=3000: atoms=3794860 events=3591856 Lemma9.1 viol=0 S_tot=34.24 S_ev=30.55 chain-bound=1856.0 (>=S_tot: True) H_PP ratio=0.810
+   Thm 9.4 LLL: min_E prod_(E'~E)(1-x_E') >= 0.792 (needs >= 0.5: True)
+ALL OK
