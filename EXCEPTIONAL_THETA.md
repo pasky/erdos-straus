@@ -1195,16 +1195,28 @@ There are three parts.
   set, and θ = 1/ℓ.
   * Values b with small `m_b` contribute negligibly.
   * Values with `m_b ≳ 1` ("deadly values", e.g. `b ≡ −4D` for small D)
-    behave like single-slice classes at ℓ, of cost log ℓ. For the identity
-    system their number per prime is `≈ (log ℓ)²·polylog`, which again
-    gives a cubic profile with a polylog factor.
+    behave like single-slice classes at ℓ, of cost log ℓ.
+
+  `scripts/theta_deadly_values.py` (`data/theta/deadly_values.txt`)
+  measures this for the identity system, at ℓ ≈ 10⁴, 10⁵, 10⁶ and
+  cofactors q ≤ X:
+  * there are only 9–45 deadly values per prime;
+  * the off-diagonal quantity `S_sq = Σ_b min(1,m_b)²` is about
+    0.2–0.6·(log ℓ)², rising slowly with X (+4–20% from X=10³ to 4·10³);
+  * the uncapped `Σ_b m_b`, the "sum over coordinates" mass, is about
+    1–1.7·(log ℓ)² and grows like log X.
+
+  If `S_sq ≪ (log ℓ)²(log λ)^{O(1)}`, the off-diagonal part of Ξ is
+  `≪ Σ_ℓ ℓ^{−1−α}(log ℓ)²·polylog ≍ α^{−2}·polylog`. That is
+  *subdominant* to the diagonal `α^{−3}` (EVIDENCE plus Assessment).
 * *(S) Small primes.* Primes below `w = λ^{3+ε}` must be treated as zero-cost
   coordinates. Otherwise they are nearly determined by the rest, and each
   contributes its full void cost. Taken at full price, the w-smooth
   subsystem costs only `O((log λ)³)`. Its mass is
   `∫ s² ρ_Dickman(s/log w) ds ≪ (log w)³`.
 
-Summing, the model predicts `Ξ ≲ α^{−3}·polylog(λ)`. That means saving
+Summing, the model predicts `Ξ ≲ α^{−3}·polylog(λ)`. The cubic part comes
+from the diagonal, i.e. the H_MS functional. That means saving
 `≲ λ^{3/4}·polylog(λ)` for Λ²-majorants *including balanced moduli*.
 
 **Hypothesis H_MS^{Sel}** (named; open; falsifiable). For the complete
@@ -1311,6 +1323,8 @@ uv run --with scipy python scripts/theta_reduction_check.py
 uv run python scripts/theta_profile.py 1000000          # -> data/theta/profile.txt
 # §3.8: weighted share of balanced moduli to 1e7 (~10 s)
 uv run python scripts/theta_balanced_share.py 10000000  # -> data/theta/balanced_share.txt
+# §5.7: deadly values / off-diagonal quantity at l ~ 1e4..1e6 (~2 s)
+uv run python scripts/theta_deadly_values.py           # -> data/theta/deadly_values.txt
 # §5.8: toy LP, pair vs single conditions (~5 s)
 uv run --with scipy python scripts/theta_pair_lp.py     # -> data/theta/pair_lp.txt
 # §5.3: complete-system void among real primes (4 processes x ~150 s, < 100 MB each)
