@@ -434,3 +434,139 @@ rest are routine.
 
 ## Addendum: sterile certificate p=274159709010072908384347957 (30035 vertices)
 `OK … sterile component of 30035 vertices, entire and closed; denominators {'anchor': 512, 'typeI': 0, 'typeII': 59559, 'outer': 0, 'typeI_single_method': 0}`. The run took 4 min 30 s wall time with 1.6 GB RSS. So the headline certificate of Evidence 5.5 replays. The other three Evidence 5.5 certificates also replay (see §4). I did not run the seed-component certificate (`…_seed.json.gz`) or the two variant certificates; they are presumably what made the subagent's batch run exceed 20 min. The appendix should state their runtimes.
+
+---
+
+# Round 2: check of Revision 1
+
+Reviewed: branch `side-agent/pointwise-obstruction-paper` at `1a82a4f` (paper
+commits `4ceffcb` and `9ab210d`; the author's mapping is the "Revision 1" section of
+AGENT_REPORT_B.md). The diff from the round-1 version `8057728` touches only
+`paper/pointwise-obstruction.{tex,pdf}`, `WINDMILL.md` and `AGENT_REPORT_B.md`. Line
+numbers below refer to the revised tex.
+
+**Build.** I recompiled from scratch with pdflatex. The first two passes leave one
+"Label(s) may have changed" warning. The third pass is clean: 29 pages, no warnings, no
+undefined references, no overfull or underfull boxes. `pdftotext` finds no "TODO"
+in the PDF.
+
+## R2.1 D1, re-derived
+
+New text (l. 528–541):
+
+> Every vertex at $z$ satisfies x+z ≤ 6t (eq:sixt). Indeed, $x$ is the p-free
+> denominator in [1,2t] given by Lemma 2.4 (since z∉[1,2t]), and z ≤ p−1 = 4t.
+
+**This is correct, and it is simpler than my repair.**
+- In this case every vertex at z is Type I, (z, x, pm).
+- Lemma 2.4 says some p-free denominator lies in [1,2t]. Since z > 2t, that
+  denominator is x.
+- So x ≤ 2t, and with z ≤ 4t this gives x+z ≤ 6t.
+
+**Correction to my round-1 D1.** I wrote that the bound "does not follow from Lemma 2.4
+or Monks–Velingker". That was wrong: it follows from Lemma 2.4 in one line. D1 was an
+omitted one-line justification (the setup sentence lost "x ≤ 2t"), not a real gap. I
+withdraw the "Moderate" severity of D1 in favour of "Minor".
+
+**The added convexity check is also correct.**
+- (x+z)(A−1/H) = 4z². Since A−1/H ≥ A−1/3 for both H ≥ 3 and H ≤ −1, x+z ≤ g(z).
+- g(z) = 4z²/(4z−c), with c = p+1/3, equals z + c/4 + c²/(4(4z−c)). It is convex for
+  4z > c.
+- The endpoint inequalities read 16t²+16t+4 ≤ 24t²+16t and p ≥ 5, as stated.
+
+**All later uses of the bound are now justified.**
+- f ≤ (x+z)/3 ≤ 2t (l. 541).
+- |f_N| ≤ x_N+z ≤ 6t (l. 547). The bound 6t/5 for H_N ≤ −5 follows.
+- The both-nonpositive bullet (l. 571–572) cites (eq:sixt).
+
+**WINDMILL.md Theorem 7.** The setup already stated "1 ≤ x ≤ 2t (SIGNED_REFACTOR §3)"
+and z < p. The added parenthetical "x+z ≤ 6t because x ≤ 2t by the setup and
+z ≤ p−1 = 4t" is correct and sufficient. There was no gap there.
+
+## R2.2 Item-by-item status
+
+| item | status | check |
+|---|---|---|
+| D1 | **FIXED** | Re-derived above. My severity was overstated. |
+| D2 | **FIXED** | l. 253–256: the polynomial-identity obstruction now cites ET p. 8. BL Cor 1.4 is cited correctly, as the Brauer–Manin recovery of ET Prop 1.6. |
+| D3 | **FIXED** | l. 131–135: Prop 1.6 (vanishing), p. 6 (covering congruences), p. 8 (square classes). Matches the PDF. |
+| D4 | **FIXED** (status) | A new status **reported** is defined (l. 168–171). Thm C(1) and Thm 4.11 carry "reported [AS] … finite packet re-checked here; eventual-closure argument not re-verified". Thm C now says part (2) alone gives "false under H". The same is said at l. 1162–1166 and in §7 (l. 1667–1671). The *citability* of [AS] is still open; see D5. |
+| D5 | **PARTIAL** | Both TODOs are now `%` comments, and none is in the PDF. But `\author{Anonymous}` remains, and [AS] is still "unpublished computational campaign, 2026". This is a parent/user decision and remains a submission blocker. It is not a mathematical defect. |
+| D6 | **FIXED** | Verified against the git histories. The newest commit common to both repositories is `7aed9ca` (2026-09-08 23:45). SIGNED_REFACTOR.md at that commit already contains the character theorem, "Type II fibres have at most two vertices", the z<0 and z≥p singleton cases, and "at most two" for 2t<z<p. Both sterility results are from late September 2026, so "they separated before either sterility result was found" (l. 231–235) is correct. "Vieta–Jacobi … found later, in this project only" (l. 577–581) holds: astra has no 2t<z<p singleton statement. Remark 4.12 (l. 1207–1210) correctly limits astra's use to z<0/z≥p and Type II rigidity. The timeline paragraph and acknowledgements match the commits (`f0f2e12` < `19c712c` < `43913c4`). |
+| D7 | **FIXED** | Subprogression scope in Thm C (l. 225–227), Remark 4.12 (l. 1224) and §7 ("under Dickson for the restricted tuple"). |
+| D8 | **FIXED** | ω(ℓ) explicit; ω ≤ 19 < ℓ for ℓ > 19; \|r_d\| ≤ ω(d) for the progression mod 840; Mertens in progressions gives Ω₂(κ). "p≡1 (4)" is added in Thm A(4) and Thm 3.6. The HR theorem number (2.2) is recalled, not checked against the book, and the paper says "e.g.". Acceptable. |
+| D9 | **FIXED** | The subscripted ET coordinates and maps are verified against the ET PDF. Type I (abdp, acd, bcd) is Prop 2.2. Type II (abd, acdp, bcdp) is (2.22). 4m−1 = pe_ET is (2.1). 4m−1 = f_ET is (2.18). 4x−p = f_ET is (2.6). e = (f_ET·e_ET−1)/4 = a_ET²d_ET follows from (2.7). |
+| D10 | **FIXED** | Model defined, and I checked both equations: 1/(abc)+1/(pkbc)+1/(pkac) = 4/p ⇔ k(4abc−p) = a+b, and the analogous Type I identity. The renaming c→d_ET, k→c_ET matches ET (2.3) 4abcd = na+nb+c and (2.15) 4abcd = a+b+nc. AGL₄(ℤ) is stated. |
+| D11 | **FIXED** | Vaughan (Mathematika 17 (1970), 193–198) and BGS (arXiv:1607.01530) added and cited. |
+| D12 | **FIXED** | BL Prop 2.6 cited; the "elementary proof" sentence is deleted. |
+| D13 | **FIXED** | \cite[\S3]{Elsholtz}. |
+| D14 | **FIXED** | Thm 4.3 is the h=1 analogue; Thm 4.14 is described as a two-sided estimate for c=7; Prop 3.8 as a finite list of 14 primes. |
+| D15 | **PARTIAL** | Hypotheses stated and correct: squarefree x; ℓ_i ≡ 1 (4𝓜) implies the Lemma 5.3 hypothesis; guard ≡ 3 (4) means w ≡ 1 (4) ⇔ guard ∤ w; so 2^r−1 descents, all with d ≥ guard. Closure is labelled evidence. **New small inaccuracy (l. 1433–1436):** see R2.3(a). |
+| D16 | **FIXED** | Re-run below; every listed command works as printed and the runtimes match. |
+| D17 | **FIXED** | |
+| D18 | **FIXED** | The title now begins "Under Hypothesis H, …". The abstract says "conditionally on Schinzel's Hypothesis H, this pointwise programme is blocked", and that the astra result is reported, not re-proved. |
+| D19 | **FIXED** | The identity checks: 2/(n−1)+2/(n+1)−4/(n(n²−1)) = 4/n. BL ref. [14] is J. H. Jaroma, Crux Math. 30 (2014), as cited. |
+| D20 | **FIXED** | §7 item 3 now separates Prop 4.6/Thm 4.9 (odd-square principle) from the certificates, and states that Thm 4.13 is not a square-class instance. |
+| D21 | **FIXED** | V_{j+1} ⊇ V_j; (B) is decided after the (F2) precision is raised. |
+| D22 | **FIXED** | ET Prop 2.3, fifth bullet, is literally "n = 4acd − f and f \| 4a²d+1". With z = acd and D = a²d this is D ≡ −1/4 (mod f), D \| z². ET Prop 2.7 is the Type II list. |
+
+## R2.3 New issues introduced by the revision (all minor or cosmetic)
+
+**(a) Minor, l. 1433–1436:** "In most computed instances no further vertex appears
+(\S3.4 of the source notes: $122$ of $126$ guarded instances were sterile). The
+component then has $(3^{r+1}-1)/2+2^r-1$ vertices."
+
+"Sterile" is not the same as "no further vertex". SIZE_CONJECTURE §3.4 reports sterile
+guarded components with sizes 395–397, 1156–1161, 3407–3415, 10096–10098 and
+30035–30039. The formula gives 395, 1156, 3407, 10096 and 30035, the lower ends. So
+some sterile components have a few extra vertices. **Fix:** "122 of 126 guarded
+instances were sterile, with components of the predicted size or at most 8 vertices
+larger. The formula is attained in the typical case, e.g. 30035 = 29524+511 at r=9."
+
+**(b) Cosmetic, l. 1428:** the guard prime is called $q_0$, which clashes with the frame
+base point $q_0$ of §4. Rename it, e.g. $g_0$ or $\ell_0$.
+
+**(c) Cosmetic, AGENT_REPORT_B.md:** it says the build is "clean: two pdflatex passes".
+From scratch, three passes are needed for stable labels. Harmless.
+
+**No new overclaim found.** I grepped every changed passage for priority, novelty,
+status and scope words: "first", "independent", "proved here", "reported",
+"separated", "only".
+- "Independently" now refers to the certificates (l. 228–230, 1229).
+- "First" refers to the 800-form version.
+- All four "false under H" statements rest on Thm 4.13.
+- The new title is conditional.
+- The sieve proof claims no more than the cited sieve gives.
+
+## R2.4 Replay of the new appendix
+
+Run from the repository root, `PY` as defined, `ulimit -v 8000000`, ≤4 cores:
+
+| command | result | time |
+|---|---|---|
+| `PY scripts/depth3_validate.py 13 30000 --jobs 4` | 1610 checked, 0 mismatches | 36 s |
+| `g++ … depth3_allp.cpp`; `/tmp/d3allp 13 100000000 4` | 179468 tested, 70 candidates | 2 s |
+| `PY scripts/depth3_batch.py allp.txt --jobs 4` | `SUMMARY {'3': 70}` | 2 s |
+| `g++ … depth3_sieve.cpp`; `/tmp/d3sieve 6 1 100000000 4 hard` | 217 survivors | 1 s |
+| `PY scripts/depth3_batch.py surv.txt --jobs 4` | `SUMMARY {'3': 217}` | <1 s |
+| `PY scripts/formal2_realq.py … --mod-bound 13 --power-cap 30 --n 40` | runs; first layer 80/80 formal | 5 s |
+| `g++ … windmill_singleton.cpp`; `/tmp/wm_single 2500000` | 2939478 candidates, 0 hits | <1 s |
+| sterile `p2192882958603411108997` | OK, 3407 vertices | 10 s |
+| sterile `p691188894734138813322041_typeI` | OK, 409 vertices | 37 s |
+| sterile `p274159709010072908384347957_seed` | OK, SEED component 10155 vertices (11 Type I buckets single-method, consistent with "almost all") | 21 min, 1.9 GB RSS |
+
+The round-1 runs of the other certificates and of the formal-closure checks still apply,
+since those scripts and data are unchanged. The appendix's runtimes match: "23 min" for
+the seed certificate, against my 21 min.
+
+## R2.5 Final verdict: **ACCEPT** (mathematics and exposition)
+
+All 22 items are FIXED except two that are PARTIAL:
+- **D5** (authorship and [AS] citation) is a parent/user decision. It must be settled
+  before submission.
+- **D15** has one new sentence that conflates "sterile" with "exactly the predicted
+  size" (R2.3(a)). This is a one-line wording fix.
+
+No mathematical defect remains. The one round-1 "gap" (D1) turned out to be a one-line
+omission, and my round-1 claim that it did not follow from Lemma 2.4 was mistaken. The
+revision introduced no overclaim.
