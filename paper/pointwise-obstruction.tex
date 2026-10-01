@@ -34,7 +34,8 @@
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
 \newcommand{\status}[1]{\textsc{#1}}
 
-\title[The pointwise signed-graph approach to Erd\H{o}s--Straus is blocked]{Formally generic primes block the pointwise signed-graph approach to the Erd\H{o}s--Straus conjecture}
+\title[Formally generic primes and the signed graph of Erd\H{o}s--Straus]{Under Hypothesis~H, formally generic primes block the pointwise signed-graph approach to the Erd\H{o}s--Straus conjecture}
+% TODO(parent): authorship to be settled with the user.
 \author{Anonymous}
 \date{Draft, 1 October 2026}
 
@@ -46,8 +47,9 @@ form a finite graph, two solutions being adjacent when they share a
 denominator.  The \emph{seed} $(t,-2pt,-2pt)$ is available for every such
 $p$, and the \emph{seed-component conjecture} asserts that its component
 always contains an all-positive solution; it would imply the
-Erd\H{o}s--Straus conjecture for $p\equiv1\pmod4$.  We explain why this
-pointwise programme is blocked.  Arguments that use only congruence data
+Erd\H{o}s--Straus conjecture for $p\equiv1\pmod4$.  We explain why,
+conditionally on Schinzel's Hypothesis~H, this pointwise programme is
+blocked.  Arguments that use only congruence data
 and the shape of factorisations fail at ``formally generic'' primes, and we
 prove precise forms of this principle.  Unconditionally, we
 classify all escapes from the seed of length at most three, show that every
@@ -56,8 +58,9 @@ bound the exceptional sets by $N(\log N)^{-11/2}$ (distance $>2$) and
 $N(\log N)^{-10}$ (distance $>5$).  Under Schinzel's Hypothesis~H the seed
 distance is unbounded.  Under prime-tuple hypotheses, moreover, the whole
 seed component has no positive vertex for infinitely many primes.  This
-was proved first, and in a stronger form, by a companion computation that
-assumes only Dickson's conjecture for $159$ linear forms.  On a
+was obtained first, and in a stronger form, by a companion computation that
+assumes only Dickson's conjecture for $159$ linear forms.  We report that
+result without re-proving it.  On a
 subprogression, that construction also exhibits a positive solution
 outside the sterile component.  We give an independent
 confirmation from Hypothesis~H for $6402$ explicit polynomials of degree at
@@ -90,8 +93,12 @@ been verified numerically to $10^{18}$ \cite{MD}.  It is open; no published
 argument proves it.
 
 \subsection{The signed graph and the seed}
-Allowing \emph{signed} denominators changes the problem completely: signed
-solutions exist for every odd $n$ (Jaroma's identity, see \cite[\S1]{BL}),
+Allowing \emph{signed} denominators changes the problem completely: for
+every odd $n\ge3$,
+\[
+ \frac4n=\frac{1}{(n-1)/2}+\frac{1}{(n+1)/2}-\frac{1}{n(n^2-1)/4}
+\]
+(an identity attributed to Jaroma, see \cite[\S1 and ref.~14]{BL}),
 and for fixed $n$ there are only finitely many of them \cite[Lemma~3.10]{BL}.
 Throughout, $p=4t+1$ is a prime.
 
@@ -121,10 +128,11 @@ paper explains why that programme is blocked.
 
 \subsection{The main message}
 The obstruction is an instance of a principle that is informally familiar
-from Elsholtz--Tao \cite[\S1, remark after Prop.~1.6]{ET}.  Type~I and
-Type~II solutions do not exist at odd squares, so a method showing that
-they exist at $p$ must fail when $p$ is replaced by an odd square.  This
-rules out covering congruences and polynomial identities.  (ES itself
+from Elsholtz--Tao.  Type~I and Type~II solutions do not exist at odd
+squares \cite[Prop.~1.6]{ET}, so a method showing that they exist at $p$ must
+fail when $p$ is replaced by an odd square.  This rules out finite sets of
+covering congruences \cite[\S1, remark after Prop.~1.6, p.~6]{ET}, and
+polynomial identities on square classes \cite[p.~8]{ET}.  (ES itself
 holds at odd squares, e.g.\ $4/9=1/4+1/6+1/36$; the obstruction concerns
 the methods.)  We make this precise for explorations of the signed graph.
 
@@ -157,9 +165,10 @@ using the size of~$p$.
 
 \subsection{Results}
 Status labels follow the campaign convention: \status{proved},
-\status{conditional} (proved from a named hypothesis), \status{certified}
-(an exact finite computation re-checked independently) and \status{evidence}
-(finite data).  ``Verified numerically'' never means ``proved''.
+\status{conditional} (proved here from a named hypothesis),
+\status{certified} (an exact finite computation re-checked independently),
+\status{evidence} (finite data), and \status{reported} (a result proved
+elsewhere, stated here with an indication of what we re-checked).  ``Verified numerically'' never means ``proved''.
 
 \begin{introthm}[\status{proved}; \S\S\ref{sec:graph}--\ref{sec:short}]\label{thmA}
 \leavevmode
@@ -174,8 +183,8 @@ one sign class.
 \item $\dist(p)\le3$ if and only if one of three explicit divisor conditions
 holds (Theorem~\ref{thm:depth3}).  Every prime $p\equiv1\pmod4$ outside
 Mordell's six classes has $\dist(p)=2$.
-\item $\#\{p\le N:\dist(p)>2\}\ll N(\log N)^{-11/2}$ and
-$\#\{p\le N:\dist(p)>5\}\ll N(\log N)^{-10}$.
+\item $\#\{p\le N,\ p\equiv1\ (4):\dist(p)>2\}\ll N(\log N)^{-11/2}$ and
+$\#\{p\le N,\ p\equiv1\ (4):\dist(p)>5\}\ll N(\log N)^{-10}$.
 \end{enumerate}
 \end{introthm}
 
@@ -187,10 +196,12 @@ $N$.  Hence, under H, no bounded-depth search from the seed proves ES for
 all primes $p\equiv1\pmod4$.
 \end{introthm}
 
-\begin{introthm}[\status{conditional}; \S\ref{sec:whole}]\label{thmC}
+\begin{introthm}[\S\ref{sec:whole}]\label{thmC}
 \leavevmode
 \begin{enumerate}
-\item \emph{(Companion computation \cite{AS}; the stronger version.)}  There
+\item \emph{(\status{reported} \cite{AS}, conditional on Dickson; the
+stronger version.  Finite packet re-checked here; eventual-closure argument
+not re-verified.)}  There
 are $159$ explicit linear forms $F_i(n)$, among them $q$ and $p=24q+1$, with
 the following property.  For all sufficiently large $n$ at which every
 $F_i(n)$ is prime, the seed component of $p$ has no positive vertex.  On an
@@ -199,22 +210,29 @@ solution, which therefore lies outside $C_\sigma(p)$.  Dickson's conjecture
 for these $159$ forms gives infinitely many sterile seed components.  For
 the $159$ forms restricted to the subprogression, it gives infinitely many
 such primes that also have a positive solution.
-\item \emph{(This paper; independent confirmation.)}  Under Hypothesis~H for
+\item \emph{(This paper, \status{conditional} on H; independent
+confirmation.)}  Under Hypothesis~H for
 an explicit family of $6402$ polynomials of degree at most two, infinitely
 many primes $p=24q+1$ have a seed component with no positive vertex.  That
 component consists of the values of $7883$ explicit formal vertices.
 \end{enumerate}
-In particular Conjecture~\ref{conj:seed} is false under either hypothesis.
+In particular, by part~(2), which is proved here, Conjecture~\ref{conj:seed}
+is false under Hypothesis~H.  Part~(1) reports that the same holds under
+Dickson's conjecture.
 \end{introthm}
 
 The first part of Theorem~\ref{thmC} is due to the companion project
 \cite{AS}, and it is stronger than the second part in two respects.  It
 needs only Dickson's conjecture, the linear case of Hypothesis~H, for $159$
-forms; and it exhibits an ES solution at the same primes, so its primes
-are counterexamples to \emph{reachability}, not candidates against ES.  The
-second part was obtained independently, by a different certificate (a
-closure over a polynomial frame rather than an affine packet), and it was
-re-verified by an independent engine.
+forms.  It also exhibits an ES solution at the primes of the subprogression
+$n\equiv507\pmod{857}$, so those primes are counterexamples to
+\emph{reachability}, not candidates against ES.  The second part was
+obtained independently, by a different certificate (a closure over a
+polynomial frame rather than an affine packet), and it was re-verified by
+an independent engine.  The two projects share their early history (the
+signed graph, the seed, and the outer-anchor bounds for $z<0$ and $z\ge p$
+of Theorem~\ref{thm:outer}); they separated before either sterility
+result was found.
 
 \subsection{What is not claimed}
 ES is not proved or disproved here.  Conjecture~\ref{conj:seed} is
@@ -233,11 +251,13 @@ Elsholtz--Tao coordinates \cite[(2.1), (2.6), (2.7), (2.18), (2.21)]{ET}.
 Rigidity of $p$-divisible denominators between types was observed for
 positive solutions by Jiang \cite[Thm.~3.2]{Jiang}; that preprint has since
 been withdrawn.  The polynomial-identity obstruction is Schinzel's
-\cite{Schinzel}; see \cite[\S1]{ET} and \cite[Cor.~1.4]{BL}.  The
+\cite{Schinzel}; see \cite[p.~8]{ET}.  Bright and Loughran recover the
+odd-square vanishing \cite[Prop.~1.6]{ET} from the Brauer--Manin
+obstruction \cite[Cor.~1.4]{BL}.  The
 half-dimension idea in Theorem~\ref{thm:sieve} is Dahan's
 \cite[Lemma~4.2, Thm.~4.3]{Dahan}.  We found no prior source for the
-signed graph, the seed, Theorem~\ref{thm:depth3} or
-Theorems~\ref{thmB}--\ref{thmC}; Theorem~\ref{thmB} is best read as the
+signed graph, the seed, Theorem~\ref{thm:depth3}, Theorem~\ref{thmB} or
+Theorem~\ref{thmC}(2), apart from the companion project \cite{AS}; Theorem~\ref{thmB} is best read as the
 H-conditional form of the Elsholtz--Tao remark, and its novelty is
 unconfirmed.
 
@@ -281,8 +301,7 @@ denominator.  If $p$ divided all three, multiplying by $p$ would write $4$ as
 a sum of three reciprocals of nonzero integers; but such a sum is at most~$3$.  If
 exactly one denominator $p^km$ is $p$-divisible, then
 $1/(p^km)=4/p-1/x-1/y$ has valuation $-1$, so $k=1$.  Suppose $x$ is
-$p$-free and $p^im,p^jn$ with $i,j\ge1$, $p\nmid mn$.  If $i<j$ and
-$j\ge2$, then $1/(p^jn)=4/p-1/x-1/(p^im)$ would have valuation
+$p$-free and $p^im,p^jn$ with $i,j\ge1$, $p\nmid mn$.  If $i<j$, then $1/(p^jn)=4/p-1/x-1/(p^im)$ would have valuation
 $\ge-i>-j$, which is impossible.  So $i=j$.  If $i=j\ge2$ then
 $|4/p-1/x|\le2/p^2$.  This forces $x>0$ and $x\le p^2/(4p-2)<p/2$, whence
 $0<|4x-p|\le2x/p<1$, a contradiction.
@@ -308,9 +327,20 @@ gives $4\equiv1/m$.  For $(x,pm,pn)$ it gives $4\equiv1/m+1/n$, that is,
 $4mn\equiv m+n$.
 \end{proof}
 
-On positive points these labels are Elsholtz--Tao parameters: for Type~I,
-$4m-1=pe$ is \cite[(2.1)]{ET}, and for Type~II the identity above is
-\cite[(2.21)]{ET} reduced modulo~$p$.
+On positive points these labels are Elsholtz--Tao parameters.  Write
+$a_{\mathrm{ET}},b_{\mathrm{ET}},\dots,f_{\mathrm{ET}}$ for the coordinates
+of \cite[\S2]{ET}, and drop the subscripts inside the next two displays.
+A positive Type~I vertex is
+\[
+ (abdp,\ acd,\ bcd)\qquad\text{\cite[Prop.~2.2]{ET}},
+\]
+so $m=a_{\mathrm{ET}}b_{\mathrm{ET}}d_{\mathrm{ET}}$ and
+$4m-1=pe_{\mathrm{ET}}$ is \cite[(2.1)]{ET}.  A positive Type~II vertex is
+\[
+ (abd,\ acdp,\ bcdp)\qquad\text{\cite[(2.22), Prop.~2.6]{ET}}.
+\]
+There $4m-1=f_{\mathrm{ET}}$ by \cite[(2.18)]{ET},
+and the identity above is \cite[(2.21)]{ET} reduced modulo~$p$.
 
 \begin{lemma}[small anchor; \status{proved}]\label{lem:anchor}
 Every vertex has a $p$-free denominator $x$ with $1\le x\le2t$.  The
@@ -349,13 +379,11 @@ $\leg{-u_2/u_3}{p}=\leg{-AB}{p}=\leg{AB}{p}$, since $p\equiv1\pmod4$.  For
 $n=p$, \cite[Thm.~1.2]{BL} says that this symbol is $-1$ at positive
 solutions, and \cite[Thm.~1.5]{BL} says that it is $+1$ at integer solutions
 which are not positive.  The symbol is invariant under permuting the $u_i$
-\cite[\S1]{BL}.
+(\cite[\S1]{BL}, referring to \cite[Prop.~2.6]{BL}).
 \end{proof}
 
 The direction ``positive $\Rightarrow$ non-residue'' is \cite[Cor.~1.3]{BL},
-which unifies Yamamoto's conditions \cite{Yamamoto}.  An elementary proof
-by quadratic reciprocity, in the style of \cite[Prop.~1.6]{ET}, is also
-possible; we do not need it.  By \cite[Thm.~1.6]{BL}, the Brauer group of
+which unifies Yamamoto's conditions \cite{Yamamoto}.  By \cite[Thm.~1.6]{BL}, the Brauer group of
 the Erd\H{o}s--Straus surface modulo constants is $\Z/2$, generated by the
 class behind Theorem~\ref{thm:BL}.  So this character is the \emph{only}
 Brauer--Manin invariant.  It identifies positivity exactly, but it cannot
@@ -400,8 +428,10 @@ a positive vertex has $pm>0$, so $h\ge1$, and $1/x<4/p$, so $x>p/4$, that
 is, $a\ge1$.
 \end{proof}
 
-On positive points, $e=a^2d$ in the coordinates of \cite[Prop.~2.2,
-(2.6)--(2.7)]{ET}.  The chart is symmetric in the retained denominators $x$
+On positive Type~I points, with the ET coordinates above,
+$H=e_{\mathrm{ET}}$ and $4x-p=f_{\mathrm{ET}}$ \cite[(2.1), (2.6)]{ET}.  By
+\cite[(2.7)]{ET} the chart quantity is
+$e=(f_{\mathrm{ET}}e_{\mathrm{ET}}-1)/4=a_{\mathrm{ET}}^2d_{\mathrm{ET}}$.  The chart is symmetric in the retained denominators $x$
 and $pm$: a move retaining $x$ keeps $a$, and a move retaining $pm$ keeps
 $h$.
 
@@ -496,14 +526,25 @@ Then $x=Hz^2/e-z$, and $AH=4e+1$ gives
 \begin{equation}\label{eq:vieta}
  x+z=Hf,\qquad A(x+z)=4z^2+f .
 \end{equation}
-The vertex is positive if and only if $H\ge3$.  Then $0<f\le(x+z)/3\le2t$;
-otherwise $H\le-1$ and $f<0$.  By \eqref{eq:vieta}, $x$ determines
+Every vertex at $z$ satisfies
+\begin{equation}\label{eq:sixt}
+ x+z\le6t .
+\end{equation}
+Indeed, $x$ is the $p$-free denominator in $[1,2t]$ given by
+Lemma~\ref{lem:anchor} (since $z\notin[1,2t]$), and $z\le p-1=4t$.
+Equivalently, \eqref{eq:vieta} and $f=(x+z)/H$ give
+$(x+z)(A-1/H)=4z^2$.  So $x+z\le g(z):=4z^2/(4z-p-1/3)$, both for $H\ge3$
+and for $H\le-1$.  The function $g$ is convex on $(2t,p)$, so it is bounded
+by its values at the endpoints.  At $z=2t+1$ the bound $g\le6t$ reads
+$16t^2+16t+4\le24t^2+16t$, and at $z=p-1$ it reduces to $p\ge5$.  The
+vertex is positive if and only if $H\ge3$; then
+$0<f\le(x+z)/3\le2t$ by \eqref{eq:sixt}.  Otherwise $H\le-1$ and $f<0$.  By \eqref{eq:vieta}, $x$ determines
 the vertex.  Suppose that two vertices share $z$, with $x_1<x_2$.  Then
 $f_2-f_1=A(x_2-x_1)\ge A$.
 \begin{itemize}
 \item Both positive: $0<f_1,f_2\le2t<A$, which is impossible.
 \item Mixed, positive $P$ and nonpositive $N$: then $f_P>0>f_N$, so
-$x_P>x_N$.  Also $|f_N|\le x_N+z\le6t$, so $A(x_P-x_N)\le8t<2A$.  Hence
+$x_P>x_N$.  Also $|f_N|\le x_N+z\le6t$ by \eqref{eq:sixt}, so $A(x_P-x_N)\le8t<2A$.  Hence
 $x_P=x_N+1$ and $|f_N|=A-f_P\ge2t+3$.  If $H_N\le-5$ then
 $|f_N|\le6t/5$, which is too small.  So $H_N=-1$, i.e.\ $m_N=-t$, and
 $1/x_N+1/z=1/t$.  Write $x_N=t+d$ and $z=t+u$ with $du=t^2$ and $d<t<u$.
@@ -527,15 +568,17 @@ of $k$, reciprocity and $\mathcal M\equiv-1\pmod{k'}$ give
 $(k'|\mathcal M)=(-1|k')(-1)^{(k'-1)/2}=1$.  So the Jacobi symbol
 $(-k|\mathcal M)=-1$, and $-k$ is not a square modulo $\mathcal M$; this
 is a contradiction.
-\item Both nonpositive: $|f_1|=|f_2|+A(x_2-x_1)\ge4t+4$, so as above
-$H_1=-1$, $x_1=t+d$, $z=t+u$.  Then
+\item Both nonpositive: $|f_1|=|f_2|+A(x_2-x_1)\ge4t+4$, so, as above (using
+\eqref{eq:sixt}), $H_1=-1$, $x_1=t+d$, $z=t+u$.  Then
 $|f_2|\le x_1+z-A=2t+d-3u+1<1$, which is impossible.\qedhere
 \end{itemize}
 \end{proof}
 
-The cases $z<0$ and $z\ge p$, and the bound of two vertices for
-$2t<z<p$, were found first; the Vieta--Jacobi step closes the remaining
-case.  Theorem~\ref{thm:outer} was brute-force checked for all
+The cases $z<0$ and $z\ge p$, and a bound of two vertices for $2t<z<p$,
+were proved first, by interval estimates, in the signed-refactor notes.
+These predate the separation of this project from the companion project
+\cite{AS}, and both projects contain them.  The Vieta--Jacobi step closing
+the case $2t<z<p$ was found later, in this project only.  Theorem~\ref{thm:outer} was brute-force checked for all
 $p\equiv1\pmod4$, $p<3\cdot10^4$, and independently for $p<400$ on all
 $z\in[-4000,-1]\cup[2t+1,4000]$; no violation was found.
 
@@ -562,7 +605,10 @@ is productive if and only if some positive $D\mid z^2$ satisfies one of
  D&\equiv-z\pmod{q_z}&&\text{(Type II exit } (z,\,p(z+D)/q_z,\,p(z+z^2/D)/q_z)),\label{eq:exitII}\\
  D&\equiv-1/4\pmod{q_z}&&\text{(Type I exit } (z,\,p(z+pD)/q_z,\,(pz+z^2/D)/q_z)).\label{eq:exitI}
 \end{align}
-This is the classical anchor criterion.
+This is the classical anchor criterion: \eqref{eq:exitI} is the Type~I
+condition $p=4acd-f$, $f\mid4a^2d+1$ of \cite[Prop.~2.3]{ET}, and
+\eqref{eq:exitII} is the corresponding Type~II condition of
+\cite[Prop.~2.7]{ET}, written in the anchor $z$.
 
 \begin{theorem}[escapes of length $\le3$; \status{proved}]\label{thm:depth3}
 Let $p=4t+1$ be prime.
@@ -719,6 +765,7 @@ class $c$.
 \end{proof}
 
 \begin{theorem}[\status{proved}, given a standard upper-bound sieve]\label{thm:sieve}
+For primes $p\equiv1\pmod4$,
 \begin{gather*}
  \#\{p\le N:\dist(p)>2\}\ll N(\log N)^{-11/2},\\
  \#\{p\le N:\dist(p)>5\}\ll N(\log N)^{-10} .
@@ -742,24 +789,38 @@ $\ell$ outside a finite exceptional set, $\ell\mid N_h$ if and only if
 $p\equiv-K_h^{-1}\pmod\ell$, and $\ell\mid N_d$ if and only if
 $p\equiv-K_d\pmod\ell$.  For large $\ell$ these classes are pairwise
 distinct and different from $0$, since $(1-4d)(4h-1)+1=4(h+d-4dh)\ne0$.
-Discard the primes $p\le N^{1/2}$, which are negligible.  The remaining
-primes counted lie in a fixed class modulo $840$.  For each prime
-$\ell\le N^{1/2}$ outside the exceptional set, they avoid the class $0$ and
-every class of a branch $b$ with $\ell\bmod K_b\notin R_b$.  By the prime number theorem in progressions,
-this is a sieve problem of dimension
+Let $\mathcal L$ be the set of primes $\ell>19$ that do not divide
+$840\prod_bK_b$ and are not coincidence primes.  Discard the primes
+$p\le N^{1/2}$, which are negligible.  The remaining primes counted lie in
+$\mathcal A=\{n\le N:n\equiv a\pmod{840}\}$ for a fixed $a$.  For each
+$\ell\in\mathcal L$ with $\ell\le N^{1/2}$, they avoid the class $0$ and the
+class of every branch $b$ with $\ell\bmod K_b\notin R_b$; these classes are
+distinct.  So they survive the sieve of $\mathcal A$ by $\mathcal L$, up to
+$z=N^{1/2}$, with
 \[
+ \omega(\ell)=1+\#\{b:\ \ell\bmod K_b\notin R_b\}\qquad(\ell\in\mathcal L).
+\]
+Here $\omega(\ell)\le1+18<\ell$.  For squarefree $d$ composed of primes in
+$\mathcal L$, $|\mathcal A_d|=\omega(d)X/d+r_d$ with $X=N/840$ and
+$|r_d|\le\omega(d)$.  By the prime number theorem in progressions modulo
+each $K_b$,
+\[
+ \sum_{\substack{w\le\ell<z\\ \ell\in\mathcal L}}\frac{\omega(\ell)\log\ell}{\ell}
+ =\kappa\log\frac zw+O(1),\qquad
  \kappa=1+\sum_b\Bigl(1-\frac{|R_b|}{\varphi(K_b)}\Bigr)\ge1+\frac B2 ,
 \]
-where $B=9$, respectively $18$, is the number of branches.  The sifted set
-is the integers $n\le N$ in one class modulo $840$, whose remainders satisfy
-$|r_d|\le\omega(d)$ for squarefree $d$.  So an upper-bound sieve of
-dimension $\kappa$ at level $N^{1/2}$ \cite{HR} gives
-$\ll N(\log N)^{-\kappa}$.  Summing over the choices of $(R_b)$ proves the
-theorem.
+where $B=9$, respectively $18$, is the number of branches.  These are the
+hypotheses $(\Omega_1)$, $(\Omega_2(\kappa))$ and $(R)$ of the upper-bound
+sieve of dimension $\kappa$ (e.g.\ \cite[Thm.~2.2]{HR}), which gives
+$\ll X\prod_{\ell<z,\,\ell\in\mathcal L}(1-\omega(\ell)/\ell)\ll
+N(\log N)^{-\kappa}$.  Summing over the finitely many choices of $(R_b)$
+proves the theorem.
 \end{proof}
 
-The case $h=1$ alone gives the exponent $3/2$; compare
-\cite[Thm.~4.14]{Dahan}.  These savings are only polylogarithmic.
+The case $h=1$ alone gives the exponent $3/2$.  It is the direct analogue of
+Dahan's upper bound \cite[Thm.~4.3]{Dahan} with a single pair; Dahan's
+Theorem~4.14 is a two-sided estimate $\asymp N(\log N)^{-3/2}$ for a different
+obstruction (shift $c=7$).  These savings are only polylogarithmic.
 Theorem~\ref{thm:unbounded} shows that, under Bateman--Horn, no bounded
 depth can do better than polylogarithmic.  The data (\S\ref{sec:evidence})
 suggest that the exponents are not sharp.
@@ -1052,9 +1113,11 @@ $\cV_j$, and enlarge the data as follows:
 \begin{itemize}
 \item add the factors of $4Z-\Pp$ to $\Sa$ (unless they are in $\Se$), and
 add the primes of $c_r$ to $\Lambda$;
-\item compute $\Fib(Z)$.  Condition (A) does not depend on $q$, and (B) is
-decided by $q^*$.  Add the irreducible factors of every $y_D$ to $\Se$
-(removing them from $\Sa$ if necessary), and the triples to $\cV_{j+1}$;
+\item compute $\Fib(Z)$.  Condition (A) does not depend on $q$.  Condition (B)
+is decided by $q^*$, after the $E_\ell$ have been raised to the precision
+required by (F2).  Add the irreducible factors of every $y_D$ to $\Se$
+(removing them from $\Sa$ if necessary).  Let $\cV_{j+1}\supseteq\cV_j$
+consist of $\cV_j$ and all these triples;
 \item add to $\Lambda$ the primes of all new $C_g$, of all constants of
 entries, of all $H_g$, and all primes $\le\sum_{\Se}\deg g$;
 \item raise the $E_\ell$ to satisfy Definition~\ref{def:frame} and (F2),
@@ -1086,20 +1149,28 @@ bounded-radius exploration from formally given vertices, for instance any
 class.  Schinzel's theorem and \cite[Prop.~1.6]{ET} rule out arguments
 that never factor.  Theorem~\ref{thm:unbounded} rules out, under H,
 bounded-depth searches that do factor.  It is the H-conditional form of
-the Elsholtz--Tao remark \cite[\S1]{ET}.  Related unconditional
-obstructions for specific branches are \cite[Prop.~3.8,
-Thm.~4.14]{Dahan}.  The family $\Se^{(k)}$ is large, so the theorem gives
+the Elsholtz--Tao remark \cite[\S1]{ET}.  A related unconditional result for one
+branch is Dahan's \cite[Thm.~4.14]{Dahan}: the shift $c=7$ fails for
+$\asymp N(\log N)^{-3/2}$ primes.  His computed list \cite[Prop.~3.8]{Dahan}
+of $14$ primes below $5\cdot10^9$ that fail the modulator-one family is
+finite evidence of the same kind.  The family $\Se^{(k)}$ is large, so the theorem gives
 no example within computational reach.
 \end{remark}
 
 \subsection{The whole seed component}\label{sec:whole}
 Theorem~\ref{thm:unbounded} says nothing about the full component, which
 is finite for each $p$ but whose radius is not bounded uniformly.  Two
-independent constructions close it.  We state the stronger one first.
+independent constructions close it.  We state the stronger one first.  It
+is \emph{reported} from the companion project, and this paper does not
+prove it.  Within this paper, the statement ``Conjecture~\ref{conj:seed} is
+false under Hypothesis~H'' rests on Theorem~\ref{thm:F} alone.
 
-\begin{theorem}[companion computation \cite{AS}; \status{conditional} on Dickson]\label{thm:astra}
-There are explicit integers $Q,M>0$ and $159$ explicit primitive linear forms
-$F_i(n)=(\alpha_i(Q+Mn)+\beta_i)/C_i$ with the following property.  The forms
+\begin{theorem}[\status{reported} \cite{AS}; conditional on Dickson]\label{thm:astra}
+\emph{(Status: the finite packet is re-checked here; the eventual-closure
+argument is not re-verified here.)}
+There are explicit integers $Q,M>0$ and explicit primitive linear forms
+$F_1,\dots,F_{159}$, $F_i(n)=(\alpha_i(Q+Mn)+\beta_i)/C_i$, with the
+following property.  The forms
 are $q=Q+Mn$, $p=24q+1$, and the primitive parts of $6q+a$ ($a\in A$,
 $|A|=84$) and of $6(4h-1)q+h$ ($h\in H$, $|H|=75$), which correspond to the
 shifted anchors $t+a$ and the Type~I quotients $ph-t$, with $q$ counted once.
@@ -1115,8 +1186,8 @@ $q\equiv713\pmod{857}$,
 is a positive solution.  It is the Type~I chart point $a=7$, $h=32$, $e=857$.
 Under the hypotheses of (1) it lies outside the seed component.
 \end{enumerate}
-Consequently, under Dickson's conjecture for these $159$ forms, there are
-infinitely many primes with a sterile seed component.  Under Dickson's
+Consequently, according to \cite{AS}, under Dickson's conjecture for these
+$159$ forms there are infinitely many primes with a sterile seed component.  Under Dickson's
 conjecture for the restricted tuple $F_i(507+857k)$, whose admissibility is
 verified in \cite{AS}, infinitely many of them also have a positive ES
 solution.  An earlier version uses $800$ forms; it has the explicit
@@ -1133,8 +1204,10 @@ $800$-form packet had $302$ nodes.  The eventual arguments use polynomial divisi
 one common threshold.  They also use ``one-prime'' fibre lemmas, which
 exhaust the fibre of an affine anchor whose auxiliary partner is not
 assumed prime.  This is why only the primary forms $t+a$ and $ph-t$ need
-to be prime.  The construction also uses the outer-anchor bounds
-(Theorem~\ref{thm:outer}) and Type~II rigidity.
+to be prime.  The construction also uses the cases $z<0$ and $z\ge p$ of
+Theorem~\ref{thm:outer} (for anchors that are eventually negative or
+${}\ge p$) and Type~II rigidity.  Both predate the separation of the two
+projects.  It does not use the Vieta--Jacobi case $2t<z<p$.
 
 \emph{Our verification status.}  We re-ran the companion's finite checker
 on a copy of its data; it reports \texttt{VERIFIED\_PRIMARY\_PACKET\_EVENTUAL}
@@ -1148,7 +1221,12 @@ ways.  It is linear: Dickson's conjecture, where one form is Dirichlet's
 theorem, against quadratic prime values, which are not known even for a
 single polynomial.  It is smaller: $159$ forms against $6402$, which also
 improves the Bateman--Horn density.  And it shows that ES holds at the
-primes concerned.
+primes of the subprogression $n\equiv507\pmod{857}$.
+
+\emph{Timeline.}  The companion's whole-component result first appeared in
+an $800$-form version.  That version precedes Theorem~\ref{thm:F}.  The
+reduction to $159$ forms came after Theorem~\ref{thm:F}.  The two
+certificates were obtained independently.
 \end{remark}
 
 \begin{theorem}[\status{conditional} on H; certificate \status{certified}]\label{thm:F}
@@ -1345,10 +1423,17 @@ using $p=4dw+\mathcal M$.  The bucket is of Type~II, so it has at most two
 vertices (Lemma~\ref{lem:typeII}).
 \end{proof}
 
-If, in addition, a guard prime keeps the descents of the spokes away from
-small moduli, the component of $x$ is typically exactly the hub fibre plus
-$2^r-1$ descent vertices.  It has size $(3^{r+1}-1)/2+2^r-1$ when $x$ is a
-guard prime times $r$ primes.
+\emph{Guarded hubs} (\status{evidence} for the closure).  Take $x$
+squarefree, $x=q_0\ell_1\cdots\ell_r$.  The primes $\ell_i$ are
+$\equiv1\pmod{4\mathcal M}$, and the guard $q_0\sim10^4$ is
+$\equiv1\pmod{\mathcal M}$ and $\equiv3\pmod4$.  Then the hub fibre has
+$(3^{r+1}-1)/2$ vertices (Lemma~\ref{lem:B}).  The divisors $w>1$ of $x$
+with $w\equiv1\pmod4$ are exactly the $2^r-1$ divisors $w>1$ of $x/q_0$,
+so Lemma~\ref{lem:C} gives exactly $2^r-1$ descents, all with
+$d\ge q_0$.  In most computed instances no further vertex appears
+(\S3.4 of the source notes: $122$ of $126$ guarded instances were sterile).
+The component then has $(3^{r+1}-1)/2+2^r-1$ vertices.  That closure is
+verified instance by instance, not proved.
 
 \begin{evidence}[\status{certified} sterile components]\label{ev:sterile}
 Each component below was exhausted.  An independent checker verified every
@@ -1377,7 +1462,7 @@ sterile component was larger than the seed component.
 \emph{What this kills:} any argument that forces positivity in the seed
 component because it is large.  At the prime above, a larger component is
 sterile.  The same applies to any ``giant component'' statement in the
-style of Bourgain--Gamburd--Sarnak with the seed as the giant.  Variants of the same construction give certified
+style of Bourgain--Gamburd--Sarnak \cite{BGS} with the seed as the giant.  Variants of the same construction give certified
 sterile components with $243$ distinct Type~I buckets, and with $146$
 failing positive-capable denominators.  The asymptotic $O(\log p)$ form is
 not formally refuted, since sterility of an infinite family is not proved.
@@ -1439,10 +1524,15 @@ $N^\pm$ be the number of positive $D\mid s^2$ with $D\equiv\mp s\pmod r$.
 Then $N^+$ is even and $N^-$ is odd.  The fibre has $N^+/2$ positive
 vertices and $(N^--1)/2$ vertices with exactly one negative entry.  So the
 odd count in a fibre always certifies \emph{mixed-sign} vertices.
-\item \emph{(Affine symmetries.)} The integral affine maps of $\Z^4$
-preserving the Type~II polynomial $k(4abc-p)-a-b$ up to a constant factor
-form a group of order $4$.  The same holds for the Type~I polynomial
-$k(4abc-1)-p(a+b)$.  On positive points only the swap $a\leftrightarrow b$
+\item \emph{(Affine symmetries.)} In the classical four-parameter model,
+positive Type~II solutions are $(x,y,z)=(abc,\,pkbc,\,pkac)$ with
+$k(4abc-p)-a-b=0$.  Positive Type~I solutions are $(pabc,\,kbc,\,kac)$ with
+$k(4abc-1)-p(a+b)=0$.  Up to renaming ($c\mapsto d_{\mathrm{ET}}$,
+$k\mapsto c_{\mathrm{ET}}$) these are \cite[(2.3), (2.15), (2.22),
+Prop.~2.2]{ET}.  The maps $v\mapsto Av+\beta$ in
+$\mathrm{AGL}_4(\Z)$ that multiply the Type~II polynomial by a nonzero
+constant form a group of order $4$.  The same holds for the Type~I
+polynomial.  On positive points only the swap $a\leftrightarrow b$
 survives.
 \item \emph{(The natural odd set.)} The set of ordered positive solutions of
 $1/x+1/y+2/z=4/p$ is finite and odd, but its part with $z$ even has exactly
@@ -1471,8 +1561,8 @@ On $z$ even, $(x,y,z)\mapsto\{x,y,z/2\}$ is $6$-to-$1$ onto ES solutions by
 permutations (1) give odd counts only of nonpositive objects.  No integral
 affine windmill preserves the equation identically (3); unlike Zagier's
 quadratic form $x^2+4yz$, the four-parameter surface is multilinear and has
-no Vieta involutions.  Elsholtz \cite{Elsholtz} notes the same fragility
-of windmill partitions for general forms.  A parity proof would need a new
+no Vieta involutions.  Elsholtz \cite[\S3]{Elsholtz} notes the same
+fragility of windmill partitions for general forms.  A parity proof would need a new
 explicit odd weight (Lemma~\ref{lem:parity}).
 \status{evidence}: among the 732 primes $p\equiv1\pmod{24}$ below
 $6\cdot10^4$, about $7000$ candidate weights were tested, and none
@@ -1553,10 +1643,12 @@ residue (a ``principal-genus trap'').
 factors formally in a square class, every prime met is a residue
 (Proposition~\ref{prop:schinzel}).  Under H this happens for infinitely
 many primes, for every bounded-radius exploration from the seed
-(Theorem~\ref{thm:unbounded}).  The whole seed component is closed by
-explicit finite certificates under Dickson or H
-(Theorems~\ref{thm:astra} and~\ref{thm:F}); their nonpositivity is checked
-directly.  This is the Elsholtz--Tao odd-square principle in graph form.
+(Theorem~\ref{thm:unbounded}).  This is the Elsholtz--Tao odd-square
+principle in graph form.  Beyond bounded radius, the whole seed component
+is closed by explicit finite certificates: under H in Theorem~\ref{thm:F},
+and, as reported, under Dickson in Theorem~\ref{thm:astra}.  Their
+nonpositivity is checked directly; Theorem~\ref{thm:F} is not a
+square-class instance (Remark~\ref{rem:Fsquare}).
 \item \emph{The global invariants we tested do not help.}  Component size
 (\S5.2), the parity constructions of \S5.3, and quadratic or quartic
 colourings gave no invariant that forces positivity.  Sterile components
@@ -1571,44 +1663,86 @@ required classes, for every $p$.  This could come from the size of $p$
 relative to the numbers met, from analytic input about prime factors of
 shifted primes, or from a structure invisible to formal polynomial
 families.  For the seed graph this is exactly the problem that the
-exceptional-set machinery controls only on average: Vaughan-type bounds
-$E(N)\ll N\exp(-c(\log N)^{2/3})$ and their refinements.  Conditionally on
-H, Conjecture~\ref{conj:seed} is false.  By Theorem~\ref{thm:astra},
-reachability fails even at primes where ES holds.  So universal seed
+exceptional-set machinery controls only on average: Vaughan's bound
+$E(N)\ll N\exp(-c(\log N)^{2/3})$ \cite{Vaughan} and its refinements.
+Conditionally on H, Conjecture~\ref{conj:seed} is false
+(Theorem~\ref{thm:F}).  By the reported Theorem~\ref{thm:astra}, under
+Dickson for the restricted tuple, reachability fails even at primes where
+ES holds.  So universal seed
 reachability is not a route to ES.  Further work should return to the
 exceptional-set problem, or find genuinely non-formal input.
 
 \section*{Acknowledgements}
 % TODO(parent): final authorship form of the companion citation [AS] is pending.
 Theorem~\ref{thm:astra} and its proof are due to the companion computation
-\cite{AS}, which reached the conditional disproof independently, first, and
-in the stronger linear form.
+\cite{AS}.  It reached the conditional disproof independently and first,
+in an $800$-form version that was later reduced to $159$ forms (after
+Theorem~\ref{thm:F}), and in the stronger linear form.
 
 \appendix
 \section{Replay}\label{app:replay}
-{\raggedright
-All commands run from the repository root; heavy runs were done under
-\texttt{ulimit -v} and \texttt{timeout}.
-\begin{itemize}
-\item Base lemmas, hubs and fibre oracles: \texttt{scripts/pointwise\_seed\_check.py},
-\texttt{pointwise\_fibres\_check.py}, \texttt{pointwise\_incidence.py 297049}.
-\item Theorem~\ref{thm:depth3} validation: \texttt{scripts/depth3\_check.py},
-\texttt{depth3\_validate.py 13 30000}; Lemma~\ref{lem:forced}:
-\texttt{depth5\_branches.py 13 3000000}.
-\item Survey (Evidence~\ref{ev:survey}): \texttt{scripts/depth3\_allp.cpp},
-\texttt{depth3\_sieve.cpp}, \texttt{depth3\_batch.py}.
-\item Theorem~\ref{thm:F}: the four commands in \S\ref{sec:whole}; the
-fixed-point construction is \texttt{scripts/formal2\_iter.py}; actual-$q$
-behaviour (Evidence~\ref{ev:realq}): \texttt{formal2\_realq.py}.
-\item Theorem~\ref{thm:astra} (companion, read-only):
-\texttt{scripts/pointwise\_primary\_packet\_check.py} in \cite{AS}.
-\item Sterile certificates (Evidence~\ref{ev:sterile}):
-\verb|scripts/sterile_certificate_check.py|
-\verb|data/sterile/certs/*.json.gz|
-(run with \verb|PYTHONPATH=scripts| and \verb|uv run --with python-flint|).
-\item Parity scans (\S5.3): \texttt{scripts/windmill\_*.py},
-\texttt{windmill\_singleton.cpp}.
-\end{itemize}
+All commands are run from the repository root, and \verb|PY| abbreviates
+\begin{verbatim}
+PYTHONPATH=scripts uv run --with python-flint python
+\end{verbatim}
+We ran everything under \verb|ulimit -v 8000000| (or the stated memory) with
+\verb|timeout|, on at most $4$ cores.  Times are wall-clock.
+{\small
+\begin{verbatim}
+# Section 2-3: base lemmas, Theorem 3.1, Lemma 3.3 (each < 1 min)
+PY scripts/pointwise_seed_check.py              # 10 s, prints OK
+PY scripts/pointwise_fibres_check.py            #  6 s, prints OK
+PY scripts/pointwise_incidence.py 297049        #  3 s, 1143 vert.
+PY scripts/depth3_check.py                      #  5 s, prints OK
+PY scripts/depth3_validate.py 13 30000 --jobs 4 # 34 s, 0 mismatches
+PY scripts/depth5_branches.py 13 3000000        # 16 s
+
+# Evidence 6.1: survey of Mordell's classes (P0 P1 THREADS)
+g++ -O3 -march=native -std=c++17 -pthread \
+    -o /tmp/d3allp scripts/depth3_allp.cpp
+/tmp/d3allp 13 100000000 4 > /tmp/allp.txt  # 2 s, 70 candidates
+PY scripts/depth3_batch.py /tmp/allp.txt --jobs 4  # 2 s, all dist 3
+# sparse t=6q: (S Q0 Q1 THREADS [hard]), then the same batch check
+g++ -O3 -march=native -std=c++17 -pthread \
+    -o /tmp/d3sieve scripts/depth3_sieve.cpp
+/tmp/d3sieve 6 1 100000000 4 hard > /tmp/surv.txt   # 217 survivors
+PY scripts/depth3_batch.py /tmp/surv.txt --jobs 4
+
+# Theorem 4.13: see Section 4.7 for the four verification commands
+# Evidence 4.15: actual q in the certificate's class
+PY scripts/formal2_realq.py data/formal_closure/lam_final.json \
+    data/formal_closure/closure_final.json.gz \
+    --mod-bound 13 --power-cap 30 --n 40         # 6 s
+
+# Evidence 5.5: one certificate per run
+PY scripts/sterile_certificate_check.py \
+    data/sterile/certs/FILE.json.gz
+#   p165426666927637, p1960717994383909_random,
+#   p475041241432047253, p2192882958603411108997: about 10 s each
+#   p433...441_tests, p691...041_typeI:           about 40 s each
+#   p274159709010072908384347957:     4.5 min, 1.6 GB resident
+#   p274159709010072908384347957_seed: 23 min
+
+# Section 5.3: windmill scan (T is mandatory)
+g++ -O2 -std=c++17 -o /tmp/wm_single scripts/windmill_singleton.cpp
+/tmp/wm_single 2500000          # 1 s, 2939478 candidates, 0 hits
+\end{verbatim}}
+
+{\raggedright\noindent\emph{Files of Theorem~\ref{thm:F}.}  The primary certificate is
+\verb|data/formal_closure/certificate.json.gz|.  It holds
+$q_0\bmod\ell^{E_\ell}$, $S$ with the $C_g$ and entry/aux flags, and the
+$7883$ vertices.  The verifiers \verb|formal2_verify.py| and
+\verb|formal2_verify_extra.py| read the equivalent pair
+\verb|lam_final.json| and \verb|closure_final.json.gz|.  The first gives the
+residues of $\Lambda$ to precision $\ge E_\ell$, from which the model point
+$q_t\equiv q_0\pmod{\ell^{E_\ell}}$ is rebuilt.  The second gives $S$, the
+$C_g$, the vertices and the precision data.  Its $S$, $C_g$ and vertex set
+are identical to the certificate's.  The reviewer's scripts read all three
+files and check that they agree.  The fixed-point construction
+(\verb|scripts/formal2_iter.py|) is driven by subcommands; its full replay
+sequence is in \verb|FORMAL_CLOSURE.md|, \S6.  The companion's checker for
+Theorem~\ref{thm:astra} is \verb|scripts/pointwise_primary_packet_check.py|
+in \cite{AS} (about $1$ minute).
 \par}
 
 {\raggedright
@@ -1616,6 +1750,8 @@ behaviour (Evidence~\ref{ev:realq}): \texttt{formal2\_realq.py}.
 \bibitem{AS} Companion project, \texttt{erdos-straus-astra} repository:
 \texttt{SIGNED\_SEED\_COUNTEREXAMPLE.md} and \texttt{PRIMARY\_SEED\_PACKET.md}
 (unpublished computational campaign, 2026).
+\bibitem{BGS} J.~Bourgain, A.~Gamburd and P.~Sarnak, Markoff surfaces and
+strong approximation: 1, arXiv:1607.01530 (2016).
 \bibitem{BH} P.~T.~Bateman and R.~A.~Horn, A heuristic asymptotic formula
 concerning the distribution of prime numbers, Math.\ Comp.\ 16 (1962),
 363--367.
@@ -1649,6 +1785,8 @@ polynomial denominators, Funct.\ Approx.\ Comment.\ Math.\ 28 (2000),
 187--194.
 \bibitem{SS} A.~Schinzel and W.~Sierpi\'nski, Sur certaines hypoth\`eses
 concernant les nombres premiers, Acta Arith.\ 4 (1958), 185--208.
+\bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
+Schinzel, Mathematika 17 (1970), 193--198.
 \bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
 $4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47.
 \bibitem{Zagier} D.~Zagier, A one-sentence proof that every prime
