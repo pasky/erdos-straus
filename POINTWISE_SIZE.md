@@ -1067,7 +1067,10 @@ Census check:
   `H_MOD(A)` is open for `A≥1`. That frontier is real as a statement about
   what is *proved*: the class of one gives only a linear lower bound,
   `W>log p/5.2` in notes §54 and `W≥(5/8−ε)log p` by Thm 11.2. Nothing
-  superlinear is proved. But heuristically no fixed A works. Already at
+  superlinear is proved here. *(Update: POINTWISE_OMEGA Theorem 5.1 now
+  proves `W(p) ≥ (log p)^{2−o(1)}` i.o., modulo Thorner–Zaman Cor. 1.4.
+  So `H_MOD(A)` is false for every `A<2`, and the open range is `A≥2`.)*
+  But heuristically no fixed A works. Already at
   `10^30`, `W` should exceed `(log p)^3`.
 * **The relevant multiplier statement.** It is of the form
   `W(p)≤exp(C(log p)^{1/3})`, not of polylog type. This assumes the
@@ -1086,6 +1089,16 @@ it with the class-of-one correlations. The mechanisms that use actual
 factorisations sit at the opposite end, with small window modulus (§8).
 
 **What would make 7.2 rigorous.** Two inputs are missing.
+
+*(Update: POINTWISE_OMEGA addresses both in part.*
+* *Its Lemma 2.3 is input (i)'s mean value in the prime-local setting. It
+  gives a global mass `T^{o(1)}`.*
+* *Its Theorem 5.1 achieves the transfer (ii) for that prime-local system
+  via Linnik-range PNT (Thorner–Zaman). This yields `W ≥ (log p)^{2−o(1)}`
+  i.o.*
+* *The polylogarithmic quarantine of (i) and the general transfer remain
+  open. That is POINTWISE_OMEGA §6.2, H_MIN, and §9, H_PP; §9 is under
+  review.)*
 
 * **(i) A lower bound for unit avoiders.** One would need
   `log(1/δ*(T))≪(log T)^C`, the prime-compatible analogue of notes
@@ -1778,7 +1791,7 @@ congruence forcing.
   is `Ω(log p/log log p)` only under the uniform Hardy–Littlewood model
   (Assessment 8.5).
 
-### 11.3 Why superlinear `W(p)>(log p)^{1+δ}` is not reached
+### 11.3 Why superlinear `W(p)>(log p)^{1+δ}` was not reached here (now reached: POINTWISE_OMEGA Theorem 5.1)
 
 **Assessment 11.6 (heuristic error-budget calculation for one transfer
 method; not a barrier theorem).** Consider certifying `W(p)>T` by "a
@@ -1797,7 +1810,12 @@ supports, not a lower bound for every construction.
   is `mℓ` with one prime `ℓ>y`, and the system becomes a *standard*
   sieve: `p mod ℓ∉F_ℓ` with `|F_ℓ|≤T^{1/2−η+o(1)}`. We have the *upper*
   bounds `log Q_y≈T^{1/2+η}` and `log(1/V)≤T^{1/2−η+o(1)}`, so the
-  budget above is met once `log x≥T^{1+o(1)}`. So this route, analysed
+  budget above is met once `log x≥T^{1+o(1)}`. *(Update: the bottleneck
+  was the crude bound on `log(1/V)`. POINTWISE_OMEGA Lemma 2.3 shows
+  `log(1/V) ≤ 2S ≤ T^{o(1)}`, by the congruence saving `m | r+k`. With
+  Thorner–Zaman's Linnik-range PNT, this same route then gives
+  `log x ≤ T^{1/2+o(1)}`, i.e. `W ≥ (log p)^{2−o(1)}` i.o. (POINTWISE_OMEGA
+  Theorem 5.1). The sentences below record the Step-3 analysis.)* So this route, analysed
   this way, again gives only a linear range. No matching lower bound
   shows the route cannot do better. The construction does give a
   sub-exponential Haar bound (Lemma 11.7 below).
@@ -1889,7 +1907,10 @@ supports, not a lower bound for every construction.
   * (58.18) is improved by Thm 11.2(b).
   * Lemma 58.5 says that `W(p_j)/log p_j→∞` along some sequence iff
     `liminf log L_p(T)/T=0`. Thm 11.2 gives `log L_h(T)/T≤8/5+o(1)`, so
-    the superlinear question is exactly whether the liminf is 0. Under RA
+    the superlinear question is exactly whether the liminf is 0. It is:
+    POINTWISE_OMEGA Theorem 5.1 gives `log L_h(T) ≤ T^{1/2+o(1)}` (PROVED
+    modulo Thorner–Zaman Cor. 1.4), so `liminf=0` and
+    `W(p_j)/log p_j→∞`. Under RA
     and the two-sided assumption of Assessment 7.2, §7 predicts
     `log L_p(T)=(log T)^{3+o(1)}`, hence liminf 0 (heuristic).
   * Assessment 58.1 ("density alone gives no least-prime theorem…") is

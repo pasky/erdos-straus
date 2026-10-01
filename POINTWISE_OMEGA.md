@@ -18,7 +18,7 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
 "Hard" means Mordell-hard (one of Mordell's six classes mod 840); every
 `p≡1 (mod 840)` is hard.
 
-1. **Theorem 5.1 (PROVED modulo one cited theorem; effective).** There is an
+1. **Theorem 5.1 (PROVED modulo one cited source; effective).** There is an
    absolute constant `C` such that for infinitely many hard primes p,
 
    ```
@@ -29,14 +29,18 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
    `limsup log W(p)/log log p ≥ 2`, and `W(p)/log p → ∞` along a sequence of
    hard primes. More precisely, for **every** large T there is a prime
    `p≡1 (mod 840)` with `W(p)>T` and `log p ≤ T^{1/2}·exp(O(log T/log log T))`;
-   so the least hard prime with `W>T` satisfies
-   `log L_h(T) ≤ T^{1/2+o(1)}` (notes (58.2)). The previous records were
+   so the least prime `p≡1 (24)` with `W>T` (notes (58.2)'s `L_h`; the
+   primes produced are also Mordell-hard) satisfies
+   `log L_h(T) ≤ T^{1/2+o(1)}`. The previous records were
    `W ≥ (5/8−ε) log p` and `log L_h(T) ≤ (8/5+o(1))T` (POINTWISE_SIZE
    Thm 11.2, via Chang), and `1/5.2` (notes Thm 54.1, effective).
 
-   The cited theorem is Thorner–Zaman, *Refinements to the prime number
+   The cited source is Thorner–Zaman, *Refinements to the prime number
    theorem for arithmetic progressions*, Math. Z. 306 (2024), Corollary 1.4
-   (arXiv:2108.10878v2, archived). It is a PNT in progressions in the Linnik
+   (arXiv:2108.10878v2, archived), together with the McCurley-region
+   statement quoted on its p. 1. Lemma 3.2 also uses that statement, for
+   moduli `q'≤Z²` (see the remark after Lemma 3.2 for a textbook
+   Landau–Page alternative). It is a PNT in progressions in the Linnik
    range `x≥q^{12}`, with the Deuring–Heilbronn repulsion built into the
    error term. It has effective constants. There is no Siegel caveat and no
    use of Chang's theorem.
@@ -53,12 +57,14 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
    The congruence `m | 4D+1` saves a factor m, via the identity `m | r+k` in
    the parametrisation `D=sr²`, `A=srk`. This is exactly the "mean value for
    divisors of `((M+1)/4)²` in the class `−(M+1)/4 mod m`" that POINTWISE_SIZE
-   §7.3(i) lists as missing. The crude bound behind Lemma 11.7 is
+   §7.3(i) lists as missing, in the prime-local setting (global mass). The
+   per-prime version needed for polylogarithmic quarantines remains open
+   (§9, H_PP). The crude bound behind Lemma 11.7 is
    `T^{1/2−η+o(1)}`, and with it the same transfer gives only a linear range
    (Assessment 11.6). EVIDENCE: `S(10^3..10^6)=6.5, 13.6, 23.9, 38.5`, about
    `0.054(log T)^{2.5}`.
 
-3. **Transfer Theorem 4.1 (PROVED modulo the same citation).** This is a
+3. **Transfer Theorem 4.1 (PROVED modulo the same cited source).** This is a
    general criterion. Suppose a congruence minorant
    `B=Σc_i 1[n≡b_i (d_i)] ≤ 1[W(n)>T]` exists on the class `1 mod Q`. It
    must have positive mean μ, ℓ¹-mass `M_1`, and a twist condition for one
@@ -234,7 +240,7 @@ S ≤ (4/3)(3+log X) · Σ_{s r² ≤ X, s squarefree} τ(4sr²+1)/(s r)
   quarantine. Lemma 2.3 removes the `T/ℓ` by the congruence `m | r+k`.
 * *EVIDENCE* (`pointwise_omega_S.py`, with `y=√T`):
 
-| T | `#U` | S | `max g` | crude mass (no `m\|4D+1`) | Lemma 2.3 majorant |
+| T | `#U` | S | `max g` | crude mass (no `m\|4D+1`) | slightly weakened Lemma 2.3 majorant¹ |
 |---|---|---|---|---|---|
 | 10³ | 157 | 6.48 | 0.326 | 25.2 | 440 |
 | 10⁴ | 1204 | 13.56 | 0.211 | 129.6 | 1066 |
@@ -244,6 +250,23 @@ S ≤ (4/3)(3+log X) · Σ_{s r² ≤ X, s squarefree} τ(4sr²+1)/(s r)
   `S/(log T)^{2.5}` takes the values 0.052, 0.053, 0.053, 0.054, so S is
   polylogarithmic in practice. The crude mass grows like `√T`. The majorant
   is far from sharp, but it is `T^{o(1)}`, which is all that is used.
+
+  ¹ The script evaluates `(4/3)(3+log T)Σ…` with `X=⌊T/4⌋+1`. The
+  displayed majorant, with `(3+log X)` and `X=(T+1)/4`, gives
+  377.7, 944.8, 1985.0, 3710.7 (reviewer's recomputation). Both dominate S.
+
+  **Scope of this EVIDENCE (reviewer D8).** These numbers use `y=√T`. They
+  illustrate S, but they do not instantiate the hypotheses of Theorem 5.1.
+  * At `y=√T`, `max g=0.08–0.33>1/16`. The reviewer found that the twist
+    condition then actually fails at `T=10^4`: the `r=1` ratio
+    `|μ_ψ|/μ` is 0.267, above 1/4.
+  * The theorem's `y=√T·exp(3𝓛/log 𝓛)` is `≥T` unless `log T>e^6≈403`.
+    Below that the free set U is empty and the construction reduces to the
+    class of one.
+  * So the hypothesis `g_max≤1/16`, and with it the factor
+    `exp(3𝓛/log 𝓛)`, is load-bearing.
+  * Asymptotically, any constant `>log 2` in place of 3 suffices; effectively,
+    any constant `>1.07` does, with Nicolas–Robin.
 * *Machine check of the algebra* (`pointwise_omega_check.py lemma 3000`).
   It covered 18756 triples `(M,m,D)` with `m|M`, `D|A²` and `m|4D+1`. There
   were 0 failures of the involution and 0 failures of
@@ -256,7 +279,7 @@ S ≤ (4/3)(3+log X) · Σ_{s r² ≤ X, s squarefree} τ(4sr²+1)/(s r)
 
 ## 3. The analytic input
 
-**Theorem 3.1 (Cited: Thorner–Zaman, Math. Z. 306 (2024), arXiv:2108.10878v2, Corollary 1.4 and Remark 1.5; statement read in `sources/lit2026/arxiv-2108.10878-thorner-zaman-pntap.{pdf,txt}`).**
+**Theorem 3.1 (Cited: Thorner–Zaman, Math. Z. 306 (2024), arXiv:2108.10878v2, Corollary 1.4 and Remark 1.5; statement read in `sources/lit2026/arxiv-2108.10878-thorner-zaman-pntap.{pdf,txt}`; statement and numbering as in arXiv v2, published version not compared).**
 There are absolute, effectively computable constants `c_4>0` and `C_0` with
 the following property. Let `q≥2`, let `gcd(a,q)=1`, and let `x≥q^{12}`.
 Then
@@ -282,7 +305,12 @@ bound (its Thm 2.1, (2.2), via Jutila). That is what makes the error relative
 to λ. McCurley's paper itself was not obtained; we use its statement as
 quoted by Thorner–Zaman.
 
-**Lemma 3.2 (one severe character per family; PROVED from the McCurley statement).**
+*Convention.* Throughout, "PROVED modulo Theorem 3.1" means modulo
+Thorner–Zaman Cor. 1.4 **together with** the McCurley-region statement
+quoted on TZ p. 1. Lemma 3.2 applies that statement to every modulus
+`q'≤Z²`, not only to the moduli `q_i` of Cor. 1.4.
+
+**Lemma 3.2 (one severe character per family; PROVED modulo the McCurley-region statement quoted by TZ).**
 Let `𝒬` be a finite set of moduli, all `≤Z`. Call a pair `(χ*,β)` *severe*
 when:
 
@@ -308,6 +336,21 @@ Then at most one severe pair exists. Moreover, if `(χ*,β*)` is severe and
 * **No severe pair with `q* | q`.** An exceptional `β_1` of q that was
   `≥1−1/(13 log 3Z²)` would be severe with conductor dividing q. So
   `x^{β_1−1} ≤ exp(−log x/(13 log 3Z²))`, and `β_1 ≥ 1−1/(13 log 6) > 1/2`. ∎
+
+*Remark (a textbook alternative to the McCurley input; reviewer D1).*
+Lemma 3.2 can instead rest on the classical Landau–Page theorem (Davenport,
+*Multiplicative Number Theory*, ch. 14). That theorem has an absolute
+effective constant `c`; we use it with `c≤1/13`.
+
+* Define *severe* by `β≥1−c/log(3Z²)` and replace `E_2` by
+  `exp(−c log x/log 3Z²)`.
+* Uniqueness across the family, and Case B of Theorem 4.1, then go through
+  verbatim.
+* The identification of a severe zero with TZ's `β_1` for a modulus q needs
+  `13c·log 3q ≤ log 3Z²`, which holds for `c≤1/13`.
+
+Either way, TZ's own definition of `β_1` (via McCurley) is part of the
+statement of Cor. 1.4.
 
 ## 4. A general transfer theorem
 
@@ -507,7 +550,8 @@ at most `2+o(1)`.
 `ℓ_1ℓ_2` and `3ℓ_1ℓ_2` is `≡3 (4)` and `≤T`, and it has two prime factors
 outside Π. ∎
 
-If the quarantine class is some `c≠1` modulo `∏_Π ℓ^{e_ℓ}`, the counting
+*Assessment (a statement about methods, not a proved ceiling).* If the
+quarantine class is some `c≠1` modulo `∏_Π ℓ^{e_ℓ}`, the counting
 part of the proof still applies. The bound `p>∏_Πℓ` is then replaced by the
 requirement `log x≥12 log Z≥12 log∏_Πℓ` of every transfer through Theorem
 3.1 or Linnik-range PNT.
@@ -532,7 +576,7 @@ is falsifiable. Primes do not enter it.
 
 **Theorem 6.2 (PROVED modulo Theorem 3.1).** H_MIN(θ) implies
 `W(p) > (log p)^{1/θ−ε}` for infinitely many hard primes, for every `ε>0`.
-Suppose the polylogarithmic version holds: `log Q`, `log max d_i` and
+Suppose the polylogarithmic version holds (necessarily `A≥1`): `log Q`, `log max d_i` and
 `log(M_1/μ)` are all `≤(log T)^A`. Then `W(p) > exp(c(log p)^{1/(2A)})`
 infinitely often.
 
@@ -553,9 +597,11 @@ p. In the polylogarithmic case the same computation gives
 `log p ≪ (log T)^{2A}`. ∎
 
 Theorem 5.1 is H_MIN(1/2) (Lemma 2.3 plus Bonferroni). On the Haar side the
-corresponding statement is easy: the local lemma, as in notes Thm 31.4 and
-POINTWISE_SIZE Lemma 11.7, gives void probabilities. What is missing is a
-**pointwise** minorant of bounded modulus and ℓ¹-mass (notes Lemma 33.3, now
+corresponding void-probability bound is known for `θ≥1/2` (POINTWISE_SIZE
+Lemma 11.7) and for `θ>1/3` (Theorem 9.3, checkpoint 2). For smaller θ it
+is open (§9, H_PP). Notes Thm 31.4 is the integer analogue: its quarantine
+`n≡0` is unavailable for units. In addition, what is missing on the prime
+side is a **pointwise** minorant of bounded modulus and ℓ¹-mass (notes Lemma 33.3, now
 for units and primes). The prime side (moduli, Siegel zeros, ℓ¹-mass) is
 completely handled by Theorem 4.1.
 
@@ -594,7 +640,7 @@ This exceeds `1>P(N=0)` once `J log 4 > 2√(2J)θ𝓛(1+o(1))`, i.e. for
   `(ℓ', −4)` for `ℓ'≡3 (4)`. So we tested the reduced system, in which an
   atom is deleted if its residue at some of its free primes is already in
   the single-prime set `F_ℓ`.
-* At `T=10^4` and `T=10^5`, for `θ=0.3, 0.4, 0.45`, between 51% and 65% of
+* At `T=10^4` and `T=10^5`, for `θ=0.3, 0.4, 0.45`, ≈51%–65% of
   all multi-prime atoms are irredundant.
 * Hub classes persist. At `T=10^5`, `θ=0.4`, the classes `−16, −36, −12`
   (`D=4, 9, 3`, firing when `2|A` resp. `3|A`) carry 331, 320 and 299
@@ -643,7 +689,8 @@ handled: (ii) the transfer with moduli `exp(T^{θ})` in the Linnik range, and
   * §7.3(i)'s missing mean value is Lemma 2.3, in the prime-local setting.
 * **Notes.**
   * §54: `H_MOD(A)` (notes (51.19): `W(p)≤(log p)^A` for every sufficiently
-    large prime p) is now refuted unconditionally for every `A<2`. Notes
+    large prime p) is now refuted for every `A<2` (PROVED modulo Theorem 3.1:
+    no GRH, no Siegel caveat). Notes
     Cor. 54.2 refuted only `A<1`, and POINTWISE_SIZE Thm 11.2 did not reach
     `A=1`. The open pointwise range becomes `A≥2`; heuristically it is empty
     (Assessment 7.2).
@@ -658,6 +705,8 @@ handled: (ii) the transfer with moduli `exp(T^{θ})` in the Linnik range, and
   Theorem 5.1, which supplies at least one such prime for infinitely many N.
   The two results bracket the exceptional set at this threshold: it is
   non-empty i.o., and it has density `≤ exp{−c'(log log N)^{2+o(1)}}`.
+  This upper side carries notes Thm 51.2's provisional-review qualification
+  (the §39 moment/Bonferroni machinery).
 * **Type I frame** (`ck_min`, Thm 11.2′). Treated in §8 (checkpoint 2).
 
 ## 8. The Type-I frame (`ck_min`): the congruence route is the least-quadratic-non-residue problem

@@ -12,7 +12,7 @@ has been merged. The deliverable is `POINTWISE_OMEGA.md`.
 * `W(p)/log p → ∞` along a sequence;
 * for every large T, `log L_h(T) ≤ T^{1/2+o(1)}`.
 
-**Status: PROVED modulo one cited theorem; effective.** The cited theorem is
+**Status: PROVED modulo one cited source (TZ Cor. 1.4 together with the McCurley-region statement quoted on TZ p. 1; review D1); effective.** The cited theorem is
 Thorner–Zaman, Math. Z. 306 (2024), Cor. 1.4 (arXiv:2108.10878v2). Its
 statement was read in the archived PDF/text under `sources/lit2026/`.
 
@@ -65,7 +65,7 @@ give back the linear range. The Linnik range `x≥q^{12}` is essential.
   * a twist condition.
 
   This is a purely combinatorial CRT statement in which primes do not enter.
-  **Theorem 6.2 (PROVED):** H_MIN(θ) implies `W > (log p)^{1/θ−ε}`. A
+  **Theorem 6.2 (PROVED modulo Thm 3.1):** H_MIN(θ) implies `W > (log p)^{1/θ−ε}`. A
   polylogarithmic H_MIN gives `W > exp(c(log p)^{1/(2A)})`. So the
   correlation wall (iv) is the only remaining gap: (ii) and (iii) are solved
   by Theorem 4.1.
@@ -119,7 +119,7 @@ A reviewer subagent ran a deep, hostile review. Its findings:
   PROVED.
 * **(E)-new.** H_MIN(θ) is the exact sufficient input above exponent 2
   (Theorem 6.2). Label: PROVED implication; the hypothesis is open.
-* **(F).** `H_MOD(A)` is refuted for `A<2`. This updates notes Cor. 54.2.
+* **(F).** `H_MOD(A)` is refuted for `A<2` (PROVED modulo TZ Cor. 1.4 with the McCurley statement; no GRH, no Siegel caveat). This updates notes Cor. 54.2.
 
 ## Possible next steps (awaiting parent decision)
 

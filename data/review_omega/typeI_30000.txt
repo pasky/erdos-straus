@@ -1,0 +1,8 @@
+p=1 (24), p<30000: 385 primes; ck_min<n_p violations: 0; equality: 238
+strict ck_min records (p, ck_min): [(73, 7), (193, 10), (241, 11), (769, 13), (1321, 21), (2281, 26), (2521, 38), (9601, 67), (12289, 77)]
+p=193,(c,k)=(26,2): N=37665={3: 5, 5: 1, 31: 1}, h=208, -p mod h=15, hitting divisors [15, 2511], hitting prime powers []
+  Prop 8.3 l=5, L=168, a=1: c0=13, q=47, rho=11: 20 primes, slice (l,1) zero at 0
+  Prop 8.3 l=7, L=120, a=1: c0=5, q=23, rho=8: 20 primes, slice (l,1) zero at 0
+  Prop 8.3 l=13, L=312, a=73: c0=21, q=31, rho=14: 20 primes, slice (l,1) zero at 0
+  Prop 8.3 l=11, L=1320, a=241: c0=21, q=23, rho=5: 20 primes, slice (l,1) zero at 0
+ALL OK

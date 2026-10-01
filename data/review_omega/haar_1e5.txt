@@ -1,0 +1,9 @@
+T=100000 z=5: atoms=808749 events=761032 Lemma9.1 viol=0 S_tot=57.83 S_ev=49.65 chain-bound=1456.5 (>=S_tot: True) H_PP ratio=413.671
+T=100000 z=20: atoms=558027 events=524067 Lemma9.1 viol=0 S_tot=47.59 S_ev=39.20 chain-bound=1110.5 (>=S_tot: True) H_PP ratio=55.640
+T=100000 z=100: atoms=388562 events=364081 Lemma9.1 viol=0 S_tot=36.37 S_ev=29.81 chain-bound=1012.3 (>=S_tot: True) H_PP ratio=5.709
+   l=87359: l*w_l = 681.0
+T=100000 z=300: atoms=318170 events=297425 Lemma9.1 viol=0 S_tot=28.59 S_ev=24.22 chain-bound=998.9 (>=S_tot: True) H_PP ratio=2.571
+T=100000 z=1000: atoms=313013 events=293433 Lemma9.1 viol=0 S_tot=20.19 S_ev=17.87 chain-bound=993.5 (>=S_tot: True) H_PP ratio=0.961
+   Thm 9.4 LLL: min_E prod_(E'~E)(1-x_E') >= 0.752 (needs >= 0.5: True)
+Thm 9.3 at T=100000, eps=0.05: y=82.5, rough parts with >2 prime factors: 0, 1 in G_l at 0 primes, |B|=0, pairs: total 85614, impossible 0, converted 0, good events 81293; max g'=0.223; max w'=0.1373; LLL min prod >= 0.344 (need 0.5)
+ALL OK
