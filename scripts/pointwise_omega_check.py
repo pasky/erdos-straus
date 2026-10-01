@@ -78,6 +78,8 @@ def cmd_local(T, nsamp, seed):
             forced_fail += 1
     print(f"local T={T} y={y} log Q_y={log(Q):.2f} #free primes={len(F)} samples={nsamp} "
           f"survivors={surv} mismatches={mism} forced-survivor failures={forced_fail}")
+    if mism or forced_fail:
+        sys.exit(1)
 
 
 def cmd_lemma(X):
@@ -112,6 +114,8 @@ def cmd_lemma(X):
                         bad2 += 1
     print(f"lemma X={X}: checked {cnt} (M,m,D) with m|M, D|A^2, m|4D+1; "
           f"involution failures={bad1}; (s,r,k) failures={bad2}")
+    if bad1 or bad2:
+        sys.exit(1)
 
 
 def cmd_primes(T, K):
@@ -179,6 +183,7 @@ def cmd_pairs(T, theta):
     spf = spf_table(4 * T + 8)
     F = {}
     multi = []
+    ppow = 0  # atoms whose free part is a single prime power l^e, e>=2 (not multi-prime)
     for M in range(3, T + 1, 4):
         f = factor(M, spf)
         rough = [p for p in f if p > y]
@@ -193,6 +198,8 @@ def cmd_pairs(T, theta):
         cls = {(-4 * D) % r for D in divisors_from(fa) if (4 * D + 1) % m == 0}
         if len(rough) == 1 and f[rough[0]] == 1:
             F.setdefault(rough[0], set()).update(cls)
+        elif len(rough) == 1:
+            ppow += len(cls)
         else:
             multi.append((M, m, tuple(rough), cls))
     n_at = n_irr = 0
@@ -220,7 +227,7 @@ def cmd_pairs(T, theta):
         V = {l for e in hubs[d] for l in e}
         print(f"   hub class -{d}: {ne} irredundant two-prime atoms on {len(V)} primes")
     print(f"pairs T={T} theta={theta} y={y:.1f}: multi-prime moduli={len(multi)} atoms={n_at} "
-          f"irredundant w.r.t. single-prime atoms={n_irr}")
+          f"irredundant w.r.t. single-prime atoms={n_irr} (separately: {ppow} prime-power atoms l^e, e>=2)")
     for e in irr_examples:
         M, m, rough, c = e
         print(f"   e.g. M={M} m={m} rough={rough} class {c} mod {M//m}: residues "

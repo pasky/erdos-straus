@@ -63,7 +63,8 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
    `B=Σc_i 1[n≡b_i (d_i)] ≤ 1[W(n)>T]` exists on the class `1 mod Q`. It
    must have positive mean μ, ℓ¹-mass `M_1`, and a twist condition for one
    possible real character. Then there is a prime `p≡1 (Q)` with `W(p)>T`
-   and `log p ≪ log(Q·max d_i)·(1+log(M_1/μ))`. The Siegel-zero problem
+   and `log p ≪ K·max(log(Q·max d_i), K)`, where `K=1+log(M_1/μ)`. The
+   Siegel-zero problem
    (step (iii) of the brief) is solved inside this theorem:
    * a uniqueness lemma for one "severe" exceptional character across the
      whole family of moduli (Lemma 3.2, from McCurley's region as quoted by
@@ -79,10 +80,11 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
      non-prime-local residual system with quarantine `log Q ≤ T^{θ+o(1)}`,
      moduli `log d ≤ T^{θ+o(1)}`, and mean/mass ratio `e^{T^{o(1)}}`.
      H_MIN(θ) implies `W(p) > (log p)^{1/θ−ε}` infinitely often (Theorem 6.2).
-     A polylogarithmic H_MIN gives `W(p) > exp((log p)^c)`.
+     A polylogarithmic H_MIN (budgets `≤(log T)^A`) gives
+     `W(p) > exp(c(log p)^{1/(2A)})`.
    * **(c) PROVED / EVIDENCE.** The natural candidate fails: event-level
-     Bonferroni of degree `J ≳ 4.2θ²(log T)²` has negative mean for `θ<1/2`
-     (Prop 6.3). The cause is "hub" classes (`−4d²`, …) at which many
+     Bonferroni of degree J in the range `4.2θ²(log T)²(1+o(1)) ≤ J ≤ T^θ`
+     has negative mean on the raw atom list for `θ<1/2` (Prop 6.3). The cause is "hub" classes (`−4d²`, …) at which many
      two-prime atoms fire together. This is notes §33's correlation wall in
      exact form. EVIDENCE: hubs survive the deletion of atoms implied by
      single-prime atoms (51–65% of the multi-prime atoms are irredundant at
@@ -403,7 +405,7 @@ has `f=∏_{ℓ∈P_f}ℓ` with `P_f⊆U` and `r:=|P_f|≥1`, and `ψ=(·/f)`. P
 `h(ℓ)=Σ_{a∈F_ℓ}(a/ℓ)/(ℓ−1)`, so `|h(ℓ)|≤g(ℓ)≤1/16`. Then
 
 ```
-μ_ψ = ∏_{ℓ∈P_f} h(ℓ) · Σ_{P'⊆U∖P_f, |P'|≤J−1−r} (−1)^{|P'|} ∏_{P'} g,
+μ_ψ = (−1)^r ∏_{ℓ∈P_f} h(ℓ) · Σ_{P'⊆U∖P_f, |P'|≤J−1−r} (−1)^{|P'|} ∏_{P'} g,
 ```
 
 and this is 0 if `r≥J`. The inner sum is `V'+ε'`, with:
@@ -414,7 +416,8 @@ and this is 0 if `r≥J`. The inner sum is `V'+ε'`, with:
 So `|μ_ψ| ≤ (16g_max/15)^r V + g_max^r S^{J−r}/(J−r)!`. The first term is
 `≤V/15`. The second term:
 
-* if `r≤J/2`, it is `≤(2eS/J)^{J/2} ≤ e^{−0.7J} ≤ e^{−15S}`;
+* if `r≤J/2`, it is `≤(2eS/J)^{J/2} ≤ (e/11)^{J/2} ≤ e^{−0.69J} ≤ e^{−15S−6}`.
+  Here `½ log(11/e) = 0.6989…`.
 * if `r>J/2`, it is `≤16^{−J/2}e^S ≤ e^{−29S}`.
 
 Hence `|μ_ψ| ≤ μ/4`.
@@ -428,7 +431,9 @@ Hence `|μ_ψ| ≤ μ/4`.
 * With `y=√T exp(3𝓛/log 𝓛)` and Lemma 2.3,
   `log p ≤ √T exp((3+log 2+o(1))𝓛/log 𝓛)`.
 * Inverting gives `𝓛 ≥ 2 log log p − O(log log p/log log log p)`.
-* Distinct T give infinitely many distinct p, because `W(p)>T`.
+* Infinitely many distinct p arise, because `p>Q>T` (Fact 1.2). Note that
+  `W(p)>T` alone would not suffice for this, since finiteness of `W(p)` is
+  not known.
 
 Effectivity: Theorem 3.1, McCurley's region, Chebyshev and Wigert are all
 effective. ∎
@@ -501,10 +506,24 @@ is falsifiable. Primes do not enter it.
 **Theorem 6.2 (PROVED modulo Theorem 3.1).** H_MIN(θ) implies
 `W(p) > (log p)^{1/θ−ε}` for infinitely many hard primes, for every `ε>0`.
 Suppose the polylogarithmic version holds: `log Q`, `log max d_i` and
-`log(M_1/μ)` are all `≤(log T)^A`. Then `W(p) > exp(c(log p)^{1/A})`
+`log(M_1/μ)` are all `≤(log T)^A`. Then `W(p) > exp(c(log p)^{1/(2A)})`
 infinitely often.
 
-*Proof.* Theorem 4.1 gives `log p ≤ C_1(1+T^ε)·2T^{θ+ε}`. ∎
+*Proof.* First make Q exceed T. Let `ℓ_0` be a prime in
+`(R,2R]`, where `R=max(T, max_i d_i)`, and replace Q by `Qℓ_0`. The minorant
+inequality still holds on the smaller class `1 mod Qℓ_0`. The moduli `d_i`
+stay coprime to `Qℓ_0`, and `μ`, `M_1` and every `μ_ψ` are unchanged.
+Finally `log Z` grows by at most `log 2R`.
+
+Now Theorem 4.1 gives a prime `p≡1 (mod Qℓ_0)`, so `p>T`, with
+
+```
+log p ≤ C_1 K max(log Z, K),   K ≤ 1+T^ε,   log Z ≤ 3T^{θ+ε} + log 2T.
+```
+
+Hence `log p ≤ T^{θ+2ε+o(1)}`, and distinct T give infinitely many distinct
+p. In the polylogarithmic case the same computation gives
+`log p ≪ (log T)^{2A}`. ∎
 
 Theorem 5.1 is H_MIN(1/2) (Lemma 2.3 plus Bonferroni). On the Haar side the
 corresponding statement is easy: the local lemma, as in notes Thm 31.4 and
@@ -522,10 +541,14 @@ has mean `P(N=0) − E[binom(N−1,J−1)1_{N≥1}]`, in the CRT measure on the
 class `1 (Q)`.
 
 **Proposition 6.3 (PROVED for the raw atom list).** For `θ<1/2` fixed and T
-large, every even `J ≥ (4.2θ²+o(1))(log T)²` gives `E[B_J]<0`.
+large, every even J with `(4.2θ²+o(1))(log T)² ≤ J ≤ y` gives `E[B_J]<0`.
+Some upper limit on J is necessary. At most one atom per modulus fires, so
+`N ≤ (T+1)/4`, and for `J>(T+1)/4` the truncation is exact,
+`B_J=1[N=0]`, with positive mean. The method itself needs only `J≍S`.
 
 *Proof.* Take r primes `≡1 (4)` and r primes `≡3 (4)` in `(y,2y]`, where
-`r=⌈√(2J−1)⌉` (there are enough of them). Let `n≡−4` modulo all of them.
+`r=⌈√(2J−1)⌉`. Since `J≤y`, we have `r≤√(2y)+1`, which is far below the
+`≍y/(2 log y)` primes of each class in `(y,2y]`. Let `n≡−4` modulo all of them.
 For every cross pair the modulus `M=ℓℓ'` is `≤4y²≤T` and `≡3 (4)`. The atom
 `D=1` gives the class `−4 mod M`, so `N(n) ≥ r² ≥ 2J−1`. The CRT probability
 of this configuration is at least `(2y)^{−2r}`. Hence
@@ -550,9 +573,13 @@ This exceeds `1>P(N=0)` once `J log 4 > 2√(2J)θ𝓛(1+o(1))`, i.e. for
   (`D=4, 9, 3`, firing when `2|A` resp. `3|A`) carry 331, 320 and 299
   irredundant two-prime atoms on about 72 primes each.
 
-The proof of Prop 6.3 applies verbatim to any hub class whose bipartite
-two-prime graph contains `K_{r,r}` with `r≈√(2J)`. There are hub classes
-`−4d²` for every d (they fire when `d|A`).
+The proof of Prop 6.3 applies verbatim to any hub class whose
+bipartite two-prime graph of irredundant atoms contains `K_{r,r}` with
+`r≈√(2J)`. There are hub classes `−4d²` for every d (they fire when `d|A`).
+We have **not** shown that the reduced hub graphs contain such complete
+bipartite subgraphs asymptotically. The surviving edges counted above are
+EVIDENCE that the clustering persists after deduplication. They are not a
+proof that deduplicated Bonferroni fails.
 
 Quarantining hub residues voluntarily does not help. Forbidding hub classes
 `−4d²` for `d≤d_0` costs about `e^{−O(d_0)}` in density. But hubs with

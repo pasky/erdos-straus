@@ -4,4 +4,4 @@
    hub class -5: 169 irredundant two-prime atoms on 61 primes
    hub class -48: 167 irredundant two-prime atoms on 66 primes
    hub class -24: 151 irredundant two-prime atoms on 65 primes
-pairs T=100000 theta=0.4 y=100.0: multi-prime moduli=1354 atoms=66356 irredundant w.r.t. single-prime atoms=43410
+pairs T=100000 theta=0.4 y=100.0: multi-prime moduli=1332 atoms=66356 irredundant w.r.t. single-prime atoms=43410 (separately: 0 prime-power atoms l^e, e>=2)
