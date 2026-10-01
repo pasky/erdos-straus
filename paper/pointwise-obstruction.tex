@@ -1256,14 +1256,17 @@ There are $(\tau(x^2)-1)/2$ of them; all are of Type~II and nonpositive.
 \end{lemma}
 
 \begin{proof}
-Here $4x-p=-\mathcal M$.  By Lemma~\ref{lem:fibre} with $s=px$, the
-vertices containing $x$ correspond to $f=\pm p^jd$ ($d\mid x^2$, $j\in\{0,1\}$)
-with $f\equiv-x\pmod{\mathcal M}$; the $p$-divisible denominator is
-$pm$ with $m=(x+f)/(-\mathcal M)$.  Modulo $\mathcal M$ we have
-$d\equiv x\equiv1$ and $p=4x+\mathcal M\equiv4$.  So $f=d,pd,-pd$ would
-need $\mathcal M\mid2,5,3$ respectively, and only $f=-d$ survives.  Then
-$m=(d-x)/\mathcal M$, and $d\mapsto x^2/d$ swaps the two $p$-divisible
-denominators.
+Here $4/p-1/x=-\mathcal M/(px)$ with $\gcd(\mathcal M,px)=1$, so
+Lemma~\ref{lem:fibre} applies with $r=-\mathcal M$ and $s=px$.  The
+divisors are $D=\pm p^jd$ with $d\mid x^2$ and $j\in\{0,1,2\}$, and the
+condition is $\mathcal M\mid px+D$.  Modulo $\mathcal M$ we have
+$d\equiv x\equiv1$ and $p=4x+\mathcal M\equiv4$, so the condition reads
+$\pm4^j\equiv-4$.  For $j=0$ it needs $\mathcal M\mid3$ or $\mathcal M\mid5$;
+for $j=2$ it needs $\mathcal M\mid12$ or $\mathcal M\mid20$; for $j=1$ the
+sign $+$ needs $\mathcal M\mid8$.  Since $\mathcal M\ge9$ is odd, only
+$D=-pd$ survives.  It gives the entries $-p(x-d)/\mathcal M$ and
+$px(x-d)/(\mathcal Md)$.  The value $d=x$ is the excluded $D=-s$, and
+$d\mapsto x^2/d$ swaps the two $p$-divisible entries.
 \end{proof}
 
 If, in addition, a guard prime keeps the descents of the spokes away from
@@ -1307,14 +1310,18 @@ contains a positive vertex.
 \end{lemma}
 
 \begin{proof}
-Put $q=4a-1>0$.  The vertices containing $x$ are $(x,pm,pxm/f)$ with
-$f=qm-x\mid px^2$ and $f\equiv-x\pmod q$, and they are positive exactly
-when $f>0$.  Given such a vertex with $f=-p^jd<0$, replace $d$ by
-$d'=\ell d$ if $v_\ell(d)<2v_\ell(x)$, and by $d/\ell$ otherwise.  Then
-$d'\mid x^2$ and $d'\equiv-d\pmod q$, so $f'=p^jd'>0$ gives a positive
-vertex; the third entry is integral because $\gcd(f',q)=1$.  The bucket
-case is the same argument in the chart, using $e\mid m^2$ from
-Lemma~\ref{lem:chart}(2).
+Both cases use Lemma~\ref{lem:fibre} with $r,s>0$ and $\gcd(r,s)=1$.  For
+the anchor, $r=q:=4a-1$ and $s=px$; for the bucket, $r=H:=4h-1$ and $s=m$.
+A vertex of the fibre is positive if and only if its divisor $D$ is
+positive.  Indeed, $D>0$ makes both entries positive.  If $D<0$, both
+factors $ry-s$ and $rw-s$ are negative, and $y,w>0$ would give
+$r/s=1/y+1/w>2r/s$.  Now take a vertex of the fibre with $D<0$.  Write
+$D=-p^jd$ with $d\mid x^2$ (anchor), or $D=-d$ with $d\mid m^2$ (bucket).
+Let $u=x$ (anchor) or $u=m$ (bucket), so $\ell\mid u$ and $d\mid u^2$.
+Replace $d$ by $d'=\ell d$ if $v_\ell(d)<2v_\ell(u)$, and by $d/\ell$
+otherwise; in both cases $d'\mid u^2$.  Since $\ell\equiv\ell^{-1}\equiv-1\pmod r$, we have
+$d'\equiv-d\pmod r$.  So $D'=p^jd'$ (respectively $D'=d'$) is a positive
+divisor of $s^2$ with $D'\equiv D\pmod r$, and it gives a positive vertex.
 \end{proof}
 
 So in a sterile component every positive-capable anchor or bucket avoids
@@ -1417,9 +1424,12 @@ $10^{11}\le p<10^{12}$ & $1046544177$ & $36625$ & $0$\\\bottomrule
 \end{center}
 Independently, a complete BFS covered all $p\equiv1\pmod4$ below
 $3\cdot10^5$; only $297049$ has $\dist=3$.  Among the sparse inputs
-$p=24q+1$ with $q$ prime and $q\le10^{13}$, all $1113907$ that fail
-\eqref{eq:nine} escape at depth three, every one of them through family
-(A).
+$p=24q+1$ with $q$ prime and $q\le10^{13}$ (restricted to Mordell's
+classes above $q=10^{11}$, which loses nothing by Lemma~\ref{lem:forced}),
+all $1113907$ that fail \eqref{eq:nine} escape at depth three.  All ten
+distance-$3$ primes below $5\cdot10^6$ escape through family (A), and so
+do all $5304$ survivors with $10^8<q\le10^{10}$; (B) also succeeds for about
+half of them, but never alone.
 \end{evidence}
 
 \begin{evidence}[why nothing deeper is seen]\label{ev:anchors}
@@ -1511,8 +1521,9 @@ behaviour (Evidence~\ref{ev:realq}): \texttt{formal2\_realq.py}.
 \item Theorem~\ref{thm:astra} (companion, read-only):
 \texttt{scripts/pointwise\_primary\_packet\_check.py} in \cite{AS}.
 \item Sterile certificates (Evidence~\ref{ev:sterile}):
-\texttt{PYTHONPATH=scripts uv run --with python-flint python
-scripts/sterile\_certificate\_check.py data/sterile/certs/*.json.gz}.
+\verb|scripts/sterile_certificate_check.py|
+\verb|data/sterile/certs/*.json.gz|
+(run with \verb|PYTHONPATH=scripts| and \verb|uv run --with python-flint|).
 \item Parity scans (\S5.3): \texttt{scripts/windmill\_*.py},
 \texttt{windmill\_singleton.cpp}.
 \end{itemize}
