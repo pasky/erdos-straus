@@ -163,3 +163,113 @@ decide:
 * (E) new: H_MS, H_A3, H_EM.
 
 Stopping here for parent review.
+
+---
+
+# Checkpoint 2 — follow-up on the open door (§5.6)
+
+New material is in new subsections: §3.7, §3.8, §5.7 and §5.8. §§2–4
+received repairs only (stale text, cross-references).
+
+## (iii) H_A3 / Case A — settled (Lemma 3.7)
+
+Lemma 3.7 proves
+
+    Σ_{rh≤x} τ(4rh²+1)·rh/φ(rh) ≪ x log²x,
+
+with the γ-weighted variant too. It follows from Elsholtz–Tao
+Proposition 1.4, `Σ_{a≤A,b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)` for
+`k ≪ (AB)^{O(1)}`. This is exactly their eq. (8.2), with a = h, d = r.
+
+So Cor 3.4/3.6 now cover Case-A classes, with dominant prime in `G = 4rh`.
+
+**Caveat:** ET Prop. 1.4 is used as an external published theorem and was
+not re-proved.
+
+## (ii) Weighted share of balanced moduli — positive proportion (Lemma 3.8)
+
+Lemma 3.8 proves `Σ_{M≤x, P(M)≤√M} |ℛ(M)|/M ≫ (log x)³`. The
+construction is `M = kℓ₁ℓ₂` with `ℓ₁, ℓ₂` at the same scale (log-ratio
+≤ 1+η) and `log k ≍ η log Y`. The proof uses Bombieri–Vinogradov plus the
+3/4 note's lattice lemma.
+
+**Numerics (EVIDENCE).** The weighted share is 0.098, 0.121, 0.141, 0.157
+and 0.171 at x = 10³, …, 10⁷. It runs slightly above the unweighted
+log-density and is still creeping toward the Dickman value
+`1 − log 2 = 0.307`.
+
+So the open door carries a positive proportion of the cubic mass.
+
+## (i) Balanced-modulus extension — partial
+
+**Theorem 5.5 (PROVED, general).** For *any* CRT condition system, with no
+slice or dominant-prime structure, every Λ²-majorant g² (g of level λ/2,
+g ≥ 1 on A) has
+
+    saving ≤ αλ/2 + Ξ_A(α),   Ξ_A = log P(A∩A'_α)/P(A)².
+
+Here A' is the avoider of an ℓ^{−α}-noise-correlated copy. The proof is
+via Efron–Stein and the noise operator.
+
+**What follows from it:**
+* for slice systems it recovers the Rankin functional (Cor 5.6);
+* Prop. 5.7 gives an exact derivative formula for Ξ.
+
+So the balanced door, *for Λ²-majorants*, reduces to a concrete
+noise-stability bound: H_MS^{Sel}, `Ξ_A ≪ α^{−3}polylog`. That would give
+the cap `λ^{3/4}polylog`.
+
+**Assessment 5.8 (heuristic).**
+* The diagonal term reproduces the H_MS functional with full-modulus cost.
+* Off-diagonal "star" terms look subdominant (about α^{−2}). This rests on a
+  first-moment surrogate measured only on dominant-prime moduli
+  (`theta_deadly_values.py`).
+* Missing ingredients:
+  * a correlation inequality under the jointly conditioned law (Harris
+    works in an independent-indicator model, but CRT is one-hot);
+  * a lower bound on J;
+  * lower-support and overlapping-rest terms;
+  * the small-prime fibre term.
+
+**No proof of H_MS for general majorants.**
+
+**Why the window method of Theorem 2.7 does not extend (Assessment):**
+same-scale pairs carry cubic mass, so wide windows pay those pairs in full,
+and narrow windows multiply the level charge.
+
+**Toy LP (§5.8; EVIDENCE, uncertified floating point).** At matched mass
+and level, random pair systems save less than single-coordinate systems in
+every sampled instance. No instance of balanced conditions beating the
+single-slice behaviour was found. Toy sizes cannot probe the asymptotics.
+
+## Status of the open door
+
+* Balanced moduli: open for general majorants. For Λ² they are reduced to
+  H_MS^{Sel}. Every piece of evidence (toy LP, void numerics, the
+  structure of the diagonal term) points to closure at `λ^{3/4}·polylog`,
+  not to a gain.
+* Multipliers ≫ slice prime, and non-selector small subsystems: unchanged.
+
+## Reviews
+
+A hostile self-review of follow-up 2 found that:
+* the global form of H_MS^{Sel} was needed (fibrewise is insufficient, with
+  a counterexample);
+* the diagonal "exact" claim was false (single-condition counterexample);
+* the deadly-value test did not sample balanced moduli;
+* Lemma 3.7 and Lemma 3.8 had repairable range and main-term errors;
+* there were toy-LP misstatements, including a level-1 counterexample.
+
+All of these are repaired. Theorem 5.5's proof and Prop. 5.7 were checked
+as sound.
+
+## New files
+
+* `scripts/theta_balanced_share.py`
+* `scripts/theta_pair_lp.py`
+* `scripts/theta_deadly_values.py`
+* `data/theta/{balanced_share,pair_lp,deadly_values}.txt`
+
+Replay commands are in §7.
+
+Stopping for parent review.
