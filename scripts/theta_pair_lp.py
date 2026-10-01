@@ -3,13 +3,16 @@ conditions of the same mass at the same level?
 
 Product space: n coordinates, each uniform on Z/q.  A *pair system* forbids, for
 each pair {i,j}, r random value-pairs (x_i,x_j) (the AND-conditions of balanced
-moduli).  A *single system* of the same total mass forbids, at each coordinate,
-f values (f/q = total pair mass / n).  For level m (majorant terms depend on at
+moduli).  A *single system* of exactly the same total mass forbids, at each coordinate,
+a set of probability p = (pair mass)/n (exchangeable; its level-m LP is the exact
+polynomial LP in K ~ Bin(n,p) after symmetrisation).  For level m (majorant terms depend on at
 most m coordinates; all coordinates have equal cost) we compute exactly by LP
     W(m) = min { E nu : nu = sum_{|T|<=m} nu_T(x_T), nu >= 0, nu >= 1 on avoid set }
-and report savings -log W(m).  Also reported: the void probability P(A), and the
-Selberg-type bound of Theorem 5.5 at level m (g of level floor(m/2)):
-    E g^2 >= P(A)^2 / ||Pi_{<=m/2} 1_A||^2   (computed exactly by Efron-Stein).
+and report savings -log W(m) (floating-point HiGHS; numerical, not certified).
+Also reported: the void probability P(A), and the spectral bound from the proof of
+Theorem 5.5 at level m (g of level m/2, g >= 1 on A):
+    E g^2 >= P(A)^2 / ||Pi_{<=m/2} 1_A||^2   (Efron-Stein, floating point).
+This projection bound is stronger than the displayed noise relaxation (5.1).
 Run: uv run --with scipy python scripts/theta_pair_lp.py
 """
 import itertools
@@ -83,18 +86,13 @@ def main():
         def avoid_pair(x):
             return all((x[i], x[j]) not in v for (i, j), v in pairs.items())
 
-        # single system with the same mass: f forbidden values per coordinate on Z/qs
-        qs = 10
-        f = max(1, round(mass / n * qs))
-        mass_s = n * f / qs
-
-        def avoid_single(x):
-            return all(xi >= f for xi in x)
-
+        # single system with exactly the same mass: forbidden probability p = mass/n per
+        # coordinate (exchangeable; its level-m LP is the exact polynomial LP in Bin(n,p))
+        p = mass / n
         print(flush=True)
-        print(f"r={r}: pair mass {mass:.2f} (n={n}, q={q}); single mass {mass_s:.2f} (q={qs}, f={f})")
+        print(f"r={r}: pair mass {mass:.2f} (n={n}, q={q}); single mass {mass:.2f} (p={p:.3f} per coordinate)")
         PA_p, _ = es_energy_ratio(n, q, avoid_pair, 0)
-        PA_s = (1 - f / qs) ** n
+        PA_s = (1 - p) ** n
         print(f"   void: pair P(A)={PA_p:.4f} (-log {-math.log(PA_p):.3f}),"
               f" single P(A)={PA_s:.4f} (-log {-math.log(PA_s):.3f})")
         for m in [1, 2, 3, 4]:
@@ -102,7 +100,6 @@ def main():
             line = f"   m={m}: pair LP saving {-math.log(Wp):.3f}"
             # single system: exchangeable binary reduction is exact (thinning not needed: equal p)
             # min E Q(K), K~Bin(n,p), deg Q<=m, Q>=0 on 0..n, Q(0)>=1
-            p = f / qs
             ks = np.arange(n + 1)
             pmf = np.array([math.comb(n, k) * p ** k * (1 - p) ** (n - k) for k in ks])
             V = np.vander(ks.astype(float), m + 1, increasing=True)
@@ -111,7 +108,7 @@ def main():
             line += f" | single LP saving {-math.log(res.fun):.3f}"
             if m % 2 == 0:
                 _, sel = es_energy_ratio(n, q, avoid_pair, m // 2)
-                line += f" | pair Selberg-bound saving <= {-math.log(sel):.3f}"
+                line += f" | pair spectral (Lambda^2) bound: saving <= {-math.log(sel):.3f}"
             print(line, flush=True)
 
 

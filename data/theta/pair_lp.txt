@@ -1,21 +1,21 @@
 
-r=2: pair mass 0.80 (n=5, q=5); single mass 1.00 (q=10, f=2)
-   void: pair P(A)=0.4221 (-log 0.863), single P(A)=0.3277 (-log 1.116)
-   m=1: pair LP saving 0.000 | single LP saving 0.223
-   m=2: pair LP saving 0.301 | single LP saving 0.916 | pair Selberg-bound saving <= 0.274
-   m=3: pair LP saving 0.611 | single LP saving 1.044
-   m=4: pair LP saving 0.839 | single LP saving 1.115 | pair Selberg-bound saving <= 0.715
+r=2: pair mass 0.80 (n=5, q=5); single mass 0.80 (p=0.160 per coordinate)
+   void: pair P(A)=0.4221 (-log 0.863), single P(A)=0.4182 (-log 0.872)
+   m=1: pair LP saving 0.000 | single LP saving 0.174
+   m=2: pair LP saving 0.301 | single LP saving 0.785 | pair spectral (Lambda^2) bound: saving <= 0.274
+   m=3: pair LP saving 0.611 | single LP saving 0.841
+   m=4: pair LP saving 0.839 | single LP saving 0.872 | pair spectral (Lambda^2) bound: saving <= 0.715
 
-r=3: pair mass 1.20 (n=5, q=5); single mass 1.00 (q=10, f=2)
-   void: pair P(A)=0.2544 (-log 1.369), single P(A)=0.3277 (-log 1.116)
-   m=1: pair LP saving 0.000 | single LP saving 0.223
-   m=2: pair LP saving 0.446 | single LP saving 0.916 | pair Selberg-bound saving <= 0.364
-   m=3: pair LP saving 0.841 | single LP saving 1.044
-   m=4: pair LP saving 1.256 | single LP saving 1.115 | pair Selberg-bound saving <= 1.042
+r=3: pair mass 1.20 (n=5, q=5); single mass 1.20 (p=0.240 per coordinate)
+   void: pair P(A)=0.2544 (-log 1.369), single P(A)=0.2536 (-log 1.372)
+   m=1: pair LP saving 0.000 | single LP saving 0.274
+   m=2: pair LP saving 0.446 | single LP saving 0.978 | pair spectral (Lambda^2) bound: saving <= 0.364
+   m=3: pair LP saving 0.841 | single LP saving 1.227
+   m=4: pair LP saving 1.256 | single LP saving 1.369 | pair spectral (Lambda^2) bound: saving <= 1.042
 
-r=4: pair mass 1.60 (n=5, q=5); single mass 1.50 (q=10, f=3)
-   void: pair P(A)=0.1834 (-log 1.696), single P(A)=0.1681 (-log 1.783)
-   m=1: pair LP saving 0.000 | single LP saving 0.357
-   m=2: pair LP saving 0.491 | single LP saving 1.204 | pair Selberg-bound saving <= 0.563
-   m=3: pair LP saving 1.002 | single LP saving 1.435
-   m=4: pair LP saving 1.469 | single LP saving 1.769 | pair Selberg-bound saving <= 1.251
+r=4: pair mass 1.60 (n=5, q=5); single mass 1.60 (p=0.320 per coordinate)
+   void: pair P(A)=0.1834 (-log 1.696), single P(A)=0.1454 (-log 1.928)
+   m=1: pair LP saving 0.000 | single LP saving 0.386
+   m=2: pair LP saving 0.491 | single LP saving 1.292 | pair spectral (Lambda^2) bound: saving <= 0.563
+   m=3: pair LP saving 1.002 | single LP saving 1.481
+   m=4: pair LP saving 1.469 | single LP saving 1.905 | pair spectral (Lambda^2) bound: saving <= 1.251

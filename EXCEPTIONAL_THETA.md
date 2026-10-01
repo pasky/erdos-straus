@@ -549,8 +549,8 @@ weight `G/φ(G)`, so we need:
 > `Σ_{r sqfree, rh≤x} τ(4rh²+1)·(rh/φ(rh)) ≪ x(log 2x)²`.
 
 Under H_A3 the Case-A profile is `≪ β^{−3}`, and Cor 3.4 extends to
-families containing Case-A classes. No proof is written out here; it is a
-divisor sum over a binary quadratic family. No existing proof uses Case A.
+families containing Case-A classes. The proof is in §3.7. No existing proof
+uses Case A.
 
 **Corollary 3.4 (the 3/4 ceiling for prime-slice forced-class architectures;
 PROVED).** Fix `0 < C < 1` and `A ≥ 1`. Take a prime-slice system with
@@ -723,20 +723,28 @@ d = r. It is the input of their bound `Σ_{p≤N} f_I(p) ≪ N log²N log log N`
 Euler factors is `Π(1−p^{−2}) ≥ 6/π²`. Write `r = s r'`, `h = t h'`, so that
 `4rh² = (4st²)·r'h'²`. The left side of (3.7) is then at most
 
-    C Σ_{s,t} (1/(st)) Σ_{r'h' ≤ x/(st)} τ(4st²·r'h'² + 1).
+    C Σ_{s,t} (1/(st)) Σ_{r'h' ≤ Y} τ(4st²·r'h'² + 1),   Y = x/(st).
 
-*Case `st ≤ √x`.* Split `r'h' ≤ x/(st)` into dyadic boxes and apply
-Prop. 1.4 with `k = 4st² ≤ 4x^{3/2} ≪ (AB)^{O(1)}` on boxes with
-`AB ≥ √x`. The boxes with `AB < √x` contribute `O(x^{1/2+ε})` trivially.
-The inner sum is `≪ (x/st) log²x · log(1+4st²)`, and
+*Case `st ≤ √x`.* Cover the hyperbolic region `r'h' ≤ Y` by `O(log Y)`
+rectangles `r' ≤ A`, `h' ≤ B` with `AB ≍ Y`, padding unit endpoints so
+that `A, B ≥ 2`. Then `AB ≥ Y/2 ≥ √x/2` and `k = 4st² ≤ 4x^{3/2} ≪ (AB)^3`,
+uniformly. So Prop. 1.4 applies to every rectangle and gives
+`≪ AB log(A+B) log(1+k)`. Summing,
+`Σ_{r'h'≤Y} τ(·) ≪ Y (log x)² log(1+4st²)`, and
 `Σ_{s,t} log(1+4st²)/(st)² < ∞`.
 
-*Case `st > √x`.* Here `r'h' < √x`, and `τ ≪ x^{ε}` gives `O(x^{1/2+2ε})`.
+*Case `st > √x`.* Here `Y < √x`, and `τ ≪_ε x^{ε}` gives a total of
+`≪ x^{1/2+2ε}`.
 
 *The γ-weight.* Write `γ(n)n/φ(n) = Σ_{d|n} η(d)`, with η multiplicative,
-supported on squarefree d, and `η(p) = O(p^{−1} + p^{−(1−C)/2})`. Repeat the
-argument with η in place of `1/d`. This needs only
-`Σ_s η(s)log(2+s)/s < ∞`. ∎
+supported on squarefree d, and `η(p) = O(p^{−1} + p^{−δ})`, where
+`δ = (1−C)/2`. Repeat the argument with `η(s)η(t)` in place of `1/(st)`.
+
+* *Range `st ≤ √x`.* This needs `Σ_{s,t} η(s)η(t)log(2+st)/(st) < ∞`, which
+  holds since `η(p)/p ≪ p^{−1−δ}`.
+* *Tail `st > √x`.* Use `Σ_n η(n)n^{−1+δ/2} < ∞`. It gives
+  `Σ_{st>√x} η(s)η(t)(x/st)^{1+ε} ≪ x^{1+ε}·x^{−δ/4}·O_C(1)`, which is
+  `o(x)` for `ε < δ/4`. ∎
 
 *Consequence.* The Case-A class mass up to modulus G, `Σ F_A(G')/G'` for
 `G' ≤ G`, is at most `Σ_{4rh≤G} τ(4rh²+1)/(4rh)`, with r squarefree. By
@@ -785,16 +793,18 @@ identity. Distinct (u,v) give distinct classes already mod ℓ₂, because
     S ≥ Σ_{k,ℓ₁} (1/(kℓ₁)) Σ_{(u,v)} Σ_{ℓ₂ ∈ I₂, ℓ₂ ≡ −(kℓ₁)^{−1} (mod 4uv)} 1/ℓ₂.
 
 *The ℓ₂-sum.* Split `I₂` into dyadic blocks `(y,2y]`. With `q = 4uv ≤ 4Y^{1/4}`,
-which is far below `y^{1/2}`, each block gives
-`(li(2y)−li(y))/(yφ(q)) + O(E*_y(q)/y)`.
+which is far below `y^{1/2}`, partial summation gives for each block
 
-The main terms total `(c'_η + o(1))/φ(q)`, where
+    Σ_{y<ℓ≤2y, ℓ≡a (q)} 1/ℓ = (1/φ(q))∫_y^{2y} dt/(t log t) + O(E**_y(q)/y),
+
+where `E**_y(q) = max_{y≤t≤2y} max_a |π(t;q,a) − li(t)/φ(q)|`. The main
+terms total `(c'_η + o(1))/φ(q)`, where
 `c'_η = log((1+η)/(1+η/2))`.
 
 For the error terms, a modulus q arises from at most τ(q) pairs. Over
 `(k, ℓ₁)` with weight `1/(kℓ₁)`, of total `≪ log Y`, Cauchy–Schwarz against
-Brun–Titchmarsh and Bombieri–Vinogradov gives
-`Σ_q τ(q)E*_y(q) ≪ y(log y)^{−10}` per block. This is the argument of the
+Brun–Titchmarsh and the maximal Bombieri–Vinogradov theorem gives
+`Σ_q τ(q)E**_y(q) ≪ y(log y)^{−10}` per block. This is the argument of the
 2/3 note's mass lemma. Summed over `O(log Y)` blocks, it is `o(1)`.
 
 *The (u,v)-sum.* By the 3/4 note's lattice lemma (eq. latlower) summed over
@@ -820,9 +830,11 @@ slightly *above* the unweighted one.
 
 **Consequence.** The open door of §5.6(a) is not a lower-order effect.
 Same-scale balanced moduli, at any fixed log-ratio 1+η, carry `≫_η (log x)³`
-supply. This also proves the claim in §5.6 that windows of bounded
-log-ratio always contain a positive proportion of the mass in internal
-pairs.
+supply. Lemma 3.8 constructs such pairs. It does *not* by itself prove that
+every window partition loses: singleton or arbitrarily narrow windows have
+no internal pairs. A partition whose windows have log-widths bounded
+*below* would need an additional placement argument, which is not written
+out.
 
 ## 4. Exact accounting of the two campaign proofs
 
@@ -1153,7 +1165,9 @@ over fibres.
 
 **Corollary 5.6 (slice systems; PROVED).** For a prime-slice system,
 fibrewise, `Ξ_{A_c}(α) = Σ_ℓ log(1 + ρ_ℓ p_ℓ(c)/(1−p_ℓ(c)))
-≤ (4/3)Σ_ℓ p_ℓ(c)ℓ^{−α}`. This is exact, since coordinates factor. So
+≤ Σ_ℓ ℓ^{−α}p_ℓ(c)/(1−p_ℓ(c))`. The identity is exact, since coordinates
+factor. If `p_ℓ(c) ≤ 1/4` (as in Theorem 2.5), this is at most
+`(4/3)Σ_ℓ p_ℓ(c)ℓ^{−α}`. So
 Theorem 5.5 reproduces the Rankin functional for Λ²-majorants. Theorem 2.5
 already covers *all* majorants of slice systems.
 
@@ -1181,14 +1195,22 @@ with `μ_t` the joint law conditioned on `A∩A'`. Here
 in ρ_ℓ with slope `Cov_ℓ`, and dividing by `P(A∩A')` produces the
 conditioned expectation. ∎
 
-**What (5.2) says about balanced moduli (Assessment 5.8).** Expand
-`|F∩F'|` over pairs of conditions (C, C') through the same residue b at ℓ.
-There are three parts.
+**What (5.2) suggests about balanced moduli (Assessment 5.8, heuristic).**
+Bound `|F∩F'|` by a sum over pairs of conditions (C, C') through the same
+residue b at ℓ. This is a union bound, so it gives an upper estimate, not an
+identity. There are four parts.
 
 * *(D) Diagonal, C = C'.* The rest of C must hold in *both* copies, which
-  costs `Π_{ℓ'∈S(C)∖ℓ}(ρ_{ℓ'} + 1/ℓ')`. Integrating in t gives exactly the
-  H_MS term `P(C)·M_C^{−α}`. So the diagonal part of Ξ is the H_MS
-  functional, with full-modulus cost. That includes balanced C.
+  costs about `Π_{ℓ'∈S(C)∖ℓ}(ρ_{ℓ'} + (1−ρ_{ℓ'})/ℓ')`. The leading term,
+  in which all coordinates are shared, integrates in t to `P(C)·M_C^{−α}`.
+  This is the H_MS term with full-modulus cost, balanced C included.
+
+  The lower-support terms are corrections and are not negligible
+  identically. For example, a single forbidden residue mod 15 at α = 1 has
+  `Ξ = 0.01015`, versus `P(C)M^{−α} = 1/225 = 0.00444`, by the exact formula
+  `P(A∩A') = 1 − 2p + pΠ_i[θ_i + (1−θ_i)ρ_i]`.
+* *(R) Distinct C, C' with overlapping rests.* These are partially
+  ρ-suppressed and are not analysed here.
 * *(O) Off-diagonal, C ≠ C' with disjoint rests.* These are not
   ρ-suppressed. Per residue b their contribution is about `θ·min(1, m_b)²`,
   where `m_b` is the expected number of conditions through (ℓ, b) with rest
@@ -1198,38 +1220,53 @@ There are three parts.
     behave like single-slice classes at ℓ, of cost log ℓ.
 
   `scripts/theta_deadly_values.py` (`data/theta/deadly_values.txt`)
-  measures this for the identity system, at ℓ ≈ 10⁴, 10⁵, 10⁶ and
-  cofactors q ≤ X:
+  measures a first-moment surrogate. The tested moduli all have a
+  *dominant* prime, since q ≤ 4000 < ℓ; balanced moduli are not sampled.
+  The surrogate does not evaluate the conditioned covariance, the
+  `J_ℓ^{−1}` factor, or the overlap classes. It was run at ℓ ≈ 10⁴, 10⁵,
+  10⁶ with cofactors q ≤ X:
   * there are only 9–45 deadly values per prime;
   * the off-diagonal quantity `S_sq = Σ_b min(1,m_b)²` is about
     0.2–0.6·(log ℓ)², rising slowly with X (+4–20% from X=10³ to 4·10³);
   * the uncapped `Σ_b m_b`, the "sum over coordinates" mass, is about
     1–1.7·(log ℓ)² and grows like log X.
 
-  If `S_sq ≪ (log ℓ)²(log λ)^{O(1)}`, the off-diagonal part of Ξ is
-  `≪ Σ_ℓ ℓ^{−1−α}(log ℓ)²·polylog ≍ α^{−2}·polylog`. That is
-  *subdominant* to the diagonal `α^{−3}` (EVIDENCE plus Assessment).
-* *(S) Small primes.* Primes below `w = λ^{3+ε}` must be treated as zero-cost
-  coordinates. Otherwise they are nearly determined by the rest, and each
-  contributes its full void cost. Taken at full price, the w-smooth
-  subsystem costs only `O((log λ)³)`. Its mass is
-  `∫ s² ρ_Dickman(s/log w) ds ≪ (log w)³`.
+  *If* `S_sq ≪ (log ℓ)²(log λ)^{O(1)}` held for all moduli, balanced ones
+  included, the off-diagonal part of Ξ would be
+  `≪ Σ_ℓ ℓ^{−1−α}(log ℓ)²·polylog ≍ α^{−2}·polylog`. That is subdominant
+  to the diagonal `α^{−3}`. This is a conditional Assessment; the premise is
+  only tested for dominant-prime moduli.
+* *(S) Small primes.* Primes below `w = λ^{3+ε}` must be treated as
+  zero-cost coordinates. Otherwise they are nearly determined by the rest,
+  and each contributes its full void cost. The w-smooth subsystem then
+  enters through the fibre term `Ξ^{fib}` and the density of nonempty
+  fibres. Its *mass* is heuristically `∫ s² ρ_Dickman(s/log w) ds
+  ≪ (log w)³`, but this weighted Dickman estimate is unproved. A mass bound
+  is also not a bound on the negative log void probability.
 
 Summing, the model predicts `Ξ ≲ α^{−3}·polylog(λ)`. The cubic part comes
 from the diagonal, i.e. the H_MS functional. That means saving
 `≲ λ^{3/4}·polylog(λ)` for Λ²-majorants *including balanced moduli*.
 
 **Hypothesis H_MS^{Sel}** (named; open; falsifiable). For the complete
-Case-B (and Case-A) forced-class system with moduli ≤ e^λ, taken fibrewise
-over primes ≤ λ^{4},
+Case-B (and Case-A) forced-class system with moduli ≤ e^λ, take the
+*global* noise-stability excess of Theorem 5.5. Primes ≤ λ⁴ have ρ = 1, so
+their contribution, including the fibre term `Ξ^{fib}` and the empty-fibre
+density, is part of `Ξ_A`. The hypothesis is
 
-    Ξ(α) ≪ α^{−3}(log λ)^{O(1)}   uniformly for λ^{−1} ≤ α ≤ 1.
+    Ξ_A(α) ≪ α^{−3}(log λ)^{O(1)}   uniformly for λ^{−1} ≤ α ≤ 1.
 
-Under H_MS^{Sel}, Theorem 5.5 caps Selberg-type majorants at
-`λ^{3/4}(log λ)^{O(1)}` for *all* moduli, balanced included.
+Under H_MS^{Sel}, Theorem 5.5 caps Selberg-type majorants (g² with
+`g ≥ 1` on A) at `λ^{3/4}(log λ)^{O(1)}` for *all* moduli, balanced
+included. This is an exponent ceiling, not H_MS's precise functional.
 
-**The two missing ingredients.** These are precise statements, and neither
-is proved here.
+A fibrewise version alone would not suffice. For example,
+`A = {c = c₀} × Ω_large` has `Ξ = 0` in every nonempty fibre, yet
+`g = 1_{c=c₀}` saves `log Q₀`.
+
+**Missing ingredients.** These are the identified obstacles, and none is
+proved here. The list is not claimed to be exhaustive; (D)'s lower-support
+terms, (R), and (S) also need control.
 1. *A correlation inequality.* Under the jointly conditioned law μ_t, the
    probability that the rest of a condition is set must be at most its
    unconditioned value. In an independent-indicator model (one Bernoulli per
@@ -1241,46 +1278,52 @@ is proved here.
    configurations of the rest, with large primes only. This fails on rare
    configurations, which need a separate tail bound.
 
-**Why Theorem 2.7's window method cannot be extended directly.** By Lemma
-3.8, every window partition of bounded log-ratio leaves `≫ (log x)³` of mass
-in internal same-window pairs. Those pairs would have to be paid at full
-price. Windows of vanishing ratio instead multiply the per-window level
-charge `19α_jλ` by the number of windows. Theorem 5.5 avoids both problems,
-because its level charge `αλ/2` is paid *once*, for Λ²-majorants only.
+**Why Theorem 2.7's window method does not extend directly (Assessment).**
+Same-scale pairs carry cubic mass (Lemma 3.8). Windows wide enough to keep
+the level charge `19α_jλ` per window affordable leave such pairs internal,
+where they would have to be paid at full price. Windows narrow enough to
+separate them multiply the level charge by the number of windows. Theorem 5.5
+avoids both problems, because its level charge `αλ/2` is paid *once*, but
+it covers only Λ²-majorants.
 
 ### 5.8 Toy LP: pair conditions versus single conditions (follow-up 2; EVIDENCE)
 
-`scripts/theta_pair_lp.py` compares two systems on 5 coordinates, each
-uniform on ℤ/5:
-* a *pair system*, which forbids r random value-pairs for each of the 10
-  coordinate pairs (AND-conditions, i.e. "balanced moduli");
-* a *single system* of comparable mass, which forbids f values per
-  coordinate.
+`scripts/theta_pair_lp.py` compares two systems on 5 coordinates:
+* a *pair system*, with coordinates uniform on ℤ/5, which forbids r random
+  value-pairs for each of the 10 coordinate pairs (AND-conditions, i.e.
+  "balanced moduli");
+* a *single system* of exactly the same mass, which forbids probability
+  `p = mass/5` at each coordinate.
 
-It gives the exact LP optimum over *all* majorants of level m (terms
-depending on at most m coordinates). It also gives the Theorem 5.5 bound,
-computed exactly by Efron–Stein, which caps only Λ²-majorants.
+It gives the LP optimum over *all* majorants of level m (terms depending on
+at most m coordinates), computed by floating-point HiGHS and not certified.
+For the single system this is the exact polynomial LP in `Bin(5,p)` after
+symmetrisation. It also gives the spectral projection bound from the proof
+of Theorem 5.5, which caps Λ²-majorants only.
 
-| system (mass) | m=1 | m=2 | m=3 | m=4 | void −log P(A) |
-|---|---:|---:|---:|---:|---:|
-| pair r=2 (0.80) | 0.000 | 0.301 | 0.611 | 0.839 | 0.863 |
-| single (1.00) | 0.223 | 0.916 | 1.044 | 1.115 | 1.116 |
-| pair r=3 (1.20) | 0.000 | 0.446 | 0.841 | 1.256 | 1.369 |
-| pair r=4 (1.60) | 0.000 | 0.491 | 1.002 | 1.469 | 1.696 |
-| single (1.50) | 0.357 | 1.204 | 1.435 | 1.769 | 1.783 |
+| system | mass | m=1 | m=2 | m=3 | m=4 | void −log P(A) |
+|---|---:|---:|---:|---:|---:|---:|
+| pair r=2 | 0.80 | 0.000 | 0.301 | 0.611 | 0.839 | 0.863 |
+| single | 0.80 | 0.174 | 0.785 | 0.841 | 0.872 | 0.872 |
+| pair r=3 | 1.20 | 0.000 | 0.446 | 0.841 | 1.256 | 1.369 |
+| single | 1.20 | 0.274 | 0.978 | 1.227 | 1.369 | 1.372 |
+| pair r=4 | 1.60 | 0.000 | 0.491 | 1.002 | 1.469 | 1.696 |
+| single | 1.60 | 0.386 | 1.292 | 1.481 | 1.905 | 1.928 |
 
-The Theorem 5.5 bounds on Λ²-savings for the pair systems at m = 2 and 4
-are 0.274/0.715 (r=2), 0.364/1.042 (r=3) and 0.563/1.251 (r=4). The LP
-optimum over all majorants can exceed them slightly, which is consistent:
-non-square majorants can beat squares, as in §2.5.
+The Λ² spectral bounds for the pair systems at m = 2 and 4 are 0.274/0.715
+(r=2), 0.364/1.042 (r=3) and 0.563/1.251 (r=4). The all-majorant LP can
+exceed them, which is consistent.
 
-At equal level, pair systems save *less* than single systems of similar
-mass. At level 1 they save nothing, since a pair needs two coordinates to
-be seen. The savings track the void at about twice the level. This matches
-the H_MS picture, in which a pair costs the log of its full modulus. No
-instance in which balanced conditions beat the dominant-prime behaviour was
-found. Toy sizes cannot probe the asymptotic regime, so this is weak
-evidence only.
+In these sampled instances, at matched mass and level, the pair system
+saves *less* than the single system, and nothing at level 1. In general,
+pair systems *can* save at level 1. For example, on three fair bits,
+forbidding 00 on every pair forces `Σx_i ≥ 2`, so the majorant
+`(x₁+x₂+x₃)/2` has mean 3/4 and saving 0.288.
+
+The pattern matches the H_MS picture, in which a pair is paid at the log of
+its full modulus. No instance of balanced conditions beating
+single-coordinate behaviour was found. Toy sizes cannot probe the
+asymptotic regime, so this is weak evidence only.
 
 ---
 
