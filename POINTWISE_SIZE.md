@@ -39,23 +39,31 @@ Erdős–Straus (ES) is not solved here, and nothing below touches it.
   p≤5000).** Let `p≡1 (4)`. In every positive solution of `4/p`, every
   denominator prime to p has a prime factor ℓ with `(ℓ/p)=−1`.
 * **Theorem C (formal odd-square principle; CONDITIONAL on H).** Every
-  *bounded* witness-producing procedure fails for infinitely many primes
-  `p≡1 (24)`. One fixed profinite point (DEPTH3 Lemma 1) serves for all procedures. The
-  same holds for unbounded procedures whose formal run at a
-  square-mimicking point is finite.
+  *correct* bounded witness-producing procedure fails for infinitely many
+  primes `p≡1 (24)`. Correctness matters: "output SUCCESS (1,1,1)" is
+  bounded, but not correct. One fixed profinite point (DEPTH3 Lemma 1)
+  serves for all procedures. The same holds for correct unbounded
+  procedures whose formal run is finite at a square-mimicking point that
+  is universally nondegenerate.
 * **Instances (§3).** The following are special cases:
   * Corollary 17.3.1 / Thms 5.1, 17.3 / Prop. 77.3. These are
     unconditional, from the rational point "1". With Linnik this gives
     Thm 54.1; Thm 54.3 is a genus analogue, not an instance.
   * DEPTH3 Theorem 2.
   * Theorem F, in its literal 13521-polynomial form, with the
-    certificate's own congruence data.
+    certificate's own congruence data. This uses the intrinsic precision
+    condition (Prec); the literal match of S was verified for this
+    certificate, and is not a priori.
   * The Elsholtz–Tao remark, in a precise form for procedures.
 * **Scope (§4).**
-  1. **Size information about boundedly many formal quantities is inside
-     the scope** (Proposition A). Comparisons with `p^θ`, "is there a
-     divisor in `[p^θ,2p^θ]`", and the dead-denominator test of Theorem F
-     are all covered. So "using the size of p" does *not* escape by itself.
+  1. **Eventual-sign size comparisons of boundedly many formal quantities
+     are inside the scope** (Proposition A). This covers comparisons with
+     `p^θ` (more generally any Hardy-field threshold), "is there a divisor
+     in `[p^θ,2p^θ]`", and the dead-denominator test of Theorem F. So
+     "using the size of p" through such comparisons does *not* escape.
+     Archimedean tests whose answer oscillates along every class are not
+     covered. Examples are `{√p}<1/2` and other fractional-part or
+     nearest-integer tests; they are E2.
   2. A correct pointwise proof of ES needs, at every square-mimicking
      point, an infinite or undefined formal run (Corollary E). This means
      one of:
@@ -64,8 +72,8 @@ Erdős–Straus (ES) is not solved here, and nothing below touches it.
        the least non-residue, orders, …), whose actual factorisations are
        then used.
 
-     Fixed non-abelian Frobenius information probably does not escape. A
-     Frobenius-decorated extension is *proposed* under a
+     Whether fixed non-abelian Frobenius information escapes is **open**.
+     A Frobenius-decorated extension is *proposed* under a
      Schinzel–Chebotarev hypothesis, but it is not proved here.
      Non-witness (Boolean) certificates are outside the scope, but
      trivially so.
@@ -109,7 +117,8 @@ following instructions.
 
 A **bounded program** uses only (P1)–(P8). It halts on every input, by
 induction on loop nesting: every loop runs over a list fixed at entry.
-Errors (divmod by 0, FACTOR(0)) are *totalised*: they halt with FAIL.
+Errors (divmod by 0, FACTOR(0), DIVISORS(0)) are *totalised*: they halt
+with FAIL.
 
 Derived bounded operations include:
 
@@ -152,14 +161,16 @@ computation, the solution.
 **Lemma D (formal floor; PROVED).** Let `A,B∈Q[X]`, `B≠0`, and write
 `A=QB+R` with `deg R<deg B` (`R=0` if B is constant). Let D be the least
 positive integer with `F:=DQ∈Z[X]`. Put `ρ:=F(q*) mod D∈{0,…,D−1}`, and let
-`σ` be the eventual sign of `R/B`. Define
+`σ` be the eventual sign of `R/B`, with `σ:=0` when `R=0`. Define
 
 ```
 ⌊A/B⌋_* := (F−ρ)/D − [ρ=0 and σ<0]  ∈ Q[X].
 ```
 
-Then `⌊A(q)/B(q)⌋=⌊A/B⌋_*(q)` for all large `q≡q* (mod D)`.
-The remainder `A−B⌊A/B⌋_*` is the zero polynomial iff `R=0` and `ρ=0`.
+Then `⌊A(q)/B(q)⌋=⌊A/B⌋_*(q)` for all large q with `F(q)≡ρ (mod D)`. In
+particular this holds for all large `q≡q* (mod D)`, and also on any
+congruence class satisfying (Prec) below. The remainder `A−B⌊A/B⌋_*` is
+the zero polynomial iff `R=0` and `ρ=0`.
 
 *Proof.* For such q, `F(q)≡ρ (mod D)`. Also `A(q)/B(q)=F(q)/D+ε(q)`, where
 `ε=R/B` eventually has sign σ and satisfies `|ε|<1/D`. Hence
@@ -185,8 +196,8 @@ elements of `Q[X]` ("formal values") and lists of them. It starts with
   This is correct for large `q≡q* (mod D')`. If `R≠0` and
   `B(q)|A(q)`, then `B(q)` divides `D'A(q)−F(q)B(q)=D'R(q)`. But
   `0<|D'R(q)|<|B(q)|` eventually, a contradiction. If `R=0`, then
-  `A(q)/B(q)=F(q)/D'`, and `F(q)≡F(q*) (mod D')`. Precision at the
-  primes of `D'` is needed only when `R=0`.
+  `A(q)/B(q)=F(q)/D'`, and `F(q)≡F(q*) (mod D')` on any class satisfying
+  (Prec). Precision at the primes of `D'` is needed only when `R=0`.
 * **(F4)** `sign` is the sign of the leading coefficient.
 * **(F5)** `FACTOR(A)` (a formal `A=0` halts with FAIL):
   1. Factor `A=κ∏h^{e_h}` in `Q[X]`, with distinct `h∈𝒫` and `κ∈Q^×`.
@@ -196,7 +207,8 @@ elements of `Q[X]` ("formal values") and lists of them. It starts with
      These are followed by the **formal primes** `(h/C_h, e_h)`, in the
      eventual order of their values at large X.
 
-  `DIVISORS(A)` is the list of `d∏(h/C_h)^{j_h}` (`d|K_A`,
+  `DIVISORS(A)` (a formal `A=0` halts with FAIL) is the list of
+  `d∏(h/C_h)^{j_h}` (positive `d` with `d||K_A|`,
   `0≤j_h≤e_h`), in eventual order. Distinct formal divisors are distinct
   polynomials, by unique factorisation, since the h are pairwise
   non-proportional. So the eventual order is a strict total order.
@@ -242,11 +254,26 @@ FACTOR, `K_A∈Z`.
   * the primes of every D in (F3), of every `D'` in (F3') with `R=0`, and
     of every `M_g` in (F9).
 
-  It must also satisfy **(C3)**: every prime `ℓ∉Λ` with
-  `ℓ≤Σ_{h∈S}deg h` has a residue class mod ℓ that is a root of no
-  `h∈S`. This can always be arranged by adjoining the offending ℓ.
-  Adjoining every prime `≤Σdeg` (DEPTH3's choice) also works.
-* `E_ℓ>max_{h∈S}v_ℓ(h(q*_ℓ))`, with `E_ℓ≥v_ℓ(D),v_ℓ(D'),v_ℓ(M_g)`.
+  *Remark (C3).* Every prime `ℓ∉Λ` with `ℓ≤Σ_{h∈S}deg h` has a residue
+  class mod ℓ that is a root of no `h∈S`. This is **automatic** at a
+  point: `ℓ∉Λ` means `ℓ∤C_h`, so `h(q*_ℓ)` is an ℓ-unit for every
+  `h∈S`, and `q*_ℓ mod ℓ` is such a class. The condition only binds when
+  a congruence *class* is lifted to a profinite point, as in §3.3 and in
+  FORMAL_CLOSURE.
+* `E_ℓ>max_{h∈S}v_ℓ(h(q*_ℓ))` and `E_ℓ≥v_ℓ(M_g)`. In addition, for every
+  divmod (F3) with quotient `F/D`, and every `R=0` test (F3') with
+  quotient `F/D'`, the condition (Prec) must hold:
+
+  > **(Prec)** For every `ℓ|D`, `F mod ℓ^{v_ℓ(D)}` is constant on the ball
+  > `q*_ℓ+ℓ^{E_ℓ}Z_ℓ`. Equivalently,
+  > `v_ℓ(F^{(j)}(q*_ℓ)/j!)+jE_ℓ≥v_ℓ(D)` for all `j≥1`.
+
+  The condition `E_ℓ≥v_ℓ(D)` implies (Prec), but (Prec) is weaker. For
+  instance, when `F/D` is a formal monomial `c∏(g/C_g)^{e_g}` (an exact
+  quotient of formal integers), (Prec) already follows from
+  `E_ℓ>max_g v_ℓ(g(q*_ℓ))`. Every factor `g/C_g` is then an ℓ-adic unit
+  throughout the ball, constant modulo `ℓ^{E_ℓ−v_ℓ(C_g)}`. (Proof of the
+  equivalence: Taylor expansion of F at `q*_ℓ`; reviewer's D1 repair.)
 * `M:=∏_{ℓ∈Λ}ℓ^{E_ℓ}`.
 
 Λ may be enlarged at will, keeping q*. This only refines the congruence
@@ -256,7 +283,8 @@ An integer q is **admissible** if:
 
 1. `q≡q*_ℓ (mod ℓ^{E_ℓ})` for all `ℓ∈Λ`;
 2. `r_h(q):=h(q)/C_h` is prime for every `h∈S`;
-3. `q≥q_0`, a threshold that depends only on the formal run.
+3. `q≥q_0`, a threshold that depends only on the formal run. It is
+   constructed in the proof of Theorem M(a).
 
 ### 1.3 The theorem
 
@@ -290,8 +318,8 @@ invariant is that the actual registers equal the formal registers at q.
 
 * **Constants, p, ring operations, list operations.** Immediate.
 * **Signs.** A nonzero polynomial has eventually constant sign.
-* **divmod, DIVIDES.** Lemma D and (F3'). Admissibility (1) gives
-  `q≡q* (mod D)` (resp. `mod D'`). A formal zero divisor is an actual
+* **divmod, DIVIDES.** Lemma D and (F3'). Admissibility (1) together
+  with (Prec) gives `F(q)≡F(q*)` modulo D (resp. `D'`). A formal zero divisor is an actual
   zero divisor, so both runs halt with FAIL.
 * **FACTOR(A).** A formal `A=0` gives an actual 0, so both runs halt
   with FAIL. Otherwise, at q, `A(q)=K_A∏_h r_h(q)^{e_h}`, and the `r_h(q)` are
@@ -330,8 +358,8 @@ The formal run is finite, so finitely many thresholds occur; take
   * At `ℓ∈Λ` all values are units.
   * At `ℓ∉Λ` with `ℓ>Σdeg`, the product is a nonzero polynomial mod ℓ of
     degree `<ℓ`.
-  * At `ℓ∉Λ` with `ℓ≤Σdeg`, (C3) gives a residue c that is a root of no
-    h. Choose y with `My+q̃≡c`.
+  * At `ℓ∉Λ` with `ℓ≤Σdeg`, the remark (C3) gives a residue
+    `c=q*_ℓ mod ℓ` that is a root of no h. Choose y with `My+q̃≡c`.
 
 Every H-solution y with large `My+q̃` gives an admissible q.
 
@@ -442,8 +470,7 @@ three are eventually positive.
 
 Let `S'` be the polynomial set of Π'. Let Λ' be its Λ, enlarged by:
 
-* 2, with `E_2≥3`;
-* every prime `≤Σ_{h∈S'}deg h` (for (C3));
+* 2, with `E_2≥3`, and 3 (so that `p≡P(q*_3)≡1 (mod 3)` as well);
 * the primes of u;
 * the primes of every constant `K_A`;
 * for every `h∈S'∖{P}`, the primes of the nonzero integer
@@ -471,7 +498,7 @@ So every prime factor of `x_i` is a residue mod p, contradicting
 Lemma CT(a). Hence the formal output is FAIL, or no admissible q exists
 beyond the thresholds. Either way, every admissible q gives FAIL. The
 counting statements are Theorem M(b)–(c) for `S'`. Admissible q have
-`p≡P(q*_2)≡1 (8)`. For `P=24X+1` also `p≡1 (3)`, so `p≡1 (24)`. ∎
+`p≡P(q*_2)≡1 (8)` and `p≡P(q*_3)≡1 (3)`, so `p≡1 (24)`. ∎
 
 **Remarks.**
 
@@ -559,9 +586,9 @@ computation:
 |---|---|
 | (C1) closure stabilises (7883 vertices, 9 rounds) | formal run of `BFS_∞` is finite |
 | (A) robust rejection when `g^β∤D+s` in `Q[X]` | (F3') with `R≠0`: false, no precision needed |
-| (B) `c_r|(D+s)(q)`; (C2) every prime of every `c_r` is in Λ, with `E_ℓ≥v_ℓ(c_r)+v_ℓ(den)` | (F3') with `R=0`: precision at the primes of `D'` |
+| (B) `c_r|(D+s)(q)`; (C2) every prime of every `c_r` is in Λ, with `E_ℓ≥v_ℓ(c_r)+v_ℓ(den)` | (F3') with `R=0`; (Prec) holds under (C2), see below |
 | aux factors of `4Z−P` in S | S ⊇ all FACTORed polynomials (literal form) |
-| (C3) no fixed prime divisor | (C3) of §1.2, verbatim |
+| (C3) no fixed prime divisor | remark (C3) of §1.2; needed here because a class is lifted |
 | (C4) every vertex has a negative entry | formal output FAIL |
 | (C5) seed, `C_X=C_P=1` | start of the run, `C_P=1` |
 | dead test `Z>12X` etc. | (F4) comparisons |
@@ -569,10 +596,42 @@ computation:
 The certificate's point is a class `q0 mod M`. Lift it to `q*∈Ẑ` by
 choosing, for `ℓ∉Λ`, `q*_ℓ` off the roots of S mod ℓ. This is possible
 by (C3) for `ℓ≤Σdeg`, and trivially for larger ℓ. The `C_g` are
-unchanged, and the certificate's Λ and `E_ℓ` serve as the data of §1.2.
-Nothing needs refining, because §1.2 requires neither the primes of
-leading coefficients nor all primes `≤Σdeg`. Hence the H-family of
-Theorem M(b) is exactly FORMAL_CLOSURE's `{g(My+q0)/C_g}`.
+unchanged.
+
+**Precision (corrected after the Step-1 review, D1).** An earlier draft
+said the certificate's Λ and `E_ℓ` "serve as the data of §1.2", with
+§1.2 then demanding `E_ℓ≥v_ℓ(D)` for every divmod denominator. That was
+false as stated. Every non-seed vertex entry is produced by an exact
+divmod whose denominator can exceed the certificate's precision. The
+reviewer found one entry with `v_2(den)=20` against `E_2=14`, and an
+excess of 1 at `ℓ=233`. With the intrinsic condition (Prec) of §1.2, the
+certificate's data do serve:
+
+* **Monomial quotients.** The divmods of `BFS_∞` other than the `R=0`
+  tests are `s²/D`, the exact quotients y and w, and the reduction
+  `(4Z−P)/gcd`. All are formal monomials, so (Prec) follows from
+  `E_ℓ>max_g v_ℓ(g(q*_ℓ))`.
+* **The `R=0` tests.** For `DIVIDES(D+s,r)` the quotient is
+  `Q=k∏C_h^β/c_r`, with `k=(D+s)/∏h^β`.
+  * At `ℓ|c_r`, Gauss's lemma gives `den(k)=den(D+s)`. Hence
+    `Q(x)−Q(q*)∈ℓ^{E_ℓ−v_ℓ(den)−v_ℓ(c_r)}Z_ℓ` on the ball, which is
+    integral exactly under FORMAL_CLOSURE's (C2),
+    `E_ℓ≥v_ℓ(c_r)+v_ℓ(den(D+s))`.
+  * At `ℓ∤c_r`, D and s are formal monomials, and r is `c_r` times a
+    unit on the ball, so (Prec) is automatic.
+
+Hence the H-family of Theorem M(b) is FORMAL_CLOSURE's
+`{g(My+q0)/C_g}` with the certificate's own modulus. (The reviewer
+re-derived this argument; see
+`side-agent/review-pointwise-size:reviews/pointwise-size-step1-review.md`,
+D1.)
+
+**The literal S.** The polynomial set of `BFS_∞` is {P} together with the
+factors of `4z−p` and of `pz` over the *non-dead* z. Polynomials that
+occur only in dead entries are never factored. So the match with
+FORMAL_CLOSURE's 13521 polynomials is not automatic. It holds for this
+certificate, as the reviewer verified: none of the 6402 entry polynomials
+occurs only in dead entries, so `|S|=6402+7119=13521`.
 
 Two qualifications.
 
@@ -581,7 +640,9 @@ Two qualifications.
   modulo `L'`. We have checked the correspondence of the tests on paper,
   not by re-running their verifier against this formulation.
 * **Polynomial count.** The literal form needs all 13521 FACTORed
-  polynomials prime. The 6402 refinement is Remark 3.
+  polynomials prime; for this certificate that is exactly
+  FORMAL_CLOSURE's literal family (see above). The 6402 refinement is
+  Remark 3.
 
 The "accidental-prime gap" of FORMAL_CLOSURE is exactly an attempt to use
 (F3') with `R=0` without the primes of `D'` in Λ. Theorem C is *not* what
@@ -633,8 +694,18 @@ Consequently all of the following are bounded-type:
 * "is this window within `p^θ` of `p/4`";
 * the dead-denominator test of Theorem F.
 
-At admissible p, these tests return the formal answer. **"Use the size of
-p" (STATUS.md) is therefore not an escape by itself.** Size can help only
+The same proof works for any threshold in a Hardy field. Examples are
+`p^θ(log p)^k`, `r_1^{θ_1}` against `c·r_2^{θ_2}`, and `log p`: what
+matters is that the sign of the difference is eventually constant.
+Proposition A covers **only** such eventual-sign comparisons.
+Archimedean tests whose outcome oscillates along every congruence class
+are not inside the scope. Examples are fractional-part or nearest-integer
+tests such as `{√p}<1/2` or "`⌊p^θ⌋` is even"; they belong to E2
+(below), since they implicitly use the non-formal integer `⌊p^θ⌋`.
+
+At admissible p, the eventual-sign tests return the formal answer.
+**"Use the size of p" (STATUS.md) is therefore not an escape by itself,
+as far as eventual-sign comparisons go.** Size can help only
 by making the set of consulted integers p-dependent and unbounded (E1), or
 by producing non-polynomial integers such as `⌊p^θ⌋` (E2).
 
@@ -645,10 +716,11 @@ Call Π **formally refuted** if its formal run at some point q* (with
 program fails for infinitely many primes (Theorem M). Π **escapes** if it
 is not formally refuted at any point.
 
-**Corollary E (CONDITIONAL on H).** Suppose a correct witness-producing
-extended program succeeds for all large primes `p≡1 (24)`. Then its formal
-run at every square-mimicking, universally nondegenerate point is
-undefined or infinite.
+**Corollary E (CONDITIONAL on H).** Let `P=24X+1` (or any linear `P∈𝒫`,
+with the residue condition then read as `p≡P(q*)`). Suppose a correct
+witness-producing extended program succeeds for all large primes
+`p≡1 (24)`. Then its formal run at every square-mimicking, universally
+nondegenerate point for P is undefined or infinite.
 
 *Proof.* Otherwise Theorem C gives infinitely many failures. ∎
 
@@ -660,21 +732,34 @@ features. They are listed with the brief's (i)–(iv).
   p-dependent length (`a≤p^θ`, windows `x∈(p/4,p/4+H(p)]` with
   `H(p)→∞`), or "iterate until success". *Example.* The full ES search
   "for `a≡3 (4)`, `a≤2⌊(p+1)/3⌋`, test window a" (notes Thm 61.4) escapes.
-  Every finite truncation is bounded, so Theorem C makes every iteration
-  formally FAIL at `q*_univ`, and the formal loop never terminates. So the
-  meta-theorem never says anything about ES itself.
+  Every finite truncation is bounded, and at `q*_univ` its formal output
+  is FAIL. So the formal loop never terminates, and the meta-theorem
+  never says anything about ES itself. Two routes give the formal FAIL.
+  * *Via Theorem C* (CONDITIONAL on H). Theorem C gives FAIL at all
+    admissible q, and H makes admissible q exist.
+  * *Unconditionally*, modulo Schinzel's theorem (cited via EST p. 8).
+    The window test verifies the identity, so a formal SUCCESS is a
+    polynomial identity `4/P=Σ1/X_i`. Its `X_i` are eventually positive,
+    and integer-valued on a congruence class by Lemma I. It would cover
+    the class `p≡P(q*) (mod uM')`, which is a square class. Schinzel's
+    theorem says no polynomial identity covers a square class.
 * **(E2) Non-formal integers** (brief (iii)). Primitives without formal
   semantics (F9) produce integers whose *actual* factorisations are not
   fixed polynomials in q. Examples:
   * `⌊p^θ⌋` for `θ∉Z`. A polynomial cannot grow like `q^θ`, so there are
     no formal semantics on any class.
-  * The least quadratic non-residue `n_p`. At a square-mimicking point,
-    `n_p∉Λ`, since every prime of Λ is a residue. A constant value c
-    would have to be
-    a prime outside Λ, and adjoining c to Λ (as a residue) excludes it.
-    A nonconstant polynomial value is impossible, since `n_p<√p+1`.
-    Under H, which makes the admissible q exist, `n_p` therefore has no
-    formal semantics. Note that every
+  * The least quadratic non-residue `n_p`, as a primitive on prime
+    inputs p. Formal semantics would mean `n_p=G(q)` for all large q in a
+    class `q*+M_gZ` with `P(q)` prime. At a square-mimicking point for a
+    linear P this is impossible, **unconditionally**.
+    * A nonconstant G is excluded, since `n_p<√p+1`.
+    * Suppose `G=c` is constant (a prime). If `c|M_g`, then `P(q)≡P(q*)`
+      is a nonzero square mod c on the class, so `(c/p)=(p/c)=+1` and
+      `n_p≠c`. If `c∤M_g`, pass to the subclass on which `P(q)` is a
+      nonzero square mod c. By Dirichlet it contains primes `P(q)`, and
+      for them `n_p≠c`.
+
+    Note that every
     solution exhibits a non-residue (Lemma CT; notes Lemma 77.6), so
     "use the least non-residue" is a natural E2 mechanism.
   * `ord_p(2)`, discrete logarithms, and primes in p-dependent

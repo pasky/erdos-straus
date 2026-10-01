@@ -312,3 +312,38 @@ The following repairs were applied.
 See POINTWISE_SIZE.md, Replay. The heaviest steps are the `split 65535`
 runs (~15 min each), `windows 1e8 127` (~25 min) and `formal 23/27`
 (~10 min each).
+
+---
+
+# Step 1 hostile review (side-agent/review-pointwise-size): repairs D1–D8 applied
+
+Verdict: SOUND-AFTER-REPAIRS. All repairs are in one separate commit,
+"Step 1 review repairs", touching §§0–5 only.
+
+* **D1.** The precision rule `E_ℓ≥v_ℓ(D)` is replaced by the intrinsic
+  condition (Prec) in §1.2. Lemma D, (F3') and the Theorem M proof are
+  adjusted. §3.3 now says the following:
+  * the certificate's data satisfy (Prec), but not the old rule. The
+    reviewer found a violation with `v_2(den)=20` against `E_2=14`, and
+    one at ℓ=233;
+  * the (Prec) argument is given, both for monomial quotients and for the
+    `R=0` tests under FORMAL_CLOSURE's (C2);
+  * the literal 13521 match of S holds *for this certificate* (reviewer
+    verified), not a priori.
+* **D2.** (C3) is a remark: automatic at a point, binding only when a
+  class is lifted. Λ' in Theorem C no longer lists the primes `≤Σdeg`.
+* **D3.** `DIVISORS(0)` is totalised.
+* **D4.**
+  * §0 Theorem C now says "correct" (with the `SUCCESS (1,1,1)`
+    counterexample) and "universally nondegenerate".
+  * Corollary E names `P=24X+1`, or any linear P.
+  * 3 is added to Λ', so `p≡1 (24)` for every linear P.
+* **D5.** The E1 example's formal FAIL is now labelled CONDITIONAL on H,
+  with an unconditional route via Schinzel added.
+* **D6.** The least-non-residue argument is unconditional (Dirichlet), and
+  the primitive's domain is specified.
+* **D7.** Proposition A covers eventual-sign (Hardy-field) comparisons
+  only. Oscillating archimedean tests, such as `{√p}<1/2`, are listed
+  under E2, in §0 and in §4.1.
+* **D8.** Positive d with `d||K_A|`; `q_0` forward reference; `σ:=0` when
+  `R=0`; E3 wording made consistent ("open").
