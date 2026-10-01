@@ -35,10 +35,16 @@ finite automorphism group does **not** rule them out.
 `x=p/4` is not an integer. Thus the entire graph is finite and exhaustible,
 without assuming ES or a bound on the other denominators.
 
-**Surviving sufficient conjecture:** the component of the displayed seed
+**Formerly surviving sufficient conjecture:** the component of the displayed seed
 always contains an all-positive vertex. This would give an algorithm
 starting from every input prime, rather than from an already known positive
 solution. Finiteness alone does not imply it.
+**Update: false under Schinzel's Hypothesis H** ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md) Theorem F,
+CONDITIONAL on H for 6402 explicit polynomials; certified and independently
+reviewed). There are then infinitely many `p=24q+1` whose seed component (7883
+vertices, explicitly given as values of formal vertices) has no positive vertex.
+It remains open unconditionally, but it should no longer be pursued as a
+route to ES. ES itself is untouched.
 
 An exact three-move path at `p=297049` is
 
@@ -270,4 +276,5 @@ uses denominator buckets instead of a quadratic adjacency matrix, and caps
 inputs at `300000`. The Python tests independently check the stated main
 counterexamples and exact identities. The outstanding assertions are the
 two explicitly labelled sufficient conjectures, not computational steps
-being passed off as proofs.
+being passed off as proofs. The first, the seed-component conjecture of §1, is
+false under H ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md) Theorem F).

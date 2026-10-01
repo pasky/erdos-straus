@@ -54,11 +54,17 @@ distinct, and q exceeds a threshold depending only on the certificate.
 and `g∈S`, `ℓ∤g(q)` once q is large (then `r_g>ℓ`). So the factorisation of the value of a
 formal integer is `c·∏r_g^{e_g}` *for every prime*, and the ℓ-adic valuation of a
 polynomial expression whose factors lie in S is that of its rational constant.
+(This uses primality of `r_g`. For a polynomial h whose value is *not* assumed prime — the
+aux polynomials of §2.3 — only the weaker fact holds: `h(q)/C_h` is **Λ-free** whenever
+`E_ℓ>v_ℓ(h(q0))`; that is all that is used for them.)
 
 ### 1.1 The formal fibre
 
 Let Z be a formal integer. Put `N=4Z−P`, factor `N=κ∏h^{e}` over Q, and let
-`r/s=N/(PZ)` after cancelling the formal gcd, `s` with positive constant. Every vertex of
+`r/s=N/(PZ)` after cancelling the formal gcd: common polynomials to their minimum
+exponent, and the gcd of the two integer constants. **Normalisation:** the constants
+`c_r, c_s` of r and s are therefore coprime, with `c_s>0`. Any common rescaling would give
+the same fibre, but condition (C2) below refers to this normalisation. Every vertex of
 the graph of p containing `z=Z(q)` is `(z,y,w)` with `1/y+1/w=r(q)/s(q)`; then
 `D=r(q)y−s(q)` satisfies `(ry−s)(rw−s)=s²`, so **D divides `s(q)²`** (reducedness of `r/s`
 at q is not needed). Since the polynomials of s lie in S, the divisors of `s(q)²` are
@@ -70,9 +76,22 @@ candidate is `y=(D+s)/r`, `w=(s²/D+s)/r`. At admissible q
 * **(A)** `g^{β_g} | D+s` in `Q[X]` for every g occurring in r with exponent `β_g`, and
 * **(B)** `c_r | (D+s)(q)`, the constant of r.
 
-(A) is q-independent: if `D+s=g^j k`, `j<β`, `g∤k`, then `n=g(q)/C_g` (Λ-free) would
-satisfy `v_π(n)≤v_π(Res(g,d_k k))` for every prime π, i.e. `n≤|Res|`, impossible for
-large q. (This uses only `n→∞`, not primality of `g(q)/C_g`.)
+*(A) is necessary and q-independent.* Suppose `D+s=g^j k` with `j<β`, `g∤k` in `Q[X]`, and
+let `d_k` be the denominator of k; by Gauss's lemma it equals that of `D+s`, so it is
+Λ-supported (all denominators of formal numbers are products of `C_g`'s). Put
+`n=g(q)/C_g`, which is Λ-free since `E_ℓ>v_ℓ(g(q0))`. Integrality of y needs
+`n^β | (D+s)(q)=C_g^j n^j k(q)`, i.e. `n^{β−j} | C_g^j k(q)`. Because
+`gcd(n, C_g d_k)=1` (Λ-free versus Λ-supported), this gives
+`v_π(d_k k(q))≥(β−j)v_π(n)≥v_π(n)` for every prime π. Also `v_π(g(q))≥v_π(n)`. Writing
+`u·g+v·d_k k=Res(g,d_k k)≠0` with `u,v∈Z[X]` gives `v_π(n)≤v_π(Res)` for every π, i.e.
+`n | Res`. That is impossible once `n>|Res|`, true for large q. (This uses only `n→∞` and
+Λ-freeness, not primality of `g(q)/C_g`.)
+
+*Given (A), (B) is exact.* Write `D+s=∏h^{β_h}·k` with the product over the polynomials of r.
+Then `(D+s)(q)=K·∏n_h^{β_h}`, where `n_h=h(q)/C_h` and `K=k(q)∏C_h^{β_h}`. K is an
+integer: its denominator is Λ-supported, while `(D+s)(q)∈Z` and the `n_h` are Λ-free. Also
+`gcd(c_r, n_h)=1`, since `c_r` is Λ-supported by (C2) and `n_h` is Λ-free. Hence
+`y=K/c_r`, and `y∈Z ⇔ c_r|K ⇔ c_r|(D+s)(q)`.
 (B) at a prime `ℓ∈Λ` is decided by `q mod ℓ^{E_ℓ}` once `E_ℓ≥v_ℓ(c_r)+v_ℓ(den)`,
 `den` the Λ-denominator of `D+s`. At a prime `ℓ∉Λ` of `c_r` it depends on `q mod ℓ`
 unless all factors of `D+s` lie in S. **This is the "accidental-prime" gap left by the
@@ -103,7 +122,10 @@ by the exact decisions above (A) and (B) hold, so by (C1) `v'` is the value of a
 𝒱. Signs: at large q the value of a formal integer has the sign of its constant (every
 `g∈S` has positive leading coefficient, `C_g>0`), so by (C4) every value is nonpositive. ∎
 
-**Proposition 2 (PROVED; = DEPTH3 Lemma 2).** Under H for `{f_g}` there are infinitely
+**Proposition 2 (PROVED; cf. DEPTH3 Lemma 2).** DEPTH3's version puts every prime
+`≤Σdeg` and every prime dividing a leading coefficient into Λ. Here (C3) replaces that;
+primes dividing a leading coefficient need no special treatment, since the product of the
+`f_g` is primitive. Under H for `{f_g}` there are infinitely
 many admissible q. (`f_g∈Z[y]` is primitive irreducible with positive leading coefficient;
 for `ℓ∈Λ`, `f_g(y)≡g(q0)/C_g` is an ℓ-unit since `E_ℓ>v_ℓ(g(q0))`, which also gives
 `r_g∉Λ`; for `ℓ∉Λ`, `y↦My+q0` is a bijection mod ℓ, so (C3) — automatic for
@@ -180,16 +202,26 @@ any `c_r` outside LAM, no positive vertex.**
 In §1.1, (A) was shown robust using only `g(q)/C_g→∞`, and for an accepted candidate
 `h^β|D+s` for every h in r, so `y=k·∏C_h^β/c_r` with `k=(D+s)/∏h^β` — the aux values
 cancel and y's factorisation involves only entry polynomials. The divisor enumeration
-uses only s (entries and P). Hence (C2)'s requirement "aux ⊂ S" and the primality of
-the aux values can be dropped, provided (C3) and `E_ℓ>v_ℓ(h(q0))` still hold for the aux
-h (used for the Λ-part of `c_r`). (C3) for the smaller family is implied by (C3) for the
-full one. So H is needed only for the 6402 entry polynomials.
+uses only s (entries and P). The exactness of (B) used only `gcd(c_r,n_h)=1`, which
+follows from `c_r` being Λ-supported (C2) and `n_h` being Λ-free. It does not use the
+Basic fact, which is false for composite aux values. An aux value sharing a prime with
+`s(q)` or with some `r_g` only makes `r(q)/s(q)` non-reduced, which is irrelevant.
+Hence the primality of the aux values can be dropped, keeping only `E_ℓ>v_ℓ(h(q0))` for the
+aux h (so that `C_h` and the Λ-part of `c_r` are fixed by q0). (C3) is needed only for the
+family actually required to be prime, the entry polynomials, and it is implied by (C3)
+for S. So H is needed only for the 6402 entry polynomials.
 
 ## 3. The certificate (CERTIFIED)
 
-Files (`data/formal_closure/`): `lam_final.json` (LAM and residues; `qt` is rebuilt
-deterministically by `formal2.build_qt`), `closure_final.json.gz` (S with `C_g`, the 7883
-vertices, precision data), `analyze_iter*.txt`, `closure_final.log`.
+Files (`data/formal_closure/`):
+
+* **`certificate.json.gz`, the primary compact certificate:** `q0 mod ℓ^{E_ℓ}` for all
+  2036 ℓ, S with `C_g` and aux/entry flags, the 7883 vertices, and the verifier report;
+* `lam_final.json`: LAM and residues, given to precision ≥E_ℓ; the model point `qt` is
+  rebuilt deterministically by `formal2.build_qt`, and `qt≡q0 (mod ℓ^{E_ℓ})`;
+* `closure_final.json.gz`: S with `C_g`, the vertices, and precision data. Its S, `C_g` and
+  vertex set are identical to the certificate's;
+*  `analyze_iter*.txt`, `closure_final.log`.
 
 ### 3.1 Numbers
 
@@ -233,6 +265,22 @@ Prop. 1, and every formal vertex is a genuine vertex at admissible q, connected 
 every factor of every `4Z−P` (non-dead Z) is in S; every prime of every `c_r` is in Λ;
 `needE` recomputed and equal to the dump's. Output: `data/formal_closure/verify_extra.json`.
 (`formal2_verify.py --skip-fibres` reports `PARTIAL`, never `OK`.)
+
+### 3.3 Independent confirmation
+
+* **Parent re-run.** The parent session re-ran `formal2_verify.py` (OK, 0 mismatches) and
+  `formal2_verify_extra.py` (OK).
+* **From-scratch hostile review.** [reviews/formal-closure-review.md](reviews/formal-closure-review.md)
+  used its own engine, which does not import any `formal2*`/`formal_closure*` code.
+  * It recomputed **all 9961** fibres: all equal to the certificate's, with 533,011,471
+    candidates passing (A), 0 precision failures, 0 primes of `c_r` outside Λ, and 0 aux
+    factors outside S.
+  * It re-derived the logic and found Propositions 1–2, §2.3 and Theorem F **CORRECT**.
+  * It brute-forced the fibre recipe at real q (16/16 fibres equal) and SR §5/WINDMILL
+    Thm 7 for p<400 (287,662 buckets, 0 violations).
+  * Its write-up remarks L1–L5 are incorporated above: the compact certificate, the
+    normalisation `gcd(c_r,c_s)=1`, `gcd(c_r,n_h)=1` and the integrality of K, the unstated
+    step in (A), and "cf. DEPTH3 Lemma 2".
 
 ## 4. What this does and does not say
 

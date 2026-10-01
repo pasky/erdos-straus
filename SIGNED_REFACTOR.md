@@ -1,9 +1,11 @@
 # The signed seed: two hubs and an arithmetic incidence model
 
 **The seed-component conjecture remains open unconditionally, and is false
-under Schinzel's Hypothesis H** ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md):
-a certified finite formal closure of the seed component, 7883 formal
-vertices, all nonpositive). This continuation proves an
+under Schinzel's Hypothesis H** ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md) Theorem F, CONDITIONAL on H for 6402
+explicit polynomials; the certificate is a finite formal closure of the seed
+component, 7883 formal vertices, all nonpositive; it was independently
+reviewed in reviews/formal-closure-review.md). It is therefore no longer a
+viable sufficient conjecture for ES. This continuation proves an
 input-defined bridge, identifies the arithmetic types of denominator fibres,
 and gives exact coordinates in which Type I positivity is a positive-quadrant
 condition. The latest deductions bound Type II fibres by two vertices and
@@ -477,7 +479,8 @@ empty labels, and exhaust known nonseed sterile components, including the
 nine-vertex cyclic one at `10477`.
 
 **The existence gap is unchanged:** no closure contradiction for the seed
-core, and no exhausted sterile seed component, has been obtained. The new
+core, and no exhausted sterile seed component at an actual prime, has been
+obtained. **Update:** under H such components exist ([FORMAL_CLOSURE.md](FORMAL_CLOSURE.md) Theorem F). The new
 bounds remove entire classes of possible transmitting branches; they do
 not supply a character-changing divisor in the remaining ones.
 
@@ -603,7 +606,9 @@ The survey supports "distance ≤3" as a working conjecture, but that
 conjecture **implies ES for primes `p≡1 (4)`**, so it cannot be cheaper than ES itself.
 A proof must use global structure of the seed component, not path length.
 
-**Update: this assessment is now CONDITIONAL THEOREM 2 of DEPTH3.md.**
+**Update: this assessment is now CONDITIONAL THEOREM 2 of DEPTH3.md,** and
+the whole seed component is covered by [FORMAL_CLOSURE.md](FORMAL_CLOSURE.md) Theorem F: under H the seed
+component itself can be sterile.
 Under Schinzel's Hypothesis H the seed distance is unbounded: for every k,
 infinitely many `p=24q+1` have an entirely nonpositive radius-k ball.
 Unconditionally, depth ≤3 escapes are classified exactly (DEPTH3 Theorem 1),
@@ -613,7 +618,9 @@ Exactly 44197 of them have distance 3.
 ## 8. Looking for global structure: three candidates, none closes
 
 The seed conjecture implies ES for all primes `p≡1 (4)`, so a proof must
-create positivity globally. Three candidate mechanisms were tested.
+create positivity globally. (**Update:** under H the seed conjecture is false,
+[FORMAL_CLOSURE.md](FORMAL_CLOSURE.md) Theorem F. The search below for a global mechanism is therefore moot as
+a route to ES.) Three candidate mechanisms were tested.
 
 **(i) Parity / Zagier-type counting.** For all 383 primes `p≡1 (4)` below
 6000, each of the counts total, positive, nonpositive, and positive or
