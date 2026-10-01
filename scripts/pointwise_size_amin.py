@@ -23,8 +23,12 @@ import numpy as np
 from sympy import factorint, isprime, primerange
 
 
-def rat_hits(fac, q, p):
-    """Does Rat_q(x) (x with factorisation fac, gcd(x,q)=1) contain -1 or -p mod q?"""
+def rat_hits(fac, q, p, full=False):
+    """Does Rat_q(x) (x with factorisation fac, gcd(x,q)=1) contain -1 or -p mod q?
+    Returns None, or 'II' if -1 is in Rat_q(x) (a Type II solution exists at this window),
+    else 'I' (only -p: Type I only).  With full=False the scan stops as soon as -1 appears;
+    the label is intrinsic either way (it is computed on the completed set unless -1 is
+    already present)."""
     t1, t2 = q - 1, (-p) % q
     S = np.zeros(q, dtype=bool)
     S[1] = True
@@ -40,8 +44,8 @@ def rat_hits(fac, q, p):
             new[a] = True
             new[b] = True
         S = new
-        if S[t1] or S[t2]:
-            return 'II' if S[t1] else 'I'
+        if S[t1] and not full:
+            return 'II'
     if S[t1]:
         return 'II'
     if S[t2]:
@@ -274,6 +278,28 @@ def sample_seeded(EXP, NS, seed, JMAX=20):
     print(json.dumps(out))
 
 
+def sample_windows(EXP, NS, seed, QMAX=31):
+    """Mordell-hard primes near 10^EXP: per-window failure marginals for q <= QMAX and the
+    geometric mean of the marginals (the single-window rate g used in section 8.4)."""
+    random.seed(seed)
+    lo = 10 ** EXP
+    qs = list(range(3, QMAX + 1, 4))
+    F = []
+    while len(F) < NS:
+        p = lo + random.randrange(lo)
+        p -= (p - 1) % 24
+        if p < lo or p % 5 in (2, 3) or p % 7 in (3, 5, 6) or not isprime(p):
+            continue
+        F.append([rat_hits(factorint((p + q) // 4), q, p) is None for q in qs])
+    F = np.array(F)
+    marg = F.mean(axis=0)
+    joint = np.cumprod(F, axis=1).mean(axis=0)
+    out = {'EXP': EXP, 'NS': NS, 'marginal_fail': dict(zip(qs, marg.round(4).tolist())),
+           'geomean_marginal': float(np.exp(np.log(marg).mean())),
+           'joint': dict(zip(qs, joint.tolist())), 'indep': dict(zip(qs, np.cumprod(marg).tolist()))}
+    print(json.dumps(out))
+
+
 def jacobi(a, n):
     a %= n
     res = 1
@@ -327,52 +353,59 @@ def class1(T, NS, seed):
 
 
 def formal(K, KMAX):
-    """Adversary of Theorem C: all windows a <= K (a = 3 mod 4) are constant * prime, with
-    p = 24q+1 a nonzero square mod every prime l <= K; then a_min(p) > K (Lemma CT)."""
+    """Adversary of Prop. 8.4 (generalised): p = 24q+1 prime, p a nonzero square mod every
+    prime l <= K, and for every window a = 3 (mod 4), a <= K, (p+a)/4 = C_a * r_a with r_a
+    prime and every prime factor of C_a in Lambda = {primes <= max(K,5)}.  Then every prime
+    factor of every window is a QR mod p, so a_min(p) > K (Lemma CT).  Every hypothesis is
+    re-checked for each accepted p."""
     windows = list(range(3, K + 1, 4))
-    # Lambda must contain the primes of every window modulus a <= K (they divide H_h = 6a) and
-    # 2, 3; then every prime factor of every window value is a QR mod p (proof in section 8.4)
     Lam = list(primerange(2, max(K, 5) + 1))
-    # choose a square-mimicking residue class for q modulo prod l (l odd >= 5 in Lam),
-    # avoiding roots of 24X+1 and of the windows 6X+(a+1)/4 where possible
     rng = random.Random(K)
-    resid = {}
+    from sympy.ntheory.modular import crt
+    # 2-adic / 3-adic classes: least precision e with every window valuation < e+1 fixed
+    # (6q+s = 6r+s mod 2^(e+1) resp. 2*3^(e+1) when q = r mod 2^e resp. 3^e)
+    mods, rs = [], []
+    for l, start in ((2, 3), (3, 1)):
+        for e in range(start, 8):
+            cand = [r for r in range(l ** e) if r % l and (l != 3 or (24 * r + 1) % 3)
+                    and all(vl(6 * r + (a + 1) // 4, l) <= e for a in windows)]
+            if cand:
+                mods.append(l ** e)
+                rs.append(rng.choice(cand))
+                break
     for l in Lam:
         if l in (2, 3):
             continue
-        good = []
-        for r in range(l):
-            pv = (24 * r + 1) % l
-            if pv == 0 or pow(pv, (l - 1) // 2, l) != 1:
-                continue
-            if any((6 * r + (a + 1) // 4) % l == 0 for a in windows):
-                continue
-            good.append(r)
-        resid[l] = rng.choice(good) if good else None
-    mods = [l for l in resid if resid[l] is not None]
-    M = 8 * 9
-    from sympy.ntheory.modular import crt
-    qt = int(crt([8, 9] + mods, [1, 2] + [resid[l] for l in mods])[0])   # q = 1 (8): p = 25 (64)
-    for l in mods:
-        M *= l
-    forms = [(24, 1)] + [(6, (a + 1) // 4) for a in windows]
-    # constants: content and the Lam-part at the class
+        sq = [r for r in range(l) if (24 * r + 1) % l and pow((24 * r + 1) % l, (l - 1) // 2, l) == 1]
+        free = [r for r in sq if all((6 * r + (a + 1) // 4) % l for a in windows)]
+        if free:            # root-avoiding: windows are l-units, precision l suffices
+            mods.append(l)
+            rs.append(rng.choice(free))
+        else:               # forced: allow v_l = 1, fixed modulo l^2
+            cand = [r for r in range(l * l) if r % l in sq
+                    and all(vl(6 * r + (a + 1) // 4, l) < 2 for a in windows)]
+            mods.append(l * l)
+            rs.append(rng.choice(cand))
+    qt = int(crt(mods, rs)[0])
+    M = 1
+    for m in mods:
+        M *= m
+    forms = [(6, (a + 1) // 4) for a in windows]
     consts = []
     for (al, be) in forms:
-        v = al * qt + be
-        C = 1
+        v, C = al * qt + be, 1
         for l in Lam:
             while v % l == 0:
                 v //= l
                 C *= l
         consts.append(C)
     small = [l for l in primerange(2, 5000) if l not in Lam]
-    found = []
+    found, rejected = [], 0
     chunk = 1_000_000
     for k0 in range(0, KMAX, chunk):
         ks = np.arange(k0, min(k0 + chunk, KMAX), dtype=np.int64)
         alive = np.ones(len(ks), dtype=bool)
-        for (al, be) in forms:
+        for (al, be) in [(24, 1)] + forms:
             for l in small:
                 c1, c0 = (al * M) % l, (al * qt + be) % l
                 if c1 == 0:
@@ -380,18 +413,39 @@ def formal(K, KMAX):
                 alive &= (ks % l) != ((-c0 * pow(c1, -1, l)) % l)
         for k in ks[alive].tolist():
             q = qt + M * k
-            if all((al * q + be) % C == 0 and isprime((al * q + be) // C)
-                   for (al, be), C in zip(forms, consts)):
-                p = 24 * q + 1
-                a, ty = amin(p, factorint)
-                found.append((p, a, ty))
-    out = {'K': K, 'windows': len(windows), 'M': M, 'found': len(found),
+            p = 24 * q + 1
+            if not isprime(p):
+                continue
+            if not all((al * q + be) % C == 0 and isprime((al * q + be) // C)
+                       for (al, be), C in zip(forms, consts)):
+                continue
+            # re-check every hypothesis of Prop. 8.4(a) (generalised) independently
+            ok = all(pow(p % l, (l - 1) // 2, l) == 1 for l in Lam if l > 2) and p % 8 == 1
+            for a in windows:
+                for r in factorint((p + a) // 4):
+                    if r != 2 and pow(r % p, (p - 1) // 2, p) != 1:
+                        ok = False
+            if not ok:
+                rejected += 1
+                continue
+            a, ty = amin(p, factorint)
+            found.append((p, a, ty))
+    out = {'K': K, 'windows': len(windows), 'M': M, 'found': len(found), 'rejected_on_recheck': rejected,
+           'p_range': [min(p for p, _, _ in found), max(p for p, _, _ in found)] if found else None,
            'amin': sorted(set(a for _, a, _ in found)),
            'all_exceed_K': all(a > K for _, a, _ in found), 'examples': found[:10]}
     print(json.dumps(out))
 
 
+def vl(n, l):
+    v = 0
+    while n and n % l == 0:
+        n //= l
+        v += 1
+    return v
+
+
 if __name__ == '__main__':
     mode = sys.argv[1]
     a = [int(x) for x in sys.argv[2:]]
-    {'census': census, 'windows': windows, 'seeded': seeded, 'sample_seeded': sample_seeded, 'sample': sample, 'class1': class1, 'formal': formal}[mode](*a)
+    {'census': census, 'windows': windows, 'seeded': seeded, 'sample_seeded': sample_seeded, 'sample_windows': sample_windows, 'sample': sample, 'class1': class1, 'formal': formal}[mode](*a)

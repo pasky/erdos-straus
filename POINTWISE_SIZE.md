@@ -4,8 +4,7 @@ Task (c), Step 1. The obstruction behind Theorem F, DEPTH3 Theorem 2,
 notes Theorems 5.1/17.3 and the Elsholtz–Tao odd-square remark is stated
 here as one theorem about *procedures*, and proved. Then we determine
 exactly which features of a mechanism put it outside that theorem's scope.
-Step 2 (constructing mechanisms in the escaping class) has not started; it
-waits for parent review.
+Step 2 (mechanisms in the escaping class) is in §§7–10.
 
 Labels: **PROVED**; **CONDITIONAL** (proved from a named hypothesis);
 **EVIDENCE** (finite computation); **Assessment** (heuristic).
@@ -852,19 +851,20 @@ Recall `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (notes (51.1),
 (58.3)). Write `𝓡(M)` for the set of these classes. Hard primes are
 `p≡1 (24)`.
 
-### 7.1 What is exact
+### 7.1 What is exact, and what is not
 
-**Proposition 7.1 (PROVED).**
+**Proposition 7.1 ((a), (b) PROVED).** Let
+`L(T)=lcm(24, all M≡3 (4) with M≤T)`.
 
-* **(a)** For fixed T, the set `{p : W(p)>T}` is a union of unit classes
-  modulo `L(T)=lcm(24, M≤T)`. Hence
+* **(a)** For fixed T, the set `{p∤L(T) : W(p)>T}` is a union of unit
+  classes modulo `L(T)`. Hence
   `#{p≤N hard : W(p)>T} ~ δ*(T)·π_h(N)` as `N→∞` (PNT in APs). Here
   `π_h(N)=#{p≤N, p≡1 (24)}`, and `δ*(T)` is the Haar measure of
   `{n∈Ẑ^× : n≡1 (24), n∉𝓡(M) mod M for all M≤T}`, normalised within the
   class `1 (24)`.
 * **(b)** `δ*(T)≥1/φ_h(L(T))=e^{−(1+o(1))T}` (class of one: notes
   Thm 17.3(c), and Thm 54.1 with the effective PNT).
-* **(c)** The independence exponent is
+* **(c) (Assessment, not proved.)** The independence exponent is
   `I(T):=Σ_{M≤T} −log(1−h_M)`, where `h_M` is the proportion of hard unit
   classes mod M lying in `𝓡(M)`. Since `h_M≍|𝓡(M)|/φ(M)` on average,
   notes Thm 18.2's cubic mass suggests `I(T)≍(log T)^3`. We have not
@@ -872,8 +872,9 @@ Recall `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (notes (51.1),
   exponent `d log I/d log log T` is 2.80 at `T=2^20` and rising.
 
 (a) is the only rigorous link between δ* and primes, and it holds for
-fixed T only. For `T=(log N)^A` the modulus `L(T)=e^{(1+o(1))T}` is far
-beyond N, and no distribution theorem applies.
+fixed T only. For `T=(log N)^A` with `A>1`, the modulus
+`L(T)=e^{(1+o(1))T}` is far beyond N, and no distribution theorem
+applies.
 
 ### 7.2 Measuring `δ*(T)`
 
@@ -882,8 +883,10 @@ beyond N, and no distribution theorem applies.
 prime ℓ, with `n≡1 (3)`; `n mod M` is obtained by CRT, and M runs upward.
 *Multilevel splitting* (survivors are cloned with their drawn residues;
 fresh primes are drawn per clone; the weights are divided) makes the
-estimator unbiased down to `10^{−17}`. Over five independent runs the
-batch-weighted means are:
+estimator unbiased. Unbiasedness is not accuracy, though: below about
+`10^{−14}` the runs scatter by factors of 2–5, and at T=65535 two of four
+runs return 0. Over nine independent runs (`split4k_3`, `split16k_*`,
+`split64k_*`) the batch-weighted means are:
 
 | T | `δ*(T)` | `−log δ*` | `I(T)` | ratio | actual count, hard `p<10^9` (W>T) | `δ*·π_h(10^9)` |
 |---|---|---|---|---|---|---|
@@ -901,18 +904,21 @@ batch-weighted means are:
 
 The comparison with actual primes is exact: `pointwise_size_wtail.py
 census` computes `W(p)` for all 6354932 hard primes `p<10^9`. It agrees
-with `δ*·π_h` to within 4% for `T≤127`, and to within 17% at `T=511`.
+with `δ*·π_h` to within 4% for `T≤127`, and to within 18% at `T=511`.
 This holds although `L(T)` exceeds `10^9` already for `T≈30`. A sample
 of 200000 hard primes near `10^18` gives a tail of 6.4e−4 at T=255
-(δ*: 7.2e−4) and 6.0e−5 at T=511 (8.2e−5). The census mild deficit is a
-finite-size effect, in the conservative direction.
+(δ*: 7.2e−4) and 6.0e−5 at T=511 (8.2e−5). Actual primes thus fall
+modestly short of δ* (up to 18% at T=511, both at `10^9` and at
+`10^18`). We have not analysed this deficit; it is in the direction of
+fewer large W.
 
 Two observations.
 
 * **The avoidance events are positively correlated.** We find
   `−log δ*≈0.77·I(T)`, stably for `4095≤T≤16383`, i.e. `δ*` exceeds the
-  independence prediction `e^{−I}`. This is the class-of-one effect: a p
-  that is ≡1 modulo many small primes escapes many moduli at once.
+  independence prediction `e^{−I}`. This is consistent with a
+  class-of-one mechanism: a p that is ≡1 modulo many small primes escapes
+  many moduli at once. We have not shown that this is the cause.
 * **The decay is polylogarithmic in T.** The local exponent of
   `−log δ*` in `log T` rises from 2.26 (T≈127–1023) to 2.58
   (T≈8191–32767).
@@ -925,8 +931,9 @@ cannot be proved: it is Prop 7.1(a) used beyond the range of any
 distribution theorem. The `10^9` census tests it in the regime
 `L(T)≫N`.
 
-**Assessment 7.2.** Under RA, the largest `W(p)`, `p≤N` hard, is the T
-with `−log δ*(T)≈log π_h(N)`. Beyond `T=16383` we use
+**Assessment 7.2.** Under RA, the one-expected-exceedance level for hard
+`p≤N` is the T with `−log δ*(T)≈log π_h(N)`. RA, as stated, does not
+control larger individual outliers. Beyond `T=16383` we use
 `−log δ*=0.774·I(T)`, with `I` computed exactly to `2^20` and
 extrapolated by its second differences beyond that.
 
@@ -945,19 +952,21 @@ Census check:
 
 **Consequences (Assessment).**
 
-* **All exponents A.** If `I(T)≍(log T)^3` (§7.1(c)) and the ratio
-  `−log δ*/I` stays bounded away from 0, then under RA
-  `log max_{p≤N}W(p)≍(log N)^{1/3}`. Then `W(p)>(log p)^A` for
-  infinitely many p, for **every** A. The only property needed is
-  `log(1/δ*(T))=T^{o(1)}`, i.e. that `−log δ*` is polylogarithmic in T;
-  that is what the measurements show.
+* **All exponents A.** Under RA, `W(p)>(log p)^A` for infinitely many p,
+  for **every** A, as soon as `log(1/δ*(T))=T^{o(1)}`. This sub-power
+  condition is weaker than polylogarithmic growth, and the measurements
+  show polylogarithmic growth in the tested range.
+* **The size of W.** Assume the two-sided relation `−log δ*(T)≍I(T)`
+  (measured ratio ≈0.77) and `I(T)≍(log T)^3` (§7.1(c)). Then, under RA,
+  the exceedance level is `log T_N≍(log N)^{1/3}`.
 * **The frontier of notes §54 is heuristically empty.** It says that
   `H_MOD(A)` is open for `A≥1`. That frontier is real as a statement about
   what is *proved*: the class of one gives only `W>log p/5.2`, and nothing
   better is proved. But heuristically no fixed A works. Already at
   `10^30`, `W` should exceed `(log p)^3`.
-* **The relevant multiplier statement.** It is `W(p)≤exp(C(log p)^{1/3})`
-  (or any bound with `log W/(log log p)→∞`). This is not of polylog type.
+* **The relevant multiplier statement.** It is of the form
+  `W(p)≤exp(C(log p)^{1/3})`, not of polylog type. This assumes the
+  two-sided relation of the previous bullet.
 
 This is consistent with the duality `aM=4D+p` (notes §60): a small M
 means a window modulus `a≈p/M` close to p, where only the congruence
@@ -993,8 +1002,12 @@ denominator `x_q` iff `Rat_q(x_q)∩{−1,−p}≠∅`. The target −1 gives Ty
 and −p gives Type I. Define
 
 ```
-a_min(p) := min{ q≡3 (mod 4) : Rat_q((p+q)/4) ∩ {−1,−p} ≠ ∅ }.
+a_min(p) := min{ q≡3 (mod 4) : p∤x_q, Rat_q(x_q) ∩ {−1,−p} ≠ ∅ },   x_q=(p+q)/4.
 ```
+
+Lemma 77.1 needs `p∤x` and `gcd(x,q)=1`. For `q<3p` the second follows
+from the first, since `gcd(x,q)|p`. The code skips any window that
+violates them.
 
 **Theorem 8.1 (PROVED).** `ES(p)⟺a_min(p)<∞`. Consider, for a constant
 `C>0`:
@@ -1004,6 +1017,17 @@ a_min(p) := min{ q≡3 (mod 4) : Rat_q((p+q)/4) ∩ {−1,−p} ≠ ∅ }.
 > `u,v` with `uv|t+s` and `4s−1|u+v` or `4s−1|u+pv`.
 
 Then X_win(C), for any C, implies the Erdős–Straus conjecture.
+
+The fixed cutoff `10^18` matters. Since `a_min(p)≥3` always, X_win(C) is
+false for `C<3/log(10^18+9)≈0.072`: `p=10^18+9` is a hard prime. The
+eventual form is
+
+> **X_win^∞(C).** `a_min(p)≤C log p` for all sufficiently large primes
+> `p≡1 (24)`.
+
+X_win^∞(C) implies ES only together with a verification up to its
+(unknown) threshold. The concrete conjecture we put forward is
+**X_win(10)**; §8.4 explains the choice.
 
 *Proof.* The first sentence is Lemma 77.1. The window x is the p-free
 denominator of the solution, and every solution has one. For the second:
@@ -1046,44 +1070,67 @@ Lemma 77.10. Combined with Lemma CT it gives:
   squares.) So at a prime window, the *subgroup-level* failure is exactly
   F1, i.e. the Lemma CT obstruction. Any other failure is a failure of
   the exponent budget `|f_r|≤v_r(x)` (notes §70's F3).
-* **(c) Small prime factors.** Every prime `r<n_p` (the least quadratic
-  non-residue mod p) is a residue mod q. Prime factors of x below `n_p`
-  therefore never lift a window out of F1.
+* **(c) Small prime factors.** Let `n_p` be the least quadratic
+  non-residue mod p. Every prime factor r of x with `r<n_p` is a residue
+  mod q, by Lemma 8.2. Such factors never lift a window out of F1. (This
+  is about prime factors of x; an arbitrary small prime need not be a
+  residue mod q.)
 
 ### 8.3 The search length must be unbounded: escape, proved
 
 **Proposition 8.4.**
 
-* **(a) PROVED.** Fix `K≥3`. Suppose p, a prime `≡1 (24)`, satisfies:
-  * p is a quadratic residue mod every prime `ℓ≤K`;
-  * for every `a≡3 (4)`, `a≤K`, the value `(p+a)/4` is `2^i3^j` times a
-    prime.
+* **(a) PROVED.** Fix `K≥3`, and let `Λ_K` be the primes `≤max(K,5)`.
+  Suppose p, a prime `≡1 (24)`, satisfies:
+  * p is a quadratic residue mod every prime `ℓ∈Λ_K`;
+  * for every `a≡3 (4)`, `a≤K`, the value `(p+a)/4` equals `C_a r_a` with
+    `r_a` prime and every prime factor of `C_a` in `Λ_K`.
 
   Then `a_min(p)>K`.
-* **(b) CONDITIONAL on Dickson.** There are infinitely many such p. They
-  are the values `24q+1` with q in a fixed square-mimicking class modulo
-  `72∏_{5≤ℓ≤K}ℓ`, at which `⌊(K+1)/4⌋+1` linear forms are simultaneously
-  prime. Hardy–Littlewood gives `≫N/(log N)^{⌊(K+1)/4⌋+1}` of them up to
-  N. So `a_min` is unbounded.
+* **(b) CONDITIONAL on Dickson.** There are infinitely many such p. Fix a
+  square-mimicking class of q modulo `M_K=∏_{ℓ∈Λ_K}ℓ^{e_ℓ}`, with enough
+  precision `e_ℓ` that every `v_ℓ((p+a)/4)` is fixed on the class. On it,
+  the `⌊(K+1)/4⌋+1` linear forms `24q+1` and `((6q+(a+1)/4)/C_a)` form an
+  admissible tuple. Hardy–Littlewood gives `≫N/(log N)^{⌊(K+1)/4⌋+1}` such
+  `p≤N`. This is Theorem C with the explicit linear family. So `a_min` is
+  unbounded.
+
+  An earlier draft required `C_a=2^i3^j`. That version is false for
+  `K≥31`. If `p≡1 (5)`, then `5|x_19`, which forces `x_19=5`. If
+  `p≡4 (5)`, then `x_11=5·3^j` and `x_31=5·2^i`, so `2^i−3^j=1`, which
+  forces `p=49`. (Reviewer's argument.) Allowing `Λ_K`-primes in `C_a`
+  repairs it.
 * **(c) PROVED.** Every truncation "windows `q≤K`" is a bounded program
   that is formally refuted at `q*_univ` (Theorem C). The unbounded search
   "q=3,7,11,… until success" has an infinite formal run there. The escape
   is in the necessary sense of Corollary E, and no bounded version
   survives.
 
-*Proof of (a).* Let `x=(p+a)/4=2^i3^j r`. Then
-`(r/p)=(x/p)=(4x/p)=(a/p)`, because `(2/p)=(3/p)=1`. Moreover
-`(a/p)=∏_{ℓ|a}(p/ℓ)^{v_ℓ(a)}=+1` (Jacobi; every `ℓ|a` is `≤K`). So every
-prime factor of x is a residue mod p, and Corollary 8.3(a) applies. ∎
+*Proof of (a).* Let `x=(p+a)/4=C_a r`. Every prime of `C_a` lies in
+`Λ_K` and is a residue mod p: p is a square mod odd `ℓ∈Λ_K`, and
+`(2/p)=1`. So `(r/p)=(x/p)=(4x/p)=(a/p)`. Moreover
+`(a/p)=∏_{ℓ|a}(p/ℓ)^{v_ℓ(a)}=+1`: this is the Jacobi symbol, and every
+`ℓ|a` is `≤K`. So every prime factor of x is a residue mod p, and
+Corollary 8.3(a) applies. ∎
 
 (b) is Theorem C/M(d) with the explicit family. **EVIDENCE**
-(`pointwise_size_amin.py formal K`):
+(`pointwise_size_amin.py formal K`). Every hypothesis of (a) is
+re-checked for every accepted p: primality of p, the residue conditions,
+and all prime factors of every window being residues mod p. There were
+0 rejections on re-check.
 
-| K | forms | modulus | p found | `a_min` of the found p |
-|---|---|---|---|---|
-| 15 | 5 | 360360 | 552 (`p≈3·10^9…10^11`) | all in [19, 59] |
-| 23 | 7 | 5.4·10^8 | 16 (`p≈10^15…2·10^17`) | all in [27, 39] |
-| 31 | 9 | 6.9·10^10 | 0 in `3·10^7` sieve steps | — |
+| K | forms | modulus `M_K` | p found (sieve steps) | p range | `a_min` of the found p |
+|---|---|---|---|---|---|
+| 15 | 5 | 120120 | 730 (`3·10^6`) | `4.9·10^9 … 8.6·10^12` | all in [19, 43] |
+| 19 | 6 | 1.9·10^8 | 161 (`10^7`) | `3·10^13 … 4.6·10^16` | all in [23, 51] |
+| 23 | 7 | 1.3·10^10 | 50 (`3·10^7`) | `1.1·10^17 … 9.6·10^18` | all in [27, 39] |
+| 27 | 8 | 9.4·10^10 | 4 (`3·10^7`) | `3.4·10^18 … 3.8·10^19` | all in [31, 35] |
+
+A first version of the generator was faulty. It dropped square
+conditions it could not satisfy root-free, and stripped Λ-factors from p
+itself. Its K=19/21/23/31 output included non-primes and primes violating
+the hypotheses. The table above is from the rebuilt, self-checking
+generator.
 
 So the formal adversary controls exactly the windows it fixes. The next
 few windows succeed.
@@ -1109,21 +1156,32 @@ few windows succeed.
   pattern of p, i.e. through `n_p` (Corollary 8.3(c)). In the `10^8`
   census, the per-window failure is 0.16–0.37 for `n_p≤11` but 0.68–0.73
   for `n_p≥30`.
-* The joint tail exceeds the independence product, by a factor of 18 at
-  14 windows.
+* In the `10^8` census, the joint tail exceeds the independence product
+  by a factor of 18 at 14 windows. That excess comes from the rare primes
+  with large `n_p`. In random Mordell-hard samples of `10^4` primes at
+  `10^12` and `10^18`, the joint tail matches the product of the marginals
+  within sampling error up to 6–8 windows (`sample_windows`).
 * The record `a_min(8803369)=107` has `n_p=41`: p is a residue mod every
   prime `≤37`.
 
-**Model.** Conditionally on p, treat the windows as independent with
-failure `g(p)≈c(log p)^{−1/2}`, so that `P(a_min(p)>Q)≈g(p)^{(Q+1)/4}`.
-The Mordell-hard samples (§8.5) give `c≈1.9`, from `g=0.351` at `10^12`
-and `0.300` at `10^18`, with 8 windows. Predicted maxima over
-Mordell-hard `p≤N` (`π_M(N)≈π(N)/32`):
+**Model.** Treat the windows as independent, each failing with a common
+probability `g(p)=c(log p)^{−1/2}`, so that
+`P(a_min(p)>Q)≈g(p)^{(Q+1)/4}`. The common rate is calibrated as the
+geometric mean of the *measured single-window marginals* for `q≤31`
+(`sample_windows`, `10^4` Mordell-hard primes each). This gives
+`g=0.351` at `10^12` and `0.280` at `10^18`, hence `c≈1.8`. The resulting
+one-expected-exceedance levels over Mordell-hard `p≤N`, with
+`π_M(N)≈π(N)/32`, are:
 
 | N | `10^8` | `10^12` | `10^18` | `10^30` | `10^100` |
 |---|---|---|---|---|---|
-| predicted `max a_min` | 58 | 81 | 111 | 166 | 424 |
-| `/log N` | 3.2 | 2.9 | 2.7 | 2.4 | 1.8 |
+| predicted `max a_min` | 55 | 77 | 107 | 160 | 414 |
+| `/log N` | 3.0 | 2.8 | 2.6 | 2.3 | 1.8 |
+
+Three caveats. The model applies a fixed-window marginal law uniformly
+to windows with growing `q≈log p`, which is not proved. It ignores the
+rare correlated families (large `n_p`), which dominate the extreme tail
+of the `10^8` census. And the constant is calibrated on two scales only.
 
 The observed census maximum below `10^8` is 107 (`/log p=6.7`). Otherwise
 the dyadic maxima are 47–63 (`/log p≈3–3.9`).
@@ -1131,10 +1189,11 @@ the dyadic maxima are 47–63 (`/log p≈3–3.9`).
 **Assessment 8.5.**
 
 * **Upper threshold.** Under the model,
-  `log P(a_min(p)>Q) = −(Q/8)(log log p)(1+o(1))`. The tail is summable
-  over p as soon as `Q≥(8+ε)log p/log log p`. Hence **X_win(C) is
-  heuristically true for every fixed `C>0`**, and
-  `a_min(p)≤(8+o(1))log p/log log p` for all large p.
+  `log P(a_min(p)>Q)=−(Q/8)(log log p)(1+o(1))`. The tail is summable over
+  p as soon as `Q≥(8+ε)log p/log log p`. Hence, heuristically,
+  **X_win^∞(C) holds for every fixed `C>0`**, with
+  `a_min(p)≤(8+o(1))log p/log log p` eventually. The constant 8 is a
+  model output, not a calibrated prediction.
 * **Lower threshold.** The formal adversary (Prop. 8.4, with the (Q2)
   count) and the F1 adversary both produce, heuristically, `p≤N` with
   `a_min(p)≥c·log N/log log N`. So the window frame's true scale is
@@ -1142,9 +1201,12 @@ the dyadic maxima are 47–63 (`/log p≈3–3.9`).
 * **Margin.** `X_win(C)` sits above this scale by a factor `≍log log p`,
   and the formal-genericity obstruction sits exactly at it. (The
   multiplier frame of §7 needs `exp((log p)^{1/3})`.)
-* **Data.** `X_win(10)` holds for every hard `p<10^8` (maximum ratio 6.69).
-  It also holds in all samples at `10^12`, `10^18` and `10^24`, and for
-  all class-of-one and formal-adversary primes tested (§8.5).
+* **Data.** The ratio `a_min(p)/log p` stays below 10 for every hard
+  `p<10^8`; the maximum is 6.69. It also stays below 10 in all samples at
+  `10^12`, `10^18` and `10^24`, and for all class-of-one and
+  formal-adversary primes tested (§8.5). This motivates the cutoff
+  conjecture **X_win(10)**, which, unlike X_win^∞, directly implies ES
+  (Theorem 8.1).
 
 ### 8.5 Numerical tests (EVIDENCE)
 
@@ -1156,18 +1218,23 @@ the dyadic maxima are 47–63 (`/log p≈3–3.9`).
 | Mordell-hard, random `p∈[10^18,2·10^18)` | 30000 | 43 | 0.121 | 3.3e−4 |
 | class of one, `p≡1 (lcm(24,1..23))`, `p≈10^15` | 2000 | 67 | 0.226 | 0.0165 |
 | class of one, `p≡1 (lcm(24,1..41))`, `p≈10^23` | 1000 | 43 | 0.158 | 0.006 |
-| formal adversary K=15 / 23 | 552 / 16 | 59 / 39 | 1 / 1 | — / 1 |
+| formal adversary K=15 / 19 / 23 / 27 (§8.3) | 730 / 161 / 50 / 4 | 43 / 51 / 39 / 35 | 1 (all) | — / — / 1 / 1 |
 | W-record primes (notes (65.2)) and the hard `p<10^9` with `W>2047` | 17 | 23 | — | 0 |
 
-The two frames are nearly independent.
+Large W does not force large `a_min`. These are 17 selected extreme
+primes, so this is not a correlation study.
 
 * **W-records have small windows.** The record `W(2031121)=2495` has
-  `a_min=11`. The two hard primes `p<10^9` with `W>2047`, namely
-  605531161 and 610747201 (`W=3263` and `2071`), have `a_min=23` and 3.
+  `a_min=11`. There are three hard primes `p<10^9` with `W>2047`:
+  2031121, 605531161 and 610747201 (`W=2495`, `3263`, `2071`), with
+  `a_min=11`, 23 and 3.
   The class of one ruins small multipliers but leaves windows alone,
   because windows see the free prime factors of `x_q` (notes §77.1).
-* **Type mix of the minimal window.** Type II is the more frequent
-  minimiser: 545986 against 173795 of the 719781 hard primes `<10^8`.
+* **Type mix of the minimal window.** At the minimal window, `−1` (Type
+  II) lies in `Rat_q` for 718191 of the 719781 hard primes `<10^8`. Only
+  1590 have Type I only. The label is intrinsic: it is computed on the
+  completed set. A first draft reported an order-dependent "first target
+  found" split, which was wrong.
 
 ### 8.6 Position relative to known results and conjectures
 
@@ -1199,9 +1266,10 @@ The two frames are nearly independent.
   following necessary statement. Among the `≍C log p/4` consecutive
   values `(p+q)/4`, at least one has a prime factor that is a
   non-residue mod p. This is a "no long runs of p-residue-smooth shifted
-  values" statement. The formal adversary (all values prime, all
-  constants residues) shows that it fails for runs of length
-  `o(log p/log log p)` under Dickson.
+  values" statement. The formal adversary (all values prime up to
+  residue constants) shows that it fails for runs of every fixed length
+  K under Dickson. For lengths `o(log p/log log p)` it fails only under
+  the (Q2)-type growing-K model.
 
 ## 9. Seeding by the least non-residue (E2)
 
@@ -1217,12 +1285,22 @@ residues there.
 * `n|x_q=(p+q)/4`;
 * `(n/q)=−1` (Jacobi).
 
-In particular a seeded window is never F1. For prime q, the subgroup
-generated by the prime factors of `x_q` contains −1 (Cor. 8.3(b)). Such
-a window can fail only through the exponent budget (F3).
+In particular a seeded window is never F1. For **prime** q, the subgroup
+generated by the prime factors of `x_q` contains −1 (Cor. 8.3(b)). Such a
+window can fail only through the exponent budget (F3).
 
-*Proof.* `4n|p+q`. Then apply Lemma 8.2 with `r=n`:
-`(n/q)=(n/p)=−1`. ∎
+*Proof.* `4n|p+q` gives the first two claims, and `gcd(n,q)=1` because
+`q≡−p (mod n)` and `n∤p`. Jacobi reciprocity with `q≡3 (4)` gives
+`(n/q)=(−1/n)(q/n)=(−q/n)`. Then `(−q/n)=(p/n)`, since `q≡−p (mod n)`,
+and `(p/n)=(n/p)=−1`. This needs no bound on q. ∎
+
+**Composite seeded windows keep subgroup obstructions.** Take
+`p=349801`, so `n_p=23`, and the first seeded window `q=75`. Then
+`x=(p+75)/4=23·3803`, and `(23/75)=−1` as promised. But both prime factors
+have Jacobi symbol +1 modulo 15, while both targets −1 and −p have
+symbol −1 modulo 15. So no exponent budget reaches either target: this is
+a subgroup miss, not F3. (Reviewer's example.) The F3-only statement holds
+for prime q only.
 
 **The mechanism.** Use the seeded windows `q_j=q_0+4n_pj`, `j=0,1,…`,
 where `q_0=(−p mod 4n_p)<4n_p`.
@@ -1230,12 +1308,18 @@ where `q_0=(−p mod 4n_p)<4n_p`.
 > **X_QNR(C).** For every prime `p≡1 (24)`, `p>10^18`, some `j<C log p`
 > has `Rat_{q_j}(x_{q_j})∩{−1,−p}≠∅`.
 
+As with X_win, the fixed cutoff makes X_QNR(C) false for very small C.
+The heuristic statements below concern the eventual form X_QNR^∞(C).
+
 * **ES ⇐ X_QNR(C)** (PROVED). The argument is that of Theorem 8.1.
 * **Search range.** Under GRH, `n_p≤2(log p)^2` (Bach; cited, not
   re-checked), so the search is polylogarithmic: `q<8C(log p)^3`.
-* **Escape (PROVED, in the sense of §4.2).** The window positions depend
-  on `n_p`, a primitive without formal semantics at square-mimicking
-  points (§4.2, E2). The length must still grow (E1).
+* **Escape, in the necessary sense of Corollary E** (CONDITIONAL on H,
+  through §4.2's argument for `n_p`). The window positions depend on
+  `n_p`, which has no formal semantics at square-mimicking points (§4.2,
+  E2). So the formal run there is undefined. This is *not* the global
+  escape of §4.2, i.e. absence of formal refutation at every point; see
+  the next item. The length must still grow (E1).
   * **Fixed n_p does not escape.** At a point that is square-mimicking
     except at one prime `ℓ_0`, the least non-residue is formally `ℓ_0`.
     The first J seeded windows then form a bounded formal program.
@@ -1262,16 +1346,23 @@ Lemma 9.1 has 0 violations over all windows tested.
 **Assessment 9.2.**
 
 * **Single windows.** Seeded first-window failure decays like
-  `(log p)^{−0.9}`. Unseeded windows decay like `(log p)^{−0.56}`. This is
-  as predicted: seeding removes F1 exactly, and F3 needs `x/n_p` to have
-  few prime factors, at probability `(log p)^{−1+o(1)}`.
+  `(log p)^{−0.9}`; unseeded windows decay like `(log p)^{−0.56}`. Both
+  are empirical fits over `3·10^6≤p≤10^24`.
+  * For **prime** seeded windows, seeding removes F1 exactly, and the
+    remaining F3 failure plausibly needs `x/n_p` to have few prime
+    factors, i.e. probability `(log p)^{−1+o(1)}`. That is consistent with
+    the fit.
+  * **Composite** seeded windows (such as `q=75` above) can still fail at
+    the subgroup level, and the data mix both kinds. We have not
+    separated them. So the exponent 0.9 is not explained by a proved
+    mechanism.
 * **Joint windows.** With J windows the gain compounds. At `10^18`, two
   seeded windows fail together 50 times less often than two unseeded
   ones.
-* **Scale.** The threshold is still `Θ(log p/log log p)` windows. The
-  formal and F1 adversaries are replaced by an F3 adversary at
-  `(log p)^{−1}` per window, which roughly halves the constant. X_QNR(C)
-  is heuristically true for every `C>0`.
+* **Scale.** The threshold is still `Θ(log p/log log p)` windows. If the
+  per-window failure is `(log p)^{−1+o(1)}` (prime seeded windows, as
+  above), the constant roughly halves. X_QNR^∞(C) is heuristically true
+  for every `C>0`.
 * **The price is size.** Seeded windows are sparse, with moduli
   `≈4n_pj`. The first successful seeded modulus has median 3.1×`a_min(p)`
   (1-in-50 subsample `<10^8`).
@@ -1287,23 +1378,27 @@ factor to plant, and it can be planted by a congruence on q that depends
 on p. That is exactly what formal genericity cannot see.
 
 E2 does not, however, give a deterministic mechanism. After seeding, the
-success of a window still depends on the factorisation of
-`x_q/n_p` (budget F3). This is the same kind of divisor-ratio event, with
-a better exponent.
+success of a window still depends on the factorisation of `x_q/n_p`:
+budget F3 for prime q, and subgroup structure modulo the prime factors of
+composite q. This is the same kind of divisor-ratio event, with a better
+empirical exponent.
 
 ## 10. Summary of Step 2
 
 | frame | consulted objects | proved lower bound i.o. | heuristic true scale | pointwise hypothesis | status |
 |---|---|---|---|---|---|
 | multiplier `W(p)` (congruence-only, §7) | `p mod M`, `M≤T` | `W>log p/5.2` (notes Thm 54.1) | `log W≍(log p)^{1/3}`; `W≈(log p)^{2.5–3.4}` for `10^8≤p≤10^50` | `W≤(log p)^A` | **heuristically false ∀A** (Assessment 7.2) |
-| window `a_min(p)` (§8) | factorisations of `(p+q)/4`, `q≤Q` | unbounded under Dickson (Prop 8.4); for each found p, `a_min>K` PROVED | `Θ(log p/log log p)` | **X_win(C)**: `a_min≤C log p` | heuristically true ∀C>0 (Assessment 8.5); `C=10` holds on all data |
-| seeded windows (§9) | factorisations of `(p+q)/4`, `q≡−p (4n_p)` | none beyond §8 | `Θ(log p/log log p)` windows, better constant | **X_QNR(C)** | heuristically true ∀C>0 (Assessment 9.2) |
+| window `a_min(p)` (§8) | factorisations of `(p+q)/4`, `q≤Q` | unbounded under Dickson (Prop 8.4); for each found p, `a_min>K` PROVED | `Θ(log p/log log p)` (model; conjectural) | **X_win(10)** (cutoff `10^18`); eventual form X_win^∞(C) | X_win^∞(C) heuristically true ∀C>0 (Assessment 8.5); ratio `<10` on all data |
+| seeded windows (§9) | factorisations of `(p+q)/4`, `q≡−p (4n_p)` | none beyond §8 | `Θ(log p/log log p)` windows (model; conjectural) | **X_QNR(C)** / X_QNR^∞(C) | X_QNR^∞(C) heuristically true ∀C>0 (Assessment 9.2) |
 
 Answers to the brief's Step 2 items (a)–(d):
 
-* **(a) Escape.** X_win and X_QNR escape the meta-theorem in the
-  necessary sense (Prop. 8.4(c), §9). Their bounded truncations are
-  formally refuted.
+* **(a) Escape.**
+  * X_win escapes the meta-theorem in the necessary sense, and every
+    bounded truncation of it is formally refuted (Prop. 8.4(c), proved).
+  * X_QNR escapes in the necessary sense, conditionally on H (§9).
+    Formal refutation of its fixed-J truncations is only plausible
+    (Assessment, §9).
 * **(b) Heuristics.**
   * The formal-genericity threshold `≍log p/log log p` lies below `C log p`
     (§4.3(Q2), Assessment 8.5).
@@ -1327,11 +1422,14 @@ classes, proved via size, was not found. X_win is the pointwise form of
 the J-window stacking problem with `J≍log p`. Its average version is the
 open exceptional-set input `H_STACK` (notes §71). We know no route to
 its pointwise form. It is precisely Wall (i) of notes §10.6: divisors
-hitting a moving coset in one of `≍log p` shifts. What Step 2 adds is the
-correct *length* of that search (`≍log p/log log p`, versus
-`exp((log p)^{1/3})` in the multiplier parametrisation), and the correct
-*coordinate* of its obstruction (non-residue prime factors; F1 versus
-F3).
+hitting a moving coset in one of `≍log p` shifts. What Step 2 adds is:
+
+* the conjectured scale of that search under explicit models:
+  `≍log p/log log p` windows, versus `exp((log p)^{1/3})` in the
+  multiplier parametrisation;
+* the proved fact that no bounded window search suffices under Dickson;
+* the coordinate of its obstruction: non-residue prime factors (Lemma CT,
+  Cor. 8.3), with F1 versus F3 at prime windows.
 
 ## Replay
 
@@ -1339,7 +1437,7 @@ F3).
 (ulimit -v 4000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_ct_check.py 5000 1000)   # ~20 s
 (ulimit -v 8000000; PYTHONPATH=scripts uv run python scripts/pointwise_size_toy_formal.py 20000000)  # ~3 min
 # Step 2, section 7 (multiplier tail); outputs in data/pointwise_size/wtail/
-P="PYTHONPATH=scripts uv run python scripts/pointwise_size_wtail.py"
+export PYTHONPATH=scripts; P="uv run python scripts/pointwise_size_wtail.py"
 $P split 4095 20 200000 3            # ~2 min
 for s in 11 12 13 14; do $P split 16383 6 50000 $s; done     # ~1 min each
 for s in 21 22 23 24; do $P split 65535 10 50000 $s; done    # ~15 min each
@@ -1348,16 +1446,18 @@ $P primes 1023 18 200000 5           # sample near 1e18
 uv run python scripts/pointwise_size_indep.py 1048575         # I(T), ~2 min
 uv run python scripts/pointwise_size_wtail_table.py           # table.txt
 # Step 2, sections 8-9 (window frame, seeding); outputs in data/pointwise_size/window/
-A="PYTHONPATH=scripts uv run python scripts/pointwise_size_amin.py"
+A="uv run python scripts/pointwise_size_amin.py"
 $A census 100000000 [1]              # all hard [Mordell-hard] p < 1e8, ~2 min
 $A windows 100000000 127             # per-window marginals / joint / by n_p, ~25 min
 $A sample 12 30000 11; $A sample 18 30000 12        # Mordell-hard samples
 $A class1 23 2000 3; $A class1 41 1000 4            # class-of-one primes
-$A formal 15 3000000; $A formal 23 30000000; $A formal 31 30000000   # formal adversary
+$A formal 15 3000000; $A formal 19 10000000; $A formal 23 30000000; $A formal 27 30000000; $A formal 31 30000000
+$A sample_windows 12 10000 31 31; $A sample_windows 18 10000 32 31   # single-window marginals (8.4)
 $A seeded 100000000 20 1             # seeded windows, Mordell-hard p < 1e8
 $A sample_seeded 12 20000 21; $A sample_seeded 18 20000 22; $A sample_seeded 24 5000 23
 PYTHONPATH=scripts uv run python scripts/pointwise_size_wrecords.py   # W-records vs a_min
 ```
 (`amin_s12.json`/`amin_s18.json` in `data/pointwise_size/window/` are earlier all-hard samples,
 seeds 1/2, produced before the Mordell filter was added to `sample`; `amin_m12/m18.json` are the
-Mordell-hard ones quoted in §8.5.)
+Mordell-hard ones quoted in §8.5. The `frac_typeI` field of `amin_class1_*.json` was computed with
+the first draft's order-dependent type label and is not used; success/failure booleans are unaffected.)
