@@ -90,6 +90,28 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
      single-prime atoms (51–65% of the multi-prime atoms are irredundant at
      `T=10^4, 10^5`).
 
+5. **Checkpoint 2 additions (§§8–9).**
+   * **Type-I frame (§8).**
+     * `ck_min(p) ≥ n_p` (Lemma 8.1, PROVED).
+     * Jointly, `W ≥ (log p)^{2−o(1)}` and `ck_min ≥ (log p)^{1−o(1)}` hold
+       i.o. (Cor. 8.2, PROVED modulo Thm 3.1).
+     * Complete Type-I certificates force quadratic residuosity at every
+       `5≤ℓ≤T` (Prop. 8.3, PROVED).
+     * Hence any congruence method certifies exactly `ck_min>n_p`
+       (Cor. 8.4, PROVED). Exponent `1+δ` for `ck_min` by congruences would
+       beat every known Ω-result for the least quadratic non-residue.
+   * **Haar side (§9; Haar only, says nothing about primes).**
+     * Structural lemma: surviving atoms have smooth part `m≤r²+1`
+       (Lemma 9.1, PROVED).
+     * The global surviving mass is `≪(log T)^4 log log T` for every
+       class-of-one quarantine (Lemma 9.2, PROVED modulo Elsholtz–Tao
+       Prop. 1.4).
+     * **`log(1/δ*(T)) ≤ T^{1/3+o(1)}` unconditionally** (Theorem 9.3,
+       PROVED). This improves POINTWISE_SIZE Lemma 11.7's `1/2`.
+     * The polylogarithmic bound `δ*(T) ≥ exp(−(log T)^{O(1)})` follows
+       from the per-prime Hypothesis H_PP (Theorem 9.4, PROVED
+       implication). H_PP itself is open, with EVIDENCE.
+
 ## 1. Setting
 
 Fix `T` large and put `𝓛=log T`. Throughout,
