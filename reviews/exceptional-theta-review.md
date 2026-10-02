@@ -270,3 +270,156 @@ Correct.
 * **S2 (cosmetic; Cor 3.6 "Per window").** `s_j` is never defined. The
   bounds `M ≤ e^{2s_j/C}` and `ℓ^{−α} ≤ e^{−αs_j}` are consistent only if
   `s_j = s₀C^{−j+1}` is the log of the *lower* endpoint of W_j. Define it.
+
+## Item 3 — Scope of Corollaries 3.4–3.6
+
+**Verdict: SOUND-AFTER-REPAIRS.** The corollaries are correct as literally
+stated, since each carries "level λ ≤ A log N". The interpretive layer
+around them (§0 Verdict, Lemma 4.1 "binding constraint", §6) drops or
+misattributes that hypothesis. One repair lemma (Lemma R below, proved
+here) closes most of the gap.
+
+### 3.1 Is the 3/4 note's actual majorant literally in the class? Yes.
+
+I checked against `paper/es-threequarter-note.tex` (§§2, 7, 8).
+
+| requirement (§1, Cor 3.4) | 3/4 note | check |
+|---|---|---|
+| prime-slice system | `Q₀ = lcm(L_K, P_y)`, `𝒫 = primes in (X^{1/2}, X]`, conditions `n ≡ −uv⁻¹ (mod kℓ)` with `k | L_K` | ✓. `ℓ > X^{1/2} > K ≥ y`, so `ℓ ∤ Q₀` |
+| `F_ℓ(c)` | projections mod ℓ of the atoms active in c (`k | u+cv`) | ✓ (lem:CRT) |
+| `|F_ℓ(c)| ≤ ℓ/4`, `< ℓ` | `≤ z_j² ≤ ℓ^{1/3}` | ✓ |
+| `q₀ ≤ ℓ^C`, C < 1 | `k ≤ X^κ ≤ ℓ^{2κ}`, 2κ < 1/120 | ✓ |
+| forced classes of Lemma 16.1 | atoms are ℛ(kℓ) classes (multiplier identity) | ✓ |
+| selector R | `S_y = 1[(n,P_y)=1]`, R = `{(c,P_y)=1}` | ✓ |
+| ν ≥ 0 on all of ℤ | `S_y Q_r(H_X) ≥ 0` (lem:Bonferroni) | ✓ |
+| ν ≥ 1 on 𝒜 | `Q_r(0) = 1`, `S_y = 1` | ✓ (on *all* avoiders, not only primes) |
+| finite class combination | the expansion (termq) | ✓ |
+| level | distinct atoms in a nonempty term have distinct ℓ (lem:CRT), so slice level ≤ `rt` | ✓ |
+| final bound `N·Eν + rounding ≥ 0` | (transfer): `N·E_CRT ν + O(T_abs)` | ✓ |
+| fibre profile | cor:fibremass upper half, uniform in all c | ✓ |
+
+So Theorem 2.5 applies to the note's ν verbatim, for every t, κ, r, B.
+The cap of Lemma 4.1 is correct.
+
+### 3.2 Defect SC1 (MAJOR as an interpretive claim; the theorems are unaffected)
+
+* **Location.**
+  * §0 Verdict: "That world is: every condition's modulus has a prime
+    factor ≥ M^{1/(1+C)}, the admissible set has bounded saving, and the
+    final bound has the form N·Eν + (nonnegative rounding bound)."
+  * Lemma 4.1: "the binding constraint … (level) λ ≤ A·log N".
+  * The binding table: "level `r t ≲ L`".
+* **The problem.**
+  * In the 3/4 note the transfer `N·Eν + O(T_abs)` uses
+    `#{n ≤ N : n ≡ a (q)} = N/q + O(1)` for *every* q. The note says
+    explicitly that `q_max ≤ N^{1/2}` "is convenient but not necessary".
+  * The constraint that actually forces `rt ≲ L` in the note is the
+    coefficient budget `log T_abs ≤ ½ log N`.
+  * Theorem 2.5 caps majorants of bounded *level*, not of bounded
+    coefficient sum.
+  * The §0 Verdict omits the level hypothesis altogether. As written it
+    is therefore not implied by Thm 2.5/2.7. It would admit a
+    hypothetical majorant of level ≫ log N with small coefficient sum.
+  * The note itself (§9, Remark "scope of the ceiling") warns that "a
+    sufficient product-tail or coefficient budget has not been proved
+    necessary".
+* **Repair.** The following is my lemma, with proof. It makes the
+  coefficient budget imply the level hypothesis, provided the family's
+  slice primes are bounded.
+
+> **Lemma R (coefficient budget ⇒ level).** Let ν = Σ_i a_i 1[n ≡ b_i (d_i)]
+> be ≥ 0 on ℤ and ≥ 1 on 𝒜, with `T = Σ|a_i|`. Assume every slice prime
+> satisfies `log ℓ ≤ Λ₀`. Then for every λ there is a majorant ν' of level
+> ≤ λ with `ν' ≥ ν` pointwise and `Eν' ≤ Eν + T·e^{Λ₀−λ}`. In particular,
+> with `λ = Λ₀ + log T + log(1/Eν)`, we get `Eν' ≤ 2Eν`.
+>
+> *Proof.* Leave terms of level ≤ λ alone. Drop each term of level > λ
+> with `a_i < 0`; this raises ν pointwise and costs `|a_i|/d_i ≤ |a_i|e^{−λ}`.
+> For each term of level > λ with `a_i > 0`, list its slice primes in
+> increasing order and keep the longest prefix of level ≤ λ. The prefix
+> has level `> λ − Λ₀`. Replace `d_i` by the divisor d'_i consisting of the
+> non-slice part times the kept prime powers. Since `d'_i | d_i`, we get
+> `1[n≡b_i (d'_i)] ≥ 1[n≡b_i (d_i)]`, and the mean rises by at most
+> `a_i/d'_i ≤ a_i e^{Λ₀−λ}`. Then ν' ≥ ν ≥ 0 and ν' ≥ 1 on 𝒜. ∎
+
+* **Consequence.** Put Cor 3.4/3.6 together with Lemma R.
+  * *Hypotheses.* The family's slice primes are ≤ N^A, and the method's
+    final bound `N·Eν + Σ|a_i|` is non-trivial, so `T < N`.
+  * *Bound.* The saving s satisfies
+    `s ≤ log 2 + C(λ)^{3/4} + (R-term)` with `λ ≤ (A+1)log N + s`. Hence
+    `s ≪_A (log N)^{3/4}`.
+  * *What this covers.* This puts the 3/4 note's real constraint
+    (`T_abs ≤ N^{1/2}`) inside the theorem.
+* **Residual scope (state it).**
+  * (i) Families with slice primes > N^{O(1)} remain formally outside.
+    Lemma R needs Λ₀. I see no way to remove large-prime conditions
+    without breaking majorization.
+  * (ii) The rounding bound must be the absolute coefficient sum, or
+    anything ≥ it. A method whose rounding bound uses *which* classes meet
+    [1,N] is on the non-CRT/"signed rounding" side.
+* **Fix.**
+  * Add Lemma R.
+  * Redefine the architecture in §0 and §6 as "final bound
+    `N·Eν + Σ_i|a_i|`, family moduli ≤ N^{O(1)}". Alternatively keep
+    "level ≤ A log N" explicitly in the §0 Verdict.
+  * In Lemma 4.1 and the binding table, replace "(level) λ ≤ A log N" by
+    "(coefficient budget) log T_abs ≤ log N, which forces λ ≲ log N via
+    Lemma R".
+
+### 3.3 What is excluded (precise list, checked against the proofs)
+
+1. **Majorants not ≥ 0 on all of ℤ.** A majorant that is ≥ 0 only on
+   [1,N] is excluded. The doc's remark that such a relaxed LP is the exact
+   count is correct: level-N classes restrict to point masses on [1,N].
+2. **Signed rounding.** Any bound exploiting cancellation in
+   `Σ_{n≤N}ν − N·Eν`, or a rounding bound smaller than Σ|a_i| (see SC1(ii)),
+   is excluded.
+3. **Non-CRT inputs.** Type I/II sums, arithmetic of `x = (p+a)/4`,
+   Halász: Thm 2.5 sees only the CRT law of residues. Also excluded are
+   majorants that are ≥ 1 only on exceptional *primes* and use prime
+   equidistribution beyond the selector coordinates. A CRT-periodic ν that
+   is ≥ 1 on the exceptional primes need only be ≥ 1 on the residue cells
+   they occupy. Thm 2.5 requires ≥ 1 on all of 𝒜. This is the right
+   model for "sieve on the avoider set", but it should be named.
+4. **Balanced moduli.** Cor 3.6 needs *every* modulus of the family to
+   have `P(M) ≥ M^{1/(1+C)}` with C < 1 fixed. Excluded are families
+   containing any balanced modulus (two or more comparable large primes),
+   and moduli with `P(M) ∈ (M^{1/2}, M^{1/(1+C)})` for the chosen C, since
+   the constants blow up as C → 1. Lemma 3.8 shows this excluded part
+   carries `≫ (log x)³` supply (item 4), so the exclusion is not
+   cosmetic. For Λ²-majorants only, Thm 5.5 reduces it to the open
+   H_MS^{Sel}.
+5. **Non-selector R.** The term `log(Q₀/|R|)` is uncontrolled.
+   Pure small-modulus subsystems with large void are outside (H_MS).
+   Cor 3.6 handles the w₀-smooth part only because w₀ = O_C(1).
+6. **Prime-slice requirement of Cor 3.4.** Multiplier parts must avoid
+   slice primes, i.e. `q₀ | Q₀`, `ℓ ∤ Q₀`. Cor 3.6 removes this, but only
+   for dominant-prime moduli.
+7. **Level/size.** See SC1. Level ≤ A log N is literal in Cor 3.4/3.6.
+   With Lemma R it may be replaced by the coefficient budget plus slice
+   primes ≤ N^{O(1)}.
+8. **Large sieve.** Only the Montgomery large sieve over a slice system,
+   fibre by fibre, is covered (Remark 2.6). No sequential or shared-prime
+   large-sieve statement is made, and the doc says so.
+
+### 3.4 Cor 3.5 (2/3-loglog note)
+
+* The LL note uses `K = ⌊δ log N⌋`, `L_K ≤ N^{1/2}`, and Montgomery's
+  large sieve on progressions mod L_K with `Q² ≤ N/L_K`
+  (`paper/vaughan-loglog-note.tex` l. 97, 393). Remark 2.6's Rankin bound
+  `S_c(Q) ≤ exp{α log Q + 2Σ p_ℓ(c)ℓ^{−α}}` (for `p_ℓ ≤ 1/2`) applies
+  fibrewise. Correct.
+* The claim `h(𝒦) ≤ Π_{p | lcm}(1+1/p)` looked suspicious, since
+  `Σ_{k|L} 1/k` is larger. It is in fact exact for φ-weights:
+  `Σ_{i≤a} φ(p^i)/p^{2i} ≤ (1−1/p)Σ_{i≥1}p^{−i} = 1/p`. Correct.
+* The supremum computation `≍ λ^{2/3}h^{1/3}` is right.
+* "Sharp for its architecture" means: given the note's own uniform BT
+  upper bound on the fibre mass, no majorant or large sieve on that slice
+  system saves more than `L^{2/3}(log L)^{1/3}`. This is the order the
+  note achieves (thm:main there). Correct, with the label "given the
+  notes' BT upper bounds" as stated.
+* **SC2 (minor).** Cor 3.5 needs the fibre-mass upper bound
+  `Σ_ℓ p_ℓ(c) ≤ A₀t²h(𝒦)` for *every* fibre c in R. The LL note proves
+  it for reduced c. Non-reduced c have R-weight 0 if R is the reduced
+  set, but then `log(L_K/φ(L_K)) ≍ log log K` enters as the R-term.
+  * *Fix.* Mention the R-term in Lemma 4.4. It is negligible.
