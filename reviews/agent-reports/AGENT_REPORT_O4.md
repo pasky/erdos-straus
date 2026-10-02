@@ -141,6 +141,48 @@ moduli beyond `(log p)^3`" with "beyond every fixed power of log p".
   * fixed-slot breadth-first encoding (`N=kh` slots);
   * simplicity of the hypergraph is not needed.
 
+## Paper update (`paper/es-omega-note.tex`, v3 draft; 30 pp, clean 3-pass build)
+
+* **New title and abstract, and Theorem 1.1:**
+  * for every fixed k≥3, `W(p)≥(log p)^k exp(−C_k log log p/log log log p)`
+    for infinitely many hard p;
+  * `log p ≤ T^{1/k}exp(O_k(log T/log log T))`;
+  * the least hard prime with `W>T` is `≤exp(T^{o(1)})`.
+
+  Label: proved modulo Thorner–Zaman, effective for each fixed k.
+* **New §"Private covers and a hypergraph moment bound"** (Lemmas
+  `lem:cov` and `lem:hypmom`). This is O2 Lemmas 10.1/10.2 with a tilt
+  parameter ρ, the fixed-slot encoding (review-2 2a), and multi-edges
+  allowed (2b).
+* **New §"Multilevel minorants":**
+  * Lemma `lem:compare`: the conditional local lemma for levels;
+  * Thm `thm:twolevel`: O3 Thm 3.2, under (P_3);
+  * Lemma `lem:push` and Cor `cor:crit3`: O3 Lemma 3.3/Thm 3.4, with
+    `c_0=δδ_3t/1728` to reach (P_3)'s 1/192;
+  * Thm `thm:klevel`: O3 Thm 5.1, with all review repairs (H_r, frozen
+    masses, merged induced events, higher-codegree induced mass, L_2 via
+    `200k𝔐_3`);
+  * Remark `rem:hubs`: the three hub families and why levels are needed.
+* **§"Proof of Thm 1.1" rewritten:**
+  * uniform mass `S*` (`lem:qmass`);
+  * Lemma `lem:iterq` (iterated quarantine), moved from the Haar section;
+  * Prop `prop:hmin`: H_min(θ) for every θ>0, with `k'=max(k−1,3)`;
+  * the old exponent-3 proof (crude (W)/(G) and one bad-prime pass) is
+    absorbed: k=3 is a remark (`thm:crit` after the quarantine with
+    `c_0=δ/32`).
+* **Other sections:**
+  * Limits section: Hyp `hyp:min` is now labelled proved for every θ>0,
+    and the "Below θ=1/3" paragraph is rewritten.
+  * Cor `cor:joint`: jointly `W≥(log p)^{k−o(1)}` and
+    `ck_min≥(log p)^{1−o(1)}`.
+  * Haar Thm `thm:iterq` now cites `lem:iterq`.
+  * Summary of status updated. The open items are now an explicit rate
+    beyond fixed powers, a polylog Haar bound, and `ck_min`.
+* **For the parent:** STATUS.md still calls this note "es-omega-note v2,
+  exponent 3", and its internal referee reports (v2) predate v3. The new
+  sections (§§hyper, multi, main) have not been refereed in paper form.
+  Their mathematics is POINTWISE_OMEGA3 §§3–5, reviewed twice (SOUND).
+
 ## Status
 
-Review repairs applied. Stopping for the parent's final check.
+Paper updated and compiled. Stopping.
