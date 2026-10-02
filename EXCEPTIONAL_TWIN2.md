@@ -654,3 +654,66 @@ Lenstra / Coppersmith–Howgrave-Graham–Nagaraj (divisors of N in a residue
 class mod `s ≥ N^{1/4+ε}` are `O(1)`) applies only when j is the top prime
 and `km ≤ j^{1−ε}`, and even then gives `O(1)` per residue, not the needed
 `τ/j`; it does not close the gap.
+
+### 5.5 (H_O^≠): a lattice lemma, the cleanest hypothesis, known results
+
+**Lemma 5.5 (labels mod j are a lattice; PROVED).** For a prime j and a
+residue r, the reduced fractions `a/b` (`b ≥ 1`, `|a|, b ≤ H`) with
+`a ≡ rb (mod j)` number at most `1 + 7H²/j`. In particular at most one
+canonical label of height `< (j/2)^{1/2}` lies in any residue class mod j.
+
+*Proof.* Two distinct such fractions give `ab′ − a′b ≡ 0 (mod j)`, nonzero,
+so `|ab′−a′b| ≥ j`. As `|ab′−a′b| = |P||P′| sin∠(P,P′) ≤ 2H²∠(P,P′)` for
+`P = (a,b)` in the upper half-plane, consecutive points (by angle) are
+`≥ j/(2H²)` apart in angle, and the angles lie in `(0,π)`. For the second
+claim, `|ab′−a′b| < 2·(j/2) = j`. ∎
+
+**Consequences (PROVED from Lemmas 5.4(i), 5.5).** Every cross pair contains a
+*light* label (height `≥ (j/2)^{1/2}`), whose datum modulus is
+`d ≥ (height/4)^{1/2} ≫ j^{1/4} ≥ L²`. In Lemma 5.4(i) such a datum has
+Brun–Titchmarsh part `≤ C(log L)/φ(d) ≪ L^{−2+o(1)}`, and Lemma 5.5 bounds the
+number of light labels of height `≤ H` in a residue class by `1 + 7H²/j`.
+Summing dyadically in H, the BT parts of light labels in one class total
+`≪ (log L)^{O(1)}(1 + L^{O(1)}/j^{1/2})`, so their cross contribution is
+`≪ Σ_j (ρ_j/j)·L³·(log L)^{O(1)}/j^{1/2}... ` — negligible for `j > L⁸`.
+What remains is exactly the **first-element cross pairs**: light labels
+realised at their *first* partner `m₀`, i.e. effectively a single class
+each, colliding mod j with another class.
+
+**Hypothesis H_div (cleanest form of (H_O^≠); OPEN).** Put
+`w_j(A) = j/A` for `A ≡ 4^{−1} (mod j)`, `A ≤ X`, and
+`v_j(r) = Σ_A w_j(A)·#{D | A² : λ(D) light, D ≡ r (mod j)}`. Then
+
+    Σ_{j>w₂} (ρ_j/j) Σ_{r mod j} v_j(r)² ≪ L^{3/4}(log L)^{O(1)}.
+
+(Only the *average over j*, weighted by `ρ_j/j`, is needed; the random model
+gives `Σ_j ρ_j (L³)²/j² ≪ L⁶/w₂`.) Using Lemma 5.3, `D ≡ u′/(4v′)` and
+writing `A = u′v′t`, H_div counts pairs `(u′,v′,t), (u″,v″,t″)` with three
+congruences mod j: `4u′v′t ≡ 1`, `4u″v″t″ ≡ 1`, `v′²t ≡ v″²t″`.
+
+**Comparison with known results.**
+* *Single-A equidistribution* (Erdős–Hall; Hooley's Δ-function; Tenenbaum)
+  cannot help: `τ(A²) = (log X)^{O(1)} ≪ j`, so for an individual A the
+  divisors occupy a vanishing fraction of the classes mod j. Averaging over
+  `A ≡ 4^{−1} (j)` is essential.
+* *Divisor problems in progressions*: `Σ_{n≡a (q)} τ(n)` is known to level
+  `q ≤ x^{2/3−ε}` (Selberg, Hooley, Heath-Brown), `τ₃` to
+  `x^{1/2+1/230}` (Friedlander–Iwaniec) and `x^{1/2+1/82}` (Heath-Brown).
+  H_div is a *second moment* of a ternary-type divisor sum (`A = u′v′t`)
+  with *two* coupled congruence conditions, at moduli j up to X. Its first
+  moment is within reach of these results only for `j ≤ X^{1/2+δ}`.
+* *Route (1), large sieve / Barban–Davenport–Halberstam over j:* detecting
+  the congruences with characters turns `Σ_r v_j(r)²` into
+  `j^{−3}Σ_{ψ,χ mod j}|Σ a(u′,v′,t)ψ(u′v′t)(χ²ψ)(v′)(χψ)(t)|²`-type sums
+  over a *pair* of characters per j. The multiplicative large sieve over
+  `j ≤ Q` then costs `(X + Q³)·‖a‖²`. That is acceptable only for
+  `j ≤ X^{1/3}`; there it gives H_div for that range (SKETCH, not written).
+  The range `j > X^{1/3}` (in particular j the top prime, `m < j`) is not
+  covered.
+* *Route (2), n-side dispersion:* reproduces the same sum (§5.4); the
+  dispersion method needs a level of distribution for the inner sum over A
+  in the class mod j beyond `X^{1/2}`, i.e. the same obstacle.
+* *A weaker bound that would suffice:* any saving `L^{5.5}` over the trivial
+  `Σ_j (ρ_j/j)·L⁶`, on average over `j > L⁸`. Lemma 5.5 and Lemma 5.4 give
+  such a saving for everything except the first-element light pairs; no
+  saving for those was found.
