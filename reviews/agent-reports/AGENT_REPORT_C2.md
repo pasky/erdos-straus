@@ -216,3 +216,40 @@ SOUND-AFTER-REPAIRS; all items are mathematically sound. Repairs applied:
   * H_PP holds literally at (10⁵, 10³) and (10⁶, 3·10³), so Theorem 9.4 gives rigorous finite-T Haar bounds there. These are labelled EVIDENCE-level certificates.
 
 Ready for merge. Ledger and STATUS updates are left to the parent.
+
+---
+
+# Final task: standalone note `paper/es-omega-note.tex` (11 pp)
+
+The note is titled "Large Erdős–Straus witnesses: Ω-results for the multiplier and slice parameters". It is in the `amsart` style of `vaughan-loglog-note.tex`, with author Anonymous. It compiles with 3 pdflatex passes and 0 warnings, 0 overfull boxes. Every theorem header carries its status label, and the final section summarises status.
+
+Contents:
+
+* **§2 Atoms.** Lemma 2.1: `{−uv^{-1}} = {−4D : D | A²}`, proved. Lemma 2.2: class of one.
+* **§3 Prime-local residual system.**
+  * Lemma 3.1: reduction.
+  * Lemma 3.2: local sizes.
+  * Lemma 3.3: mass `T^{o(1)}` via `m | r+k`.
+* **§4 Analytic input.** Thorner–Zaman Cor. 1.4, cited, together with McCurley's region as quoted there; the Landau–Page alternative is mentioned. Lemma 4.2: the severe-character uniqueness.
+* **§5 Transfer Theorem 5.1**, with Cases A and B.
+* **§6 Proof of Theorem 1.1** (`W ≥ (log p)^{2−o(1)}`) by the Brun minorant.
+* **§7 Limits.**
+  * Prop 7.1: complete certificates cost `(2/3)T` (POINTWISE_SIZE Prop 11.2'').
+  * Prop 7.2: prime-local ceiling.
+  * Hypothesis H_min and Theorem 7.4.
+  * A short remark on the failure of raw Bonferroni.
+* **§8 Slice parameter.**
+  * Genus lemma, with proof included.
+  * Sufficient prime factor lemma.
+  * `ck_min ≥ n_p`.
+  * Prop 8.4: certificates force QR.
+  * Cor 8.5: congruences certify exactly `n_p`.
+  * Thm 8.6: `ck_min ≫ log p log₃ p`, modulo Lau–Wu Prop 5.1.
+  * The joint W/ck_min statement.
+* **§9 Haar side.** The structural lemma `m ≤ r²+1`, the global mass bound `T^{o(1)}` (Elsholtz–Tao mentioned only for the polylog form), and Theorem 1.4: `log(1/δ*) ≤ T^{1/3+o(1)}`, proved.
+* **Context.**
+  * Vaughan, Pomerance–Weingartner and Elsholtz–Tao are cited.
+  * The notes §51 almost-all W-tail is mentioned as companion work still under internal review, and is not used.
+  * The previous `5/8` record via Chang is mentioned.
+
+Not done: no separate hostile review of the note itself. Its content mirrors the reviewed POINTWISE_OMEGA §§2–9, with the round-1 and round-2 repairs applied. `paper/README.md` was not updated; that is left to the parent.
