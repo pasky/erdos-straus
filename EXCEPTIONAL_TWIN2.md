@@ -20,7 +20,7 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 | **Thm 5.1** | Λ² saving `≤ C_B L^{3/4}(log L)^C + 11E_PΣ_jρ_jS_j` for ℛ(M)-families, `M ≤ X = e^L`, `M ≤ P(M)^{1+B}`, ≤ 2 primes above `(log X)^8`, twins included | PROVED |
 | (H_O) | off-diagonal / deadly-value term `E_PΣρ_jS_j ≪ α^{−3}(log L)^{O(1)}` | OPEN |
 | Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′` | PROVED (the canonical-label remarks after it are heuristic bookkeeping) |
-| **Lemma 5.4** | (H_O^=): same-canonical-label part `≪ (log L)^{O(1)}` (Brun–Titchmarsh in the partner prime, first elements charged to their m, Shiu with j innermost when j is top) | PROVED (prime powers via pointwise bound; checkpoint 2) |
+| **Lemma 5.4** | (H_O^=): pairs sharing a candidate rational (`4D`, `D/A`, `1/(4D̄)`) contribute `≪ (log L)^{O(1)}` (Brun–Titchmarsh in the partner prime, first elements charged to their m, Shiu with j innermost when j is top); prime-power classes split off via `min(x+y,1)² ≤ min(x,1)²+3y` and Lemma 4.1's cases | PROVED (round-2 repairs D5–D8) |
 | (H_O^≠) | different-label agreements mod j; reduced (§5.4) to a three-condition incidence count `#{(j,θ,θ′): d_θ \| A_{kjm}, d_{θ′} \| A_{k′jm′}, j \| a_θb_{θ′}−a_{θ′}b_θ ≠ 0}`; the j-independent version has margin L | OPEN; EVIDENCE: at or below random in all 6 tested rows |
 | Lemma 5.5 | reduced fractions of height ≤ H in a class mod j: `≤ 1+7H²/j`; heavy labels (height `< (j/2)^{1/2}`) never collide | PROVED |
 | H_div | cleanest form of (H_O^≠): second moment of divisor labels of `A ≡ 4^{−1} (j)` mod j, averaged over j; compared with known divisor-in-AP results (§5.5) | OPEN |
@@ -566,26 +566,53 @@ for X in 1e7 1e8; do uv run --with numpy python scripts/twin2_offdiag.py $X 30 4
 **Label data.** For a class `−4D mod M` through j put `D̄ = A²/D`,
 `D/A = u′/v′` (Lemma 5.3). Its *datum* is one of: `(0, D)` with modulus
 `d = g(D)`; `(1, (u′,v′))` with `d = u′v′`; `(2, D̄)` with `d = g(D̄)` —
-namely the one realising the least-height candidate of `λ(D)`. In each case
+and we attach to the class **all three** data (not only the least-height
+one; review D7: the least-height choice depends on A, so one D can carry
+different canonical labels for different moduli, e.g. `A = n(n+1)s`,
+`D = n²`, label `n/((n+1)s)` or `4n²` depending on s). In each case
 "the datum occurs for M" is the single condition `d | A_M` (TW/ET:
 `D | A² ⇔ g(D) | A`; Lemma 5.3 for type 1), and for each d there are at most
 `3·2^{ω(d)}` data with modulus d. Each canonical label is the image of at
 most three data (one per type), so `Σ_λ δ_λ² ≤ 3 Σ_{data} δ_θ²`, where
-`δ_θ(j,c) = Σ ν_m(partner)` over active binary classes through j with
-datum θ.
+`δ_θ(j,c) = Σ ν_m(partner)` over active binary classes through j having θ
+among their data. **Same part (redefined, D7):** pairs of classes through j
+that share at least one *candidate rational* (`4D`, `D/A`, `1/(4D̄)`). Their
+contribution to `j·q_j` is `≤ (8/7)·3Σ_θ δ_θ²` by the same count.
+
+**Activity depends only on (θ, k) (review D8).** Since `4A ≡ 1 (mod k)`, the
+class `−4D` is `≡ −4D` (type 0), `−u′/v′` (type 1) or `−1/(4D̄)` (type 2)
+mod k, independently of m and j. So
+`δ_θ ≤ (8/7) Σ_k 1[c ≡ r_θ(k) (mod k)]·Σ_{m ≡ s_θ(k)} 1/m`, which is what
+(ii) below uses.
 
 **Lemma 5.4 ((H_O^=); PROVED modulo the Brun–Titchmarsh/Shiu inputs
-stated).** In Setting 3.0,
-`E_P Σ_{j>w₂} ρ_j j^{−1} Σ_λ δ_λ(j,c)² ≪_B (log L)^{O(1)}`.
+stated).** In Setting 3.0, for the classes with `u = v = 1` (moduli
+`kjm`), `E_P Σ_{j>w₂} ρ_j j^{−1} Σ_θ δ_θ(j,c)² ≪_B (log L)^{O(1)}`; and the
+prime-power classes contribute to (H_O) at most
+`3E_PΣ_jρ_jw_j^{pp} ≪ L³/w₂ + w₂^{−1/2}(log L)^{O(1)}` (below).
 
-*Proof.* Fix j. Only u = v = 1 is treated; prime powers (`m^u`, `j^v`, `u`
-or `v ≥ 2`) carry an extra factor `≤ m^{−1}` or `j^{−1}` and are absorbed by
-the pointwise bound `τ ≤ C_ε(top prime)^{1/256}` as in Lemma 3.4.
+*Prime powers (review D5).* For `x, y ≥ 0`, `min(x+y,1)² ≤ min(x,1)² + 3y`.
+Splitting `deg = deg^{(11)} + deg^{pp}` by `u = v = 1` versus prime-power
+classes gives `S_j ≤ S_j^{(11)} + 3w_j^{pp}`, with `w_j^{pp}` the true binary
+mass at j of the prime-power classes. `E_PΣ_jρ_jw_j^{pp}` is bounded by the
+cases of Lemma 4.1 with weight `ρ_j` only:
+* top-prime power (`v ≥ 2`, j top; `u ≥ 2`, m top): pointwise
+  `τ ≤ C_ε(top)^{1/256}` and the square of the top prime, `≪ w₂^{−1/2}`;
+* j top, `v = 1`, partner `m^u`, `u ≥ 2`: Shiu along j (Lemma 3.3,
+  `q = km^u ≤ j^B`, A linear in j), then `Σ_m m^{−2}`: `≪ L³/w₂`;
+* m top, `u = 1`, `v ≥ 2`: Shiu along m (`q = kj^v ≤ m^B`), then
+  `Σ_j j^{−2}`: `≪ L³/w₂`.
+(Pointwise τ alone would fail in the middle case: `Σ_j j^{−1+1/256}`
+diverges.) Below only `u = v = 1`.
+
+*Proof for u = v = 1.* Fix j.
 
 *(i) One class of m.* For a datum θ of modulus d and a cofactor k (with
 `(k j, d) = 1`; otherwise `d | A` is impossible since `(A, kj) = 1`), `d | A`
 ⇔ `kjm ≡ −1 (mod 4d)`: one reduced class `s_θ(k)` of m modulo `4d`. Let
-`m₀ = m₀(θ,k)` be its least prime element `> w₂` (if any, with `kjm₀ ≤ X`).
+`m₀ = m₀(θ,k)` be its least prime element `> w₂` for which `kjm₀` is a
+*family* modulus (review D6: then `kjm₀ ≤ X` and the B-hypothesis hold for
+it, as used in (iv); the spacing argument is unchanged).
 The next element exceeds `4d`; on dyadic blocks `(y,2y]`, `y ≥ 4d`,
 Brun–Titchmarsh gives `≪ y/(φ(d)log(y/4d))` primes, and blocks with
 `y < 8d` hold `O(1)` elements of size `≥ 4d`. Hence
