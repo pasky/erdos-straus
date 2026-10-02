@@ -110,7 +110,8 @@ Goal: a version of ET Thm 2.7 with windows of log-ratio 1+η, giving
 η-twin moduli as the whole problem.
 
 **Conventions.** `P₂(M) := P(M/P(M))`, and `P₂(1) := 1`. So `P(M)² | M`
-forces `P₂ = P`. Fix `w₀ ≥ 3` and `0 < η ≤ 1`. M is **η-gapped** if
+forces `P₂ = P`. Fix `w₀ ≥ 3` and `0 < η < 1` (strict, so that a window
+spans less than a factor 2 in cost; review D3). M is **η-gapped** if
 `P(M) > w₀` and `P(M) ≥ P₂(M)^{1+η}`. Put `s₀ = log w₀` and
 `s_j = s₀(1+η)^{j−1}`. The windows are
 
@@ -136,10 +137,13 @@ for the windows `W_j`, with `ℓ(C) = P(M_C)`.
    in some `W_{j'}` with `j' > j`. ∎
 
 *Scope.*
-* **Dominant moduli are gapped.** If `P(M) ≥ M^{1/(1+C)}`, then
-  `P₂ ≤ M/P ≤ P^C`, so M is η-gapped with `η = 1/C − 1`.
+* **Dominant moduli are gapped.** If `P(M) ≥ M^{1/(1+C)}` and
+  `P(M) > w₀`, then `P₂ ≤ M/P ≤ P^C`. So M is η-gapped for every
+  `η ≤ min(η₀, 1/C − 1)`, where `η₀ < 1` is fixed. Moduli with
+  `P(M) ≤ w₀` are w₀-smooth and excluded (review D1).
 * **Some balanced moduli are gapped, but not the twin ones.** Take
-  `M = kℓ₁ℓ₂` with k small, `ℓ₂ ≥ ℓ₁^{1+η}` and `kℓ₁ ≥ ℓ₂`. Then M is
+  `M = kℓ₁ℓ₂` with `P(k) < ℓ₁`, `ℓ₂ ≥ ℓ₁^{1+η}` and `kℓ₁ ≥ ℓ₂`. This
+  forces `k ≥ ℓ₁^η`, so k is not small. Then M is
   balanced and η-gapped. The same-scale pairs of ET Lemma 3.8 are η-twin
   for every `η > η_{3.8}`, and their supply is not covered here.
 * **The new feature.** For a gapped balanced M, the cofactor `q = M/P(M)`
@@ -185,8 +189,12 @@ Let 𝔊 be a finite family of η-gapped forced classes. Use the following
 data:
 * windows `W_j` as in §2;
 * `Q₀ = lcm` of the w₀-smooth parts of all moduli of 𝔊;
-* `R = ℤ/Q₀`. There are no pure small-modulus conditions, since every
-  gapped modulus has `P(M) > w₀`.
+* an admissible small-residue set `R ⊆ ℤ/Q₀`. Examples are `R = ℤ/Q₀` or
+  a selector `{(c, P_{w₀}) = 1}`. The avoider set is
+  `𝒜(𝔊) ∩ {n mod Q₀ ∈ R}`, and `Q_seq` starts uniform on R. There are no
+  pure small-modulus forced conditions, since every gapped modulus has
+  `P(M) > w₀`; forced classes with w₀-smooth modulus are outside 𝔊 by
+  definition.
 
 By Lemma 2.1, 𝔊 is a system in the sense of ET §2.6 with ℓ(C) = P(M_C).
 Let `Q_seq`, `F_ℓ(h)` and `p_ℓ(h)` be as there. Call a history h
@@ -198,7 +206,7 @@ every `ℓ ∈ W_j`.
 **Theorem 2.3 (PROVED, given (NDE)).** Every majorant ν of level λ of
 `𝒜(𝔊)` satisfies
 
-    log(1/Eν) ≤ Σ_j E_{Q_seq}[ Φ_j^{light}(H_{<j}) + Σ_{ℓ∈W_j, log ℓ≤λ, p_ℓ(H)>1/4} −log(1−p_ℓ(H_{<j})) ].   (2.1)
+    log(1/Eν) ≤ log(Q₀/|R|) + Σ_j E_{Q_seq}[ Φ_j^{light}(H_{<j}) + Σ_{ℓ∈W_j, log ℓ≤λ, p_ℓ(H)>1/4} −log(1−p_ℓ(H_{<j})) ].   (2.1)
 
 Here `Φ_j^{light}(h)` is the right side of ET (2.3) for the light
 coordinates of window j (`log ℓ ≤ λ`, `p_ℓ(h) ≤ 1/4`), with `α = α_j`.
@@ -212,16 +220,21 @@ facts:
 3. at `x = 0` the next history has the `Q_seq` transition law.
 
 None of these uses `p ≤ 1/4`. (NDE) gives `P(x=0 | h) > 0`, so `f(0)` and
-the transition are defined. The R-term `log(Q₀/|R|)` vanishes because
-`R = ℤ/Q₀`. ∎
+the transition are defined. The R-term `log(Q₀/|R|)` is ET (2.6)
+verbatim. It vanishes for `R = ℤ/Q₀`, and it is `log log w₀ + O(1)` for the
+selector. ∎
+
+For a selector R, ET Lemma 2.8 is used with
+`P(c ≡ a_C (q_C) | R) ≤ 1/φ(q_C)`, as in ET Cor 3.6. This is why the
+window masses of §2.4 carry the weight M/φ(M) (review D2).
 
 So the cost of dropping ET's counting bound is concentrated in two
 `Q_seq`-expectations:
 * the **heavy charge**, the last sum in (2.1);
 * the **light profile** `E_{Q_seq} p_ℓ(H)` inside `Φ_j^{light}`.
 
-§2.4 shows that if both are controlled, the windows sum to `C(η)λ^{3/4}`.
-§2.5 records where controlling them fails.
+§2.5 shows that if both are controlled, the windows sum to `C(η)λ^{3/4}`.
+§2.6 records where controlling them fails.
 
 ### 2.4 Window masses (uniform measure)
 
@@ -250,51 +263,81 @@ available. The cruder Lemma 2.4 costs one power of η^{−1/4} in §2.5.
 
 ### 2.5 The conditional cap
 
-**Hypothesis H_light(K)** (for an (η,B)-gapped family and level λ). All
-three parts hold:
-* (NDE) holds;
-* for every j with `s_j ≤ λ`, `E_{Q_seq} Σ_{ℓ∈W_j, light} p_ℓ(H_{<j}) ≤ K·m_j`;
-* the total heavy charge in (2.1) is at most `K·λ^{3/4}`.
+**Hypothesis H_light(K)** (for an (η,B)-gapped family with B fixed, and
+level λ). All three parts hold:
+* (i) (NDE) holds;
+* (ii) *cubic window bound*: for every j with `s_j ≤ λ`,
+  `E_{Q_seq} Σ_{ℓ∈W_j, light} p_ℓ(H_{<j}) ≤ K·((1+B)s_j)³`;
+* (iii) the total heavy charge in (2.1) is at most `K·λ^{3/4}`.
+
+(Review D4: an earlier version had `K·m_j` in (ii), with `m_j` the
+unweighted uniform window mass. What (★_δ) delivers via ET Lemma 2.8 is a
+γ-weighted mass, and the comparison with `m_j` is not proved. The proof
+below uses (ii) only through a cubic bound, so the cubic form is the
+correct one. By Lemma 2.4, `m_j ≤ C₆'(2(1+B)s_j)³`, so the old form implies
+the new one.)
+
+**Lemma 2.5a (band count; PROVED).** In ET Prop 2.4, G may be taken to be
+the number of *nonempty* bands `B_g`, and `log(2+λ/s_*)` may be replaced by
+`log(2+λ/s_min)`.
+
+*Proof.* Step 0 of Prop 2.4 discards empty bands. Every G-dependence in
+Steps 3–5 is over nonempty bands:
+* `|c_j| ≤ 2^G` in Lemma 2.3 (one coordinate per band);
+* `|Λ| ≤ (1+λ/s_*)^G`;
+* the sums over g. ∎
 
 **Theorem 2.5 (PROVED, given H_light(K)).** Every majorant ν of level
 `λ ≥ s₀` of an (η,B)-gapped ℛ(M)-family satisfies
 
     log(1/Eν) ≤ C·K^{1/4}(1+B)^{3/4}·η^{−1}·λ^{3/4} + K·λ^{3/4} + O(η^{−1} log λ·(log λ + log K)),
 
-with an absolute constant C. So `C(η) ≍ η^{−1}`.
+with an absolute constant C, for each fixed B. So `C(η) ≪ η^{−1}`, an
+upper bound only (review D5). The O-term also hides a `log(1+B)`.
 
 *Proof.* Start from (2.1).
 * *One band per window.* Costs in `W_j` lie in `(s_j, (1+η)s_j]` and
-  `1+η < 2`. So each window is a single band of ET Prop 2.4, with `G = 1`.
+  `1+η < 2`. So each window has one nonempty band, and `G = 1` by
+  Lemma 2.5a.
   Hence the error terms of `Φ_j` are
   `75 + log(2+λ/s_j) + ½log(16μ_j+16)`.
-* *Bounding E log μ_j.* By concavity, `E log(16μ_j+16) ≤ log(16Km_j+16)`.
-  So the error terms are `O(log λ + log K)` per window.
+* *Bounding E log μ_j.* By concavity and H_light(ii),
+  `E log(16μ_j+16) ≤ log(16K((1+B)s_j)³+16)`. So the error terms are
+  `O(log λ + log K + log(1+B))` per window.
 * *Number of windows.* There are at most `1 + 2 log λ/η` windows with
   `s_j ≤ λ`.
-* *Main term.* By H_light and Lemma 2.4, window j costs at most
+* *Main term.* By H_light(ii), window j costs at most
   `inf_α[19αλ + X_j e^{−αs_j}]` with `X_j = C₄K c_B s_j³` and
-  `c_B = C₆'(4(1+B))³`. This infimum is
+  `c_B = (1+B)³`. This infimum is
   `≤ min{X_j, (19λ/s_j)(1+log⁺(X_j s_j/19λ))}`. Put
   `s* = (19λ/(C₄Kc_B))^{1/4}`. Two sums:
   * windows with `s_j ≤ s*` contribute
     `Σ X_j ≤ X(s*)/(1−(1+η)^{−3}) ≤ 2X(s*)/η = 38λ/(ηs*)`;
-  * windows above `s*` contribute
-    `(19λ/s*)·Σ_{k≥0}(1+η)^{−k}(1+4k log(1+η)) ≤ (19λ/s*)·10/η`.
+  * windows above `s*`: the k-th has `s_j/s* ∈ ((1+η)^k, (1+η)^{k+1}]`,
+    so it contributes at most `(19λ/s*)(1+η)^{−k}(1+4(k+1)log(1+η))`.
+    The sum is `≤ (19λ/s*)[(1+η)/η + 4(1+η)²/η] ≤ (19λ/s*)·18/η`
+    (review D3a; an earlier version wrongly had `4k` and `10/η`).
   
-  The total is `≤ 228λ/(ηs*)`, which is the first term. ∎
+  The total is `≤ 380λ/(ηs*)`, which is the first term. ∎
 
 **Sanity check (dominant case).** For dominant moduli (`B = C < 1`), the
-counting bound of ET Cor 3.6 gives `p* ≤ ℓ^{−δ}`. So there are no heavy
-coordinates and (NDE) holds trivially. Part (ii) holds in ET Lemma 2.8's
-averaged form, with the γ-weight, which ET Cor 3.6 shows is still cubic.
+counting bound of ET Cor 3.6 gives `p* ≤ ℓ^{−δ}`. With `w₀ ≥ 4^{1/δ}`
+there are no heavy coordinates, and (NDE) holds trivially.
+
+Part (ii) holds as follows. ET Lemma 2.8 with `p* ≤ ℓ'^{−δ}` bounds the
+Q_seq-profile by the γ-weighted mass. The γ-weighted Shiu argument of ET
+Cor 3.6 bounds that by a cubic window bound. That argument does not use
+`q ≤ ℓ^C`; it needs only `h(p) ≤ 1/(p−1) + 3p^{−δ}` and `w₀^{−δ} ≤ 1/2`.
+
 Theorem 2.5 therefore reproduces Cor 3.6, with an explicit η^{−1}.
 
 ### 2.6 Where the proof stops: the single gap H_light
 
-§§2.1–2.5 are proved. Route 2 therefore reduces to **H_light(K)** with
-`K = (log λ)^{O(1)}`, for (η,B)-gapped families with `B ≥ 1` (the
-balanced gapped ones). Where and why the ET argument fails:
+§§2.1–2.5 are proved. For each fixed B, route 2 therefore reduces to
+**H_light(K)** with `K = (log λ)^{O(1)}`, for (η,B)-gapped families with
+`B ≥ 1` (the balanced gapped ones). Gapped moduli with `log M/log P(M)`
+unbounded are not covered: there is no summation over B (review D19).
+Where and why the ET argument fails:
 
 1. **Counting fails, necessarily.** ET Cor 3.6 bounds `p_ℓ(h)` for every
    history h by counting conditions with largest prime ℓ:
@@ -309,27 +352,32 @@ balanced gapped ones). Where and why the ET argument fails:
    activates many classes at ℓ. Whether it can also avoid every
    earlier-window condition (be *reachable*) is **not decided** here. So
    heavy coordinates, and even dead ends, are not ruled out.
-3. **Averaging does not fix it cheaply.** Under U the hit probability is
+3. **Averaging does not fix it cheaply** (HEURISTIC). Under U the hit probability is
    tiny, `E_U p_ℓ ≍ s³/ℓ`. But (2.1) needs `Q_seq`-expectations, and
    `dQ_seq/dU = Π(1−p_{ℓ'}(h))^{−1}` along the history. Changing measure
    by Cauchy–Schwarz costs `E_{Q_seq}Π(1−p)^{−1} ≈ e^{(total mass)}`,
    which is `e^{λ³}`. That is useless.
-4. **A sup bound weaker than ℓ^{−δ} does not suffice.** If only
-   `p* ≤ 1/2` is known, the profile inflation `Π_{ℓ'|q}(1−p*)^{−1}` can be
-   as large as `2^{ω(q)}`. The weight `2^{ω(q)}τ(A²)` has a quartic mean,
-   which would give exponent 4/5, not 3/4.
+4. **A sup bound weaker than ℓ^{−δ} does not suffice** (HEURISTIC). If
+   only `p* ≤ 1/2` is known, the profile inflation `Π_{ℓ'|q}(1−p*)^{−1}`
+   can be as large as `2^{ω(q)}`. The weight `2^{ω(q)}τ(A²)` heuristically
+   has a quartic mean, which would suggest exponent 4/5, not 3/4.
 
 **Sufficient condition (★_δ).** `p_ℓ(h) ≤ ℓ^{−δ}` for every reachable h,
-every window and every `ℓ > w₀`. Under (★_δ):
-* there are no heavy coordinates and (NDE) holds;
-* ET Lemma 2.8 and the γ-weighted Shiu argument of ET Cor 3.6 give
-  H_light(O_δ(1)), in γ-averaged form.
+every window and every `ℓ > w₀`, with `w₀ = w₀(δ) ≥ 4^{1/δ}` (review D10).
+Under (★_δ):
+* there are no heavy coordinates, and (NDE) holds;
+* ET Lemma 2.8 and the γ-weighted Shiu argument of ET Cor 3.6 give the
+  cubic window bound H_light(ii) with `K = O_δ(1)` (see the sanity check
+  in §2.5).
 
-So Theorem 2.5 yields `S_λ ≪_{δ,B} η^{−1}λ^{3/4}`. (★_δ) holds for
-`B < 1`; for `B ≥ 1` it is open (item 2).
+So Theorem 2.5 yields `S_λ ≪_{δ,B} η^{−1}λ^{3/4}` for each fixed B.
+(★_δ) holds for `B < 1`; for `B ≥ 1` it is open (item 2). The numerics of
+§3.1 suggest that w₀ must grow with X when B is unrestricted (review
+D13).
 
 **Status of route 2.**
-* η-gapped moduli are covered with `C(η) ≍ η^{−1}`, conditionally on the
+* η-gapped moduli with `M ≤ P(M)^{1+B}` (B fixed) are covered with
+  `C(η) ≪ η^{−1}`, conditionally on the
   **named gap H_light** (or the stronger (★_δ)), a statement about
   sequentially conditioned CRT histories only.
 * The η-twin moduli are not touched by route 2 at all. For every
