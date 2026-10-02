@@ -101,3 +101,64 @@ Checked every constant:
   `2.5625·(4/3)(4/3)³ = 8.10 ≤ 9`. Total S-coefficient `2 + 9 = 11`, as used
   in Theorem 5.1.
 No defect.
+
+## Item 7. Lemmas 3.1, 3.2 (medium local lemma, inflation, density) — SOUND
+
+* 3.1: every `F ∈ Γ(E_C)` contains a prime of `k₂(M_C)`, so
+  `Π_{Γ(E_C)}(1−x_F) ≥ Π_{p|k₂}(1−μ_p) ≥ 2^{−ω(k₂)}` (needs μ_p ≤ 1/2), which
+  is exactly the LLL hypothesis with `x_C = 2^{ω(k₂)}/k₂ ≤ 1/2`.
+  `1−x ≥ e^{−2x}` on `[0,1/2]`; `(1−μ)^{−1} ≤ 1+2μ` on `[0,1/2]`. Correct.
+* Stage logic: small classes with `k₂ = 1` are killed by TW Lemma 1.3(1);
+  with `k₂ > 1` either inactive (c_s misses the class) or avoided by
+  `Av(c_s)`. `Av(c_s) ≠ ∅` on `G_s` by 3.1(1).
+* 3.2(1): `P′(c≡b (k)) ≤ P_QR(c_s≡b₁ (k₁))/P_QR(G_s)·sup_{G_s}P(c_m≡b₂ (k₂)|Av)`;
+  TW Lemma 1.3(3) gives `Πγ(p)/k₁` incl. prime powers; on `G_s` the medium
+  factor is `Π(1+2p^{−1/4})/k₂`. Dependency order `G_s → P′ → G_L → P` has
+  no circularity (3.4 uses only the P′ bound). Correct.
+* 3.2(2): `Q_F P(c) ≤ (Q_s/|R|)·2·e^{2T}·2`; `log(Q_s/|R|) = π(W₁)log2 +
+  O(loglog) = o(L^{1/2})`, `2T ≤ 2L^{1/2}`. Correct.
+
+## Item 8. Lemma 3.3 (Shiu along the top prime) and (3.1) — SOUND (nit D2)
+
+* 3.3: `A = (qm+1)/4` runs over one class `a mod q` with `4a ≡ 1`, so
+  `(a,q) = 1`; interval length `Y = qy/4`, `x ≤ 2Y+1`, so `Y ≤ x`.
+  `q^β ≤ (2y)^{(B+2)/(2B+6)} < (2y)^{1/2}` gives `q < Y^{1−β}` for large y;
+  `F = τ(·²)` is in Shiu's class; `exp(Σ3/p)/log x ≍ (log x)²`. Correct.
+* (3.1): the inequality `(log 2k)^i ≤ i!(log w₂)^i(2k)^{1/log w₂}` is right
+  and the Euler products are polylog. **D2 (nit).** "`p^{1/log w₂} ≤ e`, so
+  … `+ O(p^{−2})`" is not literally true: with that crude bound the
+  prime-power tail at p is `Σ_{e≥2} e^e/φ(p^e)`, which is a constant (≈ 40)
+  at p = 3, not `O(3^{−2})`, and diverges at p = 2. It is harmless because
+  all moduli are odd (k odd; also `Γ(2)` would be 4, not ≤ 3) and only
+  finitely many p are affected; state "k odd" and "`≪ 1` for p ≤ 5".
+
+## Item 9. Lemma 3.4 (good events likely; author flag: case splits) — SOUND
+
+All case splits re-derived:
+* small classes: `M ≤ P(M)^{1+B} ≤ w₂^{1+B}`, `τ(A²) ≤ C_εL^{8(1+B)ε} =
+  C_εL^{1/32}` ✓. `E T ≪ L^{1/32+o(1)}` (classes with `k₁ = 1` are always
+  active, weight `Π_{(W₁,w₂]}(1+2/(p−1)) ≍ 16²`, bounded) ✓.
+* μ_p: pair activity is one congruence mod lcm (or impossible), so
+  `≤ Γ(lcm)/lcm`; `E μ_p² ≪ L^{1/16+o(1)}p^{−2}`; Markov at `p^{−1/4}` and
+  `Σ_{p>W₁}p^{−3/2} ≪ W₁^{−1/2}` give `L^{−3/16+o(1)}` ✓.
+* p_j: `kj^v ≤ j^{1+B}`, `τ ≤ C_εj^{1/256}`, `E′p_j² ≪ j^{−2+1/128}` ✓.
+* w^U_j: the three cases (j top, any u, v; m top u ≥ 2; m top u = 1) exhaust
+  binary classes since there are ≤ 2 large primes. j-top: spare `j^{−2}`
+  against `j^{1/128}(loglog j)²` ✓. m-top `u ≥ 2`: `Σ_{m>j}m^{−2+1/256}` ✓.
+  m-top `u = 1`: `q = kj^v ≤ m^B ≤ (2y)^B` is within Lemma 3.3's range;
+  ≤ L dyadic blocks each `≪ (q/φ(q))L²`, so `≪ (q/φ(q))L³/j^v`; the extra
+  `k/φ(k) ≪ log w₂` weights not covered by (3.1) as stated are polylog ✓.
+  `Σ_j 64²E′w² ≪ L^{6+o(1)}/w₂ = L^{−2+o(1)}` ✓.
+* `w_j ≤ (8/7)²w^U_j ≤ 1/49 ≤ 1/32` (π in ν, `p ≤ 1/8`) ✓.
+No defect beyond D2 (inherited from (3.1)).
+
+## Item 10. Lemma 4.1 (unary/diagonal binary profiles) — SOUND
+
+Unary `M = kj`: Lemma 3.3 on blocks `y = y₀2^t`, `y^{−α} ≤ 2^{−αt}`, gives
+`(k/φ(k))(a²/α + a/α² + α^{−3})` with `a ≪ log 2k + log L`; summed against
+`Γ(k)/k` via (3.1) ✓ (sanity: `∫(log t)²t^{−1−α}dt = 2α^{−3}`, so this is the
+true order). `v ≥ 2` and binary `u ≥ 2`: pointwise τ with spare power ✓.
+Binary m-top `u = 1`: `Σ_ℓ ℓ^{−1−2α}(log ℓ)^i ≪ (i−1)!(2α)^{−i}`, `i = 0`
+gives `≪ log L`; the three terms give `α^{−3}, α^{−3}, α^{−3}log L` ✓.
+Labelling "m = top prime" is WLOG ✓; for B = 0 there are no binary classes ✓.
+Per-class weight `4(8/7)²Γ(k)/M` from Lemma 3.2(1) and `ν ≤ (8/7)U` ✓.
