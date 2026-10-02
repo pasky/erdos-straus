@@ -366,7 +366,7 @@ to be paid for inside the same truncation that set the threshold.
 one system of singles, edges and 3-vertex hyperedges (Settings 2.0/10.0,
 all vertices classes mod `ℓ^{e_ℓ}`), with masses `S_1,S_2,S_H`. Suppose
 every prime has total mass `g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ ≤ c_0`. Fix
-`Ŝ≥S_H`, put `t=t(Ŝ)`, and assume `c_0 ≤ δδ_3t/64`. Perform, in order:
+`Ŝ≥S_H`, put `t=t(Ŝ)`, and assume `c_0 ≤ δδ_3t/288`. Perform, in order:
 
 * (a) every vertex of hyperedge-degree `>δ_3` becomes a level-2 single,
   and the hyperedges through it are deleted;
@@ -400,15 +400,15 @@ same holds for deleted edges.
 * (c) adds `≤w^{(2),new}_ℓ/δ`.
 
 So the new per-prime total is
-`≤c_0(1+1/δ_3+(1+2/t)(1+1/δ)) ≤ 4c_0/(tδδ_3)·… ≤ 1/32` for
-`c_0≤δδ_3t/64` (as `t,δ,δ_3<1/4`). This is (P). The global bounds are
+`≤c_0(2+1/δ_3+(1+2/t)(1+1/δ)) ≤ 9c_0/(tδδ_3) ≤ 1/32`, since
+`t,δ,δ_3<1` give `(1+2/t)(1+1/δ)≤6/(tδ)`. This is (P). The global bounds are
 the same Markov sums over ℓ, with `Σ_ℓw^{(3)}_ℓ=3S_H` and
 `Σ_ℓw^{(2)}_ℓ=2S_2`. ∎
 
 **Theorem 3.4 (criterion for supports ≤3; PROVED).** Setting 3.0 of O2
 (congruence system, 2|Q), with singles, edges and hyperedges on at most
 3 free primes, and with (I) of O2 Thm 3.1. Let `Ŝ≥S_1+S_2+S_H`. If
-every free prime has total mass `≤c_0(Ŝ):=δδ_3t(Ŝ)/64`, there is a
+every free prime has total mass `≤c_0(Ŝ):=δδ_3t(Ŝ)/288`, there is a
 minorant B as in PO Thm 4.1 (moduli coprime to Q, unit classes,
 `B≤1[W>T]` on `n≡1 (Q)`, twist condition) with
 
