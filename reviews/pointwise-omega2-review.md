@@ -161,3 +161,18 @@ but fine. Final numbers: `0.01+0.064/0.936=0.0784<0.08`, `μ/4≥0.2475P`.
 Correct.
 
 No defect. The theorem is a clean, genuinely CRT-only statement.
+
+### Item 7 — Lemma 4.1 (global mass for an arbitrary quarantine): **SOUND**
+
+Re-derived. `1/φ(r)≪log log T/r = log log T·m/M`, `M=4A−1≥3A`. The
+involution `D↦A²/D` keeps M (hence `r_Π>1`) and preserves `m|4D+1`
+(multiply `4A²/D+1` by the unit D: `4A²+D≡¼+D≡(1+4D)/4≡0 (m)`, using
+`4A≡1 (m)`). `D=sr'²|A²` with s squarefree implies `sr'|A` (prime by prime:
+`1+2v_q(r')≤2v_q(A)⇒v_q(A)≥v_q(r')+1`), so `A=sr'k`, `k≥r'` when `D≤A`.
+`m | (4sr'k−1)+(4sr'²+1)=4sr'(k+r')` and `gcd(m,4sr')=1`, so `m|k+r'`;
+`(s,r',k)` determines the atom. Inner sum: the least admissible k has
+`k+r'≥m` and `k≥r'`, so `k≥m/2`, giving `≤(3+log T)/m`. Final divisor
+bound: `τ(4sr'²+1)≤τ*`, `Σ_{s,r'}1/(sr')≤(1+𝓛)²`. Nothing in the proof
+uses the shape of Π. With the *explicit* Wigert constant
+(`τ(n)≤2^{1.5379 log n/log log n}`) the exponent is
+`≈1.066·𝓛/log 𝓛`; I use this below for the effectivity check.
