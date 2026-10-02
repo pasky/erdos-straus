@@ -960,6 +960,95 @@ cheaply by Markov. The new requirement is (CD_k), a bound on the **maximal**
 codegrees of sets of `2..k−1` vertices. It cannot be enforced in the same
 way; see §10.5.
 
+### 10.4 The conditional theorem: AP-TI*(κ) ⇒ exponent 1/κ
+
+For `0<θ<1/2` consider the system of §4 with `Π_0={ℓ≤y}`, `y=T^θ`.
+
+* The events are the classes of atoms surviving `Π_0`.
+* Vertices are unit classes mod `ℓ^{e_ℓ}` at primes `ℓ>y` (§10.3 remark).
+* For a set O of vertices at distinct primes, `Δ_O` is the codegree of
+  §10.2 over the hyperedges whose support strictly contains the primes of
+  O. Put `q_O := ∏_{v∈O}ℓ_v`.
+
+**Hypothesis AP-TI*(κ)** (residue-uniform per-prime/codegree mass;
+open). For every fixed `θ∈(κ,1/2)` and every O as above,
+
+```
+Δ_O ≤ T^{κ+o(1)}/q_O      (uniformly in O, as T→∞).
+```
+
+*Readings.*
+
+* For `|O|=1`, `O={(ℓ,c)}`, this says
+  `deg(ℓ,c) ≤ T^{κ+o(1)}/ℓ` for **every** residue c. Averaging over c gives
+  `w_ℓ ≤ T^{κ+o(1)}/ℓ` (the per-prime part), i.e. §9's AP-TI with its
+  residues kept.
+* For `|O|≥2` it says that the events through a fixed residue pattern mod
+  `q_O` carry at most `T^κ` times their "fair share" `1/q_O`.
+* In the language of Lemma 8.1, it is an equidistribution statement for
+  the Type I points of the rough parts `r` with `q_O|r`, restricted to
+  prescribed classes `−a/b mod q_O`.
+* The random model predicts `κ=o(1)` (Assessment).
+
+**Theorem 10.4 (PROVED implication, modulo Thorner–Zaman for the last
+clause).** Assume AP-TI*(κ) for some `0≤κ<1/2`. Then:
+
+* H_MIN(θ) holds for every `θ>κ`;
+* hence `W(p) ≥ (log p)^{1/κ−ε}` for infinitely many hard primes, for every
+  `ε>0`;
+* if `κ=0`, `W(p) ≥ (log p)^A` i.o. for every A.
+
+*Proof.* Fix `θ∈(κ,1/2)` and put `k:=⌊1/θ⌋`. Every rough part has at most
+k prime factors, counted without multiplicity, since they all exceed
+`T^θ`.
+
+**Construction.** Build as in §4 with `y=T^θ`.
+
+* The bad primes are `𝓑={ℓ>y: g^{(0)}_ℓ>1/(64k)}`. Then
+  `|𝓑| ≤ 64k S_tot(Π_0) = T^{o(1)}` (Lemma 4.1).
+* `Π=Π_0∪𝓑`, and Q and 𝒫 are as in §4.
+* (I) holds by the proof of Lemma 4.3.
+
+**Effect of the bad primes.** Quarantining `b∈𝓑` turns a `Π_0`-hyperedge
+`e∋(b,1)` into the event `e∖{(b,1)}`, whose weight is larger by the
+factor `1/p((b,1))`. Hyperedges through `(b,c)` with `c≠1` disappear. Hence
+the new codegrees satisfy
+
+```
+Δ^{new}_O ≤ Δ_O + Σ_{b∈𝓑} Δ_{O∪{(b,1)}} ≤ T^{κ+o(1)}/q_O · (1+|𝓑|/y).
+```
+
+The same computation bounds the added single mass at ℓ by
+`Σ_b Δ_{{(b,1)}} ≤ |𝓑|T^{κ+o(1)}/y`.
+
+**The hypotheses of Theorem 10.3.**
+
+* (W_k): `w_ℓ ≤ max_v deg^{new}(v) ≤ T^{κ−θ+o(1)} → 0`.
+* (G_k): `g_ℓ ≤ 1/(64k) + |𝓑|T^{κ+o(1)}/y ≤ 1/(32k)`.
+* (CD_k): `Σ=T^{o(1)}` by Lemma 4.1, and
+  `Δ^{(j+1)} ≤ T^{κ−(j+1)θ+o(1)}`. So
+  `Σ_j(C_k(Σ+1))^jΔ^{(j+1)} ≤ T^{κ−2θ+o(1)} → 0`.
+* `log Q ≤ (π(y)+|𝓑|)log T ≤ 2y/θ`.
+
+Theorem 10.3 now gives a minorant with
+`log(M_1/μ), log max d_i ≤ T^{o(1)}` and the twist condition. That is
+H_MIN(θ). PO Theorem 6.2 (modulo Thorner–Zaman) gives
+`W(p) > (log p)^{1/θ−ε}` i.o. Letting `θ↓κ` proves the claim. ∎
+
+*Remarks.*
+
+* AP-TI*(κ) implies §9's AP-TI(κ). By Lemma 9.x/Thm 9.2's argument
+  (PO Thm 9.4 with `z=T^{κ+ε}`), it therefore implies
+  `log(1/δ*(T)) ≤ T^{κ+o(1)}` on the Haar side. So the conditional prime
+  exponent `1/κ` matches the conditional Haar exponent. The prime side
+  needs the residue-uniform (maximal) form, while the Haar side needs only
+  the averaged per-prime form (see §10.5).
+* For `θ∈(1/4,1/3]` we have `k=3`. Only `|O|≤2` is used there: `|O|=1`
+  through (W) and the hub quarantine, which need only the averaged
+  `w_ℓ`, and `|O|=2` through (CD_3). So exponent `4−ε` would follow from:
+  * AP-TI(κ) (no residues) with `κ<1/4`;
+  * pair codegrees `max_{|O|=2}Δ_O ≤ T^{−ε}`.
+
 ## Replay
 
 ```
