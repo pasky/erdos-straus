@@ -124,3 +124,33 @@ for the windows `W_j`, with `ℓ(C) = P(M_C)`.
   * the counting bound `p_ℓ(h) ≤ ℓ^{C−1+o(1)} ≤ 1/4`, valid for every
     history h;
   * the inflation factors `(1−p*)^{−1}` of ET Lemma 2.8.
+
+### 2.2 Heavy coordinates
+
+ET Prop 2.4 assumes `p_i ≤ 1/4` for every i with `s_i ≤ λ`. Gapped
+families cannot guarantee this for every history (§2.1, last remark).
+Heavy coordinates can instead be conditioned out, at their exact void cost.
+
+**Lemma 2.2 (Prop 2.4 with heavy coordinates; PROVED).** Take the setting
+of ET Prop 2.4, but drop the assumption `p_i ≤ 1/4`; keep `p_i < 1` for
+all i. Put:
+* `H = {i : s_i ≤ λ, p_i > 1/4}` (heavy);
+* `I' = I ∖ H` (light).
+
+Let f be λ-level with `f ≥ 0` and `f(0) ≥ 1`. Then
+
+    log(1/E f) ≤ RHS(2.3)[I'] + Σ_{i∈H} −log(1−p_i),
+
+where `RHS(2.3)[I']` is the right side of ET (2.3), with μ and the
+Rankin sum taken over light coordinates only.
+
+*Proof.* The coordinates `x_H` are independent of `x_{I'}`, and f ≥ 0, so
+
+    E f ≥ E[f·1{x_H = 0}] = Π_{i∈H}(1−p_i) · E f̃,   where f̃(x_{I'}) := f(x_{I'}, 0_H).
+
+Restricting each term `f_T` to `x_H = 0` gives a function of `x_{T∖H}`,
+so f̃ is λ-level. Also `f̃ ≥ 0` and `f̃(0) = f(0) ≥ 1`. Every light
+coordinate with `s_i ≤ λ` has `p_i ≤ 1/4`, so ET Prop 2.4 applies to f̃. ∎
+
+The bound is sharp in form. For a single heavy coordinate and the majorant
+`f = 1{x_i = 0}`, the saving is exactly `−log(1−p_i)`.
