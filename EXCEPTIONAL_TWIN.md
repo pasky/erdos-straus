@@ -11,6 +11,16 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Lemma 1.1 | every Case-B class `−4D (mod M)` has Jacobi symbol `(−4D \| M) = −1` | PROVED (classical; Mordell) |
 | Cor 1.2 | an n that is a nonzero square mod every prime of M avoids every class of ℛ(M) | PROVED |
 | Lemma 1.3 | QR base: a product measure on small residues, supported on avoiders of all W-smooth classes, inflation `2p/(p−1)` per prime | PROVED |
+| Thm 2.3 | sequential sieve limit with a *capped* measure: heavy coordinates are not conditioned but leak; no (NDE), no sup bound; cost ×2 + log 2 if leak ≤ 1/2 | PROVED |
+| Lemma 2.4, Cor 2.5 | second moment `E_{Q'} p_ℓ² ≪_{ε,B} ℓ^{−2+ε}` (uniform in W); leak `≪_B W^{−1/4}` | PROVED |
+| **Thm 2.7** | **(η,B)-gapped ℛ(M)-families: `S_λ ≪_B η^{−1}λ^{3/4}` unconditionally** — EB's (E_δ), (★_δ), H_light, (NDE) not needed | PROVED |
+| §2.4 | capped measure on the real system (X = 10⁵, 10⁶, W = 30): leak 0.06–0.07 | EVIDENCE |
+| Lemma 3.1, 3.2 | (E_δ) in u-form; values from q have Legendre sign `−(n\|q)` | PROVED |
+| Heur 3.3 | entropy count predicts `sup_n\|F_ℓ\| ≈ π(y)ℓ^{o(1)}`, i.e. (E_δ) for δ < η/(1+η) | HEURISTIC; (E_δ) OPEN, no longer needed |
+| Prop 4.1 | all classes (twin included) with top prime `≤ e^{λ^{1/4}}`: singleton windows, cost ≪ λ^{3/4} | PROVED |
+| Lemma 4.2, Cor 4.3 | linear-window inequality (one prime per term); all classes with top prime `> e^{λ/2}` cost `O(e^{−λ/4})` | PROVED |
+| **Thm 4.4** | cap `≪_B η^{−1}λ^{3/4}` for ℛ(M)-families with `M ≤ P(M)^{1+B}` unless an η-twin modulus has top prime in `(e^{λ^{1/4}}, e^{λ/2}]` | PROVED |
+| Conj 4.5 | binary window inequality (2-prime local boost); would remove the twin range restriction | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
 
@@ -506,8 +516,8 @@ is quantitative and is stated at the scale of a window with `s > λ^{1/4}`.
    coordinates in an essential way; with binary conditions the hit
    indicators at the upper primes depend on all residues at the lower ones.
 
-An observation that supports the conjecture (PROVED, but only for one test
-function): for `f = (Σ_ℓ z_ℓ(y_ℓ))²` with `|z_ℓ| ≤ 1`, `E z_ℓ = 0`, the
+An observation that supports the conjecture (HEURISTIC; one test function,
+first order in the binary densities): for `f = (Σ_ℓ z_ℓ(y_ℓ))²` with `|z_ℓ| ≤ 1`, `E z_ℓ = 0`, the
 binary conditions change `E f` by at most `2Σ_{ℓ<ℓ'} π_{ℓℓ'}·(1+o(1))`
 (each forbidden pair shifts one covariance by `≤ 1/(ℓℓ')` per forbidden
 point), against `E_U f = m = #V`. So a level-2 *quadratic* test sees the
