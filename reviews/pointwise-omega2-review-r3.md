@@ -355,3 +355,12 @@ The 1/κ consequence is PO Thm 6.2 (inherited, already reviewed).
   as `T^{1/3+o(1)}` (PO Thm 9.3), and the H_CD row as `T^{κ+o(1)}`. Both are superseded by Thm 11.3
   (`T^{o(1)}` unconditionally; polylog modulo ET). *Fix:* update the table, or mark it "as of
   checkpoint 3".
+
+## Replay (reviewer scripts)
+
+```
+cd scripts
+for a in "10000 20" "10000 85" "10000 5 - 2" "100000 20 - 2" "100000 133 - 2"; do uv run python r3_iterq_mt.py $a; done   # ~1 min
+DROP=0.3 uv run python r3_iterq_mt.py 10000 20 - 4                    # negative control (hits must appear)
+(ulimit -v 8000000; uv run python r3_iterq_mt.py 1000000 20 - 2)      # ~7 min, ~4.6 GB
+```
