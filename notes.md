@@ -20211,7 +20211,8 @@ pointwise exponent range is exactly \(A\geq1\).
 proved modulo Thorner–Zaman Cor. 1.4) gives \(W(p)\geq(\log p)^{2-o(1)}\)
 for infinitely many hard primes, so \(H_{\rm MOD}(A)\) is false for every
 \(A<2\), and `POINTWISE_OMEGA2.md` Theorem 5.1 (same citation) raises this to
-\(A<3\); the open range is now \(A\geq3\), and \(H_{\rm MOD}(A)\) is
+\(A<3\), and `POINTWISE_OMEGA3.md` Theorem 5.2 refutes \(H_{\rm MOD}(A)\) for
+**every** \(A\); no polylogarithmic pointwise frontier remains, and \(H_{\rm MOD}(A)\) is
 heuristically false for every \(A\) (POINTWISE_SIZE Assessment 7.2).
 
 Indeed, along the primes in Theorem 54.1,

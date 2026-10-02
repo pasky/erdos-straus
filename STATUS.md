@@ -81,9 +81,11 @@ length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
 the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
-scale). Unconditionally, `W(p)≥(log p)^{3−o(1)}` infinitely often
-(`POINTWISE_OMEGA2.md` Thm 5.1, modulo Thorner–Zaman; reviewed), so any
-pointwise multiplier mechanism needs witness moduli beyond `(log p)^3`.
+scale). Unconditionally, for every fixed k, `W(p)≥(log p)^k` infinitely often
+(`POINTWISE_OMEGA3.md` Thm 5.2, modulo Thorner–Zaman; two hostile
+reviews). So no pointwise multiplier mechanism with polylogarithmic
+witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
+(POINTWISE_SIZE §7).
 
 ## Housekeeping
 
@@ -118,6 +120,7 @@ Papers in `paper/`:
 * `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
 * `vaughan-loglog-note`;
 * `pointwise-obstruction` (refereed internally, ACCEPT pending authorship);
-* `es-omega-note` v2, exponent 3 (refereed internally, ACCEPT after round 4).
+* `es-omega-note` v3: every fixed exponent (refereed internally; P1–P4
+  applied).
 
 Authorship and the citation form for astra are still undecided.
