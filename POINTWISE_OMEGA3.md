@@ -262,3 +262,102 @@ events. Item 2 is the conditional form (Haeupler–Saha–Srinivasan, J. ACM
 family alone: `P(B|𝒜_2) ≤ P(B)∏_{A∈Γ(B)}(1−x_A)^{−1}`, where Γ(B) is the
 set of level-2 events meeting U. Then
 `∏(1−x_A)^{−1} ≤ exp(1.2Σ_{A∈Γ(B)}x_A) ≤ exp(1.2·|U|/16) ≤ e^{|U|/2}`. ∎
+
+*Constants.* `w:=16`, `w':=16e^{1/2}`, `δ_3:=[4e·3·(1+w')³]^{−1}`,
+`δ:=e^{−50}`. For `Ŝ≥S_H` put
+`Λ_3:=6e(1+w')³Ŝ`, let `L_3` be least with `4^{L_3+1}≥400e^{Λ_3+3Ŝ}`,
+and `t(Ŝ):=δ_3/(3(L_3+1))`. So `L_3=O(Ŝ+1)` and `1/t=O(Ŝ+1)`.
+Condition (D3) reads: level-3 degrees `≤δ_3`, pair codegrees `≤t(Ŝ)`.
+
+**Theorem 3.2 (two-level minorant; PROVED).** In Setting 3.0 assume (P),
+(D2), and (D3) with some `Ŝ≥S_H`. Put `Σ:=S_1+S_2+Ŝ`. There is a real
+combination B of unit cells such that
+
+1. `B ≤ F_2F_3` pointwise (for every integer n);
+2. `F_2F_3−B ≥ 0` and `E[F_2F_3−B] ≤ 0.01·P(𝒜_2∩𝒜_3)`; hence
+   `μ:=EB ≥ 0.99·e^{−3Σ}`;
+3. `log(M_1(B)/μ) ≤ C(Σ+1)`, and every cell of B involves at most
+   `C(Σ+1)` primes (C absolute);
+4. the twist condition of PO Thm 4.1: `|E[Bψ]| < μ/4` for every real
+   primitive ψ of conductor `f>1` whose primes are free.
+
+*Proof.* **Step 1 (top level).** Let `B_3:=B_{L_3}−4^{L_3+1}G^{cov}_{L_3+1}`
+be the O2 Lemma 10.1 minorant of `F_3`, built from level-3 events only.
+Pointwise `B_3≤F_3` and `|F_3−B_3|≤2·4^{L_3+1}G^{cov}_{L_3+1}`.
+
+* *Tilted moment.* O2 Lemma 10.2's proof starts from the pointwise bound
+  `Σ_{u≤U_0}w^uG^{cov}_u ≤ Σ_{C private,|C|≤U_0}(1+w)^{|π(C)|}1[C occurs]`.
+  Multiply by `F_2` and take expectations. Lemma 3.1(2) with `U=π(C)`
+  gives `E[F_2 1[C]] ≤ P(𝒜_2)P(C)e^{|π(C)|/2}`. The rest of the proof of
+  Lemma 10.2 runs with `1+w'=(1+w)e^{1/2}` in place of `1+w`. Its
+  hypothesis `D≤[2e·3(1+w')³]^{−1}` with `U_0=L_3+1` reads
+  `deg + 3(L_3+1)Δ^{(2)} ≤ 2δ_3`, which (D3) gives. Hence
+  `E[F_2G^{cov}_{L_3+1}] ≤ P(𝒜_2)w^{−(L_3+1)}e^{Λ_3}`, and
+
+  ```
+  E[F_2(F_3−B_3)] ≤ 2·4^{L_3+1}16^{−(L_3+1)}P(𝒜_2)e^{Λ_3} ≤ P(𝒜_2)e^{−3Ŝ}/200 ≤ P(𝒜_2∩𝒜_3)/200,
+  ```
+  by the choice of `L_3` and Lemma 3.1(1).
+* *Haar mass.* The same lemma without tilt gives
+  `M_1(B_3) ≤ Σ_{u≤L_3}2^uEG^{cov}_u + 4^{L_3+1}EG^{cov}_{L_3+1} ≤ 2e^{Λ_3}`.
+  Every cell of `B_3` involves at most `3(L_3+1)` primes.
+
+**Step 2 (bottom level, cell by cell).** Write `B_3=Σ_ic_i1_{C_i}` with
+cells `C_i=(P_i,x_i)`. Fix i.
+
+* If `x_i` realises a level-2 single at some `ℓ∈P_i`, or both ends of a
+  level-2 edge inside `P_i`, then `F_2=0` on `C_i`. Put `β_i=α_i=0`.
+* Otherwise, on `C_i` we have `F_2=F_2^{(i)}`. Here `F_2^{(i)}` is the
+  void indicator of the *cell-conditioned* level-2 system on `𝒫∖P_i`:
+  the original singles and edges there, plus the induced singles
+  `{w : {v,w} level-2 edge, v realised by x_i}`. Its masses are
+  `S_1^{(i)}≤S_1+δ|P_i|` and `S_2^{(i)}≤S_2`, and its degrees are `≤δ`.
+* O2 Lemmas 1.2, 1.3, 2.1 (`z=16`, `δ=e^{−3z−2}`) give, for every L,
+  `B^{(i)}_L` and `G^{(i)}_{L+1}` with
+  `|B^{(i)}_L−F_2^{(i)}|≤4^{L+1}G^{(i)}_{L+1}`,
+  `EG^{(i)}_{L+1}≤16^{−(L+1)}e^{Λ^{(i)}}`, `M_1(B^{(i)}_L)≤e^{Λ^{(i)}}`,
+  where `Λ^{(i)} ≤ Λ_2:=16(S_1+3δ(L_3+1))+16e^{98}S_2`.
+* Put `β_i:=B^{(i)}_{L_2}−4^{L_2+1}G^{(i)}_{L_2+1}` and
+  `α_i:=B^{(i)}_{L_2}+4^{L_2+1}G^{(i)}_{L_2+1}`. Then
+  `β_i≤F_2^{(i)}≤α_i`, and both differ from `F_2^{(i)}` by at most
+  `2·4^{−(L_2+1)}e^{Λ_2}` in Haar mean. Choose `L_2` least with
+  `4^{L_2+1} ≥ 800e^{Λ_2+Λ_3+3Σ}`.
+
+Define
+
+```
+B := Σ_{c_i>0} c_i β_i 1_{C_i} − Σ_{c_i<0} |c_i| α_i 1_{C_i}.
+```
+
+All functions here are combinations of unit cells: `β_i,α_i` live on
+`𝒫∖P_i`, so `β_i1_{C_i}` is a product of cells on disjoint prime sets.
+
+1. *Minorant.* `B ≤ Σ_ic_iF_21_{C_i} = F_2B_3 ≤ F_2F_3`.
+2. *Mean.* `β_i,α_i` are independent of `1_{C_i}`. So
+
+   ```
+   E[F_2F_3−B] ≤ E[F_2(F_3−B_3)] + Σ_i|c_i|P(C_i)·2·4^{−(L_2+1)}e^{Λ_2}
+              ≤ P(𝒜_2∩𝒜_3)/200 + 2e^{Λ_3}·2·e^{−Λ_3−3Σ}/800 ≤ P(𝒜_2∩𝒜_3)/100,
+   ```
+   using `P(𝒜_2∩𝒜_3) ≥ e^{−3Σ}` (Lemma 3.1(1)).
+3. *Mass and supports.*
+   `M_1(B) ≤ Σ_i|c_i|P(C_i)(e^{Λ_2}+4^{L_2+1}16^{−(L_2+1)}e^{Λ_2}) ≤ 4e^{Λ_3+Λ_2}`,
+   and `log(1/μ) ≤ 3Σ+1`. A cell of B involves at most
+   `3(L_3+1)+2(L_2+1)` primes. Since `L_3=O(Ŝ+1)`, we get `Λ_2`,
+   `Λ_3`, `L_2 = O(Σ+1)`.
+4. *Twist.* As in O2 Thm 3.1 Step 4, `μ_ψ=E[Bψ]` and
+   `|E[Bψ]| ≤ E[F−B] + |E[Fψ]|` with `F=F_2F_3`. Fix a prime `ℓ_0|f`, and
+   let `𝒜'` be "no event (either level) avoiding `ℓ_0` occurs". Then
+   `|E[Fψ]| ≤ P(𝒜'∩{an event at ℓ_0 occurs})`. That is at most
+   `P(𝒜')(g_{ℓ_0}+1.3(w^{(2)}_{ℓ_0}+w^{(3)}_{ℓ_0})) ≤ P(𝒜')·0.05`. Here
+   the conditional local lemma for the family defining `𝒜'` bounds the
+   probability of the remaining part `e∖u` of an event through `ℓ_0`
+   by `1.3P(e∖u)`: its neighbours meet at most two primes, with
+   `∏(1−x)≥(1−1/16)²`. Since `P(𝒜_2∩𝒜_3) ≥ 0.95P(𝒜')`, we get
+   `|μ_ψ| ≤ (0.01+0.053)P(𝒜_2∩𝒜_3) < μ/4`. ∎
+
+*Why this closes G_pair's circularity.* The codegree threshold `t(Ŝ)`
+depends only on the level-3 mass Ŝ. The level-2 mass `S_1+S_2` can be
+arbitrarily large compared with Ŝ: it enters only `L_2`, and level 2
+has no codegree condition. In O2's one-level scheme, the hub pairs had
+to be paid for inside the same truncation that set the threshold.
