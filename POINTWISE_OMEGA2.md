@@ -259,7 +259,8 @@ Put `Σ := S_1+S_2`. Then there is a minorant `B` as in PO Theorem 4.1
 μ ≥ exp(−C(Σ+1)),   log(M_1/μ) ≤ C(Σ+1),   log max_i d_i ≤ C(Σ+1) log max_ℓ ℓ^{e_ℓ},
 ```
 
-and the twist condition `|μ_ψ|≤μ/4` holds for every real primitive ψ. Here C
+and the twist condition `|μ_ψ|≤μ/4` holds for every real primitive ψ required by PO Theorem 4.1 (conductor
+`f>1`, `gcd(f,Q)=1`, `f|d_i` for some i). Here C
 is absolute (astronomically large; see Lemma 2.1).
 
 *Proof.* **Step 1 (hubs).** Apply Lemma 2.2 with δ. By (W), the new singles
