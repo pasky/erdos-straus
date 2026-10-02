@@ -611,3 +611,51 @@ So the same-label part of (H_O) is `≪ (log L)^{O(1)}`, far below the budget
 by (ii): the pair `(k,k′)` is controlled by the activity inflation and AM–GM,
 and the label condition is used for each cofactor separately, never through
 `d | m − m′`.
+
+### 5.4 (H_O^≠) via the n-side picture: what it gives, where it stops
+
+Write the cross part as `Σ_j ρ_j j^{−1}Σ_{θ≠θ′, λ_θ ≡ λ_{θ′} (j)} E_P δ_θδ_{θ′}`.
+On the n-side (n ≡ c, two classes through j both containing n) agreement is
+`j | gcd(n+4D, n+4D′)`, hence `j | D − D′ ≠ 0` (equivalently, for the
+labels, `j | a b′ − a′b`). Summing over j innermost:
+
+* **Small-height pairs: PROVED-level reduction.** If both data have
+  modulus `≤ H` and both labels have height `≤ H`, the nonzero integer
+  `ab′ − a′b` has absolute value `≤ 2H²`, so it has at most
+  `log(2H²)/log w₂` prime divisors `> w₂`. With (i)–(ii) of Lemma 5.4,
+  `δ_θ ≪_{P} (log L)^{O(1)}/φ(d) + 1/m₀`, and the j-sum costs
+  `Σ_{j | ab′−a′b} ρ_j/j ≤ (log 2H²)/(w₂ log w₂)`. So all pairs with
+  `H ≤ X^{O(1)}` — i.e. *every* pair, since `d, height ≤ X²` — contribute
+
+      ≪ (L/w₂) · ( Σ_θ (log L)/φ(d_θ) + Σ_θ 1/m₀(θ) )².
+
+  The first sum is `≪ (log L)^{O(1)}`, giving `o(1)`. **The second is the
+  obstruction:** `Σ_θ 1/m₀(θ)` is the total partner mass of the first
+  realisations, `≍ Σ_m τ(A_m²)/m ≍ L³`, so this term is `L⁷/w₂ = L^{−1}`
+  only after it is **not** squared inside the j-sum.
+* **The sharp remaining form.** Precisely: the bound above uses
+  `δ_θ(j,c) ≤ sup_j δ_θ`, but the first-element mass `1/m₀(θ,k)` depends on j
+  (θ occurs at j only if `kjm₀ ≡ −1 (mod 4d)`). Keeping the j-dependence, the
+  cross part is at most `o(1)` plus
+
+      Σ_{(k,m),(k′,m′)} (Γ(lcm)/lcm)/(m m′) · Σ_{θ | A_{kjm}, θ′ | A_{k′jm′}} Σ_{j | a_θ b_{θ′} − a_{θ′}b_θ ≠ 0} ρ_j / j,
+
+  where now the inner j-sum is over primes j that *simultaneously* make the
+  data occur (`d_θ | A_{kjm}`, `d_{θ′} | A_{k′jm′}`) and divide the label
+  difference. Dropping the occurrence conditions gives `L·L⁶/w₂ = L^{−1}`,
+  **but** the data range is then not finite: for fixed `(k,m,k′,m′)` the data
+  θ range over divisor-labels of `A_{kjm}`, which change with j. The missing
+  step is a bound for
+
+      #{ (j, θ, θ′) : j > w₂, d_θ | A_{kjm}, d_{θ′} | A_{k′jm′}, j | a_θb_{θ′} − a_{θ′}b_θ ≠ 0 }
+
+  weighted by `ρ_j/j`, of size `≪ L^{O(1)}/w₂^{c}` on average over
+  `(k,m,k′,m′)`. This is a three-condition divisor problem in which j enters
+  linearly in both `A`s and the label difference is fixed once θ, θ′ are.
+  Not done.
+
+Status: (H_O^≠) remains OPEN, reduced to the displayed incidence count.
+Lenstra / Coppersmith–Howgrave-Graham–Nagaraj (divisors of N in a residue
+class mod `s ≥ N^{1/4+ε}` are `O(1)`) applies only when j is the top prime
+and `km ≤ j^{1−ε}`, and even then gives `O(1)` per residue, not the needed
+`τ/j`; it does not close the gap.
