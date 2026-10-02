@@ -148,7 +148,7 @@ following are also correct:
 The counting checks:
 
 * `Σ_j binom(n,j)Δ^{(j+1)} ≤ D` for `n ≤ kh ≤ kU_0`;
-* `n^{h−1}/(h−1)! = h^h k^{h−1}/h!·… ≤ e(ke)^{h−1}`, using padding to kh slots;
+* `(kh)^{h−1}/(h−1)! = k^{h−1}h^h/h! ≤ k^{h−1}e^h = e(ke)^{h−1}`, using padding to kh slots;
 * the geometric sum under `(1+w)^k keD ≤ 1/2`.
 
 * **D5 (minor; proof of Lemma 10.2, "Counting", 2nd bullet).** Quote: "The children sets at the at most n
@@ -188,3 +188,46 @@ case `ℓ ∉ π(O)`, where the ℓ lifts each carry `1/ℓ` of the weight.
   Setting ("split into classes mod `∏ℓ^{e_ℓ}`") covers this, but the Remark's "e_ℓ=2", "ℓ lifts mod ℓ²"
   and "rough part ℓ²ℓ'" understate it. *Fix:* "split every class mod `ℓ^a` (a < e_ℓ) into its
   `ℓ^{e_ℓ−a}` lifts mod `ℓ^{e_ℓ}`".
+
+## Item 4. Numerical test of Theorem 11.3's mechanics (independent code) — CONFIRMS
+
+The script `scripts/r3_iterq_mt.py` was written from the statements alone; it imports no subject code.
+Data are in `data/review_r3/iterq_mt_*.txt`. It does the following:
+
+* computes `S*` by **brute force over all subsets** of the prime factors of M (the true max over Π, not
+  the unitary-divisor shortcut used in `omega2_iterq.py`);
+* runs Lemma 11.2. At every stage it checks `w_ℓ(Π_i) ≤ Σ_{atoms, ℓ|M} wt*`, and at the end it checks
+  `c_0|𝓑| ≤ Σ_atoms #{ℓ∈𝓑: ℓ|M}·wt* ≤ kS*`;
+* checks the asymmetric LLL condition **exactly**: for every event, the product over the union of its
+  neighbours;
+* computes the certificate `log φ(Q_Π) − log 8 − Σ log(1−x_E)`;
+* **end-to-end coverage test.** It runs Moser–Tardos to construct actual coordinates `X_ℓ` with no listed
+  event, and puts `n ≡ 1 (ℓ^{e_ℓ})` for ℓ∈Π. Then, for **every** `M ≤ T`, `M≡3 (4)`, and every `D | A²`,
+  it checks directly that `n ≢ −4D (mod M)`, i.e. `W(n) > T`.
+
+| T | z | k | c_0 | add. rounds | `|𝓑|` | S* | `c_0|𝓑|` ≤ charge ≤ `kS*` | final max w | S_ev | LLL min ∏(1−x) | certificate | MT: atoms hit |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 10⁴ | 20 | 3 | .0417 | 1 | 99 | 59.83 | 4.1 ≤ 41.4 ≤ 179.5 | .0414 | 6.73 | 0.922 | 694.6 | 0,0,0 |
+| 10⁴ | 85 (=(log T)²) | 2 | .0625 | 1 | 50 | 59.83 | 3.1 ≤ 14.5 ≤ 119.7 | .0621 | 8.37 | 0.886 | 478.6 | 0,0,0 |
+| 10⁴ | 5 | 5 | .025 | 1 | 180 | 59.83 | 4.5 ≤ 80.4 ≤ 299.2 | .0249 | 4.31 | 0.952 | 1228.1 | 0,0 |
+| 10⁵ | 20 | 3 | .0417 | 1 | 171 | 120.66 | 7.1 ≤ 102.9 ≤ 362.0 | .0401 | 16.94 | 0.924 | 1442.7 | 0,0 |
+| 10⁵ | 133 (=(log T)²) | 2 | .0625 | 1 | 77 | 120.66 | 4.8 ≤ 31.0 ≤ 241.3 | .0623 | 20.15 | 0.884 | 966.9 | 0,0 |
+| 10⁶ | 20 | 4 | .0312 | 1 | 345 | 217.88 | 10.8 ≤ 222.5 ≤ 871.5 | .0292 | 31.66 | 0.944 | 3499.2 | 0,0 |
+
+* **Negative control.** With `DROP=0.3` (30% of events ignored by Moser–Tardos), the direct check finds 2–3
+  hit atoms in every seed (`iterq_mt_negctl.txt`). So the coverage check has teeth.
+* **Agreement with the subject.** `|𝓑|`, `S*`, `S_tot(Π)` and `max w_ℓ` agree with `data/omega2/iterq.txt`
+  to all printed digits, for all common parameters. In particular, the subject's unitary-divisor
+  evaluation of S* equals the brute-force max over Π. Its "LLL max Σx" is the cruder per-prime sum; the
+  exact product margin is wider still. Its certificate uses `log Q_Π` and `4S_tot`, which is valid but
+  slightly weaker than `log φ(Q_Π)` and `−Σlog(1−x)`.
+* **Extra stress test** (not in the subject). With `c_0` forced tiny (0.005 at z=20; 0.002 at z=3, k=8),
+  the iteration still stops after **one** addition round. All inequalities hold, and the Moser–Tardos
+  witnesses are clean.
+* **Observation (not a defect).** The explicit bound `(π(z)+kS*/c_0)log T+4S*` exceeds the certificate by a
+  factor ≈ 40–110. The slack is in `kS*/c_0` against the actual `|𝓑|`: the charge sum is only 10–25% of
+  `kS*`, and `w_ℓ` of a bad prime typically exceeds `c_0` by a small factor.
+
+Verdict: the mechanics of Lemma 11.2 and Theorem 11.3 are confirmed at T ≤ 10⁶, and coverage (I) is
+confirmed end to end. The subject's `omega2_iterq.py` output is reproduced exactly. Defects D1, D2 above
+concern the subject's prose about this data, not the data.
