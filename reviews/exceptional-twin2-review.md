@@ -162,3 +162,74 @@ Binary m-top `u = 1`: `Σ_ℓ ℓ^{−1−2α}(log ℓ)^i ≪ (i−1)!(2α)^{−
 gives `≪ log L`; the three terms give `α^{−3}, α^{−3}, α^{−3}log L` ✓.
 Labelling "m = top prime" is WLOG ✓; for B = 0 there are no binary classes ✓.
 Per-class weight `4(8/7)²Γ(k)/M` from Lemma 3.2(1) and `ν ≤ (8/7)U` ✓.
+
+## Item 11. Theorem 5.1 (assembly) — SOUND-AFTER-REPAIRS (presentation only)
+
+The assembly is correct: Lemma 2.1 with P of §3; `αλ/2 ≤ A₀L^{3/4}/2`;
+`log‖dP/dU‖ ≤ 4L^{1/2}`; supp P ⊆ G_L so Lemma 2.2 applies fibrewise with
+`A⁺_c ≠ ∅` (`Z₁⁺ > 0` by Lemma 1.1, unary densities `≤ 1/4`); `p`- and
+`π`-parts by Lemma 4.1; S-coefficient `2 + 9 = 11`. `ρ_j = j^{−α}` for all j
+is admissible (`ρ_i ≥ e^{−αs_i}`). Small classes: avoided on supp P; one-
+and two-large-prime classes: unary/binary. Nothing is missing.
+* **D3 (minor, scope).** The B-hypothesis `M ≤ P(M)^{1+B}` is a genuine
+  restriction of the family relative to TW Reduction 6.7 / Conj 6.8, which
+  promised the two-prime cap "with no windows and no B" (e.g. `kℓ₁ℓ₂` with
+  a w₂-smooth `k ≈ X^{1/2}` is excluded). The §0 *Bottom line* says the cap
+  "is reduced … to a single arithmetic inequality (H_O)" without saying
+  that B is added; and §4's closing paragraph says B "is what makes (ii)
+  available", understating its use: Lemma 3.4 also needs it (small moduli
+  `≤ w₂^{1+B}` for `τ ≤ L^{1/32}` in `G_s`; pointwise τ for unary and
+  binary moments). Fix: add "for moduli with `M ≤ P(M)^{1+B}`" to the
+  Bottom line, and list B's three uses.
+* **D4 (nit).** Setting 3.0: "Every class with `N(M) ≤ τ(A²)` classes per
+  modulus; we use only this count" is ungrammatical (meaning: each modulus
+  carries `N(M) ≤ τ(A²)` classes, and only this count is used).
+
+## Item 12. §5.1–5.2: Lemma 5.3, canonical labels, (H_O^=), (H_O^≠), numerics
+
+* **Lemma 5.3 — SOUND.** `D/A = u′/v′` in lowest terms gives `v′ | A`,
+  `u′ | A`; conversely; this is a bijection (per `p^e ∥ A`: `2e+1` choices
+  either way, matching `τ(A²)`). `4A ≡ 1 (j)` and `(v′, j) = 1` give the
+  residue `−u′/v′`. Correct.
+* Canonical labels: correctly labelled heuristic. Spot checks: `D = A`,
+  `D = 1`, `D = A²` give the universal labels 1, 4, 1/4 (residues −1, −4,
+  −1/4) present for every modulus; the example `A = n(n+1)`, `D = n²`
+  (label `n/(n+1)`, modulus `n(n+1) ≪ height²`) is right. The decomposition
+  `j·q_j ≤ (8/7)[Σδ_λ² + Σ_{λ≠λ′≡λ′}δδ′]` (for `e_j = 1`) and `S ≤ q` are
+  correct.
+* **(H_O^=) — SKETCH, honestly labelled.** The admitted gap
+  (cross-cofactor pairs `d | kj^vm − k′j^{v′}m′`) is real; the heuristic
+  count (labels of modulus `d ≤ polylog` are the hubs, ≈ polylog many;
+  non-hub `Σ_dδ²` converges) agrees with `α^{−1}(log L)^{O(1)}`.
+* **(H_O^≠) — OPEN, honestly labelled.** Random and trivial benchmarks
+  (`L^{6+o(1)}/w₂`, `L⁶/α`) re-derived ✓.
+* **Numerics — reproduced.** `scripts/twin2_offdiag.py 1e7 30 45 1 1009
+  10007 100003` reproduces the three X = 1e7 rows exactly (jw, jq, jS,
+  same, cross, rand); `same + cross = jq` ✓; cross < rand in all 6 rows ✓.
+  `twin2_binary_check.py 100 1` runs (max in-hypothesis ratio 0.93).
+  Caveats in the text are adequate. Note (not a defect): at toy scale
+  `jS` grows roughly like `(jw)^{0.7}`; (H_O) needs `F(log(X/j))`
+  to be `≪ L^{3/4}` while the trivial bound is `≍ L³`, so the numerics can
+  neither support nor refute it — as the author says.
+
+## Summary
+
+| item | verdict | defects |
+|---|---|---|
+| 1 Lemma 1.1, Cor 1.2 | SOUND | — |
+| 2 Lemma 1.3 | SOUND | — |
+| 3 Theorem 1.4 (+ independent exact/adversarial check, no violation) | SOUND | — |
+| 4 Remark 1.6 | SOUND | D1 nit |
+| 5 Lemma 2.1 | SOUND | — |
+| 6 Lemma 2.2 (constants) | SOUND | — |
+| 7 Lemmas 3.1, 3.2 | SOUND | — |
+| 8 Lemma 3.3, (3.1) | SOUND | D2 nit |
+| 9 Lemma 3.4 (case splits) | SOUND | — |
+| 10 Lemma 4.1 | SOUND | — |
+| 11 Theorem 5.1 | SOUND-AFTER-REPAIRS (wording/scope) | D3 minor, D4 nit |
+| 12 Lemma 5.3; (H_O^=) SKETCH; (H_O^≠) OPEN; numerics | SOUND / labels honest | — |
+
+No major defect. Every PROVED label survives; the mathematical content of
+Theorem 5.1 stands as stated in its own Setting 3.0. Required before merge:
+D3 (state the added B-hypothesis in the Bottom line / §0 and list its uses).
+D1, D2, D4 are optional polish.
