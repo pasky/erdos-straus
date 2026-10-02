@@ -575,11 +575,9 @@ quarantine, including partners `A²/D`) satisfies `E(r) ≤ 2F_I(r)`.
 * (2.7) holds: `ef=4sr'²+1=4a²d+1`.
 
 ET note that (2.1), (2.2) and (2.7) with nonzero entries imply the
-remaining identities. For instance
-`f(4acd−n) = 4acdf − nf = (a+b)·4adf/e·… `; directly,
-`e(4acd−n−f)·… `. We check (2.6) by hand:
-`e·4acd = 4ad(a+b) = 4a²d + 4abd = (ef−1) + (ne+1) = e(f+n)`. So all nine
-hold. Conversely, a point with `a≤b` and d squarefree gives `D=da²`,
+remaining identities; we check the two we use by hand. (2.6):
+`e·4acd = 4ad(a+b) = 4a²d + 4abd = (ef−1) + (ne+1) = e(f+n)`. (2.8):
+`e·bf = b(4a²d+1) = a(ne+1)+b = ane+ce`, so `bf=an+c`. Conversely, a point with `a≤b` and d squarefree gives `D=da²`,
 `A=dab`, `M=ne`, `m=e`. Here `D|A²` and `D≤A`. Also `m|4D+1`, by (2.7).
 And `M=4A−1≡3 (4)`. The map is injective, because `(s,r',k)` determine D
 and A, hence M. Finally, `4A≡1 (r)` gives `−4D = −4A·(r'/k) ≡ −r'/k`. The
