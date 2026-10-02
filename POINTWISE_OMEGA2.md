@@ -480,6 +480,14 @@ infinitely many distinct p. Inverting: if `𝓛 ≥ 4 log log p` then already
   the number of *primes* rather than events, and the Markov-cheap quarantine
   of high-degree hub *vertices* (Lemma 2.2), after which the pseudoforest
   bound (Lemma 2.1) controls the moments.
+* **Corollary 5.2 (joint statement; PROVED modulo Thorner–Zaman).** For
+  infinitely many hard p, jointly `W(p)≥(log p)^{3−o(1)}` and
+  `ck_min(p)≥(log p)^{1−o(1)}`. *Proof.* The primes of Theorem 5.1 are
+  `≡1` mod 24 and mod every prime `ℓ≤y`. Since `p≡1 (4)`, reciprocity gives
+  `(ℓ/p)=(p/ℓ)=1` for odd `ℓ≤y`. PO Lemma 8.1 (`ck_min>B` when
+  `(ℓ/p)=1` for all `5≤ℓ≤B`) gives `ck_min(p)>y`, and
+  `y=T^{1/3}e^{2𝓛/log 𝓛}≥(log p)^{1−o(1)}`. This upgrades PO Cor. 8.2,
+  which had exponent 2 for W. ∎
 * PO Prop. 6.1 (prime-local designs cap at exponent 2) is untouched: the
   design here is not prime-local (two unquarantined primes per modulus are
   allowed).

@@ -159,7 +159,7 @@ For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
 quadratic non-residue $n_p$.
 
-\begin{theorem}[(a) Proved; (b) proved modulo {\cite[Prop.~5.1]{LW}}]\label{thm:slice-intro}
+\begin{theorem}[Proved; (b) modulo {\cite[Prop.~5.1]{LW}}]\label{thm:slice-intro}\mbox{}
 \begin{enumerate}
 \item[(a)] \textup{(Proved.)} $\ckmin(p)\ge n_p$ for every prime
 $p\equiv1\pmod{24}$, and every fixed-period congruence minorant for
@@ -1123,11 +1123,21 @@ $\ckmin(p)>y(x_n)\ge(\delta/2)\log p\log_3p$.  Effectivity is not claimed.
 Under GRH, Montgomery's $n_p=\Omega(\log p\log\log p)$ would give the
 corresponding bound, and Ankeny's $n_p\ll(\log p)^2$ caps what congruences can
 certify; the random model predicts $\max_{p\le x}n_p\asymp\log x\log\log x$
-(statements as quoted in \cite{LW}).  Finally, the primes of
-Theorem~\ref{thm:two} are quadratic residues of every $\ell\le y$, so
-Lemma~\ref{lem:np} gives, \emph{jointly}, $W(p)\ge(\log p)^{2-o(1)}$ and
-$\ckmin(p)\ge(\log p)^{1-o(1)}$ for infinitely many hard $p$ (proved modulo
-Theorem~\ref{thm:TZ}).
+(statements as quoted in \cite{LW}).
+
+\begin{corollary}[Proved modulo Theorem~\ref{thm:TZ}]\label{cor:joint}
+For infinitely many hard primes $p$, jointly $W(p)\ge(\log p)^{3-o(1)}$ and
+$\ckmin(p)\ge(\log p)^{1-o(1)}$.
+\end{corollary}
+
+\begin{proof}
+The primes $p$ of Theorem~\ref{thm:main} satisfy $p\equiv1\pmod Q$, where $24\mid Q$
+and every prime $\ell\le y=T^{1/3}\exp(2\Lc/\log\Lc)$ divides $Q$
+(Proposition~\ref{prop:hmin}).  So $p\equiv1\pmod{24}$ and $(p/\ell)=1$, hence
+$(\ell/p)=1$ by reciprocity ($p\equiv1\bmod4$), for every odd $\ell\le y$.
+Lemma~\ref{lem:np} gives $\ckmin(p)>y$, and $\log p\le T^{1/3}\exp(O(\Lc/\log\Lc))$
+gives $y\ge(\log p)^{1-o(1)}$.
+\end{proof}
 
 \section{The Haar side}\label{sec:haar}
 
@@ -1334,7 +1344,7 @@ Corollary~\ref{cor:exactly}; Theorem~\ref{thm:haar-intro} (with the classical
 local lemma and divisor bound).
 \item Proved modulo Thorner--Zaman \cite{TZ} (with the McCurley statement quoted there):
 Lemma~\ref{lem:severe}, Theorems~\ref{thm:transfer}, \ref{thm:main}, \ref{thm:two},
-\ref{thm:Hmin}, and the joint $W$/$\ckmin$ statement; hence the falsity of ``$W(p)\le(\log p)^A$ for all large $p$'' for every $A<3$.
+\ref{thm:Hmin}, Corollary~\ref{cor:joint}; hence the falsity of ``$W(p)\le(\log p)^A$ for all large $p$'' for every $A<3$.
 \item Proved modulo Lau--Wu \cite[Prop.~5.1]{LW}: Theorem~\ref{thm:slice}.
 \item Proved modulo Chang \cite[Cor.~11]{Chang}: the $5/8$ record
 (Remark~\ref{rem:record}).
