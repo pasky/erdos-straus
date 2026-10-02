@@ -265,3 +265,54 @@ counting bound of ET Cor 3.6 gives `p* ≤ ℓ^{−δ}`. So there are no heavy
 coordinates and (NDE) holds trivially. Part (ii) holds in ET Lemma 2.8's
 averaged form, with the γ-weight, which ET Cor 3.6 shows is still cubic.
 Theorem 2.5 therefore reproduces Cor 3.6, with an explicit η^{−1}.
+
+### 2.6 Where the proof stops: the single gap H_light
+
+§§2.1–2.5 are proved. Route 2 therefore reduces to **H_light(K)** with
+`K = (log λ)^{O(1)}`, for (η,B)-gapped families with `B ≥ 1` (the
+balanced gapped ones). Where and why the ET argument fails:
+
+1. **Counting fails, necessarily.** ET Cor 3.6 bounds `p_ℓ(h)` for every
+   history h by counting conditions with largest prime ℓ:
+   `Σ_{q≤ℓ^C}|ℛ(qℓ)| = ℓ^{C+o(1)}`. A balanced gapped M has cofactor
+   `q = M/P(M) ≥ P(M)`. So the count is `≥ ℓ^{1+o(1)}`, which is
+   compatible with `F_ℓ(h) = ℤ/ℓ`. This is a property of balance itself,
+   not of the windows.
+2. **Adversarial histories are not excluded.** Take pairwise coprime
+   cofactors `q_i` built from earlier-window primes, with
+   `D_i | ((q_iℓ+1)/4)²` and distinct values `−4D_i mod ℓ`. CRT gives
+   histories with `n ≡ −4D_i (mod q_i)` for all i at once. Such a history
+   activates many classes at ℓ. Whether it can also avoid every
+   earlier-window condition (be *reachable*) is **not decided** here. So
+   heavy coordinates, and even dead ends, are not ruled out.
+3. **Averaging does not fix it cheaply.** Under U the hit probability is
+   tiny, `E_U p_ℓ ≍ s³/ℓ`. But (2.1) needs `Q_seq`-expectations, and
+   `dQ_seq/dU = Π(1−p_{ℓ'}(h))^{−1}` along the history. Changing measure
+   by Cauchy–Schwarz costs `E_{Q_seq}Π(1−p)^{−1} ≈ e^{(total mass)}`,
+   which is `e^{λ³}`. That is useless.
+4. **A sup bound weaker than ℓ^{−δ} does not suffice.** If only
+   `p* ≤ 1/2` is known, the profile inflation `Π_{ℓ'|q}(1−p*)^{−1}` can be
+   as large as `2^{ω(q)}`. The weight `2^{ω(q)}τ(A²)` has a quartic mean,
+   which would give exponent 4/5, not 3/4.
+
+**Sufficient condition (★_δ).** `p_ℓ(h) ≤ ℓ^{−δ}` for every reachable h,
+every window and every `ℓ > w₀`. Under (★_δ):
+* there are no heavy coordinates and (NDE) holds;
+* ET Lemma 2.8 and the γ-weighted Shiu argument of ET Cor 3.6 give
+  H_light(O_δ(1)), in γ-averaged form.
+
+So Theorem 2.5 yields `S_λ ≪_{δ,B} η^{−1}λ^{3/4}`. (★_δ) holds for
+`B < 1`; for `B ≥ 1` it is open (item 2).
+
+**Status of route 2.**
+* η-gapped moduli are covered with `C(η) ≍ η^{−1}`, conditionally on the
+  **named gap H_light** (or the stronger (★_δ)), a statement about
+  sequentially conditioned CRT histories only.
+* The η-twin moduli are not touched by route 2 at all. For every
+  `η > 0` they carry `≫_η (log x)³` supply (ET Lemma 3.8).
+* Even unconditionally, route 2 cannot settle the decision problem of
+  §1; at best it isolates η-twin windows.
+
+Next candidates: route 3, the local boost inequality inside a window, which
+would handle η-twin conditions; or a direct attack on H_light via
+reachability (item 2).
