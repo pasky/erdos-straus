@@ -183,6 +183,25 @@ moduli beyond `(log p)^3`" with "beyond every fixed power of log p".
   sections (§§hyper, multi, main) have not been refereed in paper form.
   Their mathematics is POINTWISE_OMEGA3 §§3–5, reviewed twice (SOUND).
 
+## Paper referee v3 (`reviews/es-omega-note-review-v3.md`): MINOR REVISION, P1–P4 applied
+
+* **P1.** Thm `thm:klevel` Step A now spells out the downward polynomial
+  induction:
+  * (i) `L_r, N_r, H_r` are linear in the earlier quantities;
+  * (ii) the pushes multiply the total and per-prime masses by at most
+    `2^r(4N_r)^r 2r/δ_r`;
+  * (iii) the choices `A_k≥A'_k` and `C_k≥64kC'_k` give (P_k).
+* **P2.** In Remark `rem:hubs`, the `X log X` count and "removing heavy
+  pairs costs more than L" are now marked *Assessment (not proved, not
+  used)*. So is the matching sentence after Lemma `lem:hypmom`.
+* **P3.** Abstract: "equivalently" became "more precisely … for all
+  large T".
+* **P4.** The introduction now states the Haar theorem as `T^{o(1)}`
+  (new `thm:haar-main` = Thm `thm:iterq`, polylog modulo ET).
+  `thm:haar-intro` (`T^{1/3+o(1)}`) moved to the Haar section as the
+  warm-up, and the summary lists both.
+* **Build:** clean 3-pass build, 31 pp, no warnings or overfull boxes.
+
 ## Status
 
-Paper updated and compiled. Stopping.
+All review rounds applied. Ready for merge. Stopping.

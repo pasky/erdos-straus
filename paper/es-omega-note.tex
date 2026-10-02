@@ -41,8 +41,8 @@ are expected to be at most a power of $\log p$ for almost all $p$, and are
 known to exceed a constant times $\log p$ for infinitely many $p$.  We prove
 that for every fixed $k$,
 $W(p)\ge(\log p)^{k}\exp(-C_k\log\log p/\log\log\log p)$ for infinitely many
-primes $p$ in Mordell's hard classes; equivalently, the least hard prime with
-$W(p)>T$ is at most $\exp(T^{o(1)})$.  The class of one is imposed modulo the
+primes $p$ in Mordell's hard classes; more precisely, the least hard prime
+with $W(p)>T$ is at most $\exp(T^{o(1)})$ for all large $T$.  The class of one is imposed modulo the
 primes up to $T^{1/k+o(1)}$, so that the residual congruence system consists
 of events on at most $k-1$ free primes.  We build a pointwise minorant of its
 void indicator by inclusion--exclusion truncated by the number of primes in
@@ -203,9 +203,16 @@ $W(n)>T$, normalised within the class $1\pmod{24}$.  The class of one gives
 $\log(1/\delta^*(T))\le(2/3+o(1))T$, and a crude prime-local bound gives
 $T^{1/2+o(1)}$.
 
-\begin{theorem}[Proved]\label{thm:haar-intro}
-$\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
+\begin{theorem}[Proved; the polylogarithmic form modulo {\cite[Prop.~1.4]{ET}}]\label{thm:haar-main}
+$\log(1/\delta^*(T))\le T^{o(1)}$; more precisely
+$\log(1/\delta^*(T))\ll(\log T)^3(S^*+1)$, where $S^*\le\exp(O(\log T/\log\log T))$ is the
+uniform atom mass of \S\ref{sec:main},
+and $\log(1/\delta^*(T))\ll(\log T)^7/\log\log T$ modulo \cite[Prop.~1.4]{ET}.
 \end{theorem}
+
+This is Theorem~\ref{thm:iterq}, proved in \S\ref{sec:haar} by an iterated
+quarantine and the local lemma; an elementary warm-up gives
+$T^{1/3+o(1)}$ (Theorem~\ref{thm:haar-intro}).
 
 We do not pursue heuristics about the true size of $\delta^*(T)$ here.
 
@@ -926,9 +933,10 @@ over $h\ge1$ with $\rho^kkeD\le1/2$ gives at most $2ek\rho^kS_H$.
 The factor $(kU_0)^j$ in $D$ is real: a cluster of hyperedges reusing $j+1$
 old vertices out of many costs only $\Delta^{(j+1)}$ per hyperedge but can be
 placed in many ways.  For the multiplier problem some pair codegrees are of
-constant size (Remark~\ref{rem:hubs}), so Lemma~\ref{lem:hypmom} cannot be
-applied to the whole system with $U_0$ of the size of the total mass; this is
-what \S\ref{sec:multi} circumvents.
+constant size (Remark~\ref{rem:hubs}), so Lemma~\ref{lem:hypmom} does not
+apply directly to the whole system with $U_0$ of the size of the total mass,
+and (\emph{Assessment}) quarantining the heavy pairs inside the same
+truncation does not seem affordable; \S\ref{sec:multi} circumvents this.
 
 \section{Multilevel minorants}\label{sec:multi}
 
@@ -1133,9 +1141,23 @@ level-$2$ vertices of degree $>\delta$ become singles, deleting the events
 through them.  As in Lemma~\ref{lem:push}, no deleted event can occur when no
 remaining event occurs, and by Markov a set pushed from level $r$ carries
 per-prime mass $\le2^rw^{(r)}_\ell(4N_r)^j\,2r/\delta_r$ and total mass
-$\le2^r\Sigma_r(4N_r)^r\,2r/\delta_r$.  By downward induction all of
-$L_r,N_r,H_r,\Sigma_r$ are $\le C_k\hat S^{A_k}$, and for $c_k(\hat S)$ small
-enough (P$_k$) holds at the end.
+$\le2^r\Sigma_r(4N_r)^r\,2r/\delta_r$.
+
+\emph{The induction.}  (i) $\log\mathfrak M_{r+1}=\sum_{s>r}(\log4+\Lambda_s)$, and
+$\Lambda_r$, $H_r$, $\hat S_{\ge r}$ are linear in $\Sigma_r$ and in the earlier
+quantities $L_s,\Sigma_s$ ($s>r$); hence
+$L_r,N_r=O_k(1+\sum_{s\ge r}\Sigma_s+H_r)$, and inductively
+$L_r,N_r,H_r\le C\hat S^{A}$ once $\Sigma_s\le C\hat S^{A}$ for $s\ge r$, with
+$C,A$ depending on $k$ only.  (ii) The pushes from level $r$ add total mass
+$\le2^r\Sigma_r(4N_r)^r\,2r/\delta_r$ to the lower levels, and at every prime
+they add at most $2^r(4N_r)^r\,2r/\delta_r$ times the per-prime mass of level
+$r$; level-$2$ hub vertices add at most $1/\delta$ times the level-$2$ per-prime
+mass.  Starting from $\Sigma_k\le\hat S$ and per-prime masses $\le c_k(\hat S)$,
+after the $k-2$ steps every $\Sigma_r$ and $L_r,N_r,H_r$ is $\le C'_k\hat S^{A'_k}$,
+and every per-prime mass is $\le c_k(\hat S)\,C'_k\hat S^{A'_k}$, where
+$C'_k,A'_k$ depend on $k$ only (not on $c_k$).  (iii) Taking $A_k\ge A'_k$ and
+$C_k\ge64k\,C'_k$, the per-prime total is
+$\le\hat S^{A'_k-A_k}C'_k/C_k\le1/(64k)$, which is (P$_k$).
 
 \emph{Step B (composition, top level innermost).}  Let $B_{\ge k}$ be the
 minorant $B_{L_k}-4^{L_k+1}G^{\rm cov}_{L_k+1}$ of $F_k$.  Given
@@ -1196,9 +1218,10 @@ $y=T^\theta$, $\theta<1/3$, and distinct primes $\ell_1,\ell_2\in(y,T^{1/3}]$,
 the prime number theorem in progressions shows that such a pair of vertices
 has codegree $\ge(\log(1/(3\theta))-o(1))/\varphi(4n)$, $n=sa,sb,ab$
 respectively (take $M=\ell_1\ell_2\ell_3$ with $\ell_3\in(y,T^{1/3}]$ in one class
-mod $4n$).  The number of such classes with $\varphi(4n)\le X$ grows like
-$X\log X$, so codegrees $\le1/L$ cannot be enforced inside one truncation of
-level $L\asymp$ total mass: removing the heavy pairs costs more than $L$.  In
+mod $4n$).  \emph{Assessment} (not proved, and not used): the number of such
+classes with $\varphi(4n)\le X$ should grow like $X\log X$, so that codegrees
+$\le1/L$ could not be enforced inside one truncation of level $L\asymp$ total
+mass, removing the heavy pairs costing more than $L$.  In
 Theorem~\ref{thm:klevel} these pairs become level-$2$ edges, their vertices
 have level-$2$ degree $\asymp1$ and become singles, and their cost enters only
 $L_2$.
@@ -1583,7 +1606,11 @@ $m\mid\gcd(4D+1,M)$, hence $m\mid r'+k$.
 (Using \cite[Prop.~1.4]{ET} on dyadic blocks one gets
 $S_{\rm tot}\ll(\log T)^4\log\log T$; this is not needed below.)
 
-\begin{proof}[Proof of Theorem~\ref{thm:haar-intro}]
+\begin{theorem}[Warm-up; proved]\label{thm:haar-intro}
+$\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
+\end{theorem}
+
+\begin{proof}
 Fix $\varepsilon>0$, put $y=T^{1/3+\varepsilon}$ and $z=y$.  Every rough part is
 $\ell$, $\ell^2$ or $\ell_1\ell_2$ (as $y^3>T$).  Use the independent coordinates
 $X_\ell=n\bmod\ell^{e_\ell}$.  Single atoms form forbidden sets $G_\ell$ of
@@ -1790,7 +1817,7 @@ Theorems~\ref{thm:crit}, \ref{thm:twolevel}, \ref{thm:klevel};
 Corollary~\ref{cor:crit3}; Proposition~\ref{prop:hmin}, i.e.\ $H_{\min}(\theta)$
 for every $\theta>0$; Propositions~\ref{prop:complete}, \ref{prop:ceiling},
 \ref{prop:bonf}, \ref{prop:QR}; Corollary~\ref{cor:exactly};
-Theorem~\ref{thm:haar-intro} (with the classical local lemma and divisor
+Theorems~\ref{thm:haar-intro} and~\ref{thm:haar-main} (with the classical local lemma and divisor
 bound); the lower bound in Remark~\ref{rem:hubs} (with the prime number theorem
 in progressions).
 \item Proved modulo Thorner--Zaman \cite{TZ} (with the McCurley statement quoted there):
