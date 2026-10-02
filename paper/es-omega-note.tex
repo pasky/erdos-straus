@@ -1196,19 +1196,34 @@ $\mu'(\text{no good pair event})\ge\prod(1-x_E)\ge\exp(-16S_{\rm tot})$.
 The exponent $1/3$ reflects the crude bound $N(M)\le\tau(A^2)$ for multi-prime
 atoms at a fixed prime.
 
-\begin{remark}[Conditional; the implication is proved modulo {\cite[Prop.~1.4]{ET}}]\label{rem:pp}
 Let $w_\ell(T,z)=\sum1/\varphi(r_E)$ over the distinct surviving events $E$ whose
-rough part is divisible by $\ell$.  Suppose $w_\ell(T,z)\le\log z/(8\log T)$ for
-all primes $z<\ell\le T$, with $z=(\log T)^C$, for all large $T$.  Then
-$\log(1/\delta^*(T))\ll(\log T)^{\max(C+1,4)+o(1)}$.  Indeed, apply the local
-lemma on the coordinates $X_\ell$, $\ell>z$, to all distinct surviving events,
-with $x_E=2/\varphi(r_E)\le1/2$.  An event has at most $\log T/\log z$ primes, so
-$\prod_{E'\sim E}(1-x_{E'})\ge\exp(-4\sum_{\ell\mid r_E}w_\ell)\ge e^{-1/2}$, and the
-lemma gives probability $\ge\exp(-4S_{\rm tot})$ of no event.  The quarantine
-costs $\le\pi(z)\log T$, and $S_{\rm tot}\ll(\log T)^4\log\log T$ by
-\cite[Prop.~1.4]{ET}.  Without \cite{ET}, Lemma~\ref{lem:globalmass} gives
-only $\delta^*(T)\ge\exp(-T^{o(1)})$ by this argument.  We do not know how to
-prove the per-prime hypothesis.
+rough part is divisible by $\ell$.
+
+\begin{lemma}[Proved]\label{lem:ppl}
+Let $3\le z\le T$.  If $w_\ell(T,z)\le\log z/(8\log T)$ for all primes
+$z<\ell\le T$, then
+$\delta^*(T)\ge(8/\varphi(Q_z))\exp(-4S_{\rm tot})$, so
+$\log(1/\delta^*(T))\le\pi(z)\log T+4S_{\rm tot}+O(1)$, with $S_{\rm tot}$ as in
+Lemma~\ref{lem:globalmass}.
+\end{lemma}
+
+\begin{proof}
+Apply the local lemma \cite[Lemma~5.1.1]{AS} on the coordinates $X_\ell$,
+$\ell>z$ (uniform on units), to all distinct surviving events, with
+$x_E=2/\varphi(r_E)\le1/2$ and $E\sim E'$ when the rough parts share a prime.  An
+event has at most $\log T/\log z$ primes, so
+$\prod_{E'\sim E}(1-x_{E'})\ge\exp(-4\sum_{\ell\mid r_E}w_\ell)\ge e^{-1/2}\ge1/2$, and
+the lemma gives probability $\ge\prod(1-x_E)\ge\exp(-4S_{\rm tot})$ of no event.
+The class of one modulo $Q_z$ has relative measure $\varphi(24)/\varphi(Q_z)$, and
+$\log\varphi(Q_z)\le\pi(z)\log T$.
+\end{proof}
+
+\begin{remark}[Conditional; the implication is proved modulo {\cite[Prop.~1.4]{ET}}]\label{rem:pp}
+Suppose the hypothesis of Lemma~\ref{lem:ppl} holds with $z=(\log T)^C$ for all
+large $T$.  Then $\log(1/\delta^*(T))\ll(\log T)^{\max(C+1,4)+o(1)}$, since
+$S_{\rm tot}\ll(\log T)^4\log\log T$ by \cite[Prop.~1.4]{ET}.  Without \cite{ET},
+Lemma~\ref{lem:globalmass} gives only $\delta^*(T)\ge\exp(-T^{o(1)})$ by this
+argument.  We do not know how to prove the per-prime hypothesis.
 \end{remark}
 
 For $y=T^{1/3+o(1)}$ the Haar bound of Theorem~\ref{thm:haar-intro} has a
@@ -1269,9 +1284,8 @@ part $r$ is at most $\min(2F_I(r),\tau^{*2}T/r)$, with $\tau^*$ as in
 \]
 Splitting at $R=T^{1/(1+\eta)}$ gives
 $w_\ell\ll R^{\eta}T^{o(1)}/\ell+\tau^{*2}T/(\ell R)=T^{\kappa+o(1)}/\ell$.  With
-$z=T^{\kappa+\varepsilon}$ the per-prime condition of Remark~\ref{rem:pp} holds
-for this $z$, and the argument there (with $S_{\rm tot}=T^{o(1)}$ from
-Lemma~\ref{lem:globalmass}) gives $\log(1/\delta^*)\le\pi(z)\log T+T^{o(1)}$.
+$z=T^{\kappa+\varepsilon}$ the hypothesis of Lemma~\ref{lem:ppl} holds for large $T$,
+and Lemma~\ref{lem:ppl} with $S_{\rm tot}=T^{o(1)}$ (Lemma~\ref{lem:globalmass}) gives $\log(1/\delta^*)\le\pi(z)\log T+T^{o(1)}$.
 \end{proof}
 
 With $\eta=3/5$ this gives $\kappa=3/8$, weaker than
@@ -1289,7 +1303,7 @@ Type~I counts (Assessment).
 \begin{itemize}
 \item Proved: Lemmas~\ref{lem:atoms}--\ref{lem:mass}, \ref{lem:closed}--\ref{lem:hub},
 \ref{lem:qmass}, \ref{lem:genus}--\ref{lem:np}, \ref{lem:struct}, \ref{lem:globalmass},
-\ref{lem:dict}; Lemma~\ref{lem:lll} (classical); Theorem~\ref{thm:crit};
+\ref{lem:ppl}, \ref{lem:dict}; Lemma~\ref{lem:lll} (classical); Theorem~\ref{thm:crit};
 Proposition~\ref{prop:hmin}, i.e.\ $H_{\min}(\theta)$ for $\theta\ge1/3$;
 Propositions~\ref{prop:complete}, \ref{prop:ceiling}, \ref{prop:bonf}, \ref{prop:QR};
 Corollary~\ref{cor:exactly}; Theorem~\ref{thm:haar-intro} (with the classical
