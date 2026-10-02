@@ -247,3 +247,75 @@ is sharpened and the target corrected.**
   pinnings, and a bound on the normaliser. The alternative coupling-bond
   expansion is blocked because `g_j` is not repulsive, so Penrose fails.
 * Not done: Reduction 6.7 steps 1–2.
+
+# Review round 2 repairs (T9–T15, single-seed note)
+
+* T9: Lemma 6.3 uses the threshold `θ(3/4)^{r−1}`, in one pass under the
+  old σ^×.
+* **T10:** Prop 6.5 relabelled CONDITIONAL on Conj 6.4 **and** Hyp K2 (a
+  k-ary incident-mass second moment, the analogue of Lemma 4.0). At primes
+  where Markov removal would exceed the cap, the k-ary classes are leaked.
+* T11: three-part leak bound; Conj 6.4 falls back to ν_ℓ, not uniform.
+* T12: Reduction 6.7 gets step 2′ (a γ-weighted Lemma 3.1 over R, with
+  constants polynomial in log λ).
+* T13: Lemma 6.9 commentary now uses the pinned KP bound `|log Z₁| ≪ Σ w_ℓ`.
+* **T14:** the diagonal summability in "What (6.2) would give" is
+  relabelled SKETCH, and its constant corrected to `(16/9)²`. The average
+  over R needs step 2′.
+* T15: Lemma 6.11 corrected to `Var(r_j) ≤ (1+O(δ))q_j`, with ν-masses.
+* §6.4 now notes that each toy LP is a single seed.
+* The KP citation is corrected to the paper's single unnumbered Theorem,
+  eqs. (1), (4).
+
+# FINAL CHECKPOINT (workstream closed)
+
+## Proved (internally; hostile review rounds 1–2)
+* **Thm 2.7, the headline:** for each fixed B, (η,B)-gapped ℛ(M)-families
+  have `S_λ ≪_B η^{−1}λ^{3/4}` unconditionally. EB's (E_δ), (★_δ), H_light
+  and (NDE) are not needed. Ingredients:
+  * the QR base (Lemma 1.1, Mordell: Case-B classes are Jacobi
+    non-residues);
+  * the capped sequential measure with leak (Thm 2.3, 2.3′, Lemma 2.1′);
+  * second moments uniform in W (Lemma 2.4, 4.0).
+* **Thm 4.4:** the same cap for all ℛ(M) with `M ≤ P(M)^{1+B}`, provided
+  every modulus with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` is
+  window-resolved. In particular every twin or prime-power modulus with top
+  prime outside that range is covered.
+* For the Conj 4.5_r attack:
+  * Lemma 6.1 (soft-unary Prop 2.4), Lemma 6.2 (composition),
+    Lemma 6.3 (Markov removal);
+  * Lemma 6.6 (Λ² fibre tilting: the average replaces ET's fibre-variance
+    term);
+  * Lemma 6.9 (Kotecký–Preiss convergence for two-prime systems);
+  * Lemma 6.10 (gluing identity) and Lemma 6.11 (one shared prime);
+  * the exact unary part of the Λ² noise ratio.
+* Lemma 3.1, 3.2 (u-form and sign constraint for (E_δ)).
+
+## Open (named gaps)
+* **Conj 4.5_r / 6.4:** the window step for unresolved (twin, ≥3-prime,
+  prime-power) moduli with top prime in `(e^{λ^{1/4}}, e^{λ/2}]`, for
+  general majorants. Prop 6.5 reduces it to Conj 6.4 + Hyp K2.
+* **The two-prime Λ² cap:** reduced to (6.2), equivalently the
+  factorisation (6.3) of the pinned density, plus steps 1, 2, 2′ of
+  Reduction 6.7. All of these are SKETCH or OPEN.
+* Uniformity in B (moduli with `log M/log P(M)` unbounded).
+* (a,D) and Case-A classes. The square base, Remark 1.4, is evidence only.
+* (E_δ) itself; it is no longer on the critical path.
+
+## Global verdict
+Not settled. For each fixed B, 3/4 is sharp for all ℛ(M)-families except
+the unresolved middle-range moduli. Every mechanism examined (heavy
+histories, small-prime correlations, gapped balance) was harmless once the
+measure was chosen correctly. Nothing points to (B).
+
+## Recommended next steps (in order)
+1. Hyp K2: a k-ary incident-mass second moment, in the style of
+   Lemma 4.0. Routine; it turns Prop 6.5 into "Conj 6.4 ⇒ cap".
+2. The factorisation (6.3) for two-prime systems: compare Kotecký–Preiss
+   pinned expansions across pinnings. With Reduction 6.7 steps 1, 2, 2′
+   (including a γ-weighted Lemma 3.1 over R with explicit W₁-dependence),
+   this gives a proved Λ² cap with twins.
+3. Conj 6.4 for r = 2 for general majorants. There is no known route;
+   symmetrising over the residue alphabets needs a transference from the
+   annealed system.
+4. Make the B-dependence explicit, to reach unbounded `log M/log P(M)`.

@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TWIN — (E_δ), the heavy coordinates, and η-twin windows (task O1)
 
-Status: **in progress.** Labels follow `DISCOVERIES.md`. PROVED means proved
+Status: **workstream closed (final checkpoint after review round 2).** Labels follow `DISCOVERIES.md`. PROVED means proved
 here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 (ET) and `EXCEPTIONAL_BALANCED.md` (EB).
 
@@ -26,14 +26,14 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | **Thm 4.4** | cap `≪_B η^{−1}λ^{3/4}` for ℛ(M)-families with `M ≤ P(M)^{1+B}` in which every modulus with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved (all gapped ones are) | PROVED |
 | Lemma 6.1–6.3 | soft-unary Prop 2.4; composition; Markov removal of high-incidence residues | PROVED |
 | Conj 6.4 | k-ary comparison inequality (arithmetic-free, weak `d log(mass)` form): product law vs its sequential k-ary conditioning | OPEN (sharpened gap) |
-| Prop 6.5 | Conj 6.4 ⇒ `S_λ ≪_B η^{−1}λ^{3/4}log λ` for all ℛ(M) with M ≤ P(M)^{1+B}, twins included | PROVED |
-| §6.4 | exact toy window LPs: binary constraints extract a smaller share of their void than unary; the sequential σ is costly in dense toys | EVIDENCE (weak) |
+| Prop 6.5 | Conj 6.4 + Hyp K2 (k-ary incident-mass second moment) ⇒ `S_λ ≪_B η^{−1}λ^{3/4}log λ` for all ℛ(M) with M ≤ P(M)^{1+B}, twins included | CONDITIONAL (review T10) |
+| §6.4 | exact toy window LPs (single seed): binary constraints extract a smaller share of their void than unary; the sequential σ is costly in dense toys | EVIDENCE (weak) |
 | Lemma 6.6 | fibre tilting for Λ² majorants: `saving(g²) ≤ αλ/2 + log(Q_F/\|R\|) + avg_{c∈R}Ξ_c` (removes ET's fibre-variance term) | PROVED |
 | Red 6.7, Conj 6.8 | H_MS^{Sel} (Λ² cap, all ℛ(M), any B, twins) ⇐ empty-fibre density + good fibres (SKETCH) + sparse noise stability via cluster expansion (Conj 6.8; binary case plausibly within reach via POINTWISE_OMEGA2 Lemma 2.1) | SKETCH / OPEN |
-| Lemma 6.9 | two-prime events, good fibre: Mayer/Kotecký–Preiss expansion converges for the single and doubled systems (Penrose + PO2 Lemma 2.1), δ ≤ e^{−6}/8 | PROVED |
+| Lemma 6.9 | two-prime events, good fibre: Mayer/Kotecký–Preiss expansion converges for the single and doubled systems (Penrose + PO2 Lemma 2.1), δ ≤ e^{−6}/8; pinned form `\|log Z₁\| ≪ Σ_ℓ w_ℓ` | PROVED |
 | (6.1) | single-edge diagonal bound: too strong as stated (Lemma 6.11), replaced by (6.2) | superseded |
-| Lemma 6.10, 6.11 | gluing identity `Z₂/Z₁² = E_S[1 + E(r−1)²]`; one shared prime gives `ρ̃_j Var(deg_j)` | PROVED |
-| (6.2)/(6.3) | `Ξ_bin ≤ C[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` via approximate factorisation of the pinned density; summability: diagonal PROVED (ET Lemma 3.1), `Σq_j` SKETCH; this is the remaining step for the two-prime Λ² cap | OPEN |
+| Lemma 6.10, 6.11 | gluing identity `Z₂/Z₁² = E_S[1 + E(r−1)²]`; one shared prime gives `Var(r_j) ≤ (1+O(δ))q_j` (corrected, review T15) | PROVED |
+| (6.2)/(6.3) | `Ξ_bin ≤ C[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` via approximate factorisation of the pinned density; summability: both terms SKETCH (over R a γ-weighted Lemma 3.1 is needed, review T12/T14); this is the remaining step for the two-prime Λ² cap | OPEN |
 | Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
@@ -790,14 +790,20 @@ For a residue a at ℓ ∈ V and a history, let the **incident weight**
 `m_{≥2}(ℓ) = Σ_a σ^×_ℓ(a) c_ℓ(a)`; this is at most the k-ary mass incident
 to ℓ.
 
-**Lemma 6.3 (Markov removal; PROVED).** For θ > 0, adding to the unary
-forbidden set at ℓ the residues with `c_ℓ(a) > θ` raises `p_ℓ` by at most
-`m_{≥2}(ℓ)/θ`. Afterwards every incident weight is ≤ θ. Summed over a
+**Lemma 6.3 (Markov removal; PROVED).** Let θ > 0 and `θ' = θ(3/4)^{r−1}`.
+In one pass, with the incident weights computed under the *old* σ^×, add
+to the unary forbidden set at ℓ the residues with `c_ℓ(a) > θ'`. This
+raises `p_ℓ` by at most `m_{≥2}(ℓ)/θ'`. If every enlarged unary set still
+has density ≤ 1/4, then afterwards every incident weight (under the new
+σ^×) is ≤ θ. (Review T9: removal raises each partner's density by at most
+`(1−p)/(1−p′) ≤ 4/3`, at each of at most r−1 partners; a single pass with
+the reduced threshold avoids iterating.) Summed over a
 window, the unary profile grows by at most `r·μ_{≥2}/θ`, where `μ_{≥2}` is
 the window's k-ary mass. By Lemma 2.6 this is again `O_{B,θ}(s_j³)` in
 `Q'`-expectation.
 
-*Proof.* Markov: `σ^×_ℓ{c_ℓ > θ} ≤ m_{≥2}(ℓ)/θ`. Each k-ary class is
+*Proof.* Markov: `σ^×_ℓ{c_ℓ > θ'} ≤ m_{≥2}(ℓ)/θ'`. The 4/3 bound per
+partner gives the post-removal weight bound. Each k-ary class is
 incident to at most r primes. ∎
 
 (The removed residues are typically the small-u values `−(4u)^{−1}`, which
@@ -810,16 +816,24 @@ a product law on a block V with costs `s_ℓ ∈ (s, (1+η)s]`, and
 `d = ⌊λ/s⌋`. Let `ℱ` be a family of hard k-ary constraints
 (`2 ≤ k ≤ r`) on V with all incident weights `≤ θ ≤ θ₀(r)` and total
 ν-mass `μ_{≥2}`. Let σ be the sequential law (increasing ℓ; at ℓ, `ν_ℓ`
-conditioned off the residues activated by earlier coordinates, uniform if
-that set has ν_ℓ-mass `> δ_ℓ`). Then for every λ-level `f ≥ 0`,
+conditioned off the residues activated by earlier coordinates; if that
+set has ν_ℓ-mass `> δ_ℓ`, then `ν_ℓ` itself, which keeps the unary
+conditioning). Then for every λ-level `f ≥ 0`,
 
     E_σ f ≤ exp( C_r [ d·log(2 + μ_{≥2}) + 1 ] ) · E_ν f.
 
 This statement contains no arithmetic and no unary sieve. It is a binary
 (k-ary) analogue of ET Prop 2.4, in its weak "d·log(mass)" form.
 
-**Proposition 6.5 (sufficiency; PROVED).** Assume Conjecture 6.4 for
-`r = ⌊(1+B)(1+η)⌋`. Then for every fixed B, every family of ℛ(M)-classes
+**Proposition 6.5 (sufficiency; CONDITIONAL on Conj 6.4 and Hyp K2;
+relabelled after review T10).** Assume Conjecture 6.4 for
+`r = ⌊(1+B)(1+η)⌋`, and
+
+> **Hyp K2 (k-ary incident-mass second moment; OPEN).** With
+> `θ' = θ₀(3/4)^{r−1}`, `Σ_{ℓ>W} Q'(m_{≥2}(ℓ) > θ'δ_ℓ/2) ≤ 1/4`.
+
+This is a k-ary analogue of Lemma 4.0. It is plausible by the same
+divisor-sum second moment, but it is not proved here. Then for every fixed B, every family of ℛ(M)-classes
 with `M ≤ P(M)^{1+B}` (twin, prime-power top and all other shapes
 included) plus W₀-smooth classes has
 
@@ -836,14 +850,28 @@ Lemma 6.1, after the Markov removal of Lemma 6.3 with θ = θ₀. Steps:
 * k-ary part: Conjecture 6.4, cost `C_r(d_j log(2+μ_{≥2,j}) + 1)`;
 * compose by Lemma 6.2.
 
+*Where K2 enters (review T10).* The Markov-enlarged unary set must stay
+within the cap `δ_ℓ`. Otherwise the inflation `γ'(ℓ) − 1` is no longer
+`≪ ℓ^{−κ}`, Lemma 2.6's cubic bound fails, and Conj 6.4's
+small-incident-weight hypothesis is lost at ℓ. At a prime where
+`m_{≥2}(ℓ)/θ' > δ_ℓ/2`, all k-ary classes at ℓ are *leaked* rather than
+removed. By K2, the total probability of such primes is ≤ 1/4. Everywhere
+else the enlarged unary set has density `≤ δ_ℓ`.
+
 Taking `Q'`-expectations and using concavity of log together with
 Lemma 2.6 (k-ary masses are part of the cubic window mass) gives
 `E log(2+μ_{≥2,j}) ≤ log(2 + K s_j³)`. Hence the k-ary costs sum to
 `≪ Σ_{s_j>λ^{1/4}} (λ/s_j) log λ ≪ η^{−1}λ^{3/4} log λ`. The unary costs are
-as in Theorem 2.7, with `K` replaced by `K(1 + r/θ₀)`. The leak: σ_j is
-sequential and capped, so Lemma 2.1′ applies. The second moment
-(Lemma 4.0) uses only the caps and Lemma 2.2, which holds for σ_j:
-each coordinate is uniform on a set of density `≥ 1−δ_ℓ` given the past. ∎
+as in Theorem 2.7, with `K` replaced by `K(1 + r/θ')`. The leak: σ_j has
+three parts (unary set, Markov-removed residues, activated k-ary residues),
+each with its own light test. So Lemma 2.1′ is used in the variant
+
+    𝔏 ≤ Σ_ℓ E[p^{un}_ℓ 1{un heavy}] + Σ_ℓ E[p^{k}_ℓ 1{k heavy}] + Q'(some ℓ has m_{≥2}(ℓ) > θ'δ_ℓ/2)
+
+(review T11). A completing residue is excluded wherever its part was
+tested light. Lemma 4.0's total density dominates each part, and the last
+term is `≤ 1/4` by K2. Lemma 2.2 holds for σ_j, since each coordinate is
+uniform on a set of density `≥ 1 − 2δ_ℓ` given the past. ∎
 
 The extra `log λ` is the price of the weak form. Conjecture 4.5_r, the
 H_MS form with `e^{−αΣs}` weights, would remove it.
@@ -872,6 +900,9 @@ Reading.
   same way as H_MS (a binary condition uses two of the d coordinates) and
   agrees with ET §5.8 and EB §3.2. It is weak evidence: the toys are dense
   (`p ≈ 1/5`), tiny (m ≤ 6), and far from the sparse regime of the theorem.
+  Each row is a **single random instance (seed 1)**; there are no seed
+  replicates. In `series_L5_k2_d2.txt` (sequential σ), m = 6 even goes the
+  other way: binary `log C*` = 1.03 against unary 0.92 at equal mass.
 * **Caveat on the choice of σ.** With the *sequential* σ the same toys
   give `log C*` *above* the void: 0.693 vs 0.519 (m = 4, d = 2) and
   1.367 vs 0.825 (m = 5, d = 3) (`series_L5_k2_d*.txt`). In a dense block
@@ -959,6 +990,13 @@ B, twins included) would follow from three steps.
    inflation of the uniform law on R. Summed over `ℓ > w` this is
    `≪ θ^{−2}w^{−1+ε}`. Residues of high incidence are quarantined first
    (Lemma 6.3 = POINTWISE_OMEGA2 Lemma 2.2).
+2′. *Averages over R (review T12):* every fibre average below is over the
+   restricted set R, whose law is inflated relative to uniform by `Π γ(p)`
+   at the QR primes and by local-lemma factors on `(W₁, w]`. So each
+   profile sum needs a γ-weighted Lemma 3.1 (a Lemma 2.6-type bound) for
+   this base, with constants polynomial in log λ. Lemma 2.6's
+   large-divisor constant `exp(O(W₁^{1/4}))` is too large once
+   `W₁ = (log λ)^{C′}`, `C′ > 4`, so that step must be redone. Not done.
 3. *Sparse noise stability (the core):* in a good fibre all coordinates
    are independent and every incident mass is ≤ θ. A Kotecký–Preiss cluster
    expansion of `log P(A_c)` and `log P(A_c∩A'_c)` (polymers: event sets
@@ -1013,8 +1051,9 @@ quantity.
 
 ### 6.7 Conjecture 6.8 for events on at most two primes: convergence proved, comparison step open
 
-**Tool (Kotecký–Preiss, Comm. Math. Phys. 103 (1986) 491–498, Thm 1;
-version used).** Let polymers γ carry weights `w(γ) ∈ ℝ`, with a symmetric
+**Tool (Kotecký–Preiss, Comm. Math. Phys. 103 (1986) 491–498, the
+(single, unnumbered) Theorem, hypothesis (1) and conclusion (4); version
+used).** Let polymers γ carry weights `w(γ) ∈ ℝ`, with a symmetric
 reflexive incompatibility relation `≁`, and let
 `Z = Σ_{pairwise compatible families} Π w(γ)`. Suppose there are
 `a, d : polymers → [0,∞)` with
@@ -1063,10 +1102,14 @@ The vertex degree of `(a, a′)` is at most
 `≤ (1−p)^{−1}ν`, `p ≤ 1/4`. Repeat with 4δ. ∎
 
 So in a good fibre, `log Z₁` and `log Z₂` (doubled) are absolutely
-convergent cluster sums, with every prime's cluster mass ≤ |V| = O(1).
-This also gives the lower bound `log Z₁ ≥ −Σ_ℓ(cluster mass through ℓ)`
-without any correlation inequality. That is ET's missing ingredient 1, in
-the binary sparse regime.
+convergent cluster sums. KP with `a(V) = |V|` alone gives only O(1) per
+prime, which is useless summed over a window (review T13). The useful form
+is the pinned bound (Kotecký–Preiss; Friedli–Velenik, *Statistical
+Mechanics of Lattice Systems*, Thm 5.4):
+`Σ_{X∋ℓ}|φ(X)w^X| ≤ Σ_{V∋ℓ}|w(V)|e^{a(V)} ≪ w_ℓ`. Hence
+`|log Z₁| ≪ Σ_ℓ w_ℓ`, i.e. O(binary mass), with no correlation
+inequality. In that form it supplies ET's missing ingredient 1 in the
+binary sparse regime.
 
 **The remaining step (precise failure point; OPEN).** Conjecture 6.8 for
 two-prime events needs
@@ -1130,12 +1173,19 @@ So `log(Z₂/Z₁²) ≤ E_S E_{ν_S}(r−1)²`, by `log(1+x) ≤ x` and Jensen.
 **Lemma 6.11 (one shared prime; PROVED).** For `S = {j}`,
 `E(r−1)² = Var_ν(r_j)` with `r_j(a) = P(no binary point | y_j = a)/Z₁`.
 If the system consists of the edges at j only (a star), then
-`r_j(a) = Π_{ℓ′}(1 − κ_{a,ℓ′}/ℓ′)/E_ν Π(…)`, where `κ_{a,ℓ′}` is the
-number of forbidden points `(j,a; ℓ′, ·)`. So
-`Var(r_j) = Var_ν(deg_j)(1+O(δ))`, with `deg_j(a) = Σ_{ℓ′} κ_{a,ℓ′}/ℓ′`.
+`r_j(a) = Π_{ℓ′}(1 − x_{a,ℓ′})/E_ν Π(…)`, where `x_{a,ℓ′}` is the
+`ν_ℓ′`-mass of the partner residues forbidden together with `(j,a)`.
+Partners in the unary set do not count; the others weigh `1/(ℓ′(1−p_ℓ′))`
+(review T15). With `deg_j(a) = Σ_{ℓ′} x_{a,ℓ′} ≤ δ`,
 
-*Proof.* Direct computation; in a star the partners are independent given
-`y_j`. ∎
+    Var(r_j) ≤ (1+O(δ))·Var_ν(deg_j) + O(δ)·q_j ≤ (1+O(δ))·q_j.
+
+The identity `Var(r_j) = Var(deg_j)(1+O(δ))` is false: two residues with
+equal deg but different `Σ x²` give `Var(deg) = 0 ≠ Var(r_j)`.
+
+*Proof.* In a star the partners are independent given `y_j`. Then
+`log r_j(a) = −deg_j(a) − ½Σ_{ℓ′}x_{a,ℓ′}² − … + const`. Expand, and
+handle the cross term by AM–GM. ∎
 
 In particular, a single shared prime contributes
 `ρ̃_j Var_ν(deg_j)`. This is *not* of the single-edge form `ρ̃_jρ̃_ℓ′ π_e`:
@@ -1148,10 +1198,14 @@ the Markov quarantine (Lemma 6.3, `deg ≤ δ`) they satisfy
 
     E_S E_{ν_S}(r − 1)² ≤ C [ Σ_{e=(ℓ,ℓ′)} ρ̃_ℓ ρ̃_{ℓ′} π_e + Σ_j ρ̃_j q_j ].        (6.2)
 
-**What (6.2) would give (PROVED reduction).** Both terms are summable as
-needed:
-* the diagonal `Σ_e ρ̃ρ̃′π_e`: its fibre average is `≤ (16/9)Σ_C P(C)
-  M_C^{>w, −α}`, which is `≪ α^{−3}` for all ℛ(M) by ET Lemma 3.1;
+**What (6.2) would give (SKETCH; relabelled after review T14).** Both
+terms should be summable:
+* the diagonal `Σ_e ρ̃ρ̃′π_e`: averaged *uniformly* over fibres it is
+  `≤ (16/9)²Σ_C P(C) M_C^{>w, −α}`. The second 16/9 comes from ν's
+  `(1−p)^{−1}` at both primes. That is `≪ α^{−3}` for all ℛ(M) by ET
+  Lemma 3.1. But Lemma 6.6 averages over the restricted set R, which needs
+  the γ-weighted Lemma 3.1 of step 2′ of Reduction 6.7. So this bullet is
+  SKETCH, not PROVED;
 * `Σ_j ρ̃_j q_j ≤ Σ_{j>w} q_j` (SKETCH, not written at proof level): the
   fibre average of `q_j` is a pair-of-conditions count at j of
   second-moment type (as in Lemma 2.4). The diagonal pairs C = C′ give
