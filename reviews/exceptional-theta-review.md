@@ -6,7 +6,74 @@ EXCEPTIONAL_THETA.md, AGENT_REPORT_A2.md, scripts/theta_*.py, data/theta/.
 Literature assessment reused from the first reviewer: `reviews/theta-lit-notes.md`
 (verdict: apparently new; no prior source found).
 
-Status: IN PROGRESS (items are committed one at a time).
+Status: COMPLETE (all five items).
+
+## Summary of verdicts
+
+| # | item | verdict |
+|---|---|---|
+| 1 | Theorem 2.5 (+ Lemmas 2.1–2.3, Prop 2.4) | **SOUND** (presentation repairs T1–T4) |
+| 2 | Theorem 2.7, Lemma 2.8 (+ proof of Cor 3.6) | **SOUND** (cosmetic S1–S2) |
+| 3 | scope of Cor 3.4–3.6 | **SOUND-AFTER-REPAIRS**: SC1, a major *interpretive* defect, with a proved repair (Lemma R); SC2 minor |
+| 4 | Lemma 3.7, Lemma 3.8, Thm 5.5 (+ Cor 5.6, Prop 5.7) | **SOUND** (L1 minor, about an out-of-scope label) |
+| 5 | §4 accounting (Lemmas 4.1–4.4), summary/report consistency | **SOUND-AFTER-REPAIRS** (SC1 rewording, A1–A3 minor) |
+
+**Bottom line.** The mathematics holds up:
+* Theorem 2.5's lower bound on the mean of *every* nonnegative level-λ
+  majorant;
+* its sequential extension;
+* the profile lemmas;
+* H_A3 via Elsholtz–Tao Prop 1.4, which I verified against the source,
+  including the k-range;
+* the balanced-supply lemma;
+* the Λ² theorem.
+
+The independent exact LPs agree with every intermediate inequality of the
+proofs:
+* CRT LP = average of the fibre Boolean LPs in 54/54 instances;
+* the Prop 2.4 chain holds in 51/51 instances;
+* the sequential chain holds in 32/32 instances;
+* the Λ² chain holds in 25/25 instances.
+
+**The one substantive issue (SC1).** The ceiling is proved for majorants
+of bounded *level*. The 3/4 note's real constraint is its *coefficient
+sum* `T_abs ≤ N^{1/2}`; its modulus bound is explicitly "not necessary".
+The §0 Verdict even omits the level hypothesis.
+
+Lemma R (proved in item 3) repairs this. Any majorant with coefficient sum
+T yields one of level `Λ₀ + log T + log(1/Eν)` with at most twice the
+mean, where Λ₀ is the log of the largest slice prime. So "3/4 is sharp"
+holds for every architecture whose final bound is `N·Eν + Σ|a_i|`, with
+family moduli ≤ N^{O(1)}. Families with slice primes beyond N^{O(1)}
+remain formally outside.
+
+**Numbered defects.**
+
+| defect | severity | location |
+|---|---|---|
+| T1 | minor | O(log²λ) claim |
+| T2 | minor | truncated μ̄ |
+| T3 | cosmetic | Jensen chain |
+| T4 | cosmetic | z ≥ 4 |
+| S1 | minor | Q₀ size in Cor 3.6 |
+| S2 | cosmetic | s_j undefined |
+| SC1 | MAJOR, interpretive | level vs coefficient budget |
+| SC2 | minor | LL R-term |
+| L1 | minor | Case-A reduction label |
+| A1 | minor | Lemma 4.3 reason |
+| A2 | minor | "constants only" direction |
+| A3 | minor | report wording |
+
+Each entry below carries location, quote and fix.
+
+**Code (reviewer's own, no shared code with the subject's scripts).**
+* `scripts/review_theta_lp.py` (Parts A/B/C);
+* `scripts/review_theta_seq.py`;
+* `scripts/review_theta_selberg.py`.
+
+Outputs are in `data/theta/review_*.txt`. Replay with
+`PYTHONPATH=scripts uv run --with scipy[ --with sympy] python <script>`.
+Part A takes about 1.5 h at one core; the rest take minutes.
 
 ## Item 1 — Theorem 2.5 (with Lemmas 2.1–2.3, Proposition 2.4)
 
