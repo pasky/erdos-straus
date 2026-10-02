@@ -60,3 +60,18 @@ coordinates X_ℓ are *independent* under the measure in which P, p(v),
 at distinct primes, of size ≤k; (iv) the codegree maxima Δ^{(j+1)} are over
 the *whole* system used (not just over occurring/realised parts), at pool
 size `kU_0`; (v) `D` includes the j=0 term `Δ^{(1)}=max deg`.
+
+## Item 3 — O2 Lemma 2.1 (pseudoforest bound), re-derived. Verdict: SOUND
+
+* `1+z(s+d)≤(1+zs)(1+zd)`; expansion over (U,f); on {F occurs} primes of U
+  ↔ vertices of F injectively, so each component has `|E|≤|V|`. ✓
+* `Σ_{f(U)=F} z^{|U|} ≤ ∏_{v∈V(F)}(1+z deg_F v) ≤ e^{2z|E(F)|}`. ✓
+  Singles give `(1+z)^{|π(F)|}e^{zS_1}`, total weight `e^{3z|V(F)|}`. ✓
+* Components on disjoint prime sets multiply; `≤exp(Σ_K w_K)`. ✓
+* Trees: BFS child-set encoding over all roots, `Σ_{|C|=c,C⊆N(v)}∏p ≤
+  deg^c/c!`, root factor `deg(v_0)δ^{c_1−1}`, compositions `v^v/v! ≤ e^v`,
+  `Σ_{v_0}p(v_0)deg(v_0)=2S_2`. Unicyclic: ≤ v²/2 extra pairs, P(K)≤P(T). ✓
+* Final constant: `Σ_j(3+2j+j²/2)e^{−j} = 4.746+1.841+0.997 = 7.584`,
+  ×2 = 15.17 ≤ 16. ✓
+* Same hypotheses (i),(ii) of Item 2 (independence; disjoint vertices per
+  prime) plus the vertex-degree bound `δ≤e^{−3z−2}`.
