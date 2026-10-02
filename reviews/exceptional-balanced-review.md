@@ -10,7 +10,33 @@ D1, D2, … with severity (CRITICAL / MAJOR / MINOR / COSMETIC).
 
 ## Verdict summary
 
-(filled in as items are checked)
+| # | item | EB label | verdict | defects |
+|---|---|---|---|---|
+| 1 | Lemma 2.1 (gapped ⇒ (U)) | PROVED | **SOUND** | D1 (cosmetic) |
+| 2 | Lemma 2.2 (heavy coordinates) | PROVED | **SOUND** | — |
+| 3 | Thm 2.3 (sequential bound, given (NDE)) | PROVED given (NDE) | **SOUND** | D2 (minor, R = ℤ/Q₀ scope) |
+| 4 | Lemma 2.4 (window masses) | PROVED | **SOUND** | — |
+| 5 | Thm 2.5 (cap under H_light) | CONDITIONAL | **SOUND-AFTER-REPAIRS** | D3, D3a (minor), **D4 (major)**, D5 |
+| 6 | Lemma 4.1 (D = sr²) | PROVED | **SOUND** | — |
+| 7 | Lemma 4.2 (counting iff B < 1) | PROVED | **SOUND** | D6 (minor wording) |
+| 8 | Prop 4.3 (sup ≥ y^{1/5−o(1)}) | PROVED | **SOUND-AFTER-REPAIRS** | D7, D8 (minor), **D9 (major, framing)** |
+| 9 | Prop 4.4 (E_δ ⇒ ★_δ ⇒ H_light ⇒ cap) | PROVED (weak form sketched) | main chain **SOUND-AFTER-REPAIRS**; weak-ε form **DEFECTIVE as labelled** | D10, D11 (minor), **D12-W (major)** |
+| 10 | EVIDENCE §3, §4.3 | EVIDENCE | **SOUND-AFTER-REPAIRS** | **D13, D15 (major)**, D14, D16, D17 (minor), D18 |
+| 11 | §0 verdict / scope | — | **SOUND-AFTER-REPAIRS** | D19 (minor) |
+
+**Bottom line.** The mathematics of §2 (Lemmas 2.1, 2.2, 2.4, Thm 2.3) and
+Lemmas 4.1–4.2 is correct. The "verbatim" reuse of ET Thm 2.7 with Lemma 2.2 in
+the induction step is legitimate under (NDE). Thm 2.5 is correct up to
+constants, after restating H_light(ii) as a cubic window bound (D4). Without
+that restatement, the chain (★_δ) ⇒ H_light(O_δ(1)) does not literally hold.
+Prop 4.3 is correct, but its witnesses are *dominant* moduli, so it is no
+evidence about the balanced content of (E_δ) (D9). The weak-ε form of Prop 4.4
+is unproved and has a concrete gap (D12-W). Two numerical readings are
+contradicted by the committed data or by a controlled re-run: heavy p(h) at
+ℓ ∈ [128,512) for X = 10⁶ (D13), and the "twin ≈ 0.2, redundant" result, which
+is an ordering artefact (D15). No CRITICAL defect: nothing labelled PROVED is
+false as a mathematical statement, except the sketched weak form, which is
+parenthetically flagged.
 
 ## Item-by-item
 
@@ -249,7 +275,7 @@ Main chain.
   ET Cor 3.6. I checked that the latter does not use `q ≤ ℓ^C`. It needs
   `h(p) ≤ 1/(p−1) + 3p^{−δ}`, which holds for p > w₀ once `w₀^{−δ} ≤ 1/2`.
   The window bound then follows from `M ≤ e^{(1+B)(1+η)s_j}`, so
-  `K = O_{δ}(1)·(1+B)³`-normalised. ✓ after D4.
+  constant `O_δ(1)`. ✓ after D4.
 * Then Thm 2.5 applies, with heavy charge 0. ✓
 
 **D10 (MINOR, Prop 4.4 / §2.6).** "Under (★_δ) there are no heavy coordinates"
@@ -338,7 +364,7 @@ about 0.5 per unit mass when added to dom, and less when added after the other.
 **D16 (MINOR, §3.2 mislabel "Composite moduli here are … balanced and mostly
 η-twin").** A two-prime modulus pq is never balanced (`P = max(p,q) > √(pq)`).
 In all four windows the balanced conditions are exactly the 3-prime ones
-(1463, 1771, 2431, 3059, 4199, 4807). The m = 2 gain 0.035 for {11,13,17,19}
+(1463, 1771, 2431, 3059, 4199, 4807, and the 4-prime 19019). The m = 2 gain 0.035 for {11,13,17,19}
 therefore comes with non-balanced pair moduli (143, 187, 247, 323) in the family.
 For {7,11,19,23}, every prime is ≡ 3 (4), so there are **no** pair conditions at
 all. Some pairs are η-gapped at η = 1/4 (91 = 7·13: log13/log7 = 1.32). Fix: rename
@@ -355,3 +381,21 @@ toy scale. (c) The adversary counts all types, dom included, so "tracks π(y)" i
 not a balanced statement (cf. D9). (d) The committed `steer_X1e5.txt` predates
 the reach/free/π(y) output, so the table is not backed by committed data. Fix:
 regenerate the data file, report all six ℓ, and give `τ(A_1²)` separately.
+
+### Item 11 — §0 verdict and scope claims. Verdict: **SOUND-AFTER-REPAIRS**
+
+* "Neither (A) nor (B) is proved", "η-twin moduli are untouched", and "numerics
+  at toy scales" are all accurate. ✓
+* **D19 (MINOR, scope overstatement).** "Balanced moduli whose two top primes are
+  separated (η-gapped) are reduced to one arithmetic extremal statement, (E_δ)."
+  Thm 2.5 and Prop 4.4 cover only **(η,B)-gapped families with B fixed**
+  (`M ≤ P(M)^{1+B}`), with constant `(1+B)^{3/4}`. Gapped moduli with
+  `log M/log P(M)` unbounded (within moduli ≤ e^{O(λ)}) are not covered. No
+  dyadic-in-B summation is given. Also, w₀ must grow with δ (D10), and
+  numerically with X (D13). Fix: add "for each fixed B" to §0, §2.6 and the A3
+  report.
+* The §1 claim that ET's profile bound holds for all of 𝔉 is correct, since
+  ET Lemma 3.1 is unrestricted in M. ✓
+* AGENT_REPORT_A3 mirrors EB faithfully. It inherits D4, D9, D12-W, D13, D15
+  and D19 (its EVIDENCE bullet repeats "η-twin ≈ 0.2" and "p > 1/4 only for
+  ℓ < 128").
