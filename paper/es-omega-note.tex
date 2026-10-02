@@ -22,6 +22,7 @@
 \newcommand{\cU}{\mathcal U}
 \newcommand{\ckmin}{ck_{\min}}
 \newcommand{\Lc}{\mathcal L}
+\newcommand{\supp}{\operatorname{supp}}
 \raggedbottom
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
@@ -488,6 +489,101 @@ Since $840\mid Q$ the prime is hard, and $p>Q>T$ gives infinitely many distinct
 primes.  Inverting: if $\Lc\ge3\log\log p$ then already $W(p)>T\ge(\log p)^3$;
 otherwise $\Lc/\log\Lc\ll\log\log p/\log\log\log p$ and
 $\Lc\ge2\log\log p-O(\log\log p/\log\log\log p)$.  All inputs are effective.
+\end{proof}
+
+\section{Support-truncated inclusion--exclusion}\label{sec:supp}
+
+\emph{Setting.}  Let $\mathcal P$ be a finite set of primes and
+$X=(X_\ell)_{\ell\in\mathcal P}$ independent random variables.  Let $\mathcal E$ be
+a finite family of events; each $E\in\mathcal E$ has a nonempty support
+$\supp E\subseteq\mathcal P$ and depends only on
+$(X_\ell)_{\ell\in\supp E}$.  For an outcome $x$ put
+\begin{gather*}
+ A(x)=\{E\in\mathcal E:\ E\text{ occurs}\},\quad
+ V(x)=\bigcup_{E\in A(x)}\supp E,\quad N(x)=|V(x)|,\\
+ a_\ell(x)=\#\{E\in A(x):\ \ell\in\supp E\}.
+\end{gather*}
+For $L\ge0$ and $F\subseteq\mathcal E$ with $\supp F=\bigcup_{E\in F}\supp E$, define
+\begin{gather*}
+ B_L(x)=\sum_{F\subseteq A(x),\ |\supp F|\le L}(-1)^{|F|},\\
+ G_{L+1}(x)=e_{L+1}\big(a(x)\big)=\sum_{P\subseteq\mathcal P,\ |P|=L+1}\ \prod_{\ell\in P}a_\ell(x).
+\end{gather*}
+The truncation is by the number of \emph{primes} involved, not by the number of
+events; this is what defeats the hub configurations of
+Proposition~\ref{prop:bonf}.
+
+\begin{lemma}[Proved]\label{lem:closed}
+Call $W\subseteq\mathcal P$ independent at $x$ if no $E\in A(x)$ has
+$\supp E\subseteq W$.  If $A(x)=\emptyset$ then $B_L(x)=1$.
+Otherwise
+\[
+ B_L(x)=\sum_{\substack{W\subsetneq V(x)\ \text{independent at }x\\ |W|\le L}}
+ (-1)^{L-|W|}\binom{N-|W|-1}{L-|W|},
+\]
+and in particular $B_L(x)=0$ whenever $1\le N(x)\le L$.
+\end{lemma}
+
+\begin{proof}
+Fix $x$, write $A,V,N$.  For $U\subseteq V$ the alternating sum over all
+$F\subseteq\{E\in A:\supp E\subseteq U\}$ is
+$I(U)=\mathbf 1[\text{no }E\in A\text{ has }\supp E\subseteq U]$, so by M\"obius
+inversion on the Boolean lattice
+$\sum_{F\subseteq A,\ \supp F=U}(-1)^{|F|}=\sum_{W\subseteq U}(-1)^{|U\setminus W|}I(W)$.
+Summing over $U\subseteq V$ with $|U|\le L$,
+\[
+ B_L=\sum_{W\subseteq V,\ I(W)=1,\ |W|\le L}\ \sum_{j=0}^{L-|W|}(-1)^j\binom{N-|W|}j .
+\]
+The inner sum is $(-1)^{L-|W|}\binom{N-|W|-1}{L-|W|}$ if $|W|<N$ and $1$ if $W=V$;
+and $I(V)=1$ iff $A=\emptyset$.  If $N\le L$ every binomial
+$\binom{N-|W|-1}{L-|W|}$ vanishes.
+\end{proof}
+
+\begin{lemma}[Proved]\label{lem:pointwise}
+For every $x$ and $L\ge0$,
+\begin{gather*}
+ B^*_L(x):=B_L(x)-4^{L+1}G_{L+1}(x)\le\mathbf 1[A(x)=\emptyset],\\
+ |B_L(x)-\mathbf 1[A(x)=\emptyset]|\le4^{L+1}G_{L+1}(x).
+\end{gather*}
+\end{lemma}
+
+\begin{proof}
+If $A=\emptyset$ then $a\equiv0$ and $B_L=1$.  Let $A\ne\emptyset$.  If $N\le L$
+then $B_L=0$.  If $N\ge L+1$, Lemma~\ref{lem:closed} and Vandermonde give
+$|B_L|\le\sum_{w\le L}\binom Nw\binom N{L-w}=\binom{2N}L$.  For
+$f(N)=\binom{2N}L/\binom N{L+1}$ one computes
+\[
+ \frac{f(N+1)}{f(N)}=\frac{2(2N+1)(N-L)}{(2N+2-L)(2N+1-L)},
+\]
+and with $t=N-L\ge1$ the denominator exceeds the numerator by
+$L^2+3L+4t+2$; so
+$\binom{2N}L\le f(L+1)\binom N{L+1}\le4^{L+1}\binom N{L+1}$.  Finally
+$\binom N{L+1}=e_{L+1}(\mathbf 1[\ell\in V])\le e_{L+1}(a)$.
+\end{proof}
+
+\begin{lemma}[Proved]\label{lem:meanmass}
+Let $z\ge16$ and $\Lambda_z=\log E\prod_{\ell\in\mathcal P}(1+za_\ell)$.  Then
+$E\,G_{L+1}\le z^{-L-1}e^{\Lambda_z}$, so
+$E|B^*_L-\mathbf 1[A=\emptyset]|\le2\cdot4^{-L-1}e^{\Lambda_z}$ for $z=16$.  If
+the events are unions of cells of the coordinates (in our application, unit
+residue classes modulo $\prod\ell^{e_\ell}$), then $B_L$ is a combination of cell
+indicators on supports of size $\le L$, $G_{L+1}$ a nonnegative combination on
+supports of size $\le k(L+1)$ with $k=\max|\supp E|$, and, after merging
+equal cells, $M_1(B_L)\le E\prod_\ell(1+2a_\ell)$ and $M_1(G_{L+1})=E\,G_{L+1}$.
+\end{lemma}
+
+\begin{proof}
+The first claim is termwise.  Group the terms of $B_L$ by $U=\supp F$.  On a
+cell $c$ of the coordinates in $U$ the coefficient is
+\[
+ \kappa(U,c)=\sum_{W\subseteq U}(-1)^{|U\setminus W|}I_c(W)
+\]
+(as in Lemma~\ref{lem:closed}), so $|\kappa|\le2^{|U|}$, and $\kappa=0$ unless every
+$\ell\in U$ lies in the support of an event occurring on $c$ with support in
+$U$ (otherwise the terms cancel in pairs).  Hence
+\[
+ M_1(B_L)\le\sum_U2^{|U|}E\prod_{\ell\in U}a_\ell=E\prod_\ell(1+2a_\ell).
+\]
+$G_{L+1}$ expands with coefficients $+1$.
 \end{proof}
 
 \section{Limits of the method}\label{sec:limits}
