@@ -1,0 +1,6 @@
+T=1000000 z=20 k=4 (max #primes>z in M: 4) c0=0.0312  S*=217.882
+  addition rounds=1 |B|=345  c0|B|=10.78 <= charge=222.51 <= k S*=871.53  stage-ineq ok=True
+  final max w_l=0.0292  #events=3593480 S_ev=31.658  LLL min prod=0.9435 ok=True
+  certified log(1/delta*) <= 3499.2   (Thm 11.3 explicit bound 386282.1)
+  MT seed 0: resamples=32; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 1: resamples=34; direct check: atoms hit by n = 0 (must be 0)

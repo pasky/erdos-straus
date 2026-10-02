@@ -1,0 +1,32 @@
+T=10000 z=20 k=3 (max #primes>z in M: 2) c0=0.0417  S*=59.831
+  addition rounds=1 |B|=99  c0|B|=4.12 <= charge=41.37 <= k S*=179.49  stage-ineq ok=True
+  final max w_l=0.0414  #events=20093 S_ev=6.727  LLL min prod=0.9222 ok=True
+  certified log(1/delta*) <= 694.6   (Thm 11.3 explicit bound 39989.7)
+  MT seed 0: resamples=10; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 1: resamples=4; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 2: resamples=7; direct check: atoms hit by n = 0 (must be 0)
+T=10000 z=85 k=2 (max #primes>z in M: 2) c0=0.0625  S*=59.831
+  addition rounds=1 |B|=50  c0|B|=3.12 <= charge=14.45 <= k S*=119.66  stage-ineq ok=True
+  final max w_l=0.0621  #events=21511 S_ev=8.368  LLL min prod=0.8856 ok=True
+  certified log(1/delta*) <= 478.6   (Thm 11.3 explicit bound 18085.3)
+  MT seed 0: resamples=16; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 1: resamples=7; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 2: resamples=10; direct check: atoms hit by n = 0 (must be 0)
+T=10000 z=5 k=5 (max #primes>z in M: 3) c0=0.0250  S*=59.831
+  addition rounds=1 |B|=180  c0|B|=4.50 <= charge=80.35 <= k S*=299.16  stage-ineq ok=True
+  final max w_l=0.0249  #events=16034 S_ev=4.312  LLL min prod=0.9522 ok=True
+  certified log(1/delta*) <= 1228.1   (Thm 11.3 explicit bound 110480.1)
+  MT seed 0: resamples=4; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 1: resamples=5; direct check: atoms hit by n = 0 (must be 0)
+T=100000 z=20 k=3 (max #primes>z in M: 3) c0=0.0417  S*=120.664
+  addition rounds=1 |B|=171  c0|B|=7.12 <= charge=102.87 <= k S*=361.99  stage-ineq ok=True
+  final max w_l=0.0401  #events=291465 S_ev=16.939  LLL min prod=0.9240 ok=True
+  certified log(1/delta*) <= 1442.7   (Thm 11.3 explicit bound 100596.6)
+  MT seed 0: resamples=12; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 1: resamples=19; direct check: atoms hit by n = 0 (must be 0)
+T=100000 z=133 k=2 (max #primes>z in M: 2) c0=0.0625  S*=120.664
+  addition rounds=1 |B|=77  c0|B|=4.81 <= charge=30.96 <= k S*=241.33  stage-ineq ok=True
+  final max w_l=0.0623  #events=294980 S_ev=20.145  LLL min prod=0.8840 ok=True
+  certified log(1/delta*) <= 966.9   (Thm 11.3 explicit bound 45305.2)
+  MT seed 0: resamples=20; direct check: atoms hit by n = 0 (must be 0)
+  MT seed 1: resamples=19; direct check: atoms hit by n = 0 (must be 0)
