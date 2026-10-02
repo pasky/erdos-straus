@@ -1151,8 +1151,78 @@ only $\delta^*(T)\ge\exp(-T^{o(1)})$ by this argument.  We do not know how to
 prove the per-prime hypothesis.
 \end{remark}
 
-None of this transfers to primes: the local lemma does not provide a
+For $y=T^{1/3+o(1)}$ the Haar bound of Theorem~\ref{thm:haar-intro} has a
+prime-side counterpart: Theorem~\ref{thm:main}, through the pointwise minorant
+of Theorem~\ref{thm:crit}.  The local lemma by itself does not provide a
 pointwise minorant.
+
+\subsection*{Single-prime atoms and Type~I solutions}
+Following \cite[\S2]{ET}, let $\Sigma_I^n$ be the set of sextuples
+$(a,b,c,d,e,f)$ satisfying their identities (2.1)--(2.9), among them
+\[
+ 4abd=ne+1,\quad ce=a+b,\quad 4acd=n+f,\quad ef=4a^2d+1,\quad bf=na+c,
+\]
+and put $F_I(n)=\#\{(a,b,c,d,e,f)\in\mathbb N^6\cap\Sigma_I^n:\ a\le b\}$.
+
+\begin{lemma}[Proved]\label{lem:dict}
+Let $r>1$ be odd.  The atoms $(M,D)$ with $M=mr\equiv3\pmod4$, $D\mid A_M^2$,
+$m\mid4D+1$ and $D\le A_M$ \textup{(}any $m\ge1$\textup{)} correspond
+bijectively to the points of $\mathbb N^6\cap\Sigma_I^r$ with $a\le b$ and $d$
+squarefree, via $D=sr'^2$, $A_M=sr'k$ \textup{(}$s$ squarefree\textup{)} and
+\[
+ (a,b,c,d,e,f)=\big(r',\,k,\,(r'+k)/m,\,s,\,m,\,(4D+1)/m\big).
+\]
+The class of the atom is $-4D\equiv-a/b\pmod r$.  Hence the number of distinct
+classes modulo $r$ carried by atoms with rough part $r$, under any class-of-one
+quarantine, is at most $2F_I(r)$.
+\end{lemma}
+
+\begin{proof}
+By the proof of Lemma~\ref{lem:mass}, $m\mid r'+k$, so $c\in\mathbb N$.  Then
+$4abd=4A_M=mr+1$, $ce=a+b$ and $ef=4sr'^2+1$; by direct computation these three
+identities (with nonzero entries) imply the others, e.g.\
+$e\cdot4acd=4a^2d+4abd=(ef-1)+(ne+1)$ and $e\cdot bf=a(ne+1)+b=e(an+c)$.
+Conversely a point with $a\le b$ and $d$ squarefree gives $D=da^2\le A=dab$,
+$M=ne=4A-1$, $m=e\mid4D+1$.  The triple $(s,r',k)$ determines $D$ and $A$,
+hence $M$; and $4A\equiv1\pmod r$ gives $-4D\equiv-r'/k$.  Partners $A^2/D$ at
+most double the count.
+\end{proof}
+
+So the single-prime forbidden sets are governed by Type~I representations of
+$4/r$.  Modulo the proof of \cite[Prop.~1.7]{ET} (its Lemma~2.8 and \S3), which
+bounds the relevant points, $F_I(n)\le n^{3/5+O(1/\log\log n)}$; ET remark that
+$3/5$ appears to be the limit of divisor-bound arguments.  A direct elementary
+argument gives $\ll\sqrt\ell\log\ell$ points with $a=1$ at a prime $\ell$.
+
+\begin{theorem}[Proved implication]\label{thm:eta}
+Suppose $F_I(n)\le n^{\eta+o(1)}$ for all $n$, for some $0\le\eta\le1$, and put
+$\kappa=\eta/(1+\eta)$.  Then $w_\ell(T,z)\le T^{\kappa+o(1)}/\ell$ for all $z$ and
+all primes $\ell\le T$, and $\log(1/\delta^*(T))\le T^{\kappa+o(1)}$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:dict} and the crude count, the number of events with rough
+part $r$ is at most $\min(2F_I(r),\tau^{*2}T/r)$, with $\tau^*$ as in
+\S\ref{sec:main}.  Hence
+\[
+ w_\ell\ll\log\log T\sum_{r\le T,\ \ell\mid r}\frac{\min(2r^{\eta+o(1)},\tau^{*2}T/r)}r .
+\]
+Splitting at $R=T^{1/(1+\eta)}$ gives
+$w_\ell\ll R^{\eta}T^{o(1)}/\ell+\tau^{*2}T/(\ell R)=T^{\kappa+o(1)}/\ell$.  With
+$z=T^{\kappa+\varepsilon}$ the per-prime condition of Remark~\ref{rem:pp} holds
+for this $z$, and the argument there (with $S_{\rm tot}=T^{o(1)}$ from
+Lemma~\ref{lem:globalmass}) gives $\log(1/\delta^*)\le\pi(z)\log T+T^{o(1)}$.
+\end{proof}
+
+With $\eta=3/5$ this gives $\kappa=3/8$, weaker than
+Theorem~\ref{thm:haar-intro}; $\eta=1/2$ gives exactly $1/3$.  So individual
+Type~I bounds beat the exponent $1/3$ only if $\eta<1/2$, well beyond
+\cite[Prop.~1.7]{ET}.  The single-prime part of the per-prime hypothesis is
+not the bottleneck (Theorem~\ref{thm:haar-intro} absorbs it by quarantining
+$T^{o(1)}$ bad primes); what is needed is control of
+$\sum_{r\le T,\ \ell\mid r}F_I(r)/r$ uniformly in $\ell$, a progression average of
+Type~I counts (Assessment).
+
 
 \section{Summary of status}
 
