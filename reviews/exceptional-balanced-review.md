@@ -321,7 +321,12 @@ should carry a HEURISTIC tag (COSMETIC, D18).
 | `steer 100000 101,…,503 10` | same numbers as `steer_X1e5.txt`, but that file is in an **older format** without the reach/free/π(y) columns used in §4.3 (see D17) |
 | `ii 7,11,13,19 3`, `ii 7,11,19,23 3`, `ii 11,13,17,19 3` | match §3.2 to 3 decimals |
 | `balanced_void 4000 1e12 3e10` | identical to `void_primes_Q4000.txt`; table values recomputed ✓ |
-| `ii 7,11,13,17,19 2`, `i 1000000 20` | long runs, started; see addendum |
+| `ii 7,11,13,17,19 2` | identical to `part_ii_S7_11_13_17_19.txt` |
+| `i 1000000 20 0.25` | identical to `part_i_X1e6.txt` (data lines; ≈ 15 min here) |
+| order-swap void variant (reviewer's) | `data/review_balanced/void_order_Q4000.txt` (D15) |
+
+So every committed number replays exactly. The defects below concern the
+*readings* of the data, not the data.
 
 **D13 (MAJOR, §3.1 Reading, "`p(h) > 1/4` occurs only for top primes p < 128").**
 This is false for the data in `part_i_X1e6.txt`. For the union over all types
