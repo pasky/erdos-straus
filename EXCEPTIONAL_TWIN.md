@@ -28,6 +28,8 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Conj 6.4 | k-ary comparison inequality (arithmetic-free, weak `d log(mass)` form): product law vs its sequential k-ary conditioning | OPEN (sharpened gap) |
 | Prop 6.5 | Conj 6.4 ⇒ `S_λ ≪_B η^{−1}λ^{3/4}log λ` for all ℛ(M) with M ≤ P(M)^{1+B}, twins included | PROVED |
 | §6.4 | exact toy window LPs: binary constraints extract a smaller share of their void than unary; the sequential σ is costly in dense toys | EVIDENCE (weak) |
+| Lemma 6.6 | fibre tilting for Λ² majorants: `saving(g²) ≤ αλ/2 + log(Q_F/\|R\|) + avg_{c∈R}Ξ_c` (removes ET's fibre-variance term) | PROVED |
+| Red 6.7, Conj 6.8 | H_MS^{Sel} (Λ² cap, all ℛ(M), any B, twins) ⇐ empty-fibre density + good fibres (SKETCH) + sparse noise stability via cluster expansion (Conj 6.8; binary case plausibly within reach via POINTWISE_OMEGA2 Lemma 2.1) | SKETCH / OPEN |
 | Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
@@ -893,6 +895,117 @@ small future profile turns the fibre average `E e^{+X}` into
 `(E e^{−X})^{−1}`. No bound on the χ²-functional for the real system is
 proved here. Twin conditions enter it only through marginals on S that
 contain both of their primes, i.e. with weight `ρ_{ℓ₁}ρ_{ℓ₂}`.
+
+### 6.6 The Λ² route: fibre tilting, and a reduction of H_MS^{Sel}
+
+This follows tactic (i): the Λ² special case first. ET Theorem 5.5 needs no
+windows, so twin and all other balanced moduli enter only as events. ET
+listed three obstacles to H_MS^{Sel}:
+* (S)+fibre: small primes, the fibre-variance term `Ξ^{fib}`, and the
+  density of empty fibres;
+* the correlation inequality;
+* the lower bound for J.
+
+The first is removed exactly by the next lemma.
+
+**Lemma 6.6 (fibre tilting; PROVED).** In the setting of ET Theorem 5.5,
+let F be a set of coordinates. Their residues c (the *fibre*) range over
+`ℤ/Q_F`. For each fibre c let `A_c = A ∩ {fibre = c}` and
+`Ξ_c(α) = log[P(A_c ∩ A'_c | c)/P(A_c | c)²]`, where in `A'_c` the
+coordinates outside F are ρ-correlated (`ρ_i = e^{−α s_i}`) and the
+fibre is shared. Then for every set R of fibres with `A_c ≠ ∅` for
+`c ∈ R`, every `g ∈ V_{λ/2}` with `g ≥ 1` on A satisfies
+
+    saving(g²) ≤ αλ/2 + log(Q_F/|R|) + avg_{c∈R} Ξ_c(α).
+
+The coordinates in F may be charged primes.
+
+*Proof.* Let `σ̃ = Σ_{c∈R} π_c U(·| c, A)` with weights π to be chosen, and
+`h = dσ̃/dU`. Since `g ≥ 1` on `A ⊇ supp σ̃`, `E_U[gh] ≥ 1`, so
+`E g² ≥ 1/‖Π_{V_{λ/2}}h‖²`. As in ET, `‖Π_V h‖² ≤ e^{αλ/2}⟨h, T_ρ h⟩`
+whenever `ρ_i ≥ e^{−αs_i}`. `⟨h,T_ρh⟩ = Σ_T(Π_{i∈T}ρ_i)‖ĥ_T‖²` is
+nondecreasing in every `ρ_i`, so we may put `ρ_i = 1` on F. Then the copy
+shares the fibre, and
+
+    ⟨h, T_ρ h⟩ = Σ_c Q_F^{−1} (π_c Q_F / P(A_c|c))² P(A_c∩A'_c | c) = Q_F Σ_{c∈R} π_c² e^{Ξ_c}.
+
+The minimum over probability vectors π on R is at `π_c ∝ e^{−Ξ_c}`, with
+value `Q_F / Σ_{c∈R} e^{−Ξ_c} = (Q_F/|R|)/avg_R e^{−Ξ_c}`, which is
+`≤ (Q_F/|R|) e^{avg_R Ξ_c}` by Jensen. ∎
+
+ET's warning example `A = {c = c₀} × Ω_large` is consistent with the lemma:
+`Ξ_c = 0` there, but `log(Q_F/|R|) = log Q_F`. With the uniform σ̃ = U|A
+the fibre average would be `log avg_c e^{Ξ_c}·(…)`, i.e. maximum-like.
+Tilting makes it an average.
+
+**Reduction 6.7 (SKETCH; not proved).** Take F = all primes `≤ w := λ^C`
+(any exponents) and let R be the fibres that avoid every w-smooth class.
+Then H_MS^{Sel} (`saving(g²) ≪ λ^{3/4}(log λ)^{O(1)}` for *all* ℛ(M), any
+B, twins included) would follow from three steps.
+1. *Empty-fibre density:* `log(Q_F/|R|) ≤ (log λ)^{O(1)}`. Sketch: QR base
+   at the primes `≤ W₁ = (log λ)^{C'}` (Lemma 1.3; cost `π(W₁) log 2`).
+   Then the asymmetric local lemma (as in POINTWISE_OMEGA2 Thm 3.1,
+   step 2, with `x_E = 2P(E)`) for the w-smooth classes having a prime in
+   `(W₁, w]`, whose incident masses are `≤ (log λ)^{O(1)}/p ≤ 1/(8 log λ)`.
+   The w-smooth mass with QR weights is `(log w)^{O(1)}`.
+2. *Good fibres:* restrict R to the fibres in which every coordinate
+   `ℓ > w` has incident event mass `≤ θ`. The bad fibres are `o(|R|)`, by
+   Markov on second moments of the incident masses (Lemma 2.4/4.0 type:
+   `E p_ℓ² ≪ ℓ^{−2+ε}`), with the conditional local lemma bounding the
+   inflation of the uniform law on R. Summed over `ℓ > w` this is
+   `≪ θ^{−2}w^{−1+ε}`. Residues of high incidence are quarantined first
+   (Lemma 6.3 = POINTWISE_OMEGA2 Lemma 2.2).
+3. *Sparse noise stability (the core):* in a good fibre all coordinates
+   are independent and every incident mass is ≤ θ. A Kotecký–Preiss cluster
+   expansion of `log P(A_c)` and `log P(A_c∩A'_c)` (polymers: event sets
+   connected through shared primes) should give `Ξ_c` as the sum of the
+   *mixed* clusters. The leading one is the diagonal pair (E, E′):
+
+       Σ_E [P(E∩E′) − P(E)²] ≤ Σ_E P(E) Π_{ℓ∈S(E)}(ρ_ℓ + 1/ℓ) ≤ (1+o(1)) Σ_C P(C|c) M_C^{>w,−α}.
+
+   Here `ℓ > w` makes `Π(1+ℓ^{α−1}) = 1+o(1)`. Its fibre average is
+   `≪ α^{−3}` by ET Lemma 3.1 for **all** ℛ(M), with no B restriction.
+
+Conjecture 6.8 below is step 3 alone. Steps 1–2 are routine but not
+written.
+
+**Conjecture 6.8 (sparse noise stability; OPEN).** Let `X_i` be
+independent, and 𝓔 a finite family of events, each depending on the
+coordinates `S(E)`. Assume every coordinate has incident weight
+`Σ_{E∋i} P(E) e^{a|S(E)|} ≤ θ ≤ θ₀(a)`, plus a codegree condition of
+POINTWISE_OMEGA2 §10.2 type for events with `|S(E)| ≥ 3`. Let A be "no
+event", and A′ the ρ-correlated copy. Then
+
+    log [P(A∩A′)/P(A)²] ≤ (1 + O(θ)) Σ_E P(E)(Π_{i∈S(E)}(ρ_i + (1−ρ_i)P_i(E)) − P(E)),
+
+where `P_i(E)` is the marginal factor at i (for congruence events,
+`1/ℓ^{e}`).
+
+For **graph-type** systems (`|S(E)| ≤ 2`), POINTWISE_OMEGA2 Lemma 2.1 (the
+pseudoforest bound under a vertex-degree hypothesis) is exactly the
+tree-counting estimate that the Kotecký–Preiss convergence criterion needs.
+So the binary case of 6.8 looks within reach of standard polymer
+technology. The k-ary case meets POINTWISE_OMEGA2's codegree-hub
+obstruction (§10.4, Prop 11.4: the `−4D` families). Codegree hubs are
+sets of two or more vertices lying in many events. They are not removed by
+vertex quarantine.
+
+**What a proof of 6.8 would give.** For r = 2 (all events on at most two
+large primes per fibre, e.g. twin moduli `kℓ₁ℓ₂` with k w-smooth, plus
+dominant moduli), the Λ² cap `λ^{3/4}(log λ)^{O(1)}`. This is a proved
+H_MS^{Sel} for that family, twins included, with no windows and no B. The
+ES family also has moduli with three or more large primes, so the full
+H_MS^{Sel} needs the k-ary case.
+
+**Tactic (ii), direct binary Prop 2.4 by symmetrising over the residue
+alphabets: assessment only, not attempted in detail.** The uniform law on
+`ℤ/ℓ` is invariant under permuting residues, but the forbidden sets are
+not. Averaging the window inequality over residue permutations therefore
+replaces the given binary structure by a random one (the "annealed"
+system). That bounds an average over structures, not the given one. For
+general (non-Λ²) majorants this route needs a further transference, which
+was not found. The Λ² route avoids it because there everything is an L²
+quantity.
 
 ## Replay
 
