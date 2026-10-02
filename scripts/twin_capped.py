@@ -10,7 +10,8 @@ top prime <= W is ever hit (Lemma 1.3(1)).
 
 Usage: uv run python scripts/twin_capped.py X samples W kappa [types]
   thr(p) = p^-kappa (kappa=0 means thr = 1/4); types = comma list of
-  dom,gapM,gapB,twin (default all).
+  dom,gapM,gapB,twin or 'all' (default all); 7th arg 'cap' uses
+  thr(p) = min(1/4, p^-kappa), the theorem-compatible threshold.
 """
 import random
 import sys
@@ -20,13 +21,13 @@ sys.path.insert(0, "scripts")
 from balanced_numerics import build_system
 
 
-def run(X, samples, W, kappa, types, seed=7):
+def run(X, samples, W, kappa, types, seed=7, capq=False):
     sysd, maxexp, _ = build_system(X, 0.25)
     for p in list(sysd):
         sysd[p] = [c for c in sysd[p] if c[4] in types or p <= W]
     primes = sorted(maxexp)
     rng = random.Random(seed)
-    thr = (lambda p: 0.25) if kappa == 0 else (lambda p: p ** (-kappa))
+    thr = (lambda p: 0.25) if kappa == 0 else (lambda p: min(0.25, p ** (-kappa)) if capq else p ** (-kappa))
     hits = 0
     exp_leak = []
     band_leak = defaultdict(float)
@@ -77,7 +78,7 @@ def run(X, samples, W, kappa, types, seed=7):
             L *= pe
         hits += hit
         exp_leak.append(el)
-    out = [f"# X={X} samples={samples} W={W} kappa={kappa} types={','.join(sorted(types))}",
+    out = [f"# X={X} samples={samples} W={W} kappa={kappa} cap1/4={capq} types={','.join(sorted(types))}",
            f"realised leak Q'(not avoider) ~ {hits/samples:.4f}",
            f"mean expected leak sum p 1{{heavy}} = {sum(exp_leak)/samples:.4f}  max = {max(exp_leak):.4f}",
            "# band [2^(b-1),2^b): E[sum p 1{heavy}], mean #heavy primes, E[light profile]"]
@@ -88,5 +89,6 @@ def run(X, samples, W, kappa, types, seed=7):
 
 if __name__ == "__main__":
     X = int(sys.argv[1]); S = int(sys.argv[2]); W = int(sys.argv[3]); kap = float(sys.argv[4])
-    types = set(sys.argv[5].split(",")) if len(sys.argv) > 5 else {"dom", "gapM", "gapB", "twin"}
-    print(run(X, S, W, kap, types))
+    types = set(sys.argv[5].split(",")) if len(sys.argv) > 5 and sys.argv[5] != "all" else {"dom", "gapM", "gapB", "twin"}
+    capq = len(sys.argv) > 6 and sys.argv[6] == "cap"
+    print(run(X, S, W, kap, types, capq=capq))

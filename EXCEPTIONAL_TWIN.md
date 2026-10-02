@@ -14,13 +14,14 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Thm 2.3 | sequential sieve limit with a *capped* measure: heavy coordinates are not conditioned but leak; no (NDE), no sup bound; cost ×2 + log 2 if leak ≤ 1/2 | PROVED |
 | Lemma 2.4, Cor 2.5 | second moment `E_{Q'} p_ℓ² ≪_{ε,B} ℓ^{−2+ε}` (uniform in W); leak `≪_B W^{−1/4}` | PROVED |
 | **Thm 2.7** | **(η,B)-gapped ℛ(M)-families: `S_λ ≪_B η^{−1}λ^{3/4}` unconditionally** — EB's (E_δ), (★_δ), H_light, (NDE) not needed | PROVED |
-| §2.4 | capped measure on the real system (X = 10⁵, 10⁶, W = 30): leak 0.06–0.07 | EVIDENCE |
+| §2.4 | capped measure on the real system: theorem-compatible caps give leak 0 at W = 300 (X = 10⁵); looser caps give 0.06–0.07 at W = 30 (X = 10⁵, 10⁶) | EVIDENCE |
 | Lemma 3.1, 3.2 | (E_δ) in u-form; values from q have Legendre sign `−(n\|q)` | PROVED |
 | Heur 3.3 | entropy count predicts `sup_n\|F_ℓ\| ≈ π(y)ℓ^{o(1)}`, i.e. (E_δ) for δ < η/(1+η) | HEURISTIC; (E_δ) OPEN, no longer needed |
-| Prop 4.1 | all classes (twin included) with top prime `≤ e^{λ^{1/4}}`: singleton windows, cost ≪ λ^{3/4} | PROVED |
+| Lemma 4.0 | second moment with prime-power top primes (M = qℓ^v) | PROVED |
+| Prop 4.1 | all classes (twin, prime-power included) with top prime `≤ e^{λ^{1/4}}`: singleton windows, cost ≪ λ^{3/4} | PROVED |
 | Lemma 4.2, Cor 4.3 | linear-window inequality (one prime per term); all classes with top prime `> e^{λ/2}` cost `O(e^{−λ/4})` | PROVED |
-| **Thm 4.4** | cap `≪_B η^{−1}λ^{3/4}` for ℛ(M)-families with `M ≤ P(M)^{1+B}` unless an η-twin modulus has top prime in `(e^{λ^{1/4}}, e^{λ/2}]` | PROVED |
-| Conj 4.5 | binary window inequality (2-prime local boost); would remove the twin range restriction | OPEN |
+| **Thm 4.4** | cap `≪_B η^{−1}λ^{3/4}` for ℛ(M)-families with `M ≤ P(M)^{1+B}` in which every modulus with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved (all gapped ones are) | PROVED |
+| Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
 
@@ -68,7 +69,7 @@ moduli of the family, with `P_W | Q₀`. Put
    for every W-smooth odd `q_s`.
 2. `log(Q₀/|R_W|) = Σ_{3≤p≤W} log(2p/(p−1)) = π(W) log 2 + O(log log W)`.
 3. Under the uniform measure on `R_W`, the residues `c mod p^{e}` for
-   distinct primes p are independent, and for every `a` and `p^e ∥ Q₀`,
+   distinct primes p are independent, and for every `a` and every `p^e | Q₀`,
 
        P(c ≡ a (mod p^e)) ≤ γ(p)/p^e,    γ(p) = 2p/(p−1) (p odd),  γ(2) = 1.
 
@@ -132,7 +133,9 @@ under `Q'`. So ℓ was heavy at h, and the hit has conditional probability
 `p_ℓ(h)`. Take a union bound over ℓ. ∎
 
 **Lemma 2.2 (inflation; PROVED).** Let m be a product of prime powers
-`p^e` with `e ≤ E_p` (`p ∤ Q₀`) or `p^e ∥ Q₀`. For every `a`,
+`p^e` with `e ≤ E_p` (`p ∤ Q₀`) or `p^e | Q₀` (partial powers allowed;
+(R2) is stated for all `p^e | Q₀`, and marginalisation gives it from
+`p^e ∥ Q₀`). For every `a`,
 
     Q'(n ≡ a (mod m)) ≤ Π_{p^e ∥ m} γ'(p)/p^e,
     γ'(p) = γ(p) (p | Q₀),   γ'(p) = (1−δ_p)^{−1} (p ∈ 𝒫).
@@ -232,7 +235,7 @@ of pairs (q,q') with `lcm = m` is `τ(m²)`. So
 
     E N_ℓ² ≤ C_ε'² ℓ^{ε/2} Σ_{m ≤ ℓ^{2B}} 3^{ω(m)} τ(m²)/m
            ≤ C_ε'² ℓ^{ε/2} Π_{p ≤ ℓ^{2B}} (1 + 9/p + Σ_{e≥2} 3(2e+1)p^{−e})
-           ≪ C_ε'² ℓ^{ε/2} (2B log ℓ)^{9} ≪_{ε,B} ℓ^{ε}.
+           ≪ C_ε'² ℓ^{ε/2} (1 + 2B log ℓ)^{9} ≪_{ε,B} ℓ^{ε}.
 
 Divide by `ℓ²`. ∎
 
@@ -309,8 +312,20 @@ windows), QR base for `p ≤ W = 30`. It asserts Lemma 1.3(1) on every sample
 |---|---:|---:|---:|---:|---|
 | 10⁵ | 100 | 0.2 | 0.056 | 4% | primes 32–127 only |
 | 10⁶ | 20 | 0.2 | 0.070 | 5% | primes 32–127 only |
-| 10⁵ | 100 | 0 (δ = 1/4) | 5.67 | 100% | primes 32–255 |
+| 10⁵ | 100 | 0 (δ = 1/4) | 5.67 | 100% | primes 31–255 |
 | 10⁵ | 100 | 0.5 | 25.5 | 100% | everywhere below 2¹⁷ |
+
+Theorem-compatible caps `δ_p = min(1/4, p^{−0.2})` (all types, X = 10⁵,
+100 samples; `data/twin/capped_X1e5_W*_k0.2_cap.txt`):
+
+| W | expected leak | realised leak |
+|---:|---:|---:|
+| 30 | 5.67 | 100% |
+| 100 | 0.64 | 46% |
+| 300 | 0 | 0% (no heavy coordinate in any sample) |
+
+So at X = 10⁵ the theorem's hypothesis `𝔏 ≤ 1/2` already holds with
+W = 300, for the full system including twin classes.
 
 Reading.
 * With a threshold of order 1/2 just above W (κ = 0.2: `δ_31 ≈ 0.50`),
@@ -322,8 +337,14 @@ Reading.
   Corollary 2.5 needs `Σ_ℓ ℓ^{κ−2+ε} < ∞`), so W₀(B) is large but finite.
 * Right above W the QR base *raises* hit probabilities: classes whose
   W-smooth part is compatible with the QR residues get weight `≈ 2^{ω}`.
-  Lemma 1.1 caps their contribution at ℓ: every value they produce is a
-  non-residue mod ℓ.
+  By Lemma 3.2, the values produced by cofactors q with `(n|q) = 1` are
+  non-residues mod ℓ. QR-compatibility of the W-smooth part alone does not
+  give this: for `M = 31·37`, `D = 1`, the value `−4 mod 37` is a residue.
+* **The κ = 0.2 runs are not theorem-compatible.** Theorem 2.3 needs
+  `δ_p ≤ 1/4` (ET Prop 2.4), while `31^{−0.2} ≈ 0.50` and the X = 10⁵ run
+  has mean light probability 0.386 at p = 31. They support the distortion
+  idea, not the theorem's regime. The theorem-compatible runs
+  (`δ_p = min(1/4, p^{−κ})`) are in the table below.
 
 ## 3. The extremal statement (E_δ) itself
 
@@ -335,8 +356,13 @@ This section records what was found about it.
     F_ℓ(n) = { −(4u)^{−1} mod ℓ : u = sk², 4sk | qℓ+1, q | 4un+1, q ∈ 𝒬_ℓ }.
 
 So the value depends only on u, and q is activated iff `q | 4un+1`.
-Equivalently, with `N ≡ −(4n)^{−1}` modulo `lcm 𝒬_ℓ`: u is active iff
+Equivalently, for n coprime to `lcm 𝒬_ℓ` and `N ≡ −(4n)^{−1}` modulo
+`lcm 𝒬_ℓ`: u is active iff
 `u − N` has a divisor `q ∈ 𝒬_ℓ` with `q ≡ −ℓ^{−1} (mod 4sk)`.
+
+(Every active q is coprime to n, since `q | 4un+1`; for general n, apply
+the second form with `lcm 𝒬_ℓ` replaced by the lcm of the cofactors
+coprime to n.)
 
 *Proof.* EB Lemma 4.1 gives values `−r/k` with `4srk = qℓ+1`. Modulo ℓ,
 `r ≡ (4sk)^{−1}`, so `−r/k ≡ −(4sk²)^{−1}`. Modulo q, `4srk ≡ 1`, so
@@ -367,44 +393,68 @@ values?
 
 ## 4. η-twin moduli
 
-### 4.1 What breaks
+### 4.1 What breaks, and the prime-power interface
 
-An η-twin modulus has its two top primes `ℓ₁ < ℓ₂` in the same window (or
-`P(M)² | M`). Hypothesis (U) fails: inside the window the condition is a
-*binary* event `(n mod ℓ₁, n mod ℓ₂) = (b₁, b₂)`, and ET Proposition 2.4
-needs independent single-coordinate hit indicators. The capped measure of
-§2 does not help with this: it controls *which* coordinates are
-conditioned, not the window inequality. Throughout this section B is fixed,
-all ℛ(M)-classes considered have `M ≤ P(M)^{1+B}`, and the QR base, the
-caps `δ_ℓ = ℓ^{−1/2}`, `W = W₀(B)` and the leak bookkeeping are as in §2.
+Fix a window structure. Call a modulus M **window-resolved** if the last
+window meeting its primes `> W` contains exactly one of them, to exponent
+one. This is ET's (U). For EB's η-windows every η-gapped M is resolved
+(EB Lemma 2.1). An η-twin M may be resolved too (its top two primes can
+straddle a window boundary). An **unresolved** M has, in its last window,
+either a prime power `ℓ^v` (`v ≥ 2`) or `r ≥ 2` distinct primes. With
+`M ≤ P(M)^{1+B}` and window log-ratio `1+η`, `r ≤ (1+B)(1+η)`. Example
+(review): `M = 101·103·109 ≡ 3 (mod 4)` has three primes in one η = 1/4
+window above W = 30, and its class with D = 1 is a *ternary* event.
 
-Two facts used below hold for twin classes verbatim:
-* Lemma 2.4 (second moment) never used `P(q) ≤ y`; it holds for all
-  cofactors `q ≤ ℓ^B` with `P(q) < ℓ` (or `P(q) = ℓ` for `ℓ² | M`, where the
-  coordinate is `n mod ℓ^{E_ℓ}` and each class still contributes `≤ 1/ℓ`).
-  So the leak bound, Corollary 2.5, covers the whole family.
-* Lemma 2.6 (first moment) sums over all M with `P(M)` in a range; twin M
-  are included.
+Inside the window an unresolved condition is an r-ary event on the window
+residues, and ET Proposition 2.4 needs independent single-coordinate hit
+indicators. The capped measure of §2 does not change this. Throughout this
+section B is fixed, all ℛ(M)-classes considered have `M ≤ P(M)^{1+B}`, and
+the QR base, the caps `δ_ℓ = ℓ^{−1/2}`, `W = W₀(B)` and the leak bookkeeping
+are as in §2.
 
-The leak argument (Lemma 2.1, Theorem 2.3) also holds if a window is
-processed *sequentially inside itself* (primes in increasing order), as
-long as the window inequality used in the induction step is valid for the
-resulting in-window law. Lemma 2.2 holds for any such order.
+**Prime-power coordinates.** In the windows of §§4.2–4.3 the coordinate at
+ℓ is the full residue `n mod ℓ^{E_ℓ}`. Given the earlier history h, the
+conditions with top prime ℓ forbid a set `F̂_ℓ(h) ⊆ ℤ/ℓ^{E_ℓ}`, a union of
+classes mod `ℓ^v`. Put `p_ℓ(h) = |F̂_ℓ(h)|/ℓ^{E_ℓ}`. A light coordinate is
+uniform on the complement of `F̂_ℓ(h)` (full-fibre conditioning); a heavy
+one is uniform. Lemma 2.1 and Lemma 2.2 hold verbatim for this transition
+(a residue class mod `ℓ^e` has probability `≤ (1−δ_ℓ)^{−1}ℓ^{−e}`).
 
-### 4.2 Low range: twin classes below `e^{λ^{1/4}}` are free
+**Lemma 4.0 (second moment with prime powers; PROVED).** For every prime
+`ℓ > W`, with windows processed in any order compatible with the
+sequential construction,
+`E_{Q'} p_ℓ(H)² ≤ C(ε,B) ℓ^{−2+ε}`, with `C(ε,B)` as in Lemma 2.4 up to a
+factor `(2+B)²`.
 
-**Proposition 4.1 (PROVED).** Put `s₁ = λ^{1/4}`. Process every prime
-`ℓ ∈ (W, e^{s₁}]` as its own window. Then every ℛ(M)-class with
-`P(M) ≤ e^{s₁}` (any shape: gapped, twin, `P(M)² | M`) satisfies (U) for
-these windows, and the total cost of these windows in (2.1) is at most
-`(8/3)·K'(W,B)·(1+B)³·λ^{3/4}`.
+*Proof.* Write each modulus with top prime ℓ as `M = qℓ^v`, `(q,ℓ) = 1`,
+`1 ≤ v ≤ 1+B`. The class `−4D (mod M)` is active at h iff
+`n ≡ −4D (mod q)`, a condition on the earlier history only, and then it
+forbids one class mod `ℓ^v`, of density `ℓ^{−v}`. So
+`p_ℓ(h) ≤ Σ_v ℓ^{−v} N_{ℓ,v}(h)`, with `N_{ℓ,v}` the number of active pairs
+`(q,D)` with `qℓ^v ≤ ℓ^{1+B}`. The proof of Lemma 2.4 bounds
+`E N_{ℓ,v}² ≪_{ε,B} ℓ^{ε}` (it uses only `q ≤ ℓ^B`, Lemma 2.2 for lcm's of
+cofactors, and `τ(A²) ≤ ℓ^{o(1)}`; it never uses `P(q) ≤ y`). Minkowski:
+`(E p_ℓ²)^{1/2} ≤ Σ_v ℓ^{−v}(E N_{ℓ,v}²)^{1/2}`. ∎
 
-*Proof.* A singleton window `{ℓ}` meets every condition with top prime ℓ
-in exactly one prime, so (U) holds (for `ℓ² | M`, use the coordinate
-`n mod ℓ^{E_ℓ}`). For a singleton window the induction step needs no
-Proposition 2.4: if ℓ is light at h, `E f̃ = (1−p)f̃(0) + p f̃(1) ≥
-(1−p)f̃(0)`, so `Φ = −log(1−p_ℓ(h)) ≤ (4/3)p_ℓ(h)`; if ℓ is heavy, the
-window is skipped and the hit leaks. By Lemma 2.2 (as in Lemma 2.6),
+So Corollary 2.5 (leak `≪_B W^{−1/4}`) holds for the whole family, twin
+and prime-power classes included, for the window orders used below.
+Lemma 2.6 (first moment) sums over all M with `P(M)` in a range, so it
+also covers them.
+
+### 4.2 Low range: everything below `e^{λ^{1/4}}` is free
+
+**Proposition 4.1 (PROVED).** Put `s₁ = λ^{1/4}` and assume `s₁ > log W`.
+Process every prime `ℓ ∈ (W, e^{s₁}]` as its own window, with the
+prime-power coordinate of §4.1. Every ℛ(M)-class with `P(M) ≤ e^{s₁}`
+(any shape) is then decided at its top prime, and these windows cost at
+most `(8/3)·K'(W,B)·(1+B)³·λ^{3/4}` in (2.1).
+
+*Proof.* At the singleton window `{ℓ}` the history fixes every requirement
+of a condition with top prime ℓ except the one on `n mod ℓ^{E_ℓ}`. The
+induction step of Theorem 2.3 needs no Proposition 2.4 here: if ℓ is light
+at h, `E f̃ = (1−p)f̃(hit-free) + p·f̃(hit) ≥ (1−p) f̃(hit-free)` with
+`f̃ ≥ 0`, so `Φ = −log(1−p_ℓ(h)) ≤ (4/3)p_ℓ(h)`; if ℓ is heavy, nothing is
+conditioned and the hit leaks. By Lemma 2.2, as in Lemma 2.6,
 `Σ_{W<ℓ≤e^{s₁}} E_{Q'} p_ℓ ≤ Σ_{M ≤ e^{(1+B)s₁}} τ(A_M²)Γ(M)/M ≤
 K'((1+B)s₁)³`. Multiply by 4/3 and by the factor 2 of (2.1). ∎
 
@@ -414,10 +464,10 @@ branch", `Σ_{s_j ≤ s*} X_j`).
 
 ### 4.3 Top range: linear windows are free
 
-**Lemma 4.2 (linear window inequality; PROVED).** Let V be a set of
-coordinates with independent uniform laws `U_ℓ`, and let
-`f(y_V) = c₀ + Σ_{ℓ∈V} g_ℓ(y_ℓ) ≥ 0` with `E_{U_ℓ} g_ℓ = 0`. Let σ be any
-probability law on `Π_ℓ ℤ/ℓ^{E_ℓ}` whose one-coordinate marginals satisfy
+**Lemma 4.2 (linear window inequality; PROVED).** Let V be a finite set of
+coordinates `y_ℓ` with finite state spaces and independent laws `U_ℓ`, and
+let `f(y_V) = c₀ + Σ_{ℓ∈V} g_ℓ(y_ℓ) ≥ 0` with `E_{U_ℓ} g_ℓ = 0`. Let σ be
+any probability law on the product whose one-coordinate marginals satisfy
 `σ_ℓ ≤ (1+ε_ℓ)U_ℓ` and `Σ_y (U_ℓ − σ_ℓ)⁺(y) ≤ δ_ℓ`. Then
 
     E_U f ≥ E_σ f / (1 + max_ℓ(ε_ℓ + δ_ℓ)).
@@ -427,101 +477,107 @@ where every `g_ℓ` is minimal, `Σ m_ℓ ≤ c₀`. With `r = dσ_ℓ/dU_ℓ`,
 `E_σ g_ℓ = E_U[g_ℓ(r−1)] ≤ E_U[g_ℓ⁺(r−1)⁺] + E_U[g_ℓ⁻(1−r)⁺] ≤ ε_ℓ E_U g_ℓ⁺
 + m_ℓ δ_ℓ ≤ m_ℓ(ε_ℓ+δ_ℓ)`, using `E_U g⁺ = E_U g⁻ ≤ m_ℓ`. Sum over ℓ. ∎
 
-**Corollary 4.3 (PROVED).** Let `V = {ℓ : λ/2 < log ℓ ≤ λ}` be one window,
-processed sequentially inside itself with caps. Every condition with top
-prime in V satisfies the in-window (U), whatever its shape, and the window
-costs at most `log(1 + 3e^{−λ/4})` in (2.1).
+(The review notes that applying `σ_ℓ ≤ (1+ε_ℓ)U_ℓ` to `g_ℓ + m_ℓ ≥ 0`
+gives the same with `max ε_ℓ` alone.)
+
+**Corollary 4.3 (PROVED).** Assume `λ/2 > log W`. Let
+`V = {ℓ : λ/2 < log ℓ ≤ λ}` be one window, processed sequentially inside
+itself (increasing ℓ, prime-power coordinates, caps). Every condition
+with top prime in V is decided at its top prime, whatever its shape, and
+the window costs at most `2 log(1 + 3e^{−λ/4})` in (2.1).
 
 *Proof.* A term of ν has level ≤ λ, so it involves at most one prime of
-V. Hence `f(y_V) = E_U[g_next | h, y_V]` has the form of Lemma 4.2 (as a
-function of the residues, not of hit indicators). Take σ = the in-window
+V. Hence `f(y_V) = E_U[g_next | h, y_V]`, as a function of the residues
+`y_ℓ = n mod ℓ^{E_ℓ}`, has the form of Lemma 4.2. Take σ = the in-window
 sequential capped law. Each one-coordinate marginal is a mixture of laws
-uniform on at least `ℓ(1−δ_ℓ)` residues, so `ε_ℓ ≤ 2δ_ℓ` and
-`δ_ℓ`-TV `≤ δ_ℓ`, with `δ_ℓ = ℓ^{−1/2} ≤ e^{−λ/4}`. Given h, f̃'s value
-under σ is the expectation of `g_next` under the `Q'` transition. Windows
-above `e^λ` are invisible and cost 0 (ET Step 0), in any order. ∎
+uniform on a set of density `≥ 1−δ_ℓ`, so `ε_ℓ ≤ 2δ_ℓ` and the TV defect is
+`≤ δ_ℓ`, with `δ_ℓ = ℓ^{−1/2} ≤ e^{−λ/4}`. And `E_σ f` is the expectation of
+`g_next` under the `Q'` transition. So the induction step holds with
+`Φ = log(1 + 3e^{−λ/4})`, doubled by (2.1). Windows above `e^λ` are
+invisible and cost 0 (ET Step 0), in any order. ∎
 
-This is EB's route 4. Lemma 4.2 is special to one coordinate per term:
-for two, `f = (Σ_ℓ z_ℓ)²` with mean-zero `z_ℓ` has `Σ_ℓ max z_ℓ⁻`-type
-quantities of order m² against `E f = m`, and the argument breaks.
+Lemma 4.2 is special to one window prime per term. For two or more, a
+λ-level f can exploit unary avoidance (Selberg's Λ² with one prime per
+factor has level 2 and saves `≍ log(1+μ)` when `μ = Σ p_ℓ` is large). So no
+bound of the form `1 + O(max p)` can hold, and Proposition 2.4's
+interpolation is needed.
 
 ### 4.4 What is proved, and the residual range
 
-**Theorem 4.4 (PROVED).** Fix B and `W = W₀(B)`. Let 𝔊 be any family of
-ℛ(M)-classes with `M ≤ P(M)^{1+B}`, plus any W-smooth classes, such that
-every **η-twin** modulus M of 𝔊 has
-
-    P(M) ≤ e^{λ^{1/4}}   or   P(M) > e^{λ/2}.
-
-Then every majorant of level λ satisfies `log(1/Eν) ≪_B η^{−1}λ^{3/4}`.
+**Theorem 4.4 (PROVED).** Fix B and `W = W₀(B)`, and let `λ ≥ (2 log W)^4`.
+Let 𝔊 be any family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, plus any
+W-smooth classes, such that every modulus M of 𝔊 with top prime in
+`(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved for EB's η-windows. (All
+η-gapped moduli qualify.) Then every majorant of level λ satisfies
+`log(1/Eν) ≪_B η^{−1}λ^{3/4}`.
 
 *Proof.* Windows: singletons on `(W, e^{λ^{1/4}}]` (Prop 4.1); EB's
-η-windows on `(e^{λ^{1/4}}, e^{λ/2}]`, where only gapped classes have their
-top prime, so (U) holds by EB Lemma 2.1; one sequential window V on
-`(e^{λ/2}, e^λ]` (Corollary 4.3); singletons above. Theorem 2.3 applies by
-Corollary 2.5. The middle windows cost what they cost in Theorem 2.7. ∎
+η-windows restricted to `(e^{λ^{1/4}}, e^{λ/2}]`, where every condition is
+resolved, so (U) holds; one sequential window V on `(e^{λ/2}, e^λ]`
+(Corollary 4.3); singletons above. Theorem 2.3 applies: its induction step
+in each window is, respectively, the singleton inequality, ET Prop 2.4,
+Lemma 4.2. The leak is `≤ 1/2` by Lemma 4.0 and Corollary 2.5. The middle
+windows cost what they cost in Theorem 2.7. ∎
 
-**The residual.** η-twin moduli whose top prime lies in
-`(e^{λ^{1/4}}, e^{λ/2}]`. There a term of ν may involve
-`2 ≤ d_j = ⌊λ/s_j⌋ < λ^{3/4}` primes of a window, and the window's twin
-mass is large (`≍ η s_j³ ≫ 1` heuristically, ≥ `c_η s_j³` summed over a
-dyadic range by ET Lemma 3.8).
+**The residual.** Moduli with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` that are
+unresolved: their last η-window contains a prime power or `2 ≤ r ≤
+(1+B)(1+η)` of their primes. There a term of ν may involve
+`2 ≤ d_j = ⌊λ/s_j⌋ < λ^{3/4}` primes of a window. By ET Lemma 3.8, η-twin
+moduli carry `≫_η (log x)³` supply, so the residual is not negligible by
+mass.
 
-### 4.5 The missing window inequality, and why the obvious routes fail
+### 4.5 The missing window inequality
 
-**Conjecture 4.5 (binary window inequality; OPEN).** Let V be a window of
+**Conjecture 4.5_r (r-ary window inequality; OPEN).** Let V be a window of
 primes with costs `s_ℓ ∈ (s, (1+η)s]`, residues `y_ℓ` independent uniform,
-unary forbidden sets with `p_ℓ ≤ 1/4`, and binary forbidden sets
-`F_{ℓℓ'} ⊆ ℤ/ℓ × ℤ/ℓ'` of density `π_{ℓℓ'}`. Let σ be the in-window
-sequential law (primes in increasing order; at ℓ, uniform off the unary set
-and off the binary sets activated by the earlier residues; capped as in §2).
+unary forbidden sets with `p_ℓ ≤ 1/4`, and, for `2 ≤ k ≤ r`, k-ary
+forbidden sets `F_T ⊆ Π_{ℓ∈T} ℤ/ℓ` (|T| = k) of density `π_T`. Let σ be the
+in-window sequential capped law (primes in increasing order; at ℓ, uniform
+off the unary set and off the classes activated by earlier residues).
 Then for every λ-level `f ≥ 0` and every α > 0,
 
-    log(E_σ f / E_U f) ≤ C[ αλ + Σ_ℓ p_ℓ e^{−α s_ℓ} + Σ_{ℓ<ℓ'} π_{ℓℓ'} e^{−α(s_ℓ+s_ℓ')} ]
-                         + O(log(2+λ/s) + log(2+μ)),
+    log(E_σ f / E_U f) ≤ C_r[ αλ + Σ_ℓ p_ℓ e^{−α s_ℓ} + Σ_{2≤|T|≤r} π_T e^{−α Σ_{ℓ∈T} s_ℓ} ]
+                         + O_r(log(2+λ/s) + log(2+μ)),
 
-μ the total (unary + binary) mass.
+μ the total mass. (Prime-power alphabets, for `ℓ^v | M`, belong to the
+same statement with `ℤ/ℓ^{E_ℓ}` coordinates.)
 
-This is EB's route 3 (local boost) in the 2-prime case. With the binary
-profile bounded by Lemma 2.6, Conjecture 4.5 would remove the range
-restriction in Theorem 4.4, for every fixed B. The binary term carries
-`e^{−2αs}`, i.e. a binary condition costs its full modulus, which is the
-H_MS heuristic.
+The case r = 2 is EB's route 3 (local boost) in the 2-prime case. With the
+profiles bounded by Lemma 2.6, Conjecture 4.5_r for `r = ⌊(1+B)(1+η)⌋`
+would remove the residual in Theorem 4.4 for that B. The k-ary term carries
+`e^{−α·(k s)}`: a k-prime condition costs its full modulus, which is the
+H_MS heuristic. Conjecture 4.5_2 alone does **not** suffice once
+`(1+B)(1+η) ≥ 3` (review: `101·103·109`); projecting a ternary event to
+two coordinates enlarges it.
 
-**Why the routes tried here do not prove it.** In each case the obstruction
-is quantitative and is stated at the scale of a window with `s > λ^{1/4}`.
+**Routes tried here, and why they stall (HEURISTIC unless marked).** All
+statements concern a window with `s > λ^{1/4}`.
 1. *Splitting windows* (finer windows of log-ratio `1+η'`, or random
-   sub-windows). A binary condition is resolved only if its two primes fall
-   in different sub-windows. The unresolved twin mass is heuristically
-   `≍ η'·λ³` in total (HEURISTIC: the η'-dependence of ET Lemma 3.8's
-   supply is not proved), so `η' ≲ λ^{−3}` is needed, i.e. `≳ λ³` windows,
-   each paying `≥ αλ + O(log λ)`.
-2. *Over-conditioning* (forbid one end of every binary condition, which
-   makes the system unary and independent). Given a typical history, the
-   number of active binary conditions with a given lower prime ℓ₁ is
-   `≍ #(primes in V)·(log X)^{O(1)}`, which exceeds ℓ₁ by a factor
-   `≍ e^{ηs}`: everything is forbidden. A binary condition has codimension
-   2; making it codimension 1 multiplies its weight by ≈ `e^{s}`.
-3. *Leak.* Under any unary-conditioned law the expected number of binary
-   hits in V is the window's twin mass, `≫ 1` for `s ≫ 1`.
-4. *Void* (condition the product law on "no binary hit"). Costs the twin
-   void ≈ twin mass ≈ `η s³` per window. This is fine exactly for
-   `s ≲ λ^{1/4}` (Proposition 4.1) and too large above, where the
-   sieve-limit cost of the window is `(λ/s)(1 + log(s⁴/λ))`.
-5. *One coordinate per term* (Lemma 4.2) needs `d_j = 1`, i.e. `s > λ/2`.
-   For `d ≥ 2` a λ-level f can exploit unary avoidance (this is the sieve),
-   so no bound of the form `1 + O(max p)` can hold, and Proposition 2.4's
-   interpolation is needed. Its proof (thinning, symmetrisation over each
-   band, interpolation in the band counts) uses independence of the
-   coordinates in an essential way; with binary conditions the hit
-   indicators at the upper primes depend on all residues at the lower ones.
-
-An observation that supports the conjecture (HEURISTIC; one test function,
-first order in the binary densities): for `f = (Σ_ℓ z_ℓ(y_ℓ))²` with `|z_ℓ| ≤ 1`, `E z_ℓ = 0`, the
-binary conditions change `E f` by at most `2Σ_{ℓ<ℓ'} π_{ℓℓ'}·(1+o(1))`
-(each forbidden pair shifts one covariance by `≤ 1/(ℓℓ')` per forbidden
-point), against `E_U f = m = #V`. So a level-2 *quadratic* test sees the
-binary system only through its mass, not through `e^{s}`-inflated weights.
+   sub-windows). A binary condition is resolved only if its primes fall in
+   different sub-windows. If the supply of ET Lemma 3.8 scales like η'
+   (not proved), the unresolved mass is `≍ η'λ³` in total, so
+   `η' ≲ λ^{−3}` would be needed; with the window bound of ET Prop 2.4 each
+   window pays `≥ αλ`, so this route cannot work with that bound. (This
+   says nothing about better window bounds.)
+2. *Over-conditioning* (forbid one end of every binary condition, making
+   the system unary and independent). A binary condition has codimension
+   2; forbidding one end gives it weight `1/ℓ₁` instead of `1/(ℓ₁ℓ₂)`.
+   For a typical history the number of active binary conditions with a
+   given lower prime is heuristically `≍ #(primes in V)·(log X)^{O(1)} ≫ ℓ₁`.
+3. *Leak.* Under the unary-conditioned law the expected number of binary
+   hits is the window's twin mass, unless unary conditioning suppresses
+   them, which nothing indicates. If hits are roughly Poisson, the leak
+   probability is `≈ 1 − e^{−mass}`, close to 1 when the mass is large.
+4. *Void* (condition the product law on "no binary hit"). Under weak
+   correlations this costs ≈ the twin mass ≈ `η s³` per window. That is
+   fine for `s ≲ λ^{1/4}`, where Proposition 4.1 is the rigorous version,
+   and too large above, where ET's window cost is `(λ/s)(1 + log(s⁴/λ))`.
+5. *One prime per term* (Lemma 4.2; PROVED). This needs `d_j = 1`, i.e.
+   `s > λ/2`, and it fails for `d ≥ 2`, as explained after Corollary 4.3.
+   Proposition 2.4's proof (thinning, symmetrisation over each band,
+   interpolation in the band counts) uses the independence of the window
+   coordinates essentially. With k-ary conditions, the hit indicators at
+   later primes depend on all earlier residues of the window.
 
 ## 5. What this says about the global question
 
@@ -529,31 +585,38 @@ Question (3): is 3/4 sharp for all nonnegative CRT majorants of forced
 classes with moduli `≤ N^{O(1)}`?
 
 **Proved here (internally).** For each fixed B, the cap
-`S_λ ≪_B η^{−1}λ^{3/4}` (with `λ ≍ L = log N` by ET Lemma 2.9) holds for
-every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, plus all W₀(B)-smooth
-classes, in which no η-twin modulus has its top prime in
-`(e^{λ^{1/4}}, e^{λ/2}]` (Theorem 4.4). This includes:
+`S_λ ≪_B η^{−1}λ^{3/4}` holds for every family of ℛ(M)-classes with
+`M ≤ P(M)^{1+B}`, plus all W₀(B)-smooth classes, in which every modulus
+with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved (Theorem
+4.4). Under the hypotheses of ET Lemma 2.9 (family slice primes
+`≤ N^{O(1)}`, and a final bound `N·Eν + Σ|a_i|` with `Σ|a_i| < N`) the
+level may be taken `λ ≍ L = log N`, so these families cannot give an
+exceptional-set exponent θ > 3/4. The theorem includes:
 * all dominant and all η-gapped balanced moduli (Theorem 2.7), with no
   hypothesis. EB's (E_δ), (★_δ), H_light and (NDE) are not needed;
-* all η-twin moduli with top prime `≤ e^{λ^{1/4}}` or `> e^{λ/2}`.
+* all moduli, twin and prime-power included, with top prime
+  `≤ e^{λ^{1/4}}` or `> e^{λ/2}`.
 
 **Not covered.**
-1. η-twin moduli with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` — reduced to
-   Conjecture 4.5. This carries a positive proportion of the cubic supply
-   (ET Lemma 3.8), so it is the genuine open core.
-2. Moduli with `log M / log P(M)` unbounded. Every proof here is for fixed
-   B, with constants `W₀(B)`, `K(W₀(B),B)` that are not tracked; there is no
-   summation over B. (Unweighted, the share of moduli with
+1. Unresolved moduli (η-twin, prime-power top, or ≥ 3 primes in the last
+   window) with top prime in `(e^{λ^{1/4}}, e^{λ/2}]`. These are reduced to
+   Conjecture 4.5_r with `r ≤ (1+B)(1+η)`. By ET Lemma 3.8 they carry a
+   positive proportion of the cubic supply, so this is the genuine open
+   core.
+2. Moduli with `log M / log P(M)` unbounded. Every proof here is for
+   fixed B, with constants `W₀(B)`, `K(W₀(B),B)` that are not tracked;
+   there is no summation over B. (Unweighted, the share of moduli with
    `P(M) < M^{1/(1+B)}` is `ρ(1+B)` by Dickman; the weighted share is not
    known.)
 3. (a,D)-classes and Case-A classes: Lemma 1.1 is proved for ℛ(M) only.
    For these, ET Cor 3.6 still covers the dominant part.
 
-**Verdict.** Not settled. The balanced door is now reduced to a single
-named inequality about one window with binary conditions (Conjecture 4.5),
-plus the uniformity in B. Nothing found here points towards (B): every
-mechanism examined (heavy histories, small-prime correlations, η-gapped
-balance) turned out harmless once the measure was chosen correctly.
+**Verdict.** Not settled. The balanced door is reduced to a bounded-arity
+window inequality (Conjecture 4.5_r) in the range
+`(e^{λ^{1/4}}, e^{λ/2}]`, plus uniformity in B. Every mechanism examined
+here (heavy histories, small-prime correlations, η-gapped balance) turned
+out harmless once the measure was chosen correctly. No proof or
+construction points towards (B).
 
 ## Replay
 
@@ -567,4 +630,5 @@ uv run python twin_capped.py 100000 100 30 0   > ../data/twin/capped_X1e5_W30_k0
 uv run python twin_capped.py 100000 100 30 0 dom,gapM,gapB > ../data/twin/capped_X1e5_W30_k0_gapped.txt
 uv run python twin_capped.py 100000 100 30 0.5   # 25.5 expected leak, quoted in §2.4 (not saved)
 uv run python twin_capped.py 1000000 20 30 0.2 > ../data/twin/capped_X1e6_W30_k0.2.txt
+for W in 30 100 300; do uv run python twin_capped.py 100000 100 $W 0.2 all cap > ../data/twin/capped_X1e5_W${W}_k0.2_cap.txt; done
 ```

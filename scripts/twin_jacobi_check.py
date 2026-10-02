@@ -14,3 +14,4 @@ for M in range(3, X + 1, 4):
             bad += 1
             print("counterexample", M, D)
 print(f"M <= {X}: {classes} classes checked, {bad} with Jacobi != -1")
+sys.exit(1 if bad else 0)
