@@ -1204,88 +1204,99 @@ $L_2$.
 
 For a set $\Pi$ of primes and $M\le T$, $M\equiv3\pmod4$, write $M=m_\Pi r_\Pi$ with
 $m_\Pi$ the $\Pi$-part.  An atom $(M,D)$, $D\mid A_M^2$, \emph{survives} $\Pi$ if
-$m_\Pi\mid4D+1$ and $r_\Pi>1$; its Haar weight is $1/\varphi(r_\Pi)$.
+$m_\Pi\mid4D+1$ and $r_\Pi>1$; its Haar weight is $1/\varphi(r_\Pi)$.  Put
+\[
+ S^*=\sum_{(M,D)}\max_\Pi\frac{\mathbf 1[(M,D)\text{ survives }\Pi]}{\varphi(r_\Pi)},
+\]
+the sum over all atoms with $M\le T$ and the maximum over all sets $\Pi$ of primes.
 
 \begin{lemma}[Proved]\label{lem:qmass}
-For every set $\Pi$ of primes,
-\[
- S_{\rm tot}(\Pi)=\sum_{\text{atoms surviving }\Pi}\frac1{\varphi(r_\Pi)}\le\exp\Big(O\Big(\frac{\log T}{\log\log T}\Big)\Big).
-\]
+$S_{\rm tot}(\Pi):=\sum_{\text{atoms surviving }\Pi}1/\varphi(r_\Pi)\le S^*\le\exp(O(\log T/\log\log T))$
+for every $\Pi$.
 \end{lemma}
 
 \begin{proof}
-Use $1/\varphi(r)\ll\log\log T\cdot m/M$ with $m=m_\Pi$ and follow the proof of
-Lemma~\ref{lem:mass}: the involution preserves $m\mid4D+1$ because $m\mid M$;
-writing $D=sr'^2$, $A=sr'k$ with $r'\le k\le X$ gives $m\mid r'+k$; for fixed
-$(s,r')$ each $k$ determines $M$ and hence $m$, and $m\mid4sr'^2+1$.  So the
-sum is $\ll\log\log T\,(3+\Lc)\sum_{sr'^2\le X}\tau(4sr'^2+1)/(sr')$.
+The first inequality is trivial.  If $(M,D)$ survives $\Pi$ then $m_\Pi$
+divides $g=\gcd(M,4D+1)$, so $1/\varphi(r_\Pi)\ll\log\log T\cdot g/M$.  Follow
+the proof of Lemma~\ref{lem:mass} with $m=g$: the involution $D\mapsto A^2/D$
+preserves $g$; writing $D=sr'^2$, $A=sr'k$ with $r'\le k\le X$ gives
+$g\mid r'+k$; for fixed $(s,r')$ each $k$ determines $M$, $D$ and hence $g$, and
+$g\mid4sr'^2+1$.  So $S^*\ll\log\log T\,(3+\Lc)\sum_{sr'^2\le X}\tau(4sr'^2+1)/(sr')$.
+\end{proof}
+
+\begin{lemma}[Iterated quarantine; proved]\label{lem:iterq}
+Let $2\le z\le T$, $\kappa=\lfloor\log T/\log z\rfloor$, $0<c_0\le1$, and let
+$w_\ell(\Pi)$ be the Haar mass of the distinct events surviving $\Pi$ whose
+rough part is divisible by $\ell$.  Starting from $\Pi_0=\{\ell\le z\}$, repeatedly
+add to $\Pi$ every prime $\ell>z$, $\ell\notin\Pi$, with $w_\ell(\Pi)>c_0$.  The
+process stops at some $\Pi=\Pi_0\cup\mathcal B$ with $|\mathcal B|\le\kappa S^*/c_0$, and
+then every prime $\ell>z$ outside $\Pi$ has $w_\ell(\Pi)\le c_0$.
+\end{lemma}
+
+\begin{proof}
+If $\ell$ is added at some stage $\Pi_i$, then $c_0$ is less than the sum of
+$1/\varphi(r_{\Pi_i})$ over atoms with $\ell\mid r_{\Pi_i}$, and each term is at most
+the atom's contribution to $S^*$.  Summing over the added primes, an atom is
+counted at most once for each of its at most $\kappa$ prime factors $>z$.
 \end{proof}
 
 \begin{proposition}[Proved]\label{prop:hmin}
-For all large $T$, with $y=T^{1/3}\exp(2\Lc/\log\Lc)$, there are $Q$ with $840\mid Q$ and $\log Q\le5y$,
-and a minorant $B$ as in Theorem~\ref{thm:transfer} with $\mu>0$, the twist
-condition, and $\log\max d_i$, $\log(M_1/\mu)$ both at most
-$\exp(O(\Lc/\log\Lc))$.  In particular $H_{\min}(\theta)$
-\textup{(}Hypothesis~\ref{hyp:min}\textup{)} holds for every $\theta\ge1/3$.
+Let $k\ge3$ and $y=T^{1/k}\exp(2\Lc/\log\Lc)$.  For all large $T$ there are
+$Q$ with $840\mid Q$ and $\log Q\le(k+1)y$, and a minorant $B$ as in
+Theorem~\ref{thm:transfer} with $\mu>0$, the twist condition, and
+$\log\max d_i$, $\log(M_1/\mu)$ both at most $\exp(O_k(\Lc/\log\Lc))$.  In
+particular $H_{\min}(\theta)$ \textup{(}Hypothesis~\ref{hyp:min}\textup{)} holds
+for every $\theta>0$.
 \end{proposition}
 
 \begin{proof}
-Let $\tau^*=\max_{n\le T+2}\tau(n)$, so that
-$\tau^*\le\exp((\log2+o(1))\Lc/\log\Lc)$, and
-\[
- y=T^{1/3}\exp(2\Lc/\log\Lc),\qquad\Pi_0=\{\ell\le y\}.
-\]
-For $\ell>y$ let $g^{(0)}_\ell$ be the Haar measure of the classes mod
-$\ell^{e_\ell}$ ($e_\ell$ maximal with $\ell^{e_\ell}\le T$) hit by atoms surviving
-$\Pi_0$ with $r_{\Pi_0}\in\{\ell,\ell^2\}$, and let
-$\mathcal B=\{\ell>y:\ g^{(0)}_\ell>1/64\}$, so $|\mathcal B|\le64S_{\rm tot}(\Pi_0)$.  Put
-$\Pi=\Pi_0\cup\mathcal B$, $Q=\lcm(24,\ \ell^{e_\ell}:\ \ell\in\Pi)$, and
-$\mathcal P=\{y<\ell\le T\}\setminus\mathcal B$.  Every atom surviving $\Pi$ has
-$r_\Pi\le T$ with all prime factors in $\mathcal P$, hence $>T^{1/3}$, so
-$r_\Pi\in\{\ell,\ell^2,\ell\ell'\}$: it contributes the class $-4D\bmod r_\Pi$ to
-the single $S_\ell$ (lifted mod $\ell^{e_\ell}$) or the edge $-4D\bmod\ell\ell'$.
+Put $k'=\max(k-1,3)$, $\hat S=S^*+1$ and $c_0=c_{k'}(\hat S)$
+(Theorem~\ref{thm:klevel}); then $1/c_0=\hat S^{O_k(1)}$.  Apply
+Lemma~\ref{lem:iterq} with $z=y$; as $y^k>T$, every $M\le T$ has at most $k-1$
+prime factors $>y$, so $\kappa\le k-1$ and $|\mathcal B|\le(k-1)S^*/c_0=\hat
+S^{O_k(1)}$.  Put $Q=\lcm(24,\ \ell^{e_\ell}:\ \ell\in\Pi)$ ($e_\ell$ maximal with
+$\ell^{e_\ell}\le T$) and $\mathcal P=\{y<\ell\le T\}\setminus\mathcal B$.  Every atom
+surviving $\Pi$ has rough part $r_\Pi\le T$ with all prime factors in $\mathcal P$,
+at most $k-1$ of them counted with multiplicity; it gives the event
+$n\equiv-4D\pmod{r_\Pi}$, which we write, after lifting each class mod $\ell^a$ to
+its classes mod $\ell^{e_\ell}$, as a union of singles or hyperedges on at most
+$k-1\le k'$ vertices; identical events are merged.
 
 \emph{(I).}  Let $n\equiv1\pmod Q$ and $M\le T$, $M\equiv3\pmod 4$.  Every
 $\ell^v\Vert M$ with $\ell\in\Pi$ has $\ell^v\le T$, so $m_\Pi\mid Q$.  If $r_\Pi=1$,
 Lemma~\ref{lem:one} applies.  If $n\equiv-4D\pmod M$ with $D\mid A_M^2$, then
-$m_\Pi\mid4D+1$, and reducing mod $r_\Pi$ shows that a single or edge occurs.
+$m_\Pi\mid4D+1$, and reducing mod $r_\Pi$ shows that an event occurs.
 Conclude with Lemma~\ref{lem:atoms}.
 
-\emph{(W).}  An edge at $\ell$ comes from $M=m\ell\ell'$ with $m\le T/(\ell\ell')$,
-and each $M$ carries $\le\tau^{*2}$ atoms; so
-$w_\ell\le\sum_{\ell'>y}(T/(\ell\ell'))\tau^{*2}\cdot4/(\ell\ell')\le8\tau^{*2}T/y^3
-=\exp((2\log2-6+o(1))\Lc/\log\Lc)$.
+\emph{Masses.}  Lifting preserves mass and merging lowers it, so every free
+prime carries total mass $\le w_\ell(\Pi)\le c_0$, and the total mass is
+$\le S_{\rm tot}(\Pi)\le S^*<\hat S$ (Lemma~\ref{lem:qmass}).  Finally
+$\log Q\le(\pi(y)+|\mathcal B|)\Lc+\log24\le(k+1)y$, since $\Lc/\log y\to k$.
 
-\emph{(G).}  An atom with $r_\Pi\in\{\ell,\ell^2\}$ either survives $\Pi_0$ with the
-same rough part (weight $\le1/64$ in total) or has $M=mb\ell$ with $b\in\mathcal B$
-($b\ell^2,b^2\ell>y^3>T$).  The latter add at most
-$2|\mathcal B|\tau^{*2}T/y^3=\exp((3\log2-6+o(1))\Lc/\log\Lc)$.  So $g_\ell\le1/32$.
-
-\emph{Sizes.}  $\Sigma\le S_{\rm tot}(\Pi)=\exp(O(\Lc/\log\Lc))$ by
-Lemma~\ref{lem:qmass}, and $\log Q\le(\pi(y)+|\mathcal B|)\Lc+\log24\le5y$.
-
-Theorem~\ref{thm:crit} now gives $B$ with
-$K=1+\log(M_1/\mu)$ and $\log\max d_i$ both at most $\exp(O(\Lc/\log\Lc))$.
-The conditions of Hypothesis~\ref{hyp:min} hold for every $\theta\ge1/3$ and
-$\varepsilon>0$, since $\exp(O(\Lc/\log\Lc))=T^{o(1)}$.
+Theorem~\ref{thm:klevel} with $k'$ now gives $B$ with $K=1+\log(M_1/\mu)$ and
+$\log\max d_i$ both $\le C_{k'}\hat S^{A_{k'}}\Lc=\exp(O_k(\Lc/\log\Lc))$ by
+Lemma~\ref{lem:qmass}.  As $\exp(O_k(\Lc/\log\Lc))=T^{o(1)}$, the conditions of
+Hypothesis~\ref{hyp:min} hold for every $\theta>1/k$, and $k$ is arbitrary.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Take $Q$, $B$, $y$ from Proposition~\ref{prop:hmin} and put $K=1+\log(M_1/\mu)$.
-As in Theorem~\ref{thm:Hmin}, adjoin to $Q$ a prime $\ell_0\in(R,2R]$,
-$R=\max(T,\max d_i)$; then $\log Z\le6y$ and Theorem~\ref{thm:transfer} gives a
-prime $p\equiv1\pmod{Q\ell_0}$ with $W(p)>T$ and
-$\log p\le C_1K\max(\log Z,K)\le T^{1/3}\exp(O(\Lc/\log\Lc))$.  It is hard as
+Fix $k\ge3$ and take $Q$, $B$, $y$ from Proposition~\ref{prop:hmin}; put
+$K=1+\log(M_1/\mu)$.  As in Theorem~\ref{thm:Hmin}, adjoin to $Q$ a prime
+$\ell_0\in(R,2R]$, $R=\max(T,\max d_i)$; then $\log Z\le(k+2)y$ and
+Theorem~\ref{thm:transfer} gives a prime $p\equiv1\pmod{Q\ell_0}$ with $W(p)>T$ and
+$\log p\le C_1K\max(\log Z,K)\le T^{1/k}\exp(O_k(\Lc/\log\Lc))$.  It is hard as
 $840\mid Q$, and $p>\ell_0>T$ gives infinitely many distinct primes.
-Inverting: if $\Lc\ge4\log\log p$ then $W(p)>T\ge(\log p)^4$; otherwise
-$\Lc/\log\Lc\ll\log\log p/\log\log\log p$, and
-$\Lc\ge3\log\log p-O(\log\log p/\log\log\log p)$.  All inputs are effective.
+Inverting: if $\Lc\ge(k+1)\log\log p$ then $W(p)>T\ge(\log p)^{k+1}$;
+otherwise $\Lc/\log\Lc\ll_k\log\log p/\log\log\log p$, and
+$\Lc\ge k\log\log p-O_k(\log\log p/\log\log\log p)$.  All inputs are effective.
 \end{proof}
 
-The constants are astronomically lossy ($\delta=e^{-50}$ in
-Theorem~\ref{thm:crit}); the statement is purely asymptotic.  Exponent~$3$
-uses $y\ge T^{1/3+o(1)}$ twice: for the crude per-prime bounds (W), (G), and to
-ensure that all events have at most two primes.
+For $k=3$ there are no hyperedges, level~$3$ is empty, and the argument is
+Theorem~\ref{thm:crit} applied after the quarantine with $c_0=\delta/32$ (its
+hypotheses (G), (W) follow from $w_\ell(\Pi)\le c_0$); this is the exponent-$3$
+case with an absolute constant.  The constants are astronomically lossy
+($\delta=e^{-50}$, $\delta_r=[4er\rho^r]^{-1}$, and $A_k$ may be very large);
+all statements are asymptotic for fixed $k$, and we claim no rate for $k=k(T)\to\infty$.
 
 \section{Limits of the method}\label{sec:limits}
 
