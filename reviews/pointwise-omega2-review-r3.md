@@ -225,8 +225,8 @@ Data are in `data/review_r3/iterq_mt_*.txt`. It does the following:
   the iteration still stops after **one** addition round. All inequalities hold, and the Moser–Tardos
   witnesses are clean.
 * **Observation (not a defect).** The explicit bound `(π(z)+kS*/c_0)log T+4S*` exceeds the certificate by a
-  factor ≈ 40–110. The slack is in `kS*/c_0` against the actual `|𝓑|`: the charge sum is only 10–25% of
-  `kS*`, and `w_ℓ` of a bad prime typically exceeds `c_0` by a small factor.
+  factor ≈ 38–110. The slack is in `kS*/c_0` against the actual `|𝓑|`. The charge sum is only 12–28% of
+  `kS*`, and `c_0|𝓑|` is only 5–21% of the charge (bad primes carry far more than `c_0` of S*-weight).
 
 Verdict: the mechanics of Lemma 11.2 and Theorem 11.3 are confirmed at T ≤ 10⁶, and coverage (I) is
 confirmed end to end. The subject's `omega2_iterq.py` output is reproduced exactly. Defects D1, D2 above
