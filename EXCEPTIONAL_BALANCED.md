@@ -427,32 +427,43 @@ Data: `data/balanced/part_i_X1e5.txt` (200 histories),
 | [128,256) | gapB | 1.532 | 1.007 | 0.66 | 0.130 | 1.49 |
 | [256,512) | gapB | 1.336 | 0.941 | 0.70 | 0.068 | 1.11 |
 
-All types at X = 10⁵ and 10⁶ behave as follows:
-* `K < 1` in every band and type (range 0.52–1.00). Sequential conditioning
-  *deflates* the profile. This is the same clumping as ET §5.3(iii),
-  ratio ≈ 0.8.
-* `max_h p(h)·√p ≤ 4.3`, aggregated over all types and all primes > 30.
-* `p(h) > 1/4` occurs only for top primes p < 128. In the theory those
-  primes belong to the free small part (`w₀`).
+**Union over all types** (the quantity that enters (★_δ)/H_light, since
+`F_ℓ` is a union; review D13):
 
-**Steered (adversarial) histories, X = 10⁵, 10 tries each:**
+| band | X | Σ M_p | Σ E_seq p | K | max_h p(h) | max p(h)·√p | frac(p(h) > 1/4) |
+|---|---|---:|---:|---:|---:|---:|---:|
+| [128,256) | 10⁵ | 5.418 | 3.523 | 0.65 | 0.317 | 4.10 | 2.7% |
+| [128,256) | 10⁶ | 7.172 | 4.485 | 0.63 | 0.329 | 4.33 | 15.4% |
+| [256,512) | 10⁵ | 5.412 | 3.814 | 0.70 | 0.232 | 4.22 | 0% |
+| [256,512) | 10⁶ | 7.779 | 5.226 | 0.67 | 0.259 | 4.28 | 0.2% |
+| [512,1024) | 10⁶ | 7.412 | 5.343 | 0.72 | 0.161 | 4.33 | 0% |
 
-| p | 101 | 151 | 211 | 307 | 401 | 503 |
-|---|---:|---:|---:|---:|---:|---:|
-| best p(h) | 0.139 | 0.126 | 0.071 | 0.068 | 0.077 | 0.159 |
-| best p(h)·√p | 1.39 | 1.55 | 1.03 | 1.20 | 1.55 | 3.57 |
+Across X = 10⁵ and 10⁶, all bands and types:
+* `K` ranges over 0.48–1.00, so sequential conditioning *deflates* the
+  profile, as in ET §5.3(iii) (review D14 corrected the range).
+* `max_h p(h)·√p ≤ 4.4`.
+* **Heavy histories (`p(h) > 1/4`) occur at top primes up to 512 at
+  X = 10⁶.** In [128,256) they rise from 2.7% to 15.4% of sampled histories
+  as X goes from 10⁵ to 10⁶. The union mass per prime also grows with X,
+  since more cofactors enter at fixed ℓ. (An earlier version said "only
+  for p < 128"; that is false for X = 10⁶, review D13.)
 
-At small primes the adversary does much better. It reaches p(h) = 0.84 at
-p = 31 and 0.62 at p = 47 (X = 10⁶), against typical values near 0.3–0.4.
-So heavy reachable histories exist at small primes.
+**Steered (adversarial) histories.** See §4.3 for the regenerated data
+(review D17). At small primes the adversary reaches p(h) = 0.84 at p = 31
+and 0.62 at p = 47 (X = 10⁶), against typical values near 0.3–0.4. So
+heavy reachable histories exist at small primes.
 
-**Reading.**
-* At accessible scales, `p_ℓ(h) ≲ 4ℓ^{−1/2}` on sampled and steered
-  histories alike. That is consistent with (★_δ) for δ ≈ 1/2 above
-  `w₀ ≈ 128`, and with H_light at K ≈ 1.
-* No sign of the failure mode of §2.6 item 2.
+**Reading (corrected).**
+* At fixed X, `p_ℓ(h) ≲ 4.4ℓ^{−1/2}` on sampled histories.
+* The heavy region moves **up with X**. With B unrestricted (all moduli
+  ≤ X), a fixed w₀ cannot work. This is consistent with the per-prime
+  union mass growing with the number of cofactors.
+* For a fixed B (the setting of Thm 2.5), the data neither confirm nor
+  refute (★_δ): `B = log X/log ℓ − 1` is not held fixed across these
+  runs. The earlier "consistent with (★_δ) for δ ≈ 1/2 above w₀ ≈ 128" is
+  withdrawn.
 * Caveats:
-  * the scales are tiny, so `B = log M/log P − 1` is at most about 2;
+  * the scales are tiny;
   * the adversary is greedy and weak;
   * singleton windows differ from η-windows.
 
