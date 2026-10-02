@@ -89,20 +89,23 @@ pointwise multiplier mechanism needs witness moduli beyond `(log p)^2`.
 * Status labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE.
   "Verified numerically" never means "proved".
 
-## In progress (2026-10-01 evening; agents paused by an API usage block)
+## Exceptional-set exponent: where it stands (2026-10-02)
 
-* `side-agent/theta-beyond-34` (worktree 0001, **not merged**):
-  `EXCEPTIONAL_THETA.md`. It claims a proved "sieve-limit" theorem
-  (Thm 2.5/2.7, Cor 3.4–3.6): every nonnegative CRT majorant built from
-  dominant-prime Case-B forced classes saves at most `C(log N)^{3/4}`. On
-  this reading 3/4 is sharp for that class, and the 2/3-loglog note is sharp
-  for its own architecture. Case A is settled via Elsholtz–Tao Prop 1.4.
-  Balanced moduli carry a positive share of the cubic supply and remain the
-  open door (H_MS). The independent hostile review
-  (`side-agent/review-theta`, worktree 0006) was interrupted before
-  finishing. Its only output so far is an uncommitted literature note,
-  `reviews/theta-lit-notes.md`, which found no prior source for the
-  theorem. **Do not cite these results until that review is complete.**
-* `paper/es-omega-note.tex` (13 pp, Ω-results) is merged. Referee report
-  `reviews/es-omega-note-review.md` (MINOR REVISION); all R1–R17 applied
-  (`reviews/agent-reports/OMEGA_NOTE_REVISION.md`); no second referee round.
+`EXCEPTIONAL_THETA.md` (reviewed, merged) proves that **3/4 is sharp** for
+every nonnegative CRT-majorant sieve built from forced classes whose moduli
+have a dominant prime. This class contains the 3/4 note's own majorant
+(DISCOVERIES (D)9). The note's mass heuristic θ=B/(B+1) is now a theorem
+for that class. No θ>3/4 was found. Beating 3/4 requires at least one of:
+* balanced moduli used jointly (they carry a positive share of the cubic
+  supply; open; reduced to H_MS^{Sel} for Λ² sieves);
+* multipliers beyond N^{O(1)};
+* signed cancellation in rounding errors;
+* a non-CRT input (actual arithmetic of `(p+a)/4`).
+
+Papers in `paper/`:
+* `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
+* `vaughan-loglog-note`;
+* `pointwise-obstruction` (refereed internally, ACCEPT pending authorship);
+* `es-omega-note` (refereed internally, R1–R17 applied).
+
+Authorship and the citation form for astra are still undecided.
