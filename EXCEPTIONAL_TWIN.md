@@ -30,6 +30,8 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | §6.4 | exact toy window LPs: binary constraints extract a smaller share of their void than unary; the sequential σ is costly in dense toys | EVIDENCE (weak) |
 | Lemma 6.6 | fibre tilting for Λ² majorants: `saving(g²) ≤ αλ/2 + log(Q_F/\|R\|) + avg_{c∈R}Ξ_c` (removes ET's fibre-variance term) | PROVED |
 | Red 6.7, Conj 6.8 | H_MS^{Sel} (Λ² cap, all ℛ(M), any B, twins) ⇐ empty-fibre density + good fibres (SKETCH) + sparse noise stability via cluster expansion (Conj 6.8; binary case plausibly within reach via POINTWISE_OMEGA2 Lemma 2.1) | SKETCH / OPEN |
+| Lemma 6.9 | two-prime events, good fibre: Mayer/Kotecký–Preiss expansion converges for the single and doubled systems (Penrose + PO2 Lemma 2.1), δ ≤ e^{−6}/8 | PROVED |
+| (6.1) | weighted-KP derivative bound `Ξ_bin ≤ (1+O(δ))·diagonal`: the precise remaining step for the two-prime Λ² theorem | OPEN |
 | Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
@@ -1006,6 +1008,87 @@ system). That bounds an average over structures, not the given one. For
 general (non-Λ²) majorants this route needs a further transference, which
 was not found. The Λ² route avoids it because there everything is an L²
 quantity.
+
+### 6.7 Conjecture 6.8 for events on at most two primes: convergence proved, comparison step open
+
+**Tool (Kotecký–Preiss, Comm. Math. Phys. 103 (1986) 491–498, Thm 1;
+version used).** Let polymers γ carry weights `w(γ) ∈ ℝ`, with a symmetric
+reflexive incompatibility relation `≁`, and let
+`Z = Σ_{pairwise compatible families} Π w(γ)`. Suppose there are
+`a, d : polymers → [0,∞)` with
+
+    Σ_{γ′ ≁ γ} |w(γ′)| e^{a(γ′)+d(γ′)} ≤ a(γ)     for every γ.
+
+Then `log Z = Σ_X φ(X) w^X`, summed over clusters X, converges absolutely,
+and `Σ_{X ≁ γ} |φ(X) w^X| e^{d(X)} ≤ a(γ)` for every γ.
+
+**Tool (Penrose tree-graph inequality, 1967).** If `f_e ∈ [−1, 0]` for
+every edge of the complete graph on V, then
+`|Σ_{G connected spanning V} Π_{e∈G} f_e| ≤ Σ_{T spanning tree} Π_{e∈T} |f_e|`.
+
+**Setting.** We work in one good fibre, with unary constraints absorbed
+into the product base `ν = ⊗ν_ℓ` (ν_ℓ uniform off the unary set). The
+binary constraints are points `(ℓ,a; ℓ′,b)`. Put
+`f_{ℓℓ′}(y) = −1[(y_ℓ, y_ℓ′)` is a forbidden point`] ∈ {−1, 0}`. In the
+vertex language of POINTWISE_OMEGA2 §2, a vertex is a residue `a` at ℓ,
+`p(a) = ν_ℓ(a)`, `deg(a) = Σ_{points (ℓ,a;ℓ′,b)} ν_ℓ′(b)` (the incident
+weight), and `w_ℓ = Σ_a p(a) deg(a)`. Then
+`Z₁ := P_ν(no binary point) = E_ν Π_{ℓ<ℓ′}(1 + f_{ℓℓ′})`.
+
+**Lemma 6.9 (convergence; PROVED).** Use the Mayer expansion: polymers are
+prime sets V with `|V| ≥ 2`, `w(V) = E_ν Σ_{G connected spanning V} Π_{e∈G}
+f_e`, and V ≁ V′ iff `V ∩ V′ ≠ ∅`. Then `Z₁ = Σ_{disjoint families} Π w(V)`.
+If `deg(a) ≤ δ ≤ e^{−6}/2` for every vertex, the Kotecký–Preiss condition
+holds with `a(V) = d(V) = |V|`. The same holds for the doubled system: the
+ρ-coupled pair `(y, y′)` at each prime, with
+`f^{(2)}_e = (1+f_e(y))(1+f_e(y′)) − 1 ∈ {−1,0}`, base conditioned on unary
+avoidance in both copies. There the requirement is `δ ≤ e^{−6}/8`.
+
+*Proof.* Expanding `Π(1+f_e)` over graphs and grouping by connected
+components gives the polymer representation. By independence of distinct
+primes, the expectation factors over components. By Penrose (pointwise in
+y, as `f_e(y) ∈ {−1,0}`), `|w(V)| ≤ Σ_{T tree on V} P_ν(every edge of T is
+hit)`. A hit prime-level tree fixes one residue per prime, so it is
+dominated by a vertex-level tree at distinct primes. POINTWISE_OMEGA2
+Lemma 2.1's tree count (rooted at a vertex at ℓ) gives
+`Σ_{V∋ℓ, |V|=v} |w(V)| ≤ w_ℓ e^v δ^{v−2} ≤ e^v δ^{v−1}`. Hence
+
+    Σ_{V′≁V} |w(V′)| e^{2|V′|} ≤ |V| · Σ_{v≥2} e^{3v} δ^{v−1} ≤ |V| · 2e⁶δ ≤ |V|.
+
+Doubled system: a doubled edge is hit iff it is hit in copy 1 or copy 2.
+The vertex degree of `(a, a′)` is at most
+`(deg(a) + deg(a′))·(16/9)² ≤ 4δ`, using the base marginals
+`≤ (1−p)^{−1}ν`, `p ≤ 1/4`. Repeat with 4δ. ∎
+
+So in a good fibre, `log Z₁` and `log Z₂` (doubled) are absolutely
+convergent cluster sums, with every prime's cluster mass ≤ |V| = O(1).
+This also gives the lower bound `log Z₁ ≥ −Σ_ℓ(cluster mass through ℓ)`
+without any correlation inequality. That is ET's missing ingredient 1, in
+the binary sparse regime.
+
+**The remaining step (precise failure point; OPEN).** Conjecture 6.8 for
+two-prime events needs
+
+    Ξ_bin := log Z₂(ρ) − log Z₂(0) ≤ (1 + O(δ)) Σ_e [P(e hit in both copies) − P(e)²] + O(δ)·(same),     (6.1)
+
+with `log Z₂(0) = 2 log Z₁` (independent copies). The natural proof is
+`Ξ_bin = ∫₀¹ Σ_ℓ ρ_ℓ ∂_{ρ_ℓ} log Z₂(tρ) dt`, with
+`∂_{ρ_ℓ} log Z₂ = Σ_{X∋ℓ} φ(X) ∂_{ρ_ℓ} w^X`. Here `∂_{ρ_ℓ}` replaces the
+base law at ℓ by (diagonal − product). This signed measure inflates the
+weight of *mixed* polymers (those using ℓ in both copies at the same
+residue) by a factor up to ≈ ℓ relative to their ρ = 0 value. So KP's
+bound `Σ|φ w^X| ≤ a` does not control the derivative directly. What is
+needed is a **weighted** Kotecký–Preiss estimate, with `d(X)` carrying a
+factor `e^{(number of mixed coordinates)·log(ρ_ℓ ℓ)}`. One then has to show
+that a mixed cluster costs its diagonal weight `Π_{i∈mixed}(ρ_i + 1/ℓ_i)`
+times `O(δ)` per extra prime. This is a standard-looking but unproved
+perturbation lemma. It is the precise point at which the two-prime Λ²
+theorem stops. Steps 1–2 of Reduction 6.7 (empty-fibre density, good
+fibres) were not written out in this session.
+
+**Status of the two-prime Λ² theorem:** not proved. Reduced to the
+weighted-KP derivative bound (6.1). Convergence (Lemma 6.9) is proved, and
+so is the fibre tilting (Lemma 6.6).
 
 ## Replay
 

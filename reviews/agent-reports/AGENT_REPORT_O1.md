@@ -203,3 +203,26 @@ first).
 Kotecký–Preiss expansion, using PO2 Lemma 2.1 for convergence, then write
 out steps 1–2 of Reduction 6.7. That would give a proved Λ² cap with twins.
 General majorants would remain open via Conj 6.4.
+
+# Checkpoint 4 — two-prime Λ² theorem via Kotecký–Preiss (§6.7)
+
+**Outcome: not proved. Convergence proved, failure point located.**
+Stopped at the context limit.
+* Tools stated precisely: Kotecký–Preiss (CMP 103 (1986), Thm 1, the
+  version with a and d) and the Penrose tree-graph inequality.
+* **Lemma 6.9 (PROVED):** in a good fibre (incident weights ≤ δ ≤ e^{−6}/8),
+  the Mayer expansion of `P(no binary point)` converges for both the
+  single and the ρ-doubled system. The polymers are prime sets; |w| is
+  bounded by Penrose and by POINTWISE_OMEGA2 Lemma 2.1's tree count. This
+  gives an absolutely convergent `log Z` with no correlation inequality
+  (ET's missing ingredient 1, binary sparse case).
+* **Precise failure point (6.1):** the bound
+  `Ξ_bin = log Z₂(ρ) − 2 log Z₁ ≤ (1+O(δ))·(diagonal)`. The ρ-derivative
+  inflates mixed polymers by up to ≈ ℓ, so it needs a *weighted* KP
+  perturbation estimate, which I have not proved.
+* Steps 1–2 of Reduction 6.7 (empty-fibre density, good fibres) are not
+  written out.
+
+**Next step:** a weighted Kotecký–Preiss lemma for (6.1). The weight is
+`e^{d(X)}` with d counting mixed coordinates at `log(ρ_ℓ ℓ)` each. Then
+write out Reduction 6.7 steps 1–2 and assemble the two-prime Λ² theorem.
