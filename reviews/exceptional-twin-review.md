@@ -499,3 +499,53 @@ written as a variant: `𝔏 ≤ Σ_ℓ E[p^{un}_ℓ 1{un heavy}] + Σ_ℓ E[p^{k
 Also, in Conj 6.4, "uniform if that set has ν_ℓ-mass > δ_ℓ" should say
 "ν_ℓ" (unary-conditioned), not "uniform". As written it would undo the
 unary conditioning at ℓ.
+
+### R2.4 §6.4 toy LPs (EVIDENCE, weak) — SOUND as labelled
+
+Replays (`twin_window_lp.py`): (5,5,2,2,1,uniform) gives 0.6015 vs 0.9163;
+(5,5,3,…,uniform) gives 0.7467 vs 1.0441; sequential (4,5,2) gives
+0.6931 vs void 0.519; sequential (5,5,3) gives 1.3666 vs void 0.825. All
+identical to `data/twin/lp/`. The unary voids `m·log(5/4)` (1.116, 1.339)
+match the table. The bounds `log C* ≤ void` (for σ = U|A) and
+`≥ own sieve saving` are correct. The labelling (weak, dense, tiny) is
+honest. LOW: each row is a single random instance (seed 1). In
+`series_L5_k2_d2.txt`, m = 6 even has binary `log C*` = 1.03 > unary 0.92 at
+equal mass, under the sequential σ, the opposite direction. The text
+reports the sequential caveat, but should also say there are no seed
+repeats.
+
+### R2.5 Remark 6.5 (Λ² cap with any σ̃) — SOUND
+
+`g ≥ 1` on `A ⊇ supp σ̃` gives `1 ≤ E_U[gh] = ⟨g, Π_V h⟩ ≤ ‖g‖‖Π_V h‖`. Then
+`‖Π_V h‖² ≤ e^{αλ/2}⟨h, T_ρ h⟩` (ET Thm 5.5's step, with h in place of 1_A).
+Writing `T_ρ = E_S[E(·|ω_S)]` with independent inclusions `ρ_i` gives
+`⟨h,T_ρh⟩ = E_S E_{U_S}[(dσ̃_S/dU_S)²] = E_S[1+χ²(σ̃_S‖U_S)]`. Correct.
+
+### R2.6 Lemma 6.6 (fibre tilting) — SOUND
+
+Re-derived. On fibre c, `h = π_c Q_F 1_{A_c}/P(A_c|c)`.
+`⟨h,T_ρh⟩ = Σ_T ρ^T‖ĥ_T‖²` is nondecreasing in each `ρ_i`, so setting
+`ρ = 1` on F keeps an upper bound. This is legal for charged F too, since
+the requirement is only `ρ_i ≥ e^{−αs_i}`. That gives
+`Q_F Σ_c π_c² e^{Ξ_c}`. Optimal `π ∝ e^{−Ξ}` gives value
+`Q_F/Σ_R e^{−Ξ_c} ≤ (Q_F/|R|)e^{avg Ξ}` (Jensen). The lemma needs
+`P(A_c|c) > 0` on R, which is assumed. The comment on ET's warning example
+is correct.
+
+### R2.7 Reduction 6.7, Conjecture 6.8, Tactic (ii) — labels HONEST, one note
+
+Reduction 6.7 is labelled SKETCH, Conj 6.8 OPEN, and Tactic (ii)
+"assessment only". §0 matches.
+
+**T12 (LOW; Reduction 6.7 step 3 / "What (6.2) would give").** The sketch
+says the fibre average of the diagonal term is `≪ α^{−3}` "by ET Lemma 3.1".
+But the average is over the restricted fibre set R, whose density is
+`Q_F^{−1}|R| = e^{−(log λ)^{O(1)}}`. `avg_{c∈R} P(C|c)` can exceed `P(C)` by an
+inflation factor that the local-lemma base must control in product form
+(QR/Γ-type weights at the primes ≤ W₁, local-lemma factors on (W₁, w]).
+Then a γ-weighted Lemma 3.1 (Lemma 2.6-type) is needed, with constants
+polynomial in log λ. Note: Lemma 2.6's tail constant
+`exp(O(W₁^{1/4}))` is superpolynomial in λ once `W₁ = (log λ)^{C′}` with
+`C′ > 4`, so the large-divisor step must be redone. This belongs on the
+SKETCH's list of steps. See T14 for the place where it is claimed as
+PROVED.
