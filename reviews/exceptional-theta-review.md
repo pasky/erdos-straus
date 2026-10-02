@@ -658,3 +658,31 @@ A1–A3.
   Remark 2.6, which covers Montgomery's large sieve, not a majorant.
   * *Fix.* Say so. Also add the SC1 qualification to the report's "3/4 is
     sharp" sentence.
+
+## Repairs applied (review-theta-2)
+
+The original author's session is gone, so the reviewer applied the repairs
+on branch `side-agent/review-theta-2`. First it merged
+`side-agent/theta-beyond-34`, which was conflict-free; the subject files
+were byte-identical to that branch. Nothing beyond the listed fixes was
+strengthened. All PROVED/EVIDENCE labels are unchanged, except that
+"constants only" claims were *weakened* to their proved direction.
+
+| defect | applied in | what changed |
+|---|---|---|
+| T1 | EXCEPTIONAL_THETA §0 row Thm 2.5; §2.4 new paragraph "Size of the error term" | O(log²λ) qualified: needs `μ̄ ≤ λ^{O(1)}` and `s_* ≫ 1`; otherwise ≍ λ log λ |
+| T2 | §2.4 before Thm 2.5; end of its proof | μ̄ *defined* as the truncated mass `Σ_{ℓ≤e^λ} p̄_ℓ` |
+| T3 | Prop 2.4 Step 5 | Jensen chain `E f ≥ E_w e^{−Φ(w)} ≥ e^{−E_wΦ}` and the concavity step written out |
+| T4 | Lemma 2.2(a) | "z ≥ 4 because q ≤ 1/4", and `⌈μ'⌉ ≤ z/4+1 ≤ z−1` |
+| S1 | Cor 3.6, after the displayed bound | Q₀ is unbounded; only `Q₀/|R| ≤ L' ≤ e^{O(w₀^{1+C})}` enters |
+| S2 | Cor 3.6 proof | `s_j = s₀C^{−j+1}` defined as the log of the lower endpoint; `W_j = (e^{s_j}, e^{s_j/C}]` |
+| SC1 | new §2.7 **Lemma 2.9** (coefficient budget ⇒ level), credited to this review; §0 new table row; §0 Verdict rewritten (level hypothesis explicit, or coefficient sum < N with slice primes ≤ N^{O(1)} via Lemma 2.9); §0 Cor 3.4 row; §2.4 "Interval-counting methods"; Cor 3.4 "In particular" paragraph; Lemma 4.1 (budget `log T_abs ≤ log N` named as the binding constraint, with Λ₀ = t); binding table (3/4 row and column header); §6 item 1; new **§6.1 "What the theorems exclude"** (the review's §3.3 list); AGENT_REPORT_A2.md (Cor 3.4/3.6 paragraph and accounting bullets) | — |
+| SC2 | Lemma 4.4 | R-term `log(L_K/φ(L_K)) ≍ log log K` stated, negligible |
+| L1 | §3, "Case A (the mirror half)" | derivation from notes Thm 3.1(A) (notes.md l. 84–89, 102–106) written out, incl. forcedness for every n ≥ 1, which the n = 1 argument of Cor 3.6 uses |
+| A1 | Lemma 4.3, new remark after the proof | rigorous reason: Lemmas 3.1/3.2/3.7 bound the entire supply independently of the level of distribution |
+| A2 | §0 row §4; after Lemma 4.2; binding-table header; §5.0 lever row "Bonferroni → Selberg"; §6 item 2; AGENT_REPORT_A2.md accounting bullets | "change constants only" → "cannot improve the exponent (PROVED); attaining the same order is EVIDENCE (§2.5)" |
+| A3 | AGENT_REPORT_A2.md, Cor 3.4/3.6 paragraph | the 3/4 note's majorant is literally in the class; Vaughan/PW/LL are covered only as Montgomery large-sieve bounds via Remark 2.6, not as majorants |
+
+These edits were not re-reviewed by an independent reviewer. Lemma 2.9 is
+the reviewer's own lemma. Its proof is in item 3 above and in §2.7, and
+its mechanics are checked by `scripts/review_theta_lemmaR.py`.
