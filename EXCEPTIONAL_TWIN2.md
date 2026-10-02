@@ -171,26 +171,23 @@ the fibre law can be a *product-type* law with controlled inflation
 `U_ℓ`, suppose `w_ℓ ≤ δ/2 ≤ 1/32` for all ℓ. Let `H_ℓ = {a : deg(ℓ,a) ≥ 1}`
 and `U⁺_ℓ = U_ℓ ∪ H_ℓ`, deleting the edges at hub vertices. The resulting
 system has `A⁺ ⊆ A`, unary density `p⁺_ℓ ≤ p_ℓ + w_ℓ ≤ 1/4`, and (with
-`ν⁺` uniform off `U⁺`) `w⁺_ℓ ≤ (8/7)² w_ℓ ≤ δ`. With
+`ν⁺` uniform off `U⁺`) `w⁺_ℓ ≤ (16/9) w_ℓ ≤ δ`. With
 `S_ℓ := Σ_a ν_ℓ(a) min(deg(ℓ,a), 1)²`, and for the fibre log-ratio of
 §1 (unary factor times `Z₂/Z₁²`),
 
-    Ξ⁺ ≤ 2 Σ_ℓ ρ_ℓ (p_ℓ + S_ℓ) + 4 Σ_{e={ℓ,m}} ρ_ℓ ρ_m π_e + 6 Σ_j ρ_j S_j,     (2.1)
+    Ξ⁺ ≤ 2 Σ_ℓ ρ_ℓ (p_ℓ + S_ℓ) + 9 Σ_{e={ℓ,m}} ρ_ℓ ρ_m π_e + 9 Σ_j ρ_j S_j,     (2.1)
 
 where π_e, deg, S are computed in the original ν.
 
 *Proof.* `ν(H_ℓ) ≤ Σ_a ν(a)deg(a) = w_ℓ` (Markov at 1), and `U(H) ≤ ν(H)`.
 Hubs have `min(deg,1)² = 1`, so also `ν(H_ℓ) ≤ S_ℓ`. Passing from ν to ν⁺
-multiplies point masses by `(1−p)/(1−p⁺) ≤ 8/7` (the ratio of
-`1/(1−p⁺) ≤ 4/3` and `1/(1−p) ≥ 1`, sharpened by `p⁺ − p ≤ 1/32`; the
-crude `4/3` suffices everywhere below). Hence every edge weight
-`π⁺ ≤ (4/3)²π`, `w⁺ ≤ (16/9)w_ℓ ≤ δ`, and since non-hub vertices have
-`deg < 1`, `q⁺_j ≤ (4/3)³ Σ_{a∉H} ν(a)deg(a)² ≤ (4/3)³ S_j`. The unary
-factor (TW §6.8, exact) is `≤ (4/3)Σ ρ_ℓ p⁺_ℓ`, and `ρ̃ ≤ (4/3)ρ`.
-Theorem 1.4 with `δ ≤ 1/16` (constant `1+25/16 < 2.6`) gives
-`2.6·[(4/3)²(16/9)Σρρ′π + (4/3)(64/27)Σρ_jS_j]`; `2.6·(16/9)² < 8.3` —
-so replace the constants 4, 6 in (2.1) by 9 and 9. ∎
+multiplies point masses by `(1−p)/(1−p⁺) ≤ 4/3`. Hence `π⁺ ≤ (16/9)π`,
+`w⁺ ≤ (16/9)w ≤ δ`, and, as non-hub vertices have `deg < 1`,
+`q⁺_j ≤ (4/3)³ Σ_{a∉H} ν(a)deg(a)² ≤ (4/3)³ S_j`. The unary factor (TW
+§6.8, exact) is `≤ (4/3)Σ ρ_ℓ p⁺_ℓ ≤ 2Σρ_ℓ(p_ℓ+S_ℓ)`, and `ρ̃ ≤ (4/3)ρ`.
+Theorem 1.4 (δ ≤ 1/16, constant `1+25δ ≤ 2.57`) gives at most
+`2.57·(16/9)²[Σρρ′π + Σρ_jS_j] ≤ 9[…]`. ∎
 
-(Constants are not optimised; read (2.1) with 9, 9. Hubs are deterministic
+(Hubs are deterministic
 in part — the "deadly values" `−4D mod j`, D small, of ET §5.7 — and the
 quarantine turns them into unary conditions at no hypothesis cost.)
