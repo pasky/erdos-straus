@@ -20,22 +20,32 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 | item | statement | label |
 |---|---|---|
 | Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `(|R|/Q₀)·exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. Here λ charges only the slice primes. The error term is O(log²λ) provided the truncated mass satisfies `μ̄ ≤ λ^{O(1)}` and `s_* ≫ 1` (true in all applications here); in general it is the explicit term of (2.4), which can be ≍ λ log λ. | PROVED |
-| Cor 3.4 | Take any family of Case-B forced classes (both groupings) that are all slice conditions, with small parts k ≤ ℓ^C (C<1) and a selector admissible set. Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A)(log N)^{3/4} + log(P/φ(P))`, where the last term is O(log log log P). So **3/4 is sharp for this class, and no power of log log N can be gained.** This assumes the final bound has the form `N·Eν + (nonnegative rounding bound)`. | PROVED |
+| Cor 3.4 | Take any family of Case-B forced classes (both groupings) that are all slice conditions, with small parts k ≤ ℓ^C (C<1) and a selector admissible set. Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A)(log N)^{3/4} + log(P/φ(P))`, where the last term is O(log log log P). So **3/4 is sharp for this class, and no power of log log N can be gained.** This assumes the final bound has the form `N·Eν + (nonnegative rounding bound)`. With the rounding bound `Σ|a_i|`, the level hypothesis follows from `Σ|a_i| < N` and family slice primes `≤ N^{O(1)}` (Lemma 2.9, from review-theta-2). | PROVED |
 | Thm 2.7, Cor 3.6 | **Sequential extension.** For nonnegative CRT majorants (no large-sieve claim), the cap `C(A,C)(log N)^{3/4} + O_C(1)` holds for every Case-B forced-class family whose moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1). The other prime factors are arbitrary (higher powers allowed) and may be shared between conditions. By Dickman, this is a positive proportion `log(1+C)` of unweighted moduli; the weighted share of the supply is conjectural. | PROVED |
 | Lemma 3.7 | **H_A3 holds.** `Σ_{rh≤x} τ(4rh²+1)·rh/φ(rh) ≪ x log²x`, so Cor 3.4/3.6 cover Case-A classes too. | PROVED, using Elsholtz–Tao Prop. 1.4 (published, not re-proved) |
 | Lemma 3.8 | **Balanced moduli** (`P(M) ≤ √M`, even same-scale pairs) carry `≫ (log x)³` of the Case-B supply. The open door is not lower order. | PROVED (BV + lattice lemma) |
 | Thm 5.5 | **Λ² sieve limit for arbitrary systems** (no slice structure): for g ∈ level λ/2 with g ≥ 1 on A, `saving(g²) ≤ αλ/2 + Ξ_A(α)`, where Ξ_A is the noise-stability excess. This reduces balanced moduli, for Λ², to hypothesis H_MS^{Sel}. | PROVED; H_MS^{Sel} open |
 | Cor 3.5 | Polylogarithmic multipliers, or multipliers whose lcm is at most N (the 2/3 note's architecture), cap the saving at `C L^{2/3}(log L)^{1/3}`. **The 2/3-loglog note is sharp for its architecture.** | PROVED (given the notes' BT upper bounds) |
-| §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, level). Bonferroni depth, the BV level and the selector are not binding: they change constants only. | PROVED (Lemmas 4.1–4.4) |
+| Lemma 2.9 | **Coefficient budget ⇒ level** (added by review-theta-2). A majorant with coefficient sum T and slice primes `≤ e^{Λ₀}` can be coarsened to level `Λ₀ + log T + log(1/Eν)` at most doubling its mean. | PROVED |
+| §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, budget). For the 3/4 note the budget is its coefficient sum `T_abs ≤ N^{1/2}`, which forces level `λ ≲ log N` via Lemma 2.9. For the 2/3 note it is the large-sieve level `Q² ≤ N/L_K`. Bonferroni depth, the BV level and the selector cannot improve the exponent (PROVED). That alternatives attain the same order up to constants is EVIDENCE (§2.5). | PROVED (Lemmas 4.1–4.4), except the EVIDENCE part |
 | §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed via H_A3, which is proved from Elsholtz–Tao Prop. 1.4 (§3.7). Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
 | §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. | EVIDENCE |
 
 **Verdict.** No route to θ > 3/4 survives inside the *dominant-prime* CRT
-world. That world is: every condition's modulus has a prime factor
-`≥ M^{1/(1+C)}`, the admissible set has bounded saving, and the final bound
-has the form `N·Eν + (nonnegative rounding bound)`. It contains the
-prime-slice world of Cor 3.4.
+world, defined as follows:
+* every condition's modulus has a prime factor `≥ M^{1/(1+C)}`, with C < 1
+  fixed;
+* the admissible set has bounded saving;
+* the majorant ν is ≥ 0 on all of ℤ and ≥ 1 on the whole avoider set;
+* the final bound has the form `N·Eν + Σ_i|a_i|`, i.e. rounding is
+  bounded by the absolute coefficient sum;
+* and **either** ν has level ≤ A·log N, **or** the family's slice primes
+  are ≤ N^{O(1)}. In the second case Lemma 2.9 reduces to the first,
+  because a non-trivial bound has `Σ|a_i| < N`.
+
+This world contains the prime-slice world of Cor 3.4. The precise list of
+what it excludes is §6, "What the theorems exclude".
 
 The Rankin functional `Ψ = inf_α[αλ + Σ p̄_ℓ ℓ^{−α}]` bounds what any such
 sieve can save (Theorem 2.5). For the specific families of both campaign
