@@ -499,3 +499,153 @@ beyond O2 are:
 
 No arithmetic input about pair codegrees is used, so §2 is explanation
 (EVIDENCE for *where* the heavy pairs are), not a step of the proof.
+
+## 5. Every exponent: k levels
+
+The two-level argument iterates. Events of support `r` form level r
+(`2≤r≤k`, with all singles in level 2). Level r is composed *inside*
+levels `<r`. Heavy vertex sets of level r are pushed down to the level of
+their own size. Masses flow only downwards, and every threshold depends
+only on levels `≥r`, so there is no circularity.
+
+**Setting 5.0.** O2 Setting 3.0 with events of support `≤k` (singles and
+hyperedges of 2..k vertices at distinct primes, all vertices classes mod
+`ℓ^{e_ℓ}`). Level r (`3≤r≤k`) is a family of r-vertex events; level 2 is a
+family of singles and edges. `F_r` is the void indicator of level r,
+`F_{<r}:=∏_{2≤s<r}F_s`, `𝒜_{<r}:={F_{<r}=1}`, `Σ_r` is the mass of level
+r, and `Δ^{(r)}_O` is the codegree of O within level r. Assume
+
+* (P_k) the total mass of all events at every prime is `≤1/(64k)`.
+
+Lemma 3.1 then holds for the union of the levels, with item 2 for every
+lower family `𝒜_{<r}`: `P(B∩𝒜_{<r}) ≤ P(𝒜_{<r})P(B)e^{|U|/2}`. The
+proof is the same: neighbour sums are now `≤k·2/(64k)=1/32`.
+
+**Theorem 5.1 (k-level minorant; PROVED).** For every `k≥3` there are
+constants `C_k, A_k` with the following property. Take a system as in
+Setting 5.0, with (I) of O2 Thm 3.1, total mass `≤Ŝ` (`Ŝ≥1`), and
+per-prime total mass `≤c_k(Ŝ):=Ŝ^{−A_k}/C_k`. Then there is a minorant B
+as in PO Thm 4.1 (twist condition included) with
+`log(M_1/μ) ≤ C_kŜ^{A_k}`, and every modulus is a product of at most
+`C_kŜ^{A_k}` free prime powers.
+
+*Proof.* Put `w=16`, `w'=16e^{1/2}`, `δ_r:=[4er(1+w')^r]^{−1}`,
+`δ:=e^{−50}`.
+
+**Step A (push-down, top to bottom).** For `r=k,k−1,…,3`, in this order,
+let `Σ_r` be the current mass of level r. Level r already contains the
+sets pushed into it from above. Define
+
+```
+L_r := least integer with 4^{L_r+1} ≥ 200k·𝔐_{r+1}·e^{F_r/2+Λ_r+3Ŝ_{≥r}},
+N_r := r(L_r+1)+F_r,     F_r := k·Σ_{s>r}(L_s+1),
+```
+
+where:
+
+* `Ŝ_{≥r}` bounds the total mass of levels `≥r`;
+* `Λ_r:=2er(1+w')^r(Σ_r+1)`;
+* `𝔐_{r+1}:=∏_{s>r}4e^{Λ_s}` (`𝔐_{k+1}:=1`) bounds the mass of the
+  composite of the levels above r (Step B).
+
+Then perform:
+
+* (a) each vertex of level-r degree `>δ_r/2` becomes a single (level 2);
+* (b) for `j=1,…,r−2`, each vertex set O with `|O|=j+1` and
+  `Δ^{(r)}_O > δ_r(4N_r)^{−j}/(2r)` becomes an event of level `j+1`
+  (a single vertex set realised = event);
+* every level-r event that contains a pushed vertex or set is deleted.
+
+Afterwards, level 2 vertices of degree `>δ` become singles, and their
+edges (and events containing them) are deleted.
+
+As in Lemma 3.3, deletions only lower degrees and codegrees, and every
+deleted event contains a lower-level event. By Markov, each vertex or
+set pushed from level r carries per-prime mass
+`≤2^r w^{(r)}_ℓ(4N_r)^{j}·2r/δ_r` and total mass
+`≤2^rΣ_r(4N_r)^{r}·2r/δ_r`. All of `L_r, N_r, Σ_{r−1}, …` are therefore
+bounded by `C_kŜ^{A_k}` (induction from `r=k` down; finitely many steps,
+each polynomial). For `c_k(Ŝ)` small enough, (P_k) holds at the end.
+
+**Step B (composition, top level innermost).**
+
+* Let `B_{≥k}` be the O2 Lemma 10.1 minorant of `F_k` at truncation
+  `L_k`.
+* Given `B_{≥r+1}=Σ_ic_i1_{C_i}` (cells `C_i=(P_i,x_i)`,
+  `|P_i|≤F_r`), form for each i the cell-conditioned level-r system on
+  `𝒫∖P_i`. Events meeting `P_i` are fixed, vanish, or lose their
+  realised vertices; the last kind become *induced* events of smaller
+  support. If some event is fully realised by `x_i`, put
+  `β_i=α_i=0`.
+* Otherwise let `β_i, α_i := B_{L_r} ∓ 4^{L_r+1}G^{cov}_{L_r+1}` be the
+  O2 Lemma 10.1 minorant/majorant of the conditioned void indicator
+  `F_r^{(i)}`.
+* Put `B_{≥r}:=Σ_{c_i>0}c_iβ_i1_{C_i}−Σ_{c_i<0}|c_i|α_i1_{C_i}`.
+* Level 2 is done the same way with O2 Lemmas 1.2/2.1 (no codegree
+  condition), at truncation `L_2` chosen as in Thm 3.2 Step 2.
+* Finally `B:=B_{≥2}`.
+
+*Codegrees in the conditioned systems.* An induced event `e∖F'` (`F'`
+the realised cell vertices of e) contains `O` iff `e⊇O∪F'`. Hence the
+conditioned codegrees satisfy
+
+```
+Δ'_O ≤ Σ_{i≥0} F_r^i·max_{|F'|=i}Δ^{(r)}_{O∪F'} ≤ Σ_{i≥0} F_r^i·δ_r(4N_r)^{−(|O|+i−1)}/(2r) ≤ δ_r(2N_r)^{−(|O|−1)}/r
+```
+
+for `|O|≥1`; here (a), (b) are used (degree `≤δ_r/2` is the case
+`|O|+i=1`). So O2 Lemma 10.2's hypothesis
+`Σ_{j=0}^{r−2}(rU_0)^jΔ'^{(j+1)} ≤ [2er(1+w')^r]^{−1}=2δ_r` holds with
+`U_0=L_r+1`. The masses of the conditioned system are
+`≤Σ_r+F_r·δ_r ≤ Σ_r+1`, since induced events come from `≤F_r` vertices
+of degree `≤δ_r/2`.
+
+*Errors.* Exactly as in Thm 3.2, using the true lower indicators:
+
+```
+E[F_{<r}B_{≥r}] ≥ E[F_{<r}F_rB_{≥r+1}] − Σ_i|c_i|E[F_{<r}1_{C_i}|β_i/α_i−F_r^{(i)}|].
+```
+
+The last expectation is
+`≤2·4^{L_r+1}P(𝒜_{<r})P(C_i)e^{|P_i|/2}·16^{−(L_r+1)}e^{Λ_r}`, by
+item 2 of Lemma 3.1 applied to `C_i∩{C occurs}` (prime set
+`P_i∪π(C)`), together with the tilted Lemma 10.2. By the choice of
+`L_r`, the sum is `≤P(𝒜_{<r})e^{−3Ŝ_{≥r}}/(100k) ≤ P(all)/(100k)`.
+
+Telescoping from `r=2` (Haar error, as Thm 3.2 Step 2) to `r=k` gives
+`E[F−B] ≤ P(all)/100` and `B≤F:=∏_rF_r` pointwise. Then:
+
+* `μ ≥ 0.99P(all) ≥ 0.99e^{−3Ŝ_{tot}}`;
+* `M_1(B) ≤ 𝔐_2`;
+* the number of primes per cell is at most `Σ_r k(L_r+1)`;
+* the twist argument is that of Thm 3.2: events through `ℓ_0` have
+  `≤k−1` further primes, and (P_k) gives a factor `≤1.1`.
+
+All quantities are `≤C_kŜ^{A_k}`. ∎
+
+**Theorem 5.2 (PROVED modulo Thorner–Zaman; effective for each fixed A).**
+For every `A>0` there are infinitely many Mordell-hard primes p with
+`W(p) > (log p)^A`. Equivalently `log L_h(T) ≤ T^{o(1)}`, and H_MIN(θ)
+holds for every `θ>0`. Quantitatively, for each fixed `k≥3` and
+infinitely many p,
+
+```
+W(p) ≥ (log p)^{k}·exp(−C_k log log p / log log log p).
+```
+
+*Proof.* Construction 4.1 with `y:=T^{1/k}exp(2𝓛/log 𝓛)` (so every
+rough part has `Ω(r)≤k`), threshold `c_k(Ŝ)` and `Ŝ=S*+1`. Lemma 11.2
+gives `|𝓑| ≤ kS*/c_k = O_k(Ŝ^{A_k+1})`. Lemma 4.2 holds verbatim, with
+`log Q ≤ (k+1)y`. Theorem 5.1 then gives `K=O_k(Ŝ^{A_k})=exp(O_k(𝓛/log 𝓛))`
+and moduli of the same logarithmic size. Conclude as in Theorem 4.3:
+`log p ≤ y·exp(O_k(𝓛/log 𝓛))`. ∎
+
+*Remarks.*
+
+* The constants `C_k, A_k` grow (at least) exponentially in k. Letting
+  `k=k(T)→∞` slowly gives some unbounded exponent. We do not optimise
+  this (Assessment: `k≍log log log T` is admissible).
+* This is the Haar-side picture of O2 Thm 11.3 (`log(1/δ*)≤T^{o(1)}`)
+  transferred to primes. The Haar heuristic (POINTWISE_SIZE RA) predicts
+  exactly this. The prime side and the Haar side now agree up to the
+  `T^{o(1)}` factors.
