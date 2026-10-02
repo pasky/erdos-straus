@@ -11,8 +11,11 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Lemma 1.1 | every Case-B class `−4D (mod M)` has Jacobi symbol `(−4D \| M) = −1` | PROVED (classical; Mordell) |
 | Cor 1.2 | an n that is a nonzero square mod every prime of M avoids every class of ℛ(M) | PROVED |
 | Lemma 1.3 | QR base: a product measure on small residues, supported on avoiders of all W-smooth classes, inflation `2p/(p−1)` per prime | PROVED |
+| Remark 1.4 | square base (all unit squares, incl. p = 2): avoids every class containing no square; (a,D)/Case-A classes contain none in tests | EVIDENCE (base only) |
 | Thm 2.3 | sequential sieve limit with a *capped* measure: heavy coordinates are not conditioned but leak; no (NDE), no sup bound; cost ×2 + log 2 if leak ≤ 1/2 | PROVED |
+| Thm 2.3′, Lemma 2.1′ | abstract sequential step: any blocks + step inequality + leak; leak lemma for in-block sequential orders | PROVED |
 | Lemma 2.4, Cor 2.5 | second moment `E_{Q'} p_ℓ² ≪_{ε,B} ℓ^{−2+ε}` (uniform in W); leak `≪_B W^{−1/4}` | PROVED |
+| Remark 2.5′ | all of §§2.3, 4 for caps `min(1/4, ℓ^{−κ})`, any κ ∈ (0,1) | PROVED |
 | **Thm 2.7** | **(η,B)-gapped ℛ(M)-families: `S_λ ≪_B η^{−1}λ^{3/4}` unconditionally** — EB's (E_δ), (★_δ), H_light, (NDE) not needed | PROVED |
 | §2.4 | capped measure on the real system: theorem-compatible caps give leak 0 at W = 300 (X = 10⁵); looser caps give 0.06–0.07 at W = 30 (X = 10⁵, 10⁶) | EVIDENCE |
 | Lemma 3.1, 3.2 | (E_δ) in u-form; values from q have Legendre sign `−(n\|q)` | PROVED |
@@ -86,14 +89,33 @@ Euler product over `p ≤ W` is `Π(1 + γ(p)/(p−1)) ≍ (log W)^{O(1)}`. The
 uniform measure on the exact small-avoider set (ET Cor 3.6) has inflation
 `≤ L' = e^{O(W^{1+C})}` instead, with no product structure.
 
+**Remark 1.4 (square base; review S1).** Replace `R_W` by the *square
+base*: `n mod p^e` a unit square for every `p^e ∥ Q₀`, including `p = 2`
+(inflation `γ(2) ≤ 8`). It is still a product measure. A class mod G that
+contains no integer square mod G has, by CRT, some `p^e ∥ G` at which its
+residue is not a square, so the square base avoids it. For ℛ(M) this is
+Lemma 1.1. `scripts/twin_square_base_check.py` finds **no** square mod G in
+all 12,000 (a,D)-classes `−(4D+a) mod 4a·g(D)` with `a ≤ 40`, `D ≤ 300`, and
+in all 16,406 Case-A classes `−m^{−1} mod 4g(d)`, `m | 4d+1`, with
+`d ≤ 3000` (EVIDENCE; the Mordell / Elsholtz–Tao obstruction predicts it,
+but no proof is written here). Only the base changes; Lemma 2.4 and the
+gapped structure for (a,D)-moduli are not done.
+
 ## 2. Capped distortion: heavy coordinates leak instead of being conditioned
 
 EB reduced the (η,B)-gapped balanced moduli to H_light, and H_light to the
 sup statement (E_δ). This section shows that **no sup statement is needed**.
-The device is the "distortion" trick of Balister–Bollobás–Morris–
-Sahasrabudhe–Tiba (Erdős covering problem): condition the sequential measure
-only where the hit probability is small, and let the remaining (heavy) hits
-*leak*. The leaked mass is controlled by a second moment, i.e. by an
+The device is a variant of the *distortion method* (Hough, Ann. Math. 181
+(2015); Balister–Bollobás–Morris–Sahasrabudhe–Tiba, "On the Erdős covering
+problem: the density of the uncovered set", arXiv:1811.03547, Invent.
+Math. 228 (2022), def. (5) and Thm 3.1). In BBMST the sequential measure is
+distorted at every prime, by at most a fixed factor at heavy fibres, and
+the result bounds the density of the uncovered set, i.e. the majorant
+`1_𝒜` only. Here the variant is: condition fully at light coordinates, do
+not condition at all at heavy coordinates (they stay uniform), and let the
+heavy hits *leak*. Full conditioning at light coordinates is what ET
+Prop 2.4 needs for general level-λ majorants; leaving heavy coordinates
+uniform is what makes Lemma 2.2's inflation cap hold by construction. The leaked mass is controlled by a second moment, i.e. by an
 average, never by a supremum. The QR base of §1 keeps the base inflation
 polylogarithmic, which is what makes the leak summable.
 
@@ -203,6 +225,65 @@ using `Q'(𝒜) = 1 − 𝔏 ≥ 1/2` and `S ≥ 0`. ∎
 So the heavy coordinates cost nothing in (2.1). They enter only through
 `𝔏`, which must be ≤ 1/2, and through Lemma 2.2's caps.
 
+### 2.2′ The abstract sequential step (review T5)
+
+§4 uses blocks that are not windows in the sense of (U). The proof of
+Theorem 2.3 uses only three inputs, so it is stated abstractly.
+
+**Setting.** Q₀, R with (R1)–(R2); coordinates `y_ℓ = n mod ℓ^{E_ℓ}` for
+the primes `ℓ > W` of the family, independent and uniform under U; an
+ordered partition of these primes into **blocks** `V_1, …, V_J`; for each
+block j and each history h (base residue and the blocks before j) a
+probability law `σ_j(h)` on `Ω_{V_j} = Π_{ℓ∈V_j} ℤ/ℓ^{E_ℓ}`. `Q'` is the law
+of the history built by drawing the base uniformly from R and then each
+block from `σ_j(h)`. A function on `Ω_{V_j}` is *λ-level* if it is a sum of
+terms each depending on `y_T` with `Σ_{ℓ∈T} log ℓ ≤ λ`.
+
+**Theorem 2.3′ (abstract sequential sieve limit; PROVED).** Assume
+* (S) *step inequality:* for every j, every h, and every λ-level `f ≥ 0`
+  on `Ω_{V_j}`, `E_U f ≥ e^{−Φ_j(h)} E_{σ_j(h)} f`, with `Φ_j(h) ≥ 0`;
+* (L) *leak:* `𝔏 = Q'(final history ∉ 𝒜) ≤ 1/2`.
+
+Then every majorant ν of level λ of 𝒜 satisfies
+`log(1/Eν) ≤ log(Q₀/|R|) + log 2 + 2 Σ_j E_{Q'}Φ_j(H_{<j})`.
+
+*Proof.* Let `g_j(h) = E_U[ν | H_{<j} = h]`. Given h, the block residues are
+independent and uniform under U, so `f(y) := g_{j+1}(h, y)` equals
+`E_U[ν | h, y_{V_j}]`. Each term `1[n ≡ b_i (d_i)]` of ν contributes a
+function of `y_{T_i ∩ V_j}` (times a constant), so f is λ-level, and f ≥ 0.
+By (S), `g_j(h) = E_U f ≥ e^{−Φ_j(h)} E_{σ_j(h)}[g_{j+1}(h, Y)]`. Downward
+induction from `g_{J+1} ≥ 1_𝒜` gives (2.2), and the conclusion follows as in
+Theorem 2.3. ∎
+
+**Instances.**
+* *Window step* (Theorem 2.3): `V_j` a window satisfying (U), `σ_j(h)` the
+  product capped law. (S) holds with `Φ_j = Φ_j^{light}`: put
+  `f̃(x_L) = E_U[f | x_L]`, which is λ-level in the light indicators; then
+  `E_σ f = f̃(0)`, and ET Prop 2.4 applies.
+* *Singleton step* (Prop 4.1): `V_j = {ℓ}`, σ uniform off `F̂_ℓ(h)` if
+  light, uniform if heavy. (S) holds with `Φ = −log(1−p_ℓ(h))` resp. 0,
+  since `E_U f ≥ (1−p)E_σ f` for `f ≥ 0`.
+* *Linear step* (Cor 4.3): V with one block prime per term, σ the
+  in-block sequential capped law; (S) is Lemma 4.2.
+* Conjecture 4.5_r is exactly a step inequality (S) for unresolved blocks.
+
+**Lemma 2.1′ (leak for sequential orders; PROVED).** Fix a total order of
+the primes `> W` that refines the block order. Suppose every condition C
+of the family, other than pure small ones (excluded by (R1)), is
+*decided at* a prime `ℓ(C)`: all its requirements other than the one at
+`ℓ(C)` concern the base or primes earlier in the order. Suppose also that,
+within each block, `σ_j(h)` draws the coordinates in this order, with
+`y_ℓ` uniform off `F̂_ℓ(past)` if `p_ℓ(past) ≤ δ_ℓ` and uniform otherwise.
+Here `F̂_ℓ(past) ⊆ ℤ/ℓ^{E_ℓ}` is the set of residues completing a condition
+decided at ℓ, and `past` is everything earlier in the order. Then
+`𝔏 ≤ Σ_ℓ E_{Q'}[p_ℓ 1{p_ℓ > δ_ℓ}]`.
+
+*Proof.* As Lemma 2.1, with "window" replaced by "position in the order".
+∎
+
+Lemma 2.1 is the case of windows satisfying (U), where within a window
+the order is irrelevant because F̂ depends only on earlier windows.
+
 ### 2.3 Application: (η,B)-gapped ℛ(M)-families, unconditionally
 
 Fix `B ≥ 0`, `0 < η < 1` and `W ≥ 16`. Use EB's windows
@@ -226,7 +307,11 @@ Write `Γ(m) = Π_{p | m} γ'(p)` with γ' as in Lemma 2.2. Then `γ'(3) = 3`,
     E_{Q'}[ p_ℓ(H)² ] ≤ C(ε,B) · ℓ^{−2+ε}.
 
 *Proof.* `|F_ℓ(h)|` is at most the number `N_ℓ(n)` of pairs `(q,D)` with
-`q ∈ 𝒬_ℓ^{(B)}`, `D | A_q²` and `n ≡ −4D (mod q)`. Expand `N_ℓ²` as a sum
+`q ∈ 𝒬_ℓ^{(B)}`, `D | A_q²` and `n ≡ −4D (mod q)`. (N_ℓ counts all
+cofactors `q ≤ ℓ^B`, so it is a function of the *full* `Q'` history, not of
+`H_{<j(ℓ)}`; the bound `|F_ℓ(H_{<j})| ≤ N_ℓ(n)` holds pointwise, and
+expectations below are over the full `Q'` law, to which Lemma 2.2 applies
+for every m. Restricting to the family's cofactors gives the same bound.) Expand `N_ℓ²` as a sum
 over pairs of pairs. A pair contributes `Q'(n ≡ a (mod lcm(q,q')))` if
 compatible and 0 otherwise. By Lemma 2.2 this is `≤ Γ(m)/m ≤ 3^{ω(m)}/m`
 with `m = lcm(q,q')`. Each q carries `τ(A_q²) ≤ C_ε' ℓ^{ε/4}` divisors D,
@@ -244,6 +329,24 @@ whenever `W ≥ W₀(B)`, uniformly in η and in the family.
 
 *Proof.* Lemma 2.1 and Markov: `E[p 1{p > δ}] ≤ E[p²]/δ`. So
 `𝔏 ≤ Σ_{ℓ>W} ℓ^{1/2} · C(1/4,B) ℓ^{−7/4} ≪_B W^{−1/4}`. ∎
+
+**Convention (review T6).** From here on, `W₀(B)` is chosen with the
+constant of Lemma 4.0 (prime-power tops), which exceeds Lemma 2.4's by a
+factor `(2+B)²`. Then Corollary 2.5 holds for every family considered in
+§4 as well.
+
+**Remark 2.5′ (other caps; PROVED).** Everything in §§2.3, 4 holds with
+`δ_ℓ = min(1/4, ℓ^{−κ})` for any fixed `κ ∈ (0,1)`, with `W₀ = W₀(B,κ)` and
+`K = K(W,B,κ)`:
+* Cor 2.5: Markov with `δ = ℓ^{−κ}` gives `𝔏 ≪_{B,κ} Σ_{ℓ>W} ℓ^{κ−2+ε}`;
+  take `ε < (1−κ)/2`;
+* Lemma 2.2: `γ'(ℓ) = (1−δ_ℓ)^{−1} ≤ 4/3` still, since `δ ≤ 1/4`, so
+  Lemma 2.4 is unchanged;
+* Lemma 2.6: `h(ℓ) ≤ 2ℓ^{−κ}`; ET Cor 3.6's large-divisor range then needs
+  `Σ_d h(d)d^{−1+κ/2} < ∞` (Euler factors `1 + O(p^{−1−κ/2})`), which holds.
+
+Only `κ = 1/2` is used in the theorems; the remark covers the numerics of
+§2.4.
 
 **Lemma 2.6 (first moment, cubic windows; PROVED).** There is
 `K = K(W,B)` such that for every window j with `s_j ≤ λ`,
@@ -313,7 +416,7 @@ windows), QR base for `p ≤ W = 30`. It asserts Lemma 1.3(1) on every sample
 | 10⁵ | 100 | 0.2 | 0.056 | 4% | primes 32–127 only |
 | 10⁶ | 20 | 0.2 | 0.070 | 5% | primes 32–127 only |
 | 10⁵ | 100 | 0 (δ = 1/4) | 5.67 | 100% | primes 31–255 |
-| 10⁵ | 100 | 0.5 | 25.5 | 100% | everywhere below 2¹⁷ |
+| 10⁵ | 100 | 0.5 | 25.5 (saved: `capped_X1e5_W30_k0.5.txt`) | 100% | everywhere below 2¹⁷ |
 
 Theorem-compatible caps `δ_p = min(1/4, p^{−0.2})` (all types, X = 10⁵,
 100 samples; `data/twin/capped_X1e5_W*_k0.2_cap.txt`):
@@ -324,8 +427,11 @@ Theorem-compatible caps `δ_p = min(1/4, p^{−0.2})` (all types, X = 10⁵,
 | 100 | 0.64 | 46% |
 | 300 | 0 | 0% (no heavy coordinate in any sample) |
 
-So at X = 10⁵ the theorem's hypothesis `𝔏 ≤ 1/2` already holds with
-W = 300, for the full system including twin classes.
+So at X = 10⁵ the leak hypothesis `𝔏 ≤ 1/2` is *attainable* at toy scale
+with W = 300 (caps allowed by Remark 2.5′), for the full system including
+twin classes. This does not test whether W₀ must grow with X. B is
+unbounded in these runs (all `M ≤ X`), whereas W₀ is proved only for fixed
+B. At W = 300, X = 10⁵ every cofactor is `< 334`, so the system is sparse.
 
 Reading.
 * With a threshold of order 1/2 just above W (κ = 0.2: `δ_31 ≈ 0.50`),
@@ -344,7 +450,7 @@ Reading.
   `δ_p ≤ 1/4` (ET Prop 2.4), while `31^{−0.2} ≈ 0.50` and the X = 10⁵ run
   has mean light probability 0.386 at p = 31. They support the distortion
   idea, not the theorem's regime. The theorem-compatible runs
-  (`δ_p = min(1/4, p^{−κ})`) are in the table below.
+  (`δ_p = min(1/4, p^{−κ})`, Remark 2.5′) are in the second table above.
 
 ## 3. The extremal statement (E_δ) itself
 
@@ -504,20 +610,21 @@ interpolation is needed.
 
 ### 4.4 What is proved, and the residual range
 
-**Theorem 4.4 (PROVED).** Fix B and `W = W₀(B)`, and let `λ ≥ (2 log W)^4`.
+**Theorem 4.4 (PROVED).** Fix B and `W = W₀(B)` (convention after Cor 2.5), and let `λ ≥ (2 log W)^4`.
 Let 𝔊 be any family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, plus any
 W-smooth classes, such that every modulus M of 𝔊 with top prime in
 `(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved for EB's η-windows. (All
 η-gapped moduli qualify.) Then every majorant of level λ satisfies
 `log(1/Eν) ≪_B η^{−1}λ^{3/4}`.
 
-*Proof.* Windows: singletons on `(W, e^{λ^{1/4}}]` (Prop 4.1); EB's
-η-windows restricted to `(e^{λ^{1/4}}, e^{λ/2}]`, where every condition is
-resolved, so (U) holds; one sequential window V on `(e^{λ/2}, e^λ]`
-(Corollary 4.3); singletons above. Theorem 2.3 applies: its induction step
-in each window is, respectively, the singleton inequality, ET Prop 2.4,
-Lemma 4.2. The leak is `≤ 1/2` by Lemma 4.0 and Corollary 2.5. The middle
-windows cost what they cost in Theorem 2.7. ∎
+*Proof.* Apply Theorem 2.3′ with these blocks: singletons on
+`(W, e^{λ^{1/4}}]` (singleton step, Prop 4.1); EB's η-windows restricted to
+`(e^{λ^{1/4}}, e^{λ/2}]`, where every condition is resolved, so (U) holds
+(window step); one sequential block V on `(e^{λ/2}, e^λ]` (linear step,
+Corollary 4.3); singletons above `e^λ` (constant f, Φ = 0). Order: increasing
+primes. Every condition is decided at its top prime; so Lemma 2.1′ applies.
+With Lemma 4.0 and Corollary 2.5 (W₀ as in the convention after it), it
+gives `𝔏 ≤ 1/2`. The middle windows cost what they cost in Theorem 2.7. ∎
 
 **The residual.** Moduli with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` that are
 unresolved: their last η-window contains a prime power or `2 ≤ r ≤
@@ -533,7 +640,10 @@ primes with costs `s_ℓ ∈ (s, (1+η)s]`, residues `y_ℓ` independent uniform
 unary forbidden sets with `p_ℓ ≤ 1/4`, and, for `2 ≤ k ≤ r`, k-ary
 forbidden sets `F_T ⊆ Π_{ℓ∈T} ℤ/ℓ` (|T| = k) of density `π_T`. Let σ be the
 in-window sequential capped law (primes in increasing order; at ℓ, uniform
-off the unary set and off the classes activated by earlier residues).
+off the unary set and off the classes activated by earlier residues). Light
+and heavy are decided by the *total* activated density at ℓ (unary plus
+activated k-ary), as in Lemma 2.1′; heavy coordinates are uniform, and the
+bound `p_ℓ ≤ 1/4` refers to light ones.
 Then for every λ-level `f ≥ 0` and every α > 0,
 
     log(E_σ f / E_U f) ≤ C_r[ αλ + Σ_ℓ p_ℓ e^{−α s_ℓ} + Σ_{2≤|T|≤r} π_T e^{−α Σ_{ℓ∈T} s_ℓ} ]
@@ -591,7 +701,12 @@ with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved (Theorem
 4.4). Under the hypotheses of ET Lemma 2.9 (family slice primes
 `≤ N^{O(1)}`, and a final bound `N·Eν + Σ|a_i|` with `Σ|a_i| < N`) the
 level may be taken `λ ≍ L = log N`, so these families cannot give an
-exceptional-set exponent θ > 3/4. The theorem includes:
+exceptional-set exponent θ > 3/4. Since Lemma 2.9's λ depends on ν, the
+family hypothesis of Theorem 4.4 must hold for every λ in
+`[Λ₀, (A+1)L + S]` (review T7). This is automatic for the two families
+named below, read with that λ-range: the gapped ones need no λ, and "top
+prime `≤ e^{λ^{1/4}}` or `> e^{λ/2}`" is then required for all λ in the
+range. The theorem includes:
 * all dominant and all η-gapped balanced moduli (Theorem 2.7), with no
   hypothesis. EB's (E_δ), (★_δ), H_light and (NDE) are not needed;
 * all moduli, twin and prime-power included, with top prime
@@ -609,7 +724,12 @@ exceptional-set exponent θ > 3/4. The theorem includes:
    `P(M) < M^{1/(1+B)}` is `ρ(1+B)` by Dickman; the weighted share is not
    known.)
 3. (a,D)-classes and Case-A classes: Lemma 1.1 is proved for ℛ(M) only.
-   For these, ET Cor 3.6 still covers the dominant part.
+   ET Cor 3.6 covers dominant (a,D)-families. The two results cover their
+   families **separately**. A family mixing balanced ℛ(M)-classes with
+   dominant (a,D)-classes is covered by neither: the avoider set of a union
+   is the intersection, and caps do not add. Remark 1.4 (square base)
+   removes the base obstruction for such mixtures. Lemma 2.4 and the gapped
+   structure for (a,D)-moduli remain to be done.
 
 **Verdict.** Not settled. The balanced door is reduced to a bounded-arity
 window inequality (Conjecture 4.5_r) in the range
@@ -623,12 +743,14 @@ construction points towards (B).
 ```
 # Lemma 1.1: Jacobi symbol of every Case-B class, M <= 20000 (~1 min)
 PYTHONPATH=scripts uv run --with sympy python scripts/twin_jacobi_check.py 20000
+# Remark 1.4: (a,D) and Case-A classes contain no square mod their modulus (~3 min)
+uv run --with sympy python scripts/twin_square_base_check.py 40 300 3000
 # §2.4: capped measure Q' with QR base, real system (X=1e5: ~3 min per run; X=1e6, 20 samples: ~40 min, < 4 GB)
 cd scripts
 uv run python twin_capped.py 100000 100 30 0.2 > ../data/twin/capped_X1e5_W30_k0.2.txt
 uv run python twin_capped.py 100000 100 30 0   > ../data/twin/capped_X1e5_W30_k0.txt
 uv run python twin_capped.py 100000 100 30 0 dom,gapM,gapB > ../data/twin/capped_X1e5_W30_k0_gapped.txt
-uv run python twin_capped.py 100000 100 30 0.5   # 25.5 expected leak, quoted in §2.4 (not saved)
+uv run python twin_capped.py 100000 100 30 0.5 > ../data/twin/capped_X1e5_W30_k0.5.txt
 uv run python twin_capped.py 1000000 20 30 0.2 > ../data/twin/capped_X1e6_W30_k0.2.txt
 for W in 30 100 300; do uv run python twin_capped.py 100000 100 $W 0.2 all cap > ../data/twin/capped_X1e5_W${W}_k0.2_cap.txt; done
 ```

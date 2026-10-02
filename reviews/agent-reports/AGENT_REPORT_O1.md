@@ -16,9 +16,12 @@ Two new ingredients:
    all W-smooth classes. It costs `π(W) log 2` and inflates later
    probabilities by only `2p/(p−1)` per prime, instead of ET's
    `L' = e^{O(W^{1+C})}`.
-2. **Capped distortion (Thm 2.3).** Following
-   Balister–Bollobás–Morris–Sahasrabudhe–Tiba, the sequential measure
-   conditions only where `p_ℓ(h) ≤ ℓ^{−1/2}`. Heavy hits leak. The leak is
+2. **Capped distortion (Thm 2.3).** This is a variant of the distortion
+   method of Hough (2015) and Balister–Bollobás–Morris–Sahasrabudhe–Tiba
+   (arXiv:1811.03547). In BBMST heavy fibres are capped-distorted, and the
+   result bounds the uncovered density. Here the sequential measure
+   conditions fully where `p_ℓ(h) ≤ ℓ^{−1/2}` and leaves heavy coordinates
+   uniform; heavy hits leak. The leak is
    bounded by a second moment, `E p_ℓ² ≪ ℓ^{−2+ε}` (Lemma 2.4). This needs
    only divisor bounds, and with the QR base it is uniform in W. So the
    leak is `≪ W^{−1/4}` (Cor 2.5). The caps give ET Cor 3.6's inflation
@@ -97,3 +100,19 @@ Lemma 2.6 all check out. Defects and repairs:
 Should the next step attack Conjecture 4.5 directly (a binary version of
 ET Prop 2.4), or first make the B-dependence explicit? The latter is
 needed to cover moduli with `log M/log P(M) → ∞`.
+
+## Hostile review (side-agent/review-twin) repairs, T1–T8, S1
+
+All items were graded SOUND or SOUND-AFTER-REPAIRS; Thm 2.3, Lemma 2.4 and
+Thm 2.7 were graded SOUND. Repairs:
+* T1: BBMST/Hough citation, and the variant stated precisely.
+* T2: N_ℓ is over the full Q' history.
+* T3: Remark 2.5′ (caps `min(1/4, ℓ^{−κ})`).
+* T4: the W = 300 run shows only that the leak bound is attainable at toy
+  scale; the κ = 0.5 run is saved.
+* **T5:** Theorem 2.3′ (abstract sequential step) and Lemma 2.1′ (leak for
+  in-block orders); Thm 4.4 now cites these.
+* T6: W₀(B) uses Lemma 4.0's constant.
+* T7: λ-range for the θ-statement.
+* T8: the caps cover their families separately.
+* S1: Remark 1.4 (square base), with an (a,D)/Case-A check script.
