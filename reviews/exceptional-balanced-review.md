@@ -172,7 +172,8 @@ allow G = 2.
 What ET Lemma 2.8 plus (★_δ) actually gives is the **γ-weighted** mass
 `m_j^γ = Σ_{P(M)∈W_j} |ℛ(M)|γ(M)/M`, with `γ(M) = Π_{ℓ'|M,ℓ'>w₀}(1−ℓ'^{−δ})^{−1}`
 (and a factor L' for a selector R). γ is unbounded, since
-`γ ≥ (1−w₀^{−δ})^{−ω(M)}`, and m_j has no proved lower bound (Lemma 2.4 is
+`γ(M) ≥ Π_{ℓ'|M, ℓ'>w₀}(1+ℓ'^{−δ})` grows without bound over M with many primes
+slightly above w₀, and m_j has no proved lower bound (Lemma 2.4 is
 upper only). So `m_j^γ ≤ O_δ(1)·m_j` is **not** proved, and "H_light(O_δ(1))"
 is not literally established anywhere. The doc's hedge "in γ-averaged form" names
 this but never defines that form. Fortunately the proof of Thm 2.5 uses (ii) only
