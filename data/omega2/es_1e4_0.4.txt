@@ -1,0 +1,9 @@
+T=10000 theta=0.4 gbad=0.25 y=39.8 log Q=109.2 |bad|=2 free primes=1215
+  S_1=15.256 max g=0.2273  edges=3529 S_2=0.632 max w_l=0.1809 (8T/y^3=1.27)
+  top vertex degrees (l, c mod l, deg): (41,5:0.298), (41,33:0.298), (41,37:0.296), (41,10:0.296), (41,40:0.270), (41,39:0.258), (41,20:0.258), (53,33:0.245)
+  delta=0.05: hub vertices=555 hub mass=8.224 (Markov bound 2S_2/delta=25.29)
+  reduced: edges=226 max deg=0.0482
+  MC samples=2000: P(A=empty)=0.0000  max N=34 max #events=34 samples with #events>N: 0
+  N histogram: {12: 5, 13: 18, 14: 34, 15: 39, 16: 70, 17: 114, 18: 150, 19: 178, 20: 181, 21: 223, 22: 198, 23: 200, 24: 184, 25: 116, 26: 97, 27: 71, 28: 46, 29: 30, 30: 13, 31: 17, 32: 7, 33: 6, 34: 3}
+  E prod(1+z a_l): z=1.0: 119810312.192 (log=18.601), z=2.0: 57015868252678.023 (log=31.674), z=4.0: 1355364706241553367040.000 (log=48.658)
+  Lemma 1.2 bound checked on 60 (sample, L) cases: 0 failures
