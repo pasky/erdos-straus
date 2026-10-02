@@ -1,0 +1,6 @@
+check_I T=1000 theta=0.4 gbad=0.25 log Q=54.7 free=158
+  random: no-event samples=0, of which W(n)>T: 0 (mismatches 0); event samples with W>T anyway: 0
+  forced: no-event samples=200, of which W(n)>T: 200 (mismatches 0); event samples with W>T anyway: 0
+check_I T=3000 theta=0.36 gbad=0.25 log Q=84.0 free=418
+  random: no-event samples=0, of which W(n)>T: 0 (mismatches 0); event samples with W>T anyway: 0
+  forced: no-event samples=100, of which W(n)>T: 100 (mismatches 0); event samples with W>T anyway: 0

@@ -14,7 +14,7 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
 2. **Theorem 3.1** (PROVED; pure CRT combinatorics): a congruence system of
    singles and two-prime edges with per-prime masses `g_ℓ≤1/32` and
    `w_ℓ≤e^{−50}/32` admits a pointwise minorant of its void indicator with
-   `log(M_1/μ)=O(S_1+S_2)`, moduli on `O(S_1+S_2)` primes, and the twist
+   `log(M_1/μ)=O(S_1+S_2+1)`, moduli on `O(S_1+S_2+1)` primes, and the twist
    condition of PO Theorem 4.1.
 3. **New tools** (PROVED): support-truncated inclusion–exclusion
    (Lemmas 1.1–1.3), a pseudoforest bound for `E∏(1+z a_ℓ)` (Lemma 2.1),
@@ -235,7 +235,7 @@ single at `ℓ_v`. Degrees only decrease when edges are deleted. Markov:
 
 ## 3. The abstract criterion for H_MIN (PROVED, modulo nothing)
 
-**Setting 3.0 (congruence systems).** Fix `Q` and a finite set `𝒫` of primes
+**Setting 3.0 (congruence systems).** Fix `Q` with `2|Q` and a finite set `𝒫` of primes
 coprime to Q, with exponents `e_ℓ≥1`. Put `X_ℓ := n mod ℓ^{e_ℓ}`. The
 "Haar" measure is the uniform measure on `∏_ℓ(ℤ/ℓ^{e_ℓ})^×`, i.e. the
 measure in which PO Theorem 4.1 computes `μ=Σc_i/φ(d_i)`. A single is a set
@@ -256,7 +256,7 @@ Put `Σ := S_1+S_2`. Then there is a minorant `B` as in PO Theorem 4.1
 (moduli coprime to Q, unit classes, `B(n)≤1[W(n)>T]` for all `n≡1 (Q)`) with
 
 ```
-μ ≥ exp(−C Σ),   log(M_1/μ) ≤ C Σ + C,   log max_i d_i ≤ C(Σ+1) log max_ℓ ℓ^{e_ℓ},
+μ ≥ exp(−C(Σ+1)),   log(M_1/μ) ≤ C(Σ+1),   log max_i d_i ≤ C(Σ+1) log max_ℓ ℓ^{e_ℓ},
 ```
 
 and the twist condition `|μ_ψ|≤μ/4` holds for every real primitive ψ. Here C
@@ -296,7 +296,7 @@ Choose the least L with `4^{L+1} ≥ 200e^{Λ+λ}`, and set `B:=B*_L` (Lemma
 * Each term lives on at most `2(L+1)` primes of 𝒫, and
   `L ≤ (Λ+λ)/log 4 + 5`.
 
-All of `Λ, λ, L` are `O(S_1+S_2/δ+S_2)=O(Σ)`.
+All of `Λ, λ, L` are `O(S_1+S_2/δ+S_2+1)=O(Σ+1)`.
 
 **Step 4 (twist).** Let ψ be real primitive with conductor `f>1`,
 `gcd(f,Q)=1`, `f|d_i` for some i. Then f is odd and squarefree (`2|Q`), and
@@ -360,7 +360,8 @@ C log log T·m/(3A)`. The involution `D↦A²/D` preserves `m|4D+1` (because
 `4A≡1 (m)`), so take `D≤A` at a factor 2. Write `D=sr'²`, `A=sr'k`,
 `k≥r'`. Then `m | 4sr'(r'+k)` and `gcd(m,4sr')=1`, so `m|r'+k`. For fixed
 `(s,r')` each k determines M, hence m, and `m|4sr'²+1`. So the sum is at
-most `(2C log log T/3)Σ_{s,r'}(sr')^{−1}Σ_{m|4sr'²+1} m Σ_{k≡−r' (m), k≥r'} 1/k`,
+most `(2C log log T/3)Σ_{s,r'}(sr')^{−1}Σ_{m|4sr'²+1} m Σ_{k≡−r' (m), r'≤k≤X} 1/k`
+(`X=(T+1)/4`, since `k≤A≤X`),
 and the inner k-sum is `≤(3+log T)/m` (PO Lemma 2.3, step 3). The last
 bound is the divisor bound, as in PO Lemma 2.3. ∎
 
@@ -491,7 +492,18 @@ infinitely many distinct p. Inverting, `𝓛 ≥ 3 log log p − O(log log p/log
   * At these T the hub-vertex quarantine costs as much as the singles, and
     `P(A=∅)` is below the Monte Carlo resolution. So the minorant is not
     useful numerically; only the asymptotic statement is claimed.
+  * The exact Lemma 1.2 check inside this script runs only on samples with
+    `N≤12`; at `T=10^5` there are none, so that line is vacuous there
+    (Lemma 1.2 is covered by the abstract brute force). Neither run tests
+    Lemma 2.1 quantitatively.
   * Data: `data/omega2/es_1e4_0.4.txt`, `es_1e5_0.36.txt`.
+* **Implication (I), directly** (`omega2_es.py checkI`): integers
+  `n≡1 (Q)` built by CRT from residues at the free primes; 'forced'
+  samples avoid every single and edge (rejection). At `T=1000, θ=0.4`
+  (200 forced) and `T=3000, θ=0.36` (100 forced), every forced survivor
+  has `W(n)>T` checked against the witness residues of every M≤T directly; 0 mismatches. Random
+  samples (non-units allowed) never avoided all events at these T.
+  (`data/omega2/checkI.txt`.)
 
 ## 7. Below θ=1/3: what is missing (Assessment)
 
@@ -503,7 +515,7 @@ Theorem 5.1 uses `θ>1/3` in exactly two places.
    PO's H_PP replaces. Below 1/3 the smallest free primes carry `w_ℓ≫1`
    under the crude bound; whether they actually do is the H_PP question
    (PO §9 EVIDENCE: the ratio is `<1` only for `z≳T^{0.6}` at accessible T).
-2. **Supports of size ≤2.** For `θ≤1/3` there are events on three or more
+2. **Supports of size ≤2.** For `θ<1/3` (more precisely `y<T^{1/3}`) there are events on three or more
    free primes. Lemmas 1.1–1.3 are support-size free. Lemma 2.1 is proved
    for graphs only. Its hypergraph analogue needs a codegree hypothesis:
    in a k-uniform pseudoforest a new hyperedge may contain several old
@@ -526,4 +538,6 @@ uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
 (ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 2000 0.25)    # §6, ~1 min -> data/omega2/es_1e4_0.4.txt
 (ulimit -v 8000000; uv run python scripts/omega2_es.py 100000 0.36 0.05 500 0.25)   # §6, ~10 min -> data/omega2/es_1e5_0.36.txt
 (ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 200 0.015625) # threshold 1/64: no edge survives
+uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~1 min -> data/omega2/checkI.txt
+uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
 ```

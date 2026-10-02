@@ -7,9 +7,10 @@ Monte Carlo of the product (Haar) measure on the free coordinates:
   * events fired vs active primes N (the hub phenomenon of PO Prop 6.3),
   * E prod(1 + z a_l) for small z (the exponential moment of Lemma 2.1),
   * an exact check of Lemma 1.2 (closed form of B_L, and the bound) on samples.
-Also a direct check of (I): for random integers n = 1 (mod Q) with no event, W(n) > T.
+Mode `checkI`: direct check of (I) on CRT-built integers n = 1 (mod Q) (random residues incl.\nnon-units, and forced survivors): no event => W(n) > T, against the witness residues R(M).\nThe Lemma 1.2 check in main() runs only on samples with N <= 12 (vacuous when every N > 12).
 
 usage: omega2_es.py T theta delta samples gbad [z ...]   (Lemma 4.3 uses gbad=1/64)
+       omega2_es.py checkI T theta gbad samples
 """
 import random
 import sys
@@ -184,5 +185,82 @@ def main():
     print(f"  Lemma 1.2 bound checked on {lemma_cases} (sample, L) cases: 0 failures")
 
 
+
+
+def check_I(T, theta, gbad, samples, seed=2):
+    """Direct check of implication (I): integers n = 1 (mod Q), built by CRT from residues
+    at the free primes (random units, and forced survivors avoiding every single and
+    edge), with no event of Construction 4.2 must have W(n) > T (checked against R(M))."""
+    spf = spf_table(T + 8)
+    y, e_of, bad, free, singles, edges, Q_log, gmass = build(T, theta, spf, gbad)
+    Q = 24
+    for p in range(2, T + 1):
+        if spf[p] == p and (p <= y or p in bad):
+            Q = Q * p ** e_of[p] // __import__('math').gcd(Q, p ** e_of[p])
+    eset = set(edges)
+    RM = {}
+    for M in range(3, T + 1, 4):
+        A = (M + 1) // 4
+        fa = {p: 2 * e for p, e in factor(A, spf).items()}
+        RM[M] = {(-4 * D) % M for D in divisors_from(fa)}
+    rng = random.Random(seed)
+
+    def fires(x):
+        for l in free:
+            if any(x[l] % r == c for r, c in singles.get(l, ())):
+                return True
+        fl = sorted(free)
+        for i, l in enumerate(fl):
+            for l2 in fl[i + 1:]:
+                if l * l2 > T:
+                    break
+                if ((l, x[l] % l), (l2, x[l2] % l2)) in eset:
+                    return True
+        return False
+
+    def crt(x):
+        n, mod = 1, Q
+        for l in free:
+            m2 = l ** e_of[l]
+            t = ((x[l] - n) * pow(mod, -1, m2)) % m2
+            n, mod = n + mod * t, mod * m2
+        return n
+
+    def W_gt_T(n):
+        return all(n % M not in RM[M] for M in RM)
+
+    stats = {"random": [0, 0, 0], "forced": [0, 0, 0]}  # [no-event, no-event & W>T, event & W>T]
+    for mode in ("random", "forced"):
+        got = 0
+        tries = 0
+        while got < samples and tries < 200 * samples:
+            tries += 1
+            x = {}
+            for l in free:
+                mod = l ** e_of[l]
+                while True:
+                    a = rng.randrange(0 if mode == "random" else 1, mod)
+                    if mode == "random" or (a % l and not any(a % r == c for r, c in singles.get(l, ()))):
+                        break
+                x[l] = a
+            f = fires(x)
+            if mode == "forced" and f:
+                continue
+            got += 1
+            n = crt(x)
+            w = W_gt_T(n)
+            if not f:
+                stats[mode][0] += 1
+                stats[mode][1] += w
+            else:
+                stats[mode][2] += w
+    print(f"check_I T={T} theta={theta} gbad={gbad} log Q={Q_log:.1f} free={len(free)}")
+    for mode, (ne, ok, ev) in stats.items():
+        print(f"  {mode}: no-event samples={ne}, of which W(n)>T: {ok} (mismatches {ne-ok}); event samples with W>T anyway: {ev}")
+
+
 if __name__ == "__main__":
-    main()
+    if sys.argv[1] == "checkI":
+        check_I(int(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4]), int(sys.argv[5]))
+    else:
+        main()
