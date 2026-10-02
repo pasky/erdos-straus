@@ -892,9 +892,9 @@ For odd primes $\ell_1<\ell_2\le\sqrt{T/3}$ outside $\Pi$, one of
 $\ell_1\ell_2,3\ell_1\ell_2$ is $\equiv3\pmod4$ and $\le T$.
 \end{proof}
 
-\subsection{What would suffice beyond exponent two}
+\subsection{The hypothesis $H_{\min}$ and the hub obstruction}
 
-\begin{hypothesis}[$H_{\min}(\theta)$; open for $\theta<1/2$]\label{hyp:min}
+\begin{hypothesis}[$H_{\min}(\theta)$; true for $\theta\ge1/3$, open for $\theta<1/3$]\label{hyp:min}
 For every $\varepsilon>0$ and large $T$ there are $Q$ with $840\mid Q$,
 $\log Q\le T^{\theta+\varepsilon}$, and a minorant $B$ as in
 Theorem~\ref{thm:transfer} with $\log\max d_i\le T^{\theta+\varepsilon}$,
@@ -912,9 +912,11 @@ hypotheses and forces $p>T$.  Theorem~\ref{thm:transfer} gives
 $\log p\le T^{\theta+2\varepsilon+o(1)}$.
 \end{proof}
 
-$H_{\min}$ is a purely combinatorial statement about congruences.  For
+$H_{\min}$ is a purely combinatorial statement about congruences.  The
+proof of Theorem~\ref{thm:main} (via Theorem~\ref{thm:crit}) establishes it for
+every $\theta\ge1/3$ (indeed with $T^{o(1)}=\exp(O(\log T/\log\log T))$).  For
 $\theta<1/2$ the residual atoms involve several free primes, and plain
-event-level Bonferroni truncation over the raw atom list fails.
+event-level Bonferroni truncation over the raw atom list fails:
 
 \begin{proposition}[Proved]\label{prop:bonf}
 Fix $0<\theta<1/2$, put $y=T^\theta$, and impose the class of one modulo all
@@ -940,9 +942,16 @@ $N\ge r^2\ge2J-1$, on a set of measure $\ge(2y)^{-2r}$.  Hence
 which exceeds $1>P(N=0)$ once $J>(2\sqrt2\theta/\log4)^2(\log T)^2(1+o(1))$.
 \end{proof}
 
-These raw hub atoms are implied by single-prime atoms.  Numerically, other
-hub classes survive the deletion of implied atoms, so a hub-adapted
-(hypergraph) minorant appears necessary; this is not proved.
+Proposition~\ref{prop:bonf} is an obstruction only to truncation by the
+number of events.  On the hub configuration of its proof, $r^2$ events fire on
+$2r$ primes; the error of the support truncation (Lemma~\ref{lem:pointwise}) is
+at most $\binom{4r}{L}\le16^r$ there, against probability $(2y)^{-2r}$.
+
+\emph{Below $\theta=1/3$.}  The proof of Theorem~\ref{thm:main} uses
+$y\ge T^{1/3+o(1)}$ for the crude per-prime bounds (W), (G) and to ensure that
+events involve at most two primes.  For smaller $\theta$ one would need a
+per-prime mass bound of the kind discussed in \S\ref{sec:haar} and a hypergraph
+version of Lemma~\ref{lem:pseudo}; we have neither.
 
 \section{The slice parameter}\label{sec:typeI}
 
