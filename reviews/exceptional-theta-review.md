@@ -234,7 +234,7 @@ Correct.
 
 ### 2.4 Cor 3.6 (proof re-derived)
 
-* (U) holds for the windows `W_j = (e^{Cs_j}, e^{s_j}]`, because
+* (U) holds for the windows `W_j = (e^{s_j}, e^{s_j/C}]`, because
   `ℓ' ≤ M/ℓ(M) ≤ ℓ^C`.
 * `p*_ℓ ≤ ℓ^{C−1+o(1)}`. The o(1) comes from `|ℛ(M)| ≤ τ(A²) = M^{o(1)}`
   and from the (a,D)-multiplicity `≤ τ(G)2^{ω(G)}`.
