@@ -154,7 +154,9 @@ is exponential in the number of *primes*, and each prime costs a factor
   vertices at the same ℓ are disjoint; `p(v)=P(X_ℓ∈V_v)`. An *edge* is an
   unordered pair `{u,w}` of vertices at distinct primes; it occurs iff both
   `X_{ℓ_u}∈V_u` and `X_{ℓ_w}∈V_w`. Put `S_2=Σ_{edges}p(u)p(w)` and
-  `deg(v)=Σ_{w:{v,w} edge} p(w)`.
+  `deg(v)=Σ_{w:{v,w} edge} p(w)`. The edge graph is simple: edges are
+  distinct pairs of vertices (for congruence systems, distinct classes mod
+  `ℓℓ'`), and repeated atoms giving the same class are merged into one edge.
 
 Thus `a_ℓ=s_ℓ+d_ℓ` with `s_ℓ=1[X_ℓ∈S_ℓ]` and `d_ℓ` the number of occurring
 edges at ℓ. (A congruence class modulo `ℓℓ'` is the edge between the vertices
@@ -197,7 +199,9 @@ graph and `w_K=e^{3z|V(K)|}P(K occurs)`.
 at most one of the `≤v²/2` remaining vertex pairs, and `P(K)≤P(T)`. For a
 tree, `P(T occurs)≤∏_{w∈T}p(w)`. Root T at any vertex `v_0` and encode it by
 the child sets `C_1,…,C_v` in breadth-first order (children ordered by a
-fixed total order on vertices); this is injective. Summing over `C_i⊆N(v_i)`
+fixed total order on vertices). For each choice of root, T is recovered
+from `(v_0; C_1,…,C_v)`, so summing over all roots overcounts each tree by
+the factor v, which is harmless for an upper bound. Summing over `C_i⊆N(v_i)`
 with `|C_i|=c_i` gives at most `deg(v_i)^{c_i}/c_i!`; for `i=1`, `c_1≥1`,
 bound it by `deg(v_0)δ^{c_1−1}/c_1!`. The number of weighted compositions is
 `Σ_{c_1+…+c_v=v−1}∏1/c_i! = v^{v−1}/(v−1)! ≤ e^v`. Hence
@@ -447,7 +451,10 @@ log p ≤ C_1 K max(log Z, K) ≤ y·exp(O(𝓛/log 𝓛)) = T^{1/3}·exp(O(𝓛
 ```
 
 `840|Q` because `y≥7`, so p is Mordell-hard; `p>ℓ_0>T`, so distinct T give
-infinitely many distinct p. Inverting, `𝓛 ≥ 3 log log p − O(log log p/log log log p)`. ∎
+infinitely many distinct p. Inverting: if `𝓛 ≥ 4 log log p` then already
+`W(p)>T≥(log p)^4`; otherwise `𝓛/log 𝓛 ≪ log log p/log log log p`, and
+`log log p ≤ 𝓛/3 + O(𝓛/log 𝓛)` gives
+`𝓛 ≥ 3 log log p − O(log log p/log log log p)`. ∎
 
 **Corollaries and scope.**
 
