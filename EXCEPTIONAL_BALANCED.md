@@ -604,3 +604,61 @@ X = 10⁵, η = 1/4, `y = min(ℓ^{0.8}, X/ℓ)`:
 So the greedy supremum tracks `π(y)` (a weak adversary, lower bounds
 only). Reachability costs almost nothing. If `sup ≍ π(y)·ℓ^{o(1)}` is the
 truth, (★_δ) holds exactly for `δ < η/(1+η)`, and it is sharp there.
+
+### 4.4 Reduction: the remaining gap is an extremal arithmetic problem
+
+**Gap (E_δ) (named; open for B ≥ 1).** For every window prime `ℓ > w₀` and
+**every** integer n,
+
+    #{ −r k^{−1} mod ℓ : (4srk−1)/ℓ = q ∈ 𝒬_ℓ, q | nk + r } ≤ ℓ^{1−δ}.
+
+**Proposition 4.4 (PROVED).** (E_δ) implies (★_δ) for every subfamily.
+Hence it implies H_light(O_δ(1)), in the γ-averaged form of §2.6, and so
+Theorem 2.5's cap `S_λ ≪_{δ,B} η^{−1}λ^{3/4}` for (η,B)-gapped families.
+
+A weaker bound also helps. Suppose only `p_ℓ(h) ≤ ε` is known for all
+`ℓ > w₀`. Then the profile inflation is `≤ (1−ε)^{−ω(q)}`. Its weighted
+mean costs at most `(log x)^{O(ε)}`, so the cap becomes `λ^{3/4+O(ε)}`.
+This is better than §2.6 item 4, which assumed only `ε = 1/2`.
+
+*Proof.* (E_δ) bounds `|F_ℓ(n)|` for every integer n by Lemma 4.1, so in
+particular on every reachable history. Then apply §2.6 (sufficient
+condition (★_δ)). For the weak form, use
+`Π_{p|q}(1−ε)^{−1} = e^{O(ε)ω(q)}` and the γ-weighted Shiu argument, with
+`h(p) ≤ 1/(p−1) + O(ε)/…`. The Euler factors change by `1 + O(ε/p)`, so
+the pole order rises by `O(ε)`. ∎
+
+**What is known about (E_δ).**
+* Counting proves it for B < 1 (Lemma 4.2).
+* The independent-prime construction shows the supremum is at least
+  `y^{1/5−o(1)}` (Prop 4.3), and probably about `π(y)`.
+* The numerics suggest `sup ≈ π(y)`, which would give (E_δ) for every
+  `δ < η/(1+η)`.
+
+**Why the obvious proof attempts fail.**
+1. *Coprimality.* Two active triples with distinct values and common
+   factor `g = gcd(q,q')` need `g | rk'−r'k`. This forces near-coprimality
+   only when r and k are small. But r and k range up to `A_q ≈ qℓ/4`. Small
+   r and k give at most `R²` values anyway.
+2. *Largest-prime injection.* Map each active q to `P(q)`. The q's with
+   `P(q) > R²` contribute at most `π(y)` values. The `R²`-smooth q's still
+   number `≍ ρ(B/ε)·ℓ^B ≥ ℓ` when `R² = ℓ^ε`. So the count is not killed.
+3. *Averaging over histories (the "steering is rare" route).* Theorem 2.3
+   needs `Q_seq`-expectations. Adversarial histories of the Prop 4.3 type
+   have U-probability about `Π_{q≤y} q^{−1} = e^{−(1+o(1))y}`. Q_seq
+   reweights by `dQ_seq/dU = Π_p (1−p_p(h))^{−1}`. On those same histories
+   this weight is controlled only through sup bounds at the smaller primes
+   p | q, i.e. through (★) at lower scales again. A bootstrap over scales
+   (assume (★_δ) below ℓ, deduce it at ℓ) needs U-tails
+   `U(|F_ℓ| ≥ ℓ^{1−δ}) ≤ exp(−ℓ^{1−δ}/log ℓ)`. But the adversarial
+   histories already have U-probability `≥ e^{−O(y)}`. So the bootstrap
+   closes only if `ℓ^{1−δ} ≲ y log ℓ`, i.e. `δ ≥ η/(1+η)`. Exactly there,
+   (E_δ) itself is expected to fail. The averaged route is therefore
+   **borderline**, not easier.
+
+**Status of step 4.** (★_δ) for `B ≥ 1` is **not proved**. It is reduced
+to the purely arithmetic extremal statement (E_δ). Reachability, Q_seq and
+sieve structure are gone from that statement. The evidence (§3.1, §4.3)
+supports (E_δ) for `δ < η/(1+η)`, with sup ≈ π(y). The averaged version
+does not bypass (E_δ); item 3 shows the obstruction sits at the same
+threshold.
