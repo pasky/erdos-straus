@@ -162,3 +162,50 @@ vertices of one event needs the higher codegrees.
 Limitation: Lemma 10.2/2.1 are proven with huge slack, so brute force
 can only refute structural (not constant-level) errors; the constants
 were checked by hand in Items 2–3.
+
+## Item 6 — O3 Thm 5.1 (k-level induction). Verdict: SOUND (two cosmetic slips)
+
+Every Lemma 10.2 use site re-checked:
+
+* **Level k (no conditioning).** (a)/(b) give `deg≤δ_k/2`,
+  `Δ_O≤δ_k(4N_k)^{−j}/(2k)` (|O|=j+1); pool `k(L_k+1)≤N_k`, so
+  `D≤δ_k+Σ_{j≥1}4^{−j}δ_k/(2k)≤2δ_k=[2ek(1+w')^k]^{−1}` ✓.
+* **Level r, cell-conditioned.** `|P_i|≤Σ_{s>r}s(L_s+1)≤H_r`
+  (B_L cells ≤L_s primes; G^cov cells ≤s(L_s+1)). Conditioned codegree
+  `Δ'_O ≤ Σ_{F'⊆fixed}Δ_{O∪F'}`; with `H_r≤N_r`:
+  `Δ'_v≤δ_r/2+δ_r/(6r)≤δ_r`, `Δ'_O≤(4/3)δ_r(4N_r)^{−(|O|−1)}/(2r)` ✓.
+  Pool `r(L_r+1)≤N_r` (conditioned supports ≤r), so
+  `D≤δ_r(1+1/(3r))≤2δ_r` ✓. Induced singles/edges are allowed by Lemma
+  10.2 (singles via `(1+w')S_1≤2er(1+w')^rS_1`); duplicates harmless
+  (Item 2b). Induced mass `≤hδ_r/2+hδ_r/(6r)≤hδ_r≤H_r`, hence
+  `Λ_r=2er(1+w')^r(Σ_r+H_r+1)` dominates both the tilted and untilted
+  sums ✓. Brute-force T5 (Item 5) confirms the conditioning inequalities
+  and that the higher codegrees are genuinely needed.
+* **Tilt.** Lemma 3.1(2) for `𝒜_{<r}` (per-prime ≤1/(64k), neighbour sum
+  `|U|/(32k)`) applied to `C_i∩{C occurs}` on `P_i∪π(C)` gives
+  `e^{|P_i|/2}·e^{|π(C)|/2}`; the first is in `L_r` via `H_r/2`, the
+  second is absorbed in `w'` before factorisation, under Haar ✓.
+* **Error budget.** Per level `≤P(𝒜_{<r})e^{−3Ŝ_{≥r}}/(100k)≤P(all)/(100k)`
+  (using frozen masses as upper bounds — correct, since after level s is
+  processed only deletions at levels ≥s occur) ✓. Telescoping
+  `E[F_{<r+1}B_{≥r+1}]−E[F_{<r}B_{≥r}]≤ε_r` re-derived ✓.
+  `M_1(B_{≥r})≤4e^{Λ_r}M_1(B_{≥r+1})` ✓.
+* **Frozen masses / no circularity.** Thresholds at level r use only
+  `Σ_s (s≥r)`, `L_s (s>r)`; pushes go strictly down; per-prime and total
+  masses are amplified by `poly_k(N_r)` finitely often, so
+  `Σ_{r−1},L_r,N_r ≤ C_kŜ^{A_k}` and `(P_k)` follows from
+  `c_k(Ŝ)=Ŝ^{−A_k}/C_k` ✓. All constants depend on k only (A_k possibly
+  factorial — acknowledged in the Remarks).
+* **Push-downs (Markov).** `Σ_{O∋v@ℓ,|O|=j+1}P(O)Δ_O=binom(r−1,j)w^{(r)}_ℓ≤2^rw^{(r)}_ℓ` ✓.
+  Pushed sets merge with existing events of the same vertex set ✓;
+  every deleted event contains a pushed event, so `F≤1[no original event]` ✓.
+
+Cosmetic defects:
+* **D2.** The level-2 error is "chosen as in Thm 3.2 Step 2", which gives
+  `P/200`; with `Σ_{r=3}^k 1/(100k)` the total is `≤(3k−4)/(200k)·P <
+  0.015P`, not `P/100`. Harmless (μ≥0.985P; twist margin
+  `0.015+0.053<0.985/4`), or choose L_2 with `200k𝔐_3` in place of
+  `800e^{Λ_3}`.
+* **D3.** Thm 5.2 proof: `y=T^{1/k}e^{2𝓛/log𝓛}` gives `y^k>T`, so
+  `Ω(r)≤k−1` (text says `≤k`). Harmless (understatement); for k=3 the
+  supports are ≤2 and the exponent-3 case is O2's.
