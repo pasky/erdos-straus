@@ -75,3 +75,50 @@ size `kU_0`; (v) `D` includes the j=0 term `Δ^{(1)}=max deg`.
   ×2 = 15.17 ≤ 16. ✓
 * Same hypotheses (i),(ii) of Item 2 (independence; disjoint vertices per
   prime) plus the vertex-degree bound `δ≤e^{−3z−2}`.
+
+## Item 4 — O3 §3 (Lemma 3.1, Thm 3.2, Lemma 3.3, Thm 3.4) use sites. Verdict: SOUND (one notational slip)
+
+* **Lemma 3.1.** (1) Neighbour sums `≤3·2/32=3/16` for supports ≤3, so
+  `P(E)≤x_E/2≤x_E∏(1−x)`; the chain over level-3 events conditioned on
+  `𝒜_2` is the standard AS 5.1.1 argument; `−log(1−x)≤1.07x` for
+  `x≤1/16`, so the `e^{−3S}` bounds hold with room. (2) The conditional
+  bound is elementary here: `P(B∩𝒜_2) ≤ P(B)P(∩_{A∉Γ(B)}Ā)` and
+  `P(𝒜_2) ≥ P(∩_{A∉Γ(B)}Ā)∏_{Γ(B)}(1−x_A)` (the second by the same LLL
+  chain). `Σ_{Γ(B)}x_A ≤ |U|/16`, so `e^{1.2|U|/16}≤e^{|U|/2}`. ✓
+* **Tilted weight `1+w'=17e^{1/2}` (Thm 3.2 Step 1).** The tilt is applied
+  to the *pointwise* reduction inequality of Lemma 10.2 *before* any
+  factorisation: `E[F_2 1[C]] ≤ P(𝒜_2)P_Haar(C)e^{|π(C)|/2}`, and
+  `e^{|π(C)|/2}` is multiplicative over components. After that, everything
+  (components, exploration, counting) is under Haar, so hypothesis (i) of
+  Item 2 (independence) holds where it is used. Level 3 has no singles,
+  so `Λ_3=2e·3(1+w')³Ŝ` exactly. Hypothesis: `D=Δ^{(1)}+3(L_3+1)Δ^{(2)} ≤
+  δ_3+δ_3=2δ_3=[2e·3(1+w')³]^{−1}` ✓ (k=3, U_0=L_3+1; pool size
+  `3U_0` matches `3(L_3+1)` in t). The untilted Haar mass bound follows
+  from the same hypothesis since `1+w<1+w'`. ✓
+* **Arithmetic re-checked:** `2·4^{−(L_3+1)}e^{Λ_3} ≤ e^{−3Ŝ}/200`;
+  Step 2 error `2e^{Λ_3}·2·4^{−(L_2+1)}e^{Λ_2} ≤ e^{−3Σ}/200`;
+  `P(𝒜_2∩𝒜_3)≥e^{−3Σ}`; total `≤P/100`. Mass `≤4e^{Λ_2+Λ_3}`. Supports
+  `≤3(L_3+1)+2(L_2+1)` (G-terms of a graph system carry ≤2 primes per
+  factor). ✓
+* **Cell-conditioned level 2 (Step 2).** On a cell, edges with one end in
+  P_i become induced singles (or die), so `F_2=F_2^{(i)}` is a function
+  of the complementary coordinates, Haar-independent of the cell;
+  induced mass `≤Σ_{v realised}deg(v) ≤ δ|P_i|`; degrees unchanged ≤δ;
+  `z=16`, `δ=e^{−50}=e^{−3z−2}` exactly as Lemma 2.1 requires. ✓
+* **Twist.** `E[1_{𝒜'}ψ]=0` (𝒜' independent of `X_{ℓ_0}`); conditional
+  LLL on ≤2 remaining primes gives factor `(15/16)^{−2}=1.14≤1.3`;
+  `0.01+0.05/0.95=0.063<0.99/4`. ✓
+* **Lemma 3.3 Markov bookkeeping** re-derived: (a) `≤w^{(3)}_ℓ/δ_3`;
+  (b) `Σ_{O∋v@ℓ}P(O)Δ_O = 2w^{(3)}_ℓ` (two pairs through the ℓ-vertex of
+  a 3-edge), globally `3S_H/t`; (c) `≤w^{(2),new}_ℓ/δ`. Per-prime total
+  `≤c_0(2+1/δ_3+(1+2/t)(1+1/δ)) ≤ 9c_0/(tδδ_3) ≤ 1/32`. Threshold t is
+  fixed from the *a-priori* Ŝ before (b), so there is no circularity.
+  Order (a)→(b)→(c) only deletes, so all degree/codegree bounds persist. ✓
+* **Thm 3.4.** `Σ=O(Ŝ/t)=O(Ŝ²+1)` since `1/t=3(L_3+1)/δ_3=O(Ŝ+1)`. ✓
+  Note the per-prime requirement `c_0(Ŝ)≍1/(Ŝ+1)`, i.e. **every free
+  prime must carry mass ≲1/Ŝ** — checked at the application sites below.
+
+Defect **D1 (notational, harmless):** Setting 3.0 defines
+`t:=δ_3/(C_3(S_H+1))`, while "Constants" defines `t(Ŝ):=δ_3/(3(L_3+1))`
+with `L_3=L_3(Ŝ)`. Only the latter is used in the proofs; delete the
+former or state they agree up to the choice of `C_3`.
