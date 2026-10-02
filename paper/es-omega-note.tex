@@ -930,6 +930,118 @@ constant size (Remark~\ref{rem:hubs}), so Lemma~\ref{lem:hypmom} cannot be
 applied to the whole system with $U_0$ of the size of the total mass; this is
 what \S\ref{sec:multi} circumvents.
 
+\section{Multilevel minorants}\label{sec:multi}
+
+\emph{Levels.}  Consider a congruence system as in \S\ref{sec:crit} whose
+events are singles and hyperedges of $2,\dots,k$ vertices at distinct primes,
+all vertices being unit classes mod $\ell^{e_\ell}$.  Its events are
+partitioned into \emph{levels}: level~$2$ consists of the singles and the
+edges, and level $r$ ($3\le r\le k$) of hyperedges with $r$ vertices.  Let
+$F_r$ be the indicator that no event of level $r$ occurs, $F_{<r}=\prod_{2\le
+s<r}F_s$, $\mathcal A_{<r}=\{F_{<r}=1\}$, and let $\Sigma_r$ be the mass of level
+$r$ ($\Sigma_2=S_1+S_2$).  We assume throughout
+\begin{enumerate}
+\item[(P$_k$)] the total mass of all events at every prime is at most $1/(64k)$.
+\end{enumerate}
+
+\begin{lemma}[Proved]\label{lem:compare}
+Under \textup{(P$_k$)}, with $x_E=2P(E)$:
+\begin{enumerate}
+\item[(a)] $P(\mathcal A_{<r+1})\ge P(\mathcal A_{<r})\prod_{E\in\text{level }r}(1-x_E)\ge P(\mathcal A_{<r})e^{-3\Sigma_r}$ for every $r$, and $P(\mathcal A_{<3})\ge e^{-3\Sigma_2}$;
+\item[(b)] for every $r$ and every event $B$ depending on the coordinates in a
+set $U$ of primes, $P(B\cap\mathcal A_{<r})\le P(\mathcal A_{<r})P(B)e^{|U|/2}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+An event meets at most $k$ primes, so the $x$-sum over its neighbours is at
+most $k\cdot2/(64k)=1/32$ and the hypothesis of Lemma~\ref{lem:lll} holds for
+the union of all levels.  Its proof gives $P(E\mid\bigcap_{E'\in\mathcal S}\bar E')\le
+x_E$ for all $\mathcal S$; the chain rule over the events of level $r$, conditioned
+on $\mathcal A_{<r}$ and the earlier ones, gives (a), using $1-x\ge e^{-1.1x}$.
+For (b) apply the second part of Lemma~\ref{lem:lll} to the levels $<r$:
+$\sum_{A\in\Gamma(B)}x_A\le|U|/32$, so
+$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.2|U|/32}\le e^{|U|/2}$.
+\end{proof}
+
+\emph{Constants.}  $z=16$, $\delta=e^{-50}$ (level~$2$, as in
+Theorem~\ref{thm:crit}); $w=16$, $\rho=17e^{1/2}$ and
+$\delta_r=[4er\rho^r]^{-1}$ (levels $\ge3$).  For $\hat S\ge1$ put
+$\Lambda_3=6e\rho^3\hat S$, let $L_3$ be least with
+$4^{L_3+1}\ge400e^{\Lambda_3+3\hat S}$, and $t(\hat S)=\delta_3/(3(L_3+1))$.
+
+\begin{theorem}[Two-level minorant; proved]\label{thm:twolevel}
+Take a system with levels $2$ and $3$ only, satisfying \textup{(P$_3$)}, and
+\begin{enumerate}
+\item[(D2)] every level-$2$ vertex has level-$2$ degree $\le\delta$;
+\item[(D3)] for some $\hat S\ge\Sigma_3$, every level-$3$ vertex has degree
+$\le\delta_3$ and every pair of level-$3$ vertices has codegree
+$\le t(\hat S)$.
+\end{enumerate}
+Put $\Sigma=\Sigma_2+\hat S$.  There is a real combination $B$ of unit cells
+with $B\le F_2F_3$ pointwise, $E[F_2F_3-B]\le P(\mathcal A_{<4})/100$ (so
+$\mu=E\,B\ge0.99e^{-3\Sigma}$), $\log(M_1/\mu)\le C(\Sigma+1)$, every cell on at most
+$C(\Sigma+1)$ primes, and $|E[B\psi]|<\mu/4$ for every real primitive $\psi$ as
+in Theorem~\ref{thm:transfer}.  Here $C$ is absolute.
+\end{theorem}
+
+\begin{proof}
+\emph{Level~$3$.}  Let $B_3=B_{L_3}-4^{L_3+1}G^{\rm cov}_{L_3+1}$ for the
+level-$3$ events (Lemma~\ref{lem:cov}); pointwise $B_3\le F_3$ and
+$|F_3-B_3|\le2\cdot4^{L_3+1}G^{\rm cov}_{L_3+1}$.  Multiply the pointwise
+inequality in the proof of Lemma~\ref{lem:hypmom} by $F_2$ and take
+expectations; Lemma~\ref{lem:compare}(b) with $U=\pi(\mathcal C)$ gives
+$E[F_2\mathbf 1[\mathcal C]]\le P(\mathcal A_{<3})P(\mathcal C)e^{|\pi(\mathcal C)|/2}$, and
+$(1+w)e^{1/2}=\rho$.  By (D3),
+$D=\deg+3(L_3+1)\Delta^{(2)}\le2\delta_3=[2e\cdot3\rho^3]^{-1}$, so
+Lemma~\ref{lem:hypmom} (with $U_0=L_3+1$, no singles) gives
+$E[F_2G^{\rm cov}_{L_3+1}]\le16^{-L_3-1}P(\mathcal A_{<3})e^{\Lambda_3}$ and therefore
+\[
+ E[F_2(F_3-B_3)]\le2\cdot4^{-L_3-1}P(\mathcal A_{<3})e^{\Lambda_3}\le P(\mathcal A_{<3})e^{-3\hat S}/200\le P(\mathcal A_{<4})/200
+\]
+by Lemma~\ref{lem:compare}(a).  Without the tilt, $M_1(B_3)\le2e^{\Lambda_3}$ by
+Lemmas~\ref{lem:cov} and~\ref{lem:hypmom}, and every cell of $B_3$ lies on at
+most $3(L_3+1)$ primes.
+
+\emph{Level~$2$, cell by cell.}  Write $B_3=\sum_ic_i\mathbf 1_{\mathcal C_i}$ with cells
+$\mathcal C_i$ on prime sets $P_i$.  If $\mathcal C_i$ realises a level-$2$ single at a prime of
+$P_i$, or both ends of a level-$2$ edge inside $P_i$, then $F_2=0$ on $\mathcal C_i$;
+put $\beta_i=\alpha_i=0$.  Otherwise, on $\mathcal C_i$, $F_2$ equals the void
+indicator $F_2^{(i)}$ of the \emph{conditioned} level-$2$ system on
+$\mathcal P\setminus P_i$: the original singles and edges there, plus the induced
+singles $\{w:\{v,w\}\text{ an edge},\ v\text{ realised by }\mathcal C_i\}$, of total
+mass $\le\delta|P_i|$; degrees remain $\le\delta$.  Lemmas~\ref{lem:pointwise},
+\ref{lem:meanmass} and~\ref{lem:pseudo} give, with
+$\Lambda_2=16(S_1+3\delta(L_3+1))+16e^{98}S_2$ and every $L$, functions
+$B^{(i)}_L$, $G^{(i)}_{L+1}$ with $|B^{(i)}_L-F_2^{(i)}|\le4^{L+1}G^{(i)}_{L+1}$,
+$E\,G^{(i)}_{L+1}\le16^{-L-1}e^{\Lambda_2}$ and $M_1(B^{(i)}_L)\le e^{\Lambda_2}$.  Let
+$L_2$ be least with $4^{L_2+1}\ge800e^{\Lambda_2+\Lambda_3+3\Sigma}$, put
+$\beta_i,\alpha_i=B^{(i)}_{L_2}\mp4^{L_2+1}G^{(i)}_{L_2+1}$ (so
+$\beta_i\le F_2^{(i)}\le\alpha_i$), and
+\[
+ B=\sum_{c_i>0}c_i\beta_i\mathbf 1_{\mathcal C_i}-\sum_{c_i<0}|c_i|\alpha_i\mathbf 1_{\mathcal C_i}.
+\]
+Then $B\le\sum_ic_iF_2\mathbf 1_{\mathcal C_i}=F_2B_3\le F_2F_3$.  As $\beta_i,\alpha_i$ do
+not depend on the coordinates in $P_i$,
+\[
+ E[F_2F_3-B]\le E[F_2(F_3-B_3)]+\sum_i|c_i|P(\mathcal C_i)\,2\cdot4^{-L_2-1}e^{\Lambda_2}
+ \le\frac{P(\mathcal A_{<4})}{200}+\frac{e^{-3\Sigma}}{200}\le\frac{P(\mathcal A_{<4})}{100},
+\]
+since $P(\mathcal A_{<4})\ge e^{-3\Sigma}$.  Further
+$M_1(B)\le M_1(B_3)\cdot2e^{\Lambda_2}\le4e^{\Lambda_2+\Lambda_3}$, every cell lies
+on at most $3(L_3+1)+2(L_2+1)$ primes, and $L_3,\Lambda_3=O(\hat S+1)$,
+$\Lambda_2,L_2=O(\Sigma+1)$.
+
+\emph{Twist.}  As in Theorem~\ref{thm:crit}, $\mu_\psi=E[B\psi]$ and
+$|E[B\psi]|\le E[F-B]+|E[F\psi]|$ with $F=F_2F_3$.  For a prime $\ell_0\mid f$ let
+$\bar A'$ be the event that no event (of either level) avoiding $\ell_0$ occurs.
+Then $|E[F\psi]|\le P(\bar A'\cap\{\text{an event at }\ell_0\text{ occurs}\})$, and by
+Lemma~\ref{lem:lll} applied to the family defining $\bar A'$ (the rest of an
+event through $\ell_0$ meets at most two further primes, with neighbour product
+$\ge(1-1/96)^2$) this is at most $1.1\cdot P(\bar A')/192<0.01P(\bar A')$.  Hence
+$|\mu_\psi|<0.03P(\mathcal A_{<4})<\mu/4$.
+\end{proof}
+
 \section{Proof of Theorem~\ref{thm:main}}\label{sec:main}
 
 For a set $\Pi$ of primes and $M\le T$, $M\equiv3\pmod4$, write $M=m_\Pi r_\Pi$ with
