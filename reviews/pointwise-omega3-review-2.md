@@ -209,3 +209,44 @@ Cosmetic defects:
 * **D3.** Thm 5.2 proof: `y=T^{1/k}e^{2𝓛/log𝓛}` gives `y^k>T`, so
   `Ω(r)≤k−1` (text says `≤k`). Harmless (understatement); for k=3 the
   supports are ≤2 and the exponent-3 case is O2's.
+
+## Item 7 — Logic chain H_MIN(θ) ∀θ ⇒ W ≥ (log p)^{1/θ−ε}; hidden T^c terms. Verdict: SOUND
+
+* **PO Thm 4.1 re-derived** (given TZ Cor 1.4 + McCurley region): CRT
+  classes `a_i≡1 (Q)`, `≡b_i (d_i)`; Case A (`q*|Q`): `λ_i=λ_*` common,
+  relative error `C_0E_1M_1`; Case B: `χ_1(a_i)=χ*'(b_i)=ψ(b_i)` exactly
+  for `i` with `q*'|d_i` (needs `q*_Q|Q`), else `|λ_i−1|≤2E_2`; `λ<2`.
+  `μ_ψ=E_Haar[Bψ]` (characters at primes outside `d_i` average to 0), so
+  the twist condition of O3 Thm 3.2/5.1 is the one Thm 4.1 needs. The
+  requirement `E_1,E_2≤μ/(8(C_0+1)M_1)` is met for
+  `log x≥C_1K·max(log Z,K)` (E_2 needs `log x≳K log Z`; E_1's second term
+  needs `log x≳K²`; `x≥Z^{12}`). ✓
+* **PO Thm 6.2 / O3 Thm 4.3, 5.2.** `ℓ_0∈(R,2R]`, `R=max(T,max d_i)`
+  forces `p>T` (so distinct T give distinct p even if some W(p)=∞) and
+  keeps `d_i` coprime to `Qℓ_0`. ✓
+* **Every term of `log p ≤ C_1K·max(log Z,K)`**, for fixed k (y=T^{1/k}e^{2𝓛/log𝓛}):
+  - `log Q ≤ Σ_{ℓ∈Π_0}e_ℓlog ℓ + |𝓑|𝓛 + log24 ≤ π(y)𝓛+|𝓑|𝓛 ≈ k·y + T^{o(1)}`
+    — prime powers `ℓ^{e_ℓ}≤T` cost only the factor `𝓛/log y≈k`;
+    bad primes may be as large as T but each costs ≤𝓛 and
+    `|𝓑|≤(k−1)S*/c_k=O_k(Ŝ^{A_k+1})=T^{o(1)}` (Lemma 11.2 re-derived:
+    each atom is charged once per prime >y dividing M, ≤k−1 of them, and
+    each charge is ≤ its S* term because S* takes the max over Π);
+  - `log max d_i ≤ (#primes per cell)·𝓛 = O_k(Ŝ^{A_k})𝓛 = T^{o(1)}`;
+    `log ℓ_0 ≤ log 2R` same order;
+  - `K=1+log(M_1/μ)=O_k(Ŝ^{A_k})`, `log(1/μ)≤3Ŝ_tot+1`, all `T^{o(1)}`
+    because `S*≤exp(O(𝓛/log𝓛))` uniformly in Π (O2 Lemma 11.1: the max
+    over Π is inside the sum, so it covers the iterated quarantine).
+  No term grows like `T^c` with c independent of θ: the only `T^{Θ(1)}`
+  quantity is `π(y)𝓛 ≍ y/θ`. Hence `log p ≤ T^{1/k}exp(O_k(𝓛/log𝓛))`
+  and `W(p)>T ≥ (log p)^k·exp(−C_k log log p/log log log p)`. ✓
+* **(I) transfer.** O2 Lemma 4.3 (I) uses only `ℓ^{v}‖M ⇒ ℓ^v≤T≤ℓ^{e_ℓ}`
+  for `ℓ∈Π`, independent of y and of k; `B≤F≤1[no original event]` since
+  every pushed/deleted event is implied by a level event; B is a pointwise
+  minorant at *every* outcome (Lemmas 1.1/1.2 hold for arbitrary values of
+  the coordinates, including non-units), so `B(n)≤1[W(n)>T]` for all
+  `n≡1 (Q)`, as Thm 4.1 requires. ✓
+* **Per-prime hypothesis.** Thm 3.4/5.1 need per-prime mass `≲Ŝ^{−A_k}`,
+  far below the O2 constant level; Lemma 11.2 delivers any threshold
+  `c_0` at quarantine cost `kS*/c_0` primes, which is `T^{o(1)}` for
+  `c_0=Ŝ^{−A_k}/C_k`. ✓ (This is the step where a hidden power of T could
+  have entered; it does not, because `S*=T^{o(1)}`.)
