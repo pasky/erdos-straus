@@ -283,7 +283,15 @@ Defects:
   binary mass of the prime-power classes at j. Then
   `E_PΣ_jρ_jw_j^{pp} ≪ L³/w₂ + w₂^{−1/2}(log L)^{O(1)}`, by the
   `v ≥ 2` / `u ≥ 2` cases of Lemma 4.1, re-run with weight `ρ_j` only
-  (checked). Lemma 5.4 should be stated for the `u = v = 1` classes, with
+  (checked case by case):
+  * pointwise τ works for the top-prime power (`v ≥ 2` with j top;
+    `u ≥ 2` with m top);
+  * the case "j top, `v = 1`, partner `m^u`, `u ≥ 2`" needs Shiu along j
+    (`q = km^u ≤ j^B`, A linear in j). Pointwise τ fails there, since
+    `Σ_j j^{−1+1/256}` diverges.
+  * the case "m top, `u = 1`, `v ≥ 2`" needs Shiu along m.
+
+  Lemma 5.4 should be stated for the `u = v = 1` classes, with
   this split added.
 * **D6 (nit).** `m₀(θ,k)` must be the least m for which `kjm` is a *family*
   modulus, not just any prime in the class with `kjm ≤ X`. Otherwise (iv)'s
