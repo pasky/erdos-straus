@@ -456,3 +456,91 @@ Corollary 2.5. The middle windows cost what they cost in Theorem 2.7. ∎
 `2 ≤ d_j = ⌊λ/s_j⌋ < λ^{3/4}` primes of a window, and the window's twin
 mass is large (`≍ η s_j³ ≫ 1` heuristically, ≥ `c_η s_j³` summed over a
 dyadic range by ET Lemma 3.8).
+
+### 4.5 The missing window inequality, and why the obvious routes fail
+
+**Conjecture 4.5 (binary window inequality; OPEN).** Let V be a window of
+primes with costs `s_ℓ ∈ (s, (1+η)s]`, residues `y_ℓ` independent uniform,
+unary forbidden sets with `p_ℓ ≤ 1/4`, and binary forbidden sets
+`F_{ℓℓ'} ⊆ ℤ/ℓ × ℤ/ℓ'` of density `π_{ℓℓ'}`. Let σ be the in-window
+sequential law (primes in increasing order; at ℓ, uniform off the unary set
+and off the binary sets activated by the earlier residues; capped as in §2).
+Then for every λ-level `f ≥ 0` and every α > 0,
+
+    log(E_σ f / E_U f) ≤ C[ αλ + Σ_ℓ p_ℓ e^{−α s_ℓ} + Σ_{ℓ<ℓ'} π_{ℓℓ'} e^{−α(s_ℓ+s_ℓ')} ]
+                         + O(log(2+λ/s) + log(2+μ)),
+
+μ the total (unary + binary) mass.
+
+This is EB's route 3 (local boost) in the 2-prime case. With the binary
+profile bounded by Lemma 2.6, Conjecture 4.5 would remove the range
+restriction in Theorem 4.4, for every fixed B. The binary term carries
+`e^{−2αs}`, i.e. a binary condition costs its full modulus, which is the
+H_MS heuristic.
+
+**Why the routes tried here do not prove it.** In each case the obstruction
+is quantitative and is stated at the scale of a window with `s > λ^{1/4}`.
+1. *Splitting windows* (finer windows of log-ratio `1+η'`, or random
+   sub-windows). A binary condition is resolved only if its two primes fall
+   in different sub-windows. The unresolved twin mass is heuristically
+   `≍ η'·λ³` in total (HEURISTIC: the η'-dependence of ET Lemma 3.8's
+   supply is not proved), so `η' ≲ λ^{−3}` is needed, i.e. `≳ λ³` windows,
+   each paying `≥ αλ + O(log λ)`.
+2. *Over-conditioning* (forbid one end of every binary condition, which
+   makes the system unary and independent). Given a typical history, the
+   number of active binary conditions with a given lower prime ℓ₁ is
+   `≍ #(primes in V)·(log X)^{O(1)}`, which exceeds ℓ₁ by a factor
+   `≍ e^{ηs}`: everything is forbidden. A binary condition has codimension
+   2; making it codimension 1 multiplies its weight by ≈ `e^{s}`.
+3. *Leak.* Under any unary-conditioned law the expected number of binary
+   hits in V is the window's twin mass, `≫ 1` for `s ≫ 1`.
+4. *Void* (condition the product law on "no binary hit"). Costs the twin
+   void ≈ twin mass ≈ `η s³` per window. This is fine exactly for
+   `s ≲ λ^{1/4}` (Proposition 4.1) and too large above, where the
+   sieve-limit cost of the window is `(λ/s)(1 + log(s⁴/λ))`.
+5. *One coordinate per term* (Lemma 4.2) needs `d_j = 1`, i.e. `s > λ/2`.
+   For `d ≥ 2` a λ-level f can exploit unary avoidance (this is the sieve),
+   so no bound of the form `1 + O(max p)` can hold, and Proposition 2.4's
+   interpolation is needed. Its proof (thinning, symmetrisation over each
+   band, interpolation in the band counts) uses independence of the
+   coordinates in an essential way; with binary conditions the hit
+   indicators at the upper primes depend on all residues at the lower ones.
+
+An observation that supports the conjecture (PROVED, but only for one test
+function): for `f = (Σ_ℓ z_ℓ(y_ℓ))²` with `|z_ℓ| ≤ 1`, `E z_ℓ = 0`, the
+binary conditions change `E f` by at most `2Σ_{ℓ<ℓ'} π_{ℓℓ'}·(1+o(1))`
+(each forbidden pair shifts one covariance by `≤ 1/(ℓℓ')` per forbidden
+point), against `E_U f = m = #V`. So a level-2 *quadratic* test sees the
+binary system only through its mass, not through `e^{s}`-inflated weights.
+
+## 5. What this says about the global question
+
+Question (3): is 3/4 sharp for all nonnegative CRT majorants of forced
+classes with moduli `≤ N^{O(1)}`?
+
+**Proved here (internally).** For each fixed B, the cap
+`S_λ ≪_B η^{−1}λ^{3/4}` (with `λ ≍ L = log N` by ET Lemma 2.9) holds for
+every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, plus all W₀(B)-smooth
+classes, in which no η-twin modulus has its top prime in
+`(e^{λ^{1/4}}, e^{λ/2}]` (Theorem 4.4). This includes:
+* all dominant and all η-gapped balanced moduli (Theorem 2.7), with no
+  hypothesis. EB's (E_δ), (★_δ), H_light and (NDE) are not needed;
+* all η-twin moduli with top prime `≤ e^{λ^{1/4}}` or `> e^{λ/2}`.
+
+**Not covered.**
+1. η-twin moduli with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` — reduced to
+   Conjecture 4.5. This carries a positive proportion of the cubic supply
+   (ET Lemma 3.8), so it is the genuine open core.
+2. Moduli with `log M / log P(M)` unbounded. Every proof here is for fixed
+   B, with constants `W₀(B)`, `K(W₀(B),B)` that are not tracked; there is no
+   summation over B. (Unweighted, the share of moduli with
+   `P(M) < M^{1/(1+B)}` is `ρ(1+B)` by Dickman; the weighted share is not
+   known.)
+3. (a,D)-classes and Case-A classes: Lemma 1.1 is proved for ℛ(M) only.
+   For these, ET Cor 3.6 still covers the dominant part.
+
+**Verdict.** Not settled. The balanced door is now reduced to a single
+named inequality about one window with binary conditions (Conjecture 4.5),
+plus the uniformity in B. Nothing found here points towards (B): every
+mechanism examined (heavy histories, small-prime correlations, η-gapped
+balance) turned out harmless once the measure was chosen correctly.
