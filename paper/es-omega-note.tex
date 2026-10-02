@@ -560,30 +560,53 @@ $\binom{2N}L\le f(L+1)\binom N{L+1}\le4^{L+1}\binom N{L+1}$.  Finally
 $\binom N{L+1}=e_{L+1}(\mathbf 1[\ell\in V])\le e_{L+1}(a)$.
 \end{proof}
 
+For a finite combination $\Phi=\sum_ic_i\mathbf 1_{\mathcal C_i}$ of indicators of
+cells $\mathcal C_i$ (a cell being a product of single values of finitely many
+coordinates) we write $M_1(\Phi)=\sum_i|c_i|P(\mathcal C_i)$, after merging equal
+cells; for congruence classes this is the $M_1$ of Theorem~\ref{thm:transfer}.
+
 \begin{lemma}[Proved]\label{lem:meanmass}
 Let $z\ge16$ and $\Lambda_z=\log E\prod_{\ell\in\mathcal P}(1+za_\ell)$.  Then
-$E\,G_{L+1}\le z^{-L-1}e^{\Lambda_z}$, so
-$E|B^*_L-\mathbf 1[A=\emptyset]|\le2\cdot4^{-L-1}e^{\Lambda_z}$ for $z=16$.  If
-the events are unions of cells of the coordinates (in our application, unit
-residue classes modulo $\prod\ell^{e_\ell}$), then $B_L$ is a combination of cell
-indicators on supports of size $\le L$, $G_{L+1}$ a nonnegative combination on
-supports of size $\le k(L+1)$ with $k=\max|\supp E|$, and, after merging
-equal cells, $M_1(B_L)\le E\prod_\ell(1+2a_\ell)$ and $M_1(G_{L+1})=E\,G_{L+1}$.
+$E\,G_{L+1}\le z^{-L-1}e^{\Lambda_z}$ and
+$E|B^*_L-\mathbf 1[A=\emptyset]|\le2\cdot4^{L+1}z^{-L-1}e^{\Lambda_z}$; for $z=16$
+this is $2\cdot4^{-L-1}e^{\Lambda_{16}}$.  If every event is a union of cells,
+then $B_L$ is a combination of cells on supports of size $\le L$ with
+$M_1(B_L)\le E\prod_\ell(1+2a_\ell)$, and $G_{L+1}$ is a nonnegative
+combination of cells on supports of size $\le k(L+1)$, $k=\max|\supp E|$,
+with $M_1(G_{L+1})=E\,G_{L+1}$.  If moreover no event contains a cell with a
+non-unit coordinate, then only unit cells have nonzero coefficient.
 \end{lemma}
 
 \begin{proof}
-The first claim is termwise.  Group the terms of $B_L$ by $U=\supp F$.  On a
-cell $c$ of the coordinates in $U$ the coefficient is
+Since all $a_\ell\ge0$, $e_{L+1}(a)\le z^{-L-1}\prod_\ell(1+za_\ell)$ termwise.  By
+Lemma~\ref{lem:pointwise},
 \[
- \kappa(U,c)=\sum_{W\subseteq U}(-1)^{|U\setminus W|}I_c(W)
+ E|B^*_L-\mathbf 1[A=\emptyset]|\le E|B_L-\mathbf 1[A=\emptyset]|+4^{L+1}E\,G_{L+1}
+ \le2\cdot4^{L+1}E\,G_{L+1}.
 \]
-(as in Lemma~\ref{lem:closed}), so $|\kappa|\le2^{|U|}$, and $\kappa=0$ unless every
-$\ell\in U$ lies in the support of an event occurring on $c$ with support in
-$U$ (otherwise the terms cancel in pairs).  Hence
+
+Write $B_L=\sum_{F\subseteq\mathcal E,\,|\supp F|\le L}(-1)^{|F|}\prod_{E\in F}\mathbf 1_E$
+and group by $U=\supp F$.  On a cell $c$ of the coordinates in $U$, let
+$A_U(c)$ be the set of events with support in $U$ that contain $c$, and
+$I_c(W)=\mathbf 1[\text{no }E\in A_U(c)\text{ has }\supp E\subseteq W]$.  The
+coefficient of $c$ is
 \[
- M_1(B_L)\le\sum_U2^{|U|}E\prod_{\ell\in U}a_\ell=E\prod_\ell(1+2a_\ell).
+ \kappa(U,c)=\sum_{F\subseteq A_U(c),\ \supp F=U}(-1)^{|F|}
+ =\sum_{W\subseteq U}(-1)^{|U\setminus W|}I_c(W)
 \]
-$G_{L+1}$ expands with coefficients $+1$.
+by the M\"obius inversion of Lemma~\ref{lem:closed}; so $|\kappa(U,c)|\le2^{|U|}$.
+If some $\ell\in U$ lies in the support of no event of $A_U(c)$, then
+$I_c(W)=I_c(W\cup\{\ell\})$ and the terms cancel in pairs, so $\kappa(U,c)=0$; in
+particular $\kappa(U,c)=0$ unless $c$ is a unit cell, under the last
+hypothesis.  For the remaining cells, every $\ell\in U$ is covered by an event
+occurring on $c$, so $\mathbf 1_c\le\prod_{\ell\in U}a_\ell$ on $c$.  Hence
+\begin{align*}
+ M_1(B_L)&\le\sum_U2^{|U|}P(\text{every }\ell\in U\text{ covered})\\
+ &\le\sum_U2^{|U|}E\prod_{\ell\in U}a_\ell=E\prod_\ell(1+2a_\ell).
+\end{align*}
+Finally $G_{L+1}=\sum_{|P|=L+1}\prod_{\ell\in P}\sum_{E\ni\ell}\mathbf 1_E$ expands
+into products of event indicators with coefficient $+1$, so its mass equals its
+mean.
 \end{proof}
 
 \section{A pseudoforest bound for the exponential moment}\label{sec:pseudo}
@@ -723,37 +746,59 @@ $g_\ell^+\le1/16$, $S_1^+\le S_1+2S_2/\delta$, all degrees are $\le\delta$, and
 (I) persists.  Let $A(n)$ be the occurring events of the new system.
 
 \emph{Local lemma.}  Apply Lemma~\ref{lem:lll} to all singles and edges with
-$x_E=2P(E)$.  For a single at $\ell$ the neighbours are the edges at $\ell$ and
-$\prod(1-x)\ge1-2w_\ell\ge1/2$; for an edge at $\ell,\ell'$,
-$\prod(1-x)\ge(7/8)^2(1-2w_\ell-2w_{\ell'})\ge1/2$.  Hence
-$P(A=\emptyset)\ge\prod(1-x_E)\ge e^{-\lambda}$ with $\lambda=3(S_1^++S_2)$.
+$x_E=2P(E)\le1/8$.  For a single at $\ell$ the neighbours are the edges at $\ell$ and
+$\prod(1-x)\ge1-\sum x\ge1-2w_\ell\ge1/2$; for an edge at $\ell,\ell'$ the
+neighbours are the two singles and the edges at $\ell$ or $\ell'$, and
+$\prod(1-x)\ge(7/8)^2(1-2w_\ell-2w_{\ell'})\ge1/2$.  So the hypothesis of
+Lemma~\ref{lem:lll} holds, and since $1-x\ge e^{-1.1x}$ for $0\le x\le1/8$ and
+$\sum_Ex_E=2(S_1^++S_2^+)\le2(S_1^++S_2)$,
+\[
+ P(A=\emptyset)\ge\prod_E(1-x_E)\ge e^{-\lambda},\qquad\lambda=3(S_1^++S_2).
+\]
 
 \emph{Minorant.}  With $\Lambda=\Lambda_{16}\le16S_1^++16e^{98}S_2$
-(Lemma~\ref{lem:pseudo}), let $L$ be least with $4^{L+1}\ge200e^{\Lambda+\lambda}$
-and $B=B^*_L$ (Lemma~\ref{lem:pointwise}), expanded into unit classes.  Then
-$B\le\mathbf 1[A=\emptyset]\le\mathbf 1[W>T]$ on $n\equiv1\ (Q)$;
-$E|B-\mathbf 1[A=\emptyset]|\le P(A=\emptyset)/100$ (Lemma~\ref{lem:meanmass}), so
-$\mu\ge0.99e^{-\lambda}$; $M_1\le2e^\Lambda$; and each term involves at most
-$2(L+1)$ primes.  All of $\Lambda,\lambda,L$ are $O(\Sigma+1)$.
+(Lemma~\ref{lem:pseudo} with $z=16$, $\delta=e^{-50}=e^{-3z-2}$), let $L$ be least
+with $4^{L+1}\ge200e^{\Lambda+\lambda}$ and $B=B^*_L$
+(Lemma~\ref{lem:pointwise}), expanded into unit classes
+(Lemma~\ref{lem:meanmass}; every event is a set of unit classes).  Then
+$B\le\mathbf 1[A=\emptyset]\le\mathbf 1[W>T]$ on $n\equiv1\ (Q)$, by (I).  By
+Lemma~\ref{lem:meanmass},
+$E|B-\mathbf 1[A=\emptyset]|\le2\cdot4^{-L-1}e^\Lambda\le e^{-\lambda}/100\le P(A=\emptyset)/100$,
+so $\mu=E\,B\ge0.99e^{-\lambda}$; and
+$M_1\le M_1(B_L)+4^{L+1}M_1(G_{L+1})\le e^\Lambda+4^{L+1}16^{-L-1}e^\Lambda\le2e^\Lambda$,
+so $\log(M_1/\mu)\le\Lambda+\lambda+1$.  Each term involves at most $2(L+1)$
+primes, and $\Lambda,\lambda,L$ are $O(\Sigma+1)$.
 
 \emph{Twist.}  Let $\psi$ be real primitive of conductor $f>1$, $\gcd(f,Q)=1$,
-$f\mid d_i$ for some $i$; $f$ is odd and squarefree, with primes in $\mathcal P$;
-fix one, $\ell_0$.  The character sum over a coordinate of $f$ not dividing
-$d_i$ vanishes, so $\mu_\psi=E[B\psi]$ and
-$|\mu_\psi|\le E|B-\mathbf 1[A=\emptyset]|+|E[\mathbf 1[A=\emptyset]\psi]|$.  Let $\bar A'$
-be the event that no event avoiding $\ell_0$ occurs.  Then
-$\mathbf 1[A=\emptyset]=\mathbf 1_{\bar A'}\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where
-$\mathrm{Forb}$ (depending on $X_{-\ell_0}$) is $S^+_{\ell_0}$ together with the vertices
-at $\ell_0$ joined to an occurring vertex.  Since $(\cdot/\ell_0)$ has mean $0$,
-$|E[\mathbf 1[A=\emptyset]\psi]|\le P(\bar A'\cap\{\text{an event at }\ell_0\text{ occurs}\})$,
-which is at most
+$f\mid d_i$ for some $i$.  As $2\mid Q$, $f$ is odd, hence squarefree, and its
+primes lie in $\mathcal P$; fix one, $\ell_0$.  If $f\nmid d_i$, some prime of $f$
+does not divide $d_i$ and the character sum over that coordinate vanishes;
+hence $\mu_\psi=E[B\psi]$ (Haar) and
+\[
+ |\mu_\psi|\le E|B-\mathbf 1[A=\emptyset]|+|E[\mathbf 1[A=\emptyset]\psi]|.
+\]
+Let $\bar A'$ be the event that no event whose support avoids $\ell_0$ occurs;
+it depends on $X_{-\ell_0}=(X_\ell)_{\ell\ne\ell_0}$ only.  Then
+$\mathbf 1[A=\emptyset]=\mathbf 1_{\bar A'}\cdot\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where
+$\mathrm{Forb}=\mathrm{Forb}(X_{-\ell_0})$ is the union of $S^+_{\ell_0}$ and of the
+vertices at $\ell_0$ joined to an occurring vertex.  Write
+$\psi=\chi_0(X_{\ell_0})\psi'(X_{-\ell_0})$ with $\chi_0=(\cdot/\ell_0)$.  Conditioning on
+$X_{-\ell_0}$ and using independence and $E\chi_0(X_{\ell_0})=0$,
+\[
+ \big|E_{X_{\ell_0}}[\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]\chi_0]\big|
+ =\big|E_{X_{\ell_0}}[\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\chi_0]\big|
+ \le P_{X_{\ell_0}}(\mathrm{Forb}),
+\]
+so $|E[\mathbf 1[A=\emptyset]\psi]|\le P(\bar A'\cap\{X_{\ell_0}\in\mathrm{Forb}\})$, which is at most
 \[
  P(\bar A')\Big(g^+_{\ell_0}+\sum_{\{u,w\},\,u\text{ at }\ell_0}p(u)P(w\mid\bar A')\Big)
- \le P(\bar A')\big(\tfrac1{16}+1.22w_{\ell_0}\big)<0.064\,P(\bar A'),
+ \le P(\bar A')\big(\tfrac1{16}+1.22w_{\ell_0}\big)<0.064\,P(\bar A').
 \]
-using Lemma~\ref{lem:lll} for $B=\{X_{\ell_w}\in V_w\}$, whose neighbours (the single
-and the edges at $\ell_w$) have $\prod(1-x)>0.82$.  As
-$P(A=\emptyset)\ge0.936P(\bar A')$, we get
+Here the single at $\ell_0$ and $X_{\ell_0}$ are independent of $\bar A'$ and of
+$X_{\ell_w}$, and Lemma~\ref{lem:lll}, applied to the family defining $\bar A'$ and
+$B=\{X_{\ell_w}\in V_w\}$ (neighbours: the single and the edges at $\ell_w$, with
+$\prod(1-x)\ge(7/8)(15/16)>0.82$), gives $P(w\mid\bar A')\le1.22p(w)$.  As
+$P(A=\emptyset)=P(\bar A')-P(\bar A'\cap\{X_{\ell_0}\in\mathrm{Forb}\})\ge0.936P(\bar A')$, we get
 $|\mu_\psi|<0.08P(A=\emptyset)<\mu/4$.
 \end{proof}
 
