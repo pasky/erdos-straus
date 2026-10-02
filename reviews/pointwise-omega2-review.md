@@ -10,7 +10,10 @@ D1, D2, … with severity FATAL / MAJOR / MINOR / COSMETIC.
 
 ## Per-item verdicts
 
-(filled in item by item below)
+Bottom line: Theorem 5.1 survives. 0 FATAL, 0 MAJOR, 2 MINOR defects (D1, D2;
+both wording). Defect table and overall verdict are at the end.
+Reviewer scripts: `reviews/omega2-review-scripts/` (`bf_lemma12.py`,
+`check_I_indep.py`).
 
 ### Item 1 — Lemma 1.1 (closed form of support-truncated B_L): **SOUND**
 
