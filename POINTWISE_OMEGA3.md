@@ -544,7 +544,7 @@ N_r := r(L_r+1)+F_r,     F_r := k·Σ_{s>r}(L_s+1),
 where:
 
 * `Ŝ_{≥r}` bounds the total mass of levels `≥r`;
-* `Λ_r:=2er(1+w')^r(Σ_r+1)`;
+* `Λ_r:=2er(1+w')^r(Σ_r+F_r+1)`;
 * `𝔐_{r+1}:=∏_{s>r}4e^{Λ_s}` (`𝔐_{k+1}:=1`) bounds the mass of the
   composite of the levels above r (Step B).
 
@@ -586,19 +586,20 @@ each polynomial). For `c_k(Ŝ)` small enough, (P_k) holds at the end.
 * Finally `B:=B_{≥2}`.
 
 *Codegrees in the conditioned systems.* An induced event `e∖F'` (`F'`
-the realised cell vertices of e) contains `O` iff `e⊇O∪F'`. Hence the
-conditioned codegrees satisfy
+the realised cell vertices of e) contains `O` iff `e⊇O∪F'`. The cell
+fixes at most `F_r` vertices. Using (a) for `|O|+i=1` and (b) otherwise
+(and `F_r/(4N_r)≤1/4`), the conditioned codegrees satisfy
 
 ```
-Δ'_O ≤ Σ_{i≥0} F_r^i·max_{|F'|=i}Δ^{(r)}_{O∪F'} ≤ Σ_{i≥0} F_r^i·δ_r(4N_r)^{−(|O|+i−1)}/(2r) ≤ δ_r(2N_r)^{−(|O|−1)}/r
+Δ'_v ≤ δ_r/2 + Σ_{i≥1}F_r^iδ_r(4N_r)^{−i}/(2r) ≤ δ_r,
+Δ'_O ≤ Σ_{i≥0}F_r^i δ_r(4N_r)^{−(|O|+i−1)}/(2r) ≤ δ_r(4N_r)^{−(|O|−1)}/r   (|O|≥2).
 ```
 
-for `|O|≥1`; here (a), (b) are used (degree `≤δ_r/2` is the case
-`|O|+i=1`). So O2 Lemma 10.2's hypothesis
-`Σ_{j=0}^{r−2}(rU_0)^jΔ'^{(j+1)} ≤ [2er(1+w')^r]^{−1}=2δ_r` holds with
-`U_0=L_r+1`. The masses of the conditioned system are
-`≤Σ_r+F_r·δ_r ≤ Σ_r+1`, since induced events come from `≤F_r` vertices
-of degree `≤δ_r/2`.
+Since `rU_0=r(L_r+1)≤N_r`, O2 Lemma 10.2's hypothesis
+`Σ_{j=0}^{r−2}(rU_0)^jΔ'^{(j+1)} ≤ δ_r+Σ_{j≥1}4^{−j}δ_r/r ≤ 2δ_r=[2er(1+w')^r]^{−1}`
+holds with `U_0=L_r+1`. The induced events have total mass
+`≤Σ_{v fixed}deg(v) ≤ F_rδ_r`, so the conditioned masses are
+`≤Σ_r+F_r`. This is why `Λ_r` contains `F_r`.
 
 *Errors.* Exactly as in Thm 3.2, using the true lower indicators:
 
