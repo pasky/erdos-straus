@@ -30,3 +30,112 @@ more than L. Two observations break it.
 
 What remains is an upper bound (Lemma B, §3) for pair codegrees of classes
 that are *not* small-height rationals.
+
+## 1. Decoupling prime-local quarantines from the truncation level (PROVED)
+
+**Setting 1.0.** As O2 Setting 3.0: `2|Q`, a finite set 𝒫 of primes coprime
+to Q, exponents `e_ℓ`, coordinates `X_ℓ=n mod ℓ^{e_ℓ}`, Haar measure P
+(uniform on `∏_ℓ(ℤ/ℓ^{e_ℓ})^×`). A *cell* is a pair `(P_i,x_i)` with
+`P_i⊆𝒫` and `x_i∈∏_{ℓ∈P_i}(ℤ/ℓ^{e_ℓ})^×`; its indicator is
+`1[X_ℓ=x_{i,ℓ} ∀ℓ∈P_i]`, a unit class modulo `d_i=∏_{ℓ∈P_i}ℓ^{e_ℓ}`.
+
+* *Hub sets.* `H_ℓ⊆(ℤ/ℓ^{e_ℓ})^×` with `h_ℓ:=|H_ℓ|/φ(ℓ^{e_ℓ})≤1/2`;
+  `S_hub:=Σ_ℓ h_ℓ`, `V:=∏_ℓ(1−h_ℓ)`, `𝒜_1:={n : X_ℓ∉H_ℓ ∀ℓ}`.
+* *Conditioned measure.* `P'` = the product of the uniform measures on
+  `(ℤ/ℓ^{e_ℓ})^×∖H_ℓ`; `E'` its expectation.
+* *Main minorant.* `B_2=Σ_i c_i 1_{cell_i}` (real `c_i`) with
+  `B_2(n)≤1_{𝒜_2}(n)` for every integer n, for some set `𝒜_2`. Put
+  `μ':=E'B_2` and `M_1':=Σ_i|c_i|P'(cell_i)`.
+
+**Theorem 1.1 (decoupling; PROVED).** Let `J≥S_hub` be odd and put
+`ε_J:=S_hub^{J+1}/(J+1)!`. There is a
+combination of cells B with:
+
+1. `B(n) ≤ 1_{𝒜_1∩𝒜_2}(n)` for every integer n;
+2. `μ(B) := E B ≥ V μ' − ε_J M_1'`;
+3. `M_1(B) ≤ e^{S_hub} M_1'`;
+4. every cell of B is a cell of `B_2` refined by at most J further primes
+   of 𝒫: its modulus is `d_i∏_{ℓ∈R}ℓ^{e_ℓ}`, `|R|≤J+1`, `R∩P_i=∅`;
+5. for every character `ψ=∏_{ℓ|f}χ_ℓ(X_ℓ)` (f squarefree, primes in 𝒫,
+   `χ_ℓ` nontrivial mod ℓ), `|E[Bψ] − V·E'[B_2ψ]| ≤ ε_J M_1'`.
+
+*Proof.* Put `s_ℓ:=1[X_ℓ∈H_ℓ]`.
+
+* **Pruning.** Delete from `B_2` every cell with `x_{i,ℓ}∈H_ℓ` for some
+  `ℓ∈P_i`; call the result `B_2'`. Deleted cells vanish on `𝒜_1`, so
+  `1_{𝒜_1}B_2'=1_{𝒜_1}B_2≤1_{𝒜_1∩𝒜_2}`. Deleted cells have `P'`-measure
+  0, so `μ'` and `M_1'` are unchanged.
+* **Brun on the complement.** For a surviving cell i put
+  `β_i:=Σ_{j=0}^{J}(−1)^j e_j(s|_{𝒫∖P_i})` and
+  `α_i:=Σ_{j=0}^{J+1}(−1)^j e_j(s|_{𝒫∖P_i})` (`e_j` = elementary symmetric
+  function). By the Bonferroni inequalities (J odd, J+1 even), `β_i ≤ ∏_{ℓ∉P_i}(1−s_ℓ) ≤ α_i` pointwise. On
+  cell i, `1_{𝒜_1}=∏_{ℓ∉P_i}(1−s_ℓ)`. Define
+  `B := Σ_{c_i>0} c_iβ_i1_{cell_i} − Σ_{c_i<0}|c_i|α_i1_{cell_i}`.
+  Then `B ≤ Σ_i c_i 1_{𝒜_1}1_{cell_i} = 1_{𝒜_1}B_2'`, which gives 1.
+* **Means.** `β_i, α_i` depend only on coordinates outside `P_i`, so
+  `E[β_i1_{cell_i}]=P(cell_i)Eβ_i`, and likewise for `α_i`. Put
+  `V_i:=∏_{ℓ∉P_i}(1−h_ℓ)` and `h^{(i)}:=h|_{𝒫∖P_i}`. The Bonferroni
+  inequalities in expectation (independent coordinates) give
+  `0≤V_i−Eβ_i≤e_{J+1}(h^{(i)})` and `0≤Eα_i−V_i≤e_{J+2}(h^{(i)})`. Both
+  are `≤ε_J`, because `e_{j+1}≤e_j·S_hub/(j+1)` and `J+2>S_hub`. Next,
+  `P(cell_i)V_i=V·P'(cell_i)`: both sides equal
+  `∏_{ℓ∈P_i}φ(ℓ^{e_ℓ})^{−1}·∏_{ℓ∉P_i}(1−h_ℓ)`. Also
+  `P(cell_i)≤P'(cell_i)`. Hence
+
+  ```
+  E B ≥ Σ_i c_iP(cell_i)V_i − ε_JΣ_i|c_i|P(cell_i) ≥ Vμ' − ε_J M_1'.
+  ```
+* **Mass and moduli.** Expanding `e_j(s)` as a sum over j-sets R of
+  products of single-coordinate classes, the term `(i,R)` has mass
+  `|c_i|P(cell_i)∏_{ℓ∈R}h_ℓ`. Summing over `|R|≤J+1` gives
+  `M_1(B)≤Σ_i|c_i|P(cell_i)∏_ℓ(1+h_ℓ)≤e^{S_hub}M_1'`. Merging equal cells
+  only lowers the mass. Item 4 is read off.
+* **Twists.** The same factorisation gives
+  `E[1_{𝒜_1}1_{cell_i}ψ]=P(cell_i)ψ(x_i)∏_{ℓ∉P_i}E[(1−s_ℓ)ψ_ℓ]`, where
+  `ψ_ℓ=χ_ℓ` for `ℓ|f` and `ψ_ℓ=1` otherwise. This equals
+  `V·E'[1_{cell_i}ψ]`, by the same identity as for the means. Hence
+  `E[1_{𝒜_1}B_2'ψ]=V·E'[B_2ψ]`. Finally
+  `|E[(β_i−∏_{ℓ∉P_i}(1−s_ℓ))ψ_{rest}]| ≤ E[∏(1−s_ℓ)−β_i] ≤ ε_J`, and
+  the same holds for `α_i`. Summing over i with weights `|c_i|P(cell_i)`
+  gives item 5. ∎
+
+**Corollary 1.2 (what decoupling buys).** Choose
+`J := 2⌈e²S_hub + log(4M_1'/μ') + 2S_hub⌉+1`. Then `ε_J ≤ e^{−J} ≤ Vμ'/(4M_1')`
+(using `V≥e^{−2S_hub}`, from `h_ℓ≤1/2`), so
+
+```
+μ(B) ≥ (3/4)Vμ',   log(M_1(B)/μ(B)) ≤ log(M_1'/μ') + 3S_hub + 1,
+#primes per modulus ≤ (#primes per modulus of B_2) + J + 1.
+```
+
+*Proof.* `S^{J+1}/(J+1)! ≤ (eS/(J+1))^{J+1} ≤ e^{−(J+1)}` once
+`J+1 ≥ e²S`. And `log(1/V) ≤ 2S_hub`. ∎
+
+*Point.* The hub mass `S_hub` enters `log(M_1/μ)` additively and the
+number of primes per modulus additively. It does **not** enter the
+truncation level of `B_2`. That level is governed by the main system's
+own mass `Σ_main`, and so is the codegree threshold `≍1/Σ_main` of
+O2 Thm 10.3. This is exactly option (i) of G_pair.
+
+**Lemma 1.3 (the main minorant under P'; PROVED).** O2 Theorems 3.1 and
+10.3 hold verbatim with the Haar measure replaced by `P'`, provided
+`h_ℓ≤1/100` for every ℓ, with these changes:
+
+* vertex probabilities `p'(v)=P'(X_ℓ∈V_v)≤p(v)/(1−h_ℓ)`, and all of
+  `g_ℓ, w_ℓ, S_1, S_H, deg, Δ_O` computed with `p'`;
+* in the twist step, `E'χ_0(X_{ℓ_0})` is no longer 0. It satisfies
+  `|E'χ_0(X_{ℓ_0})| ≤ h_{ℓ_0}/(1−h_{ℓ_0}) ≤ 0.011`, which adds at most
+  `0.011` to the bracket `≤0.073` of O2 Thm 10.3 Step 4 (and `0.064` of
+  Thm 3.1). The conclusion `|E'[B_2ψ]|<μ'/4` survives:
+  `0.01+(0.084/0.916)<0.25`.
+
+*Proof.* Lemmas 1.1–1.3, 2.1, 2.2, 10.1, 10.2 of O2 use only that the
+coordinates are independent and that cells/events have the stated
+probabilities. The local lemma likewise. The only place where uniformity
+on units is used is `Eχ_0(X_{ℓ_0})=0` in the twist step. There
+`|E'[1[X∉Forb]χ_0]| ≤ |E'χ_0| + P'(Forb)`, and
+`|E'χ_0| = |Σ_{h∈H_{ℓ_0}}χ_0(h)|/(φ(ℓ_0^{e})−|H_{ℓ_0}|) ≤ h_{ℓ_0}/(1−h_{ℓ_0})`. ∎
+
+Combining Theorem 1.1 (item 5) with Lemma 1.3 gives the twist condition
+of PO Thm 4.1 for B: `|E[Bψ]| ≤ V|E'[B_2ψ]| + ε_JM_1' < Vμ'/4+Vμ'/4·…`.
+We record the exact constants in §4 when assembling.
