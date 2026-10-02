@@ -336,3 +336,52 @@ Build: pdflatex ×3, 23 pp, 0 warnings, 0 overfull/underfull, 0 undefined refere
   `T^{o(1)}` exceptions instead.
 * Suggested ledger: (H)10 Haar side → "`log(1/δ*)≤T^{o(1)}` (PROVED);
   polylog modulo ET Prop 1.4 (POINTWISE_OMEGA2 Thm 11.3)".
+
+---
+
+# Round-3 review repairs and paper update (workstream closed for now)
+
+* **POINTWISE_OMEGA2, review r3 D1–D14.** All applied in one commit
+  ("review r3 repairs D1-D14"):
+  * D1: the iteration wording is now "one round of additions; the second
+    pass adds nothing".
+  * D2: no growth exponent is claimed for `|𝓑|`.
+  * D3: the sharper form `(log T)^7/log log T` modulo ET.
+  * D4: the per-prime part of H_CD(ii) is weakened to the constant level,
+    which Lemma 11.2 makes automatic.
+  * D5: the symmetrisation sentence in Lemma 10.2.
+  * D6: general prime-power lifts.
+  * D7: `Φ=∅` for `θ>1/3`.
+  * D8: Prop 10.6 states which system it is computed in, and that it
+    survives the `T^{o(1)}` extra quarantine.
+  * D9: Prop 10.5 relabelled (upper bounds PROVED, non-certification
+    Assessment).
+  * D10: Prop 11.4 stated uniformly for `D*≤(log T)^A` (Siegel–Walfisz),
+    with a note on the BV/BDH averaged form when L is not polylog.
+  * D11: "if", not "iff". The claim is that pair-by-pair removal fails, not
+    that every treatment fails.
+  * D12: the §10.4/§10.5/summary claims that "a sharper Lemma 10.2 is the
+    open step" are marked superseded by §11.4, which now carries the
+    reviewer's derivation of the super-exponential dense-cluster count.
+  * D13: `≫` instead of `≍` for the `−4d²` codegrees.
+  * D14: the summary table's Haar column is updated to Thm 11.3.
+* **paper/es-omega-note.tex.**
+  * New Theorem `thm:iterq` [Proved; polylog form modulo ET Prop 1.4]:
+    `log(1/δ*(T)) ≪ (log T)^3(S*+1)`, i.e. `T^{o(1)}` unconditionally and
+    `≪(log T)^7/log log T` modulo ET. A compact full proof is included
+    (S* via `m=gcd(M,4D+1)`, the iterated quarantine with
+    `|𝓑|≤kS*/c_0`, LLL).
+  * A remark follows it: the theorem makes the per-prime hypothesis
+    unnecessary, and the prime side below 1/3 is limited by pair codegrees
+    (Assessment). The numerical certificate `log(1/δ*(10^6))≤3.6·10³` is
+    labelled EVIDENCE.
+  * The abstract, the intro sentence ("Exponent 3 matches…"; it no longer
+    claims this is the best Haar bound) and the summary of status are
+    updated.
+  * Clean pdflatex ×3: 24 pp, 0 warnings, 0 overfull/underfull.
+
+**State at close.**
+
+* Prime side: `W(p) ≥ (log p)^{3−o(1)}` i.o. (Thm 5.1). Below θ=1/3 the
+  obstacle is the named gap G_pair (§11.4).
+* Haar side: `log(1/δ*) ≤ T^{o(1)}`, polylog modulo ET (Thm 11.3).
