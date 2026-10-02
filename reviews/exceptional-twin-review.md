@@ -176,3 +176,54 @@ transfers.
 min(η₀, 1/C−1) (EB Lemma 2.1 scope); (a,D)-classes are not recovered, as
 the text says.
 
+### 9. §2.4 numerics (EVIDENCE) — SOUND-AFTER-REPAIRS (labels/wording)
+
+Replays run here (all ≤ 8 GB, ≤ 3 min each):
+* `twin_capped.py 100000 100 300 0.2 all cap` — byte-identical to
+  `data/twin/capped_X1e5_W300_k0.2_cap.txt` (leak 0, no heavy coordinate).
+* `… 100 0.2 all cap` — identical to the W = 100 file (0.6410 / 46%).
+* `… 30 0.2` — identical except the header line (the saved file predates
+  the `cap1/4=` header field).
+* `… 30 0.5` (not saved by the author) — expected leak 25.4674, realised
+  100%: confirms the "25.5" quoted.
+Table values (0.056/4%, 0.070/5%, 5.67/100%, bands 31–255 and 32–127) match
+the data files. The script correctly forbids the full lifted class
+`c mod ℓ^v` inside `ℤ/ℓ^{E}`, samples the QR base, and asserts Lemma 1.3(1).
+
+**T3 (LOW; §2.4 "Theorem-compatible caps", §0 row, AGENT_REPORT
+"EVIDENCE").** Quote: "Theorem-compatible caps `δ_p = min(1/4, p^{−0.2})`".
+§2.3 fixes `δ_ℓ = ℓ^{−1/2}`, and Cor 2.5 / Lemma 2.6 are proved only for that
+choice. The extension to `δ_ℓ = min(1/4, ℓ^{−κ})`, κ ∈ (0,1), is asserted
+only inside the numerics bullets ("Lemma 2.6 needs `Σ p^{−1−κ/2} < ∞`,
+Cor 2.5 needs `Σ ℓ^{κ−2+ε} < ∞`"). It is true (Lemma 2.6: take the
+large-divisor exponent `−1+κ/2` as in ET Cor 3.6; Cor 2.5: Markov with
+`δ = ℓ^{−κ}`; γ' ≤ 4/3 still holds because δ ≤ 1/4), but it should be a
+stated remark after Cor 2.5, with W₀ = W₀(B,κ). Without it, "theorem-
+compatible" overstates.
+
+**T4 (LOW; §2.4 "So at X = 10⁵ the theorem's hypothesis 𝔏 ≤ 1/2 already
+holds with W = 300, for the full system including twin classes").** The
+numerics have unbounded B (all M ≤ X, so `B` up to `log X/log W − 1`), while
+W₀ is a function of fixed B; and at W = 300, X = 10⁵ every cofactor is
+`< 334`, so the system is very sparse. The run shows the leak hypothesis is
+*attainable* at toy scale; it does not test whether W₀ must grow with X
+(EB review D13's concern, which the proof answers only for fixed B). Say
+so. Also cosmetic: the bullet "The theorem-compatible runs … are in the
+table below" sits *below* that table; and the κ = 0.5 run should be saved
+(`data/twin/capped_X1e5_W30_k0.5.txt`) since it is quoted.
+
+### 10. Lemma 3.1 (u-form) and Lemma 3.2 (sign constraint) — SOUND
+
+Lemma 3.1 from EB Lemma 4.1: `A_q = srk`, `4srk = qℓ+1`; mod ℓ `r ≡ (4sk)^{−1}`,
+value `−r/k ≡ −(4sk²)^{−1}`; mod q, `4sk(nk+r) ≡ 4sk²n+1`, 4sk a unit. The
+statement omits "s squarefree"; harmless: for non-squarefree s the triple
+corresponds to `D = s'(tr)²` with the same u and the same value, so the *set*
+is unchanged. Second form: `q | 4un+1` ⟺ `q | u − N` for `(n,q) = 1`; the
+congruence `q ≡ −ℓ^{−1} (4sk)` presupposes `(ℓ,4sk) = 1`, which follows from
+`4sk | qℓ+1`. Lemma 3.2: Lemma 1.1 at `M = qℓ`, `(ℓ,q)=1`:
+`(n|q)(v|ℓ) = (−4D|q)(−4D|ℓ) = −1`; `v ≢ 0` since `gcd(D,M)=1`. Correct.
+(For prime-power tops `qℓ^v`, v odd gives the same sign at ℓ; v even gives
+`(n|q) = −1` for every active q — not claimed, fine.)
+
+Heuristic 3.3 is correctly labelled HEURISTIC; (E_δ) OPEN. Not graded.
+
