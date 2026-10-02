@@ -891,6 +891,75 @@ and summing over `h≥1`, with `(1+w)^k keD≤1/2`, gives
 * Only `u≤U_0=L+1` is ever needed (Lemma 10.1), so the codegree condition
   is needed only at size `k(L+1)`.
 
+### 10.3 The hypergraph criterion (PROVED)
+
+**Theorem 10.3 (PROVED).**
+
+*Setting.* Setting 3.0 (congruences, `2|Q`), with singles and hyperedges of
+at most k primes. Hyperedges are congruence classes mod r, split into
+classes mod `∏_{ℓ|r}ℓ^{e_ℓ}` if necessary, so that all vertices at ℓ are
+classes mod `ℓ^{e_ℓ}`; see the remark below.
+
+*Constants.* Put `δ_k := [4ek·17^k]^{−1}`, and let `C_k` be the constant
+defined in the proof.
+
+*Hypotheses.*
+
+* (G_k) `g_ℓ ≤ 1/(32k)` for all `ℓ∈𝒫`;
+* (W_k) `w_ℓ ≤ δ_k/(32k)` for all `ℓ∈𝒫`;
+* (CD_k) `Σ_{j=1}^{k−2} (C_k(Σ+1))^j Δ^{(j+1)} ≤ δ_k`, where `Σ=S_1+S_H`;
+* (I) as in Theorem 3.1.
+
+*Conclusion.* The conclusion of Theorem 3.1 holds with constants depending
+on k only: a minorant B with `μ≥exp(−O_k(Σ+1))`,
+`log(M_1/μ)=O_k(Σ+1)`, moduli on `O_k(Σ+1)` primes, and the twist
+condition.
+
+*Proof.* We follow Theorem 3.1. Only the changes are listed.
+
+1. **Hubs.** Forbid the vertices with `deg>δ_k` (Lemma 2.2).
+   * The Markov bound reads `Σ_{v∈H at ℓ}p(v) ≤ w_ℓ/δ_k`, because each
+     hyperedge at ℓ has exactly one vertex there.
+   * Hence `g^+_ℓ ≤ 1/(16k)` and `S_1^+ ≤ S_1+kS_H/δ_k`.
+   * Deleting hyperedges only lowers every codegree.
+2. **Local lemma.** Take `x_E=2P(E)`.
+   * For a single, the neighbours have `∏(1−x) ≥ 1−2w_ℓ ≥ 1/2`.
+   * For a hyperedge, the neighbours have
+     `∏(1−x) ≥ (1−1/(8k))^k (1−2kδ_k/(32k)) ≥ 0.86`.
+   * So `P(A=∅) ≥ e^{−λ}` with `λ=3(S_1^++S_H)`.
+3. **Minorant.** Use `B := B_L − 4^{L+1}G^cov_{L+1}` (Lemma 10.1).
+   Apply Lemma 10.2 with `w=16` and `U_0=L+1`. Its hypothesis
+   `D≤[2ek17^k]^{−1}=2δ_k` follows from `deg≤δ_k` and (CD_k), once
+   `C_k(Σ+1) ≥ k(L+1)`. This gives
+   `4^{L+1}E G^cov_{L+1} ≤ 4^{−L−1}e^{Λ'}` and
+   `M_1(B_L) ≤ Σ_{u≤L}2^uEG^cov_u ≤ e^{Λ'}`, with
+   `Λ' := 17S_1^+ + 2ek17^kS_H`. Choose L least with
+   `4^{L+1} ≥ 200e^{Λ'+λ}`. Then `L=O_k(Σ+1)`, which defines `C_k`.
+   Every term involves at most `k(L+1)` primes.
+4. **Twist.** As in Theorem 3.1, Step 4. A hyperedge through `ℓ_0` is
+   forced when the event `e∖u` occurs. That event depends on at most `k−1`
+   coordinates, and its neighbours have
+   `∏(1−x) ≥ (1−1/(8k))^{k−1}·0.99 > 0.86`. So
+   `P(e∖u | Ā') ≤ 1.17P(e∖u)`. The bracket is
+   `≤ 1/16+1.17w_{ℓ_0} < 0.073`, which gives
+   `|μ_ψ| ≤ (0.01+0.079)P(A=∅) < μ/4`. ∎
+
+*Remark (prime powers).*
+
+* For `y<T^{1/3}` an event can have rough part `ℓ²ℓ'`. Its ℓ-vertex is
+  then a class mod ℓ², while edges with `ℓ‖r` use classes mod ℓ, so the
+  vertex sets at ℓ would overlap.
+* Splitting every class mod ℓ (at primes with `e_ℓ=2`) into its ℓ lifts
+  mod ℓ² makes all vertices at ℓ classes mod `ℓ^{e_ℓ}`, hence disjoint.
+* This replaces one event by ℓ disjoint events with the same union.
+  `P`, `w_ℓ`, `deg` and `Δ_O` (for O containing the lifted vertex) are
+  unchanged, and the event "no event" is unchanged.
+
+*What changed relative to §3.* The degree condition is still enforced
+cheaply by Markov. The new requirement is (CD_k), a bound on the **maximal**
+codegrees of sets of `2..k−1` vertices. It cannot be enforced in the same
+way; see §10.5.
+
 ## Replay
 
 ```
