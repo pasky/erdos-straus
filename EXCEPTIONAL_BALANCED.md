@@ -316,3 +316,70 @@ So Theorem 2.5 yields `S_λ ≪_{δ,B} η^{−1}λ^{3/4}`. (★_δ) holds for
 Next candidates: route 3, the local boost inequality inside a window, which
 would handle η-twin conditions; or a direct attack on H_light via
 reachability (item 2).
+
+## 3. Numerics on the real forced-class system (route 8; all EVIDENCE)
+
+Script: `scripts/balanced_numerics.py`. The system is the full Case-B family
+ℛ(M) for `M ≡ 3 (4)`, `M ≤ X`. Moduli are typed by `P = P(M)`,
+`P₂ = P(M/P)` and `η = 1/4`:
+* `dom`: `P ≥ M^{2/3}`;
+* `gapM`: gapped with `√M < P < M^{2/3}`;
+* `gapB`: gapped and balanced (`P ≤ √M`);
+* `twin`: `P < P₂^{1+η}`.
+
+### 3.1 Sequential hit probabilities p_ℓ(h): does (★_δ) / H_light look true?
+
+**Method.** Draw histories from `Q_seq` with singleton windows. Primes are
+taken in increasing order. At p, the residue `n mod p^e` is uniform among
+residues completing no condition with top prime p. This is ET §2.6 with
+one prime per window, a finer ordering than §2's η-windows. Record
+`p_p(h) = |F_p(h)|/p^e`, split by type.
+
+*Steered histories* are a greedy adversary. The path stays in the support
+of `Q_seq`, so it is reachable by construction. At each earlier prime it
+chooses the allowed residue that keeps the most distinct target values at ℓ
+alive. This gives a lower bound for `sup_h p_ℓ(h)`.
+
+Data: `data/balanced/part_i_X1e5.txt` (200 histories),
+`part_i_X1e6.txt` (20 histories), `steer_X1e5.txt`.
+
+**Per dyadic band of top primes, X = 10⁶ (twin and gapB rows):**
+
+| band | type | Σ M_p (uniform) | Σ E_seq p | K = ratio | max_h p(h) | max p(h)·√p |
+|---|---|---:|---:|---:|---:|---:|
+| [32,64) | twin | 1.280 | 0.785 | 0.61 | 0.281 | 1.84 |
+| [64,128) | twin | 1.797 | 1.226 | 0.68 | 0.195 | 1.78 |
+| [128,256) | twin | 1.667 | 1.297 | 0.78 | 0.137 | 1.57 |
+| [256,512) | twin | 1.348 | 1.112 | 0.82 | 0.072 | 1.20 |
+| [512,1024) | twin | 0.959 | 0.860 | 0.90 | 0.032 | 0.85 |
+| [128,256) | gapB | 1.532 | 1.007 | 0.66 | 0.130 | 1.49 |
+| [256,512) | gapB | 1.336 | 0.941 | 0.70 | 0.068 | 1.11 |
+
+All types at X = 10⁵ and 10⁶ behave as follows:
+* `K < 1` in every band and type (range 0.52–1.00). Sequential conditioning
+  *deflates* the profile. This is the same clumping as ET §5.3(iii),
+  ratio ≈ 0.8.
+* `max_h p(h)·√p ≤ 4.3`, aggregated over all types and all primes > 30.
+* `p(h) > 1/4` occurs only for top primes p < 128. In the theory those
+  primes belong to the free small part (`w₀`).
+
+**Steered (adversarial) histories, X = 10⁵, 10 tries each:**
+
+| p | 101 | 151 | 211 | 307 | 401 | 503 |
+|---|---:|---:|---:|---:|---:|---:|
+| best p(h) | 0.139 | 0.126 | 0.071 | 0.068 | 0.077 | 0.159 |
+| best p(h)·√p | 1.39 | 1.55 | 1.03 | 1.20 | 1.55 | 3.57 |
+
+At small primes the adversary does much better. It reaches p(h) = 0.84 at
+p = 31 and 0.62 at p = 47 (X = 10⁶), against typical values near 0.3–0.4.
+So heavy reachable histories exist at small primes.
+
+**Reading.**
+* At accessible scales, `p_ℓ(h) ≲ 4ℓ^{−1/2}` on sampled and steered
+  histories alike. That is consistent with (★_δ) for δ ≈ 1/2 above
+  `w₀ ≈ 128`, and with H_light at K ≈ 1.
+* No sign of the failure mode of §2.6 item 2.
+* Caveats:
+  * the scales are tiny, so `B = log M/log P − 1` is at most about 2;
+  * the adversary is greedy and weak;
+  * singleton windows differ from η-windows.
