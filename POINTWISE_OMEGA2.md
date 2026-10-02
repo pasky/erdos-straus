@@ -588,10 +588,10 @@ And `M=4A−1≡3 (4)`. The map is injective, because `(s,r',k)` determine D
 and A, hence M. Finally, `4A≡1 (r)` gives `−4D = −4A·(r'/k) ≡ −r'/k`. The
 partner class `−(4D)^{−1}` at most doubles the count. ∎
 
-EVIDENCE (`scripts/omega2_ffull.py dict 501`): for every odd `r≤501`
+EVIDENCE (`scripts/omega2_ffull.py dict 2001`): for every odd `r≤2001`
 (primes, prime powers, composites) the atom enumeration via PO's
 `(s,r',v)` parametrisation and the Type I enumeration via `(a,c,d)` give
-identical sets: 4774 atoms, 0 mismatching r. The parametrisation also
+identical sets: 32 241 atoms, 0 mismatching r. The parametrisation also
 reproduces PO's `F_full(ℓ)` exactly at `ℓ=107, 331, 1031, 3011`.
 
 *Remark.* So `|F_ℓ^{full}|`, the T-independent single-prime forbidden set of
@@ -751,6 +751,6 @@ uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
 (ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 200 0.015625) # threshold 1/64: no edge survives
 uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~1 min -> data/omega2/checkI.txt
 uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
-uv run python scripts/omega2_ffull.py dict 501                  # §8 Lemma 8.1 dictionary, all odd r<=501, ~10 min
-uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~5 min
+uv run python scripts/omega2_ffull.py dict 2001                 # §8 Lemma 8.1 dictionary, all odd r<=2001, ~20 s
+uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~10 s -> data/omega2/ffull_triples.txt
 ```

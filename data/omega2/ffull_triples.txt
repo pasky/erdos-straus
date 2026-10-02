@@ -1,0 +1,5 @@
+l=107 triples=17 classes=17 triples/sqrt(l)=1.643 max_r'=30 max_t=28 busiest r'=1 (5) #r'>1: 12
+l=331 triples=29 classes=47 triples/sqrt(l)=1.594 max_r'=104 max_t=84 busiest r'=1 (7) #r'>1: 22
+l=1031 triples=67 classes=71 triples/sqrt(l)=2.087 max_r'=259 max_t=259 busiest r'=1 (19) #r'>1: 48
+l=3011 triples=69 classes=107 triples/sqrt(l)=1.257 max_r'=1378 max_t=754 busiest r'=1 (12) #r'>1: 57
+l=87359 triples=1224 classes=923 triples/sqrt(l)=4.141 max_r'=21841 max_t=21841 busiest r'=1 (77) #r'>1: 1147
