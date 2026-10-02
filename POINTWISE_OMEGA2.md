@@ -125,3 +125,93 @@ active primes and `r²` events, the event-level truncation error is
 `binom(r²−1,J−1)`, while here it is at most `binom(4r,L)≤16^r`. So the error
 is exponential in the number of *primes*, and each prime costs a factor
 `≍1/ℓ` in probability.
+
+## 2. The exponential moment for graph-type systems (PROVED)
+
+**Setting 2.0.** As in 1.0, with `X_ℓ` taking values in a finite set
+`Ω_ℓ`. The events are of two kinds.
+
+* **Singles.** One set `S_ℓ⊆Ω_ℓ` per ℓ (possibly empty); the event is
+  `{X_ℓ∈S_ℓ}`, with probability `g_ℓ`. Put `S_1=Σ_ℓ g_ℓ`.
+* **Edges.** A *vertex* is a pair `v=(ℓ,V_v)` with `V_v⊆Ω_ℓ`; distinct
+  vertices at the same ℓ are disjoint; `p(v)=P(X_ℓ∈V_v)`. An *edge* is an
+  unordered pair `{u,w}` of vertices at distinct primes; it occurs iff both
+  `X_{ℓ_u}∈V_u` and `X_{ℓ_w}∈V_w`. Put `S_2=Σ_{edges}p(u)p(w)` and
+  `deg(v)=Σ_{w:{v,w} edge} p(w)`.
+
+Thus `a_ℓ=s_ℓ+d_ℓ` with `s_ℓ=1[X_ℓ∈S_ℓ]` and `d_ℓ` the number of occurring
+edges at ℓ. (A congruence class modulo `ℓℓ'` is the edge between the vertices
+`(ℓ, c mod ℓ)` and `(ℓ', c mod ℓ')`.)
+
+**Lemma 2.1 (pseudoforest bound; PROVED).** Let `z≥1` and suppose
+`deg(v)≤δ≤e^{−3z−2}` for every vertex v. Then
+
+```
+Λ_z = log E∏_ℓ(1+z a_ℓ) ≤ z S_1 + 16 e^{6z+2} S_2.
+```
+
+*Proof.* **Expansion.** `1+z(s+d)≤(1+zs)(1+zd)`. Expand
+`∏_ℓ(1+zd_ℓ) = Σ_{(U,f)} z^{|U|} 1[f(ℓ) occurs ∀ℓ∈U]`, where U is a set of
+primes and f assigns to each `ℓ∈U` an edge incident to a vertex at ℓ.
+Let `F=f(U)`. If F occurs, its vertices lie at distinct primes, and each
+component K of F has `|E(K)|≤|V(K)|`: each edge of K is `f(ℓ)` for an ℓ whose
+vertex lies in K, and distinct ℓ give distinct vertices. So every component is
+a tree or unicyclic (F is a *pseudoforest*). For fixed F,
+
+```
+Σ_{(U,f): f(U)=F} z^{|U|} ≤ ∏_{v∈V(F)} (1+z deg_F(v)) ≤ e^{2z|E(F)|} ≤ e^{2z|V(F)|}.
+```
+
+**Singles.** Let `π(F)` be the set of primes of `V(F)`. For any set `U_s`,
+independence gives
+`E[∏_{ℓ∈U_s}s_ℓ·1[F occurs]] ≤ ∏_{ℓ∈U_s∖π(F)}g_ℓ · P(F occurs)`. Summing
+`z^{|U_s|}` over `U_s` gives at most `(1+z)^{|π(F)|}∏_ℓ(1+zg_ℓ)`. Hence
+
+```
+E∏_ℓ(1+za_ℓ) ≤ e^{zS_1} Σ_F e^{3z|V(F)|} P(F occurs).
+```
+
+**Components.** If the components of F lie on disjoint prime sets,
+`P(F occurs)=∏_K P(K occurs)`; otherwise it is 0. So the last sum is at most
+`∏_K(1+w_K) ≤ exp(Σ_K w_K)`, with K over connected pseudoforests in the edge
+graph and `w_K=e^{3z|V(K)|}P(K occurs)`.
+
+**Trees.** A connected pseudoforest K on v vertices is a spanning tree T plus
+at most one of the `≤v²/2` remaining vertex pairs, and `P(K)≤P(T)`. For a
+tree, `P(T occurs)≤∏_{w∈T}p(w)`. Root T at any vertex `v_0` and encode it by
+the child sets `C_1,…,C_v` in breadth-first order (children ordered by a
+fixed total order on vertices); this is injective. Summing over `C_i⊆N(v_i)`
+with `|C_i|=c_i` gives at most `deg(v_i)^{c_i}/c_i!`; for `i=1`, `c_1≥1`,
+bound it by `deg(v_0)δ^{c_1−1}/c_1!`. The number of weighted compositions is
+`Σ_{c_1+…+c_v=v−1}∏1/c_i! = v^{v−1}/(v−1)! ≤ e^v`. Hence
+
+```
+Σ_{T: |V(T)|=v} P(T occurs) ≤ Σ_{v_0} p(v_0)deg(v_0) e^v δ^{v−2} = 2S_2 e^v δ^{v−2}.
+```
+
+**Sum.** With `e^{3z+1}δ≤e^{−1}`,
+
+```
+Σ_K w_K ≤ Σ_{v≥2} e^{3zv}(1+v²/2)·2S_2 e^v δ^{v−2} = 2S_2 e^{6z+2} Σ_{j≥0}(3+2j+j²/2)(e^{3z+1}δ)^j ≤ 16 e^{6z+2} S_2,
+```
+
+since `Σ_j(3+2j+j²/2)e^{−j} = 7.58…`. ∎
+
+*Remarks.* (i) The hypothesis is a **vertex-degree** bound, not a bound on
+how many events a configuration can fire; complete bipartite hubs are allowed.
+(ii) The constants are astronomically lossy but absolute; only
+`Λ_z=O_z(S_1+S_2)` matters below.
+
+**Lemma 2.2 (forbidding hub vertices; PROVED).** For `δ>0` let
+`H={v : deg(v)>δ}`. Replace `S_ℓ` by `S_ℓ^+ := S_ℓ ∪ ⋃_{v∈H at ℓ}V_v`, and
+delete every edge with an endpoint in H. Then:
+
+* "no event of the new system" implies "no event of the old system";
+* every remaining vertex has degree `≤δ` in the new edge graph;
+* `S_1^+ ≤ S_1 + 2S_2/δ`, and at each ℓ, `g_ℓ^+ ≤ g_ℓ + w_ℓ/δ`, where
+  `w_ℓ := Σ_{edges at ℓ}p(u)p(w)`;
+* `S_2^+ ≤ S_2`.
+
+*Proof.* An old edge with an endpoint `v∈H` cannot occur without the new
+single at `ℓ_v`. Degrees only decrease when edges are deleted. Markov:
+`Σ_{v∈H at ℓ}p(v) ≤ Σ_{v at ℓ}p(v)deg(v)/δ = w_ℓ/δ`, and `Σ_ℓ w_ℓ=2S_2`. ∎
