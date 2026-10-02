@@ -435,21 +435,59 @@ D = A is `r = 1` (the class `n ≡ −1 mod M`, present for every M), D = 1 is
 iff their labels satisfy `u′v″ ≡ u″v′ (mod j)`; if both products are `< j`
 this forces equal labels.
 
-Accordingly `j·q_j ≤ (4/3)·[Σ_r δ_r² + Σ_{r≠r′, r≡r′ (j)} δ_r δ_{r′}]` and S
-splits the same way:
-* **(H_O^=) same label.** `E_P Σ_j ρ_j j^{−1}Σ_r δ_r(j,c)²`. SKETCH: δ_r with
-  `r = u′/v′`, `d = u′v′`, needs `kj^vm ≡ −1 (mod 4d)`, a single class of the
-  *prime* m mod d; Brun–Titchmarsh gives `Σ_m 1/m ≪ 1/w₂ + (log L)/φ(d)`, and
-  `#{r : u′v′ = d} = 2^{ω(d)}`. Expanding δ_r² over pairs `(m, m′)`:
-  `d | A_m, A_{m′}` forces `d | m − m′` (as `(A, kj) = 1`), and the pair sum is
-  `≪ (log L)^{O(1)}` with the diagonal `m = m′` handled by Lemma 3.3. This
-  would give `(H_O^=) ≪ α^{−1}(log L)^{O(1)}`. Not written at proof level
-  (k-sums, prime powers, activity inflation).
-* **(H_O^≠) cross labels (OPEN).** `E_P Σ_j ρ_j j^{−1} Σ_{r≠r′, r≡r′ (mod j)}
-  δ_rδ_{r′} ≪ α^{−3}(log L)^{O(1)}`. Agreement needs `j | u′v″ − u″v′ ≠ 0`
-  with `max(u′v″, u″v′) ≥ j > L^8`. The "random" prediction is
-  `Σ_j ρ_j (j w_j)²/j² ≪ L^{6+o(1)}/w₂ = o(1)`: a saving of `L^{6.75}` over
-  the trivial bound `Σ_jρ_j L⁶/j` is needed, and j > L^8 leaves room. What
-  is missing is an equidistribution statement for the residues `u′/v′ mod j`
-  over the labels of divisors of `(kjm+1)²/16`, uniform in j, which must cope
-  with the j-dependence of the label sets.
+**Canonical labels.** Because `4A ≡ 1 (mod j)`, the residue `−4D` equals
+`−4D·(4A)^{−t}` for every t, so the label should be taken up to this
+relation. For `D | A²` the three candidates `t = 0,1,2` are `4D`, `D/A = u′/v′`
+and `1/(4D̄)` (`D̄ = A²/D`); let `λ(D)` be the one of least height
+`max(|num|, den)`. Each canonical label `λ = a/b` is realised by a single
+divisibility condition on A of modulus `≪ height(λ)` (t = 0: `D = a/(4b)` fixed;
+t = 1: `ab | A`; t = 2: `D̄` fixed). Two classes with *different* canonical
+labels agree at j only if `j` divides a nonzero integer `a b′ − a′ b`.
+
+Accordingly, with `δ_λ(j,c)` the active partner mass carrying label λ,
+`j·q_j ≤ (8/7)·[Σ_λ δ_λ² + Σ_{λ≠λ′, λ≡λ′ (j)} δ_λ δ_{λ′}]`, and S splits
+the same way:
+* **(H_O^=) same canonical label.** `E_P Σ_j ρ_j j^{−1}Σ_λ δ_λ(j,c)²`.
+  SKETCH: label λ of height h is one congruence on A, i.e. one class of the
+  *prime* m modulo a divisor of `4·h`-size modulus d; Brun–Titchmarsh gives
+  `Σ_m 1/m ≪ 1/w₂ + (log L)/φ(d)`; there are `≪ 2^{ω(d)}` labels per d;
+  in δ_λ² the pairs `(m,m′)` with `d | A_m, A_{m′}` force `d | m−m′`
+  (as `(A, kj) = 1`), and the diagonal `m = m′` is Lemma 3.3. This would give
+  `(H_O^=) ≪ α^{−1}(log L)^{O(1)}`. Not written at proof level (k-sums,
+  prime powers, activity inflation, the three label types).
+* **(H_O^≠) different canonical labels (OPEN).** `E_P Σ_j ρ_j j^{−1}
+  Σ_{λ≠λ′, λ≡λ′ (j)} δ_λδ_{λ′} ≪ α^{−3}(log L)^{O(1)}`. The "random"
+  prediction is `Σ_j ρ_j (j w_j)²/j² ≪ L^{6+o(1)}/w₂ = o(1)`, against a
+  trivial bound `≍ L⁶/α`. What is missing is equidistribution of the
+  residues of the canonical labels mod j, uniformly in j, with the label sets
+  depending on j.
+
+### 5.2 Numerics for (H_O) on the real system (EVIDENCE)
+
+`scripts/twin2_offdiag.py`: moduli `M = kjm ≡ 3 (4)`, `M ≤ X`, partners m
+prime `> 30`, k odd 30-smooth `≤ 45` (19 values), one random fibre c, all
+`D | A²`. Columns: `jw = j·w_j`; `jq = j·q_j`; `jS = j·S_j`; `same`/`cross` =
+same / different canonical label part of jq; `rand` = `(jw)²/j`, the cross
+part if residues were independent uniform.
+
+| X | j | jw | jq | jS | same | cross | rand |
+|---|---|---|---|---|---|---|---|
+| 1e7 | 1009 | 83.6 | 18.3 | 16.6 | 12.9 | 5.43 | 6.92 |
+| 1e7 | 10007 | 54.8 | 4.05 | 4.05 | 3.90 | 0.147 | 0.300 |
+| 1e7 | 100003 | 15.5 | 0.527 | 0.527 | 0.527 | 0.000 | 0.002 |
+| 1e8 | 1009 | 121.3 | 34.5 | 27.7 | 22.2 | 12.3 | 14.6 |
+| 1e8 | 10007 | 103.5 | 12.2 | 11.2 | 11.6 | 0.670 | 1.07 |
+| 1e8 | 100003 | 63.0 | 4.04 | 4.04 | 4.03 | 0.009 | 0.040 |
+
+Reading (EVIDENCE only, toy scale, one fibre):
+* the cross-label part is *at or below* the random prediction in every row.
+  Without the canonical reduction (labels `u′/v′` only) it was 2–60× above
+  random (e.g. 2.44 vs 0.04 at X = 1e8, j = 100003): the pairs `D = 1`,
+  `D = 4A` etc. are one canonical label. This supports (H_O^≠);
+* all the excess over random is same-label, i.e. the deadly values
+  `−λ mod j` of small-height canonical labels — the (H_O^=) part, whose
+  mechanism is identified;
+* `jS` does not decay with j at fixed `X/j`-range: compare (1e7, 10007) and
+  (1e8, 100003), both `jS ≈ 4.0` with similar `jw`. So `S_j ≍ F(log(X/j))/j`,
+  the shape (H_O) needs; whether F is polylogarithmic cannot be decided at
+  this scale (F grows from 4 to 11 as jw goes 55 → 103 at j = 10007).
