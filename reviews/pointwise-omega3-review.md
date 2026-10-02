@@ -198,3 +198,71 @@ The checks are `(I)` (no original event ⇒ `W>T`) and `B(n)≤1[W(n)>T]`.
   about 40 and leaves no hyperedges at `T≤10⁵`. The toy `c_0>1` (per-prime
   masses up to 1.27) was needed to see level 3 at all. This is a
   finite-size effect, not a defect.
+
+## Item 4 — Thm 5.1 k-level induction: **SOUND** (minor presentation defects D3, D6)
+
+* **Mass flow and freezing.** Level r is processed only after every
+  level `s>r` has pushed into it. Afterwards it only loses events, and
+  only levels `<r` gain. So the frozen `Σ_r` dominates the final level-r
+  mass. `L_r, N_r, H_r, Λ_r, 𝔐_{r+1}` are functions of the frozen data of
+  levels `≥r`. Nothing is circular.
+* **Error budget is relative, not absolute.** At level r the error is
+  bounded relative to `P(𝒜_{<r})`, through Lemma 3.1(2) applied to
+  `C_i∩{C occurs}`. The prime set is `P_i∪π(C)`, which accounts for the
+  factor `e^{H_r/2}` in `L_r`. It is compared with
+  `P(all) ≥ P(𝒜_{<r})e^{−3Ŝ_{≥r}}`, the LLL chain over levels `≥r`. So
+  `L_r` never sees the masses below r. This is the same mechanism as
+  Thm 3.2, verified in items 1–2. The telescoping is
+  `E[F_{<r}(F_{≥r}−B_{≥r})] = E[F_{<r+1}(F_{≥r+1}−B_{≥r+1})] + Σ_i|c_i|E[F_{<r}1_{C_i}|γ_i−F_r^{(i)}|]`.
+  It holds pointwise because `F_r=F_r^{(i)}` on `C_i`. ✓
+* **Conditioned codegrees.** `Δ'_O ≤ Σ_{i≥0}binom(h,i)·max_{|F'|=i}Δ_{O∪F'}`
+  with `h≤H_r≤N_r`. Sets of size `r` have codegree 0. The thresholds
+  `δ_r(4N_r)^{−j}/(2r)` give `Δ'_v≤δ_r` and
+  `Δ'_O≤δ_r(4N_r)^{−(|O|−1)}/r`. With `rU_0≤N_r` this gives
+  `D≤δ_r(1+1/(3r))≤2δ_r=[2er(1+w')^r]^{−1}`. ✓
+* **Induced mass.** `≤hδ_r/2+(δ_r/2r)·h·Σ_{i≥2}4^{−(i−1)} ≤ hδ_r`. ✓
+  The repair from the O4 self-review is correct: the degree sum alone is
+  not enough when several vertices of one event are fixed.
+* **Polynomial growth for fixed k.** `Σ_k≤Ŝ` and `L_k,N_k=O_k(Ŝ)`. The
+  push from level r into level `j+1` costs a factor `O_k(N_r^{j})`. So
+  `Σ_{r−1}` is polynomial in the data above, and there are k steps. So
+  `A_k<∞`, of factorial size as admitted. The per-prime masses are
+  amplified by the same polynomials, which `c_k=Ŝ^{−A_k}/C_k` absorbs.
+* **"Every k".** Each fixed k gives finite effective `C_k, A_k`. For
+  `W(p)>(log p)^A` take `k>A`. For H_MIN(θ) take `k>1/θ`. Nothing
+  diagonal is claimed, and the claim survives the k-dependence.
+* **Twist.** Events through `ℓ_0` have `≤k−1` other primes, with
+  neighbour x-sum `≤(k−1)/(32k)`, so the factor is `≤1.04`. ✓
+* **Not brute-forced.** Constants of size `e^{98}` make any numerical
+  instance at `k≥4` meaningless. The k-level algebra is the Thm 3.2
+  algebra iterated: each step is `B_{≥r} ≤ F_rB_{≥r+1}` with `F_r≥0`.
+
+## Item 5 — instantiation for ES (Constr. 4.1, Lemma 4.2, Thms 4.3, 5.2) vs PO Thm 4.1: **SOUND** (modulo Thorner–Zaman, as labelled)
+
+* **(I).** O2 Lemma 4.3 (I) applies verbatim. It uses only that
+  `ℓ^v‖M`, `ℓ∈Π` ⇒ `ℓ^v≤T`, so `m|Q`, and that `n≡1 (m)` forces
+  `m|4D+1`. Confirmed numerically, item 6: 0 violations.
+* **Per-prime masses.** Lemma 11.2 bounds the mass of the *distinct*
+  events at ℓ, which dominates `g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ`. `|𝓑|≤4S*/c_0=O(Ŝ²)`,
+  and `O_k(Ŝ^{A_k+1})` for k levels. That is `T^{o(1)}` extra primes in
+  Q, each costing `≤𝓛`.
+* **Ω bound.** For `y=T^{1/4}e^{2𝓛/log𝓛}`, `y⁴>T`, so `Ω(r)≤3`. For
+  `y=T^{1/k}e^{…}` we even get `Ω(r)≤k−1`; see D3.
+* **PO Thm 4.1 hypotheses.**
+  * Moduli: products of free `ℓ^{e_ℓ}≤T`, coprime to Q, unit classes.
+  * Minorant on `n≡1 (Q)`.
+  * `μ>0` (Thm 3.2(2)).
+  * Twist for every real primitive ψ with free conductor (Thm 3.2(4);
+    Thm 5.1). Odd squarefree f because `2|Q`.
+  * `ℓ_0∈(R,2R]` with `R=max(T,max d_i)`: this keeps μ, `M_1`, `μ_ψ`
+    unchanged and makes `p>T`.
+* **Sizes.** `K=1+log(M_1/μ)=O(Ŝ²)` and `log max d_i ≤ O(Ŝ²)𝓛`. Then
+  `log Z ≤ log Q+log ℓ_0+log max d_i ≤ 5y+T^{o(1)}`, and
+  `log p ≤ C_1K·max(log Z,K) = y·exp(O(𝓛/log𝓛))`. The TZ range
+  `x≥q^{12}` is inside `C_1`. Inverting gives exponent `4−o(1)` with
+  the stated loss.
+* **Effectivity.** `S*` (O2 Lemma 11.1) uses only the divisor bound, and
+  every L, t, c is explicit. TZ Cor 1.4 plus the quoted McCurley region
+  are effective (inherited label "modulo Thorner–Zaman").
+* **Cor 4.4** (joint with `ck_min`). Same as O2 Cor 5.2, since
+  `p≡1 (ℓ)` for all `ℓ≤y`. ✓
