@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TWIN2 — the two-prime Λ² cap (task O3)
 
-Status: **checkpoint 3 (task O3), for parent review.** Labels follow
+Status: **final checkpoint (task O3), review rounds 1–2 applied.** Labels follow
 `DISCOVERIES.md`. PROVED means proved here and checked internally only.
 Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 `POINTWISE_OMEGA2.md` (PO2).
@@ -21,7 +21,7 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 | (H_O) | off-diagonal / deadly-value term `E_PΣρ_jS_j ≪ α^{−3}(log L)^{O(1)}` | OPEN |
 | Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′` | PROVED (the canonical-label remarks after it are heuristic bookkeeping) |
 | **Lemma 5.4** | (H_O^=): pairs sharing a candidate rational (`4D`, `D/A`, `1/(4D̄)`) contribute `≪ (log L)^{O(1)}` (Brun–Titchmarsh in the partner prime, first elements charged to their m, Shiu with j innermost when j is top); prime-power classes split off via `min(x+y,1)² ≤ min(x,1)²+3y` and Lemma 4.1's cases | PROVED (round-2 repairs D5–D8) |
-| (H_O^≠) | different-label agreements mod j; reduced (§5.4) to a three-condition incidence count `#{(j,θ,θ′): d_θ \| A_{kjm}, d_{θ′} \| A_{k′jm′}, j \| a_θb_{θ′}−a_{θ′}b_θ ≠ 0}`; the j-independent version has margin L | OPEN; EVIDENCE: at or below random in all 6 tested rows |
+| (H_O^≠) | agreements mod j between classes with disjoint candidate-rational sets (D7 regrouping); reduced (§5.4) to a three-condition incidence count `#{(j,θ,θ′): d_θ \| A_{kjm}, d_{θ′} \| A_{k′jm′}, j \| a_θb_{θ′}−a_{θ′}b_θ ≠ 0}`; the j-independent version has margin L | OPEN; EVIDENCE: at or below random in all 6 tested rows |
 | Lemma 5.5 | reduced fractions of height ≤ H in a class mod j: `≤ 1+7H²/j`; heavy labels (height `< (j/2)^{1/2}`) never collide | PROVED |
 | H_div | cleanest form of (H_O^≠): second moment of divisor labels of `A ≡ 4^{−1} (j)` mod j, averaged over j; compared with known divisor-in-AP results (§5.5) | OPEN |
 | Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O^≠) |
@@ -510,8 +510,12 @@ Accordingly, with `δ_λ(j,c)` the active partner mass carrying label λ,
   bookkeeping), and the diagonal `m = m′` is Lemma 3.3. This would give
   `(H_O^=) ≪ α^{−1}(log L)^{O(1)}`. Not written at proof level (k-sums,
   prime powers, activity inflation, the three label types).
-* **(H_O^≠) different canonical labels (OPEN).** `E_P Σ_j ρ_j j^{−1}
-  Σ_{λ≠λ′, λ≡λ′ (j)} δ_λδ_{λ′} ≪ α^{−3}(log L)^{O(1)}`. The "random"
+* **(H_O^≠) disjoint candidate rationals (OPEN; redefined after review
+  D7).** The pairs of classes through j, agreeing mod j, whose candidate sets
+  `{4D, D/A, 1/(4D̄)}` are disjoint (pairs sharing a candidate are moved to
+  the same part, §5.3): `E_P Σ_j ρ_j j^{−1} Σ_{such pairs} x_C x_{C′}
+  ≪ α^{−3}(log L)^{O(1)}`. For these, `D ≠ D′` and every candidate
+  difference is a nonzero integer divisible by j. The "random"
   prediction is `Σ_j ρ_j (j w_j)²/j² ≪ L^{6+o(1)}/w₂ = o(1)`, against a
   trivial bound `≍ L⁶/α`. What is missing is equidistribution of the
   residues of the canonical labels mod j, uniformly in j, with the label sets
@@ -534,7 +538,11 @@ part if each canonical label had an independent uniform residue.
 | 1e8 | 10007 | 103.5 | 12.2 | 11.2 | 11.6 | 0.670 | 1.07 |
 | 1e8 | 100003 | 63.0 | 4.04 | 4.04 | 4.03 | 0.009 | 0.040 |
 
-Caveats (review of this file): the toy uses one *unconditioned* random
+Caveats (reviews of this file): the toy's "same/cross" split uses the
+least-height label only, so deterministic agreements across types (D7, e.g.
+`D = n²` with `A = n(n+1)s` for different s) are counted as "cross"; the
+cross column is therefore an *over*-estimate of the redefined (H_O^≠) part.
+The toy uses one *unconditioned* random
 fibre, uniform weights `1/m` (not ν, not the law P of §3), vertices mod j,
 and counts repeated active edges; it is a multiplicity profile of the real
 class system, not an average over P.
@@ -656,8 +664,12 @@ and the label condition is used for each cofactor separately, never through
 
 Write the cross part as `Σ_j ρ_j j^{−1}Σ_{θ≠θ′, λ_θ ≡ λ_{θ′} (j)} E_P δ_θδ_{θ′}`.
 On the n-side (n ≡ c, two classes through j both containing n) agreement is
-`j | gcd(n+4D, n+4D′)`, hence `j | D − D′ ≠ 0` (equivalently, for the
-labels, `j | a b′ − a′b`). Summing over j innermost:
+`j | gcd(n+4D, n+4D′)`, hence `j | D − D′`. For pairs in the redefined
+(H_O^≠) part (disjoint candidate sets, review D7) this difference, and every
+difference `ab′ − a′b` of candidate rationals, is nonzero. (Without the
+regrouping it can vanish deterministically: `A = n(n+1)s`, `D = D′ = n²`
+carries label `n/((n+1)s)` or `4n²` depending on s.) Summing over j
+innermost:
 
 * **Counting heuristic, and why it does not close.** For two data θ ≠ θ′
   the label difference `ab′ − a′b` is a nonzero integer of size `≤ X^{O(1)}`,
@@ -727,6 +739,9 @@ range), i.e. the averaging over A of H_div below.
 `v_j(r) = Σ_A w_j(A)·#{D | A² : λ(D) light, D ≡ r (mod j)}`. Then
 
     Σ_{j>w₂} (ρ_j/j) Σ_{r mod j} v_j(r)² ≪ L^{3/4}(log L)^{O(1)}.
+
+(with the diagonal pairs sharing a candidate rational removed, as in the
+redefined (H_O^≠); those are Lemma 5.4.)
 
 (Only the *average over j*, weighted by `ρ_j/j`, is needed; the random model
 gives `Σ_j ρ_j (L³)²/j² ≪ L⁶/w₂`.) Using Lemma 5.3, `D ≡ u′/(4v′)` and

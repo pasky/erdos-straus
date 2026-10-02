@@ -97,3 +97,28 @@ order; numerics caveats and corrected random-label benchmark.
   X/(kj²)).
 * Net: Cor 5.2 is CONDITIONAL on (H_O^≠) ⇔ H_div-type equidistribution.
   Stopping (context budget).
+
+## Final checkpoint (review rounds 1–2 applied)
+* D1–D4 (round 1): applied in checkpoint 3; D3 (B-hypothesis in the bottom
+  line and §0, with its uses listed in §4) is in place.
+* D5: Lemma 5.4 is now stated for `u = v = 1` classes. Prime-power classes
+  are split off at the S_j level via `min(x+y,1)² ≤ min(x,1)² + 3y`; their
+  true binary mass is bounded by Lemma 4.1's cases with weight ρ_j, using
+  Shiu along j for "j top, v = 1, u ≥ 2" (pointwise τ fails there).
+* D6: `m₀` is the least partner giving a *family* modulus.
+* D7: each class carries all three candidate data (not only the least-height
+  one); pairs sharing a candidate rational are moved into the same part
+  (Lemma 5.4). (H_O^≠) is redefined as pairs with disjoint candidate sets, for
+  which D ≠ D′ and all candidate differences are nonzero multiples of j. The
+  §5.2 toy "cross" column is now noted to over-estimate this part. H_div
+  excludes the shared-candidate diagonal.
+* D8: stated that the activity residue mod k depends only on (θ, k).
+
+**Final status.** PROVED: Thm 1.4 (log form of (6.2), no factorisation);
+Lemmas 2.1–2.2; Reduction 6.7 steps 1, 2, 2′ (§3); profile summability
+(Lemma 4.1); Thm 5.1; Lemmas 5.3–5.5. OPEN: (H_O^≠) ⇔ H_div-type
+equidistribution of divisor labels mod j, averaged over j.
+Cor 5.2 (two-prime Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for `M ≤ P(M)^{1+B}`,
+`M ≤ X`, at most two prime factors above `(log X)^8`, twins included) is
+CONDITIONAL on (H_O^≠). Suggested ledger entry: under (D)13, "two-prime Λ² cap
+reduced to an arithmetic equidistribution hypothesis H_div (EXCEPTIONAL_TWIN2)".
