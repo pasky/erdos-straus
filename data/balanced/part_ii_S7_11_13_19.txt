@@ -1,0 +1,5 @@
+# part (ii) window S=[7, 11, 13, 19] Q=19019; conditions: 7:3, 11:3, 19:3, 91:3, 143:22, 247:9, 1463:27, 19019:27
+D(single primes)   mass=0.859 void=1.050 | m=1: LP=0.560 | m=2: LP=0.999 | m=3: LP=1.050
+D+pairs            mass=1.082 void=1.246 | m=1: LP=0.560 | m=2: LP=0.999 | m=3: LP=1.206
+D+composite(all)   mass=1.102 void=1.253 | m=1: LP=0.560 | m=2: LP=0.999 | m=3: LP=1.206
+D+S(control)       mass=1.066 void=1.282 | m=1: LP=0.560 | m=2: LP=1.081 | m=3: LP=1.263
