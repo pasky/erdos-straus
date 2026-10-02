@@ -78,5 +78,4 @@ ES is not solved; no θ > 3/4 is claimed.
 2. **Attack (E_δ)** via the (s,r,k) lattice, or find a counterexample
    with many structured cofactors. A stronger adversary (ILP or
    simulated annealing) would test sup ≈ π(y) at ℓ ~ 10³–10⁴.
-3. **Λ² route.** Test H_MS^{Sel} numerically on real windows. Measure
-   Ξ_𝒜(α) by Monte Carlo, comparing twin vs no-twin.
+3. **Λ² route.** Monte Carlo Ξ_𝒜(α) (H_MS^{Sel}) on real windows, twin vs no-twin.
