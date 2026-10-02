@@ -19,7 +19,7 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 
 | item | statement | label |
 |---|---|---|
-| Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `(|R|/Q₀)·exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. Here λ charges only the slice primes. | PROVED |
+| Thm 2.5 | **Sieve-limit theorem.** Take a *prime-slice* CRT system: the conditions are independent across large primes ℓ once a small residue c is fixed. Every nonnegative majorant of level λ of its avoider set has mean ≥ `(|R|/Q₀)·exp{−19αλ − C₄ Σ_ℓ p̄_ℓ ℓ^{−α} − O(log²λ)}`, for every α>0. Here λ charges only the slice primes. The error term is O(log²λ) provided the truncated mass satisfies `μ̄ ≤ λ^{O(1)}` and `s_* ≫ 1` (true in all applications here); in general it is the explicit term of (2.4), which can be ≍ λ log λ. | PROVED |
 | Cor 3.4 | Take any family of Case-B forced classes (both groupings) that are all slice conditions, with small parts k ≤ ℓ^C (C<1) and a selector admissible set. Every majorant of level `N^A`, and every Montgomery large-sieve bound, saves at most `C(A)(log N)^{3/4} + log(P/φ(P))`, where the last term is O(log log log P). So **3/4 is sharp for this class, and no power of log log N can be gained.** This assumes the final bound has the form `N·Eν + (nonnegative rounding bound)`. | PROVED |
 | Thm 2.7, Cor 3.6 | **Sequential extension.** For nonnegative CRT majorants (no large-sieve claim), the cap `C(A,C)(log N)^{3/4} + O_C(1)` holds for every Case-B forced-class family whose moduli all have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1). The other prime factors are arbitrary (higher powers allowed) and may be shared between conditions. By Dickman, this is a positive proportion `log(1+C)` of unweighted moduli; the weighted share of the supply is conjectural. | PROVED |
 | Lemma 3.7 | **H_A3 holds.** `Σ_{rh≤x} τ(4rh²+1)·rh/φ(rh) ≪ x log²x`, so Cor 3.4/3.6 cover Case-A classes too. | PROVED, using Elsholtz–Tao Prop. 1.4 (published, not re-proved) |
@@ -131,7 +131,8 @@ Consequently, for every `α, s > 0` and every `0 ≤ k ≤ z`,
 *Proof.* (2.1) is Lagrange interpolation, `P(0) = Σ_y ℓ_y(0)P(y)`, together
 with `P(y) ≥ 0` on Y.
 
-(a) If μ' ≥ 1, take the single node `y = ⌈μ'⌉ ≤ z−1` and apply Lemma 2.1 with
+(a) If μ' ≥ 1, then z ≥ 4 because q ≤ 1/4. Take the single node
+`y = ⌈μ'⌉ ≤ z/4 + 1 ≤ z−1` and apply Lemma 2.1 with
 `|y−μ'| ≤ 1`. If μ' < 1, take the node 0. Then
 `ψ(0) = (1−q)^z ≥ e^{−1.151μ'}`.
 
@@ -262,7 +263,9 @@ This gives
 `log(1/E_u f_w) ≤ 19αλ + Σ_g [C₄ q_g z_g e^{−2αs_g} + ½log(16q_g z_g+16) + 74]
 + G log 2 + G log(1+λ/s_*)`.
 
-Average over w, using Jensen for exp and for log, and `E_w q_g z_g = μ_g`.
+Write Φ(w) for this right-hand side. Average over w using Jensen for exp:
+`E f = E_w E_u f_w ≥ E_w e^{−Φ(w)} ≥ e^{−E_w Φ(w)}`. Then use `E_w q_g z_g = μ_g`,
+and concavity of log, `E_w log(16q_g z_g+16) ≤ log(16μ_g+16)`.
 Finally `e^{−2αs_g} ≤ e^{−αs_i}` on `B_g`, and `Σ_g log(16μ_g+16) ≤ G·log(16μ+16)`. ∎
 
 ### 2.4 The CRT form
@@ -271,6 +274,10 @@ Finally `e^{−2αs_g} ≤ e^{−αs_i}` on `B_g`, and `Σ_g log(16μ_g+16) ≤ 
 prime-slice system as in §1. Assume that for every `c ∈ R`:
 * `|F_ℓ(c)| ≤ ℓ/4` for every `ℓ ∈ 𝒫` with `ℓ ≤ e^λ`;
 * `|F_ℓ(c)| < ℓ` for every `ℓ ∈ 𝒫`, so every admissible fibre has avoiders.
+
+Here and below μ̄ denotes the *truncated* mass `μ̄ = Σ_{ℓ∈𝒫, ℓ≤e^λ} p̄_ℓ`.
+Primes above e^λ are invisible (Step 0 of Prop. 2.4), so the untruncated
+mass, which may be infinite for infinite families, never enters.
 
 Let ν be any majorant of level λ ≥ s_*, where `s_* = log min 𝒫`. (If
 λ < s_*, ν depends only on the small residue and the bound below holds
@@ -295,8 +302,12 @@ The event `{c} × {x=0}` has positive probability, since every `p_ℓ(c) < 1`,
 and it is contained in 𝒜. So `ν_c(0) ≥ 1`.
 
 Proposition 2.4 applies fibrewise. Jensen over `c ∈ R` turns the fibre
-profiles into `p̄_ℓ` and `μ̄`. Here μ̄ may be read as the truncated mass
-`Σ_{ℓ≤e^λ} p̄_ℓ`. ∎
+profiles into `p̄_ℓ` and the truncated mass `μ̄`. ∎
+
+*Size of the error term.* The last two terms of (2.4) are O(log²λ) only
+when `s_* ≫ 1` and `log μ̄ ≪ log λ`. In general μ̄ can be as large as
+`π(e^λ)/4`, and then the term is ≍ λ log λ. In every application below,
+`μ̄ ≪ λ³`, so it is O(log²λ).
 
 **Two caveats on (2.4).**
 
@@ -312,7 +323,10 @@ with no slice cost and saving exactly `log(Q₀/|R|)`.
 
 *Interval-counting methods.* The theorem bounds the CRT mean Eν. A method
 whose final bound for `#(𝒜∩[1,N])` has the form `N·Eν + (a nonnegative bound
-on the rounding term)` is therefore capped. A method that proves *signed*
+on the rounding term)` is therefore capped at the level of its ν. If the
+rounding bound is the absolute coefficient sum `Σ|a_i|`, then Lemma 2.9
+(§2.7) shows that this sum already bounds the level, provided the slice
+primes are bounded. A method that proves *signed*
 cancellation among the rounding errors `Σ_{n≤N}ν(n) − N·Eν` is outside the
 scope.
 
@@ -486,6 +500,55 @@ So Theorem 2.7 has the same shape as Theorem 2.5, with two changes:
 
 Conditioning can also *deactivate* later conditions, so the true sequential
 profile may be smaller than the bound.
+
+### 2.7 Coefficient budget implies level (added by review-theta-2)
+
+The caps of Theorems 2.5 and 2.7 are stated for majorants of bounded
+*level*. Interval methods such as the 3/4 note are constrained instead by
+the *coefficient sum*. The note's transfer
+`Σ_{n≤N} ν(n) = N·Eν + O(Σ|a_i|)` holds for every modulus, and the note
+calls its modulus bound "not necessary". The following lemma, from the
+hostile review `reviews/exceptional-theta-review.md` (item 3, defect SC1),
+bridges the two.
+
+**Lemma 2.9 (coefficient budget ⇒ level; PROVED in review-theta-2).** Take
+a prime-slice system (§1), or the setting of §2.6. Let
+`ν = Σ_i a_i 1[n ≡ b_i (mod d_i)]` satisfy ν ≥ 0 on ℤ and ν ≥ 1 on 𝒜.
+Put `T = Σ_i |a_i|`, and assume every slice prime satisfies `log ℓ ≤ Λ₀`.
+Then for every λ there is a majorant ν' of level ≤ λ with ν' ≥ ν pointwise
+and
+
+    Eν' ≤ Eν + T·e^{Λ₀−λ}.
+
+In particular, the choice `λ = Λ₀ + log T + log(1/Eν)` gives `Eν' ≤ 2Eν`.
+
+*Proof.* Leave every term of level ≤ λ unchanged.
+* *Terms of level > λ with `a_i < 0`.* Drop them. This raises ν pointwise
+  and raises the mean by `|a_i|/d_i ≤ |a_i|e^{−λ}`.
+* *Terms of level > λ with `a_i > 0`.* List the term's slice primes in
+  increasing order and keep the longest prefix of level ≤ λ. The next
+  prime has log ℓ ≤ Λ₀, so the kept prefix has level `> λ − Λ₀`. Replace
+  `d_i` by the divisor `d'_i` consisting of the non-slice part of `d_i`
+  times the kept prime powers. Then `1[n≡b_i (d'_i)] ≥ 1[n≡b_i (d_i)]`,
+  and the mean rises by at most `a_i/d'_i ≤ a_i e^{Λ₀−λ}`.
+
+Hence ν' ≥ ν ≥ 0, ν' ≥ 1 on 𝒜, and every term of ν' has level ≤ λ. Summing
+the increases gives the mean bound. ∎
+
+**Consequence.** Combine Lemma 2.9 with Cor 3.4 or Cor 3.6. Suppose:
+* the family's slice primes are at most `N^A`;
+* the final bound `N·Eν + Σ|a_i|` is non-trivial, so `T < N`.
+
+Then the saving s satisfies `s ≤ log 2 + Cλ^{3/4} + (R-term)` with
+`λ ≤ (A+1) log N + s`. Hence `s ≪_{A,C} (log N)^{3/4}`.
+
+Two exclusions remain:
+* families with slice primes beyond `N^{O(1)}`, since Lemma 2.9 needs Λ₀;
+* methods whose rounding bound is smaller than `Σ|a_i|`, for example bounds
+  that use *which* classes meet [1,N]. These count as signed-rounding or
+  non-CRT methods (§6).
+
+`scripts/review_theta_lemmaR.py` checks the mechanics numerically.
 
 ## 3. Supply profiles and the main corollary
 
