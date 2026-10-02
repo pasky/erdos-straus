@@ -284,3 +284,55 @@ Build: pdflatex ×3, 23 pp, 0 warnings, 0 overfull/underfull, 0 undefined refere
   combinatorial step. A proof of the quarantine-cost lower bound in §10.4
   would turn that Assessment into a proved obstruction for the current
   lemma.
+
+---
+
+# Checkpoint 4: sharper Lemma 10.2 attempt → named gap; new Haar theorem (§11)
+
+## Prime side: reduced to a sharper named gap (G_pair); exponent stays 3
+
+* **The shared-vertex accounting does not help.** A dense `−4D` cluster
+  with more members than shared vertices genuinely carries
+  `(s·c/d)^{h−s}` private families. So the size-dependent codegree
+  requirement `Δ^{(2)}≲1/L` is real, not an artefact of Lemma 10.2.
+* Removing heavy pairs by adding them as events is consistent only if the
+  heavy-pair mass satisfies `μ(t)≤ε/t` at `t≍1/L`.
+* **Prop 11.4 (PROVED, PNT for fixed moduli).** The classes `−4D` (D with
+  minimal root `D*`) give pair codegrees `≥(c_θ−o(1))/φ(4D*)`. Hence
+  `μ(t) ≫ c_θ³ t^{−1}log(1/t)`, because of the divisor-type multiplicity
+  `2^{ω(D*)}`.
+* So the closure fails by a factor `log L` at every fixed θ<1/3. This
+  Assessment rests on the proved lower bound.
+* **Gap G_pair.** One needs either a minorant whose truncation level is
+  not tied to the total event mass, or a joint (over D) treatment of the
+  `−4D` hub classes that is cheaper than removing pairs one by one.
+
+## New result: Theorem 11.3, the Haar side is now (essentially) polylogarithmic
+
+* **Iterated bad-prime quarantine (Lemma 11.2).** Repeatedly quarantine
+  every free prime whose per-prime event mass exceeds `c_0`. The process
+  stops with `|𝓑| ≤ kS*/c_0`. Here
+  `S* = Σ_{atoms} max_Π 1/φ(r_Π)` (Lemma 11.1). It has the same
+  `T^{o(1)}` bound as Lemma 4.1, because `m_Π | gcd(M,4D+1)`.
+* **Theorem 11.3 (PROVED).** `log(1/δ*(T)) ≪ (log T)^3(S*+1)`. This gives
+  `T^{o(1)}` unconditionally, improving PO Thm 9.3's `T^{1/3+o(1)}`. Modulo
+  ET Prop 1.4 it gives `≪(log T)^7 log log T`, which is PO's polylog Haar
+  target and was previously only conditional on H_PP.
+* EVIDENCE (`omega2_iterq.py`, T up to 10⁶): the iteration stops after
+  2 rounds, `|𝓑|` = 99/171/345, and the local-lemma margin is wide
+  (`max Σx ≤ 0.08`). These runs are finite-T certificates of the Haar
+  bound.
+* **Consequence for the prime side.** The per-prime conditions (G), (W)
+  are free in every construction. Below 1/3 the only obstacle is G_pair.
+
+## Please review hardest
+
+* Lemma 11.2's counting step (each atom is counted at most k times, with
+  its max-over-Π weight). This is the crux of Theorem 11.3.
+* Lemma 11.1, i.e. that the Lemma 2.3/4.1 argument runs with
+  `m = gcd(M,4D+1)`.
+* That Theorem 11.3 really closes PO §9's open H_PP problem. PO's Thm 9.4
+  needed per-prime bounds at *all* primes `>z`; we quarantine the
+  `T^{o(1)}` exceptions instead.
+* Suggested ledger: (H)10 Haar side → "`log(1/δ*)≤T^{o(1)}` (PROVED);
+  polylog modulo ET Prop 1.4 (POINTWISE_OMEGA2 Thm 11.3)".
