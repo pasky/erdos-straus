@@ -173,8 +173,8 @@ is admissible (`ρ_i ≥ e^{−αs_i}`). Small classes: avoided on supp P; one-
 and two-large-prime classes: unary/binary. Nothing is missing.
 * **D3 (minor, scope).** The B-hypothesis `M ≤ P(M)^{1+B}` is a genuine
   restriction of the family relative to TW Reduction 6.7 / Conj 6.8, which
-  promised the two-prime cap "with no windows and no B" (e.g. `kℓ₁ℓ₂` with
-  a w₂-smooth `k ≈ X^{1/2}` is excluded). The §0 *Bottom line* says the cap
+  promised the two-prime cap "with no windows and no B" (for fixed B, twins `kℓ₁ℓ₂`, `ℓ₁ ≈ ℓ₂`, are
+  excluded once the w₂-smooth cofactor has `k > M^{(B−1)/(B+1)}`). The §0 *Bottom line* says the cap
   "is reduced … to a single arithmetic inequality (H_O)" without saying
   that B is added; and §4's closing paragraph says B "is what makes (ii)
   available", understating its use: Lemma 3.4 also needs it (small moduli
