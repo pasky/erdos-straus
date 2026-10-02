@@ -176,3 +176,63 @@ bound: `τ(4sr'²+1)≤τ*`, `Σ_{s,r'}1/(sr')≤(1+𝓛)²`. Nothing in the pro
 uses the shape of Π. With the *explicit* Wigert constant
 (`τ(n)≤2^{1.5379 log n/log log n}`) the exponent is
 `≈1.066·𝓛/log 𝓛`; I use this below for the effectivity check.
+
+### Item 8 — Construction 4.2 and Lemma 4.3 ((I), (W), (G), mass, log Q): **SOUND**
+
+* *(I).* For `ℓ∈Π` every `ℓ^v‖M≤T` has `v≤e_ℓ`, so `m|Q`, `n≡1 (m)`;
+  `r=1` is Fact 1.1; otherwise `n≡−4D (M)` forces `m|4D+1` and the
+  single/edge `−4D mod r`. `−4D` is a unit mod M (`gcd(A_M,M)=1`), so all
+  events are unit classes. The equivalence of PO's `𝓡(M)={−4D: D|A_M²}`
+  with the paper's `{−uv^{−1}: uvw=A_M}` holds (`v^{−1}≡4uw`, and every
+  `D|A²` is `u²w` with `uvw=A`, take `u_p=max(0,d_p−a_p)`).
+* *Supports.* `r≤T<y³`, all prime factors `>y`, so
+  `r∈{ℓ,ℓ²,ℓℓ'}`; no `ℓ²ℓ'`. Correct.
+* *(W).* `#M=mℓℓ'≤T/(ℓℓ')`, `≤τ(A²)≤τ(A)²≤τ*²` atoms each,
+  `1/φ(ℓℓ')≤4/(ℓℓ')`, `Σ_{ℓ'>y}ℓ'^{−2}≤2/y`: `w_ℓ≤8τ*²T/(ℓ²y)≤8τ*²T/y³`,
+  `T/y³=e^{−6𝓛/log 𝓛}`. Correct.
+* *(G).* Atoms surviving Π with `r_Π∈{ℓ,ℓ²}` and trivial 𝓑-part survive
+  `Π_0` with `r_{Π_0}=r_Π` (since `m_{Π_0}|m_Π|4D+1`), so their union has
+  Haar mass `≤g^{(0)}_ℓ≤1/64` (ℓ∉𝓑). Otherwise `M=mbℓ` (`bℓ²`, `b²ℓ`
+  exceed `y³>T`): `≤|𝓑|T/(yℓ)` moduli, weight `≤2/ℓ`. Correct, as is
+  `|𝓑|≤64S_tot(Π_0)` (union bound, `Σ_ℓ g^{(0)}_ℓ≤S_tot(Π_0)`).
+* *Mass, log Q.* `Σ≤S_tot(Π)` by the union bound; `π(y)𝓛≤1.26·y·𝓛/log y<3.8y`,
+  `|𝓑|𝓛=T^{o(1)}`. Correct.
+
+*Effectivity.* With Wigert's explicit `τ(n)≤2^{1.5379 log n/log log n}`
+the exponents become `≈(2.13−6)𝓛/log 𝓛` in (W) and `≈(3.2−6)𝓛/log 𝓛` in
+(G); both still → −∞, and `w_ℓ≤e^{−50}/32` needs roughly `𝓛/log 𝓛≥15`,
+i.e. `T≳e^{60}`. So "effective" is honest (astronomical, as disclosed).
+
+*Independent numerical check of (I)* (reviewer code
+`reviews/omega2-review-scripts/check_I_indep.py`; independent of the
+author's code: 𝓡(M) built from the paper's `uvw` definition, survival
+tested as `c≡1 (mod m_Π)` on classes rather than on D): `T=1000, y=T^{0.4}`
+(200 forced survivors) and `T=3000, y=T^{0.36}` (100), all with `W(n)>T`,
+0 mismatches; the class-of-one assertion and the support-≤2 assertion hold
+for every M. Free-prime count (158 at T=1000) agrees with the author's
+script. Mutation (skip the edge rejection): 20/200 mismatches, so the test
+discriminates. (Thresholds `gbad=1/4`, `y=T^θ`: illustration only, as the
+author says.)
+
+### Item 9 — Theorem 5.1 (instantiation of PO Thm 4.1 / Thm 6.2): **SOUND** (one MINOR defect)
+
+* Hypotheses of PO Thm 4.1: moduli `d_i=∏_{ℓ∈U}ℓ^{e_ℓ}`, `ℓ∈𝒫`, coprime to
+  Q; unit classes (Item 3); `B≤1[W>T]` on `n≡1 (Q)` (Lemma 1.2 + (I));
+  `μ>0`; twist (Thm 3.1 Step 4). Correct.
+* `ℓ_0∈(R,2R]`: all prime factors of `d_i` are `≤T<ℓ_0`; the minorant
+  persists on `1 mod Qℓ_0`; the set of characters to twist-check shrinks.
+  `log Z≤5y+log 2R+log max d_i≤6y` since `log max d_i≤C(Σ+1)𝓛=T^{o(1)}`.
+* `K≤1+C(Σ+1)=e^{O(𝓛/log 𝓛)}` (the e^{98} constant is absorbed);
+  `log p≤C_1K·6y=T^{1/3}e^{O(𝓛/log 𝓛)}`. Budgets match H_MIN(θ) for every
+  θ>1/3 (log Q, log max d_i ≤ T^{1/3+o(1)}, log(M_1/μ) ≤ T^{o(1)}).
+* `840|Q` (`y≥7`), so `p≡1 (840)` is Mordell-hard; `p>Qℓ_0>T`.
+* `W(p)>T` is certified literally: Thm 4.1 yields
+  `Σ_{p≡1(Qℓ_0)} log p·1[W(p)>T] ≥ Σ log p·B(p) > 0`.
+* Refuting `H_MOD(A)` (`W(p)≤(log p)^A` for all large hard p, notes
+  (51.19)) for `A<3` follows. `log L_h(T)≤T^{1/3+o(1)}` follows.
+
+**D2 (MINOR, Thm 5.1 proof, last line "Inverting, 𝓛 ≥ 3 log log p − O(log log p/log log log p)").**
+The inversion needs an *upper* bound on 𝓛 to turn `O(𝓛/log 𝓛)` into
+`O(log log p/log log log p)`. One line suffices: if `𝓛≥4 log log p` then
+`W(p)>T≥(log p)^4` already; otherwise `𝓛/log 𝓛≪log log p/log log log p`.
+Add this sentence.
