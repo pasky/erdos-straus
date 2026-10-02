@@ -323,3 +323,44 @@ congruence indicators carry only the multiplicative inflation `4Γ(k)/k`
 (Lemma 3.2(1)). The cost `L^{1/2}` is below the target `L^{3/4}`; the
 choice `W₁ = L^{1/2}` is where the QR base (cost `π(W₁)log 2`) and the
 medium Markov step (`W₁^{−1/2}`) meet.
+
+## 4. Summability of the unary and diagonal binary profiles
+
+Primes sums: by Chebyshev and partial summation, for `i ≥ 1`,
+`Σ_{ℓ>w₂} ℓ^{−1−2α}(log ℓ)^i ≪ (i−1)!(2α)^{−i}`, and for `i = 0` it is
+`≪ log L`. Also `Σ_{t≥0}(a + t log 2)² 2^{−αt} ≪ a²/α + a/α² + 1/α³` for
+`a ≥ 1`, `0 < α ≤ 1`.
+
+**Lemma 4.1 (profiles; PROVED).** In Setting 3.0, with `ρ_ℓ ≤ ℓ^{−α}`,
+
+    E_P Σ_{j>w₂} ρ_j p_j(c) ≪_B α^{−3}(log L)^{O(1)},
+    E_P Σ_{e={ℓ,m}} ρ_ℓ ρ_m π_e(c) ≪_B α^{−3}(log L)^{O(1)}.
+
+*Proof.* By Lemma 3.2(1) and `ν ≤ (8/7)U` (as `p ≤ 1/8` on supp P), each
+class `−4D mod M` contributes at most `4(8/7)²Γ(k)/M`, k the w₂-smooth part,
+times its ρ-factor; per modulus there are `≤ τ(A²)` classes.
+
+*Unary, `M = kj`.* j is the top prime and `k ≤ j^B`. Lemma 3.3 (`q = k`) on
+dyadic blocks of j gives
+`Σ_j τ(A²) j^{−1−α} ≪ (k/φ(k))(a²/α + a/α² + 1/α³)`, `a = log(2kw₂)`.
+Sum against `Γ(k)/k` with (3.1).
+*Unary, `M = kj^v`, v ≥ 2.* `M ≤ j^{1+B}`, `τ ≤ C_εj^{1/256}`, total
+`≪ w₂^{−1/2}(log L)^{O(1)}`.
+
+*Binary, `M = kℓ^v m^u`, m the top prime, u = 1.* Lemma 3.3 with
+`q = kℓ^v ≤ m^B` on dyadic blocks `y ≥ ℓ/2` gives
+`Σ_m τ(A²)m^{−1−α} ≪ (q/φ(q)) ℓ^{−α}(a²/α + a/α² + 1/α³)` with
+`a ≪ log 2k + v log ℓ`. Multiply by `ℓ^{−v−α}` and sum over ℓ with the prime
+sums above: the three terms give `α^{−3}`, `α^{−3}`, `α^{−3}log L` (and
+`(log 2k)^i` times lower powers of `1/α`); v ≥ 2 gains a further `ℓ^{−1}`.
+Sum over k with (3.1).
+*Binary, `u ≥ 2`.* `τ ≤ C_εm^{1/256}`; `Σ_m m^{−2+1/256}Σ_{ℓ<m}ℓ^{−1} ≪
+w₂^{−1/2}`. ∎
+
+Both bullets of TW "What (6.2) would give" are now proved *for the diagonal
+and unary terms*, over the actual fibre law (T12/T14 repaired). The
+γ-weighted Lemma 3.1 that T12 asks for is replaced by (i) the product
+inflation of Lemma 3.2(1), which only involves w₂-smooth k, and (ii) Shiu
+along the top prime (Lemma 3.3), which needs no weights at all. The
+B-hypothesis `M ≤ P(M)^{1+B}` is what makes (ii) available (`k ≤ P^B`), and
+it removes TW Lemma 2.6's large-divisor constant `exp(O(W₁^{1/4}))`.
