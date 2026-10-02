@@ -231,3 +231,50 @@ Data are in `data/review_r3/iterq_mt_*.txt`. It does the following:
 Verdict: the mechanics of Lemma 11.2 and Theorem 11.3 are confirmed at T ≤ 10⁶, and coverage (I) is
 confirmed end to end. The subject's `omega2_iterq.py` output is reproduced exactly. Defects D1, D2 above
 concern the subject's prose about this data, not the data.
+
+## Item 8. Theorem 10.4 (H_CD(θ) ⇒ H_MIN(θ)) — SOUND (minor)
+
+The proof was checked against H_MIN as stated in PO §6 (`840 | Q`, `log Q ≤ T^{θ+ε}`,
+`log max d_i ≤ T^{θ+ε}`, `log(M_1/μ) ≤ T^ε`, twist):
+
+* `840 | Q_Π`, since 2, 3, 5, 7 ≤ y;
+* `log Q ≤ (π(y)+T^{o(1)})log T ≤ 2y/θ`;
+* `log max d_i ≤ k(L+1)log T = T^{o(1)}`;
+* (CD_k) follows from `Σ ≤ S_tot(Π)+m(Φ) = T^{o(1)}` together with `Δ ≤ T^{−ε}`, because `C_k` depends on k
+  only;
+* (I) still holds once Φ is added as singles.
+
+The 1/κ consequence is PO Thm 6.2 (inherited, already reviewed).
+
+* **D7 (minor; §10.4, after Thm 10.4).** Quote: "For `θ>1/3` (so `k=2`), H_CD(θ) holds with Φ = the hub
+  vertices (Lemma 4.3)." Lemma 4.3 does not define a Φ. The hubs are removed *inside* Thm 3.1/10.3
+  (Step 1), and H_CD needs no codegree condition when k=2. So `Φ=∅` already works, with `w_ℓ ≤ T^{1−3θ+o(1)}`
+  from the crude count. *Fix:* "holds with Φ=∅".
+* See also D4: H_CD(ii)'s `w_ℓ ≤ T^{−ε}` is stronger than Thm 10.3 needs, and is now automatic at the
+  constant level by Lemma 11.2.
+
+## Item 9. Proposition 10.6 (pair codegrees at `(ℓ,−4d²)`) — SOUND (minor)
+
+* The algebra holds: `ℓ_1ℓ_2ℓ_3 ≡ −1 (4d)` ⇒ `M ≡ 3 (4)` and `4d | M+1` ⇒ `d | A`, so `d² | A²`.
+  Also `M ≤ T^{2/3}·T^{1/3}`, and m = 1 survives `Π_0`. The class `−4d² mod M` is the hyperedge
+  `{v_1,v_2,(ℓ_3,−4d²)}`.
+* The weight beyond O is checked with lifts: there are `ℓ_3^{e−1}` lifts, each of mass `1/φ(ℓ_3^e)`, for a
+  total of `1/(ℓ_3−1) ≥ 1/ℓ_3`.
+* Mertens in a fixed progression gives `(1/φ(4d))log(log T^{1/3}/log y) = c_θ/φ(4d)`. Correct.
+* The proposition is about the `Π_0`-system. After the additional `T^{o(1)}` bad-prime quarantine
+  (Lemma 11.2), the lost ℓ_3 change the sum by at most `T^{o(1)}/y`, so the bound persists. Only Φ could
+  destroy it, and that is exactly the point of the subsequent discussion.
+* **D8 (minor; Prop. 10.6 statement).** The statement does not say in which system Δ is computed (Π_0
+  only, or after bad-prime quarantine). Since it is used against H_CD (which is post-quarantine), add one
+  sentence: "the same bound holds after quarantining any `T^{o(1)}` further primes".
+
+## Item 10. Proposition 10.5 — SOUND as estimates; label inflated (minor)
+
+* Part 1 was rederived. A hyperedge `e⊋O` has `r = r_O m` with `m > y`, at most `τ*²T/r` atoms, and weight
+  beyond O `≤ 1/φ(m)`. Summing gives `Cτ*²T log log T/(q'_O y)`, using `Σ_m m^{−2} ≤ 2/y` and
+  `Σ_{r_O} 1/r_O ≪ 1/q'_O`. Correct as an upper bound.
+* **D9 (minor; title of Prop. 10.5).** Quote: "the available estimates certify nothing below θ=1/3;
+  PROVED". What is proved are the upper bounds in parts 1–2. The claim that "the available estimates"
+  certify nothing, and part 2's "For codegrees it gives only `T^{η/(1+η)+o(1)}`, whatever the residue
+  pattern", are statements about a method, not theorems. *Fix:* title "crude and Type-I upper bounds for
+  `w_ℓ`, `Δ_O` (PROVED); they do not certify (W_k)/(CD_k) below 1/3 (Assessment)".
