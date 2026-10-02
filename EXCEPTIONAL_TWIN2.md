@@ -283,3 +283,43 @@ the first is `≤ i!(log w₂)^i·e·Π_{p≤w₂}(1 + eΓ(p)/(p−1) + O(p^{−
 `Γ(p) ≤ 3`. The second has Euler factors
 `1 + Γ(p)Σ_{(e,e′)≠(0,0)}p^{−max(e,e′)} = 1 + 3Γ(p)/p + O(p^{−2})`. Both
 products are `≪ (log w₂)^{9e} ≪ (log L)^{O(1)}`. ∎
+
+**Lemma 3.4 (good events are likely; PROVED).** For L large,
+`P_QR(G_s) ≥ 1/2` and `P′(G_L) ≥ 1/2`.
+
+*Proof.* Small classes have `M ≤ w₂^{1+B}` (B-hypothesis), so
+`τ(A²) ≤ C_ε w₂^{(1+B)ε} = C_ε L^{1/32}`.
+
+*T.* `E_QR T ≤ C_ε L^{1/32} Σ_k Γ(k)2^{ω(k)}/k ≪ L^{1/32}(log L)^{O(1)}`
+(TW Lemma 1.3(3) for the activity probability; Euler product), so
+`P(T > L^{1/2}) = o(1)`.
+
+*μ_p.* Expanding the square, a pair of active classes through p has
+probability `≤ Γ(lcm(k₁,k₁′))/lcm(k₁,k₁′)`. With (3.1) and
+`Σ_{k₂: p|k₂} 2^{ω(k₂)}/k₂ ≤ (2/(p−1))(log L)^{O(1)}`,
+`E_QR μ_p² ≪ L^{1/16}(log L)^{O(1)} p^{−2}`. Markov at `p^{−1/4}`:
+`Σ_{p>W₁} p^{1/2}E μ_p² ≪ L^{1/16+o(1)} W₁^{−1/2} = L^{−3/16+o(1)}`.
+
+*p_j.* Unary moduli `kj^v ≤ j^{1+B}` have `τ(A²) ≤ C_ε j^{1/256}`. With
+Lemma 3.2(1) for P′ and (3.1),
+`E′p_j² ≪ j^{−2+1/128}(log L)^{O(1)}`, and `Σ_{j>w₂} 64E′p_j² = o(1)`.
+
+*w^U_j.* Split the binary classes at j by their top prime.
+* j is the top prime: `M ≤ j^{1+B}`, the same pointwise bound, and
+  `Σ_{m<j,u} m^{−u} ≪ log log j`, give second moment `≪ j^{−2+1/64}`.
+* the partner m is the top prime, exponent `u ≥ 2`: `τ(A²) ≤ C_ε m^{1/256}`
+  and `Σ_{m>j} m^{−2+1/256} ≪ j^{−1+1/256}`; second moment `≪ j^{−4+1/64}`.
+* the partner m is the top prime, `u = 1`: for fixed `(k, v)` put
+  `q = kj^v ≤ m^B`. Lemma 3.3 on dyadic blocks `(y, 2y]`, `y ≥ j/2`, gives
+  `Σ_m τ(A²)/m ≪ (q/φ(q))L³`. Expanding the square as for μ_p,
+  `E′(w^{>,1})² ≪ L⁶ j^{−2}(log L)^{O(1)}`.
+
+So `Σ_{j>w₂} 64²E′(w^U_j)² ≪ L^{6+o(1)}/w₂ = o(1)`. ∎
+
+This completes Reduction 6.7 steps 1, 2 and 2′ (TW review T12): the fibre
+law P costs `≤ 4L^{1/2}` (Lemma 3.2(2)), every fibre in its support
+satisfies the hypotheses of Lemma 2.2, and averages over P of products of
+congruence indicators carry only the multiplicative inflation `4Γ(k)/k`
+(Lemma 3.2(1)). The cost `L^{1/2}` is below the target `L^{3/4}`; the
+choice `W₁ = L^{1/2}` is where the QR base (cost `π(W₁)log 2`) and the
+medium Markov step (`W₁^{−1/2}`) meet.
