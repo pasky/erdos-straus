@@ -526,57 +526,46 @@ Caveat: these are toy sizes in a dense regime (mass ~1, primes < 25).
 The asymptotic sparse regime is not probed. This is weak evidence, and
 mostly about η-twin *pairs*, not balanced moduli.
 
-### 3.3 Void probabilities among real primes, with and without balanced classes
+### 3.3 Void probabilities among real primes, both orders
 
 **Method.** `scripts/balanced_void.cpp` runs over all 1,085,136,872 primes
-in `[10¹², 10¹² + 3·10¹⁰)`. It uses three nested families of classes ℛ(M)
-with `M ≤ Q'`:
+in `[10¹², 10¹² + 3·10¹⁰)`. It uses four families of classes ℛ(M) with
+`M ≤ Q'`:
 * **dom:** `P ≥ M^{2/3}`;
-* **nontwin:** dom plus the η-gapped moduli (η = 1/4);
-* **all:** adds the η-twin moduli.
+* **dom+gap:** dom plus the η-gapped moduli (η = 1/4);
+* **dom+twin:** dom plus the η-twin moduli;
+* **all.**
 
-It reports `−log void` against the prime-conditioned mass
-`μ_pr = Σ|ℛ(M) ∩ units|/φ(M)`. Data:
-`data/balanced/void_primes_Q4000.txt`.
+Entries are `Δ(−log void)/Δμ_pr`, the effective void per unit of added
+prime-conditioned mass, in **both orders** (review D15). Data:
+`data/balanced/void_primes_Q4000.txt`. The numbers match the reviewer's
+independent variant.
 
-| Q' | −log void (dom / nontwin / all) | ratio to own mass | Δ void / Δ mass, gapped | Δ void / Δ mass, twin |
-|---:|---|---|---:|---:|
-| 124 | 4.70 / 6.10 / 6.10 | 1.15 / 1.08 / 1.00 | 0.90 | — |
-| 275 | 6.46 / 7.98 / 8.13 | 1.11 / 1.01 / 0.92 | 0.73 | 0.17 |
-| 606 | 8.32 / 10.35 / 10.64 | 1.07 / 0.94 / 0.86 | 0.63 | 0.20 |
-| 1333 | 10.71 / 13.42 / 13.84 | 1.04 / 0.90 / 0.82 | 0.59 | 0.22 |
-| 2253 | 12.44 / 15.77 / 16.29 | 1.02 / 0.88 / 0.80 | 0.58 | 0.22 |
-| 4000 | 14.70 / 18.50 / 19.71 | 1.00 / 0.85 / 0.80 | 0.54 | 0.42 (3 primes) |
+| Q' | twin added to dom | gap added to dom+twin | gap added to dom | twin added to dom+gap |
+|---:|---:|---:|---:|---:|
+| 275 | 0.42 | 0.62 | 0.73 | 0.17 |
+| 606 | 0.45 | 0.52 | 0.63 | 0.20 |
+| 1333 | 0.47 | 0.49 | 0.59 | 0.22 |
+| 2253 | 0.49 | 0.47 | 0.58 | 0.22 |
+| 4000 | 0.52 | 0.50 | 0.54 | 0.42 (3 primes; noise) |
 
-**Reading.**
-* **Dominant classes** give `−log void ≈ mass`, ratio → 1.00. This is
-  first-moment behaviour, as for a slice system.
-* **Gapped non-dominant classes**, added on top, give `−log void` at about
-  0.55–0.6 of their mass.
-* **η-twin classes**, added last, give only about 0.2 of their mass. Most
-  of their mass falls on primes already removed by dom and gapped classes.
-  The rise to 0.42 at Q' = 4000 rests on 10 → 3 surviving primes and is
-  noise.
-* So in the real system the twin part is strongly *redundant*. Even the
-  void, which caps every sieve, grows by only ~1/5 of the twin mass.
-* The overall ratio 0.80 at Q' = 4000 reproduces ET §5.3(iii).
-* Caveat: `Q' ≤ 4000` means twin top primes ≤ 63, and only one prime
-  range is tested.
+For comparison, dom alone has `−log void / mass → 1.00`.
 
-## Replay
-
-```
-# §3.1 sequential p_l(h) (X=1e5: ~5 min; X=1e6: ~1 h, ~3 GB) and steered histories (~5 s)
-uv run python scripts/balanced_numerics.py i 100000 200 0.25   > data/balanced/part_i_X1e5.txt
-uv run python scripts/balanced_numerics.py i 1000000 20 0.25   > data/balanced/part_i_X1e6.txt
-uv run python scripts/balanced_numerics.py steer 100000 101,151,211,307,401,503 10 > data/balanced/steer_X1e5.txt
-# §3.2 exact LPs (4 primes, m<=3: < 1 min each; 5 primes, m<=2: ~30 min)
-for S in 7,11,13,19 7,11,19,23 11,13,17,19; do uv run --with scipy python scripts/balanced_numerics.py ii $S 3; done
-uv run --with scipy python scripts/balanced_numerics.py ii 7,11,13,17,19 2
-# §3.3 voids among 1.09e9 primes near 1e12 (~3 min, < 100 MB)
-g++ -O2 -std=c++17 -o /tmp/balanced_void scripts/balanced_void.cpp
-/tmp/balanced_void 4000 1000000000000 30000000000 > data/balanced/void_primes_Q4000.txt
-```
+**Reading (corrected).**
+* Added directly to dom, the η-twin classes yield ≈ 0.45–0.5 per unit
+  mass. For Q' ≥ 1333 this matches the gapped classes.
+* Each non-dominant family yields less when added after the other:
+  ≈ 0.2 for twin, ≈ 0.5 for gap.
+* So twin and gapped classes overlap each other, and both overlap dom.
+  The twin family is **not** specially redundant. The earlier
+  "η-twin ≈ 0.2, strongly redundant" was an ordering artefact and is
+  **withdrawn** (review D15).
+* The defensible statement: non-dominant classes give about half their
+  mass in void when added to the dominant system. Dominant classes give
+  about all of it.
+* Caveat: `Q' ≤ 4000`, so twin top primes are ≤ 63, and only one prime
+  range is tested. The void caps every sieve; it is not a majorant
+  saving.
 
 ## 4. Attempt on (★_δ) for B ≥ 1
 
