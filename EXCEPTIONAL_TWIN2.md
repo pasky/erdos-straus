@@ -375,7 +375,7 @@ vertex `(j,a)` that are active in c, and
 **Theorem 5.1 (two-prime Λ² cap, reduced to (O); PROVED).** In Setting 3.0,
 for L large, every `g ∈ V_{λ/2}` with `g ≥ 1` on the avoiders of 𝓕 satisfies
 
-    saving(g²) ≤ A₀L^{3/4}/2 + C_B L^{3/4}(log L)^{C} + 9 E_P Σ_{j>w₂} ρ_j S_j(c)·(11/9),
+    saving(g²) ≤ A₀L^{3/4}/2 + C_B L^{3/4}(log L)^{C} + 11 E_P Σ_{j>w₂} ρ_j S_j(c),
 
 with `ρ_j = j^{−α}`, `α = L^{−1/4}`, and C an absolute exponent.
 
@@ -411,3 +411,45 @@ residue classes mod the large prime j, averaged over the partner m and over
 the fibre. It is the arithmetic content left after §§1–4; the
 probabilistic part (noise stability, convergence, empty fibres, good fibres,
 inflation, the diagonal profile) is closed.
+
+### 5.1 Structure of the vertex residues, and the split of (H_O)
+
+**Lemma 5.3 (rational labels; PROVED).** Let j be a prime dividing
+`M = kj^v m^u` (Case B, `4A = M+1`). The divisors D of `A²` are exactly
+`D = A·u′/v′` with `u′, v′` coprime divisors of A, and the class `−4D mod M`
+has residue `−u′/v′ mod j`. In particular the residue at j depends only on
+the rational `r = u′/v′`, not on k, m, or the size of D.
+
+*Proof.* `u′/v′ := D/A` in lowest terms. `A²/D = Av′/u′ ∈ ℤ` and
+`(u′,v′) = 1` give `u′ | A`; `D ∈ ℤ` gives `v′ | A`. Conversely such a pair
+gives `D | A²`. Since `j | M`, `4A ≡ 1 (mod j)`, so `−4D = −4A·u′/v′ ≡ −u′/v′`
+(`v′ | A` is prime to j). ∎
+
+So `deg_c(j,a) = Σ_{r ≡ −a (mod j)} δ_r(j,c)`, where for `r = u′/v′`
+
+    δ_r(j,c) = Σ_{(k,v,m,u): u′v′ | A_{kj^vm^u}, class active in c} ν_m(partner residue).
+
+D = A is `r = 1` (the class `n ≡ −1 mod M`, present for every M), D = 1 is
+`r = 1/A` (residue −4). The deadly values of ET §5.7 are the residues
+`−r mod j` of small-height rationals r. Two classes through j share a vertex
+iff their labels satisfy `u′v″ ≡ u″v′ (mod j)`; if both products are `< j`
+this forces equal labels.
+
+Accordingly `j·q_j ≤ (4/3)·[Σ_r δ_r² + Σ_{r≠r′, r≡r′ (j)} δ_r δ_{r′}]` and S
+splits the same way:
+* **(H_O^=) same label.** `E_P Σ_j ρ_j j^{−1}Σ_r δ_r(j,c)²`. SKETCH: δ_r with
+  `r = u′/v′`, `d = u′v′`, needs `kj^vm ≡ −1 (mod 4d)`, a single class of the
+  *prime* m mod d; Brun–Titchmarsh gives `Σ_m 1/m ≪ 1/w₂ + (log L)/φ(d)`, and
+  `#{r : u′v′ = d} = 2^{ω(d)}`. Expanding δ_r² over pairs `(m, m′)`:
+  `d | A_m, A_{m′}` forces `d | m − m′` (as `(A, kj) = 1`), and the pair sum is
+  `≪ (log L)^{O(1)}` with the diagonal `m = m′` handled by Lemma 3.3. This
+  would give `(H_O^=) ≪ α^{−1}(log L)^{O(1)}`. Not written at proof level
+  (k-sums, prime powers, activity inflation).
+* **(H_O^≠) cross labels (OPEN).** `E_P Σ_j ρ_j j^{−1} Σ_{r≠r′, r≡r′ (mod j)}
+  δ_rδ_{r′} ≪ α^{−3}(log L)^{O(1)}`. Agreement needs `j | u′v″ − u″v′ ≠ 0`
+  with `max(u′v″, u″v′) ≥ j > L^8`. The "random" prediction is
+  `Σ_j ρ_j (j w_j)²/j² ≪ L^{6+o(1)}/w₂ = o(1)`: a saving of `L^{6.75}` over
+  the trivial bound `Σ_jρ_j L⁶/j` is needed, and j > L^8 leaves room. What
+  is missing is an equidistribution statement for the residues `u′/v′ mod j`
+  over the labels of divisors of `(kjm+1)²/16`, uniform in j, which must cope
+  with the j-dependence of the label sets.
