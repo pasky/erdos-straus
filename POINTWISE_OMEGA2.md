@@ -733,8 +733,8 @@ gives `log(1/δ*) ≤ π(z)log T + 4S_tot + O(1)`, with
    * The full sum of the regular parts is
      `≪(log T/ℓ)Σ_{a,d}τ(4a²d+1)/(ad)`, which is polylogarithmic by ET
      Prop 1.4.
-   * So AP-TI(o(1)) reduces (an upper-bound reduction; the terms with
-     `ℓ|ad` need separate but routine treatment) to controlling the
+   * So AP-TI(o(1)) reduces (an upper-bound reduction; terms with `ℓ|ad` vanish,
+     since they force `ℓ|f|4a²d+1≡1 (mod ℓ)`) to controlling the
      first terms `Σ_{a,d,f}1/(ad·c_0)`, where
      `c_0 ≡ f(4ad)^{−1} (mod ℓ)`. This is the Kloosterman-type
      equidistribution flagged in PO §9, now in explicit form.
