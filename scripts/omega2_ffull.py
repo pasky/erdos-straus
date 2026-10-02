@@ -121,6 +121,15 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if a[0] == "dict":
         dictionary_check(int(a[1])); sys.exit()
+    if a[0] == "cmp":   # classes from triples() vs PO's F_full (pointwise_omega_haar.py)
+        from pointwise_omega_haar import F_full
+        for l in map(int, a[1:]):
+            c = set()
+            for rp, x, t, d, m, k in triples(l):
+                D = (x // 4) * rp
+                c.add((-4 * D) % l); c.add((-pow(4 * D, -1, l)) % l)
+            print(l, "match" if c == F_full(l) else "MISMATCH", len(c))
+        sys.exit()
     if a[0] == "range":
         A, B, st = map(int, a[1:])
         ls = []

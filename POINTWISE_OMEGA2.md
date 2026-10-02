@@ -753,4 +753,5 @@ uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~
 uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
 uv run python scripts/omega2_ffull.py dict 2001                 # §8 Lemma 8.1 dictionary, all odd r<=2001, ~20 s
 uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~10 s -> data/omega2/ffull_triples.txt
+uv run python scripts/omega2_ffull.py cmp 107 331 1031 3011      # parametrisation reproduces PO F_full, ~5 s
 ```
