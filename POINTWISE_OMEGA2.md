@@ -1037,7 +1037,7 @@ H_MIN(θ). PO Theorem 6.2 (modulo Thorner–Zaman) gives
 
 *Remarks.*
 
-* AP-TI*(κ) implies §9's AP-TI(κ). By Lemma 9.x/Thm 9.2's argument
+* AP-TI*(κ) implies §9’s AP-TI(κ). By the argument of Thm 9.2
   (PO Thm 9.4 with `z=T^{κ+ε}`), it therefore implies
   `log(1/δ*(T)) ≤ T^{κ+o(1)}` on the Haar side. So the conditional prime
   exponent `1/κ` matches the conditional Haar exponent. The prime side
@@ -1053,6 +1053,66 @@ H_MIN(θ). PO Theorem 6.2 (modulo Thorner–Zaman) gives
     because, with only averaged degrees, the single mass created by
     quarantining a bad prime is not controlled: it needs
     `deg((b,1))` for the specific residue 1.
+
+### 10.5 What the hypergraph lemma gives unconditionally (PROVED bookkeeping + Assessment)
+
+**Proposition 10.5 (the available unconditional bounds stop at θ=1/3;
+PROVED).** Take the system of §10.4 at `y=T^θ` with `θ<1/3`. Then:
+
+1. *Crude counts.* `w_ℓ ≤ 8τ*²T/(ℓ²y)` and, for `|O|=j+1≥2`,
+   `Δ_O ≤ 4τ*²T/(q_O y)`. At the smallest free primes
+   `ℓ, ℓ'∈(y,2y]` both are `≥T^{1−3θ−o(1)}`, i.e. not small.
+2. *Individual Type I bounds.* `F_I(n)≤n^{η}` bounds `w_ℓ` by
+   `T^{η/(1+η)+o(1)}/ℓ` (Thm 9.2). The same split bounds `Δ_O` only by
+   `T^{η/(1+η)+o(1)}`, independently of the residue pattern. That is not
+   small for any `η>0`.
+
+So with the inputs proved here, (W_k) can hold only for `θ>1/3` (crude),
+or for `θ>η/(1+η)` (Type I), and (CD_k) only for `θ>1/3`. **(a) alone
+gives no exponent beyond 3**: the hypergraph criterion is not the
+bottleneck, its inputs are.
+
+*Proof.*
+
+1. The crude counts are as in Lemma 4.3 (W). A hyperedge `e⊋O` has rough
+   part `r=q_Om` with all primes of m above y. There are at most
+   `τ*²T/(q_Om)` atoms, each of weight `≤2/m` beyond O. Summing over
+   `m>y` gives the second bound.
+   For the lower estimate, note that `T/(ℓ²y)≥T/(8y³)`. *(This is the size
+   of the bound, not a lower bound on the true masses. We have not shown
+   that the true masses are large.)*
+2. The split is that of Thm 9.2's proof. In
+   `Σ_{r=q_Om} min(2F_I(r), τ*²T/r)/φ(m)`, the factor `1/φ(m)` replaces
+   `1/φ(r)`, so the gain `1/q_O` is lost. Restricting to a residue class
+   mod `q_O` is invisible to a bound on `F_I(r)`. ∎
+
+**Why codegrees cannot be quarantined like degrees (Assessment, with the
+circularity made explicit).**
+
+* High-degree vertices are removed at Markov cost `w_ℓ/δ_k` with a
+  *constant* δ_k.
+* High-codegree sets O could be removed by adding O itself as a new event.
+  The Markov cost is `Σ_O P(O)·1[Δ_O>t] ≤ binom(k,j+1)S_H/t`.
+* But (CD_k) requires `t ≲ (C_k(Σ+1))^{−j}`, where Σ is the total event
+  mass *including the added events*, since the truncation level L must
+  exceed it.
+* Hence `Σ ≥ S_H(Σ+1)^j/C`, which is impossible for `j≥1` once
+  `S_H≥C`.
+* The codegree requirement is therefore a genuine input about the
+  arithmetic, unlike the degree requirement.
+* By contrast, the Haar side (PO Thm 9.4) uses only the averaged per-prime
+  masses. The local lemma does not see codegrees. This is the precise
+  asymmetry between the two sides below θ=1/3.
+
+**Summary of (a)+(b).**
+
+| inputs | prime side (W(p) exponent, i.o.) | Haar side (`log(1/δ*)`) |
+|---|---|---|
+| unconditional (this note) | 3 (Thm 5.1) | `T^{1/3+o(1)}` (PO Thm 9.3) |
+| `F_I(n)≤n^η` | 3 (codegrees uncontrolled) | `T^{η/(1+η)+o(1)}` (Thm 9.2) |
+| AP-TI(κ) (averaged) | 3 | `T^{κ+o(1)}` |
+| AP-TI(κ), κ<1/4, + pair codegrees `≤T^{−ε}` + Prop 8.2.1 | 4 (Thm 10.4 remark) | `T^{κ+o(1)}` |
+| AP-TI*(κ) (residue-uniform) | `1/κ` (Thm 10.4) | `T^{κ+o(1)}` |
 
 ## Replay
 
