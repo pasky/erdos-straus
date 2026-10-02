@@ -60,3 +60,61 @@ computes the exact merged cell expansion of `B_L` and checks
 PO Thm 4.1's `M_1=Σ|c_i|/φ(d_i)` is representation-dependent; using the
 merged-cell representations of `B_L` and `G_{L+1}` separately and the
 triangle inequality is legitimate. No defect.
+
+### Item 4 — Lemma 2.1 (pseudoforest exponential-moment bound): **SOUND** (one MINOR wording defect)
+
+Re-derived step by step.
+
+* *Expansion.* `1+z(s+d)≤(1+zs)(1+zd)` for `s,d≥0`;
+  `∏_ℓ(1+zd_ℓ)=Σ_{(U,f)}z^{|U|}1[F occurs]` with `d_ℓ=Σ_{edges e at ℓ}1_e`.
+  Correct.
+* *Pseudoforest.* If F occurs, at most one vertex of F per prime (vertices
+  at one prime are disjoint). Choose for each `e∈F` one `ℓ` with `f(ℓ)=e`;
+  e is incident to the unique F-vertex at ℓ, and distinct e give distinct
+  ℓ, hence distinct vertices. So `E(K)↪V(K)` per component. Correct.
+* *Multiplicity.* For fixed F only `ℓ∈π(F)` can lie in U, and `f(ℓ)` must be
+  an F-edge at the F-vertex at ℓ: `≤∏_v(1+z deg_F v)≤e^{2z|E(F)|}`. Correct
+  (when F has two vertices at one prime the count may differ, but then
+  `P(F)=0`).
+* *Singles.* Independence of `s_ℓ` (`ℓ∉π(F)`) from F; `(1+z)^{|π(F)|}≤e^{z|V(F)|}`.
+  Correct.
+* *Components.* F ↦ set of its components is injective, `P(F)=∏_K P(K)` or
+  0, so `Σ_F∏_K w_K≤∏_K(1+w_K)`. Correct.
+* *Trees.* `P(K)=P(T)` for a spanning tree (same vertex set); `≤binom(v,2)`
+  extra edges. BFS encoding with nested sums, each inner sum
+  `Σ_{|C|=c, C⊆N(v_i)}∏p ≤ deg(v_i)^c/c!` bounded uniformly, the root factor
+  `deg(v_0)δ^{c_1−1}`, total δ-power `v−2`;
+  `Σ_{c_1+…+c_v=v−1}∏1/c_i! = v^{v−1}/(v−1)! = v^v/v! ≤ e^v`;
+  `Σ_{v_0}p(v_0)deg(v_0)=2S_2`. Correct.
+* *Sum.* `1+(j+2)²/2=3+2j+j²/2`; I recomputed
+  `Σ_j(3+2j+j²/2)e^{−j}=3·1.5820+2·0.9207+½·1.9922=7.583`, so the factor
+  `2·7.583≤16` holds.
+
+Degree condition: used only via `e^{3z+1}δ≤e^{−1}`, i.e. `δ≤e^{−3z−2}`,
+exactly as stated. Remark (i) is right: a complete bipartite hub on vertices
+of degree ≤δ is allowed; what is forbidden is a *vertex* of large degree,
+and Lemma 2.2 removes those.
+
+**D1 (MINOR, Lemma 2.1 *Trees*, "this is injective").** The encoding
+`(v_0; C_1,…,C_v)` is injective on *rooted* trees, and every tree is
+counted once per root; the subsequent bound sums over `v_0`, so the
+inequality is right but "injective" should read "each tree is recovered
+from (v_0, C_1, …) for every choice of root; we overcount by a factor v".
+Also the edge graph must be *simple* (`C_i⊆N(v_i)`): the text never says
+that two atoms producing the same class mod `ℓℓ'` give one edge. The
+script dedups (`edges` is a dict keyed by vertex pair), so only the prose
+needs "edges are distinct classes mod ℓℓ'; repeated atoms are merged".
+
+Not tested numerically: the hypothesis `δ≤e^{−50}` makes any finite
+instance meaningless, and the author says so (§6). The proof is short and
+checked by hand above.
+
+### Item 5 — Lemma 2.2 (forbidding hub vertices, Markov cost): **SOUND**
+
+`Σ_{v∈H at ℓ}p(v)≤Σ_{v at ℓ}p(v)deg(v)/δ=w_ℓ/δ` because
+`Σ_v p(v)deg(v)=Σ_{edges at ℓ}p(u)p(w)` (each edge at ℓ has exactly one
+endpoint at ℓ, since edges join distinct primes); `Σ_ℓ w_ℓ=2S_2`.
+"No new event ⇒ no old event": an old edge through `v∈H` occurring forces
+`X_{ℓ_v}∈V_v⊆S^+_{ℓ_v}`. Degrees of surviving vertices only drop; vertices
+in H have no edges left. Correct and genuinely cheap: under (W)
+(`w_ℓ≤δ/32`) a hub vertex even has `p(v)<1/32` individually.
