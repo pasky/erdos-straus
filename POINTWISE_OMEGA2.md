@@ -1147,6 +1147,99 @@ write `q_O=∏_{v∈O}ℓ_v^{e_v}`, where `ℓ_v^{e_v}` is the modulus of v.
 * Whether this is affordable is exactly the open cost question of §10.4.
 * The more promising route is a sharper Lemma 10.2.
 
+## 11. Iterated quarantine: per-prime masses for free, and the Haar bound `log(1/δ*(T)) ≤ T^{o(1)}`
+
+PO §9 left the per-prime hypothesis H_PP open. PO Thm 9.3 removed bad
+primes once and used crude bounds for the rest. Here we iterate the
+removal, and we count the bad primes with a mass that is uniform over all
+quarantines.
+
+**Lemma 11.1 (uniform mass; PROVED).** Put
+`S* := Σ_{(M,D)} max_Π 1[(M,D) survives Π]/φ(r_Π(M))`. The sum is over all
+atoms `M≤T`, `M≡3 (4)`, `D|A_M²`, and the max is over all sets Π of primes
+(survival as in §4). Then
+
+```
+S* ≤ C log log T·(3+log T)·Σ_{sr'²≤T, s squarefree} τ(4sr'²+1)/(sr') ≤ exp(O(log T/log log T)),
+```
+
+and `S* ≪ (log T)^4 log log T` modulo Elsholtz–Tao Prop. 1.4 (as in PO
+Lemma 9.2).
+
+*Proof.* If (M,D) survives Π, then `m_Π` divides `g:=gcd(M,4D+1)`, so
+`1/φ(r_Π) ≤ C log log T·m_Π/M ≤ C log log T·g/M`. The proof of Lemma 4.1
+applies with `m:=g`, for three reasons:
+
+* the involution `D↦A²/D` preserves `g`, since `m|M`, `m|4D+1` imply
+  `m|4A²/D+1` and conversely;
+* writing `D=sr'²`, `A=sr'k`, we get `g|r'+k`;
+* for fixed `(s,r')`, each k determines M and D, hence g, and
+  `g|4sr'²+1`.
+
+So the k-sum gives `Σ_{m|4sr'²+1}(3+log T)`. ∎
+
+**Lemma 11.2 (iterated quarantine; PROVED).** Fix `z≥2`, put
+`k:=⌊log T/log z⌋` and `0<c_0≤1`, and start from `Π_0={ℓ≤z}`. Repeat
+until nothing changes: add to Π every free prime ℓ (i.e. `ℓ>z`, `ℓ∉Π`)
+with `w_ℓ(Π)>c_0`.
+
+* Here `w_ℓ(Π)` is the Haar mass of the distinct events (singles
+  included) surviving Π whose rough part is divisible by ℓ.
+* The procedure stops at some `Π=Π_0∪𝓑` with `|𝓑| ≤ kS*/c_0`.
+* At the end, every free prime has `w_ℓ(Π)≤c_0`.
+
+*Proof.* Let `ℓ∈𝓑` be added at stage i. Then
+`c_0 < w_ℓ(Π_i) ≤ Σ_{atoms with ℓ|r_{Π_i}(M)} 1/φ(r_{Π_i}(M))`, since the
+distinct events are at most the atoms. Each such term is at most the atom's
+contribution to S*. Summing over `ℓ∈𝓑`, an atom is counted at most once
+for each prime `>z` dividing M, and there are at most k of those. ∎
+
+**Theorem 11.3 (Haar side; PROVED, the polylog form modulo Elsholtz–Tao
+Prop. 1.4).**
+
+```
+log(1/δ*(T)) ≪ (log T)^3·(S*+1),
+```
+
+hence `log(1/δ*(T)) ≤ exp(O(log T/log log T)) = T^{o(1)}` unconditionally,
+and `log(1/δ*(T)) ≪ (log T)^{7}(log log T)` modulo ET Prop. 1.4.
+
+This improves PO Thm 9.3 (`T^{1/3+o(1)}`). The second form is the
+polylogarithmic Haar bound that PO §9 (Thm 9.4) had only conditionally on
+H_PP.
+
+*Proof.* Take `z=(log T)^2`, so `k ≤ log T/(2 log log T)`, and
+`c_0=1/(8k)`. Apply Lemma 11.2. The class of one modulo
+`Q_Π=lcm(24,ℓ^{e_ℓ}:ℓ∈Π)` has relative Haar measure
+`8/φ(Q_Π) ≥ exp(−(π(z)+|𝓑|)log T)` within `1 (24)`.
+
+On it, the free coordinates are independent and uniform on units. The
+events are the distinct surviving events; "no event" implies `W>T`, as in
+Lemma 4.3 (I). Every event has at most k free primes, and
+`P(E) ≤ w_ℓ ≤ c_0 ≤ 1/8`.
+
+The local lemma with `x_E=2P(E)` applies:
+`Σ_{E'∼E}x_{E'} ≤ 2kc_0 = 1/4`, so `∏(1−x) ≥ e^{−1/2} ≥ 1/2`. It gives
+`P(no event) ≥ ∏_E(1−x_E) ≥ exp(−4S_tot(Π)) ≥ exp(−4S*)`. Hence
+
+```
+log(1/δ*) ≤ (π(z)+kS*/c_0) log T + 4S* ≤ (log T)^3 + 8k²S* log T + 4S* ≪ (log T)^3(S*+1).  ∎
+```
+
+*Remarks.*
+
+* The PO EVIDENCE `−log δ* ≍ (log T)^{2.3…2.6}` is consistent with this.
+  So the true order is now proved polylogarithmic up to the exponent
+  (modulo ET).
+* Under PO's random approximation RA (POINTWISE_SIZE §7.3), the Haar scale
+  predicts that W(p) exceeds every power of log p infinitely often.
+  *Assessment only*: the prime side does not follow, see §11.4.
+* Lemma 11.2 also removes the per-prime conditions (G), (W) from every
+  prime-side construction: any fixed c_0 is reachable with `T^{o(1)}`
+  extra quarantined primes, i.e. `log Q` grows by `T^{o(1)}`. On the
+  prime side the remaining requirement below θ=1/3 is therefore **only**
+  the codegree condition.
+
 ## Replay
 
 ```
