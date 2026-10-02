@@ -542,3 +542,56 @@ uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
 uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~1 min -> data/omega2/checkI.txt
 uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
 ```
+
+## 8. Checkpoint 2: single-coordinate masses are Elsholtz–Tao Type I counts
+
+Notation: Elsholtz–Tao (arXiv:1107.1010, archived as
+`sources/elsholtz-tao-1107.1010.pdf`; cited as ET) define `Σ_I^n` as the set
+of sextuples `(a,b,c,d,e,f)` obeying their (2.1)–(2.9), e.g.
+
+```
+4abd = ne+1,  ce = a+b,  4acd = n+f,  ef = 4a²d+1,  bf = na+c.
+```
+
+Put `F_I(n) := #{(a,b,c,d,e,f) ∈ ℕ⁶∩Σ_I^n : a≤b}`.
+
+**Lemma 8.1 (dictionary; PROVED).** Let `r>1` be odd. Consider the atoms
+`(M,D)` with `M=mr≡3 (4)`, `D|A_M²`, `m|4D+1`, `D≤A_M` (any `m≥1`). They
+correspond bijectively to the points of `ℕ⁶∩Σ_I^r` with `a≤b` and d
+squarefree, via
+
+```
+a=r',  b=k,  c=(r'+k)/m,  d=s,  e=m,  f=(4D+1)/m,    where D=sr'², A_M=sr'k (s squarefree).
+```
+
+The atom's class is `−4D ≡ −a/b (mod r)`. Consequently the number `E(r)` of
+distinct classes mod r carried by atoms with rough part r (for any
+quarantine, including partners `A²/D`) satisfies `E(r) ≤ 2F_I(r)`.
+
+*Proof.* PO Lemma 2.3/9.1 shows `m|r'+k`, so c is a positive integer. Then:
+
+* (2.1) holds: `4abd=4sr'k=4A_M=mr+1`.
+* (2.2) is the definition of c.
+* (2.7) holds: `ef=4sr'²+1=4a²d+1`.
+
+ET note that (2.1), (2.2) and (2.7) with nonzero entries imply the
+remaining identities. For instance
+`f(4acd−n) = 4acdf − nf = (a+b)·4adf/e·… `; directly,
+`e(4acd−n−f)·… `. We check (2.6) by hand:
+`e·4acd = 4ad(a+b) = 4a²d + 4abd = (ef−1) + (ne+1) = e(f+n)`. So all nine
+hold. Conversely, a point with `a≤b` and d squarefree gives `D=da²`,
+`A=dab`, `M=ne`, `m=e`. Here `D|A²` and `D≤A`. Also `m|4D+1`, by (2.7).
+And `M=4A−1≡3 (4)`. The map is injective, because `(s,r',k)` determine D
+and A, hence M. Finally, `4A≡1 (r)` gives `−4D = −4A·(r'/k) ≡ −r'/k`. The
+partner class `−(4D)^{−1}` at most doubles the count. ∎
+
+EVIDENCE (`scripts/omega2_ffull.py dict 501`): for every odd `r≤501`
+(primes, prime powers, composites) the atom enumeration via PO's
+`(s,r',v)` parametrisation and the Type I enumeration via `(a,c,d)` give
+identical sets: 4774 atoms, 0 mismatching r. The parametrisation also
+reproduces PO's `F_full(ℓ)` exactly at `ℓ=107, 331, 1031, 3011`.
+
+*Remark.* So `|F_ℓ^{full}|`, the T-independent single-prime forbidden set of
+PO §9, is at most twice the number of Type I representations
+`4/ℓ = 1/(abdℓ) + 1/(acd) + 1/(bcd)`. The Lemma 9.1 "atoms" are exactly
+the Type I solutions of ES for the rough part.
