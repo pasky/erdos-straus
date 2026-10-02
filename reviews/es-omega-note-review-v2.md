@@ -204,3 +204,63 @@ are proofs written more tersely than "stand alone" requires (P1, P2) and
 status-label hygiene (P3–P7).
 
 **Verdict: MINOR REVISION.**
+
+---
+
+# Round 4 (side-agent/omega-hub @ 6beaa92)
+
+Imported `paper/es-omega-note.tex` and `POINTWISE_OMEGA2.md` from 6beaa92.
+Build: `pdflatex` ×3, clean, **23 pages, 0 warnings** (no undefined
+references or citations, no overfull boxes).
+
+| # | Status | Evidence |
+|---|---|---|
+| P1 | **FIXED** | `M_1(Φ)` is defined before Lemma `meanmass`. The statement now gives `E|B*−1|≤2·4^{L+1}z^{−L−1}e^{Λ_z}`, derived via Lemma `pointwise`. The proof now spells out the κ identity, the pairwise cancellation, the coverage bound `1_c≤∏_{ℓ∈U}a_ℓ`, unit cells only, and the G-expansion. |
+| P2 | **FIXED** | Thm `crit` proof: `x_E≤1/8`, `1−x≥e^{−1.1x}`, `Σx_E=2(S_1^++S_2^+)`; `M_1≤M_1(B_L)+4^{L+1}M_1(G)≤2e^Λ`; `log(M_1/μ)≤Λ+λ+1`. The twist step now factors `ψ=χ_0ψ'`, conditions on `X_{−ℓ_0}`, swaps `∉Forb` for `∈Forb`, and states the sub-family LLL with `(7/8)(15/16)>0.82`. |
+| P3 | **FIXED** | New Prop `prop:hmin` (Proved) is the construction half of the old proof. The Hypothesis header cites it. The Summary moves `H_min(θ≥1/3)` to *Proved* and keeps only Thm `main`, Thm `Hmin` and Cor `joint` under TZ. |
+| P4 | **FIXED** | New Lemma `ppl` (Proved) isolates the LLL step. Thm `eta` and Remark `rem:pp` cite it. The ET dependence now sits only in the Remark (polylogarithmic `S_tot`). |
+| P5 | **FIXED** | New Prop `prop:a1` (Proved) with a full proof, marked "not used below". |
+| P6 | **FIXED** | The abstract says "points of Elsholtz–Tao's Type I variety". The subsection title and text say "Type I variety `Σ_I^r`". |
+| P7 | **FIXED** | The conventions now define "Proved modulo the proof of X", "Classical", "Proved implication" and "Assessment". Lemma `lll` is "classical, proof included", and Thm `slice-intro` now has a header label. |
+| P8 | **FIXED** | New Cor `cor:joint`, which replaces the exponent-2 joint remark. |
+
+### New items
+
+* **Prop `prop:hmin` (paper): SOUND.**
+  * It is exactly the construction, (I), (W), (G) and the sizes from the
+    reviewed O2 §4, followed by Thm `crit`.
+  * The conclusion (840|Q, `log Q≤5y`, `log max d_i` and `log(M_1/μ)` at
+    most `e^{O(𝓛/log 𝓛)}=T^{o(1)}`, μ>0, twist) matches every clause of
+    Hypothesis `hyp:min` for θ≥1/3. That includes θ=1/3, since
+    `5y=T^{1/3+o(1)}≤T^{1/3+ε}`.
+  * The proof of Thm `main` now starts from it and is otherwise unchanged.
+* **Lemma `ppl` (paper): SOUND.**
+  * It is PO Thm 9.4's first bullet. Re-checked:
+    * `x_E=2/φ(r_E)≤1/2`, since `r_E` has a prime `>z≥3`, so `φ≥4`;
+    * the LLL condition `1/φ≤x_E·e^{−1/2}·…` holds;
+    * `Σ_{E'∼E}x_{E'}≤2Σ_{ℓ|r_E}w_ℓ`;
+    * `1−x≥e^{−2x}` on `[0,1/2]`;
+    * `ω(r_E)≤log T/log z` gives `Σ_{ℓ|r_E}w_ℓ≤1/8`;
+    * `∏(1−x_E)≥exp(−4S_tot)` (distinct events ≤ atoms);
+    * the relative measure of the class of one is `φ(24)/φ(Q_z)=8/φ(Q_z)`.
+  * No ET input is used.
+* **Prop `prop:a1` (paper): SOUND.**
+  * Same argument as O2 Prop 8.2.2 (reviewed Round 2), specialised to a=1.
+  * Re-checked: `ℓ∤c`, `gcd(c,f)|ℓ`, `cf|a(ℓ+f)+c`, `(c−1)(f−1)≤ℓ+1`.
+  * Both branches are `Σ_{j≤2+√ℓ}τ(ℓ+j)`. The final sum carries an
+    `O(√ℓ)` for the `+1` terms.
+  * **COSMETIC:** the proof writes `y=acd, z=bcd` for the denominators,
+    which clashes with the paper's parameter `y`. Use `(X,Y,Z)` or "the
+    denominators".
+* **O2 Cor 5.2 and paper Cor `cor:joint`: SOUND** (Proved modulo TZ).
+  * The primes of Thm `main` are `≡1` mod Q with `24|Q` and every `ℓ≤y`
+    dividing Q. So `p≡1 (24)` and `(p/ℓ)=1`, hence `(ℓ/p)=1`
+    (reciprocity, `p≡1 (4)`).
+  * Lemma `lem:np` (stated for `5≤ℓ≤B`) gives `ck_min(p)>y`.
+  * With `log p≤T^{1/3}e^{O(𝓛/log 𝓛)}` and `y=T^{1/3}e^{2𝓛/log 𝓛}`,
+    `y≥(log p)^{1−o(1)}`. The W-part is Thm 1.1.
+  * The O2 text cites "PO Lemma 8.1" for the same statement; consistent.
+
+**Round 4 verdict:** P1–P8 are all FIXED, and the new items are sound.
+One cosmetic notation clash remains (Prop `a1`). **Recommendation: ACCEPT**
+(the notation fix can go in at proof stage).

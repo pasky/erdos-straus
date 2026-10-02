@@ -480,6 +480,14 @@ infinitely many distinct p. Inverting: if `𝓛 ≥ 4 log log p` then already
   the number of *primes* rather than events, and the Markov-cheap quarantine
   of high-degree hub *vertices* (Lemma 2.2), after which the pseudoforest
   bound (Lemma 2.1) controls the moments.
+* **Corollary 5.2 (joint statement; PROVED modulo Thorner–Zaman).** For
+  infinitely many hard p, jointly `W(p)≥(log p)^{3−o(1)}` and
+  `ck_min(p)≥(log p)^{1−o(1)}`. *Proof.* The primes of Theorem 5.1 are
+  `≡1` mod 24 and mod every prime `ℓ≤y`. Since `p≡1 (4)`, reciprocity gives
+  `(ℓ/p)=(p/ℓ)=1` for odd `ℓ≤y`. PO Lemma 8.1 (`ck_min>B` when
+  `(ℓ/p)=1` for all `5≤ℓ≤B`) gives `ck_min(p)>y`, and
+  `y=T^{1/3}e^{2𝓛/log 𝓛}≥(log p)^{1−o(1)}`. This upgrades PO Cor. 8.2,
+  which had exponent 2 for W. ∎
 * PO Prop. 6.1 (prime-local designs cap at exponent 2) is untouched: the
   design here is not prime-local (two unquarantined primes per modulus are
   allowed).
@@ -579,7 +587,7 @@ quarantine, including partners `A²/D`) satisfies `E(r) ≤ 2F_I(r)`.
 * (2.2) is the definition of c.
 * (2.7) holds: `ef=4sr'²+1=4a²d+1`.
 
-ET note that (2.1), (2.2) and (2.7) with nonzero entries imply the
+By direct computation, (2.1), (2.2) and (2.7) with nonzero entries imply the
 remaining identities; we check the two we use by hand. (2.6):
 `e·4acd = 4ad(a+b) = 4a²d + 4abd = (ef−1) + (ne+1) = e(f+n)`. (2.8):
 `e·bf = b(4a²d+1) = a(ne+1)+b = ane+ce`, so `bf=an+c`. Conversely, a point with `a≤b` and d squarefree gives `D=da²`,
@@ -601,7 +609,7 @@ the Type I solutions of ES for the rough part.
 
 **Proposition 8.2 (sizes of `F_I`).**
 
-1. *(PROVED modulo ET Prop. 1.7, cited.)* `F_I(n) ≤ n^{3/5+O(1/log log n)}`
+1. *(PROVED modulo the proof of ET Prop. 1.7, i.e. its Lemma 2.8 and §3; cited.)* `F_I(n) ≤ n^{3/5+O(1/log log n)}`
    for every n. Hence `|F_ℓ^{full}| ≤ ℓ^{3/5+o(1)}` and
    `g_ℓ^{full}:=|F_ℓ^{full}|/(ℓ−1) ≤ ℓ^{−2/5+o(1)}`. More generally, the
    single-coordinate classes at `ℓ^e` number at most `ℓ^{3e/5+o(1)}`.
@@ -642,7 +650,7 @@ one can obtain purely from the divisor bound". We confirm this for the
 natural determining quantities.
 
 * Each of `e, f, cd, ac, a²d, ab, bd, bf` fixes the point up to
-  `n^{o(1)}` choices, via (2.1), (2.6), (2.9), (2.8), (2.7), (2.1), (2.1)
+  `n^{o(1)}` choices, via (2.1), (2.6), (2.9), (2.8), (2.7), (2.2)+(2.1), (2.1)
   and (2.8) respectively, together with the divisor bound.
 * Consider the box `a≍n^{2/5}, c≍n^{1/5}, d≍n^{2/5}, b≍n^{4/5}`, so that
   `e≍f≍n^{3/5}`. It is consistent with all identities and with Lemma 2.8.
