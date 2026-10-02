@@ -57,3 +57,20 @@ the literal (6.2)); label-modulus ≪ height²; same-label congruence across
 cofactors (now flagged as a gap); prime-power vertices (upper bounds, `S ≤ q`);
 variance remark withdrawn; inflation for `k | Q_F`; Lemma 3.2 dependency
 order; numerics caveats and corrected random-label benchmark.
+
+## Checkpoint 2
+* **(H_O^=) PROVED (Lemma 5.4):** same-canonical-label part `≪ (log L)^{O(1)}`.
+  Data (D fixed / (u′,v′) fixed / D̄ fixed) each impose one condition `d | A`,
+  i.e. one class of the prime partner m mod 4d; Brun–Titchmarsh bounds the
+  tail by `(log L)/φ(d)`; first elements `1/m₀` are charged to the m realising
+  them (≤ 3τ(A²) data per m) and summed with Shiu along the top prime, with j
+  innermost when j is top. Cross-cofactor pairs: AM–GM + activity inflation,
+  not `d | m−m′` (closes the self-review gap). Prime powers only via the
+  pointwise bound (one-line treatment — reviewer please check).
+* **(H_O^≠) still OPEN**, sharply reduced (§5.4): the n-side gives
+  `j | ab′−a′b ≠ 0`, and with j-independent masses the count has a margin of L
+  (`L·L⁶/w₂ = L^{−1}`). The obstruction is that data and their first elements
+  depend on j; the remaining statement is the displayed three-condition
+  incidence count. Lenstra/CHN do not close it.
+* Cor 5.2 is now CONDITIONAL on (H_O^≠) only.
+* Stopping here (context budget).

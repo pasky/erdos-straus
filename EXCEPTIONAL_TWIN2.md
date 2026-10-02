@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TWIN2 — the two-prime Λ² cap (task O3)
 
-Status: **checkpoint 1 (task O3), for parent review.** Labels follow
+Status: **checkpoint 2 (task O3), for parent review.** Labels follow
 `DISCOVERIES.md`. PROVED means proved here and checked internally only.
 Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 `POINTWISE_OMEGA2.md` (PO2).
@@ -20,16 +20,16 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 | **Thm 5.1** | Λ² saving `≤ C_B L^{3/4}(log L)^C + 11E_PΣ_jρ_jS_j` for ℛ(M)-families, `M ≤ X = e^L`, `M ≤ P(M)^{1+B}`, ≤ 2 primes above `(log X)^8`, twins included | PROVED |
 | (H_O) | off-diagonal / deadly-value term `E_PΣρ_jS_j ≪ α^{−3}(log L)^{O(1)}` | OPEN |
 | Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′` | PROVED (the canonical-label remarks after it are heuristic bookkeeping) |
-| (H_O^=) | same canonical label part, Brun–Titchmarsh | SKETCH, with a substantive gap (cross-cofactor pairs) |
-| (H_O^≠) | different-label agreements mod j | OPEN; EVIDENCE: at or below random in all 6 tested rows |
-| Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O) |
+| **Lemma 5.4** | (H_O^=): same-canonical-label part `≪ (log L)^{O(1)}` (Brun–Titchmarsh in the partner prime, first elements charged to their m, Shiu with j innermost when j is top) | PROVED (prime powers via pointwise bound; checkpoint 2) |
+| (H_O^≠) | different-label agreements mod j; reduced (§5.4) to a three-condition incidence count `#{(j,θ,θ′): d_θ \| A_{kjm}, d_{θ′} \| A_{k′jm′}, j \| a_θb_{θ′}−a_{θ′}b_θ ≠ 0}`; the j-independent version has margin L | OPEN; EVIDENCE: at or below random in all 6 tested rows |
+| Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O^≠) |
 
 **Bottom line.** The two-prime Λ² cap is reduced from TW's analytic
 factorisation problem (6.3) plus unwritten Reduction steps to a single
-arithmetic inequality (H_O) about divisors of `(kjm+1)²/16` in residue
-classes mod the large prime j. Its same-label half has an identified
-mechanism (sketched); its cross-label half is open, with numerics at or
-below the random prediction. The cap is stated in `L = log X` (moduli
+arithmetic inequality about divisors of `(kjm+1)²/16` in residue classes
+mod the large prime j. Its same-label half (the deadly values) is PROVED
+(Lemma 5.4); its cross-label half (H_O^≠) is open, reduced to an incidence
+count (§5.4), with numerics at or below the random prediction. The cap is stated in `L = log X` (moduli
 `≤ X`, level `λ ≤ A₀L`), as in ET Cor 3.4, not in λ alone.
 
 ## 1. The binary noise-stability bound (log form of (6.2)), without the factorisation (6.3)
