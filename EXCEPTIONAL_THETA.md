@@ -27,7 +27,7 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 | Thm 5.5 | **Λ² sieve limit for arbitrary systems** (no slice structure): for g ∈ level λ/2 with g ≥ 1 on A, `saving(g²) ≤ αλ/2 + Ξ_A(α)`, where Ξ_A is the noise-stability excess. This reduces balanced moduli, for Λ², to hypothesis H_MS^{Sel}. | PROVED; H_MS^{Sel} open |
 | Cor 3.5 | Polylogarithmic multipliers, or multipliers whose lcm is at most N (the 2/3 note's architecture), cap the saving at `C L^{2/3}(log L)^{1/3}`. **The 2/3-loglog note is sharp for its architecture.** | PROVED (given the notes' BT upper bounds) |
 | Lemma 2.9 | **Coefficient budget ⇒ level** (added by review-theta-2). A majorant with coefficient sum T and slice primes `≤ e^{Λ₀}` can be coarsened to level `Λ₀ + log T + log(1/Eν)` at most doubling its mean. | PROVED |
-| §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, budget). For the 3/4 note the budget is its coefficient sum `T_abs ≤ N^{1/2}`, which forces level `λ ≲ log N` via Lemma 2.9. For the 2/3 note it is the large-sieve level `Q² ≤ N/L_K`. Bonferroni depth, the BV level and the selector cannot improve the exponent (PROVED). That alternatives attain the same order up to constants is EVIDENCE (§2.5). | PROVED (Lemmas 4.1–4.4), except the EVIDENCE part |
+| §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, budget). For the 3/4 note the budget is its coefficient sum `T_abs ≤ N^{1/2}`, which forces level `λ ≲ log N` via Lemma 2.9. For the 2/3 note it is the large-sieve level `Q² ≤ N/L_K` together with `L_𝒦 ≤ N` (Lemma 4.4). Bonferroni depth, the BV level and the selector cannot improve the exponent (PROVED). That alternatives attain the same order up to constants is EVIDENCE (§2.5). | PROVED (Lemmas 4.1–4.4), except the EVIDENCE part |
 | §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed via H_A3, which is proved from Elsholtz–Tao Prop. 1.4 (§3.7). Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
 | §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. | EVIDENCE |
@@ -648,7 +648,10 @@ fibres. In particular, no such architecture whose final bound is
 `N·Eν + (nonnegative rounding bound)` gives
 `E(N) ≤ N exp{−(log N)^{3/4}·ω(N)}` with `ω → ∞`. This includes
 `ω = (log log N)^ε`, provided the selector satisfies
-`log log log P = o((log N)^{3/4})`.
+`log log log P = o((log N)^{3/4})`. Here "such" includes the hypothesis
+`λ ≤ A·log N`. By Lemma 2.9 that hypothesis may be replaced by: the
+rounding bound is `Σ|a_i| < N`, and the family's slice primes are
+`≤ N^{O(1)}`.
 
 *Proof.* Three checks.
 * Since `q₀ ≤ ℓ^C` and `|ℛ(M)| ≤ M^{o(1)}`, we have
@@ -705,14 +708,19 @@ satisfies
 
     log(1/Eν) ≤ C₈(A,C) (log N)^{3/4} + log(Q₀/|R|).
 
-The last term is `O_C(1)`. A `w₀`-smooth modulus is at most `w₀^{1+C}`, so
-there are finitely many. Moreover **no forced class contains n = 1**, because
+The last term is `O_C(1)`, although Q₀ itself is not bounded. Q₀ depends on
+the family and can be astronomically large, because the w₀-smooth parts of
+the moduli are unbounded. Only the ratio `Q₀/|R| ≤ L'` enters, with L'
+defined below and `L' ≤ e^{O(w₀^{1+C})}`. A `w₀`-smooth *modulus* is at most
+`w₀^{1+C}`, so there are finitely many. Moreover **no forced class contains n = 1**, because
 4/1 is not a sum of three unit fractions. So `c ≡ 1 (mod L')` lies in R,
 where `L' = lcm(P_{w₀}, w₀-smooth moduli)`, and hence
 `|R|/Q₀ ≥ 1/L' = e^{−O_C(1)}`.
 
 *Proof.* Take windows `W_j = (e^{s₀C^{−j+1}}, e^{s₀C^{−j}}]` for j ≥ 1,
-with `s₀ = log w₀`, so `W₁ = (w₀, w₀^{1/C}]`. Attach condition C to
+with `s₀ = log w₀`, so `W₁ = (w₀, w₀^{1/C}]`. Write `s_j = s₀C^{−j+1}`
+for the log of the *lower* endpoint of W_j, so that `W_j = (e^{s_j}, e^{s_j/C}]`.
+Attach condition C to
 `ℓ(C) = ℓ(M)`.
 
 *(U) holds.* ℓ(M) exceeds √M, so it occurs to exponent one. Every other
