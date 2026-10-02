@@ -665,6 +665,98 @@ $\sum_{v\in H\text{ at }\ell}p(v)\le\sum_{v\text{ at }\ell}p(v)\deg(v)/\delta=w_
 and $\sum_\ell w_\ell=2S_2$.
 \end{proof}
 
+\section{An abstract criterion}\label{sec:crit}
+
+\begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
+Let $\mathcal A$ be finitely many events in a product probability space, each
+depending on a finite set of coordinates; write $A'\sim A$ if they share a
+coordinate.  Suppose $x_A\in[0,1)$ satisfy
+$P(A)\le x_A\prod_{A'\sim A}(1-x_{A'})$.  Then
+$P(\bigcap_{\mathcal A}\bar A)\ge\prod_{\mathcal A}(1-x_A)$, and for every event $B$
+depending on a set of coordinates,
+$P(B\mid\bigcap_{\mathcal A}\bar A)\le P(B)\prod_{A\in\Gamma(B)}(1-x_A)^{-1}$, where
+$\Gamma(B)$ is the set of $A\in\mathcal A$ sharing a coordinate with $B$.
+\end{lemma}
+
+\begin{proof}
+The first statement is \cite[Lemma~5.1.1]{AS}, whose proof shows
+$P(A\mid\bigcap_{A'\in\mathcal S}\bar A')\le x_A$ for every $\mathcal S\subseteq\mathcal A$
+with $A\notin\mathcal S$.  For the second (cf.\ \cite[Thm.~2.1]{HSS}), $B$ is
+independent of $\bigcap_{A\notin\Gamma(B)}\bar A$, so
+\[
+ P\Big(B\ \Big|\ \bigcap_{\mathcal A}\bar A\Big)
+ \le\frac{P(B)\,P(\bigcap_{A\notin\Gamma(B)}\bar A)}{P(\bigcap_{\mathcal A}\bar A)}
+ =\frac{P(B)}{P(\bigcap_{\Gamma(B)}\bar A\mid\bigcap_{A\notin\Gamma(B)}\bar A)},
+\]
+and the chain rule with the displayed claim bounds the denominator below by
+$\prod_{\Gamma(B)}(1-x_A)$.
+\end{proof}
+
+\emph{Congruence systems.}  Fix $Q$ with $2\mid Q$, a finite set $\mathcal P$ of
+primes coprime to $Q$, and exponents $e_\ell\ge1$; put $X_\ell=n\bmod\ell^{e_\ell}$.
+The Haar measure is the uniform measure on $\prod_\ell(\mathbb Z/\ell^{e_\ell})^\times$;
+in it Theorem~\ref{thm:transfer} computes $\mu$.  A single is a set $S_\ell$ of
+unit classes mod $\ell^{e_\ell}$, a vertex a unit class mod $\ell$ (so
+$p(v)=1/(\ell-1)$), an edge a unit class mod $\ell\ell'$.  The pointwise
+statements of \S\ref{sec:supp} hold for every integer $n$ (non-unit residues
+trigger no event).
+
+\begin{theorem}[Proved]\label{thm:crit}
+Let $\delta=e^{-50}$ and consider a graph-type congruence system with
+\begin{enumerate}
+\item[(G)] $g_\ell\le1/32$ for all $\ell\in\mathcal P$;
+\item[(W)] $w_\ell\le\delta/32$ for all $\ell\in\mathcal P$;
+\item[(I)] for every integer $n\equiv1\pmod Q$ at which no single and no edge
+occurs, $W(n)>T$.
+\end{enumerate}
+Put $\Sigma=S_1+S_2$.  Then there is a minorant $B$ as in
+Theorem~\ref{thm:transfer} (moduli coprime to $Q$, unit classes,
+$B(n)\le\mathbf 1[W(n)>T]$ for $n\equiv1\ (Q)$) whose moduli are products of at
+most $C(\Sigma+1)$ of the $\ell^{e_\ell}$, with $\mu\ge\exp(-C(\Sigma+1))$,
+$\log(M_1/\mu)\le C(\Sigma+1)$, and $|\mu_\psi|\le\mu/4$ for every real primitive
+$\psi$ as in Theorem~\ref{thm:transfer}.  Here $C$ is absolute.
+\end{theorem}
+
+\begin{proof}
+\emph{Hubs.}  Apply Lemma~\ref{lem:hub} with $\delta$: by (W),
+$g_\ell^+\le1/16$, $S_1^+\le S_1+2S_2/\delta$, all degrees are $\le\delta$, and
+(I) persists.  Let $A(n)$ be the occurring events of the new system.
+
+\emph{Local lemma.}  Apply Lemma~\ref{lem:lll} to all singles and edges with
+$x_E=2P(E)$.  For a single at $\ell$ the neighbours are the edges at $\ell$ and
+$\prod(1-x)\ge1-2w_\ell\ge1/2$; for an edge at $\ell,\ell'$,
+$\prod(1-x)\ge(7/8)^2(1-2w_\ell-2w_{\ell'})\ge1/2$.  Hence
+$P(A=\emptyset)\ge\prod(1-x_E)\ge e^{-\lambda}$ with $\lambda=3(S_1^++S_2)$.
+
+\emph{Minorant.}  With $\Lambda=\Lambda_{16}\le16S_1^++16e^{98}S_2$
+(Lemma~\ref{lem:pseudo}), let $L$ be least with $4^{L+1}\ge200e^{\Lambda+\lambda}$
+and $B=B^*_L$ (Lemma~\ref{lem:pointwise}), expanded into unit classes.  Then
+$B\le\mathbf 1[A=\emptyset]\le\mathbf 1[W>T]$ on $n\equiv1\ (Q)$;
+$E|B-\mathbf 1[A=\emptyset]|\le P(A=\emptyset)/100$ (Lemma~\ref{lem:meanmass}), so
+$\mu\ge0.99e^{-\lambda}$; $M_1\le2e^\Lambda$; and each term involves at most
+$2(L+1)$ primes.  All of $\Lambda,\lambda,L$ are $O(\Sigma+1)$.
+
+\emph{Twist.}  Let $\psi$ be real primitive of conductor $f>1$, $\gcd(f,Q)=1$,
+$f\mid d_i$ for some $i$; $f$ is odd and squarefree, with primes in $\mathcal P$;
+fix one, $\ell_0$.  The character sum over a coordinate of $f$ not dividing
+$d_i$ vanishes, so $\mu_\psi=E[B\psi]$ and
+$|\mu_\psi|\le E|B-\mathbf 1[A=\emptyset]|+|E[\mathbf 1[A=\emptyset]\psi]|$.  Let $\bar A'$
+be the event that no event avoiding $\ell_0$ occurs.  Then
+$\mathbf 1[A=\emptyset]=\mathbf 1_{\bar A'}\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where
+$\mathrm{Forb}$ (depending on $X_{-\ell_0}$) is $S^+_{\ell_0}$ together with the vertices
+at $\ell_0$ joined to an occurring vertex.  Since $(\cdot/\ell_0)$ has mean $0$,
+$|E[\mathbf 1[A=\emptyset]\psi]|\le P(\bar A'\cap\{\text{an event at }\ell_0\text{ occurs}\})$,
+which is at most
+\[
+ P(\bar A')\Big(g^+_{\ell_0}+\sum_{\{u,w\},\,u\text{ at }\ell_0}p(u)P(w\mid\bar A')\Big)
+ \le P(\bar A')\big(\tfrac1{16}+1.22w_{\ell_0}\big)<0.064\,P(\bar A'),
+\]
+using Lemma~\ref{lem:lll} for $B=\{X_{\ell_w}\in V_w\}$, whose neighbours (the single
+and the edges at $\ell_w$) have $\prod(1-x)>0.82$.  As
+$P(A=\emptyset)\ge0.936P(\bar A')$, we get
+$|\mu_\psi|<0.08P(A=\emptyset)<\mu/4$.
+\end{proof}
+
 \section{Limits of the method}\label{sec:limits}
 
 \subsection{Complete certificates}
@@ -1014,6 +1106,8 @@ Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 \bibitem{GR} S.~W.~Graham and C.~J.~Ringrose, Lower bounds for least quadratic
 non-residues, in: Analytic Number Theory (Allerton Park, 1989), Progr.\ Math.\ 85,
 Birkh\"auser, 1990, 269--309.
+\bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
+the Lov\'asz local lemma, J.\ ACM 58 (2011), no.~6, Art.~28.
 \bibitem{HW} G.~H.~Hardy and E.~M.~Wright, An Introduction to the Theory of
 Numbers, 6th ed., Oxford, 2008.
 \bibitem{LW} Y.-K.~Lau and J.~Wu, On the least quadratic non-residue,
