@@ -24,7 +24,10 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 | (H_O^≠) | different-label agreements mod j; reduced (§5.4) to a three-condition incidence count `#{(j,θ,θ′): d_θ \| A_{kjm}, d_{θ′} \| A_{k′jm′}, j \| a_θb_{θ′}−a_{θ′}b_θ ≠ 0}`; the j-independent version has margin L | OPEN; EVIDENCE: at or below random in all 6 tested rows |
 | Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O^≠) |
 
-**Bottom line.** The two-prime Λ² cap is reduced from TW's analytic
+**Bottom line.** For moduli with `M ≤ P(M)^{1+B}` (B fixed — a genuine
+restriction relative to TW Red 6.7/Conj 6.8, which promised "no B"; for fixed
+B, twins `kℓ₁ℓ₂` with a w₂-smooth cofactor `k > M^{(B−1)/(B+1)}` are
+excluded), the two-prime Λ² cap is reduced from TW's analytic
 factorisation problem (6.3) plus unwritten Reduction steps to a single
 arithmetic inequality about divisors of `(kjm+1)²/16` in residue classes
 mod the large prime j. Its same-label half (the deadly values) is PROVED
@@ -173,7 +176,9 @@ degree can have different avoidance probabilities; cf. TW review T15.)
 **Remark 1.6 (TW's (6.2) as literally stated is false; review of this file).**
 TW (6.2) bounds `E_S E(r−1)² = Z₂/Z₁² − 1`. For n disjoint edges with
 endpoint masses 1/16 and `ρ̃ ≡ 1`, `Z₂/Z₁² = (256/255)^n`, so `Z₂/Z₁² − 1`
-grows exponentially while the right side of (6.2) is linear in n. Only the
+grows exponentially while the right side of (6.2) is linear in n. The same
+holds under TW's own hypothesis `deg ≤ δ₀ = e^{−6}/8`: with endpoint masses
+`ε ≤ δ₀` the left side is `(1−ε²)^{−n} − 1` against `C n ε²(1+2ε)`. Only the
 logarithmic form (1.2) can hold uniformly, and only it is needed.
 
 ## 2. Fibre tilting with an arbitrary fibre law; free hub quarantine
@@ -247,8 +252,8 @@ and (with `γ(p) = 2p/(p−1)`)
 
 In a fibre c, a class whose modulus is w₂-smooth is *small*; a class
 `kℓ^v` (`ℓ > w₂`) is *unary* at ℓ; a class `kℓ^v m^u` is a binary edge.
-Every class with `N(M) ≤ τ(A²)` classes per modulus; we use only this
-count, so all bounds hold for every subfamily of the maximal family.
+Each modulus carries `N(M) ≤ τ(A²)` classes, and only this count is used,
+so all bounds hold for every subfamily of the maximal family.
 
 **The fibre law P.** Three stages.
 1. `c_s := c mod (W₁-smooth part)` has the QR law of TW Lemma 1.3 at the
@@ -316,8 +321,9 @@ Euler-product facts, valid for L large (all products over `p ≤ w₂`):
     Σ_{k w₂-smooth} Γ(k)(log 2k)^i / φ(k) ≪_i (log L)^{O(1)},
     Σ_{k,k′ w₂-smooth} Γ(lcm(k,k′))/lcm(k,k′) ≪ (log L)^{O(1)}.          (3.1)
 
-*Proof.* `(log 2k)^i ≤ i!·(log w₂)^i·(2k)^{1/log w₂}` and `p^{1/log w₂} ≤ e`, so
-the first is `≤ i!(log w₂)^i·e·Π_{p≤w₂}(1 + eΓ(p)/(p−1) + O(p^{−2}))`, with
+*Proof.* All k are odd (moduli are odd). `(log 2k)^i ≤ i!·(log w₂)^i·(2k)^{1/log w₂}`
+and `p^{1/log w₂} ≤ e`, so (the prime-power tails being `≪ 1` for `p ≤ 5` and
+`O(p^{−2})` beyond) the first is `≤ i!(log w₂)^i·e·Π_{p≤w₂}(1 + eΓ(p)/(p−1) + O(p^{−2}))`, with
 `Γ(p) ≤ 3`. The second has Euler factors
 `1 + Γ(p)Σ_{(e,e′)≠(0,0)}p^{−max(e,e′)} = 1 + 3Γ(p)/p + O(p^{−2})`. Both
 products are `≪ (log w₂)^{9e} ≪ (log L)^{O(1)}`. ∎
@@ -402,6 +408,11 @@ inflation of Lemma 3.2(1), which only involves w₂-smooth k, and (ii) Shiu
 along the top prime (Lemma 3.3), which needs no weights at all. The
 B-hypothesis `M ≤ P(M)^{1+B}` is what makes (ii) available (`k ≤ P^B`), and
 it removes TW Lemma 2.6's large-divisor constant `exp(O(W₁^{1/4}))`.
+**Uses of the B-hypothesis (review D3):** (a) Lemma 3.3/Shiu along the top
+prime (`k ≤ P^B`), in Lemmas 4.1, 3.4 (`w^{>,1}`), 5.4(iv); (b) small moduli
+are `≤ w₂^{1+B}`, giving `τ ≤ C_εL^{1/32}` for `G_s` (Lemma 3.4); (c) the
+pointwise bounds `τ ≤ C_ε(top prime)^{1/256}` for unary, j-top binary and
+prime-power terms (Lemmas 3.4, 4.1, 5.4).
 
 ## 5. Assembly; the remaining inequality (H_O)
 
@@ -673,9 +684,15 @@ claim, `|ab′−a′b| < 2·(j/2) = j`. ∎
 `d ≥ (height/4)^{1/2} ≫ j^{1/4} ≥ L²`. In Lemma 5.4(i) such a datum has
 Brun–Titchmarsh part `≤ C(log L)/φ(d) ≪ L^{−2+o(1)}`, and Lemma 5.5 bounds the
 number of light labels of height `≤ H` in a residue class by `1 + 7H²/j`.
-Summing dyadically in H, the BT parts of light labels in one class total
-`≪ (log L)^{O(1)}(1 + L^{O(1)}/j^{1/2})`, so their cross contribution is
-`≪ Σ_j (ρ_j/j)·L³·(log L)^{O(1)}/j^{1/2}... ` — negligible for `j > L⁸`.
+Summing dyadically in H (labels with BT part need `d ≤ X`, and the number
+of data per label is ≤ 3·2^{ω(d)}), the BT parts of light labels in one
+class total `≪ (log L)^{O(1)}·L^{−2+o(1)}·(1 + L^{O(1)}/j)` — SKETCH: the
+exact exponent bookkeeping (height vs d for the three datum types) is not
+written. Against the total mass `L³` of the partner label, the cross
+contribution is then `≪ Σ_j (ρ_j/j)·L^{1+o(1)} ≪ L^{1+o(1)}`, which is
+**not** below the budget `L^{3/4}` as it stands; a sharper count (the
+`L^{−2}` uses only `d ≫ j^{1/4} ≥ L²`, and `j^{1/4}` grows) would give
+`Σ_j ρ_j j^{−3/2}L^{3+o(1)} = o(1)`. Treat this bullet as SKETCH.
 What remains is exactly the **first-element cross pairs**: light labels
 realised at their *first* partner `m₀`, i.e. effectively a single class
 each, colliding mod j with another class.
@@ -706,8 +723,9 @@ congruences mod j: `4u′v′t ≡ 1`, `4u″v″t″ ≡ 1`, `v′²t ≡ v″�
   the congruences with characters turns `Σ_r v_j(r)²` into
   `j^{−3}Σ_{ψ,χ mod j}|Σ a(u′,v′,t)ψ(u′v′t)(χ²ψ)(v′)(χψ)(t)|²`-type sums
   over a *pair* of characters per j. The multiplicative large sieve over
-  `j ≤ Q` then costs `(X + Q³)·‖a‖²`. That is acceptable only for
-  `j ≤ X^{1/3}`; there it gives H_div for that range (SKETCH, not written).
+  `j ≤ Q` then costs `(X + Q³)·‖a‖²` (heuristic count of the character
+  family; not checked). That could be acceptable only for `j ≤ X^{1/3}`;
+  whether it then gives H_div in that range was not checked.
   The range `j > X^{1/3}` (in particular j the top prime, `m < j`) is not
   covered.
 * *Route (2), n-side dispersion:* reproduces the same sum (§5.4); the
