@@ -423,3 +423,160 @@ The cap of Lemma 4.1 is correct.
   it for reduced c. Non-reduced c have R-weight 0 if R is the reduced
   set, but then `log(L_K/φ(L_K)) ≍ log log K` enters as the R-term.
   * *Fix.* Mention the R-term in Lemma 4.4. It is negligible.
+
+## Item 4 — Lemma 3.7, Lemma 3.8, Theorem 5.5 (+ Prop 5.7, Cor 5.6)
+
+**Verdicts.**
+
+| result | verdict |
+|---|---|
+| Lemma 3.7 | SOUND |
+| Lemma 3.8 | SOUND |
+| Theorem 5.5 | SOUND |
+| Cor 5.6 | SOUND |
+| Prop 5.7 | SOUND |
+
+One minor defect (L1) and one remark (L2).
+
+### 4.1 Lemma 3.7 and Elsholtz–Tao Prop. 1.4
+
+* **The cited statement.** I checked it against `sources/elsholtz-tao-1107.1010.pdf`
+  (p. 6 of the text and §7). Verbatim: "For any A, B > 1, and any positive
+  integer k ≪ (AB)^{O(1)}, one has Σ_{a≤A}Σ_{b≤B} τ(kab²+1) ≪ AB log(A+B)
+  log(1+k)." The squared variable is b.
+* **The mapping.** Lemma 3.7 writes
+  `4rh² = (4st²)·r'h'²`, with linear variable `a = r'`, squared variable
+  `b = h'`, and `k = 4st²`. This matches ET's own use in their (8.2):
+  `k = 4s²t`, with the roles of the variables swapped, since their squared
+  variable is a.
+* **The range of k.** For `st ≤ √x` we have `st² ≤ (st)² ≤ x`, so
+  `k ≤ 4x`. Each rectangle has `AB ≥ Y/2 ≥ √x/2`. So `k ≤ 16(AB)²`, a
+  fixed power, and the implied constant is uniform. The doc's
+  `k ≤ 4x^{3/2} ≪ (AB)³` is a weaker but also valid bookkeeping.
+* **The remaining steps.**
+  * `n/φ(n) ≤ ζ(2) Σ_{d|n} 1/d`, and `Σ_{d|rh} 1/d ≤ Σ_{s|r}Σ_{t|h} 1/(st)`.
+  * The dyadic hyperbola cover by `O(log Y)` rectangles with `AB ≍ Y`.
+  * `Σ log(1+4st²)/(st)² < ∞`.
+  * The tail `st > √x` is `≪ x^{1/2+2ε}`.
+  * The γ-variant.
+
+  All correct.
+* **"Exactly the dyadic form of (3.7)".** ET (8.2) is
+  `Σ_{N/2≤ad≤N} τ(4a²d+1)/φ(ad) ≪ log²N`. Multiplying by N gives the
+  dyadic block of (3.7). Correct.
+* **Numerics (EVIDENCE, own code).** `S(x)/(x log²x)` = 1.99, 1.88, 1.83,
+  1.79 at x = 300, 10³, 3·10³, 10⁴ (`data/theta/review_lemma37.txt`).
+  These are bounded and slowly decreasing.
+* **L1 (minor; §3 "Case A", "This reduction is PROVED").** The claim that
+  Case A of notes Theorem 3.1 reduces to the classes
+  `n ≡ −m⁻¹ (mod 4g(d))`, `m | 4d+1`, is given a one-line justification
+  and labelled PROVED. It is not one of the items under review, and I did
+  not re-derive it. Note that a brute-force check is vacuous here, since
+  ES is verified far beyond any test range. Lemma 3.7 only bounds the
+  supply of these classes; whether they *are* the Case-A family rests on
+  notes Thm 3.1.
+  * *Fix.* Cite the exact notes lines, or add the two-line derivation.
+
+### 4.2 Lemma 3.8
+
+* **Ranges.**
+  * `M ≤ Y^{2+4.5η} = x`.
+  * `M > Y^{2+2.5η}`, so `√M ≥ Y^{1+1.25η} ≥ ℓ₂ = P(M)`: M is balanced.
+  * The triple `(k,ℓ₁,ℓ₂)` is recoverable from M.
+* **Classes.** `−uv⁻¹ (mod M)` lies in ℛ(M) via the multiplier identity
+  with `A = (M+1)/4 = uv·w`. Distinct reduced `(u,v)` give distinct
+  residues mod ℓ₂, since `|uv'−u'v| < z² < ℓ₂`.
+* **Primes in progressions.** The moduli are `q = 4uv ≤ 4Y^{1/4} ≤ y^{1/4}`,
+  inside the BV range. Partial summation gives an error `≪ E**_y(q)/y`.
+  The τ(q)-weighted BV goes via Cauchy–Schwarz against BT. The total error
+  is o(1). Correct.
+* **Lattice step.** Summing eq. latlower of the 3/4 note over the φ(k)
+  unit residues c (k odd) gives `(1/4)(φ(k)/k)²Λ²`. The lemma's
+  requirement `z ≥ K^{20}`, with `H = K^{10}` and `K = Y^{3η}`, is exactly
+  `η ≤ 1/480`. The main term needs `(a,4uv) = 1` with
+  `a = −(kℓ₁)⁻¹`, which holds.
+* **Totals.** `S ≫ η·log Y × log(1+η/2) × c'_η × (log Y)² ≍_η (log x)³`.
+  Correct.
+* **L2 (remark).** Lemma 3.8 measures the *unweighted-by-profile* supply
+  `Σ|ℛ(M)|/M`. That is the right quantity for the claim "not lower order".
+  The doc correctly refrains from claiming that windowing must fail; see
+  its last paragraph of §3.8. No defect.
+
+### 4.3 Theorem 5.5, Cor 5.6, Prop 5.7
+
+* **Theorem 5.5.**
+  * `P(A) ≤ E[g1_A] = ⟨g, Π_V 1_A⟩ ≤ ‖g‖‖Π_V1_A‖`.
+  * `V_{λ/2} = ⊕_{c(T)≤λ/2} H_T`, because the index family is
+    down-closed.
+  * `Σ_{c(T)≤λ/2}‖(1_A)_T‖² ≤ e^{αλ/2}Σ_T e^{−αc(T)}‖(1_A)_T‖² = e^{αλ/2}P(A∩A'_α)`.
+  * `P(A∩A') ≥ P(A)²`, because T_ρ is PSD with `(1_A)_∅ = P(A)`.
+
+  Nonnegativity of g is *not* needed; g² ≥ 0 is automatic. Correct. The
+  claim is honestly restricted to squares g². Nothing is claimed for
+  general majorants on non-slice systems.
+* **Cor 5.6.** A coordinate factor
+  `[ρ(1−p) + (1−ρ)(1−p)²]/(1−p)² = 1 + ρp/(1−p)`. Correct.
+* **Prop 5.7.** J is affine in ρ_ℓ with slope
+  `|F∩F'|/ℓ − pp'`. Correct.
+* **The 0.01015 example.** Recomputed: `P(C∩C') = p·(5/9)(9/25)`, and
+  `Ξ = log(0.88/0.87111) = 0.01015`. Correct.
+* **Numerics (own code, `scripts/review_theta_selberg.py`,
+  `data/theta/review_selberg.txt`).**
+  * *Theorem 5.5.* 25 random arbitrary events on `ℤ/m₁×…×ℤ/m_k`. They
+    include pair and triple AND-conditions, i.e. "balanced" ones. In every
+    instance:
+    * the convex-QP optimum `min E g²` (g ∈ V_{λ/2}, g ≥ 1 on A) ≥ the
+      projection bound `P(A)²/‖Π_V1_A‖²`;
+    * that in turn ≥ `max_α e^{−αλ/2}P(A)²/P(A∩A'_α)`.
+  * *Prop 5.7.* The derivative formula matches central finite differences
+    to 2·10⁻¹⁰ on 10 random events at random ρ.
+* **H_MS^{Sel}** is correctly labelled open. Assessment 5.8 is correctly
+  labelled heuristic, and its non-negligible lower-support terms are
+  disclosed.
+
+## Item 5 — §4 accounting (Lemmas 4.1–4.4) and summary consistency
+
+**Verdict: SOUND-AFTER-REPAIRS.** The repairs are the SC1 rewording, plus
+A1–A3.
+
+* **Lemma 4.1.**
+  * The membership table of item 3.1 confirms every hypothesis.
+  * The cap computation is right:
+    * `α → 0` gives `C₄μ̄ ≤ Ct³`;
+    * `α = (2/t)log⁺(t⁴/λ)` gives `O((λ/t)(1+log⁺(t⁴/λ)))`;
+    * the peak is at `t ≍ λ^{1/4}`.
+  * The R-term is `log(P_y/φ(P_y)) = log log y + O(1)`.
+  * The defect is the attribution of the binding constraint to "level"
+    (SC1).
+* **Lemma 4.2.**
+  * `Q_r(h) = C(h−1,r)`.
+  * In a fibre `H_X = Σ_ℓ x_ℓ` with independent Bernoulli `x_ℓ`, since
+    atoms at one ℓ have disjoint projections (lem:CRT). So `Var H ≤ μ`,
+    and Chebyshev gives ≥ 3/4.
+
+  Correct.
+* **A1 (minor; Lemma 4.3).**
+  * *Problem.* The "proof" re-runs the unpruned-supply theorem with
+    `x^{ϑ'}`. That is a description of a construction, not a proof that
+    *no* use of EH can raise the profile.
+  * *Why the conclusion still holds.* There is a cleaner and fully
+    rigorous reason: Lemma 3.1 bounds the *entire* identity-class supply
+    by `≪ x log²x`, independently of any level of distribution. So
+    Thm 2.5 caps every EH-based variant on Case-B forced classes at
+    `λ^{3/4}`.
+  * *Fix.* Cite Lemma 3.1 (and Lemma 3.2/3.7 for the other groupings) as
+    the reason.
+* **Lemma 4.4.** Correct, given Cor 3.5. See SC2 for the R-term.
+* **A2 (minor; binding table and §0 "PROVED (Lemmas 4.1–4.4)").** The
+  statement "Bonferroni depth … not binding: change constants only" is
+  proved only in the *upper* direction: no alternative beats the cap.
+  §2.5 shows by EVIDENCE only that Selberg attains it up to constants.
+  * *Fix.* Label "constants only" as "cannot improve the exponent
+    (PROVED)". Whether alternatives attain the same constant-order
+    saving is EVIDENCE.
+* **A3 (minor; AGENT_REPORT_A2.md l. 74–76).** "The class contains
+  Vaughan, PW, the 2/3-loglog note and the 3/4 note." For the 3/4 note
+  this is true literally (item 3.1). For Vaughan, PW and LL it is true via
+  Remark 2.6, which covers Montgomery's large sieve, not a majorant.
+  * *Fix.* Say so. Also add the SC1 qualification to the report's "3/4 is
+    sharp" sentence.

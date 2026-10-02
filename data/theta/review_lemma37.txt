@@ -1,0 +1,4 @@
+  Lemma 3.7: x=300: S(x)/(x log^2 x) = 1.9898
+  Lemma 3.7: x=1000: S(x)/(x log^2 x) = 1.8795
+  Lemma 3.7: x=3000: S(x)/(x log^2 x) = 1.8305
+  Lemma 3.7: x=10000: S(x)/(x log^2 x) = 1.7872
