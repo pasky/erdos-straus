@@ -52,6 +52,18 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
    * The open step is a sharper Lemma 10.2. Unconditional estimates stop
      at θ=1/3 (Prop 10.5).
 
+7. **Checkpoint 4 (§11).**
+   * **Theorem 11.3 (PROVED):** `log(1/δ*(T)) ≤ T^{o(1)}`
+     unconditionally, and `≪(log T)^7 log log T` modulo ET Prop. 1.4.
+     This is PO's polylogarithmic Haar target, previously conditional on
+     H_PP. It uses an *iterated* bad-prime quarantine whose size is
+     bounded by a quarantine-uniform mass `S*` (Lemmas 11.1–11.2).
+   * On the prime side the per-prime conditions are now free. Below
+     θ=1/3, the only obstacle is heavy pair codegrees.
+   * The `−4D` hub families (Prop. 11.4) make the natural pair-quarantine
+     fail by a factor log L at every fixed θ<1/3 (named gap G_pair). The
+     prime exponent stays 3.
+
 ## 0. Idea in one paragraph
 
 PO Prop 6.3 shows that inclusion–exclusion truncated by the **number of
@@ -1319,4 +1331,6 @@ uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
 uv run python scripts/omega2_ffull.py dict 2001                 # §8 Lemma 8.1 dictionary, all odd r<=2001, ~20 s
 uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~10 s -> data/omega2/ffull_triples.txt
 uv run python scripts/omega2_ffull.py cmp 107 331 1031 3011      # parametrisation reproduces PO F_full, ~5 s
+uv run python scripts/omega2_iterq.py 10000 20; uv run python scripts/omega2_iterq.py 100000 20   # §11, seconds
+(ulimit -v 10000000; uv run python scripts/omega2_iterq.py 1000000 20; uv run python scripts/omega2_iterq.py 1000000 5)  # §11, ~2 min -> data/omega2/iterq.txt
 ```
