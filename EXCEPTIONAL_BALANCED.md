@@ -494,3 +494,43 @@ uv run --with scipy python scripts/balanced_numerics.py ii 7,11,13,17,19 2
 g++ -O2 -std=c++17 -o /tmp/balanced_void scripts/balanced_void.cpp
 /tmp/balanced_void 4000 1000000000000 30000000000 > data/balanced/void_primes_Q4000.txt
 ```
+
+## 4. Attempt on (★_δ) for B ≥ 1
+
+Setting of §2 (ℛ(M)-grouping). Fix a window prime ℓ and level data:
+* `X` bounds the moduli;
+* `y := ℓ^{1/(1+η)}` bounds the cofactor primes;
+* the *admissible cofactors* are
+  `𝒬_ℓ = {q ≥ 1 : qℓ ≡ 3 (4), qℓ ≤ X, ℓ ∤ q, P(q) ≤ y, q > w₀-part allowed}`.
+
+A history determines `n mod q` for every `q ∈ 𝒬_ℓ`, and
+
+    F_ℓ(n) = { −4D mod ℓ : q ∈ 𝒬_ℓ, D | A_q², q | n + 4D },   A_q := (qℓ+1)/4.
+
+So `p_ℓ(h) = |F_ℓ(n)|/ℓ` for any integer n representing h. (★_δ) asks for
+`|F_ℓ(n)| ≤ ℓ^{1−δ}` on reachable histories.
+
+### 4.1 The (s, r, k) parametrization
+
+**Lemma 4.1 (PROVED).** Write `D = s r²` with s squarefree, so that
+`g(D) = sr`. Then `D | A_q²` iff `A_q = s r k` for some integer k ≥ 1.
+For such a triple:
+1. `gcd(k, q) = gcd(r, q) = 1` and `ℓ ∤ k`;
+2. `q | n + 4D` iff `q | nk + r`;
+3. `−4D ≡ −r·k^{−1} (mod ℓ)`.
+
+Hence
+
+    F_ℓ(n) = { −r k^{−1} mod ℓ : s, r, k ≥ 1, s squarefree, q := (4srk−1)/ℓ ∈ 𝒬_ℓ, q | nk + r }.
+
+*Proof.* `v_p(D) ≤ 2v_p(A)` iff `⌈v_p(D)/2⌉ ≤ v_p(A)`. So `D | A²` iff
+`g(D) | A`, and `g(sr²) = sr`. From `4srk = qℓ + 1`:
+* every common divisor of q with k, r, or with ℓ and k, divides 1, which
+  gives (1);
+* modulo q, `4sr²·k = r·(4srk) ≡ r`, so `k(n + 4D) ≡ nk + r (mod q)`; since
+  k is a unit mod q, this gives (2);
+* modulo ℓ, `4srk ≡ 1`, so `4sr² ≡ r k^{−1}`, which gives (3). ∎
+
+So a value at ℓ depends only on the ratio `r/k mod ℓ`. A class is switched
+on by the single congruence `nk + r ≡ 0 (mod q)` (the POINTWISE_OMEGA
+`D = sr²` trick).
