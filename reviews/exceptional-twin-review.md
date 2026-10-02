@@ -417,3 +417,85 @@ Subject files re-copied from 036ab3c. Defects continue the numbering (T9, …).
 * **T8**: "separately" is now stated. ACCEPTED.
 * **S1**: Remark 1.4 is labelled EVIDENCE (base only), which is honest. Replay of
   `twin_square_base_check.py 40 300 3000` is below.
+
+Replay: `twin_square_base_check.py 40 300 3000` gives 12,000 (a,D)-classes
+with 0 squares and 16,406 Case-A classes with 0 squares, matching the text.
+The script tests for any square (unit or not), which is stronger than the
+unit-square base needs. The CRT step of Remark 1.4 is correct.
+
+### R2.1 Lemma 6.1 (soft unary Prop 2.4) and Lemma 6.2 (composition) — SOUND
+
+Lemma 6.1: write `(y_ℓ, ξ_ℓ)` for the coordinate and its private
+randomness. These pairs are independent across ℓ, and `x_ℓ = x_ℓ(y_ℓ, ξ_ℓ)`.
+Given x, the `y_ℓ` are independent, and the law of `y_ℓ` depends on `x_ℓ`
+only. So `E[f_T | x]` is a function of `x_T`, f̃ is λ-level in x, f̃ ≥ 0,
+and `E_σ f = f̃(0)`. ET Prop 2.4 then gives `E f̃ ≥ f̃(0)e^{−Φ}`, and the case
+f̃(0) = 0 is trivial. The realisation `P(x=1|y) = 1−(1−p)dσ_ℓ/dU_ℓ` lies in
+[0,1] exactly when `dσ_ℓ/dU_ℓ ≤ (1−p)^{−1}`. It gives `P(x=0) = 1−p` and law
+σ_ℓ given x = 0. Correct. Lemma 6.2 is immediate.
+
+### R2.2 Lemma 6.3 (Markov removal) — SOUND-AFTER-REPAIRS
+
+The Markov step is correct. Write σ^×_ℓ for the old unary-conditioned
+product law at ℓ. Then `σ^×_ℓ{c_ℓ > θ} ≤ m_{≥2}(ℓ)/θ`, and the U-mass of the
+removed residues is at most this (`σ^×_ℓ = U/(1−p)` off the old unary set).
+The window sum `≤ r μ_{≥2}/θ` is also correct.
+
+**T9 (LOW; Lemma 6.3, "Afterwards every incident weight is ≤ θ").** The
+incident weights are computed under σ^×. Removal changes σ^×: each
+partner coordinate's density rises by up to `(1−p_ℓ′)/(1−p′_ℓ′) ≤ 4/3`
+while `p′ ≤ 1/4`. So after removal the weights are only `≤ (4/3)^{r−1}θ`.
+Moreover, every removal changes the weights at the partners, so a single
+pass does not reach a fixed point. Fix: remove at threshold
+`θ(3/4)^{r−1}` in one pass computed with the old σ^×. Then all
+post-removal weights are ≤ θ, provided every enlarged unary set stays at
+most 1/4 (see T10).
+
+### R2.3 Proposition 6.5 (Conj 6.4 ⇒ cap for all ℛ(M), M ≤ P(M)^{1+B}) — DEFECTIVE as written (reduction incomplete, fixable)
+
+What checks out:
+* the composition. Lemma 6.1 gives `E_U f ≥ e^{−Φ₁}E_{σ^×}f`. Conj 6.4,
+  with `ν = σ^×`, gives `E_σ f ≤ e^{Φ₂}E_{σ^×}f`. Lemma 6.2 combines them.
+* the cost arithmetic. `d_j = ⌊λ/s_j⌋`, and concavity plus Lemma 2.6 give
+  `E log(2+μ_{≥2,j}) ≪ log λ`. Summing `λ/s_j` over geometric
+  `s_j ≥ λ^{1/4}` gives `≪ η^{−1}λ^{3/4}`, and the `+1` terms give
+  `η^{−1}log λ`. The low range and V are unchanged. A saving of
+  `λ^{3/4} log λ` still means exponent 3/4.
+
+**T10 (MEDIUM; Prop 6.5 proof, "unary part: Lemma 6.1, cost Φ_j^{light}
+with the enlarged profile" and "each coordinate is uniform on a set of
+density ≥ 1−δ_ℓ given the past").** The proof does not say what happens at
+a coordinate where Markov removal pushes the unary set above the cap. The
+caps matter in two places.
+1. **Inflation.** Lemma 2.6's cubic bound needs `γ'(ℓ) − 1 ≪ ℓ^{−κ}` above
+   W. With light unary sets allowed up to density 1/4, `h(ℓ)` is only
+   `O(1)`. Then `Σ_ℓ h(ℓ)/ℓ` diverges, and the window profile gains a
+   factor `(log)^{O(1)}` beyond `s³`. That is fatal for the exponent, not
+   cosmetic. So the enlarged unary sets must still be capped at
+   `δ_ℓ = ℓ^{−1/2}` (or `ℓ^{−κ}`). Pointwise, nothing bounds
+   `m_{≥2}(ℓ)/θ` by `δ_ℓ`; only its `Q'`-mean is controlled.
+2. **Conjecture 6.4's hypothesis.** If ℓ is declared heavy because its
+   enlarged set exceeds the cap, its residues are not removed. Then its
+   incident weights may exceed θ, and Conj 6.4 ("all incident weights
+   `≤ θ`") does not apply to the block.
+
+A repair has to choose one of the following:
+* (a) leak the high-incidence k-ary constraints at such ℓ. This needs a
+  second-moment bound `P(m_{≥2}(ℓ) > θδ_ℓ)` summable in ℓ, a k-ary analogue
+  of Lemma 4.0 that is not proved here;
+* (b) state Conj 6.4 so that it allows high-incidence residues at heavy
+  coordinates.
+
+Until then Prop 6.5 is "PROVED modulo Conj 6.4 **and** the missing
+k-ary incident-mass second moment".
+
+**T11 (LOW; Prop 6.5, "σ_j is sequential and capped, so Lemma 2.1′
+applies").** As noted in R2.0, σ_j has a three-part structure: unary set
+from Lemma 6.1, Markov-removed residues, and k-ary activated residues, with
+separate light tests. It is not the law of Lemma 2.1′. The leak argument
+still works: a completing residue is excluded wherever its part was tested
+light, and Lemma 4.0's total density dominates each part. But it should be
+written as a variant: `𝔏 ≤ Σ_ℓ E[p^{un}_ℓ 1{un heavy}] + Σ_ℓ E[p^{k}_ℓ 1{k heavy}]`.
+Also, in Conj 6.4, "uniform if that set has ν_ℓ-mass > δ_ℓ" should say
+"ν_ℓ" (unary-conditioned), not "uniform". As written it would undo the
+unary conditioning at ℓ.
