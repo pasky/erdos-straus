@@ -611,10 +611,9 @@ the Type I solutions of ES for the rough part.
 
 *Proof of 2.* The point is determined by `(a,c,f)`, by (2.6) and (2.2).
 
-* Since `ℓ∤c` (otherwise `ℓ` divides y and z, and
-  `4/ℓ ≤ 1/x+2/ℓ²` forces `ℓ<x·4…`; directly: ET Prop. 2.11's argument, or
-  `4 = ℓ/x+ℓ/y+ℓ/z ≤ 1+2/ℓ<4`), `g:=gcd(c,f)` divides `ℓa+c` and `ℓ+f`
-  (by (2.8), (2.6)), hence divides ℓ, so `g=1`.
+* `ℓ∤c`: otherwise ℓ divides `y=acd` and `z=bcd` as well as `x=abdℓ`,
+  and `4 = ℓ/x+ℓ/y+ℓ/z ≤ 3`. Hence `g:=gcd(c,f)`, which divides `ℓa+c`
+  and `ℓ+f` (by (2.8), (2.6)), divides ℓ, so `g=1`.
 * Then `f|aℓ+c` and `c|a(ℓ+f)` give `cf | a(ℓ+f)+c`, so
   `(c−a)(f−1) ≤ a(ℓ+1)`.
 * If `f≤1+√(a(ℓ+1))`: we have `f≡−ℓ (mod 4a)` by (2.6). That leaves at
