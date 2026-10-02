@@ -262,8 +262,8 @@ above, and every majorant ν of level `λ ≥ log W`,
 with C absolute and `K = K(W₀(B),B)`. In particular `S_λ ≪_B η^{−1}λ^{3/4}`.
 
 *Proof.* Theorem 2.3 applies by Corollary 2.5. The R-term is
-`log(Q₀/|R_W|) = O_B(1)` (Lemma 1.3). Light coordinates have
-`p_ℓ(h) ≤ p_ℓ(h)`, so Lemma 2.6 bounds the light profile and, by concavity,
+`log(Q₀/|R_W|) = O_B(1)` (Lemma 1.3). The light profile is at most the full
+profile, so Lemma 2.6 bounds it and, by concavity,
 `E log(16μ_j + 16)`. The window sum of `E_{Q'}Φ_j^{light}` is then exactly
 the computation in the proof of EB Theorem 2.5, with `K = K(W,B)` and with
 no heavy-charge term. Multiply by 2 as in (2.1). ∎
@@ -286,3 +286,71 @@ balanced door no longer depends on anything open:
   over B (EB review D19).
 * (a,D)-classes and Case-A classes: Lemma 1.1 is proved for ℛ(M) only.
   EB's balanced analysis is also restricted to ℛ(M).
+
+### 2.4 Numerics: the capped measure on the real system (EVIDENCE)
+
+`scripts/twin_capped.py` samples `Q'` on the full Case-B system (all ℛ(M),
+`M ≤ X`, all types including twin), primes in increasing order (singleton
+windows), QR base for `p ≤ W = 30`. It asserts Lemma 1.3(1) on every sample
+(no class with top prime ≤ W is ever hit; it never fired). Thresholds
+`δ_p = p^{−κ}`.
+
+| X | samples | κ | expected leak `E Σ p 1{heavy}` | realised leak | where |
+|---|---:|---:|---:|---:|---|
+| 10⁵ | 100 | 0.2 | 0.056 | 4% | primes 32–127 only |
+| 10⁶ | 20 | 0.2 | 0.070 | 5% | primes 32–127 only |
+| 10⁵ | 100 | 0 (δ = 1/4) | 5.67 | 100% | primes 32–255 |
+| 10⁵ | 100 | 0.5 | 25.5 | 100% | everywhere below 2¹⁷ |
+
+Reading.
+* With a threshold of order 1/2 just above W (κ = 0.2: `δ_31 ≈ 0.50`),
+  the leak is already far below 1/2 at these toy scales, for the full
+  system, twin included, at both X. No heavy coordinate occurs above 128.
+* The theorem's choice κ = 1/2 is far outside the asymptotic regime here:
+  typical `p_ℓ ≈ (log X)³/ℓ` exceeds `ℓ^{−1/2}` for all `ℓ ≲ (log X)⁶`. The
+  proof allows any fixed `κ ∈ (0,1)` (Lemma 2.6 needs `Σ_p p^{−1−κ/2} < ∞`,
+  Corollary 2.5 needs `Σ_ℓ ℓ^{κ−2+ε} < ∞`), so W₀(B) is large but finite.
+* Right above W the QR base *raises* hit probabilities: classes whose
+  W-smooth part is compatible with the QR residues get weight `≈ 2^{ω}`.
+  Lemma 1.1 caps their contribution at ℓ: every value they produce is a
+  non-residue mod ℓ.
+
+## 3. The extremal statement (E_δ) itself
+
+Theorem 2.7 takes (E_δ) off the critical path. It is not settled here.
+This section records what was found about it.
+
+**Lemma 3.1 (u-form; PROVED).** For every integer n,
+
+    F_ℓ(n) = { −(4u)^{−1} mod ℓ : u = sk², 4sk | qℓ+1, q | 4un+1, q ∈ 𝒬_ℓ }.
+
+So the value depends only on u, and q is activated iff `q | 4un+1`.
+Equivalently, with `N ≡ −(4n)^{−1}` modulo `lcm 𝒬_ℓ`: u is active iff
+`u − N` has a divisor `q ∈ 𝒬_ℓ` with `q ≡ −ℓ^{−1} (mod 4sk)`.
+
+*Proof.* EB Lemma 4.1 gives values `−r/k` with `4srk = qℓ+1`. Modulo ℓ,
+`r ≡ (4sk)^{−1}`, so `−r/k ≡ −(4sk²)^{−1}`. Modulo q, `4srk ≡ 1`, so
+`4sk(nk+r) ≡ 4sk²n + 1`, and `4sk` is a unit mod q. ∎
+
+**Lemma 3.2 (sign constraint; PROVED).** A value v produced at ℓ by a
+cofactor q satisfies `(v|ℓ) = −(n|q)`. In particular, if `(n|q) = 1` for
+every active q, then `|F_ℓ(n)| ≤ (ℓ−1)/2`.
+
+*Proof.* Lemma 1.1 for `M = qℓ`: `(n|q)(v|ℓ) = (−4D|q)(−4D|ℓ) = −1`. ∎
+
+**Heuristic 3.3 (entropy count; HEURISTIC).** The residue of n modulo
+`lcm 𝒬_ℓ^{(B)}` carries `≈ Bπ(y)log ℓ` nats. If the activation sets
+`S_q = {−1/(4u)}` were independent random sets of size `ℓ^{o(1)}`, a first
+moment over sets of m simultaneously active cofactors of size ≈ ℓ^{B'}
+gives `m log m ≲ B π(y) log ℓ`, so `sup_n |F_ℓ(n)| ≈ π(y)ℓ^{o(1)}`. This
+matches Prop 4.3 of EB (dominant witnesses) and the greedy data of EB §4.3.
+It predicts (E_δ) for every `δ < η/(1+η)`. A counterexample would need
+*coherent* activation sets. The only coherent family found is small u
+(`u = 1` is active for every q when `n ≡ −1/4`), and it produces a single
+value; for `n ≡ −r₀/k₀` of small height the count is a divisor sum,
+`(log ℓ)^{O(1)}` on average.
+
+**Status.** (E_δ) is OPEN in both directions. It is no longer needed for
+the balanced door (Theorem 2.7). It remains a natural extremal problem:
+how many cofactors `q ≤ ℓ^B` can a single residue activate with distinct
+values?
