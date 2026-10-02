@@ -501,7 +501,8 @@ Setting of §2 (ℛ(M)-grouping). Fix a window prime ℓ and level data:
 * `X` bounds the moduli;
 * `y := ℓ^{1/(1+η)}` bounds the cofactor primes;
 * the *admissible cofactors* are
-  `𝒬_ℓ = {q ≥ 1 : qℓ ≡ 3 (4), qℓ ≤ X, ℓ ∤ q, P(q) ≤ y, q > w₀-part allowed}`.
+  `𝒬_ℓ = {q ≥ 1 : qℓ ≡ 3 (4), qℓ ≤ X, P(q) ≤ y}`. Primes ≤ w₀ may divide q,
+  and their residues belong to the free small coordinate.
 
 A history determines `n mod q` for every `q ∈ 𝒬_ℓ`, and
 
@@ -534,3 +535,26 @@ Hence
 So a value at ℓ depends only on the ratio `r/k mod ℓ`. A class is switched
 on by the single congruence `nk + r ≡ 0 (mod q)` (the POINTWISE_OMEGA
 `D = sr²` trick).
+
+### 4.2 Counting works exactly when B < 1
+
+**Lemma 4.2 (PROVED).** For every integer n,
+
+    |F_ℓ(n)| ≤ Σ_{q∈𝒬_ℓ} #{D | A_q² : q | n+4D} ≤ Σ_{q∈𝒬_ℓ} τ(A_q²) ≤ |𝒬_ℓ| · X^{o(1)}.
+
+So `p_ℓ(h) ≤ |𝒬_ℓ|·X^{o(1)}/ℓ` for every history, reachable or not.
+* For (η,B)-gapped families with `B < 1`, `|𝒬_ℓ| ≤ ℓ^B`, so (★_δ) holds
+  with any `δ < 1−B`. This is ET Cor 3.6's argument.
+* For `B ≥ 1`, `|𝒬_ℓ| ≥ ℓ^{1+o(1)}` whenever the family contains the
+  balanced moduli `q = p₁p₂` with `p₁, p₂ ∈ (√ℓ, y]`. That holds as soon as
+  `X ≥ ℓ^{1+2/(1+η)}`. Then the bound is vacuous.
+
+*Proof.* The first inequality is the union bound over (q, D). Then use
+`τ(A²) ≤ X^{o(1)}`. For the size claim, count the products of two primes
+in `(√ℓ, y]`: there are `≫ y²/log²y = ℓ^{2/(1+η)−o(1)}` of them, and
+`2/(1+η) > 1` for `η < 1`. ∎
+
+For a fixed q, at most `τ(A_q²) = ℓ^{o(1)}` values are ever active,
+whatever n is. So the whole difficulty is *how many cofactors q can be
+active at once with distinct values*. That is a maximum over n, a
+CSP-type extremal problem, and not a counting problem.
