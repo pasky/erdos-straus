@@ -198,3 +198,28 @@ So the cost of dropping ET's counting bound is concentrated in two
 
 §2.4 shows that if both are controlled, the windows sum to `C(η)λ^{3/4}`.
 §2.5 records where controlling them fails.
+
+### 2.4 Window masses (uniform measure)
+
+From here on, restrict to the ℛ(M)-grouping, i.e. classes `−4D (mod M)` of
+ET Lemma 18.1. Fix `B ≥ 1`. M is **(η,B)-gapped** if it is η-gapped and
+`M ≤ P(M)^{1+B}`. Every balanced gapped M has `B ≥ 1`. For dominant M,
+`B = C < 1` suffices.
+
+**Lemma 2.4 (PROVED).** For an (η,B)-gapped ℛ(M)-family and window j, put
+
+    m_j := Σ_{M : P(M)∈W_j} |ℛ(M)|·(M/φ(M))/M.
+
+Then `m_j ≤ C₆'·((1+B)(1+η)s_j)³`. Consequently, for every `α > 0`,
+
+    Σ_{M : P(M)∈W_j} |ℛ(M)|(M/φ(M))/M · P(M)^{−α} ≤ C₆'·(4(1+B)s_j)³·e^{−αs_j}.
+
+*Proof.* `P(M) ∈ W_j` gives `M ≤ P(M)^{1+B} ≤ e^{(1+B)s_{j+1}}`. Next,
+`|ℛ(M)| ≤ τ(A²)` (ET (B)1). Partial summation of ET Lemma 3.1,
+`S_B(x) ≪ x log²x`, gives `Σ_{M≤x} τ(A²)(M/φ(M))/M ≪ (log x)³`. The
+second claim uses `P(M) > e^{s_j}` and `1+η ≤ 2`. ∎
+
+*Remark (why not ηs_j³).* Window j has Mertens mass ≈ η, so one expects
+`m_j ≍ η·s_j³`. Proving that needs the ℛ-weighted sum restricted to
+`P(M) ∈ W_j`, a smooth-cofactor Shiu bound, and that bound is not
+available. The cruder Lemma 2.4 costs one power of η^{−1/4} in §2.5.
