@@ -46,9 +46,9 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
    * The first draft's AP-TI*(κ) is **withdrawn**: it is false because of
      hub residues.
    * Prop. 10.6 (PROVED): the classes `−4d²` give pair codegrees
-     `≍1/φ(4d)` at every θ<1/3. Theorem 10.3, with Lemma 10.2's
-     per-old-vertex factor, therefore cannot certify θ<1/3 unless an
-     unproved quarantine-cost bound fails (Assessment).
+     `≍1/φ(4d)` at every θ<1/3. Assume a plausible but unproved
+     quarantine-cost lower bound (§10.4, Assessment). Then Theorem 10.3,
+     with Lemma 10.2's per-old-vertex factor, cannot certify any θ<1/3.
    * The open step is a sharper Lemma 10.2. Unconditional estimates stop
      at θ=1/3 (Prop 10.5).
 
@@ -1109,9 +1109,10 @@ write `q_O=∏_{v∈O}ℓ_v^{e_v}`, where `ℓ_v^{e_v}` is the modulus of v.
 1. A hyperedge `e⊋O` has rough part `r=r_O·m`. Here `r_O` is the part of r
    supported on the primes of O (possibly with higher powers), and m is
    coprime to `r_O` with all primes above y. There are at most
-   `τ*²T/r` atoms at r. The weight beyond O is
-   `1/φ(m)·(φ(ℓ^{e_v})/φ(ℓ^{v_ℓ(r)}))^{±}`, which is
-   `≤ C log log T/m`. Summing over `m>y` and `r_O ≥ q'_O` gives the bound.
+   `τ*²T/r` atoms at r. Since `v_ℓ(r)≤e_ℓ`, a vertex at ℓ already fixes
+   the class mod `ℓ^{v_ℓ(r)}`, so the O-primes contribute no further
+   probability. The weight beyond O, summed over lifts, is `≤1/φ(m) ≤
+   C log log T/m`. Summing over `m>y` and `r_O ≥ q'_O` gives the bound.
    (This is an upper estimate only.)
 2. The split of Thm 9.2's proof applies with `1/φ(m)` in place of
    `1/φ(r)`. The gain `1/q'_O` is lost, and a bound on `F_I(r)` cannot see
