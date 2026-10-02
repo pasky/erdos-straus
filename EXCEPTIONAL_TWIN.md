@@ -554,3 +554,17 @@ named inequality about one window with binary conditions (Conjecture 4.5),
 plus the uniformity in B. Nothing found here points towards (B): every
 mechanism examined (heavy histories, small-prime correlations, η-gapped
 balance) turned out harmless once the measure was chosen correctly.
+
+## Replay
+
+```
+# Lemma 1.1: Jacobi symbol of every Case-B class, M <= 20000 (~1 min)
+PYTHONPATH=scripts uv run --with sympy python scripts/twin_jacobi_check.py 20000
+# §2.4: capped measure Q' with QR base, real system (X=1e5: ~3 min per run; X=1e6, 20 samples: ~40 min, < 4 GB)
+cd scripts
+uv run python twin_capped.py 100000 100 30 0.2 > ../data/twin/capped_X1e5_W30_k0.2.txt
+uv run python twin_capped.py 100000 100 30 0   > ../data/twin/capped_X1e5_W30_k0.txt
+uv run python twin_capped.py 100000 100 30 0 dom,gapM,gapB > ../data/twin/capped_X1e5_W30_k0_gapped.txt
+uv run python twin_capped.py 100000 100 30 0.5   # 25.5 expected leak, quoted in §2.4 (not saved)
+uv run python twin_capped.py 1000000 20 30 0.2 > ../data/twin/capped_X1e6_W30_k0.2.txt
+```
