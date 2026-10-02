@@ -115,6 +115,7 @@ def sample_history(sysd, primes, maxexp, rng, record):
     return n
 
 
+LP_METHOD = "highs-ipm"
 TYPES = ("dom", "gapM", "gapB", "twin")
 
 
@@ -300,7 +301,7 @@ def lp_saving(S, Q, res, A, m):
     cols = np.concatenate(cols)
     Aeq = coo_matrix((np.ones(len(rows)), (rows, cols)), shape=(r0, Q)).tocsr()
     c = -A.astype(float)
-    sol = linprog(c, A_eq=Aeq, b_eq=np.array(b), bounds=(0, None), method="highs")
+    sol = linprog(c, A_eq=Aeq, b_eq=np.array(b), bounds=(0, None), method=LP_METHOD)
     assert sol.status == 0, sol.message
     return -math.log(-sol.fun)
 
@@ -314,19 +315,40 @@ def rankin(S, conds, which, m):
     return best
 
 
+def single_control(S, conds, seed=5):
+    """Matched-mass control: each composite condition (U, M, cls) of mass w is
+    replaced by round(w * P) extra forbidden residues at P = max(U) (fresh,
+    random), as single-prime conditions."""
+    rng = random.Random(seed)
+    extra = defaultdict(float)
+    for U, M, cls in conds:
+        if len(U) > 1:
+            extra[max(U)] += len(cls) / M
+    out = [c for c in conds if len(c[0]) == 1]
+    have = {c[1]: set(c[2]) for c in out}
+    for p, w in extra.items():
+        k = max(1, round(w * p))
+        pool = [r for r in range(p) if r not in have.get(p, set())]
+        out.append(((p,), p, sorted(rng.sample(pool, min(k, len(pool))))))
+    return out
+
+
 def part_ii(S, mmax):
     S, Q, idx, res, conds = window_system(S)
-    fams = {"D(single primes)": lambda U: len(U) == 1,
-            "D+B(all)": lambda U: True}
+    ctrl = single_control(S, conds)
+    fams = {"D(single primes)": (conds, lambda U: len(U) == 1),
+            "D+B(all)": (conds, lambda U: True),
+            "D+S(control)": (ctrl, lambda U: True)}
     out = [f"# part (ii) window S={S} Q={Q}; conditions: " +
            ", ".join(f"{M}:{len(c)}" for U, M, c in conds)]
-    for name, w in fams.items():
-        A = avoid_mask(Q, idx, conds, w)
-        mass = sum(len(c) / M for U, M, c in conds if w(U))
+    for name, (cs, w) in fams.items():
+        A = avoid_mask(Q, idx, cs, w)
+        mass = sum(len(c) / M for U, M, c in cs if w(U))
         line = [f"{name:18s} mass={mass:.3f} void={-math.log(A.mean()):.3f}"]
         for m in range(1, mmax + 1):
             s = lp_saving(S, Q, res, A, m)
-            line.append(f"m={m}: LP={s:.3f} Rankin={rankin(S, conds, w, m):.3f}")
+            line.append(f"m={m}: LP={s:.3f}")
+            print(" | ".join(line), flush=True)
         out.append(" | ".join(line))
     return out
 

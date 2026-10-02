@@ -383,3 +383,62 @@ So heavy reachable histories exist at small primes.
   * the scales are tiny, so `B = log M/log P − 1` is at most about 2;
   * the adversary is greedy and weak;
   * singleton windows differ from η-windows.
+
+### 3.2 Exact LP: best level-m majorant, dominant vs dominant + balanced
+
+**Method.** Take a set S of 4–5 primes of similar size. The space is
+`ℤ/Q`, `Q = ΠS`, exactly. The conditions are all classes ℛ(M) for
+squarefree `M | Q` with `M ≡ 3 (4)`. Three families:
+* **D:** prime moduli only. These are dominant.
+* **D+B:** all moduli. Composite moduli here are products of same-scale
+  primes, i.e. balanced and mostly η-twin.
+* **D+S (matched-mass control):** D, plus, for each composite condition of
+  mass w, `round(w·P)` fresh random residues at its top prime P. These are
+  single-prime conditions of about the same added mass.
+
+Level m means every term depends on at most m of the primes, which is
+level ≈ m·log p. The LP is the dual form of §1 route 1: maximise `σ(𝒜)`
+over probability measures with uniform marginals on every m-set. It is
+solved with HiGHS-IPM, in floating point, uncertified. Data:
+`data/balanced/part_ii_S*.txt`.
+
+**Savings `−log(LP optimum)`** (void = `−log P(𝒜)`):
+
+| S | family | mass | void | m=1 | m=2 | m=3 |
+|---|---|---:|---:|---:|---:|---:|
+| 7,11,13,19 | D | 0.859 | 1.050 | 0.560 | 0.999 | 1.050 |
+| | D+B | 1.102 | 1.253 | 0.560 | 0.999 | 1.206 |
+| | D+S | 1.066 | 1.282 | 0.560 | 1.081 | 1.263 |
+| 7,11,19,23 | D | 1.250 | 1.546 | 0.560 | 1.208 | 1.502 |
+| | D+B | 1.287 | 1.563 | 0.560 | 1.208 | 1.502 |
+| | D+S | 1.347 | 1.685 | 0.571 | 1.253 | 1.613 |
+| 11,13,17,19 | D | 0.431 | 0.490 | 0.318 | 0.490 | 0.490 |
+| | D+B | 0.707 | 0.741 | 0.318 | 0.525 | 0.691 |
+| | D+S | 0.749 | 0.852 | 0.318 | 0.807 | 0.847 |
+| 7,11,13,17,19 | D | 0.859 | 1.050 | 0.560 | 0.999 | — |
+| | D+B | 1.426 | 1.501 | 0.560 | 0.999 | — |
+| | D+S | 1.354 | 1.619 | 0.560 | 1.125 | — |
+
+(m = 3 on five primes is out of reach: the IPM normal matrix is dense,
+with about 5·10⁴ rows.)
+
+**Reading.**
+1. **Gain from balanced classes, by level.**
+   * At m = 1 they add nothing.
+   * At m = 2, where pair conditions are already visible, they add 0, 0,
+     0.035 and 0. That holds even for S = {7,11,13,17,19}, where they
+     add mass 0.57 and void 0.45.
+   * They start to pay only at m = 3–4, i.e. at the level of their full
+     modulus.
+2. **The control does better.** Single-prime conditions of matched mass
+   beat the balanced ones at every m ≥ 2.
+   * For S = {11,13,17,19}, m = 2: the control gains +0.317 over D, the
+     balanced classes only +0.035.
+   * This matches the H_MS picture: a balanced condition costs its full
+     modulus, `log ℓ₁ + log ℓ₂`, never `log P(M)` alone.
+3. **No instance** shows balanced conditions saving more than their
+   matched-mass single-prime counterparts.
+
+Caveat: these are toy sizes in a dense regime (mass ~1 per window, primes
+< 25). The asymptotic sparse regime is not probed. This is weak evidence,
+like ET §5.8, but on the real classes ℛ(M).

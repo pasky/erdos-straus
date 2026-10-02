@@ -1,0 +1,10 @@
+D(single primes)   mass=0.859 void=1.050 | m=1: LP=0.560
+D(single primes)   mass=0.859 void=1.050 | m=1: LP=0.560 | m=2: LP=0.999
+D+B(all)           mass=1.426 void=1.501 | m=1: LP=0.560
+D+B(all)           mass=1.426 void=1.501 | m=1: LP=0.560 | m=2: LP=0.999
+D+S(control)       mass=1.354 void=1.619 | m=1: LP=0.560
+D+S(control)       mass=1.354 void=1.619 | m=1: LP=0.560 | m=2: LP=1.125
+# part (ii) window S=[7, 11, 13, 17, 19] Q=323323; conditions: 7:3, 11:3, 19:3, 91:3, 119:27, 143:22, 187:3, 247:9, 323:9, 1463:27, 1547:15, 2431:25, 4199:135, 19019:27, 24871:9, 323323:3
+D(single primes)   mass=0.859 void=1.050 | m=1: LP=0.560 | m=2: LP=0.999
+D+B(all)           mass=1.426 void=1.501 | m=1: LP=0.560 | m=2: LP=0.999
+D+S(control)       mass=1.354 void=1.619 | m=1: LP=0.560 | m=2: LP=1.125
