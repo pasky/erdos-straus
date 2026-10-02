@@ -791,6 +791,106 @@ G^cov_u(x) := Σ_{|P|=u} Σ_{C private cover of P} 1[every E∈C occurs at x].
 EVIDENCE: `scripts/omega2_abstract_check.py` additionally checks
 `binom(N,u) ≤ G^cov_u` and the 1.2-analogue on random systems (see Replay).
 
+### 10.2 The moment bound for hypergraph systems (PROVED)
+
+**Setting 10.0.** As Setting 2.0, but hyperedges replace edges.
+
+* A *hyperedge* is a set of `2..k` vertices at distinct primes. It occurs
+  iff all its vertices are realised, so `P(e)=∏_{v∈e}p(v)`.
+* The hypergraph is simple: distinct hyperedges have distinct vertex sets.
+* Put `S_H=Σ_e P(e)` and `w_ℓ=Σ_{e at ℓ}P(e)`.
+* For a set O of vertices at distinct primes, the *codegree* is
+  `Δ_O := Σ_{e⊋O} ∏_{v∈e∖O} p(v)`. So `Δ_{{v}}=deg(v)`.
+* Put `Δ^{(i)} := max_{|O|=i} Δ_O`.
+
+**Lemma 10.2 (PROVED).** Let `U_0≥1`, `w≥0`, and put
+
+```
+D := Σ_{j=0}^{k−2} (kU_0)^j Δ^{(j+1)}.
+```
+
+If `D ≤ [2ek(1+w)^k]^{−1}`, then
+
+```
+Σ_{u=0}^{U_0} w^u E G^cov_u ≤ exp( (1+w)S_1 + 2ek(1+w)^k S_H ).
+```
+
+*Proof.*
+
+**Reduction to private families.** Given C, every P that C privately
+covers lies in `π(C)`, the set of primes of C. Hence
+
+```
+Σ_{u≤U_0} w^u E G^cov_u ≤ Σ_{C private, |C|≤U_0} (1+w)^{|π(C)|} P(C occurs).
+```
+
+Here "C private" means that every member has a prime lying in no other
+member.
+
+**Singles.** A single in a private C has its only prime private. So the
+singles of C sit on primes disjoint from the rest of C and are independent
+of it. They contribute at most `∏_ℓ(1+(1+w)g_ℓ) ≤ e^{(1+w)S_1}`.
+
+**Components.** The hyperedge part splits into connected components, each
+private.
+
+* If two components use the same prime with different vertices, they
+  cannot occur together.
+* Otherwise `P` is multiplicative over components.
+
+So the hyperedge part is at most `exp(Σ_K (1+w)^{|V(K)|}P(K))`, over
+connected private K with `h:=|K|≤U_0` hyperedges and `n:=|V(K)|≤kh`
+vertices.
+
+**Exploration.**
+
+1. Pick a hyperedge `e_1` of K and declare its vertices discovered.
+2. Process the discovered vertices in breadth-first order (ties broken by a
+   fixed total order).
+3. At a vertex v, attach as *children* all not-yet-attached hyperedges of K
+   that contain v. Their vertices are either old (discovered earlier, or
+   brought by an earlier sibling) or new; new ones become discovered.
+
+Every hyperedge of K is attached, because K is connected. A child e of v
+has a private vertex, which lies in no other hyperedge. That vertex is
+therefore new, so `e∖({v}∪old)≠∅`.
+
+Let `O_e` be v together with e's old vertices, with `|O_e|=j+1`. The weight
+of e is then the product of p over its new vertices. Summed over all
+admissible e, this is at most `Σ_j binom(n,j) Δ^{(j+1)} ≤ D`, since there
+are at most n candidates for each old vertex.
+
+**Counting.**
+
+* The first hyperedge contributes
+  `Σ_{e_1}P(e_1)·(#roots) ≤ Σ_{e_1}|e_1|P(e_1) ≤ kS_H` in total. (The root
+  index only overcounts.)
+* The children sets at the at most n processed vertices are unordered:
+  `Σ over sets of c children ≤ D^c/c!`.
+* The number of weighted compositions is
+  `Σ_{c_1+…+c_n=h−1}∏1/c_i! = n^{h−1}/(h−1)! ≤ (kh)^{h−1}/(h−1)! ≤ e(ke)^{h−1}`.
+
+Hence
+
+```
+Σ_{K: |K|=h} (1+w)^{|V(K)|}P(K) ≤ (1+w)^{kh}·e·kS_H·(keD)^{h−1},
+```
+
+and summing over `h≥1`, with `(1+w)^k keD≤1/2`, gives
+`≤2ek(1+w)^kS_H`. ∎
+
+*Remarks.*
+
+* For `k=2` the condition is just `deg≤[4e(1+w)²]^{−1}`. With the private
+  covers there is no unicyclic case, so Lemma 2.1 is recovered (with
+  different constants) in truncated form.
+* The factor `(kU_0)^j` in front of the codegree `Δ^{(j+1)}` is real.
+  Consider a cluster in which each new hyperedge reuses `j+1` old vertices
+  out of n. It costs only `Δ^{(j+1)}`, but it can be placed in `binom(n,j)`
+  ways.
+* Only `u≤U_0=L+1` is ever needed (Lemma 10.1), so the codegree condition
+  is needed only at size `k(L+1)`.
+
 ## Replay
 
 ```
