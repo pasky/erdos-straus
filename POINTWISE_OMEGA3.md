@@ -6,7 +6,7 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 survival, Settings 1.0/3.0/10.0, `Δ_O`, Lemmas 1.2, 10.1, 10.2, Theorem 10.3,
 Lemma 11.2, Prop 11.4, §11.4 (G_pair).
 
-**Results at a glance (checkpoint 1; not yet reviewed).**
+**Results at a glance (checkpoint 1; hostile review `reviews/pointwise-omega3-review.md`: all items SOUND, minor repairs D1–D6 applied).**
 
 1. **Theorem 4.3** (PROVED modulo Thorner–Zaman, via PO Thm 4.1;
    effective): `W(p) ≥ (log p)^4·exp(−C log log p/log log log p)` for
@@ -162,7 +162,9 @@ on units is used is `Eχ_0(X_{ℓ_0})=0` in the twist step. There
 `|E'χ_0| = |Σ_{h∈H_{ℓ_0}}χ_0(h)|/(φ(ℓ_0^{e})−|H_{ℓ_0}|) ≤ h_{ℓ_0}/(1−h_{ℓ_0})`. ∎
 
 Combining Theorem 1.1 (item 5) with Lemma 1.3 gives the twist condition
-of PO Thm 4.1 for B. With J as in Corollary 1.2,
+of PO Thm 4.1 for B, under Lemma 1.3's stronger assumption
+`h_ℓ≤1/100` for every ℓ (Thm 1.1 and Cor 1.2 alone need only
+`h_ℓ≤1/2`). With J as in Corollary 1.2,
 `|E[Bψ]| ≤ V|E'[B_2ψ]| + ε_JM_1' ≤ 0.102Vμ' + 0.01Vμ' < 0.99Vμ'/4 ≤ μ(B)/4`.
 (§§3–5 do not use §1: Theorem 3.2 subsumes it, since hub vertices become
 level-2 singles. §1 is kept because its Brun form is explicit and
@@ -269,9 +271,8 @@ of level-2 edges / level-3 hyperedges at ℓ). Assume
 * (P) `g_ℓ + w^{(2)}_ℓ + w^{(3)}_ℓ ≤ 1/32` for every ℓ;
 * (D2) every level-2 vertex has level-2 degree `≤ δ:=e^{−50}`;
 * (D3) every level-3 vertex has level-3 degree `≤ δ_3` and every pair of
-  level-3 vertices has codegree `Δ_O ≤ t`, where
-  `t := δ_3/(C_3(S_H+1))` (constants of O2 Thm 10.3 for k=3, with the
-  weight `1+w=17` replaced by `1+w':=17e^{1/2}`; see Step 1 below).
+  level-3 vertices has codegree `Δ_O ≤ t`, where `t:=t(Ŝ)` is defined
+  under *Constants* below (for some `Ŝ≥S_H`).
 
 **Lemma 3.1 (conditional local lemma; PROVED, standard).** Let 𝒜 be the
 family of all level-2 and level-3 events, `x_E:=2P(E)`. Under (P):
@@ -412,8 +413,12 @@ event occurs, or is itself a level event. So `F_2F_3 ≤ 1[no original
 event]`. Its masses satisfy
 
 ```
-S_H^{new} ≤ S_H,   S_2^{new} ≤ S_2 + 3S_H/t,   S_1^{new} ≤ S_1 + 3S_H/δ_3 + 2S_2^{new}/δ.
+S_H^{new} ≤ S_H,   S_2^{new} ≤ S_2^{(b)} := S_2 + (pushed pairs) ≤ S_2 + 3S_H/t,   S_1^{new} ≤ S_1 + 3S_H/δ_3 + 2S_2^{(b)}/δ.
 ```
+
+Here `S_2^{(b)}` is the level-2 edge mass after (b) and before the
+deletions of (c). The Markov bound for (c) is in terms of it; the final
+`S_2^{new}` can be smaller.
 
 *Proof.* Deletions only lower degrees and codegrees. So after (c) all
 level-3 degrees are `≤δ_3` and all pair codegrees are `≤t`. (Pushed
@@ -448,7 +453,7 @@ log(M_1/μ) ≤ C(Ŝ²+1),   log(1/μ) ≤ C(Ŝ²+1),   #primes per modulus ≤ 
 ```
 
 *Proof.* Lemma 3.3, then Theorem 3.2 with
-`Σ = S_1^{new}+S_2^{new}+Ŝ = O(Ŝ/t+Ŝ) = O(Ŝ²+1)`. (I) transfers because
+`Σ = S_1^{new}+S_2^{new}+Ŝ ≤ S_1+3Ŝ/δ_3+(1+2/δ)S_2^{(b)}+Ŝ = O(Ŝ/t+Ŝ) = O(Ŝ²+1)`. (I) transfers because
 `B≤F_2F_3≤1[no original event]≤1[W>T]`. ∎
 
 *Remark (what replaced the codegree hypothesis).* O2 Thm 10.3 needed
@@ -606,7 +611,10 @@ each polynomial). For `c_k(Ŝ)` small enough, (P_k) holds at the end.
   `|P_i|≤H_r`), form for each i the cell-conditioned level-r system on
   `𝒫∖P_i`. Events meeting `P_i` are fixed, vanish, or lose their
   realised vertices; the last kind become *induced* events of smaller
-  support. If some event is fully realised by `x_i`, put
+  support. Identical induced events (`e∖F'=e'∖F''`) are merged; this
+  leaves the void indicator unchanged and only lowers masses and
+  codegrees, so the conditioned system is simple as O2 Setting 10.0
+  requires. If some event is fully realised by `x_i`, put
   `β_i=α_i=0`.
 * Otherwise let `β_i, α_i := B_{L_r} ∓ 4^{L_r+1}G^{cov}_{L_r+1}` be the
   O2 Lemma 10.1 minorant/majorant of the conditioned void indicator
@@ -675,10 +683,12 @@ infinitely many p,
 W(p) ≥ (log p)^{k}·exp(−C_k log log p / log log log p).
 ```
 
-*Proof.* Construction 4.1 with `y:=T^{1/k}exp(2𝓛/log 𝓛)` (so every
-rough part has `Ω(r)≤k`), threshold `c_k(Ŝ)` and `Ŝ=S*+1`. Lemma 11.2
-gives `|𝓑| ≤ kS*/c_k = O_k(Ŝ^{A_k+1})`. Lemma 4.2 holds verbatim, with
-`log Q ≤ (k+1)y`. Theorem 5.1 then gives `K=O_k(Ŝ^{A_k})=exp(O_k(𝓛/log 𝓛))`
+*Proof.* Construction 4.1 with `y:=T^{1/k}exp(2𝓛/log 𝓛)`. Since
+`y^k>T`, every rough part has `Ω(r)≤k−1`, so Theorem 5.1 is applied
+with `k−1` levels (for `k=4` this is Thm 3.4); write `k':=max(k−1,3)`.
+Use threshold `c_{k'}(Ŝ)` and `Ŝ=S*+1`. In Lemma 11.2 an atom has at
+most `k−1` free primes, so `|𝓑| ≤ (k−1)S*/c_{k'} = O_k(Ŝ^{A_{k'}+1})`. Lemma 4.2 holds verbatim, with
+`log Q ≤ (k+1)y`. Theorem 5.1 then gives `K=O_k(Ŝ^{A_{k'}})=exp(O_k(𝓛/log 𝓛))`
 and moduli of the same logarithmic size. Conclude as in Theorem 4.3:
 `log p ≤ y·exp(O_k(𝓛/log 𝓛))`. ∎
 
@@ -711,9 +721,15 @@ and moduli of the same logarithmic size. Conclude as in Theorem 4.3:
     cells each).
   * Negative control (β used for negative coefficients): 1283
     violations, so the check has teeth.
-  * The script uses O2 Lemma 1.2's `G=e_{L+1}(a)` at both levels. The
-    composition does not depend on which pointwise error majorant is
-    used.
+  * The script uses O2 Lemma 1.2's `G=e_{L+1}(a)` at both levels, while
+    Thm 3.2 uses `G^{cov}_{L+1}` at level 3. The composition does not
+    depend on which pointwise error majorant is used.
+  * The independent review's `scripts/review_omega3_check.py compose`
+    (branch `side-agent/review-omega3`; `reviews/pointwise-omega3-review.md`)
+    checks the composition with the true `G^{cov}` too: value-set events,
+    merged and unmerged decompositions, adversarial generators,
+    0 violations. Its `push` mode found the D2 display error repaired in
+    Lemma 3.3.
 * **Where the heavy pairs are** (§2 table): exactly the small-height
   rationals. This is no longer an input; it explains why step (c) of
   Lemma 3.3 turns the hub clusters into vertex quarantines.

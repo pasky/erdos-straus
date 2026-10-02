@@ -104,6 +104,31 @@ reviewed by the parent):
 STATUS.md: replace "any pointwise multiplier mechanism needs witness
 moduli beyond `(log p)^3`" with "beyond every fixed power of log p".
 
+## Review round 1 (parent hostile review, `reviews/pointwise-omega3-review.md`)
+
+* **Verdict.** Every item is SOUND: Thm 3.2, Lemma 3.1, Lemma 3.3,
+  Thm 5.1/5.2, and the ES instantiation modulo Thorner–Zaman.
+* **End-to-end check.** A brute force at T=30000 confirms the
+  certificates.
+* **Repairs applied** (commit "review repairs D1–D6"):
+  * **D1.** Setting 3.0 (D3) now refers to `t(Ŝ)` only; the stray O2
+    `C_3` formula is removed.
+  * **D2.** Lemma 3.3's mass display now uses `S_2^{(b)}`, the edge mass
+    after (b) and before the (c) deletions. Thm 3.4's Σ bound was updated
+    to match.
+  * **D3.** Thm 5.2: `y^k>T` gives `Ω(r)≤k−1`. So Thm 5.1 is applied
+    with `k'=max(k−1,3)` levels, and Lemma 11.2 uses `k−1` free primes
+    per atom.
+  * **D4.** The §1 twist claim now states `h_ℓ≤1/100` (Lemma 1.3's
+    assumption).
+  * **D5.** §6 now says that the O4 script uses `e_{L+1}(a)`, not
+    `G^{cov}`. It cites the reviewer's `review_omega3_check.py compose`
+    (true `G^{cov}`, 0 violations) and its `push` mode.
+  * **D6.** Thm 5.1 Step B: identical induced events are merged, so the
+    conditioned systems are simple.
+* **Pending.** The parent's extra independent check of the tilted and
+  mixed-size uses of O2 Lemmas 2.1 and 10.2.
+
 ## Status
 
-Checkpoint reached (theorem). Stopping for parent review.
+Review repairs applied. Stopping for the parent's final check.
