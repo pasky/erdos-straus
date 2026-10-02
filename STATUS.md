@@ -105,9 +105,11 @@ for that class. No θ>3/4 was found. Beating 3/4 requires at least one of:
 * balanced moduli used jointly (they carry a positive share of the cubic
   supply; open; reduced to H_MS^{Sel} for Λ² sieves). `EXCEPTIONAL_BALANCED.md`
   (reviewed) reduces the *gapped* balanced moduli, for each fixed B, to one
-  arithmetic extremal statement (E_δ). The η-twin moduli (top two primes at
-  comparable scale) are the open core. The numerics are neutral between
-  "cannot help" and "can help";
+  arithmetic extremal statement (E_δ). `EXCEPTIONAL_TWIN.md` (reviewed) then
+  proves the gapped case unconditionally, with no need for (E_δ). The η-twin
+  moduli (top two primes at comparable scale) are the open core. They reduce
+  to an arithmetic-free comparison inequality (Conj 6.4), and for Λ² sieves
+  to a sparse noise-stability statement (Conj 6.8);
 * multipliers beyond N^{O(1)};
 * signed cancellation in rounding errors;
 * a non-CRT input (actual arithmetic of `(p+a)/4`).
