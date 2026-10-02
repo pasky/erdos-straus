@@ -67,3 +67,69 @@ gives two events, each of probability π), so
 `Π_{Γ(E)}(1−x_F) ≥ 1 − 8δ ≥ 1/2` and `P(E) = x_E/2 ≤ x_EΠ(1−x_F)`. For
 (2): `Σ_{F∈Γ(B)} x_F ≤ 4Σ_{ℓ∈T} w_ℓ`, each `x_F ≤ 2δ ≤ 1/8`, and
 `−log(1−x) ≤ x/(1−x) ≤ (8/7)x`, so the product is `≤ exp((32/7)Σw_ℓ)`. ∎
+
+**Lemma 1.3 (derivative identity; PROVED).** Fix κ and an index j. Let
+`A_{−j}` be "no bad event at an edge not containing j" (a function of
+`Y_{−j}`), and given `Y_{−j}` let
+
+    F = {a ∈ Ω_j : some edge {(j,a),(m,c)} has y_m = c},   F′ = same with y′.
+
+Then, with all expectations under `⊗_{m≠j} μ̃_m(κ_m)`,
+
+    ∂_{κ_j} log Z₂(κ) = E[(ν_j(F∩F′) − ν_j(F)ν_j(F′)) 1_{A_{−j}}] / Z₂(κ),
+    Z₂(κ) = E[μ̃_j(κ_j)(F^c × F′^c) 1_{A_{−j}}] ≥ E[(1 − ν_j(F) − ν_j(F′)) 1_{A_{−j}}].
+
+*Proof.* "No bad event" is `A_{−j} ∩ {y_j ∉ F, y′_j ∉ F′}`. Integrate out
+`Y_j` first: this gives the formula for Z₂. `μ̃_j` is affine in `κ_j` with
+slope `Diag − ν⊗ν`, and `Diag(F^c×F′^c) − ν⊗ν(F^c×F′^c) = 1 − ν(F∪F′) −
+(1−ν(F))(1−ν(F′)) = ν(F∩F′) − ν(F)ν(F′)`. The lower bound is the union
+bound, since both marginals of `μ̃_j` are `ν_j`. ∎
+
+This is ET Prop 5.7 *before* conditioning: ET divides by `J_ℓ` inside a
+conditioned expectation (ET's missing ingredient 2, "`J ≥ c` fails on rare
+configurations"). Here the division is by `E[J 1_{A_{−j}}]`, a single number,
+so no pointwise lower bound on J is needed.
+
+**Theorem 1.4 (binary noise stability; PROVED).** In Setting 1.0, for every
+`ρ̃ ∈ [0,1]^{index set}`,
+
+    log (Z₂(ρ̃)/Z₁²) ≤ (1 + 25δ) [ Σ_{e={ℓ,m}} ρ̃_ℓ ρ̃_m π_e + Σ_j ρ̃_j q_j ].       (1.2)
+
+This is TW target (6.2) with `C = 1 + 25δ`; the factorisation (6.3) is not
+needed.
+
+*Proof.* Put `κ = tρ̃`. Then `log Z₂(ρ̃) − log Z₂(0) = ∫₀¹ Σ_j ρ̃_j
+(∂_{κ_j} log Z₂)(tρ̃) dt`, and `Z₂ > 0` throughout by Lemma 1.1. Fix j, t.
+
+*Numerator.* `ν_j(F∩F′) − ν(F)ν(F′) ≤ ν_j(F∩F′) ≤ Σ_a ν_j(a) N_a N′_a`,
+where `N_a` (`N′_a`) is the number of partners `(m,c)` of `(j,a)` with
+`y_m = c` (`y′_m = c`). Hence the numerator is at most
+`P(A_{−j}) Σ_a ν_j(a) Σ_{(m,c),(m′,c′)} P(B | A_{−j})`, with
+`B = {y_m = c, y′_{m′} = c′}`, the sum over ordered pairs of partners of
+`(j,a)`. B depends on `Y_m, Y_{m′}` (with m, m′ ≠ j), and `A_{−j} = A_𝓢` for
+the bad events off j. Corollary 1.2 gives `P(B|A_{−j}) ≤ e^{10δ}P(B)`, and
+
+* `m = m′, c = c′`: `P(B) = κ_mν_m(c) + (1−κ_m)ν_m(c)² ≤ ν_m(c)(tρ̃_m + ν_m(c))`;
+* `m = m′, c ≠ c′`: `P(B) = (1−κ_m)ν_m(c)ν_m(c′) ≤ ν_m(c)ν_m(c′)`;
+* `m ≠ m′`: `P(B) = ν_m(c)ν_{m′}(c′)`.
+
+Summing, the pair sum is `≤ t Σ_{(m,c)} ν_m(c)ρ̃_m + deg(j,a)²`. So the
+numerator is `≤ e^{10δ} P(A_{−j}) [t Σ_{e∋j} π_e ρ̃_{e∖j} + q_j]`, where
+`ρ̃_{e∖j}` is ρ̃ at the other end of e.
+
+*Denominator.* `E[ν_j(F) | A_{−j}] ≤ Σ_a ν_j(a) Σ_{(m,c)} P(y_m = c | A_{−j})
+≤ e^{5δ} w_j ≤ e^{5δ}δ`, likewise for F′, so `Z₂ ≥ P(A_{−j})(1 − 2e^{5δ}δ)`.
+
+Hence `∂_{κ_j} log Z₂(tρ̃) ≤ e^{10δ}(1−2e^{5δ}δ)^{−1}[tΣ_{e∋j}π_eρ̃_{e∖j} + q_j]`.
+For `δ ≤ 1/16`, `e^{10δ}/(1 − 2e^{5δ}δ) ≤ 1 + 25δ`. Multiply by `ρ̃_j`,
+sum over j (each edge is counted from both ends) and integrate
+(`∫₀¹ t dt = 1/2`). ∎
+
+*Check (EVIDENCE that the algebra is right, not part of the proof).*
+`scripts/twin2_binary_check.py` computes `log(Z₂/Z₁²)` exactly (Kronecker
+contraction) on random systems with 3–5 coordinates of size 5–13, random
+non-uniform ν, random or hub-concentrated edges, random ρ̃. Seeds 1–3,
+1200 trials, 617 within (1.1): `lhs ≤ (1+25δ)·rhs` always; the largest
+`lhs/((1+25δ)rhs)` is 0.989, and `lhs/rhs` (constant 1) stays ≤ 1.03 even
+outside (1.1). The bound is sharp to leading order: one edge with `ρ̃ ≡ 1`
+has `lhs = −log(1−π_e)`, `rhs = π_e(1 + ν(a) + ν(c))`.
