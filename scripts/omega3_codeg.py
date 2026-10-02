@@ -39,6 +39,51 @@ def shortest(c, q):
         b1, b2 = b2, b1
 
 
+def sqfree_star(E):
+    """E* = s*a for E = s*a^2, s squarefree."""
+    fa = factorint(E)
+    r = 1
+    for p, e in fa.items():
+        r *= p ** ((e + 1) // 2)
+    return r
+
+
+def eff_height(c, q):
+    """effective height of c mod q: min over the three hub families of the
+    parameter governing the codegree (uv for -u/v; E* for -4E and -1/(4E)),
+    using the shortest lattice vector; inf if c has no positive small rational rep."""
+    (u, v), _ = shortest(c, q)
+    if v < 0:
+        u, v = -u, -v
+    if u <= 0:
+        return float("inf")
+    h = u * v
+    if v == 1 and u % 4 == 0:
+        h = min(h, sqfree_star(u // 4))
+    if u == 1 and v % 4 == 0:
+        h = min(h, sqfree_star(v // 4))
+    return h
+
+
+def hub_set(X, q):
+    """classes mod q of the hub rationals of level X:
+    -u/v (u,v>=1, uv<=X), -4 s a^2 and -1/(4 s b^2) (s squarefree, s*a<=X)."""
+    H = set()
+    for u in range(1, X + 1):
+        for v in range(1, X // u + 1):
+            if gcd(u * v, q) == 1:
+                H.add((-u * pow(v, -1, q)) % q)
+    for s_ in range(1, X + 1):
+        if any(s_ % (p * p) == 0 for p in range(2, int(s_ ** 0.5) + 1)):
+            continue
+        for a in range(1, X // s_ + 1):
+            E = s_ * a * a
+            if gcd(E, q) == 1:
+                H.add((-4 * E) % q)
+                H.add((-pow(4 * E, -1, q)) % q)
+    return H
+
+
 def codegrees(T, theta, l1, l2):
     y = T ** theta
     q = l1 * l2
@@ -83,6 +128,18 @@ def main():
         mixed = [Delta[c] for c in Delta if not ht[c][1]]
         print(f"  X={X:5d}: max Delta over classes not -u/v with 0<uv<=X: {max(rest):.5f};"
               f"  (mixed-sign classes max {max(mixed) if mixed else 0:.5f})")
+    for X in (16, 64, 256, 1024):
+        HX = hub_set(X, q)
+        rest = [(Delta[c], c) for c in Delta if c not in HX]
+        d, c = max(rest)
+        print(f"  HUB X={X:5d}: |H_X|={len(HX)}; max Delta outside H_X: {d:.5f} (c={c}, short={shortest(c, q)[0]})")
+    H0 = q ** 0.5 / 2
+    gen = [Delta[c] for c in Delta if not (ht[c][1] and ht[c][0] <= H0)]
+    rat = [(Delta[c] * ht[c][0], c) for c in Delta if ht[c][1] and ht[c][0] <= H0]
+    print(f"  generic (no -u/v with 0<uv<=sqrt(q)/2): {len(gen)} classes, max Delta {max(gen):.5f}, mean {sum(gen)/len(gen):.2e}")
+    if rat:
+        best = sorted(rat, reverse=True)[:5]
+        print("  small-height classes: max Delta*height =", ", ".join(f"{v:.2f}(h={ht[c][0]})" for v, c in best))
     print("  top classes outside {-u/v: 0<uv<=1024}:")
     nonhub = [(c, Delta[c]) for c in Delta if not (ht[c][1] and ht[c][0] <= 1024)]
     for c, d in sorted(nonhub, key=lambda kv: -kv[1])[:8]:

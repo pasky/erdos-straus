@@ -139,3 +139,77 @@ on units is used is `Eχ_0(X_{ℓ_0})=0` in the twist step. There
 Combining Theorem 1.1 (item 5) with Lemma 1.3 gives the twist condition
 of PO Thm 4.1 for B: `|E[Bψ]| ≤ V|E'[B_2ψ]| + ε_JM_1' < Vμ'/4+Vμ'/4·…`.
 We record the exact constants in §4 when assembling.
+
+## 2. Atoms as triples; the hub classes are small-height rationals
+
+**Lemma 2.1 (triples; PROVED).** The map `(s,a,b) ↦ (M,D)=(4sab−1, sa²)`
+is a bijection from `{(s,a,b)∈ℕ³ : s squarefree}` onto the atoms
+(`M≡3 (4)`, `D|A_M²`). For every atom:
+
+1. the class is `−4D ≡ −a/b ≡ −4sa² ≡ −1/(4sb²) (mod M)`;
+2. `gcd(M,4D+1)` divides `a+b`;
+3. `D*:=sa` is the least integer with `D|D*²`, and `D|A_M² ⟺ sa|A_M`.
+
+The same formulas define an atom `(4sab−1, sa²)` for *every*
+`(s,a,b)∈ℕ³`, but then the map is no longer injective.
+
+*Proof.* Write `D=sa²` with s squarefree (unique). For each prime p,
+`v_p(s)+2v_p(a)≤2v_p(A)` iff `v_p(s)+v_p(a)≤v_p(A)`, since `v_p(s)≤1`.
+So `D|A²` iff `sa|A`; put `b=A/(sa)`. Conversely `sa|sab=A`. Since
+`4sab≡1 (M)`, `−4sa² = −a(4sab)/b ≡ −a/b` and
+`−4sa²(4sab)²/(4sab)² ≡ −1/(4sb²)`. Finally
+`b(4sa²+1)−a(4sab−1)=a+b`. If `(s,a,b)` is arbitrary,
+`sa² | s²a²b²=A²` still holds. ∎
+
+**Proposition 2.2 (three hub families; PROVED, using the prime number
+theorem in progressions for fixed moduli).** Fix `θ<1/3`, the
+`Π_0`-system at `y=T^θ`, `R=(y,T^{1/3}]`, `c_θ=log(1/(3θ))`. Fix positive
+integers and consider the vertices `(ℓ,κ mod ℓ^{e_ℓ})` for `ℓ∈R` coprime
+to the parameters, where κ is one of the rationals
+
+* (F1) `κ=−4sa²` with `(s,a)` fixed; the modulus condition is `4sa | M+1`;
+* (F2) `κ=−1/(4sb²)` with `(s,b)` fixed; condition `4sb | M+1`;
+* (F3) `κ=−a/b` with `(a,b)` fixed; condition `4ab | M+1`.
+
+For distinct `ℓ_1,ℓ_2∈R`, the pair of κ-vertices has codegree
+`≥(c_θ−o(1))/φ(4n)`, where `n=sa`, `sb`, `ab` respectively.
+
+*Proof.* As O2 Prop 10.6. Take `ℓ_3∈R` with `ℓ_1ℓ_2ℓ_3≡−1 (mod 4n)`
+(one unit class mod 4n) and `M=ℓ_1ℓ_2ℓ_3≤T`. The free variable of the
+family is then the integer `(M+1)/(4n)`. Lemma 2.1 (non-injective form)
+gives an atom of class κ mod M. It has `m=1`, so it survives `Π_0`. ∎
+
+(F1) with `s=1` is O2 Prop 10.6, and (F1) in general is O2 Prop 11.4
+(`D=sa²`, `D*=sa`). (F2) is its image under `D↦A²/D`. (F3) is new: it
+gives heavy pairs at classes such as `−2/3`.
+
+**Definition 2.3 (hub set of level X).** `𝓗_X` is the set of rationals
+
+```
+−u/v (u,v≥1, uv≤X),    −4sa² (sa≤X),    −1/(4sb²) (sb≤X)      (s squarefree).
+```
+
+It has `|𝓗_X| ≤ X(1+log X)+2X(1+log X) ≤ 3X(1+log X)` elements. At a
+prime ℓ, its *reduction* `𝓗_X(ℓ^e)` is the set of classes mod `ℓ^e` of
+those members whose numerator and denominator are prime to ℓ.
+
+Note the asymmetry. Under (F1) the class `−4a²` has height `4a²`, but its
+codegree is `≍1/a`. So the hub set must contain `−4a²` up to `a≤X`, not
+only up to height X.
+
+**EVIDENCE 2.4** (`scripts/omega3_codeg.py`; `data/omega3/codeg_pairs.txt`).
+For one pair `ℓ_1<ℓ_2` just above y, all pair codegrees Δ(c), c mod
+`q=ℓ_1ℓ_2`, of the `Π_0`-system (exact, distinct hyperedges merged):
+
+| T | θ | y | q | `max Δ` (class) | max Δ outside `𝓗_16` | `𝓗_64` | `𝓗_256` | `𝓗_1024` |
+|---|---|---|---|---|---|---|---|---|
+| 10⁹ | .28 | 331 | 116939 | 0.214 (−1) | 0.034 | 0.013 | 0.0074 | 0.0067 |
+| 10¹¹ | .27 | 933 | 1022117 | 0.259 (−1) | 0.052 | 0.019 | 0.0068 | 0.0032 |
+| 10¹² | .26 | 1318 | 1752967 | — | 0.086 | 0.033 | 0.0091 | 0.0036 |
+| 10¹³ | .26 | 2399 | 5973127 | — | 0.089 | 0.038 | 0.0095 | 0.0048 |
+
+* Every class among the top 40 is a member of some `𝓗_X`, with X small:
+  `−1, −4, −1/4, −2, −1/2, −8, −2/3, …`, and `−4·36²`, `−4·21²`, which
+  are (F1) with `sa=36, 21`.
+* Outside `𝓗_X` the maximum falls roughly like `X^{−0.7}` and does not
+  grow with T. This is the shape of Lemma B (§3).
