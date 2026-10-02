@@ -122,3 +122,43 @@ Defect **D1 (notational, harmless):** Setting 3.0 defines
 `t:=δ_3/(C_3(S_H+1))`, while "Constants" defines `t(Ŝ):=δ_3/(3(L_3+1))`
 with `L_3=L_3(Ŝ)`. Only the latter is used in the proofs; delete the
 former or state they agree up to the choice of `C_3`.
+
+## Item 5 — Adversarial brute force (independent code). Verdict: no violation found
+
+`scripts/omega3_review2_adversarial.py SEED TRIALS` (written from scratch,
+shares no code with the omega2/omega3 scripts). Abstract product spaces
+with arbitrary non-uniform coordinate laws, mixed-size events (1..4
+vertices), random and "cluster" systems (one heavy vertex `p∈[.3,.97]` per
+prime, all events sharing it — the hub/sunflower regime), exact
+expectations by full enumeration. Tests:
+
+* **T1** Lemma 1.1/1.2/10.1(1) pointwise for every outcome and every L
+  (`binom(N,u)≤G^cov_u`, `B_L−4^{L+1}G^cov_{L+1}≤1[A=∅]`, two-sided
+  bound) and Lemma 10.1(2) `M_1(B_L)≤Σ_{u≤L}2^uEG^cov_u` via explicit
+  Möbius cell coefficients κ(U,c).
+* **T2** Lemma 10.2's per-h component inequality
+  `Σ_{|K|=h}(1+w)^{|V(K)|}P(K) ≤ (1+w)^{kh}ekS_H(keD_h)^{h−1}` *without*
+  the smallness hypothesis (this is the real combinatorial content), for
+  `w∈{0,1,16,17e^{1/2}−1}`; **T2b** the full Lemma 10.2 statement on
+  systems scaled into its hypothesis.
+* **T3** Lemma 2.1's tree count `≤2S_2e^vδ^{v−2}` and the pseudoforest
+  count `≤(1+v²/2)·2S_2e^vδ^{v−2}`, hypothesis-free.
+* **T4** conditional LLL (O3 Lemma 3.1(2) in its `∏(1−x_A)^{−1}` form),
+  exact, whenever the asymmetric LLL condition holds.
+* **T5** cell conditioning of O3 Thm 5.1: `F_r=F_r^{(i)}` on the cell
+  (pointwise), `S_induced ≤ Σ_i binom(h,i)Δ^{(i)}` and
+  `Δ'_O ≤ Σ_i binom(h,i)Δ^{(|O|+i)}` for every vertex set O.
+
+Results: seeds 1 (300 trials), 2 and 3 (1000 trials each): **0
+violations**; ~4 400 in-hypothesis instances of T2b, ~10⁵ T1 outcomes per
+1000 trials. Max observed lhs/rhs: T2 per-h 7.5·10⁻³ (h=2), ≤1.1·10⁻⁵
+(h≥3); T3 trees 0.068 (=1/(2e²) at v=2, exact); T1/T4/T5 reach 1 (tight
+cases exist, e.g. h=0 or single fixed vertex). **Negative control**
+`NEG=1` (drop the higher-codegree terms `i≥1` in the Δ'_O bound, i.e.
+use only the unconditioned codegree) gives 123 violations at seed 1,
+confirming the test bites and confirming O3's remark that fixing several
+vertices of one event needs the higher codegrees.
+
+Limitation: Lemma 10.2/2.1 are proven with huge slack, so brute force
+can only refute structural (not constant-level) errors; the constants
+were checked by hand in Items 2–3.
