@@ -442,3 +442,40 @@ with about 5·10⁴ rows.)
 Caveat: these are toy sizes in a dense regime (mass ~1 per window, primes
 < 25). The asymptotic sparse regime is not probed. This is weak evidence,
 like ET §5.8, but on the real classes ℛ(M).
+
+### 3.3 Void probabilities among real primes, with and without balanced classes
+
+**Method.** `scripts/balanced_void.cpp` runs over all 1,085,136,872 primes
+in `[10¹², 10¹² + 3·10¹⁰)`. It uses three nested families of classes ℛ(M)
+with `M ≤ Q'`:
+* **dom:** `P ≥ M^{2/3}`;
+* **nontwin:** dom plus the η-gapped moduli (η = 1/4);
+* **all:** adds the η-twin moduli.
+
+It reports `−log void` against the prime-conditioned mass
+`μ_pr = Σ|ℛ(M) ∩ units|/φ(M)`. Data:
+`data/balanced/void_primes_Q4000.txt`.
+
+| Q' | −log void (dom / nontwin / all) | ratio to own mass | Δ void / Δ mass, gapped | Δ void / Δ mass, twin |
+|---:|---|---|---:|---:|
+| 124 | 4.70 / 6.10 / 6.10 | 1.15 / 1.08 / 1.00 | 0.90 | — |
+| 275 | 6.46 / 7.98 / 8.13 | 1.11 / 1.01 / 0.92 | 0.73 | 0.17 |
+| 606 | 8.32 / 10.35 / 10.64 | 1.07 / 0.94 / 0.86 | 0.63 | 0.20 |
+| 1333 | 10.71 / 13.42 / 13.84 | 1.04 / 0.90 / 0.82 | 0.59 | 0.22 |
+| 2253 | 12.44 / 15.77 / 16.29 | 1.02 / 0.88 / 0.80 | 0.58 | 0.22 |
+| 4000 | 14.70 / 18.50 / 19.71 | 1.00 / 0.85 / 0.80 | 0.54 | 0.42 (3 primes) |
+
+**Reading.**
+* **Dominant classes** give `−log void ≈ mass`, ratio → 1.00. This is
+  first-moment behaviour, as for a slice system.
+* **Gapped non-dominant classes**, added on top, give `−log void` at about
+  0.55–0.6 of their mass.
+* **η-twin classes**, added last, give only about 0.2 of their mass. Most
+  of their mass falls on primes already removed by dom and gapped classes.
+  The rise to 0.42 at Q' = 4000 rests on 10 → 3 surviving primes and is
+  noise.
+* So in the real system the twin part is strongly *redundant*. Even the
+  void, which caps every sieve, grows by only ~1/5 of the twin mass.
+* The overall ratio 0.80 at Q' = 4000 reproduces ET §5.3(iii).
+* Caveat: `Q' ≤ 4000` means twin top primes ≤ 63, and only one prime
+  range is tested.
