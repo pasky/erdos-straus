@@ -23,7 +23,7 @@
 \newcommand{\ckmin}{ck_{\min}}
 \newcommand{\Lc}{\mathcal L}
 
-% TODO(submission): author metadata.
+% Author metadata: intentionally anonymous for internal circulation.
 \title[Large Erd\H{o}s--Straus witnesses]{Large Erd\H{o}s--Straus witnesses:\\
 $\Omega$-results for the multiplier and slice parameters}
 \author{Anonymous}
@@ -44,7 +44,7 @@ saving bounds the residual sieve mass by $T^{o(1)}$, and the sieve is
 transferred to primes by the Linnik-range prime number theorem of
 Thorner and Zaman, whose relative error term absorbs a possible Siegel
 zero.  We show that exponent~$2$ is the limit of every prime-local design
-and isolate the exact combinatorial input needed to go further.  For the
+and isolate a purely combinatorial hypothesis that suffices to go further.  For the
 slice parameter we prove that congruence methods certify exactly the least
 quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
 infinitely often (via Lau--Wu, after Graham--Ringrose) and showing that a
@@ -59,9 +59,9 @@ $\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
 
 The Erd\H{o}s--Straus conjecture asserts that $4/n=1/x+1/y+1/z$ is solvable
 in positive integers for every $n\ge2$.  It suffices to treat primes, it has
-been verified for $n\le10^{18}$ (\cite{PW}, \S6; \cite{Salez} for
-$10^{17}$), and Mordell's identities settle every prime outside the six
-classes $p\equiv1^2,11^2,13^2,17^2,19^2,23^2\pmod{840}$ \cite{Mordell}; we
+been verified for $n\le10^{18}$ (\cite{MD}; \cite{Salez} for
+$10^{17}$; see \cite{PW}, \S6), and Mordell's identities settle every prime outside the six
+classes $p\equiv1^2,11^2,13^2,17^2,19^2,23^2\pmod{840}$ \cite{Mordell} (cf.\ also \cite{Oblath}); we
 call such primes \emph{hard}.  On the exceptional-set side, Vaughan
 \cite{Vaughan} proved that the number $E(N)$ of $n\le N$ without a
 representation satisfies $E(N)\ll N\exp\{-c(\log N)^{2/3}\}$; see
@@ -92,7 +92,7 @@ parameters $(a,b,c,k)$ satisfies $p(a+b)=k(4abc-1)$ and gives
 $4/p=1/(ack)+1/(bck)+1/(pabc)$.  For an admissible pair $(c,k)$ (see
 \S\ref{sec:typeI}) let $M_{c,k}(p)$ be the number of divisors of
 $p^2+4ck^2$ lying in the class $-p\pmod{4ck}$; the slice is positive iff
-$M_{c,k}(p)>0$.  Put $\ckmin(p)=\min\{ck:\ M_{c,k}(p)>0,\ \sfree(c)\notin\{1,2,3,6\}\}$
+$M_{c,k}(p)>0$ (see \S\ref{sec:typeI}).  Put $\ckmin(p)=\min\{ck:\ M_{c,k}(p)>0,\ \sfree(c)\notin\{1,2,3,6\}\}$
 (the cores $1,2,3,6$ are excluded because they are deterministic on hard
 primes).
 
@@ -104,8 +104,9 @@ $\log N\gg(\log T)^3\log\log T$) are obtained in companion work whose
 assembly is still under internal review; we do not use them.  In the other
 direction, the class of one (every prime $p\equiv1\pmod{\lcm\{M\le T\}}$ has
 $W(p)>T$) together with Linnik's theorem shows $W(p)\gg\log p$
-infinitely often; with Chang's least-prime bound for smooth moduli
-\cite{Chang} the constant becomes $5/8$.  The same is true for $\ckmin$ via
+infinitely often.  With the smaller modulus $\lcm(24,\ M\le T,\ M\equiv3\ (4))$
+and Chang's least-prime bound for smooth moduli \cite{Chang}, the constant
+becomes $5/8$ (\S\ref{sec:limits}).  The same is true for $\ckmin$ via
 genus characters.  Whether $W(p)/\log p$ is unbounded was open.
 
 \begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective]\label{thm:main}
@@ -127,9 +128,9 @@ across the family of moduli (Lemma~\ref{lem:severe}) and a two-case
 analysis (Theorem~\ref{thm:transfer}).
 
 The exponent $2$ is the natural limit of the method
-(Proposition~\ref{prop:ceiling}); beyond it one needs a pointwise
-``hypergraph'' minorant, and Theorem~\ref{thm:Hmin} shows that such a
-minorant would suffice, the prime side being completely handled.
+(Proposition~\ref{prop:ceiling}); beyond it a pointwise (``hypergraph'')
+minorant is needed for this route, and Theorem~\ref{thm:Hmin} shows that such
+a minorant suffices, the prime side being completely handled.
 
 For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
@@ -139,7 +140,7 @@ quadratic non-residue $n_p$.
 \begin{enumerate}
 \item[(a)] \textup{(Proved.)} $\ckmin(p)\ge n_p$ for every prime
 $p\equiv1\pmod{24}$, and every fixed-period congruence minorant for
-$\{\ckmin(p)>T\}$ is supported on primes with $n_p>T$
+$\{\ckmin(p)>T\}$ is supported, among large primes, on primes with $n_p>T$
 \textup{(Corollary~\ref{cor:exactly})}.
 \item[(b)] \textup{(Proved modulo \cite[Prop.~5.1]{LW}.)}
 $\ckmin(p)\gg\log p\cdot\log\log\log p$ for infinitely many hard primes.
@@ -148,8 +149,8 @@ $\ckmin(p)\gg\log p\cdot\log\log\log p$ for infinitely many hard primes.
 
 Thus a congruence proof of $\ckmin(p)>(\log p)^{1+\delta}$ infinitely often
 would improve the best known unconditional (Graham--Ringrose) and
-GRH-conditional (Montgomery) $\Omega$-results for $n_p$, and would
-contradict the usual random model for $n_p$.
+GRH-conditional (Montgomery) $\Omega$-results for $n_p$, and would exceed the
+random-model prediction $\max_{p\le x}n_p\asymp\log x\log\log x$.
 
 Finally, on the Haar (profinite) side, let $\delta^*(T)$ be the Haar measure
 of the set of $n\in\widehat{\mathbb Z}^\times$ with $n\equiv1\pmod{24}$ and
@@ -161,9 +162,7 @@ $T^{1/2+o(1)}$.
 $\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
 \end{theorem}
 
-Numerically $\log(1/\delta^*(T))$ grows like a small power of $\log T$, which
-suggests that much larger values of $W(p)$ occur.  We do not pursue
-heuristics here.
+We do not pursue heuristics about the true size of $\delta^*(T)$ here.
 
 \smallskip\noindent\textbf{Status conventions.}  Every theorem header
 carries a label.  \emph{Proved} means proved in full here.
@@ -279,7 +278,11 @@ and $4sr^2+1\le T+2$.
 Without the congruence $m\mid r+k$ the same count gives $S\le T^{1/2-\eta+o(1)}$
 for $y=T^{1/2+\eta}$, and the transfer below then only yields $W(p)\gg\log p$.
 Numerically $S\approx 6.5,\ 13.6,\ 23.9,\ 38.5$ for $T=10^3,\dots,10^6$ (with
-$y=\sqrt T$), i.e.\ $S$ is polylogarithmic in practice.
+$y=\sqrt T$), i.e.\ $S$ is polylogarithmic in practice.  These values
+illustrate $S$ only.  The bound $g\le1/16$ of Lemma~\ref{lem:sizes}, and
+hence Theorem~\ref{thm:main}, is asymptotic: with the $y$ above, $\cU$ is
+empty unless $\log T>e^6$.  At $y=\sqrt T$ one has $\max g>1/16$, and the twist
+condition of \S\ref{sec:proof} can fail.
 \end{remark}
 
 \section{The analytic input}\label{sec:analytic}
@@ -311,7 +314,7 @@ Let $\cQ$ be a finite set of moduli, all $\le Z$.  Call $(\chi^*,\beta)$
 divides some $q\in\cQ$, $L(\beta,\chi^*)=0$ and $\beta\ge1-1/(13\log(3Z^2))$.
 Then there is at most one severe pair.  If $(\chi^*,\beta^*)$ is severe and
 $q^*\mid q\in\cQ$, then $\beta_1=\beta^*$ and $\chi_1$ is induced by $\chi^*$ for
-the modulus $q$.  If no severe pair has $q^*\mid q$, then any exceptional
+the modulus $q$.  If $q\in\cQ$ and no severe pair has $q^*\mid q$, then any exceptional
 $\beta_1$ of $q$ satisfies $x^{\beta_1-1}/\beta_1\le2\exp(-\log x/(13\log3Z^2))$.
 \end{lemma}
 
@@ -343,23 +346,40 @@ has $W(p)>T$.
 \end{theorem}
 
 \begin{proof}
-Let $q_i=Qd_i$ and let $a_i$ be the class $\equiv1\ (Q)$, $\equiv b_i\ (d_i)$.
-Then $\sum_{p\le x,\,p\equiv1(Q)}\log p\,B(p)=\sum_ic_i\theta(x;q_i,a_i)$, and
-$x\ge Z^{12}\ge q_i^{12}$.  Put
+Let $q_i=Qd_i$ and let $a_i$ be the class $\equiv1\ (Q)$, $\equiv b_i\ (d_i)$;
+it is a unit class.  Then
+$\sum_{p\le x,\,p\equiv1(Q)}\log p\,B(p)=\sum_ic_i\theta(x;q_i,a_i)$.  Taking
+$C_1\ge12$ gives $x\ge Z^{12}\ge q_i^{12}$, so Theorem~\ref{thm:TZ} applies to
+every term.  Since $\gcd(Q,d_i)=1$ we have $\varphi(q_i)=\varphi(Q)\varphi(d_i)$,
+so
+\[
+ \sum_ic_i\theta(x;q_i,a_i)=\frac{x}{\varphi(Q)}\sum_i\frac{c_i\lambda_i(1+\varepsilon_i)}{\varphi(d_i)},\qquad
+ |\varepsilon_i|\le C_0E_1,
+\]
+with $\lambda_i$ the factor of Theorem~\ref{thm:TZ} for $(q_i,a_i)$.  Put
 $E_1=e^{-c_4\log x/\log Z}+e^{-c_4(\log x)^{3/5}/(\log\log x)^{1/5}}$ and
 $E_2=e^{-\log x/(13\log3Z^2)}$, and apply Lemma~\ref{lem:severe} to
 $\{q_i\}$.  Write the conductor of a severe $\chi^*$ as $q^*=q^*_Qq^{*\prime}$ with
 $q^*_Q$ supported on the primes of $Q$ and $\gcd(q^{*\prime},Q)=1$, and
 $\chi^*=\chi^*_Q\chi^{*\prime}$.
 
-\emph{Case A: a severe pair exists with $q^*\mid Q$.}  Then for every $i$,
-$\lambda_i=1-\chi^*(a_i)x^{\beta^*-1}/\beta^*=1-x^{\beta^*-1}/\beta^*=:\lambda_*>0$,
-because $a_i\equiv1\pmod{q^*}$; so
+\emph{Case A: a severe pair exists with $q^*\mid Q$.}  Then $q^*\mid q_i$ for
+every $i$.  By the second claim of Lemma~\ref{lem:severe}, every $\lambda_i$ is
+formed with the same pair $(\chi^*,\beta^*)$, so
+$\lambda_i=1-\chi^*(a_i)x^{\beta^*-1}/\beta^*=1-x^{\beta^*-1}/\beta^*=:\lambda_*$,
+because $a_i\equiv1\pmod{q^*}$.  Moreover $\lambda_*>0$: since $\log x>2$ and
+$\beta^*>1/2$, we have $(\beta^*-1)\log x<\log\beta^*$, i.e.\ $x^{\beta^*-1}/\beta^*<1$.
+So
 $\sum c_i\theta\ge(x\lambda_*/\varphi(Q))(\mu-C_0E_1M_1)$.
 
-\emph{Case B: otherwise.}  If $q^*\mid q_i$ (equivalently $q^{*\prime}\mid d_i$,
-$q^{*\prime}>1$), then $\lambda_i=1-\psi(b_i)x^{\beta^*-1}/\beta^*$ with
-$\psi=\chi^{*\prime}$; otherwise $|\lambda_i-1|\le2E_2$.  Since $\lambda_i<2$ and
+\emph{Case B: otherwise.}  If a severe $\chi^*$ exists, then $q^*$ divides some
+$Qd_j$ with $\gcd(d_j,Q)=1$, so $q^*_Q\mid Q$.  Hence $q^*\mid q_i$ iff
+$q^{*\prime}\mid d_i$, and in Case~B we have $q^{*\prime}>1$.  For such $i$,
+$\chi^*(a_i)=\chi^*_Q(1)\chi^{*\prime}(b_i)=\psi(b_i)$ with $\psi=\chi^{*\prime}$.  So
+$\lambda_i=1-\psi(b_i)x^{\beta^*-1}/\beta^*$.  This $\psi$ is real primitive, of
+conductor $q^{*\prime}>1$ coprime to $Q$ and dividing some $d_i$, so the twist
+condition applies to it.  For all other $i$, $|\lambda_i-1|\le2E_2$ by
+Lemma~\ref{lem:severe}.  Since $\lambda_i<2$ and
 $x^{\beta^*-1}/\beta^*\le2$,
 \begin{align*}
  \sum c_i\theta&\ge\frac{x}{\varphi(Q)}\big(\mu-2|\mu_\psi|-M_1(2C_0E_1+2E_2)\big)\\
@@ -405,7 +425,7 @@ $\psi=(\cdot/f)$.  With $h(\ell)=\sum_{a\in F_\ell}(a/\ell)/(\ell-1)$, $|h|\le g
 \]
 which vanishes if $r\ge J$.  The inner sum is $V'+\varepsilon'$ with
 $V'\le(16/15)^rV$ and $|\varepsilon'|\le S^{J-r}/(J-r)!$, so
-$|\mu_\psi|\le V/15+e^{-15S}\le\mu/4$ (treat $r\le J/2$ and $r>J/2$ separately,
+$|\mu_\psi|\le V/15+e^{-15S-6}\le\mu/4$ (treat $r\le J/2$ and $r>J/2$ separately,
 using $g\le1/16$ and $(e/11)^{1/2}<e^{-0.69}$).
 
 \emph{Moduli.}  $\log Z\le\log Q+J\Lc\le3y$ because $S=T^{o(1)}$
@@ -442,8 +462,21 @@ $r\ge5$; by the prime number theorem in progressions their logarithmic
 weight up to $X$ is $o(X)$.  Hence $\log Q\ge T/2+T/6-o(T)$.
 \end{proof}
 
-With Chang's theorem this gives the previous record $W\ge(5/8-\varepsilon)\log p$,
-and no complete certificate can do better than linear.
+\begin{remark}[The previous record; proved modulo {\cite[Cor.~11]{Chang}}]
+Put $L^*(T)=\lcm(24,\ M\le T,\ M\equiv3\ (4))$.  Every prime $p\equiv1\pmod{L^*(T)}$
+has $W(p)>T$, by Lemmas~\ref{lem:atoms} and~\ref{lem:one}.  A prime
+$\ell\le T/3$ divides some such $M$ (namely $\ell$ or $3\ell$).  A prime
+$\ell\in(T/3,T]$ divides one iff $\ell\equiv3\pmod4$.  Higher prime powers
+contribute $O(\sqrt T\log T)$.  Hence $\log L^*(T)=(2/3+o(1))T$.  Since $L^*(T)$
+is $T$-smooth, Chang's bound gives a prime $p\equiv1\pmod{L^*(T)}$ with
+$\log p\le(12/5+o(1))\log L^*$, i.e.\ $W(p)\ge(5/8-\varepsilon)\log p$ infinitely
+often.
+
+Proposition~\ref{prop:complete} bounds $\log Q$, not $p$: a class $c\ne1$ may
+contain primes below $Q$.  It shows that a complete certificate whose prime is
+supplied by a least-prime theorem (so that $\log p\ll\log Q$) cannot do better
+than linear.
+\end{remark}
 
 \subsection{Prime-local designs}
 
@@ -483,12 +516,36 @@ $\log p\le T^{\theta+2\varepsilon+o(1)}$.
 \end{proof}
 
 $H_{\min}$ is a purely combinatorial statement about congruences.  For
-$\theta<1/2$ the residual atoms involve several free primes, and plain
-event-level Bonferroni truncation over the raw atom list fails: configurations in which $n\equiv-4$
-modulo many free primes make $\binom{N-1}{J-1}$ large on a set of measure
-$\ge T^{-O(\sqrt J)}$, so the truncated mean is negative for
-$4.2\theta^2(\log T)^2\lesssim J\le T^\theta$.  A hub-adapted (hypergraph)
-minorant would be needed.
+$\theta<1/2$ the residual atoms involve several free primes, and the obvious
+minorant fails.
+
+\begin{proposition}[Proved]\label{prop:bonf}
+Fix $0<\theta<1/2$, put $y=T^\theta$, and impose the class of one modulo all
+prime powers $\le T$ of primes $\le y$.  Take as events all atoms
+$(M,c)$, $c\in\cR(M)$, compatible with this, and let $N(n)$ count those
+containing $n$.  Then for large $T$ and every even $J$ with
+$(4.2\theta^2+o(1))(\log T)^2\le J\le y$, the Bonferroni minorant
+$B_J=\sum_{j<J}(-1)^j\binom Nj$ has negative mean in the CRT measure on the
+class $1$.
+\end{proposition}
+
+\begin{proof}
+The mean is $P(N=0)-E[\binom{N-1}{J-1}\mathbf 1_{N\ge1}]$.  Let
+$r=\lceil\sqrt{2J-1}\rceil\le\sqrt{2y}+1$, and take $r$ primes $\equiv1\pmod4$
+and $r$ primes $\equiv3\pmod4$ in $(y,2y]$; there are enough of them.  If
+$n\equiv-4$ modulo all of them, then for every cross pair $M=\ell\ell'\le4y^2\le T$
+we have $M\equiv3\pmod 4$, and $D=1$ gives the atom $-4\bmod M$.  So
+$N\ge r^2\ge2J-1$, on a set of measure $\ge(2y)^{-2r}$.  Hence
+\[
+ E\tbinom{N-1}{J-1}\ge(2y)^{-2r}\tbinom{2J-2}{J-1}
+ \ge\exp\big((J-1)\log4-\log(2J-1)-2r(\theta\log T+\log2)\big),
+\]
+which exceeds $1>P(N=0)$ once $J>(2\sqrt2\theta/\log4)^2(\log T)^2(1+o(1))$.
+\end{proof}
+
+These raw hub atoms are implied by single-prime atoms.  Numerically, other
+hub classes survive the deletion of implied atoms, so a hub-adapted
+(hypergraph) minorant appears necessary; this is not proved.
 
 \section{The slice parameter}\label{sec:typeI}
 
@@ -497,8 +554,14 @@ $1\le k\le\lfloor2p/3\rfloor$, $1\le c\le\lfloor(2p+k)/(4k)\rfloor$, $(p,ck)=1$;
 put $h=4ck$, $N_{c,k}=p^2+4ck^2$, $s=\sfree(c)$, and let $\chi_s=(\Delta_s/\cdot)$,
 where $\Delta_s<0$ is the discriminant of $\mathbb Q(\sqrt{-s})$; its
 conductor divides $4s\mid h$.  $M_{c,k}(p)$ is the number of divisors of
-$N_{c,k}$ in the class $-p\pmod h$; a divisor $e$ in that class gives the
-Type~I solution $a=(p+e)/h$, $b=(p+N/e)/h$.
+$N_{c,k}$ in the class $-p\pmod h$.  The slice $(c,k)$ is \emph{positive} if
+$p(a+b)=k(4abc-1)$ has a solution in positive integers $a,b$.  This happens iff
+$M_{c,k}(p)>0$.  Indeed, a divisor $e\equiv-p\pmod h$ of $N=N_{c,k}$ has
+cofactor $f=N/e\equiv p^2(-p)^{-1}\equiv-p$, and $a=(p+e)/h$, $b=(p+f)/h$
+satisfy $k(4abc-1)=p(a+b)$, as one checks by expanding $ef=N$.  Conversely, given
+$a,b$, put $e=ha-p$ and $f=hb-p$.  Then
+$ef=16c^2k^2ab-4ck\cdot k(4abc-1)+p^2=N$ and $e\equiv-p\pmod h$.  Moreover
+$e,f>0$, since $pa<4abck$ and $pb<4abck$.
 
 \begin{lemma}[Genus obstruction; proved]\label{lem:genus}
 If $p\equiv1\pmod{24}$, $(c,k)\in\cB_p$ and $\chi_s(p)=1$, then $M_{c,k}(p)=0$.
@@ -559,7 +622,7 @@ congruences is exactly $n_p$.
 \end{corollary}
 
 \begin{proof}
-$B$ is periodic modulo some $L$; if $B(p)>0$ then $B$ is positive on the
+$B$ is periodic modulo some $L$, which we take divisible by the modulus of the given class (hence by $24$).  If $B(p)>0$ then $B$ is positive on the
 whole class $p\bmod L$, so Proposition~\ref{prop:QR} gives $(\ell/p)=1$ for
 $5\le\ell\le T$, and $(2/p)=(3/p)=1$.
 \end{proof}
@@ -569,7 +632,11 @@ $\ckmin(p)\gg\log p\cdot\log\log\log p$ for infinitely many hard primes $p$.
 \end{theorem}
 
 \begin{proof}
-Lau and Wu \cite[Prop.~5.1]{LW} (following Graham--Ringrose \cite{GR}) show:
+Lau and Wu \cite[Prop.~5.1]{LW} (following Graham--Ringrose \cite{GR}; the
+numbering is that of the authors' preprint, and the published numbering was not
+compared) show the following.  They phrase it via $\chi_p(q)=1$ with
+$\chi_p=(p/\cdot)$, which for $p\equiv1\pmod4$ equals $(q/p)$ by reciprocity,
+including $q=2$.  The statement:
 for small fixed $\delta>0$ and $y(x)=\delta\log x\log_3x$ there are
 $x_n\to\infty$ and primes $p\in(x_n^{1/2},x_n\log x_n]$ with $p\equiv1\pmod4$
 and $(q/p)=1$ for all primes $q\le y(x_n)$.  Such $p$ are $\equiv1\pmod{24}$
@@ -621,7 +688,7 @@ $S_{\rm tot}\ll(\log T)^4\log\log T$; this is not needed below.)
 
 \begin{proof}[Proof of Theorem~\ref{thm:haar-intro}]
 Fix $\varepsilon>0$, put $y=T^{1/3+\varepsilon}$ and $z=y$.  Every rough part is
-$\ell$, $\ell^2$ or $\ell_1\ell_2$.  Use the independent coordinates
+$\ell$, $\ell^2$ or $\ell_1\ell_2$ (as $y^3>T$).  Use the independent coordinates
 $X_\ell=n\bmod\ell^{e_\ell}$.  Single atoms form forbidden sets $G_\ell$ of
 measure $g_\ell$, with $1\notin G_\ell$ (Lemma~\ref{lem:one}) and
 $\sum g_\ell\le S_{\rm tot}$.
@@ -639,8 +706,13 @@ $\sum(g'_\ell-g_\ell)\le|B|\tau^2_{\max}T/y^2=T^{1/3-2\varepsilon+o(1)}$.
 residues, a good pair event has $\mu'(E)\le4/((\ell_1-1)(\ell_2-1))$, and the
 per-prime weight is
 $w'_\ell\le16\tau^2_{\max}T/(\ell^2y)\le T^{-3\varepsilon+o(1)}$.  The asymmetric local
-lemma \cite[Lemma~5.1.1]{AS} with $x_E=2\mu'(E)$ gives
-$\mu'(\text{no good pair event})\ge\exp(-16S_{\rm tot})$.
+lemma \cite[Lemma~5.1.1]{AS} applies to $\mu'$.  Here $\mu'$ is the Haar
+measure conditioned on a product set, hence a product measure, and a pair event
+is mutually independent of all events sharing no prime with it.  With
+$x_E=2\mu'(E)$ we have
+$\sum_{E'\sim E}x_{E'}\le2(w'_{\ell_1}+w'_{\ell_2})=T^{-3\varepsilon+o(1)}$, so
+$\prod_{E'\sim E}(1-x_{E'})\ge1/2$ for large $T$.  The lemma gives
+$\mu'(\text{no good pair event})\ge\prod(1-x_E)\ge\exp(-16S_{\rm tot})$.
 
 \emph{Collecting.}  With $Q'=Q_y\prod_{b\in B}b^{e_b}$,
 \begin{align*}
@@ -651,9 +723,18 @@ $\mu'(\text{no good pair event})\ge\exp(-16S_{\rm tot})$.
 \end{proof}
 
 The exponent $1/3$ reflects the crude bound $N(M)\le\tau(A^2)$ for multi-prime
-atoms at a fixed prime.  A congruence saving \emph{uniform in a fixed prime}
-(the per-prime analogue of Lemma~\ref{lem:mass}) would, by the local lemma,
-give $\log(1/\delta^*(T))\le(\log T)^{O(1)}$; we do not know how to prove it.
+atoms at a fixed prime.
+
+\begin{remark}[Conditional; the implication is proved modulo {\cite[Prop.~1.4]{ET}}]
+Let $w_\ell(T,z)=\sum1/\varphi(r_E)$ over the distinct surviving events $E$ whose
+rough part is divisible by $\ell$.  Suppose $w_\ell(T,z)\le\log z/(8\log T)$ for
+all primes $z<\ell\le T$, with $z=(\log T)^C$.  Then the local lemma, applied to
+all events with $x_E=2/\varphi(r_E)$, together with the bound
+$S_{\rm tot}\ll(\log T)^4\log\log T$ from \cite[Prop.~1.4]{ET}, gives
+$\log(1/\delta^*(T))\ll(\log T)^{\max(C+1,4)+o(1)}$.  Without \cite{ET} one gets
+only $\exp(-T^{o(1)})$ from the mass.  We do not know how to prove the
+per-prime hypothesis.
+\end{remark}
 None of this transfers to primes: the local lemma does not provide a
 pointwise minorant.
 
@@ -693,8 +774,12 @@ Numbers, 6th ed., Oxford, 2008.
 Int.\ J.\ Number Theory 4 (2008), 423--435.
 \bibitem{McC} K.~S.~McCurley, Explicit zero-free regions for Dirichlet
 $L$-functions, J.\ Number Theory 19 (1984), 7--32.
-\bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Academic Press, 1969,
-Chapter~30.
+\bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Pure and Applied
+Mathematics 30, Academic Press, 1969.
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
+evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
+\bibitem{Oblath} R.~Obl\'ath, Sur l'\'equation diophantienne
+$4/n=1/x_1+1/x_2+1/x_3$, Mathesis 59 (1950), 308--316.
 \bibitem{PW} C.~Pomerance and A.~Weingartner, Exceptions to the
 Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
