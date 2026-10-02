@@ -679,23 +679,19 @@ so `|ab′−a′b| ≥ j`. As `|ab′−a′b| = |P||P′| sin∠(P,P′) ≤ 2
 `≥ j/(2H²)` apart in angle, and the angles lie in `(0,π)`. For the second
 claim, `|ab′−a′b| < 2·(j/2) = j`. ∎
 
-**Consequences (PROVED from Lemmas 5.4(i), 5.5).** Every cross pair contains a
-*light* label (height `≥ (j/2)^{1/2}`), whose datum modulus is
-`d ≥ (height/4)^{1/2} ≫ j^{1/4} ≥ L²`. In Lemma 5.4(i) such a datum has
-Brun–Titchmarsh part `≤ C(log L)/φ(d) ≪ L^{−2+o(1)}`, and Lemma 5.5 bounds the
-number of light labels of height `≤ H` in a residue class by `1 + 7H²/j`.
-Summing dyadically in H (labels with BT part need `d ≤ X`, and the number
-of data per label is ≤ 3·2^{ω(d)}), the BT parts of light labels in one
-class total `≪ (log L)^{O(1)}·L^{−2+o(1)}·(1 + L^{O(1)}/j)` — SKETCH: the
-exact exponent bookkeeping (height vs d for the three datum types) is not
-written. Against the total mass `L³` of the partner label, the cross
-contribution is then `≪ Σ_j (ρ_j/j)·L^{1+o(1)} ≪ L^{1+o(1)}`, which is
-**not** below the budget `L^{3/4}` as it stands; a sharper count (the
-`L^{−2}` uses only `d ≫ j^{1/4} ≥ L²`, and `j^{1/4}` grows) would give
-`Σ_j ρ_j j^{−3/2}L^{3+o(1)} = o(1)`. Treat this bullet as SKETCH.
-What remains is exactly the **first-element cross pairs**: light labels
-realised at their *first* partner `m₀`, i.e. effectively a single class
-each, colliding mod j with another class.
+**Consequence (PROVED).** Every cross pair contains a *light* label (height
+`≥ (j/2)^{1/2}`), whose datum modulus is `d ≫ j^{1/4} ≥ L²` (`d ≥ height`
+for type 1, `d ≥ (height/4)^{1/2}` for types 0, 2). So deadly values (heavy
+labels) never collide with each other; every collision involves a label that
+is realised by few partners.
+
+**What this does not give (checked).** Bounding the light labels in one
+class by Lemma 5.5 and their Brun–Titchmarsh parts by `(log L)/φ(d)` fails:
+labels of height ≈ H number `≍ H²/j` per class and carry BT part up to
+`(log L)/H`, and H runs up to `X/(kj)` (beyond that the BT part vanishes),
+so the sum diverges like `X/(kj²)`. The lattice count is too weak for light
+labels; one needs that light labels are *realised* (`d | A_{kjm}` for an m in
+range), i.e. the averaging over A of H_div below.
 
 **Hypothesis H_div (cleanest form of (H_O^≠); OPEN).** Put
 `w_j(A) = j/A` for `A ≡ 4^{−1} (mod j)`, `A ≤ X`, and
