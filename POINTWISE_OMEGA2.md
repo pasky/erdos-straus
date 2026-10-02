@@ -22,7 +22,18 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
 4. **Scope.** PO Prop 6.3 remains true but is no obstruction to H_MIN.
    Below θ=1/3 the missing inputs are an H_PP-type per-prime bound and a
    hypergraph form of Lemma 2.1 (§7). The prime side now matches the Haar
-   side (PO Thm 9.3).
+. **Checkpoint 2 (§§8–9).**
+   * Single-coordinate atoms are exactly Elsholtz–Tao Type I points (Lemma
+     8.1, PROVED).
+   * Hence `|F_ℓ^{full}|≤ℓ^{3/5+o(1)}` (modulo ET Prop 1.7), and
+     `≪√ℓ log ℓ` for the `r′=1` part (elementary).
+   * `ℓ^{1/2}` in general is *not* proved. It would improve ET Prop 1.7,
+     and 3/5 is the divisor-method limit (Remark 8.3).
+   * `F_I(n)≤n^{η}` implies a Haar exponent `η/(1+η)` (Thm 9.2). So
+     η<1/2 is needed to beat 1/3, and `η=1/2` only reproduces it.
+   * The single part of H_PP was never the bottleneck. The true per-prime
+     target is a progression average of Type I counts (AP-TI), which
+     reduces to an explicit Kloosterman-type first-term sum.
 
 ## 0. Idea in one paragraph
 
@@ -537,19 +548,6 @@ side now stand at the *same* exponent (3), and any further progress on
 the Haar side that goes through per-prime local-lemma conditions is likely
 to transfer by the method of §§1–3 (Assessment, not a theorem).
 
-## Replay
-
-```
-export PYTHONPATH=scripts
-uv run python scripts/omega2_abstract_check.py 300 1        # Lemmas 1.1-1.2 brute force, ~2 s
-uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
-(ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 2000 0.25)    # §6, ~1 min -> data/omega2/es_1e4_0.4.txt
-(ulimit -v 8000000; uv run python scripts/omega2_es.py 100000 0.36 0.05 500 0.25)   # §6, ~10 min -> data/omega2/es_1e5_0.36.txt
-(ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 200 0.015625) # threshold 1/64: no edge survives
-uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~1 min -> data/omega2/checkI.txt
-uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
-```
-
 ## 8. Checkpoint 2: single-coordinate masses are Elsholtz–Tao Type I counts
 
 Notation: Elsholtz–Tao (arXiv:1107.1010, archived as
@@ -741,3 +739,18 @@ gives `log(1/δ*) ≤ π(z)log T + 4S_tot + O(1)`, with
 5. **Prime side, θ<1/3.** H_MIN(θ) would need the Haar-side input (η<1/2,
    or AP-TI with κ<1/3) *and* a hypergraph form of Lemma 2.1 (§7). Neither
    is available.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+uv run python scripts/omega2_abstract_check.py 300 1        # Lemmas 1.1-1.2 brute force, ~2 s
+uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
+(ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 2000 0.25)    # §6, ~1 min -> data/omega2/es_1e4_0.4.txt
+(ulimit -v 8000000; uv run python scripts/omega2_es.py 100000 0.36 0.05 500 0.25)   # §6, ~10 min -> data/omega2/es_1e5_0.36.txt
+(ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 200 0.015625) # threshold 1/64: no edge survives
+uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~1 min -> data/omega2/checkI.txt
+uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
+uv run python scripts/omega2_ffull.py dict 501                  # §8 Lemma 8.1 dictionary, all odd r<=501, ~10 min
+uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~5 min
+```
