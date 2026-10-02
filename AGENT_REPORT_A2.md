@@ -71,16 +71,32 @@ This assumes the final bound has the form `N·Eν + (nonnegative rounding
 bound)`. A method exploiting signed cancellation in the rounding errors is
 outside the scope.
 
+The level hypothesis `λ ≤ A log N` is part of the class. The 3/4 note is
+actually constrained by its coefficient sum `T_abs ≤ N^{1/2}`; its modulus
+bound is "not necessary". Lemma 2.9, added by the hostile review
+review-theta-2, bridges the two. Suppose the rounding is bounded by
+`Σ|a_i| < N` and the family's slice primes are `≤ N^{O(1)}`. Then the level
+hypothesis holds automatically, up to doubling the mean. Families with
+slice primes beyond `N^{O(1)}` remain formally outside. The full list of
+exclusions is EXCEPTIONAL_THETA §6.1.
+
 So **3/4 is sharp and no `(log log N)^ε` gain is possible** in this class.
-The class contains Vaughan, PW, the 2/3-loglog note and the 3/4 note. The
+* The 3/4 note's majorant `S_y Q_r(H_X)` is literally in the class.
+* Vaughan, PW and the 2/3-loglog note are not majorants. They are
+  Montgomery large-sieve bounds on slice systems, and they are covered via
+  Remark 2.6, which caps the large sieve by the same Rankin functional. The
 profile input is Lemma 3.1, `Σ τ(A²)M/φ(M) ≪ x log²x`, proved via Shiu.
 
 ### Exact accounting (Lemmas 4.1–4.4; PROVED)
 
 * In both campaign proofs the binding inequality is the pair
-  (supply profile, level).
-* Bonferroni depth (`r ≥ μ−2√μ` is forced), the BV level (EH changes
-  constants only) and the selector are not binding.
+  (supply profile, budget). For the 3/4 note the budget is the coefficient
+  sum `T_abs ≤ N^{1/2}`, which forces level `≲ log N` via Lemma 2.9. For the
+  2/3 note it is the large-sieve level `Q² ≤ N/L_K` with `L_𝒦 ≤ N`.
+* Bonferroni depth (`r ≥ μ−2√μ` is forced), the BV level (EH) and the
+  selector cannot improve the exponent (PROVED, via Lemma 3.1 and
+  Theorem 2.5). That alternatives attain the same order up to constants is
+  EVIDENCE (§2.5).
 * The 2/3-loglog note is sharp for its architecture: `h(𝒦) ≪ log log L_𝒦`
   with `L_𝒦 ≤ N` (Cor 3.5).
 
