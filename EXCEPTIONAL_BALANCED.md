@@ -9,23 +9,37 @@ Status: **checkpoint (outcome (C), partial).** Labels follow
 |---|---|---|
 | Lemma 2.1 | η-gapped moduli (`P(M) ≥ P₂(M)^{1+η}`, `P(M) > w₀`) satisfy (U) for windows of log-ratio 1+η | PROVED |
 | Lemma 2.2 | ET Prop 2.4 without `p ≤ 1/4`: heavy coordinates cost `−log(1−p_i)` each | PROVED |
-| Thm 2.3 | sequential bound (2.1) for gapped families, given (NDE) | PROVED given (NDE) |
+| Thm 2.3 | sequential bound (2.1), with R-term `log(Q₀/\|R\|)`, for gapped families, given (NDE) | PROVED given (NDE) |
 | Lemma 2.4 | window masses `m_j ≪ (1+B)³s_j³` for (η,B)-gapped ℛ(M)-families | PROVED |
-| Thm 2.5 | `S_λ ≤ C K^{1/4}(1+B)^{3/4} η^{−1}λ^{3/4} + Kλ^{3/4} + O(η^{−1}log λ·(log λ+log K))` | CONDITIONAL on H_light(K) |
+| Lemma 2.5a | in ET Prop 2.4, G = number of nonempty bands | PROVED |
+| Thm 2.5 | for each fixed B: `S_λ ≤ C K^{1/4}(1+B)^{3/4} η^{−1}λ^{3/4} + Kλ^{3/4} + O(η^{−1}log λ·(log λ+log K+log(1+B)))` | CONDITIONAL on H_light(K), with (ii) the cubic window bound |
 | Lemma 4.1 | `F_ℓ(n) = {−r/k mod ℓ : (4srk−1)/ℓ = q ∈ 𝒬_ℓ, q \| nk+r}` | PROVED |
-| Lemma 4.2 | counting gives (★_δ) iff B < 1; vacuous for B ≥ 1 | PROVED |
-| Prop 4.3 | `sup_n \|F_ℓ(n)\| ≥ y^{1/5−o(1)}`, `y = ℓ^{1/(1+η)}` (reachability not checked) | PROVED (uses Linnik/Xylouris) |
-| Prop 4.4 | (E_δ) ⇒ (★_δ) ⇒ H_light(O(1)) ⇒ cap `≪ η^{−1}λ^{3/4}` for (η,B)-gapped families | PROVED (weak-ε form only sketched) |
-| §3 | real system: `K = E_seq p/E_U p ∈ [0.52, 1]`; `p(h) ≲ 4ℓ^{−1/2}`; balanced classes add no LP saving at level ≤ 2 and lose to matched-mass singles; η-twin classes have ≈ 0.2 effective void mass among real primes; greedy sup of `\|F_ℓ\|` ≈ π(y) | EVIDENCE |
+| Lemma 4.2 | the *counting bound* gives (★_δ) iff B < 1; vacuous for B ≥ 1 | PROVED |
+| Prop 4.3 | `sup_n \|F_ℓ(n)\| ≫ y^{1/L−o(1)}`, L a Linnik exponent; witnesses are **dominant** (prime) cofactors, so this is no evidence on balanced content | PROVED (given Linnik) |
+| Prop 4.4 | for fixed B, `w₀ ≥ 4^{1/δ}`: (E_δ) on `𝒬_ℓ^{(B)}` ⇒ (★_δ) ⇒ H_light(O_δ(1)) ⇒ cap `≪_{δ,B} η^{−1}λ^{3/4}` | PROVED |
+| Conj 4.4W | `p ≤ ε` ⇒ cap `λ^{3/4+O(ε)}` | SKETCH, gap in the large-divisor range |
+| §3.1 | `K = E_seq p/E_U p ∈ [0.48, 1]`; at fixed X, `p(h) ≲ 4.4ℓ^{−1/2}`; **heavy histories move up with X** (15% at ℓ ∈ [128,256), X = 10⁶) | EVIDENCE |
+| §3.2 | 4-prime LPs: η-twin *pairs* (not balanced) add ≤ 0.035 at m ≤ 2, gain at m = 3; ≥3-prime (balanced) classes add 0 at m ≤ 3; matched-mass singles do better | EVIDENCE (weak) |
+| §3.3 | real-prime voids, both orders: non-dominant families give ≈ 0.5 void per unit mass added to dom, less when added second; twin is not specially redundant | EVIDENCE |
+| §4.3 | greedy sup of `\|F_ℓ\|` ≈ π(y) + `\|ℛ(ℓ)\|`; balanced cofactors alone reach 58 values at ℓ = 503 (π(y) = 34) | EVIDENCE, inconclusive |
 
 **Verdict so far.** Neither (A) nor (B) is proved.
-* Balanced moduli whose two top primes are separated (η-gapped) are
-  reduced to one arithmetic extremal statement, (E_δ).
+* For each fixed B, balanced moduli whose two top primes are separated
+  ((η,B)-gapped) are reduced to one arithmetic extremal statement, (E_δ)
+  on `𝒬_ℓ^{(B)}`. Gapped moduli with unbounded `log M/log P(M)` are not
+  covered.
 * η-twin moduli (top two primes within log-ratio 1+η) are the open core.
   They carry `≫_η (log x)³` supply (ET Lemma 3.8). They are untouched by
   any proof here.
-* All numerics lean towards (A), i.e. that balanced moduli do not beat
-  3/4. They are taken at toy scales only.
+* **After the review repairs (D13, D15–D17), the evidence no longer
+  favours (A).**
+  * The "twin is redundant" reading was an ordering artefact.
+  * Heavy histories grow with X.
+  * The LP tests concern η-twin pairs at toy size; genuinely balanced
+    classes are near the visibility threshold there.
+  * Balanced cofactors can be co-activated in numbers ≳ π(y).
+  * No data point favours (B) either. The numerics are neutral at the
+    scales reachable.
 
 Notation as in `EXCEPTIONAL_THETA.md` (ET): `L = log N`, λ = level,
 `P(M) ≥ P₂(M) ≥ …` the prime factors of M in decreasing order.
