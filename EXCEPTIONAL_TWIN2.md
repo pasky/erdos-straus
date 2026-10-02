@@ -364,3 +364,50 @@ inflation of Lemma 3.2(1), which only involves w₂-smooth k, and (ii) Shiu
 along the top prime (Lemma 3.3), which needs no weights at all. The
 B-hypothesis `M ≤ P(M)^{1+B}` is what makes (ii) available (`k ≤ P^B`), and
 it removes TW Lemma 2.6's large-divisor constant `exp(O(W₁^{1/4}))`.
+
+## 5. Assembly; the remaining inequality (H_O)
+
+For a fibre c in supp P, a prime `j > w₂` and `a ∈ ℤ/j^{e_j}`, recall
+`deg_c(j,a) = Σ ν_m(partner residues)` over the binary classes through the
+vertex `(j,a)` that are active in c, and
+`S_j(c) = Σ_a ν_j(a) min(deg_c(j,a), 1)²` (Lemma 2.2).
+
+**Theorem 5.1 (two-prime Λ² cap, reduced to (O); PROVED).** In Setting 3.0,
+for L large, every `g ∈ V_{λ/2}` with `g ≥ 1` on the avoiders of 𝓕 satisfies
+
+    saving(g²) ≤ A₀L^{3/4}/2 + C_B L^{3/4}(log L)^{C} + 9 E_P Σ_{j>w₂} ρ_j S_j(c)·(11/9),
+
+with `ρ_j = j^{−α}`, `α = L^{−1/4}`, and C an absolute exponent.
+
+*Proof.* Lemma 2.1 with the fibre law P of §3 and `A⁺_c` = the quarantined
+avoiders of Lemma 2.2 (nonempty: `Z₁ > 0` by Lemma 1.1, unary densities
+`≤ 1/4`). `αλ/2 ≤ A₀L^{3/4}/2`; `log‖dP/dU_F‖ ≤ 4L^{1/2}` (Lemma 3.2);
+fibre by fibre (2.1) applies (supp P ⊆ G_L, Lemma 3.4); its unary and
+diagonal parts are Lemma 4.1, and its S-parts total `≤ 11 Σ_j ρ_j S_j`. ∎
+
+**Hypothesis (H_O) (off-diagonal / deadly-value term; OPEN).**
+`E_P Σ_{j>w₂} j^{−α} S_j(c) ≪_B α^{−3}(log L)^{O(1)}` in Setting 3.0.
+
+**Corollary 5.2 (CONDITIONAL on H_O).** In Setting 3.0,
+`saving(g²) ≪_{A₀,B} L^{3/4}(log L)^{O(1)}`: the Λ² cap for ℛ(M)-families
+with at most two prime factors above `w₂ = (log X)^8`, twins included.
+
+**What (H_O) is.** S_j is ET Assessment 5.8's off-diagonal quantity
+`Σ_b min(1,m_b)²` (divided by j), restricted to two-prime classes, and
+quarantined at 1. Bounds available:
+* `S_j ≤ w_j`, so the trivial bound is `E_PΣρ_jS_j ≪ Σ_j ρ_j L³/j ≪ L³ log L`
+  (useless, = total mass);
+* if the active classes through j had residues `−4D mod j` spread with the
+  same Γ-inflation as their moduli, `E S_j ≪ (E w_j)² j·… ≪ L^{6}/j²`
+  (summable);
+* the obstruction is concentration: hubs `−4D mod j` for small `D`
+  (`deg ≈ (log L)/g(D)`, ET's "deadly values"), and agreements
+  `D ≡ D′ (mod j)` between divisors of different `A²`. Heuristically the
+  hubs give `E S_j ≈ (log L)^{O(1)}/j`, hence `Σρ_jS_j ≈ α^{−1}(log L)^{O(1)}`,
+  far below the budget `α^{−3}`.
+
+(H_O) is a statement about divisors of the shifted numbers `(kjm+1)²/16` in
+residue classes mod the large prime j, averaged over the partner m and over
+the fibre. It is the arithmetic content left after §§1–4; the
+probabilistic part (noise stability, convergence, empty fibres, good fibres,
+inflation, the diagonal profile) is closed.
