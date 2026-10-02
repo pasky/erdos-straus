@@ -116,3 +116,50 @@ Thm 2.7 were graded SOUND. Repairs:
 * T7: λ-range for the θ-statement.
 * T8: the caps cover their families separately.
 * S1: Remark 1.4 (square base), with an (a,D)/Case-A check script.
+
+# Checkpoint 2 — attack on Conjecture 4.5_r (§6)
+
+**Outcome: reduced, not proved.** Conjecture 4.5_r is reduced to a
+sharper, arithmetic-free gap, and a weaker form is shown to suffice for
+the exponent question.
+
+* Lemma 6.1 (PROVED): ET Prop 2.4 holds for *soft* unary conditions, so
+  any product law with densities `≤ (1−p_ℓ)^{−1}` is reached at cost Φ(p).
+* Lemma 6.2 (PROVED): step inequalities compose. A block step therefore
+  splits into a unary step (Lemma 6.1) and a k-ary comparison step.
+* Lemma 6.3 (PROVED): Markov removal of residues with incident k-ary
+  weight > θ. The cost is a constant-factor increase of the cubic unary
+  profile; afterwards the k-ary system is locally sparse.
+* **Conjecture 6.4 (OPEN, the sharpened gap).** For a product law ν and
+  hard k-ary constraints with incident weights ≤ θ₀, the sequential capped
+  conditioning σ satisfies `E_σ f ≤ exp(C_r[d log(2+μ_{≥2}) + 1]) E_ν f`
+  for λ-level f ≥ 0. No arithmetic, no unary sieve.
+* Prop 6.5 (PROVED): Conj 6.4 implies `S_λ ≪_B η^{−1}λ^{3/4} log λ` for
+  *all* ℛ(M)-families with `M ≤ P(M)^{1+B}`, twins included. So 6.4 alone
+  would settle the exponent question for fixed B (up to `log λ`).
+* Evidence (§6.4, weak, toy scale): exact window LPs at m ≤ 6, L = 5. With
+  σ uniform on the avoid set, binary constraints extract a smaller share of
+  their void than unary constraints of equal mass at the same d. A caveat
+  that matters: with the *sequential* σ, dense toys give `log C*` above the
+  void. So 6.4 needs the caps and the sparsity hypothesis, and the choice of
+  σ is part of the problem.
+* Remark 6.5 (PROVED, small): ET Thm 5.5 (the Λ² cap) holds with any σ̃
+  on A, giving `saving ≤ αλ/2 + log E_S[1 + χ²(σ̃_S‖U_S)]`. This is the
+  tool for ET's fibre-term obstruction; no bound for the real system.
+
+**Why no proof.** ET Prop 2.4's proof (thinning, symmetrisation within
+bands, interpolation in band counts) needs independent coordinates. With
+k-ary constraints there is nothing to symmetrise. The obvious substitutes
+fail:
+* the truncated density certificate `P_{≤d}(dσ/dν)` blows up at
+  configurations with many hits, already for unary constraints at d = 2;
+* pointwise domination of all d-marginals does not imply junta domination,
+  because majorant terms can be signed;
+* the exponential-moment form of the Λ² collision bound is dominated by
+  rare histories.
+
+**Suggested next step.** Attack Conjecture 6.4 for r = 2 in the sparse
+regime directly: a "binary Prop 2.4", perhaps by symmetrising over the
+residue alphabets (the structure is one-hot per prime), or via the Λ²
+collision functional with a tilted σ̃ as an intermediate (H_MS^{Sel}
+first).
