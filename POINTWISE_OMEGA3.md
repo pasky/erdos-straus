@@ -125,11 +125,11 @@ combination of cells B with:
   gives item 5. ∎
 
 **Corollary 1.2 (what decoupling buys).** Choose
-`J := 2⌈e²S_hub + log(4M_1'/μ') + 2S_hub⌉+1`. Then `ε_J ≤ e^{−J} ≤ Vμ'/(4M_1')`
+`J := 2⌈e²S_hub + log(100M_1'/μ') + 2S_hub⌉+1`. Then `ε_J ≤ e^{−J} ≤ Vμ'/(100M_1')`
 (using `V≥e^{−2S_hub}`, from `h_ℓ≤1/2`), so
 
 ```
-μ(B) ≥ (3/4)Vμ',   log(M_1(B)/μ(B)) ≤ log(M_1'/μ') + 3S_hub + 1,
+μ(B) ≥ 0.99Vμ',   log(M_1(B)/μ(B)) ≤ log(M_1'/μ') + 3S_hub + 1,
 #primes per modulus ≤ (#primes per modulus of B_2) + J + 1.
 ```
 
@@ -162,8 +162,11 @@ on units is used is `Eχ_0(X_{ℓ_0})=0` in the twist step. There
 `|E'χ_0| = |Σ_{h∈H_{ℓ_0}}χ_0(h)|/(φ(ℓ_0^{e})−|H_{ℓ_0}|) ≤ h_{ℓ_0}/(1−h_{ℓ_0})`. ∎
 
 Combining Theorem 1.1 (item 5) with Lemma 1.3 gives the twist condition
-of PO Thm 4.1 for B: `|E[Bψ]| ≤ V|E'[B_2ψ]| + ε_JM_1' < Vμ'/4+Vμ'/4·…`.
-We record the exact constants in §4 when assembling.
+of PO Thm 4.1 for B. With J as in Corollary 1.2,
+`|E[Bψ]| ≤ V|E'[B_2ψ]| + ε_JM_1' ≤ 0.102Vμ' + 0.01Vμ' < 0.99Vμ'/4 ≤ μ(B)/4`.
+(§§3–5 do not use §1: Theorem 3.2 subsumes it, since hub vertices become
+level-2 singles. §1 is kept because its Brun form is explicit and
+self-contained.)
 
 ## 2. Atoms as triples; the hub classes are small-height rationals
 
