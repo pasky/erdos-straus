@@ -1,0 +1,28 @@
+Theorem 5.5:
+  ms=[3, 5, 7] lam/2=log35 P(A)=0.7048: -log W2=0.3285 -log proj=0.3372 -log thm=0.3529 ok
+  ms=[5, 7, 11] lam/2=log7 P(A)=0.9013: -log W2=-0.0000 -log proj=0.0107 -log thm=0.1055 ok
+  ms=[2, 3, 5, 7] lam/2=log2 P(A)=0.2286: -log W2=0.6931 -log proj=0.6931 -log thm=1.2927 ok
+  ms=[3, 5, 7] lam/2=log3 P(A)=0.4667: -log W2=0.0000 -log proj=0.0400 -log thm=0.7619 ok
+  ms=[3, 4, 5, 7] lam/2=log35 P(A)=0.4857: -log W2=0.7102 -log proj=0.7120 -log thm=0.7249 ok
+  ms=[2, 3, 5, 7] lam/2=log35 P(A)=0.4952: -log W2=0.6931 -log proj=0.6967 -log thm=0.7059 ok
+  ms=[3, 4, 5, 7] lam/2=log35 P(A)=0.6190: -log W2=0.4570 -log proj=0.4651 -log thm=0.4823 ok
+  ms=[2, 3, 5, 7] lam/2=log35 P(A)=0.3952: -log W2=0.8871 -log proj=0.8936 -log thm=0.9310 ok
+  ms=[5, 7, 11] lam/2=log7 P(A)=0.5506: -log W2=0.5108 -log proj=0.5267 -log thm=0.5977 ok
+  ms=[2, 3, 5, 7] lam/2=log35 P(A)=0.4286: -log W2=0.7621 -log proj=0.8069 -log thm=0.8496 ok
+  ms=[2, 3, 5, 7] lam/2=log35 P(A)=0.2905: -log W2=1.2175 -log proj=1.2211 -log thm=1.2388 ok
+  ms=[3, 4, 5, 7] lam/2=log3 P(A)=0.6190: -log W2=-0.0000 -log proj=0.0285 -log thm=0.4798 ok
+  ms=[3, 4, 5, 7] lam/2=log12 P(A)=0.6429: -log W2=0.1542 -log proj=0.2806 -log thm=0.4434 ok
+  ms=[3, 5, 7] lam/2=log35 P(A)=0.8095: -log W2=0.1800 -log proj=0.1939 -log thm=0.2144 ok
+  ms=[3, 5, 7] lam/2=log3 P(A)=0.7524: -log W2=0.0000 -log proj=0.0042 -log thm=0.2851 ok
+  ms=[5, 7, 11] lam/2=log7 P(A)=0.4260: -log W2=0.6061 -log proj=0.6230 -log thm=0.8540 ok
+  ms=[2, 3, 5, 7] lam/2=log3 P(A)=0.2381: -log W2=0.9163 -log proj=0.9201 -log thm=1.4207 ok
+  ms=[3, 4, 5, 7] lam/2=log4 P(A)=0.8905: -log W2=-0.0000 -log proj=0.0380 -log thm=0.1171 ok
+  ms=[3, 4, 5, 7] lam/2=log35 P(A)=0.5048: -log W2=0.6024 -log proj=0.6246 -log thm=0.6860 ok
+  ms=[3, 4, 5, 7] lam/2=log3 P(A)=0.7262: -log W2=-0.0000 -log proj=0.0170 -log thm=0.3204 ok
+  ms=[3, 5, 7] lam/2=log15 P(A)=0.1714: -log W2=1.4231 -log proj=1.4404 -log thm=1.7645 ok
+  ms=[5, 7, 11] lam/2=log7 P(A)=0.6026: -log W2=0.3483 -log proj=0.3499 -log thm=0.5075 ok
+  ms=[2, 3, 5, 7] lam/2=log3 P(A)=0.5000: -log W2=-0.0000 -log proj=0.1133 -log thm=0.6933 ok
+  ms=[3, 4, 5, 7] lam/2=log35 P(A)=0.7024: -log W2=0.2939 -log proj=0.3175 -log thm=0.3560 ok
+  ms=[5, 7, 11] lam/2=log7 P(A)=0.5013: -log W2=0.5108 -log proj=0.5259 -log thm=0.6914 ok
+Prop 5.7:
+  Prop 5.7 derivative formula vs finite differences: max abs error 1.97e-10
