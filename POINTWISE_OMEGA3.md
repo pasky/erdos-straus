@@ -430,3 +430,72 @@ edges. Their vertices have level-2 degree `≍c_θ>δ`, so step (c) turns
 them into singles. That is exactly the joint hub-vertex quarantine of §1,
 with cost `O(Ŝ²)` instead of the impossible `O(L log L)` *inside* the
 level-3 truncation.
+
+## 4. Exponent 4: `W(p) > (log p)^{4−o(1)}` infinitely often
+
+Put `𝓛=log T`, `y:=T^{1/4}exp(2𝓛/log 𝓛)` (so `y⁴>T`), `Π_0={ℓ≤y}`.
+Let `S*` be the uniform mass of O2 Lemma 11.1,
+`S*≤exp(O(𝓛/log 𝓛))`, and put `Ŝ:=S*+1`, `c_0:=c_0(Ŝ)` (Thm 3.4).
+Then `1/c_0=O(Ŝ)`.
+
+**Construction 4.1.**
+
+1. Run O2 Lemma 11.2 (iterated quarantine) from `Π_0` with `z=y` and
+   threshold `c_0`. It stops at `Π=Π_0∪𝓑` with `|𝓑|≤3S*/c_0=O(Ŝ²)`,
+   and every free prime has `w_ℓ(Π)≤c_0`.
+2. `Q:=lcm(24,ℓ^{e_ℓ}:ℓ∈Π)` with `e_ℓ=max{e:ℓ^e≤T}`, and
+   `𝒫:={y<ℓ≤T}∖𝓑`.
+3. Each atom surviving Π has rough part `r≤T` with all prime factors
+   `>y>T^{1/4}`, so `Ω(r)≤3`. It gives a single, an edge or a 3-vertex
+   hyperedge (class `−4D mod r`, lifted to classes mod `ℓ^{e_ℓ}` as in
+   O2 §10.3). Identical events are merged.
+
+**Lemma 4.2 (hypotheses of Thm 3.4; PROVED).** For T large:
+
+* (I) holds (O2 Lemma 4.3 (I), verbatim);
+* the per-prime total `g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ = w_ℓ(Π) ≤ c_0` for every
+  `ℓ∈𝒫`. Lifting preserves the mass at every prime, and `w_ℓ(Π)` is by
+  definition the mass of the distinct events whose rough part ℓ divides;
+* `S_1+S_2+S_H ≤ S_tot(Π) ≤ S* < Ŝ` (distinct events are at most atoms;
+  O2 Lemmas 4.1, 11.1);
+* `log Q ≤ (π(y)+|𝓑|)𝓛+log 24 ≤ 5y`, because `𝓛/log y→4`.
+
+**Theorem 4.3 (PROVED modulo Thorner–Zaman, via PO Thm 4.1; effective).**
+There is an absolute constant C such that for infinitely many
+Mordell-hard primes p,
+
+```
+W(p) ≥ (log p)^4 · exp(−C log log p / log log log p).
+```
+
+More precisely, for every large T there is a prime `p≡1 (mod 840)` with
+`W(p)>T` and `log p ≤ T^{1/4}exp(O(𝓛/log 𝓛))`. So
+`log L_h(T) ≤ T^{1/4+o(1)}`, H_MIN(θ) holds for every θ>1/4, and
+`H_MOD(A)` is refuted for every `A<4`.
+
+*Proof.* Lemma 4.2 and Theorem 3.4 give a minorant B with
+`K:=1+log(M_1/μ)=O(Ŝ²)=exp(O(𝓛/log 𝓛))`. Its moduli are products of
+`O(Ŝ²)` prime powers `≤T`, so `log max d_i ≤ exp(O(𝓛/log 𝓛))`. It also
+satisfies the twist condition, and `log Q≤5y`. The rest is O2 Thm 5.1's
+proof verbatim:
+
+* take a prime `ℓ_0∈(R,2R]`, `R=max(T,max d_i)`, and replace Q by
+  `Qℓ_0`;
+* PO Thm 4.1 then gives `p≡1 (Qℓ_0)` with `W(p)>T` and
+  `log p ≤ C_1K max(log Z,K) ≤ y·exp(O(𝓛/log 𝓛))`;
+* `840|Q` and `p>T`;
+* invert: `log log p ≤ 𝓛/4+O(𝓛/log 𝓛)`. ∎
+
+**Corollary 4.4 (PROVED modulo Thorner–Zaman).** For infinitely many hard
+p, jointly `W(p)≥(log p)^{4−o(1)}` and `ck_min(p)≥(log p)^{1−o(1)}`.
+(As O2 Cor 5.2: `p≡1` mod every prime `≤y`.)
+
+*Scope.* The prime side now beats O2's exponent 3. The only inputs
+beyond O2 are:
+
+* the two-level composition (Thm 3.2);
+* the conditional local lemma (Lemma 3.1);
+* first-moment pushing (Lemma 3.3).
+
+No arithmetic input about pair codegrees is used, so §2 is explanation
+(EVIDENCE for *where* the heavy pairs are), not a step of the proof.
