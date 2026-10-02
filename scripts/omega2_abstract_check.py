@@ -1,4 +1,4 @@
-"""Brute-force check of POINTWISE_OMEGA2 Lemmas 1.1-1.2 (support-truncated minorant).
+"""Brute-force check of POINTWISE_OMEGA2 Lemmas 1.1-1.2 and 10.1(1) (support-truncated minorant,\nprivate-cover majorant G^cov).
 
 Random event systems on a few coordinates; for every outcome x we compute
 B_L(x) directly from the definition, compare with the closed form R_L of
@@ -17,6 +17,28 @@ def esym(vals, k):
         for j in range(k, 0, -1):
             e[j] += e[j - 1] * v
     return e[k]
+
+
+def gcov(A, V, u):
+    """G^cov_u at x: pairs (P, C), |P|=u, C subset of the occurring events A
+    privately covering P (POINTWISE_OMEGA2 §10.1)."""
+    tot = 0
+    for P in itertools.combinations(V, u):
+        Ps = set(P)
+        for r in range(1, len(A) + 1):
+            for C in itertools.combinations(A, r):
+                sup = [set(e[0]) for e in C]
+                if not Ps <= set().union(*sup):
+                    continue
+                ok = True
+                for i, si in enumerate(sup):
+                    others = set().union(*(sup[:i] + sup[i + 1:])) if len(sup) > 1 else set()
+                    if not (si & Ps) - others:
+                        ok = False
+                        break
+                if ok:
+                    tot += 1
+    return tot
 
 
 def run(trials, seed):
@@ -64,6 +86,9 @@ def run(trials, seed):
                 G = esym(a, L + 1)
                 assert B - 4 ** (L + 1) * G <= ind, (events, x, L)
                 assert abs(B - ind) <= 4 ** (L + 1) * G, (events, x, L)
+                Gc = gcov(A, sorted(V), L + 1)          # §10 Lemma 10.1
+                assert comb(N, L + 1) <= Gc, (events, x, L)
+                assert B - 4 ** (L + 1) * Gc <= ind and abs(B - ind) <= 4 ** (L + 1) * Gc
                 checked += 1
     print(f"trials={trials} seed={seed}: {checked} (system,x,L) cases, 0 failures")
 

@@ -211,3 +211,128 @@ in commit `9bb341d`. §§1–5 are otherwise unchanged.
 | P8 | It goes through cleanly. New Corollary `cor:joint` [Proved modulo TZ]: jointly `W≥(log p)^{3−o(1)}` and `ck_min≥(log p)^{1−o(1)}`. The argument: `p≡1` mod 24 and mod every `ℓ≤y`, then reciprocity, then Lemma `np` with `y≥(log p)^{1−o(1)}`. Recorded first in POINTWISE_OMEGA2 §5 as Corollary 5.2, so the paper does not exceed its source. |
 
 Build: pdflatex ×3, 23 pp, 0 warnings, 0 overfull/underfull, 0 undefined references.
+
+---
+
+# Checkpoint 3: below θ=1/3 (POINTWISE_OMEGA2 §10)
+
+## (a) Hypergraph lemma: done (PROVED)
+
+* **Lemma 10.1 (private covers).** Each member of a private cover has a prime
+  that no other member touches. The private-cover count `G^cov` majorises
+  `binom(N,u)`, and it can replace `e_{L+1}(a)` in Lemmas 1.2–1.3.
+  Brute-force check: the abstract script, 0 failures.
+* **Lemma 10.2.** For private families of hyperedges with at most k primes:
+  `Σ_{u≤U_0}w^uEG^cov_u ≤ exp((1+w)S_1+2ek(1+w)^kS_H)`, provided
+  `Σ_j (kU_0)^jΔ^{(j+1)} ≤ [2ek(1+w)^k]^{−1}`.
+  * Private vertices make every attached hyperedge bring a new vertex.
+    This removes the pseudoforest "closing" problem.
+  * The price is the codegree factor `(kU_0)^j`.
+* **Theorem 10.3 (hypergraph criterion).**
+  * Degrees are handled by the Markov hub quarantine, as before.
+  * The new hypothesis is (CD_k), on *maximal* codegrees at scale
+    `(C_k(Σ+1))^{−j}`.
+  * It is not circular: `C_k` depends on Σ only.
+
+## (b) Exact conditional statements
+
+* **Theorem 10.4 (PROVED implication).**
+  * H_CD(θ) implies H_MIN(θ). H_CD(θ) asks for a quarantine of mass
+    `T^{o(1)}` after which `w_ℓ≤T^{−ε}` and `Δ^{(j+1)}≤T^{−ε}` for
+    `2≤j+1≤k−1`.
+  * If H_CD(θ) holds for all `θ>κ`, then `W(p) ≥ (log p)^{1/κ−o(1)}` i.o.
+    (modulo Thorner–Zaman).
+  * For `θ>1/3`, H_CD holds and this recovers Thm 5.1.
+* **Unconditionally, (a) gives nothing beyond exponent 3 (Prop 10.5).**
+  * Neither the crude counts nor `F_I≤n^η` certify (W_k)/(CD_k) below 1/3.
+  * Individual Type I bounds cannot see residue classes, so they never
+    control codegrees.
+  * The Haar side needs only averaged per-prime masses: Thm 9.2 gives
+    `η/(1+η)`. The prime side needs codegrees as well, which is the
+    precise asymmetry between the two sides.
+
+## Self-review found and fixed a critical error
+
+* The first draft of (b) used a residue-uniform "AP-TI*(κ)". The reviewer
+  showed it is **false**: the hub residue (ℓ,−4) has `deg≫1/log ℓ`. It is
+  withdrawn in the text, with the counterexample.
+* Pushing this further gave **Prop 10.6 (PROVED)**. At every `θ<1/3` the
+  vertices `(ℓ,−4d²)` give pair codegrees
+  `Δ_{{v_1,v_2}} ≥ (c_θ−o(1))/φ(4d)` with `c_θ=log(1/(3θ))`, via the triples
+  `ℓ_1ℓ_2ℓ_3≡−1 (4d)`, `D=d²`.
+* **Assessment (not proved): codegree-level hub obstruction.** Assume a
+  product-set quarantine-cost lower bound, which is not proved. Then no
+  quarantine of mass `T^{o(1)}` makes (CD_3) hold, so Theorem 10.3, as
+  proved, cannot certify any `θ<1/3` for ES. This is the codegree analogue
+  of PO Prop 6.3.
+* A heuristic count says the true private-family moments on `−4d²`
+  clusters are harmless: `(c²e²/d)^h`. So **the open step is a sharper
+  Lemma 10.2** that pays once per *shared* vertex, not a new arithmetic
+  input.
+* Also fixed:
+  * Prop 10.5 is worded as an estimate failing to certify, not as a
+    statement about the truth;
+  * prime-power bookkeeping;
+  * the codegree-quarantine "circularity" is downgraded to a statement
+    about the Markov budget only;
+  * the unsupported claim "AP-TI* ⇒ §9 AP-TI" is removed.
+
+## Not done
+
+* (c), attacking AP-TI on average over ℓ, was not started.
+* The sharper Lemma 10.2 (shared-vertex accounting) is the natural next
+  combinatorial step. A proof of the quarantine-cost lower bound in §10.4
+  would turn that Assessment into a proved obstruction for the current
+  lemma.
+
+---
+
+# Checkpoint 4: sharper Lemma 10.2 attempt → named gap; new Haar theorem (§11)
+
+## Prime side: reduced to a sharper named gap (G_pair); exponent stays 3
+
+* **The shared-vertex accounting does not help.** A dense `−4D` cluster
+  with more members than shared vertices genuinely carries
+  `(s·c/d)^{h−s}` private families. So the size-dependent codegree
+  requirement `Δ^{(2)}≲1/L` is real, not an artefact of Lemma 10.2.
+* Removing heavy pairs by adding them as events is consistent only if the
+  heavy-pair mass satisfies `μ(t)≤ε/t` at `t≍1/L`.
+* **Prop 11.4 (PROVED, PNT for fixed moduli).** The classes `−4D` (D with
+  minimal root `D*`) give pair codegrees `≥(c_θ−o(1))/φ(4D*)`. Hence
+  `μ(t) ≫ c_θ³ t^{−1}log(1/t)`, because of the divisor-type multiplicity
+  `2^{ω(D*)}`.
+* So the closure fails by a factor `log L` at every fixed θ<1/3. This
+  Assessment rests on the proved lower bound.
+* **Gap G_pair.** One needs either a minorant whose truncation level is
+  not tied to the total event mass, or a joint (over D) treatment of the
+  `−4D` hub classes that is cheaper than removing pairs one by one.
+
+## New result: Theorem 11.3, the Haar side is now (essentially) polylogarithmic
+
+* **Iterated bad-prime quarantine (Lemma 11.2).** Repeatedly quarantine
+  every free prime whose per-prime event mass exceeds `c_0`. The process
+  stops with `|𝓑| ≤ kS*/c_0`. Here
+  `S* = Σ_{atoms} max_Π 1/φ(r_Π)` (Lemma 11.1). It has the same
+  `T^{o(1)}` bound as Lemma 4.1, because `m_Π | gcd(M,4D+1)`.
+* **Theorem 11.3 (PROVED).** `log(1/δ*(T)) ≪ (log T)^3(S*+1)`. This gives
+  `T^{o(1)}` unconditionally, improving PO Thm 9.3's `T^{1/3+o(1)}`. Modulo
+  ET Prop 1.4 it gives `≪(log T)^7 log log T`, which is PO's polylog Haar
+  target and was previously only conditional on H_PP.
+* EVIDENCE (`omega2_iterq.py`, T up to 10⁶): the iteration stops after
+  2 rounds, `|𝓑|` = 99/171/345, and the local-lemma margin is wide
+  (`max Σx ≤ 0.08`). These runs are finite-T certificates of the Haar
+  bound.
+* **Consequence for the prime side.** The per-prime conditions (G), (W)
+  are free in every construction. Below 1/3 the only obstacle is G_pair.
+
+## Please review hardest
+
+* Lemma 11.2's counting step (each atom is counted at most k times, with
+  its max-over-Π weight). This is the crux of Theorem 11.3.
+* Lemma 11.1, i.e. that the Lemma 2.3/4.1 argument runs with
+  `m = gcd(M,4D+1)`.
+* That Theorem 11.3 really closes PO §9's open H_PP problem. PO's Thm 9.4
+  needed per-prime bounds at *all* primes `>z`; we quarantine the
+  `T^{o(1)}` exceptions instead.
+* Suggested ledger: (H)10 Haar side → "`log(1/δ*)≤T^{o(1)}` (PROVED);
+  polylog modulo ET Prop 1.4 (POINTWISE_OMEGA2 Thm 11.3)".
