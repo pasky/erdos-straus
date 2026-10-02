@@ -549,3 +549,79 @@ polynomial in log λ. Note: Lemma 2.6's tail constant
 `C′ > 4`, so the large-divisor step must be redone. This belongs on the
 SKETCH's list of steps. See T14 for the place where it is claimed as
 PROVED.
+
+### R2.8 Lemma 6.9 (Mayer / Kotecký–Preiss convergence) — SOUND; commentary overstated
+
+**KP hypotheses, checked against the paper.** Kotecký–Preiss, CMP 103
+(1986) 491–498, has a single unnumbered "Theorem". The text cites it as
+"Thm 1", which is cosmetic. Its hypotheses are: `a, d: K → [0,∞)`, `Φ: K → ℂ`,
+a symmetric reflexive incompatibility, and
+`Σ_{γ′≁γ} e^{a(γ′)+d(γ′)}|Φ(γ′)| ≤ a(γ)` for each γ, eq. (1). Its
+conclusion is `Z ≠ 0`, `log Z = ΣΦ^T(C)`, and
+`Σ_{C≁γ}|Φ^T(C)|e^{d(C)} ≤ a(γ)`, eq. (4). The paper itself is stated
+for subsets of a fixed family; finite families here. The document's
+version matches this exactly.
+
+**Application.** Polymers are prime sets `|V| ≥ 2` with `V ≁ V′` iff they
+intersect, which is reflexive and symmetric. For fixed y, grouping
+`Π(1+f_e)` by connected components and taking `E_ν` factorises over
+disjoint prime sets, since primes are independent under ν. That gives
+`Z₁ = Σ_{disjoint} Πw(V)`.
+
+Penrose (1967) is applied pointwise in y, with `f_e(y) ∈ {−1,0}`. A
+prime-tree with all edges hit, for a given y, picks one forbidden point
+per edge, consistent with y. By the union bound it is dominated by
+vertex-level trees at distinct primes.
+
+PO2 Lemma 2.1's tree count (`POINTWISE_OMEGA2.md` on main) is
+`Σ_{T,|V(T)|=v}P(T) ≤ Σ_{v₀}p(v₀)deg(v₀)e^vδ^{v−2}`. Rooting at the
+vertices at ℓ gives `w_ℓ e^vδ^{v−2} ≤ e^vδ^{v−1}`. The KP sum is then
+`|V|·Σ_{v≥2}e^{3v}δ^{v−1} ≤ |V|e^6δ/(1−e^3δ) ≤ |V|·2e^6δ ≤ |V|` for
+`δ ≤ e^{−6}/2`.
+
+Doubled system: `f^{(2)} ∈ {−1,0}`, so Penrose still applies. The pair
+base `μ̃_ℓ` has marginals exactly ν (§6.8). So the doubled vertex degree is
+`≤ deg(a)+deg(a′) ≤ 2δ`. The stated `≤ 4δ`, via `(16/9)²`, is a valid but
+lossy bound. Correct.
+
+**T13 (LOW; text after Lemma 6.9).** Quotes: "every prime's cluster mass
+≤ |V| = O(1)" and "This also gives the lower bound
+`log Z₁ ≥ −Σ_ℓ(cluster mass through ℓ)` … That is ET's missing ingredient 1".
+With `a(V) = |V|`, KP only gives O(1) per prime. Summed over the
+`≍ e^s/s` primes of a window, that is useless. What is needed, and true,
+is the pinned bound
+`Σ_{X∋ℓ}|φw^X| ≤ Σ_{V∋ℓ}|w(V)|e^{a(V)} ≪ w_ℓ`, which gives
+`|log Z₁| ≪ Σ_ℓ w_ℓ` (twice the binary mass). Friedli–Velenik Thm 5.4
+contains it, and the text cites FV later. State this form; otherwise the
+"missing ingredient" claim is not supported.
+
+### R2.9 Unary-part claim, Lemma 6.10, Lemma 6.11 — SOUND / SOUND / SOUND-AFTER-REPAIRS
+
+**Unary part, `ρ̃ ≤ (4/3)ρ`.** The coupled pair at ℓ is: y uniform, `y′ = y`
+with probability ρ, otherwise fresh. Then
+`P(both avoid) = ρ(1−p)+(1−ρ)(1−p)² = (1−p)²+ρp(1−p)`. The diagonal share
+is `ρ/(1−p+ρp) =: ρ̃ ≤ ρ/(1−p) ≤ (4/3)ρ` for p ≤ 1/4. Both parts are uniform
+on the allowed set. Hence the product factor `Π(1+ρp/(1−p))` (ET Cor 5.6)
+times `Z₂/Z₁²`. Correct.
+
+**Lemma 6.10.** `⊗μ̃` is a mixture over S. Given `(S, y_S)` the copies are
+independent, each avoiding with probability `Z₁r(y_S)`, and `E_ν r = 1`.
+Then `log(1+x) ≤ x`. Correct.
+
+**Lemma 6.11.** `E(r−1)² = Var(r_j)` for S = {j}. The star formula is right
+in substance.
+
+**T15 (LOW; Lemma 6.11).** Two problems.
+1. `r_j(a) = Π_{ℓ′}(1−κ_{a,ℓ′}/ℓ′)/…` uses U-mass. The base is
+   `ν_ℓ′ = U/(1−p_ℓ′)` off the unary set, so it should be the
+   `ν_ℓ′`-mass of a's forbidden partners. Partners in the unary set do not
+   count, and the others weigh `1/(ℓ′(1−p))`.
+2. "`Var(r_j) = Var_ν(deg_j)(1+O(δ))`" is false as an identity.
+   `log r_j(a) = −deg_j(a) − ½Σ_{ℓ′}x_{a,ℓ′}² − … + const`, and the
+   quadratic term varies with a independently of deg. Counterexample:
+   residue a has one partner with x = 0.02, residue b has two partners with
+   x = 0.01 each. Then `deg(a) = deg(b)`, so `Var(deg) = 0`, but
+   `r_j(a) ≠ r_j(b)`. The correct statement is
+   `Var(r_j) ≤ (1+O(δ))·E_ν(deg_j − E deg_j)² + O(δ²)·q_j ≤ (1+O(δ))q_j`.
+   That is all (6.2) uses, so nothing downstream breaks. Fix the
+   statement.
