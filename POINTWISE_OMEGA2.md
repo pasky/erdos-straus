@@ -369,7 +369,7 @@ Lemma 9.2; we do not need this.)
 * (W) `w_ℓ ≤ 8τ*²T/y³ ≤ exp((2log 2−6+o(1))𝓛/log 𝓛) → 0` for all `ℓ∈𝒫`.
 * (G) `g_ℓ ≤ 1/64 + 2|𝓑|τ*²T/y³ ≤ 1/32` for all `ℓ∈𝒫`.
 * `Σ = S_1+S_2 ≤ S_tot(Π) ≤ exp((log 2+o(1))𝓛/log 𝓛)`.
-* `log Q ≤ 2y + |𝓑|𝓛 + log 24 ≤ 3y`.
+* `log Q ≤ (π(y)+|𝓑|)𝓛 + log 24 ≤ 5y`.
 
 *Proof.* (I) Let `M≤T`, `M≡3 (4)`, `m=m_Π(M)`, `r=r_Π(M)`. Every prime
 power `ℓ^v‖M` with `ℓ∈Π` has `ℓ^v≤T`, so `m|Q` and `n≡1 (m)`. If `r=1`,
@@ -393,5 +393,56 @@ and each M carries at most `τ(A_M²)≤τ*²` atoms. With
 Mass: by the union bound `g_ℓ ≤ Σ_{single atoms at ℓ}1/φ(r)`, and each edge
 has `p(u)p(w)=1/φ(ℓℓ')`; apply Lemma 4.1 with Π.
 
-`log Q`: `log lcm(ℓ^{e_ℓ}: ℓ≤y) ≤ θ(y)+π(√T)𝓛 ≤ 2y` (PO Fact 1.2; here
-`π(√T)𝓛 ≪ √T`, and `√T = o(y)` is false — see the correction below). ∎
+`log Q`: each `ℓ∈Π` contributes `e_ℓ log ℓ ≤ 𝓛`, and
+`π(y)𝓛 ≤ (1.26y/log y)·𝓛 ≤ 4y` because `𝓛/log y → 3`; `|𝓑|𝓛=T^{o(1)}`.
+(Unlike PO Fact 1.2, every `ℓ≤y<√T` now has `e_ℓ≥2`; this costs only a
+constant factor.) ∎
+
+## 5. The theorem
+
+**Theorem 5.1 (PROVED modulo Thorner–Zaman, exactly as PO Theorem 5.1;
+effective).** There is an absolute constant C such that for infinitely many
+Mordell-hard primes p,
+
+```
+W(p) ≥ (log p)^3 · exp(−C log log p / log log log p).
+```
+
+More precisely, for every large T there is a prime `p≡1 (mod 840)` with
+`W(p)>T` and `log p ≤ T^{1/3}exp(O(log T/log log T))`; so
+`log L_h(T) ≤ T^{1/3+o(1)}`. In the language of PO §6.2, **H_MIN(θ) holds
+for every θ>1/3** (indeed with `θ=1/3` and `T^{o(1)}=exp(O(𝓛/log 𝓛))`).
+
+*Proof.* Lemma 4.3 verifies the hypotheses of Theorem 3.1 for Construction
+4.2. Theorem 3.1 gives a minorant B with `K:=1+log(M_1/μ) ≤
+exp(O(𝓛/log 𝓛))`, moduli `log d_i ≤ exp(O(𝓛/log 𝓛))`, the twist condition,
+and quarantine `log Q≤5y`. Follow PO Theorem 6.2: let `ℓ_0` be a prime in
+`(R,2R]`, `R=max(T, max_i d_i)`, and replace Q by `Qℓ_0`. The minorant
+inequality persists on the subclass; `ℓ_0` is coprime to every `d_i`
+(all prime factors of `d_i` are `≤T<ℓ_0`); μ, `M_1` and every `μ_ψ` are
+unchanged; `log Z ≤ 5y + log 2R + log max d_i ≤ 6y`. PO Theorem 4.1 yields
+a prime `p≡1 (mod Qℓ_0)` with `W(p)>T` and
+
+```
+log p ≤ C_1 K max(log Z, K) ≤ y·exp(O(𝓛/log 𝓛)) = T^{1/3}·exp(O(𝓛/log 𝓛)).
+```
+
+`840|Q` because `y≥7`, so p is Mordell-hard; `p>ℓ_0>T`, so distinct T give
+infinitely many distinct p. Inverting, `𝓛 ≥ 3 log log p − O(log log p/log log log p)`. ∎
+
+**Corollaries and scope.**
+
+* This improves PO Theorem 5.1 (exponent 2) to exponent 3, and refutes
+  `H_MOD(A)` (notes (51.19)) for every `A<3`, with the same citation label.
+* The prime side now matches the best proved Haar bound,
+  `log(1/δ*(T)) ≤ T^{1/3+o(1)}` (PO Theorem 9.3). Both are limited by the same
+  crude per-prime estimate (W), `w_ℓ≲T^{1+o(1)}/(ℓ²y)`.
+* PO Prop. 6.3 (event-level Bonferroni fails because of hubs) remains true;
+  it is not an obstruction to H_MIN. The hub classes are handled by two
+  devices: support truncation (Lemma 1.2), whose error grows exponentially in
+  the number of *primes* rather than events, and the Markov-cheap quarantine
+  of high-degree hub *vertices* (Lemma 2.2), after which the pseudoforest
+  bound (Lemma 2.1) controls the moments.
+* PO Prop. 6.1 (prime-local designs cap at exponent 2) is untouched: the
+  design here is not prime-local (two unquarantined primes per modulus are
+  allowed).
