@@ -164,3 +164,33 @@ in commit `9bb341d`. §§1–5 are otherwise unchanged.
 * Thm 9.2, the split at `R=T^{1/(1+η)}` and the use of PO Thm 9.4 with
   `S_tot=T^{o(1)}` only.
 * Remark 8.3's box: is it really consistent with ET Lemma 2.8?
+
+---
+
+# Paper update (`paper/es-omega-note.tex`, 21 pp, clean 3-pass pdflatex: 0 warnings, 0 over/underfull)
+
+* **Title, abstract and headline Theorem 1.1:** `W(p) ≥ (log p)^3·exp(−C log log p/log log log p)`
+  i.o., PROVED modulo Thorner–Zaman.
+* **The exponent-2 proof** is kept as the warm-up Theorem 6.1 (`thm:two`).
+  The D2-style inversion fix is applied there too.
+* **New sections:**
+  * §7: support-truncated inclusion–exclusion (Lemmas closed, pointwise and
+    meanmass).
+  * §8: the pseudoforest bound and the hub-vertex quarantine. The simple
+    edge graph and the rooted-tree overcount are stated, as in D1.
+  * §9: the conditional local lemma, with a short proof citing Alon–Spencer
+    and HSS, and Theorem 9.2 (`thm:crit`).
+  * §10: the proof of the main theorem, with a general-Π mass lemma.
+* **§11 (limits):**
+  * H_min is stated as true for θ≥1/3 and open below.
+  * Prop. bonf is scoped as an obstruction to event-count truncation only.
+  * The requirements below 1/3 are listed.
+* **§13 (Haar):**
+  * Lemma `lem:dict`, the Type I dictionary, worded as "direct computation"
+    (D3).
+  * ET 3/5 is cited "modulo the proof of ET Prop 1.7" (D4).
+  * Theorem `thm:eta`, labelled "Proved implication", gives κ=η/(1+η).
+  * An Assessment remark.
+* **Summary of status** is rewritten. The joint W/ck_min statement still
+  refers to the exponent-2 primes (`thm:two`); it was not strengthened.
+* **New bibitem:** HSS (Haeupler–Saha–Srinivasan, J. ACM 58 (2011)).
