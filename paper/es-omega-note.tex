@@ -830,6 +830,106 @@ $P(A=\emptyset)=P(\bar A')-P(\bar A'\cap\{X_{\ell_0}\in\mathrm{Forb}\})\ge0.936P
 $|\mu_\psi|<0.08P(A=\emptyset)<\mu/4$.
 \end{proof}
 
+\section{Private covers and a hypergraph moment bound}\label{sec:hyper}
+
+\emph{Hypergraph-type systems.}  As in \S\ref{sec:pseudo}, with singles
+$S_\ell$ and vertices $v=(\ell,V_v)$ (vertices at one prime pairwise
+disjoint), but with \emph{hyperedges} in place of edges: a hyperedge is a set
+of $2,\dots,k$ vertices at distinct primes, occurring iff all its vertices are
+realised, so $P(e)=\prod_{v\in e}p(v)$.  Repeated hyperedges are allowed (they
+only enlarge the quantities below).  Put $S_H=\sum_eP(e)$,
+$w_\ell=\sum_{e\text{ at }\ell}P(e)$, and for a set $O$ of vertices at distinct
+primes the \emph{codegree}
+\[
+ \Delta_O=\sum_{e\supsetneq O}\ \prod_{v\in e\setminus O}p(v),\qquad
+ \Delta^{(i)}=\max_{|O|=i}\Delta_O;
+\]
+thus $\Delta_{\{v\}}=\deg(v)$.
+
+For a set $P$ of primes, a \emph{private cover} of $P$ is a set $\mathcal C$ of
+events with $P\subseteq\bigcup_{E\in\mathcal C}\supp E$ such that every
+$E\in\mathcal C$ has a prime of $\supp E\cap P$ lying in the support of no other
+member of $\mathcal C$.  A family is \emph{private} if each member has a prime
+lying in no other member.  Put $\pi(\mathcal C)=\bigcup_{E\in\mathcal C}\supp E$ and
+\[
+ G^{\rm cov}_u(x)=\sum_{|P|=u}\ \sum_{\mathcal C\text{ private cover of }P}\mathbf 1[\text{every }E\in\mathcal C\text{ occurs at }x].
+\]
+
+\begin{lemma}[Proved]\label{lem:cov}
+For every $x$ and $u,L\ge0$: $\binom{N(x)}u\le G^{\rm cov}_u(x)$; hence
+Lemma~\ref{lem:pointwise} holds with $G^{\rm cov}_{L+1}$ in place of $G_{L+1}$.
+If every event is a union of cells, then
+$M_1(B_L)\le\sum_{u\le L}2^uE\,G^{\rm cov}_u$ and $M_1(G^{\rm cov}_u)=E\,G^{\rm cov}_u$.
+\end{lemma}
+
+\begin{proof}
+Every $P\subseteq V(x)$ is covered by occurring events, and a minimal covering
+subfamily is a private cover (a member without a private prime could be
+removed).  This gives the first claim, and the proof of
+Lemma~\ref{lem:pointwise} goes through verbatim.  In the proof of
+Lemma~\ref{lem:meanmass}, a cell $c$ on $U$ with $\kappa(U,c)\ne0$ has every
+prime of $U$ covered by events supported in $U$ occurring on $c$; a minimal
+such subfamily is a private cover of $U$, so
+$\sum_c|\kappa(U,c)|P(c)\le2^{|U|}\sum_{\mathcal C\text{ priv.\ cover of }U}P(\mathcal C\text{ occurs})$.
+\end{proof}
+
+\begin{lemma}[Proved]\label{lem:hypmom}
+Let $U_0\ge1$, $\rho\ge1$ and put
+$D=\sum_{j=0}^{k-2}(kU_0)^j\Delta^{(j+1)}$.  If $D\le[2ek\rho^k]^{-1}$, then
+\[
+ \sum_{\mathcal C\text{ private},\ |\mathcal C|\le U_0}\rho^{|\pi(\mathcal C)|}P(\mathcal C\text{ occurs})
+ \le\exp\big(\rho S_1+2ek\rho^kS_H\big).
+\]
+In particular, for $w\ge0$ and $\rho=1+w$,
+$\sum_{u\le U_0}w^uE\,G^{\rm cov}_u\le\exp((1+w)S_1+2ek(1+w)^kS_H)$.
+\end{lemma}
+
+\begin{proof}
+The last claim follows from the first, because a private family privately
+covers only subsets of $\pi(\mathcal C)$, so pointwise
+$\sum_{u\le U_0}w^uG^{\rm cov}_u\le\sum_{\mathcal C\text{ private},|\mathcal C|\le U_0}(1+w)^{|\pi(\mathcal C)|}\mathbf 1[\mathcal C\text{ occurs}]$.
+
+A single in a private family has its only prime private, so the singles sit
+on primes disjoint from the rest and contribute at most
+$\prod_\ell(1+\rho g_\ell)\le e^{\rho S_1}$.  The hyperedge part splits into
+connected components, each private; two components using the same prime with
+different vertices cannot occur together, and otherwise $P$ and
+$\rho^{|\pi|}$ are multiplicative over components.  So the hyperedge part is
+at most $\exp(\sum_K\rho^{|V(K)|}P(K))$ over connected private $K$ with
+$h=|K|\le U_0$ hyperedges, $|V(K)|\le kh$.
+
+\emph{Exploration.}  Pick a first hyperedge $e_1\in K$ and declare its
+vertices discovered; process discovered vertices in breadth-first order (ties
+by a fixed order), attaching at a vertex $v$ as \emph{children} all
+not-yet-attached hyperedges of $K$ containing $v$.  Every hyperedge is attached
+($K$ is connected), and a child $e$ of $v$ has a private vertex, which is
+therefore new.  If $O_e$ denotes $v$ together with the old vertices of $e$,
+$|O_e|=j+1$, the weight of $e$ beyond $O_e$ is the product of $p$ over its new
+vertices, and the sum over admissible $e$ is at most
+$\sum_j\binom{kh}j\Delta^{(j+1)}\le D$.  To make the encoding independent of
+$K$, record the child sets in $N:=kh$ fixed breadth-first slots, padding
+unused slots with empty sets; $K\mapsto(e_1,\text{child sets})$ is injective.
+
+\emph{Counting.}  The first hyperedge contributes
+$\sum_{e_1}P(e_1)\cdot\#\text{roots}\le kS_H$ (the root index only
+overcounts).  A slot with $c$ children contributes at most $D^c/c!$: the
+product of the sibling weights is $\prod p(u)$ over all vertices they bring,
+independent of order, so the sum over sets is $1/c!$ times the sum over
+ordered tuples, which is at most $D^c$ since each next child has a private,
+hence new, vertex and its old vertices lie in a pool of at most $kh$
+vertices.  The number of weighted compositions is
+$\sum_{c_1+\dots+c_N=h-1}\prod1/c_i!=N^{h-1}/(h-1)!\le e(ke)^{h-1}$.  Hence
+$\sum_{|K|=h}\rho^{|V(K)|}P(K)\le\rho^{kh}\,e\,kS_H\,(keD)^{h-1}$, and summing
+over $h\ge1$ with $\rho^kkeD\le1/2$ gives at most $2ek\rho^kS_H$.
+\end{proof}
+
+The factor $(kU_0)^j$ in $D$ is real: a cluster of hyperedges reusing $j+1$
+old vertices out of many costs only $\Delta^{(j+1)}$ per hyperedge but can be
+placed in many ways.  For the multiplier problem some pair codegrees are of
+constant size (Remark~\ref{rem:hubs}), so Lemma~\ref{lem:hypmom} cannot be
+applied to the whole system with $U_0$ of the size of the total mass; this is
+what \S\ref{sec:multi} circumvents.
+
 \section{Proof of Theorem~\ref{thm:main}}\label{sec:main}
 
 For a set $\Pi$ of primes and $M\le T$, $M\equiv3\pmod4$, write $M=m_\Pi r_\Pi$ with
