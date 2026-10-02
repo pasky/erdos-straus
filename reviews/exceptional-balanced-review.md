@@ -86,3 +86,75 @@ selector weight M/φ(M), as if a selector were intended. Fix: state Thm 2.3 for
 general R with the extra term `log(Q₀/|R|)`. This is verbatim ET (2.6). In
 Lemma 2.8, use `P(c ≡ a_C (q_C) | R) ≤ L'/φ(q_C)` as in ET Cor 3.6 to justify
 the M/φ(M) weight.
+
+### Item 4 — Lemma 2.4 (window masses). Verdict: **SOUND**
+
+* `P(M) ∈ W_j`, `M ≤ P^{1+B}` ⇒ `M ≤ e^{(1+B)s_{j+1}} = e^{(1+B)(1+η)s_j}`. ✓
+* `|ℛ(M)| ≤ τ(A²)` (ℛ(M) = {−4D : D | A²}). ✓ The partial summation from ET
+  Lemma 3.1, `Σ_{M≤x} τ(A²)(M/φ(M))/M = S_B(x)/x + ∫_1^x S_B(t)t^{−2}dt ≪ (log 2x)³`,
+  gives the first claim. `log x ≥ s₀ ≥ log 3` keeps the constant uniform. ✓
+* The second claim uses `P(M)^{−α} < e^{−αs_j}` and `(1+η) ≤ 2`. The stated
+  `(4(1+B)s_j)³` is looser than the available `(2(1+B)s_j)³`. Harmless.
+* The remark that a smooth-cofactor Shiu bound would give `η s_j³` is correctly
+  marked as not available, and it is not used.
+
+No defects. (The mass `m_j` is an *upper* bound of the uniform profile only. That
+matters for item 5, D4.)
+
+### Item 5 — Theorem 2.5 (conditional cap under H_light(K)). Verdict: **SOUND-AFTER-REPAIRS**
+
+Derivation re-done from (2.1).
+* *One band per window.* Costs in W_j lie in `(s_j,(1+η)s_j] ⊂ [s_j, 2s_j)` for
+  η < 1. ET Prop 2.4's **statement** sets `G = ⌊log₂(λ/s_*)⌋+1`. That value
+  depends on λ/s_*, not on the spread of the weights. With `s_* = s_j` it is
+  `≍ log(λ/s_j)`, not 1. The claim `G = 1` is true only via the **proof** of
+  Prop 2.4. There, Step 0 discards empty bands, and every G-dependence comes from
+  nonempty bands: `|c_j| ≤ 2^G` (Lemma 2.3 over coordinates g), `|Λ| ≤ (1+λ/s_*)^G`,
+  and `Σ_g`. So "G = #nonempty bands" is a valid refinement, but it is
+  undeclared (D3). Without it the error grows by one factor log λ, and the main
+  term is unaffected.
+* *E log μ_j.* `E log(16μ_j+16) ≤ log(16 E μ_j + 16) ≤ log(16Km_j+16)` by
+  concavity and H_light(ii). ✓ With Lemma 2.4 this is
+  `O(log K + log λ + log(1+B))`. The `log(1+B)` is dropped in the statement.
+  This is COSMETIC, since B is fixed, but the theorem tracks B elsewhere.
+* *Number of windows.* `log(1+η) ≥ η log 2` on [0,1] gives
+  `#{j : s_j ≤ λ} ≤ 1 + log(λ/s₀)/(η log 2) ≤ 1 + 2η^{−1}log λ`. ✓
+* *Window optimisation.* `inf_{α>0}[19αλ + X e^{−αs}] ≤ min{X, (19λ/s)(1+log⁺(Xs/19λ))}`. ✓
+  With `X(s) = C₄Kc_B s³`, `X(s*)s* = 19λ`. ✓ Below s*:
+  `Σ X_j ≤ X(s*)/(1−(1+η)^{−3}) ≤ (2/η)X(s*) = 38λ/(ηs*)`. ✓ (Uses
+  `1−(1+η)^{−3} ≥ 3η/(1+3η) ≥ η/2`.)
+* **D3a (MINOR, arithmetic, "windows above s*").** The doc bounds the k-th window
+  above s* by `(19λ/s*)(1+η)^{−k}(1+4k log(1+η))`. That pairs `1/s_j ≤ (1+η)^{−k}/s*`
+  (true, since `s_j/s* ≥ (1+η)^k`) with `log(s_j/s*) ≤ k log(1+η)`. The second
+  is false: `s_j/s* ∈ ((1+η)^k, (1+η)^{k+1}]`, and `t ↦ (1+4log t)/t` is not
+  monotone on `[1, e^{3/4}]`. Correct bound:
+  `(19λ/s*)Σ_k(1+η)^{−k}(1+4(k+1)log(1+η)) ≤ (19λ/s*)·[(1+η)/η + 4(1+η)²/η] ≤ (19λ/s*)·18/η`.
+  The total constant becomes `38+342 = 380` instead of 228. Only constants change.
+* *Heavy charge.* At most `Kλ^{3/4}` by H_light(iii), added verbatim. ✓
+* *Final form.* `λ/s* = λ^{3/4}(C₄Kc_B/19)^{1/4} ∝ K^{1/4}(1+B)^{3/4}λ^{3/4}`. ✓
+
+**D3 (MINOR, Thm 2.5 proof, "So each window is a single band of ET Prop 2.4,
+with G = 1").** As explained above, this is not what Prop 2.4 states. Fix: add a
+one-line lemma: "In Prop 2.4, G may be replaced by the number of nonempty
+bands `B_g`, and `log(2+λ/s_*)` by `log(2+λ/s_min)`." Also note the edge case
+`η = 1`, where `(1+η)s_j = 2s_j` is not inside `[s_j,2s_j)`. Use `η < 1`, or
+allow G = 2.
+
+**D4 (MAJOR, H_light(ii) vs. what is delivered; affects the §2.5 "Sanity check",
+§2.6 "(★_δ) ⇒ H_light(O_δ(1))", and Prop 4.4).** H_light(ii) asks for
+`E_{Q_seq}Σ_{ℓ∈W_j} p_ℓ ≤ K·m_j`, with m_j the **unweighted** uniform window mass.
+What ET Lemma 2.8 plus (★_δ) actually gives is the **γ-weighted** mass
+`m_j^γ = Σ_{P(M)∈W_j} |ℛ(M)|γ(M)/M`, with `γ(M) = Π_{ℓ'|M,ℓ'>w₀}(1−ℓ'^{−δ})^{−1}`
+(and a factor L' for a selector R). γ is unbounded, since
+`γ ≥ (1−w₀^{−δ})^{−ω(M)}`, and m_j has no proved lower bound (Lemma 2.4 is
+upper only). So `m_j^γ ≤ O_δ(1)·m_j` is **not** proved, and "H_light(O_δ(1))"
+is not literally established anywhere. The doc's hedge "in γ-averaged form" names
+this but never defines that form. Fortunately the proof of Thm 2.5 uses (ii) only
+through `K·m_j ≤ K·C₆'(2(1+B)s_j)³`. Fix: restate H_light(ii) as
+`E_{Q_seq}Σ_{ℓ∈W_j} p_ℓ ≤ K·((1+B)s_j)³`, the cubic window bound. ET Cor 3.6's
+γ-weighted Shiu argument then gives it from (★_δ) with `K = O_δ(1)`. I checked
+that this argument (ET l. 755–775) nowhere uses `q ≤ ℓ^C`. It needs only
+`h(p) ≤ 1/(p−1)+3p^{−δ}`, i.e. `p^{−δ} ≤ 1/2` for p > w₀. After the restatement,
+Thm 2.5 and the sanity check go through unchanged.
+
+**D5 (COSMETIC).** "So `C(η) ≍ η^{−1}`" is an upper bound only. Write `C(η) ≪ η^{−1}`.
