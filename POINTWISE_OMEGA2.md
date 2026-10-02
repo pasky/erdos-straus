@@ -1060,7 +1060,7 @@ H_MIN(θ). PO Theorem 6.2 (modulo Thorner–Zaman) gives
 PROVED).** Take the system of §10.4 at `y=T^θ` with `θ<1/3`. Then:
 
 1. *Crude counts.* `w_ℓ ≤ 8τ*²T/(ℓ²y)` and, for `|O|=j+1≥2`,
-   `Δ_O ≤ 4τ*²T/(q_O y)`. At the smallest free primes
+   `Δ_O ≤ Cτ*²T log log T/(q_O y)`. At the smallest free primes
    `ℓ, ℓ'∈(y,2y]` both are `≥T^{1−3θ−o(1)}`, i.e. not small.
 2. *Individual Type I bounds.* `F_I(n)≤n^{η}` bounds `w_ℓ` by
    `T^{η/(1+η)+o(1)}/ℓ` (Thm 9.2). The same split bounds `Δ_O` only by
@@ -1076,7 +1076,7 @@ bottleneck, its inputs are.
 
 1. The crude counts are as in Lemma 4.3 (W). A hyperedge `e⊋O` has rough
    part `r=q_Om` with all primes of m above y. There are at most
-   `τ*²T/(q_Om)` atoms, each of weight `≤2/m` beyond O. Summing over
+   `τ*²T/(q_Om)` atoms, each of weight `1/φ(m)≤C log log T/m` beyond O. Summing over
    `m>y` gives the second bound.
    For the lower estimate, note that `T/(ℓ²y)≥T/(8y³)`. *(This is the size
    of the bound, not a lower bound on the true masses. We have not shown
@@ -1111,7 +1111,7 @@ circularity made explicit).**
 | unconditional (this note) | 3 (Thm 5.1) | `T^{1/3+o(1)}` (PO Thm 9.3) |
 | `F_I(n)≤n^η` | 3 (codegrees uncontrolled) | `T^{η/(1+η)+o(1)}` (Thm 9.2) |
 | AP-TI(κ) (averaged) | 3 | `T^{κ+o(1)}` |
-| AP-TI(κ), κ<1/4, + pair codegrees `≤T^{−ε}` + Prop 8.2.1 | 4 (Thm 10.4 remark) | `T^{κ+o(1)}` |
+| AP-TI(κ), κ<1/4, + pair codegrees `≤T^{−ε}` + Prop 8.2.1 | 4−ε (Thm 10.4 remark) | `T^{κ+o(1)}` |
 | AP-TI*(κ) (residue-uniform) | `1/κ` (Thm 10.4) | `T^{κ+o(1)}` |
 
 ## Replay
