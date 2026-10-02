@@ -140,9 +140,61 @@ equality (when `Γ(C)=∅`).
 
 **0 failures.** A first run reported one failure. It came from my own
 script, which read `S_2^{new}` after the (c) deletions; after the fix,
-seeds 2 and 3 both give 0. A further 2× its total: about 38 000 (a)-, 880
+seeds 2 and 3 both give 0. Over seeds 2 and 3, about 38 000 (a)-, 880
 (b)- and 2 700 (c)-pushes were exercised.
 
 The only remark here is a presentation one, D2 below: the bound for
 `S_1^{new}` refers to `S_2^{new}` *before* step (c), and the lemma does
 not say so.
+
+## Item 6 — independent end-to-end small instance (ES system → push-down → composed B → certificate): **checks pass**
+
+`scripts/review_omega3_es_instance.py` is independent code. It does
+**not** use the O2/O3 scripts. It reuses only my own
+`review_omega3_check.composed_B`. The pipeline:
+
+* builds all atoms `(M, −4D mod M)` for `M≤T`, `M≡3 (4)`, `D|A_M²`;
+* applies survival w.r.t. Π (`c≡1 mod m_Π`);
+* runs the iterated quarantine (O2 Lemma 11.2) at a toy threshold `c_0`
+  and forms the distinct surviving events;
+* splits the events into singles, edges and 3-hyperedges (asserting
+  `Ω≤3` from `y⁴>T`);
+* applies Lemma 3.3 (a), (b), (c) at toy quantile thresholds;
+* forms the Thm 3.2 composed minorant B at small `L_3, L_2`, evaluated
+  pointwise at integers `n≡1 (mod Q)`;
+* computes `W(n)` by brute force (`n mod M ∈ 𝓡(M)` for some `M≤T`).
+
+One deviation from the text: vertices are classes mod `ℓ^a`, not lifted
+to `ℓ^{e_ℓ}`. This is pointwise-irrelevant.
+
+The test points are:
+
+* random n (Haar-like);
+* constructed survivors: CRT residues chosen prime by prime to avoid
+  every original and final-level event;
+* *planted* points: a random level-3 event is forced first, so that
+  level-3 cells of `B_3` are exercised.
+
+The checks are `(I)` (no original event ⇒ `W>T`) and `B(n)≤1[W(n)>T]`.
+
+| T | y | c₀ | L₃,L₂ | events s/e/h (final) | pushes (a),(b),(c) | n tested (rand+surv) | (I) viol. | `B≤1[W>T]` viol. | survivors with B(n)=1 |
+|---|---|---|---|---|---|---|---|---|---|
+| 30000 | 14 | 1.5 | 2,3 | 79098/45495/30 | 7,0,0 | 60+40 (20 planted) | 0 | 0 | 20 |
+| 30000 | 14 | 1.5 | 1,2 | 79110/40288/6 | 13,0,22 | 100+60 (30 planted) | 0 | 0 | 30 |
+| 30000 | 14 | 1.2 | 2,3 | 79185/28700/0 | 0,0,99 | 100+60 | 0 | 0 | 60 |
+
+* Every survivor with `B(n)=1` has `W(n)>T`, confirmed by brute force.
+  These are honest certificates at `T=30000`, for n of about 28 000 bits.
+* As expected at toy truncations, the Monte-Carlo Haar mean of B is
+  hugely **negative** (≈ −10⁵…−10⁷). The theorem needs
+  `4^{L+1} ≳ e^{Λ+3Σ}`, which is astronomically out of reach. This
+  matches O3 §6 "No numerical instance". So the instance checks the
+  *pointwise* logic end to end ((I), survival, push-down, composition),
+  not μ>0.
+* At this scale step (b) never fires on the ES system (only 54
+  hyperedges exist). Pair pushes are exercised in the abstract test,
+  item 3.
+* With realistic `c_0<1`, the quarantine eats every free prime up to
+  about 40 and leaves no hyperedges at `T≤10⁵`. The toy `c_0>1` (per-prime
+  masses up to 1.27) was needed to see level 3 at all. This is a
+  finite-size effect, not a defect.
