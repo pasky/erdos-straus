@@ -11,12 +11,15 @@ Checks, for every outcome x:  B(x) <= F2(x) F3(x)  (Thm 3.2 item 1), and
 beta_i <= F2^{(i)} <= alpha_i on each cell; reports the mean deficit E[F2F3 - B].
 All functions are dicts {cell: coeff}, a cell being a frozenset of (coord, value).
 
-usage: omega3_compose_check.py trials seed
+usage: omega3_compose_check.py trials seed [neg]
+  neg: negative control (beta used also for negative coefficients; violations expected)
 """
 import itertools
 import random
 import sys
 from math import comb
+
+NEG = False
 
 
 def consistent_union(cells):
@@ -127,7 +130,7 @@ def trial(rng):
         sign = 1 if ci > 0 else -1
         part = dict(Bl)
         for c, v in G.items():
-            part[c] = part.get(c, 0) - sign * 4 ** (L2 + 1) * v
+            part[c] = part.get(c, 0) - (1 if NEG else sign) * 4 ** (L2 + 1) * v
         checks.append((C, sys2, part, sign))
         for c, v in part.items():
             u = consistent_union([c, C])
@@ -147,13 +150,15 @@ def trial(rng):
             if occurs(C, x):
                 f = 0 if any(occurs(e, x) for e in sys2) else 1
                 v = evaluate(part, x)
-                if (sign > 0 and v > f + 1e-9) or (sign < 0 and v < f - 1e-9):
+                if not NEG and ((sign > 0 and v > f + 1e-9) or (sign < 0 and v < f - 1e-9)):
                     bad += 1
     return bad, deficit / len(outcomes), len(B)
 
 
 def main():
+    global NEG
     trials, seed = int(sys.argv[1]), int(sys.argv[2])
+    NEG = len(sys.argv) > 3 and sys.argv[3] == 'neg'
     rng = random.Random(seed)
     tot_bad, n_cells = 0, 0
     for _ in range(trials):

@@ -698,5 +698,5 @@ uv run python scripts/omega3_codeg.py 1e9 0.28 337 347 30        # §2 pair code
 uv run python scripts/omega3_codeg.py 1e11 0.27 1009 1013 30     # ~5 s
 uv run python scripts/omega3_codeg.py 1e12 0.26 1321 1327 30     # ~10 s
 uv run python scripts/omega3_codeg.py 1e13 0.26 2441 2447 30     # ~30 s  -> data/omega3/codeg_pairs.txt (all four)
-for s in 1 2 3; do uv run python scripts/omega3_compose_check.py 3000 $s; done   # §6, ~5 s each -> data/omega3/compose_check.txt
+for s in 1 2 3; do uv run python scripts/omega3_compose_check.py 3000 $s; done; uv run python scripts/omega3_compose_check.py 3000 2 neg   # §6 -> data/omega3/compose_check.txt
 ```
