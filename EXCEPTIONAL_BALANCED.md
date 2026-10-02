@@ -810,3 +810,20 @@ B it is reduced to the purely arithmetic extremal statement (E_δ) on
 statement. The open content is the composite (balanced) cofactors. No
 evidence collected here bears specifically on them (review D9, D17), and
 §3.1's union data show heavy histories moving up with X (review D13).
+
+## Replay
+
+```
+# §3.1 sequential p_l(h) (X=1e5: ~5 min; X=1e6: ~1 h, ~3 GB)
+uv run python scripts/balanced_numerics.py i 100000 200 0.25   > data/balanced/part_i_X1e5.txt
+uv run python scripts/balanced_numerics.py i 1000000 20 0.25   > data/balanced/part_i_X1e6.txt
+# §4.3 steered histories: reach / free / balanced-only / q=1 baseline (X=1e5: ~10 s; X=1e6: ~40 min)
+uv run python scripts/balanced_numerics.py steer 100000 101,151,211,307,401,503 10 > data/balanced/steer_X1e5.txt
+uv run python scripts/balanced_numerics.py steer 1000000 101,211,307,401,503,701,997 4 > data/balanced/steer_X1e6.txt
+# §3.2 exact LPs (4 primes, m<=3: < 1 min each; 5 primes, m<=2: ~1 h)
+for S in 7,11,13,19 7,11,19,23 11,13,17,19; do uv run --with scipy python scripts/balanced_numerics.py ii $S 3 | tail -5 > data/balanced/part_ii_S${S//,/_}.txt; done
+uv run --with scipy python scripts/balanced_numerics.py ii 7,11,13,17,19 2
+# §3.3 voids, families dom / dom+gap / all / dom+twin, 1.09e9 primes near 1e12 (~3 min, < 100 MB)
+g++ -O2 -std=c++17 -o /tmp/balanced_void scripts/balanced_void.cpp
+/tmp/balanced_void 4000 1000000000000 30000000000 > data/balanced/void_primes_Q4000.txt
+```
