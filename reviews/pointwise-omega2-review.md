@@ -410,3 +410,71 @@ so c, e are divisors, and then (2.1) gives d. The progression-trick figure
 are correct as heuristics, and are labelled Assessment. The ET quote
 ("Proposition 1.7 appears to be the limit of what one can obtain purely
 from the divisor bound") is accurate (ET p. 6).
+
+### R2.4 — Lemma 9.1 and Theorem 9.2 (split at `R=T^{1/(1+η)}`, use of PO Thm 9.4): **SOUND**
+
+* *Lemma 9.1.* PO's `w_ℓ(T,z)=Σ_{events E: ℓ|r_E}1/φ(r_E)` over distinct
+  surviving classes is `Σ_{ℓ|r}E_T(r)/φ(r)`. Each bound holds:
+  * `E_T(r)≤2F_I(r)` (Lemma 8.1; r odd, any quarantine);
+  * `E_T(r)≤#{M=mr≤T}·max τ(A²)≤(T/r)τ*²`;
+  * `1/φ(r)≪log log T/r`.
+* *Split.* For `r=ℓj≤R`:
+  `ℓ^{η−1}Σ_{j≤R/ℓ}j^{η−1}T^{o(1)}≪R^ηT^{o(1)}/ℓ` (a log factor when η=0).
+  The `n^{o(1)}` of the hypothesis is uniformly `≤T^{o(1)}` for `r≤T`. For
+  `r>R`: `τ*²T Σ_{j>R/ℓ}(ℓj)^{−2}≤2τ*²T/(ℓR)`. This also holds when
+  `ℓ>R` (then the sum is over all `j≥1` and `≤2τ*²T/ℓ²<2τ*²T/(ℓR)`),
+  a case the text does not mention but which is trivial.
+  `R^η=T/R=T^{η/(1+η)}=T^κ`. Correct.
+* *H_PP.* For `ℓ>z=T^{κ+ε}`, `w_ℓ≤T^{−ε+o(1)}≤log z/(8 log T)≈(κ+ε)/8`.
+  Correct.
+* *PO Thm 9.4.* Its first inequality `δ*≥(8/φ(Q_z))exp(−4S_tot(T,z))`
+  uses only H_PP(z) (LLL with `x_E=2/φ(r_E)`,
+  `ω(r_E)≤log T/log z`), not ET Prop 1.4. ET was needed in PO only for the
+  polylogarithmic size of `S_tot`. Using Lemma 4.1 (`S_tot=T^{o(1)}`,
+  unconditional) is therefore legitimate. `log φ(Q_z)≤π(z)log T=T^{κ+ε+o(1)}`.
+  Conclusion `log(1/δ*)≤T^{κ+o(1)}`: correct. Theorem 9.2 is Haar-only
+  and is labelled as such ("PROVED implication").
+
+### R2.5 — §9 Assessment items 1–5: **SOUND** (Assessment, arithmetic checked)
+
+* `η=3/5⇒κ=3/8>1/3` and `η=1/2⇒κ=1/3` are correct. So is the crossing
+  `T/r=r^{1/2}` at `r=T^{2/3}`, with value `T^{1/3}`.
+* Item 3: for `ℓ>z≥(log T)^{5/2+ε}`, `ℓ^{−2/5+O(1/log log ℓ)}=(log T)^{−1−2ε/5+o(1)}`
+  is `≤log z/(8 log T)`, so the single part of H_PP(z) holds modulo the ET
+  §3 argument. The `ℓ²` singles are smaller still (`ℓ^{6/5+o(1)}/φ(ℓ²)`).
+* Item 4, checked:
+  * ET Thm 1.1 does give `Σ_{n≤N}f_I(n)≍N log³N`. It is about `f_I`, not
+    `F_I`, but the text only says "natural conjecture".
+  * `ℓ|n⇔4acd≡f (ℓ)` follows from (2.6).
+  * `1/r≍1/(acd)` holds by Lemma 2.8.
+  * Terms with `ℓ|ad` do vanish (`ℓ|f|4a²d+1≡1`).
+  * The regular part reduces to `Σ_{a,d}τ(4a²d+1)/(ad)`. This is
+    polylogarithmic by ET Prop 1.4 (k=4, the form `τ(kab²+1)`, dyadic
+    blocks and partial summation).
+
+  The reduction is labelled one-directional ("upper-bound reduction"),
+  which is accurate.
+* Item 5: correctly says nothing new is proved for θ<1/3.
+
+## Round 2 summary
+
+| # | Severity | Location | Issue | Fix |
+|---|---|---|---|---|
+| D1, D2 | — | — | fixed in 9bb341d | — |
+| D3 | MINOR | Lemma 8.1 proof | "ET note that (2.1), (2.2), (2.7) … imply the remaining identities" misattributes (ET Remark 2.1 names no triple) | say "direct computation"; the claim itself is true (sympy check, `et_identities.py`) |
+| D4 | COSMETIC | Prop 8.2.1 label | Prop 1.7's *statement* is about `f_I`; it is the *proof* (Lemma 2.8 + §3) that bounds `F_I` | label "modulo the proof of ET Prop 1.7" |
+| D5 | COSMETIC | Remark 8.3, first bullet | `ab` fixes the point via (2.2)+(2.1), not (2.1) alone | cite (2.2) |
+
+Round 2 verdicts:
+
+| Item | Verdict |
+|---|---|
+| D1–D2 repairs | FIXED |
+| Lemma 8.1 | SOUND (D3) |
+| Prop 8.2 | SOUND (D4) |
+| Remark 8.3 | SOUND (D5) |
+| Lemma 9.1 / Thm 9.2 | SOUND |
+| §9 Assessment | SOUND |
+
+No FATAL or MAJOR defects in §§8–9. Theorem 5.1's status from Round 1 is
+unchanged.
