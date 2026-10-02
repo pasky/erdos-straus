@@ -180,7 +180,7 @@ def part_i(X=100000, samples=200, eta=0.25, seed=1, steer_tries=3):
     return out
 
 
-def steered_history(sysd, maxexp, ell, rng):
+def steered_history(sysd, maxexp, ell, rng, reach=True):
     """Adversarial but VALID history: Q_seq-support path (each residue avoids all
     conditions with that top prime) steered to keep as many distinct target values
     at ell alive as possible.  Returns |F_ell(h)|/ell^e for the final history."""
@@ -194,7 +194,7 @@ def steered_history(sysd, maxexp, ell, rng):
         # forbidden residues at p (conditions with top prime p)
         forb = set()
         qcache = {}
-        for (q, cq, cv, v, t, M) in sysd.get(p, ()):
+        for (q, cq, cv, v, t, M) in (sysd.get(p, ()) if reach else ()):
             r = qcache.get(q)
             if r is None:
                 r = qcache[q] = n % q
@@ -367,6 +367,8 @@ if __name__ == "__main__":
 
 
 def part_steer(X, plist, tries, eta=0.25, seed=3):
+    """For each target prime p: best steered p(h) over reachable histories and over
+    ALL residue assignments (reach=False), vs pi(min(y, X/p)), y = p^(1/(1+eta))."""
     rng = random.Random(seed)
     sysd, maxexp, stats = build_system(X, eta)
     out = [f"# steered histories X={X} tries={tries}: p | Mu_p by type (dom,gapM,gapB,twin) |"
@@ -376,8 +378,11 @@ def part_steer(X, plist, tries, eta=0.25, seed=3):
         for (q, cq, cv, v, t, M) in sysd.get(p, ()):
             mu[t] += 1.0 / M
         best = max(steered_history(sysd, maxexp, p, rng) for _ in range(tries))
+        bfree = max(steered_history(sysd, maxexp, p, rng, False) for _ in range(tries))
+        y = min(p ** (1 / (1 + eta)), X / p)
+        piy = sum(1 for a in range(2, int(y) + 1) if all(a % d for d in range(2, int(a ** .5) + 1)))
         out.append(f"{p:6d} | " + " ".join(f"{mu[t]:.2e}" for t in TYPES) +
-                   f" | {best:.3e} | {best * p ** 0.5:.3f}")
+                   f" | reach {best*p:.0f} vals ({best:.3e}) | free {bfree*p:.0f} vals | pi(y)={piy}")
     return out
 
 

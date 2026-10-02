@@ -558,3 +558,49 @@ For a fixed q, at most `τ(A_q²) = ℓ^{o(1)}` values are ever active,
 whatever n is. So the whole difficulty is *how many cofactors q can be
 active at once with distinct values*. That is a maximum over n, a
 CSP-type extremal problem, and not a counting problem.
+
+### 4.3 The supremum is far above the average
+
+**Proposition 4.3 (PROVED, using Linnik's theorem with exponent 5,
+Xylouris 2011).** Assume `X ≥ ℓy`, and let `K = c₀ y^{1/5}` with c₀
+small. Then some integer n has
+
+    |F_ℓ(n)| ≥ π(2K) − π(K) − O(1) over log(ℓX),   so   sup_n p_ℓ(n) ≥ ℓ^{−1 + 1/(5(1+η)) − o(1)}.
+
+The typical value is `E_U p_ℓ ≍ (log ℓ)^{O(1)}/ℓ`.
+
+*Proof.*
+1. *A prime cofactor for each k.* For each prime `k ∈ (K, 2K]`, `k ≠ ℓ`,
+   Linnik gives a prime `q_k ≡ −ℓ^{−1} (mod 4k)` with
+   `q_k ≪ k^5 ≤ y`. Then `4k | q_kℓ+1`, so `k | A_{q_k}`, and
+   `q_k ∈ 𝒬_ℓ` because `q_kℓ ≤ yℓ ≤ X`.
+2. *A distinct value for each k.* Put `D_k := A_{q_k}/k`, a divisor of
+   `A_{q_k}²`. By Lemma 4.1(3), or directly from `4A ≡ 1 (mod ℓ)`,
+   `−4D_k ≡ −k^{−1} (mod ℓ)`. These values are distinct for distinct
+   `k < ℓ`.
+3. *Distinct cofactors.* One prime q can serve at most `ω(A_q) ≤ log X`
+   values of k. Keep one k per distinct prime q_k. This leaves
+   `≥ (π(2K)−π(K))/log X` pairs `(q_k, D_k)` with distinct primes q_k and
+   distinct values.
+4. *A single n.* By CRT, some n has `n ≡ −4D_k (mod q_k)` for every kept
+   k. All the kept pairs are active at this n. ∎
+
+**Caveats.**
+* The construction ignores reachability. The constructed n need not avoid
+  the earlier conditions.
+* Heuristically, the same construction with *all* primes `q ≤ y`, each
+  carrying its own value, gives `|F_ℓ(n)| ≍ π(y)`.
+
+**Numerics (EVIDENCE).** `balanced_numerics.py steer` runs a greedy
+adversary, with reachability enforced ("reach") or ignored ("free"),
+X = 10⁵, η = 1/4, `y = min(ℓ^{0.8}, X/ℓ)`:
+
+| ℓ | 101 | 211 | 307 | 401 |
+|---|---:|---:|---:|---:|
+| distinct values, reach | 13 | 15 | 21 | 31 |
+| distinct values, free | 13 | 16 | 21 | 36 |
+| π(y) | 12 | 20 | 25 | 30 |
+
+So the greedy supremum tracks `π(y)` (a weak adversary, lower bounds
+only). Reachability costs almost nothing. If `sup ≍ π(y)·ℓ^{o(1)}` is the
+truth, (★_δ) holds exactly for `δ < η/(1+η)`, and it is sharp there.
