@@ -5,7 +5,24 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 (cited as PO): `W`, `𝓡(M)`, `A_M=(M+1)/4`, Fact 1.1 (class of one),
 Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
 
-*Status: work in progress (checkpoint 1 being written).*
+**Results at a glance (checkpoint 1; not yet reviewed).**
+
+1. **Theorem 5.1** (PROVED modulo Thorner–Zaman, via PO Theorem 4.1; effective):
+   `W(p) ≥ (log p)^3·exp(−C log log p/log log log p)` for infinitely many
+   Mordell-hard p, and `log L_h(T) ≤ T^{1/3+o(1)}`. So H_MIN(θ) holds for
+   every θ>1/3, and `H_MOD(A)` is refuted for every `A<3`.
+2. **Theorem 3.1** (PROVED; pure CRT combinatorics): a congruence system of
+   singles and two-prime edges with per-prime masses `g_ℓ≤1/32` and
+   `w_ℓ≤e^{−50}/32` admits a pointwise minorant of its void indicator with
+   `log(M_1/μ)=O(S_1+S_2)`, moduli on `O(S_1+S_2)` primes, and the twist
+   condition of PO Theorem 4.1.
+3. **New tools** (PROVED): support-truncated inclusion–exclusion
+   (Lemmas 1.1–1.3), a pseudoforest bound for `E∏(1+z a_ℓ)` (Lemma 2.1),
+   and a Markov-cheap quarantine of hub vertices (Lemma 2.2).
+4. **Scope.** PO Prop 6.3 remains true but is no obstruction to H_MIN.
+   Below θ=1/3 the missing inputs are an H_PP-type per-prime bound and a
+   hypergraph form of Lemma 2.1 (§7). The prime side now matches the Haar
+   side (PO Thm 9.3).
 
 ## 0. Idea in one paragraph
 
