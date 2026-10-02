@@ -101,3 +101,48 @@ against both the HSS product form and the `e^{|U|/2}` form, and the
 LLL chain is checked against `P(𝒜_2∩𝒜_3)`. **0 failures.** The worst
 ratio LHS/`e^{|U|/2}`-RHS is 0.24, and the HSS form is attained with
 equality (when `Γ(C)=∅`).
+
+## Item 3 — Lemma 3.3 push-down, thresholds, mass flow: **SOUND**
+
+* Non-circularity. The thresholds are `δ_3` and `δ` (absolute) and
+  `t=t(Ŝ)=δ_3/(3(L_3+1))`, where `L_3` is a function of Ŝ alone. Ŝ is
+  fixed *before* the push and only has to dominate `S_H`, and
+  `S_H^{new}≤S_H`. The level-2 mass created by the push feeds only `L_2`
+  (Thm 3.2 Step 2), never `t`. Nothing is circular.
+* Degree hypothesis (D2) of O2 Lemma 2.1. Step (b) can create level-2
+  vertices of large degree; this is exactly the `−4d²` clusters, of
+  degree `≍c_θ ≫ δ`. Step (c) then removes every level-2 vertex of
+  degree `>δ` by Markov, and deletions only lower degrees. So (D2) holds
+  at the end, and the cost is `2S_2^{new}/δ = O(Ŝ/t) = O(Ŝ²)`. The
+  pushed mass does break the degree bound *transiently*, but (c) repairs
+  it before Thm 3.2 is invoked. ✓
+* Markov sums. `Σ_{v at ℓ}p(v)deg_3(v)=w^{(3)}_ℓ`, and
+  `Σ_{O∋v at ℓ}P(O)Δ_O=2w^{(3)}_ℓ` (two pairs of a 3-edge through its
+  ℓ-vertex), `Σ_OP(O)Δ_O=3S_H`. The per-prime total is
+  `≤c_0(2+1/δ_3+(1+2/t)(1+1/δ)) ≤ 9c_0/(tδδ_3) ≤ 1/32`. ✓
+* Soundness of the replacement. A hyperedge deleted in (a), (b) or (c)
+  contains a level-2 single or edge. An edge deleted in (c) contains a
+  level-2 single. So `F_2F_3 ≤ 1[no original event]`. ✓
+* After lifting to `ℓ^{e_ℓ}` the Markov identities are unchanged: each
+  lifted hyperedge still has exactly one vertex at ℓ, and `P` is
+  preserved.
+
+*Independent exact check* (`review_omega3_check.py push`; seeds 1–3,
+5300 random systems with a planted hub vertex). The check:
+
+* applies (a), (b), (c) literally;
+* verifies all post-conditions (level-3 degree, pair codegree, level-2
+  degree);
+* verifies `S_H^{new}≤S_H`, `S_2^{new}≤S_2+3S_H/t`, and
+  `S_1^{new}≤S_1+3S_H/δ_3+2S_2^{new}/δ`, with `S_2^{new}` read after
+  (b) and before the (c) deletions, as the proof uses it;
+* verifies `F_2F_3≤1[no original event]` at every outcome.
+
+**0 failures.** A first run reported one failure. It came from my own
+script, which read `S_2^{new}` after the (c) deletions; after the fix,
+seeds 2 and 3 both give 0. A further 2× its total: about 38 000 (a)-, 880
+(b)- and 2 700 (c)-pushes were exercised.
+
+The only remark here is a presentation one, D2 below: the bound for
+`S_1^{new}` refers to `S_2^{new}` *before* step (c), and the lemma does
+not say so.
