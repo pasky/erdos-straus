@@ -127,8 +127,8 @@ equality (when `Γ(C)=∅`).
   lifted hyperedge still has exactly one vertex at ℓ, and `P` is
   preserved.
 
-*Independent exact check* (`review_omega3_check.py push`; seeds 1–3,
-5300 random systems with a planted hub vertex). The check:
+*Independent exact check* (`review_omega3_check.py push`; seed 1 ×300, seeds 2–3 ×5000,
+10 300 random systems with a planted hub vertex). The check:
 
 * applies (a), (b), (c) literally;
 * verifies all post-conditions (level-3 degree, pair codegree, level-2
