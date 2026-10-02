@@ -310,3 +310,37 @@ data/omega2/ffull_triples.txt`.
   factor v. Correct.
 * D2: Thm 5.1 now has the case split (`𝓛≥4 log log p ⇒ W(p)>T≥(log p)^4`;
   otherwise `𝓛/log 𝓛≪log log p/log log log p`). Correct.
+
+### R2.1 — Lemma 8.1 (ET Type I dictionary, converse, injectivity): **SOUND** (MINOR D3)
+
+Checked against `sources/elsholtz-tao-1107.1010.pdf` §2: Σ_I^n is cut out by
+(2.1)–(2.9); `π_n^I(a,…,f)=(abdn, acd, bcd)`; dilation symmetry (2.10)
+`(λa,λb,λc,λ^{−2}d,e,f)`.
+
+* Forward: `m|r'+k` (from `m|4D+1`, `gcd(m,4sr')=1`), so c∈ℕ;
+  (2.1) `4abd=4A=M+1=me·…`, i.e. `ne+1` with `n=r, e=m`; (2.2) by
+  definition; (2.7) `ef=4sr'²+1`. The hand derivations of (2.6), (2.8) are
+  right.
+* Converse: `D=da²|A²=d²a²b²`, `D≤A⇔a≤b`, `m=e|4D+1` by (2.7),
+  `M=ne=4A−1≡3 (4)`. Injective since `(a,b,d)` fixes D, A, M.
+* Class: `−4D=−4A·r'/k≡−r'/k (mod r)`, k a unit (`k|A`, `gcd(A,M)=1`).
+  `E(r)≤2F_I(r)` for any quarantine: an atom with `r_Π=r` is an atom with
+  cofactor `m|4D+1`, so it injects; partners at most double. Correct.
+
+**D3 (MINOR, proof of Lemma 8.1, "ET note that (2.1), (2.2) and (2.7) with
+nonzero entries imply the remaining identities").** ET Remark 2.1 says only
+that *some* three of the nine identities suffice; it does not name these
+three. The claim is nevertheless true: I checked with sympy
+(`reviews/omega2-review-scripts/et_identities.py`) that, with
+`b=ce−a, n=(4abd−1)/e, f=(4a²d+1)/e`, all nine identities (2.1)–(2.9) are
+rational identities in `(a,c,d,e)`. Fix: replace the attribution by "a
+direct computation (eliminate b, n, f) shows that …".
+
+Independent check (reviewer code `dict_indep.py`: atoms by brute force over
+all `M=mr`, `m≤r²+1`, `D|A_M²`; Type I points by brute force over
+`(a,c,d)` with all identities asserted): every odd `r≤121`, 615 atoms,
+0 mismatching r. There are also 106 points with d non-squarefree, which
+`F_I` counts and atoms do not (consistent with `E(r)≤2F_I(r)` being only an
+inequality). The author's `omega2_ffull.py dict 2001` (32 241 atoms,
+0 mismatches) and `cmp` (matches PO F_full at 107, 331, 1031, 3011) replay
+as stated.
