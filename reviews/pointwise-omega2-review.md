@@ -236,3 +236,57 @@ The inversion needs an *upper* bound on 𝓛 to turn `O(𝓛/log 𝓛)` into
 `O(log log p/log log log p)`. One line suffices: if `𝓛≥4 log log p` then
 `W(p)>T≥(log p)^4` already; otherwise `𝓛/log 𝓛≪log log p/log log log p`.
 Add this sentence.
+
+### Item 10 — §6 EVIDENCE, §7 Assessment, AGENT_REPORT_O2, quick checks: **SOUND**
+
+Replayed (under `ulimit -v 8000000`):
+* `omega2_abstract_check.py 300 1` → 207 361 cases, 0 failures (1.5 s), as
+  stated.
+* `omega2_es.py checkI 1000 0.4 0.25 200` → 200/200 forced survivors with
+  `W(n)>T`, 0 mismatches; random mode yields no void sample, as disclosed.
+* `omega2_es.py 10000 0.4 0.05 2000 0.25` → reproduces the `10⁴` table row
+  exactly (log Q 109.2, 1215 free primes, S_1 15.256, 3529 edges, S_2
+  0.632, max w_ℓ 0.181, 555 hub vertices, hub mass 8.224, max deg after
+  0.0482, `#events>N` in 0 samples). (`data/omega2/*` exist in 3f43543;
+  not re-imported here.)
+
+§6 is honest about its limits: finite-T runs are illustrations, not
+instances; Lemma 2.1 is not tested quantitatively; the `N≤12` Lemma 1.2
+line is vacuous at `10⁵`. §7 is correctly labelled Assessment; its
+diagnosis (θ<1/3 needs per-prime smallness of H_PP type and a hypergraph
+Lemma 2.1, because a k-uniform pseudoforest can close several cycles per
+component) is accurate. Report numbers (≈1.37M = 207 361 + 1 166 784
+brute-force cases) match the document.
+
+## Summary of defects
+
+| # | Severity | Location | Issue | Fix |
+|---|---|---|---|---|
+| D1 | MINOR | Lemma 2.1, *Trees* ("this is injective"); Setting 2.0/Constr. 4.2 | encoding is injective on rooted trees (overcount ×v, harmless); simplicity of the edge graph (repeated atoms giving the same class mod ℓℓ' are one edge) is used but not stated | reword; add "edges are distinct classes mod ℓℓ'" |
+| D2 | MINOR | Thm 5.1 proof, last line ("Inverting, 𝓛 ≥ 3 log log p − O(…)") | needs an upper bound on 𝓛 to convert `O(𝓛/log 𝓛)` | add: "if 𝓛≥4 log log p then W(p)>T≥(log p)^4; else 𝓛/log 𝓛 ≪ log log p/log log log p" |
+
+No FATAL or MAJOR defect found.
+
+## Overall verdict
+
+| Item | Verdict |
+|---|---|
+| Lemma 1.1 | SOUND |
+| Lemma 1.2 | SOUND (independent brute force, 102 277 cases, 0 failures) |
+| Lemma 1.3 | SOUND (mass bound also brute-forced) |
+| Lemma 2.1 | SOUND-AFTER-REPAIRS (D1, wording only) |
+| Lemma 2.2 | SOUND |
+| Theorem 3.1 (incl. HSS citation, Step 4 twist) | SOUND |
+| Lemma 4.1 | SOUND |
+| Construction 4.2 / Lemma 4.3 | SOUND (independent check of (I)) |
+| Theorem 5.1 | SOUND-AFTER-REPAIRS (D2, one sentence) |
+| §6/§7/report | SOUND |
+
+**Headline.** I could not break Theorem 5.1. `H_MIN(θ)` for every θ>1/3
+and `W(p) ≥ (log p)^3·exp(−C log log p/log log log p)` for infinitely many
+Mordell-hard p are correct modulo PO Theorem 4.1 (Thorner–Zaman), after the
+two MINOR textual repairs. The proof idea holds up: truncating by
+*support size* puts the error on primes, not events, and the Markov
+quarantine of high-degree vertices is enough for the pseudoforest moment
+bound. Label suggestion: **PROVED modulo Thorner–Zaman (via PO Thm 4.1)**,
+same standing as PO Thm 5.1.
