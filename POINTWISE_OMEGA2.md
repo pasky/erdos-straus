@@ -215,3 +215,104 @@ delete every edge with an endpoint in H. Then:
 *Proof.* An old edge with an endpoint `v∈H` cannot occur without the new
 single at `ℓ_v`. Degrees only decrease when edges are deleted. Markov:
 `Σ_{v∈H at ℓ}p(v) ≤ Σ_{v at ℓ}p(v)deg(v)/δ = w_ℓ/δ`, and `Σ_ℓ w_ℓ=2S_2`. ∎
+
+## 3. The abstract criterion for H_MIN (PROVED, modulo nothing)
+
+**Setting 3.0 (congruence systems).** Fix `Q` and a finite set `𝒫` of primes
+coprime to Q, with exponents `e_ℓ≥1`. Put `X_ℓ := n mod ℓ^{e_ℓ}`. The
+"Haar" measure is the uniform measure on `∏_ℓ(ℤ/ℓ^{e_ℓ})^×`, i.e. the
+measure in which PO Theorem 4.1 computes `μ=Σc_i/φ(d_i)`. A single is a set
+`S_ℓ` of unit classes mod `ℓ^{e_ℓ}`; a vertex is a unit class mod ℓ (a union
+of fibres mod `ℓ^{e_ℓ}`, `p(v)=1/(ℓ−1)`); an edge is a unit class mod `ℓℓ'`.
+The pointwise statements of §1 hold for every integer n (non-unit residues
+simply trigger no event); only expectations use the Haar measure.
+
+**Theorem 3.1 (support-truncated minorant; PROVED).** Put `z=16`,
+`δ=e^{−50}`. Assume, in Setting 3.0 with singles and edges as in §2:
+
+* (G) `g_ℓ ≤ 1/32` for every `ℓ∈𝒫`;
+* (W) `w_ℓ ≤ δ/32` for every `ℓ∈𝒫`, where `w_ℓ=Σ_{edges at ℓ}p(u)p(w)`;
+* (I) for every integer `n≡1 (mod Q)`: if no single and no edge occurs at n,
+  then `W(n)>T`.
+
+Put `Σ := S_1+S_2`. Then there is a minorant `B` as in PO Theorem 4.1
+(moduli coprime to Q, unit classes, `B(n)≤1[W(n)>T]` for all `n≡1 (Q)`) with
+
+```
+μ ≥ exp(−C Σ),   log(M_1/μ) ≤ C Σ + C,   log max_i d_i ≤ C(Σ+1) log max_ℓ ℓ^{e_ℓ},
+```
+
+and the twist condition `|μ_ψ|≤μ/4` holds for every real primitive ψ. Here C
+is absolute (astronomically large; see Lemma 2.1).
+
+*Proof.* **Step 1 (hubs).** Apply Lemma 2.2 with δ. By (W), the new singles
+satisfy `g_ℓ^+ ≤ 1/32+1/32 = 1/16`, `S_1^+ ≤ S_1+2S_2/δ`, every vertex has
+degree `≤δ`, and (I) still holds for the new system. Write `A(n)` for its
+occurring events.
+
+**Step 2 (LLL lower bound).** Use the asymmetric local lemma (Erdős–Lovász;
+Alon–Spencer Lemma 5.1.1) on all singles and edges with `x_E=2P(E)`; two
+events are adjacent iff their supports meet. For a single at ℓ, the
+neighbours are edges at ℓ, and `∏(1−x)≥1−2w_ℓ≥1/2`. For an edge at `ℓ,ℓ'`,
+`∏(1−x) ≥ (1−1/8)²(1−2w_ℓ−2w_{ℓ'}) ≥ 1/2`. So the condition
+`P(E)≤x_E∏_{E'∼E}(1−x_{E'})` holds, and
+
+```
+P(A=∅) ≥ ∏_E(1−x_E) ≥ exp(−3(S_1^+ + S_2)) =: e^{−λ}      (1−x≥e^{−1.1x} for x≤1/8).
+```
+
+We also use the conditional form (Haeupler–Saha–Srinivasan, J. ACM 58
+(2011), Thm 2.1; it is also immediate from the Alon–Spencer proof): if the
+condition holds for a family 𝒜 and an event B is mutually independent of the
+events of 𝒜 outside `Γ(B)`, then
+`P(B | ∩_{𝒜}Ā) ≤ P(B)∏_{A∈Γ(B)}(1−x_A)^{−1}`.
+
+**Step 3 (the minorant).** Let `Λ=Λ_{16}` (Lemma 2.1: `Λ≤16S_1^++16e^{98}S_2`).
+Choose the least L with `4^{L+1} ≥ 200e^{Λ+λ}`, and set `B:=B*_L` (Lemma
+1.2), expanded into unit congruence classes. Then:
+
+* `B≤1[A=∅]≤1[W>T]` on `n≡1 (Q)`, by Lemma 1.2 and (I).
+* `E|B−1[A=∅]| ≤ 2·4^{−(L+1)}e^{Λ} ≤ e^{−λ}/100 ≤ P(A=∅)/100` (Lemma 1.3),
+  so `μ ≥ 0.99 P(A=∅) ≥ 0.99e^{−λ}`.
+* `M_1 ≤ e^{Λ} + 4^{L+1}EG ≤ 2e^{Λ}` (Lemma 1.3), so
+  `log(M_1/μ) ≤ Λ+λ+1`.
+* Each term lives on at most `2(L+1)` primes of 𝒫, and
+  `L ≤ (Λ+λ)/log 4 + 5`.
+
+All of `Λ, λ, L` are `O(S_1+S_2/δ+S_2)=O(Σ)`.
+
+**Step 4 (twist).** Let ψ be real primitive with conductor `f>1`,
+`gcd(f,Q)=1`, `f|d_i` for some i. Then f is odd and squarefree (`2|Q`), and
+its primes lie in 𝒫; fix one, `ℓ_0`. If `f∤d_i`, some prime of f does not
+divide `d_i`, and the character sum over that coordinate vanishes; so
+`μ_ψ = E[Bψ]` (Haar). Hence
+
+```
+|μ_ψ| ≤ E|B−1[A=∅]| + |E[1[A=∅]ψ]|.
+```
+
+Let `Ā'` be "no event whose support avoids `ℓ_0` occurs", a function of
+`X_{−ℓ_0}`. Then `1[A=∅] = 1_{Ā'}·1[X_{ℓ_0}∉Forb(X_{−ℓ_0})]`, where Forb
+is the union of `S^+_{ℓ_0}` and the vertices at `ℓ_0` joined to an occurring
+vertex. Write `ψ=χ_0(X_{ℓ_0})ψ'(X_{−ℓ_0})`, `χ_0=(·/ℓ_0)`. Since
+`E χ_0(X_{ℓ_0})=0`,
+`|E_{X_{ℓ_0}}[1[X_{ℓ_0}∉Forb]χ_0]| = |E_{X_{ℓ_0}}[1[X_{ℓ_0}∈Forb]χ_0]| ≤ P_{X_{ℓ_0}}(Forb)`. So
+
+```
+|E[1[A=∅]ψ]| ≤ P(Ā' ∩ {an event at ℓ_0 occurs}) ≤ P(Ā')·( g^+_{ℓ_0} + Σ_{edges {u,w}, u at ℓ_0} p(u)·P(w occurs | Ā') ).
+```
+
+The single at `ℓ_0` and `X_{ℓ_0}` are independent of `Ā'`. The event "w
+occurs" depends on `X_{ℓ_w}` only; its neighbours in the family defining
+`Ā'` are the single and the edges at `ℓ_w`, with
+`∏(1−x)≥(7/8)(15/16)>0.82`. The conditional LLL gives
+`P(w|Ā')≤1.22p(w)`. So the bracket is `≤ 1/16+1.22w_{ℓ_0} < 0.064`, while
+`P(A=∅) = P(Ā') − P(Ā'∩{…}) ≥ 0.936 P(Ā')`. Therefore
+
+```
+|μ_ψ| ≤ P(A=∅)(0.01 + 0.064/0.936) < 0.08 P(A=∅) < μ/4.  ∎
+```
+
+*Remark.* Nothing in Theorem 3.1 refers to primes being prime numbers beyond
+the CRT; it is a statement about congruence combinatorics, exactly the shape
+of H_MIN. The analytic transfer is PO Theorem 4.1, untouched.
