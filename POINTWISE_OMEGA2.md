@@ -40,11 +40,17 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
      under a codegree condition (Lemma 10.2), both PROVED.
    * Hypergraph criterion, Theorem 10.3, PROVED.
    * Conditional result (Theorem 10.4, PROVED implication): the
-     residue-uniform hypothesis AP-TI*(κ) implies H_MIN(θ) for every
-     θ>κ, hence `W(p) ≥ (log p)^{1/κ−o(1)}` i.o. (modulo Thorner–Zaman).
-   * Unconditionally, the available inputs stop at θ=1/3 (Prop 10.5).
-     Codegrees are a genuine extra input on the prime side; the Haar side
-     does not need them.
+     post-quarantine hypothesis H_CD(θ) implies H_MIN(θ). If it holds
+     for every θ>κ, then `W(p) ≥ (log p)^{1/κ−o(1)}` i.o. (modulo
+     Thorner–Zaman).
+   * The first draft's AP-TI*(κ) is **withdrawn**: it is false because of
+     hub residues.
+   * Prop. 10.6 (PROVED): the classes `−4d²` give pair codegrees
+     `≍1/φ(4d)` at every θ<1/3. Theorem 10.3, with Lemma 10.2's
+     per-old-vertex factor, therefore cannot certify θ<1/3 unless an
+     unproved quarantine-cost bound fails (Assessment).
+   * The open step is a sharper Lemma 10.2. Unconditional estimates stop
+     at θ=1/3 (Prop 10.5).
 
 ## 0. Idea in one paragraph
 
@@ -1082,53 +1088,49 @@ explicit).**
 
 ### 10.5 What the hypergraph lemma gives unconditionally (PROVED bookkeeping + Assessment)
 
-**Proposition 10.5 (the available unconditional bounds stop at θ=1/3;
-PROVED).** Take the system of §10.4 at `y=T^θ` with `θ<1/3`. Then:
+**Proposition 10.5 (the available estimates certify nothing below θ=1/3;
+PROVED).** Take the system at `y=T^θ` with `θ<1/3`. For a vertex set O
+write `q_O=∏_{v∈O}ℓ_v^{e_v}`, where `ℓ_v^{e_v}` is the modulus of v.
 
-1. *Crude counts.* `w_ℓ ≤ 8τ*²T/(ℓ²y)` and, for `|O|=j+1≥2`,
-   `Δ_O ≤ Cτ*²T log log T/(q_O y)`. At the smallest free primes
-   `ℓ, ℓ'∈(y,2y]` both are `≥T^{1−3θ−o(1)}`, i.e. not small.
-2. *Individual Type I bounds.* `F_I(n)≤n^{η}` bounds `w_ℓ` by
-   `T^{η/(1+η)+o(1)}/ℓ` (Thm 9.2). The same split bounds `Δ_O` only by
-   `T^{η/(1+η)+o(1)}`, independently of the residue pattern. That is not
-   small for any `η>0`.
-
-So with the inputs proved here, (W_k) can hold only for `θ>1/3` (crude),
-or for `θ>η/(1+η)` (Type I), and (CD_k) only for `θ>1/3`. **(a) alone
-gives no exponent beyond 3**: the hypergraph criterion is not the
-bottleneck, its inputs are.
+1. *Crude counts.* `w_ℓ ≤ Cτ*²T log log T/(ℓ²y)` and, for `|O|≥2`,
+   `Δ_O ≤ Cτ*²T log log T/(q'_O y)`. Here `q'_O=∏_{v∈O}ℓ_v`. At the
+   smallest free primes these upper bounds are `≥T^{1−3θ−o(1)}`, so they
+   do not certify (W_k) or (CD_k).
+2. *Individual Type I bounds.* `F_I(n)≤n^η` gives
+   `w_ℓ ≤ T^{η/(1+η)+o(1)}/ℓ` (Thm 9.2). For codegrees it gives only
+   `T^{η/(1+η)+o(1)}`, whatever the residue pattern. That does not
+   certify (CD_k) for any `η>0`.
+3. Prop. 10.6 shows that the true maximal pair codegrees are `≍1/φ(4d)`
+   on the `−4d²` vertices. So (CD_k) can hold only after a quarantine
+   whose cost is discussed in §10.4.
 
 *Proof.*
 
-1. The crude counts are as in Lemma 4.3 (W). A hyperedge `e⊋O` has rough
-   part `r=q_Om` with all primes of m above y. There are at most
-   `τ*²T/(q_Om)` atoms, each of weight `1/φ(m)≤C log log T/m` beyond O. Summing over
-   `m>y` gives the second bound.
-   For the lower estimate, note that `T/(ℓ²y)≥T/(8y³)`. *(This is the size
-   of the bound, not a lower bound on the true masses. We have not shown
-   that the true masses are large.)*
-2. The split is that of Thm 9.2's proof. In
-   `Σ_{r=q_Om} min(2F_I(r), τ*²T/r)/φ(m)`, the factor `1/φ(m)` replaces
-   `1/φ(r)`, so the gain `1/q_O` is lost. Restricting to a residue class
-   mod `q_O` is invisible to a bound on `F_I(r)`. ∎
+1. A hyperedge `e⊋O` has rough part `r=r_O·m`. Here `r_O` is the part of r
+   supported on the primes of O (possibly with higher powers), and m is
+   coprime to `r_O` with all primes above y. There are at most
+   `τ*²T/r` atoms at r. The weight beyond O is
+   `1/φ(m)·(φ(ℓ^{e_v})/φ(ℓ^{v_ℓ(r)}))^{±}`, which is
+   `≤ C log log T/m`. Summing over `m>y` and `r_O ≥ q'_O` gives the bound.
+   (This is an upper estimate only.)
+2. The split of Thm 9.2's proof applies with `1/φ(m)` in place of
+   `1/φ(r)`. The gain `1/q'_O` is lost, and a bound on `F_I(r)` cannot see
+   residue classes. ∎
 
-**Why codegrees cannot be quarantined like degrees (Assessment, with the
-circularity made explicit).**
+**On quarantining codegrees (Assessment).**
 
-* High-degree vertices are removed at Markov cost `w_ℓ/δ_k` with a
-  *constant* δ_k.
-* High-codegree sets O could be removed by adding O itself as a new event.
-  The Markov cost is `Σ_O P(O)·1[Δ_O>t] ≤ binom(k,j+1)S_H/t`.
-* But (CD_k) requires `t ≲ (C_k(Σ+1))^{−j}`, where Σ is the total event
-  mass *including the added events*, since the truncation level L must
-  exceed it.
-* Hence `Σ ≥ S_H(Σ+1)^j/C`, which is impossible for `j≥1` once
-  `S_H≥C`.
-* The codegree requirement is therefore a genuine input about the
-  arithmetic, unlike the degree requirement.
-* By contrast, the Haar side (PO Thm 9.4) uses only the averaged per-prime
-  masses. The local lemma does not see codegrees. This is the precise
-  asymmetry between the two sides below θ=1/3.
+* Degrees are enforced by Markov at a *constant* threshold δ_k.
+* Large codegrees could be removed by adding the offending sets O as new
+  events. The **Markov upper bound** on the cost of that is
+  `binom(k,j+1)S_H/t` at threshold t. With `t≈(C_k(Σ+1))^{−j}` that upper
+  bound exceeds Σ. This shows only that the worst-case Markov budget does
+  not close. It does **not** show that codegree quarantine is impossible,
+  since few sets may actually exceed the threshold.
+* The genuine evidence of difficulty is the structured family of Prop. 10.6
+  and its cost discussion in §10.4.
+* The Haar side (PO Thm 9.4) uses only averaged per-prime masses; the local
+  lemma does not see codegrees. This is the precise asymmetry between the
+  two sides below θ=1/3.
 
 **Summary of (a)+(b).**
 
@@ -1136,9 +1138,13 @@ circularity made explicit).**
 |---|---|---|
 | unconditional (this note) | 3 (Thm 5.1) | `T^{1/3+o(1)}` (PO Thm 9.3) |
 | `F_I(n)≤n^η` | 3 (codegrees uncontrolled) | `T^{η/(1+η)+o(1)}` (Thm 9.2) |
-| AP-TI(κ) (averaged) | 3 | `T^{κ+o(1)}` |
-| AP-TI(κ), κ<1/4, + pair codegrees `≤T^{−ε}` + Prop 8.2.1 | 4−ε (Thm 10.4 remark) | `T^{κ+o(1)}` |
-| AP-TI*(κ) (residue-uniform) | `1/κ` (Thm 10.4) | `T^{κ+o(1)}` |
+| H_CD(θ) for all `θ>κ` | `1/κ` (Thm 10.4) | `T^{κ+o(1)}` (its `w_ℓ` part, via PO Thm 9.4) |
+
+* The hypothesis H_CD(θ) includes a quarantine of mass `T^{o(1)}`.
+* Prop. 10.6 shows that any such quarantine must neutralise the `−4d²`
+  codegree hubs for all d up to `≍Σ/δ_k`.
+* Whether this is affordable is exactly the open cost question of §10.4.
+* The more promising route is a sharper Lemma 10.2.
 
 ## Replay
 
