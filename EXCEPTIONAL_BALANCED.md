@@ -78,3 +78,49 @@ subfamily 𝔉' ⊆ 𝔉 with moduli ≤ e^{O(λ)}, balanced moduli included?
 8. *Real-system numerics.* Measure, for balanced moduli, the partner masses
    `m_b`, the deadly values, `S_sq`, and the per-prime local mass `M_ℓ`
    (the sparsity parameter of routes 3–5).
+
+## 2. Route 2: η-gapped moduli
+
+Goal: a version of ET Thm 2.7 with windows of log-ratio 1+η, giving
+`S_λ ≤ C(η)·λ^{3/4}` for families of η-gapped moduli. This would leave the
+η-twin moduli as the whole problem.
+
+**Conventions.** `P₂(M) := P(M/P(M))`, and `P₂(1) := 1`. So `P(M)² | M`
+forces `P₂ = P`. Fix `w₀ ≥ 3` and `0 < η ≤ 1`. M is **η-gapped** if
+`P(M) > w₀` and `P(M) ≥ P₂(M)^{1+η}`. Put `s₀ = log w₀` and
+`s_j = s₀(1+η)^{j−1}`. The windows are
+
+    W_j = {ℓ prime : s_j < log ℓ ≤ s_{j+1}},   j ≥ 1.
+
+Every prime `> w₀` lies in exactly one window. Primes `≤ w₀` go into the
+small modulus Q₀, as in ET Thm 2.7.
+
+### 2.1 Separation
+
+**Lemma 2.1 (gapped ⇒ (U); PROVED).** Let M be η-gapped and `ℓ = P(M)`.
+1. ℓ divides M exactly once.
+2. Every prime `ℓ' | M/ℓ` with `ℓ' > w₀` lies in a window strictly before
+   the window of ℓ.
+
+Hence a family of η-gapped classes satisfies hypothesis (U) of ET Thm 2.7
+for the windows `W_j`, with `ℓ(C) = P(M_C)`.
+
+*Proof.*
+1. If `ℓ² | M`, then `P₂(M) = ℓ`, and `ℓ ≥ ℓ^{1+η}` is false.
+2. Let `ℓ' ∈ W_j`. Then `log ℓ' > s_j`. Since ℓ' divides M/ℓ, we have
+   `log ℓ ≥ (1+η) log P₂(M) ≥ (1+η) log ℓ' > (1+η)s_j = s_{j+1}`. So ℓ lies
+   in some `W_{j'}` with `j' > j`. ∎
+
+*Scope.*
+* **Dominant moduli are gapped.** If `P(M) ≥ M^{1/(1+C)}`, then
+  `P₂ ≤ M/P ≤ P^C`, so M is η-gapped with `η = 1/C − 1`.
+* **Some balanced moduli are gapped, but not the twin ones.** Take
+  `M = kℓ₁ℓ₂` with k small, `ℓ₂ ≥ ℓ₁^{1+η}` and `kℓ₁ ≥ ℓ₂`. Then M is
+  balanced and η-gapped. The same-scale pairs of ET Lemma 3.8 are η-twin
+  for every `η > η_{3.8}`, and their supply is not covered here.
+* **The new feature.** For a gapped balanced M, the cofactor `q = M/P(M)`
+  exceeds `P(M)`. ET Cor 3.6 relies on `q ≤ ℓ^C` in two places, so
+  §§2.2–2.3 must replace both:
+  * the counting bound `p_ℓ(h) ≤ ℓ^{C−1+o(1)} ≤ 1/4`, valid for every
+    history h;
+  * the inflation factors `(1−p*)^{−1}` of ET Lemma 2.8.
