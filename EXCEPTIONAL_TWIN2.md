@@ -619,20 +619,15 @@ On the n-side (n ≡ c, two classes through j both containing n) agreement is
 `j | gcd(n+4D, n+4D′)`, hence `j | D − D′ ≠ 0` (equivalently, for the
 labels, `j | a b′ − a′b`). Summing over j innermost:
 
-* **Small-height pairs: PROVED-level reduction.** If both data have
-  modulus `≤ H` and both labels have height `≤ H`, the nonzero integer
-  `ab′ − a′b` has absolute value `≤ 2H²`, so it has at most
-  `log(2H²)/log w₂` prime divisors `> w₂`. With (i)–(ii) of Lemma 5.4,
-  `δ_θ ≪_{P} (log L)^{O(1)}/φ(d) + 1/m₀`, and the j-sum costs
-  `Σ_{j | ab′−a′b} ρ_j/j ≤ (log 2H²)/(w₂ log w₂)`. So all pairs with
-  `H ≤ X^{O(1)}` — i.e. *every* pair, since `d, height ≤ X²` — contribute
-
-      ≪ (L/w₂) · ( Σ_θ (log L)/φ(d_θ) + Σ_θ 1/m₀(θ) )².
-
-  The first sum is `≪ (log L)^{O(1)}`, giving `o(1)`. **The second is the
-  obstruction:** `Σ_θ 1/m₀(θ)` is the total partner mass of the first
-  realisations, `≍ Σ_m τ(A_m²)/m ≍ L³`, so this term is `L⁷/w₂ = L^{−1}`
-  only after it is **not** squared inside the j-sum.
+* **Counting heuristic, and why it does not close.** For two data θ ≠ θ′
+  the label difference `ab′ − a′b` is a nonzero integer of size `≤ X^{O(1)}`,
+  so it has `≤ O(L/log w₂)` prime divisors `j > w₂`, each costing
+  `ρ_j/j ≤ 1/w₂`. If the masses `δ_θ` did not depend on j, the cross part
+  would be `≪ (L/w₂)(Σ_θ δ_θ)² ≈ (L/w₂)·L⁶ = L^{−1}` (with `w₂ = L⁸`): a
+  margin of L. But `δ_θ(j,·)` does depend on j: θ occurs at j only if
+  `d_θ | A_{kjm}` for some m, and the first element `m₀(θ,k)` moves with j.
+  Replacing `δ_θ(j)` by `sup_j δ_θ(j) ≤ 1/w₂ + (log L)/φ(d)` loses
+  finiteness: `Σ_θ` then runs over all `≍ X^{2}` data with weight `≥ 1/w₂`.
 * **The sharp remaining form.** Precisely: the bound above uses
   `δ_θ(j,c) ≤ sup_j δ_θ`, but the first-element mass `1/m₀(θ,k)` depends on j
   (θ occurs at j only if `kjm₀ ≡ −1 (mod 4d)`). Keeping the j-dependence, the
