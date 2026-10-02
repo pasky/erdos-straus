@@ -133,3 +133,64 @@ non-uniform ν, random or hub-concentrated edges, random ρ̃. Seeds 1–3,
 `lhs/((1+25δ)rhs)` is 0.989, and `lhs/rhs` (constant 1) stays ≤ 1.03 even
 outside (1.1). The bound is sharp to leading order: one edge with `ρ̃ ≡ 1`
 has `lhs = −log(1−π_e)`, `rhs = π_e(1 + ν(a) + ν(c))`.
+
+**Remark 1.5 (what was used).** Only the prime-level masses `w_ℓ ≤ δ` enter;
+TW Lemma 6.9's vertex bound `deg ≤ δ`, the Mayer/KP expansion and Penrose
+are not needed. Hub vertices (`deg(ℓ,a) ≫ 1`) are allowed; they show up only
+in `q_ℓ`. The `−ν(F)ν(F′)` term was discarded; keeping it would replace `q_j`
+by a variance (TW Lemma 6.11), which is not needed below.
+
+## 2. Fibre tilting with an arbitrary fibre law; free hub quarantine
+
+**Lemma 2.1 (tilting with a fibre law; PROVED).** In the setting of TW
+Lemma 6.6 (F a set of coordinates, fibres `c ∈ ℤ/Q_F`), let P be any
+probability on fibres, and for each `c ∈ supp P` let `A⁺_c ⊆ A_c` be
+nonempty. Put `Ξ_c = log[P(A⁺_c ∩ A⁺′_c | c)/P(A⁺_c | c)²]` (copy
+ρ-correlated off F, fibre shared). Then every `g ∈ V_{λ/2}` with `g ≥ 1`
+on A satisfies
+
+    saving(g²) ≤ αλ/2 + log ‖dP/dU_F‖_∞ + E_P Ξ_c,
+
+`U_F` uniform on `ℤ/Q_F`. Moreover ρ may be taken `ρ_i = e^{−αs_i}` for
+`s_i ≤ λ/2` and `ρ_i = 0` for `s_i > λ/2`.
+
+*Proof.* TW's proof with `σ̃ = Σ_c π_c U(·|c, A⁺_c)` (supported in A, so
+`E_U[g·dσ̃/dU] ≥ 1`) gives `saving ≤ αλ/2 + log(Q_F Σ_c π_c² e^{Ξ_c})`.
+Take `π_c = P(c)e^{−Ξ_c}/Z`, `Z = E_P e^{−Ξ}`. Then
+`Q_F Σ π_c² e^{Ξ_c} = Z^{−2} Σ_c (Q_F P(c)) P(c) e^{−Ξ_c} ≤ ‖dP/dU_F‖_∞/Z`,
+and `Z ≥ e^{−E_PΞ}` (Jensen). For the last sentence: in ET Thm 5.5,
+`‖Π_V h‖² = Σ_{c(T)≤λ/2}‖h_T‖²`, and every such T has all `s_i ≤ λ/2`, so
+`Π_{i∈T}ρ_i = e^{−αc(T)} ≥ e^{−αλ/2}` for these T with the stated ρ. ∎
+
+Lemma 6.6 is the case `P = U_F|R`, `A⁺ = A`. The point of a general P is that
+the fibre law can be a *product-type* law with controlled inflation
+(§3), instead of the uniform law on an avoidance set (review T12/T14).
+
+**Lemma 2.2 (free hub quarantine; PROVED).** In Setting 1.0 with unary sets
+`U_ℓ ⊆ ℤ/ℓ^{e_ℓ}` of uniform density `p_ℓ ≤ 1/8` and `ν_ℓ` uniform off
+`U_ℓ`, suppose `w_ℓ ≤ δ/2 ≤ 1/32` for all ℓ. Let `H_ℓ = {a : deg(ℓ,a) ≥ 1}`
+and `U⁺_ℓ = U_ℓ ∪ H_ℓ`, deleting the edges at hub vertices. The resulting
+system has `A⁺ ⊆ A`, unary density `p⁺_ℓ ≤ p_ℓ + w_ℓ ≤ 1/4`, and (with
+`ν⁺` uniform off `U⁺`) `w⁺_ℓ ≤ (8/7)² w_ℓ ≤ δ`. With
+`S_ℓ := Σ_a ν_ℓ(a) min(deg(ℓ,a), 1)²`, and for the fibre log-ratio of
+§1 (unary factor times `Z₂/Z₁²`),
+
+    Ξ⁺ ≤ 2 Σ_ℓ ρ_ℓ (p_ℓ + S_ℓ) + 4 Σ_{e={ℓ,m}} ρ_ℓ ρ_m π_e + 6 Σ_j ρ_j S_j,     (2.1)
+
+where π_e, deg, S are computed in the original ν.
+
+*Proof.* `ν(H_ℓ) ≤ Σ_a ν(a)deg(a) = w_ℓ` (Markov at 1), and `U(H) ≤ ν(H)`.
+Hubs have `min(deg,1)² = 1`, so also `ν(H_ℓ) ≤ S_ℓ`. Passing from ν to ν⁺
+multiplies point masses by `(1−p)/(1−p⁺) ≤ 8/7` (the ratio of
+`1/(1−p⁺) ≤ 4/3` and `1/(1−p) ≥ 1`, sharpened by `p⁺ − p ≤ 1/32`; the
+crude `4/3` suffices everywhere below). Hence every edge weight
+`π⁺ ≤ (4/3)²π`, `w⁺ ≤ (16/9)w_ℓ ≤ δ`, and since non-hub vertices have
+`deg < 1`, `q⁺_j ≤ (4/3)³ Σ_{a∉H} ν(a)deg(a)² ≤ (4/3)³ S_j`. The unary
+factor (TW §6.8, exact) is `≤ (4/3)Σ ρ_ℓ p⁺_ℓ`, and `ρ̃ ≤ (4/3)ρ`.
+Theorem 1.4 with `δ ≤ 1/16` (constant `1+25/16 < 2.6`) gives
+`2.6·[(4/3)²(16/9)Σρρ′π + (4/3)(64/27)Σρ_jS_j]`; `2.6·(16/9)² < 8.3` —
+so replace the constants 4, 6 in (2.1) by 9 and 9. ∎
+
+(Constants are not optimised; read (2.1) with 9, 9. Hubs are deterministic
+in part — the "deadly values" `−4D mod j`, D small, of ET §5.7 — and the
+quarantine turns them into unary conditions at no hypothesis cost.)
