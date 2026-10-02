@@ -249,11 +249,37 @@ every `p ∈ (W₁, w₂]`, and `T(c_s) ≤ L^{1/2}`. `G_L`: for every prime
 **Lemma 3.2 (inflation and density; PROVED given Lemma 3.3).** For L large:
 1. for every w₂-smooth k and residue b, `P(c ≡ b mod k) ≤ 4Γ(k)/k`, and
    the same with `P′` and 2 in place of 4;
-2. `log ‖dP/dU_F‖_∞ ≤ 3L^{1/2}`.
+2. `log ‖dP/dU_F‖_∞ ≤ 4L^{1/2}`.
 
 *Proof.* (1) `P(c ≡ b mod k) ≤ P′(…)/P′(G_L)`, and
 `P′(…) ≤ P_QR(c_s ≡ b mod k₁)/P_QR(G_s) · sup_{c_s∈G_s} P(c_m ≡ b mod k₂ | Av(c_s))`.
 TW Lemma 1.3(3) gives `≤ Π γ(p)/k₁`; Lemma 3.1(2) gives the medium factor;
 Lemma 3.3 gives `P_QR(G_s), P′(G_L) ≥ 1/2`. (2) The density of P against
-`U_F` is at most `(Q/|R_{W₁}|) · 2 · e^{2T(c_s)} · 2`; TW Lemma 1.3(2) and
-`π(W₁) log 2 ≤ L^{1/2}` give the claim with `T ≤ L^{1/2}`. ∎
+`U_F` is at most `(Q/|R_{W₁}|) · 2 · e^{2T(c_s)} · 2`; TW Lemma 1.3(2)
+(`π(W₁)log 2 + O(log log W₁) ≤ L^{1/2}`) and `T ≤ L^{1/2}` on `G_s` give the
+claim. ∎
+
+**Lemma 3.3 (shifted divisor sums along the top prime; PROVED, Shiu).** For
+odd `q ≥ 1` and `y ≥ 2` with `q ≤ (2y)^{B+2}`,
+
+    Σ_{y < m ≤ 2y, qm ≡ 3 (4)} τ(((qm+1)/4)²) ≪_B y · (q/φ(q)) · (log 2qy)².
+
+*Proof.* `A = (qm+1)/4` runs over the integers `A ≡ a (mod q)`, `4a ≡ 1`, in an
+interval `(x−Y, x]` with `Y = qy/4`, `x ≤ 2Y + 1`. Shiu's theorem (Shiu,
+J. reine angew. Math. 313 (1980), Thm 1; as used in ET Lemma 3.1) for
+`F(A) = τ(A²)` (`F(p^l) = 2l+1 ≤ 3^l`, `F(n) ≪_η n^η`) gives
+`≪ (Y/φ(q))(log x)^{−1}exp(Σ_{p≤x}3/p) ≪ (Y/φ(q))(log x)²`, provided
+`q < Y^{1−β}` and `x^β < Y` with `β = 1/(2B+6)`. Both hold for `y ≥ y₀(B)`
+since `q^β ≤ (2y)^{1/2}`; for `y < y₀(B)`, q and m are bounded. ∎
+
+We also use the pointwise bound `τ(A²) ≤ C_ε A^{ε}` (ε as in 3.0), and two
+Euler-product facts, valid for L large (all products over `p ≤ w₂`):
+
+    Σ_{k w₂-smooth} Γ(k)(log 2k)^i / φ(k) ≪_i (log L)^{O(1)},
+    Σ_{k,k′ w₂-smooth} Γ(lcm(k,k′))/lcm(k,k′) ≪ (log L)^{O(1)}.          (3.1)
+
+*Proof.* `(log 2k)^i ≤ i!·(log w₂)^i·(2k)^{1/log w₂}` and `p^{1/log w₂} ≤ e`, so
+the first is `≤ i!(log w₂)^i·e·Π_{p≤w₂}(1 + eΓ(p)/(p−1) + O(p^{−2}))`, with
+`Γ(p) ≤ 3`. The second has Euler factors
+`1 + Γ(p)Σ_{(e,e′)≠(0,0)}p^{−max(e,e′)} = 1 + 3Γ(p)/p + O(p^{−2})`. Both
+products are `≪ (log w₂)^{9e} ≪ (log L)^{O(1)}`. ∎
