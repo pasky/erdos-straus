@@ -31,7 +31,9 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Lemma 6.6 | fibre tilting for Λ² majorants: `saving(g²) ≤ αλ/2 + log(Q_F/\|R\|) + avg_{c∈R}Ξ_c` (removes ET's fibre-variance term) | PROVED |
 | Red 6.7, Conj 6.8 | H_MS^{Sel} (Λ² cap, all ℛ(M), any B, twins) ⇐ empty-fibre density + good fibres (SKETCH) + sparse noise stability via cluster expansion (Conj 6.8; binary case plausibly within reach via POINTWISE_OMEGA2 Lemma 2.1) | SKETCH / OPEN |
 | Lemma 6.9 | two-prime events, good fibre: Mayer/Kotecký–Preiss expansion converges for the single and doubled systems (Penrose + PO2 Lemma 2.1), δ ≤ e^{−6}/8 | PROVED |
-| (6.1) | weighted-KP derivative bound `Ξ_bin ≤ (1+O(δ))·diagonal`: the precise remaining step for the two-prime Λ² theorem | OPEN |
+| (6.1) | single-edge diagonal bound: too strong as stated (Lemma 6.11), replaced by (6.2) | superseded |
+| Lemma 6.10, 6.11 | gluing identity `Z₂/Z₁² = E_S[1 + E(r−1)²]`; one shared prime gives `ρ̃_j Var(deg_j)` | PROVED |
+| (6.2)/(6.3) | `Ξ_bin ≤ C[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` via approximate factorisation of the pinned density; both terms proved summable; this is the remaining step for the two-prime Λ² cap | OPEN |
 | Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
@@ -1089,6 +1091,114 @@ fibres) were not written out in this session.
 **Status of the two-prime Λ² theorem:** not proved. Reduced to the
 weighted-KP derivative bound (6.1). Convergence (Lemma 6.9) is proved, and
 so is the fibre tilting (Lemma 6.6).
+
+### 6.8 The perturbation step: gluing identity, corrected target, remaining lemma
+
+**Correction to (6.1).** The bound (6.1) with only the single-edge
+diagonal is too strong. Lower-support terms of the form `ρ̃_j·Var` appear
+already for one shared prime (Lemma 6.11). The correct target is (6.2)
+below. All objects are in one good fibre as in §6.7. The base `ν = ⊗ν_ℓ` is
+uniform off the unary sets.
+
+**Unary part (exact; PROVED).** Conditioning the ρ-coupled pair at ℓ on
+"both copies avoid the unary set of density p" gives
+`μ̃_ℓ = ρ̃_ℓ·Diag_ν + (1−ρ̃_ℓ)·(ν⊗ν)`, with `ρ̃_ℓ = ρ_ℓ/(1−p_ℓ+ρ_ℓ p_ℓ) ≤ (4/3)ρ_ℓ`
+for `p ≤ 1/4`. Hence
+
+    P(A∩A′)/P(A)² = Π_ℓ (1 + ρ_ℓ p_ℓ/(1−p_ℓ)) · Z₂/Z₁²,
+
+where `Z₁ = P_ν(no binary point)` and `Z₂` is the binary avoidance
+probability under `⊗μ̃_ℓ`. The first factor is ET Cor 5.6's unary term, so
+`log` of it is `≤ (4/3)Σ_ℓ ρ_ℓ p_ℓ`. *Proof:*
+`P(both avoid) = (1−p)² + ρp(1−p)`; the conditioned law puts mass
+`ρ(1−p)/((1−p)²+ρp(1−p))` on the diagonal, and the diagonal and product
+parts are each uniform on the allowed set. ∎
+
+**Lemma 6.10 (gluing identity; PROVED).** Let S be a random set of primes,
+containing each ℓ independently with probability `ρ̃_ℓ`, and let
+`r(y_S) = P_ν(no binary point | y_S)/Z₁`. Then
+
+    Z₂/Z₁² = E_S[ E_{ν_S}[ r(y_S)² ] ] = E_S[ 1 + E_{ν_S}(r(y_S) − 1)² ].
+
+*Proof.* Expand `⊗μ̃_ℓ` as the mixture over S: coordinates in S are glued
+(`y_ℓ = y′_ℓ ~ ν_ℓ`), the others are independent copies. Given the glued
+values `y_S`, the two copies are independent, each with avoidance
+probability `Z₁ r(y_S)`. Finally `E_{ν_S} r = 1`. ∎
+
+So `log(Z₂/Z₁²) ≤ E_S E_{ν_S}(r−1)²`, by `log(1+x) ≤ x` and Jensen.
+
+**Lemma 6.11 (one shared prime; PROVED).** For `S = {j}`,
+`E(r−1)² = Var_ν(r_j)` with `r_j(a) = P(no binary point | y_j = a)/Z₁`.
+If the system consists of the edges at j only (a star), then
+`r_j(a) = Π_{ℓ′}(1 − κ_{a,ℓ′}/ℓ′)/E_ν Π(…)`, where `κ_{a,ℓ′}` is the
+number of forbidden points `(j,a; ℓ′, ·)`. So
+`Var(r_j) = Var_ν(deg_j)(1+O(δ))`, with `deg_j(a) = Σ_{ℓ′} κ_{a,ℓ′}/ℓ′`.
+
+*Proof.* Direct computation; in a star the partners are independent given
+`y_j`. ∎
+
+In particular, a single shared prime contributes
+`ρ̃_j Var_ν(deg_j)`. This is *not* of the single-edge form `ρ̃_jρ̃_ℓ′ π_e`:
+it involves cross terms between different partners ℓ′, ℓ″ of the same
+residue a. These are ET Assessment 5.8's "off-diagonal (O)" terms. After
+the Markov quarantine (Lemma 6.3, `deg ≤ δ`) they satisfy
+`Var(deg_j) ≤ q_j := Σ_a ν_j(a) deg_j(a)²`.
+
+**Target (6.2) (OPEN).** In a good fibre with `deg ≤ δ ≤ δ₀`,
+
+    E_S E_{ν_S}(r − 1)² ≤ C [ Σ_{e=(ℓ,ℓ′)} ρ̃_ℓ ρ̃_{ℓ′} π_e + Σ_j ρ̃_j q_j ].        (6.2)
+
+**What (6.2) would give (PROVED reduction).** Both terms are summable as
+needed:
+* the diagonal `Σ_e ρ̃ρ̃′π_e`: its fibre average is `≤ (16/9)Σ_C P(C)
+  M_C^{>w, −α}`, which is `≪ α^{−3}` for all ℛ(M) by ET Lemma 3.1;
+* `Σ_j ρ̃_j q_j ≤ Σ_{j>w} q_j`: the fibre average of `q_j` is a
+  pair-of-conditions count at j of second-moment type (as in Lemma 2.4), of
+  size `≪ j^{−2+ε}`. So it sums to `≪ w^{−1+ε}`. Good fibres can be required
+  to have `Σ_j q_j ≤ 1` at Markov cost `o(1)` in `log(Q_F/|R|)`.
+
+Then Lemma 6.6 gives `saving(g²) ≤ αλ/2 + C α^{−3} + log(Q_F/|R|) + O(1)`,
+i.e. the two-prime Λ² cap `≪ λ^{3/4}` (plus the empty-fibre term of
+Reduction 6.7 step 1).
+
+**Where the proof of (6.2) stands.** Write `r = dσ_S/dν_S` with
+`σ = ν|A`. (6.2) follows from an approximate factorisation:
+
+    r(y_S) = 1[no binary point inside S] · Π_{j∈S} r_j(y_j) · exp(Σ_{j≠j′∈S} η_{jj′}(y_S)) / N_S,     (6.3)
+
+with pair corrections satisfying `|η_{jj′}| ≤ C(π_{jj′}-type path weights)`
+and `Σ_{j′} sup|η_{jj′}| ≤ Cδ`. Given (6.3), one would argue in three steps:
+* `E(r−1)²` splits into the product part (`Σ_j Var r_j ≤ C Σ_{j∈S} q_j`);
+* the inside-S hits contribute `P(hit inside S) ≤ Σ_{e⊂S} π_e`;
+* the pair corrections are handled by an exponential-moment bound over S.
+  That bound is a graph-type sum with vertex weights `ρ̃_j`, edge weights
+  `Cπ`, row sums `≤ Cδ`, i.e. POINTWISE_OMEGA2 Lemma 2.1 again.
+
+The natural proof of (6.3) is the Kotecký–Preiss expansion of §6.7 for the
+pinned system. Clusters touching one pinned prime give `r_j`, and clusters
+touching two give `η`, with the pinned-cluster bound
+`Σ_{X∋γ}|φ w^X| ≤ |w(γ)|e^{a(γ)}` (Kotecký–Preiss; Friedli–Velenik,
+*Statistical Mechanics of Lattice Systems*, Thm 5.4). Two points remain
+unproved:
+1. a pinned site j makes every edge at j a *unary* constraint at its
+   partner, so the pinned system's base changes with `y_j`. The cluster
+   weights must be compared across different pinnings with relative error
+   `O(δ)·deg_j(y_j)`, uniformly;
+2. the normalisation `N_S` must be shown to be `exp(O(Σ_{j∈S} q_j +
+   Σ_{e⊂S}π_e))`.
+
+An alternative is to expand the coupling instead of gluing. Then
+`μ̃_j = (ν⊗ν)(1 + g_j)` with `g_j = ρ̃_j(1[y=y′]/ν(y) − 1)`, which is
+*doubly centred* (`E_{y′} g_j = E_y g_j = 0`). That kills every cluster
+term in which only one copy touches j. But `g_j` is not repulsive
+(it reaches `≈ ρ̃_j ℓ` on the diagonal), so Penrose's inequality does not
+apply to it, and a mixed tree-graph bound would be needed.
+
+**Status.** The two-prime Λ² theorem is reduced to the factorisation
+(6.3), equivalently (6.2). Proved so far: Lemma 6.6 (fibre tilting),
+Lemma 6.9 (convergence), Lemma 6.10 (gluing identity), Lemma 6.11 and the
+summability of both terms of (6.2). Reduction 6.7 steps 1–2 were not
+written in this session.
 
 ## Replay
 
