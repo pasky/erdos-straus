@@ -1047,7 +1047,12 @@ H_MIN(θ). PO Theorem 6.2 (modulo Thorner–Zaman) gives
   through (W) and the hub quarantine, which need only the averaged
   `w_ℓ`, and `|O|=2` through (CD_3). So exponent `4−ε` would follow from:
   * AP-TI(κ) (no residues) with `κ<1/4`;
-  * pair codegrees `max_{|O|=2}Δ_O ≤ T^{−ε}`.
+  * pair codegrees `max_{|O|=2}Δ_O ≤ T^{−ε}`;
+  * Prop 8.2.1 (modulo the proof of ET Prop 1.7). It gives
+    `g^{(0)}_ℓ ≤ ℓ^{−2/5+o(1)}`, so `𝓑=∅` for large T. This matters
+    because, with only averaged degrees, the single mass created by
+    quarantining a bad prime is not controlled: it needs
+    `deg((b,1))` for the specific residue 1.
 
 ## Replay
 
