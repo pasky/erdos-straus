@@ -35,6 +35,35 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
      target is a progression average of Type I counts (AP-TI), which
      reduces to an explicit Kloosterman-type first-term sum.
 
+6. **Checkpoint 3 (§10, below θ=1/3).**
+   * Private-cover majorant (Lemma 10.1) and a hypergraph moment bound
+     under a codegree condition (Lemma 10.2), both PROVED.
+   * Hypergraph criterion, Theorem 10.3, PROVED.
+   * Conditional result (Theorem 10.4, PROVED implication): the
+     post-quarantine hypothesis H_CD(θ) implies H_MIN(θ). If it holds
+     for every θ>κ, then `W(p) ≥ (log p)^{1/κ−o(1)}` i.o. (modulo
+     Thorner–Zaman).
+   * The first draft's AP-TI*(κ) is **withdrawn**: it is false because of
+     hub residues.
+   * Prop. 10.6 (PROVED): the classes `−4d²` give pair codegrees
+     `≫1/φ(4d)` (lower bound) at every θ<1/3.
+   * *Superseded by §11.4:* the checkpoint-3 suggestion that a sharper
+     Lemma 10.2 is the open step is withdrawn. Dense `−4d²` clusters
+     make the private-cover moment itself too large. Unconditional
+     estimates do not certify θ<1/3 (Prop 10.5, Assessment).
+
+7. **Checkpoint 4 (§11).**
+   * **Theorem 11.3 (PROVED):** `log(1/δ*(T)) ≤ T^{o(1)}`
+     unconditionally, and `≪(log T)^7/log log T` modulo ET Prop. 1.4.
+     This is PO's polylogarithmic Haar target, previously conditional on
+     H_PP. It uses an *iterated* bad-prime quarantine whose size is
+     bounded by a quarantine-uniform mass `S*` (Lemmas 11.1–11.2).
+   * On the prime side the per-prime conditions are now free. Below
+     θ=1/3, the only obstacle is heavy pair codegrees.
+   * The `−4D` hub families (Prop. 11.4) make the natural pair-quarantine
+     fail by a factor log L at every fixed θ<1/3 (named gap G_pair). The
+     prime exponent stays 3.
+
 ## 0. Idea in one paragraph
 
 PO Prop 6.3 shows that inclusion–exclusion truncated by the **number of
@@ -748,6 +777,582 @@ gives `log(1/δ*) ≤ π(z)log T + 4S_tot + O(1)`, with
    or AP-TI with κ<1/3) *and* a hypergraph form of Lemma 2.1 (§7). Neither
    is available.
 
+## 10. Below θ=1/3: a hypergraph minorant and what it needs
+
+### 10.1 Private covers (PROVED)
+
+Setting 1.0, with supports of size `≤k` (`k≥1`). For a set P of primes, a
+*private cover* of P is a set C of events such that:
+
+* `P ⊆ ∪_{E∈C} supp E`;
+* every `E∈C` has a prime of `supp E ∩ P` that lies in the support of no
+  other member of C (its *private prime*).
+
+Then `|C|≤|P|`. Put
+
+```
+G^cov_u(x) := Σ_{|P|=u} Σ_{C private cover of P} 1[every E∈C occurs at x].
+```
+
+**Lemma 10.1 (PROVED).** For every outcome x and all `u, L ≥ 0`:
+
+1. `binom(N(x),u) ≤ G^cov_u(x)`. Hence Lemma 1.2 holds with `G^cov_{L+1}`
+   in place of `G_{L+1}`:
+   `B_L − 4^{L+1}G^cov_{L+1} ≤ 1[A=∅]` and
+   `|B_L−1[A=∅]| ≤ 4^{L+1}G^cov_{L+1}`.
+2. If every event is a union of cells, then
+   `M_1(B_L) ≤ Σ_{u≤L} 2^u E G^cov_u`, and `M_1(G^cov_u)=E G^cov_u`.
+
+*Proof.*
+
+1. Every `P⊆V(x)` is covered by occurring events. A minimal subfamily
+   covering P is a private cover: if some member had no private prime in
+   P, removing it would leave a cover. So each u-subset of `V(x)`
+   contributes at least 1 to `G^cov_u(x)`. The rest is the proof of
+   Lemma 1.2 verbatim.
+2. In the proof of Lemma 1.3, a cell c on U with `κ(U,c)≠0` has every
+   prime of U covered by events supported in U and occurring on c. A
+   minimal such subfamily is a private cover of U whose members are
+   supported in U. So
+   `Σ_c |κ(U,c)|P(c) ≤ 2^{|U|} Σ_{C private cover of U} P(C occurs)`.
+   Summing over `|U|≤L` gives the bound. `G^cov_u` has coefficients +1. ∎
+
+EVIDENCE: `scripts/omega2_abstract_check.py` also checks, by brute force,
+`binom(N,L+1) ≤ G^cov_{L+1}` and both inequalities of part 1, in the same
+207 361 (seed 1) and 1 166 784 (seed 7) cases. There were 0 failures.
+
+### 10.2 The moment bound for hypergraph systems (PROVED)
+
+**Setting 10.0.** As Setting 2.0, but hyperedges replace edges.
+
+* A *hyperedge* is a set of `2..k` vertices at distinct primes. It occurs
+  iff all its vertices are realised, so `P(e)=∏_{v∈e}p(v)`.
+* The hypergraph is simple: distinct hyperedges have distinct vertex sets.
+* Put `S_H=Σ_e P(e)` and `w_ℓ=Σ_{e at ℓ}P(e)`.
+* For a set O of vertices at distinct primes, the *codegree* is
+  `Δ_O := Σ_{e⊋O} ∏_{v∈e∖O} p(v)`. So `Δ_{{v}}=deg(v)`.
+* Put `Δ^{(i)} := max_{|O|=i} Δ_O`.
+
+**Lemma 10.2 (PROVED).** Let `U_0≥1`, `w≥0`, and put
+
+```
+D := Σ_{j=0}^{k−2} (kU_0)^j Δ^{(j+1)}.
+```
+
+If `D ≤ [2ek(1+w)^k]^{−1}`, then
+
+```
+Σ_{u=0}^{U_0} w^u E G^cov_u ≤ exp( (1+w)S_1 + 2ek(1+w)^k S_H ).
+```
+
+*Proof.*
+
+**Reduction to private families.** Given C, every P that C privately
+covers lies in `π(C)`, the set of primes of C. Hence
+
+```
+Σ_{u≤U_0} w^u E G^cov_u ≤ Σ_{C private, |C|≤U_0} (1+w)^{|π(C)|} P(C occurs).
+```
+
+Here "C private" means that every member has a prime lying in no other
+member.
+
+**Singles.** A single in a private C has its only prime private. So the
+singles of C sit on primes disjoint from the rest of C and are independent
+of it. They contribute at most `∏_ℓ(1+(1+w)g_ℓ) ≤ e^{(1+w)S_1}`.
+
+**Components.** The hyperedge part splits into connected components, each
+private.
+
+* If two components use the same prime with different vertices, they
+  cannot occur together.
+* Otherwise `P` is multiplicative over components.
+
+So the hyperedge part is at most `exp(Σ_K (1+w)^{|V(K)|}P(K))`, over
+connected private K with `h:=|K|≤U_0` hyperedges and `n:=|V(K)|≤kh`
+vertices.
+
+**Exploration.**
+
+1. Pick a hyperedge `e_1` of K and declare its vertices discovered.
+2. Process the discovered vertices in breadth-first order (ties broken by a
+   fixed total order).
+3. At a vertex v, attach as *children* all not-yet-attached hyperedges of K
+   that contain v. Their vertices are either old (discovered earlier, or
+   brought by an earlier sibling) or new; new ones become discovered.
+
+Every hyperedge of K is attached, because K is connected. A child e of v
+has a private vertex, which lies in no other hyperedge. That vertex is
+therefore new, so `e∖({v}∪old)≠∅`.
+
+Let `O_e` be v together with e's old vertices, with `|O_e|=j+1`. The weight
+of e is then the product of p over its new vertices. Summed over all
+admissible e, this is at most `Σ_j binom(n,j) Δ^{(j+1)} ≤ D`, since there
+are at most n candidates for each old vertex.
+
+**Counting.**
+
+* The first hyperedge contributes
+  `Σ_{e_1}P(e_1)·(#roots) ≤ Σ_{e_1}|e_1|P(e_1) ≤ kS_H` in total. (The root
+  index only overcounts.)
+* The children sets at the at most n processed vertices are unordered:
+  `Σ over sets of c children ≤ D^c/c!`. The weights of the individual
+  children depend on the earlier siblings, but this bound still holds:
+  * the product of the c sibling weights is `∏p(u)` over the vertices
+    brought by the whole set, so it does not depend on the order;
+  * hence the sum over sets is `(1/c!)` times the sum over ordered tuples
+    of distinct children;
+  * summing an ordered tuple sequentially gives at most `D^c`, because at
+    each step the old pool has at most `kh` vertices and the next child
+    has a private, hence new, vertex.
+* The number of weighted compositions is
+  `Σ_{c_1+…+c_n=h−1}∏1/c_i! = n^{h−1}/(h−1)! ≤ (kh)^{h−1}/(h−1)! ≤ e(ke)^{h−1}`.
+
+Hence
+
+```
+Σ_{K: |K|=h} (1+w)^{|V(K)|}P(K) ≤ (1+w)^{kh}·e·kS_H·(keD)^{h−1},
+```
+
+and summing over `h≥1`, with `(1+w)^k keD≤1/2`, gives
+`≤2ek(1+w)^kS_H`. ∎
+
+*Remarks.*
+
+* For `k=2` the condition is just `deg≤[4e(1+w)²]^{−1}`. With the private
+  covers there is no unicyclic case, so Lemma 2.1 is recovered (with
+  different constants) in truncated form.
+* The factor `(kU_0)^j` in front of the codegree `Δ^{(j+1)}` is real.
+  Consider a cluster in which each new hyperedge reuses `j+1` old vertices
+  out of n. It costs only `Δ^{(j+1)}`, but it can be placed in `binom(n,j)`
+  ways.
+* Only `u≤U_0=L+1` is ever needed (Lemma 10.1), so the codegree condition
+  is needed only at size `k(L+1)`.
+
+### 10.3 The hypergraph criterion (PROVED)
+
+**Theorem 10.3 (PROVED).**
+
+*Setting.* Setting 3.0 (congruences, `2|Q`), with singles and hyperedges of
+at most k primes. Hyperedges are congruence classes mod r, split into
+classes mod `∏_{ℓ|r}ℓ^{e_ℓ}` if necessary, so that all vertices at ℓ are
+classes mod `ℓ^{e_ℓ}`; see the remark below.
+
+*Constants.* Put `δ_k := [4ek·17^k]^{−1}`, and let `C_k` be the constant
+defined in the proof.
+
+*Hypotheses.*
+
+* (G_k) `g_ℓ ≤ 1/(32k)` for all `ℓ∈𝒫`;
+* (W_k) `w_ℓ ≤ δ_k/(32k)` for all `ℓ∈𝒫`;
+* (CD_k) `Σ_{j=1}^{k−2} (C_k(Σ+1))^j Δ^{(j+1)} ≤ δ_k`, where `Σ=S_1+S_H`;
+* (I) as in Theorem 3.1.
+
+*Conclusion.* The conclusion of Theorem 3.1 holds with constants depending
+on k only: a minorant B with `μ≥exp(−O_k(Σ+1))`,
+`log(M_1/μ)=O_k(Σ+1)`, moduli on `O_k(Σ+1)` primes, and the twist
+condition.
+
+*Proof.* We follow Theorem 3.1. Only the changes are listed.
+
+1. **Hubs.** Forbid the vertices with `deg>δ_k` (Lemma 2.2).
+   * The Markov bound reads `Σ_{v∈H at ℓ}p(v) ≤ w_ℓ/δ_k`, because each
+     hyperedge at ℓ has exactly one vertex there.
+   * Hence `g^+_ℓ ≤ 1/(16k)` and `S_1^+ ≤ S_1+kS_H/δ_k`.
+   * Deleting hyperedges only lowers every codegree.
+2. **Local lemma.** Take `x_E=2P(E)`.
+   * For a single, the neighbours have `∏(1−x) ≥ 1−2w_ℓ ≥ 1/2`.
+   * For a hyperedge, the neighbours have
+     `∏(1−x) ≥ (1−1/(8k))^k (1−2kδ_k/(32k)) ≥ 0.86`.
+   * So `P(A=∅) ≥ e^{−λ}` with `λ=3(S_1^++S_H)`.
+3. **Minorant.** Use `B := B_L − 4^{L+1}G^cov_{L+1}` (Lemma 10.1).
+   Apply Lemma 10.2 with `w=16` and `U_0=L+1`. Its hypothesis
+   `D≤[2ek17^k]^{−1}=2δ_k` follows from `deg≤δ_k` and (CD_k), once
+   `C_k(Σ+1) ≥ k(L+1)`. This gives
+   `4^{L+1}E G^cov_{L+1} ≤ 4^{−L−1}e^{Λ'}` and
+   `M_1(B_L) ≤ Σ_{u≤L}2^uEG^cov_u ≤ e^{Λ'}`, with
+   `Λ' := 17S_1^+ + 2ek17^kS_H`. Choose L least with
+   `4^{L+1} ≥ 200e^{Λ'+λ}`. Then `L=O_k(Σ+1)`, which defines `C_k`.
+   Every term involves at most `k(L+1)` primes.
+4. **Twist.** As in Theorem 3.1, Step 4. A hyperedge through `ℓ_0` is
+   forced when the event `e∖u` occurs. That event depends on at most `k−1`
+   coordinates, and its neighbours have
+   `∏(1−x) ≥ (1−1/(8k))^{k−1}·0.99 > 0.86`. So
+   `P(e∖u | Ā') ≤ 1.17P(e∖u)`. The bracket is
+   `≤ 1/16+1.17w_{ℓ_0} < 0.073`, which gives
+   `|μ_ψ| ≤ (0.01+0.079)P(A=∅) < μ/4`. ∎
+
+*Remark (prime powers).*
+
+* For `y<T^{1/3}` an event can have rough part `ℓ²ℓ'`, `ℓ³`, … (in
+  general `e_ℓ ≤ ⌊1/θ⌋`). Its ℓ-vertex is then a class mod `ℓ^a`, while
+  events with a different power of ℓ use classes mod another power, so the
+  vertex sets at ℓ would overlap.
+* Splitting every class mod `ℓ^a` (`a<e_ℓ`) into its `ℓ^{e_ℓ−a}` lifts
+  mod `ℓ^{e_ℓ}` makes all vertices at ℓ classes mod `ℓ^{e_ℓ}`, hence
+  disjoint.
+* This replaces one event by disjoint events with the same union.
+  `P`, `w_ℓ`, `deg` and `Δ_O` (for O containing the lifted vertex) are
+  unchanged, and the event "no event" is unchanged.
+
+*What changed relative to §3.* The degree condition is still enforced
+cheaply by Markov. The new requirement is (CD_k), a bound on the **maximal**
+codegrees of sets of `2..k−1` vertices. It cannot be enforced in the same
+way; see §10.5.
+
+### 10.4 The conditional theorem, and the codegree hub obstruction
+
+*Withdrawn (review of checkpoint 3).* An earlier version of this section
+stated a residue-uniform hypothesis "AP-TI*(κ)": `Δ_O ≤ T^{κ+o(1)}/q_O` for
+**all** vertex sets O of the unquarantined system. **That hypothesis is
+false for every κ<1/2.**
+
+* Take `T=4ℓ²` with `ℓ≡3 (4)`, and the vertex `v=(ℓ,−4)`.
+* For every prime `t∈(ℓ,2ℓ]` with `t≡1 (4)`, the atom `M=ℓt`, `D=1`
+  survives. It contributes `1/(t−1)` to `deg(v)`.
+* So `deg(v) ≫ 1/log ℓ`, far above `T^{κ}/ℓ`.
+
+Hub residues must be quarantined *before* any maximal codegree condition
+is imposed. The theorem below is therefore stated on the quarantined
+system. Proposition 10.6 then shows that hub-type residues defeat even that
+form.
+
+**Hypothesis H_CD(θ)** (per-prime and codegree smallness after
+quarantine; open). For the system at `y=T^θ` there is an additional vertex
+quarantine Φ satisfying:
+
+* (i) Φ forbids a set of vertex classes of total mass
+  `m(Φ) = T^{o(1)}`;
+* (ii) in the system obtained after the class-of-one quarantine at the
+  primes `≤y` and at `T^{o(1)}` bad primes, and after forbidding Φ and
+  deleting the hyperedges through Φ, there is an `ε>0` with:
+  * `g_ℓ ≤ 1/(64k)` and `w_ℓ ≤ δ_k/(32k)` for every free ℓ (this part
+    is now automatic: Lemma 11.2 with `z=y` gives it at the cost of
+    `T^{o(1)}` extra primes),
+  * `Δ^{(j+1)} ≤ T^{−ε}` for `1≤j≤k−2`.
+
+Here `k=⌊1/θ⌋`, and all vertices are classes mod `ℓ^{e_ℓ}` (§10.3 remark).
+
+**Theorem 10.4 (PROVED implication, modulo Thorner–Zaman for the last
+clause).**
+
+* H_CD(θ) implies H_MIN(θ).
+* So if H_CD(θ) holds for every `θ>κ`, then `W(p) ≥ (log p)^{1/κ−ε}`
+  for infinitely many hard primes, for every `ε>0`.
+
+*Proof.* After the quarantines, (I) holds by the proof of Lemma 4.3. A
+forbidden vertex is a single, so it only strengthens "no event". Then:
+
+* (G_k) holds.
+* (W_k) holds, by (ii).
+* (CD_k) holds: `Σ ≤ S_tot(Π)+m(Φ) = T^{o(1)}` (Lemma 4.1), so
+  `Σ_j(C_k(Σ+1))^jΔ^{(j+1)} ≤ T^{−ε+o(1)} → 0`.
+* `log Q ≤ (π(y)+T^{o(1)})log T ≤ 2y/θ`.
+
+Theorem 10.3 gives a minorant with `log(M_1/μ), log max d_i ≤ T^{o(1)}`
+and the twist condition, which is H_MIN(θ). PO Theorem 6.2 does the rest.
+∎
+
+For `θ>1/3` (so `k=2`), H_CD(θ) holds with Φ=∅: there is no codegree
+condition, the hubs are removed inside Theorem 3.1/10.3, and
+`w_ℓ ≤ T^{1−3θ+o(1)}` by the crude count
+(Lemma 4.3). This is Theorem 5.1 again.
+
+**Proposition 10.6 (codegree hubs; PROVED, using the prime number theorem
+for fixed moduli; stated for the `Π_0`-system, and the same bound holds
+after quarantining any `T^{o(1)}` further primes, which change the sum by
+`≤T^{o(1)}/y`).** Fix `θ<1/3` and an integer `d≥1`. Put
+`R:=(y, T^{1/3}]` and `c_θ := log(1/(3θ)) > 0`. For primes
+`ℓ_1≠ℓ_2∈R` coprime to 2d, consider the vertices
+`v_i=(ℓ_i, −4d² mod ℓ_i^{e_{ℓ_i}})` (lifts as in §10.3). Then, as `T→∞`,
+
+```
+Δ_{{v_1,v_2}} ≥ (c_θ − o(1))/φ(4d).
+```
+
+The count runs over the vertices `(ℓ_3, −4d²)`, `ℓ_3∈R`, `ℓ_3` in one
+fixed class mod 4d, whose hyperedges `{v_1,v_2,(ℓ_3,−4d²)}` are present.
+
+*Proof.* Let `ℓ_3∈R` with `ℓ_1ℓ_2ℓ_3≡−1 (mod 4d)`; this is one unit class
+of `ℓ_3` mod 4d. Then:
+
+* `M=ℓ_1ℓ_2ℓ_3≡3 (4)`;
+* `M≤T`, since `ℓ_1ℓ_2≤T^{2/3}` and `ℓ_3≤T^{1/3}`;
+* `d | A_M`, so `D=d²` divides `A_M²`.
+
+The atom has rough part M (m=1), so it survives `Π_0`. Its class
+`−4d² mod M` is the hyperedge through `v_1, v_2` and `(ℓ_3,−4d²)`. Its
+weight beyond `{v_1,v_2}` is `p((ℓ_3,·)) ≥ 1/ℓ_3`. Hence
+`Δ_{{v_1,v_2}} ≥ Σ_{ℓ_3∈R, ℓ_3≡a (4d)} 1/ℓ_3`. By the prime number theorem
+in progressions for the fixed modulus 4d, this is
+`(1/φ(4d))(log(log T^{1/3}/log y)+o(1)) = (c_θ+o(1))/φ(4d)`. ∎
+
+**Consequence for Theorem 10.3 (Assessment, with the bookkeeping made
+explicit).**
+
+* (CD_3) needs `Δ^{(2)} ≤ δ_3/(C_3(Σ+1))`.
+* By Prop. 10.6, for every d with `φ(4d) ≤ c_θC_3(Σ+1)/(2δ_3)`, the
+  quarantine Φ must destroy all heavy pairs in the family
+  `{(ℓ,−4d²): ℓ∈R}`.
+* That is, for each residue pattern, either almost all of the relevant
+  `(ℓ_3,−4d²)` vertices are forbidden, or all but a sparse set of the
+  `(ℓ_i,−4d²)` vertices are.
+* Since `Σ_{ℓ∈R}1/ℓ → c_θ`, a product-set argument in `(ℤ/4d)^×` suggests
+  a cost `≫c_θ` per such d. We have *not* proved this lower bound.
+* If it holds, then `Σ ≫ c_θ·#{d: φ(4d) ≤ c_θC_3(Σ+1)/(2δ_3)} ≫ c_θ²C_3(Σ+1)/δ_3`.
+  That is impossible, because `δ_3` is a tiny absolute constant.
+* So, *assuming that cost bound*, Theorem 10.3 as proved cannot certify
+  H_MIN(θ) for ES at any `θ<1/3`.
+* The obstruction is in Lemma 10.2's factor `(kU_0)^j`. Each child pays
+  again for choosing its old vertices, whereas in a `−4d²` cluster the
+  shared vertices are few and are reused.
+* *Superseded (see §11.4).* Checkpoint 3 suggested here that a sharper
+  Lemma 10.2, paying once per shared vertex, would suffice. Its heuristic
+  `(c²e²/d)^h` count kept s comparable to h. In the dense regime `s≪h`
+  the private-cover moment itself is too large, so no sharpening of the
+  proof of Lemma 10.2 can help (§11.4). This is the codegree-level
+  analogue of PO Prop. 6.3.
+
+### 10.5 What the hypergraph lemma gives unconditionally (PROVED bookkeeping + Assessment)
+
+**Proposition 10.5 (crude and Type-I upper bounds for `w_ℓ`, `Δ_O`:
+PROVED; that they do not certify (W_k)/(CD_k) below 1/3: Assessment).** Take the system at `y=T^θ` with `θ<1/3`. For a vertex set O
+write `q_O=∏_{v∈O}ℓ_v^{e_v}`, where `ℓ_v^{e_v}` is the modulus of v.
+
+1. *Crude counts.* `w_ℓ ≤ Cτ*²T log log T/(ℓ²y)` and, for `|O|≥2`,
+   `Δ_O ≤ Cτ*²T log log T/(q'_O y)`. Here `q'_O=∏_{v∈O}ℓ_v`. At the
+   smallest free primes these upper bounds are `≥T^{1−3θ−o(1)}`, so they
+   do not certify (W_k) or (CD_k).
+2. *Individual Type I bounds.* `F_I(n)≤n^η` gives
+   `w_ℓ ≤ T^{η/(1+η)+o(1)}/ℓ` (Thm 9.2). For codegrees it gives only
+   `T^{η/(1+η)+o(1)}`, whatever the residue pattern. That does not
+   certify (CD_k) for any `η>0`.
+3. Prop. 10.6 shows that some pair codegrees are `≫1/φ(4d)`
+   on the `−4d²` vertices. So (CD_k) can hold only after a quarantine
+   whose cost is discussed in §10.4.
+
+*Proof.*
+
+1. A hyperedge `e⊋O` has rough part `r=r_O·m`. Here `r_O` is the part of r
+   supported on the primes of O (possibly with higher powers), and m is
+   coprime to `r_O` with all primes above y. There are at most
+   `τ*²T/r` atoms at r. Since `v_ℓ(r)≤e_ℓ`, a vertex at ℓ already fixes
+   the class mod `ℓ^{v_ℓ(r)}`, so the O-primes contribute no further
+   probability. The weight beyond O, summed over lifts, is `≤1/φ(m) ≤
+   C log log T/m`. Summing over `m>y` and `r_O ≥ q'_O` gives the bound.
+   (This is an upper estimate only.)
+2. The split of Thm 9.2's proof applies with `1/φ(m)` in place of
+   `1/φ(r)`. The gain `1/q'_O` is lost, and a bound on `F_I(r)` cannot see
+   residue classes. ∎
+
+**On quarantining codegrees (Assessment).**
+
+* Degrees are enforced by Markov at a *constant* threshold δ_k.
+* Large codegrees could be removed by adding the offending sets O as new
+  events. The **Markov upper bound** on the cost of that is
+  `binom(k,j+1)S_H/t` at threshold t. With `t≈(C_k(Σ+1))^{−j}` that upper
+  bound exceeds Σ. This shows only that the worst-case Markov budget does
+  not close. It does **not** show that codegree quarantine is impossible,
+  since few sets may actually exceed the threshold.
+* The genuine evidence of difficulty is the structured family of Prop. 10.6
+  and its cost discussion in §10.4.
+* The Haar side (PO Thm 9.4) uses only averaged per-prime masses; the local
+  lemma does not see codegrees. This is the precise asymmetry between the
+  two sides below θ=1/3.
+
+**Summary of (a)+(b).**
+
+| inputs | prime side (W(p) exponent, i.o.) | Haar side (`log(1/δ*)`) |
+|---|---|---|
+| unconditional (this note) | 3 (Thm 5.1) | `T^{o(1)}` (Thm 11.3; polylog modulo ET Prop 1.4) |
+| `F_I(n)≤n^η` | 3 (codegrees uncontrolled) | `T^{η/(1+η)+o(1)}` (Thm 9.2) |
+| H_CD(θ) for all `θ>κ` | `1/κ` (Thm 10.4) | `T^{o(1)}` already unconditional (Thm 11.3) |
+
+* The hypothesis H_CD(θ) includes a quarantine of mass `T^{o(1)}`.
+* Prop. 10.6 shows that any such quarantine must neutralise the `−4d²`
+  codegree hubs for all d up to `≍Σ/δ_k`.
+* Whether this is affordable is exactly the open cost question of §10.4.
+* *Superseded:* a sharper Lemma 10.2 does not help (§11.4).
+
+## 11. Iterated quarantine: per-prime masses for free, and the Haar bound `log(1/δ*(T)) ≤ T^{o(1)}`
+
+PO §9 left the per-prime hypothesis H_PP open. PO Thm 9.3 removed bad
+primes once and used crude bounds for the rest. Here we iterate the
+removal, and we count the bad primes with a mass that is uniform over all
+quarantines.
+
+**Lemma 11.1 (uniform mass; PROVED).** Put
+`S* := Σ_{(M,D)} max_Π 1[(M,D) survives Π]/φ(r_Π(M))`. The sum is over all
+atoms `M≤T`, `M≡3 (4)`, `D|A_M²`, and the max is over all sets Π of primes
+(survival as in §4). Then
+
+```
+S* ≤ C log log T·(3+log T)·Σ_{sr'²≤T, s squarefree} τ(4sr'²+1)/(sr') ≤ exp(O(log T/log log T)),
+```
+
+and `S* ≪ (log T)^4 log log T` modulo Elsholtz–Tao Prop. 1.4 (as in PO
+Lemma 9.2).
+
+*Proof.* If (M,D) survives Π, then `m_Π` divides `g:=gcd(M,4D+1)`, so
+`1/φ(r_Π) ≤ C log log T·m_Π/M ≤ C log log T·g/M`. The proof of Lemma 4.1
+applies with `m:=g`, for three reasons:
+
+* the involution `D↦A²/D` preserves `g`, since `m|M`, `m|4D+1` imply
+  `m|4A²/D+1` and conversely;
+* writing `D=sr'²`, `A=sr'k`, we get `g|r'+k`;
+* for fixed `(s,r')`, each k determines M and D, hence g, and
+  `g|4sr'²+1`.
+
+So the k-sum gives `Σ_{m|4sr'²+1}(3+log T)`. ∎
+
+**Lemma 11.2 (iterated quarantine; PROVED).** Fix `z≥2`, put
+`k:=⌊log T/log z⌋` and `0<c_0≤1`, and start from `Π_0={ℓ≤z}`. Repeat
+until nothing changes: add to Π every free prime ℓ (i.e. `ℓ>z`, `ℓ∉Π`)
+with `w_ℓ(Π)>c_0`.
+
+* Here `w_ℓ(Π)` is the Haar mass of the distinct events (singles
+  included) surviving Π whose rough part is divisible by ℓ.
+* The procedure stops at some `Π=Π_0∪𝓑` with `|𝓑| ≤ kS*/c_0`.
+* At the end, every free prime has `w_ℓ(Π)≤c_0`.
+
+*Proof.* Let `ℓ∈𝓑` be added at stage i. Then
+`c_0 < w_ℓ(Π_i) ≤ Σ_{atoms with ℓ|r_{Π_i}(M)} 1/φ(r_{Π_i}(M))`, since the
+distinct events are at most the atoms. Each such term is at most the atom's
+contribution to S*. Summing over `ℓ∈𝓑`, an atom is counted at most once
+for each prime `>z` dividing M, and there are at most k of those. ∎
+
+**Theorem 11.3 (Haar side; PROVED, the polylog form modulo Elsholtz–Tao
+Prop. 1.4).**
+
+```
+log(1/δ*(T)) ≪ (log T)^3·(S*+1),
+```
+
+hence `log(1/δ*(T)) ≤ exp(O(log T/log log T)) = T^{o(1)}` unconditionally,
+and `log(1/δ*(T)) ≪ (log T)^7/log log T` modulo ET Prop. 1.4.
+(The proof gives `π(z)log T + 8k²S*log T ≪ (log T)^3 + (log T)^3S*/(log log T)^2`.)
+
+This improves PO Thm 9.3 (`T^{1/3+o(1)}`). The second form is the
+polylogarithmic Haar bound that PO §9 (Thm 9.4) had only conditionally on
+H_PP.
+
+*Proof.* Take `z=(log T)^2`, so `k ≤ log T/(2 log log T)`, and
+`c_0=1/(8k)`. Apply Lemma 11.2. The class of one modulo
+`Q_Π=lcm(24,ℓ^{e_ℓ}:ℓ∈Π)` has relative Haar measure
+`8/φ(Q_Π) ≥ exp(−(π(z)+|𝓑|)log T)` within `1 (24)`.
+
+On it, the free coordinates are independent and uniform on units. The
+events are the distinct surviving events; "no event" implies `W>T`, as in
+Lemma 4.3 (I). Every event has at most k free primes, and
+`P(E) ≤ w_ℓ ≤ c_0 ≤ 1/8`.
+
+The local lemma with `x_E=2P(E)` applies:
+`Σ_{E'∼E}x_{E'} ≤ 2kc_0 = 1/4`, so `∏(1−x) ≥ e^{−1/2} ≥ 1/2`. It gives
+`P(no event) ≥ ∏_E(1−x_E) ≥ exp(−4S_tot(Π)) ≥ exp(−4S*)`. Hence
+
+```
+log(1/δ*) ≤ (π(z)+kS*/c_0) log T + 4S* ≤ (log T)^3 + 8k²S* log T + 4S* ≪ (log T)^3(S*+1).  ∎
+```
+
+*Remarks.*
+
+* The PO EVIDENCE `−log δ* ≍ (log T)^{2.3…2.6}` is consistent with this.
+  So the true order is now proved polylogarithmic up to the exponent
+  (modulo ET).
+* Under PO's random approximation RA (POINTWISE_SIZE §7.3), the Haar scale
+  predicts that W(p) exceeds every power of log p infinitely often.
+  *Assessment only*: the prime side does not follow, see §11.4.
+* Lemma 11.2 also removes the per-prime conditions (G), (W) from every
+  prime-side construction: any fixed c_0 is reachable with `T^{o(1)}`
+  extra quarantined primes, i.e. `log Q` grows by `T^{o(1)}`. On the
+  prime side the remaining requirement of Theorem 10.3 below θ=1/3 is
+  therefore **only** (CD_k), with (W_k), (G_k) at the constant level
+  supplied by Lemma 11.2 (cf. H_CD(ii)).
+
+EVIDENCE for §11 (`scripts/omega2_iterq.py`; `data/omega2/iterq.txt`).
+In every run the iteration makes one round of additions; the second pass
+adds nothing. The bad primes are
+essentially all primes up to a threshold ≈ polylog/c_0.
+
+| T | z | k | c_0 | `|𝓑|` | final max `w_ℓ` | `S_tot(Π)` | LLL `max Σx` | `log φ(Q_Π)+4S_tot` |
+|---|---|---|---|---|---|---|---|---|
+| 10⁴ | 20 | 3 | 0.042 | 99 | 0.041 | 6.7 | 0.08 | 710 |
+| 10⁵ | 20 | 3 | 0.042 | 171 | 0.040 | 16.9 | 0.08 | 1479 |
+| 10⁶ | 20 | 4 | 0.031 | 345 | 0.029 | 31.7 | 0.06 | 3565 |
+| 10⁶ | 5 | 8 | 0.016 | 677 | 0.015 | 26.0 | 0.03 | 6246 |
+
+* At these T the local-lemma condition holds with a wide margin. So each
+  row is a finite-T Haar lower bound
+  `log(1/δ*(T)) ≤ log φ(Q_Π) − log 8 + 4S_tot`.
+* For comparison: the class of one needs `(2/3)T`, and PO's z-quarantine
+  certificates were dominated by `π(z)log T` at `z≈T^{0.6}`.
+* `|𝓑|` stays far below the proven bound `kS*/c_0`. No growth exponent is
+  claimed, since k and c_0 change between the rows. The proven bound is
+  8688 and 27889 at 10⁵ and 10⁶.
+
+### 11.4 What remains on the prime side: heavy pairs (Assessment; Prop. 11.4 proved for `D*≤(log T)^A`)
+
+With Lemma 11.2, the prime-side criterion (Thm 10.3) needs, below θ=1/3,
+only (CD_k). For `k=3`, that means maximal pair codegrees
+`≤δ_3/(C_3(Σ+1))`.
+
+* Heavy pairs (codegree `>t`) can be removed by adding each such pair as
+  an event. This creates a size-2 event and does not change any pair
+  codegree.
+* The removal costs the pair-mass `μ(t):=Σ_{O pair, Δ_O>t}P(O)`, and it
+  raises vertex degrees by `Σ_{w:Δ_{vw}>t}p(w)`.
+* The circularity therefore closes **if** `μ(t) ≤ ε/t` at `t≍1/L`, with an
+  absolute `ε<δ_3/(6C_3)`, and the added degrees are `≤δ_3/2`.
+
+The explicit hub families of Prop. 10.6, generalised to `−4D`, give:
+
+* **Proposition 11.4 (PROVED; Siegel–Walfisz, so ineffective, uniformly
+  for `D*≤(log T)^A`).** For every D, with
+  `D*` the least integer such that `D|D*²`, and primes `ℓ_1,ℓ_2∈R`, the
+  pair `{(ℓ_1,−4D),(ℓ_2,−4D)}` has codegree `≥(c_θ−o(1))/φ(4D*)`. The
+  proof of Prop. 10.6 applies with `D|A ⟺ D*|A`.
+* Consequently, for fixed `t`, `μ(t) ≥ (c_θ²/2−o(1))·#{D: φ(4D*) < c_θ/t}`.
+  The count is `≫ (c_θ/t)log(c_θ/t)`, because each `D*` has about
+  `2^{ω(D*)}` admissible D, and `Σ_{n≤X}2^{ω(n)} ≍ X log X`.
+
+Uniformity in `t=1/L` is needed here.
+
+* Modulo ET, Σ and L are polylogarithmic, so the moduli `4D*≲L log log L`
+  stay within Siegel–Walfisz range.
+* Unconditionally L may be as large as `T^{o(1)}`, and one would need an
+  averaged (Bombieri–Vinogradov / Barban–Davenport–Halberstam) form, which
+  suffices because μ is a sum over D.
+
+Then `μ(1/L) ≫ c_θ³ L log L`. So **pair-by-pair removal** fails by a factor
+`log L` at every fixed `θ<1/3`. This says nothing about cheaper joint
+treatments, see (ii) below. It would close only if `c_θ³ log L` stayed bounded,
+i.e. if `θ→1/3` as T grows. That would improve only the `T^{o(1)}` in
+Theorem 5.1, not the exponent 3.
+
+**The sharper named gap (G_pair).** To certify a fixed `θ<1/3` one needs
+one of the following:
+
+* (i) a minorant whose truncation level is not tied to the total event
+  mass (i.e. `L ≪ Σ` fails to be necessary); or
+* (ii) a treatment of the `−4D` hub families that is cheaper than removing
+  pairs one by one. For example, one could sieve the event "two primes in
+  R share the class −4D" *jointly* over D. The obvious per-D cost
+  `c_θ²/2` summed over the `≍X log X` relevant D is exactly what fails.
+
+The heuristic count of private families on a single `−4D` cluster is
+harmless *per cluster*. The loss comes from the number of hub classes
+(with divisor-function multiplicity) that must be neutralised at scale
+`t≍1/L`. A sharper shared-vertex Lemma 10.2 does **not** help.
+Fix d, and take s shared vertices `(ℓ_i,−4d²)` and `h=L+1` hyperedges
+`{v_i,v_j,(ℓ_3^{(t)},−4d²)}` with distinct private `ℓ_3^{(t)}` (reviewer r3,
+D12). Such a family privately covers its h private primes, and its total
+weight is `≳ (c^s/s!)·(s²c/(2φ(4d)))^h/h!`; the factor 1/2 ensures every
+shared vertex is used once `h ≥ s log s`. At `s≍L/log L` this is
+`exp(L log L − O(L log log L))`, super-exponential in L. Any bound for
+`E G^cov_{L+1}` must exceed this unless these clusters are quarantined. So
+the true moment, not just Lemma 10.2's proof, is too large
+(constants not optimised).
+
 ## Replay
 
 ```
@@ -762,4 +1367,6 @@ uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
 uv run python scripts/omega2_ffull.py dict 2001                 # §8 Lemma 8.1 dictionary, all odd r<=2001, ~20 s
 uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~10 s -> data/omega2/ffull_triples.txt
 uv run python scripts/omega2_ffull.py cmp 107 331 1031 3011      # parametrisation reproduces PO F_full, ~5 s
+uv run python scripts/omega2_iterq.py 10000 20; uv run python scripts/omega2_iterq.py 100000 20   # §11, seconds
+(ulimit -v 10000000; uv run python scripts/omega2_iterq.py 1000000 20; uv run python scripts/omega2_iterq.py 1000000 5)  # §11, ~2 min -> data/omega2/iterq.txt
 ```

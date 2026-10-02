@@ -53,7 +53,8 @@ prime-local construction, which reaches exponent~$2$ and cannot go further.
 For the slice parameter we prove that congruence methods certify exactly the
 least quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
 infinitely often (via Lau--Wu, after Graham--Ringrose).  On the Haar side we
-prove $\log(1/\delta^*(T))\le T^{1/3+o(1)}$ for the avoider density, identify
+prove $\log(1/\delta^*(T))\le T^{o(1)}$ for the avoider density
+(polylogarithmic modulo Elsholtz--Tao), identify
 the single-prime atoms with points of Elsholtz--Tao's Type~I variety, and show that an
 individual Type~I bound $n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
 \end{abstract}
@@ -152,8 +153,10 @@ fails (Proposition~\ref{prop:bonf}).  We truncate instead by the number of
 pseudoforest bound for $E\prod_\ell(1+za_\ell)$ after quarantining
 high-degree hub residues (\S\ref{sec:pseudo}), and verify the twist condition
 by a conditional form of the local lemma (\S\ref{sec:crit}).  Exponent~$3$
-matches the best Haar (profinite) bound we can prove
-(Theorem~\ref{thm:haar-intro}).
+matches the Haar (profinite) bound of Theorem~\ref{thm:haar-intro}; an
+iterated quarantine improves the Haar side much further
+(Theorem~\ref{thm:iterq}), while below $\theta=1/3$ the prime side is limited
+by pair codegrees.
 
 For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
@@ -1329,7 +1332,49 @@ Type~I bounds beat the exponent $1/3$ only if $\eta<1/2$, well beyond
 not the bottleneck (Theorem~\ref{thm:haar-intro} absorbs it by quarantining
 $T^{o(1)}$ bad primes); what is needed is control of
 $\sum_{r\le T,\ \ell\mid r}F_I(r)/r$ uniformly in $\ell$, a progression average of
-Type~I counts (Assessment).
+Type~I counts (Assessment).  The next theorem makes this route unnecessary.
+
+\subsection*{Iterated quarantine}
+For an atom $(M,D)$ and a set $\Pi$ of primes let $m_\Pi$ be the $\Pi$-part of $M$
+and $r_\Pi=M/m_\Pi$; the atom \emph{survives} $\Pi$ if $m_\Pi\mid4D+1$ and $r_\Pi>1$.
+Put $S^*=\sum_{(M,D)}\max_\Pi\mathbf 1[\text{survives }\Pi]/\varphi(r_\Pi)$.
+
+\begin{theorem}[Proved; the polylogarithmic form modulo {\cite[Prop.~1.4]{ET}}]\label{thm:iterq}
+\[
+ \log(1/\delta^*(T))\ll(\log T)^3(S^*+1).
+\]
+Hence $\log(1/\delta^*(T))\le\exp(O(\log T/\log\log T))=T^{o(1)}$, and, modulo
+\cite[Prop.~1.4]{ET}, $\log(1/\delta^*(T))\ll(\log T)^7/\log\log T$.
+\end{theorem}
+
+\begin{proof}
+If $(M,D)$ survives $\Pi$ then $m_\Pi\mid g=\gcd(M,4D+1)$, so
+$1/\varphi(r_\Pi)\ll\log\log T\cdot g/M$; the proof of Lemma~\ref{lem:mass} with
+$m=g$ (the involution preserves $g$, $g\mid r'+k$, $g\mid4sr'^2+1$) bounds $S^*$
+as in Lemma~\ref{lem:globalmass}, giving $\exp(O(\log T/\log\log T))$, and
+$\ll(\log T)^4\log\log T$ by \cite[Prop.~1.4]{ET}.  Let $z=(\log T)^2$,
+$k=\lfloor\log T/\log z\rfloor$, $c_0=1/(8k)$, $\Pi_0=\{\ell\le z\}$, and let
+$w_\ell(\Pi)$ be the Haar mass of the distinct events surviving $\Pi$ whose
+rough part is divisible by $\ell$.  Repeatedly add to $\Pi$ every prime
+$\ell\notin\Pi$ with $w_\ell(\Pi)>c_0$.  If $\ell$ is added at some stage, $c_0$
+is less than the sum of the weights $1/\varphi(r_{\Pi})$ of atoms with
+$\ell\mid r_\Pi$; each atom has at most $k$ primes above $z$ and weight at most
+its contribution to $S^*$, so at most $kS^*/c_0$ primes are added.  At the end
+every free prime has $w_\ell\le c_0$, every event has at most $k$ free primes,
+and the local lemma with $x_E=2P(E)$ applies
+($\sum_{E'\sim E}x_{E'}\le2kc_0=1/4$), giving probability
+$\ge\exp(-4S^*)$ of no event.  The class of one modulo the quarantined prime
+powers costs $\le(\pi(z)+8k^2S^*)\log T$.
+\end{proof}
+
+This improves Theorem~\ref{thm:haar-intro}, and it makes the per-prime
+hypothesis of Lemma~\ref{lem:ppl} and of Remark~\ref{rem:pp} unnecessary.
+On the prime side it supplies the per-prime conditions of
+Theorem~\ref{thm:crit}, at the cost of $T^{o(1)}$ further quarantined primes.
+Below $\theta=1/3$ the remaining obstacle there is the control of pair
+codegrees (Assessment).  For $T\le10^6$ the iteration adds a few hundred
+primes in a single round, and the resulting certificates give
+$\log(1/\delta^*(10^6))\le3.6\cdot10^3$ (EVIDENCE).
 
 
 \section{Summary of status}
@@ -1348,11 +1393,13 @@ Lemma~\ref{lem:severe}, Theorems~\ref{thm:transfer}, \ref{thm:main}, \ref{thm:tw
 \item Proved modulo Lau--Wu \cite[Prop.~5.1]{LW}: Theorem~\ref{thm:slice}.
 \item Proved modulo Chang \cite[Cor.~11]{Chang}: the $5/8$ record
 (Remark~\ref{rem:record}).
+\item Proved: Theorem~\ref{thm:iterq} ($\log(1/\delta^*)\le T^{o(1)}$); its polylogarithmic
+form modulo \cite[Prop.~1.4]{ET}.
 \item Proved modulo the proof of \cite[Prop.~1.7]{ET}: $F_I(n)\le n^{3/5+o(1)}$.
 Proved implication: Theorem~\ref{thm:eta}.
 \item Conditional on the per-prime hypothesis, and proved modulo
 \cite[Prop.~1.4]{ET}: the polylogarithmic Haar bound of Remark~\ref{rem:pp}.
-\item Open: $H_{\min}(\theta)$ for $\theta<1/3$; a Haar exponent below $1/3$; a
+\item Open: $H_{\min}(\theta)$ for $\theta<1/3$; an unconditional
 polylogarithmic Haar bound; any bound $W(p)>(\log p)^{3+\delta}$ or
 $\ckmin(p)>(\log p)^{1+\delta}$ infinitely often.
 \end{itemize}
