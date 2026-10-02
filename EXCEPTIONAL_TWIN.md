@@ -189,3 +189,100 @@ using `Q'(𝒜) = 1 − 𝔏 ≥ 1/2` and `S ≥ 0`. ∎
 
 So the heavy coordinates cost nothing in (2.1). They enter only through
 `𝔏`, which must be ≤ 1/2, and through Lemma 2.2's caps.
+
+### 2.3 Application: (η,B)-gapped ℛ(M)-families, unconditionally
+
+Fix `B ≥ 0`, `0 < η < 1` and `W ≥ 16`. Use EB's windows
+`W_j = {ℓ : s_j < log ℓ ≤ s_{j+1}}` with `s₀ = log W`, `s_j = s₀(1+η)^{j−1}`,
+the QR base `R = R_W`, and thresholds `δ_ℓ = ℓ^{−1/2}`. The family 𝔊
+consists of
+* ℛ(M)-classes with M (η,B)-gapped (EB §2.4) and `P(M) > W`, and
+* any ℛ(M)-classes with W-smooth modulus.
+
+The second kind is pure small and is avoided by `R_W` (Lemma 1.3(1)), so
+(R1) holds. By EB Lemma 2.1, the first kind satisfies (U), with
+`ℓ(C) = P(M)` and all cofactor primes in earlier windows or in `Q₀`.
+Write `Γ(m) = Π_{p | m} γ'(p)` with γ' as in Lemma 2.2. Then `γ'(3) = 3`,
+`γ'(p) ≤ 5/2` for odd `p ≥ 5`, `γ'(ℓ) ≤ 4/3` for `ℓ > W`, so
+`Γ(m) ≤ 3^{ω(m)}`.
+
+**Lemma 2.4 (second moment; PROVED).** For every `ε > 0` there is
+`C(ε,B)`, independent of W, η and the family, such that for every prime
+`ℓ > W`,
+
+    E_{Q'}[ p_ℓ(H)² ] ≤ C(ε,B) · ℓ^{−2+ε}.
+
+*Proof.* `|F_ℓ(h)|` is at most the number `N_ℓ(n)` of pairs `(q,D)` with
+`q ∈ 𝒬_ℓ^{(B)}`, `D | A_q²` and `n ≡ −4D (mod q)`. Expand `N_ℓ²` as a sum
+over pairs of pairs. A pair contributes `Q'(n ≡ a (mod lcm(q,q')))` if
+compatible and 0 otherwise. By Lemma 2.2 this is `≤ Γ(m)/m ≤ 3^{ω(m)}/m`
+with `m = lcm(q,q')`. Each q carries `τ(A_q²) ≤ C_ε' ℓ^{ε/4}` divisors D,
+since `A_q ≤ ℓ^{B+1}` (take `C_ε'` for exponent `ε/(4(B+1))`). The number
+of pairs (q,q') with `lcm = m` is `τ(m²)`. So
+
+    E N_ℓ² ≤ C_ε'² ℓ^{ε/2} Σ_{m ≤ ℓ^{2B}} 3^{ω(m)} τ(m²)/m
+           ≤ C_ε'² ℓ^{ε/2} Π_{p ≤ ℓ^{2B}} (1 + 9/p + Σ_{e≥2} 3(2e+1)p^{−e})
+           ≪ C_ε'² ℓ^{ε/2} (2B log ℓ)^{9} ≪_{ε,B} ℓ^{ε}.
+
+Divide by `ℓ²`. ∎
+
+**Corollary 2.5 (leak; PROVED).** There is `W₀(B)` such that `𝔏 ≤ 1/2`
+whenever `W ≥ W₀(B)`, uniformly in η and in the family.
+
+*Proof.* Lemma 2.1 and Markov: `E[p 1{p > δ}] ≤ E[p²]/δ`. So
+`𝔏 ≤ Σ_{ℓ>W} ℓ^{1/2} · C(1/4,B) ℓ^{−7/4} ≪_B W^{−1/4}`. ∎
+
+**Lemma 2.6 (first moment, cubic windows; PROVED).** There is
+`K = K(W,B)` such that for every window j with `s_j ≤ λ`,
+
+    E_{Q'} Σ_{ℓ ∈ W_j} p_ℓ(H_{<j}) ≤ K · ((1+B)s_j)³.
+
+*Proof.* By Lemma 2.2, as in ET Lemma 2.8, the left side is at most
+`Σ_{M: P(M) ∈ W_j} τ(A_M²) Γ(M)/M`. Write `Γ(M) = Σ_{d | M} h(d)` with h
+multiplicative, supported on squarefree d, `h(p) = γ'(p) − 1`. Then
+`h(p) ≤ 2` for `p ≤ W` and `h(ℓ) ≤ 2ℓ^{−1/2}` for `ℓ > W`. This is the
+weight structure of ET Cor 3.6 (there `h(p) ≤ 1/(p−1) + 3p^{−δ}`, here with
+`δ = 1/2` and finitely many bounded exceptions `p ≤ W`). Its proof of
+Lemma 3.1 goes through:
+* Shiu range `d ≤ x^{1/2}`: needs `Σ_d h(d)/φ(d) < ∞` (a finite product
+  over `p ≤ W` times a convergent one);
+* large divisors: needs `Σ_d h(d) d^{−1+1/4} < ∞` (Euler factors
+  `1 + O(p^{−5/4})` for `p > W`).
+
+So `Σ_{M≤x, M≡3(4)} τ(A²)Γ(M) ≪_W x log²x`. Partial summation over
+`M ≤ e^{(1+B)s_{j+1}}` with `P(M) > e^{s_j}`, as in EB Lemma 2.4, gives the
+claim. ∎
+
+**Theorem 2.7 (the gapped cap, unconditional; PROVED).** Fix `B ≥ 0` and
+take `W = W₀(B)` (Corollary 2.5). For every `0 < η < 1`, every family 𝔊 as
+above, and every majorant ν of level `λ ≥ log W`,
+
+    log(1/Eν) ≤ C·K^{1/4}(1+B)^{3/4} η^{−1} λ^{3/4} + O_B(η^{−1} log²λ) + O_B(1),
+
+with C absolute and `K = K(W₀(B),B)`. In particular `S_λ ≪_B η^{−1}λ^{3/4}`.
+
+*Proof.* Theorem 2.3 applies by Corollary 2.5. The R-term is
+`log(Q₀/|R_W|) = O_B(1)` (Lemma 1.3). Light coordinates have
+`p_ℓ(h) ≤ p_ℓ(h)`, so Lemma 2.6 bounds the light profile and, by concavity,
+`E log(16μ_j + 16)`. The window sum of `E_{Q'}Φ_j^{light}` is then exactly
+the computation in the proof of EB Theorem 2.5, with `K = K(W,B)` and with
+no heavy-charge term. Multiply by 2 as in (2.1). ∎
+
+**What this removes.** For each fixed B, the (η,B)-gapped part of the
+balanced door no longer depends on anything open:
+* (E_δ), (★_δ), H_light and (NDE) of EB are **not needed**. EB Prop 4.4 is
+  superseded, and EB Conj 4.4W is moot.
+* The heavy histories seen numerically in EB §3.1 are harmless: they leak
+  with total probability `≪ W^{−1/4}`.
+* The pure small conditions (all W-smooth classes, of any shape, twin or
+  not) are absorbed into the R-term `≈ π(W) log 2`.
+* ET Cor 3.6 is recovered for ℛ(M)-classes (dominant moduli are
+  (η, C)-gapped), with a different R-term.
+
+**Scope (what it does not cover).**
+* η-twin moduli: (U) fails, see §4.
+* Gapped moduli with `log M/log P(M)` unbounded: Lemma 2.4 uses
+  `τ(A_q²) ≤ ℓ^{o(1)}`, i.e. `q ≤ ℓ^B`, and there is still no summation
+  over B (EB review D19).
+* (a,D)-classes and Case-A classes: Lemma 1.1 is proved for ℛ(M) only.
+  EB's balanced analysis is also restricted to ℛ(M).
