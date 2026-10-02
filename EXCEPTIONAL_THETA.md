@@ -38,14 +38,14 @@ world, defined as follows:
   fixed;
 * the admissible set has bounded saving;
 * the majorant ν is ≥ 0 on all of ℤ and ≥ 1 on the whole avoider set;
-* the final bound has the form `N·Eν + Σ_i|a_i|`, i.e. rounding is
-  bounded by the absolute coefficient sum;
-* and **either** ν has level ≤ A·log N, **or** the family's slice primes
-  are ≤ N^{O(1)}. In the second case Lemma 2.9 reduces to the first,
-  because a non-trivial bound has `Σ|a_i| < N`.
+* the final bound has the form `N·Eν + (nonnegative rounding bound)`;
+* and **either** ν has level ≤ A·log N, **or** the rounding bound is the
+  absolute coefficient sum `Σ_i|a_i|` and the family's slice primes are
+  ≤ N^{O(1)}. In the second case Lemma 2.9 reduces to the first, because a
+  non-trivial bound has `Σ|a_i| < N`.
 
 This world contains the prime-slice world of Cor 3.4. The precise list of
-what it excludes is §6, "What the theorems exclude".
+what it excludes is §6.1, "What the theorems exclude".
 
 The Rankin functional `Ψ = inf_α[αλ + Σ p̄_ℓ ℓ^{−α}]` bounds what any such
 sieve can save (Theorem 2.5). For the specific families of both campaign
