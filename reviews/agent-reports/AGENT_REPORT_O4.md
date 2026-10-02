@@ -126,8 +126,20 @@ moduli beyond `(log p)^3`" with "beyond every fixed power of log p".
     (true `G^{cov}`, 0 violations) and its `push` mode.
   * **D6.** Thm 5.1 Step B: identical induced events are merged, so the
     conditioned systems are simple.
-* **Pending.** The parent's extra independent check of the tilted and
-  mixed-size uses of O2 Lemmas 2.1 and 10.2.
+## Review round 2 (`reviews/pointwise-omega3-review-2.md`)
+
+* **Verdict.** Everything is SOUND, including from-scratch
+  re-derivations of O2 Lemmas 10.1, 10.2 and 2.1 and an adversarial brute
+  force.
+* **D1** (the duplicate t) and **D3** (`Ω(r)≤k−1`) had already been
+  repaired in round 1.
+* **D2.** In Thm 5.1, `L_2` is now chosen with `200k𝔐_3`, so the
+  level-2 error is `≤P(all)/(100k)` and the total is `≤P/100`. `Λ_2` is
+  defined explicitly for the k-level case.
+* **2a/2b** are fixed in POINTWISE_OMEGA2.md Lemma 10.2 by minimal
+  edits:
+  * fixed-slot breadth-first encoding (`N=kh` slots);
+  * simplicity of the hypergraph is not needed.
 
 ## Status
 

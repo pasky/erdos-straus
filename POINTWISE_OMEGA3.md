@@ -621,7 +621,13 @@ each polynomial). For `c_k(Ŝ)` small enough, (P_k) holds at the end.
   `F_r^{(i)}`.
 * Put `B_{≥r}:=Σ_{c_i>0}c_iβ_i1_{C_i}−Σ_{c_i<0}|c_i|α_i1_{C_i}`.
 * Level 2 is done the same way with O2 Lemmas 1.2/2.1 (no codegree
-  condition), at truncation `L_2` chosen as in Thm 3.2 Step 2.
+  condition), at truncation `L_2` least with
+  `4^{L_2+1} ≥ 200k·𝔐_3·e^{Λ_2+3Ŝ_{≥2}}`, where
+  `Λ_2:=16(S_1+δH_2)+16e^{98}S_2` bounds the moment exponent of every
+  cell-conditioned level-2 system (induced singles `≤δH_2`,
+  `H_2:=k·Σ_{s>2}(L_s+1)`). (Here Thm 3.2's
+  `800e^{Λ_3}` is replaced by `200k𝔐_3`, so that the level-2 error is
+  `≤P(all)/(100k)` like every other level.)
 * Finally `B:=B_{≥2}`.
 
 *Codegrees in the conditioned systems.* An induced event `e∖F'` (`F'`
