@@ -1,0 +1,13 @@
+# X=100000 samples=100 W=300 kappa=0.2 cap1/4=True types=dom,gapB,gapM,twin
+realised leak Q'(not avoider) ~ 0.0000
+mean expected leak sum p 1{heavy} = 0.0000  max = 0.0000
+# band [2^(b-1),2^b): E[sum p 1{heavy}], mean #heavy primes, E[light profile]
+  9 0.0000 0.000 3.4179
+ 10 0.0000 0.000 4.0030
+ 11 0.0000 0.000 3.8061
+ 12 0.0000 0.000 3.4746
+ 13 0.0000 0.000 3.0988
+ 14 0.0000 0.000 2.6697
+ 15 0.0000 0.000 2.1624
+ 16 0.0000 0.000 1.8473
+ 17 0.0000 0.000 1.1264
