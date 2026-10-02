@@ -277,3 +277,81 @@ plausible (e.g. via a two-variable Nair–Tenenbaum/Henriot bound on
 of Prop 4.4 and label it CONJECTURE/SKETCH with the large-divisor gap stated.
 The same goes for §2.6 item 4's "quartic mean ⇒ exponent 4/5", which is
 unlabelled heuristic.
+
+### Item 10 — EVIDENCE sections (§3, §4.3 numerics): labels and replay. Verdict: **SOUND-AFTER-REPAIRS** (labels fine; three readings misreport the data)
+
+*Labels.* §3 is headed "all EVIDENCE". The §0 table and the A3 report mark it
+EVIDENCE. The §4.3 numerics are marked EVIDENCE. The LP is declared
+floating-point and uncertified. ✓ Unlabelled heuristics remain in §2.6 items 3–4
+and §4.4 "Why the obvious proof attempts fail". They are argued informally and
+should carry a HEURISTIC tag (COSMETIC, D18).
+
+*Replays run here* (`ulimit -v 8e6`, outputs in /tmp, compared with committed data):
+
+| replay | result |
+|---|---|
+| `i 100000 200 0.25` | byte-identical to `part_i_X1e5.txt` (data lines) |
+| `steer 100000 101,…,503 10` | same numbers as `steer_X1e5.txt`, but that file is in an **older format** without the reach/free/π(y) columns used in §4.3 (see D17) |
+| `ii 7,11,13,19 3`, `ii 7,11,19,23 3`, `ii 11,13,17,19 3` | match §3.2 to 3 decimals |
+| `balanced_void 4000 1e12 3e10` | identical to `void_primes_Q4000.txt`; table values recomputed ✓ |
+| `ii 7,11,13,17,19 2`, `i 1000000 20` | long runs, started; see addendum |
+
+**D13 (MAJOR, §3.1 Reading, "`p(h) > 1/4` occurs only for top primes p < 128").**
+This is false for the data in `part_i_X1e6.txt`. For the union over all types
+(the quantity that enters (★_δ)/H_light, since F_ℓ is the union), the X = 10⁶
+"all" rows give:
+* `[128,256)`: max p(h) = 0.329, and 15.4% of sampled histories are heavy;
+* `[256,512)`: max p(h) = 0.259, and 0.2% are heavy.
+
+At X = 10⁵ the same bands give 2.7% and 0%. So the heavy region **moves up with
+X**, which is what one expects: the cofactor count at fixed ℓ grows with X when
+B is unrestricted. This is the trend that matters for H_light (w₀ cannot be a
+fixed constant for unbounded B), and the reading hides it. The §3.1 table shows
+only per-type twin/gapB rows, never the union. Fix: report the "all" rows,
+correct the sentence, and state the trend.
+
+**D14 (MINOR).** "K < 1 in every band and type (range 0.52–1.00)": the data
+range is 0.48–1.00 (`[2048,4096) gapM` at X=10⁵: 0.48; `[32,64) all` at X=10⁶: 0.49).
+
+**D15 (MAJOR, §3.3 Reading + §0 table, "η-twin classes have ≈ 0.2 effective void
+mass … the twin part is strongly redundant").** This is an **order artefact**:
+twin classes are always added *last*, after dom and gapped. I ran a variant
+(`scripts/review_balanced_void_order.cpp`, data
+`data/review_balanced/void_order_Q4000.txt`, same 1,085,136,872 primes). It adds
+a family dom+twin, so both orders can be compared:
+
+| Q' | twin added to dom | gapped added to dom+twin | gapped added to dom | twin added last (EB) |
+|---:|---:|---:|---:|---:|
+| 275 | 0.42 | 0.62 | 0.73 | 0.17 |
+| 606 | 0.45 | 0.52 | 0.63 | 0.20 |
+| 1333 | 0.47 | 0.49 | 0.59 | 0.22 |
+| 2253 | 0.49 | 0.47 | 0.58 | 0.22 |
+| 4000 | 0.52 | 0.50 | 0.54 | 0.42 |
+
+(Entries are Δ(−log void)/Δ(mass).) For Q' ≥ 1333, twin classes added directly
+to dom are as efficient per unit mass as gapped classes added last. "Strongly
+redundant" is unsupported. The 0.2 measures the overlap with the gapped family,
+not a property of twin classes. Fix: withdraw the reading, or report both
+orders. The only defensible statement is that each non-dominant family yields
+about 0.5 per unit mass when added to dom, and less when added after the other.
+
+**D16 (MINOR, §3.2 mislabel "Composite moduli here are … balanced and mostly
+η-twin").** A two-prime modulus pq is never balanced (`P = max(p,q) > √(pq)`).
+In all four windows the balanced conditions are exactly the 3-prime ones
+(1463, 1771, 2431, 3059, 4199, 4807). The m = 2 gain 0.035 for {11,13,17,19}
+therefore comes with non-balanced pair moduli (143, 187, 247, 323) in the family.
+For {7,11,19,23}, every prime is ≡ 3 (4), so there are **no** pair conditions at
+all. Some pairs are η-gapped at η = 1/4 (91 = 7·13: log13/log7 = 1.32). Fix: rename
+D+B → "D + composite", and split the gain into pairs vs. triples. The LP
+methodology itself (dual of §1 route 1, uniform m-marginals) is correct.
+
+**D17 (MINOR, §4.3 numerics table).** (a) For ℓ = 101 the table says reach = 13.
+The committed run and my replay (same seed) give 14 = 0.1386·101, consistent with
+§3.1's best p(h) = 0.139. (b) The run also covers ℓ = 151 (19 vs π(y) = 16) and
+ℓ = 503 (**80** vs π(y) = 34), but the table silently omits both. The 503 excess
+comes from the cofactor q = 1: `A = 126`, so `τ(A²) = 45` values are active for
+every n. The π(y) heuristic ignores this `ℓ^{o(1)}` baseline, which is not small at
+toy scale. (c) The adversary counts all types, dom included, so "tracks π(y)" is
+not a balanced statement (cf. D9). (d) The committed `steer_X1e5.txt` predates
+the reach/free/π(y) output, so the table is not backed by committed data. Fix:
+regenerate the data file, report all six ℓ, and give `τ(A_1²)` separately.
