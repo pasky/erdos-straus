@@ -149,9 +149,9 @@ expectations by full enumeration. Tests:
   (pointwise), `S_induced ≤ Σ_i binom(h,i)Δ^{(i)}` and
   `Δ'_O ≤ Σ_i binom(h,i)Δ^{(|O|+i)}` for every vertex set O.
 
-Results: seeds 1 (300 trials), 2 and 3 (1000 trials each): **0
+Results: seeds 1, 2, 3 (1000 trials each; seed 1 also at 300): **0
 violations**; ~4 400 in-hypothesis instances of T2b, ~10⁵ T1 outcomes per
-1000 trials. Max observed lhs/rhs: T2 per-h 7.5·10⁻³ (h=2), ≤1.1·10⁻⁵
+1000 trials. Max observed lhs/rhs: T2 per-h 1.2·10⁻² (h=2), ≤1.1·10⁻⁵
 (h≥3); T3 trees 0.068 (=1/(2e²) at v=2, exact); T1/T4/T5 reach 1 (tight
 cases exist, e.g. h=0 or single fixed vertex). **Negative control**
 `NEG=1` (drop the higher-codegree terms `i≥1` in the Δ'_O bound, i.e.
