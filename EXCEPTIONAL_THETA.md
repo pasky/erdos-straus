@@ -956,10 +956,19 @@ By Theorem 2.5, *every* majorant on this family has
 where `log log y` is the selector term. With `λ ≤ A L`,
 the maximum over t is `≍ L^{3/4}`, attained only for `t ≍ L^{1/4}`.
 
+What forces `λ ≲ L` is the note's coefficient budget, not its modulus
+bound. The note's transfer `N·E_CRT ν + O(T_abs)` is valid for any moduli,
+and the note calls `q_max ≤ N^{1/2}` "not necessary". The real constraint
+is `T_abs ≤ N^{1/2}`. Here the slice primes are ≤ X, so `Λ₀ = t ≤ L`.
+Lemma 2.9 then turns any majorant on this family with coefficient sum < N
+into one of level `≤ t + log N + saving` with at most twice the mean, and
+the cap above applies to it.
+
 So the binding constraint in the 3/4 proof is the following conjunction. It is
 not Bonferroni depth, the BV level or the selector.
 
-    (supply)  μ_c ≤ C_u t³ uniformly        and      (level)  λ ≤ A·log N.
+    (supply)  μ_c ≤ C_u t³ uniformly    and    (budget)  log T_abs ≤ log N,
+              which forces level λ ≲ log N via Lemma 2.9.
 
 **Lemma 4.2 (Bonferroni depth; PROVED).** For `Q_r(h) = Σ_{j≤r}(−1)^j C(h,j)`
 (r even) and any integer `H ≥ 0`, `E Q_r(H) ≥ P(H ≥ r+1)`.
@@ -976,7 +985,8 @@ bound `log T_abs = O(rt)`, which suffices when `t⁴ ≲ L`. The ledger is not
 proved necessary, and it need not be: the necessity of `t ≲ L^{1/4}`, in the
 sense that no larger saving is possible, comes from Theorem 2.5 via
 Lemma 4.1, not from the ledger. Replacing Bonferroni by any other majorant,
-e.g. Selberg (§2.5), changes only constants.
+e.g. Selberg, cannot improve the exponent (PROVED, Theorem 2.5). That such
+replacements attain the same order up to constants is EVIDENCE only (§2.5).
 
 **Lemma 4.3 (level of distribution; PROVED).** The BV level enters the 3/4
 proof only through the box size `z = x^{ϑ'}` of the supply lemma. That lemma
@@ -995,6 +1005,15 @@ unpruned-supply theorem of the note (thm:unpruned) with `x^{1/6}` replaced by
 then caps the saving through the profile, which changes only by this
 bounded factor. ∎
 
+*Remark (the rigorous reason; added after review-theta-2, A1).* The proof
+above describes one construction, the unpruned supply with box `x^{ϑ'}`. By
+itself that does not show that *no* use of EH can raise the profile. The
+fully rigorous reason is Lemma 3.1, together with Lemmas 3.2 and 3.7 for
+the other groupings and for Case A. These bound the *entire* forced-class
+supply by `≪ x log²x`, so the profile is `≪ α^{−3}` independently of any
+level of distribution. Theorem 2.5 (or 2.7) therefore caps every
+EH-based variant on these classes at `λ^{3/4}`.
+
 **Lemma 4.4 (2/3-loglog note: what binds; PROVED).** The note:
 * splits into progressions mod `L_K`, with `log L_K ≈ K ≤ δL`;
 * applies Montgomery's sieve with `Q² ≤ N/L_K`;
@@ -1004,15 +1023,20 @@ By Remark 2.6 and Cor 3.5, its bound cannot exceed
 `exp{−C L^{2/3}(log L)^{1/3}}`. The binding inequality is
 `h(𝒦) ≤ Π_{p | L_𝒦}(1+1/p) ≪ log log L_𝒦` (the note's own closing remark),
 combined with the requirement `L_𝒦 ≤ N`. Vaughan/PW is the case `𝒦 = {1}`,
-giving `L^{2/3}`. ∎
+giving `L^{2/3}`.
+
+The admissible set of the note is the reduced residues mod `L_K`, and the
+fibre-mass upper bound is proved for those. So the R-term
+`log(L_K/φ(L_K)) ≍ log log K ≪ log log L` of (2.4) also enters the cap.
+It is negligible against `L^{2/3}(log L)^{1/3}`. ∎
 
 **Binding table.**
 
-| proof | supply profile | level | binding | non-binding (constants only) |
+| proof | supply profile | level / budget | binding | non-binding (cannot improve the exponent) |
 |---|---|---|---|---|
 | Vaughan/PW | `t²` per slice scale (k=1) | `Q² ≤ N` | profile + level → 2/3 | BV level, Rankin-tail constant |
 | LL 2/3-loglog | `t² log K`, `L_K ≤ N` | `Q² ≤ N/L_K` | `h ≤ log log L_K` | the progression split itself (costs a constant) |
-| 3/4 note | `t³` (`log K = κt`) | `r t ≲ L` | profile + level → 3/4 | Bonferroni depth, BV level, selector, pruning (§76) |
+| 3/4 note | `t³` (`log K = κt`) | `log T_abs ≤ ½L`, which forces `rt ≲ L` (Lemma 2.9) | profile + budget → 3/4 | Bonferroni depth, BV level, selector, pruning (§76) |
 
 ---
 
@@ -1029,7 +1053,7 @@ giving `L^{2/3}`. ∎
 | Elsholtz–Tao average as first-moment limit | **consistent**; the correct currency is the profile `Σp̄ℓ^{−α}`, which is exactly cubic (no loglog) | §5.5 |
 | shared large primes in multipliers | **closed** for dominant-prime moduli (Thm 2.7, Cor 3.6) | §2.6 |
 | balanced moduli; multipliers ≫ slice prime | **open**, but sharpened. Balanced moduli carry `≫(log x)³` (Lemma 3.8). Theorem 5.5 gives a sieve limit for Λ²-majorants on *arbitrary* systems, reducing H_MS for Λ² to the noise-stability bound H_MS^{Sel}. The toy LP shows no counterexample. | §5.6–5.8 |
-| Bonferroni → Selberg/large sieve | constants only (Lemma 4.2, §2.5 numerics) | §4 |
+| Bonferroni → Selberg/large sieve | cannot improve the exponent (PROVED, Thm 2.5). Attaining the same order up to constants is EVIDENCE (Lemma 4.2, §2.5 numerics). | §4 |
 
 ### 5.1 Truncation cost per condition
 
