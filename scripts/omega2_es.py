@@ -127,6 +127,7 @@ def main():
     maxN = maxev = 0
     hist = {}
     lemma_cases = 0
+    excess = 0
     for _ in range(samples):
         x = {}
         for l in free:
@@ -151,6 +152,7 @@ def main():
                 a_l[l] = a_l.get(l, 0) + 1
         N = len(a_l)
         maxN, maxev = max(maxN, N), max(maxev, len(A))
+        excess += len(A) > N
         hist[N] = hist.get(N, 0) + 1
         for z in zs:
             prod = 1.0
@@ -176,7 +178,7 @@ def main():
                         e[j] += e[j - 1] * t
                 assert abs(R) <= 4 ** (L + 1) * e[L + 1]
                 lemma_cases += 1
-    print(f"  MC samples={samples}: P(A=empty)={hist.get(0,0)/samples:.4f}  max N={maxN} max #events={maxev}")
+    print(f"  MC samples={samples}: P(A=empty)={hist.get(0,0)/samples:.4f}  max N={maxN} max #events={maxev} samples with #events>N: {excess}")
     print("  N histogram:", dict(sorted(hist.items())))
     print("  E prod(1+z a_l):", ", ".join(f"z={z}: {mom[z]/samples:.3f} (log={log(mom[z]/samples):.3f})" for z in zs))
     print(f"  Lemma 1.2 bound checked on {lemma_cases} (sample, L) cases: 0 failures")
