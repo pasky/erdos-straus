@@ -304,3 +304,82 @@ from Lemma 2.4's constant; Lemma 4.0's constant is larger by `(2+B)²`, so
 W₀(B) must be re-chosen (or defined in Cor 2.5 with Lemma 4.0's constant).
 Trivial, but the theorem as written uses the wrong W₀.
 
+### 15. §4.4 residual, §4.5 Conjecture 4.5_r and routes — labels SOUND
+
+Conj 4.5_r is labelled OPEN and routes 1–4 HEURISTIC; route 5 is Lemma 4.2.
+The sufficiency claim ("4.5_r for `r = ⌊(1+B)(1+η)⌋` would remove the
+residual") is plausible given T5's abstract step: the conjecture is of the
+right form `E_U f ≥ e^{−Φ}E_σ f`, the k-ary densities `π_T(h)` have
+`Q'`-means bounded by Lemma 2.2, and the leak is covered by Lemma 4.0 for
+the in-window order. Not graded further. Minor: the conjecture's hypothesis
+"unary forbidden sets with `p_ℓ ≤ 1/4`" should say whether activated k-ary
+classes count towards the cap (σ is "capped", so heavy ℓ are possible).
+The `101·103·109` argument that 4.5_2 alone is insufficient is correct.
+
+### 16. §5 (global) and AGENT_REPORT_O1 — SOUND-AFTER-REPAIRS (scope wording)
+
+The report's labels, numbers and repairs list match the document at
+b708bd1; "Where a hostile reviewer should look first" is accurate and all
+four points check out (items 4, 5, 7, 13).
+
+**T7 (LOW; §5 "Proved here", report "Global").** The family hypothesis of
+Thm 4.4 depends on λ (resolvedness is required only for top primes in
+`(e^{λ^{1/4}}, e^{λ/2}]`), while the ET Lemma 2.9 conversion produces
+`λ = Λ₀ + log T + log(1/Eν)`, which depends on ν. The θ-statement is correct
+if the hypothesis is required for all `λ ∈ [Λ₀, (A+1)L + S]`, or for the
+families named in the bullets (all gapped; all moduli with top prime
+`≤ e^{λ^{1/4}}` or `> e^{λ/2}`) read with that λ-range. Say which.
+
+**T8 (LOW; §5 "Not covered" 3).** Quote: "(a,D)-classes and Case-A classes:
+… For these, ET Cor 3.6 still covers the dominant part." A family mixing
+balanced ℛ(M) classes (Thm 2.7/4.4) with dominant (a,D)-classes (ET
+Cor 3.6) is covered by *neither* theorem — caps do not add over unions of
+families (the avoider set is the intersection). State that the two results
+cover their families separately.
+
+**S1 (suggestion, not a defect).** The ℛ(M)-only restriction of the QR base
+is likely removable cheaply. Use the *square base*: `n mod p^e` a unit square
+for every `p^e ∥ Q₀`, including `p = 2` (inflation `γ(2) = 8`). A class mod G
+that contains no integer square has, by CRT, some `p^e ∥ G` at which its
+residue is a non-square, so the square base avoids it. Lemma 1.1 is the case
+of ℛ(M). For (a,D)-classes I checked numerically here (`a ≤ 40`, `D ≤ 300`,
+12,000 classes `−(4D+a) mod 4a·g(D)`): none contains a square mod G, as
+expected from the Mordell / Elsholtz–Tao obstruction. Case-A was not
+checked. This removes only the base obstruction. Lemma 2.4 and the gapped
+structure for (a,D)-moduli still have to be done.
+
+## Summary table
+
+| item | statement | verdict | defects |
+|---|---|---|---|
+| 1 | Lemma 1.1 | SOUND | — |
+| 2 | Cor 1.2, Lemma 1.3 | SOUND | — |
+| 3 | Lemma 2.1, 2.2 | SOUND | (T2) |
+| 4 | Thm 2.3 + BBMST attribution | SOUND | T1 (LOW) |
+| 5 | Lemma 2.4 | SOUND | T2 (LOW) |
+| 6 | Cor 2.5 | SOUND | — |
+| 7 | Lemma 2.6 | SOUND | — |
+| 8 | Thm 2.7 | SOUND | — |
+| 9 | §2.4 numerics (EVIDENCE) | SOUND-AFTER-REPAIRS | T3, T4 (LOW) |
+| 10 | Lemma 3.1, 3.2 | SOUND | — |
+| 11 | §4.1, Lemma 4.0 | SOUND | (T2) |
+| 12 | Prop 4.1 | SOUND | — |
+| 13 | Lemma 4.2, Cor 4.3 | SOUND | cosmetic |
+| 14 | Thm 4.4 | SOUND-AFTER-REPAIRS | T5 (MEDIUM), T6 (LOW) |
+| 15 | §4.4–4.5 labels | SOUND | — |
+| 16 | §5, report | SOUND-AFTER-REPAIRS | T7, T8 (LOW); S1 |
+
+**Overall.** No FATAL or HIGH defect. The core claim stands: the capped
+measure with the QR base makes the (η,B)-gapped door unconditional for each
+fixed B (Thm 2.7). The flagged points (Thm 2.3 λ-level after averaging heavy
+indicators; final Jensen with `Q'(𝒜) ≥ 1/2`; Lemma 2.4 uniformity in W;
+Lemma 2.6 transplant; Cor 4.3 on residues) all check. The one MEDIUM item
+(T5) is presentation: Thm 4.4 cites Thm 2.3 outside its stated hypotheses,
+and needs an abstract sequential-step version. The status labels in §0 can
+stay PROVED once T5 and T6 are repaired.
+
+Replays run: `twin_jacobi_check.py 20000` (0 counterexamples, 159,390
+classes); `twin_capped.py` at (X, W, κ) = (10⁵, 300, 0.2 cap), (10⁵, 100,
+0.2 cap), (10⁵, 30, 0.2), (10⁵, 30, 0.5), all matching the saved data or
+the quoted value. (a,D) square check for S1: an ad-hoc 10-line sympy loop,
+not committed.
