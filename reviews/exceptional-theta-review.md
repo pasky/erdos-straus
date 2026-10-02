@@ -164,3 +164,110 @@ The literature status is unchanged from `reviews/theta-lit-notes.md`:
 apparently new. My spot checks found nothing contrary. The mechanism
 (Christoffel/Lagrange extremal mass, combination technique) is classical.
 The weighted lower-set CRT statement is not in the sources consulted.
+
+## Item 2 — Theorem 2.7, Lemma 2.8 (and the proof of Cor 3.6)
+
+**Verdict: SOUND.** One minor repair (S1) and one remark (S2).
+
+### 2.1 Theorem 2.7
+
+* **History determines decided conditions.** Under (U), every
+  requirement of a condition C other than its `ℓ(C)`-residue lies in Q₀ or
+  in strictly earlier windows. So `F_ℓ(h)` is well defined from
+  `H_{<j}`.
+* **Base case.** `H_{<J+1}` contains `n mod Q₀` and every `n mod ℓ^{E_ℓ}`,
+  with `E_ℓ ≥ e_{C,ℓ}`. This determines membership in 𝒜. So
+  `g_{J+1} = E[ν | H] ≥ 1` on 𝒜-histories. Majorant terms with
+  `ℓ^e, e > E_ℓ` are averaged by the conditional expectation and remain
+  functions of the history. Harmless.
+* **Induction step.**
+  * Given `H_{<j} = h`, the digits `n mod ℓ^{E_ℓ}` (ℓ∈W_j) are independent
+    and uniform. The `x_ℓ` are independent `Bern(p_ℓ(h))`.
+  * `f(x) = E[g_{j+1} | h, x]` is a sum of products over
+    `ℓ ∈ T_i ∩ W_j` of functions of `x_ℓ`. It is λ-level for the W_j
+    weights (the level is charged afresh in every window, hence `19α_jλ`
+    per window). It is ≥ 0, and `E f = g_j(h)`.
+  * `{x = 0}` is exactly the event that no condition with last window j
+    fires. The uniform law conditioned on `{h, x=0}` is the Q_seq
+    transition, and this is the key identification. It holds because the
+    excluded residues are exactly `F_ℓ(h)` and the higher digits stay
+    uniform.
+  * Jensen gives `f(0) ≥ exp(−E_{Q_seq}[Σ_{i>j}Φ_i | h])`.
+  * Proposition 2.4 is applied to `f/f(0)` at the reachable h. The
+    hypotheses `p ≤ 1/4` and `p < 1` are assumed on supp Q_seq, which
+    equals `𝒜_{<j}`.
+
+  Correct.
+* **Conclusion.** The final Jensen over c and over histories is valid
+  because Φ_j is affine in the `p_ℓ(h)` apart from the concave
+  `log(16μ+16)`.
+
+### 2.2 Lemma 2.8
+
+* `E_{Q_seq} p_ℓ(H) ≤ Σ_{C: ℓ(C)=ℓ} ℓ^{−1}·Q_seq(other requirements of C)`.
+  This is a union bound, since conditions can share a residue at ℓ.
+* The chain rule bounds `Q_seq(n ≡ b mod ℓ'^e | past) ≤ 1/(ℓ'^e(1−p*_{ℓ'}))`.
+* `P(c ≡ a_C mod q_C | c∈R)` is exact for c uniform on R.
+
+Correct.
+
+### 2.3 Exact-LP test (`scripts/review_theta_seq.py`, own code)
+
+* **Setup.**
+  * Q₀ = 4, R = {1,3}, windows W1 = {5,7} and W2 = {11,13}.
+  * 8 random condition families of 7–13 conditions.
+  * Conditions at W2 primes also fix residues modulo W1 primes (shared
+    large primes) and modulo q | 4.
+  * (U) is checked, and `p ≤ 1/4` is checked on every reachable history.
+* **What is checked.** The exact CRT LP optimum is compared, at
+  λ ∈ {log 7, log 13, log 77, log 143}, with the proof's rigorous
+  intermediate, in which the exact Boolean window LPs replace
+  Proposition 2.4:
+
+      Eν ≥ Q₀⁻¹ Σ_c W_1(c) exp(E_{Q_seq}[log W_2(H) | c]) ≥ (|R|/Q₀) exp(avg_c[…]).
+
+  Lemma 2.8's bound on `E_{Q_seq} p_ℓ` is checked per fibre.
+* **Result.** All 32 instances pass (`data/theta/review_seq.txt`). The
+  sequential chain loses at most 0.12 nats against the LP here. Its
+  bound can exceed the void exponent `−log P(𝒜)`, which is legitimate:
+  Q_seq is not the conditioned uniform law.
+
+### 2.4 Cor 3.6 (proof re-derived)
+
+* (U) holds for the windows `W_j = (e^{Cs_j}, e^{s_j}]`, because
+  `ℓ' ≤ M/ℓ(M) ≤ ℓ^C`.
+* `p*_ℓ ≤ ℓ^{C−1+o(1)}`. The o(1) comes from `|ℛ(M)| ≤ τ(A²) = M^{o(1)}`
+  and from the (a,D)-multiplicity `≤ τ(G)2^{ω(G)}`.
+* For the n = 1 argument I checked forcedness of the Lemma 3.2 classes
+  algebraically. If `D | A_M²`, then `−4D ≡ −D/A (mod M)`. Since
+  `|v_p(D) − v_p(A)| ≤ v_p(A)` for every p, the reduced fraction `u/v` of
+  `D/A` has `uv | A`, so `−4D mod M ∈ ℛ(M)`.
+* Then `|R|/Q₀ ≥ 1/L'`, and `P(c≡a (q_C) | R) ≤ L'/φ(q_C)`. The latter
+  is also fine for non-unit a, where it is 0 or smaller.
+* The γ-weighted Lemma 3.1:
+  * `h(p) ≤ 1/(p−1) + 3p^{−δ}`.
+  * `Σ h(d)/φ(d) < ∞`.
+  * `Σ h(d)d^{−1+δ/2} < ∞`, because its Euler factors are
+    `1 + O(p^{−1−δ/2})`.
+  * Tail `≪ x^{1−δ/4+ε}`.
+
+  Correct.
+* Per-window sums: the cubic branch below `s ≍ λ^{1/4}`, the
+  `λ^{3/4}C^k(1+k)` tail above it, and `O(log λ)` windows × `O(log²λ)`
+  remainders. Correct.
+
+### 2.5 Defects (item 2)
+
+* **S1 (minor; Cor 3.6, "Q₀ = lcm(P_{w₀}, w₀-smooth parts of all
+  moduli)").**
+  * *Problem.* Q₀ is family-dependent and can be astronomically large,
+    since w₀-smooth parts of moduli are unbounded. That is harmless,
+    because only `|R|/Q₀ ≥ 1/L'` enters. But the sentence "The last term
+    is O_C(1)" follows the definition of Q₀ and reads as if Q₀ itself were
+    bounded.
+  * *Fix.* Say explicitly that `Q₀/|R| ≤ L' = lcm(P_{w₀}, w₀-smooth moduli)`
+    and that `L' ≤ e^{O(w₀^{1+C})}`, while Q₀ itself is unbounded.
+* **S2 (remark, not a defect; the Cor 3.6 window profile).** The profile
+  per window uses `ℓ^{−α} ≤ e^{−αCs_j}` (lower window end), not
+  `e^{−αs_j}` as printed. This is a constant-factor change absorbed into
+  `C₈(A,C)`. Fix the display.
