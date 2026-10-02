@@ -266,3 +266,110 @@ The checks are `(I)` (no original event ⇒ `W>T`) and `B(n)≤1[W(n)>T]`.
   are effective (inherited label "modulo Thorner–Zaman").
 * **Cor 4.4** (joint with `ck_min`). Same as O2 Cor 5.2, since
   `p≡1 (ℓ)` for all `ℓ≤y`. ✓
+
+## Numbered defects
+
+None of these touches a headline claim. No fatal, structural or
+moderate defect was found.
+
+* **D1 (minor; Setting 3.0, (D3)).**
+  * Quote: "`t := δ_3/(C_3(S_H+1))` (constants of O2 Thm 10.3 for k=3,
+    with the weight `1+w=17` replaced by `1+w':=17e^{1/2}`; see Step 1
+    below)".
+  * The operative definition, in "*Constants*", is
+    `t(Ŝ):=δ_3/(3(L_3+1))`, with `L_3` defined from Ŝ, not from `S_H`
+    or O2's `C_3`. Two incompatible definitions of t are on the page.
+  * Fix: replace the (D3) formula by "`t:=t(Ŝ)`, defined below".
+* **D2 (minor; Lemma 3.3, mass display).**
+  * Quote: "`S_1^{new} ≤ S_1 + 3S_H/δ_3 + 2S_2^{new}/δ`".
+  * This is true only if `S_2^{new}` means the level-2 mass **after (b)
+    and before the (c) deletions**. With the final level-2 mass it is
+    false.
+  * Counterexample found by `review_omega3_check.py push`: `S_1=1.5`,
+    `S_2=1.25`, `S_H=0.25`, `δ_3=0.75`, `t=1`, `δ=0.5`. Step (c) deletes
+    every edge, so the final `S_2=0`, and `S_1^{new}=3.0 > 2.5`.
+  * The `O(Ŝ²)` consequence is unaffected.
+  * Fix: write `S_2^{(b)}:=S_2+(\text{pushed pairs}) ≤ S_2+3S_H/t` and
+    `S_1^{new} ≤ S_1+3S_H/δ_3+2S_2^{(b)}/δ`.
+* **D3 (minor; Thm 5.2 proof).**
+  * Quote: "`y:=T^{1/k}exp(2𝓛/log 𝓛)` (so every rough part has
+    `Ω(r)≤k`)".
+  * Since `y^k>T`, in fact `Ω(r)≤k−1`, so Thm 5.1 is needed only with
+    `k−1` levels. As written, the k of Thm 5.1 and the k of Thm 5.2 are
+    off by one, and the k of Lemma 11.2 (free primes per M) is a third k.
+  * Harmless: the statement is weaker than what is proved.
+  * Fix: say `Ω(r)≤k−1` and apply Thm 5.1 with `k−1` levels, or rename.
+* **D4 (minor; §1, Lemma 1.3 vs Thm 1.1/Cor 1.2).**
+  * Thm 1.1 and Cor 1.2 assume `h_ℓ≤1/2` (and use `V≥e^{−2S_hub}`).
+  * The twist conclusion after Lemma 1.3 ("`|E[Bψ]| ≤ … < μ(B)/4`")
+    needs Lemma 1.3, which assumes `h_ℓ≤1/100`.
+  * Fix: state `h_ℓ≤1/100` in the combined claim. §1 is not used by
+    §§3–5, as the text says.
+* **D5 (minor; evidence, §6 "Composition algebra").**
+  * Quote: "The script uses O2 Lemma 1.2's `G=e_{L+1}(a)` at both
+    levels."
+  * Thm 3.2 uses `G^cov_{L+1}` at level 3, so the EVIDENCE did not test
+    the object of the theorem. The remark that the composition does not
+    depend on the majorant is correct.
+  * Closed by `scripts/review_omega3_check.py compose`: true `G^cov`,
+    value-set events, merged and unmerged decompositions, adversarial
+    generators, 0 violations.
+  * Fix: cite it, or switch the O4 script to `G^cov`.
+* **D6 (minor; Thm 5.1 Step B, conditioned systems).**
+  * Different events e, e′ can induce the same event
+    `e∖F′ = e′∖F″`. The conditioned level-r system is then not simple,
+    while O2 Setting 10.0 / Lemma 10.2 assume a simple hypergraph.
+  * Harmless. Merging identical induced events leaves the void indicator
+    unchanged and only lowers masses and codegrees. The proof of Lemma
+    10.2 also runs with multiplicity, because a private family cannot
+    contain two copies.
+  * Fix: one sentence, "identical induced events are merged".
+
+## Verdict summary
+
+| item | verdict |
+|---|---|
+| 1. Thm 3.2 two-level composition: pointwise minorant, level/moduli, mass, mean, twist | **SOUND** (D1) |
+| 2. Lemma 3.1 / tilted moment via HSS | **SOUND** |
+| 3. Lemma 3.3 push-down: thresholds non-circular, (D2) restored by (c), Markov masses | **SOUND** (D2) |
+| 4. Thm 5.1 k-level induction: freezing, relative error budgets, conditioned codegrees, induced mass, k-dependence | **SOUND** (D3, D6) |
+| 5. ES instantiation vs PO Thm 4.1 (twist, moduli, TZ range, effectivity) | **SOUND** modulo Thorner–Zaman (D3) |
+| 6. Independent brute force (abstract + ES end-to-end) | 0 violations; certificates `B(n)=1` ⇒ `W(n)>T` brute-force confirmed at T=30000 |
+| §1 Thm 1.1 / Cor 1.2 (not load-bearing) | SOUND (D4) |
+| §2 triples / hub families / EVIDENCE 2.4 (explanatory only) | SOUND as explanation; 1e9 row replays |
+
+**Headline claims.**
+
+* **Thm 4.3** (`W(p)≥(log p)^4·exp(−C log log p/log log log p)` i.o.;
+  H_MIN(θ) for θ>1/4): **I could not break it.** It stands as PROVED
+  modulo Thorner–Zaman.
+* **Thm 5.2** (`W(p)>(log p)^A` i.o. for every A; H_MIN(θ) for all θ>0;
+  `log L_h(T)≤T^{o(1)}`): **I could not break it.** It stands as PROVED
+  modulo Thorner–Zaman, with constants depending on k (effective for
+  each fixed k) and no rate for `k→∞`.
+
+The decisive idea holds up under attack. The conditional local lemma
+makes the level-3 truncation error *relative to* `P(𝒜_2)`. So `L_3`,
+and with it the pair threshold `t≍1/L_3`, depend only on the level-3
+mass, while the hub quarantine cost goes into the graph level, which
+has no codegree condition. This really does dissolve the G_pair
+circularity of O2 §11.4. I recommend accepting it after the six minor
+textual repairs D1–D6.
+
+**Reviewer caveat.** These are hand checks plus finite brute force. I
+did not re-derive O2 Lemmas 2.1 and 10.2 from scratch; I rely on their
+earlier review (O2 r3: SOUND, D5). The O3 argument leans on Lemma 10.2
+harder than O2 did (tilted weights, mixed-size induced events), and
+both uses were checked above against its stated hypotheses.
+
+## Replay
+
+```
+export PYTHONPATH=scripts   # all runs under ulimit -v 8000000
+for s in 1 2 3; do uv run python scripts/review_omega3_check.py compose 3000 $s; done   # ~1 min each
+uv run python scripts/review_omega3_check.py tilt 400 2                                 # ~1 min
+for s in 1 2 3; do uv run python scripts/review_omega3_check.py push 5000 $s; done      # seconds
+uv run python scripts/review_omega3_es_instance.py 30000 14 1.5 2 3 60 40 1 0.9 0.99999   # ~15 s
+uv run python scripts/review_omega3_es_instance.py 30000 14 1.5 1 2 100 60 2 0.7 0.999
+uv run python scripts/review_omega3_es_instance.py 30000 14 1.2 2 3 100 60 4 0.8 0.995
+```
