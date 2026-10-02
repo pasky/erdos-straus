@@ -827,7 +827,10 @@ EVIDENCE: `scripts/omega2_abstract_check.py` also checks, by brute force,
 
 * A *hyperedge* is a set of `2..k` vertices at distinct primes. It occurs
   iff all its vertices are realised, so `P(e)=∏_{v∈e}p(v)`.
-* The hypergraph is simple: distinct hyperedges have distinct vertex sets.
+* The hypergraph is simple: distinct hyperedges have distinct vertex sets. (Simplicity is a convenience
+  only: Lemma 10.2 holds for multi-hypergraphs too, since repeated
+  hyperedges enlarge `Δ_O` and `S_H` consistently, and a private family
+  cannot contain two copies; O3 review-2, 2b.)
 * Put `S_H=Σ_e P(e)` and `w_ℓ=Σ_{e at ℓ}P(e)`.
 * For a set O of vertices at distinct primes, the *codegree* is
   `Δ_O := Σ_{e⊋O} ∏_{v∈e∖O} p(v)`. So `Δ_{{v}}=deg(v)`.
@@ -895,7 +898,11 @@ are at most n candidates for each old vertex.
 * The first hyperedge contributes
   `Σ_{e_1}P(e_1)·(#roots) ≤ Σ_{e_1}|e_1|P(e_1) ≤ kS_H` in total. (The root
   index only overcounts.)
-* The children sets at the at most n processed vertices are unordered:
+* (Encoding.) Since n=|V(K)| depends on K, encode K by `e_1` and the
+  child sets at `N:=kh≥n` fixed breadth-first slots, padding the unused
+  slots with empty child sets (`c_i=0`). The map is injective, so the
+  bound below with N in place of n is an upper bound (O3 review-2, 2a).
+* The children sets at the at most N slots are unordered:
   `Σ over sets of c children ≤ D^c/c!`. The weights of the individual
   children depend on the earlier siblings, but this bound still holds:
   * the product of the c sibling weights is `∏p(u)` over the vertices
@@ -906,7 +913,7 @@ are at most n candidates for each old vertex.
     each step the old pool has at most `kh` vertices and the next child
     has a private, hence new, vertex.
 * The number of weighted compositions is
-  `Σ_{c_1+…+c_n=h−1}∏1/c_i! = n^{h−1}/(h−1)! ≤ (kh)^{h−1}/(h−1)! ≤ e(ke)^{h−1}`.
+  `Σ_{c_1+…+c_N=h−1}∏1/c_i! = N^{h−1}/(h−1)! = (kh)^{h−1}/(h−1)! ≤ e(ke)^{h−1}`.
 
 Hence
 

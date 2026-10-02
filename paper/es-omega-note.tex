@@ -27,7 +27,7 @@
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
 \title[Large Erd\H{o}s--Straus witnesses]{Large Erd\H{o}s--Straus witnesses:\\
-a cubic $\Omega$-result for the multiplier parameter}
+the multiplier parameter exceeds every power of $\log p$}
 \author{Anonymous}
 \date{Draft, 2 October 2026}
 
@@ -38,25 +38,31 @@ For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
 ``multiplier'' congruence that forces a solution of $4/p=1/x+1/y+1/z$, and
 let $\ckmin(p)$ be the least product $ck$ of a positive Type~I slice.  Both
 are expected to be at most a power of $\log p$ for almost all $p$, and are
-known to exceed a constant times $\log p$ for infinitely many $p$.  We prove that
-$W(p)\ge(\log p)^{3}\exp(-C\log\log p/\log\log\log p)$ for infinitely many
-primes $p$ in Mordell's hard classes.  The class of one is imposed modulo the
-primes up to $T^{1/3+o(1)}$, so that the residual congruence system consists of
-single-prime and two-prime events.  We build a pointwise minorant of its void
-indicator by inclusion--exclusion truncated by the number of primes in the
-support, not by the number of events; its error is controlled by a
-pseudoforest bound for an exponential moment, after a cheap quarantine of
-high-degree ``hub'' residues.  The minorant is transferred to primes by the
-Linnik-range prime number theorem of Thorner and Zaman, whose relative error
-term absorbs a possible Siegel zero.  As a warm-up we give the simpler
-prime-local construction, which reaches exponent~$2$ and cannot go further.
-For the slice parameter we prove that congruence methods certify exactly the
-least quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
-infinitely often (via Lau--Wu, after Graham--Ringrose).  On the Haar side we
-prove $\log(1/\delta^*(T))\le T^{o(1)}$ for the avoider density
-(polylogarithmic modulo Elsholtz--Tao), identify
-the single-prime atoms with points of Elsholtz--Tao's Type~I variety, and show that an
-individual Type~I bound $n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
+known to exceed a constant times $\log p$ for infinitely many $p$.  We prove
+that for every fixed $k$,
+$W(p)\ge(\log p)^{k}\exp(-C_k\log\log p/\log\log\log p)$ for infinitely many
+primes $p$ in Mordell's hard classes; more precisely, the least hard prime
+with $W(p)>T$ is at most $\exp(T^{o(1)})$ for all large $T$.  The class of one is imposed modulo the
+primes up to $T^{1/k+o(1)}$, so that the residual congruence system consists
+of events on at most $k-1$ free primes.  We build a pointwise minorant of its
+void indicator by inclusion--exclusion truncated by the number of primes in
+the support, not by the number of events, and we organise the events in
+\emph{levels} by support size.  Each level is sieved inside the levels below
+it; by a conditional form of the local lemma its truncation, and hence the
+codegree threshold it needs, depends only on its own mass.  Heavy vertex sets
+(``hubs'', which do occur) are moved to lower levels by a first-moment
+argument, and the bottom level, a graph, needs no codegree condition at all.
+The minorant is transferred to primes by the Linnik-range prime number
+theorem of Thorner and Zaman, whose relative error term absorbs a possible
+Siegel zero.  As a warm-up we give the simpler prime-local construction,
+which reaches exponent~$2$ and cannot go further.  For the slice parameter we
+prove that congruence methods certify exactly the least quadratic
+non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$ infinitely often (via
+Lau--Wu, after Graham--Ringrose).  On the Haar side we prove
+$\log(1/\delta^*(T))\le T^{o(1)}$ for the avoider density (polylogarithmic
+modulo Elsholtz--Tao), identify the single-prime atoms with points of
+Elsholtz--Tao's Type~I variety, and show that an individual Type~I bound
+$n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
 \end{abstract}
 
 \maketitle
@@ -119,18 +125,20 @@ and Chang's least-prime bound for smooth moduli \cite{Chang}, the constant
 becomes $5/8$ (\S\ref{sec:limits}).  The same is true for $\ckmin$ via
 genus characters.  Whether $W(p)/\log p$ is unbounded was open.
 
-\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective]\label{thm:main}
-There is an absolute constant $C$ such that for infinitely many hard primes $p$
+\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective for each fixed $k$]\label{thm:main}
+For every integer $k\ge3$ there is a constant $C_k$ such that for infinitely
+many hard primes $p$
 \[
- W(p)\ \ge\ (\log p)^3\exp\Big(-C\,\frac{\log\log p}{\log\log\log p}\Big).
+ W(p)\ \ge\ (\log p)^k\exp\Big(-C_k\,\frac{\log\log p}{\log\log\log p}\Big).
 \]
-More precisely, for every sufficiently large $T$ there is a prime
-$p\equiv1\pmod{840}$ with $W(p)>T$ and
-$\log p\le T^{1/3}\exp(O(\log T/\log\log T))$.
+More precisely, for every $k\ge3$ and every sufficiently large $T$ there is a
+prime $p\equiv1\pmod{840}$ with $W(p)>T$ and
+$\log p\le T^{1/k}\exp(O_k(\log T/\log\log T))$.  In particular the least hard
+prime $p$ with $W(p)>T$ is at most $\exp(T^{o(1)})$.
 \end{theorem}
 
 In particular the statement ``$W(p)\le(\log p)^A$ for all large $p$'' is
-false for every $A<3$.  The cited input (Theorem~\ref{thm:TZ}) is Thorner and
+false for every $A$.  The cited input (Theorem~\ref{thm:TZ}) is Thorner and
 Zaman's prime number theorem in the Linnik range \cite{TZ}, including the
 McCurley zero-free region statement quoted there.  No hypothesis on Siegel
 zeros is needed: the exceptional zero is absorbed by a uniqueness lemma
@@ -145,18 +153,29 @@ one modulo all primes up to $T^{1/2+o(1)}$ leaves a single forbidden set at each
 larger prime, and a Brun minorant applies; this gives exponent~$2$
 (Theorem~\ref{thm:two}), which is the limit of every prime-local design
 (Proposition~\ref{prop:ceiling}).  To go further we quarantine only the primes
-up to $T^{1/3+o(1)}$; then moduli with two free prime factors produce
-two-prime events, and these cluster at ``hub'' residues on which many events
-fire together, so that the usual Bonferroni truncation by the number of events
-fails (Proposition~\ref{prop:bonf}).  We truncate instead by the number of
-\emph{primes} in the support (\S\ref{sec:supp}), control the error by a
-pseudoforest bound for $E\prod_\ell(1+za_\ell)$ after quarantining
-high-degree hub residues (\S\ref{sec:pseudo}), and verify the twist condition
-by a conditional form of the local lemma (\S\ref{sec:crit}).  Exponent~$3$
-matches the Haar (profinite) bound of Theorem~\ref{thm:haar-intro}; an
-iterated quarantine improves the Haar side much further
-(Theorem~\ref{thm:iterq}), while below $\theta=1/3$ the prime side is limited
-by pair codegrees.
+up to $y=T^{1/k+o(1)}$ (plus $T^{o(1)}$ further primes, chosen by an iterated
+quarantine so that every free prime carries little mass); then moduli with up
+to $k-1$ free prime factors produce events on up to $k-1$ primes.  These
+cluster at ``hub'' residues on which many events fire together, so the usual
+Bonferroni truncation by the number of events fails
+(Proposition~\ref{prop:bonf}).  We truncate instead by the number of
+\emph{primes} in the support (\S\ref{sec:supp}).  For events on at most two
+primes the error is controlled by a pseudoforest bound after quarantining
+high-degree hub residues (\S\ref{sec:pseudo}); this already gives
+exponent~$3$ (the case $k=3$).  For larger supports a hypergraph moment bound
+(\S\ref{sec:hyper}) needs \emph{codegree} conditions at the scale
+$1/L$ of the truncation level $L$, and some vertex pairs (the classes of
+small-height rationals such as $-4$, $-4d^2$, $-2/3$) genuinely violate them.
+The remedy (\S\ref{sec:multi}) is to sieve in levels: events on $r$ primes form
+level $r$, the graph level~$2$ is outermost, and each level is composed inside
+the lower ones coefficient by coefficient.  A conditional local lemma shows
+that the error of level $r$ is relative to the probability of avoiding the
+lower levels, so its truncation, and hence its codegree threshold, depends only
+on its own mass; heavy vertex sets are moved down to the level of their size by
+Markov's inequality, and level~$2$ needs no codegree condition.  No arithmetic
+bound on codegrees is used.  The prime side thus matches the Haar (profinite)
+side, where an iterated quarantine gives $\log(1/\delta^*(T))\le T^{o(1)}$
+(Theorem~\ref{thm:iterq}).
 
 For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
@@ -184,9 +203,16 @@ $W(n)>T$, normalised within the class $1\pmod{24}$.  The class of one gives
 $\log(1/\delta^*(T))\le(2/3+o(1))T$, and a crude prime-local bound gives
 $T^{1/2+o(1)}$.
 
-\begin{theorem}[Proved]\label{thm:haar-intro}
-$\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
+\begin{theorem}[Proved; the polylogarithmic form modulo {\cite[Prop.~1.4]{ET}}]\label{thm:haar-main}
+$\log(1/\delta^*(T))\le T^{o(1)}$; more precisely
+$\log(1/\delta^*(T))\ll(\log T)^3(S^*+1)$, where $S^*\le\exp(O(\log T/\log\log T))$ is the
+uniform atom mass of \S\ref{sec:main},
+and $\log(1/\delta^*(T))\ll(\log T)^7/\log\log T$ modulo \cite[Prop.~1.4]{ET}.
 \end{theorem}
+
+This is Theorem~\ref{thm:iterq}, proved in \S\ref{sec:haar} by an iterated
+quarantine and the local lemma; an elementary warm-up gives
+$T^{1/3+o(1)}$ (Theorem~\ref{thm:haar-intro}).
 
 We do not pursue heuristics about the true size of $\delta^*(T)$ here.
 
@@ -811,92 +837,494 @@ $P(A=\emptyset)=P(\bar A')-P(\bar A'\cap\{X_{\ell_0}\in\mathrm{Forb}\})\ge0.936P
 $|\mu_\psi|<0.08P(A=\emptyset)<\mu/4$.
 \end{proof}
 
-\section{Proof of Theorem~\ref{thm:main}}\label{sec:main}
+\section{Private covers and a hypergraph moment bound}\label{sec:hyper}
 
-For a set $\Pi$ of primes and $M\le T$, $M\equiv3\pmod4$, write $M=m_\Pi r_\Pi$ with
-$m_\Pi$ the $\Pi$-part.  An atom $(M,D)$, $D\mid A_M^2$, \emph{survives} $\Pi$ if
-$m_\Pi\mid4D+1$ and $r_\Pi>1$; its Haar weight is $1/\varphi(r_\Pi)$.
-
-\begin{lemma}[Proved]\label{lem:qmass}
-For every set $\Pi$ of primes,
+\emph{Hypergraph-type systems.}  As in \S\ref{sec:pseudo}, with singles
+$S_\ell$ and vertices $v=(\ell,V_v)$ (vertices at one prime pairwise
+disjoint), but with \emph{hyperedges} in place of edges: a hyperedge is a set
+of $2,\dots,k$ vertices at distinct primes, occurring iff all its vertices are
+realised, so $P(e)=\prod_{v\in e}p(v)$.  Repeated hyperedges are allowed (they
+only enlarge the quantities below).  Put $S_H=\sum_eP(e)$,
+$w_\ell=\sum_{e\text{ at }\ell}P(e)$, and for a set $O$ of vertices at distinct
+primes the \emph{codegree}
 \[
- S_{\rm tot}(\Pi)=\sum_{\text{atoms surviving }\Pi}\frac1{\varphi(r_\Pi)}\le\exp\Big(O\Big(\frac{\log T}{\log\log T}\Big)\Big).
+ \Delta_O=\sum_{e\supsetneq O}\ \prod_{v\in e\setminus O}p(v),\qquad
+ \Delta^{(i)}=\max_{|O|=i}\Delta_O;
+\]
+thus $\Delta_{\{v\}}=\deg(v)$.
+
+For a set $P$ of primes, a \emph{private cover} of $P$ is a set $\mathcal C$ of
+events with $P\subseteq\bigcup_{E\in\mathcal C}\supp E$ such that every
+$E\in\mathcal C$ has a prime of $\supp E\cap P$ lying in the support of no other
+member of $\mathcal C$.  A family is \emph{private} if each member has a prime
+lying in no other member.  Put $\pi(\mathcal C)=\bigcup_{E\in\mathcal C}\supp E$ and
+\[
+ G^{\rm cov}_u(x)=\sum_{|P|=u}\ \sum_{\mathcal C\text{ private cover of }P}\mathbf 1[\text{every }E\in\mathcal C\text{ occurs at }x].
+\]
+
+\begin{lemma}[Proved]\label{lem:cov}
+For every $x$ and $u,L\ge0$: $\binom{N(x)}u\le G^{\rm cov}_u(x)$; hence
+Lemma~\ref{lem:pointwise} holds with $G^{\rm cov}_{L+1}$ in place of $G_{L+1}$.
+If every event is a union of cells, then
+$M_1(B_L)\le\sum_{u\le L}2^uE\,G^{\rm cov}_u$ and $M_1(G^{\rm cov}_u)=E\,G^{\rm cov}_u$.
+\end{lemma}
+
+\begin{proof}
+Every $P\subseteq V(x)$ is covered by occurring events, and a minimal covering
+subfamily is a private cover (a member without a private prime could be
+removed).  This gives the first claim, and the proof of
+Lemma~\ref{lem:pointwise} goes through verbatim.  In the proof of
+Lemma~\ref{lem:meanmass}, a cell $c$ on $U$ with $\kappa(U,c)\ne0$ has every
+prime of $U$ covered by events supported in $U$ occurring on $c$; a minimal
+such subfamily is a private cover of $U$, so
+$\sum_c|\kappa(U,c)|P(c)\le2^{|U|}\sum_{\mathcal C\text{ priv.\ cover of }U}P(\mathcal C\text{ occurs})$.
+\end{proof}
+
+\begin{lemma}[Proved]\label{lem:hypmom}
+Let $U_0\ge1$, $\rho\ge1$ and put
+$D=\sum_{j=0}^{k-2}(kU_0)^j\Delta^{(j+1)}$.  If $D\le[2ek\rho^k]^{-1}$, then
+\[
+ \sum_{\mathcal C\text{ private},\ |\mathcal C|\le U_0}\rho^{|\pi(\mathcal C)|}P(\mathcal C\text{ occurs})
+ \le\exp\big(\rho S_1+2ek\rho^kS_H\big).
+\]
+In particular, for $w\ge0$ and $\rho=1+w$,
+$\sum_{u\le U_0}w^uE\,G^{\rm cov}_u\le\exp((1+w)S_1+2ek(1+w)^kS_H)$.
+\end{lemma}
+
+\begin{proof}
+The last claim follows from the first, because a private family privately
+covers only subsets of $\pi(\mathcal C)$, so pointwise
+$\sum_{u\le U_0}w^uG^{\rm cov}_u\le\sum_{\mathcal C\text{ private},|\mathcal C|\le U_0}(1+w)^{|\pi(\mathcal C)|}\mathbf 1[\mathcal C\text{ occurs}]$.
+
+A single in a private family has its only prime private, so the singles sit
+on primes disjoint from the rest and contribute at most
+$\prod_\ell(1+\rho g_\ell)\le e^{\rho S_1}$.  The hyperedge part splits into
+connected components, each private; two components using the same prime with
+different vertices cannot occur together, and otherwise $P$ and
+$\rho^{|\pi|}$ are multiplicative over components.  So the hyperedge part is
+at most $\exp(\sum_K\rho^{|V(K)|}P(K))$ over connected private $K$ with
+$h=|K|\le U_0$ hyperedges, $|V(K)|\le kh$.
+
+\emph{Exploration.}  Pick a first hyperedge $e_1\in K$ and declare its
+vertices discovered; process discovered vertices in breadth-first order (ties
+by a fixed order), attaching at a vertex $v$ as \emph{children} all
+not-yet-attached hyperedges of $K$ containing $v$.  Every hyperedge is attached
+($K$ is connected), and a child $e$ of $v$ has a private vertex, which is
+therefore new.  If $O_e$ denotes $v$ together with the old vertices of $e$,
+$|O_e|=j+1$, the weight of $e$ beyond $O_e$ is the product of $p$ over its new
+vertices, and the sum over admissible $e$ is at most
+$\sum_j\binom{kh}j\Delta^{(j+1)}\le D$.  To make the encoding independent of
+$K$, record the child sets in $N:=kh$ fixed breadth-first slots, padding
+unused slots with empty sets; $K\mapsto(e_1,\text{child sets})$ is injective.
+
+\emph{Counting.}  The first hyperedge contributes
+$\sum_{e_1}P(e_1)\cdot\#\text{roots}\le kS_H$ (the root index only
+overcounts).  A slot with $c$ children contributes at most $D^c/c!$: the
+product of the sibling weights is $\prod p(u)$ over all vertices they bring,
+independent of order, so the sum over sets is $1/c!$ times the sum over
+ordered tuples, which is at most $D^c$ since each next child has a private,
+hence new, vertex and its old vertices lie in a pool of at most $kh$
+vertices.  The number of weighted compositions is
+$\sum_{c_1+\dots+c_N=h-1}\prod1/c_i!=N^{h-1}/(h-1)!\le e(ke)^{h-1}$.  Hence
+$\sum_{|K|=h}\rho^{|V(K)|}P(K)\le\rho^{kh}\,e\,kS_H\,(keD)^{h-1}$, and summing
+over $h\ge1$ with $\rho^kkeD\le1/2$ gives at most $2ek\rho^kS_H$.
+\end{proof}
+
+The factor $(kU_0)^j$ in $D$ is real: a cluster of hyperedges reusing $j+1$
+old vertices out of many costs only $\Delta^{(j+1)}$ per hyperedge but can be
+placed in many ways.  For the multiplier problem some pair codegrees are of
+constant size (Remark~\ref{rem:hubs}), so Lemma~\ref{lem:hypmom} does not
+apply directly to the whole system with $U_0$ of the size of the total mass,
+and (\emph{Assessment}) quarantining the heavy pairs inside the same
+truncation does not seem affordable; \S\ref{sec:multi} circumvents this.
+
+\section{Multilevel minorants}\label{sec:multi}
+
+\emph{Levels.}  Consider a congruence system as in \S\ref{sec:crit} whose
+events are singles and hyperedges of $2,\dots,k$ vertices at distinct primes,
+all vertices being unit classes mod $\ell^{e_\ell}$.  Its events are
+partitioned into \emph{levels}: level~$2$ consists of the singles and the
+edges, and level $r$ ($3\le r\le k$) of hyperedges with $r$ vertices.  Let
+$F_r$ be the indicator that no event of level $r$ occurs, $F_{<r}=\prod_{2\le
+s<r}F_s$, $\mathcal A_{<r}=\{F_{<r}=1\}$, and let $\Sigma_r$ be the mass of level
+$r$ ($\Sigma_2=S_1+S_2$).  We assume throughout
+\begin{enumerate}
+\item[(P$_k$)] the total mass of all events at every prime is at most $1/(64k)$.
+\end{enumerate}
+
+\begin{lemma}[Proved]\label{lem:compare}
+Under \textup{(P$_k$)}, with $x_E=2P(E)$:
+\begin{enumerate}
+\item[(a)] $P(\mathcal A_{<r+1})\ge P(\mathcal A_{<r})\prod_{E\in\text{level }r}(1-x_E)\ge P(\mathcal A_{<r})e^{-3\Sigma_r}$ for every $r$, and $P(\mathcal A_{<3})\ge e^{-3\Sigma_2}$;
+\item[(b)] for every $r$ and every event $B$ depending on the coordinates in a
+set $U$ of primes, $P(B\cap\mathcal A_{<r})\le P(\mathcal A_{<r})P(B)e^{|U|/2}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+An event meets at most $k$ primes, so the $x$-sum over its neighbours is at
+most $k\cdot2/(64k)=1/32$ and the hypothesis of Lemma~\ref{lem:lll} holds for
+the union of all levels.  Its proof gives $P(E\mid\bigcap_{E'\in\mathcal S}\bar E')\le
+x_E$ for all $\mathcal S$; the chain rule over the events of level $r$, conditioned
+on $\mathcal A_{<r}$ and the earlier ones, gives (a), using $1-x\ge e^{-1.1x}$.
+For (b) apply the second part of Lemma~\ref{lem:lll} to the levels $<r$:
+$\sum_{A\in\Gamma(B)}x_A\le|U|/32$, so
+$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.2|U|/32}\le e^{|U|/2}$.
+\end{proof}
+
+\emph{Constants.}  $z=16$, $\delta=e^{-50}$ (level~$2$, as in
+Theorem~\ref{thm:crit}); $w=16$, $\rho=17e^{1/2}$ and
+$\delta_r=[4er\rho^r]^{-1}$ (levels $\ge3$).  For $\hat S\ge1$ put
+$\Lambda_3=6e\rho^3\hat S$, let $L_3$ be least with
+$4^{L_3+1}\ge400e^{\Lambda_3+3\hat S}$, and $t(\hat S)=\delta_3/(3(L_3+1))$.
+
+\begin{theorem}[Two-level minorant; proved]\label{thm:twolevel}
+Take a system with levels $2$ and $3$ only, satisfying \textup{(P$_3$)}, and
+\begin{enumerate}
+\item[(D2)] every level-$2$ vertex has level-$2$ degree $\le\delta$;
+\item[(D3)] for some $\hat S\ge\Sigma_3$, every level-$3$ vertex has degree
+$\le\delta_3$ and every pair of level-$3$ vertices has codegree
+$\le t(\hat S)$.
+\end{enumerate}
+Put $\Sigma=\Sigma_2+\hat S$.  There is a real combination $B$ of unit cells
+with $B\le F_2F_3$ pointwise, $E[F_2F_3-B]\le P(\mathcal A_{<4})/100$ (so
+$\mu=E\,B\ge0.99e^{-3\Sigma}$), $\log(M_1/\mu)\le C(\Sigma+1)$, every cell on at most
+$C(\Sigma+1)$ primes, and $|E[B\psi]|<\mu/4$ for every real primitive $\psi$ as
+in Theorem~\ref{thm:transfer}.  Here $C$ is absolute.
+\end{theorem}
+
+\begin{proof}
+\emph{Level~$3$.}  For the level-$3$ events let
+\[
+ B_3=B_{L_3}-4^{L_3+1}G^{\rm cov}_{L_3+1}\qquad\text{(Lemma~\ref{lem:cov});}
+\]
+pointwise $B_3\le F_3$ and $|F_3-B_3|\le2\cdot4^{L_3+1}G^{\rm cov}_{L_3+1}$.  Multiply the pointwise
+inequality in the proof of Lemma~\ref{lem:hypmom} by $F_2$ and take
+expectations; Lemma~\ref{lem:compare}(b) with $U=\pi(\mathcal C)$ gives
+\[
+ E[F_2\mathbf 1[\mathcal C]]\le P(\mathcal A_{<3})P(\mathcal C)e^{|\pi(\mathcal C)|/2},
+\]
+and $(1+w)e^{1/2}=\rho$.  By (D3),
+$D=\deg+3(L_3+1)\Delta^{(2)}\le2\delta_3$, which is $[2e\cdot3\rho^3]^{-1}$, so
+Lemma~\ref{lem:hypmom} (with $U_0=L_3+1$, no singles) gives
+$E[F_2G^{\rm cov}_{L_3+1}]\le16^{-L_3-1}P(\mathcal A_{<3})e^{\Lambda_3}$ and therefore
+\[
+ E[F_2(F_3-B_3)]\le2\cdot4^{-L_3-1}P(\mathcal A_{<3})e^{\Lambda_3}\le P(\mathcal A_{<3})e^{-3\hat S}/200\le P(\mathcal A_{<4})/200
+\]
+by Lemma~\ref{lem:compare}(a).  Without the tilt, $M_1(B_3)\le2e^{\Lambda_3}$ by
+Lemmas~\ref{lem:cov} and~\ref{lem:hypmom}, and every cell of $B_3$ lies on at
+most $3(L_3+1)$ primes.
+
+\emph{Level~$2$, cell by cell.}  Write $B_3=\sum_ic_i\mathbf 1_{\mathcal C_i}$ with cells
+$\mathcal C_i$ on prime sets $P_i$.  If $\mathcal C_i$ realises a level-$2$ single at a prime of
+$P_i$, or both ends of a level-$2$ edge inside $P_i$, then $F_2=0$ on $\mathcal C_i$;
+put $\beta_i=\alpha_i=0$.  Otherwise, on $\mathcal C_i$, $F_2$ equals the void
+indicator $F_2^{(i)}$ of the \emph{conditioned} level-$2$ system on
+$\mathcal P\setminus P_i$: the original singles and edges there, plus the induced
+singles $\{w:\{v,w\}\text{ an edge},\ v\text{ realised by }\mathcal C_i\}$, of total
+mass $\le\delta|P_i|$; degrees remain $\le\delta$.  Lemmas~\ref{lem:pointwise},
+\ref{lem:meanmass} and~\ref{lem:pseudo} give, with
+$\Lambda_2=16(S_1+3\delta(L_3+1))+16e^{98}S_2$ and every $L$, functions
+$B^{(i)}_L$, $G^{(i)}_{L+1}$ with $|B^{(i)}_L-F_2^{(i)}|\le4^{L+1}G^{(i)}_{L+1}$,
+$E\,G^{(i)}_{L+1}\le16^{-L-1}e^{\Lambda_2}$ and $M_1(B^{(i)}_L)\le e^{\Lambda_2}$.  Let
+$L_2$ be least with $4^{L_2+1}\ge800e^{\Lambda_2+\Lambda_3+3\Sigma}$, put
+$\beta_i,\alpha_i=B^{(i)}_{L_2}\mp4^{L_2+1}G^{(i)}_{L_2+1}$ (so
+$\beta_i\le F_2^{(i)}\le\alpha_i$), and
+\[
+ B=\sum_{c_i>0}c_i\beta_i\mathbf 1_{\mathcal C_i}-\sum_{c_i<0}|c_i|\alpha_i\mathbf 1_{\mathcal C_i}.
+\]
+Then $B\le\sum_ic_iF_2\mathbf 1_{\mathcal C_i}=F_2B_3\le F_2F_3$.  As $\beta_i,\alpha_i$ do
+not depend on the coordinates in $P_i$,
+\begin{align*}
+ E[F_2F_3-B]&\le E[F_2(F_3-B_3)]+\sum_i|c_i|P(\mathcal C_i)\,2\cdot4^{-L_2-1}e^{\Lambda_2}\\
+ &\le\frac{P(\mathcal A_{<4})}{200}+\frac{e^{-3\Sigma}}{200}\le\frac{P(\mathcal A_{<4})}{100},
+\end{align*}
+since $P(\mathcal A_{<4})\ge e^{-3\Sigma}$.  Further
+$M_1(B)\le M_1(B_3)\cdot2e^{\Lambda_2}\le4e^{\Lambda_2+\Lambda_3}$, every cell lies
+on at most $3(L_3+1)+2(L_2+1)$ primes, and $L_3,\Lambda_3=O(\hat S+1)$,
+$\Lambda_2,L_2=O(\Sigma+1)$.
+
+\emph{Twist.}  As in Theorem~\ref{thm:crit}, $\mu_\psi=E[B\psi]$ and
+$|E[B\psi]|\le E[F-B]+|E[F\psi]|$ with $F=F_2F_3$.  For a prime $\ell_0\mid f$ let
+$\bar A'$ be the event that no event (of either level) avoiding $\ell_0$ occurs.
+Then $|E[F\psi]|\le P(\bar A'\cap\{\text{an event at }\ell_0\text{ occurs}\})$, and by
+Lemma~\ref{lem:lll} applied to the family defining $\bar A'$ (the rest of an
+event through $\ell_0$ meets at most two further primes, with neighbour product
+$\ge(1-1/96)^2$) this is at most $1.1\cdot P(\bar A')/192<0.01P(\bar A')$.  Hence
+$|\mu_\psi|<0.03P(\mathcal A_{<4})<\mu/4$.
+\end{proof}
+
+\emph{Pushing heavy sets down.}  Theorem~\ref{thm:twolevel} assumes small
+codegrees only for level~$3$, and only at the scale $t(\hat S)$, which depends
+on $\hat S$ alone.  Heavy pairs are moved into level~$2$, whose own
+truncation is unconstrained.
+
+\begin{lemma}[Proved]\label{lem:push}
+Start from one system of singles, edges and $3$-vertex hyperedges with masses
+$S_1,S_2,S_H$, in which every prime carries total mass $\le c_0$.  Let
+$\hat S\ge S_H$, $t=t(\hat S)$, and $c_0\le\delta\delta_3t/1728$.  Perform in
+order: \textup{(a)} every vertex of hyperedge-degree $>\delta_3$ becomes a
+single and the hyperedges through it are deleted; \textup{(b)} every vertex
+pair $O$ with codegree $\Delta_O>t$ becomes an edge \textup{(}merged with an
+existing edge if any\textup{)} and the hyperedges containing it are deleted;
+\textup{(c)} every vertex of edge-degree $>\delta$ becomes a single and the
+edges and hyperedges through it are deleted.  The result is a two-level system
+satisfying \textup{(P$_3$)}, \textup{(D2)} and \textup{(D3)} with this $\hat S$;
+if no event of it occurs, no original event occurs; and with $S_2^{(b)}$ the
+edge mass after \textup{(b)},
+\[
+ \Sigma_3\le S_H,\quad S_2^{(b)}\le S_2+3S_H/t,\quad
+ S_1^{\rm new}\le S_1+3S_H/\delta_3+2S_2^{(b)}/\delta .
 \]
 \end{lemma}
 
 \begin{proof}
-Use $1/\varphi(r)\ll\log\log T\cdot m/M$ with $m=m_\Pi$ and follow the proof of
-Lemma~\ref{lem:mass}: the involution preserves $m\mid4D+1$ because $m\mid M$;
-writing $D=sr'^2$, $A=sr'k$ with $r'\le k\le X$ gives $m\mid r'+k$; for fixed
-$(s,r')$ each $k$ determines $M$ and hence $m$, and $m\mid4sr'^2+1$.  So the
-sum is $\ll\log\log T\,(3+\Lc)\sum_{sr'^2\le X}\tau(4sr'^2+1)/(sr')$.
+Deletions only lower degrees and codegrees, so after \textup{(c)} the
+conditions (D2), (D3) hold (pushed pairs have codegree $0$).  Every deleted
+event contains a new single or edge, so it cannot occur when no new event
+occurs.  Markov's inequality, per prime: \textup{(a)} adds at most
+$w^{(3)}_\ell/\delta_3$, since $\sum_{v\text{ at }\ell}p(v)\deg(v)=w^{(3)}_\ell$;
+\textup{(b)} adds at most $\sum_{O\ni v\text{ at }\ell}P(O)\Delta_O/t=2w^{(3)}_\ell/t$;
+\textup{(c)} adds at most $w^{(2),(b)}_\ell/\delta$.  So the new per-prime total is
+at most $c_0(2+1/\delta_3+(1+2/t)(1+1/\delta))\le9c_0/(t\delta\delta_3)\le1/192$,
+which is (P$_3$).  The global bounds are the same sums over $\ell$, with
+$\sum_\ell w^{(3)}_\ell=3S_H$ and $\sum_\ell w^{(2)}_\ell=2S_2$.
+\end{proof}
+
+\begin{corollary}[Proved]\label{cor:crit3}
+Consider a congruence system of singles, edges and $3$-vertex hyperedges
+satisfying \textup{(I)} of Theorem~\ref{thm:crit}, with
+$\hat S\ge S_1+S_2+S_H$ and every prime carrying total mass
+$\le c_0(\hat S):=\delta\delta_3t(\hat S)/1728$.  Then there is a minorant $B$
+as in Theorem~\ref{thm:transfer}, with the twist condition, such that
+$\log(M_1/\mu)$ and the number of prime powers in each modulus are
+$\le C(\hat S^2+1)$.
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:push}, then Theorem~\ref{thm:twolevel} with
+$\Sigma\le S_1+3\hat S/\delta_3+(1+2/\delta)S_2^{(b)}+\hat S=O(\hat S/t)=O(\hat S^2+1)$;
+(I) transfers since $B\le F_2F_3\le\mathbf 1[\text{no original event}]$.
+\end{proof}
+
+\begin{theorem}[$k$-level minorant; proved]\label{thm:klevel}
+For every $k\ge3$ there are constants $C_k,A_k$ with the following property.
+Consider a congruence system of singles and hyperedges with $2,\dots,k$
+vertices satisfying \textup{(I)} of Theorem~\ref{thm:crit}, with total mass
+$\le\hat S$ $(\hat S\ge1)$ and every prime carrying total mass
+$\le c_k(\hat S):=\hat S^{-A_k}/C_k$.  Then there is a minorant $B$ as in
+Theorem~\ref{thm:transfer}, with the twist condition, such that
+$\log(M_1/\mu)$ and the number of prime powers in each modulus are at most
+$C_k\hat S^{A_k}$.
+\end{theorem}
+
+\begin{proof}
+Put events with $r$ vertices into level $r$ ($3\le r\le k$) and singles and
+edges into level~$2$.
+
+\emph{Step A (push-down, top to bottom).}  For $r=k,k-1,\dots,3$ in this order,
+let $\Sigma_r$ be the mass of level $r$ at the moment it is processed (it
+contains the sets pushed into it from above; later steps only delete events
+of level $\ge r$ or add events below, so $\Sigma_r$ stays an upper bound), and
+put
+\begin{gather*}
+ H_r=k\sum_{s>r}(L_s+1),\qquad \hat S_{\ge r}=\sum_{s\ge r}(\Sigma_s+1),\\
+ \Lambda_r=2er\rho^r(\Sigma_r+H_r+1),\qquad \mathfrak M_{r+1}=\prod_{s>r}4e^{\Lambda_s},\\
+ L_r=\min\{L:\ 4^{L+1}\ge200k\,\mathfrak M_{r+1}e^{H_r/2+\Lambda_r+3\hat S_{\ge r}}\},\\
+ N_r=r(L_r+1)+H_r .
+\end{gather*}
+Then: \textup{(a)} every vertex of level-$r$ degree $>\delta_r/2$ becomes a
+single; \textup{(b)} for $1\le j\le r-2$, every vertex set $O$ with $|O|=j+1$
+and $\Delta^{(r)}_O>\delta_r(4N_r)^{-j}/(2r)$ becomes an event of level $j+1$;
+every level-$r$ event containing a pushed vertex or set is deleted.  Finally,
+level-$2$ vertices of degree $>\delta$ become singles, deleting the events
+through them.  As in Lemma~\ref{lem:push}, no deleted event can occur when no
+remaining event occurs, and by Markov a set pushed from level $r$ carries
+per-prime mass $\le2^rw^{(r)}_\ell(4N_r)^j\,2r/\delta_r$ and total mass
+$\le2^r\Sigma_r(4N_r)^r\,2r/\delta_r$.
+
+\emph{The induction.}  (i) $\log\mathfrak M_{r+1}=\sum_{s>r}(\log4+\Lambda_s)$, and
+$\Lambda_r$, $H_r$, $\hat S_{\ge r}$ are linear in $\Sigma_r$ and in the earlier
+quantities $L_s,\Sigma_s$ ($s>r$); hence
+$L_r,N_r=O_k(1+\sum_{s\ge r}\Sigma_s+H_r)$, and inductively
+$L_r,N_r,H_r\le C\hat S^{A}$ once $\Sigma_s\le C\hat S^{A}$ for $s\ge r$, with
+$C,A$ depending on $k$ only.  (ii) The pushes from level $r$ add total mass
+$\le2^r\Sigma_r(4N_r)^r\,2r/\delta_r$ to the lower levels, and at every prime
+they add at most $2^r(4N_r)^r\,2r/\delta_r$ times the per-prime mass of level
+$r$; level-$2$ hub vertices add at most $1/\delta$ times the level-$2$ per-prime
+mass.  Starting from $\Sigma_k\le\hat S$ and per-prime masses $\le c_k(\hat S)$,
+after the $k-2$ steps every $\Sigma_r$ and $L_r,N_r,H_r$ is $\le C'_k\hat S^{A'_k}$,
+and every per-prime mass is $\le c_k(\hat S)\,C'_k\hat S^{A'_k}$, where
+$C'_k,A'_k$ depend on $k$ only (not on $c_k$).  (iii) Taking $A_k\ge A'_k$ and
+$C_k\ge64k\,C'_k$, the per-prime total is
+$\le\hat S^{A'_k-A_k}C'_k/C_k\le1/(64k)$, which is (P$_k$).
+
+\emph{Step B (composition, top level innermost).}  Let $B_{\ge k}$ be the
+minorant $B_{L_k}-4^{L_k+1}G^{\rm cov}_{L_k+1}$ of $F_k$.  Given
+$B_{\ge r+1}=\sum_ic_i\mathbf 1_{\mathcal C_i}$ with cells $\mathcal C_i$ on $P_i$,
+$|P_i|\le H_r$, form the level-$r$ system conditioned on $\mathcal C_i$: events
+meeting $P_i$ are realised, vanish, or lose their realised vertices, the last
+becoming \emph{induced} events of smaller support; identical induced events are
+merged (this changes neither the void indicator nor any bound below).  If an
+event is fully realised, put $\beta_i=\alpha_i=0$; otherwise let
+$\beta_i,\alpha_i=B_{L_r}\mp4^{L_r+1}G^{\rm cov}_{L_r+1}$ for the conditioned void
+indicator $F_r^{(i)}$, and put
+$B_{\ge r}=\sum_{c_i>0}c_i\beta_i\mathbf 1_{\mathcal C_i}-\sum_{c_i<0}|c_i|\alpha_i\mathbf 1_{\mathcal C_i}$.
+Level~$2$ is treated in the same way with
+Lemmas~\ref{lem:pointwise}--\ref{lem:pseudo}, at the least $L_2$ with
+$4^{L_2+1}\ge200k\,\mathfrak M_3e^{\Lambda_2+3\hat S_{\ge2}}$, where
+$\Lambda_2=16(S_1+\delta H_2)+16e^{98}S_2$ (induced singles have mass
+$\le\delta H_2$).  Finally $B=B_{\ge2}$.
+
+\emph{Conditioned codegrees.}  An induced event $e\setminus F'$ ($F'$ its realised
+fixed vertices) contains $O$ iff $e\supseteq O\cup F'$; there are at most
+$H_r\le N_r$ fixed vertices.  By (a) and (b), and $H_r/(4N_r)\le1/4$,
+\begin{gather*}
+ \Delta'_v\le\frac{\delta_r}2+\sum_{i\ge1}\frac{H_r^i\delta_r}{2r(4N_r)^i}\le\delta_r,\\
+ \Delta'_O\le\sum_{i\ge0}\frac{H_r^i\delta_r}{2r(4N_r)^{|O|+i-1}}\le\frac{\delta_r}{r(4N_r)^{|O|-1}}\quad(|O|\ge2).
+\end{gather*}
+As $r(L_r+1)\le N_r$, Lemma~\ref{lem:hypmom} applies with $U_0=L_r+1$:
+$\sum_j(rU_0)^j\Delta'^{(j+1)}\le\delta_r+\sum_{j\ge1}4^{-j}\delta_r/r\le2\delta_r=[2er\rho^r]^{-1}$.
+The induced events have mass at most
+$\sum_{i=1}^{r-1}\binom hi\max_{|F'|=i}\Delta^{(r)}_{F'}\le h\delta_r/2+\frac{\delta_r}{2r}\sum_{i\ge2}h^i(4N_r)^{1-i}\le h\delta_r$
+with $h\le H_r$ fixed vertices; so the conditioned masses are $\le\Sigma_r+H_r$,
+and the tilted moment is $\le e^{\Lambda_r}$.
+
+\emph{Errors.}  With the true lower indicators,
+\[
+ E[F_{<r}B_{\ge r}]\ge E[F_{<r}F_rB_{\ge r+1}]-\sum_i|c_i|\,E\big[F_{<r}\mathbf 1_{\mathcal C_i}|\beta_i/\alpha_i-F_r^{(i)}|\big],
+\]
+and by Lemma~\ref{lem:compare}(b), applied to $\mathcal C_i\cap\{\mathcal C\text{ occurs}\}$ on
+$P_i\cup\pi(\mathcal C)$, the last expectation is at most
+$2\cdot4^{L_r+1}P(\mathcal A_{<r})P(\mathcal C_i)e^{|P_i|/2}16^{-L_r-1}e^{\Lambda_r}$.
+Since $M_1(B_{\ge r+1})\le\mathfrak M_{r+1}$ (each level multiplies the mass by
+$\le4e^{\Lambda_s}$), the choice of $L_r$ and Lemma~\ref{lem:compare}(a) bound the sum
+by $P(\mathcal A_{<r})e^{-3\hat S_{\ge r}}/(100k)\le P(\text{all})/(100k)$, where
+$P(\text{all})=E\prod_rF_r$; level~$2$ contributes the same amount in Haar
+measure.  Telescoping from $r=2$ to $r=k$ gives $B\le\prod_rF_r$ pointwise and
+$E[\prod_rF_r-B]\le P(\text{all})/100$, so
+$\mu\ge0.99P(\text{all})\ge0.99e^{-3\hat S_{\ge2}}$ and $M_1(B)\le\mathfrak M_2$.  The
+twist is handled as in Theorem~\ref{thm:twolevel}: the rest of an event through
+$\ell_0$ meets at most $k-1$ further primes, and (P$_k$) makes the conditional
+factor $\le1.1$.  All quantities are $\le C_k\hat S^{A_k}$.
+\end{proof}
+
+\begin{remark}[Why levels are needed; proved for the stated lower bound]\label{rem:hubs}
+Every atom is $(M,D)=(4sab-1,sa^2)$ with $s$ squarefree, and its class is
+$-4D\equiv-a/b\equiv-4sa^2\equiv-1/(4sb^2)\pmod M$.  Fixing two of $s,a,b$ and
+letting the third run over a progression gives a class which is the same
+rational at every $M$ in a progression modulo $4sa$, $4sb$ or $4ab$.  For
+$y=T^\theta$, $\theta<1/3$, and distinct primes $\ell_1,\ell_2\in(y,T^{1/3}]$,
+the prime number theorem in progressions shows that such a pair of vertices
+has codegree $\ge(\log(1/(3\theta))-o(1))/\varphi(4n)$, $n=sa,sb,ab$
+respectively (take $M=\ell_1\ell_2\ell_3$ with $\ell_3\in(y,T^{1/3}]$ in one class
+mod $4n$).  \emph{Assessment} (not proved, and not used): the number of such
+classes with $\varphi(4n)\le X$ should grow like $X\log X$, so that codegrees
+$\le1/L$ could not be enforced inside one truncation of level $L\asymp$ total
+mass, removing the heavy pairs costing more than $L$.  In
+Theorem~\ref{thm:klevel} these pairs become level-$2$ edges, their vertices
+have level-$2$ degree $\asymp1$ and become singles, and their cost enters only
+$L_2$.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:main}
+
+For a set $\Pi$ of primes and $M\le T$, $M\equiv3\pmod4$, write $M=m_\Pi r_\Pi$ with
+$m_\Pi$ the $\Pi$-part.  An atom $(M,D)$, $D\mid A_M^2$, \emph{survives} $\Pi$ if
+$m_\Pi\mid4D+1$ and $r_\Pi>1$; its Haar weight is $1/\varphi(r_\Pi)$.  Put
+\[
+ S^*=\sum_{(M,D)}\max_\Pi\frac{\mathbf 1[(M,D)\text{ survives }\Pi]}{\varphi(r_\Pi)},
+\]
+the sum over all atoms with $M\le T$ and the maximum over all sets $\Pi$ of primes.
+
+\begin{lemma}[Proved]\label{lem:qmass}
+$S_{\rm tot}(\Pi):=\sum_{\text{atoms surviving }\Pi}1/\varphi(r_\Pi)\le S^*\le\exp(O(\log T/\log\log T))$
+for every $\Pi$.
+\end{lemma}
+
+\begin{proof}
+The first inequality is trivial.  If $(M,D)$ survives $\Pi$ then $m_\Pi$
+divides $g=\gcd(M,4D+1)$, so $1/\varphi(r_\Pi)\ll\log\log T\cdot g/M$.  Follow
+the proof of Lemma~\ref{lem:mass} with $m=g$: the involution $D\mapsto A^2/D$
+preserves $g$; writing $D=sr'^2$, $A=sr'k$ with $r'\le k\le X$ gives
+$g\mid r'+k$; for fixed $(s,r')$ each $k$ determines $M$, $D$ and hence $g$, and
+$g\mid4sr'^2+1$.  So $S^*\ll\log\log T\,(3+\Lc)\sum_{sr'^2\le X}\tau(4sr'^2+1)/(sr')$.
+\end{proof}
+
+\begin{lemma}[Iterated quarantine; proved]\label{lem:iterq}
+Let $2\le z\le T$, put $\kappa=\lfloor\log T/\log z\rfloor$, let $0<c_0\le1$, and let
+$w_\ell(\Pi)$ be the Haar mass of the distinct events surviving $\Pi$ whose
+rough part is divisible by $\ell$.  Starting from $\Pi_0=\{\ell\le z\}$,
+repeatedly add to $\Pi$ every prime $\ell>z$ with $\ell\notin\Pi$ and
+$w_\ell(\Pi)>c_0$.  The process stops at some $\Pi=\Pi_0\cup\mathcal B$ with $|\mathcal B|\le\kappa S^*/c_0$, and
+then every prime $\ell>z$ outside $\Pi$ has $w_\ell(\Pi)\le c_0$.
+\end{lemma}
+
+\begin{proof}
+If $\ell$ is added at some stage $\Pi_i$, then $c_0$ is less than the sum of
+$1/\varphi(r_{\Pi_i})$ over atoms with $\ell\mid r_{\Pi_i}$, and each term is at most
+the atom's contribution to $S^*$.  Summing over the added primes, an atom is
+counted at most once for each of its at most $\kappa$ prime factors $>z$.
 \end{proof}
 
 \begin{proposition}[Proved]\label{prop:hmin}
-For all large $T$, with $y=T^{1/3}\exp(2\Lc/\log\Lc)$, there are $Q$ with $840\mid Q$ and $\log Q\le5y$,
-and a minorant $B$ as in Theorem~\ref{thm:transfer} with $\mu>0$, the twist
-condition, and $\log\max d_i$, $\log(M_1/\mu)$ both at most
-$\exp(O(\Lc/\log\Lc))$.  In particular $H_{\min}(\theta)$
-\textup{(}Hypothesis~\ref{hyp:min}\textup{)} holds for every $\theta\ge1/3$.
+Let $k\ge3$ and $y=T^{1/k}\exp(2\Lc/\log\Lc)$.  For all large $T$ there are
+$Q$ with $840\mid Q$ and $\log Q\le(k+1)y$, and a minorant $B$ as in
+Theorem~\ref{thm:transfer} with $\mu>0$, the twist condition, and
+$\log\max d_i$, $\log(M_1/\mu)$ both at most $\exp(O_k(\Lc/\log\Lc))$.  In
+particular $H_{\min}(\theta)$ \textup{(}Hypothesis~\ref{hyp:min}\textup{)} holds
+for every $\theta>0$.
 \end{proposition}
 
 \begin{proof}
-Let $\tau^*=\max_{n\le T+2}\tau(n)$, so that
-$\tau^*\le\exp((\log2+o(1))\Lc/\log\Lc)$, and
-\[
- y=T^{1/3}\exp(2\Lc/\log\Lc),\qquad\Pi_0=\{\ell\le y\}.
-\]
-For $\ell>y$ let $g^{(0)}_\ell$ be the Haar measure of the classes mod
-$\ell^{e_\ell}$ ($e_\ell$ maximal with $\ell^{e_\ell}\le T$) hit by atoms surviving
-$\Pi_0$ with $r_{\Pi_0}\in\{\ell,\ell^2\}$, and let
-$\mathcal B=\{\ell>y:\ g^{(0)}_\ell>1/64\}$, so $|\mathcal B|\le64S_{\rm tot}(\Pi_0)$.  Put
-$\Pi=\Pi_0\cup\mathcal B$, $Q=\lcm(24,\ \ell^{e_\ell}:\ \ell\in\Pi)$, and
-$\mathcal P=\{y<\ell\le T\}\setminus\mathcal B$.  Every atom surviving $\Pi$ has
-$r_\Pi\le T$ with all prime factors in $\mathcal P$, hence $>T^{1/3}$, so
-$r_\Pi\in\{\ell,\ell^2,\ell\ell'\}$: it contributes the class $-4D\bmod r_\Pi$ to
-the single $S_\ell$ (lifted mod $\ell^{e_\ell}$) or the edge $-4D\bmod\ell\ell'$.
+Put $k'=\max(k-1,3)$, $\hat S=S^*+1$ and $c_0=c_{k'}(\hat S)$
+(Theorem~\ref{thm:klevel}); then $1/c_0=\hat S^{O_k(1)}$.  Apply
+Lemma~\ref{lem:iterq} with $z=y$; as $y^k>T$, every $M\le T$ has at most $k-1$
+prime factors $>y$, so $\kappa\le k-1$ and $|\mathcal B|\le(k-1)S^*/c_0=\hat
+S^{O_k(1)}$.  Put $Q=\lcm(24,\ \ell^{e_\ell}:\ \ell\in\Pi)$ ($e_\ell$ maximal with
+$\ell^{e_\ell}\le T$) and $\mathcal P=\{y<\ell\le T\}\setminus\mathcal B$.  Every atom
+surviving $\Pi$ has rough part $r_\Pi\le T$ with all prime factors in $\mathcal P$,
+at most $k-1$ of them counted with multiplicity; it gives the event
+$n\equiv-4D\pmod{r_\Pi}$, which we write, after lifting each class mod $\ell^a$ to
+its classes mod $\ell^{e_\ell}$, as a union of singles or hyperedges on at most
+$k-1\le k'$ vertices; identical events are merged.
 
 \emph{(I).}  Let $n\equiv1\pmod Q$ and $M\le T$, $M\equiv3\pmod 4$.  Every
 $\ell^v\Vert M$ with $\ell\in\Pi$ has $\ell^v\le T$, so $m_\Pi\mid Q$.  If $r_\Pi=1$,
 Lemma~\ref{lem:one} applies.  If $n\equiv-4D\pmod M$ with $D\mid A_M^2$, then
-$m_\Pi\mid4D+1$, and reducing mod $r_\Pi$ shows that a single or edge occurs.
+$m_\Pi\mid4D+1$, and reducing mod $r_\Pi$ shows that an event occurs.
 Conclude with Lemma~\ref{lem:atoms}.
 
-\emph{(W).}  An edge at $\ell$ comes from $M=m\ell\ell'$ with $m\le T/(\ell\ell')$,
-and each $M$ carries $\le\tau^{*2}$ atoms; so
-$w_\ell\le\sum_{\ell'>y}(T/(\ell\ell'))\tau^{*2}\cdot4/(\ell\ell')\le8\tau^{*2}T/y^3
-=\exp((2\log2-6+o(1))\Lc/\log\Lc)$.
+\emph{Masses.}  Lifting preserves mass and merging lowers it, so every free
+prime carries total mass $\le w_\ell(\Pi)\le c_0$, and the total mass is
+$\le S_{\rm tot}(\Pi)\le S^*<\hat S$ (Lemma~\ref{lem:qmass}).  Finally
+$\log Q\le(\pi(y)+|\mathcal B|)\Lc+\log24\le(k+1)y$, since $\Lc/\log y\to k$.
 
-\emph{(G).}  An atom with $r_\Pi\in\{\ell,\ell^2\}$ either survives $\Pi_0$ with the
-same rough part (weight $\le1/64$ in total) or has $M=mb\ell$ with $b\in\mathcal B$
-($b\ell^2,b^2\ell>y^3>T$).  The latter add at most
-$2|\mathcal B|\tau^{*2}T/y^3=\exp((3\log2-6+o(1))\Lc/\log\Lc)$.  So $g_\ell\le1/32$.
-
-\emph{Sizes.}  $\Sigma\le S_{\rm tot}(\Pi)=\exp(O(\Lc/\log\Lc))$ by
-Lemma~\ref{lem:qmass}, and $\log Q\le(\pi(y)+|\mathcal B|)\Lc+\log24\le5y$.
-
-Theorem~\ref{thm:crit} now gives $B$ with
-$K=1+\log(M_1/\mu)$ and $\log\max d_i$ both at most $\exp(O(\Lc/\log\Lc))$.
-The conditions of Hypothesis~\ref{hyp:min} hold for every $\theta\ge1/3$ and
-$\varepsilon>0$, since $\exp(O(\Lc/\log\Lc))=T^{o(1)}$.
+Theorem~\ref{thm:klevel} with $k'$ now gives $B$ with $K=1+\log(M_1/\mu)$ and
+$\log\max d_i$ both at most $C_{k'}\hat S^{A_{k'}}\Lc$, which is
+$\exp(O_k(\Lc/\log\Lc))$ by
+Lemma~\ref{lem:qmass}.  As $\exp(O_k(\Lc/\log\Lc))=T^{o(1)}$, the conditions of
+Hypothesis~\ref{hyp:min} hold for every $\theta>1/k$, and $k$ is arbitrary.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Take $Q$, $B$, $y$ from Proposition~\ref{prop:hmin} and put $K=1+\log(M_1/\mu)$.
-As in Theorem~\ref{thm:Hmin}, adjoin to $Q$ a prime $\ell_0\in(R,2R]$,
-$R=\max(T,\max d_i)$; then $\log Z\le6y$ and Theorem~\ref{thm:transfer} gives a
-prime $p\equiv1\pmod{Q\ell_0}$ with $W(p)>T$ and
-$\log p\le C_1K\max(\log Z,K)\le T^{1/3}\exp(O(\Lc/\log\Lc))$.  It is hard as
+Fix $k\ge3$ and take $Q$, $B$, $y$ from Proposition~\ref{prop:hmin}; put
+$K=1+\log(M_1/\mu)$.  As in Theorem~\ref{thm:Hmin}, adjoin to $Q$ a prime
+$\ell_0\in(R,2R]$, $R=\max(T,\max d_i)$; then $\log Z\le(k+2)y$ and
+Theorem~\ref{thm:transfer} gives a prime $p\equiv1\pmod{Q\ell_0}$ with $W(p)>T$ and
+$\log p\le C_1K\max(\log Z,K)\le T^{1/k}\exp(O_k(\Lc/\log\Lc))$.  It is hard as
 $840\mid Q$, and $p>\ell_0>T$ gives infinitely many distinct primes.
-Inverting: if $\Lc\ge4\log\log p$ then $W(p)>T\ge(\log p)^4$; otherwise
-$\Lc/\log\Lc\ll\log\log p/\log\log\log p$, and
-$\Lc\ge3\log\log p-O(\log\log p/\log\log\log p)$.  All inputs are effective.
+Inverting: if $\Lc\ge(k+1)\log\log p$ then $W(p)>T\ge(\log p)^{k+1}$;
+otherwise $\Lc/\log\Lc\ll_k\log\log p/\log\log\log p$, and
+$\Lc\ge k\log\log p-O_k(\log\log p/\log\log\log p)$.  All inputs are effective.
 \end{proof}
 
-The constants are astronomically lossy ($\delta=e^{-50}$ in
-Theorem~\ref{thm:crit}); the statement is purely asymptotic.  Exponent~$3$
-uses $y\ge T^{1/3+o(1)}$ twice: for the crude per-prime bounds (W), (G), and to
-ensure that all events have at most two primes.
+For $k=3$ there are no hyperedges, level~$3$ is empty, and the argument is
+Theorem~\ref{thm:crit} applied after the quarantine with $c_0=\delta/32$ (its
+hypotheses (G), (W) follow from $w_\ell(\Pi)\le c_0$); this is the exponent-$3$
+case with an absolute constant.  The constants are astronomically lossy
+($\delta=e^{-50}$, $\delta_r=[4er\rho^r]^{-1}$, and $A_k$ may be very large);
+all statements are asymptotic for fixed $k$, and we claim no rate for $k=k(T)\to\infty$.
 
 \section{Limits of the method}\label{sec:limits}
 
@@ -962,7 +1390,7 @@ $\ell_1\ell_2,3\ell_1\ell_2$ is $\equiv3\pmod4$ and $\le T$.
 
 \subsection{The hypothesis \texorpdfstring{$H_{\min}$}{H\_min} and the hub obstruction}
 
-\begin{hypothesis}[$H_{\min}(\theta)$; proved for $\theta\ge1/3$ \textup{(}Proposition~\ref{prop:hmin}\textup{)}, open for $\theta<1/3$]\label{hyp:min}
+\begin{hypothesis}[$H_{\min}(\theta)$; proved for every $\theta>0$ \textup{(}Proposition~\ref{prop:hmin}\textup{)}]\label{hyp:min}
 For every $\varepsilon>0$ and large $T$ there are $Q$ with $840\mid Q$,
 $\log Q\le T^{\theta+\varepsilon}$, and a minorant $B$ as in
 Theorem~\ref{thm:transfer} with $\log\max d_i\le T^{\theta+\varepsilon}$,
@@ -980,9 +1408,9 @@ hypotheses and forces $p>T$.  Theorem~\ref{thm:transfer} gives
 $\log p\le T^{\theta+2\varepsilon+o(1)}$.
 \end{proof}
 
-$H_{\min}$ is a purely combinatorial statement about congruences.  The
-Proposition~\ref{prop:hmin} (via Theorem~\ref{thm:crit}) establishes it for
-every $\theta\ge1/3$ (indeed with $T^{o(1)}=\exp(O(\log T/\log\log T))$).  For
+$H_{\min}$ is a purely combinatorial statement about congruences.
+Proposition~\ref{prop:hmin} (via Theorem~\ref{thm:klevel}) establishes it for
+every $\theta>0$, indeed with $T^{o(1)}=\exp(O_\theta(\log T/\log\log T))$.  For
 $\theta<1/2$ the residual atoms involve several free primes, and plain
 event-level Bonferroni truncation over the raw atom list fails:
 
@@ -1015,11 +1443,14 @@ number of events.  On the hub configuration of its proof, $r^2$ events fire on
 $2r$ primes; the error of the support truncation (Lemma~\ref{lem:pointwise}) is
 at most $\binom{4r}{L}\le16^r$ there, against probability $(2y)^{-2r}$.
 
-\emph{Below $\theta=1/3$.}  The proof of Theorem~\ref{thm:main} uses
-$y\ge T^{1/3+o(1)}$ for the crude per-prime bounds (W), (G) and to ensure that
-events involve at most two primes.  For smaller $\theta$ one would need a
-per-prime mass bound of the kind discussed in \S\ref{sec:haar} and a hypergraph
-version of Lemma~\ref{lem:pseudo}; we have neither.
+\emph{Below $\theta=1/3$.}  Support truncation alone is not enough once
+events involve three or more primes: Lemma~\ref{lem:hypmom} needs codegrees
+$\lesssim1/L$, and the small-height rational classes of
+Remark~\ref{rem:hubs} violate this inside a single truncation.  The per-prime
+conditions are supplied by the iterated quarantine (Lemma~\ref{lem:iterq}),
+and the codegree conditions by the level structure of
+Theorem~\ref{thm:klevel}, in which heavy sets are moved to lower levels whose
+truncation is independent of the codegree thresholds above them.
 
 \section{The slice parameter}\label{sec:typeI}
 
@@ -1129,17 +1560,17 @@ certify; the random model predicts $\max_{p\le x}n_p\asymp\log x\log\log x$
 (statements as quoted in \cite{LW}).
 
 \begin{corollary}[Proved modulo Theorem~\ref{thm:TZ}]\label{cor:joint}
-For infinitely many hard primes $p$, jointly $W(p)\ge(\log p)^{3-o(1)}$ and
-$\ckmin(p)\ge(\log p)^{1-o(1)}$.
+For every fixed $k\ge3$ and infinitely many hard primes $p$, jointly
+$W(p)\ge(\log p)^{k-o(1)}$ and $\ckmin(p)\ge(\log p)^{1-o(1)}$.
 \end{corollary}
 
 \begin{proof}
-The primes $p$ of Theorem~\ref{thm:main} satisfy $p\equiv1\pmod Q$, where $24\mid Q$
-and every prime $\ell\le y=T^{1/3}\exp(2\Lc/\log\Lc)$ divides $Q$
+The primes $p$ of Theorem~\ref{thm:main} (for this $k$) satisfy $p\equiv1\pmod Q$,
+where $24\mid Q$ and every prime $\ell\le y=T^{1/k}\exp(2\Lc/\log\Lc)$ divides $Q$
 (Proposition~\ref{prop:hmin}).  So $p\equiv1\pmod{24}$ and $(p/\ell)=1$, hence
 $(\ell/p)=1$ by reciprocity ($p\equiv1\bmod4$), for every odd $\ell\le y$.
-Lemma~\ref{lem:np} gives $\ckmin(p)>y$, and $\log p\le T^{1/3}\exp(O(\Lc/\log\Lc))$
-gives $y\ge(\log p)^{1-o(1)}$.
+Lemma~\ref{lem:np} gives $\ckmin(p)>y$, and $\log p\le T^{1/k}\exp(O_k(\Lc/\log\Lc))=y\exp(O_k(\Lc/\log\Lc))$
+with $\Lc\asymp_k\log\log p$ gives $y\ge(\log p)^{1-o(1)}$.
 \end{proof}
 
 \section{The Haar side}\label{sec:haar}
@@ -1175,7 +1606,11 @@ $m\mid\gcd(4D+1,M)$, hence $m\mid r'+k$.
 (Using \cite[Prop.~1.4]{ET} on dyadic blocks one gets
 $S_{\rm tot}\ll(\log T)^4\log\log T$; this is not needed below.)
 
-\begin{proof}[Proof of Theorem~\ref{thm:haar-intro}]
+\begin{theorem}[Warm-up; proved]\label{thm:haar-intro}
+$\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
+\end{theorem}
+
+\begin{proof}
 Fix $\varepsilon>0$, put $y=T^{1/3+\varepsilon}$ and $z=y$.  Every rough part is
 $\ell$, $\ell^2$ or $\ell_1\ell_2$ (as $y^3>T$).  Use the independent coordinates
 $X_\ell=n\bmod\ell^{e_\ell}$.  Single atoms form forbidden sets $G_\ell$ of
@@ -1245,9 +1680,10 @@ argument.  We do not know how to prove the per-prime hypothesis.
 \end{remark}
 
 For $y=T^{1/3+o(1)}$ the Haar bound of Theorem~\ref{thm:haar-intro} has a
-prime-side counterpart: Theorem~\ref{thm:main}, through the pointwise minorant
-of Theorem~\ref{thm:crit}.  The local lemma by itself does not provide a
-pointwise minorant.
+prime-side counterpart: the case $k=3$ of Theorem~\ref{thm:main}, through the
+pointwise minorant of Theorem~\ref{thm:crit}.  The local lemma by itself does
+not provide a pointwise minorant; the multilevel minorants of
+\S\ref{sec:multi} provide one for every $y=T^{\theta}$.
 
 \subsection*{Single-prime atoms and the Type~I variety}
 Following \cite[\S2]{ET}, let $\Sigma_I^n$ be the set of sextuples
@@ -1348,19 +1784,11 @@ Hence $\log(1/\delta^*(T))\le\exp(O(\log T/\log\log T))=T^{o(1)}$, and, modulo
 \end{theorem}
 
 \begin{proof}
-If $(M,D)$ survives $\Pi$ then $m_\Pi\mid g=\gcd(M,4D+1)$, so
-$1/\varphi(r_\Pi)\ll\log\log T\cdot g/M$; the proof of Lemma~\ref{lem:mass} with
-$m=g$ (the involution preserves $g$, $g\mid r'+k$, $g\mid4sr'^2+1$) bounds $S^*$
-as in Lemma~\ref{lem:globalmass}, giving $\exp(O(\log T/\log\log T))$, and
-$\ll(\log T)^4\log\log T$ by \cite[Prop.~1.4]{ET}.  Let $z=(\log T)^2$,
-$k=\lfloor\log T/\log z\rfloor$, $c_0=1/(8k)$, $\Pi_0=\{\ell\le z\}$, and let
-$w_\ell(\Pi)$ be the Haar mass of the distinct events surviving $\Pi$ whose
-rough part is divisible by $\ell$.  Repeatedly add to $\Pi$ every prime
-$\ell\notin\Pi$ with $w_\ell(\Pi)>c_0$.  If $\ell$ is added at some stage, $c_0$
-is less than the sum of the weights $1/\varphi(r_{\Pi})$ of atoms with
-$\ell\mid r_\Pi$; each atom has at most $k$ primes above $z$ and weight at most
-its contribution to $S^*$, so at most $kS^*/c_0$ primes are added.  At the end
-every free prime has $w_\ell\le c_0$, every event has at most $k$ free primes,
+Lemma~\ref{lem:qmass} gives $S^*\le\exp(O(\log T/\log\log T))$, and its proof
+with \cite[Prop.~1.4]{ET} gives $S^*\ll(\log T)^4\log\log T$.  Let
+$z=(\log T)^2$, $k=\lfloor\log T/\log z\rfloor$, $c_0=1/(8k)$, and apply
+Lemma~\ref{lem:iterq}: at most $kS^*/c_0$ primes are added, and at the end
+every free prime has $w_\ell\le c_0$ and every event has at most $k$ free primes,
 and the local lemma with $x_E=2P(E)$ applies
 ($\sum_{E'\sim E}x_{E'}\le2kc_0=1/4$), giving probability
 $\ge\exp(-4S^*)$ of no event.  The class of one modulo the quarantined prime
@@ -1369,10 +1797,11 @@ powers costs $\le(\pi(z)+8k^2S^*)\log T$.
 
 This improves Theorem~\ref{thm:haar-intro}, and it makes the per-prime
 hypothesis of Lemma~\ref{lem:ppl} and of Remark~\ref{rem:pp} unnecessary.
-On the prime side it supplies the per-prime conditions of
-Theorem~\ref{thm:crit}, at the cost of $T^{o(1)}$ further quarantined primes.
-Below $\theta=1/3$ the remaining obstacle there is the control of pair
-codegrees (Assessment).  For $T\le10^6$ the iteration adds a few hundred
+On the prime side the same quarantine (Lemma~\ref{lem:iterq}) supplies the
+per-prime conditions of Theorems~\ref{thm:crit} and~\ref{thm:klevel}, at the
+cost of $T^{o(1)}$ further quarantined primes, and the levels of
+Theorem~\ref{thm:klevel} handle the codegrees, so both sides reach
+$T^{o(1)}$.  For $T\le10^6$ the iteration adds a few hundred
 primes in a single round, and the resulting certificates give
 $\log(1/\delta^*(10^6))\le3.6\cdot10^3$ (EVIDENCE).
 
@@ -1381,15 +1810,21 @@ $\log(1/\delta^*(10^6))\le3.6\cdot10^3$ (EVIDENCE).
 
 \begin{itemize}
 \item Proved: Lemmas~\ref{lem:atoms}--\ref{lem:mass}, \ref{lem:closed}--\ref{lem:hub},
-\ref{lem:qmass}, \ref{lem:genus}--\ref{lem:np}, \ref{lem:struct}, \ref{lem:globalmass},
-\ref{lem:ppl}, \ref{lem:dict}; Lemma~\ref{lem:lll} (classical); Theorem~\ref{thm:crit};
-Proposition~\ref{prop:hmin}, i.e.\ $H_{\min}(\theta)$ for $\theta\ge1/3$;
-Propositions~\ref{prop:complete}, \ref{prop:ceiling}, \ref{prop:bonf}, \ref{prop:QR};
-Corollary~\ref{cor:exactly}; Theorem~\ref{thm:haar-intro} (with the classical
-local lemma and divisor bound).
+\ref{lem:cov}, \ref{lem:hypmom}, \ref{lem:compare}, \ref{lem:push},
+\ref{lem:qmass}, \ref{lem:iterq}, \ref{lem:genus}--\ref{lem:np}, \ref{lem:struct}, \ref{lem:globalmass},
+\ref{lem:ppl}, \ref{lem:dict}; Lemma~\ref{lem:lll} (classical);
+Theorems~\ref{thm:crit}, \ref{thm:twolevel}, \ref{thm:klevel};
+Corollary~\ref{cor:crit3}; Proposition~\ref{prop:hmin}, i.e.\ $H_{\min}(\theta)$
+for every $\theta>0$; Propositions~\ref{prop:complete}, \ref{prop:ceiling},
+\ref{prop:bonf}, \ref{prop:QR}; Corollary~\ref{cor:exactly};
+Theorems~\ref{thm:haar-intro} and~\ref{thm:haar-main} (with the classical local lemma and divisor
+bound); the lower bound in Remark~\ref{rem:hubs} (with the prime number theorem
+in progressions).
 \item Proved modulo Thorner--Zaman \cite{TZ} (with the McCurley statement quoted there):
 Lemma~\ref{lem:severe}, Theorems~\ref{thm:transfer}, \ref{thm:main}, \ref{thm:two},
-\ref{thm:Hmin}, Corollary~\ref{cor:joint}; hence the falsity of ``$W(p)\le(\log p)^A$ for all large $p$'' for every $A<3$.
+\ref{thm:Hmin}, Corollary~\ref{cor:joint}; hence the falsity of ``$W(p)\le(\log p)^A$
+for all large $p$'' for every $A$, and $\log L_h(T)\le T^{o(1)}$ for the least hard
+prime $L_h(T)$ with $W>T$.
 \item Proved modulo Lau--Wu \cite[Prop.~5.1]{LW}: Theorem~\ref{thm:slice}.
 \item Proved modulo Chang \cite[Cor.~11]{Chang}: the $5/8$ record
 (Remark~\ref{rem:record}).
@@ -1399,9 +1834,10 @@ form modulo \cite[Prop.~1.4]{ET}.
 Proved implication: Theorem~\ref{thm:eta}.
 \item Conditional on the per-prime hypothesis, and proved modulo
 \cite[Prop.~1.4]{ET}: the polylogarithmic Haar bound of Remark~\ref{rem:pp}.
-\item Open: $H_{\min}(\theta)$ for $\theta<1/3$; an unconditional
-polylogarithmic Haar bound; any bound $W(p)>(\log p)^{3+\delta}$ or
-$\ckmin(p)>(\log p)^{1+\delta}$ infinitely often.
+\item Open: an explicit rate for $W(p)$ beyond every fixed power of $\log p$
+(e.g.\ $W(p)\ge\exp((\log\log p)^{1+\delta})$ infinitely often); an
+unconditional polylogarithmic Haar bound; $\ckmin(p)>(\log p)^{1+\delta}$
+infinitely often.
 \end{itemize}
 Nothing here bears on the truth of the Erd\H{o}s--Straus conjecture: a prime with
 large $W(p)$ or $\ckmin(p)$ may well have other representations.
