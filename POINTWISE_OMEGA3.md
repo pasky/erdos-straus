@@ -6,7 +6,30 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 survival, Settings 1.0/3.0/10.0, `Δ_O`, Lemmas 1.2, 10.1, 10.2, Theorem 10.3,
 Lemma 11.2, Prop 11.4, §11.4 (G_pair).
 
-**Status: work in progress (checkpoint 0).**
+**Results at a glance (checkpoint 1; not yet reviewed).**
+
+1. **Theorem 4.3** (PROVED modulo Thorner–Zaman, via PO Thm 4.1;
+   effective): `W(p) ≥ (log p)^4·exp(−C log log p/log log log p)` for
+   infinitely many Mordell-hard p. So H_MIN(θ) holds for θ>1/4, and
+   `H_MOD(A)` is refuted for `A<4`.
+2. **Theorem 5.2** (same status): for every A, `W(p)>(log p)^A` for
+   infinitely many hard p. Equivalently `log L_h(T)≤T^{o(1)}`, and
+   H_MIN(θ) holds for every θ>0. The prime side now matches the Haar
+   side (O2 Thm 11.3).
+3. **G_pair is not a genuine barrier.** It was an artefact of using
+   *one* truncation level for all events.
+   * **Theorem 3.2** (two-level minorant, PROVED): events of support ≤2
+     form an outer graph-level sieve whose truncation is free.
+   * The hyperedge level is composed inside it. Its truncation and its
+     codegree threshold depend only on its *own* mass. This uses the
+     conditional local lemma (Lemma 3.1).
+   * Heavy pairs and hub vertices are pushed down by Markov (Lemma 3.3).
+     No upper bound on pair codegrees is used anywhere.
+4. **Theorem 1.1** (decoupling, PROVED): the special case for prime-local
+   quarantines, by a Brun pure sieve.
+5. **§2** (PROVED + EVIDENCE): atoms are triples `(s,a,b)`. There are
+   three hub families (`−4sa²`, `−1/(4sb²)`, `−a/b`), and the third is
+   new. The heavy pairs are exactly the small-height rationals.
 
 ## 0. Plan and the two observations
 
