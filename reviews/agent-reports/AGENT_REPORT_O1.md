@@ -163,3 +163,43 @@ regime directly: a "binary Prop 2.4", perhaps by symmetrising over the
 residue alphabets (the structure is one-hot per prime), or via the Λ²
 collision functional with a tilted σ̃ as an intermediate (H_MS^{Sel}
 first).
+
+# Checkpoint 3 — Conj 6.4 / Λ² route (§6.6)
+
+**Outcome: reduced further; no new full theorem.** Stopped for context.
+
+* **Lemma 6.6 (PROVED, short): fibre tilting for Λ².** For any fibre
+  coordinates F (charged primes allowed) and any set R of nonempty fibres,
+  `saving(g²) ≤ αλ/2 + log(Q_F/|R|) + avg_{c∈R} Ξ_c(α)`. The proof chooses
+  σ̃ with fibre weights `∝ e^{−Ξ_c}` and uses monotonicity of `⟨h,T_ρh⟩`
+  in ρ. This removes ET's fibre-variance term and the "fibrewise alone
+  does not suffice" obstruction, since an average replaces a maximum.
+* **Reduction 6.7 (SKETCH):** H_MS^{Sel} (the Λ² cap
+  `λ^{3/4}(log λ)^{O(1)}` for all ℛ(M), any B, twins included, no windows)
+  follows from three steps:
+  1. empty-fibre density with F = primes ≤ λ^C, via the QR base plus the
+     local lemma as in POINTWISE_OMEGA2 Thm 3.1 step 2;
+  2. good fibres, via Markov on second moments, with the conditional local
+     lemma for inflation;
+  3. **Conjecture 6.8 (OPEN): sparse noise stability.** For independent
+     coordinates with small incident weights (plus a codegree condition for
+     arity ≥ 3), `log P(A∩A′)/P(A)²` is at most `(1+O(θ))` times the
+     diagonal sum. Its fibre average is `≪ α^{−3}` by ET Lemma 3.1, for
+     every modulus shape.
+* **POINTWISE_OMEGA2 transfer:**
+  * Lemma 2.2 (hub quarantine) is our Lemma 6.3.
+  * Lemma 2.1 (pseudoforest bound) is exactly the tree-counting estimate a
+    Kotecký–Preiss expansion needs for graph-type events. So the binary
+    case of 6.8 looks within reach. That gives the Λ² cap for families with
+    at most two large primes per fibre, twins included.
+  * The k-ary case meets PO2's codegree-hub obstruction (`−4D` families,
+    Prop 11.4).
+* **Tactic (ii), direct binary Prop 2.4 by symmetrising over residue
+  alphabets:** assessed, not attempted. Symmetrisation yields an annealed
+  (random-structure) bound and needs a transference for general majorants
+  that I did not find.
+
+**Recommended next step:** prove Conj 6.8 for |S(E)| ≤ 2 by a
+Kotecký–Preiss expansion, using PO2 Lemma 2.1 for convergence, then write
+out steps 1–2 of Reduction 6.7. That would give a proved Λ² cap with twins.
+General majorants would remain open via Conj 6.4.
