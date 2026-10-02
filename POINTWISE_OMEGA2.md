@@ -660,3 +660,83 @@ natural determining quantities.
 
 Beating 3/5 there is a genuine lattice-point/equidistribution problem,
 which we do not attempt.
+
+## 9. What a per-prime (H_PP-type) input buys
+
+Here `w_ℓ=w_ℓ(T,z)` is PO §9's per-prime event mass after the class-of-one
+quarantine at the primes `≤z`, and `E_T(r)` is the number of distinct
+surviving events (classes mod r) with rough part r and `M≤T`.
+
+**Lemma 9.1 (per-prime mass through Type I counts; PROVED).** For every
+prime `ℓ>z`,
+
+```
+w_ℓ = Σ_{r≤T, ℓ|r} E_T(r)/φ(r) ≤ C log log T · Σ_{r≤T, ℓ|r} min(2F_I(r), τ*² T/r)/r.
+```
+
+*Proof.* `E_T(r)≤2F_I(r)` by Lemma 8.1, for any quarantine. Also
+`E_T(r)≤#{atoms with M=mr≤T}≤(T/r)τ*²`. Finally `1/φ(r)≤C log log T/r`. ∎
+
+**Theorem 9.2 (conditional Haar exponent; PROVED implication).** Suppose
+`F_I(n) ≤ n^{η+o(1)}` for all n, for some `0≤η≤1`, and put `κ=η/(1+η)`.
+Then:
+
+* `w_ℓ(T,z) ≤ T^{κ+o(1)}/ℓ` for every z and every prime ℓ;
+* H_PP(`T^{κ+ε}`) holds for every `ε>0` and large T;
+* `log(1/δ*(T)) ≤ T^{κ+o(1)}`.
+
+*Proof.* Put `R=T^{1/(1+η)}` and split Lemma 9.1's sum at `r=R`:
+
+```
+Σ_{r≤R, ℓ|r} r^{η−1+o(1)} ≤ ℓ^{η−1}Σ_{j≤R/ℓ} j^{η−1} T^{o(1)} ≤ R^{η}T^{o(1)}/ℓ,     Σ_{r>R, ℓ|r} τ*²T/r² ≤ 2τ*²T/(ℓR).
+```
+
+Both are `T^{κ+o(1)}/ℓ`. For `ℓ>z=T^{κ+ε}` this is
+`T^{−ε+o(1)} ≤ log z/(8 log T)`, which is H_PP(z). PO Theorem 9.4 then
+gives `log(1/δ*) ≤ π(z)log T + 4S_tot + O(1)`, with
+`S_tot=T^{o(1)}` (Lemma 4.1; its proof needs only this, not ET Prop 1.4). ∎
+
+**What this means (Assessment, with the exact bookkeeping above).**
+
+1. **ET's exponent 3/5 gives κ=3/8.** This is *worse* than PO Theorem 9.3's
+   unconditional 1/3. Theorem 9.3 uses only the crude count, with all
+   rough primes `>T^{1/3}`.
+2. **η=1/2 gives exactly κ=1/3.** So the bound `|F_ℓ^{full}|≤ℓ^{1/2+o(1)}`
+   I originally aimed at, even proved for every n, would only *reproduce*
+   the 1/3 barrier. The crude bound `(T/r)τ*²` and `r^{1/2}` cross at
+   `r=T^{2/3}`, with value `T^{1/3}`; that is where the 1/3 comes from.
+   **Beating 1/3 through individual counts needs η<1/2**, i.e. a Type I
+   bound well beyond ET Prop 1.7 and the divisor-bound limit of
+   Remark 8.3.
+3. **The single-coordinate part was never the bottleneck.**
+   * By Prop 8.2.1, `g_ℓ^{full} ≤ ℓ^{−2/5+o(1)}`, so for
+     `z ≥ (log T)^{5/2+ε}` the single-coordinate part of H_PP(z) holds
+     (modulo ET Prop 1.7). So **H_PP(z) reduces to its multi-prime part**
+     for such z.
+   * But both PO Thm 9.3 and our Construction 4.2 already absorb the
+     single part by quarantining `T^{o(1)}` bad primes. So this buys
+     nothing for the Haar exponent or for θ<1/3. Its only use is cosmetic:
+     modulo ET, `𝓑=∅` for large T in Construction 4.2.
+4. **The real target is an averaged statement.** The per-prime input
+   needed is the progression average
+   `(AP-TI)  Σ_{r≤T, ℓ|r} F_I(r)/r ≤ T^{κ+o(1)}/ℓ` uniformly in primes
+   `ℓ≤T`. Theorem 9.2's proof uses exactly this. AP-TI with `κ=o(1)` would
+   give `log(1/δ*)=T^{o(1)}`. On average ET Theorem 1.1 gives
+   `Σ_{n≤N}f_I(n) ≍ N log³N`, so AP-TI(o(1)) is the natural conjecture.
+   * It cannot hold in the stronger form `polylog/ℓ`. PO's Linnik
+     example has `ℓw_ℓ ≥ exp(c log ℓ/log log ℓ)`, coming from the single
+     term `r=ℓ`.
+   * In ET coordinates, `ℓ|r` is the congruence `4acd≡f (mod ℓ)`, with
+     `f | 4a²d+1`. For fixed `(a,d,f)`, c then runs over one class mod ℓ,
+     and summing `1/c` there gives `(log T)/ℓ` plus a "first term"
+     `1/c_0(a,d,f)`.
+   * The full sum of the regular parts is
+     `≪(log T/ℓ)Σ_{a,d}τ(4a²d+1)/(ad)`, which is polylogarithmic by ET
+     Prop 1.4.
+   * So AP-TI(o(1)) is equivalent, up to `T^{o(1)}`, to controlling the
+     first terms `Σ_{a,d,f}1/(ad·c_0)`, where
+     `c_0 ≡ f(4ad)^{−1} (mod ℓ)`. This is the Kloosterman-type
+     equidistribution flagged in PO §9, now in explicit form.
+5. **Prime side, θ<1/3.** H_MIN(θ) would need the Haar-side input (η<1/2,
+   or AP-TI with κ<1/3) *and* a hypergraph form of Lemma 2.1 (§7). Neither
+   is available.
