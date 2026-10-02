@@ -191,3 +191,69 @@ Theorem 1.4 (δ ≤ 1/16, constant `1+25δ ≤ 2.57`) gives at most
 (Hubs are deterministic
 in part — the "deadly values" `−4D mod j`, D small, of ET §5.7 — and the
 quarantine turns them into unary conditions at no hypothesis cost.)
+
+## 3. The fibre law (Reduction 6.7 steps 1, 2, 2′ at proof level)
+
+**Setting 3.0.** Fix `B ≥ 0`, `A₀ ≥ 1`. Let `X` be large, `L = log X`, and
+
+    W₁ = L^{1/2},   w₂ = L^8,   α = L^{−1/4},   ε = ε(B) = 1/(256(1+B)).
+
+The family 𝓕 is any set of Case-B classes `−4D mod M` (`M ≡ 3 (4)`,
+`D | A²`, `A = (M+1)/4`) with `M ≤ X`, `M ≤ P(M)^{1+B}`, and **at most two
+distinct prime factors of M exceed w₂**. Twin moduli `kℓ₁ℓ₂` (`ℓ_i > w₂`,
+k w₂-smooth) are included; so are dominant moduli and prime powers. All
+primes are charged (`s_ℓ = log ℓ`); the majorant has level `λ ≤ A₀L`.
+The fibre coordinates F are the primes `≤ w₂`. Write `k₁(k)`, `k₂(k)` for
+the `W₁`-smooth part and the part with primes in `(W₁,w₂]` of a w₂-smooth k,
+and (with `γ(p) = 2p/(p−1)`)
+
+    Γ(k) = Π_{p | k, p ≤ W₁} γ(p) · Π_{p | k, W₁ < p ≤ w₂} (1 + 2p^{−1/4}).
+
+In a fibre c, a class whose modulus is w₂-smooth is *small*; a class
+`kℓ^v` (`ℓ > w₂`) is *unary* at ℓ; a class `kℓ^v m^u` is a binary edge.
+Every class with `N(M) ≤ τ(A²)` classes per modulus; we use only this
+count, so all bounds hold for every subfamily of the maximal family.
+
+**The fibre law P.** Three stages.
+1. `c_s := c mod (W₁-smooth part)` has the QR law of TW Lemma 1.3 at the
+   odd primes `≤ W₁`, conditioned on a "small-good" event `G_s` (below). By
+   TW Lemma 1.3(1) every class with `W₁`-smooth modulus is avoided.
+2. Given `c_s`, `c_m := c mod (part at (W₁, w₂])` is uniform, conditioned on
+   avoiding every small class C with `k₂(M_C) > 1` that is *active*
+   (`c_s ≡ −4D mod k₁(M_C)`). Call this event `Av(c_s)`.
+3. Condition the resulting law P′ on a "large-good" event `G_L` (below).
+
+Then every small class is avoided by every `c ∈ supp P`.
+
+**Lemma 3.1 (medium local lemma; PROVED).** Fix `c_s`. For each active small
+class C let `E_C = {c_m ≡ −4D mod k₂(M_C)}`, `P(E_C) = 1/k₂`, and for each
+prime `p ∈ (W₁,w₂]` put `μ_p(c_s) = Σ_{active C, p | M_C} 2^{ω(k₂)}/k₂`,
+`T(c_s) = Σ_{active C} 2^{ω(k₂)}/k₂`. If `μ_p(c_s) ≤ 1/2` for every p, then
+1. `P(Av(c_s)) ≥ e^{−2T(c_s)}`;
+2. for every event `B = {c_m ≡ b mod k₂}`,
+   `P(B | Av(c_s)) ≤ k₂^{−1} Π_{p | k₂}(1 + 2μ_p(c_s))`.
+
+*Proof.* Lemma 1.1 with `x_C = 2^{ω(k₂)}/k₂ ≤ 1/2`. Every `F ∈ Γ(E_C)`
+contains a prime of `k₂(M_C)`, so
+`Π_{F∈Γ(E_C)}(1−x_F) ≥ Π_{p|k₂}(1 − μ_p) ≥ 2^{−ω(k₂)}`, which is the LLL
+hypothesis `P(E_C) ≤ x_C Π(1−x_F)`. (1) is the usual consequence
+`P(Av) ≥ Π(1−x_C) ≥ e^{−2Σx_C}`. (2) is Lemma 1.1(2) with the same
+product bound and `(1−μ)^{−1} ≤ 1+2μ`. ∎
+
+**Definition (good events).** `G_s`: `μ_p(c_s) ≤ p^{−1/4}` (`≤ 1/2`) for
+every `p ∈ (W₁, w₂]`, and `T(c_s) ≤ L^{1/2}`. `G_L`: for every prime
+`j > w₂`, the unary density `p_j(c) ≤ 1/8` and the binary mass
+`w^U_j(c) := Σ_{binary C at j, c fits C} j^{−v}m^{−u} ≤ 1/64`.
+(Then `w_j ≤ (8/7)² w^U_j ≤ 1/32 = δ/2` with δ = 1/16, as Lemma 2.2 needs.)
+
+**Lemma 3.2 (inflation and density; PROVED given Lemma 3.3).** For L large:
+1. for every w₂-smooth k and residue b, `P(c ≡ b mod k) ≤ 4Γ(k)/k`, and
+   the same with `P′` and 2 in place of 4;
+2. `log ‖dP/dU_F‖_∞ ≤ 3L^{1/2}`.
+
+*Proof.* (1) `P(c ≡ b mod k) ≤ P′(…)/P′(G_L)`, and
+`P′(…) ≤ P_QR(c_s ≡ b mod k₁)/P_QR(G_s) · sup_{c_s∈G_s} P(c_m ≡ b mod k₂ | Av(c_s))`.
+TW Lemma 1.3(3) gives `≤ Π γ(p)/k₁`; Lemma 3.1(2) gives the medium factor;
+Lemma 3.3 gives `P_QR(G_s), P′(G_L) ≥ 1/2`. (2) The density of P against
+`U_F` is at most `(Q/|R_{W₁}|) · 2 · e^{2T(c_s)} · 2`; TW Lemma 1.3(2) and
+`π(W₁) log 2 ≤ L^{1/2}` give the claim with `T ≤ L^{1/2}`. ∎
