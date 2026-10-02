@@ -33,3 +33,49 @@ reduction `Σ_u w^uG^cov_u ≤ Σ_C(1+w)^{|π(C)|}1[C]` is now stated
 *pointwise* in the proof, which is exactly what the tilted use in
 `thm:twolevel` needs. Constants re-checked (`Σ_jbinom(kh,j)Δ^{(j+1)}≤D`,
 `N^{h−1}/(h−1)!≤e(ke)^{h−1}`, geometric sum under `ρ^kkeD≤1/2`).
+
+## §3 `sec:multi` (Lemma compare, Thm twolevel, Lemma push, Cor crit3, Thm klevel, Rem hubs)
+
+Faithful to O3 §§3, 5 (post-repair). Re-checked against the source and
+re-derived where the paper changed constants:
+
+* **Lemma compare.** (a) uses `1−x≥e^{−1.1x}` (valid, x≤1/32k); (b)
+  `Σ_{Γ(B)}x_A≤|U|/32` ✓. The proof of the conditional LLL is now in
+  `lem:lll` (elementary; HSS cited only as "cf.") ✓.
+* **Thm twolevel.** The paper takes (P₃) = per-prime ≤1/192 (O3: 1/32)
+  and compensates in Lemma push with `c_0≤δδ_3t/1728` (`9/1728=1/192` ✓).
+  This is a harmless change of normalisation, not a strengthening of any
+  claim. Twist numerics re-derived: mass at ℓ₀ ≤1/192, conditional factor
+  `(1−1/96)^{−2}<1.1`, so `|E[Fψ]|<0.01P(Ā')` and
+  `|μ_ψ|≤0.01P+0.0101P<0.03P(𝒜_{<4})<μ/4` ✓. Error terms
+  `P/200+e^{−3Σ}/200` and `M_1≤4e^{Λ_2+Λ_3}` ✓.
+* **Lemma push / Cor crit3.** Uses the repaired `S_2^{(b)}` bookkeeping ✓.
+  `Σ≤S_1+3Ŝ/δ_3+(1+2/δ)S_2^{(b)}+Ŝ=O(Ŝ²+1)` ✓.
+* **Thm klevel.** Same thresholds, `N_r`, `H_r`, `𝔐_{r+1}` as O3 Thm 5.1.
+  The review-2 D2 repair is in (`L_2` with `200k𝔐_3`), so each of the
+  k−1 levels contributes `≤P(all)/(100k)` ✓. Conditioned-codegree and
+  induced-mass displays match O3 and my re-derivation ✓. Merging of
+  identical induced events stated ✓.
+
+Defects:
+
+* **P1 (minor; stand-alone completeness).** The downward induction in
+  Step A ("By downward induction all of `L_r,N_r,H_r,Σ_r≤C_kŜ^{A_k}`, and
+  for `c_k(Ŝ)` small enough (P_k) holds at the end") is one sentence. For
+  the paper's headline theorem this should be two or three lines:
+  (i) `log𝔐_{r+1}=Σ_{s>r}(log4+Λ_s)` and `Λ_s`, `H_r`, `Ŝ_{≥r}` are
+  linear in the earlier quantities, so `L_r,N_r=O_k(1+Σ_{s≥r}Σ_s+H_r)`;
+  (ii) the pushes from level r add total mass `≤2^rΣ_r(4N_r)^r·2r/δ_r`
+  and per-prime mass `≤ (per-prime mass of level r)·2^r(4N_r)^{r}·2r/δ_r`,
+  so after k−2 steps every total is `Ŝ^{O_k(1)}` and every per-prime mass is
+  `≤c_k(Ŝ)Ŝ^{O_k(1)}`; (iii) hence (P_k) for `A_k` large. The current
+  sentence is correct but leaves this to the reader.
+* **P2 (minor; label).** Remark `rem:hubs` is headed "proved for the
+  stated lower bound", and the summary lists only "the lower bound in
+  Remark rem:hubs" as proved — fine — but the remark also asserts, without
+  label, that "the number of such classes with φ(4n)≤X grows like X log X"
+  and that "removing the heavy pairs costs more than L". The source (O2
+  §10.4) explicitly marks the cost bound as **Assessment, not proved**
+  ("We have *not* proved this lower bound"), and O3 Def 2.3 proves only the
+  *upper* bound `|𝓗_X|≤3X(1+log X)`. Mark these two sentences as
+  Assessment (the theorems do not use them).
