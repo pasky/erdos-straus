@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TWIN2 — the two-prime Λ² cap (task O3)
 
-Status: **checkpoint 2 (task O3), for parent review.** Labels follow
+Status: **checkpoint 3 (task O3), for parent review.** Labels follow
 `DISCOVERIES.md`. PROVED means proved here and checked internally only.
 Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 `POINTWISE_OMEGA2.md` (PO2).
@@ -22,6 +22,8 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 | Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′` | PROVED (the canonical-label remarks after it are heuristic bookkeeping) |
 | **Lemma 5.4** | (H_O^=): same-canonical-label part `≪ (log L)^{O(1)}` (Brun–Titchmarsh in the partner prime, first elements charged to their m, Shiu with j innermost when j is top) | PROVED (prime powers via pointwise bound; checkpoint 2) |
 | (H_O^≠) | different-label agreements mod j; reduced (§5.4) to a three-condition incidence count `#{(j,θ,θ′): d_θ \| A_{kjm}, d_{θ′} \| A_{k′jm′}, j \| a_θb_{θ′}−a_{θ′}b_θ ≠ 0}`; the j-independent version has margin L | OPEN; EVIDENCE: at or below random in all 6 tested rows |
+| Lemma 5.5 | reduced fractions of height ≤ H in a class mod j: `≤ 1+7H²/j`; heavy labels (height `< (j/2)^{1/2}`) never collide | PROVED |
+| H_div | cleanest form of (H_O^≠): second moment of divisor labels of `A ≡ 4^{−1} (j)` mod j, averaged over j; compared with known divisor-in-AP results (§5.5) | OPEN |
 | Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O^≠) |
 
 **Bottom line.** For moduli with `M ≤ P(M)^{1+B}` (B fixed — a genuine
@@ -728,6 +730,6 @@ congruences mod j: `4u′v′t ≡ 1`, `4u″v″t″ ≡ 1`, `v′²t ≡ v″�
   dispersion method needs a level of distribution for the inner sum over A
   in the class mod j beyond `X^{1/2}`, i.e. the same obstacle.
 * *A weaker bound that would suffice:* any saving `L^{5.5}` over the trivial
-  `Σ_j (ρ_j/j)·L⁶`, on average over `j > L⁸`. Lemma 5.5 and Lemma 5.4 give
-  such a saving for everything except the first-element light pairs; no
-  saving for those was found.
+  `Σ_j (ρ_j/j)·L⁶`, on average over `j > L⁸`. Lemma 5.4 gives it for the
+  same-label part; for cross pairs only the heavy/light dichotomy of
+  Lemma 5.5 is proved, and no saving was found.

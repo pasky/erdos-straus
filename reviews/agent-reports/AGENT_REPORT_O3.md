@@ -74,3 +74,26 @@ order; numerics caveats and corrected random-label benchmark.
   incidence count. Lenstra/CHN do not close it.
 * Cor 5.2 is now CONDITIONAL on (H_O^≠) only.
 * Stopping here (context budget).
+
+## Checkpoint 3
+* Review of 3ea1bcb applied (D1–D4): B-hypothesis now stated in the bottom
+  line, with its three uses listed (§4); Remark 1.6 now refutes (6.2) under
+  TW's own hypotheses; "k odd" for (3.1); Setting 3.0 wording.
+* (H_O^≠): **not proved.** Proved Lemma 5.5 (labels mod j form a lattice:
+  ≤ 1+7H²/j reduced fractions of height ≤ H per class; heavy labels never
+  collide), so every collision involves a light label (datum modulus ≫ j^{1/4}).
+  Stated the cleanest hypothesis **H_div** (second moment over j of the
+  residues mod j of divisor labels of A ≡ 4^{−1} (mod j)) and compared it with
+  known results (§5.5):
+  - single-A equidistribution (Erdős–Hall/Hooley) cannot help (τ(A²) ≪ j);
+  - first moments are within divisor-in-AP level results only for
+    j ≤ X^{1/2+δ};
+  - route (1), large sieve / BDH over j: a pair of characters per j gives the
+    heuristic cost (X + Q³)‖a‖², so at best j ≤ X^{1/3}; not checked;
+  - route (2), n-side dispersion: leads back to the same sum and needs level
+    beyond X^{1/2}.
+* A sketch claiming the light-label Brun–Titchmarsh parts are controlled by
+  the lattice count was found wrong and **withdrawn** (the sum diverges like
+  X/(kj²)).
+* Net: Cor 5.2 is CONDITIONAL on (H_O^≠) ⇔ H_div-type equidistribution.
+  Stopping (context budget).
