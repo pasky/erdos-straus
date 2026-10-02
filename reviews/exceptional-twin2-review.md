@@ -61,3 +61,43 @@ all-one ρ̃):
   with constant 1, confirming the author's "sharp to leading order".
 
 No defect.
+
+## Item 4. Remark 1.6 (literal (6.2) false) — SOUND (one nit)
+
+By TW Lemma 6.10, `E_S E_{ν_S}(r−1)² = Z₂/Z₁² − 1` exactly, and for n disjoint
+edges with ρ̃ ≡ 1 the left side is `(1−π)^{−n} − 1`, exponential in n, while
+the right side of (6.2) is linear in n. Correct; only the log form is consumed
+by Lemma 6.6 (Ξ_c is a logarithm), and TW already used `log(1+x) ≤ x` to pass
+to (6.2), so nothing downstream depended on the literal form.
+
+* **D1 (nit).** The example uses endpoint masses 1/16, so `deg = 1/16`,
+  which violates TW's own hypothesis `deg ≤ δ ≤ δ₀ = e^{−6}/8`. The
+  counterexample survives verbatim with masses ε ≤ δ₀ (`(1−ε²)^{−n} − 1`
+  vs `C n ε²(1+2ε)`); say so, so the remark refutes (6.2) *under its stated
+  hypotheses*.
+
+## Item 5. Lemma 2.1 (tilting with an arbitrary fibre law) — SOUND
+
+Re-derived from TW Lemma 6.6's proof: with
+`π_c = P(c)e^{−Ξ_c}/Z`, `Q_FΣπ_c²e^{Ξ_c} = Z^{−2}Σ_c (Q_FP(c))P(c)e^{−Ξ_c}
+≤ ‖dP/dU_F‖_∞/Z`, and Jensen gives `Z ≥ e^{−E_PΞ}`. `P = U|R` recovers Lemma
+6.6 exactly. The truncation `ρ_i = 0` for `s_i > λ/2` is correct: in ET Thm
+5.5 `V_{λ/2}` is spanned by `H_T` with `c(T) = Σ_{i∈T}s_i ≤ λ/2`, all
+`s_i ≥ 0`, so every such T has all `s_i ≤ λ/2`. `σ̃` is supported in
+`∪A⁺_c ⊆ A`, so `E_U[g h] ≥ 1` needs only `g ≥ 1` on A. No defect.
+
+## Item 6. Lemma 2.2 (free hub quarantine; author flag: constants) — SOUND
+
+Checked every constant:
+* `ν(H) ≤ w_ℓ ≤ 1/32` (Markov at 1); `U(H) = (1−p)ν(H) ≤ ν(H) ≤ S_ℓ`
+  (hubs have `min(deg,1)² = 1`). `p⁺ ≤ 1/8 + 1/32 < 1/4`.
+* Point-mass ratio `(1−p)/(1−p⁺) ≤ 4/3` (actually `≤ 28/27`); hence
+  `deg⁺ ≤ (4/3)deg`, `π⁺ ≤ (16/9)π`, `w⁺ ≤ (16/9)(δ/2) ≤ δ ≤ 1/16`, and
+  `q⁺_j ≤ (4/3)³Σ_{a∉H}ν(a)deg(a)² ≤ (4/3)³S_j` (non-hubs have `deg < 1`).
+* `A⁺ ⊆ A`: a point of A⁺ avoids every hub, hence every deleted edge.
+* Unary factor (TW §6.8, exact) `≤ Σρp⁺/(1−p⁺) ≤ (4/3)Σρ(p+S)`.
+* `ρ̃⁺ = ρ/(1−p⁺+ρp⁺) ≤ (4/3)ρ`; Theorem 1.4 with constant
+  `1+25/16 = 2.5625`: diagonal `2.5625·(4/3)²(16/9) = 8.10 ≤ 9`, q-part
+  `2.5625·(4/3)(4/3)³ = 8.10 ≤ 9`. Total S-coefficient `2 + 9 = 11`, as used
+  in Theorem 5.1.
+No defect.
