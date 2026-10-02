@@ -213,3 +213,52 @@ For one pair `ℓ_1<ℓ_2` just above y, all pair codegrees Δ(c), c mod
   are (F1) with `sa=36, 21`.
 * Outside `𝓗_X` the maximum falls roughly like `X^{−0.7}` and does not
   grow with T. This is the shape of Lemma B (§3).
+
+## 3. Two-level composition: pushing heavy pairs into a graph level (PROVED)
+
+§1 handles prime-local hub classes. The same idea works one level up, and
+then no upper bound on pair codegrees is needed at all. Heavy pairs are
+*moved* into a lower level that consists of singles and edges only. That
+level is a graph system (O2 §2), so it has **no codegree condition**, and
+its truncation level may be as large as we like. The hyperedge level keeps
+a truncation tied only to *its own* mass, because the conditional local
+lemma factors out the lower level.
+
+**Setting 3.0.** O2 Setting 3.0 (Haar measure P on the free coordinates,
+2|Q, all vertices are classes mod `ℓ^{e_ℓ}`). Two event families:
+
+* **level 2:** singles and edges (Setting 2.0 of O2); `𝒜_2` = "no level-2
+  event occurs", `F_2=1_{𝒜_2}`;
+* **level 3:** hyperedges with 3 vertices at distinct primes (Setting
+  10.0); `F_3=1_{𝒜_3}`, `S_H` = their total mass.
+
+Per-prime masses: `g_ℓ` (level-2 singles), `w^{(2)}_ℓ`, `w^{(3)}_ℓ` (mass
+of level-2 edges / level-3 hyperedges at ℓ). Assume
+
+* (P) `g_ℓ + w^{(2)}_ℓ + w^{(3)}_ℓ ≤ 1/32` for every ℓ;
+* (D2) every level-2 vertex has level-2 degree `≤ δ:=e^{−50}`;
+* (D3) every level-3 vertex has level-3 degree `≤ δ_3` and every pair of
+  level-3 vertices has codegree `Δ_O ≤ t`, where
+  `t := δ_3/(C_3(S_H+1))` (constants of O2 Thm 10.3 for k=3, with the
+  weight w=16 replaced by `w'=16e^{1/2}`; see Step 2 below).
+
+**Lemma 3.1 (conditional local lemma; PROVED, standard).** Let 𝒜 be the
+family of all level-2 and level-3 events, `x_E:=2P(E)`. Under (P):
+
+1. `P(E | ∩_{E'∈S}Ē') ≤ x_E` for every E and every `S⊆𝒜∖{E}`; hence
+   `P(𝒜_2∩𝒜_3) ≥ P(𝒜_2)·∏_{E level 3}(1−x_E) ≥ P(𝒜_2)e^{−3S_H}` and
+   `P(𝒜_2) ≥ e^{−3(S_1+S_2)}`.
+2. For every event B determined by the coordinates of a prime set U,
+   `P(B ∩ 𝒜_2) ≤ P(𝒜_2)·P(B)·e^{|U|/2}`.
+
+*Proof.* Two events are adjacent iff their supports meet. For E at the
+primes U_E, `Σ_{E'∼E}x_{E'} ≤ Σ_{ℓ∈U_E}2(g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ) ≤ 3/16`,
+so `∏_{E'∼E}(1−x_{E'}) ≥ 1/2` and `P(E)≤x_E∏(1−x_{E'})`: the asymmetric
+local lemma holds. Item 1 is its standard proof (Alon–Spencer Lemma
+5.1.1): the bound `P(E|∩_S Ē')≤x_E` holds for all S, and
+`P(𝒜_2∩𝒜_3)=P(𝒜_2)∏_i P(Ē_i | 𝒜_2∩Ē_1∩…∩Ē_{i−1})` over the level-3
+events. Item 2 is the conditional form (Haeupler–Saha–Srinivasan, J. ACM
+58 (2011) Thm 2.1; used already in O2 Thm 3.1) applied to the level-2
+family alone: `P(B|𝒜_2) ≤ P(B)∏_{A∈Γ(B)}(1−x_A)^{−1}`, where Γ(B) is the
+set of level-2 events meeting U. Then
+`∏(1−x_A)^{−1} ≤ exp(1.2Σ_{A∈Γ(B)}x_A) ≤ exp(1.2·|U|/16) ≤ e^{|U|/2}`. ∎
