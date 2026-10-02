@@ -1453,17 +1453,20 @@ asymptotic regime, so this is weak evidence only.
 
 ## 6. What a θ > 3/4 proof must contain
 
-These are consequences of Theorems 2.5 and 2.7, Lemmas 3.1–3.2, 4.2 and
+These are consequences of Theorems 2.5 and 2.7, Lemmas 2.9, 3.1–3.2, 4.2 and
 5.3.
 1. It cannot be a CRT majorant over Case-B forced classes whose moduli all
    have a dominant prime `P(M) ≥ M^{1/(1+C)}` (C<1), at any level
-   `N^{O(1)}`, with any weights (Cor 3.4, Cor 3.6). The multiplier parts are
+   `N^{O(1)}`, with any weights (Cor 3.4, Cor 3.6). By Lemma 2.9 the same
+   holds for any coefficient sum `< N` with rounding bounded by `Σ|a_i|`,
+   provided the family's slice primes are `≤ N^{O(1)}`. The multiplier parts are
    arbitrary, including large primes shared between conditions. Nor can it
    be a large sieve over slice systems (Remark 2.6).
-2. The following change constants only (§§4, 5.3–5.4): both Case-B
+2. The following cannot improve the exponent (§§4, 5.3–5.4): both Case-B
    groupings, the exact a-frame criterion, Elliott–Halberstam, or a better
-   Bonferroni/Selberg polynomial. Adding Case A is also constants-only,
-   via H_A3 (§3.7).
+   Bonferroni/Selberg polynomial. Adding Case A cannot either, via H_A3
+   (§3.7). This is PROVED as an upper bound. That these variants attain
+   the same order up to constants is EVIDENCE (§2.5).
 3. It needs one of:
    * (i) a joint use of *balanced* moduli (`P(M) ≤ M^{1/2+o(1)}`) that beats
      their mass (H_MS false in the relevant regime). These moduli carry
@@ -1476,6 +1479,47 @@ These are consequences of Theorems 2.5 and 2.7, Lemmas 3.1–3.2, 4.2 and
    * (iv) non-CRT arithmetic of the integers (Halász, Type I/II sums,
      moment methods), or signed cancellation in the rounding errors.
      §5.2 assesses (iv) via multiplicative slices at θ*, as a model only.
+
+### 6.1 What the theorems exclude (added by review-theta-2)
+
+This list is checked against the proofs of Theorems 2.5, 2.7 and Lemma 2.9.
+Anything below lies outside the caps of Cor 3.4–3.6.
+
+1. **Majorants not ≥ 0 on all of ℤ.** If ν is ≥ 0 only on [1,N], the
+   relaxed LP is the exact count, since level-N classes restrict to point
+   masses on [1,N]. See the scope remark of §2.4.
+2. **Signed rounding.** This covers any bound exploiting cancellation in
+   `Σ_{n≤N}ν − N·Eν`. It also covers any rounding bound smaller than the
+   absolute coefficient sum `Σ|a_i|`, e.g. one that uses which classes meet
+   [1,N] (§2.7).
+3. **Non-CRT inputs.** Theorem 2.5 sees only the CRT law of residues. So
+   Type I/II sums, arithmetic of `x = (p+a)/4` and Halász are outside.
+   Also outside are majorants that are ≥ 1 only on the exceptional
+   *primes* and use prime equidistribution beyond the selector
+   coordinates. The theorems require ν ≥ 1 on the whole avoider set 𝒜.
+   This is the model of "a sieve on the avoider set".
+4. **Balanced moduli.** Cor 3.6 needs *every* modulus of the family to
+   have `P(M) ≥ M^{1/(1+C)}` with C < 1 fixed. Excluded are:
+   * families containing any balanced modulus (two or more comparable
+     large primes);
+   * moduli with `P(M) ∈ (M^{1/2}, M^{1/(1+C)})` for the chosen C, since
+     the constants blow up as C → 1.
+
+   This part carries `≫ (log x)³` supply (Lemma 3.8), so the exclusion is
+   not cosmetic. For Λ²-majorants only, Theorem 5.5 reduces it to the open
+   H_MS^{Sel}.
+5. **Non-selector R.** The term `log(Q₀/|R|)` is uncontrolled. Pure
+   small-modulus subsystems with large void are outside (H_MS). Cor 3.6
+   handles the w₀-smooth part only because `w₀ = O_C(1)`.
+6. **The prime-slice requirement of Cor 3.4.** Multiplier parts must avoid
+   slice primes. Cor 3.6 removes this, but only for dominant-prime moduli.
+7. **Level and size.** Cor 3.4/3.6 assume level ≤ A·log N. By Lemma 2.9
+   this may be replaced by: coefficient sum < N, and family slice primes
+   ≤ N^{O(1)}. Families with slice primes beyond N^{O(1)} remain formally
+   outside.
+8. **Large sieve.** Only Montgomery's large sieve over a slice system,
+   fibre by fibre, is covered (Remark 2.6). No sequential or shared-prime
+   large-sieve statement is made.
 
 ---
 
