@@ -103,8 +103,6 @@ pointwise multiplier mechanism needs witness moduli beyond `(log p)^2`.
   finishing. Its only output so far is an uncommitted literature note,
   `reviews/theta-lit-notes.md`, which found no prior source for the
   theorem. **Do not cite these results until that review is complete.**
-* `paper/es-omega-note.tex` (branch `side-agent/pointwise-omega`, commit
-  `0e06282`) is an 11-page note on the Ω-results. A referee report exists
-  (`side-agent/review-omega:reviews/es-omega-note-review.md`, MINOR
-  REVISION, R1–R17). The repairs were started but are uncommitted in
-  worktree 0002.
+* `paper/es-omega-note.tex` (13 pp, Ω-results) is merged. Referee report
+  `reviews/es-omega-note-review.md` (MINOR REVISION); all R1–R17 applied
+  (`reviews/agent-reports/OMEGA_NOTE_REVISION.md`); no second referee round.
