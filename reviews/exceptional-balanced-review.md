@@ -236,3 +236,44 @@ holds already for B < 1; (ii) relabel "sharp there" as HEURISTIC; (iii) the
 open part of (E_δ) is whether composite y-smooth cofactors `q ∈ (ℓ, ℓ^B]` can
 push `sup |F_ℓ|` above `π(y)ℓ^{o(1)}`, and §4 provides no information on that.
 (See also D12 on the numerics, where the one outlier is a q = 1 effect.)
+
+### Item 9 — Proposition 4.4 ((E_δ) ⇒ (★_δ) ⇒ H_light ⇒ cap). Verdict: **SOUND-AFTER-REPAIRS** (main chain); weak-ε form **DEFECTIVE as labelled**
+
+Main chain.
+* (E_δ) ⇒ (★_δ): Lemma 4.1 identifies `F_ℓ(h)` with the (s,r,k)-set at any
+  representative n. A subfamily gives a subset. ✓
+* (★_δ) ⇒ (NDE) ✓. (★_δ) ⇒ no heavy coordinates **only if `ℓ^{−δ} ≤ 1/4` for
+  all ℓ > w₀, i.e. `w₀ ≥ 4^{1/δ}`** (D10).
+* (★_δ) ⇒ H_light(ii) holds only in the corrected, cubic form of D4. That form
+  follows from ET Lemma 2.8 (with `p* ≤ ℓ'^{−δ}`) and the γ-weighted Lemma 3.1 of
+  ET Cor 3.6. I checked that the latter does not use `q ≤ ℓ^C`. It needs
+  `h(p) ≤ 1/(p−1) + 3p^{−δ}`, which holds for p > w₀ once `w₀^{−δ} ≤ 1/2`.
+  The window bound then follows from `M ≤ e^{(1+B)(1+η)s_j}`, so
+  `K = O_{δ}(1)·(1+B)³`-normalised. ✓ after D4.
+* Then Thm 2.5 applies, with heavy charge 0. ✓
+
+**D10 (MINOR, Prop 4.4 / §2.6).** "Under (★_δ) there are no heavy coordinates"
+needs `w₀ ≥ 4^{1/δ}` (and `w₀^{−δ} ≤ 1/2` for the γ-Shiu step). Fix: state
+`w₀ = w₀(δ)`.
+
+**D11 (MINOR, statement of (E_δ)).** (E_δ) is stated with 𝒬_ℓ defined by `qℓ ≤ X`
+only. But Thm 2.5 and Prop 4.4 are for (η,B)-gapped families, i.e. `q ≤ ℓ^B`,
+and X = e^{O(λ)} may be far larger than `ℓ^{1+B}` at small ℓ. The X-version is
+strictly stronger than what is used, and its truth for `ℓ ≪ log X` is a
+different question. Fix: define `𝒬_ℓ^{(B)} = {q ∈ 𝒬_ℓ : q ≤ ℓ^B}` and state
+(E_δ) for it.
+
+**D12-W (MAJOR, labelling of the weak-ε form).** The weak form ("`p ≤ ε` ⇒ cap
+`λ^{3/4+O(ε)}`") sits inside a proposition labelled PROVED, with "only
+sketched" as a parenthesis (also in §0 and in AGENT_REPORT_A3). The sketch also
+has a concrete gap. With `h(p) = e^{cε}−1 ≍ ε` **not decaying in p**, the
+large-divisor range of the Lemma 3.1 / Cor 3.6 argument
+(`d > x^{1/2}`, bounded by `x^{o(1)}Σ h(d)(x/d+1)`) is no longer `o(x)`:
+`Σ_{d≤x} h(d)` is `≍ x(log x)^{O(ε)−1}`, times `x^{1/10}` from the trivial τ
+bound. Cor 3.6 needed `Σ h(d)d^{−1+δ/2} < ∞`, which fails here. And
+"Euler factors change by `1+O(ε)/p`" controls only the Shiu range. The claim is
+plausible (e.g. via a two-variable Nair–Tenenbaum/Henriot bound on
+`τ(A²)·(1+O(ε))^{ω(4A−1)}`), but it is not proved. Fix: move the weak form out
+of Prop 4.4 and label it CONJECTURE/SKETCH with the large-divisor gap stated.
+The same goes for §2.6 item 4's "quartic mean ⇒ exponent 4/5", which is
+unlabelled heuristic.
