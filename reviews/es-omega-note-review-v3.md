@@ -17,3 +17,19 @@ OMEGA at the same commit. Sections are written and committed one by one.
 * 2a (fixed-slot encoding) and 2b (simplicity not needed) added to O2
   Lemma 10.2's proof. ✓ Additionally merged identical induced events in
   Thm 5.1 (harmless; consistent with 2b).
+
+## §1 Build — CLEAN
+
+Three `pdflatex` passes on the committed `.tex` (scratch copy): exit 0,
+30 pp, **0 warnings** in the log (no undefined refs, no over/underfull
+boxes reported).
+
+## §2 `sec:hyper` (Lemmas cov, hypmom) — faithful, complete. No defect.
+
+Matches O2 Lemmas 10.1/10.2 with the review-2 repairs: tilt parameter
+`ρ≥1` stated as the primary form (cleaner than O3's "rerun with w'"),
+fixed-slot encoding `N=kh` (2a), repeated hyperedges allowed (2b). The
+reduction `Σ_u w^uG^cov_u ≤ Σ_C(1+w)^{|π(C)|}1[C]` is now stated
+*pointwise* in the proof, which is exactly what the tilted use in
+`thm:twolevel` needs. Constants re-checked (`Σ_jbinom(kh,j)Δ^{(j+1)}≤D`,
+`N^{h−1}/(h−1)!≤e(ke)^{h−1}`, geometric sum under `ρ^kkeD≤1/2`).
