@@ -194,3 +194,20 @@ in commit `9bb341d`. §§1–5 are otherwise unchanged.
 * **Summary of status** is rewritten. The joint W/ck_min statement still
   refers to the exponent-2 primes (`thm:two`); it was not strengthened.
 * **New bibitem:** HSS (Haeupler–Saha–Srinivasan, J. ACM 58 (2011)).
+
+---
+
+# Referee report v2 (`es-omega-note-review-v2.md`, MINOR REVISION): mapping
+
+| Item | Applied |
+|---|---|
+| P1 | Lemma `meanmass`: `M_1` defined before the lemma (cells, after merging). Full proof given: the `E\|B*−1\|` bound via Lemma `pointwise`; the κ identity; the cancellation for uncovered ℓ, including non-unit cells; the coverage step `1_c≤∏a_ℓ`. |
+| P2 | Thm `crit` proof: LLL numerics (`x_E≤1/8`, `1−x≥e^{−1.1x}`, `Σx=2(S_1^++S_2^+)`); `M_1≤e^Λ+4^{L+1}16^{−L−1}e^Λ≤2e^Λ`; twist written out (`2\|Q` ⇒ f odd ⇒ squarefree; factorisation `ψ=χ_0(X_{ℓ_0})ψ'`; conditioning; mean zero; `P(Forb)`). |
+| P3 | New Proposition `prop:hmin` [Proved]: H_min(θ) for θ≥1/3. It is the first half of §10, and the proof of Thm 1.1 now cites it. The Hypothesis header cites it. The Summary lists it under *Proved*. |
+| P4 | New Lemma `ppl` [Proved]: the LLL step, giving `δ*≥(8/φ(Q_z))e^{−4S_tot}` under the per-prime condition. Remark `rem:pp` (modulo ET) and Thm `eta` both cite it. |
+| P5 | New Proposition `prop:a1` [Proved] with its proof (the `a=1` count is `≪√ℓ log ℓ`); marked as not used below. |
+| P6 | Wording changed to "points of Elsholtz–Tao's Type I variety" (abstract) and "governed by the Type I variety `Σ_I^r`" (text and subsection title). |
+| P7 | Status conventions extended: *Proved modulo the proof of X*, *Classical*, *Proved implication*, *Assessment*. Header of Thm `slice-intro`: "Proved; (b) modulo LW". Header of Lemma `lll`: "classical, proof included". |
+| P8 | It goes through cleanly. New Corollary `cor:joint` [Proved modulo TZ]: jointly `W≥(log p)^{3−o(1)}` and `ck_min≥(log p)^{1−o(1)}`. The argument: `p≡1` mod 24 and mod every `ℓ≤y`, then reciprocity, then Lemma `np` with `y≥(log p)^{1−o(1)}`. Recorded first in POINTWISE_OMEGA2 §5 as Corollary 5.2, so the paper does not exceed its source. |
+
+Build: pdflatex ×3, 23 pp, 0 warnings, 0 overfull/underfull, 0 undefined references.
