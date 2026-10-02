@@ -1,1 +1,0 @@
-D(single primes)   mass=0.822 void=0.987 | m=1: LP=0.496
