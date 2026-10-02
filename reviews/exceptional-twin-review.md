@@ -227,3 +227,80 @@ congruence `q ≡ −ℓ^{−1} (4sk)` presupposes `(ℓ,4sk) = 1`, which follow
 
 Heuristic 3.3 is correctly labelled HEURISTIC; (E_δ) OPEN. Not graded.
 
+### 11. §4.1 interface and Lemma 4.0 (prime-power second moment) — SOUND
+
+The prime-power transition (full-fibre conditioning on `ℤ/ℓ^{E_ℓ}`) keeps
+Lemma 2.1 (a decided condition forbids its lifted class, impossible at a
+light coordinate) and Lemma 2.2 (class mod `ℓ^e`: `≤ (1−δ)^{−1}ℓ^{−e}`).
+Lemma 4.0: for `M = qℓ^v` activation is `n ≡ −4D (q)`, a history event; it
+forbids one class mod `ℓ^v` (density `ℓ^{−v}` in `ℤ/ℓ^{E}`), so
+`p_ℓ ≤ Σ_v ℓ^{−v}N_{ℓ,v}`; Lemma 2.4's argument bounds `E N_{ℓ,v}²` (uses only
+`q ≤ ℓ^B`, `A ≤ ℓ^{1+B}`, Lemma 2.2); Minkowski over `≤ 1+B` values of v.
+Correct, for any processing order in which every cofactor prime precedes ℓ
+(true for singletons, resolved η-windows and the in-window order of V). The
+bound `r < (1+B)(1+η)` and the `101·103·109` example (≡ 3 mod 4; 101, 103,
+109 all in `(e^{4.252}, e^{5.315}] = (70, 203]` for η = 1/4, W = 30) check.
+T2 applies here too.
+
+### 12. Proposition 4.1 (low range, singleton windows) — SOUND
+
+At a singleton window f̃ depends on one bit; `E f̃ ≥ (1−p)f̃(0)`, and f̃(0) is
+the `Q'` transition, so the step of Thm 2.3 holds with
+`Φ = −log(1−p) ≤ (4/3)p` (p ≤ 1/4); heavy ⇒ leak. Profile: Lemma 2.2 + the
+Lemma 2.6 sum over `M ≤ e^{(1+B)s₁}` (twin and prime-power M included, via
+`Γ(q) ≤ Γ(M)`). Cost `2·(4/3)·K'((1+B)λ^{1/4})³`. Correct; no λ-level
+property is needed, so the shape of M is irrelevant.
+
+### 13. Lemma 4.2 and Corollary 4.3 (top range) — SOUND
+
+Lemma 4.2 re-derived: `E_σ g_ℓ = E_U[g_ℓ(r−1)] ≤ ε_ℓ E_U g_ℓ⁺ + m_ℓ δ_ℓ ≤
+m_ℓ(ε_ℓ+δ_ℓ)` and `Σ m_ℓ ≤ c₀` because f ≥ 0 at the product point where every
+`g_ℓ` is minimal (needs f ≥ 0 on the *whole* product — given, ν ≥ 0 on ℤ).
+Only one-coordinate marginals of σ enter, so σ may be any coupling.
+
+Cor 4.3 (the flagged use on residues): `log ℓ > λ/2` on V, so each term of ν
+meets at most one V-prime; `f(y_V) = E_U[ν | h, y_V]` is `c₀ + Σ g_ℓ(y_ℓ)` on
+the residues `y_ℓ = n mod ℓ^{E_ℓ}` (higher powers in ν's moduli are
+integrated out), `f ≥ 0`, `E_U f = g_V(h)`. σ = in-window sequential capped
+law: each marginal is a mixture of uniform laws on sets of density `≥ 1−δ_ℓ`
+(light) or uniform (heavy), so `ε_ℓ ≤ δ_ℓ/(1−δ_ℓ) ≤ 2δ_ℓ`, TV defect `≤ δ_ℓ`
+(convexity), `δ_ℓ ≤ e^{−λ/4}`. `E_σ f = E_{Q'}[g_next | h]`, so the step holds
+with `Φ = log(1+3e^{−λ/4})`, independent of the window's mass. Twin/prime-
+power conditions inside V are decided at their top prime in the in-window
+order, so the leak bookkeeping (Lemma 2.1 with sub-steps) and Lemma 4.0
+apply. The remark after Lemma 4.2 (Λ² with two V-primes per term defeats
+any `1+O(max p)` bound) is correct in substance; "level 2" there means
+"two primes per factor" — reword (cosmetic). Notation clash: δ_ℓ is both
+the cap and Lemma 4.2's TV parameter (cosmetic).
+
+### 14. Theorem 4.4 — SOUND-AFTER-REPAIRS (presentation)
+
+Mathematics checked: windows = singletons on `(W, e^{λ^{1/4}}]`, EB η-windows
+cut to `(e^{λ^{1/4}}, e^{λ/2}]` (cutting refines windows, and refinement
+preserves "resolved": the top prime stays alone in its sub-window), V, then
+singletons above `e^λ` (invisible). Middle cost: Lemma 2.6 + EB Thm 2.5
+computation from `s = λ^{1/4}` gives `≪ η^{−1}λ^{3/4}(1+log(K(1+B)³))`; low
+range `≪_B λ^{3/4}`; V: `O(e^{−λ/4})`. Leak via Lemma 4.0 + Cor 2.5.
+`λ ≥ (2log W)^4` gives `λ^{1/4} > log W` and `λ/2 > log W`. Conclusion holds.
+
+**T5 (MEDIUM; Thm 4.4 proof, "Theorem 2.3 applies: its induction step in
+each window is, respectively, the singleton inequality, ET Prop 2.4,
+Lemma 4.2").** Theorem 2.3 is stated in the setting of §2.1 — all
+conditions satisfy (U) for the window partition, and the step is ET
+Prop 2.4 on hit indicators. Neither holds for V: conditions with two
+V-primes violate (U) for V, the V-transition is not a product law, and the
+step is an inequality `E_U f ≥ E_σ f/(1+…)` on residues, not
+`E f̃ ≥ f̃(0)e^{−Φ}`. Lemma 2.1 likewise assumes (U). The extension is routine
+(the proof of Thm 2.3 only uses: a transition law σ_j(h), an inequality
+`g_j(h) ≥ e^{−Φ_j(h)} E_{σ_j(h)}[g_{j+1}]`, and a leak lemma for whatever
+order decides each condition), but the headline theorem currently cites a
+theorem outside its hypotheses. Fix: state "Theorem 2.3′ (abstract
+sequential step)" with those three inputs, and Lemma 2.1′ for in-window
+sequential orders; then Prop 4.1, Cor 4.3 and the middle windows are
+instances.
+
+**T6 (LOW; Thm 4.4 "Fix B and W = W₀(B)").** W₀(B) was defined in Cor 2.5
+from Lemma 2.4's constant; Lemma 4.0's constant is larger by `(2+B)²`, so
+W₀(B) must be re-chosen (or defined in Cor 2.5 with Lemma 4.0's constant).
+Trivial, but the theorem as written uses the wrong W₀.
+
