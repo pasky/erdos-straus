@@ -19,3 +19,10 @@ Part A: CRT LP vs fibre Boolean LPs
   Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^13: W_CRT=0.266667 fibreLP=0.266667 void=0.223776 -log(W)=1.322 thm_bound(-log)=178.1 ok
   Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^35: W_CRT=0.266667 fibreLP=0.266667 void=0.223776 -log(W)=1.322 thm_bound(-log)=282.2 ok
   Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^143: W_CRT=0.224242 fibreLP=0.224242 void=0.223776 -log(W)=1.495 thm_bound(-log)=314.7 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^1001: W_CRT=0.223776 fibreLP=0.223776 void=0.223776 -log(W)=1.497 thm_bound(-log)=431.5 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^5: W_CRT=0.333333 fibreLP=0.333333 void=0.206793 -log(W)=1.099 thm_bound(-log)=1.1 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^7: W_CRT=0.285714 fibreLP=0.285714 void=0.206793 -log(W)=1.253 thm_bound(-log)=139.3 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^11: W_CRT=0.272727 fibreLP=0.272727 void=0.206793 -log(W)=1.299 thm_bound(-log)=161.1 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^13: W_CRT=0.264569 fibreLP=0.264569 void=0.206793 -log(W)=1.330 thm_bound(-log)=169.6 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^35: W_CRT=0.264569 fibreLP=0.264569 void=0.206793 -log(W)=1.330 thm_bound(-log)=272.8 ok
+  Q0=6 P=[5, 7, 11, 13] E=[2, 1, 1, 1] free=1 lam=e^143: W_CRT=0.207792 fibreLP=0.207792 void=0.206793 -log(W)=1.571 thm_bound(-log)=304.8 ok

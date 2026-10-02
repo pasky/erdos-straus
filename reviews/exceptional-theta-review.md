@@ -267,7 +267,6 @@ Correct.
     bounded.
   * *Fix.* Say explicitly that `Q₀/|R| ≤ L' = lcm(P_{w₀}, w₀-smooth moduli)`
     and that `L' ≤ e^{O(w₀^{1+C})}`, while Q₀ itself is unbounded.
-* **S2 (remark, not a defect; the Cor 3.6 window profile).** The profile
-  per window uses `ℓ^{−α} ≤ e^{−αCs_j}` (lower window end), not
-  `e^{−αs_j}` as printed. This is a constant-factor change absorbed into
-  `C₈(A,C)`. Fix the display.
+* **S2 (cosmetic; Cor 3.6 "Per window").** `s_j` is never defined. The
+  bounds `M ≤ e^{2s_j/C}` and `ℓ^{−α} ≤ e^{−αs_j}` are consistent only if
+  `s_j = s₀C^{−j+1}` is the log of the *lower* endpoint of W_j. Define it.
