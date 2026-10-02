@@ -44,6 +44,12 @@ with its status label. Read it before starting new work.
     Dickson's conjecture for only **159 linear forms**, and it exhibits a
     positive ES solution outside the sterile component (on a subprogression;
     that conclusion needs Dickson for the restricted tuple, PAPER_B_ISSUES 11).
+    Astra update (2026-10-02, read-only check): all 159 primary anchors
+    are reachable from the seed with no primality assumption at all
+    (`PRIMARY_REACHABILITY.md`). One primary prime has been replaced by an
+    exact divisor (leaf) condition, leaving 158 prime conditions plus that
+    leaf condition (`PRIMARY_LEAF_RELAXATION.md`). Searches over actual
+    inputs still find no sterile prime.
     Cite that version first. Write-up: `paper/pointwise-obstruction.tex`
     (29 pp; internal hostile referee `reviews/pointwise-obstruction-paper-review.md`,
     round 2 ACCEPT pending the authorship/[AS] citation decision).
