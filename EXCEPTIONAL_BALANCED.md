@@ -154,3 +154,47 @@ coordinate with `s_i ≤ λ` has `p_i ≤ 1/4`, so ET Prop 2.4 applies to f̃. �
 
 The bound is sharp in form. For a single heavy coordinate and the majorant
 `f = 1{x_i = 0}`, the saving is exactly `−log(1−p_i)`.
+
+### 2.3 The sequential bound for gapped families
+
+Let 𝔊 be a finite family of η-gapped forced classes. Use the following
+data:
+* windows `W_j` as in §2;
+* `Q₀ = lcm` of the w₀-smooth parts of all moduli of 𝔊;
+* `R = ℤ/Q₀`. There are no pure small-modulus conditions, since every
+  gapped modulus has `P(M) > w₀`.
+
+By Lemma 2.1, 𝔊 is a system in the sense of ET §2.6 with ℓ(C) = P(M_C).
+Let `Q_seq`, `F_ℓ(h)` and `p_ℓ(h)` be as there. Call a history h
+*reachable* if `Q_seq(h) > 0`.
+
+**(NDE) No dead ends.** `p_ℓ(h) < 1` for every reachable h at window j and
+every `ℓ ∈ W_j`.
+
+**Theorem 2.3 (PROVED, given (NDE)).** Every majorant ν of level λ of
+`𝒜(𝔊)` satisfies
+
+    log(1/Eν) ≤ Σ_j E_{Q_seq}[ Φ_j^{light}(H_{<j}) + Σ_{ℓ∈W_j, log ℓ≤λ, p_ℓ(H)>1/4} −log(1−p_ℓ(H_{<j})) ].   (2.1)
+
+Here `Φ_j^{light}(h)` is the right side of ET (2.3) for the light
+coordinates of window j (`log ℓ ≤ λ`, `p_ℓ(h) ≤ 1/4`), with `α = α_j`.
+Windows with `s_j ≥ λ` contribute 0.
+
+*Proof.* This is the proof of ET Thm 2.7 verbatim, with ET Prop 2.4
+replaced by Lemma 2.2 in the induction step. That step uses only three
+facts:
+1. given `H_{<j} = h`, the hit indicators of window j are independent;
+2. `f(x) = E[g_{j+1} | h, x]` is λ-level and ≥ 0;
+3. at `x = 0` the next history has the `Q_seq` transition law.
+
+None of these uses `p ≤ 1/4`. (NDE) gives `P(x=0 | h) > 0`, so `f(0)` and
+the transition are defined. The R-term `log(Q₀/|R|)` vanishes because
+`R = ℤ/Q₀`. ∎
+
+So the cost of dropping ET's counting bound is concentrated in two
+`Q_seq`-expectations:
+* the **heavy charge**, the last sum in (2.1);
+* the **light profile** `E_{Q_seq} p_ℓ(H)` inside `Φ_j^{light}`.
+
+§2.4 shows that if both are controlled, the windows sum to `C(η)λ^{3/4}`.
+§2.5 records where controlling them fails.
