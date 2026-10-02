@@ -250,3 +250,46 @@ Cosmetic defects:
   `c_0` at quarantine cost `kS*/c_0` primes, which is `T^{o(1)}` for
   `c_0=Ŝ^{−A_k}/C_k`. ✓ (This is the step where a hidden power of T could
   have entered; it does not, because `S*=T^{o(1)}`.)
+
+## Item 8 — O3 §1 (Thm 1.1, Cor 1.2, Lemma 1.3), spot check. Verdict: SOUND
+
+Bonferroni parities (J odd ⇒ β lower, α upper), `0≤V_i−Eβ_i≤e_{J+1}`,
+`P(cell_i)V_i=V·P'(cell_i)`, twist identity
+`E[1_{𝒜_1}1_{cell}ψ]=V·E'[1_{cell}ψ]`, and the `0.011` correction in
+Lemma 1.3 all check. §§3–5 do not depend on §1 (as the text says).
+
+## Summary
+
+| Item | Subject | Verdict |
+|---|---|---|
+| 1 | O2 Lemma 10.1 (private covers) | SOUND |
+| 2 | O2 Lemma 10.2 (hypergraph moment) | SOUND (cosmetic 2a, 2b) |
+| 3 | O2 Lemma 2.1 (pseudoforest) | SOUND |
+| 4 | O3 §3: Lemma 3.1, Thm 3.2 (tilt 1+w'), Lemma 3.3, Thm 3.4 | SOUND (D1 notational) |
+| 5 | Independent adversarial brute force + negative control | 0 violations |
+| 6 | O3 Thm 5.1 k-level induction (conditioned codegrees, induced mass, frozen budgets, k-dependence) | SOUND (D2, D3 cosmetic) |
+| 7 | Chain to `W≥(log p)^{1/θ−ε}`; no hidden `T^c` | SOUND |
+| 8 | O3 §1 | SOUND |
+
+Numbered defects (none affects any theorem statement):
+
+* **D1** Setting 3.0's `t:=δ_3/(C_3(S_H+1))` vs Constants' `t(Ŝ)=δ_3/(3(L_3+1))`; keep one.
+* **D2** k-level error total is `<0.015P(all)`, not `≤P/100`, unless L_2 is
+  chosen with `200k𝔐_3`; margins unaffected.
+* **D3** Thm 5.2: rough parts have `Ω≤k−1`, not `≤k` (understatement).
+* (2a/2b, in O2 Lemma 10.2's proof) fixed-slot encoding and
+  non-use of simplicity — wording only.
+
+**Overall: SOUND.** The two lemmas the first review did not re-derive
+(O2 10.2, 2.1) hold as stated, including the private-vertex/new-vertex
+step and the order-independent sibling sum; every OMEGA3 use (tilted
+weight, mixed-size induced events, conditioned systems with higher
+codegrees, frozen budgets, k-dependent constants) satisfies the
+hypotheses actually used in the proofs. Status of Thms 4.3/5.2 remains
+"PROVED modulo Thorner–Zaman Cor 1.4 + McCurley region (or Landau–Page)".
+
+Replay:
+```
+(ulimit -v 8000000; for s in 1 2 3; do timeout 900 env PYTHONPATH=scripts uv run python scripts/omega3_review2_adversarial.py $s 1000; done)
+(ulimit -v 8000000; NEG=1 timeout 900 env PYTHONPATH=scripts uv run python scripts/omega3_review2_adversarial.py 1 300)  # negative control: exits 1
+```
