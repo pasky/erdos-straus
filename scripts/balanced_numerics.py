@@ -180,12 +180,16 @@ def part_i(X=100000, samples=200, eta=0.25, seed=1, steer_tries=3):
     return out
 
 
-def steered_history(sysd, maxexp, ell, rng, reach=True):
+def steered_history(sysd, maxexp, ell, rng, reach=True, only_bal=False):
     """Adversarial but VALID history: Q_seq-support path (each residue avoids all
     conditions with that top prime) steered to keep as many distinct target values
     at ell alive as possible.  Returns |F_ell(h)|/ell^e for the final history."""
     primes = sorted(p for p in maxexp if p < ell)
     target = list(sysd.get(ell, []))
+    if only_bal:  # review D9/D17: balanced cofactors only (q >= ell <=> P(M) <= sqrt(M))
+        target = [c for c in target if c[0] >= ell]
+        if not target:
+            return 0.0
     alive = target[:]
     n, L = 0, 1
     for p in primes:
@@ -336,8 +340,10 @@ def single_control(S, conds, seed=5):
 def part_ii(S, mmax):
     S, Q, idx, res, conds = window_system(S)
     ctrl = single_control(S, conds)
+    # review D16: a two-prime modulus is never balanced; balanced = >= 3 primes here
     fams = {"D(single primes)": (conds, lambda U: len(U) == 1),
-            "D+B(all)": (conds, lambda U: True),
+            "D+pairs": (conds, lambda U: len(U) <= 2),
+            "D+composite(all)": (conds, lambda U: True),
             "D+S(control)": (ctrl, lambda U: True)}
     out = [f"# part (ii) window S={S} Q={Q}; conditions: " +
            ", ".join(f"{M}:{len(c)}" for U, M, c in conds)]
@@ -367,22 +373,24 @@ if __name__ == "__main__":
 
 
 def part_steer(X, plist, tries, eta=0.25, seed=3):
-    """For each target prime p: best steered p(h) over reachable histories and over
-    ALL residue assignments (reach=False), vs pi(min(y, X/p)), y = p^(1/(1+eta))."""
+    """For each target prime p: greedy-steered number of distinct active values at p
+    (a) over reachable histories, all cofactor types; (b) ignoring reachability, all
+    types; (c) ignoring reachability, balanced cofactors q >= p only; (d) the
+    cofactor-q=1 baseline |R(p)| (active for every n with n in R(p)); vs pi(y),
+    y = min(p^(1/(1+eta)), X/p).  Lower bounds for the sup (weak adversary)."""
     rng = random.Random(seed)
     sysd, maxexp, stats = build_system(X, eta)
-    out = [f"# steered histories X={X} tries={tries}: p | Mu_p by type (dom,gapM,gapB,twin) |"
-           " best p(h) | best p(h)*sqrt(p)"]
+    out = [f"# steered X={X} tries={tries} eta={eta}: p | reach_all | free_all | free_bal |"
+           " q=1 baseline | pi(y) | #bal cofactors"]
     for p in plist:
-        mu = defaultdict(float)
-        for (q, cq, cv, v, t, M) in sysd.get(p, ()):
-            mu[t] += 1.0 / M
-        best = max(steered_history(sysd, maxexp, p, rng) for _ in range(tries))
-        bfree = max(steered_history(sysd, maxexp, p, rng, False) for _ in range(tries))
+        ra = max(steered_history(sysd, maxexp, p, rng) for _ in range(tries))
+        fa = max(steered_history(sysd, maxexp, p, rng, False) for _ in range(tries))
+        fb = max(steered_history(sysd, maxexp, p, rng, False, True) for _ in range(tries))
+        base = len({cv % p for (q, cq, cv, v, t, M) in sysd.get(p, ()) if q == 1})
+        nb = len({q for (q, cq, cv, v, t, M) in sysd.get(p, ()) if q >= p})
         y = min(p ** (1 / (1 + eta)), X / p)
         piy = sum(1 for a in range(2, int(y) + 1) if all(a % d for d in range(2, int(a ** .5) + 1)))
-        out.append(f"{p:6d} | " + " ".join(f"{mu[t]:.2e}" for t in TYPES) +
-                   f" | reach {best*p:.0f} vals ({best:.3e}) | free {bfree*p:.0f} vals | pi(y)={piy}")
+        out.append(f"{p:6d} | {ra*p:.0f} | {fa*p:.0f} | {fb*p:.0f} | {base} | {piy} | {nb}")
     return out
 
 

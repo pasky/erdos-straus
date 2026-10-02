@@ -1,13 +1,5 @@
-D(single primes)   mass=0.431 void=0.490 | m=1: LP=0.318
-D(single primes)   mass=0.431 void=0.490 | m=1: LP=0.318 | m=2: LP=0.490
-D(single primes)   mass=0.431 void=0.490 | m=1: LP=0.318 | m=2: LP=0.490 | m=3: LP=0.490
-D+B(all)           mass=0.707 void=0.741 | m=1: LP=0.318
-D+B(all)           mass=0.707 void=0.741 | m=1: LP=0.318 | m=2: LP=0.525
-D+B(all)           mass=0.707 void=0.741 | m=1: LP=0.318 | m=2: LP=0.525 | m=3: LP=0.691
-D+S(control)       mass=0.749 void=0.852 | m=1: LP=0.318
-D+S(control)       mass=0.749 void=0.852 | m=1: LP=0.318 | m=2: LP=0.807
-D+S(control)       mass=0.749 void=0.852 | m=1: LP=0.318 | m=2: LP=0.807 | m=3: LP=0.847
 # part (ii) window S=[11, 13, 17, 19] Q=46189; conditions: 11:3, 19:3, 143:22, 187:3, 247:9, 323:9, 2431:25, 4199:135
 D(single primes)   mass=0.431 void=0.490 | m=1: LP=0.318 | m=2: LP=0.490 | m=3: LP=0.490
-D+B(all)           mass=0.707 void=0.741 | m=1: LP=0.318 | m=2: LP=0.525 | m=3: LP=0.691
+D+pairs            mass=0.665 void=0.709 | m=1: LP=0.318 | m=2: LP=0.525 | m=3: LP=0.691
+D+composite(all)   mass=0.707 void=0.741 | m=1: LP=0.318 | m=2: LP=0.525 | m=3: LP=0.691
 D+S(control)       mass=0.749 void=0.852 | m=1: LP=0.318 | m=2: LP=0.807 | m=3: LP=0.847

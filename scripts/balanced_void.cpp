@@ -5,6 +5,8 @@
 //   F1 "dom"     : P >= M^{2/3}
 //   F2 "nontwin" : dom, or gapped P >= P2^{1+eta}
 //   F3 "all"     : everything (adds the eta-twin moduli)
+//   F4 "dom+twin": dom and eta-twin, no gapped  (order-symmetric comparison,
+//                  review D15)
 // For each prime p in [P0, P0+span) we find the first M <= Q in each family with
 // p mod M in R(M), and print void(Q') and the prime-conditioned masses
 // mass_pr(Q') = sum |R(M) cap units|/phi(M) per family.  EVIDENCE only.
@@ -63,8 +65,8 @@ int main(int argc, char** argv) {
     vector<uint8_t> small(lim + 1, 1); small[0] = small[1] = 0;
     vector<u64> sp;
     for (u64 i = 2; i <= lim; ++i) if (small[i]) { sp.push_back(i); for (u64 j = i * i; j <= lim; j += i) small[j] = 0; }
-    vector<u64> hist[3];
-    for (int t = 0; t < 3; ++t) hist[t].assign(Q + 2, 0);   // first hit M (Q+1 = void)
+    vector<u64> hist[4];
+    for (int t = 0; t < 4; ++t) hist[t].assign(Q + 2, 0);   // first hit M (Q+1 = void)
     u64 nprimes = 0;
     const u64 CH = 100000000ULL;
     vector<uint8_t> seg;
@@ -79,30 +81,32 @@ int main(int argc, char** argv) {
         for (u64 i = 0; i < hi - lo; ++i) if (seg[i]) {
             u64 n = lo + i; if (n < 2) continue;
             ++nprimes;
-            u64 first[3] = {Q + 1, Q + 1, Q + 1};
+            u64 first[4] = {Q + 1, Q + 1, Q + 1, Q + 1};
             int found = 0;
-            for (u64 M = 3; M <= Q && found < 3; M += 4) {
+            for (u64 M = 3; M <= Q && found < 4; M += 4) {
                 if (!bits[M][n % M]) continue;
                 int t = type[M];
-                // family k contains types <= k (0:dom, 1:dom+gap, 2:all)
+                // family k contains types <= k (0:dom, 1:dom+gap, 2:all); 3: dom+twin
                 for (int k = t; k < 3; ++k) if (first[k] == Q + 1) { first[k] = M; ++found; }
+                if (t != 1 && first[3] == Q + 1) { first[3] = M; ++found; }
             }
-            for (int k = 0; k < 3; ++k) hist[k][first[k]]++;
+            for (int k = 0; k < 4; ++k) hist[k][first[k]]++;
         }
     }
     printf("# Q=%llu P0=%llu span=%llu primes=%llu\n", Q, P0, span, nprimes);
-    printf("# Q' | voids dom nontwin all | mass_pr dom nontwin all\n");
-    u64 surv[3] = {nprimes, nprimes, nprimes};
-    double cm[3] = {0, 0, 0};
+    printf("# Q' | voids dom nontwin all domtwin | mass_pr dom nontwin all domtwin\n");
+    u64 surv[4] = {nprimes, nprimes, nprimes, nprimes};
+    double cm[4] = {0, 0, 0, 0};
     u64 next = 10;
     for (u64 M = 1; M <= Q; ++M) {
-        for (int k = 0; k < 3; ++k) surv[k] -= hist[k][M];
+        for (int k = 0; k < 4; ++k) surv[k] -= hist[k][M];
         if (M >= 3 && (M % 4) == 3) {
             int t = type[M];
             for (int k = t; k < 3; ++k) cm[k] += mass[t][M];
+            if (t != 1) cm[3] += mass[t][M];
         }
         if (M == next || M == Q) {
-            printf("%llu %llu %llu %llu %.6f %.6f %.6f\n", M, surv[0], surv[1], surv[2], cm[0], cm[1], cm[2]);
+            printf("%llu %llu %llu %llu %llu %.6f %.6f %.6f %.6f\n", M, surv[0], surv[1], surv[2], surv[3], cm[0], cm[1], cm[2], cm[3]);
             next = (u64)(next * 1.3) + 1;
         }
     }
