@@ -586,6 +586,85 @@ $U$ (otherwise the terms cancel in pairs).  Hence
 $G_{L+1}$ expands with coefficients $+1$.
 \end{proof}
 
+\section{A pseudoforest bound for the exponential moment}\label{sec:pseudo}
+
+\emph{Graph-type systems.}  Each $X_\ell$ takes values in a finite set
+$\Omega_\ell$.  The events are of two kinds.  \emph{Singles}: one set
+$S_\ell\subseteq\Omega_\ell$ per $\ell$, with $g_\ell=P(X_\ell\in S_\ell)$ and
+$S_1=\sum_\ell g_\ell$.  \emph{Edges}: a \emph{vertex} is a pair $v=(\ell,V_v)$
+with $V_v\subseteq\Omega_\ell$, distinct vertices at the same $\ell$ being
+disjoint, and $p(v)=P(X_\ell\in V_v)$; an edge is an unordered pair $\{u,w\}$ of
+vertices at distinct primes, occurring iff $X_{\ell_u}\in V_u$ and
+$X_{\ell_w}\in V_w$.  The edge graph is simple: edges are distinct pairs of
+vertices (for congruences, distinct classes modulo $\ell\ell'$), repeated atoms
+being merged.  Put
+\[
+ S_2=\sum_{\text{edges}}p(u)p(w),\quad \deg(v)=\sum_{w:\{v,w\}\text{ edge}}p(w),\quad
+ w_\ell=\sum_{\text{edges at }\ell}p(u)p(w).
+\]
+Then $a_\ell=s_\ell+d_\ell$ with $s_\ell=\mathbf 1[X_\ell\in S_\ell]$ and $d_\ell$ the
+number of occurring edges at $\ell$.
+
+\begin{lemma}[Proved]\label{lem:pseudo}
+Let $z\ge1$ and suppose $\deg(v)\le\delta\le e^{-3z-2}$ for every vertex.  Then
+$\Lambda_z\le zS_1+16e^{6z+2}S_2$.
+\end{lemma}
+
+\begin{proof}
+Use $1+z(s+d)\le(1+zs)(1+zd)$ and expand
+$\prod_\ell(1+zd_\ell)=\sum_{(U,f)}z^{|U|}\mathbf 1[f(\ell)\text{ occurs for all }\ell\in U]$,
+where $f$ assigns to each $\ell\in U$ an edge at a vertex of $\ell$.  Let
+$F=f(U)$.  If $F$ occurs, its vertices lie at distinct primes, and each
+component $K$ of $F$ has $|E(K)|\le|V(K)|$ (each edge of $K$ is chosen by a prime
+whose vertex lies in $K$); so $F$ is a pseudoforest.  For fixed $F$, the weight
+of the pairs $(U,f)$ with $f(U)=F$ is at most
+$\prod_{v\in V(F)}(1+z\deg_F(v))\le e^{2z|V(F)|}$.  For the singles,
+independence gives
+$E[\prod_{\ell\in U_s}s_\ell\,\mathbf 1[F\text{ occurs}]]\le\prod_{\ell\in U_s\setminus\pi(F)}g_\ell\cdot P(F\text{ occurs})$,
+$\pi(F)$ being the primes of $V(F)$; summing $z^{|U_s|}$ over $U_s$ costs
+$(1+z)^{|\pi(F)|}\prod_\ell(1+zg_\ell)$.  Hence
+\begin{align*}
+ E\prod_\ell(1+za_\ell)&\le e^{zS_1}\sum_Fe^{3z|V(F)|}P(F\text{ occurs})\\
+ &\le e^{zS_1}\exp\Big(\sum_Ke^{3z|V(K)|}P(K\text{ occurs})\Big),
+\end{align*}
+$K$ running over connected pseudoforests; here we used that $P(F)$ is the
+product over components when these lie on disjoint primes and $0$ otherwise.
+A connected pseudoforest on $v$ vertices is a spanning tree $T$ plus at most one
+of $\le v^2/2$ further pairs, and $P(K)\le P(T)\le\prod_{w\in T}p(w)$.  Encode a
+tree rooted at $v_0$ by its child sets $C_1,\dots,C_v$ in breadth-first order
+(children ordered by a fixed total order); every tree is recovered once for
+each choice of root, so summing over roots overcounts by the factor $v$.
+Summing over $C_i\subseteq N(v_i)$ with $|C_i|=c_i$ gives at most
+$\deg(v_i)^{c_i}/c_i!$, and for $i=1$, $c_1\ge1$, at most
+$\deg(v_0)\delta^{c_1-1}/c_1!$; and
+$\sum_{c_1+\dots+c_v=v-1}\prod1/c_i!=v^{v-1}/(v-1)!\le e^v$.  So the trees with
+$v\ge2$ vertices contribute at most
+$\sum_{v_0}p(v_0)\deg(v_0)e^v\delta^{v-2}=2S_2e^v\delta^{v-2}$, and
+\[
+ \sum_Ke^{3z|V(K)|}P(K)\le2S_2e^{6z+2}\sum_{j\ge0}\big(3+2j+\tfrac{j^2}2\big)(e^{3z+1}\delta)^j\le16e^{6z+2}S_2,
+\]
+as $e^{3z+1}\delta\le e^{-1}$ and $\sum_j(3+2j+j^2/2)e^{-j}<7.6$.
+\end{proof}
+
+The hypothesis is a bound on \emph{vertex degrees}; configurations in which a
+complete bipartite graph of events fires (the hubs of
+Proposition~\ref{prop:bonf}) are not excluded.  It is enforced as follows.
+
+\begin{lemma}[Proved]\label{lem:hub}
+For $\delta>0$ let $H=\{v:\deg(v)>\delta\}$.  Replace $S_\ell$ by
+$S_\ell^+=S_\ell\cup\bigcup_{v\in H\text{ at }\ell}V_v$ and delete the edges with an
+endpoint in $H$.  Then the absence of every new event implies the absence of
+every old event; every remaining vertex has degree $\le\delta$;
+$g_\ell^+\le g_\ell+w_\ell/\delta$, $S_1^+\le S_1+2S_2/\delta$ and $S_2^+\le S_2$.
+\end{lemma}
+
+\begin{proof}
+An old edge at $v\in H$ cannot occur without the new single at $\ell_v$.
+Degrees only decrease.  By Markov,
+$\sum_{v\in H\text{ at }\ell}p(v)\le\sum_{v\text{ at }\ell}p(v)\deg(v)/\delta=w_\ell/\delta$,
+and $\sum_\ell w_\ell=2S_2$.
+\end{proof}
+
 \section{Limits of the method}\label{sec:limits}
 
 \subsection{Complete certificates}
