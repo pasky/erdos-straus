@@ -1,7 +1,31 @@
 # EXCEPTIONAL_BALANCED — can balanced moduli beat the 3/4 sieve limit? (task a3)
 
-Status: **in progress.** Nothing in this file is proved unless a later
-section says so. Labels follow `DISCOVERIES.md`.
+Status: **checkpoint (outcome (C), partial).** Labels follow
+`DISCOVERIES.md`. PROVED means proved here and checked internally only.
+
+## 0. Status at a glance
+
+| item | statement | label |
+|---|---|---|
+| Lemma 2.1 | η-gapped moduli (`P(M) ≥ P₂(M)^{1+η}`, `P(M) > w₀`) satisfy (U) for windows of log-ratio 1+η | PROVED |
+| Lemma 2.2 | ET Prop 2.4 without `p ≤ 1/4`: heavy coordinates cost `−log(1−p_i)` each | PROVED |
+| Thm 2.3 | sequential bound (2.1) for gapped families, given (NDE) | PROVED given (NDE) |
+| Lemma 2.4 | window masses `m_j ≪ (1+B)³s_j³` for (η,B)-gapped ℛ(M)-families | PROVED |
+| Thm 2.5 | `S_λ ≤ C K^{1/4}(1+B)^{3/4} η^{−1}λ^{3/4} + Kλ^{3/4} + O(η^{−1}log λ·(log λ+log K))` | CONDITIONAL on H_light(K) |
+| Lemma 4.1 | `F_ℓ(n) = {−r/k mod ℓ : (4srk−1)/ℓ = q ∈ 𝒬_ℓ, q \| nk+r}` | PROVED |
+| Lemma 4.2 | counting gives (★_δ) iff B < 1; vacuous for B ≥ 1 | PROVED |
+| Prop 4.3 | `sup_n \|F_ℓ(n)\| ≥ y^{1/5−o(1)}`, `y = ℓ^{1/(1+η)}` (reachability not checked) | PROVED (uses Linnik/Xylouris) |
+| Prop 4.4 | (E_δ) ⇒ (★_δ) ⇒ H_light(O(1)) ⇒ cap `≪ η^{−1}λ^{3/4}` for (η,B)-gapped families | PROVED (weak-ε form only sketched) |
+| §3 | real system: `K = E_seq p/E_U p ∈ [0.52, 1]`; `p(h) ≲ 4ℓ^{−1/2}`; balanced classes add no LP saving at level ≤ 2 and lose to matched-mass singles; η-twin classes have ≈ 0.2 effective void mass among real primes; greedy sup of `\|F_ℓ\|` ≈ π(y) | EVIDENCE |
+
+**Verdict so far.** Neither (A) nor (B) is proved.
+* Balanced moduli whose two top primes are separated (η-gapped) are
+  reduced to one arithmetic extremal statement, (E_δ).
+* η-twin moduli (top two primes within log-ratio 1+η) are the open core.
+  They carry `≫_η (log x)³` supply (ET Lemma 3.8). They are untouched by
+  any proof here.
+* All numerics lean towards (A), i.e. that balanced moduli do not beat
+  3/4. They are taken at toy scales only.
 
 Notation as in `EXCEPTIONAL_THETA.md` (ET): `L = log N`, λ = level,
 `P(M) ≥ P₂(M) ≥ …` the prime factors of M in decreasing order.
