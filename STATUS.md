@@ -97,7 +97,11 @@ have a dominant prime. This class contains the 3/4 note's own majorant
 (DISCOVERIES (D)9). The note's mass heuristic θ=B/(B+1) is now a theorem
 for that class. No θ>3/4 was found. Beating 3/4 requires at least one of:
 * balanced moduli used jointly (they carry a positive share of the cubic
-  supply; open; reduced to H_MS^{Sel} for Λ² sieves);
+  supply; open; reduced to H_MS^{Sel} for Λ² sieves). `EXCEPTIONAL_BALANCED.md`
+  (reviewed) reduces the *gapped* balanced moduli, for each fixed B, to one
+  arithmetic extremal statement (E_δ). The η-twin moduli (top two primes at
+  comparable scale) are the open core. The numerics are neutral between
+  "cannot help" and "can help";
 * multipliers beyond N^{O(1)};
 * signed cancellation in rounding errors;
 * a non-CRT input (actual arithmetic of `(p+a)/4`).

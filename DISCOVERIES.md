@@ -77,6 +77,8 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 10. Λ² sieve limit for arbitrary CRT systems: `saving(g²) ≤ αλ/2 + Ξ_A(α)` (noise-stability excess). **Theorem (PROVED)** — EXCEPTIONAL_THETA Thm 5.5; reduces balanced moduli for Λ² to the open H_MS^{Sel}.
 11. H_A3 (Case-A weighted divisor bound) holds. **Lemma (PROVED modulo Elsholtz–Tao Prop 1.4)** — EXCEPTIONAL_THETA Lemma 3.7.
 
+12. Balanced moduli, gapped part: for each fixed B, families of (η,B)-gapped moduli satisfy the 3/4 cap `≪ η^{−1}λ^{3/4}` under the arithmetic extremal hypothesis (E_δ) (Prop 4.4, PROVED implication). The counting bound proves the cap exactly when B<1 (Lemma 4.2). η-twin moduli are open. **PROVED/CONDITIONAL** — EXCEPTIONAL_BALANCED.md §§2, 4; review `reviews/exceptional-balanced-review.md` (no critical defects; repairs applied; the "twin classes are redundant" reading was withdrawn as an ordering artefact).
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
