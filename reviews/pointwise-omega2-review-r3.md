@@ -16,8 +16,25 @@ is missing or a stated claim is wrong but the result survives / an Assessment is
 |---|---|
 | Lemma 11.1 (uniform mass S*) | SOUND |
 | Lemma 11.2 (iterated quarantine) | SOUND |
-| **Theorem 11.3** (`log(1/δ*) ≪ (log T)^3(S*+1)`) | **SOUND** (minor defects only) |
-| (filled in item by item below) | |
+| **Theorem 11.3** (`log(1/δ*) ≪ (log T)^3(S*+1)`) | **SOUND** (minor defects D1–D4 only) |
+| Numerics for Thm 11.3 (independent code, Item 4) | CONFIRMS; subject's `omega2_iterq.py` output reproduced exactly |
+| Lemma 10.1 (private covers) | SOUND |
+| Lemma 10.2 (hypergraph moment bound) | SOUND (D5: an unstated symmetrisation step) |
+| Theorem 10.3 | SOUND (D6, wording) |
+| Theorem 10.4 (H_CD ⇒ H_MIN) | SOUND (D4, D7) |
+| Prop. 10.6 | SOUND (D8) |
+| Prop. 10.5 | SOUND as estimates; label inflated (D9) |
+| Prop. 11.4 / §11.4 G_pair | Prop SOUND for fixed D; consequence SOUND-AFTER-REPAIRS (D10, D11) |
+| Document consistency (§10.4/10.5/summary vs §11.4; stale table) | DEFECTIVE until edited (D12–D14) |
+
+**Bottom line.** Theorem 11.3 is correct. It is the real content of checkpoint 4: the polylog Haar bound
+`log(1/δ*(T)) ≪ (log T)^7/log log T` holds modulo ET Prop. 1.4 (the stated `(log T)^7 log log T` is
+slightly weaker than what the proof gives), and `T^{o(1)}` holds unconditionally. It bypasses, rather than
+proves, H_PP. The quarantine cost is `log T` per prime, prime powers included, and is correctly
+accounted. The LLL graph is right, every surviving atom is covered, and both are confirmed end to end by
+Moser–Tardos witnesses at T ≤ 10⁶. No major defect was found. The two moderate defects are D10
+(uniformity at `t≍1/L`) and D12 (the note contradicts itself on whether a sharper Lemma 10.2 is the open
+step; the reviewer's count sides with §11.4).
 
 ---
 
@@ -327,3 +344,14 @@ The 1/κ consequence is PO Thm 6.2 (inherited, already reviewed).
   *Fix:* withdraw the §10.4 "open step" bullets, the §10.5 summary line and summary item 6 (or mark them
   superseded by §11.4). Give the `(s·c/d)^{h−s}` count a derivation; currently it is asserted without one.
   As it stands, a reader of the summary is told the opposite of the latest finding.
+
+## Item 12. Stale or overstated summary statements — minor
+
+* **D13 (minor; summary item 6).** Quote: "Prop. 10.6 (PROVED): the classes `−4d²` give pair codegrees
+  `≍1/φ(4d)`". Only the lower bound `≥(c_θ−o(1))/φ(4d)` is proved; the matching upper bound is not.
+  The same applies to §10.5 item 3, "the true maximal pair codegrees are `≍1/φ(4d)`" (also, "maximal"
+  is unproved). *Fix:* "≫".
+* **D14 (minor; §10.5 "Summary of (a)+(b)" table).** The Haar column still lists the unconditional entry
+  as `T^{1/3+o(1)}` (PO Thm 9.3), and the H_CD row as `T^{κ+o(1)}`. Both are superseded by Thm 11.3
+  (`T^{o(1)}` unconditionally; polylog modulo ET). *Fix:* update the table, or mark it "as of
+  checkpoint 3".
