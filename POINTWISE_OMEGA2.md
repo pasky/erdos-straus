@@ -748,6 +748,49 @@ gives `log(1/δ*) ≤ π(z)log T + 4S_tot + O(1)`, with
    or AP-TI with κ<1/3) *and* a hypergraph form of Lemma 2.1 (§7). Neither
    is available.
 
+## 10. Below θ=1/3: a hypergraph minorant and what it needs
+
+### 10.1 Private covers (PROVED)
+
+Setting 1.0, with supports of size `≤k` (`k≥1`). For a set P of primes, a
+*private cover* of P is a set C of events such that:
+
+* `P ⊆ ∪_{E∈C} supp E`;
+* every `E∈C` has a prime of `supp E ∩ P` that lies in the support of no
+  other member of C (its *private prime*).
+
+Then `|C|≤|P|`. Put
+
+```
+G^cov_u(x) := Σ_{|P|=u} Σ_{C private cover of P} 1[every E∈C occurs at x].
+```
+
+**Lemma 10.1 (PROVED).** For every outcome x and all `u, L ≥ 0`:
+
+1. `binom(N(x),u) ≤ G^cov_u(x)`. Hence Lemma 1.2 holds with `G^cov_{L+1}`
+   in place of `G_{L+1}`:
+   `B_L − 4^{L+1}G^cov_{L+1} ≤ 1[A=∅]` and
+   `|B_L−1[A=∅]| ≤ 4^{L+1}G^cov_{L+1}`.
+2. If every event is a union of cells, then
+   `M_1(B_L) ≤ Σ_{u≤L} 2^u E G^cov_u`, and `M_1(G^cov_u)=E G^cov_u`.
+
+*Proof.*
+
+1. Every `P⊆V(x)` is covered by occurring events. A minimal subfamily
+   covering P is a private cover: if some member had no private prime in
+   P, removing it would leave a cover. So each u-subset of `V(x)`
+   contributes at least 1 to `G^cov_u(x)`. The rest is the proof of
+   Lemma 1.2 verbatim.
+2. In the proof of Lemma 1.3, a cell c on U with `κ(U,c)≠0` has every
+   prime of U covered by events supported in U and occurring on c. A
+   minimal such subfamily is a private cover of U whose members are
+   supported in U. So
+   `Σ_c |κ(U,c)|P(c) ≤ 2^{|U|} Σ_{C private cover of U} P(C occurs)`.
+   Summing over `|U|≤L` gives the bound. `G^cov_u` has coefficients +1. ∎
+
+EVIDENCE: `scripts/omega2_abstract_check.py` additionally checks
+`binom(N,u) ≤ G^cov_u` and the 1.2-analogue on random systems (see Replay).
+
 ## Replay
 
 ```
