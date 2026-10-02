@@ -475,3 +475,38 @@ infinitely many distinct p. Inverting, `𝓛 ≥ 3 log log p − O(log log p/log
     `P(A=∅)` is below the Monte Carlo resolution. So the minorant is not
     useful numerically; only the asymptotic statement is claimed.
   * Data: `data/omega2/es_1e4_0.4.txt`, `es_1e5_0.36.txt`.
+
+## 7. Below θ=1/3: what is missing (Assessment)
+
+Theorem 5.1 uses `θ>1/3` in exactly two places.
+
+1. **Per-prime smallness.** (W) and (G) are proved by the crude count
+   `w_ℓ ≤ 8τ*²T/(ℓ²y)`, which is `o(1)` only for `y≥T^{1/3+o(1)}`. This is the
+   same estimate that limits the Haar bound (PO Thm 9.3), and it is what
+   PO's H_PP replaces. Below 1/3 the smallest free primes carry `w_ℓ≫1`
+   under the crude bound; whether they actually do is the H_PP question
+   (PO §9 EVIDENCE: the ratio is `<1` only for `z≳T^{0.6}` at accessible T).
+2. **Supports of size ≤2.** For `θ≤1/3` there are events on three or more
+   free primes. Lemmas 1.1–1.3 are support-size free. Lemma 2.1 is proved
+   for graphs only. Its hypergraph analogue needs a codegree hypothesis:
+   in a k-uniform pseudoforest a new hyperedge may contain several old
+   vertices, and the number of such "closing" hyperedges is not bounded by
+   one per component. We have not proved a hypergraph version.
+
+So the honest status below 1/3 is: **H_MIN(θ) for θ<1/3 would follow from a
+per-prime/codegree hypothesis of H_PP type plus a hypergraph form of
+Lemma 2.1.** Neither is proved. In particular the prime side and the Haar
+side now stand at the *same* exponent (3), and any further progress on
+the Haar side that goes through per-prime local-lemma conditions is likely
+to transfer by the method of §§1–3 (Assessment, not a theorem).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+uv run python scripts/omega2_abstract_check.py 300 1        # Lemmas 1.1-1.2 brute force, ~2 s
+uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
+(ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 2000 0.25)    # §6, ~1 min -> data/omega2/es_1e4_0.4.txt
+(ulimit -v 8000000; uv run python scripts/omega2_es.py 100000 0.36 0.05 500 0.25)   # §6, ~10 min -> data/omega2/es_1e5_0.36.txt
+(ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 200 0.015625) # threshold 1/64: no edge survives
+```
