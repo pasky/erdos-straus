@@ -32,11 +32,11 @@ mechanism (sketched); its cross-label half is open, with numerics at or
 below the random prediction. The cap is stated in `L = log X` (moduli
 `≤ X`, level `λ ≤ A₀L`), as in ET Cor 3.4, not in λ alone.
 
-## 1. The binary noise-stability bound (6.2), without the factorisation (6.3)
+## 1. The binary noise-stability bound (log form of (6.2)), without the factorisation (6.3)
 
 TW §6.8 reduced the two-prime Λ² cap to target (6.2) and proposed to prove it
-through an approximate factorisation (6.3) of the pinned density. Here (6.2)
-is proved directly, with constant `1+O(δ)`, by differentiating in the
+through an approximate factorisation (6.3) of the pinned density. Here the
+logarithmic form of (6.2) — the form Lemma 6.6 uses — is proved directly, with constant `1+O(δ)`, by differentiating in the
 coupling and using the *unconditioned* rest law (no division by ET's `J_ℓ`)
 plus a conditional local lemma. No cluster expansion is needed.
 
