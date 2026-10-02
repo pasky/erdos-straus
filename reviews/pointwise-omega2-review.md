@@ -293,3 +293,20 @@ two MINOR textual repairs. The proof idea holds up: truncating by
 quarantine of high-degree vertices is enough for the pseudoforest moment
 bound. Label suggestion: **PROVED modulo Thorner–Zaman (via PO Thm 4.1)**,
 same standing as PO Thm 5.1.
+
+---
+
+# Round 2 (branch `side-agent/omega-hub` @ b20d7a1: §§8–9, D1–D2 repairs)
+
+Imported with `git checkout b20d7a1 -- POINTWISE_OMEGA2.md
+reviews/agent-reports/AGENT_REPORT_O2.md scripts/omega2_ffull.py
+data/omega2/ffull_triples.txt`.
+
+### R2.0 — D1, D2 (commit 9bb341d): **FIXED**
+
+* D1: Setting 2.0 now states that the edge graph is simple (distinct
+  classes mod ℓℓ', repeated atoms merged), and Lemma 2.1 *Trees* now says
+  T is recovered from `(v_0;C_1,…,C_v)` for each root, overcounting by the
+  factor v. Correct.
+* D2: Thm 5.1 now has the case split (`𝓛≥4 log log p ⇒ W(p)>T≥(log p)^4`;
+  otherwise `𝓛/log 𝓛≪log log p/log log log p`). Correct.

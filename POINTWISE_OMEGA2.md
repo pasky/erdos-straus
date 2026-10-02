@@ -22,7 +22,18 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
 4. **Scope.** PO Prop 6.3 remains true but is no obstruction to H_MIN.
    Below θ=1/3 the missing inputs are an H_PP-type per-prime bound and a
    hypergraph form of Lemma 2.1 (§7). The prime side now matches the Haar
-   side (PO Thm 9.3).
+. **Checkpoint 2 (§§8–9).**
+   * Single-coordinate atoms are exactly Elsholtz–Tao Type I points (Lemma
+     8.1, PROVED).
+   * Hence `|F_ℓ^{full}|≤ℓ^{3/5+o(1)}` (modulo ET Prop 1.7), and
+     `≪√ℓ log ℓ` for the `r′=1` part (elementary).
+   * `ℓ^{1/2}` in general is *not* proved. It would improve ET Prop 1.7,
+     and 3/5 is the divisor-method limit (Remark 8.3).
+   * `F_I(n)≤n^{η}` implies a Haar exponent `η/(1+η)` (Thm 9.2). So
+     η<1/2 is needed to beat 1/3, and `η=1/2` only reproduces it.
+   * The single part of H_PP was never the bottleneck. The true per-prime
+     target is a progression average of Type I counts (AP-TI), which
+     reduces to an explicit Kloosterman-type first-term sum.
 
 ## 0. Idea in one paragraph
 
@@ -154,7 +165,9 @@ is exponential in the number of *primes*, and each prime costs a factor
   vertices at the same ℓ are disjoint; `p(v)=P(X_ℓ∈V_v)`. An *edge* is an
   unordered pair `{u,w}` of vertices at distinct primes; it occurs iff both
   `X_{ℓ_u}∈V_u` and `X_{ℓ_w}∈V_w`. Put `S_2=Σ_{edges}p(u)p(w)` and
-  `deg(v)=Σ_{w:{v,w} edge} p(w)`.
+  `deg(v)=Σ_{w:{v,w} edge} p(w)`. The edge graph is simple: edges are
+  distinct pairs of vertices (for congruence systems, distinct classes mod
+  `ℓℓ'`), and repeated atoms giving the same class are merged into one edge.
 
 Thus `a_ℓ=s_ℓ+d_ℓ` with `s_ℓ=1[X_ℓ∈S_ℓ]` and `d_ℓ` the number of occurring
 edges at ℓ. (A congruence class modulo `ℓℓ'` is the edge between the vertices
@@ -197,7 +210,9 @@ graph and `w_K=e^{3z|V(K)|}P(K occurs)`.
 at most one of the `≤v²/2` remaining vertex pairs, and `P(K)≤P(T)`. For a
 tree, `P(T occurs)≤∏_{w∈T}p(w)`. Root T at any vertex `v_0` and encode it by
 the child sets `C_1,…,C_v` in breadth-first order (children ordered by a
-fixed total order on vertices); this is injective. Summing over `C_i⊆N(v_i)`
+fixed total order on vertices). For each choice of root, T is recovered
+from `(v_0; C_1,…,C_v)`, so summing over all roots overcounts each tree by
+the factor v, which is harmless for an upper bound. Summing over `C_i⊆N(v_i)`
 with `|C_i|=c_i` gives at most `deg(v_i)^{c_i}/c_i!`; for `i=1`, `c_1≥1`,
 bound it by `deg(v_0)δ^{c_1−1}/c_1!`. The number of weighted compositions is
 `Σ_{c_1+…+c_v=v−1}∏1/c_i! = v^{v−1}/(v−1)! ≤ e^v`. Hence
@@ -447,7 +462,10 @@ log p ≤ C_1 K max(log Z, K) ≤ y·exp(O(𝓛/log 𝓛)) = T^{1/3}·exp(O(𝓛
 ```
 
 `840|Q` because `y≥7`, so p is Mordell-hard; `p>ℓ_0>T`, so distinct T give
-infinitely many distinct p. Inverting, `𝓛 ≥ 3 log log p − O(log log p/log log log p)`. ∎
+infinitely many distinct p. Inverting: if `𝓛 ≥ 4 log log p` then already
+`W(p)>T≥(log p)^4`; otherwise `𝓛/log 𝓛 ≪ log log p/log log log p`, and
+`log log p ≤ 𝓛/3 + O(𝓛/log 𝓛)` gives
+`𝓛 ≥ 3 log log p − O(log log p/log log log p)`. ∎
 
 **Corollaries and scope.**
 
@@ -530,6 +548,198 @@ side now stand at the *same* exponent (3), and any further progress on
 the Haar side that goes through per-prime local-lemma conditions is likely
 to transfer by the method of §§1–3 (Assessment, not a theorem).
 
+## 8. Checkpoint 2: single-coordinate masses are Elsholtz–Tao Type I counts
+
+Notation: Elsholtz–Tao (arXiv:1107.1010, archived as
+`sources/elsholtz-tao-1107.1010.pdf`; cited as ET) define `Σ_I^n` as the set
+of sextuples `(a,b,c,d,e,f)` obeying their (2.1)–(2.9), e.g.
+
+```
+4abd = ne+1,  ce = a+b,  4acd = n+f,  ef = 4a²d+1,  bf = na+c.
+```
+
+Put `F_I(n) := #{(a,b,c,d,e,f) ∈ ℕ⁶∩Σ_I^n : a≤b}`.
+
+**Lemma 8.1 (dictionary; PROVED).** Let `r>1` be odd. Consider the atoms
+`(M,D)` with `M=mr≡3 (4)`, `D|A_M²`, `m|4D+1`, `D≤A_M` (any `m≥1`). They
+correspond bijectively to the points of `ℕ⁶∩Σ_I^r` with `a≤b` and d
+squarefree, via
+
+```
+a=r',  b=k,  c=(r'+k)/m,  d=s,  e=m,  f=(4D+1)/m,    where D=sr'², A_M=sr'k (s squarefree).
+```
+
+The atom's class is `−4D ≡ −a/b (mod r)`. Consequently the number `E(r)` of
+distinct classes mod r carried by atoms with rough part r (for any
+quarantine, including partners `A²/D`) satisfies `E(r) ≤ 2F_I(r)`.
+
+*Proof.* PO Lemma 2.3/9.1 shows `m|r'+k`, so c is a positive integer. Then:
+
+* (2.1) holds: `4abd=4sr'k=4A_M=mr+1`.
+* (2.2) is the definition of c.
+* (2.7) holds: `ef=4sr'²+1=4a²d+1`.
+
+ET note that (2.1), (2.2) and (2.7) with nonzero entries imply the
+remaining identities; we check the two we use by hand. (2.6):
+`e·4acd = 4ad(a+b) = 4a²d + 4abd = (ef−1) + (ne+1) = e(f+n)`. (2.8):
+`e·bf = b(4a²d+1) = a(ne+1)+b = ane+ce`, so `bf=an+c`. Conversely, a point with `a≤b` and d squarefree gives `D=da²`,
+`A=dab`, `M=ne`, `m=e`. Here `D|A²` and `D≤A`. Also `m|4D+1`, by (2.7).
+And `M=4A−1≡3 (4)`. The map is injective, because `(s,r',k)` determine D
+and A, hence M. Finally, `4A≡1 (r)` gives `−4D = −4A·(r'/k) ≡ −r'/k`. The
+partner class `−(4D)^{−1}` at most doubles the count. ∎
+
+EVIDENCE (`scripts/omega2_ffull.py dict 2001`): for every odd `r≤2001`
+(primes, prime powers, composites) the atom enumeration via PO's
+`(s,r',v)` parametrisation and the Type I enumeration via `(a,c,d)` give
+identical sets: 32 241 atoms, 0 mismatching r. The parametrisation also
+reproduces PO's `F_full(ℓ)` exactly at `ℓ=107, 331, 1031, 3011`.
+
+*Remark.* So `|F_ℓ^{full}|`, the T-independent single-prime forbidden set of
+PO §9, is at most twice the number of Type I representations
+`4/ℓ = 1/(abdℓ) + 1/(acd) + 1/(bcd)`. The Lemma 9.1 "atoms" are exactly
+the Type I solutions of ES for the rough part.
+
+**Proposition 8.2 (sizes of `F_I`).**
+
+1. *(PROVED modulo ET Prop. 1.7, cited.)* `F_I(n) ≤ n^{3/5+O(1/log log n)}`
+   for every n. Hence `|F_ℓ^{full}| ≤ ℓ^{3/5+o(1)}` and
+   `g_ℓ^{full}:=|F_ℓ^{full}|/(ℓ−1) ≤ ℓ^{−2/5+o(1)}`. More generally, the
+   single-coordinate classes at `ℓ^e` number at most `ℓ^{3e/5+o(1)}`.
+   Here ET's proof counts points of `Σ_I^n` that obey the bounds of their
+   Lemma 2.8. The proof of that lemma uses only the identities,
+   positivity and `a≤b`, so it applies to every point counted by `F_I`.
+2. *(PROVED, elementary.)* Let ℓ be prime and `A_0≥1`. The points of
+   `Σ_I^ℓ` with `a≤A_0` number at most
+   `τ*(2A_0ℓ)·(A_0² + 3A_0^{3/2}√(ℓ+1))`. Those with `a=1` number
+   `≪√ℓ log ℓ`. In particular the atoms with `r'≤ℓ^{o(1)}` contribute
+   `ℓ^{1/2+o(1)}` classes.
+
+*Proof of 2.* The point is determined by `(a,c,f)`, by (2.6) and (2.2).
+
+* `ℓ∤c`: otherwise ℓ divides `y=acd` and `z=bcd` as well as `x=abdℓ`,
+  and `4 = ℓ/x+ℓ/y+ℓ/z ≤ 3`. Hence `g:=gcd(c,f)`, which divides `ℓa+c`
+  and `ℓ+f` (by (2.8), (2.6)), divides ℓ, so `g=1`.
+* Then `f|aℓ+c` and `c|a(ℓ+f)` give `cf | a(ℓ+f)+c`, so
+  `(c−a)(f−1) ≤ a(ℓ+1)`.
+* If `f≤1+√(a(ℓ+1))`: we have `f≡−ℓ (mod 4a)` by (2.6). That leaves at
+  most `√(ℓ+1)/(4√a)+2` values of f, and for each, c divides `ℓ+f`.
+* Otherwise `c≤a+√(a(ℓ+1))`, and f divides `aℓ+c`.
+
+Summing over `a≤A_0` gives the bound. For `a=1` both cases are sums of
+`τ(ℓ+j)` over `j≤2+√ℓ`. By `τ(n)≤2#{δ|n: δ≤√n}`, each is
+`≤2Σ_{δ≤√(2ℓ)}(√ℓ/δ+1) ≪ √ℓ log ℓ`. ∎
+
+EVIDENCE (`omega2_ffull.py`): `#triples/√ℓ` = 1.64, 1.59, 2.09, 1.26 at
+`ℓ=107, 331, 1031, 3011`. At the Linnik-type hub prime
+`ℓ=87359` (`(ℓ+1)/4=2^4·3·5·7·13`) it is 4.14, with 1224 triples and 923
+classes. Most triples have `r'>1` (1147 of 1224 at 87359), and `r'` reaches
+`≈ℓ/4`, so part 2 alone does not cover them.
+
+**Remark 8.3 (why `ℓ^{1/2}` is not proved; Assessment, with an exact
+computation).** A bound `F_I(ℓ)≤ℓ^{1/2+o(1)}` for all `a` would improve ET
+Prop 1.7 at primes. ET remark that 3/5 "appears to be the limit of what
+one can obtain purely from the divisor bound". We confirm this for the
+natural determining quantities.
+
+* Each of `e, f, cd, ac, a²d, ab, bd, bf` fixes the point up to
+  `n^{o(1)}` choices, via (2.1), (2.6), (2.9), (2.8), (2.7), (2.1), (2.1)
+  and (2.8) respectively, together with the divisor bound.
+* Consider the box `a≍n^{2/5}, c≍n^{1/5}, d≍n^{2/5}, b≍n^{4/5}`, so that
+  `e≍f≍n^{3/5}`. It is consistent with all identities and with Lemma 2.8.
+  There these quantities have sizes
+  `n^{3/5}, n^{3/5}, n^{3/5}, n^{3/5}, n^{6/5}, n^{6/5}, n^{6/5}, n^{7/5}`.
+* So every "fix one determining quantity" argument costs `≥n^{3/5}` in
+  this box.
+* The progression trick of part 2 (fix a; then `f≡−ℓ (4a)`) gives about
+  `√(aℓ)` per a, i.e. `n^{0.7}` per a in the box.
+* Heuristically the box contains `O(n^{o(1)})` points. The `(a,c,d)` with
+  `|4acd−n|≤n^{3/5}` number about `n^{3/5}`, and each needs
+  `f | 4a²d+1` with `f≍n^{3/5}`.
+
+Beating 3/5 there is a genuine lattice-point/equidistribution problem,
+which we do not attempt.
+
+## 9. What a per-prime (H_PP-type) input buys
+
+Here `w_ℓ=w_ℓ(T,z)` is PO §9's per-prime event mass after the class-of-one
+quarantine at the primes `≤z`, and `E_T(r)` is the number of distinct
+surviving events (classes mod r) with rough part r and `M≤T`.
+
+**Lemma 9.1 (per-prime mass through Type I counts; PROVED).** For every
+prime `ℓ>z`,
+
+```
+w_ℓ = Σ_{r≤T, ℓ|r} E_T(r)/φ(r) ≤ C log log T · Σ_{r≤T, ℓ|r} min(2F_I(r), τ*² T/r)/r.
+```
+
+*Proof.* `E_T(r)≤2F_I(r)` by Lemma 8.1, for any quarantine. Also
+`E_T(r)≤#{atoms with M=mr≤T}≤(T/r)τ*²`. Finally `1/φ(r)≤C log log T/r`. ∎
+
+**Theorem 9.2 (conditional Haar exponent; PROVED implication).** Suppose
+`F_I(n) ≤ n^{η+o(1)}` for all n, for some `0≤η≤1`, and put `κ=η/(1+η)`.
+Then:
+
+* `w_ℓ(T,z) ≤ T^{κ+o(1)}/ℓ` for every z and every prime ℓ;
+* H_PP(`T^{κ+ε}`) holds for every `ε>0` and large T;
+* `log(1/δ*(T)) ≤ T^{κ+o(1)}`.
+
+*Proof.* Put `R=T^{1/(1+η)}` and split Lemma 9.1's sum at `r=R`:
+
+```
+Σ_{r≤R, ℓ|r} r^{η−1+o(1)} ≤ ℓ^{η−1}Σ_{j≤R/ℓ} j^{η−1} T^{o(1)} ≤ R^{η}T^{o(1)}/ℓ,     Σ_{r>R, ℓ|r} τ*²T/r² ≤ 2τ*²T/(ℓR).
+```
+
+Both are `T^{κ+o(1)}/ℓ`. For `ℓ>z=T^{κ+ε}` this is
+`T^{−ε+o(1)} ≤ log z/(8 log T)`, which is H_PP(z). PO Theorem 9.4 then
+gives `log(1/δ*) ≤ π(z)log T + 4S_tot + O(1)`, with
+`S_tot=T^{o(1)}` (Lemma 4.1; its proof needs only this, not ET Prop 1.4). ∎
+
+**What this means (Assessment, with the exact bookkeeping above).**
+
+1. **ET's exponent 3/5 gives κ=3/8.** This is *worse* than PO Theorem 9.3's
+   unconditional 1/3. Theorem 9.3 uses only the crude count, with all
+   rough primes `>T^{1/3}`.
+2. **η=1/2 gives exactly κ=1/3.** So the bound `|F_ℓ^{full}|≤ℓ^{1/2+o(1)}`
+   I originally aimed at, even proved for every n, would only *reproduce*
+   the 1/3 barrier. The crude bound `(T/r)τ*²` and `r^{1/2}` cross at
+   `r=T^{2/3}`, with value `T^{1/3}`; that is where the 1/3 comes from.
+   **Beating 1/3 through individual counts needs η<1/2**, i.e. a Type I
+   bound well beyond ET Prop 1.7 and the divisor-bound limit of
+   Remark 8.3.
+3. **The single-coordinate part was never the bottleneck.**
+   * By Prop 8.2.1, `g_ℓ^{full} ≤ ℓ^{−2/5+o(1)}`, so for
+     `z ≥ (log T)^{5/2+ε}` the single-coordinate part of H_PP(z) holds
+     (modulo ET Prop 1.7). So **H_PP(z) reduces to its multi-prime part**
+     for such z.
+   * But both PO Thm 9.3 and our Construction 4.2 already absorb the
+     single part by quarantining `T^{o(1)}` bad primes. So this buys
+     nothing for the Haar exponent or for θ<1/3. Its only use is cosmetic:
+     modulo ET, `𝓑=∅` for large T in Construction 4.2.
+4. **The real target is an averaged statement.** The per-prime input
+   needed is the progression average
+   `(AP-TI)  Σ_{r≤T, ℓ|r} F_I(r)/r ≤ T^{κ+o(1)}/ℓ` uniformly in primes
+   `ℓ≤T`. Theorem 9.2's proof uses exactly this. AP-TI with `κ=o(1)` would
+   give `log(1/δ*)=T^{o(1)}`. On average ET Theorem 1.1 gives
+   `Σ_{n≤N}f_I(n) ≍ N log³N`, so AP-TI(o(1)) is the natural conjecture.
+   * It cannot hold in the stronger form `polylog/ℓ`. PO's Linnik
+     example has `ℓw_ℓ ≥ exp(c log ℓ/log log ℓ)`, coming from the single
+     term `r=ℓ`.
+   * In ET coordinates, `ℓ|r` is the congruence `4acd≡f (mod ℓ)`, with
+     `f | 4a²d+1`. For fixed `(a,d,f)`, c then runs over one class mod ℓ,
+     and summing `1/c` there gives `(log T)/ℓ` plus a "first term"
+     `1/c_0(a,d,f)`.
+   * The full sum of the regular parts is
+     `≪(log T/ℓ)Σ_{a,d}τ(4a²d+1)/(ad)`, which is polylogarithmic by ET
+     Prop 1.4.
+   * So AP-TI(o(1)) reduces (an upper-bound reduction; terms with `ℓ|ad` vanish,
+     since they force `ℓ|f|4a²d+1≡1 (mod ℓ)`) to controlling the
+     first terms `Σ_{a,d,f}1/(ad·c_0)`, where
+     `c_0 ≡ f(4ad)^{−1} (mod ℓ)`. This is the Kloosterman-type
+     equidistribution flagged in PO §9, now in explicit form.
+5. **Prime side, θ<1/3.** H_MIN(θ) would need the Haar-side input (η<1/2,
+   or AP-TI with κ<1/3) *and* a hypergraph form of Lemma 2.1 (§7). Neither
+   is available.
+
 ## Replay
 
 ```
@@ -541,4 +751,7 @@ uv run python scripts/omega2_abstract_check.py 2000 7       # ~10 s
 (ulimit -v 8000000; uv run python scripts/omega2_es.py 10000 0.4 0.05 200 0.015625) # threshold 1/64: no edge survives
 uv run python scripts/omega2_es.py checkI 1000 0.4 0.25 200    # (I) directly, ~1 min -> data/omega2/checkI.txt
 uv run python scripts/omega2_es.py checkI 3000 0.36 0.25 100   # ~3 min
+uv run python scripts/omega2_ffull.py dict 2001                 # §8 Lemma 8.1 dictionary, all odd r<=2001, ~20 s
+uv run python scripts/omega2_ffull.py 107 331 1031 3011 87359   # §8 triple counts, ~10 s -> data/omega2/ffull_triples.txt
+uv run python scripts/omega2_ffull.py cmp 107 331 1031 3011      # parametrisation reproduces PO F_full, ~5 s
 ```
