@@ -158,3 +158,81 @@ that this argument (ET l. 755–775) nowhere uses `q ≤ ℓ^C`. It needs only
 Thm 2.5 and the sanity check go through unchanged.
 
 **D5 (COSMETIC).** "So `C(η) ≍ η^{−1}`" is an upper bound only. Write `C(η) ≪ η^{−1}`.
+
+### Item 6 — Lemma 4.1 (D = sr² parametrisation). Verdict: **SOUND**
+
+* `g(sr²) = sr`: `⌈(v_p(s)+2v_p(r))/2⌉ = v_p(r)+v_p(s)` since `v_p(s) ∈ {0,1}`. ✓
+  `D | A² ⇔ g(D) | A` (ET Lemma 3.2's remark). ✓ The map
+  `(q, D) ↔ (s, r, k)` with `k = A_q/(sr)` is a bijection. ✓
+* (1) Any common divisor of q and k, of q and r, or of ℓ and k divides
+  `4srk − qℓ = 1`. ✓
+* (2) `k(n+4sr²) = nk + r·4srk = nk + r(qℓ+1) ≡ nk + r (mod q)`, and k is a unit mod q. ✓
+* (3) `4sr²·k = r(qℓ+1) ≡ r (mod ℓ)`, and ℓ ∤ k. ✓
+* Membership `q ∈ 𝒬_ℓ` ⇒ `qℓ` is η-gapped with top prime ℓ: `P(q) ≤ y = ℓ^{1/(1+η)} < ℓ`. ✓
+  The history fixes `n mod q`: q's primes > w₀ satisfy
+  `log ℓ' ≤ log ℓ/(1+η) ≤ s_j`, so they lie in earlier windows, and its
+  w₀-smooth part divides Q₀. So `p_ℓ(h) = |F_ℓ(n)|/ℓ` for any representative n. ✓
+
+No defects.
+
+### Item 7 — Lemma 4.2 ("counting works iff B < 1"). Verdict: **SOUND** (wording)
+
+* The union bound and `τ(A_q²) ≤ X^{o(1)}` are correct. For an (η,B)-gapped
+  family `q ≤ ℓ^B`, so `X^{o(1)} = ℓ^{o(1)}` and `|F_ℓ| ≤ ℓ^{B+o(1)}`, giving (★_δ)
+  for `δ < 1−B` and `ℓ > w₀(δ,B)`. ✓
+* Size claim: `p₁p₂ ∈ (ℓ, y²]` gives ≫ `y²/log²y` cofactors, half of them with
+  `qℓ ≡ 3 (4)`. Each `M = p₁p₂ℓ` is balanced (`p₁p₂ > ℓ`) and gapped. ✓
+
+**D6 (MINOR, wording of "iff" and of the B ≥ 1 witness).** "(★_δ) iff B < 1"
+is a statement about the counting *method*, not about (★_δ). The text says so
+("Then the bound is vacuous"), but the §0 table entry "counting gives (★_δ) iff
+B < 1" should say "the counting bound gives (★_δ) iff B < 1". Also, the
+witness `q = p₁p₂ ≤ y²` lies in an (η,B)-gapped family only if
+`B ≥ 2/(1+η)`. For `1 ≤ B < 2/(1+η)`, vacuity follows instead from
+`Ψ(ℓ^B, y) ≫_{η,B} ℓ^B ≥ ℓ` (Dickman). Fix: cite that.
+
+### Item 8 — Proposition 4.3 (sup_n |F_ℓ(n)| ≥ y^{1/5−o(1)}). Verdict: **SOUND-AFTER-REPAIRS**
+
+Proof re-checked.
+* Step 1. `gcd(−ℓ^{−1}, 4k) = 1` and `k ≠ ℓ`, so Linnik applies. `q_k ≪ (4k)^L ≤ y`
+  for `K = c₀y^{1/L}`. `q_kℓ ≡ −1 (mod 4)` ⇒ `qℓ ≡ 3 (4)` and `4k | q_kℓ+1`,
+  i.e. `k | A_{q_k}`. `P(q_k) = q_k ≤ y` and `q_kℓ ≤ yℓ ≤ X`, so `q_k ∈ 𝒬_ℓ`. ✓
+* Step 2. `D_k = A/k` divides A, hence A². `4D_k·k = 4A ≡ 1 (mod ℓ)`, so the value
+  is `−k^{−1}`, and these are distinct for distinct primes `k < ℓ`. ✓
+* Step 3. Two pairs sharing the prime `q` would need `n ≡ −4D_k ≡ −4D_{k'} (mod q)`
+  simultaneously, so keeping one k per q is necessary as well as sufficient. ✓
+  Distinct primes q_k are coprime. ✓
+* Step 4 (CRT). Every kept pair is active at n. ✓ The constructed n is not
+  claimed to be reachable, and the caveat says so. ✓
+
+**D7 (MINOR, citation).** "Linnik's theorem with exponent 5, Xylouris 2011":
+Xylouris 2011 (Acta Arith. 150) gives L ≤ 5.2 (5.18). L = 5 is in his 2018 Bonn
+thesis. Fix: cite correctly, or state the result as `y^{1/L−o(1)}` for any
+admissible Linnik exponent L. The argument is exponent-agnostic.
+
+**D8 (MINOR, display + loss factor).** The display
+"`|F_ℓ(n)| ≥ π(2K) − π(K) − O(1) over log(ℓX)`" is garbled, and the loss factor
+is mis-stated. One prime q serves at most `#{k > K prime : k | A_q} ≤ log A_q/log K
+≤ log(ℓy)/log K = O_η(1)` values. So the loss is O(1), not `log X`. As written,
+with a huge X, the `−o(1)` in the exponent is not justified. With the correct
+count it is (and it is independent of X). Fix: `|F_ℓ(n)| ≫_η (π(2K)−π(K))`.
+Also, "typical value `E_U p_ℓ ≍ (log ℓ)^{O(1)}/ℓ`" has only the upper bound
+proved. Write `≤`.
+
+**D9 (MAJOR, interpretation/framing of §4.3–4.4).** The cofactors used are
+primes `q_k ≤ y < ℓ`. So every modulus `q_kℓ` has `P(M) = ℓ > √M`. It is **not
+balanced**: it is dominant, with `C = 1/(1+η)` and `B = 1/(1+η) < 1`, i.e. the
+regime where Lemma 4.2 already *proves* (★_δ). Prop 4.3 therefore exhibits a
+phenomenon of the dominant subfamily (consistent with
+`y^{1/5} ≤ ℓ^{B+o(1)}`), not a balanced obstruction. The same holds for the
+heuristic "all primes q ≤ y, each its own value, gives |F_ℓ| ≍ π(y)". The
+claims "(★_δ) holds exactly for `δ < η/(1+η)`, and it is sharp there" (§4.3)
+and "Exactly there, (E_δ) itself is expected to fail" (§4.4 item 3) rest on
+this prime-cofactor heuristic. They say nothing about whether the
+*balanced/composite* cofactors (the B ≥ 1 content of (E_δ)) can do better. Note
+also that sharpness at `δ = η/(1+η)` is not proved: only `y^{1/5}` is. Fix:
+(i) state that Prop 4.3's witnesses are dominant moduli, so its lower bound
+holds already for B < 1; (ii) relabel "sharp there" as HEURISTIC; (iii) the
+open part of (E_δ) is whether composite y-smooth cofactors `q ∈ (ℓ, ℓ^B]` can
+push `sup |F_ℓ|` above `π(y)ℓ^{o(1)}`, and §4 provides no information on that.
+(See also D12 on the numerics, where the one outlier is a q = 1 effect.)
