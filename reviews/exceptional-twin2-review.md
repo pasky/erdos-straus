@@ -233,3 +233,109 @@ No major defect. Every PROVED label survives; the mathematical content of
 Theorem 5.1 stands as stated in its own Setting 3.0. Required before merge:
 D3 (state the added B-hypothesis in the Bottom line / §0 and list its uses).
 D1, D2, D4 are optional polish.
+
+---
+
+# Round 2 — commit bd0129c (§§5.3–5.4, §0, Cor 5.2)
+
+Diff 3ea1bcb..bd0129c: §0 rows for Lemma 5.4 / (H_O^≠) / Cor 5.2, Bottom
+line, new §5.3 (Lemma 5.4) and §5.4. §§1–5.2 are unchanged.
+
+## R2.1 Lemma 5.4 ((H_O^=)) — SOUND-AFTER-REPAIRS
+
+Checked and correct:
+* **Data.** Type 0 / type 2 data with `g(D) = d` (resp. `g(D̄) = d`) number
+  `2^{ω(d)}` each (`⌈e/2⌉ = f` has two solutions per `p^f ∥ d`); type 1:
+  `2^{ω(d)}` coprime splittings. The map from data to labels is injective
+  within each type, so `Σ_λδ_λ² ≤ 3Σ_θδ_θ²` holds.
+* **The activity residue depends only on (θ, k).** This is the key point and
+  the text doesn't say it. Since `4A ≡ 1 (mod k)`, the class `−4D` is
+  `≡ −4D` (type 0), `−u′/v′` (type 1) or `−1/(4D̄)` (type 2) mod k,
+  independently of m (and j). That is why
+  `δ_θ ≤ C Σ_k 1[c ≡ r_θ(k) (k)]·b_θ(k)` and why (ii) works. **D8 (nit):**
+  state this.
+* (i): `d | A ⇔ 4d | kjm+1`; one reduced class mod 4d; consecutive elements
+  are `4d` apart; BT `π(2y;4d,s) ≪ y/(φ(d)log(y/4d))` on blocks `y ≥ 8d`,
+  O(1) elements below, and `Σ_t 1/t ≪ log L`. Correct.
+* (ii): `Γ(lcm) ≤ Γ(k)Γ(k′)`, `lcm = kk′/gcd`; the Euler factor of h at
+  `p^f ∥ k` is `≤ (1+Γ(p)f)(1+Γ(p)/(p−1))`. AM–GM on the symmetric kernel
+  is valid, and incompatible congruence pairs only help. This does close the
+  §5.1 cross-cofactor gap.
+* (iii): `Σ_d 2^{ω(d)}/φ(d)² < ∞`; `Σ_kΓ(k)τ_Γ(k)/k` has Euler factor
+  `1 + Γ(1+Γ)/p + O(p^{−2})`, so it is polylog. Correct.
+* (iv): the number of data occurring for M is `≤ 3τ(A²)`
+  (`3^{ω(A)} = τ(A²)` for type 1). m-top: `Σ_{m>j}τ/m² ≪ (q/φ(q))L²/j`.
+  j-top: A is linear in j, `q = km ≤ j^B`, so Lemma 3.3 applies with j
+  innermost. Both are `o(1)`. Correct.
+
+Defects:
+* **D5 (minor, prime powers).** The proof's prime-power sentence ("carry an
+  extra factor `≤ j^{−1}` … absorbed by the pointwise bound") contradicts
+  the reduction that Lemma 5.4 bounds. In §5.1, for `e_j ≥ 2` one uses
+  `deg(j,a) ≤ Σ_{λ ≡ −a (j)} δ_λ`. That counts a class mod `j^v m` (v ≥ 2)
+  with its *full* partner mass at all j-residues `≡ b (mod j)`, so the
+  factor `j^{1−v}` is discarded. At full weight the pointwise route fails:
+  for j the top prime, `Σ_j ρ_j j^{−1}·j^{1/256}` diverges (`1/256 > α`).
+  Shiu along j is not available either, since A is quadratic in j.
+  **Repair (mechanical, at the S_j level, which is all (H_O) needs):**
+  `min(x+y,1)² ≤ min(x,1)² + 3y` for x, y ≥ 0. So
+  `S_j ≤ S_j^{(u=v=1)} + 3w_j^{pp}`, where `w_j^{pp}` is the true
+  binary mass of the prime-power classes at j. Then
+  `E_PΣ_jρ_jw_j^{pp} ≪ L³/w₂ + w₂^{−1/2}(log L)^{O(1)}`, by the
+  `v ≥ 2` / `u ≥ 2` cases of Lemma 4.1, re-run with weight `ρ_j` only
+  (checked). Lemma 5.4 should be stated for the `u = v = 1` classes, with
+  this split added.
+* **D6 (nit).** `m₀(θ,k)` must be the least m for which `kjm` is a *family*
+  modulus, not just any prime in the class with `kjm ≤ X`. Otherwise (iv)'s
+  "summed over binary moduli of the family" and the B-hypothesis used in the
+  Lemma 3.3 step (`q = kj ≤ m^B`) are unjustified. With the family
+  definition, (i)'s spacing argument is unchanged.
+
+## R2.2 §5.4 ((H_O^≠) reduction) — DEFECTIVE as written (minor); OPEN label correct
+
+* **D7 (minor).** "Agreement is `j | gcd(n+4D, n+4D′)`, hence
+  `j | D − D′ ≠ 0` (equivalently `j | ab′ − a′b`)" is false. The canonical
+  datum is chosen by least height, which depends on A, so the *same* D can
+  carry different canonical labels for different moduli. Example:
+  `A = n(n+1)s`, `D = n²`. The candidate heights are
+  `4n², (n+1)s, 4(n+1)²s²`. So the label is `n/((n+1)s)` when
+  `(n+1)s < 4n²`, and `4n²` otherwise (n = 2: `s = 1` gives label 2/3,
+  `s = 7` gives 16). Two such classes through j have the same residue
+  `−4n²` for every j, yet they sit in the cross-label part with `D = D′`.
+  The same happens whenever two classes share any of their three candidate
+  rationals across types. These agreements are deterministic, so for this
+  sub-part:
+  * the "random" benchmark of §5.1/§5.2 is the wrong heuristic;
+  * the claimed equivalence "`D ≠ D′` ⇔ label difference ≠ 0" fails;
+  * the incidence count in §5.4 has this deterministic piece mixed in.
+
+  It is not fatal: these pairs can be grouped by the shared rational, e.g.
+  by datum `(0,D)` with the condition `g(D) | A` irrespective of height,
+  and then Lemma 5.4's argument bounds them. Repair: define the split by
+  connected components of "shares a candidate rational" (or by D), move
+  the deterministic pairs into the same-label part, and restate (H_O^≠)
+  for genuinely distinct residue rationals.
+* The rest of §5.4 is honest. With j-independent masses the margin is L.
+  The j-dependence of the data (via `d_θ | A_{kjm}`) is correctly
+  identified as the obstruction. The Lenstra/CHN remark is fair.
+
+## R2.3 §0 / Cor 5.2 status — SOUND-AFTER-REPAIRS
+
+`H_O = (H_O^=) + (H_O^≠)` via `S ≤ q`. With Lemma 5.4 repaired (D5),
+"Cor 5.2 CONDITIONAL on (H_O^≠) alone" is correct, and it remains correct
+after D7: moving deterministic pairs into the proved part only weakens
+what (H_O^≠) must assert. The Lemma 5.4 row says "prime powers via
+pointwise bound", which should cite the D5 split instead. **D3 (round 1)
+is still open:** the Bottom line still omits the hypothesis
+`M ≤ P(M)^{1+B}`.
+
+## Round 2 summary
+
+| item | verdict | defects |
+|---|---|---|
+| Lemma 5.4 (H_O^=) | SOUND-AFTER-REPAIRS | D5 minor, D6 nit, D8 nit |
+| §5.4 (H_O^≠) reduction | DEFECTIVE as written (minor), OPEN label correct | D7 minor |
+| §0 / Cor 5.2 conditional on (H_O^≠) | SOUND-AFTER-REPAIRS | D3 (still open), row wording |
+
+No major defect. The same-label proof is a real proof once D5 is repaired.
+D5, D7 and D3 should be fixed before merge.
