@@ -116,3 +116,91 @@ I found **no strengthening** anywhere. The one place where the paper is
     distinct classes mod ℓℓ') is implicit in "contributes … the edge
     `−4D mod ℓℓ'`". Acceptable.
 * The closing paragraph ("uses `y≥T^{1/3+o(1)}` twice") is accurate.
+
+### §`sec:limits`, §`sec:haar` (changed parts)
+* **P3 (MINOR), status of `H_min(θ)` for θ≥1/3.**
+  * The Hypothesis header reads "true for θ≥1/3, open for θ<1/3" with no
+    status label or reference.
+  * The Summary lists "`H_min(θ)` for θ≥1/3" under *Proved modulo
+    Thorner–Zaman*. But `H_min` is pure congruence combinatorics, and its
+    proof (Thm `crit` plus the construction in §`main`) uses no analytic
+    input. This is an understatement, not an overclaim, but the labels
+    are inconsistent.
+  * The construction proving it is buried inside the proof of Thm 1.1.
+  * *Fix:* state "Proposition (Proved): `H_min(1/3)` holds, with
+    `T^{o(1)}=exp(O(log T/log log T))`", proved by the first half of
+    §`main`. Cite it in the Hypothesis header and move it to *Proved* in
+    the Summary.
+* **P4 (MINOR), Thm `eta` depends on a Remark.**
+  * The proof of Thm `eta` ("Proved implication") ends with "the argument
+    there [Remark `rem:pp`] … gives `log(1/δ*)≤π(z)log T+T^{o(1)}`".
+  * Remark `rem:pp` is headed "Conditional; the implication is proved
+    modulo [ET, Prop 1.4]". The ET dependence concerns only the
+    polylogarithmic size of `S_tot`, not the LLL step Thm `eta` uses.
+  * A reader could therefore think Thm `eta` is modulo ET.
+  * *Fix:* split the LLL step (PO Thm 9.4, first bullet:
+    `δ*≥(8/φ(Q_z))exp(−4S_tot)` under the per-prime condition) into a
+    lemma labelled *Proved*, and cite it from both places.
+* **P5 (MINOR), unlabelled, unproved aside.** "A direct elementary
+  argument gives ≪√ℓ log ℓ points with a=1 at a prime ℓ" (after Lemma
+  `dict`) carries no status and no proof. The paper's own convention is
+  that every statement is labelled. *Fix:* either add the six-line proof
+  (O2 Prop 8.2.2: `ℓ∤c`, `gcd(c,f)=1`, `(c−a)(f−1)≤a(ℓ+1)`, two divisor
+  sums), or mark it "(not used; proof omitted)".
+* **P6 (MINOR), "Type I solutions" vs "points".**
+  * The abstract says the paper will "identify the single-prime atoms with
+    Elsholtz–Tao Type I solutions". After Lemma `dict` the text says
+    "governed by Type I representations of 4/r".
+  * Lemma `dict` is a bijection with **points** of `ℕ⁶∩Σ_I^r` with `a≤b`
+    and d squarefree.
+  * ET's *Type I solutions* are triples `(x,y,z)` with c coprime to n.
+    They correspond to points only up to the dilation (2.10), under
+    ET's normalisation (`abcd` coprime to n, `gcd(a,b,c)=1`), not under
+    "d squarefree".
+  * For prime r the atoms do inject into Type I solutions:
+    * `ℓ∤c` holds (O2 Prop 8.2 proof);
+    * d squarefree pins the dilation to λ=1.
+  * Surjectivity is not claimed or proved.
+  * *Fix:* "identify the single-prime atoms with points of Elsholtz–Tao's
+    Type I variety" (abstract), and "governed by the Type I variety
+    `Σ_I^r`" (text).
+* Thm `eta`: faithful to O2 Thm 9.2.
+  * The split at `R=T^{1/(1+η)}` is right.
+  * The case ℓ>R is trivial and is not mentioned. Acceptable.
+* The closing Assessment (κ=3/8 from η=3/5, η=1/2 ↦ 1/3, progression
+  average) is correctly labelled Assessment.
+
+### Conventions and cosmetics
+* **P7 (COSMETIC).** The headers "classical" (Lemma `lll`) and "Proved
+  implication" (Thm `eta`) are not among the declared conventions
+  (Proved / Proved modulo X / Cited). Thm `slice-intro` has no header
+  label: its status sits inside the items. Either add "classical" and
+  "proved implication" to the conventions paragraph, or relabel.
+* **P8 (COSMETIC, optional strengthening the paper is entitled to).**
+  * The joint statement "`W≥(log p)^{2−o(1)}` and
+    `ck_min≥(log p)^{1−o(1)}` jointly" is still derived from Thm `two`.
+  * The primes of Thm 1.1 are also `≡1 (mod ℓ)` for every `ℓ≤y`, with
+    `y=T^{1/3+o(1)}` and `log p≤T^{1/3+o(1)}`.
+  * So `n_p>y≥(log p)^{1−o(1)}`, and the joint statement holds with
+    exponent 3 for W.
+  * Not a defect; mention or leave.
+
+## 4. Summary and verdict
+
+| # | Severity | Location | Issue |
+|---|---|---|---|
+| P1 | MINOR | Lemma `meanmass` proof | second claim not derived; `M_1` undefined in §; κ identity, coverage bound, unit-cells remark implicit |
+| P2 | MINOR | Thm `crit` proof | LLL numeric step, `M_1≤2e^Λ`, and the twist factorisation argument skipped |
+| P3 | MINOR | Hyp. `hyp:min` header; Summary | `H_min(1/3)` unlabelled; listed as modulo TZ though purely combinatorial |
+| P4 | MINOR | Thm `eta` proof ↔ Remark `rem:pp` | proved theorem leans on a remark labelled modulo ET |
+| P5 | MINOR | after Lemma `dict` | `√ℓ log ℓ` claim unlabelled and unproved |
+| P6 | MINOR | abstract; after Lemma `dict` | "Type I solutions/representations" should be "points of the Type I variety" |
+| P7 | COSMETIC | headers | labels outside the declared conventions |
+| P8 | COSMETIC | §`typeI` end | joint W/`ck_min` statement could use Thm 1.1 |
+
+No MAJOR defects, and no statement stronger than the reviewed sources. The
+mathematics of the new sections is complete and correct. The minor issues
+are proofs written more tersely than "stand alone" requires (P1, P2) and
+status-label hygiene (P3–P7).
+
+**Verdict: MINOR REVISION.**
