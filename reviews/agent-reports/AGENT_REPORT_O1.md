@@ -239,8 +239,8 @@ is sharpened and the target corrected.**
 * Lemma 6.10 (PROVED): gluing identity `Z₂/Z₁² = E_S[1 + E_{ν_S}(r−1)²]`.
   This replaces the derivative approach, so there is no ℓ-inflation issue.
 * Corrected target (6.2): `Ξ_bin ≤ C[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]`. Both terms
-  are summable (diagonal `≪ α^{−3}` by ET Lemma 3.1 for all ℛ(M);
-  `Σ_j q_j ≪ w^{−1+ε}` on average). So (6.2) plus Reduction 6.7 steps 1–2
+  are summable: the diagonal is `≪ α^{−3}` by ET Lemma 3.1 for all ℛ(M)
+  (PROVED); `Σ_j q_j ≪ (log λ)^{O(1)}/w` on average (SKETCH). So (6.2) plus Reduction 6.7 steps 1–2
   gives the two-prime Λ² cap `≪ λ^{3/4}`.
 * **Remaining (precise): the factorisation (6.3) of the pinned density.**
   It needs a uniform comparison of Kotecký–Preiss cluster weights across

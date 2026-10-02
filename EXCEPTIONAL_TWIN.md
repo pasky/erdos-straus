@@ -33,7 +33,7 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Lemma 6.9 | two-prime events, good fibre: Mayer/Kotecký–Preiss expansion converges for the single and doubled systems (Penrose + PO2 Lemma 2.1), δ ≤ e^{−6}/8 | PROVED |
 | (6.1) | single-edge diagonal bound: too strong as stated (Lemma 6.11), replaced by (6.2) | superseded |
 | Lemma 6.10, 6.11 | gluing identity `Z₂/Z₁² = E_S[1 + E(r−1)²]`; one shared prime gives `ρ̃_j Var(deg_j)` | PROVED |
-| (6.2)/(6.3) | `Ξ_bin ≤ C[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` via approximate factorisation of the pinned density; both terms proved summable; this is the remaining step for the two-prime Λ² cap | OPEN |
+| (6.2)/(6.3) | `Ξ_bin ≤ C[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` via approximate factorisation of the pinned density; summability: diagonal PROVED (ET Lemma 3.1), `Σq_j` SKETCH; this is the remaining step for the two-prime Λ² cap | OPEN |
 | Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
@@ -1152,9 +1152,12 @@ the Markov quarantine (Lemma 6.3, `deg ≤ δ`) they satisfy
 needed:
 * the diagonal `Σ_e ρ̃ρ̃′π_e`: its fibre average is `≤ (16/9)Σ_C P(C)
   M_C^{>w, −α}`, which is `≪ α^{−3}` for all ℛ(M) by ET Lemma 3.1;
-* `Σ_j ρ̃_j q_j ≤ Σ_{j>w} q_j`: the fibre average of `q_j` is a
-  pair-of-conditions count at j of second-moment type (as in Lemma 2.4), of
-  size `≪ j^{−2+ε}`. So it sums to `≪ w^{−1+ε}`. Good fibres can be required
+* `Σ_j ρ̃_j q_j ≤ Σ_{j>w} q_j` (SKETCH, not written at proof level): the
+  fibre average of `q_j` is a pair-of-conditions count at j of
+  second-moment type (as in Lemma 2.4). The diagonal pairs C = C′ give
+  `≪ (log λ)^{O(1)}/(jw)`, since partners satisfy `ℓ′ > w`; distinct pairs
+  through the same residue give `≪ (log λ)^{O(1)}/j²`. So the sum over
+  `w < j ≤ e^λ` is `≪ (log λ)^{O(1)}/w`. Good fibres can be required
   to have `Σ_j q_j ≤ 1` at Markov cost `o(1)` in `log(Q_F/|R|)`.
 
 Then Lemma 6.6 gives `saving(g²) ≤ αλ/2 + C α^{−3} + log(Q_F/|R|) + O(1)`,
@@ -1196,8 +1199,9 @@ apply to it, and a mixed tree-graph bound would be needed.
 
 **Status.** The two-prime Λ² theorem is reduced to the factorisation
 (6.3), equivalently (6.2). Proved so far: Lemma 6.6 (fibre tilting),
-Lemma 6.9 (convergence), Lemma 6.10 (gluing identity), Lemma 6.11 and the
-summability of both terms of (6.2). Reduction 6.7 steps 1–2 were not
+Lemma 6.9 (convergence), Lemma 6.10 (gluing identity), Lemma 6.11, and
+the summability of the diagonal term of (6.2). The summability of
+`Σ_j q_j` is sketched only. Reduction 6.7 steps 1–2 were not
 written in this session.
 
 ## Replay
