@@ -678,19 +678,51 @@ lives in the composite cofactors `q ∈ [ℓ, ℓ^B]`.
   carrying its own value, gives `|F_ℓ(n)| ≍ π(y)`. This too is
   dominant-type.
 
-**Numerics (EVIDENCE).** `balanced_numerics.py steer` runs a greedy
-adversary, with reachability enforced ("reach") or ignored ("free"),
-X = 10⁵, η = 1/4, `y = min(ℓ^{0.8}, X/ℓ)`:
+**Numerics (EVIDENCE; regenerated, review D17).** `balanced_numerics.py
+steer` runs a greedy adversary over the residues at primes < ℓ, keeping
+the most distinct target values at ℓ alive. Columns:
+* *reach*: all cofactor types, histories kept reachable;
+* *free*: all types, reachability ignored;
+* *bal*: balanced cofactors `q ≥ ℓ` only, reachability ignored;
+* *q=1*: the baseline `|ℛ(ℓ)|`, the values from cofactor q = 1, which are
+  active whenever `n mod ℓ` hits them; this term is `ℓ^{o(1)}` but not
+  small at toy scale;
+* `π(y)` with `y = min(ℓ^{0.8}, X/ℓ)`;
+* *#bal*: the number of balanced cofactors.
 
-| ℓ | 101 | 211 | 307 | 401 |
-|---|---:|---:|---:|---:|
-| distinct values, reach | 13 | 15 | 21 | 31 |
-| distinct values, free | 13 | 16 | 21 | 36 |
-| π(y) | 12 | 20 | 25 | 30 |
+Data: `data/balanced/steer_X1e5.txt` (10 tries), `steer_X1e6.txt`
+(4 tries). Entries are numbers of distinct active values. They are lower
+bounds for the supremum.
 
-So the greedy supremum tracks `π(y)` (a weak adversary, lower bounds
-only). Reachability costs almost nothing. If `sup ≍ π(y)·ℓ^{o(1)}` is the
-truth, (★_δ) holds exactly for `δ < η/(1+η)`, and it is sharp there.
+| ℓ | X | reach | free | bal | q=1 | π(y) | #bal |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 101 | 10⁵ | 14 | 13 | 5 | 0 | 12 | 113 |
+| 151 | 10⁵ | 19 | 19 | 18 | 9 | 16 | 80 |
+| 211 | 10⁵ | 15 | 16 | 24 | 3 | 20 | 43 |
+| 307 | 10⁵ | 21 | 21 | 3 | 9 | 25 | 3 |
+| 401 | 10⁵ | 31 | 36 | 0 | 0 | 30 | 0 |
+| 503 | 10⁵ | 80 | 80 | 0 | 45 | 34 | 0 |
+| 101 | 10⁶ | 11 | 13 | 2 | 0 | 12 | 692 |
+| 211 | 10⁶ | 15 | 16 | 10 | 3 | 20 | 563 |
+| 307 | 10⁶ | 21 | 21 | 14 | 9 | 25 | 435 |
+| 401 | 10⁶ | 22 | 24 | 17 | 0 | 30 | 335 |
+| 503 | 10⁶ | 88 | 95 | 58 | 45 | 34 | 257 |
+| 701 | 10⁶ | 38 | 39 | 42 | 0 | 42 | 133 |
+| 997 | 10⁶ | 81 | 93 | 1 | 0 | 53 | 2 |
+
+**Reading.**
+* The all-type counts are of the order of `π(y) + |ℛ(ℓ)|`. They exceed
+  `π(y)` at ℓ = 503 (q = 1 baseline 45) and ℓ = 997.
+* **Balanced cofactors alone** can be activated simultaneously in numbers
+  comparable to π(y): 58 values at ℓ = 503, from 257 balanced cofactors;
+  42 at ℓ = 701, from 133. The greedy is weak and the tries are few, so
+  these are lower bounds.
+* The data do not show the balanced part staying below `π(y)ℓ^{o(1)}`.
+  Nor do they show it growing like a fixed fraction of #bal, which would
+  violate (E_δ). They are **inconclusive** on the balanced content of
+  (E_δ).
+* The earlier sentence "the greedy supremum tracks π(y) … (★_δ) holds
+  exactly for `δ < η/(1+η)`" is withdrawn (review D9, D17).
 
 ### 4.4 Reduction: the remaining gap is an extremal arithmetic problem
 
