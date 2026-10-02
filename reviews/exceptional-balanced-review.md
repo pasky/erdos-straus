@@ -56,3 +56,33 @@ excluded". Similarly, "`M = kℓ₁ℓ₂` with k small, `ℓ₂ ≥ ℓ₁^{1+�
   part only; the light part still pays the ET overhead. "Sharp in form" is fair.)
 
 No defects.
+
+### Item 3 — Theorem 2.3 (sequential bound for gapped families, given (NDE)). Verdict: **SOUND** (one scope repair)
+
+I re-read ET Thm 2.7's proof (ET l. 450–493) for every use of `p ≤ 1/4`.
+* The base case, the definition of `g_j`, the λ-level property of
+  `f = E[g_{j+1} | h, x]`, the identification of the law given `x = 0` with the
+  Q_seq transition, and the final Jensen over c use only independence of the
+  window-j indicators given h, `f ≥ 0`, and `P(x=0 | h) > 0`. None uses `p ≤ 1/4`. ✓
+* The only use is "Proposition 2.4, applied to f/f(0)". Replacing it by Lemma 2.2
+  gives `E f ≥ f(0)·Π_{ℓ heavy}(1−p_ℓ(h))·e^{−Φ_j^{light}(h)}`. The heavy set
+  depends on h, which is harmless because the step is fibrewise. The heavy charge
+  then sits inside `E_{Q_seq}[·|H_{<j}=h]` like the rest of Φ_j. No Jensen is
+  applied to the (convex in p) term `−log(1−p)`, and none is needed, since (2.1)
+  keeps it inside the expectation. ✓
+* (NDE) is exactly ET's hypothesis "`p_ℓ(h) < 1` on the support of Q_seq",
+  including for primes with `log ℓ > λ`. It is needed there too (the transition
+  must be defined). ✓ ET's (U) holds by Lemma 2.1. Primes > w₀ do not divide Q₀. ✓
+* "Windows with `s_j ≥ λ` contribute 0": all their primes have `log ℓ > s_j ≥ λ`. ✓
+
+**D2 (MINOR, §2.3 "R = ℤ/Q₀").** The theorem fixes `R = ℤ/Q₀`. §1 defines the
+avoider set "plus an admissible small-residue set R". A majorant of
+`𝒜(𝔊) ∩ {n mod Q₀ ∈ R}` for a selector R (as in the 3/4 note, or as in ET
+Cor 3.6, which folds w₀-smooth forced moduli into R) is **not** a majorant of
+`𝒜(𝔊)` with R = ℤ/Q₀. So Thm 2.3 as stated does not cover selector
+architectures. It also does not cover the forced classes with w₀-smooth modulus,
+which gapped families exclude by definition. Yet m_j (Lemma 2.4) carries the
+selector weight M/φ(M), as if a selector were intended. Fix: state Thm 2.3 for
+general R with the extra term `log(Q₀/|R|)`. This is verbatim ET (2.6). In
+Lemma 2.8, use `P(c ≡ a_C (q_C) | R) ≤ L'/φ(q_C)` as in ET Cor 3.6 to justify
+the M/φ(M) weight.
