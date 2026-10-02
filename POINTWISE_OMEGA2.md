@@ -316,3 +316,82 @@ occurs" depends on `X_{ℓ_w}` only; its neighbours in the family defining
 *Remark.* Nothing in Theorem 3.1 refers to primes being prime numbers beyond
 the CRT; it is a statement about congruence combinatorics, exactly the shape
 of H_MIN. The analytic transfer is PO Theorem 4.1, untouched.
+
+## 4. Application: H_MIN(θ) for every θ>1/3, and `W(p) > (log p)^{3−o(1)}` i.o.
+
+Put `𝓛=log T`, `τ*=τ*(T+2)=max_{n≤T+2}τ(n)` (so
+`τ*≤exp((log 2+o(1))𝓛/log 𝓛)`, Wigert), and
+
+```
+y := T^{1/3}·exp(2𝓛/log 𝓛),     Π_0 := {primes ℓ≤y}.
+```
+
+For a set Π of primes and `M≤T`, `M≡3 (4)`, write `M=m_Π(M)·r_Π(M)` with
+`m_Π` the Π-part. An atom `(M,D)`, `D|A_M²`, **survives Π** if
+`m_Π | 4D+1` and `r_Π>1`; its Haar weight is `1/φ(r_Π)`.
+
+**Lemma 4.1 (global mass for any class-of-one quarantine; PROVED).** For
+every set Π of primes,
+
+```
+S_tot(Π) := Σ_{atoms surviving Π} 1/φ(r_Π) ≤ C log log T·(3+𝓛)·Σ_{s r'² ≤ T, s squarefree} τ(4sr'²+1)/(s r') ≤ exp((log 2+o(1))𝓛/log 𝓛).
+```
+
+*Proof.* This is PO Lemma 9.2 (stated there for `Π={ℓ≤z}`); the proof uses
+only `m:=m_Π(M) | M` and `m | 4D+1`. In detail: `1/φ(r) ≤ C log log T·m/M ≤
+C log log T·m/(3A)`. The involution `D↦A²/D` preserves `m|4D+1` (because
+`4A≡1 (m)`), so take `D≤A` at a factor 2. Write `D=sr'²`, `A=sr'k`,
+`k≥r'`. Then `m | 4sr'(r'+k)` and `gcd(m,4sr')=1`, so `m|r'+k`. For fixed
+`(s,r')` each k determines M, hence m, and `m|4sr'²+1`. So the sum is at
+most `(2C log log T/3)Σ_{s,r'}(sr')^{−1}Σ_{m|4sr'²+1} m Σ_{k≡−r' (m), k≥r'} 1/k`,
+and the inner k-sum is `≤(3+log T)/m` (PO Lemma 2.3, step 3). The last
+bound is the divisor bound, as in PO Lemma 2.3. ∎
+
+(Modulo Elsholtz–Tao Prop. 1.4 the bound is `≪(log T)^4 log log T`, PO
+Lemma 9.2; we do not need this.)
+
+**Construction 4.2.**
+
+1. `g^{(0)}_ℓ` (`ℓ>y`): the Haar measure of the set of `n mod ℓ^{e_ℓ}`
+   (units; `e_ℓ=max{e:ℓ^e≤T}`) hit by atoms surviving `Π_0` with
+   `r_{Π_0}∈{ℓ,ℓ²}`. Bad primes: `𝓑 := {ℓ>y : g^{(0)}_ℓ > 1/64}`. Then
+   `|𝓑| ≤ 64 S_tot(Π_0)`.
+2. `Π := Π_0∪𝓑`, `Q := lcm(24, ℓ^{e_ℓ} : ℓ∈Π)`, `𝒫 := {y<ℓ≤T}∖𝓑`.
+3. Every atom surviving Π has `r=r_Π ≤ T` with all prime factors in 𝒫,
+   hence `>T^{1/3}`; so `r∈{ℓ, ℓ², ℓℓ'}`. If `r∈{ℓ,ℓ²}` it contributes the
+   class `−4D mod r` (lifted to `mod ℓ^{e_ℓ}`) to the single `S_ℓ`. If
+   `r=ℓℓ'` it is the edge `−4D mod ℓℓ'`.
+
+**Lemma 4.3 (hypotheses of Theorem 3.1; PROVED).** For T large:
+
+* (I) holds: if `n≡1 (mod Q)` and no single and no edge of 4.2 occurs at n,
+  then `W(n)>T`.
+* (W) `w_ℓ ≤ 8τ*²T/y³ ≤ exp((2log 2−6+o(1))𝓛/log 𝓛) → 0` for all `ℓ∈𝒫`.
+* (G) `g_ℓ ≤ 1/64 + 2|𝓑|τ*²T/y³ ≤ 1/32` for all `ℓ∈𝒫`.
+* `Σ = S_1+S_2 ≤ S_tot(Π) ≤ exp((log 2+o(1))𝓛/log 𝓛)`.
+* `log Q ≤ 2y + |𝓑|𝓛 + log 24 ≤ 3y`.
+
+*Proof.* (I) Let `M≤T`, `M≡3 (4)`, `m=m_Π(M)`, `r=r_Π(M)`. Every prime
+power `ℓ^v‖M` with `ℓ∈Π` has `ℓ^v≤T`, so `m|Q` and `n≡1 (m)`. If `r=1`,
+`n≡1 (M)` and Fact 1.1 gives `n mod M∉𝓡(M)`. If `r>1` and `n≡−4D (M)` with
+`D|A_M²`, then reducing mod m gives `m|4D+1` (m is odd), so `(M,D)` survives
+Π, and reducing mod r shows that its single or edge occurs.
+
+(W) An edge at ℓ comes from an atom with `M=mℓℓ'`, `ℓ'∈𝒫`, `m≤T/(ℓℓ')`,
+and each M carries at most `τ(A_M²)≤τ*²` atoms. With
+`1/((ℓ−1)(ℓ'−1))≤4/(ℓℓ')`:
+`w_ℓ ≤ Σ_{ℓ'>y} (T/(ℓℓ'))τ*²·4/(ℓℓ') ≤ 8τ*²T/(ℓ²y) ≤ 8τ*²T/y³`, and
+`T/y³ = exp(−6𝓛/log 𝓛)`.
+
+(G) Atoms with `r_Π∈{ℓ,ℓ²}` either survive `Π_0` with the same rough part
+(counted in `g^{(0)}_ℓ≤1/64`, since `ℓ∉𝓑`), or have `M=m b ℓ` with `b∈𝓑`
+(not `bℓ²` or `b²ℓ`, which exceed `y³≥T`). There are at most
+`|𝓑|·T/(yℓ)` such M, each with `≤τ*²` atoms, each of Haar weight
+`≤2/ℓ`. With `|𝓑|≤64S_tot(Π_0)` and Lemma 4.1 the extra term is
+`exp((3log 2−6+o(1))𝓛/log 𝓛)→0`.
+
+Mass: by the union bound `g_ℓ ≤ Σ_{single atoms at ℓ}1/φ(r)`, and each edge
+has `p(u)p(w)=1/φ(ℓℓ')`; apply Lemma 4.1 with Π.
+
+`log Q`: `log lcm(ℓ^{e_ℓ}: ℓ≤y) ≤ θ(y)+π(√T)𝓛 ≤ 2y` (PO Fact 1.2; here
+`π(√T)𝓛 ≪ √T`, and `√T = o(y)` is false — see the correction below). ∎
