@@ -118,3 +118,46 @@ endpoint at ℓ, since edges join distinct primes); `Σ_ℓ w_ℓ=2S_2`.
 `X_{ℓ_v}∈V_v⊆S^+_{ℓ_v}`. Degrees of surviving vertices only drop; vertices
 in H have no edges left. Correct and genuinely cheap: under (W)
 (`w_ℓ≤δ/32`) a hub vertex even has `p(v)<1/32` individually.
+
+### Item 6 — Theorem 3.1 (abstract criterion): **SOUND**
+
+*Citation check.* Haeupler–Saha–Srinivasan, "New constructive aspects of
+the Lovász local lemma", J. ACM 58(6) (2011), arXiv:1001.1231. I fetched the
+arXiv version: **Theorem 2.1** there reads "If the LLL-conditions from
+Theorem 1.1 are met, … for any event B determined by P,
+`Pr[B | ∧_{A∈𝒜}Ā] ≤ Pr[B]·∏_{C∈Γ(B)}(1−x_C)^{−1}`", in the variable
+setting where `Γ(B)` = events of 𝒜 sharing a variable with B. This is
+exactly the form used (variables `X_ℓ`, adjacency = intersecting supports).
+Citation correct; the remark "immediate from the Alon–Spencer proof" is
+also correct (`P(B|∩Ā)≤P(B∩⋂_{A∉Γ(B)}Ā)/P(⋂_{Γ(B)}Ā | ⋂_{A∉Γ(B)}Ā)`).
+
+*Step 1.* Lemma 2.2 with (W): `g^+_ℓ≤1/32+1/32`; (I) persists. Correct.
+
+*Step 2 (LLL).* Variable-setting dependency graph (supports meet) is a
+valid lopsided/mutual-independence graph. Single at ℓ: neighbours = edges
+at ℓ, `∏(1−x)≥1−2w_ℓ≥1/2`; edge at ℓ,ℓ': two singles (`x≤2g^+≤1/8`) and
+edges at ℓ or ℓ', `≥(7/8)²(1−4δ/32)≥1/2`. With `x_E=2P(E)` the condition
+`P(E)≤x_E∏(1−x)` holds. `1−x≥e^{−1.1x}` on `[0,1/8]`
+(`−log(7/8)=0.1335<0.1375`). Correct.
+
+*Step 3.* `z=16`, `δ=e^{−50}=e^{−3z−2}` — matches Lemma 2.1 exactly
+(`6z+2=98`). `4^{L+1}≥200e^{Λ+λ}` gives `E|B−1[A=∅]|≤e^{−λ}/100`;
+`M_1≤e^Λ+4^{L+1}16^{−(L+1)}e^Λ≤2e^Λ`; `log(M_1/μ)≤Λ+λ+log 2−log .99`.
+Each term is on `≤2(L+1)` primes. All budgets
+`O(S_1+(2/δ+16e^{98}+3)S_2+1)=O(Σ+1)` with an astronomical absolute
+constant. Correct.
+
+*Step 4 (twist).* μ_ψ in PO Thm 4.1 is `Σ_{i: f|d_i}c_iψ(b_i)/φ(d_i)`; the
+terms with `f∤d_i` have Haar-mean-zero twist (a prime of f is a free unit
+coordinate), so `μ_ψ=E_Haar[Bψ]`. f is odd (gcd with Q, 2|Q) and real
+primitive, hence squarefree, with primes in 𝒫. The factorisation
+`1[A=∅]=1_{Ā'}1[X_{ℓ_0}∉Forb(X_{−ℓ_0})]` is right (an event at `ℓ_0` is
+the single or an edge `{u,w}`, u at `ℓ_0`, which fires iff `X_{ℓ_0}∈V_u` and
+w occurs). `E_{X_{ℓ_0}}χ_0=0` swaps `∉Forb` for `∈Forb`. Conditional LLL
+for "w occurs" against the sub-family defining `Ā'` (a sub-family of an
+LLL family satisfies the condition with the same x): `Γ` = single and edges
+at `ℓ_w`, `∏(1−x)≥(7/8)(1−2δ/32)`; the author's `(7/8)(15/16)` is looser
+but fine. Final numbers: `0.01+0.064/0.936=0.0784<0.08`, `μ/4≥0.2475P`.
+Correct.
+
+No defect. The theorem is a clean, genuinely CRT-only statement.
