@@ -35,6 +35,17 @@ Theorem 4.1 (transfer), H_MIN(θ), Theorem 6.2.
      target is a progression average of Type I counts (AP-TI), which
      reduces to an explicit Kloosterman-type first-term sum.
 
+6. **Checkpoint 3 (§10, below θ=1/3).**
+   * Private-cover majorant (Lemma 10.1) and a hypergraph moment bound
+     under a codegree condition (Lemma 10.2), both PROVED.
+   * Hypergraph criterion, Theorem 10.3, PROVED.
+   * Conditional result (Theorem 10.4, PROVED implication): the
+     residue-uniform hypothesis AP-TI*(κ) implies H_MIN(θ) for every
+     θ>κ, hence `W(p) ≥ (log p)^{1/κ−o(1)}` i.o. (modulo Thorner–Zaman).
+   * Unconditionally, the available inputs stop at θ=1/3 (Prop 10.5).
+     Codegrees are a genuine extra input on the prime side; the Haar side
+     does not need them.
+
 ## 0. Idea in one paragraph
 
 PO Prop 6.3 shows that inclusion–exclusion truncated by the **number of
@@ -788,8 +799,9 @@ G^cov_u(x) := Σ_{|P|=u} Σ_{C private cover of P} 1[every E∈C occurs at x].
    `Σ_c |κ(U,c)|P(c) ≤ 2^{|U|} Σ_{C private cover of U} P(C occurs)`.
    Summing over `|U|≤L` gives the bound. `G^cov_u` has coefficients +1. ∎
 
-EVIDENCE: `scripts/omega2_abstract_check.py` additionally checks
-`binom(N,u) ≤ G^cov_u` and the 1.2-analogue on random systems (see Replay).
+EVIDENCE: `scripts/omega2_abstract_check.py` also checks, by brute force,
+`binom(N,L+1) ≤ G^cov_{L+1}` and both inequalities of part 1, in the same
+207 361 (seed 1) and 1 166 784 (seed 7) cases. There were 0 failures.
 
 ### 10.2 The moment bound for hypergraph systems (PROVED)
 
