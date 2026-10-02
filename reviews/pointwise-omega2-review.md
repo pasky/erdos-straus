@@ -318,7 +318,7 @@ Checked against `sources/elsholtz-tao-1107.1010.pdf` §2: Σ_I^n is cut out by
 `(λa,λb,λc,λ^{−2}d,e,f)`.
 
 * Forward: `m|r'+k` (from `m|4D+1`, `gcd(m,4sr')=1`), so c∈ℕ;
-  (2.1) `4abd=4A=M+1=me·…`, i.e. `ne+1` with `n=r, e=m`; (2.2) by
+  (2.1) `4abd=4sr'k=4A=M+1=re+1` (`n=r, e=m`); (2.2) by
   definition; (2.7) `ef=4sr'²+1`. The hand derivations of (2.6), (2.8) are
   right.
 * Converse: `D=da²|A²=d²a²b²`, `D≤A⇔a≤b`, `m=e|4D+1` by (2.7),
@@ -344,3 +344,69 @@ all `M=mr`, `m≤r²+1`, `D|A_M²`; Type I points by brute force over
 inequality). The author's `omega2_ffull.py dict 2001` (32 241 atoms,
 0 mismatches) and `cmp` (matches PO F_full at 107, 331, 1031, 3011) replay
 as stated.
+
+### R2.2 — Proposition 8.2 (sizes of F_I): **SOUND** (COSMETIC D4)
+
+*Part 1 vs ET.* ET Prop 1.7 (p. 6) states `f_I(n)≪n^{3/5+O(1/log log n)}`
+for every `n∈ℕ`, where `f_I` counts Type I *solutions*. Those correspond
+(Prop 2.2) only to points with `abcd` coprime to n and `gcd(a,b,c)=1`, and
+π is injective only modulo the dilation (2.10). So the *statement* does not
+bound `F_I` (all points, `a≤b`). The *proof* does, and the author says so:
+* ET Lemma 2.8's proof uses only `a≤b`, (2.2), (2.7) (`ef≡1 (4)`, `ef≥5`),
+  (2.8), and (1.1) for `π_n^I(a,…,f)=(abdn,acd,bcd)`. (1.1) is the
+  algebraic identity (2.3) divided by `abcdn`, valid at every ℕ-point. No
+  coprimality is used.
+* ET §3: `e·f·(cd)²·ac=(acd)²(ce/b)(bf/a)≪n³`. Each of the four divisor-bound
+  cases ((2.1), (2.6), (2.9), (2.8)) counts *all* points with the fixed
+  quantity.
+
+So `F_I(n)≤4n^{3/5+O(1/log log n)}`, and with `E(r)≤2F_I(r)`,
+`|F_ℓ^{full}|≤ℓ^{3/5+o(1)}`. Correct.
+**D4 (COSMETIC):** the label should read "modulo the proof of ET Prop 1.7
+(Lemma 2.8 and §3)" rather than "modulo ET Prop 1.7". The sentence that
+follows already says this.
+
+*Part 2 (elementary), re-derived.*
+* (a,c,f) determine the point: d by (2.6), e by (2.7), b by (2.2).
+* `ℓ∤c`: if `ℓ|c` then ℓ divides `x=abdℓ, y=acd, z=bcd`, and
+  `4=ℓ/x+ℓ/y+ℓ/z≤3`. So `g=gcd(c,f)` divides `bf−c=ℓa` and
+  `4acd−f=ℓ`, hence `g|ℓ`, and `ℓ∤c` gives `g=1`. Correct.
+* `cf | a(ℓ+f)+c`, using `f|aℓ+c` and `c|ℓ+f`, gives
+  `(c−a)(f−1)≤a(ℓ+1)`. Correct.
+* The case split costs `≤√(ℓ+1)/(4√a)+2` values of f (`f≡−ℓ (4a)`), each
+  with `c|ℓ+f`; or `c≤a+√(a(ℓ+1))` with `f|aℓ+c`. All arguments are
+  `≤2A_0ℓ`. Summing over `a≤A_0` gives the stated
+  `τ*(2A_0ℓ)(A_0²+3A_0^{3/2}√(ℓ+1))`; I checked the constants, including
+  `A_0=1`.
+* `a=1`: `Σ_{j≤2+√ℓ}τ(ℓ+j)≤2Σ_{δ≤√(2ℓ)}(√ℓ/δ+1)≪√ℓ log ℓ`. Correct.
+
+Evidence replays exactly: `omega2_ffull.py 107 331 1031 3011 87359` gives
+1.643/1.594/2.087/1.257/4.141, with 1224 triples, 923 classes and 1147 of
+1224 with `r'>1` at 87359, matching `data/omega2/ffull_triples.txt`.
+
+### R2.3 — Remark 8.3 (box vs ET Lemma 2.8; Assessment): **SOUND** (COSMETIC D5)
+
+The box `a≍n^{2/5}, c≍n^{1/5}, d≍n^{2/5}, b≍n^{4/5}, e≍f≍n^{3/5}` passes
+every exponent check:
+* `acd≍n` (Lemma 2.8: `n/4<acd≤3n/4`);
+* `ce≍b` (`b<ce≤2b`);
+* `bf≍an≍n^{7/5}` (`an≤bf≤5an/3`);
+* `ef≍a²d≍n^{6/5}` (2.7);
+* `abd≍ne≍n^{8/5}` (2.1);
+* `a≤b`.
+
+The listed sizes (3/5 ×4, 6/5 ×3, 7/5) are right. Every listed quantity
+determines the point up to `n^{o(1)}`:
+* e, f, cd and ac go through ET's own four cases;
+* `a²d` through (2.7) then (2.6);
+* `bd` through (2.1), which fixes `a≡(4bd)^{−1} (mod n)`, and `a<n`;
+* `bf` through (2.8), which gives `c≡bf (mod n)` with `c<n`.
+
+**D5 (COSMETIC):** for `ab` the cited (2.1) alone does not suffice (it
+leaves d, e linked by one linear equation). Use (2.2): `ce=a+b` is fixed,
+so c, e are divisors, and then (2.1) gives d. The progression-trick figure
+`√(an)=n^{0.7}` and the heuristic count (`≈n^{3/5}` triples with
+`0<4acd−n≲n^{3/5}`, each surviving `f|4a²d+1` with probability `≍n^{−3/5}`)
+are correct as heuristics, and are labelled Assessment. The ET quote
+("Proposition 1.7 appears to be the limit of what one can obtain purely
+from the divisor bound") is accurate (ET p. 6).
