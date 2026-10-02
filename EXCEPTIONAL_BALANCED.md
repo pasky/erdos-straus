@@ -624,9 +624,11 @@ This is better than §2.6 item 4, which assumed only `ε = 1/2`.
 *Proof.* (E_δ) bounds `|F_ℓ(n)|` for every integer n by Lemma 4.1, so in
 particular on every reachable history. Then apply §2.6 (sufficient
 condition (★_δ)). For the weak form, use
-`Π_{p|q}(1−ε)^{−1} = e^{O(ε)ω(q)}` and the γ-weighted Shiu argument, with
-`h(p) ≤ 1/(p−1) + O(ε)/…`. The Euler factors change by `1 + O(ε/p)`, so
-the pole order rises by `O(ε)`. ∎
+`Π_{p|q}(1−ε)^{−1} = e^{O(ε)ω(q)}` and the γ-weighted Shiu argument. Write
+`e^{cεω(q)} = Σ_{d|q} h(d)`, with h multiplicative, supported on squarefree
+d, and `h(p) = e^{cε}−1 = O(ε)`. The Euler factors of the profile change
+by `1 + O(ε)/p`, so the pole order 3 rises by `O(ε)`. The cap is then
+`λ^{(3+O(ε))/(4+O(ε))}`. This weak form is only sketched. ∎
 
 **What is known about (E_δ).**
 * Counting proves it for B < 1 (Lemma 4.2).
