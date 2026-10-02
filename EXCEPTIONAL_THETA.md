@@ -612,7 +612,23 @@ with `G = 4a·g(D)`. This uses `#{D: g(D)=g} ≤ 2^{ω(g)}`. ∎
 **Case A (the mirror half).** Case A of Theorem 3.1 reduces to the forced
 classes `n ≡ −m^{−1} (mod 4g(d))` with `m | 4d+1`. The reason is that
 `m | d+z₀` is equivalent to `m | 4d+1`, and `d | z₀²` is equivalent to
-`nm ≡ −1 (mod 4g(d))`. This reduction is PROVED.
+`nm ≡ −1 (mod 4g(d))`. This reduction is PROVED; the derivation follows.
+
+Case A is notes Theorem 3.1(A) (notes.md l. 84–89, 102–106): there are
+`m ≡ 3n (mod 4)`, `z₀ = (nm+1)/4` and `d | z₀²` with `m | d + z₀`, and
+then `4/n = 1/x + 1/y + 1/(n z₀)` with `x = (z₀+d)/m`, `y = (z₀+z₀²/d)/m`.
+* *The m-condition.* m is odd, so `m | d+z₀ ⇔ m | 4d+4z₀ = 4d+nm+1 ⇔ m | 4d+1`.
+* *The d-condition.* `d | z₀² ⇔ g(d) | z₀`, since `v_p(d) ≤ 2v_p(z₀) ⇔
+  ⌈v_p(d)/2⌉ ≤ v_p(z₀)`. This in turn is `⇔ 4g(d) | nm+1`. Here
+  `m | 4d+1` makes m a unit mod `4g(d)`, so the condition reads
+  `n ≡ −m^{−1} (mod 4g(d))`. The congruence mod 4 is exactly
+  `m ≡ 3n (mod 4)`, i.e. integrality of z₀.
+* *Forcedness for every n ≥ 1, not only primes.* Given such n, put
+  `z₀ = (nm+1)/4`.
+  * x is an integer by the m-condition.
+  * y is an integer because `z₀ + z₀²/d = z₀(d+z₀)/d` and `(m,d) = 1`.
+  * The identity `1/x + 1/y = m/z₀` (notes Lemma 2.1) gives
+    `m/z₀ + 1/(n z₀) = (nm+1)/(n z₀) = 4/n`.
 
 Its exact union mass up to `x = 10², 10³, 4000` is 0.0280, 0.0257 and 0.0254
 times `(log x)³`. That is EVIDENCE that this profile is also cubic.
