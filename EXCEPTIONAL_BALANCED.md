@@ -223,3 +223,45 @@ second claim uses `P(M) > e^{s_j}` and `1+η ≤ 2`. ∎
 `m_j ≍ η·s_j³`. Proving that needs the ℛ-weighted sum restricted to
 `P(M) ∈ W_j`, a smooth-cofactor Shiu bound, and that bound is not
 available. The cruder Lemma 2.4 costs one power of η^{−1/4} in §2.5.
+
+### 2.5 The conditional cap
+
+**Hypothesis H_light(K)** (for an (η,B)-gapped family and level λ). All
+three parts hold:
+* (NDE) holds;
+* for every j with `s_j ≤ λ`, `E_{Q_seq} Σ_{ℓ∈W_j, light} p_ℓ(H_{<j}) ≤ K·m_j`;
+* the total heavy charge in (2.1) is at most `K·λ^{3/4}`.
+
+**Theorem 2.5 (PROVED, given H_light(K)).** Every majorant ν of level
+`λ ≥ s₀` of an (η,B)-gapped ℛ(M)-family satisfies
+
+    log(1/Eν) ≤ C·K^{1/4}(1+B)^{3/4}·η^{−1}·λ^{3/4} + K·λ^{3/4} + O(η^{−1} log λ·(log λ + log K)),
+
+with an absolute constant C. So `C(η) ≍ η^{−1}`.
+
+*Proof.* Start from (2.1).
+* *One band per window.* Costs in `W_j` lie in `(s_j, (1+η)s_j]` and
+  `1+η < 2`. So each window is a single band of ET Prop 2.4, with `G = 1`.
+  Hence the error terms of `Φ_j` are
+  `75 + log(2+λ/s_j) + ½log(16μ_j+16)`.
+* *Bounding E log μ_j.* By concavity, `E log(16μ_j+16) ≤ log(16Km_j+16)`.
+  So the error terms are `O(log λ + log K)` per window.
+* *Number of windows.* There are at most `1 + 2 log λ/η` windows with
+  `s_j ≤ λ`.
+* *Main term.* By H_light and Lemma 2.4, window j costs at most
+  `inf_α[19αλ + X_j e^{−αs_j}]` with `X_j = C₄K c_B s_j³` and
+  `c_B = C₆'(4(1+B))³`. This infimum is
+  `≤ min{X_j, (19λ/s_j)(1+log⁺(X_j s_j/19λ))}`. Put
+  `s* = (19λ/(C₄Kc_B))^{1/4}`. Two sums:
+  * windows with `s_j ≤ s*` contribute
+    `Σ X_j ≤ X(s*)/(1−(1+η)^{−3}) ≤ 2X(s*)/η = 38λ/(ηs*)`;
+  * windows above `s*` contribute
+    `(19λ/s*)·Σ_{k≥0}(1+η)^{−k}(1+4k log(1+η)) ≤ (19λ/s*)·10/η`.
+  
+  The total is `≤ 228λ/(ηs*)`, which is the first term. ∎
+
+**Sanity check (dominant case).** For dominant moduli (`B = C < 1`), the
+counting bound of ET Cor 3.6 gives `p* ≤ ℓ^{−δ}`. So there are no heavy
+coordinates and (NDE) holds trivially. Part (ii) holds in ET Lemma 2.8's
+averaged form, with the γ-weight, which ET Cor 3.6 shows is still cubic.
+Theorem 2.5 therefore reproduces Cor 3.6, with an explicit η^{−1}.
