@@ -69,7 +69,8 @@ Each entry below carries location, quote and fix.
 **Code (reviewer's own, no shared code with the subject's scripts).**
 * `scripts/review_theta_lp.py` (Parts A/B/C);
 * `scripts/review_theta_seq.py`;
-* `scripts/review_theta_selberg.py`.
+* `scripts/review_theta_selberg.py`;
+* `scripts/review_theta_lemmaR.py`.
 
 Outputs are in `data/theta/review_*.txt`. Replay with
 `PYTHONPATH=scripts uv run --with scipy[ --with sympy] python <script>`.
@@ -409,6 +410,16 @@ The cap of Lemma 4.1 is correct.
 > `1[n≡b_i (d'_i)] ≥ 1[n≡b_i (d_i)]`, and the mean rises by at most
 > `a_i/d'_i ≤ a_i e^{Λ₀−λ}`. Then ν' ≥ ν ≥ 0 and ν' ≥ 1 on 𝒜. ∎
 
+* **Numeric check of Lemma R.** `scripts/review_theta_lemmaR.py`
+  (`data/theta/review_lemmaR.txt`) runs on a CRT system with Q₀ = 4 and
+  slice primes {5,…,17}. It expands Bonferroni `Q_r(H)`, r ∈ {2,4}, into
+  class terms and coarsens at λ = log 17, log 77, log 221. In 24/24 cases:
+  * ν' ≥ ν pointwise;
+  * ν' ≥ 1 on 𝒜;
+  * `Eν' ≤ Eν + T e^{Λ₀−λ}`.
+
+  This only checks the mechanics. The lemma is a four-line pointwise
+  argument.
 * **Consequence.** Put Cor 3.4/3.6 together with Lemma R.
   * *Hypotheses.* The family's slice primes are ≤ N^A, and the method's
     final bound `N·Eν + Σ|a_i|` is non-trivial, so `T < N`.
