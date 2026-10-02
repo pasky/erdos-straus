@@ -354,3 +354,105 @@ value; for `n ≡ −r₀/k₀` of small height the count is a divisor sum,
 the balanced door (Theorem 2.7). It remains a natural extremal problem:
 how many cofactors `q ≤ ℓ^B` can a single residue activate with distinct
 values?
+
+## 4. η-twin moduli
+
+### 4.1 What breaks
+
+An η-twin modulus has its two top primes `ℓ₁ < ℓ₂` in the same window (or
+`P(M)² | M`). Hypothesis (U) fails: inside the window the condition is a
+*binary* event `(n mod ℓ₁, n mod ℓ₂) = (b₁, b₂)`, and ET Proposition 2.4
+needs independent single-coordinate hit indicators. The capped measure of
+§2 does not help with this: it controls *which* coordinates are
+conditioned, not the window inequality. Throughout this section B is fixed,
+all ℛ(M)-classes considered have `M ≤ P(M)^{1+B}`, and the QR base, the
+caps `δ_ℓ = ℓ^{−1/2}`, `W = W₀(B)` and the leak bookkeeping are as in §2.
+
+Two facts used below hold for twin classes verbatim:
+* Lemma 2.4 (second moment) never used `P(q) ≤ y`; it holds for all
+  cofactors `q ≤ ℓ^B` with `P(q) < ℓ` (or `P(q) = ℓ` for `ℓ² | M`, where the
+  coordinate is `n mod ℓ^{E_ℓ}` and each class still contributes `≤ 1/ℓ`).
+  So the leak bound, Corollary 2.5, covers the whole family.
+* Lemma 2.6 (first moment) sums over all M with `P(M)` in a range; twin M
+  are included.
+
+The leak argument (Lemma 2.1, Theorem 2.3) also holds if a window is
+processed *sequentially inside itself* (primes in increasing order), as
+long as the window inequality used in the induction step is valid for the
+resulting in-window law. Lemma 2.2 holds for any such order.
+
+### 4.2 Low range: twin classes below `e^{λ^{1/4}}` are free
+
+**Proposition 4.1 (PROVED).** Put `s₁ = λ^{1/4}`. Process every prime
+`ℓ ∈ (W, e^{s₁}]` as its own window. Then every ℛ(M)-class with
+`P(M) ≤ e^{s₁}` (any shape: gapped, twin, `P(M)² | M`) satisfies (U) for
+these windows, and the total cost of these windows in (2.1) is at most
+`(8/3)·K'(W,B)·(1+B)³·λ^{3/4}`.
+
+*Proof.* A singleton window `{ℓ}` meets every condition with top prime ℓ
+in exactly one prime, so (U) holds (for `ℓ² | M`, use the coordinate
+`n mod ℓ^{E_ℓ}`). For a singleton window the induction step needs no
+Proposition 2.4: if ℓ is light at h, `E f̃ = (1−p)f̃(0) + p f̃(1) ≥
+(1−p)f̃(0)`, so `Φ = −log(1−p_ℓ(h)) ≤ (4/3)p_ℓ(h)`; if ℓ is heavy, the
+window is skipped and the hit leaks. By Lemma 2.2 (as in Lemma 2.6),
+`Σ_{W<ℓ≤e^{s₁}} E_{Q'} p_ℓ ≤ Σ_{M ≤ e^{(1+B)s₁}} τ(A_M²)Γ(M)/M ≤
+K'((1+B)s₁)³`. Multiply by 4/3 and by the factor 2 of (2.1). ∎
+
+So in this range windows are not needed at all: the cost is the void
+(≈ mass), which is what EB Theorem 2.5 pays there anyway (its "cubic
+branch", `Σ_{s_j ≤ s*} X_j`).
+
+### 4.3 Top range: linear windows are free
+
+**Lemma 4.2 (linear window inequality; PROVED).** Let V be a set of
+coordinates with independent uniform laws `U_ℓ`, and let
+`f(y_V) = c₀ + Σ_{ℓ∈V} g_ℓ(y_ℓ) ≥ 0` with `E_{U_ℓ} g_ℓ = 0`. Let σ be any
+probability law on `Π_ℓ ℤ/ℓ^{E_ℓ}` whose one-coordinate marginals satisfy
+`σ_ℓ ≤ (1+ε_ℓ)U_ℓ` and `Σ_y (U_ℓ − σ_ℓ)⁺(y) ≤ δ_ℓ`. Then
+
+    E_U f ≥ E_σ f / (1 + max_ℓ(ε_ℓ + δ_ℓ)).
+
+*Proof.* `E_U f = c₀`. Put `m_ℓ = −min g_ℓ ≥ 0`. Since f ≥ 0 at the point
+where every `g_ℓ` is minimal, `Σ m_ℓ ≤ c₀`. With `r = dσ_ℓ/dU_ℓ`,
+`E_σ g_ℓ = E_U[g_ℓ(r−1)] ≤ E_U[g_ℓ⁺(r−1)⁺] + E_U[g_ℓ⁻(1−r)⁺] ≤ ε_ℓ E_U g_ℓ⁺
++ m_ℓ δ_ℓ ≤ m_ℓ(ε_ℓ+δ_ℓ)`, using `E_U g⁺ = E_U g⁻ ≤ m_ℓ`. Sum over ℓ. ∎
+
+**Corollary 4.3 (PROVED).** Let `V = {ℓ : λ/2 < log ℓ ≤ λ}` be one window,
+processed sequentially inside itself with caps. Every condition with top
+prime in V satisfies the in-window (U), whatever its shape, and the window
+costs at most `log(1 + 3e^{−λ/4})` in (2.1).
+
+*Proof.* A term of ν has level ≤ λ, so it involves at most one prime of
+V. Hence `f(y_V) = E_U[g_next | h, y_V]` has the form of Lemma 4.2 (as a
+function of the residues, not of hit indicators). Take σ = the in-window
+sequential capped law. Each one-coordinate marginal is a mixture of laws
+uniform on at least `ℓ(1−δ_ℓ)` residues, so `ε_ℓ ≤ 2δ_ℓ` and
+`δ_ℓ`-TV `≤ δ_ℓ`, with `δ_ℓ = ℓ^{−1/2} ≤ e^{−λ/4}`. Given h, f̃'s value
+under σ is the expectation of `g_next` under the `Q'` transition. Windows
+above `e^λ` are invisible and cost 0 (ET Step 0), in any order. ∎
+
+This is EB's route 4. Lemma 4.2 is special to one coordinate per term:
+for two, `f = (Σ_ℓ z_ℓ)²` with mean-zero `z_ℓ` has `Σ_ℓ max z_ℓ⁻`-type
+quantities of order m² against `E f = m`, and the argument breaks.
+
+### 4.4 What is proved, and the residual range
+
+**Theorem 4.4 (PROVED).** Fix B and `W = W₀(B)`. Let 𝔊 be any family of
+ℛ(M)-classes with `M ≤ P(M)^{1+B}`, plus any W-smooth classes, such that
+every **η-twin** modulus M of 𝔊 has
+
+    P(M) ≤ e^{λ^{1/4}}   or   P(M) > e^{λ/2}.
+
+Then every majorant of level λ satisfies `log(1/Eν) ≪_B η^{−1}λ^{3/4}`.
+
+*Proof.* Windows: singletons on `(W, e^{λ^{1/4}}]` (Prop 4.1); EB's
+η-windows on `(e^{λ^{1/4}}, e^{λ/2}]`, where only gapped classes have their
+top prime, so (U) holds by EB Lemma 2.1; one sequential window V on
+`(e^{λ/2}, e^λ]` (Corollary 4.3); singletons above. Theorem 2.3 applies by
+Corollary 2.5. The middle windows cost what they cost in Theorem 2.7. ∎
+
+**The residual.** η-twin moduli whose top prime lies in
+`(e^{λ^{1/4}}, e^{λ/2}]`. There a term of ν may involve
+`2 ≤ d_j = ⌊λ/s_j⌋ < λ^{3/4}` primes of a window, and the window's twin
+mass is large (`≍ η s_j³ ≫ 1` heuristically, ≥ `c_η s_j³` summed over a
+dyadic range by ET Lemma 3.8).
