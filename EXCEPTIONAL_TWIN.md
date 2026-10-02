@@ -24,6 +24,10 @@ here and checked internally only. Notation follows `EXCEPTIONAL_THETA.md`
 | Prop 4.1 | all classes (twin, prime-power included) with top prime `≤ e^{λ^{1/4}}`: singleton windows, cost ≪ λ^{3/4} | PROVED |
 | Lemma 4.2, Cor 4.3 | linear-window inequality (one prime per term); all classes with top prime `> e^{λ/2}` cost `O(e^{−λ/4})` | PROVED |
 | **Thm 4.4** | cap `≪_B η^{−1}λ^{3/4}` for ℛ(M)-families with `M ≤ P(M)^{1+B}` in which every modulus with top prime in `(e^{λ^{1/4}}, e^{λ/2}]` is window-resolved (all gapped ones are) | PROVED |
+| Lemma 6.1–6.3 | soft-unary Prop 2.4; composition; Markov removal of high-incidence residues | PROVED |
+| Conj 6.4 | k-ary comparison inequality (arithmetic-free, weak `d log(mass)` form): product law vs its sequential k-ary conditioning | OPEN (sharpened gap) |
+| Prop 6.5 | Conj 6.4 ⇒ `S_λ ≪_B η^{−1}λ^{3/4}log λ` for all ℛ(M) with M ≤ P(M)^{1+B}, twins included | PROVED |
+| §6.4 | exact toy window LPs: binary constraints extract a smaller share of their void than unary; the sequential σ is costly in dense toys | EVIDENCE (weak) |
 | Conj 4.5_r | r-ary window inequality (local boost), `r ≤ (1+B)(1+η)`; would remove the residual. r = 2 alone does not suffice | OPEN |
 
 ## 1. The quadratic-residue base (Mordell obstruction, used constructively)
@@ -738,6 +742,158 @@ here (heavy histories, small-prime correlations, η-gapped balance) turned
 out harmless once the measure was chosen correctly. No proof or
 construction points towards (B).
 
+## 6. Attack on Conjecture 4.5_r: reduction to a pure comparison inequality
+
+Status of this section: Conjecture 4.5_r is **not proved**. It is reduced
+to a sharper, arithmetic-free statement (Conjecture 6.4), together with a
+weaker sufficient form for the exponent question (Proposition 6.5). All
+steps of the reduction are proved; the evidence for 6.4 is toy-scale.
+
+### 6.1 Soft unary conditions
+
+**Lemma 6.1 (ET Prop 2.4 for soft unary conditions; PROVED).** Let the
+coordinates `y_ℓ` (ℓ ∈ V) be independent with laws `U_ℓ`. Let
+`x_ℓ ∈ {0,1}` be a function of `y_ℓ` and private independent randomness,
+with `p_ℓ = P(x_ℓ = 1)`, `p_ℓ ≤ 1/4` when `s_ℓ ≤ λ`, and `p_ℓ < 1`. Let σ be
+the law of y given `x = 0`. Then for every λ-level `f ≥ 0` (in y),
+`E_U f ≥ e^{−Φ} E_σ f`, with Φ the right side of ET (2.3) for the `p_ℓ`.
+
+In particular, every product law `σ^× = ⊗σ_ℓ` with
+`dσ_ℓ/dU_ℓ ≤ (1−p_ℓ)^{−1}` is reached at cost Φ(p): take
+`P(x_ℓ = 1 | y_ℓ) = 1 − (1−p_ℓ)dσ_ℓ/dU_ℓ`.
+
+*Proof.* Given x, the `y_ℓ` are independent and the law of `y_ℓ` depends on
+`x_ℓ` only. So `f̃(x) = E[f | x]` is λ-level in x, `f̃ ≥ 0`, and
+`E_σ f = f̃(0)`. The x's are independent Bernoulli, so ET Prop 2.4 applies.
+∎
+
+**Lemma 6.2 (composition; PROVED).** If `E_U f ≥ e^{−Φ₁}E_{σ₁} f` and
+`E_{σ₁} f ≥ e^{−Φ₂}E_σ f` for all λ-level `f ≥ 0`, then the step
+inequality (S) holds for σ with `Φ₁ + Φ₂`. (Immediate.)
+
+So a block with unary and k-ary conditions splits into two parts. The
+unary part is handled by Lemma 6.1 (product law σ^×, light unary sets). The
+k-ary part is a comparison between the product law σ^× and its conditioning
+on k-ary avoidance.
+
+### 6.2 Removing bad residues
+
+For a residue a at ℓ ∈ V and a history, let the **incident weight**
+`c_ℓ(a)` be the σ^×-probability that some activated k-ary class through
+`(ℓ, a)` is completed by the other coordinates. Let
+`m_{≥2}(ℓ) = Σ_a σ^×_ℓ(a) c_ℓ(a)`; this is at most the k-ary mass incident
+to ℓ.
+
+**Lemma 6.3 (Markov removal; PROVED).** For θ > 0, adding to the unary
+forbidden set at ℓ the residues with `c_ℓ(a) > θ` raises `p_ℓ` by at most
+`m_{≥2}(ℓ)/θ`. Afterwards every incident weight is ≤ θ. Summed over a
+window, the unary profile grows by at most `r·μ_{≥2}/θ`, where `μ_{≥2}` is
+the window's k-ary mass. By Lemma 2.6 this is again `O_{B,θ}(s_j³)` in
+`Q'`-expectation.
+
+*Proof.* Markov: `σ^×_ℓ{c_ℓ > θ} ≤ m_{≥2}(ℓ)/θ`. Each k-ary class is
+incident to at most r primes. ∎
+
+(The removed residues are typically the small-u values `−(4u)^{−1}`, which
+lie on very many twin classes; cf. Lemma 3.1.)
+
+### 6.3 The sharpened gap
+
+**Conjecture 6.4 (k-ary comparison inequality; OPEN).** Let `ν = ⊗ν_ℓ` be
+a product law on a block V with costs `s_ℓ ∈ (s, (1+η)s]`, and
+`d = ⌊λ/s⌋`. Let `ℱ` be a family of hard k-ary constraints
+(`2 ≤ k ≤ r`) on V with all incident weights `≤ θ ≤ θ₀(r)` and total
+ν-mass `μ_{≥2}`. Let σ be the sequential law (increasing ℓ; at ℓ, `ν_ℓ`
+conditioned off the residues activated by earlier coordinates, uniform if
+that set has ν_ℓ-mass `> δ_ℓ`). Then for every λ-level `f ≥ 0`,
+
+    E_σ f ≤ exp( C_r [ d·log(2 + μ_{≥2}) + 1 ] ) · E_ν f.
+
+This statement contains no arithmetic and no unary sieve. It is a binary
+(k-ary) analogue of ET Prop 2.4, in its weak "d·log(mass)" form.
+
+**Proposition 6.5 (sufficiency; PROVED).** Assume Conjecture 6.4 for
+`r = ⌊(1+B)(1+η)⌋`. Then for every fixed B, every family of ℛ(M)-classes
+with `M ≤ P(M)^{1+B}` (twin, prime-power top and all other shapes
+included) plus W₀-smooth classes has
+
+    S_λ ≪_B η^{−1} λ^{3/4} log λ.
+
+In particular no such family gives an exponent θ > 3/4.
+
+*Proof.* Apply Theorem 2.3′ with the blocks of Theorem 4.4, but with every
+condition admitted in the middle windows. Order the primes increasingly;
+every condition is decided at its top prime. In a middle window take
+`σ_j = σ` of Conjecture 6.4, over the product law `σ^×` given by
+Lemma 6.1, after the Markov removal of Lemma 6.3 with θ = θ₀. Steps:
+* unary part: Lemma 6.1, cost `Φ_j^{light}` with the enlarged profile;
+* k-ary part: Conjecture 6.4, cost `C_r(d_j log(2+μ_{≥2,j}) + 1)`;
+* compose by Lemma 6.2.
+
+Taking `Q'`-expectations and using concavity of log together with
+Lemma 2.6 (k-ary masses are part of the cubic window mass) gives
+`E log(2+μ_{≥2,j}) ≤ log(2 + K s_j³)`. Hence the k-ary costs sum to
+`≪ Σ_{s_j>λ^{1/4}} (λ/s_j) log λ ≪ η^{−1}λ^{3/4} log λ`. The unary costs are
+as in Theorem 2.7, with `K` replaced by `K(1 + r/θ₀)`. The leak: σ_j is
+sequential and capped, so Lemma 2.1′ applies. The second moment
+(Lemma 4.0) uses only the caps and Lemma 2.2, which holds for σ_j:
+each coordinate is uniform on a set of density `≥ 1−δ_ℓ` given the past. ∎
+
+The extra `log λ` is the price of the weak form. Conjecture 4.5_r, the
+H_MS form with `e^{−αΣs}` weights, would remove it.
+
+### 6.4 Evidence and caveats (EVIDENCE, toy scale)
+
+`scripts/twin_window_lp.py` solves the exact LP
+`C*_d = max{E_σ f / E_U f : f ≥ 0 on all of (ℤ/L)^m, f a sum of d-juntas}`
+for toy blocks: m coordinates of size L = 5, κ = 2 random forbidden points
+per pair. As a comparison it solves the same LP for a unary block of
+equal mass (data `data/twin/lp/`).
+
+With σ = uniform on the avoid set (`log C*_d ≤` void, and `log C*_d ≥` the
+block's own d-junta sieve saving):
+
+| m | d | binary mass | binary void | binary `log C*` | unary mass | unary void | unary `log C*` |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 5 | 2 | 0.80 | 0.825 | 0.602 (73%) | 1.0 | 1.116 | 0.916 (82%) |
+| 5 | 3 | 0.80 | 0.825 | 0.747 (91%) | 1.0 | 1.116 | 1.044 (94%) |
+| 5 | 4 | 0.80 | 0.825 | 0.825 (100%) | 1.0 | 1.116 | 1.115 (100%) |
+| 6 | 2 | 1.20 | 1.234 | 0.770 (62%) | 1.2 | 1.339 | 0.916 (68%) |
+
+Reading.
+* At equal d, binary constraints yield a somewhat *smaller* fraction of
+  their void than unary constraints of comparable mass. This points the
+  same way as H_MS (a binary condition uses two of the d coordinates) and
+  agrees with ET §5.8 and EB §3.2. It is weak evidence: the toys are dense
+  (`p ≈ 1/5`), tiny (m ≤ 6), and far from the sparse regime of the theorem.
+* **Caveat on the choice of σ.** With the *sequential* σ the same toys
+  give `log C*` *above* the void: 0.693 vs 0.519 (m = 4, d = 2) and
+  1.367 vs 0.825 (m = 5, d = 3) (`series_L5_k2_d*.txt`). In a dense block
+  the sequential law has density up to `≈ (L/(L−κ'))^m` at some points,
+  more than `1/U(avoid)`. In the theorem's regime every conditional
+  density is capped by `(1−δ_ℓ)^{−1}` with `δ_ℓ ≤ ℓ^{−1/2}`, so this skew
+  is negligible there. But it shows that Conjecture 6.4 is false without
+  the caps and the sparsity θ, and that the choice of σ is part of the
+  problem.
+
+### 6.5 A remark on the Λ² route
+
+ET Theorem 5.5 caps Selberg-type majorants `g²` on arbitrary systems, with
+no windows, via `P(A∩A')/P(A)²`. Its proof works for any probability σ̃
+on A in place of `U|A` (PROVED, same proof). Since `g ≥ 1` on A,
+`E_U[g·dσ̃/dU] ≥ 1`. Cauchy–Schwarz and the noise operator then give
+
+    saving(g²) ≤ αλ/2 + log E_S[ 1 + χ²(σ̃_S ‖ U_S) ],
+
+with S the random set containing each coordinate independently with
+probability `ρ_i = e^{−α s_i}` and `σ̃_S` the marginal on S. For σ̃ = U|A
+this is ET's `Ξ_A`. The freedom in σ̃ addresses ET's observation that a
+fibrewise bound "alone would not suffice": tilting σ̃ towards fibres with
+small future profile turns the fibre average `E e^{+X}` into
+`(E e^{−X})^{−1}`. No bound on the χ²-functional for the real system is
+proved here. Twin conditions enter it only through marginals on S that
+contain both of their primes, i.e. with weight `ρ_{ℓ₁}ρ_{ℓ₂}`.
+
 ## Replay
 
 ```
@@ -745,6 +901,10 @@ construction points towards (B).
 PYTHONPATH=scripts uv run --with sympy python scripts/twin_jacobi_check.py 20000
 # Remark 1.4: (a,D) and Case-A classes contain no square mod their modulus (~3 min)
 uv run --with sympy python scripts/twin_square_base_check.py 40 300 3000
+# §6.4: exact toy window LPs (each < 20 min, < 4 GB; m=6,7 at d=3 did not finish in 50 min)
+for d in 2 3; do for m in 4 5; do uv run --with scipy --with numpy python scripts/twin_window_lp.py $m 5 $d 2 1; done; done   # sequential sigma
+for d in 2 3 4; do uv run --with scipy --with numpy python scripts/twin_window_lp.py 5 5 $d 2 1 uniform; done
+uv run --with scipy --with numpy python scripts/twin_window_lp.py 6 5 2 2 1 uniform
 # §2.4: capped measure Q' with QR base, real system (X=1e5: ~3 min per run; X=1e6, 20 samples: ~40 min, < 4 GB)
 cd scripts
 uv run python twin_capped.py 100000 100 30 0.2 > ../data/twin/capped_X1e5_W30_k0.2.txt

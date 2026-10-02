@@ -1,0 +1,1 @@
+m=5 L=5 d=3 kappa=2 seed=1 sigma=U|A  binary: mass=0.800 void=0.825 logC*=0.7467 | unary: mass=1.000 logC*=1.0441
