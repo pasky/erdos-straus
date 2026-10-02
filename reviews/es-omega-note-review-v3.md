@@ -79,3 +79,59 @@ Defects:
   ("We have *not* proved this lower bound"), and O3 Def 2.3 proves only the
   *upper* bound `|𝓗_X|≤3X(1+log X)`. Mark these two sentences as
   Assessment (the theorems do not use them).
+
+## §4 `sec:main` (Lemma qmass, Lemma iterq, Prop hmin, proof of Thm main)
+
+Faithful to O2 Lemmas 11.1/11.2 and O3 Thm 5.2 (post-D3: `k'=max(k−1,3)`,
+`κ≤k−1`, `|𝓑|≤(k−1)S*/c_{k'}`) ✓. Re-checked: (I) uses only
+`ℓ^v‖M, ℓ∈Π ⇒ ℓ^v≤T` ✓; `log Q≤(π(y)+|𝓑|)𝓛+log24≤(k+1)y` ✓;
+`log Z≤(k+2)y` (ℓ₀ and the moduli are `T^{o(1)}`) ✓; inversion
+(two cases `𝓛≥(k+1)loglog p` / otherwise) ✓; `p>ℓ₀>T` gives distinct
+primes ✓. The k=3 aside (Thm crit with `c_0=δ/32`) is consistent with
+(G),(W). Prop hmin is correctly labelled Proved (no analytic input) and
+Thm Hmin / Thm main "Proved modulo Thorner–Zaman" ✓. No hidden `T^c`
+term (as in review-2 Item 7).
+
+## §5 Front matter, limits, Haar side, summary
+
+* **P3 (minor; overstatement in the abstract).** "for every fixed k,
+  W(p) ≥ (log p)^k… for infinitely many p; *equivalently*, the least hard
+  prime with W(p)>T is at most exp(T^{o(1)})". The second statement
+  (for **all** large T) implies the first but not conversely: an
+  infinitely-often bound for each k says nothing about `L_h(T)` for T
+  between the realised values `W(p_j)`. The paper proves the stronger
+  form (Thm main, "More precisely…"), so replace "equivalently" by "more
+  precisely" / "in fact".
+* **P4 (minor; stale headline).** Theorem `thm:haar-intro` in the
+  introduction still states `log(1/δ*(T))≤T^{1/3+o(1)}`, while
+  Theorem `thm:iterq` (Proved) gives `T^{o(1)}` and the abstract and
+  the intro prose already cite `T^{o(1)}`; §Haar then says "This improves
+  Theorem haar-intro". A referee will ask why the introduction headlines
+  the weaker result. Either state `thm:iterq` in the introduction (keeping
+  `T^{1/3+o(1)}` as the elementary-route remark) or relabel
+  `thm:haar-intro` as the warm-up bound.
+* Limits (`prop:complete`, `prop:ceiling`, `prop:bonf`), `hyp:min` header
+  "(proved for every θ>0 (Prop hmin))", `thm:Hmin`, and the closing
+  "Below θ=1/3" paragraph are consistent with the new results; the latter
+  only claims that hub codegrees violate the `≲1/L` requirement, which is
+  proved (constant codegrees), not the cost assessment (cf. P2) ✓.
+* Summary of status: every theorem/lemma of the new sections is listed
+  with the right label; TZ, Lau–Wu, Chang, ET inputs are separated ✓.
+  The "Open" item (explicit rate beyond every fixed power) matches O3's
+  "we claim no explicit rate" ✓.
+
+## Verdict: **MINOR REVISION**
+
+The mathematics is faithful to POINTWISE_OMEGA3/OMEGA2/OMEGA at this
+commit, with no strengthening of any claim; the review-2 repairs D1, D2,
+D3, 2a, 2b are all applied (in the notes and in the paper); headers are
+labelled; cited inputs (TZ + McCurley, Lau–Wu, Chang, ET) are separated
+from proved statements; the build is clean (3 passes, 30 pp, 0
+warnings). Requested changes, none affecting a theorem:
+
+| # | Where | Type |
+|---|---|---|
+| P1 | Thm klevel, Step A | spell out the downward polynomial induction (2–3 lines) |
+| P2 | Rem hubs | mark "grows like X log X" and "removing heavy pairs costs more than L" as Assessment |
+| P3 | Abstract | "equivalently" → "more precisely" |
+| P4 | Intro, thm:haar-intro | headline `T^{o(1)}` (thm:iterq), not the superseded `T^{1/3+o(1)}` |
