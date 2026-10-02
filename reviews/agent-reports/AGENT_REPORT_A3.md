@@ -49,8 +49,7 @@ ES is not solved; no θ > 3/4 is claimed.
   +0.035).
 * **Real-prime voids** (1.09·10⁹ primes near 10¹², M ≤ 4000), `−log void`
   per unit mass: dominant → 1.00; gapped non-dominant ≈ 0.55–0.6; η-twin
-  (added last) ≈ 0.2.
-* Caveats: tiny scales, dense regime, weak adversary.
+  (added last) ≈ 0.2. Caveats: tiny scales, dense regime, weak adversary.
 
 ## Open core
 1. **η-twin windows** (untouched by §2/§4): need a local inequality inside a
