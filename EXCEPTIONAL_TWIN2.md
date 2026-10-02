@@ -1,8 +1,36 @@
 # EXCEPTIONAL_TWIN2 — the two-prime Λ² cap (task O3)
 
-Status: **in progress.** Labels follow `DISCOVERIES.md`. PROVED means proved
-here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
-(TW), `EXCEPTIONAL_THETA.md` (ET), `POINTWISE_OMEGA2.md` (PO2).
+Status: **checkpoint 1 (task O3), for parent review.** Labels follow
+`DISCOVERIES.md`. PROVED means proved here and checked internally only.
+Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
+`POINTWISE_OMEGA2.md` (PO2).
+
+## 0. Status at a glance
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1, Cor 1.2 | conditional local lemma `P(B\|A_𝓢) ≤ P(B)Π(1−x_F)^{−1}`; for binary systems `≤ P(B)e^{5Σ_{ℓ∈T}w_ℓ}` | PROVED (standard) |
+| Lemma 1.3 | `∂_{κ_j} log Z₂ = E[Cov_j 1_{A₋ⱼ}]/Z₂` (unconditioned rest law; no `1/J` pointwise) | PROVED |
+| **Thm 1.4** | **TW target (6.2)**: `log(Z₂/Z₁²) ≤ (1+25δ)[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` if every prime mass `w_ℓ ≤ δ ≤ 1/16`. TW's factorisation (6.3), KP and Penrose are **not needed**; vertex degrees unrestricted | PROVED; exact check 1200 systems |
+| Lemma 2.1 | fibre tilting with an arbitrary fibre law P: `saving ≤ αλ/2 + log‖dP/dU‖_∞ + E_PΞ`; `ρ = 0` above `e^{λ/2}` | PROVED |
+| Lemma 2.2 | hub quarantine at degree 1 is free; per-fibre bound (2.1) with `S_ℓ = Σν min(deg,1)²` | PROVED |
+| Lemmas 3.1–3.4 | fibre law: QR base `≤ L^{1/2}`, local lemma on `(L^{1/2}, L^8]`, good fibres; cost `≤ 4L^{1/2}`; inflation `4Γ(k)/k` (product form) — **Reduction 6.7 steps 1, 2, 2′ (T12)** | PROVED |
+| Lemma 3.3 | Shiu along the top prime (B-hypothesis `M ≤ P(M)^{1+B}`) | PROVED |
+| **Lemma 4.1** | unary and diagonal binary profiles over the real fibre law `≪ α^{−3}(log L)^{O(1)}` (T14 repaired) | PROVED |
+| **Thm 5.1** | Λ² saving `≤ C_B L^{3/4}(log L)^C + 11E_PΣ_jρ_jS_j` for ℛ(M)-families, `M ≤ X = e^L`, `M ≤ P(M)^{1+B}`, ≤ 2 primes above `(log X)^8`, twins included | PROVED |
+| (H_O) | off-diagonal / deadly-value term `E_PΣρ_jS_j ≪ α^{−3}(log L)^{O(1)}` | OPEN |
+| Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′`; canonical labels via `4A ≡ 1 (j)` | PROVED |
+| (H_O^=) | same canonical label part, Brun–Titchmarsh | SKETCH |
+| (H_O^≠) | different-label agreements mod j | OPEN; EVIDENCE: at or below random in all 6 tested rows |
+| Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O) |
+
+**Bottom line.** The two-prime Λ² cap is reduced from TW's analytic
+factorisation problem (6.3) plus unwritten Reduction steps to a single
+arithmetic inequality (H_O) about divisors of `(kjm+1)²/16` in residue
+classes mod the large prime j. Its same-label half has an identified
+mechanism (sketched); its cross-label half is open, with numerics at or
+below the random prediction. The cap is stated in `L = log X` (moduli
+`≤ X`, level `λ ≤ A₀L`), as in ET Cor 3.4, not in λ alone.
 
 ## 1. The binary noise-stability bound (6.2), without the factorisation (6.3)
 
@@ -491,3 +519,12 @@ Reading (EVIDENCE only, toy scale, one fibre):
   (1e8, 100003), both `jS ≈ 4.0` with similar `jw`. So `S_j ≍ F(log(X/j))/j`,
   the shape (H_O) needs; whether F is polylogarithmic cannot be decided at
   this scale (F grows from 4 to 11 as jw goes 55 → 103 at j = 10007).
+
+## Replay
+
+```
+# Thm 1.4 exact check (3 seeds x 400 trials, each < 5 min, < 1 GB)
+for s in 1 2 3; do PYTHONPATH=scripts uv run --with numpy python scripts/twin2_binary_check.py 400 $s; done
+# §5.2 table (X=1e8: ~2 min, < 2 GB for the spf sieve)
+for X in 1e7 1e8; do uv run --with numpy python scripts/twin2_offdiag.py $X 30 45 1 1009 10007 100003; done
+```
