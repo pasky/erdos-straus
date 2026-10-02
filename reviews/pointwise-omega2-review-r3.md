@@ -278,3 +278,47 @@ The 1/κ consequence is PO Thm 6.2 (inherited, already reviewed).
   certify nothing, and part 2's "For codegrees it gives only `T^{η/(1+η)+o(1)}`, whatever the residue
   pattern", are statements about a method, not theorems. *Fix:* title "crude and Type-I upper bounds for
   `w_ℓ`, `Δ_O` (PROVED); they do not certify (W_k)/(CD_k) below 1/3 (Assessment)".
+
+## Item 11. Proposition 11.4 and §11.4 (G_pair) — Prop. SOUND for fixed D; the consequence needs uniformity (moderate); §§10.4/10.5 vs 11.4 contradict each other (moderate)
+
+* Prop. 11.4 itself is correct, for fixed D. With `D* = ∏p^{⌈v_p(D)/2⌉}` we have `D | A² ⟺ D* | A`, and
+  the proof of Prop. 10.6 runs with `4D* | M+1`. The multiplicity count is also correct: each D* has
+  exactly `2^{ω(D*)}` D's (`v_p(D) ∈ {2a−1, 2a}`), `φ(4n) ≤ 2n`, and `Σ_{n≤X}2^{ω(n)} ≍ X log X`. For
+  **fixed** t, `μ(t) ≥ (c_θ²/2−o(1))·#{D : φ(4D*) < c_θ/t}` follows. Distinct D give distinct vertex
+  classes, because `D ≪ 1/t ≪ y`.
+* **D10 (moderate; §11.4, "So `μ(1/L) ≫ c_θ³ L log L`").** The previous bullet is stated "for fixed t". It
+  is then applied at `t = 1/L → 0`. That requires the lower bound
+  `Σ_{ℓ∈R, ℓ≡a (q)} 1/ℓ ≥ (c_θ−o(1))/φ(q)` **uniformly** for moduli `q = 4D*` up to `≍ L log log L`, where
+  `L ≍ Σ+1`.
+  * Modulo ET, Σ is polylogarithmic. Then Siegel–Walfisz gives the uniformity (ineffectively).
+  * Unconditionally, Σ may be as large as `exp(O(log T/log log T))`. Then only an averaged statement over
+    D (Bombieri–Vinogradov/Barban–Davenport–Halberstam) is available, and that suffices because μ(t) is
+    a sum over D.
+
+  Either way, a sentence is missing. Since the conclusion is labelled Assessment, this is not a false
+  PROVED claim. But the label "Assessment, *with a proved lower bound*" overstates what is proved at
+  `t ≍ 1/L`. *Fix:* state Prop. 11.4 uniformly for `D* ≤ (log T)^A` (Siegel–Walfisz), and note the
+  restriction.
+* **D11 (minor; §11.4, 3rd bullet).** Quote: "The circularity therefore closes **iff** `μ(t) ≤ ε/t` …".
+  Only "if" is argued. The cost bookkeeping shows sufficiency. Necessity would need a lower bound on the
+  cost of *every* way of killing the heavy pairs, not just of pair-by-pair removal. (G_pair(ii) itself
+  concedes that cheaper joint treatments are conceivable.) *Fix:* "closes if"; and "the pair-by-pair
+  removal fails because …".
+* **D12 (moderate; summary item 6, §10.4 last bullets, §10.5 summary vs §11.4 last paragraph).** These
+  passages contradict each other:
+  * §10.4: "**The open step is therefore a sharper Lemma 10.2** that pays once per shared vertex … not a
+    new arithmetic input", supported by the heuristic "`(c²e²/d)^h`. That is harmless for `d≫1`";
+  * §10.5: "The more promising route is a sharper Lemma 10.2.";
+  * summary item 6: "The open step is a sharper Lemma 10.2.";
+  * §11.4: "A sharper shared-vertex Lemma 10.2 does **not** help: a dense cluster with more members than
+    shared vertices genuinely carries `(s·c/d)^{h−s}` private families."
+
+  The reviewer's own count supports §11.4 and refutes §10.4's heuristic. Take a `−4d²` cluster with s
+  shared vertices and h ≤ L hyperedges, each made of 2 shared vertices and 1 private vertex. Its weight is
+  about `(c^s/s!)·(s²c/φ(4d))^h/h!`. With the `17^{|V|}` factor and `s ≍ √(dL)`, this is
+  `≥ exp(+Ω(L))` at `h=L`, against the required `16^{−L}`. So the `(c²e²/d)^h` heuristic, which implicitly
+  takes s comparable to h, misses the dense regime.
+
+  *Fix:* withdraw the §10.4 "open step" bullets, the §10.5 summary line and summary item 6 (or mark them
+  superseded by §11.4). Give the `(s·c/d)^{h−s}` count a derivation; currently it is asserted without one.
+  As it stands, a reader of the summary is told the opposite of the latest finding.
