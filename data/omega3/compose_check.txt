@@ -1,0 +1,4 @@
+trials=3000 seed=1: violations=0 (total composite cells 20640)
+trials=3000 seed=2: violations=0 (total composite cells 20644)
+trials=3000 seed=3: violations=0 (total composite cells 20884)
+trials=3000 seed=2: violations=1283 (total composite cells 20644)   <- NEGATIVE CONTROL (alpha replaced by beta for negative coefficients): violations expected

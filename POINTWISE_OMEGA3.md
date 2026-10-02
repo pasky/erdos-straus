@@ -650,3 +650,53 @@ and moduli of the same logarithmic size. Conclude as in Theorem 4.3:
   transferred to primes. The Haar heuristic (POINTWISE_SIZE RA) predicts
   exactly this. The prime side and the Haar side now agree up to the
   `T^{o(1)}` factors.
+
+## 6. EVIDENCE, side questions, and what is not claimed
+
+* **Composition algebra** (`scripts/omega3_compose_check.py`,
+  `data/omega3/compose_check.txt`). The script brute-forces random product
+  spaces (3–5 coordinates, alphabets 2–3), random level-2 families
+  (sizes 1–2), random level-3 families (sizes 2–3), and truncations
+  `L_2,L_3∈[0,3]`. It builds B exactly as in Thm 3.2: cell expansion of
+  `B_3`, cell-conditioned level-2 systems with induced and killed
+  cells, and β/α by coefficient sign. It checks pointwise:
+  * `B≤F_2F_3`;
+  * `β_i≤F_2^{(i)}` on `C_i` when `c_i>0`, and `α_i≥F_2^{(i)}` when
+    `c_i<0`.
+
+  Results:
+  * 0 violations in 3×3000 trials (seeds 1–3, about 20 600 composite
+    cells each).
+  * Negative control (β used for negative coefficients): 1283
+    violations, so the check has teeth.
+  * The script uses O2 Lemma 1.2's `G=e_{L+1}(a)` at both levels. The
+    composition does not depend on which pointwise error majorant is
+    used.
+* **Where the heavy pairs are** (§2 table): exactly the small-height
+  rationals. This is no longer an input; it explains why step (c) of
+  Lemma 3.3 turns the hub clusters into vertex quarantines.
+* **The brief's QR idea.** `−4d²=−(2d)²` is a quadratic residue mod ℓ
+  iff `ℓ≡1 (4)`. So the `−4d²` hubs are QNR-type exactly at `ℓ≡3 (4)`.
+  Forcing n to be a square at a prime costs a factor 1/2 there. Doing so
+  at all free primes costs `π(T)log 2`, so the idea is unusable as a
+  global quarantine, and it is no longer needed.
+* **Not claimed.**
+  * Nothing about ES itself.
+  * No numerical instance: the constants (`δ=e^{−50}`,
+    `δ_3≈10^{−7}`, `c_0∝Ŝ^{−1}`) are far outside computable T, as in
+    O2 §6.
+  * No explicit growth rate for k(T)→∞ beyond the Assessment remark
+    after Thm 5.2.
+  * Effectivity is as in O2: effective for each fixed k (Thorner–Zaman
+    Cor 1.4 is effective; Lemma 11.1 is unconditional).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+uv run python scripts/omega3_codeg.py 1e9 0.28 337 347 30        # §2 pair codegrees, <1 s
+uv run python scripts/omega3_codeg.py 1e11 0.27 1009 1013 30     # ~5 s
+uv run python scripts/omega3_codeg.py 1e12 0.26 1321 1327 30     # ~10 s
+uv run python scripts/omega3_codeg.py 1e13 0.26 2441 2447 30     # ~30 s  -> data/omega3/codeg_pairs.txt (all four)
+for s in 1 2 3; do uv run python scripts/omega3_compose_check.py 3000 $s; done   # §6, ~5 s each -> data/omega3/compose_check.txt
+```
