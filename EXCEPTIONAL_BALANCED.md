@@ -479,3 +479,18 @@ It reports `−log void` against the prime-conditioned mass
 * The overall ratio 0.80 at Q' = 4000 reproduces ET §5.3(iii).
 * Caveat: `Q' ≤ 4000` means twin top primes ≤ 63, and only one prime
   range is tested.
+
+## Replay
+
+```
+# §3.1 sequential p_l(h) (X=1e5: ~5 min; X=1e6: ~1 h, ~3 GB) and steered histories (~5 s)
+uv run python scripts/balanced_numerics.py i 100000 200 0.25   > data/balanced/part_i_X1e5.txt
+uv run python scripts/balanced_numerics.py i 1000000 20 0.25   > data/balanced/part_i_X1e6.txt
+uv run python scripts/balanced_numerics.py steer 100000 101,151,211,307,401,503 10 > data/balanced/steer_X1e5.txt
+# §3.2 exact LPs (4 primes, m<=3: < 1 min each; 5 primes, m<=2: ~30 min)
+for S in 7,11,13,19 7,11,19,23 11,13,17,19; do uv run --with scipy python scripts/balanced_numerics.py ii $S 3; done
+uv run --with scipy python scripts/balanced_numerics.py ii 7,11,13,17,19 2
+# §3.3 voids among 1.09e9 primes near 1e12 (~3 min, < 100 MB)
+g++ -O2 -std=c++17 -o /tmp/balanced_void scripts/balanced_void.cpp
+/tmp/balanced_void 4000 1000000000000 30000000000 > data/balanced/void_primes_Q4000.txt
+```
