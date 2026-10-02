@@ -94,3 +94,73 @@ it to ES:
 Lemma 2.1 (the expansion and the pseudoforest structure), Theorem 3.1
 Step 4 (twist via conditional LLL), Lemma 4.3 (G)/(W) exponents, and the
 application of PO Thm 4.1/6.2 in Thm 5.1.
+
+---
+
+# Checkpoint 2 (H_PP single-prime lead; POINTWISE_OMEGA2 §§8–9)
+
+Review repairs D1–D2 from `reviews/pointwise-omega2-review.md` are applied
+in commit `9bb341d`. §§1–5 are otherwise unchanged.
+
+## Outcome: the lead is resolved, mostly negatively, with one structural theorem
+
+1. **Lemma 8.1 (PROVED; EVIDENCE: 32 241 atoms, all odd r≤2001, 0
+   mismatches).** The single-coordinate atoms with rough part r (any m,
+   `D≤A`) are *exactly* the Elsholtz–Tao Type I points of `Σ_I^r` with
+   `a≤b` (d squarefree):
+   `a=r', b=k, c=(r'+k)/m, d=s, e=m, f=(4D+1)/m`, class `−a/b mod r`. So
+   `|F_ℓ^{full}| ≤ 2F_I(ℓ)`. PO §9's "atoms" are ES Type I representations
+   of the rough part.
+2. **Prop 8.2.**
+   * `|F_ℓ^{full}| ≤ ℓ^{3/5+o(1)}`: PROVED modulo ET Prop 1.7, cited.
+   * The r'=1 pairs, i.e. my `(v,t)` lead, give `≪√ℓ log ℓ`, and
+     `r'≤ℓ^{o(1)}` gives `ℓ^{1/2+o(1)}`: PROVED, elementary. In ET
+     coordinates the pairs are `(f,c)` with `cf | a(ℓ+f)+c`.
+3. **`ℓ^{1/2+o(1)}` for all r' is NOT proved.**
+   * It would improve ET Prop 1.7 at primes.
+   * Remark 8.3 checks ET's claim that 3/5 is the divisor-method limit.
+     There is an explicit box (`a≍n^{2/5}, c≍n^{1/5}, d≍n^{2/5}`) where
+     every determining quantity (`e, f, cd, ac, a²d, ab, bd, bf`) has size
+     `≥n^{3/5}`.
+   * EVIDENCE: most triples have `r'>1`, and `r'` reaches about `ℓ/4`.
+4. **Theorem 9.2 (PROVED implication).** `F_I(n) ≤ n^{η+o(1)}` gives:
+   * `w_ℓ ≤ T^{η/(1+η)+o(1)}/ℓ`;
+   * H_PP(`T^{η/(1+η)+ε}`);
+   * `log(1/δ*) ≤ T^{η/(1+η)+o(1)}`.
+5. **Assessment of what the single part buys: essentially nothing.**
+   * ET's η=3/5 gives Haar exponent 3/8, which is *worse* than PO Thm 9.3's
+     1/3.
+   * η=1/2, the lead's target, gives exactly 1/3. The crude bound
+     `(T/r)τ²` and `r^{1/2}` cross at `T^{1/3}`.
+   * Beating 1/3 needs η<1/2.
+   * The single part of H_PP holds for `z≥(log T)^{5/2+ε}` (modulo ET). It
+     was never the bottleneck, since bad-prime quarantine costs `T^{o(1)}`
+     in both PO Thm 9.3 and Construction 4.2. So H_PP reduces to its
+     multi-prime part.
+6. **The precise remaining per-prime target.**
+   * It is the progression average (AP-TI):
+     `Σ_{r≤T, ℓ|r} F_I(r)/r ≤ T^{κ+o(1)}/ℓ`, uniformly in ℓ.
+   * In ET coordinates it reduces to bounding the first terms
+     `Σ_{a,d,f} 1/(ad·c_0)` with `c_0 ≡ f(4ad)^{−1} (mod ℓ)`. The regular
+     part is polylog by ET Prop 1.4.
+   * This is the Kloosterman-type input that PO §9 flagged, now explicit.
+   * AP-TI with κ=o(1) would give `log(1/δ*)=T^{o(1)}` on the Haar side.
+     The prime side below 1/3 additionally needs a hypergraph Lemma 2.1.
+
+## Suggested ledger additions (for the parent)
+
+* (H)10, Haar side:
+  * "single-coordinate atoms = ET Type I points (POINTWISE_OMEGA2 Lemma
+    8.1)";
+  * "`F_I≤n^η` ⇒ Haar exponent `η/(1+η)` (Thm 9.2); η<1/2 is needed to
+    beat 1/3; the single part of H_PP is not the bottleneck".
+* The `F_ℓ^{full}` heuristic in PO §9, "|F^full|≈(log ℓ)^{2+}", should cite
+  ET for the proved `ℓ^{3/5+o(1)}`.
+
+## Review focus
+
+* Lemma 8.1, the converse direction and injectivity.
+* Prop 8.2.2, the gcd step `ℓ∤c` and the two cases.
+* Thm 9.2, the split at `R=T^{1/(1+η)}` and the use of PO Thm 9.4 with
+  `S_tot=T^{o(1)}` only.
+* Remark 8.3's box: is it really consistent with ET Lemma 2.8?
