@@ -27,7 +27,7 @@
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
 \title[Large Erd\H{o}s--Straus witnesses]{Large Erd\H{o}s--Straus witnesses:\\
-a cubic $\Omega$-result for the multiplier parameter}
+the multiplier parameter exceeds every power of $\log p$}
 \author{Anonymous}
 \date{Draft, 2 October 2026}
 
@@ -38,25 +38,31 @@ For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
 ``multiplier'' congruence that forces a solution of $4/p=1/x+1/y+1/z$, and
 let $\ckmin(p)$ be the least product $ck$ of a positive Type~I slice.  Both
 are expected to be at most a power of $\log p$ for almost all $p$, and are
-known to exceed a constant times $\log p$ for infinitely many $p$.  We prove that
-$W(p)\ge(\log p)^{3}\exp(-C\log\log p/\log\log\log p)$ for infinitely many
-primes $p$ in Mordell's hard classes.  The class of one is imposed modulo the
-primes up to $T^{1/3+o(1)}$, so that the residual congruence system consists of
-single-prime and two-prime events.  We build a pointwise minorant of its void
-indicator by inclusion--exclusion truncated by the number of primes in the
-support, not by the number of events; its error is controlled by a
-pseudoforest bound for an exponential moment, after a cheap quarantine of
-high-degree ``hub'' residues.  The minorant is transferred to primes by the
-Linnik-range prime number theorem of Thorner and Zaman, whose relative error
-term absorbs a possible Siegel zero.  As a warm-up we give the simpler
-prime-local construction, which reaches exponent~$2$ and cannot go further.
-For the slice parameter we prove that congruence methods certify exactly the
-least quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
-infinitely often (via Lau--Wu, after Graham--Ringrose).  On the Haar side we
-prove $\log(1/\delta^*(T))\le T^{o(1)}$ for the avoider density
-(polylogarithmic modulo Elsholtz--Tao), identify
-the single-prime atoms with points of Elsholtz--Tao's Type~I variety, and show that an
-individual Type~I bound $n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
+known to exceed a constant times $\log p$ for infinitely many $p$.  We prove
+that for every fixed $k$,
+$W(p)\ge(\log p)^{k}\exp(-C_k\log\log p/\log\log\log p)$ for infinitely many
+primes $p$ in Mordell's hard classes; equivalently, the least hard prime with
+$W(p)>T$ is at most $\exp(T^{o(1)})$.  The class of one is imposed modulo the
+primes up to $T^{1/k+o(1)}$, so that the residual congruence system consists
+of events on at most $k-1$ free primes.  We build a pointwise minorant of its
+void indicator by inclusion--exclusion truncated by the number of primes in
+the support, not by the number of events, and we organise the events in
+\emph{levels} by support size.  Each level is sieved inside the levels below
+it; by a conditional form of the local lemma its truncation, and hence the
+codegree threshold it needs, depends only on its own mass.  Heavy vertex sets
+(``hubs'', which do occur) are moved to lower levels by a first-moment
+argument, and the bottom level, a graph, needs no codegree condition at all.
+The minorant is transferred to primes by the Linnik-range prime number
+theorem of Thorner and Zaman, whose relative error term absorbs a possible
+Siegel zero.  As a warm-up we give the simpler prime-local construction,
+which reaches exponent~$2$ and cannot go further.  For the slice parameter we
+prove that congruence methods certify exactly the least quadratic
+non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$ infinitely often (via
+Lau--Wu, after Graham--Ringrose).  On the Haar side we prove
+$\log(1/\delta^*(T))\le T^{o(1)}$ for the avoider density (polylogarithmic
+modulo Elsholtz--Tao), identify the single-prime atoms with points of
+Elsholtz--Tao's Type~I variety, and show that an individual Type~I bound
+$n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
 \end{abstract}
 
 \maketitle
@@ -119,18 +125,20 @@ and Chang's least-prime bound for smooth moduli \cite{Chang}, the constant
 becomes $5/8$ (\S\ref{sec:limits}).  The same is true for $\ckmin$ via
 genus characters.  Whether $W(p)/\log p$ is unbounded was open.
 
-\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective]\label{thm:main}
-There is an absolute constant $C$ such that for infinitely many hard primes $p$
+\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective for each fixed $k$]\label{thm:main}
+For every integer $k\ge3$ there is a constant $C_k$ such that for infinitely
+many hard primes $p$
 \[
- W(p)\ \ge\ (\log p)^3\exp\Big(-C\,\frac{\log\log p}{\log\log\log p}\Big).
+ W(p)\ \ge\ (\log p)^k\exp\Big(-C_k\,\frac{\log\log p}{\log\log\log p}\Big).
 \]
-More precisely, for every sufficiently large $T$ there is a prime
-$p\equiv1\pmod{840}$ with $W(p)>T$ and
-$\log p\le T^{1/3}\exp(O(\log T/\log\log T))$.
+More precisely, for every $k\ge3$ and every sufficiently large $T$ there is a
+prime $p\equiv1\pmod{840}$ with $W(p)>T$ and
+$\log p\le T^{1/k}\exp(O_k(\log T/\log\log T))$.  In particular the least hard
+prime $p$ with $W(p)>T$ is at most $\exp(T^{o(1)})$.
 \end{theorem}
 
 In particular the statement ``$W(p)\le(\log p)^A$ for all large $p$'' is
-false for every $A<3$.  The cited input (Theorem~\ref{thm:TZ}) is Thorner and
+false for every $A$.  The cited input (Theorem~\ref{thm:TZ}) is Thorner and
 Zaman's prime number theorem in the Linnik range \cite{TZ}, including the
 McCurley zero-free region statement quoted there.  No hypothesis on Siegel
 zeros is needed: the exceptional zero is absorbed by a uniqueness lemma
@@ -145,18 +153,29 @@ one modulo all primes up to $T^{1/2+o(1)}$ leaves a single forbidden set at each
 larger prime, and a Brun minorant applies; this gives exponent~$2$
 (Theorem~\ref{thm:two}), which is the limit of every prime-local design
 (Proposition~\ref{prop:ceiling}).  To go further we quarantine only the primes
-up to $T^{1/3+o(1)}$; then moduli with two free prime factors produce
-two-prime events, and these cluster at ``hub'' residues on which many events
-fire together, so that the usual Bonferroni truncation by the number of events
-fails (Proposition~\ref{prop:bonf}).  We truncate instead by the number of
-\emph{primes} in the support (\S\ref{sec:supp}), control the error by a
-pseudoforest bound for $E\prod_\ell(1+za_\ell)$ after quarantining
-high-degree hub residues (\S\ref{sec:pseudo}), and verify the twist condition
-by a conditional form of the local lemma (\S\ref{sec:crit}).  Exponent~$3$
-matches the Haar (profinite) bound of Theorem~\ref{thm:haar-intro}; an
-iterated quarantine improves the Haar side much further
-(Theorem~\ref{thm:iterq}), while below $\theta=1/3$ the prime side is limited
-by pair codegrees.
+up to $y=T^{1/k+o(1)}$ (plus $T^{o(1)}$ further primes, chosen by an iterated
+quarantine so that every free prime carries little mass); then moduli with up
+to $k-1$ free prime factors produce events on up to $k-1$ primes.  These
+cluster at ``hub'' residues on which many events fire together, so the usual
+Bonferroni truncation by the number of events fails
+(Proposition~\ref{prop:bonf}).  We truncate instead by the number of
+\emph{primes} in the support (\S\ref{sec:supp}).  For events on at most two
+primes the error is controlled by a pseudoforest bound after quarantining
+high-degree hub residues (\S\ref{sec:pseudo}); this already gives
+exponent~$3$ (the case $k=3$).  For larger supports a hypergraph moment bound
+(\S\ref{sec:hyper}) needs \emph{codegree} conditions at the scale
+$1/L$ of the truncation level $L$, and some vertex pairs (the classes of
+small-height rationals such as $-4$, $-4d^2$, $-2/3$) genuinely violate them.
+The remedy (\S\ref{sec:multi}) is to sieve in levels: events on $r$ primes form
+level $r$, the graph level~$2$ is outermost, and each level is composed inside
+the lower ones coefficient by coefficient.  A conditional local lemma shows
+that the error of level $r$ is relative to the probability of avoiding the
+lower levels, so its truncation, and hence its codegree threshold, depends only
+on its own mass; heavy vertex sets are moved down to the level of their size by
+Markov's inequality, and level~$2$ needs no codegree condition.  No arithmetic
+bound on codegrees is used.  The prime side thus matches the Haar (profinite)
+side, where an iterated quarantine gives $\log(1/\delta^*(T))\le T^{o(1)}$
+(Theorem~\ref{thm:iterq}).
 
 For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
