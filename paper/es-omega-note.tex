@@ -54,7 +54,7 @@ For the slice parameter we prove that congruence methods certify exactly the
 least quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
 infinitely often (via Lau--Wu, after Graham--Ringrose).  On the Haar side we
 prove $\log(1/\delta^*(T))\le T^{1/3+o(1)}$ for the avoider density, identify
-the single-prime atoms with Elsholtz--Tao Type~I solutions, and show that an
+the single-prime atoms with points of Elsholtz--Tao's Type~I variety, and show that an
 individual Type~I bound $n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
 \end{abstract}
 
@@ -159,7 +159,7 @@ For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
 quadratic non-residue $n_p$.
 
-\begin{theorem}\label{thm:slice-intro}
+\begin{theorem}[(a) Proved; (b) proved modulo {\cite[Prop.~5.1]{LW}}]\label{thm:slice-intro}
 \begin{enumerate}
 \item[(a)] \textup{(Proved.)} $\ckmin(p)\ge n_p$ for every prime
 $p\equiv1\pmod{24}$, and every fixed-period congruence minorant for
@@ -191,7 +191,12 @@ We do not pursue heuristics about the true size of $\delta^*(T)$ here.
 carries a label.  \emph{Proved} means proved in full here.
 \emph{Proved modulo X} means proved here assuming the cited statement X,
 whose statement we checked in the source but whose proof we did not check.
-\emph{Cited} marks external statements.
+\emph{Proved modulo the proof of X} means that we use a bound established
+inside the proof of X, as stated there.  \emph{Cited} marks external statements.
+\emph{Classical} marks a standard result for which we include a short proof
+from a standard reference.  \emph{Proved implication} means that the
+implication from an explicitly stated, open hypothesis is proved in full.
+\emph{Assessment} marks heuristic discussion that is not a theorem.
 
 \section{The atoms of the multiplier problem}\label{sec:atoms}
 
@@ -691,7 +696,7 @@ and $\sum_\ell w_\ell=2S_2$.
 
 \section{An abstract criterion}\label{sec:crit}
 
-\begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
+\begin{lemma}[Local lemma with conditioning; classical, proof included]\label{lem:lll}
 Let $\mathcal A$ be finitely many events in a product probability space, each
 depending on a finite set of coordinates; write $A'\sim A$ if they share a
 coordinate.  Suppose $x_A\in[0,1)$ satisfy
@@ -1231,7 +1236,7 @@ prime-side counterpart: Theorem~\ref{thm:main}, through the pointwise minorant
 of Theorem~\ref{thm:crit}.  The local lemma by itself does not provide a
 pointwise minorant.
 
-\subsection*{Single-prime atoms and Type~I solutions}
+\subsection*{Single-prime atoms and the Type~I variety}
 Following \cite[\S2]{ET}, let $\Sigma_I^n$ be the set of sextuples
 $(a,b,c,d,e,f)$ satisfying their identities (2.1)--(2.9), among them
 \[
@@ -1263,11 +1268,30 @@ hence $M$; and $4A\equiv1\pmod r$ gives $-4D\equiv-r'/k$.  Partners $A^2/D$ at
 most double the count.
 \end{proof}
 
-So the single-prime forbidden sets are governed by Type~I representations of
-$4/r$.  Modulo the proof of \cite[Prop.~1.7]{ET} (its Lemma~2.8 and \S3), which
-bounds the relevant points, $F_I(n)\le n^{3/5+O(1/\log\log n)}$; ET remark that
-$3/5$ appears to be the limit of divisor-bound arguments.  A direct elementary
-argument gives $\ll\sqrt\ell\log\ell$ points with $a=1$ at a prime $\ell$.
+So the single-prime forbidden sets are governed by the Type~I variety
+$\Sigma_I^r$.  Modulo the proof of \cite[Prop.~1.7]{ET} (its Lemma~2.8 and \S3),
+which bounds the relevant points, $F_I(n)\le n^{3/5+O(1/\log\log n)}$; ET remark
+that $3/5$ appears to be the limit of divisor-bound arguments.  The following
+elementary bound is not used below.
+
+\begin{proposition}[Proved]\label{prop:a1}
+For a prime $\ell$, the points of $\mathbb N^6\cap\Sigma_I^\ell$ with $a=1$ number
+$\ll\sqrt\ell\log\ell$.
+\end{proposition}
+
+\begin{proof}
+A point is determined by $(a,c,f)$, via $4acd=\ell+f$, $ef=4a^2d+1$, $b=ce-a$.
+First $\ell\nmid c$: otherwise $\ell$ divides $y=acd$, $z=bcd$ and $x=abd\ell$ in
+$4/\ell=1/x+1/y+1/z$, giving $4\le3$.  So $g=\gcd(c,f)$, which divides $\ell a+c$
+(as $f\mid\ell a+c$ by $bf=\ell a+c$) and $\ell+f$ (as $c\mid\ell+f$), divides $\ell$
+and hence equals $1$.  Then $f\mid a\ell+c$ and $c\mid a(\ell+f)$ give
+$cf\mid a(\ell+f)+c$, so $(c-a)(f-1)\le a(\ell+1)$.  With $a=1$: either
+$f\le1+\sqrt{\ell+1}$, and then $c\mid\ell+f$; or $c\le1+\sqrt{\ell+1}$, and then
+$f\mid\ell+c$.  So the count is at most $2\sum_{j\le2+\sqrt\ell}\tau(\ell+j)$, and
+$\tau(n)\le2\#\{\delta\mid n:\delta\le\sqrt n\}$ gives
+$\sum_{j\le2+\sqrt\ell}\tau(\ell+j)\le2\sum_{\delta\le\sqrt{2\ell}}(3+\sqrt\ell)/\delta+O(\sqrt\ell)
+\ll\sqrt\ell\log\ell$.
+\end{proof}
 
 \begin{theorem}[Proved implication]\label{thm:eta}
 Suppose $F_I(n)\le n^{\eta+o(1)}$ for all $n$, for some $0\le\eta\le1$, and put
