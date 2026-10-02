@@ -1240,6 +1240,71 @@ log(1/δ*) ≤ (π(z)+kS*/c_0) log T + 4S* ≤ (log T)^3 + 8k²S* log T + 4S* �
   prime side the remaining requirement below θ=1/3 is therefore **only**
   the codegree condition.
 
+EVIDENCE for §11 (`scripts/omega2_iterq.py`; `data/omega2/iterq.txt`).
+The iteration stops after 2 rounds in every run. The bad primes are
+essentially all primes up to a threshold ≈ polylog/c_0.
+
+| T | z | k | c_0 | `|𝓑|` | final max `w_ℓ` | `S_tot(Π)` | LLL `max Σx` | `log φ(Q_Π)+4S_tot` |
+|---|---|---|---|---|---|---|---|---|
+| 10⁴ | 20 | 3 | 0.042 | 99 | 0.041 | 6.7 | 0.08 | 710 |
+| 10⁵ | 20 | 3 | 0.042 | 171 | 0.040 | 16.9 | 0.08 | 1479 |
+| 10⁶ | 20 | 4 | 0.031 | 345 | 0.029 | 31.7 | 0.06 | 3565 |
+| 10⁶ | 5 | 8 | 0.016 | 677 | 0.015 | 26.0 | 0.03 | 6246 |
+
+* At these T the local-lemma condition holds with a wide margin. So each
+  row is a finite-T Haar lower bound
+  `log(1/δ*(T)) ≤ log φ(Q_Π) − log 8 + 4S_tot`.
+* For comparison: the class of one needs `(2/3)T`, and PO's z-quarantine
+  certificates were dominated by `π(z)log T` at `z≈T^{0.6}`.
+* `|𝓑|` grows roughly like `(log T)^{3.8}` here, far below the proven bound
+  `kS*/c_0` (8688 and 27889 at 10⁵ and 10⁶).
+
+### 11.4 What remains on the prime side: heavy pairs (Assessment, with a proved lower bound)
+
+With Lemma 11.2, the prime-side criterion (Thm 10.3) needs, below θ=1/3,
+only (CD_k). For `k=3`, that means maximal pair codegrees
+`≤δ_3/(C_3(Σ+1))`.
+
+* Heavy pairs (codegree `>t`) can be removed by adding each such pair as
+  an event. This creates a size-2 event and does not change any pair
+  codegree.
+* The removal costs the pair-mass `μ(t):=Σ_{O pair, Δ_O>t}P(O)`, and it
+  raises vertex degrees by `Σ_{w:Δ_{vw}>t}p(w)`.
+* The circularity therefore closes iff `μ(t) ≤ ε/t` at `t≍1/L`, with an
+  absolute `ε<δ_3/(6C_3)`, and the added degrees are `≤δ_3/2`.
+
+The explicit hub families of Prop. 10.6, generalised to `−4D`, give:
+
+* **Proposition 11.4 (PROVED, PNT for fixed moduli).** For every D, with
+  `D*` the least integer such that `D|D*²`, and primes `ℓ_1,ℓ_2∈R`, the
+  pair `{(ℓ_1,−4D),(ℓ_2,−4D)}` has codegree `≥(c_θ−o(1))/φ(4D*)`. The
+  proof of Prop. 10.6 applies with `D|A ⟺ D*|A`.
+* Consequently, for fixed `t`, `μ(t) ≥ (c_θ²/2−o(1))·#{D: φ(4D*) < c_θ/t}`.
+  The count is `≫ (c_θ/t)log(c_θ/t)`, because each `D*` has about
+  `2^{ω(D*)}` admissible D, and `Σ_{n≤X}2^{ω(n)} ≍ X log X`.
+
+So `μ(1/L) ≫ c_θ³ L log L`. The circularity fails by a factor `log L` at
+every fixed `θ<1/3`. It would close only if `c_θ³ log L` stayed bounded,
+i.e. if `θ→1/3` as T grows. That would improve only the `T^{o(1)}` in
+Theorem 5.1, not the exponent 3.
+
+**The sharper named gap (G_pair).** To certify a fixed `θ<1/3` one needs
+one of the following:
+
+* (i) a minorant whose truncation level is not tied to the total event
+  mass (i.e. `L ≪ Σ` fails to be necessary); or
+* (ii) a treatment of the `−4D` hub families that is cheaper than removing
+  pairs one by one. For example, one could sieve the event "two primes in
+  R share the class −4D" *jointly* over D. The obvious per-D cost
+  `c_θ²/2` summed over the `≍X log X` relevant D is exactly what fails.
+
+The heuristic count of private families on a single `−4D` cluster is
+harmless *per cluster*. The loss comes from the number of hub classes
+(with divisor-function multiplicity) that must be neutralised at scale
+`t≍1/L`. A sharper shared-vertex Lemma 10.2 does **not** help: a dense
+cluster with more members than shared vertices genuinely carries
+`(s·c/d)^{h−s}` private families.
+
 ## Replay
 
 ```
