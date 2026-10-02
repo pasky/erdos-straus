@@ -656,3 +656,43 @@ Lemma 3.1". Two problems.
 "Then Lemma 6.6 gives `saving(g²) ≤ αλ/2 + Cα^{−3} + log(Q_F/|R|) + O(1)`"
 inherits T14 and the open (6.2)/(6.3). It is labelled conditional in the
 Status paragraph, which is fine.
+
+### R2.11 AGENT_REPORT_O1 checkpoints 2–4 — consistent
+
+Labels and outcomes match §6 ("reduced, not proved"; "convergence proved,
+failure point located"). The same corrections apply. Prop 6.5's "PROVED"
+needs T10, and the "diagonal … by ET Lemma 3.1" line in checkpoint 3
+needs T14. The §0 rows for Prop 6.5 and "(6.2)/(6.3) … diagonal PROVED"
+should be relabelled accordingly.
+
+## Round 2 summary
+
+| item | statement | verdict | defects |
+|---|---|---|---|
+| R2.0 | T1–T8, S1 repairs | ACCEPTED | residual folded into T11 |
+| R2.1 | Lemma 6.1, 6.2 | SOUND | — |
+| R2.2 | Lemma 6.3 | SOUND-AFTER-REPAIRS | T9 (LOW) |
+| R2.3 | Prop 6.5 | DEFECTIVE as written (fixable) | T10 (MEDIUM), T11 (LOW) |
+| R2.4 | §6.4 toy LPs (EVIDENCE) | SOUND as labelled | LOW (single seed) |
+| R2.5 | Remark 6.5 | SOUND | — |
+| R2.6 | Lemma 6.6 | SOUND | — |
+| R2.7 | Red 6.7, Conj 6.8, Tactic (ii) labels | HONEST | T12 (LOW) |
+| R2.8 | Lemma 6.9 (KP/Penrose) | SOUND | T13 (LOW), "Thm 1" naming |
+| R2.9 | unary part ρ̃ ≤ (4/3)ρ; Lemma 6.10; Lemma 6.11 | SOUND / SOUND / SOUND-AFTER-REPAIRS | T15 (LOW) |
+| R2.10 | (6.1)–(6.3), Σq_j, diagonal summability | labels honest except diagonal "PROVED" | T14 (MEDIUM) |
+| R2.11 | report | consistent | follow T10, T14 |
+
+**Overall (round 2).** No FATAL or HIGH defects. The proved core of §6
+checks: Lemmas 6.1, 6.2, 6.6, 6.9 and 6.10, Remark 6.5, and the unary
+factorisation. Conj 6.4, Conj 6.8, (6.2), (6.3), Reduction 6.7 and Σq_j are
+labelled honestly as OPEN or SKETCH. There are two MEDIUM overreaches:
+* **T10.** Prop 6.5 does not handle coordinates where the Markov removal
+  breaks the cap. It needs either a k-ary incident-mass second moment, or
+  a Conj 6.4 that tolerates high incidence at heavy coordinates. Until
+  then it is "PROVED modulo Conj 6.4 + that lemma".
+* **T14.** The diagonal summability in the Λ² route ignores the inflation
+  of the average over the restricted fibre set R. It should be SKETCH
+  until a γ-weighted Lemma 3.1 for that base is written.
+
+Replays: `twin_square_base_check.py 40 300 3000`, and four
+`twin_window_lp.py` configurations. All match the saved data.
