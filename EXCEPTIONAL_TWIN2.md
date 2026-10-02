@@ -547,3 +547,67 @@ for s in 1 2 3; do PYTHONPATH=scripts uv run --with numpy python scripts/twin2_b
 # §5.2 table (X=1e8: ~2 min, < 2 GB for the spf sieve)
 for X in 1e7 1e8; do uv run --with numpy python scripts/twin2_offdiag.py $X 30 45 1 1009 10007 100003; done
 ```
+
+### 5.3 (H_O^=) at proof level
+
+**Label data.** For a class `−4D mod M` through j put `D̄ = A²/D`,
+`D/A = u′/v′` (Lemma 5.3). Its *datum* is one of: `(0, D)` with modulus
+`d = g(D)`; `(1, (u′,v′))` with `d = u′v′`; `(2, D̄)` with `d = g(D̄)` —
+namely the one realising the least-height candidate of `λ(D)`. In each case
+"the datum occurs for M" is the single condition `d | A_M` (TW/ET:
+`D | A² ⇔ g(D) | A`; Lemma 5.3 for type 1), and for each d there are at most
+`3·2^{ω(d)}` data with modulus d. Each canonical label is the image of at
+most three data (one per type), so `Σ_λ δ_λ² ≤ 3 Σ_{data} δ_θ²`, where
+`δ_θ(j,c) = Σ ν_m(partner)` over active binary classes through j with
+datum θ.
+
+**Lemma 5.4 ((H_O^=); PROVED modulo the Brun–Titchmarsh/Shiu inputs
+stated).** In Setting 3.0,
+`E_P Σ_{j>w₂} ρ_j j^{−1} Σ_λ δ_λ(j,c)² ≪_B (log L)^{O(1)}`.
+
+*Proof.* Fix j. Only u = v = 1 is treated; prime powers (`m^u`, `j^v`, `u`
+or `v ≥ 2`) carry an extra factor `≤ m^{−1}` or `j^{−1}` and are absorbed by
+the pointwise bound `τ ≤ C_ε(top prime)^{1/256}` as in Lemma 3.4.
+
+*(i) One class of m.* For a datum θ of modulus d and a cofactor k (with
+`(k j, d) = 1`; otherwise `d | A` is impossible since `(A, kj) = 1`), `d | A`
+⇔ `kjm ≡ −1 (mod 4d)`: one reduced class `s_θ(k)` of m modulo `4d`. Let
+`m₀ = m₀(θ,k)` be its least prime element `> w₂` (if any, with `kjm₀ ≤ X`).
+The next element exceeds `4d`; on dyadic blocks `(y,2y]`, `y ≥ 4d`,
+Brun–Titchmarsh gives `≪ y/(φ(d)log(y/4d))` primes, and blocks with
+`y < 8d` hold `O(1)` elements of size `≥ 4d`. Hence
+
+    Σ_{m ≡ s_θ(k), m prime} 1/m ≤ 1/m₀(θ,k) + C (log L)/φ(d).
+
+*(ii) Expanding the square.* With Lemma 3.2(1),
+`E_P δ_θ² ≤ C Σ_{k,k′} (Γ(lcm)/lcm)(k,k′) · b_θ(k) b_θ(k′)`,
+`b_θ(k) = 1/m₀(θ,k) + C(log L)/φ(d)`. By `xy ≤ (x²+y²)/2` and
+`Σ_{k′}Γ(lcm(k,k′))/lcm(k,k′) ≤ (Γ(k)/k)·h(k)`, with
+`h(k) = Σ_{k′}Γ(k′)gcd(k,k′)/k′ ≪ (log L)^{O(1)}τ_Γ(k)` (Euler product;
+`τ_Γ(k) = Π_{p^e∥k}(1+Γ(p)e)`),
+
+    E_P δ_θ² ≪ Σ_k (Γ(k)h(k)/k) [ m₀(θ,k)^{−2} + (log L)²/φ(d)² ].
+
+*(iii) The BT part.* `Σ_θ (log L)²/φ(d_θ)² ≤ 3(log L)²Σ_d 2^{ω(d)}/φ(d)²
+≪ (log L)²`, uniformly in j; `Σ_k Γ(k)h(k)/k ≪ (log L)^{O(1)}` (Euler
+product over `p ≤ w₂`); and `Σ_{j>w₂} ρ_j/j ≪ log L`.
+
+*(iv) The first-element part.* Charge θ to `m₀(θ,k)`: θ occurs for
+`M = kjm₀`, so for fixed `(k, m)` at most `3τ(A_{kjm}²)` data have
+`m₀ = m` (data are determined by divisors of `A²`, or by coprime divisor
+pairs of A, which number `3^{ω(A)} ≤ τ(A²)`). So the part is at most
+`Σ_k (Γ(k)h(k)/k) Σ_j (ρ_j/j) Σ_m 3τ(A_{kjm}²)/m²`, summed over binary
+moduli `kjm` of the family.
+* m the top prime: Lemma 3.3 (`q = kj ≤ m^B`) on dyadic blocks `y ≥ j/2`
+  gives `Σ_{m>j} τ/m² ≪ (k/φ(k))L²/j`; then `Σ_j L²/j² ≪ L²/w₂`.
+* j the top prime (`m < j`, `k ≤ j^B`): sum over j innermost. Lemma 3.3
+  with `q = km ≤ j^{B+1}` on dyadic blocks of j gives
+  `Σ_{j>m} τ(A²) j^{−1−α} ≪ (km/φ(km)) L³`; then
+  `Σ_{m>w₂} L³/m² ≪ L³/w₂`.
+Both are `o(1)` after the k-sum ((3.1)-type Euler products). ∎
+
+So the same-label part of (H_O) is `≪ (log L)^{O(1)}`, far below the budget
+`α^{−3} = L^{3/4}`. The gap flagged in §5.1 (cross-cofactor pairs) is closed
+by (ii): the pair `(k,k′)` is controlled by the activity inflation and AM–GM,
+and the label condition is used for each cofactor separately, never through
+`d | m − m′`.
