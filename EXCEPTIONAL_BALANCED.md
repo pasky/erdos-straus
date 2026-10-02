@@ -573,8 +573,12 @@ Setting of §2 (ℛ(M)-grouping). Fix a window prime ℓ and level data:
 * `X` bounds the moduli;
 * `y := ℓ^{1/(1+η)}` bounds the cofactor primes;
 * the *admissible cofactors* are
-  `𝒬_ℓ = {q ≥ 1 : qℓ ≡ 3 (4), qℓ ≤ X, P(q) ≤ y}`. Primes ≤ w₀ may divide q,
-  and their residues belong to the free small coordinate.
+  `𝒬_ℓ = {q ≥ 1 : qℓ ≡ 3 (4), qℓ ≤ X, P(q) ≤ y}`, and for a fixed B,
+  `𝒬_ℓ^{(B)} = {q ∈ 𝒬_ℓ : q ≤ ℓ^B}` (the (η,B)-gapped cofactors; review
+  D11). Primes ≤ w₀ may divide q, and their residues belong to the free
+  small coordinate.
+* The *balanced* cofactors are those with `q ≥ ℓ`, i.e. `P(qℓ) ≤ √(qℓ)`.
+  Cofactors `q < ℓ` give dominant-type moduli.
 
 A history determines `n mod q` for every `q ∈ 𝒬_ℓ`, and
 
@@ -617,14 +621,15 @@ on by the single congruence `nk + r ≡ 0 (mod q)` (the POINTWISE_OMEGA
 So `p_ℓ(h) ≤ |𝒬_ℓ|·X^{o(1)}/ℓ` for every history, reachable or not.
 * For (η,B)-gapped families with `B < 1`, `|𝒬_ℓ| ≤ ℓ^B`, so (★_δ) holds
   with any `δ < 1−B`. This is ET Cor 3.6's argument.
-* For `B ≥ 1`, `|𝒬_ℓ| ≥ ℓ^{1+o(1)}` whenever the family contains the
-  balanced moduli `q = p₁p₂` with `p₁, p₂ ∈ (√ℓ, y]`. That holds as soon as
-  `X ≥ ℓ^{1+2/(1+η)}`. Then the bound is vacuous.
+* For `B ≥ 1`, `|𝒬_ℓ^{(B)}| ≥ ℓ^{1+o(1)}`, so the bound is vacuous.
+
+So the *counting bound* gives (★_δ) iff B < 1. This is a statement about
+the method, not about (★_δ) (review D6).
 
 *Proof.* The first inequality is the union bound over (q, D). Then use
-`τ(A²) ≤ X^{o(1)}`. For the size claim, count the products of two primes
-in `(√ℓ, y]`: there are `≫ y²/log²y = ℓ^{2/(1+η)−o(1)}` of them, and
-`2/(1+η) > 1` for `η < 1`. ∎
+`τ(A²) ≤ X^{o(1)}`, which is `ℓ^{o(1)}` when `q ≤ ℓ^B`. For the size
+claim: `|𝒬_ℓ^{(B)}| ≍ Ψ(ℓ^B, y)/2 ≫_{η,B} ℓ^B` by Dickman, since
+`log ℓ^B/log y = B(1+η)` is bounded. ∎
 
 For a fixed q, at most `τ(A_q²) = ℓ^{o(1)}` values are ever active,
 whatever n is. So the whole difficulty is *how many cofactors q can be
@@ -633,35 +638,45 @@ CSP-type extremal problem, and not a counting problem.
 
 ### 4.3 The supremum is far above the average
 
-**Proposition 4.3 (PROVED, using Linnik's theorem with exponent 5,
-Xylouris 2011).** Assume `X ≥ ℓy`, and let `K = c₀ y^{1/5}` with c₀
-small. Then some integer n has
+**Proposition 4.3 (PROVED, given Linnik's theorem with some exponent L;
+L ≤ 5.2 by Xylouris 2011, L = 5 in his 2018 thesis; review D7).** Assume
+`X ≥ ℓy`, and let `K = c₀ y^{1/L}` with c₀ small. Then some integer n has
 
-    |F_ℓ(n)| ≥ π(2K) − π(K) − O(1) over log(ℓX),   so   sup_n p_ℓ(n) ≥ ℓ^{−1 + 1/(5(1+η)) − o(1)}.
+    |F_ℓ(n)| ≫_η π(2K) − π(K),   so   sup_n p_ℓ(n) ≥ ℓ^{−1 + 1/(L(1+η)) − o(1)}.
 
-The typical value is `E_U p_ℓ ≍ (log ℓ)^{O(1)}/ℓ`.
+The typical value is `E_U p_ℓ ≤ (log ℓ)^{O(1)}/ℓ` (only the upper bound is
+proved).
+
+**Framing (review D9).** The witnesses are prime cofactors `q_k ≤ y < ℓ`.
+So every modulus `q_kℓ` is *dominant*, not balanced: `P(M) = ℓ > √M`, with
+`B = 1/(1+η) < 1`. That is the regime where Lemma 4.2 already proves
+(★_δ). Prop 4.3 therefore shows only that the supremum exceeds the
+average. It is **no evidence** about the balanced content of (E_δ), which
+lives in the composite cofactors `q ∈ [ℓ, ℓ^B]`.
 
 *Proof.*
 1. *A prime cofactor for each k.* For each prime `k ∈ (K, 2K]`, `k ≠ ℓ`,
    Linnik gives a prime `q_k ≡ −ℓ^{−1} (mod 4k)` with
-   `q_k ≪ k^5 ≤ y`. Then `4k | q_kℓ+1`, so `k | A_{q_k}`, and
+   `q_k ≪ k^L ≤ y`. Then `4k | q_kℓ+1`, so `k | A_{q_k}`, and
    `q_k ∈ 𝒬_ℓ` because `q_kℓ ≤ yℓ ≤ X`.
 2. *A distinct value for each k.* Put `D_k := A_{q_k}/k`, a divisor of
    `A_{q_k}²`. By Lemma 4.1(3), or directly from `4A ≡ 1 (mod ℓ)`,
    `−4D_k ≡ −k^{−1} (mod ℓ)`. These values are distinct for distinct
    `k < ℓ`.
-3. *Distinct cofactors.* One prime q can serve at most `ω(A_q) ≤ log X`
-   values of k. Keep one k per distinct prime q_k. This leaves
-   `≥ (π(2K)−π(K))/log X` pairs `(q_k, D_k)` with distinct primes q_k and
-   distinct values.
+3. *Distinct cofactors.* Two kept pairs sharing a prime q would need
+   `n ≡ −4D_k ≡ −4D_{k'} (mod q)`, so we keep one k per prime q_k. One q
+   serves at most `#{k > K prime : k | A_q} ≤ log A_q/log K ≤
+   log(ℓy)/log K = O_η(1)` values of k. This leaves `≫_η π(2K)−π(K)` pairs
+   with distinct primes q_k and distinct values (review D8).
 4. *A single n.* By CRT, some n has `n ≡ −4D_k (mod q_k)` for every kept
    k. All the kept pairs are active at this n. ∎
 
 **Caveats.**
 * The construction ignores reachability. The constructed n need not avoid
   the earlier conditions.
-* Heuristically, the same construction with *all* primes `q ≤ y`, each
-  carrying its own value, gives `|F_ℓ(n)| ≍ π(y)`.
+* HEURISTIC: the same construction with *all* primes `q ≤ y`, each
+  carrying its own value, gives `|F_ℓ(n)| ≍ π(y)`. This too is
+  dominant-type.
 
 **Numerics (EVIDENCE).** `balanced_numerics.py steer` runs a greedy
 adversary, with reachability enforced ("reach") or ignored ("free"),
@@ -679,37 +694,47 @@ truth, (★_δ) holds exactly for `δ < η/(1+η)`, and it is sharp there.
 
 ### 4.4 Reduction: the remaining gap is an extremal arithmetic problem
 
-**Gap (E_δ) (named; open for B ≥ 1).** For every window prime `ℓ > w₀` and
-**every** integer n,
+**Gap (E_δ) (named; open for B ≥ 1).** Fix B. For every window prime
+`ℓ > w₀` and **every** integer n,
 
-    #{ −r k^{−1} mod ℓ : (4srk−1)/ℓ = q ∈ 𝒬_ℓ, q | nk + r } ≤ ℓ^{1−δ}.
+    #{ −r k^{−1} mod ℓ : (4srk−1)/ℓ = q ∈ 𝒬_ℓ^{(B)}, q | nk + r } ≤ ℓ^{1−δ}.
 
-**Proposition 4.4 (PROVED).** (E_δ) implies (★_δ) for every subfamily.
-Hence it implies H_light(O_δ(1)), in the γ-averaged form of §2.6, and so
-Theorem 2.5's cap `S_λ ≪_{δ,B} η^{−1}λ^{3/4}` for (η,B)-gapped families.
+**Proposition 4.4 (PROVED).** Fix B, and let `w₀ = w₀(δ) ≥ 4^{1/δ}`.
+(E_δ) for `𝒬_ℓ^{(B)}` implies (★_δ) for every (η,B)-gapped subfamily.
+Hence it implies H_light(O_δ(1)), with (ii) in the cubic form of §2.5, and
+so Theorem 2.5's cap `S_λ ≪_{δ,B} η^{−1}λ^{3/4}`.
 
-A weaker bound also helps. Suppose only `p_ℓ(h) ≤ ε` is known for all
-`ℓ > w₀`. Then the profile inflation is `≤ (1−ε)^{−ω(q)}`. Its weighted
-mean costs at most `(log x)^{O(ε)}`, so the cap becomes `λ^{3/4+O(ε)}`.
-This is better than §2.6 item 4, which assumed only `ε = 1/2`.
+*Proof.* By Lemma 4.1, (E_δ) bounds `|F_ℓ(n)|` for every integer n, so in
+particular on every reachable history; a subfamily gives a subset. Then:
+* `ℓ^{−δ} ≤ 1/4` for `ℓ > w₀` gives no heavy coordinates and (NDE);
+* the sanity check of §2.5 gives the cubic window bound H_light(ii) with
+  `K = O_δ(1)`. ∎
 
-*Proof.* (E_δ) bounds `|F_ℓ(n)|` for every integer n by Lemma 4.1, so in
-particular on every reachable history. Then apply §2.6 (sufficient
-condition (★_δ)). For the weak form, use
-`Π_{p|q}(1−ε)^{−1} = e^{O(ε)ω(q)}` and the γ-weighted Shiu argument. Write
-`e^{cεω(q)} = Σ_{d|q} h(d)`, with h multiplicative, supported on squarefree
-d, and `h(p) = e^{cε}−1 = O(ε)`. The Euler factors of the profile change
-by `1 + O(ε)/p`, so the pole order 3 rises by `O(ε)`. The cap is then
-`λ^{(3+O(ε))/(4+O(ε))}`. This weak form is only sketched. ∎
+**Conjecture 4.4W (weak form; SKETCH, not proved; review D12-W).** If only
+`p_ℓ(h) ≤ ε` is known for all `ℓ > w₀`, then the cap is `λ^{3/4+O(ε)}`.
+
+*Sketch and its gap.* The profile inflation is `≤ (1−ε)^{−ω(q)}`. Write
+`e^{cεω(q)} = Σ_{d|q} h(d)` with `h(p) = e^{cε}−1 ≍ ε`. In the Shiu range
+(`d ≤ x^{1/2}`), the Euler factors change by `1 + O(ε)/p`, so the pole
+order rises by `O(ε)`. **Gap:** h does not decay in p. So the large-divisor
+range `d > x^{1/2}` of ET Lemma 3.1 / Cor 3.6 is no longer `o(x)`:
+`Σ_{d≤x} h(d) ≍ x(log x)^{O(ε)−1}`, against a trivial `x^{1/10}` from τ.
+ET Cor 3.6 needed `Σ h(d)d^{−1+δ/2} < ∞`, which fails here. A
+two-variable mean-value bound (Nair–Tenenbaum/Henriot type) for
+`τ(A²)(1+O(ε))^{ω(4A−1)}` would plausibly close this gap.
 
 **What is known about (E_δ).**
-* Counting proves it for B < 1 (Lemma 4.2).
-* The independent-prime construction shows the supremum is at least
-  `y^{1/5−o(1)}` (Prop 4.3), and probably about `π(y)`.
-* The numerics suggest `sup ≈ π(y)`, which would give (E_δ) for every
-  `δ < η/(1+η)`.
+* Counting proves it for B < 1 (Lemma 4.2), i.e. for the dominant
+  cofactors `q < ℓ^{B'}`, `B' < 1`.
+* Prop 4.3 shows the supremum is at least `y^{1/L−o(1)}`. Its witnesses
+  are dominant (prime) cofactors.
+* **Nothing is known** about whether composite cofactors `q ∈ [ℓ, ℓ^B]`
+  (the balanced content) can push `sup|F_ℓ|` above `π(y)ℓ^{o(1)}`. The
+  §4.3 numerics count all types and do not isolate this. The claim
+  "(★_δ) holds exactly for `δ < η/(1+η)`" is HEURISTIC; only `y^{1/L}` is
+  proved.
 
-**Why the obvious proof attempts fail.**
+**Why the obvious proof attempts fail** (HEURISTIC discussion; review D18).
 1. *Coprimality.* Two active triples with distinct values and common
    factor `g = gcd(q,q')` need `g | rk'−r'k`. This forces near-coprimality
    only when r and k are small. But r and k range up to `A_q ≈ qℓ/4`. Small
@@ -718,21 +743,24 @@ by `1 + O(ε)/p`, so the pole order 3 rises by `O(ε)`. The cap is then
    `P(q) > R²` contribute at most `π(y)` values. The `R²`-smooth q's still
    number `≍ ρ(B/ε)·ℓ^B ≥ ℓ` when `R² = ℓ^ε`. So the count is not killed.
 3. *Averaging over histories (the "steering is rare" route).* Theorem 2.3
-   needs `Q_seq`-expectations. Adversarial histories of the Prop 4.3 type
-   have U-probability about `Π_{q≤y} q^{−1} = e^{−(1+o(1))y}`. Q_seq
-   reweights by `dQ_seq/dU = Π_p (1−p_p(h))^{−1}`. On those same histories
-   this weight is controlled only through sup bounds at the smaller primes
-   p | q, i.e. through (★) at lower scales again. A bootstrap over scales
-   (assume (★_δ) below ℓ, deduce it at ℓ) needs U-tails
-   `U(|F_ℓ| ≥ ℓ^{1−δ}) ≤ exp(−ℓ^{1−δ}/log ℓ)`. But the adversarial
-   histories already have U-probability `≥ e^{−O(y)}`. So the bootstrap
-   closes only if `ℓ^{1−δ} ≲ y log ℓ`, i.e. `δ ≥ η/(1+η)`. Exactly there,
-   (E_δ) itself is expected to fail. The averaged route is therefore
-   **borderline**, not easier.
+   needs `Q_seq`-expectations. Q_seq reweights U by
+   `dQ_seq/dU = Π_p (1−p_p(h))^{−1}`. This weight is controlled only
+   through sup bounds at the smaller primes p | q, i.e. through (★) at
+   lower scales again.
+   * A bootstrap over scales (assume (★_δ) below ℓ, deduce it at ℓ) would
+     need U-tails `U(|F_ℓ| ≥ ℓ^{1−δ}) ≤ exp(−ℓ^{1−δ}/log ℓ)`.
+   * Histories that fix the residues at about π(y) primes already have
+     U-probability `≥ e^{−O(y)}`. Whether some of them are heavy is
+     exactly the balanced question above.
+   * So the averaged route was **not carried out**. The heuristic
+     suggests it is no easier than (E_δ), not that it is borderline at a
+     proved threshold. (An earlier version claimed a borderline at
+     `δ = η/(1+η)`; that rested on the dominant-type construction, review
+     D9.)
 
-**Status of step 4.** (★_δ) for `B ≥ 1` is **not proved**. It is reduced
-to the purely arithmetic extremal statement (E_δ). Reachability, Q_seq and
-sieve structure are gone from that statement. The evidence (§3.1, §4.3)
-supports (E_δ) for `δ < η/(1+η)`, with sup ≈ π(y). The averaged version
-does not bypass (E_δ); item 3 shows the obstruction sits at the same
-threshold.
+**Status of step 4.** (★_δ) for `B ≥ 1` is **not proved**. For each fixed
+B it is reduced to the purely arithmetic extremal statement (E_δ) on
+`𝒬_ℓ^{(B)}`. Reachability, Q_seq and sieve structure are gone from that
+statement. The open content is the composite (balanced) cofactors. No
+evidence collected here bears specifically on them (review D9, D17), and
+§3.1's union data show heavy histories moving up with X (review D13).
