@@ -593,3 +593,64 @@ reproduces PO's `F_full(ℓ)` exactly at `ℓ=107, 331, 1031, 3011`.
 PO §9, is at most twice the number of Type I representations
 `4/ℓ = 1/(abdℓ) + 1/(acd) + 1/(bcd)`. The Lemma 9.1 "atoms" are exactly
 the Type I solutions of ES for the rough part.
+
+**Proposition 8.2 (sizes of `F_I`).**
+
+1. *(PROVED modulo ET Prop. 1.7, cited.)* `F_I(n) ≤ n^{3/5+O(1/log log n)}`
+   for every n. Hence `|F_ℓ^{full}| ≤ ℓ^{3/5+o(1)}` and
+   `g_ℓ^{full}:=|F_ℓ^{full}|/(ℓ−1) ≤ ℓ^{−2/5+o(1)}`. More generally, the
+   single-coordinate classes at `ℓ^e` number at most `ℓ^{3e/5+o(1)}`.
+   Here ET's proof counts points of `Σ_I^n` that obey the bounds of their
+   Lemma 2.8. The proof of that lemma uses only the identities,
+   positivity and `a≤b`, so it applies to every point counted by `F_I`.
+2. *(PROVED, elementary.)* Let ℓ be prime and `A_0≥1`. The points of
+   `Σ_I^ℓ` with `a≤A_0` number at most
+   `τ*(2A_0ℓ)·(A_0² + 3A_0^{3/2}√(ℓ+1))`. Those with `a=1` number
+   `≪√ℓ log ℓ`. In particular the atoms with `r'≤ℓ^{o(1)}` contribute
+   `ℓ^{1/2+o(1)}` classes.
+
+*Proof of 2.* The point is determined by `(a,c,f)`, by (2.6) and (2.2).
+
+* Since `ℓ∤c` (otherwise `ℓ` divides y and z, and
+  `4/ℓ ≤ 1/x+2/ℓ²` forces `ℓ<x·4…`; directly: ET Prop. 2.11's argument, or
+  `4 = ℓ/x+ℓ/y+ℓ/z ≤ 1+2/ℓ<4`), `g:=gcd(c,f)` divides `ℓa+c` and `ℓ+f`
+  (by (2.8), (2.6)), hence divides ℓ, so `g=1`.
+* Then `f|aℓ+c` and `c|a(ℓ+f)` give `cf | a(ℓ+f)+c`, so
+  `(c−a)(f−1) ≤ a(ℓ+1)`.
+* If `f≤1+√(a(ℓ+1))`: we have `f≡−ℓ (mod 4a)` by (2.6). That leaves at
+  most `√(ℓ+1)/(4√a)+2` values of f, and for each, c divides `ℓ+f`.
+* Otherwise `c≤a+√(a(ℓ+1))`, and f divides `aℓ+c`.
+
+Summing over `a≤A_0` gives the bound. For `a=1` both cases are sums of
+`τ(ℓ+j)` over `j≤2+√ℓ`. By `τ(n)≤2#{δ|n: δ≤√n}`, each is
+`≤2Σ_{δ≤√(2ℓ)}(√ℓ/δ+1) ≪ √ℓ log ℓ`. ∎
+
+EVIDENCE (`omega2_ffull.py`): `#triples/√ℓ` = 1.64, 1.59, 2.09, 1.26 at
+`ℓ=107, 331, 1031, 3011`. At the Linnik-type hub prime
+`ℓ=87359` (`(ℓ+1)/4=2^4·3·5·7·13`) it is 4.14, with 1224 triples and 923
+classes. Most triples have `r'>1` (1147 of 1224 at 87359), and `r'` reaches
+`≈ℓ/4`, so part 2 alone does not cover them.
+
+**Remark 8.3 (why `ℓ^{1/2}` is not proved; Assessment, with an exact
+computation).** A bound `F_I(ℓ)≤ℓ^{1/2+o(1)}` for all `a` would improve ET
+Prop 1.7 at primes. ET remark that 3/5 "appears to be the limit of what
+one can obtain purely from the divisor bound". We confirm this for the
+natural determining quantities.
+
+* Each of `e, f, cd, ac, a²d, ab, bd, bf` fixes the point up to
+  `n^{o(1)}` choices, via (2.1), (2.6), (2.9), (2.8), (2.7), (2.1), (2.1)
+  and (2.8) respectively, together with the divisor bound.
+* Consider the box `a≍n^{2/5}, c≍n^{1/5}, d≍n^{2/5}, b≍n^{4/5}`, so that
+  `e≍f≍n^{3/5}`. It is consistent with all identities and with Lemma 2.8.
+  There these quantities have sizes
+  `n^{3/5}, n^{3/5}, n^{3/5}, n^{3/5}, n^{6/5}, n^{6/5}, n^{6/5}, n^{7/5}`.
+* So every "fix one determining quantity" argument costs `≥n^{3/5}` in
+  this box.
+* The progression trick of part 2 (fix a; then `f≡−ℓ (4a)`) gives about
+  `√(aℓ)` per a, i.e. `n^{0.7}` per a in the box.
+* Heuristically the box contains `O(n^{o(1)})` points. The `(a,c,d)` with
+  `|4acd−n|≤n^{3/5}` number about `n^{3/5}`, and each needs
+  `f | 4a²d+1` with `f≍n^{3/5}`.
+
+Beating 3/5 there is a genuine lattice-point/equidistribution problem,
+which we do not attempt.
