@@ -972,99 +972,113 @@ cheaply by Markov. The new requirement is (CD_k), a bound on the **maximal**
 codegrees of sets of `2..k−1` vertices. It cannot be enforced in the same
 way; see §10.5.
 
-### 10.4 The conditional theorem: AP-TI*(κ) ⇒ exponent 1/κ
+### 10.4 The conditional theorem, and the codegree hub obstruction
 
-For `0<θ<1/2` consider the system of §4 with `Π_0={ℓ≤y}`, `y=T^θ`.
+*Withdrawn (review of checkpoint 3).* An earlier version of this section
+stated a residue-uniform hypothesis "AP-TI*(κ)": `Δ_O ≤ T^{κ+o(1)}/q_O` for
+**all** vertex sets O of the unquarantined system. **That hypothesis is
+false for every κ<1/2.**
 
-* The events are the classes of atoms surviving `Π_0`.
-* Vertices are unit classes mod `ℓ^{e_ℓ}` at primes `ℓ>y` (§10.3 remark).
-* For a set O of vertices at distinct primes, `Δ_O` is the codegree of
-  §10.2 over the hyperedges whose support strictly contains the primes of
-  O. Put `q_O := ∏_{v∈O}ℓ_v`.
+* Take `T=4ℓ²` with `ℓ≡3 (4)`, and the vertex `v=(ℓ,−4)`.
+* For every prime `t∈(ℓ,2ℓ]` with `t≡1 (4)`, the atom `M=ℓt`, `D=1`
+  survives. It contributes `1/(t−1)` to `deg(v)`.
+* So `deg(v) ≫ 1/log ℓ`, far above `T^{κ}/ℓ`.
 
-**Hypothesis AP-TI*(κ)** (residue-uniform per-prime/codegree mass;
-open). For every fixed `θ∈(κ,1/2)` and every O as above,
+Hub residues must be quarantined *before* any maximal codegree condition
+is imposed. The theorem below is therefore stated on the quarantined
+system. Proposition 10.6 then shows that hub-type residues defeat even that
+form.
 
-```
-Δ_O ≤ T^{κ+o(1)}/q_O      (uniformly in O, as T→∞).
-```
+**Hypothesis H_CD(θ)** (per-prime and codegree smallness after
+quarantine; open). For the system at `y=T^θ` there is an additional vertex
+quarantine Φ satisfying:
 
-*Readings.*
+* (i) Φ forbids a set of vertex classes of total mass
+  `m(Φ) = T^{o(1)}`;
+* (ii) in the system obtained after the class-of-one quarantine at the
+  primes `≤y` and at `T^{o(1)}` bad primes, and after forbidding Φ and
+  deleting the hyperedges through Φ, there is an `ε>0` with:
+  * `g_ℓ ≤ 1/(64k)` and `w_ℓ ≤ T^{−ε}` for every free ℓ,
+  * `Δ^{(j+1)} ≤ T^{−ε}` for `1≤j≤k−2`.
 
-* For `|O|=1`, `O={(ℓ,c)}`, this says
-  `deg(ℓ,c) ≤ T^{κ+o(1)}/ℓ` for **every** residue c. Averaging over c gives
-  `w_ℓ ≤ T^{κ+o(1)}/ℓ` (the per-prime part), i.e. §9's AP-TI with its
-  residues kept.
-* For `|O|≥2` it says that the events through a fixed residue pattern mod
-  `q_O` carry at most `T^κ` times their "fair share" `1/q_O`.
-* In the language of Lemma 8.1, it is an equidistribution statement for
-  the Type I points of the rough parts `r` with `q_O|r`, restricted to
-  prescribed classes `−a/b mod q_O`.
-* The random model predicts `κ=o(1)` (Assessment).
+Here `k=⌊1/θ⌋`, and all vertices are classes mod `ℓ^{e_ℓ}` (§10.3 remark).
 
 **Theorem 10.4 (PROVED implication, modulo Thorner–Zaman for the last
-clause).** Assume AP-TI*(κ) for some `0≤κ<1/2`. Then:
+clause).**
 
-* H_MIN(θ) holds for every `θ>κ`;
-* hence `W(p) ≥ (log p)^{1/κ−ε}` for infinitely many hard primes, for every
-  `ε>0`;
-* if `κ=0`, `W(p) ≥ (log p)^A` i.o. for every A.
+* H_CD(θ) implies H_MIN(θ).
+* So if H_CD(θ) holds for every `θ>κ`, then `W(p) ≥ (log p)^{1/κ−ε}`
+  for infinitely many hard primes, for every `ε>0`.
 
-*Proof.* Fix `θ∈(κ,1/2)` and put `k:=⌊1/θ⌋`. Every rough part has at most
-k prime factors, counted without multiplicity, since they all exceed
-`T^θ`.
+*Proof.* After the quarantines, (I) holds by the proof of Lemma 4.3. A
+forbidden vertex is a single, so it only strengthens "no event". Then:
 
-**Construction.** Build as in §4 with `y=T^θ`.
+* (G_k) holds.
+* (W_k) holds, since `w_ℓ ≤ T^{−ε}`.
+* (CD_k) holds: `Σ ≤ S_tot(Π)+m(Φ) = T^{o(1)}` (Lemma 4.1), so
+  `Σ_j(C_k(Σ+1))^jΔ^{(j+1)} ≤ T^{−ε+o(1)} → 0`.
+* `log Q ≤ (π(y)+T^{o(1)})log T ≤ 2y/θ`.
 
-* The bad primes are `𝓑={ℓ>y: g^{(0)}_ℓ>1/(64k)}`. Then
-  `|𝓑| ≤ 64k S_tot(Π_0) = T^{o(1)}` (Lemma 4.1).
-* `Π=Π_0∪𝓑`, and Q and 𝒫 are as in §4.
-* (I) holds by the proof of Lemma 4.3.
+Theorem 10.3 gives a minorant with `log(M_1/μ), log max d_i ≤ T^{o(1)}`
+and the twist condition, which is H_MIN(θ). PO Theorem 6.2 does the rest.
+∎
 
-**Effect of the bad primes.** Quarantining `b∈𝓑` turns a `Π_0`-hyperedge
-`e∋(b,1)` into the event `e∖{(b,1)}`, whose weight is larger by the
-factor `1/p((b,1))`. Hyperedges through `(b,c)` with `c≠1` disappear. Hence
-the new codegrees satisfy
+For `θ>1/3` (so `k=2`), H_CD(θ) holds with Φ = the hub vertices
+(Lemma 4.3). This is Theorem 5.1 again.
+
+**Proposition 10.6 (codegree hubs; PROVED, using the prime number theorem
+for a fixed modulus).** Fix `θ<1/3` and an integer `d≥1`. Put
+`R:=(y, T^{1/3}]` and `c_θ := log(1/(3θ)) > 0`. For primes
+`ℓ_1≠ℓ_2∈R` coprime to 2d, consider the vertices
+`v_i=(ℓ_i, −4d² mod ℓ_i^{e_{ℓ_i}})` (lifts as in §10.3). Then, as `T→∞`,
 
 ```
-Δ^{new}_O ≤ Δ_O + Σ_{b∈𝓑} Δ_{O∪{(b,1)}} ≤ T^{κ+o(1)}/q_O · (1+|𝓑|/y).
+Δ_{{v_1,v_2}} ≥ (c_θ − o(1))/φ(4d).
 ```
 
-The same computation bounds the added single mass at ℓ by
-`Σ_b Δ_{{(b,1)}} ≤ |𝓑|T^{κ+o(1)}/y`.
+The count runs over the vertices `(ℓ_3, −4d²)`, `ℓ_3∈R`, `ℓ_3` in one
+fixed class mod 4d, whose hyperedges `{v_1,v_2,(ℓ_3,−4d²)}` are present.
 
-**The hypotheses of Theorem 10.3.**
+*Proof.* Let `ℓ_3∈R` with `ℓ_1ℓ_2ℓ_3≡−1 (mod 4d)`; this is one unit class
+of `ℓ_3` mod 4d. Then:
 
-* (W_k): `w_ℓ ≤ max_v deg^{new}(v) ≤ T^{κ−θ+o(1)} → 0`.
-* (G_k): `g_ℓ ≤ 1/(64k) + |𝓑|T^{κ+o(1)}/y ≤ 1/(32k)`.
-* (CD_k): `Σ=T^{o(1)}` by Lemma 4.1, and
-  `Δ^{(j+1)} ≤ T^{κ−(j+1)θ+o(1)}`. So
-  `Σ_j(C_k(Σ+1))^jΔ^{(j+1)} ≤ T^{κ−2θ+o(1)} → 0`.
-* `log Q ≤ (π(y)+|𝓑|)log T ≤ 2y/θ`.
+* `M=ℓ_1ℓ_2ℓ_3≡3 (4)`;
+* `M≤T`, since `ℓ_1ℓ_2≤T^{2/3}` and `ℓ_3≤T^{1/3}`;
+* `d | A_M`, so `D=d²` divides `A_M²`.
 
-Theorem 10.3 now gives a minorant with
-`log(M_1/μ), log max d_i ≤ T^{o(1)}` and the twist condition. That is
-H_MIN(θ). PO Theorem 6.2 (modulo Thorner–Zaman) gives
-`W(p) > (log p)^{1/θ−ε}` i.o. Letting `θ↓κ` proves the claim. ∎
+The atom has rough part M (m=1), so it survives `Π_0`. Its class
+`−4d² mod M` is the hyperedge through `v_1, v_2` and `(ℓ_3,−4d²)`. Its
+weight beyond `{v_1,v_2}` is `p((ℓ_3,·)) ≥ 1/ℓ_3`. Hence
+`Δ_{{v_1,v_2}} ≥ Σ_{ℓ_3∈R, ℓ_3≡a (4d)} 1/ℓ_3`. By the prime number theorem
+in progressions for the fixed modulus 4d, this is
+`(1/φ(4d))(log(log T^{1/3}/log y)+o(1)) = (c_θ+o(1))/φ(4d)`. ∎
 
-*Remarks.*
+**Consequence for Theorem 10.3 (Assessment, with the bookkeeping made
+explicit).**
 
-* AP-TI*(κ) implies §9’s AP-TI(κ). By the argument of Thm 9.2
-  (PO Thm 9.4 with `z=T^{κ+ε}`), it therefore implies
-  `log(1/δ*(T)) ≤ T^{κ+o(1)}` on the Haar side. So the conditional prime
-  exponent `1/κ` matches the conditional Haar exponent. The prime side
-  needs the residue-uniform (maximal) form, while the Haar side needs only
-  the averaged per-prime form (see §10.5).
-* For `θ∈(1/4,1/3]` we have `k=3`. Only `|O|≤2` is used there: `|O|=1`
-  through (W) and the hub quarantine, which need only the averaged
-  `w_ℓ`, and `|O|=2` through (CD_3). So exponent `4−ε` would follow from:
-  * AP-TI(κ) (no residues) with `κ<1/4`;
-  * pair codegrees `max_{|O|=2}Δ_O ≤ T^{−ε}`;
-  * Prop 8.2.1 (modulo the proof of ET Prop 1.7). It gives
-    `g^{(0)}_ℓ ≤ ℓ^{−2/5+o(1)}`, so `𝓑=∅` for large T. This matters
-    because, with only averaged degrees, the single mass created by
-    quarantining a bad prime is not controlled: it needs
-    `deg((b,1))` for the specific residue 1.
+* (CD_3) needs `Δ^{(2)} ≤ δ_3/(C_3(Σ+1))`.
+* By Prop. 10.6, for every d with `φ(4d) ≤ c_θC_3(Σ+1)/(2δ_3)`, the
+  quarantine Φ must destroy all heavy pairs in the family
+  `{(ℓ,−4d²): ℓ∈R}`.
+* That is, for each residue pattern, either almost all of the relevant
+  `(ℓ_3,−4d²)` vertices are forbidden, or all but a sparse set of the
+  `(ℓ_i,−4d²)` vertices are.
+* Since `Σ_{ℓ∈R}1/ℓ → c_θ`, a product-set argument in `(ℤ/4d)^×` suggests
+  a cost `≫c_θ` per such d. We have *not* proved this lower bound.
+* If it holds, then `Σ ≫ c_θ·#{d: φ(4d) ≤ c_θC_3(Σ+1)/(2δ_3)} ≫ c_θ²C_3(Σ+1)/δ_3`.
+  That is impossible, because `δ_3` is a tiny absolute constant.
+* So, *assuming that cost bound*, Theorem 10.3 as proved cannot certify
+  H_MIN(θ) for ES at any `θ<1/3`.
+* The obstruction is in Lemma 10.2's factor `(kU_0)^j`. Each child pays
+  again for choosing its old vertices, whereas in a `−4d²` cluster the
+  shared vertices are few and are reused.
+* A heuristic count of private families on such clusters (h private
+  vertices, s≤h shared ones) gives `(c²e²/d)^h`. That is harmless for
+  `d≫1`, which suggests the true moments are fine.
+* **The open step is therefore a sharper Lemma 10.2** that pays once per
+  shared vertex (a `1/s!` for the shared set), not a new arithmetic input.
+  This is the codegree-level analogue of PO Prop. 6.3, and it is
+  circumvented in the same spirit, but we have not done it.
 
 ### 10.5 What the hypergraph lemma gives unconditionally (PROVED bookkeeping + Assessment)
 
