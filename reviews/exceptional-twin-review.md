@@ -45,7 +45,7 @@ gives exactly `Σ_ℓ E[p_ℓ 1{heavy}]`. Lemma 2.2: chain rule over base and
 windows; at a light coordinate a class mod `ℓ^e` (`e ≤ E_ℓ`) has conditional
 probability `≤ ℓ^{E−e}/(ℓ^E(1−δ_ℓ))`, at a heavy one `ℓ^{−e}`; partial powers at
 the base by marginalisation. Correct. (Note: the lemma bounds the law of the
-*full* `Q'` history, which is what Lemma 2.4 needs; see T3.)
+*full* `Q'` history, which is what Lemma 2.4 needs; see T2.)
 
 ### 4. Theorem 2.3 (capped sequential sieve limit) — SOUND
 
@@ -104,4 +104,75 @@ No bibliographic reference, and the description misstates BBMST (heavy
 fibres are capped-distorted there, not undistorted). Fix: cite
 arXiv:1811.03547 / Invent. Math. 228 (2022), def. (5), Thm 3.1 (and Hough
 2015 for the method); state the variant explicitly and why it is needed.
+
+### 5. Lemma 2.4 (second moment, uniform in W) — SOUND (one precision fix)
+
+Re-derived. `|F_ℓ(h)| ≤ #{active family pairs (q,D)} ≤ N_ℓ(n)`. Pair-of-pairs
+expansion: a compatible pair is one class mod `m = lcm(q,q') ≤ ℓ^{2B}`, of
+`Q'`-probability `≤ Γ(m)/m ≤ 3^{ω(m)}/m` (Lemma 2.2; γ'(2)=1, γ'(3)=3,
+γ'(p) ≤ 5/2 for 5 ≤ p ≤ W, γ'(ℓ) ≤ (1−16^{−1/2})^{−1} = 4/3 above W ≥ 16).
+`A_q = (qℓ+1)/4 ≤ ℓ^{1+B}` gives `τ(A_q²) ≪_{ε,B} ℓ^{ε/4}`. Pairs with given
+lcm: `Π_p(2e_p+1) = τ(m²)`. Euler product `Π_{p≤ℓ^{2B}}(1+9/p+O(p^{−2}))
+≪ (1+2B log ℓ)^9`. Every constant is independent of W, η and the family:
+the only W-dependence would have been through Γ, and `Γ ≤ 3^ω` is
+universal. This is exactly what the QR base buys (ET's base would put
+`L' = e^{O(W^{1+C})}` here). Uniformity: confirmed.
+
+**T2 (LOW; Lemma 2.4 proof).** Quote: "`|F_ℓ(h)|` is at most the number
+`N_ℓ(n)` of pairs `(q,D)` with `q ∈ 𝒬_ℓ^{(B)}` …". As written N_ℓ counts *all*
+cofactors `q ≤ ℓ^B`, including ones with a prime in ℓ's own window, so
+`N_ℓ(n)` is not a function of `H_{<j(ℓ)}` and "`E_{Q'}`" must refer to the
+law of the *full* `Q'` history (all windows). The bound is still correct
+(Lemma 2.2's chain rule covers every m, and `|F_ℓ(H_{<j})| ≤ N_ℓ(n)`
+pointwise), but say so, or restrict N_ℓ to the family's cofactors (all of
+whose primes are in `Q₀` or earlier windows). Same remark for Lemma 4.0.
+
+### 6. Corollary 2.5 (leak ≪ W^{−1/4}) — SOUND
+
+`E[p 1{p>δ}] ≤ E[p²]/δ` (on `{p>δ}`, `p ≤ p²/δ`); with `δ_ℓ = ℓ^{−1/2}`,
+`ε = 1/4`: `Σ_{ℓ>W} C(1/4,B) ℓ^{−5/4} ≪_B W^{−1/4}`. Uniform in η and the
+family because Lemma 2.4 is. Note: the bound covers *all* ℓ > W, including
+invisible ones above `e^λ`, as Lemma 2.1 requires.
+
+### 7. Lemma 2.6 (cubic windows via the ET Cor 3.6 transplant) — SOUND
+
+`E Σ_{ℓ∈W_j} p_ℓ ≤ Σ_C ℓ^{−1} Q'(n ≡ −4D (q)) ≤ Σ_{P(M)∈W_j} τ(A²)Γ(q)/M ≤
+Σ τ(A²)Γ(M)/M`. `Γ = 1 * h`, h multiplicative on squarefrees with
+`h(p) = (p+1)/(p−1) ≤ 2` (3 ≤ p ≤ W), `h(2) = 0`, `h(ℓ) = ℓ^{−1/2}/(1−ℓ^{−1/2})
+≤ 2ℓ^{−1/2}` (ℓ > W). Swap sums; `d | M = 4A−1` ⟺ `A ≡ 4^{−1} (d)`, a reduced
+class.
+* `d ≤ x^{1/2}`: Shiu with `F(A) = τ(A²)` gives `≪ (x/φ(d)) log²x`, and
+  `Σ_d h(d)/φ(d) = Π_{p≤W}(1+h(p)/(p−1))·Π_{p>W}(1+O(p^{−3/2})) < ∞`.
+* `d > x^{1/2}`: `x^{ε}Σ h(d)(x/d+1) ≤ x^{ε}(x^{7/8}+x^{3/4})Σ h(d)d^{−3/4}`, and
+  `Σ h(d) d^{−3/4} = Π_{p≤W}(1+O(p^{−3/4}))·Π_{p>W}(1+2p^{−5/4}) < ∞`.
+
+So `Σ_{M≤x} τ(A²)Γ(M) ≪_W x log²x`; partial summation over
+`e^{s_j} < M ≤ e^{(1+B)s_{j+1}}`, `s_{j+1} ≤ 2s_j`, gives `K((1+B)s_j)³`.
+The transplant is legitimate: ET's proof uses only those two convergent
+sums, never `h(p) ≤ 1/(p−1)` at small p. The W-dependence of K is through
+`Π_{p≤W}`, i.e. `K(W,B) ≤ exp(O(W^{1/4}))` in the tail and `O(log W)` in
+the main term — finite, as claimed. Also covers twin/prime-power M = qℓ^v
+(Prop 4.1, Thm 4.4), since only `P(M) ∈ range` and `Γ(q) ≤ Γ(M)` are used.
+
+### 8. Theorem 2.7 (unconditional gapped cap) — SOUND
+
+Theorem 2.3 applies (Cor 2.5: `𝔏 ≤ 1/2` at `W = W₀(B)`). R-term
+`log(Q₀/|R_W|) ≤ π(W₀(B))·log 3 = O_B(1)`. The light profile is bounded by
+the full one (Lemma 2.6), which is EB's H_light(ii) with `K = K(W₀(B),B)`;
+H_light(i) (NDE) and (iii) (heavy charge) are not needed because (2.1) has no
+heavy term. EB Thm 2.5's window sum (G = 1 per window by EB Lemma 2.5a since
+η < 1; `≤ 1+2log λ/η` windows; crossover `s* = (19λ/(C₄K(1+B)³))^{1/4}`;
+total `≤ 380λ/(ηs*)`) then gives `C K^{1/4}(1+B)^{3/4}η^{−1}λ^{3/4} +
+O(η^{−1}log λ(log λ+log K))`; doubled by (2.1), plus `log 2 + O_B(1)`. I
+re-checked EB's above-crossover sum (`Σ_k(1+η)^{−k}(1+4(k+1)log(1+η)) ≤
+(1+η)/η + 4(1+η)²/η`). Family: EB's η-gapped requires `P(M) > w₀`, and here
+`w₀ = W = W₀(B)`, with cofactor primes ≤ W in Q₀ (EB Lemma 2.1) — consistent.
+Majorants of the true avoider set `𝒜(𝔊)` are majorants of the R_W-restricted
+set, so the cap applies to them. Level convention: EB charges primes
+`> w₀`; here primes ≤ W are free, which is more generous to ν, so the cap
+transfers.
+
+"ET Cor 3.6 is recovered for ℛ(M)-classes": correct with `B = C`, η ≤
+min(η₀, 1/C−1) (EB Lemma 2.1 scope); (a,D)-classes are not recovered, as
+the text says.
 
