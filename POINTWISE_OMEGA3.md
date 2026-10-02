@@ -361,3 +361,72 @@ depends only on the level-3 mass Ŝ. The level-2 mass `S_1+S_2` can be
 arbitrarily large compared with Ŝ: it enters only `L_2`, and level 2
 has no codegree condition. In O2's one-level scheme, the hub pairs had
 to be paid for inside the same truncation that set the threshold.
+
+**Lemma 3.3 (pushing hubs and heavy pairs down; PROVED).** Start from
+one system of singles, edges and 3-vertex hyperedges (Settings 2.0/10.0,
+all vertices classes mod `ℓ^{e_ℓ}`), with masses `S_1,S_2,S_H`. Suppose
+every prime has total mass `g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ ≤ c_0`. Fix
+`Ŝ≥S_H`, put `t=t(Ŝ)`, and assume `c_0 ≤ δδ_3t/64`. Perform, in order:
+
+* (a) every vertex of hyperedge-degree `>δ_3` becomes a level-2 single,
+  and the hyperedges through it are deleted;
+* (b) every vertex pair O with codegree `Δ_O>t` (computed after (a))
+  becomes a level-2 edge, and the hyperedges containing it are deleted;
+* (c) every vertex of level-2 degree `>δ` (after (b)) becomes a level-2
+  single, and the edges and hyperedges through it are deleted.
+
+The result is a two-level system that satisfies (P), (D2) and (D3)
+with this Ŝ. Every original event either occurs only if some level
+event occurs, or is itself a level event. So `F_2F_3 ≤ 1[no original
+event]`. Its masses satisfy
+
+```
+S_H^{new} ≤ S_H,   S_2^{new} ≤ S_2 + 3S_H/t,   S_1^{new} ≤ S_1 + 3S_H/δ_3 + 2S_2^{new}/δ.
+```
+
+*Proof.* Deletions only lower degrees and codegrees. So after (c) all
+level-3 degrees are `≤δ_3` and all pair codegrees are `≤t`. (Pushed
+pairs have codegree 0 because all their hyperedges are gone.) All
+level-2 degrees are `≤δ`. A deleted hyperedge contains a level-2
+single or edge, so it cannot occur when no level-2 event occurs; the
+same holds for deleted edges.
+
+*Masses (Markov).* Per prime:
+
+* (a) adds `≤w^{(3)}_ℓ/δ_3`: each hyperedge at ℓ has one vertex there,
+  and `Σ_{v at ℓ}p(v)deg(v)=w^{(3)}_ℓ`;
+* (b) adds `≤Σ_{O∋v at ℓ}P(O)Δ_O/t = 2w^{(3)}_ℓ/t`: each hyperedge at ℓ
+  contains two pairs through its ℓ-vertex;
+* (c) adds `≤w^{(2),new}_ℓ/δ`.
+
+So the new per-prime total is
+`≤c_0(1+1/δ_3+(1+2/t)(1+1/δ)) ≤ 4c_0/(tδδ_3)·… ≤ 1/32` for
+`c_0≤δδ_3t/64` (as `t,δ,δ_3<1/4`). This is (P). The global bounds are
+the same Markov sums over ℓ, with `Σ_ℓw^{(3)}_ℓ=3S_H` and
+`Σ_ℓw^{(2)}_ℓ=2S_2`. ∎
+
+**Theorem 3.4 (criterion for supports ≤3; PROVED).** Setting 3.0 of O2
+(congruence system, 2|Q), with singles, edges and hyperedges on at most
+3 free primes, and with (I) of O2 Thm 3.1. Let `Ŝ≥S_1+S_2+S_H`. If
+every free prime has total mass `≤c_0(Ŝ):=δδ_3t(Ŝ)/64`, there is a
+minorant B as in PO Thm 4.1 (moduli coprime to Q, unit classes,
+`B≤1[W>T]` on `n≡1 (Q)`, twist condition) with
+
+```
+log(M_1/μ) ≤ C(Ŝ²+1),   log(1/μ) ≤ C(Ŝ²+1),   #primes per modulus ≤ C(Ŝ²+1).
+```
+
+*Proof.* Lemma 3.3, then Theorem 3.2 with
+`Σ = S_1^{new}+S_2^{new}+Ŝ = O(Ŝ/t+Ŝ) = O(Ŝ²+1)`. (I) transfers because
+`B≤F_2F_3≤1[no original event]≤1[W>T]`. ∎
+
+*Remark (what replaced the codegree hypothesis).* O2 Thm 10.3 needed
+(CD_3), an upper bound on **all** pair codegrees, and §11.4 showed it
+fails for the `−4D` hubs. Here no such bound is assumed. Heavy pairs are
+moved down by the first-moment (Markov) bound `Σ_OP(O)Δ_O=3S_H`, at cost
+`O(Ŝ/t)=O(Ŝ²)` in the *level-2* mass. That mass never feeds back into t.
+The `−4d²` clusters of O2 §11.4 (reviewer r3) now become dense level-2
+edges. Their vertices have level-2 degree `≍c_θ>δ`, so step (c) turns
+them into singles. That is exactly the joint hub-vertex quarantine of §1,
+with cost `O(Ŝ²)` instead of the impossible `O(L log L)` *inside* the
+level-3 truncation.
