@@ -165,7 +165,10 @@ def main():
         bad, d, nc = trial(rng)
         tot_bad += bad
         n_cells += nc
-    print(f"trials={trials} seed={seed}: violations={tot_bad} (total composite cells {n_cells})")
+    print(f"trials={trials} seed={seed}: violations={tot_bad} (total composite cells {n_cells})"
+          + ("   [negative control: violations expected]" if NEG else ""))
+    if tot_bad and not NEG:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

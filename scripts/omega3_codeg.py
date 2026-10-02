@@ -6,8 +6,9 @@ For a pair of free primes (l1,l2) (q=l1*l2) and every class c mod q, compute
   the vertices (l1, c mod l1), (l2, c mod l2) of 1/(l3-1),
 where hyperedges come from atoms (M,D): M = m*l1*l2*l3 <= T, M = 3 (4), m y-smooth,
 l3 > y prime (distinct from l1,l2), D | A_M^2, m | 4D+1, class -4D mod M.
-Each heavy class is reduced to its shortest lattice vector (u,v): u + c v = 0 (mod q),
-i.e. c = -u/v (mod q); "height" = |u*v|.
+For the heaviest classes, the least X (in powers of 2 up to 1024) with c in the hub
+set H_X (explicitly enumerated, POINTWISE_OMEGA3 Def 2.3) is printed; the shortest
+lattice vector is printed for orientation only (it need not minimise the height).
 
 usage: omega3_codeg.py T theta l1 l2 [top]
 """
@@ -37,32 +38,6 @@ def shortest(c, q):
         if n2(b1) >= n2(b2):
             return b2, b1
         b1, b2 = b2, b1
-
-
-def sqfree_star(E):
-    """E* = s*a for E = s*a^2, s squarefree."""
-    fa = factorint(E)
-    r = 1
-    for p, e in fa.items():
-        r *= p ** ((e + 1) // 2)
-    return r
-
-
-def eff_height(c, q):
-    """effective height of c mod q: min over the three hub families of the
-    parameter governing the codegree (uv for -u/v; E* for -4E and -1/(4E)),
-    using the shortest lattice vector; inf if c has no positive small rational rep."""
-    (u, v), _ = shortest(c, q)
-    if v < 0:
-        u, v = -u, -v
-    if u <= 0:
-        return float("inf")
-    h = u * v
-    if v == 1 and u % 4 == 0:
-        h = min(h, sqfree_star(u // 4))
-    if u == 1 and v % 4 == 0:
-        h = min(h, sqfree_star(v // 4))
-    return h
 
 
 def hub_set(X, q):
@@ -119,37 +94,18 @@ def main():
     Delta = codegrees(T, theta, l1, l2)
     tot = sum(Delta.values())
     print(f"T={T:.3g} theta={theta} y={T**theta:.1f} q={q} classes={len(Delta)} sumDelta={tot:.4f} avg/q={tot/q:.3g}")
-    ht = {}
-    for c in Delta:
-        (u, v), _ = shortest(c, q)
-        ht[c] = (abs(u * v), u * v > 0)
-    for X in (1, 4, 16, 64, 256, 1024, 4096):
-        rest = [Delta[c] for c in Delta if not (ht[c][1] and ht[c][0] <= X)]
-        mixed = [Delta[c] for c in Delta if not ht[c][1]]
-        print(f"  X={X:5d}: max Delta over classes not -u/v with 0<uv<=X: {max(rest):.5f};"
-              f"  (mixed-sign classes max {max(mixed) if mixed else 0:.5f})")
     for X in (16, 64, 256, 1024):
         HX = hub_set(X, q)
         rest = [(Delta[c], c) for c in Delta if c not in HX]
         d, c = max(rest)
         print(f"  HUB X={X:5d}: |H_X|={len(HX)}; max Delta outside H_X: {d:.5f} (c={c}, short={shortest(c, q)[0]})")
-    H0 = q ** 0.5 / 2
-    gen = [Delta[c] for c in Delta if not (ht[c][1] and ht[c][0] <= H0)]
-    rat = [(Delta[c] * ht[c][0], c) for c in Delta if ht[c][1] and ht[c][0] <= H0]
-    print(f"  generic (no -u/v with 0<uv<=sqrt(q)/2): {len(gen)} classes, max Delta {max(gen):.5f}, mean {sum(gen)/len(gen):.2e}")
-    if rat:
-        best = sorted(rat, reverse=True)[:5]
-        print("  small-height classes: max Delta*height =", ", ".join(f"{v:.2f}(h={ht[c][0]})" for v, c in best))
-    print("  top classes outside {-u/v: 0<uv<=1024}:")
-    nonhub = [(c, Delta[c]) for c in Delta if not (ht[c][1] and ht[c][0] <= 1024)]
-    for c, d in sorted(nonhub, key=lambda kv: -kv[1])[:8]:
-        (u, v), (u2, v2) = shortest(c, q)
-        print(f"    c={c:>10d} Delta={d:.5f} short=({u},{v}) next=({u2},{v2})")
+    levels = [(X, hub_set(X, q)) for X in (1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024)]
     for c, d in sorted(Delta.items(), key=lambda kv: -kv[1])[:top]:
         (u, v), _ = shortest(c, q)
         if v < 0:
             u, v = -u, -v
-        print(f"  c={c:>10d}  Delta={d:.5f}  c=-u/v: u={u:>6d} v={v:>6d} |uv|={abs(u*v)}")
+        lev = next((X for X, HX in levels if c in HX), None)
+        print(f"  c={c:>10d}  Delta={d:.5f}  shortest lattice vector (u,v)=({u},{v})  least X with c in H_X: {lev}")
 
 
 if __name__ == "__main__":

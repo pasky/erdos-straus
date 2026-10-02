@@ -13,7 +13,7 @@ Lemma 11.2, Prop 11.4, §11.4 (G_pair).
    infinitely many Mordell-hard p. So H_MIN(θ) holds for θ>1/4, and
    `H_MOD(A)` is refuted for `A<4`.
 2. **Theorem 5.2** (same status): for every A, `W(p)>(log p)^A` for
-   infinitely many hard p. Equivalently `log L_h(T)≤T^{o(1)}`, and
+   infinitely many hard p. In uniform form, `log L_h(T)≤T^{o(1)}`, and
    H_MIN(θ) holds for every θ>0. The prime side now matches the Haar
    side (O2 Thm 11.3).
 3. **G_pair is not a genuine barrier.** It was an artefact of using
@@ -51,8 +51,10 @@ more than L. Two observations break it.
    There are three such families (Prop 10.6's `−4d²` is one of them).
    Numerically, the heavy pairs are exactly classes `≡−u/v` with small `uv`.
 
-What remains is an upper bound (Lemma B, §3) for pair codegrees of classes
-that are *not* small-height rationals.
+*Superseded plan (checkpoint 0).* The plan at this point was an arithmetic
+upper bound ("Lemma B") for the codegrees of non-hub pairs. That is not
+needed. §3 moves *all* heavy pairs into a lower level instead, and §§4–5
+give the theorems.
 
 ## 1. Decoupling prime-local quarantines from the truncation level (PROVED)
 
@@ -77,7 +79,7 @@ combination of cells B with:
 1. `B(n) ≤ 1_{𝒜_1∩𝒜_2}(n)` for every integer n;
 2. `μ(B) := E B ≥ V μ' − ε_J M_1'`;
 3. `M_1(B) ≤ e^{S_hub} M_1'`;
-4. every cell of B is a cell of `B_2` refined by at most J further primes
+4. every cell of B is a cell of `B_2` refined by at most J+1 further primes
    of 𝒫: its modulus is `d_i∏_{ℓ∈R}ℓ^{e_ℓ}`, `|R|≤J+1`, `R∩P_i=∅`;
 5. for every character `ψ=∏_{ℓ|f}χ_ℓ(X_ℓ)` (f squarefree, primes in 𝒫,
    `χ_ℓ` nontrivial mod ℓ), `|E[Bψ] − V·E'[B_2ψ]| ≤ ε_J M_1'`.
@@ -226,16 +228,19 @@ For one pair `ℓ_1<ℓ_2` just above y, all pair codegrees Δ(c), c mod
 
 | T | θ | y | q | `max Δ` (class) | max Δ outside `𝓗_16` | `𝓗_64` | `𝓗_256` | `𝓗_1024` |
 |---|---|---|---|---|---|---|---|---|
-| 10⁹ | .28 | 331 | 116939 | 0.214 (−1) | 0.034 | 0.013 | 0.0074 | 0.0067 |
-| 10¹¹ | .27 | 933 | 1022117 | 0.259 (−1) | 0.052 | 0.019 | 0.0068 | 0.0032 |
-| 10¹² | .26 | 1318 | 1752967 | — | 0.086 | 0.033 | 0.0091 | 0.0036 |
-| 10¹³ | .26 | 2399 | 5973127 | — | 0.089 | 0.038 | 0.0095 | 0.0048 |
+| 10⁹ | .28 | 331 | 116939 | 0.214 (−4, −1/4, −1) | 0.034 | 0.013 | 0.0074 | 0.0067 |
+| 10¹¹ | .27 | 933 | 1022117 | 0.259 (−4) | 0.052 | 0.019 | 0.0068 | 0.0032 |
+| 10¹² | .26 | 1318 | 1752967 | 0.301 (−4) | 0.086 | 0.033 | 0.0091 | 0.0036 |
+| 10¹³ | .26 | 2399 | 5973127 | 0.302 (−4) | 0.089 | 0.038 | 0.0095 | 0.0048 |
 
-* Every class among the top 40 is a member of some `𝓗_X`, with X small:
+* In each run, every one of the 30 heaviest classes lies in `𝓗_16`
+  (least level 1, 2, 4, 8 or 16). This is checked by explicit
+  enumeration of `𝓗_X`, and it is finite evidence for one pair per T.
+  Examples:
   `−1, −4, −1/4, −2, −1/2, −8, −2/3, …`, and `−4·36²`, `−4·21²`, which
   are (F1) with `sa=36, 21`.
 * Outside `𝓗_X` the maximum falls roughly like `X^{−0.7}` and does not
-  grow with T. This is the shape of Lemma B (§3).
+  grow with T. (This was the planned "Lemma B". It is not needed after §3.)
 
 ## 3. Two-level composition: pushing heavy pairs into a graph level (PROVED)
 
@@ -263,7 +268,7 @@ of level-2 edges / level-3 hyperedges at ℓ). Assume
 * (D3) every level-3 vertex has level-3 degree `≤ δ_3` and every pair of
   level-3 vertices has codegree `Δ_O ≤ t`, where
   `t := δ_3/(C_3(S_H+1))` (constants of O2 Thm 10.3 for k=3, with the
-  weight w=16 replaced by `w'=16e^{1/2}`; see Step 2 below).
+  weight `1+w=17` replaced by `1+w':=17e^{1/2}`; see Step 1 below).
 
 **Lemma 3.1 (conditional local lemma; PROVED, standard).** Let 𝒜 be the
 family of all level-2 and level-3 events, `x_E:=2P(E)`. Under (P):
@@ -286,7 +291,7 @@ family alone: `P(B|𝒜_2) ≤ P(B)∏_{A∈Γ(B)}(1−x_A)^{−1}`, where Γ(B)
 set of level-2 events meeting U. Then
 `∏(1−x_A)^{−1} ≤ exp(1.2Σ_{A∈Γ(B)}x_A) ≤ exp(1.2·|U|/16) ≤ e^{|U|/2}`. ∎
 
-*Constants.* `w:=16`, `w':=16e^{1/2}`, `δ_3:=[4e·3·(1+w')³]^{−1}`,
+*Constants.* `w:=16`, `w':=17e^{1/2}−1` (so `1+w'=(1+w)e^{1/2}`), `δ_3:=[4e·3·(1+w')³]^{−1}`,
 `δ:=e^{−50}`. For `Ŝ≥S_H` put
 `Λ_3:=6e(1+w')³Ŝ`, let `L_3` be least with `4^{L_3+1}≥400e^{Λ_3+3Ŝ}`,
 and `t(Ŝ):=δ_3/(3(L_3+1))`. So `L_3=O(Ŝ+1)` and `1/t=O(Ŝ+1)`.
@@ -476,9 +481,9 @@ Then `1/c_0=O(Ŝ)`.
 **Lemma 4.2 (hypotheses of Thm 3.4; PROVED).** For T large:
 
 * (I) holds (O2 Lemma 4.3 (I), verbatim);
-* the per-prime total `g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ = w_ℓ(Π) ≤ c_0` for every
-  `ℓ∈𝒫`. Lifting preserves the mass at every prime, and `w_ℓ(Π)` is by
-  definition the mass of the distinct events whose rough part ℓ divides;
+* the per-prime total `g_ℓ+w^{(2)}_ℓ+w^{(3)}_ℓ ≤ w_ℓ(Π) ≤ c_0` for every
+  `ℓ∈𝒫`. Lifting preserves the mass at every prime, merging can only
+  lower it, and `w_ℓ(Π)` is by definition the mass of the distinct events whose rough part ℓ divides;
 * `S_1+S_2+S_H ≤ S_tot(Π) ≤ S* < Ŝ` (distinct events are at most atoms;
   O2 Lemmas 4.1, 11.1);
 * `log Q ≤ (π(y)+|𝓑|)𝓛+log 24 ≤ 5y`, because `𝓛/log y→4`.
@@ -552,7 +557,7 @@ as in PO Thm 4.1 (twist condition included) with
 `log(M_1/μ) ≤ C_kŜ^{A_k}`, and every modulus is a product of at most
 `C_kŜ^{A_k}` free prime powers.
 
-*Proof.* Put `w=16`, `w'=16e^{1/2}`, `δ_r:=[4er(1+w')^r]^{−1}`,
+*Proof.* Put `w=16`, `w':=17e^{1/2}−1`, `δ_r:=[4er(1+w')^r]^{−1}`,
 `δ:=e^{−50}`.
 
 **Step A (push-down, top to bottom).** For `r=k,k−1,…,3`, in this order,
@@ -560,14 +565,14 @@ let `Σ_r` be the current mass of level r. Level r already contains the
 sets pushed into it from above. Define
 
 ```
-L_r := least integer with 4^{L_r+1} ≥ 200k·𝔐_{r+1}·e^{F_r/2+Λ_r+3Ŝ_{≥r}},
-N_r := r(L_r+1)+F_r,     F_r := k·Σ_{s>r}(L_s+1),
+L_r := least integer with 4^{L_r+1} ≥ 200k·𝔐_{r+1}·e^{H_r/2+Λ_r+3Ŝ_{≥r}},
+N_r := r(L_r+1)+H_r,     H_r := k·Σ_{s>r}(L_s+1),
 ```
 
 where:
 
-* `Ŝ_{≥r}` bounds the total mass of levels `≥r`;
-* `Λ_r:=2er(1+w')^r(Σ_r+F_r+1)`;
+* `Ŝ_{≥r}:=Σ_{s≥r}(Σ_s+1)`, where `Σ_s` is the mass of level s *frozen* at the moment level s is processed (later steps only delete events of levels `≥s` or add events below s, so it stays an upper bound);
+* `Λ_r:=2er(1+w')^r(Σ_r+H_r+1)`;
 * `𝔐_{r+1}:=∏_{s>r}4e^{Λ_s}` (`𝔐_{k+1}:=1`) bounds the mass of the
   composite of the levels above r (Step B).
 
@@ -595,7 +600,7 @@ each polynomial). For `c_k(Ŝ)` small enough, (P_k) holds at the end.
 * Let `B_{≥k}` be the O2 Lemma 10.1 minorant of `F_k` at truncation
   `L_k`.
 * Given `B_{≥r+1}=Σ_ic_i1_{C_i}` (cells `C_i=(P_i,x_i)`,
-  `|P_i|≤F_r`), form for each i the cell-conditioned level-r system on
+  `|P_i|≤H_r`), form for each i the cell-conditioned level-r system on
   `𝒫∖P_i`. Events meeting `P_i` are fixed, vanish, or lose their
   realised vertices; the last kind become *induced* events of smaller
   support. If some event is fully realised by `x_i`, put
@@ -610,19 +615,27 @@ each polynomial). For `c_k(Ŝ)` small enough, (P_k) holds at the end.
 
 *Codegrees in the conditioned systems.* An induced event `e∖F'` (`F'`
 the realised cell vertices of e) contains `O` iff `e⊇O∪F'`. The cell
-fixes at most `F_r` vertices. Using (a) for `|O|+i=1` and (b) otherwise
-(and `F_r/(4N_r)≤1/4`), the conditioned codegrees satisfy
+fixes at most `H_r` vertices. Using (a) for `|O|+i=1` and (b) otherwise
+(and `H_r/(4N_r)≤1/4`), the conditioned codegrees satisfy
 
 ```
-Δ'_v ≤ δ_r/2 + Σ_{i≥1}F_r^iδ_r(4N_r)^{−i}/(2r) ≤ δ_r,
-Δ'_O ≤ Σ_{i≥0}F_r^i δ_r(4N_r)^{−(|O|+i−1)}/(2r) ≤ δ_r(4N_r)^{−(|O|−1)}/r   (|O|≥2).
+Δ'_v ≤ δ_r/2 + Σ_{i≥1}H_r^iδ_r(4N_r)^{−i}/(2r) ≤ δ_r,
+Δ'_O ≤ Σ_{i≥0}H_r^i δ_r(4N_r)^{−(|O|+i−1)}/(2r) ≤ δ_r(4N_r)^{−(|O|−1)}/r   (|O|≥2).
 ```
 
 Since `rU_0=r(L_r+1)≤N_r`, O2 Lemma 10.2's hypothesis
 `Σ_{j=0}^{r−2}(rU_0)^jΔ'^{(j+1)} ≤ δ_r+Σ_{j≥1}4^{−j}δ_r/r ≤ 2δ_r=[2er(1+w')^r]^{−1}`
-holds with `U_0=L_r+1`. The induced events have total mass
-`≤Σ_{v fixed}deg(v) ≤ F_rδ_r`, so the conditioned masses are
-`≤Σ_r+F_r`. This is why `Λ_r` contains `F_r`.
+holds with `U_0=L_r+1`. An induced event comes from an event e and the
+set `F'⊆e` of its realised fixed vertices (`1≤|F'|≤r−1`); its mass is
+`P(e∖F')`, a term of `Δ_{F'}`. With h fixed vertices (`h≤H_r≤N_r`),
+
+```
+S_induced ≤ Σ_{i=1}^{r−1}binom(h,i)·max_{|F'|=i}Δ^{(r)}_{F'} ≤ hδ_r/2 + (δ_r/2r)Σ_{i≥2}h^i(4N_r)^{−(i−1)} ≤ hδ_r,
+```
+
+so the conditioned masses are `≤Σ_r+H_r`. This is why `Λ_r` contains
+`H_r`. (Fixing several vertices of one event can induce more than the
+degree sum, so the higher codegrees are needed here.)
 
 *Errors.* Exactly as in Thm 3.2, using the true lower indicators:
 
@@ -649,7 +662,9 @@ All quantities are `≤C_kŜ^{A_k}`. ∎
 
 **Theorem 5.2 (PROVED modulo Thorner–Zaman; effective for each fixed A).**
 For every `A>0` there are infinitely many Mordell-hard primes p with
-`W(p) > (log p)^A`. Equivalently `log L_h(T) ≤ T^{o(1)}`, and H_MIN(θ)
+`W(p) > (log p)^A`. More strongly (uniform form, proved directly by the
+construction): for every θ>0 and all large T there is a hard prime p with
+`W(p)>T` and `log p≤T^{θ}`; so `log L_h(T) ≤ T^{o(1)}`, and H_MIN(θ)
 holds for every `θ>0`. Quantitatively, for each fixed `k≥3` and
 infinitely many p,
 
@@ -666,9 +681,10 @@ and moduli of the same logarithmic size. Conclude as in Theorem 4.3:
 
 *Remarks.*
 
-* The constants `C_k, A_k` grow (at least) exponentially in k. Letting
-  `k=k(T)→∞` slowly gives some unbounded exponent. We do not optimise
-  this (Assessment: `k≍log log log T` is admissible).
+* The constants `C_k, A_k` grow at least exponentially in k (the
+  downward polynomial amplification may make `A_k` factorial-sized).
+  A diagonal choice `k=k(T)→∞` slowly enough gives *some* unbounded
+  exponent. We claim no explicit rate.
 * This is the Haar-side picture of O2 Thm 11.3 (`log(1/δ*)≤T^{o(1)}`)
   transferred to primes. The Haar heuristic (POINTWISE_SIZE RA) predicts
   exactly this. The prime side and the Haar side now agree up to the

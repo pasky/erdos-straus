@@ -1,212 +1,140 @@
 T=1e+09 theta=0.28 y=331.1 q=116939 classes=48004 sumDelta=52.4051 avg/q=0.000448
-  X=    1: max Delta over classes not -u/v with 0<uv<=X: 0.21390;  (mixed-sign classes max 0.03279)
-  X=    4: max Delta over classes not -u/v with 0<uv<=X: 0.18813;  (mixed-sign classes max 0.03279)
-  X=   16: max Delta over classes not -u/v with 0<uv<=X: 0.11760;  (mixed-sign classes max 0.03279)
-  X=   64: max Delta over classes not -u/v with 0<uv<=X: 0.09080;  (mixed-sign classes max 0.03279)
-  X=  256: max Delta over classes not -u/v with 0<uv<=X: 0.06558;  (mixed-sign classes max 0.03279)
-  X= 1024: max Delta over classes not -u/v with 0<uv<=X: 0.03381;  (mixed-sign classes max 0.03279)
-  X= 4096: max Delta over classes not -u/v with 0<uv<=X: 0.03381;  (mixed-sign classes max 0.03279)
   HUB X=   16: |H_X|=115; max Delta outside H_X: 0.03381 (c=116555, short=(-181, -305))
   HUB X=   64: |H_X|=601; max Delta outside H_X: 0.01311 (c=115239, short=(-105, -344))
   HUB X=  256: |H_X|=3027; max Delta outside H_X: 0.00744 (c=105240, short=(-51, -10))
   HUB X= 1024: |H_X|=14033; max Delta outside H_X: 0.00670 (c=73373, short=(-25, -51))
-  generic (no -u/v with 0<uv<=sqrt(q)/2): 47337 classes, max Delta 0.06558, mean 8.98e-04
-  small-height classes: max Delta*height = 13.08(h=144), 13.08(h=144), 6.26(h=128), 6.26(h=128), 6.26(h=64)
-  top classes outside {-u/v: 0<uv<=1024}:
-    c=     69128 Delta=0.03381 short=(305,181) next=(304,-203)
-    c=    116555 Delta=0.03381 short=(-181,-305) next=(203,-304)
-    c=    116455 Delta=0.03284 short=(-189,-242) next=(295,-241)
-    c=     91570 Delta=0.03284 short=(-242,-189) next=(241,-295)
-    c=    116547 Delta=0.03279 short=(123,-298) next=(392,1)
-    c=     15214 Delta=0.03279 short=(-298,123) next=(1,392)
-    c=     51846 Delta=0.03228 short=(-228,203) next=(229,309)
-    c=    116427 Delta=0.03228 short=(203,-228) next=(309,229)
-  c=    116935  Delta=0.21390  c=-u/v: u=     4 v=     1 |uv|=4
-  c=     87704  Delta=0.21390  c=-u/v: u=     1 v=     4 |uv|=4
-  c=    116938  Delta=0.21390  c=-u/v: u=     1 v=     1 |uv|=1
-  c=    116931  Delta=0.18813  c=-u/v: u=     8 v=     1 |uv|=8
-  c=     43852  Delta=0.18813  c=-u/v: u=     1 v=     8 |uv|=8
-  c=     58469  Delta=0.18813  c=-u/v: u=     1 v=     2 |uv|=2
-  c=    116937  Delta=0.18813  c=-u/v: u=     2 v=     1 |uv|=2
-  c=    116919  Delta=0.11760  c=-u/v: u=    20 v=     1 |uv|=20
-  c=    111092  Delta=0.11760  c=-u/v: u=     1 v=    20 |uv|=20
-  c=    116907  Delta=0.11299  c=-u/v: u=    32 v=     1 |uv|=32
-  c=     10963  Delta=0.11299  c=-u/v: u=     1 v=    32 |uv|=32
-  c=     21926  Delta=0.10998  c=-u/v: u=     1 v=    16 |uv|=16
-  c=    116923  Delta=0.10998  c=-u/v: u=    16 v=     1 |uv|=16
-  c=    116903  Delta=0.10537  c=-u/v: u=    36 v=     1 |uv|=36
-  c=     74711  Delta=0.10537  c=-u/v: u=     1 v=    36 |uv|=36
-  c=    116927  Delta=0.10522  c=-u/v: u=    12 v=     1 |uv|=12
-  c=    107194  Delta=0.10522  c=-u/v: u=     1 v=    12 |uv|=12
-  c=     77959  Delta=0.10522  c=-u/v: u=     1 v=     3 |uv|=3
-  c=    116936  Delta=0.10522  c=-u/v: u=     3 v=     1 |uv|=3
-  c=    116875  Delta=0.09780  c=-u/v: u=    64 v=     1 |uv|=64
-  c=     63951  Delta=0.09780  c=-u/v: u=     1 v=    64 |uv|=64
-  c=     58468  Delta=0.09353  c=-u/v: u=     3 v=     2 |uv|=6
-  c=     38979  Delta=0.09353  c=-u/v: u=     2 v=     3 |uv|=6
-  c=     93551  Delta=0.09237  c=-u/v: u=     1 v=     5 |uv|=5
-  c=    116934  Delta=0.09237  c=-u/v: u=     5 v=     1 |uv|=5
-  c=     53597  Delta=0.09080  c=-u/v: u=     1 v=    24 |uv|=24
-  c=    116915  Delta=0.09080  c=-u/v: u=    24 v=     1 |uv|=24
-  c=    116795  Delta=0.09080  c=-u/v: u=   144 v=     1 |uv|=144
-  c=    106382  Delta=0.09080  c=-u/v: u=     1 v=   144 |uv|=144
-  c=     85268  Delta=0.08242  c=-u/v: u=     1 v=    48 |uv|=48
+  c=    116935  Delta=0.21390  shortest lattice vector (u,v)=(4,1)  least X with c in H_X: 1
+  c=     87704  Delta=0.21390  shortest lattice vector (u,v)=(1,4)  least X with c in H_X: 1
+  c=    116938  Delta=0.21390  shortest lattice vector (u,v)=(1,1)  least X with c in H_X: 1
+  c=    116931  Delta=0.18813  shortest lattice vector (u,v)=(8,1)  least X with c in H_X: 2
+  c=     43852  Delta=0.18813  shortest lattice vector (u,v)=(1,8)  least X with c in H_X: 2
+  c=     58469  Delta=0.18813  shortest lattice vector (u,v)=(1,2)  least X with c in H_X: 2
+  c=    116937  Delta=0.18813  shortest lattice vector (u,v)=(2,1)  least X with c in H_X: 2
+  c=    116919  Delta=0.11760  shortest lattice vector (u,v)=(20,1)  least X with c in H_X: 8
+  c=    111092  Delta=0.11760  shortest lattice vector (u,v)=(1,20)  least X with c in H_X: 8
+  c=    116907  Delta=0.11299  shortest lattice vector (u,v)=(32,1)  least X with c in H_X: 4
+  c=     10963  Delta=0.11299  shortest lattice vector (u,v)=(1,32)  least X with c in H_X: 4
+  c=     21926  Delta=0.10998  shortest lattice vector (u,v)=(1,16)  least X with c in H_X: 2
+  c=    116923  Delta=0.10998  shortest lattice vector (u,v)=(16,1)  least X with c in H_X: 2
+  c=    116903  Delta=0.10537  shortest lattice vector (u,v)=(36,1)  least X with c in H_X: 4
+  c=     74711  Delta=0.10537  shortest lattice vector (u,v)=(1,36)  least X with c in H_X: 4
+  c=    116927  Delta=0.10522  shortest lattice vector (u,v)=(12,1)  least X with c in H_X: 4
+  c=    107194  Delta=0.10522  shortest lattice vector (u,v)=(1,12)  least X with c in H_X: 4
+  c=     77959  Delta=0.10522  shortest lattice vector (u,v)=(1,3)  least X with c in H_X: 4
+  c=    116936  Delta=0.10522  shortest lattice vector (u,v)=(3,1)  least X with c in H_X: 4
+  c=    116875  Delta=0.09780  shortest lattice vector (u,v)=(64,1)  least X with c in H_X: 4
+  c=     63951  Delta=0.09780  shortest lattice vector (u,v)=(1,64)  least X with c in H_X: 4
+  c=     58468  Delta=0.09353  shortest lattice vector (u,v)=(3,2)  least X with c in H_X: 8
+  c=     38979  Delta=0.09353  shortest lattice vector (u,v)=(2,3)  least X with c in H_X: 8
+  c=     93551  Delta=0.09237  shortest lattice vector (u,v)=(1,5)  least X with c in H_X: 8
+  c=    116934  Delta=0.09237  shortest lattice vector (u,v)=(5,1)  least X with c in H_X: 8
+  c=     53597  Delta=0.09080  shortest lattice vector (u,v)=(1,24)  least X with c in H_X: 8
+  c=    116915  Delta=0.09080  shortest lattice vector (u,v)=(24,1)  least X with c in H_X: 8
+  c=    116795  Delta=0.09080  shortest lattice vector (u,v)=(144,1)  least X with c in H_X: 8
+  c=    106382  Delta=0.09080  shortest lattice vector (u,v)=(1,144)  least X with c in H_X: 8
+  c=     85268  Delta=0.08242  shortest lattice vector (u,v)=(1,48)  least X with c in H_X: 8
 T=1e+11 theta=0.27 y=933.3 q=1022117 classes=569492 sumDelta=115.3041 avg/q=0.000113
-  X=    1: max Delta over classes not -u/v with 0<uv<=X: 0.25857;  (mixed-sign classes max 0.03706)
-  X=    4: max Delta over classes not -u/v with 0<uv<=X: 0.22991;  (mixed-sign classes max 0.03706)
-  X=   16: max Delta over classes not -u/v with 0<uv<=X: 0.15432;  (mixed-sign classes max 0.03706)
-  X=   64: max Delta over classes not -u/v with 0<uv<=X: 0.11482;  (mixed-sign classes max 0.03706)
-  X=  256: max Delta over classes not -u/v with 0<uv<=X: 0.11482;  (mixed-sign classes max 0.03706)
-  X= 1024: max Delta over classes not -u/v with 0<uv<=X: 0.03706;  (mixed-sign classes max 0.03706)
-  X= 4096: max Delta over classes not -u/v with 0<uv<=X: 0.03706;  (mixed-sign classes max 0.03706)
   HUB X=   16: |H_X|=115; max Delta outside H_X: 0.05206 (c=1021733, short=(384, 1))
   HUB X=   64: |H_X|=601; max Delta outside H_X: 0.01905 (c=1012317, short=(-230, -1043))
   HUB X=  256: |H_X|=3067; max Delta outside H_X: 0.00681 (c=853045, short=(2, 133))
   HUB X= 1024: |H_X|=14805; max Delta outside H_X: 0.00316 (c=772413, short=(-353, -307))
-  generic (no -u/v with 0<uv<=sqrt(q)/2): 567185 classes, max Delta 0.05286, mean 1.70e-04
-  small-height classes: max Delta*height = 37.20(h=324), 37.20(h=324), 20.62(h=484), 20.62(h=484), 19.99(h=384)
-  top classes outside {-u/v: 0<uv<=1024}:
-    c=    811505 Delta=0.03706 short=(-998,165) next=(-1,-1024)
-    c=   1021093 Delta=0.03706 short=(165,-998) next=(1024,1)
-    c=    350556 Delta=0.03606 short=(579,-761) next=(580,1003)
-    c=   1020353 Delta=0.03606 short=(761,-579) next=(1003,580)
-    c=    691557 Delta=0.03263 short=(708,235) next=(-707,1209)
-    c=   1020673 Delta=0.03263 short=(-235,-708) next=(1209,-707)
-    c=   1020765 Delta=0.03182 short=(5,-756) next=(1352,1)
-    c=    408998 Delta=0.03182 short=(756,-5) next=(-1,-1352)
-  c=   1022113  Delta=0.25857  c=-u/v: u=     4 v=     1 |uv|=4
-  c=    255529  Delta=0.25857  c=-u/v: u=     1 v=     4 |uv|=4
-  c=   1022116  Delta=0.25857  c=-u/v: u=     1 v=     1 |uv|=1
-  c=    638823  Delta=0.22991  c=-u/v: u=     1 v=     8 |uv|=8
-  c=   1022109  Delta=0.22991  c=-u/v: u=     8 v=     1 |uv|=8
-  c=    511058  Delta=0.22991  c=-u/v: u=     1 v=     2 |uv|=2
-  c=   1022115  Delta=0.22991  c=-u/v: u=     2 v=     1 |uv|=2
-  c=   1022097  Delta=0.15432  c=-u/v: u=    20 v=     1 |uv|=20
-  c=    664376  Delta=0.15432  c=-u/v: u=     1 v=    20 |uv|=20
-  c=   1022085  Delta=0.14938  c=-u/v: u=    32 v=     1 |uv|=32
-  c=    415235  Delta=0.14938  c=-u/v: u=     1 v=    32 |uv|=32
-  c=    718676  Delta=0.14386  c=-u/v: u=     1 v=    64 |uv|=64
-  c=   1022053  Delta=0.14386  c=-u/v: u=    64 v=     1 |uv|=64
-  c=   1022101  Delta=0.12888  c=-u/v: u=    16 v=     1 |uv|=16
-  c=    830470  Delta=0.12888  c=-u/v: u=     1 v=    16 |uv|=16
-  c=    681411  Delta=0.12826  c=-u/v: u=     1 v=     3 |uv|=3
-  c=    823372  Delta=0.12826  c=-u/v: u=     1 v=    36 |uv|=36
-  c=   1022105  Delta=0.12826  c=-u/v: u=    12 v=     1 |uv|=12
-  c=    425882  Delta=0.12826  c=-u/v: u=     1 v=    12 |uv|=12
-  c=   1022081  Delta=0.12826  c=-u/v: u=    36 v=     1 |uv|=36
-  c=   1022114  Delta=0.12826  c=-u/v: u=     3 v=     1 |uv|=3
-  c=   1021793  Delta=0.11482  c=-u/v: u=   324 v=     1 |uv|=324
-  c=    545760  Delta=0.11482  c=-u/v: u=     1 v=   324 |uv|=324
-  c=    613270  Delta=0.11469  c=-u/v: u=     1 v=     5 |uv|=5
-  c=   1022112  Delta=0.11469  c=-u/v: u=     5 v=     1 |uv|=5
-  c=    205843  Delta=0.10663  c=-u/v: u=     1 v=   144 |uv|=144
-  c=   1021973  Delta=0.10663  c=-u/v: u=   144 v=     1 |uv|=144
-  c=    511057  Delta=0.10651  c=-u/v: u=     3 v=     2 |uv|=6
-  c=    340705  Delta=0.10651  c=-u/v: u=     2 v=     3 |uv|=6
-  c=   1022093  Delta=0.10650  c=-u/v: u=    24 v=     1 |uv|=24
+  c=   1022113  Delta=0.25857  shortest lattice vector (u,v)=(4,1)  least X with c in H_X: 1
+  c=    255529  Delta=0.25857  shortest lattice vector (u,v)=(1,4)  least X with c in H_X: 1
+  c=   1022116  Delta=0.25857  shortest lattice vector (u,v)=(1,1)  least X with c in H_X: 1
+  c=    638823  Delta=0.22991  shortest lattice vector (u,v)=(1,8)  least X with c in H_X: 2
+  c=   1022109  Delta=0.22991  shortest lattice vector (u,v)=(8,1)  least X with c in H_X: 2
+  c=    511058  Delta=0.22991  shortest lattice vector (u,v)=(1,2)  least X with c in H_X: 2
+  c=   1022115  Delta=0.22991  shortest lattice vector (u,v)=(2,1)  least X with c in H_X: 2
+  c=   1022097  Delta=0.15432  shortest lattice vector (u,v)=(20,1)  least X with c in H_X: 8
+  c=    664376  Delta=0.15432  shortest lattice vector (u,v)=(1,20)  least X with c in H_X: 8
+  c=   1022085  Delta=0.14938  shortest lattice vector (u,v)=(32,1)  least X with c in H_X: 4
+  c=    415235  Delta=0.14938  shortest lattice vector (u,v)=(1,32)  least X with c in H_X: 4
+  c=    718676  Delta=0.14386  shortest lattice vector (u,v)=(1,64)  least X with c in H_X: 4
+  c=   1022053  Delta=0.14386  shortest lattice vector (u,v)=(64,1)  least X with c in H_X: 4
+  c=   1022101  Delta=0.12888  shortest lattice vector (u,v)=(16,1)  least X with c in H_X: 2
+  c=    830470  Delta=0.12888  shortest lattice vector (u,v)=(1,16)  least X with c in H_X: 2
+  c=    681411  Delta=0.12826  shortest lattice vector (u,v)=(1,3)  least X with c in H_X: 4
+  c=    823372  Delta=0.12826  shortest lattice vector (u,v)=(1,36)  least X with c in H_X: 4
+  c=   1022105  Delta=0.12826  shortest lattice vector (u,v)=(12,1)  least X with c in H_X: 4
+  c=    425882  Delta=0.12826  shortest lattice vector (u,v)=(1,12)  least X with c in H_X: 4
+  c=   1022081  Delta=0.12826  shortest lattice vector (u,v)=(36,1)  least X with c in H_X: 4
+  c=   1022114  Delta=0.12826  shortest lattice vector (u,v)=(3,1)  least X with c in H_X: 4
+  c=   1021793  Delta=0.11482  shortest lattice vector (u,v)=(324,1)  least X with c in H_X: 16
+  c=    545760  Delta=0.11482  shortest lattice vector (u,v)=(1,324)  least X with c in H_X: 16
+  c=    613270  Delta=0.11469  shortest lattice vector (u,v)=(1,5)  least X with c in H_X: 8
+  c=   1022112  Delta=0.11469  shortest lattice vector (u,v)=(5,1)  least X with c in H_X: 8
+  c=    205843  Delta=0.10663  shortest lattice vector (u,v)=(1,144)  least X with c in H_X: 8
+  c=   1021973  Delta=0.10663  shortest lattice vector (u,v)=(144,1)  least X with c in H_X: 8
+  c=    511057  Delta=0.10651  shortest lattice vector (u,v)=(3,2)  least X with c in H_X: 8
+  c=    340705  Delta=0.10651  shortest lattice vector (u,v)=(2,3)  least X with c in H_X: 8
+  c=   1022093  Delta=0.10650  shortest lattice vector (u,v)=(24,1)  least X with c in H_X: 8
 T=1e+12 theta=0.26 y=1318.3 q=1752967 classes=1614192 sumDelta=174.2348 avg/q=9.94e-05
-  X=    1: max Delta over classes not -u/v with 0<uv<=X: 0.30068;  (mixed-sign classes max 0.04425)
-  X=    4: max Delta over classes not -u/v with 0<uv<=X: 0.27946;  (mixed-sign classes max 0.04425)
-  X=   16: max Delta over classes not -u/v with 0<uv<=X: 0.19738;  (mixed-sign classes max 0.04425)
-  X=   64: max Delta over classes not -u/v with 0<uv<=X: 0.16833;  (mixed-sign classes max 0.04425)
-  X=  256: max Delta over classes not -u/v with 0<uv<=X: 0.16833;  (mixed-sign classes max 0.04425)
-  X= 1024: max Delta over classes not -u/v with 0<uv<=X: 0.04663;  (mixed-sign classes max 0.04425)
-  X= 4096: max Delta over classes not -u/v with 0<uv<=X: 0.04622;  (mixed-sign classes max 0.04425)
   HUB X=   16: |H_X|=115; max Delta outside H_X: 0.08556 (c=1752583, short=(384, 1))
   HUB X=   64: |H_X|=601; max Delta outside H_X: 0.03320 (c=1743167, short=(-1233, -179))
   HUB X=  256: |H_X|=3067; max Delta outside H_X: 0.00906 (c=1669423, short=(495, -1196))
   HUB X= 1024: |H_X|=14825; max Delta outside H_X: 0.00363 (c=1578143, short=(-75, 371))
-  generic (no -u/v with 0<uv<=sqrt(q)/2): 1611057 classes, max Delta 0.07503, mean 9.15e-05
-  small-height classes: max Delta*height = 54.54(h=324), 54.54(h=324), 41.97(h=512), 41.97(h=512), 33.35(h=648)
-  top classes outside {-u/v: 0<uv<=1024}:
-    c=   1751615 Delta=0.04663 short=(1352,1) next=(-577,-1297)
-    c=    309881 Delta=0.04663 short=(-1,-1352) next=(-1297,-577)
-    c=     54656 Delta=0.04622 short=(-994,-449) next=(993,-1315)
-    c=   1751203 Delta=0.04622 short=(-449,-994) next=(1315,-993)
-    c=   1751523 Delta=0.04443 short=(-49,-1214) next=(1444,1)
-    c=   1144770 Delta=0.04443 short=(-1214,-49) next=(-1,-1444)
-    c=    640117 Delta=0.04425 short=(-1014,775) next=(1015,953)
-    c=   1751239 Delta=0.04425 short=(775,-1014) next=(953,1015)
-  c=   1752963  Delta=0.30068  c=-u/v: u=     4 v=     1 |uv|=4
-  c=   1314725  Delta=0.30068  c=-u/v: u=     1 v=     4 |uv|=4
-  c=   1752966  Delta=0.30055  c=-u/v: u=     1 v=     1 |uv|=1
-  c=    876483  Delta=0.27954  c=-u/v: u=     1 v=     2 |uv|=2
-  c=   1752965  Delta=0.27954  c=-u/v: u=     2 v=     1 |uv|=2
-  c=   1752959  Delta=0.27946  c=-u/v: u=     8 v=     1 |uv|=8
-  c=   1533846  Delta=0.27946  c=-u/v: u=     1 v=     8 |uv|=8
-  c=   1752947  Delta=0.19738  c=-u/v: u=    20 v=     1 |uv|=20
-  c=    262945  Delta=0.19738  c=-u/v: u=     1 v=    20 |uv|=20
-  c=   1259945  Delta=0.19156  c=-u/v: u=     1 v=    32 |uv|=32
-  c=   1752935  Delta=0.19156  c=-u/v: u=    32 v=     1 |uv|=32
-  c=   1506456  Delta=0.18315  c=-u/v: u=     1 v=    64 |uv|=64
-  c=   1752903  Delta=0.18315  c=-u/v: u=    64 v=     1 |uv|=64
-  c=   1076668  Delta=0.16833  c=-u/v: u=     1 v=   324 |uv|=324
-  c=   1752643  Delta=0.16833  c=-u/v: u=   324 v=     1 |uv|=324
-  c=   1752931  Delta=0.15267  c=-u/v: u=    36 v=     1 |uv|=36
-  c=    925177  Delta=0.15267  c=-u/v: u=     1 v=    36 |uv|=36
-  c=    584322  Delta=0.15178  c=-u/v: u=     1 v=     3 |uv|=3
-  c=   1752964  Delta=0.15178  c=-u/v: u=     3 v=     1 |uv|=3
-  c=   1752955  Delta=0.15177  c=-u/v: u=    12 v=     1 |uv|=12
-  c=   1022564  Delta=0.15177  c=-u/v: u=     1 v=    12 |uv|=12
-  c=    766923  Delta=0.14846  c=-u/v: u=     1 v=    16 |uv|=16
-  c=   1752951  Delta=0.14846  c=-u/v: u=    16 v=     1 |uv|=16
-  c=   1051780  Delta=0.14128  c=-u/v: u=     1 v=     5 |uv|=5
-  c=   1752962  Delta=0.14128  c=-u/v: u=     5 v=     1 |uv|=5
-  c=    669536  Delta=0.13581  c=-u/v: u=     1 v=   144 |uv|=144
-  c=   1752823  Delta=0.13581  c=-u/v: u=   144 v=     1 |uv|=144
-  c=    876482  Delta=0.13569  c=-u/v: u=     3 v=     2 |uv|=6
-  c=   1168644  Delta=0.13569  c=-u/v: u=     2 v=     3 |uv|=6
-  c=   1752943  Delta=0.13562  c=-u/v: u=    24 v=     1 |uv|=24
+  c=   1752963  Delta=0.30068  shortest lattice vector (u,v)=(4,1)  least X with c in H_X: 1
+  c=   1314725  Delta=0.30068  shortest lattice vector (u,v)=(1,4)  least X with c in H_X: 1
+  c=   1752966  Delta=0.30055  shortest lattice vector (u,v)=(1,1)  least X with c in H_X: 1
+  c=    876483  Delta=0.27954  shortest lattice vector (u,v)=(1,2)  least X with c in H_X: 2
+  c=   1752965  Delta=0.27954  shortest lattice vector (u,v)=(2,1)  least X with c in H_X: 2
+  c=   1752959  Delta=0.27946  shortest lattice vector (u,v)=(8,1)  least X with c in H_X: 2
+  c=   1533846  Delta=0.27946  shortest lattice vector (u,v)=(1,8)  least X with c in H_X: 2
+  c=   1752947  Delta=0.19738  shortest lattice vector (u,v)=(20,1)  least X with c in H_X: 8
+  c=    262945  Delta=0.19738  shortest lattice vector (u,v)=(1,20)  least X with c in H_X: 8
+  c=   1259945  Delta=0.19156  shortest lattice vector (u,v)=(1,32)  least X with c in H_X: 4
+  c=   1752935  Delta=0.19156  shortest lattice vector (u,v)=(32,1)  least X with c in H_X: 4
+  c=   1506456  Delta=0.18315  shortest lattice vector (u,v)=(1,64)  least X with c in H_X: 4
+  c=   1752903  Delta=0.18315  shortest lattice vector (u,v)=(64,1)  least X with c in H_X: 4
+  c=   1076668  Delta=0.16833  shortest lattice vector (u,v)=(1,324)  least X with c in H_X: 16
+  c=   1752643  Delta=0.16833  shortest lattice vector (u,v)=(324,1)  least X with c in H_X: 16
+  c=   1752931  Delta=0.15267  shortest lattice vector (u,v)=(36,1)  least X with c in H_X: 4
+  c=    925177  Delta=0.15267  shortest lattice vector (u,v)=(1,36)  least X with c in H_X: 4
+  c=    584322  Delta=0.15178  shortest lattice vector (u,v)=(1,3)  least X with c in H_X: 4
+  c=   1752964  Delta=0.15178  shortest lattice vector (u,v)=(3,1)  least X with c in H_X: 4
+  c=   1752955  Delta=0.15177  shortest lattice vector (u,v)=(12,1)  least X with c in H_X: 4
+  c=   1022564  Delta=0.15177  shortest lattice vector (u,v)=(1,12)  least X with c in H_X: 4
+  c=    766923  Delta=0.14846  shortest lattice vector (u,v)=(1,16)  least X with c in H_X: 2
+  c=   1752951  Delta=0.14846  shortest lattice vector (u,v)=(16,1)  least X with c in H_X: 2
+  c=   1051780  Delta=0.14128  shortest lattice vector (u,v)=(1,5)  least X with c in H_X: 8
+  c=   1752962  Delta=0.14128  shortest lattice vector (u,v)=(5,1)  least X with c in H_X: 8
+  c=    669536  Delta=0.13581  shortest lattice vector (u,v)=(1,144)  least X with c in H_X: 8
+  c=   1752823  Delta=0.13581  shortest lattice vector (u,v)=(144,1)  least X with c in H_X: 8
+  c=    876482  Delta=0.13569  shortest lattice vector (u,v)=(3,2)  least X with c in H_X: 8
+  c=   1168644  Delta=0.13569  shortest lattice vector (u,v)=(2,3)  least X with c in H_X: 8
+  c=   1752943  Delta=0.13562  shortest lattice vector (u,v)=(24,1)  least X with c in H_X: 8
 T=1e+13 theta=0.26 y=2398.8 q=5973127 classes=5378745 sumDelta=219.6389 avg/q=3.68e-05
-  X=    1: max Delta over classes not -u/v with 0<uv<=X: 0.30179;  (mixed-sign classes max 0.04218)
-  X=    4: max Delta over classes not -u/v with 0<uv<=X: 0.28327;  (mixed-sign classes max 0.04218)
-  X=   16: max Delta over classes not -u/v with 0<uv<=X: 0.20275;  (mixed-sign classes max 0.04218)
-  X=   64: max Delta over classes not -u/v with 0<uv<=X: 0.17518;  (mixed-sign classes max 0.04218)
-  X=  256: max Delta over classes not -u/v with 0<uv<=X: 0.17518;  (mixed-sign classes max 0.04218)
-  X= 1024: max Delta over classes not -u/v with 0<uv<=X: 0.05159;  (mixed-sign classes max 0.04218)
-  X= 4096: max Delta over classes not -u/v with 0<uv<=X: 0.04218;  (mixed-sign classes max 0.04218)
   HUB X=   16: |H_X|=115; max Delta outside H_X: 0.08923 (c=5972743, short=(384, 1))
   HUB X=   64: |H_X|=601; max Delta outside H_X: 0.03750 (c=5963327, short=(54, -1219))
   HUB X=  256: |H_X|=3065; max Delta outside H_X: 0.00950 (c=5951623, short=(1564, -1111))
   HUB X= 1024: |H_X|=14849; max Delta outside H_X: 0.00481 (c=5798303, short=(158, 205))
-  generic (no -u/v with 0<uv<=sqrt(q)/2): 5372506 classes, max Delta 0.05159, mean 3.46e-05
-  small-height classes: max Delta*height = 70.50(h=900), 70.50(h=900), 62.61(h=968), 62.61(h=968), 61.04(h=1024)
-  top classes outside {-u/v: 0<uv<=1024}:
-    c=   5971399 Delta=0.05159 short=(1728,1) next=(-569,-3457)
-    c=   2844840 Delta=0.05159 short=(-1,-1728) next=(-3457,-569)
-    c=   5971775 Delta=0.05088 short=(1352,1) next=(-9,-4418)
-    c=   3317913 Delta=0.05088 short=(-1,-1352) next=(4418,9)
-    c=   3883887 Delta=0.05019 short=(1,1764) next=(3386,-223)
-    c=   5971363 Delta=0.05019 short=(1764,1) next=(223,-3386)
-    c=   5971683 Delta=0.04821 short=(1444,1) next=(-701,-4137)
-    c=   1849022 Delta=0.04821 short=(1,1444) next=(4137,701)
-  c=   5973123  Delta=0.30179  c=-u/v: u=     4 v=     1 |uv|=4
-  c=   4479845  Delta=0.30179  c=-u/v: u=     1 v=     4 |uv|=4
-  c=   5973126  Delta=0.30179  c=-u/v: u=     1 v=     1 |uv|=1
-  c=   5973119  Delta=0.28327  c=-u/v: u=     8 v=     1 |uv|=8
-  c=   5226486  Delta=0.28327  c=-u/v: u=     1 v=     8 |uv|=8
-  c=   2986563  Delta=0.28318  c=-u/v: u=     1 v=     2 |uv|=2
-  c=   5973125  Delta=0.28318  c=-u/v: u=     2 v=     1 |uv|=2
-  c=   5973107  Delta=0.20275  c=-u/v: u=    20 v=     1 |uv|=20
-  c=    895969  Delta=0.20275  c=-u/v: u=     1 v=    20 |uv|=20
-  c=   5973095  Delta=0.19484  c=-u/v: u=    32 v=     1 |uv|=32
-  c=   4293185  Delta=0.19484  c=-u/v: u=     1 v=    32 |uv|=32
-  c=   5133156  Delta=0.18673  c=-u/v: u=     1 v=    64 |uv|=64
-  c=   5973063  Delta=0.18673  c=-u/v: u=    64 v=     1 |uv|=64
-  c=   5972803  Delta=0.17518  c=-u/v: u=   324 v=     1 |uv|=324
-  c=   3226226  Delta=0.17518  c=-u/v: u=     1 v=   324 |uv|=324
-  c=   5973091  Delta=0.15211  c=-u/v: u=    36 v=     1 |uv|=36
-  c=   5143526  Delta=0.15211  c=-u/v: u=     1 v=    36 |uv|=36
-  c=   1991042  Delta=0.15189  c=-u/v: u=     1 v=     3 |uv|=3
-  c=   5973124  Delta=0.15189  c=-u/v: u=     3 v=     1 |uv|=3
-  c=   5973115  Delta=0.15189  c=-u/v: u=    12 v=     1 |uv|=12
-  c=   3484324  Delta=0.15189  c=-u/v: u=     1 v=    12 |uv|=12
-  c=   2613243  Delta=0.15065  c=-u/v: u=     1 v=    16 |uv|=16
-  c=   5973111  Delta=0.15065  c=-u/v: u=    16 v=     1 |uv|=16
-  c=   3583876  Delta=0.14450  c=-u/v: u=     1 v=     5 |uv|=5
-  c=   5973122  Delta=0.14450  c=-u/v: u=     5 v=     1 |uv|=5
-  c=   4272445  Delta=0.13655  c=-u/v: u=     1 v=   144 |uv|=144
-  c=   5972983  Delta=0.13655  c=-u/v: u=   144 v=     1 |uv|=144
-  c=   5973103  Delta=0.13654  c=-u/v: u=    24 v=     1 |uv|=24
-  c=   1742162  Delta=0.13654  c=-u/v: u=     1 v=    24 |uv|=24
-  c=   2986562  Delta=0.13653  c=-u/v: u=     3 v=     2 |uv|=6
+  c=   5973123  Delta=0.30179  shortest lattice vector (u,v)=(4,1)  least X with c in H_X: 1
+  c=   4479845  Delta=0.30179  shortest lattice vector (u,v)=(1,4)  least X with c in H_X: 1
+  c=   5973126  Delta=0.30179  shortest lattice vector (u,v)=(1,1)  least X with c in H_X: 1
+  c=   5973119  Delta=0.28327  shortest lattice vector (u,v)=(8,1)  least X with c in H_X: 2
+  c=   5226486  Delta=0.28327  shortest lattice vector (u,v)=(1,8)  least X with c in H_X: 2
+  c=   2986563  Delta=0.28318  shortest lattice vector (u,v)=(1,2)  least X with c in H_X: 2
+  c=   5973125  Delta=0.28318  shortest lattice vector (u,v)=(2,1)  least X with c in H_X: 2
+  c=   5973107  Delta=0.20275  shortest lattice vector (u,v)=(20,1)  least X with c in H_X: 8
+  c=    895969  Delta=0.20275  shortest lattice vector (u,v)=(1,20)  least X with c in H_X: 8
+  c=   5973095  Delta=0.19484  shortest lattice vector (u,v)=(32,1)  least X with c in H_X: 4
+  c=   4293185  Delta=0.19484  shortest lattice vector (u,v)=(1,32)  least X with c in H_X: 4
+  c=   5133156  Delta=0.18673  shortest lattice vector (u,v)=(1,64)  least X with c in H_X: 4
+  c=   5973063  Delta=0.18673  shortest lattice vector (u,v)=(64,1)  least X with c in H_X: 4
+  c=   5972803  Delta=0.17518  shortest lattice vector (u,v)=(324,1)  least X with c in H_X: 16
+  c=   3226226  Delta=0.17518  shortest lattice vector (u,v)=(1,324)  least X with c in H_X: 16
+  c=   5973091  Delta=0.15211  shortest lattice vector (u,v)=(36,1)  least X with c in H_X: 4
+  c=   5143526  Delta=0.15211  shortest lattice vector (u,v)=(1,36)  least X with c in H_X: 4
+  c=   1991042  Delta=0.15189  shortest lattice vector (u,v)=(1,3)  least X with c in H_X: 4
+  c=   5973124  Delta=0.15189  shortest lattice vector (u,v)=(3,1)  least X with c in H_X: 4
+  c=   5973115  Delta=0.15189  shortest lattice vector (u,v)=(12,1)  least X with c in H_X: 4
+  c=   3484324  Delta=0.15189  shortest lattice vector (u,v)=(1,12)  least X with c in H_X: 4
+  c=   2613243  Delta=0.15065  shortest lattice vector (u,v)=(1,16)  least X with c in H_X: 2
+  c=   5973111  Delta=0.15065  shortest lattice vector (u,v)=(16,1)  least X with c in H_X: 2
+  c=   3583876  Delta=0.14450  shortest lattice vector (u,v)=(1,5)  least X with c in H_X: 8
+  c=   5973122  Delta=0.14450  shortest lattice vector (u,v)=(5,1)  least X with c in H_X: 8
+  c=   4272445  Delta=0.13655  shortest lattice vector (u,v)=(1,144)  least X with c in H_X: 8
+  c=   5972983  Delta=0.13655  shortest lattice vector (u,v)=(144,1)  least X with c in H_X: 8
+  c=   5973103  Delta=0.13654  shortest lattice vector (u,v)=(24,1)  least X with c in H_X: 8
+  c=   1742162  Delta=0.13654  shortest lattice vector (u,v)=(1,24)  least X with c in H_X: 8
+  c=   2986562  Delta=0.13653  shortest lattice vector (u,v)=(3,2)  least X with c in H_X: 8
