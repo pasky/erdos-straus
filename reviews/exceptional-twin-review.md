@@ -622,6 +622,37 @@ in substance.
    residue a has one partner with x = 0.02, residue b has two partners with
    x = 0.01 each. Then `deg(a) = deg(b)`, so `Var(deg) = 0`, but
    `r_j(a) ≠ r_j(b)`. The correct statement is
-   `Var(r_j) ≤ (1+O(δ))·E_ν(deg_j − E deg_j)² + O(δ²)·q_j ≤ (1+O(δ))q_j`.
+   `Var(r_j) ≤ (1+O(δ))·Var_ν(deg_j) + O(δ)·q_j ≤ (1+O(δ))q_j` (the cross term is handled by AM–GM).
    That is all (6.2) uses, so nothing downstream breaks. Fix the
    statement.
+
+### R2.10 Targets (6.1)–(6.3), "What (6.2) would give", Σq_j — labels mostly HONEST; one PROVED claim overreaches
+
+(6.1) is marked superseded, (6.2)/(6.3) OPEN, Σq_j SKETCH, and the
+weighted-KP derivative step "unproved". These are honest. The two open
+points listed for (6.3) (pinning-dependent base; normalisation `N_S`) are
+the real ones. The doubly-centred alternative is correctly flagged as
+lacking Penrose (non-repulsive `g_j`).
+
+**T14 (MEDIUM; "What (6.2) would give (PROVED reduction)", first bullet).**
+Quote: "the diagonal `Σ_e ρ̃ρ̃′π_e`: its fibre average is
+`≤ (16/9)Σ_C P(C) M_C^{>w, −α}`, which is `≪ α^{−3}` for all ℛ(M) by ET
+Lemma 3.1". Two problems.
+1. The constant. `ρ̃ρ̃′ ≤ (16/9)ρρ′` accounts for one 16/9. But `π_e` is a
+   ν-mass, and ν is inflated by `(1−p)^{−1} ≤ 4/3` at each of the two
+   primes. So the factor is at least `(16/9)²`. This is minor.
+2. The real gap: which average. Lemma 6.6 averages over the restricted
+   fibre set R (avoiders of all w-smooth classes, and good fibres), not
+   over all fibres. So `avg_{c∈R} 1[c ≡ a_C (q_C)]` is not `1/q_C`. It
+   carries the inflation of the base on R, e.g. `Π γ(p)` at QR primes and
+   local-lemma factors on `(W₁, w]`. This must then be summed with a
+   γ-weighted divisor bound, as in Lemma 2.6, uniformly in
+   `W₁ = (log λ)^{C′}` and `w = λ^C`. ET Lemma 3.1 (unweighted, `M/φ(M)`)
+   does not give that directly. See T12. With the restriction to R, "PROVED"
+   is not justified for this bullet. Fix: either relabel it SKETCH along
+   with step 1–2 of Reduction 6.7, or prove a γ-weighted Lemma 3.1 for the
+   product-plus-local-lemma base, with explicit dependence on W₁.
+
+"Then Lemma 6.6 gives `saving(g²) ≤ αλ/2 + Cα^{−3} + log(Q_F/|R|) + O(1)`"
+inherits T14 and the open (6.2)/(6.3). It is labelled conditional in the
+Status paragraph, which is fine.
