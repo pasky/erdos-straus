@@ -383,3 +383,37 @@ classes); `twin_capped.py` at (X, W, κ) = (10⁵, 300, 0.2 cap), (10⁵, 100,
 0.2 cap), (10⁵, 30, 0.2), (10⁵, 30, 0.5), all matching the saved data or
 the quoted value. (a,D) square check for S1: an ad-hoc 10-line sympy loop,
 not committed.
+
+---
+
+# Round 2 (subject: side-agent/twin-windows @ 036ab3c): §6 and the T1–T8/S1 repairs
+
+Subject files re-copied from 036ab3c. Defects continue the numbering (T9, …).
+
+### R2.0 Repairs of round 1 — all ACCEPTED (one residual note)
+
+* **T1** (BBMST): §2 intro now cites Hough 2015 and BBMST (arXiv:1811.03547,
+  Invent. Math. 228, def. (5), Thm 3.1), and says how the variant differs
+  and why. Accurate. ACCEPTED.
+* **T2**: Lemma 2.4 now says N_ℓ is a function of the full Q′ history.
+  ACCEPTED.
+* **T3**: Remark 2.5′ (caps `min(1/4, ℓ^{−κ})`, κ ∈ (0,1)). Checked: Markov
+  with `ε < (1−κ)/2` makes `Σℓ^{κ−2+ε}` converge; `γ' ≤ 4/3`; the large-divisor
+  sum `Σ h(d)d^{−1+κ/2}` has Euler factors `1+O(p^{−1−κ/2})` above W. The
+  small-divisor sum `Σ h(d)/φ(d)` (factors `1+O(p^{−1−κ})`) is not mentioned
+  but is also fine. ACCEPTED.
+* **T4**: the W = 300 wording now says "attainable", notes that B is
+  unbounded and the system sparse, and the κ = 0.5 run is saved. ACCEPTED.
+* **T5**: Thm 2.3′ (abstract step) and Lemma 2.1′ (leak for sequential
+  orders). The proof of 2.3′ is the proof of 2.3 with (S) as the only step
+  input. Correct, and the three instances check. Thm 4.4 now cites 2.3′.
+  ACCEPTED. Residual (LOW, folded into T11): Lemma 2.1′ fixes the in-block
+  rule "uniform off `F̂_ℓ(past)` if light, uniform otherwise". The σ of §6 is
+  not of this form: it excludes Markov-removed non-completing residues, and
+  its unary and k-ary parts are tested separately. So §6 cannot cite 2.1′
+  verbatim.
+* **T6**: the W₀ convention is placed after Cor 2.5. ACCEPTED.
+* **T7**: §5 λ-range. ACCEPTED.
+* **T8**: "separately" is now stated. ACCEPTED.
+* **S1**: Remark 1.4 is labelled EVIDENCE (base only), which is honest. Replay of
+  `twin_square_base_check.py 40 300 3000` is below.

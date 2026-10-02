@@ -1,0 +1,2 @@
+m=4 L=5 d=3 kappa=2 seed=1  binary: mass=0.480 void=0.519 logC*=1.0561 | unary: mass=0.800 logC*=0.8771
+m=5 L=5 d=3 kappa=2 seed=1  binary: mass=0.800 void=0.825 logC*=1.3666 | unary: mass=1.000 logC*=1.0441
