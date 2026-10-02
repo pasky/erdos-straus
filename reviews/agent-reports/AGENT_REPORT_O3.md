@@ -4,7 +4,7 @@ Deliverable: `EXCEPTIONAL_TWIN2.md` (§0 table), scripts `scripts/twin2_binary_c
 `scripts/twin2_offdiag.py`. Branch of this worktree; nothing merged.
 
 ## Outcome
-* **TW target (6.2) is PROVED (Thm 1.4), without the factorisation (6.3).**
+* **The logarithmic form of TW target (6.2) is PROVED (Thm 1.4), without the factorisation (6.3).** (TW's literal (6.2), on `Z₂/Z₁²−1`, is false for large systems — Remark 1.6; only the log form is needed.)
   `log(Z₂/Z₁²) ≤ (1+25δ)[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` when every prime-level
   binary mass `w_ℓ ≤ δ ≤ 1/16`. Proof: differentiate `log Z₂` in the coupling
   with the *unconditioned* rest law (Lemma 1.3: the `J`-denominator becomes one
@@ -27,8 +27,8 @@ Deliverable: `EXCEPTIONAL_TWIN2.md` (§0 table), scripts `scripts/twin2_binary_c
   optimistic: hubs give `≍ polylog/j` (still fine for the budget).
   New structure (Lemma 5.3, PROVED): the residue of `−4D mod M` at `j | M` is
   `−u′/v′` with `D = A u′/v′`, independent of k, m; reduced via `4A ≡ 1 (j)`
-  to a canonical label. Split: same-label part SKETCH (Brun–Titchmarsh);
-  cross-label part OPEN. Numerics (§5.2, real system, X ≤ 1e8): cross-label
+  to a canonical label. Split: same-label part SKETCH with a substantive gap (cross-cofactor pairs; label moduli are ≪ height², not height);
+  cross-label part OPEN. Numerics (§5.2, toy multiplicity profile of the real system: unconditioned fibre, 1/m weights, X ≤ 1e8): cross-label
   agreements are at or below the random prediction in all 6 rows; all excess
   is same-label.
 * **Cor 5.2 CONDITIONAL on (H_O):** the cap `≪ L^{3/4}(log L)^{O(1)}`.
@@ -49,3 +49,11 @@ Write (H_O^=) at proof level; attack (H_O^≠) (equidistribution of canonical
 labels mod j, uniform in j) — possibly via the n-side picture
 (`j | gcd(n+4D, n+4D′)` ⇒ `j | D−D′`) with the label sets' j-dependence
 handled by summing over j innermost.
+
+## Self-review (reviewer subagent, deep) — applied
+Core proofs (Thm 1.4, Lemmas 2.1, 2.2, 3.1–3.4) checked SOUND and numerics
+reproduced. Fixed: (6.2) relabelled as log form (Remark 1.6 counterexample to
+the literal (6.2)); label-modulus ≪ height²; same-label congruence across
+cofactors (now flagged as a gap); prime-power vertices (upper bounds, `S ≤ q`);
+variance remark withdrawn; inflation for `k | Q_F`; Lemma 3.2 dependency
+order; numerics caveats and corrected random-label benchmark.

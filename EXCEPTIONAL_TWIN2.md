@@ -11,7 +11,7 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 |---|---|---|
 | Lemma 1.1, Cor 1.2 | conditional local lemma `P(B\|A_𝓢) ≤ P(B)Π(1−x_F)^{−1}`; for binary systems `≤ P(B)e^{5Σ_{ℓ∈T}w_ℓ}` | PROVED (standard) |
 | Lemma 1.3 | `∂_{κ_j} log Z₂ = E[Cov_j 1_{A₋ⱼ}]/Z₂` (unconditioned rest law; no `1/J` pointwise) | PROVED |
-| **Thm 1.4** | **TW target (6.2)**: `log(Z₂/Z₁²) ≤ (1+25δ)[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` if every prime mass `w_ℓ ≤ δ ≤ 1/16`. TW's factorisation (6.3), KP and Penrose are **not needed**; vertex degrees unrestricted | PROVED; exact check 1200 systems |
+| **Thm 1.4** | **log form of TW target (6.2)** (what Lemma 6.6 needs; TW's non-log (6.2), a bound on `Z₂/Z₁²−1`, is false for large systems, see Remark 1.6): `log(Z₂/Z₁²) ≤ (1+25δ)[Σ_e ρ̃ρ̃′π_e + Σ_j ρ̃_j q_j]` if every prime mass `w_ℓ ≤ δ ≤ 1/16`. TW's factorisation (6.3), KP and Penrose are **not needed**; vertex degrees unrestricted | PROVED; exact check 1200 systems |
 | Lemma 2.1 | fibre tilting with an arbitrary fibre law P: `saving ≤ αλ/2 + log‖dP/dU‖_∞ + E_PΞ`; `ρ = 0` above `e^{λ/2}` | PROVED |
 | Lemma 2.2 | hub quarantine at degree 1 is free; per-fibre bound (2.1) with `S_ℓ = Σν min(deg,1)²` | PROVED |
 | Lemmas 3.1–3.4 | fibre law: QR base `≤ L^{1/2}`, local lemma on `(L^{1/2}, L^8]`, good fibres; cost `≤ 4L^{1/2}`; inflation `4Γ(k)/k` (product form) — **Reduction 6.7 steps 1, 2, 2′ (T12)** | PROVED |
@@ -19,8 +19,8 @@ Notation follows `EXCEPTIONAL_TWIN.md` (TW), `EXCEPTIONAL_THETA.md` (ET),
 | **Lemma 4.1** | unary and diagonal binary profiles over the real fibre law `≪ α^{−3}(log L)^{O(1)}` (T14 repaired) | PROVED |
 | **Thm 5.1** | Λ² saving `≤ C_B L^{3/4}(log L)^C + 11E_PΣ_jρ_jS_j` for ℛ(M)-families, `M ≤ X = e^L`, `M ≤ P(M)^{1+B}`, ≤ 2 primes above `(log X)^8`, twins included | PROVED |
 | (H_O) | off-diagonal / deadly-value term `E_PΣρ_jS_j ≪ α^{−3}(log L)^{O(1)}` | OPEN |
-| Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′`; canonical labels via `4A ≡ 1 (j)` | PROVED |
-| (H_O^=) | same canonical label part, Brun–Titchmarsh | SKETCH |
+| Lemma 5.3 | the residue of `−4D mod M` at `j \| M` is `−u′/v′`, `D = Au′/v′` | PROVED (the canonical-label remarks after it are heuristic bookkeeping) |
+| (H_O^=) | same canonical label part, Brun–Titchmarsh | SKETCH, with a substantive gap (cross-cofactor pairs) |
 | (H_O^≠) | different-label agreements mod j | OPEN; EVIDENCE: at or below random in all 6 tested rows |
 | Cor 5.2 | Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for that family | CONDITIONAL on (H_O) |
 
@@ -123,8 +123,9 @@ so no pointwise lower bound on J is needed.
 
     log (Z₂(ρ̃)/Z₁²) ≤ (1 + 25δ) [ Σ_{e={ℓ,m}} ρ̃_ℓ ρ̃_m π_e + Σ_j ρ̃_j q_j ].       (1.2)
 
-This is TW target (6.2) with `C = 1 + 25δ`; the factorisation (6.3) is not
-needed.
+This is the logarithmic form of TW target (6.2), with `C = 1 + 25δ`; it is
+what TW Lemma 6.6 consumes (`Ξ_c` is a logarithm). The factorisation (6.3) is
+not needed.
 
 *Proof.* Put `κ = tρ̃`. Then `log Z₂(ρ̃) − log Z₂(0) = ∫₀¹ Σ_j ρ̃_j
 (∂_{κ_j} log Z₂)(tρ̃) dt`, and `Z₂ > 0` throughout by Lemma 1.1. Fix j, t.
@@ -165,8 +166,15 @@ has `lhs = −log(1−π_e)`, `rhs = π_e(1 + ν(a) + ν(c))`.
 **Remark 1.5 (what was used).** Only the prime-level masses `w_ℓ ≤ δ` enter;
 TW Lemma 6.9's vertex bound `deg ≤ δ`, the Mayer/KP expansion and Penrose
 are not needed. Hub vertices (`deg(ℓ,a) ≫ 1`) are allowed; they show up only
-in `q_ℓ`. The `−ν(F)ν(F′)` term was discarded; keeping it would replace `q_j`
-by a variance (TW Lemma 6.11), which is not needed below.
+in `q_ℓ`. The `−ν(F)ν(F′)` term was discarded. (Replacing `q_j` by the
+variance of `deg_j` is *not* justified in general: two residues of equal
+degree can have different avoidance probabilities; cf. TW review T15.)
+
+**Remark 1.6 (TW's (6.2) as literally stated is false; review of this file).**
+TW (6.2) bounds `E_S E(r−1)² = Z₂/Z₁² − 1`. For n disjoint edges with
+endpoint masses 1/16 and `ρ̃ ≡ 1`, `Z₂/Z₁² = (256/255)^n`, so `Z₂/Z₁² − 1`
+grows exponentially while the right side of (6.2) is linear in n. Only the
+logarithmic form (1.2) can hold uniformly, and only it is needed.
 
 ## 2. Fibre tilting with an arbitrary fibre law; free hub quarantine
 
@@ -275,14 +283,16 @@ every `p ∈ (W₁, w₂]`, and `T(c_s) ≤ L^{1/2}`. `G_L`: for every prime
 (Then `w_j ≤ (8/7)² w^U_j ≤ 1/32 = δ/2` with δ = 1/16, as Lemma 2.2 needs.)
 
 **Lemma 3.2 (inflation and density; PROVED given Lemma 3.3).** For L large:
-1. for every w₂-smooth k and residue b, `P(c ≡ b mod k) ≤ 4Γ(k)/k`, and
+1. for every `k | Q_F` and residue b, `P(c ≡ b mod k) ≤ 4Γ(k)/k`, and
    the same with `P′` and 2 in place of 4;
 2. `log ‖dP/dU_F‖_∞ ≤ 4L^{1/2}`.
 
 *Proof.* (1) `P(c ≡ b mod k) ≤ P′(…)/P′(G_L)`, and
 `P′(…) ≤ P_QR(c_s ≡ b mod k₁)/P_QR(G_s) · sup_{c_s∈G_s} P(c_m ≡ b mod k₂ | Av(c_s))`.
 TW Lemma 1.3(3) gives `≤ Π γ(p)/k₁`; Lemma 3.1(2) gives the medium factor;
-Lemma 3.3 gives `P_QR(G_s), P′(G_L) ≥ 1/2`. (2) The density of P against
+Lemma 3.4 gives `P_QR(G_s), P′(G_L) ≥ 1/2` (dependency order:
+`G_s` → inflation of `P′` (factor 2) → `G_L` → P; Lemma 3.4 uses only the
+`P′` bound). (2) The density of P against
 `U_F` is at most `(Q/|R_{W₁}|) · 2 · e^{2T(c_s)} · 2`; TW Lemma 1.3(2)
 (`π(W₁)log 2 + O(log log W₁) ≤ L^{1/2}`) and `T ≤ L^{1/2}` on `G_s` give the
 claim. ∎
@@ -453,14 +463,16 @@ the rational `r = u′/v′`, not on k, m, or the size of D.
 gives `D | A²`. Since `j | M`, `4A ≡ 1 (mod j)`, so `−4D = −4A·u′/v′ ≡ −u′/v′`
 (`v′ | A` is prime to j). ∎
 
-So `deg_c(j,a) = Σ_{r ≡ −a (mod j)} δ_r(j,c)`, where for `r = u′/v′`
+So, for vertices modulo j (when `e_j = 1`; for prime-power vertices modulo
+`j^{e_j}`, sharing a vertex implies agreement mod j, so the following are
+upper bounds), `deg_c(j,a) ≤ Σ_{r ≡ −a (mod j)} δ_r(j,c)`, where for `r = u′/v′`
 
     δ_r(j,c) = Σ_{(k,v,m,u): u′v′ | A_{kj^vm^u}, class active in c} ν_m(partner residue).
 
 D = A is `r = 1` (the class `n ≡ −1 mod M`, present for every M), D = 1 is
 `r = 1/A` (residue −4). The deadly values of ET §5.7 are the residues
 `−r mod j` of small-height rationals r. Two classes through j share a vertex
-iff their labels satisfy `u′v″ ≡ u″v′ (mod j)`; if both products are `< j`
+only if their labels satisfy `u′v″ ≡ u″v′ (mod j)`; if both products are `< j`
 this forces equal labels.
 
 **Canonical labels.** Because `4A ≡ 1 (mod j)`, the residue `−4D` equals
@@ -468,19 +480,21 @@ this forces equal labels.
 relation. For `D | A²` the three candidates `t = 0,1,2` are `4D`, `D/A = u′/v′`
 and `1/(4D̄)` (`D̄ = A²/D`); let `λ(D)` be the one of least height
 `max(|num|, den)`. Each canonical label `λ = a/b` is realised by a single
-divisibility condition on A of modulus `≪ height(λ)` (t = 0: `D = a/(4b)` fixed;
+divisibility condition on A of modulus `≪ height(λ)²` (e.g.
+`A = n(n+1)`, `D = n²`, label `n/(n+1)`, needs `n(n+1) | A`) (t = 0: `D = a/(4b)` fixed;
 t = 1: `ab | A`; t = 2: `D̄` fixed). Two classes with *different* canonical
 labels agree at j only if `j` divides a nonzero integer `a b′ − a′ b`.
 
 Accordingly, with `δ_λ(j,c)` the active partner mass carrying label λ,
-`j·q_j ≤ (8/7)·[Σ_λ δ_λ² + Σ_{λ≠λ′, λ≡λ′ (j)} δ_λ δ_{λ′}]`, and S splits
-the same way:
+`j·q_j ≤ (8/7)·[Σ_λ δ_λ² + Σ_{λ≠λ′, λ≡λ′ (j)} δ_λ δ_{λ′}]`, and `S_j ≤ q_j`:
 * **(H_O^=) same canonical label.** `E_P Σ_j ρ_j j^{−1}Σ_λ δ_λ(j,c)²`.
-  SKETCH: label λ of height h is one congruence on A, i.e. one class of the
-  *prime* m modulo a divisor of `4·h`-size modulus d; Brun–Titchmarsh gives
+  SKETCH: label λ is one congruence on A modulo some `d ≪ height(λ)²`, i.e.
+  for fixed `(k, v)` one class of the *prime* m modulo d; Brun–Titchmarsh gives
   `Σ_m 1/m ≪ 1/w₂ + (log L)/φ(d)`; there are `≪ 2^{ω(d)}` labels per d;
-  in δ_λ² the pairs `(m,m′)` with `d | A_m, A_{m′}` force `d | m−m′`
-  (as `(A, kj) = 1`), and the diagonal `m = m′` is Lemma 3.3. This would give
+  in δ_λ² the pairs with `d | A, A′` force
+  `d | kj^v m − k′j^{v′} m′` (so `d | m−m′` only for equal `(k,v)`; the
+  cross-cofactor pairs need a separate argument — a substantive gap, not
+  bookkeeping), and the diagonal `m = m′` is Lemma 3.3. This would give
   `(H_O^=) ≪ α^{−1}(log L)^{O(1)}`. Not written at proof level (k-sums,
   prime powers, activity inflation, the three label types).
 * **(H_O^≠) different canonical labels (OPEN).** `E_P Σ_j ρ_j j^{−1}
@@ -495,17 +509,22 @@ the same way:
 `scripts/twin2_offdiag.py`: moduli `M = kjm ≡ 3 (4)`, `M ≤ X`, partners m
 prime `> 30`, k odd 30-smooth `≤ 45` (19 values), one random fibre c, all
 `D | A²`. Columns: `jw = j·w_j`; `jq = j·q_j`; `jS = j·S_j`; `same`/`cross` =
-same / different canonical label part of jq; `rand` = `(jw)²/j`, the cross
-part if residues were independent uniform.
+same / different canonical label part of jq; `rand` = `((jw)² − same)/j`, the cross
+part if each canonical label had an independent uniform residue.
 
 | X | j | jw | jq | jS | same | cross | rand |
 |---|---|---|---|---|---|---|---|
-| 1e7 | 1009 | 83.6 | 18.3 | 16.6 | 12.9 | 5.43 | 6.92 |
-| 1e7 | 10007 | 54.8 | 4.05 | 4.05 | 3.90 | 0.147 | 0.300 |
+| 1e7 | 1009 | 83.6 | 18.3 | 16.6 | 12.9 | 5.43 | 6.91 |
+| 1e7 | 10007 | 54.8 | 4.05 | 4.05 | 3.90 | 0.147 | 0.299 |
 | 1e7 | 100003 | 15.5 | 0.527 | 0.527 | 0.527 | 0.000 | 0.002 |
-| 1e8 | 1009 | 121.3 | 34.5 | 27.7 | 22.2 | 12.3 | 14.6 |
+| 1e8 | 1009 | 121.3 | 34.5 | 27.7 | 22.2 | 12.3 | 14.57 |
 | 1e8 | 10007 | 103.5 | 12.2 | 11.2 | 11.6 | 0.670 | 1.07 |
 | 1e8 | 100003 | 63.0 | 4.04 | 4.04 | 4.03 | 0.009 | 0.040 |
+
+Caveats (review of this file): the toy uses one *unconditioned* random
+fibre, uniform weights `1/m` (not ν, not the law P of §3), vertices mod j,
+and counts repeated active edges; it is a multiplicity profile of the real
+class system, not an average over P.
 
 Reading (EVIDENCE only, toy scale, one fibre):
 * the cross-label part is *at or below* the random prediction in every row.
