@@ -467,64 +467,64 @@ heavy reachable histories exist at small primes.
   * the adversary is greedy and weak;
   * singleton windows differ from η-windows.
 
-### 3.2 Exact LP: best level-m majorant, dominant vs dominant + balanced
+### 3.2 Exact LP: best level-m majorant, dominant vs dominant + composite
 
 **Method.** Take a set S of 4–5 primes of similar size. The space is
 `ℤ/Q`, `Q = ΠS`, exactly. The conditions are all classes ℛ(M) for
-squarefree `M | Q` with `M ≡ 3 (4)`. Three families:
+squarefree `M | Q` with `M ≡ 3 (4)`. Four families:
 * **D:** prime moduli only. These are dominant.
-* **D+B:** all moduli. Composite moduli here are products of same-scale
-  primes, i.e. balanced and mostly η-twin.
+* **D+pairs:** adds the two-prime moduli. A two-prime modulus pq is
+  **never balanced** (`P > √(pq)`). Within one window it is η-twin or
+  η-gapped, e.g. 91 = 7·13 is gapped at η = 1/4.
+* **D+composite:** all moduli. The **balanced** ones are exactly those with
+  ≥ 3 primes: 1463, 1771, 2431, 3059, 4199, 4807, 19019, … For
+  S = {7,11,19,23}, every prime is ≡ 3 (4), so there are no pair conditions
+  at all. (Review D16: an earlier version called all composites "balanced".)
 * **D+S (matched-mass control):** D, plus, for each composite condition of
-  mass w, `round(w·P)` fresh random residues at its top prime P. These are
-  single-prime conditions of about the same added mass.
+  mass w, `round(w·P)` fresh random residues at its top prime P.
 
-Level m means every term depends on at most m of the primes, which is
-level ≈ m·log p. The LP is the dual form of §1 route 1: maximise `σ(𝒜)`
-over probability measures with uniform marginals on every m-set. It is
-solved with HiGHS-IPM, in floating point, uncertified. Data:
-`data/balanced/part_ii_S*.txt`.
+Level m means every term depends on at most m of the primes. The LP is
+the dual form of §1 route 1, solved with HiGHS-IPM in floating point,
+uncertified. Data: `data/balanced/part_ii_S*.txt`.
 
 **Savings `−log(LP optimum)`** (void = `−log P(𝒜)`):
 
 | S | family | mass | void | m=1 | m=2 | m=3 |
 |---|---|---:|---:|---:|---:|---:|
 | 7,11,13,19 | D | 0.859 | 1.050 | 0.560 | 0.999 | 1.050 |
-| | D+B | 1.102 | 1.253 | 0.560 | 0.999 | 1.206 |
+| | D+pairs | 1.082 | 1.246 | 0.560 | 0.999 | 1.206 |
+| | D+composite | 1.102 | 1.253 | 0.560 | 0.999 | 1.206 |
 | | D+S | 1.066 | 1.282 | 0.560 | 1.081 | 1.263 |
-| 7,11,19,23 | D | 1.250 | 1.546 | 0.560 | 1.208 | 1.502 |
-| | D+B | 1.287 | 1.563 | 0.560 | 1.208 | 1.502 |
+| 7,11,19,23 | D (= D+pairs) | 1.250 | 1.546 | 0.560 | 1.208 | 1.502 |
+| | D+composite | 1.287 | 1.563 | 0.560 | 1.208 | 1.502 |
 | | D+S | 1.347 | 1.685 | 0.571 | 1.253 | 1.613 |
 | 11,13,17,19 | D | 0.431 | 0.490 | 0.318 | 0.490 | 0.490 |
-| | D+B | 0.707 | 0.741 | 0.318 | 0.525 | 0.691 |
+| | D+pairs | 0.665 | 0.709 | 0.318 | 0.525 | 0.691 |
+| | D+composite | 0.707 | 0.741 | 0.318 | 0.525 | 0.691 |
 | | D+S | 0.749 | 0.852 | 0.318 | 0.807 | 0.847 |
 | 7,11,13,17,19 | D | 0.859 | 1.050 | 0.560 | 0.999 | — |
-| | D+B | 1.426 | 1.501 | 0.560 | 0.999 | — |
+| | D+composite | 1.426 | 1.501 | 0.560 | 0.999 | — |
 | | D+S | 1.354 | 1.619 | 0.560 | 1.125 | — |
 
 (m = 3 on five primes is out of reach: the IPM normal matrix is dense,
-with about 5·10⁴ rows.)
+with about 5·10⁴ rows. D+pairs was not rerun on five primes.)
 
-**Reading.**
-1. **Gain from balanced classes, by level.**
-   * At m = 1 they add nothing.
-   * At m = 2, where pair conditions are already visible, they add 0, 0,
-     0.035 and 0. That holds even for S = {7,11,13,17,19}, where they
-     add mass 0.57 and void 0.45.
-   * They start to pay only at m = 3–4, i.e. at the level of their full
-     modulus.
-2. **The control does better.** Single-prime conditions of matched mass
-   beat the balanced ones at every m ≥ 2.
-   * For S = {11,13,17,19}, m = 2: the control gains +0.317 over D, the
-     balanced classes only +0.035.
-   * This matches the H_MS picture: a balanced condition costs its full
-     modulus, `log ℓ₁ + log ℓ₂`, never `log P(M)` alone.
-3. **No instance** shows balanced conditions saving more than their
-   matched-mass single-prime counterparts.
+**Reading (corrected).**
+1. **Pairs (non-balanced, mostly η-twin).** They add nothing at m = 1.
+   They add 0 or +0.035 at m = 2, where they are already visible, and
+   gain at m = 3.
+2. **Genuinely balanced (≥ 3-prime) classes.** On top of D+pairs they add
+   **0** at every m ≤ 3 in all three 4-prime windows. The ≥ 3-prime
+   moduli have cost about 3·log p, so at m ≤ 3 this is close to the
+   visibility threshold. The test is weak.
+3. **The control does better.** Single-prime conditions of matched mass
+   beat the composite ones at every m ≥ 2 (S = {11,13,17,19}, m = 2:
+   +0.317 vs +0.035). This fits "a multi-prime condition costs its full
+   modulus".
 
-Caveat: these are toy sizes in a dense regime (mass ~1 per window, primes
-< 25). The asymptotic sparse regime is not probed. This is weak evidence,
-like ET §5.8, but on the real classes ℛ(M).
+Caveat: these are toy sizes in a dense regime (mass ~1, primes < 25).
+The asymptotic sparse regime is not probed. This is weak evidence, and
+mostly about η-twin *pairs*, not balanced moduli.
 
 ### 3.3 Void probabilities among real primes, with and without balanced classes
 
