@@ -115,3 +115,76 @@ Checked line by line.
   But H_CD(θ) as stated in §10.4 still demands `w_ℓ ≤ T^{−ε}`, which is stronger than Theorem 10.3 needs.
   *Fix:* restate H_CD(ii) with `w_ℓ ≤ δ_k/(32k)` (or note that its per-prime part is now automatic by
   Lemma 11.2). Then H_CD reduces literally to "Φ of mass `T^{o(1)}` plus codegrees `≤T^{−ε}`".
+
+## Item 5. Lemma 10.1 (private covers) — SOUND
+
+* Part 1. Take P ⊆ V(x) with |P| = u. Any inclusion-minimal subfamily of A(x) that covers P is a private
+  cover. If a member had no prime of `supp E ∩ P` outside the other members, it could be dropped. So
+  `binom(N,u) ≤ G^cov_u(x)`. When `A=∅` we have `G^cov_{L+1}=0`, since u ≥ 1 and C ≠ ∅. The rest is
+  Lemma 1.2 verbatim. Correct.
+* Part 2. In Lemma 1.3(2), `κ(U,c) ≠ 0` forces every prime of U to be covered by events with support in
+  U that occur on c. A minimal such family is a private cover of U. Dropping the constraint
+  "support ⊆ U" only enlarges the sum, so the bound by `Σ_{|U|≤L} 2^{|U|} E G^cov_{|U|}` holds. Since
+  `G^cov` has +1 coefficients, `M_1 = E`. Correct.
+* `|C| ≤ |P|`, because the private primes are distinct elements of P. So every term of `G^cov_{L+1}` lives
+  on `≤ k(L+1)` primes. This is used correctly in Thm 10.3.
+* Script check (`omega2_abstract_check.py`, new `gcov`). It enumerates P ⊆ V and C ⊆ A by brute force and
+  tests the private-prime condition exactly as defined. Restricting P to V loses nothing, since a covered
+  P lies in V. This is adequate evidence for part 1. Part 2 is not tested, but it needs no test.
+
+## Item 6. Lemma 10.2 (hypergraph moment bound) — SOUND (one unstated step, minor)
+
+The reduction to private families is correct: C privately covers P ⇒ P ⊆ π(C) and |C| ≤ |P| ≤ U_0. The
+following are also correct:
+
+* the singles: there is one single per prime, and a single's only prime must be private, hence disjoint
+  from the rest of C;
+* the components: components are vertex-connected; two components sharing a prime but not a vertex
+  have P = 0;
+* privacy is inherited by components;
+* the "private vertex is new" argument: v and every old vertex already lie in an attached hyperedge
+  ≠ e, so none of them is e's private vertex.
+
+The counting checks:
+
+* `Σ_j binom(n,j)Δ^{(j+1)} ≤ D` for `n ≤ kh ≤ kU_0`;
+* `n^{h−1}/(h−1)! = h^h k^{h−1}/h!·… ≤ e(ke)^{h−1}`, using padding to kh slots;
+* the geometric sum under `(1+w)^k keD ≤ 1/2`.
+
+* **D5 (minor; proof of Lemma 10.2, "Counting", 2nd bullet).** Quote: "The children sets at the at most n
+  processed vertices are unordered: `Σ over sets of c children ≤ D^c/c!`". The weight of a child is the
+  product over its *new* vertices. Whether a vertex is new depends on the **earlier siblings** (the proof
+  says so: "brought by an earlier sibling"). So the child weights are not a fixed function of the child,
+  and `(Σ weight)^c/c!` does not apply as written. The claim is nevertheless true, for this reason:
+  * the product of the c sibling weights equals `∏_{u∈(∪ children)∖Disc} p(u)`, which is independent of
+    the sibling order;
+  * hence Σ over sets = (1/c!)·Σ over ordered tuples of distinct children;
+  * for ordered tuples, summing sequentially gives `≤ D^c`. At each step the "old" pool is a set of at most
+    `kh` vertices, and the next child has a private, hence new, vertex.
+
+  *Fix:* add this symmetrisation sentence. (Without the 1/c! the lemma still holds with a worse constant,
+  e.g. `2^{k+1}` in place of e.)
+
+## Item 7. Theorem 10.3 (hypergraph criterion) — SOUND (minor wording)
+
+All constants were rechecked:
+
+* Hub Markov step: `Σ_{v∈H at ℓ} p(v) ≤ w_ℓ/δ_k`, since each hyperedge at ℓ has exactly one vertex there.
+  This gives `g^+ ≤ 1/(16k)` and `S_1^+ ≤ S_1+kS_H/δ_k`.
+* LLL: for a single, `≥ 1−2w_ℓ`; for a hyperedge, `(1−1/(8k))^k(1−2kδ_k/(32k)) ≥ 0.874`; `λ = 3(S_1^++S_H)`,
+  using `−log(1−x) ≤ 1.07x` for x ≤ 1/8.
+* Lemma 10.2 at `w=16`: `D ≤ δ_k + δ_k = 2δ_k = [2ek17^k]^{−1}`, once `C_k(Σ+1) ≥ k(L+1)`. This is not
+  circular: L is defined from Λ', λ alone, and both are `O_k(Σ+1)`.
+* `4^{L+1}EG^cov_{L+1} ≤ 4^{−(L+1)}e^{Λ'}`.
+* Twist: the conditional-LLL factor is `1/0.86 ≤ 1.17`, with bracket
+  `≤ 1/(16k)+1.17w_{ℓ_0} < 0.073` and `|μ_ψ| ≤ (0.01+0.073/0.927)P(A=∅) < μ/4`.
+
+The prime-power splitting preserves `P, w_ℓ, deg, Δ_O` and "no event"; this was checked, including the
+case `ℓ ∉ π(O)`, where the ℓ lifts each carry `1/ℓ` of the weight.
+
+* **D6 (minor; Thm 10.3, Remark (prime powers)).** Quote: "Splitting every class mod ℓ (at primes with
+  `e_ℓ=2`) into its ℓ lifts mod ℓ²". For `y=T^θ` with θ < 1/3, the free primes in `(T^θ, T^{1/3}]` have
+  `e_ℓ ≥ 3`, and in general `e_ℓ ≤ ⌊1/θ⌋`. Rough parts `ℓ³`, `ℓ²ℓ'`, … occur. The general recipe in the
+  Setting ("split into classes mod `∏ℓ^{e_ℓ}`") covers this, but the Remark's "e_ℓ=2", "ℓ lifts mod ℓ²"
+  and "rough part ℓ²ℓ'" understate it. *Fix:* "split every class mod `ℓ^a` (a < e_ℓ) into its
+  `ℓ^{e_ℓ−a}` lifts mod `ℓ^{e_ℓ}`".
