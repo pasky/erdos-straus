@@ -313,11 +313,16 @@ The 1/κ consequence is PO Thm 6.2 (inherited, already reviewed).
   * §11.4: "A sharper shared-vertex Lemma 10.2 does **not** help: a dense cluster with more members than
     shared vertices genuinely carries `(s·c/d)^{h−s}` private families."
 
-  The reviewer's own count supports §11.4 and refutes §10.4's heuristic. Take a `−4d²` cluster with s
-  shared vertices and h ≤ L hyperedges, each made of 2 shared vertices and 1 private vertex. Its weight is
-  about `(c^s/s!)·(s²c/φ(4d))^h/h!`. With the `17^{|V|}` factor and `s ≍ √(dL)`, this is
-  `≥ exp(+Ω(L))` at `h=L`, against the required `16^{−L}`. So the `(c²e²/d)^h` heuristic, which implicitly
-  takes s comparable to h, misses the dense regime.
+  The reviewer's own count supports §11.4 and refutes §10.4's heuristic. Take a fixed d and a family C
+  made of s shared vertices `(ℓ_i,−4d²)` and h = L+1 hyperedges `{v_i,v_j,(ℓ_3^{(t)},−4d²)}`, with distinct
+  private ℓ_3^{(t)}. C privately covers its h private primes, so it contributes to `G^cov_{L+1}`. Its total
+  weight is `≳ (c^s/s!)·(s²c/(2φ(4d)))^h/h!`; the factor 1/2 needed for every shared vertex to be used is
+  absorbed once `h ≥ s log s`. At `s ≍ L/log L` the logarithm is
+  `L log L − 2L log log L − O_d(L)`. So `E G^cov_{L+1}` itself is **super-exponential** in L, far above the
+  `16^{−L}e^{O(Σ)}` that any minorant of the form `B_L − 4^{L+1}G^cov_{L+1}` needs, unless these clusters
+  are quarantined. No sharpening of Lemma 10.2's *proof* can avoid this, since the bound would have to
+  exceed the true moment. So §11.4 is right and §10.4's `(c²e²/d)^h` (which keeps s comparable to h)
+  misses the dense regime `s ≪ h`. (Reviewer's sketch; constants not optimised.)
 
   *Fix:* withdraw the §10.4 "open step" bullets, the §10.5 summary line and summary item 6 (or mark them
   superseded by §11.4). Give the `(s·c/d)^{h−s}` count a derivation; currently it is asserted without one.
