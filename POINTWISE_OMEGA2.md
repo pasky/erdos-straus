@@ -446,3 +446,32 @@ infinitely many distinct p. Inverting, `𝓛 ≥ 3 log log p − O(log log p/log
 * PO Prop. 6.1 (prime-local designs cap at exponent 2) is untouched: the
   design here is not prime-local (two unquarantined primes per modulus are
   allowed).
+
+## 6. EVIDENCE and finite-T status
+
+* `scripts/omega2_abstract_check.py` (brute force over random event systems
+  with supports of size ≤3, all outcomes, all `L≤|𝒫|+1`): Lemma 1.1's closed
+  form equals the definition of `B_L`, and both inequalities of Lemma 1.2
+  hold. 0 failures in 207 361 (seed 1) and 1 166 784 (seed 7) cases.
+* `scripts/omega2_es.py` builds Construction 4.2 at finite T. **It is an
+  illustration, not an instance of the theorem**: the theorem's constants
+  (`δ=e^{−50}`, bad-prime threshold `1/64`, `y=T^{1/3}e^{2𝓛/log 𝓛}`) are
+  far outside the accessible range. With the threshold 1/64, at
+  `T=10^4, θ=0.4`, 245 primes are bad and *no* edge survives. With an
+  illustrative threshold `g>1/4` and `δ=0.05`:
+
+| T | θ | log Q | free primes | `S_1` | edges | `S_2` | max `w_ℓ` | hub vertices (`deg>0.05`) | hub mass | max deg after |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 10⁴ | 0.40 | 109 | 1215 | 15.3 | 3529 | 0.63 | 0.18 | 555 | 8.2 | 0.048 |
+| 10⁵ | 0.36 | 187 | 9573 | 29.0 | 101057 | 2.53 | 0.26 | 5013 | 29.1 | 0.039 |
+
+  * The hub vertices sit at the smallest free primes (`ℓ=41,53` at `10^4`;
+    `ℓ=67,73,79` at `10^5`), as (W) predicts (`w_ℓ≲T/(ℓ²y)`). Their actual
+    mass is about a third of the Markov bound `2S_2/δ` (25.3 and 101.0).
+  * Monte Carlo of the reduced system (2000 resp. 500 samples): no sample
+    had more occurring events than active primes (`#events>N` in 0
+    samples).
+  * At these T the hub-vertex quarantine costs as much as the singles, and
+    `P(A=∅)` is below the Monte Carlo resolution. So the minorant is not
+    useful numerically; only the asymptotic statement is claimed.
+  * Data: `data/omega2/es_1e4_0.4.txt`, `es_1e5_0.36.txt`.
