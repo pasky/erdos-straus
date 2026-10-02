@@ -26,9 +26,9 @@
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
 \title[Large Erd\H{o}s--Straus witnesses]{Large Erd\H{o}s--Straus witnesses:\\
-$\Omega$-results for the multiplier and slice parameters}
+a cubic $\Omega$-result for the multiplier parameter}
 \author{Anonymous}
-\date{Draft, 1 October 2026}
+\date{Draft, 2 October 2026}
 
 \begin{document}
 
@@ -38,20 +38,23 @@ For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
 let $\ckmin(p)$ be the least product $ck$ of a positive Type~I slice.  Both
 are expected to be at most a power of $\log p$ for almost all $p$, and are
 known to exceed a constant times $\log p$ for infinitely many $p$.  We prove that
-$W(p)\ge(\log p)^{2}\exp(-C\log\log p/\log\log\log p)$ for infinitely many
-primes $p$ in Mordell's hard classes.  The construction is a prime-local
-sieve: the class of one is imposed modulo all small primes, a congruence
-saving bounds the residual sieve mass by $T^{o(1)}$, and the sieve is
-transferred to primes by the Linnik-range prime number theorem of
-Thorner and Zaman, whose relative error term absorbs a possible Siegel
-zero.  We show that exponent~$2$ is the limit of every prime-local design
-and isolate a purely combinatorial hypothesis that suffices to go further.  For the
-slice parameter we prove that congruence methods certify exactly the least
-quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
-infinitely often (via Lau--Wu, after Graham--Ringrose) and showing that a
-power saving would be a breakthrough on the least non-residue.  On the Haar
-side we prove that the avoider density satisfies
-$\log(1/\delta^*(T))\le T^{1/3+o(1)}$.
+$W(p)\ge(\log p)^{3}\exp(-C\log\log p/\log\log\log p)$ for infinitely many
+primes $p$ in Mordell's hard classes.  The class of one is imposed modulo the
+primes up to $T^{1/3+o(1)}$, so that the residual congruence system consists of
+single-prime and two-prime events.  We build a pointwise minorant of its void
+indicator by inclusion--exclusion truncated by the number of primes in the
+support, not by the number of events; its error is controlled by a
+pseudoforest bound for an exponential moment, after a cheap quarantine of
+high-degree ``hub'' residues.  The minorant is transferred to primes by the
+Linnik-range prime number theorem of Thorner and Zaman, whose relative error
+term absorbs a possible Siegel zero.  As a warm-up we give the simpler
+prime-local construction, which reaches exponent~$2$ and cannot go further.
+For the slice parameter we prove that congruence methods certify exactly the
+least quadratic non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$
+infinitely often (via Lau--Wu, after Graham--Ringrose).  On the Haar side we
+prove $\log(1/\delta^*(T))\le T^{1/3+o(1)}$ for the avoider density, identify
+the single-prime atoms with Elsholtz--Tao Type~I solutions, and show that an
+individual Type~I bound $n^{\eta}$ would give the Haar exponent $\eta/(1+\eta)$.
 \end{abstract}
 
 \maketitle
@@ -117,26 +120,39 @@ genus characters.  Whether $W(p)/\log p$ is unbounded was open.
 \begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective]\label{thm:main}
 There is an absolute constant $C$ such that for infinitely many hard primes $p$
 \[
- W(p)\ \ge\ (\log p)^2\exp\Big(-C\,\frac{\log\log p}{\log\log\log p}\Big).
+ W(p)\ \ge\ (\log p)^3\exp\Big(-C\,\frac{\log\log p}{\log\log\log p}\Big).
 \]
 More precisely, for every sufficiently large $T$ there is a prime
 $p\equiv1\pmod{840}$ with $W(p)>T$ and
-$\log p\le T^{1/2}\exp(O(\log T/\log\log T))$.
+$\log p\le T^{1/3}\exp(O(\log T/\log\log T))$.
 \end{theorem}
 
 In particular the statement ``$W(p)\le(\log p)^A$ for all large $p$'' is
-false for every $A<2$.  The cited input (Theorem~\ref{thm:TZ}) is Thorner and
+false for every $A<3$.  The cited input (Theorem~\ref{thm:TZ}) is Thorner and
 Zaman's prime number theorem in the Linnik range \cite{TZ}, including the
 McCurley zero-free region statement quoted there.  No hypothesis on Siegel
 zeros is needed: the exceptional zero is absorbed by a uniqueness lemma
 across the family of moduli (Lemma~\ref{lem:severe}) and a two-case
 analysis (Theorem~\ref{thm:transfer}).
 
-The exponent $2$ is the natural limit of the method
-(Proposition~\ref{prop:ceiling}).  Beyond it, this route needs a pointwise
-minorant that handles atoms with several large prime factors (a
-``hypergraph'' minorant); Theorem~\ref{thm:Hmin} shows that such a minorant
-suffices, the prime side being completely handled.
+The proof has two layers.  The analytic layer (Theorem~\ref{thm:transfer})
+turns any congruence minorant of $\mathbf 1[W(n)>T]$ with controlled modulus,
+$\ell^1$-mass and twisted means into a prime.  The combinatorial layer
+produces such minorants.  The simplest one is \emph{prime-local}: the class of
+one modulo all primes up to $T^{1/2+o(1)}$ leaves a single forbidden set at each
+larger prime, and a Brun minorant applies; this gives exponent~$2$
+(Theorem~\ref{thm:two}), which is the limit of every prime-local design
+(Proposition~\ref{prop:ceiling}).  To go further we quarantine only the primes
+up to $T^{1/3+o(1)}$; then moduli with two free prime factors produce
+two-prime events, and these cluster at ``hub'' residues on which many events
+fire together, so that the usual Bonferroni truncation by the number of events
+fails (Proposition~\ref{prop:bonf}).  We truncate instead by the number of
+\emph{primes} in the support (\S\ref{sec:supp}), control the error by a
+pseudoforest bound for $E\prod_\ell(1+za_\ell)$ after quarantining
+high-degree hub residues (\S\ref{sec:pseudo}), and verify the twist condition
+by a conditional form of the local lemma (\S\ref{sec:crit}).  Exponent~$3$
+matches the best Haar (profinite) bound we can prove
+(Theorem~\ref{thm:haar-intro}).
 
 For the slice parameter the picture is different: the only congruence
 mechanism is the genus character, and it certifies exactly the least
@@ -286,10 +302,10 @@ for $y=T^{1/2+\eta}$, and the transfer below then only yields $W(p)\gg\log p$.
 Numerically $S\approx 6.5,\ 13.6,\ 23.9,\ 38.5$ for $T=10^3,\dots,10^6$ (with
 $y=\sqrt T$), i.e.\ $S$ is polylogarithmic in practice.  These values
 illustrate $S$ only: the parameter $y=\sqrt T$ does \emph{not} instantiate
-Theorem~\ref{thm:main}.  At $y=\sqrt T$ one has $\max g\approx0.08$--$0.33>1/16$,
+Theorem~\ref{thm:two}.  At $y=\sqrt T$ one has $\max g\approx0.08$--$0.33>1/16$,
 and the twist condition of \S\ref{sec:proof} can fail (numerically it does
 at $T=10^4$).  The bound $g\le1/16$ of Lemma~\ref{lem:sizes}, and hence
-Theorem~\ref{thm:main}, is asymptotic: with the $y$ above, $y<T$ (so that
+Theorem~\ref{thm:two}, is asymptotic: with the $y$ above, $y<T$ (so that
 $\cU\ne\emptyset$) only when $\log T>e^6\approx403$.
 \end{remark}
 
@@ -414,7 +430,21 @@ $\lambda_*$ multiplies main term and error alike.  A prime number theorem
 valid only for $q\le\exp(c\sqrt{\log x})$ would force $\log x\gg(\log Z)^2\ge T$;
 the Linnik-range uniformity is essential.
 
-\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+\section{Warm-up: exponent two by a prime-local design}\label{sec:proof}
+
+\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; effective]\label{thm:two}
+For infinitely many hard primes $p$,
+$W(p)\ge(\log p)^2\exp(-C\log\log p/\log\log\log p)$.  More precisely, for
+every large $T$ there is a prime $p\equiv1\pmod Q$ \textup{(}$Q$ as in
+\S\ref{sec:local}\textup{)} with $W(p)>T$ and
+$\log p\le T^{1/2}\exp(O(\log T/\log\log T))$.
+\end{theorem}
+
+Theorem~\ref{thm:main} supersedes this; we include it because its minorant is
+a plain Brun truncation and it isolates the arithmetic input
+(Lemma~\ref{lem:mass}) that the main proof reuses.
+
+\begin{proof}
 
 Let $J$ be the least even integer $\ge22S+10$ and
 \begin{gather*}
@@ -455,8 +485,10 @@ $e^{-15S}\le e^{-2S}\le V$, we get $|\mu_\psi|\le(1/15+e^{-6})V\le0.07V\le\mu/4$
 (Lemma~\ref{lem:mass}).  Theorem~\ref{thm:transfer} gives a prime $p\equiv1\pmod Q$
 with $W(p)>T$ and $\log p\le C_1(3S+2)\cdot3y\le\sqrt T\exp((3+\log2+o(1))\Lc/\log\Lc)$.
 Since $840\mid Q$ the prime is hard, and $p>Q>T$ gives infinitely many distinct
-primes.  Inverting, $\Lc\ge2\log\log p-O(\log\log p/\log\log\log p)$.  All
-inputs are effective.\qed
+primes.  Inverting: if $\Lc\ge3\log\log p$ then already $W(p)>T\ge(\log p)^3$;
+otherwise $\Lc/\log\Lc\ll\log\log p/\log\log\log p$ and
+$\Lc\ge2\log\log p-O(\log\log p/\log\log\log p)$.  All inputs are effective.
+\end{proof}
 
 \section{Limits of the method}\label{sec:limits}
 
@@ -507,7 +539,7 @@ with Chang's exponent, no more than $5/8$ by this route.
 
 Call a design \emph{prime-local} if it imposes $n\equiv1\pmod{\ell^{e_\ell}}$ for
 $\ell$ in a set $\Pi$ and every $M\le T$, $M\equiv3\pmod4$, has at most one prime
-factor outside $\Pi$.  Theorem~\ref{thm:main} uses such a design.
+factor outside $\Pi$.  Theorem~\ref{thm:two} uses such a design.
 
 \begin{proposition}[Proved]\label{prop:ceiling}
 In a prime-local design, $\Pi$ contains every odd prime $\le\sqrt{T/3}$ with at
@@ -678,7 +710,7 @@ Under GRH, Montgomery's $n_p=\Omega(\log p\log\log p)$ would give the
 corresponding bound, and Ankeny's $n_p\ll(\log p)^2$ caps what congruences can
 certify; the random model predicts $\max_{p\le x}n_p\asymp\log x\log\log x$
 (statements as quoted in \cite{LW}).  Finally, the primes of
-Theorem~\ref{thm:main} are quadratic residues of every $\ell\le y$, so
+Theorem~\ref{thm:two} are quadratic residues of every $\ell\le y$, so
 Lemma~\ref{lem:np} gives, \emph{jointly}, $W(p)\ge(\log p)^{2-o(1)}$ and
 $\ckmin(p)\ge(\log p)^{1-o(1)}$ for infinitely many hard $p$ (proved modulo
 Theorem~\ref{thm:TZ}).
