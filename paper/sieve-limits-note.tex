@@ -474,9 +474,11 @@ mass, $s_*=\log\min\cP$, and $G=\lfloor\log_2(\lambda/s_*)\rfloor+1$.  Then
 every majorant $\nu$ of $\A$ of level $\lambda\geq s_*$ satisfies, for every
 $\alpha>0$,
 \begin{equation}\label{eq:slice}
- \log\frac1{\E\nu}\leq\log\frac{Q_0}{|R|}+19\alpha\lambda
- +C_4\sum_{\ell\in\cP,\ \ell\leq\e^\lambda}\bar p_\ell\,\ell^{-\alpha}
- +G\bigl(75+\log(2+\lambda/s_*)\bigr)+\frac G2\log(16\bar\mu+16).
+ \begin{aligned}
+ \log\frac1{\E\nu}\leq{}&\log\frac{Q_0}{|R|}+19\alpha\lambda
+ +C_4\sum_{\ell\in\cP,\ \ell\leq\e^\lambda}\bar p_\ell\,\ell^{-\alpha}\\
+ &+G\bigl(75+\log(2+\lambda/s_*)\bigr)+\frac G2\log(16\bar\mu+16).
+ \end{aligned}
 \end{equation}
 If $\lambda<s_*$, $\nu$ depends only on the small residue and the bound
 holds without the $\lambda$-terms.
@@ -653,8 +655,10 @@ $\sum_{a,D}(G/\varphi(G))G^{-1-\beta}\ll\beta^{-3}$ for $0<\beta\leq1$.
 \end{lemma}
 \begin{proof}
 Using $\#\{D:g(D)=g\}\leq2^{\omega(g)}$, the sum is at most
-$\ll\bigl(\sum_aa^{-1-\beta}a/\varphi(a)\bigr)
-\bigl(\sum_g2^{\omega(g)}(g/\varphi(g))g^{-1-\beta}\bigr)\ll\beta^{-1}\beta^{-2}$.
+\[
+ \ll\Bigl(\sum_aa^{-1-\beta}\frac a{\varphi(a)}\Bigr)
+ \Bigl(\sum_g2^{\omega(g)}\frac g{\varphi(g)}g^{-1-\beta}\Bigr)\ll\beta^{-1}\beta^{-2}.
+\]
 \end{proof}
 
 \begin{lemma}[weighted Case-A divisor sum; {\cite[Lemma~3.7]{ET}}; \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{lem:caseAprofile}
@@ -1126,10 +1130,12 @@ $\leq C\lambda^{2/3}h^{1/3}(1+3\log u)/u$.
 \end{proof}
 The note's large-sieve level is $Q^2\leq N/L_{\mathcal K}$, so
 $\lambda\leq\log N$, and its admissible set is the reduced residues modulo
-$L_{\mathcal K}$, with $R$-term $\log(L_{\mathcal K}/\varphi(L_{\mathcal K}))\ll\log\log\log N$.
+$L_{\mathcal K}$, with $R$-term
+$\log(L_{\mathcal K}/\varphi(L_{\mathcal K}))\ll\log\log\log N$.
 By Remark~\ref{rem:LS} and Corollary~\ref{cor:restricted} its bound cannot
 exceed $\exp\{-C(\log N)^{2/3}(\log\log N)^{1/3}\}$: \emph{the $2/3$-loglog
-note is sharp for its architecture} \cite[Lemma~4.4]{ET} \lab{proved}.
+note is sharp for its architecture}
+\cite[Lemma~4.4]{ET}, \lab{proved}.
 Vaughan's argument and that of Pomerance--Weingartner~\cite{PW} are the
 case $\mathcal K=\{1\}$, giving $(\log N)^{2/3}$.  For the $3/4$ note,
 $h\asymp\kappa t$ and the same computation gives $\lambda^{3/4}$.
@@ -1201,8 +1207,8 @@ $k$- and $\ell_1$-sums give $\gg\eta\log Y$ and $\gg\eta$.  Full details are
 in \cite[\S3.8]{ET}, checked in \cite[item~4]{ETrev}.
 \end{proof}
 The share of the weighted Case-B mass carried by balanced moduli is
-$0.098,\,0.121,\,0.141,\,0.157,\,0.171$ at $x=10^3,\dots,10^7$, still
-growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
+$0.098$, $0.121$, $0.141$, $0.157$ and $0.171$ at $x=10^3,\dots,10^7$,
+still growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
 show that every window partition loses: singleton windows have no
 internal pairs.  So the exclusion of twin moduli is not cosmetic, but
 whether they can actually beat the Rankin functional is open.
@@ -1232,10 +1238,15 @@ $\Xi_\A(\alpha)=\log[\Prob(\A\cap\A'_\alpha)/\Prob(\A)^2]\in[0,\log(1/\Prob(\A))
 \begin{proof}
 $\E[g\ind_\A]\geq\Prob(\A)$ and, since $g\in V=V_{\lambda/2}$,
 $\E[g\ind_\A]=\langle g,\Pi_V\ind_\A\rangle\leq\|g\|\,\|\Pi_V\ind_\A\|$.  Now
-$\|\Pi_V\ind_\A\|^2=\sum_{c(T)\leq\lambda/2}\|(\ind_\A)_T\|^2
-\leq\e^{\alpha\lambda/2}\sum_T\e^{-\alpha c(T)}\|(\ind_\A)_T\|^2
-=\e^{\alpha\lambda/2}\langle\ind_\A,T_\rho\ind_\A\rangle
-=\e^{\alpha\lambda/2}\Prob(\A\cap\A')$, where $c(T)=\sum_{i\in T}s_i$ and
+\[
+ \begin{aligned}
+ \|\Pi_V\ind_\A\|^2&=\sum_{c(T)\leq\lambda/2}\|(\ind_\A)_T\|^2
+ \leq\e^{\alpha\lambda/2}\sum_T\e^{-\alpha c(T)}\|(\ind_\A)_T\|^2\\
+ &=\e^{\alpha\lambda/2}\langle\ind_\A,T_\rho\ind_\A\rangle
+ =\e^{\alpha\lambda/2}\Prob(\A\cap\A'),
+ \end{aligned}
+\]
+where $c(T)=\sum_{i\in T}s_i$ and
 the noise operator $T_\rho$ acts on $H_T$ by $\prod_{i\in T}\rho_i$.
 \end{proof}
 This covers Selberg's $\Lambda^2$ sieve.  For a prime-slice system the
@@ -1254,7 +1265,8 @@ $\Xi_\A(\alpha)\ll\alpha^{-3}(\log\lambda)^{O(1)}$ uniformly for
 $\lambda^{-1}\leq\alpha\leq1$.
 \end{hypothesis}
 Under Hypothesis~\ref{hyp:MSsel}, Theorem~\ref{thm:L2} caps Selberg-type
-majorants at $\lambda^{3/4}(\log\lambda)^{O(1)}$ for all moduli \lab{conditional}.
+majorants at $\lambda^{3/4}(\log\lambda)^{O(1)}$ for all moduli
+\lab{conditional}.
 A fibrewise version alone would not suffice: $\A=\{c=c_0\}\times\Omega'$
 has $\Xi=0$ in every nonempty fibre, yet $g=\ind_{c=c_0}$ saves $\log Q_0$.
 The remedy is to tilt the fibre law.
