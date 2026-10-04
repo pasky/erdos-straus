@@ -147,8 +147,8 @@ keeps (H_δ), δ = 1/16) and TW3 Lemma 6.1 (`1 + 25δ ≤ 2.57`). The quarantine
 vertex terms are `≤ S_ℓ`-type terms with `min(D,1)²` (TW2 Lemma 2.2), the
 unary factor is `≤ 2Σρ_ℓ(p_ℓ + S_ℓ)`, `ρ̃ ≤ (4/3)ρ` per coordinate, and
 every star term of the quarantined system is at most `(4/3)^{3r}` times the
-corresponding term in ν (TW3 (6.2), E10). So `C_r ≤ 3·(4/3)^{4r}`
-suffices. ∎
+corresponding term in ν (TW3 (6.2), E10). Collecting factors,
+`C_r = e^{O(r)}`. ∎
 
 **Splitting the star sum.** Every star σ is `σ = (V, a)`: a nonempty set V
 of large primes and residues `a` at V, contained in some event. Write
@@ -172,3 +172,42 @@ large primes outside V, occur.
 So the r-prime cap follows from four first/second-moment bounds:
 `E_P Σρ_ℓp_ℓ` (TW2 Lemma 4.1, unchanged), `E_P T_ev`, `E_P T_pp`, and
 `E_P Σ_V ρ^V T_V^{sf}`, each `≪ α^{−3}(log L)^{O_r(1)}` (§§5–6).
+
+## 4. The fibre law for r large primes
+
+TW2 stages 1–2 (`G_s`, `Av(c_s)`, Lemmas 3.1, 3.2(1) for `P′`) involve only
+small classes and are unchanged. Only `P′(G_L^{(r)}) ≥ 1/2` needs a proof.
+Then TW2 Lemma 3.2 holds verbatim (inflation `4Γ(k)/k`, cost `4L^{1/2}`).
+
+**Lemma 4.1 (`G_L^{(r)}` is likely; PROVED).** For fixed r and L large,
+`P′(G_L^{(r)}) ≥ 1/2`. In fact `Σ_{ℓ>w₂} E′(w^U_ℓ)² ≪_r L^6(log L)^{O(r)}/w₂`.
+
+*Proof.* The unary part (`p_ℓ ≤ 1/8`) is TW2 Lemma 3.4 verbatim (unary
+classes `kℓ^v` do not depend on r). For `w^U_j`, expand the square. A pair
+of classes with cofactors `k, k′` is jointly active with `P′`-probability
+`≤ 2Γ(lcm)/lcm` (TW2 Lemma 3.2(1)). If `f(k) := Σ_{C∋j, k(C)=k} m_C ≤
+(k/φ(k))F_j` for all k, where `m_C = Π_{ℓ∈S(C)}ℓ^{−e_ℓ}` and every
+modulus carries `≤ τ(A²)` classes, then
+`E′(w^U_j)² ≤ 2F_j² Σ_{k,k′}(Γ(lcm)/lcm)(k/φ(k))(k′/φ(k′)) ≪ F_j²(log L)^{O(1)}`
+(an Euler product over `p ≤ w₂` as in TW2 (3.1)). Split the classes through
+j by the top prime P of M (`M ≤ P^{1+B}`):
+* *`P = j`.* `τ(A²) ≤ C_ε M^{ε} ≤ C_ε j^{1/256}`, and the other large prime
+  powers give `Σ ℓ^{−e} ≤ (2 log log X)^{r−1}` each. So
+  `F_j ≪ j^{−1+1/256}(log L)^{r}`.
+* *`P ≠ j`, `P² | M`.* `τ(A²) ≤ C_ε P^{1/256}`, `Σ_{P>j}P^{−2+1/256} ≪ j^{−1+1/256}`,
+  so `F_j ≪ j^{−2+1/256}(log L)^{r}`.
+* *`P ≠ j`, `P ∥ M`.* Put `q = M/P ≤ P^B` (it contains `j^v`, k and the other
+  large prime powers). TW2 Lemma 3.3 along P on dyadic blocks `y ≥ j/2`
+  (at most 2L of them; hypothesis `q ≤ (2y)^{B+2}` on nonempty blocks)
+  gives `Σ_P τ(A²)/P ≪ (q/φ(q))L³`. Multiply by `j^{−v}` and the other
+  `ℓ^{−e}` and sum: `F_j ≪ j^{−1}L³(log L)^{r}` (using
+  `q/φ(q) ≤ (k/φ(k))·2^{r}`).
+
+Hence `E′(w^U_j)² ≪ j^{−2}L^6(log L)^{O(r)}`, and by Markov and a union
+bound `P′(∃ j: w^U_j > δ_r) ≤ δ_r^{−2}Σ_{j>w₂}E′(w^U_j)² ≪_r L^6(log L)^{O(r)}/w₂ = o(1)`. ∎
+
+*Remark.* TW3 §6.2 item 1 asked for `w₂ = L^{10}`, because it wanted the
+arity-uniform condition `w_ℓ ≤ δ log ℓ/L`. For fixed r the per-vertex
+condition `w_ℓ ≤ δ_r` suffices (an event has ≤ r coordinates), and
+`w₂ = L^8` is enough. This closes review item E11 (the "unwritten any-arity
+fibre law") for every fixed r.
