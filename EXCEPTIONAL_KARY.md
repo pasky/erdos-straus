@@ -1,6 +1,14 @@
 # EXCEPTIONAL_KARY — the k-ary comparison inequality (task O7)
 
-Status: **checkpoint 2.** Internal hostile reviews: O7-1 (applied) and `reviews/exceptional-kary-review.md` (all items SOUND; D3 applied, D1–D2 pending). A second deep review is pending. Labels follow `DISCOVERIES.md`. PROVED means proved
+Status: **checkpoint 3 (reviewed).** Three internal hostile reviews:
+* O7-1: applied;
+* `reviews/exceptional-kary-review.md`: all items SOUND; D3 applied; D1–D2
+  not applied because their text is absent from the committed review;
+* `reviews/exceptional-kary-review-2.md`: all ETw inputs re-derived SOUND;
+  Thm 2.5 SOUND; Thms 4.1 and 4.5 SOUND after the presentational repairs
+  E1 and E2, which are applied.
+
+Thm 4.5 is PROVED (internal; not externally refereed). Labels follow `DISCOVERIES.md`. PROVED means proved
 here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 (ETw), `EXCEPTIONAL_THETA.md` (ET).
 
@@ -16,9 +24,9 @@ here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 | **Thm 2.5** | **k-ary comparison for σ, any arity, no incident-weight hypothesis:** `E_ν f ≥ E[e^{−Φ}f(y)]`, `Φ = log B(n,t,d) + (4/3)tM` | PROVED |
 | Cor 2.6 | mean cost `≤ d log(C₀(E M + 4d)/d) + O(d)` | PROVED |
 | Remark 2.8 | the *unweighted* mean-mass comparison is false without incident-weight bounds (example) | PROVED |
-| Thm 4.1 | sequential sieve limit with random step costs (S_w) | PROVED |
+| Thm 4.1 | sequential sieve limit with random step costs (S_w), `Φ ≥ 0` | PROVED |
 | Lemmas 4.2, 4.2′, 4.3 | inflation, moments, leak: ETw Lemmas 2.2, 4.0, 2.1′ apply verbatim; ETw Lemma 2.6 written out for dyadic blocks (4.2′) | PROVED |
-| **Thm 4.5** | **`S_λ ≪_B λ^{3/4}` for every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, twins/prime powers/any shape, unconditionally** | PROVED |
+| **Thm 4.5** | **`S_λ ≪_B λ^{3/4}` for every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, twins/prime powers/any shape, unconditionally** | PROVED (two independent internal reviews) |
 | ETw Conj 6.4, unweighted form | — | OPEN, no longer needed (§5) |
 | ETw Conj 4.5_r (H_MS form) | — | OPEN, not needed for 3/4 |
 | `kary_check.py` | Thm 2.5 by exhaustive enumeration + LP, 100 random systems (unary/binary/ternary): weighted value ≤ 1 | EVIDENCE |
@@ -119,7 +127,12 @@ basis, for `d ≥ 1`; and `B(n,t,0) := 1` (for d = 0, g is constant). Moreover
 of degree ≤ d (the average of `ρ^S` is `C(K,|S|)/C(n,|S|)`), `Q ≥ 0` on
 `{0..n}`. Lagrange interpolation at a minimising Y gives
 `Q(n) = Σ_y ℓ_y(n)Q(y) ≤ max_y(|ℓ_y(n)|/ψ(y))·Σ_y ψ(y)Q(y) ≤ B·E Q(K)`.
-(2.1) is proved in §3. ∎
+(2.1) is proved in §3.
+
+*`B ≥ 1` (review 2, E1).* For d = 0, `B = 1`. For d ≥ 1 and any admissible
+Y, interpolating the constant 1 gives `Σ_y ℓ_y(n) = 1`, so
+`Σ_y |ℓ_y(n)| ≥ 1 ≥ Σ_y ψ(y)`. Hence `max_y |ℓ_y(n)|/ψ(y) ≥ Σ_y|ℓ_y(n)|/Σ_yψ(y) ≥ 1`,
+and so `B(n,t,d) ≥ 1`. ∎
 
 **Lemma 2.4 (thinned law; PROVED).** Fix `t ∈ (0, 1/4]` and put
 `W(ω) = exp(−(4/3) t M(ω))`. Let τ be the law of `y^ρ` when ω is drawn
@@ -145,6 +158,9 @@ Pathwise `Π_ℓ D_ℓ ≤ exp((4/3)tM) = 1/W`. Therefore
 for every `t ∈ (0, 1/4]` and every d-local `f ≥ 0`,
 
     E_ν f ≥ E_ω[ e^{−Φ(ω)} f(y) ],     Φ(ω) = log B(n(ω), t, d) + (4/3)·t·M(ω).
+
+Here `Φ ≥ 0`, since `B ≥ 1` (Lemma 2.3) and `M ≥ 0`. This is the sign
+hypothesis of Theorem 4.1.
 
 *Proof.* By Lemmas 2.2 and 2.3, `f(y) = g_ω(1_R) ≤ B(n,t,d)·E_ρ g_ω(ρ)`.
 Multiply by `W(ω)/B(n,t,d)` and take `E_ω`:
@@ -280,7 +296,7 @@ coordinates (a residue class mod `ℓ^v` at ℓ is a union of single values of
 path ω of the plain rule in increasing order with `ν = U` and caps
 `δ_ℓ = ℓ^{−1/2}`; `Y_j = y`; `Φ_j` is the Φ of Theorem 2.5 with
 `t = t_j(h) = d/(E[M|h] + 4d)` (fixed before the block is drawn). (S_w) is
-Theorem 2.5. The law of `Y_j` is exactly ETw's in-block sequential capped
+Theorem 2.5, and `Φ_j ≥ 0` as Theorem 4.1 requires (Theorem 2.5, E1). The law of `Y_j` is exactly ETw's in-block sequential capped
 law (Lemma 2.1′ with light/heavy decided by the total activated density,
 as in ETw Conj 4.5_r and 6.4).
 
@@ -376,7 +392,9 @@ majorant ν of level `λ ≥ λ₀(B)` satisfies
 increasing order of primes:
 * singletons `{ℓ}`, `W < ℓ ≤ e^{s₁}` (ETw Prop 4.1);
 * sequential blocks `V_i = {ℓ : 2^i s₁ < log ℓ ≤ 2^{i+1}s₁} ∩ (·, e^{λ/2}]`,
-  `0 ≤ i ≤ I`, `2^I s₁ < λ/2`;
+  `0 ≤ i ≤ I`, where I is the largest index with `2^I s₁ < λ/2` (review 2,
+  E2). These blocks cover `(e^{s₁}, e^{λ/2}]` exactly; the last may be
+  truncated;
 * one sequential block `(e^{λ/2}, e^λ]` (ETw Cor 4.3);
 * singletons above `e^λ` (cost 0).
 Every class is decided at its top prime, and `𝔏 ≤ 1/2` (Lemma 4.3).
@@ -405,6 +423,20 @@ With ETw §5's reading of ET Lemma 2.9 (λ ≍ log N, the hypothesis needed
 for every λ in the relevant range, which is automatic here since the
 theorem has no family hypothesis beyond B), no such family yields an
 exceptional-set exponent θ > 3/4.
+
+**Superseded statements elsewhere (review 2, E3; for the ledger).**
+The following are superseded for bounded B and ℛ(M)-only families:
+* ETw §5 "Not covered" item 1;
+* ETw §6: Conj 6.4 and Hyp K2 are "needed" by Prop 6.5, and its `log λ`;
+* ETw §4.5: Conj 4.5_r as the route to the residual;
+* the STATUS "open core" sentence on η-twin moduli.
+
+The θ-reading still rests on:
+* ET Lemma 2.9's hypotheses: slice primes `≤ N^{O(1)}`, `Σ|a_i| < N`, and
+  the family hypothesis for every λ in the range, which holds automatically
+  here;
+* fixed B;
+* families of ℛ(M)-classes only.
 
 **Still not covered** (unchanged from ETw §5): moduli with
 `log M/log P(M)` unbounded (no summation over B; constants `W₀(B)`,

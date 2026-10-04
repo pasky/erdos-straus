@@ -1,5 +1,26 @@
 # AGENT_REPORT_O7 — Conjecture 6.4 (k-ary comparison inequality)
 
+## Checkpoint 3 (after `reviews/exceptional-kary-review-2.md`)
+
+* **E1 applied.** Lemma 2.3 now states and proves `B(n,t,d) ≥ 1` (by
+  interpolating the constant 1, `Σ|ℓ_y(n)| ≥ 1 ≥ Σψ(y)`). Theorem 2.5 and
+  the sequential step note `Φ ≥ 0`, which is the sign hypothesis of
+  Theorem 4.1.
+* **E2 applied.** In Theorem 4.5, I is the largest index with
+  `2^I s₁ < λ/2`, and the blocks cover `(e^{s₁}, e^{λ/2}]` exactly.
+* **E3 (status lines inside KARY only).** Updated:
+  * the §0 status line now records three reviews and labels Thm 4.5
+    PROVED (internal);
+  * the §0 table labels are updated;
+  * new paragraph "Superseded statements elsewhere" in §4.3 lists the stale
+    ETw/STATUS statements and the caveats of the θ-reading (ET Lemma 2.9
+    hypotheses, fixed B, ℛ(M) only).
+
+  ETw, STATUS and DISCOVERIES are untouched; the parent is doing the ledger.
+* **D1–D2 (review 1): still not applied.** `side-agent/review-kary` is still
+  at e283164, its review file has no item 9 and no D1–D3 text, and review 2
+  does not restate them. If they exist, please forward the text.
+
 ## Checkpoint 2 (after `reviews/exceptional-kary-review.md`)
 
 * That review rated every item SOUND: Lemmas 2.2–2.4, Thm 2.5, §3,
