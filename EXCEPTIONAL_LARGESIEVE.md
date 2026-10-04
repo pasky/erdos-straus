@@ -449,13 +449,13 @@ over mixtures is not covered.
 
 Combining §§3–6, a CRT-admissible large-sieve-type bound for a
 forced-class mixture can save more than `C(log N)^{3/4}(log log N)^{3/4}`
-only in the following forms.
+only in the following forms (all with `Q₀ ≤ N^{O(1)}`).
 
 **(E1) Frequencies of super-polynomial level against multi-large-prime
 classes.** By Theorem 3.1 the saving is `≤ Cλ^{3/4}(log λ)^{3/4}` with
 `λ = λ(Q₀) + 2λ_Θ` **for every level**. So a saving
-`≥ (log N)^{3/4+ε}` needs `λ_Θ ≥ (log N)^{1+4ε/3}/C'`: frequencies
-`a/d` whose W-rough part of `d` exceeds `N^{(log N)^{4ε/3}/C'}`. Such
+`≥ (log N)^{3/4+ε}` needs, for N large, `λ_Θ ≥ (log N)^{1+ε}`:
+frequencies `a/d` whose W-rough part of `d` exceeds `N^{(log N)^ε}`. Such
 points are allowed in Montgomery's inequality (it only needs δ-spacing
 with `δ^{−1} ≲ N`, and by Fact 4.0 the total weight is ≤ 1), but they
 are useful only if `𝒜` has non-product structure across many large
