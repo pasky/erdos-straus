@@ -135,13 +135,13 @@ by Lemma 2.4 and `f ≥ 0`. ∎
 **Corollary 2.6 (mean cost; PROVED).** Let `d ≥ 1`, let `m̄ ≥ E M` and take
 `t = d/(m̄ + 4d)`. Then `E n = E M` and
 
-    E_ω Φ ≤ d·log(C₀(m̄ + 4d)/d) + (4/3)d + ½log(22d + 22) + 3,   C₀ = 2e^{3.31}.
+    E_ω Φ ≤ d·log(C₀(m̄ + 4d)/d) + (4/3)d + ½log(22d + 22) + 3,   C₀ = 4e^{4.31}.
 
 *Proof.* Each light ℓ is replaced with conditional probability `p̃_ℓ`, so
 `E n = E M`. §3 gives, in all cases,
-`log B(n,t,d) ≤ d·log(e^{3.31}·max(1/t, √(n/(td)))) + ½log(22nt + 22) + 3`.
+`log B(n,t,d) ≤ d·log(C₁·max(1/t, √(n/(td)))) + ½log(22nt + 22) + 3`, `C₁ = 2e^{4.31}` (3.1).
 Bound the max by the sum, use concavity of `log`, `√·` and Jensen:
-`E log B ≤ d log(e^{3.31}(1/t + √(E n/(td)))) + ½log(22tE n + 22) + 3`.
+`E log B ≤ d log(C₁(1/t + √(E n/(td)))) + ½log(22tE n + 22) + 3`.
 With this t, `1/t = (m̄+4d)/d`, `√(E n/(td)) ≤ (m̄+4d)/d`, `t E n ≤ d`, and
 `(4/3)t E M ≤ (4/3)d`. ∎
 
@@ -163,12 +163,12 @@ i.e. `≪ d log(2+M̄) + log(2+n̄)` when `n̄ ≍ M̄`. This is the shape of ET
 Conjecture 6.4, for σ̃ in place of σ. The weighted form is stronger and
 is what §4 uses: it needs no bound on M, only its mean.
 
-`scripts/kary_check.py` tests Theorem 2.5 by exact LP on 100 random small
+`scripts/kary_check.py` tests Theorem 2.5 (constant t = d/(EM+4d)) and Remark 2.7 by exact LP on 100 random small
 systems (unary, binary and ternary patterns, d ≤ 3, up to 8 coordinates,
 every path of the process enumerated). The weighted LP value is always
 ≤ 1, as the theorem requires, with the optimal one-dimensional constant
 `B*` in Φ (`B* ≤ B`, so this is a stronger test). EVIDENCE only; the proof
-is above.
+is above. Outputs: `data/kary/check_*.txt`.
 
 ## 3. Proof of (2.1)
 
@@ -199,6 +199,12 @@ In cases (i), (ii) the bound is visibly at most (2.1), since
 `e^{3.31} < 4e³`. In case (iii), (2.1) minus the bound is at least
 `d(2 + ½log(nd/t) − 1/3) − 2.92 − ½log(22/16) ≥ (5/3 + ½log 36) − 3.08 > 0`,
 using `n ≥ 9`, `t ≤ 1/4`, `d ≥ 1`. ∎
+
+**The unified form (3.1).** `log B(n,t,d) ≤ d·log(C₁·max(1/t, √(n/(td)))) + ½log(22nt+22) + 3`,
+`C₁ = 2e^{4.31}`. In case (i), `t^{−d}`. In case (iii), the bound above is
+`d·log(4e^{4/3}√(n/(td))) + 2.92 + ½log(22m₀)`. In case (ii) use `n ≤ 2d/t`:
+`n^{d−i}/(d−i)! ≤ (2d)^{d−i}t^{−(d−i)}/(d−i)! ≤ (2e)^d t^{−(d−i)}` (the map
+`x ↦ (2ed/x)^x` increases on `(0, d]`), so every ratio is `≤ (2e^{4.31}/t)^d`.
 
 Case (iii) is the sharp regime: the main term is `(d/2)log(n/(td))`, half
 of (2.1). `scripts/kary_b21_check.py` evaluates the three node sets exactly

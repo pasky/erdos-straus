@@ -155,7 +155,7 @@ def main():
     rng = np.random.default_rng(seed)
     M0 = 4.0
     worst = 0.0
-    print("inst m q d delta  EM  En  weightedLP(<=1)  logC*(phantom)  logC*(plain)  E[Phi]  E[Phi_(2.1)]")
+    print("inst m q d delta  EM  En  max(weightedLP: Rem2.7, Thm2.5)(<=1)  logC*(phantom)  logC*(plain)  E[Phi]  E[Phi_(2.1)]")
     for inst in range(ninst):
         m = int(rng.integers(3, 6)) if MODE != "graph" else int(rng.integers(5, 9))
         q = int(rng.integers(2, 4))
@@ -178,6 +178,13 @@ def main():
             EM += p * M; En += p * n; EPhi += p * phi
             EPhi21 += p * (lagrange_bound(n, t, d) + (4 / 3) * math.log(1 + M / M0))
         val = lp_max(A, obj, nu_w)
+        # Theorem 2.5 with constant t = d/(EM+4d), weight exp(-(4/3) t M)
+        tc = d / (EM + 4 * d)
+        obj2 = np.zeros(len(pts))
+        for p, y, M, n in P:
+            obj2[idx[y]] += p * math.exp(-math.log(bstar(n, round(tc, 12), d)) - (4 / 3) * tc * M)
+        val2 = lp_max(A, obj2, nu_w)
+        val = max(val, val2)
         cph = lp_max(A, law, nu_w)
         Pp = paths(sizes, nus, pats, delta, phantom=False)
         lawp = np.zeros(len(pts))
