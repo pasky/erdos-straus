@@ -85,6 +85,8 @@ def mono_matrix(m):
 
 def part2(m=8, seed=3):
     from scipy.optimize import linprog
+    if m > 10:
+        raise SystemExit("m > 10 needs Theta(4^m) dense storage; refusing")
     rng = random.Random(seed)
     primes = [l for l in range(5, 200) if all(l % q for q in range(2, int(l ** .5) + 1))][:m]
     fs, ps, As = [], [], []
@@ -113,7 +115,9 @@ def part2(m=8, seed=3):
         A.append(np.concatenate([-I, -I], axis=1)); b.append(np.zeros(N))
         A.append(np.concatenate([np.zeros((1, N)), wts[None, :]], axis=1)); b.append([B])
         res = linprog(c, A_ub=np.vstack(A), b_ub=np.concatenate(b), bounds=[(None, None)] * nv, method="highs")
-        return res.fun if res.status == 0 else float("nan")
+        if res.status != 0 or not np.isfinite(res.fun) or res.fun <= 0:
+            raise RuntimeError(f"LP failed: status={res.status} fun={res.fun}")
+        return res.fun
 
     full = -sum(math.log(1 - p) for p in ps)
     print(f"  full mass -log P(avoid) = {full:.3f}")
