@@ -149,3 +149,58 @@ closed part "complete-sum (single-frequency) cancellation".
   say so in (2.6).
 * "Weights < 1 open" is the honest residue; note that by N2 the per-class
   floor/ceiling and ψ-Vaaler bounds also belong here.
+
+### 6. Lemma 3.1 (prime majorants ↔ reduced classes) — **SOUND**
+
+Dirichlet in the reduced classes mod `L·Π_{removed ℓ}` with a unit residue
+outside `F_ℓ(c)` at each removed ℓ (hypothesis `|F_ℓ(c)∖{0}| < ℓ−1`); 𝒫 finite
+(N1 applies here too). One-directional statement is correct as given.
+
+### 7. Thm 3.2 (Dirichlet-measure LP limit; E*-Lemma 2.9) — **SOUND** (one conservative slip)
+
+* The four ingredients of ET Thm 2.5 hold under E* = uniform on (ℤ/L)^×: CRT product
+  of uniform unit groups; x_ℓ independent Bern(p*_ℓ(c)) given c; conditional
+  expectation of each term depends on x_{T_i}; `{c}×{x=0}` has positive E*-mass
+  (unit outside F) and lies in 𝒜. ✔
+* E*-Lemma 2.9: `1/φ(ms) ≤ 1/φ(s) ≤ Π_{ℓ|s}(ℓ−1)^{−1} = Π ℓ^{−1}·Π ℓ/(ℓ−1)`, level of
+  s in `(λ−Λ₀, λ]`, Mertens ⇒ `≪ log λ`. ✔ (dropped negative terms: same estimate
+  with level > λ; not written but immediate.)
+* Selector computation for R*: c uniform on (ℤ/Q₀)^× projects to uniform on
+  (ℤ/q₀)^×. ✔
+
+**N4 (minor, conservative).** "`log(φ(Q₀)/|R*|) = log(P/φ(P))` for the selector".
+For a selector `R = {(c,P)=1}` with `P | Q₀`, `R* = R ∩ (ℤ/Q₀)^× = (ℤ/Q₀)^×`, so the
+R-term under E* is **0**, not log(P/φ(P)). The stated cap is still a valid upper
+bound (it is larger), so nothing breaks; fix the equality to "= 0 (≤ log(P/φ(P)))".
+
+### 8. Thm 3.3 (primality by a sieve costs O((log log N)²)) — **SOUND-AFTER-REPAIRS**
+
+Mechanism correct: `𝒜 ∩ 𝒫_z` is the avoider set of the augmented system
+(`F'_ℓ = F_ℓ ∪ {0}`, new slice primes 5 ≤ ℓ ≤ z with `F_ℓ = {0}`, ℓ = 2,3 into the
+selector), so ν is a majorant of it; then compare the two instances of (2.4).
+Profile increment `C₄Σ_{ℓ≤z}ℓ^{−1−α} ≤ C₄(log(1/α)+O(1))`; mass increment
+`≤ log log z + O(1)`; `log(16(μ̄+Δ)+16) − log(16μ̄+16) ≤ log(1+Δ)`. ✔ The author
+correctly notes this compares *bounds*, not optimal savings.
+
+**N5 (minor, bookkeeping).** The first displayed increment
+`C₄Σℓ^{−1−α} + (G/2)log(1+log log z+O(1))` omits (i) the change of G (s_* drops from
+log ℓ₀ to log 5, so G grows by O(1) bands, each costing `75 + log(2+λ/s_*)` and a
+`½log(16μ_g+16)` term), (ii) the change of `log(2+λ/s_*)` inside the existing G
+terms, and (iii) the R-term increase `log 3` from putting 2, 3 into the selector
+(zero if 6 | P already). All are `O(log λ)` and are absorbed by the second line
+`O(log²λ)`, so the conclusion stands, but the first line is not an upper bound as
+written. Repair: drop the first line or add "+ O(log λ)".
+
+Also note: the hypothesis "ν has level ≤ λ in the augmented system" is a real
+restriction (a prime-detecting sieve of dimension one at level D = z² ≤ e^λ meets
+it; but it must be imposed, not derived). It is stated; fine.
+
+### 9. Remark 3.4 (Assessment) — **SOUND as Assessment**
+
+VK: best known unconditional relative error is `exp{−c(log N)^{3/5}(log log N)^{−1/5}}`,
+weaker than `exp{−(log N)^{3/4}}`; BV/BDH save powers of log only. Correct.
+Wording: "save at most" should be "the best known saving is" (it is a statement
+about known results, not an upper bound). The level argument (moduli > N cost
+|a_i| absent knowledge of which classes contain primes ≤ N) is an Assessment and
+is what bridges Thm 3.2 (level-λ) to arbitrary prime-majorant arguments; it should
+be cited wherever "BV/BDH/EH/GRH cannot beat 3/4" is stated as PROVED (see N6).
