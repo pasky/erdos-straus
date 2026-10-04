@@ -317,3 +317,60 @@ sieve (Thm 3.3), changes the LP limit only by `O((log log N)²)` in the
 saving. **Candidate (b) cannot beat 3/4**, for any level `N^{O(1)}` —
 hence for BV (level ½), BDH, Elliott–Halberstam, or any level-`N^A`
 equidistribution hypothesis.
+
+## 4. Candidate (c): moment and variance methods
+
+Fix a finite witness family 𝒲 of residue classes and put
+`f(n) = Σ_{W∈𝒲} 1_W(n)`, so `𝒜_𝒲 = {f = 0}`.
+
+**Proposition 4.1 (moment bounds are CRT majorants; PROVED).** Let P be a
+real polynomial with `P ≥ 0` on ℤ_{≥0} and `P(0) ≥ 1`. Then `ν = P∘f` is a
+majorant of 𝒜_𝒲 in the sense of §1 (ν ≥ 0 on ℤ, ν ≥ 1 on 𝒜_𝒲), and
+expanding `f^j` into j-fold intersections of classes writes ν as a finite
+combination of class indicators. Hence every bound
+`#{n≤N: f(n)=0} ≤ Σ_{n≤N} P(f(n))` whose moments are evaluated as
+`N·(CRT density) + error` with a per-frequency error bound (2.5) is
+covered by Theorem 2.3 / Cor 2.4–2.5; with prime moments
+`Σ_{p≤N} P(f(p))` it is covered by Theorem 3.2. *Proof.* `f(n) ∈ ℤ_{≥0}`
+for every n ∈ ℤ. ∎
+
+So, for forced-class witness families satisfying Cor 2.5's hypotheses,
+**no moment method of any order, with any polynomial, beats 3/4 if its
+moments are evaluated through the CRT density plus a per-frequency error
+term.** (Chebyshev/Turán–Kubilius is the case `P(x) = (1 − x/m)²`.)
+
+**Proposition 4.2 (degree cap; PROVED).** In a prime-slice system with
+`p_ℓ(c) ≤ 1/4`, let `μ̄ = Σ_ℓ p̄_ℓ`. If `deg P ≤ k` and every class of 𝒲
+is a slice class (modulus `q₀ℓ`, `q₀ | Q₀`), then for every α > 0
+
+    log(1/E[P∘f]) ≤ log(Q₀/|R|) + 19αk + C₄ e^{−α} μ̄ + 75 + log(2+k) + ½log(16μ̄+16).
+
+Choosing `e^{α} = max(e, C₄μ̄/(19k))` gives saving
+`≤ 19k(1 + log⁺(C₄μ̄/(19k))) + O(log(μ̄+k)) + log(Q₀/|R|)`.
+
+*Proof.* Given `n ≡ c (Q₀)`, `f = Σ_ℓ φ_ℓ(n mod ℓ)` with φ_ℓ ≥ 0
+supported on `F_ℓ(c)`. So `P(f)` is a sum of terms each depending on at
+most k slice coordinates, and so is `ν_c = E[P(f) | c, x]` (by
+independence of the coordinates). Apply ET-file Prop. 2.4 with all weights
+`s_ℓ = 1` and level λ = k (one band, G = 1), and average over c as in
+Thm 2.5. ∎
+
+*Consequence.* With witness moduli `≤ N^{O(1)}` the cubic supply gives
+`μ̄ ≪ (log N)³`, so a degree-k method saves `O(k log log N)`. The second
+moment (k = 2) saves `O(log log N)`: at best a power of log N, i.e.
+θ = 0. To save `(log N)^θ` one needs moments of order
+`k ≫ (log N)^θ/log log N`, and for θ > 3/4 Cor 2.5 says the CRT
+evaluation of those moments fails: their high-level Fourier mass must be
+superpolynomial.
+
+**What a non-CRT moment method would need (no theorem).** Elsholtz–Tao
+(Thm 1.1) evaluate first moments `Σ_{p≤N} f_{I/II}(p)` up to constants by
+divisor sums, Brun–Titchmarsh and BV. They state (Remark 1.3) that higher
+moments `Σ_p f(p)^k` are out of reach *because the level of the relevant
+divisor sums becomes too great* — the obstruction of Cor 2.5 in their
+language. A non-CRT moment method for θ > 3/4 would have to count
+j-tuples of solutions sharing the same p, for all j up to
+`(log N)^{3/4+δ}`, i.e. points on fibre powers of the ES surface of
+dimension growing with j, with absolute error `N e^{−(log N)^θ}`. By
+Prop. 4.2 nothing of bounded order can suffice. No technique for such
+counts is known; this is the content of "non-CRT input" for (c).
