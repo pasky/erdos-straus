@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TUPLES — the tuple-count / witness-correlation door (task O21)
 
-Status: **checkpoint 1 (O21).** Labels follow `DISCOVERIES.md`. PROVED
+Status: **checkpoint 2 (O21; external review `reviews/exceptional-tuples-review.md` on `side-agent/review-tuples`, SOUND-AFTER-MINOR-REPAIRS, D1–D10 applied).** Labels follow `DISCOVERIES.md`. PROVED
 means proved in this file (internal checks only, not refereed). No θ > 3/4
 is claimed unconditionally. ES is not solved.
 
@@ -31,7 +31,8 @@ of bounded order, or of order `o((log N)^{3/4}/log log N)` for prime-slice
 families, is useless for θ > 3/4 whatever its precision, even combined with
 arbitrary CRT majorant terms of level `≤ A log N`, as long as the
 evaluation asserts CRT main terms (Cor 3.3).
-So the needed order is `(log N)^θ` up to `log log N`. The known
+So order `≥ c(log N)^θ/log log N` is necessary (PROVED), and order
+`2⌈(log N)^θ⌉` suffices under TC_θ (CONDITIONAL). The known
 divisor-correlation theorems (Heath-Brown, Deshouillers–Iwaniec,
 Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and the standard conjectures of
 Hardy–Littlewood/Elliott type concern a *fixed number of shifts*. That is
@@ -181,6 +182,13 @@ statement: for all large N, TC(N; K_N, y_{K_N}, η_{K_N}) holds with
     E(N) ≤ N exp(−(2/e² − o(1)) (log N)^θ).
 
 In particular **TC_θ for some θ > 3/4 implies the θ > 3/4 target.** ∎
+
+(In fact `E(N) ≤ (e+2)N exp(−(2/e²)(log N)^θ)` with no o(1). The calibration
+`μ ≈ K/e²` is not optimal. With `μ = βK` one only needs `(eβ)^K ≤ e^{−βK}`,
+i.e. `1 + log β + β ≤ 0`, so β ≈ 0.278 works. That raises the constant
+`2/e² ≈ 0.27` to ≈ 0.557 and shifts the K-threshold of Prop 4.2 for the
+recalibrated family. No θ claim depends on it, and we keep `K/e²`
+throughout.)
 
 **Proposition 2.4 (the trivial range; PROVED).** TC(N; K, y, η) holds with
 `η = (Σ_{ℓ∈𝒫_y} F(ℓ))^K / N` whenever `Σ_ℓ F(ℓ) ≥ 1`. Consequently
@@ -582,7 +590,7 @@ Readings.
   `μ ≈ K/e²`. A sample of N points can only be expected to reproduce
   them to relative accuracy `≈ N^{−1/2}`, i.e. absolute `≈ e^{μ}N^{−1/2}`.
   That beats `η_K` only if `2K/e² + log K ≲ ½ log N`, i.e.
-  `K ≲ (e²/4)(log N − 2 log K)`, which is ≈ 21 at N = 10⁸. This matches the
+  `K ≲ (e²/4)(log N − 2 log K)`, which is ≈ 22 at N = 10⁸. This matches the
   observed borderline pass at K = 22 and the failures at K ≥ 32. It also
   means that **near θ = 1 (K ≈ 2 log N) TC is not expected even for a
   random model**; TC_θ is a plausible conjecture only for θ < 1, where

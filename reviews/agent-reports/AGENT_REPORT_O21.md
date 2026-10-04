@@ -1,4 +1,4 @@
-# AGENT REPORT O21 — tuple-count / witness-correlation door (checkpoint 1)
+# AGENT REPORT O21 — tuple-count / witness-correlation door (checkpoint 2)
 
 Branch `side-agent/tuple-door`. Deliverable: `EXCEPTIONAL_TUPLES.md`, with
 `scripts/tuples_moments.py`, `scripts/tuples_checks.py` and `data/tuples/`.
@@ -69,6 +69,33 @@ Seven defects were found, all repaired:
 
 The reviewer confirmed that Thm 3.1 (truncated weights in ET Prop 2.4),
 Cor 3.2's parameters, Prop 4.1 and Prop 4.2 are sound.
+
+## External review (side-agent/review-tuples): SOUND-AFTER-MINOR-REPAIRS, applied
+
+* D1: Prop 4.2 now cites the avoider bound (2.2′), not E(N).
+* D2: the review's text for D2 is missing from the review file. I
+  applied the reading I inferred (please check it):
+  * §5(c) now explains the failure of the TC test at K ≥ 32 by a variance
+    heuristic. N samples give relative accuracy `≈ N^{−1/2}`, so TC is
+    reachable only for `K ≲ (e²/4)(log N − 2 log K) ≈ 22` at N = 10⁸.
+    That matches the data.
+  * So near θ = 1, TC is not expected even for random sets.
+* D3: Prop 4.3 has a new extension (PROVED) to all shift-form ES witness
+  classes `M | n+4D`, `M ≤ N^A`. The table, §0 and Assessment 4.4 now say
+  that divisor correlations are capped only when used through ES witness
+  classes. Non-witness divisor information is listed as not covered.
+* D4: "both directions" is split into necessary (PROVED) and sufficient
+  under TC_θ (CONDITIONAL).
+* D5: Cor 3.4's readings are scoped to Cor 3.3-type methods.
+* D6: the entropy upper bound is now written out. Prop 4.1 is described
+  as a pure entropy count.
+* D7: §2 Remark 3 is labelled Assessment. §6.1 is now based on the 3/4
+  note.
+* D8: the shift column for Granville–Soundararajan is corrected, and
+  Ford is dated 2024.
+* D9: Lemma 1.3's gloss is now "distinct-prime part".
+* D10: added as a remark after Cor 2.3 (β ≈ 0.278, constant ≈ 0.557).
+  It is not propagated; no θ claim changes.
 
 ## Points for the parent's review
 
