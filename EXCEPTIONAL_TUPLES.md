@@ -277,17 +277,22 @@ In (3.1):
 `#(𝒜 ∩ [1,N]) ≤ B` through a (A log N, k)-mixed majorant ν of a
 Cor 3.2 family, with `B ≥ ½ N·Eν`. (This holds whenever the method's
 evaluation of `Σ_{n≤N} ν(n)` asserts the CRT main term `N·Eν` up to an
-error of at most half of it, e.g. via any hypothesis of the form
-"order-j correlation sums equal their CRT predictions up to small
-error", j ≤ k, together with any evaluation of the terms of level
-`≤ A log N`.) Then its saving `log(N/B)` is at most
+error of at most half of it. Examples: hypotheses of the form "order-j
+correlation sums equal their CRT predictions up to small error", j ≤ k,
+together with CRT evaluation plus a nonnegative error bound for the terms
+of level `≤ A log N`, or with any evaluation of those terms that does not
+produce a deficit larger than `½N·Eν`. A low-level part evaluated
+*exactly* with a large favourable rounding deficit is not covered here.
+For majorants built only from classes of modulus ≤ N/2, IF Thm 2.2/2.5
+show that no such deficit occurs; for mixed ν this is open.) Then its saving `log(N/B)` is at most
 `C₉[(log N)^{3/4} + k log log N] + log(P/φ(P)) + log 2`. Hence:
 * bounded k (any fixed order; e.g. pair or triple correlations of
   witnesses, however precise) cannot give θ > 3/4;
 * a saving `(log N)^θ` with θ > 3/4 needs `k ≥ c(log N)^θ/log log N`.
 
 Together with Corollary 2.2 (order K = 2⌈(log N)^θ⌉ suffices for the
-prime family): **the correlation order needed for saving `(log N)^θ` is
+prime family, which after dropping the finitely many `ℓ < ℓ₀(C)` is a
+Cor 3.2 family; dropping them changes `μ_y` by O(1)): **the correlation order needed for saving `(log N)^θ` is
 `(log N)^θ` up to a factor `log log N`, in both directions.** ∎
 
 **Corollary 3.4 (all K2 families, weaker; PROVED from K2 Thm 5.1).** Let
