@@ -180,24 +180,96 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
 Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
 sieves"; refereed internally, fixes applied; v3 merged).
 
-### 2.3 What the sharpness theorem does not cover
+### 2.3 Beyond coefficient sums: the large sieve, interval cancellation, tuple counts
 
-The exclusions are taken from ledger (D)18, KARY2 §6, NONCRT §6 and
-STATUS.md. A proof of `θ > 3/4` would need at least one of the following:
-* **Cancellation between frequencies.** That is, a direct count of the
-  interval sum `Σ_{n≤N} ν(n)`. NONCRT Thm 8.1 gives a quantitative
-  dichotomy (PROVED). Either there is large Fourier mass above every level
-  `λ ≤ c(log N)^{4θ/3}`, or the interval count falls well below the CRT
-  mean. In one tested family (count polynomials of degree ≤ 10) there
-  was no inter-frequency gain (EVIDENCE, NONCRT §8.3).
+Three later files close or sharpen the main doors left open by (D)18.
+All three are internal and unrefereed.
+
+* **The large sieve is capped** (`EXCEPTIONAL_LARGESIEVE.md` Thm 3.1,
+  Cor 3.2; ledger (D)19).
+  * *Duality.* By exact duality (Thm 2.1, standard minimax, not claimed
+    new), every CRT-admissible large-sieve bound is at least `N·E|g*|²`,
+    where `|g*|²` is a Selberg-square CRT majorant.
+  * *Bounds covered.* Montgomery, Montgomery–Vaughan, weighted, and
+    multiplicative via Gauss sums.
+  * *Frequencies covered.* Farey frequencies with prime, prime-power or
+    composite denominators. Forced classes may be used in any form, and
+    the bound may be applied fibrewise.
+  * *Result.* Combined with KARY2 Thm 5.1, the saving is at most
+    `C(log N)^{3/4}(log log N)^{3/4}` for polynomial denominators, and
+    `C_B(log N)^{3/4}` for bounded B. This includes the 2/3 note's use of
+    the large sieve.
+  * *Further cases.* Prime slices with any rational frequencies: Thm 4.1.
+    Gallagher's larger sieve in kernel form is capped by a χ² functional
+    (Thm 6.2).
+  * *Label:* **PROVED, conditional on KARY2 Thm 5.1**.
+    Review: `reviews/exceptional-largesieve-review.md`, SOUND.
+  * *Open escapes:*
+    * frequencies of super-polynomial level against multi-large-prime
+      classes (H_LS, a conjecture);
+    * the larger sieve over mixtures;
+    * twisted/hybrid forms;
+    * non-CRT interval information.
+* **Inter-frequency cancellation is worthless for moduli ≤ N/2**
+  (`EXCEPTIONAL_INTERFREQ.md`; ledger (D)20).
+  * *Selberg minorant.* If every nonzero frequency of `ν ≥ 0` has
+    denominator `≤ D < N`, then `Σ_{n≤N} ν ≥ (N−D)Eν` (Thm 2.2).
+  * *Cap (Cor 2.3).* Majorants built from forced classes of modulus
+    `≤ N/2` save at most `C(log N)^{3/4}(log log N)^{3/4}`. This holds
+    with any coefficients and any evaluation of the interval sum: exact,
+    dispersion, Kloosterman, Vaaler, or smooth windows.
+  * *Larger classes.* The cap holds for methods whose bound dominates
+    `T_>^*/c` (Thm 2.5, Rem 2.6). It is **not** proved for hybrid methods
+    that charge large classes only their trivial count.
+  * *Label:* **PROVED** (internal). Review:
+    `reviews/exceptional-interfreq-review.md`.
+  * *What remains:* multi-witness tuple counting above modulus N
+    (Assessment). (H_eq) is open but not needed when all moduli are
+    `≤ N/2`.
+* **The tuple-count door** (`EXCEPTIONAL_TUPLES.md`; ledger (D)21).
+  * *Reformulation (Lemma 1.3).* Order-k witness correlations are the
+    distinct-prime parts of k-point correlations of ω-type functions
+    along shifts `4D`.
+  * *Conditional route above 3/4 (Cor 2.3, PROVED implication).*
+    Hypothesis TC_θ asks for CRT-accurate correlations up to order
+    `K ≍ (log N)^θ`. It implies
+    `E(N) ≤ (e+2)N exp(−(2/e²)(log N)^θ)`.
+  * *Range of TC.* It holds for `K ≤ c(log N)^{2/3}` (Prop 2.4, Brun's
+    pure sieve; this recovers 2/3). It fails for even
+    `K ≥ (e²/2+ε)log N`, because squares avoid every class (Prop 4.2).
+  * *Bounded order is useless.* Correlation input of bounded order,
+    however precise, cannot give θ > 3/4 under CRT-main-term evaluation.
+    Order `≳ (log N)^θ/log log N` is needed (Thm 3.1, Cor 3.2–3.4).
+  * *Wrong type.* Fixed-shift correlation theorems (Heath-Brown,
+    Deshouillers–Iwaniec, Matomäki–Radziwiłł–Tao, Tao–Teräväinen) do not
+    fit (Prop 4.3 plus Assessment).
+  * *Label:* **PROVED** (internal). Review:
+    `reviews/exceptional-tuples-review.md`, all items SOUND.
+  * *Open:* TC_θ for `3/4 < θ < 1` is an open, natural, falsifiable
+    **CONJECTURE**.
+
+### 2.4 What remains open above 3/4
+
+The sources are ledger (D)18–(D)21, KARY2 §6, NONCRT §6 and STATUS.md.
+A proof of `θ > 3/4` would need at least one of the following:
+* **Multi-witness tuple counting above modulus N.** Interval cancellation
+  is now known to be worthless for classes of modulus `≤ N/2` ((D)20).
+  The live form is TC_θ with `θ > 3/4` ((D)21, CONJECTURE). It needs
+  correlation input of growing order. Bounded-order input cannot help.
+  The earlier NONCRT Thm 8.1 dichotomy (PROVED) and §8.3 (EVIDENCE: no
+  inter-frequency gain in one tested family) point the same way.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
   Thm 2.3): coefficient sums, the sawtooth bound, and complete
   Gauss/Kloosterman sums. Weights `< 1` are open, except in a smooth-window
   case that is CONDITIONAL on an equidistribution conjecture.
-* **Genuinely arithmetic, non-CRT input.** For example, counting
-  `(log N)^{3/4+δ}`-fold correlations of ES solutions directly.
+* **Genuinely arithmetic, non-CRT input**, of a kind other than the
+  tuple counts above.
 * **Other ingredients outside the class:**
-  * the large sieve beyond prime slices;
+  * large-sieve escapes listed in (D)19: super-polynomial frequency
+    levels against multi-large-prime classes (H_LS), the larger sieve
+    over mixtures, twisted/hybrid forms;
+  * hybrid interval methods that charge large classes only their trivial
+    count ((D)20);
   * majorants that are `≥ 1` only on `[1,N]` or only on exceptional
     primes (majorants `≥ 1` only on primes *are* capped, NONCRT
     Thms 3.2–3.3, so BV/BDH/EH/GRH-level prime inputs do not help);
