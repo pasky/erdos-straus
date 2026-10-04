@@ -38,7 +38,7 @@ H-hub, so (O5 §2) `h_1,h_2,h_3>H` for `(q,κ)`, where
   `4sa²≡κ (q)`, `4sa>yH^{1/4−a}`, the divisors m of `4sa²+1` must not
   put the least `ν≥y` with `qmν≡−1 (4sa)` close to y. Boxes in which a
   plane is long (Shiu/Henriot range) are done (Prop 3.4). The exact
-  residual (Cor 3.5): (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<mW`,
+  residual (Cor 3.5): (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`,
   `W=C4^k𝓛²H^a`; (b) boxes with a short plane.
 * **HC_Π, HC* and the `(log₂p)^{3/2}` rate remain open.** EVIDENCE (§4):
   at high hub height the m>1 mass is mostly corner mass, of the
@@ -243,7 +243,9 @@ FT^{>μ}(Z) := Σ_{(s,a): 4sa²≡κ (q), 4sa>yZ, sa≤T}  Σ_{m | 4sa²+1, m>μ
 ν(s,a,m) := least integer ν≥y with  q·m·ν ≡ −1 (mod 4sa),
 ```
 
-where m runs over Π-numbers prime to q (C absolute).
+where m runs over Π-numbers prime to q (C absolute). For prime-power
+patterns (O5 Lemma 2.0′) apply this with `q′`; then `Δ_O^{>μ}` is at most
+`2^k` times the largest pattern bound.
 
 *Proof.* Cor 2.2 and Lemma 3.1 with this Z
 (`Z·4^k𝓛⁴H^{−1/4}=4^k𝓛⁴H^{−a}`). A remaining corner atom has
@@ -321,7 +323,7 @@ or `(S,B)` (so both sides are `≪q^{14/5}`), and `max(A,B)≤3q²` for
   (`k≍𝓛^{1/3}`, `log H≍𝓛^{2/3}`) it is `y^{3/2}H^{−3a/2−o(1)}`, far
   beyond O5's `H^{1/3−a}`.
 * The residual is therefore (a) large m, `m ≥ (qy/32)^{1/2}W^{−3/2}`,
-  with `s,a,b<mW`; or (b) boxes with a short plane. *(Assessment:)* in
+  with `s,a,b<2mW`; or (b) boxes with a short plane. *(Assessment:)* in
   (b) the numbers `4sa²+1` are `≤q^{O(1)}`, and the only divisor bound
   I have there is pointwise, `τ≤q^{O(1/log log q)}`. That is not
   `≤e^{Ck}𝓛^B` once `log q` is large against `k log k` (in the Thm 4.2
@@ -373,8 +375,8 @@ independently.
   average over `4sa²≡κ (q)`, the classes `−qν mod 4sa` with ν just above
   y. Long-plane boxes are done (Prop 3.4).
 * **Open (exact residual, Cor 3.5):** corner atoms with `4sa>yH^{1/4−a}`
-  in boxes where every plane is short or has its third side `<mW`. In
-  particular: (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<mW`; (b) boxes
+  in boxes where every plane is short or has its third side `<μ_0W`. In
+  particular: (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`; (b) boxes
   with a short plane (all numbers `≤q^{O(1)}`, no averaging theorem; the
   pointwise divisor bound is too weak when `ω(q)` is large).
 * **Not achieved:** HC_Π, hence HC* and the rate
