@@ -122,3 +122,29 @@ window `r ≍ log L` open (needs a multi-prime H_O^≠)."
   which would rule out θ > 3/4 for *all* ℛ(M)-families with general
   majorants. Suggested next task, once KARY is reviewed: write this out
   (and check ETw Lemma 1.1, the base).
+
+---
+
+# Checkpoint 3 (middle window): partial, context limit reached
+
+* **Lemma 12.1 (PROVED):** the full star sum equals a pair sum,
+  `Σ_{E,E′}π_Eπ_{E′}[Π_{ℓ∈T(E,E′)}(1+ρ̃_ℓ/ν_ℓ) − 1]`. Each off-diagonal pair
+  is charged once, with weight about `2^{|T|}ρ^TQ_T`. The `2^r` of Lemma
+  5.3 is an artefact of bounding each sub-star separately.
+* **Correction to §9.3 (important).** I had called the harmonic-sum loss
+  "removable". It is not. For `r ≍ log L`, the w₂-rough partners in a
+  class mod q genuinely have mass `≍ L/(φ(q)log L)`. So the vertex mass
+  is `V(a) ≍ (L/log L)R(a)`, and every residue with `R(a) ≳ log L/L` is a
+  vertex hub. The large-partner route (`Σ_a V²`) then loses
+  `(L/log L)²`, and the available hub count `≪ (L/log L)²` gives about
+  `L² log L`. The middle window therefore needs **two** per-prime-efficient
+  statements:
+  1. a hub count `E_PΣ_j(ρ_j/j)#{a: deg ≥ 1} ≪ L^{3/4+o(1)}`;
+  2. the off-diagonal pair sum, after hub quarantine.
+
+  The TW3 route does not adapt directly. The most promising lead is a
+  height/lattice argument (TW2 Lemma 5.5) to show that only low-height
+  labels collect partner mass `≥ 1`.
+* I stopped here at roughly my context budget. A fresh session should
+  start from EXCEPTIONAL_TWIN4 §12. Theorems 7.1 and 10.4 are unaffected
+  (bounded r), and so are Prop 9.1 and Cor 9.3.

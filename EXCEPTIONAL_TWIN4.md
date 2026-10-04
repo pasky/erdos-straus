@@ -15,6 +15,7 @@
 | **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; review `reviews/exceptional-twin4-review.md`: SOUND, nits F1–F4 applied) |
 | Prop 9.1 | explicit r-dependence `(C_B log L)^{Cr}`: cap `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L` | PROVED (bookkeeping) |
 | **Lemma 9.2**, Cor 9.3 | unweighted payment for any low-mass subfamily (LLL, `x_G = 2^{|S(G)|}P(G)`); classes with `ω_L(M) ≥ 330 log L` cost `o(1)` | PROVED |
+| Lemma 12.1, §12 | pair form of the star sum (PROVED); correction: at `r ≍ log L` the rough-partner mass at a vertex is genuinely `≍ L/log L`, so vertex hubs proliferate; the target becomes hub count + off-diagonal pair sum | PROVED / OPEN |
 | §9.3 | middle range `ε log L/log log L < r < 330 log L` (the bulk): needs an off-diagonal second moment at short-partner stars, efficient per prime (multi-prime H_O^≠) | OPEN (sharp failure point) |
 | **Lemma 10.1** | smooth-dominated sums: Cauchy–Schwarz + Rankin on smooth k + Shiu along k | PROVED |
 | **Thm 10.4** | for fixed r the cap holds **without the B-hypothesis** (also with arbitrary classes having `ω_L ≥ 330 log L` added) | PROVED (internal; not yet reviewed) |
@@ -587,8 +588,9 @@ their primes in `(L^8, e^{L^{1/4}}]` is Poisson-like with mean
    coarse thresholds `p_ℓ ≤ 1/8`, `w_ℓ ≤ δ_r`. In good fibres
    `p_ℓ, w_ℓ ≪ L^{4}/ℓ`, so `Π_{ℓ∈S}(1−p_ℓ)^{−1} = 1 + O(rL^4/w₂) = 1+o(1)`
    (TW3 already notes `e^{(4/3)w_ℓ}`). This needs a polynomial-decay G_L.
-2. Harmonic sums `(log L)^s` without `1/s!`: *removable*. Prime variables
-   are unordered.
+2. Harmonic sums `(log L)^s` without `1/s!`: *not removable* at `r ≍ log L`
+   (corrected in §12). Even with `1/s!`, the partner mass at a vertex is
+   genuinely `≍ L/log L`, which creates many vertex hubs.
 3. **The first moment for small partners (Lemma 5.3) over `2^r` subsets V:
    genuine for this method.** `min(x,1)² ≤ x` loses the factor `1/D`. The
    *diagonal* part of the star sum is `Σ_C π_{E_C} Σ_{V⊊S}ρ^V/R_V =
@@ -764,3 +766,63 @@ instead of `O(s³)` therefore costs `O(d log s)` per block, i.e.
 give θ > 3/4. **Not done**: this needs KARY's §4 in final form, a check
 of the base, and the dependence of `W₀`, `C(B)` on B (here B would be
 fixed, e.g. B = 1, with the rest non-B).
+
+## 12. The middle window: reformulation and a correction to §9.3 (task O12, part 3; partial)
+
+**Lemma 12.1 (pair form of the star sum; PROVED).** In TW3 Setting 6.0,
+without the caps,
+
+    Σ_{σ star} π_σ ρ̃^σ D_σ² = Σ_{E,E′} π_E π_{E′} [ Π_{ℓ∈T(E,E′)} (1 + ρ̃_ℓ/ν_ℓ(c_ℓ)) − 1 ],
+
+where `T(E,E′)` is the set of coordinates on which E and E′ are both
+defined and agree (`c_ℓ` the common value).
+
+*Proof.* `D_σ² = Σ_{E,E′⊇σ} π_{E∖σ}π_{E′∖σ}` and
+`π_σπ_{E∖σ}π_{E′∖σ} = π_Eπ_{E′}/π_σ`. A star σ is contained in both E and
+E′ iff `σ ⊆ T(E,E′)` (as a partial assignment). Hence the left side is
+`Σ_{E,E′}π_Eπ_{E′}Σ_{∅≠V⊆T}Π_{ℓ∈V}ρ̃_ℓ/ν_ℓ`. ∎
+
+So the per-prime-efficient object is the **pair sum**. The diagonal
+`E = E′` gives `π_E Π_{ℓ∈S}(ρ̃_ℓ + ν_ℓ) − π_E²`, which is TW Conj 6.8's main
+term and harmless. Each off-diagonal pair is charged once, with weight
+`≈ 2^{|T|}ρ^T Q_T π_Eπ_{E′}` (`ρ_ℓℓ ≥ 1`). There is no sum over sub-stars.
+In the random model this weight is `≪ L^6/Q_T²` summed over T, so a
+per-prime-efficient bound is *plausible*. The `2^r` of Lemma 5.3 is an
+artefact of bounding each sub-star separately through `min(x,1)² ≤ x`.
+
+**Correction to §9.3, item 2 (Assessment; supersedes the word
+"removable").** For `r ≍ log L` the partner sums are *not* polylogarithmic,
+even with `1/s!` tracked:
+* `Σ_s H^s/s! = e^{H} ≍ log Z/log w₂`, which can be `≍ L/log L`;
+* more to the point, this is the truth and not a loss of the proof. The
+  w₂-rough integers in a class mod q have density `≍ 1/(φ(q)log w₂)`, so
+  for unbounded `Ω(R)` Lemma 2.3 can give no better than
+  `Σ_{R≡b (q)} 1/R ≍ L/(φ(q)log L)`. This is TW3 §6.2 (3b).
+
+Consequently, at a vertex j, `V_{j,k}(a) ≍ (L/log L)·[R₁+R₂+R₀](a)`
+for many residues. Every residue with `R(a) ≳ log L/L` is a **vertex hub**
+(`V(a) ≥ 1`), not only the deadly values `−4D`, D small. Lemma 6.4's
+`z²`-bound then loses `(L/log L)²`. Even with the hub cap, the cost is
+`Σ_j (ρ_j/j)·#{a : V(a) ≥ 1}`, and Lemma 6.2 alone gives only
+`#{hubs} ≪ (L/log L)²` (from `Σ_a R(a)² ≪ 1`). That costs `≈ L² log L`, far
+above `L^{3/4}`.
+
+**The corrected target for the middle window (OPEN).** Two statements
+would be needed, both per prime efficient:
+1. *(hub count)* `E_P Σ_{j>w₂} (ρ_j/j)·#{a mod j : deg_c(j,a) ≥ 1} ≪ L^{3/4+o(1)}`
+   for the full family. Heuristically the hubs are the residues of
+   low-height labels, `≈ (log L)^{O(1)}` of them. The proof route would
+   need a lower bound on the height of labels whose residue collects
+   partner mass `≥ 1`.
+2. *(off-diagonal pair sum)*
+   `E_P Σ_{E≠E′, |T(E,E′)|≥1} π_Eπ_{E′}Π_{ℓ∈T}(1+ρ_ℓ/ν_ℓ) ≪ L^{3/4+o(1)}`,
+   after quarantining the hubs of item 1. Here a pair agreeing on T means
+   `−4D ≡ −4D′ (mod Q_T)` for two moduli divisible by `Q_T`.
+For bounded r both follow from §§5–6 (hubs are counted through
+`Σ_a V² ≪ (log L)^{O(r)}`). For `r ≍ log L` neither does. The TW3 route
+does not adapt directly: its large-partner step pays `Σ_a V²`, which
+includes the hubs squared. **Assessment:** the middle window needs a new
+ingredient, at least a hub-count bound (item 1). It is plausibly a
+height/lattice argument (TW2 Lemma 5.5: labels of height
+`< (j/2)^{1/2}` never collide), applied to the residues where rough
+partner mass accumulates. Not attempted here.
