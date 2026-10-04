@@ -373,3 +373,53 @@ pair of classes with cofactors `k, k′` is jointly active with probability
 
 by Corollary 6.3 and TW2 Lemma 5.4(iii). Finally
 `Σ_{|V|=h} ρ^V/Q_V ≤ (Σ_{ℓ>w₂}ρ_ℓ/ℓ)^h ≪ (log L)^h`, `h ≤ r − 1`. ∎
+
+## 7. Assembly: the Λ² cap for moduli with at most r large primes
+
+**Theorem 7.1 (r-prime Λ² cap; PROVED, internal).** Fix `r ≥ 2`, `B ≥ 0`,
+`A₀ ≥ 1`. For ℛ(M)-families with `M ≤ X`, `M ≤ P(M)^{1+B}`, and at most r
+distinct prime factors of M above `w₂ = (log X)^8` (twins, triplets, …,
+dominant moduli and prime powers included), every admissible Λ² majorant g
+of level `λ ≤ A₀L` has
+
+    saving(g²) ≪_{A₀,B,r} L^{3/4}(log L)^{3r+O(1)}.
+
+*Proof.* Fibre law: TW2 §3 with `G_L^{(r)}` (Lemma 4.1; TW2 Lemma 3.2
+then holds verbatim). Proposition 3.1 reduces the saving to
+`A₀L^{3/4}/2 + 4L^{1/2} + C_r E_P[Σρ_ℓp_ℓ + star sum]`. The unary term is
+TW2 Lemma 4.1 (`≪ α^{−3}(log L)^{O(1)}`). Split the star sum by (3.1):
+* `T_ev`: Cor 5.2(1), `≪ α^{−3}(log L)^{r+O(1)}`;
+* `T_pp`: Cor 5.2(2), `o(1)`;
+* `T_V^{sf}`: with `D^{sf} = x_V + z_V` (small/large partners),
+  `min(x+z,1)² ≤ 2x + 2z²`. The x-part is Lemma 5.3
+  (`≪ α^{−3}(log L)^{2r+O(1)}`), the z-part is Lemma 6.4
+  (`≪ (log L)^{3r+O(1)}`).
+With `α^{−3} = L^{3/4}` the total is `≪ L^{3/4}(log L)^{3r+O(1)}`. ∎
+
+For `r = 2` this is TW3 Cor 4.2 (with a different log-power). For `r = 3`
+it closes the ternary residual of TW3 §6.3 and supersedes TW3 Prop 6.4
+(SKETCH) by a proof.
+
+**Corollary 7.2.** Within the class of Λ² forced-class sieves whose
+moduli `M ≤ X` satisfy `M ≤ P(M)^{1+B}` and have a bounded number of
+prime factors above `(log X)^8`, the exponent 3/4 cannot be beaten:
+`saving ≪ L^{3/4+o(1)}`. ∎
+
+### 7.1 What is left for "all polynomially bounded moduli" (Assessment)
+
+Theorem 7.1 is uniform only for fixed r. A modulus `M ≤ X` can have up to
+`L/(8 log L)` primes above `w₂`. The r-dependence is:
+* `C_r = e^{O(r)}` (inflation factors in Prop 3.1, `δ_r`, `2^r` subsets);
+* `(log L)^{O(r)}` from partner harmonic sums
+  `Σ_R 1/R ≤ (Σ_{w₂<ℓ≤X}1/ℓ)^s` and from `Σ_V ρ^V/Q_V ≤ (log L)^h`;
+* Lemma 4.1 needs `L^6(log L)^{O(r)}/w₂ = o(1)`.
+So the proof gives `saving ≪ L^{3/4+O(ε)}` for
+`r ≤ ε log L/log log L`, after tracking constants (not done; the
+factorials `1/s!`, `1/h!` in the harmonic sums would help). The range
+`ε log L/log log L < r ≤ L/(8 log L)` is not covered. There the partner
+sums `Σ_R 1/R` over all w₂-rough R are `≍ L/log w₂` (TW3 §6.2 (3a)–(3c)),
+and a different bookkeeping is needed, e.g. charging each class only to
+stars V containing its top few primes, or raising w₂ with r. The
+B-hypothesis is also still assumed. Neither point is a BFI-type
+obstruction: the arithmetic inputs used here (Shiu along the top prime,
+large sieve for rough partners, box counting mod Q) are all upper bounds.
