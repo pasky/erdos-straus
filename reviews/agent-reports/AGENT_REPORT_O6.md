@@ -79,3 +79,34 @@ the log domain, with worst-case Markov pushes, for `k=3..8` and
 * The removal of the exp factor in y (item 2).
 * Cor 3.1 relies on ET Prop 1.4, a cited published theorem, as in PO
   Lemma 9.2 and O2 Lemma 11.1. Cor 3.2 does not.
+
+# Checkpoint 2 — attack on HC(a,B) (§7 of POINTWISE_OMEGA4)
+
+**Verdict: sharply reduced, not proved.** Thm 4.2 stays conditional.
+
+* **Lemma 7.1 (PROVED).** For an event containing O (class c mod q),
+  the atom conditions collapse to `a≡κb` and `s≡(4κb²)^{−1}` (mod q),
+  with `κ=−c`. For each residue of b, both a and s are determined
+  mod q. The three O3 hub families appear as the three coordinate
+  planes, each with its own height `h_1,h_2,h_3`.
+* **Prop 7.2.**
+  * The full-period and two-variable boundary terms are
+    `≪𝓛³/q + 𝓛²2^{ω(q)/2}(h_1^{−1/2}+h_2^{−1/2}) + 𝓛³h_3^{−1}`. This is
+    the HC shape with `a=1/2`.
+  * Open gap (iii): the smooth-part factor `m|a+b` costs a τ(a+b)
+    average over lattice points. It looks routine, but I have not done
+    it.
+* **Prop 7.3 (the obstruction).** The core consists of triples with
+  `s,a,b<q`.
+  * For `q≤y^{2−ε}` it closes by counting. The off-ray part is
+    sketched only.
+  * For `q≫y²` (for example a pair with one prime near `T/y`), take a
+    non-hub ray `(a,b)=t(u,v)` with `s_t` small. Its contribution is
+    governed by `#{t≤(q/h)^{1/2} : w·t^{−2} mod q ≤ Y}` for `Y≥y`.
+    Bounding this is a short-interval equidistribution problem for
+    inverses of squares, beyond the Weil range.
+  * Counting that ignores the residues cannot beat `O(2^{ω(q)})`.
+* **Suggested next steps.**
+  * (α) An averaged HC plus a Markov push for the rare bad sets.
+  * (β) Rescale the construction so that large-q vertex sets cannot
+    occur.

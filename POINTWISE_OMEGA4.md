@@ -555,11 +555,14 @@ so it is `≍#{t : s_t ≤ Y}/Y` at scale `n_t≍Y≥y`.
 
 * *Elementary counting.* Pairs `(s,t)` with `st²≡w (mod q)`, `s≤Y` and
   `t≤t_0` number at most `min(t_0, 2^{ω(q)+1}Y)`. Summing over scales
-  gives a core contribution `O(2^{ω(q)})`, and
-  `O(min(1, (q/h)^{1/2}/y))` when `q ≤ y²h`. So **for vertex sets whose
-  primes have product `q≤y²H^{1−ε}`, the method closes**: the core is
-  `≪2^{ω(q)}H^{−ε/2}`.
-* *For `q ≫ y²H`* (for instance a pair with one prime near `T/y`), the
+  gives a core contribution `O(2^{ω(q)})` in general, and `≤(q/h)^{1/2}/y`
+  for this ray. The core points off rays (`ab≥q/4`) are handled the
+  same way. A mixed-sign short lattice vector (the class `+u/v`) leaves
+  a single-line term `≪2^{ω(q)/2}q^{1/4}y^{−1/2}`. So **for vertex sets
+  with `q≤y^{2−ε}` the method closes**: the core is
+  `≪2^{ω(q)}(y^{−ε/4}+H^{−1/2})`. (EVIDENCE-level bookkeeping: the
+  off-ray estimate is sketched, not written out.)
+* *For `q ≫ y²`* (for instance a pair with one prime near `T/y`), the
   core bound one needs is `#{t≤(q/h)^{1/2} : (wt^{−2} mod q) ≤ Y} ≪ ηY`
   for `Y≥y`. Here `(q/h)^{1/2}·Y/q` is the expected count. This is
   equidistribution of `w·t^{−2} mod q` in intervals of length
@@ -572,7 +575,7 @@ so it is `≍#{t : s_t ≤ Y}/Y` at scale `n_t≍Y≥y`.
 
 **Verdict (checkpoint 2).** HC(a,B) is **sharply reduced, not proved**.
 It holds with `a=1/2` for the non-core terms, modulo a τ-in-lattice
-average (iii). It also holds for all vertex sets with `q≤y²H^{1−ε}`.
+average (iii). It also holds for all vertex sets with `q≤y^{2−ε}` (core sketched).
 What remains is a worst-case short-interval statement for modular
 inverses of squares, `w·t^{−2} mod q` with `t≤(q/h)^{1/2}`, for moduli
 q that are products of `≤k` primes in `(y,T]`. It lies beyond the Weil
