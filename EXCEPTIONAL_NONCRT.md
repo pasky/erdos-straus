@@ -277,7 +277,9 @@ cap `C(log N)^{3/4}` at level `A log N` is unchanged.
 `𝒫_z = {n : (n, P(z)) = 1}` with `z ≤ e^λ` (this is how a sieve detects
 primes). Then ν is a majorant of the prime-slice system obtained by adding
 the class `0` to every `F_ℓ(c)`, ℓ ≤ z (and adding each prime ℓ ≤ z not
-yet in 𝒫 as a slice prime with `F_ℓ = {0}`). Its Theorem 2.5 bound
+yet in 𝒫 as a slice prime with `F_ℓ = {0}`; the primes ℓ < 5, where
+`1/ℓ > 1/4`, are put into the selector, as in the 3/4 note). Its
+Theorem 2.5 bound
 increases by at most
 
     C₄ Σ_{ℓ≤z} ℓ^{−1−α} + (G/2)·log(1 + log log z + O(1))
@@ -374,3 +376,54 @@ j-tuples of solutions sharing the same p, for all j up to
 dimension growing with j, with absolute error `N e^{−(log N)^θ}`. By
 Prop. 4.2 nothing of bounded order can suffice. No technique for such
 counts is known; this is the content of "non-CRT input" for (c).
+
+## 5. Numerical checks
+
+`scripts/noncrt_checks.py` (output `data/noncrt/checks_m8.txt`, ~1 min):
+* **Lemma 2.2, exact.** 40 random systems (Q₀ = 3, slice primes
+  5,7,11[,13], random `F_ℓ(c)`), random signed class combinations ν. For
+  every fibre and every S ≠ ∅, `|E[ν y^S | c]| ≤ A_S Π_S p_ℓ(c)`. Max of
+  lhs − rhs: `−1.7·10⁻¹⁷`. (Check of the lemma, not EVIDENCE for anything
+  else.)
+* **Toy LP (EVIDENCE, model only).** Hit-pattern model, 8 slice primes
+  5…29, `|F_ℓ| ≈ ℓ^{0.35}`, full mass 1.360. Minimum of Eν over ν ≥ 0,
+  ν(0) ≥ 1 with (C) class-coefficient budget B, or (F) Fourier-ℓ¹ budget
+  B (exact `a_ℓ`). Savings:
+
+  | B | 2 | 8 | 32 | 128 | 1024 | 4096 |
+  |---|---|---|---|---|---|---|
+  | (C) | 0.223 | 0.501 | 0.787 | 1.030 | 1.303 | 1.358 |
+  | (F) | 0.370 | 0.728 | 1.064 | 1.318 | 1.360 | 1.360 |
+
+  Per-frequency rounding acts like the coefficient budget multiplied by a
+  bounded factor (≈ 4–8 here, i.e. ≈ Π f_ℓ over a typical monomial), as
+  Lemma 2.2 predicts. It does not change the shape of the trade-off.
+
+## 6. Verdict and what remains
+
+| candidate | result | label |
+|---|---|---|
+| (a) signed rounding, per-frequency (Gauss/Kloosterman/divisor exponential sums over the classes) | capped at `C(log N)^{3/4}` for dominant-prime-slice families (Thm 2.3, Cor 2.4–2.5); also removes ET-file's "slice primes ≤ N^{O(1)}" proviso | PROVED |
+| (a′) cancellation *between* frequencies | equivalent to counting `Σ_{n≤N}ν(n)` directly; no set-level obstruction below θ = 1 (squares give only `√N`); needs superpolynomial high-level Fourier mass (§2.4) | open; no method |
+| (b) prime-only majorants (Dirichlet measure, BV/BDH/EH/GRH level) | same LP limit up to `O((log log N)²)` (Thms 3.2, 3.3) | PROVED |
+| (b′) prime error terms | unconditional prime equidistribution is *weaker* than the integer count at this precision (Remark 3.4) | Assessment |
+| (c) moment/variance methods, CRT-evaluated | are CRT majorants (Prop 4.1), so capped by (a)/(b); degree k saves `O(k log log N)` (Prop 4.2): Chebyshev/2nd moment gives only θ = 0 | PROVED |
+| (c′) moments evaluated by counting solution tuples | would need moments of order `≥ (log N)^{3/4+δ}` with absolute error `N e^{−(log N)^θ}`; ET Remark 1.3 already calls order 2 out of reach | open; no method |
+
+**No non-CRT input tested here beats θ = 3/4.** The three natural
+formalisations are capped, by proved theorems with the exact scope above.
+What is left is precise. Each remaining route must do one of two things.
+* Evaluate `Σ_{n≤N}ν(n)` (or `Σ_p`) for a majorant with
+  superpolynomially large Fourier mass at superpolynomial denominators,
+  with cancellation across frequencies.
+* Count high-order (`(log N)^{3/4+δ}`) correlations of ES solutions
+  without CRT.
+Neither is a known technique. The other open doors of the ET-file
+(balanced moduli, the sequential world of Thm 2.7, non-selector R) are
+untouched: Theorem 2.3 is proved for prime-slice systems only.
+
+## 7. Replay
+
+```
+uv run --with scipy python scripts/noncrt_checks.py 8 > data/noncrt/checks_m8.txt   # ~1 min, < 1 GB
+```
