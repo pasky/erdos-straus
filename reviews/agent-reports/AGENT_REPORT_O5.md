@@ -118,3 +118,36 @@ Recommendation: next task = (3a)–(3c), starting with (3c) for `r = 3`
 (ternary moduli with fixed B).
 
 Stopping for parent review.
+
+---
+
+# Checkpoint 3 — ternary moduli, fixed B (EXCEPTIONAL_TWIN3 §6.3)
+
+* **(3c) is trivial for r = 3.** There are at most 7 sub-stars per class.
+  The `2^r` problem exists only for an unbounded number of large primes.
+* **Prop 6.4 (proved, same inputs as §§2–3).** Each of the following is
+  `≪ α^{−3}(log L)^{O(1)}`:
+  1. pair stars, i.e. vertex modulus `Q = ℓ₁ℓ₂` with a *prime* partner;
+     the §§2–3 template runs mod Q, with ≤ 4 square roots;
+  2. vertex stars with a small partner `R = ℓ_aℓ_b ≤ (kj)^{C₀}`; (3a) is
+     harmless when R has a bounded number of primes, since
+     `Σ1/R ≪ (log L)²`;
+  3. vertex stars with an unbalanced large partner `ℓ_b > (kjℓ_a)^{C₀}`,
+     taking `kℓ_a` as the cofactor;
+  4. the balanced-partner case whenever the largest of u, v, t is
+     `≥ 8w₂(kjA)^{1/2}`.
+* **Exact residual (OPEN).** It is the vertex stars at j with all three of
+  the following:
+  * balanced partners: `(kj)^{C₀} < ℓ_aℓ_b`, `ℓ_b ≤ (kjℓ_a)^{C₀}`;
+  * a balanced divisor triple: every one of u, v, t is `< 8w₂(kjA)^{1/2}`;
+  * the resulting modulus `q = 4·(two short divisors) ≈ A^{1/2±}`, which
+    is comparable to or larger than both partner primes.
+
+  What is needed is an upper bound of the expected order for products of
+  two primes in progressions mod q, on average over the occurring q. This
+  is the Bombieri–Friedlander–Iwaniec range. The cap does not help, since
+  the τ-mass of this part is a positive proportion of `L³`.
+* Not done in this checkpoint: numerics for the residual; (3a)/(3b) for
+  unbounded r.
+
+Stopping for parent review (context ≈ 75%).
