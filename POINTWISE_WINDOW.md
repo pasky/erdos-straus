@@ -159,3 +159,28 @@ So `T_2≤C_3 ε^{3/2} x/(log x)^{3/2}`, with `C_3=27√2·C_0C_2` absolute.
 * Effectivity: S1 and S2 are effective; S3 (BV) is ineffective through
   Siegel's theorem, so `x_0` is ineffective. One can replace BV by a
   Siegel-free BV variant at the cost of nothing structural; not pursued.
+
+## 3. Numerical check of W1 (EVIDENCE)
+
+`scripts/window_w1.py XMAX` (segmented sieve on `p=840k+1`, `n=210k+1`;
+cross-checked against brute-force sympy factorisation at `x=10^6`, 244 = 244;
+a random subsample of the counted primes is re-checked with the independent
+`Rat_q` routine of `pointwise_size_amin.amin`, asserting `a_min≥7`).
+
+| x | primes `p≡1 (840)` | window 3 fails (`N_3`) | fraction | `N_3/(x/(log x)^{3/2})` |
+|---|---|---|---|---|
+| 1e6 | 395 | 244 | 0.6177 | 0.0125 |
+| 1e7 | 3426 | 1945 | 0.5677 | 0.0126 |
+| 1e8 | 30061 | 15912 | 0.5293 | 0.0126 |
+| 1e9 | 264770 | 131924 | 0.4983 | 0.0124 |
+| 1e10 | 2369556 | 1118043 | 0.4718 | 0.0124 |
+| 1e11 | 21445485 | 9622751 | 0.4487 | 0.0123 |
+
+The normalised count is flat (0.0123–0.0126) over five decades, as W1
+and the matching upper bound predict. The fraction itself decays like
+`(log x)^{−1/2}` (`fraction·(log x)^{1/2}` = 2.30, 2.28, 2.27, 2.26, 2.26, 2.26).
+Re-check of 300 random counted `p<10^11`: all have `a_min≥7`; the
+distribution of `a_min` is `{7:148, 11:113, 15:23, 19:11, 23:3, 27:1, 31:1}`.
+So conditioning on window 3 failing, window 7 fails about half the time —
+the joint (two-window) event is common numerically; the obstacle in §4 is
+purely one of proof technology.
