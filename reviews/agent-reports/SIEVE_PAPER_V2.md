@@ -43,3 +43,21 @@ Author "Anonymous"; TODOs only as `%` comments (the existing
 2. §9 Thm karycap proof cites ETw Prop 4.1 (singletons) and Lemma 4.2/Cor 4.3 (top block) rather than reproving.
 3. §11 Thm rprime / Thm noB are proof sketches with precise citations.
 4. §12 is a summary of NONCRT with short proofs for Lemma walshfourier and sketches elsewhere.
+
+## Round 2: referee v2 (`side-agent/review-sieve-v2:reviews/sieve-limits-note-review-v2.md`) — all D-items applied
+
+Recompiled clean (3 passes; no undefined refs, no overfull boxes, no warnings), 34 pages.
+
+| item | fix |
+|---|---|
+| D1 finiteness | Thm karycap and Results item 1: "every *finite* family"; Lemma kmoments' family is finite, the W-smooth classes may be infinite (avoided by R_W, Lemma QR(1)), Q₀ built from the finitely many other moduli; Thm main proof: (A3)+B (resp. C) give M ≤ N^{A(1+B)}, finitely many classes |
+| D2 non-family primes | Thm main proof: first average ν over the CRT coordinates of primes dividing no modulus and not Q₀ (A is a union of full fibres; mean unchanged; Σ|a_i| and level do not increase); then every charged prime is a family prime and (A3) applies. Covers both cases |
+| D3 (eq:kB) | full computation printed in the proof of Lemma kextrap, cases (i) z ≤ d, (ii) z > d and zt ≤ 2d (disjoint), (iii) zt > 2d, using only Lemma binom |
+| D4 notation | replaced set J(ω) → 𝒥(ω); Remark kweighted coordinates Z_1..Z_q, μ = q/4; K′ defined in the proof of Thm karycap (constant of TW Prop 4.1, = Lemma kmoments(2) on (W, e^{s₁}]) |
+| D5 provenance | §1: "…or is assembled here from such results … (marked 'observation of this note')"; Remark L2vsmain labelled observation of this note, [proved], with the TW2 all-primes-charged link, TW4 §11 cited as "anticipated in"; Results item 1 restated with R_{W₀(B)}, λ ≥ λ₀(B), and the one-line link to the whole avoider set; O_B → O_{A,B} in abstract and item 1 |
+| D6 | middle-range "carries most of the mass" labelled *Assessment* (TW4 §9.3), end of §11 and §14 |
+| D7 | prime moments beyond A log N: Assessment of NC Rem 3.4 **plus** Σ_high|a_i| < π(N) and slice primes ≤ N^{O(1)} (NC Prop 4.1), in §12 and §13 item 3 |
+| D8 | (a) "for all λ ≥ s_*, α > 0" in Thm perfreq; (b) Thm primemaj(1) assumes |F_ℓ(c)∖{0}| ≤ (ℓ−1)/4; (c) Cor 8.7's extra hypothesis m ≥ 16(log N)^{3/4+δ} stated, its support for the full family labelled evidence; (d) dichotomy rephrased as in NC §8.1 (holds at every λ; the range is where branch (D) is non-vacuous); (e) Prop 8.4 mean ≤ ¼(1+1/N)(1+log N)² |
+| D9 | (a) "first version" → "the corresponding list in [ET, §6]"; (b) ϖ(x) = 0 case restored in Lemma kthin; (c) remark after Thm main: any admissible set R ⊇ R_{W₀(B)} (or none) is covered — observation of this note, [proved] |
+
+Nothing anticipates the B-removal work of the kary-no-b agent: §14 still lists B-removal for general majorants as OPEN with TW4 §11 as an unchecked sketch.
