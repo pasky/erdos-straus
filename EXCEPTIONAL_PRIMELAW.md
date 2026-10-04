@@ -202,3 +202,20 @@ Then for every block V of primes `> W` and every family 𝔊 ⊆ 𝔘,
 remark after Lemma 2.3 every hypothesis they place on Γ holds for Γ*,
 with constants depending on W only through the Euler factors at `p ≤ W`,
 which are unchanged. ∎
+
+### 2.4 Second moments and the leak
+
+**Lemma 2.5 (second moment and leak under E*; PROVED, no external input).**
+For every prime `ℓ > W`, `E_{Q'} p*_ℓ² ≤ C(W)ℓ^{−7/4}(log ℓ)^c` with
+`C(W) ≤ C(log W)^c`. Hence there is an absolute `W₀*` such that for
+`W ≥ W₀*`, every family 𝔊 ⊆ 𝔘 and the block structure of §3, `𝔏 ≤ 1/2`.
+
+*Proof.* By Lemma 1.3, `p*_ℓ ≤ Σ_{v≥1}(ℓ/(ℓ−1))ℓ^{−v}N_{ℓ,v} ≤ 2Σ_v ℓ^{−v}N_{ℓ,v}`,
+with `N_{ℓ,v}` as in K2 §4 (classes whose residue mod `ℓ^v` is not a unit
+contribute 0 and may be kept or dropped; selector classes contribute 0).
+K2 Lemma 4.1 holds with Γ* (it uses only `Q'(class mod m) ≤ Γ*(m)/m`,
+submultiplicativity, and Lemma 3.1 with `F = Γ*`, κ = 1). K2 Lemma 4.2
+holds with Γ* (Lemma 3.1 with `F = τ²Γ*², τ⁵Γ*², τ⁵Γ*`; the pointwise
+bounds use `Γ*(q) ≤ 8·3^{ω(q)}`). K2 Lemma 4.3's Minkowski step then gives
+the bound with an extra factor 4, and the leak sum
+`Σ_{ℓ>W}ℓ^{1/2}E p*_ℓ² ≪ W^{−1/4}(log W)^{3c+2}`. ∎
