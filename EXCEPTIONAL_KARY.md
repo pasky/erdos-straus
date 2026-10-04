@@ -106,14 +106,14 @@ function `g_ω(ρ) = f(y^ρ)` is nonnegative and multilinear of degree ≤ d in
     B(n,t,d) = min_Y max_{y∈Y} |ℓ^Y_y(n)| / ψ(y),   ψ = Bin(n,t),
 
 over node sets `Y ⊆ {0,…,n}` with `|Y| = min(d,n)+1`, `ℓ^Y_y` the Lagrange
-basis. Moreover
+basis, for `d ≥ 1`; and `B(n,t,0) := 1` (for d = 0, g is constant). Moreover
 
     log B(n,t,d) ≤ d·log(4e³(n+1)/t) + ½ log(16nt + 16).            (2.1)
 
 *Proof.* Average g over `Sym(n)`. This changes neither `g(1)` nor the
 `Bern(t)^n` mean, and the average is `Q(K)`, `K = Σρ_i`, with Q a polynomial
 of degree ≤ d (the average of `ρ^S` is `C(K,|S|)/C(n,|S|)`), `Q ≥ 0` on
-`{0..n}`. Lagrange interpolation at Y gives
+`{0..n}`. Lagrange interpolation at a minimising Y gives
 `Q(n) = Σ_y ℓ_y(n)Q(y) ≤ max_y(|ℓ_y(n)|/ψ(y))·Σ_y ψ(y)Q(y) ≤ B·E Q(K)`.
 (2.1) is proved in §3. ∎
 
@@ -124,13 +124,14 @@ from the process and, given ω, `ρ ~ Bern(t)^V`. Then for every x,
     E_ω[ W(ω) · P_ρ(y^ρ = x | ω) ] ≤ ν(x).
 
 *Proof.* At a replaced ℓ the events `c_ℓ = x_ℓ` and `y_ℓ = x_ℓ` cannot
-both hold (`c_ℓ ∈ F̃_ℓ ∌ y_ℓ`). Hence
+both hold (`c_ℓ ∈ F_ℓ ∌ y_ℓ`). Hence
 
     P_ρ(y^ρ = x | ω) ≤ Π_ℓ φ_ℓ,   φ_ℓ = 1{c_ℓ = x_ℓ} + t·1{ℓ ∈ R, y_ℓ = x_ℓ}.
 
 Given the past, `c_ℓ` and the fresh draw are independent, so
-`E[φ_ℓ | past] = ν_ℓ(x_ℓ) + t p̃_ℓ ν_ℓ(x_ℓ)1{x_ℓ∉F̃_ℓ}/(1−p̃_ℓ) ≤ ν_ℓ(x_ℓ)D_ℓ`
-with `D_ℓ = 1 + (4/3)t p̃_ℓ 1{ℓ light}`, which is known before ℓ. So
+`E[φ_ℓ | past] = ν_ℓ(x_ℓ) + 1{ℓ light}·t p_ℓ ν_ℓ(x_ℓ)1{x_ℓ∉F_ℓ}/(1−p_ℓ) ≤ ν_ℓ(x_ℓ)D_ℓ`
+with `D_ℓ = 1 + (4/3)t p_ℓ 1{ℓ light}` (as `p_ℓ ≤ δ_ℓ ≤ 1/4`), which is
+known before ℓ. So
 `Z = Π_ℓ φ_ℓ/(ν_ℓ(x_ℓ)D_ℓ)` is a product of adapted factors with
 conditional means ≤ 1, and `E Z ≤ 1` (if `ν(x) = 0` both sides vanish).
 Pathwise `Π_ℓ D_ℓ ≤ exp((4/3)tM) = 1/W`. Therefore
@@ -142,7 +143,7 @@ for every `t ∈ (0, 1/4]` and every d-local `f ≥ 0`,
     E_ν f ≥ E_ω[ e^{−Φ(ω)} f(y) ],     Φ(ω) = log B(n(ω), t, d) + (4/3)·t·M(ω).
 
 *Proof.* By Lemmas 2.2 and 2.3, `f(y) = g_ω(1_R) ≤ B(n,t,d)·E_ρ g_ω(ρ)`.
-Multiply by `W(ω)` and take `E_ω`:
+Multiply by `W(ω)/B(n,t,d)` and take `E_ω`:
 `E_ω[e^{−Φ}f(y)] ≤ E_ω[W E_ρ f(y^ρ)] = Σ_x f(x)·E_ω[W P_ρ(y^ρ = x|ω)] ≤ E_ν f`
 by Lemma 2.4 and `f ≥ 0`. ∎
 
@@ -151,7 +152,7 @@ by Lemma 2.4 and `f ≥ 0`. ∎
 
     E_ω Φ ≤ d·log(C₀(m̄ + 4d)/d) + (4/3)d + ½log(22d + 22) + 3,   C₀ = 4e^{4.31}.
 
-*Proof.* Each light ℓ is replaced with conditional probability `p̃_ℓ`, so
+*Proof.* Each light ℓ is replaced with conditional probability `p_ℓ`, so
 `E n = E M`. §3 gives, in all cases,
 `log B(n,t,d) ≤ d·log(C₁·max(1/t, √(n/(td)))) + ½log(22nt + 22) + 3`, `C₁ = 2e^{4.31}` (3.1).
 Bound the max by the sum, use concavity of `log`, `√·` and Jensen:
@@ -166,27 +167,35 @@ Thm 2.5 for unary systems, now for any arity and with only the *mean* mass.
 `t(ω) = 1/(M(ω)+M₀)`, `M₀ ≥ 4`, with weight `(1+M/M₀)^{−4/3}`: in the
 proof of Lemma 2.4 use `t_ℓ = 1/(M_{≤ℓ}+M₀) ≥ t(ω)`, where `M_{≤ℓ}` is the
 light mass up to and including ℓ, and
-`Σ_ℓ p̃_ℓ/(M_{≤ℓ}+M₀) ≤ log(1+M/M₀)`. The cost is then
+`Σ_{ℓ light} p_ℓ/(M_{≤ℓ}+M₀) ≤ log(1+M/M₀)`. The cost is then
 `≈ d·log((n+1)(M+M₀))`, weaker by a log factor but with no choice of t.
 The checks below use this variant.
 
-The unweighted form follows when M and n are bounded: if `M ≤ M̄` and
-`n ≤ n̄` on every path, then by (2.1)
-`log(E_σ̃ f/E_ν f) ≤ d·log(4e³(n̄+1)(M̄+M₀)) + ½log(16n̄+16) + (4/3)log(1+M̄/M₀)`,
-i.e. `≪ d log(2+M̄) + log(2+n̄)` when `n̄ ≍ M̄`. This is the shape of ETw
-Conjecture 6.4, for σ̃ in place of σ. The weighted form is stronger and
-is what §4 uses: it needs no bound on M, only its mean.
+**Remark 2.8 (weighted vs unweighted; review O7-1).** Theorem 2.5 bounds
+`E[e^{−Φ}f(y)]`, and Corollary 2.6 bounds `EΦ`; neither bounds
+`log(E_σ f/E_ν f)` by the *mean* mass, and no such bound holds in general.
+Example (review): a trigger X with `P(X=1) = ε`, m coordinates `Z_i` with
+`P(Z_i=1) = 1/4`, patterns `(X,Z_i) = (1,1)`, `μ = m/4`, `ε = 1/μ`. Every
+activated set is light, `E M = εμ = 1`, but the 3-local
+`f = X(ΣZ_i − μ)²` has `E_σ f/E_ν f = μ/(1−1/4) → ∞`. Here the incident
+weight of `(X,1)` is `≈ 1`, so ETw Conj 6.4 (which assumes incident weights
+`≤ θ₀`) is not contradicted. An unweighted bound does follow from pathwise
+bounds: if `M ≤ M̄` and `n ≤ n̄` on every path, Theorem 2.5 gives
+`log(E_σ f/E_ν f) ≤ sup_ω Φ`. The sieve application needs only the
+weighted form, because Theorem 4.1 accepts random step costs.
 
-`scripts/kary_check.py` tests Theorem 2.5 (constant t = d/(EM+4d)) and Remark 2.7 by exact LP on 100 random small
-systems (unary, binary and ternary patterns, d ≤ 3, up to 8 coordinates,
-every path of the process enumerated). The weighted LP value is always
-≤ 1, as the theorem requires, with the optimal one-dimensional constant
-`B*` in Φ (`B* ≤ B`, so this is a stronger test). EVIDENCE only; the proof
-is above. Outputs: `data/kary/check_*.txt`.
+`scripts/kary_check.py` tests Theorem 2.5 (constant `t = d/(EM+4d)`) and
+Remark 2.7, for the plain and the phantom rule, on 100 random small
+systems (unary, binary and ternary patterns, d ≤ 3, up to 8 coordinates).
+Every path of the process is enumerated exhaustively; the LPs are solved
+in floating point (HiGHS). The weighted LP value is always ≤ 1 (asserted
+with tolerance 10⁻⁷), with the optimal one-dimensional constant `B*` in Φ
+(`B* ≤ B`, so this is a stronger test). EVIDENCE only; the proof is above.
+Outputs: `data/kary/check_*.txt`.
 
 ## 3. Proof of (2.1)
 
-If `d = 0`, Q is constant and `B = 1`. Let `d ≥ 1`, `m₀ = nt ≤ n/4`.
+For `d = 0` see the definition. Let `d ≥ 1`, `m₀ = nt ≤ n/4`.
 
 *(i) n ≤ d.* Take `Y = {0,…,n}`. Then `ℓ_y(n) = 1{y = n}` and
 `B ≤ 1/ψ(n) = t^{−n} ≤ t^{−d}`.
