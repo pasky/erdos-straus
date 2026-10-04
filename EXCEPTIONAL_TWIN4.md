@@ -402,8 +402,9 @@ it closes the ternary residual of TW3 §6.3 and supersedes TW3 Prop 6.4
 
 **Corollary 7.2.** Within the class of Λ² forced-class sieves whose
 moduli `M ≤ X` satisfy `M ≤ P(M)^{1+B}` and have a bounded number of
-prime factors above `(log X)^8`, the exponent 3/4 cannot be beaten:
-`saving ≪ L^{3/4+o(1)}`. ∎
+prime factors above `(log X)^8`, the saving is capped:
+`saving ≪ L^{3/4+o(1)}`. So such sieves cannot give an exceptional-set
+exponent θ > 3/4. ∎
 
 ### 7.1 What is left for "all polynomially bounded moduli" (Assessment)
 
