@@ -309,3 +309,94 @@ multi-witness integers ≤ N, done better than termwise. This is the
 "non-CRT tuple count" door (c′) of NC §6. **So the inter-frequency door is
 not a separate door: below N/2 it is closed (Thm 2.5), and above N/2 it is
 the tuple-count door.**
+
+## 4. Smooth per-frequency rounding and (H_eq)
+
+Setting of NC §2.5: Q₀ = 1, hit-pattern majorant ν with Walsh coefficients
+`d_S`, smooth window Φ ≥ 0 (Schwartz, or compactly supported), bound
+`B_Φ = N Φ̂(0) Eν + Σ_S |d_S| M_S`, where
+`M_S = Σ_{θ∈Θ_S} m_S(θ)|W_N(θ)|`, `m_S(Σ h_ℓ/ℓ) = Π_S |1̂_{F_ℓ}(h_ℓ)|`,
+and `W_N(θ) = Σ_n Φ(n/N) e(nθ)`.
+
+**Status after §2.** By Cor 2.3, if `Φ ≥ 1_{[1,N]}` and ν has level < log(N/2),
+smooth windows give nothing, without (H_eq), for every majorant and every
+Q₀. (H_eq) matters only for S with `Π_S ℓ > N/2`.
+
+**Lemma 4.1 (polynomial loss suffices; PROVED).** In NC §2.5, (2.6) may be
+replaced by
+
+    (H_eq^A)   M_S ≥ N^{−A} Π_{ℓ∈S}(1 − p_ℓ)   for all S with s(S) > λ_A := (A+2) log N,
+
+for any fixed A ≥ 0. Then, for the Cor 2.5 families, every bound `B_Φ < N`
+saves `≤ C(A)(log N)^{3/4} + log(P/φ(P))`.
+
+*Proof.* Use weights `s_ℓ = log(3/(8p_ℓ⁺))`. Then `2p_ℓ ≤ (3/4)e^{−s_ℓ}`,
+so `Π_S 2p_ℓ(1−p_ℓ) ≤ e^{−s(S)}Π_S(1−p_ℓ) ≤ e^{−s(S)}N^A M_S`, and also
+`Π_S (4/3)p_ℓ ≤ Π_S 2p_ℓ(1−p_ℓ)` because p_ℓ ≤ 1/4. Hence the tails of NC
+Prop 2.1 at level λ ≥ λ_A satisfy
+`r₀, r₁ ≤ e^{−λ}N^A Σ_S|d_S|M_S ≤ e^{−λ}N^{A+1}`. Choose
+`λ = (A+1)log N + log 4 + Φ̄(λ)`. This is ≥ λ_A for N large, it is
+`≍_A log N` by NC Cor 2.5, and it makes `r₀, r₁ ≤ e^{−Φ̄}/4`. Conclude as
+in NC Cor 2.4. ∎
+
+**Lemma 4.2 (H_eq is an interval-correlation statement; PROVED).** For
+every S and every shift t ∈ ℤ,
+
+    M_S ≥ | Σ_n Φ(n/N) y^S(n − t) |,   y^S(n) = Π_{ℓ∈S}(1[n mod ℓ ∈ F_ℓ] − p_ℓ).
+
+*Proof.* `y^S` has Fourier transform `Π_S 1̂_{F_ℓ}(h_ℓ)` on Θ_S and 0
+elsewhere. With `c(θ) = e(−tθ)·Π 1̂_{F_ℓ}(h_ℓ)/|1̂_{F_ℓ}(h_ℓ)|` (any unimodular
+value where 1̂ = 0), `|c| ≤ 1` and
+`Σ_θ c(θ)m_S(θ)W_N(θ) = Σ_n Φ(n/N)y^S(n − t)`. Bound by `Σ m_S|W_N| = M_S`. ∎
+
+So (H_eq^A) follows if, for each S of level > (A+2)log N, *some* window
+of length ≍ N carries a centred S-pattern correlation of size
+`≥ N^{−A}Π(1−p)`. Placing a point of ∩_S F_ℓ (it exists by CRT) inside the
+window gives a main term `Φ(n₀/N)Π_S(1−p_ℓ)`. The other points of the
+window contribute `±Π_T(1−p)Π_{S∖T}p` according to their hit sets T ⊂ S.
+To control them one needs the distribution of hit sets of combined modulus
+> N in short windows: the §3 data again. Neither a proof nor a
+counterexample was found.
+
+**Assessment.** (H_eq) is a statement of the same kind as §3.3, about
+patterns of combined modulus > N in windows of length N. It is not an
+independent obstruction. **Status: (H_eq) remains CONJECTURE.** It is
+superseded below level N/2 (Cor 2.3), and the polynomial-loss form
+(H_eq^A) suffices (Lemma 4.1).
+
+## 5. Which arithmetic input would be needed, and is any known?
+
+**(i) Level-of-distribution / dispersion inputs are useless here.**
+Bombieri–Vinogradov, BFI, Deshouillers–Iwaniec, Zhang/Polymath and
+Maynard-type well-factorable estimates control remainders
+`Σ_{d≤D} λ_d r_d` for moduli `d ≤ D < N` (for the integers, or level
+`N^{1/2+δ}`, `N^{4/7}` for primes). Theorem 2.5 shows that for the integer
+avoider count, *any* evaluation of all classes of modulus ≤ N/2, however
+strong (even exact), together with trivial charging above N/2, is capped
+at `(log N)^{3/4}(log log N)^{3/4}`. So no estimate of this type can help,
+whatever its quality. For prime-only majorants, NC Thm 3.2/Rem 3.4 already
+showed level `N^{O(1)}` equidistribution is capped. Theorem 2.5 does not
+extend this to prime counts (Lemma 2.4 is a statement about integers).
+
+**(ii) What would be needed.** A non-trivial evaluation of (3.2): signed
+counts of n ≤ N lying in intersections of forced classes with combined
+modulus > N/2. For Case-B classes on [1,N] a hit by `ℛ(M)`, M > N/2, means
+`n + 4D = aM` with a small cofactor `a ≤ (N+4D)/M`. Switching to the
+complementary divisor turns it into the (a,D)-class
+`n ≡ −(4D + a) (mod 4a·g(D))` (NC Lemma 8.2; ET Lemma 3.2). Its modulus is
+`≤ 8B² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. So switching moves
+part of the large-modulus mass below N/2, where Theorem 2.5 caps it (K2
+covers (a,D)-classes). The rest stays above N/2 in both descriptions. What
+remains is to count integers n ≤ N with **k simultaneous witnesses of
+large modulus**. By NC Thm 8.1(H) this needs `k ≳ (log N)^{4θ/3−1}`
+(prime-slice setting), or else, at bounded k, an interval deficit
+≥ ½ against the CRT mean.
+
+**(iii) Known results.** For k = 1 (first moments of f(n)) Elsholtz–Tao
+give asymptotics of the right order, and ET Thm 1.8 the typical size. Their
+Remark 1.3 calls second and higher moments out of reach. We know no
+estimate for correlations of the ES witness function of growing order, nor
+any Type I/II decomposition of the forced-class indicator above modulus N.
+The interval deficit is not seen numerically: NC §8.3, and §3.2 here,
+where [1,N] saves no more than shifted intervals. **Assessment: no known
+technique supplies the input; the door stays open only formally.**
