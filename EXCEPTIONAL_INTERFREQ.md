@@ -149,7 +149,7 @@ evaluation of the remainder terms. In particular:
   moduli `d < N/2`;
 * Erdős–Turán/Vaaler ψ-rounding and per-class floor/ceiling rounding, at
   level < N/2 (NC review N2 left these open at all levels);
-* smooth windows Φ ≥ 1_{[1,N]} at level < N/2, since
+* smooth windows `Φ(n/N) ≥ 1_{[1,N]}(n)` (Φ ≥ 0) with all moduli ≤ N/2, since
   `Σ Φ(n/N)ν(n) ≥ Σ_{n≤N}ν(n)`. This includes non-hit-pattern majorants and
   Q₀ > 1, so NC §2.5 (H_eq) is not needed below level N/2.
 
@@ -223,7 +223,7 @@ exactly as in K2 Cor 6.1's case analysis. ∎
   floor/ceiling), with coefficients of any size; each class of modulus
   > N/2 is charged its trivial count `N/d_i + O(1)` per unit coefficient,
   i.e. `Σ_{n≤N} ν_> ≤ N·Eν_> + T_>`;
-* smooth windows `Φ ≥ 1_{[1,N]}` used this way.
+* smooth windows `Φ(n/N) ≥ 1_{[1,N]}(n)` used this way.
 
 **What is left of the door (precise).** A method escapes Theorem 2.5 only
 if its bound B is much smaller than the coefficient mass `T_>` of classes
@@ -265,8 +265,9 @@ majorants. Then
 In particular, `V_N(λ)` depends on [1,N] only through the correlation
 counts `N·m_T(π_N) = #{n ≤ N : n ∈ F_ℓ (mod ℓ) ∀ℓ ∈ T}`, s(T) ≤ λ. The
 same holds with π_N replaced by the CRT law (product Bern(|F_ℓ|/ℓ)),
-giving `V_CRT(λ)`, which ET Prop 2.4 / K2 Thm 5.1 bound below by
-`e^{−Cλ^{3/4}}` (up to the stated log factors).
+giving `V_CRT(λ)`. *For the ES families* of NC Cor 2.5 / K2 Thm 5.1
+(not for arbitrary F_ℓ: one prime with `|F_ℓ| = ℓ − 1` already gives
+`V_CRT ≤ 1/ℓ`), `V_CRT(λ) ≥ e^{−Cλ^{3/4}}` up to the stated log factors.
 
 *Proof.* G ≥ 0 together with G(0) ≥ 1 is G ≥ 1_{x=0}. The primal
 `min ⟨π_N, G⟩, G ∈ span{x^T}, G ≥ 1_{0}` is feasible (G ≡ 1) and bounded
@@ -282,14 +283,19 @@ CRT law (Q = Πℓ). Hence
 
 *Proof.* A minimum of linear functionals is concave; Jensen. ∎
 
-So "an exact interval count at level λ saves more than the CRT sieve" is
-the *generic* situation, not an arithmetic feature of [1,N]. Moreover for
-`λ = ∞` the value is the void `π_N^{(t)}(0)`, whose average is the CRT
-density `Π(1 − p_ℓ)`, far below `e^{−(log N)^{3/4}}`. Exact counts at high
-level therefore face **no structural barrier**. This is Observation 1.1
-seen through the LP. The only barrier is evaluating the interval counts
-`N·m_T(π_N)` for T of combined modulus `Π_T ℓ > N/2`. Below N/2 they equal
-the CRT values up to the Lemma 2.4 error, and Theorem 2.5 applies.
+So *on average over shifts* an exact interval count at level λ does at
+least as well as the CRT sieve. This is a generic effect of fixing one
+window, not an arithmetic feature of [1,N]. (Jensen gives an average
+inequality only, not a gain at every shift.) For `λ = ∞` the value is the
+void `π_N^{(t)}(0)`, whose average is the CRT density `Π(1 − p_ℓ)`. For
+the full ES family up to N^{O(1)} this is `e^{−c(log N)^3}`-small (mean
+witness mass ≍ (log N)³), far below `e^{−(log N)^{3/4}}`. So in the LP
+sense exact counts at high level face no barrier from (3.1) alone: this is
+Observation 1.1 seen through the LP. The barrier is evaluation: knowing
+the interval counts `N·m_T(π_N)` for T of combined modulus `Π_T ℓ > N/2`.
+Theorem 2.5 covers every method that charges those terms at coefficient
+cost. (Lemma 2.4 gives exact CRT values for *minorant-weighted*
+progression sums, not for the sharp counts `N·m_T`.)
 
 ### 3.2 Numerics (EVIDENCE; toy family)
 
@@ -307,15 +313,17 @@ patterns: HiGHS, < 5 s). Family: the 12 primes `3 ≤ ℓ ≤ 79`, ℓ ≡ 3 (4)
 | N² | 2.675 | 2.808 | 2.916 | 3.015 |
 | ∞ (void) | 3.152 | 2.976 | 3.178 | 3.270 |
 
-* Up to Q = N the interval LP equals the CRT LP to three digits, at every
-  shift (Theorem 2.2/Lemma 2.4).
-* Above N the interval value moves away from CRT, mostly towards *larger*
-  savings and at every shift (Prop 3.2). [1,N] gains least, and at full
-  level it loses (the squares are avoiders: void 0.051 versus CRT 0.043).
-* Prime samples (`mode=prime`, about 200–400 points) behave the same way.
-  The deviations are larger and appear already near Q = N. The relevant
-  scale is the sample size N/log N, and small-sample overfitting at high
-  level grows.
+* Up to Q = N the interval LP is within 0.005 of the CRT LP, at every
+  shift (consistent with Theorem 2.2; Theorem 2.2 is a lower bound, not an
+  equality).
+* Above N the deviations grow and have either sign. At Q = N^{3/2}, [1,N]
+  saves less than CRT (2.306 < 2.324) and the shifts save more. At Q = N²
+  all three save more (Prop 3.2 predicts this only on average). At full
+  level [1,N] saves less than CRT, because the squares are avoiders (void
+  0.051 versus CRT 0.043). [1,N] is never the best of the three.
+* Prime samples (`mode=prime`, about 200–400 points) deviate more, already
+  near Q = N. The relevant scale is the sample size N/log N, and
+  small-sample overfitting at high level grows.
 
 The toy savings are tiny (m = 12). The table illustrates the mechanism.
 It is no evidence about the asymptotic exponent.
@@ -345,13 +353,16 @@ the tuple-count door.**
 
 Setting of NC §2.5: Q₀ = 1, hit-pattern majorant ν with Walsh coefficients
 `d_S`, smooth window Φ ≥ 0 (Schwartz, or compactly supported), bound
-`B_Φ = N Φ̂(0) Eν + Σ_S |d_S| M_S`, where
+`B_Φ = N Φ̂(0) Eν + Σ_S |d_S| M_S` (with `Φ(n/N) ≥ 1_{[1,N]}(n)`), where
 `M_S = Σ_{θ∈Θ_S} m_S(θ)|W_N(θ)|`, `m_S(Σ h_ℓ/ℓ) = Π_S |1̂_{F_ℓ}(h_ℓ)|`,
 and `W_N(θ) = Σ_n Φ(n/N) e(nθ)`.
 
-**Status after §2.** By Cor 2.3, if `Φ ≥ 1_{[1,N]}` and ν has level < log(N/2),
-smooth windows give nothing, without (H_eq), for every majorant and every
-Q₀. (H_eq) matters only for S with `Π_S ℓ > N/2`.
+**Status after §2.** By Cor 2.3, if `Φ(n/N) ≥ 1_{[1,N]}(n)` on ℤ and ν is
+built from classes of modulus ≤ N/2 (a denominator condition; a level
+bound alone does not control the Q₀ part), smooth windows give nothing,
+without (H_eq), for every Q₀. In NC §2.5's setting (Q₀ = 1) (H_eq) is
+needed only for S of large Walsh level s(S); since `s_ℓ ≤ log ℓ` these
+have `Π_S ℓ ≥ e^{s(S)}`.
 
 **Lemma 4.1 (polynomial loss suffices; PROVED).** In NC §2.5, (2.6) may be
 replaced by
@@ -365,12 +376,11 @@ saves `≤ C(A)(log N)^{3/4} + log(P/φ(P))`.
 so `Π_S 2p_ℓ(1−p_ℓ) ≤ e^{−s(S)}Π_S(1−p_ℓ) ≤ e^{−s(S)}N^A M_S`, and also
 `Π_S (4/3)p_ℓ ≤ Π_S 2p_ℓ(1−p_ℓ)` because p_ℓ ≤ 1/4. Hence the tails of NC
 Prop 2.1 at level λ ≥ λ_A satisfy
-`r₀, r₁ ≤ e^{−λ}N^A Σ_S|d_S|M_S ≤ e^{−λ}N^{A+1}`. Choose
-`λ = (A+1)log N + log 4 + Φ̄(λ)`. This is ≥ λ_A for N large, it is
-`≍_A log N` by NC Cor 2.5, and it makes `r₀, r₁ ≤ e^{−Φ̄}/4`. Conclude as
-in NC Cor 2.4. ∎
+`r₀, r₁ ≤ e^{−λ}N^A Σ_S|d_S|M_S ≤ e^{−λ}N^{A+1}`. Choose `λ = λ_A`. Then
+`r₀, r₁ ≤ 1/N`, and `Φ̄(λ_A) ≤ C(A)(log N)^{3/4} = o(log N)` by NC Cor 2.5,
+so `r₀, r₁ ≤ e^{−Φ̄(λ_A)}/4` for N ≥ N₀(A). Conclude as in NC Cor 2.4. ∎
 
-**Lemma 4.2 (H_eq is an interval-correlation statement; PROVED).** For
+**Lemma 4.2 (a sufficient condition for H_eq; PROVED).** For
 every S and every shift t ∈ ℤ,
 
     M_S ≥ | Σ_n Φ(n/N) y^S(n − t) |,   y^S(n) = Π_{ℓ∈S}(1[n mod ℓ ∈ F_ℓ] − p_ℓ).
@@ -389,9 +399,11 @@ To control them one needs the distribution of hit sets of combined modulus
 > N in short windows: the §3 data again. Neither a proof nor a
 counterexample was found.
 
-**Assessment.** (H_eq) is a statement of the same kind as §3.3, about
-patterns of combined modulus > N in windows of length N. It is not an
-independent obstruction. **Status: (H_eq) remains CONJECTURE.** It is
+**Assessment (heuristic).** Lemma 4.2 has no converse: a large ℓ¹
+quantity M_S need not give a large correlation at any shift. So (H_eq) is
+not shown to be equivalent to a §3.3-type statement, only implied by
+one. Both concern patterns of combined modulus > N in windows of length
+N. **Status: (H_eq) remains CONJECTURE.** It is
 superseded below level N/2 (Cor 2.3), and the polynomial-loss form
 (H_eq^A) suffices (Lemma 4.1).
 
@@ -415,11 +427,15 @@ modulus > N/2. For Case-B classes on [1,N] a hit by `ℛ(M)`, M > N/2, means
 `n + 4D = aM` with a small cofactor `a ≤ (N+4D)/M`. Switching to the
 complementary divisor turns it into the (a,D)-class
 `n ≡ −(4D + a) (mod 4a·g(D))` (NC Lemma 8.2; ET Lemma 3.2). Its modulus is
-`≤ 8B² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. So a method may use
-the switched description from the start. The part of it below N/2 is
-then capped by Theorem 2.5 (K2 covers (a,D)-classes). The rest stays
-above N/2 in both descriptions. (Switching changes ν as a function on ℤ;
-the two descriptions agree only on [1,N].) What
+`≤ 8B² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. Caveat: the
+unrestricted (a,D)-class has *more* hits than the original classes, even
+inside [1,N]. Example: N = 10, class `3 mod 7` (M = 7, D = 1) hits n = 3
+with a = 1, and the switched class `3 mod 4` also hits n = 7. So switching
+enlarges the family unless the original restrictions on M are kept, and
+then the moduli are no longer small. A method may of course use the
+(a,D)-classes from the start; those of modulus ≤ N/2 are capped by
+Theorem 2.5 (K2 covers (a,D)-classes). Also, a large *combined* modulus
+does not force each individual witness modulus to be large. What
 remains is to count integers n ≤ N with **k simultaneous witnesses of
 large modulus**. By NC Thm 8.1(H) this needs `k ≳ (log N)^{4θ/3−1}`
 (prime-slice setting), or else, at bounded k, an interval deficit
