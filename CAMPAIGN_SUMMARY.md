@@ -314,3 +314,109 @@ SOUND-AFTER-REPAIRS.
     factorisations.
 
   Whether fixed non-abelian Frobenius data (E3) escapes is open.
+
+### 3.3 Ω-results for the least witness modulus
+
+**Definition** (notes (51.1); POINTWISE_OMEGA §0):
+
+    W(n) = min{ M ≡ 3 (mod 4) : n mod M ∈ ℛ(M) }.
+
+So `W(p) ≤ T` means some multiplier congruence with modulus at most `T`
+forces a solution for `p`, and `W(p) < ∞` implies ES at `p`. Squares have
+`W(m²) = +∞` (notes Thm 58.1, PROVED). "Hard" means Mordell-hard (in one
+of Mordell's six classes mod 840).
+
+The question: is `W(p)` bounded by a fixed power of `log p` (the
+hypothesis `H_MOD(A)`)? If so, a pointwise multiplier mechanism with
+polylogarithmic moduli could prove ES. The campaign shows it is not.
+
+| result | statement (infinitely many Mordell-hard primes `p`) | label | source |
+|---|---|---|---|
+| notes Thm 54.1 | `W(p) ≥ c log p` (constant `1/5.2` via Xylouris' Linnik exponent) | PROVED, effective | notes §54 |
+| Thm 11.2 | `limsup W(p)/log p ≥ 5/8` | PROVED modulo Chang 2014 Cor. 11 | POINTWISE_SIZE |
+| Thm 5.1 | `W(p) ≥ (log p)² exp(−C log₂p/log₃p)` | PROVED modulo Thorner–Zaman, effective | POINTWISE_OMEGA |
+| Thm 5.1, Cor 5.2 | `W(p) ≥ (log p)³ exp(−C log₂p/log₃p)` | PROVED modulo Thorner–Zaman, effective | POINTWISE_OMEGA2 |
+| Thms 4.3, 5.2 | **for every fixed k:** `W(p) ≥ (log p)^k exp(−C_k log₂p/log₃p)`; equivalently `log L_h(T) ≤ T^{o(1)}` | PROVED modulo Thorner–Zaman, effective; no explicit rate as `k → ∞` | POINTWISE_OMEGA3 |
+| Cor 3.1 | **explicit rate:** `log W(p) ≥ (1+o(1)) log₂p · log₃p / log₄p` | PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA4 |
+| Cor 3.1 (variant) | `log W(p) ≥ (1+o(1)) log₂p · log₄p / log₅p` | PROVED modulo Thorner–Zaman alone | POINTWISE_OMEGA4 |
+
+Here `log_j` is the j-fold iterated logarithm. `L_h(T)` is the least hard
+prime with `W > T`.
+
+**Method, in brief.**
+* Impose the class of one at small primes, so the remaining congruence
+  system is local at a few free primes.
+* Build a pointwise minorant of the void indicator. It uses
+  inclusion–exclusion truncated by *support size*, organised in levels.
+  It also uses a conditional local lemma (Haeupler–Saha–Srinivasan), and
+  heavy "hub" vertex sets are pushed down to lower levels by Markov steps.
+* Transfer to primes with Thorner–Zaman's Linnik-range prime number
+  theorem in progressions (Math. Z. 306 (2024), Cor. 1.4). Its error term
+  absorbs a possible Siegel zero.
+
+**Consequences.**
+* `H_MOD(A)` is **REFUTED for every A** (ledger (F)10, (H)13).
+* So no pointwise multiplier mechanism with polylogarithmic witness
+  moduli can prove ES.
+
+**Related results.**
+* *Heuristic truth.* `log W ≍ (log p)^{1/3}` (**Assessment**,
+  POINTWISE_SIZE §7). Data: `W ≈ (log p)^{2.5–3.4}` for
+  `10^8 ≤ p ≤ 10^50` (EVIDENCE).
+* *Haar side* (profinite avoider density `δ*(T)`).
+  `log(1/δ*(T)) ≤ T^{o(1)}` unconditionally, and
+  `≪ (log T)^7 log log T` modulo Elsholtz–Tao Prop 1.4. Source:
+  POINTWISE_OMEGA2 Thm 11.3, PROVED. This does not transfer to primes.
+* *Bottleneck.* The factorial loss in OMEGA4 comes from the Markov
+  push-down cascade. A saturated-hub codegree hypothesis HC* would give
+  `log W ≥ 0.2√a (log₂p)^{3/2}`: OMEGA4 Thm 4.2, a PROVED implication.
+  Two caveats:
+  * HC *as literally stated* in OMEGA4 is **false**. POINTWISE_OMEGA5
+    corrects it to HC*.
+  * The `m = 1` part of HC* is PROVED (OMEGA5 Thm 2.3). The rest reduces
+    to an open divisor problem, HC_Π.
+
+  The proved rate remains OMEGA4 Cor 3.1.
+* *Type-I slice parameter* (POINTWISE_OMEGA Thm 8.5, ledger (H)9).
+  * `ck_min(p) ≫ log p · log₃p` infinitely often: PROVED modulo Lau–Wu
+    Prop 5.1, not effective.
+  * This is Graham–Ringrose's 1990 Ω-bound for the least quadratic
+    non-residue, transported by a Yamamoto-type lemma.
+  * Only the equivalence "congruence methods certify exactly `n_p`" is
+    campaign content.
+* *Write-up.* `paper/es-omega-note.tex` v3 (31 pp; internal referee
+  `reviews/es-omega-note-review-v3.md`, P1–P4 applied).
+
+### 3.4 Window results
+
+**The window frame** (POINTWISE_SIZE §8; ledger (H)5).
+* *Definition.* `a_min(p)` is the least `q ≡ 3 (mod 4)` such that the
+  divisor-ratio spectrum `Rat_q((p+q)/4)` contains `−1` or `−p`.
+* *Equivalence* (Thm 8.1, PROVED). ES holds at `p` iff `a_min(p) < ∞`.
+* *Reciprocity* (Lemma 8.2, PROVED). Window reciprocity holds.
+* *Not congruence-forced* (Lemma 11.3, PROVED). Window failure is never
+  forced by congruences.
+* *Unbounded* (Prop 8.4, CONDITIONAL on Dickson). `a_min(p)` exceeds every
+  `K` infinitely often.
+* *Random model* (**Assessment**). `a_min(p) ≍ log p / log log p`. This is
+  just above the formal-obstruction scale.
+* *Evidence.* `a_min/log p < 10` up to `10^8`, and in samples up to
+  `10^24` (EVIDENCE).
+* *Target.* **Conjecture X_win(C):** `a_min(p) ≤ C log p` for every prime
+  `p ≡ 1 (24)` with `p > 10^18`. For any `C` it implies ES, given the
+  existing verification below `10^18`. It is the natural (E1) target.
+
+**Unconditional and conditional Ω-results** (POINTWISE_WINDOW.md; review
+`reviews/pointwise-window-review.md`):
+* **Thm W1.** `#{p ≤ x hard : a_min(p) ≥ 7} ≫ x/(log x)^{3/2}`, via
+  `p ≡ 1 (840)` and window 3 failing. **PROVED modulo cited sieve
+  theorems**: semi-linear lower sieve, Selberg upper sieve, BV. It is also
+  implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025 Thm 1.1(2).
+* **Thm W2.** `#{p ≤ x hard : a_min(p) ≥ 11} ≫ x/(log x)²`.
+  **CONDITIONAL on Elliott–Halberstam**; a fixed level `x^{1−ε₀}`
+  suffices. It has the same shape as Friedlander–Iwaniec 2009 (hyperbolic
+  PNT).
+* **Unconditional `a_min → ∞`** is not reached. The obstruction is
+  linear-sieve parity at two windows (**Assessment**). Unconditional
+  `K = 11` is the window analogue of the open unconditional case of
+  Friedlander–Iwaniec 2009.
