@@ -15,6 +15,8 @@ Subject: branch `side-agent/omega-hcpi` at 7003065 (`POINTWISE_OMEGA6.md`,
 | 2 | Prop 2.1 (`D_sa≪4^k𝓛⁴(H^{−1/2}+q^{−1/4})`), all three regimes; Cor 2.2 | **CONFIRMED** modulo Shiu Thm 1 and Henriot Thm 4, whose hypotheses I checked literally. Citation nit D1 |
 | 3 | Lemma 3.1, Thm 3.2, (FT_a) ⇒ HC_Π(a) | **CONFIRMED** as a sufficient condition. Claims of "equivalence" are wrong (D4). FT is looser than needed (D7) |
 | 4 | Prop 3.4, Cor 3.5 (long planes; exact residual) | **CONFIRMED** as stated. Scope is overstated (D5). The description of residual (b) is wrong for (a,b)-short boxes (D6). The Regime III side remark is wrong in one subcase (D8) |
+| 5 | EVIDENCE table and replay | **CONFIRMED**: both replays are byte-identical. Wording nits (D9) |
+| 6 | Honesty of status: HC_Π, HC*, rate NOT proved; exact residual | **CONFIRMED** honest. The residual statement is correct, but its "in particular" gloss needs D5/D6 |
 
 ## Item 1 — §1, the three-fibre reduction. CONFIRMED
 
@@ -208,3 +210,74 @@ covers both). Fix: "for boxes with `32SA²≥q`". (The single-pair
 statement itself is right: `4sa²<q` with `4sa²≡κ` forces `4sa²=`
 the least residue of κ, and squarefree injectivity gives uniqueness,
 given D2.)
+
+## Item 5 — EVIDENCE (§4). CONFIRMED
+
+Both replays (`omega6_corner.py` at T=10⁹ and T=10¹¹) reproduce
+`data/omega6/corner_1e9.txt` and `corner_1e11.txt` byte for byte.
+T=10⁹ took 0.6 s and T=10¹¹ about 2 min. The §4 table matches the data:
+14756/10452 and 271490/166698 atoms; `.038/.017`, `.015/.015`,
+`.015/.015`; `.092/.011`, `.013/.0086`, `.0083/.0080`. The script's
+corner test matches Def 1.3. A fibre's predecessor counts as an element
+iff it is positive with `n′≥y`, and pseudo-atoms count, as in the text.
+
+**D9 (minor; wording).** (i) "The heaviest corner classes are hub-like:
+at T=10⁹, κ=1364 (h=341)". κ=1364 is only third. The heaviest are
+κ=440 (h=110; `F=441=21²`) and κ=524 (h=131). All are F1 hubs, so the
+point stands, but say "the heaviest class with h>256". (ii) "one first
+element per divisor m (Lemma 3.3)" for `F=1365`. Only m=15 and m=3 give
+corner atoms (`(341,1,461669)`, `(341,1,110852)`). The mirror is
+`(27713,1364,1)`, m=3. The other 13 divisors give no atom, because the
+first element lies beyond `T/(qm)` or is not an atom. (iii) "of the
+average size predicted by (FT)": FT itself is 5× larger (D7).
+
+## Item 6 — honesty of status. CONFIRMED
+
+§0, §5 and the report all say that HC_Π, HC* and the `(log₂p)^{3/2}`
+rate are **open**. They say the proved rate is O4 Cor 3.1 and that
+nothing is claimed for ES. The Cor 3.5 residual ("every plane short or
+third side `<μ_0W`") is an exact complement of what Prop 3.4 proves, and
+I confirm it as stated. Only its gloss is defective: (a) is empty for
+`q≥T^{1/2}` (D5), and (b) is mis-described for (a,b)-short boxes (D6).
+The labels PROVED / modulo Shiu, Henriot, O5 Prop 7.1 / Assessment /
+EVIDENCE are used correctly, apart from D4's "equivalent".
+
+## Defect list
+
+| # | Severity | Where | Defect | Fix |
+|---|---|---|---|---|
+| D1 | minor | §2 cited theorems | α=1/2 is outside Shiu's range `0<α<1/2` | Use α=1/4 for Shiu (`y_1=x_1/2`) |
+| D2 | minor | Thm 1.5, Prop 2.1 III, Thm 3.2 | `D_sa`, `D_sb`, FT sum over all s, but Regime III's injectivity/single-pair needs s squarefree | Restrict to squarefree s (free: only atom fibres are charged) |
+| D3 | minor | Thm 1.5 Rem (ii), Cor 2.2 | O5 Prop 7.1 gives `P_1≪2^k𝓛³…`, not `𝓛²` | Correct the exponent (absorbed by `𝓛⁵`) |
+| D4 | minor-moderate | §0, after Cor 2.2 | "HC_Π equivalent to a 𝒦-bound": only ⇐ is proved (Σ is an upper bound for Δ_O; thresholds H vs Ĥ) | "implied by" |
+| D5 | moderate | Cor 3.5, §0, report | Three long planes need `q≲T^{3/10}`; for `q≥T^{1/2}` the (a,b)-plane is never long. The `y^{3/2}H^{−3a/2}` m-threshold "in the Thm 4.2 regime" is vacuous for large O | State the q-range wherever the threshold is quoted |
+| D6 | moderate (Assessment) | Cor 3.5 (b), §5, report | (b) "no averaging theorem, numbers `≤q^{O(1)}`" is wrong for boxes whose only short plane is (a,b). There Shiu/Henriot apply, `a,b<2mW`, s is large, and **m is unrestricted**: the hub/unbalanced-ray family | Split (b) into (b1) short s-plane, (b2) (a,b)-short with small a,b, any m; name (b2) as a main residual |
+| D7 | minor | Thm 3.2, (FT_a), §4 | FT ignores `ν≤T/(qm)` and squarefree s, and is 4–6× 𝒦 numerically. EVIDENCE measures 𝒦, not FT | Add both restrictions to FT; say §4 measures 𝒦 |
+| D8 | minor | Cor 3.5 (b) aside | The `q^{−3/8}` saving does not hold in the subcase `32SA²<q` (bound `2H^{−1/2}`) | "for boxes with `32SA²≥q`" |
+| D9 | minor | §4 bullets | "heaviest" κ=1364 is third; "one first element per divisor" is false (2 of 15); "size predicted by FT" | Reword |
+| nits | — | Prop 2.1 | Statement omits `h_1>H` / squarefree s; Regime II "single points" are unnecessary, and the bound is not "like Regime III"; "worst case `≍min(τ,y)/y`" should be `≍min(τ/y,1+log(τ/y))` | Reword |
+
+## Overall verdict
+
+All PROVED items (Lemmas 1.1–1.4, Thm 1.5, Prop 2.1, Cor 2.2, Lemma 3.1,
+Thm 3.2, Lemma 3.3, Prop 3.4, Cor 3.5) are **CONFIRMED**, modulo Shiu
+Thm 1, Henriot Thm 4 and O5 Prop 7.1. I checked the hypotheses of both
+cited theorems against the archived PDFs: Henriot's primitivity is met
+via `P/g_0`, `Δ_D=1`, and the range is `x≥c_0‖P_1‖^{1/4}`. The one range
+slip (D1, Shiu's α) is fixed for free. No defect breaks a proof.
+D2 is a definitional repair, and D4/D8 are wording.
+
+The genuine gains are:
+* `D_sa≪4^k𝓛⁴(H^{−1/2}+q^{−1/4})`, which gives all period terms of the
+  large-m problem for all m>1, with exponent 1/4;
+* the reduction of HC_Π(a), `a≤1/4`, to the first-term sum FT_a.
+
+The headline extension of the m-range (`y^{3/2−o(1)}`) applies only to
+`q≲T^{3/10}` (D5). The residual is larger than the gloss suggests: it
+includes the (a,b)-short family with small a,b and **unrestricted m**
+(D6), which is where the numerical corner mass sits. HC_Π, HC* and the
+`(log₂p)^{3/2}` rate remain **open**, and O6 labels them honestly as
+such.
+
+Recommended before merge: apply D1–D9. D5 and D6 change the narrative
+in §0, Cor 3.5, §5 and the report. The rest are one-line fixes.
