@@ -107,3 +107,107 @@ Label caveats:
 * The general-numerator headline of `espaper.tex`, for
   `3 ≤ m ≤ (log N)^{3−ε}`, is **CLAIMED/PROVISIONAL**.
 * The cubic witness tail (ledger (A)9) is **CLAIMED/PROVISIONAL**.
+
+### 2.2 3/4 is sharp for coefficient-sum congruence sieves over forced classes
+
+After 3/4, the campaign asked whether the same architecture could go
+further. The answer is no, proved in stages. All results here are
+**PROVED (internal)**. None is externally refereed, and the constants are
+astronomically large (asymptotic statements only).
+
+**Setting.** A *majorant* is `ν(n) = Σ_i a_i 1[n ≡ b_i (mod d_i)]`, with
+`ν ≥ 0` on ℤ and `ν ≥ 1` on the whole avoider set (the integers missed by
+every class of the family). The method's final bound has the form
+`#(avoiders ≤ N) ≤ N·Eν + Σ|a_i|`, with `Σ|a_i| < N` and all family primes
+`≤ N^{O(1)}`. The *saving* is `log(1/Eν)`. A bound `E(N) ≪ N exp(−L^θ)`
+needs saving `≳ L^θ`.
+
+**Main theorem (EXCEPTIONAL_KARY2.md Thm 5.1, Thm 5.2, Cor 6.1; ledger (D)18).**
+Take any finite family mixing four class types: ℛ(M)-classes,
+(a,D)-classes, Case-A classes and selector classes `0 mod p`. The moduli
+are arbitrary: no size condition, no dominant prime, any number of prime
+factors. Then every such majorant saves at most
+
+    C (log N)^{3/4} (log log N)^{3/4}.
+
+If every modulus `G` satisfies `G ≤ P(G)^{1+B}` with `B` fixed, the bound
+is `C_B (log N)^{3/4}`, with no `log log` gain possible.
+* This covers Bonferroni, Selberg Λ², β/Rosser and every combinatorial
+  upper-bound sieve on these classes. It also covers CRT-evaluated moment
+  methods.
+* The 3/4 note's own majorant `S_y·Q_r(H_X)` is literally in the class.
+  Its atoms have `B < 1/120`. **So the 3/4 note is sharp for its method.**
+* The Case-A part uses Elsholtz–Tao Prop 1.4 (published, not re-proved).
+  The ℛ(M)/(a,D)/selector part uses no external input.
+* Reviews: two independent hostile reviews,
+  `reviews/exceptional-kary2-review.md` and `-review-2.md`. Round 2
+  verified all repairs.
+
+**How it was reached:**
+1. `EXCEPTIONAL_THETA.md` (ledger (D)9–11). This is the sieve-limit
+   theorem for prime-slice systems (Thm 2.5). The Rankin functional
+   `Ψ = inf_α [αλ + Σ p̄_ℓ ℓ^{−α}]` bounds the saving, and the Case-B profile
+   `Σ p̄_ℓ ℓ^{−α} ≪ α^{−3}` turns this into `λ^{3/4}`. The theorem is then
+   extended to moduli with a dominant prime (Thm 2.7, Cor 3.6). The same
+   analysis shows the 2/3-loglog note is sharp for its own architecture
+   (Cor 3.5). Λ² sieve limit for arbitrary systems via noise stability:
+   Thm 5.5. Review: `reviews/exceptional-theta-review.md`,
+   SOUND-AFTER-REPAIRS.
+2. `EXCEPTIONAL_BALANCED.md` ((D)12): a partial result for gapped
+   balanced moduli under an extremal hypothesis (E_δ).
+   **PROVED/CONDITIONAL.** Superseded by step 3.
+3. `EXCEPTIONAL_TWIN.md` ((D)13): gapped balanced moduli,
+   unconditionally. Key idea: the Mordell obstruction used constructively.
+   Every Case-B class has Jacobi symbol −1, so a base made of quadratic
+   residue products avoids all small-modulus classes cheaply.
+4. `EXCEPTIONAL_TWIN2.md` and `EXCEPTIONAL_TWIN3.md` ((D)14): the two-prime
+   Λ² cap, twins included. It was conditional in TWIN2; TWIN3 Thm 4.1 made
+   it unconditional.
+5. `EXCEPTIONAL_TWIN4.md` ((D)16): the Λ² cap for `r` large primes,
+   `≪ L^{3/4}(log L)^{3r+O(1)}`. For fixed `r` the B-hypothesis is removed.
+6. `EXCEPTIONAL_KARY.md` ((D)17): every nonnegative CRT majorant over
+   ℛ(M)-families with fixed `B` saves `≪_B λ^{3/4}`; twins, prime-power
+   tops and any shape are allowed. The tool is a weighted k-ary
+   comparison theorem (Thm 2.5): couple a sequential law with a product
+   law, then extrapolate along artificial Bernoulli replacement coins.
+7. `EXCEPTIONAL_NONCRT.md` ((D)15): several "non-CRT" inputs are also
+   capped at 3/4 for the finite prime-slice families (details in §2.3).
+8. `EXCEPTIONAL_KARY2.md` ((D)18): the main theorem above. A unit-square
+   base serves all four class types, because no (a,D)- or Case-A class
+   contains a square (Mordell/Jacobi). Rankin's trick plus Cauchy–Schwarz
+   on smooth-dominated moduli removes `B`. The cost is
+   `(log log)^{3/4}` in the cap.
+
+Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
+sieves"; refereed internally, fixes applied; v3 merged).
+
+### 2.3 What the sharpness theorem does not cover
+
+The exclusions are taken from ledger (D)18, KARY2 §6, NONCRT §6 and
+STATUS.md. A proof of `θ > 3/4` would need at least one of the following:
+* **Cancellation between frequencies.** That is, a direct count of the
+  interval sum `Σ_{n≤N} ν(n)`. NONCRT Thm 8.1 gives a quantitative
+  dichotomy (PROVED). Either there is large Fourier mass above every level
+  `λ ≤ c(log N)^{4θ/3}`, or the interval count falls well below the CRT
+  mean. Small evidence (§8.3) shows no inter-frequency gain in the family
+  tested.
+* **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
+  Thm 2.3): coefficient sums, the sawtooth bound, and complete
+  Gauss/Kloosterman sums. Weights `< 1` are open, except in a smooth-window
+  case that is CONDITIONAL on an equidistribution conjecture.
+* **Genuinely arithmetic, non-CRT input.** For example, counting
+  `(log N)^{3/4+δ}`-fold correlations of ES solutions directly.
+* **Other ingredients outside the class:**
+  * the large sieve beyond prime slices;
+  * majorants that are `≥ 1` only on `[1,N]` or only on exceptional
+    primes (majorants `≥ 1` only on primes *are* capped, NONCRT
+    Thms 3.2–3.3, so BV/BDH/EH/GRH-level prime inputs do not help);
+  * class types other than the four above;
+  * family primes beyond `N^{O(1)}`.
+* **A sharper constant without `B`.** For general moduli the cap carries
+  a factor `(log log N)^{3/4}`. Whether it can be removed is open.
+
+Model-only remark: the a-frame/multiplicative route sits at
+`θ* ≈ 0.52` under its model, below 3/4 (**Assessment**, ET §5.2). The
+proposed universal "0.5823 ceiling" was withdrawn as restricted-model only
+(ledger (F)6).
