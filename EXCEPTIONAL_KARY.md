@@ -8,30 +8,34 @@ here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 
 | item | statement | label |
 |---|---|---|
-| §1 | phantom-sequential law σ̃: sequential conditioning that also avoids completions of the discarded draws at replaced coordinates | definition |
-| Lemma 2.1 | σ̃ avoids every pattern with a light top; conditional densities `≤ (1−δ)^{−1}` | PROVED |
-| Lemma 2.2 | the replaced set R is a function of the path; `ρ ↦ f(y^ρ)` has degree ≤ d | PROVED |
+| §1 | coupled sequential process `(c, y)`: draw `c_ℓ ~ ν_ℓ`; at a light ℓ with `c_ℓ` activated, replace it by a fresh draw off the activated set. The law of y is ETw's sequential σ | definition |
+| Lemma 2.1 | σ avoids every pattern with a light top; conditional densities `≤ (1−δ)^{−1}` | PROVED (standard) |
+| Lemma 2.2 | on a frozen path, `ρ ↦ f(y^ρ)` (replace on `{ρ=1}∩R`) has degree ≤ d | PROVED |
 | Lemma 2.3, (2.1), (3.1) | binomial extrapolation `g(1) ≤ B(n,t,d)·E_{Bern(t)} g` for nonneg degree-d g; explicit bounds | PROVED |
 | Lemma 2.4 | thinned law vs ν, with weight `exp(−(4/3)tM)` | PROVED |
-| **Thm 2.5** | **k-ary comparison, any arity, no incident-weight hypothesis:** `E_ν f ≥ E[e^{−Φ}f(y)]`, `Φ = log B(n,t,d) + (4/3)tM` | PROVED |
-| Cor 2.6 | mean cost `≤ d log(C₀(E M + 4d)/d) + O(d)`: weak ET Prop 2.4 form with mean mass | PROVED |
+| **Thm 2.5** | **k-ary comparison for σ, any arity, no incident-weight hypothesis:** `E_ν f ≥ E[e^{−Φ}f(y)]`, `Φ = log B(n,t,d) + (4/3)tM` | PROVED |
+| Cor 2.6 | mean cost `≤ d log(C₀(E M + 4d)/d) + O(d)` | PROVED |
+| Remark 2.8 | the *unweighted* mean-mass comparison is false without incident-weight bounds (example) | PROVED |
 | Thm 4.1 | sequential sieve limit with random step costs (S_w) | PROVED |
-| Lemmas 4.2–4.4 | inflation, first/second moments, leak for phantom blocks on ℛ(M)-families | PROVED |
+| Lemmas 4.2, 4.3 | inflation, moments, leak: ETw Lemmas 2.2, 2.6, 4.0, 2.1′ apply verbatim | PROVED |
 | **Thm 4.5** | **`S_λ ≪_B λ^{3/4}` for every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, twins/prime powers/any shape, unconditionally** | PROVED |
-| ETw Conj 6.4 for the plain σ | — | OPEN, no longer needed (§5) |
+| ETw Conj 6.4, unweighted form | — | OPEN, no longer needed (§5) |
 | ETw Conj 4.5_r (H_MS form) | — | OPEN, not needed for 3/4 |
-| `kary_check.py` | Thm 2.5 by exact LP, 100 random systems (unary/binary/ternary), weighted value ≤ 1 | EVIDENCE |
+| `kary_check.py` | Thm 2.5 by exhaustive enumeration + LP, 100 random systems (unary/binary/ternary): weighted value ≤ 1 | EVIDENCE |
 
-ETw Conjecture 6.4 asks for a k-ary analogue of ET Prop 2.4 for the plain
-sequential law σ. We do not settle it for σ itself. We prove the same weak
-`d·log(mass)` comparison, in fact with the mean mass, for a modification σ̃
-of σ, the **phantom-sequential law**. The proof needs no incident-weight
-hypothesis, no Markov removal and no sparsity. Its ingredients are a
-coupling in which the replaced set does not depend on the interpolation
-coins, and a one-dimensional extrapolation lemma for binomial laws. Because
-the step cost may be random (Theorem 4.1), only first moments of window
-masses enter. Consequence (Theorem 4.5): the 3/4 cap holds for all bounded-B
-ℛ(M)-families, twin moduli included, with no hypothesis and no `log λ`.
+ETw Conjecture 6.4 asks for a k-ary analogue of ET Prop 2.4 for the
+sequential law σ. We prove it in a **weighted** form (Theorem 2.5): the
+step cost is a random variable whose *mean* is
+`d(O(1) + log⁺(E M/d))`, E M the mean activated mass. The proof needs no
+incident-weight hypothesis, no Markov removal and no sparsity. Its
+ingredients are a coupling of σ with ν, extrapolation in independent
+replacement coins on a frozen path, and a one-dimensional extrapolation
+lemma for binomial laws. Since the sequential sieve limit accepts random
+step costs (Theorem 4.1), only first moments of the block masses enter.
+Consequence (Theorem 4.5): **the 3/4 cap holds for all bounded-B
+ℛ(M)-families, twin moduli included, with no hypothesis and no `log λ`.**
+The unweighted form of Conj 6.4 stays open; without its incident-weight
+hypothesis it is false (Remark 2.8).
 
 ## 1. Setting
 
@@ -267,77 +271,59 @@ Theorem 2.3, with `S = Σ_jΦ_j ≥ 0`. ∎
 Every step (S) of ETw is an (S_w) with a deterministic cost. The new
 instance is:
 
-**Phantom step.** `V_j` a block whose primes satisfy `log ℓ > s`, so
+**Sequential step.** `V_j` a block whose primes satisfy `log ℓ > s`, so
 λ-level functions are d-local with `d = ⌊λ/s⌋`. Given h, the patterns are
 the classes with top prime in `V_j` whose requirements outside `V_j` are
 met by h; their requirements inside `V_j` form a pattern on the block
 coordinates (a residue class mod `ℓ^v` at ℓ is a union of single values of
 `ℤ/ℓ^{E_ℓ}`, so cylinder patterns reduce to §1). `Π_j(h)` is the law of the
-phantom-sequential path ω in increasing order with `ν = U` and caps
-`δ_ℓ = ℓ^{−1/2}`, `Y_j = y`, and `Φ_j` is the Φ of Theorem 2.5 with
-`t = t_j(h) = d/(E[M|h] + 4d)`. (S_w) is Theorem 2.5.
+path ω of the plain rule in increasing order with `ν = U` and caps
+`δ_ℓ = ℓ^{−1/2}`; `Y_j = y`; `Φ_j` is the Φ of Theorem 2.5 with
+`t = t_j(h) = d/(E[M|h] + 4d)` (fixed before the block is drawn). (S_w) is
+Theorem 2.5. The law of `Y_j` is exactly ETw's in-block sequential capped
+law (Lemma 2.1′ with light/heavy decided by the total activated density,
+as in ETw Conj 4.5_r and 6.4).
 
-### 4.2 The phantom step on ℛ(M)-families
+### 4.2 Inflation, moments, leak
 
 Fix `B ≥ 0` and work in ETw §§2–4: QR base `R_W`, prime-power coordinates,
-caps `δ_ℓ = ℓ^{−1/2}`, `Γ(m) = Π_{p|m}γ'(p)` with `γ'(ℓ) = 4/3` for `ℓ > W`.
-A phantom block `V` has its primes in `(e^{s}, e^{2s}]`. A class
-`−4D (mod M)` with `M ≤ P(M)^{1+B}` and top prime in V has at most
-`r := ⌊2(1+B)⌋` primes in V, since each exceeds `e^s ≥ P(M)^{1/2}`.
+caps `δ_ℓ = ℓ^{−1/2}`, `Γ(m) = Π_{p|m}γ'(p)` with **`γ'(ℓ) = (1−ℓ^{−1/2})^{−1}`**
+for `ℓ > W` (ETw Lemma 2.2; the decay `γ'(ℓ)−1 ≪ ℓ^{−1/2}` is what ETw
+Lemma 2.6 needs). A sequential block `V` has its primes in
+`(e^{s}, e^{2s}]`.
 
-**Lemma 4.2 (inflation with phantoms; PROVED).**
-1. ETw Lemma 2.2 holds for `Q'` when some blocks are phantom steps.
-2. More generally, fix a phantom block V and impose, for each prime ℓ of
-   V, a residue-class condition `A_ℓ` (mod `ℓ^{e}`) on `c_ℓ` and/or a
-   condition `A'_ℓ` (mod `ℓ^{e'}`) on `y_ℓ`, together with a class condition
-   mod m₀ on the history before V. The probability that all hold is
-   `≤ Γ(m)/m`, where m is the product of m₀ and of `ℓ^{max(e,e')}` over the
-   constrained ℓ.
+**Lemma 4.2 (PROVED).** With sequential steps in some blocks:
+1. (inflation) ETw Lemma 2.2 holds for `Q'`;
+2. (first moment) `E_{Q'} M_V ≤ Σ_{M: P(M)∈V} τ(A_M²)Γ(M)/M ≤ K(W,B)(2(1+B)s)³`,
+   K as in ETw Lemma 2.6;
+3. (second moment) `E_{Q'} p_ℓ² ≤ C(ε,B)(2+B)²ℓ^{−2+ε}` for every `ℓ > W`
+   (ETw Lemma 4.0).
 
-*Proof.* Chain rule in the processing order. Given the extended past
-(including the `c`'s), `c_ℓ` is uniform and `y_ℓ` has density
-`≤ (1−δ_ℓ)^{−1} ≤ 4/3` (Lemma 2.1(2)). Hence
-`P(c_ℓ ∈ A_ℓ, y_ℓ ∈ A'_ℓ | past) ≤ min(ℓ^{−e}, (4/3)ℓ^{−e'}) ≤ (4/3)ℓ^{−max(e,e')}`.
-The history before V is handled by ETw Lemma 2.2. ∎
+*Proof.* 1. Chain rule: by Lemma 2.1(2), given the past, `y_ℓ` has
+density `≤ (1−δ_ℓ)^{−1}` w.r.t. U on `ℤ/ℓ^{E_ℓ}`. 2. A class with top ℓ,
+`M = qℓ^v`, contributes `ℓ^{−v}` to `p_ℓ` iff its requirement mod q is met
+by the y-history; by 1 this has probability `≤ Γ(q)/q`; sum over `≤ τ(A_M²)`
+values of D and over M (partial summation of ETw Lemma 2.6 over
+`M ≤ e^{2(1+B)s}`). 3. The proof of ETw Lemma 4.0 uses only 1 (for lcm's of
+cofactors) and the fact that p_ℓ is a density of classes decided at ℓ. ∎
 
-**Lemma 4.3 (moments of the phantom masses; PROVED).** For a phantom block
-V with primes in `(e^s, e^{2s}]`, `s ≥ log W`:
-1. `E_{Q'} M_V ≤ 2^{r−1} Σ_{M: P(M)∈V} τ(A_M²)Γ(M)/M ≤ 2^{r−1}K(W,B)·(2(1+B)s)³`,
-   with K the constant of ETw Lemma 2.6.
-2. For every prime `ℓ ∈ V`, `E_{Q'} p̃_ℓ² ≤ 4^{r−1}C(ε,B)(2+B)²ℓ^{−2+ε}`,
-   with `C(ε,B)` as in ETw Lemma 2.4.
+**Lemma 4.3 (leak; PROVED).** In the block structure of Theorem 4.5, every
+class is decided at its top prime, and
+`𝔏 ≤ Σ_ℓ E[p_ℓ 1{p_ℓ > δ_ℓ}] ≪_B W^{−1/4}`. Hence `𝔏 ≤ 1/2` for
+`W ≥ W₀(B)` (ETw convention after Cor 2.5).
 
-*Proof.* Write each class with top ℓ as `M = qℓ^v`. It enters `F̃_ℓ` (a
-class mod `ℓ^v`, of U-mass `ℓ^{−v}`) only if its requirement mod q is met
-by the history and, at each lower prime of q in V, by `c_i` or by `y_i`.
-Bound this indicator by the sum over the `≤ 2^{r−1}` choices
-`π ∈ {c,y}^{(lower primes of q in V)}` of "met using π".
-1. By Lemma 4.2(2), each choice has probability `≤ Γ(q)/q`, and there are
-   `≤ τ(A_M²)` values of D. Sum over M with `P(M) ∈ V`; the partial
-   summation of ETw Lemma 2.6 over `M ≤ e^{2(1+B)s}` gives the bound.
-2. `p̃_ℓ ≤ Σ_v ℓ^{−v}Ñ_{ℓ,v}` with `Ñ` the number of classes active for
-   some choice. `E Ñ²` is a sum over pairs of classes and pairs of choices
-   `(π, π')` (`≤ 4^{r−1}` of them). By Lemma 4.2(2) (at a prime used with
-   different letters by π and π', both `c_i` and `y_i` are constrained) each
-   term is `≤ Γ(lcm(q,q'))/lcm(q,q')`. This is the sum bounded in ETw
-   Lemma 2.4. Lemma 4.0's Minkowski step over v finishes. ∎
+*Proof.* In a sequential block, a class with light top is avoided and a
+heavy top is hit with conditional probability `≤ p_ℓ` (Lemma 2.1(1)); this
+is ETw Lemma 2.1′. Markov and Lemma 4.2(3) give
+`Σ_{ℓ>W} ℓ^{1/2}·O_B(ℓ^{−7/4})`, as in ETw Cor 2.5. ∎
 
-**Lemma 4.4 (leak; PROVED).** In the block structure of Theorem 4.5
-below, every class of the family is decided at its top prime, and
-
-    𝔏 ≤ Σ_ℓ E[p_ℓ 1{p_ℓ > δ_ℓ}] ≪_B W^{−1/4},
-
-with `p_ℓ = p̃_ℓ` in phantom blocks and ETw's `p_ℓ` elsewhere. Hence there
-is `W₁(B) ≥ W₀(B)` with `𝔏 ≤ 1/2` for `W ≥ W₁(B)`.
-
-*Proof.* In a phantom block, a class with light top is avoided (Lemma
-2.1(1)), and a heavy top is hit with conditional probability `≤ p̃_ℓ`. In
-the other blocks this is ETw Lemma 2.1′. Markov and Lemma 4.3(2) (resp.
-ETw Lemma 4.0) give `Σ_{ℓ>W} ℓ^{1/2}·O_B(ℓ^{−7/4})`. ∎
+(With the phantom rule the same holds with extra factors `2^{r−1}` and
+`4^{r−1}`, `r = ⌊2(1+B)⌋`, by bounding "met by some `z ∈ Π{c_i,y_i}`" by a
+sum over letter choices; this is not needed.)
 
 ### 4.3 The cap
 
-**Theorem 4.5 (PROVED).** Fix `B ≥ 0` and `W = W₁(B)`. There are
+**Theorem 4.5 (PROVED).** Fix `B ≥ 0` and `W = W₀(B)`. There are
 `λ₀(B)` and `C(B)` such that for every family 𝔊 of ℛ(M)-classes with
 `M ≤ P(M)^{1+B}` (any shape: dominant, gapped, η-twin, prime-power top, any
 number of primes at comparable scale), plus any W-smooth classes, every
@@ -348,21 +334,21 @@ majorant ν of level `λ ≥ λ₀(B)` satisfies
 *Proof.* Put `s₁ = λ^{1/4}` (`λ₀` is such that `s₁ > 2 log W`). Blocks, in
 increasing order of primes:
 * singletons `{ℓ}`, `W < ℓ ≤ e^{s₁}` (ETw Prop 4.1);
-* phantom blocks `V_i = {ℓ : 2^i s₁ < log ℓ ≤ 2^{i+1}s₁} ∩ (·, e^{λ/2}]`,
+* sequential blocks `V_i = {ℓ : 2^i s₁ < log ℓ ≤ 2^{i+1}s₁} ∩ (·, e^{λ/2}]`,
   `0 ≤ i ≤ I`, `2^I s₁ < λ/2`;
 * one sequential block `(e^{λ/2}, e^λ]` (ETw Cor 4.3);
 * singletons above `e^λ` (cost 0).
-Every class is decided at its top prime, and `𝔏 ≤ 1/2` (Lemma 4.4).
+Every class is decided at its top prime, and `𝔏 ≤ 1/2` (Lemma 4.3).
 Apply Theorem 4.1. Base: `O_B(1)` (ETw Lemma 1.3). Singletons:
 `≤ (8/3)K'(1+B)³λ^{3/4}`. Top block: `2log(1+3e^{−λ/4})`.
 
-Phantom block `V_i`, `s = 2^i s₁`, `d_i = ⌊λ/s⌋ ≥ λ/(2s) ≥ 1`. By
+Sequential block `V_i`, `s = 2^i s₁`, `d_i = ⌊λ/s⌋ ≥ λ/(2s) ≥ 1`. By
 Corollary 2.6 applied for each h with `m̄ = E[M|h]`, then Jensen over h
 (the map `m ↦ log(C₀(m+4d)/d)` is concave),
 
     E_{Q'}Φ_i ≤ d_i·log(C₀(E M_{V_i} + 4d_i)/d_i) + (4/3)d_i + ½log(22d_i+22) + 3.
 
-By Lemma 4.3(1), `E M_{V_i} ≤ K₁(B)s³`, so
+By Lemma 4.2(2), `E M_{V_i} ≤ K₁(B)s³`, so
 `(E M_{V_i} + 4d_i)/d_i ≤ 2K₁s⁴/λ + 4 = 2K₁·16^i + 4`. Hence
 `E Φ_i ≤ (λ^{3/4}/2^i)(c₁(B) + 4i·log 2) + O(log λ)`, and
 
@@ -380,7 +366,7 @@ theorem has no family hypothesis beyond B), no such family yields an
 exceptional-set exponent θ > 3/4.
 
 **Still not covered** (unchanged from ETw §5): moduli with
-`log M/log P(M)` unbounded (no summation over B; constants `W₁(B)`,
+`log M/log P(M)` unbounded (no summation over B; constants `W₀(B)`,
 `C(B)` untracked); (a,D)- and Case-A classes mixed with ℛ(M)-classes (the
 base, ETw Lemma 1.1, is proved for ℛ(M) only). Theorem 2.5 itself is
 arithmetic-free, so for those families the open part is the base and the
@@ -388,31 +374,43 @@ moment lemmas, not the k-ary step.
 
 ## 5. Relation to ETw Conjecture 6.4, and what is left open
 
-* **Conj 6.4 for the plain sequential σ: still OPEN, and no longer
-  needed.** The proof of Theorem 2.5 needs the replaced set R to be a
-  function of the path alone (Lemma 2.2). For σ, whether ℓ must be
-  resampled depends on the *current* values `y_{<ℓ}`, which change with the
-  coins ρ; then `f(y^ρ)` has unbounded degree in ρ (cascades). The phantom
-  activations remove exactly this dependence. Their cost is a constant
-  factor in the activated mass: at most `2^{r−1}` (Lemma 4.3), and in the
-  sparse regime only `≈ θ·μ` extra (a phantom needs a replaced coordinate,
-  of total expected number μ, whose discarded value has incident weight
-  ≤ θ). In the brute-force LPs `log C*` for σ̃ and for σ agree to within a
-  few percent (`data/kary/`).
-* **No incident-weight or sparsity hypothesis.** Conj 6.4 assumed
-  incident weights `≤ θ₀(r)`, which forced the Markov removal (ETw Lemma
-  6.3) and Hyp K2. Theorem 2.5 holds for any pattern family; only the caps
-  `p̃_ℓ ≤ δ_ℓ ≤ 1/4` are used (for the 4/3 factors and the leak).
-* **Strength.** Theorem 2.5 gives `d(O(1) + log⁺(E M/d))`, the weak form
-  of ET Prop 2.4 with the mean mass. It is not the H_MS form of ETw
-  Conj 4.5_r (a k-ary pattern costing `e^{−α Σ s}`); that sharper
-  statement is not needed for the 3/4 question and remains open.
-* **Unary sanity check.** For unary patterns σ̃ = σ = ν conditioned off the
-  forbidden sets, and Theorem 2.5 reproves ET Prop 2.4 in its weak form for
-  a single band (cost ≈ `d log(μ/d)` against ET's `(d/2)log(μ/d)`), by a
-  different route: interpolation in the *replacement* coins on the hit set
-  of an unconditioned draw, instead of thinning and symmetrisation of the
-  hit indicators.
+* **Conj 6.4 in its weighted form: PROVED, for the conjecture's own law σ.**
+  Theorem 2.5 with the plain rule is the step inequality ETw §6 wanted, in
+  the weak `d·log(mass)` form, with the mean mass and a random cost. ETw
+  Prop 6.5 used Conj 6.4 only through Theorem 2.3′; Theorem 4.1 accepts the
+  random cost, so Prop 6.5's conclusion holds without Conj 6.4, without
+  Hyp K2 and without its `log λ` (Theorem 4.5).
+* **Conj 6.4 in its unweighted form (`E_σ f ≤ e^{C(d log(2+μ)+1)}E_ν f`
+  for all f, μ the total k-ary mass, incident weights `≤ θ₀`): OPEN.**
+  Without the incident-weight hypothesis it is false (Remark 2.8). With it,
+  Theorem 2.5 reduces it to a tail statement: a nonnegative d-local f must
+  not concentrate the law σ on paths with `M ≫ μ` or `n ≫ μ`. This is no
+  longer needed for the 3/4 question.
+* **No incident-weight or sparsity hypothesis in Theorem 2.5.** Only the
+  light caps `p_ℓ ≤ δ_ℓ ≤ 1/4` enter (the 4/3 factors and the leak). ETw's
+  Markov removal (Lemma 6.3) and Hyp K2 are not used anywhere.
+* **The earlier draft's "phantom" rule.** It was introduced to make the
+  replaced set independent of the coins ρ. Review O7-1 observed that this
+  is automatic once the whole path is frozen before interpolating: the
+  intermediate points `y^ρ` need not be paths, and Lemma 2.4 uses only
+  that each `F_ℓ` is known before ℓ and that the fresh draws are
+  independent. The phantom rule is kept in §1 and in the checks as a
+  variant; it is not used in §4.
+* **Strength.** Cor 2.6 gives `d(O(1) + log⁺(E M/d))`, the weak form of
+  ET Prop 2.4 with the mean mass. It is not the H_MS form of ETw Conj 4.5_r
+  (a k-ary pattern costing `e^{−αΣs}`); that sharper statement is not
+  needed for the 3/4 question and remains open.
+* **Unary sanity check.** For unary patterns σ = ν conditioned off the
+  forbidden sets at the light coordinates (heavy ones stay unconditioned),
+  and Theorem 2.5 reproves ET Prop 2.4 in a weak single-band form (cost
+  `≈ d log(μ/d)` against ET's `(d/2)log(μ/d)` plus band terms), by a
+  different route: extrapolation in replacement coins on the hit set of an
+  unconditioned draw, instead of thinning and symmetrisation of the hit
+  indicators.
+* In the brute-force LPs, `log C*` (unweighted, informational) for the
+  phantom and the plain law differ by at most 0.04 in absolute terms
+  (relative differences up to ≈ 28% where both are small); see
+  `data/kary/`.
 
 ## Replay
 
