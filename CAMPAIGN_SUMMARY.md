@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)21)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)22)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -254,6 +254,14 @@ All three are internal and unrefereed.
     `reviews/exceptional-tuples-review.md`, all items SOUND.
   * *Open:* TC_θ for `3/4 < θ < 1` is an open, natural, falsifiable
     **CONJECTURE**.
+
+* **Prime-only majorants** (`EXCEPTIONAL_PRIMELAW.md`; ledger (D)22).
+  Majorants that are ≥ 1 only at the primes of the avoider set, for any
+  mixture of forced and selector classes, save at most
+  `Cλ^{3/4}(log λ)^{3/4}`. Prime-law methods with all moduli ≤ N^A save at
+  most `C_A(log N)^{3/4}(log log N)^{3/4}`; this includes
+  SW/BV/BDH/EH/GRH-level inputs. **PROVED** (internal; Case A uses
+  Elsholtz–Tao Prop 1.4). Review: `reviews/exceptional-primelaw-review.md`.
 
 ### 2.4 What remains open above 3/4
 
