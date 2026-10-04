@@ -13,7 +13,11 @@
 | **Lemmas 6.1–6.4** | large partners, every star V: largest-variable reduction with Lemma 2.3 in place of BT; box counting mod squarefree Q | PROVED |
 | **ternary residual `ℓ_b < w₂q`** (goal 2) | closed by Lemma 6.1: an upper-bound sieve for the whole partner R; **no BFI input needed** | PROVED |
 | **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; not yet reviewed) |
-| §7.1 | unbounded r (`r > ε log L/log log L`) and dropping B | OPEN (Assessment) |
+| Prop 9.1 | explicit r-dependence `(C_B log L)^{Cr}`: cap `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L` | PROVED (bookkeeping) |
+| **Lemma 9.2**, Cor 9.3 | unweighted payment for any low-mass subfamily (LLL, `x_G = 2^{|S(G)|}P(G)`); classes with `ω_L(M) ≥ 330 log L` cost `o(1)` | PROVED |
+| §9.3 | middle range `ε log L/log log L < r < 330 log L` (the bulk): needs an off-diagonal second moment at short-partner stars, efficient per prime (multi-prime H_O^≠) | OPEN (sharp failure point) |
+| **Lemma 10.1** | smooth-dominated sums: Cauchy–Schwarz + Rankin on smooth k + Shiu along k | PROVED |
+| **Thm 10.4** | for fixed r the cap holds **without the B-hypothesis** (also with arbitrary classes having `ω_L ≥ 330 log L` added) | PROVED (internal; not yet reviewed) |
 | §8 | Lemma 2.3 exact on 1228 cases (worst ratio 0.13); former residual = 80–86% of toy ternary mass, second moment ≈ random | EVIDENCE |
 
 Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0, and
