@@ -170,9 +170,11 @@ it keeps writing as if HC were merely open:
 
 Also, Hypothesis HC_Π is stated with "no H-hub" in O4's sense, and only
 Cor 4.1's parenthetical switches to saturated hubs. It must be stated
-with saturated hubs: with O4's hubs, a lifted vertex can hide a hub
-class mod ℓ, and Def 2.0's mechanism then applies to the m>1 events of
-that class.
+with saturated hubs. With O4's hubs it is false by Def 2.0's mechanism.
+Take lifts at `ℓ_1,ℓ_2` of the class `−4` (F1, `s=a=1`). The atoms
+`(1,1,b)` with `5|4b−1` have `m=5`, survive since `5|4D+1=5`, and give a
+constant codegree. The class −1 itself is no example, because there
+`u=v=1`, `m|2` and so `m=1`.
 
 Required wording:
 
@@ -180,3 +182,36 @@ Required wording:
 * "O4 Thm 4.2 as stated is vacuous; it holds with HC* (Cor 4.1(ii))."
 
 Parent action: annotate O4 §4.2/Thm 4.2 and DISCOVERIES (H)14 accordingly.
+
+## Item 6 — §3 Lemma 3.1, Prop 3.2, Lemma 3.3, and the §4 anatomy
+
+* Lemma 3.1: CONFIRMED. `m|gcd(M,4D+1)|t(u+v)` and `gcd(m,t)|gcd(M,M+1)`.
+  (2) and (3) are direct algebra. The m-system reduction and the bounds
+  `h_3(qm,κ_m)≥m−1`, `h_1,h_2≥((m−1)/4)^{1/2}` hold.
+* Prop 3.2: CONFIRMED (`2/n′=2m/n≤2μ/n`, `n≥y`), subject to D1.
+* Lemma 3.3: CONFIRMED.
+  * (i) `M<2qY(u+v)` gives `≤Y(u+v)/(2h)+1` values of M at weight
+    `2/Y`.
+  * (ii) `gcd(qm,4h)=1` because `gcd(u+v,uv)=1`.
+  * (iii) is trivial.
+
+**D5 (moderate; Assessment overstated as "done").** The remark after
+Lemma 3.3 says (ii) is HC-shaped "for rays with `τ(u+v)≤y^{2/3}`", and
+§4 item 1 says such rays "are done". This is false:
+
+* Bound (ii) is `τ(u+v)(2/y+𝓛/(2h))`. Its second term needs
+  `τ(u+v)≤hH^{−a}`, not `τ≤y^{2/3}`.
+* For h just above H, with `H=y^{1/2+o(1)}` (Thm 4.2's regime) and
+  `τ≈y^{2/3}`, the second term is `≈y^{1/6}≫1`.
+* The correct per-ray statement is `τ(u+v)≤min(y,h)·H^{−1/3}` (⇐
+  `τ(u+v)≤H^{2/3}`). The open set of unbalanced rays therefore also
+  includes `H^{2/3}<τ(u+v)≤y^{2/3}`, so (DIV) is mis-delimited.
+* The lower bound "these force `u+v≥y^{c log log y}`" becomes
+  `H^{c log log H}`.
+
+More fundamentally, Lemma 3.3 bounds single rays. HC_Π is a sum over all
+rays and off-ray points of all m-systems, and no ray-count is given for
+m>1: Lemma 2.2's `2F′+1` rays per box is for one system `(Q,K)`, and
+there are many m. So no class of rays is "done" for HC_Π. The text
+should read "per-ray bounds; the number of rays per m-system is not
+controlled". This is Assessment-level, so no PROVED claim is affected.
