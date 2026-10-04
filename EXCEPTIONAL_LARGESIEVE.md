@@ -1,12 +1,29 @@
 # EXCEPTIONAL_LARGESIEVE — the large sieve over forced-class mixtures (task O17)
 
-Status: **in progress (checkpoint 1 being written).** Labels follow
+Status: **checkpoint 1 (unreviewed).** Labels follow
 `DISCOVERIES.md`. Notation: ET = `EXCEPTIONAL_THETA.md`, KARY2 =
 `EXCEPTIONAL_KARY2.md`, NONCRT = `EXCEPTIONAL_NONCRT.md`.
 
 ## 0. Summary
 
-(written at the end)
+| item | statement | label |
+|---|---|---|
+| Thm 2.1, Cor 2.2 | **Exact duality.** For any frequency set Θ and weights w, the best CRT-admissible large-sieve denominator is `F*_w = 1/m_w`, `m_w = min{Σ|γ_θ|²/w_θ : Re Σγ_θe(−nθ) ≥ 1 on 𝒜}`. Since every N-large-sieve system has `w_θ ≤ 1/N`, every such bound is `≥ N·E|g*|²`, and `|g*|²` is a nonnegative CRT majorant whose moduli are lcm's of two frequency denominators | PROVED |
+| Thm 3.1, Cor 3.2 | **Large-sieve cap for every forced-class mixture.** With KARY2 Thm 5.1: any CRT-admissible large sieve (Montgomery, weighted, Farey with prime, prime-power or composite moduli, forced classes used in any form, fibrewise over `Q₀`, weighted sequences) saves `≤ Cλ^{3/4}(log λ)^{3/4}`, `λ = λ(Q₀) + 2λ_Θ`. With denominators and `Q₀` `≤ N^{O(1)}`: `≤ C(log N)^{3/4}(log log N)^{3/4}`, and `C_B(log N)^{3/4}` under bounded B. No rounding term is needed | PROVED (Case A via ElT Prop 1.4, as in KARY2) |
+| Thm 4.1, Cor 4.2 | **Prime-slice systems, any frequencies** (any denominators, sparse sets, any weights): Fourier–Rankin bound `saving ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8Σ p̄_ℓ ℓ^{−α}`; for ET Cor 3.4 families `≤ C(log N)^{3/4} + log(P/φ(P))` | PROVED |
+| Prop 5.1, Ex 5.2 | **Key question.** For prime moduli, `S_c(Q)` ≤ exp(Rankin functional of the prime-local system used), tautologically. For composite moduli the small-prime-conditioned Euler product does **not** dominate (twin classes are invisible to it but seen by the composite large sieve); the dominating functional is the top-prime sequential one (Thm 3.1) | PROVED |
+| Thm 6.2, Cor 6.3 | **Gallagher's larger sieve** (and kernel variants with composite moduli) saves `≤ log(1 + N·X(π)/(W−h))`, `X` a χ² functional of the prime-power marginals of any `π` on 𝒜; on prime slices this is `O(1)` | PROVED |
+| §7 | **Exact escape.** (E1) frequencies of super-polynomial level (`λ_Θ ≥ (log N)^{1+ε}`) against multi-large-prime classes, needing (H_LS); (E2) the larger sieve over mixtures, needing (H_Gal); (E3) non-CRT interval information; (E4) KARY2's inherited exclusions | (H_LS), (H_Gal): CONJECTURE/open |
+| §8 | duality, `F* = S(Q)` for product systems, Ex 5.2, Thm 4.1 bound: checked on small systems | EVIDENCE |
+
+**Bottom line.** The large-sieve door is closed for every form used in
+the literature on this problem (Vaughan 1970, Pomerance–Weingartner §4,
+the 2/3 note) and for all their composite-moduli/fibrewise variants: by
+duality, the optimal large sieve *is* a Selberg-square CRT majorant of
+level `≤ 2 log Q + log Q₀`, so KARY2's 3/4 cap applies with no rounding
+term. The only remaining large-sieve escape is (E1): rational
+frequencies with super-polynomially large denominators, which are
+provably useless on prime slices and conjecturally useless in general.
 
 ## 1. Setting
 
