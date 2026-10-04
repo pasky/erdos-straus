@@ -584,4 +584,76 @@ Chain rule over windows: given the past, $n\bmod\ell'$ is uniform on at
 least $\ell'(1-p^*_{\ell'})$ residues, and the higher digits are uniform.
 \end{proof}
 
+\section{Supply profiles}\label{sec:profiles}
+
+We use Shiu's theorem \cite[Theorem~1]{Shiu} in the form stated in
+\cite[\S3]{TQ}: if $F\geq0$ is multiplicative, $F(p^a)\leq A_1^a$, and
+$F(n)\ll_\epsilon n^\epsilon$, then for fixed $0<\alpha_s,\beta_s<1/2$,
+\[
+ \sum_{\substack{V-Y<n\leq V\\ n\equiv a\ (q)}}F(n)\ll\frac{Y}{\varphi(q)\log V}
+ \exp\Bigl\{\sum_{p\leq V,\ p\nmid q}\frac{F(p)}p\Bigr\}
+\]
+uniformly for $q\geq2$, $(a,q)=1$, $q<Y^{1-\alpha_s}$, $V^{\beta_s}<Y\leq V$.
+
+\begin{lemma}[cubic Case-B profile, $\cR(M)$; {\cite[Lemma~3.1]{ET}}; \lab{proved}]\label{lem:profileB}
+Put $S_B(x)=\sum_{M\leq x,\ M\equiv3\ (4)}\tau(A^2)M/\varphi(M)$ with
+$A=(M+1)/4$.  Then $S_B(x)\ll x(\log2x)^2$.  Consequently, for
+$0<\beta\leq1$,
+$\sum_{M\equiv3\ (4)}\tau(A^2)(M/\varphi(M))M^{-1-\beta}\leq C_6\beta^{-3}$.
+\end{lemma}
+\begin{proof}
+Write $M/\varphi(M)=\sum_{d\mid M}\mu^2(d)/\varphi(d)$ and swap sums; the
+inner sum runs over $A\leq(x+1)/4$ with $4A\equiv1\pmod d$.  For
+$2\leq d\leq x^{1/2}$, Shiu with $F(A)=\tau(A^2)$ ($F(p)=3$) in the reduced
+class $4^{-1}\pmod d$ gives $\ll(x/\varphi(d))(\log x)^2$; for $d=1$ the
+elementary bound $\sum_{A\leq x}\tau(A^2)\ll x\log^2x$ suffices; and
+$\sum_d\varphi(d)^{-2}<\infty$.  For $d>x^{1/2}$ bound trivially by
+$(x/d+1)x^{1/10}$, for a total $\ll x^{0.61}$.  The $\beta$-bound follows
+by partial summation, $\int(\log2x)^2x^{-1-\beta}dx\ll\beta^{-3}$.
+\end{proof}
+Numerically $S_B(x)/(x\log^2x)=0.1067,\ 0.0990,\ 0.0963$ at
+$x=10^2,10^4,10^6$ \lab{evidence}.
+
+\begin{lemma}[$(a,D)$ profile; {\cite[Lemma~3.2]{ET}}; \lab{proved}]\label{lem:profileaD}
+With $G=4a\,g(D)$,
+$\sum_{a,D}(G/\varphi(G))G^{-1-\beta}\ll\beta^{-3}$ for $0<\beta\leq1$.
+\end{lemma}
+\begin{proof}
+Using $\#\{D:g(D)=g\}\leq2^{\omega(g)}$, the sum is at most
+$\ll\bigl(\sum_aa^{-1-\beta}a/\varphi(a)\bigr)
+\bigl(\sum_g2^{\omega(g)}(g/\varphi(g))g^{-1-\beta}\bigr)\ll\beta^{-1}\beta^{-2}$.
+\end{proof}
+
+\begin{lemma}[weighted Case-A divisor sum; {\cite[Lemma~3.7]{ET}}; \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{lem:caseAprofile}
+For $x\geq2$,
+\begin{equation}\label{eq:caseA}
+ \sum_{r,h\geq1,\ rh\leq x}\tau(4rh^2+1)\,\frac{rh}{\varphi(rh)}\ll x(\log x)^2 .
+\end{equation}
+The same holds with the extra weight $\gamma(rh)$ of
+Corollary~\ref{cor:dominant} below.  Consequently the Case-A classes
+$-m^{-1}\pmod{4g(d)}$, with the selector weight, have profile
+$\ll\beta^{-3}$.
+\end{lemma}
+\begin{proof}
+The input is \cite[Prop.~1.4]{ElsholtzTao}: for $A,B>1$ and every positive
+integer $k\ll(AB)^{O(1)}$,
+$\sum_{a\leq A}\sum_{b\leq B}\tau(kab^2+1)\ll AB\log(A+B)\log(1+k)$.
+Use $n/\varphi(n)\leq(\pi^2/6)\sum_{d\mid n}1/d$ and write $r=sr'$, $h=th'$, so
+that $4rh^2=(4st^2)r'h'^2$.  The left side of \eqref{eq:caseA} is at most
+$C\sum_{s,t}(st)^{-1}\sum_{r'h'\leq Y}\tau(4st^2r'h'^2+1)$ with $Y=x/(st)$.
+If $st\leq\sqrt x$, cover $r'h'\leq Y$ by $O(\log Y)$ rectangles with
+$AB\asymp Y\geq\sqrt x/2$, $A,B\geq2$; then $k=4st^2\ll(AB)^3$, and
+Prop.~1.4 gives $\ll Y(\log x)^2\log(1+4st^2)$; finally
+$\sum_{s,t}\log(1+4st^2)/(st)^2<\infty$.  If $st>\sqrt x$ then $Y<\sqrt x$
+and $\tau\ll x^\epsilon$ give $\ll x^{1/2+2\epsilon}$.  For the
+$\gamma$-weight replace $1/(st)$ by $\eta(s)\eta(t)$, where
+$\gamma(n)n/\varphi(n)=\sum_{d\mid n}\eta(d)$ and $\eta(p)=O(p^{-1}+p^{-\delta})$;
+the needed sums converge because $\eta(p)/p\ll p^{-1-\delta}$ and
+$\sum_n\eta(n)n^{-1+\delta/2}<\infty$.  The profile statement follows by
+partial summation, since the Case-A class mass up to modulus $G$ is at most
+$\sum_{4rh\leq G}\tau(4rh^2+1)/(4rh)$.
+\end{proof}
+The review \cite[item~4]{ETrev} checked Prop.~1.4 and its $k$-range against
+the source; it was not re-proved.
+
 \end{document}
