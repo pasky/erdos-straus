@@ -195,3 +195,128 @@ one class mod q, so for that `(s,a)` the atoms contribute
 (`κ≡4sa²`), and non-hub means `sa>H`. So the *pointwise* worst cases at
 large m are hub-type, and the m-refinement is a structured, not a
 Weil-range, problem. A complete treatment is §4.
+
+## 4. What remains: the large-m part (precise residual)
+
+Split `Δ_O = Δ_O^{≤μ} + Δ_O^{>μ}` by the Π-part m of the event's atom
+(an event is charged to one of its atoms). Prop 3.2 handles `Δ_O^{≤μ}`.
+
+**Hypothesis HC_Π(a′,B′)** (open). For all large T, all k, H as in HC
+and every vertex set O with no H-hub, the atoms with `m>Ĥ^{1/6}` give
+`Δ_O^{>Ĥ^{1/6}} ≤ 𝓛^{B′}H^{−a′}`.
+
+**Corollary 4.1 (PROVED implication).** HC_Π(a′,B′) implies
+HC(min(a′,1/6), max(B′,4)+1) (with the `e^{O(k)}` factor `4^{k/3}`, harmless
+in O4 Thm 4.2). Hence, modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4,
+HC_Π implies `log W(p) ≥ 0.2·min(a′,1/6)^{1/2}(log₂p)^{3/2}` for
+infinitely many Mordell-hard p (O4 Thm 4.2; `0.2/√6 > 0.08`).
+
+*Proof.* Theorem 2.3, Prop 3.2 with `μ=Ĥ^{1/6}`, and `Ĥ≥H` when
+`H≤y` (true in O4 Thm 4.2, where `H=y^{1/2+o(1)}`). ∎
+
+**Anatomy of HC_Π (Assessment).** By Lemma 3.1 an atom with Π-part m
+satisfies `m | u+v` and `m | 4sa²+1`. So HC_Π is a statement about
+*divisors* of `u+v` and of `4sa²+1`, not about residues of inverses:
+
+1. *Rays.* Balanced rays (`min(u,v)≥H^{1/3}`) and rays with
+   `τ(u+v)≤y^{2/3}` are done (Lemma 3.3). The rest are unbalanced rays
+   with `τ(u+v)>y^{2/3}`; these force `u+v ≥ y^{c·log log y}`.
+   For them HC_Π asks for
+   ```
+   (DIV)  #{m | u+v Π-number : the least n′≥y with qmn′≡−1 (4h) is ≤ Y} ≪ 𝓛^B H^{−a}·Y   (Y≥y).
+   ```
+   For `u=1` this is: small values of `ρ·m′ mod v` over the divisors
+   `m′=(v+1)/m` (since `m^{−1}≡m′ (mod v)`), with `n′` rough and m smooth.
+2. *Other points.* For a pair `(s,a)` with `4sa²≡κ (q)`, each `m|4sa²+1`
+   gives one class of b mod qm, and the atoms contribute
+   `≤2/n′_0(s,a,m) + 𝓛/(2sa)` (Lemma 3.1(3); n′ runs over a progression
+   of difference 4sa). Summing over m costs the restricted divisor count
+   `τ_Π(4sa²+1; ≤T/(4qsa))`. Pointwise, τ is `T^{O(1/log𝓛)}`. In O4
+   Thm 4.2, `H^{−a}=exp(−c𝓛^{2/3})`, so a pointwise divisor bound is fatal.
+   What is needed is an *average* of `τ_Π(4sa²+1)` over the
+   `(s,a)` in a box with `4sa²≡κ (q)`. When one of the ranges of s or a
+   exceeds `q^{1+ε}`, a Shiu / Nair–Tenenbaum / Henriot bound would give a
+   polylog average, once the dependence of the constants on `α,β` has been
+   checked; I have not done this. When the ranges are shorter than q,
+   no averaging theorem applies. Then only the pointwise
+   `τ≤(sa)^{O(1/log log sa)}` is available. It suffices when
+   `sa≤q^{O(1)}` and the count carries a factor `1/q`, but not in the core boxes.
+
+So the obstruction has moved. It is no longer "inverses of squares
+beyond the Weil range" (dissolved, §1–2). It is now a divisor-function
+problem in short progressions, (DIV) plus the `τ_Π(4sa²+1)` averages.
+The worst cases are again hub-like (§3, last paragraph).
+
+**EVIDENCE (`scripts/omega5_codeg.py`, exact, one pair per T, Π=Π_0).**
+The table gives the maximum of Δ over classes with hub level `>X` (O3
+Def 2.3, enumerated to level 2048), split into m=1 and m>1:
+
+| T | q | X=16: m=1 / m>1 | X=128 | X=512 | `X^{−1/3}` at 512 |
+|---|---|---|---|---|---|
+| 10⁹ | 337·347 | .020 / .017 | .0049 / .0089 | .0036 / .0067 | .125 |
+| 10¹¹ | 937·941 | .022 / .041 | .0051 / .0101 | .0025 / .0035 | .125 |
+| 10¹⁰ | 337·30011 | .0073 / 0 | .0032 / 0 | .0032 / 0 | .125 |
+
+The m>1 part is **not** negligible: for the near-y pairs it exceeds the
+m=1 part at every level shown. It decays roughly like `X^{−0.8}`, well inside
+`X^{−1/3}`. For the wide pair (`T/q≈10³`), `m n′≤T/q` leaves essentially
+no room for `m>1`. This is consistent with HC_Π but proves nothing.
+
+## 5. The literature (survey; details and archived PDFs in `sources/lit2026/O13_LITERATURE_NOTES.md`)
+
+O4's problem IS counts all `t≤t_0≤q^{1/2}` with `w t̄² mod q ≤ Y≤q^{1/2}`,
+for every w. Statements below were checked against the archived PDFs.
+
+* **Cilleruelo–Garaev** (arXiv:1007.1526, Thm 1): for prime p,
+  `#{xy≡λ (p) : x∈[K,K+M], y∈[L,L+M]} < M^{4/3+o(1)}p^{−1/3}+M^{o(1)}`,
+  uniformly in the shifts. It needs a prime modulus and covers `xy` only.
+  Their proof idea (Heath-Brown: lift to integers, divisor bound) is
+  exactly the lifting used here, and at the origin it gives the stronger
+  `(Yt_0²/q+1)·max_n#{t:t²|n}` for any q.
+* **Bourgain–Garaev** (arXiv:1211.4184, prime p; arXiv:1309.1124, any
+  modulus, Thm 1): additive energies of reciprocals,
+  `J_{2k} < (2k)^{90k}(log N)^{4k}(N^{2k−1}/m+1)N^k`. These give incomplete
+  Kloosterman bounds below `m^{1/2}`, but only with savings that are small
+  powers of log or tiny powers of N. They yield no all-w bound for IS.
+* **Shparlinski's survey** (arXiv:1103.2879, Thm 13): the modular-hyperbola
+  asymptotic with error `m^{1/2+o(1)}`. The survey notes this is trivial for
+  `XY<m^{3/2}`, which is exactly IS's range.
+* **Heath-Brown** (arXiv:1004.0715, Thm 1): a mean square over residues c
+  for `m²−n²≡c` in short ranges. This is an averaged statement only.
+* **Korolev / Karatsuba** (short Kloosterman sums of length `q^ε`). These
+  need special moduli (smooth, or prime powers) or carry log-power savings.
+  They give no pointwise IS bound for products of ≤k large primes (not
+  archived: no arXiv versions found by the survey).
+
+**Verdict on IS as posed in O4.** No known theorem gives
+`N(q,w)≪𝓛^BYh^{−a}` for every w in O4's range. The lifting bound gives
+`N(q,w) ≤ (Y/(4h)+1)·min(max_{n≤Yt_0²}#{t: t²|n}, √Y)`. (All s with
+`st²=n`, `s≤Y`, share one squarefree kernel f, so there are at most
+`(Y/f)^{1/2}` of them.) This is a factor `≤min(T^{O(1/log𝓛)},√Y)` short of
+the target, pointwise. But HC never needed IS: it needs the squarefree
+count, and that is exact (Lemma 1.1). Averaging over w or q (route (α))
+is therefore unnecessary for the core.
+
+## 6. Status
+
+* **PROVED:** Lemma 1.1, Cor 1.2, Lemmas 2.1–2.2, Theorem 2.3
+  (HC with a=1/3 for the m=1 part), Lemma 3.1, Prop 3.2 (HC with a=1/6
+  for `m≤Ĥ^{1/6}`), Lemma 3.3, Cor 4.1 (HC_Π ⇒ HC ⇒ O4 Thm 4.2 rate).
+* **Open:** HC_Π, i.e. the large-m part. HC(a,B) is therefore still
+  not proved unconditionally, and the proved rate remains O4 Cor 3.1.
+* **Scope caveats.** q is taken squarefree, as in O4 §7. Free primes
+  `ℓ≤√T` have vertex classes mod `ℓ^{e_ℓ}`, and events with `ℓ^2|M` see
+  `q′=∏ℓ^{v_ℓ}`. The proofs use only Q odd (§2) and the
+  heights mod `q′`. The non-hub hypothesis is stated mod `ℓ^{e_ℓ}`, and
+  the transfer to `q′` was not checked. O4 Prop 7.2's period/boundary
+  terms are subsumed by Theorem 2.3's cases (a)–(c).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+uv run --with sympy python scripts/omega5_codeg.py 1000000000 331 337 347 1024        # ~1 min
+uv run --with sympy python scripts/omega5_codeg.py 10000000000 331 337 30011 2048     # ~1 min
+uv run --with sympy python scripts/omega5_codeg.py 100000000000 933 937 941 2048      # ~15 min
+```
+Outputs: `data/omega5/codeg_*.txt`.
