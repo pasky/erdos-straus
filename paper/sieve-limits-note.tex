@@ -1099,4 +1099,77 @@ Vaughan's argument and that of Pomerance--Weingartner~\cite{PW} are the
 case $\mathcal K=\{1\}$, giving $(\log N)^{2/3}$.  For the $3/4$ note,
 $h\asymp\kappa t$ and the same computation gives $\lambda^{3/4}$.
 
+\section{What the theorems exclude}\label{sec:excluded}
+
+The following list is checked against the proofs of
+Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped} and
+Lemma~\ref{lem:budget} \cite[\S6.1]{ET}.  Anything below lies outside the
+caps of Section~\ref{sec:cap}.
+\begin{enumerate}
+\item \emph{Majorants not $\geq0$ on all of $\Z$.}  See
+  Remark~\ref{rem:positivity}.
+\item \emph{Signed rounding.}  Any bound exploiting cancellation in
+  $\sum_{n\leq N}\nu(n)-N\E\nu$, or any rounding bound smaller than
+  $\sum_i|a_i|$, for example one that uses which classes meet $[1,N]$.
+\item \emph{Non-CRT inputs.}  The theorems see only the CRT law of
+  residues.  Type~I/II sums, the arithmetic of $(p+a)/4$, Hal\'asz-type
+  arguments, and majorants that are $\geq1$ only on exceptional
+  \emph{primes} and use prime equidistribution beyond the selector
+  coordinates are outside.  The theorems require $\nu\geq1$ on the whole
+  avoider set.
+\item \emph{Balanced and twin moduli.}  Corollary~\ref{cor:dominant} needs
+  every modulus to have $P(M)\geq M^{1/(1+C)}$ with $C<1$ fixed;
+  Theorem~\ref{thm:gapped} extends this to $(\eta,B)$-gapped $\cR(M)$-moduli
+  with $B$ fixed, and Theorem~\ref{thm:resolved} to window-resolved
+  families.  Excluded are: families containing unresolved $\eta$-twin
+  moduli with top prime in $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$; gapped
+  moduli with $\log M/\log P(M)$ unbounded; and balanced or gapped
+  $(a,D)$- and Case-A moduli.  This part is not small
+  (Lemma~\ref{lem:balancedsupply}).
+\item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
+  uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
+  handles the $w_0$-smooth part only because $w_0=O_C(1)$, and
+  Theorem~\ref{thm:gapped} because $W=W_0(B)$.
+\item \emph{Level and size.}  Families with slice primes beyond $N^{O(1)}$
+  are formally outside, since Lemma~\ref{lem:budget} needs $\Lambda_0$.
+\item \emph{Large multipliers.}  In the prime-slice setting the small part
+  $q_0$ of a modulus is free, but Corollary~\ref{cor:sliceCap} needs
+  $q_0\leq\ell^C$.  Conditions with $q_0\gg\ell$, used without paying their
+  lcm in level, are not covered; no lower bound on that cost is proved
+  \cite[\S5.6(b)]{ET}.
+\item \emph{Large sieve.}  Only Montgomery's large sieve over a slice
+  system, fibre by fibre, is covered.
+\end{enumerate}
+
+\begin{lemma}[balanced moduli carry cubic supply; {\cite[Lemma~3.8]{ET}}; \lab{proved}]\label{lem:balancedsupply}
+There are $c>0$ and $x_0$ such that for $x\geq x_0$,
+\[
+ \sum_{M\leq x,\ M\equiv3\ (4),\ P(M)\leq M^{1/2}}\frac{|\cR(M)|}M\geq c(\log x)^3.
+\]
+More precisely, for each fixed $\eta\in(0,1/480]$, the moduli $M=k\ell_1\ell_2$
+with primes $\ell_1\in(Y,Y^{1+\eta/2}]$, $\ell_2\in(Y^{1+\eta/2},Y^{1+\eta}]$, odd
+$k\in(Y^{2\eta},Y^{3\eta}]$ and $Y=x^{1/(2+4.5\eta)}$ already contribute
+$\geq c(\eta)(\log x)^3$; these are same-scale pairs,
+$\log\ell_2/\log\ell_1\leq1+\eta$.
+\end{lemma}
+\begin{proof}[Proof sketch]
+Each such $M$ is $\leq x$ and balanced, and determines $(k,\ell_1,\ell_2)$.
+For coprime $u,v\leq z=Y^{1/8}$ with $(uv,k)=1$ and $4uv\mid M+1$, the class
+$-uv^{-1}\pmod M$ lies in $\cR(M)$, and distinct $(u,v)$ give distinct
+classes modulo $\ell_2$.  The $\ell_2$-sum over the progression
+$-(k\ell_1)^{-1}\pmod{4uv}$ is evaluated by partial summation, with the
+error terms controlled on average by Cauchy--Schwarz against
+Brun--Titchmarsh and the Bombieri--Vinogradov theorem
+\cite[Ch.~28]{Davenport}.  The $(u,v)$-sum is bounded below by the
+lattice lemma of \cite[Lemma~3.1]{LL}, which needs $\eta\leq1/480$.  The
+$k$- and $\ell_1$-sums give $\gg\eta\log Y$ and $\gg\eta$.  Full details are
+in \cite[\S3.8]{ET}, checked in \cite[item~4]{ETrev}.
+\end{proof}
+The share of the weighted Case-B mass carried by balanced moduli is
+$0.098,\,0.121,\,0.141,\,0.157,\,0.171$ at $x=10^3,\dots,10^7$, still
+growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
+show that every window partition loses: singleton windows have no
+internal pairs.  So the exclusion of twin moduli is not cosmetic, but
+whether they can actually beat the Rankin functional is open.
+
 \end{document}
