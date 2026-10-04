@@ -17157,4 +17157,103 @@ print("\n== (ck) EXCEPTIONAL_KARY: Lemma 2.3 extrapolation constant, Thm 2.5 wei
 check_ck()
 
 
+
+# ---------------------------------------------------------------- (cl)
+# EXCEPTIONAL_KARY2.md Lemmas 2.1-2.3.
+# (1) Lemma 2.1(1): no residue -4D mod M (D | A_M^2) is a square mod M, brute
+#     force for all M = 3 (4), M <= 1500.  Lemma 2.1(2), 2.2: no (a,D)-class
+#     (a <= 40, D <= 300) and no Case-A class (d <= 3000) contains a square mod G
+#     (reusing scripts/kary2_square_check.py); live control on shifted residues.
+# (2) Lemma 2.3 (square base) for (W, Q0) = (7, 2^4 3^2 5 7), (11, 2^4 3 5 7 11):
+#     |R| matches part 2 exactly; no c in R lies in any class with modulus | Q0
+#     of the four types (all (a,D) with 4a g(D) | Q0, all Case-A with 4rh | Q0,
+#     all R(M) with M | Q0, selectors 0 mod p, p <= W); and (R2)
+#     P(c = a mod p^e) <= gamma(p)/p^e for every p^e | Q0, independence at
+#     distinct primes (CRT product).
+
+def check_cl():
+    from time import perf_counter
+    import importlib.util
+    import os
+    from sympy import divisors as _divisors
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "kary2_square_check.py")
+    spec = importlib.util.spec_from_file_location("kary2_square_check", path)
+    ks = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ks)
+
+    nR = 0
+    for M in range(3, 1501, 4):
+        sq = {(x * x) % M for x in range(M)}
+        A = (M + 1) // 4
+        for D in _o9_divisors({r: 2 * e for r, e in factorint(A).items()}):
+            assert (-4 * D) % M not in sq, ("KARY2 Lemma 2.1(1)", M, D)
+            nR += 1
+    naD = 0
+    for a in range(1, 41):
+        for D in range(1, 301):
+            G = 4 * a * ks.g_of(D)
+            assert not ks.is_square_mod((-(4 * D + a)) % G, G), ("KARY2 Lemma 2.1(2)", a, D)
+            naD += 1
+    ctrl = sum(ks.is_square_mod((-(4 * D + a) + 1) % (4 * a * ks.g_of(D)), 4 * a * ks.g_of(D))
+               for a in range(1, 21) for D in range(1, 101))
+    assert ctrl > 0, "KARY2 square-test control dead"
+    nA = 0
+    for d in range(1, 3001):
+        G = 4 * ks.g_of(d)
+        for m in _divisors(4 * d + 1):
+            assert not ks.is_square_mod((-pow(m, -1, G)) % G, G), ("KARY2 Lemma 2.2", d, m)
+            nA += 1
+    print(f"cl Lemmas 2.1-2.2: {nR} R(M)-classes (M <= 1500), {naD} (a,D)-classes, {nA} Case-A "
+          f"classes: no square mod G; control {ctrl}/2000 shifted residues are squares")
+
+    for W, Q0 in ((7, 16 * 9 * 5 * 7), (11, 16 * 3 * 5 * 7 * 11)):
+        fQ = factorint(Q0)
+        assert all(p <= W for p in fQ) and Q0 % (8 * prod(primerange(2, W + 1))) == 0
+        usq = {}
+        for p, e in fQ.items():
+            q = p ** e
+            usq[p] = {(x * x) % q for x in range(q) if x % p}
+        R = [c for c in range(Q0) if all(c % (p ** e) in usq[p] for p, e in fQ.items())]
+        assert len(R) == prod(len(usq[p]) for p in fQ), "KARY2 L2.3 CRT product"
+        assert abs(log(Q0 / len(R)) - (3 * log(2) + sum(log(2 * p / (p - 1)) for p in primerange(3, W + 1)))) < 1e-9, \
+            ("KARY2 L2.3(2)", W)
+        assert log(Q0 / len(R)) <= 2 * W
+        Rset = set(R)
+        classes = [(0, p) for p in primerange(2, W + 1)]                       # selectors
+        for M in _divisors(Q0):                                                 # R(M)
+            if M % 4 == 3:
+                A = (M + 1) // 4
+                classes += [((-4 * D) % M, M) for D in _o9_divisors({r: 2 * e for r, e in factorint(A).items()})]
+        for a in _divisors(Q0 // 4):                                            # (a,D)
+            for D in _divisors((Q0 // (4 * a)) ** 2):
+                G = 4 * a * ks.g_of(D)
+                if Q0 % G == 0:
+                    classes.append(((-(4 * D + a)) % G, G))
+        for g in _divisors(Q0 // 4):                                            # Case A, g = rh
+            for h in _divisors(g):
+                r = g // h
+                if any(e > 1 for e in factorint(r).values()):
+                    continue
+                d = r * h * h
+                G = 4 * g
+                classes += [((-pow(m, -1, G)) % G, G) for m in _divisors(4 * d + 1)]
+        for b, G in classes:
+            assert not any(c in Rset for c in range(b, Q0, G)), ("KARY2 L2.3(1)", W, b, G)
+        live = sum(any(c in Rset for c in range((b + 1) % G, Q0, G)) for b, G in classes)
+        assert live > 0, "KARY2 L2.3 control dead"
+        for p, e in fQ.items():
+            gam = 8 if p == 2 else 2 * p / (p - 1)
+            for k in range(1, e + 1):
+                cnt = Counter(c % p ** k for c in R)
+                assert max(cnt.values()) / len(R) <= gam / p ** k + 1e-12, ("KARY2 L2.3(3)", W, p, k)
+        print(f"cl Lemma 2.3: W = {W}, Q0 = {Q0}: |R| = {len(R)}, {len(classes)} classes of the four "
+              f"types with modulus | Q0 avoided (control: {live} shifted classes hit); (R2) bounds OK")
+    print(f"cl seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cl) EXCEPTIONAL_KARY2: no squares in R(M)/(a,D)/Case-A classes (Lemmas 2.1-2.2), square base (Lemma 2.3) ==")
+check_cl()
+
+
 print("\nall checks passed")
