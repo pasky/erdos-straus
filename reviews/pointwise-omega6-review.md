@@ -13,6 +13,8 @@ Subject: branch `side-agent/omega-hcpi` at 7003065 (`POINTWISE_OMEGA6.md`,
 |---|---|---|
 | 1 | Lemmas 1.1, 1.2, 1.4, Def 1.3, Thm 1.5 (three-fibre reduction) | **CONFIRMED**. Nits D2, D3 |
 | 2 | Prop 2.1 (`D_sa≪4^k𝓛⁴(H^{−1/2}+q^{−1/4})`), all three regimes; Cor 2.2 | **CONFIRMED** modulo Shiu Thm 1 and Henriot Thm 4, whose hypotheses I checked literally. Citation nit D1 |
+| 3 | Lemma 3.1, Thm 3.2, (FT_a) ⇒ HC_Π(a) | **CONFIRMED** as a sufficient condition. Claims of "equivalence" are wrong (D4). FT is looser than needed (D7) |
+| 4 | Prop 3.4, Cor 3.5 (long planes; exact residual) | **CONFIRMED** as stated. Scope is overstated (D5). The description of residual (b) is wrong for (a,b)-short boxes (D6). The Regime III side remark is wrong in one subcase (D8) |
 
 ## Item 1 — §1, the three-fibre reduction. CONFIRMED
 
@@ -142,57 +144,65 @@ item 2's "period terms" without a separate `τ_Π` average in short boxes.
 In the short regime, the `1/q` density of the plane pays for the
 pointwise divisor bound. Short boxes are a problem only for first terms.
 
-## Item 3 — Lemma 3.1, Thm 3.2, (FT_a). CONFIRMED (as sufficiency)
+## Item 4 — Prop 3.4, Cor 3.5. CONFIRMED as stated, with scope defects
 
-* **Lemma 3.1.** A corner atom with `4sa≤yZ` is the unique first element
-  of its `(s,a,m)`-fibre, and `2/n′≤2/y≤Z/(2sa)`. Summing over `(s,a)` and
-  `m|F` gives `(Z/2)D_sa`. Checked.
-* **Thm 3.2.** `(1+𝓛/2+Z/2)(D_ab+D_sa+D_sb)≪Z·4^k𝓛⁴H^{−1/4}+…=4^k𝓛⁵H^{−a}`.
-  For a remaining corner atom, `n′=ν(s,a,m)`: the n′-values of the
-  `(s,a,m)`-fibre are exactly the `n′≥y` with `qmn′≡−1 (4sa)` (converse
-  via Lemma 1.1(2); `gcd(qm,4sa)=1`). Checked, and numerically confirmed
-  (Item 1). The threshold `H^{1/3−a}≤Ĥ^{1/3−a}` is in the right
-  direction for HC_Π. The prime-power remark agrees with O5 Lemma 2.0′.
-  So (FT_a) ⇒ HC_Π(a) for `a≤1/4`: **CONFIRMED**.
+* **Prop 3.4(1),(2).** Corner atoms in the box are first elements of
+  `(s,a,m)`-fibres, so there are at most `Σ_{(s,a)∈box}τ(F)=SA·D(S,A)` of
+  them. Each weighs `≤(4/3)qμ_0/(SAB)` (`4SAB−1≥3SAB`). So the box gives
+  `≤(4/3)qμ_0D(S,A)/B≪4^k𝓛²μ_0/B` in Regimes I–II. Checked.
+* **Prop 3.4(3).** O5 Prop 7.1's long-box bound gives
+  `Σ_{box}τ(a+b)≤2τ(q)(2+𝓛)AB/q` (it needs `max(A,B)>3q²`, so that
+  `4√B<2.4B/q`). The box then gives `≤(8/3)τ(q)(2+𝓛)μ_0/S`. Checked.
+* **Cor 3.5.** If a plane is long and its third side is `≥μ_0W`, the
+  box gives `≤H^{−a}`, and there are `≤8𝓛⁴` boxes. Together with Thm 3.2
+  this gives `B′=5` (6 is safe). With three long planes, `S,A,B<μ_0W`
+  and `32SAB>4sab>qmy≥qμ_0y`. So `μ_0>(qy/32)^{1/2}W^{−3/2}`, and
+  `(qy/32)^{1/2}>y^{3/2}/6` because `q>y²`. Checked.
 
-**D4 (minor-moderate; overclaim "equivalent").** §0 says "HC_Π is
-**equivalent** (up to proved terms) to a bound for the corner sum 𝒦".
-After Cor 2.2 it says "HC_Π(a′) … is equivalent … to
-`𝒦^{>H^{1/3−a′}}≪…`". Only one direction is proved. `Σ^{>μ}` (atom
-weights `2/n′`) is an *upper bound* for `Δ_O^{>μ}`. No lower bound
-`𝒦≪Δ_O` (atom multiplicity per event, `2/n′` vs `1/φ(n′)`) is proved.
-The 𝒦-statement also uses the threshold `H^{1/3−a′}`, and HC_Π uses
-`Ĥ^{1/3−a′}≥H^{1/3−a′}`, so the 𝒦-statement is formally the stronger one.
-Replace "equivalent to" by "implied by". The Status section and the
-report already say "reduced to" and "follows from", which is correct.
+**D5 (moderate; scope of the "three long planes" gain).** "Long" for
+`(a,b)` means `max(A,B)>3q²`. Since `a,b≤T`, **the (a,b)-plane is never
+long when `q≥T^{1/2}`**. With three long planes, say `B>3q²`, the
+`(s,a)`-plane is long only if `S≥3q^{4/3}` or `A≥C_1q^{3/2}`. Then
+`T≥4SAB≫q^{10/3}`. So boxes with three long planes exist only for
+`q≲T^{3/10}`, i.e. for vertex sets with `|O|≲0.3(k+1)` free primes (as
+`q≥y^{|O|}`, `y=2T^{1/(k+1)}`). Cor 3.5 says "In the regime of O4
+Thm 4.2 … it is `y^{3/2}H^{−3a/2−o(1)}`, far beyond O5's `H^{1/3−a}`".
+The report repeats this ("With three long planes, HC_Π holds for
+`m<…`. In O4's Thm 4.2 regime this is about `y^{3/2}H^{−3a/2}`"). Both
+invite the reading that the m-range of HC_Π has been pushed from
+`H^{1/3−a}` to `y^{3/2−o(1)}` in the main regime. It has not. For
+`|O|≥(k+1)/2` (`q≥T^{1/2}`), part (a) of the residual is empty, part (b)
+is everything outside Prop 3.4(1),(2), and the m-threshold proved there
+is still O5's `H^{1/3−a}`. Fix: state the q-range (`q≲T^{3/10}`) next to
+the threshold, in Cor 3.5, §0 and the report.
 
-**D7 (minor; FT is a needlessly loose target, and EVIDENCE measures 𝒦,
-not FT).** `FT^{>μ}(Z)` sums `2/ν` over *every* `(s,a)` with `sa≤T` and
-every `m|F`. This includes first "elements" with `ν>T/(qm)` (no atom
-exists) and non-squarefree s. The proof of Thm 3.2 gives the restriction
-`ν≤T/(qm)`, s squarefree, for free. Numerically
-(`scripts/review_omega6_ft.py 1000000000 331 337 347 1 1 …`, Z=1, μ=1):
+**D6 (moderate; Assessment of residual (b) is wrong for one sub-case).**
+Cor 3.5's text and the report describe (b), "boxes with a short plane",
+as follows: "the numbers `4sa²+1` are `≤q^{O(1)}`, and the only divisor
+bound I have there is pointwise". That holds when the short plane is
+`(s,a)` or `(s,b)` (Regime III: `S,A≪q^{14/5}`). It is **false** when the
+only short plane is `(a,b)` (`max(A,B)≤3q²`). There both s-planes may be
+long, so Shiu/Henriot do apply. The box survives only because its third
+sides are small (`A,B<μ_0W`), while `S` is as large as `2qμ_0`. Then
+`4sa²+1` is up to `~T·q^{O(1)}`, not `q^{O(1)}`. Unlike (a), this
+sub-case has **no** lower bound on m: `S<μ_0W` fails, so the derivation
+of (a) does not apply. This sub-residual (`a,b<2mW`, any m>μ, large s) is
+the hub-like / unbalanced-ray family of O5 §4 (DIV). It is plausibly the
+heart of the problem (§4: κ=1364's mass sits at `(s,a)=(341,1)` and its
+mirror `(27713,·,1)`). For `q≥T^{1/2}` (D5) it is present in every box
+with long s-planes. Fix: split (b) into (b1) "an s-plane is short
+(numbers `≤q^{O(1)}`)" and (b2) "only (a,b) is short, `a,b<2μ_0W`, m
+unrestricted". State (b2) explicitly in §0, §5 and the report.
 
-| κ (h) | FT | FT, s squarefree | … and `ν≤T/(qm)` | 𝒦 (whole class) |
-|---|---|---|---|---|
-| 1364 (341) | .0734 | .0645 | .0184 | .0149 |
-| 440 (110) | .0914 | .0696 | .0259 | .0173 |
-| 524 (131) | .1039 | .0838 | .0272 | .0156 |
-
-So FT as defined is 4–6× the corner mass, and the existence restriction
-removes most of the excess. The §4 table and the report ("of the average
-size predicted by (FT)") measure 𝒦, not FT. That EVIDENCE says nothing
-directly about (FT_a) in the form in which it is stated. Fix: state
-(FT_a) with `ν≤T/(qm)` and s squarefree, and say that §4 measures 𝒦. (All
-values are still below `h^{−1/4}`, so this is no evidence *against*
-FT_a.)
-
-*Assessment on Lemma 3.3 (CONFIRMED).* (1): `F≡1 (X)` gives
-`m^{−1}≡m* (X)`. (2): `F<X²`. A divisor `<X` is the least residue of its
-class. A divisor `≥X` is fixed by `m*<X`, and `m*` is the least residue
-of `m^{−1}`. Hence ≤2 divisors per class. Numerically: 0 violations over
-all `(s,a)` carrying m>1 atoms at T=10⁹. (3): `i<τ/2` is the correct
-count also for odd τ (F can be a square, e.g. `κ=440`, `F=441`). Checked.
-The comment "pointwise worst case `≍min(τ(F),y)/y`" is wrong for `τ>y`.
-There the bound of (3) is `≍1+log(τ/y)`, not `≍1` (nit, Assessment
-text).
+**D8 (minor; false side remark).** Cor 3.5 claims: "Regime III's
+`q^{−3/8}` saving does handle short (s,a)-boxes whose third side is
+`B≥2^{k+7}μ_0q^{5/8}H^a`". Regime III has three subcases. The third
+(`32SA²<q`) has `D(S,A)≤2H^{−1/2}`, with **no** `q^{−3/8}`. There the box
+bound `(4/3)qμ_0D/B` needs `B≫qμ_0H^{a−1/2}`, not `μ_0q^{5/8}H^a`. The
+next clause ("all boxes with `32SA²<q` contain the same single pair")
+reads as an aside, not as the needed exception. The claim holds for the
+first two subcases (`2^{k+1}q^{−3/8}`, `64q^{−3/8}`; `2^{k+7}≥128`
+covers both). Fix: "for boxes with `32SA²≥q`". (The single-pair
+statement itself is right: `4sa²<q` with `4sa²≡κ` forces `4sa²=`
+the least residue of κ, and squarefree injectivity gives uniqueness,
+given D2.)
