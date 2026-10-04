@@ -709,7 +709,7 @@ $\sum_{4rh\leq G}\tau(4rh^2+1)/(4rh)$.
 The review \cite[item~4]{ETrev} checked Prop.~1.4 and its $k$-range against
 the source; it was not re-proved.
 
-\section{The three-quarter cap}\label{sec:cap}
+\section{Dominant-prime families}\label{sec:cap}
 
 \subsection{Prime-slice families}
 \begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:sliceCap}
@@ -805,40 +805,6 @@ function gives logarithmic density $\log(1+C)$ to the moduli with
 $P(M)\geq M^{1/(1+C)}$; the share of the \emph{weighted} cubic supply is
 not proved \lab{conjecture}.
 
-\subsection{The main theorem}
-\begin{theorem}[the $3/4$ cap; \lab{proved} mod Elsholtz--Tao Prop.~1.4 for Case-A classes; unconditional for Case-B families]\label{thm:main}
-Fix $0<C<1$ and $A\geq1$.  Let $\cF$ be a family of forced classes such
-that either
-\begin{enumerate}
-\item[(i)] every modulus has a dominant prime $P(M)\geq M^{1/(1+C)}$
-  (Case-B and Case-A classes; Corollary~\ref{cor:dominant}); or
-\item[(ii)] $\cF$ consists of $\cR(M)$-classes with $(\eta,B)$-gapped
-  moduli, for fixed $B$ and $0<\eta<1$, together with any $\cR(M)$-classes of
-  $W_0(B)$-smooth modulus (Theorem~\ref{thm:gapped}, Section~\ref{sec:gapped}).
-\end{enumerate}
-Then every CRT-majorant architecture (Definition~\ref{def:arch}) for
-$\cF$, with the admissible set of Corollary~\ref{cor:dominant} in case (i)
-and the quadratic-residue base of Section~\ref{sec:gapped} in case (ii),
-saves at most
-\[
- \log\frac1{\E\nu}\ll(\log N)^{3/4},
-\]
-with implied constant depending on $A,C$ in case (i) and on $A,B,\eta$ in
-case (ii).  In particular no such
-architecture gives $E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with
-$\omega(N)\to\infty$, e.g.\ $\omega=(\log\log N)^\epsilon$.
-\end{theorem}
-\begin{proof}
-Corollary~\ref{cor:budgetlevel}, applied with
-Corollary~\ref{cor:dominant} for $A+2$ in place of $A$ in case (i), and
-with Theorem~\ref{thm:gapped} at $\lambda=(A+2)\log N$ in case (ii).  In
-both the $R$-term is bounded.
-\end{proof}
-The statement for the prime-slice families of Corollary~\ref{cor:sliceCap}
-is the same, with the selector term $\log(P/\varphi(P))$ added; for the
-large sieve over slice systems the level hypothesis $\lambda\leq A\log N$
-is used directly (Remark~\ref{rem:LS}).
-
 \section{Gapped moduli, unconditionally}\label{sec:gapped}
 
 Corollary~\ref{cor:dominant} needs $P(M)\geq M^{1/(1+C)}$ with $C<1$.  This
@@ -897,7 +863,7 @@ identities never cover squares, is used constructively: it gives a
 \emph{product} base measure on avoiders of all small-modulus classes,
 with polylogarithmic inflation.
 
-\subsection{The capped sequential measure}
+\subsection{The capped sequential measure}\label{sec:capped}
 Work in the sequential setting of Section~\ref{sec:seq}, with $R$
 satisfying (R1) every $c\in R$ avoids every condition with $S(C)=\emptyset$,
 and (R2) under the uniform law on $R$ the residues at distinct primes are
@@ -1059,6 +1025,385 @@ the leak.  So all twin moduli with top prime outside
 $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$ are already covered.  The
 \emph{residual} is the set of unresolved moduli with top prime in that
 range.
+
+\section{A weighted $k$-ary comparison theorem}\label{sec:kary}
+
+The sequential sieve limits of Sections~\ref{sec:seq} and~\ref{sec:gapped}
+need, in each window, a single coordinate that decides each condition
+(hypothesis (U)).  For twin moduli, prime-power tops, or several primes of
+one modulus at the same scale, (U) fails.  This section proves an
+arithmetic-free comparison theorem of any arity that replaces the
+per-window Boolean step.  Everything here is from \cite[\S\S1--3]{KA}; the
+reviews \cite{KArev,KArev2} found it sound (the second re-derived all
+inputs; its presentational repairs E1, E2 are incorporated).
+
+\subsection{The coupled sequential process}
+Let $V$ be a finite ordered set of coordinates, $y_\ell\in\Omega_\ell$
+finite, and $\varpi=\bigotimes_\ell\varpi_\ell$ a product law.  A
+\emph{pattern} is a pair $C=(T_C,a_C)$ with $T_C\subseteq V$ and
+$a_C\in\Omega_{T_C}$; put $\mathrm{top}(C)=\max T_C$.  Arities are
+arbitrary and unary patterns are allowed.  A function $f$ on
+$\prod_\ell\Omega_\ell$ is \emph{$d$-local} if $f=\sum_Tf_T$ with $f_T$ a
+function of $y_T$ and $|T|\leq d$; a $\lambda$-level function on coordinates
+of cost $>s$ is $d$-local with $d=\lfloor\lambda/s\rfloor$.  Fix thresholds
+$\delta_\ell\in(0,1/4]$.
+
+The coordinates are processed in order.  Before $\ell$ the state is
+$(c_i,y_i)_{i<\ell}$, and the \emph{plain activation rule} gives the set
+\[
+ F_\ell=F_\ell(y_{<\ell})=\{a:\ \exists C,\ \mathrm{top}(C)=\ell,\ (y_{T_C\setminus\{\ell\}},a)=a_C\},
+\]
+known before $\ell$ is drawn; put $p_\ell=\varpi_\ell(F_\ell)$, and call
+$\ell$ \emph{light} if $p_\ell\leq\delta_\ell$.  Draw $c_\ell\sim\varpi_\ell$
+independently of the past.  If $\ell$ is light and $c_\ell\in F_\ell$
+($\ell$ is \emph{replaced}), draw $y_\ell$ from
+$\varpi_\ell(\cdot\mid\Omega_\ell\setminus F_\ell)$, independently of
+$c_\ell$; otherwise $y_\ell=c_\ell$.  Write $\omega=(c,y)$ for the path,
+$J(\omega)$ for the replaced set, $z(\omega)=|J(\omega)|$, and
+$m(\omega)=\sum_{\ell\text{ light}}p_\ell$ for the light activated mass.
+The law $\sigma$ of $y$ is the sequential capped law of \cite[\S6]{TW}; the
+$c$'s are an explicit coupling of $\sigma$ with $\varpi$.
+
+\begin{lemma}[avoidance and inflation; {\cite[Lemma~2.1]{KA}}; \lab{proved}]\label{lem:kavoid}
+(1) If $\mathrm{top}(C)$ is light then $y_{T_C}\neq a_C$; hence
+$\Prob(y\text{ completes some }C)\leq\sum_\ell\E[p_\ell\ind\{p_\ell>\delta_\ell\}]$.
+(2) Given the past, $y_\ell\sim\varpi_\ell(\cdot\mid\Omega_\ell\setminus F_\ell)$
+if $\ell$ is light and $y_\ell\sim\varpi_\ell$ otherwise.  Hence
+$\sigma(y_S=b)\leq\prod_{\ell\in S}(1-\delta_\ell)^{-1}\varpi(b)$ for all
+$S\subseteq V$ and $b\in\Omega_S$.
+\end{lemma}
+\begin{proof}
+(1) At a light $\ell$, $y_\ell\notin F_\ell$, and every completion of a
+pattern with top $\ell$ lies in $F_\ell$.  At a heavy $\ell$, $y_\ell=c_\ell$
+is independent of the past.  (2) At a light $\ell$,
+$\Prob(y_\ell=a\mid\text{past})=\varpi_\ell(a)\ind_{a\notin F_\ell}(1+p_\ell/(1-p_\ell))$;
+the bound for $y_S$ follows by the chain rule from the last element of
+$S$ downwards.
+\end{proof}
+
+\subsection{Extrapolation in replacement coins}
+Freeze a whole path $\omega$.  For $\rho\in\{0,1\}^V$ put $y^\rho_\ell=y_\ell$
+if $\ell\in J(\omega)$ and $\rho_\ell=1$, and $y^\rho_\ell=c_\ell$ otherwise.
+So $y^0=c$ and $y^{\mathbf 1}=y$.  The intermediate points $y^\rho$ need not
+be paths of the process, and nothing below requires them to be.
+
+\begin{lemma}[locality; {\cite[Lemma~2.2]{KA}}; \lab{proved}]\label{lem:klocal}
+For fixed $\omega$ and a $d$-local $f\geq0$, $g_\omega(\rho)=f(y^\rho)$ is
+nonnegative, multilinear of degree at most $d$ in $\rho_{J(\omega)}$, and
+independent of $\rho_{V\setminus J(\omega)}$.
+\end{lemma}
+\begin{proof}
+$y^\rho_\ell$ depends on $\rho_\ell$ only, so $f_T(y^\rho_T)$ is a function
+of $\rho_{T\cap J}$, and $|T|\leq d$.
+\end{proof}
+
+The one-dimensional input is Lagrange \emph{extrapolation} for binomial
+laws: the node lemma (Lemma~\ref{lem:node}) interpolates at the end point
+$0$, and here we extrapolate to the other end point $z$.
+
+\begin{lemma}[binomial Lagrange extrapolation; {\cite[Lemma~2.3 and \S3]{KA}}; \lab{proved}]\label{lem:kextrap}
+Let $z\geq0$, $0<t\leq1/4$, $d\geq0$, and let $g\geq0$ on $\{0,1\}^z$ be
+multilinear of degree at most $d$.  Then
+$g(1,\dots,1)\leq B(z,t,d)\,\E_{\rho\sim\Bern(t)^z}g(\rho)$, where
+$B(z,t,0)=1$ and, for $d\geq1$,
+\[
+ B(z,t,d)=\min_Y\max_{y\in Y}\frac{|\ell^Y_y(z)|}{\psi(y)},\qquad\psi=\Bin(z,t),
+\]
+over node sets $Y\subseteq\{0,\dots,z\}$ with $|Y|=\min(d,z)+1$, $\ell^Y_y$
+the Lagrange basis of $Y$.  One has $B\geq1$, and
+\begin{equation}\label{eq:kB}
+ \log B(z,t,d)\leq d\log\Bigl(C_1'\max\Bigl(\frac1t,\sqrt{\frac z{td}}\Bigr)\Bigr)+\tfrac12\log(22zt+22)+3,
+ \qquad C_1'=2\e^{4.31}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Averaging $g$ over $\mathrm{Sym}(z)$ changes neither side and gives $Q(K)$,
+$K=\sum\rho_i$, with $Q$ a polynomial of degree at most $d$ (the average of
+$\rho^S$ is $\binom K{|S|}/\binom z{|S|}$) and $Q\geq0$ on $\{0,\dots,z\}$.
+Lagrange interpolation at a minimising $Y$ gives
+$Q(z)=\sum_y\ell_y(z)Q(y)\leq B\sum_y\psi(y)Q(y)\leq B\,\E Q(K)$.  For
+$d\geq1$, interpolating the constant $1$ gives
+$\sum_y|\ell_y(z)|\geq1\geq\sum_y\psi(y)$, so $B\geq1$.  For
+\eqref{eq:kB} use three node sets \cite[\S3]{KA}: $Y=\{0,\dots,z\}$ if
+$z\leq d$ (then $B\leq t^{-z}$); $Y=\{0,\dots,d\}$ if $zt\leq2d$; and, if
+$zt>2d$, $d+1$ nodes spaced $\lfloor\sqrt{zt/d}\rfloor$ around $zt$, bounded
+below by Lemma~\ref{lem:binom}.
+\end{proof}
+% The source also proves the cruder log B <= d log(4e^3(z+1)/t) + (1/2)log(16zt+16)
+% and checks both forms numerically (kary_b21_check.py); only (eq:kB) is used.
+
+The comparison with the product law rests on a supermartingale.
+
+\begin{lemma}[thinned law; {\cite[Lemma~2.4]{KA}}; \lab{proved}]\label{lem:kthin}
+Fix $t\in(0,1/4]$ and put $\mathcal W(\omega)=\exp(-\frac43t\,m(\omega))$.  If
+$\omega$ is drawn from the process and, given $\omega$,
+$\rho\sim\Bern(t)^V$, then for every $x$,
+$\E_\omega[\mathcal W(\omega)\Prob_\rho(y^\rho=x\mid\omega)]\leq\varpi(x)$.
+\end{lemma}
+\begin{proof}
+At a replaced $\ell$, $c_\ell\in F_\ell\not\ni y_\ell$, so $c_\ell=x_\ell$ and
+$y_\ell=x_\ell$ cannot both hold.  Hence
+$\Prob_\rho(y^\rho=x\mid\omega)\leq\prod_\ell\phi_\ell$ with
+$\phi_\ell=\ind\{c_\ell=x_\ell\}+t\ind\{\ell\in J,\ y_\ell=x_\ell\}$.  Given the
+past,
+$\E[\phi_\ell\mid\text{past}]=\varpi_\ell(x_\ell)+\ind\{\ell\text{ light}\}\,tp_\ell\varpi_\ell(x_\ell)\ind_{x_\ell\notin F_\ell}/(1-p_\ell)
+\leq\varpi_\ell(x_\ell)D_\ell$, $D_\ell=1+\frac43tp_\ell\ind\{\ell\text{ light}\}$,
+and $D_\ell$ is known before $\ell$.  So the partial products of
+$\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ form a nonnegative supermartingale
+and $Z=\prod_\ell\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ has $\E Z\leq1$.  Pathwise
+$\prod_\ell D_\ell\leq\e^{\frac43tm}=1/\mathcal W$, so
+$\E[\mathcal W\prod\phi_\ell]=\varpi(x)\E[\mathcal W\prod D_\ell\cdot Z]\leq\varpi(x)$.
+\end{proof}
+
+\begin{theorem}[weighted $k$-ary comparison; {\cite[Thm~2.5]{KA}}; \lab{proved}]\label{thm:kcomp}
+In this setting, for every $t\in(0,1/4]$ and every $d$-local $f\geq0$,
+\[
+ \E_\varpi f\geq\E_\omega\bigl[\e^{-\Phi(\omega)}f(y)\bigr],\qquad
+ \Phi(\omega)=\log B(z(\omega),t,d)+\tfrac43t\,m(\omega)\geq0.
+\]
+No incident-weight, codegree or sparsity hypothesis is needed, and the
+arity of the patterns is arbitrary.
+\end{theorem}
+\begin{proof}
+By Lemmas~\ref{lem:klocal} and~\ref{lem:kextrap},
+$f(y)=g_\omega(\ind_J)\leq B\,\E_\rho g_\omega(\rho)$.  Multiply by
+$\mathcal W/B$ and take $\E_\omega$:
+$\E_\omega[\e^{-\Phi}f(y)]\leq\sum_xf(x)\E_\omega[\mathcal W\Prob_\rho(y^\rho=x\mid\omega)]\leq\E_\varpi f$
+by Lemma~\ref{lem:kthin} and $f\geq0$.
+\end{proof}
+
+\begin{corollary}[mean cost; {\cite[Cor.~2.6]{KA}}; \lab{proved}]\label{cor:kmean}
+Let $d\geq1$, $\bar m\geq\E m$ and $t=d/(\bar m+4d)$.  Then
+\[
+ \E_\omega\Phi\leq d\log\frac{C_0(\bar m+4d)}d+\frac43d+\frac12\log(22d+22)+3,\qquad C_0=4\e^{4.31}.
+\]
+\end{corollary}
+\begin{proof}
+Each light $\ell$ is replaced with conditional probability $p_\ell$, so
+$\E z=\E m$.  Bound the maximum in \eqref{eq:kB} by the sum and use
+concavity of $\log$ and $\sqrt\cdot$: with this $t$, $1/t=(\bar m+4d)/d$,
+$\sqrt{\E z/(td)}\leq(\bar m+4d)/d$, $t\E z\leq d$ and
+$\frac43t\E m\leq\frac43d$.
+\end{proof}
+So the step cost is $d(O(1)+\log^+(\E m/d))$, the form of
+Proposition~\ref{prop:boolean} in one band, for patterns of any arity, and
+with only the \emph{mean} activated mass.
+
+\begin{remark}[weighted versus unweighted; {\cite[Remark~2.8, \S5]{KA}}]\label{rem:kweighted}
+Theorem~\ref{thm:kcomp} bounds $\E[\e^{-\Phi}f(y)]$, not
+$\log(\E_\sigma f/\E_\varpi f)$.  No bound of the latter by the mean mass
+holds in general \lab{proved}: take a trigger $X$ with $\Prob(X=1)=\epsilon$,
+coordinates $Z_1,\dots,Z_m$ with $\Prob(Z_i=1)=1/4$, patterns
+$(X,Z_i)=(1,1)$, $\mu=m/4$ and $\epsilon=1/\mu$; every activated set is light,
+$\E m(\omega)=1$, but the $3$-local $f=X(\sum Z_i-\mu)^2$ has
+$\E_\sigma f/\E_\varpi f=\mu/(1-1/4)\to\infty$.  The incident weight of
+$(X,1)$ is about $1$ here, so this does not contradict the unweighted
+comparison inequality conjectured in \cite[Conj.~6.4]{TW}
+(Conjecture~\ref{conj:kary} below), which assumes small incident weights.
+That unweighted form remains \lab{open}; Theorem~\ref{thm:kcomp} is its
+weighted form, for the conjecture's own law $\sigma$.  The sieve
+application below needs only the weighted form, because the sequential
+sieve limit accepts random step costs (Theorem~\ref{thm:wseq}).  An exact
+check of Theorem~\ref{thm:kcomp} on 100 random small systems (exhaustive
+path enumeration and floating-point linear programmes) found no violation
+\lab{evidence}.
+\end{remark}
+
+\section{The main theorem: $3/4$ for every fixed-$B$ family of classes $\cR(M)$}\label{sec:main}
+
+This section combines Theorem~\ref{thm:kcomp} with the quadratic-residue
+base and the capped sequential measure of Section~\ref{sec:gapped}.  The
+results are from \cite[\S4]{KA}; the second review \cite{KArev2}
+re-derived every input taken from \cite{TW} and found the argument sound.
+
+\subsection{Sequential steps with random costs}
+Take the sequential setting of Section~\ref{sec:capped}: a base $Q_0$, an
+admissible set $R$ with (R1)--(R2), coordinates $y_\ell=n\bmod\ell^{E_\ell}$
+for $\ell\in\cP$, now grouped into ordered \emph{blocks} $V_1,\dots,V_J$ (in
+increasing order of primes) instead of windows.  Each class is
+\emph{decided} at its top prime $P(M)$: its other prime factors are smaller
+(earlier coordinates, or the base), and its requirement at $P(M)$ is one
+class modulo $P(M)^v$.  Hypothesis (U) is \emph{not} assumed.
+
+\begin{theorem}[weighted sequential sieve limit; {\cite[Thm~4.1]{KA}}; \lab{proved}]\label{thm:wseq}
+Suppose that for each block $j$ and history $h$ there are a probability
+law $\Pi_j(h)$ on auxiliary paths $\omega$, a map
+$\omega\mapsto Y_j(h,\omega)\in\prod_{\ell\in V_j}\Z/\ell^{E_\ell}$, and a cost
+$\Phi_j(h,\omega)\geq0$, such that
+\begin{itemize}
+\item[(S$_w$)] every $\lambda$-level $f\geq0$ on the block coordinates
+  satisfies $\E_Uf\geq\E_{\omega\sim\Pi_j(h)}[\e^{-\Phi_j(h,\omega)}f(Y_j(h,\omega))]$,
+\end{itemize}
+$U$ the uniform law.  Let $Q'$ be the law of the history built from the
+uniform law on $R$ by drawing, at each block, $\omega_j\sim\Pi_j(H_{<j})$
+and appending $Y_j$.  If the leak
+$\mathfrak L=Q'(\text{final history}\notin\A)$ is at most $1/2$, then every
+majorant $\nu$ of level $\lambda$ satisfies
+\[
+ \log\frac1{\E\nu}\leq\log\frac{Q_0}{|R|}+\log2+2\sum_j\E_{Q'}\Phi_j(H_{<j},\omega_j).
+\]
+\end{theorem}
+\begin{proof}
+Let $g_j(h)=\E_U[\nu\mid H_{<j}=h]$.  By downward induction,
+$g_j(h)\geq\E_{Q'}[\ind_\A\e^{-\sum_{i\geq j}\Phi_i}\mid H_{<j}=h]$; for
+$j=J+1$ this is $g_{J+1}\geq\ind_\A$.  Given $h$, $f(y)=g_{j+1}(h,y)$ is
+$\lambda$-level and nonnegative, as in the proof of
+Theorem~\ref{thm:capped}.  Apply (S$_w$) and the induction hypothesis at
+$(h,Y_j)$; under $Q'$ the later blocks depend on $\omega_j$ only through
+$Y_j$.  Conclude with the Jensen step of Theorem~\ref{thm:capped}, using
+$\sum_j\Phi_j\geq0$.
+\end{proof}
+A step of Theorem~\ref{thm:capped} is an (S$_w$) with deterministic cost.
+The new instance is the \emph{sequential step}: for a block $V$ of primes
+with $\log\ell>s$, $\lambda$-level functions are $d$-local with
+$d=\lfloor\lambda/s\rfloor$.  Given $h$, the patterns are the classes with
+top prime in $V$ whose requirements outside $V$ are met by $h$ (a class
+modulo $\ell^v$ is a union of points of $\Z/\ell^{E_\ell}$).  Take for
+$\Pi_j(h)$ the coupled process of Section~\ref{sec:kary} in increasing
+order with $\varpi=U$ and caps $\delta_\ell=\ell^{-1/2}$, $Y_j=y$, and for
+$\Phi_j$ the cost of Theorem~\ref{thm:kcomp} with
+$t=t_j(h)=d/(\E[m\mid h]+4d)$, fixed before the block is drawn.  Then
+(S$_w$) is Theorem~\ref{thm:kcomp}, and $\Phi_j\geq0$.
+
+\subsection{Inflation, moments and leak}
+Fix $B\geq0$ and work with the base $R_W$ of Lemma~\ref{lem:QR}, caps
+$\delta_\ell=\ell^{-1/2}$, and
+$\Gamma(m)=\prod_{p\mid m}\gamma'(p)$ with $\gamma'(\ell)=(1-\ell^{-1/2})^{-1}$
+for $\ell>W$ (Lemma~\ref{lem:leak}(b)); assume $W\geq16$, so that
+$\delta_\ell\leq1/4$.  The family $\cG$ consists of $\cR(M)$-classes with
+$M\leq P(M)^{1+B}$, of any shape, plus any $\cR(M)$-classes of $W$-smooth
+modulus.
+
+\begin{lemma}[{\cite[Lemmas~4.2, 4.2$'$, 4.3]{KA}}; \lab{proved}]\label{lem:kmoments}
+Let $Q'$ be built with sequential steps in some blocks and singleton steps
+in the others.
+\begin{enumerate}
+\item (inflation) Lemma~\ref{lem:leak}(b) holds for $Q'$.
+\item (first moment) There is $K=K(W,B)$ such that for every $s\geq\log W$
+  and every block $V\subseteq\{\ell:s<\log\ell\leq2s\}$,
+  \[
+   \E_{Q'}m_V\leq\E_{Q'}\sum_{\ell\in V}p_\ell\leq\sum_{M:\,P(M)\in V}\frac{\tau(A_M^2)\Gamma(M)}M\leq K\,(2(1+B)s)^3,
+  \]
+  the sum over the moduli of $\cG$, $A_M=(M+1)/4$.
+\item (second moment) $\E_{Q'}p_\ell^2\leq C(\epsilon,B)\ell^{-2+\epsilon}$ for
+  every prime $\ell>W$.
+\item (leak) $\mathfrak L\leq\sum_\ell\E_{Q'}[p_\ell\ind\{p_\ell>\delta_\ell\}]\ll_BW^{-1/4}$,
+  so $\mathfrak L\leq1/2$ for $W\geq W_0(B)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1) Chain rule, with Lemma~\ref{lem:kavoid}(2): given the past, $y_\ell$
+has density at most $(1-\delta_\ell)^{-1}$ with respect to $U$.
+(2) A class $-4D\pmod{q\ell^v}$ with top $\ell\in V$ adds at most $\ell^{-v}$
+to $p_\ell$, and only if $n\equiv-4D\pmod q$ holds for the history before
+$\ell$, which has $Q'$-probability at most $\Gamma(q)/q$ by (1).  There
+are at most $\tau(A_M^2)$ values of $D$.  Write
+$\Gamma(M)=\sum_{e\mid M}h(e)$ with $h$ multiplicative on squarefree $e$,
+$h(p)\leq2$ for $p\leq W$, $h(\ell)\leq2\ell^{-1/2}$ for $\ell>W$.  The
+weighted Shiu argument of Lemma~\ref{lem:profileB} and
+Corollary~\ref{cor:dominant} gives
+$\sum_{M\leq x,\ M\equiv3\ (4)}\tau(A_M^2)\Gamma(M)\leq K_0(W)x\log^2(x+2)$, with
+no windows and no $B$.  Every $M$ in the sum has
+$M\leq P(M)^{1+B}\leq\e^{2(1+B)s}$; drop the condition $P(M)\in V$ and sum
+by parts.  (3) is \cite[Lemma~4.0]{TW}, the prime-power form of
+Lemma~\ref{lem:secondmoment}; it uses only (1).  (4) A final history
+outside $\A$ satisfies a class that is not $W$-smooth, by (R1).  When its
+top prime $\ell$ is processed its other requirements are met, so $y_\ell$
+lies in the completing set; this is impossible if $\ell$ is light
+(Lemma~\ref{lem:kavoid}(1)) and has conditional probability at most
+$p_\ell$ if $\ell$ is heavy.  Markov and (3) give
+$\sum_{\ell>W}\ell^{1/2}O_B(\ell^{-7/4})$.
+\end{proof}
+The cubic growth $s^3$ of the block mass, against the depth
+$d\asymp\lambda/s$, is what makes the sum over blocks below converge.
+
+\subsection{The cap}
+\begin{theorem}[the $3/4$ cap for fixed $B$; {\cite[Thm~4.5]{KA}}; \lab{proved}]\label{thm:karycap}
+Fix $B\geq0$ and $W=W_0(B)$.  There are $\lambda_0(B)$ and $C(B)$ such that
+for every family $\cG$ of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (of any
+shape: dominant, gapped, $\eta$-twin, prime-power top, any number of prime
+factors at comparable scale), together with any $\cR(M)$-classes of
+$W$-smooth modulus, every majorant $\nu$ of the avoider set in $R_W$ of
+level $\lambda\geq\lambda_0(B)$, charging all primes $>W$, satisfies
+\[
+ \log\frac1{\E\nu}\leq C(B)\,\lambda^{3/4}.
+\]
+\end{theorem}
+\begin{proof}
+Put $s_1=\lambda^{1/4}$, with $\lambda_0$ such that $s_1>2\log W$.  The blocks,
+in increasing order of primes, are: singletons $\{\ell\}$ for
+$W<\ell\leq\e^{s_1}$; sequential blocks
+$V_i=\{\ell:2^is_1<\log\ell\leq2^{i+1}s_1\}\cap(1,\e^{\lambda/2}]$ for
+$0\leq i\leq I$, $I$ the largest index with $2^Is_1<\lambda/2$ (these cover
+$(\e^{s_1},\e^{\lambda/2}]$ exactly); one sequential block
+$(\e^{\lambda/2},\e^\lambda]$; and singletons above $\e^\lambda$, of cost $0$.
+Every class is decided at its top prime, and $\mathfrak L\leq1/2$ by
+Lemma~\ref{lem:kmoments}(4), so Theorem~\ref{thm:wseq} applies.  The base
+costs $O_B(1)$ (Lemma~\ref{lem:QR}(2)).  The singletons below
+$\e^{s_1}$ cost $\leq\frac83K'(1+B)^3\lambda^{3/4}$ in total
+\cite[Prop.~4.1]{TW}, and the top block costs $2\log(1+3\e^{-\lambda/4})$
+\cite[Lemma~4.2, Cor.~4.3]{TW}: there each term of $\nu$ sees at most one
+prime.  For $V_i$ put $s=2^is_1$ and $d_i=\lfloor\lambda/s\rfloor\geq\lambda/(2s)$.
+Corollary~\ref{cor:kmean} with $\bar m=\E[m\mid h]$ for each $h$, then
+Jensen over $h$ (the map $m\mapsto\log(C_0(m+4d)/d)$ is concave), give
+\[
+ \E_{Q'}\Phi_i\leq d_i\log\frac{C_0(\E m_{V_i}+4d_i)}{d_i}+\frac43d_i+\frac12\log(22d_i+22)+3.
+\]
+By Lemma~\ref{lem:kmoments}(2), $\E m_{V_i}\leq K_1s^3$ with
+$K_1=8(1+B)^3K$, so $(\E m_{V_i}+4d_i)/d_i\leq2K_1s^4/\lambda+4=2K_1\cdot16^i+4$.
+Hence $\E\Phi_i\leq2^{-i}\lambda^{3/4}(c_1(B)+4i\log2)+O(\log\lambda)$, and
+$2\sum_i\E\Phi_i\leq2\lambda^{3/4}\sum_i2^{-i}(c_1(B)+2.78\,i)+O(\log^2\lambda)\ll_B\lambda^{3/4}$.
+\end{proof}
+Theorem~\ref{thm:karycap} has no family hypothesis beyond $B$: no gap,
+no window resolution, no bound on the number of prime factors, and no
+hypothesis on heavy coordinates.  It removes the residual of
+Theorem~\ref{thm:resolved}, and it makes Conjecture~\ref{conj:kary},
+the hypothesis K2 and the extra $\log\lambda$ of
+Proposition~\ref{prop:twinconditional} unnecessary for the $3/4$
+question \cite[\S4.3]{KA}.  The constants $W_0(B)$, $\lambda_0(B)$ and
+$C(B)$ are not tracked.
+
+\subsection{The main theorem}
+\begin{theorem}[the $3/4$ cap for CRT-majorant architectures; \lab{proved}; for Case-A classes \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:main}
+Fix $A\geq1$.  Let $\cF$ be a family of forced classes such that either
+\begin{enumerate}
+\item[(i)] for some fixed $0<C<1$, every modulus has a dominant prime
+  $P(M)\geq M^{1/(1+C)}$ (Case-B and Case-A classes;
+  Corollary~\ref{cor:dominant}); or
+\item[(ii)] for some fixed $B\geq0$, $\cF$ consists of $\cR(M)$-classes with
+  $M\leq P(M)^{1+B}$, of any shape, together with any $\cR(M)$-classes of
+  $W_0(B)$-smooth modulus (Theorem~\ref{thm:karycap}).
+\end{enumerate}
+Then every CRT-majorant architecture (Definition~\ref{def:arch}) for
+$\cF$, with the admissible set of Corollary~\ref{cor:dominant} in case (i)
+and the quadratic-residue base $R_{W_0(B)}$ in case (ii), saves at most
+\[
+ \log\frac1{\E\nu}\ll(\log N)^{3/4},
+\]
+with implied constant depending on $A,C$ in case (i) and on $A,B$ in case
+(ii).  In particular no such architecture gives
+$E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with $\omega(N)\to\infty$,
+e.g.\ $\omega=(\log\log N)^\epsilon$.
+\end{theorem}
+\begin{proof}
+Corollary~\ref{cor:budgetlevel}, applied with Corollary~\ref{cor:dominant}
+for $A+2$ in place of $A$ in case (i), and with
+Theorem~\ref{thm:karycap} at $\lambda=(A+2)\log N\geq\lambda_0(B)$ in case
+(ii).  In both cases the $R$-term is bounded.
+\end{proof}
+Case (ii) contains the gapped families of Theorem~\ref{thm:gapped} and the
+window-resolved families of Theorem~\ref{thm:resolved} (with an
+$\eta$-free constant), and the twin moduli of
+Lemma~\ref{lem:balancedsupply}.  For $\cR(M)$-classes it also contains
+case (i) with $B=C$.  The two cases are not combined: a family mixing
+$(a,D)$- or Case-A classes without a dominant prime with
+$\cR(M)$-classes is not covered, because Lemma~\ref{lem:mordell}, and
+hence the base $R_W$, is proved for $\cR(M)$ only
+(Section~\ref{sec:excluded}).  For the prime-slice families of
+Corollary~\ref{cor:sliceCap} the statement is the same with the selector
+term $\log(P/\varphi(P))$ added; for the large sieve over slice systems
+the level hypothesis $\lambda\leq A\log N$ is used directly
+(Remark~\ref{rem:LS}).
 
 \section{The campaign sieves lie in the class}\label{sec:campaign}
 
