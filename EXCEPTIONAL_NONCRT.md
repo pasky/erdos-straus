@@ -12,11 +12,11 @@ internal checks only, not refereed.
 | Prop 2.1 | Boolean sieve limit for majorants of **arbitrary level**: `Ef ≥ (1−r₀)e^{−Φ} − 2r₁`, where r₀, r₁ are the biased-Walsh tails above level λ | PROVED |
 | Lemma 2.2 | the Walsh coefficient at slice set S is bounded by the Fourier ℓ¹ mass `A_S` of ν on the frequency set Θ_S: `|d_S|Π p(1−p) ≤ A_S Π p` | PROVED (+ exact numerical check) |
 | Thm 2.3, Cor 2.4–2.5 | **per-frequency signed rounding is capped at 3/4**: any bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ)` with w ≥ 1 (this contains Σ|a_i|, the sawtooth bound, and all Gauss/Kloosterman/divisor-exponential-sum cancellation within a frequency) saves `≤ C(log N)^{3/4}` for the ET-file Cor 3.4 families. Only the Fourier mass above level λ matters, and **no bound on the size of the slice primes is needed** (removes ET-file §6.1 item 7 for prime-slice families) | PROVED |
-| §2.5 | weights < 1 (exact `|S_N|`, smooth windows): capped for hit-pattern majorants under an equidistribution conjecture (H_eq) (2.6); general majorants open | CONJECTURE / open |
+| §2.5 | weights < 1: for smooth windows, Q₀ = 1 and hit-pattern majorants, capped under an equidistribution conjecture (H_eq) (2.6); exact `|S_N|` and general majorants open | CONDITIONAL / open |
 | Thm 3.2, 3.3 | **prime-only majorants**: same LP limit (Dirichlet measure), and detecting primality by a sieve adds `O((log log N)²)` to the saving; BV/BDH/EH/GRH-level inputs cannot beat 3/4 | PROVED |
 | Rem 3.4 | unconditional prime error terms are weaker than the integer count at relative accuracy `e^{−(log N)^{3/4}}` | Assessment |
 | Prop 4.1, 4.2 | **moment/variance methods** are CRT majorants (so capped by Thm 2.3/3.2 when CRT-evaluated); a degree-k moment method saves `O(k log log N)`, so Chebyshev/second moment gives θ = 0 | PROVED |
-| §5 | toy LP: Fourier-ℓ¹ budget ≈ coefficient budget × bounded factor | EVIDENCE (model) |
+| §5 | toy LP (8 primes): Fourier-ℓ¹ budget ≈ coefficient budget × 4–8 | EVIDENCE (toy model) |
 
 **Verdict.** None of (a), (b), (c), in the natural formalisations above,
 beats θ = 3/4. What remains is (§6): cancellation *between* frequencies
@@ -310,9 +310,11 @@ primes and ν ≥ 1 at all primes of 𝒜; the bound is `Σ_{p≤N} ν(p)`.
 
 **Lemma 3.1 (PROVED).** Let L be a common period of ν containing Q₀ and the
 (finitely many) relevant slice primes, and assume
-`|F_ℓ(c) ∖ {0}| < ℓ − 1` for all ℓ, c. Then ν is a prime majorant iff
+`|F_ℓ(c) ∖ {0}| < ℓ − 1` for all ℓ, c. If ν is a prime majorant, then
 ν ≥ 0 on every reduced class mod L and ν ≥ 1 on every reduced class mod L
-contained in 𝒜.
+contained in 𝒜. (The converse fails only at the finitely many primes
+dividing L, which are extra point constraints; they do not affect E*ν
+below, and contribute `O(ω(L) max|ν|)` to `Σ_{p≤N}ν(p)`.)
 
 *Proof.* Dirichlet: every reduced class mod L contains infinitely many
 primes, and ν, 𝒜 are L-periodic (after the Step-0 reduction of ET-file,
@@ -327,22 +329,33 @@ are independent. Put `R* = R ∩ (ℤ/Q₀)^×` and
 **Theorem 3.2 (PROVED).** ET-file Theorem 2.5 holds for prime majorants with
 E, R, Q₀, p_ℓ(c) replaced by E*, R*, φ(Q₀), p*_ℓ(c) (and the hypothesis
 `|F_ℓ(c)∖{0}| ≤ (ℓ−1)/4`). ET-file Lemma 2.9 (coefficient budget ⇒
-level) also holds for E*, with the mean increase `a_i/φ(d'_i)` in place of
-`a_i/d'_i`, i.e. an extra factor `max d'/φ(d') ≪ log λ`.
+level) also holds for E*: write `d'_i = m·s` with s the retained slice
+part (level `≤ λ`, `> λ − Λ₀`) and m the rest; the E*-mean of a reduced
+class mod d'_i is `1/φ(m)φ(s) ≤ 1/φ(s) ≤ e^{Λ₀−λ}·Π_{ℓ|s} ℓ/(ℓ−1)`, and the
+last product is `≪ log λ` by Mertens (a set of primes with
+`Σ log ℓ ≤ λ` has `Π ℓ/(ℓ−1)` at most that of the primes `≲ λ`).
 
 *Proof.* The proof of Thm 2.5 uses only: a product measure across the CRT
 coordinates; fibres `c ∈ R`; hit indicators independent Bernoulli with
 parameters `p_ℓ(c) ≤ 1/4`; and `{c} × {x = 0} ⊆ 𝒜` with positive measure.
 All four hold for E* with the starred data. ∎
 
-For the families of ET-file Cor 3.4, `p*_ℓ(c) ≤ (ℓ/(ℓ−1)) p_ℓ(c)`, so the
-profile `Σ p̄*_ℓ ℓ^{−α}` is the same up to a factor `1 + O(1/ℓ₀)`, and the
-cap `C(log N)^{3/4}` at level `A log N` is unchanged.
+For the families of ET-file Cor 3.4: `|F_ℓ(c)∖{0}| ≤ |F_ℓ(c)|`, and the
+selector computation of Cor 3.4 holds for R* as well — c uniform on
+`R* ⊆ (ℤ/Q₀)^×` projects to the uniform law on `(ℤ/q₀)^×`, so
+`P(c ≡ b (q₀) | R*) ≤ 1/φ(q₀)` — giving
+`p̄*_ℓ ≤ (ℓ/(ℓ−1))·Σ_{M=q₀ℓ}|𝒞(M)|(M/φ(M))/M`, the Cor 3.4 bound up to
+`1 + O(1/ℓ₀)`. Also `log(φ(Q₀)/|R*|) = log(P/φ(P))` for the selector
+(when P and Q₀ have the same prime factors). So the cap
+`C(log N)^{3/4} + log(P/φ(P))` at level `A log N` is unchanged.
 
 **Theorem 3.3 (primality is worth at most a factor λ^{O(1)}; PROVED).** Let
 ν be an *integer* majorant (≥ 0 on ℤ) that is ≥ 1 only on `𝒜 ∩ 𝒫_z`, where
 `𝒫_z = {n : (n, P(z)) = 1}` with `z ≤ e^λ` (this is how a sieve detects
-primes). Then ν is a majorant of the prime-slice system obtained by adding
+primes), and assume ν has level ≤ λ *in the augmented system below*
+(i.e. counting also the new slice primes ℓ ≤ z), primes dividing Q₀
+are already handled by the selector, and the augmented probabilities
+are ≤ 1/4. Then ν is a majorant of the prime-slice system obtained by adding
 the class `0` to every `F_ℓ(c)`, ℓ ≤ z (and adding each prime ℓ ≤ z not
 yet in 𝒫 as a slice prime with `F_ℓ = {0}`; the primes ℓ < 5, where
 `1/ℓ > 1/4`, are put into the selector, as in the 3/4 note). Its
@@ -358,7 +371,12 @@ With `α = λ^{−1/4}` this is `O(log²λ)`: the cap
 *Proof.* `𝒜 ∩ 𝒫_z` is exactly the avoider set of the augmented system;
 the new probabilities are `p_ℓ + 1/ℓ` (class 0 is not a forced class of
 the families, since those classes are units mod ℓ; if it were, nothing
-changes). Plug into (2.4). ∎
+changes). Plug into (2.4): the profile term grows by
+`C₄Σ_{ℓ≤z}ℓ^{−1−α}`, the truncated mass by `≤ log log z + O(1)` (still
+`≪ λ³`), and G by `O(log λ)` (s_* may drop to log 5); the R-term is
+unchanged. So the *upper bound* (2.4) on the saving grows by the
+displayed amount; this is a comparison of bounds, not of optimal
+savings. ∎
 
 **Remark 3.4 (where the level comes from; Assessment for the second
 bullet).**
@@ -374,7 +392,8 @@ bullet).**
   `|Σ a_i E(N;d_i,b_i)| ≤ π(N) e^{−(log N)^θ}`. BV and BDH save only
   `(log N)^{−A}` on average; Siegel–Walfisz (ineffective) and the
   Vinogradov–Korobov zero-free region save at most
-  `exp{−c(log N)^{3/5}(log log N)^{−1/5}}` even for d = 1. Unconditionally,
+  `exp{−c(log N)^{3/5}(log log N)^{−1/5}}` (Vinogradov–Korobov type
+  zero-free regions) even for a single fixed modulus d ≥ 3. Unconditionally,
   no asymptotic prime count is known with the relative accuracy
   `exp{−(log N)^{3/4}}` that the *current* 3/4 bound already has. The 3/4
   note avoids this by sieving the integers (it bounds `E(N) ≥ E_pr(N)`).
@@ -450,7 +469,7 @@ far below `N·E[P∘f]`. No technique for either is known.
 ## 5. Numerical checks
 
 `scripts/noncrt_checks.py` (output `data/noncrt/checks_m8.txt`, ~1 min):
-* **Lemma 2.2, exact.** 40 random systems (Q₀ = 3, slice primes
+* **Lemma 2.2, floating-point enumeration.** 40 random systems (Q₀ = 3, slice primes
   5,7,11[,13], random `F_ℓ(c)`), random signed class combinations ν. For
   every fibre and every S ≠ ∅, `|E[ν y^S | c]| ≤ A_S Π_S p_ℓ(c)`. Max of
   lhs − rhs: `−1.7·10⁻¹⁷`. (Check of the lemma, not EVIDENCE for anything
@@ -465,28 +484,30 @@ far below `N·E[P∘f]`. No technique for either is known.
   | (C) | 0.223 | 0.501 | 0.787 | 1.030 | 1.303 | 1.358 |
   | (F) | 0.370 | 0.728 | 1.064 | 1.318 | 1.360 | 1.360 |
 
-  Per-frequency rounding acts like the coefficient budget multiplied by a
-  bounded factor (≈ 4–8 here, i.e. ≈ Π f_ℓ over a typical monomial), as
-  Lemma 2.2 predicts. It does not change the shape of the trade-off.
+  In this toy, per-frequency rounding acts like the coefficient budget
+  multiplied by a factor ≈ 4–8 (of the order of Π f_ℓ over a typical
+  monomial). Lemma 2.2 allows a factor up to `Π_S f_ℓ/(1−p_ℓ)`, which is
+  not uniformly bounded but is `e^{o(level)}` for the forced-class families
+  (`f_ℓ ≤ ℓ^{C+o(1)}` with C < 1 enters only through `s_ℓ`). Toy only.
 
 ## 6. Verdict and what remains
 
 | candidate | result | label |
 |---|---|---|
 | (a) signed rounding, per-frequency (Gauss/Kloosterman/divisor exponential sums over the classes) | capped at `C(log N)^{3/4}` for dominant-prime-slice families (Thm 2.3, Cor 2.4–2.5); also removes ET-file's "slice primes ≤ N^{O(1)}" proviso | PROVED |
-| (a″) per-frequency bounds with weight < 1 (exact `|S_N|`, smooth windows) | capped for hit-pattern majorants under the equidistribution conjecture (H_eq) (2.6); general majorants open (§2.5) | CONDITIONAL / open |
-| (a′) cancellation *between* frequencies | equivalent to counting `Σ_{n≤N}ν(n)` directly; no set-level obstruction below θ = 1 (squares give only `√N`); needs superpolynomial high-level Fourier mass (§2.4) | open; no method |
+| (a″) per-frequency bounds with weight < 1 (exact `|S_N|`, smooth windows) | smooth windows, Q₀ = 1, hit-pattern majorants: capped under the equidistribution conjecture (H_eq) (2.6); exact `|S_N|`, Q₀ > 1 and general majorants open (§2.5) | CONDITIONAL / open |
+| (a′) cancellation *between* frequencies | equivalent to counting `Σ_{n≤N}ν(n)` directly; squares give no set-level obstruction below θ = 1; dichotomy of §2.4: either large high-level Fourier mass or an interval count far below the CRT mean | open; no method |
 | (b) prime-only majorants (Dirichlet measure, BV/BDH/EH/GRH level) | same LP limit up to `O((log log N)²)` (Thms 3.2, 3.3) | PROVED |
 | (b′) prime error terms | unconditional prime equidistribution is *weaker* than the integer count at this precision (Remark 3.4) | Assessment |
 | (c) moment/variance methods, CRT-evaluated | are CRT majorants (Prop 4.1), so capped by (a)/(b); degree k saves `O(k log log N)` (Prop 4.2): Chebyshev/2nd moment gives only θ = 0 | PROVED |
-| (c′) moments evaluated by counting solution tuples | would need moments of order `≥ (log N)^{3/4+δ}` with absolute error `N e^{−(log N)^θ}`; ET Remark 1.3 already calls order 2 out of reach | open; no method |
+| (c′) moments evaluated by counting solution tuples | needs either order `≥ (log N)^{3/4+δ}/log log N` counted to absolute error `N e^{−(log N)^θ}`, or true moments deviating from CRT values (§4); ET Remark 1.3 already calls order ≥ 2 out of reach | open; no method |
 
 **No non-CRT input tested here beats θ = 3/4.** The three natural
 formalisations are capped, by proved theorems with the exact scope above.
 What is left is precise. Each remaining route must do one of two things.
-* Evaluate `Σ_{n≤N}ν(n)` (or `Σ_p`) for a majorant with
-  superpolynomially large Fourier mass at superpolynomial denominators,
-  with cancellation across frequencies.
+* Evaluate `Σ_{n≤N}ν(n)` (or `Σ_p`) directly, for a majorant with large
+  high-level Fourier mass or with an interval count far below its CRT
+  mean (§2.4), using cancellation across frequencies.
 * Count high-order (`(log N)^{3/4+δ}`) correlations of ES solutions
   without CRT.
 Neither is a known technique. The other open doors of the ET-file
