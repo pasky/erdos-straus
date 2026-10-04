@@ -45,22 +45,30 @@ congruence sieves.  The class consists of nonnegative CRT majorants that
 are at least one on the whole avoider set of a family of forced
 congruence classes, whose final bound has the form
 $N\cdot\E\nu+\sum_i|a_i|$, and whose family primes are at most
-$N^{O(1)}$.  For families in which every modulus has a dominant prime
-factor, and, for the classes $\cR(M)$, for families of $(\eta,B)$-gapped
-moduli with $B$ fixed, every such sieve with an admissible set of the
-specified bounded-saving form saves at most $O((\log N)^{3/4})$.  No power of $\log\log N$
-can be gained.  The majorant of the $3/4$ note lies in this class, and the
-large-sieve argument of the $2/3$-loglog note is capped in the same way at
-its own exponent.  We list exactly what the theorems exclude.  For
-Selberg-type majorants we prove a sieve limit with no structural
-hypothesis, in terms of a noise-stability quantity, and a
-$\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$ at level $O(\log X)$, twin
-moduli included, for families of $\cR(M)$-classes with $M\leq X$,
-$M\leq P(M)^{1+B}$ ($B$ fixed) and at most two prime factors of $M$ above
-$(\log X)^8$.
-Every statement carries its status label.  All proofs were checked
-internally only; nothing here has been externally refereed.  This is not a
-proof of the Erd\H{o}s--Straus conjecture.
+$N^{O(1)}$.  The main theorem: for every fixed $B$ and every family of the
+forced classes $\cR(M)$ with $M\leq P(M)^{1+B}$ (twin moduli, prime-power
+tops and any number of prime factors at one scale included), every such
+sieve with the specified admissible set saves at most
+$O_B((\log N)^{3/4})$.  The same holds for families in which every modulus
+has a dominant prime factor, including the $(a,D)$-classes and, modulo a
+published divisor-sum estimate of Elsholtz and Tao, the Case-A classes.
+No power of $\log\log N$ can be gained.  The key new tool is a weighted
+$k$-ary comparison theorem for sequential conditioned laws, proved by
+Lagrange extrapolation in artificial replacement coins and a
+supermartingale bound.  The majorant of the $3/4$ note lies in the class,
+and the large-sieve argument of the $2/3$-loglog note is capped in the
+same way at its own exponent.  For finite prime-slice families the cap
+extends to per-frequency signed rounding with weights $\geq1$, to majorants
+positive only at primes, and to CRT-evaluated moment methods.  For
+Selberg-type majorants we prove a sieve limit in terms of noise
+stability, and a $\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$ at level
+$O(\log X)$ for $\cR(M)$-families with a fixed number of prime factors
+above $(\log X)^8$, with no condition relating $M$ to $P(M)$; its
+arithmetic input is a Brun--Titchmarsh bound for rough partners from the
+large sieve.  We list exactly what the theorems exclude.  Every
+statement carries its status label.  All proofs were checked internally
+only; nothing here has been externally refereed.  This is not a proof of
+the Erd\H{o}s--Straus conjecture.
 \end{abstract}
 \maketitle
 
@@ -81,7 +89,7 @@ $(\log\log N)^{1/3}$ in the exponent.  The second~\cite{TQ} proves
 with label \emph{internally proved; not externally refereed}.  The $3/4$
 note itself explains $3/4$ heuristically: the forced classes have
 cubic logarithmic mass, and a mass-driven optimisation gives
-$\theta=B/(B+1)$ with $B=3$ \cite[\S10]{TQ}.
+$\theta=b/(b+1)$ with mass exponent $b=3$ \cite[\S10]{TQ}.
 
 This note turns that heuristic into a theorem for a precise class of
 sieves, and records exactly where the theorem stops.
@@ -95,55 +103,80 @@ Every statement carries one of the following labels.
   which was checked against the source but not re-proved.
 \item \lab{conditional}: proved assuming a named open hypothesis.
 \item \lab{evidence}: numerical or model evidence; never a proof.
+\item \emph{Assessment}: a reasoned judgement about methods or
+  heuristics; not a theorem.
 \item \lab{conjecture} / \lab{open}: not proved.
 \end{itemize}
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of five internal working
-documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3}.  Each
-was hostile-reviewed; the reviews are
-\cite{ETrev,EBrev,TWrev,TW2rev,TW3rev}.  No
+\lab{proved} result below appears in one of eight internal working
+documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
+\cite{KA}, \cite{TW4}, \cite{NC}.  Each was hostile-reviewed; the reviews
+are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev}.  No
 prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
 found; it may be folklore in spirit.  Novelty is not claimed.
 
 \subsection*{Results}
 \begin{enumerate}
-\item \emph{The sieve-limit theorem} (Theorem~\ref{thm:slice},
-  \lab{proved}).  For a prime-slice CRT system every nonnegative majorant
-  of level $\lambda$ of the avoider set saves at most
-  $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond an
-  admissible-set term, plus an error term that is $O(\log^2\lambda)$ when
-  $\log\min\cP\gg1$ and $\log\bar\mu\ll\log\lambda$, as in all
-  applications here, and can be $\asymp\lambda\log\lambda$ in general
-  (Remark~\ref{rem:errors}).  A sequential version allows shared
-  large primes (Theorem~\ref{thm:seq}, \lab{proved}).
-\item \emph{The $3/4$ cap} (Theorem~\ref{thm:main}).  The forced classes
-  have cubic profile $\sum\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$
-  (Section~\ref{sec:profiles}).  Hence every CRT-majorant architecture
-  (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$, $\nu\geq1$ on the whole
-  avoider set, final bound $N\E\nu+\sum|a_i|$, family primes $\leq
-  N^{O(1)}$), with the admissible set specified there, saves at most
-  $O((\log N)^{3/4})$, for families whose moduli all have a dominant
-  prime (\lab{proved}; Case-A classes mod Elsholtz--Tao Prop.~1.4) and
-  for $(\eta,B)$-gapped $\cR(M)$-families with $B$ fixed (\lab{proved}).
+\item \emph{The main theorem} (Theorems~\ref{thm:karycap}
+  and~\ref{thm:main}, \lab{proved}).  Fix $B$.  For every family of
+  classes $\cR(M)$ with $M\leq P(M)^{1+B}$, of any shape (dominant,
+  gapped, twin, prime-power top, any number of prime factors at
+  comparable scale), every nonnegative majorant of level $\lambda$ of the
+  avoider set saves at most $C(B)\lambda^{3/4}$.  Hence every
+  CRT-majorant architecture (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$,
+  $\nu\geq1$ on the whole avoider set, final bound $N\E\nu+\sum|a_i|$,
+  family primes $\leq N^{O(1)}$) for such a family, with the admissible
+  set specified there, saves at most $O_B((\log N)^{3/4})$.  The same
+  holds for families whose moduli all have a dominant prime, Case-A and
+  $(a,D)$-classes included (Case A \lab{proved mod} Elsholtz--Tao
+  Prop.~1.4).
+\item \emph{The tools.}  The sieve-limit theorem for prime-slice systems
+  (Theorem~\ref{thm:slice}): every majorant of level $\lambda$ saves at
+  most $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond
+  an admissible-set term, plus an error term that is $O(\log^2\lambda)$ in
+  all applications here (Remark~\ref{rem:errors}); its sequential
+  version (Theorem~\ref{thm:seq}); the cubic profile
+  $\sum\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$ of the forced classes
+  (Section~\ref{sec:profiles}); the quadratic-residue base built from
+  Mordell's obstruction and the capped sequential measure
+  (Section~\ref{sec:gapped}); and a weighted $k$-ary comparison theorem
+  (Theorem~\ref{thm:kcomp}), which replaces the one-coordinate-per-window
+  hypothesis of the sequential sieve limit.  It couples the sequential
+  conditioned law with a product draw, freezes the path, extrapolates in
+  artificial Bernoulli replacement coins by Lagrange interpolation for
+  binomial laws (Lemma~\ref{lem:kextrap}), and pays for the thinning with
+  a supermartingale (Lemma~\ref{lem:kthin}).  Only the mean activated mass
+  enters, because the sequential sieve limit accepts random step costs
+  (Theorem~\ref{thm:wseq}).
 \item \emph{The campaign sieves are in the class}
   (Section~\ref{sec:campaign}, \lab{proved}).  The majorant of the $3/4$
   note is in the class, so $3/4$ is sharp for its architecture; the
   large sieve of the $2/3$-loglog note is capped at its own exponent
   $\frac23$ with the $(\log\log N)^{1/3}$ factor.
-\item \emph{Exclusions} (Section~\ref{sec:excluded}).  A precise list of
-  what lies outside, including unresolved twin moduli, which carry
-  cubic supply (Lemma~\ref{lem:balancedsupply}, \lab{proved}).
 \item \emph{Selberg-type majorants} (Section~\ref{sec:selberg}).  A
   $\Lambda^2$ sieve limit for arbitrary systems in terms of noise
-  stability (Theorem~\ref{thm:L2}, \lab{proved}).  It yields a
-  $\Lambda^2$ cap $\ll L^{3/4}(\log L)^{O(1)}$ for $\cR(M)$-families with
-  $M\leq P(M)^{1+B}$ and at most two prime factors of $M$ above
-  $(\log X)^8$, twin moduli included (Theorem~\ref{thm:twoprimecap},
-  \lab{proved}).
-\item \emph{Open problems} (Section~\ref{sec:open}): $H_{\rm MS}$, the
-  $k$-ary comparison inequality (Conjecture~\ref{conj:kary}) for general
-  majorants, and the $\Lambda^2$ cap for moduli with three or more large
-  prime factors.
+  stability (Theorem~\ref{thm:L2}, \lab{proved}), and $\Lambda^2$ caps
+  $\ll L^{3/4}(\log L)^{O_r(1)}$ for $\cR(M)$-families with at most $r$
+  prime factors above $(\log X)^8$, $r$ fixed, with
+  (Theorem~\ref{thm:rprime}) or without (Theorem~\ref{thm:noB}) the
+  condition $M\leq P(M)^{1+B}$ (\lab{proved}).  Their new arithmetic input
+  is a Brun--Titchmarsh bound for rough partners from the arithmetic
+  large sieve (Lemma~\ref{lem:roughBT}).  Under the $B$-hypothesis these
+  caps are superseded by the main theorem (Remark~\ref{rem:L2vsmain}).
+\item \emph{Beyond CRT evaluation} (Section~\ref{sec:noncrt},
+  \lab{proved}).  For the finite prime-slice families, the cap extends
+  to every rounding bound $\sum_{\theta\neq0}|\hat\nu(\theta)|w(\theta)$ with
+  weight $w\geq1$, with no bound on the size of the slice primes
+  (Theorem~\ref{thm:perfreq}); to majorants positive only at primes,
+  hence to prime equidistribution at any level $N^{O(1)}$
+  (Theorem~\ref{thm:primemaj}); and to moment methods whose moments are
+  evaluated through CRT densities.
+\item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
+  and~\ref{sec:open}).  A precise list of what lies outside: chiefly
+  $\cR(M)$-moduli with $\log M/\log P(M)$ unbounded for general majorants,
+  $(a,D)$- and Case-A moduli without a dominant prime, non-selector
+  admissible sets, rounding with weights below one and cancellation
+  between frequencies, and $H_{\rm MS}$.
 \end{enumerate}
 None of this bounds $E(N)$ from below or says anything about methods
 outside the class; in particular it is not evidence against the
