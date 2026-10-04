@@ -215,3 +215,51 @@ m>1: Lemma 2.2's `2F′+1` rays per box is for one system `(Q,K)`, and
 there are many m. So no class of rays is "done" for HC_Π. The text
 should read "per-ray bounds; the number of rays per m-system is not
 controlled". This is Assessment-level, so no PROVED claim is affected.
+
+## Item 7 — §1 Remark and §5 literature
+
+**D6 (minor; wording).** The §1 Remark calls O4's over-counted problem
+"genuinely beyond Weil". §5's own verdict shows that the lifting alone
+gets within a factor `min(T^{O(1/log𝓛)},√Y)` of the target. Weil is
+trivial in that range, but the problem is not shown to be hard. Say
+"beyond the Weil range; within a divisor factor by lifting".
+
+Literature, checked against the archived text (`sources/lit2026/*.txt`;
+the BG statement was also checked against the PDF):
+
+* **Cilleruelo–Garaev, arXiv:1007.1526, Thm 1.** The text gives
+  `I_2(M;K,L)<M^{4/3+o(1)}p^{−1/3}+M^{o(1)}`, for prime p, uniformly
+  in K and L, with boxes `[K+1,K+M]×[L+1,L+M]` and products `xy≡λ`.
+  The proof is "based on an idea of Heath-Brown". ✔ Matches O5.
+* **Bourgain–Garaev, arXiv:1309.1124, Thm 1.** The text gives
+  `J_{2k}<(2k)^{90k³}(log N)^{4k²}(N^{2k−1}/m+1)N^k` for the energy of
+  reciprocals mod any m, with `I=[1,N]`. ✔ Exact.
+* **Shparlinski survey, arXiv:1103.2879, Thm 13.** Main term
+  `φ(m)XY/m²`, error `O(m^{1/2+o(1)})`. The survey says that making it
+  nontrivial for `XY<m^α`, `α<3/2`, "is out of reach". O5's "trivial for
+  `XY<m^{3/2}`" is the correct reading. ✔
+* Korolev/Karatsuba: not archived. O5 flags this. Fine.
+
+The negative verdict ("no known theorem gives IS pointwise") is an
+Assessment, and O5 makes it moot for HC anyway.
+
+## Item 8 — EVIDENCE
+
+* Replay `omega5_codeg.py 1e9 331 337 347 1024`: the output is
+  byte-identical to `data/omega5/codeg_1e9_pair.txt`. It runs in about
+  2 s, not "~1 min".
+* All table entries match the data files. The m>1 decay exponents
+  (16→512) are `ln(.01713/.00670)/ln32=0.27` and
+  `ln(.04126/.00348)/ln32=0.71`. ✔
+* The script weights are `1/φ(r/q)` on distinct events with `q‖M`, the
+  hub levels are capped at HCAP, and `Π=Π_0`. The data are labelled
+  EVIDENCE.
+
+**D7 (minor).** The wide pair's m>1 column is identically 0 for a
+structural reason, not "essentially":
+
+* `T/q≈989` and `n′>y=331`.
+* m is odd and `>1`, so `m≥3`, hence `mn′>993>T/q`.
+
+The column is vacuous and should be described as such. The replay
+timings are also overstated.
