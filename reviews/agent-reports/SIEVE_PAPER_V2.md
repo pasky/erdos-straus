@@ -23,3 +23,10 @@ theorem); §10 campaign; §11 Λ² (+TWIN4: large-sieve rough-partner BT, Thm 7.
 Cor 9.3, Thm 10.4); §12 NEW non-CRT (NONCRT); §13 exclusions; §14 open.
 Notation changes vs KARY: product law ϖ (ν is the majorant), replaced set J(ω), light mass m(ω),
 coin count z.
+
+## Progress
+* [x] §8 k-ary comparison (new), §9 main theorem (new; Thm main moved here, case (ii) now KARY Thm 4.5)
+* [x] gapped section reframed (tools + special cases)
+* [x] Λ² section: TWIN4 (Lemma rough-partner BT via large sieve, Thm r-prime, Prop 9.1, Cor 9.3, Thm 10.4); Remark: Λ² caps under B superseded by Thm 4.5
+* [x] §12 non-CRT (new)
+* [ ] exclusions, open problems, intro/abstract, campaign cross-refs
