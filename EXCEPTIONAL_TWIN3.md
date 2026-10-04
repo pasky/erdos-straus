@@ -475,14 +475,28 @@ the process terminates.
 of events of 𝓔⁺, which are stars of 𝓔. ∎
 
 Together with TW2 Lemma 2.2 (unary quarantine of vertex hubs, cost
-`2Σρ_ℓ(p_ℓ + S_ℓ)`), and since `ν⁺ ≤ (4/3)ν` multiplies `π_σ` by at most
-`(4/3)^{|σ|}`, the fibre log-ratio of any-arity class systems is
+`2Σρ_ℓ(p_ℓ + S_ℓ)`), and since passing to `ν⁺` multiplies `ν_ℓ` by
+`(1−p_ℓ)/(1−p⁺_ℓ) ≤ e^{2w_ℓ}` (because `p⁺_ℓ − p_ℓ ≤ w_ℓ ≤ 1/16`), so that
+`π_σ` grows by at most `e^{2Σ_{V(σ)}w} ≤ e^{2δ}` under (H_δ) (uniformly in
+the arity), the fibre log-ratio of any-arity class systems is
 controlled by
 
-    Σ_ℓ ρ_ℓ(p_ℓ + S_ℓ) + Σ_{|σ|≥2} (4/3)^{|σ|} π_σ ρ^σ min(D_σ, 1)².              (6.2)
+    Σ_ℓ ρ_ℓ(p_ℓ + S_ℓ) + Σ_{|σ|≥2} e^{2δ} π_σ ρ^σ min(D_σ, 1)².              (6.2)
 
 The edge terms of TW2 (2.1) are the stars σ that are binary events, with
 `D_σ = 1`. Codegree hubs cost nothing beyond their capped square. Unlike
 vertex hubs they need no change of the unary law, because promotion keeps
 them as events. So the POINTWISE_OMEGA2 codegree-hub obstruction (§10.4)
 does not block the Λ² route; it only produces the star sum (6.2).
+
+*Check (EVIDENCE that the algebra is right).*
+`scripts/twin3_kary_check.py` computes `log(Z₂/Z₁²)` exactly on random
+hypergraph systems: 3–5 coordinates of size 3–7, events of arity 2–4, half
+of them forced through a common sub-star (codegree hubs), random ν and
+ρ̃. Over seeds 1–3, 1200 trials, 276 satisfy (H_δ):
+* Lemma 6.1: `lhs ≤ (1+25δ)·rhs` always, with largest ratio 0.949;
+* Lemma 6.2(3) after promotion: likewise, with largest ratio 0.949.
+
+Under (H_δ), promotions rarely occur (6 of the 1200 systems promoted;
+the script does not record how many of these satisfied (H_δ)). Hubs with
+`D_σ > 1` need `π_σ < δ`, whereas the toy alphabets are small.
