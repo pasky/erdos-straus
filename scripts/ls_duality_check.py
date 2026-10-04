@@ -44,7 +44,8 @@ def Fstar(Mp, avoid, thetas, w):
     pi = cp.Variable(len(avoid), nonneg=True)
     prob = cp.Problem(cp.Minimize(cp.sum_squares(Tr @ pi)), [cp.sum(pi) == 1])
     prob.solve()
-    return prob.value
+    assert prob.status in ("optimal", "optimal_inaccurate"), prob.status
+    return max(prob.value, 0.0)
 
 
 def mstar(Mp, avoid, thetas, w):
@@ -59,6 +60,9 @@ def mstar(Mp, avoid, thetas, w):
     obj = cp.sum(cp.multiply(1 / w, cp.square(gr) + cp.square(gi)))
     prob = cp.Problem(cp.Minimize(obj), cons)
     prob.solve()
+    if prob.status in ("infeasible", "infeasible_inaccurate"):
+        return math.inf
+    assert prob.status in ("optimal", "optimal_inaccurate"), prob.status
     return prob.value
 
 
@@ -95,12 +99,23 @@ def check1(rng):
         A = avoider(Mp, classes)
         Q = rng.choice([5, 7, 15, 21, 35])
         th = farey(Mp, Q)
+        if trial % 2:  # sparse, not closed under conjugation (0 kept; without 0, F* is typically 0)
+            th = [(0, 1)] + rng.sample([t for t in farey(Mp, Mp) if t[1] > 1], 5)
         w = np.array([rng.uniform(0.5, 1.5) for _ in th])
         F = Fstar(Mp, A, th, w)
         m = mstar(Mp, A, th, w)
         worst = max(worst, abs(F * m - 1))
         print(f"  M'={Mp:5d} |A|={len(A):4d} |Theta|={len(th):3d}  F*={F:.6f} m_w={m:.6f} F*m={F*m:.6f}")
     print(f"  max |F*m-1| = {worst:.2e}")
+    assert worst < 1e-5
+    # F* = 0 case: no classes, Theta without 0 -> uniform pi kills all; m_w = inf
+    Mp = 105
+    A = avoider(Mp, [])
+    th = [(1, 3), (2, 7), (4, 15)]
+    F = Fstar(Mp, A, th, np.ones(3))
+    m = mstar(Mp, A, th, np.ones(3))
+    print(f"  degenerate case: F*={F:.2e}, m_w={m}")
+    assert F < 1e-8 and m == math.inf
 
 
 def S_of_Q(omega, Q):
@@ -116,7 +131,7 @@ def S_of_Q(omega, Q):
 
 def check2(rng):
     print("(2) prime-only systems: F*_1 >= S(Q)")
-    worst = 1e9
+    worst = 0.0
     for trial in range(8):
         primes = [3, 5, 7, 11]
         Mp = math.prod(primes)
@@ -130,13 +145,14 @@ def check2(rng):
         th = farey(Mp, Q)
         F = Fstar(Mp, A, th, np.ones(len(th)))
         S = S_of_Q(omega, Q)
-        worst = min(worst, F - S)
+        worst = max(worst, abs(F - S))
         print(f"  Q={Q:2d} omega={omega}  F*={F:.5f}  S(Q)={S:.5f}")
-    print(f"  min (F*-S) = {worst:.2e}  (>= -1e-6 expected)")
+    print(f"  max |F*-S| = {worst:.2e}")
+    assert worst < 1e-5
 
 
 def check3():
-    print("(3) Example 5.2: pairs 5*7=35, 11*13=143 (m = 3 mod 4); emptiness checked directly (143 violates the crude omega<l hypothesis, conclusion still holds)")
+    print("(3) Example 5.2: pairs 5*7=35, 11*13=143 (m = 3 mod 4); emptiness checked directly (both violate the crude omega<l sufficient condition; conclusion still holds)")
     pairs = [(5, 7), (11, 13)]
     Mp = 35 * 143
     classes = []
@@ -155,6 +171,7 @@ def check3():
         th = farey(Mp, m, dens={d for d in (1, l1, l2, m)})
         F = Fstar(Mp, A, th, np.ones(len(th)))
         print(f"  m={m}: omega={om}, 1+g={m/(m-om):.6f}, F*(div m)={F:.6f}")
+        assert F >= m / (m - om) - 1e-6
 
 
 def check4(rng):
@@ -191,6 +208,7 @@ def check4(rng):
             bound += prod / len(R)
         bound *= Q0 / len(R)
         print(f"  beta={beta}: R(pi)={Rpi:.5f}  bound={bound:.5f}  ok={Rpi <= bound + 1e-9}")
+        assert Rpi <= bound + 1e-9
 
 
 if __name__ == "__main__":

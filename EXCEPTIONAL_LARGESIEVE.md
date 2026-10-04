@@ -456,7 +456,12 @@ E_R g_ℓ(c) ≤ 2p̄_ℓ`. For `p | P`: `π mod p^v` is uniform on units mod `p
 (including `p | Q₀`, `p ∤ P`): χ² = 0. Hence
 `X(π) ≤ Σ_ℓ 4p̄_ℓ log ℓ/ℓ + Σ_p 2 log p/(p(p−1)) ≤ C(1+K₀)`. Theorem 6.2. ∎
 
-So on prime slices the larger sieve does not even reach the
+For general kernels with composite q, `X` involves the mod-q marginals
+for those composite q, and Cor 6.3 does not apply: e.g. the single
+kernel `𝒮 = {P}` (`h = 0`, `N ≤ P`) with the selector `R = {(c,P)=1}`
+saves `log(P/φ(P))` — exactly the R-term, as for majorants.
+
+So on prime slices Gallagher's larger sieve does not even reach the
 `(log N)^{3/4}` scale: it is designed for sets occupying few classes,
 and forced-class avoiders occupy almost all classes.
 
@@ -537,9 +542,12 @@ must be bounded for the family at hand.
 
 `scripts/ls_duality_check.py` (~10 s, cvxpy):
 1. Theorem 2.1 on 12 random class systems (moduli products of 1–2 primes
-   from {3,…,13}, random weights, Farey frequencies): the two QPs give
-   `F*_w·m_w = 1` to `5·10⁻¹⁵`.
-2. Prime-only systems with Farey frequencies: `F*_1 = S(Q)` to `10⁻¹³`
+   from {3,…,13}, random weights; 6 Farey sets and 6 sparse sets of
+   5 random nonzero frequencies plus 0, not closed under conjugation):
+   the two QPs give `F*_w·m_w = 1` to `1.2·10⁻¹⁴`. Degenerate case (no
+   classes, Θ without 0): `F* = 0` and the dual is infeasible, as the
+   theorem says. Solver status and all tolerances are asserted.
+2. Prime-only systems with Farey frequencies: `F*_1 = S(Q)` to `5·10⁻¹⁴`
    in 8 cases. So for product systems the arithmetic large sieve
    (Montgomery's lemma) is already the CRT-optimal large sieve; the
    uniform measure on 𝒜 attains `F*`.
@@ -550,7 +558,7 @@ must be bounded for the family at hand.
    `F*` over the divisors of m equals `m/(m−ω)` = 1.1667, 1.1818.
 4. Theorem 4.1's bound `𝓡(π) ≤ (Q₀/|R|)E_R Π(1+Σ|φ|^{p'})` on 6 random
    prime-slice systems (`Q₀ = 4`, slice primes 5, 7, 11): holds, with
-   ratios 0.84–0.95.
+   ratios 0.89–0.97.
 
 ## Replay
 
