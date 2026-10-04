@@ -31,3 +31,35 @@ E1, E2, … (severity: major / minor / nit).
   "small at j", Lemma 3.4 "large at j", for every j).
 * Numerical check (own code, item 6): (2.1) and the D5 inequality tested on
   10⁶ random `(x,y,z)` triples incl. edge cases; no violation.
+
+## Item 2. Lemma 2.1 (first moment of the small part) — SOUND (nits E1, E2)
+
+Re-derived line by line.
+* Setup: on supp P, `ν ≤ (8/7)U` at both ends, activity `≤ 4Γ(k)/k` (TW2
+  Lemma 3.2(1), k w₂-smooth — this is where "at most two primes above w₂"
+  is used: every binary modulus is `kjm` with k dividing `Q_F`), `≤ τ(A²)`
+  classes per modulus. Correct.
+* (a) j top: `M ≤ j^{1+B}` ⇒ `km ≤ j^B`; A is linear in j with slope km, so
+  TW2 Lemma 3.3 applies with `q = km` and j as the running variable.
+  Blocks `(y,2y]` with `km > (2y)^B` contain no family modulus and can be
+  dropped, so the hypothesis `q ≤ (2y)^{B+2}` holds on every block used.
+  `Σ_i y_i^{−α}(a + i log 2)² ≤ m^{−α}·2^{α}(a²/α + a/α² + 1/α³)` and the
+  prime sums `Σ_{m>w₂} m^{−1−α}(log m)^i ≪ (i−1)!α^{−i}` (`i ≥ 1`),
+  `≪ log L` (`i = 0`; indeed `= E₁(8α log L)+O(1) ≈ (1/4)log L`) give
+  `≪ (k/φ(k))[α^{−3}log L + (log 2k)²α^{−1}log L + …]` — at most the
+  stated `(k/φ(k))(log 2k)²α^{−3}log L`.
+* (b) m top, `j < m ≤ (kj)^{C₀}`: `kj ≤ m^B` gives Lemma 3.3 with `q = kj`;
+  `≤ C₀log₂(kj)+2` blocks, each `≪ (kj/φ(kj))(C₀+2)²(log 2kj)²`. Then
+  `(log 2kj)³ ≤ 4((log 2k)³ + (log j)³)` and `Σ_j j^{−1−α}(log j)³ ≪ 2α^{−3}`.
+  Correct; m-primality indeed unused.
+* k-sum: `Σ_k Γ(k)(log 2k)³/φ(k) ≪ (log L)^{O(1)}` is TW2 (3.1) with i = 3.
+  The total is `≪ α^{−3}(log L)^{O(1)}` — the whole α^{−3} budget, as the
+  author says (Remark 2.2). This is the only place where α^{−3} appears.
+* **E1 (nit).** (a) should say explicitly that blocks with `km > (2y)^B`
+  are empty and dropped; as written ("holds because `km ≤ j^B ≤ (2y)^B`")
+  the reader must supply that the hypothesis is only needed on non-empty
+  blocks.
+* **E2 (nit).** In (a), `a = log(2km²)` vs the first block `y₀ = m/2`:
+  `log(2km·y₀) = log(km²)`, so `a` is an upper bound, fine; but the stated
+  intermediate `(k/φ(k)) m^{−α}(…)` silently absorbs `(m/2)^{−α} ≤ 2m^{−α}`
+  and `m/φ(m) ≤ 2`. Harmless constants.
