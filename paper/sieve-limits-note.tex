@@ -43,7 +43,7 @@ programme is $E(N)\ll N\exp\{-c(\log N)^{3/4}\}$.  We show that the
 exponent $3/4$ is a hard ceiling for a precisely defined class of
 congruence sieves.  The class consists of nonnegative CRT majorants that
 are at least one on the whole avoider set of a family of forced
-congruence classes, whose final bound has the form
+congruence classes (and selector classes $0\bmod p$), whose final bound has the form
 $N\cdot\E\nu+\sum_i|a_i|$, and whose family primes are at most
 $N^{O(1)}$.  The main theorem: for every finite family mixing the
 forced classes $\cR(M)$, the $(a,D)$-classes, the Case-A classes and
@@ -366,7 +366,10 @@ $Q_r(H)=\binom{H-1}r$ and Selberg squares.  Both campaign notes satisfy
 (A1)--(A3) (Section~\ref{sec:campaign}).  A selector admissible set
 $R=\{c:(c,P)=1\}$ is the same as adding the classes $0\bmod p$, $p\mid P$, to
 the family; in this form the main theorem (Theorem~\ref{thm:main}) needs
-no admissible set at all.
+no admissible set at all, provided all primes of the family, selector
+primes $p\mid P$ and the primes of the small parts $q_0$ included, are
+$\leq N^A$.  Condition (A3) bounds only the slice primes, so this is an
+extra hypothesis.
 
 \begin{lemma}[coefficient budget implies level; {\cite[Lemma~2.9]{ET}}, from {\cite[item~3]{ETrev}}; \lab{proved}]\label{lem:budget}
 Take a prime-slice system, or the sequential setting of
@@ -791,10 +794,14 @@ This section treats families whose moduli have a dominant prime factor.
 It covers the $(a,D)$- and Case-A classes as well as the classes
 $\cR(M)$; for the latter, Theorem~\ref{thm:karycap} below removes the
 dominance hypothesis, and Theorem~\ref{thm:noBcap} removes it for all
-four class types at once.  For CRT-majorant architectures, the
-conclusions of this section and of Theorem~\ref{thm:karycap} are
-special cases of the bounded-$B$ clause of Theorem~\ref{thm:main} (a
-dominant prime $P(M)\geq M^{1/(1+C)}$ is the case $B=C$).
+four class types at once.  For CRT-majorant architectures with a
+selector admissible set, $\nu\geq1$ on the whole avoider set, and all
+family primes $\leq N^A$, the conclusions of this section are special
+cases of the bounded-$B$ clause of Theorem~\ref{thm:main} (a dominant
+prime $P(M)\geq M^{1/(1+C)}$ is the case $B=C$).  Theorem~\ref{thm:karycap}
+is implied only for majorants $\geq1$ on the whole avoider set; its
+form for majorants $\geq1$ only on the avoiders in $R_W$ is not implied
+by Theorem~\ref{thm:main} and remains a separate statement.
 
 \subsection{Prime-slice families}
 \begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:sliceCap}
@@ -1752,6 +1759,7 @@ analogue of the middle window $r\asymp\log L$ of the $\Lambda^2$ route
 
 \subsection{The main theorem}
 \begin{theorem}[no $\theta>3/4$ for coefficient-sum CRT sieves; {\cite[Cor.~6.1]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:main}
+% keep in sync: es-threequarter-note.tex cites thm:main=10.8, rem:TQcovered=10.9 by number
 Fix $A\geq1$.  Let a method bound $\#(\A(\cG)\cap[1,N])$ by
 $N\cdot\E\nu+\sum_i|a_i|$, where
 \begin{itemize}
@@ -1793,15 +1801,22 @@ $\min(S,\log N)\leq\log2+C\lambda^{3/4}(\log\lambda)^{3/4}$ (resp.\
 $\leq\log2+C(B)\lambda^{3/4}$).  For $N\geq N_0$ the right side is $<\log N$,
 so the minimum is $S$, and $s\leq S$ is bounded as claimed.
 \end{proof}
-Theorem~\ref{thm:main} subsumes the previous form of the main theorem:
-case (i), families whose moduli have a dominant prime
-(Corollary~\ref{cor:dominant}), and case (ii), $\cR(M)$-families with
-$M\leq P(M)^{1+B}$ (Theorem~\ref{thm:karycap}).  It needs no admissible set:
-the quadratic-residue and square bases are proof devices, and a selector
-$R=\{c:(c,P)=1\}$ in the sense of Definition~\ref{def:arch} is the same
-as adding the selector classes $0\bmod p$, $p\mid P$, to $\cG$.  So every
-CRT-majorant architecture (Definition~\ref{def:arch}) for such a family,
-with a selector admissible set, saves at most
+For whole-avoider architectures, Theorem~\ref{thm:main} subsumes the
+previous form of the main theorem: case (i), families whose moduli have
+a dominant prime (Corollary~\ref{cor:dominant}, whose $R$ is a selector
+together with family classes), and case (ii), $\cR(M)$-families with
+$M\leq P(M)^{1+B}$ (Theorem~\ref{thm:karycap}).  Case (ii) is subsumed only
+for majorants that are $\geq1$ on the whole avoider set.
+Theorem~\ref{thm:karycap} also applies to majorants that are $\geq1$ only
+on the avoiders in the quadratic-residue set $R_W$; that form is not
+implied by Theorem~\ref{thm:main} and remains a separate statement.  The
+square base $R_W^\square$ is a proof device: Theorem~\ref{thm:main} needs
+no admissible set.  A selector $R=\{c:(c,P)=1\}$ in the sense of
+Definition~\ref{def:arch} is the same as adding the selector classes
+$0\bmod p$, $p\mid P$, to $\cG$.  So every CRT-majorant architecture
+(Definition~\ref{def:arch}) for such a family, with a selector
+admissible set and with all primes of the family (selector primes and
+small parts of moduli included) $\leq N^A$, saves at most
 $C_A(\log N)^{3/4}(\log\log N)^{3/4}$, and $C_{A,B}(\log N)^{3/4}$ under
 bounded $B$.  For $\theta>3/4$ the factor $(\log\log N)^{3/4}$ is
 irrelevant; it matters only for gains of size $(\log N)^{3/4}\omega(N)$ with
@@ -1841,7 +1856,11 @@ and Rosser sieves and any combinatorial upper-bound sieve on the class
 system, CRT-evaluated moment and variance methods
 (Section~\ref{sec:noncrt}), the majorant of the $3/4$ note
 (Remark~\ref{rem:TQcovered}), and the sequential, $\Lambda^2$ and
-Selberg-type majorants of Sections~\ref{sec:limit}--\ref{sec:selberg}.
+Selberg-type majorants of Sections~\ref{sec:limit}--\ref{sec:selberg}
+when they are $\geq1$ on the whole avoider set (several of them, such
+as Theorems~\ref{thm:gapped} and~\ref{thm:karycap} and the $\Lambda^2$
+majorants of \cite{TW2}, are stated for the avoiders in $R_W$ only; see
+Remark~\ref{rem:L2vsmain}).
 \emph{Not transferred} from the earlier sections: Montgomery's large sieve
 is capped only fibrewise over prime slices (Remark~\ref{rem:LS}), not as a
 pointwise majorant of a mixed family; and the per-frequency rounding of
@@ -2522,9 +2541,13 @@ this is said.
   $\ll(\log y)^3\cdot\mathrm{polylog}(\log y)$ over $P(G)\leq y$; (c) cofactor
   second moments $\ll\ell^{o(1)}$.  The same proof covers any family with
   (a)--(c) \cite[\S6, item~2]{KA2}; families without them are outside.
-  An admissible set that excludes classes failing (a), for instance
-  classes of unit squares, has an uncontrolled term $\log(Q_0/|R|)$
-  (Remark~\ref{rem:Rterm}).  Schinzel's theorem, as quoted in
+  Any admissible set that cannot be expressed by selector classes (or
+  by classes of the four types) has an uncontrolled term
+  $\log(Q_0/|R|)$ (Remark~\ref{rem:Rterm}; \cite[\S6]{ET}); this includes
+  admissible sets that exclude classes failing (a), such as classes of
+  unit squares.  The one exception in this note is the
+  quadratic-residue set $R_W$ for fixed-$B$ families of $\cR(M)$-classes
+  (Theorem~\ref{thm:karycap}).  Schinzel's theorem, as quoted in
   \cite{ElsholtzTao}, may make (a) automatic for polynomial-identity
   families; this has not been checked.
 \item \emph{Primes beyond $N^{O(1)}$.}  Families with primes beyond
@@ -2538,7 +2561,8 @@ only from smooth-dominated moduli (Lemma~\ref{lem:firstnoB} and the
 remark after it).  For unbounded-$B$ families a saving
 $(\log N)^{3/4}\omega(N)$ with $1\ll\omega(N)\leq(\log\log N)^{3/4}$ is not
 excluded; it is expected not to exist, but that is \lab{open}.  Under
-bounded $B$ it is excluded (Theorem~\ref{thm:Bcapall}).  All constants
+bounded $B$ it is excluded (the bounded-$B$ clause of
+Theorem~\ref{thm:main}).  All constants
 are absolute but astronomically large (Section~\ref{sec:noB}).
 
 \emph{No longer excluded} (compared with the previous version of this
@@ -2546,10 +2570,14 @@ note).  The following are inside Theorem~\ref{thm:main}:
 $\cR(M)$-moduli with $\log M/\log P(M)$ unbounded; $(a,D)$- and Case-A
 moduli without a dominant prime; families mixing all four types; twin
 moduli (Lemma~\ref{lem:balancedsupply}); any number of prime factors per
-modulus; selector admissible sets (as selector classes); and multipliers
-larger than the top prime, used without a separate level budget, since
+modulus; selector admissible sets (as selector classes, with selector
+primes $\leq N^A$); and multiplier conditions with a small part larger
+than the top prime, used without a separate level budget, provided the
+conditions are themselves classes of the four types and all their
+primes, those of the multiplier included, are $\leq N^A$.  For these,
 Theorem~\ref{thm:main} charges every prime above $W$ and bounds the level
-through $\sum_i|a_i|<N$ alone.  For the external input, the Case-A part
+through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family
+primes.  For the external input, the Case-A part
 uses Elsholtz--Tao Prop.~1.4 (published, not re-proved), as
 Lemma~\ref{lem:caseAprofile} does; families without Case-A classes use no
 external input.
@@ -2612,7 +2640,8 @@ The items of the corresponding list in the previous version are gone:
 moduli with $\log M/\log P(M)$ unbounded, $(a,D)$- and Case-A moduli
 without a dominant prime and mixed families are inside
 Theorem~\ref{thm:main}, and so are multipliers larger than the slice
-primes (Section~\ref{sec:excluded}).  Unresolved $\eta$-twin moduli,
+primes, provided the multiplier conditions are classes of the four types
+with all primes $\leq N^A$ (Section~\ref{sec:excluded}).  Unresolved $\eta$-twin moduli,
 item (i) of the list in \cite[\S6]{ET}, were removed for fixed $B$ by
 Theorem~\ref{thm:karycap} and are now covered without $B$
 (Theorem~\ref{thm:noBcap}) \lab{proved}.

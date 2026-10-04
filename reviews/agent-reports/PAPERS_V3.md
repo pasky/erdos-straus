@@ -7,8 +7,9 @@ cosmetic R2-1), and `DISCOVERIES.md` (D)18.
 
 ## (1) `paper/sieve-limits-note.tex` → version 3
 
-Compiles clean with 3 pdflatex passes: no undefined references, no overfull boxes. The three
-underfull boxes are bibliography `\texttt` lines, the same kind as in v2.
+Compiles clean with 3 pdflatex passes: no undefined references, no overfull boxes. There are four
+underfull boxes, all present in v2: three bibliography `\texttt` lines and one body paragraph
+(Hypothesis 12.2 / Theorem 12.1).
 
 * **New §10, "The main theorem: every mixture of forced classes, no B"** (`sec:noB`). It is inserted
   after the fixed-B section (§9, retitled "The 3/4 cap for every fixed-B family of classes ℛ(M)";
@@ -44,7 +45,7 @@ underfull boxes are bibliography `\texttt` lines, the same kind as in v2.
 * **New bibliography entries:**
   * KA2, KA2r, KA2r2;
   * Landreau, Bull. LMS 21 (1989) 366–368, checked against Crossref.
-* **§5 (dominant prime).** The intro now says that for architectures the conclusions are special
+* **§6 (dominant prime).** The intro now says that for architectures the conclusions are special
   cases of Thm 10.8's bounded-B clause (B = C).
 * **§3 (architecture).** One sentence was added: selector R = selector classes, so Thm 10.8 needs
   no admissible set.
@@ -97,3 +98,41 @@ section title and all other text are unchanged. It compiles clean with 3 passes.
 
 The theorem numbers 10.8 and 10.9 are hard-coded in the 3/4 note. They must be updated if the
 sieve note is renumbered.
+
+## Round 2: referee `reviews/papers-v3-review.md` (branch `side-agent/review-papers-v3`)
+
+All defects are applied. Both papers recompile clean (3 passes): no undefined references and no
+overfull boxes. The sieve note's underfull boxes are the same ones as in v2. Its labels are
+unchanged: `thm:main` is 10.8 and `rem:TQcovered` is 10.9.
+
+* **D1 ("subsumes" overclaim).** Old case (ii) (`thm:karycap`) is now said to be subsumed only for
+  whole-avoider majorants. The `R_W`-restricted form of karycap is not implied by Thm 10.8 and is
+  stated to remain separate. "Proof device" now applies to `R_W^□` only. The §6 intro is rescoped
+  the same way: selector admissible set, ν ≥ 1 on the whole avoider set, family primes ≤ N^A.
+* **D2 (prime size).** The full hypothesis, all family primes ≤ N^A (selector primes and the primes
+  of the small parts q₀ included), was added in four places:
+  * the §3 remark after Def `def:arch`, noting that (A3) bounds only the slice primes;
+  * the paragraph after Thm 10.8;
+  * "No longer excluded";
+  * the open-problems preamble.
+
+  The multiplier item also carries Q1's qualifier: the multiplier conditions must themselves be
+  classes of the four types.
+* **D3 (3/4 note).** The B-letter clash is resolved: the remark now writes `G ≤ P(G)^{1+β}` with
+  `β = 2κ < 1/120`.
+* **D4.** "What the class contains" now restricts the sequential, Λ² and Selberg majorants to those
+  that are ≥ 1 on the whole avoider set. It names `thm:gapped`, `thm:karycap` and the TW2 Λ²
+  majorants as `R_W`-only, with a pointer to Rem `rem:L2vsmain`.
+* **D5.** Exclusion item 6 now says that any admissible set not expressible by selector classes
+  (or by classes of the four types) has an uncontrolled R-term. The one exception noted is `R_W`
+  for fixed-B ℛ(M) families (karycap).
+* **D6.**
+  1. The bounded-B exclusion of `(log N)^{3/4}ω` gains now cites the bounded-B clause of
+     Thm `thm:main`.
+  2. The abstract says "(and selector classes `0 mod p`)".
+  3. A keep-in-sync comment for 10.8/10.9 was added in both notes. The 3/4 note now leads with the
+     stable `[KA2, Cor 6.1, Rem 5.4]`, with `[SL, Thm 10.8, Rem 10.9]` as "see also".
+  4. This changelog: "§5" is corrected to §6, and the underfull-box count is corrected.
+
+The referee's optional observation (that the `R_W`-restricted Thm 10.6 is probably within reach)
+was **not** added, as the referee advised.
