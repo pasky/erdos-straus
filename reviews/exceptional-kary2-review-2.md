@@ -227,3 +227,65 @@ This includes:
 ulimit -v 8000000; timeout 900 env PYTHONPATH=scripts uv run --with sympy python \
   scripts/kary2_review2_checks.py 3000 > data/kary2/review2_checks.txt   # ~3 min, < 1 GB
 ```
+
+---
+
+## Round 2 (author's repairs at `side-agent/kary-no-b` 575e913)
+
+The full diff `be227df..575e913` of EXCEPTIONAL_KARY2.md was read, along with the O14 report's
+headline lines.
+
+**D1 (selector classes): FIXED, SOUND.**
+* *Definition 2.0.* `0 (mod p)` is added as a fourth type. It is correctly marked as not forced.
+* *Base.* Lemma 2.3(R1) is now stated for "W-smooth classes containing no unit square". The
+  proof is correct: CRT turns `c ≡ b (mod G)`, with c a unit square at every `p^e ∥ Q₀`, into b
+  being a unit square mod G. Selector classes with p ≤ W contain no unit, and the first three
+  types exclude even non-unit squares. The R-term `≤ 2W` is unchanged, since `P_W | Q₀` already.
+* *First moment.* Lemma 3.3′ gives `Σ_{W<p≤y}γ'(p)/p ≤ log log y + O(1)`, with
+  `γ'(p) ≤ 1+2p^{−1/2}` for p ≥ 16. Correct.
+* *Second moment.* Lemma 4.2 has v = 1, q = 1, μ = 1, so the sum is 1. The class is always active
+  and adds 1/ℓ to `p_ℓ`, so under Minkowski it contributes `ℓ^{−1}`, within `ℓ^{−7/8}`. The leak
+  is unaffected. "Decided at the top prime" holds trivially.
+* *Theorems.* Thm 5.2's `G ≤ P(G)^{1+B}` is automatic for selector classes, and the proof cites
+  Lemma 3.3′.
+* *The 3/4 note is now literally covered (Remark 5.4).*
+  - Pointwise on ℤ, `ν_X = S_y·Q_r(H_X)` with `S_y ∈ {0,1}` and `Q_r(H) = C(H−1,r)`, r even. This
+    is ≥ 0 for H ≥ 0 and equals 1 at H = 0. Checked exactly for H ≤ 199, even r ≤ 20.
+  - So ν_X ≥ 1 on all of `𝒜(𝔊₀ ∪ {0 mod p : p ≤ y})`, including n ≤ 0 (0 lies in a selector class).
+  - Its ledger satisfies Cor 6.1: primes ≤ X ≤ N, `T_abs ≤ N^{1/2} < N`, error ≤ `T_abs`.
+  - The atoms have B < 1/120. Thm 5.2 therefore applies, with no gap.
+
+**D2: FIXED.** "ElT" is defined, and no "ET Prop" or "modulo" survives. The labels read
+"PROVED, using ElT Prop 1.4 (published, not re-proved)". "No external input" replaces
+"unconditional", which is accurate.
+
+**D3: FIXED.** The large sieve (fibrewise ET slices only) and NONCRT Thm 2.3 are explicitly marked
+"not transferred".
+
+**D4: FIXED.** "Still excluded" item 3 lists three relaxations: ν ≥ 0 only on [1,N]; ν ≥ 1 only on
+𝒜∩[1,N] or on the exceptional set; and the prime-law case. The prime-law mean-side remark is
+correctly marked as not claimed. Thm 5.1 and Cor 6.1 now say "all of 𝒜(𝔊) ⊂ ℤ".
+
+**D5: FIXED.** C absorbs `2W + log 2`, and §0, Thm 5.1 and Cor 6.1 state that the result is
+asymptotic only, with astronomical constants.
+
+**D6: FIXED** as a pointer ("not checked here"). Condition (i) is correctly restricted to W-smooth
+classes and to unit squares.
+
+**Other changes checked in passing.**
+* Lemma 3.1: the p ≤ W step now uses `p^η ≤ e` and `p^{−e(1−η)} ≤ p^{−0.9e}`. Correct.
+* `c_q = 2^{7q+1}+1` matches the final line of Lemma 3.5's proof.
+* §1's B3 is refined into three uses; consistent.
+* Cor 6.1 now says "no method *of this class*". The O14 report's headline is qualified the same way.
+
+**New residual (cosmetic, not blocking).**
+* **R2-1.** Remark 5.4 says "the R-term here is ≤ 2W, smaller than ET's `log(P/φ(P))` for
+  selectors". This is misleading. Selector primes p > W are not free: they are paid in the
+  singleton ledger, about `(8/3)Σ_{W<p≤y}1/p ≍ log(log y/log W)`. Only p ≤ W go into the R-term.
+  Numerically, 2W ≈ exp(10^{10}) is far larger. Suggest instead: "selector primes ≤ W are absorbed
+  by the base, and those > W cost `O(log log y)` in the singleton steps, the same order as ET's
+  term."
+
+**Verdict, round 2:** all six defects are resolved. Theorems 5.1 and 5.2 and Cor 6.1, with the
+four types, are SOUND at the level this review covers (exponents, mixing, scope). The 3/4 note
+is literally inside Thm 5.2. The DISCOVERIES entry proposed in round 1 can be used as-is.
