@@ -1,6 +1,8 @@
 # EXCEPTIONAL_PRIMELAW — prime-only majorants over all forced-class mixtures (task O22)
 
-Status: **checkpoint 1 (O22), unreviewed.** Labels follow `DISCOVERIES.md`.
+Status: **checkpoint 2 (O22), reviewed.** Review
+`reviews/exceptional-primelaw-review.md` (branch `side-agent/review-primelaw`):
+all items SOUND; minor defects D1–D5 and suggestion D6 applied below. Labels follow `DISCOVERIES.md`.
 PROVED means proved in this file, internal checks only, not refereed.
 
 Notation follows `EXCEPTIONAL_KARY2.md` (K2), `EXCEPTIONAL_KARY.md` (EK),
@@ -11,7 +13,9 @@ Notation follows `EXCEPTIONAL_KARY2.md` (K2), `EXCEPTIONAL_KARY.md` (EK),
 
 **Result: positive.** The prime-only-majorant cap of NC Thms 3.2–3.3
 extends to every K2 mixture. A majorant that is `≥ 1` only on the primes
-of the avoider set, used through prime equidistribution, saves at most
+of the avoider set (and `≥ 0` at **all** primes, Def 1.1), used through
+prime equidistribution with errors bounded in absolute value
+(`Err ≥ 0`), saves at most
 `C(log N)^{3/4}(log log N)^{3/4}` (`C_B(log N)^{3/4}` under bounded B),
 exactly K2's integer cap. No obstruction appears: K2's proof runs verbatim
 on the unit groups `(ℤ/ℓ^e)^×`.
@@ -20,16 +24,16 @@ on the unit groups `(ℤ/ℓ^e)^×`.
 |---|---|---|
 | Lemma 1.2 | prime majorant ⇔ unit-cell majorant (Dirichlet), for every family; selector classes are invisible under the unit measure `E*` | PROVED |
 | Lemma 1.3 | `E*` is a product over prime powers; a class mod `ℓ^v` has `E*`-mass `(ℓ/(ℓ−1))ℓ^{−v}` or 0 | PROVED |
-| Lemma 2.1 | the K2 unit-square base consists of units; R-term `(π(W)+1)log 2` | PROVED |
+| Lemma 2.1 | the K2 unit-square base consists of units; R-term `(π(W)+1)log 2` = K2's minus `log(Q₀/φ(Q₀))` (larger than NC Thm 3.2's 0) | PROVED |
 | Prop 2.2 | EK Thm 4.1 / ETw Thm 2.3′ under `E*`; singleton, k-ary (EK Thm 2.5), linear steps and leak are arithmetic-free | PROVED |
 | Lemmas 2.3–2.5 | inflation weight `γ*(ℓ) = (ℓ/(ℓ−1))(1−ℓ^{−1/2})^{−1}` has the four properties K2 uses; first moments `≪ (log y)³(log log y)³`, second moments `≪ ℓ^{−7/4+o(1)}`, leak `≤ 1/2` | PROVED (Case A via ElT Prop 1.4) |
 | **Thm 3.1** | **every prime majorant of level λ of any mixture of ℛ(M)-, (a,D)-, Case-A and selector classes: `log(1/E*ν) ≤ Cλ^{3/4}(log λ)^{3/4}`; `≤ C(B)λ^{3/4}` under bounded B** | PROVED (Case A via ElT Prop 1.4) |
 | Lemma 4.1 | coefficient budget ⇒ level under `E*` (extra `log λ`, harmless) | PROVED |
-| Cor 4.2 | prime-law methods `π(N)E*ν + Err`, `Err ≥ 0`, with moduli `≤ N^A` (any equidistribution level) or `Σ|a_i| ≤ N^A`: saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` | PROVED (same proviso) |
+| Cor 4.2 | prime-law methods `π(N)E*ν + Err`, `Err ≥ 0` (absolute-value error accounting; Err includes the `p | L` correction), ν ≥ 0 at **all** primes (Def 1.1), with moduli `≤ N^A` (any equidistribution level) or `Σ|a_i| ≤ N^A`: saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` | PROVED (same proviso) |
 | Prop 4.3 | under GRH, for `Σ|a_i| ≤ N^{1/2−ε}` and moduli `≤ N^A`, the *exact* prime sum `Σ_{p≤N}ν(p)` is `≥ (1−o(1))li(N)E*ν`: signed error accounting cannot help | CONDITIONAL (GRH) |
-| §4.4 | NC Thm 3.3 (sieve-detected primality) holds for all mixtures with **no** `(log log N)²` loss, via selector classes | PROVED (K2 Thm 5.1) |
+| §4.4 | NC Thm 3.3 (sieve-detected primality) holds for all mixtures with nothing beyond K2's own cap (no loss at all for NC's original bounded-B families), via selector classes, `z ≤ N^A` | PROVED (K2 Thms 5.1–5.2) |
 | §5 | γ* inequalities, R-term formula, unit status of forced residues, toy exact LP | EVIDENCE |
-| §6 | exclusions: ν ≥ 0 only on primes ≤ N, ν ≥ 1 only on actual exceptional primes, unconditional signed errors, super-polynomial budgets, non-`Σν(p)` prime methods, prime large sieve | open / out of scope |
+| §6 | exclusions: ν ≥ 0 only on primes ≤ N, ν ≥ 1 only on actual exceptional primes, unconditional signed errors, super-polynomial budgets, non-`Σν(p)` prime methods, prime large sieve; the finite-range relaxations close for `L ≤ cN^{1/5}` (Linnik–Xylouris; `L ≲ √N/log N` under GRH), so that gap lives at `L > N^c` | open / out of scope |
 
 ## 1. Setting: prime majorants and the unit measure
 
@@ -45,8 +49,9 @@ outside a finite set,
 
     ν(p) ≥ 0,      and      ν(p) ≥ 1 if p ∈ 𝒜.
 
-Its *level* is `max_i Σ_{ℓ | d_i, ℓ > W} log ℓ` (K2 Thm 5.1; W the absolute
-constant there). The method's count is `Σ_{p ≤ N} ν(p)`, evaluated by prime
+Its *level* is `max_i Σ_{ℓ | d_i, ℓ > W} log ℓ` with W the absolute
+constant of Theorem 3.1 below (review D4; changing W shifts the level by
+at most `θ(W) ≤ 2W`, absorbed into `λ₀` and C). The method's count is `Σ_{p ≤ N} ν(p)`, evaluated by prime
 equidistribution.
 
 Let L be the lcm of all `d_i` and all moduli of 𝔊. `E*` is the uniform
@@ -61,6 +66,12 @@ period L.
 in 𝒜 or disjoint from it, and ν is constant on it. A reduced class contains
 infinitely many primes (Dirichlet), so finitely many exceptions cannot hide
 it. Conversely every prime `p ∤ L` lies in a reduced class. ∎
+
+*Consequence (review D3).* The finite exceptional set of Def 1.1 lies
+inside `{p | L}` automatically: if `ν(p) < 0`, or `ν(p) < 1` with
+`p ∈ 𝒜`, for some `p ∤ L`, the whole reduced class of p (infinitely many
+primes) would violate the definition. Dirichlet is used only to show that
+Def 1.1 implies (1.1); no uniformity in L is needed for the cap.
 
 No hypothesis on the family is needed (NC Lemma 3.1 needed
 `|F_ℓ(c)∖{0}| < ℓ−1` only for the ET Step-0 slice reduction, which is not
@@ -116,10 +127,12 @@ unit squares are half of the units; mod `2^e`, `e ≥ 3`, a quarter. By CRT
 `φ(Q₀)/|R| = 4·2^{π(W)−1}`. 3. Unchanged (R is unchanged). 4. R is a
 subset of `(ℤ/Q₀)^×` and `g ≥ 0`. ∎
 
-The R-term is *smaller* than in K2 (`(π(W)+1)log 2` instead of
-`3log 2 + Σ_{3≤p≤W}log(2p/(p−1))`), and smaller than NC Thm 3.2's
-`log(P/φ(P))`-type selector term, which is 0 here but would be replaced by
-the unit-square restriction anyway.
+Exactly, unit R-term = K2 R-term − `log(Q₀/φ(Q₀))` (K2's is
+`3log 2 + Σ_{3≤p≤W}log(2p/(p−1))`). It is *larger* than the R-term of
+NC Thm 3.2, which is 0 for a selector base under `E*` (review D1): the
+increase `≈ W log 2/log W` is the price of (R1) against forced W-smooth
+classes, which NC's prime-slice setting handled differently. W is
+absolute, so this does not affect any theorem.
 
 ### 2.2 The abstract sequential theorem under E*
 
@@ -154,7 +167,7 @@ Jensen step `E_{Q'}[1_𝒜 e^{−S}] ≥ ½e^{−2E S}` is unchanged. ∎
 
 **The three step types are arithmetic-free.**
 * *Singleton* (ETw Prop 4.1): `E_{U*} f ≥ (1−p*_ℓ)E_σ f` for `f ≥ 0`, σ
-  uniform on `Ω*_ℓ ∖ F_ℓ`; cost `−log(1−p*_ℓ) ≤ (4/3)p*_ℓ` when light,
+  uniform on `Ω*_ℓ ∖ F_ℓ`; cost `Φ = −log(1−p*_ℓ) ≤ (4/3)p*_ℓ` when light,
   0 when heavy (`p*_ℓ = U*_ℓ(F_ℓ)`).
 * *Sequential* (EK Thm 2.5, Cor 2.6): stated for any finite alphabets
   `Ω_ℓ` and any product law; take `Ω*_ℓ`, `U*_ℓ`. Cor 2.6's cost
@@ -164,7 +177,10 @@ Jensen step `E_{Q'}[1_𝒜 e^{−S}] ≥ ½e^{−2E S}` is unchanged. ∎
   spaces with independent laws; the in-block capped law has one-coordinate
   marginals that are mixtures of `U*_ℓ` conditioned on sets of
   `U*_ℓ`-measure `≥ 1 − δ_ℓ`, so `ε_ℓ ≤ 2δ_ℓ`, TV defect `≤ δ_ℓ`; cost
-  `2log(1 + 3e^{−λ/4})`.
+  `Φ = log(1 + 3e^{−λ/4})`.
+
+(All costs listed here are step costs `Φ_j`; the bound of Prop 2.2
+doubles them. Review D5.)
 * *Above `e^λ`:* a level-λ term contains no prime `> e^λ`, so f does not
   depend on those coordinates; cost 0.
 * *Leak* (EK Lemma 2.1(1), ETw Lemma 2.1′): every class is decided at its
@@ -290,8 +306,8 @@ same conclusion (with `λ^{3/4}`) for ET Cor 3.4 prime-slice families
 product/fibre argument. Theorem 3.1 covers every mixture of the four
 types: composite moduli with any number of large primes, prime-power
 tops, η-twins, no B (at the price `(log λ)^{3/4}`), (a,D)- and Case-A
-classes. The R-term `log(P/φ(P))` of NC Thm 3.2 is replaced by the
-absolute `(π(W)+1)log 2`.
+classes. The price is an absolute R-term `(π(W)+1)log 2` instead of
+NC Thm 3.2's 0 for selector bases (see after Lemma 2.1).
 
 **Remark 3.3 (why nothing is lost).** The unit restriction acts on the
 LP in two ways, and both help or are neutral.
@@ -350,7 +366,12 @@ where ν is a prime majorant of `𝒜(𝔊)`, 𝔊 any finite mixture of the fou
 types with arbitrary moduli. (This is the form of every method that
 evaluates `Σ_{p≤N}ν(p) = Σ_i a_i π(N; d_i, b_i)` by the Dirichlet main
 term `π(N)/φ(d_i)` and bounds the errors `E(N; d_i, b_i)` in absolute
-value: Siegel–Walfisz, BV, BDH, EH, GRH, any level.) Assume either
+value: Siegel–Walfisz, BV, BDH, EH, GRH, any level. For validity, i.e.
+`#(𝒜 ∩ primes ≤ N) ≤ bound`, Err must also contain the correction
+`Σ_{p | L, p ≤ N}(1 + |ν(p)|)`, since ν may be negative or below 1 at
+primes dividing L (NC Lemma 3.1's `O(ω(L) max|ν|)`; here `ω(L)` is
+unbounded, e.g. `≥ π(z)` with selector classes). This only enlarges Err
+and does not affect the cap; review D3.) Assume either
 
 * (H1) every modulus `d_i` of ν has `Π_{ℓ | d_i, ℓ > W} ℓ ≤ N^A` (the range
   of every equidistribution input, NC Remark 3.4); or
@@ -368,9 +389,14 @@ and `log(1/E*ν') ≥ S − log 2`; Theorem 3.1 gives
 `λ ≪_A log N`; otherwise `λ ≤ 4S` for N large and S is bounded by an
 absolute constant, a contradiction. ∎
 
-So **prime-law methods over any mixture of forced classes cannot give
-θ > 3/4**, at any equidistribution level `N^{O(1)}`, with the same
-`(log log N)^{3/4}` proviso as K2 Cor 6.1 (none under bounded B).
+So **prime-law methods over any mixture of forced classes, with prime
+majorants in the sense of Def 1.1 (nonnegative at all primes) and error
+terms bounded in absolute value (Err ≥ 0), cannot give θ > 3/4** at any
+equidistribution level `N^{O(1)}`, with the same `(log log N)^{3/4}`
+proviso as K2 Cor 6.1 (none under bounded B). Both qualifiers carry
+weight (review D2). At level `≍ log N`, L is far larger than N and most
+reduced classes mod L contain no prime `≤ N`, so "`ν(p) ≥ 0` for `p ≤ N`"
+is a strictly larger class (§6 item 2). Signed errors: §4.3.
 
 ### 4.3 Signed error accounting: under GRH even the exact prime sum is capped
 
@@ -415,9 +441,12 @@ NC Thm 3.3 handled *integer* majorants that are `≥ 1` only on
 `𝒜 ∩ {(n, P(z)) = 1}` and paid `O((log log N)²)`. In the K2 framework this
 is free: `𝒜(𝔊) ∩ {(n,P(z)) = 1} = 𝒜(𝔊 ∪ {0 mod p : p ≤ z})`, and selector
 classes are one of the four types. So K2 Thm 5.1 / Cor 6.1 apply directly,
-for every mixture, with no extra term and no level hypothesis on the
-augmented system beyond K2's own (K2 Remark 5.4 is the case of the 3/4
-note). Under E* (this file) the selector classes are not even needed.
+for every mixture, with nothing beyond K2's own cap and no level
+hypothesis on the augmented system beyond K2's own (K2 Remark 5.4 is the
+case of the 3/4 note). Precisely (review D5): for unbounded-B mixtures
+K2's cap still carries `(log λ)^{3/4}`; for NC Thm 3.3's original ET
+Cor 3.4 families (`B = C < 1`) K2 Thm 5.2 applies and there is no loss at
+all; K2 Cor 6.1's reading needs `z ≤ N^A`. Under E* (this file) the selector classes are not even needed.
 
 ## 5. Numerics (EVIDENCE / sanity checks only)
 
@@ -460,6 +489,12 @@ note). Under E* (this file) the selector classes are not even needed.
      `𝒜 ∩ [1,N]`: using *which* primes are exceptional is non-CRT input.
      Definition 1.1 asks `ν ≥ 1` on all primes of `𝒜(𝔊)`, which is what a
      method that knows only the family 𝔊 can certify.
+   * *Where the gap lives (review D6).* Both finite-range relaxations
+     imply Def 1.1 when every reduced class mod L contains a prime `≤ N`:
+     by Linnik's theorem with Xylouris's exponent (least prime `≪ q^5`)
+     this holds for `L ≤ cN^{1/5}`; under GRH (Bach–Sorenson, least prime
+     `≤ 2(q log q)²`) for `L ≲ √N/log N`. Since L contains every family
+     modulus, this range is narrow; the gap lives entirely at `L > N^c`.
 3. *Signed error accounting, unconditionally.* Corollary 4.2 assumes
    `Err ≥ 0`. Under GRH this is removed (Prop 4.3). Unconditionally the
    known error terms are too weak to reach the main term at all (NC
@@ -481,4 +516,6 @@ note). Under E* (this file) the selector classes are not even needed.
 cd scripts
 # Lemma 2.3, Lemma 2.1(2), Remark 3.3, toy LP for arity k <= 2 (~21 s, < 0.6 GB)
 uv run --with sympy --with scipy --with numpy python -u primelaw_checks.py 1000000 2 > ../data/primelaw/checks.txt
+# reviewer's independent checks (branch side-agent/review-primelaw)
+uv run --with sympy python -u review_primelaw_checks.py > ../data/primelaw/review_checks.txt
 ```

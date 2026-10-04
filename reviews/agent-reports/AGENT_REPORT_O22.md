@@ -80,3 +80,43 @@ on exceptional primes" and replace it with a pointer to the new entry:
 * Prop 4.3's error bookkeeping for q > x.
 
 I did not edit DISCOVERIES/STATUS. Stopping for parent review.
+
+## Round 2: review repairs applied (checkpoint 2)
+
+The review is `reviews/exceptional-primelaw-review.md` (branch
+`side-agent/review-primelaw`). It found every item SOUND. Repairs:
+* **D1.** I had called the unit R-term smaller than NC Thm 3.2's. That
+  was false, and it is corrected in §2.1 and Remark 3.2. The exact
+  relation is: unit R-term = K2 R-term − log(Q₀/φ(Q₀)). This is larger
+  than NC's 0 for selector bases.
+* **D2.** The headline, the bold line in §4.2 and the §0 summary now state
+  both qualifiers: ν ≥ 0 at *all* primes (Def 1.1), and error terms
+  bounded in absolute value (Err ≥ 0).
+* **D3.** Cor 4.2 now says that, for validity, Err must contain the
+  correction `Σ_{p|L, p≤N}(1+|ν(p)|)`. After Lemma 1.2 I added the
+  observation that the exceptions in Def 1.1 automatically lie in {p | L}.
+* **D4.** The level is now defined with Theorem 3.1's W. A change of W
+  shifts the level by at most θ(W) ≤ 2W.
+* **D5.**
+  * Prop 2.2 now lists step costs Φ consistently, with the factor 2
+    applied once.
+  * §4.4 is qualified: nothing beyond K2's own cap. NC's bounded-B
+    families lose nothing at all. The reading needs z ≤ N^A.
+* **D6.** §6 item 2 now has a Linnik–Xylouris / Bach–Sorenson remark. The
+  finite-range relaxations close for L ≤ cN^{1/5}, or L ≲ √N/log N under
+  GRH. So that gap lives at L > N^c.
+
+The Replay section now also cites the reviewer's script, which lives on
+their branch.
+
+**Corrected ledger wording** (it replaces the suggestion above):
+
+> EXCEPTIONAL_PRIMELAW Thm 3.1, Cor 4.2: prime majorants in the sense of
+> Def 1.1 (≥ 0 at all primes, ≥ 1 at all primes of 𝒜(𝔊); Dirichlet/unit
+> measure) over any K2 mixture, with error terms bounded in absolute value
+> (Err ≥ 0), save at most `C(log N)^{3/4}(log log N)^{3/4}` at any level
+> `N^{O(1)}` (`C_B(log N)^{3/4}` under bounded B). **PROVED** (internal;
+> review `reviews/exceptional-primelaw-review.md`, SOUND). Under GRH,
+> signed error accounting cannot help either (Prop 4.3, CONDITIONAL).
+> Open: ν ≥ 0 only at primes ≤ N with L > N^c; unconditional signed
+> errors; the prime large sieve.
