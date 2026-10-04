@@ -473,3 +473,130 @@ uv run --with numpy python scripts/twin4_rough_bt.py A 1e6
 # toy ternary table (~15 s, ~1.2 GB for the spf sieve to 2.5e8)
 uv run --with numpy python scripts/twin4_rough_bt.py B 1e9 1009 10007
 ```
+
+## 9. Uniformity in r (task O12, part 2a)
+
+Write `ω_L(M)` for the number of distinct primes `> w₂` dividing M, and
+`H₁ = Σ_{w₂<ℓ≤X} 1/ℓ ≤ log L`.
+
+### 9.1 Range I: explicit r-dependence
+
+**Proposition 9.1 (PROVED; bookkeeping).** In Theorem 7.1 every implied
+constant is `≤ (C_B log L)^{C r}` (C absolute, `C_B` depending on B only),
+uniformly in `2 ≤ r ≤ log L`, provided Lemma 4.1 holds, i.e.
+`δ_r^{−2}L^6(log L)^{Cr}/w₂ = o(1)`. Hence, for
+`r ≤ ε log L/log log L` with `ε ≤ ε₀` small absolute,
+
+    saving(g²) ≪_{A₀,B} L^{3/4 + Cε}.
+
+*Proof.* Collect the r-dependence of each step. Shiu's constant (TW2 Lemma
+3.3) depends only on B. All the remaining losses are listed here:
+
+| step | loss |
+|---|---|
+| Prop 3.1 (inflations `(8/7)^r(4/3)^{3r}`, `1+25δ`) | `e^{O(r)}` |
+| `δ_r^{−1} = 16r(32/21)^r` (Lemma 4.1 threshold) | `e^{O(r)}` |
+| harmonic sums over other large primes (Lemmas 4.1, 5.1, 5.3, Cor 5.2) | `(2log L)^{r}` |
+| `2^r` subsets V (3.1), Lemma 5.3 | `2^r` |
+| Lemma 5.1: `a ≤ log 2k + r log p₂`, so `a² ≤ 2(log 2k)² + 2r²(log p₂)²` | `r²` |
+| Lemma 5.3(b): `(log 2kQ_V)³ ≤ (v+1)²(…)` | `r²` |
+| Lemma 2.3 / Cor 2.4: `12 s(s+1)(log L)^{s}` | `r²(log L)^{r}` |
+| Lemma 6.1 squared, Lemma 6.2 (`2^h` roots), Lemma 6.4 (`(8/7)^{3r}`, `Σ_V ρ^V/Q_V ≤ (log L)^h`) | `e^{O(r)}(log L)^{3r}` |
+
+The product is `≤ (C_B log L)^{Cr}`. In Lemma 4.1 the requirement is
+`e^{O(r)}(log L)^{O(r)}L^6/L^8 = o(1)`, true for
+`r ≤ ε₀ log L/log log L`. Finally `(C_B log L)^{Cr} ≤ L^{Cε(1+o(1))}`. ∎
+
+### 9.2 Range III: moduli with ≥ C₁ log L large primes are free
+
+**Lemma 9.2 (unweighted payment; PROVED).** Let `𝓔₁` be the event system
+of a fibre c, after vertex quarantine and promotion, with law `ν⁺` and
+`Σ_{ℓ∈S(F)} w⁺_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`. Let `𝓔₂` be a further finite
+family of events (any arity), and put
+`y_ℓ = Σ_{G∈𝓔₂, G∋ℓ} 2^{|S(G)|}P_{ν⁺}(G)` and `m₂ = Σ_{G∈𝓔₂} 2^{|S(G)|}P_{ν⁺}(G)`.
+If `Σ_{ℓ∈S(F)} y_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`, `y_ℓ ≤ 1/32` for every ℓ, and
+`m₂ ≤ 1`, then with `A⁺ = A₁⁺ ∩ {no 𝓔₂ event}`
+
+    Ξ_c(A⁺) ≤ Ξ_c(A₁⁺) + 3m₂.
+
+*Proof.* `P(A⁺∩A⁺′) ≤ P(A₁⁺∩A₁⁺′)`, and `P(A⁺) = P(A₁⁺)P(no 𝓔₂ | A₁⁺)`
+(the unary factors are common). Apply TW2 Lemma 1.1 in the `ν⁺`-product
+space to `𝓑 = 𝓔₁ ∪ 𝓔₂`, with `x_F = 2P(F)` on `𝓔₁` and
+`x_G = 2^{|S(G)|}P(G)` on `𝓔₂`. *Hypothesis.* For `F ∈ 𝓔₁`,
+`Σ_{Γ(F)}x ≤ Σ_{ℓ∈S(F)}(2w⁺_ℓ + y_ℓ) ≤ 3/32`. So `Π_{Γ(F)}(1−x) ≥ 1/2`, and
+`P(F) = x_F/2` is enough. For `G ∈ 𝓔₂`,
+`Σ_{Γ(G)}x ≤ Σ_{ℓ∈S(G)}(2w⁺_ℓ + y_ℓ) ≤ |S(G)|·(1/16 + 1/32)`. Every
+`x ≤ 1/8`, so `Π(1−x) ≥ exp(−(8/7)(3/32)|S(G)|) ≥ 2^{−|S(G)|}`. *Conclusion.*
+Order `𝓔₂ = {G₁, G₂, …}`. Lemma 1.1(1) with
+`𝓢 = 𝓔₁ ∪ {G_1,…,G_{i−1}}` gives `P(G_i | A₁⁺ ∩ Ḡ_{<i}) ≤ x_{G_i}`. Hence
+`P(no 𝓔₂ | A₁⁺) ≥ Π_i(1 − x_{G_i}) ≥ exp(−(8/7)m₂)`. Then
+`Ξ(A⁺) ≤ Ξ(A₁⁺) + (16/7)m₂`. ∎
+
+TW2 Lemma 2.1 accepts any nonempty `A⁺_c ⊆ A_c`, so Lemma 9.2 lets a
+low-mass subfamily be added to *any* system already controlled, paying
+only its total (2^{|S|}-inflated) mass. No ρ-weight and no arity bound are
+needed.
+
+**Corollary 9.3 (PROVED).** Let `r₂ = C₁ log L`, `C₁ = 330`. Adding to any
+family of Setting 3.0^{(r)} (or of Prop 9.1) all classes with
+`ω_L(M) ≥ r₂` (no B-hypothesis for them) changes the saving bound by
+`o(1)`, provided the fibre law also conditions on the event
+`G_III = {m₂(c) ≤ L^{−1}}`, where `m₂` is computed with `U` in place of `ν⁺`
+and the factor `4^{|S|}` in place of `2^{|S|}` (as `ν⁺ ≤ (4/3)(8/7)U ≤ 2U`).
+
+*Proof.* On `G_III`, `y_ℓ ≤ m₂ ≤ L^{−1}`, so `Σ_{ℓ∈S(F)}y_ℓ ≤ r/L ≤ 1/32` for
+`F ∈ 𝓔₁`, and Lemma 9.2 applies. It costs `3m₂ ≤ 3/L`. It remains to show
+`P′(G_III^c) = o(1)`. Then the fibre-law bookkeeping of TW2 Lemma 3.2 is
+unchanged (`P′(G_L ∩ G_III) ≥ 1/2`). By TW2 Lemma 3.2(1) for `P′`,
+
+    E′m₂ ≤ 2 Σ_{M≤X, ω_L(M)≥r₂} Γ(k)τ(A²)4^{ω_L(M)}/M_L      (M_L = M/k)
+        ≤ 2 (Σ_M τ(A²)²Γ(k)²/M)^{1/2} · (Σ_{M≤X} 16^{ω_L(M)}1[ω_L(M)≥r₂]/M)^{1/2}
+
+by Cauchy–Schwarz (writing `Γ(k)/M_L = kΓ(k)/M ≤ …`; more simply, apply
+it to `Σ_M (τΓ)(16^{ω_L}1[…])/M` after `k/M_L·(1/k) = 1/M` — the
+activity factor `Γ(k)/k` times the event mass `1/M_L` is exactly `Γ(k)/M`).
+*First factor.* `Γ(k)² ≤ 9^{ω(k)}` and Cauchy–Schwarz again give
+`≤ (Σ_{A≤X}τ(A²)⁴/A)^{1/4}(Σ_{M≤X}81^{ω(M)}/M)^{1/4} ≪ L^{81/2}` (Euler
+products: `τ(p²)⁴ = 81`). *Second factor (Rankin).* For `y > 0`,
+`Σ_M 16^{ω_L}1[ω_L ≥ r₂]/M ≤ y^{−r₂}Σ_M (16y)^{ω_L(M)}/M
+≤ y^{−r₂}·2log w₂·exp(16y(H₁ + 1))`. With `y = r₂/(16 log L)` this is
+`≪ log L·(16e log L/r₂)^{r₂} = log L·L^{−C₁log(C₁/(16e))}`, and
+`C₁ log(C₁/16e)/2 ≥ 330/2 > 81/2 + 2`. So `E′m₂ ≪ L^{−2}` and Markov
+gives `P′(m₂ > L^{−1}) = o(1)`. ∎
+
+### 9.3 The middle range `ε log L/log log L < r < C₁ log L` (Assessment)
+
+This range is **not** covered, and it is the bulk. With the ρ-weights,
+the effective moduli have large part `≤ e^{O(1/α)}`, and the number of
+their primes in `(L^8, e^{L^{1/4}}]` is Poisson-like with mean
+`log(L^{1/4}/(8log L)) ≈ (1/4)log L`. So most of the `α^{−3}` mass lies at
+`r ≍ log L`. There every loss of the form `c^r` with `c > 1` is a power of L.
+
+*What is lossy, and what is genuine.*
+1. Inflation factors `(8/7)^r, (4/3)^r`: *removable*. They come from the
+   coarse thresholds `p_ℓ ≤ 1/8`, `w_ℓ ≤ δ_r`. In good fibres
+   `p_ℓ, w_ℓ ≪ L^{4}/ℓ`, so `Π_{ℓ∈S}(1−p_ℓ)^{−1} = 1 + O(rL^4/w₂) = 1+o(1)`
+   (TW3 already notes `e^{(4/3)w_ℓ}`). This needs a polynomial-decay G_L.
+2. Harmonic sums `(log L)^s` without `1/s!`: *removable*. Prime variables
+   are unordered.
+3. **The first moment for small partners (Lemma 5.3) over `2^r` subsets V:
+   genuine for this method.** `min(x,1)² ≤ x` loses the factor `1/D`. The
+   *diagonal* part of the star sum is `Σ_C π_{E_C} Σ_{V⊊S}ρ^V/R_V =
+   Σ_C π_{E_C}(Π_{ℓ∈S}(ρ_ℓ + 1/ℓ) − ρ^S)`, which is harmless:
+   `Π(ρ_ℓ+1/ℓ) ≤ ρ^S(1+o(1))` for `r ≤ L`. This is TW Conj 6.8's main term.
+   The first-moment bound instead pays `Σ_{V: R_V small}ρ^V`, i.e. `≈ 2^r`
+   per class. So the middle range needs an **off-diagonal second moment
+   at stars with short partners**. Namely, for V and partners
+   `R ≤ (kQ_V)^{C₀}`, a bound on
+   `Q_V^{−1}Σ_{(R,D)≠(R′,D′), −4D≡−4D′ (Q_V)} 1/(RR′)` that is efficient
+   per prime (`1 + o(1)` per prime of V, summed over V). This is the
+   multi-prime analogue of TW2's (H_O^≠). It was bypassed for r = 2
+   because there the first-moment loss was affordable (TW3 Remark,
+   "Where the budget goes"). For short partners (`A ≤ Q^{C₀+1}`) the
+   divisor labels `−u/v mod Q_V` have height comparable to `Q_V^{1/2}`,
+   so neither Lemma 2.3 nor box counting applies. It is a genuine
+   equidistribution question for divisors of `(kQR+1)²/16` mod `Q`,
+   averaged over `Q`. **OPEN.**
+4. Range III (Cor 9.3) shows that the very-many-prime tail is not the
+   problem. What blocks the full family is item 3, in the window
+   `r ≍ log L`.
