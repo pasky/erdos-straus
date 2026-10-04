@@ -45,22 +45,30 @@ congruence sieves.  The class consists of nonnegative CRT majorants that
 are at least one on the whole avoider set of a family of forced
 congruence classes, whose final bound has the form
 $N\cdot\E\nu+\sum_i|a_i|$, and whose family primes are at most
-$N^{O(1)}$.  For families in which every modulus has a dominant prime
-factor, and, for the classes $\cR(M)$, for families of $(\eta,B)$-gapped
-moduli with $B$ fixed, every such sieve with an admissible set of the
-specified bounded-saving form saves at most $O((\log N)^{3/4})$.  No power of $\log\log N$
-can be gained.  The majorant of the $3/4$ note lies in this class, and the
-large-sieve argument of the $2/3$-loglog note is capped in the same way at
-its own exponent.  We list exactly what the theorems exclude.  For
-Selberg-type majorants we prove a sieve limit with no structural
-hypothesis, in terms of a noise-stability quantity, and a
-$\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$ at level $O(\log X)$, twin
-moduli included, for families of $\cR(M)$-classes with $M\leq X$,
-$M\leq P(M)^{1+B}$ ($B$ fixed) and at most two prime factors of $M$ above
-$(\log X)^8$.
-Every statement carries its status label.  All proofs were checked
-internally only; nothing here has been externally refereed.  This is not a
-proof of the Erd\H{o}s--Straus conjecture.
+$N^{O(1)}$.  The main theorem: for every fixed $B$ and every family of the
+forced classes $\cR(M)$ with $M\leq P(M)^{1+B}$ (twin moduli, prime-power
+tops and any number of prime factors at one scale included), every such
+sieve with the specified admissible set saves at most
+$O_B((\log N)^{3/4})$.  The same holds for families in which every modulus
+has a dominant prime factor, including the $(a,D)$-classes and, modulo a
+published divisor-sum estimate of Elsholtz and Tao, the Case-A classes.
+No power of $\log\log N$ can be gained.  The key new tool is a weighted
+$k$-ary comparison theorem for sequential conditioned laws, proved by
+Lagrange extrapolation in artificial replacement coins and a
+supermartingale bound.  The majorant of the $3/4$ note lies in the class,
+and the large-sieve argument of the $2/3$-loglog note is capped in the
+same way at its own exponent.  For finite prime-slice families the cap
+extends to per-frequency signed rounding with weights $\geq1$, to majorants
+positive only at primes, and to CRT-evaluated moment methods.  For
+Selberg-type majorants we prove a sieve limit in terms of noise
+stability, and a $\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$ at level
+$O(\log X)$ for $\cR(M)$-families with a fixed number of prime factors
+above $(\log X)^8$, with no condition relating $M$ to $P(M)$; its
+arithmetic input is a Brun--Titchmarsh bound for rough partners from the
+large sieve.  We list exactly what the theorems exclude.  Every
+statement carries its status label.  All proofs were checked internally
+only; nothing here has been externally refereed.  This is not a proof of
+the Erd\H{o}s--Straus conjecture.
 \end{abstract}
 \maketitle
 
@@ -81,7 +89,7 @@ $(\log\log N)^{1/3}$ in the exponent.  The second~\cite{TQ} proves
 with label \emph{internally proved; not externally refereed}.  The $3/4$
 note itself explains $3/4$ heuristically: the forced classes have
 cubic logarithmic mass, and a mass-driven optimisation gives
-$\theta=B/(B+1)$ with $B=3$ \cite[\S10]{TQ}.
+$\theta=b/(b+1)$ with mass exponent $b=3$ \cite[\S10]{TQ}.
 
 This note turns that heuristic into a theorem for a precise class of
 sieves, and records exactly where the theorem stops.
@@ -95,55 +103,80 @@ Every statement carries one of the following labels.
   which was checked against the source but not re-proved.
 \item \lab{conditional}: proved assuming a named open hypothesis.
 \item \lab{evidence}: numerical or model evidence; never a proof.
+\item \emph{Assessment}: a reasoned judgement about methods or
+  heuristics; not a theorem.
 \item \lab{conjecture} / \lab{open}: not proved.
 \end{itemize}
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of five internal working
-documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3}.  Each
-was hostile-reviewed; the reviews are
-\cite{ETrev,EBrev,TWrev,TW2rev,TW3rev}.  No
+\lab{proved} result below appears in one of eight internal working
+documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
+\cite{KA}, \cite{TW4}, \cite{NC}.  Each was hostile-reviewed; the reviews
+are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev}.  No
 prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
 found; it may be folklore in spirit.  Novelty is not claimed.
 
 \subsection*{Results}
 \begin{enumerate}
-\item \emph{The sieve-limit theorem} (Theorem~\ref{thm:slice},
-  \lab{proved}).  For a prime-slice CRT system every nonnegative majorant
-  of level $\lambda$ of the avoider set saves at most
-  $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond an
-  admissible-set term, plus an error term that is $O(\log^2\lambda)$ when
-  $\log\min\cP\gg1$ and $\log\bar\mu\ll\log\lambda$, as in all
-  applications here, and can be $\asymp\lambda\log\lambda$ in general
-  (Remark~\ref{rem:errors}).  A sequential version allows shared
-  large primes (Theorem~\ref{thm:seq}, \lab{proved}).
-\item \emph{The $3/4$ cap} (Theorem~\ref{thm:main}).  The forced classes
-  have cubic profile $\sum\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$
-  (Section~\ref{sec:profiles}).  Hence every CRT-majorant architecture
-  (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$, $\nu\geq1$ on the whole
-  avoider set, final bound $N\E\nu+\sum|a_i|$, family primes $\leq
-  N^{O(1)}$), with the admissible set specified there, saves at most
-  $O((\log N)^{3/4})$, for families whose moduli all have a dominant
-  prime (\lab{proved}; Case-A classes mod Elsholtz--Tao Prop.~1.4) and
-  for $(\eta,B)$-gapped $\cR(M)$-families with $B$ fixed (\lab{proved}).
+\item \emph{The main theorem} (Theorems~\ref{thm:karycap}
+  and~\ref{thm:main}, \lab{proved}).  Fix $B$.  For every family of
+  classes $\cR(M)$ with $M\leq P(M)^{1+B}$, of any shape (dominant,
+  gapped, twin, prime-power top, any number of prime factors at
+  comparable scale), every nonnegative majorant of level $\lambda$ of the
+  avoider set saves at most $C(B)\lambda^{3/4}$.  Hence every
+  CRT-majorant architecture (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$,
+  $\nu\geq1$ on the whole avoider set, final bound $N\E\nu+\sum|a_i|$,
+  family primes $\leq N^{O(1)}$) for such a family, with the admissible
+  set specified there, saves at most $O_B((\log N)^{3/4})$.  The same
+  holds for families whose moduli all have a dominant prime, Case-A and
+  $(a,D)$-classes included (Case A \lab{proved mod} Elsholtz--Tao
+  Prop.~1.4).
+\item \emph{The tools.}  The sieve-limit theorem for prime-slice systems
+  (Theorem~\ref{thm:slice}): every majorant of level $\lambda$ saves at
+  most $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond
+  an admissible-set term, plus an error term that is $O(\log^2\lambda)$ in
+  all applications here (Remark~\ref{rem:errors}); its sequential
+  version (Theorem~\ref{thm:seq}); the cubic profile
+  $\sum\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$ of the forced classes
+  (Section~\ref{sec:profiles}); the quadratic-residue base built from
+  Mordell's obstruction and the capped sequential measure
+  (Section~\ref{sec:gapped}); and a weighted $k$-ary comparison theorem
+  (Theorem~\ref{thm:kcomp}), which replaces the one-coordinate-per-window
+  hypothesis of the sequential sieve limit.  It couples the sequential
+  conditioned law with a product draw, freezes the path, extrapolates in
+  artificial Bernoulli replacement coins by Lagrange interpolation for
+  binomial laws (Lemma~\ref{lem:kextrap}), and pays for the thinning with
+  a supermartingale (Lemma~\ref{lem:kthin}).  Only the mean activated mass
+  enters, because the sequential sieve limit accepts random step costs
+  (Theorem~\ref{thm:wseq}).
 \item \emph{The campaign sieves are in the class}
   (Section~\ref{sec:campaign}, \lab{proved}).  The majorant of the $3/4$
   note is in the class, so $3/4$ is sharp for its architecture; the
   large sieve of the $2/3$-loglog note is capped at its own exponent
   $\frac23$ with the $(\log\log N)^{1/3}$ factor.
-\item \emph{Exclusions} (Section~\ref{sec:excluded}).  A precise list of
-  what lies outside, including unresolved twin moduli, which carry
-  cubic supply (Lemma~\ref{lem:balancedsupply}, \lab{proved}).
 \item \emph{Selberg-type majorants} (Section~\ref{sec:selberg}).  A
   $\Lambda^2$ sieve limit for arbitrary systems in terms of noise
-  stability (Theorem~\ref{thm:L2}, \lab{proved}).  It yields a
-  $\Lambda^2$ cap $\ll L^{3/4}(\log L)^{O(1)}$ for $\cR(M)$-families with
-  $M\leq P(M)^{1+B}$ and at most two prime factors of $M$ above
-  $(\log X)^8$, twin moduli included (Theorem~\ref{thm:twoprimecap},
-  \lab{proved}).
-\item \emph{Open problems} (Section~\ref{sec:open}): $H_{\rm MS}$, the
-  $k$-ary comparison inequality (Conjecture~\ref{conj:kary}) for general
-  majorants, and the $\Lambda^2$ cap for moduli with three or more large
-  prime factors.
+  stability (Theorem~\ref{thm:L2}, \lab{proved}), and $\Lambda^2$ caps
+  $\ll L^{3/4}(\log L)^{O_r(1)}$ for $\cR(M)$-families with at most $r$
+  prime factors above $(\log X)^8$, $r$ fixed, with
+  (Theorem~\ref{thm:rprime}) or without (Theorem~\ref{thm:noB}) the
+  condition $M\leq P(M)^{1+B}$ (\lab{proved}).  Their new arithmetic input
+  is a Brun--Titchmarsh bound for rough partners from the arithmetic
+  large sieve (Lemma~\ref{lem:roughBT}).  Under the $B$-hypothesis these
+  caps are superseded by the main theorem (Remark~\ref{rem:L2vsmain}).
+\item \emph{Beyond CRT evaluation} (Section~\ref{sec:noncrt},
+  \lab{proved}).  For the finite prime-slice families, the cap extends
+  to every rounding bound $\sum_{\theta\neq0}|\hat\nu(\theta)|w(\theta)$ with
+  weight $w\geq1$, with no bound on the size of the slice primes
+  (Theorem~\ref{thm:perfreq}); to majorants positive only at primes,
+  hence to prime equidistribution at any level $N^{O(1)}$
+  (Theorem~\ref{thm:primemaj}); and to moment methods whose moments are
+  evaluated through CRT densities.
+\item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
+  and~\ref{sec:open}).  A precise list of what lies outside: chiefly
+  $\cR(M)$-moduli with $\log M/\log P(M)$ unbounded for general majorants,
+  $(a,D)$- and Case-A moduli without a dominant prime, non-selector
+  admissible sets, rounding with weights below one and cancellation
+  between frequencies, and $H_{\rm MS}$.
 \end{enumerate}
 None of this bounds $E(N)$ from below or says anything about methods
 outside the class; in particular it is not evidence against the
@@ -709,7 +742,13 @@ $\sum_{4rh\leq G}\tau(4rh^2+1)/(4rh)$.
 The review \cite[item~4]{ETrev} checked Prop.~1.4 and its $k$-range against
 the source; it was not re-proved.
 
-\section{The three-quarter cap}\label{sec:cap}
+\section{Dominant-prime families}\label{sec:cap}
+
+This section treats families whose moduli have a dominant prime factor.
+It covers the $(a,D)$- and Case-A classes as well as the classes
+$\cR(M)$; for the latter, Theorem~\ref{thm:karycap} below removes the
+dominance hypothesis.  The two cases are combined in
+Theorem~\ref{thm:main}.
 
 \subsection{Prime-slice families}
 \begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:sliceCap}
@@ -805,45 +844,18 @@ function gives logarithmic density $\log(1+C)$ to the moduli with
 $P(M)\geq M^{1/(1+C)}$; the share of the \emph{weighted} cubic supply is
 not proved \lab{conjecture}.
 
-\subsection{The main theorem}
-\begin{theorem}[the $3/4$ cap; \lab{proved} mod Elsholtz--Tao Prop.~1.4 for Case-A classes; unconditional for Case-B families]\label{thm:main}
-Fix $0<C<1$ and $A\geq1$.  Let $\cF$ be a family of forced classes such
-that either
-\begin{enumerate}
-\item[(i)] every modulus has a dominant prime $P(M)\geq M^{1/(1+C)}$
-  (Case-B and Case-A classes; Corollary~\ref{cor:dominant}); or
-\item[(ii)] $\cF$ consists of $\cR(M)$-classes with $(\eta,B)$-gapped
-  moduli, for fixed $B$ and $0<\eta<1$, together with any $\cR(M)$-classes of
-  $W_0(B)$-smooth modulus (Theorem~\ref{thm:gapped}, Section~\ref{sec:gapped}).
-\end{enumerate}
-Then every CRT-majorant architecture (Definition~\ref{def:arch}) for
-$\cF$, with the admissible set of Corollary~\ref{cor:dominant} in case (i)
-and the quadratic-residue base of Section~\ref{sec:gapped} in case (ii),
-saves at most
-\[
- \log\frac1{\E\nu}\ll(\log N)^{3/4},
-\]
-with implied constant depending on $A,C$ in case (i) and on $A,B,\eta$ in
-case (ii).  In particular no such
-architecture gives $E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with
-$\omega(N)\to\infty$, e.g.\ $\omega=(\log\log N)^\epsilon$.
-\end{theorem}
-\begin{proof}
-Corollary~\ref{cor:budgetlevel}, applied with
-Corollary~\ref{cor:dominant} for $A+2$ in place of $A$ in case (i), and
-with Theorem~\ref{thm:gapped} at $\lambda=(A+2)\log N$ in case (ii).  In
-both the $R$-term is bounded.
-\end{proof}
-The statement for the prime-slice families of Corollary~\ref{cor:sliceCap}
-is the same, with the selector term $\log(P/\varphi(P))$ added; for the
-large sieve over slice systems the level hypothesis $\lambda\leq A\log N$
-is used directly (Remark~\ref{rem:LS}).
-
-\section{Gapped moduli, unconditionally}\label{sec:gapped}
+\section{The quadratic-residue base and the capped measure}\label{sec:gapped}
 
 Corollary~\ref{cor:dominant} needs $P(M)\geq M^{1/(1+C)}$ with $C<1$.  This
-section treats a class of \emph{balanced} moduli ($P(M)\leq M^{1/2}$) as
-well, for the classes $\cR(M)$.  The results are from \cite[\S\S1--2,
+section gives the two tools that remove this restriction for the classes
+$\cR(M)$: a product base measure on the avoiders of all small-modulus
+classes (Lemma~\ref{lem:QR}), and a capped sequential measure whose
+heavy coordinates enter only through a leak (Theorem~\ref{thm:capped}).
+With them it proves the cap for gapped and window-resolved families
+(Theorems~\ref{thm:gapped} and~\ref{thm:resolved}).  These two theorems
+are now special cases of Theorem~\ref{thm:karycap}; they are kept
+because their proofs need only the Boolean step of
+Proposition~\ref{prop:boolean}.  The results are from \cite[\S\S1--2,
 4]{TW}, building on the reductions of \cite[\S2]{EB}; the review
 \cite{TWrev} (two rounds) found them sound.
 
@@ -897,7 +909,7 @@ identities never cover squares, is used constructively: it gives a
 \emph{product} base measure on avoiders of all small-modulus classes,
 with polylogarithmic inflation.
 
-\subsection{The capped sequential measure}
+\subsection{The capped sequential measure}\label{sec:capped}
 Work in the sequential setting of Section~\ref{sec:seq}, with $R$
 satisfying (R1) every $c\in R$ avoids every condition with $S(C)=\emptyset$,
 and (R2) under the uniform law on $R$ the residues at distinct primes are
@@ -1037,7 +1049,7 @@ $H_{\rm light}$ of \cite[\S\S2.5, 4.4]{EB} are not used.
 Lemma~\ref{lem:mordell} is proved for $\cR(M)$ only, and the analysis of
 \cite{EB} is restricted to $\cR(M)$.  It needs $B$ fixed: there is no
 summation over $B$.  It does not cover $\eta$-twin moduli, for which (U)
-fails.
+fails; Theorem~\ref{thm:karycap} does.
 
 \begin{theorem}[window-resolved families; {\cite[Thm~4.4]{TW}}; \lab{proved}]\label{thm:resolved}
 Fix $B$, $W=W_0(B)$ and $\lambda\geq(2\log W)^4$.  Let $\cG$ be any family of
@@ -1057,8 +1069,392 @@ gives cost $O(\e^{-\lambda/4})$ \cite[Lemma~4.2, Cor.~4.3]{TW}; and a
 second-moment bound with prime-power top primes \cite[Lemma~4.0]{TW} for
 the leak.  So all twin moduli with top prime outside
 $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$ are already covered.  The
-\emph{residual} is the set of unresolved moduli with top prime in that
-range.
+\emph{residual} was the set of unresolved moduli with top prime in that
+range.  Theorem~\ref{thm:karycap} closes it by replacing the
+$\eta$-windows with dyadic sequential blocks and the Boolean step with
+Theorem~\ref{thm:kcomp}; the other three ingredients are reused.
+
+\section{A weighted \texorpdfstring{$k$}{k}-ary comparison theorem}\label{sec:kary}
+
+The sequential sieve limits of Sections~\ref{sec:seq} and~\ref{sec:gapped}
+need, in each window, a single coordinate that decides each condition
+(hypothesis (U)).  For twin moduli, prime-power tops, or several primes of
+one modulus at the same scale, (U) fails.  This section proves an
+arithmetic-free comparison theorem of any arity that replaces the
+per-window Boolean step.  Everything here is from \cite[\S\S1--3]{KA}; the
+reviews \cite{KArev,KArev2} found it sound (the second re-derived all
+inputs; its presentational repairs E1, E2 are incorporated).
+
+\subsection{The coupled sequential process}
+Let $V$ be a finite ordered set of coordinates, $y_\ell\in\Omega_\ell$
+finite, and $\varpi=\bigotimes_\ell\varpi_\ell$ a product law.  A
+\emph{pattern} is a pair $C=(T_C,a_C)$ with $T_C\subseteq V$ and
+$a_C\in\Omega_{T_C}$; put $\mathrm{top}(C)=\max T_C$.  Arities are
+arbitrary and unary patterns are allowed.  A function $f$ on
+$\prod_\ell\Omega_\ell$ is \emph{$d$-local} if $f=\sum_Tf_T$ with $f_T$ a
+function of $y_T$ and $|T|\leq d$; a $\lambda$-level function on coordinates
+of cost $>s$ is $d$-local with $d=\lfloor\lambda/s\rfloor$.  Fix thresholds
+$\delta_\ell\in(0,1/4]$.
+
+The coordinates are processed in order.  Before $\ell$ the state is
+$(c_i,y_i)_{i<\ell}$, and the \emph{plain activation rule} gives the set
+\[
+ F_\ell=F_\ell(y_{<\ell})=\{a:\ \exists C,\ \mathrm{top}(C)=\ell,\ (y_{T_C\setminus\{\ell\}},a)=a_C\},
+\]
+known before $\ell$ is drawn; put $p_\ell=\varpi_\ell(F_\ell)$, and call
+$\ell$ \emph{light} if $p_\ell\leq\delta_\ell$.  Draw $c_\ell\sim\varpi_\ell$
+independently of the past.  If $\ell$ is light and $c_\ell\in F_\ell$
+($\ell$ is \emph{replaced}), draw $y_\ell$ from
+$\varpi_\ell(\cdot\mid\Omega_\ell\setminus F_\ell)$, independently of
+$c_\ell$; otherwise $y_\ell=c_\ell$.  Write $\omega=(c,y)$ for the path,
+$J(\omega)$ for the replaced set, $z(\omega)=|J(\omega)|$, and
+$m(\omega)=\sum_{\ell\text{ light}}p_\ell$ for the light activated mass.
+The law $\sigma$ of $y$ is the sequential capped law of \cite[\S6]{TW}; the
+$c$'s are an explicit coupling of $\sigma$ with $\varpi$.
+
+\begin{lemma}[avoidance and inflation; {\cite[Lemma~2.1]{KA}}; \lab{proved}]\label{lem:kavoid}
+(1) If $\mathrm{top}(C)$ is light then $y_{T_C}\neq a_C$; hence
+$\Prob(y\text{ completes some }C)\leq\sum_\ell\E[p_\ell\ind\{p_\ell>\delta_\ell\}]$.
+(2) Given the past, $y_\ell\sim\varpi_\ell(\cdot\mid\Omega_\ell\setminus F_\ell)$
+if $\ell$ is light and $y_\ell\sim\varpi_\ell$ otherwise.  Hence
+$\sigma(y_S=b)\leq\prod_{\ell\in S}(1-\delta_\ell)^{-1}\varpi(b)$ for all
+$S\subseteq V$ and $b\in\Omega_S$.
+\end{lemma}
+\begin{proof}
+(1) At a light $\ell$, $y_\ell\notin F_\ell$, and every completion of a
+pattern with top $\ell$ lies in $F_\ell$.  At a heavy $\ell$, $y_\ell=c_\ell$
+is independent of the past.  (2) At a light $\ell$,
+$\Prob(y_\ell=a\mid\text{past})=\varpi_\ell(a)\ind_{a\notin F_\ell}(1+p_\ell/(1-p_\ell))$;
+the bound for $y_S$ follows by the chain rule from the last element of
+$S$ downwards.
+\end{proof}
+
+\subsection{Extrapolation in replacement coins}
+Freeze a whole path $\omega$.  For $\rho\in\{0,1\}^V$ put $y^\rho_\ell=y_\ell$
+if $\ell\in J(\omega)$ and $\rho_\ell=1$, and $y^\rho_\ell=c_\ell$ otherwise.
+So $y^0=c$ and $y^{\mathbf 1}=y$.  The intermediate points $y^\rho$ need not
+be paths of the process, and nothing below requires them to be.
+
+\begin{lemma}[locality; {\cite[Lemma~2.2]{KA}}; \lab{proved}]\label{lem:klocal}
+For fixed $\omega$ and a $d$-local $f\geq0$, $g_\omega(\rho)=f(y^\rho)$ is
+nonnegative, multilinear of degree at most $d$ in $\rho_{J(\omega)}$, and
+independent of $\rho_{V\setminus J(\omega)}$.
+\end{lemma}
+\begin{proof}
+$y^\rho_\ell$ depends on $\rho_\ell$ only, so $f_T(y^\rho_T)$ is a function
+of $\rho_{T\cap J}$, and $|T|\leq d$.
+\end{proof}
+
+The one-dimensional input is Lagrange \emph{extrapolation} for binomial
+laws: the node lemma (Lemma~\ref{lem:node}) interpolates at the end point
+$0$, and here we extrapolate to the other end point $z$.
+
+\begin{lemma}[binomial Lagrange extrapolation; {\cite[Lemma~2.3 and \S3]{KA}}; \lab{proved}]\label{lem:kextrap}
+Let $z\geq0$, $0<t\leq1/4$, $d\geq0$, and let $g\geq0$ on $\{0,1\}^z$ be
+multilinear of degree at most $d$.  Then
+$g(1,\dots,1)\leq B(z,t,d)\,\E_{\rho\sim\Bern(t)^z}g(\rho)$, where
+$B(z,t,0)=1$ and, for $d\geq1$,
+\[
+ B(z,t,d)=\min_Y\max_{y\in Y}\frac{|\ell^Y_y(z)|}{\psi(y)},\qquad\psi=\Bin(z,t),
+\]
+over node sets $Y\subseteq\{0,\dots,z\}$ with $|Y|=\min(d,z)+1$, $\ell^Y_y$
+the Lagrange basis of $Y$.  One has $B\geq1$, and
+\begin{equation}\label{eq:kB}
+ \log B(z,t,d)\leq d\log\Bigl(C_1'\max\Bigl(\frac1t,\sqrt{\frac z{td}}\Bigr)\Bigr)+\tfrac12\log(22zt+22)+3,
+ \qquad C_1'=2\e^{4.31}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Averaging $g$ over $\mathrm{Sym}(z)$ changes neither side and gives $Q(K)$,
+$K=\sum\rho_i$, with $Q$ a polynomial of degree at most $d$ (the average of
+$\rho^S$ is $\binom K{|S|}/\binom z{|S|}$) and $Q\geq0$ on $\{0,\dots,z\}$.
+Lagrange interpolation at a minimising $Y$ gives
+$Q(z)=\sum_y\ell_y(z)Q(y)\leq B\sum_y\psi(y)Q(y)\leq B\,\E Q(K)$.  For
+$d\geq1$, interpolating the constant $1$ gives
+$\sum_y|\ell_y(z)|\geq1\geq\sum_y\psi(y)$, so $B\geq1$.  For
+\eqref{eq:kB} use three node sets \cite[\S3]{KA}: $Y=\{0,\dots,z\}$ if
+$z\leq d$ (then $B\leq t^{-z}$); $Y=\{0,\dots,d\}$ if $zt\leq2d$; and, if
+$zt>2d$, $d+1$ nodes spaced $\lfloor\sqrt{zt/d}\rfloor$ around $zt$, bounded
+below by Lemma~\ref{lem:binom}.
+\end{proof}
+% The source also proves the cruder log B <= d log(4e^3(z+1)/t) + (1/2)log(16zt+16)
+% and checks both forms numerically (kary_b21_check.py); only (eq:kB) is used.
+
+The comparison with the product law rests on a supermartingale.
+
+\begin{lemma}[thinned law; {\cite[Lemma~2.4]{KA}}; \lab{proved}]\label{lem:kthin}
+Fix $t\in(0,1/4]$ and put $\mathcal W(\omega)=\exp(-\frac43t\,m(\omega))$.  If
+$\omega$ is drawn from the process and, given $\omega$,
+$\rho\sim\Bern(t)^V$, then for every $x$,
+$\E_\omega[\mathcal W(\omega)\Prob_\rho(y^\rho=x\mid\omega)]\leq\varpi(x)$.
+\end{lemma}
+\begin{proof}
+At a replaced $\ell$, $c_\ell\in F_\ell\not\ni y_\ell$, so $c_\ell=x_\ell$ and
+$y_\ell=x_\ell$ cannot both hold.  Hence
+$\Prob_\rho(y^\rho=x\mid\omega)\leq\prod_\ell\phi_\ell$ with
+$\phi_\ell=\ind\{c_\ell=x_\ell\}+t\ind\{\ell\in J,\ y_\ell=x_\ell\}$.  Given the
+past,
+$\E[\phi_\ell\mid\text{past}]=\varpi_\ell(x_\ell)+\ind\{\ell\text{ light}\}\,tp_\ell\varpi_\ell(x_\ell)\ind_{x_\ell\notin F_\ell}/(1-p_\ell)
+\leq\varpi_\ell(x_\ell)D_\ell$, $D_\ell=1+\frac43tp_\ell\ind\{\ell\text{ light}\}$,
+and $D_\ell$ is known before $\ell$.  So the partial products of
+$\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ form a nonnegative supermartingale
+and $Z=\prod_\ell\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ has $\E Z\leq1$.  Pathwise
+$\prod_\ell D_\ell\leq\e^{\frac43tm}=1/\mathcal W$, so
+$\E[\mathcal W\prod\phi_\ell]=\varpi(x)\E[\mathcal W\prod D_\ell\cdot Z]\leq\varpi(x)$.
+\end{proof}
+
+\begin{theorem}[weighted $k$-ary comparison; {\cite[Thm~2.5]{KA}}; \lab{proved}]\label{thm:kcomp}
+In this setting, for every $t\in(0,1/4]$ and every $d$-local $f\geq0$,
+\[
+ \E_\varpi f\geq\E_\omega\bigl[\e^{-\Phi(\omega)}f(y)\bigr],\qquad
+ \Phi(\omega)=\log B(z(\omega),t,d)+\tfrac43t\,m(\omega)\geq0.
+\]
+No incident-weight, codegree or sparsity hypothesis is needed, and the
+arity of the patterns is arbitrary.
+\end{theorem}
+\begin{proof}
+By Lemmas~\ref{lem:klocal} and~\ref{lem:kextrap},
+$f(y)=g_\omega(\ind_J)\leq B\,\E_\rho g_\omega(\rho)$.  Multiply by
+$\mathcal W/B$ and take $\E_\omega$:
+$\E_\omega[\e^{-\Phi}f(y)]\leq\sum_xf(x)\E_\omega[\mathcal W\Prob_\rho(y^\rho=x\mid\omega)]\leq\E_\varpi f$
+by Lemma~\ref{lem:kthin} and $f\geq0$.
+\end{proof}
+
+\begin{corollary}[mean cost; {\cite[Cor.~2.6]{KA}}; \lab{proved}]\label{cor:kmean}
+Let $d\geq1$, $\bar m\geq\E m$ and $t=d/(\bar m+4d)$.  Then
+\[
+ \E_\omega\Phi\leq d\log\frac{C_0(\bar m+4d)}d+\frac43d+\frac12\log(22d+22)+3,\qquad C_0=4\e^{4.31}.
+\]
+\end{corollary}
+\begin{proof}
+Each light $\ell$ is replaced with conditional probability $p_\ell$, so
+$\E z=\E m$.  Bound the maximum in \eqref{eq:kB} by the sum and use
+concavity of $\log$ and $\sqrt\cdot$: with this $t$, $1/t=(\bar m+4d)/d$,
+$\sqrt{\E z/(td)}\leq(\bar m+4d)/d$, $t\E z\leq d$ and
+$\frac43t\E m\leq\frac43d$.
+\end{proof}
+So the step cost is $d(O(1)+\log^+(\E m/d))$, the form of
+Proposition~\ref{prop:boolean} in one band, for patterns of any arity, and
+with only the \emph{mean} activated mass.
+
+\begin{remark}[weighted versus unweighted; {\cite[Remark~2.8, \S5]{KA}}]\label{rem:kweighted}
+Theorem~\ref{thm:kcomp} bounds $\E[\e^{-\Phi}f(y)]$, not
+$\log(\E_\sigma f/\E_\varpi f)$.  No bound of the latter by the mean mass
+holds in general \lab{proved}: take a trigger $X$ with $\Prob(X=1)=\epsilon$,
+coordinates $Z_1,\dots,Z_m$ with $\Prob(Z_i=1)=1/4$, patterns
+$(X,Z_i)=(1,1)$, $\mu=m/4$ and $\epsilon=1/\mu$; every activated set is light,
+$\E m(\omega)=1$, but the $3$-local $f=X(\sum Z_i-\mu)^2$ has
+$\E_\sigma f/\E_\varpi f=\mu/(1-1/4)\to\infty$.  The incident weight of
+$(X,1)$ is about $1$ here, so this does not contradict the unweighted
+comparison inequality conjectured in \cite[Conj.~6.4]{TW}
+(Conjecture~\ref{conj:kary} below), which assumes small incident weights.
+That unweighted form remains \lab{open}; Theorem~\ref{thm:kcomp} is its
+weighted form, for the conjecture's own law $\sigma$.  The sieve
+application below needs only the weighted form, because the sequential
+sieve limit accepts random step costs (Theorem~\ref{thm:wseq}).  An exact
+check of Theorem~\ref{thm:kcomp} on 100 random small systems (exhaustive
+path enumeration and floating-point linear programmes) found no violation
+\lab{evidence}.
+\end{remark}
+
+\section{The main theorem: \texorpdfstring{$3/4$}{3/4} for every fixed-\texorpdfstring{$B$}{B} family of classes \texorpdfstring{$\cR(M)$}{R(M)}}\label{sec:main}
+
+This section combines Theorem~\ref{thm:kcomp} with the quadratic-residue
+base and the capped sequential measure of Section~\ref{sec:gapped}.  The
+results are from \cite[\S4]{KA}; the second review \cite{KArev2}
+re-derived every input taken from \cite{TW} and found the argument sound.
+
+\subsection{Sequential steps with random costs}
+Take the sequential setting of Section~\ref{sec:capped}: a base $Q_0$, an
+admissible set $R$ with (R1)--(R2), coordinates $y_\ell=n\bmod\ell^{E_\ell}$
+for $\ell\in\cP$, now grouped into ordered \emph{blocks} $V_1,\dots,V_J$ (in
+increasing order of primes) instead of windows.  Each class is
+\emph{decided} at its top prime $P(M)$: its other prime factors are smaller
+(earlier coordinates, or the base), and its requirement at $P(M)$ is one
+class modulo $P(M)^v$.  Hypothesis (U) is \emph{not} assumed.
+
+\begin{theorem}[weighted sequential sieve limit; {\cite[Thm~4.1]{KA}}; \lab{proved}]\label{thm:wseq}
+Suppose that for each block $j$ and history $h$ there are a probability
+law $\Pi_j(h)$ on auxiliary paths $\omega$, a map
+$\omega\mapsto Y_j(h,\omega)\in\prod_{\ell\in V_j}\Z/\ell^{E_\ell}$, and a cost
+$\Phi_j(h,\omega)\geq0$, such that
+\begin{itemize}
+\item[(S$_w$)] every $\lambda$-level $f\geq0$ on the block coordinates
+  satisfies
+  \[
+   \E_Uf\geq\E_{\omega\sim\Pi_j(h)}\bigl[\e^{-\Phi_j(h,\omega)}f(Y_j(h,\omega))\bigr],
+  \]
+\end{itemize}
+$U$ the uniform law.  Let $Q'$ be the law of the history built from the
+uniform law on $R$ by drawing, at each block, $\omega_j\sim\Pi_j(H_{<j})$
+and appending $Y_j$.  If the leak
+$\mathfrak L=Q'(\text{final history}\notin\A)$ is at most $1/2$, then every
+majorant $\nu$ of level $\lambda$ satisfies
+\[
+ \log\frac1{\E\nu}\leq\log\frac{Q_0}{|R|}+\log2+2\sum_j\E_{Q'}\Phi_j(H_{<j},\omega_j).
+\]
+\end{theorem}
+\begin{proof}
+Let $g_j(h)=\E_U[\nu\mid H_{<j}=h]$.  By downward induction,
+$g_j(h)\geq\E_{Q'}[\ind_\A\e^{-\sum_{i\geq j}\Phi_i}\mid H_{<j}=h]$; for
+$j=J+1$ this is $g_{J+1}\geq\ind_\A$.  Given $h$, $f(y)=g_{j+1}(h,y)$ is
+$\lambda$-level and nonnegative, as in the proof of
+Theorem~\ref{thm:capped}.  Apply (S$_w$) and the induction hypothesis at
+$(h,Y_j)$; under $Q'$ the later blocks depend on $\omega_j$ only through
+$Y_j$.  Conclude with the Jensen step of Theorem~\ref{thm:capped}, using
+$\sum_j\Phi_j\geq0$.
+\end{proof}
+A step of Theorem~\ref{thm:capped} is an (S$_w$) with deterministic cost.
+The new instance is the \emph{sequential step}: for a block $V$ of primes
+with $\log\ell>s$, $\lambda$-level functions are $d$-local with
+$d=\lfloor\lambda/s\rfloor$.  Given $h$, the patterns are the classes with
+top prime in $V$ whose requirements outside $V$ are met by $h$ (a class
+modulo $\ell^v$ is a union of points of $\Z/\ell^{E_\ell}$).  Take for
+$\Pi_j(h)$ the coupled process of Section~\ref{sec:kary} in increasing
+order with $\varpi=U$ and caps $\delta_\ell=\ell^{-1/2}$, $Y_j=y$, and for
+$\Phi_j$ the cost of Theorem~\ref{thm:kcomp} with
+$t=t_j(h)=d/(\E[m\mid h]+4d)$, fixed before the block is drawn.  Then
+(S$_w$) is Theorem~\ref{thm:kcomp}, and $\Phi_j\geq0$.
+
+\subsection{Inflation, moments and leak}
+Fix $B\geq0$ and work with the base $R_W$ of Lemma~\ref{lem:QR}, caps
+$\delta_\ell=\ell^{-1/2}$, and
+$\Gamma(m)=\prod_{p\mid m}\gamma'(p)$ with $\gamma'(\ell)=(1-\ell^{-1/2})^{-1}$
+for $\ell>W$ (Lemma~\ref{lem:leak}(b)); assume $W\geq16$, so that
+$\delta_\ell\leq1/4$.  The family $\cG$ consists of $\cR(M)$-classes with
+$M\leq P(M)^{1+B}$, of any shape, plus any $\cR(M)$-classes of $W$-smooth
+modulus.
+
+\begin{lemma}[{\cite[Lemmas~4.2, 4.2$'$, 4.3]{KA}}; \lab{proved}]\label{lem:kmoments}
+Let $Q'$ be built with sequential steps in some blocks and singleton steps
+in the others.
+\begin{enumerate}
+\item (inflation) Lemma~\ref{lem:leak}(b) holds for $Q'$.
+\item (first moment) There is $K=K(W,B)$ such that for every $s\geq\log W$
+  and every block $V\subseteq\{\ell:s<\log\ell\leq2s\}$,
+  \[
+   \E_{Q'}m_V\leq\E_{Q'}\sum_{\ell\in V}p_\ell\leq\sum_{M:\,P(M)\in V}\frac{\tau(A_M^2)\Gamma(M)}M\leq K\,(2(1+B)s)^3,
+  \]
+  the sum over the moduli of $\cG$, $A_M=(M+1)/4$.
+\item (second moment) $\E_{Q'}p_\ell^2\leq C(\epsilon,B)\ell^{-2+\epsilon}$ for
+  every prime $\ell>W$.
+\item (leak) $\mathfrak L\leq\sum_\ell\E_{Q'}[p_\ell\ind\{p_\ell>\delta_\ell\}]\ll_BW^{-1/4}$,
+  so $\mathfrak L\leq1/2$ for $W\geq W_0(B)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1) Chain rule, with Lemma~\ref{lem:kavoid}(2): given the past, $y_\ell$
+has density at most $(1-\delta_\ell)^{-1}$ with respect to $U$.
+(2) A class $-4D\pmod{q\ell^v}$ with top $\ell\in V$ adds at most $\ell^{-v}$
+to $p_\ell$, and only if $n\equiv-4D\pmod q$ holds for the history before
+$\ell$, which has $Q'$-probability at most $\Gamma(q)/q$ by (1).  There
+are at most $\tau(A_M^2)$ values of $D$.  Write
+$\Gamma(M)=\sum_{e\mid M}h(e)$ with $h$ multiplicative on squarefree $e$,
+$h(p)\leq2$ for $p\leq W$, $h(\ell)\leq2\ell^{-1/2}$ for $\ell>W$.  The
+weighted Shiu argument of Lemma~\ref{lem:profileB} and
+Corollary~\ref{cor:dominant} gives
+$\sum_{M\leq x,\ M\equiv3\ (4)}\tau(A_M^2)\Gamma(M)\leq K_0(W)x\log^2(x+2)$, with
+no windows and no $B$.  Every $M$ in the sum has
+$M\leq P(M)^{1+B}\leq\e^{2(1+B)s}$; drop the condition $P(M)\in V$ and sum
+by parts.  (3) is \cite[Lemma~4.0]{TW}, the prime-power form of
+Lemma~\ref{lem:secondmoment}; it uses only (1).  (4) A final history
+outside $\A$ satisfies a class that is not $W$-smooth, by (R1).  When its
+top prime $\ell$ is processed its other requirements are met, so $y_\ell$
+lies in the completing set; this is impossible if $\ell$ is light
+(Lemma~\ref{lem:kavoid}(1)) and has conditional probability at most
+$p_\ell$ if $\ell$ is heavy.  Markov and (3) give
+$\sum_{\ell>W}\ell^{1/2}O_B(\ell^{-7/4})$.
+\end{proof}
+The cubic growth $s^3$ of the block mass, against the depth
+$d\asymp\lambda/s$, is what makes the sum over blocks below converge.
+
+\subsection{The cap}
+\begin{theorem}[the $3/4$ cap for fixed $B$; {\cite[Thm~4.5]{KA}}; \lab{proved}]\label{thm:karycap}
+Fix $B\geq0$ and $W=W_0(B)$.  There are $\lambda_0(B)$ and $C(B)$ such that
+for every family $\cG$ of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (of any
+shape: dominant, gapped, $\eta$-twin, prime-power top, any number of prime
+factors at comparable scale), together with any $\cR(M)$-classes of
+$W$-smooth modulus, every majorant $\nu$ of the avoider set in $R_W$ of
+level $\lambda\geq\lambda_0(B)$, charging all primes $>W$, satisfies
+\[
+ \log\frac1{\E\nu}\leq C(B)\,\lambda^{3/4}.
+\]
+\end{theorem}
+\begin{proof}
+Put $s_1=\lambda^{1/4}$, with $\lambda_0$ such that $s_1>2\log W$.  The blocks,
+in increasing order of primes, are: singletons $\{\ell\}$ for
+$W<\ell\leq\e^{s_1}$; sequential blocks
+$V_i=\{\ell:2^is_1<\log\ell\leq2^{i+1}s_1\}\cap(1,\e^{\lambda/2}]$ for
+$0\leq i\leq I$, $I$ the largest index with $2^Is_1<\lambda/2$ (these cover
+$(\e^{s_1},\e^{\lambda/2}]$ exactly); one sequential block
+$(\e^{\lambda/2},\e^\lambda]$; and singletons above $\e^\lambda$, of cost $0$.
+Every class is decided at its top prime, and $\mathfrak L\leq1/2$ by
+Lemma~\ref{lem:kmoments}(4), so Theorem~\ref{thm:wseq} applies.  The base
+costs $O_B(1)$ (Lemma~\ref{lem:QR}(2)).  The singletons below
+$\e^{s_1}$ cost $\leq\frac83K'(1+B)^3\lambda^{3/4}$ in total
+\cite[Prop.~4.1]{TW}, and the top block costs $2\log(1+3\e^{-\lambda/4})$
+\cite[Lemma~4.2, Cor.~4.3]{TW}: there each term of $\nu$ sees at most one
+prime.  For $V_i$ put $s=2^is_1$ and $d_i=\lfloor\lambda/s\rfloor\geq\lambda/(2s)$.
+Corollary~\ref{cor:kmean} with $\bar m=\E[m\mid h]$ for each $h$, then
+Jensen over $h$ (the map $m\mapsto\log(C_0(m+4d)/d)$ is concave), give
+\[
+ \E_{Q'}\Phi_i\leq d_i\log\frac{C_0(\E m_{V_i}+4d_i)}{d_i}+\frac43d_i+\frac12\log(22d_i+22)+3.
+\]
+By Lemma~\ref{lem:kmoments}(2), $\E m_{V_i}\leq K_1s^3$ with
+$K_1=8(1+B)^3K$, so $(\E m_{V_i}+4d_i)/d_i\leq2K_1s^4/\lambda+4=2K_1\cdot16^i+4$.
+Hence $\E\Phi_i\leq2^{-i}\lambda^{3/4}(c_1(B)+4i\log2)+O(\log\lambda)$, and
+$2\sum_i\E\Phi_i\leq2\lambda^{3/4}\sum_i2^{-i}(c_1(B)+2.78\,i)+O(\log^2\lambda)\ll_B\lambda^{3/4}$.
+\end{proof}
+Theorem~\ref{thm:karycap} has no family hypothesis beyond $B$: no gap,
+no window resolution, no bound on the number of prime factors, and no
+hypothesis on heavy coordinates.  It removes the residual of
+Theorem~\ref{thm:resolved}, and it makes Conjecture~\ref{conj:kary},
+the hypothesis K2 and the extra $\log\lambda$ of
+Proposition~\ref{prop:twinconditional} unnecessary for the $3/4$
+question \cite[\S4.3]{KA}.  The constants $W_0(B)$, $\lambda_0(B)$ and
+$C(B)$ are not tracked.
+
+\subsection{The main theorem}
+\begin{theorem}[the $3/4$ cap for CRT-majorant architectures; \lab{proved}; for Case-A classes \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:main}
+Fix $A\geq1$.  Let $\cF$ be a family of forced classes such that either
+\begin{enumerate}
+\item[(i)] for some fixed $0<C<1$, every modulus has a dominant prime
+  $P(M)\geq M^{1/(1+C)}$ (Case-B and Case-A classes;
+  Corollary~\ref{cor:dominant}); or
+\item[(ii)] for some fixed $B\geq0$, $\cF$ consists of $\cR(M)$-classes with
+  $M\leq P(M)^{1+B}$, of any shape, together with any $\cR(M)$-classes of
+  $W_0(B)$-smooth modulus (Theorem~\ref{thm:karycap}).
+\end{enumerate}
+Then every CRT-majorant architecture (Definition~\ref{def:arch}) for
+$\cF$, with the admissible set of Corollary~\ref{cor:dominant} in case (i)
+and the quadratic-residue base $R_{W_0(B)}$ in case (ii), saves at most
+\[
+ \log\frac1{\E\nu}\ll(\log N)^{3/4},
+\]
+with implied constant depending on $A,C$ in case (i) and on $A,B$ in case
+(ii).  In particular no such architecture gives
+$E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with $\omega(N)\to\infty$,
+e.g.\ $\omega=(\log\log N)^\epsilon$.
+\end{theorem}
+\begin{proof}
+Corollary~\ref{cor:budgetlevel}, applied with Corollary~\ref{cor:dominant}
+for $A+2$ in place of $A$ in case (i), and with
+Theorem~\ref{thm:karycap} at $\lambda=(A+2)\log N\geq\lambda_0(B)$ in case
+(ii).  In both cases the $R$-term is bounded.
+\end{proof}
+Case (ii) contains the gapped families of Theorem~\ref{thm:gapped} and the
+window-resolved families of Theorem~\ref{thm:resolved} (with an
+$\eta$-free constant), and the twin moduli of
+Lemma~\ref{lem:balancedsupply}.  For $\cR(M)$-classes it also contains
+case (i) with $B=C$.  The two cases are not combined: a family mixing
+$(a,D)$- or Case-A classes without a dominant prime with
+$\cR(M)$-classes is not covered, because Lemma~\ref{lem:mordell}, and
+hence the base $R_W$, is proved for $\cR(M)$ only
+(Section~\ref{sec:excluded}).  For the prime-slice families of
+Corollary~\ref{cor:sliceCap} the statement is the same with the selector
+term $\log(P/\varphi(P))$ added; for the large sieve over slice systems
+the level hypothesis $\lambda\leq A\log N$ is used directly
+(Remark~\ref{rem:LS}).
 
 \section{The campaign sieves lie in the class}\label{sec:campaign}
 
@@ -1160,82 +1556,6 @@ note is sharp for its architecture}
 Vaughan's argument and that of Pomerance--Weingartner~\cite{PW} are the
 case $\mathcal K=\{1\}$, giving $(\log N)^{2/3}$.  For the $3/4$ note,
 $h\asymp\kappa t$ and the same computation gives $\lambda^{3/4}$.
-
-\section{What the theorems exclude}\label{sec:excluded}
-
-The following list is checked against the proofs of
-Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped} and
-Lemma~\ref{lem:budget} \cite[\S6.1]{ET}.  Anything below lies outside the
-caps of Section~\ref{sec:cap}.
-\begin{enumerate}
-\item \emph{Majorants not $\geq0$ on all of $\Z$.}  See
-  Remark~\ref{rem:positivity}.
-\item \emph{Signed rounding.}  Any bound exploiting cancellation in
-  $\sum_{n\leq N}\nu(n)-N\E\nu$, or any rounding bound smaller than
-  $\sum_i|a_i|$, for example one that uses which classes meet $[1,N]$.
-\item \emph{Non-CRT inputs.}  The theorems see only the CRT law of
-  residues.  Type~I/II sums, the arithmetic of $(p+a)/4$, Hal\'asz-type
-  arguments, and majorants that are $\geq1$ only on exceptional
-  \emph{primes} and use prime equidistribution beyond the selector
-  coordinates are outside.  The theorems require $\nu\geq1$ on the whole
-  avoider set.
-\item \emph{Balanced and twin moduli.}  Corollary~\ref{cor:dominant} needs
-  every modulus to have $P(M)\geq M^{1/(1+C)}$ with $C<1$ fixed;
-  Theorem~\ref{thm:gapped} extends this to $(\eta,B)$-gapped $\cR(M)$-moduli
-  with $B$ fixed, and Theorem~\ref{thm:resolved} to window-resolved
-  families.  Excluded are: families containing unresolved $\eta$-twin
-  moduli with top prime in $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$; gapped
-  moduli with $\log M/\log P(M)$ unbounded; and $(a,D)$- and Case-A
-  moduli without a dominant prime.  For Selberg-type majorants,
-  Theorem~\ref{thm:twoprimecap} covers twin $\cR(M)$-moduli with at most
-  two prime factors above $(\log X)^8$ and $M\leq P(M)^{1+B}$, $B$ fixed,
-  at level $O(\log X)$.  This part is not small
-  (Lemma~\ref{lem:balancedsupply}).
-\item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
-  uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
-  handles the $w_0$-smooth part only because $w_0=O_C(1)$, and
-  Theorem~\ref{thm:gapped} because $W=W_0(B)$.
-\item \emph{Level and size.}  Families with slice primes beyond $N^{O(1)}$
-  are formally outside, since Lemma~\ref{lem:budget} needs $\Lambda_0$.
-\item \emph{Large multipliers.}  In the prime-slice setting the small part
-  $q_0$ of a modulus is free, but Corollary~\ref{cor:sliceCap} needs
-  $q_0\leq\ell^C$.  Conditions with $q_0\gg\ell$, used without paying their
-  lcm in level, are not covered; no lower bound on that cost is proved
-  \cite[\S5.6(b)]{ET}.
-\item \emph{Large sieve.}  Only Montgomery's large sieve over a slice
-  system, fibre by fibre, is covered.
-\end{enumerate}
-
-\begin{lemma}[balanced moduli carry cubic supply; {\cite[Lemma~3.8]{ET}}; \lab{proved}]\label{lem:balancedsupply}
-There are $c>0$ and $x_0$ such that for $x\geq x_0$,
-\[
- \sum_{M\leq x,\ M\equiv3\ (4),\ P(M)\leq M^{1/2}}\frac{|\cR(M)|}M\geq c(\log x)^3.
-\]
-More precisely, for each fixed $\eta\in(0,1/480]$, the moduli $M=k\ell_1\ell_2$
-with primes $\ell_1\in(Y,Y^{1+\eta/2}]$, $\ell_2\in(Y^{1+\eta/2},Y^{1+\eta}]$, odd
-$k\in(Y^{2\eta},Y^{3\eta}]$ and $Y=x^{1/(2+4.5\eta)}$ already contribute
-$\geq c(\eta)(\log x)^3$; these are same-scale pairs,
-$\log\ell_2/\log\ell_1\leq1+\eta$.
-\end{lemma}
-\begin{proof}[Proof sketch]
-Each such $M$ is $\leq x$ and balanced, and determines $(k,\ell_1,\ell_2)$.
-For coprime $u,v\leq z=Y^{1/8}$ with $(uv,k)=1$ and $4uv\mid M+1$, the class
-$-uv^{-1}\pmod M$ lies in $\cR(M)$, and distinct $(u,v)$ give distinct
-classes modulo $\ell_2$.  The $\ell_2$-sum over the progression
-$-(k\ell_1)^{-1}\pmod{4uv}$ is evaluated by partial summation, with the
-error terms controlled on average by Cauchy--Schwarz against
-Brun--Titchmarsh and the Bombieri--Vinogradov theorem
-\cite[Ch.~28]{Davenport}.  The $(u,v)$-sum is bounded below by the
-lattice lemma of \cite[Lemma~3.1]{LL}, which needs $\eta\leq1/480$.  The
-$k$- and $\ell_1$-sums give $\gg\eta\log Y$ and $\gg\eta$.  Full details are
-in \cite[\S3.8]{ET}, checked in \cite[item~4]{ETrev}.
-\end{proof}
-The share of the weighted Case-B mass carried by balanced moduli is
-$0.098$, $0.121$, $0.141$, $0.157$ and $0.171$ at $x=10^3,\dots,10^7$,
-still growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
-show that every window partition loses: singleton windows have no
-internal pairs.  So the exclusion of twin moduli is not cosmetic, but
-whether they can actually beat the Rankin functional is open.
 
 \section{Selberg-type majorants}\label{sec:selberg}
 
@@ -1424,18 +1744,31 @@ Theorems~\ref{thm:twoprime} and~\ref{thm:HO}.
 \end{proof}
 
 \emph{Scope.}  This is a statement about Selberg-type majorants $g^2$
-only; for general majorants with twin moduli the residual of
-Theorem~\ref{thm:resolved} remains open (Section~\ref{sec:open}).  It
-needs at most two prime factors above $(\log X)^8$; moduli with three or
-more such primes are open.  The restriction $M\leq P(M)^{1+B}$ with $B$
-fixed is genuine: for fixed $B$, twins $k\ell_1\ell_2$ with a $w_2$-smooth
-cofactor $k>M^{(B-1)/(B+1)}$ are excluded.  The bound is stated in
-$L=\log X$, with moduli $\leq X$ and level $\lambda\leq A_0L$.  The level hypothesis
-$\lambda\leq A_0L$ is assumed directly: the coarsening of
-Lemma~\ref{lem:budget} does not preserve the square form $g^2$, so the
-reduction from a coefficient budget to a level (Corollary~\ref{cor:budgetlevel})
-is not available here as stated (observation of this note, not from
-\cite{TW2,TW3}).
+only.  It needs at most two prime factors above $(\log X)^8$; the
+extension to any fixed number is Theorem~\ref{thm:rprime} below.  The
+restriction $M\leq P(M)^{1+B}$ with $B$ fixed excludes, for fixed $B$,
+twins $k\ell_1\ell_2$ with a $w_2$-smooth cofactor $k>M^{(B-1)/(B+1)}$; for
+a fixed number of large primes it is removed by Theorem~\ref{thm:noB}.
+The bound is stated in $L=\log X$, with moduli $\leq X$ and level
+$\lambda\leq A_0L$.  The level hypothesis $\lambda\leq A_0L$ is assumed
+directly: the coarsening of Lemma~\ref{lem:budget} does not preserve the
+square form $g^2$, so the reduction from a coefficient budget to a level
+(Corollary~\ref{cor:budgetlevel}) is not available here as stated
+(observation of this note, not from \cite{TW2,TW3}).
+
+\begin{remark}[relation to the main theorem]\label{rem:L2vsmain}
+A $\Lambda^2$-majorant $g^2$ with $g\in V_{\lambda/2}$ and $g\geq1$ on the
+avoiders of a family is a nonnegative majorant of level $\lambda$, and it
+is $\geq1$ on the avoiders that lie in $R_W$.  So for families with
+$M\leq P(M)^{1+B}$, $B$ fixed, Theorem~\ref{thm:karycap} applies to $g^2$
+directly and gives $\log(1/\E g^2)\ll_B\lambda^{3/4}$ for $\lambda\geq\lambda_0(B)$,
+with any number of large prime factors and no power of $\log L$.  Under
+the $B$-hypothesis, Theorems~\ref{thm:twoprimecap} and~\ref{thm:rprime}
+are therefore superseded as caps \cite[\S11]{TW4}.  What the
+$\Lambda^2$ route still gives beyond Theorem~\ref{thm:karycap} is the
+removal of $B$ for a fixed number of large primes
+(Theorem~\ref{thm:noB}), and the noise-stability tools themselves.
+\end{remark}
 
 \begin{remark}[what was bypassed]\label{rem:bypass}
 The route of \cite{TW2} split the off-diagonal term into a same-label part
@@ -1449,18 +1782,408 @@ $\alpha^{-3}$ is used only by the small part, so this route does not
 lower the exponent $3/4$.
 \end{remark}
 
+\subsection{Any fixed number of large primes, and removing \texorpdfstring{$B$}{B}}
+The results of this subsection are from \cite{TW4}; the review
+\cite{TW4rev} (two rounds) found them sound after nits and one minor
+repair (G1), all applied.  Their new arithmetic input is an upper-bound
+sieve for the \emph{whole} partner of a modulus, from the arithmetic large
+sieve, in place of Brun--Titchmarsh for a prime partner.
+
+\begin{lemma}[rough-partner Brun--Titchmarsh; {\cite[Lemma~2.3]{TW4}}; \lab{proved}]\label{lem:roughBT}
+Let $s\geq1$, $w\geq2$, $q\geq1$, $(b,q)=1$ and $x\geq q\,2^{s+1}$.  Let
+$\mathcal R_s(w)$ be the set of integers all of whose prime factors exceed
+$w$ and with $\Omega(R)\leq s$.  Put $Y=x/q$, $Z=Y^{1/(s+1)}$ and
+$H=\sum_{w<p\leq Z}1/(p-1)$ ($H=0$ if $Z\leq w$).  Then
+\[
+ \sum_{\substack{R\in\mathcal R_s(w),\ x<R\leq2x\\ R\equiv b\ (q)}}\frac1R
+ \leq\frac{3(s+1)(1+H+\dots+H^{s-1})}{\varphi(q)\log Y}.
+\]
+\end{lemma}
+\begin{proof}
+Write $R=dn$, $d$ the part of $R$ at primes $\leq Z$.  If $d=R$ then
+$R\leq Z^s<x$; so $\Omega(d)\leq s-1$, $d\leq Z^{s-1}$, $(d,q)=1$, and $n>1$
+has all prime factors $>Z$, with $n\equiv b\bar d\pmod q$ and
+$n\in(x/d,2x/d]$.  Fix $d$ and write $n=n_0+qk$.  The admissible $k$ lie in
+an interval of at most $x/(dq)+1$ consecutive integers and avoid one class
+modulo each prime $p\leq Z$, $p\nmid q$.  The arithmetic large sieve
+\cite{MV} (in the form $|\mathcal N|\leq(N+Q^2)/J$) with $Q=Z$, and
+$J\geq(\varphi(q)/q)\log Z$ by \cite{vLR}, give
+$\#\{n\}\leq(x/(dq)+1+Z^2)/((\varphi(q)/q)\log Z)\leq3x/(d\varphi(q)\log Z)$,
+since $x/(dq)\geq Z^2$ and $x/(dq)\geq1$.  Each $R$ has $1/R<1/x$.  Sum over
+$d$: $\sum_d1/d\leq\sum_{i<s}H^i$, and $\log Z=\log Y/(s+1)$.
+\end{proof}
+For $s=1$ this is Brun--Titchmarsh up to the constant.  Neither the
+primality of the partner nor its splitting is used.  In the proof of
+Theorem~\ref{thm:rprime} below it takes the place of the
+Brun--Titchmarsh step used in Theorem~\ref{thm:HO}, and it closes the ternary residual left open in \cite[\S6.3]{TW3}: there the
+partner $R=\ell_a\ell_b$ with $\ell_b<w_2q$ is itself rough to level
+$(R/q)/w_2$, so only an \emph{upper} bound for rough integers in one
+progression of length $R/q$ is needed, not an asymptotic of
+Bombieri--Friedlander--Iwaniec type \cite[\S2]{TW4}.
+
+\begin{theorem}[$r$-prime $\Lambda^2$ cap; {\cite[Thm~7.1]{TW4}}; \lab{proved}]\label{thm:rprime}
+Fix $r\geq2$, $B\geq0$ and $A_0\geq1$.  Let the family consist of classes
+of $\cR(M)$ with $M\leq X$, $M\leq P(M)^{1+B}$, and at most $r$ distinct
+prime factors of $M$ above $w_2=(\log X)^8$.  Then every $g\in V_{\lambda/2}$,
+$\lambda\leq A_0\log X$, with $g\geq1$ on the avoiders of the family satisfies
+\[
+ \log\frac1{\E g^2}\ll_{A_0,B,r}L^{3/4}(\log L)^{3r+O(1)}.
+\]
+\end{theorem}
+\begin{proof}[Proof sketch]
+The noise-stability input is the any-arity bound with codegree terms and
+free codegree quarantine of \cite[Lemmas~6.1, 6.2]{TW3}; it reduces the
+saving to star sums \cite[Prop.~3.1]{TW4}.  The fibre law of
+\cite[\S3]{TW2} extends with threshold $\delta_r$ \cite[Lemma~4.1]{TW4}.
+Whole-event and unary terms are bounded by Shiu along the top prime
+($\ll\alpha^{-3}(\log L)^{r+O(1)}$), prime-power classes cost $o(1)$, small
+partners are paid through $\min(x,1)^2\leq x$, and large partners through
+a largest-variable reduction with Lemma~\ref{lem:roughBT} and box counting
+modulo squarefree $Q$, $\ll(\log L)^{3r+O(1)}$
+\cite[\S\S5--6]{TW4}.
+\end{proof}
+
+The $r$-dependence is explicit \cite[Prop.~9.1]{TW4} \lab{proved}: every
+implied constant is $\leq(C_B\log L)^{Cr}$, so for $r\leq\epsilon\log L/\log\log L$,
+$\epsilon\leq\epsilon_0$, the cap is $\ll_{A_0,B}L^{3/4+C\epsilon}$.  At the other end,
+classes with at least $330\log L$ prime factors above $w_2$, with no
+$B$-hypothesis, can be added to any such family at cost $o(1)$, provided
+the fibre law also conditions on a low-mass event \cite[Lemma~9.2,
+Cor.~9.3]{TW4} \lab{proved}.
+
+\begin{theorem}[no $B$-hypothesis for fixed $r$; {\cite[Thm~10.4]{TW4}}; \lab{proved}]\label{thm:noB}
+Fix $r\geq2$ and $A_0\geq1$.  For families of $\cR(M)$-classes with $M\leq X$
+and at most $r$ distinct prime factors above $(\log X)^8$, with no
+condition relating $M$ to $P(M)$, every $g\in V_{\lambda/2}$,
+$\lambda\leq A_0\log X$, with $g\geq1$ on the avoiders satisfies
+\[
+ \log\frac1{\E g^2}\ll_{A_0,r}L^{3/4}(\log L)^{O_r(1)}.
+\]
+The same holds if the family also contains arbitrary $\cR(M)$-classes
+with at least $330\log L$ prime factors above $(\log X)^8$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Write $M=kM_L$ with $k$ the $w_2$-smooth part.  The classes split into
+\emph{smooth-dominated} ($k>M_L^2$), \emph{high-power} (not
+smooth-dominated, $\ell^{12}\mid M$ for some $\ell>w_2$), and the rest,
+which satisfy $M\leq P(M)^{33r}$ and are handled by
+Theorem~\ref{thm:rprime} with $B=33r-1$.  For the smooth-dominated
+classes, Cauchy--Schwarz, Rankin's trick on the smooth $k$ and Shiu's
+theorem along $k$ (the modulus $M_L$ is now short) give a
+polylogarithmic \emph{unweighted} first moment \cite[Lemmas~10.1,
+10.2]{TW4}; the high-power classes have first moment $\ll L^{-3}$.  The
+fibre law survives without $B$ \cite[Lemma~10.3]{TW4}.
+\end{proof}
+The middle range $\epsilon\log L/\log\log L<r<330\log L$ is not covered,
+and it carries most of the $\alpha^{-3}$-weighted mass: there the method
+needs a hub count and an off-diagonal pair-sum bound that are efficient
+per prime \cite[\S\S9.3, 12]{TW4} \lab{open}.
+
+\section{Beyond CRT evaluation: rounding, primes and moments}\label{sec:noncrt}
+
+The caps above concern bounds of the shape $N\E\nu+\sum_i|a_i|$ for
+majorants $\geq0$ on $\Z$ and $\geq1$ on the whole avoider set.  This section
+treats three natural ways out: signed rounding, majorants that are
+positive only at primes, and moment methods.  Everything here is from
+\cite{NC}, for the \emph{finite prime-slice} families of
+Corollary~\ref{cor:sliceCap} only (not the sequential or balanced
+settings of Sections~\ref{sec:gapped}--\ref{sec:main}); the review
+\cite{NCrev} (two rounds) found it sound after repairs, which narrowed
+the scope statements reproduced below, and led to the withdrawal of one
+conjecture.
+
+\subsection{Per-frequency rounding}
+For a majorant $\nu$ with common period $Q_{\rm tot}$ put
+$\hat\nu(\theta)=\E_n\nu(n)\e(-n\theta)$ for $\theta\in Q_{\rm tot}^{-1}\Z/\Z$, so
+$\hat\nu(0)=\E\nu$ and, exactly,
+\begin{equation}\label{eq:signed}
+ \sum_{n\leq N}\nu(n)-N\E\nu=\sum_{\theta\neq0}\hat\nu(\theta)S_N(\theta),\qquad
+ S_N(\theta)=\sum_{n\leq N}\e(n\theta).
+\end{equation}
+A \emph{per-frequency rounding bound} is
+$R_w(\nu)=\sum_{\theta\neq0}|\hat\nu(\theta)|w(\theta)$ with a weight $w\geq1$.
+Every class indicator has $\sum_\theta|\hat{\ind}(\theta)|=1$, so
+$R_1(\nu)\leq\sum_i|a_i|$, and $R_1$ can be much smaller.  The weight
+$w(\theta)=\min(N,1/(2\|\theta\|))$ makes $R_w$ a valid bound for
+\eqref{eq:signed}, and complete Gauss, Kloosterman, Ramanujan or
+divisor-exponential sums over the classes sharing one frequency are
+already inside $|\hat\nu(\theta)|$.
+
+For independent $x_i\sim\Bern(p_i)$ write $y_i=x_i-p_i$; every $f$ on
+$\{0,1\}^I$ has a unique biased Walsh expansion $f=\sum_Sd_Sy^S$, $d_\emptyset=\E f$.
+
+\begin{proposition}[Boolean sieve limit at arbitrary level; {\cite[Prop.~2.1]{NC}}; \lab{proved}]\label{prop:highlevel}
+In the setting of Proposition~\ref{prop:boolean}, assume $p_i\leq1/4$ for
+all $i$, and let $f\geq0$ with $f(0)\geq1$ be of \emph{any} level.  Put
+$r_0=\sum_{s(S)>\lambda}|d_S|\prod_{i\in S}p_i$ and
+$r_1=\sum_{s(S)>\lambda}|d_S|\prod_{i\in S}2p_i(1-p_i)$, $s(S)=\sum_{i\in S}s_i$.
+Then $\E f\geq(1-r_0)\e^{-\Phi}-2r_1$, with $\Phi$ the right side of
+\eqref{eq:boolean}.
+\end{proposition}
+\begin{proof}[Proof sketch]
+Split $f=f_{\rm lo}+f_{\rm hi}$ at level $\lambda$.  Then $\E f=\E f_{\rm lo}$,
+$f_{\rm lo}(0)\geq1-r_0$, $\E|f_{\rm hi}|\leq r_1$, and $f_{\rm lo}\geq-h$ with
+$h=\E[|f_{\rm hi}|\mid x_{\{s_i\leq\lambda\}}]$.  Run the proof of
+Proposition~\ref{prop:boolean} on $f_{\rm lo}$, carrying $h$: at the
+interpolation step write $LQ\leq|L|(Q+H)+|L|H$ with $Q+H\geq0$.
+\end{proof}
+
+\begin{lemma}[Walsh coefficients versus Fourier mass; {\cite[Lemma~2.2]{NC}}; \lab{proved}]\label{lem:walshfourier}
+Take a prime-slice system with $\cP$ finite and a majorant $\nu$ (any
+moduli).  For $c\in R$ let $\nu_c=\sum_Sd_S(c)y^S$ be the conditional
+expectation of $\nu$ given $n\equiv c\pmod{Q_0}$ and the hit indicators.  For
+$S\neq\emptyset$ let $\Theta_S$ be the frequencies
+$a/Q_0+\sum_{\ell\in S}h_\ell/\ell$ with every $h_\ell\not\equiv0\pmod\ell$, and
+$A_S(\nu)=\sum_{\theta\in\Theta_S}|\hat\nu(\theta)|$.  Then
+$|d_S(c)|\prod_{\ell\in S}p_\ell(c)(1-p_\ell(c))\leq A_S(\nu)\prod_{\ell\in S}p_\ell(c)$,
+and $\sum_{S\neq\emptyset}A_S(\nu)\leq R_1(\nu)$.
+\end{lemma}
+\begin{proof}
+$d_S(c)\prod_Sp_\ell(1-p_\ell)=\E[\nu_cy^S]=Q_0\E_n[\nu(n)g(n)]$ with
+$g=\ind[n\equiv c\ (Q_0)]\prod_{\ell\in S}y_\ell(n\bmod\ell)$.  By CRT, $\hat g$ is
+supported on $\Theta_S$ with $|\hat g|\leq Q_0^{-1}\prod_Sp_\ell(c)$; apply
+Parseval.  The sets $\Theta_S$ are pairwise disjoint and avoid $0$.
+\end{proof}
+
+\begin{theorem}[sieve limit with per-frequency rounding; {\cite[Thm~2.3, Cors~2.4, 2.5]{NC}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:perfreq}
+Take a finite prime-slice system with $p_\ell(c)\leq1/4$, weights
+$s_\ell=\log(1/(2p^+_\ell))$, $p^+_\ell=\max_cp_\ell(c)$, and a majorant $\nu$ of
+arbitrary level.  Let $\bar\Phi(\lambda,\alpha)$ be the right side of
+\eqref{eq:slice} minus $\log(Q_0/|R|)$, computed with these weights and
+$s_*=\log2$.  Then
+\[
+ \E\nu\geq\frac{|R|}{Q_0}\bigl[(1-\varepsilon)\e^{-\bar\Phi(\lambda,\alpha)}-2\varepsilon\bigr],\qquad
+ \varepsilon=\sum_{s(S)>\lambda}A_S(\nu)\e^{-s(S)}\leq\e^{-\lambda}R_1(\nu).
+\]
+Consequently, for the families of Corollary~\ref{cor:sliceCap}, every
+bound $\#(\A\cap[1,N])\leq N\E\nu+R_w(\nu)$ with $w\geq1$ has saving at most
+$C(\log N)^{3/4}+\log(P/\varphi(P))$, with no bound on the size of the
+slice primes.
+\end{theorem}
+\begin{proof}[Proof sketch]
+In each fibre apply Proposition~\ref{prop:highlevel}; by
+Lemma~\ref{lem:walshfourier} both tails are at most $\varepsilon$.  Average
+over $c$ as in Theorem~\ref{thm:slice}.  If the bound equals $N\e^{-s}$ then
+$R_1\leq N$, and for $N\geq N_0(C)$ the level $\lambda=2\log(4N)$ gives $\varepsilon\leq\e^{-\bar\Phi}/4$.  For
+the families of Corollary~\ref{cor:sliceCap}, $s_\ell\geq\frac{1-C}2\log\ell$
+for $\ell\geq\ell_0(C)$, so the profile is $\ll\alpha^{-3}$ as there.
+\end{proof}
+Only the Fourier mass above level $\lambda$ enters.  This removes, for
+finite prime-slice families, the proviso ``slice primes $\leq N^{O(1)}$''
+(item~(A3) of Definition~\ref{def:arch}), and it covers the coefficient sum,
+the sawtooth bound in the form $\min(N,1/(2\|\theta\|))$, and complete
+exponential sums over the classes of one frequency.  It does \emph{not}
+cover \cite[\S\S2.3--2.5]{NC}: Erd\H{o}s--Tur\'an/Vaaler rounding with the
+factor $2|\sin\pi N\theta|$, per-class floor/ceiling rounding, the exact
+weight $|S_N(\theta)|$, smooth windows, or Kloosterman/dispersion
+cancellation over the moduli; these have weight $<1$ or cancel between
+frequencies.  For smooth windows, $Q_0=1$ and hit-pattern majorants,
+the cap follows from an equidistribution statement for sums
+$\sum_{\ell\in S}h_\ell/\ell$ near $0$, Conjecture $(H_{\rm eq})$ of
+\cite[(2.6)]{NC} \lab{conditional}; the other cases are \lab{open}.
+
+\subsection{Prime-only majorants}
+A \emph{prime majorant} is $\geq0$ at all primes and $\geq1$ at the primes of
+$\A$; the bound is $\sum_{p\leq N}\nu(p)$.
+
+\begin{theorem}[{\cite[Lemma~3.1, Thms~3.2, 3.3]{NC}}; \lab{proved}]\label{thm:primemaj}
+(1) Assume $|F_\ell(c)\setminus\{0\}|<\ell-1$.  By Dirichlet's theorem, a prime
+majorant is $\geq0$ on every reduced class modulo a common period $L$ and
+$\geq1$ on every reduced class contained in $\A$.  Theorem~\ref{thm:slice}
+and Lemma~\ref{lem:budget} hold for the uniform law on $(\Z/L)^\times$, with
+$\varphi(Q_0)$, $R\cap(\Z/Q_0)^\times$ and $p^*_\ell(c)=|F_\ell(c)\setminus\{0\}|/(\ell-1)$
+in place of $Q_0,R,p_\ell(c)$ (the budget lemma up to a factor
+$\ll\log\lambda$).  For the families of Corollary~\ref{cor:sliceCap} with a
+selector, the cap $C(\log N)^{3/4}+\log(P/\varphi(P))$ at level $A\log N$ is
+unchanged.
+(2) If an integer majorant is $\geq1$ only on $\A\cap\{(n,P(z))=1\}$ with
+$z\leq\e^\lambda$, has level $\leq\lambda$ in the system augmented by the class $0$
+at each $\ell\leq z$ (the primes $\ell<5$ go into the selector), and the
+augmented probabilities are $\leq1/4$, then the
+bound of Theorem~\ref{thm:slice} grows by at most
+$C_4\sum_{\ell\leq z}\ell^{-1-\alpha}+O(\log^2\lambda)$, i.e.\ by
+$O((\log\log N)^2)$ at $\alpha=\lambda^{-1/4}$, $\lambda\asymp\log N$.
+\end{theorem}
+So prime equidistribution at level $N^{O(1)}$ (Siegel--Walfisz,
+Bombieri--Vinogradov, Bombieri--Davenport--Halberstam,
+Elliott--Halberstam, GRH) cannot lift a prime majorant above the cap.
+That such majorants live at level $N^{O(1)}$, and that unconditional prime
+error terms are weaker than the integer count at relative accuracy
+$\e^{-(\log N)^{3/4}}$, is an \emph{Assessment} \cite[Remark~3.4]{NC}, not a
+theorem.
+
+\subsection{Moment methods}
+For a finite witness family $\mathcal W$ of classes put
+$f(n)=\#\{W\in\mathcal W:n\in W\}$.  If $P$ is a real polynomial with $P\geq0$
+on $\Z_{\geq0}$ and $P(0)\geq1$, then $P\circ f$ is a CRT majorant of
+$\{f=0\}$ \cite[Prop.~4.1]{NC} \lab{proved}.  Hence integer moment methods
+of any order, whose moments are evaluated as $N\cdot$(CRT density) plus a
+per-frequency error, are capped by Theorem~\ref{thm:perfreq}; prime moments
+are capped at level $\leq A\log N$ by Theorem~\ref{thm:primemaj}, and beyond
+that level only under the Assessment above.  For slice witness classes
+and $\deg P\leq k$, $\log(1/\E[P\circ f])\leq19k(2+\log^+(C_4\bar\mu/(19k)))+O(\log(\bar\mu+k))+\log(Q_0/|R|)$
+\cite[Prop.~4.2]{NC} \lab{proved}; with witness moduli $\leq N^{O(1)}$,
+$\bar\mu\ll(\log N)^3$ and a degree-$k$
+method saves $O(k\log\log N)$ in the CRT mean, so the second moment gives
+only a power of $\log N$.
+
+\subsection{Direct interval counts}
+What is left of signed rounding is cancellation \emph{between}
+frequencies in \eqref{eq:signed}, i.e.\ a direct count of
+$\sum_{n\leq N}\nu(n)$.  Theorem~\ref{thm:perfreq} turns into a dichotomy
+\cite[Thm~8.1]{NC} \lab{proved}: if $\sum_{n\leq N}\nu(n)\leq N\e^{-s}$ then, for
+every $\lambda$ and $\alpha$, either the Fourier mass above level $\lambda$ satisfies
+$\varepsilon>\e^{-\bar\Phi(\lambda,\alpha)}/4$, or
+$N\E\nu-\sum_{n\leq N}\nu(n)\geq N[(|R|/(4Q_0))\e^{-\bar\Phi}-\e^{-s}]$.  For the
+families of Corollary~\ref{cor:sliceCap} and $s=(\log N)^\theta$, $\theta>3/4$,
+this holds at every level $\lambda\leq c(\log N)^{4\theta/3}$, which is
+$\gg\log N$.  Two facts about $[1,N]$ are proved.  Case-B classes of modulus
+$>M_0:=8\lfloor(N+1)/3\rfloor^2$ contain no $n\leq N$, so for hit-pattern
+majorants they give neither sieving power nor cost \cite[Lemma~8.2,
+Cor.~8.3]{NC}; and the multiplier-one witnesses of all moduli have mean
+$\leq\frac14(1+\log N)^2$ on $[1,N]$ \cite[Prop.~8.4]{NC}.  The moduli in
+$(N,M_0]$ still carry real hit mass $\asymp(\log N)^3$ per integer, a
+constant factor below the CRT value \lab{evidence}; a conjecture of
+\cite{NC} to the contrary was withdrawn after review.  For hit-count
+polynomials of degree $k$ evaluated exactly on $[1,N]$, beating $3/4$ needs
+$k\geq(\log N)^{3/4+o(1)}$, \lab{conditional} on a local-limit hypothesis
+$H_{\rm node}$ for the witness count, which is untested \cite[Prop.~8.6,
+Cor.~8.7]{NC}.  Numerically, for polynomials of degree $\leq10$ in the hit
+count of a prime-modulus subfamily, the exact interval optimum saves less
+than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
+
+\section{What the theorems exclude}\label{sec:excluded}
+
+The following list is checked against the proofs of
+Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped},
+\ref{thm:wseq}, \ref{thm:karycap} and Lemma~\ref{lem:budget}
+\cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}.  Anything below lies
+outside the cap of Theorem~\ref{thm:main}; where another section covers
+part of an item, this is said.
+\begin{enumerate}
+\item \emph{Majorants not $\geq0$ on all of $\Z$.}  See
+  Remark~\ref{rem:positivity}.  Majorants that are $\geq0$ and $\geq1$ only at
+  primes are covered for finite prime-slice families
+  (Theorem~\ref{thm:primemaj}).
+\item \emph{Signed rounding.}  Bounds exploiting cancellation in
+  $\sum_{n\leq N}\nu(n)-N\E\nu$, or rounding bounds smaller than
+  $\sum_i|a_i|$.  For finite prime-slice families, every per-frequency
+  rounding bound with weight $w\geq1$ is covered
+  (Theorem~\ref{thm:perfreq}).  Still outside: weights $<1$
+  (Erd\H{o}s--Tur\'an/Vaaler, floor/ceiling, the exact $|S_N|$, smooth
+  windows), cancellation between frequencies, i.e.\ direct interval
+  counts, and per-frequency rounding in the sequential and balanced
+  settings of Sections~\ref{sec:gapped}--\ref{sec:main}.
+\item \emph{Non-CRT inputs.}  The theorems see only the CRT law of
+  residues.  Covered for finite prime-slice families: prime-only
+  majorants at level $N^{O(1)}$ and CRT-evaluated moment methods
+  (Section~\ref{sec:noncrt}).  Outside: Type~I/II sums, the arithmetic of
+  $(p+a)/4$, Hal\'asz-type arguments, moments counted as tuples of
+  solutions rather than through CRT densities, and prime moments of
+  unbounded order beyond level $A\log N$ (covered only under the
+  Assessment of \cite[Remark~3.4]{NC}).
+\item \emph{Moduli without the $B$-hypothesis, and mixed families.}
+  Theorem~\ref{thm:karycap} covers every $\cR(M)$-family with
+  $M\leq P(M)^{1+B}$, $B$ fixed, twin moduli included; there is no
+  summation over $B$, and the constants $W_0(B),C(B)$ are not tracked.
+  Excluded are: $\cR(M)$-families with $\log M/\log P(M)$ unbounded;
+  $(a,D)$- and Case-A moduli without a dominant prime; and families mixing
+  such classes with $\cR(M)$-classes, since the base $R_W$ rests on
+  Lemma~\ref{lem:mordell}, proved for $\cR(M)$ only.  For Selberg-type
+  majorants at level $O(\log X)$ the $B$-hypothesis is removed for any
+  fixed number of prime factors above $(\log X)^8$
+  (Theorem~\ref{thm:noB}), and moduli with at least $330\log L$ of them
+  cost $o(1)$.  The $\cR(M)$-moduli with large twin parts are not
+  small (Lemma~\ref{lem:balancedsupply}); for fixed $B$ they are now
+  covered.
+\item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
+  uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
+  handles the $w_0$-smooth part only because $w_0=O_C(1)$, and
+  Theorems~\ref{thm:gapped} and~\ref{thm:karycap} because $W=W_0(B)$.
+\item \emph{Level and size.}  Families with slice primes beyond $N^{O(1)}$
+  are formally outside Theorem~\ref{thm:main}, since
+  Lemma~\ref{lem:budget} needs $\Lambda_0$.  For finite prime-slice
+  families Theorem~\ref{thm:perfreq} needs no such bound.
+\item \emph{Large multipliers.}  In the prime-slice setting the small part
+  $q_0$ of a modulus is free, but Corollary~\ref{cor:sliceCap} needs
+  $q_0\leq\ell^C$.  Conditions with $q_0\gg\ell$, used without paying their
+  lcm in level, are not covered; no lower bound on that cost is proved
+  \cite[\S5.6(b)]{ET}.  (Theorem~\ref{thm:karycap} charges every prime
+  above $W$; it allows cofactors up to $P(M)^B$ but does not address this
+  item.)
+\item \emph{Large sieve.}  Only Montgomery's large sieve over a slice
+  system, fibre by fibre, is covered.
+\end{enumerate}
+
+\begin{lemma}[balanced moduli carry cubic supply; {\cite[Lemma~3.8]{ET}}; \lab{proved}]\label{lem:balancedsupply}
+There are $c>0$ and $x_0$ such that for $x\geq x_0$,
+\[
+ \sum_{M\leq x,\ M\equiv3\ (4),\ P(M)\leq M^{1/2}}\frac{|\cR(M)|}M\geq c(\log x)^3.
+\]
+More precisely, for each fixed $\eta\in(0,1/480]$, the moduli $M=k\ell_1\ell_2$
+with primes $\ell_1\in(Y,Y^{1+\eta/2}]$, $\ell_2\in(Y^{1+\eta/2},Y^{1+\eta}]$, odd
+$k\in(Y^{2\eta},Y^{3\eta}]$ and $Y=x^{1/(2+4.5\eta)}$ already contribute
+$\geq c(\eta)(\log x)^3$; these are same-scale pairs,
+$\log\ell_2/\log\ell_1\leq1+\eta$.
+\end{lemma}
+\begin{proof}[Proof sketch]
+Each such $M$ is $\leq x$ and balanced, and determines $(k,\ell_1,\ell_2)$.
+For coprime $u,v\leq z=Y^{1/8}$ with $(uv,k)=1$ and $4uv\mid M+1$, the class
+$-uv^{-1}\pmod M$ lies in $\cR(M)$, and distinct $(u,v)$ give distinct
+classes modulo $\ell_2$.  The $\ell_2$-sum over the progression
+$-(k\ell_1)^{-1}\pmod{4uv}$ is evaluated by partial summation, with the
+error terms controlled on average by Cauchy--Schwarz against
+Brun--Titchmarsh and the Bombieri--Vinogradov theorem
+\cite[Ch.~28]{Davenport}.  The $(u,v)$-sum is bounded below by the
+lattice lemma of \cite[Lemma~3.1]{LL}, which needs $\eta\leq1/480$.  The
+$k$- and $\ell_1$-sums give $\gg\eta\log Y$ and $\gg\eta$.  Full details are
+in \cite[\S3.8]{ET}, checked in \cite[item~4]{ETrev}.
+\end{proof}
+The share of the weighted Case-B mass carried by balanced moduli is
+$0.098$, $0.121$, $0.141$, $0.157$ and $0.171$ at $x=10^3,\dots,10^7$,
+still growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
+show that every window partition loses: singleton windows have no
+internal pairs.  So the twin moduli had to be covered, not discarded.
+For fixed $B$ they cannot beat the cap (Theorem~\ref{thm:karycap})
+\lab{proved}; without the $B$-hypothesis this is open for general
+majorants.
+
 \section{Open problems}\label{sec:open}
 
 A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
-least one of: (i) a joint use of unresolved $\eta$-twin (or other
-balanced) moduli that beats their mass; (ii) multipliers larger than the
-slice primes, used without paying their lcm in level; (iii) a
-non-selector admissible set with a large saving of its own; (iv) a
-non-CRT input, or signed cancellation in the rounding errors
-\cite[\S6]{ET}.  For Selberg-type majorants at level $O(\log X)$, (i) is
-closed for $\cR(M)$-moduli with $M\leq P(M)^{1+B}$, $B$ fixed, and at most
-two prime factors above $(\log X)^8$ (Theorem~\ref{thm:twoprimecap}).  The following statements would close
-(i) and (iii) in general.
+least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}:
+\begin{enumerate}
+\item[(i)] moduli outside Theorem~\ref{thm:main}: $\cR(M)$-moduli with
+  $\log M/\log P(M)$ unbounded, or $(a,D)$- and Case-A moduli without a
+  dominant prime (alone or mixed with $\cR(M)$-classes), used jointly in a
+  way that beats their mass;
+\item[(ii)] multipliers larger than the slice primes, used without paying
+  their lcm in level;
+\item[(iii)] a non-selector admissible set with a large saving of its own;
+\item[(iv)] a non-CRT input outside Section~\ref{sec:noncrt}: rounding
+  with weights $<1$ or cancellation between frequencies (a direct count
+  of $\sum_{n\leq N}\nu(n)$ in one of the two branches of the dichotomy of
+  Section~\ref{sec:noncrt}), counts of high-order correlations of
+  solutions without CRT, or such inputs in the sequential and balanced
+  settings.
+\end{enumerate}
+Unresolved $\eta$-twin moduli, which formed item (i) in the first version
+of this list, are no longer on it for fixed $B$: Theorem~\ref{thm:karycap}
+\lab{proved}.  For Selberg-type majorants at level $O(\log X)$, (i) is
+closed for $\cR(M)$-moduli with a fixed number of prime factors above
+$(\log X)^8$, with or without the $B$-hypothesis
+(Theorems~\ref{thm:rprime} and~\ref{thm:noB}).
+
+\emph{Removing $B$ for general majorants} \lab{open}.  A transfer of the
+smooth-dominated sums of Theorem~\ref{thm:noB} to the block moments of
+Lemma~\ref{lem:kmoments} is sketched in \cite[\S11]{TW4}; it would give
+$\ll\lambda^{3/4}\log\lambda$ for every $\cR(M)$-family.  It is a
+\emph{sketch} only, not checked, and not claimed here.  The base
+(Lemma~\ref{lem:mordell}) and the moment lemmas are also what is missing
+for $(a,D)$- and Case-A classes; Theorem~\ref{thm:kcomp} itself is
+arithmetic-free \cite[\S4.3]{KA}.
+
+The following statement would close (i) and (iii) in general.
 
 \begin{hypothesis}[$H_{\rm MS}$; {\cite[\S5.6]{ET}}; \lab{open}]\label{hyp:MS}
 For every CRT system of forced classes with moduli $\leq\e^\lambda$, every
@@ -1473,7 +2196,7 @@ treated in absolute value, is capped at $(\log N)^{3/4}$
 \lab{conditional}.  $H_{\rm MS}$ is open even for one scale of primes with
 random pair conditions.
 
-For the twin residual, the reduction of \cite[\S6]{TW} isolates an
+For the twin residual, the reduction of \cite[\S6]{TW} isolated an
 arithmetic-free statement.  Let $V$ be a block of primes with costs
 $s_\ell\in(s,(1+\eta)s]$ and $d=\lfloor\lambda/s\rfloor$.
 
@@ -1493,6 +2216,13 @@ Here the \emph{incident weight} of a residue $a$ at $\ell$ is the
 $\nu$-probability that some activated constraint through $(\ell,a)$ is
 completed by the other coordinates.
 
+The statement of Conjecture~\ref{conj:kary} is the \emph{unweighted}
+form.  Its weighted form, for the same law $\sigma$, is
+Theorem~\ref{thm:kcomp} \lab{proved}, and without the incident-weight
+hypothesis the unweighted form is false (Remark~\ref{rem:kweighted}).
+With it, the unweighted form remains \lab{open}, but it is no longer
+needed for the $3/4$ question \cite[\S5]{KA}.
+
 \begin{proposition}[{\cite[Prop.~6.5]{TW}}; \lab{conditional} on Conjecture~\ref{conj:kary} and Hypothesis~K2]\label{prop:twinconditional}
 Assume Conjecture~\ref{conj:kary} for $r=\lfloor(1+B)(1+\eta)\rfloor$ and the
 $k$-ary second-moment hypothesis K2 of \cite[\S6.3]{TW}.  Then for every
@@ -1500,9 +2230,9 @@ fixed $B$, every family of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (twin,
 prime-power top and all other shapes included), plus $W_0$-smooth classes,
 has saving $\ll_B\eta^{-1}\lambda^{3/4}\log\lambda$.
 \end{proposition}
-The extra $\log\lambda$ is the price of the weak form; the evidence for
-Conjecture~\ref{conj:kary} is toy-scale exact linear programmes only
-\lab{evidence}.
+Its conclusion, without the factor $\log\lambda$ and without either
+hypothesis, is Theorem~\ref{thm:karycap}.  Proposition~\ref{prop:twinconditional}
+is kept only to record the route.
 
 For $\Lambda^2$-majorants the core is a sparse noise-stability statement.
 
@@ -1518,22 +2248,25 @@ $\rho$-correlated copy.  Then
 where $P_i(E)$ is the marginal factor of $E$ at $i$.
 \end{conjecture}
 Theorem~\ref{thm:binaryNS} proves a bound of this type for binary systems
-($|S(E)|\leq2$) with the diagonal and one-site terms on the right, and
-Theorem~\ref{thm:twoprimecap} completes the two-prime $\Lambda^2$ cap.
+($|S(E)|\leq2$) with the diagonal and one-site terms on the right; the
+any-arity bound of \cite[Lemmas~6.1, 6.2]{TW3}, with codegree terms and a
+free codegree quarantine, is what Theorem~\ref{thm:rprime} uses.  The
+conjecture itself is \lab{open}.
 
-\emph{Three or more large primes} \lab{open}.  The full forced-class
-family contains moduli with three or more prime factors above
-$(\log X)^8$, and the $\Lambda^2$ cap for them is open.  Partial results
-\cite[\S6]{TW3}, hostile-reviewed in \cite[round~2]{TW3rev}: a
-noise-stability bound of any arity with codegree terms and a free
-codegree quarantine \cite[Lemmas~6.1, 6.2]{TW3} \lab{proved}; and a
-reduction of the general case to arithmetic star sums
-\cite[Prop.~6.3]{TW3} \lab{proved} as an implication.  For ternary
-moduli with $B$ fixed there is only a \emph{sketch} \cite[Prop.~6.4]{TW3}
-of all star sums, conditional on an unwritten any-arity fibre-law step,
-except the residual: vertex stars with $\ell_a\leq\ell_b<w_2q$, where $q$
-is four times the product of the two shorter of $u,v,t$
-\cite[\S6.3]{TW3}.  That residual is \lab{open}.
+\emph{Many large primes in the $\Lambda^2$ route} \lab{open}.  The
+$\Lambda^2$ caps of Section~\ref{sec:selberg} are uniform for
+$r\leq\epsilon\log L/\log\log L$ prime factors above $(\log X)^8$, and the
+moduli with $r\geq330\log L$ are free.  The middle range, which carries most
+of the $\alpha^{-3}$-weighted mass, needs per-prime-efficient bounds for
+the number of vertex hubs and for an off-diagonal pair sum
+\cite[\S12]{TW4}.  Under the $B$-hypothesis this concerns only the
+$\Lambda^2$ method, since Theorem~\ref{thm:karycap} covers every $r$; without
+it, it is part of item (i).
+
+\emph{Non-CRT counts} \lab{open}.  Conjecture $(H_{\rm eq})$ for smooth
+windows and the local-limit hypothesis $H_{\rm node}$ for exact interval
+counts (Section~\ref{sec:noncrt}) are open, as is any treatment of
+non-symmetric hit-pattern majorants on $[1,N]$ \cite[\S8.6]{NC}.
 
 \begin{thebibliography}{99}
 \bibitem[BBMST]{BBMST}
@@ -1565,6 +2298,15 @@ arXiv:1107.1010v6 (cited version).
 \bibitem[H]{Hough}
 R.~Hough, Solution of the minimum modulus problem for covering systems,
 \emph{Ann. of Math.} \textbf{181} (2015).
+\bibitem[KA]{KA}
+\emph{EXCEPTIONAL\_KARY: the $k$-ary comparison inequality}, internal
+working document \texttt{EXCEPTIONAL\_KARY.md}, this repository, 2026.
+\bibitem[KAr]{KArev}
+Hostile review of \cite{KA}, \texttt{reviews/exceptional-kary-review.md},
+this repository, 2026.
+\bibitem[KAr2]{KArev2}
+Second hostile review of \cite{KA}, re-deriving all inputs from \cite{TW},
+\texttt{reviews/exceptional-kary-review-2.md}, this repository, 2026.
 \bibitem[LL]{LL}
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed note,
@@ -1572,9 +2314,19 @@ Erd\H{o}s--Straus exceptional set}, internally reviewed note,
 \bibitem[M]{Montgomery}
 H.~L.~Montgomery, The analytic principle of the large sieve,
 \emph{Bull. Amer. Math. Soc.} \textbf{84} (1978).
+\bibitem[MV]{MV}
+H.~L.~Montgomery and R.~C.~Vaughan, The large sieve, \emph{Mathematika}
+\textbf{20} (1973), 119--134.
 \bibitem[MS]{MS}
 F.~J.~MacWilliams and N.~J.~A.~Sloane, \emph{The Theory of
 Error-Correcting Codes}, North-Holland, 1977, Chapter~10.
+\bibitem[NC]{NC}
+\emph{EXCEPTIONAL\_NONCRT: can a non-CRT input beat $\theta=3/4$?},
+internal working document \texttt{EXCEPTIONAL\_NONCRT.md}, this
+repository, 2026.
+\bibitem[NCr]{NCrev}
+Hostile review of \cite{NC}, rounds 1--2,
+\texttt{reviews/exceptional-noncrt-review.md}, this repository, 2026.
 \bibitem[N]{Notes}
 \emph{Erd\H{o}s--Straus research notebook}, \texttt{notes.md}, this
 repository, \S\S3, 16, 18; internally reviewed working notes, 2026.
@@ -1609,6 +2361,16 @@ this repository, 2026.
 \bibitem[TW3r]{TW3rev}
 Hostile review of \cite{TW3}, rounds 1--2,
 \texttt{reviews/exceptional-twin3-review.md}, this repository, 2026.
+\bibitem[TW4]{TW4}
+\emph{EXCEPTIONAL\_TWIN4: the $\Lambda^2$ cap for moduli with $r$ large
+primes}, internal working document \texttt{EXCEPTIONAL\_TWIN4.md}, this
+repository, 2026.
+\bibitem[TW4r]{TW4rev}
+Hostile review of \cite{TW4}, rounds 1--2,
+\texttt{reviews/exceptional-twin4-review.md}, this repository, 2026.
+\bibitem[vLR]{vLR}
+J.~H.~van Lint and H.-E.~Richert, On primes in arithmetic progressions,
+\emph{Acta Arith.} \textbf{11} (1965), 209--216.
 \bibitem[V]{Vaughan}
 R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), doi:10.1112/S0025579300002886.
