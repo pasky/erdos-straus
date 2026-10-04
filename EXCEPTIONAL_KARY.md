@@ -253,3 +253,61 @@ coordinates (a residue class mod `ℓ^v` at ℓ is a union of single values of
 phantom-sequential path ω in increasing order with `ν = U` and caps
 `δ_ℓ = ℓ^{−1/2}`, `Y_j = y`, and `Φ_j` is the Φ of Theorem 2.5 with
 `t = t_j(h) = d/(E[M|h] + 4d)`. (S_w) is Theorem 2.5.
+
+### 4.2 The phantom step on ℛ(M)-families
+
+Fix `B ≥ 0` and work in ETw §§2–4: QR base `R_W`, prime-power coordinates,
+caps `δ_ℓ = ℓ^{−1/2}`, `Γ(m) = Π_{p|m}γ'(p)` with `γ'(ℓ) = 4/3` for `ℓ > W`.
+A phantom block `V` has its primes in `(e^{s}, e^{2s}]`. A class
+`−4D (mod M)` with `M ≤ P(M)^{1+B}` and top prime in V has at most
+`r := ⌊2(1+B)⌋` primes in V, since each exceeds `e^s ≥ P(M)^{1/2}`.
+
+**Lemma 4.2 (inflation with phantoms; PROVED).**
+1. ETw Lemma 2.2 holds for `Q'` when some blocks are phantom steps.
+2. More generally, fix a phantom block V and impose, for each prime ℓ of
+   V, a residue-class condition `A_ℓ` (mod `ℓ^{e}`) on `c_ℓ` and/or a
+   condition `A'_ℓ` (mod `ℓ^{e'}`) on `y_ℓ`, together with a class condition
+   mod m₀ on the history before V. The probability that all hold is
+   `≤ Γ(m)/m`, where m is the product of m₀ and of `ℓ^{max(e,e')}` over the
+   constrained ℓ.
+
+*Proof.* Chain rule in the processing order. Given the extended past
+(including the `c`'s), `c_ℓ` is uniform and `y_ℓ` has density
+`≤ (1−δ_ℓ)^{−1} ≤ 4/3` (Lemma 2.1(2)). Hence
+`P(c_ℓ ∈ A_ℓ, y_ℓ ∈ A'_ℓ | past) ≤ min(ℓ^{−e}, (4/3)ℓ^{−e'}) ≤ (4/3)ℓ^{−max(e,e')}`.
+The history before V is handled by ETw Lemma 2.2. ∎
+
+**Lemma 4.3 (moments of the phantom masses; PROVED).** For a phantom block
+V with primes in `(e^s, e^{2s}]`, `s ≥ log W`:
+1. `E_{Q'} M_V ≤ 2^{r−1} Σ_{M: P(M)∈V} τ(A_M²)Γ(M)/M ≤ 2^{r−1}K(W,B)·(2(1+B)s)³`,
+   with K the constant of ETw Lemma 2.6.
+2. For every prime `ℓ ∈ V`, `E_{Q'} p̃_ℓ² ≤ 4^{r−1}C(ε,B)(2+B)²ℓ^{−2+ε}`,
+   with `C(ε,B)` as in ETw Lemma 2.4.
+
+*Proof.* Write each class with top ℓ as `M = qℓ^v`. It enters `F̃_ℓ` (a
+class mod `ℓ^v`, of U-mass `ℓ^{−v}`) only if its requirement mod q is met
+by the history and, at each lower prime of q in V, by `c_i` or by `y_i`.
+Bound this indicator by the sum over the `≤ 2^{r−1}` choices
+`π ∈ {c,y}^{(lower primes of q in V)}` of "met using π".
+1. By Lemma 4.2(2), each choice has probability `≤ Γ(q)/q`, and there are
+   `≤ τ(A_M²)` values of D. Sum over M with `P(M) ∈ V`; the partial
+   summation of ETw Lemma 2.6 over `M ≤ e^{2(1+B)s}` gives the bound.
+2. `p̃_ℓ ≤ Σ_v ℓ^{−v}Ñ_{ℓ,v}` with `Ñ` the number of classes active for
+   some choice. `E Ñ²` is a sum over pairs of classes and pairs of choices
+   `(π, π')` (`≤ 4^{r−1}` of them). By Lemma 4.2(2) (at a prime used with
+   different letters by π and π', both `c_i` and `y_i` are constrained) each
+   term is `≤ Γ(lcm(q,q'))/lcm(q,q')`. This is the sum bounded in ETw
+   Lemma 2.4. Lemma 4.0's Minkowski step over v finishes. ∎
+
+**Lemma 4.4 (leak; PROVED).** In the block structure of Theorem 4.5
+below, every class of the family is decided at its top prime, and
+
+    𝔏 ≤ Σ_ℓ E[p_ℓ 1{p_ℓ > δ_ℓ}] ≪_B W^{−1/4},
+
+with `p_ℓ = p̃_ℓ` in phantom blocks and ETw's `p_ℓ` elsewhere. Hence there
+is `W₁(B) ≥ W₀(B)` with `𝔏 ≤ 1/2` for `W ≥ W₁(B)`.
+
+*Proof.* In a phantom block, a class with light top is avoided (Lemma
+2.1(1)), and a heavy top is hit with conditional probability `≤ p̃_ℓ`. In
+the other blocks this is ETw Lemma 2.1′. Markov and Lemma 4.3(2) (resp.
+ETw Lemma 4.0) give `Σ_{ℓ>W} ℓ^{1/2}·O_B(ℓ^{−7/4})`. ∎
