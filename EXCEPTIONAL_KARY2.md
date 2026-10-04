@@ -138,3 +138,76 @@ From here on `Γ(m) = Π_{p | m} γ'(p)`, with `γ'(p) = γ(p)` for `p ≤ W`
 and `γ'(ℓ) = (1−ℓ^{−1/2})^{−1}` for `ℓ > W`. So `Γ(m) ≤ 8·3^{ω(m)}`,
 Γ is submultiplicative, and by the chain rule (ETw Lemma 2.2, with Lemma
 2.3(3) at the base) `Q'(n ≡ b (mod m)) ≤ Γ(m)/m` for every m and b.
+
+## 3. First moments without B
+
+For a class `C = (b mod G)` write `G = G(C)`, `P(C) = P(G)` (largest prime
+factor). For `y ≥ 3` put
+
+    𝔐(y) = Σ_{C ∈ 𝔘, W < P(C) ≤ y} Γ(G)/G,
+
+where 𝔘 is the *universe* of all classes of the three types (each class
+counted once per parametrisation; this only over-counts). EK Lemma 4.2′
+Step 1 bounds the expected (light or not) block mass by this sum:
+`E_{Q'} Σ_{ℓ ∈ V} p_ℓ ≤ 𝔐(max V)`, for every family 𝔊 ⊆ 𝔘 (Step 1 uses
+only the chain rule, now with the square base, and `Γ(q)ℓ^{−v} ≤ Γ(G)/G`
+for `G = qℓ^v`). The three types are bounded separately:
+`𝔐 ≤ 𝔐_R + 𝔐_{aD} + 𝔐_A`.
+
+**Lemma 3.1 (smooth Euler products, Rankin; PROVED, standard).** Let
+`F ≥ 0` be multiplicative with `F(p^e) ≤ H(e+1)^a` for all p, e, and
+`F(p) ≤ κ + H p^{−1/2}` for `p > W`. Let `y ≥ y₀(W)`, `η ∈ {0, 1/log y}`.
+Then
+
+    Σ_{P(m) ≤ y} F(m) m^{−1+η} ≤ C(H,a,κ,W) (log y)^κ,
+
+and for `K ≥ 1`, with `u = log K/log y`,
+
+    Σ_{K < m ≤ 2K, P(m) ≤ y} F(m)/m ≤ C(H,a,κ,W) e^{−u} (log y)^κ.
+
+*Proof.* The sum is `Π_{p≤y}(1 + Σ_{e≥1}F(p^e)p^{−e(1−η)})`. Since
+`p ≤ y`, `p^{eη} ≤ e^e`, so for `p ≥ 3` the terms `e ≥ 2` total
+`≤ C(H,a)p^{−2}`; for `p = 2` the series converges since
+`2^{1−η} ≥ 2e^{−ln2/ln y₀} > 1`. The finitely many `p ≤ W` give a
+constant. For `W < p ≤ y`, the e = 1 term is
+`≤ (κ + Hp^{−1/2})p^{−1+η}`, and `p^η ≤ 1 + (e−1)log p/log y` (convexity
+on `[0,1]`), so `Σ_{p≤y}p^{−1+η} ≤ log log y + (e−1)(log y + 2)/log y + O(1)`
+(Mertens). Hence the product is `≤ C(log y)^κ`. For the second bound,
+`1/m ≤ m^{−1+η}K^{−η}` for `m > K` and `K^{−η} = e^{−u}`. ∎
+
+**Lemma 3.2 (ℛ(M) first moment without B; PROVED).** For `y ≥ y₀(W)`,
+
+    𝔐_R(y) = Σ_{M ≡ 3 (4), P(M) ≤ y} τ(A_M²) Γ(M)/M ≤ K_R(W) (log y)³ (log log y)³.
+
+*Proof.* Put `u₀ = 12 log log y` and `X = y^{u₀}`.
+*Body `M ≤ X`.* Drop `P(M) ≤ y`. EK Lemma 4.2′ Steps 2–3 (Shiu; the
+partial summation needs no B) give `≤ 1.3K₀(W)(log X)³ = 1.3K₀·12³
+(log y)³(log log y)³`.
+*Tail `M > X`.* Split into blocks `(K, 2K]`, `K = 2^t ≥ X/2`, and apply
+Cauchy–Schwarz in each block:
+
+    Σ_{K<M≤2K, P(M)≤y} τ(A²)Γ(M)/M ≤ (Σ_{K<M≤2K, P(M)≤y} Γ(M)²/M)^{1/2} (Σ_{K<M≤2K} τ(A_M²)²/M)^{1/2}.
+
+The first factor is `≤ C e^{−u/2}(log y)^{1/2}` by Lemma 3.1 (`F = Γ²`,
+`F(p) = γ'(p)² ≤ 1 + 5p^{−1/2}` for `p > W ≥ 16`, so κ = 1). For the
+second, `A = (M+1)/4 ≤ K`, so it is `≤ K^{−1}Σ_{A≤K}τ(A²)²`. With
+`g = τ(·²)² ∗ μ ≥ 0` (`g(p^k) = (2k+1)² − (2k−1)² = 8k`),
+`Σ_{A≤x}τ(A²)² ≤ xΣ_{d≤x}g(d)/d ≤ xΠ_{p≤x}(1 + Σ_k 8k p^{−k}) ≤ C x(log 2x)^8`.
+So a block contributes `≤ C e^{−u/2}(log y)^{1/2}(2u log y)^4`
+(`log 2K ≤ 2u log y` as `u ≥ 1`). The function `φ(u) = e^{−u/2}u^4`
+decreases for `u ≥ 8`, and consecutive blocks have u-spacing
+`δ = log 2/log y`, so `Σ_{t} φ(u_t) ≤ φ(u₀ − δ) + δ^{−1}∫_{u₀−δ}^∞ φ`.
+Hence the tail is `≤ C(log y)^{5.5}u₀^4 e^{−u₀/2} = C·12⁴(log log y)^4
+(log y)^{−1/2} ≤ C`. ∎
+
+**Lemma 3.3 ((a,D) first moment; PROVED).** For `y ≥ y₀(W)`,
+
+    𝔐_{aD}(y) ≤ Σ_{a, g : P(ag) ≤ y} 2^{ω(g)} Γ(4ag)/(4ag) ≤ K_{aD}(W) (log y)³.
+
+*Proof.* `Γ(4ag) ≤ γ'(2)Γ(a)Γ(g) = 8Γ(a)Γ(g)` (Γ is submultiplicative).
+So the sum is at most `2·(Σ_{P(a)≤y}Γ(a)/a)(Σ_{P(g)≤y}2^{ω(g)}Γ(g)/g)`.
+Lemma 3.1 with `η = 0` gives `(log y)¹` and `(log y)²` (κ = 1, 2). ∎
+
+No shifted divisor function occurs here: the (a,D)-grouping counts its
+classes by `(a, g)` and a bounded multiplicity, so its mass is a pure
+Euler product. This is why ET Lemma 3.2 already had a clean profile.
