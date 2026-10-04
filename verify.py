@@ -10,6 +10,24 @@ All computations are cheap (seconds). We verify:
       primes except a residue concentrated in the six square classes mod 840,
       and every leftover prime is nevertheless solvable (factorization luck);
   (e) the classical identity families are exactly valid (symbolic spot checks).
+
+Later blocks (f)..(by) follow notes.md sections; see the comment above each.
+Blocks (bz)..(ch) are fast replays of the 2026-10 documents' key checks
+(each raises AssertionError on any violation):
+  (bz) POINTWISE_SIZE: Lemma CT on all solutions, p = 1 (4) <= 1500;
+       window reciprocity Lemma 8.2 / Cor 8.3(a) for p = 1 (8) < 2000;
+  (ca) POINTWISE_OMEGA: Lemma 2.3 algebra (M <= 6000); prime-local
+       reduction Lemma 2.1 and its converse at T = 255, 1023, 4095;
+  (cb) POINTWISE_OMEGA2: Lemmas 1.1, 1.2, 10.1(1) by brute force;
+  (cc) POINTWISE_OMEGA3: Thm 3.2 two-level composition by brute force,
+       with a negative control;
+  (cd) EXCEPTIONAL_THETA: Prop 2.4 symmetrisation identity; reduction LP
+       only if scipy is importable (`uv run --with scipy python verify.py`);
+  (ce) EXCEPTIONAL_BALANCED: Lemma 4.1 (s,r,k) parametrisation; Lemma 2.1;
+  (cf) EXCEPTIONAL_TWIN: Jacobi Lemma 1.1 (M <= 20000); Lemmas 3.1-3.2;
+  (cg) EXCEPTIONAL_TWIN2: Thm 1.4 on random small binary systems;
+  (ch) 3/4-note blind audit: the 16 checks of
+       scripts/es34_blind_audit_checks.py (imported).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -16004,6 +16022,820 @@ def check_by():
 
 print("\n== (by) §77: pointwise hunt (criterion, S_4, quadratic signature, fibres) ==")
 check_by()
+
+
+
+
+# ================================================================= (bz)..(ch)
+# Fast replays of the key machine checks of the 2026-10 documents
+# (POINTWISE_*, EXCEPTIONAL_*, and the 3/4-note blind audit).  Each block is a
+# small deterministic instance of the corresponding scripts/ check, re-implemented
+# here (except (ch), which imports scripts/es34_blind_audit_checks.py).  Every
+# block raises AssertionError on any violation.
+
+def _o9_spf(n):
+    spf = list(range(n + 1))
+    for i in range(2, isqrt(n) + 1):
+        if spf[i] == i:
+            for j in range(i * i, n + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+    return spf
+
+
+def _o9_factor(n, spf):
+    f = {}
+    while n > 1:
+        r = spf[n]
+        f[r] = f.get(r, 0) + 1
+        n //= r
+    return f
+
+
+def _o9_divisors(f):
+    ds = [1]
+    for r, e in f.items():
+        ds = [d * r ** k for d in ds for k in range(e + 1)]
+    return ds
+
+
+# ---------------------------------------------------------------- (bz)
+# POINTWISE_SIZE.md: Lemma CT (character trap), exhaustively over all solutions
+# for p = 1 (4), p <= 1500 (completeness of the enumeration cross-checked by a
+# naive loop for p < 300); window reciprocity Lemma 8.2 and Cor 8.3(a) identity
+# (-p/q) = -(x/q) for all p = 1 (8), p < 2000, and all q = 3 (4), q < 3p.
+
+def check_bz():
+    from time import perf_counter
+    t0 = perf_counter()
+    PMAX, BRUTE = 1500, 300
+    spf = _o9_spf(2000)  # x = (p+q)/4 < p
+
+    def legendre(a, p):
+        return 1 if pow(a % p, (p - 1) // 2, p) == 1 else -1
+
+    def solutions(p):
+        sols = []
+        for x in range(p // 4 + 1, 3 * p // 4 + 1):
+            num, den = 4 * x - p, p * x
+            g = gcd(num, den)
+            n, m = num // g, den // g
+            for d in _o9_divisors({r: 2 * e for r, e in factorint(m).items()}):
+                if d > m or (d + m) % n:
+                    continue
+                e = m * m // d
+                if (e + m) % n:
+                    continue
+                y, z = (d + m) // n, (e + m) // n
+                if y >= x:
+                    sols.append((x, y, z))
+        return sols
+
+    def brute(p):
+        out = set()
+        for x in range(p // 4 + 1, 3 * p // 4 + 1):
+            r = Fraction(4, p) - Fraction(1, x)
+            if r <= 0:
+                continue
+            for y in range(max(x, int(1 / r) + 1), int(2 / r) + 1):
+                s = r - Fraction(1, y)
+                if s > 0 and s.numerator == 1 and s.denominator >= y:
+                    out.add((x, y, s.denominator))
+        return out
+
+    def qnr_factor(n, p):
+        return any(legendre(r, p) == -1 for r in factorint(n))
+
+    nprimes = nsol = n1 = n2 = 0
+    for p in primerange(5, PMAX + 1):
+        if p % 4 != 1:
+            continue
+        nprimes += 1
+        sols = solutions(p)
+        assert sols and len(sols) == len(set(sols)), p
+        if p < BRUTE:
+            assert set(sols) == brute(p), ("CT enumeration incomplete", p)
+        for s in sols:
+            assert Fraction(1, s[0]) + Fraction(1, s[1]) + Fraction(1, s[2]) == Fraction(4, p)
+            nsol += 1
+            pdiv = [w for w in s if w % p == 0]
+            assert len(pdiv) in (1, 2), (p, s)
+            for w in s:
+                if w % p:
+                    assert qnr_factor(w, p), ("CT-a violated", p, s)
+            if len(pdiv) == 1:
+                n1 += 1
+                assert qnr_factor(pdiv[0] // p, p), ("CT-b violated", p, s)
+            else:
+                n2 += 1
+                y1, z1 = pdiv[0] // p, pdiv[1] // p
+                assert y1 % p and z1 % p
+                assert qnr_factor(y1 * z1, p), ("CT-c violated", p, s)
+    assert n1 > 0 and n2 > 0
+
+    # Lemma 8.2 + Cor 8.3(a)
+    npairs = nf1 = 0
+    for p in primerange(17, 2000):
+        if p % 8 != 1:
+            continue
+        for q in range(3, 3 * p, 4):
+            x = (p + q) // 4
+            fx = _o9_factor(x, spf)
+            allqr = True
+            for r in fx:
+                assert gcd(r, q) == 1, ("Lemma 8.2: r | q", p, q, r)
+                lp = legendre(r, p)
+                assert jacobi_symbol(r, q) == lp, ("Lemma 8.2 violated", p, q, r)
+                allqr &= lp == 1
+            assert jacobi_symbol((-p) % q, q) == -jacobi_symbol(x, q), (p, q)
+            if allqr:
+                nf1 += 1
+                assert jacobi_symbol(x, q) == 1 and jacobi_symbol(q - 1, q) == -1
+                assert jacobi_symbol((-p) % q, q) == -1
+            npairs += 1
+    print(f"bz Lemma CT: primes p=1 (4) <= {PMAX}: {nprimes}, solutions {nsol} "
+          f"(Type I {n1}, Type II {n2}), 0 violations; brute completeness p < {BRUTE}")
+    print(f"bz Lemma 8.2: {npairs} (p,q) windows (p=1 (8) < 2000, q=3 (4) < 3p), "
+          f"F1 windows {nf1}, 0 violations; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (bz) POINTWISE_SIZE: Lemma CT (character trap), window reciprocity Lemma 8.2 ==")
+check_bz()
+
+
+# ---------------------------------------------------------------- (ca)
+# POINTWISE_OMEGA.md: Lemma 2.3 algebra (D -> A^2/D preserves m | 4D+1; for
+# D <= A, D = s r^2 gives A = s r k, k >= r, m | r+k) for all M <= 6000; and the
+# prime-local reduction Lemma 2.1 (with its converse) at T = 255, 1023, 4095:
+# random n = 1 (mod Q_y) and CRT-forced survivors, W(n) > T compared directly.
+
+def check_ca():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+
+    # Lemma 2.3 algebra
+    X = 6000
+    spf = _o9_spf(4 * X + 8)
+    cnt = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        Ds = _o9_divisors({r: 2 * e for r, e in _o9_factor(A, spf).items()})
+        for m in range(1, M + 1):
+            if M % m:
+                continue
+            for D in Ds:
+                if (4 * D + 1) % m:
+                    continue
+                cnt += 1
+                assert (4 * (A * A // D) + 1) % m == 0, ("Lemma 2.3 involution", M, m, D)
+                if D <= A:
+                    s = r = 1
+                    for ell, e in _o9_factor(D, spf).items():
+                        if e % 2:
+                            s *= ell
+                        r *= ell ** (e // 2)
+                    assert A % (s * r) == 0, ("Lemma 2.3: sr | A", M, D)
+                    k = A // (s * r)
+                    assert k >= r and (r + k) % m == 0, ("Lemma 2.3 (s,r,k)", M, m, D)
+    assert cnt > 10000
+
+    # Lemma 2.1
+    rows = []
+    for T, nsamp, nforce, seed in ((255, 3000, 1000, 1), (1023, 1000, 300, 2), (4095, 400, 200, 3)):
+        y = isqrt(T)
+        spf = _o9_spf(4 * T + 8)
+        Q = 24
+        for ell in primerange(2, y + 1):
+            e = 1
+            while ell ** (e + 1) <= T:
+                e += 1
+            Q = lcm(Q, ell ** e)
+        R = {}
+        for M in range(3, T + 1, 4):
+            A = (M + 1) // 4
+            R[M] = {(-4 * D) % M for D in
+                    _o9_divisors({r: 2 * e for r, e in _o9_factor(A, spf).items()})}
+        F = {}
+        for ell in primerange(y + 1, T + 1):
+            S = set()
+            for m in range(1, T // ell + 1):
+                M = m * ell
+                if M % 4 != 3:
+                    continue
+                for D in _o9_divisors({r: 2 * e for r, e in
+                                       _o9_factor((M + 1) // 4, spf).items()}):
+                    if (4 * D + 1) % m == 0:
+                        S.add((-4 * D) % ell)
+            F[ell] = S
+
+        def W_gt_T(n):
+            return all(n % M not in R[M] for M in R)
+
+        rng = _random.Random(seed)
+        surv = 0
+        for _ in range(nsamp):
+            n = 1 + Q * rng.randrange(1, 10 ** 30)
+            avoid = all(n % ell not in S for ell, S in F.items())
+            assert avoid == W_gt_T(n), ("Lemma 2.1 (or converse) mismatch", T, n)
+            surv += avoid
+        for _ in range(nforce):
+            n, mod = 1, Q
+            for ell, S in F.items():
+                a = rng.randrange(1, ell)
+                while a in S:
+                    a = rng.randrange(1, ell)
+                n, mod = n + mod * (((a - n) * pow(mod, -1, ell)) % ell), mod * ell
+            assert W_gt_T(n), ("Lemma 2.1: forced survivor has W(n) <= T", T)
+        rows.append((T, len(F), nsamp, surv, nforce))
+    print(f"ca Lemma 2.3: {cnt} (M,m,D) triples, M <= {X}, 0 failures")
+    for T, nF, ns, sv, nf in rows:
+        print(f"ca Lemma 2.1 T={T}: {nF} free primes, {ns} samples ({sv} survivors) + "
+              f"{nf} forced survivors, 0 mismatches")
+    print(f"ca seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ca) POINTWISE_OMEGA: Lemma 2.3 algebra, prime-local reduction Lemma 2.1 ==")
+check_ca()
+
+
+# ---------------------------------------------------------------- (cb)
+# POINTWISE_OMEGA2.md: brute force of the support-truncated minorant.  Random
+# event systems on <= 6 coordinates; for every outcome x and L <= P+1:
+# B_L(x) by definition = closed form R_L(x) (Lemma 1.1), B_L = 0 if 1 <= N <= L,
+# B_L - 4^{L+1} G_{L+1} <= 1[A=0] and |B_L - 1[A=0]| <= 4^{L+1} G_{L+1}
+# (Lemma 1.2), and the same with the private-cover G^cov (Lemma 10.1(1)).
+
+def check_cb():
+    from time import perf_counter
+    import random as _random
+    from math import comb
+    t0 = perf_counter()
+
+    def esym(vals, k):
+        e = [1] + [0] * k
+        for v in vals:
+            for j in range(k, 0, -1):
+                e[j] += e[j - 1] * v
+        return e[k]
+
+    def gcov(A, V, u):
+        tot = 0
+        for P in combinations(V, u):
+            Ps = set(P)
+            for r in range(1, len(A) + 1):
+                for C in combinations(A, r):
+                    sup = [set(e[0]) for e in C]
+                    if not Ps <= set().union(*sup):
+                        continue
+                    ok = True
+                    for i, si in enumerate(sup):
+                        others = set().union(*(sup[:i] + sup[i + 1:]))
+                        if not (si & Ps) - others:
+                            ok = False
+                            break
+                    tot += ok
+        return tot
+
+    rng = _random.Random(1)
+    checked = n_nonvoid = 0
+    TRIALS = 400
+    for _ in range(TRIALS):
+        P = rng.randint(2, 6)
+        sizes = [rng.randint(2, 3) for _ in range(P)]
+        k = rng.randint(1, 3)
+        events = set()
+        for _ in range(rng.randint(1, 12)):
+            supp = tuple(sorted(rng.sample(range(P), rng.randint(1, min(k, P)))))
+            events.add((supp, tuple(rng.randrange(sizes[l]) for l in supp)))
+        events = sorted(events)
+        for x in cartesian_product(*[range(m) for m in sizes]):
+            A = [e for e in events if all(x[l] == v for l, v in zip(*e))]
+            V = set().union(*[set(e[0]) for e in A])
+            N = len(V)
+            a = [sum(1 for e in A if l in e[0]) for l in range(P)]
+            ind = 0 if A else 1
+            n_nonvoid += bool(A)
+            for L in range(0, P + 2):
+                B = 0
+                for r in range(len(A) + 1):
+                    for Fm in combinations(A, r):
+                        if len(set().union(*[set(e[0]) for e in Fm])) <= L:
+                            B += (-1) ** r
+                if A:
+                    R = 0
+                    for w in range(0, min(L, N - 1) + 1):
+                        for W in combinations(sorted(V), w):
+                            if not any(set(e[0]) <= set(W) for e in A):
+                                R += (-1) ** (L - w) * comb(N - w - 1, L - w)
+                    assert R == B, ("O2 Lemma 1.1", events, x, L, B, R)
+                    assert N > L or B == 0, ("O2 Lemma 1.1 vanishing", events, x, L)
+                else:
+                    assert B == 1
+                G = esym(a, L + 1)
+                assert B - 4 ** (L + 1) * G <= ind, ("O2 Lemma 1.2", events, x, L)
+                assert abs(B - ind) <= 4 ** (L + 1) * G, ("O2 Lemma 1.2 abs", events, x, L)
+                Gc = gcov(A, sorted(V), L + 1)
+                assert comb(N, L + 1) <= Gc, ("O2 Lemma 10.1(1)", events, x, L)
+                assert B - 4 ** (L + 1) * Gc <= ind and abs(B - ind) <= 4 ** (L + 1) * Gc
+                checked += 1
+    assert n_nonvoid > 1000
+    print(f"cb O2 Lemmas 1.1, 1.2, 10.1(1): {TRIALS} random systems, {checked} (system, x, L) "
+          f"cases, 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cb) POINTWISE_OMEGA2: support-truncated minorant, Lemmas 1.1-1.2 brute force ==")
+check_cb()
+
+
+# ---------------------------------------------------------------- (cc)
+# POINTWISE_OMEGA3.md Thm 3.2 item 1 (two-level composition) by brute force:
+# random small product spaces, a level-2 family (supports 1-2) and a level-3
+# family (supports 2-3); B_3 = B_{L3} - 4^{L3+1} G_{L3+1} cell-expanded; on each
+# cell the conditioned level-2 system with beta = B_{L2} - 4^{L2+1}G, alpha =
+# B_{L2} + 4^{L2+1}G used for positive / negative coefficients.  Checks
+# B(x) <= F2(x) F3(x) and beta <= F2^{(i)} <= alpha on cells, for every outcome x.
+# Negative control (beta also for negative coefficients) must produce violations.
+
+def check_cc():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+
+    def cunion(cells):
+        d = {}
+        for c in cells:
+            for l, v in c:
+                if d.get(l, v) != v:
+                    return None
+                d[l] = v
+        return frozenset(d.items())
+
+    def supp(c):
+        return frozenset(l for l, _ in c)
+
+    def small_families(events, L):
+        res = [()]
+
+        def rec(start, cur, s):
+            for i in range(start, len(events)):
+                s2 = s | supp(events[i])
+                if len(s2) <= L:
+                    res.append(cur + (events[i],))
+                    rec(i + 1, cur + (events[i],), s2)
+        rec(0, (), frozenset())
+        return res
+
+    def BL_cells(events, L):
+        out = {}
+        for Fm in small_families(events, L):
+            u = cunion(Fm)
+            if u is not None and len(supp(u)) <= L:
+                out[u] = out.get(u, 0) + (-1) ** len(Fm)
+        return {c: v for c, v in out.items() if v}
+
+    def G_cells(events, coords, L1):
+        out = {}
+        by = {l: [e for e in events if l in supp(e)] for l in coords}
+        for P in combinations(coords, L1):
+            for ch in cartesian_product(*[by[l] for l in P]):
+                u = cunion(ch)
+                if u is not None:
+                    out[u] = out.get(u, 0) + 1
+        return out
+
+    def occurs(c, x):
+        return all(x[l] == v for l, v in c)
+
+    def evaluate(fn, x):
+        return sum(v for c, v in fn.items() if occurs(c, x))
+
+    def condition(events, cell):
+        fixed = dict(cell)
+        new = []
+        for e in events:
+            rest, ok = [], True
+            for l, v in e:
+                if l in fixed:
+                    if fixed[l] != v:
+                        ok = False
+                        break
+                else:
+                    rest.append((l, v))
+            if not ok:
+                continue
+            if not rest:
+                return True, None
+            new.append(frozenset(rest))
+        return False, sorted(set(new), key=sorted)
+
+    def trial(rng, neg):
+        k = rng.randint(3, 5)
+        coords = list(range(k))
+        m = {l: rng.randint(2, 3) for l in coords}
+
+        def rand_event(size):
+            return frozenset((l, rng.randrange(m[l])) for l in rng.sample(coords, size))
+        lev2 = sorted({rand_event(rng.choice([1, 2])) for _ in range(rng.randint(0, 4))}, key=sorted)
+        lev3 = sorted({rand_event(rng.choice([2, 3])) for _ in range(rng.randint(1, 4))}, key=sorted)
+        L3, L2 = rng.randint(0, 3), rng.randint(0, 3)
+        B3 = BL_cells(lev3, L3)
+        for c, v in G_cells(lev3, coords, L3 + 1).items():
+            B3[c] = B3.get(c, 0) - 4 ** (L3 + 1) * v
+        B, cellchecks = {}, []
+        for C, ci in B3.items():
+            if ci == 0:
+                continue
+            killed, sys2 = condition(lev2, C)
+            if killed:
+                continue
+            rest = [l for l in coords if l not in supp(C)]
+            sign = 1 if ci > 0 else -1
+            part = dict(BL_cells(sys2, L2))
+            for c, v in G_cells(sys2, rest, L2 + 1).items():
+                part[c] = part.get(c, 0) - (1 if neg else sign) * 4 ** (L2 + 1) * v
+            cellchecks.append((C, sys2, part, sign))
+            for c, v in part.items():
+                u = cunion([c, C])
+                B[u] = B.get(u, 0) + ci * v
+        bad = 0
+        for xs in cartesian_product(*[range(m[l]) for l in coords]):
+            x = dict(zip(coords, xs))
+            F2 = 0 if any(occurs(e, x) for e in lev2) else 1
+            F3 = 0 if any(occurs(e, x) for e in lev3) else 1
+            bad += evaluate(B, x) > F2 * F3
+            if not neg:
+                for C, sys2, part, sign in cellchecks:
+                    if occurs(C, x):
+                        f = 0 if any(occurs(e, x) for e in sys2) else 1
+                        v = evaluate(part, x)
+                        bad += (sign > 0 and v > f) or (sign < 0 and v < f)
+        return bad, len(B)
+
+    ncells = 0
+    for seed in (1, 2, 3):
+        rng = _random.Random(seed)
+        for _ in range(1500):
+            bad, nc = trial(rng, False)
+            assert bad == 0, ("O3 Thm 3.2 composition violated", seed)
+            ncells += nc
+    rng = _random.Random(2)
+    negbad = sum(trial(rng, True)[0] for _ in range(500))
+    assert negbad > 0, "O3 negative control produced no violation: check is vacuous"
+    print(f"cc O3 Thm 3.2: 3 x 1500 random two-level systems, {ncells} composite cells, "
+          f"0 violations; negative control (beta for c_i<0): {negbad} violations (expected)")
+    print(f"cc seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cc) POINTWISE_OMEGA3: two-level composition inequality (Thm 3.2) brute force ==")
+check_cc()
+
+
+# ---------------------------------------------------------------- (cd)
+# EXCEPTIONAL_THETA.md Prop 2.4, Steps 2-3 (thinning + symmetrisation): exact
+# symmetrisation identity avg_{Sym(Z)} u^S = C(K,|S|)/C(z,|S|) (always run), and,
+# if scipy is importable, the reduction LP on 40 random non-exchangeable instances
+# (n <= 7, m <= 3):  W(p,m) = min{E f : f m-local, f >= 0, f(0) >= 1}
+# >= E_w W_ex(|Z(w)|, max p, m) and >= prod(1-p_i).  Without scipy the LP part is
+# skipped with a notice (run `uv run --with scipy python verify.py` to include it).
+
+def check_cd():
+    from time import perf_counter
+    from itertools import permutations
+    from math import comb
+    import random as _random
+    t0 = perf_counter()
+
+    # symmetrisation identity, exact
+    nsym = 0
+    for z in range(1, 6):
+        perms = list(permutations(range(z)))
+        for u in cartesian_product((0, 1), repeat=z):
+            K = sum(u)
+            for s in range(z + 1):
+                for S in combinations(range(z), s):
+                    avg = Fraction(sum(all(u[pi[i]] for i in S) for pi in perms), len(perms))
+                    assert avg == Fraction(comb(K, s), comb(z, s)), ("THETA Step 3", z, u, S)
+                    nsym += 1
+    print(f"cd Prop 2.4 Step 3 symmetrisation identity: {nsym} (z,u,S) cases exact")
+
+    try:
+        import numpy as np
+        from scipy.optimize import linprog
+    except ImportError:
+        print("cd Prop 2.4 reduction LP: SKIPPED (scipy not installed; "
+              "run `uv run --with scipy python verify.py` to include it)")
+        return
+
+    def W_full(p, m):
+        n = len(p)
+        pts = list(cartesian_product((0, 1), repeat=n))
+        probs = np.array([prod(pi if xi else 1 - pi for pi, xi in zip(p, x)) for x in pts])
+        subsets = [S for k in range(m + 1) for S in combinations(range(n), k)]
+        A = np.array([[1.0 if all(x[i] for i in S) else 0.0 for S in subsets] for x in pts])
+        b_ub = np.zeros(len(pts))
+        b_ub[0] = -1.0
+        res = linprog(probs @ A, A_ub=-A, b_ub=b_ub, bounds=[(None, None)] * len(subsets),
+                      method="highs")
+        assert res.status == 0, res.message
+        return res.fun
+
+    def W_ex(z, q, m):
+        if z == 0:
+            return 1.0
+        m = min(m, z)
+        ks = np.arange(z + 1)
+        pmf = np.array([comb(z, k) * q ** k * (1 - q) ** (z - k) for k in ks])
+        V = np.vander(ks.astype(float), m + 1, increasing=True)
+        b_ub = np.zeros(z + 1)
+        b_ub[0] = -1.0
+        res = linprog(pmf @ V, A_ub=-V, b_ub=b_ub, bounds=[(None, None)] * (m + 1), method="highs")
+        assert res.status == 0, res.message
+        return res.fun
+
+    rng = _random.Random(1)
+    worst = float("inf")
+    for _ in range(40):
+        n = rng.choice([4, 5, 6, 7])
+        m = rng.choice([1, 2, 3])
+        p = [rng.uniform(0.02, 0.45) for _ in range(n)]
+        q = max(p)
+        Wf = W_full(p, m)
+        Rr = sum(prod((pi / q) if wi else 1 - pi / q for pi, wi in zip(p, w)) * W_ex(sum(w), q, m)
+                 for w in cartesian_product((0, 1), repeat=n))
+        void = prod(1 - pi for pi in p)
+        assert Wf >= Rr - 1e-9 and Wf >= void - 1e-9, ("THETA Prop 2.4 reduction", n, m, p, Wf, Rr)
+        worst = min(worst, Wf - Rr)
+    print(f"cd Prop 2.4 reduction LP: 40 random instances, W >= reduced and >= void; "
+          f"min(W - reduced) = {worst:.1e}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cd) EXCEPTIONAL_THETA: Prop 2.4 thinning/symmetrisation (reduction LP if scipy) ==")
+check_cd()
+
+
+# ---------------------------------------------------------------- (ce)
+# EXCEPTIONAL_BALANCED.md: Lemma 4.1 (the (s,r,k) parametrisation) exhaustively
+# for every M = q*ell = 3 (4), M <= 6000, ell any prime factor, A = (M+1)/4:
+# {D : D | A^2} = {s r^2 : A = s r k, s squarefree}; gcd(k,q) = gcd(r,q) = 1,
+# ell does not divide k; q | n+4D iff q | nk+r for every n mod q; and
+# -4D = -r k^{-1} (mod ell).  Lemma 2.1 (eta-gapped => (U)) on all M <= 2*10^5,
+# M = 3 (4), for eta in {1/4, 1/2, 1} (w0 = 10, s0 = log w0): P(M) || M, and
+# every prime factor > w0 of M/P(M) lies in a strictly earlier window.
+
+def check_ce():
+    from time import perf_counter
+    t0 = perf_counter()
+    X = 6000
+    npairs = ntrip = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        divA2 = set(_o9_divisors({r: 2 * e for r, e in factorint(A).items()}))
+        trip = []
+        for sr in _o9_divisors(factorint(A)):
+            k = A // sr
+            for r in _o9_divisors(factorint(sr)):
+                s = sr // r
+                if all(e == 1 for e in factorint(s).values()):
+                    trip.append((s, r, k))
+        Ds = [s * r * r for s, r, k in trip]
+        assert len(Ds) == len(set(Ds)) and set(Ds) == divA2, ("BAL Lemma 4.1: D | A^2 iff A = srk", M)
+        for ell in factorint(M):
+            q = M // ell
+            npairs += 1
+            assert 4 * A == q * ell + 1
+            for s, r, k in trip:
+                D = s * r * r
+                assert gcd(k, q) == 1 and gcd(r, q) == 1 and k % ell, ("BAL Lemma 4.1(1)", M, ell, D)
+                for n in range(q):
+                    assert ((n + 4 * D) % q == 0) == ((n * k + r) % q == 0), ("BAL Lemma 4.1(2)", M, ell, D, n)
+                assert (-4 * D) % ell == (-r * pow(k, -1, ell)) % ell, ("BAL Lemma 4.1(3)", M, ell, D)
+                ntrip += 1
+
+    # Lemma 2.1
+    Y = 200_000
+    spf = _o9_spf(Y)
+    w0 = 10
+    s0 = log(w0)
+    ngapped = {}
+    for a, b in ((5, 4), (3, 2), (2, 1)):           # 1 + eta = a/b
+        def window(ell):                           # j with s_j < log ell <= s_{j+1}, s_j = s0 (1+eta)^{j-1}
+            j = 1
+            while log(ell) > s0 * (a / b) ** j:
+                j += 1
+            return j
+        cnt = 0
+        for M in range(3, Y + 1, 4):
+            f = _o9_factor(M, spf)
+            P = max(f)
+            if P <= w0:
+                continue
+            rest = sorted([r for r, e in f.items() for _ in range(e)])
+            rest.remove(P)
+            P2 = max(rest) if rest else 1
+            if P ** b < P2 ** a:                    # gapped: P >= P2^(1+eta), exactly
+                continue
+            cnt += 1
+            assert f[P] == 1, ("BAL Lemma 2.1(1)", M)
+            jP = window(P)
+            for r in set(rest):
+                if r > w0:
+                    assert window(r) < jP, ("BAL Lemma 2.1(2)", M, a, b)
+        ngapped[f"{a}/{b}"] = cnt
+    print(f"ce Lemma 4.1: {npairs} (M, ell) pairs, M <= {X}, {ntrip} (s,r,k) triples, all n mod q: 0 failures")
+    print(f"ce Lemma 2.1: gapped M <= {Y} by 1+eta: {ngapped}; 0 failures; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ce) EXCEPTIONAL_BALANCED: (s,r,k) parametrisation Lemma 4.1, gapped => (U) Lemma 2.1 ==")
+check_ce()
+
+
+# ---------------------------------------------------------------- (cf)
+# EXCEPTIONAL_TWIN.md Lemma 1.1 (Mordell's Jacobi lemma): for every M = 3 (4),
+# M <= 20000, A = (M+1)/4 and every D | A^2: gcd(D, M) = 1 and (-4D | M) = -1.
+# Lemma 3.1 (u-form) and Lemma 3.2 (sign constraint) for every M = q*ell <= 3000,
+# ell a prime factor: with D = s r^2, A = s r k, u = s k^2: 4sk | q*ell+1,
+# -4D = -(4u)^{-1} (mod ell), q | n+4D iff q | 4un+1 (all n mod q), and
+# (n|q)(v|ell) = -1 for v = -4D mod ell whenever q | n+4D, gcd(n, q) = 1.
+
+def check_cf():
+    from time import perf_counter
+    t0 = perf_counter()
+    X = 20000
+    spf = _o9_spf(X)
+    ncls = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        for D in _o9_divisors({r: 2 * e for r, e in _o9_factor(A, spf).items()}):
+            assert gcd(D, M) == 1, ("TWIN Lemma 1.1 gcd", M, D)
+            assert jacobi_symbol((-4 * D) % M, M) == -1, ("TWIN Lemma 1.1 Jacobi", M, D)
+            ncls += 1
+    assert ncls > 100000
+
+    nu = nsign = 0
+    for M in range(3, 3001, 4):
+        A = (M + 1) // 4
+        for sr in _o9_divisors(_o9_factor(A, spf)):
+            k = A // sr
+            for r in _o9_divisors(_o9_factor(sr, spf)):
+                s = sr // r
+                if any(e > 1 for e in _o9_factor(s, spf).values()):
+                    continue
+                D, u = s * r * r, s * k * k
+                for ell in _o9_factor(M, spf):
+                    q = M // ell
+                    assert (q * ell + 1) % (4 * s * k) == 0, ("TWIN Lemma 3.1", M, D)
+                    assert (-4 * D) % ell == (-pow(4 * u, -1, ell)) % ell, ("TWIN Lemma 3.1 value", M, D)
+                    v = (-4 * D) % ell
+                    lv = jacobi_symbol(v, ell)
+                    for n in range(q):
+                        act = (n + 4 * D) % q == 0
+                        assert act == ((4 * u * n + 1) % q == 0), ("TWIN Lemma 3.1 activation", M, D, n)
+                        if act and q > 1 and gcd(n, q) == 1:
+                            assert jacobi_symbol(n, q) * lv == -1, ("TWIN Lemma 3.2 sign", M, ell, D, n)
+                            nsign += 1
+                    nu += 1
+    assert nsign > 1000
+    print(f"cf Lemma 1.1: {ncls} classes -4D mod M (M <= {X}), all Jacobi -1 and gcd(D,M) = 1")
+    print(f"cf Lemmas 3.1-3.2: {nu} (M, ell, D) u-forms (M <= 3000), {nsign} active sign checks, "
+          f"0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cf) EXCEPTIONAL_TWIN: Jacobi Lemma 1.1, u-form Lemma 3.1, sign Lemma 3.2 ==")
+check_cf()
+
+
+# ---------------------------------------------------------------- (cg)
+# EXCEPTIONAL_TWIN2.md Thm 1.4 (binary noise stability) by exact tensor
+# computation on random small binary systems (3-5 coordinates, alphabets
+# 5..13, hub / generic / rho = 1 modes; seeds 1-3 x 400 trials as in the
+# Replay, plus seeds 4-6 x 1000): whenever
+# delta = max_l w_l <= 1/16,  log(Z2/Z1^2) <= (1+25 delta)[sum_e rho rho' pi_e
+# + sum_j rho_j q_j].  Sanity: Z2(rho = 0) = Z1^2.  Non-vacuity: dropping the
+# q-term must be violated on some instance.
+
+def check_cg():
+    from time import perf_counter
+    import numpy as np
+    t0 = perf_counter()
+
+    def run(sizes, edges, nus, rho):
+        k = len(sizes)
+        A = np.ones(sizes)
+        for (l, a, m, c) in edges:
+            idx = [slice(None)] * k
+            idx[l] = a
+            idx[m] = c
+            A[tuple(idx)] = 0.0
+        P = np.ones(sizes)
+        for l in range(k):
+            sh = [1] * k
+            sh[l] = sizes[l]
+            P = P * nus[l].reshape(sh)
+        Z1 = float((A * P).sum())
+
+        def Z2(rh):
+            T = A.copy()
+            for l in range(k):
+                nu = nus[l]
+                Mx = rh[l] * np.diag(nu) + (1 - rh[l]) * np.outer(nu, nu)
+                T = np.moveaxis(np.tensordot(Mx, T, axes=([1], [l])), 0, l)
+            return float((T * A).sum())
+        lhs = np.log(Z2(rho) / Z1 ** 2)
+        assert abs(Z2(np.zeros(k)) / Z1 ** 2 - 1) < 1e-9
+        deg = [np.zeros(s) for s in sizes]
+        w = np.zeros(k)
+        diag = 0.0
+        for (l, a, m, c) in edges:
+            deg[l][a] += nus[m][c]
+            deg[m][c] += nus[l][a]
+            pe = nus[l][a] * nus[m][c]
+            w[l] += pe
+            w[m] += pe
+            diag += rho[l] * rho[m] * pe
+        q = np.array([(nus[l] * deg[l] ** 2).sum() for l in range(k)])
+        return lhs, diag, diag + (rho * q).sum(), w.max()
+
+    n_in = n_diag_viol = 0
+    worst = 0.0
+    for seed, ntr in ((1, 400), (2, 400), (3, 400), (4, 1000), (5, 1000), (6, 1000)):
+        rng = np.random.default_rng(seed)
+        for _ in range(ntr):
+            k = int(rng.integers(3, 6))
+            sizes = [int(s) for s in rng.choice([5, 7, 11, 13], size=k)]
+            if prod(sizes) > 200000:
+                continue
+            nus = [rng.dirichlet(np.ones(s) * rng.choice([0.5, 5.0])) for s in sizes]
+            mode = rng.integers(3)
+            edges = set()
+            for _ in range(int(rng.integers(1, 3 * k + 1))):
+                l, m = rng.choice(k, 2, replace=False)
+                if mode == 0:
+                    l, a = 0, 0
+                    if m == 0:
+                        m = int(rng.integers(1, k))
+                else:
+                    a = rng.integers(sizes[l])
+                c = rng.integers(sizes[m])
+                edges.add((int(l), int(a), int(m), int(c)) if l < m else (int(m), int(c), int(l), int(a)))
+            rho = rng.choice([1.0, 0.5, 0.1], size=k) * rng.random(k)
+            if mode == 2:
+                rho = np.ones(k)
+            lhs, diag, rhs0, wmax = run(sizes, sorted(edges), nus, rho)
+            if wmax <= 1 / 16:
+                n_in += 1
+                bound = (1 + 25 * wmax) * rhs0
+                assert lhs <= bound + 1e-12, ("TWIN2 Thm 1.4 violated", seed, lhs, bound, wmax)
+                worst = max(worst, lhs / bound if bound > 0 else 0.0)
+                n_diag_viol += lhs > (1 + 25 * wmax) * diag + 1e-12
+    assert n_in > 1500
+    assert n_diag_viol > 0, "TWIN2 non-vacuity control: q-term never needed"
+    print(f"cg Thm 1.4: {n_in} in-hypothesis random systems (delta <= 1/16), 0 violations, "
+          f"max lhs/bound = {worst:.4f}; q-term needed in {n_diag_viol} cases; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cg) EXCEPTIONAL_TWIN2: binary noise stability Thm 1.4, exact tensor check ==")
+check_cg()
+
+
+# ---------------------------------------------------------------- (ch)
+# 3/4-note blind audit (reviews/es-threequarter-blind-audit.md): the 16 toy /
+# exact checks of scripts/es34_blind_audit_checks.py (Bonferroni majorant
+# Lemma 8.1, factorial moments Thm 6.3, CRT fibre identities, Lemma 3.2,
+# phi inequality, prime-power table (34), Lemma 6.1/6.2, Sec 10 identity
+# classes, pair sum, the 3/4 optimisation).  Imported (not re-implemented) and
+# run in-process; any FAIL line raises.  Sanity checks of the algebra only, not
+# evidence for the asymptotic theorem.
+
+def check_ch():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import io
+    import contextlib
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts",
+                        "es34_blind_audit_checks.py")
+    spec = importlib.util.spec_from_file_location("es34_blind_audit_checks", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        for name in ("bonferroni", "bernoulli_moments", "toy_family", "lemma_h", "phi_ineq",
+                     "pp_table", "euler_factor", "class_count", "identity_classes",
+                     "pair_sum", "optimisation"):
+            getattr(mod, name)()
+    lines = [s for s in buf.getvalue().splitlines() if s.startswith(("PASS", "FAIL"))]
+    fails = [s for s in lines if s.startswith("FAIL")]
+    assert not fails and mod.OK, ("3/4 blind-audit check failed", fails)
+    assert len(lines) == 16, ("expected 16 blind-audit checks", len(lines))
+    print(f"ch 3/4 blind audit: {len(lines)}/16 PASS; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ch) 3/4-note blind audit: 16 toy/exact checks (scripts/es34_blind_audit_checks.py) ==")
+check_ch()
 
 
 print("\nall checks passed")
