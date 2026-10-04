@@ -101,9 +101,21 @@ Apart from the classical facts of Section~\ref{sec:forced}, each
 \lab{proved} result below appears in one of five internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3}.  Each
 was hostile-reviewed; the reviews are
-\cite{ETrev,EBrev,TWrev,TW2rev,TW3rev}.  No
-prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
-found; it may be folklore in spirit.  Novelty is not claimed.
+\cite{ETrev,EBrev,TWrev,TW2rev,TW3rev}.
+
+\emph{Attribution} (literature audit \cite{NovAudit}).  The
+linear-programming duality between upper-bound sieves and measures matching
+the sieve data is standard \cite[Thm.~5]{Tao254A}
+\cite[Prop.~4]{BGP}.  In the exchangeable single-level case (identical
+densities, one weight), Theorem~\ref{thm:slice} is a weaker form of a
+known result.  The optimal mean of a degree-$k$ majorant is the maximal
+probability $M(n,k,p)$ that $k$-wise independent bits are all~$1$; the
+Selberg (square) value bounds it \cite[Thm.~23]{BGP}.  Peled, Yadin and
+Yehudayoff \cite[Thm.~1.1]{PYY} showed that it is attained up to a factor
+$e^{O(k)}$, building on Pr\'ekopa's discrete moment problem \cite{Prekopa}.
+To our knowledge the following are new: the weighted lower-set form with
+arbitrary densities, the Rankin-functional cap, and the applications to
+Erd\H{o}s--Straus below.
 
 \subsection*{Results}
 \begin{enumerate}
@@ -1117,11 +1129,12 @@ of Theorem~\ref{thm:slice} holds for every majorant, and
 Lemmas~\ref{lem:profileB}--\ref{lem:caseAprofile} bound the \emph{entire}
 forced-class supply independently of any level of distribution, so
 Elliott--Halberstam cannot raise the profile either \cite[Lemma~4.3 and
-remark]{ET} \lab{proved}.  That Selberg or other majorants \emph{attain} the
-same order up to constants is only \lab{evidence}: in an exchangeable
-Poisson model the numerically computed linear-programming optimum agrees
-with the Selberg value to within $0.01$ in $-\log$ in the tested cases
-\cite[\S2.5]{ET}.
+remark]{ET} \lab{proved}.  In the exchangeable \emph{binomial} model,
+Selberg's square majorant attains the optimum up to a factor $e^{O(k)}$; this
+is a theorem \cite[Thm.~1.1, Cor.~1.3]{PYY}.  For the Poisson model the
+numerically computed linear-programming optimum agrees with the Selberg
+value to within $0.01$ in $-\log$ in the tested cases \cite[\S2.5]{ET}.
+Attainment for the multi-band families here is only \lab{evidence}.
 
 \subsection{The two-thirds loglog note}
 The note \cite{LL} is not a majorant sieve but Montgomery's large sieve
@@ -1536,6 +1549,9 @@ is four times the product of the two shorter of $u,v,t$
 \cite[\S6.3]{TW3}.  That residual is \lab{open}.
 
 \begin{thebibliography}{99}
+\bibitem[BGP]{BGP}
+I.~Benjamini, O.~Gurel-Gurevich and R.~Peled, On $K$-wise independent
+distributions and Boolean functions, arXiv:1201.3261 (2012).
 \bibitem[BBMST]{BBMST}
 P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and M.~Tiba, On the
 Erd\H{o}s covering problem: the density of the uncovered set,
@@ -1578,6 +1594,16 @@ Error-Correcting Codes}, North-Holland, 1977, Chapter~10.
 \bibitem[N]{Notes}
 \emph{Erd\H{o}s--Straus research notebook}, \texttt{notes.md}, this
 repository, \S\S3, 16, 18; internally reviewed working notes, 2026.
+\bibitem[NA]{NovAudit}
+Novelty audit, \texttt{reviews/novelty-audit-2026-10.md}, this repository,
+2026.
+\bibitem[P]{Prekopa}
+A.~Pr\'ekopa, Boole--Bonferroni inequalities and linear programming,
+\emph{Oper. Res.} \textbf{36} (1988), 145--162.
+\bibitem[PYY]{PYY}
+R.~Peled, A.~Yadin and A.~Yehudayoff, The maximal probability that $k$-wise
+independent bits are all~$1$, \emph{Random Structures Algorithms}
+\textbf{38} (2011), 502--525; arXiv:0801.0059.
 \bibitem[PW]{PW}
 C.~Pomerance and A.~Weingartner, Exceptions to the
 Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
@@ -1585,6 +1611,9 @@ Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
 P.~Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
 % pages verified against sources/shiu-1980.pdf (GDZ scan, pp. 161--170)
+\bibitem[T]{Tao254A}
+T.~Tao, 254A, Notes 4: Some sieve theory, blog post, 21 January 2015,
+\url{https://terrytao.wordpress.com/2015/01/21/254a-notes-4-some-sieve-theory/}.
 \bibitem[TQ]{TQ}
 \emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
 equation}, internally proved research note,

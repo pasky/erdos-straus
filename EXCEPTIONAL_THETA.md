@@ -7,8 +7,20 @@ loglog note and the 3/4 note. The file also gives exact accounting for the
 two campaign proofs and settles the candidate levers one by one.
 
 Labels follow `DISCOVERIES.md`. Here **PROVED** means proved in this file and
-checked internally only. It is not refereed, and its novelty is unchecked.
-The sieve-limit theorem (§2) may be folklore in spirit; no source was found.
+checked internally only. It is not refereed.
+
+**Novelty** (see `reviews/novelty-audit-2026-10.md`):
+* The LP duality behind §2 is standard: Tao, 254A Notes 4, Thm 5 "Dual
+  sieve problem"; Benjamini–Gurel-Gurevich–Peled (BGP) arXiv:1201.3261,
+  Prop. 4.
+* The single-band exchangeable case is known in sharper form as the
+  maximal all-ones probability `M(n,k,p)` of k-wise independent bits:
+  * Peled–Yadin–Yehudayoff (PYY), RSA 38 (2011), Thm 1.1;
+  * BGP Thm 23;
+  * after Prékopa 1988.
+* The weighted lower-set form with arbitrary densities (Prop 2.4,
+  Thm 2.5), the Rankin-functional cap and the ES corollaries (§3) are
+  apparently new.
 "Verified numerically" never means proved.
 
 Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
@@ -30,7 +42,7 @@ Notation: `L = log N`, `λ = log D` (the *level* of a majorant), `X = e^t`.
 | §4 | Exact accounting. In both proofs the binding constraint is the pair (supply profile, budget). For the 3/4 note the budget is its coefficient sum `T_abs ≤ N^{1/2}`, which forces level `λ ≲ log N` via Lemma 2.9. For the 2/3 note it is the large-sieve level `Q² ≤ N/L_K` together with `L_𝒦 ≤ N` (Lemma 4.4). Bonferroni depth, the BV level and the selector cannot improve the exponent (PROVED). That alternatives attain the same order up to constants is EVIDENCE (§2.5). | PROVED (Lemmas 4.1–4.4), except the EVIDENCE part |
 | §5 | Levers, inside the prime-slice class. Cost-per-condition, beyond-identity supply (Case B), both Case-B groupings and Bonferroni→Selberg are closed by proved statements. Adding Case A is closed via H_A3, which is proved from Elsholtz–Tao Prop. 1.4 (§3.7). Halász has a proved non-multiplicativity counterexample, but its joint route is only a model Assessment (θ* ≈ 0.52), not a closure. The ET first moment is consistent with B = 3. Open: balanced moduli (no dominant prime), multipliers larger than the slice prime, and non-selector small-modulus subsystems (H_MS). | see table §5.0 |
 | §5.3 | Complete-system void among 4.05·10⁹ real primes near 10¹². The effective mass −log P(void) falls from 1.39 to about 0.80 of the first-moment mass as Q grows to 4000. There is no super-cubic effect. | EVIDENCE |
-| §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. | EVIDENCE |
+| §2.5 | Exchangeable Poisson model, tested cases. The numerically computed LP optimum (uncertified floating point) agrees with the Selberg square-majorant value 1/Σ_{j≤m/2} μ^j/j! to within 0.01 in −log. So Selberg Λ² is near-optimal there, and Bonferroni loses only a constant factor. The binomial analogue is a theorem (PYY Thm 1.1; see §2.5). | EVIDENCE (Poisson); binomial case known |
 
 **Verdict.** No route to θ > 3/4 survives inside the *dominant-prime* CRT
 world, defined as follows:
@@ -381,7 +393,19 @@ product systems. The lower-tail version (target point x₀ instead of 0)
 follows from the same proof by interpolating at the point `(κ_g)` with
 `Σκ_g ≤ x₀`. It is not worked out here.
 
-### 2.5 Sharpness in the exchangeable model (EVIDENCE)
+### 2.5 Sharpness in the exchangeable model (EVIDENCE; binomial case PROVED in the literature)
+
+**Literature.** In the exchangeable **binomial** model this sharpness is a
+theorem:
+* The LP `min{E Q(K) : Q ≥ 1_{0}}` with `K ~ Bin(n,q)` is PYY's (2.5), with
+  `p = 1−q`.
+* The Selberg/Christoffel value is their relaxed optimum `M̃` (BGP Thm 23;
+  PYY (3.3)).
+* PYY Thm 1.1 / Cor 1.3 give `LP ≥ (c/k)·e^{−O(k)}·M̃` for even
+  `k ≤ c₁·nq(1−q)`.
+
+The table below remains EVIDENCE only for the Poisson limit, which PYY do
+not state, and for the constants.
 
 `scripts/theta_sieve_limit.py` solves the exchangeable LP
 `min{E Q(K) : deg Q ≤ m, Q ≥ 1_{0} on ℤ_{≥0}}` for `K ~ Poisson(μ)`. It uses

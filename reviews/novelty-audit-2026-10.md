@@ -71,7 +71,7 @@ Items (2)–(4) hold up as stated:
 | 3c | DEPTH3 Thm 2 / Theorem F (seed component, H-conditional) | Unchanged: an instance of 3b | as 3b | (G)7 wording is already accurate. |
 | 4 | `E(N) ≪ N exp(−c(log N)^{3/4})` (es-threequarter-note); 2/3·loglog note | **NEW as of 2026-10-04** (internally proved, not refereed) | Vaughan 1970 is still the record per ET p. 3 ("compare [48, 84, 39, 89] for some weaker results"), PW p. 2 ("strongly improved, though not recently: In 1970, Vaughan…") and PW Thm 1.3 (exponent 2/3 at fixed m), and erdosproblems #242 (page last edited 7 May 2026; forum's last post 13 Feb 2026). arXiv API, 2026-09-28 → 10-04: nothing relevant (2609.29250 Xu II, 2609.32140 #306, 2610.00946 Engel/Pierce are irrelevant). No source states the B/(B+1) heuristic, the cubic forced-class mass or the 3-denominator multiplier identity | The cubic average solution count is ET Thm 1.1 (pp. 3–4) and Remark 1.2's Poisson heuristic. That is the same scale, but a different statistic. Vaughan's primary text was not accessed. |
 
-## Recommended wording changes
+## Recommended wording changes (applied 2026-10-04 on branch side-agent/novelty-audit; item 3 lives in DISCOVERIES (D)17)
 
 1. **`paper/sieve-limits-note.tex`, lines 104–106.** Replace "No prior source … folklore in spirit. Novelty is not claimed" with an explicit attribution:
    * The LP duality and the exchangeable single-level case are known: BGP Prop. 4 and Thm 23; PYY Thm 1.1, which builds on Prékopa 1988.
