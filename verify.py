@@ -16241,4 +16241,93 @@ print("\n== (ca) POINTWISE_OMEGA: Lemma 2.3 algebra, prime-local reduction Lemma
 check_ca()
 
 
+# ---------------------------------------------------------------- (cb)
+# POINTWISE_OMEGA2.md: brute force of the support-truncated minorant.  Random
+# event systems on <= 6 coordinates; for every outcome x and L <= P+1:
+# B_L(x) by definition = closed form R_L(x) (Lemma 1.1), B_L = 0 if 1 <= N <= L,
+# B_L - 4^{L+1} G_{L+1} <= 1[A=0] and |B_L - 1[A=0]| <= 4^{L+1} G_{L+1}
+# (Lemma 1.2), and the same with the private-cover G^cov (Lemma 10.1(1)).
+
+def check_cb():
+    from time import perf_counter
+    import random as _random
+    from math import comb
+    t0 = perf_counter()
+
+    def esym(vals, k):
+        e = [1] + [0] * k
+        for v in vals:
+            for j in range(k, 0, -1):
+                e[j] += e[j - 1] * v
+        return e[k]
+
+    def gcov(A, V, u):
+        tot = 0
+        for P in combinations(V, u):
+            Ps = set(P)
+            for r in range(1, len(A) + 1):
+                for C in combinations(A, r):
+                    sup = [set(e[0]) for e in C]
+                    if not Ps <= set().union(*sup):
+                        continue
+                    ok = True
+                    for i, si in enumerate(sup):
+                        others = set().union(*(sup[:i] + sup[i + 1:]))
+                        if not (si & Ps) - others:
+                            ok = False
+                            break
+                    tot += ok
+        return tot
+
+    rng = _random.Random(1)
+    checked = n_nonvoid = 0
+    TRIALS = 400
+    for _ in range(TRIALS):
+        P = rng.randint(2, 6)
+        sizes = [rng.randint(2, 3) for _ in range(P)]
+        k = rng.randint(1, 3)
+        events = set()
+        for _ in range(rng.randint(1, 12)):
+            supp = tuple(sorted(rng.sample(range(P), rng.randint(1, min(k, P)))))
+            events.add((supp, tuple(rng.randrange(sizes[l]) for l in supp)))
+        events = sorted(events)
+        for x in cartesian_product(*[range(m) for m in sizes]):
+            A = [e for e in events if all(x[l] == v for l, v in zip(*e))]
+            V = set().union(*[set(e[0]) for e in A])
+            N = len(V)
+            a = [sum(1 for e in A if l in e[0]) for l in range(P)]
+            ind = 0 if A else 1
+            n_nonvoid += bool(A)
+            for L in range(0, P + 2):
+                B = 0
+                for r in range(len(A) + 1):
+                    for Fm in combinations(A, r):
+                        if len(set().union(*[set(e[0]) for e in Fm])) <= L:
+                            B += (-1) ** r
+                if A:
+                    R = 0
+                    for w in range(0, min(L, N - 1) + 1):
+                        for W in combinations(sorted(V), w):
+                            if not any(set(e[0]) <= set(W) for e in A):
+                                R += (-1) ** (L - w) * comb(N - w - 1, L - w)
+                    assert R == B, ("O2 Lemma 1.1", events, x, L, B, R)
+                    assert N > L or B == 0, ("O2 Lemma 1.1 vanishing", events, x, L)
+                else:
+                    assert B == 1
+                G = esym(a, L + 1)
+                assert B - 4 ** (L + 1) * G <= ind, ("O2 Lemma 1.2", events, x, L)
+                assert abs(B - ind) <= 4 ** (L + 1) * G, ("O2 Lemma 1.2 abs", events, x, L)
+                Gc = gcov(A, sorted(V), L + 1)
+                assert comb(N, L + 1) <= Gc, ("O2 Lemma 10.1(1)", events, x, L)
+                assert B - 4 ** (L + 1) * Gc <= ind and abs(B - ind) <= 4 ** (L + 1) * Gc
+                checked += 1
+    assert n_nonvoid > 1000
+    print(f"cb O2 Lemmas 1.1, 1.2, 10.1(1): {TRIALS} random systems, {checked} (system, x, L) "
+          f"cases, 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cb) POINTWISE_OMEGA2: support-truncated minorant, Lemmas 1.1-1.2 brute force ==")
+check_cb()
+
+
 print("\nall checks passed")
