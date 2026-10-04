@@ -236,6 +236,41 @@ most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
   frequencies whose denominators are superpolynomial in N, and then a
   cancellation *among* those frequencies in (1.2).
 
+### 2.5 The scope limit of Theorem 2.3: weights below 1 (open)
+
+Theorem 2.3 needs a rounding bound that dominates `R_1 = Σ_{θ≠0}|ν̂(θ)|`,
+i.e. weight `w(θ) ≥ 1` at every nonzero frequency. This covers `Σ|a_i|`,
+the sawtooth bound `min(N, 1/(2‖θ‖))`, and any Weil/Kloosterman/Gauss
+bound for `ν̂(θ)` inserted into either. It does **not** cover:
+* the *exact* sharp weight `|S_N(θ)| = |sin πNθ / sin πθ|`, which is < 1
+  when `‖Nθ‖` is small;
+* *smooth windows* `Σ_n Φ(n/N)ν(n)`, whose weight
+  `|W_N(θ)| ≈ N|Φ̂(N‖θ‖)|` is `O(N^{−A})` for `‖θ‖ ≥ N^{−1+ε}`.
+
+For a smooth window, a single class of modulus `d > N` still costs O(1)
+(about `d/N` frequencies within `1/N` of 0, each `|ν̂| = 1/d`, weight
+≈ N), so smoothing gains nothing class by class. A gain needs the
+high-level Fourier mass of ν to *avoid the 1/N-neighbourhood of 0*.
+
+*Reduction for hit-pattern majorants (PROVED, routine).* If ν is a function
+of `(n mod Q₀, x(n))` — Bonferroni, Selberg Λ² in the x-variables, and
+every `P∘f` of §4 — then for Q₀ = 1, `ν̂(Σ_S h_ℓ/ℓ) = d_S Π_S 1̂_{F_ℓ}(h_ℓ)`,
+so the shape of ν̂ on each Θ_S is fixed by the classes. The smooth
+rounding is then `Σ_S |d_S| M_S` with
+`M_S = Σ_{h} Π_S |1̂_{F_ℓ}(h_ℓ)|·|W_N(Σ_S h_ℓ/ℓ)|`, and the proof of
+Theorem 2.3 goes through verbatim provided
+
+    M_S ≥ c · Π_S (2p_ℓ) · e^{s(S)} · e^{−o(λ)}   for every S with s(S) > λ.     (2.6)
+
+Since `Π_S 2p_ℓ e^{s(S)} ≤ 1` and `∫|W_N| ≍ 1`, (2.6) says that the measure
+`Σ_h Π|1̂_F(h_ℓ)| δ_{Σh_ℓ/ℓ}` puts at least its average share of mass,
+up to `e^{−o(λ)}`, within `1/N` of 0. That is an equidistribution statement
+for sums of reciprocals weighted by the Fourier transforms of the forced
+classes, at denominators `Π_S ℓ ≥ e^{λ}`. **(2.6) is CONJECTURE (H_eq)**; it
+is not proved here. If it holds, smooth windows do not help hit-pattern
+majorants. General (non-hit-pattern) majorants can reshape ν̂ inside Θ_S,
+so they stay outside even under (H_eq).
+
 ## 3. Candidate (b): prime-only majorants
 
 A *prime majorant* is ν (finite combination of classes) with ν ≥ 0 at all
@@ -404,6 +439,7 @@ counts is known; this is the content of "non-CRT input" for (c).
 | candidate | result | label |
 |---|---|---|
 | (a) signed rounding, per-frequency (Gauss/Kloosterman/divisor exponential sums over the classes) | capped at `C(log N)^{3/4}` for dominant-prime-slice families (Thm 2.3, Cor 2.4–2.5); also removes ET-file's "slice primes ≤ N^{O(1)}" proviso | PROVED |
+| (a″) per-frequency bounds with weight < 1 (exact `|S_N|`, smooth windows) | capped for hit-pattern majorants under the equidistribution conjecture (H_eq) (2.6); general majorants open (§2.5) | CONDITIONAL / open |
 | (a′) cancellation *between* frequencies | equivalent to counting `Σ_{n≤N}ν(n)` directly; no set-level obstruction below θ = 1 (squares give only `√N`); needs superpolynomial high-level Fourier mass (§2.4) | open; no method |
 | (b) prime-only majorants (Dirichlet measure, BV/BDH/EH/GRH level) | same LP limit up to `O((log log N)²)` (Thms 3.2, 3.3) | PROVED |
 | (b′) prime error terms | unconditional prime equidistribution is *weaker* than the integer count at this precision (Remark 3.4) | Assessment |
