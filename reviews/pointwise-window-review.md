@@ -66,3 +66,35 @@ Archived `2504.20289.txt` lines 34–49, Thm 1.1. With `f=x²+xy+y²`, `B=4`, `A
   vacuous (one class), so the nit is harmless (D5).
 * FHRSS is an arXiv preprint (Apr 2025); the doc does not record its
   publication status (D5).
+
+### 4. Theorem W2 (§4) — CORRECT as a CONDITIONAL result; literature claim is WRONG (D1)
+
+* Data checked. `n_3=210k+1` and `n_7=210k+2`. 2 is 7-good, `(2/7)=1`. 3 and 5
+  are 7-bad but never divide `n_7`. `(p/3)=(p/7)=1` gives even bad counts. The
+  classes `−3,−7 mod ℓ` are distinct for ℓ∤4. `(Ω_1)` holds:
+  `ω(ℓ)=1[ℓ∈P_3]+1[ℓ∈P_7]` has mean 1.
+* Linear-sieve step. `s=(1−ε)/(1/2−ε)=2+2ε/(1−2ε)` and `f(s)=2e^γlog(s−1)/s≥(2/3)e^γε`
+  are right. The `2^{ω(d)}`-weighted EH remainder via Cauchy–Schwarz plus
+  Brun–Titchmarsh is standard and fine.
+* `T^{(q)}` step. Fix `(m,r_1)` and sift `r_2` by `0`, `q/a`, and `(q−q')/a` (the
+  last only for q'-bad ℓ). That is dimension 5/2, and the three classes are
+  distinct for ℓ∤42. The sifting range `y^{1/10}<z` is compatible with the
+  q'-condition the survivors satisfy. `Σ1/r_1·Σ_m(m/φ(m))^3/m ≍ ε·(ε log x)^{1/2}`
+  gives `ε^{3/2}x/(log x)^2` against the main term `εx/(log x)^2`. Checked.
+* **D1 (literature, substantive for Goal 2/3 framing).** The claims "We know of no
+  such result in the literature (… nearest: FHRSS 2025, one form only)" (§0) and
+  "The closest known results produce one condition (Iwaniec 1972; FHRSS 2025)"
+  (§7.3) miss the direct precedent:
+  **Friedlander–Iwaniec, *Hyperbolic prime number theorem*, Acta Math. 202
+  (2009) 1–19.** It counts primes p with `p−2` and `p+2` both sums of two
+  squares, i.e. two half-dimensional absence conditions on shifted primes. Its
+  Thm 2 gives the lower bound `≫x/log x` (weighted) **assuming A(θ) for some
+  θ<1 sufficiently close to 1**; the upper bound is unconditional. That is
+  exactly W2's shape and exactly the "fixed level 1−ε_0 suffices" remark. Their
+  §6–7 also use the semilinear sieve with β=1, then remove two-prime
+  configurations. The unconditional lower bound is still open: arXiv:2609.28200
+  (2026) restates it as resting on a strong hypothesis. Fix: cite FI09 as the
+  model for W2 (W2 is "FI09-type"). Then use it as *evidence* for Assessment
+  7.3: unconditional K=11 is the window analogue of a known open problem. This
+  strengthens the doc's Goal-2 answer. The novelty wording must change.
+  (Reviewer fetched FI09 from archive.ymsc.tsinghua.edu.cn; not archived in repo.)
