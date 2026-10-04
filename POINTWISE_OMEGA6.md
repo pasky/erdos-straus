@@ -26,23 +26,36 @@ H-hub, so (O5 §2) `h_1,h_2,h_3>H` for `(q,κ)`, where
   `s,a,b ≤ 2qm`.
 * §2 (PROVED, modulo Shiu 1980 Thm 1 and Henriot 2012 Thm 4). The
   `(s,a)`-plane divisor sum
-  `D_sa = Σ_{4sa²≡κ (q)} τ(4sa²+1)/(sa) ≪ 4^k𝓛⁴(H^{−1/2}+q^{−1/4})`.
+  `D_sa = Σ_{s sqfree, 4sa²≡κ (q)} τ(4sa²+1)/(sa) ≪ 4^k𝓛⁴(H^{−1/2}+q^{−1/4})`.
   This is the "τ_Π(4sa²+1) average over residue classes" asked for.
   Together with O5 Prop 7.1 (`D_ab`), all period parts are done for
   **all** m>1 at once, with exponent 1/4.
-* So HC_Π is **equivalent** (up to proved terms) to a bound for the
-  corner sum `𝒦`.
+* So HC_Π is **implied by** (up to proved terms) a bound for the
+  corner sum `𝒦`. Only this direction is proved: `Σ^{>μ}` is an upper
+  bound for `Δ_O^{>μ}`, and the thresholds use H rather than Ĥ
+  (review D4).
 * §3 (PROVED). Corner atoms with `min(4sa,4sb,4ab)≤yH^{1/4−a}` are paid
   for by the period sums (Lemma 3.1). Hence HC_Π(a), `a≤1/4`, follows
   from the **first-term bound (FT_a)** (Thm 3.2): on average over
   `4sa²≡κ (q)`, `4sa>yH^{1/4−a}`, the divisors m of `4sa²+1` must not
   put the least `ν≥y` with `qmν≡−1 (4sa)` close to y. Boxes in which a
-  plane is long (Shiu/Henriot range) are done (Prop 3.4). The exact
-  residual (Cor 3.5): (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`,
-  `W=C4^k𝓛²H^a`; (b) boxes with a short plane.
+  plane is long (Shiu/Henriot range) and its third side is `≥μ_0W`,
+  with `W=C4^k𝓛²H^a`, are done (Prop 3.4). The exact residual
+  (Cor 3.5):
+  * (a) three long planes, `m≥(qy/32)^{1/2}W^{−3/2}`, `s,a,b<2mW`.
+    This only exists for `q≲T^{3/10}`. Only for those q does the
+    m-threshold `≈y^{3/2}H^{−3a/2}` improve on O5's `H^{1/3−a}`
+    (review D5).
+  * (b1) a short s-plane (numbers `≤q^{O(1)}`).
+  * **(b2) the main residual:** only the (a,b)-plane is short.
+    `a,b<2mW`, s is large, and m is **unrestricted**. This is the
+    hub-like / unbalanced-ray family (review D6).
 * **HC_Π, HC* and the `(log₂p)^{3/2}` rate remain open.** EVIDENCE (§4):
-  at high hub height the m>1 mass is mostly corner mass, of the
-  average size predicted by (FT).
+  at high hub height the m>1 mass is mostly corner mass, of (b2) type
+  (small a, large s), at the size of a random first element.
+* Review `reviews/pointwise-omega6-review.md` (branch
+  `side-agent/review-omega6`): all PROVED items CONFIRMED; D1–D9 and the
+  nits are applied here.
 
 ## 1. The three-fibre reduction (PROVED)
 
@@ -96,8 +109,8 @@ atom* if it is the first element of each of its three fibres, and
 ```
 Σ^{>μ} ≤ (1+𝓛/2)·( D_ab + D_sa + D_sb ) + 𝒦^{>μ},
 D_ab := Σ_{(a,b): a≡κb (q), (ab,q)=1, ab≤T} τ(a+b)/(ab),
-D_sa := Σ_{(s,a): 4sa²≡κ (q), sa≤T} τ(4sa²+1)/(sa),
-D_sb := Σ_{(s,b): 4κsb²≡1 (q), sb≤T} τ(4sb²+1)/(sb).
+D_sa := Σ_{(s,a): s squarefree, 4sa²≡κ (q), sa≤T} τ(4sa²+1)/(sa),
+D_sb := Σ_{(s,b): s squarefree, 4κsb²≡1 (q), sb≤T} τ(4sb²+1)/(sb).
 ```
 
 *Proof.* Fix an atom with Π-part `m>μ`. If it is not the first element
@@ -115,7 +128,8 @@ ones give `(1+𝓛/2)D_sb`. A fibre contains an atom only if `ab≤T`
 
 *Remarks.* (i) Nothing here uses `m>μ`. The bound holds for the whole
 `m>1` part, and also for `m=1` (where it is weaker than O5 Thm 2.3).
-(ii) `D_ab` is O5 Prop 7.1's `P_1` (PROVED, `≪2^k𝓛²(q^{−1+o(1)}+H^{−1/4})`).
+(ii) `D_ab` is O5 Prop 7.1's `P_1` (PROVED, `≪2^k𝓛³q^{−1+o(1)}+𝓛²H^{−1/4}`;
+review D3: the first term has `𝓛³`, not `𝓛²`).
 (iii) `D_sb` is `D_sa` for the class `κ^{−1}`, whose heights are the
 same with `h_1↔h_2`. So everything except `𝒦` is reduced to `D_sa`
 (§2).
@@ -138,10 +152,14 @@ same with `h_1↔h_2`. So everything except `𝒦` is reduced to `D_sa`
   and `‖Q‖` the sum of the absolute values of the coefficients. `c_0` and
   the constant depend only on `g,α,δ,A,B`.
 
-We use `f=τ` (`A=2`), `α=1/2`, `β=1/4`, `δ=1/4`, `g=2`. So all implied
+We use `f=τ` (`A=2`); for Shiu `α=1/4`, `β=1/4` (Shiu needs `0<α<1/2`;
+in Regime I `y_1=x_1/2`, so any α works; review D1); for Henriot
+`α=1/2`, `δ=1/4`, `g=2`. So all implied
 constants below are **absolute**. Write `g_0:=gcd(κ+1,q)`.
 
-**Proposition 2.1.** For `T` larger than an absolute constant,
+**Proposition 2.1.** Let q be odd, κ a unit mod q with `h_1(q,κ)>H`,
+and let the sum `D_sa` run over squarefree s (as defined in Thm 1.5).
+For `T` larger than an absolute constant,
 
 ```
 D_sa ≤ C·4^k·𝓛⁴·( H^{−1/2} + q^{−1/4} )     (C absolute).
@@ -170,8 +188,7 @@ and `x_1≤8T³`). Summing over the `A` values of a:
 `4sa²≡κ (q)` lie in `≤2^{ω(q)}≤2^k` classes `r mod q`. For each,
 `a=r+qi` with i in an interval of length `≤A/q+1` starting at
 `x≥A/q−1`; split it into at most two intervals `(x′,x′+y′]` with
-`x′^{1/2}<y′≤x′` (plus O(1) single points, bounded pointwise like
-Regime III). Put `P(X):=4s(r+qX)²+1`. It is irreducible over ℚ (no real
+`x′^{1/2}<y′≤x′` (possible since `A/q≥C_1q^{1/2}` is large). Put `P(X):=4s(r+qX)²+1`. It is irreducible over ℚ (no real
 roots). Its content is exactly `g_0` (the coefficients are `4sq²`,
 `8sqr`, `4sr²+1≡κ+1 (q)`; a common divisor is prime to `2sr`, so it
 divides q, and then it divides `gcd(q,κ+1)`). Set
@@ -199,7 +216,8 @@ in the box is at most each of: `A(S/q+1)` (a fixes s mod q), and
 * If `A>q^{1/2}`: `D(S,A) ≤ q^{1/8}·2^k(1/q+1/A) ≤ 2^{k+1}q^{−3/8}`.
 * If `A≤q^{1/2}` and `32SA²≥q`: the count is `≤64SA²/q`, so
   `D(S,A)≤64q^{1/8}A/q≤64q^{−3/8}`.
-* If `32SA²<q`: the box holds at most one pair, and it has
+* If `32SA²<q`: the box holds at most one pair (s squarefree; O5
+  Lemma 1.1, review D2), and it has
   `sa≥h_1>H`, so `SA>H/4`. Since `F≤32SA²≤32(SA)²`,
   `D(S,A)≤τ(F)/(SA)≤(SA)^{−1/2}≤2H^{−1/2}` (for `SA` beyond an absolute
   constant, again by Nicolas–Robin).
@@ -214,12 +232,12 @@ Summing over the `≤4𝓛²` boxes, with `q^{−3/8}≤q^{−1/4}` and
 Σ^{>μ} ≤ C·4^k·𝓛⁵·H^{−1/4} + 𝒦^{>μ}     for every μ ≥ 1.
 ```
 
-*Proof.* Theorem 1.5. `D_ab≤P_1` (O5 Prop 7.1) gives `≪2^k𝓛²H^{−1/4}`
+*Proof.* Theorem 1.5. `D_ab≤P_1` (O5 Prop 7.1) gives `≪2^k𝓛³H^{−1/4}`
 (using `q^{−1+o(1)}≤H^{−1/4}`). Prop 2.1 for `D_sa`, and for `D_sb`
 (class `κ^{−1}`, heights `h_2>H`), gives `≪4^k𝓛⁴H^{−1/2}` (as
 `q^{−1/4}≤H^{−1/2}`). Multiply by `1+𝓛/2`. ∎
 
-So **HC_Π(a′) for `a′≤1/4` is equivalent, up to the proved term
+So **HC_Π(a′) for `a′≤1/4` is implied, up to the proved term
 `C4^k𝓛⁵H^{−1/4}`, to `𝒦^{>H^{1/3−a′}} ≪ e^{Ck}𝓛^{B′}H^{−a′}`.** By
 Prop 3.2 of O5 (all atoms with `m≤μ`), one may even take μ=1 here and
 ask for `𝒦^{>1}`; the m≤μ part of `𝒦` is already covered.
@@ -239,9 +257,13 @@ hypotheses of HC* (no saturated H-hub, `4^k≤H≤y`). Then for every μ≥1
 
 ```
 Σ^{>μ} ≤ C·4^k·𝓛⁵·H^{−a} + FT^{>μ}(Z),
-FT^{>μ}(Z) := Σ_{(s,a): 4sa²≡κ (q), 4sa>yZ, sa≤T}  Σ_{m | 4sa²+1, m>μ}  2/ν(s,a,m),
+FT^{>μ}(Z) := Σ_{(s,a): s squarefree, 4sa²≡κ (q), 4sa>yZ, sa≤T}  Σ_{m | 4sa²+1, m>μ, ν(s,a,m)≤T/(qm)}  2/ν(s,a,m),
 ν(s,a,m) := least integer ν≥y with  q·m·ν ≡ −1 (mod 4sa),
 ```
+
+(Review D7: s squarefree and `ν≤T/(qm)` are part of the definition. A
+fibre with `ν>T/(qm)` holds no atom. Without these restrictions the sum is
+4–6 times `𝒦` numerically.)
 
 where m runs over Π-numbers prime to q (C absolute). For prime-power
 patterns (O5 Lemma 2.0′) apply this with `q′`; then `Δ_O^{>μ}` is at most
@@ -284,7 +306,7 @@ So (FT) asks for the divisors of `aX+1` to avoid, *on average over the
 pairs `(s,a)` with `4sa²≡κ (q)`*, the short progression
 `{−qν mod X : y≤ν≤y·H^{a}}`. Lemma 3.3(2) is the trivial Lenstra-type
 range (`X>F^{1/2}`). The pointwise worst case is
-`Σ_{m|F}2/ν ≍ min(τ(F),y)/y`, against the average `≍τ(F)·log(X/y)/X`.
+`Σ_{m|F}2/ν ≍ min(τ(F)/y, 1+log(τ(F)/y))`, against the average `≍τ(F)·log(X/y)/X`.
 
 **Proposition 3.4 (long planes; PROVED).** Cut the corner atoms of FT
 (i.e. all corner atoms with `4sa>yZ`) into boxes
@@ -319,19 +341,39 @@ or `(S,B)` (so both sides are `≪q^{14/5}`), and `max(A,B)≤3q²` for
   ```
   So in boxes with three long planes, HC_Π(a) holds for all
   `m < (qy/32)^{1/2}W^{−3/2}`. Since `q>y²`, this is
-  `≥ (y^{3/2}/6)H^{−3a/2}(C4^k𝓛²)^{−3/2}`. In the regime of O4 Thm 4.2
-  (`k≍𝓛^{1/3}`, `log H≍𝓛^{2/3}`) it is `y^{3/2}H^{−3a/2−o(1)}`, far
-  beyond O5's `H^{1/3−a}`.
-* The residual is therefore (a) large m, `m ≥ (qy/32)^{1/2}W^{−3/2}`,
-  with `s,a,b<2mW`; or (b) boxes with a short plane. *(Assessment:)* in
-  (b) the numbers `4sa²+1` are `≤q^{O(1)}`, and the only divisor bound
-  I have there is pointwise, `τ≤q^{O(1/log log q)}`. That is not
-  `≤e^{Ck}𝓛^B` once `log q` is large against `k log k` (in the Thm 4.2
-  regime q can be as large as `T^{1−o(1)}`). Regime III's `q^{−3/8}`
-  saving does handle short `(s,a)`-boxes whose third side is
-  `B≥2^{k+7}μ_0q^{5/8}H^a`; and all boxes with `32SA²<q` contain the
-  same single pair, the least residue of κ written as `4sa²` (O5 Lemma
-  1.1).
+  `≥ (y^{3/2}/6)H^{−3a/2}(C4^k𝓛²)^{−3/2}`.
+  **Scope (review D5).** Boxes with three long planes exist only for
+  `q≲T^{3/10}`. The (a,b)-plane is long only if `max(A,B)>3q²`. One
+  s-plane is then long only if `S≥3q^{4/3}` or `A≥C_1q^{3/2}`. With
+  `4SAB≤T` this forces `T≫q^{10/3}`. Since `q≥y^{|O|}` and
+  `y=2T^{1/(k+1)}`, this covers only vertex sets with
+  `|O|≲0.3(k+1)`. For `q≥T^{1/2}` the (a,b)-plane is never long, and
+  part (a) below is empty. For those O the m-range proved without a
+  residual is still O5's `H^{1/3−a}`. For `|O|≲0.3(k+1)`, in the O4 Thm 4.2
+  regime (`k≍𝓛^{1/3}`, `log H≍𝓛^{2/3}`), the threshold is
+  `y^{3/2}H^{−3a/2−o(1)}`.
+* So the residual (review D6) consists of:
+  * **(a)** three long planes: `m ≥ (qy/32)^{1/2}W^{−3/2}` with
+    `s,a,b<2mW`. This exists only for `q≲T^{3/10}`.
+  * **(b1)** a short s-plane, i.e. `(S,A)` or `(S,B)` in Regime III. Then
+    `4sa²+1` (resp. `4sb²+1`) is `≤q^{O(1)}`. *(Assessment:)* the only
+    divisor bound I have there is pointwise, `τ≤q^{O(1/log log q)}`.
+    That is not `≤e^{Ck}𝓛^B` once `log q` is large against `k log k`.
+    Regime III's `q^{−3/8}` saving does handle short `(s,a)`-boxes with
+    `32SA²≥q` whose third side is `B≥2^{k+7}μ_0q^{5/8}H^a` (review D8:
+    not the subcase `32SA²<q`). All boxes with `32SA²<q` contain the
+    same single pair, the least residue of κ written as `4sa²` (O5
+    Lemma 1.1, s squarefree).
+  * **(b2) a main residual:** both s-planes are long (Shiu/Henriot
+    apply), but the box survives because `A,B<μ_0W`, i.e. `a,b<2mW`,
+    with s large (up to `2qm`), and `max(A,B)≤3q²`. **Here m is
+    unrestricted** (`m>μ` only), since the derivation of (a) needs
+    `S<μ_0W` and that fails. This is the hub-like / unbalanced-ray family
+    of O5 §4 (DIV). The numerical corner mass sits here (§4:
+    `(s,a)=(341,1)` and its mirror). For `q≥T^{1/2}` it occurs in every
+    box with long s-planes. *(Assessment:)* the obstruction in (b2) is
+    not a missing averaging theorem. It is the first-term
+    equidistribution of (FT) for pairs with small `a`, against large `s`.
 
 *Proof.* Theorem 3.2 and Prop 3.4 with `B≥μ_0W` (resp. `A≥μ_0W`,
 `S≥μ_0W`), summed over the `≤8𝓛⁴` boxes. The displayed bound uses
@@ -343,7 +385,8 @@ Exact enumeration of all m>1 atoms for one pair q (Π=Π_0, the y-smooth
 primes; weights 2/n′; classes are joint classes κ mod q with O3 hub
 height h, not lifted vertices). `tot` is the m>1 sum `Σ^{>1}`, `K` its
 corner part (Def 1.3). Maxima over classes with `h>X`, taken
-independently.
+independently. This measures `𝒦`, not FT. FT over-counts `𝒦` (about
+4–6× numerically if the D7 restrictions are dropped).
 
 | T | q | atoms m>1 / corner | X=16: tot / K | X=256 | X=512 | `X^{−1/4}` at 512 |
 |---|---|---|---|---|---|---|
@@ -353,13 +396,19 @@ independently.
 * At small X the non-corner (period) part dominates; it is what §§1–2
   bound. At large X almost all of the m>1 mass is corner mass, so the
   residual of §3 is the real one.
-* The heaviest corner classes are hub-like: at T=10⁹, κ=1364 (h=341)
-  gets its corner mass from `(s,a)=(341,1)`, with `F=1365=3·5·7·13` and
-  one first element per divisor m (Lemma 3.3), plus its mirror `(s,b)`.
-  These sums are of size `≈τ(F)·log(4sa/y)/(4sa)`, the "average" size
-  of Lemma 3.3, not the worst case `τ(F)/y`.
+* All the heaviest corner classes are F1 hubs. At T=10⁹ the heaviest
+  are κ=440 (h=110, `F=441=21²`) and κ=524 (h=131). The heaviest with
+  `h>256` is κ=1364 (h=341). Its corner mass comes from
+  `(s,a)=(341,1)`, `F=1365=3·5·7·13`. Only two of the 15 divisors m>1
+  give corner atoms: m=3 and m=15, i.e. `(341,1,110852)` and
+  `(341,1,461669)`. There is also the mirror `(27713,1364,1)` (m=3).
+  For the other divisors, the first element lies beyond `T/(qm)`, is not
+  an atom, or fails another corner condition (review D9). The mass is of
+  the size `≈τ(F)·log(4sa/y)/(4sa)` of a random first element, not the
+  worst case `τ(F)/y`. These are the (b2)-type configurations of
+  Cor 3.5: small a, large s.
 * `K` is flat to slowly decreasing in X at these sizes and stays well
-  below `X^{−1/4}`. This is consistent with (FT) and proves nothing.
+  below `X^{−1/4}`. This is consistent with HC_Π and proves nothing.
 
 ## 5. Status
 
@@ -375,10 +424,18 @@ independently.
   average over `4sa²≡κ (q)`, the classes `−qν mod 4sa` with ν just above
   y. Long-plane boxes are done (Prop 3.4).
 * **Open (exact residual, Cor 3.5):** corner atoms with `4sa>yH^{1/4−a}`
-  in boxes where every plane is short or has its third side `<μ_0W`. In
-  particular: (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`; (b) boxes
-  with a short plane (all numbers `≤q^{O(1)}`, no averaging theorem; the
-  pointwise divisor bound is too weak when `ω(q)` is large).
+  in boxes where every plane is short or has its third side `<μ_0W`.
+  * (a) Three long planes: `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`.
+    This exists only for `q≲T^{3/10}`, i.e. `|O|≲0.3(k+1)`.
+  * (b1) A short s-plane: numbers `≤q^{O(1)}`, no averaging theorem,
+    and the pointwise divisor bound is too weak when `log q≫k log k`.
+  * **(b2) The main residual:** only the (a,b)-plane is short.
+    `a,b<2mW`, s is large, and **m is unrestricted**. This is the
+    hub-like / unbalanced-ray family, and the numerical corner mass sits
+    here. For `q≥T^{1/2}` it is present in every box with long s-planes.
+* The `y^{3/2}H^{−3a/2}` m-threshold holds **only for `q≲T^{3/10}`**.
+  For larger q (`|O|≳0.3(k+1)`), the m-range proved without residual is
+  still O5's `H^{1/3−a}` (review D5).
 * **Not achieved:** HC_Π, hence HC* and the rate
   `log W(p)≥c(log₂p)^{3/2}`, remain **open**. The proved rate is still
   O4 Cor 3.1. Nothing here is claimed for ES.
