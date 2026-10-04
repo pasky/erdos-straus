@@ -500,3 +500,84 @@ of them forced through a common sub-star (codegree hubs), random ν and
 Under (H_δ), promotions rarely occur (6 of the 1200 systems promoted;
 the script does not record how many of these satisfied (H_δ)). Hubs with
 `D_σ > 1` need `π_σ < δ`, whereas the toy alphabets are small.
+
+### 6.2 What changes for three or more large primes (reduction; Assessment)
+
+**No cheap reduction to the binary case.**
+* *Projection to the two largest primes* replaces a class mod `kℓ₁ℓ₂ℓ₃` by
+  the class mod `kℓ₁ℓ₂` that contains it. This is monotone (avoiders
+  shrink), but each event's probability grows by the factor ℓ₃, and the
+  projected classes are no longer of the form `−4D′ mod M′`, `D′ | A′²`.
+  Lemma 5.3's labels, Shiu on `A = (M+1)/4` and the good events of TW2
+  §3 all fail.
+* *Paying for ≥3-prime events unweighted* (local lemma:
+  `Ξ ≤ Ξ_binary + O(Σ_{E k-ary} P(E))`) costs their total fibre mass. That
+  mass has the cubic order of the whole system, far above `α^{−3}`.
+* So the ρ-weighting must be kept for every arity. This is what Lemmas 6.1
+  and 6.2 allow.
+
+**Proposition 6.3 (reduction; PROVED as an implication).** Drop "at most
+two primes above w₂" from Setting 3.0, keep `M ≤ P(M)^{1+B}`, and let the
+fibre law P satisfy, for every `c ∈ supp P`:
+* `p_ℓ(c) ≤ 1/8`;
+* (H_δ) with `δ = 1/16` for the any-arity class system of c.
+
+Then every admissible g has
+
+    saving(g²) ≤ A₀L^{3/4}/2 + log‖dP/dU_F‖_∞ + C·E_P[ Σ_ℓ ρ_ℓ p_ℓ + Σ_ℓ ρ_ℓ S_ℓ + Σ_{|σ|≥2} π_σ ρ^σ min(D_σ,1)² ].
+
+*Proof.* TW2 Lemma 2.1, then TW2 Lemma 2.2 (vertex quarantine; its
+proof uses only `w_ℓ ≤ δ/2` and is arity-free), Lemma 6.2, and Lemma 6.1.
+With the `e^{2δ}` inflation of (6.2), the constant is C = 11. ∎
+
+**Status of each input for the full ES family (Assessment).**
+1. *Fibre law and (H_δ).* TW2 §3 carries over. Its stages 1–2 use only
+   w₂-smooth moduli. G_L must be strengthened to
+   `w_ℓ ≤ δ·log ℓ/L` for all `ℓ > w₂`; then
+   `Σ_{ℓ∈S(E)} w_ℓ ≤ δ·log M/L ≤ δ`. By Markov this needs
+   `Σ_{ℓ>w₂} L²E w_ℓ²/(log ℓ)² = o(1)`. The any-arity second moment is
+   `E w_ℓ² ≪ L^6(log L)^{O(1)}/ℓ²` (the TW2 Lemma 3.4 split by top prime).
+   This is `o(1)` once `w₂ = L^{10}` (not with `L^8`). Raising w₂ to
+   `L^{10}` leaves Lemmas 3.1–3.4 intact up to constants. **Routine; not
+   written.**
+2. *Unary terms and stars that are whole events* (`D_σ = 1`): these give
+   `Σ_C P(C) ρ^{S(C)} ≤ Σ_C P(C) ρ_{P(M_C)}`, i.e. Shiu along the top prime
+   exactly as in TW2 Lemma 4.1 (unary case, with `q = M/P ≤ P^B`), giving
+   `≪ α^{−3}(log L)^{O(1)}`. **Essentially proved** (ET Lemma 3.1 and TW2
+   Lemma 4.1 already cover all ℛ(M)).
+3. *Vertex stars `S_ℓ` and codegree stars* `2 ≤ |σ| < |S|` (modulus
+   `Q_V = Π_{ℓ∈V}ℓ`, rest `R = M/(kQ_V)` composite). The §§2–3 template
+   applies with j replaced by `Q_V` and the prime partner m replaced by R.
+   The residue at V is still `−u/v mod Q_V` (TW2 Lemma 5.3). There are
+   two sharp points:
+   * **(3a) small partners.** The first moment
+     `Σ_V (ρ^V/Q_V)Σ_{R ≤ (kQ_V)^{C₀}} τ(A²)/R` is fine if R is summed with
+     its w₂-rough density (`Σ_R 1/R ≍ log(kQ)/log w₂`). In the top-prime
+     case this needs Shiu along the *prime* top variable (a
+     Brun–Titchmarsh–Shiu bound for `τ((kRj+1)²/16)` over primes j).
+     Summing j over all integers, as Lemma 2.1(a) does, loses one factor
+     `1/α` once R is composite, giving `α^{−4}/log L ≈ L/log L`. A
+     shifted-prime Shiu bound (sieve plus divisor switching) is standard
+     in spirit but not written here.
+   * **(3b) large partners.** Lemma 3.1 used Brun–Titchmarsh over the
+     *prime* m. For composite R, the long-variable sum over w₂-rough R in
+     a class (fundamental lemma of the sieve) has weight `≍ L/log L`
+     instead of `log L`. Corollary 3.3 then needs Lemma 3.2's r-bound
+     sharpened from `j^{−1/3}` to `j^{−1/2+o(1)}`. This looks feasible:
+     boxes with `V²T ≤ j^{1+η}` contain at most `(8V²T/j + 1)·max τ(N)`
+     points with `VT ≥ j^{1/2}`. **Not done.**
+   * **(3c) the sum over V.** `Σ_{|V|=s} ρ^V/Q_V ≤ (Σ_ℓ ρ_ℓ/ℓ)^s/s! ≤ (log L)^s/s!`.
+     For s large, each extra prime in V brings another factor
+     `ρ_ℓ/ℓ`, so the total over s is `≤ e^{log L}·(…) = L·(…)`. That
+     would be too large, unless the per-V bound decays in s. The large
+     part should decay, since each pair of short variables is spread over
+     `Q_V ≥ w₂^s` residues. The first-moment (small) part should be
+     bounded by `Σ_C P(C)Σ_{V⊆S(C)} ρ^V·1[R_V small]`, which is again
+     `2^{r}`-type. **This is the main open bookkeeping point.**
+
+**Verdict (Assessment).** Lemmas 6.1–6.2 show that the *probabilistic*
+obstruction is gone for every arity. This is TW Conjecture 6.8 in log
+form, with codegree hubs costing nothing beyond their capped squares.
+What separates the full ES family from Corollary 4.2 is purely arithmetic:
+the star sums (3a)–(3c). The binary proof of §§2–3 is the s = 1,
+prime-partner case of the same template.
