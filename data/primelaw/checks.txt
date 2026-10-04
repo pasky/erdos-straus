@@ -1,0 +1,10 @@
+(1) gamma* for primes 17..1000000: max (g-1)/(2x) = 0.8302, max (g^2-1)/(5x) = 0.7979 (both must be <= 1)
+(2) W=5 Q0=120: phi(Q0)/|R| = 16 = 2^(pi(W)+1)
+(2) W=7 Q0=5040: phi(Q0)/|R| = 32 = 2^(pi(W)+1)
+(2) W=13 Q0=120120: phi(Q0)/|R| = 128 = 2^(pi(W)+1)
+(2) W=7 Q0=1058400: phi(Q0)/|R| = 32 = 2^(pi(W)+1)
+(3) unit residues: R(M) M<=4000: 22502 classes all units; Case A d<=3000: 16406 classes all units; (a,D) a<=60, D<=600: 36000 classes, 21398 non-unit, non-unit primes = {2 if a even} u {odd l | gcd(a,D)} in all cases
+(4) toy family: 3875 classes (all four types) with modulus | L=120120; unit avoiders 196/23040 (density 0.0085)
+    arity k=0: integer LP (family+selectors) E nu = 0.041667 [log 1/E = 3.178];  unit LP E* nu = 0.125000 [log 1/E* = 2.079];  log(L/phi(L)) = 1.651; diff = 1.099
+    arity k=1: integer LP (family+selectors) E nu = 0.016667 [log 1/E = 4.094];  unit LP E* nu = 0.062500 [log 1/E* = 2.773];  log(L/phi(L)) = 1.651; diff = 1.322
+    arity k=2: integer LP (family+selectors) E nu = 0.006849 [log 1/E = 4.984];  unit LP E* nu = 0.026910 [log 1/E* = 3.615];  log(L/phi(L)) = 1.651; diff = 1.368

@@ -1,0 +1,7 @@
+(a) Lemma 4.1 projection: 300 random (L,d,b): mismatches = 0
+(b) Lemma 1.3 unit masses (l<=11, E<=3): mismatches = 0
+(c) W=5: K2 R-term - log(Q0/phi(Q0)) = 2.772589; (pi(W)+1)log2 = 2.772589; log(P_W/phi(P_W)) = 1.3218
+(c) W=13: K2 R-term - log(Q0/phi(Q0)) = 4.852030; (pi(W)+1)log2 = 4.852030; log(P_W/phi(P_W)) = 1.6513
+(c) W=31: K2 R-term - log(Q0/phi(Q0)) = 8.317766; (pi(W)+1)log2 = 8.317766; log(P_W/phi(P_W)) = 1.8783
+(c) W=101: K2 R-term - log(Q0/phi(Q0)) = 18.714974; (pi(W)+1)log2 = 18.714974; log(P_W/phi(P_W)) = 2.1276
+(c) W=1009: K2 R-term - log(Q0/phi(Q0)) = 117.835021; (pi(W)+1)log2 = 117.835021; log(P_W/phi(P_W)) = 2.5147
