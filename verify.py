@@ -16145,4 +16145,100 @@ print("\n== (bz) POINTWISE_SIZE: Lemma CT (character trap), window reciprocity L
 check_bz()
 
 
+# ---------------------------------------------------------------- (ca)
+# POINTWISE_OMEGA.md: Lemma 2.3 algebra (D -> A^2/D preserves m | 4D+1; for
+# D <= A, D = s r^2 gives A = s r k, k >= r, m | r+k) for all M <= 6000; and the
+# prime-local reduction Lemma 2.1 (with its converse) at T = 255, 1023, 4095:
+# random n = 1 (mod Q_y) and CRT-forced survivors, W(n) > T compared directly.
+
+def check_ca():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+
+    # Lemma 2.3 algebra
+    X = 6000
+    spf = _o9_spf(4 * X + 8)
+    cnt = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        Ds = _o9_divisors({r: 2 * e for r, e in _o9_factor(A, spf).items()})
+        for m in range(1, M + 1):
+            if M % m:
+                continue
+            for D in Ds:
+                if (4 * D + 1) % m:
+                    continue
+                cnt += 1
+                assert (4 * (A * A // D) + 1) % m == 0, ("Lemma 2.3 involution", M, m, D)
+                if D <= A:
+                    s = r = 1
+                    for ell, e in _o9_factor(D, spf).items():
+                        if e % 2:
+                            s *= ell
+                        r *= ell ** (e // 2)
+                    assert A % (s * r) == 0, ("Lemma 2.3: sr | A", M, D)
+                    k = A // (s * r)
+                    assert k >= r and (r + k) % m == 0, ("Lemma 2.3 (s,r,k)", M, m, D)
+    assert cnt > 10000
+
+    # Lemma 2.1
+    rows = []
+    for T, nsamp, nforce, seed in ((255, 3000, 1000, 1), (1023, 1000, 300, 2), (4095, 400, 200, 3)):
+        y = isqrt(T)
+        spf = _o9_spf(4 * T + 8)
+        Q = 24
+        for ell in primerange(2, y + 1):
+            e = 1
+            while ell ** (e + 1) <= T:
+                e += 1
+            Q = lcm(Q, ell ** e)
+        R = {}
+        for M in range(3, T + 1, 4):
+            A = (M + 1) // 4
+            R[M] = {(-4 * D) % M for D in
+                    _o9_divisors({r: 2 * e for r, e in _o9_factor(A, spf).items()})}
+        F = {}
+        for ell in primerange(y + 1, T + 1):
+            S = set()
+            for m in range(1, T // ell + 1):
+                M = m * ell
+                if M % 4 != 3:
+                    continue
+                for D in _o9_divisors({r: 2 * e for r, e in
+                                       _o9_factor((M + 1) // 4, spf).items()}):
+                    if (4 * D + 1) % m == 0:
+                        S.add((-4 * D) % ell)
+            F[ell] = S
+
+        def W_gt_T(n):
+            return all(n % M not in R[M] for M in R)
+
+        rng = _random.Random(seed)
+        surv = 0
+        for _ in range(nsamp):
+            n = 1 + Q * rng.randrange(1, 10 ** 30)
+            avoid = all(n % ell not in S for ell, S in F.items())
+            assert avoid == W_gt_T(n), ("Lemma 2.1 (or converse) mismatch", T, n)
+            surv += avoid
+        for _ in range(nforce):
+            n, mod = 1, Q
+            for ell, S in F.items():
+                a = rng.randrange(1, ell)
+                while a in S:
+                    a = rng.randrange(1, ell)
+                n, mod = n + mod * (((a - n) * pow(mod, -1, ell)) % ell), mod * ell
+            assert W_gt_T(n), ("Lemma 2.1: forced survivor has W(n) <= T", T)
+        rows.append((T, len(F), nsamp, surv, nforce))
+    print(f"ca Lemma 2.3: {cnt} (M,m,D) triples, M <= {X}, 0 failures")
+    for T, nF, ns, sv, nf in rows:
+        print(f"ca Lemma 2.1 T={T}: {nF} free primes, {ns} samples ({sv} survivors) + "
+              f"{nf} forced survivors, 0 mismatches")
+    print(f"ca seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ca) POINTWISE_OMEGA: Lemma 2.3 algebra, prime-local reduction Lemma 2.1 ==")
+check_ca()
+
+
 print("\nall checks passed")
