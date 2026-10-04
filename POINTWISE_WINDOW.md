@@ -305,3 +305,44 @@ The joint events are abundant: 5731 primes `p<10^11` in the single class
 character as window 3 (`(r/27)=(r/3)`), which is why the `J=7` survival
 ratio is high (24351/45947). The classes `−3` and `−27 mod ℓ` are still
 distinct, so the dimension still adds.
+
+## 6. Dimension bookkeeping: every failing window costs dimension ≥ 1/2
+
+**Lemma 6.1 (PROVED).** Let `q≡3 (4)` and `G=(Z/q)^×`, and suppose window q
+fails for p. Let `C_big` be the set of residue classes `c∈G` containing at
+least q distinct primes dividing `n_q`, and put `K=⟨C_big⟩≤G`. Then
+`−1∉K`, so `[G:K]≥2`. Moreover, `n_q` has fewer than `q·φ(q)` distinct prime
+factors whose class lies outside K.
+
+*Proof.* Suppose `−1∈K`. Then `−1=∏_{c∈C_big}c^{e_c}` with `0≤e_c<ord(c)≤q`.
+For each `c∈C_big`, choose `e_c` distinct primes `r|n_q` in class c, and let
+u be the product of all the chosen primes and `v=1`. Then `uv|n_q` is
+squarefree and `u/v≡−1 (mod q)`, so `−1∈Rat_q(n_q)` and the window succeeds,
+a contradiction. Every class outside K is outside `C_big`, so it holds
+`<q` of the primes, and there are `<φ(q)` such classes. ∎
+
+**Consequence (dimension count; PROVED as a counting statement).** The
+primes in classes outside K form a set of relative density
+`1−1/[G:K]≥1/2`, and all but `O_q(1)` of them must be absent from `n_q`.
+So the failure of window q is contained in a finite union, over subgroups
+`K∌−1` and over the `O_q(1)` exceptional primes, of events of sieve
+dimension `≥1/2`. For the first J windows the forbidden classes `−q mod ℓ`
+are distinct for `ℓ>4J`. Hence "windows `3,…,4J−1` all fail" is covered by
+sieve events of dimension `≥J/2`. This is the rigorous form of the
+"dimension `≥K/8`" bookkeeping in Assessment 11.5. The `O_q(1)` exceptional
+primes change only `log log` factors in upper bounds, not the dimension.
+
+**Congruence restrictions do not help (PROVED; complements Lemma 11.3).**
+Restricting p to a class mod Q fixes the divisibility of `n_q` by the
+primes `ℓ|Q`, and nothing else. The sifting set of window q loses at most
+the finitely many primes dividing Q, so its density, and hence the
+dimension, is unchanged. Choosing p in clever classes can force small
+prime factors of the `n_q`, but it cannot lower the dimension `J/2`. The
+suggestion "kill some windows by F1 through congruences" is therefore
+impossible for every window (Lemma 11.3), and it saves nothing in
+dimension (this paragraph).
+
+**The upper-bound side matches (Assessment, standard).** An upper-bound
+sieve of dimension `J/2` gives
+`#{p≤x : windows 3,…,4J−1 all F1-clean} ≪_J x/(log x)^{1+J/2}`. The
+normalised counts of §5 are flat at exactly this scale.
