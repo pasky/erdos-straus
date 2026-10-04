@@ -11,7 +11,7 @@ Status: **checkpoint 1 (unreviewed).** Labels follow
 | Thm 2.1, Cor 2.2 | **Exact duality.** For any frequency set Θ and weights w, the best CRT-admissible large-sieve denominator is `F*_w = 1/m_w`, `m_w = min{Σ|γ_θ|²/w_θ : Re Σγ_θe(−nθ) ≥ 1 on 𝒜}`. Since every N-large-sieve system has `w_θ ≤ 1/N`, every such bound is `≥ N·E|g*|²`, and `|g*|²` is a nonnegative CRT majorant whose moduli are lcm's of two frequency denominators | PROVED |
 | Thm 3.1, Cor 3.2 | **Large-sieve cap for every forced-class mixture.** With KARY2 Thm 5.1: any CRT-admissible large sieve (Montgomery, weighted, Farey with prime, prime-power or composite moduli, forced classes used in any form, fibrewise over `Q₀`, weighted sequences) saves `≤ Cλ^{3/4}(log λ)^{3/4}`, `λ = λ(Q₀) + 2λ_Θ`. With denominators `≤ N^{O(1)}` and `Q₀ ≤ min(N^{O(1)}, N/2)`: `≤ C(log N)^{3/4}(log log N)^{3/4}`, and `C_B(log N)^{3/4}` under bounded B. No rounding term is needed | PROVED (Case A via ElT Prop 1.4, as in KARY2) |
 | Thm 4.1, Cor 4.2, Rem 4.4 | **Prime-slice systems, any frequencies** (any denominators, sparse sets, any weights): Fourier–Rankin bound `saving ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8Σ p̄_ℓ ℓ^{−α}`; for ET Cor 3.4 families (also fibrewise, `Q₀ ≤ N/2`) `≤ C(log N)^{3/4} + log(P/φ(P))` | PROVED |
-| Prop 5.1, Ex 5.2 | **Key question.** For prime moduli, `S_c(Q)` ≤ exp(Rankin functional of the prime-local system used), tautologically. For composite moduli the small-prime-conditioned Euler product does **not** dominate (twin classes are invisible to it but seen by the composite large sieve); the dominating functional is the top-prime sequential one (Thm 3.1) | PROVED |
+| §5.1, Ex 5.2 | **Key question.** For prime moduli, `S_c(Q)` ≤ exp(Rankin functional of the prime-local system used), tautologically. For composite moduli the small-prime-conditioned Euler product does **not** dominate (disjoint twin-pair classes are invisible to it but seen by the composite large sieve, usefully once `N ≳ m³/ω`); the dominating functional is the top-prime sequential one (Thm 3.1) | PROVED |
 | Thm 6.2, Cor 6.3 | **Larger-sieve kernels** `K = Σ_q w(q)1[q|m]` (composite q allowed) save `≤ log(1 + N·X(π)/(W−h))`, `X(π) = Σ_q (w(q)/q)χ²_q(π)` (χ² of the mod-q marginals, q as in the kernel) for any `π` on 𝒜. For **Gallagher's** weights (Λ on prime powers) this is `≤ X(π) + O(1)`, and `O(1)` on ET Cor 3.4 prime slices | PROVED |
 | §7 | **Exact escape.** (E1) frequencies of super-polynomial level (`λ_Θ ≥ (log N)^{1+ε}`) against multi-large-prime classes, needing (H_LS); (E2) the larger sieve over mixtures, needing (H_Gal); (E3) non-CRT interval information; (E4) KARY2's inherited exclusions | (H_LS), (H_Gal): CONJECTURE/open |
 | §8 | duality, `F* = S(Q)` for product systems, Ex 5.2, Thm 4.1 bound: checked on small systems | EVIDENCE |
@@ -395,7 +395,11 @@ sparse sets of rationals with huge denominators — saves at most
     C'(C)(log N)^{3/4} + log(P/φ(P)) + log 2.
 
 *Proof.* ET Cor 3.4's proof gives `f_ℓ(c) ≤ ℓ^{C+o(1)} ≤ min(ℓ/2, ℓ^κ)`
-with `κ = (1+C)/2` for `ℓ ≥ ℓ₀(C)`, and
+with `κ = (1+C)/2` for `ℓ ≥ ℓ₀'(C)`. This is an **enlarged** `ℓ₀`: ET's
+`ℓ₀(C)` was chosen for `f ≤ ℓ/4` only (review D5). We assume it as a
+hypothesis on the family (all slice primes `≥ ℓ₀'(C)`). Slice primes
+below `ℓ₀'` may not simply be dropped, since that changes 𝒜; they must
+be absorbed into Q₀, which changes the R-term. Further,
 `Σ_ℓ p̄_ℓ ℓ^{−α} ≪ α^{−3}` (untruncated; Lemmas 3.1, 3.2, 3.7); and
 `Q₀/|R| = P/φ(P)`. Take `α = (log N)^{−1/4}` in (4.1). ∎
 
@@ -453,7 +457,9 @@ of them mod `m_j`. Take `ℓ_j < ℓ'_j < ℓ_j²` with `ℓ_j` large, so that
    arithmetic large sieve saves nothing;
 2. the large sieve with the composite modulus `m_j` (frequencies `a/d`,
    `d | m_j`, weight `w = (N+m_j²)^{−1}`) has
-   `F*_w ≥ w·(1 + g_j)`, `g_j = ω_j/(m_j − ω_j) > 0`.
+   `F*_w ≥ w·(1 + g_j)`, `g_j = ω_j/(m_j − ω_j) > 0`. The resulting
+   bound `(N + m_j²)/(1+g_j)` beats the trivial N only when
+   `m_j² < g_j N`, i.e. `N ≳ m_j³/ω_j` (review D7).
 
 *Proof.* By CRT, 𝒜 is a product over the pairs of
 `(ℤ/m_j ∖ F_j)` times free coordinates. 1. Given `n ≡ b (mod ℓ_j)`, the
@@ -466,10 +472,12 @@ prime) and every residue mod any other prime occurs in `𝒜_c`. 2. For
 
 So "S(Q) ≤ exp(Rankin functional of the prime-local system induced by
 conditioning on small primes)" fails as soon as composite moduli are
-allowed. The saving in Example 5.2 is tiny, but by ET Lemma 3.8 the
-balanced moduli (no dominant prime) carry `≫ (log x)³` of the ES supply,
-so the mass that the small-prime-conditioned system misses is not lower
-order. **The functional that does dominate is the sequential one:**
+allowed. The saving in Example 5.2 is tiny. By ET Lemma 3.8 the
+balanced moduli (no dominant prime) carry `≫ (log x)³` of the ES supply.
+*Heuristically* much of that mass is invisible to the
+small-prime-conditioned system. This is not proved: Example 5.2 shows
+invisibility only for disjoint pairs, and with many moduli sharing a
+prime, fibres mod ℓ could become covered. **The functional that does dominate is the sequential one:**
 condition at each prime ℓ on the residues at *all* smaller primes and
 count the classes decided at ℓ (their top prime). That is the KARY
 construction, and Theorem 3.1 transfers its cap to the large sieve
@@ -492,7 +500,10 @@ whenever `D(π) := Σ_q w(q) coll_q(π) > h`. Gallagher's larger sieve is
 `𝒮` = prime powers `≤ Q`, `w = Λ`, `h = log N`, with Cauchy–Schwarz
 `coll_q ≥ 1/ν(q)`. The CRT-admissible optimum is `Z ≤ (W−h)/(D* − h)`,
 `D* = min_{π∈P(𝒜)} D(π)`; composite moduli and the forced classes in any
-form are allowed in `𝒮`.
+form are allowed in `𝒮`. A kernel bound `Z ≤ (W−h)/(L−h)` is
+*CRT-admissible* if `L ≤ D(π)` for every `π ∈ P(𝒜)`; its best value is
+`L = D*`. Gallagher's form uses `L = Σ_q w(q)/ν(q)` with
+`ν(q) ≥ |𝒜 mod q|`, which is admissible by Cauchy–Schwarz.
 
 Write `χ²_q(π) = q·coll_q(π) − 1` (the χ²-distance of `π mod q` from
 uniform) and
@@ -588,8 +599,18 @@ independence that classes such as ℛ(ℓ₁ℓ₂) destroy. (H_LS) is
 high-level frequencies behave like those of a random set of the same
 local densities, and no escape is expected.
 
-**(E2) The larger sieve over mixtures.** Theorem 6.2 caps it by the
-χ²-functional `X(π)`; the cap for mixtures needs (H_Gal) (§6), open.
+**(E2) The larger sieve over mixtures** (split per review D8).
+* *(E2a) Gallagher's sieve as used* (`coll_q ≥ 1/ν(q)`). Its denominator
+  is `D_CS = Σ_q w(q)/ν(q) = D_u + X_CS` with
+  `X_CS = Σ_q (w(q)/q)(q/|𝒜 mod q| − 1)` at best. The proof of
+  Theorem 6.2 goes through verbatim with X replaced by `X_CS`. So
+  capping it needs only *support* bounds
+  `|𝒜 mod ℓ^v| ≥ ℓ^v(1 − ε_{ℓ^v})` with
+  `Σ_{ℓ^v ≤ Q} ε_{ℓ^v} log ℓ/ℓ^v ≪ (log N)^{3/4}`. This is strictly
+  weaker than (H_Gal), and it is the first target. It amounts to
+  non-covering of most fibres mod ℓ by the forced classes. The squares
+  give only the quadratic residues (`ε ≤ 1/2`), which is not enough.
+* *(E2b) the CRT-optimal kernel bound `D*`*: needs (H_Gal) (§6). Open.
 
 **(E3) Non-CRT information.** Bounds that use that `π_A` is the
 empirical law of a set in a short interval (not just a law on 𝒜) are
