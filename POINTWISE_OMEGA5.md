@@ -22,10 +22,10 @@ prime factors, all `>y`), `n′≥y`. Survival: `m|4sa²+1`.
   form of HC, Cor 4.1) with `a=1/3` for events whose atom has trivial
   Π-part, with saturated hubs (Def 2.0). **HC as literally stated in O4 is
   false** for lifted vertices: a non-hub lift of a hub class has codegree
-  `≫1` (Def 2.0). O4 Thm 4.2 survives with saturated hubs. The proof combines the lifting with square-root
+  `≫1` (Def 2.0). O4 Thm 4.2 holds under HC* (saturated hubs; Cor 4.1(ii)). The proof combines the lifting with square-root
   counts and a thin-box lattice lemma. It uses no exponential sums.
 * §3 (PROVED). The Π-part m (O4 gap (iii)) satisfies `m|u+v` and
-  `m|4sa²+1`. Events with `m≤H^{1/6}` give HC* with `a=1/6`, and ray sums
+  `m|4sa²+1`. Events with `m≤H^{1/3−a}` give HC* with exponent a (any `a<1/3`), and ray sums
   are bounded for balanced rays.
 * §4. **Open residual HC_Π (large m).** It is a divisor-function problem
   in short progressions, not a Weil-range inverse problem. HC_Π implies
@@ -233,7 +233,8 @@ m with weight `2/n′`). In the system `(qm,κ_m)` every point has
 
 **Proposition 3.2 (small m; PROVED).** The atoms with `m≤μ` contribute at
 most `2μ·Δ¹(q,κ) ≤ 2Cμ𝓛⁴4^{k/3}Ĥ^{−1/3}` to `Δ_O`. With `μ=Ĥ^{1/6}`: the
-part of `Δ_O` from events with `m≤Ĥ^{1/6}` is `≪2^k𝓛⁴4^{k/3}Ĥ^{−1/6}`
+part of `Δ_O` from events with `m≤Ĥ^{1/6}` is `≪2^k𝓛⁴4^{k/3}Ĥ^{−1/6}`; in
+general `μ=Ĥ^{1/3−a}` gives `≪2^k𝓛⁴4^{k/3}Ĥ^{−a}`
 (the factor `2^k` comes from the prime-power patterns, Lemma 2.0′).
 
 *Proof.* `2/n′=2m/n≤2μ/n`, and `n=mn′≥y`, so the atom is a term of
@@ -275,29 +276,34 @@ Weil-range, problem. A complete treatment is §4.
 Split `Δ_O = Δ_O^{≤μ} + Δ_O^{>μ}` by the Π-part m of the event's atom
 (an event is charged to one of its atoms). Prop 3.2 handles `Δ_O^{≤μ}`.
 
-**Hypothesis HC_Π(a′,B′)** (open). For all large T, all k, `4^k≤H≤y`,
-and every vertex set O with no *saturated* H-hub (Def 2.0), the atoms with `m>Ĥ^{1/6}` give
-`Δ_O^{>Ĥ^{1/6}} ≤ 𝓛^{B′}H^{−a′}`.
+**Hypothesis HC_Π(a′,B′)** (open; `0<a′<1/3`). For all large T, all k,
+`4^k≤H≤y`, and every vertex set O with no *saturated* H-hub (Def 2.0), the
+atoms with `m>Ĥ^{1/3−a′}` give `Δ_O^{>Ĥ^{1/3−a′}} ≤ e^{Ck}𝓛^{B′}H^{−a′}`.
+(Threshold changed from `Ĥ^{1/6}` after review R2-D1: Prop 3.2 holds for
+every μ. By §7 (Prop 7.1), HC_Π reduces further to its first terms
+`P_0` with `m>Ĥ^{1/3−a′}`; that reduction costs `a≤1/4`.)
 
 **Hypothesis HC*(a,B)** (the form O4 Thm 4.2 actually uses). As HC, but
 with saturated hubs (Def 2.0), only for `4^{k}≤H≤y`, and with the bound
 `Δ_O ≤ e^{Ck}𝓛^BH^{−a}` (C absolute).
 
 **Corollary 4.1 (PROVED implication).** (i) HC_Π(a′,B′) (saturated hubs,
-`4^k≤H≤y`) implies HC*(min(a′,1/6), max(B′,4)+1). (ii) O4 Thm 4.2 holds with
+`4^k≤H≤y`) implies HC*(a′, max(B′,4)+1). The first-term form (P_0 with
+`m>Ĥ^{1/3−a′}` bounded by `e^{Ck}𝓛^{B′}H^{−a′}`) implies
+HC*(min(a′,1/4), max(B′,5)+1), using Prop 7.1. (ii) O4 Thm 4.2 holds with
 HC* in place of HC: its step 3 chooses one H with
 `H^a ≥ 𝓛^Be^{0.011k}/η_k`. The factor `e^{Ck}` adds `O(k/a)` to `log H`,
 which is negligible against `log(1/η_k)≍k²`. The resulting
 `H=y^{1/2+o(1)}` satisfies `4^k≤H≤y` and the saturated-hub cost condition of
 Def 2.0. Hence, modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4, HC_Π implies
-`log W(p) ≥ 0.2·min(a′,1/6)^{1/2}(log₂p)^{3/2}` for infinitely many
-Mordell-hard p (`0.2/√6>0.08`). Literal HC is false (Def 2.0). It also
+`log W(p) ≥ 0.2·a′^{1/2}(log₂p)^{3/2}` for infinitely many Mordell-hard p
+(and the first-term form gives `0.2·min(a′,1/4)^{1/2}`). Literal HC is false (Def 2.0). It also
 quantifies over all `H≥2` without the `e^{Ck}` factor. With O4's
 (unsaturated) hubs, HC_Π is false as well: lifts of the class −4 (F1,
 `s=a=1`) carry the atoms `(1,1,b)`, `5|4b−1`, with `m=5` and constant
 codegree (review O13r-D4).
 
-*Proof.* (i) Theorem 2.3, Prop 3.2 with `μ=Ĥ^{1/6}`, and `Ĥ≥H` for
+*Proof.* (i) Theorem 2.3, Prop 3.2 with `μ=Ĥ^{1/3−a′}`, and `Ĥ≥H` for
 `H≤y`. (ii) As stated: re-run O4 Thm 4.2 steps 2–5 with the factor
 `e^{Ck}` and the condition `300(k+1)H(1+log H)<y`. ∎
 
@@ -394,8 +400,8 @@ is therefore unnecessary for the core.
 ## 6. Status
 
 * **PROVED:** Lemma 1.1, Cor 1.2, Lemma 2.0′, Lemmas 2.1–2.2, Theorem 2.3
-  (HC* with a=1/3 for the m=1 part), Lemma 3.1, Prop 3.2 (HC* with a=1/6
-  for `m≤Ĥ^{1/6}`), Lemma 3.3, Cor 4.1 (HC_Π ⇒ HC* ⇒ O4 Thm 4.2 rate),
+  (HC* with a=1/3 for the m=1 part), Lemma 3.1, Prop 3.2 (HC* with exponent a
+  for `m≤Ĥ^{1/3−a}`), Prop 7.1 (period part, a=1/4), Lemma 3.3, Cor 4.1 (HC_Π ⇒ HC* ⇒ O4 Thm 4.2 rate),
   and the counterexample to literal HC (Def 2.0).
 * **Open:** HC_Π, i.e. the large-m part. HC*(a,B) is therefore still
   not proved unconditionally, and the proved rate remains O4 Cor 3.1.
@@ -447,13 +453,14 @@ P_0 := Σ_{(a,b)∈Λ*} Σ_{m|a+b, m>μ} 2/ν(a,b,m)     (first terms).
 `τ*(x):=max_{n≤x}τ(n)`,
 
 ```
-P_1 ≤ 4𝓛²·[ 2^{ω(q)+1}(2+𝓛)/q + τ*(12q²)/q + 6·h_3^{−1/4} ].
+P_1 ≤ 4𝓛²·[ 2τ(q)(2+𝓛)/q + τ*(12q²)/q + 6·h_3^{−1/4} ].
 ```
 
 In particular `(𝓛/2)P_1 ≤ 2^{k+O(1)}𝓛⁴(q^{−1+o(1)} + H^{−1/4})` for a
 vertex set O without saturated H-hubs. By Nicolas–Robin,
 `log τ*(x) ≤ 1.538·log2·log x/log log x`, so `τ*(12q²)/q=q^{−1+o(1)}`
-explicitly. Since `q>y²≥H⁴`, the period part satisfies HC* with `a=1/4`.
+explicitly. Since `q>y²≥H²`, `q^{−1+o(1)}≤H^{−2+o(1)}`, and the period part
+satisfies HC* with `a=1/4`.
 
 *Proof.* Use dyadic boxes `R=[A,2A)×[B,2B)`. Since `a,b≤T`, there are at
 most `4𝓛²` of them. Put `X:=max(A,B)`. Each b fixes a mod q, so R holds
@@ -465,8 +472,10 @@ most `4𝓛²` of them. Put `X:=max(A,B)`. Each b fixes a mod q, so R holds
 * `X>3q²`, say `X=B`: for each a, `n=a+b` runs over one class mod q, a
   stretch of length B. Using `τ(n)≤2#{d|n: d≤√n}` and `√n<2√B`, and
   splitting by `g=gcd(d,q)`:
-  `Σ_bτ(a+b) ≤ 2Σ_{d≤2√B}(Bg/(qd)+1) ≤ 2(B/q)·2^{ω(q)}(1+𝓛)+4√B`.
-  With `B>3q²`, `4√B<2.4B/q`, so the box weighs `≤2^{ω+1}(2+𝓛)/q`. The case
+  `Σ_bτ(a+b) ≤ 2Σ_{d≤2√B}(Bg/(qd)+1) ≤ 2(B/q)·τ(q)(1+𝓛)+4√B`.
+  With `B>3q²`, `4√B<2.4B/q`, so the box weighs `≤2τ(q)(2+𝓛)/q`.
+  Here `τ(q)=2^{ω(q)}` for squarefree q, and `τ(q′)≤2^{Σv_ℓ}≤2^k` for the
+  prime-power moduli of Lemma 2.0′ (review R2-D3). The case
   `X=A` is symmetric. ∎
 
 *Remark.* No Shiu / Nair–Tenenbaum / Henriot input is needed for the
@@ -491,23 +500,17 @@ over the whole lattice. One needs to use `ν≤T/(qm)` (existence) and
 `s<qm(1+y/(4ab))`, so P_0 is a sum over the m-system cores
 `{s<2qm}` (for `4ab≥y`), summed over m. Partial results:
 
-* `m≤Ĥ^{1/6}`: Prop 3.2.
-* For `m∈[μ_0,2μ_0)` the per-m thin-box argument of Theorem 2.3 in the
-  system `(qm,κ_m)` works: ray sums are taken per m (Lemma 2.1, with
-  no τ), and `Σ_{m∼μ_0}2^{ω(m)}≤2μ_0(1+log2μ_0)` replaces `2^{ω}`. It gives
-  `≪𝓛⁴[H^{−a} + 4^kμ_0³H^{2a}/y + 2^kμ_0²H^{a}𝓛/H]` for the core boxes
-  `A,B<qμ_0`. This is HC-shaped for `μ_0≤H^{1/3−2a}` (with `y≥H²`).
-  The boxes with `A` or `B≥qμ_0` were not redone with m. *Assessment
-  (sketch, not checked line by line).*
-* `m≥H^{1/3}`: no argument. Per m, the cores contribute up to `O(1/y)`.
+* `m≤Ĥ^{1/3−a}`: PROVED for the whole mass, not only first terms, by
+  Prop 3.2 with `μ=Ĥ^{1/3−a}`, giving `≪2^k4^{k/3}𝓛⁴H^{−a}` (review R2-D1).
+  This supersedes the per-m thin-box sketch of the previous version.
+* `m>Ĥ^{1/3−a}`: no argument. Per m, the cores contribute up to `O(1/y)`.
   The sum over the up to `T/(qy)` values of m needs the number of
   first atoms with `n′∈[Y,2Y)` and `m>H^{1/3}` to be `≪𝓛^BH^{−a}Y`,
   summed over all m. The unbalanced rays of (DIV) are the sub-case
   `(a,b)=t(u,v)`.
 
 **Status of HC_Π after round 2.** The period part is PROVED (a=1/4),
-first terms with `m≤H^{1/6}` are PROVED (Prop 3.2), first terms with
-`H^{1/6}<m≤H^{1/3−ε}` are an Assessment, and first terms with `m>H^{1/3}`
-are open. The open piece is a pure core-counting problem for the moduli
+all atoms with `m≤H^{1/3−a}` are PROVED (Prop 3.2), and the first terms
+`P_0` with `m>H^{1/3−a}` are open. The open piece is a pure core-counting problem for the moduli
 `qm`, `m` Π-smooth, averaged over m with weight 1. It is no longer a
 divisor-sum problem.

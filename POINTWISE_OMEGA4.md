@@ -577,8 +577,9 @@ The m-refinement (iii) and the core are open.
 > **Update (POINTWISE_OMEGA5 §§1–2).** The core obstruction below is an
 > artefact of counting non-squarefree s. Atoms have squarefree s (O3
 > Lemma 2.1), and `(s,t)↦st²` is injective, so the relevant count is
-> `≤Yt_0²/q+1` for every w. O5 Thm 2.3 proves the m=1 part of every
-> non-hub codegree `≪2^k𝓛⁴4^{k/3}H^{−1/3}` with no exponential sums. What
+> `≤Yt_0²/q+1` for every w. O5 Thm 2.3 proves that, for every vertex set
+> without *saturated* H-hubs and `4^k≤H≤y`, the m=1 part of the codegree
+> is `≪2^k𝓛⁴4^{k/3}H^{−1/3}` with no exponential sums. What
 > remains is the Π-part m (gap (iii)), which is O5's HC_Π.
 
 **Proposition 7.3 (the core is a short-range inverse problem; the
