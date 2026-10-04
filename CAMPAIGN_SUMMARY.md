@@ -421,3 +421,29 @@ prime with `W > T`.
   linear-sieve parity at two windows (**Assessment**). Unconditional
   `K = 11` is the window analogue of the open unconditional case of
   Friedlander–Iwaniec 2009.
+
+---
+
+## 4. Table of main results
+
+"Internal" reviews are by campaign agents. Nothing here is externally
+refereed. "Cited" inputs are published theorems whose statements were
+read but whose proofs were not re-checked. Standard tools (BV,
+Brun–Titchmarsh, the large sieve) are listed only where the source names
+them.
+
+### 4.1 Exceptional-set line
+
+| # | statement | label | document | review | external inputs |
+|---|---|---|---|---|---|
+| E1 | `E(N) ≪ N exp(−c L^{2/3}(log L)^{1/3})`, primes and all denominators | Theorem | `paper/vaughan-loglog-note.tex` Thms 1.1–1.2; notes §16.4–16.5 | `reviews/vaughan-loglog-note-review.md` (CORRECT-AFTER-REPAIRS) | BV, Brun–Titchmarsh, Montgomery large sieve |
+| E2 | `E(N) ≪ N exp(−c L^{3/4})` | INTERNALLY PROVED (standalone note); CLAIMED/PROVISIONAL in `espaper.tex` | `paper/es-threequarter-note.tex` Thm 1.1; notes §§16, 34, 39, 76 | `reviews/es-threequarter-note-review.md`, `reviews/wave32-sec76-review.md` (SOUND-AFTER-REPAIRS); `reviews/es-threequarter-blind-audit.md` (SOUND) | BV (Cauchy–Schwarz against BV in §5) |
+| E3 | Sieve-limit theorem for prime-slice systems; 3/4 cap for dominant-prime forced-class majorants; 2/3-loglog note sharp for its architecture | PROVED | `EXCEPTIONAL_THETA.md` Thm 2.5, 2.7, Lemma 2.9, Cor 3.4–3.6 | `reviews/exceptional-theta-review.md` (SOUND-AFTER-REPAIRS) | Case A via Elsholtz–Tao Prop 1.4 (Lemma 3.7) |
+| E4 | Λ² sieve limit for arbitrary CRT systems via noise stability | PROVED (reduces balanced moduli to the open H_MS^{Sel}) | `EXCEPTIONAL_THETA.md` Thm 5.5 | as E3 | none |
+| E5 | 3/4 cap for (η,B)-gapped ℛ(M)-families, unconditional | PROVED | `EXCEPTIONAL_TWIN.md` Thm 2.7, 4.4 | `reviews/exceptional-twin-review.md` (rounds 1–2) | none named |
+| E6 | Two-prime Λ² cap `≪ L^{3/4}(log L)^{O(1)}`, twins included | PROVED (internal) | `EXCEPTIONAL_TWIN2.md` Thm 5.1 + `EXCEPTIONAL_TWIN3.md` Thm 4.1 | `reviews/exceptional-twin2-review.md`, `reviews/exceptional-twin3-review.md` (SOUND) | Brun–Titchmarsh |
+| E7 | Λ² cap for `r` large primes, `≪ L^{3/4}(log L)^{3r+O(1)}`; B removed for fixed `r` | PROVED (internal) | `EXCEPTIONAL_TWIN4.md` Thm 7.1, 10.4 | `reviews/exceptional-twin4-review.md` (SOUND) | arithmetic large sieve (rough-partner Brun–Titchmarsh) |
+| E8 | 3/4 cap for every CRT majorant over ℛ(M)-families with fixed B; weighted k-ary comparison theorem | PROVED (internal) | `EXCEPTIONAL_KARY.md` Thm 2.5, 4.5 | `reviews/exceptional-kary-review.md`, `-review-2.md` | none |
+| E9 | Per-frequency signed rounding (weights ≥ 1), prime-only majorants and CRT moment methods also capped at 3/4 (prime-slice families) | PROVED (internal) | `EXCEPTIONAL_NONCRT.md` Thm 2.3, 3.2–3.3, Props 4.1–4.2 | `reviews/exceptional-noncrt-review.md` (rounds 1–2) | none |
+| E10 | **No θ > 3/4 for coefficient-sum CRT sieves over any mixture of the four forced/selector class types**; saving `≤ C L^{3/4}(log L)^{3/4}`, `≪_B L^{3/4}` under fixed B | PROVED (internal) | `EXCEPTIONAL_KARY2.md` Thm 5.1, 5.2, Cor 6.1; `paper/sieve-limits-note.tex` | `reviews/exceptional-kary2-review.md`, `-review-2.md`; `reviews/sieve-limits-note-review-v2.md`, `reviews/papers-v3-review.md` | Elsholtz–Tao Prop 1.4 (Case-A part only) |
+| E11 | Heuristic ceiling `θ = B/(B+1)` (2/3 at B = 2, 3/4 at B = 3) | Assessment (proved arithmetic under the stated assembly model) | notes §18.3–18.4 | — | — |
