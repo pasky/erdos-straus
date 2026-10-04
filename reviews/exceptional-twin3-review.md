@@ -63,3 +63,36 @@ Re-derived line by line.
   `log(2km·y₀) = log(km²)`, so `a` is an upper bound, fine; but the stated
   intermediate `(k/φ(k)) m^{−α}(…)` silently absorbs `(m/2)^{−α} ≤ 2m^{−α}`
   and `m/φ(m) ≤ 2`. Harmless constants.
+
+## Item 3. Lemma 3.1 (largest-variable reduction) — SOUND (nit E3)
+
+* Parametrisation `A = uvt`, `(u,v) = 1`, `D = u²t`, `D̄ = v²t`: bijective
+  (`D/A = u/v` in lowest terms ⇒ `uv | A`). `(uvt, kj) = 1` from `4A ≡ 1`.
+  (3.1): `−4u²t = −u·(4ut) ≡ −u/v`; `(4u²t)(4v²t) = 16A² ≡ 1` gives
+  `−4D ≡ −1/(4v²t)`. Correct (and machine-checked, item 6).
+* Ties t,u,v: each triple goes to exactly one case; the case condition used
+  is only "chosen variable ≥ the other two", which is what the
+  `A ≥ (short product)·max(short)` constraint encodes. No double counting.
+* t largest: fixed coprime `(u,v)`, `uv | A_m ⇔ kjm ≡ −1 (mod 4uv)` — one
+  *reduced* class (`(4uv, kj) = 1`), and `t ≥ max(u,v) ⇔ m ≥ (4uv·max−1)/kj`.
+  Bijection with m checked numerically (item 6).
+* **Author flag `M₁ ≥ q w₂/8`: correct.** Branch `max ≥ (kj)²`:
+  `M₁ ≥ (q(kj)²−1)/kj ≥ q·kj − 1 ≥ q w₂/8`. Branch `max < (kj)²`:
+  `q < 4(kj)^4`, `M₁ ≥ (kj)^{C₀} > q(kj)^{C₀−4}/4 ≥ q w₂/8` — needs only
+  `C₀ ≥ 5`. In fact BT needs only `y/q ≥ e` on every block; the log L comes
+  from the ≤ 2L blocks, not from ℓ₀, so the margin is large. The role of
+  C₀ is exactly to exclude `q ≈ (kj)^4` against `m ≈ w₂`, where BT fails.
+* BT (Montgomery–Vaughan 1973, Thm 2: `π(x+y;q,b)−π(x;q,b) < 2y/(φ(q)log(y/q))`,
+  `1 ≤ q < y`): each block `(y,2y]` contributes `< 2/(φ(q)log(y/q))`;
+  `Σ_{i≤2L} 1/(ℓ₀+i log 2) ≤ 1/ℓ₀ + (log 2)^{−1}log(1+2L log 2/ℓ₀) ≤ 1+1.5log(1+2L)`;
+  `2+3log(1+2L) ≤ 4 log L` for `L ≥ e^5`; `φ(4n) ≥ 2φ(n)`. Correct.
+  Primality of m is essential here (without it `Σ1/m ≍ L/φ(q)` and the
+  final bound becomes `L²·polylog`, over budget) — and m is prime in the
+  binary setting, so fine.
+* **Author flag "dropped coprimality": correct.** In the u- and v-largest
+  cases `(u,v) = 1` is dropped; given the short pair and m, the long
+  variable is determined (`A_m/(vt)`), so the map triple ↦ (short pair, m)
+  stays injective and the bound is an upper bound.
+* **E3 (nit).** "Cover `(M₁, X]` by at most 2L dyadic blocks `(y,2y]` with
+  `y ≥ M₁/2`" — the range is `(M₁, X/(kj)]`, and the first block should be
+  `(M₁/2, M₁]`∪… or start at `y = M₁`; as written ℓ₀ uses `M₁/2`. Harmless.
