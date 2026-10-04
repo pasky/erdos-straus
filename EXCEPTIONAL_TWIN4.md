@@ -248,9 +248,10 @@ primes of `q₀` gives `≤ log L`. With `q/φ(q) ≤ 2(k/φ(k))`, the result is
 Lemma 5.1. pp classes have `ρ ≤ 1` and are covered by (2).
 (2) By (5.1) with `β = 1` it suffices to bound `Σ_{pp M}Γ(k)τ(A²)/M`.
 As in TW2 Lemma 5.4 (prime powers): if the top prime P has `P² | M`, use
-`τ ≤ C_εP^{1/256}`, `M ≥ P²·(rest)` and `Σ_{rest ≤ P^B} 1/rest ≤ (BL)^{O(r)}`…
-more precisely `Σ_{rest}Γ(k)/rest ≪ (log L)^{O(1)}(log P)^{r}`, so the sum is
-`≪ Σ_{P>w₂} P^{−2+1/256}(log P)^{O(r)} ≪ w₂^{−1/2}`. If `P ∥ M` and some
+`τ ≤ C_εP^{1/256}` and `Σ_e P^{−e} ≤ 2P^{−2}` (e ≥ 2); the rest of M
+(k and ≤ r − 1 large prime powers `ℓ^e`, `ℓ < P`) gives
+`Σ_kΓ(k)/k · (Σ_{ℓ<P,e}ℓ^{−e})^{r−1} ≪ (log L)^{O(1)}(2 log L)^{r}`, so the
+sum is `≪ (log L)^{O(r)} Σ_{P>w₂} P^{−2+1/256} ≪ w₂^{−1/2}`. If `P ∥ M` and some
 other `ℓ² | M`, TW2 Lemma 3.3 along P (`q = M/P ≤ P^B`, ≤ 2L dyadic
 blocks) gives `Σ_P τ/P ≪ (q/φ(q))L³`, and `Σ_ℓ ℓ^{−2} ≪ 1/w₂` together with
 `≤ log L` for each remaining prime gives `≪ L³(log L)^{O(r)}/w₂`. ∎
