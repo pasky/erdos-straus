@@ -132,3 +132,108 @@ even if a v4 renumbers. Two cheap safeguards are recommended (D6):
 * add a `% keep in sync with sieve-limits-note.tex v3: thm:main=10.8, rem:TQcovered=10.9` comment
   next to the citation;
 * lead with the stable `[KA2, Cor 6.1, Rem 5.4]`, which the remark already cites.
+
+## 4. Defects
+
+**D1 (MINOR, scope overclaim: "subsumes").**
+
+Lines 1796–1803 (after Thm 10.8) say that Thm `thm:main` "subsumes the previous form of the main
+theorem: case (i) … and case (ii) … (Thm `thm:karycap`). It needs no admissible set: the
+quadratic-residue and square bases are proof devices". The §6 intro (lines 794–797) adds: "the
+conclusions … of Theorem `thm:karycap` are special cases of the bounded-B clause of Theorem
+`thm:main`". The changelog repeats the claim.
+
+This is false as stated:
+* Thm `thm:karycap` applies to majorants that are `≥ 1` only on **the avoider set in `R_W`**, the
+  non-selector QR admissible set.
+* v2's case (ii) was stated "with the quadratic-residue base `R_{W₀(B)}`" as the architecture's
+  admissible set.
+* Thm 10.8, from KARY2 Cor 6.1, needs `ν ≥ 1` on **all** of 𝒜.
+
+So `R_W` was a hypothesis-weakening admissible set for karycap, not only a proof device. Case (i)
+is subsumed: Cor `cor:dominant`'s `R` is selector plus family classes. Case (ii) is subsumed only
+for whole-avoider majorants.
+
+Fix:
+* restrict "subsumes" to whole-avoider (selector-admissible) architectures;
+* say that the `R_W`-restricted form of karycap is not implied by Thm 10.8 and remains separate;
+* in §6, write "for CRT-majorant architectures with a selector admissible set";
+* the "proof devices" phrase should apply to `R_W^□` only.
+
+**D2 (MINOR, prime-size hypothesis weakened in two places).**
+
+Thm 10.8 needs **every prime of every modulus of 𝒢** to be `≤ N^A`. Def `def:arch` (A3) bounds only
+the *slice* primes. The prime-slice small part `q₀` is unbounded there, and so is a selector
+modulus `P`.
+
+The following sentences then overclaim:
+* line 368: "in this form the main theorem … needs no admissible set at all";
+* lines 1800–1803: "every CRT-majorant architecture (Def `def:arch`) for such a family, with a
+  selector admissible set, saves at most …";
+* lines 2549–2552 and 2614: large multipliers are inside Thm 10.8 because it "bounds the level
+  through `Σ|a_i| < N` alone".
+
+Fix: add "with all primes of the family (multipliers and selector primes included) `≤ N^A`" in
+these places, or strengthen (A3) to say so. Also add Q1's qualifier, "multiplier conditions that
+are themselves classes of the four types".
+
+**D3 (MINOR, notation clash in the 3/4 note).**
+
+`es-threequarter-note.tex` line 1337 says "`G ≤ P(G)^{1+B}` with B fixed (here `B < 1/120`)".
+In this note B already means the large constant `B = B(κ,D) ≥ B₀` in `y = Bt³`
+(lines 116 and 1006). A reader of the note will read "here B < 1/120" as contradicting
+`B ≥ B₀`.
+
+Fix: use another letter, e.g. "`G ≤ P(G)^{1+β}`, β fixed (here `kℓ ≤ ℓ^{1+2κ}`, so
+`β = 2κ < 1/120`)".
+
+**D4 (MINOR, inclusion list contradicts Rem `rem:L2vsmain`).**
+
+"What the class contains" (line 1844) lists "the sequential, Λ² and Selberg-type majorants of
+Sections 4–12". Several of these are majorants only of `𝒜 ∩ R_W`:
+* Thm `thm:gapped` and karycap;
+* the TW2 `g²` of §12.
+
+Rem `rem:L2vsmain` explicitly does *not* claim the TW2 case. The sentence is inherited from KARY2
+§6's list.
+
+Fix: append "when they are `≥ 1` on the whole avoider set".
+
+**D5 (NIT, exclusion item 6 heading vs body).**
+
+The heading reads "Other class types, including non-selector admissible sets". The body only
+discusses admissible sets that exclude classes failing (a). Fix:
+* state generally that any admissible set not expressible by selector classes has an uncontrolled
+  `log(Q₀/|R|)` (Rem `rem:Rterm`; ET §6 3(iii));
+* note the one exception now in the paper: `R_W` for fixed-B ℛ(M) families, Thm karycap (cf. D1).
+
+**D6 (NIT, citations and wording).**
+1. Line 2541: "Under bounded B it is excluded (Thm `thm:Bcapall`)". The exclusion of
+   `(log N)^{3/4}ω(N)` gains is the bounded-B clause of Thm `thm:main`; Thm 10.7 is the
+   majorant cap. Cite Thm `thm:main`.
+2. Abstract line 45: "a family of forced congruence classes". The family also contains the
+   non-forced selector classes. Add "(and selector classes)" or say "of the classes below".
+3. Add the keep-in-sync comment for the hard-coded cross-paper numbers (Q3).
+4. Changelog: "§5 (dominant prime)" should be §6, and there are 4 underfull boxes, not 3 (§1).
+   This is cosmetic and does not affect the papers.
+
+## 5. Verdict
+
+**MINOR REVISION.** The mathematics transcribed from KARY2 is faithful:
+* Lemmas 10.2–10.5 and Thms 10.6–10.8;
+* Thm 10.8's alternative coarsening via Cor `cor:budgetlevel`, which I checked and which is correct.
+
+The scope statements for the coefficient sum, whole-avoider ν, `N^{O(1)}` primes, the four types,
+the `(log log)^{3/4}` loss, ElT Prop 1.4 and the large sieve are correct in all the main
+statements.
+
+Both papers compile clean, and the attribution paragraph is intact.
+
+D1 and D2 must be fixed before merge. Each is a one-sentence rescoping of a subsumption or coverage
+claim. D3 (3/4 note) should be fixed as well, because that note is the externally visible one.
+D4–D6 are optional polish.
+
+On the author's questions:
+* Q1: confirm, with D2's qualifiers;
+* Q2: correct as scoped;
+* Q3: fine, add a sync comment.
