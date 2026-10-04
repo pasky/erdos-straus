@@ -23,8 +23,9 @@ Earlier status lines:
   star sums (Prop 6.3); the residual (3a)–(3c) is OPEN.
 * §6.3 (checkpoint 3), ternary moduli: everything is reduced to one
   residual, namely balanced partner primes × balanced divisor triples
-  (BFI range). Labels follow
-`DISCOVERIES.md`. Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0:
+  (BFI range).
+
+Labels follow `DISCOVERIES.md`. Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0:
 `L = log X`, `w₂ = L^8`, `α = L^{−1/4}`, `ρ_j = j^{−α}`, fibre law P (TW2 §3),
 `A = (M+1)/4`, binary moduli `M = kjm` (k w₂-smooth, j, m primes `> w₂`).
 
