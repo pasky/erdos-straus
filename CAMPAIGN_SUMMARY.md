@@ -617,3 +617,41 @@ ratings are this summary's judgement, not ledger labels.
    Vaughan 1970.
 10. **Administrative.** Settle authorship and the citation form for astra
     before `paper/pointwise-obstruction.tex` is finalised.
+
+---
+
+## 7. Reading guide
+
+| if you want… | read |
+|---|---|
+| the current status and house rules | `STATUS.md` |
+| every claim with its exact label | `DISCOVERIES.md` |
+| the original project brief and outcome log | `PROJECT.md` (Outcome 36 for the hard targets) |
+| the full research notebook (§§1–77) | `notes.md`; machine checks in `verify.py` |
+| the 2/3-loglog bound, self-contained (9 pp) | `paper/vaughan-loglog-note.tex` |
+| the 3/4 bound, self-contained | `paper/es-threequarter-note.tex`; blind audit `reviews/es-threequarter-blind-audit.md` |
+| everything up to wave 31 in one draft (177 pp; provisional labels) | `paper/espaper.tex` |
+| why 3/4 is sharp for congruence sieves | `paper/sieve-limits-note.tex`; then `EXCEPTIONAL_KARY2.md` and `EXCEPTIONAL_KARY.md` |
+| the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
+| the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
+| non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
+| the signed graph, basics | `SIGNED_REFACTOR.md`, `POINTWISE.md` |
+| short escapes and exceptional sets for the seed distance | `DEPTH3.md` |
+| Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
+| the pointwise programme's obstruction, written up | `paper/pointwise-obstruction.tex` |
+| the meta-theorem (Theorems M, C, Proposition A) and the window frame | `POINTWISE_SIZE.md` §§0–4, §8 |
+| `W(p)` Ω-results | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
+| the explicit rate and its bottleneck | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md` |
+| window Ω-results (`a_min`) | `POINTWISE_WINDOW.md` |
+| what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
+| priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/lit-audit-*.md` |
+| what each review found | `reviews/` (file names in §4 above) |
+| per-task agent reports | `reviews/agent-reports/`, `UNIT_REPORT*.md` |
+| the companion signed-seed counterexample | `../erdos-straus-astra` (read-only): `SIGNED_SEED_COUNTEREXAMPLE.md`, `PRIMARY_SEED_PACKET.md` |
+
+Suggested order for a newcomer:
+1. §1 of this file.
+2. `STATUS.md`.
+3. The abstracts of the five papers in `paper/`.
+4. `DISCOVERIES.md` sections (D) and (H).
+5. Whichever line interests you, via the table above.
