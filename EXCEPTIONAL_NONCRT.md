@@ -636,20 +636,19 @@ uniformly in the size of M.
 `u − d` (`≤ (N+1)/(4g)` ways). Finally `Σ_{g≤x}τ(g)/g ≤ (1+log x)²`. ∎
 
 So on [1,N] the multiplier-one witnesses of *all* moduli together have
-mean `≤ ¼(1+log N)²` per integer. In the CRT model the same classes
-(each class `−4D mod M` meets [1,N] only with multiplier one once M > N +
-4D) carry unbounded mass. Witnesses with multiplier `a ≥ 2` and `M > N`
-are not controlled by this argument.
+mean `≤ ¼(1+log N)²` per integer. (For M > N, a hit with multiplier
+`a ≥ 2` needs `4D = aM − n > 2M − N > M`, i.e. a divisor D of `A²` above
+`M/4 ≈ A`. Those hits are not controlled by this argument.)
 
 **Conjecture 8.5 (interval thinning).** For the Case-B forced classes,
 `(1/N) Σ_{n≤N} #{data (M,D) for n with M > N} ≪ (log N)²`. The CRT mass
 of these classes up to `N^c` is `≍ (c³−1)(log N)³`.
 
-*Assessment.* If 8.5 holds, then on [1,N] the slice primes above N carry
-mass `O((log N)²)`, not cubic. An interval-exact hit-count method then sees
-an effective system whose primes `> N` have quadratic total mass. Any
-saving beyond the low part (moduli `≤ N`, mass `≍ (log N)³`, level-limited
-by Theorem 2.3) is bounded by that quadratic mass. This is the reverse of
-what inter-frequency cancellation would need. This is a heuristic link,
-not a theorem: hit-count majorants evaluated exactly are not covered by
-any CRT cap.
+*Assessment.* If 8.5 holds, the slice moduli above N carry only
+`O((log N)²)` hit mass on [1,N]. The CRT picture, in which mass grows
+cubically with the level, is then fictitious above N. So the high level
+that branch (H) of Theorem 8.1 needs cannot come from large slice primes.
+It can only come from products of many moduli `≤ N` (Cor 8.3 proves the
+weaker cut-off `≍ N²`). This does **not** cap exact interval counts of
+such products: the exact void of the moduli `≤ N` on [1,N] is
+not known, and the CRT value there is `e^{−≍(log N)³}`.
