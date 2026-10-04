@@ -207,3 +207,105 @@ d_i > N this is a statement about *which* classes of large modulus meet
 [1,N]. For hit-pattern majorants those classes are intersections of
 forced classes, and (2.3) is a weighted count of integers n ≤ N with
 prescribed witness patterns. §3 develops this.
+
+## 3. Above N/2: what an exact interval count actually needs
+
+### 3.1 LP duality for hit-pattern majorants
+
+Take a finite family of classes `F_ℓ mod ℓ` (distinct primes ℓ ∈ 𝒫,
+`0 < |F_ℓ| < ℓ`, Q₀ = 1 for simplicity), hit pattern
+`x(n) = (1[n mod ℓ ∈ F_ℓ])_ℓ`, and level `s(T) = Σ_{ℓ∈T} log ℓ`. A
+*hit-pattern majorant of level λ* is `ν(n) = G(x(n))` with G multilinear,
+`G = Σ_{s(T)≤λ} c_T x^T`. By CRT every pattern occurs in ℤ, so
+
+    ν ≥ 0 on ℤ  ⟺  G ≥ 0 on the whole cube {0,1}^𝒫.                (3.1)
+
+This is the decisive constraint: G may not exploit patterns that are
+absent from [1,N], since they occur elsewhere in ℤ. Write π_N for the law
+of x(n), n uniform in [1,N], and `m_T(π) = E_π x^T`.
+
+**Proposition 3.1 (PROVED; finite LP duality).** Put
+`V_N(λ) = min{ E_{π_N} G : G of level ≤ λ, G ≥ 0 on the cube, G(0) ≥ 1 }`,
+so `N·V_N(λ)` is the best exact interval count over level-λ hit-pattern
+majorants. Then
+
+    V_N(λ) = max{ σ(0) : σ ≥ 0 on the cube, m_T(σ) = m_T(π_N) ∀ s(T) ≤ λ }.
+
+In particular, `V_N(λ)` depends on [1,N] only through the correlation
+counts `N·m_T(π_N) = #{n ≤ N : n ∈ F_ℓ (mod ℓ) ∀ℓ ∈ T}`, s(T) ≤ λ. The
+same holds with π_N replaced by the CRT law (product Bern(|F_ℓ|/ℓ)),
+giving `V_CRT(λ)`, which ET Prop 2.4 / K2 Thm 5.1 bound below by
+`e^{−Cλ^{3/4}}` (up to the stated log factors).
+
+*Proof.* G ≥ 0 together with G(0) ≥ 1 is G ≥ 1_{x=0}. The primal
+`min ⟨π_N, G⟩, G ∈ span{x^T}, G ≥ 1_{0}` is feasible (G ≡ 1) and bounded
+(by 0). LP duality gives `max ⟨σ, 1_0⟩` over σ ≥ 0 with `⟨σ − π_N, x^T⟩ = 0`
+for every admissible T. ∎
+
+**Proposition 3.2 (exact counts beat CRT on average over shifts; PROVED).**
+Let `π_N^{(t)}` be the law of x(n) for n uniform in `[t+1, t+N]`. Then
+`V(π) := min_G E_π G` is concave in π, and `avg_{t mod Q} π_N^{(t)}` is the
+CRT law (Q = Πℓ). Hence
+
+    avg_t V_N^{(t)}(λ) ≤ V_CRT(λ)    for every λ.
+
+*Proof.* A minimum of linear functionals is concave; Jensen. ∎
+
+So "an exact interval count at level λ saves more than the CRT sieve" is
+the *generic* situation, not an arithmetic feature of [1,N]. Moreover for
+`λ = ∞` the value is the void `π_N^{(t)}(0)`, whose average is the CRT
+density `Π(1 − p_ℓ)`, far below `e^{−(log N)^{3/4}}`. Exact counts at high
+level therefore face **no structural barrier**. This is Observation 1.1
+seen through the LP. The only barrier is evaluating the interval counts
+`N·m_T(π_N)` for T of combined modulus `Π_T ℓ > N/2`. Below N/2 they equal
+the CRT values up to the Lemma 2.4 error, and Theorem 2.5 applies.
+
+### 3.2 Numerics (EVIDENCE; toy family)
+
+`scripts/interfreq_hitpattern_lp.py` solves V for *all* hit-pattern
+majorants (the full monomial basis up to level Q, G ≥ 0 on all 2^m
+patterns: HiGHS, < 5 s). Family: the 12 primes `3 ≤ ℓ ≤ 79`, ℓ ≡ 3 (4),
+`F_ℓ = ℛ(ℓ)`. N = 3000, all n in `[t+1, t+N]`. The table gives savings
+`−log V` (data: `data/interfreq/hitpattern_lp_N3000_m12.txt`).
+
+| Q | CRT | [1,N] | t = 10⁹+7 | t = 5·10⁹ |
+|---|---|---|---|---|
+| N^{1/2} | 0.965 | 0.965 | 0.965 | 0.966 |
+| N | 1.668 | 1.671 | 1.669 | 1.664 |
+| N^{3/2} | 2.324 | 2.306 | 2.343 | 2.346 |
+| N² | 2.675 | 2.808 | 2.916 | 3.015 |
+| ∞ (void) | 3.152 | 2.976 | 3.178 | 3.270 |
+
+* Up to Q = N the interval LP equals the CRT LP to three digits, at every
+  shift (Theorem 2.2/Lemma 2.4).
+* Above N the interval value moves away from CRT, mostly towards *larger*
+  savings and at every shift (Prop 3.2). [1,N] gains least, and at full
+  level it loses (the squares are avoiders: void 0.051 versus CRT 0.043).
+* Prime samples (`mode=prime`, about 200–400 points) behave the same way.
+  The deviations are larger and appear already near Q = N. The relevant
+  scale is the sample size N/log N, and small-sample overfitting at high
+  level grows.
+
+The toy savings are tiny (m = 12). The table illustrates the mechanism.
+It is no evidence about the asymptotic exponent.
+
+### 3.3 The door, reduced
+
+Combining Theorem 2.5, Prop 3.1 and NC Thm 8.1: a method that beats θ = 3/4
+through inter-frequency cancellation must, for some majorant, evaluate
+
+    Σ_{i: d_i > N/2} a_i ( #{n ≤ N : n ≡ b_i (d_i)} − N/d_i )         (3.2)
+
+with an error far below `T_> = Σ_{d_i > N/2}|a_i|`. For hit-pattern
+majorants the classes are intersections ∩_{ℓ∈T} F_ℓ with `Π_T ℓ > N/2`.
+Then (3.2) is a signed count of integers n ≤ N carrying a prescribed set of
+ES witnesses, i.e. correlations of the Elsholtz–Tao witness function f(n),
+non-trivially in the coefficients c_T. NC Thm 8.1 adds a quantitative
+requirement. Either Fourier mass sits above level `c s^{4/3}`; for
+hit-pattern majorants on [1,N] with moduli ≤ M₀ ≍ N² (NC Cor 8.3) that
+means correlations of order `|T| ≥ c(log N)^{4θ/3−1}`. Or the interval
+count is ≤ ½ of the CRT mean. In both cases the input is a count of
+multi-witness integers ≤ N, done better than termwise. This is the
+"non-CRT tuple count" door (c′) of NC §6. **So the inter-frequency door is
+not a separate door: below N/2 it is closed (Thm 2.5), and above N/2 it is
+the tuple-count door.**
