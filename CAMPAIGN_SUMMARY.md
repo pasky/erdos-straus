@@ -447,3 +447,34 @@ them.
 | E9 | Per-frequency signed rounding (weights ≥ 1), prime-only majorants and CRT moment methods also capped at 3/4 (prime-slice families) | PROVED (internal) | `EXCEPTIONAL_NONCRT.md` Thm 2.3, 3.2–3.3, Props 4.1–4.2 | `reviews/exceptional-noncrt-review.md` (rounds 1–2) | none |
 | E10 | **No θ > 3/4 for coefficient-sum CRT sieves over any mixture of the four forced/selector class types**; saving `≤ C L^{3/4}(log L)^{3/4}`, `≪_B L^{3/4}` under fixed B | PROVED (internal) | `EXCEPTIONAL_KARY2.md` Thm 5.1, 5.2, Cor 6.1; `paper/sieve-limits-note.tex` | `reviews/exceptional-kary2-review.md`, `-review-2.md`; `reviews/sieve-limits-note-review-v2.md`, `reviews/papers-v3-review.md` | Elsholtz–Tao Prop 1.4 (Case-A part only) |
 | E11 | Heuristic ceiling `θ = B/(B+1)` (2/3 at B = 2, 3/4 at B = 3) | Assessment (proved arithmetic under the stated assembly model) | notes §18.3–18.4 | — | — |
+
+### 4.2 Pointwise line
+
+| # | statement | label | document | review | external inputs |
+|---|---|---|---|---|---|
+| P1 | Refactor graph, seed, hub bridge, fibre counts (the character dichotomy itself is Bright–Loughran) | PROVED (elementary) | `SIGNED_REFACTOR.md`, `POINTWISE.md` | `reviews/wave34-hostile-review.md` | Bright–Loughran 2020 (known parts) |
+| P2 | Exact classification of seed escapes of length ≤ 3 | PROVED | `DEPTH3.md` Thm 1 | `reviews/wave34-hostile-review.md` | none |
+| P3 | Seed distance unbounded | CONDITIONAL on H | `DEPTH3.md` Thm 2 | `reviews/wave34-hostile-review.md` | Hypothesis H (Bateman–Horn for counts) |
+| P4 | Non-Mordell primes have distance 2; `#{dist>2} ≪ N/(log N)^{11/2}`, `#{dist>5} ≪ N/(log N)^{10}` | PROVED modulo a standard sieve theorem (Corollary PROVED outright) | `DEPTH3.md` Thm 3, Lemmas 4–5, Corollary | `reviews/wave34-hostile-review.md` | Dahan's half-dimension lemma; upper-bound sieve |
+| P5 | Every `p ≡ 1 (4)` below `10^12` has seed distance ≤ 3 | EVIDENCE | `DEPTH3.md` §5 | — | — |
+| P6 | **Theorem F:** the seed component is sterile for infinitely many `p = 24q+1` | CONDITIONAL on H + CERTIFIED | `FORMAL_CLOSURE.md`; `data/formal_closure/` | `reviews/formal-closure-review.md` (independent engine) | Hypothesis H for 6402 polynomials |
+| P7 | Sterile components larger than the seed component | CERTIFIED / PROVED (Lemmas A–E) | `SIZE_CONJECTURE.md` | `reviews/wave34-hostile-review.md` | none |
+| P8 | Parity/windmill lemmas; large p-free buckets are singletons (Thm 7) | PROVED (lemmas) / EVIDENCE (scans) | `WINDMILL.md` | `reviews/wave34-hostile-review.md` | none |
+| P9 | Theorem M (transfer principle), Corollary M1 | PROVED; existence of admissible q CONDITIONAL | `POINTWISE_SIZE.md` §1 | `reviews/pointwise-size-step1-review.md` | H / Dickson / Dirichlet–Linnik, depending on the family |
+| P10 | Lemma CT (character trap) | PROVED | `POINTWISE_SIZE.md` §2 | as P9 | none |
+| P11 | Theorem C (formal odd-square principle) | CONDITIONAL on H | `POINTWISE_SIZE.md` §2 | as P9 | Hypothesis H |
+| P12 | Proposition A (size comparisons are inside the obstruction) | PROVED | `POINTWISE_SIZE.md` §4 | as P9 | none |
+| P13 | `W(m²) = +∞` for every integer `m` | PROVED | notes §58.1, Thm 58.1 | SOUND-AFTER-REPAIRS (wave 22) | none |
+| P14 | `W(p) ≥ c log p` i.o. | PROVED, effective | notes §54, Thm 54.1 | CONFIRMED (PROJECT.md Outcome 24) | Xylouris' Linnik exponent |
+| P15 | `limsup W(p)/log p ≥ 5/8`; `limsup ck_min/log p ≥ 5/12` | PROVED modulo the cited theorem | `POINTWISE_SIZE.md` Thms 11.2, 11.2' | as P9 | Chang 2014 Cor. 11 |
+| P16 | `W(p) ≥ (log p)^{2−o(1)}` i.o. | PROVED modulo the cited theorem, effective | `POINTWISE_OMEGA.md` Thm 5.1 | `reviews/pointwise-omega-review.md` | Thorner–Zaman 2024 Cor. 1.4 |
+| P17 | `ck_min(p) ≫ log p · log₃p` i.o. | PROVED modulo the cited theorem; not effective; Graham–Ringrose transported | `POINTWISE_OMEGA.md` Thm 8.5 | `reviews/pointwise-omega-review.md` | Lau–Wu Prop 5.1 (Graham–Ringrose 1990) |
+| P18 | `W(p) ≥ (log p)^{3−o(1)}` i.o.; H_MIN(θ) for θ > 1/3 | PROVED modulo the cited theorem, effective | `POINTWISE_OMEGA2.md` Thm 5.1, Cor 5.2 | `reviews/pointwise-omega2-review.md` | Thorner–Zaman; Haeupler–Saha–Srinivasan (conditional LLL) |
+| P19 | Haar side: `log(1/δ*(T)) ≤ T^{o(1)}`, and `≪ (log T)^7 log log T` | PROVED; second form modulo the cited theorem | `POINTWISE_OMEGA2.md` Thm 11.3 | `reviews/pointwise-omega2-review-r3.md` | Elsholtz–Tao Prop 1.4 (second form) |
+| P20 | **Every fixed exponent:** `W(p) ≥ (log p)^{k−o(1)}` i.o., every fixed `k` | PROVED modulo the cited theorem, effective | `POINTWISE_OMEGA3.md` Thms 4.3, 5.2 | `reviews/pointwise-omega3-review.md`, `-review-2.md` (SOUND) | Thorner–Zaman |
+| P21 | Explicit rate `log W ≥ (1+o(1)) log₂p·log₃p/log₄p` i.o. | PROVED modulo the cited theorems | `POINTWISE_OMEGA4.md` Cor 3.1–3.3 | `reviews/pointwise-omega4-review.md` | Thorner–Zaman; Elsholtz–Tao Prop 1.4 (dropping it gives `log₂p·log₄p/log₅p`) |
+| P22 | HC* ⇒ `log W ≥ 0.2√a (log₂p)^{3/2}`; `m = 1` part of HC* | PROVED implication; `m = 1` part PROVED; HC_Π open; literal HC false | `POINTWISE_OMEGA4.md` Thm 4.2; `POINTWISE_OMEGA5.md` Thm 2.3 | `reviews/pointwise-omega4-review.md`, `reviews/pointwise-omega5-review.md` | Thorner–Zaman, Elsholtz–Tao |
+| P23 | `ES(p) ⇔ a_min(p) < ∞`; window reciprocity | PROVED | `POINTWISE_SIZE.md` Thm 8.1, Lemma 8.2 | as P9 | none |
+| P24 | W1: `a_min ≥ 7` for `≫ x/(log x)^{3/2}` hard `p` | PROVED modulo cited sieve theorems | `POINTWISE_WINDOW.md` §2 | `reviews/pointwise-window-review.md` | semi-linear sieve, Selberg sieve, BV (also FHRSS 2025) |
+| P25 | W2: `a_min ≥ 11` for `≫ x/(log x)²` hard `p` | CONDITIONAL on Elliott–Halberstam | `POINTWISE_WINDOW.md` §4 | `reviews/pointwise-window-review.md` | EH (level `x^{1−ε₀}`) |
+| P26 | `log W ≍ (log p)^{1/3}`; `a_min ≍ log p/log log p` | Assessment | `POINTWISE_SIZE.md` §7, §8 | — | — |
