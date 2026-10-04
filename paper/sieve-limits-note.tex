@@ -2109,15 +2109,39 @@ majorants.
 \section{Open problems}\label{sec:open}
 
 A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
-least one of: (i) a joint use of unresolved $\eta$-twin (or other
-balanced) moduli that beats their mass; (ii) multipliers larger than the
-slice primes, used without paying their lcm in level; (iii) a
-non-selector admissible set with a large saving of its own; (iv) a
-non-CRT input, or signed cancellation in the rounding errors
-\cite[\S6]{ET}.  For Selberg-type majorants at level $O(\log X)$, (i) is
-closed for $\cR(M)$-moduli with $M\leq P(M)^{1+B}$, $B$ fixed, and at most
-two prime factors above $(\log X)^8$ (Theorem~\ref{thm:twoprimecap}).  The following statements would close
-(i) and (iii) in general.
+least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}:
+\begin{enumerate}
+\item[(i)] moduli outside Theorem~\ref{thm:main}: $\cR(M)$-moduli with
+  $\log M/\log P(M)$ unbounded, or $(a,D)$- and Case-A moduli without a
+  dominant prime (alone or mixed with $\cR(M)$-classes), used jointly in a
+  way that beats their mass;
+\item[(ii)] multipliers larger than the slice primes, used without paying
+  their lcm in level;
+\item[(iii)] a non-selector admissible set with a large saving of its own;
+\item[(iv)] a non-CRT input outside Section~\ref{sec:noncrt}: rounding
+  with weights $<1$ or cancellation between frequencies (a direct count
+  of $\sum_{n\leq N}\nu(n)$ in one of the two branches of the dichotomy of
+  Section~\ref{sec:noncrt}), counts of high-order correlations of
+  solutions without CRT, or such inputs in the sequential and balanced
+  settings.
+\end{enumerate}
+Unresolved $\eta$-twin moduli, which formed item (i) in the first version
+of this list, are no longer on it for fixed $B$: Theorem~\ref{thm:karycap}
+\lab{proved}.  For Selberg-type majorants at level $O(\log X)$, (i) is
+closed for $\cR(M)$-moduli with a fixed number of prime factors above
+$(\log X)^8$, with or without the $B$-hypothesis
+(Theorems~\ref{thm:rprime} and~\ref{thm:noB}).
+
+\emph{Removing $B$ for general majorants} \lab{open}.  A transfer of the
+smooth-dominated sums of Theorem~\ref{thm:noB} to the block moments of
+Lemma~\ref{lem:kmoments} is sketched in \cite[\S11]{TW4}; it would give
+$\ll\lambda^{3/4}\log\lambda$ for every $\cR(M)$-family.  It is a
+\emph{sketch} only, not checked, and not claimed here.  The base
+(Lemma~\ref{lem:mordell}) and the moment lemmas are also what is missing
+for $(a,D)$- and Case-A classes; Theorem~\ref{thm:kcomp} itself is
+arithmetic-free \cite[\S4.3]{KA}.
+
+The following statement would close (i) and (iii) in general.
 
 \begin{hypothesis}[$H_{\rm MS}$; {\cite[\S5.6]{ET}}; \lab{open}]\label{hyp:MS}
 For every CRT system of forced classes with moduli $\leq\e^\lambda$, every
@@ -2130,7 +2154,7 @@ treated in absolute value, is capped at $(\log N)^{3/4}$
 \lab{conditional}.  $H_{\rm MS}$ is open even for one scale of primes with
 random pair conditions.
 
-For the twin residual, the reduction of \cite[\S6]{TW} isolates an
+For the twin residual, the reduction of \cite[\S6]{TW} isolated an
 arithmetic-free statement.  Let $V$ be a block of primes with costs
 $s_\ell\in(s,(1+\eta)s]$ and $d=\lfloor\lambda/s\rfloor$.
 
@@ -2150,6 +2174,13 @@ Here the \emph{incident weight} of a residue $a$ at $\ell$ is the
 $\nu$-probability that some activated constraint through $(\ell,a)$ is
 completed by the other coordinates.
 
+The statement of Conjecture~\ref{conj:kary} is the \emph{unweighted}
+form.  Its weighted form, for the same law $\sigma$, is
+Theorem~\ref{thm:kcomp} \lab{proved}, and without the incident-weight
+hypothesis the unweighted form is false (Remark~\ref{rem:kweighted}).
+With it, the unweighted form remains \lab{open}, but it is no longer
+needed for the $3/4$ question \cite[\S5]{KA}.
+
 \begin{proposition}[{\cite[Prop.~6.5]{TW}}; \lab{conditional} on Conjecture~\ref{conj:kary} and Hypothesis~K2]\label{prop:twinconditional}
 Assume Conjecture~\ref{conj:kary} for $r=\lfloor(1+B)(1+\eta)\rfloor$ and the
 $k$-ary second-moment hypothesis K2 of \cite[\S6.3]{TW}.  Then for every
@@ -2157,9 +2188,9 @@ fixed $B$, every family of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (twin,
 prime-power top and all other shapes included), plus $W_0$-smooth classes,
 has saving $\ll_B\eta^{-1}\lambda^{3/4}\log\lambda$.
 \end{proposition}
-The extra $\log\lambda$ is the price of the weak form; the evidence for
-Conjecture~\ref{conj:kary} is toy-scale exact linear programmes only
-\lab{evidence}.
+Its conclusion, without the factor $\log\lambda$ and without either
+hypothesis, is Theorem~\ref{thm:karycap}.  Proposition~\ref{prop:twinconditional}
+is kept only to record the route.
 
 For $\Lambda^2$-majorants the core is a sparse noise-stability statement.
 
@@ -2175,22 +2206,25 @@ $\rho$-correlated copy.  Then
 where $P_i(E)$ is the marginal factor of $E$ at $i$.
 \end{conjecture}
 Theorem~\ref{thm:binaryNS} proves a bound of this type for binary systems
-($|S(E)|\leq2$) with the diagonal and one-site terms on the right, and
-Theorem~\ref{thm:twoprimecap} completes the two-prime $\Lambda^2$ cap.
+($|S(E)|\leq2$) with the diagonal and one-site terms on the right; the
+any-arity bound of \cite[Lemmas~6.1, 6.2]{TW3}, with codegree terms and a
+free codegree quarantine, is what Theorem~\ref{thm:rprime} uses.  The
+conjecture itself is \lab{open}.
 
-\emph{Three or more large primes} \lab{open}.  The full forced-class
-family contains moduli with three or more prime factors above
-$(\log X)^8$, and the $\Lambda^2$ cap for them is open.  Partial results
-\cite[\S6]{TW3}, hostile-reviewed in \cite[round~2]{TW3rev}: a
-noise-stability bound of any arity with codegree terms and a free
-codegree quarantine \cite[Lemmas~6.1, 6.2]{TW3} \lab{proved}; and a
-reduction of the general case to arithmetic star sums
-\cite[Prop.~6.3]{TW3} \lab{proved} as an implication.  For ternary
-moduli with $B$ fixed there is only a \emph{sketch} \cite[Prop.~6.4]{TW3}
-of all star sums, conditional on an unwritten any-arity fibre-law step,
-except the residual: vertex stars with $\ell_a\leq\ell_b<w_2q$, where $q$
-is four times the product of the two shorter of $u,v,t$
-\cite[\S6.3]{TW3}.  That residual is \lab{open}.
+\emph{Many large primes in the $\Lambda^2$ route} \lab{open}.  The
+$\Lambda^2$ caps of Section~\ref{sec:selberg} are uniform for
+$r\leq\epsilon\log L/\log\log L$ prime factors above $(\log X)^8$, and the
+moduli with $r\geq330\log L$ are free.  The middle range, which carries most
+of the $\alpha^{-3}$-weighted mass, needs per-prime-efficient bounds for
+the number of vertex hubs and for an off-diagonal pair sum
+\cite[\S12]{TW4}.  Under the $B$-hypothesis this concerns only the
+$\Lambda^2$ method, since Theorem~\ref{thm:karycap} covers every $r$; without
+it, it is part of item (i).
+
+\emph{Non-CRT counts} \lab{open}.  Conjecture $(H_{\rm eq})$ for smooth
+windows and the local-limit hypothesis $H_{\rm node}$ for exact interval
+counts (Section~\ref{sec:noncrt}) are open, as is any treatment of
+non-symmetric hit-pattern majorants on $[1,N]$ \cite[\S8.6]{NC}.
 
 \begin{thebibliography}{99}
 \bibitem[BBMST]{BBMST}
