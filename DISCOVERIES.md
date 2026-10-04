@@ -108,6 +108,14 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 
 20. **Inter-frequency cancellation (EXCEPTIONAL_INTERFREQ.md):** if every nonzero frequency of ν ≥ 0 has denominator ≤ D < N, then `Σ_{n≤N}ν ≥ (N−D)Eν` (Thm 2.2, Selberg minorant + Poisson). Hence majorants built from forced classes of modulus ≤ N/2 save at most `C(log N)^{3/4}(log log N)^{3/4}`, with any coefficients and any evaluation of the interval sum: exact, dispersion, Kloosterman, Vaaler, smooth windows (Cor 2.3). With larger classes present, the cap holds for methods whose bound dominates `T_>^*/c` (Thm 2.5, Rem 2.6). It is **not** proved for hybrid methods that charge large classes only their trivial count. **PROVED** (internal; review `reviews/exceptional-interfreq-review.md`). What remains is multi-witness tuple counting above modulus N (Assessment); (H_eq) is open but not needed when all moduli are ≤ N/2.
 
+21. **Tuple counts / witness correlations (EXCEPTIONAL_TUPLES.md):**
+    * The order-k correlations of witness counts `S_k(N)=Σ_{n≤N}binom(f(n),k)` are the distinct-prime parts of k-point correlations of ω-type functions along shifts `4D` (Lemma 1.3).
+    * **Conditional route above 3/4 (PROVED implication, Cor 2.3):** hypothesis TC_θ (CRT-accurate correlations up to order `K≍(log N)^θ`) implies `E(N) ≤ (e+2)N exp(−(2/e²)(log N)^θ)`.
+    * TC holds for `K ≤ c(log N)^{2/3}` (Prop 2.4). It fails for even `K ≥ (e²/2+ε)log N`, because squares avoid every class (Prop 4.2).
+    * Correlation input of bounded order, however precise, cannot give θ>3/4 under CRT-main-term evaluation; order `≳(log N)^θ/log log N` is needed (Thm 3.1, Cor 3.2–3.4).
+    * Fixed-shift correlation theorems (Heath-Brown, Deshouillers–Iwaniec, Matomäki–Radziwiłł–Tao, Tao–Teräväinen) are of the wrong type (Prop 4.3 plus Assessment).
+    * **PROVED** (internal; review `reviews/exceptional-tuples-review.md`, all items SOUND). TC_θ for 3/4<θ<1 is an open, natural, falsifiable CONJECTURE.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
