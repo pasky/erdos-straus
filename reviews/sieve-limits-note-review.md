@@ -295,3 +295,82 @@ commit 874be8d) and its review (current `main`, rounds 1–2).
   on 𝒜), but it is not in TW2/TW3; only a `%` comment, invisible in the
   PDF, says it is the author's. Put "(observation of this note)" in the
   text, since every other claim carries a source.
+
+## 5. Citations
+
+**Checked and accurate.**
+* Elsholtz–Tao Prop 1.4: verbatim against `sources/elsholtz-tao-1107.1010.pdf`
+  (arXiv v6, text l. 318–321). The `k ≪ (AB)^{O(1)}` range as used in
+  Lemma 5.3 was checked in ETrev item 4.1.
+* Pomerance–Weingartner: title and arXiv number match
+  `sources/pomerance-weingartner-2511.16817/abstract.xml`.
+* Shiu: J. reine angew. Math. 313 (1980), 161–170; `sources/shiu-1980.pdf`
+  is a 10-page scan (= pp. 161–170). The form quoted is TQ §3's, with
+  `q ≥ 2` (Lemma 5.1's separate `d = 1` treatment is therefore needed and
+  present).
+* LL Lemma 2.1 (identity), LL Lemma 3.1 (lattice lower bound =
+  TQ eq. (latlower)); notes Lemma 18.1 and Thm 3.1(B); TQ Lemma 2.2,
+  Cor 4.3, Thm 8.2, §§2, 3, 10 — numbering confirmed from the TQ source.
+* Every internal item number cited from ET, ETrev, EB, TW, TWrev, TW2,
+  TW2rev, TW3, TW3rev was looked up and points to the stated content.
+* MacWilliams–Sloane Ch. 10 Lemma 7 (binomial entropy bound) and
+  Davenport Ch. 28 (Bombieri's theorem) are standard and correctly
+  located; Montgomery, Bull. AMS 84 (1978) is the right survey.
+
+**Defects.**
+* **D3** (above): Vaughan/Montgomery attribution.
+* **D13 (MINOR, stale locations).** [TW3] is cited as
+  `EXCEPTIONAL_TWIN3.md` on "branch side-agent/twin-equidist", and
+  [TW3rev] on "branch side-agent/review-twin3". The branch
+  `side-agent/twin-equidist` no longer exists; both files are on `main`
+  (merges 6ce44e1, f7c6ff3), and the review now has two rounds (the
+  second is the one behind D10). *Fix:* cite `EXCEPTIONAL_TWIN3.md` and
+  `reviews/exceptional-twin3-review.md` (rounds 1–2), this repository.
+* **D14 (NIT, attribution).** §7.3 calls the capped measure "a variant of
+  the distortion method of BBMST". TW §2 (the source) attributes the
+  method to Hough (Ann. Math. 181 (2015)) and BBMST. The author dropped
+  Hough for lack of an archived copy (report, checkpoint 2), which is
+  fine for pages but not for credit. *Fix:* "the distortion method of
+  Hough, in the form of BBMST [BBMST]" (Hough cited without pages, or
+  just named).
+
+## 6. Summary and verdict
+
+No mathematical error found. Every proof given in full was re-derived:
+the forced-class lemmas, the Jacobi/Mordell lemma, Lemma 3.4
+(coefficient budget ⇒ level) and Cor 3.5, Prop 4.4 / Thm 4.5,
+Cor 6.2, the assembly of the Main Theorem 6.3, Lemmas 7.1–7.5, the
+constants of Thm 7.6, Lemma 8.2, Thm 10.1 and Lemma 10.3. Every statement
+was compared with its source. The only strengthenings are in summaries
+(abstract, Results list, §9/§11 recaps) and in the stale TW3 §6 status.
+The main theorems themselves carry their exact hypotheses.
+
+| # | severity | where | issue |
+|---|---|---|---|
+| D1 | MINOR | abstract, Results item 2 | Λ² cap scope drops \ℛ(M), `M ≤ P(M)^{1+B}`, level; gapped scope drops B and the admissible set |
+| D2 | MINOR | Cor 3.5 / Thm 6.3 proof | Cor 6.1/6.2 stated only for `λ ≤ A log N`; Cor 3.5 needs the λ-form (two one-line fixes given) |
+| D3 | MINOR | §1 | Vaughan's method attributed via a 1978 survey; route through PW §4 |
+| D4 | MINOR | Cor 6.1, 6.2 headers | `proved` but they include Case A (mod Elsholtz–Tao Prop 1.4) |
+| D5 | MINOR | Results item 1 | `O(log²λ)` stated without Remark 4.6's conditions |
+| D6 | NIT | Rem 4.8 | remove `% TODO`; ETrev item 3.4 confirms `p ≤ 1/2` |
+| D7 | NIT | §7.1 | η₀ undefined |
+| D8 | NIT | §8.2 | "bound cannot exceed exp{…}": phrase in terms of saving |
+| D9 | NIT | Lemma 8.1 | "equals 1 on 𝒜" is not stated by TQ; cite ETrev item 3.1 |
+| D10 | MINOR | §11, ≥3 primes | TW3 §6 status stale and overstated (now reviewed; Prop 6.4 SKETCH; residual corrected, E11/E12) |
+| D11 | MINOR | §9 item 4, §11 opening | Thm 10.7 summaries drop B and level |
+| D12 | NIT | after Thm 10.7 | own observation marked only in a `%` comment |
+| D13 | MINOR | bibliography | TW3/TW3rev branch locations stale; now on `main` |
+| D14 | NIT | §7.3 | distortion method credit (Hough) |
+
+Report points: (1) confirmed, see D6; (2) the routing of growing
+selectors via Cor 6.1 is stated after Thm 6.3 and is correct; (3) the
+η-dependence remark is correct; (4) sketches are marked (Lemma 9.1,
+Thm 10.6) or presented as cited descriptions (Thm 7.7, 10.4, 10.5);
+(5) bibliography checked, see §5; (6) confirmed for the theorem
+statements, with the exceptions D1, D4, D10, D11.
+
+**Verdict: MINOR REVISION.** D1, D4, D10, D11 and D13 must be fixed
+before circulation: each is a status or scope statement that is stronger
+than, or no longer matches, its source. The rest are presentation fixes.
+No re-review of the mathematics is needed after the fixes; a diff check
+suffices.
