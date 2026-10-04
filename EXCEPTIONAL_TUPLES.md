@@ -367,3 +367,73 @@ know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
 `3/4 < θ < 1` it implies the θ target (Cor 2.3). Bounded-order
 correlation input, of any precision, is useless for θ > 3/4 (Cor 3.3,
 3.4). The order needed is `(log N)^θ` up to `log log N` (Cor 2.2 + Cor 3.3).
+
+## 5. Numerics (EVIDENCE, toy scale only)
+
+`scripts/tuples_moments.py` computes `f_y(n)` for all `n ≤ N` (prime family),
+the empirical `S_j(N)/N`, the CRT values `e_j(p)`, the share of `e_j`
+carried by j-sets with `Πℓ > N` (a floor-discretised DP that
+over-counts the share ≤ N, so the "above N" share is a lower bound), and
+the TC test `η(K) := max_{j≤K}|S_j/N − e_j|` against `η_K = e^{−K/e²}/K`
+at the first even `K ≥ e²μ_y` (so `y = y_K` in the sense of Cor 2.2). Controls:
+`rand` replaces each `𝓡(ℓ)` by a random set of nonzero residues of the
+same size; `randqnr` by a random set of non-residues (keeps the
+Mordell/Jacobi structure, destroys the divisor/shift structure).
+Data: `data/tuples/moments_N{1e6,1e7,1e8}_es.txt`, `moments_N1e8_{rand,randqnr}.txt`.
+
+**(a) Avoiders = CRT + squares.** In every ES run,
+`#{f_y = 0}/N − Π(1−p_ℓ)` equals the square density `N^{−1/2}` to two
+digits (e.g. y = 1000: `0.98·10⁻³, 0.30·10⁻³, 0.80·10⁻⁴` at
+`N = 10⁶, 10⁷, 10⁸`, vs `10⁻³, 3.2·10⁻⁴, 10⁻⁴`). The `randqnr` control
+shows the same excess and the `rand` control does not. So the only
+visible avoider anomaly is the Prop 4.2 obstruction.
+
+**(b) Moments above modulus N.** Ratios `S_j/(N e_j)` (share of `e_j`
+above N in brackets):
+
+| y (μ_y) | N | j = 4 | j = 8 | j = 12 |
+|---|---|---|---|---|
+| 100 (2.77) | 10⁶ | 0.9990 (0.21) | 0.861 (1.00) | — |
+| | 10⁷ | 0.9999 (0.01) | 0.958 (1.00) | — |
+| | 10⁸ | 1.0000 (0.00) | 0.991 (1.00) | — |
+| 1000 (6.00) | 10⁶ | 0.992 (0.93) | 0.928 (1.00) | 0.846 (1.00) |
+| | 10⁷ | 0.998 (0.77) | 0.974 (1.00) | 0.883 (1.00) |
+| | 10⁸ | 0.9997 (0.52) | 0.991 (1.00) | 0.937 (1.00) |
+
+Once all the CRT mass of order j sits above N, the interval moments
+are *below* CRT, by a few percent, and the deficit shrinks with N at
+fixed y.
+
+**(c) The TC test at the first admissible K.**
+
+| y | K | η_K | η(K), ES, N = 10⁶ / 10⁷ / 10⁸ | rand 10⁸ | randqnr 10⁸ |
+|---|---|---|---|---|---|
+| 30 | 12 | 1.6·10⁻² | 1.9·10⁻⁵ / 1.7·10⁻⁶ / 2.1·10⁻⁷ | — | — |
+| 100 | 22 | 2.3·10⁻³ | 2.4·10⁻³ / 4.6·10⁻⁴ / 6.4·10⁻⁵ | 7.2·10⁻⁶ | 3.3·10⁻⁵ |
+| 300 | 32 | 4.1·10⁻⁴ | 7.3·10⁻² / 1.6·10⁻² / 3.8·10⁻³ | 6.1·10⁻⁴ | 2.0·10⁻³ |
+| 1000 | 46 | 4.3·10⁻⁵ | 1.5 / 0.50 / 0.17 | 4.2·10⁻³ | 2.8·10⁻² |
+| 3000 | 60 | 5.0·10⁻⁶ | 36 / 8.7 / 3.6 | 0.40 | 0.25 |
+
+Readings.
+* TC(N; K, y_K, η_K) **holds** at y ≤ 100 for N = 10⁷, 10⁸ (K = 22 at
+  N = 10⁸ is `2(log N)^{0.82}`) and **fails** for y ≥ 300 (K = 32 is
+  `2(log N)^{0.95}`). Even the `rand` control fails for y ≥ 300: the
+  high moments are dominated by n with `f ≈ 7μ`, of CRT probability
+  `≈ e^{−8.6μ}`, which is far below `1/N` at these sizes. Asymptotically
+  (`μ ≍ (log N)^θ`, θ < 1) such events have probability `N^{−o(1)}`, so
+  the random model satisfies TC_θ in the limit (heuristic,
+  Monte Carlo variance `N^{−1+o(1)}`); the toy data are pre-asymptotic.
+* At fixed y the ES deviation η(K) decays roughly like a power of N:
+  exponents ≈ 0.78, 0.64, 0.47 for y = 100, 300, 1000 (two decades).
+  The ES family deviates 6–40× more than `rand`; `randqnr` sits in
+  between. So there is an arithmetic excess deviation beyond Monte Carlo
+  noise. Part is the quadratic-residue structure; the rest is presumably
+  the shift structure of Lemma 1.3. For example, for D = 1 (a shift
+  present for every ℓ) the hit primes divide one integer `n + 4`, so
+  their product is `≤ N + 4`, a Kubilius-type truncation that CRT
+  ignores. That attribution is a guess, not tested.
+* **Conclusion (EVIDENCE, weak).** Nothing seen contradicts TC_θ for
+  θ < 1. The data cannot test it: the asymptotic regime needs
+  `K/e² ≍ (log N)^θ` *and* `log y_K ≍ K^{1/2}` with `log y_K ≪ log N`,
+  far beyond `N = 10⁸`. Whether the exponent `a(y)` in `η ≈ N^{−a(y)}`
+  stays `≫ (log N)^{θ−1}` at `y = y_K` is exactly the open question.
