@@ -140,7 +140,9 @@ note is sharp for its method.
 The large sieve is capped as well (`EXCEPTIONAL_LARGESIEVE.md`, via duality).
 
 A θ>3/4 proof would need at least one of:
-* cancellation between frequencies (a direct interval count);
+* cancellation between frequencies, which is now known to be worthless for
+  classes of modulus ≤ N/2 (`EXCEPTIONAL_INTERFREQ.md`); what remains is
+  multi-witness tuple counting above modulus N;
 * per-frequency weights below 1;
 * non-CRT tuple counts or other genuinely arithmetic input;
 * classes outside the ℛ(M) family with unbounded `log M/log P(M)` for
