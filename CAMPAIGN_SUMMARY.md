@@ -565,3 +565,55 @@ Semantic Scholar was rate-limited. These were **not accessed**:
   bound) and Dahan (arXiv:2608.24035). Dahan's Thm 4.17 is credited as an
   independent antecedent of the cubic exponent shape, for a different,
   ineffective statistic.
+
+---
+
+## 6. Open problems, ranked
+
+Importance (I) and feasibility (F) are rated high / medium / low. These
+ratings are this summary's judgement, not ledger labels.
+
+1. **External refereeing of the 3/4 note and the 2/3-loglog note.**
+   (I high, F high.) Both are unrefereed; the 3/4 label is only
+   INTERNALLY PROVED. `paper/README.md` recommends showing the loglog note
+   to a human referee first. Related tasks: read Vaughan 1970 itself and
+   complete the priority search.
+2. **θ > 3/4 for `E(N)`.** (I high, F low.) Every coefficient-sum CRT
+   sieve over the four class types is capped (§2.2), so a new ingredient
+   is required. The candidates are those listed in §2.3:
+   inter-frequency cancellation in a direct interval count, per-frequency
+   weights below 1, or non-CRT arithmetic input.
+3. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
+   natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
+   just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
+   ES ⇐ X_QNR (least-non-residue seeding), an (E2)-type reduction. Whether
+   fixed non-abelian Frobenius data (E3) escapes the obstruction is open.
+4. **Unconditional `a_min(p) → ∞` (or even `a_min ≥ 11`).** (I medium,
+   F low–medium.) This is the window analogue of the open unconditional
+   case of Friedlander–Iwaniec 2009. It needs a level of distribution close
+   to 1 or a bilinear, parity-breaking input.
+5. **Sharper `W(p)` rates.** (I medium, F medium.) Prove HC_Π (a
+   divisor-function problem in short progressions). By POINTWISE_OMEGA5,
+   this gives HC*, and hence `log W ≥ c(log₂p)^{3/2}` via OMEGA4 Thm 4.2.
+   Beyond that: an event-sensitive truncation (Assessment: up to
+   `(log₂p)²/log₃p`). `exp((log p)^c)` is outside the method. The
+   heuristic truth is `log W ≍ (log p)^{1/3}`.
+6. **An unconditional sterile seed component.** (I low–medium, F low.)
+   Astra has reduced its hypothesis to 158 prime conditions plus one
+   divisor condition; searches over actual inputs find no sterile prime.
+   Note: settling this would not affect ES.
+7. **Removing `(log log N)^{3/4}` from the general cap** (KARY2 Thm 5.1),
+   and closing the Λ² middle window `r ≍ log L` (TWIN4 §12). (I low,
+   F medium.) Neither would change the exponent 3/4.
+8. **Open hypotheses kept in the ledger** (section (E)): `H_kBV(κ)`,
+   `H_FAIL`, `H_STACK`, `H_BLK`/`H'_BLK`, `H^+_LT` and `H_PF'`. Also open:
+   the replacement conjecture `C'_SQ` (`W = +∞` exactly for squares and
+   three sporadic values; ledger (F)9) and `C_POLY`. (I low–medium,
+   F varies.) Most of these belong to the a-frame/stacking route, whose
+   model ceiling is below 3/4.
+9. **Novelty checks that need library access.** (I medium for
+   publication, F high with access.) Mádi-Nagy–Prékopa 2004, Selberg's
+   large-κ remarks, *Opera de Cribro* Ch. 7 and 11, Graham–Ringrose 1990,
+   Vaughan 1970.
+10. **Administrative.** Settle authorship and the citation form for astra
+    before `paper/pointwise-obstruction.tex` is finalised.
