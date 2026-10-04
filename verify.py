@@ -16688,4 +16688,98 @@ print("\n== (cf) EXCEPTIONAL_TWIN: Jacobi Lemma 1.1, u-form Lemma 3.1, sign Lemm
 check_cf()
 
 
+# ---------------------------------------------------------------- (cg)
+# EXCEPTIONAL_TWIN2.md Thm 1.4 (binary noise stability) by exact tensor
+# computation on random small binary systems (3-5 coordinates, alphabets
+# 5..13, hub / generic / rho = 1 modes; seeds 1-3 x 400 trials as in the
+# Replay, plus seeds 4-6 x 1000): whenever
+# delta = max_l w_l <= 1/16,  log(Z2/Z1^2) <= (1+25 delta)[sum_e rho rho' pi_e
+# + sum_j rho_j q_j].  Sanity: Z2(rho = 0) = Z1^2.  Non-vacuity: dropping the
+# q-term must be violated on some instance.
+
+def check_cg():
+    from time import perf_counter
+    import numpy as np
+    t0 = perf_counter()
+
+    def run(sizes, edges, nus, rho):
+        k = len(sizes)
+        A = np.ones(sizes)
+        for (l, a, m, c) in edges:
+            idx = [slice(None)] * k
+            idx[l] = a
+            idx[m] = c
+            A[tuple(idx)] = 0.0
+        P = np.ones(sizes)
+        for l in range(k):
+            sh = [1] * k
+            sh[l] = sizes[l]
+            P = P * nus[l].reshape(sh)
+        Z1 = float((A * P).sum())
+
+        def Z2(rh):
+            T = A.copy()
+            for l in range(k):
+                nu = nus[l]
+                Mx = rh[l] * np.diag(nu) + (1 - rh[l]) * np.outer(nu, nu)
+                T = np.moveaxis(np.tensordot(Mx, T, axes=([1], [l])), 0, l)
+            return float((T * A).sum())
+        lhs = np.log(Z2(rho) / Z1 ** 2)
+        assert abs(Z2(np.zeros(k)) / Z1 ** 2 - 1) < 1e-9
+        deg = [np.zeros(s) for s in sizes]
+        w = np.zeros(k)
+        diag = 0.0
+        for (l, a, m, c) in edges:
+            deg[l][a] += nus[m][c]
+            deg[m][c] += nus[l][a]
+            pe = nus[l][a] * nus[m][c]
+            w[l] += pe
+            w[m] += pe
+            diag += rho[l] * rho[m] * pe
+        q = np.array([(nus[l] * deg[l] ** 2).sum() for l in range(k)])
+        return lhs, diag, diag + (rho * q).sum(), w.max()
+
+    n_in = n_diag_viol = 0
+    worst = 0.0
+    for seed, ntr in ((1, 400), (2, 400), (3, 400), (4, 1000), (5, 1000), (6, 1000)):
+        rng = np.random.default_rng(seed)
+        for _ in range(ntr):
+            k = int(rng.integers(3, 6))
+            sizes = [int(s) for s in rng.choice([5, 7, 11, 13], size=k)]
+            if prod(sizes) > 200000:
+                continue
+            nus = [rng.dirichlet(np.ones(s) * rng.choice([0.5, 5.0])) for s in sizes]
+            mode = rng.integers(3)
+            edges = set()
+            for _ in range(int(rng.integers(1, 3 * k + 1))):
+                l, m = rng.choice(k, 2, replace=False)
+                if mode == 0:
+                    l, a = 0, 0
+                    if m == 0:
+                        m = int(rng.integers(1, k))
+                else:
+                    a = rng.integers(sizes[l])
+                c = rng.integers(sizes[m])
+                edges.add((int(l), int(a), int(m), int(c)) if l < m else (int(m), int(c), int(l), int(a)))
+            rho = rng.choice([1.0, 0.5, 0.1], size=k) * rng.random(k)
+            if mode == 2:
+                rho = np.ones(k)
+            lhs, diag, rhs0, wmax = run(sizes, sorted(edges), nus, rho)
+            if wmax <= 1 / 16:
+                n_in += 1
+                bound = (1 + 25 * wmax) * rhs0
+                assert lhs <= bound + 1e-12, ("TWIN2 Thm 1.4 violated", seed, lhs, bound, wmax)
+                worst = max(worst, lhs / bound if bound > 0 else 0.0)
+                n_diag_viol += lhs > (1 + 25 * wmax) * diag + 1e-12
+    assert n_in > 1500
+    assert n_diag_viol > 0, "TWIN2 non-vacuity control: q-term never needed"
+    print(f"cg Thm 1.4: {n_in} in-hypothesis random systems (delta <= 1/16), 0 violations, "
+          f"max lhs/bound = {worst:.4f}; q-term needed in {n_diag_viol} cases; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cg) EXCEPTIONAL_TWIN2: binary noise stability Thm 1.4, exact tensor check ==")
+check_cg()
+
+
 print("\nall checks passed")
