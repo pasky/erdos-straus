@@ -172,9 +172,9 @@ is applied to weights `a_n ≥ 0` supported on `𝒜 ∩ I`, (LS) gives
 method needs a known upper bound `U ≥ Σa²/Σa`; its final bound is
 `U·m_w ≥ U·N·Eν*`. So, relative to the trivial bound `N·U`, the saving is
 at most `log(1/Eν*)`. For example, for indicators `U = 1`. For `Λ` on
-primes in `(N/2, N]` one has `U = log N`, `a_max/a_min = 1 + O(1/log N)`,
-and the trivial bound `N log N` is off from the truth `~N/2` by a
-constant factor only. Some comparability is needed. If a method could use
+primes in `(N/2, N]` one may take `U = log N`; the final bound is
+`≥ N log N·Eν* ≥ (N/2)·Eν*`, so even relative to the Chebyshev value
+`N/2` the saving is at most `log(1/Eν*)`. Some such U is needed. If a method could use
 `Σa²/Σa` itself, no ceiling holds: take one weight 1 and the others
 `N^{−1/2}`. In the results below, "weighted sequences" always carries
 this proviso.
