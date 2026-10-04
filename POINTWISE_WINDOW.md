@@ -201,3 +201,76 @@ is `≫N/(log N)^{3/2}`. Take `f=x^2+xy+y^2` (`D=−3`, `a=1`), `B=4`, `A=−3`,
 `p≡1 (840)`. So FHRSS Thm 1.1(2) implies W1 directly. Their proof is
 Iwaniec's 1972 argument, i.e. the same S1–S3 route. We cite it as a
 cross-check, not as an independent proof.
+
+## 4. Two windows: `a_min(p)≥11` under Elliott–Halberstam (Theorem W2)
+
+### 4.1 Why W1's proof stops at one window
+
+W1 works because the semi-linear sieve has sifting limit `β_{1/2}=1`. At BV
+level `x^{1/2}` it therefore sifts up to `z=x^{1/2−ε}`. Then at most two
+large bad primes survive; parity (Lemma 1.2) removes one of them, and the
+two-prime configurations cost `ε^{3/2}` against a main term `ε^{1/2}`.
+
+Two windows (3 and 7) form a sieve problem of **dimension 1** on the
+primes. For a prime `ℓ∤840` the forbidden classes of p are `−3 mod ℓ` if
+`ℓ≡2 (3)`, and `−7 mod ℓ` if `(ℓ/7)=−1`. The characters mod 3 and mod 7 are
+independent, so `Σ_{ℓ<z}ω(ℓ)log ℓ/ℓ=log z+O(1)`. The linear sieve has
+`β_1=2`, so sifting up to `z=x^{1/2−ε}` needs level `D=z^{2+}≈x^{1−2ε+}`.
+That is the Elliott–Halberstam range, not the BV range. At BV level the
+two-window sieve only reaches `z<x^{1/4}`. Each window can then carry two or
+four large bad primes, and the two-bad configurations are no longer
+small. §5 quantifies this.
+
+### 4.2 Statement
+
+**Theorem W2 (CONDITIONAL on EH for primes).** Assume EH: for every
+`η,A>0`, `Σ_{k≤x^{1−η}} max_{(b,k)=1}|π(x;k,b)−li(x)/φ(k)| ≪_{η,A} x/(log x)^A`.
+Then
+```
+N_{3,7}(x) := #{p≤x : p≡1 (840), (p+3)/4 has no prime factor ≡2 (3),
+               (p+7)/4 has no prime factor r with (r/7)=−1}  ≫ x/(log x)^2,
+```
+and every such p is hard with `a_min(p)≥11` (Lemma 1.1 at q=3 and q=7).
+
+### 4.3 Proof (same skeleton as W1, with the linear sieve)
+
+* **Cited S1'.** Linear sieve lower bound: Jurkat–Richert / Iwaniec,
+  e.g. *Opera de Cribro* Thm 11.13 with `κ=1`, `β=2` (as quoted by Teräväinen §6,
+  (6.6)), or Halberstam–Richert Thm 8.4. Under `(Ω_1)`, for `2≤s≤3`:
+  `S(A,P,z)≥XV(z)(f(s)+o(1))−Σ_{d<D,d|P(z)}|r_d|` with
+  `f(s)=2e^γ log(s−1)/s`. Since `log(1+u)≥u/2` on `[0,1]`, we get
+  `f(s)≥(e^γ/3)(s−2)` for `2<s≤3`.
+* **Data.** `A={p≤x : p≡1 (840)}`, `X=li(x)/192`. Put
+  `P=P_3∪P_7` (primes `≡2 (3)` or with `(ℓ/7)=−1`), `ω` as above,
+  `g(ℓ)=ω(ℓ)/(ℓ−1)`. For `ℓ|840` there are no forbidden classes: `n_3≡1`
+  and `n_7≡2 (mod 210)`, `n_7/2` odd, and 2 is 7-good. `ω(ℓ)≤2<ℓ−1`, and
+  `(Ω_1)` holds by Mertens mod 21. `V(z)≥c_V/log x`. `r_d` is a sum of at
+  most `2^{ω(d)}` prime-count discrepancies mod `840d`, so
+  `Σ_{d<D}μ^2(d)|r_d|≪x/(log x)^2` for `D=x^{1−ε}/840` by EH (with the usual
+  Cauchy–Schwarz/trivial bound to absorb the `2^{ω(d)}` weight).
+* **Parameters.** `z=x^{1/2−ε}`, `s=log D/log z→(1−ε)/(1/2−ε)=2+2ε/(1−2ε)`. So
+  `f(s)≥(2/3)e^γε(1−o(1))` and `S(A,P,z)≥c_1εx/(log x)^2`, with `c_1` absolute.
+* **Survivors.** For each `q∈{3,7}` the q-bad factors of `n_q` are all
+  `≥z`, so there are at most two of them. Their number is even (Lemma 1.2:
+  `(p/3)=(p/7)=1`), so it is 0 or 2. Hence
+  `N_{3,7}≥S−T_1−T^{(3)}−T^{(7)}`. Here `T_1≪x^{1/2+ε}` counts
+  square factors `r^2`, `r≥z`. `T^{(q)}` counts sifted p with
+  `n_q=mr_1r_2`, `z≤r_1<r_2` q-bad, and m q-good with `m≤x^{2ε}`.
+* **`T^{(q)}`, keeping the other window.** Fix `(m,r_1)`, put `a=4mr_1`, and
+  count primes `r_2≤y=(x+q)/a` such that `ar_2−q` is prime **and**
+  `n_{q'}=mr_1r_2+(q'−q)/4` has no q'-bad prime factor `<z`. Sifting `r_2`
+  by primes `ℓ<y^{1/10}` (with `ℓ∤42a`) removes the classes
+  `0`, `q/a`, and `(q−q')/a` (the last only when ℓ is q'-bad). These are
+  distinct for `ℓ>7`. This is an upper-bound problem of dimension `5/2`. By
+  Selberg's upper-bound sieve (level `y^{1/5}`, trivial remainders), the count
+  is `≪(a/φ(a))^3 y/(log y)^{5/2}`. Summing as in W1, Step 4, with
+  `Σ_{z≤r_1≤√x}1/r_1≤3ε` and
+  `Σ_{m≤x^{2ε}, m q-good}(m/φ(m))^3/m≪(ε log x)^{1/2}`, gives
+  `T^{(q)}≤C ε^{3/2}x/(log x)^2`.
+* **Conclusion.** `N_{3,7}(x)≥(c_1ε−2Cε^{3/2})x/(log x)^2−O(x^{1/2+ε})`. Then
+  take ε small. ∎
+
+The essential new point compared with W1 is keeping the other window's
+half-dimensional condition inside the upper bound for `T^{(q)}`. Without
+it, `T^{(q)}≍ε^{3/2}x/(log x)^{3/2}` would swamp the main term
+`εx/(log x)^2`.
