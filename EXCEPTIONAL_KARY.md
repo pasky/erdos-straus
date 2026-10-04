@@ -103,46 +103,58 @@ of degree ≤ d (the average of `ρ^S` is `C(K,|S|)/C(n,|S|)`), `Q ≥ 0` on
 `Q(n) = Σ_y ℓ_y(n)Q(y) ≤ max_y(|ℓ_y(n)|/ψ(y))·Σ_y ψ(y)Q(y) ≤ B·E Q(K)`.
 (2.1) is proved in §3. ∎
 
-**Lemma 2.4 (thinned law; PROVED).** Fix `M₀ ≥ 4`, put
-`t(ω) = 1/(M(ω) + M₀)` and `W(ω) = (1 + M(ω)/M₀)^{−4/3}`. Let τ be the law
-of `y^ρ` when ω is drawn from the process and, given ω, `ρ ~ Bern(t(ω))^V`.
-Then for every x,
+**Lemma 2.4 (thinned law; PROVED).** Fix `t ∈ (0, 1/4]` and put
+`W(ω) = exp(−(4/3) t M(ω))`. Let τ be the law of `y^ρ` when ω is drawn
+from the process and, given ω, `ρ ~ Bern(t)^V`. Then for every x,
 
     E_ω[ W(ω) · P_ρ(y^ρ = x | ω) ] ≤ ν(x).
 
-*Proof.* Let `M_{≤ℓ} = Σ_{i≤ℓ, i light} p̃_i`, which is known before ℓ is
-drawn, and `t_ℓ = 1/(M_{≤ℓ} + M₀) ≥ t(ω)`. Since at a replaced ℓ the two
-events `c_ℓ = x_ℓ` and `y_ℓ = x_ℓ` cannot both hold (`c_ℓ ∈ F̃`, `y_ℓ ∉ F̃`),
+*Proof.* At a replaced ℓ the events `c_ℓ = x_ℓ` and `y_ℓ = x_ℓ` cannot
+both hold (`c_ℓ ∈ F̃_ℓ ∌ y_ℓ`). Hence
 
-    P_ρ(y^ρ = x | ω) ≤ Π_ℓ φ_ℓ,   φ_ℓ = 1{c_ℓ = x_ℓ} + t_ℓ 1{ℓ ∈ R, y_ℓ = x_ℓ}.
+    P_ρ(y^ρ = x | ω) ≤ Π_ℓ φ_ℓ,   φ_ℓ = 1{c_ℓ = x_ℓ} + t·1{ℓ ∈ R, y_ℓ = x_ℓ}.
 
 Given the past, `c_ℓ` and the fresh draw are independent, so
-`E[φ_ℓ | past] ≤ ν_ℓ(x_ℓ) + t_ℓ p̃_ℓ ν_ℓ(x_ℓ)/(1−p̃_ℓ) ≤ ν_ℓ(x_ℓ) D_ℓ`, with
-`D_ℓ = 1 + (4/3) t_ℓ p̃_ℓ 1{ℓ light}` known before ℓ. Hence
-`Z = Π_ℓ φ_ℓ/(ν_ℓ(x_ℓ)D_ℓ)` has `E Z ≤ 1` (a product of adapted factors
-with conditional means ≤ 1). Pathwise,
-`log Π D_ℓ ≤ (4/3)Σ_ℓ p̃_ℓ/(M_{≤ℓ}+M₀) ≤ (4/3)∫_0^M dx/(x+M₀)`, so
-`W·Π D_ℓ ≤ 1`. Therefore `E[W Π φ_ℓ] = ν(x) E[W Z Π D_ℓ] ≤ ν(x)`. ∎
+`E[φ_ℓ | past] = ν_ℓ(x_ℓ) + t p̃_ℓ ν_ℓ(x_ℓ)1{x_ℓ∉F̃_ℓ}/(1−p̃_ℓ) ≤ ν_ℓ(x_ℓ)D_ℓ`
+with `D_ℓ = 1 + (4/3)t p̃_ℓ 1{ℓ light}`, which is known before ℓ. So
+`Z = Π_ℓ φ_ℓ/(ν_ℓ(x_ℓ)D_ℓ)` is a product of adapted factors with
+conditional means ≤ 1, and `E Z ≤ 1` (if `ν(x) = 0` both sides vanish).
+Pathwise `Π_ℓ D_ℓ ≤ exp((4/3)tM) = 1/W`. Therefore
+`E[W Π φ_ℓ] = ν(x)·E[W Π D_ℓ · Z] ≤ ν(x)`. ∎
 
 **Theorem 2.5 (weighted k-ary comparison; PROVED).** In the setting of §1,
-for every d-local `f ≥ 0`,
+for every `t ∈ (0, 1/4]` and every d-local `f ≥ 0`,
 
-    E_ν f ≥ E_ω[ e^{−Φ(ω)} f(y) ],
-    Φ(ω) = log B(n(ω), t(ω), d) + (4/3) log(1 + M(ω)/M₀),
+    E_ν f ≥ E_ω[ e^{−Φ(ω)} f(y) ],     Φ(ω) = log B(n(ω), t, d) + (4/3)·t·M(ω).
 
-with `t(ω) = 1/(M(ω)+M₀)`, `M₀ ≥ 4`. Consequently, by (2.1) and Jensen,
+*Proof.* By Lemmas 2.2 and 2.3, `f(y) = g_ω(1_R) ≤ B(n,t,d)·E_ρ g_ω(ρ)`.
+Multiply by `W(ω)` and take `E_ω`:
+`E_ω[e^{−Φ}f(y)] ≤ E_ω[W E_ρ f(y^ρ)] = Σ_x f(x)·E_ω[W P_ρ(y^ρ = x|ω)] ≤ E_ν f`
+by Lemma 2.4 and `f ≥ 0`. ∎
 
-    E_ω Φ ≤ d·log(4e³(E n + 1)(E M + M₀)) + ½log(16 E n + 16) + (4/3)log(1 + E M/M₀),
+**Corollary 2.6 (mean cost; PROVED).** Let `d ≥ 1`, let `m̄ ≥ E M` and take
+`t = d/(m̄ + 4d)`. Then `E n = E M` and
 
-and `E n = E M` (each light ℓ is replaced with conditional probability
-`p̃_ℓ`).
+    E_ω Φ ≤ d·log(C₀(m̄ + 4d)/d) + (4/3)d + ½log(22d + 22) + 3,   C₀ = 2e^{3.31}.
 
-*Proof.* By Lemmas 2.2 and 2.3 with `t = t(ω)`,
-`f(y) = g_ω(1_R) ≤ B(n,t,d) E_ρ g_ω(ρ)`. Multiply by `W(ω)` and take
-`E_ω`: `E_ω[e^{−Φ} f(y)] ≤ E_ω[W E_ρ f(y^ρ)] = Σ_x f(x) E_ω[W P(y^ρ = x|ω)]
-≤ Σ_x f(x)ν(x)` by Lemma 2.4 and `f ≥ 0`. For the moment bound,
-`log B ≤ d log(4e³(n+1)(M+M₀)) + ½log(16n/(M+M₀)·… )`; use (2.1) with
-`nt ≤ n`, and concavity of log. ∎
+*Proof.* Each light ℓ is replaced with conditional probability `p̃_ℓ`, so
+`E n = E M`. §3 gives, in all cases,
+`log B(n,t,d) ≤ d·log(e^{3.31}·max(1/t, √(n/(td)))) + ½log(22nt + 22) + 3`.
+Bound the max by the sum, use concavity of `log`, `√·` and Jensen:
+`E log B ≤ d log(e^{3.31}(1/t + √(E n/(td)))) + ½log(22tE n + 22) + 3`.
+With this t, `1/t = (m̄+4d)/d`, `√(E n/(td)) ≤ (m̄+4d)/d`, `t E n ≤ d`, and
+`(4/3)t E M ≤ (4/3)d`. ∎
+
+So the cost is `d(O(1) + log⁺(E M/d))`, the form of ET Prop 2.4 / EB
+Thm 2.5 for unary systems, now for any arity and with only the *mean* mass.
+
+**Remark 2.7 (scale-free variant).** One may also take the path-dependent
+`t(ω) = 1/(M(ω)+M₀)`, `M₀ ≥ 4`, with weight `(1+M/M₀)^{−4/3}`: in the
+proof of Lemma 2.4 use `t_ℓ = 1/(M_{≤ℓ}+M₀) ≥ t(ω)`, where `M_{≤ℓ}` is the
+light mass up to and including ℓ, and
+`Σ_ℓ p̃_ℓ/(M_{≤ℓ}+M₀) ≤ log(1+M/M₀)`. The cost is then
+`≈ d·log((n+1)(M+M₀))`, weaker by a log factor but with no choice of t.
+The checks below use this variant.
 
 The unweighted form follows when M and n are bounded: if `M ≤ M̄` and
 `n ≤ n̄` on every path, then by (2.1)
