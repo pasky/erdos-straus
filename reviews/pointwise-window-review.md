@@ -98,3 +98,32 @@ Archived `2504.20289.txt` lines 34–49, Thm 1.1. With `f=x²+xy+y²`, `B=4`, `A
   7.3: unconditional K=11 is the window analogue of a known open problem. This
   strengthens the doc's Goal-2 answer. The novelty wording must change.
   (Reviewer fetched FI09 from archive.ymsc.tsinghua.edu.cn; not archived in repo.)
+
+### 5. Lemma 6.1 and §6 — lemma CORRECT; labels INCONSISTENT (D2)
+
+* Proof checked. `ord(c)≤φ(q)<q`, so `e_c<q` distinct primes per big class are
+  available. The chosen primes are distinct across classes, so u is squarefree,
+  `u|n_q`, `u≡−1`, and `−1∈Rat_q`. The count `<q·φ(q)` outside K is right.
+  Only target −1 is used, which is fine for a necessary condition.
+  Reviewer brute force (own Rat_q enumeration, no project code): 2593 failing
+  windows `q≤43`, `p≡1 (840)`, `p<10^6`, all satisfy the lemma. At this size
+  `C_big=∅` always, so the check is weak.
+* **D2 (labels).** §0's table row "Lemma 6.1 | every failing window costs sieve
+  dimension ≥1/2; congruence classes cannot lower it | PROVED" contradicts §6.
+  There the dimension consequence is explicitly an *Assessment* ("the
+  bookkeeping step is not a proved estimate"). The same §6 paragraph then calls
+  it "the rigorous form of the 'dimension ≥K/8' bookkeeping". AGENT_REPORT_O10
+  repeats "Lemma 6.1 (PROVED) … So each window costs sieve density ≥1/2".
+  Fix: the §0 row should read "Lemma 6.1: failing window ⇒ prime factors in a
+  subgroup K∌−1 up to <qφ(q) exceptions — PROVED; dimension ≥1/2 —
+  Assessment". Drop "rigorous form", and fix the report.
+* Missing cross-reference. For a *single prime* window the dimension-1/2 upper
+  bound is already a theorem: notes Thm 70.9 (`≪_a N/(log N)^{3/2}` for
+  F1∪F3, effective), and DISCOVERIES #23. Only the joint J-window version is
+  Assessment. Cite it (D6).
+* "Congruence restrictions do not help (PROVED for fixed Q)". The proved content
+  is only that the sifting density is unchanged. "Saves nothing in dimension"
+  then inherits the Assessment status of the bookkeeping. Minor overlabel (D6).
+* §7.3 uses Lemma 6.1 with J unbounded. The exception budget `Σ_q qφ(q)≍J^3`
+  is then not O(1), so "(up to O_q(1) exceptions)" and "(log log x)^{O_q(1)}"
+  need J-uniformity. That is fine inside an Assessment, but it should be said (D6).
