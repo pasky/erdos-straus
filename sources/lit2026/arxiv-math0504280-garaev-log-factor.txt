@@ -1,0 +1,619 @@
+                                                   On the logarithmic factor in error term estimates
+                                                        in certain additive congruence problems
+arXiv:math/0504280v1 [math.NT] 13 Apr 2005
+
+
+
+
+                                                                           M. Z. Garaev
+
+                                                                               Abstract
+                                                      We remove logarithmic factors in error term estimates in asymp-
+                                                  totic formulas for the number of solutions of a class of additive con-
+                                                  gruences modulo a prime number.
+
+                                                2000 Mathematics Subject Classification: 11A07, 11L03
+
+                                                                           1. Introduction
+
+                                                In additive number theory an important topic is the problem of finding
+                                             an asymptotic formula for the number of solutions of a given congruence. In
+                                             many additive congruences the error term estimates of asymptotic formulas
+                                             contain logarithmic factors. The aim of the present paper is to illustrate
+                                             application of double exponential sums and a multidimensional smoothing
+                                             argument in removing these factors for a class of additive problems.
+                                                Let g be a primitive root modulo p and let N, K and M be any integers
+                                             with 1 ≤ N, K < p. We start with recalling the well known formula of
+                                             Montgomery [6]
+                                                                          KN
+                                                                      J=       + O(p1/2 log2 p),                     (1)
+                                                                            p
+                                             where J denotes the number of integers x ∈ [H + 1, H + K] such that g x ∈
+                                             [M + 1, M + N]. In this paper we establish the following statement.
+                                                Theorem 1. The following formula holds:
+                                                                             1/2 1/2          
+                                                                   KN        K N           1/2
+                                                             J=        +O               +p       .                         (2)
+                                                                    p           p1/4
+
+
+                                                Formula (2) gives the asymptotic formula J ∼ KN/p in the range
+
+                                                                       KN
+                                                                            → ∞ as p → ∞,
+                                                                       p3/2
+
+
+                                                                                    1
+while formula (1) gives the same asymptotic formula only when
+
+                          KN
+                                     → ∞ as p → ∞.
+                       p3/2 log2 p
+
+Moreover, if KN/p3/2 = O(1), then our formula guarantees the upper bound
+J ≪ p1/2 , while estimate (1) provides only the bound J ≪ p1/2 log2 p. Thus,
+formula (2) includes better and cleaner admissible range for the parameters
+than formula (1).
+   The method that we use to prove Theorem 1 is applicable to a class of
+other well known additive problems. For a given integer h, h 6≡ 0 (mod p),
+denote by J1 the number of solutions of the congruence
+
+                   gx − gy ≡ h    (mod p),        1 ≤ x, y ≤ N.
+
+In [7] (see also [9]) the asymptotic formula
+
+                                 N2
+                          J1 =      + O(p1/2 log2 p).                      (3)
+                                 p
+
+has been established. In the present paper instead of (3) we prove
+   Theorem 2. The following formula holds:
+
+                         N2
+                                              
+                                    N      1/2
+                   J1 =      +O         +p       .
+                          p        p1/4
+
+
+   We see that in the asymptotic formula J1 ∼ N 2 /p Theorem 2 suggests a
+better admissible range for N than formula (3).
+   The following result has been obtained in [8]:
+    Let U, V ⊂ {0, 1, . . . , p − 1} with u and v elements correspondingly, and
+let S and T be any integers with 1 ≤ T ≤ p. If J2 denotes the number of
+solutions of the congruence
+
+         xy ≡ z   (mod p),      x ∈ U,       y ∈ V,   S + 1 ≤ z ≤ S + T,
+
+then
+                                uvT
+                         J2 −       < 2(puv)1/2 log p.                     (4)
+                                 p
+
+                                         2
+   Our approach leads to
+   Theorem 3. The following estimate holds:
+
+                             uvT
+                      J2 −       ≪ (u2 v 2 T )1/3 + (puv)1/2 .
+                              p
+
+
+   From Theorem 3 we derive the asymptotic formula
+                                                     uvT
+                                        J2 ∼
+                                                      p
+under the condition
+                             uvT 2
+                                   → ∞ as p → ∞,
+                              p3
+while estimate (4) gives the same formula only when
+
+                          uvT 2
+                                   → ∞ as p → ∞.
+                         p3 log2 p
+
+    We remark that estimate (4) (even with constant 2 in the right hand side
+replaced by 1) is a consequence of the Vinogradov double exponential sum
+estimate (see the Lemma below) and the inequality
+                       p−1 S+T
+                       X   X
+                                        e2πian/p < p1/2 log p,
+                        a=1 n=S+1
+
+
+see, for example, the proof of Lemma 5 in [4, p. 109].
+   Theorem 4. Let X ⊂ {0, 1, . . . , p − 1} and let
+
+                                       X         2πiax
+                             max             e     p       ≤ |X |∆.
+                             (a,p)=1
+                                       x∈X
+
+If J3 denotes the number of solutions of the congruence
+
+             x≡y       (mod p),         x ∈ X,             S + 1 ≤ y ≤ S + T,
+
+                                                 3
+then
+                                          |X |T 1/3 ∆2/3
+                                                               
+                        |X |T
+                   J3 =       +O                         + |X |∆ ,
+                          p                    p1/3
+where |X | denotes the number of elements of X .
+   Theorem 4 can be useful in estimating of discrepancy of arithmetical
+sequences modulo a prime.
+    Theorem 5. Let h 6≡ 0 (mod p) and let J4 denote the number of solu-
+tions of the congruence
+
+                      xy ≡ h      (mod p),        1 ≤ x, y ≤ N.
+
+Then
+                              N2
+                                                           
+                                                 N      1/2
+                         J4 =    +O                  +p       .
+                              p                 p1/4
+
+   In passing we remark that the argument of our paper has also found an
+application in the multiplication table problem in a residue ring, see [3] for
+the details.
+   For more information on the latest results on distribution properties of
+special sequences we refer the reader to [1, 2, 5, 6, 7, 9] and references therein.
+
+          2. Vinogradov’s double exponential sum estimate
+
+   Lemma. Let m > 1, (a, m) = 1. Then
+                      m−1
+                      X m−1
+                          X                       axy       √
+                                 ν(x)̺(y)e2πi m ≤               mXY
+                       x=0 y=0
+
+
+where ν(x), ̺(y) are complex numbers and
+                      m−1
+                      X                         m−1
+                                                X
+                                  2
+                            |ν(x)| = X,                 |̺(y)|2 = Y.
+                      x=0                       x=0
+
+
+   The proof of this Lemma can be found in [10, p. 142].
+
+                            3. Proof of Theorem 1
+
+                                            4
+   If N > p/2 then J is equal to K minus the number of integers x for which
+
+        H + 1 ≤ x ≤ H + K,       g x ∈ [M + N + 1, M + p]       (mod p),
+
+where now p − N < p/2. For this reason it is suffice to consider the case
+N < p/2. By the same argument we may suppose that K < p/2.
+   Let N1 , K1 be some positive integers, N1 < N, K1 < K. Denote by J ′ the
+number of solutions of the congruence
+
+                            g x+z ≡ y + t   (mod p)
+
+subject to the conditions
+
+                 H + 1 ≤ x ≤ H + (K − K1 ),      1 ≤ z ≤ K1
+
+and
+                M + 1 ≤ y ≤ M + (N − N1 ),        1 ≤ t ≤ N1 .
+It is obvious that for fixed integers z and t the corresponding number of
+solutions of the above congruence (in variables x and y) is not greater than J.
+Therefore,
+                                        J′
+                                 J≥         .                               (5)
+                                      K1 N1
+Similarly, let J ′′ be the number of solutions to the congruence
+
+                            g x−z ≡ y − t   (mod p)
+
+subject to the conditions
+
+                  H + 1 ≤ x ≤ H + K + K1 ,       1 ≤ z ≤ K1
+
+and
+                 M + 1 ≤ y ≤ M + N + N1 ,        1 ≤ t ≤ N1 .
+Then we have
+                                        J ′′
+                                  J≤         .                             (6)
+                                       K1 N1
+   We claim that the formulas
+                  J′
+                       = KN/p + O (KN)1/2 /p1/4 + p1/2
+                                                       
+                 K1 N1
+
+                                       5
+and
+                  J ′′
+                        = KN/p + O (KN)1/2 /p1/4 + p1/2
+                                                         
+                 K1 N1
+hold true for some appropriately chosen parameters K1 , N1 . To prove it we
+express J ′ by mean of trigonometric sums:
+                            p−1 H+K−K1 K1 M +N −N1 N1
+                       1X         X X X X                                        2πia(g x+z −y−t)
+                J′ =                                                        e            p           .
+                       p a=0       x=H+1       z=1   y=M +1           t=1
+
+Picking up the term corresponding to a = 0 we find
+                                p−1 H+K−K K1 M +N −N1 N1
+ ′  K1 N1 (N − N1 )(K − K1 ) 1 X X 1 X         X X 2πia(gx+z −y−t)
+J =                         +                            e p       .
+               p              p a=1 x=H+1 z=1 y=M +1 t=1
+
+For 1 ≤ a ≤ p − 1 we have, according to the Lemma,
+       H+K−K
+         X 1XK1                             H+K−K
+                                              X 1XK1
+                           2πiag x+z                               2πiag x g z        p
+                       e       p       =                       e       p          ≤       pK1 (K − K1 ).
+        x=H+1    z=1                         x=H+1       z=1
+
+Therefore,
+                                              p                              p−1 M +N −N1                        N1
+     K1 N1 (N − N1 )(K − K1 )                     pK1 (K − K1 ) X                  X                     2πiay   X      2πiat
+J ′−                          ≪                                                                      e     p           e p      .
+                p                                      p        a=0                    y=M +1                    t=1
+
+The sum over a is estimated by combining the Cauchy inequality with the
+equalities
+         p−1 M +N −N1                  2                            p−1 N1                   2
+         X     X          ay                                        X   X 2πi at
+                      e2πi p               = p(N − N1 ),                   e p                   = pN1 .
+         a=0    y=M +1                                               a=0     t=1
+
+This yields the estimate
+                                                     p
+           K1 N1 (N − N1 )(K − K1 )                   pK1 (K − K1 ) p
+      J′ −                          ≪                                p(N − N1 )pN1 ,
+                      p                                    p
+whence                                                                       r              !
+                  J′     (N − N1 )(K − K1 )                                        pKN
+                       =                    +O                                                   .                     (7)
+                 K1 N1           p                                                 K1 N1
+
+                                                     6
+   If NK < 9p3/2 , then we choose N1 = [N/2], K1 = [K/2] and obtain
+
+             J′                            (NK)1/2
+                                                         
+                         1/2    NK                    1/2
+                    = O(p ) =       +O             +p       .
+           K1 N1                 p           p1/4
+
+   If NK > 9p3/2 , then we put
+
+                                       p3/4
+                                ε=           ,
+                                     (NK)1/2
+
+and observe that max{1/N, 1/K} ≤ ε ≤ 1/3. Therefore, in this case we can
+choose N1 and K1 such that
+
+                    εN ≤ N1 ≤ 2εN,           εK ≤ K1 ≤ 2εK.
+
+Hence, from (7) we obtain
+
+         J′                εNK p1/2             (NK)1/2
+                                                     
+                NK                      NK
+             =       +O       +       =    +O             .
+       K1 N1     p          p   ε        p        p1/4
+
+   Thus, in each case we have
+
+                    J′                       (NK)1/2
+                                                           
+                           NK                           1/2
+                         =    +O                     +p       ,
+                   K1 N1    p                  p1/4
+
+whence, in view of (5), we deduce the bound
+
+                                     (NK)1/2
+                                                   
+                          NK                    1/2
+                     J≥       +O             +p       .               (8)
+                           p           p1/4
+
+   The above argument in application to J ′′ leads to
+
+                  J ′′               (NK)1/2
+                                                       
+                         NK                         1/2
+                       =      +O                +p        ,
+                 K1 N1     p            p1/4
+
+which, due to (6), yields
+
+                                         (NK)1/2
+                                                       
+                        NK                          1/2
+                     J≤    +O                    +p       .           (9)
+                         p                 p1/4
+
+   The result now follows in view of (8) and (9).
+
+                                         7
+                           4. Proof of Theorem 2
+
+    We may suppose (due to (3) for example) that N < p/2.
+    Let N1 be a positive integer, N1 ≤ N/4. Denote by J1′ the number of
+solutions of the congruence
+                           g x+z − g y ≡ hg −t     (mod p)
+subject to the condition
+    1 ≤ x ≤ N − 2N1 ,       1 ≤ z ≤ N1 ,       1 ≤ y ≤ N − N1 ,                 1 ≤ t ≤ N1 .
+By J1′′ we denote the number of solutions of the congruence
+                           g x−z − g y ≡ hg t     (mod p)
+subject to the condition
+    1 ≤ x ≤ N + 2N1 ,       1 ≤ z ≤ N1 ,       1 ≤ y ≤ N + N1 ,                 1 ≤ t ≤ N1 .
+Then
+                               J1′         J1′′
+                                   ≤ J 1 ≤      .                                              (10)
+                              N12          N12
+   We express J1′ in terms of trigonometric sums and then obtain
+                       p−1 N −2N1 N1 N −N1 N1
+                   1   X    X X X X                        2πia(g x+z −g y −hg −t )
+             J1′ =                                     e              p               .
+                   p a=0     x=1   z=1   y=1     t=1
+
+Using the Lemma and applying the Cauchy inequality in the same way as in
+the proof of Theorem 1, we obtain
+                                               1/2 
+                 J1′   (N − 2N1 )(N − N1 )     Np
+                   2
+                     =                     +O           .
+                N1             p                N1
+   If N < 10p3/4 then we let N1 = [N/4] and obtain
+                 J1′
+                                                       
+                          1/2      2         N      1/2
+                     = O(p ) = N /p + O          +p       .
+                N12                         p1/4
+   If N > 10p3/4 , then we put N1 = [p3/4 ] and obtain
+            J1′     N2
+                                                            
+                              N         2           N      1/2
+                =      +O           = N /p + O          +p       .
+           N12       p       p1/2                  p1/4
+
+                                         8
+Hence, for the chosen N1 we have, in both cases, that
+                      J1′
+                                                   
+                             2           N      1/2
+                          = N /p + O         +p       .                        (11)
+                      N12               p1/4
+Analogously,
+                      J1′′
+                                                         
+                                               N
+                         2
+                           = N 2 /p + O            +p 1/2
+                                                            .                  (12)
+                      N1                      p1/4
+From (10), (11) and (12) we deduce
+                                                     
+                              2            N      1/2
+                       J = N /p + O            +p       ,
+                                          p1/4
+whence Theorem 2.
+
+                           4. Proof of Theorem 3
+
+   Without loss of generality we may assume that T ≤ p/2. Let T1 ≤ T /2
+be an integer to be chosen later. Denote by J2′ the number of solutions of
+the congruence
+                           xy ≡ z + t (mod p)
+subject to the condition
+         x ∈ U,    y ∈ V,    S + 1 ≤ z ≤ S + T − T1 ,           1 ≤ t ≤ T1 .
+By J2′′ we denote the number of solutions of the congruence
+                             xy ≡ z − t   (mod p)
+subject to the condition
+         x ∈ U,    y ∈ V,    S + 1 ≤ z ≤ S + T + T1 ,           1 ≤ t ≤ T1 .
+Then
+                               J2′        J ′′
+                                   ≤ J2 ≤ 2 .                        (13)
+                               T1          T1
+Expressing J2′ via trigonometric sums, picking up the main term, applying
+the Lemma and the Cauchy inequality exactly in the same way as in the
+proofs of Theorems 1 and 2, we obtain
+                                               r      !
+                     J2′   uvT        uvT1       uvpT
+                         =     +O           +           .
+                     T1     p           p         T1
+
+                                      9
+If uvT /p < 9(puv)1/2 then we put T1 = [T /2], and in this case obtain
+
+          J2′              uvT
+              = O (puv)1/2 =    + O (u2 v 2 T )1/3 + (puv)1/2 .
+                                                             
+          T1                 p
+Otherwise we let T1 to be any integer satisfying the condition
+                         1/3               1/3
+                         T                     T
+                      p          ≤ T1 ≤ 2p            .
+                         uv                   uv
+
+Any such integer, due to the assumed inequality uvT /p > 9(uvp)1/2 , also
+satisfies the above restriction T1 < T /2. Thus,
+
+                  J2′   uvT
+                            + O (u2 v 2 T )1/3 + (puv)1/2 .
+                                                         
+                      =                                                   (14)
+                  T1     p
+Analogously,
+                  J2′′   uvT
+                             + O (u2 v 2 T )1/3 + (puv)1/2 .
+                                                          
+                       =                                                  (15)
+                  T1      p
+Putting (13), (14) and (15) all together, we deduce Theorem 3.
+
+                          4. Proof of Theorem 4
+
+   We may assume that T < p/2. Let J3′ be the number of solutions of the
+congruence
+
+  x≡y+z        (mod p),   x ∈ X,    S + 1 ≤ y ≤ S + T − T1 ,     1 ≤ z ≤ T1
+
+and let J3′′ be the number of solutions of the congruence
+
+  x≡y−z        (mod p),   x ∈ X,   S + 1 ≤ y ≤ S + T + T1 ,      1 ≤ z ≤ T1 .
+
+Then
+                               J3′         J ′′
+                                   ≤ J3 ≤ 3 .
+                               T1          T1
+   The rest of the proof is similar to the proofs of previous theorems, so we
+omit it here.
+
+                          4. Proof of Theorem 5
+
+                                     10
+   It is well known the asymptotic formula
+                                     N2
+                             J4 =       + O(p1/2 log2 p).
+                                     p
+Therefore, to prove Theorem 5 we may assume that N < p/2.
+   Let J4′ be the number of solutions of the congruence
+
+    (x + u)(y + v) ≡ h       (mod p),      1 ≤ x, y ≤ N − K,   1 ≤ u, v ≤ K,
+
+where K < N is a positive integer to be chosen later. By the same argument
+that we have used in previous sections, we have the inequality
+                                              J4′
+                                       J4 >       .
+                                              K2
+Next, we express J4′ in terms of trigonometric sums:
+                            p−1
+                          1X X            X 2πi a(x+u−h(y+v)−1)
+                  J4′ =                        e       p        .
+                          p a=0 1≤x≤N −K 1≤u≤K
+                               1≤y≤N −K 1≤v≤K
+
+Using the standard technique, we obtain
+                     p−1 p−1 p−1
+                  1 XXX X                  X 2πi a(x+u−hz−1 )+b(z−y−v)
+          J4′ =                                 e         p            .       (16)
+                  p2 a=0 b=0 z=1 1≤x≤N −K 1≤u≤K
+                                 1≤y≤N −K 1≤v≤K
+
+From the classical Weil estimate of Kloosterman sums we have
+                               p−1
+                               X       bz−ahz −1
+                                   e2πi p        ≤ 2p1/2                       (17)
+                               z=1
+
+for any a 6≡ 0 (mod p). If a ≡ 0 (mod p) and b 6≡ 0 (mod p), then the right
+hand side of (17) is equal to −1. Therefore, (17) holds if at least one of the
+numbers a and b is not divisible by p. Hence, in (16) picking up the term
+corresponding to a = b = 0 and using (16) for other values of a and b, we
+obtain
+                                          p−1 N −K           K
+                                                                       !2
+                  2 2
+          (N − K)  K  (p − 1)           1 X    X 2πi ax X           au
+    J4′ =                     + 2θp1/2             e p          e2πi p    ,
+                  p2                    p a=0 x=1           u=1
+
+
+                                           11
+where |θ| ≤ 1. Applying the Cauchy inequality to the sum over a, we derive
+
+                               (N − K)2 K 2
+                       J4′ −                ≪ (N − K)Kp1/2 .
+                                    p
+Hence,
+                               (N − K)2
+                     J4 ≥               + O(NK −1 p1/2 + p1/2 ).
+                                  p
+If N > p3/4 , then we choose K = [p3/4 ]. If N < p3/4 , then we define K = N −1.
+In both cases we arrive at the inequality
+
+                                   N2
+                            J4 >      + O(Np−1/4 + p1/2 ).                         (18)
+                                   p
+    To obtain a similar upper bound for J4 , define J4′′ to be the number of
+solutions of the congruence
+
+    (x − u)(y − v) ≡ h          (mod p),   1 ≤ x, y ≤ N + K,       1 ≤ u, v ≤ K.
+
+Then J4 < K −2 J4′′ and
+                      p−1 p−1 p−1
+                   1 XXX X                  X 2πi a(x−u−hz−1 )+b(z−y+v)
+          J4′′ =                                 e         p            .
+                   p2 a=0 b=0 z=1 1≤x≤N −K 1≤u≤K
+                                    1≤y≤N −K 1≤v≤K
+
+The same argument which we have used to obtain lower bounds for J4′ and
+J4 leads to the upper bound
+
+                                   N2
+                            J4 <      + O(Np−1/4 + p1/2 ).
+                                   p
+Combining this with (18), we conclude that
+
+                                   N2
+                            J4 =      + O(Np−1/4 + p1/2 ).
+                                   p
+
+References
+ [1] C. I. Cobeli, S. M. Gonek and A. Zaharescu, On the distribution of small
+     powers of a primitive root, J. Number Theory 88 (2001), no. 1, 49–58.
+
+                                           12
+ [2] M. Z. Garaev and Ka-Lam Kueh, Distribution of special sequences mod-
+     ulo a large prime, Int. J. of Math. and Math. Sci., 50 (2003), pp. 3189–
+     3194.
+
+ [3] M. Z. Garaev and A. A. Karatsuba, On a symmetric congruence and its
+     applications, arXiv:math.NT/0503164.
+
+ [4] A. A. Karatsuba, “Basic analytic number theory”, Springer-Verlag,
+     Berlin, Heidelberg, New York, 1993.
+
+ [5] S. V. Konyagin, ‘Bounds of exponential sums over subgroups and Gauss
+     sums’, Proc 4th Intern. Conf. Modern Problems of Number Theory and
+     Its Applications, Moscow Lomonosov State Univ., Moscow, 2002, 86–114
+     (in Russian).
+
+ [6] H. L. Montgomery, Distribution of small powers of a primitive root,
+     Advances in Number Theory (Kingston, ON, 1991), Oxford Sci. Publ.,
+     Oxford University Press, New York, 1993, pp. 137–149.
+
+ [7] Z. Rudnik and A. Zaharescu, The distribution of spacings between small
+     powers of a primitive root, Israel J. Math. 120 (2000), 271–287.
+
+ [8] A. Sárkőzy, On the distribution of residues of product of integers, Acta
+     Math. Hungar. 49 (1987), no. 3-4, 397–401.
+
+ [9] M. Vâjâitu and A. Zaharescu, Differences between powers of a primitive
+     root, Int. J. Math. Math. Sci. 29 (2002), no. 2, 325–331.
+
+[10] I. M. Vinogradov, “An introduction to the theory of numbers”, Perga-
+     mon Press, London & New York, 1955.
+
+
+   Address of the author:
+   Instituto de Matemáticas UNAM
+   Campus Morelia, Ap. Postal 61-3 (Xangari)
+   CP 58089, Morelia, Michoacán
+   MÉXICO
+
+   E-mail address:      garaev@matmor.unam.mx
+
+
+
+                                      13
+

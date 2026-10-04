@@ -1,0 +1,1194 @@
+                                                   Kloosterman sums in residue rings
+arXiv:1309.1124v1 [math.NT] 4 Sep 2013
+
+
+
+
+                                                                          J. Bourgain
+                                                                 Institute for Advanced Study,
+                                                                   Princeton, NJ 08540, USA
+                                                                       bourgain@ias.edu
+
+
+                                                                         M. Z. Garaev
+                                                               Centro de Ciencias Matemáticas,
+                                                          Universidad Nacional Autónoma de México,
+                                                              Morelia 58089, Michoacán, México
+                                                                    garaev@matmor.unam.mx
+
+
+                                                                            Abstract
+                                                   In the present paper, we generalize some of the results on Kloost-
+                                               erman sums proven in [3] for prime moduli to general moduli. This
+                                               requires to establish the corresponding additive properties of the re-
+                                               ciprocal set
+                                                                       I −1 = {x−1 : x ∈ I},
+                                               where I is an interval in the ring of residue classes modulo a large
+                                               positive integer. We apply our bounds on multilinear exponential
+                                               sums to the Brun-Titchmarsh theorem and the estimate of very short
+                                               Kloosterman sums, hence generalizing our earlier work to the setting
+                                               of general modulus.
+
+
+                                         1     Introduction
+                                         In what follows, Zm denotes the ring of residue classes modulo a large positive
+                                         integer m which frequently will be associated with the set {0, 1, . . . , m − 1}.
+
+
+                                                                                 1
+Given an integer x coprime to m (or an invertible element of Zm ) we use x∗
+or x−1 to denote its multiplicative inverse modulo m.
+   Let I be an interval in Zm . In the present paper we establish some additive
+properties of the reciprocal-set
+
+                                I −1 = {x−1 :          x ∈ I}.
+
+We apply our results to estimate some double Kloosterman sums, to Brun-
+Titchmarsh theorem and, involving multilinear exponential sum bounds of
+general modulus, we estimate short Kloosterman sums. These extends some
+results of our work [3] from prime moduli to the general.
+   Throughout the paper we use the abbreviation em (z) := e2πiz/m .
+
+
+2     Statement of our results
+We start with the additive properties of reciprocal-set.
+
+Theorem 1. Let I = [1, N]. Then the number J2k of solutions of the con-
+gruence
+
+      x∗1 + . . . + x∗k ≡ x∗k+1 + . . . + x∗2k     (mod m),           x1 , . . . , x2k ∈ I,
+
+satisfies
+                                     3             2
+                                                        N 2k−1      
+                     J2k < (2k)90k (log N)4k                      + 1 N k.
+                                                          m
+   The following statement is a version of Theorem 1, where the variables
+xj are restricted to prime numbers. By P we denote the set of primes.
+
+Theorem 2. Let I = [1, N]. Then the number J2k of solutions of the con-
+gruence
+
+    x∗1 + . . . + x∗k ≡ x∗k+1 + . . . + x∗2k     (mod m),           x1 , . . . , x2k ∈ I ∩ P,
+
+satisfies
+                                            N 2k−1         
+                             J2k < (2k)k                 + 1 N k.
+                                                   m
+
+
+
+
+                                               2
+   We recall that the incomplete Kloosterman sum is the sum of the form
+                                        M
+                                        X +N
+                                                em (ax∗ + bx),
+                                       x=M +1
+
+where a and b are integers, gcd(a, m) = 1. Here the summation over x is
+restricted to gcd(x, m) = 1 (if the range of summation is empty, then we
+consider this sum to be equal to zero). As a consequence of the Weil bounds
+it is known that        m
+                       X
+                           em (ax∗ + bx) ≤ τ (m)m1/2 ,
+                                x=1
+
+see for example [7, Corollary 11.12]. This implies that for N < m one has
+the bound
+                      MX+N
+                            em (ax∗ + bx) < m1/2+o(1) .
+                               x=M +1
+
+For M = 0 and N very small (that is, N = mo(1) ) these sums have been
+estimated by Korolev [11].
+    The incomplete bilinear Kloosterman sum
+                              MX
+                               1 +N1     MX
+                                          2 +N2
+
+                       S=                           α1 (x1 )α2 (x2 )em (ax∗1 x∗2 ),
+                             x1 =M1 +1 x2 =M2 +1
+
+
+where αi (xi ) ∈ C, |αi (xi )| ≤ 1, is also well known in the literature. When
+M1 = M2 = 0 the sum S (in a more general form in fact) has been estimated
+by Karatsuba [9, 10] for very short ranges of N1 and N2 .
+   Theorem 1 leads to the following improvement of the range of applicability
+of Karatsuba’s estimate [9].
+
+Theorem 3. Let I1 = [1, N1 ], I2 = [1, N2 ]. Then uniformly over all positive
+integers k1 , k2 and gcd(a, m) = 1 we have
+   X X                                                         45k12               2
+                                                                                45k2               k       k
+                                                                                                 2( k1 + k2 )
+                   α1 (x1 )α2 (x2 )em (ax∗1 x∗2 )   < (2k1 )    k2
+                                                                       (2k2 )    k1
+                                                                                       (log m)         2       1   ×
+   x1 ∈I1 x2 ∈I2
+                           N k1 −1 m1/2 1/(2k1 k2 )  N k2 −1 m1/2 1/(2k1 k2 )
+                         × 11/2 + k1                     2
+                                                               + k2               N1 N2 .
+                            m       N1                  m1/2    N2
+
+
+                                                    3
+   Given N1 , N2 we choose k1 , k2 such that
+                 2(k1 −1)                            2(k2 −1)
+               N1           < m ≤ N12k1 ,          N2           < m ≤ N22k2
+and the bound will be nontrivial unless both N1 , N2 are within mε -ratio of
+                 1
+an element of {m 2l , l ∈ Z+ }. Thus, we have the following
+Corollary 1. Let I1 = [1, N1 ], I2 = [1, N2 ], where for i = 1 or i = 2
+                                [      1        1
+                         Ni 6∈     [m 2j −ε , m 2j +ε ].
+                                        j≥1
+
+Then
+                      N1 X
+                      X  N2
+             max                    α1 (x1 )α2 (x2 )em (ax∗1 x∗2 ) < m−δ N1 N2
+            (a,m)=1
+                      x1 =1 x2 =1
+
+for some δ = δ(ε) > 0.
+   We shall then apply our bilinear Kloosterman sum bound to the Brun-
+Titchmarsh theorem and improve the result of Friedlander-Iwaniec [5] on
+π(x; q, a) as follows:
+Theorem 4. Let q ∼ xθ , where θ < 1 is close to 1. Then
+                                        cx
+                        π(x; q, a) <
+                                     φ(q) log xq
+
+with c = 2 − c1 (1 − θ)2 , for some absolute constant c1 > 0 and all sufficiently
+large x in terms of θ.
+   Recall that for (a, q) = 1, π(x; q, a) denotes the number of primes p ≤ x
+with p ≡ a (mod q). The constant c1 is effective and can be made explicit.
+We mention that for primes q Theorem 4 is contained in our work [3].
+   Finally, we shall apply multilinear exponential sum bounds from [2] (see
+Lemma 1 below) to establish the following estimate of a short linear Kloost-
+erman sums.
+Theorem 5. Let N > mc where c is a small fixed positive constant. Then
+we have the bound
+                         X               (log log m)O(1)
+                  max        em (an∗ ) <                 N,
+                 (a,m)=1
+                         n≤N
+                                            (log m)1/2
+
+where the implied constants may depend only on c.
+
+                                               4
+    This improves some results of Korolev [11]. We also refer the reader
+to [12] for some variants of the problem. We remark that a stronger bound
+is claimed in [8], but the proof there is in doubt.
+    Since                     m
+                             X
+                                 em (an∗ ) = µ(m),
+                                         n=1
+
+in Theorem 5 one can assume that N < m. We also note that the aforemen-
+tioned consequence of the Weil bounds gives a stronger estimate in the case
+N > m1/2+c0 for any fixed constant c0 .
+
+
+3      Lemmas
+The following result, which we state as a lemma, has been proved by Bour-
+gain [2]. It is based on results from additive combinatorics, in particular
+sum-product estimates. This lemma will be used in the proof of our results
+on short Kloosterman sums.
+
+Lemma 1. For all γ > 0 there exist ε = ε(γ) > 0, τ = τ (γ) > 0 and
+k = k(γ) ∈ Z+ such that the following holds.
+    Let A1 , . . . , Ak ⊂ Zq , q arbitrary, and assume |Ai | > q γ (1 ≤ i ≤ k) and
+also
+               max |Ai ∩ πq−1 1
+                                (ξ)| < q1−γ |Ai | f or all q1 |q, q1 > q ε .
+               ξ∈Zq1
+
+Then                   X               X
+              max∗              ...            eq (ξx1 . . . xk ) < Cq −τ |A1 | · · · |Ak |.
+              ξ∈Zq
+                       x1 ∈A1         xk ∈Ak
+
+    Here, the notation |A ∩ πq−1
+                               1
+                                 (ξ)| can be viewed as the number of solutions
+of the congruence x ≡ ξ (mod q1 ), x ∈ A.
+    Clearly, the conclusion of Lemma 1 can be stated in basically equivalent
+form
+           X         X       X
+     max∗       ...                eq (ξx1 . . . xk−1 xk ) < Cq −τ |A1 | · · · |Ak |.
+     ξ∈Zq
+            x1 ∈A1      xk−1 ∈Ak−1 xk ∈Ak
+
+
+
+
+                                                        5
+Indeed applying the Cauchy-Schwarz inequality, it follows that
+    X         X      X                            2
+          ...              eq (ξx1 . . . xk−1 xk )    ≤
+     x1 ∈A1        xk−1 ∈Ak−1 xk ∈Ak
+                                     X      X                X
+              |A1 | . . . |Ak−1 |                    ...            eq (ξx1 . . . xk−1 (xk − x′k ) .
+                                    x′k ∈Ak x1 ∈A1         xk ∈Ak
+
+
+We fix x′k ∈ Ak such that
+  X            X      X                          2
+           ...            eq (ξx1 . . . xk−1 xk )    ≤
+     x1 ∈A1       xk−1 ∈Ak−1 xk ∈Ak
+                                          X                  X         X
+              |A1 | . . . |Ak−1||Ak |             ...                        eq (ξx1 . . . xk−1 xk ,
+                                         x1 ∈A1         xk−1 ∈Ak−1 xk ∈A′k
+
+
+where A′k = Ak − {x′k }. Then we observe that the set A′k also satisfies the
+condition of Lemma 1.
+
+    We need some facts from the geometry of numbers. Recall that a lattice in
+R is an additive subgroup of Rn generated by n linearly independent vectors.
+ n
+
+Take an arbitrary convex compact and symmetric with respect to 0 body
+D ⊂ Rn . Recall that, for a lattice Γ ⊂ Rn and i = 1, . . . , n, the i-th successive
+minimum λi (D, Γ) of the set D with respect to the lattice Γ is defined as the
+minimal number λ such that the set λD contains i linearly independent
+vectors of the lattice Γ. Obviously, λ1 (D, Γ) ≤ . . . ≤ λn (D, Γ). We need the
+following result given in [1, Proposition 2.1] (see also [13, Exercise 3.5.6] for
+a simplified form that is still enough for our purposes).
+Lemma 2. We have
+                                                  n 
+                                                  Y                    
+                                                               2i
+                               |D ∩ Γ| ≤                             +1 .
+                                                  i=1
+                                                           λi (D, Γ)
+
+   Denoting, as usual, by (2n + 1)!! the product of all odd positive numbers
+up to 2n + 1, we get the following
+Corollary 2. We have
+                             n
+                             Y                                      (2n + 1)!!
+                                    min{λi (D, Γ), 1} ≤                        .
+                             i=1
+                                                                     |D ∩ Γ|
+
+
+                                                         6
+      We also need the following lemma due to Karatsuba [9].
+Lemma 3. The following bound holds:
+    n                                 1         1     1           1 o
+     (x1 , . . . , x2k ) ∈ [1, N]2k :    + ...+    =      + ...+
+                                      x1        xk   xk+1        x2k
+                                                  3           2
+                                     <(2k)80k (log N)4k N k .
+
+4       Proof of Theorems 1 and 2
+First we prove Theorem 1. It suffices to consider the case kN k−1 < m as
+otherwise the statement is trivial. For λ = 0, 1, . . . , m − 1 denote
+               n                                                       o
+       J(λ) = (x1 , . . . , xk ) ∈ I k : x∗1 + . . . + x∗k ≡ λ (mod m) .
+
+Let
+                        Ω = {λ ∈ [1, m − 1] :           |J(λ)| ≥ 1}.
+Since J(0) = 0, we have                      X
+                                     J2k =         |J(λ)|2.
+                                             λ∈Ω
+
+Consider the lattice
+
+                    Γλ = {(u, v) ∈ Z2 :            λu ≡ v     (mod m)}
+
+and the body
+
+                 D = {(u, v) ∈ R2 :          |u| ≤ N k , |v| ≤ kN k−1 }.
+
+Denoting by µ1 , µ2 the consecutive minimas of the body D with respect to
+the lattice Γλ , by Corollary 2 it follows
+                              2
+                              Y                          15
+                                    min{µi , 1} ≤              .
+                              i=1
+                                                      |Γλ ∩ D|
+
+Observe that for (x1 , . . . , xk ) ∈ J(λ) one has
+
+              λx1 . . . xk ≡ x2 . . . xk + . . . + x1 . . . xk−1   (mod m),
+
+implying
+                (x1 . . . xk , x2 . . . xk + . . . + x1 . . . xk−1 ) ∈ Γλ ∩ D.
+
+                                              7
+Thus, for λ ∈ Ω we have µ1 ≤ 1. We split the set Ω into two subsets:
+
+          Ω′ = {λ ∈ Ω :       µ2 ≤ 1},             Ω′′ = {λ ∈ Ω :         µ2 > 1}.
+
+We have
+                                  X                  X
+                         J2k =           |J(λ)|2 +           |J(λ)|2 .               (1)
+                                  λ∈Ω′               λ∈Ω′′
+
+
+
+    Case 1 : λ ∈ Ω′ , that is µ2 ≤ 1. Let (ui , vi ) ∈ µi D ∩ Γλ , i = 1, 2, be
+linearly independent. Then
+
+             0 6= u1 v2 − v1 u2 ≡ u1 λu2 − u2 λu1 ≡ 0               (mod m),
+
+whence
+                                   u1 v2 − v1 u2 | ≥ m.
+Also
+                                                     2k−1      30kN 2k−1
+                  u1 v2 − v1 u2 ≤ 2kµ1 µ2 N                  ≤           .
+                                                                |Γλ ∩ D|
+Thus, for λ ∈ Ω′ , the number |Γλ ∩ D| of solutions of the congruence
+
+                                  λu ≡ v      (mod m)
+
+in integers u, v with |u| ≤ N k , |v| ≤ kN k−1 is bounded by
+
+                                                  30kN 2k−1
+                              |Γλ ∩ D| ≤                    .                        (2)
+                                                     m
+Note that for λ ∈ Ω′ the sets
+
+               Wλ := {(u, v); (u, v) ∈ Γλ ∩ D, gcd(u, m) = 1}
+
+are pairwise disjoint. Therefore, if we denote by S(u, v) the set of k-tuples
+(x1 , . . . , xk ) of positive integers x1 , . . . , xk ≤ N coprime to m with
+
+               x1 . . . xk = u,     x2 . . . xk + . . . + x1 . . . xk−1 = v,
+
+we get
+               X                  X         X                 X           2
+                      |J(λ)|2 =                                           1 .
+               λ∈Ω′               λ∈Ω′ (u,v)∈Γλ ∩D (x1 ,...,xk )∈S(u,v)
+                                       gcd(u,m)=1
+
+
+                                              8
+Applying the Cauchy-Schwarz inequality and taking into account (2), we get
+         X              30kN 2k−1 X X              X         2
+              |J(λ)|2 ≤                                     1          (3)
+         λ∈Ω′
+                           m      λ∈Ω′                  (u,v)∈Γλ ∩D (x1 ,...,xk )∈S(u,v)
+                                                        gcd(u,m)=1
+
+From the disjointness of sets Wλ it follows that the summation on the right
+hand side of (3) is bounded by the number of solutions of the system of
+equations
+        
+          x1 . . . xk = y1 . . . yk ,
+          x1 . . . xk−1 + . . . + x2 . . . xk = y2 . . . yk + . . . + y1 . . . yk−1 ,
+in positive integers xi , yj ≤ N coprime to m. Hence, by Lemma 3, it follows
+that
+                  X                        3          2N
+                                                         3k−1
+                       |J(λ)|2 < 30k(2k)80k (log N)4k         .           (4)
+                                                         m
+                     ′ λ∈Ω
+
+   Case 2 : λ ∈ Ω′′ , that is µ2 > 1. Then the vectors from Γλ ∩D are linearly
+dependent and in particular there is some λ          b ∈ Q such that
+    b 1 . . . xk = x2 . . . xk + . . . + x1 . . . xk−1 for (x1 , . . . , xk ) ∈ J(λ).
+    λx
+Thus,
+         X                    X                                   1         1     2
+                 |J(λ)|2 ≤          {(x1 , . . . , xk ) ∈ I k ;      + ...+     b
+                                                                               =λ
+         λ∈Ω′′
+                                                                  x1        xk
+                              b
+                              λ∈Q
+         n                                       1         1     1           1 o
+     =       (x1 , . . . , x2k ) ∈ [1, N]2k ;       + ...+    =      + ...+
+                                                 x1        xk   xk+1        x2k
+                   3            2
+     <(2k)80k (log N)4k N k .
+Inserting this and (4) into (1), we obtain
+                                           3              2
+                                                               N 2k−1      
+                         J2k < (2k)90k (log N)4k                         + 1 Nk
+                                                                  m
+which concludes the proof of Theorem 1.
+   The proof of Theorem 2 follows the same line with the only difference
+that instead of Lemma 3 one should apply the bound
+    n                                        1         1     1           1 o
+      (x1 , . . . , x2k ) ∈ ([1, N] ∩ P)2k ;    + ...+    =      + ...+
+                                             x1        xk   xk+1        x2k
+                                                 N k
+                                         <(2k)k         .
+                                                 log N
+
+                                                    9
+4.1      Proof of Theorem 3
+Let                                  X X
+                              S=                     α1 (x1 )α2 (x2 )em (ax∗1 x∗2 ).
+                                    x1 ∈I1 x2 ∈I2
+Then by Hölder’s inequality
+                                               X X                                            k2
+                          |S|k2 ≤ N1k2 −1                       α2 (x2 )em (ax∗1 x∗2 )             .
+                                              x1 ∈I1 x2 ∈I2
+
+Thus, for some σ(x1 ) ∈ C, |σ(x1 )| = 1,
+                          X        X
+         |S|k2 ≤ N1k2 −1               σ(x1 )em (ax∗1 (y1∗ + . . . + yk∗2 ) .
+                                    y1 ,...,yk2 ∈I2 x1 ∈I1
+
+Again by Hölder’s inequality,
+                                                     p−1
+                                                     X                           X                           k1
+         |S|   k1 k2
+                       ≤ N1k1 k2 −k1 N2k1 k2 −k2           Jk2 (λ; N2 )               σ(x1 )em (ax∗1 λ            ,
+                                                     λ=0                     x1 ∈I1
+
+where Jk (λ; N) is the number of solutions of the congruence
+                         x∗1 + . . . + x∗k ≡ λ (mod m),                          xi ∈ [1, N].
+Then applying the Cauchy-Schwarz inequality and using
+  p−1                                                p−1
+  X                                                  X   X                                    2k1
+        Jk2 (λ; N2 )2 = J2k2 (N2 ),                                σ(x1 )em (ax∗1 λ                    ≤ mJ2k1 (N1 ).
+  λ=0                                                λ=0 x1 ∈I1
+
+we get
+                       |S|2k1 k2 ≤ pN12k1 k2 −2k1 N22k1 k2 −2k2 J2k1 (N1 )J2k2 (N2 ).                                 (5)
+Applying Theorem 1, we obtain
+                                         3             3                 2                2
+               |S|2k1 k2 ≤(2k1 )90k1 (2k2 )90k2 (log N1 )4k1 (log N2 )4k2 ×
+                                           k1 −1 m1/2  N k2 −1 m1/2 
+                            2k1 k2 2k1 k2 N1                       2
+                         ×N1      N2            1/2
+                                                    + k1                  + k2 .
+                                             m         N          m1/2      N
+Thus,
+                                                                     k       k
+                                2                2                2( 1 + 2 )
+        |S| <(2k1 )45k1 /k2 (2k2 )45k2 /k1 (log m) k2 k1 ×
+              N k1 −1 m1/2 1/(2k1 k2 )  N k2 −1 m1/2 1/(2k1 k2 )
+            × 11/2 + k1                          2
+                                                     + k2            N1 N2 ,
+                m           N                   m1/2    N
+which finishes the proof of Theorem 3.
+
+                                                           10
+5    Proof of Theorem 4
+Let ε be a positive constant very small in terms of δ = 1 − θ (say, ε = δ 4 ).
+Denote
+            A = {n ≤ x; n ≡ a (mod q)},
+            Ad = {n ∈ A; n ≡ 0 (mod d)},
+            S(A, z) = |{n ∈ A; (n, p) = 1 for p < z, (p, q) = 1}|,
+                        x
+            rd = |Ad | − .
+                        qd
+
+We take z = D 1/2 , where D is the level of distribution. We shall define D to
+satisfy
+                          x 1+cδ2        3        2    3
+                    D∼              ∼ xδ+cδ ∼ q δ+δ +O(δ ) ,
+                           q
+where c is a suitable absolute positive constant (c = 0.01 will do).
+   Take integer k such that
+                              1    δ     1
+                                  ≤ <        .
+                           2k − 1  2  2k − 3
+Having in mind [6, Theorem 12.21], we consider the factorization D = MN
+in the form
+                                                D
+                          N = q 1/(2k−1) , M = .
+                                               N
+Following the proof of [6, Theorem 13.1] we find that
+                                  (2 + ε)x
+                     S(A, z) ≤              + R(M, N).
+                                 φ(q) log D
+Here the remainder R(M, N) is estimated by
+                                   X
+                    R(M, N) ≪             αm βn rmn ,
+                                    m≤M,n≤N
+                                   gcd(mn,q)=1
+
+the implied constant may depend on ε. Our aim is to prove the bound
+R(M, N) ≪ x1−ε q −1 . For this we may assume that αm , βn are supported on
+dyadic intervals
+
+                    0.5M1 < m ≤ M1 ,       0.5N1 < n ≤ N1
+
+                                      11
+for some 1 ≤ M1 ≤ M and 1 ≤ N1 ≤ N with M1 N1 q > x1−ε . Then according
+to [6, p.262] we have the bound
+                     x       X      X X                                    x1−ε
+      R(M, N) ≪                                   γ(h; n)eq (ahm∗ n∗ ) +        ,
+                   qM1 N1                                                   q
+                            0<|h|≤H m∼M1 n∼N1
+
+where
+                                                            3
+                   H = qM1 N1 x3ε−1 ≤ qDx3ε−1 ≪ xcδ +3ε .
+                                3
+In particular, gcd(h, q) < q O(δ ) . Thus, for some γ(n) ∈ C with |γ(n)| ≤ 1
+we have
+                               X X                            x1−ε
+             R(M, N) ≪ x3ε              γ(n)eq1 (a1 m∗ n∗ ) +      ,
+                              m≤M n≤N
+                                                               q
+               2
+where, say, q 1−δ ≤ q1 ≤ q and gcd(a1 , q1 ) = 1. Then our Theorem 3 applied
+with k1 = k2 = k implies that
+                                     2        x1−ε           2  x1−ε
+             R(M, N) ≪ MN 1−c0 /k +                < D 1−c0 δ +      ,
+                                               q                 q
+                                                                                    2
+where c0 > 0 is an absolute constant. Therefore, from the choice D ∼ xδ+cδ
+with 0 < c < 0.5c0 , we obtain
+                                          (2 − c′ δ 2 )x
+                            S(A, z) <
+                                         φ(q) log(x/q)
+for some absolute constant c′ > 0. The result follows.
+
+
+6     Proof of Theorem 5
+The proof of Theorem 5 is based on Bourgain’s multilinear exponential sum
+bounds for general moduli [2], see Lemma 1 above. We will also need a version
+of Theorem 3 on bilinear Kloosterman sum estimates with the variables of
+summation restricted to prime and almost prime numbers.
+
+6.1     Double Kloosterman sums with primes and almost
+        primes
+As a consequence of Theorem 2 we have the following bilinear Kloosterman
+sum estimate.
+
+                                         12
+Corollary 3. Let N1 , N2 , k1 , k2 be positive integers, gcd(a, m) = 1. Then for
+any coefficients α(p), β(q) ∈ C with |α(p)|, |β(q)| ≤ 1, we have
+ X X
+             α(p)β(q)em (ap∗ q ∗ )
+ p≤N1 q≤N2
+
+              1          1
+                              N k1 −1 m1/2 1/(2k1 k2 )  N2k2 −1 m1/2 1/(2k1 k2 )
+                                  1
+     <(2k1 ) k2 (2k2 ) k1            +                            + k2               N1 N2 ,
+                                m1/2   N1k1                m1/2    N2
+
+where the variables p and q of the summations are restricted to prime num-
+bers.
+
+   Indeed, denoting the quantity on the left hand side by |S| and following
+the proof of Theorem 3 we arrive at the bound (see (5))
+
+                  |S|2k1 k2 ≤ mN12k1 k2 −2k1 N22k1 k2 −2k2 J2k1 (N1 )J2k2 (N2 ),
+
+where in our case J2k (N) denotes the number of solutions of the congruence
+
+                      p∗1 + . . . + p∗k ≡ p∗k+1 + . . . + p∗2k     (mod m)
+
+in prime numbers p1 , . . . , p2k ≤ N. The statement then follows by the bounds
+for J2k (N) given in Theorem 2.
+
+Lemma 4. Let K, L be large positive integers, 2L < K. Then uniformly
+over k the number T2k (K, L) of solutions of the diophantine equation
+                      1            1         1              1
+                           + ...+       =          + ...+
+                     p1 q1        pk qk   pk+1qk+1        p2k q2k
+in prime numbers pi , qi satisfying 0.5K < pi < K and qi < L is bounded by
+                                                  K k  L k
+                             T2k (K, L) < k 4k                 .
+                                                  log K  log L
+   The proof is straightforward. For any given 1 ≤ i0 ≤ 2k we have
+                             p1 . . . p2k q1 . . . q2k
+                                                       ≡0   (mod pi0 qi0 )
+                                      pi0 qi0
+
+Since pi 6= qj , it follows that pi0 appears in the sequence p1 , . . . , p2k at least
+two times. Thus, the sequence p1 , . . . , p2k contains at most k different prime
+
+                                                  13
+numbers. Correspondingly, the sequence q1 , . . . , q2k contains at most k dif-
+ferent prime numbers. Therefore, there are at most
+                         0.9K k           1.1L k             K k  L k
+                 k 2k               k 2k               < k 4k
+                         log K              log L                log K  log L
+
+possibilities for (p1 , . . . , p2k , q1 , . . . , q2k ). The result follows.
+   Now following the same line as the proof of Theorems 1 and 2, with the
+only difference that in the course of the proof we substitute Lemma 3 by
+Lemma 4, we get the following statement.
+
+Lemma 5. Let K, L be large positive integers, 2L < K. Then uniformly
+over k the number J2k (K, L) of solutions of the diophantine equation
+             1            1         1               1
+                  + ...+       ≡           + ...+                          (mod m)
+            p1 q1        pk qk   pk+1 qk+1        p2k q2k
+in prime numbers pi , qi satisfying 0.5K < pi < K and qi < L is bounded by
+                                                 (KL)2k−1          
+                          J2k (K, L) < k 4k                      + 1 (KL)k .
+                                                         m
+   From Lemma 5 we get the following corollary.
+
+Corollary 4. Let N, K, L, k1, k2 be positive integers, 2L < K. Then for any
+coefficients α(p), β(q; r) ∈ C with |α(p)|, |β(q; r)| ≤ 1, we have
+                 X         X        X
+      max                                   α(p)β(q; r)em(ap∗ q ∗ r ∗ )
+   gcd(a,m)=1
+                 p≤N 0.5K<q≤K r≤L
+        2    2    N k1 −1m1/2 1/(2k1 k2 )  (KL)k2 −1    m1/2 1/(2k1 k2 )
+       k2   k1
+   < k1 k2              +                               +                    NKL,
+                   m1/2   N k1                  m1/2      (KL)k2
+
+where the variables p, q and r of the summations are restricted to prime
+numbers.
+
+6.2    Proof of Theorem 5
+Denote ε := log N/ log m > c. As we have mentioned before, we can assume
+that ε < 4/7.
+
+
+
+                                                    14
+   In what follows, r is a large absolute integer constant. More explicitly,
+we define r to be the choice of k in Lemma 1 with, say, γ = 1/10. Denote
+
+             G = {x < N :             p1 ≥ N α , pr ≥ N β , p1 p2 . . . pr < N 1−β },
+
+where p1 ≥ p2 ≥ . . . ≥ pr are the largest prime factors of x and
+                                                                 1
+                                       0.1 > α > β >
+                                                               log N
+are parameters to specify. Note that the number of positive integers not
+exceeding N and consisting on products of at most r − 1 prime numbers is
+estimated by
+  r−1
+  X          X            r−1
+                          X                        X
+                     N                                                            N
+                1≪      +
+  k=1 p ...p ≤N
+                   log N k=2                              (k−1)/k
+                                                                  p2 . . . pk log(N/(p2 . . . pk ))
+         1   k                              p2 ...pk ≤N
+        p1 ≥...≥pk
+                                                   r−1 X
+                                                   X            X
+                                              N                              N
+                                       ≪         +         ...
+                                            log N k=2 p ≤N     p ≤N
+                                                                    p2 . . . pk log N
+                                                                 2             k
+
+                                                                                   N(log log N)r−1
+                                                                          ≪                        .
+                                                                                       log N
+Here and below the implied constants may depend only on r. Hence, we have
+
+                         cN(log log N)r−1   X      X                                       X
+        N − |G| ≤                         +     1+     1+                                                 1,
+                              log N         x<N    x<N                                       x<N
+                                                    p1 <N α          pr <N β         p1 p2 ...pr >N 1−β
+
+
+for some constant c = c(r) > 0. Next, we have
+         X               X
+                1≤              1
+            x<N                    y<N β
+    p1 p2 ...pr >N 1−β        p1 p2 ...pr <N/y
+                               X                 X                            N
+                          ≪
+                                                             yp2 . . . pr log(N/(yp2 . . . pr ))
+                              y<N β p2 ...pr <(N/y)  (r−1)/r
+
+                               X N(log log N)r−1
+                          ≪                                     ≪ βN(log log N)r−1 .
+                                             y log N
+                              y<N β
+
+
+
+                                                     15
+Let Ψ(x, y), as usual, denote the number of positive integers ≤ x having no
+prime divisors > y. Thus, we have
+                                                          X
+            N − |G| ≤ c1 βN(log log N)r−1 + Ψ(N, N α ) +       1,
+                                                                                     x<N
+                                                                                    pr <N β
+
+for some constant c1 = c1 (r) > 0.
+    Letting 0.1 > β1 > β be another parameter, we similarly observe that
+            X             X        X
+                     1≤                 1
+                 x<N              y<N β1 p1 ...pr−1 ≤N/y
+         p1 ...pr−1 >N 1−β1
+                                      X N(log log N)r−2
+                              ≪                                          ≪ β1 N(log log N)r−2 .
+                                                  y log N
+                                  y<N β1
+
+Hence,
+
+               N − |G| ≤ c1 βN(log log N)r−1 + c2 β1 N(log log N)r−2
+                                                          X
+                                      +Ψ(N, N α ) +               1,
+                                                                                  x<N
+                                                                                 pr <N β
+                                                                          p1 ...pr−1 ≤N 1−β1
+
+Observing that
+                        X                        X                   N            
+                                                                                 β
+                                      1≤                       Ψ               ,N ,
+                         x<N                               1−β
+                                                                 p1 . . . pr−1
+                                           p1 ...pr−1 ≤N     1
+                        pr <N β
+                 p1 ...pr−1 ≤N 1−β1
+
+we get
+              N − |G| ≤ c1 βN(log log N)r−1 + c2 β1 N(log log N)r−2 +
+                                       X                 N            
+                      Ψ(N, N α ) +               Ψ                 , Nβ .
+                                            1−β
+                                                     p1 . . . pr−1
+                                             p1 ...pr−1 ≤N       1
+
+
+
+By the classical result of de Bruijn [4] if y > (log x)1+δ , where δ > 0 is a fixed
+constant, then
+                                                                          log x
+                     Ψ(x, y) ≤ xu−u(1+o(1))                as u =               → ∞.
+                                                                          log y
+
+                                                    16
+We now take
+           1                      log log m                                      (log log m)2
+   α=           ,             β=            ,                 β1 = β log log m =
+      log log m                  (log m)1/2                                       (log m)1/2
+
+and then have
+                  1
+                                    X               N        β  2β1      β
+
+  N − |G| < α N +2α                                                   + cβN(log log m)r−1
+                                           1−β
+                                               p1 . . . pr−1 β1
+                           p1 ...pr−1 <N       1
+
+               1                     β  β2β1                     
+                                 r−1
+            < α 2α + (log log N)                + c3 β(log log m)r−1 N
+                                      β1
+                             r−1
+            < c4 β(log log m) N.
+
+Therefore
+                X                                                          X
+                      em (ax∗ ) ≤ c4 β(log log m)r−1 N +                         em (ax∗ ) .          (6)
+                x<N                                                        x∈G
+            P
+The sum         em (ax∗ ) may be bounded by
+          x∈G
+
+                        XX                XX
+                                    ...                em (ap∗1 p∗2 . . . p∗r y ∗) ,                  (7)
+                         p1    p2         pr       y
+
+
+where the summations are taken over primes p1 , p2 , . . . , pr and integers y such
+that
+
+       p1 ≥ p2 ≥ . . . ≥ pr ;        p1 ≥ N α ;             pr ≥ N β ;      p1 p2 . . . pr ≤ N 1−β    (8)
+
+and
+                                         N
+                              y<                   ;           P (y) ≤ pr .
+                                    p1 p2 . . . pr
+Note that if t and T are such that
+       c0                          c0      N                   N
+   1−          pr < t < pr ,     1−                      <T <                , (9)
+      log m                         log m p1 p2 . . . pr      p1 p2 . . . pr
+where c0 > 0 is any constant, then we can substitute the condition on y with
+
+                                     P (y) ≤ t;               y<T                                    (10)
+
+
+                                                       17
+by changing the sum (7) with an additional term of size at most
+
+                                       N(log log m)O(1)
+                                                        .
+                                            log m
+    Now we split the range of summation of primes p1 , p2 , . . . , pr into subin-
+tervals of the form [L, L + L(log m)−1 ] and choosing suitable t and T we
+obtain that for some numbers M1 , M2 , . . . , Mr with
+
+                                              Nα                    Nβ
+ M1 > M2 > . . . > Mr ,          M1 ≥            ,        Mr ≥         ,       M1 M2 . . . Mr < N 1−β
+                                              2                     2
+                                                                                                            (11)
+one has
+  X                 N(log log m)O(1)
+        em (ax∗ ) <
+  x∈G
+                         log m
+                             XX          X                         X                                        (12)
+                 + (log m)3r         ...                                    em (ap∗1 p∗2 . . . p∗r y ∗) ,
+                                 p1 ∈I1 p2 ∈I2         pr ∈Ir       y≤M
+                                                                 P (y)≤Mr
+
+where           h           Mj i                                       N
+            Ij = Mj , Mj +       ,                        M=                      ≥ Nβ.
+                           log m                                   M1 M2 . . . Mr
+Denote                X X                   X          X
+              W =                     ...                        em (ap∗1 p∗2 . . . p∗r y ∗ ) .
+                      p1 ∈I1 p2 ∈I2         pr ∈Ir     y≤M
+                                                     P (y)≤Mr
+
+Applying the Cauchy-Schwarz inequality, we get
+                      XX X X             X                                    
+ W 2 ≤ M1 M2 . . . Mr                ...     em ap∗1 p∗2 . . . p∗r (y ∗ − z ∗ ) .
+                         y≤M z≤M p1 ∈I1 p2 ∈I2                  pr ∈Ir
+
+Taking into account the contribution from the pairs y and z with, say,
+
+                           gcd(y − z, m) > e10 log m/ log log m
+
+and then fixing the pairs y and z with gcd(y − z, m) ≤ e10 log m/ log log m , we
+get the bound
+       N2
+        2        N2                       2−β       N2
+   W ≤    + log m/ log log m + NM|S| ≤ 2N     +                |S|,                                         (13)
+       M   e                                    M1 M2 . . . Mr
+
+                                                     18
+where                                          X X                   X
+                                |S| =                         ...             em1 (bp∗1 p∗2 . . . p∗r ) .
+                                              p1 ∈I1 p2 ∈I2          pr ∈Ir
+
+Here b and m1 are some positive integers satisfying
+
+                                gcd(b, m1 ) = 1,               m1 ≥ me−10 log m/ log log m .
+                                                                                                            3                   3
+    We consider two cases, depending on whether Mr > N α or Mr ≤ N α .
+                                3                  3
+    Case 1. Let Mr > N α . Hence Mj > N α for all j = 1, 2, . . . , r. The idea
+is to use Theorem 2 and amplify each of these factors to size m1/3+o(1) say
+and then apply Lemma 1.
+    Let k1 , . . . , kr be positive integers defined from
+
+                                                 Mi2ki −1 < m1 ≤ Mi2ki +1 .
+                            3             3
+Since Mi > N α > mcα , it follows that
+
+                                                          1    (log log m)3
+                                                 ki <        =              .
+                                                         cα3         c
+    Consequently applying Hölder’s inequality, we get the bound
+                            Y
+                             r
+                                         r
+                                                                       X                           X
+       2r k1 k2 ...kr
+ |S|                    ≤             Mi2 k1 ...kr −2ki                                ...                          e2πib{...}/m1 ,
+                                i=1                            p11 ,...,p1k1 ∈I1 ∩P          pr1 ,...,prkr ∈Ir ∩P
+                                                               q11 ,...,q1k1 ∈I1 ∩P          qr1 ,...,qrkr ∈Ir ∩P
+
+
+where {...} indicates the expression
+
+  (p∗11 + . . . + p∗1k1 − q11
+                           ∗             ∗
+                              − . . . − q1k 1
+                                                                               ∗
+                                              ) · · · (p∗r1 + . . . + p∗rkr − qr1            ∗
+                                                                                  − . . . − qrk r
+                                                                                                  )
+
+Next, we can fix the variables qij and then get that for some integers µ1 , . . . , µr
+there is the bound
+                    |S|                 |S1 |          1/(2r k1 k2 ...kr )
+                              ≤                                              ,  (14)
+               M1 M2 . . . Mr      M1k1 M2k2 . . . Mrkr
+
+where
+                        X                            X                          ∗        ∗              ∗           ∗
+  S1 =                                ...                            e2πib(p11 +...+p1k1 −µ1 )···(pr1 +...+prkr −µr )/m1 .
+            p11 ,...,p1k1 ∈I1 ∩P              pr1 ,...,prkr ∈Ir ∩P
+
+
+
+                                                                     19
+Let A1 , . . . , Ar be subsets of Zm1 defined by
+
+                      A1 = {p∗11 + . . . + p∗1k1 − µ1 ; (p11 , . . . , p1k1 ) ∈ (I1 ∩ P)k1 },
+                                             ...
+                      Ar = {pr1 + . . . + p∗rkr − µr ; (pr1 , . . . , prkr ) ∈ (Ir ∩ P)kr },
+                               ∗
+
+
+where p∗ij are calculated modulo m1 . Then we have
+                      X       X
+                S1 =      ...    I1 (λ1 ) . . . Ir (λr )e2πibλ1 ...λr /m1 ,
+                          λ1 ∈A1     λr ∈Ar
+
+where Ij (λ) is the number of solutions of the congruence
+
+    p∗j1 + . . . + p∗jkj − µj ≡ λ (mod m1 );                    (pj1 , . . . , pjkj ) ∈ (Ij ∩ P)kj .
+
+We apply Cauchy-Schwarz inequality to the sum over λ1 , . . . , λr−1 and get
+                                     X     X X                                  2
+|S1 |2 ≤ J2k1 (M1 ) . . . J2kr (Mr )   ...       Ir (λr )e2πibλ1 ...λr−1 λr /m1 ,
+                                         λ1 ∈A1     λr−1 ∈Ar−1 λr ∈Ar
+
+where                                                X
+                                   J2kj (Mj ) =            (Ij (λ))2 .
+                                                    λ∈Aj
+
+Changing the order of summation, we get
+   |S1 |2 ≤J2k1 (M1 ) . . . J2kr−1 (Mr−1 )×
+             X                        X                   X                             ′
+                    Ir (λr )Ir (λ′r )      ...                     e2πibλ1 ...λr−1 (λr −λr )/m1 .
+            λr ,λ′r ∈Ar                    λ1 ∈A1    λr−1 ∈Ar−1
+
+We apply the Cauchy-Schwarz inequality to the sum over λr , λ′r and get
+          |S1 |4 ≤(J2k1 (M1 ) . . . J2kr (Mr ))2 ×
+                    X X                    X                             ′      2
+                                    ...            e2πibλ1 ...λr−1 (λr −λr )/m1 .
+                    λr ,λ′r ∈Ar λ1 ∈A1       λr−1 ∈Ar−1
+
+We can fix λ′r ∈ Ar such that
+              |S1 |4 ≤(J2k1 (M1 ) . . . J2kr (Mr ))2 |Ar |×
+                       X X                   X                             2
+                                     ...            e2πibλ1 ...λr−1 λr /m1 ,
+                          λr ∈A′r λ1 ∈A1      λr−1 ∈Ar−1
+
+
+                                                    20
+where A′r = Ar − {λ′r }. Using the trivial bound
+           X                X                                   2
+                   ...                e2πibλ1 ...λr−1 λr /m1
+          λ1 ∈A1         λr−1 ∈Ar−1
+                                             X                  X
+                    ≤ |A1 | . . . |Ar−1 |             ...                e2πibλ1 ...λr−1 λr /m1 ,
+                                            λ1 ∈A1          λr−1 ∈Ar−1
+
+we get
+
+         |S1 |4 ≤ (J2k1 (M1 ) . . . J2kr (Mr ))2 |A1 | . . . |Ar |×
+                               X X                  X
+                                             ...               e2πibλ1 ...λr−1 λr /m1 ,
+                                     λr ∈A′r λ1 ∈A1         λr−1 ∈Ar−1
+
+
+From the definition of Ai we have |Ai | ≤ Miki . From the choice of ki and
+Theorem 2 we also have
+
+                                      J2ki (Mi ) < 2(2ki )ki Miki .
+
+Thus,
+         Y
+          r                 X X                                       X
+     4            ki 3ki
+ |S1 | ≤    (4ki ) Mi      ×     ...                                             e2πibλ1 ...λr−1 λr )/m1 , (15)
+              i=1                          λr ∈A′r λ1 ∈A1           λr−1 ∈Ar−1
+
+
+   Let γ = 1/10 and define ε = ε(γ) > 0 to be the absolute constant from
+Lemma 1. We shall verify that the sets A1 , . . . , Ar satisfy the condition of
+Lemma 1 with q = m1 (note that if Ar satisfies the condition of Lemma 1
+then also does A′r ). From the definition of Ai and the connection between
+the cardinality of a set and the corresponding additive energies, we have
+
+                              (Mi /(2 log Mi ))2ki             Miki
+                    |Ai | ≥                        ≥                          .                          (16)
+                                   J2ki (Mi )        2(2ki )ki (2 log Mi )2ki
+
+From the choice of ki it then follows that
+                                                   1/3
+                                                m1                1/3+o(1)
+                           |Ai | ≥                             = m1        .
+                                      2(2ki ) i (2 log Mi )2ki
+                                             k
+
+
+                                                         1/10
+   Thus, the first condition |Ai | > m1                         is satisfied.
+
+                                                       21
+    Next, let q1 |m1 , q1 > mε1 and let ξ ∈ Zq1 . Let Ti be the number of solutions
+of the congruence
+                           x ≡ ξ (mod q1 );        x ∈ Ai .
+It follows that Ti is bounded by the number of solutions of the congruence
+
+         p∗1 + . . . + p∗ki ≡ ξ + µ1           (mod q1 );         (p1 , . . . , pki ) ∈ (Ii ∩ P)ki .
+                                                               1/8
+Consider two possibilities here. If Mi > q1 say, then we fix p2 , . . . , pki and
+we have at most 1 + Mi q1−1 possibilities for p1 . Thus, using (16), we get
+                               Mi  ki −1 Miki    −1/10
+                             1+     Mi    < 1/9 < q1     |Ai |.
+                                q1         q1
+
+Therefore, in this case the condition of Lemma 1 is satisfied.
+                    1/8
+   Let now Mi < q1 . Define ki′ from the condition
+                                         4k ′ +1                  4k ′ +5
+                                     Mi i          < q1 < Mi i .
+
+We then have 2ki′ < ki . Thus,
+                                                   k −2ki′
+                                      Ti ≤ Mi i              J2ki′ (Mi ),
+
+where J2ki′ (Mi ), as before, denotes the number of solutions of the congruence
+                                                                                                           ′
+ p∗1 + . . . + p∗ki′ ≡ p∗ki′ +1 + . . . + p∗2ki′     (mod q1 );         (p1 , . . . , p2ki′ ) ∈ (Ii ∩ P)2ki .
+
+From the choice of ki and Theorem 2 we get that
+                                                                       k′
+                                     J2ki′ (Mi ) < 2(2ki )ki Mi i .
+
+Therefore, using (16)
+                                      k −ki′                                     −1/10
+                Ti ≤ 2(2ki )ki Mi i            ≤ 2(2ki )ki Miki q −1/9 < q1              |Ai |.
+
+    Thus, the condition of Lemma 1 is satisfied and hence we have
+          X X             X
+                    ...        e2πibλ1 ...λr−1 λr /m1 < m−τ |A1 | . . . |Ar |
+           λr ∈A′r λ1 ∈A1       λr−1 ∈Ar−1
+
+
+
+
+                                                      22
+for some absolute constant τ > 0 (see the discussion followed to Lemma 1).
+Inserting this into (15) and using estimates ki ≪ (log log log m)3 and |Ai | ≤
+Miki , we get
+                        |S1 |4 < m−τ /5 M1k1 M2k2 . . . Mrkr .
+Thus, from (14) it follows that
+
+                             |S|                              −3r
+                                        < m−c1 (log log log m)
+                         M1 M2 . . . Mr
+and from (13) we get
+                                     W < 2N 1−0.5β .
+Inserting this into (12) and using (6), we conclude the proof.
+                                    3
+     Case 2. Let now Mr < N α . In this case we fix all the factors except
+p1 , p2 , pr . We apply Corollary 3 or Corollary 4. We either choose for the first
+factor p1 and the second factor p2 or for the first factor p1 pr and the second
+                                                3
+factor p2 . Because M1 > N α and Mr < N α we will get in one of the cases
+the required saving. Let us give some details of this argument.
+     Define k1 , k2 ∈ Z+ such that
+                             1/2                                    1/2
+               M1k1 −1 < m1        ≤ M1k1 ,        M2k2 −1 < m1           ≤ M2k2 .
+
+From the definition of α and β we have
+
+                         1                              1   (log m)1/2
+                  k1 ≤     log log m;          k2 ≤       ≪            .
+                         c                             cβ    log log m
+Let
+                                            k1 log Mr
+                                     δ=               .
+                                            3 log M1
+Note that δ ≤ 1c (log log m)−1 . We further consider three subcases:
+                                      1/2
+      Case 2.1. Let M1k1 −1+δ < m1          ≤ M1k1 −δ . Then we apply Corollary 3 and
+get
+
+           |S|                      M k1 −1 m 1/(2k1 k2 )1/2
+                                      1
+                      < (log m)1/2      1/2
+                                            + 1k1
+       M1 M2 . . . Mr                m1      M1
+                                            −δ/(2k1 k2 )
+                     < 2(log m)1/2 M1                      = 2(log m)1/2 Mr−1/(6k2 ) .
+
+
+                                              23
+Using the upper bound for k2 and the lower bound Mr ≥ N β it follows that
+
+                        |S|                             2 2
+                                   < 2(log m)1/2 e−0.01c β log m .
+                    M1 M2 . . . Mr
+                                 1/2
+   Case 2.2. Let M1k1 −δ < m1          ≤ M1k1 . We apply Corollary 4 in the form
+
+            |S|                   (M M )k1 −1        m1
+                                                        1/2   1/(2k1 k2 )
+                                      1 r
+                       < (log m)        1/2
+                                               +
+        M1 M2 . . . Mr                 m1          (M1 Mr )k1
+                                             M k1 −1     1 1/(2k1 k2 )
+                                               r
+                                  < (log m)           +                  .
+                                              M11−δ     Mrk1
+
+                                        1/2
+   Case 2.3. Let now M1k1 −1 < m1 ≤ M1k1 −1+δ . Then k1 ≥ 2 and we apply
+Corollary 4 with k1 replaced by k1 − 1 in the form
+
+        |S|                              k1 −2         1/2      1/(2k1 k2 )
+                             1/2 (M1 Mr )             m1
+                   < (log m)          1/2
+                                                +
+    M1 M2 . . . Mr                   m1            (M1 Mr )k1 −1
+                                            M k1 −2     M δ 1/(2k1 k2 )
+                                                r
+                              < (log m)1/2           + k11−1                .
+                                                M1     Mr
+
+   In all three subcases we get the bound
+
+                            |S|                     ′ 2
+                                       < 2(log m)e−c β log m
+                        M1 M2 . . . Mr
+for some constant c′ > 0. Thus, we eventually arrive at the bound
+                                              ′′ 2
+                             W < Ne−c β log m log m
+
+for some constant c′ > 0. Inserting this into (12) and using (6), we conclude
+that
+  X                                                  ′′′ 2           (log log m)r
+        em (ax∗ ) ≪ β(log log m)r−1 N + Ne−c β log m log m ≪                      N.
+  x<N
+                                                                      (log m)1/2
+
+
+
+
+                                              24
+References
+ [1] U. Betke, M. Henk and J. M. Wills, ‘Successive-minima-type inequali-
+     ties’, Discr. Comput. Geom., 9 (1993), 165–175.
+ [2] J. Bourgain, ‘The sum-product theorem in Zq with q arbitrary’, J.
+     Analyse Math 106 (2008), 1–93.
+ [3] J. Bourgain and M. Z. Garaev, ‘Sumsets of reciprocals in prime fields
+     and miltilinear Kloosterman sums’, Preprint.
+ [4] N. G. de Bruijn, ‘On the number of positive integers ≤ x and free prime
+     factors > y, II’, Indag. Math. 28 (1966), 239-247.
+ [5] J. Friedlander and H. Iwaniec, The Brun-Titchmarsh theorem, Analytic
+     number theory (Kyoto, 1996), 85-93, London Math. Soc. Lecture Note
+     Ser., 247, Cambridge Univ. Press, Cambridge, 1997.
+ [6] J. Friedlander and H. Iwaniec, Opera de Cribro, American Mathemat-
+     ical Society, Colloquium Publications, 57, 2010.
+ [7] H. Iwaniec and E. Kowalski, Analytic number theory, Amer. Math.
+     Soc., Providence, RI, 2004.
+ [8] A. A. Karatsuba, ‘New estimates of short Kloosterman sums’, Math.
+     Notes 88:3 (2010), 347–359. Prepared by E. A. Karatsuba, M. A. Ko-
+     rolev and I. S. Rezvyakova on notes and drafts of A. A. Karatsuba.
+ [9] A. A. Karatsuba, ‘Analogues of Kloosterman sums’, Izv. Math. 59:5
+     (1995), 971–981.
+[10] A. A. Karatsuba, ‘Fractional parts of functions of a special form’, Izv.
+     Math. 59:4 (1995), 721–740.
+[11] M. A. Korolev, ‘Incomplete Kloosterman sums and their applications’,
+     Izv. Math. 64:6 (2000), 1129-1152.
+[12] M. A. Korolev, ‘Short Kloosterman sums with weights’, Math. Notes
+     88:3 (2010), 374-385.
+[13] T. Tao and V. Vu, Additive combinatorics, Cambridge Stud. Adv.
+     Math., 105, Cambridge University Press, Cambridge, 2006.
+
+
+                                    25
+

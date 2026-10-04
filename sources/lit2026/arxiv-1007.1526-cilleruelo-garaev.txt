@@ -1,0 +1,586 @@
+                                          Concentration points on two and three dimensional
+                                                modular hyperbolas and applications
+                                                                   J. Cilleruelo
+                                          Instituto de Ciencias Matemáticas (CSIC-UAM-UC3M-UCM) and
+                                                            Departamento de Matemáticas
+arXiv:1007.1526v2 [math.NT] 12 Oct 2010
+
+
+
+
+                                                          Universidad Autónoma de Madrid
+                                                                 Madrid-28049, Spain
+                                                        franciscojavier.cilleruelo@uam.es
+                                                                       M. Z. Garaev
+                                                                  Instituto de Matemáticas
+                                                          Universidad Nacional Autónoma de México
+                                                           C.P. 58089, Morelia, Michoacán, México
+                                                                  garaev@matmor.unam.mx
+
+
+                                                                                   Abstract
+                                             Let p be a large prime number, K, L, M, λ be integers with 1 ≤ M ≤ p and
+                                          gcd(λ, p) = 1. The aim of our paper is to obtain sharp upper bound estimates for
+                                          the number I2 (M ; K, L) of solutions of the congruence
+
+                                                    xy ≡ λ    (mod p),       K + 1 ≤ x ≤ K + M,        L+1≤y ≤L+M
+
+                                          and for the number I3 (M ; L) of solutions of the congruence
+
+                                                               xyz ≡ λ    (mod p),     L + 1 ≤ x, y, z ≤ L + M.                     (1)
+
+                                          Using the idea of Heath-Brown from [6], we obtain a bound for I2 (M ; K, L), which
+                                          improves several recent results of Chan and Shparlinski [3]. For instance, we prove that
+                                          if M < p1/4 , then I2 (M ; K, L) ≤ M o(1) .
+                                               The problem with I3 (M ; L) is more difficult and requires a different approach.
+                                          Here, we connect this problem with the Pell diophantine equation and prove that for
+                                          M < p1/8 one has I3 (M ; L) ≤ M o(1) . Our results have applications to some other
+                                          problems as well. For instance, it follows that if I1 , I2 , I3 are intervals in F∗p of length
+                                          |Ii | < p1/8 , then
+                                                                     |I1 · I2 · I3 | = (|I1 | · |I2 | · |I3 |)1−o(1) .
+
+                                             MSC Classification: 11A07, 11B75
+
+
+
+
+                                                                                        1
+1     Introduction
+In what follows, p denotes a large prime number, K, L, M, λ are integers with 1 ≤ M ≤ p
+and gcd(λ, p) = 1. By x, y, z we denote variables that take integer values. The notation B o(1)
+denotes such a quantity that for any ε > 0 there exists c = c(ε) > 0 such that B o(1) < cB ε .
+   Let I2 (M; K, L) be the number of solutions of the congruence
+            xy ≡ λ    (mod p),       K + 1 ≤ x ≤ K + M,         L+1 ≤y ≤L+M
+and let I3 (M; L) be the number of solutions of the congruence
+                      xyz ≡ λ (mod p),          L + 1 ≤ x, y, z ≤ L + M.
+Estimates of incomplete Kloosterman sums implies that
+                                             M2
+                            I2 (M; K, L) =      + O(p1/2 (log p)2 ).                       (2)
+                                             p
+In particular, if M/(p3/4 (log p)2 ) → ∞ as p → ∞, one gets that
+                                                             M2
+                                 I2 (M; K, L) = (1 + o(1))      .
+                                                             p
+This asymptotic formula also holds when M/p3/4 → ∞ as p → ∞ (see [5]). The problem of
+upper bound estimates of I2 (M; K, L) for smaller values of M has been a subject of the work
+of Chan and Shparlinski [3]. Using Bourgain’s sum-product estimate [1], they have shown
+that there exists an effectively computable constant η > 0 such that for any positive integer
+M < p, uniformly over arbitrary integers K and L, the following bound holds:
+                                                    M2
+                                 I2 (M; K, L) ≪        + M 1−η .
+                                                    p
+    In the present paper we obtain the following upper bound estimates for I2 (M; K, L).
+Theorem 1. Uniformly over arbitrary integers K and L, we have
+                                               M 4/3+o(1)
+                              I2 (M; K, L) <              + M o(1) .                       (3)
+                                                 p1/3
+When K = L, we have
+                                               M 3/2+o(1)
+                              I2 (M; L, L) <              + M o(1) .                       (4)
+                                                 p1/2
+   In particular, if M < p1/4 then I2 (M; K, L) < M o(1) .
+   Theorem 1 together with (2) easily implies the following consequence, which improves
+upon the mentioned result of Chan and Shparlinski.
+Corollary 1. Uniformly over arbitrary integers K and L, we have
+                                                M2
+                              I2 (M; K, L) ≪       + M 4/5+o(1) .
+                                                p
+If K = L, then
+                                                M2
+                               I2 (M; L, L) ≪      + M 3/4+o(1) .
+                                                p
+
+                                                2
+    The proof of Theorem 1 is based on an idea of Heath-Brown [6]. The problem with
+I3 (M; L) is more difficult and requires a different approach. Here, we shall connect this
+problem with the Pell diophantine equation and establish the following statement.
+
+Theorem 2. Let M ≪ p1/8 . Then, uniformly over arbitrary integer L, we have
+
+                                         I3 (M; L) ≪ M o(1) .                             (5)
+
+   From Theorem 2 we can easily derive a sharp bound for the cardinality of product of
+three small intervals in F∗p .
+
+Corollary 2. Let I1 , I2 , I3 be intervals in F∗p of length |Ii | < p1/8 . Then
+
+                              |I1 · I2 · I3 | = (|I1 | · |I2 | · |I3 |)1−o(1) .
+
+   Theorems 1 and 2 have also applications to the problem on concentration points on
+exponential curves as well. Let g ≥ 2 be an integer of multiplicative order t, and let M < t.
+Denote by Ja (M; K, L) the number of solutions of the congruence
+
+              y ≡ ag x   (mod p);         x ∈ [K + 1, K + M], y ∈ [L + 1, L + M].
+
+Chan and Shparlinski [3] used a sum product estimate of Bourgain and Garaev [2] to prove
+that
+                    Ja (M; K, L) < max{M 10/11+o(1) , M 9/8+o(1) p−1/8 }
+as M → ∞. From our Theorem 1 we shall derive the following improvement on this result.
+
+Corollary 3. Let M < t. Uniformly over arbitrary integers K and L, we have
+
+                           Ja (M; K, L) < (1 + M 3/4 p−1/4 )M 1/2+o(1) .
+
+    In particular, if M ≤ p1/3 , then we have Ja (M; K, L) < M 1/2+o(1) .
+    Theorem 2 allows to strength Corollary 3 when M ≪ p3/20 .
+
+Corollary 4. The following bound holds:
+
+                             Ja (M; K, L) < (1 + Mp−1/8 )M 1/3+o(1) .
+
+    In particular, if M ≪ p1/8 , then we have Ja (M; K, L) < M 1/3+o(1) .
+
+
+2     Proof of Theorem 1
+We will need the following lemma which is a simple version of a more precise result about
+divisors in short intervals, see, for example, [4].
+                                                    √
+Lemma 1. For all positive integer n and m ≥ n, the interval [m, m + n1/6 ] contains at
+most two divisors of n,
+
+
+
+
+                                                     3
+Proof. Suppose that d1 , d2 , d3 ∈ [m, m + L] are three divisors of n. We claim that the number
+                                                     d1 d2 d3
+                                      r=
+                                           (d1 , d2 )(d1 , d3 )(d2 , d3 )
+is also a divisor of n. To see this, for a given prime q, let α1 , α2 , α3 , α such that q αi kdi , i =
+1, 2, 3 and q α kn. Assume that α1 ≤ α2 ≤ α3 ≤ α. The exponent of q in the rational number r
+is α1 + α2 + α3 − (min(α1 , α2 ) + min(α1 , α3 ) + min(α2 , α3 )) = α3 − α1 . Since 0 ≤ α3 − α1 ≤ α
+we have that r is an integer divisor of n.
+    On the other hand, since (di , dj ) ≤ |di − dj | ≤ L we have
+                                                     m3   n3/2
+                                          n≥r>          ≥      ,
+                                                     L3    L3
+and the result follows.
+   Now we proceed to prove Theorem 1. Our approach is based on Heath-Brown’s idea
+from [6]. We can assume that M is sufficiently large number. The congruence xy ≡ λ
+(mod p), K + 1 ≤ x ≤ K + M, L + 1 ≤ y ≤ L + M is equivalent to
+                          xy + Kx + Ly ≡ b (mod p),                 1 ≤ x, y ≤ M,                  (6)
+where b = λ − K 2 . From the pigeon-hole principle it follows that for any positive integer
+T < p there exists a positive integer t ≤ T 2 and integers u0 , v0 such that
+             tK ≡ u0      (mod p),     tL ≡ v0      (mod p),        |u0| ≤ p/T,     |v0 | ≤ p/T.
+From (6) we get that
+                        txy + u0 x + v0 y ≡ b0       (mod p),        1 ≤ x, y ≤ M,
+for some |b0 | < p/2. We write this congruence as an equation
+                       txy + u0 x + v0 y = b0 + zp,          1 ≤ x, y ≤ M, z ∈ Z.                  (7)
+Comparing the minimum and maximum value of the left hand side we can see that
+                                txy + u0 x + v0 y − b0   T 2 M 2 2M  1
+                       |z| ≤                           <        +   + .
+                                          p                 p     T  2
+   We observe that for each given z the equation (7) is equivalent to the equation
+                               (tx + u0 )(ty + v0 ) = nz ,      1 ≤ x, y ≤ M                       (8)
+for certain integer nz . If nz = 0, then either tx + u0 = 0 or ty + v0 = 0. Since λ 6≡ 0 (mod p),
+in either case x and y are both determined uniquely. So, we can only consider those z for
+which nz 6= 0.
+   • Case M < p1/4 /4. In this case we take T = 8M. Then |z| < 1 and we have to consider
+     only the integer nz = n0 in (8). Each solution of (8) produces        p two divisors of |n0 |,
+     |tx + u0 | and |ty + v0 |, one of them is greater than or equal to |n0 |. If |n0 | ≤ 236 M 18
+     the number of solutions of (8) is bounded by the number of divisors of n0 , which is
+     M o(1) . If |n0 | > 236 M 18 the positive integers |tx + u0 | and |ty + v0 | lie in two intervals
+     I1 and I2 of length T 2 M ≤ 26 M 3 <          1/6
+                                             p|n0 | . If there were five solutions, we      would have
+                                                                                        1/6
+     three divisors greater of equal to |n0 | in an interval of length ≤ |n0 | . We apply
+     Lemma 1 to conclude that there are at most four solutions. Hence, in this case we have
+                                            I2 (M; K, L) < M o(1) .
+
+                                                      4
+    • Case M ≥ p1/4 /4. In this case we take T ≈ (p/M)1/3 . Thus |z| ≪ M 4/3 /p1/3 . For each
+      z the number of solutions of (8) is bounded by the number of divisors of nz which is
+      po(1) = M o(1) . Hence, in this case we get
+                                                            M 4/3+o(1)
+                                          I2 (M; K, L) <               .
+                                                              p1/3
+
+    Thus, we have proved that
+                                                    M 4/3+o(1)
+                                  I2 (M; K, L) <               + M o(1)
+                                                      p1/3
+which proves the first part of Theorem 1.
+   The proof of the second part of Theorem 1 (corresponding to the case K = L) is similar,
+with the only difference that we simply take t ≤ T (instead t ≤ T 2 ) satisfying
+
+                                 tK ≡ u0     (mod p),        |u0| ≤ p/T.
+
+
+3     An auxiliary statement
+To prove Theorem 2 we need the following auxiliary statement.
+Proposition 1. Let |A|, |B|, |C|, |D|, |E|, |F | ≤ M O(1) and assume that ∆ = B 2 − 4AC is
+not a perfect square (in particular, ∆ 6= 0). Then the diophantine equation
+
+                               Ax2 + Bxy + Cy 2 + Dx + Ey + F = 0                                       (9)
+
+has at most M o(1) solutions in integers x, y with 1 ≤ |x|, |y| ≤ M O(1) .
+    We shall need several lemmas.
+Lemma 2. Let A be a positive integer that is not a perfect square and let (x0 , y0) be a solution
+of the equation the equation x2 − Ay 2 = 1 in positive integers with the smallest value of x0 .
+Then for any other integer solution (x, y) there exist a positive integer n such that
+                                     √               √
+                                |x| + A|y| = (x0 + Ay0 )n .
+
+    Lemma 2 is well-known from the theory of Pell’s equation.
+Lemma 3. Let A be a squarefree integer, N is a positive integer. Then the congruence
+z 2 ≡ A (mod N), 0 ≤ z ≤ N − 1 has at most N o(1) solutions.
+Proof. Let J(N) be the number of solutions of the congruence in question and let N =
+pα1 1 · · · pαk k be a canonical factorization of N. Clearly, J(N) = J(pα1 1 ) · · · J(pαk k ), where J(pα )
+is the number of solutions of the congruence z 2 ≡ A (mod pα ), 0 ≤ z ≤ pα − 1. Since A is
+squarefree, we have J(2α ) ≤ 4 and J(pα ) ≤ 2 for odd primes p. The result follows.
+Lemma 4. Let A, E be integers with |A|, |E| < M O(1) such that A is not a perfect square.
+Then the equation
+
+                               x2 − Ay 2 = E,      1 ≤ x, y < M O(1)
+
+has at most M o(1) solutions.
+
+                                                     5
+Proof. (1) We can assume that A is also a squarefree number. Indeed, let A = A1 B12 , where
+A1 , B1 are nonzero integers, A1 is squarefree and is not a perfect square. Then our equation
+takes the form x2 − A1 (B1 y)2 = E, 1 ≤ x, y < M O(1) . Since B1 y < M O(1) , it follows that
+indeed we can assume that A is squarefree.
+    (2) We can assume that in our equation gcd(x, y) = 1. Indeed, if d = gcd(x, y), then
+d2 | E. In particular, since E has M o(1) divisors, we have M o(1) possible values for d. Besides,
+(x/d)2 + A(y/d)2 = E/d2 , where we have now gcd(x/d, y/d) = 1. Thus, without loss of
+generality, we can assume that gcd(x, y) = 1. In particular, it follows that gcd(y, E) = 1.
+    (3) Since A is not a perfect square, we have, in particular, that E 6= 0.
+    (4) For any x, y ∈ Z+ with (y, E) = 1 there exists 1 ≤ z ≤ |E| such that x ≡ zy (mod E).
+    Given 1 ≤ z ≤ |E|, let Kz be the set of all pairs (x, y) with
+
+                     x2 − Ay 2 = E,     1 ≤ x, y < M O(1) ,       (x, y) = 1
+
+such that x ≡ zy (mod E).
+   If (x, y) ∈ Kz , then (zy)2 − Ay 2 ≡ 0 (mod E). Since (y, E) = 1, it follows that z 2 ≡ A
+(mod E). Due to Lemma 3, the number of solutions of this congruence is at most |E|o(1) =
+M o(1) . Thus, we have at most M o(1) possible values for z. Therefore, it suffices to show that
+|Kz | = M o(1) for any such z.
+   Let x0 be the smallest positive integer such that
+
+                               x20 − Ay02 = E,         (x0 , y0 ) ∈ Kz .
+
+Let (x, y) be any other solution from Kz . Then,
+
+                             x20 − Ay02 = E,     x2 − Ay 2 = E.
+
+From this we derive that
+
+               (x0 x − Ayy0)2 − A(xy0 − x0 y)2 = (x20 − Ay02)(x2 − Ay 2 ) = E 2 .            (10)
+
+On the other hand, from (x0 , y0 ), (x, y) ∈ Kz it follows that
+
+                         x0 ≡ zy0     (mod E),       x ≡ zy    (mod E)
+
+Since z 2 ≡ A (mod E), we get xx0 ≡ z 2 yy0 (mod E) ≡ Ayy0 (mod E). We also have
+x0 y ≡ xy0 (mod E), as both hand sides are zyy0 (mod E). Therefore,
+
+                   x0 x − Ay0 y ≡ 0    (mod E),       xy0 − x0 y ≡         (mod E).          (11)
+
+   From (10) and (11) we get that
+                                      2                2
+                          x0 x − Ay0 y         xy0 − x0 y
+                                          −A                 =1
+                               E                   E
+and the numbers inside of parenthesis are integers.
+   Now there are two cases to consider:
+   (1) A > 0. In view of Lemma 2,
+                     x0 x − Ay0 y  p    xy0 − x0 y        p
+                                  + |A|            = (u0 + |A|v0 )n ,
+                          E                 E
+
+                                                 6
+where (u0, v0 ) is the smallest solution to X 2 − AY 2 = 1 in positive integers, and n is some
+non-negative integer.
+    Since the left hand side is of the order of magnitude M O(1) , we have that n ≪ log M =
+M . Thus, there are M o(1) possible values for n and, each given n produces at most 4 pairs
+  o(1)
+
+(x, y). This proves the statement in the first case.
+    (2) A < 0. Then we get that
+                       x0 x − Ay0 y                 xy0 − x0 y
+                                    ∈ {−1, 0, 1},              ∈ {−1, 0, 1},
+                            E                           E
+and the result follows.
+
+
+The proof of Proposition 1. Now we can deduce Proposition 1 from Lemma 4. Multiply-
+ing (9) by 4A, we get
+                 (2Ax + By + D)2 − ∆y 2 + (4EA − 2BD)y + 4AF − D 2 = 0,
+where ∆ = B 2 − 4AC. Multiplying by ∆ we get,
+                          (∆y + BD − 2EA)2 − ∆(2x + By + D)2 = T,
+where T = (BD − 2EA)2 + ∆(4AF − D 2 ). Now, since ∆ is not a full square, and since
+T, ∆ ≤ M O(1) , we have, by Lemma 4 and the condition |A|, |B|, |C|, |D|, |E|, |F | ≤ M, that
+there are at most M o(1) possible pairs (∆y + BD − 2EA, 2x + By + D). Each such pair
+uniquely determines y (since ∆ 6= 0) and x. This finishes the proof of Proposition 1.
+
+
+4      Proof of Theorem 2
+In what follows, by v ∗ we denote the least positive integer such that vv ∗ ≡ 1 (mod p). We
+rewrite our congruence in the form
+                  (L + x)(L + y)(L + z) ≡ λ     (mod p),    1 ≤ x, y, z ≤ M
+which, in turn, is equivalent to the congruence
+      L2 (x + y + z) + L(xy + xz + yz) + xyz ≡ λ − L3      (mod p),    1 ≤ x, y, z ≤ M.      (12)
+   Assume that M ≪ p1/8 and that p is large enough to satisfy several inequalities through
+the proof. Let
+                              k = max{1, 2M 2 /p1/4 }.                                 (13)
+Lemma 5. If L = uv ∗ for some integers u, v with |u| ≤ M 3 /k and 1 ≤ |v| ≤ M 2 /k, then
+the number of solutions of the congruence (12) is at most M o(1) .
+Proof. The congruence (12) is equivalente to
+                   v 2 xyz + uv(xy + xz + yz) + u2 (x + y + z) ≡ µ (mod p),
+where |µ| < p/2 and µ ≡ λv 2 − u3 v ∗ . The absolute value of the left hand side is bounded by
+    (M 2 /k)2 M 3 + (M 3 /k)(M 2 /k)(3M 2 ) + (M 3 /k)2 (3M) ≤ 7M 7 /k 2 ≤ 7M 7 /(2M 2 /p1/4 )2
+                                                               7 3 1/2
+                                                             =   M p < p/2.
+                                                               4
+
+                                                7
+Hence, the congruence (12) is equivalent to the equality
+                         v 2 xyz + uv(xy + xz + yz) + u2 (x + y + z) = µ.
+Multiplying by v, we get
+                               (vx + u)(vy + u)(vz + u) = vµ + u3
+The absolute value of the right and the left hand sides is ≤ M O(1) , and besides it is distinct
+from zero (since vµ + u3 ≡ λv 3 (mod p), and λv 3 6≡ 0 (mod p). Therefore, the number of
+solutions of the latter equation is bounded by M o(1) and the lemma follows.
+   Due to this lemma, from now on we can assume that L does not satisfy the condition of
+Lemma 5, that is
+                        L 6= uv ∗ , |u| ≤ M 3 /k, |v| ≤ M 2 /k.                     (14)
+
+   For 0 ≤ r, s ≤ 3k − 1 and 0 ≤ t ≤ k − 1 let Sr,s,t be the set of solutions (x, y, z) such that
+                                             rM (r+1)M
+                            
+                             x+y+z ∈( k , k ] 2
+                            
+                               xy + xz + yz ∈ ( sMk , (s+1)M
+                                                    2
+                                                          k
+                                                              ]
+                                      tM 3 (t+1)M 3
+                            
+                               xyz ∈ ( k , k ]
+                            
+
+Clearly, the number of solutions I3 (M; L) of our congruence satisfies
+                                     I3 (M; L) ≤ 9k 3 max |Srst |.
+   We fix one solution (x0 , y0 , z0 ) ∈ Srst . Any other solution (xi , yi , zi ) ∈ Srst satisfies the
+congruence
+                               Ai L2 + Bi L + Ci ≡ 0 (mod p)                                       (15)
+where
+                          Ai = xi + yi + zi − (x0 + y0 + z0 ),
+                          Bi = xi yi + xi zi + yi zi − (x0 y0 + x0 z0 + y0 z0 ),
+                          Ci = xi yi zi − x0 y0 z0 .
+We have
+                            |Ai | ≤ M/k, |Bi | ≤ M 2 /k, |Ci | ≤ M 3 /k.                          (16)
+   A solution (xi , yi , zi ) 6= (x0 , y0 , z0 ) we call degenerated if Ai = 0, and non-degenerated
+otherwise.
+
+    The set of non-degenerated solutions.
+    We shall show that there are at most M o(1) non-degenerated solutions. So that, let us
+assume that there are at least several non-degenerated solutions. With this set of solutions we
+shall form a system of congruence with respect to L, L2 . Let us fix one solution (A1 , B1 , C1 ).
+Note that the condition Ai 6= 0 implies that Ai 6≡ 0 (mod p).
+    Case (1). If Ai B1 6= A1 Bi for some i, then in view of inequalities (16) we also have that
+Ai B1 6≡ A1 Bi (mod p). Solving the system of equations (15) corresponding to the indices i
+and 1, we obtain that
+                L ≡ (Ci A1 − Ai C1 )(Ai B1 − A1 Bi )∗     (mod p) ≡ uv ∗      (mod p),
+
+                                                   8
+               L2 ≡ (Bi C1 − Ci B1 )(Ai B1 − A1 Bi )∗      (mod p) ≡ u′ v ∗       (mod p),
+where
+                  u = Ci A1 − Ai C1 ,    v = Ai B1 − A1 Bi ,     u′ = Bi C1 − Ci B1 .
+From this we derive that
+
+                          |u| ≤ 2M 4 /k 2 , |u′ | ≤ 2M 5 /k 2 , |v| ≤ 2M 3 /k 2                     (17)
+
+and (uv ∗)2 ≡ L2 (mod p) ≡ u′ v ∗ (mod p). Hence, u2 ≡ u′v (mod p) and, using (17), (13),
+we get |u2 |, |u′v| ≤ 4M 8 /k 4 ≤ p/4, so that we actually have the equality u2 = u′ v.
+
+   Multiplying (12) by v, we get
+
+                vxyz + u(xy + xz + yz) + u′ (x + y + z) ≡ v(λ − L3 )              (mod p)           (18)
+
+Since 1 ≤ x, y, z ≤ M, the inequalities (17) give
+
+                                                       14M 6      14M 6         7M 2 p1/2
+   |vxyz + u(xy + xz + yz) + u′(x + y + z)| ≤                ≤                =           < p/2.
+                                                         k2    (2M 2 p−1/4 )2      2
+This converts the congruence (18) into the equality
+
+                          vxyz + u(xy + xz + yz) + u′ (x + y + z) = µ
+
+for some µ ≪ M O(1) and µ ≡ v(λ − L3 ) (mod p). We multiply this equality by v 2 and use
+u′ v = u2 ; we get that
+                         (vx + u)(vy + u)(vz + u) = µv 2 + u3 .                     (19)
+Since µv 2 + u3 6= 0, the total number of solutions of the latter equation is ≪ M o(1) .
+   Case (2). If we are not in case (1), then for any index i one has A1 Bi = Ai B1 , which, in
+turn, implies that we also have
+
+                                      A1 Ci ≡ Ai C1     (mod p).
+
+In view of inequalities (16), we get that the latter congruence is also an equality, so that we
+have
+
+                                A1 Bi = Ai B1 ,    A1 Ci = Ai C1 .                                  (20)
+
+From the first equation and the definition of Ai , Bi , Ci , we get
+
+                   zi (A1 (xi + yi ) − B1 ) = B1 (xi + yi − a0 ) − A1 xi yi + b0 A1 ,               (21)
+
+from the second equation we get
+
+                           zi (A1 xi yi − C1 ) = C1 (xi + yi − a0 ) + c0 A1 ,                       (22)
+
+where
+                  a0 = x0 + y0 + z0 ,     b0 = x0 y0 + y0 z0 + z0 x0 ,   c0 = x0 y0 z0 .
+Multiplying (21) by A1 xi yi − C1 , and (22) by A1 (xi + yi ) − B1 , subtracting the resulting
+equalities, and making the change of variables xi + yi = ui , xi yi = vi , we obtain
+
+        (B1 (ui − a0 ) − A1 vi + b0 A1 ) (A1 vi − C1 ) = (C1 (ui − a0 ) + c0 A1 ) (A1 ui − B1 ) .
+
+                                                   9
+We rewrite this equation in the form
+    A1 vi2 + C1 u2i − B1 ui vi − (a0 C1 − c0 A1 )ui − (b0 A1 − a0 B1 + C1 )vi + b0 C1 − c0 B1 = 0.
+     If B12 − 4A1 C1 is a full square (as a number), say Rp 2
+                                                            1 , then from (15) we obtain that
+L ≡ (−B1 ± R1 )(2A1 )∗ = uv ∗ with |u| ≤ |B1 | + |B1 | + |4A1 C1 | ≤ 4M 2 /k, |v| ≤ 2M/k,
+which contradicts our condition (14).
+     If B12 − 4A1 C1 is not a full square, then we are at the conditions of Proposition 1 and
+we can claim that the number of pairs (ui , vi ) is at most M o(1) . We now conclude the proof
+observing that each pair ui , vi produces at most two pairs xi , yi , which, in turn, determines
+zi . Therefore, the number of non-degenerated solutions counted in Srst is at most M o(1) .
+
+   The set of degenerated solutions.
+   We now consider the set of solutions for which Ai = 0. If Bi 6= 0, then Bi 6≡ 0 (mod p) and
+thus we get L = −Ci Bi∗ with |Ci | ≤ M 3 /k, |Bi | ≤ M 2 /k, which contradicts condition (14).
+   If Bi = 0 then together with Ai = 0 this implies that Ci = 0. Thus,
+                                      xi + yi + zi = a0 = x0 + y0 + z0 ,
+                        xi yi + xi zi + yi zi = b0 = x0 y0 + y0 z0 + z0 x0 ,
+                                                    xi yi zi = c0 = x0 y0 z0 .
+Hence,
+                     (L + xi )(L + yi )(L + zi ) = (L + x0 )(L + y0 )(L + z0 ).
+The right hand side is not zero (since it is congruent to λ (mod p) and gcd(λ, p) = 1). Thus,
+the number of solutions of this equation is at most M o(1) . The result follows.
+
+
+5     Proof of Corollaries
+If M < p5/8 then
+                                 M 4/3+o(1)
+                                            + M o(1) < M 4/5+o(1)
+                                    p1/3
+and the statement of Corollary 1 for I2 (M; K, L) follows from Theorem 1. If M > p5/8 then,
+p1/2 (log p)2 < M 4/5+o(1) and the statement of Corollary 1 for I2 (M; K, L) follows from (6).
+Analogously we deal with I2 (M; K, K) considering the cases M > p2/3 and M < p2/3 .
+     In order to prove Corollary 3, let k = Ja (M; K, L) and let (xi , yi ), i = 1, . . . , k, be all
+solutions of the congruence y ≡ ag x (mod p) with xi ∈ [K +1, K +M] and yi ∈ [L+1, L+M].
+Since M < t, the numbers y1 , . . . , yk are distinct. Since yi yj ≡ ag z (mod p) for some z ∈
+[2K + 2, 2K + 2M], there exists a value λ such that for at least k 2 /2M pairs (yi , yj ) we have
+yi yj ≡ λ (mod p). Hence, theorem 1 implies that
+                                      k2   M 3/2+o(1)
+                                         <            + M o(1) ,
+                                     2M      p1/2
+and the result follows.
+   Corollary 4 is proved similar to Corollary 3. For any triple (i, j, ℓ) we have yi yj yℓ ≡ ag z
+(mod p) for some z ∈ [3K + 3, 3K + 3M]. Hence, there exists λ 6≡ 0 (mod p) such that the
+congruence yi yj yℓ ≡ λ (mod p) has at least k 3 /3M solutions. Thus,
+                                              k3
+                                                 < M o(1) ,
+                                             3M
+
+                                                   10
+and the result follows in this case. If M > p1/8 , then in the interval [L + 1, L + M] we can
+find a subinterval of length p1/8 which would contain at least k/(2Mp−1/8 ) members from
+y1 , . . . , yk . Thus, the preceding argument gives that
+                                                 3
+                                                    k
+                                                 M p−1/8
+                                                                    < M o(1) ,
+                                                     3M
+and the result follows.
+   Now we prove Corollary 2. Let W be the number of solutions of the congruence
+
+          xyz ≡ x′ y ′z ′    (mod p),         (x, x′ , y, y ′, z, z ′ ) ∈ I1 × I1 × I2 × I2 × I3 × I3 .
+
+Then,
+                                    1X X         2 X        2 X       2
+                            W =             χ(x)       χ(y)       χ(z) .
+                                    p χ x∈I        y∈I        z∈I
+                                                 1                    1                1
+
+Applying the Holder’s inequality, we obtain
+                 1 X X                   6 1/3  1 X X                      6 1/3  1 X X                   6 1/3
+           W ≤                     χ(x)                               χ(y)                              χ(z)            .
+                   p   χ    x∈I1
+                                                     p   χ     y∈I2
+                                                                                        p   χ    z∈I3
+
+
+Thus,
+                                                         1/3         1/3       1/3
+                                           W ≤ W1              · W2        · W3 ,
+where Wj is the number of solutions of the congruence
+
+                            xyz ≡ x′ y ′z ′     (mod p),              x, y, z, x′ , y ′ , z ′ ∈ Ij .
+
+According to Theorem 2, for each given triple (x′ , y ′, z ′ ) there are at most |Ij |o(1) possibilities
+for (x, y, z). Thus, we have that Wi ≤ |Ij |3+o(1) . Therefore,
+
+                                          W ≤ (|I1 | · |I2 | · |I3 |)1+o(1) .
+
+Now, using the well known relationship between the cardinality of a product set and the
+number of solutions of the corresponding equation, we get
+
+                                          |I1 |2 · |I2 |2 · |I3 |2
+                    |I1 · I2 · I3 | ≥                              ≥ (|I1 | · |I2 | · |I3 |)1−o(1)
+                                                    W
+and the result follows.
+
+
+6       Conjectures and Open problems
+We conclude our paper with several conjectures and open problems.
+
+Conjecture 1. For M < p1/2 one has I2 (M; K, L) < M o(1)
+
+Conjecture 2. For M < p1/3 one has I3 (M; L) < M o(1)
+
+Conjecture 3. For M < p1/2 one has Ja (M; K, L) < M o(1) .
+
+
+                                                               11
+Conjecture 4. Let I1 , I2 , I3 be intervals in F∗p of length |Ii | < p1/3 . Then
+
+                              |I1 · I2 · I3 | = (|I1 | · |I2 | · |I3 |)1−o(1) .
+
+Problem 1. From Theorem 1 it follows that if if M < p1/4 , then I2 (M; K, L) < M o(1) .
+Improve the exponent 1/4 to a larger constant.
+
+Problem 2. From Theorem 1 it follows that if M < p1/3 , then I2 (M; L, L) < M o(1) . Improve
+the exponent 1/3 to a larger constant.
+
+Problem 3. Theorem 2 claims that if M < p1/8 , then I3 (M; L) < M o(1) . Improve the
+exponent 1/8 to a larger constant.
+
+
+References
+ [1] J. Bourgain, More on the sum-product phenomenon in prime fields and its applications,
+     Int. J. Number Theory 1 (2005), 1-32.
+
+ [2] J. Bourgain and M. Z. Garaev, On a variant of sum-product estimates and explicit
+     exponential sum bounds in prime fields, Math. Proc. Cambridge Philos. Soc. 146 (2009),
+     1-21.
+
+ [3] T. H. Chan and I. Shparlinski, On the concentration of points on modular hyperbolas
+     and exponential curves, Acta Arithmetica 142, no. 1 (2010) 59-66.
+
+ [4] J. Cilleruelo and J. Jiménez, The hyperbola xy = N, Journal of Théorie des Nombres of
+     Bordeaux, vol 12, no. 1 (2000).
+
+ [5] M. Garaev, On the logarithmic factor in error term estimates in certain additive con-
+     gruence problems, Acta Arithmetica 124, n 1 (2006) 27-39.
+
+ [6] D. R. Heath-Brown, Almost-primes in arithmetic progressions and short intervals, Math.
+     Proc. Cambridge Philos. Soc. 83 (1978), no. 3, 357–375.
+
+
+
+
+                                                    12
+

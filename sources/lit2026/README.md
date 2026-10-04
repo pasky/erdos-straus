@@ -49,3 +49,9 @@ arXiv:2511.07465 is already archived as `../dyachenko-2511.07465.pdf`
 | `monks-velingker-2008-erdos-straus.pdf` | https://www.mathematicalgemstones.com/maria/papers/ErdosStraus.pdf (unpublished manuscript, 2008) | `0b1a3528c7ec0dcdf66fc6d8a721049ce9b1f745922dab4a328d128e548ccf08` |
 | `arxiv-2108.10878-thorner-zaman-pntap.pdf` (+ `.txt`, pdftotext -layout) | https://arxiv.org/pdf/2108.10878 (v2, 21 Sep 2021; published Math. Z. 306 (2024), no. 3, Paper 54), fetched 2026-10-01 for POINTWISE_OMEGA.md | `588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09` |
 | `lau-wu-least-quadratic-nonresidue.pdf` (+ `.txt`) | https://hkumath.hku.hk/~yklau/p/34.pdf (Y.-K. Lau, J. Wu, "On the least quadratic non-residue", author PDF), fetched 2026-10-01 for POINTWISE_OMEGA §8 (secondary statements of Graham–Ringrose, Montgomery, Ankeny) | `4b17e69d2f1a2773b66b1645b8b59cb5a628333b17d1b2c751b8ba1e75accab4` |
+| `arxiv-1007.1526-cilleruelo-garaev.pdf` | https://arxiv.org/pdf/1007.1526 | `8d853cffda866282e4988234bfa21dbb7f8c99b158b6fa6cc19f954df8b91bfd` |
+| `arxiv-1211.4184-bour-gar-reciprocals.pdf` | https://arxiv.org/pdf/1211.4184 | `937f881bd7de4bd5937618543a3516ea876232a1ea87e44f89e16d5fe711474d` |
+| `arxiv-1309.1124-bour-gar-residue-rings.pdf` | https://arxiv.org/pdf/1309.1124 | `3746adb39e0a64bdbab19f49596e9623ba943ca505211b95224ed0ca04d8d785` |
+| `arxiv-1103.2879-shparlinski-modular-hyperbolas.pdf` | https://arxiv.org/pdf/1103.2879 | `17862f2f8d9af6cf3f19122d5fe3de8a70b6684230e1757084143aac0aef8524` |
+| `arxiv-1004.0715-heath-brown-small-quadratic.pdf` | https://arxiv.org/pdf/1004.0715 | `489bcc3810f8b86958a92ab7eff414d95d8ad90e9fe5e1a3ed1e526896031631` |
+| `arxiv-math0504280-garaev-log-factor.pdf` | https://arxiv.org/pdf/math/0504280 | `397eac372dd9b965a4152e35c14d3cf5f5d80458e13d425a7c0e0d0c64179534` |
