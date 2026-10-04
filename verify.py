@@ -16633,4 +16633,59 @@ print("\n== (ce) EXCEPTIONAL_BALANCED: (s,r,k) parametrisation Lemma 4.1, gapped
 check_ce()
 
 
+# ---------------------------------------------------------------- (cf)
+# EXCEPTIONAL_TWIN.md Lemma 1.1 (Mordell's Jacobi lemma): for every M = 3 (4),
+# M <= 20000, A = (M+1)/4 and every D | A^2: gcd(D, M) = 1 and (-4D | M) = -1.
+# Lemma 3.1 (u-form) and Lemma 3.2 (sign constraint) for every M = q*ell <= 3000,
+# ell a prime factor: with D = s r^2, A = s r k, u = s k^2: 4sk | q*ell+1,
+# -4D = -(4u)^{-1} (mod ell), q | n+4D iff q | 4un+1 (all n mod q), and
+# (n|q)(v|ell) = -1 for v = -4D mod ell whenever q | n+4D, gcd(n, q) = 1.
+
+def check_cf():
+    from time import perf_counter
+    t0 = perf_counter()
+    X = 20000
+    spf = _o9_spf(X)
+    ncls = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        for D in _o9_divisors({r: 2 * e for r, e in _o9_factor(A, spf).items()}):
+            assert gcd(D, M) == 1, ("TWIN Lemma 1.1 gcd", M, D)
+            assert jacobi_symbol((-4 * D) % M, M) == -1, ("TWIN Lemma 1.1 Jacobi", M, D)
+            ncls += 1
+    assert ncls > 100000
+
+    nu = nsign = 0
+    for M in range(3, 3001, 4):
+        A = (M + 1) // 4
+        for sr in _o9_divisors(_o9_factor(A, spf)):
+            k = A // sr
+            for r in _o9_divisors(_o9_factor(sr, spf)):
+                s = sr // r
+                if any(e > 1 for e in _o9_factor(s, spf).values()):
+                    continue
+                D, u = s * r * r, s * k * k
+                for ell in _o9_factor(M, spf):
+                    q = M // ell
+                    assert (q * ell + 1) % (4 * s * k) == 0, ("TWIN Lemma 3.1", M, D)
+                    assert (-4 * D) % ell == (-pow(4 * u, -1, ell)) % ell, ("TWIN Lemma 3.1 value", M, D)
+                    v = (-4 * D) % ell
+                    lv = jacobi_symbol(v, ell)
+                    for n in range(q):
+                        act = (n + 4 * D) % q == 0
+                        assert act == ((4 * u * n + 1) % q == 0), ("TWIN Lemma 3.1 activation", M, D, n)
+                        if act and q > 1 and gcd(n, q) == 1:
+                            assert jacobi_symbol(n, q) * lv == -1, ("TWIN Lemma 3.2 sign", M, ell, D, n)
+                            nsign += 1
+                    nu += 1
+    assert nsign > 1000
+    print(f"cf Lemma 1.1: {ncls} classes -4D mod M (M <= {X}), all Jacobi -1 and gcd(D,M) = 1")
+    print(f"cf Lemmas 3.1-3.2: {nu} (M, ell, D) u-forms (M <= 3000), {nsign} active sign checks, "
+          f"0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cf) EXCEPTIONAL_TWIN: Jacobi Lemma 1.1, u-form Lemma 3.1, sign Lemma 3.2 ==")
+check_cf()
+
+
 print("\nall checks passed")
