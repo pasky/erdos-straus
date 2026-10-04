@@ -19,7 +19,7 @@ This is a long paper on additive energies/sumsets of reciprocals, with multiline
 ### J. Bourgain and M. Z. Garaev, “Kloosterman sums in residue rings,” arXiv:1309.1124v1. Archived `arxiv-1309.1124-bour-gar-residue-rings.pdf`; SHA-256 `3746adb39e0a64bdbab19f49596e9623ba943ca505211b95224ed0ca04d8d785`.
 
 **Theorem 1, p. 2** bounds reciprocal additive energy for general modulus `m`: for `I=[1,N]`, `J₂k` counts `x₁*+…+x_k* ≡ x_{k+1}*+…+x_{2k}* (mod m)`, `x_j∈I` (the star is the multiplicative inverse modulo `m`), and
-`J₂k < (2k)^{90k}(log N)^{4k} ((N^{2k-1}/m)+1) N^k`.
+`J₂k < (2k)^{90k³}(log N)^{4k²} ((N^{2k-1}/m)+1) N^k` (exponents `90k³`, `4k²`; corrected after review, checked against the PDF text).
 The paper’s introduction (pp. 3–4) discusses its bounds for incomplete and bilinear Kloosterman sums over general moduli, extending the authors’ prime-modulus work; it states the standard complete-sum consequence for incomplete sums as `m^{1/2+o(1)}` when `N<m`, and explains that Korolev treats very short lengths `N=m^{o(1)}`. These are exponential-sum bounds, not a theorem directly bounding the inverse-square occupancy `N(q,w)`.
 
 **Assessment:** Relevant to smooth/composite-modulus reciprocal energies and Kloosterman methods, but no all-`w` short-box theorem for `s t²≡w` is stated. It does not justify transferring prime-field sum-product estimates to arbitrary squarefree composite `q`.
@@ -36,7 +36,7 @@ In particular for a rectangular translated box, same formula. The discussion imm
 
 This concerns error terms for additive congruence counts and logarithmic factors; it is not an inverse-square small-box theorem. It is relevant background for congruence counts but no cited result here improves the origin lifting bound for `s t²≡w`.
 
-### D. R. Heath-Brown, “On small solutions to quadratic congruences,” arXiv:1004.0715v1. Archived `arxiv-1004.0715-heath-brown-small-quadratic.pdf`; SHA-256 `489bcc3810f8b86958a92ab7eff414d95d8ad90e9fe5e1a3ed1e526896031631`.
+### I. E. Shparlinski, “On small solutions to quadratic congruences,” (author corrected after review; earlier misattributed to Heath-Brown) arXiv:1004.0715v1. Archived `arxiv-1004.0715-shparlinski-small-quadratic.pdf`; SHA-256 `489bcc3810f8b86958a92ab7eff414d95d8ad90e9fe5e1a3ed1e526896031631`.
 
 **Theorem 1, p. 2**: for odd `q≥1` and positive integers `M,N≤q`, `Σ_{c=1}^q Δ(M,N;q,c)² ≤ (M+N)² q^{o(1)}`, where `Δ` is the discrepancy in the number of solutions to `m²−n²≡c (mod q)` in the specified short ranges (defined in the paper). Thus this is a mean-square-over-residue-class result for a quadratic congruence, not an individual bound on the number of roots of `s t²≡w`; averaging and the exact definition of the discrepancy matter.
 
@@ -59,7 +59,7 @@ This concerns error terms for additive congruence counts and logarithmic factors
 
 **Q1 (pointwise, all `w`).** Put `q≥2`, `(w,q)=1`, and `1≤s≤Y`, `1≤t≤t₀`. Every solution gives an integer `n=s t²≡w (mod q)` with `n≤Yt₀²`; there are at most `⌊Yt₀²/q⌋+1` possible positive integers `n`. For each such `n`, `t²|n` and `s=n/t²`, so
 `N(q,w) ≤ (⌊Yt₀²/q⌋+1) max_{n≤Yt₀²} τ(n) = (Yt₀²/q+1)(Yt₀²)^{o(1)}`.
-If `s` is restricted to squarefree integers, each `n` has at most one decomposition `n=s t²` with `s` squarefree, giving `N≤⌊Yt₀²/q⌋+1` exactly. This elementary bound is uniform in `w`, needs no primality or squarefreeness of `q`, and for `t₀≈q^{1/2}` becomes `≪(Y+1)q^{o(1)}` (or `≤Y+1` in the squarefree-`s` case). For the simpler `st≡w`, same argument gives `≤(Yt₀/q+1) max_{n≤Yt₀}τ(n)` and `≤⌊Yt₀/q⌋+1` with squarefree `s`. These are origin-box bounds.
+If `s` is restricted to squarefree integers, each `n` has at most one decomposition `n=s t²` with `s` squarefree, giving `N≤⌊Yt₀²/q⌋+1` exactly. This elementary bound is uniform in `w`, needs no primality or squarefreeness of `q`, and for `t₀≈q^{1/2}` becomes `≪(Y+1)q^{o(1)}` (or `≤Y+1` in the squarefree-`s` case). (Review correction: the squarefree-uniqueness argument does NOT extend to `st≡w`; squarefree s makes `st²` unique, not `st`. For `st≡w` only the divisor version `≤(Yt₀/q+1)max τ(n)` holds.) These are origin-box bounds.
 
 For arbitrary translated boxes in the `xy≡λ (mod p)` problem, Cilleruelo–Garaev Theorem 1 above gives `M^{4/3+o(1)}p^{-1/3}+M^{o(1)}` (diagonal improvement stated there); it is for prime `p`, equal side lengths, and arbitrary shifts. No corresponding `xy²` theorem or direct composite-modulus extension is stated in the verified papers. Shparlinski Theorem 13 gives only the `φ(q)XY/q²+O(q^{1/2+o(1)})` asymptotic for arbitrary-modulus translated boxes.
 
@@ -70,3 +70,6 @@ For prime `p` this is exactly `(Y−⌊Y/p⌋)(t₀−⌊t₀/p⌋)/(p−1)`; wh
 **Q2.** Yes: at the origin there is already a direct all-`w` saving from lifting, not a need to force a short-Kloosterman estimate. For `t₀≈q^{1/2}`, it gives `N≪(Y+1)q^{o(1)}`; thus when `Y=q^ε` this is `q^{ε+o(1)}`, a power saving against the trivial `min(t₀,2^{ω(q)}Y)` whenever that trivial bound is larger. It does not promise a saving if the trivial bound is itself `O(Y)` (for example, `2^{ω(q)}Y≤Yq^{o(1)}`), and for unrestricted nonsquarefree `s` the divisor factor is essential. For translated boxes and arbitrary target residues, the prime-modulus Cilleruelo–Garaev result is the strongest directly verified concentration theorem here; the reciprocal sum-product and Korolev/Karatsuba short-Kloosterman results are not plug-and-play pointwise estimates for this `N`.
 
 **Q3.** The lifting observation is immediate from integer representatives and the divisor bound, but the cited papers do not appear to state this exact `s t²≡w` origin-box lemma in the requested form. Cilleruelo–Garaev’s proof explicitly uses Heath-Brown’s idea and short-interval divisor estimates (their §2, pp. 4–5); their theorem is for translated `xy`, not this repeated-variable origin box. Shparlinski’s survey Theorem 13 is a Fourier/Kloosterman translated-box asymptotic and explicitly notes its `XY≳q^{3/2}` limitation, not the lifting argument. Heath-Brown’s quadratic-congruence paper provides a mean-square theorem over residues, not this lemma. Thus cite the elementary proof as an observation, not as a published named theorem.
+
+
+**Review addendum (2026-10-04).** Cilleruelo–Garaev Theorem 2 (`xyz≡λ (mod p)`, all variables in one interval of length `M≪p^{1/8}`, bound `M^{o(1)}`) does imply the same bound for `st²≡λ` when s,t lie in that common interval (inject `(s,t)↦(s,t,t)`). Its prime modulus and tiny range still do not cover IS.

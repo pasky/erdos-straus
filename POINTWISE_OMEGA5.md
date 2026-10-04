@@ -79,9 +79,35 @@ h_2 := min{sb : 4Ksb²≡1 (Q)},            Ĥ := min(h_1,h_2,h_3,y).
 (minima over positive integers; s may be taken squarefree, since
 `s=s′f²` gives `4sa²=4s′(fa)²` with `s′·fa≤sa`). The events with Π-part
 `m=1` contribute at most `2Δ¹(q,κ)` to `Δ_O` (`P(e∖O)≤2/n′`, `n′=n`).
-If no vertex of O is an H-hub (O3 Def 2.3), then `h_1,h_2,h_3>H` for
-`(q,κ)`: `c≡−u/v ⇔ u≡κv`, `c≡−4sa² ⇔ 4sa²≡κ`,
+If no vertex of O is a *saturated* H-hub (Definition 2.0), then
+`h_1,h_2,h_3>H` for `(q,κ)`: `c≡−u/v ⇔ u≡κv`, `c≡−4sa² ⇔ 4sa²≡κ`,
 `c≡−1/(4sb²) ⇔ 4κsb²≡1`, and a congruence mod q holds mod every `ℓ|q`.
+
+**Definition 2.0 (saturated hubs; a required repair of O4's HC).** A vertex
+`(ℓ,x mod ℓ^{e_ℓ})` is a *saturated H-hub* if `x mod ℓ^v ∈ 𝓗_H(ℓ^v)` for
+some `1≤v≤e_ℓ`.
+
+*Why it is needed (review O13-D1; PROVED counterexample to HC as literally
+stated in O4).* Take O4's k=3. Choose primes `ℓ_1,ℓ_2` near y (so `e_{ℓ_i}≥2`)
+and lifts `x_i` of `−1 mod ℓ_i` that are not hubs mod `ℓ_i^{e}`. This is
+possible since there are `ℓ_i^{e−1}` lifts and only `O(H log H)` hub classes.
+For every M ≡ 3 (4), `(s,a,b)=((M+1)/4,1,1)` is an atom of class −1 and
+Π-part 1. So for every prime `r∈[T^{.28},T^{.32}]` with `ℓ_1ℓ_2r≡3 (4)`, the
+event of class −1 mod `ℓ_1ℓ_2r` contains O, and most of its lifts at r
+survive hub deletion. Hence `Δ_O ≥ c·Σ_r 1/r ≫ 1` while O has no H-hub in
+O4's sense, so HC as stated fails, and O4 Thm 4.2 must be read with saturated hubs.
+*Cost.* The quarantined mass becomes
+`h_ℓ ≤ Σ_{v≤e_ℓ}|𝓗_H(ℓ^v)|·ℓ^{e_ℓ−v}/φ(ℓ^{e_ℓ}) ≤ e_ℓ·3H(1+log H)/(ℓ−1)`.
+Since `e_ℓ≤k+1`, O4 Thm 4.2 step 2 then needs `300(k+1)H(1+log H)<y`
+instead of `300H(1+log H)<y`. This holds at its optimum
+`H=y^{1/2+o(1)}`, and the rest of the proof is unchanged (`S_hub` gains a
+factor `≤k+1`, i.e. `O(log k)` in `log K`).
+With saturated hubs, the reduction mod `q′:=∏ℓ^{v_ℓ(M)}` of a non-hub O
+has all heights `>H` mod `q′`: a hub congruence mod `q′` reduces to one mod
+each `ℓ^{v_ℓ}`. The proofs below use only that Q is odd, so they apply
+with `Q=q′`. The bookkeeping of the lifts (weights `1/φ(n′)` after
+aggregating complementary lifts) was checked by the reviewer for squarefree
+rough parts; for `ℓ²|M` it is Assessment.
 
 **Lemma 2.1 (ray sum).** Let `(u,v)` be a primitive positive vector with
 `u≡Kv (Q)`, `gcd(uv,Q)=1`, `h=uv`. The atoms on the ray,
@@ -94,7 +120,7 @@ If no vertex of O is an H-hub (O3 Def 2.3), then `h_1,h_2,h_3>H` for
 `Σ_{y≤n≤X, n≡n_0 (d)}1/n ≤ 1/y+d^{−1}log(X/y)`. ∎
 
 **Lemma 2.2 (lattice points in a thin box).** Let
-`Λ:={(a,b): a≡Kb (Q)}` (index Q), `A,B≥1`, `A<Q`, `F′≥1` with `AB<F′Q`,
+`Λ:={(a,b): a≡Kb (Q)}` (index Q), `A,B≥1`, `A,B<Q`, `F′≥1` with `AB<F′Q`,
 and `R:=[A,2A)×[B,2B)`. Then the points of `Λ*:={(a,b)∈Λ: gcd(ab,Q)=1}`
 in R lie on at most `2F′+1` rays through 0 (each with primitive direction
 `(u,v)∈Λ`), plus a set E with `|E| ≤ (2F′+1)(4F′+1)`.
@@ -218,14 +244,24 @@ Split `Δ_O = Δ_O^{≤μ} + Δ_O^{>μ}` by the Π-part m of the event's atom
 and every vertex set O with no H-hub, the atoms with `m>Ĥ^{1/6}` give
 `Δ_O^{>Ĥ^{1/6}} ≤ 𝓛^{B′}H^{−a′}`.
 
-**Corollary 4.1 (PROVED implication).** HC_Π(a′,B′) implies
-HC(min(a′,1/6), max(B′,4)+1) (with the `e^{O(k)}` factor `4^{k/3}`, harmless
-in O4 Thm 4.2). Hence, modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4,
-HC_Π implies `log W(p) ≥ 0.2·min(a′,1/6)^{1/2}(log₂p)^{3/2}` for
-infinitely many Mordell-hard p (O4 Thm 4.2; `0.2/√6 > 0.08`).
+**Hypothesis HC*(a,B)** (the form O4 Thm 4.2 actually uses). As HC, but
+with saturated hubs (Def 2.0), only for `4^{k}≤H≤y`, and with the bound
+`Δ_O ≤ e^{Ck}𝓛^BH^{−a}` (C absolute).
 
-*Proof.* Theorem 2.3, Prop 3.2 with `μ=Ĥ^{1/6}`, and `Ĥ≥H` when
-`H≤y` (true in O4 Thm 4.2, where `H=y^{1/2+o(1)}`). ∎
+**Corollary 4.1 (PROVED implication).** (i) HC_Π(a′,B′) (saturated hubs,
+`4^k≤H≤y`) implies HC*(min(a′,1/6), max(B′,4)+1). (ii) O4 Thm 4.2 holds with
+HC* in place of HC: its step 3 chooses one H with
+`H^a ≥ 𝓛^Be^{0.011k}/η_k`. The factor `e^{Ck}` adds `O(k/a)` to `log H`,
+which is negligible against `log(1/η_k)≍k²`. The resulting
+`H=y^{1/2+o(1)}` satisfies `4^k≤H≤y` and the saturated-hub cost condition of
+Def 2.0. Hence, modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4, HC_Π implies
+`log W(p) ≥ 0.2·min(a′,1/6)^{1/2}(log₂p)^{3/2}` for infinitely many
+Mordell-hard p (`0.2/√6>0.08`). HC_Π does **not** imply literal HC, which
+quantifies over all `H≥2` without the `e^{Ck}` factor (review O13-D2).
+
+*Proof.* (i) Theorem 2.3, Prop 3.2 with `μ=Ĥ^{1/6}`, and `Ĥ≥H` for
+`H≤y`. (ii) As stated: re-run O4 Thm 4.2 steps 2–5 with the factor
+`e^{Ck}` and the condition `300(k+1)H(1+log H)<y`. ∎
 
 **Anatomy of HC_Π (Assessment).** By Lemma 3.1 an atom with Π-part m
 satisfies `m | u+v` and `m | 4sa²+1`. So HC_Π is a statement about
@@ -243,8 +279,10 @@ satisfies `m | u+v` and `m | 4sa²+1`. So HC_Π is a statement about
 2. *Other points.* For a pair `(s,a)` with `4sa²≡κ (q)`, each `m|4sa²+1`
    gives one class of b mod qm, and the atoms contribute
    `≤2/n′_0(s,a,m) + 𝓛/(2sa)` (Lemma 3.1(3); n′ runs over a progression
-   of difference 4sa). Summing over m costs the restricted divisor count
-   `τ_Π(4sa²+1; ≤T/(4qsa))`. Pointwise, τ is `T^{O(1/log𝓛)}`. In O4
+   of difference 4sa; the term `𝓛/(2sa)` only when `m≤T/(4qsa)`, while the
+   first-term `2/n′_0` occurs for every `m≤T/(qy)`). Summing over m costs
+   the restricted divisor counts `τ_Π(4sa²+1; ≤T/(4qsa))` (period terms)
+   and `τ_Π(4sa²+1; ≤T/(qy))` (first terms). Pointwise, τ is `T^{O(1/log𝓛)}`. In O4
    Thm 4.2, `H^{−a}=exp(−c𝓛^{2/3})`, so a pointwise divisor bound is fatal.
    What is needed is an *average* of `τ_Π(4sa²+1)` over the
    `(s,a)` in a box with `4sa²≡κ (q)`. When one of the ranges of s or a
@@ -262,7 +300,9 @@ The worst cases are again hub-like (§3, last paragraph).
 
 **EVIDENCE (`scripts/omega5_codeg.py`, exact, one pair per T, Π=Π_0).**
 The table gives the maximum of Δ over classes with hub level `>X` (O3
-Def 2.3, enumerated to level 2048), split into m=1 and m>1:
+Def 2.3, enumerated to level HCAP=1024 for T=10⁹ and 2048 otherwise), split into m=1 and m>1.
+The two parts are maximised independently, not at the class that maximises the total.
+These are joint classes mod q, not lifted vertices (cf. Def 2.0):
 
 | T | q | X=16: m=1 / m>1 | X=128 | X=512 | `X^{−1/3}` at 512 |
 |---|---|---|---|---|---|
@@ -270,8 +310,9 @@ Def 2.3, enumerated to level 2048), split into m=1 and m>1:
 | 10¹¹ | 937·941 | .022 / .041 | .0051 / .0101 | .0025 / .0035 | .125 |
 | 10¹⁰ | 337·30011 | .0073 / 0 | .0032 / 0 | .0032 / 0 | .125 |
 
-The m>1 part is **not** negligible: for the near-y pairs it exceeds the
-m=1 part at every level shown. It decays roughly like `X^{−0.8}`, well inside
+The m>1 part is **not** negligible: for the near-y pairs it is comparable
+to the m=1 part and exceeds it at most levels. Over `X=16…512` its endpoint
+decay exponent is ≈0.27 (T=10⁹) and ≈0.71 (T=10¹¹). Both are inside
 `X^{−1/3}`. For the wide pair (`T/q≈10³`), `m n′≤T/q` leaves essentially
 no room for `m>1`. This is consistent with HC_Π but proves nothing.
 
@@ -288,13 +329,13 @@ for every w. Statements below were checked against the archived PDFs.
   `(Yt_0²/q+1)·max_n#{t:t²|n}` for any q.
 * **Bourgain–Garaev** (arXiv:1211.4184, prime p; arXiv:1309.1124, any
   modulus, Thm 1): additive energies of reciprocals,
-  `J_{2k} < (2k)^{90k}(log N)^{4k}(N^{2k−1}/m+1)N^k`. These give incomplete
+  `J_{2k} < (2k)^{90k³}(log N)^{4k²}(N^{2k−1}/m+1)N^k`. These give incomplete
   Kloosterman bounds below `m^{1/2}` (via energies). Neither paper states a
   short-box occupancy bound, and no all-w bound for IS follows directly.
 * **Shparlinski's survey** (arXiv:1103.2879, Thm 13): the modular-hyperbola
   asymptotic with error `m^{1/2+o(1)}`. The survey notes this is trivial for
   `XY<m^{3/2}`, which is exactly IS's range.
-* **Heath-Brown** (arXiv:1004.0715, Thm 1): a mean square over residues c
+* **Shparlinski** (arXiv:1004.0715, Thm 1): a mean square over residues c
   for `m²−n²≡c` in short ranges. This is an averaged statement only.
 * **Korolev / Karatsuba** (short Kloosterman sums of length `q^ε`). These
   need special moduli (smooth, or prime powers) or carry log-power savings.

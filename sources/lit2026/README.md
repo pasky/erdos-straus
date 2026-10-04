@@ -53,5 +53,5 @@ arXiv:2511.07465 is already archived as `../dyachenko-2511.07465.pdf`
 | `arxiv-1211.4184-bour-gar-reciprocals.pdf` | https://arxiv.org/pdf/1211.4184 | `937f881bd7de4bd5937618543a3516ea876232a1ea87e44f89e16d5fe711474d` |
 | `arxiv-1309.1124-bour-gar-residue-rings.pdf` | https://arxiv.org/pdf/1309.1124 | `3746adb39e0a64bdbab19f49596e9623ba943ca505211b95224ed0ca04d8d785` |
 | `arxiv-1103.2879-shparlinski-modular-hyperbolas.pdf` | https://arxiv.org/pdf/1103.2879 | `17862f2f8d9af6cf3f19122d5fe3de8a70b6684230e1757084143aac0aef8524` |
-| `arxiv-1004.0715-heath-brown-small-quadratic.pdf` | https://arxiv.org/pdf/1004.0715 | `489bcc3810f8b86958a92ab7eff414d95d8ad90e9fe5e1a3ed1e526896031631` |
+| `arxiv-1004.0715-shparlinski-small-quadratic.pdf` | https://arxiv.org/pdf/1004.0715 | `489bcc3810f8b86958a92ab7eff414d95d8ad90e9fe5e1a3ed1e526896031631` |
 | `arxiv-math0504280-garaev-log-factor.pdf` | https://arxiv.org/pdf/math/0504280 | `397eac372dd9b965a4152e35c14d3cf5f5d80458e13d425a7c0e0d0c64179534` |
