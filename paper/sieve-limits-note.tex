@@ -2013,44 +2013,62 @@ than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 \section{What the theorems exclude}\label{sec:excluded}
 
 The following list is checked against the proofs of
-Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped} and
-Lemma~\ref{lem:budget} \cite[\S6.1]{ET}.  Anything below lies outside the
-caps of Section~\ref{sec:cap}.
+Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped},
+\ref{thm:wseq}, \ref{thm:karycap} and Lemma~\ref{lem:budget}
+\cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}.  Anything below lies
+outside the cap of Theorem~\ref{thm:main}; where a later section covers
+part of an item, this is said.
 \begin{enumerate}
 \item \emph{Majorants not $\geq0$ on all of $\Z$.}  See
-  Remark~\ref{rem:positivity}.
-\item \emph{Signed rounding.}  Any bound exploiting cancellation in
-  $\sum_{n\leq N}\nu(n)-N\E\nu$, or any rounding bound smaller than
-  $\sum_i|a_i|$, for example one that uses which classes meet $[1,N]$.
+  Remark~\ref{rem:positivity}.  Majorants that are $\geq0$ and $\geq1$ only at
+  primes are covered for finite prime-slice families
+  (Theorem~\ref{thm:primemaj}).
+\item \emph{Signed rounding.}  Bounds exploiting cancellation in
+  $\sum_{n\leq N}\nu(n)-N\E\nu$, or rounding bounds smaller than
+  $\sum_i|a_i|$.  For finite prime-slice families, every per-frequency
+  rounding bound with weight $w\geq1$ is covered
+  (Theorem~\ref{thm:perfreq}).  Still outside: weights $<1$
+  (Erd\H{o}s--Tur\'an/Vaaler, floor/ceiling, the exact $|S_N|$, smooth
+  windows), cancellation between frequencies, i.e.\ direct interval
+  counts, and per-frequency rounding in the sequential and balanced
+  settings of Sections~\ref{sec:gapped}--\ref{sec:main}.
 \item \emph{Non-CRT inputs.}  The theorems see only the CRT law of
-  residues.  Type~I/II sums, the arithmetic of $(p+a)/4$, Hal\'asz-type
-  arguments, and majorants that are $\geq1$ only on exceptional
-  \emph{primes} and use prime equidistribution beyond the selector
-  coordinates are outside.  The theorems require $\nu\geq1$ on the whole
-  avoider set.
-\item \emph{Balanced and twin moduli.}  Corollary~\ref{cor:dominant} needs
-  every modulus to have $P(M)\geq M^{1/(1+C)}$ with $C<1$ fixed;
-  Theorem~\ref{thm:gapped} extends this to $(\eta,B)$-gapped $\cR(M)$-moduli
-  with $B$ fixed, and Theorem~\ref{thm:resolved} to window-resolved
-  families.  Excluded are: families containing unresolved $\eta$-twin
-  moduli with top prime in $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$; gapped
-  moduli with $\log M/\log P(M)$ unbounded; and $(a,D)$- and Case-A
-  moduli without a dominant prime.  For Selberg-type majorants,
-  Theorem~\ref{thm:twoprimecap} covers twin $\cR(M)$-moduli with at most
-  two prime factors above $(\log X)^8$ and $M\leq P(M)^{1+B}$, $B$ fixed,
-  at level $O(\log X)$.  This part is not small
-  (Lemma~\ref{lem:balancedsupply}).
+  residues.  Covered for finite prime-slice families: prime-only
+  majorants at level $N^{O(1)}$ and CRT-evaluated moment methods
+  (Section~\ref{sec:noncrt}).  Outside: Type~I/II sums, the arithmetic of
+  $(p+a)/4$, Hal\'asz-type arguments, moments counted as tuples of
+  solutions rather than through CRT densities, and prime moments of
+  unbounded order beyond level $A\log N$ (covered only under the
+  Assessment of \cite[Remark~3.4]{NC}).
+\item \emph{Moduli without the $B$-hypothesis, and mixed families.}
+  Theorem~\ref{thm:karycap} covers every $\cR(M)$-family with
+  $M\leq P(M)^{1+B}$, $B$ fixed, twin moduli included; there is no
+  summation over $B$, and the constants $W_0(B),C(B)$ are not tracked.
+  Excluded are: $\cR(M)$-families with $\log M/\log P(M)$ unbounded;
+  $(a,D)$- and Case-A moduli without a dominant prime; and families mixing
+  such classes with $\cR(M)$-classes, since the base $R_W$ rests on
+  Lemma~\ref{lem:mordell}, proved for $\cR(M)$ only.  For Selberg-type
+  majorants at level $O(\log X)$ the $B$-hypothesis is removed for any
+  fixed number of prime factors above $(\log X)^8$
+  (Theorem~\ref{thm:noB}), and moduli with at least $330\log L$ of them
+  cost $o(1)$.  The $\cR(M)$-moduli with large twin parts are not
+  small (Lemma~\ref{lem:balancedsupply}); for fixed $B$ they are now
+  covered.
 \item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
   uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
   handles the $w_0$-smooth part only because $w_0=O_C(1)$, and
-  Theorem~\ref{thm:gapped} because $W=W_0(B)$.
+  Theorems~\ref{thm:gapped} and~\ref{thm:karycap} because $W=W_0(B)$.
 \item \emph{Level and size.}  Families with slice primes beyond $N^{O(1)}$
-  are formally outside, since Lemma~\ref{lem:budget} needs $\Lambda_0$.
+  are formally outside Theorem~\ref{thm:main}, since
+  Lemma~\ref{lem:budget} needs $\Lambda_0$.  For finite prime-slice
+  families Theorem~\ref{thm:perfreq} needs no such bound.
 \item \emph{Large multipliers.}  In the prime-slice setting the small part
   $q_0$ of a modulus is free, but Corollary~\ref{cor:sliceCap} needs
   $q_0\leq\ell^C$.  Conditions with $q_0\gg\ell$, used without paying their
   lcm in level, are not covered; no lower bound on that cost is proved
-  \cite[\S5.6(b)]{ET}.
+  \cite[\S5.6(b)]{ET}.  (Theorem~\ref{thm:karycap} charges every prime
+  above $W$; it allows cofactors up to $P(M)^B$ but does not address this
+  item.)
 \item \emph{Large sieve.}  Only Montgomery's large sieve over a slice
   system, fibre by fibre, is covered.
 \end{enumerate}
@@ -2083,8 +2101,10 @@ The share of the weighted Case-B mass carried by balanced moduli is
 $0.098$, $0.121$, $0.141$, $0.157$ and $0.171$ at $x=10^3,\dots,10^7$,
 still growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
 show that every window partition loses: singleton windows have no
-internal pairs.  So the exclusion of twin moduli is not cosmetic, but
-whether they can actually beat the Rankin functional is open.
+internal pairs.  So the twin moduli had to be covered, not discarded.
+For fixed $B$ they cannot beat the cap (Theorem~\ref{thm:karycap})
+\lab{proved}; without the $B$-hypothesis this is open for general
+majorants.
 
 \section{Open problems}\label{sec:open}
 
