@@ -188,3 +188,45 @@ Archived `2504.20289.txt` lines 34–49, Thm 1.1. With `f=x²+xy+y²`, `B=4`, `A
   0.01259→0.01227 (−2.5%) over 1e7…1e11, and `frac·√log` drifts 2.296→2.258.
   This is consistent with `1+O(1/log x)` secondary terms, but "flat" overstates
   it. The J=7,8 columns are only flat from 1e9 on.
+
+### 8. AGENT_REPORT_O10 and editorial — minor defects
+
+* The report repeats D2 ("Lemma 6.1 (PROVED) … each window costs sieve density
+  ≥1/2"), D3 (parity as the escape), and D4 ("negative at BV level" stated as
+  a Prop 7.2 result).
+* §3 ("Numerical check of W1") sits between §2.2 and §2.3, so the numbering is
+  out of order (D8).
+* Header "Status: checkpoint 1 … Not yet reviewed" conflicts with the report's
+  "A deep reviewer subagent ran over the whole branch" (D8).
+
+## Defects
+
+| # | severity | where | defect | fix |
+|---|---|---|---|---|
+| D1 | **major (framing/novelty)** | §0 Goal-2 para, §7.3, report | Misses Friedlander–Iwaniec, *Hyperbolic PNT*, Acta Math 202 (2009): two half-dim absence conditions (p±2 sums of two squares) on shifted primes, lower bound conditional on level θ<1 close to 1. This is the direct precedent for W2, and its open unconditional case (still open per arXiv:2609.28200) is the analogue of unconditional K=11 | cite FI09; recast W2 as FI09-type and use it as support for Assessment 7.3; remove "no such result known" |
+| D2 | moderate (labels) | §0 table row Lemma 6.1; §6 "rigorous form"; report | dimension-≥1/2 consequence labelled PROVED in §0, Assessment in §6 | split label as in item 5 |
+| D3 | moderate (wrong explanation) | §7.2 last para, §7.3 bullet 2, §8, report | route B already uses Lemma 1.2 parity (its Bonferroni step needs "not exactly one bad prime"); the real gain of route A is the dimension-5/2 switched upper bound on (r_1,r_2) configurations | reword |
+| D4 | minor | after Prop 7.2; report | "negative at level x^{1/2}" asserted without computation | label Assessment or compute |
+| D5 | nit | §2.3 | "same S1–S3 route": FHRSS also uses [BF12] genus→form (vacuous for D=−3); preprint status not noted | reword |
+| D6 | minor | §6 | no citation of notes Thm 70.9 (single prime window dimension-1/2 upper bound already PROVED); "congruences don't help" PROVED label covers only the density statement; J-uniformity of exception budget (≍J³) unaddressed in §7.3 use | add cross-ref and qualifiers |
+| D7 | nit (citation) | S1 vs POINTWISE_SIZE Prop 11.4 | Prop 11.4 cites *Opera de Cribro* ch. 14, while W1 cites Thm 11.13 (via Teräväinen l.1446). Neither is read in the primary | state both: Thm 11.13 (β-sieve, κ=1/2, β=1) and ch. 14 (semi-linear functions); keep the "primary not read" caveat |
+| D8 | nit (editorial) | §3 placement, status line, "flat" wording | see items 7–8 | — |
+
+## Overall verdict
+
+* **Theorem W1: SOUND.** It is PROVED modulo cited S1–S3; every step was
+  re-derived. The independent FHRSS route is valid, with hypotheses checked
+  literally, primitivity included. `a_min≥7` follows, with both targets checked
+  at q=3. "Hard" (Mordell class 1 mod 840) is correct.
+* **Theorem W2: SOUND as CONDITIONAL** (EH, or a fixed level 1−ε_0). It is
+  FI09-type; D1 applies.
+* **Lemma 1.1 and Lemma 1.2: SOUND.**
+* **Lemma 6.1: SOUND**; its consequences need the label fix in D2.
+* **Prop 7.2: SOUND** as a computation. The accompanying explanation is wrong
+  (D3).
+* **§7 Assessments:** appropriately labelled apart from D2, D4 and the D1
+  literature claim.
+* **Scripts and data:** fully reproduced.
+
+No defect affects the truth of any PROVED or CONDITIONAL claim. D1–D3 should be
+fixed before merging into the main narrative or DISCOVERIES.
