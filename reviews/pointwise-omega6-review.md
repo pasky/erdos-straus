@@ -182,9 +182,11 @@ as follows: "the numbers `4sa²+1` are `≤q^{O(1)}`, and the only divisor
 bound I have there is pointwise". That holds when the short plane is
 `(s,a)` or `(s,b)` (Regime III: `S,A≪q^{14/5}`). It is **false** when the
 only short plane is `(a,b)` (`max(A,B)≤3q²`). There both s-planes may be
-long, so Shiu/Henriot do apply. The box survives only because its third
-sides are small (`A,B<μ_0W`), while `S` is as large as `2qμ_0`. Then
-`4sa²+1` is up to `~T·q^{O(1)}`, not `q^{O(1)}`. Unlike (a), this
+long, so Shiu/Henriot *do* apply. The box survives only because its third
+sides are small (`A,B<μ_0W`), while `S` can be as large as `2qμ_0`. So the
+obstruction is not "no averaging theorem". (The numbers are `≤q^{O(1)}`
+only with an exponent that grows like `𝓛/log q`. That is harmless when
+`q≥T^{1/2}`, but not for small q.) Unlike (a), this
 sub-case has **no** lower bound on m: `S<μ_0W` fails, so the derivation
 of (a) does not apply. This sub-residual (`a,b<2mW`, any m>μ, large s) is
 the hub-like / unbalanced-ray family of O5 §4 (DIV). It is plausibly the
