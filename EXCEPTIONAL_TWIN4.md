@@ -13,12 +13,13 @@
 | **Lemmas 6.1–6.4** | large partners, every star V: largest-variable reduction with Lemma 2.3 in place of BT; box counting mod squarefree Q | PROVED |
 | **ternary residual `ℓ_b < w₂q`** (goal 2) | closed by Lemma 6.1: an upper-bound sieve for the whole partner R; **no BFI input needed** | PROVED |
 | **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; review `reviews/exceptional-twin4-review.md`: SOUND, nits F1–F4 applied) |
-| Prop 9.1 | explicit r-dependence `(C_B log L)^{Cr}`: cap `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L` | PROVED (bookkeeping) |
-| **Lemma 9.2**, Cor 9.3 | unweighted payment for any low-mass subfamily (LLL, `x_G = 2^{|S(G)|}P(G)`); classes with `ω_L(M) ≥ 330 log L` cost `o(1)` | PROVED |
+| Prop 9.1 | explicit r-dependence `(C_B log L)^{Cr}`: cap `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L` | PROVED (bookkeeping; review round 2: SOUND) |
+| **Lemma 9.2**, Cor 9.3 | unweighted payment for any low-mass subfamily (LLL, `x_G = 2^{|S(G)|}P(G)`); classes with `ω_L(M) ≥ 330 log L` cost `o(1)` | PROVED (review round 2: SOUND after G1) |
+| §11 | B-removal transfer to EXCEPTIONAL_KARY Thm 4.5 would give `S_λ ≪ λ^{3/4}log λ` for all ℛ(M)-families | SKETCH (pending KARY review) |
 | Lemma 12.1, §12 | pair form of the star sum (PROVED); correction: at `r ≍ log L` the rough-partner mass at a vertex is genuinely `≍ L/log L`, so vertex hubs proliferate; the target becomes hub count + off-diagonal pair sum | PROVED / OPEN |
-| §9.3 | middle range `ε log L/log log L < r < 330 log L` (the bulk): needs an off-diagonal second moment at short-partner stars, efficient per prime (multi-prime H_O^≠) | OPEN (sharp failure point) |
+| §9.3 | middle range `ε log L/log log L < r < 330 log L` (the bulk): needs an off-diagonal second moment at short-partner stars, efficient per prime (multi-prime H_O^≠) | OPEN (identified failure point of this method; review G2a) |
 | **Lemma 10.1** | smooth-dominated sums: Cauchy–Schwarz + Rankin on smooth k + Shiu along k | PROVED |
-| **Thm 10.4** | for fixed r the cap holds **without the B-hypothesis** (also with arbitrary classes having `ω_L ≥ 330 log L` added) | PROVED (internal; not yet reviewed) |
+| **Thm 10.4** | for fixed r the cap holds **without the B-hypothesis** (also with arbitrary classes having `ω_L ≥ 330 log L` added) | PROVED (internal; review round 2: SOUND, G1–G3 applied) |
 | §8 | Lemma 2.3 exact on 1228 cases (worst ratio 0.13); former residual = 80–86% of toy ternary mass, second moment ≈ random | EVIDENCE |
 
 Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0, and
@@ -523,7 +524,7 @@ The product is `≤ (C_B log L)^{Cr}`. In Lemma 4.1 the requirement is
 
 **Lemma 9.2 (unweighted payment; PROVED).** Let `𝓔₁` be the event system
 of a fibre c, after vertex quarantine and promotion, with law `ν⁺` and
-`Σ_{ℓ∈S(F)} w⁺_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`. Let `𝓔₂` be a further finite
+`Σ_{ℓ∈S(F)} w⁺_ℓ ≤ 1/16` for every `F ∈ 𝓔₁` (what Prop 3.1 supplies; review G1). Let `𝓔₂` be a further finite
 family of events (any arity), and put
 `y_ℓ = Σ_{G∈𝓔₂, G∋ℓ} 2^{|S(G)|}P_{ν⁺}(G)` and `m₂ = Σ_{G∈𝓔₂} 2^{|S(G)|}P_{ν⁺}(G)`.
 If `Σ_{ℓ∈S(F)} y_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`, `y_ℓ ≤ 1/32` for every ℓ, and
@@ -535,10 +536,12 @@ If `Σ_{ℓ∈S(F)} y_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`, `y_ℓ ≤ 1/32` 
 (the unary factors are common). Apply TW2 Lemma 1.1 in the `ν⁺`-product
 space to `𝓑 = 𝓔₁ ∪ 𝓔₂`, with `x_F = 2P(F)` on `𝓔₁` and
 `x_G = 2^{|S(G)|}P(G)` on `𝓔₂`. *Hypothesis.* For `F ∈ 𝓔₁`,
-`Σ_{Γ(F)}x ≤ Σ_{ℓ∈S(F)}(2w⁺_ℓ + y_ℓ) ≤ 3/32`. So `Π_{Γ(F)}(1−x) ≥ 1/2`, and
+`Σ_{Γ(F)}x ≤ Σ_{ℓ∈S(F)}(2w⁺_ℓ + y_ℓ) ≤ 2/16 + 1/32 = 5/32`. So
+`Π_{Γ(F)}(1−x) ≥ e^{−(8/7)(5/32)} ≥ 1/2`, and
 `P(F) = x_F/2` is enough. For `G ∈ 𝓔₂`,
-`Σ_{Γ(G)}x ≤ Σ_{ℓ∈S(G)}(2w⁺_ℓ + y_ℓ) ≤ |S(G)|·(1/16 + 1/32)`. Every
-`x ≤ 1/8`, so `Π(1−x) ≥ exp(−(8/7)(3/32)|S(G)|) ≥ 2^{−|S(G)|}`. *Conclusion.*
+`Σ_{Γ(G)}x ≤ Σ_{ℓ∈S(G)}(2w⁺_ℓ + y_ℓ) ≤ |S(G)|·(2/16 + 1/32)` (per vertex
+`w⁺_ℓ ≤ 1/16`). Every `x ≤ 1/8` (`x_F ≤ 2w⁺ ≤ 1/8`), so
+`Π(1−x) ≥ exp(−(8/7)(5/32)|S(G)|) ≥ e^{−0.18|S(G)|} ≥ 2^{−|S(G)|}`. *Conclusion.*
 Order `𝓔₂ = {G₁, G₂, …}`. Lemma 1.1(1) with
 `𝓢 = 𝓔₁ ∪ {G_1,…,G_{i−1}}` gives `P(G_i | A₁⁺ ∩ Ḡ_{<i}) ≤ x_{G_i}`. Hence
 `P(no 𝓔₂ | A₁⁺) ≥ Π_i(1 − x_{G_i}) ≥ exp(−(8/7)m₂)`. Then
@@ -584,9 +587,10 @@ their primes in `(L^8, e^{L^{1/4}}]` is Poisson-like with mean
 `r ≍ log L`. There every loss of the form `c^r` with `c > 1` is a power of L.
 
 *What is lossy, and what is genuine.*
-1. Inflation factors `(8/7)^r, (4/3)^r`: *removable*. They come from the
-   coarse thresholds `p_ℓ ≤ 1/8`, `w_ℓ ≤ δ_r`. In good fibres
-   `p_ℓ, w_ℓ ≪ L^{4}/ℓ`, so `Π_{ℓ∈S}(1−p_ℓ)^{−1} = 1 + O(rL^4/w₂) = 1+o(1)`
+1. Inflation factors `(8/7)^r, (4/3)^r`: *plausibly removable*. They come
+   from the coarse thresholds `p_ℓ ≤ 1/8`, `w_ℓ ≤ δ_r`. If good fibres had
+   `p_ℓ, w_ℓ ≪ L^{4}ℓ^{η−1}` (a polynomial-decay G_L, which needs a
+   `log ℓ`/`ℓ^η`/dyadic slack in the Markov step; review G2b), then `Π_{ℓ∈S}(1−p_ℓ)^{−1} = 1 + O(rL^4/w₂) = 1+o(1)`
    (TW3 already notes `e^{(4/3)w_ℓ}`). This needs a polynomial-decay G_L.
 2. Harmonic sums `(log L)^s` without `1/s!`: *not removable* at `r ≍ log L`
    (corrected in §12). Even with `1/s!`, the partner mass at a vertex is
@@ -605,8 +609,9 @@ their primes in `(L^8, e^{L^{1/4}}]` is Poisson-like with mean
    multi-prime analogue of TW2's (H_O^≠). It was bypassed for r = 2
    because there the first-moment loss was affordable (TW3 Remark,
    "Where the budget goes"). For short partners (`A ≤ Q^{C₀+1}`) the
-   divisor labels `−u/v mod Q_V` have height comparable to `Q_V^{1/2}`,
-   so neither Lemma 2.3 nor box counting applies. It is a genuine
+   long variable cannot be spent: R's class mod q need not have length
+   `≥ 2^{s+1}`, so Lemma 2.3 (hence Lemma 6.1 and the box counting)
+   does not apply (review G2c). It is a genuine
    equidistribution question for divisors of `(kQR+1)²/16` mod `Q`,
    averaged over `Q`. **OPEN.**
 4. Range III (Cor 9.3) shows that the very-many-prime tail is not the
@@ -677,7 +682,15 @@ D3(b),(c)) and Shiu along the top prime (D3(a)).
 * *Small classes (`M = k`, no B now).* `E_QR T ≤ Σ_k Γ(k)2^{ω(k)}τ(A_k²)/k
   ≪ (log L)^{O(1)}` by Lemma 10.1 (m = 1). This is better than TW2's
   `L^{1/32+o(1)}`. For `μ_p`: expand the square, use AM–GM on
-  `τ(A_k²)τ(A_{k′}²)`. The `k′`-sum gives `(log L)^{O(1)}p^{−1}` (TW2), and
+  `τ(A_k²)τ(A_{k′}²)`. Explicitly (review G3), with activity decided on `k₁`
+  and weight `2^{ω(k₂)}/k₂`,
+
+      E_QRμ_p² ≤ Σ_{k: p|k₂} τ(A_k²)² (2^{ω(k₂)}/k₂) · Σ_{k′: p|k₂′} (Γ(lcm(k₁,k₁′))/lcm(k₁,k₁′)) 2^{ω(k₂′)}/k₂′.
+
+  Terms with `p^e ∥ k`, `e ≥ 2`, carry `p^{−2}` and are bounded trivially.
+  The `k′`-sum is `≤ (Γ(k₁)h(k₁)/k₁)·(log L)^{O(1)}p^{−1}` (TW2 Lemma 5.4(ii)
+  and `Σ_{p|k₂′}2^ω/k₂′ ≪ (log L)^{O(1)}/p`). The factor `Γ(k₁)h(k₁)/k₁` is
+  absorbed into the k-sum, which has weight `G = Γh2^ω`, and
   for `k = pk″` the proof of Lemma 10.1 (i = 2) gives `p^{−1/2}` from each
   Cauchy–Schwarz factor: Rankin with the factor at p, and Shiu along k″
   in a class mod p (valid for `k ≥ p^{4/3}`). For `k < p^{4/3} ≤ w₂²`, TW2's

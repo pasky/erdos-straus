@@ -148,3 +148,29 @@ window `r ≍ log L` open (needs a multi-prime H_O^≠)."
 * I stopped here at roughly my context budget. A fresh session should
   start from EXCEPTIONAL_TWIN4 §12. Theorems 7.1 and 10.4 are unaffected
   (bounded r), and so are Prop 9.1 and Cor 9.3.
+
+---
+
+# Final status (O12)
+
+Review round 2 found §§9–11 SOUND. G1 (Lemma 9.2 is now stated with the
+`1/16` hypothesis that Prop 3.1 actually supplies, with the constants
+re-checked), G2 (labels and wording in §9.3) and G3 (explicit `μ_p` display
+in Lemma 10.3) are applied in one commit. §0 is final.
+
+| deliverable | status |
+|---|---|
+| Thm 7.1: r-prime Λ² cap, ternary residual closed (Lemma 2.3) | PROVED, reviewed SOUND |
+| Thm 10.4: B-hypothesis removed for fixed r | PROVED, reviewed SOUND |
+| Prop 9.1 / Lemma 9.2 / Cor 9.3: uniformity for `r ≤ ε log L/log log L`; `ω_L ≥ 330 log L` free | PROVED, reviewed SOUND |
+| §11: transfer of the B-removal to KARY | SKETCH |
+| §12: middle window `r ≍ log L` | Lemma 12.1 PROVED (not yet reviewed); the rest OPEN. It needs a hub count and an off-diagonal pair sum (corrects §9.3 item 2) |
+
+Suggested ledger line for (D)14, after the merge: "EXCEPTIONAL_TWIN4: the
+Λ² cap `≪ L^{3/4}(log L)^{O_r(1)}` holds for ℛ(M)-families with at most r
+primes above `(log X)^8`, for every fixed r, *without* the B-hypothesis
+(Thms 7.1, 10.4; reviewed). The TW3 ternary residual is closed by a
+large-sieve bound for rough partners. Uniform for
+`r ≤ ε log L/log log L` with `L^{3/4+O(ε)}`; moduli with ≥ 330 log L
+large primes are free. Open: the window `r ≍ log L` (hub count and
+off-diagonal pair sum, §12)."
