@@ -346,3 +346,98 @@ dimension (this paragraph).
 sieve of dimension `J/2` gives
 `#{p≤x : windows 3,…,4J−1 all F1-clean} ≪_J x/(log x)^{1+J/2}`. The
 normalised counts of §5 are flat at exactly this scale.
+
+## 7. How far the sieve routes go; which parity obstruction applies
+
+### 7.1 Route A: sift to `z≈x^{1/2}`, then parity (W1, W2)
+
+This route sifts all windows up to `z=x^{1/2−ε}`. Each window is then
+left with zero or two large bad primes (Lemma 1.2), and the two-prime
+configurations cost an extra factor `ε^{1/2}`. It needs a lower-bound sieve
+of dimension `κ=J/2` that is positive at `s=log D/log z≈2ϑ`, where `D=x^ϑ` is
+the level. So it needs `β_{J/2}≤2ϑ`, with `β_κ` the sifting limit.
+
+| J (windows) | K reached | κ | needs | available |
+|---|---|---|---|---|
+| 1 | 7 | 1/2 | `β_{1/2}=1≤2ϑ`: ϑ≥1/2 | BV: **unconditional (W1)** |
+| 2 | 11 | 1 | `β_1=2≤2ϑ`: ϑ≥1 (any `ϑ>1−2ε`) | **EH (W2)** |
+| ≥3 | ≥15 | ≥3/2 | `β_{3/2}≤2ϑ≤2` | impossible if `β^{opt}_{3/2}>2` |
+
+* `β_{1/2}=1` and `β_1=2` are optimal (Iwaniec; Selberg's parity examples).
+* The optimal sifting limit is non-decreasing in κ, because a κ'-dimensional
+  problem satisfies `(Ω_κ)` for every `κ≥κ'`. Hence `β^{opt}_{3/2}≥2`, and
+  route A can at best be borderline at `J=3` even at level `x`.
+* All sieves we know of have `β_{3/2}` near 3 (DHR-type; recalled from
+  memory, not re-checked). Moduli `>x` carry no information about primes
+  `≤x`, so no level hypothesis rescues route A for `J≥3`.
+
+**Assessment 7.1.** Route A is exhausted at `K=11`. It reaches
+`K=7` unconditionally and `K=11` only on EH.
+
+### 7.2 Route B: sift lower, subtract large-bad configurations
+
+Sift to `z=x^{1/s}` with s larger, and subtract the p for which some window
+keeps large bad primes. Use the Bonferroni inequality with parity: if a
+window has two or more large bad primes, the smaller one is `<√x`, so
+`1[clean_q] ≥ 1 − #{q-bad r|n_q : z≤r<√x}`.
+
+**Proposition 7.2 (zero margin at level x; PROVED, as a computation with
+the linear-sieve functions).** Take `J=2` and level `D=x` (EH taken
+literally), with `2≤s≤3`. Bound each subtracted set `A_r` by the linear
+upper sieve, at level `D/r` with sifting limit z. Then the main term and
+the subtraction cancel identically:
+```
+f(s) − Σ_{q∈{3,7}} (1/2)∫_{1/s}^{1/2} F(s(1−α)) dα/α
+  = 2e^γ log(s−1)/s − ∫_{1/s}^{1/2} 2e^γ dα/(s α(1−α)) = 0 .
+```
+(The bad primes of each window have density 1/2, so
+`Σ_{r∈P_q, r≈x^α} g(r)` contributes `(1/2)dα/α`. The level for `A_r` is
+`x^{1−α}`, and `F(t)=2e^γ/t` for `t≤3`. The integral is
+`(2e^γ/s)[log(α/(1−α))]_{1/s}^{1/2}=(2e^γ/s)log(s−1)`.)
+
+So the generic one-step Buchstab route sits **exactly** at the threshold
+at level x, and is negative at level `x^{1/2}`. There the `A_r` with
+`r>D^{1−o(1)}` cannot even be bounded without switching. W2 escapes
+only because route A uses more than the sieve axioms: the parity of
+the bad count is a congruence datum (Lemma 1.2). That forces a sifted
+`n_q/r` of size `≤x^{1/2+ε}` to be `m·r_2`, which the generic bound `F(1)` does not see.
+
+### 7.3 Which parity obstruction applies (answer to Goal 3)
+
+* **Single window: none.** Selberg's parity barrier says a sieve cannot
+  tell an even number of prime factors from an odd one. For a window,
+  the parity of the number of *bad* prime factors is fixed by a
+  congruence (Lemma 1.2: `(−1)^{Ω_q^-(n_q)}=(p/q)`). So the event
+  "no bad factor" is a half-dimensional problem with sifting limit 1,
+  and W1 proves it at BV level. The parity information is an *input*,
+  not an obstruction.
+* **Two windows: the linear-sieve parity threshold.** The joint problem
+  has dimension 1, and its sieve functions f, F are the linear ones.
+  These are extremal, attained by Selberg's λ-twisted sequences.
+  Proposition 7.2 shows the generic route has margin exactly 0 at level
+  x. Route A survives at level x only by feeding in the
+  congruence-parity of Lemma 1.2. At BV level (`ϑ=1/2`), the two-window
+  problem asks a linear sieve to sift beyond `z=x^{1/4}=D^{1/2}`, which is
+  precisely where the Selberg example forces `f(s)=0` (`s≤2`).
+  Unconditional `K=11` would therefore need either a level of
+  distribution `ϑ≥1` for the relevant sequences, or a genuinely bilinear
+  (Chen-switching / Type-II) input that breaks the linear-sieve parity
+  barrier for this problem. We have done neither.
+* **Unboundedly many windows: dimension, not parity.** By Lemma 6.1,
+  `a_min(p)>4J−1` costs dimension `≥J/2` (Route A needs
+  `β_{J/2}≤2`, which fails for large J; Route B's subtracted mass per
+  window is comparable to the clean mass once `z≤x^{1/3}`, and there are
+  J windows). Any proof of `a_min(p)→∞` along a subsequence must
+  therefore produce primes p for which an unbounded number of shifted
+  values `(p+q)/4` simultaneously avoid a density-1/2 set of primes
+  (up to `O_q(1)` exceptions), i.e. a lower bound in a sieve problem of
+  unbounded dimension with complete-absence conditions. No such result
+  is known for *any* family of unboundedly many shifts of primes. The
+  closest known results produce one condition (Iwaniec 1972; FHRSS 2025),
+  or "many" but not all conditions (Maynard–Tao). **Assessment:**
+  `a_min→∞` unconditionally is out of reach of present sieve technology.
+  The obstruction is the growth of the sieve dimension against the
+  bounded sifting range `z≤x^{1/2}`, plus the linear-sieve parity
+  threshold already at `J=2`. It is not the formal-genericity obstruction:
+  Lemma 11.3 and Lemma 6.1 show that failure is never
+  congruence-forced, so the formal adversary is no help unconditionally.
