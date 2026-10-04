@@ -69,3 +69,68 @@ j and m where only upper bounds are needed.
    the elementary box count in route 1 turns out too weak.
 
 Route 1 is tried first (§2 onward).
+
+## 2. Small/large partner split; first moment of the small part
+
+Throughout, only classes with `u = v = 1` (moduli `M = kjm`, `j ≠ m` primes
+`> w₂`, k w₂-smooth) are treated. The prime-power classes are split off as
+in TW2 Lemma 5.4 (D5): `S_j ≤ S_j^{(11)} + 3w_j^{pp}`, with
+`E_PΣ_jρ_jw_j^{pp} ≪ L³/w₂ + w₂^{−1/2}(log L)^{O(1)}`. Fix an absolute
+constant `C₀ ≥ 6`.
+
+**Definition.** A binary class `−4D mod kjm` through j is *small* (at j) if
+`m ≤ (kj)^{C₀}`, *large* if `m > (kj)^{C₀}`. Write `deg_c(j,a) = x(a) + z(a)`
+for the parts coming from small and large active classes. Let `w_j^{sm}(c)`
+be the binary mass at j of the small active classes.
+
+Since `min(x+z,1) ≤ min(x,1) + z` and `min(x,1)² ≤ x`,
+
+    S_j^{(11)} ≤ 2 Σ_a ν_j(a) x(a) + 2 Σ_a ν_j(a) z(a)² = 2 w_j^{sm}(c) + 2 Σ_a ν_j(a) z(a)².   (2.1)
+
+This holds with no restriction on labels. Pairs sharing a candidate,
+deadly values and cross pairs are all included. The z-part is §3.
+
+**Lemma 2.1 (first moment of the small part; PROVED).** In Setting 3.0,
+
+    E_P Σ_{j>w₂} ρ_j w_j^{sm}(c) ≪_{B,C₀} α^{−3}(log L)^{O(1)}.
+
+*Proof.* On supp P we have `ν ≤ (8/7)U` (unary densities ≤ 1/8). By TW2
+Lemma 3.2(1), a class `−4D mod kjm` is active with probability `≤ 4Γ(k)/k`,
+and each modulus carries at most `τ(A²)` classes. So the left side is at
+most `4(8/7)² Σ_k (Γ(k)/k) Σ_j (ρ_j/j) Σ_{m small} τ(A_{kjm}²)/m`. Split
+by which prime is on top.
+
+*(a) `m < j` (j top).* The B-hypothesis `M ≤ j^{1+B}` gives `km ≤ j^B`.
+Swap the sums: we need `Σ_{m>w₂} m^{−1} Σ_{j>m} j^{−1−α} τ(A²)`. Since A is
+linear in j, apply TW2 Lemma 3.3 with `q = km`, the variable j running over
+all integers, on dyadic blocks `(y,2y]` with `y ≥ m/2`. Its hypothesis
+`q ≤ (2y)^{B+2}` holds because `km ≤ j^B ≤ (2y)^B`. With `y_i = 2^{i−1}m`,
+
+    Σ_{j>m} j^{−1−α}τ(A²) ≪ (km/φ(km)) Σ_{i≥0} y_i^{−α}(log 2kmy_i)²
+                         ≪ (k/φ(k)) m^{−α} (a²/α + a/α² + 1/α³),
+
+with `a = log(2km²) ≪ log 2k + log m`, using `m/φ(m) ≤ 2` and TW2 §4's
+`Σ_t (a+t log 2)² 2^{−αt} ≪ a²/α + a/α² + 1/α³`. Now sum over primes
+`m > w₂`, using `Σ_m m^{−1−α}(log m)^i ≪ (i−1)!α^{−i}` for `i ≥ 1` and
+`≪ log L` for `i = 0`. The result is
+`≪ (k/φ(k))(log 2k)² α^{−3} log L`.
+
+*(b) `j < m ≤ (kj)^{C₀}` (m top).* The B-hypothesis gives `kj ≤ m^B`. Fix
+j and apply TW2 Lemma 3.3 with `q = kj` and variable m on dyadic blocks
+`(y,2y]`, `j/2 ≤ y ≤ (kj)^{C₀}`. The hypothesis `q ≤ (2y)^{B+2}` holds.
+Each block contributes `Σ_{m∈(y,2y]} τ(A²)/m ≪ (kj/φ(kj))(log 2kjy)²
+≪ (k/φ(k))(C₀+2)²(log 2kj)²`, and there are at most `2C₀ log 2kj` blocks.
+Hence `Σ_{m small, m>j} τ(A²)/m ≪_{C₀} (k/φ(k))(log 2kj)³`, and
+
+    Σ_j (ρ_j/j)(log 2kj)³ ≤ 4Σ_{j>w₂} j^{−1−α}((log 2k)³ + (log j)³) ≪ (log 2k)³ log L + α^{−3}.
+
+(Primality of m was not used in (b), which is an upper bound.)
+
+*Sum over k.* Both cases give `≪ (k/φ(k))(log 2k)³ α^{−3} log L`, and
+`Σ_k Γ(k)(log 2k)³/φ(k) ≪ (log L)^{O(1)}` by TW2 (3.1). ∎
+
+**Remark 2.2.** Lemma 2.1 covers every class whose top prime is j, and also
+the m-top classes with `m ≤ (kj)^{C₀}`. The budget `α^{−3}` is used in
+full. It comes from `Σ_j ρ_j(log j)^3/j`: the divisor mass of these classes
+is `(log kj)^3`, not `L^3`. Only the large classes, with
+`A ≥ (kj)^{C₀+1}/4`, need equidistribution mod j (§3).
