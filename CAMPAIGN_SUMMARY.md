@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (2026-10-04)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)21)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -47,6 +47,9 @@ literature.
 The campaign ran two lines of research.
 * **Exceptional-set line.** It went from 2/3 to 3/4. It then proved that
   3/4 is sharp for a broad, precisely defined class of congruence sieves.
+  Later work extended the cap to the large sieve and to inter-frequency
+  cancellation for moduli `≤ N/2`. The one identified door above 3/4 is
+  the tuple-count hypothesis TC_θ, which is a CONJECTURE.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -170,7 +173,7 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
    comparison theorem (Thm 2.5): couple a sequential law with a product
    law, then extrapolate along artificial Bernoulli replacement coins.
 6. `EXCEPTIONAL_NONCRT.md` ((D)15): several "non-CRT" inputs are also
-   capped at 3/4 for the finite prime-slice families (details in §2.3).
+   capped at 3/4 for the finite prime-slice families (details in §2.4).
 7. `EXCEPTIONAL_KARY2.md` ((D)18): the main theorem above. A unit-square
    base serves all four class types, because no (a,D)- or Case-A class
    contains a square (Mordell/Jacobi). Rankin's trick plus Cauchy–Schwarz
@@ -178,26 +181,102 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
    `(log log)^{3/4}` in the cap.
 
 Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
-sieves"; refereed internally, fixes applied; v3 merged).
+sieves"; refereed internally, fixes applied; v3 merged). The 3/4 note
+now has a remark that its ceiling is a theorem for its own architecture
+(sieve-limits v3 Thm 10.8 / Rem 10.9; KARY2 Cor 6.1). It replaces the
+note's earlier heuristic-ceiling caveat. The (D)19–(D)21 results are in
+separate files (§2.3).
 
-### 2.3 What the sharpness theorem does not cover
+### 2.3 Beyond coefficient sums: the large sieve, interval cancellation, tuple counts
 
-The exclusions are taken from ledger (D)18, KARY2 §6, NONCRT §6 and
-STATUS.md. A proof of `θ > 3/4` would need at least one of the following:
-* **Cancellation between frequencies.** That is, a direct count of the
-  interval sum `Σ_{n≤N} ν(n)`. NONCRT Thm 8.1 gives a quantitative
-  dichotomy (PROVED). Either there is large Fourier mass above every level
-  `λ ≤ c(log N)^{4θ/3}`, or the interval count falls well below the CRT
-  mean. In one tested family (count polynomials of degree ≤ 10) there
-  was no inter-frequency gain (EVIDENCE, NONCRT §8.3).
+Three later files close or sharpen the main doors left open by (D)18.
+All three are internal and unrefereed.
+
+* **The large sieve is capped** (`EXCEPTIONAL_LARGESIEVE.md` Thm 3.1,
+  Cor 3.2; ledger (D)19).
+  * *Duality.* By exact duality (Thm 2.1, standard minimax, not claimed
+    new), every CRT-admissible large-sieve bound is at least `N·E|g*|²`,
+    where `|g*|²` is a Selberg-square CRT majorant.
+  * *Bounds covered.* Montgomery, Montgomery–Vaughan, weighted, and
+    multiplicative via Gauss sums.
+  * *Frequencies covered.* Farey frequencies with prime, prime-power or
+    composite denominators. Forced classes may be used in any form, and
+    the bound may be applied fibrewise.
+  * *Result.* Combined with KARY2 Thm 5.1, the saving is at most
+    `C(log N)^{3/4}(log log N)^{3/4}` for polynomial denominators, and
+    `C_B(log N)^{3/4}` for bounded B. This includes the 2/3 note's use of
+    the large sieve.
+  * *Further cases.* Prime slices with any rational frequencies: Thm 4.1.
+    Gallagher's larger sieve in kernel form is capped by a χ² functional
+    (Thm 6.2).
+  * *Label:* **PROVED, conditional on KARY2 Thm 5.1**.
+    Review: `reviews/exceptional-largesieve-review.md`, SOUND.
+  * *Open escapes:*
+    * frequencies of super-polynomial level against multi-large-prime
+      classes (H_LS, a conjecture);
+    * the larger sieve over mixtures;
+    * twisted/hybrid forms;
+    * non-CRT interval information.
+* **Inter-frequency cancellation is worthless for moduli ≤ N/2**
+  (`EXCEPTIONAL_INTERFREQ.md`; ledger (D)20).
+  * *Selberg minorant.* If every nonzero frequency of `ν ≥ 0` has
+    denominator `≤ D < N`, then `Σ_{n≤N} ν ≥ (N−D)Eν` (Thm 2.2).
+  * *Cap (Cor 2.3).* Majorants built from forced classes of modulus
+    `≤ N/2` save at most `C(log N)^{3/4}(log log N)^{3/4}`. This holds
+    with any coefficients and any evaluation of the interval sum: exact,
+    dispersion, Kloosterman, Vaaler, or smooth windows.
+  * *Larger classes.* The cap holds for methods whose bound dominates
+    `T_>^*/c` (Thm 2.5, Rem 2.6). It is **not** proved for hybrid methods
+    that charge large classes only their trivial count.
+  * *Label:* **PROVED** (internal). Review:
+    `reviews/exceptional-interfreq-review.md`.
+  * *What remains:* multi-witness tuple counting above modulus N
+    (Assessment). (H_eq) is open but not needed when all moduli are
+    `≤ N/2`.
+* **The tuple-count door** (`EXCEPTIONAL_TUPLES.md`; ledger (D)21).
+  * *Reformulation (Lemma 1.3).* Order-k witness correlations are the
+    distinct-prime parts of k-point correlations of ω-type functions
+    along shifts `4D`.
+  * *Conditional route above 3/4 (Cor 2.3, PROVED implication).*
+    Hypothesis TC_θ asks for CRT-accurate correlations up to order
+    `K ≍ (log N)^θ`. It implies
+    `E(N) ≤ (e+2)N exp(−(2/e²)(log N)^θ)`.
+  * *Range of TC.* It holds for `K ≤ c(log N)^{2/3}` (Prop 2.4, Brun's
+    pure sieve; this recovers 2/3). It fails for even
+    `K ≥ (e²/2+ε)log N`, because squares avoid every class (Prop 4.2).
+  * *Bounded order is useless.* Correlation input of bounded order,
+    however precise, cannot give θ > 3/4 under CRT-main-term evaluation.
+    Order `≳ (log N)^θ/log log N` is needed (Thm 3.1, Cor 3.2–3.4).
+  * *Wrong type.* Fixed-shift correlation theorems (Heath-Brown,
+    Deshouillers–Iwaniec, Matomäki–Radziwiłł–Tao, Tao–Teräväinen) do not
+    fit (Prop 4.3 plus Assessment).
+  * *Label:* **PROVED** (internal). Review:
+    `reviews/exceptional-tuples-review.md`, all items SOUND.
+  * *Open:* TC_θ for `3/4 < θ < 1` is an open, natural, falsifiable
+    **CONJECTURE**.
+
+### 2.4 What remains open above 3/4
+
+The sources are ledger (D)18–(D)21, KARY2 §6, NONCRT §6 and STATUS.md.
+A proof of `θ > 3/4` would need at least one of the following:
+* **Multi-witness tuple counting above modulus N.** Interval cancellation
+  is now known to be worthless for classes of modulus `≤ N/2` ((D)20).
+  The live form is TC_θ with `θ > 3/4` ((D)21, CONJECTURE). It needs
+  correlation input of growing order. Bounded-order input cannot help.
+  The earlier NONCRT Thm 8.1 dichotomy (PROVED) and §8.3 (EVIDENCE: no
+  inter-frequency gain in one tested family) point the same way.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
   Thm 2.3): coefficient sums, the sawtooth bound, and complete
   Gauss/Kloosterman sums. Weights `< 1` are open, except in a smooth-window
   case that is CONDITIONAL on an equidistribution conjecture.
-* **Genuinely arithmetic, non-CRT input.** For example, counting
-  `(log N)^{3/4+δ}`-fold correlations of ES solutions directly.
+* **Genuinely arithmetic, non-CRT input**, of a kind other than the
+  tuple counts above.
 * **Other ingredients outside the class:**
-  * the large sieve beyond prime slices;
+  * large-sieve escapes listed in (D)19: super-polynomial frequency
+    levels against multi-large-prime classes (H_LS), the larger sieve
+    over mixtures, twisted/hybrid forms;
+  * hybrid interval methods that charge large classes only their trivial
+    count ((D)20);
   * majorants that are `≥ 1` only on `[1,N]` or only on exceptional
     primes (majorants `≥ 1` only on primes *are* capped, NONCRT
     Thms 3.2–3.3, so BV/BDH/EH/GRH-level prime inputs do not help);
@@ -446,6 +525,9 @@ them.
 | E9 | Per-frequency signed rounding (weights ≥ 1), prime-only majorants and CRT moment methods also capped at 3/4 (prime-slice families) | PROVED (internal) | `EXCEPTIONAL_NONCRT.md` Thm 2.3, 3.2–3.3, Props 4.1–4.2 | `reviews/exceptional-noncrt-review.md` (rounds 1–2) | none |
 | E10 | **No θ > 3/4 for coefficient-sum CRT sieves over any mixture of the four forced/selector class types**; saving `≤ C L^{3/4}(log L)^{3/4}`, `≪_B L^{3/4}` under fixed B | PROVED (internal) | `EXCEPTIONAL_KARY2.md` Thm 5.1, 5.2, Cor 6.1; `paper/sieve-limits-note.tex` | `reviews/exceptional-kary2-review.md`, `-review-2.md`; `reviews/sieve-limits-note-review-v2.md`, `reviews/papers-v3-review.md` | Elsholtz–Tao Prop 1.4 (Case-A part only) |
 | E11 | Heuristic ceiling `θ = B/(B+1)` (2/3 at B = 2, 3/4 at B = 3) | Assessment (proved arithmetic under the stated assembly model) | notes §18.3–18.4 | — | — |
+| E12 | Large sieve capped: every CRT-admissible large-sieve bound is `≥ N·E\|g*\|²` (Selberg-square majorant), so saves `≤ C L^{3/4}(log L)^{3/4}` (polynomial denominators), `C_B L^{3/4}` (bounded B); includes the 2/3 note's use | PROVED, conditional on KARY2 Thm 5.1 | `EXCEPTIONAL_LARGESIEVE.md` Thm 2.1, 3.1, Cor 3.2, Thm 4.1, 6.2 | `reviews/exceptional-largesieve-review.md` (SOUND) | KARY2 Thm 5.1 (hence Elsholtz–Tao Prop 1.4 for Case A) |
+| E13 | Selberg minorant `Σ_{n≤N}ν ≥ (N−D)Eν`; majorants from forced classes of modulus `≤ N/2` save `≤ C L^{3/4}(log L)^{3/4}` under any evaluation of the interval sum | PROVED (internal) | `EXCEPTIONAL_INTERFREQ.md` Thm 2.2, Cor 2.3, Thm 2.5 | `reviews/exceptional-interfreq-review.md` | KARY2 Thm 5.1 |
+| E14 | TC_θ ⇒ `E(N) ≤ (e+2)N exp(−(2/e²)L^θ)`; TC holds for `K ≤ cL^{2/3}`, fails for even `K ≥ (e²/2+ε)L`; bounded-order correlations cannot give θ > 3/4 | PROVED (internal); TC_θ for 3/4 < θ < 1 is a CONJECTURE | `EXCEPTIONAL_TUPLES.md` Cor 2.3, Prop 2.4, Thm 3.1, Prop 4.2 | `reviews/exceptional-tuples-review.md` (all items SOUND) | KARY2 Thm 5.1 (Cor 3.4) |
 
 ### 4.2 Pointwise line
 
@@ -578,10 +660,13 @@ ratings are this summary's judgement, not ledger labels.
    to a human referee first. Related tasks: read Vaughan 1970 itself and
    complete the priority search.
 2. **θ > 3/4 for `E(N)`.** (I high, F low.) Every coefficient-sum CRT
-   sieve over the four class types is capped (§2.2), so a new ingredient
-   is required. The candidates are those listed in §2.3:
-   inter-frequency cancellation in a direct interval count, per-frequency
-   weights below 1, or non-CRT arithmetic input.
+   sieve over the four class types is capped (§2.2). So are the large
+   sieve and, for moduli `≤ N/2`, interval cancellation (§2.3). A new
+   ingredient is required (§2.4). The most concrete candidate is TC_θ for
+   `θ > 3/4`: CRT-accurate witness correlations of order `≍ (log N)^θ`.
+   It is a CONJECTURE; its proved implication is (D)21. Other candidates:
+   per-frequency weights below 1, the large-sieve escapes (H_LS), and
+   other non-CRT arithmetic input.
 3. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
@@ -634,6 +719,9 @@ ratings are this summary's judgement, not ledger labels.
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
+| the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md` |
+| inter-frequency cancellation in interval counts | `EXCEPTIONAL_INTERFREQ.md` |
+| the tuple-count door TC_θ and witness correlations | `EXCEPTIONAL_TUPLES.md` |
 | the signed graph, basics | `SIGNED_REFACTOR.md`, `POINTWISE.md` |
 | short escapes and exceptional sets for the seed distance | `DEPTH3.md` |
 | Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
