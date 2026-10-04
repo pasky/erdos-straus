@@ -1338,4 +1338,79 @@ random prediction in all six tested rows \lab{evidence}.  The restriction
 $M\leq P(M)^{1+B}$ with $B$ fixed is genuine: for fixed $B$, twins
 $k\ell_1\ell_2$ with a $w_2$-smooth cofactor $k>M^{(B-1)/(B+1)}$ are excluded.
 
+\section{Open problems}\label{sec:open}
+
+A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
+least one of: (i) a joint use of unresolved $\eta$-twin (or other
+balanced) moduli that beats their mass; (ii) multipliers larger than the
+slice primes, used without paying their lcm in level; (iii) a
+non-selector admissible set with a large saving of its own; (iv) a
+non-CRT input, or signed cancellation in the rounding errors
+\cite[\S6]{ET}.  The following statements would close (i) and (iii).
+
+\begin{hypothesis}[$H_{\rm MS}$; {\cite[\S5.6]{ET}}; \lab{open}]\label{hyp:MS}
+For every CRT system of forced classes with moduli $\leq\e^\lambda$, every
+majorant of level $\lambda$ satisfies
+$\log(1/\E\nu)\leq C\inf_\alpha\bigl[\alpha\lambda+\sum_{\rm cond}\Prob({\rm cond})({\rm mod\ cond})^{-\alpha}\bigr]+O(\log^2\lambda)$.
+\end{hypothesis}
+Under $H_{\rm MS}$ every CRT-majorant architecture built from Case-B and
+Case-A forced classes, with a bounded-saving admissible set and rounding
+treated in absolute value, is capped at $(\log N)^{3/4}$
+\lab{conditional}.  $H_{\rm MS}$ is open even for one scale of primes with
+random pair conditions.
+
+For the twin residual, the reduction of \cite[\S6]{TW} isolates an
+arithmetic-free statement.  Let $V$ be a block of primes with costs
+$s_\ell\in(s,(1+\eta)s]$ and $d=\lfloor\lambda/s\rfloor$.
+
+\begin{conjecture}[$k$-ary comparison inequality; {\cite[Conj.~6.4]{TW}}; \lab{open}]\label{conj:kary}
+Let $\nu=\bigotimes\nu_\ell$ be a product law on $V$, and let $\mathcal F$ be a
+family of hard $k$-ary constraints ($2\leq k\leq r$) on $V$ with all incident
+weights $\leq\theta\leq\theta_0(r)$ and total $\nu$-mass $\mu_{\geq2}$.  Let
+$\sigma$ be the sequential law: in increasing order of $\ell$, $\nu_\ell$
+conditioned off the residues activated by earlier coordinates, or $\nu_\ell$
+itself if that set has $\nu_\ell$-mass $>\delta_\ell$.  Then for every
+$\lambda$-level $f\geq0$,
+\[
+ \E_\sigma f\leq\exp\bigl(C_r[d\log(2+\mu_{\geq2})+1]\bigr)\,\E_\nu f.
+\]
+\end{conjecture}
+Here the \emph{incident weight} of a residue $a$ at $\ell$ is the
+$\nu$-probability that some activated constraint through $(\ell,a)$ is
+completed by the other coordinates.
+
+\begin{proposition}[{\cite[Prop.~6.5]{TW}}; \lab{conditional} on Conjecture~\ref{conj:kary} and Hypothesis~K2]\label{prop:twinconditional}
+Assume Conjecture~\ref{conj:kary} for $r=\lfloor(1+B)(1+\eta)\rfloor$ and the
+$k$-ary second-moment hypothesis K2 of \cite[\S6.3]{TW}.  Then for every
+fixed $B$, every family of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (twin,
+prime-power top and all other shapes included), plus $W_0$-smooth classes,
+has saving $\ll_B\eta^{-1}\lambda^{3/4}\log\lambda$.
+\end{proposition}
+The extra $\log\lambda$ is the price of the weak form; the evidence for
+Conjecture~\ref{conj:kary} is toy-scale exact linear programmes only
+\lab{evidence}.
+
+For $\Lambda^2$-majorants the core is a sparse noise-stability statement.
+
+\begin{conjecture}[sparse noise stability; {\cite[Conj.~6.8]{TW}}; \lab{open}]\label{conj:sparseNS}
+Let $X_i$ be independent and $\mathcal E$ a finite family of events, each
+depending on coordinates $S(E)$, with incident weights
+$\sum_{E\ni i}\Prob(E)\e^{a|S(E)|}\leq\theta\leq\theta_0(a)$ and a codegree
+condition for $|S(E)|\geq3$.  Let $\A$ be ``no event'' and $\A'$ its
+$\rho$-correlated copy.  Then
+\[
+ \log\frac{\Prob(\A\cap\A')}{\Prob(\A)^2}\leq(1+O(\theta))\sum_E\Prob(E)\Bigl(\prod_{i\in S(E)}(\rho_i+(1-\rho_i)P_i(E))-\Prob(E)\Bigr),
+\]
+where $P_i(E)$ is the marginal factor of $E$ at $i$.
+\end{conjecture}
+Theorem~\ref{thm:binaryNS} proves a bound of this type for binary systems
+($|S(E)|\leq2$) with the diagonal and one-site terms on the right, and
+Theorem~\ref{thm:twoprime} reduces the two-prime $\Lambda^2$ cap to the
+arithmetic Hypothesis~\ref{hyp:HOne}.  A cleaner sufficient form of the
+latter is a second-moment equidistribution statement for divisor labels
+of $A\equiv4^{-1}\pmod j$ modulo $j$, averaged over $j$ \cite[\S5.5, $H_{\rm
+div}$]{TW2} \lab{open}.  Known results on divisor functions in
+progressions do not reach it: it is a second moment with two coupled
+congruences at moduli up to $X$.
+
 \end{document}
