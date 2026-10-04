@@ -101,3 +101,46 @@ Remark (not a defect): with `y=2T^{1/(k+1)}` the support is k (not k−1 as
 in O3), so Thm 2.1's k corresponds to O3's k+1 in the support count; the
 final exponent `log p≤T^{1/k}` is the same as O3's up to the
 `T^{o(1)}` factor, which is exactly what lets k grow.
+
+## Item 3 — Corollaries 3.1–3.3 (rates). Verdict: **SOUND** mathematically; editorial repairs D2, D3 required
+
+* **Uniformity in k.** Every constant in the chain is explicit or
+  absolute: Thm 1.1 (all k), `C_2=6C_1e^{206}` (absolute, from PO Thm 4.1),
+  the twist/LLL factors (bounded uniformly under (P_k), see Item 2), the
+  level-error telescoping (`k` levels × `P(all)/(100k)`). The only
+  implicit constants are in the S* bounds (ET: absolute `≪`; Wigert:
+  `o(1)` in `log 2+o(1)`), and these do not depend on k. So letting
+  `k=k(T)` is legitimate; no hidden `O_k`. ✔
+* **(C_{k,T}) rewritten.** `6k²(k−1)!=6k·k!`. ✔
+* **Cor 3.1 (ET).** `S*≪𝓛^4log𝓛` gives `log(3S*+k+1)≤5log𝓛+O(1)` for
+  `k≤𝓛`. `b_k≤9k+C` holds with `C=13.5` (max of `5log k−0.94k` is
+  `<3.4`); the text's `10.1` is not enough at small k but only "C" is
+  used. With `k=κ(𝓛)`: the slack `6k·k!(log𝓛−O(1))` dominates
+  `6k²log(C_2𝓛)` since `k!≥2k` for `k≥3`. ✔ `κ(X)~log X/log log X`
+  (`log k!~k log k`). ✔ Then `log₂p≤𝓛/k≤𝓛`, κ nondecreasing, so
+  `log W>𝓛≥k·log₂p≥κ(log₂p)·log₂p`, giving `(1+o(1))log₂p·log₃p/log₄p`. ✔
+  (κ(log₂p) is defined, i.e. `≥3`, once `log₂p≳10^4`; since `p>T` only
+  gives `log₂p>log𝓛`, this needs `𝓛≥e^{10^4}`-ish — harmless for an
+  i.o. statement.) Spot check: `κ(10^{10})=9` ✔ by hand.
+* **Cor 3.2 (U).** `log S*≤(log2+o(1))𝓛/log𝓛` and `log 2=0.6931<0.7`, so
+  `log(3S*+k+1)≤0.7𝓛/log𝓛` for large T ✔ (Nicolas–Robin makes Wigert
+  explicit, so "effective" is fine). `4.2k·k!𝓛/log𝓛≤0.84𝓛` for
+  `5k·k!≤log𝓛` ✔; the remainder `(log𝓛)^{O(1)}≤0.16𝓛` ✔.
+  `κ_0(X)~log₂X/log₃X`, and at `X=log₂p` this is `log₄p/log₅p`. ✔
+* **Cor 3.3.** `log log L_h(T) ≤ 𝓛/κ(𝓛) = (1+o(1))𝓛log₂𝓛/log𝓛`, resp.
+  `𝓛log₃𝓛/log₂𝓛`. ✔ Comparison with O3 Thm 5.2 is fair.
+
+**D2 (label; house rules).** Corollary 3.3 carries no status label. It
+should read "PROVED modulo Thorner–Zaman and ET Prop. 1.4 (first form),
+modulo Thorner–Zaman (second form); effective".
+
+**D3 (cosmetic).** §3 bullet (U) writes `S*≤C log𝓛·𝓛³·τ*(T+2)`. O2
+Lemma 11.1 sums `τ(4sr'²+1)` with `4sr'²+1≤4T+1`, so it should be
+`τ*(4T+1)` (and `(3+𝓛)(1+𝓛)²` rather than `𝓛³`). No asymptotic effect:
+`log τ*(4T+1)=(log2+o(1))𝓛/log𝓛` as well.
+
+Remark: "effective" in Cor 3.1 presupposes ET Prop. 1.4's implied
+constant is effective. ET's proof is elementary (divisor-sum / Type I
+counting), so this is very likely, but the text should say "effective
+provided ET Prop. 1.4 is" or cite the effectivity, as PO does not record
+it either.
