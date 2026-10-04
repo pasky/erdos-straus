@@ -1,4 +1,7 @@
-# START HERE — campaign status (2026-10-01)
+# START HERE — campaign status
+
+(For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
+ (2026-10-01)
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
