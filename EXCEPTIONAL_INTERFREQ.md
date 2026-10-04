@@ -416,8 +416,10 @@ Maynard-type well-factorable estimates control remainders
 `N^{1/2+δ}`, `N^{4/7}` for primes). Theorem 2.5 shows that for the integer
 avoider count, *any* evaluation of all classes of modulus ≤ N/2, however
 strong (even exact), together with trivial charging above N/2, is capped
-at `(log N)^{3/4}(log log N)^{3/4}`. So no estimate of this type can help,
-whatever its quality. For prime-only majorants, NC Thm 3.2/Rem 3.4 already
+at `(log N)^{3/4}(log log N)^{3/4}`. So no estimate of this type, used
+as a remainder estimate for moduli ≤ N/2, can help, whatever its quality.
+(It could matter only inside a method that also saves on the
+large-modulus mass, which is §3.3's problem.) For prime-only majorants, NC Thm 3.2/Rem 3.4 already
 showed level `N^{O(1)}` equidistribution is capped. Theorem 2.5 does not
 extend this to prime counts (Lemma 2.4 is a statement about integers).
 
