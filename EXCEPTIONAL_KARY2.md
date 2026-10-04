@@ -290,3 +290,97 @@ comes from Rankin, which costs a full `log y` per block and forces
 `u₀ ≍ log log y`. A bound `Σ_{M≤x, P(M)≤y}τ(A_M²) ≪ Ψ(x,y)(log x)²`
 (shifted smooth numbers, Fouvry–Tenenbaum type) would remove the loss in
 𝔐_R; it is not needed for the exponent.
+
+## 4. Second moments and the leak without B
+
+Fix a prime `ℓ > W` and `v ≥ 1`. Let `𝒞_{ℓ,v}` be the classes of 𝔊 with
+`ℓ^v ∥ G` and `P(G/ℓ^v) < ℓ` (top prime ℓ), and write `G = qℓ^v`. Such a
+class is active at a history iff `n ≡ b (mod q)`, a condition on the
+base and the primes `< ℓ`; it then forbids one class mod `ℓ^v`. So
+
+    p_ℓ ≤ Σ_{v≥1} ℓ^{−v} N_{ℓ,v},   N_{ℓ,v}(n) = #{C ∈ 𝒞_{ℓ,v} : n ≡ b_C (mod q_C)}.
+
+Let `μ_{ℓ,v}(q)` be the number of classes in `𝒞_{ℓ,v}` with cofactor q.
+
+**Lemma 4.1 (reduction to a cofactor sum; PROVED).**
+
+    E_{Q'} N_{ℓ,v}² ≤ C(W) log ℓ · Σ_{P(q) < ℓ, ℓ ∤ q} μ_{ℓ,v}(q)² τ(q)Γ(q)/q.
+
+*Proof.* `E N² = Σ_{C,C'} Q'(n ≡ b_C (q_C), n ≡ b_{C'} (q_{C'}))`. Each
+term is 0 or the probability of one class mod `lcm(q_C, q_{C'})`, so it is
+`≤ Γ(lcm)/lcm` (§2). Group by cofactors and use
+`μ(q)μ(q') ≤ (μ(q)² + μ(q')²)/2` and symmetry:
+`E N² ≤ Σ_q μ(q)² Σ_{q'} Γ(lcm(q,q'))/lcm(q,q')`. Write `g = gcd(q,q')`,
+`q' = gq''`; then `lcm = qq''` and `Γ(lcm) ≤ Γ(q)Γ(q'')`, and
+`q' ↦ (g, q'')` is injective. So the inner sum is
+`≤ τ(q)Γ(q)/q · Σ_{P(q'')<ℓ}Γ(q'')/q'' ≤ τ(q)Γ(q)/q · C(W)log ℓ`
+(Lemma 3.1, η = 0, κ = 1). ∎
+
+(This is ETw Lemma 2.4's expansion, with the pointwise τ-bound replaced
+by AM–GM; nothing is assumed about the size of q.)
+
+**Lemma 4.2 (cofactor sums for the three types; PROVED, Case A
+unconditional).** For every `κ ∈ (0, 1]` there are `c` (absolute) and
+`C_κ(W)` such that for each type
+
+    Σ_{P(q)<ℓ} μ_{ℓ,v}(q)² τ(q)Γ(q)/q ≤ C_κ(W) (v+1)^c [ (log ℓ)^c + ℓ^{κv} ].
+
+*Proof.* Blocks `K < q ≤ 2K` (`K = 2^t`), `u = log K/log ℓ`. In each case a
+block is either *long* (K above a power of `ℓ^v`), where Cauchy–Schwarz
+with Lemma 3.1 (`y = ℓ`) gives `e^{−u/2}` times a polylog, or *short*,
+where pointwise divisor bounds cost `ℓ^{κv}`.
+
+*(a,D).* `μ(q) ≤ μ_{aD}(qℓ^v) ≤ τ(qℓ^v)² ≤ (v+1)²τ(q)²`. So the sum is
+`≤ (v+1)⁴Σ_{P(q)<ℓ}τ(q)⁵Γ(q)/q ≤ C(v+1)⁴(log ℓ)^{32}` (Lemma 3.1, κ = 32). No
+blocks needed.
+
+*ℛ(M).* `μ(q) ≤ τ(A²)`, `A = (qℓ^v+1)/4`. Long blocks, `K ≥ 4ℓ^{v/3}`:
+
+    Σ_{block} τ(A²)²τ(q)Γ(q)/q ≤ (Σ_{block, P(q)<ℓ} τ(q)²Γ(q)²/q)^{1/2} (Σ_{block} τ(A²)⁴/q)^{1/2}.
+
+The first factor is `≤ Ce^{−u/2}(log ℓ)²` (Lemma 3.1, `F = τ²Γ²`,
+κ = 4). In the second, A runs over the class `4^{−1} (mod ℓ^v)` in an
+interval of length `ℓ^vK/4`, and `ℓ^v < (ℓ^vK/4)^{3/4}`. Shiu's theorem
+(as in ET Lemma 3.1; `F = τ(·²)⁴`, `F(p) = 81`, β = 1/4) gives
+`Σ ≪ (ℓ^vK/φ(ℓ^v))(log 2ℓ^vK)^{80}`, so the factor is
+`≤ C((v+u+1)log ℓ)^{40}`. Summing over blocks as in Lemma 3.2:
+`≤ C(v+1)^{40}(log ℓ)^{43}`. Short blocks, `K < 4ℓ^{v/3}`: `A ≤ 4ℓ^{2v}`,
+`q ≤ 8ℓ^{v/3}`, so `τ(A²)²τ(q)Γ(q) ≤ C_κℓ^{κv/2}`, and
+`Σ_{q ≤ 8ℓ^{v/3}}1/q ≤ v log ℓ + 3 ≤ C_κℓ^{κv/2}`.
+
+*Case A.* Here `4rh = qℓ^v` with r squarefree, so `v_ℓ(r) = v₁ ∈ {0,1}`,
+`v_ℓ(h) = v₂ = v − v₁`. Cauchy–Schwarz over the at most `τ(qℓ^v)` pairs
+gives `μ(q)² ≤ (v+1)τ(q)Σ_{4rh=qℓ^v}τ(4rh²+1)²`. Long blocks,
+`K ≥ 128ℓ^{6v}`: Cauchy–Schwarz over pairs (r,h) with q in the block,
+
+    first factor ≤ ((v+1)Σ_{block, P(q)<ℓ} τ(q)⁵Γ(q)²/q)^{1/2} ≤ C(v+1)^{1/2}e^{−u/2}(log ℓ)^{16},
+
+    second factor ≤ (Σ_{v₁} (4/K)Σ_{r'h' ≤ K/2} τ(k r'h'² + 1)⁴)^{1/2},   k = 4ℓ^{v₁+2v₂} ≤ 4ℓ^{2v},
+
+writing `r = ℓ^{v₁}r'`, `h = ℓ^{v₂}h'` (then `r'h' = q/4`). Since
+`K/2 ≥ k³`, Lemma 3.5 (q = 4) bounds the second factor by
+`C(log 2kK)^{c₄/2} ≤ C((2v+u+2)log ℓ)^{c₄/2}`. Summing over blocks:
+`≤ C(v+1)^{c}(log ℓ)^{c}`. Short blocks, `K < 128ℓ^{6v}`: `4rh² + 1 ≤
+ℓ^{O(v)}` and `q ≤ ℓ^{O(v)}`, so pointwise
+`μ(q)²τ(q)Γ(q) ≤ C_κℓ^{κv/2}`, and `Σ_{q≤256ℓ^{6v}}1/q ≤ C_κℓ^{κv/2}`. ∎
+
+**Lemma 4.3 (second moment and leak without B; PROVED, Case A
+unconditional).** For every prime `ℓ > W`,
+`E_{Q'} p_ℓ² ≤ C(W) ℓ^{−7/4}(log ℓ)^{c}`, with `C(W) ≤ C(log W)^{c}`. Hence
+there is an absolute `W₀` such that for `W ≥ W₀`, every family 𝔊 ⊆ 𝔘,
+and the block structure of §5, `𝔏 ≤ 1/2`.
+
+*Proof.* Split `N_{ℓ,v}` by type; Minkowski over types and over v:
+`(E p_ℓ²)^{1/2} ≤ Σ_v ℓ^{−v}Σ_{type}(E N_{ℓ,v,type}²)^{1/2}`. By Lemmas
+4.1–4.2 with `κ = 1/4`, `E N² ≤ C(W)(v+1)^{c}(log ℓ)^{c+1}ℓ^{v/4}`, so
+`(E p_ℓ²)^{1/2} ≤ C(W)Σ_{v≥1}ℓ^{−7v/8}(v+1)^{c}(log ℓ)^{c+1} ≤ C(W)ℓ^{−7/8}(log ℓ)^{c+1}`.
+*W-dependence.* The constants of Lemma 3.1 depend on W only through the
+Euler factors at `p ≤ W`, each `1 + O_{H,a}(1/p)`; their product is
+`≤ C(log W)^{c}`. Shiu's constant is uniform. So `C(W) ≤ C(log W)^c`.
+*Leak.* Every class is decided at its top prime in the order of §5, so
+EK Lemma 4.3 (ETw Lemma 2.1′ and Markov, `E[p1{p>δ}] ≤ E p²/δ`) gives
+`𝔏 ≤ Σ_{ℓ>W}ℓ^{1/2}E p_ℓ² ≤ C(log W)^{c}Σ_{ℓ>W}ℓ^{−5/4}(log ℓ)^{2c+2}
+≪ W^{−1/4}(log W)^{3c+2}`, which is `≤ 1/2` for `W ≥ W₀`. ∎
+
+So W, and every constant below, is absolute: there is no B left to
+depend on.
