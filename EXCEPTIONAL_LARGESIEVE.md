@@ -497,3 +497,26 @@ classes chosen fibrewise over any modulus `Q₀ ≤ N^{O(1)}`, weighted
 sifted sequences (Theorem 3.1, Remark 2.4); and, for prime-slice
 systems, every large sieve system whatsoever (Theorem 4.1) and
 Gallagher's larger sieve (Corollary 6.3, saving O(1)).
+
+## 8. Numerics (EVIDENCE only)
+
+`scripts/ls_duality_check.py` (~10 s, cvxpy):
+1. Theorem 2.1 on 12 random class systems (moduli products of 1–2 primes
+   from {3,…,13}, random weights, Farey frequencies): the two QPs give
+   `F*_w·m_w = 1` to `5·10⁻¹⁵`.
+2. Prime-only systems with Farey frequencies: `F*_1 = S(Q)` to `10⁻¹³`
+   in 8 cases. So for product systems the arithmetic large sieve
+   (Montgomery's lemma) is already the CRT-optimal large sieve; the
+   uniform measure on 𝒜 attains `F*`.
+3. Example 5.2 with `m = 35 = 5·7` and `143 = 11·13`: all residues mod
+   5, 7, 11, 13 occur in 𝒜 (prime-local system empty), while
+   `F*` over the divisors of m equals `m/(m−ω)` = 1.1667, 1.1818.
+4. Theorem 4.1's bound `𝓡(π) ≤ (Q₀/|R|)E_R Π(1+Σ|φ|^{p'})` on 6 random
+   prime-slice systems (`Q₀ = 4`, slice primes 5, 7, 11): holds, with
+   ratios 0.84–0.95.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run --with cvxpy --with numpy python scripts/ls_duality_check.py   # ~10 s
+```
