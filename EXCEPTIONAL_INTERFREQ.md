@@ -66,14 +66,17 @@ Then for every N ≥ 1,
 
 *Proof.* Let `I = [1/2, N + 1/2]`, so `I ∩ ℤ = {1,…,N}` and |I| = N. Put
 δ = 1/D. Selberg's minorant (Vaaler, *Some extremal functions in Fourier
-analysis*, Bull. AMS 12 (1985), Thm 9 and §5; Montgomery, *Ten lectures*,
-Ch. 1) is an integrable F: ℝ → ℝ with
+analysis*, Bull. AMS 12 (1985), the section on Selberg's functions;
+Montgomery, *Ten lectures on the interface between analytic number theory
+and harmonic analysis*, Ch. 1) is an integrable F: ℝ → ℝ with
 * `F(x) ≤ 1_I(x)` for all real x;
 * `F̂(ξ) = ∫F(x)e(−xξ)dx` continuous and supported in `[−δ, δ]`;
 * `F̂(0) = |I| − 1/δ = N − D`.
 
-F is of exponential type 2πδ and `F(x) = O(1/(1+x²))`, so Poisson summation
-holds: `Σ_{n∈ℤ} F(n)e(nθ) = Σ_{k∈ℤ} F̂(k − θ)`. If θ ∉ ℤ has
+F is entire of exponential type 2πδ and in L¹(ℝ), so `Σ_n |F(n)| < ∞`
+(Plancherel–Pólya). The periodisation `P(θ) = Σ_k F̂(k − θ)` is a finite sum
+of continuous functions, with Fourier coefficients `F(n)`; these are
+absolutely summable, so `Σ_{n∈ℤ} F(n)e(nθ) = P(θ)` for every θ (Poisson). If θ ∉ ℤ has
 `den(θ) = q ≤ D`, then `‖θ‖ ≥ 1/q ≥ δ`, so every `|k − θ| ≥ δ` and the sum
 is 0 (F̂ is continuous and vanishes outside (−δ, δ), hence also at ±δ).
 For θ ∈ ℤ it is `F̂(0)`. Since ν is a finite trigonometric sum,
