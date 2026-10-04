@@ -15,7 +15,7 @@ V(law, Q) = min E_law G.  Laws:
 Printed: savings -log V.  Q = inf means all 2^m monomials (V = law(0)).
 
 Run: uv run --with scipy python scripts/interfreq_hitpattern_lp.py N m [all|prime] [LMIN] [OFFSET]
-Memory: sparse matrix with <= 3^m nonzeros (m <= 14: < 5e6); < 2 GB.
+Memory: sparse matrix with <= 3^m nonzeros (m <= 14: < 5e6); < 2 GB.\nQ = inf uses the closed form V = law(0).  Prime mode skips Q = N^3 (slow LPs\non ~300-point empirical laws).  Large OFFSET in prime mode sieves to OFFSET+N.
 """
 import math
 import sys
@@ -88,6 +88,7 @@ def main():
     mode = sys.argv[3] if len(sys.argv) > 3 else "prime"
     LMIN = int(sys.argv[4]) if len(sys.argv) > 4 else 3
     OFF = int(sys.argv[5]) if len(sys.argv) > 5 else 0   # interval [OFF+1, OFF+N]
+    assert m <= 14, "memory bound advertised for m <= 14"
     ls = [int(l) for l in primes_upto(10 ** 6) if l % 4 == 3 and l >= LMIN][:m]
     Fs = [set(forced(l)) for l in ls]
     if mode == "prime":
@@ -117,12 +118,18 @@ def main():
     print(f"void: int {cnt[0]:.5f}  crt {math.prod(1 - x for x in pc):.5f}  "
           f"prodI {math.prod(1 - x for x in pi):.5f}")
     print("Q        #mono  sav_int  sav_crt  sav_prodI")
-    for e in [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0, None]:
-        Q = N ** e if e is not None else float("inf")
-        monos = monomials(ls, Q)
-        vi = solve(monos, m, lambda T: zeta[T])
-        vc = solve(monos, m, mom_prod(pc))
-        vp = solve(monos, m, mom_prod(pi))
+    exps = [0.5, 0.75, 1.0, 1.25, 1.5, 2.0] + ([3.0] if mode == "all" else []) + [None]
+    for e in exps:
+        if e is None:   # full level: V = law(0) exactly (G = 1_{x=0})
+            monos = monomials(ls, float("inf"))
+            vi = cnt[0]
+            vc = math.prod(1 - x for x in pc)
+            vp = math.prod(1 - x for x in pi)
+        else:
+            monos = monomials(ls, N ** e)
+            vi = solve(monos, m, lambda T: zeta[T])
+            vc = solve(monos, m, mom_prod(pc))
+            vp = solve(monos, m, mom_prod(pi))
         lab = f"N^{e}" if e is not None else "inf"
         print(f"{lab:8s} {len(monos):6d}  {-math.log(vi):7.4f}  {-math.log(vc):7.4f}  {-math.log(vp):7.4f}",
               flush=True)

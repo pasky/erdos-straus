@@ -12,17 +12,24 @@ means proved in this file, internal checks only, not refereed. No θ > 3/4.
 | Cor 2.3 | majorants built from classes of modulus ≤ N/2 (any coefficients, any evaluation: exact, dispersion/BFI, Kloosterman, Vaaler, floor/ceiling, smooth windows, any Q₀) save `≤ C(log N)^{3/4}(log log N)^{3/4}` for every K2 forced-class mixture | PROVED (K2 proviso: Case A via ElT Prop 1.4) |
 | Thm 2.5 | **hybrid cap**: any bound B ≥ Σ_{n≤N}ν with `Σ_{d_i>N/2}|a_i| ≤ cB` saves `≤ log(2+12c) + C(log N)^{3/4}(log log N)^{3/4}`; contains K2 Cor 6.1 and Cor 2.3 | PROVED (same proviso) |
 | Prop 3.1 | exact-interval LP value of level-λ hit-pattern majorants depends only on the interval correlation counts `#{n≤N: n ∈ ∩_{ℓ∈T}F_ℓ}`, s(T) ≤ λ (dual: σ ≥ 0 matching moments) | PROVED |
-| Prop 3.2 | averaged over shifts, exact interval counts never save less than CRT (Jensen): an inter-frequency "gain" is generic, not arithmetic; at high level there is no structural barrier, only an evaluation barrier | PROVED |
-| §3.2 | toy full hit-pattern LPs: interval = CRT up to Q = N; above N the gain appears at every shift, and [1,N] gains least | EVIDENCE |
+| Prop 3.2 | averaged over shifts, the exact-interval LP value is ≤ the CRT value (Jensen; an average inequality only) | PROVED |
+| §3.2 | toy full hit-pattern LPs: interval within 0.005 of CRT up to Q = N; above N the deviations are larger and of either sign, mostly gains; [1,N] is not exceptional | EVIDENCE |
 | §3.3 | **reduction**: above N/2 the inter-frequency door *is* the non-CRT tuple-count door: one must count n ≤ N with prescribed witness sets of combined modulus > N/2, better than termwise | PROVED (reduction) / Assessment |
-| Lemma 4.1, 4.2 | (H_eq) may lose a factor N^{−A}; it is equivalent in kind to an interval-window correlation statement for patterns of modulus > N; not needed below level N/2 | PROVED; (H_eq) itself CONJECTURE |
-| §5 | BV/BFI/DI/Zhang-type level-of-distribution inputs live at moduli < N and are capped by Thm 2.5 *whatever their strength*; the needed input (high-order ES witness correlations above modulus N) is not known | PROVED (first part) / Assessment |
+| Lemma 4.1, 4.2 | (H_eq) may lose a factor N^{−A}; a window-correlation lower bound for patterns of modulus > N is a *sufficient* condition for it; not needed for majorants built from classes of modulus ≤ N/2 | PROVED; (H_eq) itself CONJECTURE |
+| §5 | BV/BFI/DI/Zhang-type inputs used as remainder estimates for classes of modulus ≤ N/2, with coefficient-cost charging above N/2, are capped by Thm 2.5 *whatever their strength* (integer avoider count); the input that would be needed (high-order ES witness correlations above modulus N) is not known | PROVED (first part, integer count only) / Assessment |
 
-**Verdict.** The inter-frequency door is closed for every method that
-treats classes of modulus > N/2 at their coefficient cost (Thm 2.5).
-This includes all level-of-distribution/dispersion technology and all
-smoothing. What remains is not a separate door: it is the counting of
-integers ≤ N with many simultaneous large-modulus ES witnesses (§3.3, §5).
+**Verdict.** For the integer avoider count, the inter-frequency door is
+closed for every method of the following kind (Thm 2.5): a nonnegative
+majorant of the *whole* avoider set of a K2 forced-class mixture with
+family primes ≤ N^{O(1)}, whose bound dominates a fixed multiple of the
+coefficient mass on moduli > N/2. Classes of modulus ≤ N/2 may be
+evaluated in any way: exactly, by dispersion, or by smoothing. This does
+*not* cover methods that save on the large-modulus coefficient mass. That
+includes smooth per-frequency bounds above level N/2 (§4, open), prime-only
+counts beyond NC's prime-slice results, and majorants that are ≥ 0 only on
+[1,N]. By §3.3, what remains is the counting of integers ≤ N with
+prescribed large-modulus ES witness sets, done better than termwise. This
+is a reduction of the problem, not a proof that it is hard.
 
 Notation as in `EXCEPTIONAL_NONCRT.md` (NC below), `EXCEPTIONAL_KARY2.md`
 (K2) and `EXCEPTIONAL_THETA.md` (ET). A *majorant* of an avoider set 𝒜 is a
@@ -181,9 +188,9 @@ Let `ν = Σ_i a_i 1[n ≡ b_i (d_i)]` be a majorant of 𝒜(𝔊). Put
 `T_> = Σ_{i: d_i > N/2} |a_i|` (coefficients as written, no merging
 needed). Suppose a method produces a bound B with
 
-    B ≥ Σ_{n≤N} ν(n)   and   T_> ≤ c·B   (c ≥ 0 fixed),             (2.2)
+    B ≥ Σ_{n≤N} ν(n)   and   T_> ≤ c·B   (c ≥ 0),                   (2.2)
 
-and `B = N e^{−s}`. Then, for N ≥ N₀(A),
+and `B = N e^{−s}`. Then, for N ≥ N₀(A) (N₀ and C_A independent of c),
 
     s ≤ log(2 + 12c) + C_A (log N)^{3/4} (log log N)^{3/4},
 
@@ -195,15 +202,17 @@ term by term (classes of modulus ≤ N/2 contribute no error),
 `Σ_n F(n)ν(n) ≥ (N/2)Eν − 6T_>`. With (2.2),
 `B ≥ (N/2)Eν − 6cB`, so `Eν ≤ (2+12c)B/N = (2+12c)e^{−s}`.
 
-*Mean side.* Put `S = log(1/Eν)`; so `s ≤ S + log(2+12c)`. Follow K2
+*Mean side.* If `s ≤ log(2+12c)` there is nothing to prove. Otherwise
+`B < N/(2+12c)`, so `T_> ≤ cB < N/12`, and `Eν < 1`. Put `S = log(1/Eν) > 0`;
+so `s ≤ S + log(2+12c)`. Follow K2
 Cor 6.1's proof, with one change. The projection `ν̄` to the family modulus
 does not raise moduli or coefficient sizes, so the terms of ν̄ of level
 `> log(N/2)` have coefficient sum ≤ T_>. ET Lemma 2.9's proof alters only
 terms of level > λ, so its conclusion holds with T replaced by the
 coefficient sum of those terms. For `λ ≥ log N` this is ≤ T_>.
-And `T_> ≤ cB < cN`. With `Λ₀ = A log N` and
-`λ = Λ₀ + log(max(T_>,1)) + S ≤ (A+1+o(1))log N + S + log(1+c)`, we get a
-majorant of level λ with mean `≤ 2Eν`. K2 Thm 5.1 (resp. 5.2) bounds S
+With `Λ₀ = A log N` and
+`λ = max{λ₀, log N, Λ₀ + log(max(T_>,1)) + S} ≤ (A+1)log N + S + λ₀`, we get
+a majorant of level λ with mean `≤ 2Eν`. K2 Thm 5.1 (resp. 5.2) bounds S
 exactly as in K2 Cor 6.1's case analysis. ∎
 
 *Scope.* Theorem 2.5 contains:
