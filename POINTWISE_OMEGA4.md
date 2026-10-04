@@ -325,8 +325,10 @@ log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
    X := log K + O(1) ≤ (k/a)(2.86k + 5log𝓛 + 3log k + 6) + (B/a)log𝓛 + 2log log H + O(1).
    ```
 5. *Optimise.* Take `k:=⌊(a𝓛/5.72)^{1/3}⌋`. Then `X ≤ 2.86k²/a + O(k log𝓛/a)`,
-   `e^{2X}𝓛 ≤ T^{1/(k+1)}`, and Lemma 4.1 gives
-   `log log p ≤ X + 𝓛/(k+1) + O(log k) ≤ (1.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}`.
+   and Lemma 4.1 gives
+   `log log p ≤ max(X+𝓛/(k+1), 2X+log𝓛) + O(log k)`. Here
+   `X = (0.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}` and `𝓛/k = (1+o(1))(5.72/a)^{1/3}𝓛^{2/3}`,
+   so `log log p ≤ (1.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}`.
    Since `W(p)>T`, `log W(p) ≥ 𝓛 ≥ (1−o(1))(a/5.72)^{1/2}1.5^{−3/2}(log log p)^{3/2}`,
    and `(5.72)^{−1/2}1.5^{−3/2} = 0.227 > 0.2`. ∎
 
