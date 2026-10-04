@@ -435,3 +435,115 @@ Additional caveats (state them):
   the *count* H only (not general hit-pattern majorants).
 * "often by a factor e^5–e^9" holds for Y ≫ N. At Y = N the gap is e^{1.6–2.9}
   (HC = 80) or e^{1.7–3.3} (HC = 200).
+
+## R2.4 Prop 8.4 — **SOUND**; Conj 8.5 — **DEFECTIVE** (numerically contradicted)
+
+Prop 8.4: a = 1 in (60.7) gives `n = 4gv − 1` and `u = d + v`. Then
+`n = 4g(u−d) − 1`, `1 ≤ u−d ≤ (N+1)/(4g)`, and (g, d|g, u−d) determines the datum.
+`Σ_{g≤x}τ(g)/g ≤ (Σ_{m≤x}1/m)² ≤ (1+log x)²`. ✔ The per-integer mean
+`≤ ¼(1+log N)²` is correct up to a factor (N+1)/N, which is absorbed because
+x = (N+1)/4 < N. Numerically (my enumerator `scripts/review_noncrt_conj85.py`):
+the multiplier-one mean is 3.91 / 8.62 / 15.31 at N = 10³ / 3·10⁴ / 10⁶, against the
+bounds 15.6 / 32.0 / 54.9. ✔ The parenthetical about a ≥ 2 (`4D > M`) is correct.
+
+**N12 (major for §8.4–8.6; the PROVED items are unaffected).** Conjecture 8.5
+(`(1/N)Σ_{n≤N}#{data with M > N} ≪ (log N)²`) is contradicted by exact counts.
+I enumerate all Case-B data of all n ≤ N through the normal form. The enumerator
+was cross-checked against the independent (M,D) brute force: N = 200 gives 504 data
+with M > N and 1184 with M ≤ N, identical in both.
+
+| N | mean #data with M > N | ÷ (log N)² | ÷ (log N)³ | mean #data with M ≤ N, ÷ (log N)³ |
+|---|---|---|---|---|
+| 10³ | 4.96 | 0.104 | 0.0151 | 0.0366 |
+| 3·10³ | 7.40 | 0.115 | 0.0144 | 0.0352 |
+| 10⁴ | 10.93 | 0.129 | 0.0140 | 0.0341 |
+| 3·10⁴ | 15.03 | 0.141 | 0.0137 | 0.0333 |
+| 10⁵ | 20.62 | 0.156 | 0.0135 | 0.0325 |
+| 3·10⁵ | 26.83 | 0.169 | 0.0134 | 0.0320 |
+| 10⁶ | 34.98 | 0.183 | 0.0133 | 0.0314 |
+
+The (log N)²-normalised mean rises steadily (×1.76 over the range). The (log N)³-
+normalised mean flattens at ≈ 0.0133. The local exponent between 10⁵ and 10⁶ is 2.88.
+A heuristic agrees. M > N with gv ≤ N/4 forces u > v, so `(a−1)u < d ≤ g`. The count
+is then about `Σ_{gv≤N/4} Σ_{d|g} #{u | d+v : u > v}`. That is N·log N (from g, v)
+× log N (from τ(g)) × log N (from τ(d+v)), so ≍ N(log N)³.
+
+Data with M > N therefore most likely carry ≍ (log N)³ per integer. The thinning
+against CRT is real but only by a **constant factor**. The CRT mass of
+M ∈ (N, M₀] is ≈ 7× the M ≤ N mass, so ≈ 0.22(log N)³, against the observed
+0.0133(log N)³: a factor ≈ 17. It is not a log-power saving.
+
+Repair:
+* withdraw Conj 8.5, or restate it as ≍ c(log N)³ with c far below the CRT constant;
+* withdraw the Assessment's "the CRT picture … is then fictitious above N" and "the
+  high level … cannot come from large slice primes";
+* fix the §0 row and the §8.6 bullet ("conjecturally all moduli above N carry only
+  O((log N)²)").
+Large slice primes (N < M ≤ M₀) do carry a cubic amount of real hit mass on [1,N],
+so the high-level branch (H) of Thm 8.1 is *not* excluded on these grounds.
+
+## R2.5 Prop 8.6 — **SOUND**; Cor 8.7 — **SOUND-AFTER-REPAIRS** (CONDITIONAL, scope of the conclusion)
+
+Prop 8.6: P ≥ 0 on ℤ_{≥0} ⊇ supp π, Lagrange at 0, then `Σ_iπ(y_i)P(y_i) ≤ E_πP`. ✔
+Cor 8.7: the ET Lemma 2.2(c) node bound `|ℓ_i(0)| ≤ (4e√(m/k))^k` does not depend on
+the law (only on m ≥ 64, k ≤ m/16, nodes in [m/2, 2m]). With H_node the saving is
+`≤ k log(4e) + (k/2)log(m/k) + C₀k + ½log m = (k/2)log(16e²m/k) + C₀k + ½log m`. ✔
+
+**N13 (minor-moderate, scope).** The conclusion "beating 3/4 by exact interval counts
+needs degree ≥ (log N)^{3/4+o(1)}" is proved (under H_node) only for k ≤ m/16. For
+k > m/16 the corollary says nothing beyond the trivial `saving ≤ log(1/π_int(0))`.
+The conclusion therefore needs `m = E_int H ≥ 16(log N)^{3/4+δ}`, so that every
+k > m/16 is already that large. This holds for the full Case-B family: m ≍ (log N)³,
+since ≈ 0.045(log N)³ ≈ 118 at N = 10⁶ (table above). It fails for small
+sub-families such as §8.3 (m = 17, so k ≤ 1). Add this hypothesis to the statement.
+
+**N14 (minor, overstatement).** "The LP values in §8.3 are … a direct numerical check
+of the conclusion for k ≤ 10". In §8.3, m ≤ 17 < 16·k for every k ≥ 2, so Cor 8.7
+does not apply there. Its bound with unknown C₀ (≥ 26 + 10C₀ at k = 10, m = 17)
+exceeds the observed savings (≤ 5) trivially. The table is consistent with Cor 8.7
+but does not test it. H_node itself is untested. Note also that the witness count
+is divisor-like (ET Thm 1.8: typical size (log n)^{0.549}, mean (log N)³). So the
+law is far from Poisson around its mean, and C₀ = O(1) is not the natural
+expectation. What makes H_node plausible is the slack `e^{−C₀k}` for
+k ≫ log log N; say so.
+
+## R2.6 §8.6 outcome — **needs revision** (follows N11, N12)
+
+* Bullet 2: delete "Conjecturally all moduli above N carry only O((log N)²)". Replace
+  it with "they carry ≍ (log N)³ per integer, a constant factor (~1/17) below CRT
+  (review numerics)".
+* Bullet 3: replace "Δ_N < 0" with "interval optimum < CRT optimum" (N11). Note that
+  the numbers change with HCAP (N10).
+* Bullet 4: add the k ≤ m/16 / m ≥ (log N)^{3/4+δ} proviso (N13).
+* The last bullet's "door stays open only for degree ≥ (log N)^{3/4} or
+  non-hit-pattern majorants" is conditional on H_node *and* restricted to
+  hit-**count** majorants (polynomials in H). General hit-pattern majorants
+  G((1_W)_W), with low degree but non-symmetric in W, are covered by neither
+  Prop 8.6 nor Cor 8.7. Say so.
+
+## Round 2 summary
+
+| item | verdict |
+|---|---|
+| N1–N8 repairs | all fixed (one stale "1 min" in AGENT_REPORT) |
+| Thm 8.1 | SOUND |
+| Lemma 8.2 | SOUND |
+| Cor 8.3 | SOUND-AFTER-REPAIRS (N9 justification for Lemma 3.2 classes) |
+| §8.3 LPs (EVIDENCE) | SOUND-AFTER-REPAIRS (N10 HCAP truncation, N11 Δ_N inference) |
+| Prop 8.4 | SOUND |
+| Conj 8.5 + its Assessment | DEFECTIVE (N12: data say ≍ (log N)³, not (log N)²) |
+| Prop 8.6 | SOUND |
+| Cor 8.7 (CONDITIONAL on H_node) | SOUND-AFTER-REPAIRS (N13 scope, N14 "numerical check") |
+| §8.6 outcome | revise per N11–N13 |
+
+New defects: **N9** (minor), **N10** (moderate), **N11** (moderate), **N12** (major for
+§8.4–8.6), **N13** (minor-moderate), **N14** (minor). No PROVED statement of §8 is false.
+The defective item is a conjecture and the Assessment built on it. The "no θ > 3/4"
+verdict of the file does not depend on Conj 8.5.
+
+Replay of the round-2 review checks (each < 2 min, < 300 MB):
+```
+PYTHONPATH=scripts uv run --with sympy python scripts/review_noncrt_lemma82.py 300
+PYTHONPATH=scripts uv run python scripts/review_noncrt_conj85.py 1000 3000 10000 30000 100000 300000 1000000
+PYTHONPATH=scripts uv run --with scipy python scripts/review_noncrt_interval.py 30000 3e7 prime   # etc.
+```
