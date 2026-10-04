@@ -288,3 +288,135 @@ factor `≍𝓛/log₂𝓛` in the doubly logarithmic scale." The two quantities
 are `(1+o(1))𝓛log₂𝓛/log𝓛` and `(7+o(1))log𝓛`, whose ratio is
 `≍𝓛·log₂𝓛/(log𝓛)²`, not `𝓛/log₂𝓛`. (Results-at-a-glance item 5 states
 the two quantities correctly.)
+
+---
+
+# Round 2 (subject: side-agent/omega-rate @ b09df4b)
+
+## R2.0 — Repairs D1–D8: all **FIXED**
+
+| | Check against b09df4b |
+|---|---|
+| D1 | Step 1 now has the level-2 `j=1`+`j=2` paragraph with `binom(r,1)+binom(r,2)<2^k` and the per-prime analogue. FIXED |
+| D2 | Cor 3.3 now labelled (TZ+ET / TZ; effectivity caveat). FIXED |
+| D3 | (U) now `C log𝓛(3+𝓛)(1+𝓛)²τ*(4T+1)`. FIXED |
+| D4 | Thm 4.2 step 2 now states `300H(1+log H)<y`, `H=y^{1/2+o(1)}` at the optimum, and the warning. FIXED |
+| D5 | §4.2 EVIDENCE now reports the growth at small X, flat only at `𝓗_1024`, one pair per T, and the domination remark. FIXED |
+| D6 | §4.1 heading relabelled; "artefact" bullet labelled Assessment/EVIDENCE; Prop 11.4 qualifications added; §6 says "worst-case parameter recursion". FIXED (the "entirely the cascade" sentence is also relabelled Assessment) |
+| D7 | §4.4 now speaks of the certified bound. FIXED |
+| D8 | §5 and results-at-a-glance now give `≍𝓛log₂𝓛/(log𝓛)²`. FIXED |
+
+## R2.1 — Lemma 7.1 (b-parametrisation). Verdict: **SOUND** (minor wording)
+
+Class `−a/b` (O3 Lemma 2.1) gives `a≡κb`; substituting in `4sab≡1`
+gives `s≡(4κb²)^{−1}` (b is a unit mod q since `q|4sab−1`). ✔ The weight
+bound `P(e∖O)≤C log𝓛·qm/M`, `≤C log𝓛/y`, with `m|a+b`, is correct.
+Wording: "iff" should be "only if" (survival `m|4D+1` and `M≤T` are
+extra conditions); harmless since it is used only as an upper bound.
+The display defining `h_1` is garbled ("`4sa²≡κ… i.e.`").
+
+## R2.2 — Proposition 7.2. Verdict: **SOUND-AFTER-REPAIRS** (R2-D2)
+
+* Period expansion: `(1/b_0+𝓛/q)(1/a_0+𝓛/q)(1/s_0+𝓛/q)·q` summed over β
+  gives (i), (ii), the omitted one-boundary terms `≪𝓛³/q` (absorbed in
+  (i)), and the core. ✔
+* Quadratic planes: per box `≤2min(Y,2^{ω(q)}X)` points (one s per b
+  below q; `≤2^{ω(q)}` square roots per s), so box sum `≤2(2^ω/(XY))^{1/2}`,
+  summed over the `≪(log q)²` boxes with `XY≳h`: `≪𝓛²2^{ω/2}h^{−1/2}`. ✔
+* Lattice plane: boxes with `4XY<q` hold collinear points on one ray
+  (`|det|≥q` otherwise) of height `≥h_3`: `≪1/h_3` each; boxes with
+  `XY≥q/4` hold `≤2min(X,Y)` points, so `≤4q^{−1/2}` each. ✔ (The text
+  does not spell out the second half; it is a one-liner, add it.)
+
+**R2-D2 (gap (iii) mischaracterised).** (iii) is described as "the
+factor m multiplies (i)–(ii) by a divisor average τ(a+b)… routine-looking".
+That is right only for terms where s runs over full periods. For fixed
+`m|a+b`, `qm|M` puts s in a single class mod `qm` (indeed
+`s≡−(4a²)^{−1} (m)`), and in the s-*boundary* terms (`𝓛Σ1/(βs_β)`,
+`𝓛Σ1/(a_βs_β)` and the core) the weight becomes `qm/(4ab·s^{(m)})` with
+`s^{(m)}` the least representative mod `qm`: a factor up to
+`m·s_β/s^{(m)}`, not 1. So (iii) is not just a τ-average over lattice
+points; the s-boundary terms need their own treatment. Consequently the
+verdict sentence "It holds with `a=1/2` for the non-core terms, modulo a
+τ-in-lattice average (iii)" overstates. Repair: restate (iii) as
+"m-refinement of the s-progression (least residues mod qm) plus τ(a+b)
+averages; not done", and drop "routine-looking".
+
+## R2.3 — Proposition 7.3. Verdict: **DEFECTIVE as worded** (R2-D1, substantive)
+
+* Ray algebra ✔: `a≡κb` along `t(u,v)` iff `u≡κv`; then
+  `4κb²=4t²uv`, so `s_t` is as stated and the term is `≍1/n_t`.
+* Counting `#{(s,t): st²≡w, s≤Y, t≤t_0} ≤ min(t_0,2^{ω+1}Y)` ✔. Summing
+  dyadic Y gives `O(2^{ω(q)}log q)`, not `O(2^{ω(q)})` (harmless in HC).
+  Per ray, `≤4t_0/y=4(q/h)^{1/2}/y` ✔; rays: `≪(log q)²` (one per box) ✔.
+
+**R2-D1 (the "closing" regime is empty).** Prop 7.3 says "for vertex
+sets with `q≤y^{2−ε}` the method closes", and the checkpoint-2 verdict
+and AGENT_REPORT_O6 repeat it ("It also holds for all vertex sets with
+`q≤y^{2−ε}`"). But O has `|O|≥2` vertices at distinct free primes, all
+`>y` (Construction 2.0: `𝒫⊆(y,T]`), so **`q>y^{|O|}≥y²` always**. The
+regime `q≤y^{2−ε}` contains no vertex set relevant to HC. What the ray
+bound actually gives is `core ≪ 𝓛²(q/(hy²))^{1/2}`, i.e. HC-shaped only
+for `q≤y²𝓛^{O(1)}` (pairs with both primes in `(y, y𝓛^{O(1)}]`), a
+negligible slice. So §7 closes **no** nontrivial class of vertex sets;
+every relevant O is in the "hard" regime. Repair: delete the
+`q≤y^{2−ε}` claim (§7.3 bullet 1, checkpoint-2 verdict, AGENT_REPORT
+Checkpoint 2) or replace it by the correct `q≤y²𝓛^{O(1)}` statement with
+a note that it is near-vacuous. (Also: the mixed-sign single-line term
+`≪2^{ω/2}q^{1/4}y^{−1/2}` is asserted without proof; label it.) The
+label "counting statement PROVED" is fine for the two displayed counts;
+the HC consequence must not be advertised.
+
+## R2.4 — Lemma 7.4 / §7.4. Verdict: **DEFECTIVE label** (R2-D3)
+
+**R2-D3 (non sequitur under a PROVED label).** The proof itself allows
+an unforbidden atom to be "an event **or be killed by one**". Killing a
+3-prime atom `ℓ_1ℓ_2ℓ'` by a *coarser* event (e.g. its class mod
+`ℓ_1ℓ'`, `q≈y²`) is logically allowed. Its sub-sets then have small q.
+So "Hence the events include vertex sets O with `q(O)=T^{1−1/(k+1)+o(1)}`"
+does not follow; the AGENT_REPORT version ("Every surviving atom must be
+an event") is stronger still and false as stated. What is true:
+(a) in this family B equals 1 at every void point (truncated
+inclusion–exclusion is exact at `A(x)=∅`; decoupling/Brun factors are 1
+there), so every surviving atom's class must be covered by events, and
+(b) avoiding large-q sets would force coarsening to sub-classes, whose
+mass is presumably prohibitive (many atoms per coarse class) — but
+that is an *estimate*, i.e. Assessment. Also the proof's "B that is ≥0
+on that class with positive weight" should be "B=1 at a void point of
+that class", using (a). Repair: PROVED part = (a) + "covered by events";
+the large-q conclusion → Assessment (or prove the coarsening mass bound).
+The rest of §7.4 is labelled Assessment and reads as such ✔.
+
+## R2.5 — §7.5 (route (α), problem IS). Verdict: labels **honest**; minor R2-D4
+
+* Header and all conclusions are Assessment; the `(log₂p)^{4/3}` claim
+  is explicitly conditional on inputs (1)–(3), "none proved", and Cor
+  3.1/3.2 are restated as the proved rates. ✔ Arithmetic
+  (`log H≈k³`, `k≈𝓛^{1/4}`, `𝓛≈(log₂p)^{4/3}`) ✔.
+* Weil completion `N=t_0Y/q+O(c^{ω(q)}q^{1/2}log²q)` ✔ in shape (constant
+  per prime is 2–3, so `2^{ω}` may need `3^{ω}`; harmless). Markov count
+  `t_0/η` ✔ (`Σ_wN=#pairs≤Yt_0`). Chebyshev step ✔ given the second
+  moment.
+
+**R2-D4 (minor).** The second-moment count uses "`𝓛^{O(1)}` (divisor
+bound for the representations)". The divisor bound gives
+`τ(x′)≤exp(O(𝓛/log𝓛))` pointwise for `x′=s′t′²≤Yt_0²`, not `𝓛^{O(1)}`;
+polylog needs an average of representation numbers over the progression
+`x′≡x (q)`, which is itself a short-range equidistribution input. Either
+state the `T^{o(1)}` loss or add it to the required inputs. Also, as in
+D4, the (α) bookkeeping has `log H≈k³≈log y` at the optimum, so
+`300H(1+log H)<y` must be checked with constants.
+
+## Round 2 summary
+
+* D1–D8: all FIXED.
+* §7: Lemma 7.1 SOUND; Prop 7.2 SOUND-AFTER-REPAIRS (R2-D2: gap (iii)
+  is bigger than a τ-average); **Prop 7.3 DEFECTIVE as worded (R2-D1: the
+  "closes for `q≤y^{2−ε}`" regime is empty, since `q>y²` for every
+  relevant O)**; **Lemma 7.4 DEFECTIVE label (R2-D3: large-q conclusion
+  does not follow; coarser killing events are allowed)**; §7.5 honest
+  (R2-D4 minor).
+* Net: §7 proves no part of HC. Its correct content is the
+  reduction to the inverse-square problem IS (an honest Assessment
+  plus the elementary counts). Required before merge: R2-D1, R2-D3 (also in
+  AGENT_REPORT_O6), R2-D2; R2-D4 recommended.

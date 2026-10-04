@@ -5,7 +5,7 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 (PO), `POINTWISE_OMEGA2.md` (O2) and `POINTWISE_OMEGA3.md` (O3). `𝓛=log T`;
 `log_j` is the j-fold iterated logarithm.
 
-**Results at a glance.**
+**Results at a glance.** (Hostile review `reviews/pointwise-omega4-review.md` on branch `side-agent/review-omega4`: Thm 1.1, 2.1, Cor 3.1–3.3 SOUND; repairs D1–D8 applied.)
 
 1. **Theorem 1.1** (PROVED; bookkeeping on O3 Thm 5.1): the k-level
    minorant has `log K ≤ (k−1)!·(log(3Ŝ+k+1)+8.06k+5log k+10.1)+102`.
@@ -37,7 +37,8 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 5. **Haar side (Prop 5.1, PROVED).** It is polynomial in k:
    `log(1/δ*) ≤ π(z)𝓛+8k_z²S*𝓛+4S*`. This gives `log(1/δ*) ≪ 𝓛^7log𝓛`
    (ET), the Haar form of `exp((log p)^{1/7})`. The prime/Haar gap is
-   `𝓛log₂𝓛/log𝓛` against `7log𝓛` in `log log` of the scale.
+   `𝓛log₂𝓛/log𝓛` against `7log𝓛` in `log log` of the scale (ratio
+   `≍𝓛log₂𝓛/(log𝓛)²`).
 
 ## 0. What is made explicit
 
@@ -108,6 +109,10 @@ and edges). Finally level-2 vertices of degree `>δ` become singles.
   at most
   `2^k·(2k/δ_*)·(8kẐ_r/δ_*)^{j−1}·Σ_r ≤ (β_kẐ_r)^j`, and the per-prime mass
   at ℓ is at most `β_k^jẐ_r^{j−1}w^{(r)}_ℓ` (`1≤j≤r−1`; `j=1` = singles).
+  Level 2 receives both `j=1` and `j=2`; together they carry
+  `≤(binom(r,1)+binom(r,2))(2k/δ_*)(8kẐ_r/δ_*)Ẑ_r ≤ (β_kẐ_r)²`, since
+  `binom(r,1)+binom(r,2)<2^k`, and per prime `≤β_k²Ẑ_rw^{(r)}_ℓ`. So the
+  bounds below hold for level 2 as well (review D1).
 
 **Step 2 (the recursion).** Level `r−1` is frozen after all levels `s≥r`
 have pushed into it, so `Σ_{r−1} ≤ Ŝ + Σ_{s≥r}(β_kẐ_s)^{r−1} ≤ Ŝ+k(β_kẐ_r)^{r−1}`.
@@ -223,7 +228,7 @@ follow from `(C_{k,T})` with `C_2:=6C_1e^{206}` (note `k+1≤𝓛`, and
 
 Two bounds for `S*` are available (O2 Lemma 11.1):
 
-* (U) unconditionally, `S* ≤ C log𝓛·𝓛³·τ*(T+2) = exp((log 2+o(1))𝓛/log𝓛)` (Wigert);
+* (U) unconditionally, `S* ≤ C log𝓛·(3+𝓛)(1+𝓛)²·τ*(4T+1) = exp((log 2+o(1))𝓛/log𝓛)` (Wigert);
 * (ET) modulo Elsholtz–Tao Prop. 1.4 (a published theorem, used as in
   PO Lemma 9.2), `S* ≪ 𝓛^4 log𝓛`.
 
@@ -261,7 +266,7 @@ Conclude as in Cor 3.1. ∎
 infinitely many p with an explicit `k=k(p)→∞`. In uniform form,
 `log L_h(T) ≤ T^{1/κ(𝓛)}` with `1/κ(𝓛) ~ log₃T/log₂T`:
 
-**Corollary 3.3 (uniform form).** For all large T there is a hard prime p
+**Corollary 3.3 (uniform form; PROVED modulo Thorner–Zaman and ET Prop. 1.4 (first form), modulo Thorner–Zaman (second form); effective, the first form provided ET Prop. 1.4's constant is effective).** For all large T there is a hard prime p
 with `W(p)>T` and `log log p ≤ 𝓛/κ(𝓛)` (under ET), resp. `≤𝓛/κ_0(𝓛)`
 (unconditionally in the sense of Cor 3.2). So
 `log log L_h(T) ≤ (1+o(1))𝓛·log₂𝓛/log𝓛`, resp. `≤ (1+o(1))𝓛·log₃𝓛/log₂𝓛`.
@@ -271,7 +276,7 @@ fixed k, i.e. `o(𝓛)` with no rate.
 
 ## 4. The bottleneck
 
-### 4.1 Anatomy of the factorial (PROVED, about the scheme)
+### 4.1 Anatomy of the factorial (first paragraph PROVED about the scheme's parameter recursion; the bullets as labelled)
 
 In Theorem 1.1 the factorial comes from one inequality only, the Markov
 push (Step 1): the mass pushed from level r into size j is bounded by
@@ -286,11 +291,14 @@ factor `3kβ_k^{r−1}`, i.e. the additive `b_k` in `z_r`.
 
 Two facts locate the problem precisely.
 
-* **Markov is sharp at the first push** (O2 Prop 11.4, O3 Prop 2.2): at
+* **Markov is sharp at the first push** (O2 Prop 11.4, PROVED for
+  `D*≤(log T)^A` via Siegel–Walfisz, ineffective; uniformity in `t=1/L`
+  needs an averaged form, O2 §11.4; O3 Prop 2.2): at
   level 3 the pairs of codegree `>t` have mass `≫(1/t)log(1/t)`, the
   Markov bound up to the log. So the first push cannot be made cheaper
   by better counting.
-* **The cascade is an artefact.** The heavy sets are κ-monochromatic
+* **The cascade is an artefact** (*Assessment/EVIDENCE*: O3 §2 data are
+  one pair per T at k=3; the statements for `j≥3` are heuristic). The heavy sets are κ-monochromatic
   (all vertices `(ℓ_i, κ mod ℓ_i)` for one rational κ of small height;
   O3 §2 EVIDENCE for pairs; Prop 2.2 for the three families). A pushed
   κ-monochromatic j-set has level-j sub-codegrees `≍1`, so the scheme
@@ -313,9 +321,12 @@ H-hub deleted, every vertex set O with `2≤|O|≤k−1` and no H-hub has
 codegree `Δ_O ≤ 𝓛^B H^{−a}`.
 
 Vertex *degrees* are not part of HC: they are enforced by Markov at cost
-`kS_H/δ_k` (O2 Thm 10.3 step 1). EVIDENCE for `|O|=2`, `k=3` is O3 §2:
-the maximum outside `𝓗_X` decays like `X^{−0.7}` at fixed T, with no
-growth in T over `10^9…10^13`. Nothing is known for `|O|≥3`.
+`kS_H/δ_k` (O2 Thm 10.3 step 1). EVIDENCE for `|O|=2`, `k=3` is O3 §2: one pair per T, with θ varying. The
+maximum outside `𝓗_X` decays like `X^{−0.7}` at fixed T. In T it grows at
+small X (outside `𝓗_16`: 0.034→0.089 over `10^9…10^13`) and is flat only
+in the `𝓗_1024` column. HC tolerates `𝓛^B` growth. Those data are maxima
+over joint classes without deleting hub events, which dominates the HC
+quantity. Nothing is known for `|O|≥3`.
 
 **Lemma 4.1 (transfer bookkeeping; PROVED modulo Thorner–Zaman).**
 Suppose, for Construction 2.0 with some Π, `|Π∖Π_0|≤e^X`, and a minorant
@@ -339,7 +350,11 @@ log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
    `c:=δ_k e^{−0.011k}/(64k)`, so `|𝓑| ≤ kŜ/c = e^{O(k)}Ŝ`.
 2. *Hub quarantine.* Impose `X_ℓ∉𝓗_H(ℓ^{e_ℓ})` at every free ℓ by O3
    Thm 1.1/Cor 1.2 (decoupling) with the conditioned measure P′.
-   `h_ℓ ≤ 3H(1+log H)/(ℓ−1) ≤ 1/100` since `ℓ>y≫H`, and
+   `h_ℓ ≤ 3H(1+log H)/(ℓ−1) ≤ 1/100` because `300H(1+log H)<y`. At the k
+   of step 5, `log H=(0.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}` and
+   `log y=(1+o(1))(5.72/a)^{1/3}𝓛^{2/3}`, so `H=y^{1/2+o(1)}`. This holds
+   only because of the optimisation; impose `300H(1+log H)<y` if k is
+   changed (review D4). Also
    `S_hub ≤ 3H(1+log H)(log(k+1)+1)` (Mertens over `y<ℓ≤T`). Under P′,
    events with an H-hub have measure 0, and `p′≤p·(100/99)`, so all
    masses and codegrees grow by at most `e^{0.011k}`.
@@ -364,7 +379,8 @@ log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
    Since `W(p)>T`, `log W(p) ≥ 𝓛 ≥ (1−o(1))(a/5.72)^{1/2}1.5^{−3/2}(log log p)^{3/2}`,
    and `(5.72)^{−1/2}1.5^{−3/2} = 0.227 > 0.2`. ∎
 
-So the factorial of Theorem 1.1 is *entirely* the cascade: an arithmetic
+*Assessment:* Thm 4.2 shows that HC suffices to avoid the cascade (it
+does not show that nothing else could force factorial growth): an arithmetic
 codegree bound of polynomial strength in the hub height would replace
 `(k−1)!` by `k²` in `log K`.
 
@@ -416,8 +432,9 @@ Consequences (same bookkeeping as Thm 4.2):
   `y ≤ 𝓛^{O(1)}`, and the events then have up to `k ≍ 𝓛/log𝓛` free
   primes.
 * *Assessment.* With `k≍𝓛/log𝓛`, items 1–2 of §4.3 give
-  `log K ≳ k log k ≍ 𝓛`. Then `log p ≥ K ≥ T^{c'}`, which is no better
-  than the trivial range. So `exp((log p)^c)` needs a minorant whose
+  `log K ≳ k log k ≍ 𝓛`. Then the bound the method certifies,
+  `log p ≤ C_1K·max(log Z,K)`, is `≥K≥T^{c'}`, which is no better than the
+  trivial range. So `exp((log p)^c)` needs a minorant whose
   ℓ¹-cost does not grow with the number of free primes per event, i.e.
   one that tracks the local lemma as the Haar side does (§5).
 
@@ -446,7 +463,7 @@ log(1/δ*(T)) ≤ π(z)𝓛 + 8k_z²S*𝓛 + 4S*.
 * **The gap, quantitatively.** In the uniform form, the prime side now
   proves `log log L_h(T) ≤ (1+o(1))𝓛 log₂𝓛/log𝓛` (Cor 3.3, ET). The Haar
   side gives `log log(1/δ*) ≤ (7+o(1))log𝓛`. The prime side is weaker
-  by a factor `≍𝓛/log₂𝓛` in the doubly logarithmic scale.
+  by a factor `≍𝓛·log₂𝓛/(log𝓛)²` in the doubly logarithmic scale.
 
 ## 6. EVIDENCE and checks
 
@@ -459,8 +476,9 @@ log(1/δ*(T)) ≤ π(z)𝓛 + 8k_z²S*𝓛 + 4S*.
     `Ŝ∈{10,10³,10⁶}`. All bounds hold, with about a factor 2 to spare
     in the logarithm.
   * The exact recursion itself grows like `(k−1)!`: `log K/(k−1)! ≈ 41`
-    at `k=8`. So the factorial is real for the scheme as written, not an
-    artefact of the closed form.
+    at `k=8`. So the factorial is real for the *worst-case parameter
+    recursion* (Markov-saturated pushes), not an artefact of the closed
+    form. The actual pushed masses of the ES system are not computed.
 * `scripts/omega4_rates.py rates` (`data/omega4/rates.txt`) tabulates
   κ, κ_0 and the Thm 4.2 constant. For example `κ(10^{10})=9` and
   `κ(10^{100})=66`, where the argument is 𝓛, so `T=e^{10^{10}}`. No
@@ -477,3 +495,224 @@ export PYTHONPATH=scripts
 uv run python scripts/omega4_rates.py recursion   # <1 s -> data/omega4/recursion.txt
 uv run python scripts/omega4_rates.py rates       # <1 s -> data/omega4/rates.txt
 ```
+
+## 7. Attacking HC(a,B): a reduction and a sharp obstruction (checkpoint 2)
+
+Fix a vertex set O at the free primes `ℓ_1,…,ℓ_{j+1}`, squarefree for
+simplicity, `q:=∏ℓ_i`, with CRT class c mod q. Put `κ:=−c`.
+
+**Lemma 7.1 (b-parametrisation; PROVED).** An atom `(s,a,b)` (O3 Lemma 2.1)
+gives an event containing O iff `q | 4sab−1` and `a ≡ κb (mod q)`. This
+holds iff, with `β:=b mod q`,
+
+```
+a ≡ κβ,    s ≡ (4κβ²)^{−1}    (mod q).
+```
+
+So for each residue β of b, both a and s lie in a *single* class mod q
+(`a_β`, `s_β`, least positive representatives).
+
+*Proof.* The class is `−a/b` (O3 Lemma 2.1), so the class condition is
+`a≡−cb`. Then `4sab≡1` reads `4sκb²≡1`. ∎
+
+Weights: such an event e has `P(e∖O)=1/φ(n′)`, where `M=qmn′`, m is the
+Π-part and n′ is the rest of the rough part. Moreover `n′>1` has a prime
+`>y` (e strictly contains O), and `m | gcd(M,4D+1) | a+b` (O3 Lemma 2.1(2)).
+Hence `P(e∖O) ≤ C log𝓛·qm/M` with `m|a+b`, and also `≤ C log𝓛/y`.
+
+**Three heights.** Lemma 7.1 brings out the three hub families of O3
+Prop 2.2 as the three planes of the parametrisation:
+
+```
+h_3(c):=min{ab : a≡κb},   h_1(c):=min{sa : 4sa²≡κ… i.e. −4sa²≡c},   h_2(c):=min{sb : −1/(4sb²)≡c}
+```
+
+(minima over positive integers, all congruences mod q). c is outside
+`𝓗_H` iff `h_1,h_2,h_3 > H` (up to the factor conventions of O3
+Def 2.3).
+
+**Proposition 7.2 (the non-core terms; PROVED, except the τ-average in
+(iii)).** Ignore first the factor m (put `m=1`). Expanding
+`Σ_{b≡β}Σ_{a≡a_β}Σ_{s≡s_β} q/(4sab)` over full periods, Δ_O splits as:
+
+* (i) `𝓛³/q` (all three variables run over at least a full period);
+* (ii) two-variable boundary terms `𝓛Σ_{β<q}1/(βa_β)`,
+  `𝓛Σ_{β<q}1/(βs_β)` and `𝓛Σ_β 1/(a_βs_β)`. These are pair sums over
+  `[1,q)²` along the planes `a≡κb` (a lattice of determinant q),
+  `4κsb²≡1` and `4sa²≡κ`. Dyadic boxes contain no point below the
+  relevant height. A box `X×Y` of a quadratic plane has
+  `≤2min(Y,2^{ω(q)}X)` points (`≤2^{ω(q)}` square roots per residue), so
+  the box sum is `≤2(2^{ω(q)}/(XY))^{1/2}`. In the lattice plane, points
+  with `ab<q/4` lie on one ray per box. Hence
+  ```
+  (ii) ≪ 𝓛²·2^{ω(q)/2}·(h_1^{−1/2}+h_2^{−1/2}) + 𝓛³(h_3^{−1}+q^{−1/2});
+  ```
+* (iii) the factor m multiplies (i)–(ii) by a divisor average
+  `Σ_{m|a+b}1 = τ(a+b)` over the relevant points. Pointwise this is only
+  `T^{o(1)}`, which is too weak for HC. A polylog bound needs τ-sums over
+  lattice points in boxes (sublattices `d|a+b`, determinant qd). This is
+  routine-looking but **not done**;
+* (iv) the **core**: `Σ_{β<q} q/(βa_βs_β)` over the β with
+  `4βa_βs_β ≥ qy`, i.e. triples with all of `s,a,b<q`.
+
+So (i)–(iii) give exactly the HC shape with `a=1/2`, polylog `𝓛^B`, and
+an `e^{O(k)}` factor `2^{ω(q)/2}`, which is harmless in Thm 4.2. The
+whole difficulty is the core.
+
+**Proposition 7.3 (the core is a short-range inverse problem; the
+counting statement is PROVED, its consequence for HC is an Assessment).**
+Take a non-hub ray `(a,b)=t(u,v)` with `uv=h>H`, `t≤(q/(4h))^{1/2}`, and
+`s=s_t`, the least s with `4st²h≡1 (mod q)`. These are core triples.
+Their contribution to the core is
+
+```
+Σ_t q/(t²h·s_t) = Σ_t 4/n_t,    n_t:=(4s_tt²h−1)/q,
+```
+
+so it is `≍#{t : s_t ≤ Y}/Y` at scale `n_t≍Y≥y`.
+
+* *Elementary counting.* Pairs `(s,t)` with `st²≡w (mod q)`, `s≤Y` and
+  `t≤t_0` number at most `min(t_0, 2^{ω(q)+1}Y)`. Summing over scales
+  gives a core contribution `O(2^{ω(q)})` in general, and `≤(q/h)^{1/2}/y`
+  for this ray. The core points off rays (`ab≥q/4`) are handled the
+  same way. A mixed-sign short lattice vector (the class `+u/v`) leaves
+  a single-line term `≪2^{ω(q)/2}q^{1/4}y^{−1/2}`. So **for vertex sets
+  with `q≤y^{2−ε}` the method closes**: the core is
+  `≪2^{ω(q)}(y^{−ε/4}+H^{−1/2})`. (EVIDENCE-level bookkeeping: the
+  off-ray estimate is sketched, not written out.)
+* *For `q ≫ y²`* (for instance a pair with one prime near `T/y`), the
+  core bound one needs is `#{t≤(q/h)^{1/2} : (wt^{−2} mod q) ≤ Y} ≪ ηY`
+  for `Y≥y`. Here `(q/h)^{1/2}·Y/q` is the expected count. This is
+  equidistribution of `w·t^{−2} mod q` in intervals of length
+  `Y≪q^{1/2}`, with t in a range of length `≤q^{1/2}`. The Weil bound
+  for incomplete Kloosterman-type sums is trivial there, since it needs
+  t-ranges `≥q^{1/2+ε}`. Divisor and lattice counting, which ignores the
+  residues, cannot beat `O(2^{ω(q)})`: the adversarial residue pattern
+  (`s_t≈y` for all t) is consistent with every counting constraint used
+  in (i)–(iv).
+
+**Verdict (checkpoint 2).** HC(a,B) is **sharply reduced, not proved**.
+It holds with `a=1/2` for the non-core terms, modulo a τ-in-lattice
+average (iii). It also holds for all vertex sets with `q≤y^{2−ε}` (core sketched).
+What remains is a worst-case short-interval statement for modular
+inverses of squares, `w·t^{−2} mod q` with `t≤(q/h)^{1/2}`, for moduli
+q that are products of `≤k` primes in `(y,T]`. It lies beyond the Weil
+range. Thm 4.2 is therefore not unconditional.
+
+*Possible ways around it (not pursued).*
+
+* (α) Lemma 10.2 needs only *maximal* codegrees. An averaged HC (over c
+  mod q, weighted by `P(O)`) follows from (i)–(iii) plus the trivial
+  `Σ_cΔ_O(c)=q·w_q`. Using it requires a Markov push for the rare bad
+  sets, and that brings back a (much smaller) cascade.
+* (β) Change the construction so that heavy-q vertex sets cannot occur,
+  for example by splitting the free range `(y,T]` into scales. This is
+  untested.
+
+### 7.4 Route (β): restricting atoms cannot remove large-q vertex sets (PROVED), and what is left (Assessment)
+
+**Lemma 7.4 (PROVED).** Any construction of this family must satisfy
+`B ≤ 1[W>T]` on `n≡1 (Q)` with `Q ⊇ ∏_{ℓ≤y}ℓ^{e_ℓ}`. In any such
+construction, every atom surviving Π with rough part `r>1` must be
+forbidden by some event, because otherwise (I) fails at the CRT point
+realising it. Hence the events include vertex sets O with
+`q(O) = T^{1−1/(k+1)+o(1)}`. Example: `M = ℓ_1ℓ_2ℓ'`, with
+`ℓ_1∈(y,2y]`, `ℓ'∈(y,2y]`, `ℓ_2≍T/y²` prime, and O the pair at
+`ℓ_1,ℓ_2`. Then `q≍T/y ≫ y²` for `k≥3`. So "keeping fewer atoms" is not
+available, and neither is enlarging Π to the large primes, which would
+cost `log Q ≥ θ(T/y²)`.
+
+*Proof.* (I) is the only link between B and W (O2 Lemma 4.3 (I)). An
+unforbidden surviving atom gives a residue class `n≡−4D (M)`, compatible
+with `n≡1 (Q)`, on which `W(n)≤T` holds while no event occurs. Then any
+B that is ≥0 on that class with positive weight violates the minorant.
+Since B is a minorant of the void indicator only, the atom must be an
+event or be killed by one. ∎
+
+*What (β) would have to be instead (Assessment, not pursued).*
+
+* Rescaling must act on the **minorant**, not on the atom set. One
+  natural form is a further composition level whose *outer* sieve
+  variables are the coordinates at large primes `ℓ>y^{2−ε}`. In the
+  inner system, cell-conditioning on those coordinates turns a large-q
+  set O into an induced set at small primes only, where Prop 7.3 closes.
+* The cost would be the large-prime level's own truncation and induced
+  mass, as `H_r` in Thm 1.1. Codegrees at the outer level involve only
+  sets of large primes, and those are again large-q.
+* So this just moves the obstruction, unless the large-prime level has
+  degree-only structure. An event of support ≤k has at most
+  `⌊(1+1/k)·log T/log y^{2−ε}⌋ ≤ (k+1)/2` primes above `y^{2−ε}`, so
+  that level has supports about k/2: a recursion `k→k/2` with the same
+  problem.
+* I estimate this gives at best `log₂k` levels of HC-type input, each
+  with the same short-interval inverse problem at its own scale. So
+  (β) does not remove the obstruction of Prop 7.3.
+
+**Status after checkpoint 3:**
+
+* HC(a,B) remains open.
+* Unconditionally (mod TZ, ET) the best rate is Cor 3.1:
+  `log W ≥ (1+o(1))log₂p·log₃p/log₄p`.
+* Off-ray core estimate and gap (iii): not done; context exhausted.
+
+### 7.5 Route (α) and the inverse-square problem (Assessment; checkpoint 4)
+
+**Problem IS(q; t_0, Y)** (precise form of the core obstruction).
+Setting:
+
+* q is squarefree, a product of `≤k` primes in `(y,T]`, and `(w,q)=1`;
+* `N(q,w) := #{t≤t_0, (t,q)=1 : (w·t̄² mod q) ∈ [1,Y]}`, where t̄ is the
+  inverse mod q;
+* the relevant range is `t_0≤(q/h)^{1/2}` and `y≤Y≤q^{1/2}`.
+
+HC for large-q sets needs `N(q,w) ≪ 𝓛^B·Y·h^{−a}` **for every** w (with
+h the ray height). The expected value is `t_0Y/q ≤ Y/(qh)^{1/2}`.
+
+* *Why beyond Weil.* Completing the t-sum and using the Weil bound for
+  `Σ_{t mod q}e((wt̄²·u+tv)/q) ≪ 2^{ω(q)}q^{1/2}` gives
+  `N = t_0Y/q + O(2^{ω(q)}q^{1/2}log² q)`. The error exceeds the target
+  `Y ≤ q^{1/2}`. Weil is nontrivial only for t-ranges `≥q^{1/2+ε}`, but
+  here `t_0≤q^{1/2}`. The problem is of the same type as small values of
+  modular inverses in short ranges, which is open in this generality.
+* *What averaging buys.* Expand
+  `Σ_{w mod q}N(q,w)² = #{s t'² ≡ s′t² (q) : s,s′≤Y, t,t′≤t_0}`. The
+  numbers `st′², s′t²` are `≤Yt_0²`, so the count is at most
+  `(Yt_0²/q+1)·Yt_0·𝓛^{O(1)}` (divisor bound for the representations).
+  Hence
+  ```
+  #{w : N(q,w) ≥ ηY} ≤ t_0(1+Y/h)𝓛^{O(1)}/(η²Y),
+  ```
+  against the Markov count `t_0/η`. The saving factor is
+  `≍1/(ηh)+1/(ηY)`. Averaging over q as well, by the large sieve over
+  moduli `q~Q`, adds nothing essential here: the saving is already in
+  the w-average, and q enters only through the trivial term.
+
+**(α) with this rarity.**
+
+* Bad sets (`Δ_O>η`, non-hub) are pushed down by Markov. Their mass is
+  smaller than O3's Markov push by the rarity factor `≈1/(ηH)`. With
+  `H≥η^{−2}` the pushed mass is `O(Ŝ)`. So the pushed levels'
+  truncations are **not** inflated (`L′≈e^{O(k)}(Ŝ+H_r)`), and that
+  inflation is what produced the factorial.
+* The cascade remains. A subset O′ of a pushed set needs a codegree
+  bound at its new level. That bound comes only from O′ not being
+  pushed itself, via `Δ^{new}_{O′} ≤ binom·η_{|O′|}/η_{|O|}`. So the
+  thresholds must satisfy `η_i ≤ η_j·L′^{−(i−1)}` for `i<j`, which gives
+  `log(1/η_2) ≈ k·log L′ + log(1/η_k) ≈ k³`.
+* The resulting bookkeeping (as in Thm 4.2, with `log H≈k³`) is
+  `log log p ≈ k³+𝓛/k`, so `k≈𝓛^{1/4}` and **`log W ≳ (log₂p)^{4/3}`**.
+* *Required inputs, none proved:*
+  * (1) the second-moment rarity for the **full** codegree, not just the
+    ray core. This includes gap (iii) (τ(a+b) lattice averages) and the
+    off-ray core;
+  * (2) rarity uniform over all `≤k`-prime moduli q in the full scale
+    range;
+  * (3) a check that the pushed rare sets' induced masses under cell
+    conditioning stay `O(Ŝ)`.
+
+  Each looks like standard but substantial divisor-sum work.
+
+**Verdict.** (α) is the most promising route found. If (1)–(3) hold, it
+would give an unconditional (mod TZ, ET) `log W(p) ≥ c(log₂p)^{4/3}` i.o.,
+a power improvement over Cor 3.1 (`log₂p·log₃p/log₄p`). It is **not
+proved**. Cor 3.1/3.2 remain the proved rates.
