@@ -16556,4 +16556,81 @@ print("\n== (cd) EXCEPTIONAL_THETA: Prop 2.4 thinning/symmetrisation (reduction 
 check_cd()
 
 
+# ---------------------------------------------------------------- (ce)
+# EXCEPTIONAL_BALANCED.md: Lemma 4.1 (the (s,r,k) parametrisation) exhaustively
+# for every M = q*ell = 3 (4), M <= 6000, ell any prime factor, A = (M+1)/4:
+# {D : D | A^2} = {s r^2 : A = s r k, s squarefree}; gcd(k,q) = gcd(r,q) = 1,
+# ell does not divide k; q | n+4D iff q | nk+r for every n mod q; and
+# -4D = -r k^{-1} (mod ell).  Lemma 2.1 (eta-gapped => (U)) on all M <= 2*10^5,
+# M = 3 (4), for eta in {1/4, 1/2, 1} (w0 = 10, s0 = log w0): P(M) || M, and
+# every prime factor > w0 of M/P(M) lies in a strictly earlier window.
+
+def check_ce():
+    from time import perf_counter
+    t0 = perf_counter()
+    X = 6000
+    npairs = ntrip = 0
+    for M in range(3, X + 1, 4):
+        A = (M + 1) // 4
+        divA2 = set(_o9_divisors({r: 2 * e for r, e in factorint(A).items()}))
+        trip = []
+        for sr in _o9_divisors(factorint(A)):
+            k = A // sr
+            for r in _o9_divisors(factorint(sr)):
+                s = sr // r
+                if all(e == 1 for e in factorint(s).values()):
+                    trip.append((s, r, k))
+        Ds = [s * r * r for s, r, k in trip]
+        assert len(Ds) == len(set(Ds)) and set(Ds) == divA2, ("BAL Lemma 4.1: D | A^2 iff A = srk", M)
+        for ell in factorint(M):
+            q = M // ell
+            npairs += 1
+            assert 4 * A == q * ell + 1
+            for s, r, k in trip:
+                D = s * r * r
+                assert gcd(k, q) == 1 and gcd(r, q) == 1 and k % ell, ("BAL Lemma 4.1(1)", M, ell, D)
+                for n in range(q):
+                    assert ((n + 4 * D) % q == 0) == ((n * k + r) % q == 0), ("BAL Lemma 4.1(2)", M, ell, D, n)
+                assert (-4 * D) % ell == (-r * pow(k, -1, ell)) % ell, ("BAL Lemma 4.1(3)", M, ell, D)
+                ntrip += 1
+
+    # Lemma 2.1
+    Y = 200_000
+    spf = _o9_spf(Y)
+    w0 = 10
+    s0 = log(w0)
+    ngapped = {}
+    for a, b in ((5, 4), (3, 2), (2, 1)):           # 1 + eta = a/b
+        def window(ell):                           # j with s_j < log ell <= s_{j+1}, s_j = s0 (1+eta)^{j-1}
+            j = 1
+            while log(ell) > s0 * (a / b) ** j:
+                j += 1
+            return j
+        cnt = 0
+        for M in range(3, Y + 1, 4):
+            f = _o9_factor(M, spf)
+            P = max(f)
+            if P <= w0:
+                continue
+            rest = sorted([r for r, e in f.items() for _ in range(e)])
+            rest.remove(P)
+            P2 = max(rest) if rest else 1
+            if P ** b < P2 ** a:                    # gapped: P >= P2^(1+eta), exactly
+                continue
+            cnt += 1
+            assert f[P] == 1, ("BAL Lemma 2.1(1)", M)
+            jP = window(P)
+            for r in set(rest):
+                if r > w0:
+                    assert window(r) < jP, ("BAL Lemma 2.1(2)", M, a, b)
+        ngapped[f"{a}/{b}"] = cnt
+    print(f"ce Lemma 4.1: {npairs} (M, ell) pairs, M <= {X}, {ntrip} (s,r,k) triples, all n mod q: 0 failures")
+    print(f"ce Lemma 2.1: gapped M <= {Y} by 1+eta: {ngapped}; 0 failures; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ce) EXCEPTIONAL_BALANCED: (s,r,k) parametrisation Lemma 4.1, gapped => (U) Lemma 2.1 ==")
+check_ce()
+
+
 print("\nall checks passed")
