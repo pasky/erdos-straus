@@ -290,4 +290,145 @@ evaluating it presupposes knowing the avoider set
 \cite[\S2.4]{ET}.  Such methods are not sieves in the present sense.
 \end{remark}
 
+\section{The sieve-limit theorem}\label{sec:limit}
+
+All results of this section are from \cite[\S2]{ET}; the review
+\cite[items~1--2]{ETrev} found them sound and checked every intermediate
+inequality against exact linear programmes on small systems.  Write
+$C_4=8\e^5$.
+
+\subsection{Two one-dimensional lemmas}
+\begin{lemma}[binomial mass; \lab{proved}]\label{lem:binom}
+Let $\psi=\Bin(z,q)$ with $0<q\leq1/4$ and $\mu'=zq$.  For every integer
+$1\leq y\leq z-1$,
+$\psi(y)\geq(8y)^{-1/2}\exp\{-\tfrac43(y-\mu')^2/\mu'\}$.
+\end{lemma}
+\begin{proof}
+By \cite[Ch.~10, Lemma~7]{MS},
+$\binom zy\geq(8y(1-y/z))^{-1/2}\e^{zH(y/z)}$, so
+$\psi(y)\geq(8y)^{-1/2}\e^{-zD(y/z\|q)}$.  The bound
+$D(a\|q)\leq(a-q)^2/(q(1-q))$ gives
+$zD\leq(y-\mu')^2/(\mu'(1-q))\leq\frac43(y-\mu')^2/\mu'$.
+\end{proof}
+
+\begin{lemma}[node lemma; \lab{proved}]\label{lem:node}
+Keep $\psi,q,\mu'$ as in Lemma~\ref{lem:binom}.  For a set $Y$ of $k+1$
+distinct integers in $[0,z]$ let $B(Y)=\max_{y\in Y}|\ell^Y_y(0)|/\psi(y)$,
+where $\ell^Y_y$ is the Lagrange basis polynomial of $Y$.  Then every
+polynomial $P$ of degree at most $k$ with $P\geq0$ on $Y$ satisfies
+$|P(0)|\leq B(Y)\sum_{y\in Y}\psi(y)P(y)$.  Let $B(k)=\min_YB(Y)$ and
+$C_1=16\e^6$.  Then
+\begin{enumerate}
+\item[(a)] $\log B(0)\leq\frac12\log(8\mu'+8)+2$;
+\item[(b)] $\log B(k)\leq4\log(4/3)\mu'\leq1.151\mu'$ for every $k\leq z$;
+\item[(c)] if $\mu'\geq64$ and $1\leq k\leq\mu'/16$, then
+  $\log B(k)\leq\frac k2\log(C_1\mu'/k)+\frac12\log(16\mu')$.
+\end{enumerate}
+Consequently, for all $\alpha,s>0$ and $0\leq k\leq z$,
+\begin{equation}\label{eq:node}
+ \log B(k)\leq19\alpha ks+C_4\mu'\e^{-2\alpha s}+\tfrac12\log(16\mu'+16)+74.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The inequality for $P$ is Lagrange interpolation $P(0)=\sum_y\ell_y(0)P(y)$
+with $P\geq0$ on $Y$.
+(a) If $\mu'\geq1$ then $z\geq4$; take the single node
+$y=\lceil\mu'\rceil\leq z-1$ and apply Lemma~\ref{lem:binom} with
+$|y-\mu'|\leq1$.  If $\mu'<1$ take the node $0$:
+$\psi(0)=(1-q)^z\geq\e^{-1.151\mu'}$.
+(b) Take $Y=\{0,\dots,k\}$; then $\ell_y(0)=\delta_{y0}$ and
+$B=1/\psi(0)\leq\e^{1.151\mu'}$.
+(c) Take nodes $y_i=a+ih$, $0\leq i\leq k$, with
+$W=\lceil\sqrt{k\mu'}/2\rceil$, $h=\lceil2W/k\rceil$, $a=\lceil\mu'\rceil-W$.
+Since $k\leq\mu'/16$ and $\mu'\geq64$, every node lies in
+$[\mu'/2,2\mu']\subseteq[1,z-1]$ and $|y_i-\mu'|\leq\sqrt{k\mu'}$, so
+Lemma~\ref{lem:binom} gives $\psi(y_i)\geq(16\mu')^{-1/2}\e^{-4k/3}$.
+Next $|\ell_i(0)|=\prod_{j\neq i}y_j/(h^ki!(k-i)!)$, and
+$\prod_{j\neq i}y_j\leq(2\mu')^k$, $k!/(i!(k-i)!)\leq2^k$, $k!\geq(k/\e)^k$
+and $h\geq\sqrt{\mu'/k}$ give $|\ell_i(0)|\leq(4\e\sqrt{\mu'/k})^k$.
+Multiplying gives (c), since $16\e^{2+8/3}\leq C_1$.
+
+For \eqref{eq:node}: when (c) applies, use
+$\frac k2\log(C_1\mu'/k)\leq\alpha ks+(C_1\mu'/2\e)\e^{-2\alpha s}$ (the
+maximum over real $k$ of the difference), and $C_1/(2\e)=C_4$.  Otherwise
+use (a) or (b): if $\mu'<64$ then $1.151\mu'\leq74$; if $k>\mu'/16$ and
+$\alpha s\geq1$ then $1.151\mu'\leq18.5k\leq19\alpha ks$; if $\alpha s<1$
+then $1.151\mu'\leq8.6\mu'\e^{-2\alpha s}$.
+\end{proof}
+
+\begin{lemma}[combination technique; standard; \lab{proved}]\label{lem:comb}
+Let $\Lambda\subset\Z_{\geq0}^G$ be a lower set and $P_\Lambda$ the span of
+the monomials $x^a$, $a\in\Lambda$.  For each coordinate $g$ and degree $k$
+let $I^{(g)}_k$ be Lagrange interpolation at any $k+1$ distinct nodes, and
+put $c_j=\sum_{e\in\{0,1\}^G,\ j+e\in\Lambda}(-1)^{|e|}$.  Then for
+$Q\in P_\Lambda$,
+$Q=\sum_{j\in\Lambda}c_j\bigl(\bigotimes_gI^{(g)}_{j_g}\bigr)Q$, and
+$|c_j|\leq2^G$.
+\end{lemma}
+\begin{proof}
+Put $\Delta_k=I_k-I_{k-1}$ with $I_{-1}=0$; expanding
+$\sum_{j\in\Lambda}\bigotimes_g\Delta_{j_g}$ gives the coefficients $c_j$.
+For $a\in\Lambda$, $\Delta_{j_g}x_g^{a_g}=0$ when $j_g>a_g$, and the box
+$\{j\leq a\}$ lies in $\Lambda$, so the sum applied to $x^a$ is
+$\prod_g\sum_{j_g\leq a_g}\Delta_{j_g}x_g^{a_g}=x^a$.
+\end{proof}
+
+\subsection{The Boolean proposition}
+Let $x_i\sim\Bern(p_i)$, $i\in I$, be independent, with weights
+$s_i\geq s_*>0$.  A function $f$ on $\{0,1\}^I$ is \emph{$\lambda$-level} if
+$f=\sum_Tf_T$ where $f_T$ depends only on $x_T$ and
+$\sum_{i\in T}s_i\leq\lambda$.
+
+\begin{proposition}[{\cite[Prop.~2.4]{ET}}; \lab{proved}]\label{prop:boolean}
+Assume $p_i\leq1/4$ whenever $s_i\leq\lambda$, and $p_i<1$ for all $i$.  Let
+$f$ be $\lambda$-level with $f\geq0$ and $f(0)\geq1$, and let
+$\lambda\geq s_*$.  Put $G=\lfloor\log_2(\lambda/s_*)\rfloor+1$ and
+$\mu=\sum_{s_i\leq\lambda}p_i$.  Then for every $\alpha>0$,
+\begin{equation}\label{eq:boolean}
+ \log\frac1{\E f}\leq19\alpha\lambda+C_4\sum_{s_i\leq\lambda}p_i\e^{-\alpha s_i}
+ +G\bigl(75+\log(2+\lambda/s_*)\bigr)+\frac G2\log(16\mu+16).
+\end{equation}
+\end{proposition}
+\begin{proof}
+\emph{Step 0.} No $f_T$ contains an $i$ with $s_i>\lambda$, so $f$ ignores
+those coordinates; discard them, coordinates with $p_i=0$, and empty bands.
+
+\emph{Step 1 (bands).} Put $B_g=\{i:2^gs_*\leq s_i<2^{g+1}s_*\}$ for
+$0\leq g<G$, $s_g=2^gs_*$ and $q_g=\max_{i\in B_g}p_i\leq1/4$.
+
+\emph{Step 2 (thinning).} Take independent $u_i\sim\Bern(q_g)$ and
+$w_i\sim\Bern(p_i/q_g)$; then $u_iw_i$ has the law of $x_i$.  Fix $w$, let
+$Z_g=\{i\in B_g:w_i=1\}$ and $z_g=|Z_g|$.  Then $f_w(u)=f(u\circ w)$
+depends only on $u_Z$, is $\lambda$-level and nonnegative, and
+$f_w(0)\geq1$.
+
+\emph{Step 3 (symmetrisation).} Average $f_w$ over $\prod_g\mathrm{Sym}(Z_g)$,
+which preserves the law of $u$.  Each monomial $u^S$ of a term $f_T$ has
+multidegree $(|S\cap Z_g|)_g$ in the lower set
+$\Lambda=\{j:\sum_gj_gs_g\leq\lambda\}$, and symmetrises to
+$\prod_g\binom{K_g}{|S_g|}/\binom{z_g}{|S_g|}$ with $K_g=|u_{Z_g}|$.  Hence
+$\E_uf_w=\E Q(K)$ where $Q\in P_\Lambda$, the $K_g\sim\Bin(z_g,q_g)$ are
+independent, $Q\geq0$ on $\prod_g\{0,\dots,z_g\}$ and $Q(0)\geq1$.  Reducing
+modulo $\prod_{i=0}^{z_g}(K_g-i)$ we may take $Q\in P_{\Lambda'}$,
+$\Lambda'=\Lambda\cap\prod_g[0,z_g]$.
+
+\emph{Step 4 (interpolation).} Choose the node sets of Lemma~\ref{lem:node}
+inside $\{0,\dots,z_g\}$ and apply Lemma~\ref{lem:comb} at $0$.  All grid
+points are support points, where $Q\geq0$, so
+\[
+ 1\leq Q(0)\leq\Bigl(2^G|\Lambda'|\max_{j\in\Lambda'}\prod_gB_g(j_g)\Bigr)\E Q(K).
+\]
+(If $z_g=0$ then $j_g=0$ on $\Lambda'$ and $B_g(0)=1$.)
+
+\emph{Step 5 (bounds).} Apply \eqref{eq:node} with $s=s_g$ and
+$\mu'=q_gz_g$, using $\sum_gj_gs_g\leq\lambda$ and
+$|\Lambda|\leq(1+\lambda/s_*)^G$:
+$\log(1/\E_uf_w)\leq\Phi(w)$, where
+$\Phi(w)=19\alpha\lambda+\sum_g[C_4q_gz_g\e^{-2\alpha s_g}+\frac12\log(16q_gz_g+16)+74]
++G\log2+G\log(1+\lambda/s_*)$.  By Jensen,
+$\E f=\E_w\E_uf_w\geq\e^{-\E_w\Phi(w)}$.  Finally $\E_wq_gz_g=\sum_{B_g}p_i$,
+concavity of $\log$, $\e^{-2\alpha s_g}\leq\e^{-\alpha s_i}$ on $B_g$, and
+$\sum_g\log(16\mu_g+16)\leq G\log(16\mu+16)$.
+\end{proof}
+
 \end{document}
