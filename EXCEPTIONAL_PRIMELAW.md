@@ -394,3 +394,59 @@ classes are one of the four types. So K2 Thm 5.1 / Cor 6.1 apply directly,
 for every mixture, with no extra term and no level hypothesis on the
 augmented system beyond K2's own (K2 Remark 5.4 is the case of the 3/4
 note). Under E* (this file) the selector classes are not even needed.
+
+## 5. Numerics (EVIDENCE / sanity checks only)
+
+`scripts/primelaw_checks.py` (~21 s, < 0.6 GB), output
+`data/primelaw/checks.txt`:
+1. Lemma 2.3 for every prime `17 ≤ ℓ ≤ 10⁶`: `max (γ*−1)/(2ℓ^{−1/2}) =
+   0.830`, `max (γ*²−1)/(5ℓ^{−1/2}) = 0.798` (both must be ≤ 1; the
+   analytic proof covers all ℓ).
+2. Lemma 2.1(2): `φ(Q₀)/|R_W^□| = 2^{π(W)+1}` for four W-smooth `Q₀`
+   (W = 5, 7, 13; high prime powers included).
+3. Remark 3.3: all 22,502 ℛ(M)-residues (`M ≤ 4000`) and all 16,406
+   Case-A residues (`d ≤ 3000`) are units mod G. Of 36,000 (a,D)-classes
+   (`a ≤ 60, D ≤ 600`), 21,398 are non-units; the non-unit primes are
+   exactly `{2 if a even} ∪ {odd ℓ | gcd(a,D)}` in every case. Under `E*`
+   these classes are free.
+4. Toy exact LP. Family: all 3,875 classes of the four types with modulus
+   dividing `L = 8·3·5·7·11·13`; "arity level" k = number of primes ≥ 5
+   per modulus of ν. Integer LP (family plus selector classes for all
+   `p | L`, ν ≥ 0 on ℤ/L) versus unit LP (1.1):
+
+   | k | log(1/Eν*) integer | log(1/E*ν*) unit | difference |
+   |---|---|---|---|
+   | 0 | 3.178 | 2.079 | 1.099 |
+   | 1 | 4.094 | 2.773 | 1.322 |
+   | 2 | 4.984 | 3.615 | 1.368 |
+
+   The difference stays below `log(L/φ(L)) = 1.651`, as it must (restrict
+   an integer-feasible ν to the units). k = 3 did not finish in 40 min
+   (HiGHS, 120,120 rows); not needed. This is a consistency check of the
+   setting, not of the asymptotic theorem.
+
+## 6. What remains excluded
+
+1. *The `(log log N)^{3/4}` factor* for unbounded-B families, exactly as
+   K2 §6 item 1 (none under bounded B).
+2. *Majorant conditions weaker than Definition 1.1.*
+   * `ν(p) ≥ 0` only for primes `p ≤ N` (the prime analogue of "ν ≥ 0
+     only on [1,N]"; the LP then contains the exact count).
+   * `ν(p) ≥ 1` only on the actual exceptional primes, or only on
+     `𝒜 ∩ [1,N]`: using *which* primes are exceptional is non-CRT input.
+     Definition 1.1 asks `ν ≥ 1` on all primes of `𝒜(𝔊)`, which is what a
+     method that knows only the family 𝔊 can certify.
+3. *Signed error accounting, unconditionally.* Corollary 4.2 assumes
+   `Err ≥ 0`. Under GRH this is removed (Prop 4.3). Unconditionally the
+   known error terms are too weak to reach the main term at all (NC
+   Remark 3.4; Assessment), so this is not a route above 3/4 either, but
+   it is not a theorem.
+4. *Budgets.* Moduli of ν beyond `N^{O(1)}` together with
+   `Σ|a_i| > N^{O(1)}` (outside (H1) and (H2)); family primes beyond
+   `N^{O(1)}` under (H2).
+5. *Other prime-sum methods.* Bounds for the exceptional primes that are
+   not of the form `Σ_{p≤N}ν(p)` (bilinear Type I/II input, Vinogradov
+   sums, Halász); the large sieve applied to the primes
+   (`EXCEPTIONAL_LARGESIEVE.md` is stated for the integer measure; its
+   duality Thm 2.1 under `E*` is not checked here).
+6. *External input.* The Case-A part uses ElT Prop 1.4 (as K2).
