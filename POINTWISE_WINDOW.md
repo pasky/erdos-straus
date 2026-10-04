@@ -22,9 +22,12 @@ Status: checkpoint 1 (2026-10-04). Not yet reviewed.
 | §3, §5 | `N_3(x)/(x/(log x)^{3/2})` flat at 0.0123–0.0126 to `10^{11}`; joint F1 counts flat at scale `x/(log x)^{1+J/2}` for J≤8; 5731 primes `p<10^{11}`, `p≡1 (840)`, with `a_min≥35` by F1 alone | EVIDENCE |
 
 Goal 2 answer: the largest K reached unconditionally is **7**. K=11 is
-reached on EH. Unconditional K=11 needs level `ϑ≥1`, or a bilinear
-(parity-breaking) input, for a two-condition semi-linear problem on
-shifted primes. We know of no such result in the literature (searched
+reached on EH. The proof of W2 uses level `x^{1−ε_0}` for one absolute
+small `ε_0`, so a fixed level ϑ close to 1 would suffice. Within the two
+sieve routes analysed in §7, unconditional K=11 needs such a level, or a
+bilinear (parity-breaking) input, for a two-condition semi-linear problem
+on shifted primes. This is a statement about those routes, not about all
+methods. We know of no such result in the literature (searched
 2026-10-04; nearest: FHRSS 2025, one form only).
 
 ## 1. Setup: window failure as a sifting condition
@@ -163,7 +166,8 @@ prime factor of m `≡1 (mod 3)`. Hence `N_3(x)≥S(A,P,z)−T_1−T_2`, where
 So `T_2≤C_3 ε^{3/2} x/(log x)^{3/2}`, with `C_3=27√2·C_0C_2` absolute.
 
 **Step 5.** `N_3(x) ≥ (c_1ε^{1/2}−C_3ε^{3/2})x/(log x)^{3/2} − 2x^{1/2+ε}`. Take
-`ε=min(1/20, c_1/(2C_3))`: `N_3(x)≥(c_1/2)ε^{1/2}x/(log x)^{3/2}` for `x≥x_0`. ∎
+`ε=min(1/20, c_1/(2C_3))`: then `c_1ε^{1/2}−C_3ε^{3/2}≥(c_1/2)ε^{1/2}`, and
+absorbing `2x^{1/2+ε}` gives `N_3(x)≥(c_1/4)ε^{1/2}x/(log x)^{3/2}` for `x≥x_0`. ∎
 
 **Remarks.**
 * The whole difficulty of "complete absence" sits in Step 4. The
@@ -213,7 +217,7 @@ Fuchs–Hsu–Rickards–Schindler–Stange, *Primes represented by shifted
 quadratic forms: on primitivity and congruence classes*, arXiv:2504.20289
 (archived `sources/sieve/2504.20289.{pdf,txt}`), Theorem 1.1(2): for a
 primitive positive definite form `f` with `(a,2D)=1`, `B≥1`, `A≠0`,
-`gcd(A,B)=1`, `2|AB` or `D≢5 (8)`, and `gcd(m,2DB)=1`, `gcd(l−A,m)=1`, the
+`gcd(A,B)=1`, `2|AB` or `D≢5 (8)`, and `gcd(l,m)=1`, `gcd(m,2DB)=1`, `gcd(l−A,m)=1`, the
 number of primes `p≤N`, `p≡l (m)`, primitively represented by `Bf(x,y)+A`
 is `≫N/(log N)^{3/2}`. Take `f=x^2+xy+y^2` (`D=−3`, `a=1`), `B=4`, `A=−3`,
 `m=35`, `l=1`. A primitive value `n=f(x,y)` has no prime factor `≡2 (3)`
@@ -391,7 +395,7 @@ the level. So it needs `β_{J/2}≤2ϑ`, with `β_κ` the sifting limit.
 | J (windows) | K reached | κ | needs | available |
 |---|---|---|---|---|
 | 1 | 7 | 1/2 | `β_{1/2}=1≤2ϑ`: ϑ≥1/2 | BV: **unconditional (W1)** |
-| 2 | 11 | 1 | `β_1=2≤2ϑ`: ϑ≥1 (any `ϑ>1−2ε`) | **EH (W2)** |
+| 2 | 11 | 1 | `β_1=2<2ϑ/(1−2ε)`: ϑ>1−2ε, for some small absolute ε | **EH (W2)**; a fixed level `1−ε_0` suffices |
 | ≥3 | ≥15 | ≥3/2 | `β_{3/2}≤2ϑ≤2` | impossible if `β^{opt}_{3/2}>2` |
 
 * `β_{1/2}=1` and `β_1=2` are optimal (Iwaniec; Selberg's parity examples).
@@ -413,8 +417,8 @@ window has two or more large bad primes, the smaller one is `<√x`, so
 `1[clean_q] ≥ 1 − #{q-bad r|n_q : z≤r<√x}`.
 
 **Proposition 7.2 (zero margin at level x; PROVED, as a computation with
-the linear-sieve functions).** Take `J=2` and level `D=x` (EH taken
-literally), with `2≤s≤3`. Bound each subtracted set `A_r` by the linear
+the linear-sieve functions).** Take `J=2` and the idealised endpoint level
+`D=x`, with `2≤s≤3`. Bound each subtracted set `A_r` by the linear
 upper sieve, at level `D/r` with sifting limit z. Then the main term and
 the subtraction cancel identically:
 ```
@@ -422,7 +426,7 @@ f(s) − Σ_{q∈{3,7}} (1/2)∫_{1/s}^{1/2} F(s(1−α)) dα/α
   = 2e^γ log(s−1)/s − ∫_{1/s}^{1/2} 2e^γ dα/(s α(1−α)) = 0 .
 ```
 (The bad primes of each window have density 1/2, so
-`Σ_{r∈P_q, r≈x^α} g(r)` contributes `(1/2)dα/α`. The level for `A_r` is
+`Σ_{r∈P_q, r≈x^α} g_q(r)` with the window-specific density `g_q(r)=1/(r−1)` contributes `(1/2)dα/α`. The level for `A_r` is
 `x^{1−α}`, and `F(t)=2e^γ/t` for `t≤3`. The integral is
 `(2e^γ/s)[log(α/(1−α))]_{1/s}^{1/2}=(2e^γ/s)log(s−1)`.)
 
@@ -450,8 +454,8 @@ the bad count is a congruence datum (Lemma 1.2). That forces a sifted
   congruence-parity of Lemma 1.2. At BV level (`ϑ=1/2`), the two-window
   problem asks a linear sieve to sift beyond `z=x^{1/4}=D^{1/2}`, which is
   precisely where the Selberg example forces `f(s)=0` (`s≤2`).
-  Unconditional `K=11` would therefore need either a level of
-  distribution `ϑ≥1` for the relevant sequences, or a genuinely bilinear
+  Within these routes, unconditional `K=11` would therefore need either a
+  level of distribution close to 1 for the relevant sequences, or a genuinely bilinear
   (Chen-switching / Type-II) input that breaks the linear-sieve parity
   barrier for this problem. We have done neither.
 * **Unboundedly many windows: dimension, not parity.** By Lemma 6.1,
