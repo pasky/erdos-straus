@@ -104,4 +104,90 @@ found; it may be folklore in spirit.  Novelty is not claimed.
 
 \section{Forced classes}\label{sec:forced}
 
+A residue class $b\pmod G$ is \emph{forced} if every positive integer
+$n\equiv b\pmod G$ is representable.  We use three families of forced
+classes.  For an integer $D\geq1$ put
+$g(D)=\prod_pp^{\lceil v_p(D)/2\rceil}$, so that $g(D)\mid D\mid g(D)^2$
+and, for every integer $x$, $D\mid x^2\iff g(D)\mid x$.
+
+\begin{lemma}[multiplier identity; {\cite[Lemma~2.1]{LL}}; \lab{proved}]\label{lem:identity}
+Let $M\equiv3\pmod4$, $A=(M+1)/4$, and $A=uvw$ with positive integers
+$u,v,w$.  If $n\geq1$ and $nv\equiv-u\pmod M$, then $s=(nv+u)/M$ is a
+positive integer and $4/n=1/(suw)+1/(nsvw)+1/(nuvw)$.
+\end{lemma}
+\begin{proof}
+On the common denominator $nsuvw$ the numerators sum to
+$nv+u+s=s(M+1)=4suvw$.
+\end{proof}
+
+\begin{lemma}[the classes $\cR(M)$; {\cite[Lemma~18.1]{Notes}}; \lab{proved}]\label{lem:RM}
+For $M\equiv3\pmod4$ let $\cR(M)$ be the set of classes $-uv^{-1}\pmod M$
+over all factorisations $A=uvw$.  Then
+\[
+ \cR(M)=\{-4D\pmod M:\ D\mid A^2\},\qquad
+ |\cR(M)|\leq\tau(A^2),
+\]
+and every class of $\cR(M)$ is forced.
+\end{lemma}
+\begin{proof}
+Since $4A\equiv1\pmod M$, a factorisation $A=uvw$ gives
+$-uv^{-1}\equiv-u^2wA^{-1}\equiv-4u^2w\pmod M$ with $u^2w\mid A^2$.
+Conversely, if $A=\prod p^{e_p}$ and $D=\prod p^{d_p}$ with $d_p\leq2e_p$, put
+$v_p(u)=\lfloor d_p/2\rfloor$, $v_p(w)=d_p-2\lfloor d_p/2\rfloor$ and
+$v_p(v)=e_p-v_p(u)-v_p(w)\geq0$; then $uvw=A$ and $u^2w=D$.  Forcedness is
+Lemma~\ref{lem:identity}.
+\end{proof}
+
+\begin{lemma}[$(a,D)$-classes; {\cite[Lemma~3.2]{ET}}; \lab{proved}]\label{lem:aD}
+For all integers $a,D\geq1$ the class $n\equiv-(4D+a)\pmod{4a\,g(D)}$ is
+forced.
+\end{lemma}
+\begin{proof}
+Write $n+4D+a=4a\,g(D)\,j$ with $j\geq1$.  Then $M:=(n+4D)/a=4g(D)j-1$ is
+$\equiv3\pmod4$ and $(M+1)/4=g(D)j$, so $D\mid g(D)^2\mid((M+1)/4)^2$.
+Since $n\equiv-4D\pmod M$, $n$ lies in a class of $\cR(M)$, and
+Lemma~\ref{lem:RM} applies.
+\end{proof}
+These classes encode exactly the Case-B witnesses of the classical
+parametrisation \cite[Thm~3.1(B)]{Notes} (see \cite[Lemma~3.2]{ET}).
+
+\begin{lemma}[Case-A classes; {\cite[\S3]{ET}}; \lab{proved}]\label{lem:caseA}
+For $d\geq1$ and $m\mid4d+1$ (so $m$ is odd and $(m,4g(d))=1$), the class
+$n\equiv-m^{-1}\pmod{4g(d)}$ is forced.
+\end{lemma}
+\begin{proof}
+Put $z_0=(nm+1)/4$, an integer.  Then $g(d)\mid z_0$, so $d\mid z_0^2$;
+and $m\mid 4d+1$ gives $m\mid 4d+4z_0$, so $m\mid d+z_0$.  With
+$x=(z_0+d)/m$ and $y=(z_0+z_0^2/d)/m=z_0(d+z_0)/(dm)$, both integers since
+$(m,d)=1$, one has $1/x+1/y=m/z_0$, hence
+$1/x+1/y+1/(nz_0)=(nm+1)/(nz_0)=4/n$.
+\end{proof}
+
+We write \emph{Case-B classes} for the classes of $\cR(M)$ and the
+$(a,D)$-classes, and \emph{Case-A classes} for those of
+Lemma~\ref{lem:caseA}.  Two facts are used repeatedly.
+
+\begin{lemma}[$n=1$ is never covered; \lab{proved}]\label{lem:one}
+No forced class contains $n=1$.
+\end{lemma}
+\begin{proof}
+$4/1>3\geq1/x_1+1/x_2+1/x_3$.
+\end{proof}
+
+\begin{lemma}[Mordell's obstruction; classical; {\cite[Lemma~1.1]{TW}}; \lab{proved}]\label{lem:mordell}
+Let $M\equiv3\pmod4$, $A=(M+1)/4$ and $D\mid A^2$.  Then $(D,M)=1$ and
+the Jacobi symbol satisfies $\bigl(\frac{-4D}{M}\bigr)=-1$.  Consequently,
+if $n$ is a nonzero quadratic residue modulo every prime factor of $M$,
+then $n$ lies in no class of $\cR(M)$.
+\end{lemma}
+\begin{proof}
+$(A,M)=(A,4A-1)=1$.  Write $D=sr^2$ with $s$ squarefree; then $D\mid A^2$
+gives $sr\mid A$, so $M\equiv-1\pmod{4s}$.  Now
+$(\frac{-4D}M)=(\frac{-1}M)(\frac sM)=-(\frac sM)$.  If $s$ is odd,
+reciprocity and $(\frac Ms)=(\frac{-1}s)$ give $(\frac sM)=1$, since
+$(M-1)/2$ is odd.  If $s=2s'$, then $8\mid M+1$, so $(\frac2M)=1$, and
+$(\frac{s'}M)=1$ as before.  For the consequence,
+$(\frac nM)=\prod_{p^e\| M}(\frac np)^e=1$.
+\end{proof}
+
 \end{document}
