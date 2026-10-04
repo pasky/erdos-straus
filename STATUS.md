@@ -112,8 +112,12 @@ witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
 
 ## Exceptional-set exponent: where it stands (2026-10-04)
 
-**3/4 is now proved sharp for congruence sieves built from forced classes
-(internal; doubly reviewed).** See `EXCEPTIONAL_KARY.md` Thm 4.5.
+**3/4 is now proved sharp for coefficient-sum congruence sieves over any
+mixture of forced (and selector) classes, up to a `(log log N)^{3/4}` factor
+without a B-hypothesis (internal; doubly reviewed).** See
+`EXCEPTIONAL_KARY2.md` Thm 5.1 / Cor 6.1, which builds on `EXCEPTIONAL_KARY.md`
+Thm 4.5. The 3/4 note's own majorant is literally in the class, so the 3/4
+note is sharp for its method.
 * For every family of ℛ(M) forced classes with `M ≤ P(M)^{1+B}` (B fixed),
   every nonnegative CRT majorant saves at most `≪_B (log N)^{3/4}`. This
   includes twin and balanced moduli.

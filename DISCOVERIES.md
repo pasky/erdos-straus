@@ -96,6 +96,14 @@ This ledger records mathematical discoveries formulated by this campaign, rather
    * Lemma 2.3 (binomial extrapolation) is `M(n,d,t) ≥ 1/B` in Benjamini–Gurel-Gurevich–Peled / Peled–Yadin–Yehudayoff notation. PYY Thm 1.1 is sharper for `d ≤ c·nt`; KARY's crude bound covers all ranges.
    * The sequential-law comparison (Thm 2.5) and the ES cap are apparently new. Open: removing the B-hypothesis for general majorants (sketched in EXCEPTIONAL_TWIN4 §11); families mixing in (a,D)/Case-A grouping classes are covered only via ET Cor 3.6 / Lemma 3.7 in the dominant-prime case.
 
+18. **No θ > 3/4 for coefficient-sum CRT sieves over any mixture of forced classes (EXCEPTIONAL_KARY2 Thm 5.1, Thm 5.2, Cor 6.1).**
+    * Setting: any finite family of ℛ(M)-, (a,D)-, Case-A and selector (`0 mod p`) classes, with arbitrary moduli (no B, no dominant prime, any number of prime factors) and all primes `≤N^{O(1)}`.
+    * Claim: every ν ≥ 0 on ℤ, ≥ 1 on the whole avoider set, used through `#(𝒜∩[1,N]) ≤ N·Eν + Σ|a_i|` with `Σ|a_i| < N`, saves `≤ C(log N)^{3/4}(log log N)^{3/4}`. If every modulus has `G ≤ P(G)^{1+B}` the saving is `≤ C_B(log N)^{3/4}`. This matches the 3/4 note, whose majorant `S_y·Q_r(H_X)` is literally in the class (its atoms have B < 1/120). So the 3/4 note is sharp for its method.
+    * Covers Bonferroni, Selberg Λ², β/Rosser and any combinatorial upper-bound sieve on these classes, and CRT-evaluated moment methods (with (D)15 also per-frequency signed rounding for prime-slice families).
+    * Does not cover: the large sieve beyond prime slices; inter-frequency rounding cancellation; weights < 1; majorants ≥ 1 only on [1,N] or on exceptional primes; non-CRT input; other class types; primes beyond `N^{O(1)}`.
+    * Key new inputs: (a,D)- and Case-A classes contain no square (Mordell/Jacobi), so one unit-square product base serves all types; Rankin plus Cauchy–Schwarz on smooth-dominated moduli removes B at the price of `(log log)^3` in the mass.
+    * **PROVED** (internal; constants astronomical, asymptotic only). The Case-A part uses Elsholtz–Tao Prop 1.4 (published, not re-proved); the ℛ(M)/(a,D)/selector part needs no external input. Two independent hostile reviews: `reviews/exceptional-kary2-review.md`, `reviews/exceptional-kary2-review-2.md` (round 2: all repairs verified). Novelty: the LP-duality and exchangeable single-band core is known (Peled–Yadin–Yehudayoff, Benjamini–Gurel-Gurevich–Peled; see `reviews/novelty-audit-2026-10.md`); the weighted, sequential and k-ary extensions and the Erdős–Straus application appear new.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
