@@ -227,8 +227,9 @@ at T=10⁹, κ=1364 (h=341)". κ=1364 is only third. The heaviest are
 point stands, but say "the heaviest class with h>256". (ii) "one first
 element per divisor m (Lemma 3.3)" for `F=1365`. Only m=15 and m=3 give
 corner atoms (`(341,1,461669)`, `(341,1,110852)`). The mirror is
-`(27713,1364,1)`, m=3. The other 13 divisors give no atom, because the
-first element lies beyond `T/(qm)` or is not an atom. (iii) "of the
+`(27713,1364,1)`, m=3. The other 13 divisors give no corner atom. Their first
+element lies beyond `T/(qm)`, or is not an atom, or fails another
+corner condition. (iii) "of the
 average size predicted by (FT)": FT itself is 5× larger (D7).
 
 ## Item 6 — honesty of status. CONFIRMED
