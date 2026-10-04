@@ -233,7 +233,7 @@ use `ℓ^{−β} ≤ ℓ^{−1}`). With `β = 1/log x` this gives
 `L₀ = λ₀/k` (so λ = λ₀) and `α = max(λ₀^{−1/4}, 3k log(A log N)/λ₀)`.
 In (3.1):
 * `19αλ₀ ≤ 19λ₀^{3/4} + 57 k log(A log N)`;
-* the first mass sum is `≤ C α^{−3}... ≤ C λ₀^{3/4}` (as `α ≥ λ₀^{−1/4}`);
+* the first mass sum is `≤ C min(α,1)^{−3} ≤ C λ₀^{3/4}` (as `α ≥ λ₀^{−1/4}`);
 * `αL₀ ≥ 3 log(A log N)`, so the second is `≤ (A log N)^{−3}·C'(A log N)³ = C'`;
 * `s_* ≥ min(log ℓ₀, λ₀/k)`, so `G = O(log(k + log N))` and the G-terms
   are `O(log²(k + log N)) = O((log N)^{3/4} + k)`. ∎
