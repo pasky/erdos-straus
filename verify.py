@@ -16006,4 +16006,143 @@ print("\n== (by) §77: pointwise hunt (criterion, S_4, quadratic signature, fibr
 check_by()
 
 
+
+
+# ================================================================= (bz)..(ch)
+# Fast replays of the key machine checks of the 2026-10 documents
+# (POINTWISE_*, EXCEPTIONAL_*, and the 3/4-note blind audit).  Each block is a
+# small deterministic instance of the corresponding scripts/ check, re-implemented
+# here (except (ch), which imports scripts/es34_blind_audit_checks.py).  Every
+# block raises AssertionError on any violation.
+
+def _o9_spf(n):
+    spf = list(range(n + 1))
+    for i in range(2, isqrt(n) + 1):
+        if spf[i] == i:
+            for j in range(i * i, n + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+    return spf
+
+
+def _o9_factor(n, spf):
+    f = {}
+    while n > 1:
+        r = spf[n]
+        f[r] = f.get(r, 0) + 1
+        n //= r
+    return f
+
+
+def _o9_divisors(f):
+    ds = [1]
+    for r, e in f.items():
+        ds = [d * r ** k for d in ds for k in range(e + 1)]
+    return ds
+
+
+# ---------------------------------------------------------------- (bz)
+# POINTWISE_SIZE.md: Lemma CT (character trap), exhaustively over all solutions
+# for p = 1 (4), p <= 1500 (completeness of the enumeration cross-checked by a
+# naive loop for p < 300); window reciprocity Lemma 8.2 and Cor 8.3(a) identity
+# (-p/q) = -(x/q) for all p = 1 (8), p < 2000, and all q = 3 (4), q < 3p.
+
+def check_bz():
+    from time import perf_counter
+    t0 = perf_counter()
+    PMAX, BRUTE = 1500, 300
+    spf = _o9_spf(2000)  # x = (p+q)/4 < p
+
+    def legendre(a, p):
+        return 1 if pow(a % p, (p - 1) // 2, p) == 1 else -1
+
+    def solutions(p):
+        sols = []
+        for x in range(p // 4 + 1, 3 * p // 4 + 1):
+            num, den = 4 * x - p, p * x
+            g = gcd(num, den)
+            n, m = num // g, den // g
+            for d in _o9_divisors({r: 2 * e for r, e in factorint(m).items()}):
+                if d > m or (d + m) % n:
+                    continue
+                e = m * m // d
+                if (e + m) % n:
+                    continue
+                y, z = (d + m) // n, (e + m) // n
+                if y >= x:
+                    sols.append((x, y, z))
+        return sols
+
+    def brute(p):
+        out = set()
+        for x in range(p // 4 + 1, 3 * p // 4 + 1):
+            r = Fraction(4, p) - Fraction(1, x)
+            if r <= 0:
+                continue
+            for y in range(max(x, int(1 / r) + 1), int(2 / r) + 1):
+                s = r - Fraction(1, y)
+                if s > 0 and s.numerator == 1 and s.denominator >= y:
+                    out.add((x, y, s.denominator))
+        return out
+
+    def qnr_factor(n, p):
+        return any(legendre(r, p) == -1 for r in factorint(n))
+
+    nprimes = nsol = n1 = n2 = 0
+    for p in primerange(5, PMAX + 1):
+        if p % 4 != 1:
+            continue
+        nprimes += 1
+        sols = solutions(p)
+        assert sols and len(sols) == len(set(sols)), p
+        if p < BRUTE:
+            assert set(sols) == brute(p), ("CT enumeration incomplete", p)
+        for s in sols:
+            assert Fraction(1, s[0]) + Fraction(1, s[1]) + Fraction(1, s[2]) == Fraction(4, p)
+            nsol += 1
+            pdiv = [w for w in s if w % p == 0]
+            assert len(pdiv) in (1, 2), (p, s)
+            for w in s:
+                if w % p:
+                    assert qnr_factor(w, p), ("CT-a violated", p, s)
+            if len(pdiv) == 1:
+                n1 += 1
+                assert qnr_factor(pdiv[0] // p, p), ("CT-b violated", p, s)
+            else:
+                n2 += 1
+                y1, z1 = pdiv[0] // p, pdiv[1] // p
+                assert y1 % p and z1 % p
+                assert qnr_factor(y1 * z1, p), ("CT-c violated", p, s)
+    assert n1 > 0 and n2 > 0
+
+    # Lemma 8.2 + Cor 8.3(a)
+    npairs = nf1 = 0
+    for p in primerange(17, 2000):
+        if p % 8 != 1:
+            continue
+        for q in range(3, 3 * p, 4):
+            x = (p + q) // 4
+            fx = _o9_factor(x, spf)
+            allqr = True
+            for r in fx:
+                assert gcd(r, q) == 1, ("Lemma 8.2: r | q", p, q, r)
+                lp = legendre(r, p)
+                assert jacobi_symbol(r, q) == lp, ("Lemma 8.2 violated", p, q, r)
+                allqr &= lp == 1
+            assert jacobi_symbol((-p) % q, q) == -jacobi_symbol(x, q), (p, q)
+            if allqr:
+                nf1 += 1
+                assert jacobi_symbol(x, q) == 1 and jacobi_symbol(q - 1, q) == -1
+                assert jacobi_symbol((-p) % q, q) == -1
+            npairs += 1
+    print(f"bz Lemma CT: primes p=1 (4) <= {PMAX}: {nprimes}, solutions {nsol} "
+          f"(Type I {n1}, Type II {n2}), 0 violations; brute completeness p < {BRUTE}")
+    print(f"bz Lemma 8.2: {npairs} (p,q) windows (p=1 (8) < 2000, q=3 (4) < 3p), "
+          f"F1 windows {nf1}, 0 violations; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (bz) POINTWISE_SIZE: Lemma CT (character trap), window reciprocity Lemma 8.2 ==")
+check_bz()
+
+
 print("\nall checks passed")
