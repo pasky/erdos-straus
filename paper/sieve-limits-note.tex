@@ -190,4 +190,104 @@ $(\frac{s'}M)=1$ as before.  For the consequence,
 $(\frac nM)=\prod_{p^e\| M}(\frac np)^e=1$.
 \end{proof}
 
+\section{Congruence sieves: the architecture class}\label{sec:class}
+
+\subsection{CRT systems and majorants}
+\begin{definition}[prime-slice CRT system {\cite[\S1]{ET}}]\label{def:slice}
+The data are a modulus $Q_0$; a finite set $\cP$ of primes not dividing
+$Q_0$ (the \emph{slice primes}); a set $R\subseteq\Z/Q_0$ of admissible
+small residues; and, for each $c\in R$ and $\ell\in\cP$, a set
+$F_\ell(c)\subseteq\Z/\ell$ of forbidden classes.  The \emph{avoider set} is
+\[
+ \A=\{n:\ n\bmod Q_0\in R,\ n\bmod\ell\notin F_\ell(n\bmod Q_0)\
+ \text{for all }\ell\in\cP\}.
+\]
+Put $p_\ell(c)=|F_\ell(c)|/\ell$ and $\bar p_\ell=|R|^{-1}\sum_{c\in R}p_\ell(c)$.
+\end{definition}
+A family of conditions $n\equiv b\pmod{q_0\ell}$ with $q_0\mid Q_0$ and
+$\ell\in\cP$ induces such a system with
+$F_\ell(c)=\{b\bmod\ell:\ b\equiv c\pmod{q_0}\}$.  A typical $R$ is a
+\emph{selector} $R=\{c:(c,P)=1\}$ with $P\mid Q_0$.
+
+\begin{definition}[majorant of level $\lambda$]\label{def:majorant}
+A \emph{majorant} of $\A$ is a finite real combination
+\[
+ \nu(n)=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]
+\]
+with $\nu\geq0$ on all of $\Z$ and $\nu\geq1$ on $\A$.  It has
+\emph{level} $\lambda$ if $\sum_{\ell\in\cP,\ \ell\mid d_i}\log\ell\leq\lambda$
+for every $i$.  Its \emph{mean} is $\E\nu=\sum_ia_i/d_i$, the average
+over a common period, and its \emph{saving} is $\log(1/\E\nu)$.
+\end{definition}
+The level charges only the slice primes; the small part of $d_i$ is free.
+This is generous to the sieve.  For every $N$,
+\begin{equation}\label{eq:transfer}
+ \sum_{n\leq N}\nu(n)=N\cdot\E\nu+O\Bigl(\sum_i|a_i|\Bigr),
+\end{equation}
+since each class meets $[1,N]$ in $N/d_i+O(1)$ points.
+
+\subsection{The architecture class}
+\begin{definition}[CRT-majorant architecture]\label{def:arch}
+A \emph{CRT-majorant architecture} for a family $\cF$ of forced classes
+bounds $\#(\A\cap[1,N])$, and hence the exceptional integers in
+$[1,N]$ that satisfy the admissibility condition $n\bmod Q_0\in R$, as follows.
+\begin{enumerate}
+\item[(A1)] $\nu$ is a majorant of the avoider set $\A$ of $\cF$ in the
+  sense of Definition~\ref{def:majorant}: $\nu\geq0$ on $\Z$ and $\nu\geq1$
+  on the \emph{whole} avoider set, not only on exceptional primes.
+\item[(A2)] The final bound is $N\cdot\E\nu+T$ with
+  $T=\sum_i|a_i|$, and it is non-trivial: $T<N$.
+\item[(A3)] The slice primes of the family are at most $N^{A}$ for a fixed
+  $A$.
+\end{enumerate}
+\end{definition}
+Every sieve majorant in use satisfies (A1): Bonferroni truncations
+$Q_r(H)=\binom{H-1}r$ and Selberg squares.  Both campaign notes satisfy
+(A1)--(A3) (Section~\ref{sec:campaign}).
+
+\begin{lemma}[coefficient budget implies level; {\cite[Lemma~2.9]{ET}}, from {\cite[item~3]{ETrev}}; \lab{proved}]\label{lem:budget}
+Take a prime-slice system, or the sequential setting of
+Section~\ref{sec:seq}.  Let $\nu$ be a majorant of $\A$ with
+$T=\sum_i|a_i|$, and assume that every slice prime satisfies
+$\log\ell\leq\Lambda_0$.  Then for every $\lambda$ there is a majorant
+$\nu'$ of level at most $\lambda$ with $\nu'\geq\nu$ pointwise and
+$\E\nu'\leq\E\nu+T\e^{\Lambda_0-\lambda}$.  In particular
+$\lambda=\Lambda_0+\log T+\log(1/\E\nu)$ gives $\E\nu'\leq2\E\nu$.
+\end{lemma}
+\begin{proof}
+Keep every term of level at most $\lambda$.  Drop each term of level
+$>\lambda$ with $a_i<0$; this raises $\nu$ pointwise and raises the mean
+by $|a_i|/d_i\leq|a_i|\e^{-\lambda}$.  For a term of level $>\lambda$ with
+$a_i>0$, list its slice primes in increasing order and keep the longest
+prefix of level at most $\lambda$.  The next prime has
+$\log\ell\leq\Lambda_0$, so the prefix has level $>\lambda-\Lambda_0$.
+Replace $d_i$ by the divisor $d_i'$ formed by the non-slice part of $d_i$
+and the kept prime powers.  Then
+$\ind[n\equiv b_i\ (d_i')]\geq\ind[n\equiv b_i\ (d_i)]$, and the mean rises
+by at most $a_i/d_i'\leq a_i\e^{\Lambda_0-\lambda}$.  So $\nu'\geq\nu$,
+$\nu'$ is a majorant, and summing gives the bound.
+\end{proof}
+
+\begin{corollary}[\lab{proved}]\label{cor:budgetlevel}
+Under (A2)--(A3), the majorant $\nu$ can be replaced by a majorant of level
+$\lambda\leq(A+1)\log N+s$ and mean at most $2\E\nu$, where
+$s=\log(1/\E\nu)$.  Hence, if every majorant of level $\lambda$ has
+saving at most $C\lambda^{3/4}+C'$, then $s\ll_{A,C,C'}(\log N)^{3/4}$.
+\end{corollary}
+\begin{proof}
+Lemma~\ref{lem:budget} with $\Lambda_0=A\log N$ and $\log T<\log N$ gives
+$\nu'$ of level $\lambda\leq(A+1)\log N+s$ and saving at least $s-\log2$.
+So $s\leq\log2+C((A+1)\log N+s)^{3/4}+C'$, which forces
+$s\ll_{A,C,C'}(\log N)^{3/4}$.
+\end{proof}
+
+\begin{remark}[positivity on all of $\Z$]\label{rem:positivity}
+Condition (A1) cannot be weakened to positivity on $[1,N]$.  Restricted
+to $[1,N]$, the class $\ind[n\equiv b\pmod N]$ is the point mass at $b$, so
+the span of level-$\log N$ class indicators contains every function on
+$[1,N]$.  The relaxed linear programme is then the exact count, and
+evaluating it presupposes knowing the avoider set
+\cite[\S2.4]{ET}.  Such methods are not sieves in the present sense.
+\end{remark}
+
 \end{document}
