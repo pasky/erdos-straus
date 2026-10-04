@@ -44,17 +44,20 @@ exponent $3/4$ is a hard ceiling for a precisely defined class of
 congruence sieves.  The class consists of nonnegative CRT majorants that
 are at least one on the whole avoider set of a family of forced
 congruence classes, whose final bound has the form
-$N\cdot\E\nu+\sum_i|a_i|$, and whose family moduli are at most
+$N\cdot\E\nu+\sum_i|a_i|$, and whose family primes are at most
 $N^{O(1)}$.  For families in which every modulus has a dominant prime
-factor, and, for the classes $\cR(M)$, for families of gapped moduli, every
-such sieve saves at most $O((\log N)^{3/4})$.  No power of $\log\log N$
+factor, and, for the classes $\cR(M)$, for families of $(\eta,B)$-gapped
+moduli with $B$ fixed, every such sieve with an admissible set of the
+specified bounded-saving form saves at most $O((\log N)^{3/4})$.  No power of $\log\log N$
 can be gained.  The majorant of the $3/4$ note lies in this class, and the
 large-sieve argument of the $2/3$-loglog note is capped in the same way at
 its own exponent.  We list exactly what the theorems exclude.  For
 Selberg-type majorants we prove a sieve limit with no structural
 hypothesis, in terms of a noise-stability quantity, and a
-$\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$, twin moduli included, for
-families whose moduli have at most two prime factors above $(\log X)^8$.
+$\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$ at level $O(\log X)$, twin
+moduli included, for families of $\cR(M)$-classes with $M\leq X$,
+$M\leq P(M)^{1+B}$ ($B$ fixed) and at most two prime factors of $M$ above
+$(\log X)^8$.
 Every statement carries its status label.  All proofs were checked
 internally only; nothing here has been externally refereed.  This is not a
 proof of the Erd\H{o}s--Straus conjecture.
@@ -67,8 +70,9 @@ Call $n\geq1$ \emph{representable} if $4/n=1/x_1+1/x_2+1/x_3$ with
 positive integers $x_i$, and let $E(N)$ count the non-representable
 $n\leq N$.  The Erd\H{o}s--Straus conjecture asserts that every $n\geq2$ is
 representable.  Vaughan~\cite{Vaughan} proved
-$E(N)\ll N\exp\{-c(\log N)^{2/3}\}$ with Montgomery's large
-sieve~\cite{Montgomery}.  Two companion notes of this programme
+$E(N)\ll N\exp\{-c(\log N)^{2/3}\}$ with the large sieve (see the
+reconstruction of his argument in \cite[\S4]{PW}; for the inequality see
+\cite{Montgomery}).  Two companion notes of this programme
 improve this.  The first~\cite{LL} gains a factor
 $(\log\log N)^{1/3}$ in the exponent.  The second~\cite{TQ} proves
 \[
@@ -106,18 +110,21 @@ found; it may be folklore in spirit.  Novelty is not claimed.
 \item \emph{The sieve-limit theorem} (Theorem~\ref{thm:slice},
   \lab{proved}).  For a prime-slice CRT system every nonnegative majorant
   of level $\lambda$ of the avoider set saves at most
-  $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]+O(\log^2\lambda)$
-  beyond an admissible-set term.  A sequential version allows shared
+  $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond an
+  admissible-set term, plus an error term that is $O(\log^2\lambda)$ when
+  $\log\min\cP\gg1$ and $\log\bar\mu\ll\log\lambda$, as in all
+  applications here, and can be $\asymp\lambda\log\lambda$ in general
+  (Remark~\ref{rem:errors}).  A sequential version allows shared
   large primes (Theorem~\ref{thm:seq}, \lab{proved}).
 \item \emph{The $3/4$ cap} (Theorem~\ref{thm:main}).  The forced classes
   have cubic profile $\sum\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$
   (Section~\ref{sec:profiles}).  Hence every CRT-majorant architecture
   (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$, $\nu\geq1$ on the whole
   avoider set, final bound $N\E\nu+\sum|a_i|$, family primes $\leq
-  N^{O(1)}$) saves at most $O((\log N)^{3/4})$, for families whose moduli
-  all have a dominant prime (\lab{proved}; Case-A classes mod
-  Elsholtz--Tao Prop.~1.4) and for $(\eta,B)$-gapped $\cR(M)$-families
-  (\lab{proved}).
+  N^{O(1)}$), with the admissible set specified there, saves at most
+  $O((\log N)^{3/4})$, for families whose moduli all have a dominant
+  prime (\lab{proved}; Case-A classes mod Elsholtz--Tao Prop.~1.4) and
+  for $(\eta,B)$-gapped $\cR(M)$-families with $B$ fixed (\lab{proved}).
 \item \emph{The campaign sieves are in the class}
   (Section~\ref{sec:campaign}, \lab{proved}).  The majorant of the $3/4$
   note is in the class, so $3/4$ is sharp for its architecture; the
@@ -309,17 +316,20 @@ $\nu'$ is a majorant, and summing gives the bound.
 \end{proof}
 
 \begin{corollary}[\lab{proved}]\label{cor:budgetlevel}
-Under (A2)--(A3), the majorant $\nu$ can be replaced by a majorant of level
-$\lambda\leq(A+1)\log N+s$ and mean at most $2\E\nu$, where
-$s=\log(1/\E\nu)$.  Hence, if every majorant of level $\lambda$ has
-saving at most $C\lambda^{3/4}+C'$, then $s\ll_{A,C,C'}(\log N)^{3/4}$.
+Assume (A2)--(A3) and put $s=\log(1/\E\nu)$.  Then there is a majorant
+$\nu'\geq\nu$ of level at most $(A+2)\log N$ with
+$\E\nu'\leq\E\nu+N^{-1}$.  Hence, if every majorant of level at most
+$(A+2)\log N$ has saving at most $C(\log N)^{3/4}+C'$, then
+$s\leq\log2+C(\log N)^{3/4}+C'$ for all $N\geq N_0(C,C')$.
 \end{corollary}
 \begin{proof}
-Lemma~\ref{lem:budget} with $\Lambda_0=A\log N$ and $\log T<\log N$ gives
-$\nu'$ of level $\lambda\leq(A+1)\log N+s$ and saving at least $s-\log2$.
-So $s\leq\log2+C((A+1)\log N+s)^{3/4}+C'$, which forces
-$s\ll_{A,C,C'}(\log N)^{3/4}$.
+Lemma~\ref{lem:budget} with $\Lambda_0=A\log N$, $\lambda=(A+2)\log N$ and
+$T<N$ gives $\E\nu'\leq\E\nu+N\cdot N^A\cdot N^{-A-2}\leq\E\nu+N^{-1}$.  So
+$\log(1/\E\nu')\geq\min(s,\log N)-\log2$, and the hypothesis gives
+$\min(s,\log N)\leq\log2+C(\log N)^{3/4}+C'$.  For $N\geq N_0$ the right
+side is $<\log N$, so the minimum is $s$.
 \end{proof}
+This form needs the cap only at level $(A+2)\log N$.
 
 \begin{remark}[positivity on all of $\Z$]\label{rem:positivity}
 Condition (A1) cannot be weakened to positivity on $[1,N]$.  Restricted
@@ -544,11 +554,10 @@ $p_\ell(c)\leq1/2$.  Summed over fibres, Jensen gives
 $\sum_cY\e^{-\Phi_c}\geq|R|\,Y\e^{-\mathrm{avg}\,\Phi_c}$.  So the large-sieve
 bound over a slice system obeys the same functional, with level
 $\lambda=\log Q$, directly and without duality.  No sequential or
-shared-prime large-sieve statement is made.
+shared-prime large-sieve statement is made.  The condition
+$p_\ell(c)\leq1/2$, which gives $g_\ell\leq2p_\ell(c)$, is the reading of
+the Rankin step in \cite[item~3.4]{ETrev}.
 \end{remark}
-% TODO: the source states the Rankin step as
-% S_c(Q) <= exp{alpha log Q + 2 sum p_l(c) l^{-alpha}}; the condition
-% p_l(c) <= 1/2 (so g_l <= 2 p_l) is my explicit reading. Referee to confirm.
 
 \subsection{Sequential windows: shared large primes}\label{sec:seq}
 Theorem~\ref{thm:slice} needs the slice primes to be disjoint from the
@@ -703,7 +712,7 @@ the source; it was not re-proved.
 \section{The three-quarter cap}\label{sec:cap}
 
 \subsection{Prime-slice families}
-\begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}]\label{cor:sliceCap}
+\begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:sliceCap}
 Fix $0<C<1$ and $A\geq1$.  Take a prime-slice system in which every
 condition is a slice condition (no pure small-modulus conditions), and
 \begin{itemize}
@@ -734,7 +743,7 @@ $\bar\mu\ll\lambda^3$.
 \end{proof}
 
 \subsection{Dominant-prime families}
-\begin{corollary}[{\cite[Cor.~3.6]{ET}}; \lab{proved}]\label{cor:dominant}
+\begin{corollary}[{\cite[Cor.~3.6]{ET} and \S3.7}; \lab{proved}; for Case-A classes \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:dominant}
 Fix $0<C<1$ and $A\geq1$, and put $\delta=(1-C)/2$.  Consider any family of
 Case-B forced classes (classes of $\cR(M)$, or $(a,D)$-classes modulo
 $G=4a\,g(D)$), and Case-A classes (modulo $G=4rh$), such that every
@@ -821,8 +830,9 @@ $\omega(N)\to\infty$, e.g.\ $\omega=(\log\log N)^\epsilon$.
 \end{theorem}
 \begin{proof}
 Corollary~\ref{cor:budgetlevel}, applied with
-Corollary~\ref{cor:dominant} in case (i) and Theorem~\ref{thm:gapped} in
-case (ii).  In both the $R$-term is bounded.
+Corollary~\ref{cor:dominant} for $A+2$ in place of $A$ in case (i), and
+with Theorem~\ref{thm:gapped} at $\lambda=(A+2)\log N$ in case (ii).  In
+both the $R$-term is bounded.
 \end{proof}
 The statement for the prime-slice families of Corollary~\ref{cor:sliceCap}
 is the same, with the selector term $\log(P/\varphi(P))$ added; for the
@@ -857,7 +867,7 @@ If $\ell'\in W_j$ divides $M/\ell$, then
 $\log\ell\geq(1+\eta)\log\ell'>(1+\eta)s_j=s_{j+1}$.
 \end{proof}
 Dominant moduli with $P(M)>w_0$ are $\eta$-gapped for every
-$\eta\leq\min(\eta_0,1/C-1)$.  Balanced moduli $M=k\ell_1\ell_2$ with
+$\eta<1$ with $\eta\leq1/C-1$.  Balanced moduli $M=k\ell_1\ell_2$ with
 $P(k)<\ell_1$, $\ell_2\geq\ell_1^{1+\eta}$ and $k\ell_1\geq\ell_2$ are
 $\eta$-gapped.  The same-scale pairs of Lemma~\ref{lem:balancedsupply}
 below are $\eta$-twin.  For a gapped balanced modulus the cofactor
@@ -897,8 +907,8 @@ from $R$; given $H_{<j}=h$, the residues $n\bmod\ell$ ($\ell\in W_j$) are
 independent, uniform on $\Z/\ell\setminus F_\ell(h)$ if
 $p_\ell(h)\leq\delta_\ell$ (\emph{light}), and uniform on $\Z/\ell$
 otherwise (\emph{heavy}); higher digits are uniform.  The \emph{leak} is
-$\mathfrak L=Q'(\text{final history}\notin\A)$.  This is a variant of the
-distortion method of
+$\mathfrak L=Q'(\text{final history}\notin\A)$.  This is a variant of
+Hough's distortion method \cite{Hough}, in the form of
 Balister--Bollob\'as--Morris--Sahasrabudhe--Tiba \cite{BBMST}, which bounds
 the density of the uncovered set (the majorant $\ind_\A$ only), adapted
 here to general level-$\lambda$ majorants.
@@ -1060,7 +1070,9 @@ $R=\{(c,P_y)=1\}$, $|F_\ell(c)|\leq\ell^{1/3}$, and
 $\sum_\ell p_\ell(c)\ell^{-\alpha}\leq C_ut^3X^{-\alpha/2}$ for all $c$ (the
 upper half of \cite[Cor.~4.3]{TQ}, ``uniform fibre masses''),
 where $t=\log X$.  Its majorant $\nu_X=S_y\,Q_r(H_X)$ is $\geq0$ on $\Z$,
-equals $1$ on $\A$, and has level $\lambda=rt$.  Hence every majorant on
+equals $1$ on the whole avoider set $\A$ (there $S_y=1$, $H_X=0$ and
+$Q_r(0)=1$; \cite[item~3.1]{ETrev}; \cite[Thm~8.2]{TQ} itself states only
+$\nu_X\geq1$ on exceptional primes), and has level $\lambda=rt$.  Hence every majorant on
 this family has
 \[
  \log\frac1{\E\nu}\leq\log\log y+\min\Bigl\{Ct^3,\ C\frac\lambda t\Bigl(1+\log^+\frac{Ct^4}\lambda\Bigr)\Bigr\}+O(\log^2\lambda).
@@ -1140,8 +1152,9 @@ The note's large-sieve level is $Q^2\leq N/L_{\mathcal K}$, so
 $\lambda\leq\log N$, and its admissible set is the reduced residues modulo
 $L_{\mathcal K}$, with $R$-term
 $\log(L_{\mathcal K}/\varphi(L_{\mathcal K}))\ll\log\log\log N$.
-By Remark~\ref{rem:LS} and Corollary~\ref{cor:restricted} its bound cannot
-exceed $\exp\{-C(\log N)^{2/3}(\log\log N)^{1/3}\}$: \emph{the $2/3$-loglog
+By Remark~\ref{rem:LS} and Corollary~\ref{cor:restricted} its saving is
+at most $C(\log N)^{2/3}(\log\log N)^{1/3}$, i.e.\ its bound is never
+smaller than $N\exp\{-C(\log N)^{2/3}(\log\log N)^{1/3}\}$: \emph{the $2/3$-loglog
 note is sharp for its architecture}
 \cite[Lemma~4.4]{ET}, \lab{proved}.
 Vaughan's argument and that of Pomerance--Weingartner~\cite{PW} are the
@@ -1175,7 +1188,8 @@ caps of Section~\ref{sec:cap}.
   moduli with $\log M/\log P(M)$ unbounded; and $(a,D)$- and Case-A
   moduli without a dominant prime.  For Selberg-type majorants,
   Theorem~\ref{thm:twoprimecap} covers twin $\cR(M)$-moduli with at most
-  two prime factors above $(\log X)^8$.  This part is not small
+  two prime factors above $(\log X)^8$ and $M\leq P(M)^{1+B}$, $B$ fixed,
+  at level $O(\log X)$.  This part is not small
   (Lemma~\ref{lem:balancedsupply}).
 \item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
   uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
@@ -1420,8 +1434,8 @@ $L=\log X$, with moduli $\leq X$ and level $\lambda\leq A_0L$.  The level hypoth
 $\lambda\leq A_0L$ is assumed directly: the coarsening of
 Lemma~\ref{lem:budget} does not preserve the square form $g^2$, so the
 reduction from a coefficient budget to a level (Corollary~\ref{cor:budgetlevel})
-is not available here as stated.
-% This last observation is the present author's, not from [TW2]/[TW3].
+is not available here as stated (observation of this note, not from
+\cite{TW2,TW3}).
 
 \begin{remark}[what was bypassed]\label{rem:bypass}
 The route of \cite{TW2} split the off-diagonal term into a same-label part
@@ -1443,9 +1457,9 @@ balanced) moduli that beats their mass; (ii) multipliers larger than the
 slice primes, used without paying their lcm in level; (iii) a
 non-selector admissible set with a large saving of its own; (iv) a
 non-CRT input, or signed cancellation in the rounding errors
-\cite[\S6]{ET}.  For Selberg-type majorants, (i) is closed for moduli
-with at most two prime factors above $(\log X)^8$
-(Theorem~\ref{thm:twoprimecap}).  The following statements would close
+\cite[\S6]{ET}.  For Selberg-type majorants at level $O(\log X)$, (i) is
+closed for $\cR(M)$-moduli with $M\leq P(M)^{1+B}$, $B$ fixed, and at most
+two prime factors above $(\log X)^8$ (Theorem~\ref{thm:twoprimecap}).  The following statements would close
 (i) and (iii) in general.
 
 \begin{hypothesis}[$H_{\rm MS}$; {\cite[\S5.6]{ET}}; \lab{open}]\label{hyp:MS}
@@ -1510,14 +1524,16 @@ Theorem~\ref{thm:twoprimecap} completes the two-prime $\Lambda^2$ cap.
 \emph{Three or more large primes} \lab{open}.  The full forced-class
 family contains moduli with three or more prime factors above
 $(\log X)^8$, and the $\Lambda^2$ cap for them is open.  Partial results
-\cite[\S6]{TW3}, internal and \emph{not yet hostile-reviewed}: a
+\cite[\S6]{TW3}, hostile-reviewed in \cite[round~2]{TW3rev}: a
 noise-stability bound of any arity with codegree terms and a free
-codegree quarantine \cite[Lemmas~6.1, 6.2]{TW3}; a reduction of the
-general case to arithmetic star sums, proved as an implication
-\cite[Prop.~6.3]{TW3}; and, for ternary moduli with $B$ fixed, a proof
-of all star sums except one residual, vertex stars whose two partner
-primes are balanced with each other and whose divisor triples are
-balanced \cite[Prop.~6.4 and \S6.3]{TW3}.  That residual is open.
+codegree quarantine \cite[Lemmas~6.1, 6.2]{TW3} \lab{proved}; and a
+reduction of the general case to arithmetic star sums
+\cite[Prop.~6.3]{TW3} \lab{proved} as an implication.  For ternary
+moduli with $B$ fixed there is only a \emph{sketch} \cite[Prop.~6.4]{TW3}
+of all star sums, conditional on an unwritten any-arity fibre-law step,
+except the residual: vertex stars with $\ell_a\leq\ell_b<w_2q$, where $q$
+is four times the product of the two shorter of $u,v,t$
+\cite[\S6.3]{TW3}.  That residual is \lab{open}.
 
 \begin{thebibliography}{99}
 \bibitem[BBMST]{BBMST}
@@ -1546,6 +1562,9 @@ this repository, 2026.
 C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.};
 arXiv:1107.1010v6 (cited version).
+\bibitem[H]{Hough}
+R.~Hough, Solution of the minimum modulus problem for covering systems,
+\emph{Ann. of Math.} \textbf{181} (2015).
 \bibitem[LL]{LL}
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed note,
@@ -1586,10 +1605,10 @@ Hostile review of \cite{TW2}, rounds 1--2,
 \bibitem[TW3]{TW3}
 \emph{EXCEPTIONAL\_TWIN3: the off-diagonal term $(H_O)$ of the two-prime
 $\Lambda^2$ cap}, internal working document \texttt{EXCEPTIONAL\_TWIN3.md},
-branch \texttt{side-agent/twin-equidist}, this repository, 2026.
+this repository, 2026.
 \bibitem[TW3r]{TW3rev}
-Hostile review of \cite{TW3}, \texttt{reviews/exceptional-twin3-review.md},
-branch \texttt{side-agent/review-twin3}, this repository, 2026.
+Hostile review of \cite{TW3}, rounds 1--2,
+\texttt{reviews/exceptional-twin3-review.md}, this repository, 2026.
 \bibitem[V]{Vaughan}
 R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), doi:10.1112/S0025579300002886.

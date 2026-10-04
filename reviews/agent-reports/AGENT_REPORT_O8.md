@@ -81,3 +81,42 @@ Status: checkpoint, waiting for parent review.
      confirmed on arxiv.org.
 3. The paper compiles clean (3 passes, 0 errors/overfull/undefined) to
    22 pp.
+
+## Checkpoint 3 (referee report `reviews/sieve-limits-note-review.md`, MINOR REVISION)
+
+All defects D1–D14 applied:
+* **D1/D11.** The abstract, Results item 2, §9 item 4 and the §11 opening
+  now carry the full scope:
+  * Λ² cap: ℛ(M), M ≤ X, M ≤ P(M)^{1+B} with B fixed, level O(log X);
+  * gapped cap: (η,B)-gapped with B fixed, and the specified admissible set;
+  * "family primes ≤ N^{O(1)}" now matches (A3).
+* **D2.** Cor 3.5 is restated in the referee's addendum form: coarsen at
+  λ = (A+2) log N, so Eν' ≤ Eν + 1/N, and min(s, log N) ≤ log 2 +
+  C(log N)^{3/4} + C'. The cap is needed only at level (A+2) log N. The
+  main-theorem proof uses Cor 6.2 with A+2, and Thm 7.6 at λ = (A+2) log N.
+* **D3.** Vaughan's method is attributed via the reconstruction in PW §4
+  (`sources/pw.txt` l. 454–456); Montgomery is cited for the inequality
+  only.
+* **D4.** The Cor 6.1/6.2 headers now say "Case A proved mod Elsholtz–Tao
+  Prop 1.4".
+* **D5.** Results item 1 states the conditions for the O(log²λ) error term
+  and its general size λ log λ (Remark 4.6).
+* **D6.** The `% TODO` is removed; the p ≤ 1/2 reading is now cited to
+  ETrev item 3.4.
+* **D7.** η₀ is removed ("every η < 1 with η ≤ 1/C − 1").
+* **D8.** The 2/3-note sentence is now phrased as a cap on its saving.
+* **D9.** Lemma 8.1 explains why the majorant is 1 on the whole avoider set
+  (ETrev item 3.1) and notes that TQ itself only states ≥ 1 on exceptional
+  primes.
+* **D10.** The TW3 §6 status is updated to match main:
+  * Lemmas 6.1–6.2: PROVED; Prop 6.3: PROVED as an implication; both
+    reviewed in round 2.
+  * Prop 6.4: SKETCH, conditional on the unwritten any-arity fibre law.
+  * Residual: corrected to ℓ_a ≤ ℓ_b < w₂q, OPEN.
+* **D12.** The level-hypothesis observation is marked in the text as the
+  note's own.
+* **D13.** TW3 and TW3rev are now cited as files on main; TW3rev rounds 1–2.
+* **D14.** Hough is credited by name: Ann. of Math. 181 (2015), no pages,
+  "in the form of BBMST".
+
+The paper compiles clean (3 passes, 0 errors/overfull/undefined) to 22 pp.
