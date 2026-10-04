@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/sLnJ5DTxRJlV5rrHe+Z8/QjSYFI</id>
+  <title>arXiv Query: search_query=all:"Erdos-Straus"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-10-04T08:21:59Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22Erdos-Straus%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>10</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.09204v2</id>
+    <title>Counting Type I and Type II solutions of the Erdos-Straus equation: concentration, local obstructions, and a pointwise comparison</title>
+    <updated>2026-09-13T08:15:23Z</updated>
+    <link href="https://arxiv.org/abs/2609.09204v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.09204v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For a prime p &gt;= 5 let f_I(p) and f_II(p) count the Type I and Type II solutions of the Erdos-Straus equation 4/p = 1/x + 1/y + 1/z, in the sense of Elsholtz and Tao. We do not address the Erdos-Straus conjecture itself; our subject is the number of solutions.
+  We turn a bijection of Bradford into an exact counting identity: f_I(p) and f_II(p) are sums, over the denominators n coprime to p, of the number of divisors of n^2 in a single residue class modulo e_n = 4n - p. A dual identity puts both counts on the same integer and the same modulus, distinguished only by the classes -p and -1.
+  Our main unconditional result holds for every numerator m: the number of Type II solutions of m/p = 1/x + 1/(pY) + 1/(pZ) with Y &lt;= K is at most sum_{n &lt;= K} tau(n) = K log K + O(K), uniformly in p and m; on average over p &lt;= N it is only O_m((log K)^3 log log K). Hence Type II solutions concentrate at x/p -&gt; 1/m, while Type I solutions cannot.
+  The numerator carries arithmetic information in two independent ways. A real character chi modulo e_n that is trivial on the primes dividing n annihilates Type II when chi(-1) = -1, and Type I when chi(-1)chi(m_0) = -1, where m_0 is the squarefree kernel of m; these coincide exactly when m is a square, so for the numerator 4 no criterion modulo squares can separate the two types. Separately, f_I(n) = f_II(n) = 0 for every odd perfect square n whenever 4 divides m, generalising a theorem of Elsholtz and Tao.
+  Finally we prove the sharp local inequality 2B(n) &gt;= A(n) for e_n in {1,3,5}, with a construction showing it fails for every odd e with 7 &lt;= e &lt;= 2*10^4; we conjecture f_I(p) &gt; f_II(p) for all p &gt; 5 with p not congruent to 1 mod 8, verify this for p &lt;= 10^6, and reduce it to a finite window. We also locate exactly the factor log log N in the Elsholtz-Tao upper bound for the sum of f_I(p).</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-05T14:14:34Z</published>
+    <arxiv:comment>some errors</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Xinyang Jiang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.07465v1</id>
+    <title>Constructive Proofs of the Erdos-Straus Conjecture for Prime Numbers with P congruent to 1 modulo 4</title>
+    <updated>2025-11-07T11:02:52Z</updated>
+    <link href="https://arxiv.org/abs/2511.07465v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.07465v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Erdos-Straus conjecture (ESC) concerns the representation of the fraction 4/P, where P is a prime number, as a sum of three positive unit fractions. The focus here is on the case when P is congruent to 1 modulo 4. Two constructive approaches are proposed. Method ED1 is based on a factorization identity and leads to a nonlinear parameterization in P, which requires divisor enumeration and local filtering. Method ED2 yields a linear system in P for the parameters (delta, b, c), describing the solution set as an affine lattice of finite index in Z^3. The central result states that for every prime P congruent to 1 modulo 4 there exists a representation: 4/P = 1/A + 1/(bP) + 1/(cP), where the triple (delta, b, c) in N^3 is constructed explicitly by method ED2. In addition, algorithms for transforming solutions (convolution and anti-convolution) are introduced, and large-scale computational verification confirms the correctness and efficiency of the proposed methods.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-07T11:02:52Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>E. Dyachenko</name>
+    </author>
+    <arxiv:doi>10.5281/zenodo.17062748</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.5281/zenodo.17062748" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.07383v1</id>
+    <title>Exact Polynomial Families Solving the Erdos-Straus Equation</title>
+    <updated>2025-08-10T15:14:12Z</updated>
+    <link href="https://arxiv.org/abs/2508.07383v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.07383v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Erdős-Straus conjecture, proposed in 1948 by Paul Erdős and Ernst G. Straus, asks whether the Diophantine equation \[ \frac{4}{a} = \frac{1}{b} + \frac{1}{c} + \frac{1}{d} \] admits positive integer solutions $b, c, d \in \mathbb{N}^*$ for every integer $a \geq 2$. While the conjecture has been confirmed for all even integers and for all integers congruent to $3 \pmod{4}$, the case $a \equiv 1 \pmod{4}$ remains the central open challenge. In this work, we construct four explicit unbounded multivariable polynomials $p_1(x,y,z), p_2(x,y,z), p_3(x,y,z), p_4(x,y,z)$ with $x, y, z \geq 1$, such that each of the first three -- when inserted into the form $a = 4p_i(x,y,z)+1$ -- always produces values of $a$ for which the Erdős--Straus equation admits an explicit solution. Thus, the first three polynomials individually satisfy the conjecture for all their outputs. We further conjecture that the values \[ 4p_1(x,y,z)+1,\quad 4p_2(x,y,z)+1,\quad 4p_3(x,y,z)+1,\quad 4p_4(x,y,z)+1 \] collectively cover all integers congruent to $1 \pmod{4}$. Extensive computational verification up to $q = 10^9$ confirms that every integer of the form $4q+1$ within this range arises from at least one of these families. One of the polynomials alone generates all such prime values up to at least $1.2 \times 10^{10}$. These results offer strong computational evidence and explicit constructions relevant to the resolution of the conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-10T15:14:12Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Bilal Ghermoul</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.08716v1</id>
+    <title>An Unexpected Connection Between the Discrete Zeta Function and the Erdos-Straus Conjecture Under Mballa's Conjecture</title>
+    <updated>2025-05-13T16:22:40Z</updated>
+    <link href="https://arxiv.org/abs/2505.08716v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.08716v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this article, we establish an additive decomposition of the discrete zeta function (for $s \in \mathbb{N}^*$, $s &gt; 1$), more precisely of the function $4(ζ(s)-1)$, as a series whose general term is of the form $1/x_n(s) + 1/y_n(s) + 1/z_n(s)$, where $x_n(s), y_n(s), z_n(s)$ are solutions of the Erdos--Straus conjecture under a personal conjecture (which I will refer to here as Mballa's Conjecture) that I formulated by parametrization in the article: arXiv:2502.20935. This connection thus builds a bridge between analysis and Egyptian fractions in general, and the Erdos--Straus conjecture in particular.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-13T16:22:40Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Philemon Urbain Mballa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2502.20935v2</id>
+    <title>Partial Resolution of the Erdös-Straus, Sierpinski, and Generalized Erdös-Straus Conjectures Using New Analytical Formulas</title>
+    <updated>2026-02-16T13:02:12Z</updated>
+    <link href="https://arxiv.org/abs/2502.20935v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2502.20935v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This article proposes a unified analytical approach leading to a partial resolution of the Erdos-Straus, Sierpinski conjectures, and their generalization. We introduce an equivalent reformulation of these conjectures while constructing two new explicit analytical formulas. The first formula, which is a special case of the second, is based on a divisibility condition, whereas the second, more general formula, relies on the existence of a perfect square, which we conjecture to always hold. Under these conditions, the formulas verify the conjectures even for very large numerical values. Moreover, our method reduces the problem to the search for a suitable perfect square, thereby opening the way to a complete proof of these conjectures. In conclusion, we present open questions and conjectures to the mathematical community regarding the generalization of these formulas.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-02-28T10:45:07Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Philemon Urbain Mballa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.01508v3</id>
+    <title>A Complete Congruence System for the Erdos-Straus Conjecture</title>
+    <updated>2024-04-15T22:55:38Z</updated>
+    <link href="https://arxiv.org/abs/2404.01508v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.01508v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we attack the Erdos-Straus conjecture by means of the structure of its solutions, extending and improving the results of a previous paper. Using previous results and supported by the works of Elsholtz and Tao and Monks and Velingker we define a system of congruences for which there are always solutions to the Erdos-Straus conjecture and which we conjecture to include all prime numbers. For this purpose, and always taking into account a result due to Mordell that limits the congruences admitting polynomial identities to those that are not quadratic residues, we will adopt a transversal approach and classify the solutions by their form and not by those congruences that produce them. Thus we define two new types of solutions, which we call Type A and B, and relate them to the already known Type II solutions and study their properties. Finally we conjecture that every prime number has at least one solution of Type A or B and we associate a congruence and a general polynomial to each Type of solution.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-01T22:23:35Z</published>
+    <arxiv:comment>19 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Miguel Angel Lopez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2206.10319v4</id>
+    <title>Structure and form of the solutions of the Erdos-Straus conjecture</title>
+    <updated>2024-08-20T23:36:16Z</updated>
+    <link href="https://arxiv.org/abs/2206.10319v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2206.10319v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we classify certain values of p that satisfy the Erdos-Straus conjecture, concerning the decomposition of fractions of the form 4/n as sum of three fractions with numerator identically equal to 1, not according to their modular similarity but to the fact that they share solutions with identical structure. We classify all solutions that satisfy that they are of the form (du,dv,duv) and find characterizations for values of p that were initially difficult to classify, such as p=1009. We also study the solutions (x,y,z) that satisfy that gcd(x,y,z)=x and, finally, we classify all the cases in which any of these two variables coincide with each other.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-06-16T08:55:10Z</published>
+    <arxiv:comment>12 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Miguel Angel Lopez</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1812.05684v2</id>
+    <title>Solutions to Diophantine Equation of Erdos-Straus Conjecture</title>
+    <updated>2018-12-31T06:32:30Z</updated>
+    <link href="https://arxiv.org/abs/1812.05684v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1812.05684v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In number theory, the Erdos-Straus conjecture states that for all n &gt;=2, the rational number 4/n can be expressed as the sum of three unit fractions. Paul Erdos and Ernst G. Straus formulated the conjecture in 1948. The restriction that the three unit fractions be positive is essential to the difficulty of the problem, for if negative values were allowed the problem could always be solved. This paper presents an explicit solutions to this conjecture for all n &gt;=2 excepting some n such that n=1(mod8).</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-12-11T08:14:48Z</published>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Dagnachew Jenber Negash</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1107.1010v6</id>
+    <title>Counting the number of solutions to the Erdos-Straus equation on unit fractions</title>
+    <updated>2015-08-02T20:05:58Z</updated>
+    <link href="https://arxiv.org/abs/1107.1010v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1107.1010v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For any positive integer $n$, let $f(n)$ denote the number of solutions to the Diophantine equation $\frac{4}{n} = \frac{1}{x} + \frac{1}{y} + \frac{1}{z}$ with $x,y,z$ positive integers. The \emph{Erdős-Straus conjecture} asserts that $f(n) &gt; 0$ for every $n \geq 2$. To solve this conjecture, it suffices without loss of generality to consider the case when $n$ is a prime $p$.
+  In this paper we consider the question of bounding the sum $\sum_{p&lt;N} f(p)$ asymptotically as $N \to \infty$, where $p$ ranges over primes. Our main result establishes the asymptotic upper and lower bounds $$ N \log^2 N \ll \sum_{p \leq N} f(p) \ll N \log^2 N \log \log N.$$ In particular, from this bound and the prime number theorem we have $f(p) = O(\log^3 p \log \log p)$ for a subset of primes of density arbitrarily close to 1; thus a typical prime has a relatively small number of solutions to the Erdős-Straus Diophantine equation.
+  We also establish some related results on $f$ and related quantities, for instance establishing the bound $f(p) \ll p^{3/5} + O(\frac{1}{\log\log p})}$ for all primes $p$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-07-06T01:02:36Z</published>
+    <arxiv:comment>55 pages, two figures. An error in the statement and proof of Theorem 1.9 has been corrected, and some new references added</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Aust. Math. Soc. 94 (2013), 50--105</arxiv:journal_ref>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1001.1100v1</id>
+    <title>On the Erdos-Straus conjecture</title>
+    <updated>2010-01-07T16:02:45Z</updated>
+    <link href="https://arxiv.org/abs/1001.1100v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1001.1100v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Paul Erdos conjectured that for every n in N, n&gt;1, there exist a, b, c natural numbers, not necessarily distinct, so that 4/n=1/a+1/b+1/c (see \cite{rg}). In this paper we prove an extension of Mordell's theorem and formulate a conjecture which is stronger than Erdos' conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-01-07T16:02:45Z</published>
+    <arxiv:comment>9 pages, no figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Eugen J. Ionascu</name>
+    </author>
+    <author>
+      <name>Andrew Wilson</name>
+    </author>
+  </entry>
+</feed>

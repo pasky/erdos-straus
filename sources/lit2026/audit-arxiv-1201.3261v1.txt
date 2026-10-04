@@ -1,0 +1,1162 @@
+                                          On K-wise Independent Distributions and Boolean Functions
+                                                             Itai Benjamini ∗ Ori Gurel-Gurevich † Ron Peled ‡
+
+                                                                                  November 27, 2024
+
+
+
+                                                                                         Abstract
+arXiv:1201.3261v1 [math.PR] 16 Jan 2012
+
+
+
+
+                                                  We pursue a systematic study of the following problem. Let f : {0, 1}n → {0, 1} be a
+                                              (usually monotone) boolean function whose behaviour is well understood when the input
+                                              bits are identically independently distributed. What can be said about the behaviour of the
+                                              function when the input bits are not completely independent, but only k-wise independent,
+                                              i.e. every subset of k bits is independent? more precisely, how high should k be so that
+                                              any k-wise independent distribution ”fools” the function, i.e. causes it to behave nearly the
+                                              same as when the bits are completely independent?
+                                                  In this paper, we are mainly interested in asymptotic results about monotone functions
+                                              which exhibit sharp thresholds, i.e. there is a critical probability, pc , such that P (f = 1)
+                                              under the completely independent distribution with marginal p, makes a sharp transition,
+                                              from being close to 0 to being close to 1, in the vicinity of pc . For such (sequences of)
+                                              functions we define 2 notions of ”fooling”: K1 is the independence needed in order to force
+                                              the existence of the sharp threshold (which must then be at pc ). K2 is the independence
+                                              needed to ”fool” the function at pc .
+                                                  In order to answer these questions, we explore the extremal properties of k-wise indepen-
+                                              dent distributions and provide ways of constructing such distributions. These constructions
+                                              are connected to linear error correcting codes.
+                                                  We also utilize duality theory and show that for the function f to behave (almost)
+                                              the same under all k-wise independent inputs is equivalent to the function f being well
+                                              approximated by a real polynomial in a certain fashion. This type of approximation is
+                                              stronger than approximation in L1 .
+                                                  We analyze several well known boolean functions (including AND, Majority, Tribes and
+                                              Percolation among others), some of which turn out to have surprising properties with respect
+                                              to these questions.
+                                                  In some of our results we use tools from the theory of the classical moment problem,
+                                              seemingly for the first time in this subject, to shed light on these questions.
+
+
+
+
+                                          ∗
+                                            Weizmann Institute, Rehovot, 76100, Israel. itai.benjamini@weizmann.ac.il
+                                          †
+                                            Weizmann Institute, Rehovot, 76100, Israel. ori.gurel-gurevich@weizmann.ac.il
+                                          ‡
+                                            UC Berkeley. peledron@stat.berkeley.edu
+1    Introduction
+Let f : {0, 1}n → {0, 1} be a boolean function whose behaviour is well understood when the
+input bits are independent and identically distributed, with probability p for each bit to be
+1. As an example we may consider the majority function, Maj, whose output is the bit which
+occurs more in the input (suppose that n is odd). When p = 1/2 we know that the output is
+also distributed uniformly. When p < 1/2 the output tends to be 0. More precisely, if p < 1/2
+is constant, the probability of Maj = 1 decays exponentially fast with n.
+     Suppose, however, that the input bits are not truly IID . For example, they might be the
+result of a derandomization procedure. A reasonable, but weaker assumption would be that
+the probability of each bit to be 1 is still p, and that they are k-wise independent, i.e. the
+distribution of any k of the bits is independent.
+     Under this assumption, what can be said about the distribution of f ? For fixed p, which k
+(as a function of n) is enough to guarantee the same asymptotic behaviour? Majority turns out
+to be relatively easy to analyze: k = 2 is enough to guarantee that for any fixed p < 1/2, the
+probability of Maj = 1 tends to 0 (though only polynomially fast), while for p = 1/2, we have
+P (Maj = 1) guaranteed to tend to 1/2 if and only if k = ω(1) (”Guarantee” here means that
+Maj behaves as prescribed under any k-wise independent distribution).
+                                                                  √           In fact, for p = 1/2 we
+have more precise results, that |P (Maj = 1) − 1/2| ≤ O(1/ k) under any k-wise independent
+distribution. As can been seen, the k needed to ”fool” majority at p 6= pc (which we denote
+K1 ) is much smaller then the k needed to ”fool” majority at pc ( which we denote K2 ). This
+phenomenon is shared by the other functions we explore, and we provide a partial explanation.
+Other functions exhibit much more complex behaviour and the required analysis is accordingly
+complex. We pursue a systematic study of the above question.
+     k-wise independent distributions are often used in computer science for derandomization of
+algorithms. This was initiated by the papers [2], [13], [25], [31] and further developed in [10],
+[36], [32], [41], [26], [27] and others (see [33] for a survey). For derandomization one checks that
+the algorithm still behaves (about) the same on a particular k-wise independent input as in the
+completely independent case. The question we ask is of the same flavor, for a given boolean
+function f , we ask how much independence is required for it to behave about the same on all
+k-wise independent inputs (including the completely independent one).
+     Typically, k-wise independent distributions are constructed by sampling a uniform point of
+a small sample space, which is usually also a linear subspace ([24], [23], [34]). In this work,
+like in the works of [26], [27], we do not impose this restriction and consider general k-wise
+independent distributions. Still, our work is of interest even for the reader only interested in
+the more restrictive model since, on the one hand, anything we show is impossible would still
+be impossible in that model and on the other hand almost all of our constructions are of the
+linear subspace type. Interestingly, in section 4.8 we give an example where the general and
+more restrictive case give asymptotically different results, i.e., that the general distribution case
+is richer, not just up to constants, in what can be achieved with it.
+     The tools we use include the duality of linear programming, in section 3.1, used to show an
+equivalence between our question and the question of approximating the function f by a real
+polynomial in a certain ”sandwich L1 ” approximation (stronger than ordinary L1 approxima-
+tion). This connects our results to the subject of approximation of boolean functions, used for
+example in learning theory (e.g. [29], [38], [5], [40]).
+     In section 3.2 we recall a theorem about weak convergence of distributions, later used to
+give sharp bounds on K2 very easily. In section 3.3 we introduce a tool from the Theory of the
+Classical Moment Problem (TCMP), seemingly for the first time in this context. In sections
+4.8 and 4.9 we use it to prove bounds on the maximal and minimal probabilities of all bits to
+
+
+                                                 1
+be 1 under a k-wise independent distribution, in a simple way. We then observe that if p = 1q
+for a prime-power q, then an upper bound on this maximal probability translates to a lower
+bound on the size of a symmetric sample space for k-wise independent GF (q)-valued random
+variables, we apply our upper bound to obtain new lower bounds for such sample spaces. For
+the binary case q = 2 our bound equals the well-known bound of [2], [13].
+    In section 4 we explore K1 and K2 for various boolean functions, and also prove some
+general theorems. In section 4.6 we present a novel construction of a distribution (of the linear
+subspace type) designed to change the behaviour of a particular function. We use a variation
+of the (u | u + v) construction of error-correcting codes [34] and we would like to emphasize
+the technique used there. We think there is a shortage of ways to construct k-wise independent
+distributions with specified properties and that this technique will be useful for changing the
+behaviour of other functions as well.
+    The approach in this paper is a little different than that usually taken in pseudo-random
+generators (see [39]). There one seeks a distribution under which all functions from a certain
+complexity class behave the same as on fully independent bits. In contrast, we start with a
+function f and wish to show that it behaves the same on all k-wise independent inputs. Still,
+one may expect this to hold if the function f is ”simple enough”. Indeed, a conjecture of Linial
+and Nisan [30] makes this precise when f is a function from the class AC0. In section 4.3 we
+recall the precise conjecture and make some modest progress towards confirming it.
+    There are other notions of ”simple functions”. Another such notion is that the function be
+noise stable [7], i.e., having most of its Fourier mass on constant level coefficients. In section 4.7
+we show a connection between the Fourier spectrum and the behaviour on k-wise independent
+inputs, but surprisingly show that a noise stable function can behave very differently on k-wise
+independent inputs than on fully independent inputs even when k grows fast with n.
+    There is also a lot of interest in almost k-wise independent distributions ([37],[4],[3],[6],[42],[16]),
+though our questions can equally be formulated for that case, in our work we concentrate only
+on perfect k-wise independence, this is both because it seems the analysis is simpler for perfect
+k-wise independence and they could serve as a starting point for further research and because
+we think the perfect k-wise independent case is interesting on its own.
+
+
+2    Basic definitions and properties
+We begin with a definition
+
+Definition 1 Let A(n, k, p) be the set of all k-wise independent distributions Q on n bits
+(X1 , . . . , Xn ) with Q(Xi = 1) = p for all i.
+
+Also denote by Pp the fully independent distribution on n bits, each with probability p to be 1.
+   In most of the sequel we will be concerned with understanding
+
+                          max       Q(f = 1)      and           min       Q(f = 1)                    (1)
+                       Q∈A(n,k,p)                            Q∈A(n,k,p)
+
+for a boolean function f : {0, 1}n → {0, 1} and given n, k and p. We first note that A(n, k, p) is
+a convex set, since, if the distribution on a subset of k bits is independent with marginal p in
+both Q1 and Q2 then it is so also in αQ1 + (1 − α)Q2 .
+    This implies that the extremal values in (1) are attained at extreme points of A(n, k, p),
+hence if we could only find all these extreme points we could then find the values (1) for all f .
+Unfortunately saying anything about these extreme points appears to be very difficult and so
+in the sequel we will need to resort to special methods for each function f considered.
+
+
+                                                    2
+    For later reference, we identify the two extreme points of A(n, n − 1, 21 ). XOR0 is the
+                                              n−1             Pn−1
+                       . . , Xn ) having {Xi }i=1
+distribution on (X1 , .P                          IID and Xn ≡ i=1 Xi mod 2, and XOR1 is the
+                           n−1
+same with Xn ≡ 1 + i=1         Xi mod 2.
+    We next define precisely what we mean by ”k large enough so that f behaves on all k-wise
+independent inputs the same as on the fully independent input”.
+
+Definition 2 εf (k, p) = maxQ∈A(n,k,p) Q(f = 1) − minQ∈A(n,k,p) Q(f = 1)
+  kf (ε, p) is the minimal k such that εf (k, p) < ε.
+
+     We will be mostly interested in asymptotic (in n) results. Let fn : {0, 1}n → {0, 1} be a
+sequence of monotone boolean functions. Assume that the functions have a sharp threshold,
+i.e. there is a pc such that limn→∞ Pp (f = 1) is 0 if p < pc , 1 if p > pc .
+     For example, any sequence of balanced monotone transitive functions has a sharp threshold,
+as is proved by Friedgut and Kalai [17].
+
+Definition 3 K1 is the class of functions k(n), such that ε(k, p) → 0 for any p 6= pc .
+  K2 is the class of functions k(n), such that ε(k, pc ) → 0.
+
+    In other words, K1 -wise independence is enough to guarantee the existence of sharp threshold
+(which is then necessarily at pc ), while K2 -wise independence is enough to guarantee that f
+behaves as if the bits were completely independent, when p = pc .
+    Notice that while K1 and K2 are classes of functions, we occasionally abuse the formal
+notation, and write, as above, K1 -wise independence. Similarly, we write K1 > k(n) to indicate
+that k(n) does not belong to K1 , or K2 < ω(1) to indicate K2 ⊃ ω(1), etc.
+    It is not a-priori clear whether K1 ≤ K2 or vice versa (or neither). Consult the appendix
+for a partial result. In all the examples we encountered K2 is at least ω(K1 ).
+
+
+3     General tools
+In this section we discuss some general tools for finding K1 and K2 as defined in the previous
+section.
+
+3.1   Duality - Approximation by polynomials
+We note that the values (1) are the solution to a simple linear program. What is the dual of
+this program? We observe
+
+Proposition 4 For any f : {0, 1}n → {0, 1}, any k and any 0 < p < 1.
+
+                          max       Q(f = 1) =     min EPp P (X1 , . . . , Xn )
+                       Q∈A(n,k,p)                P ∈Pk+ (f )
+                                                                                              (2)
+                          min       Q(f = 1) =     max EPp P (X1 , . . . , Xn )
+                       Q∈A(n,k,p)                P ∈Pk− (f )
+
+
+where Pk+ (f ) is the set of all real polynomials P : Rn → R of degree not more than k satisfying
+P ≥ f on all points of the boolean cube. Pk− is defined analogously with P ≤ f .
+
+The proof is simple using linear programming duality. We deduce that εf (k, p) < ε is equivalent
+to having two polynomials P + ≥ f and P − ≤ f of degree not more than k with EPp (P + −P − ) <
+ε. We call this type of approximation of f a ”sandwich L1 ” approximation. In section 4.7 we
+show that it is strictly stronger than L1 approximation (by real polynomials of degree not more
+than k). Whether it is stronger than L2 approximation is one of our main open questions.
+
+                                                   3
+3.2   Distributions determined by their moments
+Definition 5 We say that a real random variable X has distribution determined by its mo-
+ments if any random variable Y satisfying EX m = EY m for all integer m ≥ 1 has the same
+distribution as X.
+
+We shall often use the following principle
+
+Proposition 6 Suppose a sequence of RV’s {Xn }n satisfies for all m, EXnm → EX m for some
+RV X whose distribution is determined by its moments. Then Xn → X in the weak sense.
+
+For the proof, see [15], section 2.3 . We remark that a distribution is determined by its moments
+whenever these do not grow too fast. The best criterion is called Carleman’s condition (see [15]).
+But for our purposes it will mostly be enough to know that the Normal and Poisson distributions
+are determined by their moments.
+
+3.3   Bounds from the classical moment problem
+Given a real sequence S := {sm }km=0 , with k even and s0 = 1 , let
+
+         AS = {Q | Q a probability distribution on R, sm = EQ (X m ) for 0 ≤ m ≤ k}           (3)
+
+be all probability distributions with these first k moments (X is a random variable distributed
+according to Q). In the theory of the classical moment problem [1], [28], based on S a certain
+sequence of real functions ρm is defined and the following theorem is proved
+
+Theorem 7 [1, 2.5.2 and 2.5.4] For any x and any Q1 , Q2 ∈ AS
+
+                              |Q1 (X ≤ x) − Q2 (X < x)| ≤ ρ k (x)                             (4)
+                                                              2
+
+
+and in particular by taking Q1 = Q2 we get maxQ∈AS Q(X = x) ≤ ρ k (x).
+                                                                      2
+
+For brevity we do not give the general definitions of ρm here but differ them to the
+                                                                                   Pappendix. In
+                                     m                                               m   2    −1
+the case of interest for us sm := E(X ) when X ∼ Bin(n, p) and then ρm (x) := ( j=0 Pj (x))
+where {Pj }j are the (normalized) Krawtchouk polynomials (see [43]). These polynomials are
+very well known and from them we easily deduce the following (see appendix for a proof)
+
+                           pn
+          ρm (n) =                                                                            (5)
+                  P(Bin(n, 1 − p) ≤ m)
+             n     2                                       1                      n
+         ρm ( ) ≤ √                                 for p = , even n and even m ≤             (6)
+             2      m                                      2                      2
+
+In many cases, the theory also has constructions achieving the bound of theorem 7. However,
+these are not necessarily supported by the integers, which we require. It might be that they
+can be suitably modified to give sharp results in our cases.
+
+
+4     Boolean functions
+In this section we investigate K1 and K2 for several boolean functions, and also present some
+general theorems. We start with a simple, but already non-trivial example.
+
+
+
+
+                                                4
+4.1    Majority
+Let M ajn be the majority function on n bits (for odd n). Let Sn = ni=1 xi , where xi are
+                                                                   P
+                                      √
+the input bits. Let Sn = (2Sn − n)/ n. The central limit theorem implies that under P1/2 ,
+Sn → N (0, 1). Identifying K1 is easy
+
+Theorem 8 K1 (Maj) = 2.
+
+Proof. Obviously, k = 1 is not in K1 . However, for Q ∈ A(n, 2, p) we have EQ (Sn ) = np and
+VarQ (Sn ) = np(1 − p). If, WLOG, p < 1/2 then by Chebyshev’s inequality
+
+                                                           np(1 − p)       1
+             Q(Sn > n/2) ≤ Q((Sn − np) > n(1/2 − p)) ≤               2
+                                                                       = O( ) → 0
+                                                         (n(1/2 − p))      n
+     Identifying K2 is harder. The ideas of section 3.2 give the following
+
+Proposition 9 K2 (Maj) ≤ ω(1)
+
+Proof. Consider the distribution of Sn under some Q ∈ A(n, k, 1/2). Obviously, EQ (Snl ) =
+EP1/2 (Snl ) for any l ≤ k. The same holds for Sn as it is a linear function of Sn . Therefore,
+         l
+EQn (Sn ) → sl where sl = E(N (0, 1)l ) is the l-th moment of a standard normal distribution.
+The normal distribution is determined by its moments. Hence, if k(n) ∈ ω(1) and Qn ∈
+A(n, k(n), 1/2) then Sn → N (0, 1) weakly by proposition 6. In particular, Qn (Majn = 1) =
+Qn (Sn > 0) → 1/2.
+    In fact for Maj we can be much more specific.
+
+Theorem 10 There exists a C > 0 such that for any even 2 ≤ k < n
+                                                               √
+                       C                                 1    2 2
+                   √        ≤ max |Q(Majn = 1) − | ≤ √                                        (7)
+                     k log k Q∈A(n,k, 21 )               2      k
+
+And when Q0 ∈ A(n, n − 1, 21 ) is the XOR0 distribution we have |Q0 (Majn = 1) − 12 | ≥ 3√1 n .
+
+The theorem implies that K2 = ω(1), but is much stronger in that it bounds εMaj (k, 12 ).
+    Proof. The claim about XOR0 is easy to verify directly. The lower bound comes from a
+direct construction sketched in the appendix. The upper bound is actually known in the context
+of error-correcting codes [34, Ch. 9, thm. 23] and it appears the proof there also works in our
+case. But we point out that a very simple proof of it can be obtained just by applying theorem
+7 and (6) to the distribution of Sn and this proof even improves a little on the constant.
+
+4.2    Tribes
+Let m be an integer and let n = m2m and let m(n) be its inverse function. Tribesn is the
+following function: Let the input bits be divided into 2m sets of size m each, called tribes.
+Let yi Pbe the AND of the bits in the i-th tribe. Then Tribesn is the OR of the yi ’s. Let
+Sn = 0≤i<2m yi . Then Tribesn = 0 iff Sn = 0. Under P 1 , Sn → P oisson(1). It is easily
+                                                           2
+checked that Tribes is a sequence of monotone functions with sharp threshold at pc = 1/2 and
+P 1 (Tribesn = 1) → 1 − 1/e.
+ 2
+
+
+Theorem 11 For some C > 0, Cm(n) ≤ K1 (Tribes) ≤ 2m(n)
+
+
+
+
+                                                 5
+Proof. The proof is similar to that of proposition 8. First, notice that for Q ∈ A(n, m(n), p) we
+have Q(yi = 1) = pm . For p < 1/2, a union bound now yields Q(max0≤i<2m yi = 1) ≤ (2p)m →
+0. If Q ∈ A(n, 2m(n), p) then the yi s are pairwise independent. Using Chebyshev’s inequality
+on Sn yields the desired result for p > 1/2.
+    For the lower bound we use equation 14 to produce a Q ∈ A(n, Cm(n), p) such that the
+probability of all bits of any tribe are 1 is 0.
+
+Theorem 12 K2 (Tribes) ≤ ω(m(n)) = ω(log(n))
+
+Proof. This is like the proof of 9. There is no need to normalize Sn as it tends to Poisson(1)
+as is. Again, we only need to check that Poisson distribution satisfies Carleman’s condition.
+    A more refined results, like those for Maj can be reached using Theorem 7.
+                                     2
+Theorem 13 εTribesn (km(n), 1/2) ≤ (k/2)!
+
+4.3   AC 0 functions
+AC 0 is the class of functions computable by boolean circuits using Not gates, a polynomial
+number of AND and OR gates (with unlimited fan-in) and of bounded depth. Tribes is a
+notable example of an AC 0 function of depth 2. Linial and Nisan ([30]) conjectured that any
+boolean circuit of depth d and size s has K2 ⊃ ω(logd−1 s).
+    We prove a very special case of this conjecture. Let n = 22m and let the input bits be divided
+into disjoint sets, Ai , consisting of m bits each. A function is paired if it is the OR of AND
+gates, each operating on the bits in exactly 2 of the Ai ’s. A paired function is, in particular, an
+AC 0 function of depth 2.
+
+Theorem 14 If f is paired then K2 (f ) ≤ ω(log n)
+
+    proof sketch. Let S(f ) be the number of satisfied AND gates in f . The crux of the proof
+is to trim f by removing some of the AND gates to produce a function f ′ , which is (a) very
+close to f under any ω(log n)-wise independent distribution, and (b) S(f ′ ) under Pp tends to a
+RV which is determined by its moments.
+
+4.4   Majority of majorities
+Let m be an odd integer and let n = m2 . Maj2 is the following function: divide the input bits
+into m disjoint sets of size m. Let yi be the majority of the i-th set, then Maj2 is the majority
+of the yi ’s.
+
+Theorem 15 K1 (Maj2 ) = 2
+                                                          2
+Proof. The proofP of 8 yields Q(yi =2 1) ≤ 1/(m(1 − 2p) ) for any Q ∈ A(n, k, p), when p < 1/2.
+Therefore EQ ( i yi ) ≤ 1/(1 − 2p) . The yi ’s are not pairwise independent, but Markov’s
+inequality is enough: Q(Maj2n = 1) ≤ 2/(m(1 − 2p)2 ) → 0.
+     Notice that this proof applies also to i-levels majority, Maji , defined similarly on mi bits.
+                √              √
+Theorem 16 n ≤ K2 ≤ ω( n)
+                                                  √
+Proof. To show that any function k ∈ ω( n) belongs to K2 (Maj2 ) notice that if Q ∈
+A(n, k, 1/2) then the distribution generated on the yi ’s belongs to A(n, k/m, 1/2). Since the
+yi ’s enter majority to produce the output, it is enough, by theorem 9 to have k/m = ω(1) in
+order for the output to tend to 1/2.
+
+                                                 6
+    To show that k = m−1 is not in K2 , let Q be the following distribution: Q is XOR0 on each
+Ai and completely independent on different Ai ’s. Obviously, Q ∈ A(n, m − 1, 1/2). By P
+                                                                                      theorem
+                            √
+10, Q(yi = 1) ≥ 1/2 + 1/3 m (assume WLOG that (n + 1)/2 is even). Let Sn = m−1          i=0 yi
+                      √
+and Sn = (2Sn − m)/ m. Since the yi ’s are independent we have that Sn → N (a, 1) where
+                         √
+a = lim(2Q(yi = 1) − 1) m ≥ 2/3. Obviously, Q(Maj2 = 1) = Q(Sn > 0) is bounded away
+from 1/2.
+                                                    √
+    The surprising fact here is the lower bound of n. First it shows an example where K2
+is much larger then ω(K1 ). Second, it demonstrates that L2 approximation does not imply
+”Sandwich L1 ” approximation (see section 4.7).
+
+4.5   Composition of functions
+Maj2 is a simple example of composition of functions. What can we say about compositions in
+general?
+    Let n = ml and let f = g(h1 , .., hm ) where the hi ’s receive disjoint sets Ai of l bits each.
+Assume that hi ’s are balanced with respect to pc and that pc (g) = 1/2.
+                           1
+                             , kf (4mε, pc ) ≤ i khi (ε, pc )
+                                              P
+Theorem 17 For ε ≤ 2m
+                                                                              Q Q
+Proof. g(y1 , .., ym ) can be expressed as a sum of monomials of the form yi (1 − yj ), each
+involving all of the y’s. We take the upper and lower ”sandwich L1 ” approximating polynomials
+of each hi (which have degree khi (ε, pc )) and plug the upper in place of anyPyi and one minus
+the lower in place of any (1 − yj ). This produces a polynomial of degree k = i khi (ε, pc ) which
+bounds f from above. The error of each monomial, when the distribution is k-wise independent
+                                                         1
+is at most (1/2 + ε)m − 1/2m ≤ mε/2m−2 for ε ≤ 2m           . Summing over the monomials we have
+an error of no more then 4mε. The lower bound is similar.
+    This is a very general bound - we did not put any restriction on g, it can even be nonmono-
+tone. For example, K2 for the XOR of two (or boundedly many) majorities is still ω(1).
+    For 0 < a < 1, define Maj2a to be the majority of na majorities of n1−a bits each. It is easy
+to see that K2 ≤ ω(n1−a ). Theorem 17 gives a bound of K2 ≤ ω(n3a ). However, using finer
+properties of the ”sandwich L1 ” approximating polynomials of Maj, we can do better.
+
+Theorem 18 K2 (Maj2a ) = ω(nmin(a,1−a) )
+
+Proof. We use the approximating polynomials of the upper Maj function (the ”g”) instead of
+the generic polynomial of theorem 17. These are not only of bounded degree, but also have
+small coefficients. This implies that the resulting polynomial is of degree O(m) and produces
+an error of O(na/2 ε), where m is the degree of the approximating
+                                                           √       polynomial of the lower Maj
+functions and ε is their error. Taking m = na gives ε = 1/ na = n−a/2 , as required.
+
+4.6   Percolation
+Another very interesting example to consider is that of percolation. Briefly, percolation on
+a graph G = (V, E) is a distribution on {0, 1}V , where we identify the bits with the states
+{open, close}. We refer the reader to [20] for details of the theory of percolation. We denote
+the set of all k-wise independent percolation with marginal probability p for every vertex to be
+open by A(G, k, p). When G is infinite, we are interested in the probability of existence of an
+infinite cluster of open vertices. This event is a boolean function on infinitely many bits.
+
+Theorem 19 For G = Zd or G = Td (the d-ary tree), for any 0 < p < 1 and any k there exist
+a Q ∈ A(G, k, p) such that there is an infinite open cluster Q-almost surely, and another such
+Q with no infinite open cluster Q-almost surely.
+
+                                                7
+    The positive part of this theorem follows from the following 2 theorems about finite versions
+of percolation. Let f be the function indicating an open crossing of the n × n grid.
+                 √                   √
+Theorem 20 2 log log n = (log n)1/ log log n ≤ K1 (f ) ≤ ω(log n)
+
+   For the tree case, we need to diverge slightly from the boolean valued setting. Let f be the
+number of open paths from the root to the leaves of Tdn , the n-levels d-ary tree.
+
+Theorem 21 For any p, for k = C log n, there is a Q ∈ A(Tdn , k, p) such that EQ (f ) ≥ 2.
+
+   To this end, we present a way of combining k-wise independent distributions to ”amplify”
+the amount of independence, inspired by the (u | u + v) lemma of error-correcting codes. Let
+Zr be the cyclic group of size r. Let Ar (n, k) be the set of all k-wise independent distributions
+on vectors (X1 , . . . , Xn ) ∈ Znr with each Xi uniform in Zr . Define Ar (G, k) similarly.
+
+Lemma 22 Fix m ≥ 1. Let X := (X1 , . . . , Xn ) ∈ Ar (n, k). Let X i := (Xji )nj=1 be m IID copies
+of X. Let also Y := (Y1 , . . . , Yn ) ∈ Ar (n, 2k + 1) be a vector independent of all the X’s. Then
+the vector with the following coordinates
+
+                              X11 + Y1 ,            . . . , Xn1 + Yn ,
+                                           X21 + Y2 ,
+                              X12 + Y1 ,            . . . , Xn2 + Yn ,
+                                           X22 + Y2 ,
+                                  ..           ..     ..        ..                               (8)
+                                   .,           .,     .,        .,
+                              X1m + Y1 , X2m + Y2 , . . . , Xnm + Yn
+
+is in Ar (mn, 2k + 1)
+
+    Consult the appendix for a proof of a more general result.
+    Proof. (Sketch, of theorem) We build distributions in Ar (Tdn , k) such that when we identify
+0 with open and the rest with close, we get the desired percolation for p = 1/r.
+    The proof goes by induction. For k = 1 (i.e. no independence) a suitable distribution is just
+taking Xi to be identical and n to be large enough.
+    Assume we have X ∈ Ar (Tdn , k) such that EX (f ) ≥ 2. We will construct a suitable Z ∈
+A (Tdm , 2k + 1) for m = n + n2 k log d. Let X i be independent copies of X and let Y ∈
+  r
+
+Aq (n, 2k + 1)be such that probability of Y = 0 is maximal, which is roughly d−nk , because
+there are about dn RVs in Y . Using lemma 22 we now assign the RVs in X i + Y i to the vertices
+of Tdm such that each is assigned to a subtree of depth n with root at a level divisible by n.
+Thus, with probability d−nk we have Y = 0 and then the open paths form a Galton-Watson tree
+with an expectation of 2m/n = 21+nk log d . Thus, the total expectation is d−nk 21+nk log d = 2.
+    Notice that having an open path from the root to the leaves of Tdn is an AC 0 function of
+depth 2. This is an example of a rather complicated depth 2 function, very different then the
+paired functions considered in section 4.3. Also, this function does not exhibit a sharp threshold,
+thus the need for different terminology.
+
+4.7   Fourier transform and K2
+In this section we consider only the case p = 21 . The quantity EQ (f ) may be represented using
+                            Pˆ
+the fourier transform    as    f (S)Q̂(S). When we consider f as having values of ±1 we have
+   fˆ2 (S) =    f 2 (S) = 2n . Therefore fˆ2 (S)/2n is a probability measure on all subsets of the
+P            P
+bits, called the Fourier mass. Now, a distribution is k-wise independent if and only if all of its
+Fourier coefficients of levels between 1 and k (inclusive) are 0. Therefore, if the fourier mass of f
+
+
+                                                  8
+is supported by the first k levels, then EQ (f ) = fˆ(∅) = P 1 (f ). One might conjecture that if most
+                                                             2
+of the Fourier mass is on the first k levels then EQ (f ) would be small for all Q ∈ A(n, k, 1/2).
+    In [29] and [22], Linial, Mansour and Nisan with an improvement by Håstad prove that
+any AC 0 function has its fourier mass concentrated on the first O(logd−1 s) levels (where s is
+the size and d the depth). Had the above conjecture been true, we would have proved that
+K2 = ω(logd−1 s) immediately for any such AC0 function (see section 4.3).
+                                                                                        √
+    However, Maj2 provides a counterexample for this conjecture, as its K2 > n while its
+fourier mass is concentrated on the bounded levels, i.e, for any ε > 0 there exists C > 0 such
+that all but ε of the mass is below level C. This is because Maj2 is a composition of noise stable
+functions and is therefore noise stable itself (see [7]). Of course, Maj2 is not an AC 0 function
+so this conjecture might still be true in that domain.
+
+4.8   Maximal probability that all bits are 1
+In this section we investigate the maximal probability that all the bits are 1, i.e, the AND
+function. At the end of the section two applications of our bounds are given.
+   Define M (n, k, p) := maxQ∈A(n,k,p) Q(All bits are 1) then
+Theorem 23 For even k
+                                                           pn
+                                  M (n, k, p) ≤                                                   (9)
+                                                  P(Bin(n, 1 − p) ≤ k2 )
+Proof. Fix Q ∈ A(n, k, p), let S count the number of bits which are 1. Since S has the same
+first k moments as a Bin(n, p) the result follows immediately from theorem 7 and (5) applied
+to S.
+     Bound (9) is a powerful bound in that it seems to give good results for most ranges of the
+parameters. Here are some corollaries
+Corollary 24
+                                                       !k
+                         √               kp                2
+
+          M (n, k, p) ≤ 2 k                                        For any n, even k and p       (10)
+                                  2e(1 − p)(n − k2 )
+                                                                                      k
+          M (n, k, p) ≤ 10pn                                           k even, n(1 − p) ≤    (11)
+                                                                                      2
+We add that it is possible to get a result similar to (10) by letting S count the number of bits
+which are 1, considering (S − pn)k and applying Chebyshev’s inequality. Still our approach with
+theorem 7 has the following advantages. First, it is quite simple as the above proof of theorem
+23 shows. Second, it gives (10) in all ranges of the parameters n, k and p, estimating E(S − pn)k
+appears to become difficult when k also grows with n, or when np is small. Third, it seems to
+give slightly better results, the approach with Chebyshev’s inequality apparently does not give
+the factor 2 inside the brackets of (10).
+    We are also able to obtain exact results, for k = 2, 3. This is done by adapting the closed-
+form expressions appearing in Boros and Prekopa [9] to our settings.
+Proposition 25 Let M := ⌊(n − 1)(1 − p)⌋ and δ := {(n − 1)(1 − p)} (integer and fractional
+parts respectively). And also N := ⌊(n − 2)(1 − p)⌋ and ε := {(n − 2)(1 − p)} then
+                                  p    δ2 − δ(1 + p) + p
+                  M (n, 2, p) =      +                                                           (12)
+                                M +2    (M + 1)(M + 2)
+                                 p 2   p(ε2 − ε(1 + p) + p)
+                  M (n, 3, p) =      +                      = M (n − 1, 2, p)p                   (13)
+                                N +2     (N + 1)(N + 2)
+
+                                                       9
+    For lower bounds on M (n, k, p) and an exact result for small p, see the appendix.
+    We present two applications of our bounds. First a definition, for q a prime-power and
+k ≥ 2, a matrix B ∈ MR×n (GF (q)) is an OA(n,k,q), or an Orthogonal array of strength k with
+q levels (see [34] and [23]) if a uniformly chosen row (X1 , . . . , Xn ) of it has k-wise independent
+entries, each uniform in GF (q). If the rows of B form a linear subspace, then B is called a
+linear orthogonal array and is referred to by its generator matrix A ∈ Mm,n whose rows are a
+basis for the rows of B. We call A a GOA(n,k,q) for short.
+
+   1. The bound (9) can be used to give another proof of the Rao bound (see [23]) on the
+      minimal size of orthogonal arrays over GF (q). To see this, suppose B is an OA(n,k,q)
+      for k even, with R rows. We may assume B contains the all zeroes vector. Consider the
+      distribution Q ∈ A(n, k, 1q ) obtained by sampling uniformly a row of B and mapping each
+      coordinate to a bit by 0 7→ 1, other elements to 0. We have Q(All ones vector) = R1 , hence
+      by (9) we now get R ≥ q n P(Bin(n, 1 − 1q ) ≤ k2 ) which is the Rao bound, or using the less
+                                                  k
+                                                       √
+                                
+                                   2e(q−1)(n− k2 ) 2
+      refined (10) we get R ≥            k           /2 k.
+
+      We mention in this context that for q = 2, this lower bound is equal to the bound
+                  P k2    n
+      m(n, k) := i=0         which also appeared in [2] (in a more general setting) but we note
+                          i
+      that for q = 2 we obtain a somewhat stronger result, the bound (9) is in fact an upper
+      bound for the size of any atom of the distribution (by xoring a constant vector), hence
+      for this case we improve slightly the known results by adding that the maximum atom of
+                                         1
+      the distribution is bounded by m(n,k) , not just the size of the sample space.
+
+   2. Let A be a GOA(n,3,3) with m rows. Since the columns of A are 3-wise linearly indepen-
+                                                                m
+      dent, a theorem of Meshulam [35] implies that n = O( 3m ). Consider the distribution Q in
+      A(n, 3, 31 ) obtained by sampling a uniform linear combination of the rows of A and map-
+                                                                                           1
+      ping to bits by, say, 0 7→ 1 and 1, 2 7→ 0. We have Q(All ones vector) ≤ 31m = O( n log  n ). In
+                                                 ′        1        ′                         1
+      contrast, by equation (13) there exist Q ∈ A(n, 3, 3 ) with Q (All ones vector) = Ω( n ). We
+      deduce that there is an asymptotic difference between what distributions obtained from
+      linear orthogonal arrays (by the above method) and general distributions can achieve.
+      This is interesting since most explicit constructions of k-wise independent distributions
+      seem to be based on sampling from linear orthogonal arrays.
+
+4.9   Minimal probability that all bits are 1
+Define m(n, k, p) := minQ∈A(n,k,p) Q(All bits are 1). m(n, k, p) can well be 0, in fact
+
+Proposition 26 When k < n and p ≤ 21 we have m(n, k, p) = 0.
+
+Since for p = 21 we can take the XOR0, or XOR1 distributions according to the parity of n. And
+for lower p’s we can take the AND of this distribution with a fully independent distribution.
+    For p ≥ 21 , define nc (k, p) := min{n | m(n, k, p) = 0}. Our main result of the section are
+two sided bounds on nc (k, p)
+
+Theorem 27 For any p ≥ 12
+                                                (
+                                                       k
+                                                    2(1−p) + 1   k even
+                                  nc (k, p) ≥        k+1
+                                                                                                 (14)
+                                                    2(1−p)       k odd
+
+
+
+                                                      10
+and when 1 − p = 1q for a prime-power q and C > 0 is a large constant
+
+                                                   k        1
+                                  nc (k, p) ≤ C       log(     )                           (15)
+                                                  1−p      1−p
+
+The upper bound is based on the Gilbert-Varshamov bound of error-correcting codes (see [34])
+and one extra idea. The lower bound poses the main difficulty and for it we need a different
+aspect of the TCMP. Fix k and p ≥ 12 and let Q ∈ A(nc (k, p), k, p) satisfy Q(All ones vector) =
+0. Let, as usual, S count the number of 1’s. S is supported on [0, n − 1] and has the first k
+moments of a Bin(n, p). Theorems in the TCMP show this is only possible if nc satisfies (14).
+The actual verification is technical and involves calculating determinants. Consult the appendix
+for more details.
+    As in the previous section, one can deduce from this a result about orthogonal arrays.
+Suppose B is an OA(n,k,q) with the property that each row contains the symbol 0. If k is even,
+                                                        (k+1)q
+then necessarily n ≥ 1 + kq 2 and if k is odd then n ≥     2   .
+
+
+5     Open questions
+Below we list some of our main open questions:
+
+    1. Say anything non-trivial about the extremal points of A(n, k, p).
+
+    2. Is ”sandwich L1 ” approximation stronger then L2 approximation?
+
+    3. What is K2 (Maj3 )? What is K2 (Maji )?
+
+    4. What is K2 for iterated majority of threes?
+
+
+References
+ [1] Akhiezer, N. I. (1965) The classical moment problem and some related questions in analysis,
+     Translated by N. Kemmer, Hafner Publishing Co., New York.
+
+ [2] Alon N., Babai L. and Itai A. (1986) A Fast and Simple Randomized Parallel Algorithm
+     for the Maximal Independent Set Problem. J. Algorithms, 7 (4), 567-583.
+
+ [3] N. Alon, J. Bruck, J. Naor, M. Naor and R. Roth. Construction of asymptotically good,
+     low-rate error-correcting codes through pseudo-random graphs. IEEE Trans. Info. Theory,
+     38:509-516, 1992.
+
+ [4] N. Alon, O. Goldreich, J. Håstad and R. Peralta, Simple constructions of almost k-wise
+     independent random variables. Random Struct. Algorithms 3 3 (1992), pp. 289-304 (pre-
+     liminary version in FOCS90) .
+
+ [5] J. Aspnes, R. Beigel, M. Furst, S. Rudich: The expressive power of voting polynomials
+     Proc. 23rd ACM Conference STOC, 1991,402-409.
+
+ [6] Y. Azar, R. Motwani and J. Naor. Approximating arbitrary probability distributions using
+     small sample spaces. Manuscript, 1990.
+
+ [7] I. Benjamini, G. Kalai, O. Schramm, (1999) Noise sensitivity of Boolean functions and
+     applications to percolation, Publications Mathe’matiques de l’IHE’S, 90, 5-43.
+
+
+                                                  11
+ [8] I. Benjamini, G. Kozma, D, Romik (2006) Random walks with k-wise independent incre-
+     ments, Electronic Communications in Probability, 11, 100-107
+
+ [9] Boros E., Prekopa A. (1989) Closed form two-sided bounds for probabilities that at least
+     r and exactly r out of n events occur, Mathematics of Operations Research, 14 (2), 317 -
+     342.
+
+[10] B. Berger and J. Rompel. Simulating (logc n)-wise independence in NC. Journal of the
+     ACM, 38:1026-1046, 1991.
+
+[11] R. Curto, L. A. Fialkow, Recursiveness, positivity, and truncated moment problems, Hous-
+     ton J. Math., vol 17 (4), 1991.
+
+[12] B. Chor and O. Goldreich, On the power of two-point sampling, Journal of Complexity,
+     vol. 5, pp. 96-106, 1989.
+
+[13] B. Chor, O. Goldreich, J. Hastad, J. Friedman, S. Rudich, and R. Smolensky, ”The Bit Ex-
+     traction Problem or t-Resilient Functions,” Proc. 26 th IEEE Symposium on Foundations
+     of Computer Science, 1985, pages 396–407.
+
+[14] Dumer I. and Yekhanin, S. (2004), Long nonbinary codes exceeding the Gilbert-Varshamov
+     bound for any fixed distance, IEEE Trans. Inform. Theory, 50 (10), 2357–2362.
+
+[15] Durrett R. (1996) Probability: theory and examples, second edition, Duxbury press, Bel-
+     mont, CA.
+
+[16] G. Even, O. Goldreich, M. Luby, N. Nisan and B. Velićković. Approximations of general
+     independent distributions. In Proc. 24th ACM Symposium on Theory of Computing, pages
+     10-16, 1992.
+
+[17] Friedgut E. and Kalai G. (1996) Every Monotone Graph Property Has a Sharp Threshold
+     Proc. Amer. Math. Soc. 124, 2993-3002.
+
+[18] M. Fredman, J. Komlos and E. Szemerédi. Storing a sparse table with O(1) worstcase
+     access time. In Proc. 23rd IEEE Symposium on Foundations of Computer Science, pages
+     165-169, 1982.
+
+[19] Fukuda K. (1999), CDD+ version 0.76a1 (June 8 1999), Institute for
+     Operations   Research     ETH-Zentrum,    CH-8092    Zurich,   Switzerland    and
+     Department    of     Mathematics    ETFL,    CH-1015    Lausanne,    Switzerland.
+     http://www.cs.mcgill.ca/∼fukuda/soft/cddman/cddman.html.
+
+[20] G.R. Grimmett (1999) Percolation, 2nd Edition, Springer.
+
+[21] O. Häggström (1997) Infinite clusters in dependent automorphism invariant percolation on
+     trees, Annals of Probability, 25 no. 3, 1423-1436
+
+[22] Håstad J. (2001), A Slight Sharpening of LMN, J. Comput. Syst. Sci. 63 (3), 498-508.
+
+[23] Hedayat, A. S. and Sloane, N. J. A. and Stufken, John (1999) Orthogonal arrays, Theory
+     and applications, With a foreword by C. R. Rao, Springer-Verlag, New York.
+
+[24] A. Joffe. On a set of almost deterministic k-independent random variables. Annals of Prob-
+     ability, 2:161-162, 1974.
+
+
+                                              12
+[25] R. Karp and A. Wigderson. A fast parallel algorithm for the maximum independent set
+     problem. J. ACM, 32: 762-773, 1985.
+
+[26] D. Koller and N. Megiddo. Constructing small sample spaces satisfying given constraints.
+     In Proc. of the 25th Annual ACM Symposium on Theory of Computing, pages 268-277,
+     1993.
+
+[27] H. Karloff and Y. Mansour. On construction of k-wise independent random variables. In
+     Proc. of the 26th Annual ACM Symposium on Theory of Computing, pages 564-573, 1994.
+
+[28] Kreı̆n, M. G. and Nudel’man, A. A. (1977) The Markov moment problem and extremal
+     problems, Ideas and problems of P. L. Čebyšev and A. A. Markov and their further de-
+     velopment, Translated from the Russian by D. Louvish, Translations of Mathematical
+     Monographs, Vol. 50, AMS.
+
+[29] Linial N., Mansour Y., and Nisan N.. Constant depth circuits, Fourier transform, and
+     learnability. In 30th Annual Symposium on Foundations of Computer Science, pages 574-
+     579, 1989.
+
+[30] N. Linial and N. Nisan (1990) Approximate inclusion-exclusion, Combinatorica, 10, 349-
+     365.
+
+[31] Luby M. (1985) A simple parallel algorithm for the maximal independent set problem Proc,
+     of the 17’th annual ACM symposium on Theory of computing. Providence, Rhode Island,
+     US, 1 - 10.
+
+[32] M. Luby. Removing randomness in parallel computation without a processor penalty. J.
+     Comput. Syst. Sci., 47(2):250-286, 1993.
+
+[33] M. Luby and A. Wigderson. Pairwise independence and derandomization. Technical Report
+     TR-95-035, International Computer Science Institute, Berkeley, California, 1995.
+
+[34] MacWilliams, F. J. and Sloane, N. J. A. (1977) The theory of error-correcting codes,
+     North-Holland Mathematical Library, Vol. 16, North-Holland Publishing Co., Amsterdam.
+
+[35] Meshulam R. (1995), On subsets of finite abelian groups with no 3-term arithmetic pro-
+     gressions. J. Combin. Theory Series A, 71 (1), 168-172.
+
+[36] R. Motwani, J. Naor and M. Naor. The probabilistic method yields deterministic parallel
+     algorithms. J. Comput. Syst. Sci., 49:478-516, 1994.
+
+[37] J. Naor and M. Naor, Small-bias probability spaces: efficient constructions and applica-
+     tions. SIAM J. Comput. 22 4 (1993), pp. 838-856 (preliminary version in STOC90)
+
+[38] N. Nisan and M. Szegedy. On the degree of boolean functions as real polynomial. In Pro-
+     ceedings of the 24th ACM Symposium on the Theory of Computing, pages 462–467. ACM,
+     New York, 1992.
+
+[39] Nisan N. and Wigderson A. (1994) Hardness vs. randomness, Journal of Computer and
+     System Sciences, 49 (2), 149 - 167.
+
+[40] O’Donnell R., Servidio R. A. (2003) New degree bounds for polynomial threshold functions,
+     Proceedings of the thirty-fifth annual ACM symposium on Theory of computing, 325 - 334.
+
+
+
+                                             13
+[41] L. J. Schulman. Sample spaces uniform on neighborhoods. In Proceedings of the 24th
+     Annual ACM Symposium on Theory of Computing, pages 17-25, 1992.
+
+[42] S. Chari, P. Rohatgi and A. Srinivasan. Improved algorithms via approximations of prob-
+     ability distributions. In Proc. 26th ACM Symposium on Theory of Computing, pages 584-
+     592, 1994.
+
+[43] G. Szegő (1975) Orthogonal polynomials, fourth edition, American Mathematical Society,
+     Colloquium Publications, Vol. XXIII, AMS Providence R.I..
+
+
+6     Appendix
+6.1    K1 and K2
+It is not a-priori clear whether one of these classes contains the other. Assume that lim Ppc (f =
+1) exists and denote it by α. We have the following simple result:
+
+Claim 28 For any k ∈ K2 (f ), for p < pc we have lim εf (k, p) ≤ α and for p > pc we have
+lim εf (k, p) ≤ 1 − α
+
+   Proof. Obviously, both maxQ∈A(n,k,p) Q(f = 1) and minQ∈A(n,k,p) Q(f = 1) are increasing
+functions of p. The claim now follows immediately from the fact that lim maxQ∈A(n,k,p) Q(f =
+1) = lim minQ∈A(n,k,p) Q(f = 1) = α.
+   So, while we don’t know if for k ∈ K2 , εf (k, p) → 0 we do know that it cannot be too large.
+
+6.2    Percolation
+Here is the more general result, of which lemma 22 is a corollary (put l = 1).
+
+Lemma 29 (combining distributions) Fix integers l, m ≥ 1. Suppose for each 1 ≤ i ≤ m we
+have random vectors X i := (X1i , . . . , Xni ) ∈ Ar (n, k) and Y i := (Y1i , . . . , Yni ) ∈ Ar (n, lk + l + k).
+Suppose that the X vectors are independent among themselves and independent from the Y
+vectors, and that the Y vectors are l-wise independent among themselves. Then the vector with
+the following coordinates
+
+                                X11 + Y11 ,    X21 + Y21 ,    ...,   Xn1 + Yn1 ,
+                                X12 + Y12 ,    X22 + Y22 ,    ...,   Xn2 + Yn2 ,
+                                    ..             ..          ..        ..                                 (16)
+                                     .,             .,          .,        .,
+                               X1m + Y1m , X2m + Y2m , . . . , Xnm + Ynm
+
+is in Ar (mn, lk + l + k)
+
+Proof.
+    Call the resulting distribution Z, where Z i := (Z1i , Z2i , . . . , Zni ) and Zji := Xji + Yji . Take a
+set S of at most lk + l + k variables from the vector Z, we need to show they are independent
+and uniformly distributed. Suppose that ai of them are from Z i for each 1 ≤ i ≤ m, WLOG
+we can assume that for each i these are Z1i , . . . , Zai i . Consider only the i’s for which ai ≥ k + 1,
+since |S| ≤ l(k + 1) + k we can have at most l such i’s, WLOG suppose these are a1 , . . . , at
+for t ≤ l. Now, fix some values cij ∈ Zr for 1 ≤ i ≤ m, 1 ≤ j ≤ ai , define events A := {Zji =
+
+
+
+
+                                                       14
+cij for all 1 ≤ i ≤ t and 1 ≤ j ≤ ai } and B := {Zji = cij for all t + 1 ≤ i ≤ m and 1 ≤ j ≤ ai }.
+We need to show that P(A, B) = r −|S|. We start with
+
+                  P(A) = E P(A | (X i )ti=1 ) =
+                                             
+
+                       = E(P(Yji = cij − Xji for 1 ≤ i ≤ t, 1 ≤ j ≤ ai | (X i )ti=1 )) =        (17)
+                                   Pt                   Pt
+                                          ai                   ai
+                       = E(r −      i=1        ) = r−    i=1
+
+
+
+Where the next to last equality follows since the Yji are uniform and independent from the
+X’s, since they are l-wise independent as vectors (and l ≥ t), since they are (lk + l + k)-wise
+independent inside each vector and since aij ≤ |S| ≤ lk + l + k.
+                                                                    Pm     i
+    To finish the lemma we need to show that P(B P        | A) = r − i=t+1 a . We will show something
+                                                         − m       i
+                                                            i=t+1 a . Indeed
+stronger, that in fact P(B | (X i )ti=1 , (Yi )m
+                                               i=1 ) = r
+
+            P(B | (X i )ti=1 , (Yi )m
+                                    i=1 ) =
+              = P(Xji = cij − Yji for t + 1 ≤ i ≤ m, 1 ≤ j ≤ ai | (X i )ti=1 , (Yi )m
+                                                                                    i=1 ) =     (18)
+                       Pm      i
+                   −    i=t+1 a
+              =r
+
+Where the last equality follows since the Xji for t + 1 ≤ i ≤ m are uniform, independent from
+the Y ’s and from (X i )ti=1 , since ai ≤ k for each t + 1 ≤ i ≤ m by the definition of t and since
+(Xji )nj=1 are k-wise independent. This finishes the proof of the lemma.
+
+6.3   The classical moment problem
+Here is the general setup of the classical moment problem ([1], [28]) leading to the bounds of
+theorem 7. It is followed by a definition of the Krawtchouk polynomials and a proof of (5) and
+(6).
+    Consider a real sequence S := {sm }km=0 , with s0 = 1 (this last condition is convenient for
+us in order to use probabilistic notation, but it is not necessary for the results of the classical
+moment problem). Define
+
+         AS = {Q | Q a probability distribution on R, sm = EQ (X m ) for 0 ≤ m ≤ k}             (19)
+
+to be all probability distributions with these first k moments (X is a random variable distributed
+according to Q).
+
+Definition 30 Given S = {sm }km=0 with s0 = 1 and k even, define the orthogonal polynomials
+                        k/2
+with respect to S, {Pm }m=0 as the unique polynomials with the following properties:
+
+  1. Pm is a polynomial of degree m with positive leading coefficient.
+
+  2. Defining formally a linear operator T from polynomials of degree k to reals by T (xi ) := si
+     for 0 ≤ i ≤ k then T (Pl (x)Pm (x)) = δl,m .
+
+Note that the second condition is the same as requiring EQ (Pl (X)Pm (X)) = δl,m for any Q ∈
+AS .
+
+We remark that these polynomials cannot be defined for degree larger than n if the sequence S
+corresponds to the moments of an atomic P distribution   with only n atoms.
+    Define also the function ρn (x) := ( nm=0 Pm
+                                               2 (x))−1 , then we have the following
+
+
+
+
+                                                               15
+Theorem 31 [1, 2.5.2 and 2.5.4] For any x and any Q1 , Q2 ∈ AS
+
+                                 |Q1 (X ≤ x) − Q2 (X < x)| ≤ ρ k (x)                           (20)
+                                                                        2
+
+and in particular when Q1 = Q2
+
+                                           max Q(X = x) ≤ ρ k (x)                              (21)
+                                        Q∈AS                        2
+
+
+We remark that in many cases, the theory also has constructions which achieve these bounds, but
+we could not use these since in the cases we needed we required the support of the distribution
+to be on integer points. It is possible, however, that a modification of these constructions can
+yield a distribution on integer points, this would be very useful to show the sharpness of the
+bounds in the cases we use.
+
+6.3.1   Krawtchouk polynomials
+In our work we utilize the orthogonal polynomials corresponding to the moments of the bino-
+mial distribution (i.e., when sm = E(X m ) where X ∼ Bin(n, p)). These are the well-known
+Krawtchouk polynomials (see [43]). For given n and p, the m’th polynomial (0 ≤ m ≤ n) is
+given by
+                      − 12              m                 
+                      n                −m
+                                          X
+                                                m−j   n − x   x m−j
+            Pm (x) =         (p(1 − p)) 2   (−1)                 p  (1 − p)j                   (22)
+                      m                               m−j     j
+                                                    j=0
+                                                                   
+                                         x                           x
+where for real x and integer b ≥ 1,         := x(x−1)···(x−b+1)
+                                                      b!        and     := 1.
+                                         b                           0
+   We note that
+                                                  12     m
+                                                 n       1−p 2
+                                       Pm (n) =                                                (23)
+                                                 m        p
+Hence                                                    −1
+                                 m  
+                                        1−p j                                pn
+                                           
+                                 X  n
+                  ρm (n) =                                    =                              (24)
+                                       j        p                   P(Bin(n, 1 − p) ≤ m)
+                                 j=0
+
+   Furthermore, for p = 21
+                                        − 12 X
+                                               m                   
+                             n          n            m−j   n/2    n/2
+                         Pm ( ) =                (−1)                                          (25)
+                             2          m                  m−j     j
+                                                j=0
+
+but, as is well known, since the sum is the coefficient of z m in the power series expansion of
+                 n         n                              n
+f (z) := (1 + z) 2 (1 − z) 2 and since f (z) = (1 − z 2 ) 2 we get by the binomial formula that
+                                      
+                                      0 ! 1                         m odd
+                                      
+                                      
+                                 n            −2                 !
+                             Pm ( ) =      n            m    n/2                                (26)
+                                 2    
+                                                (−1) 2              m even
+                                       m                    m/2
+
+We then obtain
+Lemma 32 For p = 12 , even n and even m ≤ n2
+                                                   n     2
+                                               ρm ( ) ≤ √                                      (27)
+                                                   2     m
+
+                                                      16
+Proof. Using (26) we have
+                                                          2 −1
+                                         m                 
+                                          2     −1 
+                                   n      X   n        n/2 
+                               ρm ( ) =                                                            (28)
+                                   2          2j        j
+                                            j=0
+                                                                                √         a a λa
+                                                                                            
+we recall the well-known inequality that for any integer a ≥ 0, a! =                2πa   e   e    where
+  1           1
+12a+1 ≤ λa ≤ 12a . Using this we notice that
+
+                                                   aa
+                           r
+                           a            a
+                              =                             eλa −λa−b −λb                           (29)
+                           b       2πb(a − b) (a − b)a−b bb
+Hence after cancelation
+                −1      2 r
+                  n     n/2         n       2λ  −2λ −2λ n −j +λn−2j +λ2j −λn
+                             =             e n/2 j      2                                           (30)
+                 2j      j      π(n − 2j)j
+so for n2 , j, ( n2 − j) ≥ 1 we get
+                               −1     2 r                    r
+                                n     n/2         n          5
+                                                          − 12     1
+                                           ≥             e     ≥                                    (31)
+                                2j     j      π(n − 2j)j           8j
+Plugging back into (28) we get
+                              m      −1
+                               2
+                                 r                r     −1
+                  n           X    1           1     m          2
+              ρm ( ) ≤ 1 +
+                                         ≤ 1+ √        −1     ≤√                                   (32)
+                  2                8j            2    2           m
+                                 j=1
+
+
+
+
+6.4   Majority
+We now continue and give a sketch of the proof of the lower bound for theorem 10.
+    Proof. (sketch of lower bound in theorem 10) Fix an odd n and a 2 ≤ k < n, we would like
+to construct a distribution Q ∈ A(n, k, 21 ) such that when we define S to be the number of bits
+which are 1 when sampling from Q then
+                                         n+1        1       C
+                                |Q(S ≥          )− | ≥ √                                    (33)
+                                             2      2     k log k
+for some C > 0. We may assume that k < c logn n for some small c > 0, otherwise the bound
+follows trivially by taking q
+                            the distribution XOR0 and using the bound that it satisfies (see
+                                n
+theorem 10. Let M := C k log      k be an integer, the idea of the proof is to construct Q in
+such a way that with high probability S ≡ L mod M for some fixed integer 0 ≤ L < M , and
+furthermore that on this event S behaves like a Bin(n, 21 ) random variable conditioned to be L
+mod M . Such an S will satisfy (33) for the correct choice of L.
+    To do this, we consider a distribution Q̃ on (X1 , . . . , Xk+1 ) ∈ Zk+1
+                                                                         M satisfying that all the Xi
+are IID uniform in ZM except that Xk is chosen so that their sum is always L modulo M . This
+distribution is of course k-wise independent. the required distribution Q is a distribution on n
+bits (Y1 , . . . , Yn ), we create it from the distribution Q̃ by dividing the Y ’s into k + 1 disjoint
+groups of bits, each Xi is responsible for the value of one of these groups of bits in the following
+way, when observing the value of the X variable, we sample as uniformly as is possible a string
+of bits for the Y variables in its group such that their sum modulo M equals the value of the
+X variable.
+    The parameters have been chosen in such a way so that the probability that we do not
+succeed even at one of the Y groups to have the correct sum modulo M is very small. Hence
+the distribution Q thus constructed satisfies the required properties.
+
+                                                  17
+6.5   More bounds on the maximal probability that all bits are 1
+In this section we detail more bounds on the maximial probability that all bits are 1. Recall
+M (n, k, p) := maxQ∈A(n,k,p) Q(All bits are 1).
+    In the main text we have shown
+
+Theorem 33 For even k
+                                                         pn
+                                M (n, k, p) ≤                                                   (34)
+                                                P(Bin(n, 1 − p) ≤ k2 )
+
+In particular for even k
+                                                                          !k
+                                            √              kp              2
+
+                             M (n, k, p) ≤ 2 k                                                  (35)
+                                                    2e(1 − p)(n − k2 )
+
+and for even k and n(1 − p) ≤ k2
+                                         M (n, k, p) ≤ 10pn                                     (36)
+
+    We now compliment these with lower bounds on M (n, k, p). Both lower bounds come from
+well-known constructions of linear error-correcting codes. In both we assume p = 1q for either
+a prime, or a prime-power, q. To get the bounds we first construct the linear code over GF (q),
+then pass to its dual code, well known to be an orthogonal array. Then sample a line of the
+orthogonal array uniformly and map to bits using 0 7→ 1 and the rest of the elements mapping
+to 0. We obtain
+
+Theorem 34 Using the Gilbert-Varshamov bound, for p = 1q with q a prime power
+                                                                  k−1
+                                                        p(k − 1)
+                                  M (n, k, p) ≥ p                                               (37)
+                                                           en
+
+and using BCH codes, when p = 1q with q a prime (not a prime-power!), k ≡ 1(mod q) and
+n + 1 is a power of q then
+                                                (k−1)(1−p)
+                                              1
+                           M (n, k, p) ≥ p                                         (38)
+                                             n+1
+We add that there is a gap in the exponent between these lower bounds and our upper bounds,
+namely the upper bounds have exponent k2 and the lower bounds have, at best, exponent
+(k − 1)(1 − p). We do not know to close this gap but remark that it is also present in the
+theory of error-correcting codes, for a paper discussing this gap for error-correcting codes and
+the known results there see [14].
+   We end this section by remarking on one more exact result, for very small p’s
+                         1
+Proposition 35 When p ≤ n−1
+                                          M (n, k, p) = pk                                      (39)
+
+This follows quite simply from a direct construction of the distribution. We start by putting
+probability pk on the all ones vector, then all the rest of the probabilities of atoms are determined
+by being k-wise independent with marginal p, we check that for this range of p’s all these other
+probabilities are indeed positive. This is the same as the fact that the weight distribution of an
+MDS code is determined, see [34].
+
+
+
+                                                  18
+6.6   More on the minimal probability that all bits are 1
+We remark on the proof of theorem 27. The construction of the upper bound on nc (k, p) goes as
+follows, we start with an orthogonal array with very good parameters over GF (q) (where now
+      1
+q = 1−p  ) obtained using the Gilbert-Varshamov bound. We then choose a row uniformly and
+map each of its coordinates to bits. The mapping is chosen so that in each coordinate exactly
+one element of GF (q) is mapped to 0, the rest to 1, but this element is chosen in a greedy
+fashion to minimize the chance of not having a 0 anywhere. When n is large enough compared
+to k this idea succeeds in giving a distribution with probability 0 for the all ones vector. This
+gives the upper bound of the theorem.
+    As detailed in the main text, the lower bound follows from an existence theorem in the
+theory of the TCMP, we give this theorem here for easy reference.
+    Let X ∼ Bin(n, p) and define si := E(X i ). Define the matrices
+
+                                       A(m) := (si+j )m
+                                                      i,j=0
+                                       B(m) := (si+j+1 )m
+                                                        i,j=0                               (40)
+                                       C(m) := (si+j )m
+                                                      i,j=1
+
+then the classical moment problem states (see [1],[28] or [11] which contains a survey)
+
+Proposition 36 A random variable S with moment sequence {si } supported on [a, b] exists if
+and only if
+
+  1. k is odd and bA( k−1      k−1       k−1
+                       2 ) ≥ B( 2 ) ≥ aA( 2 ).
+
+  2. k is even, A( k2 ) ≥ 0 and (a + b)B( k2 − 1) ≥ abA( k2 − 1) + C( k2 ).
+
+where as usual, A ≥ B means A − B ≥ 0 means that A − B is non-negative definite.
+
+
+
+
+                                                 19
+

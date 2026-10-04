@@ -1,0 +1,3076 @@
+                                                                                              Abstract
+
+                                         For any positive integer n, let f (n) denote the number of solutions to the Diophantine equation
+                                                                                         4  1 1  1
+                                                                                           = + +
+                                                                                         n  x y  z
+                                         with x, y, z positive integers. The Erdős-Straus conjecture asserts that f (n) > 0 for every n ⩾ 2. In this paper
+                                         we obtain a number of upper and lower bounds for f (n) or f (p) for typical values of natural numbers n and
+                                         primes p. For instance, we establish that
+                                                                                         X
+                                                                            N log2 N        f (p)  N log2 N log log N.
+                                                                                        p⩽N
+
+                                         These upper and lower bounds show that a typical prime has a small number of solutions to the Erdős-Straus
+arXiv:1107.1010v6 [math.NT] 2 Aug 2015
+
+
+
+
+                                         Diophantine equation; small, when compared with other additive problems, like Waring’s problem.
+
+
+
+
+                                                                                                 1
+            COUNTING THE NUMBER OF SOLUTIONS TO THE
+            ERDŐS-STRAUS EQUATION ON UNIT FRACTIONS
+
+                         CHRISTIAN ELSHOLTZ and TERENCE TAO
+
+
+                                             (October 24, 2018)
+
+
+
+                                            1. Introduction
+
+   For any natural number n ∈ N = {1, 2, . . .}, let f (n) denote the number of solutions
+(x, y, z) ∈ N3 to the Diophantine equation
+                                             4  1 1 1
+                                               = + +                                                  (1.1)
+                                             n  x y z
+    (we do not assume x, y, z to be distinct or in increasing order). Thus for instance
+
+     f (1) = 0, f (2) = 3, f (3) = 12, f (4) = 10, f (5) = 12, f (6) = 39, f (7) = 36, f (8) = 46, . . .
+
+We plot the values of f (n) for n ⩽ 1000, and separately restricting to primes p ⩽ 1000 in
+Figures 1, 2.
+     fHnL
+30 000
+
+25 000
+
+20 000
+
+15 000
+
+10 000
+
+ 5000
+
+                                                                n
+               200        400       600        800       1000
+
+                                 Figure 1. The value f (n) for all n ⩽ 1000.
+
+   From these graphs one might be tempted to draw conclusions, such as “f (n)  n infinitely
+often”, that we will refute in our investigations below.
+   The Erdős-Straus conjecture (see e.g. [25]) asserts that f (n) > 0 for all n ⩾ 2; it remains
+unresolved, although there are a number of partial results. The earliest references to this
+
+c XXXX Australian Mathematical Society 0263-6115/XX $A2.00 + 0.00
+
+
+                                                     2
+  fHpL
+
+
+
+1000
+
+800
+
+600
+
+400
+
+200
+
+                                                                 p
+            200       400         600         800         1000
+
+                            Figure 2. The value f (p) for all primes p ⩽ 1000.
+
+
+conjecture are papers by Erdős [18] and Obláth [49], and we draw attention to the fact that
+the latter paper was submitted in 1948.
+   Most subsequent approaches list parametric solutions, which solve the conjecture for n
+lying in certain residue classes. These soluble classes are either used for analytic approaches
+via a sieve method, or for computational verifications. For instance, it was shown by Vaughan
+[82] that the number of n < N for which f (n) = 0 is at most N exp(−c log2/3 N ) for some
+absolute constant c > 0 and all sufficiently large N . (Compare also [48, 84, 39, 89] for some
+weaker results).
+   The conjecture was verified for all n ⩽ 1014 in [79]. In Table 1 we list a more complete
+history of these computations, but there may be further unpublished computations as well.
+   Most of these previous approaches concentrated on the question whether f (n) > 0 or not.
+In this paper we will instead study the average growth or extremal values of f (n).
+   Since we clearly have f (nm) ⩾ f (n) for any n, m ∈ N, we see that to prove the Erdős-Straus
+conjecture it suffices to do so when n is equal to a prime p.
+   In this paper we investigate the average behaviour of f (p) for p a prime. More precisely,
+we consider the asymptotic behaviour of the sum
+                                            X
+                                                f (p)
+                                                p⩽N
+
+where N is a large parameter, and p ranges over all primes up to N . As we are only interested
+in asymptotics, we may ignore the case p = 2, and focus on the odd primes p.
+    Let us call a solution (x, y, z) to (1.1) a Type I solution if n divides x but is coprime to
+y, z, and a Type II solution if n divides y, z but is coprime to x. Let fI (n), fII (n) denote the
+number of Type I and Type II solutions respectively. By permuting the x, y, z we clearly have
+
+                                        f (n) ⩾ 3fI (n) + 3fII (n)                           (1.2)
+
+for all n > 1. Conversely, when p is an odd prime, it is clear from considering the denominators
+in the Diophantine equation
+                                         4   1 1 1
+                                           = + +                                           (1.3)
+                                         p   x y z
+
+                                                      3
+                         5000     ⩽ 1950      Straus, see [18]
+                         8000       1962      Bernstein [6]
+                        20000     ⩽ 1969      Shapiro, see [44]
+                      106128      1948/9      Oblath [49]
+                      141648        1954      Rosati [58]
+                          107       1964      Yamomoto [88]
+                    1.1 × 107       1976      Jollensten [36]
+                          108       1971      Terzi [81]
+                          109       1994      Elsholtz & Roth (unpublished)
+                         1010       1995      Elsholtz & Roth (unpublished)
+                   1.6 × 1011       1996      Elsholtz & Roth (unpublished)
+                         1010       1999      Kotsireas [37]
+                         1014       1999      Swett [79]
+                     2 × 1014       2012      Bello-Hernández, Benito, Fernández [5]
+                         1017       2014      Salez [61]
+Table 1. Numerical verifications of the Erdős-Straus conjecture. It appears that Terzi’s set of soluble residue
+classes is correct, but that the set of checked primes in these classes is incomplete. Another reference to
+a calculation up to 108 due to N. Franceschine III (1978) (see [25, 20] and frequently restated elsewhere)
+only mentions Terzi’s calculation, but is not an independent verification. We are grateful to I. Kotsireas for
+confirming this (private communication).
+
+
+
+that at least one of x, y, z must be divisible by p; also, it is not possible for all three of x, y, z
+to be divisible by p as this forces the right-hand side of (1.3) to be at most 3/p. We thus have
+
+                                           f (p) = 3fI (p) + 3fII (p)                                     (1.4)
+                                                                P
+for all odd primes p. Thus, P                 P asymptotics of p⩽N f (p), it suffices to un-
+                              to understand the
+derstand the asymptotics of p⩽N fI (p) and p⩽N fII (p). As we shall see, Type II solutions
+are somewhat easier to understand than Type I solutions, but we will nevertheless be able to
+control both types of solutions in a reasonably satisfactory manner.
+   We can now state our first main theorem.
+
+Theorem 1.1 (Average value of fI , fII ). For all sufficiently large N , one has the bounds
+                                    X
+                     N log3 N            fI (n)  N log3 N
+                                             n⩽N
+                                             X
+                                   3
+                             N log N              fII (n)  N log3 N
+                                             n⩽N
+                                              X
+                                       2
+                              N log N              fI (p)  N log2 N log log N
+                                              p⩽N
+                                             X
+                             N log2 N             fII (p)  N log2 N.
+                                             p⩽N
+
+   Here, we use the usual asymptotic notation X  Y or X = O(Y ) to denote the estimate
+|X| ⩽ CY for an absolute constant C, and use subscripts if we wish to allow dependencies
+on the implied constant C, thus for instance X ε Y or X = Oε (Y ) denotes the estimate
+
+                                                       4
+|X| ⩽ Cε Y for some Cε that can P depend on ε. We remark that in a previous version of this
+manuscript, the weaker bound p⩽N fII (p)  N log2 N log log N was claimed. P     As pointed out
+subsequently by Jia [34], the argument in that previous version in fact only gave p⩽N fII (p) 
+N log2 N log log2 N , but can be repaired to give the originally claimed bound p⩽N fII (n) 
+                                                                                 P
+
+N log2 N log log N . These bounds are of course superceded by the results in Theorem 1.1.
+   As a corollary of this and (1.4), we see that
+                                       X
+                           N log2 N       f (p)  N log2 N log log N.
+                                         p⩽N
+
+From this, the prime number theorem, and Markov’s inequality, we see that for any ε > 0, we
+can find a subset A of primes of relative lower density at least 1 − ε, thus
+                                     |{p ∈ A : p ⩽ N }|
+                               lim inf                  ⩾ 1 − ε,                             (1.5)
+                                N →∞   |{p : p ⩽ N }|
+
+such that f (p) = Oε (log3 p log log p) for all p ∈ A. Informally, a typical prime has only
+O(log3 p log log p) solutions to the Diophantine equation (1.3); or alternatively, for any function
+ξ(p) of p that goes to infinity as p → ∞, one has O(ξ(p) log3 p log log p) for all p in a subset of
+the primes of relative density 1. This may provide an explanation as to why analytic methods
+(such as the circle method) appear to be insufficient to resolve the Erdős-Straus conjecture,
+as such methods usually only give non-trivial lower bounds on the number of solutions to a
+Diophantine equation in the case when the number of such solutions grows polynomially with
+the height parameter N . (There are however some exceptions to this rule, such as Gallagher’s
+results [23] on representing integers as the sum of a prime and a bounded number of powers
+of two, but such results tend to require a large number of summands in order to compensate
+for possible logarithmic losses in the analysis.)
+   The double logarithmic factor log log N in the above arguments arises from technical lim-
+itations to our method (and specifically, in the inefficient nature of the Brun-Titchmarsh
+inequality (A.10) when applied to very short progressions), and we conjecture that it should
+be eliminated.
+Remark 1.2. In view of these results, one can naively model f (p) as a Poisson process
+with intensity at least c log3 p for some absolute constant c. Using this probabilistic model
+as a heuristic, one expects any given prime to have a “probability” 1 − O(exp(−c log3 p)) of
+having at least one solution, which by the Borel-Cantelli lemma suggests that the Erdős-Straus
+conjecture is true for all but finitely many p. Of course, this is only a heuristic and does not
+constitute a rigorous argument. (However, one can view the results in [82], [15], based on the
+large sieve, as a rigorous analogue of this type of reasoning.)
+Remark 1.3. From Theorem 1.1 we have the lower bound n⩽N f (n)  N log3 N . In fact
+                                                               P
+
+one has the stronger bound n⩽N f (n)  N log6 N (Heath-Brown, private communication)
+                              P
+using the methods from [28]; see Remark 2.10 for further discussion. Thus, for composite n,
+most solutions arePin fact neither of Type I or Type II. It would be of interest to get matching
+upper bounds for n⩽N f (n), but this seems to be beyond the scope of our methods. It would
+of course also be interesting to control higher moments such as p⩽N fI (p)k or p⩽N fII (p)k ,
+                                                                  P                P
+but this also seems to unfortunately lie out of reach of our methods, as the level of the relevant
+divisor sums becomes too great to handle.
+
+                                                5
+   To prove Theorem 1.1, we first use some solvability criteria for Type I and Type II solutions
+to obtain more tractable expressions for fI (p) and fII (p). As we shall see, fI (p) is essentially
+(up to a factor of two) the number of quadruples (a, c, d, f ) ∈ N4 with 4acd = p + f , f dividing
+4a2 d + 1, and acd ⩽ 3p/4, while fII (p) is essentially the number of quadruples (a, c, d, e) ∈ N4
+with 4acde = p + 4a2 d + e and acde ⩽ 3p/2. (We will systematically review the various known
+representations of Type I and Type II solutions in Section 2.) This, combined with standard
+tools from analytic number theory such as the Brun-Titchmarsh inequality and the Bombieri-
+Vinogradov inequality, already gives most of Theorem 1.1. The most difficult bound is the
+upper bounds on fI , which eventually require an upper bound for expressions of the form
+                                       XX
+                                                τ (kab2 + 1)
+                                       a⩽A b⩽B
+                                   P
+for various A, B, k, where τ (n) := d|n 1 is the number of divisors of n, and d | n denotes the
+assertion that d divides n. By using an argument of Erdős [19], we obtain the following bound
+on this quantity:
+
+Proposition 1.4 (Average value of τ (kab2 + 1)). For any A, B > 1, and any positive integer
+k  (AB)O(1) , one has
+                     XX
+                           τ (kab2 + 1)  AB log(A + B) log(1 + k).
+                       a⩽A b⩽B
+
+Remark 1.5. Using the heuristic that τ (n) ∼ log n on the average (see (A.5)), one expects
+the true bound here to be O(AB log(A + B)). The log(1 + k) loss can be reduced (for some
+ranges of A, B, k, at least) by using more tools (such as the Polya-Vinogradov inequality), but
+this slightly inefficient bound will be sufficient for our applications.
+
+   We prove Proposition 1.4 (as well as some variants of this estimate) in SectionP 7. Our main
+tool is a more quantitative version of a classical bound of Erdős [19] on the sum n⩽N τ (P (n))
+for various polynomials P , which may be of independent interest; see Theorem 7.1.
+   We also collect a number of auxiliary results concerning the quantities fi (n), some of which
+were in previous literature. Firstly, we have a vanishing property at odd squares:
+
+Proposition 1.6 (Vanishing). For any odd perfect square n, we have fI (n) = fII (n) = 0.
+
+   This observation essentially dates back to Schinzel (see [25], [44], [68]) and Yamomoto (see
+[88]) and is an easy application of quadratic reciprocity (A.7): for the convenience of the
+reader, we give the proof in Section 4. A variant of this proposition was also established in [5].
+Note that this does not disprove the Erdős-Straus conjecture, since the inequality (1.2) does
+not hold with equality on perfect squares; but it does indicate a key difficulty in attacking this
+conjecture, in that when showing that fI (p) or fII (p) is non-zero, one can only use methods
+that must necessarily fail when p is replaced by an odd square such as p2 , which already rules
+out many strategies (e.g. a finite set of covering congruence strategies, or the circle method).
+   Next, we establish some upper bounds on fI (n), fII (n) for fixed n:
+
+Proposition 1.7 (Upper bounds). For any n ∈ N, one has
+
+                                    fI (n)  n3/5+O(1/ log log n)
+
+                                                 6
+and
+                                   fII (n)  n2/5+O(1/ log log n) .
+In particular, from this and (1.4) one can conclude that for any prime p one has
+
+                                    f (p)  p3/5+O(1/ log log p) .
+
+   This should be compared with the recent result in [8], which gives the bound f (n) ε n2/3+ε
+for all n and all ε > 0. For composite n the treatment of parameters dividing n appears to
+be more complicated and here we concentrate on those two cases that are motivated by the
+Erdős-Straus equation for prime denominator.
+   We prove this proposition in Section 3.
+   The main tools here are the multiple representations of Type I and Type II solutions
+available (see Section 2) and the divisor bound (A.6). The values of f (p) appear to fluctuate
+in some respects as the values of the divisor function. The average values of f (p) behave much
+more regularly.
+   Moreover, in view of Theorem 1.1, one might also expect to have f (n) ε nε for any
+ε > 0, but such logarithmic-type bounds on solutions to Diophantine equations seem difficult
+to obtain in general (Proposition 1.7 appears to be the limit of what one can obtain purely
+from the divisor bound (A.6) alone).
+   In the reverse direction, we have the following lower bounds on f (n) for various sets of n:
+
+Theorem 1.8 (Lower bounds). For infinitely many n, one has
+
+                                                              log n
+                              f (n) ⩾ exp((log 3 + o(1))              ),
+                                                            log log n
+
+where o(1) denotes a quantity that goes to zero as n → ∞.
+  For any function ξ(n) going to +∞ as n → ∞, one has
+                                                              
+                            log 3                   p
+              f (n) ⩾ exp         log log n − O(ξ(n) log log n)  (log n)0.549
+                              2
+
+for all n in a subset A of natural numbers of density 1 (thus |A ∩ {1, . . . , N }|/N → 1 as
+N → ∞).
+   Finally, one has
+                                                         
+                                   log 3
+                     f (p) ⩾ exp (       − o(1)) log log p  (log p)0.549
+                                     2
+
+for all primes p in a subset B of primes of relative density 1 (thus |{p ∈ B : p ⩽ N }|/|{p : p ⩽ N }| →
+1 as N → ∞).
+
+   As the proof shows the first two lower bounds are already valid for sums of two unit
+fractions. The result directly follow from the growth of certain divisor functions. An even
+better model for f (n) is a suitable superposition of several divisor functions. The proof will
+be in Section 6.
+   Finally, we consider (following [44], [68]) the question of finding polynomial solutions to
+(1.1). Let us call a primitive residue class n = r mod q solvable by polynomials if there exist
+
+                                                  7
+polynomials P1 (n), P2 (n), P3 (n) which take positive integer values for all sufficiently large n
+in this residue class (so in particular, the coefficients of P1 , P2 , P3 are rational), and such that
+
+                                   4     1      1      1
+                                     =       +      +
+                                   n   P1 (n) P2 (n) P3 (n)
+
+for all n. Here we recall that a residue class r mod q is primitive if r is coprime to q. One
+could also consider non-primitive congruences, but these congruences only contain finitely
+many primes and are thus of less interest to solving the Erdős-Straus conjecture (and if the
+Erdős-Straus conjecture held for a common factor of r and q, then the residue class r mod q
+would trivially be solvable by polynomials.
+    By Dirichlet’s theorem, the primitive residue class r mod q contains arbitrarily large
+primes p. For each large prime p in this class, we either have one or two of the P1 (p), P2 (p), P3 (p)
+divisible by p, as observed previously. For p large enough, note that Pi (p) can only be divisible
+by p if there is no constant term in Pi . We thus conclude that either one or two of the Pi (n)
+have no constant term, but not all three. Let us call the congruence Type I solvable if one can
+take exactly one of P1 , P2 , P3 to have no constant term, and Type II solvable if exactly two
+have no constant term. Thus every solvable primitive residue class r mod q is either Type I
+or Type II solvable.
+    It is well-known (see [49, 44]) that any primitive residue class n = r mod 840 is solvable
+by polynomials unless r is a perfect square. On the other hand, it is also known (see [44], [68])
+that a primitive congruence class n = r mod q which is a perfect square, cannot be solved by
+polynomials (this also follows from Proposition 1.6). The next proposition essentially classifies
+all solvable primitive congruences.
+
+Proposition 1.9 (Solvable congruences). Let q mod r be a primitive residue class. If this
+class is Type I solvable by polynomials, then all sufficiently large primes in this residue class
+lie in one of a finite number of residue classes from one of following families:
+
+   • {n = −f mod 4ad}, where a, d, f ∈ N are such that f |4a2 d + 1. [48]
+
+   • {n = −f mod 4ac} ∩ {n = −c/a mod f }, where a, c, f ∈ N are such that (4ac, f ) = 1.
+     [88]
+
+   • {n = −f mod 4cd}∩{n2 = −4c2 d mod f }, where c, d, f ∈ N are such that (4cd, f ) = 1.
+
+   • {n = −1/e mod 4ab}, where a, b, e ∈ N are such that e | a + b and (e, 4ab) = 1. [1], [58]
+
+Conversely, any residue class in one of the above four families is solvable by polynomials.
+   Similarly, if q mod r is Type II solvable by polynomials, then all sufficiently large primes
+in this residue class lie in one of a finite number of residue classes from one of the following
+families:
+
+   • −e mod 4ab, where a, b, e ∈ N are such that e | a + b and (e, 4ab) = 1. [1]
+
+   • −4a2 d mod f , where a, d, f ∈ N are such that 4ad | f + 1. [82], [58]
+
+   • −4a2 d − e mod 4ade, where a, d, e ∈ N are such that (4ad, e) = 1. [48]
+
+Conversely, any residue class in one of the above three families is solvable by polynomials.
+
+                                                  8
+   As indicated by the citations, mpst of these residue classes were observed to be solvable by
+polynomials in previous literature, but one of the conditions listed here appears to be new,
+and they form the essentially complete list of all such classes. We prove Proposition 1.9 in
+Section 10.
+
+Remark 1.10. The results in this paper would also extend (with minor changes) to the more
+general situation in which the numerator 4 in (1.3) is replaced by some other fixed positive
+integer, a situation considered first by Sierpiński and Schinzel (see e.g. [74, 82, 51, 52, 77]).
+
+   We will not detail all of these extensions here but in Section 11 we extend our study of the
+average number of solutions to the more general question on sums of k unit fractions
+
+                                     m   1  1       1
+                                       =   + + ··· + .                                        (1.6)
+                                     n   t1 t2      tk
+
+If m ⩽ k the greedy algorithm (in this case also known as Fibonacci-Sylvester algorithm)
+shows there is a solution. Indeed, let n = my + r with 0 < r < m, then m             1      m−r
+                                                                               n − y+1 = n(y+1) has
+a smaller numerator, and inductively a solution with k ⩽ m is constructed. For an alternative
+method (especially if m = k = 4) see also Schinzel [67].
+    If m > k ⩾ 3, and the ti are positive integers, then it is an open problem if for each
+sufficiently large n there is at least one solution. The Erdős-Straus conjecture with m =
+4, k = 3, discussed above, is the most prominent case. If m and k are fixed, one can again
+establish sets of residue classes, such that (1.6) is generally soluble if n is in any of these
+residue classes.
+    The problem of classifying solutions of (1.6) has been studied by Rav [57], Sós [76] and
+Elsholtz [15]. Moreover Viola [83], Shen [72] and Elsholtz [16] have used a suitable subset
+of these solutions to give (for fixed m > k ⩾ 3) quantitive bounds on the number of those
+integers n ⩽ N , for which (1.6) does not have any solution.
+    In order to study, whether there is at least one solution, it is again sufficient to concentrate
+on prime denominators. The average number of solutions is smaller when averaging over the
+primes only, but we intend to prove that even in the prime case the average number of solutions
+grows quickly, when k increases.
+    We will focus on the case of Type II solutions, in which t2 , . . . , tk are divisible by n. The
+classification of solutions that we give below also works for other divisibility patterns, but Type
+II solutions are the easiest to count, and so we shall restrict our attention to this case. Strictly
+speaking, the definition of a Type II solution here is slightly different from that discussed
+previously, because we do not require that t1 is coprime to n. However, this coprimality is
+automatic when n is prime (otherwise the right-hand side of (1.6) would only be at most k/n).
+For composite n, it is possible to insert this condition and still obtain the lower bound (1.7),
+but this would complicate the argument slightly and we have chosen not to do so here.
+    For given m, k, n, let fm,k,II (n) denote the number of Type II solutions. Our main result
+regarding this quantity is the following lower bound on this quantity:
+
+Theorem 1.11. Let m > k ⩾ 3 be fixed. Then, for N sufficiently large, one has
+                                                               k−1 −1
+                               X
+                                    fm,k,II (n) m,k N (log N )2                              (1.7)
+                              n⩽N
+
+
+                                                 9
+and                                                             k−1
+                               X                      N (log N )2 −2
+                                     fm,k,II (p) m,k                .                           (1.8)
+                                                          log log N
+                               p⩽N
+
+   Our emphasis here is on the exponential growth of the exponent. In particular, as k
+increases by one, the average number of solutions is roughly squared. The denominator of
+log log N is present for technical reasons (due to use of the crude lower bound (A.11) on
+the Euler totient function), and it is likely that it could be eliminated (much as it is in the
+m = 4, k = 3 case) with additional effort.
+
+Remark 1.12. If we let fm,k (n) be the total number of solutions to (1.6) (not just Type II
+solutions), then we of course obtain as a corollary that
+                                                          k−1
+                               X
+                                   fm,k (n) k N (log N )2 −1 .
+                                 n⩽N
+
+We do not expect the power of the logarithm to be sharp in this case (cf. Remark 2.10). For
+instance, in [31] it is shown that
+                                                       
+                            X                  1
+                                fm,2 (n) =        + o(1) N log2 N
+                                             φ(m)
+                             n⩽N
+
+for any fixed m.
+
+   Note that the equation (1.6) can be rewritten as
+                                      1           1     1
+                                         + ··· +     +    = 0,
+                                     mt1         mtk   −n
+which is primitive when n is prime. As a consequence, we obtain a lower bound for the number
+of integer points on the (generalised) Cayley surface:
+
+Corollary 1.13. Let k ⩾ 3. The number of integer points of the following generalization of
+Cayley’s cubic surface,
+                                          k
+                                         X   1
+                                    0=          ,
+                                             ti
+                                                  i=0
+                                                                         k−1 −2
+with ti non-zero integers with mini |ti | ⩽ N , is at least ck N (log N )2        / log log N for some
+ck > 0 depending only on k.
+
+   Again, the double logarithmic factor should be removable with some additional effort,
+although the exponent 2k−1 − 2 is not expected to be sharp, and should be improvable also.
+   Finally, let us mention that there are many other problems on the number of solutions of
+                                       m   1  1        1
+                                         =   + + ··· +
+                                       n   t1 t2       tk
+which we do not study here. Let us point to some further references: [65], [8], [10], [17] study
+the number of solutions of 1 as a sum of unit fractions. [12] and [31] study the case k = 2,
+also with varying numerator m.
+
+                                                  10
+   Part of the first author’s work on ths project was supported by the German National Merit
+Foundation. The second author is supported by a grant from the MacArthur Foundation,
+by NSF grant DMS-0649473, and by the NSF Waterman award. The authors thank Nicolas
+Templier for many helpful comments and references, and the referee and editor for many useful
+corrections and suggestions, as well as Serge Salez for pointing out an error in a previous version
+of the manuscript. The first author is very grateful to Roger Heath-Brown for very generous
+advice on the subject (dating back as far as 1994). Both authors are particularly indebted to
+him for several remarks (including Remark 2.10),
+                                               P      and also forP contributing some of the key
+arguments here (such as the lower bound on n⩽N fII (n) and p⩽N fII (p)) which have been
+reproduced here with permission. The first author also wishes to thank Tim Browning, Ernie
+Croot and Arnd Roth for discussions on the subject.
+
+                   2. Representation of Type I and Type II solutions
+
+   We now discuss the representation of Type I and Type II solutions. There are many such
+representations in the literature (see e.g. [1], [5], [6], [48], [57], [58], [82], [85]); we will remark
+how each of these representations can be viewed as a form of the one given here after describing
+a certain algebraic variety in coordinates.
+   For any non-zero complex number n, consider the algebraic surface
+                     Sn := {(x, y, z) ∈ C3 : 4xyz = nyz + nxz + nxy} ⊂ C3 .
+Of course, when n is a natural number, f (n) is nothing more than the number of N-points
+(x, y, z) ∈ Sn ∩ N3 on this surface.
+   It is somewhat inconvenient to count N-points on Sn directly, due to the fact that x, y, z
+are likely to share many common factors. To eliminate these common factors, it is convenient
+to lift Sn to higher-dimensional varieties ΣIn , ΣII n (and more specifically, to three-dimensional
+              6
+varieties in C ), which are adapted to parameterising Type I and Type II solutions respectively.
+This will replace the three original coordinates x, y, z by six coordinates a, b, c, d, e, f , any three
+of which can be used to parameterise ΣIn . or ΣII     n . This multiplicity of parameterisations will
+be useful for many of the applications in this paper; rather than pick one parameterisation
+in advance, it is convenient to be able to pick and choose between them, depending on the
+situation.
+   We begin with the description of Type I solutions. More precisely, we define ΣIn to be the
+set of all sextuples (a, b, c, d, e, f ) ∈ C6 which are non-zero and obey the constraints
+                                           4abd = ne + 1                                          (2.1)
+                                             ce = a + b                                           (2.2)
+                                          4abcd = na + nb + c                                     (2.3)
+                                          4acde = ne + 4a2 d + 1                                  (2.4)
+                                                           2
+                                          4bcde = ne + 4b d + 1                                   (2.5)
+                                           4acd = n + f                                           (2.6)
+                                             ef = 4a2 d + 1                                       (2.7)
+                                             bf = na + c                                          (2.8)
+                                      2      2
+                                     n + 4c d = f (4bcd − n).                                     (2.9)
+
+
+                                                  11
+Remark 2.1. There are multiple redundancies in these constraints; to take just one example,
+(2.9) follows from (2.3) and (2.6). One could in fact specify ΣIn using just three of these nine
+constraints if desired. However, this redundancy will be useful in the sequel, as we will be
+taking full advantage of all nine of these identities.
+
+   The identities (2.1)-(2.9) form an algebraic set that can be parameterised (perhaps up to
+some bounded multiplicity) by fixing three of the six coordinates a, b, c, d, e, f and solving for
+the other three coordinates. For instance, using the coordinates a, c, d, one easily verifies that
+
+                                         4a2 d + 1
+                                                                                         
+                         na + c
+            ΣIn = (a,            , c, d,           , 4acd − n) : a, c, d ∈ C3 ; 4acd 6= n
+                        4acd − n         4acd − n
+
+and similarly for the other 63 − 1 = 14 choices of three coordinates; we omit the elementary
+                              
+
+but tedious computations. Thus we see that ΣIn is a three-dimensional algebraic variety. From
+(2.3) we see that the map
+
+                                  πnI : (a, b, c, d, e, f ) 7→ (abdn, acd, bcd)
+
+maps ΣIn to Sn . After quotienting out by the dilation symmetry
+
+                                 (a, b, c, d, e, f ) 7→ (λa, λb, λc, λ−2 d, e, f )                        (2.10)
+
+of ΣIn , this map is injective.
+    If n is a natural number, then πnI clearly maps N-points of ΣIn to N-points of Sn , and if c
+is coprime to n, gives a Type I solution (note that abd is automatically coprime to n, thanks
+to (2.1)). In the converse direction, all Type I solutions arise in this manner:
+
+Proposition 2.2 (Description of Type I solutions). Let n ∈ N, and let (x, y, z) be a Type
+I solution. Then there exists a unique (a, b, c, d, e, f ) ∈ N6 ∩ ΣIn with abcd coprime to n and
+a, b, c having no common factor, such that πnI (a, b, c, d, e, f ) = (x, y, z).
+
+Proof. The uniqueness follows since πnI is injective after quotienting out by dilations. To
+show existence, we factor x = ndx0 , y = dy 0 , z = dz 0 , where x0 , y 0 , z 0 are coprime, then after
+multiplying (1.1) by ndx0 y 0 z 0 we have
+
+                                      4dx0 y 0 z 0 = y 0 z 0 + nx0 y 0 + nx0 z 0 .                        (2.11)
+
+As y 0 , z 0 are coprime to n, we conclude that x0 divides y 0 z 0 , y 0 divides x0 z 0 , and z 0 divides x0 y 0 .
+Splitting into prime factors, we conclude that
+
+                                           x0 = ab, y 0 = ac, z 0 = bc                                    (2.12)
+
+for some natural numbers a, b, c; since x0 , y 0 , z 0 have no common factor, a, b, c have no common
+factor also. As y, z were coprime to n, abcd is coprime to n also.
+    Substituting (2.12) into (2.11) we obtain (2.3), which in particular implies (as c is coprime
+to n) that c divides a + b. If we then set e := (a + b)/c and f := 4acd − n = (na + c)/b, then
+e, f are natural numbers, and we obtain the other identities (2.1)-(2.9) by routine algebra. By
+construction we have πnI (a, b, c, d, e, f ) = (x, y, z), and the claim follows.
+
+                                                          12
+    In particular, for fixed n, a Type I solution exists if and only if there is an N-point
+(a, b, c, d, e, f ) of ΣIn with abcd coprime to n (the requirement that a, b, c have no common
+factor can be removed using the symmetry (2.10)). By parameterising ΣIn using three or four
+of the six coordinates, we recover some of the known characterisations of Type I solvability:
+
+Proposition 2.3. Let n be a natural number. Then the following are equivalent:
+
+   • There exists a Type I solution (x, y, z).
+
+   • There exists a, b, e ∈ N with e | a + b and 4ab | ne + 1. [1]
+
+   • There exists a, b, c, d ∈ N such that 4abcd = na + nb + c with c coprime to n. [6]
+
+   • There exist a, c, d, e ∈ N such that ne + 1 = 4ad(ce − a) with c coprime to n. [58, 44]
+
+   • There exist a, c, d, f ∈ N such that n = 4acd − f and f | 4a2 d + 1, with c coprime to n.
+     [48]
+
+   • There exist b, c, d, e with ne = (4bcde − 1) − 4b2 d and c coprime to n. [5]
+
+   The proof of this proposition is routine and is omitted.
+
+Remark 2.4. Type I solutions (x, y, z) have the obvious reflection symmetry (x, y, z) 7→
+(x, z, y). With (2.6) and (2.9) the corresponding symmetry for ΣIn is given by
+
+                                                                n2 + 4c2 d
+                                                                          
+                          (a, b, c, d, e, f ) →
+                                              7  b, a, c, d, e,              .
+                                                                    f
+
+We will typically only use the ΣIn parameterisation when y ⩽ z (or equivalently when a ⩽ b),
+in order to keep the sizes of various parameters small.
+
+Remark 2.5. If we consider N-points (a, b, c, d, e, f ) of ΣIn with a = 1, they can be explicitly
+parameterised as
+                                                             
+                                              ef − 1
+                                1, ce − 1, c,          , e, f
+                                                  4
+
+where e, f are natural numbers with ef = 1 mod 4 and n = cef − c − f . This shows that
+any n of the form cef − c − f with ef = 1 mod 4 solves the Erdős-Straus conjecture, an
+observation made in [5]. However, this is a relatively small set of solutions (corresponding to
+roughly log2 n solutions for a given n on average, rather than log3 n), due to the restriction
+a = 1. Nevertheless, in [5] it was verified that all primes p = 1 mod 4 with p ⩽ 1014 were
+representable in this form.
+
+   Now we turn to Type II solutions. Here, we replace ΣIn by the variety ΣII
+                                                                          n , as defined the
+
+
+                                                  13
+set of all sextuples (a, b, c, d, e, f ) ∈ C6 which are non-zero and obey the constraints
+
+                                              4abd = n + e                                         (2.13)
+                                                ce = a + b                                         (2.14)
+                                             4abcd = a + b + nc                                    (2.15)
+                                                               2
+                                             4acde = n + 4a d + e                                  (2.16)
+                                                               2
+                                             4bcde = n + 4b d + e                                  (2.17)
+                                              4acd = f + 1                                         (2.18)
+                                                               2
+                                                ef = n + 4a d                                      (2.19)
+                                                bf = nc + a                                        (2.20)
+                                         2
+                                       4c dn + 1 = f (4bcd − 1).                                   (2.21)
+
+This is a very similar variety to ΣIn ; indeed the non-isotropic dilation
+
+                             (a, b, c, d, e, f ) 7→ (a, b, c/n2 , dn, n2 e, f /n)
+
+is a bijection from ΣIn to ΣII                     I     II
+                            n . Thus, as with Σn , Σn is a three-dimensional algebraic variety in
+  6
+C which can be parameterised by any three of the six coordinates in (a, b, c, d, e, f ). As before,
+many of the constraints can be viewed as redundant; for instance, (2.21) is a consequence of
+(2.15) and (2.18). Note that ΣII                                                        I
+                                   n enjoys the same dilation symmetry (2.10) as Σn , and also
+has the reflection symmetry (using (2.18) and (2.21))
+
+                                                                 4c2 dn + 1
+                                                                           
+                           (a, b, c, d, e, f ) 7→ b, a, c, d, e,              .
+                                                                      f
+
+Analogously to πnI , we have the map πnII : ΣII
+                                             n → Sn given by
+
+                               πnII : (a, b, c, d, e, f ) 7→ (abd, acdn, bcdn)                     (2.22)
+
+which is injective up to the dilation symmetry (2.10) and which, when n is a natural number,
+maps N-points of ΣIIn to N-points of Sn , and when abd is coprime to n, gives Type II solutions.
+(Note that this latter condition is automatic when n is prime, since x, y, z cannot all be
+divisible by n.)
+   We have an analogue of Proposition 2.2:
+Proposition 2.6 (Description of Type II solutions). Let n ∈ N, and let (x, y, z) be a Type
+II solution. Then there exists a unique (a, b, c, d, e, f ) ∈ N6 ∩ ΣII n with abd coprime to n and
+a, b, c having no common factor, such that πnI (a, b, c, d, e, f ) = (x, y, z).
+Proof. Uniqueness follows from injectivity modulo dilations of πnII as before. To show existence,
+we factor x = dx0 , y = ndy 0 , z = ndz 0 , where x0 , y 0 , z 0 are coprime, then after multiplying (1.1)
+by ndx0 y 0 z 0 we have
+                                    4dx0 y 0 z 0 = ny 0 z 0 + x0 y 0 + x0 z 0 .                     (2.23)
+As x0 are coprime to n, we conclude that x0 divides y 0 z 0 , y 0 divides x0 z 0 , and z 0 divides
+x0 y 0 . Splitting into prime factors, we again obtain the representation (2.12) for some natural
+numbers a, b, c; since x0 , y 0 , z 0 have no common factor, a, b, c have no common factor also. As
+x was coprime to n, abd is coprime to n also.
+
+                                                     14
+     Substituting (2.12) into (2.23) we obtain (2.15), which in particular implies that c divides
+a + b. If we then set e := (a + b)/c and f := 4acd − 1, then e, f are natural numbers,
+and we obtain the other identities (2.13)-(2.21) by routine algebra. By construction we have
+πnII (a, b, c, d, e, f ) = (x, y, z), and the claim follows.
+
+   Again, we can recover some known characterisations of Type II solvability:
+
+Proposition 2.7. Let n be a natural number. Then the following are equivalent:
+
+   • There exists a Type II solution (x, y, z).
+
+   • There exists a, b, e ∈ N with e | a + b and 4ab | n + e, and (n + e)/4 coprime to n. [1]
+
+   • There exists a, b, c, d ∈ N such that 4abcd = a + b + nc with abd coprime to n. [6, 44]
+
+   • There exists a, b, d ∈ N with 4abd − 1 | b + nc with abd coprime to n. [82]
+
+   • There exist a, c, d, e ∈ N such that n = (4acd − 1)e − 4a2 d with (n + e)/4 coprime to n.
+     [58]
+
+   • There exist a, c, d, f ∈ N such that n = 4ad(ce−a)−e = e(4acd−1)−4a2 d with ad(ce−a)
+     coprime to n. [48]
+
+   Next, we record some bounds on the order of magnitude of the parameters a, b, c, d, e, f
+assuming that y ⩽ z.
+
+Lemma 2.8. Let n ∈ N, and suppose that (x, y, z) = πnI (a, b, c, d, e, f ) is a Type I solution
+such that y ⩽ z. Then
+
+                                                    a⩽b
+                                           1            3
+                                             n < acd ⩽ n
+                                           4            4
+                                               b < ce ⩽ 2b
+                                                        5
+                                             an ⩽ bf ⩽ an.
+                                                        3
+
+If instead (x, y, z) = πnII (a, b, c, d, e, f ) is a Type II solution such that y ⩽ z, then
+
+                                                   a⩽b
+                                          1
+                                            n < acde ⩽ n
+                                          4
+                                              b < ce ⩽ 2b
+                                            3acd ⩽ f < 4acd
+
+    Informally, the above lemma asserts that the magnitudes of the quantities (a, b, c, d, e, f )
+are controlled entirely by the parameters (a, c, d, f ) (in the Type I case) and (a, c, d, e) (in the
+Type II case), with the bounds acd ∼ n, f  n in the Type I case and acde ∼ n in the Type
+II case. The constants in the bounds here could be improved slightly, but such improvements
+will not be of importance in our applications.
+
+                                                   15
+Proof. First suppose we have a Type I solution. As y ⩽ z, we have a ⩽ b. From (2.2) we then
+have b < ce ⩽ 2b, and thus from (2.8) we have
+                                                                2
+                                         an ⩽ bf ⩽ an +           bf.
+                                                               ef
+Now, from (2.7), ef = 1 mod 4. If e = f = 1, then from (2.2) and (2.8) we would have
+b = na + c = na + a + b, which is absurd, thus ef ⩾ 5. This gives bf ⩽ 5an/3 as claimed.
+From (2.8) this implies that c ⩽ 2an/3, which in particular implies that bcd < abdn and so
+y ⩽ z < x. From (1.1) we conclude that
+                                                 4  1  4
+                                                   ⩽ <
+                                                3n  y  n
+which gives the bound n/4 < acd ⩽ 3n/4 as claimed.
+   Now suppose we have a Type II solution. Again a ⩽ b and b < ce ⩽ 2b. From (2.15) we
+have
+                                nc < 4abcd ⩽ nc + 2abcd
+and thus n/4 < abd ⩽ n/2, which by the ce bound gives n/4 < acde ⩽ n. Since f = 4acd − 1,
+we have 3acd ⩽ f < 4acd, and the claim follows.
+
+Remark 2.9. From the above bounds one can also easily deduce the following observation:
+if 4/p = 1/x + 1/y + 1/z, then the largest denominator max(x, y, z) is always divisible by p.
+(This observation also appears in [15].)
+Remark 2.10. Propositions 2.2, 2.6 can be viewed as special cases of the classification by
+Heath-Brown [28] of primitive integer points (x1 , x2 , x3 , x4 ) ∈ (Z\{0})4 on Cayley’s surface
+                                                                      
+                                                1   1    1        1
+                         (x1 , x2 , x3 , x4 ) :   +   +      +      =0 ,
+                                                x1 x2 x3 x4
+where by “primitive” we mean that x1 , x2 , x3 , x4 have no common factor. Note that if n, x, y, z
+solve (1.1), then (−n, 4x, 4y, 4z) is an integer point on this surface, which will be primitive
+when n is prime. In [28, Lemma 1] it is shown that such integer points (x1 , x2 , x3 , x4 ) take
+the form
+                                      xi = yj yk yl zij zik zil
+for {i, j, k, l} = {1, 2, 3, 4}, where  ∈ {−1, +1} is a sign, and the yi , zij are non-zero integers
+obeying the coprimality constraints
+
+                                   (yi , yj ) = (zij , zkl ) = (yi , zij ) = 1
+
+for {i, j, k, l} = {1, 2, 3, 4}, and obeying the equation
+                                           X
+                                                    yi zjk zkl zlj = 0.                       (2.24)
+                                     {i,j,k,l}={1,2,3,4}
+
+Conversely, any , yi , zij obeying the above conditions induces a primitive integer point on
+Cayley’s surface. The Type I (resp. Type II) solutions correspond, roughly speaking, to the
+cases when one of the z1i (resp. one of the yi ) in the factorisation
+
+                                       n = x1 = y2 y3 y4 z12 z13 z14
+
+                                                      16
+are equal to ±n. The yi , zij coordinates are closely related to the (a, b, c, d, e, f ) coordinates
+used in this section; in [28] it is observed that these coordinates obey a number of algebraic
+equations in addition to (2.24), which essentially describe (the closure of ) the universal torsor
+[11] of Cayley’s surface.
+    In [28] it was shown that the number of integer points (x1 , x2 , x3 , x4 ) on Cayley’s surface
+of maximal height max(|x1 |, . . . , |x4 |) bounded by N was comparable to N log6 N . This is not
+quite the situation considered in our paper; a solution to (1.1) with n ⩽ N induces an integer
+point (x1 , x2 , x3 , x4 ) whose minimal height min(|x1 |, . . . , |x4 |) is bounded by N . Nevertheless,
+the results in [28] can be easily modified (by minor adjustments to account for the restriction
+that three of the xi are positive, and restricting    n to be a multiple of 4 to eliminate divisibil-
+ity constraints) to give a lower bound n⩽N f (n)  N log6 N for the number of such points,
+                                             P
+though it is not immediately obvious whether this lower bound can be matched by a correspond-
+ing upper bound. Nevertheless, we see that there are several logarithmic factors separating the
+general solution count from the Type I and Type II solution count; in particular, for generic
+n, the majority of solutions to (1.1) will neither be Type I nor Type II. In spite of this, the
+number of Type I and Type II solutions is the relevant quantity for studying the Erdős-Straus
+conjecture, as it is naturally to study it for prime denominators only.
+   We close this section with a small remark on the well known standard classification of
+solutions in Mordell’s book: His two cases (in his notation)
+                                       m    1   1    1
+                                         =    +   +
+                                       p   abd acd bcdp
+with (a, b) = (a, c) = (b, c) = 1 and p - abcd and
+                                      m    1   1     1
+                                        =    +    +
+                                      p   abd acdp bcdp
+(a, b) = (a, c) = (b, c) = 1 with p - abd suggest that p | c might be possible. Here we prove, for
+m > 3 and p coprime to m, that none of the denominators can be divisible by p2 . In particular
+p - abcd in both of the cases above.
+Proposition 2.11. Let m/p = 1/x + 1/y + 1/z where m > 3, p is a prime not dividing m,
+and x, y, z are natural numbers. Then none of x, y, z are divisible by p2 .
+   Note that there are a small number of counterexamples to this proposition for m ⩽ 3, such
+as 3/2 = 1/1 + 1/4 + 1/4.
+
+Proof. We may assume that (x, y, z) is either a Type I or Type II solution (replacing 4 by m
+as needed). In the Type I case (x, y, z) = (abdp, acd, bcd), the claim is already clear since abcd
+is known to be coprime to p. In the Type II case (x, y, z) = (abd, acdp, bcdp) it is known that
+abd is coprime to p, so the only remaining task is to establish that c is coprime to p also.
+    Suppose c is not coprime to p; then y, z are both divisible by p2 . In particular
+                                              1 1  2
+                                               + ⩽ 2
+                                              y z p
+and hence
+                                          m  1  m   2
+                                            > ⩾   − 2.
+                                          p  x  p  p
+
+                                                   17
+Taking reciprocals, we conclude that
+                                                          2 −1
+                                      p < mx ⩽ p(1 −        ) .
+                                                         mp
+
+Bounding (1 − ε)−1 < 1 + 2ε when 0 < ε < 1/2, we conclude that
+                                                          4
+                                          p < mx < p +      .
+                                                          m
+But if m > 3, this forces mx to be a non-integer, a contradiction.
+
+
+                                   3. Upper bounds for fi (n)
+
+   We may now prove Proposition 1.7.
+   We begin with the bound for fI (n). By symmetry we may restrict attention to Type I
+solutions (x, y, z) for which y ⩽ z. By Proposition 2.2 and Lemma 2.8, these solutions arise
+from sextuples (a, b, c, d, e, f ) ∈ N6 ∩ΣIn obeying the Type I bounds in Lemma 2.8. In particular
+we see that
+                                                             ce bf
+                                e · f · (cd)2 · ac = (acd)2 ( )( )  n3 ,
+                                                              b a
+and hence at least one of e, f, cd, ac is O(n3/5 ).
+   Suppose first that e  n3/5 . For fixed e, we see from (2.1) and the divisor bound (A.6)
+that there are nO(1/log log n) choices for a, b, d, giving a net total of n3/5+O(1/log log n) points in
+ΣIn in this case.
+   Similarly, if f  n3/5 , (2.6) and the divisor bound gives nO(1/log log n) choices for a, c, d for
+each f , giving n3/5+O(1/log log n) solutions. If cd  n3/5 , one uses (2.9) and the divisor bound
+to get nO(1/log log n) choices for b, f, c, d for each choice of cd, and if ac  n3/5 , then (2.8) and
+the divisor bound gives nO(1/log log n) choices for a, b, c, f for each fixed ac. Putting all this
+together (and recalling that any three coordinates in ΣIn determine the other three) we obtain
+the first part of Proposition 1.7.
+   Now we prove the bound for fII (n), which is similar. Again we may restrict attention to
+sextuples (a, b, c, d, e, f ) ∈ N6 ∩ ΣIIn obeying the Type II bounds in Lemma 2.8. In particular
+we have
+                                  e2 · (ad) · (ac) · (cd) = (acde)2 ⩽ n2
+and so at least one of e, ad, ac, cd is O(n2/5 ).
+    If e  n2/5 , we use (2.13) and the divisor bound to get nO(1/log log n) choices for a, b, d for
+each e. If ad  n2/5 , we use (2.19) and the divisor bound to get nO(1/log log n) choices for
+a, d, e, f for each fixed ad. If ac  n2/5 , we use (2.20) to get nO(1/log log n) choices for a, c, b, f
+for each fixed ac. If cd  n2/5 , we use (2.21) and the divisor bound to get nO(1/log log n)
+choices for b, c, d, f for each fixed cd. Putting all this together we obtain the second part of
+Proposition 1.7.
+Remark 3.1. This argument, together with the fact that a large number n can be factorised
+in expected O(no(1) ) time (using, say, the quadratic sieve [54]), gives an algorithm to find all
+Type I solutions for a given n in expected run time O(n3/5+o(1) ), and an algorithm to find all
+the Type II solutions in expected run time O(n2/5+o(1) ).
+
+                                                  18
+                              4. Insolubility for odd squares
+
+   We now prove Proposition 1.6. Suppose for contradiction that n is an odd perfect square
+(in particular, n = 1 mod 8) with a Type I solution. Then by Proposition 2.2, we can find
+an N-point (a, b, c, d, e, f ) in ΣIn .
+   Let q be the largest odd factor of ab. From (2.1) we have ne + 1 = 0 mod q. Since n is a
+perfect square, we conclude that
+                                          
+                                        e   −1
+                                          =    = (−1)(q−1)/4
+                                        q    q
+thanks to (A.8). Since n = 1 mod 8, we see from (2.1) that e = 3 mod 4. By quadratic
+reciprocity (A.7) we thus have           q 
+                                              = 1.
+                                          e
+On the other hand, from (2.2) we see that ab = −a2 mod e, and thus
+                                     
+                                    ab        −1
+                                         =         = −1
+                                     e         e
+by (A.8). This forces ab 6= q, and so (by definition of q) ab is even. By (2.1), this forces e = 7
+mod 8, which by (A.9) implies that          
+                                              2
+                                                  =1
+                                              e
+and thus                                   q                
+                                                          ab
+                                                  =                ,
+                                            e             e
+a contradiction.
+   The proof in the Type II case is almost identical, using (2.13), (2.14) in place of (2.1),
+(2.2); we omit the details.
+
+
+                                     5. Lower bounds I
+
+   Now we prove the lower bounds in Theorem 1.1.
+   We begin with the lower bound
+                                 X
+                                     fII (n)  N log3 N.                                     (5.1)
+                                     n⩽N
+
+   Suppose a, c, d, e are natural numbers with d square-free, e coprime to ad, e > a, and
+acde ⩽ N/4. Then the quantity
+
+                                     n := 4acde − e − 4a2 d                                  (5.2)
+
+is a natural number of size at most N , and (a, ce − a, c, d, e, 4acd − 1) is an N-point of ΣII
+                                                                                             n.
+           II
+Applying πn , we obtain a solution
+
+                           (x, y, z) = (a(ce − a)d, acdn, (ce − a)cdn)
+
+                                                  19
+to (1.1). We claim that this is a Type II solution, or equivalently that a(ce − a)d is coprime to
+n. As e is coprime to ad, we see from (5.2) that n is coprime to ade, so it suffices to show that
+n is coprime to b := ce − a. But if q is a common factor of both n and b, then from the identity
+(2.20) (with f = 4acd − 1) we see that q is also a common factor of a, a contradiction. Thus
+we have obtained a Type II solution. Also, as d is square-free, any two quadruples (a, c, d, e)
+will generate different solutions, as the associated sextuples (a, ce − a, c, d, e, 4acd − 1) cannot
+be related to each other by the dilation (2.10). Thus, it will suffice to show that there are
+at least δN log3 N quadruples (a, c, d, e) ∈ N with d square-free, e coprime to ad, e > a, and
+acde ⩽ N/4 for some absolute constant δ > 0. Restricting a, c, d to be at most N 0.1 (say),
+we see that the number of possible choices of e is at least δ 0 (N/acd)φ(ad)/ad, where φ is the
+Euler totient function and δ 0 > 0 is another absolute constant. It thus suffices to show that
+                                  X              φ(ad) 1
+                                          µ2 (d)           log3 N,
+                                      0.1
+                                                  ad  adc
+                               a,c,d⩽N
+
+where µ is the Möbius function (so µ2 (d) = 1 exactly when d is square-free). Using the
+elementary estimate φ(ad) ⩾ φ(a)φ(d) and factorising, we see that it suffices to show that
+                                        X µ(d)2 φ(d)
+                                                      log N.                                 (5.3)
+                                         0.1
+                                             d2
+                                       d⩽N
+
+But this follows from Lemma A.1.
+  Now we prove the lower bound
+                                         X
+                                              fI (n)  N log3 N,
+                                        n⩽N
+
+which follows by a similar method.
+   Suppose a, c, d, f are natural numbers with d square-free, f dividing 4a2 d + 1 and coprime
+to c, d ⩾ f , and acd ⩽ N/4. Then the quantity
+
+                                              n := 4acd − f                                   (5.4)
+
+is a natural number which is at most N , and (a, b, c, d, 4a2 d + 1/f, f ) is an N-point of ΣIn ,
+where
+                                     4a2 d + 1       na + c
+                              b := c           −e=           .
+                                         f              f
+Applying πnI , this gives a solution
+
+                                       (x, y, z) = (abdn, acd, bcd)
+
+to (1.1), and as before the square-free nature of d ensures that each quadruple (a, c, d, f ) gives
+a different solution. We claim that this is a Type I solution, i.e. that abcd is coprime to n.
+As f divides 4a2 d + 1, f and with (5.4) also n is coprime to ad. As f and c are coprime
+by assumption, n is coprime to acd by (5.4). As b = (na + c)/f , we conclude that n is also
+coprime to b.
+   Thus it will suffice to show that there are at least δN log3 N quadruples (a, c, d, f ) ∈ N4
+with f coprime to 2ac, and d square-free with f dividing 4a2 d + 1, d ⩾ f , and acd ⩽ N/4, for
+some absolute constant δ > 0.
+
+                                                   20
+   We restrict a, c, f to be at most N 0.1 . If f is coprime to 2ac, then there is a unique primitive
+residue class of f such that 4a2 d + 1 is a multiple of f for all d in this class. Also, there are
+at least δN/acf elements d of this residue class with d ⩾ f and acd ⩽ N/4 for some absolute
+constant δ > 0; a standard sieving argument shows that a positive proportion of these elements
+are square-free. Thus, we have a lower bound of
+                                                X                 N
+                                                                 acf
+                                       a,c,f ⩽N 0.1 :(f,2ac)=1
+
+for the number of quadruples. Restricting f to be odd and then using the crude sieve
+                                          X              X
+                         1(f,2ac)=1 ⩾ 1 −    1p|f 1p|a −   1p|f 1p|c                           (5.5)
+                                                 p                     p
+
+where p ranges over odd primes, where 1E denotes the indicator function of a statement E
+(i.e. 1E = 1 if E holds, and 1E = 0 otherwise), one easily verifies that the above expression is
+at least δN log3 N for some absolute constant δ > 0, and the claim follows.
+    Now we establish the lower bound
+                                    X
+                                        fII (p)  N log2 N.
+                                       p⩽N
+
+We will repeat the proof of (5.1), but because we are now counting primes instead of natural
+numbers we will need to invoke the Bombieri-Vinogradov inequality at a key juncture.
+  Suppose a, c, d, e are natural numbers with d square-free, a, c, d ⩽ N 0.1 , and e between N 0.6
+and N/4acd with
+                                    p := 4acde − e − 4a2 d                                   (5.6)
+prime. Then p is at most N and at least N 0.6 , and in particular is automatically coprime
+to ade (and thus ce − a, by previous arguments). Thus, as before, each such (a, c, d, e) gives
+a Type II solution for a prime p ⩽ N , with different quadruples giving different solutions.
+Thus it suffices to show that there are at least δN log2 N quadruples (a, c, d, e) with the above
+properties for some absolute constant δ > 0.
+   Fix a, c, d. As e ranges from N 0.6 to N/4acd, the expression (5.6) traces out a primitive
+residue class modulo 4acd − 1, omitting at most O(N 0.6 ) members of this class that are less
+than N . Thus, the number of primes of the form (5.6) for fixed acd is
+
+                                π(N ; 4acd − 1, −4a2 d) − O(N 0.6 ),
+
+where π(N ; q, t) denotes the number of primes p < N that are congruent to t mod q. We
+replace π(N ; 4acd − 1, −4a2 d) by a good approximation, and bound the error. If we set
+
+                                                                           li(N )
+                              D(N ; q) := max π(N ; q, a) −
+                                             (a,q)=1                        φ(q)
+                                  Rx
+(as in (A.13)), where li(x) := 0 dt/log t is the Cauchy principal value of the logarithmic
+integral, the number of primes of the form (5.6) for fixed acd is at least
+                               li(N )
+                                        − D(N ; 4acd − 1) − O(N 0.6 )
+                            φ(4acd − 1)
+
+                                                       21
+The overall contribution of those acd combinations referring to the O(N 0.6 ) error term is at
+most O((N 0.1 )3 N 0.6 ) = o(N log2 N ), while li(N ) is comparable to N/ log N , so it will suffice
+to show the lower bound
+                                    X           µ2 (d)
+                                                           log3 N                            (5.7)
+                                         0.1
+                                             φ(4acd  − 1)
+                                 a,c,d⩽N
+
+and the upper bound            X
+                                          D(N ; 4acd − 1) = o(N log2 N ).                     (5.8)
+                            a,c,d⩽N 0.1
+
+We first prove (5.7). Using the trivial bound φ(4acd − 1) ⩽ 4acd, it suffices to show that
+                                          X         µ2 (d)
+                                                            log3 N
+                                                0.1
+                                                     acd
+                                     a,c,d⩽N
+
+which upon factorising reduces to showing
+                                           X µ2 (d)
+                                                     log N.
+                                            0.1
+                                                d
+                                          d⩽N
+
+But this follows from Lemma A.1.
+  Now we show (5.8). Writing q := 4acd − 1, we can upper bound the left-hand side of (5.8)
+somewhat crudely by              X
+                                      D(N ; q)τ (q + 1)2 .
+                                      q⩽N 0.3
+
+From divisor moment estimates (see (A.4)) we have
+                                    X τ (q + 1)4
+                                                  logO(1) N ;
+                                     0.3
+                                           q
+                                  q⩽N
+
+hence by Cauchy-Schwarz, we may bound the preceding quantity by
+                                                                      1/2
+                                                    X
+                               logO(1) N                  qD(N ; q)2       .
+                                                  q⩽N 0.3
+
+Using the trivial bound D(N ; q)  N/q, we bound this in turn by
+                                                                        1/2
+                                                          X
+                             N 1/2 logO(1) N                    D(N ; q)       .
+                                                        q⩽N 0.3
+
+But from the Bombieri-Vinogradov inequality (A.14), we have
+                              X
+                                   D(N ; q) A N log−A N
+                                  q⩽N 0.3
+
+for any A > 0, and the claim (5.8) follows.
+
+                                                     22
+   Finally, we establish the lower bound
+                                    X
+                                        fI (p)  N log2 N.
+                                          p⩽N
+
+Unsurprisingly, we will repeat many of the arguments from preceding cases. Suppose a, c, d, f
+are natural numbers with a, c, f ⩽ N 0.1 with (a, c) = (2ac, f ) = 1, N 0.6 ⩽ d ⩽ N/4ac, such
+that f divides 4a2 d + 1, and the quantity
+
+                                                p := 4acd − f                                 (5.9)
+
+is prime. Then p is at most N and is at least N 0.4 , and in particular is coprime to a, c, f ; from
+(5.9) it is coprime to d also. This thus yields a Type I solution for p; by the coprimality of a, c,
+these solutions are all distinct as no two of the associated sextuples (a, b, c, d, 4a2 d + 1/f, f )
+can be related by (2.10). Thus it suffices to show that there are at least δN log2 N quadruples
+(a, c, d, f ) with the above properties for some absolute constant δ > 0.
+    For fixed a, c, f , the parameter d traverses a primitive congruence class modulo f , and
+p = 4acd − f traverses a primitive congruence class modulo 4acf , that omits at most O(N 0.6 )
+of the elements of this class that are less than N . By (A.13), the total number of d that thus
+give a prime p for fixed acf is at least
+
+                                 li(N )
+                                         − D(N ; 4acf ) − O(N 0.6 )
+                                φ(4acf )
+
+and so by arguing as before it suffices to show the bounds
+                              X                                  1
+                                          1(a,c)=(2ac,f )=1             log3 N
+                                                              φ(4acf )
+                           a,c,f ⩽N 0.1
+
+and                               X
+                                             D(N ; 4acf ) = o(N log2 N ).
+                              a,c,f ⩽N 0.1
+
+But this is proven by a simple modification of the arguments used to establish (5.8), (5.7) (the
+constraints (a, c) = (2ac, f ) = 1 being easily handled by an elementary sieve such as (5.5)).
+This concludes all the lower bounds for Theorem 1.1.
+
+
+                                          6. Lower bounds II
+
+   Here we prove Theorem 1.8.
+
+Proof. For any natural numbers m, n, let g2 (m, n) denote the number of solutions (x, y) ∈ N2
+to the Diophantine equation m/n = 1/x + 1/y. Since
+
+                                          1 1 1  1   1
+                                           + = +   +
+                                          x y x 2y 2y
+
+we conclude the crude bound f (n) ⩾ g2 (4, n) for any n.
+
+                                                      23
+   In [8, Theorem 1] it was shown that g2 (m, n)  3s whenever n is the product of s distinct
+primes congruent to −1 mod m. Since g2 (m, kn) ⩾ g2 (m, n) for any k, we conclude that
+
+                                    f (n) ⩾ g2 (4, n)  3w4 (n)                          (6.1)
+
+for all n, where wm (n) is the number of distinct prime factors of n that are congruent to −1
+mod m.
+   Now we prove the first part of the theorem. Let s be a large number, and let n be the
+product of the first s primes equal to −1 mod 4, then from the prime number theorem in
+arithmetic progressions we have log n = (1+o(1))s log s, and thus s = (1+o(1))log n/log log n.
+From (6.1) we then have
+                                                                 
+                                                          log n
+                            f (n)  exp log 3(1 + o(1))             .
+                                                        log log n
+Letting s → ∞ we obtain the claim.
+   For the second part of the theorem, we use the Turán-Kubilius inequality (Lemma A.2) to
+the additive function w4 . This inequality gives that
+                          X                 1
+                                |w4 (n) −     log log N |2  N log log N.
+                                            2
+                          n⩽N
+
+From this and Chebyshev’s inequality (see also [80, p. 307]), we see that
+                                     1                   p
+                          w4 (n) ⩾     log log n + O(ξ(n) log log n)
+                                     2
+for all n in a density 1 subset of N. The claim then follows from (6.1).
+    Now we turn to the third part of the theorem. We first deal with the case when p = 4t − 1
+is prime, then
+                                      4     4         1
+                                        =      +
+                                      p   p + 1 t(4t − 1)
+which in particular implies that
+                                       f (p) ⩾ g2 (4, p + 1)
+and thus
+                                        f (p)  3w4 (p+1) .
+By Lemma A.3 we know that
+                                                          
+                                                   1
+                                w4 (p + 1) ⩾         − o(1) log log p                    (6.2)
+                                                   2
+for all p in a a set of primes of relative prime density 1.
+   It remains to deal with those primes p congruent to 1 mod 4. Writing
+                                   4       1         3
+                                     =          +
+                                   p   (p + 3)/4 p(p + 3)/4
+we see that
+                     f (p) ⩾ g2 (3, p(p + 3)/4)  3w3 ((p+3)/4)  3w3 (p+3) .
+
+                                                   24
+It thus suffices to show that
+                                                           
+                                                    1
+                                 w3 (p + 3) ⩾         − o(1) log log p
+                                                    2
+
+for all p in a set of primes of relative density 1. But this can be established by the same
+techniques used to establish (6.2).
+
+
+
+                                 7. Sums of divisor functions
+
+   Let P : Z → Z be a polynomial with integer coefficients, which for simplicity we will assume
+to be non-negative, and consider the sum
+                                       X
+                                           τ (P (n)).
+                                           n⩽N
+
+In [19], Erdős established the bounds
+                                           X
+                             N log N P             τ (P (n)) P N log N                      (7.1)
+                                           n⩽N
+
+for all N > 1 and for P irreducible; note that the implied constants here can depend on both
+the degree and the coefficients of P . This is of course consistent with the heuristic τ (n) ∼ log n
+“on average”. Of course, the irreducibility hypothesis is necessary as otherwise P (n) would
+be expected to have many more divisors.
+   In this section we establish a refinement of the Erdős upper bound that gives a more precise
+description of the dependence of the implied constant on P (and with irreducibility replaced
+by a much weaker hypothesis), which may be of some independent interest:
+
+Theorem 7.1 (Erdős-type bound). Let N > 1, let P be a polynomial with degree D and
+coefficients being non-negative integers of magnitude at most N l . For any natural number m,
+let ρ(m) be the number of roots of P mod m in Z/mZ, and suppose one has the bound
+
+                                               ρ(pj ) ⩽ C                                     (7.2)
+
+for all primes p and all j ⩾ 1. Then
+                           X ρ(m)        X                          X ρ(m)
+                       N                      τ (P (n)) D,l,C N              .
+                                 m                                         m
+                           m⩽N           n⩽N                        m⩽N
+
+Remark 7.2. For any fixed P , one has (7.2) for some C = CP (by many applications of
+Hensel’s lemma, and treating the case of small p separately), and P  when P is irreducible one
+can use tools such as Landau’s prime ideal theorem to show that m⩽N ρ(m)/m P log N
+(indeed, much more precise asymptotics are available here). See [78] for more precise bounds
+on C in terms of quantities such as the discriminant ∆(P ) of P ; bounds of this type go back to
+Nagell [45] and Ore [50] (see also [66], [32]). One should in fact be able to establish a version
+of Theorem 7.1 in which the implied constant depends explicitly on the ∆(P ) rather than on
+
+                                                    25
+C by using the estimates of Henriot [29] (which build upon earlier work of Barban-Vehov [2],
+Daniel [13], Shiu [73], Nair [46], and Nair-Tenenbaum [47]), but we will not do so here, as
+we will need to apply this bound in a situation in which the discriminant may be large, but
+for which the bound C in (7.2) can still be taken to be small. However, the version of Nair’s
+estimate given in [7, Theorem 2], having no explicit dependence on the discriminant, may be
+able to give an alternate derivation of Theorem 7.1; we thank the referee for this observation.
+   Thus we see that Erdős’ original result (7.1) is a corollary of Theorem 7.1.
+                                                                               P For special types
+of P (e.g. linear or quadratic polynomials), more precise asymptotics on n⩽N τ (P (n)) are
+known (see e.g. [21], [22] for the linear case, and [30], [70], [41], [42], [43] for the quadratic
+case), but the methods used are less elementary (e.g. Kloosterman sum bounds in the linear
+case, and class field theory in the quadratic case), and do not cover all ranges of coefficients of
+P for the applications to the Erdős-Straus conjecture. See also [55] for another upper bound in
+the quadratic case which is uniform over large ranges of coefficients but gives weaker bounds
+(losing some powers of log N ).
+
+Proof. Our argument will be based on the methods in [19]. In this proof all implied constants
+will be allowed to depend on D, l and C.
+   We begin with the lower bound, which is very easy. Clearly
+                                                X
+                                   τ (P (n)) ⩾         1                                (7.3)
+                                                     m⩽N :m|P (n)
+
+and thus                         X                   X        X
+                                       τ (P (n)) ⩾                      1.
+                                 n⩽N                 m⩽N n⩽N :m|P (n)
+
+The expression P (n) mod m is periodic in n with period m, and thus for m ⩽ N one has
+
+                                    ρ(m)         X                   ρ(m)
+                                N                          1N                              (7.4)
+                                     m                                m
+                                             n⩽N :m|P (n)
+                              P
+which gives the lower bound on n⩽N τ (P (n)).
+  Now we turn to the upper bound, which is more difficult. We first establish a preliminary
+bound                         X
+                                 τ (P (n))2  N logO(1) N                              (7.5)
+                                    n⩽N
+
+using an argument of Landreau [38]. Let n ⩽ N . By the coefficient bounds on P we have
+
+                                           P (n)  N O(1) .                                  (7.6)
+
+Using the main lemma from [38], we conclude that
+                                            X
+                            τ (P (n))2                       τ (m)O(1)
+                                               m⩽N :m|P (n)
+
+and thus                  X                    X                      X
+                                τ (P (n))2           τ (m)O(1)                  1.
+                          n⩽N                  m⩽N                n⩽N :m|P (n)
+
+
+                                                     26
+                                                                 O(1) , thus
+                                       P
+Using (7.2), we may crudely bound          n⩽N :m|P (n) 1 ⩽ τ (m)
+                                 X                     X
+                                       τ (P (n))2           τ (m)O(1)
+                                 n⩽N                   m⩽N
+
+and the claim then follows from Lemma A.1.
+   In view of (7.5) and the Cauchy-Schwarz inequality, we may discard from the n summation
+                                                            0
+any subset of {1, . . . , N } of cardinality at most N log−C N for sufficiently large C 0 . We will
+take advantage of this freedom in the sequel.
+   Suppose for the moment that we could reverse (7.3) and obtain the bound
+                                                      X
+                                       τ (P (n))             1.                              (7.7)
+                                                    m⩽N :m|P (n)
+
+Combining this with (7.4), we would obtain
+                              X              X                X
+                                 τ (P (n))                            1
+                                n⩽N                 m⩽N n⩽N :m|P (n)
+                                                    X N
+                                                             ρ(m)
+                                                          m
+                                                    m⩽N
+
+which would give the theorem. Unfortunately, while (7.7) is certainly true when P (n) ⩽ N 2 ,
+it can fail for larger values of P (n), and from the coefficient bounds on P we only have the
+weaker upper bound (7.6).
+    Nevertheless, as observed by Erdős, we have the following substitute for (7.7):
+                                                                               0
+Lemma 7.3. Let C 0 be a fixed constant. For all but at most O(N log−C N ) values of n in
+the range 1 ⩽ n ⩽ N , either (7.7) holds, or one has
+                                                     X
+                                τ (P (n))  O(1)r        1
+                                                       m∈Sr :m|P (n)
+
+
+for some 2 ⩽ r  (log log N )2 , where Sr is the set of all m with the following properties:
+
+   • m lies between N 1/4 and N .
+
+   • m is N 1/r -smooth (i.e. m is divisible by any prime larger than N 1/r ).
+
+   • m has at most (log log N )2 prime factors.
+                                                                                                 2
+   • m is not divisible by any prime power pk with p ⩽ N 1/2 , k > 1, and pk ⩾ N 1/8(log log N ) .
+
+   The point here is that the exponential loss in the O(1)r factor will be more than compen-
+sated for by the N 1/r -smooth requirement, which as we shall see gains a factor of r−cr for
+some absolute constant c > 0.
+
+Proof. The claim follows from (7.7) when P (n) ⩽ N 2 , so we may assume that P (n) > N 2 .
+   We factorise P (n) as
+                                     P (n) = p1 . . . pJ
+
+                                                  27
+where the primes p1 ⩽ . . . ⩽ pJ are arranged in non-decreasing order. Let 0 ⩽ j < J be the
+largest integer such that p1 . . . pj ⩽ N . If j = 0 then all prime factors of P (n) are greater than
+N , and thus by (7.6) we have J = O(1) and thus τ (P (n)) = O(1), which makes the claim
+(7.7) trivial. Thus we may assume that j ⩾ 1.
+   Suppose first that all the primes pj+1 , . . . , pJ have size at least N 1/2 . Then from (7.6) we
+in fact have J = j + O(1), and so
+
+                                             τ (P (n))  τ (p1 . . . pj ).
+
+Note that every factor of p1 . . . pj divides P (n) and is at most N , which gives (7.7). Thus we
+may assume that pj+1 , in particular, is less than N 1/2 , which forces
+
+                                               N 1/2 < p1 . . . pj ⩽ N                                     (7.8)
+
+and pj < N 1/2 .
+   Following [19], we eliminate some small exceptional sets of natural numbers n. First we
+consider those n for which P (n) has at least (log log N )2 distinct prime factors. For such P (n),
+                                 2
+one has τ (P (n)) ⩾ 2(log log N ) , which is asymptotically larger than any given power of log N ;
+                                                                0
+thus by (7.5), the set of such n has size at most O(N log−C N ) and can be discarded.
+   Next, we consider those n for which P (n) is divisible by a prime power pk with p ⩽ N 1/2 ,
+                                   2
+k > 1, and pk ⩾ N 1/8(log log N ) . By reducing k if necessary we may assume that pk ⩽ N . For
+each p and k, there are at most O((N/pk )ρ(pk )) = O(N/pk ) numbers n with P (n) divisible
+by pk , thanks to (7.2); thus the total number of such n is bounded by
+                                                X                  X               1
+                                   N                                                j
+                                                                                 2
+                                                                                   p
+                                             p⩽N 1/2 j⩾2:pj ⩾N 1/8(log log N )
+
+                                                               0
+which can easily be computed to be O(N log−C N ). Thus we may discard all n of this type.
+                                                                     2
+   After removing all such n, we must have pj > N 1/8(log log N ) . Indeed, after eliminating
+the exceptional n as above, p1 . . . pj is the product of at most (log log N )2 prime powers, each
+                                          2                                                  2
+of which is bounded by N 1/8(log log N ) , or is a single prime larger than N 1/8(log log N ) . The
+former possibility thus contributes at most N 1/8 to the final product p1 . . . pj ; from (7.8) we
+conclude that the latter possibility must occur at least once, and the claim follows.
+   Let r be the positive integer such that
+
+                                              N 1/(r+1) < pj ⩽ N 1/r ,
+
+then 2 ⩽ r  (log log N )2 . The primes pj+1 , . . . , pJ have size at least N 1/(r+1) , so by (7.6) we
+have J = j + O(r), which implies that
+
+                                       τ (P (n))  O(1)r τ (p1 . . . pj ).
+
+As p1 . . . pj is at least N 1/2 , we have
+                                                      X                                  X
+                    τ (p1 . . . pj ) ⩽ 2                                  1⩽2                         1.
+                                           m|p1 ...pj ;m⩾(p1 ...pj )1/2         m|p1 ...pj ;m⩾N 1/4
+
+Note that all m in the above summand lie in Sr and divide P (n). The claim follows.
+
+                                                            28
+   Invoking the above lemma, it remains to bound
+                                                    O((log log N )2 )
+                    X        X                            X                       X         X
+                                        1      +                          O(1)r                       1.
+                   m⩽N n⩽N :m|P (n)                       r=2                     m∈Sr n⩽N :m|P (n)
+        P
+by O(N n⩽N P (m)/m). The first term was already shown to be acceptable by (7.4). For
+the second sum, we also apply (7.4) and bound it by
+                                            O((log log N )2 )
+                                                  X                        X ρ(m)
+                                   N                           O(1)r                   .                          (7.9)
+                                                                                    m
+                                                  r=2                      m∈Sr
+
+To estimate this expression, let r, m be as in the above summation, and factor m into
+primes. As in the proof of Lemma 7.3, the contribution to m coming from primes less than
+                 2                                                               2
+N 1/8(log log N ) is at most N 1/8 , and the primes larger than N 1/8(log log N ) that divide m are dis-
+tinct. Hence, by the pigeonhole principle (as in [19]), there exists t ⩾ 1 with r2t  (log log N )2
+such that the N 1/r -smooth number m has at least brt/100c distinct prime factors between
+     t+1              t
+N 1/2 r and N 1/2 r , and can thus be factored as m = q1 . . . qbrt/100c u where q1 < . . . < qbrt/100c
+                             t+1            t
+are primes between N 1/2 r and N 1/2 r , and u is an integer of size at most N . From the Chi-
+nese remainder theorem and (7.2) we have the crude bound
+
+                                               ρ(m)  O(1)rt ρ(u)
+
+and thus
+                                                                                       brt/100c
+             X ρ(m)          ∞
+                             X                  1                     X               1            X ρ(u)
+                                  O(1)rt       rt
+                                                                                                              .
+            m∈Sr
+                    m
+                             t=1
+                                             b 100 c!           t+1 r         t
+                                                                                      p
+                                                                                                    u⩽N
+                                                                                                           u
+                                                           N 1/2      ⩽p⩽N 1/2 r
+                                   P
+By the standard asymptotic          p<x 1/p = log log x + O(1), we have
+
+                                                    X                 1
+                                                                        = O(1);
+                                               t+1 r              t
+                                                                      p
+                                       N 1/2           ⩽p⩽N 1/2 r
+
+putting this all together, we can bound (7.9) by
+                                             ∞ X
+                                               ∞
+                                                                      !
+                                             X   O(1)rt                   X ρ(m)
+                                    
+                                                    b rt c!
+                                             r=2 t=1 100                  m⩽N
+                                                                                  m
+
+and the claim follows.
+
+   We isolate a simple special case of Theorem 7.1, when the polynomial P is linear:
+Corollary 7.4. If a, b, N are natural numbers with a, b  N O(1) , then
+                              X
+                                  τ (an + b)  τ ((a, b))N log N
+                                   n⩽N
+
+where (a, b) is the greatest common divisor of a and b.
+
+                                                             29
+Proof. By the elementary inequality τ (nm) ⩽ τ (n)τ (m) we may factor out (a, b) and assume
+without loss of generality that a, b are coprime.
+   We apply Theorem 7.1 with P (n) := an + b. From the coprimality of a, b and elementary
+modular arithmetic, we see that ρ(m) ⩽ 1 for all m, and the claim follows.
+
+   We may now prove Proposition 1.4 from the introduction.
+
+Proof of Proposition 1.4. We divide into two cases, depending on whether A ⩾ B or A ⩽ B.
+   First suppose that A ⩾ B. From Corollary 7.4 we have
+                           X                            X 1
+                                 τ (kab2 + 1)  A                  A log A,
+                                                              m
+                           a⩽A                          m⩽A
+
+
+for each fixed b ⩽ B, and the claim follows on summing in B. (Note that this argument in
+fact works whenever A ⩾ B ε for any fixed ε > 0.)
+   Now suppose that A ⩽ B. For each fixed a ∈ A, we apply Theorem 7.1 to the polynomial
+Pka (b) := kab2 + 1. To do this we first must obtain a bound on ρka (pj ), where ρka (m) is the
+number of solutions b mod m to kab2 + 1 = 0 mod m. Clearly ρka (m) vanishes whenever
+m is not coprime to ka, so it suffices to consider ρka (pj ) when p does not divide ka. Then
+Pka is quadratic, and a simple application of Hensel’s lemma reveals that ρka (pj ) ⩽ 2 for all
+odd prime powers pj and ρka (pj ) ⩽ 4 for p = 2. We may therefore apply Theorem 7.1 and
+conclude that
+                              X                     X ρka (m)
+                                  τ (kab2 + 1)  B              .
+                                                            m
+                                b⩽B                       m⩽B
+
+It thus suffices to show that
+                            X X ρka (m)
+                                                A log B log(1 + k).                     (7.10)
+                                         m
+                            a⩽A m⩽B
+
+
+   To control ρka (m), the obvious tool to use here is the quadratic reciprocity law (A.7). To
+apply this law, it is of course convenient to first reduce to the case when a and m are odd. If
+m = 2j m0 for some odd m0 , then ρka (m)  ρka (m0 ), and from this it is easy to see that the
+bound (7.10) follows from the same bound with m restricted to be odd. Similarly, by splitting
+a = 2l a0 and absorbing the 2l factor into k (and dividing A by 2l to compensate), we may
+assume without loss of generality that a is odd.
+   As previously observed, ρka (m) vanishes unless ka and m are coprime, so we may also
+restrict to the case (ka, m) = 1, where (n, m) denotes the greatest common divisor of n, m. If
+p is an odd prime not dividing ka, then from elementary manipulation and Hensel’s lemma
+we see that                                                    
+                                       j                    −ka
+                                 ρka (p ) = ρka (p) ⩽ 1 +         ,
+                                                             p
+and thus for odd m coprime to ka we have
+                                           Y   
+                                                  −ka
+                                                      
+                                 ρka (m) ⩽   1+          .
+                                                   p
+                                             p|m
+
+
+                                                   30
+For odd m, not necessarily coprime to ka, we thus have
+                                                         
+                                        Y              −ka
+                           ρka (m) ⩽              1+          .
+                                                        p
+                                        p|m;(p,2ka)=1
+
+using the multiplicativity properties of the Jacobi symbol, one has
+                                               X  −ka 
+                                       −ka
+                                1+            ⩽
+                                         p         j
+                                                        pj
+                                                        j:p |m
+
+whenever p | m and (p, 2ka) = 1, and thus
+                                                  Y           X  −ka 
+                              ρka (m) ⩽                                           .
+                                                                             pj
+                                          p|m;(p,2ka)=1 j:pj |m
+
+The right-hand side can be expanded as
+                                                                    
+                                              X              −ka
+                                                                         .
+                                                              q
+                                       q|m;(q,2ka)=1
+
+We can thus bound the left-hand side of (7.10) by
+                                                    
+                            X          X         −ka                         X        1
+                                                                                        .
+                                                  q                                   m
+                          q⩽B:(q,2k)=1 a⩽A;(a,2q)=1                      m⩽B;q|m
+
+
+The final sum is of course (log Bq )/q + O(1/q). The contribution of the error term is bounded
+by
+                                       XX1
+                                    O(         ) = O(A log B)
+                                             q
+                                      q⩽B a⩽A
+
+which is acceptable, so it suffices to show that
+
+                                                            log Bq
+                                                       
+                      X            X              −ka
+                                                                      A log B log(1 + k).   (7.11)
+                                                   q          q
+                  q⩽B:(q,2k)=1 a⩽A;(a,2q)=1
+
+We first dispose of an easy contribution, when q is less than A. The expression
+                                              
+                                           −ka
+                                    a 7→         1(a,2q)=1
+                                            q
+
+is periodic with period 2q and sums to zero (being essentially a quadratic character on Z/2qZ),
+and so in this case we have                        
+                                     X         −ka
+                                                      = O(q).
+                                                 q
+                                   a⩽A;(a,2q)=1
+
+One could obtain better estimates and deal with somewhat larger q here by using tools such
+as the Pólya-Vinogradov inequality, but we will not need to do so here; similarly for the
+
+                                                    31
+treatment of the regime A ⩽ q ⩽ kA below. In any event, the contribution of the q < A case
+is bounded by                             
+                                       X log Bq
+                                O      q        = O(A log B)
+                                           q
+                                       q⩽A
+
+which is acceptable.
+   Next, we deal with the contribution when q is between A and kA. Here we crudely bound
+the Jacobi symbol in magnitude by 1 and obtain a bound of
+                              X       X log B
+                        O(                           ) = O(A log B log(1 + k))
+                                             q
+                             A⩽q⩽kA a⩽A
+
+
+which is acceptable.
+   Finally, we deal with the case when q exceeds kA. We write k = 2m k 0 where k 0 is odd, then
+from quadratic reciprocity (A.7) (and (A.8), (A.9)) we have
+                                                
+                                           −ka                   q 
+                                                     = c(q)
+                                            q                    k0 a
+                                  2
+where c(q) := (−1)(q−1)/2+m(q −1)/8 is periodic with period 8. We can thus rewrite this
+contribution to (7.11) as
+
+                                                                        q  log B
+                                                                                         q
+                              X              X
+                                                                c(q)                         .
+                                                                           k0 a      q
+                         a⩽A;(a,2)=1 kA⩽q⩽B:(q,2ak)=1
+
+
+For any fixed a in the above sum, the expression
+                                            q 
+                                  q 7→ c(q) 0 1(q,2ak)=1
+                                            ka
+
+is periodic with period 8k 0 a = O(kA), is bounded in magnitude by 1 and has mean zero. A
+summation by parts then gives
+
+                                                         q  log B
+                                                                           q
+                                  X
+                                                 c(q)                              log B
+                                                         k0 a          q
+                          kA⩽q⩽B:(q,2ak)=1
+
+
+and so on summing in A we see that this contribution is acceptable. This concludes the proof
+of the proposition.
+
+   We now record some variants of Proposition 1.4 that will also be useful in our applications.
+
+Proposition 7.5 (Average value of τ3 (ab + 1)). For any A, B > 1, one has
+                              XX
+                                       τ3 (ab + 1)  AB log2 (A + B).                            (7.12)
+                             a⩽A b⩽B
+
+
+
+                                                      32
+Proof. By symmetry we may assume that A ⩽ B, so that ab  B 2 for all a ⩽ A and b ⩽ B.
+For any n, τ3 is the number of ways to represent n as the product n = d1 d2 d3 of three terms.
+One of these terms must be at most n1/3 , and so
+                                                   X             n
+                                     τ3 (n)                  τ ( ).
+                                                          1/3
+                                                                 d
+                                                d|n:d⩽n
+
+
+We can thus bound the left-hand side of (7.12) by
+                                    X X            X              ab + 1
+                                                            τ(          ).
+                                                                     d
+                                  dB 2/3 a⩽A b⩽B:d|ab+1
+
+Note that for fixed a, d, the constraint d | ab + 1 is only possible if a is coprime to d, and
+restricts b to some primitive residue class q mod d for some q = qa,d between 1 and d. Writing
+b = cd + q, we can thus bound the above expression by
+                                       X X X
+                                                     τ (ac + r)
+                                     dB 2/3 a⩽A cB/d
+
+where r = ra,d := (aq + 1)/d. Note that r is clearly coprime to a. Thus by Corollary 7.4, we
+may bound the preceding expression by
+                                           X XB
+                                                 log B
+                                                d
+                                            2/3
+                                          dB     a⩽A
+
+
+which is O(AB log2 B). The claim follows.
+
+Proposition 7.6 (Average value of τ (ab + cd)). For any A, B, C, D > 1, one has
+                        X
+                                    τ (ab + cd)  ABCD log(A + B + C + D).               (7.13)
+                 a⩽A,b⩽B,c⩽C,d⩽D:
+                    (a,b,c,d)=1
+
+Proof. By symmetry we may assume that A, B, C ⩽ D. Then for fixed a, b, c coprime, we
+have                         X
+                                τ (ab + cd)  D log D
+                                    d⩽D
+
+by Corollary 7.4, and the claim follows by summing in a, b, c, d.
+
+Remark 7.7. Informally, one can view the above propositions as asserting that the heuristics
+τ (n)  log n, τ3 (n)  log2 n are valid on average (in a first moment sense) on the range
+of various polynomial forms in several variables. A result similar to Proposition 7.6 was
+established in [28, Lemma 3], but with the coprimality condition (a, b, c, d) = 1 replaced by
+(ab, cd) = 1, and also the divisor function τ being restricted by forcing one of the divisors to
+live in a given dyadic range, with the logarithm being removed as a consequence. Also, products
+of three factors were permitted instead of the terms ab, cd. As remarked after [28, Lemma 4],
+the logarithmic term in (7.13) is necessary.
+
+                                                  33
+                                                    P                     P
+                     8. Upper bound for                  n⩽N fI (n) and     p⩽N fI (p)
+
+
+   Now that we have established Proposition 1.4, we can obtain upper bounds on sums of fI .
+   We begin with the bound
+                                  X
+                                     fI (n)  N log3 N.
+                                          n⩽N
+
+By Proposition 2.2 and symmetry followed by Lemma 2.8, it suffices to show that there are at
+most O(N log3 N ) septuples (a, b, c, d, e, f, n) ∈ N7 obeying (2.1)-(2.9) and the Type I estimates
+from Lemma 2.8. In particular, acd  N , f is a factor of 4a2 d + 1, and n = 4acd − f . As
+a, c, d, f determine the remaining components of the septuple, we may thus bound the number
+of such septuples as
+                                          X
+                                                   τ (4a2 d + 1).
+                                          a,c,d:acdN
+
+Dividing a, c, d into dyadic blocks (A/2 ⩽ a ⩽ A, etc.) and applying Proposition 1.4 (with
+k = 4) to each block, we obtain the desired bound O(N log3 N ).
+   Now we establish the bound
+                                X
+                                    fI (p)  N log2 N log log N.
+                                  p⩽N
+
+
+As before, it suffices to count quadruples (a, c, d, f ) with acd  N , and f a factor of 4a2 d + 1;
+but now we can restrict p = 4acd − f to be prime. Also, from Proposition 2.2 we may assume
+that p is coprime to acd (and hence to 4acd, if we discard the prime p = 2).
+   Thus we may assume without loss of generality that −f mod 4ad is a primitive residue
+class. From the Brun-Titchmarsh inequality (A.10), we conclude that for each fixed a, d, f ,
+there are O(N/(φ(4ad) log(N/4ad))) primes p in this residue class that are less than N if
+ad ⩽ N/100 (say); if instead ad > N/100, then we of course only have O(1) = O(N/φ(4ad))
+primes in this class. Thus, in any event, we can bound the number of such primes as
+O(N/(φ(4ad) log(2 + N/ad))). We therefore have the bound
+                     X                 X                                  N
+                          fI (p)               τ (4a2 d + 1)                        .        (8.1)
+                                                                φ(4ad) log(2 + N/ad)
+                    p⩽N              a,d:adN
+
+
+By dyadic decomposition (and bounding φ(4ad) ⩾ φ(ad)), it thus suffices to show that
+
+                                      X          τ (4a2 d + 1)
+                                                                log2 N.                      (8.2)
+                                                     φ(ad)
+                                a,d:N/2⩽ad⩽N
+
+
+Indeed, assuming this bound for all N , we can bound the right-hand side of (8.1) by
+
+                              O(log N )
+                                X         N log2 N
+                                                    N log2 N log log N
+                                              j
+                                j=1
+
+and the claim follows.
+
+                                                        34
+   To prove (8.2), we would like to again apply Proposition 1.4, but we must first deal with
+the φ(ad) denominator. From (A.12) one has
+
+                                               1      1 XX 1
+                                                             .
+                                             φ(ad)   ad    st
+                                                               s|a t|d
+
+
+Writing a = sa0 , d = td0 , we may thus bound the left-hand side of (8.2) by
+
+                               1         X     1      X
+                                                                    τ (4s2 t(a0 )2 d0 + 1).
+                               N               st 0 0 0 0
+                                   s,t:st⩽N        a ,d :a d ⩽N/st
+
+
+Applying Proposition 1.4 to the inner sum (decomposed into dyadic blocks, and setting k =
+4s2 t), we see that
+                         X                                           N       N
+                                         τ (4s2 t(a0 )2 d0 + 1)        log2    log(1 + s2 t).
+                                                                     st      st
+                   a0 ,d0 :a0 d0 ⩽N/st
+
+
+Inserting this bound and summing in s, t we obtain the claim.
+
+                                                        P                         P
+                    9. Upper bound for                     n⩽N fII (n) and           p⩽N fII (p)
+
+
+   Now we prove the upper bound
+                                              X
+                                                   fII (n)  N log3 N.
+                                             n⩽N
+
+
+By Proposition 2.6 followed by Lemma 2.8 (and symmetry), it suffices to show that there are
+at most O(N log3 N ) N-points (a, b, c, d, e, f ) that lie in ΣII
+                                                               n for some n ⩽ N , which also obeys
+the Type II bound acde ⩽ N in Lemma 2.8.
+   Observe from (2.13)-(2.21) that a, c, d, e determine the other variables b, f, n. Thus, it
+suffices to show that there are O(N log3 N ) quadruples (a, b, d, e) ∈ N4 with acde ⩽ N . But
+this follows from (A.2) with k = 4.
+   Finally, we prove the upper bound
+                                              X
+                                                   fII (p)  N log2 N.
+                                             p⩽N
+
+
+By dyadic decomposition, it suffices to show that
+                                              X
+                                                      fII (p)  N log2 N.                          (9.1)
+                                           N/2⩽p⩽N
+
+
+As before, we can bound the left-hand side (up to constants) by the number of quadruples
+(a, c, d, e) ∈ N4 with acde  N . However, by (2.16), we may also add the restriction that
+4acde − 4a2 d − e is a prime between N/2 and N . Also, if we set b := ce − a, then by Lemma
+
+                                                          35
+2.8 we may also add the restrictions a ⩽ b and b < ce, and from Proposition 2.6 we can also
+require that a, b be coprime. Since
+
+                               (ade)(acd)(ab)1/2  (ade)(acd)b
+                                                      (ade)(acd)(ce)
+                                                     = (acde)2
+                                                      N2
+
+we see that one of the quantities ade, acd, ab must be at most O(N 4/5 ) (cf. Section 3). As we
+shall soon see, the ability to take one of these quantities to be significantly less than N allows
+us to avoid the inefficiencies in the Brun-Titchmarsh inequality (A.10) that led to a double
+logarithmic loss in the Type I case. (Unfortunately, it does not seem that a similar trick is
+available in the Type II case.)
+    Let us first consider those quadruples with ade  N 4/5 , which is the easiest case. For fixed
+a, d, e, 4acde − 4a2 d − e traverses (a possibly non-primitive) residue class modulo 4ade. As
+ade  N 4/5 , there are no primes in this class that are at least N/2 if the class is not primitive.
+If it is primitive, we may apply the Brun-Titchmarsh inequality (A.10) to bound the number
+of primes between N/2 and N in this class by O( φ(4ade)Nlog(N ) ), noting that log(N/4ade) is
+comparable to log N . Thus, we can bound this contribution to the left-hand side of (9.1) by
+
+                                       N           X              1
+                                                                      ;
+                                     log N                 4/5
+                                                               φ(4acd)
+                                             a,d,e:adeN
+
+setting m := ade and bounding φ(4ade) ⩾ φ(ade), we can bound this in turn by
+
+                                             N      X        τ3 (m)
+                                     
+                                           log N         4/5
+                                                             φ(m)
+                                                   mN
+                  P
+where τ3 (m) :=    a,d,e:ade=m 1. Applying Lemma A.1, we have
+
+                                       X         τ3 (m)
+                                                         log3 N,                             (9.2)
+                                             4/5
+                                                 φ(m)
+                                     mN
+
+and so this contribution is acceptable.
+  Now we consider the case acd  N 4/5 . Here, we rewrite 4acde−4a2 d−e as (4acd−1)e−4a2 d,
+which then traverses a (possibly non-primitive) residue class modulo 4acd − 1. Applying the
+Brun-Titchmarsh inequality as before, we may bound this contribution by
+
+                                     N          X                 1
+                               
+                                   log N                 4/5
+                                                             φ(4acd − 1)
+                                           a,c,d:acdN
+
+and hence (setting m := 4acd − 1) by
+
+                                         N         X     τ3 (m + 1)
+                                                                   ,
+                                       log N         4/5
+                                                            φ(m)
+                                               mN
+
+
+                                                   36
+so that it suffices to establish the bound
+                                     X τ3 (m + 1)
+                                                                log3 N.                        (9.3)
+                                                    φ(m)
+                                     mN 4/5
+
+This is superficially similar to (9.2), but this time the summand is not multiplicative in m,
+and we can no longer directly apply Lemma A.1. To deal with this, we apply (A.12) and
+bound (9.3) by
+                                         X X τ3 (m + 1)
+                                                           ;
+                                            4/5
+                                                      dm
+                                           mN        d|m
+
+writing m = dn, we can rearrange this as
+                                       X       1       X         τ3 (dn + 1)
+                                                                            .
+                                           4/5
+                                               d2                     n
+                                     dN            nN 4/5 /d
+
+Applying dyadic decomposition of the d, n variables and using Proposition 7.5, we obtain (9.3)
+as required.
+   Finally, we consider the case ab  N 4/5 . Here, we rewrite 4acde − 4a2 d − e as 4abd − e, and
+note that e divides a + b = ce. If we fix a, b, there are thus at most τ (a + b) choices for e (which
+also fixes c), and once one fixes such a choice, 4abd − e traverses a (possibly non-primitive)
+residue class modulo 4ab. Applying the Brun-Titchmarsh inequality again, we may bound
+this contribution by
+                                     N           X          τ (a + b)
+                                                                     .
+                                   log N          4/5
+                                                             φ(4ab)
+                                            a,b:abN        ;(a,b)=1
+
+Bounding φ(4ab) ⩾ φ(ab) and using (A.12), we can bound this by
+                                 N             X               X X τ (a + b)
+                                                                                   .
+                               log N                                         abkl
+                                       a,b:abN 4/5 ;(a,b)=1 k|a l|b
+
+Writing a = km, b = ln, we may bound this by
+                               N             X                    1
+                                                                         τ (km + ln).
+                             log N                            k 2 l2 mn
+                                     k,l,m,n:klmnN 4/5 ;
+                                         (k,l,m,n)=1
+
+Dyadically decomposing in k, l, m, n and using Proposition 7.6, we see that this contribution
+is also O(N log2 N ). The proof of (9.1) (and thus Theorem 1.1) is now complete.
+
+
+                                10. Solutions by polynomials
+
+    We now prove Proposition 1.9. We first verify that each of the sets is solvable by polynomials
+(which of course implies that any residue class contained in such classes are also solvable by
+polynomials). We first do this for the Type I sets. In view of the πnI map (which clearly
+preserves polynomiality), it will suffice to find polynomials a = a(n), . . . , f = f (n) of n that
+take values in N for sufficiently large n in these sets, and such that (a(n), . . . , f (n)) ∈ ΣIn for
+all n. This is achieved as follows:
+
+                                                      37
+   • If n = −f mod 4ad, where a, d, f ∈ N are such that f | 4a2 d + 1, then we take
+
+                                                                         4a2 d + 1
+                                                                                  
+                                                n+f         n+f
+                      (a, b, c, d, e, f ) := a,      e − a,      , d, e,             .
+                                                 4ad         4ad             e
+
+   • If n = −f mod 4ac and n = −c/a mod f , where a, c, f ∈ N are such that (4ac, f ) = 1,
+     then we take
+                                                                           
+                                            na + c      n + f na + af + c
+                  (a, b, c, d, e, f ) := a,        , c,      ,            ,f ;
+                                              f          4ac      fc
+
+     note from the hypotheses that na + af + c is divisible by the coprime moduli f and c,
+     and is thus also divisible by f c.
+
+   • If n = −f mod 4cd and n2 = −4c2 d mod f , where c, d, f, q ∈ N are such that (4cd, f ) =
+     1, then we take
+
+                                            n + f n2 + 4c2 d + nf         (n + f )2 + 4c2 d
+                                                                                                
+               (a, b, c, d, e, f ) :=            ,                , c, d,                   ,f       ;
+                                             4cd       4cdf                    4c2 df
+
+     note from the hypotheses that (n + f )2 + 4c2 d is divisible by the coprime moduli 4c2 d
+     and f , and is thus also divisible by 4c2 df .
+
+   • If n = −1/e mod 4ab, where a, b, e ∈ N are such that e | a + b and (e, 4ab) = 1, then we
+     take                                                                         
+                                              a + b ne + 1         a + b ne + 1
+                 (a, b, c, d, e, f ) := a, b,      ,       , e, 4a              −n
+                                                e    4ab             e    4ab
+
+One easily verifies in each of these cases that one has an N-point of ΣIn for n large enough.
+   Now we turn to the Type II case. We use the same arguments as before, but using ΣII     n in
+place of ΣIn of course:
+
+   • If n = −e mod 4ab, where a, b, e ∈ N are such that e | a + b and (e, 4ab) = 1, then we
+     take                                                                
+                                               a+b n+e       a+bn+e
+                  (a, b, c, d, e, f ) := a, b,    ,     , e,         −1 .
+                                                e   4ab       e   b
+
+   • If n = −4a2 d mod f , where a, d, f ∈ N are such that 4ad | f + 1, then we take
+
+                                           f + 1 n + 4a2 d                n + 4a2 d
+                                                                                     
+                                                                f +1
+                 (a, b, c, d, e, f ) := a,                 − a,      , d,           ,f .
+                                            4ad     f            4ad         f
+
+   • If n = −4a2 d − e mod 4ade, where a, d, e ∈ N are such that (4ad, e) = 1, then we take
+
+                                               n + e n + 4a2 d + e         n + 4a2 d
+                                                                                    
+                     (a, b, c, d, e, f ) := a,      ,              , d, e,             .
+                                                4ad      4ade                 e
+
+
+                                                       38
+Again, one easily verifies in each of these cases that one has an N-point of ΣII
+                                                                              n for n large
+enough.
+   Now we establish the converse claim. Suppose first that we have a primitive residue class
+q mod r that can be solved by polynomials, then we have
+                                           4  1 1 1
+                                             = + +
+                                           p  x y z
+
+for all sufficiently large primes p in this class, where x = x(p), y = y(p), z = z(p) are polyno-
+mials of p that take natural number values for all large p in this class. Note that (depending
+on whether the constant coefficient of x(p) is nonzero or not) one either has p|x(p) for all p, or
+p 6 |x(p) for all sufficiently large p. Similarly for y(p) and z(p). Thus, after permuting, we may
+assume that we are either in the Type I case where p|x(p) and p 6 |y(p), z(p) for all sufficiently
+large p in the class, or else in the Type II case where p 6 |x(p) and p|y(p), z(p) for all sufficiently
+large p in the class.
+     Suppose first we are in the Type I case. For all sufficiently large p, we either have y(p) ⩽ z(p)
+for all p, or y(p) ⩾ z(p) for all p; by symmetry we may assume the latter.
+     Applying Proposition 2.2, we see that
+
+                                     (x, y, z) = (abdp, acd, bcd)
+
+for some N-point (a, . . . , f ) = (a(p), . . . , f (p)) in ΣIp with a(p), b(p), c(p) having no com-
+mon factor. In particular, d = d(p) is the greatest common divisor of x(p), y(p), z(p). On
+the other hand, if we let d˜ ∈ Q[t] be the monic greatest common divisor of x, y, z, then
+there are natural numbers C1 , C2 such that C1 d(p)     ˜                                 ˜
+                                                            is always an integer and C1 d(p)   divides
+C2 x(p), C2 y(p), C2 z(p), and by the Euclidean algorithm we know that there is also a natural
+number C3 such that C1 C3 d(p) ˜ is an integer combination of x(p), y(p), z(p). From this we see
+that d(p) is of the form q(p)d(p)˜ where q(p) is a rational number that takes on only finitely
+many values as p varies. For any given rational q, the question of whether q d(p)    ˜ is an integer,
+                ˜ divides x(p), y(p), z(p), can be determined in terms of finitely many residue
+and whether q d(p)
+classes p mod r of p (note that qx(p)  y(p) z(p)
+                                  ˜ , q d(p)
+                                  d(p)  ˜ , q d(p)˜   are polynomials in p with rational coefficients).
+Thus, one can partition the original residue class of p into finitely many subclasses, such that
+on each such class, q(p) = q is independent of p. We now pass to an arbitrary such subclass
+(eliminating the non-primitive classes, as these only contain at most one prime), so that d(p) is
+now a polynomial function of p. Dividing out by d and repeating these arguments, we conclude
+(after passing to further subclasses if necessary) that a = a(p), b = b(p), and c = c(p) are also
+polynomials in p for sufficiently large p in the subclass. Applying the identities (2.1)-(2.9) we
+also see that e = e(p) and f = f (p) are polynomials in p for sufficiently large p. It will then
+suffice to show that all subclasses obtained in this fashion lie in a residue class from one of
+the Type I families in Proposition 1.9.
+    From Lemma 2.8 we have a(p)c(p)d(p) = O(p) and f (p) = O(p) for all p, which implies
+that at least two of the polynomials a(p), c(p), d(p) must be constant in p, and that f (p) has
+degree at most 1 in p. We now divide into several cases.
+    First suppose that a, d are independent of p. By (2.7) this forces e, f to be independent of
+p as well, and f divides 4a2 d + 1. By (2.6) we have
+
+                                         p = −f     mod 4ad
+
+                                                  39
+for all sufficiently large primes p in the given subclass, and the claim follows in this case.
+    Now suppose that a, c are independent of p, and f has degree 0 (i.e. is also independent
+of p). Then from (2.6) we have p = −f mod 4ac, and from (2.8) we have p = −c/a mod f ;
+since p is a large prime this also forces (4ac, f ) = 1, and the claim follows.
+    Now suppose instead that a, c are independent of p, and f has degree 1 (and thus grows
+linearly in p). By Lemma 2.8, b, e are then bounded and thus constant in p. From (2.2) we
+have e | a + b, and from (2.1) we have p = −1/e mod 4ab. As p is an arbitrarily large prime,
+this forces (4ab, e) = 1, and the claim follows.
+    Next, suppose that c, d are independent of p, and f has degree 0. Then from (2.6) one has
+p = −f mod 4cd, which in particular forces (4cd, f ) = 1. From (2.9) one has p2 = −4c2 d
+mod f , and the claim follows.
+    Finally, suppose that c, d are independent of p, and f has degree 1. By (2.9), f (p) divides
+p2 + 4c2 d for all large primes p in the primitive residue subclass. Applying the Euclidean
+algorithm, we conclude that f in fact divides p2 + 4c2 d as a polynomial in p. But as c, d are
+positive, p2 + 4c2 d is irreducible over the reals, a contradiction. This concludes the treatment
+of the Type I case.
+    Now suppose we are in the Type II case. Arguing as in the Type I case, we obtain an
+N-point (a, . . . , f ) = (a(p), . . . , f (p)) in ΣII
+                                                    p for all sufficiently large primes p in this class, and
+obeying the bounds in Lemma 2.8, and after partitioning the set of such large primes p into
+a finite number of primitive subclasses, one has a(p), . . . , f (p) all depending in a polynomial
+fashion on p in each subclass.
+    We now work with an individual subclass and show that all sufficiently large primes p in this
+subclass lie in a residue class in one of the Type II families in Proposition 1.9. From Lemma
+2.8 we have a(p)c(p)d(p)e(p) = O(p), and so three of these polynomials a(p), c(p), d(p), e(p)
+must be independent of p.
+    Suppose first that a, c, e are independent of p. By (2.2), b is independent of p also, and
+e | a + b. By (2.13), p = −e mod 4ab, and thus (e, 4ab) = 1, and the claim then follows from
+Dirichlet’s theorem.
+    Now suppose that a, c, d are independent of p. By (2.18), f is independent of p also, and
+4ad | f + 1. From (2.19) one has p = −4a2 d mod f , and the claim follows.
+    Next, suppose a, d, e are independent of p. By (2.16) one has p = −4a2 d − e mod 4ade,
+which implies (4ad, e) = 1, and the claim follows.
+    Finally, suppose c, d, e are independent of p. By (2.14) this forces a, b to be bounded, and
+hence also independent of p; and so this case is subsumed by the preceding cases.
+
+                                       11. Lower bounds III
+
+ 11.1. Generation of solutions We begin the proof of Theorem 1.11; the method of proof
+will be a generalisation of that in Section 5. For the rest of this section, m and k are fixed,
+and all implied constants in asymptotic notation are allowed to depend on m, k. We assume
+that N is sufficiently large depending on m, k.
+   In the m = 4, k = 3 case, Type II solutions were generated by the ansatz
+                                     (t1 , t2 , t3 ) = (abd, acdn, bcdn)
+for various quadruples (a, b, c, d) (or equivalently, quadruples (a, c, d, e), setting b := ce − a);
+see (2.22). We will use a generalisation of this ansatz for higher k; for instance, when k = 4
+
+                                                     40
+we will construct solutions of the form
+
+(t1 , t2 , t3 , t4 ) = (bx12 x123 x124 x1234 , x12 x23 x24 x123 x124 x234 x1234 n, bx23 x123 x234 x1234 n, bx24 x124 x234 x1234 n)
+
+for various octuples (b, x12 , x23 , x24 , x123 , x124 , x234 , x1234 ), or equivalently, using octuples
+
+                                   (x12 , x23 , x24 , x123 , x124 , x234 , x1234 , e),
+
+and setting
+                               b = ex23 x24 x234 − x12 x24 x124 − x12 x23 x123 .
+More generally, we will generate Type II solutions via the following lemma.
+
+Lemma 11.2 (Generation of Type II solutions). Let P denote the set 2k−1 − 1-element set
+
+                                  P := {I ⊂ {1, . . . , k} : 2 ∈ I; I 6= {2}}.
+
+Let (xI )I∈P be a tuple of natural numbers, and let e be another natural number, obeying the
+inequalities
+
+                                             1      Y     1
+                                               N ⩽e   xI ⩽ N                                                  (11.1)
+                                            2m            m
+                                                           I∈P
+
+and
+                                                                     k+2
+                                                1 < xI ⩽ N 1/2                                                (11.2)
+whenever I ∈ P. Suppose also that the quantity
+                                                            Y
+                                                w :=                  xI                                      (11.3)
+                                                       I∈P:I6={1,2}
+
+
+is square-free. Set
+
+                                                  Y               k
+                                                                  X        Y
+                                       b := e              xI −                  xI                           (11.4)
+                                                I∈P:16∈I          j=3 I∈P:j6∈I
+                                                  Y
+                                      t1 := b              xI                                                 (11.5)
+                                                I∈P:1∈I
+                                       n := mt1 − e                                                           (11.6)
+                                              Y
+                                      t2 := n    xI                                                           (11.7)
+                                                I∈P
+
+and                                                              Y
+                                                tj := b n             xI .                                    (11.8)
+                                                            I∈P:j∈I
+
+Then n is a natural number with n ⩽ N , and (t1 , . . . , tk ) is a Type II solution for this value
+of n. Furthermore, each choice of (xI )I∈P and e generates a distinct Type II solution.
+
+                                                            41
+Remark 11.3. In the m = 4, k = 3 case, the parameters xI are related to the coordinates
+(a, b, c, d, e, f ) appearing in Proposition 2.6 by the formula
+
+                      (a, b, c, d, e, f ) = (x12 , b, x23 , x123 , e, 4x12 x23 x123 − 1);
+
+however, the constraint that a, b, c have no common factor and abd is coprime to n has been
+replaced by the slightly different criterion that d is squarefree, which turns out to be more
+convenient for obtaining lower bounds (note that the same trick was also used to prove (5.1)).
+Parameterisations of this type have appeared numerous times in the previous literature (see
+[24, 27, 60, 15], or indeed Propositions 2.2, 2.6), though because most of these parameter-
+isations were focused on dealing with all solutions of a given type, as opposed to an easily
+countable subset of solutions, there were more parameters xI (indexed by all non-empty sub-
+sets of {1, . . . , k}, not just the ones in P), and there were some coprimality conditions on the
+xI rather than square-free conditions.
+Proof. Let the notation be as in the lemma. Then from (11.2) one has
+                           k
+                                                               k−2 /2k+2
+                           X       Y
+                                           xI ⩽ (k − 2)N 2                      N 1/16
+                           j=3 I∈P:j6∈I
+
+while since
+                                                        k−1 /2k+2
+                                     Y
+                                            xI  N 2                 N 1/8
+                                     I∈P
+
+we see from (11.1) that
+                                                     e  N 7/8 .
+From (11.4) we then have that
+                                    1       Y                         Y
+                                      e              xI ⩽ b ⩽ e                xI
+                                    2
+                                          I∈P:16∈I                  I∈P:16∈I
+
+and thus by (11.5)
+                                          1 Y             Y
+                                            e xI ⩽ t1 ⩽ e   xI
+                                          2
+                                             I∈P                    I∈P
+
+and thus by (11.6) (noting that m ⩾ 4)
+                                     1    Y             Y
+                                       me   xI ⩽ n ⩽ me   xI .
+                                     4
+                                             I∈P                      I∈P
+
+These bounds ensure that b, n, t1 , . . . , tQ
+                                             k are natural numbers with n ⩽ N , and with t2 , . . . , tk
+divisible by n. Dividing (11.4) by b n I∈P xI and using (11.5), (11.7), (11.8), we conclude
+that
+                                                        k
+                                            1      e   X    1
+                                               =     −         ;
+                                           t2    nt1        tj
+                                                              j=3
+
+applying (11.6) one concludes that (t1 , . . . , tk ) is a Type II solution.
+   It remains to demonstrate that each choice of (xI )I∈P and e generates a distinct Type II
+solution, or equivalently that the Type II solution (t1 , . . . , tk ) uniquely determines (xI )I∈P
+
+                                                         42
+and e. To do this, first observe from (1.6) that (t1 , . . . , tk ) determines n, and from (11.6) we
+see that e is determined also. Next, observe from (11.5), (11.7), (11.8) that for any 3 ⩽ j ⩽ k,
+one has                                         2                          
+                       t2 tj         Y                          Y
+                              =              xI                         xI                 (11.9)
+                       n2 t 1
+                                 I∈P:j∈I;16∈I         I∈P:j∈I XOR 16∈I
+where XOR denotes the exclusive or operator; in particular, the left-hand side is necessarily a
+natural number. Note that all the factors xI appearing on the right-hand         side are components
+of the square-free quantity w given by (11.3). We conclude that ( I∈P:j∈I;16∈I xI )2 is the largest
+                                                                       Q
+                             t t
+perfect square dividing n22 tj1 . We conclude that the Type II solution (t1 , . . . , tk ) determines all
+the products                                    Y
+                                                       xI                                        (11.10)
+                                                    I∈P:j∈I;16∈I
+
+for 3 ⩽ j ⩽ k. Note (from the square-free nature of w) that the xI with 1 6∈ I are all coprime.
+Taking the greatest common divisor of the (11.10) for all 3 ⩽ j ⩽ k, we see that the Type II
+solution determines x{2,3,...,k} . Dividing this quantity out from all the expressions (11.10), and
+then taking the greatest common divisor of the resulting quotients for 4 ⩽ j ⩽ k, one recovers
+x{2,4,...,k} ; a similar argument gives xI for any I ∈ P with 1 6∈ I of cardinality k − 3. Dividing
+out these quantities and taking greatest common divisors again, one can then recover xI for
+any I ∈ P with 1 6∈ I of cardinality k − 4; continuing in this fashion we can recover all the xI
+with I ∈ P and 1 6∈ I.                                           Q
+   Returning to (11.9), we can then recover the products I∈P:1,j∈I xI for all 3 ⩽ j ⩽ k.
+Taking greatest common divisors iteratively as before, we can then recover all the xI with
+I ∈ P and 1 ∈ I, thus reconstructing all of the data (xI )I∈P and e, as claimed.
+
+   In view of this above lemma, we see that to prove (1.7), it suffices to show that the number
+                                                                                     k−1
+of tuples ((xI )I∈P , e) obeying the hypotheses of the lemma is at least cN (log N )2 −1 for an
+absolute constant c > 0.
+   Observe that if we fix xI with I ∈ P obeying (11.2) and with the quantity w defined by
+(11.3), then there are
+                                                 N
+                                           Q
+                                                I∈P xI
+choices of e that obey (11.1). Thus, noting that µ2 (w) ⩾ µ2 ( I∈P xI ), the number of tuples
+                                                                Q
+obeying the hypotheses of the lemma is
+                                           X µ2 (
+                                                   Q
+                                                         xI )
+                                      N         Q I∈P        ,                          (11.11)
+                                            ∗       I∈P x I
+                 P
+where the sum ∗ ranges over all choices of (xI )I∈P obeying the bounds (11.2). To estimate
+(11.11), we make use of [16, Theorem 6.4], which we restate as a lemma:
+Lemma 11.4. Let l ⩾ 1, and for each 1 ⩽ i ⩽ l, let αi < βi be positive real numbers. Then
+                                                                                 l
+                                   X                µ2 (n1 · · · nl )             Y
+                                                                      l (log N )l (βi − αi ),   (11.12)
+                                                      n1 · · · nl
+                   N αi ⩽ni ⩽N βi   for all 1⩽i⩽l                               i=1
+
+for N sufficiently large depending on l and the α1 , . . . , αl , β1 , . . . , βl .
+
+                                                          43
+   From this lemma (and noting that there are 2k−1 − 1 parameters xI in the sum ∗ ) we
+                                                                               P
+see that
+                            X µ2 (
+                                   Q
+                                         xI )       k−1
+                                 Q I∈P         log2 −1 N ;                     (11.13)
+                             ∗      I∈P xI
+
+inserting this into (11.11) we obtain the claim.
+   Now we prove (1.8). As in Section 5, the arguments are similar to those used to prove
+(1.7), but with the additional input of the Bombieri-Vinogradov inequality.
+                                                                                            k−1
+   As in the proof of (1.7), it suffices to obtain a lower bound (in this case, cN (log N )2 −2 /log log N
+for some c > 0) on the number of tuples ((xI )I∈P , e), but now with the additional constraint
+that the quantity
+                                                             Y
+                                  p := mt1 − e = mb                  xI − e
+                                                           I∈P:1∈I
+
+is prime.
+    Suppose we fix (xI )I∈P obeying (11.2) with w squarefree. We may write
+
+                                              p = qe + r
+
+where                                                Y
+                                          q := m           xI − 1                           (11.14)
+                                                   I∈P
+
+and
+                                              Y            k
+                                                           X     Y
+                                  r := −m             xI                  xI .
+                                            I∈P:1∈I        j=3 I∈P:j6∈I
+
+Thus as e varies in the range given by (11.1), qe + r traces out an arithmetic progression of
+spacing q whose convex hull contains [0.6N, 0.9N ] (say). Thus, every prime p in this interval
+[0.6N, 0.9N ] that is congruent to r mod q will provide an e that will give a Type II solution
+with n = p prime, and different choices of (xI )I∈P and p will give different Type II solutions.
+   For fixed (xI )I∈P , if r is coprime to q, then we see from (A.13) (and estimating li(x) =
+(1 + o(1))x/log x) that the number of such p is at least
+
+                                      N
+                            ⩾c               − D(0.6N ; q) − D(0.9N ; q)
+                                  log N φ(q)
+
+for some absolute constant c > 0. It thus suffices to show that
+                                                                                 k−1
+                         X
+                              2               N        N (log N )2 −2
+                            µ (w)1(r,q)=1                                                  (11.15)
+                          ∗
+                                          log N φ(q)       log log N
+
+and                                                                              !
+                                                                      k−1
+                              X                        N (log N )2 −2
+                                     D(cN ; q) = o                                          (11.16)
+                                 ∗
+                                                           log log N
+
+for c = 0.6, 0.9.
+
+                                                     44
+  We first show (11.15). Since li(N/100) is comparable to N/ log N , and φ(q) ⩽ q  w, we
+may simplify (11.15) as
+                                                             k−1
+                             X µ2 (w)              (log N )2 −1
+                               Q        1(r,q)=1                .                         (11.17)
+                             ∗   I∈P xI               log log N
+
+The expression on the left-hand side is similar to (11.11), but now one also has the additional
+constraint 1(r,q)=1 . To deal with this constraint, we restrict the ranges of the xI parameters
+somewhat to perform an averaging in the x{1,2} parameter (taking advantage of the fact that
+this parameter does not appear in the µ2 (w) term). More precisely, we restrict to the ranges
+where
+                                                    100k
+                                          xI ⩽ N 1/2                                     (11.18)
+(say) for I 6= {1, 2}, and
+                                                              k+2
+                                           x{1,2} ⩽ N 1/2           .                      (11.19)
+We now analyse the constraint that r and q are coprime. We can factor
+
+                                              r = −mx2{1,2} s
+
+where                                                 
+                                        Y                   k
+                                                            X           Y
+                         s :=                       xI                            xI ;
+                                  I∈P:1∈I;I6={1,2}          j=3 I∈P:j6∈I;I6={1,2}
+
+the point is that s does not depend on x{1,2} . Since q + 1 is divisible by mx{1,2} , we see that
+mx2{1,2} is coprime to q, and thus (q, r) = 1 iff (q, s) = 1. We can write q = ux{1,2} − 1, where
+        Q
+u := m I∈P:I6={1,2} xI , and so (q, r) = 1 iff (ux{1,2} − 1, s) = 1.
+    We may replace s here by the largest square-free factor s0 of s. If we then factor s0 = vy,
+where v := (s0 , u) and y := s0 /v, then ux{1,2} − 1 is already coprime to v, and so we conclude
+that (q, r) = 1 iff (ux{1,2} − 1, y) = 1.
+    Fix xI for I 6= {1, 2}. By construction, u and y are coprime, and so the constraint (ux{1,2} −
+1, y) = 1 restricts x{1,2} to φ(y) distinct residue classes modulo y. Since
+                                                               90k
+                                           y ⩽ s  N 1/2
+
+(say) thanks to (11.18), we conclude that
+                                     X            1(q,r)=1   φ(y)
+                                                                 log N.
+                                              k+2
+                                                   x {1,2}    y
+                              x{1,2} ⩽N 1/2
+
+
+Using the crude bound (A.11), we may lower bound φ(y)/y  1/log log N . (It is quite likely
+that by a finer analysis of the generic divisibility properties of y, one can remove this double
+logarithmic loss, but we will not attempt to do so here.) We may thus lower bound the
+left-hand side of (11.17) by
+                                        log N X µ2 (w)
+                                                           ,
+                                      log log N ∗∗     w
+
+                                                      45
+        P
+where    ∗∗ sums over all xI for I 6= {1, 2} obeying (11.18). But by Lemma 11.4 we have
+
+                                     X µ2 (w)                        k−1 −2
+                                                     (log N )2               ,
+                                     ∗∗
+                                             w
+
+and the claim (11.17) follows.
+   Finally, we show (11.16). Observe that each q can be represented in the form (11.14) in
+                                                                          k−1 k+2
+at most τ2k−1 −1 (q + 1) different ways; also, from (11.2) we have q  N 2 /2     = N 1/8 . We
+may thus bound the left-hand side of (11.16) by
+                                   X
+                                         D(cN ; q)τ2k−1 −1 (q + 1).
+                                  qN 1/8
+
+From the Bombieri-Vinogradov inequality (A.14) and the trivial bound D(cN ; q)  N/q one
+has                         X
+                                 qD(cN ; q)2 A N log−A N
+                                 qN 1/8
+
+for any A > 0, while from Lemma A.1 (and shifting q by 1) one has
+                                 X       τ2k−1 −1 (q + 1)2
+                                                            logO(1) N.
+                                     1/8
+                                                 q
+                             qN
+
+The claim then follows from the Cauchy-Schwarz inequality (taking A large enough). The
+proof of Theorem 1.11 is now complete.
+
+
+                         A. Some results from number theory
+
+   In this section we record some well-known facts from number theory that we will need
+throughout the paper. We begin with a crude estimate for averages of multiplicative functions.
+   Now we record some asymptotic formulae for the divisor function τ . From the Dirichlet
+hyperbola method we have the asymptotic
+                                X
+                                   τ (n) = N log N + O(N )                              (A.1)
+                                    n⩽N
+
+(see e.g. [33, §1.5]). More generally, we have
+                           X
+                               τk (n) = N logk−1 N + Ok (N logk−2 N )                                (A.2)
+                         n⩽N
+                                 P
+for all k ⩾ 1, where τk (n) :=      d1 ,...,dk :d1 ...dk =n 1.   Indeed, the left-hand side of (A.2) can be
+rearranged as                      X         X                    X
+                                                      ...                      1
+                                   d1 ⩽N d2 ⩽N/d1           dk ⩽N/d1 ...dk−1
+
+and the claim follows by evaluating each of the summations in turn.
+  We can perturb this asymptotic:
+
+                                                       46
+Lemma A.1 (Crude bounds on sums of multiplicative functions). Let f (n) be a multiplicative
+function obeying the bounds
+                                                1
+                                f (p) = m + O( )
+                                                p
+for all primes p and some integer m ⩾ 1, and
+
+                                       |f (pj )|  j O(1)
+
+for all primes p and j > 1. Then one has
+                                 X
+                                     f (n) m N logm−1 N
+                                 n⩽N
+
+for N sufficiently large depending on m; from this and summation by parts we have in partic-
+ular that
+                                     X f (n)
+                                             m logm N
+                                          n
+                                   n⩽N
+
+If f is non-negative, we also have the corresponding lower bound
+                                  X
+                                       f (n) m N logm−1 N
+                                 n⩽N
+
+and hence
+                                   X f (n)
+                                                m logm N
+                                          n
+                                   n⩽N
+
+   One can of course get much better estimates by contour integration methods (and these
+estimates also follow without much difficulty from the more general results in [26]), but the
+above crude bounds will suffice for our purposes.
+
+Proof. We allow all implied constants to depend on m. By Möbius inversion, we can write
+                                           X          n
+                                   f (n) =    τm (d)g( )
+                                                      d
+                                              d|n
+
+where g is a multiplicative function obeying the bounds
+                                                  1
+                                         g(p) = O( )
+                                                  p
+and
+                                       |g(pj )|  j O(1)
+for all j > 1. In particular, the Euler product
+                                                        
+                ∞                              ∞      j
+                                                                      
+               X   |g(n)|    Y
+                                1 + |g(p)| +
+                                              X  |g(p )|  Y           1
+                          =                          j
+                                                           =    1 + O    2
+                     n        p
+                                         p         p         p
+                                                                       p
+              n=1                              j=2
+
+is absolutely convergent.
+
+                                                47
+                             P
+   We may therefore write        n⩽N f (n) as
+                                         X               X
+                                               g(k)               τm (d).                   (A.3)
+                                         k⩽N            d⩽N/k
+
+Applying (A.2), we conclude
+                                 X                 X |g(k)|
+                             |         f (n)|                      N logm−1 N
+                                                              k
+                                 n⩽N               k⩽N
+
+and the upper bound follows from the absolute convergence of ∞
+                                                                  P
+                                                                    n=1 |g(n)|/n.
+   Now we establish the lower bound. By zeroing out f at various small primes p (and all
+their multiples), we may assume that f (pj ) = g(pj ) = 0 for all p ⩽ w for any fixed threshold
+w. By making w large enough, we may ensure that
+                                                  ∞
+                                                  X |g(n)|
+                                             1−                   > 0.
+                                                          n
+                                                  n=2
+
+If we then insert the bound (A.2) into (A.3) we obtain the claim.
+
+   As a typical application of Lemma A.1 we have
+                                                     k
+                                  X
+                                    τ k (n) k N log2 −1 N                                  (A.4)
+                                       n⩽N
+
+for any N > 1 and k ⩾ 1, (see also [40]).
+   To study some more detailed distribution of divisors and prime divisors we recall the
+Turán-Kubilius inequality for additive functions. A function w is called additive, if w(n1 n2 ) =
+w(n1 ) + w(n2 ), whenever gcd(n1 , n2 ) = 1.
+
+Lemma A.2 (Turán-Kubilius inequality (see [69], page 20)). Let w : N → R denote an
+arithmetic function which is additive (thus w(nm)
+                                               P = w(n)+w(m) whenever n, m are coprime).
+Let A(N ) := pk ⩽N w(pk )/pk and D2 (N ) := pk ⩽N |w(pk )|2 /pk . For every N ⩾ 2 and for
+              P
+any additive function w the following inequality holds:
+                              X
+                                   |w(n) − A(N )|2 ⩽ 30N D2 (N ).
+                                 n⩽N
+        P
+(Here    pk denotes the sum over all prime powers.)
+
+Example.      Let ω(n) denote the number of distinct P prime k factors    of n, then A(N ) =
+          k )/pk = log log N + O(1) and D 2 (N ) =                 2 /pk = A(N ) = log log N +
+P
+   k
+  p ⩽N ω(p                                               k
+                                                        p ⩽N  ω(p )
+O(1). The Turán-Kubilius inequality then gives
+                      X
+                           |ω(n) − log log N |2 ⩽ 30N log log N + O(N ).
+                       n⩽N
+                                                                           √
+In particular, if ξ(n) → ∞ as n → ∞, then one has |ω(n) − log log n| ⩽ ξ(n) log log n for all
+n in a set of integers of density 1. For more details see [80].
+
+                                                        48
+   From (A.1) one might guess the heuristic
+
+                                             τ (n) ≈ log n                               (A.5)
+
+on average. But it follows from the Turán-Kubilius inequality that for “typical” n, the number
+of divsors is about 2log log n = (log n)log 2 , which is considerably smaller, and that a small
+number of integers with an exceptionally large number of divisors heavily influences this
+average. The influence of these integers with a very large number of divsiors dominates even
+more for higher moments. The extremal cases heuristically consist of many small prime factors,
+and the following “divisor bound” holds
+                                                    log n                1
+                                         (1+o(1)) log
+                             τ (n) ⩽ 2                log n   = O(n log log n )          (A.6)
+
+for any n ⩾ 1; see [56].
+   The Turán-Kubilius type inequalities have been studied for shifted primes as well. We
+make use of the following result of Barban (see Elliott [14], Theorem 12.10).
+
+Lemma A.3. A function w : N → R+ is said to be strongly additive if it is additive and
+w(pk ) = w(p) holds, for every prime powerPpk , k ⩾ 1. Let w denote a real nonnegative
+strongly additive function. Define S(N ) := p⩽N w(p)/(p − 1) and Λ(N ) := maxp⩽N w(p).
+Suppose that Λ(N ) = o(S(N )), as N → ∞. Then for any fixed ε > 0, the prime density
+
+                     νN (p; |w(p + 1) − S(N )| > εS(N )) → 0 as N → ∞.
+
+The same holds for other shifts p + a, where a 6= 0.
+
+   The function ω(n) is strongly additive. This lemma implies that for primes with relative
+prime density 1, p + 1 contains about 21 log log p primes of the form 1 mod 4. To see this one
+chooses w(p) = 1 if p ≡ 1 mod 4, and 0 otherwise. In this example one has S(N ) ∼ 12 log log N
+and Λ(N ) = 1.
+   We recall the quadratic reciprocity law
+                                m  n 
+                                            = (−1)(n−1)(m−1)/4                           (A.7)
+                                 n     m
+for all odd m, n, where m
+                           
+                         n is the Jacobi symbol, as well as the companion laws
+                                     
+                                      −1
+                                             = (−1)(n−1)/4                               (A.8)
+                                       n
+
+and                                   
+                                      2          2
+                                         = (−1)(n −1)/8                                  (A.9)
+                                      n
+for odd n.
+   For any primitive residue class a mod q and any N > 0, let π(N ; q, a) denote the number
+of primes p < N that are congruent to a mod q. We recall the Brun-Titchmarsh inequality
+(see e.g. [33, Theorem 6.6])
+                                                     N
+                                   π(N ; q, a)                                       (A.10)
+                                                 φ(q) log Nq
+
+                                                    49
+for any such class with N ⩾ q. This bound suffices for upper bound estimates on primes in
+residue classes. Due to the q in the denominator of log(N/q), it will only be efficient to apply
+this inequality when q is much smaller than N , e.g. q ⩽ N c for some c < 1.
+   The Euler totient function φ(q) in the denominator is also inconvenient; it would be prefer-
+able if one could replace it with q. Unfortunately, this is not possible; the best bound on
+1/φ(q) in terms of q that one has in general is
+                                         1     log log q
+                                                                                        (A.11)
+                                        φ(q)       q
+(see e.g. [59]). Using this bound would simplify our arguments, but one would lose an
+additional factor of log log N or so in the final estimates. To avoid this loss, we observe the
+related estimate
+                                          1      1X1
+                                                        .                               (A.12)
+                                        φ(q)     q     d
+                                                                d|q
+
+Indeed, we have
+                                 q     Y p
+                                     =
+                                φ(q)    p−1
+                                            p|q
+                                            Y          1         1
+                                        =          (1 + )(1 + O( 2 ))
+                                                       p        p
+                                            p|q
+                                             Y    1
+                                             (1 + )
+                                                  p
+                                             p|q
+                                            X1
+                                        ⩽              ,
+                                                   d
+                                             d|q
+
+and (A.12) follows. (One could restrict d to be square-free here if desired, but we will not
+need to do so in this paper.)
+   The Brun-Titchmarsh inequality only gives upper bounds for the number of primes in an
+arithmetic progression. To get lower bounds, we let D(N ; q) denote the quantity
+                                                                      li(N )
+                            D(N ; q) := max π(N ; q, a) −                    .           (A.13)
+                                            (a,q)=1                    φ(q)
+               Rx
+where li(x) := 0 dt/log t is the Cauchy principal value of the logarithmic integral. The
+Bombieri-Vinogradov inequality (see e.g. [33, Theorem 17.1]) implies in particular that
+                               X
+                                   D(N ; q) θ,A N log−A N.                           (A.14)
+                                q⩽N θ
+
+We remark that the above
+                      P inequality is usually phrased using the summatory von Mangoldt
+function ψ(N ; q, a) = n⩽N ;n=a mod q Λ(n). A summation by parts converts it to an estimate
+using the prime counting function; see [9] for details.
+   for all 0 < θ < 1/2 and A > 0. Informally, this gives lower bounds on π(N ; q, a) on the
+average for q much smaller than N 1/2 .
+
+
+
+                                             References
+
+                                                           50
+ [1] A. Aigner, ‘Brüche als Summe von Stammbrüchen’, J. Reine Angew. Math. 214/215 (1964), 174–179.
+
+ [2] M. B. Barban, P. P. Vehov, ‘Summation of multiplicative functions of polynomials’, Mat. Zametki 5
+     (1969), 669–680.
+                                                           Pn
+ [3] P. Bartoš, ‘K Riešitel’nosti Diofantickej Rovnice     j=1 1/xj   = a/b’, Časopis pro pěstovánı́ matematiky,
+     98 (1973), 261–264.
+
+ [4] P. Bartoš and K. Pehatzová-Bošanká. ‘K Riešeniu Diofantickej Rovnice 1/x + 1/y + 1/z = a/b’, Časopis
+     pro pěstovánı́ matematiky, 96 (1971), 294–299.
+
+ [5] M. Bello-Hernández, M. Benito, E. Fernández, ‘On egyptian fractions’, preprint, arXiv:1010.2035, ver-
+     sion 2, 30. April 2012.
+
+ [6] L. Bernstein, ‘Zur Lösung der diophantischen Gleichung m
+                                                             n
+                                                               = x1 + y1 + z1 , insbesondere im Fall m = 4’, J.
+     Reine Angew. Math. 211, 1962, 1–10.
+
+ [7] R. de la Bretéche, T. Browning, ‘Sums of arithmetic functions over values of binary forms’, Acta Arith.
+     125 (2006), 291–304.
+
+ [8] T. Browning, C. Elsholtz, ‘The number of representations of rationals as a sum of unit fractions’, to
+     appear in Illinois Journal of Mathematics.
+
+ [9] J. Brüdern. ‘Einführung in die analytische Zahlentheorie’. Springer, Berlin, Heidelberg, 1995.
+
+[10] Yong-Gao Chen, C. Elsholtz, Li-Li Jiang, ‘Egyptian fractions with restrictions’, Acta Arith. 154 (2012),
+     109–123.
+
+[11] J-L. Colliot-Théelène, J-J. Sansuc, ‘Torseurs sous des groupes de type multiplicatif; applications á l’étude
+     des points rationnels de certaines variétés algébriques’, C. R. Acad. Sci. Paris Sér. A-B 282 (1976), no.
+     18, Aii, A1113–A1116.
+
+[12] E.S. Croot, D.E. Dobbs, J.B. Friedlander, A.J Hetzel, F. Pappalardi, ‘Binary Egyptian fractions’. J.
+     Number Theory 84 (2000), no. 1, 63–79.
+
+[13] S. Daniel, ‘Uniform bounds for short sums of certain arithmetic functions of polynomial arguments’,
+     Unpublished manuscript.
+
+[14] P. D. T. A. Elliott, ‘Probabilistic number theory. II.’ Central limit theorems. Grundlehren der Mathema-
+     tischen Wissenschaften, 240. Springer-Verlag, Berlin-New York, 1980.
+
+[15] C. Elsholtz, ‘Sums of k unit fractions’, PhD thesis, Technische Universität Darmstadt, 1998.
+
+[16] C. Elsholtz, ‘Sums of k unit fractions’ Trans. Amer. Math. Soc. 353 (2001), 3209–3227.
+
+[17] C Elsholtz, C. Heuberger, H. Prodinger, ‘The number of Huffman codes, compact trees, and sums of unit
+     fractions’, to appear in IEEE Trans. Inform. Theory.
+
+[18] P. Erdős, ‘Az 1/x1 + 1/x2 + . . . + 1/xn = a/b egyenlet egész számú megoldásairól’, Mat. Lapok 1 (1950),
+     192–210.
+                              Px
+[19] P. Erdős, ‘On the sum     k=1 d(f (k))’, J. London Math. Soc. 27 (1952), 7–15.
+
+[20] P. Erdős, P.; R.L. Graham, ‘Old and new problems and results in combinatorial number theory’ Mono-
+     graphies de L’Enseignement Mathématique, 28. L’Enseignement Mathématique, Geneva, 1980. 128 pp.
+
+[21] É. Fouvry, ‘Sur le probléme des diviseurs de Titchmarsh’, J. Reine Angew. Math. 357 (1985), 51–76.
+
+[22] É. Fouvry, H. Iwaniec, ‘The divisor function over arithmetic progressions’, With an appendix by Nicholas
+     Katz. Acta Arith. 61 (1992), no. 3, 271–287.
+
+
+                                                        51
+[23] P. X. Gallagher, ‘Primes and Powers of two’, Inventiones Math. 29 (1975), 125–142.
+
+[24] H. Gupta, ‘Selected topics in number theory.’ Abacus Press, Tunbridge Wells, 1980. 394 pp.
+
+[25] R. Guy, ‘Unsolved Problems in Number Theory’, 2nd ed. New York: Springer-Verlag, pp. 158-166, 1994.
+
+[26] H. Halberstam, H.-E. Richert, ‘On a result of R. R. Hall.’, J. Number Theory 11 (1979), no. 1, 76–89.
+
+[27] R.R. Hall, ’Sets of Multiples’, Cambridge University Press, Cambridge, 1996.
+
+[28] D. R. Heath-Brown, ‘The density of rational points on Cayley’s cubic surface’, Proceedings of the Session
+     in Analytic Number Theory and Diophantine Equations, 33 pp., Bonner Math. Schriften, 360, Univ.
+     Bonn, Bonn, 2003.
+
+[29] K. Henriot, ‘Nair-Tenenbaum bounds uniform with respect to the discriminant’, Math. Proc. Camb. Phil.
+     Soc. 152 (2012), no. 3, 405–424.
+
+[30] C. Hooley, ‘On the number of divisors of quadratic polynomials’, Acta Math. 110 (1963), 97–114.
+
+[31] J. Huang, R. C. Vaughan, ‘Mean value theorems for binary Egyptian fractions’, J. Number Theory 131
+     (2011), 1641–1656.
+
+[32] M. N. Huxley, ‘A note on polynomial congruences’, Recent Progress in Analytic Number Theory, Vol. I
+     (H. Halberstam and C. Hooley, eds.), Academic Press, London, 1981, pp. 193-196.
+
+[33] H. Iwaniec, E. Kowalski, ‘Analytic number theory’, American Mathematical Society Colloquium Publi-
+     cations, 53. American Mathematical Society, Providence, RI, 2004.
+
+[34] C. Jia, ‘A Note on Terence Tao’s Paper “On the Number of Solutions to 4/p = 1/n1 + 1/n2 + 1/n3 ”’,
+     preprint.
+
+[35] C. Jia, ‘ The estimate for mean values on prime numbers relative to 4/p = 1/n1 + 1/n2 + 1/n3 ’ Science
+     China Mathematics 55 (2012), no. 3, 465–474.
+
+[36] R.W. Jollenstein, ‘A note on the Egyptian problem’, Congressus Numerantium, 17, Utilitas Math., Win-
+     nipeg, Man. In Proceedings of the Seventh Southeastern Conference on Combinatorics, Graph Theory, and
+     Computing, 351–364, Louisiana State Univ., Baton Rouge, La., 1976.
+
+[37] I. Kotsireas, ‘The Erdős-Straus conjecture on Egyptian fractions’, Paul Erdős and his mathematics (Bu-
+     dapest, 1999), 140–144, János Bolyai Math. Soc., Budapest, 1999.
+
+[38] B. Landreau, ‘A new proof of a theorem of van der Corput’, Bull. London Math. Soc. 21 (1989), no. 4,
+     366–368.
+
+[39] Delang Li, ‘On the Equation 4/n = 1/x + 1/y + 1/z’, Journal of Number Theory 13 (1981), 485–494,
+     1981.
+
+[40] C. Mardjanichvili, ‘Estimation d’une somme arithmetique.’ Comptes Rendus (Doklady) de l’Académie des
+     Sciences de l’URSS 22 (1939), 387–389.
+
+[41] J. McKee, ‘On the average number of divisors of quadratic polynomials’, Math. Proc. Cambridge Philos.
+     Soc. 117 (1995), no. 3, 389–392.
+
+[42] J. McKee, ‘A note on the number of divisors of quadratic polynomials. Sieve methods, exponential sums,
+     and their applications in number theory’ (Cardiff, 1995), 275–281, London Math. Soc. Lecture Note Ser.,
+     237, Cambridge Univ. Press, Cambridge, 1997.
+
+[43] J. McKee, ‘The average number of divisors of an irreducible quadratic polynomial’, Math. Proc. Cambridge
+     Philos. Soc. 126 (1999), no. 1, 17–22.
+
+
+                                                     52
+[44] L. J. Mordell, ‘Diophantine Equations’, volume 30 of Pure and Applied Mathematics. Academic Press,
+     1969.
+
+[45] T. Nagell, ‘Généralisation d’un theórème de Tchebicheff’, J. Math. 8 (1921), 343–356.
+
+[46] M. Nair, ‘Multiplicative functions of polynomial values in short intervals’, Acta Arith. 62 (1992), no. 3,
+     257–269.
+
+[47] M. Nair, G. Tenenbaum, ‘Short sums of certain arithmetic functions’, Acta Math. 180 (1998), 119–144.
+
+[48] M. Nakayama, ‘On the decomposition of a rational number into “Stammbrüche.”’, Tôhoku Math. J. 46,
+     (1939). 1–21.
+
+[49] M.R. Obláth, ‘Sur l’ équation diophantienne 4/n = 1/x1 + 1/x2 + 1/x3 ’, Mathesis 59 (1950), 308–316.
+
+[50] O. Ore, ‘Anzahl der Wurzeln höherer Kongruenzen’, Norsk Matematisk Tidsskrift, 3 Aagang, Kristiana
+     (1921), 343–356.
+
+[51] G. Palamà, ‘Su di una congettura di Sierpiński relativa alla possibilità in numeri naturali della 5/n =
+     1/x1 + 1/x2 + 1/x3 ’, Bollettino della Unione Matematica Italiana (3), 13 (1958), 65–72.
+
+[52] G. Palamà, Su di una congettura di Schinzel, Bollettino della Unione Matematica Italiana (3), 14 (1959),
+     82–94.
+
+[53] C. P. Popovici, ‘On the diophantine equation a/b = 1/x1 + 1/x2 + 1/x3 ’, Analele Universitătii Bucures.ti.
+     Seria S.tiint.ele Naturii. Matematică-Fizikă 10 (1961), 29–44, 1961.
+
+[54] C. Pomerance, ‘Analysis and Comparison of Some Integer Factoring Algorithms’, in Computational Meth-
+     ods in Number Theory, Part I, H.W. Lenstra, Jr. and R. Tijdeman, eds., Math. Centre Tract 154, Ams-
+     terdam, 1982, pp 89–139.
+
+[55] C. Pomerance, ‘Ruth-Aaron numbers revisited’, Paul Erdős and his Mathematics, I (Budapest, 1999),
+     Bolyai Soc. Math. Stud. 11, János Bolyai Math. Soc., Budapest, 2002, pp. 567–579.
+
+[56] S. Ramanujan, ‘Highly composite numbers’, Proc. London Math. Soc. 14 (1915), 347–409.
+
+[57] Y. Rav, ‘On the representation of rational numbers as a sum of a fixed number of unit fractions’, J. Reine
+     Angew. Math. 222 (1966), 207–213.
+
+[58] L. Rosati, ‘Sull’equazione diofantea 4/n = 1/x1 + 1/x2 + 1/x3 ’, Boll. Un. Mat. Ital. (3) 9, (1954), 59–63.
+
+[59] J. Rosser, L. Schoenfeld, ‘Approximate formulas for some functions of prime numbers’, Illinois J. Math.
+     6 (1962), 64–94.
+
+[60] I.Z. Ruzsa, ‘On an additive property of squares and primes’, Acta Arithmetica 49 (1988), 281–289.
+
+[61] S. Salez, The Erdős-Straus conjecture: New modular equations and checking up to N = 1017 , preprint.
+     arXiv:1406.6307
+
+[62] J.W. Sander, ‘On 4/n = 1/x + 1/y + 1/z and Rosser’s sieve’, Acta Arithmetica 59 (1991), 183–204.
+
+[63] J.W. Sander, ‘On 4/n = 1/x + 1/y + 1/z and Iwaniec’ Half Dimensional Sieve’, Journal of Number Theory
+     46 (1994), 123–136.
+
+[64] J.W. Sander, ‘Egyptian Fractions and the Erdős-Straus Conjecture.’ Nieuw Archief voor Wiskunde (4)
+     15 (1997), 43–50.
+
+[65] C. Sándor, ‘On the number of solutions of the Diophantine equation n   1
+                                                                        P
+                                                                         i=1 xi = 1’. Period. Math. Hungar.
+     47 (2003), no. 1-2, 215–219.
+
+[66] G. Sándor, ‘Über die Anzahl der Lösungen einer Kongruenz’, Acta. Math. 87 (1952), 13–17.
+
+
+                                                      53
+[67] A. Schinzel, ‘Sur quelques propriétés des nombres 3/n et 4/n’, où n est un nombre impair. Mathesis 65
+     (1956), 219–222.
+
+[68] A. Schinzel, ‘On sums of three unit fractions with polynomial denominators’, Funct. Approx. Comment.
+     Math. 28 (2000), 187–194.
+
+[69] W. Schwarz, J. Spilker, ‘Arithmetical functions’, London Mathematical Society Lecture Note Series, 184.
+     Cambridge University Press, Cambridge, 1994.
+
+[70] E.J. Scourfield, ‘The divisors of a quadratic polynomial’, Proc. Glasgow Math. Assoc. 5 (1961) 8–20.
+
+[71] A. Selberg, ‘Harmonic analysis and discontinuous groups in weakly symmetric Riemannian spaces with
+     applications to Dirichlet series’, J. Indian Math. Soc. (N.S.) 20 (1956), 47–87.
+                                              Pk
+[72] Shen Zun, ‘On the diophantine equation     i=0 1/xi = a/n’, Chinese Ann. Math. Ser. B, 7 (1986), 213–220.
+
+
+[73] P. Shiu, ‘A Brun-Titchmarsh theorem for multiplicative functions’, J. Reine Angew. Math. 313 (1980),
+     161–170.
+
+[74] W. Sierpiński, ‘Sur les décompositions de nombres rationnels en fractions primaires’, Mathesis 65 (1956),
+     16–32.
+
+[75] W. Sierpiński. ‘On the Decomposition of Rational Numbers into Unit Fractions’, Pánstwowe Wydawnictwo
+     Naukowe, Warsaw, 1957.
+
+[76] E. Sós. ‘Die diophantische Gleichung 1/x = 1/x1 + 1/x2 + . . . + 1/xn ’, Zeitschrift für mathematischen
+     und naturwissenschaftlichen Unterricht, 36 (1905), 97–102.
+
+[77] B.M. Stewart. Theory of Numbers. 2nd ed. New York: The Macmillan Company; London: Collier-
+     Macmillan, 1964.
+
+[78] C. L. Stewart, ‘On the number of solutions of polynomial congruences and Thue equations’, J. Amer.
+     Math. Soc. 4 (1991), no. 4, 793–835.
+
+[79] A. Swett, http://math.uindy.edu/swett/esc.htm accessed on 27 July 2011.
+
+[80] G. Tenenbaum, ‘Introduction to analytic and probabilistic number theory’, Cambridge Studies in Ad-
+     vanced Mathematics, 46. Cambridge University Press, Cambridge, 1995.
+
+[81] D.G. Terzi. ‘On a conjecture by Erdős-Straus’, Nordisk Tidskr. Informations-Behandling (BIT) 11 (1971),
+     212–216.
+
+[82] R. Vaughan, ‘On a problem of Erdős, Straus and Schinzel’, Mathematika 17 (1970), 193–198.
+                                               Qk         Pk              Pk
+[83] C. Viola, ‘On the diophantine equations     0 xi −    0 xi = n and    0 1/xi = a/n’, Acta Arith. 22 (1973),
+     339–352.
+
+[84] W. Webb, ‘On 4/n = 1/x + 1/y + 1/z’, Proc. Amer. Math. Soc. 25 (1970), 578–584.
+
+[85] W. Webb, ‘On a theorem of Rav concerning Egyptian fractions’, Canad. Math. Bull. 18 (1975), no. 1,
+     155–156.
+
+[86] W. Webb, ‘On the Diophantine equation k/n = a1 /x1 + a2 /x2 + a3 /x3 ’, Časopis pro pěstováni matematiy,
+     roč, 101 (1976), 360–365.
+
+[87] A. Wintner, ‘Eratosthenian Averages’, Waverly Press, Baltimore, Md., 1943. v+81 pp.
+
+[88] K. Yamamoto, ‘On the Diophantine Equation 4/n = 1/x + 1/y + 1/z’, Mem Fac. Sci. Kyushu Univ. Ser.
+     A, V. 19 (1965), 37–47.
+
+
+                                                      54
+[89] Xun Qian Yang, ‘A note on 4/n = 1/x + 1/y + 1/z’ Proceedings of the American Mathematical Society,
+     85 (1982), 496–498.
+
+
+Institut für Mathematik A, Steyrergasse 30/II, Technische Universität Graz, A-8010 Graz, Austria
+e-mail: elsholtz@math.tugraz.at
+Department of Mathematics, UCLA, Los Angeles CA 90095-1555
+                                      e-mail: tao@math.ucla.edu
+
+
+
+
+                                                 55
+

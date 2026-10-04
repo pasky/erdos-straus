@@ -1,0 +1,806 @@
+                                              BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS
+                                                              SURFACES
+
+                                                               MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+                                                  Abstract. We study the failure of the integral Hasse principle and strong
+                                                  approximation for the Erdős–Straus conjecture using the Brauer–Manin ob-
+arXiv:1908.02526v2 [math.NT] 12 May 2020
+
+
+
+
+                                                  struction.
+
+
+
+
+                                                                                Contents
+                                             1. Introduction                                                                   1
+                                             2. Geometry of Erdős–Straus surfaces                                              5
+                                             3. Brauer–Manin obstruction                                                       9
+                                             Appendix A. Comparison with previous results                                     15
+                                             References                                                                       16
+
+
+
+                                                                           1. Introduction
+                                           1.1. The Erdős–Straus conjecture. The Erdős–Straus conjecture states that
+                                           for every n ≥ 2 the equation
+                                                                             4    1     1    1
+                                                                               =     +    +                              (1.1)
+                                                                             n    u1 u2 u3
+                                           always has a solution with u1 , u2, u3 ∈ N. Note that there is always a solution
+                                           with u1 , u2, u3 ∈ Z [14], and to prove the conjecture it suﬃces to consider the
+                                           case where n is a prime. Moreover for any ﬁxed n, it is straightforward to see
+                                           that there can be only ﬁnitely many solutions, and that they may be easily
+                                           enumerated (see Lemma 3.10). We refer to Mordell’s book [19, Ch. 30] and the
+                                           more recent paper [8] for further background and history on this problem.
+                                              In this paper we investigate what modern techniques from arithmetic geometry
+                                           can say about this conjecture and more generally the structure of the solutions
+                                           to (1.1). At a ﬁrst glance, it is not clear how to use tools from modern algebraic
+                                           geometry to tackle the problem, as N is not a ring. However, this conjecture
+                                           does indeed have a natural interpretation as a question of strong approximation,
+                                           stipulating that integer solutions with certain real conditions exist. Our ﬁrst
+                                           main result states that there is no Brauer–Manin obstruction in this case (see §1.2
+                                           for a more precise statement and background on the Brauer–Manin obstruction).
+                                           Theorem 1.1. Let n ≥ 2. Then there is no Brauer–Manin obstruction to the
+                                           existence of natural number solutions of the equation (1.1).
+                                              2010 Mathematics Subject Classification. 14G05 (primary), 11D68, 11D25, 14F22
+                                           (secondary).
+2                   MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+  Despite there being no Brauer–Manin obstruction to the conjecture, it turns
+out that there is in fact an obstruction to strong approximation at the p-adic
+places. This obstruction has the following completely explicit description. (In
+the statement (·, ·)p denotes the Hilbert symbol.)
+Theorem 1.2. Let n ∈ N be odd and u ∈ N3 a solution to (1.1). Then
+                      Y
+                         (−u1 /u3 , −u2 /u3 )p = −1.
+                           p|n
+
+   Despite the apparent asymmetry, the given Hilbert symbols are actually in-
+variant under the natural action of the symmetric group S3 on the variables ui
+(see Proposition 2.6). In the stated generality, Theorem 1.2 does not seem to
+have been known and gives new conditions which natural number solutions must
+satisfy. Theorem 1.2 allows one to recover various known results in a more sys-
+tematic and conceptual way, as special cases of a Brauer–Manin obstruction. For
+example if n is an odd prime, we have the following.
+Corollary 1.3. Let n = p be an odd prime and u ∈ N3 a solution to (1.1). Then
+there exists i 6= j such that ui /uj ∈ Z∗p . For such a solution we have
+                                            
+                                    −ui /uj
+                                               = −1,
+                                       p
+where the symbol is the Legendre symbol.
+  Corollary 1.3 uniﬁes various quadratic reciprocity conditions found by Ya-
+mamoto [24] for p ≡ 1 mod 4. We are also able to recover the following result of
+Elsholtz and Tao ([8, Prop. 1.6]).
+Corollary 1.4. If n is an odd square, then there are no natural number solutions
+u with
+         n | u1, gcd(n, u2u3 ) = 1,   or    gcd(n, u1) = 1, n | u2 , n | u3 .
+   Corollary 1.4 is really a condition on natural number solutions which is not
+present for integer solutions (e.g. for n = 9 consider the solutions (−18, 4, 4)
+and (−9, 2, 18)). Similarly, the congruence condition in Corollary 1.3 is also not
+present for integer solutions in general. For example, consider p = 5 and the
+solution (−5, 2, 2), where the corresponding Legendre symbol is 1. In fact, for
+integer solutions which are not natural number solutions, the exact opposite of
+Theorem 1.2 holds.
+Theorem 1.5. Let n be an odd integer and u ∈ Z3 a solution to (1.1) which is
+not a natural number solution. Then
+                          Y
+                             (−u1 /u3 , −u2 /u3 )p = 1.
+                            p|n
+
+1.2. Geometric interpretation. We now explain in more detail how to inter-
+pret our results geometrically using the Brauer–Manin obstruction. Consider the
+corresponding algebraic surface derived from (1.1)
+                Un :    4u1u2 u3 = n(u1 u2 + u1 u3 + u2 u3 ) ⊂ A3Q .            (1.2)
+          BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                        3
+
+This is an aﬃne cubic surface, and geometrically a so-called log K3 surface. Many
+interesting classical Diophantine equations turn out to concern log K3 surfaces,
+and their integer points are an active area of research [5, 6, 11, 12, 13, 17]. Note
+that Un is singular, with the unique singular point lying at the origin.
+   We let Un denote the natural model for Un given by the same equation in
+AZ . Note that U1 ∼
+  3
+                    = Un over Q for all n ∈ N, by simply rescaling the ui . The
+Erdős–Straus conjecture therefore concerns existence of certain integer points
+on diﬀerent models over Z of the same surface over Q; in particular this nicely
+highlights the fact that diﬀerent models of the same surface can give rise to very
+diﬀerent problems in general.
+   Let π0 (Un (R)) be the set of connected components of Un (R) and AQ,f the ring
+of ﬁnite adeles. One says that Un satisfies strong approximation if Un (Q) has
+dense image in Un (AQ )• := π0 (Un (R)) × Un (AQ,f ); equivalently, if
+                                  Un (Q) ∩ W 6= ∅                              (1.3)
+for all non-empty open subsets W ⊂ Un (AQ )• . We work with Un (AQ )• since
+Un (Q) ⊂ Un (AQ ) is discrete as Un is aﬃne, hence clearly not dense. We let
+                     Un (R)+ = {u ∈ Un (R) : u1 , u2 , u3 > 0}.
+We will show that Un (R)+ is a connected component of Un (R), and its comple-
+ment is also a connected component. We deﬁne Un (N) := Un (Z) ∩ UnQ        (R)+ . The
+Erdős–Straus conjecture is equivalent to (1.3) for W = {Un (R)+ } × p Un (Zp ),
+hence stipulates that a special case of strong approximation holds. One can even
+formulate the conjecture as a problem of strong approximation for U1 ; here it is
+equivalent to (1.3) for U1 and Wn for all n ≥ 2, where
+                      Y                                                   Y
+  Wn = {U1 (R)+ } ×      {up ∈ U1 (Qp ) : vp (ui ) ≤ −vp (n) for all i} ×   U1 (Zp ).
+                      p|n                                               p∤n
+
+  We now recall how one can use the Brauer group to study this problem (see
+[20, §8.2] for further background on the Brauer–Manin obstruction). Recall that
+there is a right continuous pairing
+                             Br Un × Un (AQ )• → Q/Z
+given by pairing with an element of Br Un and taking the sum of local invariants.
+For an open subset W ⊂ Un (AQ )• , we deﬁne W Br to be the right kernel of this
+pairing restricted to W . We have Un (Q) ∩ W ⊂ W Br ; in particular, if W Br = ∅
+then Un (Q) ∩ W = ∅ and one says that there is a Brauer–Manin obstruction to
+strong approximation (cf. (1.3)). We ﬁrst calculate the Brauer group.
+Theorem 1.6. We have
+                             Br Un / Br Q ∼
+                                          = Z/2Z
+generated by the quaternion algebra (−u1 /u3 , −u2 /u3 ).
+   The algebra in Theorem 1.6 is transcendental, meaning that it does not become
+trivial after base change to an algebraic closure of Q, so we will obtain new cases
+of a transcendental Brauer–Manin obstruction on log K3 surfaces. One novel
+feature is that there are few examples in the literature where Brauer groups of
+singular varieties have been computed, as Brauer group computations usually use
+Grothendieck’s purity theorem which requires regularity (or at least a singular
+4                   MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+locus of large codimension). We prove Theorem 1.6 by ﬁrst calculating the Brauer
+group of a desingularisation, then showing that every such Brauer group element
+comes from the singular surface.
+  This latter property is a special case of a more general result about Brauer
+groups of singular surfaces, which may be of independent interest and does not
+seem to have been noticed before. Recall that a normal variety Y /k is said to
+have only rational singularities if there exists a desingularisation Ye → Y for
+which all the higher direct images of OYe are trivial.
+Theorem 1.7. Let U be a normal surface over a field k of characteristic 0 with
+                               e → U a desingularisation. Then the induced map
+rational singularities and f : U
+Br U → Br U e is surjective.
+  One could hope to use the Brauer group element from Theorem
+                                                       Q      1.6 to disprove
+the Erdős–Straus conjecture by showing that (Un (R)+ × p Un (Zp ))Br = ∅; our
+next result says that this does not happen.
+Theorem 1.8. For all n ∈ N we have
+                        Y
+            (Un (R)+ ×     Un (Zp ))Br 6= ∅,                                (1.4)
+                             p
+                            Y                               Y
+               (Un (R)+ ×        Un (Zp ))Br 6= Un (R)+ ×       Un (Zp ).   (1.5)
+                             p                              p
+
+   The ﬁrst equation (1.4) is a more precise version of Theorem 1.1. The second
+equation (1.5) says that nonetheless there is always a Brauer–Manin obstruc-
+tion to strong approximation for natural number solutions (as manifested by
+Theorems 1.2 and 1.5).
+   Despite there being a Brauer–Manin obstruction to strong approximation, it
+turns out that not every failure of strong approximation is explained by the
+Brauer–Manin obstruction.
+Theorem 1.9. For all n ∈ N, the map
+                                 Un (Q) → Un (AQ )Br
+                                                  •
+
+does not have dense image.
+  We prove this by showing that Un (Z) is not Zariski dense using real consider-
+ations. The conclusion then follows from the fact that Br Un / Br Q is ﬁnite.
+Remark 1.10. In this paper we focus on the original conjecture of Erdős–Straus
+concerning the equation (1.1). A more general conjecture, due to Schinzel [22],
+states that given m ≥ 3, for all n > n0 (m) there exists ui ∈ N such that
+                               m     1     1      1
+                                  =      +    + .
+                               n    u1 u2 u3
+These surfaces are again Q-isomorphic, hence Theorem 1.6 still holds here. A
+minor adaptation of our method shows the following analogue of Theorem 1.2:
+for all solutions with u ∈ N3 we have
+                           Y
+                              (−u1 /u3 , −u2 /u3 )p = −1.
+                         p|2nm
+
+Moreover versions of Theorems 1.5, 1.8, and 1.9 also hold in this case.
+          BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                                5
+
+Outline of the paper. In §2 we study the geometry of Erdős-Straus surfaces
+over a ﬁeld k of characteristic zero. We calculate the desingularisation, the Picard
+group, and the Brauer group (Theorem 1.6). In §3 we apply our knowledge of the
+Brauer group to prove the remaining results from the introduction. The appendix
+explains in more detail how Corollary 1.3 relates to results of Yamamoto [24].
+
+Notation. For a ﬁeld k, we denote by µ(k) the group of roots of unity in k. For
+a scheme X, we denote by Br X = H2 (X, Gm ) its (cohomological) Brauer group.
+
+Acknowledgements. We thank Yang Cao, Jean-Louis Colliot-Thélène, and
+Christian Elsholtz for useful comments and references. This work was under-
+taken at the Institut Henri Poincaré during the trimester “Reinventing rational
+points”. The authors thank the organisers and staﬀ for ideal working conditions.
+We are grateful to the referee for numerous helpful comments. The second-named
+author is supported by EPSRC grant EP/R021422/2.
+
+                  2. Geometry of Erdős–Straus surfaces
+  In this section we study the geometry of the surfaces Un from (1.2). We work
+over a ﬁeld k of characteristic 0 with algebraic closure k̄. The primary aim of this
+section is to prove Theorem 1.6. We also prove a result of independent interest
+on Brauer groups of rational surface singularities (Theorem 1.7).
+
+2.1. The Cayley cubic and its lines. We let
+                  Sn :    4x1 x2 x3 = n(x0 x1 x2 + x0 x1 x3 + x0 x2 x3 ).
+be the closure of Un in P3k , with Un being the aﬃne patch x0 6= 0 with variables
+u1 , u2 , u3. For n = −4, this projective surface is known as Cayley’s (nodal) cubic
+surface; every Sn is isomorphic over k to the Cayley cubic surface. The surface
+Sn has 4 singularities, each of type A1 , given by setting all but one coordinate
+equal to 0; we let P = (1 : 0 : 0 : 0) be the singularity in Un . The Cayley cubic
+has 9 lines over k̄. This induces 6 lines on Un , of which we are interested in the
+following 3 lines
+                        Li,j : ui = uj = 0, i 6= j ∈ {1, 2, 3}.
+
+2.2. Desingularisation. Let U   en be the desingularisation of Un given by blowing
+up P once, with exceptional curve E ⊂ U    en . By abuse of notation, we denote by
+                                                   en . We have the equation
+Li,j the strict transform of the relevant lines in U
+en :
+U      4u1 y2 y3 = n(y1 y2 + y1 y3 + y2 y3 ), yi uj = yj ui , i, j ∈ {1, 2, 3}    ⊂ A3 × P 2 ,
+where u1 , u2, u3 are coordinates on A3 , and y1 , y2 , y3 are homogeneous coordinates
+on P2 . With respect to this equation, the curves of interest to us are
+           E : u1 = u2 = u3 = 0,        Li,j : yi = yj = 0, i 6= j ∈ {1, 2, 3}.
+One checks that
+            ui  yi               y1                          y2
+               = ,         div      = L1,2 − L2,3 ,    div      = L1,2 − L1,3 .         (2.1)
+            uj  yj               y3                          y3
+6                      MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+2.3. Parametrisation. Any cubic surface with a rational singularity is rational,
+with a birational parametrisation given by projecting away for the singular point.
+Applying this to the singularity P , we obtain the birational map to P2 . On the
+desingularisation, this becomes the birational morphism
+                 en → P2 ,
+                 U             (u1 , u2 , u3 ; y1 : y2 : y3 ) 7→ (y1 : y2 : y3 ).     (2.2)
+We let
+                           Vn := Uen \ {y1 y2 y3 = 0}.                                (2.3)
+Note that the boundary is the disjoint union of the lines Li,j
+                              en \ Vn = L1,2 ⊔ L2,3 ⊔ L3,1 .
+                              U                                                       (2.4)
+The following important observation will be used numerous times.
+                                                             L
+Lemma 2.1. We have Vn ∼     = G2m and H0 (Vn,k̄ , Gm ) ∼
+                                                       = k̄ ∗ Z2 , with the Z2 factor
+generated by y1 /y3 and y2 /y3 .
+Proof. That Vn ∼ = G2m follows from the fact that the map (2.2) becomes an
+isomorphism onto its image when restricted to Vn . The second part follows from
+the fact that the invertible regular functions on G2m are generated by characters
+and non-zero constants.                                                        
+               en,k̄ , Gm ) = k̄ ∗ .
+Lemma 2.2. H0 (U
+Proof. By Lemma 2.1 any invertible regular function must be a non-trivial prod-
+uct of powers of y1 /y3 and y2 /y3 , modulo constants. However, such a function
+cannot be invertible on Uen since its divisor is always non-trivial by (2.1). 
+
+2.4. Picard group.
+Lemma 2.3. We have Pic U        en,k̄ ∼
+                       en = Pic U     = Z generated by L1,2 .
+Proof. By Lemma 2.1 and (2.1) we have the exact sequence
+                                                             en,k̄ → Pic Vn,k̄ → 0,
+         0 → hy1 /y3 , y2 /y3i → hL1,2 , L2,3 , L3,1 i → Pic U
+where the second map associates to a rational function its divisor and the third
+map associates to a divisor its class. But Pic Vn,k̄ = 0 by Lemma 2.1. The result
+now follows from (2.1).                                                        
+
+2.5. Brauer group.
+                       en . We denote by Br1 X = ker(Br X → Br Xk̄ ) the alge-
+2.5.1. Brauer group of U
+braic Brauer group of a variety X/k.
+               en = Br k.
+Lemma 2.4. Br1 U
+Proof. Lemma 2.2 and the Hochschild–Serre spectral sequence give an injection
+    en / Br k ֒→ H1 (k, Pic U
+Br1 U                       en,k̄ ). But Pic U
+                                             en,k̄ = Z with trivial Galois action by
+Lemma 2.3, hence this Galois cohomology group is trivial.                         
+  We now ﬁnd the Galois action on the Brauer group. We denote by Q/Z(−1) :=
+Hom(µ(k̄), Q/Z), and refer to [10, §2.5] for background on cyclic algebras.
+           BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                             7
+
+Proposition 2.5. The natural map Br U   en,k̄ → Br Vn,k̄ , induced by the inclusion
+Vn ⊂ Uen , is an isomorphism. In particular Br U  en,k̄ ∼ = Q/Z(−1) as a Galois
+module, and its elements are represented by the cyclic algebras
+                             (u1/u3 , u2 /u3 )ζ ,   ζ ∈ µ(k̄).
+Proof. The explicit description of Br Vn,k̄ follows from Lemma 2.1 and the fact
+that Br G2m,k̄ ∼
+               = Q/Z(−1), given by the stated cyclic algebras (see [4, §8.1] – note
+that for σ ∈ Gal(k̄/k) we have σ(αζ ) = ασ(ζ) , but for ζ an nth root of unity and
+a ∈ (Z/nZ)∗ we have aαζ = αζ a−1 ).
+  So let b = (u1/u3 , u2 /u3 )ζ . It suﬃces to show that b is unramiﬁed along the
+boundary (2.4). The Li,j are regular and disjoint, hence Grothendieck’s purity
+theorem [9, Cor. 6.2] yields the exact sequence
+                                               M
+                  0 → Br U en,k̄ → Br Vn,k̄ →     H1 (Li,j,k̄ , Q/Z)
+                                                    i6=j
+
+where the last map is the residues along the Li,j,k̄ . (Note that the hypothesis that
+the boundary divisor be regular is missing from Grothendieck’s statement, but it
+holds in our case.) However Li,j,k̄ ∼
+                                    = A1k̄ is simply connected, so the corresponding
+residues are trivial. The result follows.                                             
+  We next show that every Galois-invariant element of Br U       en,k̄ in fact descends
+to the ground ﬁeld k. To do this, we make use of the relation
+                    ui             1
+                 −     =                        , {i, j, k} = {1, 2, 3},           (2.5)
+                    uj   1 + uj /uk − 4uj /n
+derived from (1.1). (This relation will also appear in other parts of the paper).
+Proposition 2.6. The natural map Br U    en → (Br U en,k̄ )Gal(k̄/k) is surjective. A
+complete set of representatives for the elements of Br U  en / Br k is given by the
+cyclic algebras
+                     αζ = (−u1 /u3 , −u2 /u3 )ζ , ζ ∈ µ(k).
+These algebras have the following equivalent representations:
+       αζ = (−ui /uk , −uj /uk )ζ = (−yi /yk , −yj /yk )ζ ,      {i, j, k} = {1, 2, 3}.
+Proof. By Proposition 2.5, we have (Br U     en,k̄ )Gal(k̄/k) ∼
+                                                              = (Q/Z(−1))Gal(k̄/k) , and
+this is (non-canonically) isomorphic to µ(k) [6, Lem. 2.4]. By Proposition 2.5,
+the cyclic algebras αζ therefore give a complete set of representatives for the
+Galois-invariant elements. It thus suﬃces to show that these descend to k.
+   The diﬀerent representations are easily checked to hold in the Brauer group of
+the function ﬁeld of Un , using (2.1) and the relation (a, b)ζ = (−b/a, 1/a)ζ . To
+show that αζ is unramiﬁed along the Li,j , we use (2.1). By symmetry, it suﬃces to
+show that αζ is unramiﬁed along L2,3 . However, by (2.1) and standard formulae
+for residues [10, Prop. 7.5.1, Ex. 7.1.5], the residue of αζ along L2,3 is
+                           −u2 /u3 ∈ k(L2,3 )∗ /(k(L2,3 )∗ )m ,
+where m is the order of ζ. But using the relation (2.5), we have
+                            u2             1
+                          − =                         ,
+                            u3    1 + u3 /u1 − 4u3 /n
+8                     MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+so that the residue is in fact equal to 1 along L2,3 as u3 = 0 here. This shows
+             en , as required.
+that αζ ∈ Br U                                                               
+                                          en / Br k is ﬁnite if k is a number ﬁeld;
+  Note that Proposition 2.6 shows that Br U
+something which is not a priori obvious.
+Corollary 2.7. If k = Q, then Br U  en / Br Q is isomorphic to Z/2Z generated by
+the class of the quaternion algebra
+                           α := α−1 = (−u1 /u3 , −u2 /u3 ).
+Remark 2.8. Note that the “obvious” Galois-invariant element (u1 /u3, u2 /u3 )
+does not descend to Q. Despite being unramiﬁed over Q̄, it ramiﬁes over the
+lines Li,j with constant (non-trivial) residue. We have multiplied this element by
+some ramiﬁed algebraic Brauer group elements to kill these constant residues.
+2.5.2. Brauer group of Un . We calculated the Brauer group of the desingular-
+        en using Grothendieck’s purity theorem. This method uses that U
+isation U                                                               en is
+smooth and does not apply directly to Un . To calculate Br Un we shall use
+Theorem 1.7, which we now prove.
+Proof of Theorem 1.7. We compute the higher direct images Rq f∗ Gm with re-
+spect to the étale topology and use the Leray spectral sequence for the morphism
+f and the sheaf Gm ; the necessary material can be found in [16, §III, §IV].
+   Let P1 , . . . , Pr be the closed points at which U is singular, with residue ﬁelds
+kj = κ(Pj ), and let Ej be the exceptional divisor above Pj . Let P̄j be a geometric
+point above Pj , and let Ēj the ﬁbre above P̄j . By [1, Prop. 1], Ēj is a tree of
+P1 s. By [16, Prop. 11.1], Pic Ēj is isomorphic to Zdj , where dj is the number of
+irreducible components of Ēj , with the absolute Galois group of kj permuting
+the factors as it permutes the irreducible components.
+          sh
+   Let OU,P   j
+                 be a strict Henselisation of the local ring of U at Pj . The standard
+calculation of the stalks of higher direct images shows that (R1 f∗ Gm )P̄j is isomor-
+phic to Pic(U   e ×U Spec Osh ). The natural map Pic(U          e ×U Spec Osh ) → Pic Ēj
+                              U,Pj                                         U,Pj
+is injective by [16, Thm. 12.1] and surjective by [16, Lem. 14.3], so is an isomor-
+phism. We deduce that (R1 f∗ Gm )P̄j and Pic Ēj are isomorphic as Galois modules
+over kj . Let ij : Pj → U be the inclusion. Given that R1 f∗ Gm is supported at
+the points Pj , we have computed
+                                            Y
+                                 R1 f∗ Gm ∼
+                                          =    (ij )∗ Pic Ēj .                    (2.6)
+                                           j
+
+It follows that                            Y
+                      H1 (U, R1f∗ Gm ) =       H1 (kj , Pic Ēj ) = 0,             (2.7)
+                                           j
+
+since Pic Ēj is an induced module.
+   We now show that the stalks (R2 f∗ Gm )P̄j are torsion-free. The Kummer se-
+quence on U e gives, for any m ≥ 1, an exact sequence
+                      ×m                                         ×m
+           R1 f∗ Gm −−→ R1 f∗ Gm → R2 f∗ µm → R2 f∗ Gm −−→ R2 f∗ Gm .
+          BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                       9
+
+Proper base change [18, Cor. VI.2.7] shows
+                                 = H2 (Ēj , µm ) ∼
+                  (R2 f∗ µm )P̄j ∼                = Pic Ēj /m Pic Ēj
+where the last isomorphism follows from the Kummer sequence of Ēj , as Br Ēj =
+0 by [9, Cor. 1.2]. Therefore (R1 f∗ Gm )P̄j surjects onto (R2 f∗ µm )P̄j by (2.6),
+showing that (R2 f∗ Gm )P̄ has no non-trivial m-torsion.
+  Using (2.6) and (2.7), the Leray spectral sequence for the morphism f and the
+sheaf Gm now gives an exact sequence
+                     Y
+  Pic U → Pic U e→                                      e → H0 (U, R2 f∗ Gm ). (2.8)
+                         H0 (kj , Pic Ēj ) → Br U → Br U
+                      j
+
+Since Ue is regular, Br U
+                        e is a subgroup of Br k(U)
+                                                e and is therefore torsion. Thus
+the rightmost arrow is zero. This proves that Br U → Br U e is surjective.    
+  In the case of Erdős–Straus surfaces, we obtain the following stronger result.
+                                          en is an isomorphism.
+Corollary 2.9. The natural map Br Un → Br U
+Proof. By Theorem 1.7, it suﬃces to show that the stated map is injective. The
+exact sequence (2.8) here reads
+                             en → Pic E → Br Un → Br U
+                Pic Un → Pic U                       en → 0.
+        en → Pic E is surjective as the strict transform of L1,2 has intersection
+But Pic U
+number 1 with the exceptional divisor E. This completes the proof.              
+  Corollaries 2.7 and 2.9 in particular prove Theorem 1.6.
+Remark 2.10. The map in Theorem 1.7 need not be an isomorphism in general.
+If X is the Cayley cubic surface in P3C , then Br X ∼= Z/2Z [2, Tab. 2], but the
+Brauer group of the desingularisation is clearly trivial.
+Remark 2.11. We have calculated Br Un for completeness; however, we could
+just have chosen to work on the desingularisation instead. Namely, consider
+the Brauer group element α ∈ Br U   en . Restricting α to the exceptional divisor
+   ∼
+E = PQ , we ﬁnd that α is constant along E as Br P1Q = Br Q (in fact our choice
+       1
+
+of α is even trivial along E). Therefore, we could have chosen to instead define
+                                      en (AQ )Br → Un (AQ )).
+                     Un (AQ )Br := Im(U
+as pairing with α is independent of the choice of lift of adelic point from Un
+   en . This is essentially the approach advocated in [7, §8] for dealing with
+to U
+the Brauer–Manin obstruction on singular varieties. (Note that in our case the
+smooth points are dense in Un (Qv ) for all v, so Un (Qv ) = Un (Qv )cent in the
+notation of loc. cit.)
+
+                       3. Brauer–Manin obstruction
+  We now study the integral Brauer–Manin obstruction in our case over Q. Let
+n ∈ N.
+10                      MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+3.1. Local invariants. We begin by calculating the local invariants of the el-
+ement α = (−u1 /u3, −u2 /u3 ), which we view as an element of Br Un . We take
+the convention that the local invariants lie in µ2 , rather than Z/2Z. Thus for a
+place v of Q the local invariant map is given by the Hilbert symbol
+       invv α : Un (Qv ) → {±1},           (u1 , u2, u3 ) 7→ (−u1 /u3 , −u2 /u3 )v .            (3.1)
+The stated expression is only well-deﬁned if u1 u2 u3 6= 0; for other points, one
+can reduce to the above case as the local invariant is continuous [20, Prop. 8.2.9].
+Indeed, it follows from the implicit function theorem that the Qv -points of any
+dense Zariski-open subset are dense in the smooth points of Un (Qv ); and, as
+noted in Remark 2.11, the smooth points are dense in Un (Qv ).
+3.2. Real points.
+Lemma 3.1. Let
+     Un (R)+ = {u ∈ Un (R) : ui > 0 for all i},              Un (R)− = Un (R) \ Un (R)+ .
+Then the Un (R)+ and Un (R)− are both connected and
+ Un (R) = Un (R)+ ⊔ Un (R)− ,          inv∞ α(Un (R)+ ) = −1,            inv∞ α(Un (R)− ) = 1.
+Proof. We ﬁrst show that Un (R) has two connected components. Consider
+                               Un (R) → R2 ,        u 7→ (u1 , u2 ).                            (3.2)
+This map is not surjective; indeed, we rearrange the equation (2.5) to obtain
+                                       −u1 u2
+                            u3 =                     .
+                                 u1 + u2 − 4u1 u2 /n
+So the image misses every point on the hyperbola u1 + u2 − 4u1u2 /n = 0, except
+the origin which is the image of the line L1,2 . The hyperbola splits the plane into
+3 components, but one branch passes through the origin and hence the image of
+(3.2) has 2 components. The ﬁbres of (3.2) are connected, being a single point
+or R over the origin. Hence Un (R) has 2 connected components. These are easily
+checked to be the two components stated in the lemma. The local invariants are
+then calculated by standard formulae for Hilbert symbols.                         
+3.3. p-adic points.
+3.3.1. Preliminaries.
+Lemma 3.2. Let p be an odd prime with vp (n) ≤ 1 and u ∈ Un (Zp ) with
+u1 u2 u3 6= 0. Then there exists i 6= j such that ui /uj ∈ Z∗p .
+Proof. Write ui = ai pbi and n = n′ pb where p ∤ n′ ai . The equation (1.2) becomes
+        4a1 a2 a3 pb1 +b2 +b3 = n′ (a1 a2 pb1 +b2 +b + a1 a3 pb1 +b3 +b + a2 a3 pb2 +b3 +b ).
+Without loss of generality 0 ≤ b1 ≤ b2 ≤ b3 . If b2 = 0, then the result is clear.
+So assume for a contradiction that 1 ≤ b2 < b3 . But as b ≤ 1, we then have
+              min{b1 + b2 + b3 , b1 + b3 + b, b2 + b3 + b} > b1 + b2 + b.
+Thus p | a1 a2 , which contradicts the fact that the ai are units, as required.                    
+           BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                     11
+
+Remark 3.3. Note that Lemma 3.2 fails in general if n has a prime divisor with
+valuation at least 2. For example, for n = 9 we have the solution (4, 6, 36).
+Lemma 3.4. Let p be an odd prime and let u ∈ Un (Zp ) be such that u2 /u3 ∈ Z∗p .
+Then                                      v (u u )
+                                   −u2 /u3 p 1 3
+                     invp α(u) =                     .
+                                      p
+Proof. As u2 /u3 ∈ Z∗p , this follows immediately from (3.1) and standard formulae
+for Hilbert symbols [21, Thm. III.1].                                           
+3.3.2. Good primes.
+Lemma 3.5. For all p ∤ 2n we have invp α(Un (Zp )) = 1.
+Proof. By continuity, we may assume that u1 u2 u3 6= 0. (The continuity argument
+above was stated for Qp -points, but the Zp -points form an open set in the Qp -
+points so the argument also holds for Zp -points.) Up to permuting coordinates,
+Lemma 3.2 gives u2 /u3 ∈ Z∗p . If vp (u1 ) = vp (u3 ), then the invariant is 1 by
+Lemma 3.4. So assume vp (u1 ) 6= vp (u3 ), so that p | u1 u2 u3 . But from the
+equation (1.2), it is clear that p cannot divide only one of the ui since p ∤ 2n. As
+u2 /u3 ∈ Z∗p we ﬁnd that p | u3 . From (2.5) we have
+                                u2            1
+                           −       =                     .
+                                u3   1 + u3 /u1 − 4u3 /n
+As p | u3 , vp (u1) =6 vp (u3 ), and the left hand side is a p-adic unit, we must
+have vp (u3 /u1 ) > 0. Thus −u2 /u3 ≡ 1 mod p, and so the local invariant is again
+trivial by Lemma 3.4.                                                           
+3.3.3. Bad odd primes.
+Lemma 3.6. Let p | n be an odd prime. Then the map
+                             invp α : Un (Zp ) → {±1}
+is surjective.
+Proof. We ﬁrst consider the case where pkn. Write n = pn′ where p ∤ n′ and
+substitute u1 = pa1 . The equation (1.2) becomes
+                      4a1 u2 u3 = n′ (a1 u2 p + a1 u3 p + u2 u3).
+Modulo p this is
+                             (4a1 − n′ )u2 u3 ≡ 0 mod p.                   (3.3)
+                                                       ′
+As p is odd, there exists a solution with 4a1 ≡ n mod p and u2 , u3 arbitrary
+modulo p. Geometrically, the equation (3.3) deﬁnes the union of three planes
+which is non-singular away from the common points of intersection. Providing
+that u2 u3 6≡ 0 mod p, we may therefore use Hensel’s lemma to lift to a p-adic
+solution. Thus, we have shown that we may choose p-adic solutions such that
+pku1 , p ∤ u2 u3 and both possibilities
+                                                   
+                          −u2 /u3             −u2 /u3
+                                     = 1,                = −1
+                             p                   p
+may be realised. The result in this case therefore follows from Lemma 3.4.
+12                        MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+  We now consider the general case. Let n = pb n′ where p ∤ n and b > 1. We take
+a p-adic solution u ∈ Upn′ (Zp ) as constructed in the previous case, and consider
+the solution pb−1 u ∈ Un (Zp ). The quotients u1 /u3 , u2 /u3 are unchanged, hence
+the result follows from the previous case and (3.1).                            
+3.3.4. The prime 2.
+Lemma 3.7. Suppose that n is even. Then the map
+                             Un (Z2 ) → {±1},           u 7→ inv2 α(u)
+is surjective.
+Proof. It suﬃces to prove the result for n = 2, since then we can just obtain
+the result for all even n by rescaling, as in the proof of Lemma 3.6. Here our
+equation is
+                         2u1 u2 u3 = u1 u2 + u2 u3 + u3 u1 .
+There is the natural number solution (1, 2, 2) which is easily seen to have local
+invariant −1. Next, one veriﬁes that the solution
+                                (u1 , u2, u3 ) ≡ (−1, 2, 2) mod 8
+lifts by Hensel’s lemma to a Z2 -point with local invariant 1.                                 
+     Surprisingly, for odd n the local invariant is always trivial at 2.
+Lemma 3.8. Suppose that n is odd. Then inv2 α(Un (Z2 )) = 1.
+Proof. By continuity it is enough to prove
+                                     (−u1 /u3 , −u2 /u3 )2 = 1
+when u1 u2 u3 6= 0. Write u = (2s1 r1 , 2s2 r2 , 2s3 r3 ) with s1 , s2 , s3 ≥ 0 and r1 , r2 , r3 ∈
+Z×
+ 2 . Without loss of generality, we may assume that s1 ≥ s2 ≥ s3 . Looking at
+valuations in the equation
+              n(2s1 +s2 r1 r2 + 2s1 +s3 r1 r3 + 2s2 +s3 r2 r3 ) = 2s1 +s2 +s3 +2 r1 r2 r3
+shows that s1 = s2 . Taking out a factor of 2s1 +s3 gives
+                        n(2s1 −s3 r1 r2 + r1 r3 + r2 r3 ) = 2s1 +2 r1 r2 r3 .
+Looking modulo 2 shows s1 − s3 ≥ 1. We therefore have
+                             2s1 −s3 r1 r2 + (r1 + r2 )r3 ≡ 0 mod 8.                        (3.4)
+Using the formula of [21, Thm. III.1], the Hilbert symbol above is given by
+                      (−1)ǫ(−r1 /r3 )ǫ(−r2 /r3 )+(s1 −s3 )(ω(−r2 /r3 )+ω(−r1 /r3 )) ,
+where ǫ(x) = (x − 1)/2 and ω(x) = (x2 − 1)/8. Note that ω is an even function.
+We deﬁne
+                                  (
+                                    1 mod 2 if r1 ≡ r2 ≡ r3 mod 4
+ f (u) = ǫ(−r1 /r3 )ǫ(−r2 /r3 ) =
+                                    0 mod 2 otherwise
+     g(u) = (s1 − s3 )(ω(−r2 /r3 ) + ω(−r1 /r3 )) ≡ (s1 − s3 )(ω(r1) + ω(r2 )) mod 2.
+   If s1 − s3 ≥ 3, then (3.4) gives r1 + r2 ≡ 0 mod 8, and so f (u) = g(u) = 0. If
+s1 − s3 = 2, then (3.4) gives r1 + r2 ≡ 0 mod 4, and so f (u) = 0; and g(u) = 0
+because s1 − s3 is even.
+          BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                      13
+
+  The remaining case is s1 − s3 = 1. In this case, (3.4) gives r1 ≡ r2 mod 4,
+which implies
+                      (r1 + r2 )r3 ≡ −2r1 r2 ≡ 6 mod 8
+and therefore           (
+                          1 mod 4 if r1 + r2 ≡ 6 mod 8;
+                   r3 ≡
+                          3 mod 4 if r1 + r2 ≡ 2 mod 8.
+Now looking at the possible values for {r1 , r2 } mod 8 gives the following.
+                   r1 mod 8 r2 mod 8 r3 mod 4 f (u) g(u)
+                       1        1        3      0    0
+                       1        5        1      1    1
+                       5        5        3      0    0
+                       3        3        1      0    0
+                       3        7        3      1    1
+                       7        7        1      0    0
+Thus, in all cases, f (u) + g(u) = 0, completing the proof.                       
+3.4. Proof of Theorem 1.2. Hilbert’s reciprocity law [21, Thm. III.3] gives
+                      Y
+                          (−u1 /u3 , −u2 /u3)p = 1.
+                             p≤∞
+
+For a natural number solution the local invariant at ∞ is −1 by Lemma 3.1.
+Moreover, the local invariant at p ∤ n is 1 by Lemmas 3.5 and 3.8.      
+3.5. Proof of Theorem 1.5. Similar to the proof of Theorem 1.2, but if one of
+the ui is negative then the local invariant at ∞ is 1, by Lemma 3.1.       
+3.6. Proof of Corollary 1.3. The ﬁrst part of the statement follows from
+Lemma 3.2. For the second part, without loss of generality we assume that
+u2 /u3 ∈ Z∗p . Then by Theorem 1.2 and Lemma 3.4, we deduce that
+                                    v (u u )
+                              −u2 /u3 p 1 3
+                                               = −1,
+                                p
+whence the Legendre symbol must be −1, as required.                    
+3.7. Proof of Corollary 1.4. By Theorem 1.2, to prove Corollary 1.4 it suﬃces
+to show the following purely local statement (applied to each p | n).
+Lemma 3.9. Let p be an odd prime and n = p2m n′ , where n′ ∈ Z∗p and m ≥ 0.
+Let u ∈ Un (Zp ) be such that
+              p2m | u1 , p ∤ u2 u3 ,   or   p ∤ u1 , p2m | u2 , p2m | u3 .
+Then (−u1 /u3 , −u2 /u3 )p = 1.
+Proof. We ﬁrst consider type 1 solutions. Here the Hilbert symbol is
+                                        v (u )
+                                 −u2 /u3 p 1
+                                                 .
+                                    p
+However it follows easily from the equation (1.2) that p ∤ (u1 /n), so that vp (u1 )
+is even and the result follows.
+14                    MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+   Now consider type 2 solutions. The equation (1.2) implies that vp (u2 ) = vp (u3 ),
+so the Hilbert symbol is
+                                            v (u )
+                                      −u2 /u3 p 3
+                                                     .
+                                         p
+If p ∤ (u3 /n), then vp (u3 ) is even by assumption, and the result follows. Other-
+wise, suppose that p | (u3 /n). From (2.5) we have
+                          u2               1
+                        − =                           ≡ 1 mod p
+                          u3      1 + u3/u1 − 4u3 /n
+since u3 /u1 ≡ 4u3 /n ≡ 0 mod p. The result follows.                                
+3.8. Proof of Theorem 1.8. First note that as Un (Z) 6= ∅ and n > 0, we have
+                                  Y
+                       Un (R)+ ×     Un (Zp ) 6= ∅.                     (3.5)
+                                            p
+
+It follows from Lemmas 3.6 and 3.7 that there is some prime p | n for which
+the local invariant is surjective on Un (Zp ). Therefore, there are elements of (3.5)
+whose product of local invariants is −1 and 1, respectively.                       
+3.9. Proof of Theorem 1.9. The set of real points Un (R) is non-compact. Still,
+it follows easily from the equation (1.1) that
+                                   min |ui | ≤ 3n/4.                            (3.6)
+                                 u∈Un (R)
+
+These real conditions impose strong arithmetic conditions. (In the terminology
+of [13, §2] our surface is “not weakly obstructed” but is “strongly obstructed” at
+inﬁnity.) This observation gives the following.
+Lemma 3.10. The set
+            {u ∈ Un (Z) : u1 u2 u3 6= 0, ui 6= −uj for all i, j ∈ {1, 2, 3}}
+is finite. In particular, Un (Z) is not Zariski dense and Un (N) is finite.
+Proof. Without loss of generality, we have |u1 | ≤ |u2| ≤ |u3 |. Then by (3.6) we
+have |u1 | ≤ 3n/4, so there are only ﬁnitely many choices for u1 . If 4/n = 1/u1 ,
+then we obtain the solution u2 = −u3 , which is being excluded. Hence we have
+                                 4    1     1     1
+                                   −     =    +
+                                 n u1      u2 u3
+and the left hand size is non-zero and takes only ﬁnitely many values. But then as
+in (3.6), one ﬁnds that u2 and u3 take only ﬁnitely many values, as required. 
+Lemma 3.11. For all but finitely many primes p, the map Un (Z) → Un (Fp ) is
+not surjective.
+Proof. Follows from Lemma 3.10 and the Lang–Weil estimates [15]                     
+  We now complete the proof of Theorem 1.9. If the map Un (Q) → Un (AQ )Br  • had
+dense image then, as Br Un / Br Q is ﬁnite (Theorem 1.6), it would follow from [6,
+                      en ) that the map Un (Z) → Un (Zp ) has dense image for all
+Lem. 6.5] (applied to U
+ﬁnitely many primes p; however this clearly contradicts Lemma 3.11, and shows
+Theorem 1.9.                                                                    
+           BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                            15
+
+Remark 3.12. Let X be a smooth variety over Q which contains a dense torus
+T with H0 (XQ̄ , Gm ) = Q̄∗ and Pic XQ̄ torsion free. If the action of T on itself
+extends to X, i.e. X is a toric variety, then in [3, 23] it is shown that the
+Brauer–Manin obstruction is the only one to strong approximation away from
+∞. However this result need not hold if the action of T does not extend to
+the whole variety. Here U   en contains G2 but does not satisfy this result by
+                                          m
+Theorem 1.9.
+
+             Appendix A. Comparison with previous results
+  In [24] (see also [19, p. 290]), Yamamoto shows numerous quadratic reciprocity
+requirements for solutions to (1.1) when n = p is prime, with various hypotheses.
+In this appendix we explain how these are all special cases of Corollary 1.3.
+  There are two types of solutions to (1.1) (see [19, Ch. 30] and [8, Prop. 2.11]).
+Type 1 is when p exactly divides one of the ui to valuation 1, and Type 2 is when
+p divides exactly two of the ui to valuation 1.
+  We ﬁrst deal with Type 2 solutions. Let u ∈ Up (N) and suppose that p ∤ u1 ,
+pku2 , pku3 . Then one can write (see [19, p. 289])
+                         (u1 , p−1 u2 , p−1 u3 ) = (bcd, abd, acd)
+with a, b, c, d positive integers satisfying (a, b) = (b, c) = (c, a) = 1, p ∤ bcd and
+                                 pa + b + c = 4abcd.
+Yamamoto [24, Lem. 2] deﬁnes q = 4abd − 1 and then shows [24, Lem. 4] that
+the Kronecker symbol
+                                    
+                                    p
+                                        = −1.
+                                    q
+This follows from Corollary 1.3. Indeed, using 4abd ≡ b/c mod p we have
+                                                           
+        p            −1      4abd − 1         −b/c          −u2 /u3
+                =                        =            =               = −1.
+    4abd − 1          p          p              p             p
+  For Type 1 solutions, let u ∈ Up (N) with p | u1 , p ∤ u2 , p ∤ u3 . Write
+                           (p−1 u1 , u2, u3 ) = (bcd, acd, abd)
+with a, b, c, d positive integers satisfying (a, b) = (b, c) = (c, d) = 1 and p ∤ abcd
+(again see [19, p. 289]). Then we have
+                                 a + bp + cp = 4abcd.
+In [24, Lem. 2] Yamamoto deﬁnes q = 4abd − p , assumes p ≡ 1 mod 4 (see the
+proof of [24, Lem. 4]) and shows that the Kronecker symbol
+                                      
+                                    p
+                                         = −1.
+                                  4abq
+By Corollary 1.3 we deduce this as follows. As q ≡ 4abd ≡ a/c mod p we have
+                                                      
+           p         4abq       b/c        u3 /u2      −u2 /u3
+                 =         =           =           =             = −1.
+         4abq         p          p            p          p
+16                      MARTIN BRIGHT AND DANIEL LOUGHRAN
+
+   Yamamoto also proves two further conditions [24, Lem. 3, Lem. 4] in the case
+p ≡ 1 mod 4 which, in either the Type 1 or Type 2 case, reduce to
+                                    p 
+                                          = −1
+                                     4bc
+where b, c are as deﬁned above for Type 1 or Type 2 solutions, respectively. These
+also follow from Corollary 1.3, as follows:
+            p   4bc   b/c   u /u   −u /u 
+                                            2   3          2  3
+                   =        =          =          =               = −1.
+            4bc        p         p            p            p
+
+                                       References
+ [1] M. Artin, On isolated rational singularities of surfaces, Amer. J. Math. 88 (1966), no. 1,
+     129–136.
+ [2] M. Bright, Brauer groups of singular del Pezzo surfaces, Michigan Math. J., 62(3) (2013),
+     657–664.
+ [3] Y. Cao, F. Xu, Strong approximation with Brauer-Manin obstruction for toric varieties,
+     Ann. Inst. Fourier, 68(5) (2018), 1879–1908.
+ [4] J.-L. Colliot-Thélène,      A. Skorobogatov,         The Brauer–Grothendieck group,
+     http://wwwf.imperial.ac.uk/~anskor/brauer.pdf.
+ [5] J.-L. Colliot-Thélène, O. Wittenberg, Groupe de Brauer et points entiers de deux familles
+     de surfaces cubiques aﬃnes, Amer. J. Math. 134 (2012), no. 5, 1303–1327.
+ [6] J.-L. Colliot-Thélène, D. Wei, F. Xu, Brauer–Manin obstruction for Markoﬀ surfaces,
+     Annali della Scuola Normale di Pisa, to appear.
+ [7] J.-L. Colliot-Thélène, F. Xu, Strong approximation for the total space of certain quadric
+     ﬁbrations, Acta Arith. 157 (2013), 169–199.
+ [8] C. Elsholtz, T. Tao, Counting the number of solutions to the Erdős–Straus equation on
+     unit fractions, J. Aust. Math. Soc. 94 (2013), no. 1, 50–105.
+ [9] A. Grothendieck, Le groupe de Brauer, III. In Dix Exposés sur la Cohomologie des Sché-
+     mas, North-Holland, 1968.
+[10] P. Gille, T. Szamuely, Central Simple Algebras and Galois Cohomology, Cambridge studies
+     in advanced mathematics vol. 101, Cambridge University Press, Cambridge, 2006.
+[11] Y. Harpaz, Geometry and arithmetic of certain log K3 surfaces. Ann. Inst. Fourier 67
+     (2017), no. 5, 2167–2200.
+[12] Y. Harpaz, Integral points on conic log K3 surfaces. J. Eur. Math. Soc. 21 (2019), no. 3,
+     627–664.
+[13] J. Jahnel, D. Schindler, On integral points on degree four del Pezzo surfaces, Israel J.
+     Math. 222 (2017), no. 1, 21–62.
+[14] J. H. Jaroma, On expanding 4/n into three Egyptian fractions, Crux Mathematicorum,
+     30(1) (2014), 36–37.
+[15] S. Lang, A. Weil, Number of points of varieties in ﬁnite ﬁelds. Amer. J. Math. 76 (1954),
+     819–827.
+[16] J. Lipman, Rational singularities, with applications to algebraic surfaces and unique fac-
+     torization. Inst. Hautes Études Sci. Publ. Math. 36, (1969), 195–279.
+[17] D. Loughran, V. Mitankin, Integral Hasse principle and strong approximation for Markoﬀ
+     surfaces, Int. Math. Res. Not., to appear.
+[18] J. S. Milne, Étale cohomology. Princeton University Press, Princeton, New Jersey, 1980.
+[19] L. J. Mordell, Diophantine equations. Pure and Applied Mathematics, Vol. 30 Academic
+     Press, London-New York 1969.
+[20] B. Poonen, Rational points on varieties, Graduate Studies in Mathematics, vol. 186, Amer-
+     ican Mathematical Society, Providence, RI, 2017.
+[21] J.-P. Serre, A course in arithmetic, Graduate Texts in Mathematics, No. 7. Springer-
+     Verlag, 1973.
+           BRAUER–MANIN OBSTRUCTION FOR ERDŐS–STRAUS SURFACES                              17
+
+[22] W. Sierpiński, Sur les décompositions de nombres rationnels en fractions primaires, Math-
+     esis 65 (1956), 16–32,.
+[23] D. Wei, Strong approximation for a toric variety, arXiv:1403.1035.
+[24] K. Yamamoto, On the Diophantine equation n4 = x1 + y1 + z1 , Mem. Fac. Sci. Kyushu
+     Univ. Ser. A 19 (1965), 37–47.
+
+  Mathematisch Instituut, Niels Bohrweg 1, 2333 CA Leiden, Netherlands
+  E-mail address: m.j.bright@math.leidenuniv.nl
+
+  Department of Mathematical Sciences, University of Bath, Claverton Down,
+Bath, BA2 7AY, UK
+  URL: https://sites.google.com/site/danielloughran/
+

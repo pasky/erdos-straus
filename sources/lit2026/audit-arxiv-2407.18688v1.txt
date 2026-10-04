@@ -1,0 +1,2575 @@
+                                           Exact expressions for the maximal probability that all
+                                                      k-wise independent bits are 1
+
+                                                    D. Berend∗†          P. A. Ernst‡            A. Kontorovich§                R. Kumar¶
+arXiv:2407.18688v1 [math.PR] 26 Jul 2024
+
+
+
+
+                                                                                         Abstract
+                                                       Let M pn, k, pq denote the maximum probability of the event X1 “ X2 “ ¨ ¨ ¨ “
+                                                   Xn “ 1 under a k-wise independent distribution whose marginals are Bernoulli ran-
+                                                   dom variables with mean p. A long-standing question is to calculate M pn, k, pq for
+                                                   all values of n, k, p. This question has been partially addressed by several authors,
+                                                   primarily with the goal of answering asymptotic questions. The present paper fo-
+                                                   cuses on obtaining exact expressions for this probability. To this end, we provide
+                                                   closed-form formulas of M pn, k, pq for p near 0 as well as p near 1.
+
+
+                                           1       Introduction
+                                           Let X1 , X2 , . . . , Xn be a sequence of n random bits, modelled as n Bernoulli random
+                                           variables with mean p for some p P r0, 1s. To specify the joint distribution of the random
+                                           variables, one needs to specify the 2n probabilities
+
+                                                          PpX1 “ ε1 , X2 “ ε2 , . . . , Xn “ εn q,     pε1 , ε2 , . . . , εn q P t0, 1un .
+
+                                           The simplest setting for calculating the joint distribution occurs when the n variables are
+                                           independent. Often, however, there is some form of weak independence between the n
+                                           bits. It then becomes natural to inquire what this weak dependence implies about the
+                                           distribution of various functions of the Xi -s. This question was studied by Benjamini
+                                           et al. [4] with respect to several natural functions. For simplicity, Benjamini et al. [4]
+                                           assumed that all Xi -s have the same marginals, namely PpXi “ 1q “     śp,  1 ď i ď n, for
+                                           some p P r0, 1s. One of the functions they studied is the product i“1 Xi . A vector
+                                                                                                                    n
+
+
+                                               ∗
+                                                Departments of Mathematics and Computer Science, Ben-Gurion University, Beer Sheva 84105, Is-
+                                           rael. E-mail: berend@cs.bgu.ac.il
+                                              †
+                                                Research supported in part by the Milken Families Foundation Chair in Mathematics.
+                                              ‡
+                                                Department of Mathematics, Imperial College London, United Kingdom.                       E-mail:
+                                           p.ernst@imperial.ac.uk
+                                              §
+                                                Department of Computer Science, Ben-Gurion University, Beer Sheva 84105, Israel. E-mail:
+                                           karyeh@cs.bgu.ac.il
+                                              ¶
+                                                Department of Mathematics, Ben-Gurion University, Beer Sheva 84105, Israel. E-mail: ku-
+                                           marr@post.bgu.ac.il
+                                                2020 Mathematics Subject Classification: Primary 60E15 ; Secondary 62E99, 90C05, 90C08.
+                                                Key words and phrases. Bonferroni inequalities, linear programming problem, lexicographic order.
+
+
+                                                                                             1
+pX1 , . . . , Xn q of random variables is k-wise independent if each subset of k of the random
+variables is independent. Denote by Apn, k, pq the space of all probability measures on
+t0, 1un that make the Xi -s k-wise independent with Bernoulli mean p marginals. In other
+words, P P Apn, k, pq if
+              PpXi1 “ ¨ ¨ ¨ “ Xis “ 1q “ ps ,        s ď k, 1 ď i1 ă ¨ ¨ ¨ ă is ď n.
+The authors of Benjamini et al. [4] were especially interested in the maximum M pn, k, pq of
+the functional PpX1 “ X2 “ ¨ ¨ ¨ “ Xn “ 1q over the space Apn, k, pq. Roughly speaking,
+they asked how large k should be in order to ensure that this maximum is not much
+larger than the value of pn for the i.i.d. case. This study was continued in [19], where the
+function M pn, k, pq was specifically studied.
+    The main focus of [4] and [19] was to obtain both explicit bounds and asymptotic
+results for M pn, k, pq. For example, it was shown in [4, Theorem 23] that for even k
+                                                      pn
+                            M pn, k, pq ď                          ,
+                                            PpBinpn, 1 ´ pq ď k{2q
+where P is the fully independent distribution on n bits. Lower bounds on M pn, k, pq were
+given in [19, Theorem 1.1].
+    The main interest of the present paper is in obtaining exact results for M pn, k, pq.
+Benjamini et al. [4] note that, for k “ 2 and k “ 3, closed-form expressions for M pn, k, pq
+over the entire interval r0, 1s can be obtained by invoking the closed-form results in [7] (see
+Propositions A and B below). An additional closed-form result, established by Benjamini
+et al. [4, Proposition 35], is that
+                                                               1
+                            M pn, k, pq “ pk ,       0ďpď         .                          (1)
+                                                              n´1
+We shall generalize this result in Theorem 2.2 of the present paper. To the best of our
+knowledge, the result in (1) and the exact results for M pn, 2, pq and M pn, 3, pq constitute
+the only exact results in the literature for M pn, k, pq.
+    The primary purpose of the present paper is to help close this gap by obtaining further
+exact expressions for M pn, k, pq. This paper’s key contributions are the closed-form for-
+mulas of M pn, k, pq for p near 0 (Theorems 2.2, 2.5) and closed-form formulas for p near
+1 (Theorems 2.3, 2.7). We also obtain tight upper bounds on M pn, k, pq (see Theorem
+2.1). The second purpose of this paper is to provide observations (based on numerical
+studies) about M pn, k, pq which we conjecture will hold in general. Our hope is that these
+observations will help future researchers with the very difficult task of providing exact
+formulas for M pn, k, pq over the whole interval r0, 1s.
+    A key motivation for the study of k-wise independent distributions arises from the
+extensive literature in computer science regarding derandomization of algorithms. The
+objective of derandomization is to analyze how a given algorithm behaves on k-wise inde-
+pendent data in comparison to how it would behave on completely independent data. The
+use of k-wise independent distributions for derandomization of algorithms was pioneered
+by [3, 9, 15, 18]. We refer the reader to [2, 5, 8, 13, 14, 17, 23] for a more extensive overview
+of this literature.
+    The remainder of the paper is organized as follows. In Section 2 we state our main
+results. In Section 3 we recall preliminaries needed for the main proofs. In Section 4
+
+                                                 2
+we provide these proofs. In Section 5, we conduct numerical studies and present our key
+observations as eight open conjectures.
+
+
+2     The Main Results
+Let 1 ď k ď n be fixed integers and p P r0, 1s. Let Apn, k, pq be the set of all laws P
+making the collection tXi : 1 ď i ď nu into k-wise random bits with mean p. Let
+M pn, k, pq be the maximum value of PpX1 “ ¨ ¨ ¨ “ Xn “ 1q over all laws P P Apn, k, pq.
+A law P P Apn, k, pq is an optimizing measure for pn, k, pq if it attains the maximum
+M pn, k, pq.
+    Clearly, M pn, k, 0q “ 0 and M pn, 1, pq “ p. Also, M pn, k, 1q “ 1 and M pn, n, pq “ pn .
+Thus, we will implicitly assume that 2 ď k ď n ´ 1 and p P p0, 1q. We first notice that
+the set Apn, k, pq is convex since, if P1 and P2 both make tXi : 1 ď i ď nu into k-wise
+random bits with mean p, then so does αP1 ` p1 ´ αqP2 . As Apn, k, pq is compact, there
+always exists an optimizing measure for pn, k, pq. The following lemma shows that we
+can restrict the search for an optimizing measure to a small subset of Apn, k, pq. For
+self-containedness, we also provide a proof.
+Lemma A. [19, p.507] There exists an optimizing measure for pn, k, pq that makes tXi :
+1 ď i ď nu exchangeable.
+   Recall that a sequence C1 , C2 , . . . , Cn of events is exchangeable if, for every 1 ď t ď n,
+the probabilities PpCi1 X Ci2 X ¨ ¨ ¨ X Cit q are the same for every 1 ď i1 ă i2 ă ¨ ¨ ¨ ă it ď n.
+Proof. Let P be an optimizing measure for pn, k, pq. Under the special case where all
+k-wise marginals have the same law, k-wise independence is closed under symmetrization.
+It follows that there is a measure P1 that makes
+                                             řn tXi : 1 ď i ďřnu exchangeable and gives
+   i“1 Xi the same law as does P. Thus P p i“1 Xi “ nq “ Pp i“1 Xi “ nq “ M pn, k, pq,
+ř  n                                       1                    n
+
+so that P is an optimizing measure for pn, k, pq.
+           1
+
+
+   By Lemma A, the problem is the same if we restrict to exchangeable measures. Let
+AE pn, k, pq be the subset of Apn, k, pq, consisting all exchangeable measures. An exchange-
+able measure P is uniquely determined by the quantities
+                             ˜                           ¸
+                               ÿi           ÿn
+                     vi “ P       Xj “ i,        Xj “ 0 ,       0 ď i ď n.               (2)
+                               j“1         j“i`1
+
+By symmetry, for any set of i bits, vi `is˘the probability of the event
+                                                                     ř that
+                                                                          ` ˘ these bits are
+all 1 and the rest are all 0. There are ni such subsets, and hence ni“0 ni vi “ 1.
+    By contrast,
+                     ˜           ¸
+                        i              n ˆ       ˙
+                       ÿ              ÿ    n´i
+                   P       Xj “ i “                v j “ pi ,  0 ď i ď k,                (3)
+                       j“1            j“i
+                                           j ´ i
+
+but this relation is no longer (necessarily) true for i ą k. Thus, the set of all k-wise
+independent distributions, whose marginals are all defined by PpXi “ 1q “ p, obeys the
+k ` 1 equality constraints in (3), in addition to the non-negativity constraints. A subset
+
+                                                3
+I Ď t0, 1, . . . , nu is a weak support of an exchangeable measure P if vi “ 0 for all i P
+t0, 1, . . . , nu ´ I. The set I is the support of P if vi ą 0 for each i P I and vi “ 0
+for all i P t0, 1, . . . , nu ´ I. The following two propositions provide explicit formulas for
+M pn, 2, pq and M pn, 3, pq. These formulas were obtained in [7] (see also [4] and [22]). For
+completeness, we also present the corresponding optimizing measures as in [22].
+Proposition A. [22, Theorem 4.1] Let n ě 3 and p P n´1
+                                                            “ j´1 j ‰
+                                                                 , n´1 for some 1 ď j ď n ´ 1.
+Then,                                         ˆˆ ˙                   ˆ ˙˙
+                                         1       n 2                   j
+                        M pn, 2, pq “ `n´j`1˘       p ´ npj ´ 1qp `         .               (4)
+                                         2
+                                                 2                     2
+Moreover, the optimizing distribution is supported on tj ´ 1, j, nu and given by
+                $ 1
+                ’
+                ’
+                ’  `n´1˘ ¨ p1 ´ pq ¨ pj ` p ´ npq,                  i “ j ´ 1,
+                ’
+                ’   j´1
+                ’
+                ’
+                ’
+                ’
+                ’
+                & 1
+                ’
+            vi “ `n´1˘ ¨ p1 ´ pq ¨ pnp ´ p ´ j ` 1q,                i “ j,                 (5)
+                ’
+                ’    j
+                ’
+                ’
+                ’
+                ’
+                ’            ˆˆ ˙                    ˆ ˙˙
+                ’
+                ’      1         n 2                  j
+                                     p ´ npj ´ 1qp `       ,        i “ n.
+                ’
+                % `n´j`1˘ ¨
+                ’
+                       2
+                                 2                    2
+   For self-containedness, we provide a proof of the proposition in Section 4. Once we
+know the value of M pn, k, pq for a certain even k (for all n), we will also know its value
+when k is replaced by k ` 1. In fact (see [19, p.504])
+        M pn, k ` 1, pq “ pM pn ´ 1, k, pq,       k ” 0 pmod 2q, n ě k ´ 2, p P r0, 1s.    (6)
+In particular, Proposition A readily yields a formula for M pn, 3, pq. In Proposition B we
+also provide the optimizing measure.
+                                       “ j´1 j ‰
+Proposition B. Let n ě 4 and p P n´2        , n´2 for some 1 ď j ď n ´ 1. Then,
+                                      ˆˆ       ˙                         ˆ ˙˙
+                                 1       n´1                              j
+             M pn, 3, pq “ p ¨ `n´j ˘               2
+                                                 ¨ p ´ pn ´ 1qpj ´ 1qp `      .         (7)
+                                 2
+                                           2                              2
+Moreover, the optimizing distribution is supported on t0, j, j ` 1, nu and given by
+        $                  ˆˆ         ˙                 ˆ     ˙˙
+              1                n´1 2                      j`1
+        ’
+        ’  `j`1˘ ¨ p1 ´ pq              p ´ jpn ´ 1qp `         q ,       i “ 0,
+                                 2                         2
+        ’
+        ’
+              2
+        ’
+        ’
+        ’
+        ’
+        ’
+        ’
+        ’
+        ’
+        ’        1
+        ’
+        ’
+        ’
+        ’  p ¨ `n´2˘ ¨ p1 ´ pqpj ´ pn ´ 2qpq,                             i “ j,
+                j´1
+        ’
+        &
+   wi “                                                                                    (8)
+        ’
+        ’        1
+           p ¨ `n´2˘ ¨ p1 ´ pqp1 ´ j ` pn ´ 2qpq,                         i “ j ` 1,
+        ’
+        ’
+        ’
+        ’
+        ’
+        ’       j´1
+        ’
+        ’
+        ’
+        ’
+        ’
+        ’            ˆˆ        ˙                          ˆ ˙˙
+        ’
+        ’        1       n ´ 1      2                      j
+        %p ¨ `n´j ˘              ¨ p ´ pn ´ 1qpj ´ 1qp `        ,         i “ n.
+        ’
+        ’
+                 2
+                           2                               2
+
+                                              4
+    Since the proof of the proposition is similar to that of Proposition A, it is omitted.
+    It will follow from the discussion in Subsection 3.2 that M pn, k, pq is a piecewise
+polynomial function of degree k in p for every fixed n and k. In Proposition A and B,
+these functions are presented explicitly for k “ 2, 3. We will refer to the (maximal)
+intervals on which M pn, k, pq is polynomial, starting at p “ 0 and continuing towards
+p “ 1, as the first interval of M pn, k, pq, second interval, and so forth. Notably, for k “ 2
+and k “ 3, the intervals have constant lengths of n´1     1
+                                                             and n´2
+                                                                   1
+                                                                      , respectively. We will see
+that the intervals are of varying lengths for k ě 4.
+    For integers m ě l ě 0, denote
+                              ˆ ˙        ˆ ˙                      ˆ ˙
+                                m          m 2                   l m
+            Bpm, l, xq “ 1 ´        x`          x ´ ¨ ¨ ¨ ` p´1q        xl ,    xPR           (9)
+                                1           2                       l
+where Bpm, l, xq “ 0 for negative integers l. We refer to these polynomials as Bonferroni
+polynomials for reasons that will be explained in Subsection 3.1.
+    The following theorem provides upper bounds on M pn, k, pq in terms of Bonferroni
+polynomials.
+Theorem 2.1.
+ 1. For every k:
+                        1
+      M pn, k, pq ď `n´k`m´1˘ ¨ pk´m ¨ Bpn ´ k ` m, m, pq,          0 ď m ď k, m ” 0 pmod 2q.
+                          m
+
+ 2. For even k:
+                                    M pn, k, pq ď Bpn, k, 1 ´ pq.
+
+   As mentioned in (1), it was proven in Benjamini et al. [4, Proposition 35] that, if
+     1
+p ď n´1 , then M pn, k, pq “ pk . We generalize this result in Theorem 2.2 below.
+                                                             1
+Theorem 2.2. M pn, k, pq “ pk if and only if p ď n´k`1         . Moreover, the optimizing
+distribution for such p is given by
+                    $
+                                i
+                    &p1 ´ pq ¨ p ¨ Bpn ´ i ´ 1, k ´ i ´ 1, pq, 0 ď i ď k ´ 1,
+                    ’
+               vi “ 0,                                         k ď i ď n ´ 1,        (10)
+                    ’
+                    % k
+                      p ,                                      i “ n.
+
+   For general k, Theorem 2.2 states the value of M pn, k, pq on the first interval (i.e.,
+near 0). We will also find the value of M pn, k, pq on the second interval (Theorem 2.5)
+and on the last two intervals (Theorem 2.3 and 2.7).
+Theorem 2.3. Let 2 ď k ď n ´ 1 be positive integers with k even. Then
+                                                            1
+                   M pn, k, pq “ Bpn, k, 1 ´ pq,     1´         ď p ď 1.                    (11)
+                                                          n´k`1
+Moreover, the optimizing distribution is given by
+                  #
+                    0,                                  0 ď i ď n ´ k ´ 1,
+             vi “          n´i
+                                                                                            (12)
+                    p1 ´ pq ¨ Bpi, i ´ pn ´ kq, 1 ´ pq, n ´ k ď i ď n.
+
+                                               5
+   From Theorem 2.2 and 2.3, we obtain
+
+Corollary 2.4.
+                                       #
+                                        pn´1 ,                      p ď 1{2,
+                     M pn, n ´ 1, pq “
+                                        Bpn, n ´ 1, 1 ´ pq,         p ą 1{2.
+
+For p ď 1{2, the optimal distribution is given by (10). For p ą 1{2, it is given by (12).
+
+   We now proceed to state Theorem 2.5.
+
+Theorem 2.5.
+
+ 1. Let 2 ď k ď n ´ 2, and
+                                                     1
+                                            p1 “         .
+                                                   n´k`1
+      Then, for some p2 ą p1 ,
+                                    1
+                   M pn, k, pq “ `n´k`1˘ ¨ pk´2 ¨ Bpn ´ k ` 2, 2, pq,    p P rp1 , p2 s .   (13)
+                                    2
+
+      Moreover, the optimizing distribution is given by
+           $                                         n´i´1
+                i                             k´i´1 p k´i q k´2
+           ’
+           ’  p   Bpn ´ i,  k  ´  i, pq ` p´1q       n´k`1 p    Bpn ´ k ` 2, 2, pq, i P I ´ tnu,
+           ’
+           &                                        p 2 q
+       vi “ 0,                                                                      i R I,
+           ’
+           ’       1
+           % n´k`1 ¨ p    k´2
+           ’                    ¨ Bpn ´ k ` 2, 2, pq,                               i “ n,
+              p 2 q
+                                                                                             (14)
+      where I “ t0, 1, . . . , k ´ 3, k ´ 1, k, nu.
+
+ 2. The largest p2 for which (13) and (14) hold is
+
+         • n´1
+            2
+               ´ for k “ 2;
+         • n´2
+            2
+               ´ for k “ 3;
+         • the zero of the cubic polynomial
+                          ˆ            ˙       ˆ         ˙       ˆ   ˙
+                            n´k`3            5 n´k`3 2 1 n´k`3 3
+                      1´                 p`                p ´         p                    (15)
+                                1            6      2          2   3
+                           “ 1        2
+                                          ‰
+           in the interval n´k`1  , n´k`1   ´ for k ě 4.
+
+    We mention that, using Lemma 3.1.1 below, we may rewrite the first case in (14)
+alternatively in the form
+               ˜                                 `n´i´1˘                       ¸
+                                                          k´i
+ vi “ p1 ´ pq pi Bpn ´ i ´ 1, k ´ i ´ 1, pq ` p´1qk´i´1 `n´k`1˘ pk´2 Bpn ´ k ` 1, 1, pq ,
+                                                                2
+
+for i P I ´ tnu.
+
+                                                 6
+Remark 2.6. In view of Theorems 2.2 and 2.5, the upper bound in Theorem 2.1.1 is
+tight for m “ 0, 2, and by Theorem 2.3 the same holds for Theorem 2.1.2. M pn, k, pq is
+given by the bound with m “ 0 in Theorem 2.1.1 on the first interval, by the bound with
+m “ 2 on the second interval, and by the bound in Theorem 2.1.2 on the last interval.
+In all of the examples we have checked, M pn, k, pq coincided with the bound for m “ 4
+on the third interval. However, M pn, k, pq only sometimes coincided with the bound for
+m “ 6 on the fourth interval. For example, for n “ 10, k “ 6, in the first four intervals,
+M pn, k, pq is given by the bounds as in Theorem 2.1.1 for m “ 0, 2, 4, 6, respectively, but
+for n “ 11, only the first three are as in Theorem 2.1.1, but not the 4-th, as follows:
+                 $
+                     6                                                    1
+                 ’
+                 ’ p   ,                                      0 ă p  ă      ,
+                                                                          6
+                 ’
+                 ’
+                 ’
+                 ’
+                 ’
+                 ’ p4                                         1
+                 & p1 ´ 7p ` 21p2 q,                            ă p ă 0.263 . . . ,
+                 ’
+                 ’
+  M p11, 6, pq “ 152                                          6                               (16)
+                 ’ p                  2      3       4
+                 ’
+                 ’       p1 ´ 9p ` 36p ´ 84p ` 126p q,        0.263 . . . ă p ă 0.294 . . . ,
+                 ’
+                 ’
+                 ’ 70
+                    p2
+                 ’
+                 ’
+                          p5 ´ 45p ` 180p2 ´ 378p3 ` 378p4 q, 0.294 . . . ă p ă 0.315 . . . .
+                 ’
+                 ’
+                 %
+                   140
+The first three equalities in (16) are the same as the bound in Theorem 2.1.1, namely
+                                1
+                            `n´k`m´1˘ ¨ pk´m Bpn ´ k ` m, m, pq,
+                                 m
+
+for m “ 0, 2, 4, respectively, while the fourth equality is different from that bound for
+m “ 6, which is
+    1                                  1
+`n´k`m´1˘ ¨ pk´m Bpn ´ k ` m, m, pq “     p1 ´ 11p ` 55p2 ´ 165p3 ` 330p4 ´ 462p5 ` 462p6 q.
+    m
+                                      120
+   The following theorem deals with the second to last interval.
+Theorem 2.7.
+ 1. For k even let 2 ď k ď n ´ 2 be positive integers and
+                                                      1
+                                         p1 “ 1 ´         .
+                                                    n´k`1
+      Then, for some p2 ă p1 ,
+                                      ` n ˘
+                                    k`1
+      M pn, k, pq “ Bpn, k, 1´pq` `n´k`1˘ ¨p1´pqk´1 Bpn´k `1, 1, 1´pq,               p P rp2 , p1 s .
+                                         2
+                                                                                               (17)
+      Moreover, the optimizing distribution is given by
+               $
+               ’
+               ’  p1 ´ pqi Bpn ´ i, k ´ i, 1 ´ pq´
+               &                n´i
+                              pk`1´i q
+        vn´i “      p´1qk´i´1 n´k`1    ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq,       i P pn ´ Iq,
+               ’
+               ’              p  2   q
+                  0                                                               i R n ´ I,
+               %
+                                                                                               (18)
+      where I “ tn ´ k ´ 1, n ´ k, n ´ k ` 2, . . . , n ´ 1, nu.
+
+                                                7
+ 2. The smallest p2 for which (13) and (18) hold is
+
+         • n´1
+            2
+               ´ for k “ 2;
+         • the zero of the cubic polynomial
+                ˆ           ˙              ˆ          ˙             ˆ    ˙
+                  n´k`3                  5 n´k`3                  1 n´k`3
+            1´                p1 ´ pq `                        2
+                                                        p1 ´ pq ´          p1 ´ pq3 (19)
+                      1                  6      2                 2   3
+                           “       2           1
+                                                   ‰
+           in the interval 1 ´ n´k`1   , 1 ´ n´k`1   ´ for k ě 4.
+
+    We conclude this section with two remarks.
+Remark 2.8.
+ (1) Unlike the polynomials describing M pn, k, pq on the first, second, and last intervals,
+     which form upper bounds on M pn, k, pq on the entire interval r0, 1s, the polynomial
+     on the right-hand side of (17) is not an upper bound for M pn, k, pq. In all of the
+     examples we have checked, the polynomial is negative on some sub-interval of r0, 1s.
+
+ (2) It follows from (15) and (19) that the smallest p2 in Theorem 2.7 and the largest p2
+     in Theorem 2.5 are symmetric with respect to the point p “ 1{2, namely p2 “ 1´p2 .
+Remark 2.9. Theorems 2.3, 2.7, and the numerical data suggest that, for even k between
+2 and n ´ 2, there exists a point p3 ă p2 such that
+                                 ` n ˘
+                                  k`1
+ M pn, k, pq “ Bpn, k, 1 ´ pq ` `n´k`3˘ p1 ´ pqk´3 Bpn ´ k ` 3, 3, 1 ´ pq,      p P rp3 , p2 s,
+                                         4
+
+where the endpoints p2 , p3 are symmetric, respectively, to the endpoints p2 , p3 of the third
+interval with respect to the point p “ 1{2.
+    This concludes the section of the main results, all of which will be proven in Section 4.
+
+
+3     Preliminaries
+In this section, we recall the necessary preliminaries for the proofs in Section 4.
+
+3.1    Bonferroni Inequalities
+Let A1 , A2 , . . . , An be arbitrary events in a probability space pΩ, B, Pq. Let N be the
+(random) number of events Ai -s that occur. Denote
+                            ÿ
+                St “                 PpAi1 X Ai2 X ¨ ¨ ¨ X Ait q, t “ 1, 2, . . . , n, (20)
+                   1ďi1 ăi2 ă¨¨¨ăit ďn
+
+where S0 “ 1. Bonferroni’s inequalities, first proved by Bonferroni [6] (see also [24]), state
+that
+                  2m`1
+                   ÿ                             2m
+                                                 ÿ
+                      p´1qi Si ď PpN “ 0q ď p´1qi Si ,          m ě 0.                    (21)
+                     i“0                          i“0
+
+
+                                              8
+Inequalities of the form
+                                    n
+                                    ÿ                          n
+                                                               ÿ
+                                          ci Si ď PpN “ rq ď         di S i ,                      (22)
+                                    i“0                        i“0
+
+where ci “ ci pr, nq and di “ di pr, nq are constants (unrelated to the specific events Aj ,
+1 ď j ď n), possibly zero, are Bonferroni-type inequalities (see [10]). Such inequalities
+have a long history (cf. [6, 10, 12, 16, 20]). An extension of (21) is given by Jordan’s
+inequalities, which are as follows (cf. [16, p.8])
+      2m`1         ˆ       ˙                  2m    ˆ    ˙
+       ÿ
+               i       i`r                    ÿ
+                                                   i i`r
+            p´1q             Si`r ď PpN “ rq ď p´1q        Si`r ,                  0 ď r ď n, m ě 0.
+      i“0
+                        r                     i“0
+                                                      r
+
+   It follows from [10, Theorem 2] that (22) holds for arbitrary events A1 , A2 , . . . , An if
+and only it holds for exchangeable events. In other words, the inequality in (22) holds for
+arbitrary A1 , A2 , . . . , An if and only if
+                               n     ˆ ˙                  n     ˆ ˙
+                              ÿ       n          1
+                                                         ÿ       n
+                                  ci     Pk ď PpN “ rq ď     di     Pk
+                              i“0
+                                      k                  i“0
+                                                                 k
+
+for arbitrary exchangeable events C1 , C2 , . . . , Cn , where N 1 is the number of events Ci
+that occur and Pk “ PpCii X Ci2 X ¨ ¨ ¨ X Cik q. Furthermore, the inequality in (22) holds
+for arbitrary events A1 , A2 , . . . , An if and only if it holds when the Aj ’s are independent
+and P pAj q “ p for each 1 ď j ď n (see [10, Theorem 3]).
+   Let X1 , X2 , . . . , Xn be P-distributed random bits, where P P AE pn, k, pq, namely
+PpXi “ 1q “ p and the Xi -s are k-wise independent. Let Ai “ tXi “ 1u, 1 ď i ď n.
+By (20),                            ˆ ˙
+                                      n t
+                               St “      p,     t “ 1, 2, 3, . . . , k.             (23)
+                                      t
+Employing (21) and (23), we obtain
+                  #                   ` ˘            ` ˘
+                    ď Bpn, k, pq “ 1 ´ n1 p ` ¨ ¨ ¨ ` nk pk ,                   k ” 0 pmod 2q,
+        PpN “ 0q                      ` ˘            ` ˘                                           (24)
+                    ě Bpn, k, pq “ 1 ´ n1 p ` ¨ ¨ ¨ ´ nk pk ,                   k ” 1 pmod 2q,
+
+which explains the term “Bonferroni polynomials” introduced in Section 2. We refer the
+reader to [12] for further details on Bonferroni inequalities.
+   Several useful properties of Bonferroni polynomials are listed in the following lemma.
+So as to ease the flow of presentation, the proof is postponed to Section 4.
+
+Lemma 3.1. For any positive integers 0 ď k ď n,
+
+ 1.                       Bpn, k, pq “ Bpn ´ 1, k, pq ´ pBpn ´ 1, k ´ 1, pq
+                                                                         ˆ    ˙
+                                                                       k n´1
+                                     “ p1 ´ pqBpn ´ 1, k ´ 1, pq ` p´1q         pk .
+                                                                            k
+                                    d
+ 2.                                    Bpn, k, pq “ ´nBpn ´ 1, k ´ 1, pq.
+                                    dp
+
+                                                    9
+                                               k´1
+                                               ÿˆ              ˙
+ 3.                                                       n ´ k k´i
+                   Bpn, k, pq “ Bpk, k, pq ´                     p Bpn ´ k ` i, i, pq.       (25)
+                                               i“0
+                                                          k´i
+    Another essential inequality concerning the Bonferroni polynomials, crucial for us in
+the sequel, is presented in the following proposition. So as to ease the flow of presentation,
+its proof is postponed to Section 4.
+Proposition 3.2. Let 0 ď l ď m. Then
+                                                            1
+                          Bpm, l, pq ě 0,         0ďpď            .                          (26)
+                                                        m´l`1
+Moreover, the inequality in (26) is strict except for the following cases:
+ 1. l “ 1 and p “ 1{m.
+ 2. m is odd, l “ m ´ 1, and p “ 1{2.
+ 3. l “ m and p “ 1.
+
+
+3.2    M pn, k, pq as the Solution of a Linear Programming Problem
+Let X1 , X2 , . . . , Xn be P-distributed random bits, where P P AE pn, k, pq. Let Ai “
+tXi “ 1u, 1 ď i ď n. Let N be the number of events Ai which occur. By (2) and (3),
+one may recast the problem of calculating M pn, k, pq for given n, k, p as a primal linear
+programming problem, as follows:
+
+                 maximize             vn
+                subject to
+                               n ˆ
+                                                                                             (27)
+                                       ˙
+                               ÿ   n´i
+                                            vj “ pi ,              i “ 0, 1, 2, . . . , k,
+                               j“0
+                                      j´i
+                                      vj          ě 0,            j “ 0, 1, 2, . . . , n.
+
+Letting                           ˆ ˙
+                                   n
+                             wi “     vi ,         i “ 0, 1, 2, . . . , n,
+                                   i
+and                             ˆ ˙
+                                 n i
+                           Si “     p,             i “ 0, 1, 2, . . . , k,
+                                 i
+we may rewrite (27) in the form:
+
+                  maximize            wn
+                  subject to
+                                n ˆ ˙
+                                ÿ  j                                                         (28)
+                                           wj “ Si ,            i “ 0, 1, 2, . . . , k,
+                                j“0
+                                       i
+                                      wj      ě      0,         j “ 0, 1, 2, . . . , n.
+
+
+                                                10
+  We now pause to introduce some notation which will enable us to rewrite (28) in a
+more compact form.
+                   ˆ       ˆ ˙         ˆ ˙˙T
+                            i            i
+           ai “      1, i,      ,...,          P Rk`1 , i “ 0, 1, 2, . . . , n,
+                            2            k
+           A “ ra0 , a1 , . . . , an s P Mpk`1qˆpn`1q ,
+
+              w “ pw0 , w1 , . . . , wn qT ,                                                   (29)
+
+              c   “ p0, 0, . . . , 0, 1qT P Rn`1 ,
+
+              d “ pS0 , S1 , . . . , Sk qT P Rn`1 ,
+
+where T denotes matrix transpose. With this notation, (28) becomes
+
+                                     maximize cT ¨ w
+                                    subject to
+                                                                                               (30)
+                                                     A ¨ w “ d,
+                                                       w       ě 0.
+
+The dual of (30) is
+                                     minimize        dT ¨ y
+                                    subject to                                                 (31)
+
+                                                    AT ¨ y ě c.
+    We now mention some definitions and recall some key results of Boros and Prékopa [7],
+and Prékopa [20,21], who considered a more general problem than (30). With slight abuse
+of notation, let B be a basis consisting of k ` 1 columns of A. Then B is dual feasible if
+
+                             cTB B ´1 aj ě cj ,       j P t0, 1, . . . , nu ´ I,               (32)
+
+where I is the set of subscripts of the basis vectors and cB is the vector of basic components
+of c. The basis B is dual nondegenerate if the inequality in (32) is strict for every j.
+    Let I “ ti0 , i1 , . . . , ik u, 0 ď i0 ă i1 ă . . . ă ik ď n. Denote
+
+                                      BpIq “ rai0 , ai1 , . . . , aik s.
+
+It follows from [7, Theorem 7.1] that
+                                                       t“0,1,...,k
+                                       BpIq´1 “ rbs,t ssPI         ,
+
+where                        řt        ` ˘ś
+                                      α t
+                     p´1qt    α“0 p´1q   α     uPI´tsu pu ´ αq
+            bs,t “              ś                              ,           s P I, 0 ď t ď k.   (33)
+                                   uPI´tsu pu ´ sq
+
+
+                                                     11
+Theorem 3.3. [7, Theorem 7.2] A basis BpIq, corresponding to problem (30), is dual
+feasible if and only if I satisfies the following conditions:
+ (1) n P I.
+ (2) If k is odd then 0 P I.
+ (3) The elements of I ´ tnu in the case of even k, and of I ´ t0, nu in the case of odd k,
+     come in pairs of consecutive numbers. Namely,
+          #
+            ti1 , i1 ` 1, i2 , i2 ` 1, . . . , ik{2 , ik{2 ` 1, nu,            k ” 0 pmod 2q,
+      I“                                                                                      (34)
+            t0, i1 , i1 ` 1, i2 , i2 ` 1, . . . , ipk´1q{2 , ipk´1q{2 ` 1, nu, k ” 1 pmod 2q,
+
+       where ij`1 ě ij ` 2 for each j.
+Theorem 3.4. [7, Theorem 7.3], [12, Theorem IV.1.] Let I Ď t0, 1, 2, . . . , nu be a set of
+size k ` 1 of the type in (34). Then
+                                                     k
+                                                     ÿ
+                                     M pn, k, pq ď         bn,i Si ,                         (35)
+                                                     i“0
+
+where the bn,i are as in (33). Moreover, If BpIq´1 d ě 0, the bound in (35) is tight, and
+therefore
+                                               k
+                                               ÿ
+                                 M pn, k, pq “   bn,i Si .
+                                                     i“0
+
+Theorem 3.5. [21, Theorem 6] Let BpIq be a dual feasible basis corresponding to (30).
+For i P I, if all the bases BpIi,j q, where
+                      Ii,j “ pI ´ tiuq Y tju,         j P t0, 1, . . . , nu ´ I,
+are not dual feasible basis, then we will have wi ě 0.
+    All dual feasible bases for (30) are dual nondegenerate [21, p.232]. Moreover, the
+optimal distribution is unique [21, Theorem 5]. We refer the reader to [12, Chapter IV]
+for more details on dual feasibility of the basis BpIq and related results.
+
+
+4      Proofs
+We first recall for later reference several well-known identities involving binomial coeffi-
+cients (see [11, Lemma 1.4.2] and [12, p.14]):
+ (1)
+                         t       ˆ ˙        ˆ   ˙
+                         ÿ        s        t s´1
+                            p´1q i
+                                     “ p´1q       ,                       s ě 1, t ě 0,      (36)
+                         i“0
+                                  i           t
+
+ (2)
+                                     s       ˆ ˙
+                                     ÿ        s
+                                        p´1qi
+                                                 “ 0,                  s ě 0,                (37)
+                                     i“0
+                                              i
+
+                                                12
+ (3)                     ˆ ˙ˆ     ˙ ˆ ˙ˆ ˙
+                          n n´i      j  n
+                                   “       ,                0 ď i ď j ď n.                    (38)
+                          i   j´i    i  j
+
+4.1    Proof of Theorem 2.1
+1. For p P r0, 1s, we have
+          ˆ ˙           ˆ ˙                      ˆ ˙               ˆ ˙
+           n              n                       n                 n
+     v0 `      v1 `         v2     ` ¨¨¨ `           vk    ` ¨¨¨ `     vn          “ 1,
+            1             2                       k                 n
+                    ˆ   ˙                    ˆ ˙                   ˆ     ˙
+                     n´1                   n´1                       n´1
+              v1   `      v2       ` ¨¨¨ `       vk        ` ¨¨¨ `         vn “ p,            (39)
+                      1                    k´1                       n´1
+                                                              ..
+                                                               .
+                                                                   ˆ     ˙
+                                                                     n´k
+                                                      vk   ` ¨¨¨ `         vn “ pk .
+                                                                     n´k
+
+We proceed to multiply the last pm ` 1q equalities in (39) by, respectively,
+  ˆ           ˙ ˆ              ˙ ˆ            ˙ ˆ                ˙       ˆ      ˙
+    n´k`m           n´k`m           n´k`m             n´k`m                n´k`m
+               ,´                ,              ,´                 ,...,          .
+        0                1              2                  3                 m
+
+We then add up the resulting equalities, which gives an equality of the form
+                                                             m    ˆ          ˙
+                                                                 i n´k`m
+                                                            ÿ
+ ck´m vk´m ` ck´m`1 vk´m`1 ` ¨ ¨ ¨ ` ck vk ` ¨ ¨ ¨ ` cn vn “ p´1q              ¨ pk´m`i
+                                                            i“0
+                                                                       i
+                                                           “ pk´m ¨ Bpn ´ k ` m, m, pq.
+                                                                                              (40)
+
+This equality will yield an upper bound on vn if we find cn and show that all other
+coefficients cl on the left-hand side of (40) are non-negative. Using (36), (37), and (38),
+we clearly have:
+
+   •
+                                             ck´m “ 1.                                        (41)
+
+   • The following m coefficients vanish because
+                    j          ˆ        ˙ˆ           ˙
+                    ÿ
+                           in ´ k ` m n ´ pk ´ m ` iq
+          ck´m`j “ p´1q
+                   i“0
+                                i              j´i
+                    j      ˆ ˙ˆ             ˙
+                          i j   n´k`m
+                   ÿ
+                 “ p´1q                                                j “ 1, 2, . . . , m.   (42)
+                   i“0
+                            i         j
+                   ˆ          ˙ j          ˆ ˙
+                      n´k`m ÿ             i j
+                 “              ¨ p´1q         “ 0,
+                        j         i“0
+                                            i
+
+
+                                                 13
+   • The final n ´ k coefficients are strictly positive:
+               m      ˆ             ˙ˆ                     ˙
+                     i n´k`m              n ´ pk ´ m ` iq
+              ÿ
+      ck`j “ p´1q
+              i“0
+                              i        k ` j ´ pk ´ m ` iq
+               m      ˆ             ˙ˆ                ˙
+                     i n´k`m           n´k`m´i
+              ÿ
+            “ p´1q
+              i“0
+                              i           j`m´i
+               m      ˆ         ˙ˆ            ˙
+                     i j `m        n´k`m
+                                                                                  j “ 1, 2, . . . , n ´ k. (43)
+              ÿ
+            “ p´1q
+              i“0
+                           i         j`m
+              ˆ            ˙ ÿ  m      ˆ        ˙
+                n´k`m                 i j `m
+            “                ¨ p´1q
+                  j`m                       i
+              ˆ            ˙ i“0ˆ          ˙
+                n´k`m             j`m´1
+            “                ¨                ą 0.
+                  j`m                m
+
+In particular, cn “               , and therefore
+                      `n´k`m´1˘
+                         m
+
+                                    pk´m
+                             vn ď `n´k`m´1˘ ¨ Bpn ´ k ` m, m, pq.
+                                        m
+
+Hence,
+                                        pk´m
+                        M pn, k, pq ď `n´k`m´1˘ ¨ Bpn ´ k ` m, m, pq.
+                                              m
+
+
+2. Recall that
+                       M pn, k, pq “         max      PpX1 “ ¨ ¨ ¨ “ Xn “ 1q.                             (44)
+                                       PPAE pn,k,pq
+
+Let Ai “ tXi “ 1u, 1 ď i ď n. It follows from (20) and (21) that
+                                       k
+                                       ÿ                  ÿ
+         PpX1 “ ¨ ¨ ¨ “ Xn “ 1q ď          p´1qt                         PpAC      C              C
+                                                                            i1 X A i2 X ¨ ¨ ¨ X A it q
+                                       t“0         1ďi1 ăi2 ă¨¨¨ăit ďn
+                                                                                                          (45)
+                                       k  ˆ ˙
+                                         t n
+                                       ÿ
+                                   “ p´1q     p1 ´ pqt “ Bpn, k, 1 ´ pq.
+                                    t“0
+                                           t
+
+By (44) and (45),
+                                   M pn, k, pq ď Bpn, k, 1 ´ pq.
+This concludes the proof.
+
+
+
+
+                                                    14
+4.2    Proof of Lemma 3.1
+1. We have
+                           k    ˆ ˙          k        ˆˆ        ˙ ˆ           ˙˙
+                           ÿ      n i ÿ
+                                  i                 i     n´1          n´1
+             Bpn, k, pq “ p´1q        p “ p´1q                     `             pi
+                         i“0
+                                  i        i“0
+                                                            i           i ´ 1
+                          k     ˆ       ˙       k         ˆ       ˙
+                              i n´1                     i n´1
+                         ÿ                     ÿ
+                                           i
+                        “ p´1q            p ` p´1q                  pi
+                         i“0
+                                    i          i“0
+                                                            i ´ 1                     (46)
+                          k     ˆ       ˙      k´1           ˆ       ˙
+                               i n´1                     i`1 n ´ 1
+                         ÿ                     ÿ
+                                           i
+                        “ p´1q            p `      p´1q                pi`1
+                         i“0
+                                    i          i“0
+                                                                 i
+                       “ Bpn ´ 1, k, pq ´ pBpn ´ 1, k ´ 1, pq.
+
+Simplifying the right-hand side of (46) further, we obtain
+                                                 ˆ     ˙
+                                                k n´1
+         Bpn, k, pq “ Bpn ´ 1, k ´ 1, pq ` p´1q          pk ´ pBpn ´ 1, k ´ 1, pq
+                                                    k
+                                                       ˆ      ˙                       (47)
+                                                      k n´1
+                    “ p1 ´ pqBpn ´ 1, k ´ 1, pq ` p´1q          pk .
+                                                           k
+
+2. We have
+                       ˜      ˆ ˙ ¸ ÿ
+                           k               k    ˆ ˙            k    ˆ      ˙
+   d               d       ÿ
+                             i n    i          i n      i´1
+                                                              ÿ
+                                                                  i   n ´ 1 i´1
+      Bpn, k, pq “       p´1q      p “ p´1q          ip “ p´1q n             p
+   dp              dp i“0      i          i“0
+                                                  i           i“1
+                                                                      i´1
+                     k´1     ˆ      ˙
+                            i n´1
+                     ÿ
+                 “ ´n p´1q            pi “ ´nBpn ´ 1, k ´ 1, pq.
+                     i“0
+                                 i
+
+3. We use induction on k. For k “ 0, both sides of (25) are 1. Assume that (25) holds
+with k ´ 1 instead of k. Note that both sides of (25) are polynomials of degree at most k
+in p and they coincide at p “ 0. Hence, it suffices to prove that the derivatives with
+respect to p of both sides of (25) coincide, namely that
+                               ˜                                            ¸
+                                            k´1
+                                            ÿ ˆn ´ k ˙
+            d               d
+              Bpn, k, pq “             k
+                                p1 ´ pq ´                k´i
+                                                       p Bpn ´ k ` i, i, pq .        (48)
+           dp              dp               i“0
+                                                k´i
+
+
+
+
+                                              15
+By the preceding part, the right-hand side of (48) is
+                          k´1
+                          ÿˆ        ˙
+                k´1             n´k
+  ´ kp1 ´ pq          ´               pk ´ iqpk´1´i Bpn ´ k ` i, i, pq
+                          i“0
+                                k´i
+          k´1
+          ÿˆ          ˙
+             n´k
+      `                pn ´ k ` iqpk´i Bpn ´ k ` i ´ 1, i ´ 1, pq
+       i“0
+             k ´   i
+                      k´2
+                      ÿ ˆn ´ k ˙
+              k´1
+“ ´ kp1 ´ pq       ´               pk ´ iqpk´1´i Bpn ´ k ` i, i, pq ´ pn ´ kqBpn ´ 1, k ´ 1, pq
+                      i“0
+                            k ´ i
+      k´2  ˆ              ˙
+       ÿ        n´k
+    `                       pn ´ k ` i ` 1qpk´pi`1q Bpn ´ k ` i, i, pq
+       i“0
+             k ´ pi ` 1q
+      ˆ        ˙
+         n´k
+    `             pn ´ kqpk Bpn ´ k ´ 1, ´1, pq
+           k
+    k´2 ˆˆ          ˙           ˆ          ˙                 ˙
+    ÿ       n´k                     n´k
+“´                    pk ´ iq ´              pn ´ k ` i ` 1q pk´1´i Bpn ´ k ` i, i, pq
+    i“0
+            k´i                   k´1´i
+    ´ kp1 ´ pqk´1 ´ pn ´ kqBpn ´ 1, k ´ 1, pq ` 0
+                   k´2     ˆ          ˙
+             k´1
+                   ÿ           n´k
+“ ´ kp1 ´ pq     ´     p´kq             pk´1´i Bpn ´ k ` i, i, pq
+                   i“0
+                             k ´ 1 ´ i
+    ´ pn ´ kqBpn ´ 1, k ´ 1, pq
+     ˜                                                       ¸
+                   k´2
+                   ÿˆ n´k ˙
+“ ´ k p1 ´ pqk´1 ´                  pk´1´i Bpn ´ k ` i, i, pq
+                   i“0
+                         k ´  1 ´ i
+      ´ pn ´ kqBpn ´ 1, k ´ 1, pq
+
+By the induction hypothesis, the last expression reduces to
+
+          ´kBpn ´ 1, k ´ 1, pq ´ pn ´ kqBpn ´ 1, k ´ 1, pq “ ´nBpn ´ 1, k ´ 1, pq.
+
+In view of part 2 of the lemma, this proves (48).
+
+
+
+4.3       Proof of Proposition 3.2
+It follows from [11, Lemma 1.3.2] (see also [10, p.562]) that, for even l,
+               ˆ ˙      ˆ ˙        ˆ ˙              ˆ ˙
+                 m       m 2         m 3             m l
+                     p´      p `         p ´ ¨¨¨ ´        p ď 1 ´ p1 ´ pqm .               (49)
+                  1      2           3                l
+
+Thus, for even l, we have Bpm, l, pq ě p1 ´ pqm for all 0 ď p ď 1. It remains to prove the
+proposition for odd l. We first deal with a few simple cases.
+
+ 1. If l “ 1, then Bpm, l, pq “ 1 ´ mp, which is trivially non-negative for p ď m´1`1
+                                                                                  1
+                                                                                      “ m1 ,
+      and vanishes only at p “ m .1
+
+
+
+
+                                                   16
+ 2. If l “ m´1, then Bpm, l, pq “ p1´pqm ´pm . Since p ď 21 , this is certainly nonnegative,
+       vanishing only at p “ 1{2.
+ 3. If l “ m, then Bpm, l, pq “ p1 ´ pqm , which is trivially non-negative, vanishing only
+      at p “ 1.
+Now, let l be odd, 3 ď l ď m ´ 2. Let
+                                                 1
+                                       p1 “              .
+                                            m´k`1
+It follows from Lemma 3.1.2 (since l ´ 1 is even) that dp  d
+                                                             Bpm, l, pq is negative, and hence it
+suffices to check that the required inequality is satisfied and is strict at the right endpoint
+of the interval, namely that
+                             ˆ ˙       ˆ ˙                 ˆ ˙
+                              m          m 2                 m l
+                         1´       p1 `       p1 ´ ¨ ¨ ¨ ´       p1 ą 0.
+                               1         2                   l
+Since l ´ 1 is even, we have by [11, Lemma 1.3.2]
+            ˆ ˙        ˆ ˙       ˆ ˙                 ˆ      ˙
+              m          m 2       m 3                  m
+                  p1 ´      p1 `        p1 ´ ¨ ¨ ¨ ´          pl´1
+                                                               1   ď 1 ´ p1 ´ p1 qm ,
+               1         2         3                   l´1
+which yields
+     ˆ ˙         ˆ ˙       ˆ ˙               ˆ       ˙        ˆ ˙                     ˆ ˙
+       m          m 2       m 3                  m      l´1      m l              m    m l
+ 1´        p1 `       p1 ´      p1 ` ¨ ¨ ¨ `           p1 ´         p1 ě p1 ´ p1 q ´      p1 .
+        1          2         3                 l´1               l                     l
+                                                                                         (50)
+Thus, it suffices to show that for odd l
+                                     ˆ ˙
+                                        m l
+                                           p1 ă p1 ´ p1 qm ,
+                                         l
+which is equivalent to
+                                                      ˆ        ˙m´l
+                      m ¨ pm ´ 1q ¨ ¨ ¨ pm ´ l ` 1q        m´l
+                                                    ă               .                       (51)
+                              l!pm ´ lql                 m´l`1
+The right-hand side of (51) is at least 1{e, so that it suffices to show that
+                                                               l ˆ            ˙
+   m´l`1 m´l`2 m´l`3                                  m       ź     1     1      1
+              ¨            ¨             ¨ ¨¨¨ ¨            “         `         ă .         (52)
+   1 ¨ pm ´ lq 2 ¨ pm ´ lq 3 ¨ pm ´ lq           l ¨ pm ´ lq j“1 j m ´ l         e
+We show this by distinguishing between several cases:
+ 1. l ě 7: We have
+                           l ˆ              ˙       7 ˆ          ˙
+                           ź   1    1               ź   1    1           9   1
+                                  `             ď          `         “      ă .
+                           j“1
+                                 j m´l              j“1
+                                                          j 2            32  e
+
+ 2. l “ 3, 5 and m ě 10: For every fixed l, as m increases the product in (52) consists of
+      the same number of factors, but they become smaller and smaller. Therefore, if (52)
+      holds for some pm, lq, then it must hold for pm ` 1, lq, pm ` 2, lq, . . .. We verified
+      (52) numerically for m “ 10, and l “ 3 and l “ 5; hence it must be true for m ě 10.
+ 3. l “ 3, 5 and m ă 10: It is easily verified that (26) holds (with a strict inequality) via
+      straightforward calculation.
+
+
+                                                17
+4.4       Proof of Theorem 2.2
+Suppose first that M pn, k, pq ” vn “ pk . By (3), all the vi , k ď i ď n ´ 1, must vanish.
+We need to show that
+
+               vi “ p1 ´ pq ¨ pi Bpn ´ i ´ 1, k ´ i ´ 1, pq,              0 ď i ď k ´ 1.
+
+Using the generalized inclusion-exclusion principle (see [1, Corollary 5.2]) and the fact
+that P is an exchangeable measure, we have
+               n       ˆ       ˙
+                    j´i n ´ i
+              ÿ
+         vi “ p´1q               PpX1 “ X2 “ ¨ ¨ ¨ “ Xj “ 1q,     i “ 0, 1, . . . , n. (53)
+              j“i
+                         j ´ i
+
+Since the Xi -s are k-wise independent,
+                   PpX1 “ X2 “ ¨ ¨ ¨ “ Xj “ 1q “ pj ,                j “ 0, 1, . . . , k.       (54)
+For j ě k,
+ “ pk “ PpX1 “ ¨ ¨ ¨ “ Xk “ 1q ě PpX1 “ ¨ ¨ ¨ “ Xj “ 1q ě PpX1 “ ¨ ¨ ¨ “ Xn “ 1q “ pk
+so that
+              PpX1 “ X2 “ ¨ ¨ ¨ “ Xj “ 1q “ pk ,                 j “ k ` 1, k ` 2, . . . , n.   (55)
+By (53), (54), and (55), we have for 0 ď i ă k
+                          ˆ      ˙        ˆ      ˙
+       i           i`1      n ´ i i`2       n ´ i i`3
+ vi “ p ´ pn ´ iqp `               p ´             p ` ¨¨¨
+                              2               3
+                   ˆ          ˙                 ˆ      ˙                 ˆ      ˙
+             k´i´1     n´i        k´1        k´i n ´ i    k        k´i`1    n´i
+      ` p´1q                    p     ` p´1q             p ` p´1q                 pk ` ¨ ¨ ¨
+                     k´i´1                        k´i                      k´i`1
+                ˆ       ˙
+                  n´i k
+      ` p´1qn´i           p
+                  n´i
+                          ˆ      ˙        ˆ      ˙
+       i           i`1      n ´ i i`2       n ´ i i`3
+    “ p ´ pn ´ iqp `               p ´             p ` ¨¨¨
+                              2               3
+                   ˆ          ˙                 ˆ           ˙
+             k´1´i     n´i        k´1        k´i n ´ i ´ 1
+      ` p´1q                    p     ` p´1q                  pk ,
+                     k´i´1                        k´i´1
+                                                                                       (56)
+where in the last step we have relied on the identity
+            ˆ ˙ ˆ           ˙ ˆ        ˙                   ˆ ˙ ˆ     ˙
+               m        m           m                   m´j m    m´1
+                   ´          `           ´ ¨ ¨ ¨ ` p´1q      “        .
+               j       j`1         j`2                      m    j´1
+By (9), (56), and Lemma 3.1.1,
+                                                             ˆ  ˙
+                   i                                  n´i´1 k
+                                                       k´i
+             vi “ p Bpn ´ i, k ´ i ´ 1, pq ` p´1q                 p
+                                                      k´i´1
+                “ pi pBpn ´ i ´ 1, k ´ i ´ 1, pq ´ pBpn ´ i ´ 1, k ´ i ´ 2, pqq                 (57)
+                       i`1
+                 ´p          pBpn ´ i ´ 1, k ´ i ´ 1, pq ´ Bpn ´ i ´ 1, k ´ i ´ 2, pqq
+                   i
+               “ p p1 ´ pqBpn ´ i ´ 1, k ´ i ´ 1, pq.
+
+                                                  18
+In particular,
+
+        0 ď vk´2 “ pk´2 p1 ´ pqBpn ´ k ` 1, 1, pq “ pk´2 p1 ´ pqp1 ´ pn ´ k ` 1qpq,
+
+which implies that the condition p ď n´k`1
+                                       1
+                                           is necessary.
+   It follows from Proposition 3.2 that the solution in (10) is a feasible solution for
+       1
+p ď n´k`1  . Using Theorem 2.1.1, we conclude that the solution is optimal. Hence the
+condition p ď n´k`1
+                 1
+                     is sufficient.
+
+
+4.5    Proof of Theorem 2.3
+By the generalized inclusion-exclusion principle (see [1, Corollary 5.2]) and the fact that
+P is exchangeable,
+                n ˆ       ˙
+               ÿ    n´k
+                            vj “ pi p1 ´ pqk´i ,                  0 ď i ď k,          (58a)
+               j“i
+                    j ´ i
+                 vi ě 0,                                             0 ď i ď n.          (58b)
+
+Since k is even, it follows from Theorem 2.1.2 that, for every feasible solution,
+
+                           PpX1 “ X2 “ ¨ ¨ ¨ “ Xn “ 1q ď Bpn, k, 1 ´ pq.                  (59)
+
+Now moving in the opposite direction, we have to find a feasible solution of the system of
+constraints (58a)-(58b) such that vn “ Bpn, k, 1 ´ pq. We choose
+                   #
+                    0,                                   0 ď i ď n ´ k ´ 1,
+              vi “         n´i
+                                                                                      (60)
+                    p1 ´ pq ¨ Bpi, i ´ pn ´ kq, 1 ´ pq, n ´ k ď i ď n.
+
+By Proposition 3.2, the vi -s in (60) are non-negative for p ě 1 ´ n´k`1
+                                                                     1
+                                                                         . We rewrite (58a)
+in the form
+                k ˆ                  ˙
+               ÿ         n´k
+                                       vn´k`j “ pi p1 ´ pqk´i ,  0 ď i ď k.
+               j“0
+                     n ´ k   ´ i ` j
+Equivalently,
+                      i ˆ     ˙
+                      ÿ   n´k
+                                     vn´k`j “ pi p1 ´ pqk´i ,   0 ď i ď k.                (61)
+                      j“0
+                              i´j
+By Lemma 3.1.3 and (60), we have that for 0 ď i ď k
+       i ˆ       ˙           i ˆ        ˙
+      ÿ    n´k              ÿ    n´k
+                   vn´k`j “               p1 ´ pqk´j Bpn ´ k ` j, j, 1 ´ pq
+      j“0
+           i ´ j            j“0
+                                 i ´  j
+                                         i ˆ       ˙
+                                    k´i
+                                        ÿ    n´k
+                          “ p1 ´ pq                  p1 ´ pqi´j Bpn ´ k ` j, j, 1 ´ pq
+                                        j“0
+                                             i ´ j
+                               “ p1 ´ pqk´i pi .
+Hence, the vi -s in (60) form the optimal distribution. This completes the proof.
+
+
+                                                   19
+4.6    Proof of Proposition A
+Let I “ tj ´ 1, j, nu for some 1 ď j ď n ´ 1. The inverse BpIq´1 “ rbs,t ssPI
+                                                                          t“0,1,2
+                                                                                   is easily
+calculated as
+                        nj                n`j´1                    2
+              »                                                                fi
+                                        ´
+              —
+              —      n´j`1                n´j`1               n´j`1            ffi
+                                                                               ffi
+              —                                                                ffi
+              —                                                                ffi
+              —       npj ´ 1q           n `  j ´ 2                 2          ffi
+         ´1
+    BpIq “ —                                                                   ffi . (62)
+              —     ´                                          ´               ffi
+              —         n´j                n´j                    n´j          ffi
+              —                                                                ffi
+              —                                                                ffi
+              —                                                                ffi
+              –      jpj ´ 1q              2pj ´ 1q                 2          fl
+                                    ´                    ´
+                pn ´ j ` 1qpn ´ jq    pn ´ j ` 1qpn ´ jq   pn ´ j ` 1qpn ´ jq
+It follows from the discussion in Subsection 3.2 that
+                                  2       ˆ ˙
+                              1 ÿ          n l
+                        vi “ `n˘     bi,l     p,   i “ j ´ 1, j, n.                    (63)
+                               i l“0
+                                           l
+By (62) and (63),
+                              1           n
+                     vj´1 “ ` n ˘ ¨           ¨ p1 ´ pq ¨ pj ` p ´ npq
+                              j´1
+                                        n´j`1
+                                                                                       (64)
+                              1
+                          “ `n´1˘ ¨ p1 ´ pq ¨ pj ` p ´ npq,
+                              j´1
+
+                             1         n
+                       vj “ `n˘ ¨         ¨ p1 ´ pq ¨ pnp ´ p ´ j ` 1q
+                              j
+                                      n´j
+                                                                                       (65)
+                              1
+                          “ `n´1˘ ¨ p1 ´ pq ¨ pnp ´ p ´ j ` 1q,
+                                  j
+and
+                           1
+             vn “                     ¨ pnpn ´ 1qp2 ´ 2npj ´ 1qp ` jpj ´ 1qq
+                   pn ´ jqpn ´ j ` 1q
+                           ˆˆ ˙                    ˆ ˙˙                                (66)
+                      1       n 2                    j
+                “ `n´j`1˘         p ´ npj ´ 1qp `         .
+                      2
+                              2                      2
+
+By (64)-(66), considered as functions of p on the interval n´1  , n´1 :
+                                                           “ j´1 j ‰
+
+   • vj´1 is decreasing and vanishes at the right endpoint;
+   • vj vanishes at the left endpoint and is increasing;
+   • vn attains its minimum, which is positive, at the left endpoint.
+It then follows from Theorem 3.4 that
+                            ˆˆ ˙                 ˆ ˙˙                    „    ȷ
+                       1      n 2                 j                   j´1   j
+      M pn, 2, pq “ `n´j`1˘      p ´ npj ´ 1qp `      ,            pP     ,     ,
+                       2
+                              2                   2                   n´1 n´1
+and the distribution is given by (64)-(66).
+
+
+                                               20
+4.7     Proof of Theorem 2.5
+1. By Theorem 2.2, the optimal distribution for 0 ď p ď p1 is given by
+                $
+                            i
+                &p1 ´ pq ¨ p ¨ Bpn ´ i ´ 1, k ´ i ´ 1, pq,
+                ’                                            0 ď i ď k ´ 1,
+           vi “ 0,                                           k ď i ď n ´ 1,                           (67)
+                ’
+                % k
+                  p ,                                        i “ n.
+
+In particular, at the point p “ p1 ,
+                                                                   ˆ                              ˙
+                                                                                           1
+vk´2 “ p1 ´ p1 qpk´2                                k´2
+                 1 Bpn ´ k ` 1, 1, p1 q “ p1 ´ p1 qp1                  1 ´ pn ´ k ` 1q ¨              “ 0,
+                                                                                         n´k`1
+
+while from Proposition 3.2 it follows that
+
+                              vi ą 0,       i P t0, 1, . . . , k ´ 3, k ´ 1, nu.
+
+The optimal distribution changes continuously with p, and therefore
+
+                      vi ą 0,        i P t0, 1, . . . , k ´ 3, k ´ 1, nu, p P rp1 , p2 s,             (68)
+
+for some p2 ą p1 . Let I “ t0, 1, 2, . . . , k ´ 3, k ´ 1, k, nu. It follows from the discussion in
+Subsection 3.2 and (33) that
+                                               k       ˆ ˙
+                                         1 ÿ            n l
+                                   vi “ `n˘ ¨     bi,l     p,            i P I,                       (69)
+                                         i    l“0
+                                                        l
+
+where                         řt           ` ˘ś
+                                        α t
+                      p´1qt     α“0 p´1q α         uPI´tsu pu ´ αq
+             bs,t “                ś                                 ,        s P I, 0 ď t ď k.       (70)
+                                      uPI´tsu pu ´ sq
+
+By (70),
+                      $
+                      ’
+                      ’p´1qj ,                                               0 ď j ď k ´ 3,
+                      ’
+                       p´1qk´2 ` p´1qk´1 C0 ,
+                      ’
+                      ’
+                      ’
+                      ’                                                      j “ k ´ 2,
+                      ’
+                      &                  ˆ      ˙
+                b0,j “ p´1qk´1 ´ p´1qk´1 k ´ 1 C0 ,                          j “ k ´ 1,               (71)
+                      ’
+                      ’
+                      ’                    k´2
+                      ’                ˆ      ˙
+                      ’
+                      ’    k       k´1    k
+                      ’
+                      %p´1q ` p´1q
+                      ’                         C0 ,                         j “ k,
+                                         k´2
+
+where
+                                                               `n´1˘
+                             pk ´ 2q! ¨ 2 ¨ pn ´ k ` 2q
+                        C0 “                            “ `n´k`1˘k ` n ˘ .                            (72)
+                                        k! ¨ n               2
+                                                                  ¨ k´2
+
+
+
+
+                                                      21
+In view of (69), (71), and (72), we obtain
+          k       ˆ ˙
+         ÿ          n j
+    v0 “     b0,j      p
+         j“0
+                    j
+          k         ˆ ˙
+                   j n
+         ÿ
+       “     p´1q        pj `
+         j“0
+                      j
+                   ˆˆ       ˙         ˆ      ˙ˆ       ˙         ˆ     ˙ˆ ˙    ˙
+              k´1        n      k´2     k´1        n      k´1       k   n k´2             (73)
+        p´1q                  p     ´                   p     `            p    C0
+                       k´2              k´2 k´1                   k´2 k
+                                 ˆ      ˙
+                             k´1     n
+       “ Bpn, k, pq ` p´1q                ¨ pk´2 Bpn ´ k ` 2, 2, pqC0
+                                   k´2
+                                  `n´1˘
+        “ Bpn, k, pq ` p´1qk´1 `n´k`1
+                                  k
+                                     ˘ ¨ pk´2 Bpn ´ k ` 2, 2, pq.
+                                    2
+
+By (70), for 1 ď i ď k ´ 3,
+                         ˆ ˙
+                          j
+           $
+                  j    i
+           ’
+           ’ p´1q p´1q        ,                                          i ď j ď k ´ 3,
+           ’
+           ’
+           ’
+           ’              i
+           ’                ˆ      ˙
+           ’
+                  k´2     i   k´2
+                                     ` p´1qk´i´1 Ci ,
+           ’
+           &p´1q p´1q
+           ’
+           ’                                                             j “ k ´ 2,
+                                i
+    bi,j “                  ˆ      ˙               ˆ       ˙                              (74)
+           ’      k´1     i   k´1            k´i´1   k´1
+           ’
+           ’ p´1q p´1q               ´ p´1q                  Ci ,        j “ k ´ 1,
+                                i                    k´2
+           ’
+           ’
+           ’
+           ’
+           ’             ˆ ˙                ˆ       ˙
+           ’
+           ’      k    i  k           k´i´1     k
+           %p´1q p´1q
+           ’                    ` p´1q                Ci ,               j “ k,
+                           i                  k´2
+where
+                                               `n˘ `n´i´1˘
+                 pk ´ 2q! ¨ 2 ¨ pn ´ k ` 2q         ¨ k´i
+            Ci “                                i
+                                            “ `n´k`1 ˘ ` n ˘.          1 ď i ď k ´ 3.     (75)
+                   i! ¨ pk ´ iq! ¨ pn ´ iq        2
+                                                      ¨ k´2
+(Here and below, we hint implicitly that all unspecified coefficients vanish. For example,
+in (74) we have bi,j “ 0 for j ă i.)
+    By (69), (74), and (75), for 1 ď i ď k ´ 3,
+    ˆ ˙        k        ˆ ˙
+      n       ÿ           n j
+         vi “      bi,j     p
+      i       j“0
+                          j
+               k                ˆ ˙ˆ ˙
+                               i j   n j
+              ÿ
+                         j
+            “ p´1q p´1q                  p
+              j“i
+                                 i    j
+                                   ˆˆ      ˙ ˆ         ˙ˆ        ˙    ˆ      ˙ˆ ˙ ˙
+                        k´i´1 k´2       n         k´1        n            k      n 2
+              ` p´1q         p               ´                     p`                p Ci
+                                      k´2         k´2 k´1               k´2 k
+              ˆ ˙                                          ˆ       ˙
+                 n i                             k´i´1 k´2     n
+            “        p Bpn ´ i, k ´ i, pq ` p´1q      p              Bpn ´ k ` 2, 2, pqCi ,
+                 i                                           k´2
+and therefore
+                                                           `n´i´1˘
+                   i
+            vi “ p Bpn ´ i, k ´ i, pq ` p´1q   k´i´1 k´2
+                                                     p       k´i
+                                                           `n´k`1˘ Bpn ´ k ` 2, 2, pq.    (76)
+                                                              2
+
+
+                                                22
+By (70),
+                             $
+                             ’
+                             ’Ck´1 ,                              j “ k ´ 2,
+                             ’  ˆ      ˙
+                             & k´1
+                             ’
+                             ’
+                              ´          Ck´1 ` 1,                j “ k ´ 1,
+                    bk´1,j “      k´2                                                      (77)
+                             ’ˆ      ˙        ˆ      ˙
+                                  k                k
+                             ’
+                             ’
+                                       Ck´1 ´          ,          j “ k,
+                             ’
+                             ’
+                             %
+                                k´2             k´1
+
+where
+                                                         ` n ˘ `n´k˘
+                            pk ´ 2q! ¨ 2 ¨ pn ´ k ` 2q
+                     Ck´1 “                            “ `k´1
+                                                           n
+                                                                     1
+                                                              ˘ ¨ `n´k`1 ˘.                (78)
+                             pk ´ 1q! ¨ pn ´ k ` 1q       k´2        2
+
+By (69), (77), and (78), we have
+  ˆ      ˙                 ˆ       ˙                  ˆ      ˙                ˆ ˙
+     n                         n       k´2                n      k´1           n k
+           vk´1 “ bk´1,k´2           p     ` bk´1,k´1          p     ` bk´1,k     p
+    k´1                      k´2                        k´1                    k
+                               ˆ       ˙ ˆ         ˙ˆ        ˙                 ˆ     ˙
+                           k´2     n          k´1         n             k´1       n
+                “ Ck´1 ¨ p               ´                     Ck´1 ¨ p     `          pk´1
+                                 k´2          k´2 k´1                            k´1
+                    ˆ       ˙ˆ ˙                   ˆ        ˙ˆ ˙
+                        k        n                      k      n k
+                  `                 Ck´1 ¨ pk´1 ´                  p
+                      k´2 k                          k´1 k
+                  ˆ       ˙                             ˆ       ˙
+                      n      k´1                            n
+                “           p Bpn ´ k ` 1, 1, pq `                pk´2 Bpn ´ k ` 2, 2, pqCk´1
+                    k´1                                   k´2
+                  ˆ       ˙                              ` n ˘ `n´k˘
+                      n                                       ¨
+                “           pk´1 Bpn ´ k ` 1, 1, pq ` k´1  `n´k`1˘1 pk´2 Bpn ´ k ` 2, 2, pq,
+                    k´1                                       2
+
+and therefore
+                                                    `n´k˘
+                vk´1 “ pk´1 Bpn ´ k ` 1, 1, pq ` `n´k`1
+                                                    1
+                                                       ˘ pk´2 Bpn ´ k ` 2, 2, pq.          (79)
+                                                      2
+
+By (70),
+                                $
+                                ’
+                                ’´Ck ,                       j “ k ´ 2,
+                                ’ˆ       ˙
+                                & k´1
+                                ’
+                                ’
+                                           Ck ,              j “ k ´ 1,
+                         bk,j “    k´2                                                     (80)
+                                ’  ˆ       ˙
+                                       k
+                                ’
+                                ’
+                                             Ck ` 1,         j “ k,
+                                ’
+                                %´
+                                ’
+                                     k´2
+
+where
+                                                          `n˘
+                            pk ´ 2q! ¨ 2 ¨ pn ´ k ` 2q               1
+                       Ck “                            “ ` nk ˘ ¨ `n´k`1˘ .                (81)
+                                  k! ¨ pn ´ kq            k´2        2
+
+
+
+
+                                               23
+In view of (69), (80), and (81), we obtain
+  ˆ ˙                   ˆ       ˙                ˆ       ˙           ˆ ˙
+   n                k´2     n                k´1     n              k n
+      vk “ bk,k´2 p               ` bk,k´1 p               ` bk,k p
+    k                     k´2                      k´1                k
+                      ˆ       ˙ ˆ          ˙           ˆ     ˙ ˆ          ˙       ˆ ˙     ˆ ˙
+                  k´2      n          k´1          k´1    n             k        k n     k n
+         “ ´Ck p                 `            Ck p              ´           Ck p      `p
+                        k´2           k´2                k´1          k´2          k       k
+            ˆ ˙              ˆ       ˙
+             n k                 n
+         “       p ´ pk´2              Bpn ´ k ` 2, 2, pqCk
+             k                 k´2
+            ˆ ˙                  `n ˘
+             n k
+         “       p ´ pk´2 ¨ `n´k`1 k
+                                      ˘ Bpn ´ k ` 2, 2, pq,
+             k                     2
+
+and therefore
+                                            1
+                        vk “ pk ´ pk´2 ¨ `n´k`1˘ Bpn ´ k ` 2, 2, pq.                      (82)
+                                                2
+
+Using Lemma 3.1.1, we further simplify (82) as
+                                       1´p
+                       vk “ pk ´ pk´2 `n´k`1˘ Bpn ´ k ` 1, 1.pq ´ pk
+                                            2
+                                   1´p
+                          “ ´pk´2 `n´k`1˘Bpn ´ k ` 1, 1, pq                               (83)
+                                        2
+                             1´p
+                          “ `n´k`1˘ ¨ p´1 ` pn ´ k ` 1qpq .
+                                 2
+
+By (83), we observe that vk “ 0 at the point p1 while vk ą 0 for p ą p1 . Using (69), we
+obtain
+                                        k       ˆ ˙
+                                       ÿ         n l
+                                  vn “     bn,l     p.                              (84)
+                                       l“0
+                                                 l
+By (70),
+                                 $
+                                 ’
+                                 ’ Cn ,                  j “ k ´ 2,
+                                 ’   ˆ      ˙
+                                 & k´1
+                                 ’
+                                 ’
+                                   ´          Cn ,       j “ k ´ 1,
+                          bn,j “        k´2                                               (85)
+                                 ’ ˆ      ˙
+                                        k
+                                 ’
+                                 ’
+                                            Cn ,         j “ k,
+                                 ’
+                                 ’
+                                 %
+                                     k´2
+
+where
+                                            1        1
+                                     Cn “ ` n ˘ ¨ `n´k`1˘.                                (86)
+                                            k´2      2
+
+
+
+
+                                                24
+In view of (84), (85), (86), we conclude that
+                            ˆ     ˙                ˆ      ˙              ˆ ˙
+                               n      k´2             n       k´1         n k
+               vn “ bn,k´2          p     ` bn,k´1          p     ` bn,k     p
+                              k´2                    k´1                  k
+                     ˆˆ        ˙ ˆ         ˙ˆ        ˙ ˆ          ˙ˆ ˙˙
+                            n        k´1         n            k      n
+                   “             ´                    `                    Cn
+                         k´2         k´2 k´2               k´2 k
+                           ˆ     ˙                                                         (87)
+                       k´2    n
+                   “p              Bpn ´ k ` 2, 2, pqCn
+                             k´2
+                         1
+                   “ `n´k`1˘ ¨ pk´2 ¨ Bpn ´ k ` 2, 2, pq.
+                              2
+
+Using Theorem 2.1.1, (68), (83), and (87), we finally arrive at
+                              1
+             M pn, k, pq “ `n´k`1˘ ¨ pk´2 ¨ Bpn ´ k ` 2, 2, pq,        p P rp1 , p2 s .
+                                  2
+
+
+
+2. For k “ 2, 3, the claim follows readily from Propositions A-B. Thus, let k ě 4. Using
+Lemma 3.1.1 and (79), we obtain
+                                           `n´k˘
+         vk´1 “ pk´1 Bpn ´ k ` 1, 1, pq ` `n´k`1
+                                             1
+                                                ˘ ¨ pk´2 Bpn ´ k ` 2, 2, pq
+                                                2
+                          ˆ                          ˆ   ˙ ˙
+                    k´1                            n´k
+              “p       p1 ´ pqBpn ´ k, 0, pq ´            p
+                                                      1
+                                     ˆ                             ˆ            ˙ ˙
+                       2         k´2                                 n´k`1 2               (88)
+                `             ¨p       p1 ´ pqBpn ´ k ` 1, 1, pq `                p
+                  n´k`1                                                   2
+                                     2
+              “ pk´1 p1 ´ pq `             ¨ pk´2 p1 ´ pqBpn ´ k ` 1, 1, pq
+                                n´k`1
+                  1´p                                       1´p
+              “            ¨ pk´2 ¨ p2 ´ ppn ´ k ` 1qq “             ¨ pk´2 ¨ fk´1 ppq,
+                n´k`1                                     n´k`1
+where fk´1 ppq “ 2 ´ pn ´ k ` 1qp. Using Lemma 3.1.1 and (76), we obtain
+                                     `n´k`2˘
+     vk´3 “ pk´3 Bpn ´ k ` 3, 3, pq ` `n´k`1
+                                         3
+                                            ˘ ¨ pk´2 Bpn ´ k ` 2, 2, pq
+                                            2
+                    ˆ                                ˆ         ˙ ˙
+              k´3                                  n´k`2 3
+          “p       p1 ´ pqBpn ´ k ` 2, 2, pq ´                   p
+                                                        3
+              `n´k`2˘            ˆ                              ˆ          ˙ ˙
+                  3         k´2                                   n´k`1 2
+            ` `n´k`1˘ ¨ p          p1 ´ pqBpn ´ k ` 1, 1, pq `               p
+                                                                      2                    (89)
+                  2
+                          ˆ                                                            ˙
+             k´3                                  n´k`2
+          “ p p1 ´ pq Bpn ´ k ` 2, 2, pq `                    ¨ p ¨ Bpn ´ k ` 1, 1, pq
+                                                      3
+                               ˆ                                                    ˙
+                        k´3           2              1                            2
+          “ p1 ´ pq ¨ p      ¨ 1 ´ pn ´ k ` 2qp ` pn ´ k ` 1qpn ´ k ` 2qp ,
+                                      3              6
+                        k´3
+          “ p1 ´ pq ¨ p      ¨ fk´3 ppq,
+
+                                                25
+where                                      ˆ    ˙      ˆ    ˙
+                                         2 n´k`2     1 n´k`2 2
+                          fk´3 ppq “ 1 ´          p`          p.                                  (90)
+                                         3   1       3   2
+Using Lemma 3.1.1 and (76), we obtain
+                                   `n´k`3˘
+      vk´4 “ pk´4 Bpn ´ k ` 4, 4, pq ´ `n´k`1
+                                          4
+                                             ˘ ¨ pk´2 Bpn ´ k ` 2, 2, pq
+                                                   2
+                      ˆ                                     ˆ
+                                                            ˙ ˙
+                k´4                             n´k`3 4
+           “p     p1 ´ pqBpn ´ k ` 3, 3, pq `                p
+                                                     4
+              `n´k`3˘         ˆ                             ˆ      ˙ ˙
+                 4
+            ´ `n´k`1˘ ¨ p k´2
+                                p1 ´ pqBpn ´ k ` 1, 1, pq `
+                                                              n´k`1 2
+                                                                    p                             (91)
+                 2
+                                                                2
+                        ˜                      `n´k`3˘                                        ¸
+                k´4                                   4                2
+           “p         p1 ´ pq Bpn ´ k ` 3, 3, pq ´ `n´k`1˘ ¨ p ¨ Bpn ´ k ` 1, 1, pq
+                                                                2
+                            k´4
+           “ p1 ´ pq ¨ p          ¨ fk´4 ppq,
+where                         ˆ     ˙       ˆ          ˙       ˆ            ˙
+                          n´k`3           5 n´k`3 2 1 n´k`3 3
+          fk´4 ppq “ 1 ´              p`                 p ´                  p.                  (92)
+                               1          6       2          2        3
+By (88)-(92), considered as functions of p on the interval n´k`1          :
+                                                          “ 1        2
+                                                                         ‰
+                                                                 , n´k`1
+   • vk´1 is a decreasing function and vanishes at the right endpoint;
+   • vk´3 attains its minimum, which is positive, at the right endpoint;
+   • vk´4 is strictly positive at the left endpoint and strictly negative at the right end-
+     point. The derivative of fk´4 is strictly negative in the interval. Hence, vk´4 vanishes
+     exactly once in the interval, at the point p2 ;
+   • vi is non-negative throughout the sub-interval rp1 , p2 s for i “ 0, 1, 2, . . . , k ´ 5 by
+     Theorem 3.5.
+Using Theorem 3.4, we conclude the proof.
+
+
+4.8     Proof of Theorem 2.7
+By Theorem 2.3, the optimal distribution for rp1 , 1s is given by
+               #
+                 0,                                         0 ď i ď n ´ k ´ 1,
+          vi “                                                                                    (93)
+                 p1 ´ pqn´i ¨ Bpi, i ´ pn ´ kq, 1 ´ pq,     n ´ k ď i ď n.
+
+In particular, at the point p “ p1
+
+ vn´k`1 “ p1 ´ p1 qk´1 Bpn ´ k ` 1, 1, 1 ´ p1 q “ p1 ´ p1 qk´1 p1 ´ pn ´ k ` 1qp1 ´ p1 qq “ 0.
+
+The optimal distribution changes continuously with p, and therefore,
+
+                 vi ą 0,          i P tn ´ k, n ´ k ` 2, . . . , n ´ 1, nu, p P rp2 , p1 s,
+
+                                                       26
+for some p2 ă p1 . Denote
+
+   vi1 “ PpX1 “ X2 “ ¨ ¨ ¨ “ Xi “ 0, Xi`1 “ ¨ ¨ ¨ “ Xn “ 1q,                          i “ 0, 1, 2, . . . , n,
+         ˆ ˙
+      1   n 1
+   wi “      v,                                                                       i “ 0, 1, 2, . . . , n,
+          i i
+
+   S01 “ 1,
+         ˆ ˙
+           n
+     1
+   Si “       p1 ´ pqi ,                                                              i “ 1, 2, . . . , k,
+            i
+
+    I1   “ t0, 1, 2, . . . , k ´ 2, k, k ` 1u.
+                                                                                       (94)
+(Note that vi1 “ vn´i , we are using this notation to make the calculation simple and easily
+relate the calculation below to the proof of Theorem 2.5) It follows from the discussion
+in Subsection 3.2 and (33) that
+                                          k       ˆ ˙
+                                    1 ÿ            n
+                               1
+                              vi “ `n˘ ¨     bi,l     p1 ´ pql ,         i P I 1,                            (95)
+                                    i    l“0
+                                                   l
+
+where                         řt           ` ˘ś
+                                         α t
+                      p´1qt    α“0 p´1q     α     uPI 1 ´tsu pu ´ αq
+             bs,t “              ś                                   ,      s P I 1 , 0 ď t ď k.             (96)
+                                    uPI 1 ´tsu pu ´ sq
+
+By (96),
+                          $
+                          ’
+                          ’p´1qj ,                                       0 ď j ď k ´ 2,
+                          ’
+                           p´1qk´1 ´ p´1qk´1 D0 ,                        j “ k ´ 1,
+                          &
+                   b0,j “                ˆ     ˙                                                             (97)
+                          ’
+                          ’    k       k    k
+                          %p´1q ´ p´1q
+                          ’                       D0 ,                   j “ k,
+                                           k´1
+
+where
+                                                      1
+                                               D0 “ `k`1˘ .                                                  (98)
+                                                          2
+
+
+
+
+                                                     27
+In view of (95), (97), and (98), we obtain
+            k       ˆ ˙
+           ÿ          n
+       1
+      v0 “     b0,j      p1 ´ pqj
+           j“0
+                      j
+            k         ˆ ˙
+                     j n
+           ÿ
+         “    p´1q         p1 ´ pqj
+           j“0
+                        j
+                        ˆˆ        ˙              ˆ       ˙ˆ ˙            ˙
+                    k´1       n            k´1        k     n          k
+           ´ p´1q                   p1 ´ pq    ´                p1 ´ pq D0
+                            k´1                     k´1 k                                    (99)
+                                        ˆ      ˙
+                                    k´1     n
+         “ Bpn, k, 1 ´ pq ´ p´1q                 ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pqD0
+                                          k´1
+                                        ` n ˘
+                                     k´1
+         “ Bpn, k, 1 ´ pq ´ p´1qk´1 `k`1˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq
+                                         2
+                               ` n ˘
+                              k`1
+         “ Bpn, k, 1 ´ pq ` `n´k`1˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq.
+                                 2
+By (99), and using the fact that v01 “ vn , we have
+                                     ` n ˘
+                                      k`1
+              vn “ Bpn, k, 1 ´ pq ` `n´k`1˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq.            (100)
+                                             2
+By (96), for 1 ď i ď k ´ 2,
+             $              ˆ ˙
+                    j     i  j
+                                ,                               i ď j ď k ´ 2,
+             ’
+             ’ p´1q p´1q
+                             i
+             ’
+             ’
+             ’
+             ’
+             ’                ˆ       ˙
+                             i k´1
+             &
+                    k´1
+      bi,j “ p´1q p´1q                  ´ p´1qk´i´1 Di ,        j “ k ´ 1,                  (101)
+             ’
+             ’                     i
+             ’              ˆ ˙                ˆ    ˙
+                          i k                     k
+             ’
+             ’      k                    k´i´1
+                                                       Di ,     j “ k,
+             ’
+             %p´1q p´1q
+             ’                    ` p´1q
+                              i                  k´1
+where
+                                  ` n´i ˘ `n˘
+                                          ¨ i
+                         Di “ ` nk`1´i
+                                     ˘ `n´k`1  ˘.   1 ď i ď k ´ 2.                          (102)
+                                  k´1
+                                      ¨    2
+
+It follows from (95), (101), and (102) that, for 1 ď i ď k ´ 2,
+          ˆ ˙        k        ˆ ˙
+            n 1 ÿ               n
+               vi “      bi,j       p1 ´ pqj
+            i       j“0
+                                j
+                     k                 ˆ ˙ˆ ˙
+                                      i j     n
+                    ÿ
+                               j
+                  “ p´1q p´1q                     p1 ´ pqj
+                    j“i
+                                         i    j
+                                                  ˆˆ       ˙ ˆ        ˙ˆ ˙            ˙
+                               k´i´1         k´1       n           k       n
+                     ´ p´1q           p1 ´ pq                 ´                p1 ´ pq Di
+                                                      k´1        k´1 k
+                    ˆ ˙
+                       n
+                  “        p1 ´ pqi Bpn ´ i, k ´ i, 1 ´ pq
+                       i
+                                                    ˆ      ˙
+                                  k´i´1         k´1    n
+                       ´ p´1q           p1 ´ pq              Bpn ´ k ` 1, 1, 1 ´ pqDi ,
+                                                      k´1
+
+                                                 28
+and therefore
+                                                           n´i
+                                                                 `    ˘
+                                                          k`1´i
+vn´i “ vi1 “ p1 ´ pqi Bpn ´ i, k ´ i, 1 ´ pq ´ p´1qk´i´1 `n´k`1 ˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq.
+                                                            2
+                                                                                                (103)
+By (96),
+                                 $
+                                 &Dk ,                               j “ k ´ 1,
+                                                                                                (104)
+                                   ˆ     ˙
+                          bk,j “       k
+                                 %´        Dk ` 1,                   j “ k,
+                                      k´1
+where
+                                                     `k´1˘
+                                              Dk “ `k1˘ .                                       (105)
+                                                         2
+
+According to (95), (104), and (105),
+      ˆ ˙       ˆ ˙                          ˆˆ       ˙ ˆ        ˙ˆ ˙           ˙
+        n 1        n         k           k´1      n           k       n
+           v “        p1 ´ pq ` p1 ´ pq                 ´                p1 ´ pq Dk
+        k k        k                            k´1        k´1 k
+                ˆ ˙             ˆ        ˙
+                   n         k       n
+              “       p1 ´ pq `            p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pqDk
+                   k              k´1
+                ˆ ˙              ` n ˘ `k´1˘
+                   n                   ¨
+              “       p1 ´ pq ` k´1 `k˘ 1 ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq,
+                             k
+                   k                   2
+
+and therefore
+                                       n´k
+                                          `     ˘
+             vn´k “ vk1 “ p1 ´ pqk ` `n´k`1
+                                        1
+                                           ˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq.               (106)
+                                        2
+
+By (96),
+                                   $
+                                   &´Dk`1 ,                          j “ k ´ 1,
+                                                                                                (107)
+                                     ˆ    ˙
+                          bk`1,j “      k
+                                   %        Dk`1 ,                   j “ k,
+                                       k´1
+where
+                                                   1
+                                          Dk`1 “ `k`1˘.                                         (108)
+                                                             2
+
+Finally (95), (107), and (108) imply
+          ˆ      ˙                     ˆˆ       ˙ ˆ         ˙ˆ ˙          ˙
+              n      1             k´1      n          k        n
+                   v    “ ´p1 ´ pq                ´                p1 ´ pq Dk`1
+            k ` 1 k`1                     k´1         k´1 k
+                            ˆ      ˙
+                                n
+                        “´           p1 ´ pqk Bpn ´ k ` 1, 1, 1 ´ pqDk`1
+                              k´1
+                            ` n ˘
+                          “ ´ `k´1
+                               k`1
+                                  ˘p1 ´ pqk Bpn ´ k ` 1, 1, 1 ´ pq,
+                                  2
+
+
+                                                    29
+and thus
+                                   1
+                        1
+              vn´k´1 “ vk`1 “ ´ `n´k`1˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq.            (109)
+                                            2
+By Proposition 3.2 and (109),
+                                        vn´k´1 ě 0,          p ď p1 .                   (110)
+Using Theorem 3.4, (100), and (110), we arrive at the desired result
+                              ` n ˘
+                                 k`1
+ M pn, k.pq “ Bpn, k, 1 ´ pq ` `n´k`1˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq,    p P rp2 , p1 s.
+                                        2
+
+
+2. For k “ 2, the claim follows readily from Proposition A. Thus, let k ě 4. Using (106),
+we have
+                                   `n´k˘
+               vn´k “ p1 ´ pqk ` `n´k`1
+                                    1
+                                       ˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq
+                                            2
+                                                                                        (111)
+                                        ˆ           ˙
+                                 k´1    2
+                    “ p1 ´ pq              ´ p1 ´ pq
+                                   n´k`1
+                    “ p1 ´ pqk´1 gn´k ppq,
+where
+                                                  2
+                                 gn´k ppq “           ´ p1 ´ pq.
+                                                n´k`1
+By (103),
+                                                      `n´k`2˘
+vn´k`2 “ p1 ´ pqk´2 Bpn ´ k ` 2, 2, 1 ´ pq ` `n´k`1
+                                                3
+                                                   ˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq
+                                                         2
+                        ˆ                                                               ˙
+                 k´2                             n´k`2
+        “ p1 ´ pq       Bpn ´ k ` 2, 2, 1 ´ pq `         ¨ p1 ´ pqBpn ´ k ` 1, 1, 1 ´ pq
+                                                     3
+                      ˆ      ˆ           ˙             ˆ        ˙          ˙
+                  k´2      2 n´k`2                   1 n´k`2             2
+        “ p1 ´ pq       1´                 p1 ´ pq `              p1 ´ pq
+                           3      1                  3     2
+        “ p1 ´ pqk´2 gn´k`2 ppq,
+                                                                                     (112)
+where                           ˆ    ˙             ˆ    ˙
+                              2 n´k`2            1 n´k`2
+             gn´k`2 ppq “ 1 ´          p1 ´ pq `          p1 ´ pq2 .                    (113)
+                              3   1              3   2
+Employing (103), we obtain
+                                                      `n´k`3˘
+ vn´k`3 “ p1 ´ pqk´3 Bpn ´ k ` 3, 3, 1 ´ pq ´ `n´k`1
+                                                 4
+                                                    ˘ ¨ p1 ´ pqk´1 Bpn ´ k ` 1, 1, 1 ´ pq
+                                                         2
+                        ˜                               `n´k`3˘                             ¸
+        “ p1 ´ pqk´3 Bpn ´ k ` 3, 3, 1 ´ pq ´ `n´k`1
+                                                 4
+                                                     ˘ ¨ p1 ´ pq2 Bpn ´ k ` 1, 1, 1 ´ pq
+                                                              2
+                  k´3
+        “ p1 ´ pq       ¨ gn´k`3 ppq,
+                                                                                        (114)
+
+                                                  30
+where
+                  ˆ         ˙           ˆ           ˙           ˆ      ˙
+                  n´k`3               5 n´k`3               2 1 n´k`3
+ gn´k`3 ppq “ 1´              p1´pq`                  p1´pq ´            p1´pq3 . (115)
+                      1               6       2               2     3
+                                                           „                         ȷ
+                                                                  2            1
+By (110)-(115), considered as function of p on the interval 1 ´       ,1 ´             :
+                                                                n´k`1      n´k`1
+    • vn´k´1 ě 0 throughout the interval;
+
+    • vn´k vanishes at the left endpoint of the interval and is increasing throughout;
+
+    • vn´k`2 attains it minimum, which is positive, at the left endpoint;
+
+    • vn´k`3 is strictly positive at the right endpoint and strictly negative at the left
+      endpoint. It vanishes only at the point p2 of this interval;
+
+    • vn´k`i is non-negative throughout the sub-interval rp2 , p1 s for i “ 4, 5, . . . , k by
+      Theorem 3.5.
+Using Theorem 3.4, we conclude the proof.
+
+
+5     Numerical Data
+In this final section, we conduct numerical studies and present our key observations from
+these studies as eight open conjectures.
+    In the sequel, the data we will consider is for the following values of k and n:
+ (1) k “ 4 and 6 ď n ď 500.
+
+ (2) k “ 6 and 8 ď n ď 200.
+
+ (3) k “ 8 and 10 ď n ď 100.
+
+ (4) k “ 10 and 12 ď n ď 50.
+All eight conjectures hold for this observed data.
+    Let 2 ď k ď n ´ 1 with even k. Recall that a basis B is dual feasible if it consists
+of pairs of consecutive columns of A, say a1 , a1 ` 1, . . . , ak{2 , ak{2 ` 1, and in addition
+column n. By abuse of language, we will refer to the set of column numbers
+
+             I “ ta1 , a1 ` 1, a2 , a2 ` 1, . . . , ak{2 , ak{2 ` 1, nu Ă t0, 1, 2, . . . , nu,
+
+as the basis. In all collected data, for every dual feasible basis I, the set
+
+                                LpIq “ tp P r0, 1s : vi ě 0, i P Iu
+
+is a closed interval. We will thus refer to LpIq as the interval corresponding to I. For
+the vast majority of bases I, the interval LpIq is empty or degenerate (see Proposition
+5.8 below). We will be interested in realizable bases ´ those for which LpIq is of positive
+length.
+
+                                                    31
+5.1     Ordering the Realizable Bases
+Recall that the lexicographic order ĺ on Zm is defined as follows: for any two points
+x “ px1 , . . . , xm q and y “ py1 , . . . , ym q in Zm , we have x ĺ y if either
+
+ (1) for some 1 ď i ď n we have xl “ yl for all 1 ď l ď i ´ 1 and xi ă yi , or
+
+ (2) x “ y.
+
+Denote by R the set of all realizable bases. The lexicographic order on Zm induces an
+order relation on the set R, also denoted by ĺ. We simply order the elements of each
+basis in increasing order and view the basis as a tuple in Zk`1 .
+    Let L be the set of all closed sub-intervals of positive length of r0, 1s. We de-
+fine an additional order relation, denoted by ĺ̈, on L, as follows: given two intervals
+J1 “ ra1 , b1 s, J2 “ ra2 , b2 s P L, we have J1 ă̈ J2 if J1 is to the left of J2 , namely b1 ď a2 ,
+or J1 “ J2 . Note that, unlike ĺ, the order ĺ̈ is not total.
+    We now fix n and k and write R “ tI1 , I2 , . . . , IN u, ordered lexicographically:
+
+                                         I1 ă I2 ă ¨ ¨ ¨ ă IN .
+
+Example 5.1.
+
+ (1) For k “ 2 and n “ 10, we have
+              ␣
+          R “ t0, 1, 10u, t1, 2, 10u, t2, 3, 10u, t3, 4, 10u, t4, 5, 10u, t5, 6, 10u, t6, 7, 10u,
+                                      (
+                t7, 8, 10u, t8, 9, 10u .
+
+ (2) For k “ 4 and n “ 6, we have
+                ␣                                                                                   (
+             R “ t0, 1, 2, 3, 6u, t0, 1, 3, 4, 6u, t1, 2, 3, 4, 6u, t1, 2, 4, 5, 6u, t2, 3, 4, 5, 6u .
+
+Conjecture 5.2. The mapping L : R Ñ L, taking each realizable basis to the corre-
+sponding interval, is order-preserving, namely
+
+                               I, I 1 P R, I ă I 1 ùñ LpIq ă̈ LpI 1 q.
+
+  In other words, writing Ii “ rci , di s for 1 ď i ď N , we have
+
+                       0 “ c0 ă d0 “ c1 ă d1 “ c2 ă ¨ ¨ ¨ “ cN ă dN “ 1.
+
+Example 5.3. For k “ 4 and n “ 10, there are 28 dual feasible bases, 12 of which are re-
+alizable. Table 1 lists all Ii -s, as well as the intervals LpIi q and their lengths |LpIi q|. (Here,
+all numerical values are rounded to two or three significant digits in their decimal expan-
+sion.) The graph of the function M p10, 4, pq is plotted in Figure 1. The intervals LpIi q
+are depicted alternately in red and cyan to emphasize the piecewise polynomiality of the
+function.
+
+
+
+
+                                                    32
+                i             Ii                 LpIi q              |LpIi q|
+                1       {0,1,2,3,10}               r0, 1{7s           1/7
+                2       {0,1,3,4,10}          r1{7, 0.23s            0.090
+                3       {1,2,3,4,10}          r0.23, 0.26s           0.022
+                4       {1,2,4,5,10}          r0.26, 0.37s           0.117
+                5       {2,3,4,5,10}         r0, 37, 0.38s           0.004
+                6       {2,3,5,6,10}          r0.38, 1{2s            0.123
+                7       {3,4,6,7,10}          r1{2, 0.62s            0.123
+                8       {4,5,6,7,10}          r0.62, 0.63s           0.004
+                9       {4,5,7,8,10}          r0.63, 0.74s           0.117
+               10       {5,6,7,8,10}          r0.74, 0.77s           0.022
+               11       {5,6,8,9,10}          r0.77, 6{7s            0.090
+               12       {6,7,8,9,10}               r6{7, 1s           1/7
+
+Table 1: Realizable bases, corresponding intervals, and their lengths for k “ 4 and n “ 10.
+
+
+
+
+                      Figure 1: A graphical depiction of M p10, 4, pq.
+
+
+
+
+5.2    Realizable Bases
+Let Ii be an arbitrary fixed realizable basis. As p varies from the left endpoint of LpIi q “
+rci , di s to its right endpoint, the functions vj “ vj ppq, j P Ii are non-negative. As we move
+
+                                              33
+beyond the right endpoint di , one of these functions becomes negative ´ the solution of
+equation (27) involving only vj -s with j P Ii stops being feasible, and the control passes
+to the next basis Ii`1 , with corresponding interval LpIi`1 q “ rci`1 , di`1 s, where ci`1 “ di .
+
+Conjecture 5.4. For at most di breakpoints, the transition from Ii to Ii`1 involves a
+minimal change ´ Ii`1 is obtained from Ii by disposing of some aj P Ii and adjoining
+aj ` 2 in its stead. Namely, Ii and Ii`1 are of the form
+
+               Ii    “ ta1 , a1 ` 1, . . . , aj´1 , aj´1 ` 1, aj , aj ` 1, . . . , nu,
+                                                                                            (116)
+               Ii`1 “ ta1 , a1 ` 1, . . . , aj´1 , aj´1 ` 1, aj ` 1, aj ` 2, . . . , nu,
+
+for some 1 ď j ď k{2.
+
+    We note that a minimal change may look somewhat different from (116). For exam-
+ple, Ii could have contained some block of the form l, l ` 1, l ` 2, l ` 3 (in addition to
+other elements), and l would be replaced by l ` 4. However, this is never the case in the
+collected data.
+    Sometimes, though, the basis undergoes more than one change at a point; several
+elements i1 , i2 , . . . , ir leave the basis simultaneously, and r other elements join the basis
+for some r ě 2. Points di , where such a transition occurs, are exceptional (see Section
+5.3).
+
+Conjecture 5.5. In the transition from Ii to Ii`1 , if several elements i1 , i2 , . . . , ir leave
+the basis simultaneously, they are replaced by i1 ` 2, i2 ` 2, . . . , ir ` 2.
+
+Example 5.6.
+
+ (1) For k “ 4 and n “ 10, the bases t2, 3, 5, 6, 10u and t3, 4, 6, 7, 10u are consecutive
+     realizable bases. We have two simultaneous changes: 2, 5 leave, and 4, 7 join at the
+     exceptional point 1{2.
+
+ (2) For k “ 6 and n “ 23, the bases t6, 7, 10, 11, 14, 15, 23u and t7, 8, 11, 12, 15, 16, 23u
+     are consecutive realizable bases. We have three simultaneous changes: 6, 10, 14
+     leave, and 8, 12, 16 join at the exceptional point 1{2.
+
+Remark 5.7. In view of Conjecture 5.5, at exceptional points the basis undergoes sev-
+eral simultaneous changes as in (116). Conjecture 5.2 does not exclude the possibility
+that a basis such as t10, 11, 20, 21, nu, for example, changes to t11, 12, 19, 20, nu or to
+t11, 12, 22, 23u. However, we did not encounter any such transitions.
+
+   If both Conjectures 5.4 and 5.5 hold, then Proposition 5.8 below holds.
+
+
+
+
+                                                  34
+Proposition 5.8. Assume that both Conjectures 5.4 and 5.5 hold. Then the following
+two statements hold:
+ (1) For every n and even k ď n ´ 2,
+                                                        kpn ´ kq
+                                               |R| ď             ` 1.                            (117)
+                                                           2
+
+ (2) If the transitions from Ii to Ii`1 , for all 1 ď i ď N ´ 1, involve minimal changes (in
+     other words, there are no exceptional points), then
+                                                        kpn ´ kq
+                                               |R| “             ` 1.
+                                                           2
+Proof. Denote
+                            k{2
+                            ÿ
+                   SpIq “         aj ,       I “ ta1 , a1 ` 1, . . . , ak{2 , ak{2 ` 1, nu.
+                            j“1
+
+From Conjectures 5.4 and 5.5, it follows that for every two consecutive realizable bases
+Ii , Ii`1 , the difference SpIi`1 q ´ SpIi q is twice the number of elements of Ii replaced by
+others in Ii`1 . In particular,
+                            SpIi`1 q ´ SpIi q ě 2,            1 ď i ď N ´ 1.
+Hence
+                                             N
+                                             ÿ ´1
+                     SpIN q ´ SpI1 q “              pSpIi`1 q ´ SpIi qq ě 2pN ´ 1q.              (118)
+                                              i“1
+By Thereoms 2.2 and 2.3,
+            I1 “ t0, 1, . . . , k ´ 1, nu,          IN “ tn ´ k, n ´ k ` 1, . . . , n ´ 1, nu.
+We then have
+                                                                      k
+                           SpI1 q “ 0 ` 2 ` ¨ ¨ ¨ ` pk ´ 2q “           pk ´ 2q,                 (119)
+                                                                      2
+and
+                     SpIN q “ pn ´ kq ` pn ´ k ` 2q ` ¨ ¨ ¨ ` pn ´ 2q
+                                                                                                 (120)
+                                                                 ˆ     ˙
+                                                                   k
+                            “ nk ´ p2 ` 4 ` ¨ ¨ ¨ ` kq “ nk ´ k      `1 .
+                                                                   2
+By (118), (119), and (120), we obtain
+                                 1                        kpn ´ kq
+                          N ď 1 ` pSpIN q ´ SpI1 qq “ 1 `          ,
+                                 2                           2
+which is equivalent to (117). Now, in the case when there is no exceptional point, we have
+SpIi`1 q ´ SpIi q “ 2 for all 1 ď i ď N ´ 1. We thus have equality in (118), and the second
+claimed statement follows.
+
+
+                                                       35
+5.3    Exceptional Points
+A pair pn, kq is an exceptional pair if there exists at least one exceptional point for pn, kq.
+Numerical data suggest that, for a fixed k, exceptional pairs are quite rare (see Table 2).
+
+                                                            Number of exceptional
+                 k               Range of n
+                                                                pairs pn, kq
+                                     [6,100]                             19
+                                  [101,200]                              15
+                 4                [201,300]                              13
+                                  [301,400]                              13
+                                  [401,500]                              11
+                                     [8,100]                              6
+                 6
+                                  [101,200]                               3
+                 8                 [10,100]                               0
+                10                   [12,50]                              0
+
+                          Table 2: Statistics for exceptional pairs.
+
+
+Conjecture 5.9. All the exceptional points are rational.
+   Table 3 lists all exceptional points for n in the range r7, 100s and k “ 4. For k “ 6 in
+the range r8, 200s
+                             23, 28, 35, 67, 76, 87, 135, 148, 163,
+are the only n-s for which pn, 6q is exceptional. For each of these, p “ 1{2 is the only
+exceptional point.
+
+
+5.4    Symmetry of Bases and of Intervals
+Theorems 2.2 and 2.3 show that LpI1 q and LpIN q are mirror images of each other with
+respect to the point p “ 1{2. The same holds by Theorems 2.5 and 2.7 for LpI2 q and
+LpIN ´1 q. Moreover, the bases themselves enjoy a similar symmetry property. Namely,
+ignoring the number n in the bases (as it belongs to all of them), I1 and IN are mirror
+                                   n´1
+images with respect to the number      , and so are I2 and IN ´1 . These symmetries hold
+                                    2
+in general for the collected data.
+Conjecture 5.10.
+ (1) If
+                         Ii “ ta1 , a1 ` 1, a2 , a2 ` 1, . . . , ak{2 , ak{2 ` 1, nu,
+      where 1 ď i ď N , then
+            IN `1´i “ tn ´ ak{2 ´ 2, n ´ ak{2 ´ 1, . . . , n ´ a1 ´ 1, n ´ a1 , nu.
+
+                                                 36
+       n          Exceptional points                       n           Exceptional point
+       10         1/2                                     52           2/5, 3/5
+       11         1/3, 2/3                                56           1/3, 2/3
+       17         1/2                                     65           1/6, 1/2, 5/6
+       27         2/5, 3/5                                66           1/4, 3/4
+       29         1/6, 1/3, 2/3, 5/6                      77           1/5, 3/10, 7/10, 4/5
+       34         1/4, 3/4                                82           1/2
+       37         1/2                                     83           4/9, 5/9
+       50         1/2                                     92           1/3, 2/3
+       51         1/7, 3/7, 4/7, 6/7                      100          1/7, 2/7, 5/7, 6/7
+
+                    Table 3: Exceptional points for 6 ď n ď 100 for k “ 4.
+
+
+ (2) Denoting LpIi q “ rci , di s for each i, we have cN `1´i “ 1 ´ di and dN `1´i “ 1 ´ ci .
+    This implies
+Conjecture 5.11. If d is an exceptional point for some pn, kq, then so is 1 ´ d.
+
+
+
+5.5     The Spread of the Bases
+Let I “ ta1 , a1 ` 1, a2 , a2 ` 1, . . . , ak{2 , ak{2 ` 1, nu be a dual feasible basis. Since n belongs
+to all such bases, we ignore it and define the spread of I by
+
+                                      SppIq “ |ak{2 ` 1 ´ a1 |.
+
+By Theorems 2.2 and 2.3, I1 and IN are the densest realizable bases, i.e.,
+
+                  SppI1 q “ SppIN q “ k ´ 1 “ mintSppIi q, : i “ 1, 2, . . . , N u.              (121)
+
+There may be several realizable bases other than I1 and IN with spread k´1. For example,
+for n “ 10 and k “ 4, we have I3 “ t1, 2, 3, 4, 10u, I5 “ t2, 3, 4, 5, 10u, I8 “ t4, 5, 6, 7, 10u,
+and I10 “ t5, 6, 7, 8, 10u, all of which are of minimal spread (see Table 1). It follows from
+Conjecture 5.10 that
+
+                            SppIi q “ SppIN `1´i q,       i “ 1, 2, . . . , N.
+
+    The spread of a random dual feasible basis is usually not much less than n. However,
+our numerical studies suggest that all realizable bases are relatively quite concentrated;
+namely, the spread is much smaller than n. In fact, for fixed n and k, the maximum
+spread Msppn, kq is defined by
+
+                          Msppn, kq “ maxtSppIi q : i “ 1, 2, . . . , N u.
+
+                                                  37
+Conjecture 5.12. For each fixed k, Msppn, kq is a monotonic non-decreasing function
+of n.
+
+    Tables 4.a, 4.b, 4.c, 4.d list Msppn, 4q, Msppn, 6q, Msppn, 8q, and Msppn, 10q, respec-
+tively, for the ranges of n in our collected data.
+
+Conjecture 5.13.
+                                                                                         (122)
+                                        X?     \
+                          Msppn, 4q “     n ´ 2 ` 2,          n ě 6.
+
+     Naturally, as k grows, the function Msppn, kq, considered as a function of n, grows
+faster. However, the collected data does not give such a simple formula as? in (122). Nor
+is it enough to guess whether, for a fixed k ě 6, the function grows as Θp nq or faster.
+
+     Msppn, 4q    Range of n     Msppn, 4q    Range of n        Msppn, 4q   Range of n
+          4           [6,10]         11           [83,101]         18        [258,290]
+          5          [11,17]         12           [102,122]        19        [291,325]
+          6          [18,26]         13           [123,145]        20        [326,362]
+          7          [27,37]         14           [146,170]        21        [363,401]
+          8          [38,50]         15           [171,197]        22        [402,442]
+          9          [51,65]         16           [198,226]        23        [443,485]
+         10          [66,82]         17           [227,257]        24        [486,500]
+
+                   Table 4.a: The spread for 6 ď n ď 500 and k “ 4.
+
+
+
+     Msppn, 6q    Range of n     Msppn, 6q    Range of n        Msppn, 6q   Range of n
+          6            [8,9]         13            [42,49]         20        [110,121]
+          7          [10,13]         14            [50,57]         21        [122,135]
+          8          [14,17]         15            [58,67]         22        [136,148]
+          9          [18,23]         16            [68,76]         23        [149,163]
+         10          [24,28]         17            [77,87]         24        [164,177]
+         11          [29,35]         18            [88,97]         25        [178,193]
+         12          [36,41]         19           [98,109]         26        [194,200]
+
+                   Table 4.b: The spread for 8 ď n ď 200 and k “ 6.
+
+
+
+
+                                             38
+     Msppn, 8q     Range of n      Msppn, 8q     Range of n       Msppn, 8q        Range of n
+          8           [10,11]          14           [29,32]           20             [62,67]
+          9           [12,13]          15           [33,37]           21             [68,75]
+         10           [14,17]          16           [38,43]           22             [76,82]
+         11           [18,20]          17           [44,48]           23             [83,90]
+         12           [21,23]          18           [49,54]           24             [91,98]
+         13           [24,28]          19           [55,61]           25            [99,100]
+
+                    Table 4.c: The spread for 10 ď n ď 100 and k “ 8.
+
+
+
+     Msppn, 10q    Range of n     Msppn, 10q     Range of n      Msppn, 10q        Range of n
+         10           [12,12]          14           [21,23]           18             [35,37]
+         11           [13,14]          15           [24,26]           19             [38,42]
+         12           [15,17]          16           [27,30]           20             [43,46]
+         13           [18,20]          17           [31,34]           21             [47,50]
+
+                    Table 4.d: The spread for 12 ď n ď 50 and k “ 10.
+
+
+   The numerical studies suggest that
+
+                  |LpI1 q| “ |LpIN q| ą maxt|LpIi q| : i “ 2, 3, . . . , N ´ 1u.                (123)
+
+The equality in (121) and the inequality in (123) raise the following question.
+
+Question 5.14. For fixed n and k, are the sequences pSppIi qqN
+                                                             i“1 and p|LpIi q|qi“1 nega-
+                                                                               N
+
+tively correlated?
+
+    In Figure 2, we have plotted the correlation coefficients as a function of n for k “
+4, 6, 8, 10. Note that the correlation coefficient is usually negative for k “ 4 and is negative
+throughout for k “ 6, 8, 10. However, it seems to converge to 0 as n Ñ 8.
+
+
+
+
+                                               39
+                  (a) k “ 4.                                    (b) k “ 6.
+
+
+
+
+                  (c) k “ 8.                                   (d) k “ 10.
+
+Figure 2: Correlation between the spread of realizable bases and the lengths of the corre-
+sponding intervals.
+
+
+    As we have previously noted, we hope that the above conjectures will help future
+researchers with the very difficult task of deriving further exact formulas for M pn, k, pq
+over the whole interval r0, 1s.
+
+Acknowledgements: We wish to thank J. Dudek, R. Pemantle, and A. Yadin for helpful
+discussions:
+
+
+
+
+                                            40
+References
+ [1] M. Aigner, A Course in Enumeration, Graduate Texts in Mathematics 238, Springer-
+     Verlag Berlin, 2007.
+
+ [2] N. Alon, A. Andoni, T. Kaufman, K. Matulef, R. Rubinfeld, and N. Xie, Testing k-
+     wise and almost k-wise independence, STOC´Proceedings of the 39th Annual ACM
+     Symposium on Theory of Computing (2007), 496–505.
+
+ [3] N. Alon, L. Babai, and A. Itai, A fast and simple randomized parallel algorithm for
+     the maximal independent set problem, J. Algorithms 7(4) (1986), 567–583.
+
+ [4] I. Benjamini, O. Gurel-Gurevich, and R. Peled, On k-wise independent distributions
+     and boolean functions, arXiv preprint arXiv:1201.3261, 2012.
+
+ [5] A. Z. Broder, M. Charikar, and M. Mitzenmacher, A derandomization using min-wise
+     independent permutations, International Workshop on Randomization and Approxi-
+     mation Techniques in Computer Science (1998), 15–24.
+
+ [6] C. E. Bonferroni, Teoria statistica delle classi e calcolo delle probabilità, Pubblicazioni
+     del R Istituto Superiore di Scienze Economiche e Commericiali di Firenze 8 (1936),
+     3–62.
+
+ [7] E. Boros and A. Prékopa, Closed form two-sided bounds for probabilities that at
+     least r and exactly r out of n events occur, Math. Oper. Res. 14(2) (1989), 317–342.
+
+ [8] K. Censor-Hillel, M. Parter, and G. Schwartzman, Derandomizing local distributed
+     algorithms under bandwidth restrictions, Distributed Computing 33(3) (2020), 349–
+     366.
+
+ [9] B. Chor, O. Goldreich, J. Hastad, J. Friedman, S. Rudich, and R. Smolensky, The
+     bit extraction problem or t-resilient functions, Proc. 26th IEEE Symposium on Foun-
+     dations of Computer Science (1985), 396–407.
+
+[10] J. Galambos, Methods for proving Bonferroni type inequalities, J. London Math. Soc.
+     2(4) (1975), 561–564.
+
+[11] J. Galambos, The Asymptotic Theory of Extreme Order Statistics, 2nd ed. Robert
+     E. Krieger Publishing Co.Inc., Malabar, Florida, 1987.
+
+[12] J. Galambos and I. Simonelli, Bonferroni-type Inequalities with Applications,
+     Springer, New York, 1996.
+
+[13] E. Kaplan, M. Naor, and O. Reingold, Derandomized constructions of k-wise (almost)
+     independent permutations, Algorithmica 55(1) (2009), 113–133.
+
+[14] H. Karloff and Y. Mansour, On construction of k-wise independent random variables,
+     Proceedings of the 26th Annual ACM Symposium on Theory of Computing (1994),
+     564–573.
+
+
+                                              41
+[15] R. Karp and A. Wigderson, A fast parallel algorithm for the maximum independent
+     set problem, J. ACM 32(4) (1985), 762-773.
+
+[16] M.-Y. Lee, Bonferroni-type Inequalities, Ph.D. Thesis, Temple University, Philadel-
+     phia, PA, 1991.
+
+[17] M. Luby and A. Wigderson, Pairwise independence and derandomization, Found.
+     Trends. Theor. Comput. Sci. 1(4) (2006), 237–301.
+
+[18] M. Luby, A simple parallel algorithm for the maximal independent set problem, Proc
+     of the 17th Annual ACM Symposium on Theory of Computing (1985), 1-10.
+
+[19] R. Peled, A. Yadin, and A. Yehudayoff, The maximal probability that k-wise inde-
+     pendent bits are all 1, Random Structures & Algorithms 38(4) (2011), 502–525.
+
+[20] A. Prékopa, Boole-Bonferroni inequalities and linear programming, Oper. Res. 36(1)
+     (1988), 145–162.
+
+[21] A. Prékopa, Sharp bounds on probabilities using linear programming, Oper. Res. 38
+     (2) (1990), 227–239.
+
+[22] A. K. Ramachandra and K. Natarajan, Tight probability bounds with pairwise in-
+     dependence, SIAM J. Discrete Math. 37(2) (2023), 516–555.
+
+[23] J. P. Schmidt, A. Siegel, and A. Srinivasan, Chernoff–Hoeffding bounds for applica-
+     tions with limited independence, SIAM J. Discrete Math. 8(2) (1995), 223–250.
+
+[24] T. H. Spencer, Generalized Bonferroni inequalities, J. Appl. Probab. 31(2) (1994),
+     409–417.
+
+[25] L. Takaćs, On the method of inclusion and exclusion, J. Amer. Statist. Assoc.
+     62(317) (1967), 102–113.
+
+
+
+
+                                          42
+

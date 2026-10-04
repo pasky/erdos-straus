@@ -1,0 +1,1449 @@
+                                                  The Maximal Probability that k-wise
+arXiv:0801.0059v3 [math.PR] 31 Jul 2011
+
+
+
+
+                                                      Independent Bits are All 1
+                                                   Ron Peled∗           Ariel Yadin†          Amir Yehudayoff‡
+
+
+
+                                                                               Abstract
+
+                                                    A k-wise independent distribution on n bits is a joint distribution
+                                                of the bits such that each k of them are independent. In this paper
+                                                we consider k-wise independent distributions with identical marginals,
+                                                each bit has probability p to be 1. We address the following question:
+                                                how high can the probability that all the bits are 1 be, for such a
+                                                distribution? For a wide range of the parameters n, k and p we find
+                                                an explicit lower bound for this probability which matches an upper
+                                                bound given by Benjamini et al., up to multiplicative factors of lower
+                                                order. In particular, for fixed k, we obtain the sharp asymptotic be-
+                                                havior. The question we investigate can be viewed as a relaxation of
+                                                a major open problem in error-correcting codes theory, namely, how
+                                                large can a linear error correcting code with given parameters be?
+                                                    The question is a type of discrete moment problem, and our ap-
+                                                proach is based on showing that bounds obtained from the theory of
+                                                the classical moment problem provide good approximations for it. The
+                                                main tool we use is a bound controlling the change in the expectation
+                                                of a polynomial after small perturbation of its zeros.
+                                            ∗
+                                               peled@cims.nyu.edu Courant Institute, New York University. Research supported
+                                          by Microsoft Research and NSF grant DMS-0605166.
+                                             †
+                                               A.Yadin@statslab.cam.ac.uk. Center for Mathematical Sciences, University of
+                                          Cambridge, UK.
+                                             ‡
+                                               amir.yehudayoff@gmail.com. Institute for Advanced Study, Princeton NJ. Partially
+                                          supported by NSF grant CCF 0832797.
+
+
+
+
+                                                                                   1
+1     Introduction
+The problem of generalized inclusion-exclusion inequalities has been consid-
+ered by many authors [B1854, B37, DS67, K75, P88, BP89, GX90, LN90].
+In this problem one has n events A1 , . . . , An and the probabilities of inter-
+sections ∩i∈S Ai for all S with |S| ≤ k. Given this information the goal is
+to bound the probability of ∪ni=1 Ai from above and from below. The classi-
+cal Bonferroni inequalities state that the odd and even partial sums of the
+inclusion-exclusion formula provide such upper and lower bounds, respec-
+tively. But in many cases these bounds are far from being sharp, in the sense
+that much tighter bounds may be deduced from the same information.
+In this paper we address a special case of this question. In our setting the
+events all have equal probability P(Ai ) = p and are k-wise independent; that
+is, P(∩i∈S Ai ) = p|S| whenever |S| ≤ k. When referring to this case we shall
+use a slightly different terminology and refer to the events A1 , . . . , An as n
+bits. For convenience, we consider the intersection of events instead of the
+union, which is equivalent by de Morgan’s rules. With this terminology we
+are interested in estimating the probability of the AND of the bits given
+that their joint distribution is k-wise independent with identical marginals
+p. Besides the simplification arising from considering a particular case, this
+case is of special interest from several points of view.
+First, k-wise independent distributions play a key role in the computer sci-
+ence literature where they are used for derandomization (there are many
+references, e.g. the survey [LW95]). Here is an example for the use of k-wise
+independence in this context: Assume that a given efficient probabilistic al-
+gorithm A works, even when the algorithm uses pairwise independent bits
+instead of truly independent random bits. Since there are pairwise indepen-
+dent distributions with small support, this implies that the algorithm can
+be converted to an efficient deterministic algorithm. In order to prove that
+A indeed works with access to only pairwise independent bits, one needs
+to show that the probabilities of certain events (that depend on A) do not
+change significantly when “moving” to a pairwise independent distribution.
+Second, there is a strong connection between linear error correcting codes
+and k-wise independent distributions (when p = 1q for a prime power q).
+Given a linear error-correcting code over (GF (q))n with minimal distance d,
+one may obtain a k-wise independent distribution with k = d − 1 and p = 1q
+
+
+                                       2
+by sampling uniformly at random from the dual of the code and replacing
+the resulting codeword by the indicator word of its zeros. Although by this
+construction one gets only distributions with a certain structure, this is by
+far the most common way to construct k-wise independent distributions. It
+gives a simple connection between the size of the code C, and the probability
+of getting the all 1’s vector:
+
+                                                  1   |C|
+                          P[(1, . . . , 1)] =      ⊥
+                                                     = n,
+                                                |C |   q
+
+where the probability is over the k-wise independent distribution constructed
+from C, and C ⊥ is the dual of C. A very basic and open question in the
+theory of error correcting codes is how large can a linear error-correcting
+code be, for given n, d, q ([MS77], see also [DY04]). A large code immediately
+implies a large probability for the AND of the bits, hence investigating the
+maximal probability that the AND event can achieve for a given triplet n, k, p
+can be thought of as a relaxation of the error correcting codes question.
+However, in general, these two questions turn out not to be equivalent, even
+asymptotically in n, as an example from [BGP] shows:
+
+(i) For every 3-wise independent distribution µ on n bits with marginal prob-
+     abilities 1/3 that is obtained from a linear code as (roughly) described
+                                      1
+     above, µ[(1, . . . , 1)] = O( n log n
+                                           ) (this is a version of Roth’s theorem on
+     3-term arithmetic progressions for (GF (3))n , see [M95].)
+
+(ii) There exists a 3-wise independent distribution µ′ on n bits with marginal
+      probabilities 1/3 such that µ′ [(1, . . . , 1)] = Ω( n1 ).
+
+An important property of the code-based constructions of k-wise independent
+distributions is that such distributions have small support. The support size
+is important for derandomization, as discussed above. In this paper we show
+existence of k-wise independent distributions that assign large probability to
+(1, . . . , 1), but we do not show that they have small support.
+Third, the question has intrinsic mathematical beauty. From an analytic
+perspective, when attempting its solution one is naturally led to discrete
+analogues of classical moment problems (classical quadrature formulas). Al-
+though some investigation of such discrete moment problems exists in the
+literature [KN77, Chap. VIII],[P88, BP89], they are much less understood
+
+                                           3
+than their classical counterparts. Still, the classical theory sheds light on
+our problem and enables us to make progress on it and obtain quite precise
+answers. From a more geometric standpoint, the set of k-wise independent
+distributions is an interesting convex body, the structure of which we under-
+stand quite poorly. In this work we try to at least understand the projection
+of this body in one specific direction.
+Finally, in the case p = 12 , the maximal probability of the AND event is also
+the maximal probability for any fixed string of bits (roughly, ‘translating’ a
+distribution by a constant vector, does not ‘affect’ the k-wise independence).
+In other words, for p = 21 this maximal probability corresponds to the mini-
+mal min-entropy possible for a k-wise independent distribution, which seems
+a very basic property.
+This work continues a previous work [BGP] in which an (explicit) upper
+bound for the AND event was found (as well as some lower bounds). The
+upper bound was derived as a solution to a relaxed maximization problem
+(see Section 3) which appears quite similar to the original problem. The
+similarity makes it natural to expect that the upper bound be quite close to
+the true maximal probability. Indeed, in this work we affirm this expectation
+in a large regime of the parameters.
+
+
+1.1    Results
+Denote by M(n, k, p) the maximal probability of the AND event for a k-wise
+independent distribution on n bits with marginals p. For odd k it is shown
+in [BGP] that
+
+               M(n, k, p) = pM(n − 1, k − 1, p)           (k odd),       (1.1)
+
+hence it is enough to consider the case of even k. It is also shown there that
+
+                           M(n, k, p) ≤ M̃ (n, k, p)                     (1.2)
+
+where M̃ (n, k, p) is the solution to a certain maximization problem (see Sec-
+tion 3) and satisfies for even k,
+                                               pn
+                     M̃ (n, k, p) =                          .           (1.3)
+                                      P(Bin(n, 1 − p) ≤ k2 )
+
+
+                                         4
+Our main result is a lower bound for M(n, k, p) matching the bound given
+by M̃ (n, k, p) up to multiplicative factors of lower order, in a large regime of
+the parameters. Specifically:
+Theorem 1.1. There exist constants c1 , c2 , c3 > 0 such that the following
+holds. Let n ∈ N, k ∈ N even, and 0 < p < 1. Let N = np(1 − p) − 1.
+Assume
+                             k ≤ c1 · N.                               (1.4)
+Then,                                           
+                          c3                k
+             M(n, k, p) ≥ exp −c2 ·                M̃ (n, k, p),           (1.5)
+                           k             V (N/k)
+                  p                  
+where V (a) = exp    log(a) log log(a) .
+
+The cases where (1.4) does not hold are not covered by Theorem 1.1. Some
+partial results on these cases were given in [BGP]. For the case n(1 − p) ≤ k2
+the bound pn ≤ M(n, k, p) ≤ M̃ (n, k, p) ≤ 2pn was shown, and for the case
+(n − 1)p ≤ 1 it was shown that M(n, k, p) = pk . The case k = 2 was also
+solved there.
+To better understand the bound given in Theorem 1.1, we present some
+particular cases in the following
+Corollary 1.2. There exist C, c > 0 such that for all n ∈ N, k ∈ N even,
+and 0 < p < 1, letting N = np(1 − p) − 1 we have
+
+  1. For every m > 0, there exists N0 = N0 (m) such that if N > N0 and
+     k ≤ (log N)m , then
+                                            c
+                             M(n, k, p) ≥     M̃(n, k, p).
+                                            k
+  2. For every 0 < β < 1, there exists c(β) > 0 and N0 = N0 (β) such that
+     if N > N0 and k ≤ N β , then
+                                                           !
+                                            k
+        M(n, k, p) ≥ c exp −           p                     M̃ (n, k, p).
+                              exp(c(β) log(k) log log(2k))
+
+  3. For any k satisfying k ≤ cN,
+                           M(n, k, p) ≥ ce−Ck M̃ (n, k, p).
+
+                                       5
+By estimating M̃ (n, k, p) (using (1.3) and Claim 4.2 below) in the first two
+cases of the above corollary we obtain, using (1.2), explicit two-sided bounds
+on M(n, k, p). They show that for a large range of the parameters, the leading
+order behavior of M(n, k, p) is identified and for the case of constant k, the
+exact asymptotics is determined, as follows:
+Corollary 1.3. There exist C, c > 0 such that for all n ∈ N, k ∈ N even,
+and 0 < p < 1, letting N = np(1 − p) − 1 we have
+
+  1. For every m > 0, there exists N0 = N0 (m) such that if N > N0 and
+     k ≤ (log N)m , then
+                               k/2                                         k/2
+                                                      √
+                                                          
+         c            pk                                           pk
+        √                             ≤ M(n, k, p) ≤ C k                           . (1.6)
+          k       2e(1 − p)n                                   2e(1 − p)n
+
+  2. For every 0 < β < 1, there exists c(β) > 0 and N0 = N0 (β) such that
+     if N > N0 and k ≤ N β , then
+                               k/2                                     k/2
+                                                    √ k2
+                                                          
+      1 − U (k,β)
+             k          pk                                       pk
+        e                           ≤ M(n, k, p) ≤ C ke 2n                   ,
+     C              2e(1 − p)n                               2e(1 − p)n
+                                                                        (1.7)
+                      def         p
+     where U(k, β) = exp(c(β) log(k) log log(2k)).
+
+Let us compare this with known results, our novelty is in the lower bounds
+and so we only compare these. As far as the authors are aware, the best
+known lower bounds for M(n, k, p) come from error-correcting codes and
+apply to the cases when p = 1q for a prime power q. The most important
+case for applications is p = 12 . In this case it was known using BCH codes
+                                                      ⌊k/2⌋
+([MS77],[AS00, Chapter 15]) that M(n, k, 12 ) ≥ cn1          and also using the
+                                                                k−1
+Gilbert-Varshamov bound [MS77] that M(n, k, 21 ) ≥ c2 c3 (k−1)n
+                                                                       for some
+constants c1 , c2 , c3 > 0. In both cases our bound improves on the known
+asymptotic results for k = o(n), but still growing to infinity with n.
+Other cases where lower bounds were known are the cases in which p = 1q 6= 21
+for a prime power q. In these cases much less is known and even for the
+case of constant k and p, the best results we are aware of are of the form
+M(n, k, p) ≥ n−α(k,p)(1+o(1)) where, except for a few cases, α(k, p) is strictly
+larger than ⌊ k2 ⌋ (see [DY04] for a survey of such results). For example, in the
+
+                                            6
+case p = 13 and constant k ≥ 7 it appears that the best known asymptotic
+result in n was M(n, k, 13 ) ≥ cn−⌈2(k−1)/3⌉ . Our results show that the correct
+asymptotic behavior for constant k and p is M(n, k, p) = Θ(n−⌊k/2⌋ ).
+Here is a high-level description of the proof of Theorem 1.1. We start by
+employing linear programming duality as in [BGP]. This duality shows that
+M(n, k, p) is the minimum of the expectation Ef (X), where X ∼ Bin(n, p),
+over all polynomials f from a certain class (see (2.5)). A similar duality
+shows that M̃ (n, k, p) is the minimum of the expectation Eg(X), where
+X ∼ Bin(n, p), over all polynomials g from a strictly smaller class than
+that of the first minimization problem (see (3.2)). This latter minimization
+problem is exactly solvable using the methods of the classical moment prob-
+lem. We continue by associating to each polynomial f from the class of the
+first problem, a polynomial g from the class of the second problem, obtained
+by perturbing the roots of f . It thus follows that
+                                                    
+                        M̃ (n, k, p)          Eg(X)
+                                     ≤ max
+                        M(n, k, p)            Ef (X)
+
+where the maximum ranges over all polynomials f from the class of the first
+problem and g is the polynomial associated to f . A bound for the RHS of
+the above inequality which yields Theorem 1.1 is then given by Theorem 4.1.
+Our methods can be used to bound the ‘change’ in expectation for other
+distributions as well (see Section 5 for more details). Such an argument
+can be applied to other problems where there is a classical moment problem
+analogue to discrete problems. It thus seems that Theorem 4.1 and its proof
+might be of independent interest.
+
+
+Outline Section 2 gives a more precise description of the question we con-
+sider, and explains some useful facts about it, including the use of linear
+programming duality. Section 3 describes the relaxed version of the problem
+with emphasis on its similarity to the original problem. Our main result is
+explained in Section 4 where the result on polynomials and the reduction
+between them are described. We also do the computations needed to obtain
+Corollary 1.3 there. Finally, Section 5 proves the result on polynomials. Some
+open problems are presented in Section 6. For completeness, the appendix
+gives short proofs for the results of [BGP] that we use.
+
+
+
+                                       7
+2       The problem and its dual
+In this section we introduce notation for our problem and present it in more
+precise terms. We then continue to describe the dual of the problem, on
+which we shall concentrate in the following sections. Let A(n, k, p) be the set
+of all probability distributions on {0, 1}n which are k-wise independent and
+have identical marginals p. In other words, the distribution of (X1 , . . . , Xn )
+belongs to A(n, k, p) if P(∀ i ∈ S Xi = 1) = p|S| for all S with |S| ≤ k.
+                                         n
+Thinking of A(n, k, p) as a body in R2 , it is convex. Hence, bounding the
+probability of the event AND = {∀ 1 ≤ i ≤ n Xi = 1} under all probability
+distributions in A(n, k, p) is the same as finding
+
+                           M(n, k, p) =        max      Q(AND)                         (2.1)
+                                           Q∈A(n,k,p)
+
+                            m(n, k, p) =       min      Q(AND).                        (2.2)
+                                           Q∈A(n,k,p)
+
+
+In [BGP] it was shown that for many choices of the parameters n, k, p we
+have m(n, k, p) = 0, making the bound in this direction perhaps less useful.
+In this work we concentrate on estimating M.
+A simplification of problems (2.1) and (2.2) is possible: Define the set
+
+                                As (n, k, p) ⊆ A(n, k, p)
+
+to be the set of symmetric distributions in A(n, k, p); that is, the joint distri-
+bution of (X1 , . . . , Xn ) is in As (n, k, p) if it is in A(n, k, p) and (X1 , . . . , Xn )
+are exchangeable. Since the AND event is symmetric, one can show that
+
+                          M(n, k, p) =         max        Q(AND)                       (2.3)
+                                           Q∈As (n,k,p)
+
+                           m(n, k, p) =        min        Q(AND).                      (2.4)
+                                           Q∈As (n,k,p)
+
+
+Note further that a distribution in As (n, k, p) may be identified with the
+integer random variable S which counts the number of bits that are 1. Note
+that such an S has the following properties:
+
+    (I) S is supported on {0, 1, . . . , n}.
+
+ (II) ES i = EX i for X ∼ Bin(n, p) and 1 ≤ i ≤ k.
+
+                                               8
+The converse also holds (see [BGP]); that is,
+
+Lemma 2.1. For each random variable S satisfying (I) and (II), there exists
+Q ∈ As (n, k, p) such that S has the distribution of the number of bits which
+are 1 under Q.
+
+Relying on Lemma 2.1, we shall henceforth identify As (n, k, p) with distribu-
+tions S satisfying (I) and (II) above. There is a short argument given below
+showing that the distribution S achieving the maximum in (2.3) is unique.
+Similar arguments are used in [KN77].
+We can now think of problem (2.3) as a linear programming problem in n + 1
+variables, namely, find the P
+                            maximum of P(S = n) under the constraints
+P(S = i) ≥ 0 for 0 ≤ i ≤ n, ni=0 P(S = i) = 1 and the linear conditions on
+P(S = i) given by (II) above. We shall estimate M(n, k, p) using the dual
+linear programming problem [BGP]:
+
+                      M(n, k, p) = min EBin(n,p) P (X),                  (2.5)
+                                   P ∈Pkd
+
+
+where Pkd is the collection of polynomials P : R → R of degree at most
+k satisfying P (i) ≥ 0 for i ∈ {0, 1, . . . , n − 1} and P (n) ≥ 1 (the d in
+the notation stands for discrete). We shall bound M(n, k, p) from below by
+showing that for each P ∈ Pkd , the above expectation is not too small.
+Note that finding an optimal polynomial for the above problem gives more
+information than just M(n, k, p). By the theorem of complementary slackness
+of linear programming, if Z is the set of zeros of an optimal polynomial in
+(2.5) then the support of the optimal distribution in (2.3) is contained in
+Z ∪ {n}. This can also be seen probabilistically since if P is an optimal
+polynomial, then EP (S) = M(n, k, p) for any S ∈ As (n, k, p) (since P is
+of degree at most k). But for any P ∈ Pkd we have EP (S) ≥ P(S = n),
+hence P(S = n) = M(n, k, p) only when P (n) = 1 and all the support of S
+besides {n} is contained in the zero set of P . Of course once the support
+of the optimal S (or the zero set of an optimal polynomial) is known, the
+exact probabilities of S can be found by solving a system of linear equations.
+This system always has a unique solution (it has a Van der Monde coefficient
+matrix), which also proves the uniqueness of the distribution of S.
+Prékopa in his work ([P88], see also [BP89]) considers in more generality the
+problem of estimating P(S = n) for the class of random variables S with
+
+                                      9
+given first k moments (not necessarily those of the Binomial). He does not
+use probabilistic language and instead writes his work in linear programming
+terminology. Adapting one of his results to our situation, it reads
+Theorem 2.2. (Prékopa [P88, Theorem 9]) There exists an optimizing poly-
+nomial P for (2.5) of the following form. P (n) = 1 and P has k simple roots
+z1 < z2 < · · · < zk , all contained in {0, 1, . . . , n − 1}. Furthermore
+
+    1. For even k, the roots come in pairs zi+1 = zi + 1 for odd 1 ≤ i ≤ k − 1.
+
+    2. For odd k, z1 = 0 and the rest of the roots come in pairs zi+1 = zi + 1
+       for even 2 ≤ i ≤ k − 1.
+
+This result is also essentially contained in [KN77, Chap. VIII, sec. 3]. Fig-
+ures 1 and 2 below present such optimizing polynomials for some choices of
+the parameters. The theorem is not so surprising when one recalls that we
+are trying to minimize the expectation of P under the positivity constraints
+of the class Pkd . The theorem is valid in the generality of Prékopa’s work, i.e.,
+the first k moments of S are given but they do not necessarily equal those of
+a Binomial random variable.
+We remark that the case in which there is more than one optimizing poly-
+nomial is the case in which some degeneracy occurs in the problem, allowing
+the optimal distribution for (2.3) to be supported on less than k + 1 points.
+
+
+3      The relaxed problem
+As explained in the introduction, in [BGP] an upper bound for M(n, k, p) was
+given. The bound was proven by considering a relaxed version of problems
+(2.3) and (2.5). In this section we describe this relaxed version (doing so, we
+follow the ideas presented in [BGP]). Problem (2.3) is replaced by
+
+                       M̃ (n, k, p) =      max         P(S = n),             (3.1)
+                                        S∈Ac (n,k,p)
+
+
+where Ac (n, k, p) (here the c stands for continuous) is the set of all real
+random variables S satisfying
+
+ (I’) S is supported on [0, n].
+
+                                          10
+(II’) ES i = EX i for X ∼ Bin(n, p) and 1 ≤ i ≤ k.
+
+Comparing conditions (I), (II) above to conditions (I’), (II’) here we see that
+the only difference between the original and relaxed problems is that in the
+relaxed problem S may take non-integer values between 0 and n. Of course,
+inequality (1.2) follows trivially. In [BGP], the exact value of M̃ was found,
+giving the formula (1.3) for even k. The reason that M̃ is easier to handle
+than M is that the problem (3.1) is a special case of the Classical Moment
+Problem. Such problems have been solved, for example in the classical books
+[Ak65, Theorem 2.5.2], [KN77, Chap. III, sec. 3.2], and a great deal of theory
+has been developed around them.
+We now consider the dual problem to (3.1), which is
+
+                       M̃ (n, k, p) = minc EBin(n,p) P (X),                (3.2)
+                                     P ∈Pk
+
+
+where Pkc is the collection of polynomials P : R → R of degree at most k
+satisfying P (x) ≥ 0 for x ∈ [0, n) and P (n) ≥ 1 (the c stands for continuous).
+The optimizing polynomial is explicitly given in [Ak65], it equals 1 at n and
+for even k it has k2 double roots in [0, n) (for odd k it has one root at 0 and
+k−1
+  2
+     double roots in (0, n)). The location of the roots is given in terms of
+Krawtchouk polynomials, the orthogonal polynomials of the Binomial distri-
+bution. In Figures 3 and 4 we have drawn the optimizing polynomials for
+some specific parameters. Refer to [BGP] for more details on the optimizing
+polynomials.
+It seems worth mentioning that for even k there is another problem which is
+equivalent to the relaxed dual problem (3.2). This other problem has been
+used by some authors to obtain similar upper bounds, sometimes without
+noting the equivalence to (3.2). This equivalence is also fundamental in the
+analysis of the Classical Moment Problem. The equivalent problem for even
+k is
+                       M̃ (n, k, p) = min2 EBin(n,p) P (X),            (3.3)
+                                     P ∈Pk
+
+where Pk2 is the collection of polynomials P : R → R of the form P = R2
+where R is a polynomial of degree at most k2 satisfying |R(n)| ≥ 1. It is clear
+that Pk2 ⊆ Pkc but in fact they are equal. This follows immediately from the
+Markov-Lukacs theorem (see for example [KN77, Chap. III, thm. 2.2])
+
+
+                                       11
+ 0.015
+                                                0.000125
+0.0125
+                                                  0.0001
+  0.01
+                                                0.000075
+0.0075
+                                                 0.00005
+ 0.005
+                                                0.000025
+0.0025
+                                                            5      10     15     20
+                                               -0.000025
+            5      10        15      20
+
+
+
+
+Figure 1: Optimizing polynomial                Figure 2: Optimizing polynomial
+in (2.5) for n = 20, k = 6, p = 21 .                                            3
+                                               in (2.5) for n = 20, k = 8, p = 10 .
+                                               0.000175
+0.012
+                                                0.00015
+ 0.01
+                                               0.000125
+0.008                                            0.0001
+0.006                                          0.000075
+
+0.004                                           0.00005
+
+0.002                                          0.000025
+
+                                                            5      10     15     20
+            5     10         15      20
+
+
+
+Figure 3: Optimizing polynomial                Figure 4: Optimizing polynomial
+in (3.2) for n = 20, k = 6, p = 21 .                                            3
+                                               in (3.2) for n = 20, k = 8, p = 10 .
+
+
+Theorem 3.1. (Markov-Lukacs) A polynomial P of even degree is non-
+negative on [a, b] iff it is of the form
+
+                        P (x) = R2 (x) + (x − a)(b − x)Q2 (x)                   (3.4)
+
+for some polynomials Q and R.
+
+
+4        Proof of main result
+In this section we show how to reduce our main result, Theorem 1.1, to a
+result about polynomials. We also give the estimate on M̃ (n, k, p) required
+to deduce Corollary 1.3 from Corollary 1.2.
+Theorem 1.1 is proved using the following general idea. Consider any poly-
+nomial P ∈ Pkd of the form given in Prékopa’s Theorem 2.2. Change the
+
+                                          12
+location of its roots slightly to make each pair of adjacent roots into one
+double root. The new perturbed polynomial P̃ is in Pkc . Show that the ex-
+pectation under the Bin(n, p) distribution of P̃ is not much higher than that
+of P . Deduce that the expectation of the optimal polynomial in (2.5) is not
+much lower than the expectation of the optimal polynomial in (3.2).
+The actual proof that the two expectations are close is somewhat compli-
+cated. A key ingredient is the use of discrete Chebyshev polynomials to
+bound the ratio of the value of P and P̃ at certain points. The Cheby-
+shev polynomials were previously used in a similar context; see, for example,
+[HLL97, S99].
+The result we need about polynomials is the following. Let k be even and
+fix two polynomials
+               k/2                                             k/2
+               Y                                               Y
+       f (x) =     (x − ai )(x − ai − 1)        and     g(x) =     (x − ai )2 ,   (4.1)
+               i=1                                              i=1
+
+with all ai ∈ {0, 1, . . . , n − 1} and such that ai 6= aj and ai 6= aj + 1 for i 6= j.
+For a polynomial ϕ we denote En,p [ϕ] = E [ϕ(X)] where X ∼ Bin(n, p) has
+Binomial distribution with parameters n and p.
+Theorem 4.1. There exist constants c1 , c2 , c3 > 0 such that the following
+holds. Let n ∈ N, k ∈ N even and 0 < p < 1. Let N = np(1 − p) − 1.
+Assume k ≤ c1 · N. Then,
+                                                   
+                                               k
+                 En,p [g] ≤ c3 k · exp c2 ·           En,p [f ],
+                                            V (N/k)
+                  p                    
+where V (a) = exp      log(a) log log(a) .
+
+The proof of Theorem 4.1 is given in Section 5 below.
+
+Proof of Theorem 1.1. By Prékopa’s Theorem 2.2, there exists f such that
+                                                 En,p [f ]
+                               M(n, k, p) =                ,
+                                                  f (n)
+                                      f
+f has the form given in (4.1), and f (n) ∈ Pkd . By Theorem 4.1,
+                                                   
+                                                k
+                 En,p [g] ≤ c3 k · exp c2 ·           En,p [f ],
+                                            V (N/k)
+
+                                           13
+                          g
+for g as in (4.1). Since g(n) ∈ Pkc ,
+                                               En,p [g]
+                               M̃(n, k, p) ≤            ,
+                                                g(n)
+which completes the proof, as g(n) ≥ f (n).                                   ⊔
+                                                                              ⊓
+
+Corollary 1.3 follows from Corollary 1.2 using the following bounds on M̃ (n, k, p).
+Claim 4.2. Let n ∈ N, k ∈ N even, and 0 < p < 1. There exist C, c > 0
+such that if k ≤ cn(1 − p) then
+                       k/2                                   k/2
+     √                                        √
+                                                
+                pk                                     pk            2
+    c k                     ≤ M̃ (n, k, p) ≤ C k                   ek /2n .
+            2e(1 − p)n                             2e(1 − p)n
+                                                                √      k k/2
+                                                                          
+Proof. We first recall that there exist C4 , c4 > 0 such that c4 k     2e
+                                                                             ≤
+ k
+          √ k k/2
+ 2
+     ! ≤ C4 k 2e    . Hence
+                                                      k/2
+                                nk/2
+                                              
+                        n                   1     2en
+                            ≤         ≤ √
+                      k/2      (k/2)!    c4 k      k
+and since k ≤ cn(1 − p) (for a small enough c), we have
+                                                   k/2
+                       (n − k/2)k/2
+                                           
+               n                         1     2en         2
+                    ≥                ≥ √                e−k /2n .
+              k/2         (k/2)!       C4 k     k
+Hence
+                                   
+                            k      n
+          P Bin(n, 1 − p) ≤    ≥        pn−k/2 (1 − p)k/2 ≥
+                            2     k/2
+                                                    k/2
+                                  pn
+                                       
+                                         2e(1 − p)n          2
+                               ≥ √                        e−k /2n .
+                                 C4 k        pk
+Similarly note that since k ≤ cn(1 − p), we have
+               n                        
+                     n−i       i   1    n
+                    p (1 − p) ≤              pn−i−1 (1 − p)i+1
+                 i                 2 i+1
+for i ≤ k/2. Hence
+                                                                     k/2
+                                                    2pn
+                                                    
+                   k         n      n−k/2      k/2        2e(1 − p)n
+P Bin(n, 1 − p) ≤      ≤2         p       (1−p) ≤ √                       .
+                   2        k/2                    c4 k       pk
+
+The claim now follows by substituting the above estimates into (1.3).         ⊔
+                                                                              ⊓
+
+                                        14
+5     Perturbing Roots of Polynomials
+In this section we shall prove Theorem 4.1. For n ∈ N, we denote In =
+{0, 1, . . . , n}. For two real numbers a and b, we denote [a, b) = {t : a ≤ t < b}
+and [a, b] = {t : a ≤ t ≤ b}. For given n ∈ N and 0 < p < 1, we define
+Pn,p [x] = nx px (1 − p)n−x for x ∈ In ; i.e., the probability of x according to
+Bin(n, p).
+We wish to bound the ratio between En,p [g] and En,p [f ]. We write
+                                  Pn
+                      En,p [g]          Pn,p [x]g(x)
+                                = Pnx=0              .                       (5.1)
+                      En,p [f ]    x=0 Pn,p [x]f (x)
+
+The theorem then follows from the following two lemmas:
+Lemma 5.1. Let x ∈ In be such that f (x) 6= 0. Then
+                                  g(x)     √
+                                        ≤ 2 k.
+                                  f (x)
+Lemma 5.2. There exist universal constants c1 , c2 , c3 > 0 such that the
+following holds. Let N = np(1 − p) − 1. Assume k ≤ c1 · N. Then, for every
+x ∈ In there exists w ∈ In satisfying
+                                                         
+                    Pn,p [x]g(x)                     k
+                                  ≤ c3 · exp c2 ·           ,        (5.2)
+                    Pn,p [w]f (w)                 V (N/k)
+                   p                    
+where V (a) = exp       log(a) log log(a) .
+
+The first lemma, whose proof is much simpler than the proof of the second
+lemma, is proved in Section 5.1. The second lemma addresses the case f (x) =
+0 in which the first lemma does not apply, and is proved in Section 5.2. We
+note that the ‘simple’ ideas presented in the proof of the first lemma can yield
+a weaker version of the second lemma, with a bound of the form c3 exp(c2 k)
+on the RHS of (5.2). While significantly weaker, such a bound still yields
+the correct asymptotic behavior of M(n, k, p) for constant k.
+We now show how Theorem 4.1 follows from the two lemmas.
+
+Proof of Theorem 4.1. Let
+                       Zeros(f ) = {y ∈ In : f (y) = 0} .
+
+                                       15
+We shall denote the w that corresponds to x according to Lemma 5.2 by wx .
+We write (5.1) using the above two lemmas and using the fact that for all
+x ∈ In , Pn,p [x] ≥ 0 and f (x), g(x) ≥ 0 (due to the special structure (4.1) of
+the polynomials) as
+                      √       X
+        En,p [g] ≤ 2 k                P [x]f (x)
+                                            n,p
+                          x∈In \Zeros(f )
+                                                           
+                                                     k             X
+                          +c3 · exp c2 ·                                      P [wx ]f (wx )
+                                                  V (N/k)                     n,p
+                                                                x∈Zeros(f )
+                                                           
+                                                     k
+                ≤ (c3 + 2)k · exp c2 ·                          En,p [f ].
+                                                  V (N/k)
+                                                                                                  ⊔
+                                                                                                  ⊓
+
+
+5.1    Points that are not zeros of f
+Proof of Lemma 5.1. Note that
+                                     k/2
+                              g(x) Y ai − x
+                                   =               .                                           (5.3)
+                              f (x) i=1 ai + 1 − x
+
+Since f (x) 6= 0, we can partition the ai ’s into two sets:
+
+                   S1 = {i : ai < x} and S2 = {i : ai > x} .
+
+First, for each i ∈ S2
+                                     ai − x
+                             0≤               ≤ 1.                                             (5.4)
+                                   ai + 1 − x
+In addition,
+                             k/2                     k/2
+               Y  x − ai     Y           1          X      1 
+        0≤                 ≤      1+         ≤ 2 exp
+           i∈S1
+                x − ai − 1   i=1
+                                      2i − 1          i=2
+                                                          2i − 1
+                                   1              √
+                           ≤ 2 exp log(k − 1) ≤ 2 k.                                           (5.5)
+                                    2
+The lemma follows by substituting (5.4) and (5.5) in (5.3).                                       ⊔
+                                                                                                  ⊓
+
+                                              16
+5.2     Points that are zeros of f
+In this section we prove Lemma 5.2. We first describe a family of or-
+thogonal polynomials, the discrete Chebyshev polynomials. Then we prove
+Claim 5.4 that uses these polynomials. Finally we use the Claim 5.4 to prove
+Lemma 5.2.
+
+
+5.2.1   Orthogonal Polynomials
+
+We now give some properties of a family of orthogonal polynomials stud-
+ied by Chebyshev, sometimes called discrete Chebyshev polynomials. These
+properties are described and proved in [Sz75, Section 2.8]. We use these
+orthogonal polynomial to prove the following proposition.
+
+Proposition 5.3. Let M ∈ N and let G be a monic polynomial of degree d
+for 0 ≤ d ≤ M2 , then
+
+                                                      Md          3       2
+                           max          |G(i)| ≥               e−d /M .
+                       i∈{0,...,M −1}                4d+1/2
+
+Proof. The family of polynomials {td }M      −1
+                                           d=0 defined below are orthogonal poly-
+nomials for the measure µM which assigns mass one to each integer x ∈
+{0, 1, . . . , M − 1}, see (5.7) for the chosen normalization. In other words for
+every d, d′ ∈ {0, . . . , M − 1} such that d 6= d′ ,
+                                 M
+                                 X −1
+                                          td (i)td′ (i) = 0.
+                                    i=0
+
+The polynomial td is
+                                                x x − M 
+                                          (d)
+                     td (x) = d! · ∆                                  ,       (5.6)
+                                                 d         d
+
+where
+                    def                                      def
+                                                      ∆(d) G = ∆ ∆(d−1) G
+                                                                         
+            ∆G(x) = G(x + 1) − G(x) ,
+and                       x
+                                def x(x − 1) · · · (x − d + 1)
+                                =                                         .
+                           d                         d!
+
+                                                17
+The normalization is chosen so that
+               M −1
+               X              M(M 2 − 12 )(M 2 − 22 ) · · · (M 2 − d2 )
+                      |td (i)|2 =                                       .         (5.7)
+             i=0
+                                              2d + 1
+
+The coefficient of x2d in d! · xd x−M
+                                          1
+                                       d
+                                            is d! . Thus, by the linearity of ∆, and
+since for every k ∈ N,
+                                                     
+                 k             k     k     k−1       k
+               ∆x = (x + 1) − x = kx            +        xk−2 + · · · + 1,
+                                                     2
+the polynomial td has degree d, and the coefficient of xd in td is 2d
+                                                                             
+                                                                           d
+                                                                               . Thus,
+since every monic polynomial G of degree d < M can be expanded as G(x) =
+  2d −1          Pd−1
+     
+   d
+        td (x) +   i=0 ai ti (x), we have using (5.7)
+
+        M −1                       −2 M −1
+        X             2        2d       X
+               |G(i)| ≥                         |td (i)|2 =
+        i=0
+                               d          i=0
+                                    −2                                     (5.8)
+                             M(M 2 − 12 )(M 2 − 22 ) · · · (M 2 − d2 )
+                           
+                               2d
+                 =                                                     .
+                                d          2d + 1
+                                                                  d
+Using the inequalities 1 − x ≥ e−2x (0 ≤ x ≤ 14 ), 2d       ≤ 2 √4πd (d ≥ 1) and
+                                                         
+                                                      d
+Pd 2 d(d+1)(2d+1)
+  i=1 i =      6
+                      ≤ d3 (d ≥ 1) we obtain for 1 ≤ d ≤ M2 ,
+     M −1                                                             2d+1
+                   πdM 2d+1 −2 Pdi=1 i2 /M 2
+                                                              
+     X            2                                               M               3   2
+         |G(i)| ≥ 2d+1          e            ≥                                e−2d /M .    (5.9)
+     i=0
+                 4     (2d + 1)                                   4
+
+The proposition thus follows (the case d = 0 is straightforward).                             ⊔
+                                                                                              ⊓
+
+5.2.2     A Segment With Few Zeros
+
+In this section we prove an auxiliary claim, to be used in the next section
+as a main component in the proof of Lemma 5.2. The claim roughly states
+that given a segment with few zeros, we can find a point at which f obtains
+a ‘large’ value.
+Claim 5.4. Let x ∈ In , let R, m ∈ N be such that m ≥ 2R, let L be a
+non-negative integer, and let τ > 4. If
+                             |Zeros(f ) ∩ [x + m, x + τ m)| ≤ R,                          (5.10)
+
+                                                     18
+and
+                          |Zeros(f ) ∩ (x, x + m/τ )| ≥ L,                    (5.11)
+then there exists w ∈ N ∩ [x + 2m, x + 3m] such that
+                  g(x)             12k               
+                        ≤ 8 · exp       + 6R − L log τ .
+                  f (w)              τ
+Similarly, if instead of (5.10) and (5.11) we have
+                       |Zeros(f ) ∩ (x − τ m, x − m]| ≤ R,
+and
+                          |Zeros(f ) ∩ (x − m/τ, x)| ≥ L,
+then there exists w ∈ N ∩ [x − 3m, x − 2m] such that
+                  g(x)             12k               
+                        ≤ 8 · exp       + 6R − L log τ .
+                  f (w)              τ
+
+Proof. Assume without loss of generality that (5.10) and (5.11) hold (a sim-
+ilar argument holds for the second case). Let x + 2m ≤ w ≤ x + 3m be such
+that f (w) 6= 0. Write
+                               k/2
+                        g(x)   Y       (x − ai )2
+                             =                          .                     (5.12)
+                        f (w) i=1 (w − ai )(w − ai − 1)
+
+We partition the ai ’s into six subsets S1 , S2 , . . . , S6 according to the defini-
+tions below, and bound (5.12) over each subset separately. The partition
+is
+           S1 = {i ∈ {1, . . . , k/2} : ai < x} ,
+           S2 = {i ∈ {1, . . . , k/2} : x ≤ ai < x + m/τ } ,
+           S3 = {i ∈ {1, . . . , k/2} : x + m/τ ≤ ai < x + m} ,
+           S4 = {i ∈ {1, . . . , k/2} : x + m ≤ ai < x + 4m} ,
+           S5 = {i ∈ {1, . . . , k/2} : x + 4m ≤ ai < x + τ m} , and
+           S6 = {i ∈ {1, . . . , k/2} : x + τ m ≤ ai } .
+
+For every i ∈ S1 ∪ S3 ,
+                                    x − ai
+                            0≤               ≤ 1,
+                                  w − ai − 1
+
+                                         19
+which implies
+                             Y         (ai − x)2
+                      0≤                                ≤ 1.                (5.13)
+                           i∈S ∪S
+                                  (w − ai )(w − ai − 1)
+                              1           3
+
+
+
+For every i ∈ S2 ,
+                                                  ai − x    1
+                                  0≤                       ≤ ,
+                                                w − ai − 1  τ
+which implies
+                            Y     (ai − x)2
+                      0≤                           ≤ τ −L .                 (5.14)
+                         i∈S
+                             (w − ai )(w − ai − 1)
+                              2
+
+
+
+To argue about S4 , define the polynomial
+                            def
+                                Y
+                      F (ξ) =     (ξ − ai )(ξ − ai − 1).
+                                                i∈S4
+
+
+Denote d = 2|S4 |, the degree of F . Since 2|S4 | ≤ R ≤ m2 , we deduce from
+Proposition 5.3 that there exists w0 ∈ N ∩ [x + 2m, x + 3m] such that
+
+                                                          md        3   2
+                                  |F (w0 )| ≥                    e−d /m .
+                                                        4d+1/2
+                                      2
+                                              ≤ (4m)d ,
+               Q
+Hence, since        i∈S4 (ai − x)
+
+            Y         (ai − x)2                    3  2
+       0≤                               ≤ 2 · e3R+R /m ≤ 2 · e4R .          (5.15)
+            i∈S
+                (w0 − ai )(w0 − ai − 1)
+                4
+
+
+
+For every i ∈ S5 ,
+                                                       ai − x
+                                               0≤             ≤ 4.
+                                                       ai − w
+Hence, since |S5 | ≤ R+1
+                      2
+                         ,
+                             Y         (ai − x)2
+                        0≤                             ≤ 4 · 4R .           (5.16)
+                             i∈S
+                                 (ai − w)(a i + 1 − w)
+                                  5
+
+
+
+
+                                                         20
+Similarly, since 2 |S6 | ≤ k,
+                                                     2|S6 |
+                     (ai − x)2
+                                          
+            Y                                   τ                       12k 
+        0≤                          ≤                          ≤ exp             .   (5.17)
+           i∈S
+               (ai − w)(ai + 1 − w)           τ −3                       τ
+              6
+
+
+
+Therefore, plugging (5.14), (5.13), (5.16), (5.17) and (5.15) into (5.12) with
+w = w0 ,
+                   g(x)              12k                
+                          ≤ 8 · exp       + 6R − L log τ .
+                  f (w0 )              τ
+                                                                             ⊔
+                                                                             ⊓
+
+
+5.2.3    Finding good w
+
+The following claim shows that there exists a w that is ‘close’ to x on which
+f obtains a ‘large’ value.
+
+Claim 5.5. Let x ∈ In , k ≥ Z ∈ N, and τ ≥ e12 . Let K be the smallest
+integer such that
+                            j log τ k K−1
+                                       2   k
+                                          ≥ .
+                                6          Z
+Then, there exist integers w1 > x and w2 < x such that for each w ∈
+{w1 , w2 },
+                          3Z ≤ |w − x| ≤ 9Zτ K
+and
+                        g(x)             12k     
+                              ≤ 8 · exp       + 6Z .
+                        f (w)              τ
+
+Proof. We show the existence of w1 , the existence of w2 can be shown simi-
+larly.
+Let Z0 = Z1 = Z. Let m0 = 3Z0 and m1 = τ m0 . If either
+
+                       |Zeros(f ) ∩ [x + m0 , x + m1 )| ≤ Z0                         (5.18)
+
+or
+
+                      |Zeros(f ) ∩ [x + m1 , x + m2 )| ≤ Z1 ,                        (5.19)
+
+                                        21
+then by Claim 5.4, with L = 0, R = Z, m = m0 ≥ 2Z for (5.18) and
+m = m1 ≥ 2Z for (5.19), there exists w1 ∈ N such that
+
+                             3Z ≤ w1 − x ≤ 9Zτ
+
+and
+                       g(x)              12k     
+                              ≤ 8 · exp       + 6Z .
+                      f (w1 )              τ
+
+Thus, assume that both (5.18) and (5.19) do not hold. Define Zi and mi for
+i ≥ 2 as                 j log τ k
+                    Zi =           Zi−2 and mi = τ mi−1 .
+                             6
+Since the intervals
+
+                 [x + m0 , x + m1 ), . . . , [x + mK , x + mK+1)
+
+are disjoint, since the number of zeros of f is k, and since ZK ≥ k, let i be
+the smallest integer so that
+
+                    |Zeros(f ) ∩ [x + mi , x + mi+1 )| ≤ Zi
+
+and
+                     |Zeros(f ) ∩ (x, x + mi−1 )| ≥ Zi−2 .
+Since mi ≥ 2Zi , by Claim 5.4 with L = Zi−2 , R = Zi and m = mi , there
+exists w1 ∈ N such that
+
+                            3Z ≤ w1 − x ≤ 9Zτ K
+
+and
+        g(x)              12k                              12k 
+               ≤ 8 · exp       + 6Zi − Zi−2 log τ ≤ 8 · exp        .
+       f (w1 )              τ                                  τ
+                                                                           ⊔
+                                                                           ⊓
+
+
+
+
+                                       22
+5.2.4   Probability Estimates
+
+Claim 5.6. Let ℓ ∈ {1, . . . , n}, 0 < p < 1, and let N = np(1 − p) − 1.
+Assume N > 0. Set µ = ⌊pn⌋. If ℓ ≤ (n − µ)/2, then
+
+                                          3ℓ2
+                                             
+                    P [µ + ℓ] ≥ exp −           P [µ].
+                    n,p                   2N n,p
+
+In addition, if ℓ ≤ µ/2, then
+
+                                           8ℓ2
+                                              
+                         P [µ − ℓ] ≥ exp −       P [µ].
+                         n,p               N n,p
+
+Proof. Assume that ℓ − 1 ≤ (n − µ)/2. Then,
+                             ℓ                  Qℓ
+                                           µℓ
+                   
+ Pn,p [µ]              1−p                         i=1   (1 + i/µ)
+             =                    ·               Qℓ−1
+Pn,p [µ + ℓ]            p             (n − µ)   ℓ
+                                                   i=0 (1 − i/(n − µ))
+                             ℓ                          ℓ
+                                                                  !
+                                       µℓ
+                   
+                       1−p                         i    X2(i − 1)
+               ≤                  ·          exp       +
+                        p           (n − µ)ℓ   i=1
+                                                   µ      n−µ
+                          ℓ
+                                   µℓ
+                                                                           
+                     1−p                           (ℓ + 1)(n − µ) + 2µ(ℓ − 1)
+               =              ·          exp ℓ ·
+                       p        (n − µ)ℓ                     2µ(n − µ)
+                                         
+                             ℓ(n + µ) + n
+               ≤   exp ℓ ·
+                                2µ(n − µ)
+                        2                     
+                         3ℓ             1
+               ≤   exp      ·                        .
+                         2n      p(1 − p) − 1/n
+
+This proves the first assertion. For the second assertion note that
+
+                              µ   ⌈pn⌉   n − ⌊(1 − p)n⌋
+                        ℓ≤      ≤      =                .
+                              2     2           2
+Recall that the binomial measure decreases as the distance from its expecta-
+tion increases. Thus,
+
+          P [µ − ℓ] =     P [n − µ + ℓ] ≥                 P [⌊(1 − p)n⌋ + 1 + ℓ].
+         n,p            n,(1−p)                       n,(1−p)
+
+
+
+
+                                                 23
+In addition, since (ℓ + 1) − 1 ≤ n−⌊(1−p)n⌋
+                                          2
+                                                , the proof of the first assertion
+implies
+                        
+                      3
+    P [µ] ≤ exp            · P [µ + 1]
+    n,p              2N      n,p
+                        
+                      3
+           ≤ exp           · P [n − ⌊(1 − p)n⌋]
+                     2N      n,p
+                        
+                      3
+           = exp           · P [⌊(1 − p)n⌋]
+                     2N      n,(1−p)
+
+                                     3(ℓ + 1)2
+                                            
+                      3
+           ≤ exp           · exp                  · P [⌊(1 − p)n⌋ + 1 + ℓ]
+                     2N                 2N         n,(1−p)
+                                2
+                                      
+                     3((ℓ + 1) + 1)
+           ≤ exp                         · P [µ − ℓ],
+                           2N              n,p
+
+
+which completes the proof since ℓ ≥ 1.                                          ⊔
+                                                                                ⊓
+
+
+5.2.5   Proof of Lemma 5.2
+
+Proof. Let x ∈ In and µ = ⌊pn⌋. Let k ≥ Z ∈ N and τ ≥ e12 , to be
+determined. Let K = K(τ, Z) be the smallest integer such that
+                               j log τ k K−1
+                                          2        k
+                                               ≥     .
+                                   6               Z
+First assume x < µ. We use Claim 5.5 to find w > x such that w ≤ x+9Zτ K
+and
+                     g(x)             12k     
+                           ≤ 8 · exp       + 6Z .
+                     f (w)              τ
+
+Now if w < µ we certainly have Pn,p [x] ≤ Pn,p [w]. If w > µ then we can use
+Claim 5.6 with ℓ = w − µ ≤ w − x ≤ 9Zτ K , provided that ℓ ≤ n−µ2
+                                                                  , to obtain
+
+                                        8(9Zτ K )2
+                                                  
+                       Pn,p [x]
+                                ≤ exp                .
+                       Pn,p [w]            N
+Thus,
+                                            8(9Zτ K )2 12k
+                                                              
+              Pn,p [x]g(x)
+                            ≤ 8 · exp                 +    + 6Z .
+              Pn,p [w]f (w)                    N        τ
+
+                                        24
+This also holds for x ≥ µ, by using Claim 5.5 to find w < x, and the estimate
+in Claim 5.6 involving Pn,p [µ − ℓ], provided that ℓ ≤ µ2 .
+Set
+                 1        p                                    lk m
+            τ=      exp( log(N/k) log log(N/k)) and Z =             .
+               100                                               τ
+Since c1 is small enough (recall that k ≤ c1 · N), τ ≥ e12 and a short calcu-
+lation shows that                   s
+                                  1    log(N/k)
+                              K≤                  .
+                                  4 log log(N/k)
+Since ℓ ≤ 9Zτ K , this implies that ℓ ≤ N2 ≤ min µ2 , n−µ
+                                                  
+                                                       2
+                                                             (for small enough
+c1 ). Thus,
+                                                     
+                   Pn,p [x]g(x)                  k
+                                  ≤ 8 · exp c4      +1     ,
+                   Pn,p [w]f (w)                 τ
+                                      q
+                                 2K
+for a constant c4 > 0, since ZτN ≤ Nk ≤ 1 and Z ≤ kτ + 1. The lemma
+follows.                                                                     ⊔
+                                                                             ⊓
+
+
+6     Open Problems
+    1. What is the value of M(n, k, p) in the range of the parameters not
+       treated by our theorem, namely k ≥ Cnp(1 − p)?
+
+    2. What is the actual ratio of M(n, k, p) and M̃(n, k, p)?
+
+    3. Is there also a similarity between the optimal distributions of our orig-
+       inal and relaxed problems (problems (2.3) and (3.1))? As explained
+       in Section 2, this is related to whether the optimizing polynomials in
+       the dual problems are similar. As hinted by Figures 1-4, calculations
+       in particular cases seem to indicate this to be the case. The similarity
+       seems especially strong in the case p = 21 .
+
+    4. In the setting of Theorem 4.1, What is the best ratio between En,p [g]
+       and En,p [f ]? I.e., the best bound on the change in the expectation of
+       the polynomial after small perturbation of its zeros.
+
+
+
+                                       25
+  5. Find upper and lower bounds for the maximal probability that all the
+     bits are 1, for the class of almost k-wise independent distributions. Sim-
+     ilarly to k-wise independent distributions, such distributions have also
+     proven quite useful for the derandomization of algorithms in computer
+     science.
+
+Acknowledgement. We would like to thank Itai Benjamini, Ori Gurel-
+Gurevich and Simon Litsyn for several useful discussions on this problem.
+Part of this work was conducted while the authors participated in the PCMI
+Graduate Summer School at Park City, Utah, July 2007.
+
+
+References
+[Ak65] Akhiezer, N. I. (1965) The classical moment problem and some re-
+       lated questions in analysis, Translated by N. Kemmer, Hafner Pub-
+       lishing Co., New York.
+
+[AS00] Alon N. and Spencer J. (2000), The probabilistic method, 2nd edi-
+       tion, John Wiley and sons inc..
+
+[BGP] Benjamini I., Gurel-Gurevich O. and Peled R., Independence
+      Sensitivity of Boolean Functions, in preparation.
+      Extended abstract available at: http://www.stat.berkeley.edu/~peledron
+
+[B37]   Bonferroni C. E. (1937), Teoria Statistica delle Classi e Calcolo delle
+        probabilità, Volume in onore di Ricardo Dalla Volta, Università di
+        Firenze, p. 1-62.
+
+[B1854] Boole G. (1854), An Investigation of the laws of thought on which are
+        founded the mathematical theories of logic and probabilities, Dover
+        1st printing.
+
+[BP89] Boros E., Prékopa A. (1989) Closed form two-sided bounds for prob-
+       abilities that at least r and exactly r out of n events occur, Mathe-
+       matics of Operations Research, 14 (2), 317 - 342.
+
+[DS67] Dawson D. A. and Sankoff D. (1967), An Inequality for Probabilities,
+       Proc. Am. Math. Soc. 18, 504-507.
+
+                                      26
+[DY04] Dumer I. and Yekhanin S. (2004), Long nonbinary codes exceeding
+       the Gilbert-Varshamov bound for any fixed distance, IEEE Trans.
+       Inform. Theory, 50 (10), 2357–2362.
+
+[GX90] Galambos J. and Xu T. (1990), A new method of generating
+       Bonferroni-type inequalities by iteration, Math. Proc. Cambridge
+       Philos. Soc. 107, no. 3, 601-607.
+
+[HLL97] Honkala I. S. , Laihonen T. and Litsyn S. (1997), On Covering
+       Radius and Discrete Chebyshev Polynomials, Applicable Algebra in
+       Engineering, Communication and Computing 8, no. 5, 395-401.
+
+[KN77] Kreı̆n, M. G. and Nudel’man, A. A. (1977), The Markov moment
+       problem and extremal problems, Ideas and problems of P. L. Čebyšev
+       and A. A. Markov and their further development, Translated from
+       the Russian by D. Louvish, Translations of Mathematical Mono-
+       graphs, Vol. 50, AMS.
+
+[K75]   Kwerel S. M. (1975), Most Stringent Bounds on Aggregated Proba-
+        bilities of Partially Specified Dependent Probability Systems, J. Am.
+        Stat. Assoc. 70, 472-479.
+
+[LN90] Linial N. and Nisan N. (1990) Approximate inclusion-exclusion,
+       Combinatorica, 10, 349-365.
+
+[LW95] Luby M. and Wigderson A. (1995). Pairwise independence and de-
+       randomization. Technical Report TR-95-035, International Com-
+       puter Science Institute, Berkeley, California.
+
+[MS77] MacWilliams, F. J. and Sloane, N. J. A. (1977) The theory of
+       error-correcting codes, North-Holland Mathematical Library, Vol. 16,
+       North-Holland Publishing Co., Amsterdam.
+
+[M95]   Meshulam, R. (1995) On subsets of finite abelian groups containing
+        no 3-term arithmetic progressions, Journal of Combinatorial theory
+        Ser. A., Vol. 71, 168-172.
+
+[P88]   Prékopa A. (1988) Boole-Bonferroni Inequalities and Linear Pro-
+        gramming, Operations Research, Vol. 36, No. 1 (Jan.-Feb. 1988),
+        145-162.
+
+
+                                     27
+[S99]    Samorodnitsky A. (1999), Approximate Inclusion-Exclusion and Or-
+         thogonal Polynomials, Manuscript.
+
+[Sz75] Szegő G. (1975) Orthogonal polynomials, fourth edition, American
+       Mathematical Society, Colloquium Publications, Vol. XXIII, AMS
+       Providence R.I..
+
+
+7       Appendix
+We provide here short proofs for the results of [BGP] that we use.
+
+Proof of (1.1). Fix n ∈ N, 0 < p < 1 and an odd k ∈ N. Let P be the
+optimal polynomial for the problem (2.5) for these n, k and p. By the second
+part of Theorem (2.2) we know that
+                                   Q(k−1)/2
+                               z     i=1      (z − z2i )(z − z2i+1 )
+                     P (z) =       Q(k−1)/2                            .           (7.1)
+                               n     i=1      (n − z2i )(n − z2i+1 )
+
+Now note that
+ EBin(n,p) P (Z)
+       n      Q(k−1)/2
+      X     z i=1       (z − z2i )(z − z2i+1 )  n  z
+   =          Q(k−1)/2                                  p (1 − p)n−z
+      z=0 n     i=1     (n − z2i )(n − z2i+1 )     z
+       n    Q (k−1)/2                                   
+      X               (z −  z2i )(z −  z2i+1 )   n −   1
+   =          i=1
+            Q(k−1)/2                                       pz (1 − p)n−z
+      z=1     i=1    (n − z2i )(n − z2i+1 ) z − 1
+        n−1   Q (k−1)/2                                              
+        X               (z − (z2i − 1))(z − (z2i+1 − 1)) n − 1 z
+   =p           i=1
+                    Q(k−1)/2                                             p (1 − p)n−1−z
+        z=0            i=1    (n  −  z2i )(n −  z2i+1 )            z
+    = p · EBin(n−1,p) Q(Z),
+                                                                                   (7.2)
+
+where
+                         Q(k−1)/2
+                        i=1    (z − (z2i − 1))(z − (z2i+1 − 1))
+           Q(z) = Q(k−1)/2                                           .             (7.3)
+                   i=1     (n − 1 − (z2i − 1))(n − 1 −  (z2i+1 − 1))
+
+
+                                           28
+Note that Q is of degree k − 1 and satisfies Q(i) ≥ 0 for i ∈ {0, 1, . . . , n − 2},
+and Q(n − 1) = 1. Hence,
+                       M(n, k, p) ≥ pM(n − 1, k − 1, p).
+To prove that equality holds, we can carry the above reasoning in the reverse
+direction by starting with the optimal polynomial Q to problem (2.5), which,
+by Theorem (2.2), is of the form (7.3). Then noting that (7.2) still holds for
+a polynomial P of the form (7.1), which is of degree k and satisfies P (i) ≥ 0
+for i ∈ {0, 1, . . . , n − 1}, and P (n) = 1.                               ⊔
+                                                                            ⊓
+
+Proof of Lemma 2.1. Define a distribution QS on {0, 1}n by
+                                             −1
+                                              n
+                    QS ({x}) = P(S = |x|) ·
+                                             |x|
+for x ∈ {0, 1}n , where |x| is the number of 1’s in x. By definition, QS is
+symmetric and S has the distribution of the number of 1’s in QS . It re-
+mains to verify that each bit has marginal probability p, and the k-wise
+independence property. Let S̃be a random variable with the Bin(n, p) dis-
+tribution; i.e., P(S̃ = i) = ni pi (1 − p)n−i . It is straight-forward to verify
+that QS̃ is the distribution of n independent Bernoulli(p) random variables.
+Fix 1 ≤ i1 < i2 < · · · < ik ≤ n and y1 , . . . , yk ∈ {0, 1}. Let j be the number
+of 1’s in (y1, . . . , yk ). Note that
+
+                       n                            n−k+j
+                                                        X  n − k  P(S = i)
+  QS {x ∈ {0, 1} : xi1 = y1 , . . . , xik = yk } =                         n
+                                                                             
+                                                        i=j
+                                                               i − j       i
+                    n−k+j          j−1         k−j−1
+            (n − k)! X             Y            Y
+          =               P(S = i)     (i − m)      (n − m − i) = EPj (S),
+               n!    i=j           m=0          m=0
+
+where Pj is defined by
+                                  j−1         k−j−1
+                         (n − k)! Y            Y
+                Pj (z) =              (z − m)      (n − m − z).
+                            n!    m=0          m=0
+
+Since Pj is a polynomial of degree k and since S has the same first k moments
+as S̃,
+       QS ({x ∈ {0, 1}n : xi1 = y1 , . . . , xik = yk }) = EPj (S)
+              = EPj (S̃) = QS̃ ({x ∈ {0, 1}n : xi1 = y1 , . . . , xik = yk }),
+
+                                        29
+as required.                                                                                          ⊔
+                                                                                                      ⊓
+
+Proof of (1.3). Following the methods of the classical moment problem, we
+use the equivalence of (3.2) and (3.3) and solve the latter problem. Fix
+n ∈ N, 0 < p < 1 and an even k ∈ N. Let P = R2 for a polynomial
+R of degree at most k/2 satisfying |R(n)| ≥ 1. Let {Ki }ni=0 be the (n, p)-
+Krawtchouk polynomials; i.e., the orthogonal polynomials corresponding to
+the Bin(n, p) distribution normalized so that EBin(n,p) Ki2 (Z) = 1. Write
+                                               k/2
+                                               X
+                                      R(z) =             ai Ki (z).
+                                                   i=0
+
+Note that
+                                                                           k/2
+                                                                           X
+                                                               2
+                    EBin(n,p) P (Z) = EBin(n,p) R (Z) =                          a2i .
+                                                                           i=0
+                                                                    Pk/2
+Hence the problem (3.3) reduces to minimizing i=0 a2i under the constraint
+that |R(n)| = | k/2
+               P
+                 i=0 ai Ki (n)| ≥ 1. By Cauchy-Schwarz,
+
+                    k/2         k/2                  k/2
+                                                    X                     2
+                    X           X
+                          a2i         Ki2 (n) ≥                ai Ki (n)        ≥ 1.
+                    i=0         i=0                      i=0
+
+Hence the optimal value of the problem (3.3) is Pk/2 1 2                                 and the optimal
+                                                                           i=0 Ki (n)
+polynomial is (up to multiplication by (−1))
+                                                         k/2
+                                           1             X
+                     R(z) = Pk/2                                Ki (n)Ki (z).
+                                             2
+                                        i=0 Ki (n) i=0
+
+Since the Krawtchouk polynomials equal [Sz75]
+              n − 21                  i                   
+                                  − 2i
+                                       X
+                                                i−j   n−x     x i−j
+    Ki (x) =           (p(1 − p))          (−1)                  p (1 − p)j ,
+               i                       j=0
+                                                      i − j   j
+
+and in particular
+                                            n  12  1 − p  2i
+                                Ki (n) =                               ,
+                                               i               p
+we deduce (1.3).                                                                                      ⊔
+                                                                                                      ⊓
+
+
+                                                   30
+
