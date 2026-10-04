@@ -1,0 +1,641 @@
+# EXCEPTIONAL_TUPLES — the tuple-count / witness-correlation door (task O21)
+
+Status: **checkpoint 2 (O21; external review `reviews/exceptional-tuples-review.md` on `side-agent/review-tuples`, SOUND-AFTER-MINOR-REPAIRS, D1–D10 applied).** Labels follow `DISCOVERIES.md`. PROVED
+means proved in this file (internal checks only, not refereed). No θ > 3/4
+is claimed unconditionally. ES is not solved.
+
+## 0. Summary
+
+| item | statement | label |
+|---|---|---|
+| Def 1.1, Lemma 1.2 | k-point witness correlations `C_T(N)`, order-k sums `S_k = Σ_n binom(f(n),k)`, CRT prediction `m_k`; termwise error ≤ number of tuples | PROVED (trivial) |
+| Lemma 1.3 | **shift form**: for the prime family, order-k witness correlations are k-point correlations of ω-type functions `ω_{y,D}(n+4D)` along shifts `4D`, `D | ((ℓ+1)/4)²` | PROVED |
+| Thm 2.1, Cor 2.2 | TC(N;K,y,η) (order-j sums ≈ CRT, j ≤ K, error ηN) ⇒ `#{f_y=0} ≤ N(Π(1−p_ℓ) + e_K(p) + Kη)`; at `μ_y ≈ K/e²`, `η = e^{−K/e²}/K`: `E(N) ≤ (e+2)N e^{−K/e²}` | PROVED |
+| Cor 2.3 | **TC_θ ⇒ `E(N) ≤ N exp(−(2/e²−o(1))(log N)^θ)`**; TC_θ with θ > 3/4 gives the θ > 3/4 target | CONDITIONAL on TC_θ (CONJECTURE) |
+| Prop 2.4 | TC holds unconditionally for `K ≤ c(log N)^{2/3}` (Brun's pure sieve; recovers 2/3); so TC_θ holds for θ < 2/3 | PROVED |
+| Thm 3.1, Cor 3.2, 3.3 | majorants of prime-slice ES families whose terms have level ≤ A log N **or** order ≤ k save `≤ C[(log N)^{3/4} + k log log N]` (CRT-main-term evaluation); **bounded-order correlation input of any precision cannot give θ > 3/4**; saving `(log N)^θ` needs order `≥ c(log N)^θ/log log N`, and order `2⌈(log N)^θ⌉` suffices under TC | PROVED (via ET Prop 2.4) |
+| Cor 3.4 | all K2 families: order-k majorants (moduli ≤ N^A) save `≤ C(k log N)^{3/4}(log(k log N))^{3/4}`; bounded k useless | PROVED (from K2 Thm 5.1) |
+| Prop 4.1 | no Kubilius-type (total-variation) model for the ES hit vector once `log y ≥ C(log N)^{1/3}` (entropy `≍ (log y)³`) | PROVED |
+| Prop 4.2 | TC fails for even `K ≥ (e²/2+ε) log N` (squares avoid all classes) | PROVED |
+| Prop 4.3 (+ ext.) | majorants built only from ES witness classes along a fixed set of r shifts `n+4D` (any order; prime family, or all `M ≤ N^A`) have `Eν ≥ exp(−2r(log log N^A + 3))`; majorants using non-witness divisor information along the shifts are not covered | PROVED |
+| Ass. 4.4 | no known theorem or standard conjecture supplies TC_θ for any θ > 2/3: divisor-correlation results/conjectures have a fixed number of shifts (Prop 4.3) or are shift-averaged; EH-type inputs live below N; the Kubilius model needs a single shift | Assessment |
+| §5 | toy data (N ≤ 10⁸): avoider excess over CRT positive, rising with y towards the square density, reproduced by a random-non-residue control; for y ≤ 1000, j ≤ 12 the moments above N are a few % below CRT and approach it as N grows; the TC test at the supplied y passes for y ≤ 100 and fails for y ≥ 300 (a random control fails too, so this is not ES-specific) | EVIDENCE |
+
+**Verdict.** The tuple-count door is now a precise statement. One
+natural, falsifiable hypothesis TC_θ about the first K moments of the
+witness count of the *prime* family (small primes `ℓ ≤ exp(O(K^{1/2}))`,
+combined moduli `exp((log N)^{3θ/2})`) gives θ (Cor 2.3). It is a theorem
+for θ < 2/3 (Prop 2.4). The TC family is false at order `K ≥ 3.7 log N`
+(Prop 4.2); TC_θ at θ = 1 itself is not decided. Conversely, input
+of bounded order, or of order `o((log N)^{3/4}/log log N)` for prime-slice
+families, is useless for θ > 3/4 whatever its precision, even combined with
+arbitrary CRT majorant terms of level `≤ A log N`, as long as the
+evaluation asserts CRT main terms (Cor 3.3).
+So order `≥ c(log N)^θ/log log N` is necessary (PROVED), and order
+`2⌈(log N)^θ⌉` suffices under TC_θ (CONDITIONAL). The known
+divisor-correlation theorems (Heath-Brown, Deshouillers–Iwaniec,
+Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and the standard conjectures of
+Hardy–Littlewood/Elliott type concern a *fixed number of shifts*. That is
+a different axis from witness order (each τ(n+h) involves all orders).
+Information about the ES witness classes along any fixed set of r shifts
+is capped separately: it saves `≤ 2r(log log N + O(1))` (Prop 4.3).
+Non-witness divisor information along the shifts is not covered. So none of these results can
+open the door on its own (Assessment 4.4). The only all-order mechanism known (the Kubilius model) is
+single-shift, and Prop 4.1 rules out its total-variation form here. The door
+is open only through a new "many-shift Kubilius model in the moment
+sense" (TC_θ), for which we know no approach.
+
+Notation: `ET` = `EXCEPTIONAL_THETA.md`, `NC` = `EXCEPTIONAL_NONCRT.md`,
+`K2` = `EXCEPTIONAL_KARY2.md`, `IF` = `EXCEPTIONAL_INTERFREQ.md` (branch
+`side-agent/interfreq`), `ElT` = Elsholtz–Tao arXiv:1107.1010.
+`E(N) = #{n ≤ N : 4/n = 1/x+1/y+1/z has no solution in positive integers}`.
+
+## 1. Witness correlations of order k
+
+### 1.1 Definitions
+
+A *witness family* 𝒲 is a finite set of residue classes `W = (b_W mod d_W)`
+such that every positive integer in W has an ES solution. The basic
+example: for `M ≡ 3 (mod 4)`, `A = (M+1)/4`, the classes of
+
+    𝓡(M) = {−4D mod M : D | A²}                     (notes Lemma 18.1)
+
+are forced (notes Lemma 16.1: no condition on n beyond n ≥ 1). Hence for
+every witness family
+
+    E(N) ≤ #{n ≤ N : f_𝒲(n) = 0},    f_𝒲(n) := Σ_{W∈𝒲} 1_W(n).     (1.1)
+
+**Definition 1.1 (k-point witness correlation).** For `T ⊆ 𝒲` put
+
+    C_T(N) = #{n ≤ N : n ∈ W for all W ∈ T},
+    δ_T    = density in ℤ of ∩_{W∈T} W  (= 0, or 1/lcm_{W∈T} d_W by CRT),
+    E_T(N) = C_T(N) − N δ_T.
+
+The *order-k correlation sum* and its *CRT prediction* are
+
+    S_k(N) = Σ_{|T|=k} C_T(N) = Σ_{n≤N} binom(f_𝒲(n), k),
+    m_k    = Σ_{|T|=k} δ_T    = E_CRT binom(f_𝒲, k),                 (1.2)
+
+where E_CRT is the uniform average over one common period. T is *above
+modulus N* if `δ_T > 0` and `lcm_T d_W > N`; then `C_T(N) ∈ {0,1}` while
+`Nδ_T < 1`.
+
+**Lemma 1.2 (termwise bound; PROVED, trivial).** `|E_T(N)| ≤ 1` for every T,
+hence `|S_k(N) − N m_k| ≤ #{T : |T| = k, δ_T > 0}`.
+
+*Proof.* A nonempty ∩_T W is one class mod `q = lcm_T d_W`, and
+`|#{n ≤ N : n ≡ b (q)} − N/q| ≤ 1`. ∎
+
+The **tuple-count door** (IF §3.3, NC §6 (c′)) is the hope that
+`Σ_T c_T E_T(N)` is far smaller than `Σ_T |c_T|` for the coefficients `c_T`
+of some majorant, in a range where most of the CRT mass sits on T above
+modulus N. Order-k correlation sums are the simplest such sums
+(`c_T = 1` on `|T| = k`).
+
+### 1.2 The prime family and its shift form
+
+Let `𝒫_y = {ℓ prime : ℓ ≤ y, ℓ ≡ 3 (mod 4)}`, `F(ℓ) = |𝓡(ℓ)|`,
+`p_ℓ = F(ℓ)/ℓ`, and the *prime family* `𝒲_y = {classes of 𝓡(ℓ) : ℓ ∈ 𝒫_y}`.
+Classes with the same ℓ are disjoint, so
+
+    f_y(n) := f_{𝒲_y}(n) = Σ_{ℓ∈𝒫_y} x_ℓ(n),   x_ℓ(n) = 1[n mod ℓ ∈ 𝓡(ℓ)],
+
+and under E_CRT the `x_ℓ` are independent `Bern(p_ℓ)`. Hence
+`m_k = e_k(p) := Σ_{|S|=k, S⊆𝒫_y} Π_{ℓ∈S} p_ℓ`, `P_CRT(f_y = 0) = Π(1−p_ℓ)`,
+and the CRT mass `μ_y := Σ_{ℓ∈𝒫_y} p_ℓ` satisfies (notes Lemma 24.3)
+
+    c(log y)² ≤ μ_y ≤ C(log y)²   (y ≥ 3).                           (1.3)
+
+**Lemma 1.3 (shift form; PROVED).** For each ℓ ∈ 𝒫_y fix a set 𝒟_ℓ of
+divisors of `A_ℓ² = ((ℓ+1)/4)²` whose residues `−4D mod ℓ` are exactly
+𝓡(ℓ), each once. For `D ≥ 1` let `𝒫_y(D) = {ℓ ∈ 𝒫_y : D ∈ 𝒟_ℓ}` and
+`ω_{y,D}(m) = #{ℓ ∈ 𝒫_y(D) : ℓ | m}`. Then for every n ∈ ℤ
+
+    f_y(n) = Σ_{D ≥ 1} ω_{y,D}(n + 4D),                               (1.4)
+
+and the order-k correlation sum is the distinct-prime ("falling-factorial")
+part of the k-point correlations `Σ_n Π_i ω_{y,D_i}(n+4D_i)` of these
+truncated additive functions at the shifts `4D` (the plain products also
+contain diagonal terms with a repeated `(ℓ, D)`):
+
+    S_k(N) = Σ_{{(ℓ_1,D_1),…,(ℓ_k,D_k)}} #{n ≤ N : ℓ_i | n + 4D_i, i ≤ k},   (1.5)
+
+summed over k-sets with distinct `ℓ_i ∈ 𝒫_y` and `D_i ∈ 𝒟_{ℓ_i}`. All
+shifts satisfy `4D ≤ (y+1)²/4`.
+
+*Proof.* The classes `−4D`, `D ∈ 𝒟_ℓ`, are distinct mod ℓ, so
+`x_ℓ(n) = Σ_{D∈𝒟_ℓ} 1[ℓ | n + 4D]`. Summing over ℓ and regrouping by D
+gives (1.4). Expanding `binom(f_y(n), k)` as the number of k-sets of hit
+primes, each hit prime ℓ with its unique D, gives (1.5). Finally
+`D ≤ A_ℓ² ≤ (y+1)²/16`. ∎
+
+So **ES witness correlations of order k are k-point correlations of
+ω-type (divisor-indicator) functions along k shifts**, with each prime
+`ℓ_i` small (`≤ y`) and combined modulus `Π ℓ_i`. When all `D_i` are equal
+this is a single integer `n + 4D` divisible by `Π ℓ_i`; then
+`Πℓ_i ≤ N + 4D`, and the count is the Kubilius-model situation (§4). The
+door concerns *distinct* shifts with `Π ℓ_i ≫ N`.
+
+## 2. A conditional implication: order-K correlations ⇒ saving ≍ K
+
+**Hypothesis TC(N; K, y, η)** (order-K witness correlations of the prime
+family). For every `1 ≤ j ≤ K`,
+
+    | Σ_{n≤N} binom(f_y(n), j) − N e_j(p) | ≤ η N.                     (2.1)
+
+(2.1) asserts the CRT prediction for the order-j correlation sums *in
+aggregate*. It does not assert anything about an individual `C_T(N)`.
+
+**Theorem 2.1 (PROVED).** If K is even and TC(N; K, y, η) holds, then
+
+    #{n ≤ N : f_y(n) = 0} ≤ N ( Π_{ℓ∈𝒫_y}(1 − p_ℓ) + e_K(p) + Kη ).
+
+*Proof.* For an integer `f ≥ 1`, `Σ_{j=0}^K (−1)^j binom(f,j) =
+(−1)^K binom(f−1,K)` (induction on K via Pascal's rule); for `f = 0` the
+sum is 1. With K even the sum is therefore `≥ 1[f = 0]` for every `f ≥ 0`.
+Put `f = f_y(n)` and sum over `n ≤ N`: since `S_0 = N = N e_0`,
+
+    #{f_y = 0} ≤ Σ_{j=0}^K (−1)^j S_j(N) ≤ N Σ_{j=0}^K (−1)^j e_j(p) + KηN.
+
+Under the CRT law the same identity gives
+`Σ_j (−1)^j e_j(p) = P(f=0) + E[1_{f≥1} binom(f−1,K)] ≤ Π(1−p_ℓ) + E binom(f,K)
+= Π(1−p_ℓ) + e_K(p)`. ∎
+
+**Corollary 2.2 (PROVED).** Let `K ≥ 2` be even and let `y_K` be the
+largest integer y with `μ_y ≤ K/e²` (it exists since `μ_y → ∞`; `𝒫_{y_K}`
+may be empty, e.g. `y_2 = 2`), and `η_K := e^{−K/e²}/K`. If
+TC(N; K, y_K, η_K) holds, then
+
+    #{n ≤ N : f_y(n) = 0} ≤ (e + 2) N e^{−K/e²},   hence   E(N) ≤ (e + 2) N e^{−K/e²}.   (2.2′)
+
+Moreover `log y_K ≍ K^{1/2}` by (1.3).
+
+*Proof.* `0 ∉ 𝓡(ℓ)` (since `(D, ℓ) = 1` for `D | A²`), so `p_ℓ < 1`, and
+`μ_{y_K} > K/e² − 1`. Hence `Π(1−p_ℓ) ≤ e^{−μ} < e^{1−K/e²}`, and
+`e_K(p) ≤ μ^K/K! ≤ (eμ/K)^K ≤ e^{−K}`, and `Kη_K = e^{−K/e²}`. Insert in
+Theorem 2.1 and (1.1). ∎
+
+**Corollary 2.3 (CONDITIONAL on TC_θ).** For θ ∈ (0,1) let *TC_θ* be the
+statement: for all large N, TC(N; K_N, y_{K_N}, η_{K_N}) holds with
+`K_N = 2⌈(log N)^θ⌉`. Under TC_θ,
+
+    E(N) ≤ N exp(−(2/e² − o(1)) (log N)^θ).
+
+In particular **TC_θ for some θ > 3/4 implies the θ > 3/4 target.** ∎
+
+(In fact `E(N) ≤ (e+2)N exp(−(2/e²)(log N)^θ)` with no o(1). The calibration
+`μ ≈ K/e²` is not optimal. With `μ = βK` one only needs `(eβ)^K ≤ e^{−βK}`,
+i.e. `1 + log β + β ≤ 0`, so β ≈ 0.278 works. That raises the constant
+`2/e² ≈ 0.27` to ≈ 0.557 and shifts the K-threshold of Prop 4.2 for the
+recalibrated family. No θ claim depends on it, and we keep `K/e²`
+throughout.)
+
+**Proposition 2.4 (the trivial range; PROVED).** TC(N; K, y, η) holds with
+`η = (Σ_{ℓ∈𝒫_y} F(ℓ))^K / N` whenever `Σ_ℓ F(ℓ) ≥ 1`. Consequently
+TC(N; K, y_K, η_K) holds unconditionally for `K ≤ c₀(log N)^{2/3}`, and
+Corollary 2.2 gives `E(N) ≪ N exp(−c(log N)^{2/3})`.
+
+*Proof.* By Lemma 1.2, `|S_j − N e_j(p)| ≤ #{j-sets of classes with
+distinct primes} = e_j(F) ≤ (ΣF)^j/j! ≤ (ΣF)^K`. By (1.3),
+`Σ_{ℓ≤y}F(ℓ) ≤ y μ_y ≤ C y (log y)²`, and `(log y_K)² ≤ K/(ce²)`. So
+`(ΣF)^K ≤ N η_K` as soon as `K(C₁K^{1/2} + log C + 2 log K + 1) ≤ log N`,
+which holds for `K ≤ c₀(log N)^{2/3}`. ∎
+
+This is Brun's pure sieve; it recovers the 2/3 exponent (without the
+`(log log N)^{1/3}` of DISCOVERIES (A)6). It calibrates the framework:
+TC is a *theorem* exactly as long as the order-K tuples have total
+"termwise" error `≤ N η_K`, i.e. `K log y_K ≲ log N`, and its content
+for θ > 2/3 is aggregate cancellation among tuples above modulus N.
+
+**Remarks.**
+1. *Where TC_θ lives.* The tuples carrying `e_K(p)` have
+   `log Π ℓ_i ≈ K·⟨log ℓ⟩_p ≍ K log y_K ≍ K^{3/2} = (log N)^{3θ/2}` (the
+   p-weighted mean of log ℓ over `𝒫_y` is `≍ log y` by (1.3)). For
+   θ > 3/4 the combined moduli are `exp((log N)^{9/8+})`: super-polynomial
+   in N, though each `ℓ_i ≤ y_K = N^{o(1)}` and each shift `4D_i < y_K²`.
+   (Assessment; §5 checks the split numerically.)
+2. *Precision.* `e_j(p)` peaks near `j ≈ μ ≈ K/e²` at size `≈ e^{μ}`. So
+   (2.1) with `η = η_K` asks for relative precision `≈ e^{−2K/e²}/K`
+   in the peak moments: `N^{−o(1)}`, far weaker than a power saving, but
+   for growing order K. The alternating sum cancels from `e^{μ}` to `e^{−μ}`.
+3. *Composite moduli (Assessment, not proved).* With all moduli `M ≤ y`
+   (cubic mass, notes Thm 18.2) the trivial range should become
+   `K ≲ (log N)^{3/4}`. That would match the 3/4 note's architecture
+   (Bonferroni degree ≍ saving, atoms of size `exp(s^{1/3})`). Composite
+   classes are not CRT-independent, so Theorem 2.1 is not exact for them,
+   and this is not proved here. We use the prime family because CRT
+   independence makes Theorem 2.1 exact. Nothing below needs composite
+   moduli.
+
+## 3. No-go: correlation input of order k saves at most ≍ k log log N
+
+Theorem 2.1 used order K and saved `≍ K`. This section shows that this is
+optimal up to `log log N`, even if arbitrary CRT majorant terms of
+level `≤ A log N` are added, as long as the evaluation asserts CRT main
+terms (scope: Cor 3.3). Bounded order k is useless for θ > 3/4.
+
+Setting: a prime-slice system (ET §1: small modulus Q₀, admissible set R,
+finite slice-prime set 𝒫, forbidden sets `F_ℓ(c)`), with
+`p_ℓ(c) ≤ 1/4` and `|F_ℓ(c)| < ℓ` for all `ℓ ∈ 𝒫`, `c ∈ R`. A *majorant*
+is `ν = Σ_i a_i 1[n ≡ b_i (mod d_i)]` with `ν ≥ 0` on ℤ and `ν ≥ 1` on the
+whole avoider set 𝒜. Put `T_i = {ℓ ∈ 𝒫 : ℓ | d_i}`.
+
+**Definition 3.0.** ν is *(λ₀, k)-mixed* if every term i satisfies
+`Σ_{ℓ∈T_i} log ℓ ≤ λ₀` (level ≤ λ₀) **or** `|T_i| ≤ k` (order ≤ k).
+
+Examples. A k-point correlation `1[n ∈ W_1 ∩ … ∩ W_k]` of slice classes
+has order ≤ k, whatever its modulus. So `P∘f` with `deg P ≤ k`, Bonferroni
+truncations of degree k, Theorem 2.1's majorant (K = k), and any of these
+plus an arbitrary CRT majorant of level ≤ λ₀ are (λ₀, k)-mixed.
+
+**Theorem 3.1 (PROVED).** Let ν be (λ₀, k)-mixed, `k ≥ 1`. Let `L₀ > 0`,
+weights `s_ℓ = min(log ℓ, L₀)`, `s_* = min_𝒫 s_ℓ`, `λ = max(λ₀, kL₀) ≥ s_*`,
+`G = ⌊log₂(λ/s_*)⌋ + 1`, `μ̄ = Σ_{ℓ∈𝒫} p̄_ℓ`. For every α > 0,
+
+    log(1/Eν) ≤ log(Q₀/|R|) + 19αλ
+                + C₄ [ Σ_{ℓ∈𝒫, log ℓ≤L₀} p̄_ℓ ℓ^{−α} + e^{−αL₀} Σ_{ℓ∈𝒫, log ℓ>L₀} p̄_ℓ ]
+                + G(75 + log(2+λ/s_*)) + (G/2) log(16μ̄+16).          (3.1)
+
+*Proof.* ET Theorem 2.5's proof, with ET Proposition 2.4 applied to the
+weights `s_ℓ` instead of `log ℓ` (Prop 2.4 allows arbitrary weights
+`s_i ≥ s_* > 0`; NC Thm 2.3 does the same with other weights). Condition
+on `c = n mod Q₀ ∈ R`. The hit indicators `x_ℓ`, ℓ ∈ 𝒫, are independent
+`Bern(p_ℓ(c))`, and `ν_c = E[ν | c, x]` is a sum of terms depending on
+`x_{T_i}` only. Each term has weighted level
+`Σ_{T_i} s_ℓ ≤ min(Σ_{T_i} log ℓ, |T_i| L₀) ≤ λ`, by the mixed condition.
+So `ν_c` is λ-level for these weights, `ν_c ≥ 0`, and `ν_c(0) ≥ 1` (the
+event `{c} × {x = 0}` lies in 𝒜 and has positive probability). All
+`s_ℓ ≤ L₀ ≤ λ`, so Prop 2.4 needs `p_ℓ(c) ≤ 1/4` for all ℓ ∈ 𝒫, which is
+assumed, and its mass is μ̄ (averaged). Prop 2.4 gives (2.3) in each
+fibre with `Σ p_ℓ(c) e^{−αs_ℓ}`. The weights do not depend on c, so the
+fibre bound is affine in `(p_ℓ(c))_ℓ` up to the concave log term; average
+over c ∈ R by Jensen exactly as in ET Thm 2.5, and use
+`Eν ≥ (|R|/Q₀) avg_{c∈R} Eν_c`. Finally `e^{−αs_ℓ}` is `ℓ^{−α}` if
+`log ℓ ≤ L₀` and `e^{−αL₀}` otherwise. ∎
+
+**Corollary 3.2 (ES prime-slice families; PROVED).** Take a family as in
+ET Corollary 3.4 (forced classes of notes Lemma 16.1 or ET Lemma 3.2, or
+Case-A classes via ET Lemma 3.7; moduli `q₀ℓ`, `q₀ ≤ ℓ^C`, C < 1;
+selector R with parameter P; `ℓ ≥ ℓ₀(C)`), with all slice primes
+`ℓ ≤ N^A`. Every (A log N, k)-mixed majorant ν, `1 ≤ k`, satisfies
+
+    log(1/Eν) ≤ C₉(A,C) [ (log N)^{3/4} + k log log N ] + log(P/φ(P)).   (3.2)
+
+*Proof.* ET Cor 3.4's proof gives `p_ℓ⁺ ≤ 1/4`,
+`log(Q₀/|R|) ≤ log(P/φ(P))` after the selector average, and the mass
+bound `Σ_ℓ p̄_ℓ ℓ^{−β} ≤ C min(β,1)^{−3}` (ET Lemmas 3.1, 3.2, 3.7; for β ≥ 1
+use `ℓ^{−β} ≤ ℓ^{−1}`). With `β = 1/log x` this gives
+`Σ_{ℓ≤x} p̄_ℓ ≤ C'(log x)³`, so `μ̄ ≤ C'(A log N)³`. Put `λ₀ = A log N`,
+`L₀ = λ₀/k` (so λ = λ₀) and `α = max(λ₀^{−1/4}, 3k log(A log N)/λ₀)`.
+In (3.1):
+* `19αλ₀ ≤ 19λ₀^{3/4} + 57 k log(A log N)`;
+* the first mass sum is `≤ C min(α,1)^{−3} ≤ C λ₀^{3/4}` (as `α ≥ λ₀^{−1/4}`);
+* `αL₀ ≥ 3 log(A log N)`, so the second is `≤ (A log N)^{−3}·C'(A log N)³ = C'`;
+* `s_* ≥ min(log ℓ₀, λ₀/k)`, so `G = O(log(k + log N))` and the G-terms
+  are `O(log²(k + log N)) = O((log N)^{3/4} + k)`. ∎
+
+**Corollary 3.3 (order needed; PROVED).** Consider any method that bounds
+`#(𝒜 ∩ [1,N]) ≤ B` through a (A log N, k)-mixed majorant ν of a
+Cor 3.2 family, with `B ≥ ½ N·Eν`. (This holds whenever the method's
+evaluation of `Σ_{n≤N} ν(n)` asserts the CRT main term `N·Eν` up to an
+error of at most half of it. Examples: hypotheses of the form "order-j
+correlation sums equal their CRT predictions up to small error", j ≤ k,
+together with CRT evaluation plus a nonnegative error bound for the terms
+of level `≤ A log N`, or with any evaluation of those terms that does not
+produce a deficit larger than `½N·Eν`. A low-level part evaluated
+*exactly* with a large favourable rounding deficit is not covered here.
+For majorants built only from classes of modulus ≤ N/2, IF Thm 2.2/2.5
+show that no such deficit occurs; for mixed ν this is open.) Then its saving `log(N/B)` is at most
+`C₉[(log N)^{3/4} + k log log N] + log(P/φ(P)) + log 2`. Hence:
+* bounded k (any fixed witness order, i.e. at most k hit indicators per
+  term; e.g. pair or triple witness correlations, however precise) cannot
+  give θ > 3/4;
+* a saving `(log N)^θ` with θ > 3/4 needs `k ≥ c(log N)^θ/log log N`.
+
+(Both bullets assume the selector term is negligible,
+`log(P/φ(P)) = o((log N)^θ)`, as in ET Cor 3.4; it is
+`≤ log log log P + O(1)`, and `P = 1` for the prime family.)
+
+Together with Corollary 2.2 (order K = 2⌈(log N)^θ⌉ suffices for the
+prime family; Theorem 2.1 and Cor 2.2 hold verbatim for the prime family
+restricted to `ℓ ≥ ℓ₀(C)`, with TC stated for that restricted family,
+which is a Cor 3.2 family; the restriction changes `μ_y` by O(1)): order
+`≥ c(log N)^θ/log log N` is **necessary** (PROVED, this corollary, under
+CRT-main-term evaluation), and order `2⌈(log N)^θ⌉` is **sufficient under
+TC_θ** (CONDITIONAL, Cor 2.3). ∎
+
+**Corollary 3.4 (all K2 families, weaker; PROVED from K2 Thm 5.1).** Let
+𝔊 be any finite K2 family (ℛ(M)-, (a,D)-, Case-A, selector classes, any
+moduli). Let ν be a majorant of 𝒜(𝔊) each of whose terms is an
+intersection of at most k classes of modulus `≤ N^A`, or has level
+`≤ A log N`. Then ν has K2 level `≤ kA log N`, so
+`log(1/Eν) ≤ C(kA log N)^{3/4}(log(kA log N))^{3/4}`. Hence, for methods
+as in Cor 3.3 (bound `B ≥ ½N·Eν`, i.e. CRT-main-term evaluation): bounded
+k gives no θ > 3/4, and saving `(log N)^θ` needs
+`k ≥ (log N)^{4θ/3−1−o(1)}`. ∎
+
+*Gap.* For composite-moduli families, k between `(log N)^{4θ/3−1}` and
+`(log N)^θ/log log N` is excluded only for prime-slice families
+(Cor 3.3). Closing it needs K2 Thm 5.1 with truncated weights
+`min(log ℓ, L₀)` (open; not attempted).
+
+## 4. Comparison with known correlation results
+
+### 4.1 Two structural facts about the hypothesis
+
+**Proposition 4.1 (no Kubilius-type model; PROVED).** There is an absolute
+`C₁` such that if `log y ≥ C₁(log N)^{1/3}`, the law of the hit vector
+`x(n) = (x_ℓ(n))_{ℓ∈𝒫_y}`, n uniform in [1,N], is at total variation
+distance `≥ 1 − C₁(log y)^{−2}` from the CRT product law.
+
+*Proof.* `1 ≤ F(ℓ) ≤ τ(A²) = ℓ^{o(1)}`, so `(½) log ℓ ≤ log(1/p_ℓ) ≤ log ℓ`
+for `ℓ ≥ ℓ₁`. Under the product law put `Z = Σ x_ℓ log(1/p_ℓ)`. By (1.3),
+with `ε = (c/2C)^{1/2}`, `Σ_{y^ε<ℓ≤y} p_ℓ ≥ (c/2)(log y)²`, hence
+`EZ ≥ c₂(log y)³`, while `Var Z ≤ Σ p_ℓ log²(1/p_ℓ) ≤ C(log y)⁴`. A pattern
+x with `Z(x) ≥ EZ/2` has probability `≤ Π_{x_ℓ=1} p_ℓ = e^{−Z(x)} ≤ e^{−EZ/2}`.
+The set S of patterns realised by `n ≤ N` has `|S| ≤ N`, so by Chebyshev
+`P_CRT(S) ≤ N e^{−c₂(log y)³/2} + 4C/(c₂²(log y)²)`, while `P_{[1,N]}(S) = 1`.
+For `C₁` large the first term is `≤ (log y)^{−2}`. ∎
+
+*Entropy.* The product law has entropy
+`H = Σ h(p_ℓ) ≥ EZ ≥ c₂(log y)³` and
+`H ≤ Σ p_ℓ(log(1/p_ℓ) + 1) ≤ (log y + 1)μ_y ≤ C(log y + 1)(log y)²`
+(using `(1−p)log(1/(1−p)) ≤ p`), so `H ≍ (log y)³`.
+
+So for θ > 2/3 (where TC_θ is not a theorem) the whole hit vector on
+[1,N] is far from the CRT law: [1,N] is a sample of N patterns from a
+law of entropy `≍ (log y)³ ≫ log N`. TC_θ can only be a statement about
+**low-complexity statistics** (here: K symmetric moments of the count).
+Contrast `ω_y(n)` (class 0 mod every ℓ): its entropy is `≍ log y`, and the
+Kubilius model holds in total variation up to `y = N^{1/u}`, `u → ∞`
+(Kubilius; Tenenbaum, *Crible d'Ératosthène et modèle de Kubilius*, 1999,
+with a bound in terms of Dickman's ρ(u)). The ES hit vector has *cubic*
+entropy. Prop 4.1 is a pure entropy count (any law of entropy ≫ log N is
+TV-far from every N-point sample). It does not distinguish "many shifts"
+from "one shift". Its only use here is that TC must be a low-complexity
+statement.
+
+**Proposition 4.2 (TC fails at order ≍ log N; PROVED).** If
+K is even, `K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, η_K) is false.
+
+*Proof.* Squares lie in no class of 𝓡(ℓ). Indeed, for a prime `q | A`
+(A = (ℓ+1)/4) we have `ℓ ≡ −1 (mod q)`; for odd q reciprocity with
+`ℓ ≡ 3 (4)` gives `(q/ℓ) = (−1)^{(q−1)/2}(ℓ/q) = (−1)^{(q−1)/2}(−1/q) = 1`,
+and for q = 2, A even gives `ℓ ≡ 7 (8)`, so `(2/ℓ) = 1`. Hence `(D/ℓ) = 1`
+for every `D | A²` and `(−4D/ℓ) = (−1/ℓ) = −1`: every class is a
+non-residue (the Mordell/Jacobi obstruction used in K2). So
+`#{n ≤ N : f_y(n) = 0} ≥ ⌊√N⌋`. This contradicts the avoider bound
+(2.2′) (Theorem 2.1 with the estimates of Cor 2.2's proof),
+`#{f_y = 0} ≤ (e+2)N e^{−K/e²} ≤ (e+2)N^{1/2−ε'}`, for such K and large N.
+(Squares are not ES exceptions, so the E(N) half of (2.2′) alone would
+give no contradiction.) ∎
+
+So TC(N; K, y_K, η_K) is a theorem for `K ≤ c₀(log N)^{2/3}`
+(Prop 2.4; hence TC_θ holds for θ < 2/3) and false for even `K ≥ 3.7 log N`
+(Prop 4.2). TC_θ for `2/3 ≤ θ < 1` is open (θ = 1 itself, with
+`K = 2⌈log N⌉ < 3.7 log N`, is not decided by Prop 4.2). It is falsifiable at every finite N by
+computing K moments (§5).
+
+### 4.2 Known divisor-type correlation results, measured against TC_θ
+
+By Lemma 1.3, order-k witness correlations are k-point correlations of
+ω-type functions along up to k shifts `4D_i ≤ (y+1)²/4`. Two axes must be
+kept apart: the *witness order* (number of hit indicators, Cor 3.3) and
+the *number of shifts* (Prop 4.3 below); a divisor correlation at r fixed
+shifts has bounded shift count but unbounded witness order. The
+requirements for θ > 3/4 are (Cor 2.3, Cor 3.3): order `k ≳ (log N)^θ/log log N`, combined
+moduli `exp((log N)^{3θ/2})` (prime family), and aggregate relative
+precision `e^{−ck}` in moments of size `e^{ck}`.
+
+| input (literature) | shifts | error | covers moduli above N? | verdict |
+|---|---|---|---|---|
+| Ingham, Estermann; Heath-Brown 1979 (`N^{5/6+ε}`); Deshouillers–Iwaniec 1982 (`N^{2/3+ε}`): `Σ τ(n)τ(n+h)` | 2 (n, n+h) | power saving | yes (divisor switching) | if used through the ES witness classes along a fixed shift pair: capped at `O(log log N)` by Prop 4.3 (extension), however precise; used through other divisor information: not covered |
+| `Σ τ(n)τ(n+h₁)τ(n+h₂)` | 3 | open pointwise; known on average over shifts (Browning 2011, Blomer 2017) | averaged | fixed shifts: Prop 4.3; averaged form gives no joint K-shift law |
+| Matomäki–Radziwiłł–Tao (2019, I/II): `Σ τ_k(n)τ_l(n+h)` for almost all `h ≤ H` | 2 shifts, fixed k, l | o(1) or power saving, exceptional h | yes, averaged | 2 shifts, averaged; exceptional-shift sets are fatal for a fixed tuple of shifts `4D_i` |
+| Tao–Teräväinen (2018–19): log-averaged correlations of 1-bounded multiplicative functions, odd-order Chowla/Elliott | fixed k shifts | o(1), logarithmic averaging | yes | fixed shift count, o(1) error, 1-bounded multiplicative; none of the three requirements |
+| Elliott–Halberstam-type level for τ, τ₃ (Selberg/Hooley/Heath-Brown 2/3 for τ; Friedlander–Iwaniec, Heath-Brown 1/2+1/82, Fouvry–Kowalski–Michel 1/2+1/46 for τ₃) | 1 class at a time | power saving | no (moduli < N) | IF Thm 2.5 / K2: any evaluation below N/2 is capped at 3/4 |
+| Granville–Soundararajan (2007), sieve proof of Erdős–Kac with moments | 1 (single n); the moment order grows, `≪ (log log N)^{1/3}`-type | explicit | no (they take `y = N^{1/k}` so products stay ≤ N) | below N by design |
+| Kubilius model (Kubilius; Tenenbaum 1999) | all orders | `ρ(u)`-type in TV | **yes** | single shift (class 0): hits are divisors of one integer ≤ N. Prop 4.1: no TV analogue for the ES hit vector once θ > 2/3 |
+| Ford (arXiv:2408.03803, first posted 2024): Kubilius model for shifted primes `p + a` | 1 (all orders) | TV estimate | yes | single shift again |
+
+(Dates/precisions are as remembered from the literature and serve only to
+place each result on the three axes; none is used in a proof.)
+
+**Proposition 4.3 (a fixed set of shifts is worth O(r log log y); PROVED).**
+Let 𝒮 be a set of r positive integers, and let 𝒲_𝒮 be the classes
+`−4D mod ℓ` with `ℓ ∈ 𝒫_y`, `D ∈ 𝒮`, `D | A_ℓ²` (the events `ℓ | n+4D`,
+D ∈ 𝒮). Let ν ≥ 0 be any finite combination of indicators of
+intersections of classes of 𝒲_𝒮 (any number of them, any combined
+modulus) with ν ≥ 1 on the avoider set of the full prime family. Then
+
+    Eν ≥ Π_{ℓ∈𝒫_y}(1 − r_ℓ/ℓ) ≥ exp(−2r(log log y + 3)),
+
+where `r_ℓ ≤ min(r, ℓ−1)` is the number of distinct residues `−4D mod ℓ`.
+
+*Proof.* ν(n) depends only on the hit vector `(1_W(n))_{W∈𝒲_𝒮}`; let
+`G(0)` be its value at the zero vector. The full avoider set is nonempty
+(`0 ∉ 𝓡(ℓ)`, so every multiple of `Π_{𝒫_y}ℓ` avoids), and on it the
+𝒲_𝒮-vector is 0, so `G(0) ≥ 1`. Hence ν ≥ 1 on the 𝒲_𝒮-avoider set,
+whose density is `Π(1 − r_ℓ/ℓ)` by CRT. For `ℓ > 2r` use
+`1 − x ≥ e^{−2x}` (x ≤ ½) and `Σ_{ℓ≤y}1/ℓ ≤ log log y + 1`; for `ℓ ≤ 2r`
+use `1 − r_ℓ/ℓ ≥ 1/ℓ` and `Σ_{ℓ≤2r} log ℓ ≤ 1.04·2r`. ∎
+
+**Extension (PROVED).** The same holds for all shift-form ES witness
+classes along 𝒮: the events `M | n + 4D` with `D ∈ 𝒮`, `M ≡ 3 (4)`,
+`D | A_M²`, `M ≤ N^A` (composite M allowed). Let ν ≥ 0 be built from
+these indicators, with ν ≥ 1 on the avoider set of a forced-class family
+containing them. Then `Eν ≥ exp(−2r(log log N^A + 3))`.
+
+*Proof.* As above, ν depends only on these indicators, and `G(0) ≥ 1`.
+The avoider set is nonempty because `(D, M) = 1` gives `0 ∉ 𝓡(M)`, so
+every multiple of the common modulus avoids. So Eν is at least the CRT
+density of the 𝒮-avoiders. A hit `M | n+4D` forces a prime `q | M` with
+`q ≡ 3 (4)`, `q ≤ N^A`, and `q ∤ D` (since `(D,M) = 1`), with `q | n+4D`.
+So the 𝒮-avoiders contain the set of n such that, for every D ∈ 𝒮, `n+4D`
+has no prime factor `q ≡ 3 (4)`, `q ≤ N^A`, `q ∤ D`. Its density is
+`Π_q(1 − r_q/q)`, where `r_q ≤ min(r, q−1)` counts the nonzero residues
+`−4D mod q`. Bound it as above, with `Σ_{q≤N^A}1/q ≤ log log N^A + 1`. ∎
+
+So information of any order and precision about the **ES witness
+classes** along a *fixed* set of r shifts saves at most
+`2r(log log N + O(1))` under CRT main terms (bound ≥ ½N·Eν). Not covered:
+* majorants that also use **non-witness** information along the shifts
+  (prime factors `q ≡ 1 (4)` of `n+4D`, exact divisor counts such as
+  `τ(n+4D)`, primes above `N^A`). The `G(0) ≥ 1` step would need every
+  pattern of those indicators to occur on the avoider set, which is not
+  proved;
+* methods that combine fixed-shift statements for *all* shift tuples
+  (e.g. a pair correlation for every pair of shifts), or that mix them
+  with other terms.
+
+**Assessment 4.4.** No known theorem, and no standard conjecture that we
+know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
+* The divisor-correlation theorems and the standard conjectures
+  (Hardy–Littlewood/Elliott/Chowla type, binary/ternary additive divisor
+  problems) concern a **fixed number of shifts**, each with all orders of
+  divisibility. Used through the ES witness classes along one fixed shift
+  tuple, they are capped by Prop 4.3 and its extension. Used through
+  other divisor information (e.g. `τ(n+h)` itself, prime factors
+  ≡ 1 (4)), they are not covered by any theorem here.
+  TC_θ needs `≍ K` distinct shifts among `≍ y_K²` jointly. Shift-averaged
+  results (MRT, Browning, Blomer) average over shifts and do not give
+  joint K-shift statistics. Hypotheses of bounded *witness* order are
+  capped by Cor 3.3/3.4. Both caps concern methods that assert CRT main
+  terms. No theorem here excludes a clever combination of fixed-shift
+  statements over all shift tuples; we know of no such mechanism.
+* Level-of-distribution statements (EH for τ_k, BV/BFI/DI) live below
+  modulus N and are capped by IF Thm 2.5 / K2 Thm 5.1.
+* The only known mechanism controlling *all* orders above modulus N is the
+  Kubilius model, which rests on hits being divisors of a single integer.
+  By Lemma 1.3 the ES hits are divisors of `~y²` different shifts, and by
+  Prop 4.1 no TV model can hold. A proof of TC_θ would have to control
+  K-th moments of a sum of ω-functions over up to `≍ y_K²` shifts (with K and
+  `log y_K ≍ K^{1/2}` growing), i.e. a "Kubilius model for many shifts in
+  the moment sense". We know of no result of this kind for even two
+  shifts with `K → ∞` moments at relative precision `e^{−cK}`.
+* Uniform-in-k conjectures (k-tuple conjectures with k growing) are not
+  standard; and TC itself is false at order `K ≥ 3.7 log N` (Prop 4.2),
+  so any such conjecture must stop below a multiple of log N.
+
+**Verdict on the door.** TC_θ is a *natural, falsifiable* hypothesis
+(CONJECTURE, weak evidence only, §5): it is a theorem for θ < 2/3
+(Prop 2.4), the TC family is false at order `≥ 3.7 log N` (Prop 4.2), and for
+`3/4 < θ < 1` it implies the θ target (Cor 2.3). Correlation input of
+bounded witness order, or about a fixed set of shifts, of any precision,
+is useless for θ > 3/4 under CRT-main-term evaluation (Cor 3.3, 3.4,
+Prop 4.3). Order `≥ c(log N)^θ/log log N` is necessary (Cor 3.3, PROVED);
+order `2⌈(log N)^θ⌉` suffices under TC_θ (Cor 2.3, CONDITIONAL).
+
+## 5. Numerics (EVIDENCE, toy scale only)
+
+`scripts/tuples_moments.py` computes `f_y(n)` for all `n ≤ N` (prime family,
+all ℓ ≡ 3 (4), ℓ ≤ y), and from it:
+* the empirical `S_j(N)/N` and the CRT values `e_j(p)`;
+* the share of `e_j` carried by j-sets with `Πℓ > N`. This comes from a
+  floor-discretised DP that over-counts the share ≤ N, so the "above N"
+  share is a lower bound;
+* the TC test `η(K) := max_{j≤K}|S_j/N − e_j|` against
+  `η_K = e^{−K/e²}/K`, at the *supplied* y and the first even
+  `K ≥ e²μ_y`.
+
+This tests TC(N; K, y, η_K) at that y. It is **not** exactly the TC_θ
+family: Cor 2.2's `y_K` (largest y with `μ_y ≤ K/e²`) is
+`y₁₂ = 30, y₂₂ = 126, y₃₂ = 358, y₄₆ = 1150, y₆₀ = 3162`, slightly
+above the supplied 30, 100, 300, 1000, 3000.
+
+Controls:
+* `rand` replaces each `𝓡(ℓ)` by a random set of nonzero residues of
+  the same size;
+* `randqnr` uses a random set of non-residues instead. This keeps the
+  Mordell/Jacobi structure and destroys the divisor/shift structure.
+
+Data: `data/tuples/moments_N{1e6,1e7,1e8}_es.txt`,
+`moments_N1e8_{rand,randqnr}.txt`.
+
+**(a) Avoiders.** The excess `#{f_y=0}/N − Π(1−p_ℓ)` is:
+
+| y | N = 10⁶ | 10⁷ | 10⁸ | rand 10⁸ | randqnr 10⁸ |
+|---|---|---|---|---|---|
+| 100 | 2.0·10⁻⁴ | 3.0·10⁻⁵ | 2·10⁻⁶ | 2·10⁻⁶ | 1·10⁻⁶ |
+| 300 | 6.6·10⁻⁴ | 1.9·10⁻⁴ | 4.4·10⁻⁵ | −8.6·10⁻⁶ | 3.5·10⁻⁵ |
+| 1000 | 9.8·10⁻⁴ | 3.0·10⁻⁴ | 8.0·10⁻⁵ | −2·10⁻⁶ | 7.7·10⁻⁵ |
+| 3000 | 1.0·10⁻³ | 3.2·10⁻⁴ | 9.9·10⁻⁵ | −2.6·10⁻⁶ | 9.5·10⁻⁵ |
+| `N^{−1/2}` | 1.0·10⁻³ | 3.2·10⁻⁴ | 1.0·10⁻⁴ | | |
+
+The ES excess is positive and rises with y towards the square density
+`N^{−1/2}`: squares are always avoiders (Prop 4.2). At small y it is much
+smaller, so the squares are offset by other integers; the excess is not
+simply "plus squares". `randqnr` reproduces the ES excess and `rand`
+does not. It is a quadratic-character effect.
+
+**(b) Moments above modulus N.** Ratios `S_j/(N e_j)` (share of `e_j`
+above N in brackets):
+
+| y (μ_y) | N | j = 4 | j = 8 | j = 12 |
+|---|---|---|---|---|
+| 100 (2.77) | 10⁶ | 0.9990 (0.21) | 0.861 (1.00) | — |
+| | 10⁷ | 0.9999 (0.01) | 0.958 (1.00) | — |
+| | 10⁸ | 1.0000 (0.00) | 0.991 (1.00) | — |
+| 1000 (6.00) | 10⁶ | 0.992 (0.93) | 0.928 (1.00) | 0.846 (1.00) |
+| | 10⁷ | 0.998 (0.77) | 0.974 (1.00) | 0.883 (1.00) |
+| | 10⁸ | 0.9997 (0.52) | 0.991 (1.00) | 0.937 (1.00) |
+
+For y ≤ 1000 and j ≤ 12 (the table), once the CRT mass of order j sits
+above N, the interval moments are a few percent *below* CRT. The deficit
+shrinks with N at fixed y. This is **not** uniform:
+* for y = 3000 the ratios fluctuate on both sides, e.g. j = 12:
+  1.575 / 0.969 / 0.956 at N = 10⁶ / 10⁷ / 10⁸, so the deficit grows
+  from 10⁷ to 10⁸;
+* at large j (where `S_j` comes from few n) ratios range from 0 to
+  more than 30.
+
+**(c) The TC test at the supplied y.**
+
+| y | K | η_K | η(K), ES, N = 10⁶ / 10⁷ / 10⁸ | rand 10⁸ | randqnr 10⁸ |
+|---|---|---|---|---|---|
+| 30 | 12 | 1.6·10⁻² | 1.9·10⁻⁵ / 1.7·10⁻⁶ / 2.1·10⁻⁷ | — | — |
+| 100 | 22 | 2.3·10⁻³ | 2.4·10⁻³ / 4.6·10⁻⁴ / 6.4·10⁻⁵ | 7.2·10⁻⁶ | 3.3·10⁻⁵ |
+| 300 | 32 | 4.1·10⁻⁴ | 7.3·10⁻² / 1.6·10⁻² / 3.8·10⁻³ | 6.1·10⁻⁴ | 2.0·10⁻³ |
+| 1000 | 46 | 4.3·10⁻⁵ | 1.5 / 0.50 / 0.17 | 4.2·10⁻³ | 2.8·10⁻² |
+| 3000 | 60 | 5.0·10⁻⁶ | 36 / 8.7 / 3.6 | 0.40 | 0.25 |
+
+Readings.
+* The test passes at y ≤ 100 for N = 10⁷, 10⁸ (K = 22 is
+  `2(log N)^{0.82}` at N = 10⁸). It fails for y ≥ 300 (K = 32 is
+  `2(log N)^{0.95}`).
+* The `rand` control also fails for y ≥ 300. At y = 300 its error is
+  already ≈ 6·10⁻⁴ at j = 8, with positive sign, so the failure is not
+  ES-specific. A likely explanation (heuristic): TC asks for *absolute*
+  error `η_K = e^{−K/e²}/K` in moments whose peak size is `≈ e^{μ}`,
+  `μ ≈ K/e²`. A sample of N points can only be expected to reproduce
+  them to relative accuracy `≈ N^{−1/2}`, i.e. absolute `≈ e^{μ}N^{−1/2}`.
+  That beats `η_K` only if `2K/e² + log K ≲ ½ log N`, i.e.
+  `K ≲ (e²/4)(log N − 2 log K)`, which is ≈ 22 at N = 10⁸. This matches the
+  observed borderline pass at K = 22 and the failures at K ≥ 32. It also
+  means that **near θ = 1 (K ≈ 2 log N) TC is not expected even for a
+  random model**; TC_θ is a plausible conjecture only for θ < 1, where
+  the required precision is `N^{−o(1)}`. (Random residue sets read along
+  consecutive integers are not independent samples; this variance
+  heuristic is not proved.)
+* At fixed y the ES error η(K) decreases roughly like a power of N over
+  the two decades: exponents ≈ 0.78, 0.64, 0.47 for y = 100, 300, 1000.
+* The ES error is 6–40× the `rand` error, with `randqnr` in between, so
+  part of the ES deviation is arithmetic. Part is quadratic-character
+  structure (a). The rest might come from the shift structure of
+  Lemma 1.3, e.g. for D = 1 all hit primes divide `n + 4`, so their
+  product is `≤ N + 4`. That attribution is untested.
+
+**Conclusion (EVIDENCE, weak).** Nothing seen contradicts TC_θ for
+θ < 1, and the data cannot test it. The asymptotic regime needs
+`K/e² ≍ (log N)^θ` and `log y_K ≍ K^{1/2}`, far beyond N = 10⁸. The open
+question is whether the decay exponent `a(y)` in `η ≈ N^{−a(y)}` stays
+`≫ (log N)^{θ−1}` at `y = y_K`.
+
+## 6. What remains
+
+1. **TC_θ itself** (CONJECTURE). Any θ > 2/3 for the prime family would
+   be the first control of witness correlations of growing order above
+   modulus N. For θ ≤ 3/4 that gives nothing new for E(N), because the 3/4
+   note (`paper/es-threequarter-note.tex`) already proves
+   `E(N) ≪ N exp(−c(log N)^{3/4})`. A θ > 3/4 result needs TC_θ itself
+   beyond 3/4, or a composite-moduli analogue (cf. the Assessment in §2
+   Remark 3).
+2. **The gap in Cor 3.4.** For composite-moduli K2 families, orders
+   between `(log N)^{4θ/3−1}` and `(log N)^θ/log log N` are not excluded.
+   This needs K2 Thm 5.1 with truncated weights `min(log ℓ, L₀)`.
+3. **Non-CRT main terms.** Cor 3.3 covers hypotheses that assert CRT main
+   terms. A hypothesis asserting an interval *deficit* (NC Thm 8.1
+   branch (D)) is not covered. §5(b) does show a mild deficit in high
+   moments, but it shrinks with N and goes the wrong way for avoiders
+   (fewer high-f n, not fewer zeros).
+4. Bounded-order input *combined with a different architecture* (e.g.
+   weights below 1, or non-hit-pattern weights) is outside Def. 3.0.
+
+## Replay
+
+```
+uv run python scripts/tuples_checks.py > data/tuples/checks.txt        # exact checks of Lemma 1.3, Prop 4.2, Thm 2.1, Lemma 1.2, Lemma 16.1; ~3 s
+for N in 1e6 1e7 1e8; do uv run python scripts/tuples_moments.py $N 30,100,300,1000,3000 all 64 es > data/tuples/moments_N${N}_es.txt; done   # §5; 1e8 ~1 min, < 3 GB (run under ulimit -v 7000000)
+for fam in rand randqnr; do uv run python scripts/tuples_moments.py 1e8 100,300,1000,3000 all 64 $fam 1 > data/tuples/moments_N1e8_$fam.txt; done
+uv run python scripts/tuples_moments.py 1e8 30,50,70,100,150 all 30 es > data/tuples/tc_regime_N1e8.txt
+```
