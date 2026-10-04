@@ -267,3 +267,49 @@ no θ > 3/4; saving `(log N)^θ` needs `k ≥ (log N)^{4θ/3−1−o(1)}`. ∎
 `(log N)^θ/log log N` is excluded only for prime-slice families
 (Cor 3.3). Closing it needs K2 Thm 5.1 with truncated weights
 `min(log ℓ, L₀)` (open; not attempted).
+
+## 4. Comparison with known correlation results
+
+### 4.1 Two structural facts about the hypothesis
+
+**Proposition 4.1 (no Kubilius-type model; PROVED).** There is an absolute
+`C₁` such that if `log y ≥ C₁(log N)^{1/3}`, the law of the hit vector
+`x(n) = (x_ℓ(n))_{ℓ∈𝒫_y}`, n uniform in [1,N], is at total variation
+distance `≥ 1 − C₁(log y)^{−2}` from the CRT product law.
+
+*Proof.* `1 ≤ F(ℓ) ≤ τ(A²) = ℓ^{o(1)}`, so `(½) log ℓ ≤ log(1/p_ℓ) ≤ log ℓ`
+for `ℓ ≥ ℓ₁`. Under the product law put `Z = Σ x_ℓ log(1/p_ℓ)`. By (1.3),
+with `ε = (c/2C)^{1/2}`, `Σ_{y^ε<ℓ≤y} p_ℓ ≥ (c/2)(log y)²`, hence
+`EZ ≥ c₂(log y)³`, while `Var Z ≤ Σ p_ℓ log²(1/p_ℓ) ≤ C(log y)⁴`. A pattern
+x with `Z(x) ≥ EZ/2` has probability `≤ Π_{x_ℓ=1} p_ℓ = e^{−Z(x)} ≤ e^{−EZ/2}`.
+The set S of patterns realised by `n ≤ N` has `|S| ≤ N`, so by Chebyshev
+`P_CRT(S) ≤ N e^{−c₂(log y)³/2} + 4C/(c₂²(log y)²)`, while `P_{[1,N]}(S) = 1`.
+For `C₁` large the first term is `≤ (log y)^{−2}`. ∎
+
+So for θ > 2/3 (where TC_θ is not a theorem) the whole hit vector on
+[1,N] is far from the CRT law: [1,N] is a sample of N patterns from a
+law of entropy `≍ (log y)³ ≫ log N`. TC_θ can only be a statement about
+**low-complexity statistics** (here: K symmetric moments of the count).
+Contrast `ω_y(n)` (class 0 mod every ℓ): its entropy is `≍ log y`, and the
+Kubilius model holds in total variation up to `y = N^{1/u}`, `u → ∞`
+(Kubilius; Tenenbaum, *Crible d'Ératosthène et modèle de Kubilius*, 1999,
+with a bound in terms of Dickman's ρ(u)). The ES hit vector has *cubic*
+entropy, which is exactly why the cubic supply helps the CRT model and
+also why no TV model survives above level N.
+
+**Proposition 4.2 (TC fails at order ≍ log N; PROVED).** If
+`K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, e^{−K}) is false.
+
+*Proof.* Squares lie in no class of 𝓡(ℓ). Indeed, for a prime `q | A`
+(A = (ℓ+1)/4) we have `ℓ ≡ −1 (mod q)`; for odd q reciprocity with
+`ℓ ≡ 3 (4)` gives `(q/ℓ) = (−1)^{(q−1)/2}(ℓ/q) = (−1)^{(q−1)/2}(−1/q) = 1`,
+and for q = 2, A even gives `ℓ ≡ 7 (8)`, so `(2/ℓ) = 1`. Hence `(D/ℓ) = 1`
+for every `D | A²` and `(−4D/ℓ) = (−1/ℓ) = −1`: every class is a
+non-residue (the Mordell/Jacobi obstruction used in K2). So
+`#{n ≤ N : f_y(n) = 0} ≥ ⌊√N⌋`, which contradicts Corollary 2.2's
+`(K+4)N e^{−K/e²} ≤ (K+4)N^{1/2−ε'}` for such K and large N. ∎
+
+So TC(N; K, y_K, e^{−K}) is a theorem for `K ≤ c₀(log N)^{2/3}`
+(Prop 2.4), false for `K ≥ 4 log N` (Prop 4.2), and TC_θ for
+`3/4 < θ < 1` is the open middle. It is falsifiable at every finite N by
+computing K moments (§5).
