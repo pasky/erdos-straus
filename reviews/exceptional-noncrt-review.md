@@ -71,3 +71,67 @@ finite, and with 𝒫 finite the CRT step is correct. Repair: say "𝒫 is finit
 restricting to the primes dividing some d_i is the ET Step-0 reduction". This also
 bounds the reach of the "no bound on slice-prime size" claim (item 4): it holds for
 every *finite* family, with primes of any size, which is what ET §6.1 item 7 is about.
+
+### 3. Thm 2.3, Cor 2.4, Cor 2.5 (the cap) — **SOUND** (two cosmetic notes)
+
+* Thm 2.3: `Eν ≥ (|R|/Q₀) avg_c Eν_c` (ν ≥ 0); `ν_c(0) ≥ 1` because the event
+  `{c}×{x=0}` in ℤ/Q_tot is inside 𝒜 (finite 𝒫, see N1) and has positive
+  probability; ν_c ≥ 0. Weights `s_ℓ = log(1/(2p_ℓ⁺))` are c-independent, so the
+  band structure is common to all fibres and the ET Jensen step (exp convex,
+  `log(16μ+16)` concave, profile term affine in p_ℓ(c)) goes through. The ε ≥ 1/3
+  branch: RHS ≤ (2/3)·1 − 2/3 ≤ 0. Correct. `s_ℓ ≥ log 2 = s_*` from `p ≤ 1/4`.
+* Cor 2.4: only `R_1 ≤ (rounding bound) ≤ N e^{−s} ≤ N` is used, then
+  `ε ≤ e^{−λ}N ≤ e^{−Φ̄}/4`, `(1−ε) ≥ 3/4`, `2ε ≤ e^{−Φ̄}/2` ⇒ `Eν ≥ (|R|/Q₀)e^{−Φ̄}/4`.
+  Arithmetic and direction correct. Note the corollary is really "any bound
+  `N·Eν + B` with `B ≥ R_1(ν)`"; stating it that way would make the scope (item 4)
+  transparent.
+* Cor 2.5: `|F_ℓ(c)| ≤ ℓ^{C+o(1)}` uniformly in c (union over q₀ ≤ ℓ^C of
+  ≤ M^{o(1)} classes), so `p_ℓ⁺ ≤ 1/4` and `s_ℓ ≥ ((1−C)/2)log ℓ` for ℓ ≥ ℓ₀(C);
+  profile `Σ p̄_ℓ ℓ^{−α'} ≪ α'^{−3}` via ET Lemmas 3.1/3.2/3.7 summed over *all* ℓ;
+  truncated mass over `s_ℓ ≤ λ` ⇒ `ℓ ≤ e^{2λ/(1−C)}` ⇒ `μ̄ ≪_C λ³`;
+  `G = O(log λ)`; `λ_N = 2log(4N)` satisfies the fixed-point condition for
+  N ≥ N₀(C). Correct. The removal of ET §6.1 item 7 is valid for finite
+  prime-slice families meeting the Cor 3.4 hypotheses, with slice primes of any size.
+
+Cosmetic: (i) Thm 2.3 uses μ̄ without redefining it; it must be
+`Σ_{s_ℓ≤λ} p̄_ℓ` (not ET's `Σ_{ℓ≤e^λ}`), as Cor 2.5's proof does. (ii) G and s_*
+should be restated (`s_* = log 2`, `G = ⌊log₂(λ/log 2)⌋+1`).
+
+### 4. Scope of "per-frequency weight w(θ) ≥ 1" and the claimed examples — **SOUND-AFTER-REPAIRS** (overclaim in summary/verdict)
+
+What Cor 2.4 actually covers: any final bound `N·Eν + B` with `B ≥ R_1(ν) =
+Σ_{θ≠0}|ν̂(θ)|`. Checked members:
+* `Σ|a_i|`: each class has `Σ_{θ≠0}|1̂| = 1 − 1/d`, so `R_1 ≤ Σ|a_i|`. ✔
+* `w(θ) = min(N, 1/(2‖θ‖))`: valid since `|S_N(θ)| = |sin πNθ|/|sin πθ| ≤ 1/(2‖θ‖)`,
+  and `w ≥ 1` for θ ≠ 0. ✔
+* Any pointwise bound `B(θ) ≥ |ν̂(θ)|` (Weil/Gauss/Ramanujan bound for the complete
+  sum `Σ_{classes of one modulus} a_i e(−b_iθ)/d_i`) inserted into either. ✔
+
+**N2 (moderate, overclaim: "the sawtooth bound").** "Sawtooth bound" is covered
+only in the specific Fourier-majorised form `Σ|ν̂(θ)|min(N,1/(2‖θ‖))` (§1 defines
+it so). The standard sawtooth route — exact per-class identity
+`#{n≤N: n≡b (d)} − N/d = ψ(−b/d) − ψ((N−b)/d)` followed by Erdős–Turán/Vaaler
+or by per-class floor/ceiling bounds (`a_i⌈N/d_i⌉` for a_i > 0, `a_i⌊N/d_i⌋` for
+a_i < 0) — is *not* of this form: Vaaler's main term carries the factor
+`|e(Nθ)−1| = 2|sin πNθ|` (weight < 1 near ‖Nθ‖ ≈ 0), and the ceiling/floor
+rounding `⌈N/d⌉ − N/d` can be ≈ 0 (e.g. d | N, or d slightly above N), below the
+class's R_1 share `1 − 1/d`. These use where the classes sit relative to N, i.e.
+they belong to (a′)/(a″) and remain open (ET §6.1 item 2 is only partly closed).
+Repair: in §0, §2.5 first paragraph and the AGENT_REPORT, write "the sawtooth bound
+`|S_N(θ)| ≤ min(N,1/(2‖θ‖))`" and add the ψ/Erdős–Turán/Vaaler and per-class
+ceiling bounds to the list of what is *not* covered.
+
+**N3 (moderate, overclaim: "Kloosterman cancellation").** Covered is only
+cancellation in a *complete* sum over classes sharing one frequency (a complete
+Gauss/Kloosterman/Ramanujan sum bounding `|ν̂(θ)|`). The way Kloosterman sums
+actually enter sieve remainder terms (Poisson summation in n with a smooth weight,
+then cancellation in the sum over moduli d of `e(h\bar b_d/d)`-type terms —
+Deshouillers–Iwaniec / BFI dispersion) is cancellation among `ν̂(θ)S_N(θ)` at
+*different* θ = h/d, plus smooth weights with w < 1. That is (a′)+(a″), which the
+file correctly lists as open in §2.4–2.5 — but §0 ("this contains … all
+Gauss/Kloosterman/divisor-exponential-sum cancellation within a frequency"), §2.3
+"What this closes" ("Candidate (a) in its natural form … Gauss/Kloosterman/divisor
+exponential sums … is capped") and the §6 row (a) present the closed part as the
+natural form. Repair: say explicitly that sums over moduli (dispersion,
+Kloosterman-fraction bilinear forms) are inter-frequency and *not* capped; label the
+closed part "complete-sum (single-frequency) cancellation".
