@@ -236,7 +236,14 @@ So ν is a real combination of class indicators, `ν ≥ 0` on ℤ, `ν ≥ 1` o
     B = Σ_c 1/L_c ≥ ⌊N/Q₀⌋ Σ_c Eν_c = ⌊N/Q₀⌋ Q₀ Eν ≥ (N/2)·Eν.
 
 KARY2 Thm 5.1 (resp. 5.2) gives `log(1/Eν) ≤ Cλ^{3/4}(log λ)^{3/4}`
-(resp. `C(B')λ^{3/4}`). ∎
+(resp. `C(B')λ^{3/4}`). The W-smooth parts of ν's moduli are unbounded
+here (e.g. Farey `q = 2^k`, or the smooth part of Q₀). KARY2 Thm 5.1
+allows this as stated: its level charges only primes `ℓ > W`.
+Mechanically, either project ν onto moduli `gcd(·, M₀)` as in KARY2
+Cor 6.1 (mean unchanged, still a majorant), or lift the base `R_W^□` to
+the higher prime powers. Unit squares mod `p^e` have density
+`(p−1)/(2p)` (p odd) or `1/8` (`p = 2`, `e ≥ 3`) at every exponent, so
+the R-term stays `≤ 2W`. ∎
 
 **Corollary 3.2 (the exceptional-set reading; PROVED, same proviso).** If
 `Q₀ ≤ min(N^A, N/2)` and every frequency used has denominator `≤ N^A` (for example
@@ -259,11 +266,47 @@ classes may have any number of large primes, the moduli `q` of the large
 sieve may be composite, and the lower bound may use the forced classes in
 any CRT-admissible way (Cauchy–Schwarz over classes mod q, prime-power
 components, or the exact `D_q(π)`). The price is the
-`(log log N)^{3/4}` factor of KARY2 for unbounded B'. Note that
-frequencies whose denominators contain primes not dividing `M₀` can be
-discarded: averaging g* over the residue mod such a prime keeps
-`Re g* ≥ 1` on 𝒜 (𝒜 does not see that prime) and does not increase
-`Σ|γ|²/w`; so only primes of 𝔊 enter `λ_Θ`.
+`(log log N)^{3/4}` factor of KARY2 for unbounded B'.
+
+*Sharpening (review D4).* Replace g* by its conditional average
+`E[g*(n') | n' ≡ n (mod M₀)]` (in a fibre: modulo the period of `𝒜_c`).
+This keeps `Re g ≥ 1` on 𝒜, since 𝒜 is a union of classes mod `M₀`. It
+does not increase `Σ|γ|²/w`, and it kills **every** frequency whose
+denominator does not divide `M₀`. So `m_w(Θ) = m_w(Θ ∩ M₀^{−1}ℤ)`, and in
+Theorem 3.1 `λ_Θ` may be taken over the frequencies with
+`den θ | M₀` only. Frequencies whose denominators involve anything not
+seen by the family are useless.
+
+**Remark 3.4 (the campaign's and the literature's large sieves are
+instances; review D3).**
+* *The 2/3 note* (`paper/vaughan-loglog-note.tex` §5, re-read for this
+  check):
+  * small modulus `Q₀ = M = L_K ≤ N^{2δ}`, `δ < 1/4`, so `Q₀ ≤ N/2`,
+    with `λ(Q₀) ≤ 2δ log N`;
+  * in fibre c it applies Montgomery's (LS) with `Q = Y^{1/2}`,
+    `Y = N/M`, over squarefree `s ≤ Q`, so `λ_Θ ≤ ½ log N`;
+  * the excluded classes `Ω_c(ℓ)`, `ℓ ∈ (X^{1/2}, X]`, `ℓ ≡ 3 (4)`, come
+    from its Lemma "identity": `n ≡ −uv^{−1} (mod kℓ)` with
+    `kℓ ≡ −1 (4)` and `(kℓ+1)/4 = uvw`. These are ℛ(kℓ)-classes, the
+    same atoms as the 3/4 note's (KARY2 Remark 5.4);
+  * `k | L_K` with `k ≤ K = δ log N = ℓ^{o(1)}`, so the moduli satisfy
+    `kℓ ≤ ℓ^{1+B'}` with B' small: Theorem 5.2 of KARY2 applies with no
+    loglog loss.
+
+  Take 𝔊 = these classes plus the selector classes `0 mod p`, `p ≤ K`.
+  Then the non-reduced fibres are empty (`ν_c = 0`). The note's added
+  `K` (primes `≤ K`) and its semigroup transfer `E_pr → E` only enlarge
+  or post-process the bound. Its large-sieve part is therefore `≥ (N/2)Eν`
+  with ν of level `≤ (½ + 2δ) log N`, and Theorem 3.1 caps it at
+  `C(log N)^{3/4}`. The note's actual saving `(log N)^{2/3}(log log N)^{1/3}`
+  is consistent with this.
+* *Vaughan 1970 and Pomerance–Weingartner §4* are described in the 2/3
+  note's introduction as the same architecture: prime moduli,
+  `ω_c(ℓ)` classes, and Montgomery's (LS) in reduced fibres. They are
+  covered by the same check **on that description**. Neither paper was
+  re-read for this remark.
+* *The 3/4 note* uses a majorant with coefficient-sum rounding, not the
+  large sieve (KARY2 Remark 5.4).
 
 ## 4. Arbitrary frequencies over prime-slice systems: a Fourier–Rankin bound
 
