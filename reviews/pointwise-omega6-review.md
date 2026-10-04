@@ -141,3 +141,58 @@ uses `h_2>H`. `D_ab` uses Prop 7.1 (with D3's `𝓛³`). The total is
 item 2's "period terms" without a separate `τ_Π` average in short boxes.
 In the short regime, the `1/q` density of the plane pays for the
 pointwise divisor bound. Short boxes are a problem only for first terms.
+
+## Item 3 — Lemma 3.1, Thm 3.2, (FT_a). CONFIRMED (as sufficiency)
+
+* **Lemma 3.1.** A corner atom with `4sa≤yZ` is the unique first element
+  of its `(s,a,m)`-fibre, and `2/n′≤2/y≤Z/(2sa)`. Summing over `(s,a)` and
+  `m|F` gives `(Z/2)D_sa`. Checked.
+* **Thm 3.2.** `(1+𝓛/2+Z/2)(D_ab+D_sa+D_sb)≪Z·4^k𝓛⁴H^{−1/4}+…=4^k𝓛⁵H^{−a}`.
+  For a remaining corner atom, `n′=ν(s,a,m)`: the n′-values of the
+  `(s,a,m)`-fibre are exactly the `n′≥y` with `qmn′≡−1 (4sa)` (converse
+  via Lemma 1.1(2); `gcd(qm,4sa)=1`). Checked, and numerically confirmed
+  (Item 1). The threshold `H^{1/3−a}≤Ĥ^{1/3−a}` is in the right
+  direction for HC_Π. The prime-power remark agrees with O5 Lemma 2.0′.
+  So (FT_a) ⇒ HC_Π(a) for `a≤1/4`: **CONFIRMED**.
+
+**D4 (minor-moderate; overclaim "equivalent").** §0 says "HC_Π is
+**equivalent** (up to proved terms) to a bound for the corner sum 𝒦".
+After Cor 2.2 it says "HC_Π(a′) … is equivalent … to
+`𝒦^{>H^{1/3−a′}}≪…`". Only one direction is proved. `Σ^{>μ}` (atom
+weights `2/n′`) is an *upper bound* for `Δ_O^{>μ}`. No lower bound
+`𝒦≪Δ_O` (atom multiplicity per event, `2/n′` vs `1/φ(n′)`) is proved.
+The 𝒦-statement also uses the threshold `H^{1/3−a′}`, and HC_Π uses
+`Ĥ^{1/3−a′}≥H^{1/3−a′}`, so the 𝒦-statement is formally the stronger one.
+Replace "equivalent to" by "implied by". The Status section and the
+report already say "reduced to" and "follows from", which is correct.
+
+**D7 (minor; FT is a needlessly loose target, and EVIDENCE measures 𝒦,
+not FT).** `FT^{>μ}(Z)` sums `2/ν` over *every* `(s,a)` with `sa≤T` and
+every `m|F`. This includes first "elements" with `ν>T/(qm)` (no atom
+exists) and non-squarefree s. The proof of Thm 3.2 gives the restriction
+`ν≤T/(qm)`, s squarefree, for free. Numerically
+(`scripts/review_omega6_ft.py 1000000000 331 337 347 1 1 …`, Z=1, μ=1):
+
+| κ (h) | FT | FT, s squarefree | … and `ν≤T/(qm)` | 𝒦 (whole class) |
+|---|---|---|---|---|
+| 1364 (341) | .0734 | .0645 | .0184 | .0149 |
+| 440 (110) | .0914 | .0696 | .0259 | .0173 |
+| 524 (131) | .1039 | .0838 | .0272 | .0156 |
+
+So FT as defined is 4–6× the corner mass, and the existence restriction
+removes most of the excess. The §4 table and the report ("of the average
+size predicted by (FT)") measure 𝒦, not FT. That EVIDENCE says nothing
+directly about (FT_a) in the form in which it is stated. Fix: state
+(FT_a) with `ν≤T/(qm)` and s squarefree, and say that §4 measures 𝒦. (All
+values are still below `h^{−1/4}`, so this is no evidence *against*
+FT_a.)
+
+*Assessment on Lemma 3.3 (CONFIRMED).* (1): `F≡1 (X)` gives
+`m^{−1}≡m* (X)`. (2): `F<X²`. A divisor `<X` is the least residue of its
+class. A divisor `≥X` is fixed by `m*<X`, and `m*` is the least residue
+of `m^{−1}`. Hence ≤2 divisors per class. Numerically: 0 violations over
+all `(s,a)` carrying m>1 atoms at T=10⁹. (3): `i<τ/2` is the correct
+count also for odd τ (F can be a square, e.g. `κ=440`, `F=441`). Checked.
+The comment "pointwise worst case `≍min(τ(F),y)/y`" is wrong for `τ>y`.
+There the bound of (3) is `≍1+log(τ/y)`, not `≍1` (nit, Assessment
+text).
