@@ -81,9 +81,24 @@ q Σ_b Z(q,b)²`, and multiplicativity. This includes
 Write `D_q(π) = Σ*_{a mod q}|π̂(a/q)|²`. By Parseval mod q,
 `q Σ_b π(n≡b (q))² = Σ_{d|q} D_d(π)`.
 
-Irrational θ are not seen by a CRT-admissible bound: `S_A(θ)` is not a
-function of `π_A`, and dropping these terms only weakens (LS)'s left side.
-So the best CRT-admissible bound is `Z ≤ 1/F*_w`.
+Irrational θ are excluded **by definition**, not by proof: `S_A(θ)` is
+not a function of `π_A`, so a residue-only lower bound cannot use them,
+and dropping them only weakens (LS)'s left side. So the best
+CRT-admissible bound is `Z ≤ 1/F*_w`. Throughout, "any frequencies"
+means **any rational frequencies**.
+
+**Scope of the definition (review D1).** The class is (LS) applied to
+`a_n = 1_A(n)` (or to comparable weights, Remark 2.4), with residue-only
+lower bounds. Not covered as stated:
+* (LS) applied to *twisted* sequences `a_n = 1_A(n)ψ(n)` with ψ periodic
+  but not constant on the fibres used;
+* *hybrids*: the large sieve in some fibres and a majorant with
+  coefficient-sum rounding (KARY2 Cor 6.1) in others. These should follow
+  by the assembly of Theorem 3.1, after coarsening the majorant fibres
+  with ET Lemma 2.9 as in KARY2 Cor 6.1, but this is not written out here
+  (sketch only).
+
+Neither form occurs in the literature on this problem.
 
 ## 2. Exact duality: the optimal large sieve is a Λ²-majorant
 
@@ -135,8 +150,13 @@ is a CRT majorant of 𝒜 in the sense of ET §1 and KARY2 Thm 5.1:
 `Σ|γ_θ|²/w_θ ≥ N Σ|γ_θ|² = N·E_{n mod M'}|g*(n)|²` (Parseval on `ℤ/M'`;
 the θ are distinct mod 1). ∎
 
-**Remark 2.3 (what this says).** The best bound any CRT-admissible large
-sieve can give, with any frequencies, any composite moduli and any
+**Remark 2.3 (what this says; framing).** Theorem 2.1 is standard
+convex/Hilbert-space duality (the classical large-sieve/Selberg duality;
+the projection theorem would do as well as minimax). It is **not**
+claimed as new. The new content is the combination of Fact 1.1 with the
+level count of Theorem 3.1, which feeds the large sieve into KARY2
+Thm 5.1. The best bound any CRT-admissible large
+sieve can give, with any rational frequencies, any composite moduli and any
 weights, is at least `N` times the mean of a Selberg-square majorant
 `|g|²`, nonnegative on ℤ, built from the characters the large sieve
 uses. This is the classical large-sieve/Selberg duality, made exact and
@@ -146,17 +166,30 @@ contains N. So the cap needs only the **level** of `ν*`, not its
 coefficient sum.
 
 **Remark 2.4 (weighted sifted sequences; PROVED).** If the large sieve
-is applied to weights `a_n ≥ 0` supported on `𝒜 ∩ I` (e.g.
-`a_n = Λ(n)` on the exceptional primes), (LS) gives
+is applied to weights `a_n ≥ 0` supported on `𝒜 ∩ I`, (LS) gives
 `(Σa)²·F_w(π_a) ≤ Σa²` with `π_a = a/Σa ∈ P(𝒜)` (after reduction mod
-`M'`). The CRT-admissible optimum is `Σa ≤ (Σa²/Σa)·m_w`. To use it one
-needs an upper bound for `Σa²/Σa`, which is `≥ a_min` when the nonzero
-weights lie in `[a_min, a_max]`. So the final bound is `≥ a_min·m_w ≥
-a_min·N·Eν*`, and relative to the trivial `N·a_max` the saving is at
-most `log(1/Eν*) + log(a_max/a_min)` (e.g. `log 2` extra for `Λ` on
-primes in `(N/2, N]`). Without a comparability hypothesis no such
-statement holds (review: one weight 1 and the rest `N^{−1/2}`). With this
-proviso the results below apply to weighted sequences.
+`M'`). The CRT-admissible optimum is `Σa ≤ (Σa²/Σa)·m_w`. To use it a
+method needs a known upper bound `U ≥ Σa²/Σa`; its final bound is
+`U·m_w ≥ U·N·Eν*`. So, relative to the trivial bound `N·U`, the saving is
+at most `log(1/Eν*)`. For example, for indicators `U = 1`. For `Λ` on
+primes in `(N/2, N]` one has `U = log N`, `a_max/a_min = 1 + O(1/log N)`,
+and the trivial bound `N log N` is off from the truth `~N/2` by a
+constant factor only. Some comparability is needed. If a method could use
+`Σa²/Σa` itself, no ceiling holds: take one weight 1 and the others
+`N^{−1/2}`. In the results below, "weighted sequences" always carries
+this proviso.
+
+**Remark 2.5 (the multiplicative large sieve is covered; PROVED).** For
+primitive χ mod q, `τ(χ̄)χ(n) = Σ_{a mod q} χ̄(a)e(an/q)` with
+`|τ(χ̄)|² = q`. Hence, for every finite measure π on `ℤ/M'` (q | M'),
+
+    q Σ_{χ prim mod q} |Σ_n π(n)χ(n)|² ≤ Σ_{χ mod q} |Σ*_a χ̄(a)π̂(a/q)|² = φ(q)·D_q(π).
+
+So the character functional `Σ_{q≤Q}(q/φ(q))Σ*_χ|π̂(χ)|²` is at most the
+Farey functional `F_1(π) = Σ_{q≤Q}D_q(π)`, **pointwise in π**. Every
+CRT-admissible lower bound `L` in character form is therefore also one
+for the additive Farey system with the same `N + Q²`. Theorem 3.1 applies
+with `λ_Θ ≤ log Q`.
 
 ## 3. The cap for frequencies of polynomial level
 
