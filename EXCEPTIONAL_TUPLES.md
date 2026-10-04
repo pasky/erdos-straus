@@ -111,8 +111,10 @@ divisors of `A_ℓ² = ((ℓ+1)/4)²` whose residues `−4D mod ℓ` are exactly
 
     f_y(n) = Σ_{D ≥ 1} ω_{y,D}(n + 4D),                               (1.4)
 
-and the order-k correlation sum is the k-point correlation of these
-truncated additive functions at the shifts `4D`:
+and the order-k correlation sum is the distinct-prime ("falling-factorial")
+part of the k-point correlations `Σ_n Π_i ω_{y,D_i}(n+4D_i)` of these
+truncated additive functions at the shifts `4D` (the plain products also
+contain diagonal terms with a repeated `(ℓ, D)`):
 
     S_k(N) = Σ_{{(ℓ_1,D_1),…,(ℓ_k,D_k)}} #{n ≤ N : ℓ_i | n + 4D_i, i ≤ k},   (1.5)
 
@@ -162,7 +164,7 @@ largest integer y with `μ_y ≤ K/e²` (it exists since `μ_y → ∞`; `𝒫_{
 may be empty, e.g. `y_2 = 2`), and `η_K := e^{−K/e²}/K`. If
 TC(N; K, y_K, η_K) holds, then
 
-    E(N) ≤ (e + 2) N e^{−K/e²}.
+    #{n ≤ N : f_y(n) = 0} ≤ (e + 2) N e^{−K/e²},   hence   E(N) ≤ (e + 2) N e^{−K/e²}.   (2.2′)
 
 Moreover `log y_K ≍ K^{1/2}` by (1.3).
 
@@ -207,11 +209,14 @@ for θ > 2/3 is aggregate cancellation among tuples above modulus N.
    (2.1) with `η = η_K` asks for relative precision `≈ e^{−2K/e²}/K`
    in the peak moments: `N^{−o(1)}`, far weaker than a power saving, but
    for growing order K. The alternating sum cancels from `e^{μ}` to `e^{−μ}`.
-3. *Composite moduli.* With all moduli `M ≤ y` (cubic mass, notes Thm
-   18.2) the trivial range becomes `K ≲ (log N)^{3/4}`: the 3/4 note's
-   architecture (Bonferroni degree ≍ saving, atoms of size
-   `exp(s^{1/3})`). We use the prime family because CRT independence makes
-   Theorem 2.1 exact. Nothing below needs composite moduli.
+3. *Composite moduli (Assessment, not proved).* With all moduli `M ≤ y`
+   (cubic mass, notes Thm 18.2) the trivial range should become
+   `K ≲ (log N)^{3/4}`. That would match the 3/4 note's architecture
+   (Bonferroni degree ≍ saving, atoms of size `exp(s^{1/3})`). Composite
+   classes are not CRT-independent, so Theorem 2.1 is not exact for them,
+   and this is not proved here. We use the prime family because CRT
+   independence makes Theorem 2.1 exact. Nothing below needs composite
+   moduli.
 
 ## 3. No-go: correlation input of order k saves at most ≍ k log log N
 
@@ -305,16 +310,20 @@ show that no such deficit occurs; for mixed ν this is open.) Then its saving `l
 Together with Corollary 2.2 (order K = 2⌈(log N)^θ⌉ suffices for the
 prime family; Theorem 2.1 and Cor 2.2 hold verbatim for the prime family
 restricted to `ℓ ≥ ℓ₀(C)`, with TC stated for that restricted family,
-which is a Cor 3.2 family; the restriction changes `μ_y` by O(1)): **the correlation order needed for saving `(log N)^θ` is
-`(log N)^θ` up to a factor `log log N`, in both directions.** ∎
+which is a Cor 3.2 family; the restriction changes `μ_y` by O(1)): order
+`≥ c(log N)^θ/log log N` is **necessary** (PROVED, this corollary, under
+CRT-main-term evaluation), and order `2⌈(log N)^θ⌉` is **sufficient under
+TC_θ** (CONDITIONAL, Cor 2.3). ∎
 
 **Corollary 3.4 (all K2 families, weaker; PROVED from K2 Thm 5.1).** Let
 𝔊 be any finite K2 family (ℛ(M)-, (a,D)-, Case-A, selector classes, any
 moduli). Let ν be a majorant of 𝒜(𝔊) each of whose terms is an
 intersection of at most k classes of modulus `≤ N^A`, or has level
 `≤ A log N`. Then ν has K2 level `≤ kA log N`, so
-`log(1/Eν) ≤ C(kA log N)^{3/4}(log(kA log N))^{3/4}`. Bounded k gives
-no θ > 3/4; saving `(log N)^θ` needs `k ≥ (log N)^{4θ/3−1−o(1)}`. ∎
+`log(1/Eν) ≤ C(kA log N)^{3/4}(log(kA log N))^{3/4}`. Hence, for methods
+as in Cor 3.3 (bound `B ≥ ½N·Eν`, i.e. CRT-main-term evaluation): bounded
+k gives no θ > 3/4, and saving `(log N)^θ` needs
+`k ≥ (log N)^{4θ/3−1−o(1)}`. ∎
 
 *Gap.* For composite-moduli families, k between `(log N)^{4θ/3−1}` and
 `(log N)^θ/log log N` is excluded only for prime-slice families
@@ -339,6 +348,11 @@ The set S of patterns realised by `n ≤ N` has `|S| ≤ N`, so by Chebyshev
 `P_CRT(S) ≤ N e^{−c₂(log y)³/2} + 4C/(c₂²(log y)²)`, while `P_{[1,N]}(S) = 1`.
 For `C₁` large the first term is `≤ (log y)^{−2}`. ∎
 
+*Entropy.* The product law has entropy
+`H = Σ h(p_ℓ) ≥ EZ ≥ c₂(log y)³` and
+`H ≤ Σ p_ℓ(log(1/p_ℓ) + 1) ≤ (log y + 1)μ_y ≤ C(log y + 1)(log y)²`
+(using `(1−p)log(1/(1−p)) ≤ p`), so `H ≍ (log y)³`.
+
 So for θ > 2/3 (where TC_θ is not a theorem) the whole hit vector on
 [1,N] is far from the CRT law: [1,N] is a sample of N patterns from a
 law of entropy `≍ (log y)³ ≫ log N`. TC_θ can only be a statement about
@@ -347,8 +361,10 @@ Contrast `ω_y(n)` (class 0 mod every ℓ): its entropy is `≍ log y`, and the
 Kubilius model holds in total variation up to `y = N^{1/u}`, `u → ∞`
 (Kubilius; Tenenbaum, *Crible d'Ératosthène et modèle de Kubilius*, 1999,
 with a bound in terms of Dickman's ρ(u)). The ES hit vector has *cubic*
-entropy, which is exactly why the cubic supply helps the CRT model and
-also why no TV model survives above level N.
+entropy. Prop 4.1 is a pure entropy count (any law of entropy ≫ log N is
+TV-far from every N-point sample). It does not distinguish "many shifts"
+from "one shift". Its only use here is that TC must be a low-complexity
+statement.
 
 **Proposition 4.2 (TC fails at order ≍ log N; PROVED).** If
 K is even, `K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, η_K) is false.
@@ -359,8 +375,11 @@ K is even, `K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, η_
 and for q = 2, A even gives `ℓ ≡ 7 (8)`, so `(2/ℓ) = 1`. Hence `(D/ℓ) = 1`
 for every `D | A²` and `(−4D/ℓ) = (−1/ℓ) = −1`: every class is a
 non-residue (the Mordell/Jacobi obstruction used in K2). So
-`#{n ≤ N : f_y(n) = 0} ≥ ⌊√N⌋`, which contradicts Corollary 2.2's
-`(e+2)N e^{−K/e²} ≤ (e+2)N^{1/2−ε'}` for such K and large N. ∎
+`#{n ≤ N : f_y(n) = 0} ≥ ⌊√N⌋`. This contradicts the avoider bound
+(2.2′) (Theorem 2.1 with the estimates of Cor 2.2's proof),
+`#{f_y = 0} ≤ (e+2)N e^{−K/e²} ≤ (e+2)N^{1/2−ε'}`, for such K and large N.
+(Squares are not ES exceptions, so the E(N) half of (2.2′) alone would
+give no contradiction.) ∎
 
 So TC(N; K, y_K, η_K) is a theorem for `K ≤ c₀(log N)^{2/3}`
 (Prop 2.4; hence TC_θ holds for θ < 2/3) and false for even `K ≥ 3.7 log N`
@@ -386,9 +405,9 @@ precision `e^{−ck}` in moments of size `e^{ck}`.
 | Matomäki–Radziwiłł–Tao (2019, I/II): `Σ τ_k(n)τ_l(n+h)` for almost all `h ≤ H` | 2 shifts, fixed k, l | o(1) or power saving, exceptional h | yes, averaged | 2 shifts, averaged; exceptional-shift sets are fatal for a fixed tuple of shifts `4D_i` |
 | Tao–Teräväinen (2018–19): log-averaged correlations of 1-bounded multiplicative functions, odd-order Chowla/Elliott | fixed k shifts | o(1), logarithmic averaging | yes | fixed shift count, o(1) error, 1-bounded multiplicative; none of the three requirements |
 | Elliott–Halberstam-type level for τ, τ₃ (Selberg/Hooley/Heath-Brown 2/3 for τ; Friedlander–Iwaniec, Heath-Brown 1/2+1/82, Fouvry–Kowalski–Michel 1/2+1/46 for τ₃) | 1 class at a time | power saving | no (moduli < N) | IF Thm 2.5 / K2: any evaluation below N/2 is capped at 3/4 |
-| Granville–Soundararajan (2007), sieve proof of Erdős–Kac with moments | growing, `≪ (log log N)^{1/3}`-type | explicit | no (they take `y = N^{1/k}` so products stay ≤ N) | below N by design |
+| Granville–Soundararajan (2007), sieve proof of Erdős–Kac with moments | 1 (single n); the moment order grows, `≪ (log log N)^{1/3}`-type | explicit | no (they take `y = N^{1/k}` so products stay ≤ N) | below N by design |
 | Kubilius model (Kubilius; Tenenbaum 1999) | all orders | `ρ(u)`-type in TV | **yes** | single shift (class 0): hits are divisors of one integer ≤ N. Prop 4.1: no TV analogue for the ES hit vector once θ > 2/3 |
-| Ford (2025, arXiv:2408.03803): Kubilius model for shifted primes `p + a` | all orders | TV estimate | yes | single shift again |
+| Ford (arXiv:2408.03803, first posted 2024): Kubilius model for shifted primes `p + a` | 1 (all orders) | TV estimate | yes | single shift again |
 
 (Dates/precisions are as remembered from the literature and serve only to
 place each result on the three axes; none is used in a proof.)
@@ -451,7 +470,8 @@ know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
 `3/4 < θ < 1` it implies the θ target (Cor 2.3). Correlation input of
 bounded witness order, or about a fixed set of shifts, of any precision,
 is useless for θ > 3/4 under CRT-main-term evaluation (Cor 3.3, 3.4,
-Prop 4.3). The order needed is `(log N)^θ` up to `log log N` (Cor 2.2 + Cor 3.3).
+Prop 4.3). Order `≥ c(log N)^θ/log log N` is necessary (Cor 3.3, PROVED);
+order `2⌈(log N)^θ⌉` suffices under TC_θ (Cor 2.3, CONDITIONAL).
 
 ## 5. Numerics (EVIDENCE, toy scale only)
 
@@ -553,9 +573,11 @@ question is whether the decay exponent `a(y)` in `η ≈ N^{−a(y)}` stays
 
 1. **TC_θ itself** (CONJECTURE). Any θ > 2/3 for the prime family would
    be the first control of witness correlations of growing order above
-   modulus N. That alone does not beat 3/4: the composite-moduli (cubic)
-   analogue is trivial up to 3/4 (§2 Remark 3), so a θ > 3/4 result needs
-   TC_θ itself, or its cubic analogue, beyond 3/4.
+   modulus N. For θ ≤ 3/4 that gives nothing new for E(N), because the 3/4
+   note (`paper/es-threequarter-note.tex`) already proves
+   `E(N) ≪ N exp(−c(log N)^{3/4})`. A θ > 3/4 result needs TC_θ itself
+   beyond 3/4, or a composite-moduli analogue (cf. the Assessment in §2
+   Remark 3).
 2. **The gap in Cor 3.4.** For composite-moduli K2 families, orders
    between `(log N)^{4θ/3−1}` and `(log N)^θ/log log N` are not excluded.
    This needs K2 Thm 5.1 with truncated weights `min(log ℓ, L₀)`.
