@@ -25,12 +25,14 @@ prime factors, all `>y`), `n′≥y`. Survival: `m|4sa²+1`.
   `≫1` (Def 2.0). O4 Thm 4.2 survives with saturated hubs. The proof combines the lifting with square-root
   counts and a thin-box lattice lemma. It uses no exponential sums.
 * §3 (PROVED). The Π-part m (O4 gap (iii)) satisfies `m|u+v` and
-  `m|4sa²+1`. Events with `m≤H^{1/6}` give HC with `a=1/6`, and ray sums
+  `m|4sa²+1`. Events with `m≤H^{1/6}` give HC* with `a=1/6`, and ray sums
   are bounded for balanced rays.
 * §4. **Open residual HC_Π (large m).** It is a divisor-function problem
   in short progressions, not a Weil-range inverse problem. HC_Π implies
-  HC*, and hence O4 Thm 4.2's `log W ≥ c(log₂p)^{3/2}` (Cor 4.1). HC itself
-  is still **not** proved, and the proved rate stays O4 Cor 3.1.
+  HC*, and hence O4 Thm 4.2's `log W ≥ c(log₂p)^{3/2}` (Cor 4.1). Literal HC
+  is **false** (Def 2.0), so O4 Thm 4.2 as stated is vacuous; it holds
+  with HC* (Cor 4.1(ii)). HC* (saturated hubs) is open, and the proved
+  rate stays O4 Cor 3.1.
 * §5. Literature: no known theorem gives O4's IS. HC never needed IS
   (squarefree s).
 
@@ -64,9 +66,10 @@ when `Y<h`.
 least residue `s_t:=w t̄² mod q ≤ Y`, squarefree or not. For non-squarefree
 `s_t` the triple `(s_t,tu,tv)` is the *same atom* as some `(s′,t′u,t′v)`
 with `s_t t²=s′t′²`, so O4's count over-counts each atom by up to
-`#{t: t²|n}`, which can be `T^{c/log𝓛}`. The over-counted problem is
-genuinely beyond Weil (and is what the literature in §5 addresses);
-the atom count is elementary.
+`#{t: t²|n}`, which can be `T^{c/log𝓛}`. The over-counted problem lies
+beyond the Weil range, but lifting alone brings it within a divisor factor
+`min(T^{O(1/log𝓛)},√Y)` of the target (§5). It is not shown to be hard,
+and the atom count is elementary.
 
 ## 2. HC for the m=1 part, with a=1/3 (PROVED)
 
@@ -103,17 +106,36 @@ O4's sense, so HC as stated fails, and O4 Thm 4.2 must be read with saturated hu
 disjoint events with the same union, and `Δ_O` is unchanged for O containing
 a lifted vertex. So the lift `x_i` inherits the codegree of the class −1.)
 *Cost.* The quarantined mass becomes
-`h_ℓ ≤ Σ_{v≤e_ℓ}|𝓗_H(ℓ^v)|·ℓ^{e_ℓ−v}/φ(ℓ^{e_ℓ}) ≤ e_ℓ·3H(1+log H)/(ℓ−1)`.
-Since `e_ℓ≤k+1`, O4 Thm 4.2 step 2 then needs `300(k+1)H(1+log H)<y`
-instead of `300H(1+log H)<y`. This holds at its optimum
-`H=y^{1/2+o(1)}`, and the rest of the proof is unchanged (`S_hub` gains a
-factor `≤k+1`, i.e. `O(log k)` in `log K`).
+`h_ℓ ≤ Σ_{v≤e_ℓ}|𝓗_H(ℓ^v)|/φ(ℓ^v) ≤ 3H(1+log H)/(ℓ−1)·Σ_{v≥1}ℓ^{1−v}
+= 3H(1+log H)/(ℓ−1)·ℓ/(ℓ−1)` (review O13r-D3). This is O4's bound up to a
+factor `1+O(1/y)`. So O4 Thm 4.2 step 2 (`300H(1+log H)<y`, `h_ℓ≤1/100`) and
+`S_hub` are unchanged up to `1+O(1/y)`. O3 Thm 1.1 and Lemma 1.3 accept
+arbitrary forbidden sets, so nothing else changes. (`e_ℓ≤k`, since
+`ℓ^{k+1}>y^{k+1}>T`.)
 With saturated hubs, the reduction mod `q′:=∏ℓ^{v_ℓ(M)}` of a non-hub O
 has all heights `>H` mod `q′`: a hub congruence mod `q′` reduces to one mod
 each `ℓ^{v_ℓ}`. The proofs below use only that Q is odd, so they apply
-with `Q=q′`. The bookkeeping of the lifts (weights `1/φ(n′)` after
-aggregating complementary lifts) was checked by the reviewer for squarefree
-rough parts; for `ℓ²|M` it is Assessment.
+with `Q=q′`. Here `v_ℓ(M)≤e_ℓ`, and a hub congruence mod `q′` reduces
+to one mod every `ℓ^{v_ℓ}`, which saturation forbids (review O13r-D2).
+
+**Lemma 2.0′ (prime-power events; PROVED, review O13r-D1).** Group the
+events containing O by their exponent pattern `(v_ℓ)_{ℓ∈O}`,
+`v_ℓ=v_ℓ(M)≥1`. Then:
+
+* Since `ℓ>y=2T^{1/(k+1)}` and `∏ℓ^{v_ℓ}≤T`, we have `Σv_ℓ≤k`, so there
+  are at most `binom(k,|O|)≤2^k` patterns.
+* For a fixed pattern, an event contains the lifted vertex `(ℓ,x_ℓ)` iff
+  its class mod `ℓ^{v_ℓ}` is `x_ℓ mod ℓ^{v_ℓ}` (O2 §10.3; exactly one lift
+  qualifies, and `v_ℓ≤e_ℓ`). So these events lie in the system `(q′,κ′)`,
+  `q′=∏ℓ^{v_ℓ}`, with κ′ fixed by O.
+* Their weight beyond O is `1/φ(n′)≤2/n′`, with `n′=M/(q′m)≥y`, because e
+  strictly contains O and so has a free prime outside O.
+* Theorem 2.3 needs only Q odd and `Q>y²`, so it applies with `Q=q′`, and
+  `q′` has heights `>H` by the previous paragraph.
+
+So every bound below that is stated for squarefree q holds for `Δ_O` at a
+cost of a factor `2^k`. That factor is absorbed by HC*'s `e^{Ck}`; in O4
+Thm 4.2 it adds `O(k/a)` to `log H`.
 
 **Lemma 2.1 (ray sum).** Let `(u,v)` be a primitive positive vector with
 `u≡Kv (Q)`, `gcd(uv,Q)=1`, `h=uv`. The atoms on the ray,
@@ -154,7 +176,8 @@ the sub-box's points lie on one line L. Let `δ` be the shortest vector of
 ```
 
 Hence, for every vertex set O with no saturated H-hub vertex and
-`4^k≤H≤y`, the `m=1` part of `Δ_O` is `≤ 2C𝓛⁴4^{k/3}H^{−1/3}`: **HC*(1/3,4)
+`4^k≤H≤y`, the `m=1` part of `Δ_O` is `≤ 2^{k+1}C𝓛⁴4^{k/3}H^{−1/3}`
+(Lemma 2.0′ for the prime-power patterns): **HC*(1/3,4)
 holds for the m=1 part** (Cor 4.1 for HC*).
 
 *Proof.* Dyadic boxes `[S,2S)×[A,2A)×[B,2B)` (powers of 2, `SAB≤T`):
@@ -184,7 +207,8 @@ Take `F:=(Ĥ/4^ω)^{1/3}≥1`; then `1/F = F′²/Ĥ = 4^{ω/3}Ĥ^{−1/3}`. ∎
 *Remark.* The proof uses no exponential sums. The three ingredients are
 the squarefree lifting (Lemma 1.1, applied to the planes (C1), (C2) and to
 rays), the square-root count (C3), and the thin-box geometry (Lemma 2.2).
-What remains for full HC is the Π-part m (O4 gap (iii)); see §3.
+Literal HC is false (Def 2.0). What remains for HC* is the Π-part m
+(O4 gap (iii)); see §3.
 
 ## 3. The Π-part m (O4 gap (iii))
 
@@ -209,7 +233,8 @@ m with weight `2/n′`). In the system `(qm,κ_m)` every point has
 
 **Proposition 3.2 (small m; PROVED).** The atoms with `m≤μ` contribute at
 most `2μ·Δ¹(q,κ) ≤ 2Cμ𝓛⁴4^{k/3}Ĥ^{−1/3}` to `Δ_O`. With `μ=Ĥ^{1/6}`: the
-part of `Δ_O` from events with `m≤Ĥ^{1/6}` is `≪𝓛⁴4^{k/3}Ĥ^{−1/6}`.
+part of `Δ_O` from events with `m≤Ĥ^{1/6}` is `≪2^k𝓛⁴4^{k/3}Ĥ^{−1/6}`
+(the factor `2^k` comes from the prime-power patterns, Lemma 2.0′).
 
 *Proof.* `2/n′=2m/n≤2μ/n`, and `n=mn′≥y`, so the atom is a term of
 `Δ¹(q,κ)`. Theorem 2.3. ∎
@@ -228,9 +253,13 @@ there are `≤Y(u+v)/(2h)+1` such M, each of weight `≤2/Y`; sum over dyadic
 (`gcd(qm,4h)=1` since `gcd(u+v,uv)=1`); Lemma 2.1's sum. (iii) At most
 `T/(4hq)+1` values of M, each of weight `≤2/y`. ∎
 
-Bound (i) is HC-shaped for *balanced* rays (`min(u,v)≥H^{1/3}`), and (ii)
-for rays with `τ(u+v)≤y^{2/3}`. Neither covers an unbalanced ray
-`(u,v)`, `u<H^{1/3}`, with `τ(u+v)>y^{2/3}` and `h<T/(qy^{1/3})`.
+*Per-ray* bound (i) is HC-shaped for balanced rays (`min(u,v)≥H^{1/3}`).
+Bound (ii) is HC-shaped when `τ(u+v)≤min(y,h)·H^{−1/3}`, which follows from
+`τ(u+v)≤H^{2/3}` since `h>H` (review O13r-D5; the earlier threshold
+`y^{2/3}` was wrong, since `τ/h` can then be `y^{1/6}`). These bound
+single rays only. HC_Π sums over all rays and off-ray points of all
+m-systems, and no count of rays across the m-systems is given. So no class
+of rays is "done" for HC_Π.
 
 **Hubs reappear at large m (Assessment, with a PROVED identity).** By
 Lemma 3.1(3), the extreme case `m=4sa²+1` (all of `4sa²+1` in the Π-part)
@@ -246,8 +275,8 @@ Weil-range, problem. A complete treatment is §4.
 Split `Δ_O = Δ_O^{≤μ} + Δ_O^{>μ}` by the Π-part m of the event's atom
 (an event is charged to one of its atoms). Prop 3.2 handles `Δ_O^{≤μ}`.
 
-**Hypothesis HC_Π(a′,B′)** (open). For all large T, all k, H as in HC
-and every vertex set O with no H-hub, the atoms with `m>Ĥ^{1/6}` give
+**Hypothesis HC_Π(a′,B′)** (open). For all large T, all k, `4^k≤H≤y`,
+and every vertex set O with no *saturated* H-hub (Def 2.0), the atoms with `m>Ĥ^{1/6}` give
 `Δ_O^{>Ĥ^{1/6}} ≤ 𝓛^{B′}H^{−a′}`.
 
 **Hypothesis HC*(a,B)** (the form O4 Thm 4.2 actually uses). As HC, but
@@ -262,8 +291,11 @@ which is negligible against `log(1/η_k)≍k²`. The resulting
 `H=y^{1/2+o(1)}` satisfies `4^k≤H≤y` and the saturated-hub cost condition of
 Def 2.0. Hence, modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4, HC_Π implies
 `log W(p) ≥ 0.2·min(a′,1/6)^{1/2}(log₂p)^{3/2}` for infinitely many
-Mordell-hard p (`0.2/√6>0.08`). HC_Π does **not** imply literal HC, which
-quantifies over all `H≥2` without the `e^{Ck}` factor (review O13-D2).
+Mordell-hard p (`0.2/√6>0.08`). Literal HC is false (Def 2.0). It also
+quantifies over all `H≥2` without the `e^{Ck}` factor. With O4's
+(unsaturated) hubs, HC_Π is false as well: lifts of the class −4 (F1,
+`s=a=1`) carry the atoms `(1,1,b)`, `5|4b−1`, with `m=5` and constant
+codegree (review O13r-D4).
 
 *Proof.* (i) Theorem 2.3, Prop 3.2 with `μ=Ĥ^{1/6}`, and `Ĥ≥H` for
 `H≤y`. (ii) As stated: re-run O4 Thm 4.2 steps 2–5 with the factor
@@ -273,9 +305,10 @@ quantifies over all `H≥2` without the `e^{Ck}` factor (review O13-D2).
 satisfies `m | u+v` and `m | 4sa²+1`. So HC_Π is a statement about
 *divisors* of `u+v` and of `4sa²+1`, not about residues of inverses:
 
-1. *Rays.* Balanced rays (`min(u,v)≥H^{1/3}`) and rays with
-   `τ(u+v)≤y^{2/3}` are done (Lemma 3.3). The rest are unbalanced rays
-   with `τ(u+v)>y^{2/3}`; these force `u+v ≥ y^{c·log log y}`.
+1. *Rays.* Lemma 3.3 bounds single rays: balanced rays, and rays with
+   `τ(u+v)≤H^{2/3}`. Neither is "done" for HC_Π, because rays across the
+   m-systems are not counted. The per-ray residue is the unbalanced rays
+   with `τ(u+v)>H^{2/3}`; these force `u+v ≥ H^{c·log log H}`.
    For them HC_Π asks for
    ```
    (DIV)  #{m | u+v Π-number : the least n′≥y with qmn′≡−1 (4h) is ≤ Y} ≪ 𝓛^B H^{−a}·Y   (Y≥y).
@@ -319,8 +352,8 @@ These are joint classes mod q, not lifted vertices (cf. Def 2.0):
 The m>1 part is **not** negligible: for the near-y pairs it is comparable
 to the m=1 part and exceeds it at most levels. Over `X=16…512` its endpoint
 decay exponent is ≈0.27 (T=10⁹) and ≈0.71 (T=10¹¹). Both are inside
-`X^{−1/3}`. For the wide pair (`T/q≈10³`), `m n′≤T/q` leaves essentially
-no room for `m>1`. This is consistent with HC_Π but proves nothing.
+`X^{−1/3}`. For the wide pair the m>1 column is **vacuous** for a structural
+reason: `T/q≈989`, `n′>y=331`, and m odd `>1` gives `mn′≥993>T/q`. This is consistent with HC_Π but proves nothing.
 
 ## 5. The literature (survey; details and archived PDFs in `sources/lit2026/O13_LITERATURE_NOTES.md`)
 
@@ -360,26 +393,24 @@ is therefore unnecessary for the core.
 
 ## 6. Status
 
-* **PROVED:** Lemma 1.1, Cor 1.2, Lemmas 2.1–2.2, Theorem 2.3
+* **PROVED:** Lemma 1.1, Cor 1.2, Lemma 2.0′, Lemmas 2.1–2.2, Theorem 2.3
   (HC* with a=1/3 for the m=1 part), Lemma 3.1, Prop 3.2 (HC* with a=1/6
   for `m≤Ĥ^{1/6}`), Lemma 3.3, Cor 4.1 (HC_Π ⇒ HC* ⇒ O4 Thm 4.2 rate),
   and the counterexample to literal HC (Def 2.0).
 * **Open:** HC_Π, i.e. the large-m part. HC*(a,B) is therefore still
   not proved unconditionally, and the proved rate remains O4 Cor 3.1.
-* **Scope caveats.** q is taken squarefree, as in O4 §7. Free primes
-  `ℓ≤√T` have vertex classes mod `ℓ^{e_ℓ}`, and events with `ℓ^2|M` see
-  `q′=∏ℓ^{v_ℓ}`. The proofs use only Q odd (§2) and the
-  heights mod `q′`. The non-hub hypothesis is stated mod `ℓ^{e_ℓ}`, and
-  the transfer to `q′` was not checked. O4 Prop 7.2's period/boundary
+* **Scope.** Prime-power events (`ℓ^2|M`) are covered by Lemma 2.0′, at a
+  cost of a factor `2^k`. The height transfer to `q′` is immediate with
+  saturated hubs (Def 2.0). O4 Prop 7.2's period/boundary
   terms are subsumed by Theorem 2.3's cases (a)–(c).
 
 ## Replay
 
 ```
 export PYTHONPATH=scripts
-uv run --with sympy python scripts/omega5_codeg.py 1000000000 331 337 347 1024        # ~1 min
-uv run --with sympy python scripts/omega5_codeg.py 10000000000 331 337 30011 2048     # ~1 min
-uv run --with sympy python scripts/omega5_codeg.py 100000000000 933 937 941 2048      # ~15 min
+uv run --with sympy python scripts/omega5_codeg.py 1000000000 331 337 347 1024        # ~2 s
+uv run --with sympy python scripts/omega5_codeg.py 10000000000 331 337 30011 2048     # seconds
+uv run --with sympy python scripts/omega5_codeg.py 100000000000 933 937 941 2048      # minutes
 ```
 Outputs: `data/omega5/codeg_*.txt`.
 

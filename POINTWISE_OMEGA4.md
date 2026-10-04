@@ -314,6 +314,15 @@ For `H≥2` let `𝓗_H` be the hub set of O3 Def 2.3 (`−u/v`, `uv≤H`;
 `−4sa²`, `sa≤H`; `−1/(4sb²)`, `sb≤H`). A vertex `(ℓ,x)` is an *H-hub* if
 `x∈𝓗_H(ℓ^{e_ℓ})`.
 
+> **Erratum (POINTWISE_OMEGA5 Def 2.0; review `pointwise-omega5-review.md`).**
+> HC as stated below is **false**. A non-hub lift mod `ℓ^{e_ℓ}` of a hub
+> class mod ℓ (for example −1) inherits that class's codegree `≫1` (O2 §10.3).
+> Read HC and Thm 4.2 with *saturated* hubs: a vertex is a hub if some
+> reduction mod `ℓ^v` is a hub. This changes the quarantine cost only by a
+> factor `1+O(1/y)`. Thm 4.2 then holds under the restricted form HC*
+> (O5 Cor 4.1(ii): saturated hubs, `4^k≤H≤y`, an extra factor `e^{Ck}`).
+> As stated, with the literal HC, Thm 4.2 is vacuous. HC* is open.
+
 **Hypothesis HC(a,B)** (hub codegree; open). For all large T, all
 `3≤k≤𝓛^{1/2}`, every `Π⊇{ℓ≤2T^{1/(k+1)}}` and every `H≥2`: in the system of
 Construction 2.0 for Π (supports `≤k`), with every event containing an
@@ -565,6 +574,13 @@ So (i)–(ii), with `m=1`, give the HC shape with `a=1/2`, polylog `𝓛^B`,
 and an `e^{O(k)}` factor `2^{ω(q)/2}`, which is harmless in Thm 4.2.
 The m-refinement (iii) and the core are open.
 
+> **Update (POINTWISE_OMEGA5 §§1–2).** The core obstruction below is an
+> artefact of counting non-squarefree s. Atoms have squarefree s (O3
+> Lemma 2.1), and `(s,t)↦st²` is injective, so the relevant count is
+> `≤Yt_0²/q+1` for every w. O5 Thm 2.3 proves the m=1 part of every
+> non-hub codegree `≪2^k𝓛⁴4^{k/3}H^{−1/3}` with no exponential sums. What
+> remains is the Π-part m (gap (iii)), which is O5's HC_Π.
+
 **Proposition 7.3 (the core is a short-range inverse problem; the
 counting statement is PROVED, its consequence for HC is an Assessment).**
 Take a non-hub ray `(a,b)=t(u,v)` with `uv=h>H`, `t≤(q/(4h))^{1/2}`, and
@@ -673,6 +689,10 @@ coarser killing events are allowed; see the label.)
 * Off-ray core estimate and gap (iii): not done; context exhausted.
 
 ### 7.5 Route (α) and the inverse-square problem (Assessment; checkpoint 4)
+
+> **Update (POINTWISE_OMEGA5 §§1–2).** Problem IS is not needed for HC:
+> with squarefree s the count is exact (O5 Lemma 1.1), and the m=1 part is
+> proved without route (α). The remaining input is O5's HC_Π (large Π-part m).
 
 **Problem IS(q; t_0, Y)** (precise form of the core obstruction).
 Setting:
