@@ -356,13 +356,15 @@ Normalised by `x/(log x)^{1+J/2}` (the sieve-dimension prediction):
 | 1e11 | 0.0123 | 0.0288 | 0.0370 | 0.0930 | 0.1282 | 0.1891 | 0.5044 | 0.5974 |
 
 Each column is roughly flat, as the dimension-`J/2` heuristic predicts.
+Columns J≤6 drift by a few per cent; columns J=7,8 settle only from
+`10^9` on (small counts below that).
 The joint events are abundant: 5731 primes `p<10^11` in the single class
 `1 mod 840` have `a_min≥35` by F1 alone. Window 27 uses the same
 character as window 3 (`(r/27)=(r/3)`), which is why the `J=7` survival
 ratio is high (24351/45947). The classes `−3` and `−27 mod ℓ` are still
 distinct, so the dimension still adds.
 
-## 6. Dimension bookkeeping: every failing window costs dimension ≥ 1/2
+## 6. Dimension bookkeeping: a failing window confines its prime factors (Lemma 6.1, PROVED); dimension ≥ 1/2 (Assessment)
 
 **Lemma 6.1 (PROVED).** Let `q≡3 (4)` and `G=(Z/q)^×`, and suppose window q
 fails for p. Let `C_big` be the set of residue classes `c∈G` containing at
@@ -387,14 +389,27 @@ density-`≥1/2` set". The exceptional primes vary with x, so this is not a
 finite union of pure sifting events. Turning it into an upper bound of
 sieve dimension `≥1/2` (up to `(log log x)^{O_q(1)}`) needs a standard
 almost-prime-type upper-bound sieve, summed over the exceptional
-primes. We have not written that sum out. For the first J windows the forbidden classes `−q mod ℓ`
-are distinct for `ℓ>4J`. Hence "windows `3,…,4J−1` all fail" is covered by
-sieve events of dimension `≥J/2`. This is the rigorous form of the
-"dimension `≥K/8`" bookkeeping in Assessment 11.5. The `O_q(1)` exceptional
-primes change only `log log` factors in upper bounds, not the dimension.
+primes. We have not written that sum out for the joint problem.
 
-**Congruence restrictions do not help (PROVED for a fixed modulus Q;
-complements Lemma 11.3).** Restricting p to a class mod a fixed Q fixes the divisibility of `n_q` by the
+*Single window: already PROVED.* For a fixed prime window `a`, the
+dimension-1/2 upper bound over shifted primes, covering both F1 and the
+budget failures F3, is notes **Thm 70.9** (proved, effective):
+`#{p≤N : p≡1 (24), window a fails} ≪_a N/(log N)^{3/2}`, with the F3 part
+smaller by `(log N)^{−1/(a−1)}` up to `log log` powers (DISCOVERIES #23).
+Only the joint J-window version below is Assessment.
+
+*Joint windows (Assessment).* For the first J windows the forbidden
+classes `−q mod ℓ` are distinct for `ℓ>4J`. So "windows `3,…,4J−1` all
+fail" should be covered by sieve events of dimension `≥J/2`. This is the
+expected form of the "dimension `≥K/8`" bookkeeping in Assessment 11.5.
+The exceptional primes should change only `log log` factors. That is
+uniform for fixed J. For J growing, the total exception budget is
+`Σ_{q≤4J}qφ(q)≍J^3`, which is not O(1), so any use with unbounded J (as in
+§7.3) needs J-uniform almost-prime bounds that we do not supply.
+
+**Congruence restrictions do not help (the density statement is PROVED
+for a fixed modulus Q; "saves no dimension" inherits the Assessment
+status above; complements Lemma 11.3).** Restricting p to a class mod a fixed Q fixes the divisibility of `n_q` by the
 primes `ℓ|Q`, and nothing else. The sifting set of window q loses at most
 the finitely many primes dividing Q, so its density, and hence the
 dimension, is unchanged. Choosing p in clever classes can force small
