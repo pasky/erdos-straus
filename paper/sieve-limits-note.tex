@@ -1172,4 +1172,170 @@ show that every window partition loses: singleton windows have no
 internal pairs.  So the exclusion of twin moduli is not cosmetic, but
 whether they can actually beat the Rankin functional is open.
 
+\section{Selberg-type majorants}\label{sec:selberg}
+
+\subsection{A sieve limit with no structural hypothesis}
+Let $\Omega=\prod_i\Omega_i$ be a finite product probability space (CRT
+coordinates), with costs $s_i\geq0$: $s_i=\log\ell$ for a slice prime and
+$s_i=0$ for free coordinates.  Let $\A\subseteq\Omega$ be \emph{arbitrary}.
+Let $V_\kappa$ be the span of functions of $\omega_T$ over sets $T$ with
+$\sum_{i\in T}s_i\leq\kappa$; it is the sum of the Efron--Stein components
+$H_T$ over these $T$.
+
+\begin{theorem}[Selberg-type sieve limit; {\cite[Thm~5.5]{ET}}; \lab{proved}]\label{thm:L2}
+Let $g\in V_{\lambda/2}$ with $g\geq1$ on $\A$, so that $\nu=g^2$ is a
+majorant of level $\lambda$.  Then for every $\alpha>0$,
+\[
+ \E g^2\geq\e^{-\alpha\lambda/2}\,\frac{\Prob(\A)^2}{\Prob(\omega\in\A,\ \omega'\in\A)},
+\]
+where $\omega'$ is the $\rho$-correlated copy: independently for each $i$,
+$\omega'_i=\omega_i$ with probability $\rho_i=\e^{-\alpha s_i}$ and otherwise a
+fresh sample.  Equivalently, $\log(1/\E\nu)\leq\alpha\lambda/2+\Xi_\A(\alpha)$
+with the \emph{noise-stability excess}
+$\Xi_\A(\alpha)=\log[\Prob(\A\cap\A'_\alpha)/\Prob(\A)^2]\in[0,\log(1/\Prob(\A))]$.
+\end{theorem}
+\begin{proof}
+$\E[g\ind_\A]\geq\Prob(\A)$ and, since $g\in V=V_{\lambda/2}$,
+$\E[g\ind_\A]=\langle g,\Pi_V\ind_\A\rangle\leq\|g\|\,\|\Pi_V\ind_\A\|$.  Now
+$\|\Pi_V\ind_\A\|^2=\sum_{c(T)\leq\lambda/2}\|(\ind_\A)_T\|^2
+\leq\e^{\alpha\lambda/2}\sum_T\e^{-\alpha c(T)}\|(\ind_\A)_T\|^2
+=\e^{\alpha\lambda/2}\langle\ind_\A,T_\rho\ind_\A\rangle
+=\e^{\alpha\lambda/2}\Prob(\A\cap\A')$, where $c(T)=\sum_{i\in T}s_i$ and
+the noise operator $T_\rho$ acts on $H_T$ by $\prod_{i\in T}\rho_i$.
+\end{proof}
+This covers Selberg's $\Lambda^2$ sieve.  For a prime-slice system the
+excess factorises fibrewise,
+$\Xi_{\A_c}(\alpha)=\sum_\ell\log(1+\rho_\ell p_\ell(c)/(1-p_\ell(c)))
+\leq\frac43\sum_\ell p_\ell(c)\ell^{-\alpha}$ when $p_\ell(c)\leq1/4$, so
+Theorem~\ref{thm:L2} reproduces the Rankin functional \cite[Cor.~5.6]{ET}.
+Its point is that balanced, twin and shared-prime moduli are allowed: for
+$\Lambda^2$-majorants, beating $3/4$ with balanced moduli requires the
+following hypothesis to fail.
+
+\begin{hypothesis}[$H_{\rm MS}^{\rm Sel}$; {\cite[\S5.7]{ET}}; \lab{open}]\label{hyp:MSsel}
+For the complete Case-B and Case-A forced-class system with moduli
+$\leq\e^\lambda$, with primes $\leq\lambda^4$ given $\rho=1$,
+$\Xi_\A(\alpha)\ll\alpha^{-3}(\log\lambda)^{O(1)}$ uniformly for
+$\lambda^{-1}\leq\alpha\leq1$.
+\end{hypothesis}
+Under Hypothesis~\ref{hyp:MSsel}, Theorem~\ref{thm:L2} caps Selberg-type
+majorants at $\lambda^{3/4}(\log\lambda)^{O(1)}$ for all moduli \lab{conditional}.
+A fibrewise version alone would not suffice: $\A=\{c=c_0\}\times\Omega'$
+has $\Xi=0$ in every nonempty fibre, yet $g=\ind_{c=c_0}$ saves $\log Q_0$.
+The remedy is to tilt the fibre law.
+
+\begin{lemma}[fibre tilting; {\cite[Lemma~6.6]{TW}}, {\cite[Lemma~2.1]{TW2}}; \lab{proved}]\label{lem:tilt}
+In the setting of Theorem~\ref{thm:L2}, let $F$ be a set of coordinates
+whose residues $c$ (the fibre) range over $\Z/Q_F$; put
+$\A_c=\A\cap\{\text{fibre}=c\}$ and
+$\Xi_c(\alpha)=\log[\Prob(\A_c\cap\A'_c\mid c)/\Prob(\A_c\mid c)^2]$, where
+in $\A'_c$ the coordinates outside $F$ are $\rho$-correlated and the fibre
+is shared.  For any probability law $P$ on fibres with $\A_c\neq\emptyset$
+on its support, every $g\in V_{\lambda/2}$ with $g\geq1$ on $\A$ satisfies
+\[
+ \log\frac1{\E g^2}\leq\frac{\alpha\lambda}2+\log\Bigl\|\frac{dP}{dU}\Bigr\|_\infty+\E_P\,\Xi_c(\alpha).
+\]
+For $P$ uniform on a set $R$ the middle term is $\log(Q_F/|R|)$.
+\end{lemma}
+\begin{proof}[Proof for uniform $P$ on $R$]
+Let $\tilde\sigma=\sum_{c\in R}\pi_cU(\cdot\mid c,\A)$ and $h=d\tilde\sigma/dU$.
+Then $\E_U[gh]\geq1$, so $\E g^2\geq1/\|\Pi_{V_{\lambda/2}}h\|^2$, and
+$\|\Pi_Vh\|^2\leq\e^{\alpha\lambda/2}\langle h,T_\rho h\rangle$.  Since
+$\langle h,T_\rho h\rangle$ is nondecreasing in each $\rho_i$, put
+$\rho_i=1$ on $F$; then
+$\langle h,T_\rho h\rangle=Q_F\sum_{c\in R}\pi_c^2\e^{\Xi_c}$.  Choosing
+$\pi_c\propto\e^{-\Xi_c}$ and Jensen give $\leq(Q_F/|R|)\e^{\mathrm{avg}_R\Xi_c}$.
+The general case is \cite[Lemma~2.1]{TW2}.
+\end{proof}
+
+\subsection{Two large primes, twins included}
+\emph{Setting} \cite[\S3]{TW2}.  Fix $B\geq0$, $A_0\geq1$; let $X$ be large,
+$L=\log X$, $W_1=L^{1/2}$, $w_2=L^8$ and $\alpha=L^{-1/4}$.  The family is
+any set of classes $-4D\pmod M$ of $\cR(M)$ with $M\leq X$,
+$M\leq P(M)^{1+B}$, and \emph{at most two distinct prime factors of $M$
+above $w_2$}.  Twin moduli $k\ell_1\ell_2$ ($\ell_i>w_2$, $k$ $w_2$-smooth),
+dominant moduli and prime powers are included.  All primes are charged,
+and the level is $\lambda\leq A_0L$.  The fibre is $c=n\bmod$ the
+$w_2$-smooth part, with a law $P$ built from the QR base at primes
+$\leq W_1$, conditioning on avoidance of the small classes, and a
+good-fibre event; then $\log\|dP/dU\|_\infty\leq4L^{1/2}$
+\cite[Lemmas~3.1--3.4]{TW2}.  In a fibre, a class $k\ell^v$ is unary at
+$\ell$ and a class $k\ell^vm^u$ is a binary \emph{edge}.
+
+The probabilistic core is a binary noise-stability bound.  Take
+independent coordinates $y_\ell$ with laws $\nu_\ell$ and a finite set of
+edges $e=\{(\ell,a),(m,c)\}$, $\ell\neq m$, hit when $y_\ell=a$ and
+$y_m=c$.  Put $\pi_e=\nu_\ell(a)\nu_m(c)$,
+$\deg(\ell,a)=\sum\nu_m(c)$ over the edges at $(\ell,a)$,
+$w_\ell=\sum_{e\ni\ell}\pi_e$ and $q_\ell=\sum_a\nu_\ell(a)\deg(\ell,a)^2$,
+and assume $w_\ell\leq\delta\leq1/16$ for all $\ell$.  Let $Z_1$ be the
+probability that no edge is hit, and $Z_2(\tilde\rho)$ the probability that
+no edge is hit in either copy of the coupled pair in which, independently
+for each $\ell$, $y'_\ell=y_\ell$ with probability $\tilde\rho_\ell$ and is
+otherwise an independent copy.
+
+\begin{theorem}[binary noise stability; {\cite[Thm~1.4]{TW2}}; \lab{proved}]\label{thm:binaryNS}
+For every $\tilde\rho\in[0,1]^{\text{index set}}$,
+\[
+ \log\frac{Z_2(\tilde\rho)}{Z_1^2}\leq(1+25\delta)\Bigl[\sum_{e=\{\ell,m\}}\tilde\rho_\ell\tilde\rho_m\pi_e+\sum_j\tilde\rho_jq_j\Bigr].
+\]
+\end{theorem}
+The proof \cite[\S1]{TW2} differentiates $\log Z_2$ along $\kappa=t\tilde\rho$,
+uses an identity for $\partial_{\kappa_j}\log Z_2$ under the unconditioned
+law of the other coordinates, and bounds the result with a conditional
+form of the Lov\'asz local lemma; no cluster expansion is needed.  An
+exact check on 1200 small systems found no violation \lab{evidence}.
+
+For a fibre $c$, a prime $j>w_2$ and a residue $a$, let $\deg_c(j,a)$ be
+the partner mass of the active binary classes through $(j,a)$, and
+$S_j(c)=\sum_a\nu_j(a)\min(\deg_c(j,a),1)^2$.
+
+\begin{theorem}[two-prime $\Lambda^2$ cap, reduced; {\cite[Thm~5.1]{TW2}}; \lab{proved}]\label{thm:twoprime}
+In this setting, for $L$ large, every $g\in V_{\lambda/2}$ with $g\geq1$ on
+the avoiders of the family satisfies
+\[
+ \log\frac1{\E g^2}\leq\frac{A_0}2L^{3/4}+C_BL^{3/4}(\log L)^C
+ +11\,\E_P\sum_{j>w_2}\rho_jS_j(c),\qquad\rho_j=j^{-\alpha},
+\]
+with an absolute exponent $C$.
+\end{theorem}
+The proof combines Lemma~\ref{lem:tilt} with the fibre law $P$,
+Theorem~\ref{thm:binaryNS} in each good fibre after a free quarantine of
+hub residues \cite[Lemma~2.2]{TW2}, and a profile bound $\ll\alpha^{-3}(\log
+L)^{O(1)}$ for the unary and diagonal binary terms \cite[Lemma~4.1]{TW2}.
+
+The off-diagonal term splits by the labels of the classes.  By
+\cite[Lemma~5.3]{TW2}, the residue of $-4D\pmod M$ at a prime $j\mid M$ is
+$-u'/v'$, where $D/A=u'/v'$ in lowest terms; each class has the three
+\emph{candidate rationals} $4D$, $D/A$, $1/(4\bar D)$ with $\bar D=A^2/D$.
+
+\begin{lemma}[same-label part $(H_O^=)$; {\cite[Lemma~5.4]{TW2}}; \lab{proved} mod the stated Brun--Titchmarsh and Shiu inputs]\label{lem:HOeq}
+The contribution to $\E_P\sum_j\rho_jS_j$ of pairs of classes through $j$
+that share a candidate rational, together with all prime-power classes,
+is $\ll_B(\log L)^{O(1)}$.
+\end{lemma}
+
+\begin{hypothesis}[$(H_O^{\neq})$; {\cite[\S5.1]{TW2}}; \lab{open}]\label{hyp:HOne}
+The contribution to $\E_P\sum_{j>w_2}\rho_jS_j(c)$ of the pairs of classes
+through $j$ that agree modulo $j$ and have disjoint sets of candidate
+rationals is $\ll_B\alpha^{-3}(\log L)^{O(1)}$.
+\end{hypothesis}
+
+\begin{corollary}[{\cite[Cor.~5.2]{TW2}}; \lab{conditional} on $(H_O^{\neq})$]\label{cor:twoprime}
+In this setting, $\log(1/\E g^2)\ll_{A_0,B}L^{3/4}(\log L)^{O(1)}$: the
+$\Lambda^2$ cap for $\cR(M)$-families with at most two prime factors above
+$(\log X)^8$, twin moduli included.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:twoprime}, Lemma~\ref{lem:HOeq} and
+Hypothesis~\ref{hyp:HOne}.
+\end{proof}
+For the pairs in $(H_O^{\neq})$, every difference of candidate rationals
+is a nonzero integer divisible by $j$.  The random model predicts a
+contribution $\ll L^{6+o(1)}/w_2=o(1)$, against a trivial bound
+$\asymp L^6/\alpha$; numerically the relevant counts are at or below the
+random prediction in all six tested rows \lab{evidence}.  The restriction
+$M\leq P(M)^{1+B}$ with $B$ fixed is genuine: for fixed $B$, twins
+$k\ell_1\ell_2$ with a $w_2$-smooth cofactor $k>M^{(B-1)/(B+1)}$ are excluded.
+
 \end{document}
