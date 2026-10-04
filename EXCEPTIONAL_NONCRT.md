@@ -235,3 +235,65 @@ most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
   Fourier mass `A_S ≳ e^{s(S) − Cλ^{3/4}}`, superpolynomial in N, at
   frequencies whose denominators are superpolynomial in N, and then a
   cancellation *among* those frequencies in (1.2).
+
+## 3. Candidate (b): prime-only majorants
+
+A *prime majorant* is ν (finite combination of classes) with ν ≥ 0 at all
+primes and ν ≥ 1 at all primes of 𝒜; the bound is `Σ_{p≤N} ν(p)`.
+
+**Lemma 3.1 (PROVED).** Let L be a common period of ν containing Q₀ and the
+(finitely many) relevant slice primes, and assume
+`|F_ℓ(c) ∖ {0}| < ℓ − 1` for all ℓ, c. Then ν is a prime majorant iff
+ν ≥ 0 on every reduced class mod L and ν ≥ 1 on every reduced class mod L
+contained in 𝒜.
+
+*Proof.* Dirichlet: every reduced class mod L contains infinitely many
+primes, and ν, 𝒜 are L-periodic (after the Step-0 reduction of ET-file,
+which needs a unit residue outside `F_ℓ(c)`; that is the hypothesis). ∎
+
+So the LP for prime majorants is the ET-file LP for the measure
+`E*` = uniform on `(ℤ/L)^×`. By CRT, under E* the coordinates
+`n mod Q₀` (uniform on `(ℤ/Q₀)^×`) and `n mod ℓ` (uniform on `(ℤ/ℓ)^×`)
+are independent. Put `R* = R ∩ (ℤ/Q₀)^×` and
+`p*_ℓ(c) = |F_ℓ(c) ∖ {0}|/(ℓ−1)`.
+
+**Theorem 3.2 (PROVED).** ET-file Theorem 2.5 holds for prime majorants with
+E, R, Q₀, p_ℓ(c) replaced by E*, R*, φ(Q₀), p*_ℓ(c) (and the hypothesis
+`|F_ℓ(c)∖{0}| ≤ (ℓ−1)/4`). Theorem 2.3 above holds in the same way for
+E*-measure, with the rounding functional R_1 replaced by any ℓ¹ bound on
+the nonprincipal part of ν with respect to Dirichlet characters and
+additive characters that is ≥ the bound of Lemma 2.2 (see Remark 3.4).
+
+*Proof.* The proof of Thm 2.5 uses only: a product measure across the CRT
+coordinates; fibres `c ∈ R`; hit indicators independent Bernoulli with
+parameters `p_ℓ(c) ≤ 1/4`; and `{c} × {x = 0} ⊆ 𝒜` with positive measure.
+All four hold for E* with the starred data. ∎
+
+For the families of ET-file Cor 3.4, `p*_ℓ(c) ≤ (ℓ/(ℓ−1)) p_ℓ(c)`, so the
+profile `Σ p̄*_ℓ ℓ^{−α}` is the same up to a factor `1 + O(1/ℓ₀)`, and the
+cap `C(log N)^{3/4}` at level `A log N` is unchanged.
+
+**Theorem 3.3 (primality is worth at most a factor λ^{O(1)}; PROVED).** Let
+ν be an *integer* majorant (≥ 0 on ℤ) that is ≥ 1 only on `𝒜 ∩ 𝒫_z`, where
+`𝒫_z = {n : (n, P(z)) = 1}` with `z ≤ e^λ` (this is how a sieve detects
+primes). Then ν is a majorant of the prime-slice system obtained by adding
+the class `0` to every `F_ℓ(c)`, ℓ ≤ z (and adding each prime ℓ ≤ z not
+yet in 𝒫 as a slice prime with `F_ℓ = {0}`). Its Theorem 2.5 bound
+increases by at most
+
+    C₄ Σ_{ℓ≤z} ℓ^{−1−α} + (G/2)·log(1 + log log z + O(1))
+      ≤ C₄ (log(1/α) + O(1)) + O(log²λ).
+
+With `α = λ^{−1/4}` this is `O(log²λ)`: the cap
+`C(log N)^{3/4}` becomes `C(log N)^{3/4} + O((log log N)²)`.
+
+*Proof.* `𝒜 ∩ 𝒫_z` is exactly the avoider set of the augmented system;
+the new probabilities are `p_ℓ + 1/ℓ` (class 0 is not a forced class of
+the families, since those classes are units mod ℓ; if it were, nothing
+changes). Plug into (2.4). ∎
+
+So restricting to primes, by Dirichlet-measure (Thm 3.2) or by an extra
+sieve (Thm 3.3), changes the LP limit only by `O((log log N)²)` in the
+saving. **Candidate (b) cannot beat 3/4**, for any level `N^{O(1)}` —
+hence for BV (level ½), BDH, Elliott–Halberstam, or any level-`N^A`
+equidistribution hypothesis.
