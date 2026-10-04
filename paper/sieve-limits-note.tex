@@ -805,11 +805,18 @@ function gives logarithmic density $\log(1+C)$ to the moduli with
 $P(M)\geq M^{1/(1+C)}$; the share of the \emph{weighted} cubic supply is
 not proved \lab{conjecture}.
 
-\section{Gapped moduli, unconditionally}\label{sec:gapped}
+\section{The quadratic-residue base and the capped measure}\label{sec:gapped}
 
 Corollary~\ref{cor:dominant} needs $P(M)\geq M^{1/(1+C)}$ with $C<1$.  This
-section treats a class of \emph{balanced} moduli ($P(M)\leq M^{1/2}$) as
-well, for the classes $\cR(M)$.  The results are from \cite[\S\S1--2,
+section gives the two tools that remove this restriction for the classes
+$\cR(M)$: a product base measure on the avoiders of all small-modulus
+classes (Lemma~\ref{lem:QR}), and a capped sequential measure whose
+heavy coordinates enter only through a leak (Theorem~\ref{thm:capped}).
+With them it proves the cap for gapped and window-resolved families
+(Theorems~\ref{thm:gapped} and~\ref{thm:resolved}).  These two theorems
+are now special cases of Theorem~\ref{thm:karycap}; they are kept
+because their proofs need only the Boolean step of
+Proposition~\ref{prop:boolean}.  The results are from \cite[\S\S1--2,
 4]{TW}, building on the reductions of \cite[\S2]{EB}; the review
 \cite{TWrev} (two rounds) found them sound.
 
@@ -1003,7 +1010,7 @@ $H_{\rm light}$ of \cite[\S\S2.5, 4.4]{EB} are not used.
 Lemma~\ref{lem:mordell} is proved for $\cR(M)$ only, and the analysis of
 \cite{EB} is restricted to $\cR(M)$.  It needs $B$ fixed: there is no
 summation over $B$.  It does not cover $\eta$-twin moduli, for which (U)
-fails.
+fails; Theorem~\ref{thm:karycap} does.
 
 \begin{theorem}[window-resolved families; {\cite[Thm~4.4]{TW}}; \lab{proved}]\label{thm:resolved}
 Fix $B$, $W=W_0(B)$ and $\lambda\geq(2\log W)^4$.  Let $\cG$ be any family of
@@ -1023,10 +1030,12 @@ gives cost $O(\e^{-\lambda/4})$ \cite[Lemma~4.2, Cor.~4.3]{TW}; and a
 second-moment bound with prime-power top primes \cite[Lemma~4.0]{TW} for
 the leak.  So all twin moduli with top prime outside
 $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$ are already covered.  The
-\emph{residual} is the set of unresolved moduli with top prime in that
-range.
+\emph{residual} was the set of unresolved moduli with top prime in that
+range.  Theorem~\ref{thm:karycap} closes it by replacing the
+$\eta$-windows with dyadic sequential blocks and the Boolean step with
+Theorem~\ref{thm:kcomp}; the other three ingredients are reused.
 
-\section{A weighted $k$-ary comparison theorem}\label{sec:kary}
+\section{A weighted \texorpdfstring{$k$}{k}-ary comparison theorem}\label{sec:kary}
 
 The sequential sieve limits of Sections~\ref{sec:seq} and~\ref{sec:gapped}
 need, in each window, a single coordinate that decides each condition
@@ -1209,7 +1218,7 @@ path enumeration and floating-point linear programmes) found no violation
 \lab{evidence}.
 \end{remark}
 
-\section{The main theorem: $3/4$ for every fixed-$B$ family of classes $\cR(M)$}\label{sec:main}
+\section{The main theorem: \texorpdfstring{$3/4$}{3/4} for every fixed-\texorpdfstring{$B$}{B} family of classes \texorpdfstring{$\cR(M)$}{R(M)}}\label{sec:main}
 
 This section combines Theorem~\ref{thm:kcomp} with the quadratic-residue
 base and the capped sequential measure of Section~\ref{sec:gapped}.  The
@@ -1910,6 +1919,15 @@ arXiv:1107.1010v6 (cited version).
 \bibitem[H]{Hough}
 R.~Hough, Solution of the minimum modulus problem for covering systems,
 \emph{Ann. of Math.} \textbf{181} (2015).
+\bibitem[KA]{KA}
+\emph{EXCEPTIONAL\_KARY: the $k$-ary comparison inequality}, internal
+working document \texttt{EXCEPTIONAL\_KARY.md}, this repository, 2026.
+\bibitem[KAr]{KArev}
+Hostile review of \cite{KA}, \texttt{reviews/exceptional-kary-review.md},
+this repository, 2026.
+\bibitem[KAr2]{KArev2}
+Second hostile review of \cite{KA}, re-deriving all inputs from \cite{TW},
+\texttt{reviews/exceptional-kary-review-2.md}, this repository, 2026.
 \bibitem[LL]{LL}
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed note,
@@ -1917,9 +1935,19 @@ Erd\H{o}s--Straus exceptional set}, internally reviewed note,
 \bibitem[M]{Montgomery}
 H.~L.~Montgomery, The analytic principle of the large sieve,
 \emph{Bull. Amer. Math. Soc.} \textbf{84} (1978).
+\bibitem[MV]{MV}
+H.~L.~Montgomery and R.~C.~Vaughan, The large sieve, \emph{Mathematika}
+\textbf{20} (1973), 119--134.
 \bibitem[MS]{MS}
 F.~J.~MacWilliams and N.~J.~A.~Sloane, \emph{The Theory of
 Error-Correcting Codes}, North-Holland, 1977, Chapter~10.
+\bibitem[NC]{NC}
+\emph{EXCEPTIONAL\_NONCRT: can a non-CRT input beat $\theta=3/4$?},
+internal working document \texttt{EXCEPTIONAL\_NONCRT.md}, this
+repository, 2026.
+\bibitem[NCr]{NCrev}
+Hostile review of \cite{NC}, rounds 1--2,
+\texttt{reviews/exceptional-noncrt-review.md}, this repository, 2026.
 \bibitem[N]{Notes}
 \emph{Erd\H{o}s--Straus research notebook}, \texttt{notes.md}, this
 repository, \S\S3, 16, 18; internally reviewed working notes, 2026.
@@ -1954,6 +1982,16 @@ this repository, 2026.
 \bibitem[TW3r]{TW3rev}
 Hostile review of \cite{TW3}, rounds 1--2,
 \texttt{reviews/exceptional-twin3-review.md}, this repository, 2026.
+\bibitem[TW4]{TW4}
+\emph{EXCEPTIONAL\_TWIN4: the $\Lambda^2$ cap for moduli with $r$ large
+primes}, internal working document \texttt{EXCEPTIONAL\_TWIN4.md}, this
+repository, 2026.
+\bibitem[TW4r]{TW4rev}
+Hostile review of \cite{TW4}, rounds 1--2,
+\texttt{reviews/exceptional-twin4-review.md}, this repository, 2026.
+\bibitem[vLR]{vLR}
+J.~H.~van Lint and H.-E.~Richert, On primes in arithmetic progressions,
+\emph{Acta Arith.} \textbf{11} (1965), 209--216.
 \bibitem[V]{Vaughan}
 R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), doi:10.1112/S0025579300002886.
