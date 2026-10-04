@@ -785,8 +785,11 @@ the source; it was not re-proved.
 This section treats families whose moduli have a dominant prime factor.
 It covers the $(a,D)$- and Case-A classes as well as the classes
 $\cR(M)$; for the latter, Theorem~\ref{thm:karycap} below removes the
-dominance hypothesis.  The two cases are combined in
-Theorem~\ref{thm:main}.
+dominance hypothesis, and Theorem~\ref{thm:noBcap} removes it for all
+four class types at once.  For CRT-majorant architectures, the
+conclusions of this section and of Theorem~\ref{thm:karycap} are
+special cases of the bounded-$B$ clause of Theorem~\ref{thm:main} (a
+dominant prime $P(M)\geq M^{1/(1+C)}$ is the case $B=C$).
 
 \subsection{Prime-slice families}
 \begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:sliceCap}
@@ -2460,25 +2463,39 @@ than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 
 The following list is checked against the proofs of
 Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped},
-\ref{thm:wseq}, \ref{thm:karycap} and Lemma~\ref{lem:budget}
-\cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}.  Anything below lies
-outside the cap of Theorem~\ref{thm:main}; where another section covers
-part of an item, this is said.
+\ref{thm:wseq}, \ref{thm:karycap}, \ref{thm:noBcap}, \ref{thm:main} and
+Lemma~\ref{lem:budget} \cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC},
+\cite[\S6]{KA2}; items~1--7 are the list of \cite[\S6]{KA2} and its
+second review \cite[(C)]{KA2rev2}.  Anything below lies outside the cap
+of Theorem~\ref{thm:main}; where another section covers part of an item,
+this is said.
 \begin{enumerate}
-\item \emph{Majorants not $\geq0$ on all of $\Z$.}  See
-  Remark~\ref{rem:positivity}.  Majorants that are $\geq0$ and $\geq1$ only at
-  primes are covered for finite prime-slice families
-  (Theorem~\ref{thm:primemaj}).
-\item \emph{Signed rounding.}  Bounds exploiting cancellation in
-  $\sum_{n\leq N}\nu(n)-N\E\nu$, or rounding bounds smaller than
-  $\sum_i|a_i|$.  For finite prime-slice families, every per-frequency
-  rounding bound with weight $w\geq1$ is covered
-  (Theorem~\ref{thm:perfreq}).  Still outside: weights $<1$
-  (Erd\H{o}s--Tur\'an/Vaaler, floor/ceiling, the exact $|S_N|$, smooth
-  windows), cancellation between frequencies, i.e.\ direct interval
-  counts, and per-frequency rounding in the sequential and balanced
-  settings of Sections~\ref{sec:gapped}--\ref{sec:main}.
-\item \emph{Non-CRT inputs.}  The theorems see only the CRT law of
+\item \emph{The large sieve beyond prime slices.}  Montgomery's large
+  sieve is capped only fibre by fibre over a prime-slice system
+  (Remark~\ref{rem:LS}).  It is not a pointwise majorant, and nothing
+  here extends that cap to mixed families or composite moduli.
+\item \emph{Cancellation between frequencies.}  Bounds exploiting
+  cancellation in $\sum_{n\leq N}\nu(n)-N\E\nu$: direct interval counts,
+  Kloosterman and dispersion arguments, Erd\H{o}s--Tur\'an/Vaaler
+  cancellation, and signed sieves whose error term is not $\sum_i|a_i|$.
+  For finite prime-slice families every per-frequency rounding bound
+  with weight $w\geq1$ is covered (Theorem~\ref{thm:perfreq}); for the
+  sequential construction of Sections~\ref{sec:main}--\ref{sec:noB} even
+  this is not proved.
+\item \emph{Per-frequency weights below one}: floor/ceiling rounding, the
+  exact $|S_N|$, smooth windows \cite[\S2.5]{NC}.
+\item \emph{Majorants $\geq1$ only on part of the avoider set.}
+  Theorem~\ref{thm:main} needs $\nu\geq0$ on $\Z$ and $\nu\geq1$ on all of
+  $\A(\cG)\subseteq\Z$.  Excluded: $\nu\geq0$ only on $[1,N]$
+  (Remark~\ref{rem:positivity}); $\nu\geq1$ only on $\A\cap[1,N]$ or only
+  on the exceptional set; and $\nu\geq1$ only on exceptional primes, used
+  through prime equidistribution beyond a selector.  Majorants that are
+  $\geq0$ and $\geq1$ only at primes are covered for finite prime-slice
+  families (Theorem~\ref{thm:primemaj}).  Selector classes cap the mean
+  side of such prime-law methods by the same proof, but the
+  Bombieri--Vinogradov-type error accounting is \lab{open} and not
+  claimed.
+\item \emph{Non-CRT input.}  The theorems see only the CRT law of
   residues.  Covered for finite prime-slice families: prime-only
   majorants at level $N^{O(1)}$ and CRT-evaluated moment methods
   (Section~\ref{sec:noncrt}).  Outside: Type~I/II sums, the arithmetic of
@@ -2488,38 +2505,44 @@ part of an item, this is said.
   Assessment of \cite[Remark~3.4]{NC} together with
   $\sum_{\rm high}|a_i|<\pi(N)$ and slice primes $\leq N^{O(1)}$,
   \cite[Prop.~4.1]{NC}).
-\item \emph{Moduli without the $B$-hypothesis, and mixed families.}
-  Theorem~\ref{thm:karycap} covers every $\cR(M)$-family with
-  $M\leq P(M)^{1+B}$, $B$ fixed, twin moduli included; there is no
-  summation over $B$, and the constants $W_0(B),C(B)$ are not tracked.
-  Excluded are: $\cR(M)$-families with $\log M/\log P(M)$ unbounded;
-  $(a,D)$- and Case-A moduli without a dominant prime; and families mixing
-  such classes with $\cR(M)$-classes, since the base $R_W$ rests on
-  Lemma~\ref{lem:mordell}, proved for $\cR(M)$ only.  For Selberg-type
-  majorants at level $O(\log X)$ the $B$-hypothesis is removed for any
-  fixed number of prime factors above $(\log X)^8$
-  (Theorem~\ref{thm:noB}), and moduli with at least $330\log L$ of them
-  cost $o(1)$.  The $\cR(M)$-moduli with large twin parts are not
-  small (Lemma~\ref{lem:balancedsupply}); for fixed $B$ they are now
-  covered.
-\item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
-  uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
-  handles the $w_0$-smooth part only because $w_0=O_C(1)$, and
-  Theorems~\ref{thm:gapped} and~\ref{thm:karycap} because $W=W_0(B)$.
-\item \emph{Level and size.}  Families with slice primes beyond $N^{O(1)}$
-  are formally outside Theorem~\ref{thm:main}, since
+\item \emph{Other class types}, including non-selector admissible sets.
+  The proof of Theorem~\ref{thm:noBcap} uses only three properties of
+  the classes: (a) no $W$-smooth class contains a unit square modulo its
+  modulus (for the base); (b) first moments
+  $\ll(\log y)^3\cdot\mathrm{polylog}(\log y)$ over $P(G)\leq y$; (c) cofactor
+  second moments $\ll\ell^{o(1)}$.  The same proof covers any family with
+  (a)--(c) \cite[\S6, item~2]{KA2}; families without them are outside.
+  An admissible set that excludes classes failing (a), for instance
+  classes of unit squares, has an uncontrolled term $\log(Q_0/|R|)$
+  (Remark~\ref{rem:Rterm}).  Schinzel's theorem, as quoted in
+  \cite{ElsholtzTao}, may make (a) automatic for polynomial-identity
+  families; this has not been checked.
+\item \emph{Primes beyond $N^{O(1)}$.}  Families with primes beyond
+  $N^{O(1)}$ are outside Theorem~\ref{thm:main}, since
   Lemma~\ref{lem:budget} needs $\Lambda_0$.  For finite prime-slice
   families Theorem~\ref{thm:perfreq} needs no such bound.
-\item \emph{Large multipliers.}  In the prime-slice setting the small part
-  $q_0$ of a modulus is free, but Corollary~\ref{cor:sliceCap} needs
-  $q_0\leq\ell^C$.  Conditions with $q_0\gg\ell$, used without paying their
-  lcm in level, are not covered; no lower bound on that cost is proved
-  \cite[\S5.6(b)]{ET}.  (Theorem~\ref{thm:karycap} charges every prime
-  above $W$; it allows cofactors up to $P(M)^B$ but does not address this
-  item.)
-\item \emph{Large sieve.}  Only Montgomery's large sieve over a slice
-  system, fibre by fibre, is covered.
 \end{enumerate}
+In addition, the exact exponent is open without $B$:
+Theorem~\ref{thm:main} leaves a factor $(\log\log N)^{3/4}$, which comes
+only from smooth-dominated moduli (Lemma~\ref{lem:firstnoB} and the
+remark after it).  For unbounded-$B$ families a saving
+$(\log N)^{3/4}\omega(N)$ with $1\ll\omega(N)\leq(\log\log N)^{3/4}$ is not
+excluded; it is expected not to exist, but that is \lab{open}.  Under
+bounded $B$ it is excluded (Theorem~\ref{thm:Bcapall}).  All constants
+are absolute but astronomically large (Section~\ref{sec:noB}).
+
+\emph{No longer excluded} (compared with the previous version of this
+note).  The following are inside Theorem~\ref{thm:main}:
+$\cR(M)$-moduli with $\log M/\log P(M)$ unbounded; $(a,D)$- and Case-A
+moduli without a dominant prime; families mixing all four types; twin
+moduli (Lemma~\ref{lem:balancedsupply}); any number of prime factors per
+modulus; selector admissible sets (as selector classes); and multipliers
+larger than the top prime, used without a separate level budget, since
+Theorem~\ref{thm:main} charges every prime above $W$ and bounds the level
+through $\sum_i|a_i|<N$ alone.  For the external input, the Case-A part
+uses Elsholtz--Tao Prop.~1.4 (published, not re-proved), as
+Lemma~\ref{lem:caseAprofile} does; families without Case-A classes use no
+external input.
 
 \begin{lemma}[balanced moduli carry cubic supply; {\cite[Lemma~3.8]{ET}}; \lab{proved}]\label{lem:balancedsupply}
 There are $c>0$ and $x_0$ such that for $x\geq x_0$,
@@ -2551,8 +2574,9 @@ still growing \lab{evidence}.  Lemma~\ref{lem:balancedsupply} does not by itself
 show that every window partition loses: singleton windows have no
 internal pairs.  So the twin moduli had to be covered, not discarded.
 For fixed $B$ they cannot beat the cap (Theorem~\ref{thm:karycap})
-\lab{proved}; without the $B$-hypothesis this is open for general
-majorants.
+\lab{proved}; without the $B$-hypothesis they are inside
+Theorem~\ref{thm:noBcap}, up to the factor $(\log\lambda)^{3/4}$
+\lab{proved}.
 
 \section{Open problems}\label{sec:open}
 
