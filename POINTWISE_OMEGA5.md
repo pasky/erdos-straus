@@ -17,6 +17,19 @@ prime factors, all `>y`), `n′≥y`. Survival: `m|4sa²+1`.
   `(s,t) ↦ st²` is injective, so the relevant count is
   `#{(s,t): s squarefree, s≤Y, t≤t_0, st²≡w (q)} ≤ Yt_0²/q+1`,
   pointwise in w, with no divisor loss and no Kloosterman input.
+* §2 (PROVED). **Theorem 2.3:** the `m=1` part of every non-hub codegree
+  is `≪𝓛⁴4^{k/3}H^{−1/3}`. This is HC with `a=1/3` for events whose
+  atom has trivial Π-part. The proof combines the lifting with square-root
+  counts and a thin-box lattice lemma. It uses no exponential sums.
+* §3 (PROVED). The Π-part m (O4 gap (iii)) satisfies `m|u+v` and
+  `m|4sa²+1`. Events with `m≤H^{1/6}` give HC with `a=1/6`, and ray sums
+  are bounded for balanced rays.
+* §4. **Open residual HC_Π (large m).** It is a divisor-function problem
+  in short progressions, not a Weil-range inverse problem. HC_Π implies
+  HC, and hence O4 Thm 4.2's `log W ≥ c(log₂p)^{3/2}` (Cor 4.1). HC itself
+  is still **not** proved, and the proved rate stays O4 Cor 3.1.
+* §5. Literature: no known theorem gives O4's IS. HC never needed IS
+  (squarefree s).
 
 ## 1. The squarefree lifting lemma (PROVED)
 
@@ -99,8 +112,8 @@ the sub-box's points lie on one line L. Let `δ` be the shortest vector of
   `min(A/u′,B/v′)+1 = AB/max(v′A,u′B)+1 < 2F′+1` points.
 * `δ=(u′,−v′)`, `u′,v′>0`: every point has `v′a+u′b≡0 (Q)`, and
   `0<v′a+u′b<2(v′A+u′B)` on R, so `max(v′A,u′B)>Q/4`; at most `4F′+1` points.
-* δ on an axis: `(0,v′)∈Λ` forces `Q|v′`, `(u′,0)∈Λ` forces `Q|u′`;
-  since `A′<Q` and `B<Q`... (for `(0,v′)`: `v′≥Q>B`), at most one point. ∎
+* δ on an axis: `(0,v′)∈Λ` forces `Q|v′`, so `v′≥Q>B`; `(u′,0)∈Λ`
+  forces `Q|u′`, so `u′≥Q>A′`. Either way at most one point. ∎
 
 **Theorem 2.3 (PROVED).** For odd Q with `Q>y²` and `Ĥ≥4^{ω(Q)}`,
 
@@ -276,8 +289,8 @@ for every w. Statements below were checked against the archived PDFs.
 * **Bourgain–Garaev** (arXiv:1211.4184, prime p; arXiv:1309.1124, any
   modulus, Thm 1): additive energies of reciprocals,
   `J_{2k} < (2k)^{90k}(log N)^{4k}(N^{2k−1}/m+1)N^k`. These give incomplete
-  Kloosterman bounds below `m^{1/2}`, but only with savings that are small
-  powers of log or tiny powers of N. They yield no all-w bound for IS.
+  Kloosterman bounds below `m^{1/2}` (via energies). Neither paper states a
+  short-box occupancy bound, and no all-w bound for IS follows directly.
 * **Shparlinski's survey** (arXiv:1103.2879, Thm 13): the modular-hyperbola
   asymptotic with error `m^{1/2+o(1)}`. The survey notes this is trivial for
   `XY<m^{3/2}`, which is exactly IS's range.
@@ -285,8 +298,9 @@ for every w. Statements below were checked against the archived PDFs.
   for `m²−n²≡c` in short ranges. This is an averaged statement only.
 * **Korolev / Karatsuba** (short Kloosterman sums of length `q^ε`). These
   need special moduli (smooth, or prime powers) or carry log-power savings.
-  They give no pointwise IS bound for products of ≤k large primes (not
-  archived: no arXiv versions found by the survey).
+  They give no pointwise IS bound for products of ≤k large primes.
+  These papers are not archived, and their statements were not checked
+  against PDFs.
 
 **Verdict on IS as posed in O4.** No known theorem gives
 `N(q,w)≪𝓛^BYh^{−a}` for every w in O4's range. The lifting bound gives
