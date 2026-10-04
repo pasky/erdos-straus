@@ -127,3 +127,77 @@ extended to arbitrary class systems. Unlike KARY2 Cor 6.1 there is no
 rounding term: the factor `N + δ^{−1} ≥ N` of the large sieve already
 contains N. So the cap needs only the **level** of `ν*`, not its
 coefficient sum.
+
+## 3. The cap for frequencies of polynomial level
+
+**Fibrewise large sieves.** Fix a modulus `Q₀` (the small modulus). For
+each `c mod Q₀`, the sifted numbers `n ≡ c` are written `n = c + Q₀m`,
+with m in an interval of `N_c ≥ ⌊N/Q₀⌋` consecutive integers, and they
+avoid `𝒜_c = {m : c + Q₀m ∈ 𝒜}`. In each fibre one applies its own
+`N_c`-large-sieve system `(Θ_c, w_c)` (or the trivial bound), with its own
+CRT-admissible lower bound. The total bound is `B = Σ_c 1/L_c`. This
+covers the 2/3 note (`Q₀ = L_K ≤ N^{2δ}`, prime moduli `ℓ ≤ X`,
+`ω_c(ℓ)` classes per fibre), Vaughan 1970 and Pomerance–Weingartner §4,
+and every "excluded classes chosen fibrewise over a small modulus"
+variant, including composite moduli inside the fibre.
+
+The **W-rough level** of a rational θ = a/d is `λ(θ) = Σ_{ℓ | d, ℓ > W} log ℓ`
+(W the absolute constant of KARY2 Thm 5.1). Put
+`λ_Θ = max_c max_{θ∈Θ_{c,ℚ}} λ(θ)` and `λ(Q₀) = Σ_{ℓ|Q₀, ℓ>W} log ℓ`.
+
+**Theorem 3.1 (large-sieve cap for forced-class mixtures; PROVED; the
+Case-A part uses ElT Prop 1.4, as KARY2 does).** Let 𝔊 be any finite
+mixture of ℛ(M)-, (a,D)-, Case-A and selector classes with arbitrary
+moduli, `𝒜 = 𝒜(𝔊)`, `Q₀ ≤ N/2`, and let B be any fibrewise CRT-admissible
+large-sieve bound for `A ⊂ 𝒜 ∩ I`, `|I| = N`. Put
+`λ = max(λ₀, λ(Q₀) + 2λ_Θ)`. Then
+
+    log(N/B) ≤ log 2 + C λ^{3/4}(log λ)^{3/4}.
+
+If every modulus G of 𝔊 has `G ≤ P(G)^{1+B'}` (B' fixed), then
+`log(N/B) ≤ log 2 + C(B')λ^{3/4}`.
+
+*Proof.* In fibre c, Corollary 2.2 (applied to `𝒜_c`, which is
+`M₀`-periodic) gives `1/L_c ≥ N_c·E ν_c` with `ν_c = |g*_c|² ≥ 0` on ℤ,
+`≥ 1` on `𝒜_c`, and moduli `d | lcm(den θ, den θ')`, `θ,θ' ∈ Θ_{c,ℚ}`.
+Put `ν_c ≡ 1` in fibres with the trivial bound, and `ν_c ≡ 0` if
+`𝒜_c = ∅`. Define
+
+    ν(n) = ν_c((n − c)/Q₀)   for n ≡ c (mod Q₀).
+
+A term `a·1[m ≡ b (d)]` of `ν_c` becomes `a·1[n ≡ c + Q₀b (mod Q₀d)]`.
+So ν is a real combination of class indicators, `ν ≥ 0` on ℤ, `ν ≥ 1` on
+𝒜, and every modulus has W-rough level `≤ λ(Q₀) + 2λ_Θ ≤ λ`. Its mean is
+`Eν = Q₀^{−1} Σ_c Eν_c`. Hence
+
+    B = Σ_c 1/L_c ≥ ⌊N/Q₀⌋ Σ_c Eν_c = ⌊N/Q₀⌋ Q₀ Eν ≥ (N/2)·Eν.
+
+KARY2 Thm 5.1 (resp. 5.2) gives `log(1/Eν) ≤ Cλ^{3/4}(log λ)^{3/4}`
+(resp. `C(B')λ^{3/4}`). ∎
+
+**Corollary 3.2 (the exceptional-set reading; PROVED, same proviso).** If
+`Q₀ ≤ N^A` and every frequency used has denominator `≤ N^A` (for example
+Montgomery's arithmetic large sieve with `Q ≤ N^{1/2}`, any set of moduli
+`q ≤ Q` — prime, prime-power or composite — and any forced classes,
+used fibrewise or not), then every such large-sieve bound for
+`#(𝒜(𝔊) ∩ [1,N])` saves at most
+
+    C_A (log N)^{3/4}(log log N)^{3/4},   and C_{A,B'}(log N)^{3/4} under bounded B'.
+
+In particular **no CRT-admissible large sieve with polynomially bounded
+frequency denominators proves `E(N) ≪ N exp(−(log N)^θ)` with θ > 3/4.**
+
+*Proof.* `λ ≤ 3A log N`. ∎
+
+**Remark 3.3 (what changed relative to ET Remark 2.6).** ET covered the
+large sieve only for prime-slice systems, fibre by fibre, through
+Rankin's bound on `S_c(Q)`. Theorem 3.1 needs no slice structure: the
+classes may have any number of large primes, the moduli `q` of the large
+sieve may be composite, and the lower bound may use the forced classes in
+any CRT-admissible way (Cauchy–Schwarz over classes mod q, prime-power
+components, or the exact `D_q(π)`). The price is the
+`(log log N)^{3/4}` factor of KARY2 for unbounded B'. Note that
+frequencies whose denominators contain primes not dividing `M₀` can be
+discarded: averaging g* over the residue mod such a prime keeps
+`Re g* ≥ 1` on 𝒜 (𝒜 does not see that prime) and does not increase
+`Σ|γ|²/w`; so only primes of 𝔊 enter `λ_Θ`.
