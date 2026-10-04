@@ -83,3 +83,18 @@ later.
 * Still: HC* not proved; proved rate = O4 Cor 3.1.
 * Not done: numerics splitting the m>1 part into P_0 and P_1. A review of
   §7 is requested.
+
+## Review round 1 applied (commit 4b1301d)
+
+* Review defects D1–D7 (`side-agent/review-omega5:reviews/pointwise-omega5-review.md`)
+  are applied in O5.
+  * New Lemma 2.0′ covers prime-power events, at a factor `2^k`.
+  * The saturated-hub cost is now `1+O(1/y)`.
+  * HC_Π is stated with saturated hubs.
+  * The per-ray thresholds are corrected to `τ≤H^{2/3}`, and no class of
+    rays is called done.
+* Correction to item 5 above: **literal HC is false**, so O4 Thm 4.2 as
+  stated is vacuous; it holds under HC*, which is open.
+* O4 is annotated: an erratum box before HC in §4.2, and update boxes
+  before Prop 7.3 and at the start of §7.5.
+* DISCOVERIES (H)14 is left to the parent.
