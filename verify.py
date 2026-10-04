@@ -28,6 +28,17 @@ Blocks (bz)..(ch) are fast replays of the 2026-10 documents' key checks
   (cg) EXCEPTIONAL_TWIN2: Thm 1.4 on random small binary systems;
   (ch) 3/4-note blind audit: the 16 checks of
        scripts/es34_blind_audit_checks.py (imported).
+Blocks (ci)..(co) (task O20) replay the later documents in the same way:
+  (ci) EXCEPTIONAL_TWIN3: Lemma 3.2 box counting; (2.1) pointwise and on a
+       toy class system;
+  (cj) EXCEPTIONAL_TWIN4: rough-partner Brun-Titchmarsh Lemma 2.3, exact;
+  (ck) EXCEPTIONAL_KARY: Lemma 2.3 node sets vs (2.1)/(3.1); B* LP and the
+       Thm 2.5 weighted LP on random small systems only if scipy is importable;
+  (cl) EXCEPTIONAL_KARY2: Lemmas 2.1-2.2 (no squares), Lemma 2.3 square base;
+  (cm) EXCEPTIONAL_NONCRT: Lemma 2.2 (imports scripts/noncrt_checks.py);
+  (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2;
+  (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data.
+(POINTWISE_OMEGA3's composition inequality is block (cc).)
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -16836,6 +16847,646 @@ def check_ch():
 
 print("\n== (ch) 3/4-note blind audit: 16 toy/exact checks (scripts/es34_blind_audit_checks.py) ==")
 check_ch()
+
+
+
+# ---------------------------------------------------------------- (ci)
+# EXCEPTIONAL_TWIN3.md Lemma 3.2 (box counting) and inequality (2.1).
+# (1) Box counts: for every dyadic box and every class mod j (j = 13, 31, 101,
+#     variables <= 256 prime to j): #{v^2 t = c} <= min(V(T/j+1), 2T(V/j+1)),
+#     #{u = rho v} <= UW/j + min(U, W).
+# (2) Lemma 3.2 assembled (Y = 300, j = 101, 211, 1009): diag(r) <= z(2)^2 z(3)^2,
+#     diag(r1) <= z(2)^2; off-diag <= 2 (sum) (sup tail); sup tails <= the
+#     explicit box sums of the proof; sum rho <= (1 + log Y)^2.
+# (3) (2.1) pointwise (random x, z >= 0): min(x+z,1)^2 <= 2x + 2z^2; and on the
+#     real toy system (k = 1, C0 = 1, X = 2e6, j = 101, 211, 1009, all D | A^2):
+#     sum_a min(V,1)^2 <= 2 mass_small + 2 sum_a V_large^2 (j*nu-normalised).
+
+def check_ci():
+    from time import perf_counter
+    import numpy as np
+    t0 = perf_counter()
+
+    # (1) per-box counts
+    nbox = 0
+    for j in (13, 31, 101):
+        Y = 256
+        for V in (2 ** i for i in range(9)):
+            for T in (2 ** i for i in range(9)):
+                v = np.arange(V, min(2 * V, Y + 1)); v = v[v % j != 0]
+                t = np.arange(T, min(2 * T, Y + 1)); t = t[t % j != 0]
+                if len(v) == 0 or len(t) == 0:
+                    continue
+                c = (v[:, None] ** 2 * t[None, :]) % j
+                cnt = np.bincount(c.ravel(), minlength=j).max()
+                assert cnt <= min(V * (T / j + 1), 2 * T * (V / j + 1)), ("TWIN3 L3.2 box r", j, V, T, cnt)
+                inv = np.array([pow(int(x), -1, j) for x in t % j])
+                rho = (v[:, None] * inv[None, :]) % j      # u = v-range, v = t-range
+                cnt1 = np.bincount(rho.ravel(), minlength=j).max()
+                assert cnt1 <= V * T / j + min(V, T), ("TWIN3 L3.2 box r1", j, V, T, cnt1)
+                nbox += 1
+
+    # (2) Lemma 3.2 assembled
+    z2, z3 = pi ** 2 / 6, 1.2020569031595942
+    Y = 300
+    for j in (101, 211, 1009):
+        x = np.arange(1, Y + 1, dtype=np.int64); x = x[x % j != 0]
+        w = 1.0 / x
+        N = (x[:, None] ** 2 * x[None, :]).ravel()          # v^2 t
+        W = (w[:, None] * w[None, :]).ravel()
+        c = N % j
+        r = np.bincount(c, weights=W, minlength=j)
+        T = np.bincount(c[N > j], weights=W[N > j], minlength=j)
+        _, inv_idx = np.unique(N, return_inverse=True)
+        rhoN = np.bincount(inv_idx, weights=W)
+        diag = float((rhoN ** 2).sum())
+        U, Vv = np.meshgrid(x, x, indexing="ij")
+        U, Vv = U.ravel(), Vv.ravel()
+        cop = np.gcd(U, Vv) == 1
+        U, Vv = U[cop], Vv[cop]
+        W1 = 1.0 / (U * Vv)
+        invj = np.array([0] + [pow(a, -1, j) for a in range(1, j)])
+        rho = (U % j) * invj[Vv % j] % j
+        r1 = np.bincount(rho, weights=W1, minlength=j)
+        hi = np.maximum(U, Vv) >= sqrt(j / 2)
+        T1 = np.bincount(rho[hi], weights=W1[hi], minlength=j)
+        diag1 = float((W1 ** 2).sum())
+        L2 = log(Y, 2)
+        br = 2 * (2 + L2) ** 2 / j + sum((4 * i + 4) / 2 ** i for i in range(0, 60)
+                                         if 2 ** i <= Y and 2 ** i > (j / 8) ** (1 / 3))
+        br1 = (2 + L2) ** 2 / j + sum((2 * i + 2) / 2 ** i for i in range(0, 60)
+                                      if 2 ** i <= Y and 2 ** i >= (j / 8) ** 0.5)
+        S, S1 = r.sum(), r1.sum()
+        tot, tot1 = float((r * r).sum()), float((r1 * r1).sum())
+        assert S <= (1 + log(Y)) ** 2 and S1 <= (1 + log(Y)) ** 2, ("TWIN3 L3.2 mass", j)
+        assert diag <= z2 ** 2 * z3 ** 2 and diag1 <= z2 ** 2, ("TWIN3 L3.2 diagonal", j, diag, diag1)
+        assert tot - diag <= 2 * S * T.max() + 1e-9, ("TWIN3 L3.2 off-diag r", j)
+        assert tot1 - diag1 <= 2 * S1 * T1.max() + 1e-9, ("TWIN3 L3.2 off-diag r1", j)
+        assert T.max() <= br and T1.max() <= br1, ("TWIN3 L3.2 box sums", j, T.max(), br, T1.max(), br1)
+
+    # (3) (2.1) pointwise
+    rng = np.random.default_rng(1)
+    n = 200000
+    xs = rng.exponential(1.0, n) * rng.choice([0, 0.01, 0.5, 1, 3], n)
+    zs = rng.exponential(1.0, n) * rng.choice([0, 0.01, 0.5, 1, 3], n)
+    assert (np.minimum(xs + zs, 1) ** 2 <= 2 * xs + 2 * zs ** 2 + 1e-12).all(), "TWIN3 (2.1) pointwise"
+    # (2.1) on the toy system
+    X = 2_000_000
+    spf = _o9_spf(X // 4 + 2)
+    rows = []
+    for j in (101, 211, 1009):
+        Vs = np.zeros(j); Vl = np.zeros(j)
+        for m in primerange(3, X // j + 1):
+            if m == j or (j * m) % 4 != 3:
+                continue
+            A = (j * m + 1) // 4
+            res = [1]
+            for p, e in _o9_factor(A, spf).items():
+                res = [(rr * pow(p, k, j)) % j for rr in res for k in range(2 * e + 1)]
+            a = (-4 * np.array(res, dtype=np.int64)) % j
+            (Vs if m <= j else Vl)[:] += np.bincount(a, minlength=j) / m
+        V = Vs + Vl
+        lhs, rhs = float(np.sum(np.minimum(V, 1) ** 2)), float(2 * Vs.sum() + 2 * Vl @ Vl)
+        assert lhs <= rhs, ("TWIN3 (2.1) toy system", j, lhs, rhs)
+        assert Vl.sum() > 0, ("TWIN3 (2.1) toy system: no large partners", j)
+        rows.append(f"j={j}: {lhs:.2f} <= {rhs:.2f}")
+    print(f"ci Lemma 3.2: {nbox} (j, box) per-box counts OK; assembled bounds OK for j = 101, 211, 1009 (Y = {Y})")
+    print(f"ci (2.1): {n} random pointwise OK; toy system X = {X:.0e}: " + "; ".join(rows)
+          + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ci) EXCEPTIONAL_TWIN3: Lemma 3.2 box counting, inequality (2.1) ==")
+check_ci()
+
+
+
+# ---------------------------------------------------------------- (cj)
+# EXCEPTIONAL_TWIN4.md Lemma 2.3 (rough-partner Brun-Titchmarsh), exact at toy
+# scale (adapted from reviews/exceptional-twin4-check-lemma23.py, reduced):
+# for s = 1..4, w in {2, 7, 50, 300}, q in a fixed list (smooth / prime / random),
+# x at the threshold q 2^(s+1) and at x0 4^k, up to 100 units b mod q:
+#   sum_{x<R<=2x, R=b (q), Omega(R)<=s, P^-(R)>w} 1/R
+#        <= 3(s+1)(1+H+...+H^(s-1)) / (phi(q) log(x/q)),  H = sum_{w<p<=Z} 1/(p-1).
+# Also the proof's d-step: R = d n with d the Z-smooth part has Omega(d) <= s-1,
+# and sum_d 1/d (Z-smooth, P^- > w, Omega <= s-1) <= sum_{i<s} H^i.
+
+def check_cj():
+    from time import perf_counter
+    import numpy as np
+    import random as _random
+    from sympy import totient
+    t0 = perf_counter()
+    N = 2_000_000
+    isp = np.ones(N + 1, dtype=bool); isp[:2] = False
+    for p in range(2, isqrt(N) + 1):
+        if isp[p]:
+            isp[p * p::p] = False
+    primes = np.nonzero(isp)[0]
+    Om = np.zeros(N + 1, dtype=np.int16)
+    for p in primes.tolist():
+        pe = p
+        while pe <= N:
+            Om[pe::pe] += 1
+            pe *= p
+    lpf = np.zeros(N + 1, dtype=np.int64)
+    for p in primes[::-1].tolist():
+        lpf[p::p] = p
+    rng = _random.Random(7)
+    qs = [1, 2, 3, 6, 30, 210, 2310, 7, 101, 997] + rng.sample(range(5, 5000), 4)
+    cases = 0
+    worst = 0.0
+    for s in range(1, 5):
+        for w in (2, 7, 50, 300):
+            ok = (lpf > w) & (Om >= 1) & (Om <= s)
+            for q in qs:
+                x0 = q * 2 ** (s + 1)
+                xs = sorted({x0, x0 + 1, int(x0 * 1.5)} | {x0 * 4 ** k for k in range(1, 12)})
+                xs = [x for x in xs if 2 * x <= N]
+                ph = int(totient(q))
+                units = [b for b in range(q) if gcd(b, q) == 1]
+                if len(units) > 100:
+                    units = rng.sample(units, 100)
+                for x in xs:
+                    Y = x / q
+                    Z = Y ** (1.0 / (s + 1))
+                    pw = primes[(primes > w) & (primes <= Z)]
+                    H = float((1.0 / (pw - 1)).sum())
+                    bound = 3 * (s + 1) * sum(H ** i for i in range(s)) / (ph * log(Y))
+                    for b in units:
+                        first = x + 1 + ((b - (x + 1)) % q)
+                        R = np.arange(first, 2 * x + 1, q, dtype=np.int64)
+                        R = R[ok[R]]
+                        lhs = float((1.0 / R).sum())
+                        assert lhs <= bound, ("TWIN4 Lemma 2.3", s, w, q, x, b, lhs, bound)
+                        worst = max(worst, lhs / bound)
+                        cases += 1
+                    # d-step on this (s, w, x): every R in (x, 2x] of the sieve set
+                    if q == 1:
+                        R = np.arange(x + 1, 2 * x + 1)[ok[x + 1:2 * x + 1]]
+                        dsum = {}
+                        for Rv in R[:400].tolist():
+                            d = 1
+                            for p, e in _o9_factor(Rv, lpf).items():
+                                if p <= Z:
+                                    d *= p ** e
+                            assert Rv != d and Om[d] <= s - 1, ("TWIN4 L2.3 d-step", s, w, x, Rv)
+                            dsum[d] = 1
+                        assert sum(1 / d for d in dsum) <= sum(H ** i for i in range(s)) + 1e-12, \
+                            ("TWIN4 L2.3 sum_d 1/d", s, w, x)
+    assert cases > 1500
+    print(f"cj Lemma 2.3: {cases} (s, w, q, x, b) cases, 0 violations, worst lhs/bound = {worst:.3f}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cj) EXCEPTIONAL_TWIN4: rough-partner Brun-Titchmarsh Lemma 2.3, exact toy check ==")
+check_cj()
+
+
+
+# ---------------------------------------------------------------- (ck)
+# EXCEPTIONAL_KARY.md Lemma 2.3 and Thm 2.5.
+# (1) Lemma 2.3 explicit node sets of §3 (cases (i)-(iii)), log-space: log B <= (2.1)
+#     and <= (3.1) on a grid n <= 10^5, t >= 10^-3, d <= 8; Lagrange inequality
+#     g(1) <= B(n,t,d) E_Bern(t) g on random nonnegative multilinear g (squares
+#     of random degree-floor(d/2) multilinear polynomials, n <= 8).  If scipy is
+#     importable: the LP optimum B*(n,t,d) <= B(explicit) for n <= 16, d <= 3, and
+#     B*(n,t,0) = 1 (reusing scripts/kary_check.py).
+# (2) Thm 2.5 (scipy only): 30 random small systems (seed 11), exhaustive path
+#     enumeration of the plain law sigma, constant t = d/(EM+4d), Phi with the
+#     explicit Lagrange B; LP max E[e^-Phi f(y)] over d-local f >= 0, E_nu f = 1,
+#     asserted <= 1 + 1e-7.  Not a proof (floating-point LP); the proof is in §2.
+
+def check_ck():
+    from time import perf_counter
+    import numpy as np
+    from math import lgamma, log1p, e as _e
+    t0 = perf_counter()
+
+    def logpsi(n, t, y):
+        return lgamma(n + 1) - lgamma(y + 1) - lgamma(n - y + 1) + y * log(t) + (n - y) * log1p(-t)
+
+    def nodes(n, t, d):
+        if n <= d:
+            return list(range(n + 1))
+        m0 = n * t
+        if m0 <= 2 * d:
+            return list(range(d + 1))
+        h = int(sqrt(m0 / d))
+        a = ceil(m0) - (d * h) // 2
+        return [a + i * h for i in range(d + 1)]
+
+    def logB(n, t, d):
+        if d == 0:
+            return 0.0
+        Y = nodes(n, t, d)
+        assert all(0 <= y <= n for y in Y) and len(set(Y)) == len(Y) == min(d, n) + 1, ("KARY nodes", n, t, d)
+        if n in Y:
+            return -logpsi(n, t, n)
+        return max(sum(log(abs(n - yj)) - log(abs(yi - yj)) for yj in Y if yj != yi) - logpsi(n, t, yi)
+                   for yi in Y)
+
+    C1 = 2 * _e ** 4.31
+    ncase = 0
+    worst21 = worst31 = -1e9
+    for n in list(range(1, 40)) + [60, 120, 500, 2000, 10 ** 5]:
+        for t in (0.25, 0.1, 0.03, 0.01, 1e-3):
+            for d in range(1, 9):
+                lb = logB(n, t, d)
+                r21 = d * log(4 * _e ** 3 * (n + 1) / t) + 0.5 * log(16 * n * t + 16)
+                r31 = d * log(C1 * max(1 / t, sqrt(n / (t * d)))) + 0.5 * log(22 * n * t + 22) + 3
+                assert lb >= -1e-9, ("KARY B >= 1", n, t, d)
+                worst21, worst31 = max(worst21, lb - r21), max(worst31, lb - r31)
+                ncase += 1
+    assert worst21 <= 0 and worst31 <= 0, ("KARY (2.1)/(3.1)", worst21, worst31)
+
+    # Lagrange inequality on random nonnegative multilinear g
+    rng = np.random.default_rng(3)
+    ng = 0
+    for _ in range(300):
+        n = int(rng.integers(1, 9))
+        d = int(rng.integers(0, 5))
+        t = float(rng.choice([0.25, 0.1, 0.03]))
+        k = d // 2
+        mons = [S for s in range(min(k, n) + 1) for S in combinations(range(n), s)]
+        coef = rng.normal(size=len(mons))
+        pts = np.array(list(cartesian_product((0, 1), repeat=n)))
+        h = np.array([sum(c for c, S in zip(coef, mons) if all(x[i] for i in S)) for x in pts])
+        g = h ** 2                                 # nonneg, multilinear deg <= 2k <= d on the cube
+        w = np.prod(np.where(pts == 1, t, 1 - t), axis=1)
+        assert g[-1] <= exp(logB(n, t, d)) * float(w @ g) * (1 + 1e-9) + 1e-12, ("KARY Lemma 2.3", n, t, d)
+        ng += 1
+    msg = (f"ck Lemma 2.3: {ncase} (n,t,d), max[log B - (2.1)] = {worst21:.2f}, "
+           f"max[log B - (3.1)] = {worst31:.2f}; {ng} random g: g(1) <= B E g")
+    try:
+        import importlib.util
+        import os
+        import scipy  # noqa: F401
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "kary_check.py")
+        spec = importlib.util.spec_from_file_location("kary_check", path)
+        kc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(kc)
+    except ImportError:
+        print(msg)
+        print("ck B* LP and Thm 2.5 LP: SKIPPED (scipy not installed; "
+              "run `uv run --with scipy python verify.py` to include it)")
+        return
+    nlp = 0
+    for n in range(1, 17):
+        for t in (0.25, 0.1, 0.03):
+            assert abs(kc.bstar(n, t, 0) - 1) < 1e-9, ("KARY B*(d=0)", n, t)
+            for d in (1, 2, 3):
+                assert log(kc.bstar(n, t, d)) <= logB(n, t, d) + 1e-6, ("KARY B* <= B", n, t, d)
+                nlp += 1
+    print(msg + f"; LP B* <= B on {nlp} small (n,t,d)")
+
+    rng = np.random.default_rng(11)
+    worst = 0.0
+    for inst in range(30):
+        m = int(rng.integers(3, 6))
+        q = int(rng.integers(2, 4))
+        d = int(rng.integers(1, min(m, 3) + 1))
+        delta = float(rng.choice([0.25, 0.15, 0.08]))
+        sizes, nus, pats = kc.random_instance(rng, m, q)
+        pts, A = kc.dlocal_matrix(sizes, d)
+        idx = {x: i for i, x in enumerate(pts)}
+        nu_w = np.array([prod(nus[l][x[l]] for l in range(m)) for x in pts])
+        P = kc.paths(sizes, nus, pats, delta, phantom=False)
+        assert abs(sum(p for p, *_ in P) - 1) < 1e-9
+        EM = sum(p * M for p, y, M, n in P)
+        tc = d / (EM + 4 * d)
+        obj = np.zeros(len(pts))
+        for p, y, M, n in P:
+            obj[idx[y]] += p * exp(-logB(n, tc, d) - (4 / 3) * tc * M)
+        val = kc.lp_max(A, obj, nu_w)
+        assert val <= 1 + 1e-7, ("KARY Thm 2.5 weighted LP > 1", inst, val)
+        worst = max(worst, val)
+    print(f"ck Thm 2.5: 30 random plain-law systems, max weighted LP value = {worst:.6f} (<= 1); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ck) EXCEPTIONAL_KARY: Lemma 2.3 extrapolation constant, Thm 2.5 weighted LP (scipy) ==")
+check_ck()
+
+
+
+# ---------------------------------------------------------------- (cl)
+# EXCEPTIONAL_KARY2.md Lemmas 2.1-2.3.
+# (1) Lemma 2.1(1): no residue -4D mod M (D | A_M^2) is a square mod M, brute
+#     force for all M = 3 (4), M <= 1500.  Lemma 2.1(2), 2.2: no (a,D)-class
+#     (a <= 40, D <= 300) and no Case-A class (d <= 3000) contains a square mod G
+#     (reusing scripts/kary2_square_check.py); live control on shifted residues.
+# (2) Lemma 2.3 (square base) for (W, Q0) = (7, 2^4 3^2 5 7), (11, 2^4 3 5 7 11):
+#     |R| matches part 2 exactly; no c in R lies in any class with modulus | Q0
+#     of the four types (all (a,D) with 4a g(D) | Q0, all Case-A with 4rh | Q0,
+#     all R(M) with M | Q0, selectors 0 mod p, p <= W); and (R2)
+#     P(c = a mod p^e) <= gamma(p)/p^e for every p^e | Q0, independence at
+#     distinct primes (CRT product).
+
+def check_cl():
+    from time import perf_counter
+    import importlib.util
+    import os
+    from sympy import divisors as _divisors
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "kary2_square_check.py")
+    spec = importlib.util.spec_from_file_location("kary2_square_check", path)
+    ks = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ks)
+
+    nR = 0
+    for M in range(3, 1501, 4):
+        sq = {(x * x) % M for x in range(M)}
+        A = (M + 1) // 4
+        for D in _o9_divisors({r: 2 * e for r, e in factorint(A).items()}):
+            assert (-4 * D) % M not in sq, ("KARY2 Lemma 2.1(1)", M, D)
+            nR += 1
+    naD = 0
+    for a in range(1, 41):
+        for D in range(1, 301):
+            G = 4 * a * ks.g_of(D)
+            assert not ks.is_square_mod((-(4 * D + a)) % G, G), ("KARY2 Lemma 2.1(2)", a, D)
+            naD += 1
+    ctrl = sum(ks.is_square_mod((-(4 * D + a) + 1) % (4 * a * ks.g_of(D)), 4 * a * ks.g_of(D))
+               for a in range(1, 21) for D in range(1, 101))
+    assert ctrl > 0, "KARY2 square-test control dead"
+    nA = 0
+    for d in range(1, 3001):
+        G = 4 * ks.g_of(d)
+        for m in _divisors(4 * d + 1):
+            assert not ks.is_square_mod((-pow(m, -1, G)) % G, G), ("KARY2 Lemma 2.2", d, m)
+            nA += 1
+    print(f"cl Lemmas 2.1-2.2: {nR} R(M)-classes (M <= 1500), {naD} (a,D)-classes, {nA} Case-A "
+          f"classes: no square mod G; control {ctrl}/2000 shifted residues are squares")
+
+    for W, Q0 in ((7, 16 * 9 * 5 * 7), (11, 16 * 3 * 5 * 7 * 11)):
+        fQ = factorint(Q0)
+        assert all(p <= W for p in fQ) and Q0 % (8 * prod(primerange(2, W + 1))) == 0
+        usq = {}
+        for p, e in fQ.items():
+            q = p ** e
+            usq[p] = {(x * x) % q for x in range(q) if x % p}
+        R = [c for c in range(Q0) if all(c % (p ** e) in usq[p] for p, e in fQ.items())]
+        assert len(R) == prod(len(usq[p]) for p in fQ), "KARY2 L2.3 CRT product"
+        assert abs(log(Q0 / len(R)) - (3 * log(2) + sum(log(2 * p / (p - 1)) for p in primerange(3, W + 1)))) < 1e-9, \
+            ("KARY2 L2.3(2)", W)
+        assert log(Q0 / len(R)) <= 2 * W
+        Rset = set(R)
+        classes = [(0, p) for p in primerange(2, W + 1)]                       # selectors
+        for M in _divisors(Q0):                                                 # R(M)
+            if M % 4 == 3:
+                A = (M + 1) // 4
+                classes += [((-4 * D) % M, M) for D in _o9_divisors({r: 2 * e for r, e in factorint(A).items()})]
+        for a in _divisors(Q0 // 4):                                            # (a,D)
+            for D in _divisors((Q0 // (4 * a)) ** 2):
+                G = 4 * a * ks.g_of(D)
+                if Q0 % G == 0:
+                    classes.append(((-(4 * D + a)) % G, G))
+        for g in _divisors(Q0 // 4):                                            # Case A, g = rh
+            for h in _divisors(g):
+                r = g // h
+                if any(e > 1 for e in factorint(r).values()):
+                    continue
+                d = r * h * h
+                G = 4 * g
+                classes += [((-pow(m, -1, G)) % G, G) for m in _divisors(4 * d + 1)]
+        for b, G in classes:
+            assert not any(c in Rset for c in range(b, Q0, G)), ("KARY2 L2.3(1)", W, b, G)
+        live = sum(any(c in Rset for c in range((b + 1) % G, Q0, G)) for b, G in classes)
+        assert live > 0, "KARY2 L2.3 control dead"
+        for p, e in fQ.items():
+            gam = 8 if p == 2 else 2 * p / (p - 1)
+            for k in range(1, e + 1):
+                cnt = Counter(c % p ** k for c in R)
+                assert max(cnt.values()) / len(R) <= gam / p ** k + 1e-12, ("KARY2 L2.3(3)", W, p, k)
+        print(f"cl Lemma 2.3: W = {W}, Q0 = {Q0}: |R| = {len(R)}, {len(classes)} classes of the four "
+              f"types with modulus | Q0 avoided (control: {live} shifted classes hit); (R2) bounds OK")
+    print(f"cl seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cl) EXCEPTIONAL_KARY2: no squares in R(M)/(a,D)/Case-A classes (Lemmas 2.1-2.2), square base (Lemma 2.3) ==")
+check_cl()
+
+
+
+# ---------------------------------------------------------------- (cm)
+# EXCEPTIONAL_NONCRT.md Lemma 2.2: |d_S(c)| prod_S p(1-p) <= A_S(nu) prod_S p for
+# every fibre c and S != 0, on random prime-slice systems (Q0 = 3, slice primes
+# 5,7,11[,13], random F_l(c), random signed class combinations nu): part1 of
+# scripts/noncrt_checks.py (imported), seeds 1 and 2 x 40 systems; floating point
+# (max lhs - rhs must be <= 1e-9).  Plus (2.2)'s premise: the frequency sets
+# Theta_S (S subset of {5,7,11,13}, S != 0) are pairwise disjoint and avoid 0
+# mod Q = 3*5*7*11*13 (exact integer check).
+
+def check_cm():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import io
+    import contextlib
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "noncrt_checks.py")
+    spec = importlib.util.spec_from_file_location("noncrt_checks", path)
+    nc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(nc)
+    out = []
+    for seed in (1, 2):
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ok = nc.part1(trials=40, seed=seed)
+        assert ok, ("NONCRT Lemma 2.2 violated", seed, buf.getvalue())
+        line = buf.getvalue().strip()
+        out.append(line.split("max lhs/rhs (rhs>1e-12) = ")[1].split()[0])
+    Q0, ells = 3, (5, 7, 11, 13)
+    Q = Q0 * prod(ells)
+    seen = {}
+    for r in range(1, len(ells) + 1):
+        for S in combinations(ells, r):
+            for a in range(Q0):
+                for hs in cartesian_product(*[range(1, l) for l in S]):
+                    k = (a * (Q // Q0) + sum(h * (Q // l) for h, l in zip(hs, S))) % Q
+                    assert k != 0 and k not in seen, ("NONCRT Theta_S disjointness", S, seen.get(k))
+                    seen[k] = S
+    print(f"cm Lemma 2.2: 2 x 40 random systems, 0 violations, max lhs/rhs = {out[0]}, {out[1]}; "
+          f"Theta_S pairwise disjoint, 0 excluded ({len(seen)} frequencies); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cm) EXCEPTIONAL_NONCRT: Walsh coefficient vs Fourier mass, Lemma 2.2 ==")
+check_cm()
+
+
+
+# ---------------------------------------------------------------- (cn)
+# POINTWISE_OMEGA5.md Lemma 1.1 (squarefree lifting) and Cor 1.2, exhaustively:
+# for q <= 80, every w mod q, X in {q-1, q, 3q+2, 600}:
+#   #{(s,t): s squarefree, st^2 <= X, st^2 = w (q)} <= X/q + 1, and (s,t) -> st^2
+# is injective (each n = st^2 has one such factorisation).  Cor 1.2 for odd
+# squarefree q <= 400 coprime to h <= 12, w = (4h)^-1 mod q, t0 = floor(sqrt(q/(4h))),
+# Y <= 2q: N^sf <= Y t0^2/q + 1 <= Y/(4h) + 1.  Control: dropping
+# "s squarefree" breaks the X/q + 1 bound (the over-count of O4's remark).
+
+def check_cn():
+    from time import perf_counter
+    t0 = perf_counter()
+    XM = 600
+    sqf = [False] + [all(e == 1 for e in factorint(n).values()) for n in range(1, 3 * 80 * 81 + 1)]
+    pairs = [(s, t) for t in range(1, isqrt(XM) + 1) for s in range(1, XM // (t * t) + 1) if sqf[s]]
+    ns = [s * t * t for s, t in pairs]
+    assert sorted(ns) == list(range(1, XM + 1)), "OMEGA5 Lemma 1.1: n = st^2 not a bijection"
+    ncase = 0
+    ctrl = 0
+    for q in range(1, 81):
+        for X in sorted({max(1, q - 1), q, 3 * q + 2, XM}):
+            cnt = Counter(n % q for n in ns if n <= X)
+            assert max(cnt.values()) <= X / q + 1, ("OMEGA5 Lemma 1.1", q, X)
+            allc = Counter((s * t * t) % q for t in range(1, isqrt(X) + 1) for s in range(1, X // (t * t) + 1))
+            ctrl += max(allc.values()) > X / q + 1
+            ncase += q
+    assert ctrl > 0, "OMEGA5 control: non-squarefree count never exceeds X/q + 1"
+    ncor = 0
+    for q in range(3, 401, 2):
+        if not sqf[q]:
+            continue
+        for h in range(1, 13):
+            if gcd(4 * h, q) != 1:
+                continue
+            w = pow(4 * h, -1, q)
+            tt = isqrt(q // (4 * h))
+            while (tt + 1) ** 2 * 4 * h <= q:
+                tt += 1
+            while tt * tt * 4 * h > q:
+                tt -= 1
+            if tt == 0:
+                continue
+            for Y in (1, h, 4 * h, q // 3 + 1, 2 * q):
+                N = sum(1 for t in range(1, tt + 1) for s in range(1, Y + 1)
+                        if sqf[s] and (s * t * t - w) % q == 0)
+                assert N <= Y * tt * tt / q + 1 <= Y / (4 * h) + 1, ("OMEGA5 Cor 1.2", q, h, Y, N)
+                ncor += 1
+    print(f"cn Lemma 1.1: bijection n = st^2 (n <= {XM}); {ncase} (q, X, w) cases OK; control: "
+          f"{ctrl} (q, X) cases exceed X/q + 1 without squarefreeness")
+    print(f"cn Cor 1.2: {ncor} (q, h, Y) cases OK; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2 ==")
+check_cn()
+
+
+
+# ---------------------------------------------------------------- (co)
+# POINTWISE_WINDOW.md: Lemma 1.2 (parity of the q-bad part) and the W1
+# congruence data.
+# (1) Lemma 1.2: for all primes p = 1 (8), p < 2500, all q = 3 (4), q < 3p with
+#     gcd(n_q, q) = 1, n_q = (p+q)/4:  (-1)^{Omega_q^-(n_q)} = (n_q|q) = (p|q).
+# (2) Lemma 1.1: no q-bad factor => window q fails (Rat_q(n_q) misses -1, -p;
+#     rat_hits of scripts/pointwise_size_amin.py), p < 1200, q < 120; and the
+#     q = 3 converse (window 3 fails iff n_3 has no prime factor = 2 (3)) for all
+#     p = 1 (24), p < 2*10^4.
+# (3) W1 sifting data: p = 1 (840) => n_p = (p+3)/4 = 1 (210); for squarefree
+#     d <= 3000 built from primes l = 2 (3), l >= 11: {p = 1 (840) : d | n_p} is one
+#     reduced class mod 840d (so g(d) = 1/phi(d)); 1 - 1/phi(l) =
+#     (1-1/l)(1-(l-1)^-2) exactly.  Step 2 parity: Omega_3^-(n_p) is even for every
+#     prime p = 1 (840) < 4*10^6.  Regression vs §3 table: x = 10^6 gives 395 primes,
+#     N_3 = 244.  Step 4: sum_{m <= 10^5, l | m => l = 1 (3)} 1/phi(m) <= the Euler
+#     product prod_{l = 1 (3), l <= 10^5} (1 + l/(l-1)^2).
+
+def check_co():
+    from time import perf_counter
+    import importlib.util
+    import os
+    from sympy import totient as _totient, isprime as _isprime
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "pointwise_size_amin.py")
+    spec = importlib.util.spec_from_file_location("pointwise_size_amin", path)
+    pa = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(pa)
+    spf = _o9_spf(1_000_001)
+
+    # (1) Lemma 1.2
+    npar = 0
+    for p in primerange(17, 2500):
+        if p % 8 != 1:
+            continue
+        for q in range(3, 3 * p, 4):
+            n = (p + q) // 4
+            if gcd(n, q) != 1:
+                continue
+            f = _o9_factor(n, spf)
+            om = sum(e for r, e in f.items() if jacobi_symbol(r, q) == -1)
+            assert (-1) ** om == jacobi_symbol(n, q) == jacobi_symbol(p, q), ("WINDOW Lemma 1.2", p, q)
+            npar += 1
+
+    # (2) Lemma 1.1 and the q = 3 converse
+    n11 = 0
+    for p in primerange(17, 1200):
+        if p % 8 != 1:
+            continue
+        for q in range(3, 120, 4):
+            n = (p + q) // 4
+            if gcd(n, q) != 1 or n % p == 0:
+                continue
+            f = _o9_factor(n, spf)
+            if all(jacobi_symbol(r, q) != -1 for r in f):
+                assert pa.rat_hits(f, q, p) is None, ("WINDOW Lemma 1.1", p, q)
+                n11 += 1
+    n3 = 0
+    for p in primerange(17, 20000):
+        if p % 24 != 1:
+            continue
+        f = _o9_factor((p + 3) // 4, spf)
+        assert (pa.rat_hits(f, 3, p) is None) == all(r % 3 != 2 for r in f), ("WINDOW q=3 converse", p)
+        n3 += 1
+
+    # (3) W1 sifting data
+    for k in range(0, 3000):
+        assert ((840 * k + 1 + 3) // 4) % 210 == 1
+    bad = [l for l in primerange(11, 3001) if l % 3 == 2]
+    ds = [1]
+    for l in bad:
+        ds += [d * l for d in ds if d * l <= 3000]
+    for d in ds:
+        hits = [b for b in range(1, 840 * d, 840) if ((b + 3) // 4) % d == 0]
+        assert len(hits) == 1 and gcd(hits[0], 840 * d) == 1, ("WINDOW W1 class b_d", d)
+        assert all((((b + 3) // 4) % d == 0) == ((b + 3) % d == 0) for b in range(1, 840 * d, 840))
+        phid = prod(l - 1 for l in factorint(d))
+        assert int(_totient(840 * d)) == 192 * phid
+    for l in bad[:200]:
+        assert 1 - Fraction(1, l - 1) == (1 - Fraction(1, l)) * (1 - Fraction(1, (l - 1) ** 2))
+    X = 4_000_000
+    npr = n3f = 0
+    npr6 = n36 = 0
+    for p in range(841, X + 1, 840):
+        if not _isprime(p):
+            continue
+        f = _o9_factor((p + 3) // 4, spf)
+        om = sum(e for r, e in f.items() if r % 3 == 2)
+        assert om % 2 == 0, ("WINDOW W1 Step 2 parity", p)
+        npr += 1
+        if p <= 10 ** 6:
+            npr6 += 1
+            n36 += om == 0
+    assert (npr6, n36) == (395, 244), ("WINDOW §3 table x = 1e6", npr6, n36)
+    lim = 10 ** 5
+    good = [l for l in primerange(7, lim + 1) if l % 3 == 1]
+    ms = {1: 1}                                    # m -> phi(m), m composed of primes = 1 (3)
+    for l in good:
+        for m, ph in list(ms.items()):
+            mm, pp = m * l, ph * (l - 1)
+            while mm <= lim:
+                ms[mm] = pp
+                mm, pp = mm * l, pp * l
+    lhs = sum(1 / ph for ph in ms.values())
+    rhs = prod(1 + l / (l - 1) ** 2 for l in good)
+    assert lhs <= rhs, ("WINDOW W1 Step 4 Euler product", lhs, rhs)
+    print(f"co Lemma 1.2: {npar} (p, q) pairs, parity = (n_q|q) = (p|q); Lemma 1.1: {n11} bad-free windows "
+          f"all fail; q = 3 converse on {n3} primes p = 1 (24)")
+    print(f"co W1 data: {len(ds)} sifting moduli d: one reduced class mod 840d, g(d) = 1/phi(d); "
+          f"Step 2 parity on {npr} primes p = 1 (840) < {X:.0e}; x = 1e6: 395 primes, N_3 = 244 (table); "
+          f"Step 4: {lhs:.3f} <= {rhs:.3f}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data ==")
+check_co()
 
 
 print("\nall checks passed")
