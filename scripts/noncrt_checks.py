@@ -23,6 +23,7 @@ import numpy as np
 def part1(trials=40, seed=1):
     rng = random.Random(seed)
     worst = -1e9
+    ratio = 0.0
     for t in range(trials):
         Q0 = 3
         ells = [5, 7, 11] if t % 2 else [5, 7, 11, 13]
@@ -55,7 +56,9 @@ def part1(trials=40, seed=1):
                             AS += abs(nuhat[k])
                     rhs = AS * math.prod(p[l] for l in S)
                     worst = max(worst, lhs - rhs)
-    print(f"Part 1 (Lemma 2.2): {trials} systems, max(lhs - rhs) = {worst:.3e} (must be <= ~1e-12)")
+                    if rhs > 1e-12:
+                        ratio = max(ratio, lhs / rhs)
+    print(f"Part 1 (Lemma 2.2): {trials} systems, max(lhs - rhs) = {worst:.3e} (must be <= ~1e-12), max lhs/rhs (rhs>1e-12) = {ratio:.4f} (must be <= 1)")
     return worst <= 1e-9
 
 

@@ -320,3 +320,27 @@ and qualify prime moment methods by "at level N^{O(1)} (beyond: Assessment)".
 
 Replay of this review's extra check:
 `PYTHONPATH=scripts uv run --with scipy python scripts/review_noncrt_lemma22.py` (~10 s).
+
+---
+
+# Round 2 (branch head 6ed4f30)
+
+Files re-imported from `side-agent/noncrt-inputs-2` @ 6ed4f30 (repairs commit
+51cd78d/6ed4f30 + follow-up §8, `scripts/noncrt_interval.py`, `data/noncrt/interval_*`).
+
+## R2.0 Repairs N1–N8 — all **FIXED**
+
+| defect | where fixed | status |
+|---|---|---|
+| N1 finite 𝒫 | §2.2 now says 𝒫 finite (ET §1), with the 𝒜 = ∅ counterexample for infinite 𝒫; §0/§6 "finite prime-slice families" | fixed |
+| N2 sawtooth scope | §0 row, §1, §2.3 "What this closes", §2.5 list, §6 row (a), AGENT_REPORT: sawtooth only as `min(N,1/(2‖θ‖))`; Vaaler/ψ and floor/ceiling listed as not covered; ET §6.1 item 2 "only partly closed" | fixed |
+| N3 Kloosterman scope | same places: "complete" sums only; dispersion/DI over moduli = inter-frequency, w < 1, not covered; ledger text (D)15 now "complete-sum, w ≥ 1" | fixed |
+| N4 R*-term | §3: R* = (ℤ/Q₀)^×, term 0 (≤ log(P/φ(P))) | fixed |
+| N5 Thm 3.3 increment | display now `C₄Σℓ^{−1−α} + O(log²λ)` with the O-term itemised (mass, G, s_*, log 3) | fixed |
+| N6 prime moments | Prop 4.1 states (i)–(iii) and the Assessment dependence, records the `(log N)³/(log log N)³` gap; §0, §6 rows and AGENT_REPORT relabelled "prime moments of unbounded order: Assessment" | fixed |
+| N7 constant | `19k(2+log⁺(…))` | fixed |
+| N8 numerics labels | "floating-point", max ratio reported (rerun: 0.9228, output identical to `checks_m8.txt`), "2–8 growing with B", runtime "seconds" | fixed (one leftover: AGENT_REPORT l. 66 still says "about 1 min") |
+
+Unnumbered round-1 notes not acted on (cosmetic, optional): Thm 2.3 still does
+not restate `μ̄ = Σ_{s_ℓ≤λ}p̄_ℓ`, G, s_*; Remark 3.4 still says "save at most" for
+known VK/SW error terms; the uniformity of `e^{−o(λ)}` in (2.6).

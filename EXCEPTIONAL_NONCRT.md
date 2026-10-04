@@ -10,13 +10,18 @@ internal checks only, not refereed.
 | item | statement | label |
 |---|---|---|
 | Prop 2.1 | Boolean sieve limit for majorants of **arbitrary level**: `Ef ≥ (1−r₀)e^{−Φ} − 2r₁`, where r₀, r₁ are the biased-Walsh tails above level λ | PROVED |
-| Lemma 2.2 | the Walsh coefficient at slice set S is bounded by the Fourier ℓ¹ mass `A_S` of ν on the frequency set Θ_S: `|d_S|Π p(1−p) ≤ A_S Π p` | PROVED (+ exact numerical check) |
-| Thm 2.3, Cor 2.4–2.5 | **per-frequency signed rounding is capped at 3/4**: any bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ)` with w ≥ 1 (this contains Σ|a_i|, the sawtooth bound, and all Gauss/Kloosterman/divisor-exponential-sum cancellation within a frequency) saves `≤ C(log N)^{3/4}` for the ET-file Cor 3.4 families. Only the Fourier mass above level λ matters, and **no bound on the size of the slice primes is needed** (removes ET-file §6.1 item 7 for prime-slice families) | PROVED |
+| Lemma 2.2 | the Walsh coefficient at slice set S is bounded by the Fourier ℓ¹ mass `A_S` of ν on the frequency set Θ_S: `|d_S|Π p(1−p) ≤ A_S Π p` | PROVED (+ floating-point check, max lhs/rhs 0.923) |
+| Thm 2.3, Cor 2.4–2.5 | **per-frequency signed rounding is capped at 3/4**: any bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ)` with w ≥ 1 (this contains Σ|a_i|, the sawtooth bound in the form `|S_N(θ)| ≤ min(N,1/(2‖θ‖))`, and cancellation in *complete* Gauss/Kloosterman/Ramanujan/divisor-exponential sums over the classes sharing one frequency; **not** ψ-based Erdős–Turán/Vaaler or per-class floor/ceiling rounding, and **not** Kloosterman/dispersion cancellation over moduli, which are inter-frequency and/or weight < 1) saves `≤ C(log N)^{3/4}` for the ET-file Cor 3.4 families. Only the Fourier mass above level λ matters, and **no bound on the size of the slice primes is needed** (removes ET-file §6.1 item 7 for finite prime-slice families with primes of any size) | PROVED |
 | §2.5 | weights < 1: for smooth windows, Q₀ = 1 and hit-pattern majorants, capped under an equidistribution conjecture (H_eq) (2.6); exact `|S_N|` and general majorants open | CONDITIONAL / open |
-| Thm 3.2, 3.3 | **prime-only majorants**: same LP limit (Dirichlet measure), and detecting primality by a sieve adds `O((log log N)²)` to the saving; BV/BDH/EH/GRH-level inputs cannot beat 3/4 | PROVED |
+| Thm 3.2, 3.3 | **prime-only majorants**: same LP limit (Dirichlet measure), and detecting primality by a sieve adds `O((log log N)²)` to the saving; majorants evaluated at level `N^{O(1)}` (where BV/BDH/EH/GRH live) cannot beat 3/4 | PROVED |
 | Rem 3.4 | unconditional prime error terms are weaker than the integer count at relative accuracy `e^{−(log N)^{3/4}}` | Assessment |
-| Prop 4.1, 4.2 | **moment/variance methods** are CRT majorants (so capped by Thm 2.3/3.2 when CRT-evaluated); a degree-k moment method saves `O(k log log N)`, so Chebyshev/second moment gives θ = 0 | PROVED |
-| §5 | toy LP (8 primes): Fourier-ℓ¹ budget ≈ coefficient budget × 4–8 | EVIDENCE (toy model) |
+| Prop 4.1, 4.2 | **moment/variance methods** are CRT majorants (integer moments capped by Thm 2.3 when CRT-evaluated; prime moments by Thm 3.2 at level ≤ A log N, beyond that only under the Remark 3.4 Assessment); a degree-k moment method saves `O(k log log N)`, so Chebyshev/second moment gives θ = 0 | PROVED (prime moments of unbounded order: Assessment) |
+| Thm 8.1 | quantitative dichotomy for direct interval counts: large Fourier mass above every level `λ ≤ c(log N)^{4θ/3}`, or interval count a factor `e^{s−Cλ^{3/4}}` below the CRT mean | PROVED |
+| Lemma 8.2, Cor 8.3 | on [1,N], Case-B forced classes of modulus `> 8⌊(N+1)/3⌋²` are empty; hit-pattern majorants never benefit from them | PROVED (from notes Thm 60.1) |
+| Prop 8.4, Conj 8.5 | multiplier-one witnesses of all moduli: mean `≤ ¼(1+log N)²` on [1,N]; conjecturally all moduli > N carry `O((log N)²)` (CRT: cubic, growing) | PROVED / CONJECTURE |
+| §8.3 | hit-count majorants (deg ≤ 10) evaluated exactly on [1,N] are *worse* than their CRT means for all Y ≥ N: no inter-frequency gain in the natural family | EVIDENCE |
+| Prop 8.6, Cor 8.7 | exact interval counts of degree-k hit-count majorants save `≤ (k/2)log(Cm/k) + O(k)`; beating 3/4 needs degree `≥ (log N)^{3/4+o(1)}` | PROVED / CONDITIONAL on H_node |
+| §5 | toy LP (8 primes): Fourier-ℓ¹ budget ≈ coefficient budget × 2–8 (growing with B) | EVIDENCE (toy model) |
 
 **Verdict.** None of (a), (b), (c), in the natural formalisations above,
 beats θ = 3/4. What remains is (§6): cancellation *between* frequencies
@@ -44,9 +49,13 @@ The task names three ways out.
     Σ_{n≤N} ν(n) − N·Eν = Σ_{θ≠0} ν̂(θ) S_N(θ),   S_N(θ) = Σ_{n≤N} e(nθ),   (1.2)
 
 and `|S_N(θ)| ≤ min(N, 1/(2‖θ‖))`. All cancellation *inside one
-frequency* — sums of `a_i e(−b_iθ)` over the classes of a modulus, i.e.
-Gauss, Kloosterman, Ramanujan or divisor-exponential sums over the
-forced classes — is already inside `ν̂(θ)`. We call
+frequency* — complete sums of `a_i e(−b_iθ)` over the classes of a
+modulus, i.e. complete Gauss, Kloosterman, Ramanujan or
+divisor-exponential sums over the forced classes — is already inside
+`ν̂(θ)`. Kloosterman sums as they enter sieve remainders (Poisson in n
+with a smooth weight, then cancellation over the moduli d, as in
+dispersion / Deshouillers–Iwaniec) are cancellation *between*
+frequencies and use weights < 1; they are not of the form (1.3). We call
 
     R_w(ν) = Σ_{θ≠0} |ν̂(θ)|·w(θ),   any weight w ≥ 1,             (1.3)
 
@@ -130,10 +139,12 @@ through the two tail sums, which carry the factor `Π_S p_i ≤ e^{−s(S)}` if
 ### 2.2 Fourier mass controls the high-level Walsh tail
 
 Take a prime-slice system (ET-file §1) and a majorant ν (any moduli: higher
-prime powers, non-slice primes, arbitrary residues). Restrict 𝒫 to the
-slice primes dividing some `d_i`; this keeps ν ≥ 1 on the new (larger)
-avoider set, by the CRT modification argument of ET-file Step 0, provided
-`|F_ℓ(c)| < ℓ` for every ℓ. So 𝒫 is finite.
+prime powers, non-slice primes, arbitrary residues). As in ET-file §1,
+𝒫 is **finite** (its primes may be of any size). Restricting 𝒫 to the
+slice primes dividing some `d_i` is the ET-file Step-0 reduction: it keeps
+ν ≥ 1 on the new (larger) avoider set by the CRT modification argument,
+provided `|F_ℓ(c)| < ℓ` for every ℓ. (For infinite 𝒫 this fails: giving
+each integer its own fresh prime makes 𝒜 = ∅.)
 
 For `c ∈ R` put `x_ℓ(n) = 1[n mod ℓ ∈ F_ℓ(c)]`, `y_ℓ = x_ℓ − p_ℓ(c)`, and
 `ν_c(x) = E[ν(n) | n ≡ c (Q₀), x(n) = x]`. By CRT, given `n ≡ c (Q₀)` the
@@ -233,10 +244,15 @@ Case-A classes; moduli `q₀ℓ` with `q₀ ≤ ℓ^C`, C < 1; selector R;
 `μ̄ ≤ Σ_{s_ℓ≤λ} p̄_ℓ ≪ λ³`, so the G-terms are `O(log²λ)`. Then
 `λ_N = 2 log(4N)` satisfies the condition of Cor 2.4 for N ≥ N₀(C). ∎
 
-**What this closes.** Candidate (a) in its natural form — "use the
-arithmetic structure of the forced classes (Gauss/Kloosterman/divisor
-exponential sums) to beat the trivial rounding `Σ|a_i|`" — is capped at
-`(log N)^{3/4}`. A cancellation inside each frequency improves R_w by at
+**What this closes.** The per-frequency part of candidate (a) — "use
+*complete* exponential sums (Gauss/Kloosterman/Ramanujan/divisor sums)
+over the classes sharing a frequency, inside the Fourier-majorised
+rounding `Σ|ν̂(θ)|min(N,1/(2‖θ‖))`, to beat `Σ|a_i|`" — is capped at
+`(log N)^{3/4}`. Not closed (they belong to §§2.4–2.5): ψ-based
+Erdős–Turán/Vaaler rounding (its main factor `2|sin πNθ|` is < 1 near
+`‖Nθ‖ ≈ 0`); per-class floor/ceiling rounding (`⌈N/d⌉ − N/d` can be ≈ 0);
+and Kloosterman/dispersion cancellation over moduli. So ET-file §6.1
+item 2 is only partly closed. A cancellation inside each frequency improves R_w by at
 most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
 `R_1(ν) < N` (with no other restriction) already forces the 3/4 cap.
 
@@ -268,8 +284,12 @@ most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
 
 Theorem 2.3 needs a rounding bound that dominates `R_1 = Σ_{θ≠0}|ν̂(θ)|`,
 i.e. weight `w(θ) ≥ 1` at every nonzero frequency. This covers `Σ|a_i|`,
-the sawtooth bound `min(N, 1/(2‖θ‖))`, and any Weil/Kloosterman/Gauss
-bound for `ν̂(θ)` inserted into either. It does **not** cover:
+the sawtooth bound in the form `|S_N(θ)| ≤ min(N, 1/(2‖θ‖))`, and any
+complete-sum Weil/Kloosterman/Gauss bound for `ν̂(θ)` inserted into
+either. It does **not** cover:
+* ψ-based rounding via Erdős–Turán/Vaaler (factor `2|sin πNθ|`), or
+  per-class floor/ceiling rounding, which use where the classes sit
+  relative to N;
 * the *exact* sharp weight `|S_N(θ)| = |sin πNθ / sin πθ|`, which is < 1
   when `‖Nθ‖` is small;
 * *smooth windows* `Σ_n Φ(n/N)ν(n)`, whose weight
@@ -345,8 +365,9 @@ selector computation of Cor 3.4 holds for R* as well — c uniform on
 `R* ⊆ (ℤ/Q₀)^×` projects to the uniform law on `(ℤ/q₀)^×`, so
 `P(c ≡ b (q₀) | R*) ≤ 1/φ(q₀)` — giving
 `p̄*_ℓ ≤ (ℓ/(ℓ−1))·Σ_{M=q₀ℓ}|𝒞(M)|(M/φ(M))/M`, the Cor 3.4 bound up to
-`1 + O(1/ℓ₀)`. Also `log(φ(Q₀)/|R*|) = log(P/φ(P))` for the selector
-(when P and Q₀ have the same prime factors). So the cap
+`1 + O(1/ℓ₀)`. For a selector `R = {(c,P)=1}`, `P | Q₀`, one has
+`R* = (ℤ/Q₀)^×`, so the R-term `log(φ(Q₀)/|R*|)` is **0** (≤ log(P/φ(P))).
+So the cap
 `C(log N)^{3/4} + log(P/φ(P))` at level `A log N` is unchanged.
 
 **Theorem 3.3 (primality is worth at most a factor λ^{O(1)}; PROVED).** Let
@@ -362,8 +383,11 @@ yet in 𝒫 as a slice prime with `F_ℓ = {0}`; the primes ℓ < 5, where
 Theorem 2.5 bound
 increases by at most
 
-    C₄ Σ_{ℓ≤z} ℓ^{−1−α} + (G/2)·log(1 + log log z + O(1))
-      ≤ C₄ (log(1/α) + O(1)) + O(log²λ).
+    C₄ Σ_{ℓ≤z} ℓ^{−1−α} + O(log²λ) ≤ C₄ (log(1/α) + O(1)) + O(log²λ),
+
+where the `O(log²λ)` collects the mass term `(G/2)log(1+Δμ)`, the change
+of G and of `log(2+λ/s_*)` (s_* may drop to log 5), and the selector term
+`log 3` for ℓ = 2, 3 (0 if 6 | P already).
 
 With `α = λ^{−1/4}` this is `O(log²λ)`: the cap
 `C(log N)^{3/4}` becomes `C(log N)^{3/4} + O((log log N)²)`.
@@ -418,13 +442,20 @@ expanding `f^j` into j-fold intersections of classes writes ν as a finite
 combination of class indicators. Hence every bound
 `#{n≤N: f(n)=0} ≤ Σ_{n≤N} P(f(n))` whose moments are evaluated as
 `N·(CRT density) + error` with a per-frequency error bound (2.5) is
-covered by Theorem 2.3 / Cor 2.4–2.5; with prime moments
-`Σ_{p≤N} P(f(p))` it is covered by Theorem 3.2. *Proof.* `f(n) ∈ ℤ_{≥0}`
+covered by Theorem 2.3 / Cor 2.4–2.5. With prime moments
+`Σ_{p≤N} P(f(p))`: at level `≤ A log N` it is covered by Theorem 3.2.
+Beyond that level (degree-k moments over moduli `≤ N^A` reach level
+`kA log N`) it is covered by Theorem 3.2 plus the E*-version of Lemma 2.9,
+**provided** (i) every term of level `> A log N` is charged `≥ |a_i|`,
+(ii) `Σ_{high}|a_i| < π(N)`, and (iii) the slice primes are `≤ N^{O(1)}`.
+Point (i) is the Remark 3.4 *Assessment* (for lcm > N, `π(N;d,b) ∈ {0,1}`
+and no known input beats the trivial cost). Theorem 3.2 + Prop 4.2 alone
+leave a gap: their minimum over k is ≈ `(log N)³/(log log N)³`. *Proof.* `f(n) ∈ ℤ_{≥0}`
 for every n ∈ ℤ. ∎
 
 So, for forced-class witness families satisfying Cor 2.5's hypotheses,
-**no moment method of any order, with any polynomial, beats 3/4 if its
-moments are evaluated through the CRT density plus a per-frequency error
+**no integer moment method of any order, with any polynomial, beats 3/4 if
+its moments are evaluated through the CRT density plus a per-frequency error
 term.** (Chebyshev/Turán–Kubilius is the case `P(x) = (1 − x/m)²`.)
 
 **Proposition 4.2 (degree cap; PROVED).** In a prime-slice system with
@@ -434,7 +465,7 @@ is a slice class (modulus `q₀ℓ`, `q₀ | Q₀`), then for every α > 0
     log(1/E[P∘f]) ≤ log(Q₀/|R|) + 19αk + C₄ e^{−α} μ̄ + 75 + log(2+k) + ½log(16μ̄+16).
 
 Choosing `α = max(1, log(C₄μ̄/(19k)))` gives saving
-`≤ 19k(1 + log⁺(C₄μ̄/(19k))) + O(log(μ̄+k)) + log(Q₀/|R|)`.
+`≤ 19k(2 + log⁺(C₄μ̄/(19k))) + O(log(μ̄+k)) + log(Q₀/|R|)`.
 
 *Proof.* Given `n ≡ c (Q₀)`, `f = Σ_ℓ φ_ℓ(n mod ℓ)` with φ_ℓ ≥ 0
 supported on `F_ℓ(c)`. So `P(f)` is a sum of terms each depending on at
@@ -457,8 +488,9 @@ error bound.
 (Thm 1.1) evaluate first moments `Σ_{p≤N} f_{I/II}(p)` up to constants by
 divisor sums, Brun–Titchmarsh and BV. They state (Remark 1.3) that higher
 moments `Σ_p f(p)^k` are out of reach *because the level of the relevant
-divisor sums becomes too great* — the obstruction of Cor 2.5 in their
-language. A non-CRT moment method for θ > 3/4 must therefore do one of
+divisor sums becomes too great*. That is a level-of-distribution
+obstruction for error terms; it is compatible with, not the same as, the
+CRT-mean cap of Cor 2.5. A non-CRT moment method for θ > 3/4 must therefore do one of
 two things: use moments of order `≥ (log N)^{3/4+δ}/log log N` and count
 those j-tuples of solutions sharing the same n directly (points on fibre
 powers of the ES surface, dimension growing with j) to absolute accuracy
@@ -468,12 +500,13 @@ far below `N·E[P∘f]`. No technique for either is known.
 
 ## 5. Numerical checks
 
-`scripts/noncrt_checks.py` (output `data/noncrt/checks_m8.txt`, ~1 min):
+`scripts/noncrt_checks.py` (output `data/noncrt/checks_m8.txt`, a few seconds):
 * **Lemma 2.2, floating-point enumeration.** 40 random systems (Q₀ = 3, slice primes
   5,7,11[,13], random `F_ℓ(c)`), random signed class combinations ν. For
   every fibre and every S ≠ ∅, `|E[ν y^S | c]| ≤ A_S Π_S p_ℓ(c)`. Max of
-  lhs − rhs: `−1.7·10⁻¹⁷`. (Check of the lemma, not EVIDENCE for anything
-  else.)
+  lhs − rhs: `−1.7·10⁻¹⁷` (attained at degenerate cases); max ratio lhs/rhs
+  over cases with rhs > 10⁻¹²: 0.923. Floating-point, not exact. (Check
+  of the lemma, not EVIDENCE for anything else.)
 * **Toy LP (EVIDENCE, model only).** Hit-pattern model, 8 slice primes
   5…29, `|F_ℓ| ≈ ℓ^{0.35}`, full mass 1.360. Minimum of Eν over ν ≥ 0,
   ν(0) ≥ 1 with (C) class-coefficient budget B, or (F) Fourier-ℓ¹ budget
@@ -485,8 +518,9 @@ far below `N·E[P∘f]`. No technique for either is known.
   | (F) | 0.370 | 0.728 | 1.064 | 1.318 | 1.360 | 1.360 |
 
   In this toy, per-frequency rounding acts like the coefficient budget
-  multiplied by a factor ≈ 4–8 (of the order of Π f_ℓ over a typical
-  monomial). Lemma 2.2 allows a factor up to `Π_S f_ℓ/(1−p_ℓ)`, which is
+  multiplied by a factor ≈ 2–8, growing with B (F(2)≈C(4),
+  F(8)≈C(16–32), F(32)≈C(128), F(128)≈C(1024); of the order of Π f_ℓ over
+  a typical monomial). Lemma 2.2 allows a factor up to `Π_S f_ℓ/(1−p_ℓ)`, which is
   not uniformly bounded but is `e^{o(level)}` for the forced-class families
   (`f_ℓ ≤ ℓ^{C+o(1)}` with C < 1 enters only through `s_ℓ`). Toy only.
 
@@ -494,12 +528,12 @@ far below `N·E[P∘f]`. No technique for either is known.
 
 | candidate | result | label |
 |---|---|---|
-| (a) signed rounding, per-frequency (Gauss/Kloosterman/divisor exponential sums over the classes) | capped at `C(log N)^{3/4}` for dominant-prime-slice families (Thm 2.3, Cor 2.4–2.5); also removes ET-file's "slice primes ≤ N^{O(1)}" proviso | PROVED |
+| (a) signed rounding, per-frequency with w ≥ 1 (complete Gauss/Kloosterman/divisor exponential sums over the classes of one frequency; sawtooth as `min(N,1/(2‖θ‖))`) | capped at `C(log N)^{3/4}` for finite prime-slice families (Thm 2.3, Cor 2.4–2.5); also removes ET-file's "slice primes ≤ N^{O(1)}" proviso. Not covered: Vaaler/ψ and floor/ceiling rounding, Kloosterman/dispersion over moduli | PROVED |
 | (a″) per-frequency bounds with weight < 1 (exact `|S_N|`, smooth windows) | smooth windows, Q₀ = 1, hit-pattern majorants: capped under the equidistribution conjecture (H_eq) (2.6); exact `|S_N|`, Q₀ > 1 and general majorants open (§2.5) | CONDITIONAL / open |
 | (a′) cancellation *between* frequencies | equivalent to counting `Σ_{n≤N}ν(n)` directly; squares give no set-level obstruction below θ = 1; dichotomy of §2.4: either large high-level Fourier mass or an interval count far below the CRT mean | open; no method |
-| (b) prime-only majorants (Dirichlet measure, BV/BDH/EH/GRH level) | same LP limit up to `O((log log N)²)` (Thms 3.2, 3.3) | PROVED |
+| (b) prime-only majorants at level `N^{O(1)}` (Dirichlet measure; where BV/BDH/EH/GRH live) | same LP limit up to `O((log log N)²)` (Thms 3.2, 3.3) | PROVED |
 | (b′) prime error terms | unconditional prime equidistribution is *weaker* than the integer count at this precision (Remark 3.4) | Assessment |
-| (c) moment/variance methods, CRT-evaluated | are CRT majorants (Prop 4.1), so capped by (a)/(b); degree k saves `O(k log log N)` (Prop 4.2): Chebyshev/2nd moment gives only θ = 0 | PROVED |
+| (c) moment/variance methods, CRT-evaluated | are CRT majorants (Prop 4.1); integer moments capped by (a); prime moments capped at level ≤ A log N (Thm 3.2), beyond that only via E*-Lemma 2.9 under the Remark 3.4 Assessment; degree k saves `O(k log log N)` (Prop 4.2): Chebyshev/2nd moment gives only θ = 0 | PROVED (prime moments of unbounded order: Assessment) |
 | (c′) moments evaluated by counting solution tuples | needs either order `≥ (log N)^{3/4+δ}/log log N` counted to absolute error `N e^{−(log N)^θ}`, or true moments deviating from CRT values (§4); ET Remark 1.3 already calls order ≥ 2 out of reach | open; no method |
 
 **No non-CRT input tested here beats θ = 3/4.** The three natural
@@ -517,5 +551,200 @@ untouched: Theorem 2.3 is proved for prime-slice systems only.
 ## 7. Replay
 
 ```
-uv run --with scipy python scripts/noncrt_checks.py 8 > data/noncrt/checks_m8.txt   # ~1 min, < 1 GB
+uv run --with scipy python scripts/noncrt_checks.py 8 > data/noncrt/checks_m8.txt   # seconds, < 1 GB
 ```
+
+## 8. Inter-frequency cancellation: direct interval counts (follow-up 1)
+
+### 8.1 The dichotomy, quantitatively
+
+For a majorant ν put the **interval discrepancy**
+
+    Δ_N(ν) = N·Eν − Σ_{n≤N} ν(n) = −Σ_{θ≠0} ν̂(θ) S_N(θ).          (8.1)
+
+**Theorem 8.1 (PROVED; a restatement of Thm 2.3).** In the setting of
+Theorem 2.3, suppose `Σ_{n≤N}ν(n) ≤ N e^{−s}`. Then for every λ ≥ s_*
+and α > 0, at least one of the following holds:
+* (H) `ε_λ(ν) > e^{−Φ̄(λ,α)}/4`: ν has Fourier mass above level λ of size
+  `Σ_{s(S)>λ} A_S e^{−s(S)} > e^{−Φ̄}/4`;
+* (D) `Δ_N(ν) ≥ N·[(|R|/(4Q₀)) e^{−Φ̄(λ,α)} − e^{−s}]`.
+
+In particular, if `s ≥ Φ̄(λ,α) + log(8Q₀/|R|)` and (H) fails, then
+`Σ_{n≤N}ν(n) ≤ N e^{−s} ≤ ½N·Eν`: the interval carries at most half of
+its CRT share of ν. *Proof.* If (H) fails, (2.4) gives
+`Eν ≥ (|R|/(4Q₀))e^{−Φ̄}`; subtract. ∎
+
+For the Cor 2.5 families, `Φ̄(λ) ≤ Cλ^{3/4}`. So a direct count with
+saving `s = (log N)^θ`, θ > 3/4, needs, at every level
+`λ ≤ c s^{4/3}` (which is `≫ log N`): either Fourier mass `≳ e^{−Cλ^{3/4}}`
+above level λ, or an interval share `≤ ½` of the CRT mean. Since the
+majorant has `Eν ≥ (|R|/(4Q₀))e^{−Cλ^{3/4}}` in the second case, the
+interval count must be a factor `≥ e^{s − Cλ^{3/4}}` *below* the CRT mean.
+
+### 8.2 On [1,N], forced classes above N² are empty
+
+**Lemma 8.2 (PROVED, from notes Thm 60.1).** Let n ≥ 1 and
+`B = ⌊(n+1)/3⌋`. If n lies in a Case-B forced class of modulus M — i.e.
+`M ≡ 3 (4)`, `D | ((M+1)/4)²`, `M | n + 4D` — then `M ≤ 8B² − 1`.
+
+*Proof.* This is (60.1) ⇒ (60.9) of notes Theorem 60.1 (finite normal
+form), which applies to every witness datum of every n ≥ 1. ∎
+
+So for `M > M₀(N) := 8⌊(N+1)/3⌋²` every class of `𝓡(M)` (and every
+Lemma 3.2 class, which is a subclass for n ≥ 1) misses [1,N] entirely. Its
+CRT share `N|𝓡(M)|/M` is pure rounding, and `Σ_{M>M₀}|𝓡(M)|/M = ∞`.
+
+**Corollary 8.3 (PROVED).** Let 𝒲 be any family of Case-B forced classes,
+and let ν be a *hit-pattern majorant*: `ν(n) = G((1_W(n))_{W∈𝒲})` with
+G ≥ 0 and `G(0) ≥ 1` (this covers Bonferroni, Selberg Λ² in the
+indicators, and every `P∘f` of §4). Let 𝒲₀ be the classes of modulus
+`≤ M₀(N)`, and `ν'(n) = G((1_W(n))_{W∈𝒲₀}, 0)`. Then:
+* ν' is a hit-pattern majorant of the truncated avoider set `𝒜_{𝒲₀}`;
+* `Σ_{n≤N} ν(n) = Σ_{n≤N} ν'(n)`.
+
+*Proof.* The second claim is Lemma 8.2. For the first: ν' ≥ 0, and if
+`n ∈ 𝒜_{𝒲₀}` then ν'(n) = G(0) ≥ 1. ∎
+
+*Meaning.* For interval counts of hit-pattern majorants, classes of
+modulus beyond `M₀ ≍ N²` give neither sieving power nor cost. The high
+level λ ≫ log N that Theorem 8.1 requires must therefore come from
+*products of many classes of modulus ≤ N²* — from k-fold coincidences of
+witnesses on single integers n ≤ N, with `k ≥ λ/(2 log N)`. In the CRT
+model those coincidences are independent. On [1,N] they are the actual
+witness multiplicity, i.e. the Elsholtz–Tao `f(n)` and its correlations.
+Lemma 8.2 removes the CRT mass above `M₀` from [1,N] entirely. §8.3
+tests what happens between N and M₀.
+
+### 8.3 Test: hit-count majorants on [1,N] versus CRT (EVIDENCE)
+
+`scripts/noncrt_interval.py`, family: prime moduli `ℓ ≡ 3 (4)`,
+`F_ℓ = 𝓡(ℓ)`, `H_Y(n) = #{ℓ ≤ Y : n mod ℓ ∈ F_ℓ}`. For each degree
+k ≤ 10 it solves the LP `min E[P(H_Y)]` over `deg P ≤ k`,
+`P ≥ 0` on `{0..80}`, `P(0) ≥ 1`. It does this twice: once for the empirical
+law of H_Y on the chosen integers in [1,N] (an exact interval evaluation:
+every inter-frequency cancellation is included) and once for the CRT law
+(independent `Bern(|F_ℓ|/ℓ)`). Positivity is imposed only up to 80; this
+relaxation helps both sides equally. Runs take ≤ 1 min each
+(`data/noncrt/interval_*.txt`).
+
+| N, set | Y | CRT mass μ | E_int H | void int | saving k=10: int / CRT |
+|---|---|---|---|---|---|
+| 3000, all n | 3000 | 8.01 | 7.61 | 0.0200 | 3.62 / 6.30 |
+| | 8·10⁶ = M₀ | 30.47 | 9.75 | 0.0197 | 3.38 / 12.68 |
+| 3000, non-squares | 3000 | 8.01 | 7.75 | 0.0020 | 4.72 / 6.30 |
+| | 8·10⁶ | 30.47 | 9.93 | 0.0017 | 4.12 / 12.68 |
+| 3000, primes | 3000 | 8.01 | 8.22 | 0 | 4.83 / 6.30 |
+| | 8·10⁶ | 30.47 | 10.91 | 0 | 4.33 / 12.68 |
+| 30000, primes | 30000 | 13.08 | 13.33 | 0.0003 | 5.18 / 8.04 |
+| | 5.2·10⁶ | 28.87 | 16.96 | 0.0003 | 4.89 / 12.42 |
+| | 3·10⁷ | 35.62 | 17.14 | 0.0003 | 4.88 / 13.41 |
+
+Findings.
+* For `ℓ ≤ N` the interval and the CRT agree in first moment, as they
+  must, since `E_int H_N ≈ μ_N`.
+* **For `ℓ ∈ (N, Y]` the interval receives only a small part of the CRT
+  mass.** At N = 30000 (primes), raising Y from N to 3·10⁷ adds 22.5 to
+  μ but only 3.8 to `E_int H`. The forced residues `−4D mod ℓ` avoid
+  `[1,N]` (cf. Lemma 8.2, which is the extreme case).
+* Consequently, at every degree 2 ≤ k ≤ 10 and every Y ≥ N, the exact
+  interval value of the best hit-count majorant is **worse** than its CRT
+  mean, often by a factor `e^{5}–e^{9}`. The interval saving is flat in Y
+  for Y ≥ N. So for this natural family `Δ_N(ν) < 0`: the interval
+  carries *more* than its CRT share. That is the opposite of branch (D)
+  of Theorem 8.1.
+* At small Y (≈ √N) the interval is slightly better than CRT for primes
+  (3.36 vs 2.52, from the selector-like effect of primality). This is a
+  bounded-level effect, inside Theorem 3.3's `O(log²λ)`.
+
+### 8.4 A proved piece of the thinning, and the conjecture
+
+**Proposition 8.4 (PROVED).** The number of pairs (n, (M,D)) with
+`1 ≤ n ≤ N`, (M,D) a Case-B datum for n (Lemma 8.2), and *multiplier one*
+(`n + 4D = M`), is at most `((N+1)/4)·Σ_{g≤(N+1)/4} τ(g)/g ≤ (N+1)(1+log N)²/4`,
+uniformly in the size of M.
+
+*Proof.* By notes (60.7)–(60.8) every datum has `D = gd`,
+`(M+1)/4 = gu` with `d | g`. Multiplier one gives `n = 4g(u−d) − 1`. So
+`1 ≤ n ≤ N` forces `1 ≤ u − d ≤ (N+1)/(4g)`, hence `g ≤ (N+1)/4`. Also
+(g,d,u) determines (n,M,D). Count: g, then `d | g` (τ(g) ways), then
+`u − d` (`≤ (N+1)/(4g)` ways). Finally `Σ_{g≤x}τ(g)/g ≤ (1+log x)²`. ∎
+
+So on [1,N] the multiplier-one witnesses of *all* moduli together have
+mean `≤ ¼(1+log N)²` per integer. (For M > N, a hit with multiplier
+`a ≥ 2` needs `4D = aM − n > 2M − N > M`, i.e. a divisor D of `A²` above
+`M/4 ≈ A`. Those hits are not controlled by this argument.)
+
+**Conjecture 8.5 (interval thinning).** For the Case-B forced classes,
+`(1/N) Σ_{n≤N} #{data (M,D) for n with M > N} ≪ (log N)²`. The CRT mass
+of these classes up to `N^c` is `≍ (c³−1)(log N)³`.
+
+*Assessment.* If 8.5 holds, the slice moduli above N carry only
+`O((log N)²)` hit mass on [1,N]. The CRT picture, in which mass grows
+cubically with the level, is then fictitious above N. So the high level
+that branch (H) of Theorem 8.1 needs cannot come from large slice primes.
+It can only come from products of many moduli `≤ N` (Cor 8.3 proves the
+weaker cut-off `≍ N²`). This does **not** cap exact interval counts of
+such products: the exact void of the moduli `≤ N` on [1,N] is
+not known, and the CRT value there is `e^{−≍(log N)³}`.
+
+### 8.5 A cap for exact interval counts of bounded degree (conditional)
+
+**Proposition 8.6 (PROVED; Lagrange).** Let π be any probability law on
+`ℤ_{≥0}`, for example the empirical law of `H(n)` on the chosen integers
+in [1,N]. Let `y_0 < … < y_k` be integers ≥ 0 with `π(y_i) > 0`, and let
+`ℓ_i` be the Lagrange basis at these nodes. Then every polynomial P of
+degree ≤ k with `P ≥ 0` on `ℤ_{≥0}` and `P(0) ≥ 1` has
+
+    E_π P(H) ≥ [ max_i |ℓ_i(0)| / π(y_i) ]^{−1}.
+
+*Proof.* `1 ≤ P(0) = Σ_i ℓ_i(0)P(y_i) ≤ max_i(|ℓ_i(0)|/π(y_i))·Σ_i π(y_i)P(y_i)`. ∎
+
+With the nodes of ET-file Lemma 2.2(c) (`k+1` points spaced
+`≈ √(m/k)` within `√(km)` of `m := E_π H`), `|ℓ_i(0)| ≤ (4e√(m/k))^k`.
+Hence:
+
+**Corollary 8.7 (CONDITIONAL on the node hypothesis below).** Suppose that
+on [1,N]
+
+    (H_node(k))  π_int(y) ≥ e^{−C₀k}/√m  at the k+1 nodes above,
+
+with `m = E_int H ≤ (log N)^{O(1)}`, `m ≥ 64`, `k ≤ m/16`. Then every degree-k hit-count majorant
+evaluated *exactly* on [1,N], with all inter-frequency cancellation
+included, saves at most `(k/2) log(16e² m/k) + C₀k + ½ log m`. A saving
+`(log N)^θ` therefore needs `k ≫ (log N)^θ / log log N`. So beating 3/4
+by exact interval counts needs hit-count polynomials of degree
+`≥ (log N)^{3/4+o(1)}`, i.e. control of k-fold witness coincidences on
+single integers for k that large.
+
+*Status of H_node.* It is a lower bound for the distribution of witness
+counts near their mean, of local-limit type. It is not proved here. For a
+Poisson-like H it holds with `C₀ = O(1)`. The witness count
+behaves partly like a divisor function (ET Thm 1.8: `f(n)` is at least
+`(log n)^{0.549}` for almost all n), so H_node is plausible but not
+obvious. The LP values in §8.3 are the exact optimum over P of the bound
+for the empirical law, so the table is a direct numerical check of the
+conclusion for k ≤ 10.
+
+### 8.6 Outcome of the follow-up
+
+* The dichotomy is quantitative (Thm 8.1). Direct counts beating 3/4 need
+  either Fourier mass `≳ e^{−Cλ^{3/4}}` above every level
+  `λ ≤ c(log N)^{4θ/3}`, or an interval count a factor
+  `e^{s − Cλ^{3/4}}` below the CRT mean.
+* For hit-pattern majorants, classes above `M₀ ≍ N²` are inert on [1,N]
+  (Cor 8.3, PROVED). Multiplier-one witnesses of all moduli have mean
+  `≤ ¼(1+log N)²` (Prop 8.4, PROVED). Conjecturally all moduli above N
+  carry only `O((log N)²)` (Conj 8.5).
+* The natural structured family (polynomials in the forced-class hit
+  count, degree ≤ 10) shows **no inter-frequency gain**. Its exact
+  interval values are worse than its CRT means for every Y ≥ N, so
+  `Δ_N < 0` (EVIDENCE, §8.3).
+* For a named class, exact interval counts of degree-k hit-count
+  majorants, there is a conditional cap. Beating 3/4 needs degree
+  `≥ (log N)^{3/4+o(1)}` (Cor 8.7, conditional on H_node).
+* No structured family was found with both large high-level Fourier mass
+  and a favourable interval count. The door stays open only for
+  majorants of degree `≥ (log N)^{3/4}` in the witness indicators, or for
+  non-hit-pattern majorants (e.g. multiplicative/Halász-type weights on
+  `(n+a)/4`, the a-frame route of ET-file §5.2, assessed at θ* ≈ 0.52 in
+  its model).
