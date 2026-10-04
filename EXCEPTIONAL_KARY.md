@@ -211,3 +211,45 @@ of (2.1). `scripts/kary_b21_check.py` evaluates the three node sets exactly
 (log-space) on 7128 triples `(n,t,d)`, `n ≤ 10⁵`, `t ≥ 10⁻⁴`, `d ≤ 12`. The
 largest value of `log B − (2.1)` is −5.66. It also confirms `B* ≤ B` against
 the LP optimum for small n.
+
+## 4. Application: the 3/4 cap for all ℛ(M)-families with M ≤ P(M)^{1+B}
+
+### 4.1 Sequential steps with random costs
+
+**Theorem 4.1 (weighted abstract sequential sieve limit; PROVED).** Take
+the setting of ETw Theorem 2.3′ (base `Q₀`, R with (R1)–(R2), coordinates
+`y_ℓ = n mod ℓ^{E_ℓ}`, ordered blocks `V_1,…,V_J`). Suppose that for each
+block j and history h there are an auxiliary probability law `Π_j(h)` on
+paths ω, a map `ω ↦ Y_j(h,ω) ∈ Ω_{V_j}` and a cost `Φ_j(h,ω) ≥ 0` with
+
+* (S_w) for every λ-level `f ≥ 0` on `Ω_{V_j}`:
+  `E_U f ≥ E_{ω~Π_j(h)}[ e^{−Φ_j(h,ω)} f(Y_j(h,ω)) ]`.
+
+Let `Q'` be the law of the history built from the base (uniform on R) by
+drawing, at each block, `ω_j ~ Π_j(H_{<j})` and appending `Y_j`. If
+`𝔏 = Q'(final history ∉ 𝒜) ≤ 1/2`, every majorant ν of level λ satisfies
+
+    log(1/Eν) ≤ log(Q₀/|R|) + log 2 + 2 Σ_j E_{Q'} Φ_j(H_{<j}, ω_j).
+
+*Proof.* Let `g_j(h) = E_U[ν | H_{<j} = h]`. We show by downward induction
+`g_j(h) ≥ E_{Q'}[1_𝒜 e^{−Σ_{i≥j}Φ_i} | H_{<j} = h]`. For `j = J+1` this is
+`g_{J+1} ≥ 1_𝒜`. Given h, `f(y) = g_{j+1}(h,y)` is λ-level and `≥ 0`
+(ETw Theorem 2.3′ proof). By (S_w) and the induction hypothesis at
+`(h, Y_j)`,
+`g_j(h) ≥ E_ω[e^{−Φ_j} E_{Q'}[1_𝒜 e^{−Σ_{i>j}Φ_i} | H_{<j+1} = (h,Y_j)]]`.
+Under `Q'` the blocks after j depend on `ω_j` only through `Y_j`, so the
+right side is the claim at j. The conclusion is the Jensen step of ETw
+Theorem 2.3, with `S = Σ_jΦ_j ≥ 0`. ∎
+
+Every step (S) of ETw is an (S_w) with a deterministic cost. The new
+instance is:
+
+**Phantom step.** `V_j` a block whose primes satisfy `log ℓ > s`, so
+λ-level functions are d-local with `d = ⌊λ/s⌋`. Given h, the patterns are
+the classes with top prime in `V_j` whose requirements outside `V_j` are
+met by h; their requirements inside `V_j` form a pattern on the block
+coordinates (a residue class mod `ℓ^v` at ℓ is a union of single values of
+`ℤ/ℓ^{E_ℓ}`, so cylinder patterns reduce to §1). `Π_j(h)` is the law of the
+phantom-sequential path ω in increasing order with `ν = U` and caps
+`δ_ℓ = ℓ^{−1/2}`, `Y_j = y`, and `Φ_j` is the Φ of Theorem 2.5 with
+`t = t_j(h) = d/(E[M|h] + 4d)`. (S_w) is Theorem 2.5.
