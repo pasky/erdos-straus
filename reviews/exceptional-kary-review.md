@@ -121,14 +121,14 @@ alphabets 2–3, d ≤ 3; plus hill-climbing over arbitrary rule tables
 | run | systems | max LP value |
 |---|---|---|
 | random (seed 1) | 150 | 1.0000000000000635 |
-| stress (seed 6, N 7–12) | see data file | ≤ 1 (asserted) |
-| hill-climb arbitrary rules (seeds 3, 2) | 48 climbs × 120 steps | 1.000000 |
+| stress (seed 6, N 7–12, `ν(1) ∈ {.1,.2,.25}`) | 22 (run stopped in an N=12, d=3 LP) | 1.00000 |
+| hill-climb arbitrary rules (seeds 2, 3) | 36 climbs × 120 steps | 1.000000 |
 | hill-climb, `E M ≥ 0.6–0.8` | 12 climbs × 150 steps | 0.87 |
 
 Value exactly 1 is approached trivially (f constant, t small, no
 replacement). **Power checks** (same LP, deliberately broken Φ): dropping
 the `(4/3)tM` term gives values up to 1.23; using `B*(n,t,d−1)` gives up to
-1.20; the unweighted ratio `max E_σ f/E_ν f` reaches 2.95. So the test
+1.20; the unweighted ratio `max E_σ f/E_ν f` reaches 3.30. So the test
 detects violations of the right size; Theorem 2.5's two ingredients are
 both necessary and the stated Φ is never beaten. Outputs:
 `data/kary/review_bruteforce.txt`.
