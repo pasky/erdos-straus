@@ -16,6 +16,11 @@ internal checks only, not refereed.
 | Thm 3.2, 3.3 | **prime-only majorants**: same LP limit (Dirichlet measure), and detecting primality by a sieve adds `O((log log N)²)` to the saving; BV/BDH/EH/GRH-level inputs cannot beat 3/4 | PROVED |
 | Rem 3.4 | unconditional prime error terms are weaker than the integer count at relative accuracy `e^{−(log N)^{3/4}}` | Assessment |
 | Prop 4.1, 4.2 | **moment/variance methods** are CRT majorants (so capped by Thm 2.3/3.2 when CRT-evaluated); a degree-k moment method saves `O(k log log N)`, so Chebyshev/second moment gives θ = 0 | PROVED |
+| Thm 8.1 | quantitative dichotomy for direct interval counts: large Fourier mass above every level `λ ≤ c(log N)^{4θ/3}`, or interval count a factor `e^{s−Cλ^{3/4}}` below the CRT mean | PROVED |
+| Lemma 8.2, Cor 8.3 | on [1,N], Case-B forced classes of modulus `> 8⌊(N+1)/3⌋²` are empty; hit-pattern majorants never benefit from them | PROVED (from notes Thm 60.1) |
+| Prop 8.4, Conj 8.5 | multiplier-one witnesses of all moduli: mean `≤ ¼(1+log N)²` on [1,N]; conjecturally all moduli > N carry `O((log N)²)` (CRT: cubic, growing) | PROVED / CONJECTURE |
+| §8.3 | hit-count majorants (deg ≤ 10) evaluated exactly on [1,N] are *worse* than their CRT means for all Y ≥ N: no inter-frequency gain in the natural family | EVIDENCE |
+| Prop 8.6, Cor 8.7 | exact interval counts of degree-k hit-count majorants save `≤ (k/2)log(Cm/k) + O(k)`; beating 3/4 needs degree `≥ (log N)^{3/4+o(1)}` | PROVED / CONDITIONAL on H_node |
 | §5 | toy LP (8 primes): Fourier-ℓ¹ budget ≈ coefficient budget × 4–8 | EVIDENCE (toy model) |
 
 **Verdict.** None of (a), (b), (c), in the natural formalisations above,
@@ -674,7 +679,7 @@ on [1,N]
 
     (H_node(k))  π_int(y) ≥ e^{−C₀k}/√m  at the k+1 nodes above,
 
-with `m = E_int H ≤ (log N)^{O(1)}`. Then every degree-k hit-count majorant
+with `m = E_int H ≤ (log N)^{O(1)}`, `m ≥ 64`, `k ≤ m/16`. Then every degree-k hit-count majorant
 evaluated *exactly* on [1,N], with all inter-frequency cancellation
 included, saves at most `(k/2) log(16e² m/k) + C₀k + ½ log m`. A saving
 `(log N)^θ` therefore needs `k ≫ (log N)^θ / log log N`. So beating 3/4
