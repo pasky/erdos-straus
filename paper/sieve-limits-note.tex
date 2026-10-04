@@ -1,0 +1,107 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\A}{\mathcal A}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cR}{\mathscr R}
+\newcommand{\cF}{\mathfrak F}
+\newcommand{\cG}{\mathfrak G}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\Bern}{\operatorname{Bern}}
+\newcommand{\e}{\mathrm e}
+\newcommand{\Qseq}{Q_{\rm seq}}
+\newcommand{\lab}[1]{\textup{[\textsc{#1}]}}
+\usepackage{mathrsfs}
+% TODO(submission): author metadata; decide the citation form for the
+% internal repository documents.
+\title[Sieve limits for the Erd\H{o}s--Straus exceptional set]{Sieve limits for the Erd\H{o}s--Straus exceptional set:\\ why $3/4$ is sharp for congruence sieves}
+\author{Anonymous}
+\date{Research note; internally reviewed results only, not externally refereed}
+\begin{document}
+\begin{abstract}
+Let $E(N)$ count the $n\leq N$ for which $4/n$ is not a sum of three
+positive unit fractions.  The best internally proved bound in this
+programme is $E(N)\ll N\exp\{-c(\log N)^{3/4}\}$.  We show that the
+exponent $3/4$ is a hard ceiling for a precisely defined class of
+congruence sieves.  The class consists of nonnegative CRT majorants that
+are at least one on the whole avoider set of a family of forced
+congruence classes, whose final bound has the form
+$N\cdot\E\nu+\sum_i|a_i|$, and whose family moduli are at most
+$N^{O(1)}$.  For families in which every modulus has a dominant prime
+factor, and, for the classes $\cR(M)$, for families of gapped moduli, every
+such sieve saves at most $O((\log N)^{3/4})$.  No power of $\log\log N$
+can be gained.  The majorant of the $3/4$ note lies in this class, and the
+large-sieve argument of the $2/3$-loglog note is capped in the same way at
+its own exponent.  We list exactly what the theorems exclude.  For
+Selberg-type majorants we prove a sieve limit with no structural
+hypothesis, in terms of a noise-stability quantity, and a two-prime cap
+with twin moduli that is conditional on an equidistribution hypothesis.
+Every statement carries its status label.  All proofs were checked
+internally only; nothing here has been externally refereed.  This is not a
+proof of the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+\maketitle
+
+\section{Introduction and status}\label{sec:intro}
+
+Call $n\geq1$ \emph{representable} if $4/n=1/x_1+1/x_2+1/x_3$ with
+positive integers $x_i$, and let $E(N)$ count the non-representable
+$n\leq N$.  The Erd\H{o}s--Straus conjecture asserts that every $n\geq2$ is
+representable.  Vaughan~\cite{Vaughan} proved
+$E(N)\ll N\exp\{-c(\log N)^{2/3}\}$ with Montgomery's large
+sieve~\cite{Montgomery}.  Two companion notes of this programme
+improve this.  The first~\cite{LL} gains a factor
+$(\log\log N)^{1/3}$ in the exponent.  The second~\cite{TQ} proves
+\[
+ E(N)\ll N\exp\{-c(\log N)^{3/4}\},
+\]
+with label \emph{internally proved; not externally refereed}.  The $3/4$
+note itself explains $3/4$ heuristically: the forced classes have
+cubic logarithmic mass, and a mass-driven optimisation gives
+$\theta=B/(B+1)$ with $B=3$ \cite[\S\ref*{sec:intro}]{TQ}.
+% TODO: check the exact section of the 3/4 note for the ceiling heuristic
+% (its Section "The heuristic mass-driven three-quarter ceiling").
+
+This note turns that heuristic into a theorem for a precise class of
+sieves, and records exactly where the theorem stops.
+
+\subsection*{Status labels}
+Every statement carries one of the following labels.
+\begin{itemize}
+\item \lab{proved}: proved here, with the proof given or precisely cited
+  to an internal document; checked by internal hostile review only.
+\item \lab{proved mod X}: proved assuming the published external result X,
+  which was checked against the source but not re-proved.
+\item \lab{conditional}: proved assuming a named open hypothesis.
+\item \lab{evidence}: numerical or model evidence; never a proof.
+\item \lab{conjecture} / \lab{open}: not proved.
+\end{itemize}
+Each \lab{proved} result below appears in one of four internal working
+documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}.  Each was
+hostile-reviewed; the reviews are \cite{ETrev,EBrev,TWrev,TW2rev}.  No
+prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
+found; it may be folklore in spirit.  Novelty is not claimed.
+
+\subsection*{Results}
+% TODO: fill in after the body is written.
+
+\section{Forced classes}\label{sec:forced}
+
+\end{document}
