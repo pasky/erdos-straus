@@ -560,6 +560,8 @@ Semantic Scholar was rate-limited. These were **not accessed**:
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
   Thm 1.1(2).
 * Theorem W2 is a Friedlander–Iwaniec (2009) type theorem.
-* The campaign uses a 2026 Pomerance–Weingartner bound and
-  Dahan's work (arXiv:2608.24035; Thm 4.17 is credited as an independent
-  antecedent of the cubic exponent shape, for a different statistic).
+* Related recent work that the campaign compares against:
+  Pomerance–Weingartner (arXiv:2511.16817; an explicit-in-`m` Vaughan
+  bound) and Dahan (arXiv:2608.24035). Dahan's Thm 4.17 is credited as an
+  independent antecedent of the cubic exponent shape, for a different,
+  ineffective statistic.
