@@ -33,7 +33,8 @@ proved rate is still O4 Cor 3.1. Nothing is claimed for ES.
    `min(4sa,4sb,4ab)≤yH^{1/4−a}` are absorbed. Hence HC_Π(a), for
    `a≤1/4`, follows from one first-term bound:
    **(FT_a)** `Σ_{4sa²≡κ, 4sa>yH^{1/4−a}} Σ_{m|4sa²+1, m>H^{1/3−a}} 2/ν(s,a,m) ≪ e^{Ck}𝓛^BH^{−a}`,
-   where ν is the least `ν≥y` with `qmν≡−1 (mod 4sa)`.
+   where ν is the least `ν≥y` with `qmν≡−1 (mod 4sa)`, s is squarefree,
+   and only fibres with `ν≤T/(qm)` count (review D7).
 
    Lemma 3.3: `ν≡−q^{−1}·(4sa²+1)/m (mod 4sa)`, and each class mod 4sa
    holds at most 2 divisors of `4sa²+1`.
