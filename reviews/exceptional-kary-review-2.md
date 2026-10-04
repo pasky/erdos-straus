@@ -216,3 +216,110 @@ checks `log(1/LP) ≤ log 2 + 2EΦ` when `Q′(𝒜) ≥ ½`.
 No violation; Jensen form holds in all 186 cases with `Q′(𝒜) ≥ ½`. The test
 has power: halving Φ or dropping `(4/3)tM` is violated in most sparse cases.
 Outputs `data/kary/review2_pipeline_{sparse,dense}.txt`.
+
+## Part 3 — Theorem 4.5 and consistency with earlier results
+
+### 3.1 Theorem 4.5 assembly — SOUND (minor E2)
+
+* Blocks: singletons `(W, e^{s₁}]` (1.6), dyadic sequential blocks on
+  `(e^{s₁}, e^{λ/2}]` (2.1–2.2 with 1.4–1.5), one linear block `(e^{λ/2}, e^λ]`
+  (1.7), singletons above `e^λ` (cost 0, conditioning kept for the leak,
+  1.3). Increasing order; every class decided at its top prime; leak ≤ ½ at
+  `W₀(B)` (1.3–1.4). Base `O_B(1)` (1.1).
+* Dyadic cost: `E M_{V_i} ≤ K₁s³`, `d_i ∈ [λ/(2s), λ/s]`,
+  `(EM+4d)/d ≤ 2K₁16^i + 4`, so `EΦ_i ≤ (λ^{3/4}/2^i)(c₁ + i log 16) + O(log λ)`;
+  `O(log λ)` blocks ⇒ `≪_B λ^{3/4} + O(log²λ)`. Re-done; correct.
+* All constants are uniform in the family (W₀, K, C(ε,B) depend on B, W
+  only; Q₀ drops out). No dependence on the number of primes in a block:
+  Thm 2.5's cost sees only `n` and `M`, never `|V|` or the arity.
+* **E2 (minor, wording).** "`0 ≤ i ≤ I`, `2^I s₁ < λ/2`" should say I is the
+  *largest* such index, so that the blocks cover `(e^{s₁}, e^{λ/2}]`. Implicit;
+  no effect on the bound.
+
+### 3.2 Consistency with earlier results — no contradiction
+
+* **EB Prop 4.3** (`sup_n p_ℓ(n) ≥ ℓ^{−1+1/(L(1+η))−o(1)}`): a supremum. KARY
+  uses only `E M` (first moment) and `E p_ℓ²` (leak). Huge activations at rare
+  histories are heavy, leak, and are charged to Lemma 4.0's second moment,
+  exactly as in ETw Thm 2.7 (already merged, reviewed). Consistent.
+* **ET Lemma 3.8** (same-scale balanced moduli carry `≫ (log x)³`): KARY does
+  not claim twins are cheap. Lemma 4.2′ sums *all* moduli, twins included,
+  and the cubic mass `K₁s³` enters the dyadic cost through `log(s⁴/λ)` — the
+  same entry point as the unary mass in ET/ETw. Consistent; it is precisely
+  why the logarithmic dependence on mass is what matters.
+* **ETw §4.3 remark** ("no bound `1+O(max p)` for ≥ 2 primes per term"):
+  KARY's step costs `d·log(M/d)`, not `O(max p)`. Consistent.
+* **ETw §6.4 dense toys** (sequential σ has `log C*` above the void) and
+  **Remark 2.8**: these concern the *unweighted* ratio `E_σf/E_νf`; KARY proves
+  only the weighted inequality and shows the unweighted mean-mass form is
+  false in general. Consistent.
+* **TW2/TW3** (Λ² cap `≪ L^{3/4}(log L)^{O(1)}` for ≤ 2 large primes, fixed
+  B): KARY's Thm 4.5 is stronger on that class (all nonnegative CRT
+  majorants, any number of primes, no log). Not a contradiction; it makes
+  that line redundant for fixed B (TW2/TW3 still have value as an
+  independent route and for the explicit Λ² structure).
+* **ETw Thm 2.7 / 4.4** (`η^{−1}λ^{3/4}`): KARY removes the `η^{−1}` because
+  resolvedness, hence η-windows, are no longer needed; dyadic blocks suffice.
+  An improvement, not a conflict.
+* No earlier file proves a *lower* bound on `S_λ` larger than `λ^{3/4}` for
+  any bounded-B ℛ(M)-family (checked STATUS, DISCOVERIES, ET, EB, ETw,
+  NONCRT); the 3/4 note's majorant attains `λ^{3/4}` order, matching.
+
+### 3.3 Why the earlier obstacles were not real (one paragraph)
+
+ETw believed the η-twin range needed Conj 6.4 because it looked for an
+*unweighted* step inequality `E_σ f ≤ e^{Φ(h)}E_U f` with a cost fixed by the
+history, and the only extrapolation tool available (ET Prop 2.4) symmetrises
+over the *physical* hit indicators, which are independent only when every
+condition is unary in the block; k-ary activations make later hits depend on
+earlier residues, so that symmetry is lost (ETw §4.5 route 5), and the
+alternatives (finer windows, over-conditioning, voids, Markov removal plus
+incident-weight sparsity) all paid something proportional to the twin mass.
+KARY sidesteps both points. It couples σ with an unconditioned product draw c
+and extrapolates along *artificial* i.i.d. replacement coins on a frozen path,
+where symmetry holds by construction and the degree bound is just d-locality.
+The price of the adaptivity is absorbed in a pathwise weight `e^{−(4/3)tM}`
+controlled by a supermartingale, which needs only that each activated set is
+known before its coordinate is drawn. The resulting cost is random, and the
+unweighted form is genuinely false (Remark 2.8). But the sequential sieve
+limit never needed a deterministic cost: its downward induction is linear in
+the weight, and only the final Jensen step averages it. So `E Φ`, i.e. the
+mean mass, suffices. The mass is already cubic and controlled by first
+moments for all moduli, twins or not. The obstacles were artefacts of asking
+for a pointwise-in-history, unweighted comparison, not features of k-ary
+conditioning.
+
+## Defects
+
+* **E1 (minor, missing line).** Thm 4.1 assumes `Φ_j ≥ 0`; the sequential
+  instance never states `B(n,t,d) ≥ 1`. One line: `Σ_y ℓ_y(n) = 1` and
+  `Σ_y ψ(y) ≤ 1` give `max_y|ℓ_y(n)|/ψ(y) ≥ 1`.
+* **E2 (minor, wording).** Thm 4.5: I is the largest index with `2^I s₁ < λ/2`.
+* **E3 (bookkeeping, not a defect of KARY).** On merge, STATUS.md (η-twins
+  "open core"), DISCOVERIES (D)13, ETw §5 "Not covered" item 1 and §6
+  (Conj 6.4 / Prop 6.5 "needed") and the TW2/TW3 status lines become stale.
+  The headline's θ-reading still rests on ET Lemma 2.9's hypotheses (slice
+  primes `≤ N^{O(1)}`, `Σ|a_i| < N`), on fixed B, and on ℛ(M)-only families
+  (no (a,D)/Case-A mixtures); KARY states these, and STATUS should too.
+
+## Overall verdict
+
+| item | verdict |
+|---|---|
+| 1.1 QR base (ETw L1.1, C1.2, L1.3) | SOUND |
+| 1.2 inflation (ETw L2.2) | SOUND |
+| 1.3 leak (ETw L2.1′, C2.5; KARY L4.3) | SOUND |
+| 1.4 second moment (ETw L2.4, L4.0) | SOUND |
+| 1.5 first moment (ETw L2.6; KARY L4.2′) | SOUND (uses ET L3.1, not re-derived) |
+| 1.6 singletons (ETw P4.1) | SOUND |
+| 1.7 top block (ETw L4.2, C4.3) | SOUND |
+| 1.8 abstract step (ETw T2.3′) | SOUND |
+| 2.1 KARY Thm 2.5, Cor 2.6 | SOUND |
+| 2.2 KARY Thm 4.1 (random costs) | SOUND-AFTER-REPAIRS (E1, one line) |
+| 3.1 KARY Thm 4.5 | SOUND-AFTER-REPAIRS (E2, wording) |
+| 3.2 consistency | no contradiction found |
+
+**Headline: Theorem 4.5 is correct.** For each fixed B, every family of
+ℛ(M)-classes with `M ≤ P(M)^{1+B}` (plus W-smooth classes) has
+`S_λ ≪_B λ^{3/4}` for all nonnegative CRT majorants, unconditionally. E1–E2
+are presentational; no mathematical repair is needed.
