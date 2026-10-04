@@ -16838,4 +16838,114 @@ print("\n== (ch) 3/4-note blind audit: 16 toy/exact checks (scripts/es34_blind_a
 check_ch()
 
 
+
+# ---------------------------------------------------------------- (ci)
+# EXCEPTIONAL_TWIN3.md Lemma 3.2 (box counting) and inequality (2.1).
+# (1) Box counts: for every dyadic box and every class mod j (j = 13, 31, 101,
+#     variables <= 256 prime to j): #{v^2 t = c} <= min(V(T/j+1), 2T(V/j+1)),
+#     #{u = rho v} <= UW/j + min(U, W).
+# (2) Lemma 3.2 assembled (Y = 300, j = 101, 211, 1009): diag(r) <= z(2)^2 z(3)^2,
+#     diag(r1) <= z(2)^2; off-diag <= 2 (sum) (sup tail); sup tails <= the
+#     explicit box sums of the proof; sum rho <= (1 + log Y)^2.
+# (3) (2.1) pointwise (random x, z >= 0): min(x+z,1)^2 <= 2x + 2z^2; and on the
+#     real toy system (k = 1, C0 = 1, X = 2e6, j = 101, 211, 1009, all D | A^2):
+#     sum_a min(V,1)^2 <= 2 mass_small + 2 sum_a V_large^2 (j*nu-normalised).
+
+def check_ci():
+    from time import perf_counter
+    import numpy as np
+    t0 = perf_counter()
+
+    # (1) per-box counts
+    nbox = 0
+    for j in (13, 31, 101):
+        Y = 256
+        for V in (2 ** i for i in range(9)):
+            for T in (2 ** i for i in range(9)):
+                v = np.arange(V, min(2 * V, Y + 1)); v = v[v % j != 0]
+                t = np.arange(T, min(2 * T, Y + 1)); t = t[t % j != 0]
+                if len(v) == 0 or len(t) == 0:
+                    continue
+                c = (v[:, None] ** 2 * t[None, :]) % j
+                cnt = np.bincount(c.ravel(), minlength=j).max()
+                assert cnt <= min(V * (T / j + 1), 2 * T * (V / j + 1)), ("TWIN3 L3.2 box r", j, V, T, cnt)
+                inv = np.array([pow(int(x), -1, j) for x in t % j])
+                rho = (v[:, None] * inv[None, :]) % j      # u = v-range, v = t-range
+                cnt1 = np.bincount(rho.ravel(), minlength=j).max()
+                assert cnt1 <= V * T / j + min(V, T), ("TWIN3 L3.2 box r1", j, V, T, cnt1)
+                nbox += 1
+
+    # (2) Lemma 3.2 assembled
+    z2, z3 = pi ** 2 / 6, 1.2020569031595942
+    Y = 300
+    for j in (101, 211, 1009):
+        x = np.arange(1, Y + 1, dtype=np.int64); x = x[x % j != 0]
+        w = 1.0 / x
+        N = (x[:, None] ** 2 * x[None, :]).ravel()          # v^2 t
+        W = (w[:, None] * w[None, :]).ravel()
+        c = N % j
+        r = np.bincount(c, weights=W, minlength=j)
+        T = np.bincount(c[N > j], weights=W[N > j], minlength=j)
+        _, inv_idx = np.unique(N, return_inverse=True)
+        rhoN = np.bincount(inv_idx, weights=W)
+        diag = float((rhoN ** 2).sum())
+        U, Vv = np.meshgrid(x, x, indexing="ij")
+        U, Vv = U.ravel(), Vv.ravel()
+        cop = np.gcd(U, Vv) == 1
+        U, Vv = U[cop], Vv[cop]
+        W1 = 1.0 / (U * Vv)
+        invj = np.array([0] + [pow(a, -1, j) for a in range(1, j)])
+        rho = (U % j) * invj[Vv % j] % j
+        r1 = np.bincount(rho, weights=W1, minlength=j)
+        hi = np.maximum(U, Vv) >= sqrt(j / 2)
+        T1 = np.bincount(rho[hi], weights=W1[hi], minlength=j)
+        diag1 = float((W1 ** 2).sum())
+        L2 = log(Y, 2)
+        br = 2 * (2 + L2) ** 2 / j + sum((4 * i + 4) / 2 ** i for i in range(0, 60)
+                                         if 2 ** i <= Y and 2 ** i > (j / 8) ** (1 / 3))
+        br1 = (2 + L2) ** 2 / j + sum((2 * i + 2) / 2 ** i for i in range(0, 60)
+                                      if 2 ** i <= Y and 2 ** i >= (j / 8) ** 0.5)
+        S, S1 = r.sum(), r1.sum()
+        tot, tot1 = float((r * r).sum()), float((r1 * r1).sum())
+        assert S <= (1 + log(Y)) ** 2 and S1 <= (1 + log(Y)) ** 2, ("TWIN3 L3.2 mass", j)
+        assert diag <= z2 ** 2 * z3 ** 2 and diag1 <= z2 ** 2, ("TWIN3 L3.2 diagonal", j, diag, diag1)
+        assert tot - diag <= 2 * S * T.max() + 1e-9, ("TWIN3 L3.2 off-diag r", j)
+        assert tot1 - diag1 <= 2 * S1 * T1.max() + 1e-9, ("TWIN3 L3.2 off-diag r1", j)
+        assert T.max() <= br and T1.max() <= br1, ("TWIN3 L3.2 box sums", j, T.max(), br, T1.max(), br1)
+
+    # (3) (2.1) pointwise
+    rng = np.random.default_rng(1)
+    n = 200000
+    xs = rng.exponential(1.0, n) * rng.choice([0, 0.01, 0.5, 1, 3], n)
+    zs = rng.exponential(1.0, n) * rng.choice([0, 0.01, 0.5, 1, 3], n)
+    assert (np.minimum(xs + zs, 1) ** 2 <= 2 * xs + 2 * zs ** 2 + 1e-12).all(), "TWIN3 (2.1) pointwise"
+    # (2.1) on the toy system
+    X = 2_000_000
+    spf = _o9_spf(X // 4 + 2)
+    rows = []
+    for j in (101, 211, 1009):
+        Vs = np.zeros(j); Vl = np.zeros(j)
+        for m in primerange(3, X // j + 1):
+            if m == j or (j * m) % 4 != 3:
+                continue
+            A = (j * m + 1) // 4
+            res = [1]
+            for p, e in _o9_factor(A, spf).items():
+                res = [(rr * pow(p, k, j)) % j for rr in res for k in range(2 * e + 1)]
+            a = (-4 * np.array(res, dtype=np.int64)) % j
+            (Vs if m <= j else Vl)[:] += np.bincount(a, minlength=j) / m
+        V = Vs + Vl
+        lhs, rhs = float(np.sum(np.minimum(V, 1) ** 2)), float(2 * Vs.sum() + 2 * Vl @ Vl)
+        assert lhs <= rhs, ("TWIN3 (2.1) toy system", j, lhs, rhs)
+        assert Vl.sum() > 0, ("TWIN3 (2.1) toy system: no large partners", j)
+        rows.append(f"j={j}: {lhs:.2f} <= {rhs:.2f}")
+    print(f"ci Lemma 3.2: {nbox} (j, box) per-box counts OK; assembled bounds OK for j = 101, 211, 1009 (Y = {Y})")
+    print(f"ci (2.1): {n} random pointwise OK; toy system X = {X:.0e}: " + "; ".join(rows)
+          + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ci) EXCEPTIONAL_TWIN3: Lemma 3.2 box counting, inequality (2.1) ==")
+check_ci()
+
+
 print("\nall checks passed")
