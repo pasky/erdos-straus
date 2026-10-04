@@ -96,7 +96,10 @@ all shifted primes).
 * **S1 (semi-linear sieve, lower bound).** H. Iwaniec, *The half dimensional
   sieve*, Acta Arith. 29 (1976) 69–95; in the β-sieve form of
   Friedlander–Iwaniec, *Opera de Cribro* (AMS Colloq. Publ. 57, 2010),
-  Theorem 11.13 with `κ=1/2`, `β=1`. The archived secondary source
+  Theorem 11.13 with `κ=1/2`, `β=1`. The semi-linear sieve functions are
+  treated in *Opera de Cribro* ch. 14, which is what POINTWISE_SIZE
+  Prop 11.4 cites; the β-sieve statement is Thm 11.13, which is what
+  Teräväinen cites. We read neither in the primary source. The archived secondary source
   (Teräväinen, arXiv:1611.08585, §6, display (6.4);
   `sources/sieve/teravainen-1611.08585.{pdf,txt}`, lines ≈1440–1465) shows
   the theorem *applied* with exactly this `f(s)` and `s∈[1,2]`. It does not
@@ -214,9 +217,13 @@ is `≫N/(log N)^{3/2}`. Take `f=x^2+xy+y^2` (`D=−3`, `a=1`), `B=4`, `A=−3`,
 (such primes are inert in `Z[ω]`, so `r|f(x,y)` forces `r|x,y`). Moreover
 `n` is odd (x, y not both even) and `n≡(x−y)^2 (mod 3)`. For `p=4n−3` prime,
 `3∤n`, so `n≡1 (3)`. Hence `p≡1 (mod 24)`; with `p≡1 (35)` this gives
-`p≡1 (840)`. So FHRSS Thm 1.1(2) implies W1 directly. Their proof is
-Iwaniec's 1972 argument, i.e. the same S1–S3 route. We cite it as a
-cross-check, not as an independent proof.
+`p≡1 (840)`. So FHRSS Thm 1.1(2) implies W1 directly. Their proof runs
+Iwaniec's 1972 sieve at the level of the genus and then passes to the
+single form via Bourgain–Fuchs [BF12] (their §1.4). For `D=−3` there is
+one class per genus, so that step is vacuous, and the argument is the
+S1–S3 route. FHRSS is an arXiv preprint (April 2025); we did not check
+its publication status. We cite it as a cross-check, not as an
+independent proof.
 
 ## 3. Numerical check of W1 (EVIDENCE)
 
@@ -234,9 +241,11 @@ a random subsample of the counted primes is re-checked with the independent
 | 1e10 | 2369556 | 1118043 | 0.4718 | 0.0124 |
 | 1e11 | 21445485 | 9622751 | 0.4487 | 0.0123 |
 
-The normalised count is flat (0.0123–0.0126) over five decades, as W1
-and the matching upper bound predict. The fraction itself decays like
-`(log x)^{−1/2}` (`fraction·(log x)^{1/2}` = 2.30, 2.28, 2.27, 2.26, 2.26, 2.26).
+The normalised count stays in 0.0123–0.0126 over five decades, as W1
+and the matching upper bound predict. It drifts down monotonically
+(0.01259→0.01227 from 1e7 to 1e11, −2.5%), which is consistent with
+`1+O(1/log x)` secondary terms. The fraction itself decays like
+`(log x)^{−1/2}` (`fraction·(log x)^{1/2}` drifts 2.296→2.258).
 Re-check of 300 random counted `p<10^11`: all have `a_min≥7`; the
 distribution of `a_min` is `{7:163, 11:105, 15:17, 19:11, 23:1, 27:1, 31:2}`
 (uniform reservoir sample, seed 1; an earlier non-reservoir run gave
