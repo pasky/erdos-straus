@@ -98,3 +98,66 @@ strengthened in §§2–3.
   large sieve (see the reconstruction in [PW, §4]); for the inequality
   see [M]".
 
+
+## 2. §§4–6: sieve-limit theorem, profiles, the 3/4 cap
+
+Checked against ET §§2.1–2.7, 3, 3.7 and ETrev items 1–4.
+
+**Faithfulness.** Lemmas 4.1–4.3, Prop 4.4, Thm 4.5, Remarks 4.6–4.7,
+Thm 4.9, Lemma 4.10 are ET Lemmas 2.1–2.3, Prop 2.4, Thm 2.5 (with its two
+caveats), Thm 2.7, Lemma 2.8, essentially verbatim, hypotheses intact
+(`|F_ℓ(c)| ≤ ℓ/4` only for `ℓ ≤ e^λ`, `< ℓ` always; truncated mass; G).
+Lemmas 5.1–5.3 are ET Lemmas 3.1, 3.2 (profile part), 3.7, with Lemma 5.3
+correctly labelled *proved mod* Elsholtz–Tao Prop 1.4. Lemma 5.1 adds an
+explicit elementary `d = 1` case (Shiu is quoted for `q ≥ 2`); this is a
+correct tightening, consistent with TQ §3. Cor 6.1 = ET Cor 3.4,
+Cor 6.2 = ET Cor 3.6 (+ ET §3.7 for Case A), Thm 6.3 = ET "Consequence"
+paragraph after Lemma 2.9 + TW Thm 2.7. Verified against
+`sources/elsholtz-tao-1107.1010.pdf` (text l. 318–321): Prop 1.4 is quoted
+verbatim (`A,B > 1`, `k ≪ (AB)^{O(1)}`, bound `AB log(A+B) log(1+k)`).
+
+**Proofs re-derived.**
+* Prop 4.4 Step 1: `2^G s_* > λ` since `G = ⌊log₂(λ/s_*)⌋+1`, so the bands
+  cover every `s_i ≤ λ`. Step 5: `Σ_g 19α j_g s_g ≤ 19αλ`. ✓
+* Thm 4.5: fibre reduction `Eν ≥ (|R|/Q₀) avg_c E[ν|c]` uses only ν ≥ 0;
+  `{c}×{x=0} ⊆ 𝒜` with positive probability. ✓
+* Remark 4.8 (large sieve): the added condition `p_ℓ(c) ≤ 1/2` is exactly
+  what makes `g_ℓ = p/(1−p) ≤ 2p`, and ETrev item 3.4 already reads the
+  Rankin step "for `p_ℓ ≤ 1/2`". The author's `% TODO` (report point 1)
+  is resolved in the author's favour.
+* Cor 6.2 R-term: `c ≡ 1 (mod L')` avoids every w₀-smooth condition by
+  Lemma 2.5, so `|R|/Q₀ ≥ 1/L'`; `P(c≡a (q) | R) ≤ L'·P(c≡a (q) | (c,P_{w₀})=1)
+  ≤ L'/φ(q)`. (U): `ℓ(M) > √M` occurs once and the cofactor primes are
+  `≤ ℓ^C`, i.e. in an earlier window `(e^{s_{j'}}, e^{s_{j'}/C}]` or in Q₀. ✓
+* **Main Theorem 6.3 assembly.** Case (i): Lemma 3.4 with `Λ₀ = A log N`
+  (all charged primes are ≤ the dominant prime ≤ N^A), Cor 3.5, Cor 6.2
+  with R-term `O_C(1)`. Case (ii): same with Thm 7.6, R-term
+  `Σ_{p≤W₀(B)} log(2p/(p−1)) = O_B(1)`, constant `≪ η^{−1}` inside, so the
+  final constant depends on `A, B, η` (report point 3 — correct; the
+  bootstrap does not preserve linearity in η^{−1}). Majorants with a
+  *larger* admissible set R' ⊇ R are majorants of the smaller avoider set,
+  so the cap covers them too (TWrev item 8 makes the same point); a
+  smaller R' is outside (exclusion 5). The assembly is **correct modulo
+  D2** (shape of the Cor 6.1/6.2 hypothesis).
+
+**Defects.**
+
+* **D4 (MINOR, status labels).** Cor 6.1 and Cor 6.2 are headed
+  `\lab{proved}` but their statements include Case-A classes (Cor 6.1,
+  first bullet "or a Case-A class"; Cor 6.2 "and Case-A classes (modulo
+  G = 4rh)"). The Case-A profile is Lemma 5.3, *proved mod*
+  Elsholtz–Tao Prop 1.4. In ET, Cor 3.4/3.6 are Case-B statements and the
+  Case-A extension sits in §3.7 with the "modulo Prop 1.4" qualification.
+  The Main Theorem header gets this right; the two corollaries feeding it
+  do not. *Fix:* "\lab{proved}; for Case-A classes \lab{proved mod}
+  Elsholtz–Tao Prop 1.4", as in Thm 6.3.
+* **D5 (MINOR, Results list).** Results item 1 says the sieve limit holds
+  "+ O(log²λ)". That is only true under `s_* ≫ 1`, `log μ̄ ≪ log λ`
+  (Remark 4.6); in general the error is `≍ λ log λ` (ET §2.4 "Size of the
+  error term"). *Fix:* add "(in all applications here)" or cite
+  Remark 4.6.
+* **D6 (NIT).** Remark 4.8: delete the `% TODO` comment; cite ETrev
+  item 3.4 for the `p_ℓ ≤ 1/2` reading.
+* **D7 (NIT).** §7.1, "for every η ≤ min(η₀, 1/C−1)": η₀ is never
+  defined in the paper (EB: "η₀ < 1 fixed"). Define or drop it (η < 1 is
+  already assumed).
