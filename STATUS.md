@@ -137,6 +137,8 @@ note is sharp for its method.
   3/4).
 * So the 3/4 note's exponent cannot be improved within this architecture.
 
+The large sieve is capped as well (`EXCEPTIONAL_LARGESIEVE.md`, via duality).
+
 A θ>3/4 proof would need at least one of:
 * cancellation between frequencies (a direct interval count);
 * per-frequency weights below 1;
