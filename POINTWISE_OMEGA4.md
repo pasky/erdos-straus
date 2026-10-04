@@ -226,8 +226,8 @@ remaining terms `6k²(k−1)!b_k+6k²log(C_2𝓛) = (log𝓛)^{O(1)}` are `≤0.
 Conclude as in Cor 3.1. ∎
 
 *So the first target of the brief holds:* `W(p)/(log p)^k → ∞` along
-infinitely many p with an explicit `k=k(p)→∞`; equivalently
-`log L_h(T) ≤ T^{ε(T)}` with `ε(T) = 1/κ(𝓛) ≍ log₂T/log𝓛`… more precisely:
+infinitely many p with an explicit `k=k(p)→∞`. In uniform form,
+`log L_h(T) ≤ T^{1/κ(𝓛)}` with `1/κ(𝓛) ~ log₃T/log₂T`:
 
 **Corollary 3.3 (uniform form).** For all large T there is a hard prime p
 with `W(p)>T` and `log log p ≤ 𝓛/κ(𝓛)` (under ET), resp. `≤𝓛/κ_0(𝓛)`
@@ -236,3 +236,100 @@ with `W(p)>T` and `log log p ≤ 𝓛/κ(𝓛)` (under ET), resp. `≤𝓛/κ_0(
 
 Comparison: O3 Thm 5.2 gives `log log L_h(T) ≤ 𝓛/k+O_k(𝓛/log𝓛)` for each
 fixed k, i.e. `o(𝓛)` with no rate.
+
+## 4. The bottleneck
+
+### 4.1 Anatomy of the factorial (PROVED, about the scheme)
+
+In Theorem 1.1 the factorial comes from one inequality only, the Markov
+push (Step 1): the mass pushed from level r into size j is bounded by
+`binom(r,j)Σ_r/t_j` with threshold `t_j=δ_r(4N_r)^{−(j−1)}/(2r)`, and
+`N_r ≥ r(L_r+1) ≥ rΛ_r/log4 ≥ Σ_r/(2δ_r log 4)`. So the bound for the
+new level-j mass is `≥ Σ_r^j`, and level j then needs its own
+truncation `L_j ≥ Λ_j/log 4 ≥ Σ_j`, hence thresholds `(L_j)^{−(i−1)}` for
+its i-subsets. Along the chain `k→k−1→…→2` the exponents multiply:
+`log Σ_2 ≳ (k−1)!·log Ŝ`. Every other parameter (`H_r`, `Λ_r`, `𝔐`, the
+twist, the per-prime masses) enters only through `Ẑ_r` and costs a
+factor `3kβ_k^{r−1}`, i.e. the additive `b_k` in `z_r`.
+
+Two facts locate the problem precisely.
+
+* **Markov is sharp at the first push** (O2 Prop 11.4, O3 Prop 2.2): at
+  level 3 the pairs of codegree `>t` have mass `≫(1/t)log(1/t)`, the
+  Markov bound up to the log. So the first push cannot be made cheaper
+  by better counting.
+* **The cascade is an artefact.** The heavy sets are κ-monochromatic
+  (all vertices `(ℓ_i, κ mod ℓ_i)` for one rational κ of small height;
+  O3 §2 EVIDENCE for pairs; Prop 2.2 for the three families). A pushed
+  κ-monochromatic j-set has level-j sub-codegrees `≍1`, so the scheme
+  pushes it down step by step until its vertices `(ℓ,κ)` become singles
+  — at a final cost `≈Σ_ℓ1/ℓ ≈ log(k+1)` per κ, not the product of the
+  intermediate Markov bounds. Quarantining the hub classes directly
+  (O3 §1) avoids the cascade. What is missing is an arithmetic statement
+  that *nothing else* is heavy.
+
+### 4.2 The precise sufficient input, and what it buys (PROVED implication)
+
+For `H≥2` let `𝓗_H` be the hub set of O3 Def 2.3 (`−u/v`, `uv≤H`;
+`−4sa²`, `sa≤H`; `−1/(4sb²)`, `sb≤H`). A vertex `(ℓ,x)` is an *H-hub* if
+`x∈𝓗_H(ℓ^{e_ℓ})`.
+
+**Hypothesis HC(a,B)** (hub codegree; open). For all large T, all
+`3≤k≤𝓛^{1/2}`, every `Π⊇{ℓ≤2T^{1/(k+1)}}` and every `H≥2`: in the system of
+Construction 2.0 for Π (supports `≤k`), with every event containing an
+H-hub deleted, every vertex set O with `2≤|O|≤k−1` and no H-hub has
+codegree `Δ_O ≤ 𝓛^B H^{−a}`.
+
+Vertex *degrees* are not part of HC: they are enforced by Markov at cost
+`kS_H/δ_k` (O2 Thm 10.3 step 1). EVIDENCE for `|O|=2`, `k=3` is O3 §2:
+the maximum outside `𝓗_X` decays like `X^{−0.7}` at fixed T, with no
+growth in T over `10^9…10^13`. Nothing is known for `|O|≥3`.
+
+**Lemma 4.1 (transfer bookkeeping; PROVED modulo Thorner–Zaman).**
+Suppose, for Construction 2.0 with some Π, `|Π∖Π_0|≤e^X`, and a minorant
+for `1[W>T]` on `n≡1 (Q)` exists as in PO Thm 4.1 with `K≤e^X` and moduli
+on `≤e^X` free prime powers. Then some hard `p>T` has `W(p)>T` and
+`log p ≤ C_1e^X[2.52(k+1)T^{1/(k+1)} + e^{X+2}𝓛]`.
+
+*Proof.* The size bullets of Theorem 2.1's proof with `e^X` in place of
+`|𝓑|` and of the prime counts. ∎
+
+**Theorem 4.2 (PROVED implication, modulo Thorner–Zaman and Elsholtz–Tao
+Prop. 1.4).** If HC(a,B) holds, then for infinitely many Mordell-hard p
+
+```
+log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
+```
+
+*Proof.* Fix T and k, and let `δ_k:=[4ek·17^k]^{−1}` (O2 Thm 10.3).
+
+1. *Base system.* Construction 2.0 with Lemma 11.2 threshold
+   `c:=δ_k e^{−0.011k}/(64k)`, so `|𝓑| ≤ kŜ/c = e^{O(k)}Ŝ`.
+2. *Hub quarantine.* Impose `X_ℓ∉𝓗_H(ℓ^{e_ℓ})` at every free ℓ by O3
+   Thm 1.1/Cor 1.2 (decoupling) with the conditioned measure P′.
+   `h_ℓ ≤ 3H(1+log H)/(ℓ−1) ≤ 1/100` since `ℓ>y≫H`, and
+   `S_hub ≤ 3H(1+log H)(log(k+1)+1)` (Mertens over `y<ℓ≤T`). Under P′,
+   events with an H-hub have measure 0, and `p′≤p·(100/99)`, so all
+   masses and codegrees grow by at most `e^{0.011k}`.
+3. *Main minorant.* O2 Thm 10.3 under P′ (O3 Lemma 1.3, which needs
+   `h_ℓ≤1/100`). With `Ŝ′:=e^{0.011k}Ŝ`, its proof gives
+   `Λ′+λ ≤ 22kŜ′/δ_k`, `L+1 ≤ 17kŜ′/δ_k`, so with `N:=17k²Ŝ′/δ_k ≥ k(L+1)`
+   condition (CD_k) holds as soon as all `Δ^{(j+1)}≤η_k:=δ_k/(2N^{k−2})`.
+   By HC this holds for `H:=⌈(𝓛^Be^{0.011k}/η_k)^{1/a}⌉`, and
+   ```
+   log(1/η_k) ≤ (k−1)(log Ŝ + 2.86k + 3log k + 6).
+   ```
+4. *Output.* Cor 1.2 of O3: `log(M_1/μ) ≤ 22kŜ′/δ_k + 3S_hub + 2`, primes
+   per modulus `≤ k(L+1)+J+1 = O(K)`. So with ET (`log Ŝ ≤ 5log𝓛`),
+   ```
+   X := log K + O(1) ≤ (k/a)(2.86k + 5log𝓛 + 3log k + 6) + (B/a)log𝓛 + 2log log H + O(1).
+   ```
+5. *Optimise.* Take `k:=⌊(a𝓛/5.72)^{1/3}⌋`. Then `X ≤ 2.86k²/a + O(k log𝓛/a)`,
+   `e^{2X}𝓛 ≤ T^{1/(k+1)}`, and Lemma 4.1 gives
+   `log log p ≤ X + 𝓛/(k+1) + O(log k) ≤ (1.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}`.
+   Since `W(p)>T`, `log W(p) ≥ 𝓛 ≥ (1−o(1))(a/5.72)^{1/2}1.5^{−3/2}(log log p)^{3/2}`,
+   and `(5.72)^{−1/2}1.5^{−3/2} = 0.227 > 0.2`. ∎
+
+So the factorial of Theorem 1.1 is *entirely* the cascade: an arithmetic
+codegree bound of polynomial strength in the hub height would replace
+`(k−1)!` by `k²` in `log K`.
