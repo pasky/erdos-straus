@@ -7,6 +7,30 @@ Notation follows `EXCEPTIONAL_KARY2.md` (K2), `EXCEPTIONAL_KARY.md` (EK),
 `EXCEPTIONAL_TWIN.md` (ETw), `EXCEPTIONAL_THETA.md` (ET) and
 `EXCEPTIONAL_NONCRT.md` (NC). ElT = Elsholtz–Tao, J. Aust. Math. Soc. 2013.
 
+## 0. Summary
+
+**Result: positive.** The prime-only-majorant cap of NC Thms 3.2–3.3
+extends to every K2 mixture. A majorant that is `≥ 1` only on the primes
+of the avoider set, used through prime equidistribution, saves at most
+`C(log N)^{3/4}(log log N)^{3/4}` (`C_B(log N)^{3/4}` under bounded B),
+exactly K2's integer cap. No obstruction appears: K2's proof runs verbatim
+on the unit groups `(ℤ/ℓ^e)^×`.
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.2 | prime majorant ⇔ unit-cell majorant (Dirichlet), for every family; selector classes are invisible under the unit measure `E*` | PROVED |
+| Lemma 1.3 | `E*` is a product over prime powers; a class mod `ℓ^v` has `E*`-mass `(ℓ/(ℓ−1))ℓ^{−v}` or 0 | PROVED |
+| Lemma 2.1 | the K2 unit-square base consists of units; R-term `(π(W)+1)log 2` | PROVED |
+| Prop 2.2 | EK Thm 4.1 / ETw Thm 2.3′ under `E*`; singleton, k-ary (EK Thm 2.5), linear steps and leak are arithmetic-free | PROVED |
+| Lemmas 2.3–2.5 | inflation weight `γ*(ℓ) = (ℓ/(ℓ−1))(1−ℓ^{−1/2})^{−1}` has the four properties K2 uses; first moments `≪ (log y)³(log log y)³`, second moments `≪ ℓ^{−7/4+o(1)}`, leak `≤ 1/2` | PROVED (Case A via ElT Prop 1.4) |
+| **Thm 3.1** | **every prime majorant of level λ of any mixture of ℛ(M)-, (a,D)-, Case-A and selector classes: `log(1/E*ν) ≤ Cλ^{3/4}(log λ)^{3/4}`; `≤ C(B)λ^{3/4}` under bounded B** | PROVED (Case A via ElT Prop 1.4) |
+| Lemma 4.1 | coefficient budget ⇒ level under `E*` (extra `log λ`, harmless) | PROVED |
+| Cor 4.2 | prime-law methods `π(N)E*ν + Err`, `Err ≥ 0`, with moduli `≤ N^A` (any equidistribution level) or `Σ|a_i| ≤ N^A`: saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` | PROVED (same proviso) |
+| Prop 4.3 | under GRH, for `Σ|a_i| ≤ N^{1/2−ε}` and moduli `≤ N^A`, the *exact* prime sum `Σ_{p≤N}ν(p)` is `≥ (1−o(1))li(N)E*ν`: signed error accounting cannot help | CONDITIONAL (GRH) |
+| §4.4 | NC Thm 3.3 (sieve-detected primality) holds for all mixtures with **no** `(log log N)²` loss, via selector classes | PROVED (K2 Thm 5.1) |
+| §5 | γ* inequalities, R-term formula, unit status of forced residues, toy exact LP | EVIDENCE |
+| §6 | exclusions: ν ≥ 0 only on primes ≤ N, ν ≥ 1 only on actual exceptional primes, unconditional signed errors, super-polynomial budgets, non-`Σν(p)` prime methods, prime large sieve | open / out of scope |
+
 ## 1. Setting: prime majorants and the unit measure
 
 Let 𝔊 be a finite family of ℛ(M)-, (a,D)-, Case-A and selector classes
@@ -450,3 +474,11 @@ note). Under E* (this file) the selector classes are not even needed.
    (`EXCEPTIONAL_LARGESIEVE.md` is stated for the integer measure; its
    duality Thm 2.1 under `E*` is not checked here).
 6. *External input.* The Case-A part uses ElT Prop 1.4 (as K2).
+
+## Replay
+
+```
+cd scripts
+# Lemma 2.3, Lemma 2.1(2), Remark 3.3, toy LP for arity k <= 2 (~21 s, < 0.6 GB)
+uv run --with sympy --with scipy --with numpy python -u primelaw_checks.py 1000000 2 > ../data/primelaw/checks.txt
+```
