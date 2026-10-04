@@ -7,7 +7,30 @@ Status: **checkpoint 1 (draft, not yet reviewed).** Labels follow
 
 ## 0. Summary
 
-(filled in at the end)
+| item | statement | label |
+|---|---|---|
+| §1 | EK Thm 4.5 uses B only in the block/singleton first moments and in the pointwise τ-bound of the second moment; the number of primes per modulus never enters | PROVED (inspection) |
+| Lemmas 2.1, 2.2 | no (a,D)-class and no Case-A class contains a square mod its modulus (Mordell/Jacobi); this proves ETw Remark 1.4's observation | PROVED |
+| Lemma 2.3 | square base: product measure, R-term `≤ 2W`, avoids every W-smooth class of all three types | PROVED |
+| Lemma 3.2 | ℛ(M): `Σ_{P(M)≤y}τ(A_M²)Γ(M)/M ≪ (log y)³(log log y)³`, no B (body: EK Lemma 4.2′; tail: Rankin + Cauchy–Schwarz) | PROVED |
+| Lemma 3.3 | (a,D): first moment `≪ (log y)³`, a pure Euler product | PROVED |
+| Lemmas 3.4–3.6 | Case A: small-divisor domination, box moments of `τ(krh²+1)^q`, first moment `≪ (log y)³(log log y)³` | PROVED (3.6 body modulo Elsholtz–Tao Prop 1.4) |
+| Lemmas 4.1–4.3 | cofactor second moments, `E p_ℓ² ≪ ℓ^{−7/4+o(1)}` for all three types, leak `≤ 1/2` with W absolute | PROVED |
+| **Thm 5.1** | **every mixture of ℛ(M)-, (a,D)- and Case-A classes, arbitrary moduli: `log(1/Eν) ≤ Cλ^{3/4}(log λ)^{3/4}`** | PROVED (Case A modulo ET Prop 1.4) |
+| Thm 5.2 | with `G ≤ P(G)^{1+B}`: `≪_B λ^{3/4}` for all three types (EK Thm 4.5 extended) | PROVED (Case A modulo ET Prop 1.4) |
+| Cor 6.1 | coefficient-sum methods with slice primes `≤ N^{O(1)}`: saving `≪ (log N)^{3/4}(log log N)^{3/4}`; **no θ > 3/4** | PROVED (same proviso) |
+| §7 | brute-force checks of Lemmas 2.1(2), 2.2, 3.4; smooth first moments `≍ (log y)³` numerically | EVIDENCE |
+
+The B-removal follows TW4 §11's sketch in spirit, with one simplification.
+No (D)/(H)/(G) split is needed: Rankin's trick, applied to the whole
+modulus in dyadic blocks above `y^{u₀}` (`u₀ ≍ log log y`), combined with
+Cauchy–Schwarz against crude polylogarithmic second moments of the
+shifted divisor weight, makes the smooth-dominated tail `O(1)`. The body
+`G ≤ y^{u₀}` is the old B-bounded sum with `B = u₀`. The price is
+`u₀³ = O((log log y)³)` in the first moment, hence `(log λ)^{3/4}` in the
+cap. The prediction of TW4 §11 (`λ^{3/4}log λ`) was slightly too
+pessimistic. The singleton range must shrink to `s₁ = λ^{1/4}(log λ)^{−3/4}`;
+with `s₁ = λ^{1/4}` the singletons alone would cost `λ^{3/4}(log λ)^3`.
 
 ## 1. Where EK Theorem 4.5 uses B, and where it does not
 
@@ -451,3 +474,82 @@ no analogue of the middle window `r ≍ log L` of TW4 §§9.3, 12 (there the
 Λ² noise-stability losses `2^r`, `(log L)^r` are per prime). The TW4
 (D)/(H)/(G) split is not needed either: Rankin's trick is applied to
 the whole modulus, uniformly.
+
+## 6. The final statement, and what remains excluded
+
+**Corollary 6.1 (exceptional-set reading; PROVED, Case A modulo ET
+Prop. 1.4).** Let a method bound `#(𝒜(𝔊) ∩ [1,N])` by `N·Eν + Σ_i|a_i|`,
+where:
+* 𝔊 is any finite family of ℛ(M)-, (a,D)- and Case-A classes (arbitrary
+  moduli; no B, no dominant prime, any number and multiplicity of prime
+  factors);
+* ν is a CRT majorant (`ν = Σ a_i 1[n ≡ b_i (d_i)] ≥ 0` on ℤ, `≥ 1` on
+  `𝒜(𝔊)`), of any level;
+* every prime dividing a modulus of 𝔊 is `≤ N^A` (in particular, moduli
+  `≤ N^{O(1)}` suffice);
+* `Σ|a_i| < N` (otherwise the bound is trivial).
+
+Then the saving `s = log(N/bound)` satisfies
+`s ≤ C_A (log N)^{3/4}(log log N)^{3/4}`. In particular **no such method
+proves `E(N) ≪ N exp(−(log N)^θ)` with `θ > 3/4`.** With `G ≤ P(G)^{1+B}`
+for all moduli (B fixed), `s ≤ C_{A,B}(log N)^{3/4}` (Thm 5.2).
+
+*Proof.* ET Lemma 2.9 with `Λ₀ = A log N` replaces ν by a majorant of
+level `λ = Λ₀ + log T + log(1/Eν) ≤ (A+1)log N + s` and at most doubled
+mean. Apply Theorem 5.1 (resp. 5.2): `s ≤ log 2 + C λ^{3/4}(log λ)^{3/4}`,
+and `λ ≪_A log N` once `s ≤ log N`. ∎
+
+**Architecture class covered.** Nonnegative CRT majorants of the avoider
+set of *any* finite mixture of the three forced-class families, with
+the coefficient-sum rounding bound. This contains the 3/4 note's
+majorant, all prime-slice / sequential / Λ² / Selberg-type majorants of
+ET, ETw, TW2–TW4, EK, and every combination of multiplier groupings among
+the three types. Compared with EK Thm 4.5 it drops `M ≤ P(M)^{1+B}` and
+adds (a,D)- and Case-A classes.
+
+**Still excluded (unchanged from ET §6.1, EK §4.3 and NONCRT):**
+1. *Exact exponent vs. `(log log N)^{3/4}`.* Theorem 5.1 leaves a factor
+   `(log λ)^{3/4}`, which comes only from smooth-dominated moduli
+   (Remark 3.8). A method saving `(log N)^{3/4}·ω(N)` with
+   `ω ≤ (log log N)^{3/4}` is not excluded by Theorem 5.1 (it is by
+   Theorem 5.2 under bounded B).
+2. *Other forced classes.* Classes not of the three types (e.g. forced
+   classes from identities that are not ℛ(M)-groupings, (a,D) or Case
+   A). The proof uses only (i) no class contains a square mod its
+   modulus (for the base), (ii) first moments `≪ (log y)³·polylog(log y)`
+   over `P(G) ≤ y`, (iii) cofactor second moments `≪ ℓ^{o(1)}`. Any
+   family with (i)–(iii) is covered by the same proof.
+3. *Methods outside the class:* majorants nonnegative only on `[1,N]`;
+   bounds using cancellation between frequencies (direct interval
+   counts; NONCRT §2.4); per-frequency weights below 1; non-CRT tuple
+   counts or other genuinely arithmetic input; slice primes beyond
+   `N^{O(1)}`; non-majorant (signed) sieves whose error is not
+   `Σ|a_i|`.
+4. *External input.* The Case-A part uses Elsholtz–Tao Prop. 1.4 (as ET
+   Lemma 3.7 does). Families without Case-A classes are unconditional.
+
+## 7. Numerics (EVIDENCE only)
+
+* `scripts/kary2_square_check.py`: Lemmas 2.1(2) and 2.2 by brute force.
+  All 36,000 (a,D)-classes with `a ≤ 60`, `D ≤ 600` and all 34,884 Case-A
+  classes with `d ≤ 6000` contain no square mod G; a control (shifted
+  residues `c+1`) finds 280 squares among 2000, so the test is live.
+  Output `data/kary2/square_check.txt`.
+* `scripts/kary2_moments.py`: (1) Lemma 3.4 holds for all `n ≤ 10⁶`;
+  the exponent actually needed there is ≤ 2.59 (the lemma uses 7).
+  (2) The truncated smooth first moment
+  `S(y,X) = Σ_{M≤X, M≡3(4), P(M)≤y}τ(A_M²)/M` with `X = 10⁷`: for
+  `y ≤ 100` it is stable in X (`X = 10⁶` vs `10⁷` differ by < 4%) and
+  `S/(log y)³ ≈ 0.17–0.19`, consistent with Remark 3.8's heuristic
+  `≍ (log y)³`. For `y ≥ 200` the truncation `X = 10⁷` is not converged
+  (u ≤ 3), so those rows are lower bounds. Output `data/kary2/moments.txt`.
+
+## Replay
+
+```
+cd scripts
+# Lemmas 2.1(2), 2.2: no squares in (a,D)/Case-A classes (~1 s)
+uv run --with sympy python kary2_square_check.py 60 600 6000 > ../data/kary2/square_check.txt
+# Lemma 3.4 to 1e6; smooth first moments to X = 1e7 (~3 s, < 1 GB)
+uv run --with numpy python kary2_moments.py 1000000 10000000 > ../data/kary2/moments.txt
+```
