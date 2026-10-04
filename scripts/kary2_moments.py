@@ -5,7 +5,8 @@
     tau(n) <= 8 * max tau(d)^e that would have sufficed.
 (2) Remark 3.8: truncated smooth first moment of R(M) classes,
     S(y, X) = sum_{M<=X, M=3 (4), P(M)<=y} tau(A_M^2)/M, against (log y)^3,
-    for X = XMAX/10 and XMAX (stability in X shows the tail is small).
+    for X = XMAX/10 and XMAX (a small increment from X/10 to X is consistent
+    with, but does not bound, the remaining infinite tail).
 Usage: python kary2_moments.py [NMAX XMAX]
 """
 import sys, math

@@ -1,6 +1,9 @@
 # EXCEPTIONAL_KARY2 — the 3/4 cap without the B-hypothesis, for ℛ(M), (a,D) and Case-A classes (task O14)
 
-Status: **checkpoint 1 (draft, not yet reviewed).** Labels follow
+Status: **checkpoint 1.** One internal self-review pass (codex reviewer,
+repairs applied: Cor 6.1 direction of the saving inequality and a
+projection step before ET Lemma 2.9; `Q₀` W-smooth; a transcription error
+in §3). Awaiting the parent's hostile review. Labels follow
 `DISCOVERIES.md`. Notation follows `EXCEPTIONAL_KARY.md` (EK),
 `EXCEPTIONAL_TWIN.md` (ETw), `EXCEPTIONAL_TWIN4.md` (TW4) and
 `EXCEPTIONAL_THETA.md` (ET).
@@ -130,9 +133,10 @@ Now compute `(−r|m)` otherwise. `(−r|m) = (−1|m)(2|m)^{[r even]}(r_o|m)
 `(−r|m) = −1`, a contradiction. (`r_o = 1` is included: both symbols are
 then 1.) ∎
 
-**Lemma 2.3 (square base; PROVED).** Fix `W ≥ 3`. Let `Q₀` be a common
+**Lemma 2.3 (square base; PROVED).** Fix `W ≥ 3`. Let `Q₀` be the least common
 multiple of `8·P_W` and of the W-smooth parts of all moduli of 𝔊 (`P_W`
-the product of the primes ≤ W). Put
+the product of the primes ≤ W). So `Q₀` is W-smooth (review: an extra
+prime above W in `Q₀` would add its own factor to the R-term). Put
 
     R_W^□ = { c mod Q₀ : c mod p^e is a unit square for every p^e ∥ Q₀ }.
 
@@ -173,8 +177,8 @@ where 𝔘 is the *universe* of all classes of the three types (each class
 counted once per parametrisation; this only over-counts). EK Lemma 4.2′
 Step 1 bounds the expected (light or not) block mass by this sum:
 `E_{Q'} Σ_{ℓ ∈ V} p_ℓ ≤ 𝔐(max V)`, for every family 𝔊 ⊆ 𝔘 (Step 1 uses
-only the chain rule, now with the square base, and `Γ(q)ℓ^{−v} ≤ Γ(G)/G`
-for `G = qℓ^v`). The three types are bounded separately:
+only the chain rule, now with the square base, and
+`(Γ(q)/q)ℓ^{−v} ≤ Γ(G)/G` for `G = qℓ^v`). The three types are bounded separately:
 `𝔐 ≤ 𝔐_R + 𝔐_{aD} + 𝔐_A`.
 
 **Lemma 3.1 (smooth Euler products, Rankin; PROVED, standard).** Let
@@ -380,7 +384,9 @@ gives `μ(q)² ≤ (v+1)τ(q)Σ_{4rh=qℓ^v}τ(4rh²+1)²`. Long blocks,
 
     second factor ≤ (Σ_{v₁} (4/K)Σ_{r'h' ≤ K/2} τ(k r'h'² + 1)⁴)^{1/2},   k = 4ℓ^{v₁+2v₂} ≤ 4ℓ^{2v},
 
-writing `r = ℓ^{v₁}r'`, `h = ℓ^{v₂}h'` (then `r'h' = q/4`). Since
+writing `r = ℓ^{v₁}r'`, `h = ℓ^{v₂}h'` (then `r'h' = q/4`); the factor
+`(v+1)` from the preliminary bound on `μ(q)²` is carried into the
+polynomial `(v+1)^c`. Since
 `K/2 ≥ k³`, Lemma 3.5 (q = 4) bounds the second factor by
 `C(log 2kK)^{c₄/2} ≤ C((2v+u+2)log ℓ)^{c₄/2}`. Summing over blocks:
 `≤ C(v+1)^{c}(log ℓ)^{c}`. Short blocks, `K < 128ℓ^{6v}`: `4rh² + 1 ≤
@@ -494,10 +500,21 @@ Then the saving `s = log(N/bound)` satisfies
 proves `E(N) ≪ N exp(−(log N)^θ)` with `θ > 3/4`.** With `G ≤ P(G)^{1+B}`
 for all moduli (B fixed), `s ≤ C_{A,B}(log N)^{3/4}` (Thm 5.2).
 
-*Proof.* ET Lemma 2.9 with `Λ₀ = A log N` replaces ν by a majorant of
-level `λ = Λ₀ + log T + log(1/Eν) ≤ (A+1)log N + s` and at most doubled
-mean. Apply Theorem 5.1 (resp. 5.2): `s ≤ log 2 + C λ^{3/4}(log λ)^{3/4}`,
-and `λ ≪_A log N` once `s ≤ log N`. ∎
+*Proof.* *Projection (review).* Let `Q` be the lcm of the moduli of 𝔊;
+`𝒜(𝔊)` is Q-periodic. Replace ν by its conditional average
+`ν̄(n) = E[ν(n') | n' ≡ n (mod Q)]`. A term `a·1[n ≡ b (d)]` becomes
+`a·(d'/d)·1[n ≡ b (d')]` with `d' = gcd(d,Q)` (or vanishes if the two
+congruences are incompatible). So `ν̄ ≥ 0`, `ν̄ ≥ 1` on 𝒜, `Eν̄ = Eν`,
+`T̄ = Σ|ā_i| ≤ T`, and every prime of every modulus of `ν̄` divides some
+modulus of 𝔊, hence is `≤ N^A`.
+*Coarsening.* Put `S = log(1/Eν)`; since the bound is `≥ N·Eν`, `s ≤ S`.
+ET Lemma 2.9 applied to `ν̄` with `Λ₀ = A log N` and
+`λ = Λ₀ + log T̄ + S ≤ (A+1)log N + S` gives a majorant ν' of 𝒜 of level
+λ with `Eν' ≤ 2Eν`. Theorem 5.1 (resp. 5.2) gives
+`S ≤ log 2 + Cλ^{3/4}(log λ)^{3/4}`. If `S ≤ (A+1)log N`, then
+`λ ≤ 2(A+1)log N` and `S ≤ C_A(log N)^{3/4}(log log N)^{3/4}`. Otherwise
+`λ ≤ 2S` and `S ≤ log 2 + C(2S)^{3/4}(log 2S)^{3/4}`, which bounds S by an
+absolute constant, contradicting `S > (A+1)log N` for N large. ∎
 
 **Architecture class covered.** Nonnegative CRT majorants of the avoider
 set of *any* finite mixture of the three forced-class families, with
@@ -539,7 +556,8 @@ adds (a,D)- and Case-A classes.
   the exponent actually needed there is ≤ 2.59 (the lemma uses 7).
   (2) The truncated smooth first moment
   `S(y,X) = Σ_{M≤X, M≡3(4), P(M)≤y}τ(A_M²)/M` with `X = 10⁷`: for
-  `y ≤ 100` it is stable in X (`X = 10⁶` vs `10⁷` differ by < 4%) and
+  `y ≤ 100` it changes by < 4% from `X = 10⁶` to `10⁷` (consistent with,
+  not a bound on, a small remaining tail) and
   `S/(log y)³ ≈ 0.17–0.19`, consistent with Remark 3.8's heuristic
   `≍ (log y)³`. For `y ≥ 200` the truncation `X = 10⁷` is not converged
   (u ≤ 3), so those rows are lower bounds. Output `data/kary2/moments.txt`.
