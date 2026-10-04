@@ -330,8 +330,8 @@ every prime-local system obtained by conditioning on small primes.
 **Example 5.2 (PROVED).** Let `{(ℓ_j, ℓ'_j)}` be disjoint pairs of
 primes `> W`, with `m_j = ℓ_jℓ'_j ≡ 3 (mod 4)` (e.g. `ℓ_j ≡ 1`,
 `ℓ'_j ≡ 3 (mod 4)`), and let 𝔊 consist of the ℛ(m_j)-classes, `ω_j`
-of them mod `m_j` (`1 ≤ ω_j ≤ τ(A_{m_j}²) < min(ℓ_j, ℓ'_j)` for large
-primes). Let Q₀ be coprime to all `m_j`. Then:
+of them mod `m_j`. Take `ℓ_j < ℓ'_j < ℓ_j²` with `ℓ_j` large, so that
+`1 ≤ ω_j ≤ τ(A_{m_j}²) ≤ m_j^{o(1)} < ℓ_j`. Let Q₀ be coprime to all `m_j`. Then:
 1. the induced prime-local system is empty: `Ω_c(ℓ) = ∅` for every c and
    every prime ℓ, so `S_c(Q) = 1` for every Q and the prime-modulus
    arithmetic large sieve saves nothing;
@@ -396,7 +396,8 @@ For Gallagher's sieve (`w = Λ`, prime powers `≤ Q`, `h = log N`) this
 gives `log(N/B) ≤ X(π) + c₁` with an absolute `c₁`, unless
 `X(π) ≥ (log N)/3`.
 
-*Proof.* `D* ≤ D(π) = D_u + X(π)`, so by Lemma 6.1
+*Proof.* Since `coll_q ≤ 1`, `D ≤ W`; so a bound exists only if `W > h`.
+`D* ≤ D(π) = D_u + X(π)`, so by Lemma 6.1
 `D* − h ≤ (W−h)/N + X(π)` and `B ≥ (W−h)/((W−h)/N + X(π))`.
 Gallagher: `D_u ≤ log Q + c₀` (Mertens), so `D* > h` forces
 `Q ≥ N e^{−c₀−X}`. If `X < (log N)/3` and N is large, then `ψ(Q) ≥ Q/2 ≥
@@ -404,15 +405,15 @@ Gallagher: `D_u ≤ log Q + c₀` (Mertens), so `D* > h` forces
 `B ≥ (Q/4)/u ≥ (N/4)e^{u−c₀−X}/u ≥ (N/4)e^{1−c₀−X}`. ∎
 
 **Corollary 6.3 (prime-slice systems; PROVED).** For a prime-slice system
-with `f_ℓ(c) ≤ ℓ/2`, a selector `R = {(c,P)=1}` with `Q₀` squarefree
-(`Q₀ = P`), and `Σ_ℓ p̄_ℓ ℓ^{−1/2} ≤ K₀`, Gallagher's larger sieve (any
+with `f_ℓ(c) ≤ ℓ/2`, a selector `R = {(c,P)=1}` (`P | Q₀`), and `Σ_ℓ p̄_ℓ ℓ^{−1/2} ≤ K₀`, Gallagher's larger sieve (any
 Q) saves at most `C(1 + K₀)`. For ET Cor 3.4 families this is `O(1)`.
 
 *Proof.* Take the product measure of Theorem 4.1 with `R' = R`. For
 `ℓ ∈ 𝒫`: `π mod ℓ^v` is `π mod ℓ` lifted uniformly, and by convexity of
 χ² in its first argument `χ²_{ℓ^v}(π) ≤ E_R χ²(Unif(ℤ/ℓ∖F_ℓ(c))) =
-E_R g_ℓ(c) ≤ 2p̄_ℓ`. For `p | P`: `π mod p^v` is uniform on units (or on
-`(ℤ/p)^×` lifted), so `χ² = 1/(p−1)`. Other primes: χ² = 0. Hence
+E_R g_ℓ(c) ≤ 2p̄_ℓ`. For `p | P`: `π mod p^v` is uniform on units mod `p^v` (for
+`p^v | Q₀`) or that lifted uniformly, so `χ² = 1/(p−1)`. Other primes
+(including `p | Q₀`, `p ∤ P`): χ² = 0. Hence
 `X(π) ≤ Σ_ℓ 4p̄_ℓ log ℓ/ℓ + Σ_p 2 log p/(p(p−1)) ≤ C(1+K₀)`. Theorem 6.2. ∎
 
 So on prime slices the larger sieve does not even reach the
