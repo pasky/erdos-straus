@@ -578,6 +578,78 @@ level λ ≫ log N that Theorem 8.1 requires must therefore come from
 witnesses on single integers n ≤ N, with `k ≥ λ/(2 log N)`. In the CRT
 model those coincidences are independent. On [1,N] they are the actual
 witness multiplicity, i.e. the Elsholtz–Tao `f(n)` and its correlations.
-Lemma 8.2 also shows real witnesses are *redundant*: any representation
-with large M has one with `M ≤ 8B²`. This points to clustering of hits
-(more voids than CRT), not to a deficit. §8.3 tests this.
+Lemma 8.2 removes the CRT mass above `M₀` from [1,N] entirely. §8.3
+tests what happens between N and M₀.
+
+### 8.3 Test: hit-count majorants on [1,N] versus CRT (EVIDENCE)
+
+`scripts/noncrt_interval.py`, family: prime moduli `ℓ ≡ 3 (4)`,
+`F_ℓ = 𝓡(ℓ)`, `H_Y(n) = #{ℓ ≤ Y : n mod ℓ ∈ F_ℓ}`. For each degree
+k ≤ 10 it solves the LP `min E[P(H_Y)]` over `deg P ≤ k`,
+`P ≥ 0` on `{0..80}`, `P(0) ≥ 1`. It does this twice: once for the empirical
+law of H_Y on the chosen integers in [1,N] (an exact interval evaluation:
+every inter-frequency cancellation is included) and once for the CRT law
+(independent `Bern(|F_ℓ|/ℓ)`). Positivity is imposed only up to 80; this
+relaxation helps both sides equally. Runs take ≤ 1 min each
+(`data/noncrt/interval_*.txt`).
+
+| N, set | Y | CRT mass μ | E_int H | void int | saving k=10: int / CRT |
+|---|---|---|---|---|---|
+| 3000, all n | 3000 | 8.01 | 7.61 | 0.0200 | 3.62 / 6.30 |
+| | 8·10⁶ = M₀ | 30.47 | 9.75 | 0.0197 | 3.38 / 12.68 |
+| 3000, non-squares | 3000 | 8.01 | 7.75 | 0.0020 | 4.72 / 6.30 |
+| | 8·10⁶ | 30.47 | 9.93 | 0.0017 | 4.12 / 12.68 |
+| 3000, primes | 3000 | 8.01 | 8.22 | 0 | 4.83 / 6.30 |
+| | 8·10⁶ | 30.47 | 10.91 | 0 | 4.33 / 12.68 |
+| 30000, primes | 30000 | 13.08 | 13.33 | 0.0003 | 5.18 / 8.04 |
+| | 5.2·10⁶ | 28.87 | 16.96 | 0.0003 | 4.89 / 12.42 |
+| | 3·10⁷ | 35.62 | 17.14 | 0.0003 | 4.88 / 13.41 |
+
+Findings.
+* For `ℓ ≤ N` the interval and the CRT agree in first moment, as they
+  must, since `E_int H_N ≈ μ_N`.
+* **For `ℓ ∈ (N, Y]` the interval receives only a small part of the CRT
+  mass.** At N = 30000 (primes), raising Y from N to 3·10⁷ adds 22.5 to
+  μ but only 3.8 to `E_int H`. The forced residues `−4D mod ℓ` avoid
+  `[1,N]` (cf. Lemma 8.2, which is the extreme case).
+* Consequently, at every degree 2 ≤ k ≤ 10 and every Y ≥ N, the exact
+  interval value of the best hit-count majorant is **worse** than its CRT
+  mean, often by a factor `e^{5}–e^{9}`. The interval saving is flat in Y
+  for Y ≥ N. So for this natural family `Δ_N(ν) < 0`: the interval
+  carries *more* than its CRT share. That is the opposite of branch (D)
+  of Theorem 8.1.
+* At small Y (≈ √N) the interval is slightly better than CRT for primes
+  (3.36 vs 2.52, from the selector-like effect of primality). This is a
+  bounded-level effect, inside Theorem 3.3's `O(log²λ)`.
+
+### 8.4 A proved piece of the thinning, and the conjecture
+
+**Proposition 8.4 (PROVED).** The number of pairs (n, (M,D)) with
+`1 ≤ n ≤ N`, (M,D) a Case-B datum for n (Lemma 8.2), and *multiplier one*
+(`n + 4D = M`), is at most `((N+1)/4)·Σ_{g≤(N+1)/4} τ(g)/g ≤ (N+1)(1+log N)²/4`,
+uniformly in the size of M.
+
+*Proof.* By notes (60.7)–(60.8) every datum has `D = gd`,
+`(M+1)/4 = gu` with `d | g`. Multiplier one gives `n = 4g(u−d) − 1`. So
+`1 ≤ n ≤ N` forces `1 ≤ u − d ≤ (N+1)/(4g)`, hence `g ≤ (N+1)/4`. Also
+(g,d,u) determines (n,M,D). Count: g, then `d | g` (τ(g) ways), then
+`u − d` (`≤ (N+1)/(4g)` ways). Finally `Σ_{g≤x}τ(g)/g ≤ (1+log x)²`. ∎
+
+So on [1,N] the multiplier-one witnesses of *all* moduli together have
+mean `≤ ¼(1+log N)²` per integer. In the CRT model the same classes
+(each class `−4D mod M` meets [1,N] only with multiplier one once M > N +
+4D) carry unbounded mass. Witnesses with multiplier `a ≥ 2` and `M > N`
+are not controlled by this argument.
+
+**Conjecture 8.5 (interval thinning).** For the Case-B forced classes,
+`(1/N) Σ_{n≤N} #{data (M,D) for n with M > N} ≪ (log N)²`. The CRT mass
+of these classes up to `N^c` is `≍ (c³−1)(log N)³`.
+
+*Assessment.* If 8.5 holds, then on [1,N] the slice primes above N carry
+mass `O((log N)²)`, not cubic. An interval-exact hit-count method then sees
+an effective system whose primes `> N` have quadratic total mass. Any
+saving beyond the low part (moduli `≤ N`, mass `≍ (log N)³`, level-limited
+by Theorem 2.3) is bounded by that quadratic mass. This is the reverse of
+what inter-frequency cancellation would need. This is a heuristic link,
+not a theorem: hit-count majorants evaluated exactly are not covered by
+any CRT cap.
