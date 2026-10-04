@@ -212,3 +212,107 @@ So **HC_Π(a′) for `a′≤1/4` is equivalent, up to the proved term
 `C4^k𝓛⁵H^{−1/4}`, to `𝒦^{>H^{1/3−a′}} ≪ e^{Ck}𝓛^{B′}H^{−a′}`.** By
 Prop 3.2 of O5 (all atoms with `m≤μ`), one may even take μ=1 here and
 ask for `𝒦^{>1}`; the m≤μ part of `𝒦` is already covered.
+
+## 3. The corner: what is proved and the exact residual
+
+**Lemma 3.1 (shallow corner; PROVED).** For `Z≥1`, the corner atoms
+with `min(4sa,4sb,4ab) ≤ yZ` contribute at most `(Z/2)(D_sa+D_sb+D_ab)`.
+
+*Proof.* Say `4sa≤yZ`. The atom is the first element of its
+`(s,a,m)`-fibre, and each fibre has one first element. Its weight is
+`2/n′≤2/y≤Z/(2sa)`. Summing over `(s,a)` and `m|4sa²+1` gives
+`(Z/2)D_sa`. The other two planes are the same. ∎
+
+**Theorem 3.2 (PROVED).** Let `0<a≤1/4`, `Z:=H^{1/4−a}`, and assume the
+hypotheses of HC* (no saturated H-hub, `4^k≤H≤y`). Then for every μ≥1
+
+```
+Σ^{>μ} ≤ C·4^k·𝓛⁵·H^{−a} + FT^{>μ}(Z),
+FT^{>μ}(Z) := Σ_{(s,a): 4sa²≡κ (q), 4sa>yZ, sa≤T}  Σ_{m | 4sa²+1, m>μ}  2/ν(s,a,m),
+ν(s,a,m) := least integer ν≥y with  q·m·ν ≡ −1 (mod 4sa),
+```
+
+where m runs over Π-numbers prime to q (C absolute).
+
+*Proof.* Cor 2.2 and Lemma 3.1 with this Z
+(`Z·4^k𝓛⁴H^{−1/4}=4^k𝓛⁴H^{−a}`). A remaining corner atom has
+`4sa>yZ`, and it is the first element of its (s,a,m)-fibre. The n′-values
+of that fibre are exactly the `n′≥y` with `qmn′≡−1 (mod 4sa)`:
+`qmn′=4sab−1` gives the congruence; conversely such n′ gives an integer
+`b=(qmn′+1)/(4sa)`, which lies in the fibre's class by Lemma 1.1(2).
+(`gcd(qm,4sa)=1`, as `m|4sa²+1` and `4sa²≡κ` is a unit mod q.) So its
+n′ is ν. ∎
+
+So **HC_Π(a) for a≤1/4 follows from the first-term bound**
+
+```
+(FT_a)   FT^{>H^{1/3−a}}(H^{1/4−a}) ≤ e^{Ck}𝓛^{B}H^{−a}    (all O as in HC*).
+```
+
+O5's residual `P_0` was the first terms of the `(a,b)`-fibres, summed
+over the whole lattice. (FT) is smaller: only the first elements of
+(s,a)-fibres with `4sa>yH^{1/4−a}` remain, and the atoms are also corner
+atoms (Lemma 1.4: `s,a,b≤2qm`).
+
+**Lemma 3.3 (shape of FT; PROVED).** Put `X:=4sa` and `F:=4sa²+1=aX+1`.
+
+1. `m^{−1}≡F/m (mod X)`. So `ν(s,a,m)` is the least `ν≥y` with
+   `ν≡−q^{−1}m* (mod X)`, where `m*:=F/m`.
+2. Each residue class mod X contains at most two divisors of F.
+3. Hence, pointwise, `Σ_{m|F} 2/ν(s,a,m) ≤ Σ_{0≤i<τ(F)/2} 4/(y+i)`,
+   and `ν` always lies in `[y,y+X)`.
+
+*Proof.* (1) `F≡1 (X)`. (2) `F=4sa²+1<16s²a²=X²`. A divisor `m<X` is the
+least residue of its class. A divisor `m≥X` has `m*=F/m<X` and
+`m*≡m^{−1} (X)`, so m* (hence m) is fixed by the class. (3) By (1) and
+(2), distinct ν carry at most two divisors each. ∎
+
+So (FT) asks for the divisors of `aX+1` to avoid, *on average over the
+pairs `(s,a)` with `4sa²≡κ (q)`*, the short progression
+`{−qν mod X : y≤ν≤y·H^{a}}`. Lemma 3.3(2) is the trivial Lenstra-type
+range (`X>F^{1/2}`). The pointwise worst case is
+`Σ_{m|F}2/ν ≍ min(τ(F),y)/y`, against the average `≍τ(F)·log(X/y)/X`.
+
+**Proposition 3.4 (long planes; PROVED).** Cut the corner atoms of FT
+(i.e. all corner atoms with `4sa>yZ`) into boxes
+`s∈[S,2S)`, `a∈[A,2A)`, `b∈[B,2B)`, `m∈[μ_0,2μ_0)` (`≤8𝓛⁴` boxes).
+
+1. If `(S,A)` is in Regime I or II of Prop 2.1, the box contributes
+   `≤ C4^k𝓛²μ_0/B`.
+2. If `(S,B)` is in Regime I or II (for the class `κ^{−1}`), the box
+   contributes `≤ C4^k𝓛²μ_0/A`.
+3. If `max(A,B)>3q²`, the box contributes `≤ C2^k𝓛μ_0/S`.
+
+*Proof.* (1) Each corner atom is the first element of its (s,a,m)-fibre,
+so the box holds at most `Σ_{(s,a)∈box, 4sa²≡κ}τ(4sa²+1)=SA·D(S,A)` of
+them. Each has `n′=(4sab−1)/(qm)≥3SAB/(2qμ_0)`, so weight
+`≤(4/3)qμ_0/(SAB)`. Hence the box gives `≤(4/3)(qμ_0/B)D(S,A)`, and
+`D(S,A)≪4^k𝓛²/q` in Regimes I–II (proof of Prop 2.1). (2) is the same.
+(3) Use the (a,b,m)-fibres, at most `Σ_{(a,b)∈box}τ(a+b)` of them, and O5
+Prop 7.1's box bound `2τ(q)(2+𝓛)AB/q` for this sum when `max(A,B)>3q²`. ∎
+
+**Corollary 3.5 (the residual, precisely).** Let `0<a≤1/4` and
+`W:=C4^k𝓛²H^{a}`. Under the hypotheses of HC*, HC_Π(a) holds with
+`B′=6` **except** for the corner atoms with `4sa>yH^{1/4−a}` in boxes
+where, for each of the three planes, either the plane is *short* or the
+remaining variable is `<μ_0W`. Here short means Regime III for `(S,A)`
+or `(S,B)` (so both sides are `≪q^{14/5}`), and `max(A,B)≤3q²` for
+`(a,b)`. In particular:
+
+* if all three planes are long, the residual box has `S,A,B<μ_0W`,
+  and `n′≥y` (`32SAB>qμ_0y`) forces
+  ```
+  m ≥ μ_0 ≥ (qy/32)^{1/2}·W^{−3/2}.
+  ```
+  So in boxes with three long planes, HC_Π(a) holds for all
+  `m < (qy/32)^{1/2}W^{−3/2}`. This is `≥ y^{3/2}H^{−3a/2−o(1)}`, far
+  beyond O5's `H^{1/3−a}`.
+* The residual is therefore (a) large m, `m ≥ (qy)^{1/2}H^{−3a/2−o(1)}`,
+  with `s,a,b<mH^{a+o(1)}`; or (b) boxes with a short plane. In (b) the
+  numbers `4sa²+1` are `≤q^{O(1)}`, and the only available divisor
+  bound is pointwise, `τ≤q^{O(1/log log q)}`. That is not `≤𝓛^B`
+  when `ω(q)≍k→∞`.
+
+*Proof.* Theorem 3.2 and Prop 3.4 with `B≥μ_0W` (resp. `A≥μ_0W`,
+`S≥μ_0W`), summed over the `≤8𝓛⁴` boxes. The displayed bound uses
+`(μ_0W)³>SAB>qμ_0y/32`. ∎
