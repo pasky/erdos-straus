@@ -344,3 +344,33 @@ Files re-imported from `side-agent/noncrt-inputs-2` @ 6ed4f30 (repairs commit
 Unnumbered round-1 notes not acted on (cosmetic, optional): Thm 2.3 still does
 not restate `μ̄ = Σ_{s_ℓ≤λ}p̄_ℓ`, G, s_*; Remark 3.4 still says "save at most" for
 known VK/SW error terms; the uniformity of `e^{−o(λ)}` in (2.6).
+
+## R2.1 Thm 8.1 (quantitative dichotomy) — **SOUND**
+
+If (H) fails, (2.4) gives `Eν ≥ (|R|/(4Q₀))e^{−Φ̄}`; subtracting `Σν ≤ Ne^{−s}` gives (D).
+If moreover `s ≥ Φ̄ + log(8Q₀/|R|)`, then `e^{−s} ≤ ½Eν`. ✔ For Cor 2.5 families
+`Φ̄ ≤ Cλ^{3/4} + O(log²λ)`, so the condition holds for `λ ≤ c s^{4/3}` (≫ log N when
+θ > 3/4), provided also `log(P/φ(P)) ≤ s/2` (true; worth saying). Correctly labelled a
+restatement of Thm 2.3. (H) is the *weighted* mass `Σ_{s(S)>λ}A_S e^{−s(S)}`, as stated.
+
+## R2.2 Lemma 8.2, Cor 8.3 (classes above M₀ ≍ N² are empty on [1,N]) — **SOUND-AFTER-REPAIRS** (one justification)
+
+* Lemma 8.2 is exactly (60.9) of notes Thm 60.1 (`M = 4gu−1`, `g ≤ B`, `u ≤ g+v ≤ 2B`),
+  valid for every datum of every n ≥ 1. I re-derived it and checked it: my
+  normal-form enumerator agrees with brute force over (M,D) for all n < 25, and for
+  n ≤ 300 max M = 22799 ≤ M₀ = 80000 (`scripts/review_noncrt_lemma82.py`).
+* Cor 8.3: ν' ≥ 0, ν' = G(0) ≥ 1 on 𝒜_{𝒲₀}, and ν = ν' on [1,N]. ✔ (Requires G ≥ 0 on
+  all of {0,1}^𝒲, not only on realised patterns; true for P∘f with P ≥ 0 on ℤ_{≥0}
+  and for Selberg squares — say "G ≥ 0 on {0,1}^𝒲".)
+
+**N9 (minor, wrong justification, conclusion true).** "every Lemma 3.2 class, which is
+a subclass for n ≥ 1" — an ET Lemma 3.2 class `n ≡ −(4D+a) (mod 4a·g(D))` is *not*
+a subclass of one ℛ(M) class: along the class, `M = (n+4D)/a = 4g(D)j − 1` varies
+with n. The conclusion (such classes of modulus > M₀ miss [1,N]) is still true, by
+a different route: for n ≤ N in the class, the datum has normal form with
+`D = gd`, `d | g`, so `D | g²` and `g(D) | g`; with `a ≤ 2B`, `g ≤ B` this gives
+`4a·g(D) ≤ 8B² = M₀`. Numerically, for n ≤ 300 the largest such modulus is
+40400 ≤ 80000. Repair: replace "which is a subclass" with this argument.
+
+The "Meaning" paragraph is fine: after Cor 8.3, level above λ needs at least
+`λ/(2 log N + O(1))` classes of modulus ≤ M₀ in one product.
