@@ -16782,4 +16782,42 @@ print("\n== (cg) EXCEPTIONAL_TWIN2: binary noise stability Thm 1.4, exact tensor
 check_cg()
 
 
+# ---------------------------------------------------------------- (ch)
+# 3/4-note blind audit (reviews/es-threequarter-blind-audit.md): the 16 toy /
+# exact checks of scripts/es34_blind_audit_checks.py (Bonferroni majorant
+# Lemma 8.1, factorial moments Thm 6.3, CRT fibre identities, Lemma 3.2,
+# phi inequality, prime-power table (34), Lemma 6.1/6.2, Sec 10 identity
+# classes, pair sum, the 3/4 optimisation).  Imported (not re-implemented) and
+# run in-process; any FAIL line raises.  Sanity checks of the algebra only, not
+# evidence for the asymptotic theorem.
+
+def check_ch():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import io
+    import contextlib
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts",
+                        "es34_blind_audit_checks.py")
+    spec = importlib.util.spec_from_file_location("es34_blind_audit_checks", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        for name in ("bonferroni", "bernoulli_moments", "toy_family", "lemma_h", "phi_ineq",
+                     "pp_table", "euler_factor", "class_count", "identity_classes",
+                     "pair_sum", "optimisation"):
+            getattr(mod, name)()
+    lines = [s for s in buf.getvalue().splitlines() if s.startswith(("PASS", "FAIL"))]
+    fails = [s for s in lines if s.startswith("FAIL")]
+    assert not fails and mod.OK, ("3/4 blind-audit check failed", fails)
+    assert len(lines) == 16, ("expected 16 blind-audit checks", len(lines))
+    print(f"ch 3/4 blind audit: {len(lines)}/16 PASS; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ch) 3/4-note blind audit: 16 toy/exact checks (scripts/es34_blind_audit_checks.py) ==")
+check_ch()
+
+
 print("\nall checks passed")
