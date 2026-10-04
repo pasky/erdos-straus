@@ -477,3 +477,113 @@ export PYTHONPATH=scripts
 uv run python scripts/omega4_rates.py recursion   # <1 s -> data/omega4/recursion.txt
 uv run python scripts/omega4_rates.py rates       # <1 s -> data/omega4/rates.txt
 ```
+
+## 7. Attacking HC(a,B): a reduction and a sharp obstruction (checkpoint 2)
+
+Fix a vertex set O at the free primes `ℓ_1,…,ℓ_{j+1}`, squarefree for
+simplicity, `q:=∏ℓ_i`, with CRT class c mod q. Put `κ:=−c`.
+
+**Lemma 7.1 (b-parametrisation; PROVED).** An atom `(s,a,b)` (O3 Lemma 2.1)
+gives an event containing O iff `q | 4sab−1` and `a ≡ κb (mod q)`. This
+holds iff, with `β:=b mod q`,
+
+```
+a ≡ κβ,    s ≡ (4κβ²)^{−1}    (mod q).
+```
+
+So for each residue β of b, both a and s lie in a *single* class mod q
+(`a_β`, `s_β`, least positive representatives).
+
+*Proof.* The class is `−a/b` (O3 Lemma 2.1), so the class condition is
+`a≡−cb`. Then `4sab≡1` reads `4sκb²≡1`. ∎
+
+Weights: such an event e has `P(e∖O)=1/φ(n′)`, where `M=qmn′`, m is the
+Π-part and n′ is the rest of the rough part. Moreover `n′>1` has a prime
+`>y` (e strictly contains O), and `m | gcd(M,4D+1) | a+b` (O3 Lemma 2.1(2)).
+Hence `P(e∖O) ≤ C log𝓛·qm/M` with `m|a+b`, and also `≤ C log𝓛/y`.
+
+**Three heights.** Lemma 7.1 brings out the three hub families of O3
+Prop 2.2 as the three planes of the parametrisation:
+
+```
+h_3(c):=min{ab : a≡κb},   h_1(c):=min{sa : 4sa²≡κ… i.e. −4sa²≡c},   h_2(c):=min{sb : −1/(4sb²)≡c}
+```
+
+(minima over positive integers, all congruences mod q). c is outside
+`𝓗_H` iff `h_1,h_2,h_3 > H` (up to the factor conventions of O3
+Def 2.3).
+
+**Proposition 7.2 (the non-core terms; PROVED, except the τ-average in
+(iii)).** Ignore first the factor m (put `m=1`). Expanding
+`Σ_{b≡β}Σ_{a≡a_β}Σ_{s≡s_β} q/(4sab)` over full periods, Δ_O splits as:
+
+* (i) `𝓛³/q` (all three variables run over at least a full period);
+* (ii) two-variable boundary terms `𝓛Σ_{β<q}1/(βa_β)`,
+  `𝓛Σ_{β<q}1/(βs_β)` and `𝓛Σ_β 1/(a_βs_β)`. These are pair sums over
+  `[1,q)²` along the planes `a≡κb` (a lattice of determinant q),
+  `4κsb²≡1` and `4sa²≡κ`. Dyadic boxes contain no point below the
+  relevant height. A box `X×Y` of a quadratic plane has
+  `≤2min(Y,2^{ω(q)}X)` points (`≤2^{ω(q)}` square roots per residue), so
+  the box sum is `≤2(2^{ω(q)}/(XY))^{1/2}`. In the lattice plane, points
+  with `ab<q/4` lie on one ray per box. Hence
+  ```
+  (ii) ≪ 𝓛²·2^{ω(q)/2}·(h_1^{−1/2}+h_2^{−1/2}) + 𝓛³(h_3^{−1}+q^{−1/2});
+  ```
+* (iii) the factor m multiplies (i)–(ii) by a divisor average
+  `Σ_{m|a+b}1 = τ(a+b)` over the relevant points. Pointwise this is only
+  `T^{o(1)}`, which is too weak for HC. A polylog bound needs τ-sums over
+  lattice points in boxes (sublattices `d|a+b`, determinant qd). This is
+  routine-looking but **not done**;
+* (iv) the **core**: `Σ_{β<q} q/(βa_βs_β)` over the β with
+  `4βa_βs_β ≥ qy`, i.e. triples with all of `s,a,b<q`.
+
+So (i)–(iii) give exactly the HC shape with `a=1/2`, polylog `𝓛^B`, and
+an `e^{O(k)}` factor `2^{ω(q)/2}`, which is harmless in Thm 4.2. The
+whole difficulty is the core.
+
+**Proposition 7.3 (the core is a short-range inverse problem; the
+counting statement is PROVED, its consequence for HC is an Assessment).**
+Take a non-hub ray `(a,b)=t(u,v)` with `uv=h>H`, `t≤(q/(4h))^{1/2}`, and
+`s=s_t`, the least s with `4st²h≡1 (mod q)`. These are core triples.
+Their contribution to the core is
+
+```
+Σ_t q/(t²h·s_t) = Σ_t 4/n_t,    n_t:=(4s_tt²h−1)/q,
+```
+
+so it is `≍#{t : s_t ≤ Y}/Y` at scale `n_t≍Y≥y`.
+
+* *Elementary counting.* Pairs `(s,t)` with `st²≡w (mod q)`, `s≤Y` and
+  `t≤t_0` number at most `min(t_0, 2^{ω(q)+1}Y)`. Summing over scales
+  gives a core contribution `O(2^{ω(q)})`, and
+  `O(min(1, (q/h)^{1/2}/y))` when `q ≤ y²h`. So **for vertex sets whose
+  primes have product `q≤y²H^{1−ε}`, the method closes**: the core is
+  `≪2^{ω(q)}H^{−ε/2}`.
+* *For `q ≫ y²H`* (for instance a pair with one prime near `T/y`), the
+  core bound one needs is `#{t≤(q/h)^{1/2} : (wt^{−2} mod q) ≤ Y} ≪ ηY`
+  for `Y≥y`. Here `(q/h)^{1/2}·Y/q` is the expected count. This is
+  equidistribution of `w·t^{−2} mod q` in intervals of length
+  `Y≪q^{1/2}`, with t in a range of length `≤q^{1/2}`. The Weil bound
+  for incomplete Kloosterman-type sums is trivial there, since it needs
+  t-ranges `≥q^{1/2+ε}`. Divisor and lattice counting, which ignores the
+  residues, cannot beat `O(2^{ω(q)})`: the adversarial residue pattern
+  (`s_t≈y` for all t) is consistent with every counting constraint used
+  in (i)–(iv).
+
+**Verdict (checkpoint 2).** HC(a,B) is **sharply reduced, not proved**.
+It holds with `a=1/2` for the non-core terms, modulo a τ-in-lattice
+average (iii). It also holds for all vertex sets with `q≤y²H^{1−ε}`.
+What remains is a worst-case short-interval statement for modular
+inverses of squares, `w·t^{−2} mod q` with `t≤(q/h)^{1/2}`, for moduli
+q that are products of `≤k` primes in `(y,T]`. It lies beyond the Weil
+range. Thm 4.2 is therefore not unconditional.
+
+*Possible ways around it (not pursued).*
+
+* (α) Lemma 10.2 needs only *maximal* codegrees. An averaged HC (over c
+  mod q, weighted by `P(O)`) follows from (i)–(iii) plus the trivial
+  `Σ_cΔ_O(c)=q·w_q`. Using it requires a Markov push for the rare bad
+  sets, and that brings back a (much smaller) cascade.
+* (β) Change the construction so that heavy-q vertex sets cannot occur,
+  for example by splitting the free range `(y,T]` into scales. This is
+  untested.
