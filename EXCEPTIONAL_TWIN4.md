@@ -285,3 +285,91 @@ TW2 (3.1). ∎
 This is TW3 Lemma 2.1 for all V. As noted in TW3 Prop 6.4(2), the only
 loss for composite partners is `Σ_R 1/R ≤ (log L)^{s}`, polylogarithmic
 because R has a bounded number of primes.
+
+## 6. Large partners: second moments for every star
+
+Fix a set V of `h ≥ 1` primes `> w₂` (`h ≤ r − 1`), `Q = Q_V`, and an odd
+w₂-smooth k prime to Q. Let `𝓡_{Q,k}` be the set of integers R with all
+prime factors `> w₂`, `Ω(R) ≤ r − h`, `R > (kQ)^{C₀}`, `kQR ≤ X`,
+`kQR ≡ 3 (4)`. (It contains every large sf partner at V.) For `a mod Q` put
+
+    V_{Q,k}(a) = Σ_{R∈𝓡_{Q,k}} R^{−1} #{D | A_R² : −4D ≡ a (mod Q)},   A_R = (kQR+1)/4.
+
+For `h = 1`, `Ω(R) = 1` this is TW3's `V_{j,k}`. For `h = 1`, `Ω(R) = 2` it
+contains the ternary residual.
+
+**Lemma 6.1 (largest-variable reduction mod Q, any partner; PROVED).** For
+L large, every `a mod Q` satisfies
+
+    V_{Q,k}(a) ≤ 6r²(log L)^{r} [R₁(a) + R₂(a) + R₀(a)],
+
+with `R₁, R₂, R₀` as in TW3 Lemma 3.1 but with congruences mod Q and all
+variables `≤ X` and prime to Q.
+
+*Proof.* As in TW3 Lemma 3.1, write `D | A²` as `A = uvt`, `(u,v) = 1`,
+`D = u²t`; `u, v, t` are prime to kQ (`4A ≡ 1 mod kQ`), and (3.1) of TW3
+holds mod Q. Assign each triple to its largest coordinate ψ (ties: t, u, v).
+
+*t largest.* The residue is `−u/v mod Q`. Fix `(u,v)`, `q = 4uv`; then
+`(q,kQ) = 1`, and the R counted lie in the single reduced class
+`R ≡ −(kQ)^{−1} (mod q)` and satisfy `A_R ≥ uv·max(u,v)`, `R > (kQ)^{C₀}`.
+Each R gives at most one triple. *Claim:* every such R is `≥ x₀ := 2^{r}q`.
+If `q ≤ 2^{−r}(kQ)^{C₀}` this is `R > (kQ)^{C₀}`. Otherwise
+`max(u,v) ≥ (q/4)^{1/2}` gives `4A_R ≥ q^{3/2}/2`, so
+`R/q ≥ q^{1/2}/(2kQ) − 1 ≥ 2^{−r/2−1}(kQ)^{C₀/2−1} − 1 ≥ 2^{r}`, since
+`C₀ ≥ 6` and `kQ > w₂ → ∞`. Corollary 2.4 (with `s = r − h ≤ r − 1`,
+`w = w₂`, `x₀ ≥ 2^{s+1}q`) gives `Σ_R 1/R ≤ 12r²(log L)^{r−1}/φ(q)`, and
+`φ(4uv) ≥ 2φ(uv)`.
+
+*u largest* (residue `−1/(4v²t)`, fix `(v,t)`, `q = 4vt`, drop `(u,v) = 1`;
+`u = A_R/(vt)` is determined by R) and *v largest* (residue `−4u²t`,
+`q = 4ut`) are identical, with `A_R ≥ vt·max(v,t)` resp. `ut·max(u,t)`. ∎
+
+*This is where the ternary residual closes.* TW3 fixed `ℓ_a` and applied
+Brun–Titchmarsh to the prime `ℓ_b` in its class mod q, which needs
+`ℓ_b ≥ w₂q`. Lemma 2.3 sieves the whole partner R in its class mod q.
+The only length condition is `R/q ≥ 2^{s+1}`, and it always holds. No
+asymptotic for primes or almost-primes in progressions to large moduli
+(BFI) is needed: the question was an upper-bound question all along.
+
+**Lemma 6.2 (second moments mod a squarefree Q; PROVED).** Let Q be
+squarefree with `h` prime factors, all `> w₂`, and let `X ≥ 2`. With all
+variables in `[1,X]` and prime to Q, and `r₁, r` defined as in TW3 Lemma
+3.2 with congruences mod Q,
+
+    Σ_{ρ mod Q} r₁(ρ)² ≤ ζ(2)² + C(log X)²((log X)²/Q + (log Q)Q^{−1/2}),
+    Σ_{c mod Q} r(c)²  ≤ ζ(2)²ζ(3)² + C·2^h(log X)²((log X)²/Q + (log Q)Q^{−1/3}).
+
+*Proof.* TW3 Lemma 3.2 verbatim, with three facts about Q in place of the
+prime j (review R2.5 checked them for `Q = ℓ₁ℓ₂`): (i) `v² ≡ c/t (mod Q)`
+has `≤ 2^h` roots (CRT); so a box has `≤ 2^h T(V/Q + 1)` points for fixed t;
+(ii) distinct `N ≡ N′ (mod Q)` with `N, N′ ≥ 1` have `max(N,N′) > Q`;
+(iii) for distinct reduced fractions with `u ≡ ρv`, `u′ ≡ ρv′` (ρ a unit,
+since u, v are units), `Q | uv′ − u′v ≠ 0`, so the product of heights is
+`≥ Q` and one height is `≥ Q^{1/2}`; and fixing u fixes v mod Q. ∎
+
+**Corollary 6.3 (PROVED).** For L large and every V, k as above,
+`Σ_{a mod Q} V_{Q,k}(a)² ≤ C_r(log L)^{2r+4}`.
+
+*Proof.* As TW3 Cor 3.3: `1/φ(xy) ≤ (2log L)²/(xy)` for `x, y ≤ X`;
+`a ↦ c` is a bijection of the units mod Q (and `V(a) = 0` for non-units,
+since `−4D` is a unit mod Q); `(x+y+z)² ≤ 3(x²+y²+z²)`; Lemma 6.2 with
+`Q > w₂ = L^8` and `X = e^L` makes the brackets `≪ 2^r`. ∎
+
+**Lemma 6.4 (large part; PROVED).** Let `z_V(a)` be `D^{sf}_{(V,a)}`
+restricted to classes with partner `R > (kQ_V)^{C₀}`. Then
+
+    E_P Σ_V ρ^V Σ_a π_{(V,a)} z_V(a)² ≪_r (log L)^{3r+O(1)}.
+
+*Proof.* An sf class constrains `y_ℓ` (`ℓ ∈ V`) only mod ℓ, so `z_V(a)`
+depends only on `a mod Q`, and the lifts of a residue mod Q carry total
+mass `≤ (8/7)^h/Q`. Each class contributes `≤ (8/7)^{r}/R` to z, and a
+pair of classes with cofactors `k, k′` is jointly active with probability
+`≤ 4Γ(lcm)/lcm`. So, as in TW3 Lemma 3.4 (AM–GM and
+`Σ_{k′}Γ(lcm)/lcm ≤ Γ(k)h(k)/k`, TW2 Lemma 5.4(ii)),
+
+    E_P Σ_a π_{(V,a)} z_V(a)² ≤ 4(8/7)^{3r} Q^{−1} Σ_k (Γ(k)h(k)/k) Σ_{a mod Q} V_{Q,k}(a)²
+                            ≪_r Q^{−1}(log L)^{2r+O(1)}
+
+by Corollary 6.3 and TW2 Lemma 5.4(iii). Finally
+`Σ_{|V|=h} ρ^V/Q_V ≤ (Σ_{ℓ>w₂}ρ_ℓ/ℓ)^h ≪ (log L)^h`, `h ≤ r − 1`. ∎
