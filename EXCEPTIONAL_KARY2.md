@@ -234,7 +234,7 @@ absorbed the first prime of `c_{i+1}`). The `⌊m/2⌋` disjoint products
 
 *Proof.* `N = krh² + 1` is odd, so all its divisors are odd. Cover
 `{rh ≤ K}` by dyadic boxes `r ∈ [R,2R)`, `h ∈ [H,2H)` (`R, H` powers of 2,
-`RH ≤ K`); `Σ_{boxes} RH ≤ K(log₂K + 1)`.
+`RH ≤ K`); `Σ_{boxes} RH ≤ 2K(log₂K + 1)`.
 *Boxes with `max(R,H) ≥ 10k`.* In the box `N ≤ 8kRH² + 1 =: X`, and
 `X^{1/4} ≤ max(R,H)` (as `X ≤ 10k·max(R,H)³`). By Lemma 3.4,
 `Σ_{box}τ(N)^q ≤ 8^q Σ_{d ≤ X^{1/4}} τ(d)^{7q}·#{(r,h) ∈ box : d | N}`.
@@ -269,7 +269,8 @@ is `≤ (64Σ_{K<n≤2K, P(n)≤y}τ(n)Γ(n)²/n)^{1/2} ≤ C e^{−u/2}(log y)`
 Lemma 3.1 (`F = τΓ²`, κ = 2). Second factor: by Lemma 3.5 (q = 2, k = 4),
 `(K^{−1}Σ_{rh≤2K}τ(4rh²+1)²)^{1/2} ≤ C(log 2K)^{c₂/2} ≤ C(2u log y)^{c₂/2}`.
 Summing over blocks as in Lemma 3.2,
-the tail is `≤ C(log y)^{2+c₂/2}u₀^{c₂/2}e^{−u₀/2}·(log y) ≤ C`. ∎
+the tail is `≤ C(log y)^{2+c₂/2}u₀^{c₂/2}e^{−u₀/2} = C(c₂+8)^{c₂/2}(log log y)^{c₂/2}(log y)^{−2} ≤ C`
+(one `log y` is the first factor, one counts the blocks per unit of u). ∎
 
 *On the citation.* ET Prop. 1.4 (Elsholtz–Tao 2013) is used only for the
 body, exactly as in ET Lemma 3.7; it is what gives the exponent 2 of
