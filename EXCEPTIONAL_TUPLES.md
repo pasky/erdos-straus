@@ -92,3 +92,81 @@ So **ES witness correlations of order k are k-point correlations of
 this is a single integer `n + 4D` divisible by `Π ℓ_i`; then
 `Πℓ_i ≤ N + 4D`, and the count is the Kubilius-model situation (§4). The
 door concerns *distinct* shifts with `Π ℓ_i ≫ N`.
+
+## 2. A conditional implication: order-K correlations ⇒ saving ≍ K
+
+**Hypothesis TC(N; K, y, η)** (order-K witness correlations of the prime
+family). For every `1 ≤ j ≤ K`,
+
+    | Σ_{n≤N} binom(f_y(n), j) − N e_j(p) | ≤ η N.                     (2.1)
+
+(2.1) asserts the CRT prediction for the order-j correlation sums *in
+aggregate*. It does not assert anything about an individual `C_T(N)`.
+
+**Theorem 2.1 (PROVED).** If K is even and TC(N; K, y, η) holds, then
+
+    #{n ≤ N : f_y(n) = 0} ≤ N ( Π_{ℓ∈𝒫_y}(1 − p_ℓ) + e_K(p) + Kη ).
+
+*Proof.* For an integer `f ≥ 1`, `Σ_{j=0}^K (−1)^j binom(f,j) =
+(−1)^K binom(f−1,K)` (induction on K via Pascal's rule); for `f = 0` the
+sum is 1. With K even the sum is therefore `≥ 1[f = 0]` for every `f ≥ 0`.
+Put `f = f_y(n)` and sum over `n ≤ N`: since `S_0 = N = N e_0`,
+
+    #{f_y = 0} ≤ Σ_{j=0}^K (−1)^j S_j(N) ≤ N Σ_{j=0}^K (−1)^j e_j(p) + KηN.
+
+Under the CRT law the same identity gives
+`Σ_j (−1)^j e_j(p) = P(f=0) + E[1_{f≥1} binom(f−1,K)] ≤ Π(1−p_ℓ) + E binom(f,K)
+= Π(1−p_ℓ) + e_K(p)`. ∎
+
+**Corollary 2.2 (PROVED).** Let `K ≥ 2` be even and let `y_K` be the
+largest y with `μ_y ≤ K/e²`. If TC(N; K, y_K, e^{−K}) holds, then
+
+    E(N) ≤ (K + 4) N e^{−K/e²}.
+
+Moreover `log y_K ≍ K^{1/2}` by (1.3).
+
+*Proof.* `0 ∉ 𝓡(ℓ)` (since `(D, ℓ) = 1` for `D | A²`), so `p_ℓ < 1`, and
+`μ_{y_K} > K/e² − 1`. Hence `Π(1−p_ℓ) ≤ e^{−μ} < e^{1−K/e²}`, and
+`e_K(p) ≤ μ^K/K! ≤ (eμ/K)^K ≤ e^{−K}`. Insert in Theorem 2.1 and (1.1). ∎
+
+**Corollary 2.3 (CONDITIONAL on TC_θ).** For θ ∈ (0,1) let *TC_θ* be the
+statement: for all large N, TC(N; K_N, y_{K_N}, e^{−K_N}) holds with
+`K_N = 2⌈(log N)^θ⌉`. Under TC_θ,
+
+    E(N) ≤ N exp(−(2/e² − o(1)) (log N)^θ).
+
+In particular **TC_θ for some θ > 3/4 implies the θ > 3/4 target.** ∎
+
+**Proposition 2.4 (the trivial range; PROVED).** TC(N; K, y, η) holds with
+`η = (Σ_{ℓ∈𝒫_y} F(ℓ))^K / N` whenever `Σ_ℓ F(ℓ) ≥ 1`. Consequently
+TC(N; K, y_K, e^{−K}) holds unconditionally for `K ≤ c₀(log N)^{2/3}`, and
+Corollary 2.2 gives `E(N) ≪ N exp(−c(log N)^{2/3})`.
+
+*Proof.* By Lemma 1.2, `|S_j − N e_j(p)| ≤ #{j-sets of classes with
+distinct primes} = e_j(F) ≤ (ΣF)^j/j! ≤ (ΣF)^K`. By (1.3),
+`Σ_{ℓ≤y}F(ℓ) ≤ y μ_y ≤ C y (log y)²`, and `(log y_K)² ≤ K/(ce²)`. So
+`(ΣF)^K ≤ N e^{−K}` as soon as `K(C₁K^{1/2} + log C + 2 log K + 1) ≤ log N`,
+which holds for `K ≤ c₀(log N)^{2/3}`. ∎
+
+This is Brun's pure sieve; it recovers the 2/3 exponent (without the
+`(log log N)^{1/3}` of DISCOVERIES (A)6). It calibrates the framework:
+TC is a *theorem* exactly as long as the order-K tuples have total
+"termwise" error `≤ N e^{−K}`, i.e. `K log y_K ≲ log N`, and its content
+for θ > 2/3 is aggregate cancellation among tuples above modulus N.
+
+**Remarks.**
+1. *Where TC_θ lives.* The tuples carrying `e_K(p)` have
+   `log Π ℓ_i ≈ K·⟨log ℓ⟩_p ≍ K log y_K ≍ K^{3/2} = (log N)^{3θ/2}` (the
+   p-weighted mean of log ℓ over `𝒫_y` is `≍ log y` by (1.3)). For
+   θ > 3/4 the combined moduli are `exp((log N)^{9/8+})`: super-polynomial
+   in N, though each `ℓ_i ≤ y_K = N^{o(1)}` and each shift `4D_i < y_K²`.
+   (Assessment; §5 checks the split numerically.)
+2. *Precision.* `e_j(p)` peaks near `j ≈ μ ≈ K/e²` at size `≈ e^{μ}`. So
+   (2.1) with `η = e^{−K}` asks for relative precision `≈ e^{−(1+e^{−2})K}`
+   in the peak moments: `N^{−o(1)}`, far weaker than a power saving, but
+   for growing order K. The alternating sum cancels from `e^{μ}` to `e^{−μ}`.
+3. *Composite moduli.* With all moduli `M ≤ y` (cubic mass, notes Thm
+   18.2) the trivial range becomes `K ≲ (log N)^{3/4}`: the 3/4 note's
+   architecture (Bonferroni degree ≍ saving, atoms of size
+   `exp(s^{1/3})`). We use the prime family because CRT independence makes
+   Theorem 2.1 exact. Nothing below needs composite moduli.
