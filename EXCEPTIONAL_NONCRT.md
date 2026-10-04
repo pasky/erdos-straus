@@ -51,9 +51,11 @@ forced classes — is already inside `ν̂(θ)`. We call
     R_w(ν) = Σ_{θ≠0} |ν̂(θ)|·w(θ),   any weight w ≥ 1,             (1.3)
 
 a **per-frequency rounding bound**. With `w(θ) = min(N, 1/(2‖θ‖))` it is a
-valid bound for (1.2). Since every class indicator has
-`Σ_θ |1̂[·≡b (d)](θ)| = 1`, one has `R_1(ν) ≤ Σ_i|a_i|`, so (1.3) with w=1
-is never worse than (1.1) and can be much better (e.g.
+valid bound for (1.2). `R_1` (w ≡ 1) is in general *not* a valid bound,
+but it is ≤ every R_w with w ≥ 1, and Theorem 2.3 below only uses
+`R_1 ≤ (rounding bound)`. Every class indicator has
+`Σ_θ |1̂[·≡b (d)](θ)| = 1`, so `R_1(ν) ≤ Σ_i|a_i|`, and `R_1` can be much
+smaller (e.g.
 `Σ_{b mod d} 1[n≡b (d)] = 1` has `Σ|a_i| = d`, `R_1 = 0`). The only
 cancellation (1.3) does not capture is cancellation *between different
 frequencies* in (1.2); a bound using that is a bound for
@@ -116,7 +118,9 @@ carrying h along.
   Here `e^{Φ(w)} = 2^G|Λ'| max_j Π_g B_g(j_g)` is exactly the quantity
   bounded in Step 5.
 So `E_u f_{lo,w} ≥ (1−r₀)e^{−Φ(w)} − 2E_u h_w`. Average over w, use
-Jensen and Step 5 as in ET-file, and `E_w E_u h_w = E h ≤ r₁`. ∎
+Jensen and Step 5 as in ET-file, and `E_w E_u h_w = E h ≤ r₁`. (If
+r₀ ≥ 1, (2.1) is implied by `E f ≥ 0`; coordinates with `p_i = 0` are
+discarded first, as in ET-file Step 0.) ∎
 
 *Remark.* For a λ-level f, `r₀ = r₁ = 0` and (2.1) is ET-file Prop. 2.4.
 Prop. 2.1 lets f have arbitrary level; it only pays for the high part
@@ -170,7 +174,7 @@ tails are `≤ e^{−λ} R_1(ν)` for every c.
 **Theorem 2.3 (sieve limit with per-frequency rounding; PROVED).** Take a
 prime-slice system with `p_ℓ(c) ≤ 1/4` for all ℓ ∈ 𝒫, c ∈ R, and a
 majorant ν of *arbitrary* level. Use the weights `s_ℓ = log(1/(2p_ℓ⁺))`
-(so `s_ℓ ≥ log 2`), and write `Φ̄(λ, α)` for the right-hand side of
+(so `s_ℓ ≥ log 2`; take `s_* = log 2`), and write `Φ̄(λ, α)` for the right-hand side of
 ET-file (2.4) minus `log(Q₀/|R|)`, computed with these weights:
 `Φ̄ = 19αλ + C₄ Σ_{s_ℓ≤λ} p̄_ℓ e^{−αs_ℓ} + G(75+log(2+λ/s_*)) + (G/2)log(16μ̄+16)`.
 Then for all λ ≥ s_*, α > 0,
@@ -188,7 +192,9 @@ For c ∈ R, `ν_c ≥ 0` and `ν_c(0) ≥ 1` (the event `{c} × {x = 0}` lies i
 fibre probabilities `p_ℓ(c)` and the c-independent weights `s_ℓ`; by (2.3)
 `r₀(c), r₁(c) ≤ ε`. Average over c and use Jensen for the convex `e^{−Φ}`,
 exactly as in ET-file Thm 2.5 (Φ_c is affine in the `p_ℓ(c)` except for
-the concave log term). ∎
+the concave log term). If ε ≥ 1/3 the right side of (2.4) is ≤ 0 and
+there is nothing to prove; otherwise each fibre bound is
+`(1−ε)e^{−Φ_c} − 2ε` and Jensen applies to the first term. ∎
 
 **Corollary 2.4 (PROVED).** Suppose an argument bounds `#(𝒜∩[1,N])` by
 
@@ -245,17 +251,18 @@ most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
   is just a bound for `Σ_{n≤N} ν(n)` obtained without the CRT main term.
   That is no longer a sieve; it is a direct count. Its only *a priori*
   limit is `Σ_{n≤N}ν(n) ≥ #(𝒜 ∩ [1,N])`. For the integer avoider set this
-  limit is far below the 3/4 scale: it contains the squares coprime to the
-  selector (`W(m²) = +∞`, DISCOVERIES (C)12), about `√N/log log N` of
-  them, and nothing forces more. So there is **no set-level obstruction**
-  for θ < 1, and also no method: Theorem 2.3 says any such argument must
-  control `Σ_{n≤N}ν(n)` for a majorant whose *high-level* Fourier mass is
-  large: by (2.4), if `ε_λ(ν) ≤ e^{−Φ̄(λ)}/4` at some λ, the saving is
-  `≤ Φ̄(λ) + O(1)`. To save `(log N)^θ` with θ > 3/4 one needs
-  `ε_λ(ν) > e^{−Cλ^{3/4}}/4` for all `λ ≤ (log N)^{4θ/3}/C'`, i.e.
-  Fourier mass `A_S ≳ e^{s(S) − Cλ^{3/4}}`, superpolynomial in N, at
-  frequencies whose denominators are superpolynomial in N, and then a
-  cancellation *among* those frequencies in (1.2).
+  limit, as far as squares show, is far below the 3/4 scale: the avoider
+  set contains the squares coprime to the selector (`W(m²) = +∞`,
+  DISCOVERIES (C)12), about `√N/log log N` of them. No method is known;
+  Theorem 2.3 says any such argument must
+  beat the CRT mean, by the following dichotomy (a restatement of
+  (2.4), nothing more). For any majorant ν and any λ, **either**
+  `ε_λ(ν) > e^{−Φ̄(λ)}/4` (the Fourier mass above level λ is not small),
+  **or** `Eν ≥ (|R|/Q₀)e^{−Φ̄(λ)}/4`, in which case a saving beyond
+  `Φ̄(λ) + O(1)` requires `Σ_{n≤N}ν(n) ≪ N·Eν·e^{−(excess)}`, i.e. the
+  interval [1,N] must carry far less ν-mass than its CRT share.
+  Squares alone give no set-level obstruction to such a count below θ = 1;
+  whether some other obstruction exists is not examined here.
 
 ### 2.5 The scope limit of Theorem 2.3: weights below 1 (open)
 
@@ -407,35 +414,38 @@ is a slice class (modulus `q₀ℓ`, `q₀ | Q₀`), then for every α > 0
 
     log(1/E[P∘f]) ≤ log(Q₀/|R|) + 19αk + C₄ e^{−α} μ̄ + 75 + log(2+k) + ½log(16μ̄+16).
 
-Choosing `e^{α} = max(e, C₄μ̄/(19k))` gives saving
+Choosing `α = max(1, log(C₄μ̄/(19k)))` gives saving
 `≤ 19k(1 + log⁺(C₄μ̄/(19k))) + O(log(μ̄+k)) + log(Q₀/|R|)`.
 
 *Proof.* Given `n ≡ c (Q₀)`, `f = Σ_ℓ φ_ℓ(n mod ℓ)` with φ_ℓ ≥ 0
 supported on `F_ℓ(c)`. So `P(f)` is a sum of terms each depending on at
 most k slice coordinates, and so is `ν_c = E[P(f) | c, x]` (by
 independence of the coordinates). Apply ET-file Prop. 2.4 with all weights
-`s_ℓ = 1` and level λ = k (one band, G = 1), and average over c as in
+`s_ℓ = 1` and level λ = k (one nonempty band; empty bands are discarded in
+Step 0, so the G-terms are those of G = 1), and average over c as in
 Thm 2.5. ∎
 
-*Consequence.* With witness moduli `≤ N^{O(1)}` the cubic supply gives
+*Consequence (for CRT means only).* Prop. 4.2 bounds the CRT mean
+`E[P∘f]`, not an interval count. With witness moduli `≤ N^{O(1)}` the cubic supply gives
 `μ̄ ≪ (log N)³`, so a degree-k method saves `O(k log log N)`. The second
 moment (k = 2) saves `O(log log N)`: at best a power of log N, i.e.
 θ = 0. To save `(log N)^θ` one needs moments of order
-`k ≫ (log N)^θ/log log N`, and for θ > 3/4 Cor 2.5 says the CRT
-evaluation of those moments fails: their high-level Fourier mass must be
-superpolynomial.
+`k ≫ (log N)^θ/log log N` *if the bound is the CRT mean plus an error*;
+and for θ > 3/4 Cor 2.5 caps every such evaluation with a per-frequency
+error bound.
 
 **What a non-CRT moment method would need (no theorem).** Elsholtz–Tao
 (Thm 1.1) evaluate first moments `Σ_{p≤N} f_{I/II}(p)` up to constants by
 divisor sums, Brun–Titchmarsh and BV. They state (Remark 1.3) that higher
 moments `Σ_p f(p)^k` are out of reach *because the level of the relevant
 divisor sums becomes too great* — the obstruction of Cor 2.5 in their
-language. A non-CRT moment method for θ > 3/4 would have to count
-j-tuples of solutions sharing the same p, for all j up to
-`(log N)^{3/4+δ}`, i.e. points on fibre powers of the ES surface of
-dimension growing with j, with absolute error `N e^{−(log N)^θ}`. By
-Prop. 4.2 nothing of bounded order can suffice. No technique for such
-counts is known; this is the content of "non-CRT input" for (c).
+language. A non-CRT moment method for θ > 3/4 must therefore do one of
+two things: use moments of order `≥ (log N)^{3/4+δ}/log log N` and count
+those j-tuples of solutions sharing the same n directly (points on fibre
+powers of the ES surface, dimension growing with j) to absolute accuracy
+`N e^{−(log N)^θ}`; or use lower order and show that the true moments
+`Σ_{n≤N} f(n)^j` deviate from their CRT values so that `Σ_n P(f(n))` is
+far below `N·E[P∘f]`. No technique for either is known.
 
 ## 5. Numerical checks
 
