@@ -33,3 +33,41 @@ Checked line by line.
   applies verbatim (bands need `q_g ≤ 1/4`, guaranteed by `p_i ≤ 1/4` for all i).
 
 No defect. (Prop 2.1 is a genuine, clean extension of ET Prop 2.4.)
+
+### 2. Lemma 2.2 (Walsh coefficient at S ≤ Fourier ℓ¹ mass on Θ_S) and (2.2)–(2.3) — **SOUND-AFTER-REPAIRS** (repair is wording only)
+
+Fourier/Walsh correspondence checked:
+* `d_S(c)Π_S p(1−p) = E[ν_c y^S] = E[ν y^S | n≡c (Q₀)] = Q₀ E_n[ν g]`: orthogonality
+  (`E(y^S)² = Π p(1−p)`), tower property, `P(n≡c) = 1/Q₀`. Correct.
+* g = (function of n mod Q₀) × Π_{ℓ∈S}(function of n mod ℓ), moduli pairwise
+  coprime, so ĝ is the convolution = product of coefficients at summed
+  frequencies. `1̂[·≡c (Q₀)](a/Q₀) = e(−ac/Q₀)/Q₀`; `ŷ_ℓ(0) = p − p = 0`;
+  `|ŷ_ℓ(h/ℓ)| = |1̂_F(h)| ≤ |F|/ℓ`. So supp ĝ ⊆ Θ_S, `|ĝ| ≤ Q₀⁻¹Π_S p_ℓ`.
+  Parseval with g real. Direction of the inequality correct.
+* Disjointness of Θ_S: the CRT decomposition of the dual of ℤ/Q_tot; a/Q₀ has
+  trivial ℓ-component since ℓ ∤ Q₀; S is recovered as the set of slice primes
+  where θ has a component of order exactly ℓ. Frequencies with ℓ²-components or
+  components at non-slice primes lie in no Θ_S and correctly never enter.
+  0 ∉ Θ_S (S ≠ ∅). (2.2) correct.
+* (2.3): `|d_S| ≤ A_S Π 1/(1−p)`, so `r₀ ≤ Σ A_S Π p/(1−p) ≤ Σ A_S Π(4/3)p`,
+  `r₁ ≤ Σ A_S Π 2p`; with `s_ℓ = log(1/(2p_ℓ⁺))` both are `≤ Σ_{s(S)>λ} A_S e^{−s(S)}`.
+  Correct.
+
+Numerics: the author's Part 1 reproduces bit-for-bit (max lhs−rhs = −1.747e−17).
+That statistic is weak: the maximum is attained at degenerate (c,S) with
+`A_S = 0 = lhs`, so it only shows "no violation", not how tight. My extended
+check `scripts/review_noncrt_lemma22.py` (Q₀ = 9 prime power, moduli with 25 and
+49, extra non-slice prime 2, dense ν with up to 200 classes) gives
+max lhs/rhs = 0.910 over 900 non-degenerate (c,S), max lhs−rhs = −2.2e−4. Lemma
+holds, including the prime-power / non-slice frequency bookkeeping.
+
+**N1 (minor, scope wording).** §2.2 says "Restrict 𝒫 to the slice primes dividing
+some d_i; this keeps ν ≥ 1 on the new avoider set by the CRT modification
+argument … So 𝒫 is finite", suggesting 𝒫 may be infinite beforehand. For
+infinite 𝒫 the modification argument is false: enumerate the integers
+`n_1, n_2, …` and give each a fresh prime `ℓ_k` with `F_{ℓ_k} = {n_k mod ℓ_k}`
+(p = 1/ℓ ≤ 1/4); then 𝒜 = ∅ and ν ≡ 0 is a "majorant". The ET-file defines 𝒫 as
+finite, and with 𝒫 finite the CRT step is correct. Repair: say "𝒫 is finite (ET §1);
+restricting to the primes dividing some d_i is the ET Step-0 reduction". This also
+bounds the reach of the "no bound on slice-prime size" claim (item 4): it holds for
+every *finite* family, with primes of any size, which is what ET §6.1 item 7 is about.
