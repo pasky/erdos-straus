@@ -7,7 +7,7 @@ Sources: `EXCEPTIONAL_THETA.md` [ET], `EXCEPTIONAL_BALANCED.md` [EB],
 `EXCEPTIONAL_TWIN3.md` on `side-agent/twin-equidist` [TW3], their reviews, and
 `paper/es-threequarter-note.tex` [TQ].
 
-Verdict: *(pending — filled in at the end)*
+Verdict: **MINOR REVISION** (14 numbered defects D1–D14; no mathematical error; see §6).
 
 ## 0. Compilation
 
