@@ -184,3 +184,20 @@ distribution of `a_min` is `{7:148, 11:113, 15:23, 19:11, 23:3, 27:1, 31:1}`.
 So conditioning on window 3 failing, window 7 fails about half the time —
 the joint (two-window) event is common numerically; the obstacle in §4 is
 purely one of proof technology.
+
+### 2.3 An independent citation route for W1
+
+Fuchs–Hsu–Rickards–Schindler–Stange, *Primes represented by shifted
+quadratic forms: on primitivity and congruence classes*, arXiv:2504.20289
+(archived `sources/sieve/2504.20289.{pdf,txt}`), Theorem 1.1(2): for a
+primitive positive definite form `f` with `(a,2D)=1`, `B≥1`, `A≠0`,
+`gcd(A,B)=1`, `2|AB` or `D≢5 (8)`, and `gcd(m,2DB)=1`, `gcd(l−A,m)=1`, the
+number of primes `p≤N`, `p≡l (m)`, primitively represented by `Bf(x,y)+A`
+is `≫N/(log N)^{3/2}`. Take `f=x^2+xy+y^2` (`D=−3`, `a=1`), `B=4`, `A=−3`,
+`m=35`, `l=1`. A primitive value `n=f(x,y)` has no prime factor `≡2 (3)`
+(such primes are inert in `Z[ω]`, so `r|f(x,y)` forces `r|x,y`). Moreover
+`n` is odd (x, y not both even) and `n≡(x−y)^2 (mod 3)`. For `p=4n−3` prime,
+`3∤n`, so `n≡1 (3)`. Hence `p≡1 (mod 24)`; with `p≡1 (35)` this gives
+`p≡1 (840)`. So FHRSS Thm 1.1(2) implies W1 directly. Their proof is
+Iwaniec's 1972 argument, i.e. the same S1–S3 route. We cite it as a
+cross-check, not as an independent proof.

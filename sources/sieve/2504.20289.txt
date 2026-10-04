@@ -1,0 +1,1006 @@
+                                              PRIMES REPRESENTED BY SHIFTED QUADRATIC FORMS: ON
+                                                      PRIMITIVITY AND CONGRUENCE CLASSES
+
+
+                                                     ELENA FUCHS, CATHERINE HSU, JAMES RICKARDS, DAMARIS SCHINDLER,
+arXiv:2504.20289v1 [math.NT] 28 Apr 2025
+
+
+
+
+                                                                        AND KATHERINE E. STANGE
+
+
+                                                     Abstract. We prove lower bounds of the form ≫ N/(log N )3/2 for the number of primes
+                                                     up to N primitively represented by a shifted positive definite integral binary quadratic
+                                                     form, and under the additional condition that primes are from an arithmetic progression.
+                                                     This extends the sieve methods of Iwaniec, who showed such lower bounds without the
+                                                     primitivity and congruence conditions. Imposing primitivity adds some subtleties to the
+                                                     local criteria for representation of a shifted prime: for example, some shifted quadratic
+                                                     forms of discriminant 5 (mod 8) do not primitively represent infinitely many primes.
+                                                     We also provide a careful list of the local conditions under which a genus of an integral
+                                                     binary quadratic form represents an integer, verified by computer, and correcting some
+                                                     minor errors in previous statements. The motivation for this work is as a tool for the
+                                                     study of prime components in Apollonian circle packings [FFH+ 24].
+
+
+
+
+                                                                                      1. Introduction
+                                              We prove the following theorem, which extends work of Iwaniec [Iwa72a] on primes repre-
+                                           sented by shifted binary quadratic forms. We consider lower bounds for the number of such
+                                           primes when we impose two simultaneous restrictions: that the representation be primitive
+                                           (sometimes called proper ); and that the primes fall in a specified congruence class.
+                                           Theorem 1.1. Let f = ax2 + bxy + cy 2 be a primitive integral binary quadratic form with
+                                           discriminant D not a perfect square, positive definite if D < 0, and (a, 2D) = 1. Let A
+                                           be a non-zero integer and B ∈ N with gcd(A, B) = 1. Denote by bf,A (n) the characteristic
+                                           function for whether n is represented primitively by Bf (x, y) + A. Assume that 2 | AB or
+                                           D ̸≡ 5 (mod 8). Let m be a natural number and l an integer with gcd(l, m) = 1 and assume
+                                           that gcd(m, 2DB) = 1 and that gcd(l − A, m) = 1. Then
+                                               (1)
+                                                                           X                     N
+                                                                                bf,A (p) ≫≪              .
+                                                                          p≤N,
+                                                                                             (log N )3/2
+                                                                               p prime
+                                               (2)
+                                                                                  X                        N
+                                                                                          bf,A (p) ≫               .
+                                                                                p≤N,
+                                                                                                       (log N )3/2
+                                                                               p prime
+                                                                              p≡ℓ mod m
+
+                                              Date: April 30, 2025.
+                                              2010 Mathematics Subject Classification. Primary: 11N32, 11D09, 11E12, 11N36; Secondary: 52C26.
+                                              Key words and phrases. quadratic forms, Apollonian circle packings, half-dimensional sieve.
+                                               Fuchs was supported by NSF DMS-2154624. Hsu was supported by an AMS-Simons Research Enhance-
+                                           ment Grants for PUI Faculty. Rickards was supported by NSERC Discovery Grant RGPIN-2025-04068.
+                                           Schindler was supported by NWO 016.Veni.173.016. Stange was supported by NSF DMS-2401580.
+                                                                                                1
+2                      FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+                                                                               ϑ       ϑp
+  The notation above is taken from [Iwa72a], where D = b2 − 4ac = ±2ϑ2 p1 p1 · · · pk k and
+Dp = p−ϑp D.
+   Note that the upper bound is immediate from [Iwa72a], in which Iwaniec shows the desired
+upper and lower bounds for primes represented (not necessarily primitively) by Bf (x, y)+A.
+   Iwaniec’s celebrated work on primes represented by quadratic polynomials in two variables
+includes [Iwa72b, Iwa72a, Iwa74]. The last of these is the most general, addressing quadratic
+polynomials with possible linear factors. This extends earlier work of Pleasants showing the
+representation of infinitely many primes [Ple67]. In [Iwa72a], Iwaniec introduces the half-
+dimensional sieve.
+   More recently, these results have been featured in applications to Apollonian circle pack-
+ings in [Sar07], [BF11], and [BF12], as outlined in Section 1.3.
+
+1.1. Methods. In this paper, we extend the methods of Iwaniec to prove Theorem 1.1. The
+proofs follow the arguments of [Iwa72a] quite closely, so that we have chosen to preserve the
+notation of that paper in order to facilitate reading them side-by-side.
+   In [Sar07], Sarnak remarks that the more general result in [Iwa74] (and implicitly those
+in [Iwa72a]) can be modified to include the condition of primitive representation. We found
+this modification is not entirely straightforward. Indeed, the statement is false for certain
+choices of A, B, and D.
+   For example, if D ≡ 5 mod 8 and 2 ∤ AB, then the shifted quadratic form B(ax2 +
+bxy + cy 2 ) + A does not primitively represent infinitely many primes. Indeed, if it were
+to primitively represent infinitely many primes, then ax2 + bxy + cy 2 would primitively
+represent infinitely often even numbers. However, this is not possible by Theorem 2.2. As
+a concrete example, x2 − xy + y 2 + 1 does not primitively represent infinitely many primes.
+   We also make use of methods from [BF11], which enable us to pass from squarefree
+shifted primes represented by the genus of a quadratic form to those represented by one
+quadratic form. Note that in [Iwa72a], Iwaniec also has a method for passing from the
+genus of a quadratic form to the one quadratic form of interest, but in doing so he sacrifices
+primitivity. Our strategy to focus on (mostly) squarefree shifted primes represented by
+the genus first requires a careful analysis of local conditions on the various parameters
+introduced in [Iwa72a]. Our application of [BF11] is the first example in the literature of
+such an application, to our knowledge.
+
+1.2. Local conditions for representation by a genus. It is well-known that repre-
+sentability by a genus is a local property: one need only verify a condition for each prime p
+(including
+          the infinite prime). In most cases, the condition is simply the Kronecker symbol
+    D
+    p   = 1. However, primes dividing the discriminant, and the prime 2, have more complex
+conditions. In [Iwa72a], Iwaniec provides exhaustive tables of these local conditions (see
+Tables 1 and 2 in Section 2). This plays a role in the proof there, and it plays a larger role
+in our proof here. We are unaware of any other exhaustive statement in the literature.
+   In this paper we correct a small notational error in the original tables and verify the
+statements by computer experiment.
+
+1.3. Application to Apollonian packings. The study of Apollonian circle packings has
+attracted attention in recent years [Fuc13]. An Apollonian circle packing (Figure 1) gives
+rise to a collection of curvatures (curvature is the inverse of radius), which can be viewed as
+the union of the primitively represented values of a collection of translated binary quadratic
+          PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                          3
+
+
+forms. Any four mutually tangent circles, or their quadruple of curvatures, is called a
+Descartes quadruple.
+
+
+
+
+!           Generation 1                      Generation 2                Generation 3
+
+        Figure 1. The construction of an Apollonian packing. Begin with four
+        mutually tangent circles. For each triple of mutually tangent circles, a
+        result of Apollonius asserts the existence of exactly two which complete
+        the triple to a mutually tangent quadruple. Add these circles in. For all
+        newly created mutually tangent triples, add in their completions. Repeat,
+        ad infinitum.
+
+
+Proposition 1.2 ([Sar07]). Let Ca be a circle in an Apollonian circle packing, having
+curvature a and lying within a Descartes quadruple with curvatures (a, b, c, d). Let S be the
+set of circles tangent to Ca within the packing. Define
+                fa (x, y) − a = (b + a)x2 + (a + b + d − c)xy + (d + a)y 2 − a.
+Then, the multiset of curvatures of the circles in S is exactly the multiset of values fa (x, y)−a
+for (x, y) coprime integers.
+   The form fa (x, y) has discriminant −4a2 , and it is known that all primitive integral
+binary quadratic forms of discriminant −4a2 arise from some Apollonian circle packing in
+this way [GLM+ 03].
+   In [FFH+ 24], the authors consider the question of prime components in Apollonian circle
+packings, that is, maximal tangency-connected collections of circles of prime curvature. This
+requires control over the prime translated primitively represented values of such forms, in
+congruence classes. The version of Theorem 1.1 that is needed in this application is the
+following.
+Theorem 1.3. Let fa be a primitive positive definite integral binary quadratic form of the
+form given in Proposition 1.2, in particular, having discriminant D = −4a2 . Assume also
+that a is odd. Write bfa ,a (n) for the characteristic function for whether n is represented
+primitively by fa (x, y) − a.
+    (1) Then
+                                 X                            N
+                                          bfa ,a (p) ≫≪               .
+                                 p≤N,
+                                                          (log N )3/2
+                                p prime
+4                         FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+    (2) Let ℓ and m be coprime integers satisfying (m, 2D) = 1 and (ℓ + a, m) = 1. Then
+                              X                        N
+                                     bfa ,a (p) ≫m             ,
+                             p≤N,
+                                                   (log N )3/2
+                                    p prime
+                                   p≡ℓ mod m
+
+         where the implicit constant may depend on m.
+    Part (1) of Theorem 1.3 has been accepted as fact among experts on Apollonian packings,
+likely because it was assumed that the generalization of Iwaniec’s result presented in this
+paper is immediate. Indeed, Corollary 1.3 of [BF12] assumes a result we prove here—
+Proposition 3.8—and uses it in conjunction with the main results of that paper, so it is
+fitting that it is this main result of [BF12] that enables us to prove Theorem 1.3 above and
+hence close the gap in Corollary 1.3 of that paper.1
+
+1.4. Paper structure. This paper is organized as follows: in Section 2, we recall in detail
+Iwaniec’s results on representability of a number by the genus of a quadratic form. Section 3
+we carry out the sieve arguments to essentially obtain a lower bound on the number of
+squarefree shifted primes represented by the genus of our quadratic form, and then apply
+[BF12] to pass to a single form. Section 4 addresses necessary local conditions to make
+Theorem 1.1 hold. Scattered throughout the paper, the reader will find small typographical
+corrections to [Iwa72a]. None of these are consequential.
+Acknowledgements: We thank Henryk Iwaniec for a conversation which inspired the
+methods in this paper. We also thank the organizers of the conference Women in Numbers
+4, which led to this work.
+
+                                2. Representability by the genus
+    Here we record Iwaniec’s original statements that we modify, generalize, or use; and set
+the notation to match the notation used in that paper, with one notable exception: we use
+f , g for binary quadratic forms (instead of φ0 and φ).
+    For an integer a, write a∗ for the largest positive odd divisor. We use ab to denote the
+                                                                              
+
+Kronecker symbol.
+    The quadratic forms we consider have the form2
+                         f (ξ, η) = aξ 2 + bξη + cη 2 ,     a > 0,     (a, b, c) = 1,
+with
+                                               D = b2 − 4ac
+not a perfect square. Without loss of generality (by an equivalence of quadratic forms) we
+may assume (a, 2D) = 1. We will factor D as
+                                  ϑ        ϑ
+(2.1)               D = ±2ϑ2 p1 p1 · · · pr pr ,   ϑpi ≥ 1,     i = 1, . . . , r,   ϑ2 ≥ 0.
+Let Dp = p−ϑp D. Then D2 = ±D∗ . Let Rf denote the genus of f .
+
+   1Note that in [BF12], the discriminant is allowed to be as large as a power of log N , which is not something
+we tackle here. To apply our result to such a large discriminant situation would require additional work.
+   2Iwaniec’s condition that a > 0 is merely a convenience to force definite forms to be positive definite.
+              PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                                5
+
+
+   Suppose we wish to represent n ∈ Z. Iwaniec assumes3 n > 0. We write n with reference
+to the primes of D, as follows:
+                                      ε          ε
+(2.2)                      n = 2ε2 p1p1 · · · prpr m = dm,      εpi ≥ 0,   (m, 2D) = 1.
+
+Let dp = p−εp d. Then d2 = d∗ .
+
+Correction 2.1. In [Iwa72a], dp is erroneously defined as p−ϑp d instead of p−εp d.
+
+    Given a genus Rf , we say than an integer N is table-admissible for Rf if for each p | N ,
+there exists a row in Tables 1 and 2, specifically one of rows (1)–(5) if p = pi ̸= 2; row (6)
+if p ∤ 2D; and one of rows (7)–(20) if p = 2, such that
+    (1) εp and ϑp satisfy the conditions in the first column;
+    (2) m ∈ L (εp , ϑp ) of the fourth column; and
+    (3) D satisfies the conditions of the fifth column.
+
+Theorem 2.2 ([Iwa72a, Theorem 2]). The integer n is primitively representable by Rf if
+and only if 2nD is table-admissible for Rf .
+
+
+
+
+     εpi and ϑpi               ℵ          τ          L (εpi , ϑpi ) ⊆ (Z/τ Z)       Conditions on D
+                                                         n                 o
+                              pi −1                                      ad
+  εpi < ϑpi , 2 | εpi           2         pi     Lp′i := t : pti = pipi                   none                 (1)
+                                                                                        pi > 3 or              (2)
+                               1          1                   {0}
+                                                                                   (pi = 3, 3 | 1 + D3 )
+                2 | ε pi
+ ε pi = ϑpi                                                                              pi = 3,               (3)
+                               1          3             L3′′ := {−ad3 }
+                                                       n                   o     D3 ≡ 1 (mod 3)
+                              pi −1                                 −adpi Dpi
+                2 ∤ εpi         2         pi   Lp′′i := t : pti =       pi                 none                (4)
+                                                                                            
+                                                                                         Dpi
+  εpi > ϑpi , 2 | ϑpi          1          1                   {0}                         pi    =1             (5)
+                                                                                         
+                                                                                          D
+    p | m, ϑp = 0              1          1                   {0}                         p    =1              (6)
+
+
+         Table 1. Table 1 from [Iwa72a], corrected. This table applies for odd
+         primes. Each row of the table represents a set of conditions on the prime
+         (denoted pi if it is one of the odd primes dividing D, i.e., of the decom-
+         position (2.1); and p if it is coprime to 2D), given by the first, fourth and
+         fifth columns, as described in Theorem 2.2. The other two columns pro-
+         vide extra information: the column headed ℵ lists the cardinality of the set
+         L (ϵp , ϑp ), and the column τ denotes the modulus with respect to which
+         the elements of L (ϵp , ϑp ) are to be interpreted. The last column is merely
+         a labeling of the rows for reference.
+
+
+
+   3If one wishes to consider negative integers, one uses the same conditions, together with a condition “at
+infinity”, i.e. a negative number cannot be represented by a positive definite form.
+6                            FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+
+                 ε2 and ϑ2             ℵ   τ        L (ε2 , ϑ2 ) ⊆ (Z/τ Z)     Conditions on D
+
+                        ϑ2 = 0         1   1                       {0}          D ≡ 1 (mod 4)          (7)
+                        ϑ2 = 2         1   4                   {ad2 }          D2 ≡ −1 (mod 4)       (8a)
+      ε2 = 0            ϑ2 = 2         1   1                       {0}         D2 ≡ 1 (mod 4)        (8b)
+                        ϑ2 = 3         2   8        {ad2 , ad2 (1 − 2D2 )}           none              (9)
+                        ϑ2 = 4         1   4                   {ad2 }                none            (10)
+                        ϑ2 ≥ 5         1   8                   {ad2 }                none            (11)
+       ε2 ≥ 1           ϑ2 = 0         1   1                       {0}          D ≡ 1 (mod 8)        (12)
+                    2 | ε 2 ≤ ϑ2 − 5   1   8                   {ad2 }                none            (13)
+                    2 | ε 2 = ϑ2 − 4   1   8                  {5ad2 }                none            (14)
+                    2 | ε 2 = ϑ2 − 3   1   8            {ad2 (1 − 2D2 )}             none            (15)
+      ε2 ≥ 1,       2 | ε 2 = ϑ2 − 2   1   4              {−ad2 D2 }                 none            (16)
+      ϑ2 ≥ 1        2 ∤ ε 2 = ϑ2 − 2   2   8       {−ad2 D2 , ad2 (2 − D2 )}         none            (17)
+                    2 ∤ ε 2 = ϑ2 − 1   1   4                 {ad2 1−D
+                                                                    2 }
+                                                                     2
+                                                                               D2 ≡ −1 (mod 4)       (18)
+                      2 | ε 2 = ϑ2     1   1                       {0}         D2 ≡ 5 (mod 8)        (19)
+                    2 | ϑ2 , ε2 > ϑ2   1   1                       {0}         D2 ≡ 1 (mod 8)        (20)
+
+                Table 2. Table 2 from [Iwa72a], corrected, dedicated to the prime p = 2.
+                The method of reading the table is the same as for Table 1.
+
+Correction 2.3. In Tables 1 and 2, a correction has been made to [Iwa72a]. Instead of D∗
+in the original, one should use D2 as in our tables. The replacement of D∗ by D2 allows the
+table to be additionally valid for negative integers n (subject to an additional condition at
+∞). For clarity purposes, line (8) has been broken into two cases. The theorem was clarified
+to note that only prime divisors of 2nD require a line in the table. All other changes are
+cosmetic.
+
+   The tables specify sets L (εp , ϑp ) of ‘possible m’ depending on a, D and d. (Iwaniec only
+used this notation on the case of p = 2 but we have defined it more generally.) The column
+ℵ gives #L (εp , ϑp ).
+   Next, following Iwaniec, we give an alternate statement that is more useful for application.
+We write k(n) for the squarefree kernel of n, i.e. n = k(n)n20 where n20 is the largest square
+divisor. In particular, the Kronecker symbol is given by a quadratic character χf(a) of
+conductor4 f(a):
+                   a                          
+                                                   k(a) k(a) ≡ 1 (mod 4)
+                        = χf(a) (b), f(a) =                                .
+                      b                            4k(a) k(a) ̸≡ 1 (mod 4)
+Let
+                                                                      
+                                                            k(D)
+                                       P =         p:                  =1 .
+                                                              p
+
+    4Iwaniec used f for the conductor in place of f but as we wish to reserve f for a binary quadratic form,
+we have changed the font.
+          PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                          7
+
+
+   With reference to τ as a function of εp and ϑp given in Tables 1 and 2, define
+                                                 Y
+(2.3)                           Q = τ (ε2 , ϑ2 )   τ (εp , ϑp )
+                                                  p|D ∗
+
+Theorem 2.4 ([Iwa72a, Theorem 3]). Let n = dm as in (2.2). Then n is primitively
+representable by Rf if and only if
+    (1) d is table-admissible for Rf ;
+    (2) m ≡ L (mod Q) for some 0 < L < Q satisfying
+         (a) L ≡ ℓ (mod τ ) for some ℓ ∈ L (ε2 , ϑ2 );
+         (b) for each pi | Q∗ having εpi < ϑpi , there exists ℓ ∈ Lp′i such that L ≡ ℓ (mod pi );
+         (c) for each pi | Q∗ having εpi = ϑpi , there exists ℓ ∈ Lp′′i such that L ≡ ℓ (mod pi );
+    (3) all prime factors of m belong to P .
+   Residues L modulo Q satisfying (2a)–(2c) will be called residue-admissible.
+   In the proof of Theorem 1.1, care will be given to checking that suitable values d and L
+actually exist. This is not guaranteed and is outlined in Lemma 4.1.
+Remark 2.5. We have computationally verified the correctness of the updated Tables 1 and
+2 for a range of discriminants D and integers n. Using PARI/GP [The25], we can initialize
+quadratic forms, find a representative for each element of the class group, and separate them
+into genera. Using the qfbsolve command, we can find all proper representations of an
+integer by a quadratic form, and compare these results to Tables 1 and 2. The qfbsolve
+command uses Gauss reduction and quadratic form equivalence testing to determine all
+solutions.
+   For all discriminants D with −1000 ≤ D ≤ 1000 and non-zero integers n with −100, 000 ≤
+n ≤ 100, 000, we verified Theorem 2.2. This code can be found in the GitHub repository
+[Ric25]. In particular, test_thm2(D, n1, n2) checks that the theorem is correct for all
+genera of discriminant D and all non-zero integers between n1 and n2. Running the code on
+the above range took around 30 minutes on a laptop.
+
+                                 3. Proof of Theorem 1.1
+   Here we prove the lower bound in Theorem 1.1, as the upper bound is a direct consequence
+of [Iwa72a]. We use µ2 (x) = 1 to denote the condition that x is squarefree (this is the square
+of the Möbius function). For a finite set of primes S and x ∈ N we write
+                              
+                       2          1 if x is squarefree outside of S
+                     µS (x) =
+                                  0                 otherwise.
+For the rest of this section we set S = {2, 3}.
+3.1. Set-up. We define the counting function Ssq (N ) to be the number of primes p ≤ N
+which satisfy the conditions
+   µ2S (B −1 (p − A)) = 1, p − A = Bg(x, y) for some g ∈ Rf and x, y ∈ Z, gcd(x, y) = 1
+                     25 ∤ B −1 (p − A), 33 ∤ B −1 (p − A),   p≡l    mod m,
+where Rf is the genus of f . A central step towards proving Theorem 1 will be to provide a
+lower bound on this quantity.
+   Let Z > 3 be a parameter to be chosen later. Define
+                                                Y
+(3.1)                               ΠZ,D,A =         p.
+                                                    p<Z
+                                                  p∤2DAm
+8                     FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+Let S1 (N, Z) be equal to the number of primes p ≤ N with p ≡ l mod m such that
+                                            
+                              p−A
+                       gcd           , ΠZ,D,A = 1,
+                                B
+                       p−A
+                               is primitively represented by some g ∈ Rf ,
+                         B
+                            p−A
+                       q2 ∤        , ∀q | D with (q, 6) = 1,
+                              B
+                            p−A 3 p−A
+                       25 ∤        ,3 ∤        .
+                              B            B
+Moreover for every d ∈ N we define S2 (N, d) to be equal to the number of primes p ≤ N
+such that p ≡ l mod m and
+                  p−A
+                         = d2 g(x, y) for some form g ∈ Rf , gcd(x, y) = 1.
+                    B
+   Eventually, we want a lower bound on Ssq (N ), as any squarefree number represented
+by a form is by default primitively represented. We will then use result from [BF12] to
+move from the genus to one form. Our first step towards this is to break the task into two
+individual counting functions. The following Lemma makes use of Theorem 2.4.
+Lemma 3.1.                                       X
+                     Ssq (N ) ≥ S1 (N, Z) −               S2 (N, d) − O(1),
+                                              Z≤d≪N 1/2
+where the implicit constant depends only on A.
+Proof. We will show that if n = p−A    B  is counted by S1 (N, Z) but not by Ssq (N ), then it
+arises as an element of one of the counting functions S2 (N, d).
+    Let n = p−A                                                p−A
+                B , p prime with p ≡ l mod m, such that gcd( B , ΠZ,D,A ) = 1 and such that
+n = p−AB is primitively represented by some form in the genus of f . Moreover assume that
+if q | D and (q, 6) = 1, then q 2 ∤ p−A                           5  p−A       3   p−A
+                                       B , and we assume that 2 ∤ B and 3 ∤ B . If we
+assume that n = p−A   B is not counted by Ssq (N ) and p > A, then there exists a prime q ≥ Z
+such that
+                                                p−A
+                                           q2 |      .
+                                                 B
+Write n = p−A          2
+                B = q q0 for some q0 ∈ Z. From here on we follow the notation of Iwaniec’s
+article [Iwa72a] and Section 2.
+    Note that Q (as in Section 2) is supported on primes dividing 2D by construction (in
+fact Q | 8D). So if we choose Z > 2 sufficiently large, then q is coprime to Q.
+    Write q 2 q0 = dm such that d is composed of primes dividing 2D and such that gcd(m, 2D) =
+1. Observe that gcd(d, q) = 1, so q 2 | m. Then, by Theorem 2.4, the number d is table-
+admissible, and we have
+                                         p | m ⇒ p ∈ P.
+Also, there exists a residue-admissible residue class L modulo Q such that
+                                     m ≡ L mod Q.
+We now use Theorem 2.4 to show that q0 = dm/q 2 = dm′ is primitively represented by the
+genus Rf . We verify each condition in turn. First, d is the same as before, so it continues
+to satisfy the conditions of the tables. Next, all primes diving m′ are contained in P .
+   Third,
+                                 m′ = m/q 2 ≡ q̄ 2 L mod Q,
+          PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                     9
+
+
+where we write q̄ for the inverse of q modulo Q. We wish to show that, if L is residue-
+admissible according to the second part of Theorem 2.4, then so is q̄ 2 L. Note that q̄ 2 ≡ 1
+mod 8 and hence the residue class q̄ 2 L remains admissible at the place 2. For all other
+primes pi dividing D, we note that the sets Lp′i and Lp′′i are invariant under multiplication
+with invertible squares, so admissibility is maintained here also.
+   Thus, we apply Theorem 2.4 and deduce that the number q0 is primitively represented
+by the genus of f . This finishes the proof of the claim.                                   □
+
+  In Subsection 3.2, we give an upper bound on the second term; and in Subsection 3.3,
+we give a lower bound on the first term.
+
+3.2. The squarefree sieve. We begin with an upper bound on the S2 (N, d) term in
+Lemma 3.1, making use of Theorem 1 in [Iwa72a].
+Lemma 3.2. For every ϵ > 0 have
+                    X                                    N               N
+                           S2 (N, d) ≪                              +           .
+                                                  (log N )3/2 Z 1−ϵ   (log N )2
+                      Z≤d≪N 1/2
+
+Proof. If gcd(d, A) > 1, then S2 (N, d) ≤ 1. So we now consider the case gcd(d, A) = 1. An
+application of Theorem 1 in [Iwa72a] gives the upper bound
+                                                     N                  N
+                            S2 (N, d) ≪                          +
+                                             ϕ(d2 )(log N )3/2       (log N )5
+and note that the implicit constant is independent of d.
+  Using the crude lower bound ϕ(n) ≫ n1−ϵ , we obtain the bound
+                                                                                
+                X                        X                 N              N
+                        S2 (N, d) ≪                                  +
+                      3                        3
+                                                   ϕ(d2 )(log N )3/2   (log N )5
+            Z≤d≤(log N )                   Z≤d≤(log N )
+                                               N              X            1       N
+                                       ≪                                  2−ϵ
+                                                                              +
+                                           (log N )3/2                 3
+                                                                         d      (log N )2
+                                                          Z≤d≤(log N )
+                                                N             N
+                                       ≪                 +           .
+                                                 3/2
+                                         (log N ) Z  1−ϵ   (log N )2
+We bound the contribution for (log N )3 < d ≪ N 1/2 by simply observing that S2 (N, d) ≪
+N
+d2 . With this we obtain
+                        X                                   X            N       N
+                                      S2 (N, d) ≪                         2
+                                                                            ≪           .
+                                                                         d    (log N )3
+                 (log N )3 ≤d≪N 1/2                 (log N )3 ≤d≪N   1/2
+
+
+We deduce that
+                           X                             N             N
+                                  S2 (N, d) ≪                     +           .
+                                                          3/2
+                                                  (log N ) Z  1−ϵ   (log N )2
+                      Z≤d≪N 1/2
+
+                                                                                            □
+
+3.3. Setting up a 1/2-dimensional sieve. In this section, we turn to lower bounds for
+the counting function S1 (N, Z). Since we are modifying arguments of Iwaniec [Iwa72a], we
+match the notation of that paper, to ease comparison.
+10                     FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+  We will now define a set M over which we sieve, i.e. we will reduce the problem to a
+sum suitable for the 1/2-dimensional sieve, of the form
+                                           X
+                                                 1.
+                                               m∈M
+                                             q|m⇒q∈P
+
+The corresponding part of [Iwa72a] is pp. 214-5.
+  We define the counting function
+                                                             X
+                           S1,Z (N, f, B, A) =                                 1,
+                                                               p≤N
+                                                          p=Bg(ξ,η)+A
+                                                          (ξ,η)=1, g∈Rf
+                                                        ( p−A
+                                                           B ,ΠZ,D,A )=1
+                                                           p≡l mod m
+                                                   q 2 ∤ p−A
+                                                           B , ∀q|D, (q,6)=1
+                                                        25 ∤ p−A   3 p−A
+                                                              B , 3 ∤ B
+
+
+   where ΠZ,D,A is as in (3.1). This is the same as Iwaniec’s S1 (N, f, B, A) with the addition
+of a condition that p−A                                                        2 p−A
+                     B be coprime to ΠZ,D,A and p ≡ l mod m and that q ∤ B for q | D
+                     5 p−A      3 p−A
+with (q, 6) = 1 and 2 ∤ B , 3 ∤ B . Then we have
+                                S1,Z (N, f, B, A) = S1 (N, Z).
+   We assume that gcd(m, 2DB) = 1 and that gcd(l − A, m) = 1. We start by supposing
+a table-admissible integer d and a residue-admissible 0 < L < Q (Theorem 2.4) such that
+gcd(BdL + A, QBd) = 1, where Q is defined in (2.3). We demonstrate the existence of such
+an integer in Lemma 4.1 (Section 4); we also see that we can choose such an integer d in
+the cases that are relevant to us, in a way such that d is squarefree outside of 2, 3 and such
+that 25 ∤ d and 33 ∤ d.
+Correction 3.3. The issue of existence of admissible d, L is relevant in the original also.
+In [Iwa72a, p.229, (4.8)], the quantity ΩA,B,D is defined. It is possible for this quantity
+to be zero. Thus the lower bound on ΩA,B,D in the middle of page 230 does not always
+hold. This is only a problem if there are no d and L satisfying the conditions 2 | ABd and
+(BdL + A, QBd) = 1. As we will see in Lemma 4.1, the only case of concern is if 2 ∤ AB
+and D ≡ 5 (mod 8). However, there is a way to circumvent this. For the lower bounds on
+S∞ and S2 in Iwaniec’s Theorem 1, there is no primitivity condition on the representation,
+hence on can replace here B by 4B by substituting the variables ξ and η by 2ξ and 2η and
+with this obtain forms for which one has the desired lower bound on ΩA,4B,D (which is used
+on page 231).
+     Note that Q is only composed of primes dividing 2D. We consider the sets
+              C = {p : |A| < p ≤ N, p ≡ BdL + A (mod QBd), p ≡ l (mod m)},
+and                                                                   
+                                               p−A
+                             M =′        ′
+                                        m :m = ′
+                                                   ,p ∈ C                  ,
+                                                Bd
+where p is always understood to be a prime. As gcd(m, 2BD) = 1 we note that the two
+congruence conditions in C are independent and define a unique congruence class for p
+modulo mQBd. We define the set M , introducing a coprimality to ΠZ,D,A :
+                          M = {m ∈ M ′ : gcd(m, 2DΠZ,D,A ) = 1}.
+          PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                      11
+
+
+  Let P be as in Theorem 2.4. We rewrite the counting function S1,Z (N, f, B, A) as follows:
+                              X                 X             X
+    S1,Z (N, f, B, A) =                  1=                                1 + O(|A|).
+                                     p≤N                  d,L∈L            |A|<p≤N
+                                p=Bg(ξ,η)+A              µ2S (d)=1 p≡BdL+A mod QBd
+                                (ξ,η)=1, g∈Rf           admissible       q| p−A
+                                                                             Bd ⇒q∈P
+                              ( p−A                     25 ∤d, 33 ∤d ( p−A ,2DΠ
+                                 B ,ΠZ,D,A )=1                       Bd      Z,D,A   )=1
+                                 p≡l (mod m)                          p≡l (mod m)
+                         q 2 ∤ p−A
+                                 B , ∀q|D, (q,6)=1
+                              25 ∤ p−A   3 p−A
+                                    B , 3 ∤ B
+
+
+
+
+   Here the sums over d and L ∈ L are over all admissible pairs as in Theorem 2.4. Note that
+if L, d are an admissible pair with gcd(QBd, BdL + A) > 1, and p ≡ BdL + A (mod QBd),
+then p must be a divisor of 2D (as gcd(A, B) = 1) and hence
+
+                                    X                   X            X
+(3.2)      S1,Z (N, f, B, A) =                                               1 + O(|2DA|).
+                                      d        L∈L          m∈M
+                                   2|ABd gcd(QBd,BdL+A)=1 q|m⇒q∈P
+                                   2
+                                 µS (d)=1
+                                 25 ∤d, 33 ∤d
+
+   Hence we are interested in lower bounds for the number of m ∈ M such that m is only
+divisible by primes in P , which leads us to a sieve problem.
+
+3.4. Level of distribution. Our next goal is to provide a level of distribution for the set M .
+For this it is sufficient to consider moduli ϱ with gcd(ϱ, 2DΠZ,D,A m) = 1 as elements m ∈ M
+are automatically coprime to 2DΠZ,D,A m (using the assumption that gcd(l − A, m) = 1).
+   Let ϱ be a modulus with gcd(ϱ, 2DΠZ,D,A m) = 1 and write
+                                     Mϱ = {m ∈ M : ϱ | m}.
+Our goal is to approximately evaluate |Mϱ | and bound the error term. For this we compare
+the set M again with the set M ′ . Note that if m ∈ M ′ , then we have gcd(m, QA) = 1. For
+a modulus σ with gcd(σ, QA) = 1 we set
+                                    Mσ′ = {m ∈ M ′ : σ | m}.
+We define D1 to be the greatest divisor of 2DΠZ,D,A coprime to QA. For a modulus ϱ with
+gcd(ϱ, 2DΠZ,D,A ) = 1, we observe that
+                                          X
+                                                ′
+(3.3)                           |Mϱ | =      |Mϱϱ 1
+                                                    |µ(ϱ1 ).
+                                               ϱ1 |D1
+
+Note that for every divisor ϱ1 | D1 we have gcd(ϱ, ϱ1 ) = 1 and gcd(ϱϱ1 , QA) = 1.
+  Consider σ with gcd(σ, QAm) = 1. Let σ0 be an integer with σ0 Q + L ≡ 0 (mod σ).
+Then we have
+                                                                                    
+                  p−A
+Mσ = m : m =
+  ′
+                         , p ≡ A + BdL + QBdσ0 (mod QBdσ), p ≡ l (mod m), |A| < p ≤ N .
+                    Bd
+Under the additional assumption gcd(BdL + A, QBd) = 1 we have
+                             gcd(A + BdL + QBdσ0 , QBdσ) = 1
+and gcd(m, QBdσ) = 1. Hence the two congruence conditions in Mσ′ give a unique invertible
+congruence class, say l, for the primes p modulo QBdσm and we obtain (using the standard
+12                         FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+notation π(N, e, f ) for the number of primes p less than N satisfying p ≡ f (mod e))
+                                      ||Mσ′ | − π(N, QBdσm, l)| ≤ |A|.
+Assume we are given a modulus ϱ with gcd(ϱ, 2DΠZ,D,A m) = 1. By equation (3.3) we
+obtain
+                       X           µ(ϱ1 )
+        |Mϱ | − Li N
+                                φ(QBdϱϱ1 m)
+                       ϱ1 |D1
+
+                                                                    Li N
+        ≤ 2|DΠZ,D,A |            max          π(N, QBdxm, l) −            + 2|DAΠZ,D,A |.
+                                l,x                              φ(QBdxm)
+                        |ϱ|≤x≤|2DΠZ,D,A ϱ|
+                           (l,QBdxm)=1
+
+Here we used that |D1 | ≤ |2DΠZ,D,A |.
+                                                    P          µ(ϱ1 )
+   We pause a moment to analyse the leading constant ϱ1 |D1 φ(QBdϱϱ   1 m)
+                                                                           . For a positive
+integer E we define
+                                      φ(En)    Y     1
+                                                        
+                            φE (n) =        =n     1−
+                                       φ(E)           p
+                                                          p|n
+                                                          p∤E
+
+and observe that φE (n) is a multiplicative function. Let E = QBdm. Then for gcd(ϱ, 2DΠZ,D,A ) =
+1 and ϱ1 | D1 we have gcd(ϱ, ϱ1 ) = 1 and
+      X        µ(ϱ1 )         X              µ(ϱ1 )
+                           =
+            φ(QBdϱϱ1 m)             φ(QBdm)φQBdm (ϱϱ1 )
+     ϱ1 |D1                  ϱ1 |D1
+
+                                        1            Y          1
+                                                                        
+                           =                              1−
+                              φ(QBdm)φQBdm (ϱ)                φQBdm (p)
+                                                    p|D1
+                                                                   Y           
+                                        1             Y         1               1
+                           =                                1−             1−
+                              φ(QBdm)φQBdm (ϱ)                 p−1              p
+                                                          p|D1              p|D1
+                                                         p∤Bdm             p|Bdm
+
+                                           1          Y        1
+                                                                      Y
+                                                                             1
+                                                                               
+                                 =                        1−             1 −     .
+                                     φ(QBdm)φQBdm (ϱ)        (p − 1)2        p
+                                                          p|D1               p|D1
+                                                         p∤Bdm
+
+3.5. Applying the sieve. The corresponding part of [Iwa72a] is Section 4; [Iwa72a, Lem-
+mata 4.1-4.3] are general results which we use in the exact same form.             
+                                                                                      k(D)
+  We define the set P to be the set of primes not dividing 2DAΠZ,D,A such that          p    =
+−1. Let E = QBdm. Then we have
+
+                                     X log p  1
+(3.4)                                        − log x < C1 ,       x ≥ 1,
+                                       φE (p) 2
+                                     p≤x
+                                     p∈P
+
+for a constant C1 which may depend on A, D, Z, m, but does not depend on B. We define
+                           Y      1
+                                      Y 
+                                                      1
+                                                            
+                      Y =       1−             1−             Li N
+                                   p               (p − 1)2
+                                     p|D1         p|D1
+                                                 p∤Bdm
+           PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                      13
+
+
+   Note that Y depends on D1 and D1 depends on ΠZ,D,A . We define y as
+                             √
+                          y = N /|QBdDΠZ,D,A m|(log N )U ,
+and assume |QBdΠZ,D,A | < (log N )15 , where U is given as in Theorem 4.1 in [Iwa72a].
+  For 1 ≤ s ≤ 3 and N sufficiently large we can hence apply Theorem 5 in [Iwa72a] and we
+obtain the lower bound
+                            √
+                              2eγ π −1 C0 Y
+                                                     Y                  
+                     1/s                           1                 1
+              A(M , y ) ≥                      1−             1−
+                             φ(QBdm)               p              (p − 1)2
+                                                p|D1            p|D1
+                                                               p∤Bdm
+                                        Z s                      !
+                             N                   dt
+                       ×                                + o(1)       + O(N (log N )−20 ).
+                         (log N )3/2
+                                              p
+                                         1     t(t − 1)
+Here the implicit constants are independent of B. Moreover, the constant C0 is given by
+                                                         −1/2                    − 21 ( k(D)
+                                                                                                p )
+       −γ/2
+                  Y                 1         Y           1           Y             1
+C0 = e                      1−                        1 −                       1 −
+                                 (p − 1)2                 p                         p
+              p∤2DBAΠZ,D,A m                     p|2DAΠZ,D,A                    p∤2DAΠZ,D,A
+                 ( k(D)
+                     p )=−1
+
+
+As in Iwaniec’s paper [Iwa72a] following his Corollary to Theorem 4, we observe that for
+1 < s < 43 and N sufficiently large we have
+                                          X             X
+(3.5)                    A(M , y 1/s ) =       1+              1.
+                                                m∈M         p1 p2 m∈M
+                                              q|m⇒q∈P       q|m⇒q∈P
+                                                           1/s
+                                                          y   ≤p1 ,p2 ∈P
+
+   An inspection of the proof of Lemma 4.4 in [Iwa72a] shows that we have the following
+lemma.
+Lemma 3.4. Assume that |QBdDΠZ,D,A m| < (log N )15 , 15 < U and s > 1. Then we have
+                      √
+              4eγ/2 C0 s − 1             4s2 N    Y                           
+   X                                                       1 Y             1
+         1< √             √ log(2s−1)                   1−          1−             (1+o(1)),
+               πφ(QBdm) s             (log N )3/2          p            (p − 1)2
+  p1 p2 m∈M                                                    p|D1             p|D1
+  q|m⇒q∈P                                                                       p∤Bd
+ 1/s
+y   ≤p1 ,p2 ∈P
+
+where the implicit constant is independent of B.
+Remark 3.5. In Lemma
+                      4.4 in [Iwa72a]
+                                     there
+                                            is a typo in the statement of the lemma,
+                     1                 1
+           Q             Q
+the factors p|D1 1 − p     p|D1 1 − (p−1)2   are missing on the right hand side of the
+                                 p∤Bd
+inequality.
+   By taking s sufficiently close to 1 in equation (3.5) we obtain the following lemma.
+Lemma 3.6. Assume that |QBdDΠZ,D,A m| < (log N )15 . Then we have
+           X             Y    1
+                                 
+                                     1       N
+                1 ≫ C0      1−                       − O(N (log N )−20 ),
+                               p φ(B) (log N )3/2
+                   m∈M  p≤Z
+                 q|m⇒q∈P
+
+where the implicit constants are independent of B.
+  As a direct consequence we obtain a lower bound for the counting function S1 (N, Z).
+The following proposition is a combination of Lemma 3.6, equation (3.2) and Lemma 4.1.
+14                    FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+Proposition 3.7. Assume that |100ABD3 ΠZ,D,A m| < (log N )15 . Moreover, we assume
+that 2 | AB or D ̸≡ 5 mod 8. Then we have
+                            Y     1
+                                     
+                                         1    N
+             S1 (N, Z) ≫ C0     1−                    − O(N (log N )−20 ),
+                                   p φ(B) (log N )3/2
+                            p≤Z
+
+where the implicit constants are independent of B.
+3.6. Passing from the genus to one form. By choosing Z a sufficiently large constant
+and combining Lemma 3.1 and Lemma 3.2 we obtain the following proposition.
+Proposition 3.8. Assume that gcd(A, B) = 1. Let m be a natural number and l and integer
+with gcd(l, m) = 1 and assume that gcd(m, 2DB) = 1 and that gcd(l −A, m) = 1. Moreover,
+we assume that 2 | AB or D ̸≡ 5 mod 8. Then we have
+                                                  N
+                                   Ssq (N ) ≫             ,
+                                              (log N )3/2
+where the implicit constant is allowed to depend on all involved parameters.
+   The essential ingredient in passing from representations of p−A
+                                                                B by some form in the genus
+of f to representations by f is given by a result of Bourgain and Fuchs on the representation
+of integers by binary quadratic forms.
+   The following Theorem is a slight generalization of Theorem 1.2 in [BF12] and is proved
+in the same way.
+Theorem 3.9. Let f = ax2 + bxy + cy 2 be a primitive integral binary quadratic form
+with discriminant D not a perfect square, positive definite if D < 0, and let A, B be as in
+Theorem 1.1. Let S be a finite set of primes and e0 ∈ N. Write Nbad (N ) for the number of
+primes p < N such that
+                                        
+    (1) p−A
+         B   is an integer with µ2
+                                 S
+                                     p−A
+                                      B    = 1,
+   (2) pe0 ∤ p−AB for all p ∈ S, and
+         p−A
+   (3) B is primitively represented by some form in the genus of f but not by all forms
+         in the genus of f .
+Then
+                                                   N
+                                 Nbad (N ) ≪                ,
+                                             (log N )3/2+δ′
+where δ ′ > 0 is a constant.
+   We provide a few remarks on the above generalization. Theorem 1.2 in [BF12] concerns
+squarefree shifted primes less than N represented by all forms of the genus of a quadratic
+form of discriminant D, where D is allowed to be a power of log N . Since our forms in
+question have fixed discriminant that does not grow with N , the statement above can in
+fact be improved with 3/2 replaced by 2. The key is that at some point in the proof      √ of
+Theorem 1.2 in [BF12] one has to multiply by the class number which is roughly D,
+and this affects the power of log N in the denominator above, but would not occur in our
+situation. Nonetheless, the result above is good enough for us, so we state it with the
+(log N )3/2+δ .
+   As for the loosening of the squarefree condition to allow for bounded powers of primes
+from a fixed set of bad primes, we do not include the proof because it is, on the one hand,
+straightforward, but on the other hand does require re-writing most of the steps in [BF12].
+To give an idea of what happens in these steps, the key input in [BF12] is Theorem 2.1 in that
+           PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                          15
+
+
+paper, which is a result in combinatorial group theory that has nothing to do with square
+free versus the slightly more general numbers we consider here. Theorem 2.1 there  P states
+that, given a finite abelian group G and a subset A of G, the sum set s(A) := { xi | xi ∈
+A distinct} is either the whole group G, or A satisfies some specific unfortunate criteria (e.g.
+it is close to a subgroup of G). This result is then applied to the quadratic forms question
+by letting G = C 2 where C is the class group of primitive positive definite binary forms of
+discriminant D. Given a squarefree number n (which may be taken to be a shifted prime),
+the set A is the set {Cj2 } where Cj and Cj−1 are the classes representing the j-th prime
+factor of n. The task is then to give an upper bound on the number of n < N for which
+A falls into the unfortunate cases of Theorem 2.1 of [BF12], because if s(A) = G one has
+exactly that n is represented by all forms of the genus if it is represented by one.
+    Injecting multiples of square free numbers by bounded powers of a fixed set of primes
+into the analysis behind these upper bound changes them by a constant multiple depend-
+ing on these bad primes and the powers they are allowed to appear with. This is much
+more straightforward than attempting to simply remove the squarefree condition with no
+limitations, in which case the analysis as it stands in [BF12] would not neatly generalize.
+    Theorem 1.1 is now a direct consequence of Proposition 3.8 and Theorem 3.9.
+
+                                     4. Local conditions
+   Here, we tackle a key issue in the computations in Section 3.3: the existence of a table-
+admissible integer d and an appropriate L as described in Iwaniec’s tables. Indeed, as we
+show below, in certain cases this is not true.
+Lemma 4.1. Assume that (A, B) = 1. Then there exist values d, L such that:
+    (1) d is table-admissible and L is residue-admissible for Rf in the language of Section 2;
+    (2) µ2 (d) = 1;
+    (3) 2 | BAd; and
+    (4) (BdL + A, QBd) = 1,
+unless we are in one of the following cases:
+      • 2 ∤ AB and D ≡ 5 mod 8
+      • 2 ∤ AB and ϑ2 ≥ 4
+      • 2 ∤ AB and ϑ2 = 2 and D2 ≡ 1 mod 4.
+      • 3 | D, 3 ∤ A, 3 | Ba + A and ϑ3 > 1.
+   Moreover, if we remove the squarefree condition µ2 (d) = 1, then the only exceptional case
+is 2 ∤ AB and D ≡ 5 mod 8. Barring this exceptional case, we can choose such a tuple
+such that d is of the form d = 2ε2 3ε3 d′ with µ2 (d′ ) = 1, gcd(d′ , 6) = 1 and ε2 ∈ {0, 1, 2, 3, 4}
+and ε3 ∈ {0, 1, 2}.
+Proof of Lemma 4.1. We will choose d to be composed only of powers of 2 and powers of 3.
+In particular, in the case µ2 (d) = 1 we will choose d ∈ {1, 2, 3, 6}.
+   Note that if q is a prime with q | B, then q ∤ A and (BdL + A, q) = 1 independent of the
+choice of d, L.
+   We consider now primes pi > 3 which divide D. Assume that d is not divisible by pi .
+Table 1 shows that τ (εpi , ϑpi ) = pi and that there are pi2−1 > 1 admissible residue classes
+of L modulo pi . We want that (BdL + A, pi ) = 1. Note that the congruence BdL + A ≡ 0
+mod pi rules out zero congruence classes if pi | B (as then pi ∤ A) and it rules out exactly
+one congruence class for L if pi ∤ B. We choose out of the pi2−1 admissible congruence classes
+16                    FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+for L modulo pi one which has the property that (BdL + A, pi ) = 1. This works for all
+values of d which are not divisible by pi .
+    It remains to consider the primes 2 and 3. We make a case distinction.
+    Considerations for the place pi = 2.
+    Case 1: We assume that 2 | A (which implies 2 ∤ B). In this case we choose d to be odd,
+i.e., ε2 = 0. Then we certainly have 2 | ABd.
+    Next we consider Table 2 for the prime 2. If ϑ2 = 0, then D ≡ 1 mod 4 as we always
+have D ≡ 0, 1 mod 4. In this case we have τ (ε2 , ϑ2 ) = 1 and 2 ∤ Q. If ϑ2 ≥ 1, then we
+automatically have ϑ2 ≥ 2. In the case ϑ2 = 2 and D2 ≡ −1 mod 4 we have τ (ε2 , ϑ2 ) = 4
+and choose L according to the table. Note that in this case L is automatically odd. If ϑ2 = 2
+and D2 ≡ 1 mod 4 we have τ (ε2 , ϑ2 ) = 1 and Q is odd. In the case that ϑ2 ≥ 3, we have
+τ (ε2 , ϑ2 ) = 4 or τ (ε2 , ϑ2 ) = 8 and choose L modulo 4 or modulo 8 according to the tables.
+Note that also in this case L is automatically odd. To summarise our findings for the prime
+2, we observe that we can always find L admissible at the prime 2, and either Q is odd or
+L is odd. If Q is even, then (BdL + A, 2) = (L, 2) = 1 and if Q is odd, then QBd is odd.
+    Case 2: We assume 2 | B. In this case again we choose d odd and find some admissible
+L as in Case 1. Note that now we automatically have (BdL + A, 2) = 1 independent of the
+choices for d, L.
+    Case 3: 2 ∤ AB. In this case we have to choose d even, i.e. ε2 ≥ 1. In case we find an
+admissible d, L with d even, we automatically have (BdL + A, 2) = 1, i.e. we only need to
+decide if some admissible value exists. We can now read off the existence of an admissible
+tuple d, L at the place 2 from the Table 2.
+    In particular, if ϑ2 = 0 (i.e. D is odd), then such a tuple exists if and only if D ≡ 1
+mod 8.
+    In the case ϑ2 > 0 and ϑ2 even, an admissible tuple d, L always exists. Indeed in this
+case we can use one of the rows (18), (19), or (20).
+    If ϑ2 is odd, then we always have ϑ2 ≥ 3, and we can use row (17).
+    If we want to add in the additional condition that µ2 (d) = 1, then we can only choose
+ε2 ∈ {0, 1}. This is no problem for Case 1 and Case 2 as were we may use ε2 = 0. However,
+in Case 3 we must be in the case ε2 = 1. An inspection of Table 2 shows that this is only
+possible if we are in the case ϑ2 = 2 and D2 ≡ −1 mod 4 or if we are in the case ϑ2 = 3.
+    In the case that 2 ∤ AB, ϑ2 = 2 and D2 ≡ 1 mod 4, we choose ε2 ∈ {2, 3} depending on
+D2 modulo 8 as described in rows (19) and (20).
+    In the case 2 ∤ AB and ϑ2 ≥ 4, we choose ε2 as follows: If 4 ≤ ϑ2 ≤ 6, then we use line
+(15) and (16) and choose ε2 = ϑ2 − 3 or ε2 = ϑ2 − 2 depending on the parity of ε2 . If ϑ2 ≥ 7,
+then we choose ε2 = 2 as in line (13).
+    Considerations for the place pi = 3.
+    This is only relevant if 3 | D as otherwise 3 ∤ Qd. We recall that if 3 | D then 3 ∤ a.
+    Case 1: 3 | A. In this case we have 3 ∤ B and if we choose d not divisible by 3, then we
+have (BdL + A, 3) = 1. Such a choice is always possible by Table 1.
+    Case 2: 3 | B. In this case 3 ∤ A and (BdL + A, 3) = 1 for every admissible tuple d, L.
+The existence again follows from Table 1. In particular, we can choose ε3 = 0.
+    Case 3: 3 ∤ AB and aB + A ̸≡ 0 mod 3: In this case we may choose ε3 = 0, i.e. d
+not divisible by 3. Then we have τ (εpi , ϑpi ) = pi = 3 and there is exactly one admissible
+congruence class for L modulo 3, which is the congruence class L ≡ ad mod 3 (see row (1)
+in the table). In this case we have
+
+                     (BdL + A, 3) = (Bad2 + A, 3) = (Ba + A, 3) = 1.
+          PRIMES IN SHIFTED QUADRATIC FORMS: PRIMITIVITY AND CONGRUENCE                    17
+
+
+   Case 4: 3 ∤ AB and 3 | aB + A. We have learned from Case 3, that if ε3 = 0, then
+we must have L ≡ ad mod 3 and hence (BdL + A, 3) = (Bad2 + A, 3) = (Ba + A, 3) = 3
+which is not allowed. Hence in this case we must have ε3 > 0. If we have ε3 > 0, i.e., 3 | d,
+then we automatically have (BdL + A, 3) = (A, 3) = 1. I.e. the question reduces to when
+an admissible tuple d, L at the place 3 exists. If we are allowed to choose ε3 freely, then
+Table 1 shows that some admissible tuple always exists (for example by setting ε3 = ϑ3 in
+rows (2), (3) or (4)). However, if we additionally want to achieve µ2 (d) = 1, then the only
+possibility for ε3 is ε3 = 1. Then Table 1 shows that the only case in which there is an
+admissible choice for L is in the case ϑ3 = ε3 = 1.
+   For the more general case, we again assume for a moment that 3 ∤ AB, 3 | Ba + A and
+ϑ3 > 1. If ϑ3 = 2, then we choose ε3 = 2, which is admissible by rows (2) and (3). If ϑ3 ≥ 3,
+then we choose ε3 = 2 which is admissible by row (1).                                      □
+18                       FUCHS, HSU, RICKARDS, SCHINDLER, AND STANGE
+
+
+                                             References
+[BF11]    Jean Bourgain and Elena Fuchs. A proof of the positive density conjecture for integer Apollonian
+          circle packings. J. Amer. Math. Soc., 24(4):945–967, 2011.
+[BF12]    Jean Bourgain and Elena Fuchs. On representation of integers by binary quadratic forms. Inter-
+          national Mathematics Research Notices, 2012(24):5505–5553, 2012.
+[FFH+ 24] Holley Friedlander, Elena Fuchs, Piper Harris, Catherine Hsu, James Rickards, Katherine
+          Sanden, Damaris Schindler, and Katherine E. Stange. Prime and thickened prime components
+          in apollonian circle packings. https://arXiv.org/abs/2410.00177, 2024.
+[Fuc13]   Elena Fuchs. Counting problems in Apollonian packings. Bull. Amer. Math. Soc. (N.S.),
+          50(2):229–266, 2013.
+[GLM+ 03] R. L. Graham, J. C. Lagarias, C. L. Mallows, A. R. Wilks, and C. H. Yan. Apollonian circle
+          packings: number theory. J. Number Theory, 100(1):1–45, 2003.
+[Iwa72a]  H. Iwaniec. Primes of the type ϕ(x, y) + A where ϕ is a quadratic form. Acta Arith., 21:203–234,
+          1972.
+[Iwa72b]  H. Iwaniec. Primes represented by quadratic polynomials in two variables. Bull. Acad. Polon.
+          Sci. Sér. Sci. Math. Astronom. Phys., 20:195–202, 1972.
+[Iwa74]   H. Iwaniec. Primes represented by quadratic polynomials in two variables. Acta Arith., 24:435–
+          459, 1973/74.
+[Ple67]   P. A. B. Pleasants. The representation of primes by quadratic and cubic polynomials. Acta
+          Arith., 12:131–163, 1966/67.
+[Ric25]   James Rickards. BQFRepCheck. https://github.com/JamesRickards-Canada/BQFRepCheck,
+          2025.
+[Sar07]   Peter     Sarnak.    Letter   to   J.   Lagarias.   https://web.math.princeton.edu/sarnak/
+          AppolonianPackings.pdf, 2007.
+[The25]   The PARI Group, Univ. Bordeaux. PARI/GP version 2.18.0, 2025. available from http://
+          pari.math.u-bordeaux.fr/.
+
+     University of California Davis, Davis, California, USA
+     Email address: efuchs@ucdavis.edu
+     URL: https://www.math.ucdavis.edu/~efuchs/
+
+     Swarthmore College, Swarthmore, Pennsylvania, USA
+     Email address: chsu2@swarthmore.edu
+     URL: https://chsu.domains.swarthmore.edu/
+
+     Saint Mary’s University, Halifax, Nova Scotia, Canada
+     Email address: james.rickards@smu.ca
+     URL: https://jamesrickards-canada.github.io/
+
+     Göttingen University, Göttingen, Germany
+     Email address: damaris.schindler@mathematik.uni-goettingen.de
+     URL: https://sites.google.com/site/damarishomepage/
+
+     University of Colorado Boulder, Boulder, Colorado, USA
+     Email address: kstange@math.colorado.edu
+     URL: https://math.katestange.net/
+
