@@ -335,3 +335,83 @@ log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
 So the factorial of Theorem 1.1 is *entirely* the cascade: an arithmetic
 codegree bound of polynomial strength in the hub height would replace
 `(k−1)!` by `k²` in `log K`.
+
+### 4.3 Ceilings of the method (Assessment)
+
+Even with HC, three losses remain. Each is stated as the inequality
+that causes it.
+
+1. **Lemma 10.2 thresholds.** A j-set at a level with truncation L must
+   have codegree `≲(k(L+1))^{−(j−1)}`. This is real for truncated
+   expansions (O2 Lemma 10.2 remark: a cluster reusing j old vertices
+   out of `≍kL` can be placed in `binom(kL,j−1)` ways, and the O2 D12
+   example shows the true moment, not just the bound, is too large).
+2. **Monochromatic hubs force `H ≳ (kL)^{k−2}`.** O3 Prop 2.2 extends
+   verbatim to j-sets: for κ of height h, j primes `ℓ_i>y` with
+   `∏ℓ_i ≤ T/y²` and one more prime `ℓ'≡` a fixed class mod `≍h` give
+   `Δ ≳ c/φ(4h)`. (Uniformity in h needs primes in progressions to
+   moduli up to `(kL)^k`, so this is an Assessment, not a theorem.)
+   So the hub height must reach `(kL)^{k−2}`, and
+   `log K ≥ log S_hub ≳ (k−2)·log(kL)`.
+3. **`L ≥ e^{ck}Ŝ` from support truncation.** In O2 Lemma 1.2,
+   `|B_L−1| ≤ binom(2N,L) ≤ 4^{L+1}binom(N,L+1)` counts *primes*. With
+   per-prime weight `w≥4` this makes `Λ ≥ 2ek(1+w)^kS_H`, hence
+   `L ≥ e^{ck}Ŝ` and item 2 costs `≳k²`. This loss is *not* intrinsic to
+   truncation: for n disjoint events of support k, the true value is
+   `B_L = (−1)^{⌊L/k⌋}binom(n−1,⌊L/k⌋)`, of size `≈2^{n}`, not `4^{L}`.
+   An event-sensitive form of Lemma 1.2 (error `≤C^{#events}` for
+   high-support events, keeping the prime count for hubs) would plausibly
+   give `L ≤ k^{O(1)}Ŝ`.
+
+Consequences (same bookkeeping as Thm 4.2):
+
+* HC alone: `log K ≈ 2.86k²/a`, giving `log W ≍ (log₂p)^{3/2}` (Thm 4.2).
+* HC plus `L≤k^{O(1)}Ŝ`: `log K ≈ (k/a)(log Ŝ+O(log k))`. With ET,
+  `k≍(a𝓛/log𝓛)^{1/2}` gives `log log p ≲ (𝓛 log𝓛/a)^{1/2}`, i.e.
+  `log W(p) ≳ a(log₂p)²/log₃p`. This is the brief's second target up to
+  `log₃p`. The `log₃p` is the factor `log Ŝ≍log𝓛` in item 2; the exact
+  form `exp(c(log₂p)²)` would need `log K=O(k)`, which item 2 rules out
+  whenever `Ŝ→∞` (and `S_tot(Π)≍𝓛^{2.5}` numerically, PO §2).
+* Unconditionally (no HC) the cascade gives Theorem 1.1's `(k−1)!`.
+
+### 4.4 The third target is outside the method (Assessment, with a PROVED part)
+
+`W(p) ≥ exp((log p)^c)` i.o. means `log p ≤ 𝓛^{1/c}` for some p with
+`W(p)>T`.
+
+* *PROVED part.* In any construction of this family, p ≡ 1 mod Q with
+  `Q ⊇ ∏_{ℓ≤y}ℓ`, and PO Thm 4.1 gives `log p ≥ log Q ≥ θ(y)`. So
+  `y ≤ 𝓛^{O(1)}`, and the events then have up to `k ≍ 𝓛/log𝓛` free
+  primes.
+* *Assessment.* With `k≍𝓛/log𝓛`, items 1–2 of §4.3 give
+  `log K ≳ k log k ≍ 𝓛`. Then `log p ≥ K ≥ T^{c'}`, which is no better
+  than the trivial range. So `exp((log p)^c)` needs a minorant whose
+  ℓ¹-cost does not grow with the number of free primes per event, i.e.
+  one that tracks the local lemma as the Haar side does (§5).
+
+## 5. The Haar side, explicit in k (PROVED)
+
+**Proposition 5.1.** For every `z≥2`, with `k_z:=⌊𝓛/log z⌋`,
+
+```
+log(1/δ*(T)) ≤ π(z)𝓛 + 8k_z²S*𝓛 + 4S*.
+```
+
+*Proof.* O2 Thm 11.3's proof with z free: Lemma 11.2 at threshold
+`c_0=1/(8k_z)` gives `|𝓑|≤8k_z²S*`, and the local lemma gives
+`P(no event) ≥ e^{−4S*}` under the class of one mod `Q_Π`. ∎
+
+* The dependence on the number of free primes per event is
+  **polynomial** (`k_z²`), against `(k−1)!` in the exponent on the prime
+  side. The local lemma needs only per-prime smallness (`c_0=1/(8k)`),
+  with no codegree condition and no truncation, so neither the cascade
+  nor items 1–3 of §4.3 arise.
+* With `z=𝓛²`: `log(1/δ*) ≪ 𝓛³(S*+1)`, i.e. `≪𝓛^7log𝓛` under ET (O2
+  Thm 11.3). Under the density heuristic `log L_h(T) ≈ log(1/δ*(T))`
+  (POINTWISE_SIZE RA; Assessment) this is the Haar form of the third
+  target: `W(p) ≥ exp((log p)^{1/7−o(1)})`. The heuristic truth is
+  `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7).
+* **The gap, quantitatively.** In the uniform form, the prime side now
+  proves `log log L_h(T) ≤ (1+o(1))𝓛 log₂𝓛/log𝓛` (Cor 3.3, ET). The Haar
+  side gives `log log(1/δ*) ≤ (7+o(1))log𝓛`. The prime side is weaker
+  by a factor `≍𝓛/log₂𝓛` in the doubly logarithmic scale.
