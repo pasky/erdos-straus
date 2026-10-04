@@ -52,8 +52,9 @@ can be gained.  The majorant of the $3/4$ note lies in this class, and the
 large-sieve argument of the $2/3$-loglog note is capped in the same way at
 its own exponent.  We list exactly what the theorems exclude.  For
 Selberg-type majorants we prove a sieve limit with no structural
-hypothesis, in terms of a noise-stability quantity, and a two-prime cap
-with twin moduli that is conditional on an equidistribution hypothesis.
+hypothesis, in terms of a noise-stability quantity, and a
+$\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$, twin moduli included, for
+families whose moduli have at most two prime factors above $(\log X)^8$.
 Every statement carries its status label.  All proofs were checked
 internally only; nothing here has been externally refereed.  This is not a
 proof of the Erd\H{o}s--Straus conjecture.
@@ -93,9 +94,10 @@ Every statement carries one of the following labels.
 \item \lab{conjecture} / \lab{open}: not proved.
 \end{itemize}
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of four internal working
-documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}.  Each was
-hostile-reviewed; the reviews are \cite{ETrev,EBrev,TWrev,TW2rev}.  No
+\lab{proved} result below appears in one of five internal working
+documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3}.  Each
+was hostile-reviewed; the reviews are
+\cite{ETrev,EBrev,TWrev,TW2rev,TW3rev}.  No
 prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
 found; it may be folklore in spirit.  Novelty is not claimed.
 
@@ -126,12 +128,15 @@ found; it may be folklore in spirit.  Novelty is not claimed.
   cubic supply (Lemma~\ref{lem:balancedsupply}, \lab{proved}).
 \item \emph{Selberg-type majorants} (Section~\ref{sec:selberg}).  A
   $\Lambda^2$ sieve limit for arbitrary systems in terms of noise
-  stability (Theorem~\ref{thm:L2}, \lab{proved}); a two-prime $\Lambda^2$
-  cap with twin moduli, \lab{conditional} on the open equidistribution
-  hypothesis $(H_O^{\neq})$ (Corollary~\ref{cor:twoprime}).
+  stability (Theorem~\ref{thm:L2}, \lab{proved}).  It yields a
+  $\Lambda^2$ cap $\ll L^{3/4}(\log L)^{O(1)}$ for $\cR(M)$-families with
+  $M\leq P(M)^{1+B}$ and at most two prime factors of $M$ above
+  $(\log X)^8$, twin moduli included (Theorem~\ref{thm:twoprimecap},
+  \lab{proved}).
 \item \emph{Open problems} (Section~\ref{sec:open}): $H_{\rm MS}$, the
-  $k$-ary comparison inequality (Conjecture~\ref{conj:kary}), sparse noise
-  stability, and $(H_O^{\neq})$.
+  $k$-ary comparison inequality (Conjecture~\ref{conj:kary}) for general
+  majorants, and the $\Lambda^2$ cap for moduli with three or more large
+  prime factors.
 \end{enumerate}
 None of this bounds $E(N)$ from below or says anything about methods
 outside the class; in particular it is not evidence against the
@@ -893,9 +898,10 @@ independent, uniform on $\Z/\ell\setminus F_\ell(h)$ if
 $p_\ell(h)\leq\delta_\ell$ (\emph{light}), and uniform on $\Z/\ell$
 otherwise (\emph{heavy}); higher digits are uniform.  The \emph{leak} is
 $\mathfrak L=Q'(\text{final history}\notin\A)$.  This is a variant of the
-distortion method of Hough \cite{Hough} and
-Balister--Bollob\'as--Morris--Sahasrabudhe--Tiba \cite[def.~(5),
-Thm~3.1]{BBMST}, adapted to general level-$\lambda$ majorants.
+distortion method of
+Balister--Bollob\'as--Morris--Sahasrabudhe--Tiba \cite{BBMST}, which bounds
+the density of the uncovered set (the majorant $\ind_\A$ only), adapted
+here to general level-$\lambda$ majorants.
 
 \begin{lemma}[leak and inflation; {\cite[Lemmas~2.1, 2.2]{TW}}; \lab{proved}]\label{lem:leak}
 (a) $\mathfrak L\leq\sum_{\ell\in\cP}\E_{Q'}[p_\ell(H_{<j(\ell)})\ind\{p_\ell(H_{<j(\ell)})>\delta_\ell\}]$.
@@ -1167,7 +1173,9 @@ caps of Section~\ref{sec:cap}.
   families.  Excluded are: families containing unresolved $\eta$-twin
   moduli with top prime in $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$; gapped
   moduli with $\log M/\log P(M)$ unbounded; and $(a,D)$- and Case-A
-  moduli without a dominant prime.  This part is not small
+  moduli without a dominant prime.  For Selberg-type majorants,
+  Theorem~\ref{thm:twoprimecap} covers twin $\cR(M)$-moduli with at most
+  two prime factors above $(\log X)^8$.  This part is not small
   (Lemma~\ref{lem:balancedsupply}).
 \item \emph{Non-selector admissible sets.}  The term $\log(Q_0/|R|)$ is
   uncontrolled (Remark~\ref{rem:Rterm}).  Corollary~\ref{cor:dominant}
@@ -1353,39 +1361,79 @@ Theorem~\ref{thm:binaryNS} in each good fibre after a free quarantine of
 hub residues \cite[Lemma~2.2]{TW2}, and a profile bound $\ll\alpha^{-3}(\log
 L)^{O(1)}$ for the unary and diagonal binary terms \cite[Lemma~4.1]{TW2}.
 
-The off-diagonal term splits by the labels of the classes.  By
-\cite[Lemma~5.3]{TW2}, the residue of $-4D\pmod M$ at a prime $j\mid M$ is
-$-u'/v'$, where $D/A=u'/v'$ in lowest terms; each class has the three
-\emph{candidate rationals} $4D$, $D/A$, $1/(4\bar D)$ with $\bar D=A^2/D$.
+The off-diagonal term was left open in \cite{TW2}.  It is now bounded
+unconditionally \cite{TW3}; the review \cite{TW3rev} found the argument
+sound after repairs.
 
-\begin{lemma}[same-label part $(H_O^=)$; {\cite[Lemma~5.4]{TW2}}; \lab{proved} mod the stated Brun--Titchmarsh and Shiu inputs]\label{lem:HOeq}
-The contribution to $\E_P\sum_j\rho_jS_j$ of pairs of classes through $j$
-that share a candidate rational, together with all prime-power classes,
-is $\ll_B(\log L)^{O(1)}$.
-\end{lemma}
-
-\begin{hypothesis}[$(H_O^{\neq})$; {\cite[\S5.1]{TW2}}; \lab{open}]\label{hyp:HOne}
-Consider the pairs of classes through $j$ that agree modulo $j$ and have
-disjoint sets of candidate rationals.  Their contribution to
-$\E_P\sum_{j>w_2}\rho_jS_j(c)$ is $\ll_B\alpha^{-3}(\log L)^{O(1)}$.
-\end{hypothesis}
-
-\begin{corollary}[{\cite[Cor.~5.2]{TW2}}; \lab{conditional} on $(H_O^{\neq})$]\label{cor:twoprime}
-In this setting, $\log(1/\E g^2)\ll_{A_0,B}L^{3/4}(\log L)^{O(1)}$: the
-$\Lambda^2$ cap for $\cR(M)$-families with at most two prime factors above
-$(\log X)^8$, twin moduli included.
-\end{corollary}
-\begin{proof}
-Theorem~\ref{thm:twoprime}, Lemma~\ref{lem:HOeq} and
-Hypothesis~\ref{hyp:HOne}.
+\begin{theorem}[the off-diagonal term $(H_O)$; {\cite[Thm~4.1]{TW3}}; \lab{proved}]\label{thm:HO}
+In this setting,
+$\E_P\sum_{j>w_2}\rho_jS_j(c)\ll_B\alpha^{-3}(\log L)^{O(1)}$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+The prime-power classes are split off as in \cite[Lemma~5.4]{TW2}, at cost
+$o(1)$.  For the classes with moduli $kjm$ ($j\neq m$ primes $>w_2$, $k$
+$w_2$-smooth), call a class through $j$ \emph{small} if $m\leq(kj)^{C_0}$
+and \emph{large} otherwise, for a fixed $C_0\geq6$, and write
+$\deg_c(j,a)=x(a)+z(a)$ accordingly.  Since $\min(x+z,1)\leq\min(x,1)+z$ and
+$\min(x,1)^2\leq x$,
+\[
+ S_j\leq2w_j^{\rm sm}(c)+2\sum_a\nu_j(a)z(a)^2,
+\]
+where $w_j^{\rm sm}$ is the binary mass at $j$ of the small active classes.
+\emph{Small part} \cite[Lemma~2.1]{TW3}: by Shiu's theorem along the top
+prime, the divisor mass of a small class is $(\log kj)^3$ rather than
+$L^3$, and $\sum_j\rho_j(\log j)^3/j\ll\alpha^{-3}$; so its first moment is
+$\ll\alpha^{-3}(\log L)^{O(1)}$.  \emph{Large part}
+\cite[Lemmas~3.1--3.4]{TW3}: parametrise $D\mid A^2$ by $A=uvt$, $(u,v)=1$,
+$D=u^2t$.  The largest of $u,v,t$ is at least $A^{1/3}$, and $m>(kj)^{C_0}$
+makes the range of the prime $m$ long enough for Brun--Titchmarsh in a
+class modulo four times the product of the two shorter variables.  The
+residue modulo $j$ depends only on those two variables, and their second
+moments give $\sum_{a\bmod j}V_{j,k}(a)^2\ll(\log L)^6$ uniformly in $j,k$.
+Activity and the $k$-sum are handled as in \cite[Lemma~5.4]{TW2}.  The
+large part contributes $\ll(\log L)^{O(1)}$.
 \end{proof}
-For the pairs in $(H_O^{\neq})$, every difference of candidate rationals
-is a nonzero integer divisible by $j$.  The random model predicts a
-contribution $\ll L^{6+o(1)}/w_2=o(1)$, against a trivial bound
-$\asymp L^6/\alpha$; numerically the relevant counts are at or below the
-random prediction in all six tested rows \lab{evidence}.  The restriction
-$M\leq P(M)^{1+B}$ with $B$ fixed is genuine: for fixed $B$, twins
-$k\ell_1\ell_2$ with a $w_2$-smooth cofactor $k>M^{(B-1)/(B+1)}$ are excluded.
+
+\begin{theorem}[two-prime $\Lambda^2$ cap, twins included; {\cite[Cor.~5.2]{TW2}}, {\cite[Cor.~4.2]{TW3}}; \lab{proved}]\label{thm:twoprimecap}
+Fix $B\geq0$ and $A_0\geq1$.  Let the family consist of classes of
+$\cR(M)$ with $M\leq X$, $M\leq P(M)^{1+B}$, and at most two distinct prime
+factors of $M$ above $(\log X)^8$ (twin moduli $k\ell_1\ell_2$, dominant
+moduli and prime powers included).  Then every $g\in V_{\lambda/2}$,
+$\lambda\leq A_0\log X$, with $g\geq1$ on the avoiders of the family
+satisfies
+\[
+ \log\frac1{\E g^2}\ll_{A_0,B}L^{3/4}(\log L)^{O(1)},\qquad L=\log X.
+\]
+\end{theorem}
+\begin{proof}
+Theorems~\ref{thm:twoprime} and~\ref{thm:HO}.
+\end{proof}
+
+\emph{Scope.}  This is a statement about Selberg-type majorants $g^2$
+only; for general majorants with twin moduli the residual of
+Theorem~\ref{thm:resolved} remains open (Section~\ref{sec:open}).  It
+needs at most two prime factors above $(\log X)^8$; moduli with three or
+more such primes are open.  The restriction $M\leq P(M)^{1+B}$ with $B$
+fixed is genuine: for fixed $B$, twins $k\ell_1\ell_2$ with a $w_2$-smooth
+cofactor $k>M^{(B-1)/(B+1)}$ are excluded.  The bound is stated in
+$L=\log X$, with moduli $\leq X$ and level $\lambda\leq A_0L$.  The level hypothesis
+$\lambda\leq A_0L$ is assumed directly: the coarsening of
+Lemma~\ref{lem:budget} does not preserve the square form $g^2$, so the
+reduction from a coefficient budget to a level (Corollary~\ref{cor:budgetlevel})
+is not available here as stated.
+% This last observation is the present author's, not from [TW2]/[TW3].
+
+\begin{remark}[what was bypassed]\label{rem:bypass}
+The route of \cite{TW2} split the off-diagonal term into a same-label part
+$(H_O^=)$ (proved there, \cite[Lemma~5.4]{TW2}) and a cross-label part
+$(H_O^{\neq})$, both as \emph{un-quarantined} pair sums, with a sufficient
+form $H_{\rm div}$ \cite[\S5.5]{TW2}.  Theorem~\ref{thm:HO} does not prove
+$(H_O^{\neq})$ or $H_{\rm div}$: small partners are paid for through
+$\min(x,1)^2\leq x$, which says nothing about pair sums.  Both remain
+\lab{open} as stated, but are no longer needed.  The exponent budget
+$\alpha^{-3}$ is used only by the small part, so this route does not
+lower the exponent $3/4$.
+\end{remark}
 
 \section{Open problems}\label{sec:open}
 
@@ -1395,7 +1443,10 @@ balanced) moduli that beats their mass; (ii) multipliers larger than the
 slice primes, used without paying their lcm in level; (iii) a
 non-selector admissible set with a large saving of its own; (iv) a
 non-CRT input, or signed cancellation in the rounding errors
-\cite[\S6]{ET}.  The following statements would close (i) and (iii).
+\cite[\S6]{ET}.  For Selberg-type majorants, (i) is closed for moduli
+with at most two prime factors above $(\log X)^8$
+(Theorem~\ref{thm:twoprimecap}).  The following statements would close
+(i) and (iii) in general.
 
 \begin{hypothesis}[$H_{\rm MS}$; {\cite[\S5.6]{ET}}; \lab{open}]\label{hyp:MS}
 For every CRT system of forced classes with moduli $\leq\e^\lambda$, every
@@ -1454,19 +1505,25 @@ where $P_i(E)$ is the marginal factor of $E$ at $i$.
 \end{conjecture}
 Theorem~\ref{thm:binaryNS} proves a bound of this type for binary systems
 ($|S(E)|\leq2$) with the diagonal and one-site terms on the right, and
-Theorem~\ref{thm:twoprime} reduces the two-prime $\Lambda^2$ cap to the
-arithmetic Hypothesis~\ref{hyp:HOne}.  A cleaner sufficient form of the
-latter is a second-moment equidistribution statement for divisor labels
-of $A\equiv4^{-1}\pmod j$ modulo $j$, averaged over $j$ \cite[\S5.5, $H_{\rm
-div}$]{TW2} \lab{open}.  Known results on divisor functions in
-progressions do not reach it: it is a second moment with two coupled
-congruences at moduli up to $X$.
+Theorem~\ref{thm:twoprimecap} completes the two-prime $\Lambda^2$ cap.
+
+\emph{Three or more large primes} \lab{open}.  The full forced-class
+family contains moduli with three or more prime factors above
+$(\log X)^8$, and the $\Lambda^2$ cap for them is open.  Partial results
+\cite[\S6]{TW3}, internal and \emph{not yet hostile-reviewed}: a
+noise-stability bound of any arity with codegree terms and a free
+codegree quarantine \cite[Lemmas~6.1, 6.2]{TW3}; a reduction of the
+general case to arithmetic star sums, proved as an implication
+\cite[Prop.~6.3]{TW3}; and, for ternary moduli with $B$ fixed, a proof
+of all star sums except one residual, vertex stars whose two partner
+primes are balanced with each other and whose divisor triples are
+balanced \cite[Prop.~6.4 and \S6.3]{TW3}.  That residual is open.
 
 \begin{thebibliography}{99}
 \bibitem[BBMST]{BBMST}
 P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and M.~Tiba, On the
 Erd\H{o}s covering problem: the density of the uncovered set,
-\emph{Invent. Math.} \textbf{228} (2022); arXiv:1811.03547.
+arXiv:1811.03547 (2018).
 \bibitem[D]{Davenport}
 H.~Davenport, \emph{Multiplicative Number Theory}, third edition, revised
 by H.~L.~Montgomery, Graduate Texts in Mathematics 74, Springer, 2000,
@@ -1487,18 +1544,15 @@ Hostile review of \cite{ET}, \texttt{reviews/exceptional-theta-review.md},
 this repository, 2026.
 \bibitem[ElT]{ElsholtzTao}
 C.~Elsholtz and T.~Tao, Counting the number of solutions to the
-Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.}
-\textbf{94} (2013), 50--105; arXiv:1107.1010.
-\bibitem[H]{Hough}
-R.~Hough, Solution of the minimum modulus problem for covering systems,
-\emph{Ann. of Math.} \textbf{181} (2015), 361--382.
+Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.};
+arXiv:1107.1010v6 (cited version).
 \bibitem[LL]{LL}
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed note,
 \texttt{paper/vaughan-loglog-note.tex}, this repository, 2026.
 \bibitem[M]{Montgomery}
 H.~L.~Montgomery, The analytic principle of the large sieve,
-\emph{Bull. Amer. Math. Soc.} \textbf{84} (1978), 547--567.
+\emph{Bull. Amer. Math. Soc.} \textbf{84} (1978).
 \bibitem[MS]{MS}
 F.~J.~MacWilliams and N.~J.~A.~Sloane, \emph{The Theory of
 Error-Correcting Codes}, North-Holland, 1977, Chapter~10.
@@ -1511,6 +1565,7 @@ Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
 \bibitem[S]{Shiu}
 P.~Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+% pages verified against sources/shiu-1980.pdf (GDZ scan, pp. 161--170)
 \bibitem[TQ]{TQ}
 \emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
 equation}, internally proved research note,
@@ -1528,9 +1583,17 @@ document \texttt{EXCEPTIONAL\_TWIN2.md}, this repository, 2026.
 \bibitem[TW2r]{TW2rev}
 Hostile review of \cite{TW2}, rounds 1--2,
 \texttt{reviews/exceptional-twin2-review.md}, this repository, 2026.
+\bibitem[TW3]{TW3}
+\emph{EXCEPTIONAL\_TWIN3: the off-diagonal term $(H_O)$ of the two-prime
+$\Lambda^2$ cap}, internal working document \texttt{EXCEPTIONAL\_TWIN3.md},
+branch \texttt{side-agent/twin-equidist}, this repository, 2026.
+\bibitem[TW3r]{TW3rev}
+Hostile review of \cite{TW3}, \texttt{reviews/exceptional-twin3-review.md},
+branch \texttt{side-agent/review-twin3}, this repository, 2026.
 \bibitem[V]{Vaughan}
 R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
-\emph{Mathematika} \textbf{17} (1970), 193--198.
+\emph{Mathematika} \textbf{17} (1970), doi:10.1112/S0025579300002886.
+% no archived full text (sources/vaughan-1970-access-log.md); pages omitted
 \end{thebibliography}
 
 \end{document}

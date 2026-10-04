@@ -46,3 +46,38 @@ only as `%` comments.
    natural referee task.
 
 Status: checkpoint, waiting for parent review.
+
+## Checkpoint 2 (after parent updates)
+
+1. **TWIN3 incorporated.** I added Theorem 10.6, which is (H_O) =
+   TW3 Thm 4.1, PROVED, with a proof sketch. I also added **Theorem 10.7**:
+   the two-prime Λ² cap `≪ L^{3/4}(log L)^{O(1)}`, now **PROVED**
+   (TW2 Cor 5.2 + TW3 Cor 4.2). Its exact scope: ℛ(M)-classes, M ≤ X,
+   M ≤ P(M)^{1+B} with B fixed, at most two prime factors above (log X)^8,
+   twins/dominant/prime powers included, level λ ≤ A₀L, Λ² majorants only.
+   Remark 10.8 records that (H_O^≠) and H_div are **bypassed, not proved**,
+   and remain open as stated (TW3 review E5). The old TW2 Lemma 5.4,
+   (H_O^≠) hypothesis and conditional corollary were removed. I updated
+   the abstract, the results list, §9 item 4 and §11.
+   * Still open in §11: general majorants with twin moduli (Conj 6.4 /
+     Prop 6.5) and Λ² with three or more large primes. TW3 §6 is reported
+     as internal and *not yet reviewed*: Lemmas 6.1–6.2, Prop 6.3
+     (implication), and Prop 6.4 with the balanced-partner residual OPEN.
+   * One added observation of my own, marked as such in a `%` comment: the
+     coarsening of Lemma 2.9 does not preserve squares, so for Λ² the level
+     hypothesis is assumed directly.
+2. **Bibliography.**
+   * Hough is dropped. It had been cited only as a historical attribution
+     for the distortion method. BBMST is kept as the direct model for the
+     capped measure.
+   * Page numbers remain only for Shiu (161–170). I checked them against
+     `sources/shiu-1980.pdf`: the article starts on its first page, and the
+     last page is numbered 170 and ends with the references.
+   * Omitted because there is no archived text: Vaughan (DOI given instead;
+     see `sources/vaughan-1970-access-log.md`), Montgomery, and
+     Elsholtz–Tao. For Elsholtz–Tao the arXiv v6 PDF is archived but
+     carries no journal pages; it is cited as arXiv:1107.1010v6.
+   * BBMST: I dropped the unverified journal reference. The arXiv number was
+     confirmed on arxiv.org.
+3. The paper compiles clean (3 passes, 0 errors/overfull/undefined) to
+   22 pp.
