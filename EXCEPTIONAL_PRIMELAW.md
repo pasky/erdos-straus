@@ -272,11 +272,78 @@ absolute `(π(W)+1)log 2`.
 **Remark 3.3 (why nothing is lost).** The unit restriction acts on the
 LP in two ways, and both help or are neutral.
 * Forbidden classes that are non-units mod ℓ (selector classes; (a,D)
-  classes `−(4D+a) mod 4ag` with `ℓ | 4D+a`) have `U*`-mass 0: they are
-  free.
+  classes `−(4D+a) mod 4ag` with ℓ | 4ag and `ℓ | 4D+a`, i.e. odd
+  `ℓ | gcd(a,D)`) have `U*`-mass 0: they are free.
 * Unit classes mod `ℓ^v` gain mass by `ℓ/(ℓ−1)`; this is absorbed into
   γ*, whose excess over 1 is still `O(ℓ^{−1/2})`.
 The base needs no change because the K2 base already consists of units:
 the Mordell/Jacobi argument (K2 Lemmas 2.1–2.2) says forced classes
 contain no *unit* square, which is exactly what a unit-supported base
 needs.
+
+## 4. Reading for prime-law methods
+
+### 4.1 Coefficient budget ⇒ level, under E*
+
+**Lemma 4.1 (PROVED).** Let ν be a prime majorant of `𝒜(𝔊)` with
+`T = Σ_i|a_i|`, and suppose every prime `ℓ > W` dividing a modulus of 𝔊
+satisfies `log ℓ ≤ Λ₀`. Put `S = log(1/E*ν)`. Then for every λ there is
+a prime majorant ν' of level `≤ λ`, all of whose moduli divide
+`L_𝔊 = lcm(8P_W, moduli of 𝔊)`, with
+
+    E*ν' ≤ E*ν + C·T·e^{Λ₀−λ}·log(λ + 3).
+
+In particular some `λ ≤ Λ₀ + log T + S + 2log log(Λ₀ + log T + S + 16) + C'`
+gives `E*ν' ≤ 2E*ν`.
+
+*Proof.* *Projection.* Terms `1[n ≡ b_i (d_i)]` with `gcd(b_i,d_i) > 1`
+vanish on units; drop them (ν is unchanged on units, Lemma 1.2). For a
+unit `b_i`, average over the units `n'` with `n' ≡ n (mod L_𝔊)`:
+the term becomes `κ_i 1[n ≡ b_i (mod gcd(d_i, L_𝔊))]` (or vanishes if
+incompatible), with `κ_i = φ(L_𝔊)/φ(lcm(d_i, L_𝔊)) ≤ 1`, because a unit
+mod `L_𝔊` has `φ(lcm)/φ(L_𝔊)` unit lifts mod `lcm(d_i,L_𝔊)`, of which at
+most one is `≡ b_i (mod d_i)`. The projection `ν̄` has the same `E*`-mean,
+is `≥ 0` on units and `≥ 1` on the units of 𝒜 (𝒜 is `L_𝔊`-periodic), and
+`Σ|ā_i| ≤ T`.
+*Coarsening* (ET Lemma 2.9 under E*). Terms of `ν̄` of level `≤ λ` stay.
+A term of level `> λ`: list its primes `> W` increasingly and keep the
+longest prefix of level `≤ λ`; it has level `> λ − Λ₀`. Let `r` be the
+product of the kept primes and `d'` the W-smooth part of the modulus times
+the kept prime powers. Negative terms are dropped, positive ones get
+modulus `d'`; both raise ν̄ pointwise. The `E*`-mean rises by at most
+`|a|/φ(d') ≤ |a|/φ(r) = |a|·(r/φ(r))/r`, and `r > e^{λ−Λ₀}`,
+`log r ≤ λ`, so `r/φ(r) ≤ C log(λ+3)` (Mertens: `r/φ(r) ≪ log log r`). ∎
+
+### 4.2 The cap for prime-law methods
+
+**Corollary 4.2 (PROVED; Case-A part uses ElT Prop 1.4).** Let a method
+bound the number of primes `p ≤ N` in `𝒜(𝔊)` (e.g. the exceptional primes)
+by
+
+    π(N)·E*ν + Err,     Err ≥ 0,                                   (4.1)
+
+where ν is a prime majorant of `𝒜(𝔊)`, 𝔊 any finite mixture of the four
+types with arbitrary moduli. (This is the form of every method that
+evaluates `Σ_{p≤N}ν(p) = Σ_i a_i π(N; d_i, b_i)` by the Dirichlet main
+term `π(N)/φ(d_i)` and bounds the errors `E(N; d_i, b_i)` in absolute
+value: Siegel–Walfisz, BV, BDH, EH, GRH, any level.) Assume either
+
+* (H1) every modulus `d_i` of ν has `Π_{ℓ | d_i, ℓ > W} ℓ ≤ N^A` (the range
+  of every equidistribution input, NC Remark 3.4); or
+* (H2) every prime of 𝔊 is `≤ N^A` and `T = Σ|a_i| ≤ N^A`.
+
+Then the saving `s = log(π(N)/bound)` satisfies
+`s ≤ C_A(log N)^{3/4}(log log N)^{3/4}` for N large, and
+`s ≤ C_{A,B}(log N)^{3/4}` if all moduli of 𝔊 satisfy `G ≤ P(G)^{1+B}`.
+
+*Proof.* `s ≤ S := log(1/E*ν)` since `Err ≥ 0`. Under (H1), ν has level
+`≤ A log N`; apply Theorem 3.1. Under (H2), Lemma 4.1 with `Λ₀ = A log N`
+gives ν' of level `λ ≤ 2A log N + S + 2log log(2A log N + S + 16) + C'`
+and `log(1/E*ν') ≥ S − log 2`; Theorem 3.1 gives
+`S ≤ log 2 + Cλ^{3/4}(log λ)^{3/4}`. If `S ≤ A log N` then
+`λ ≪_A log N`; otherwise `λ ≤ 3S` for N large and S is bounded by an
+absolute constant, a contradiction. ∎
+
+So **prime-law methods over any mixture of forced classes cannot give
+θ > 3/4**, at any equidistribution level `N^{O(1)}`, with the same
+`(log log N)^{3/4}` proviso as K2 Cor 6.1 (none under bounded B).
