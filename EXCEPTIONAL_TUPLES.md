@@ -452,23 +452,45 @@ Prop 4.3). The order needed is `(log N)^θ` up to `log log N` (Cor 2.2 + Cor 3.3
 
 ## 5. Numerics (EVIDENCE, toy scale only)
 
-`scripts/tuples_moments.py` computes `f_y(n)` for all `n ≤ N` (prime family),
-the empirical `S_j(N)/N`, the CRT values `e_j(p)`, the share of `e_j`
-carried by j-sets with `Πℓ > N` (a floor-discretised DP that
-over-counts the share ≤ N, so the "above N" share is a lower bound), and
-the TC test `η(K) := max_{j≤K}|S_j/N − e_j|` against `η_K = e^{−K/e²}/K`
-at the first even `K ≥ e²μ_y` (so `y = y_K` in the sense of Cor 2.2). Controls:
-`rand` replaces each `𝓡(ℓ)` by a random set of nonzero residues of the
-same size; `randqnr` by a random set of non-residues (keeps the
-Mordell/Jacobi structure, destroys the divisor/shift structure).
-Data: `data/tuples/moments_N{1e6,1e7,1e8}_es.txt`, `moments_N1e8_{rand,randqnr}.txt`.
+`scripts/tuples_moments.py` computes `f_y(n)` for all `n ≤ N` (prime family,
+all ℓ ≡ 3 (4), ℓ ≤ y), and from it:
+* the empirical `S_j(N)/N` and the CRT values `e_j(p)`;
+* the share of `e_j` carried by j-sets with `Πℓ > N`. This comes from a
+  floor-discretised DP that over-counts the share ≤ N, so the "above N"
+  share is a lower bound;
+* the TC test `η(K) := max_{j≤K}|S_j/N − e_j|` against
+  `η_K = e^{−K/e²}/K`, at the *supplied* y and the first even
+  `K ≥ e²μ_y`.
 
-**(a) Avoiders = CRT + squares.** In every ES run,
-`#{f_y = 0}/N − Π(1−p_ℓ)` equals the square density `N^{−1/2}` to two
-digits (e.g. y = 1000: `0.98·10⁻³, 0.30·10⁻³, 0.80·10⁻⁴` at
-`N = 10⁶, 10⁷, 10⁸`, vs `10⁻³, 3.2·10⁻⁴, 10⁻⁴`). The `randqnr` control
-shows the same excess and the `rand` control does not. So the only
-visible avoider anomaly is the Prop 4.2 obstruction.
+This tests TC(N; K, y, η_K) at that y. It is **not** exactly the TC_θ
+family: Cor 2.2's `y_K` (largest y with `μ_y ≤ K/e²`) is
+`y₁₂ = 30, y₂₂ = 126, y₃₂ = 358, y₄₆ = 1150, y₆₀ = 3162`, slightly
+above the supplied 30, 100, 300, 1000, 3000.
+
+Controls:
+* `rand` replaces each `𝓡(ℓ)` by a random set of nonzero residues of
+  the same size;
+* `randqnr` uses a random set of non-residues instead. This keeps the
+  Mordell/Jacobi structure and destroys the divisor/shift structure.
+
+Data: `data/tuples/moments_N{1e6,1e7,1e8}_es.txt`,
+`moments_N1e8_{rand,randqnr}.txt`.
+
+**(a) Avoiders.** The excess `#{f_y=0}/N − Π(1−p_ℓ)` is:
+
+| y | N = 10⁶ | 10⁷ | 10⁸ | rand 10⁸ | randqnr 10⁸ |
+|---|---|---|---|---|---|
+| 100 | 2.0·10⁻⁴ | 3.0·10⁻⁵ | 2·10⁻⁶ | 2·10⁻⁶ | 1·10⁻⁶ |
+| 300 | 6.6·10⁻⁴ | 1.9·10⁻⁴ | 4.4·10⁻⁵ | −8.6·10⁻⁶ | 3.5·10⁻⁵ |
+| 1000 | 9.8·10⁻⁴ | 3.0·10⁻⁴ | 8.0·10⁻⁵ | −2·10⁻⁶ | 7.7·10⁻⁵ |
+| 3000 | 1.0·10⁻³ | 3.2·10⁻⁴ | 9.9·10⁻⁵ | −2.6·10⁻⁶ | 9.5·10⁻⁵ |
+| `N^{−1/2}` | 1.0·10⁻³ | 3.2·10⁻⁴ | 1.0·10⁻⁴ | | |
+
+The ES excess is positive and rises with y towards the square density
+`N^{−1/2}`: squares are always avoiders (Prop 4.2). At small y it is much
+smaller, so the squares are offset by other integers; the excess is not
+simply "plus squares". `randqnr` reproduces the ES excess and `rand`
+does not. It is a quadratic-character effect.
 
 **(b) Moments above modulus N.** Ratios `S_j/(N e_j)` (share of `e_j`
 above N in brackets):
@@ -482,11 +504,16 @@ above N in brackets):
 | | 10⁷ | 0.998 (0.77) | 0.974 (1.00) | 0.883 (1.00) |
 | | 10⁸ | 0.9997 (0.52) | 0.991 (1.00) | 0.937 (1.00) |
 
-Once all the CRT mass of order j sits above N, the interval moments
-are *below* CRT, by a few percent, and the deficit shrinks with N at
-fixed y.
+For y ≤ 1000 and j ≤ 12 (the table), once the CRT mass of order j sits
+above N, the interval moments are a few percent *below* CRT. The deficit
+shrinks with N at fixed y. This is **not** uniform:
+* for y = 3000 the ratios fluctuate on both sides, e.g. j = 12:
+  1.575 / 0.969 / 0.956 at N = 10⁶ / 10⁷ / 10⁸, so the deficit grows
+  from 10⁷ to 10⁸;
+* at large j (where `S_j` comes from few n) ratios range from 0 to
+  more than 30.
 
-**(c) The TC test at the first admissible K.**
+**(c) The TC test at the supplied y.**
 
 | y | K | η_K | η(K), ES, N = 10⁶ / 10⁷ / 10⁸ | rand 10⁸ | randqnr 10⁸ |
 |---|---|---|---|---|---|
@@ -497,28 +524,27 @@ fixed y.
 | 3000 | 60 | 5.0·10⁻⁶ | 36 / 8.7 / 3.6 | 0.40 | 0.25 |
 
 Readings.
-* TC(N; K, y_K, η_K) **holds** at y ≤ 100 for N = 10⁷, 10⁸ (K = 22 at
-  N = 10⁸ is `2(log N)^{0.82}`) and **fails** for y ≥ 300 (K = 32 is
-  `2(log N)^{0.95}`). Even the `rand` control fails for y ≥ 300: the
-  high moments are dominated by n with `f ≈ 7μ`, of CRT probability
-  `≈ e^{−8.6μ}`, which is far below `1/N` at these sizes. Asymptotically
-  (`μ ≍ (log N)^θ`, θ < 1) such events have probability `N^{−o(1)}`, so
-  the random model satisfies TC_θ in the limit (heuristic,
-  Monte Carlo variance `N^{−1+o(1)}`); the toy data are pre-asymptotic.
-* At fixed y the ES deviation η(K) decays roughly like a power of N:
-  exponents ≈ 0.78, 0.64, 0.47 for y = 100, 300, 1000 (two decades).
-  The ES family deviates 6–40× more than `rand`; `randqnr` sits in
-  between. So there is an arithmetic excess deviation beyond Monte Carlo
-  noise. Part is the quadratic-residue structure; the rest is presumably
-  the shift structure of Lemma 1.3. For example, for D = 1 (a shift
-  present for every ℓ) the hit primes divide one integer `n + 4`, so
-  their product is `≤ N + 4`, a Kubilius-type truncation that CRT
-  ignores. That attribution is a guess, not tested.
-* **Conclusion (EVIDENCE, weak).** Nothing seen contradicts TC_θ for
-  θ < 1. The data cannot test it: the asymptotic regime needs
-  `K/e² ≍ (log N)^θ` *and* `log y_K ≍ K^{1/2}` with `log y_K ≪ log N`,
-  far beyond `N = 10⁸`. Whether the exponent `a(y)` in `η ≈ N^{−a(y)}`
-  stays `≫ (log N)^{θ−1}` at `y = y_K` is exactly the open question.
+* The test passes at y ≤ 100 for N = 10⁷, 10⁸ (K = 22 is
+  `2(log N)^{0.82}` at N = 10⁸). It fails for y ≥ 300 (K = 32 is
+  `2(log N)^{0.95}`).
+* The `rand` control also fails for y ≥ 300. At y = 300 its error is
+  already ≈ 6·10⁻⁴ at j = 8, with positive sign. So the failure is not
+  ES-specific. Its cause is not determined: random residue sets read
+  along consecutive integers are not independent samples, and we have no
+  variance model for them.
+* At fixed y the ES error η(K) decreases roughly like a power of N over
+  the two decades: exponents ≈ 0.78, 0.64, 0.47 for y = 100, 300, 1000.
+* The ES error is 6–40× the `rand` error, with `randqnr` in between, so
+  part of the ES deviation is arithmetic. Part is quadratic-character
+  structure (a). The rest might come from the shift structure of
+  Lemma 1.3, e.g. for D = 1 all hit primes divide `n + 4`, so their
+  product is `≤ N + 4`. That attribution is untested.
+
+**Conclusion (EVIDENCE, weak).** Nothing seen contradicts TC_θ for
+θ < 1, and the data cannot test it. The asymptotic regime needs
+`K/e² ≍ (log N)^θ` and `log y_K ≍ K^{1/2}`, far beyond N = 10⁸. The open
+question is whether the decay exponent `a(y)` in `η ≈ N^{−a(y)}` stays
+`≫ (log N)^{θ−1}` at `y = y_K`.
 
 ## 6. What remains
 
