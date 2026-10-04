@@ -9,10 +9,10 @@ Status: **checkpoint 1 (unreviewed).** Labels follow
 | item | statement | label |
 |---|---|---|
 | Thm 2.1, Cor 2.2 | **Exact duality.** For any frequency set Θ and weights w, the best CRT-admissible large-sieve denominator is `F*_w = 1/m_w`, `m_w = min{Σ|γ_θ|²/w_θ : Re Σγ_θe(−nθ) ≥ 1 on 𝒜}`. Since every N-large-sieve system has `w_θ ≤ 1/N`, every such bound is `≥ N·E|g*|²`, and `|g*|²` is a nonnegative CRT majorant whose moduli are lcm's of two frequency denominators | PROVED |
-| Thm 3.1, Cor 3.2 | **Large-sieve cap for every forced-class mixture.** With KARY2 Thm 5.1: any CRT-admissible large sieve (Montgomery, weighted, Farey with prime, prime-power or composite moduli, forced classes used in any form, fibrewise over `Q₀`, weighted sequences) saves `≤ Cλ^{3/4}(log λ)^{3/4}`, `λ = λ(Q₀) + 2λ_Θ`. With denominators and `Q₀` `≤ N^{O(1)}`: `≤ C(log N)^{3/4}(log log N)^{3/4}`, and `C_B(log N)^{3/4}` under bounded B. No rounding term is needed | PROVED (Case A via ElT Prop 1.4, as in KARY2) |
-| Thm 4.1, Cor 4.2 | **Prime-slice systems, any frequencies** (any denominators, sparse sets, any weights): Fourier–Rankin bound `saving ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8Σ p̄_ℓ ℓ^{−α}`; for ET Cor 3.4 families `≤ C(log N)^{3/4} + log(P/φ(P))` | PROVED |
+| Thm 3.1, Cor 3.2 | **Large-sieve cap for every forced-class mixture.** With KARY2 Thm 5.1: any CRT-admissible large sieve (Montgomery, weighted, Farey with prime, prime-power or composite moduli, forced classes used in any form, fibrewise over `Q₀`, weighted sequences) saves `≤ Cλ^{3/4}(log λ)^{3/4}`, `λ = λ(Q₀) + 2λ_Θ`. With denominators `≤ N^{O(1)}` and `Q₀ ≤ min(N^{O(1)}, N/2)`: `≤ C(log N)^{3/4}(log log N)^{3/4}`, and `C_B(log N)^{3/4}` under bounded B. No rounding term is needed | PROVED (Case A via ElT Prop 1.4, as in KARY2) |
+| Thm 4.1, Cor 4.2, Rem 4.4 | **Prime-slice systems, any frequencies** (any denominators, sparse sets, any weights): Fourier–Rankin bound `saving ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8Σ p̄_ℓ ℓ^{−α}`; for ET Cor 3.4 families (also fibrewise, `Q₀ ≤ N/2`) `≤ C(log N)^{3/4} + log(P/φ(P))` | PROVED |
 | Prop 5.1, Ex 5.2 | **Key question.** For prime moduli, `S_c(Q)` ≤ exp(Rankin functional of the prime-local system used), tautologically. For composite moduli the small-prime-conditioned Euler product does **not** dominate (twin classes are invisible to it but seen by the composite large sieve); the dominating functional is the top-prime sequential one (Thm 3.1) | PROVED |
-| Thm 6.2, Cor 6.3 | **Gallagher's larger sieve** (and kernel variants with composite moduli) saves `≤ log(1 + N·X(π)/(W−h))`, `X` a χ² functional of the prime-power marginals of any `π` on 𝒜; on prime slices this is `O(1)` | PROVED |
+| Thm 6.2, Cor 6.3 | **Larger-sieve kernels** `K = Σ_q w(q)1[q|m]` (composite q allowed) save `≤ log(1 + N·X(π)/(W−h))`, `X(π) = Σ_q (w(q)/q)χ²_q(π)` (χ² of the mod-q marginals, q as in the kernel) for any `π` on 𝒜. For **Gallagher's** weights (Λ on prime powers) this is `≤ X(π) + O(1)`, and `O(1)` on ET Cor 3.4 prime slices | PROVED |
 | §7 | **Exact escape.** (E1) frequencies of super-polynomial level (`λ_Θ ≥ (log N)^{1+ε}`) against multi-large-prime classes, needing (H_LS); (E2) the larger sieve over mixtures, needing (H_Gal); (E3) non-CRT interval information; (E4) KARY2's inherited exclusions | (H_LS), (H_Gal): CONJECTURE/open |
 | §8 | duality, `F* = S(Q)` for product systems, Ex 5.2, Thm 4.1 bound: checked on small systems | EVIDENCE |
 
@@ -149,9 +149,14 @@ coefficient sum.
 is applied to weights `a_n ≥ 0` supported on `𝒜 ∩ I` (e.g.
 `a_n = Λ(n)` on the exceptional primes), (LS) gives
 `(Σa)²·F_w(π_a) ≤ Σa²` with `π_a = a/Σa ∈ P(𝒜)` (after reduction mod
-`M'`). A CRT-admissible bound is then `Σa ≤ (Σa²/Σa)·m_w ≤ (max a)·m_w`,
-and `m_w ≥ N·Eν*`. Compared with the trivial `Σa ≤ N·max a` the saving is
-again at most `log(1/Eν*)`. Everything below applies verbatim.
+`M'`). The CRT-admissible optimum is `Σa ≤ (Σa²/Σa)·m_w`. To use it one
+needs an upper bound for `Σa²/Σa`, which is `≥ a_min` when the nonzero
+weights lie in `[a_min, a_max]`. So the final bound is `≥ a_min·m_w ≥
+a_min·N·Eν*`, and relative to the trivial `N·a_max` the saving is at
+most `log(1/Eν*) + log(a_max/a_min)` (e.g. `log 2` extra for `Λ` on
+primes in `(N/2, N]`). Without a comparability hypothesis no such
+statement holds (review: one weight 1 and the rest `N^{−1/2}`). With this
+proviso the results below apply to weighted sequences.
 
 ## 3. The cap for frequencies of polynomial level
 
@@ -201,7 +206,7 @@ KARY2 Thm 5.1 (resp. 5.2) gives `log(1/Eν) ≤ Cλ^{3/4}(log λ)^{3/4}`
 (resp. `C(B')λ^{3/4}`). ∎
 
 **Corollary 3.2 (the exceptional-set reading; PROVED, same proviso).** If
-`Q₀ ≤ N^A` and every frequency used has denominator `≤ N^A` (for example
+`Q₀ ≤ min(N^A, N/2)` and every frequency used has denominator `≤ N^A` (for example
 Montgomery's arithmetic large sieve with `Q ≤ N^{1/2}`, any set of moduli
 `q ≤ Q` — prime, prime-power or composite — and any forced classes,
 used fibrewise or not), then every such large-sieve bound for
@@ -334,7 +339,7 @@ the set `𝒜_c` is a pure product system in m (the slice classes become
 modulus 1 and no Markov step:
 `log(N_c/B_c) ≤ β log N_c + 4Σ_ℓ (f_ℓ(c)/ℓ)ℓ^{−α}`, any frequencies in
 each fibre. Fibres `c ∉ R` are empty. Jensen over `c ∈ R` and
-`N_c ≥ ⌊N/Q₀⌋` give the total saving
+`N_c ≥ ⌊N/Q₀⌋` (assume `Q₀ ≤ N/2`, so `Q₀⌊N/Q₀⌋ ≥ N/2`) give the total saving
 `≤ log 2 + log(Q₀/|R|) + β log N + 4Σ_ℓ p̄_ℓ ℓ^{−α}`.
 
 ## 5. The key question: is `S(Q)` dominated by a Rankin functional?
@@ -476,7 +481,7 @@ over mixtures is not covered.
 
 Combining §§3–6, a CRT-admissible large-sieve-type bound for a
 forced-class mixture can save more than `C(log N)^{3/4}(log log N)^{3/4}`
-only in the following forms (all with `Q₀ ≤ N^{O(1)}`).
+only in the following forms (all with `Q₀ ≤ min(N^{O(1)}, N/2)`).
 
 **(E1) Frequencies of super-polynomial level against multi-large-prime
 classes.** By Theorem 3.1 the saving is `≤ Cλ^{3/4}(log λ)^{3/4}` with
@@ -520,10 +525,13 @@ Everything else is closed: Montgomery's inequality and its weighted
 forms, any Farey-type frequency set with denominators `≤ N^{O(1)}`,
 prime, prime-power and composite moduli, forced classes of composite
 moduli used through prime-power components or directly, excluded
-classes chosen fibrewise over any modulus `Q₀ ≤ N^{O(1)}`, weighted
-sifted sequences (Theorem 3.1, Remark 2.4); and, for prime-slice
-systems, every large sieve system whatsoever (Theorem 4.1) and
-Gallagher's larger sieve (Corollary 6.3, saving O(1)).
+classes chosen fibrewise over any modulus `Q₀ ≤ min(N^{O(1)}, N/2)`,
+weighted sequences with comparable weights (Theorem 3.1, Remark 2.4);
+and, for the ET Cor 3.4 prime-slice families, every large sieve system
+whatsoever (Cor 4.2, Remark 4.4) and Gallagher's larger sieve (Corollary
+6.3, saving O(1)). Theorem 4.1 itself is a bound, not a cap: it keeps
+the R-term `log(Q₀/|R|)` and the supply functional `Σp̄_ℓℓ^{−α}`, which
+must be bounded for the family at hand.
 
 ## 8. Numerics (EVIDENCE only)
 
@@ -535,8 +543,10 @@ Gallagher's larger sieve (Corollary 6.3, saving O(1)).
    in 8 cases. So for product systems the arithmetic large sieve
    (Montgomery's lemma) is already the CRT-optimal large sieve; the
    uniform measure on 𝒜 attains `F*`.
-3. Example 5.2 with `m = 35 = 5·7` and `143 = 11·13`: all residues mod
-   5, 7, 11, 13 occur in 𝒜 (prime-local system empty), while
+3. Analogues of Example 5.2 with `m = 35 = 5·7` and `143 = 11·13`
+   (these violate its crude sufficient condition `ω_j < ℓ_j`: ω = 5, 22;
+   emptiness is checked directly): all residues mod 5, 7, 11, 13 occur
+   in 𝒜 (prime-local system empty), while
    `F*` over the divisors of m equals `m/(m−ω)` = 1.1667, 1.1818.
 4. Theorem 4.1's bound `𝓡(π) ≤ (Q₀/|R|)E_R Π(1+Σ|φ|^{p'})` on 6 random
    prime-slice systems (`Q₀ = 4`, slice primes 5, 7, 11): holds, with
