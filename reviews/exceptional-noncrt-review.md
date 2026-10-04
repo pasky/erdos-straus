@@ -254,3 +254,69 @@ methods, as the level of the relevant divisor sums becomes too great"). Calling
 this "the obstruction of Cor 2.5 in their language" overreads it: ET's obstruction
 is level of distribution of error terms (BV range), not the CRT-mean cap. Suggest
 "compatible with" instead.
+
+### 12. Numerics (§5, `scripts/noncrt_checks.py`) — **SOUND** (labels need touch-up)
+
+Rerun (`ulimit -v 8000000`, `uv run --with scipy python scripts/noncrt_checks.py 8`):
+output **identical** to `data/noncrt/checks_m8.txt`; wall time 3 s (doc says ~1 min).
+The toy LP formulation is right: (C) `Σ|e_T|Π_T f_ℓ` is the class-coefficient sum of
+the monomial expansion (x_ℓ = Σ_{b∈F} 1[n≡b]); (F) `Σ_{S≠∅}|d_S|Π a_ℓ` is exactly
+R_1(ν) for Q₀ = 1 hit-pattern ν (item 5 identity). Labelled EVIDENCE, toy only. ✔
+
+**N8 (minor, labels).** (i) §0 table says Lemma 2.2 has an "exact numerical check";
+it is floating point (§5 says so) and its max statistic is attained at degenerate
+cases (item 2) — report the max ratio instead. (ii) "per-frequency rounding acts
+like the coefficient budget × ≈ 4–8": from the table, F(2) ≈ C(4), F(8) ≈ C(16–32),
+F(32) ≈ C(128), F(128) ≈ C(1024): the factor grows from ≈ 2 to ≈ 8. Say "≈ 2–8,
+growing with B". (iii) runtime "~1 min" → seconds.
+
+## Summary
+
+| item | verdict |
+|---|---|
+| 1 Prop 2.1 | SOUND |
+| 2 Lemma 2.2, (2.2)–(2.3) | SOUND-AFTER-REPAIRS (N1, wording) |
+| 3 Thm 2.3, Cor 2.4, Cor 2.5 | SOUND |
+| 4 scope "w ≥ 1" examples | SOUND-AFTER-REPAIRS (N2, N3 overclaims) |
+| 5 §2.4 dichotomy, §2.5 | SOUND (CONDITIONAL part correctly labelled) |
+| 6 Lemma 3.1 | SOUND |
+| 7 Thm 3.2 | SOUND (N4 conservative slip) |
+| 8 Thm 3.3 | SOUND-AFTER-REPAIRS (N5) |
+| 9 Remark 3.4 | SOUND as Assessment |
+| 10 Prop 4.1 | SOUND-AFTER-REPAIRS (N6: prime-moment clause) |
+| 11 Prop 4.2 | SOUND-AFTER-REPAIRS (N7 constant) |
+| 12 numerics | SOUND (N8 labels) |
+
+No item is DEFECTIVE. The mathematical core — Prop 2.1 + Lemma 2.2 ⇒ Thm 2.3 — is
+correct and is a real strengthening of the ET-file: the cap needs only
+`R_1(ν) = Σ_{θ≠0}|ν̂(θ)| < N`, no level hypothesis, and no bound on slice-prime size
+(finite families). Every inequality direction checked.
+
+### Defects
+
+* **N1** (minor) §2.2: restriction of 𝒫 is valid only for finite 𝒫 (counterexample
+  with 𝒜 = ∅ for infinite 𝒫); say 𝒫 finite as in ET §1.
+* **N2** (moderate) "sawtooth bound" covered only as `min(N,1/(2‖θ‖))`; ψ-based
+  Erdős–Turán/Vaaler and per-class floor/ceiling roundings are not of the w ≥ 1 form
+  and stay open; ET §6.1 item 2 only partly closed.
+* **N3** (moderate) "Kloosterman cancellation": only complete single-frequency sums
+  are covered; Kloosterman/dispersion cancellation over moduli is inter-frequency
+  (and uses smooth weights) — open. Fix §0, §2.3 "What this closes", §6 row (a),
+  AGENT_REPORT, and the suggested ledger text (D)15.
+* **N4** (minor, conservative) Thm 3.2: R-term under E* for a selector is 0, not
+  log(P/φ(P)).
+* **N5** (minor) Thm 3.3 first display omits G/s_* changes and the log 3 selector
+  term; all O(log λ), conclusion stands.
+* **N6** (moderate) Prop 4.1 prime clause / §6 row (c): prime moments of unbounded
+  order are capped only via E*-Lemma 2.9 under the Remark 3.4 Assessment
+  (high-level terms charged |a_i|, Σ_high|a_i| < π(N), slice primes ≤ N^{O(1)});
+  Thm 3.2 + Prop 4.2 alone leave a gap up to `(log N)^3/(log log N)^3`.
+* **N7** (minor) Prop 4.2 constant: `19k(2+log⁺(…))`, not `19k(1+log⁺(…))`.
+* **N8** (minor) numerics labels: "exact" check, factor "4–8" (really 2–8), runtime.
+
+Ledger suggestion (D)15 is acceptable after N3 and N6 are reflected: replace
+"per-frequency signed rounding" by "per-frequency (complete-sum) signed rounding",
+and qualify prime moment methods by "at level N^{O(1)} (beyond: Assessment)".
+
+Replay of this review's extra check:
+`PYTHONPATH=scripts uv run --with scipy python scripts/review_noncrt_lemma22.py` (~10 s).
