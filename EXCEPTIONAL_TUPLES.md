@@ -1,8 +1,41 @@
 # EXCEPTIONAL_TUPLES — the tuple-count / witness-correlation door (task O21)
 
-Status: **work in progress (O21).** Labels follow `DISCOVERIES.md`. PROVED
+Status: **checkpoint 1 (O21).** Labels follow `DISCOVERIES.md`. PROVED
 means proved in this file (internal checks only, not refereed). No θ > 3/4
 is claimed unconditionally. ES is not solved.
+
+## 0. Summary
+
+| item | statement | label |
+|---|---|---|
+| Def 1.1, Lemma 1.2 | k-point witness correlations `C_T(N)`, order-k sums `S_k = Σ_n binom(f(n),k)`, CRT prediction `m_k`; termwise error ≤ number of tuples | PROVED (trivial) |
+| Lemma 1.3 | **shift form**: for the prime family, order-k witness correlations are k-point correlations of ω-type functions `ω_{y,D}(n+4D)` along shifts `4D`, `D | ((ℓ+1)/4)²` | PROVED |
+| Thm 2.1, Cor 2.2 | TC(N;K,y,η) (order-j sums ≈ CRT, j ≤ K, error ηN) ⇒ `#{f_y=0} ≤ N(Π(1−p_ℓ) + e_K(p) + Kη)`; at `μ_y ≈ K/e²`, `η = e^{−K/e²}/K`: `E(N) ≤ (e+2)N e^{−K/e²}` | PROVED |
+| Cor 2.3 | **TC_θ ⇒ `E(N) ≤ N exp(−(2/e²−o(1))(log N)^θ)`**; TC_θ with θ > 3/4 gives the θ > 3/4 target | CONDITIONAL on TC_θ (CONJECTURE) |
+| Prop 2.4 | TC holds unconditionally for `K ≤ c(log N)^{2/3}` (Brun's pure sieve; recovers 2/3) | PROVED |
+| Thm 3.1, Cor 3.2, 3.3 | majorants of prime-slice ES families whose terms have level ≤ A log N **or** order ≤ k save `≤ C[(log N)^{3/4} + k log log N]` (CRT-main-term evaluation); **bounded-order correlation input of any precision cannot give θ > 3/4**; saving `(log N)^θ` needs order `≥ c(log N)^θ/log log N`, and order `2⌈(log N)^θ⌉` suffices under TC | PROVED (via ET Prop 2.4) |
+| Cor 3.4 | all K2 families: order-k majorants (moduli ≤ N^A) save `≤ C(k log N)^{3/4}(log(k log N))^{3/4}`; bounded k useless | PROVED (from K2 Thm 5.1) |
+| Prop 4.1 | no Kubilius-type (total-variation) model for the ES hit vector once `log y ≥ C(log N)^{1/3}` (entropy `≍ (log y)³`) | PROVED |
+| Prop 4.2 | TC fails for `K ≥ (e²/2+ε) log N` (squares avoid all classes) | PROVED |
+| Ass. 4.3 | no known theorem or standard conjecture supplies TC_θ for any θ > 2/3: all divisor-correlation results/conjectures have a fixed number of shifts; EH-type inputs live below N; the Kubilius model needs a single shift | Assessment |
+| §5 | toy data: avoiders = CRT + squares; moments above N a few % below CRT, deficit shrinking like a power of N at fixed y; TC holds at `K = 2(log N)^{0.82}`, fails at `2(log N)^{0.95}` for N ≤ 10⁸ (pre-asymptotic, random control fails too) | EVIDENCE |
+
+**Verdict.** The tuple-count door is now a precise statement. One
+natural, falsifiable hypothesis TC_θ about the first K moments of the
+witness count of the *prime* family (small primes `ℓ ≤ exp(O(K^{1/2}))`,
+combined moduli `exp((log N)^{3θ/2})`) gives θ (Cor 2.3). It is a theorem
+for θ ≤ 2/3 (Prop 2.4) and false at θ = 1 (Prop 4.2). Conversely, input
+of bounded order, or of order `o((log N)^{3/4}/log log N)` for prime-slice
+families, is useless for θ > 3/4 whatever its precision, even combined with
+exact evaluation of everything up to modulus `N^{O(1)}` (Cor 3.3).
+So the needed order is `(log N)^θ` up to `log log N`. Every known
+divisor-correlation theorem (Heath-Brown, Deshouillers–Iwaniec,
+Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and every standard conjecture of
+Hardy–Littlewood/Elliott type has fixed order, so none can open this
+door. The only all-order mechanism known (the Kubilius model) is
+single-shift, and Prop 4.1 rules out its total-variation form here. The door
+is open only through a new "many-shift Kubilius model in the moment
+sense" (TC_θ), for which we know no approach.
 
 Notation: `ET` = `EXCEPTIONAL_THETA.md`, `NC` = `EXCEPTIONAL_NONCRT.md`,
 `K2` = `EXCEPTIONAL_KARY2.md`, `IF` = `EXCEPTIONAL_INTERFREQ.md` (branch
@@ -437,3 +470,30 @@ Readings.
   `K/e² ≍ (log N)^θ` *and* `log y_K ≍ K^{1/2}` with `log y_K ≪ log N`,
   far beyond `N = 10⁸`. Whether the exponent `a(y)` in `η ≈ N^{−a(y)}`
   stays `≫ (log N)^{θ−1}` at `y = y_K` is exactly the open question.
+
+## 6. What remains
+
+1. **TC_θ itself** (CONJECTURE). Any θ > 2/3 for the prime family would
+   be the first control of witness correlations of growing order above
+   modulus N. That alone does not beat 3/4: the composite-moduli (cubic)
+   analogue is trivial up to 3/4 (§2 Remark 3), so a θ > 3/4 result needs
+   TC_θ itself, or its cubic analogue, beyond 3/4.
+2. **The gap in Cor 3.4.** For composite-moduli K2 families, orders
+   between `(log N)^{4θ/3−1}` and `(log N)^θ/log log N` are not excluded.
+   This needs K2 Thm 5.1 with truncated weights `min(log ℓ, L₀)`.
+3. **Non-CRT main terms.** Cor 3.3 covers hypotheses that assert CRT main
+   terms. A hypothesis asserting an interval *deficit* (NC Thm 8.1
+   branch (D)) is not covered. §5(b) does show a mild deficit in high
+   moments, but it shrinks with N and goes the wrong way for avoiders
+   (fewer high-f n, not fewer zeros).
+4. Bounded-order input *combined with a different architecture* (e.g.
+   weights below 1, or non-hit-pattern weights) is outside Def. 3.0.
+
+## Replay
+
+```
+uv run python scripts/tuples_checks.py > data/tuples/checks.txt        # exact checks of Lemma 1.3, Prop 4.2, Thm 2.1, Lemma 1.2, Lemma 16.1; ~3 s
+for N in 1e6 1e7 1e8; do uv run python scripts/tuples_moments.py $N 30,100,300,1000,3000 all 64 es > data/tuples/moments_N${N}_es.txt; done   # §5; 1e8 ~1 min, < 3 GB (run under ulimit -v 7000000)
+for fam in rand randqnr; do uv run python scripts/tuples_moments.py 1e8 100,300,1000,3000 all 64 $fam 1 > data/tuples/moments_N1e8_$fam.txt; done
+uv run python scripts/tuples_moments.py 1e8 30,50,70,100,150 all 30 es > data/tuples/tc_regime_N1e8.txt
+```

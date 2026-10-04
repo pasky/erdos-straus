@@ -8,9 +8,47 @@
   3 2.9546e-01 2.9546e-01 1.0000 0.000 1.28e-05 
   4 4.3062e-02 4.3062e-02 1.0000 0.000 1.19e-04 +1.4442e-01 +1.4442e-01
   5 2.4072e-03 2.4072e-03 1.0000 0.000 1.01e-03 
+  6 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+  7 0.0000e+00 0.0000e+00 nan nan nan 
+  8 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+  9 0.0000e+00 0.0000e+00 nan nan nan 
+ 10 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 11 0.0000e+00 0.0000e+00 nan nan nan 
+ 12 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 13 0.0000e+00 0.0000e+00 nan nan nan 
+ 14 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 15 0.0000e+00 0.0000e+00 nan nan nan 
+ 16 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 17 0.0000e+00 0.0000e+00 nan nan nan 
+ 18 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 19 0.0000e+00 0.0000e+00 nan nan nan 
+ 20 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 21 0.0000e+00 0.0000e+00 nan nan nan 
+ 22 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 23 0.0000e+00 0.0000e+00 nan nan nan 
+ 24 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 25 0.0000e+00 0.0000e+00 nan nan nan 
+ 26 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 27 0.0000e+00 0.0000e+00 nan nan nan 
+ 28 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
+ 29 0.0000e+00 0.0000e+00 nan nan nan 
+ 30 0.0000e+00 0.0000e+00 nan nan nan +1.4202e-01 +1.4202e-01
 # TC check: K  eta(K)=max_{j<=K}|S_j/N-e_j|  eta_K=exp(-K/e^2)/K  mu<=K/e^2?  TC(N;K,y,eta_K) holds?
 #TC   2 8.406e-08 3.814e-01 False True
 #TC   4 2.051e-07 1.455e-01 False True
+#TC   6 2.051e-07 7.399e-02 False True
+#TC   8 2.051e-07 4.234e-02 False True
+#TC  10 2.051e-07 2.584e-02 False True
+#TC  12 2.051e-07 1.643e-02 True True
+#TC  14 2.051e-07 1.074e-02 True True
+#TC  16 2.051e-07 7.169e-03 True True
+#TC  18 2.051e-07 4.862e-03 True True
+#TC  20 2.051e-07 3.338e-03 True True
+#TC  22 2.051e-07 2.315e-03 True True
+#TC  24 2.051e-07 1.619e-03 True True
+#TC  26 2.051e-07 1.140e-03 True True
+#TC  28 2.051e-07 8.075e-04 True True
+#TC  30 2.051e-07 5.749e-04 True True
 
 ## y=50 primes=8 mu=2.0915 E_int f=2.0915 avoid_int=8.0153e-02 avoid_CRT=8.0153e-02 max f=8
 # j  S_j/N   e_j   ratio  aboveN_share(e_j)  termwise_bound/(N e_j)   Bonf_int(j even)  Bonf_CRT
@@ -23,11 +61,44 @@
   6 5.3776e-03 5.3783e-03 0.9999 0.052 2.60e-01 +8.0461e-02 +8.0460e-02
   7 3.1527e-04 3.1496e-04 1.0010 1.000 4.09e+00 
   8 7.5600e-06 7.4924e-06 1.0090 1.000 6.32e+01 +8.0153e-02 +8.0153e-02
+  9 0.0000e+00 0.0000e+00 nan nan nan 
+ 10 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 11 0.0000e+00 0.0000e+00 nan nan nan 
+ 12 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 13 0.0000e+00 0.0000e+00 nan nan nan 
+ 14 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 15 0.0000e+00 0.0000e+00 nan nan nan 
+ 16 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 17 0.0000e+00 0.0000e+00 nan nan nan 
+ 18 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 19 0.0000e+00 0.0000e+00 nan nan nan 
+ 20 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 21 0.0000e+00 0.0000e+00 nan nan nan 
+ 22 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 23 0.0000e+00 0.0000e+00 nan nan nan 
+ 24 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 25 0.0000e+00 0.0000e+00 nan nan nan 
+ 26 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 27 0.0000e+00 0.0000e+00 nan nan nan 
+ 28 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
+ 29 0.0000e+00 0.0000e+00 nan nan nan 
+ 30 0.0000e+00 0.0000e+00 nan nan nan +8.0153e-02 +8.0153e-02
 # TC check: K  eta(K)=max_{j<=K}|S_j/N-e_j|  eta_K=exp(-K/e^2)/K  mu<=K/e^2?  TC(N;K,y,eta_K) holds?
 #TC   2 3.973e-07 3.814e-01 False True
 #TC   4 1.181e-06 1.455e-01 False True
 #TC   6 1.181e-06 7.399e-02 False True
 #TC   8 1.181e-06 4.234e-02 False True
+#TC  10 1.181e-06 2.584e-02 False True
+#TC  12 1.181e-06 1.643e-02 False True
+#TC  14 1.181e-06 1.074e-02 False True
+#TC  16 1.181e-06 7.169e-03 True True
+#TC  18 1.181e-06 4.862e-03 True True
+#TC  20 1.181e-06 3.338e-03 True True
+#TC  22 1.181e-06 2.315e-03 True True
+#TC  24 1.181e-06 1.619e-03 True True
+#TC  26 1.181e-06 1.140e-03 True True
+#TC  28 1.181e-06 8.075e-04 True True
+#TC  30 1.181e-06 5.749e-04 True True
 
 ## y=70 primes=10 mu=2.2888 E_int f=2.2888 avoid_int=6.4885e-02 avoid_CRT=6.4885e-02 max f=10
 # j  S_j/N   e_j   ratio  aboveN_share(e_j)  termwise_bound/(N e_j)   Bonf_int(j even)  Bonf_CRT
@@ -42,12 +113,42 @@
   8 1.0715e-04 1.0638e-04 1.0073 1.000 5.05e+02 +6.4889e-02 +6.4888e-02
   9 3.9400e-06 3.6297e-06 1.0855 1.000 1.12e+04 
  10 9.0000e-08 5.1175e-08 1.7587 1.000 2.50e+05 +6.4885e-02 +6.4885e-02
+ 11 0.0000e+00 0.0000e+00 nan nan nan 
+ 12 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 13 0.0000e+00 0.0000e+00 nan nan nan 
+ 14 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 15 0.0000e+00 0.0000e+00 nan nan nan 
+ 16 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 17 0.0000e+00 0.0000e+00 nan nan nan 
+ 18 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 19 0.0000e+00 0.0000e+00 nan nan nan 
+ 20 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 21 0.0000e+00 0.0000e+00 nan nan nan 
+ 22 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 23 0.0000e+00 0.0000e+00 nan nan nan 
+ 24 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 25 0.0000e+00 0.0000e+00 nan nan nan 
+ 26 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 27 0.0000e+00 0.0000e+00 nan nan nan 
+ 28 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
+ 29 0.0000e+00 0.0000e+00 nan nan nan 
+ 30 0.0000e+00 0.0000e+00 nan nan nan +6.4885e-02 +6.4885e-02
 # TC check: K  eta(K)=max_{j<=K}|S_j/N-e_j|  eta_K=exp(-K/e^2)/K  mu<=K/e^2?  TC(N;K,y,eta_K) holds?
 #TC   2 4.463e-07 3.814e-01 False True
 #TC   4 3.094e-06 1.455e-01 False True
 #TC   6 4.440e-06 7.399e-02 False True
 #TC   8 4.440e-06 4.234e-02 False True
 #TC  10 4.440e-06 2.584e-02 False True
+#TC  12 4.440e-06 1.643e-02 False True
+#TC  14 4.440e-06 1.074e-02 False True
+#TC  16 4.440e-06 7.169e-03 False True
+#TC  18 4.440e-06 4.862e-03 True True
+#TC  20 4.440e-06 3.338e-03 True True
+#TC  22 4.440e-06 2.315e-03 True True
+#TC  24 4.440e-06 1.619e-03 True True
+#TC  26 4.440e-06 1.140e-03 True True
+#TC  28 4.440e-06 8.075e-04 True True
+#TC  30 4.440e-06 5.749e-04 True True
 
 ## y=100 primes=13 mu=2.7731 E_int f=2.7731 avoid_int=3.8121e-02 avoid_CRT=3.8119e-02 max f=11
 # j  S_j/N   e_j   ratio  aboveN_share(e_j)  termwise_bound/(N e_j)   Bonf_int(j even)  Bonf_CRT
@@ -65,6 +166,23 @@
  11 5.1000e-07 6.9989e-07 0.7287 1.000 1.61e+08 
  12 0.0000e+00 1.7548e-08 0.0000 1.000 4.38e+09 +3.8121e-02 +3.8119e-02
  13 0.0000e+00 1.9292e-10 0.0000 1.000 1.16e+11 
+ 14 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 15 0.0000e+00 0.0000e+00 nan nan nan 
+ 16 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 17 0.0000e+00 0.0000e+00 nan nan nan 
+ 18 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 19 0.0000e+00 0.0000e+00 nan nan nan 
+ 20 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 21 0.0000e+00 0.0000e+00 nan nan nan 
+ 22 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 23 0.0000e+00 0.0000e+00 nan nan nan 
+ 24 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 25 0.0000e+00 0.0000e+00 nan nan nan 
+ 26 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 27 0.0000e+00 0.0000e+00 nan nan nan 
+ 28 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
+ 29 0.0000e+00 0.0000e+00 nan nan nan 
+ 30 0.0000e+00 0.0000e+00 nan nan nan +3.8121e-02 +3.8119e-02
 # TC check: K  eta(K)=max_{j<=K}|S_j/N-e_j|  eta_K=exp(-K/e^2)/K  mu<=K/e^2?  TC(N;K,y,eta_K) holds?
 #TC   2 9.374e-07 3.814e-01 False True
 #TC   4 1.556e-05 1.455e-01 False True
@@ -72,6 +190,15 @@
 #TC   8 6.366e-05 4.234e-02 False True
 #TC  10 6.366e-05 2.584e-02 False True
 #TC  12 6.366e-05 1.643e-02 False True
+#TC  14 6.366e-05 1.074e-02 False True
+#TC  16 6.366e-05 7.169e-03 False True
+#TC  18 6.366e-05 4.862e-03 False True
+#TC  20 6.366e-05 3.338e-03 False True
+#TC  22 6.366e-05 2.315e-03 True True
+#TC  24 6.366e-05 1.619e-03 True True
+#TC  26 6.366e-05 1.140e-03 True True
+#TC  28 6.366e-05 8.075e-04 True True
+#TC  30 6.366e-05 5.749e-04 True True
 
 ## y=150 primes=18 mu=3.1144 E_int f=3.1144 avoid_int=2.6771e-02 avoid_CRT=2.6757e-02 max f=13
 # j  S_j/N   e_j   ratio  aboveN_share(e_j)  termwise_bound/(N e_j)   Bonf_int(j even)  Bonf_CRT
@@ -94,6 +221,18 @@
  16 0.0000e+00 3.4256e-12 0.0000 1.000 1.71e+18 +2.6771e-02 +2.6757e-02
  17 0.0000e+00 4.4839e-14 0.0000 1.000 7.23e+19 
  18 0.0000e+00 2.7039e-16 0.0000 1.000 2.97e+21 +2.6771e-02 +2.6757e-02
+ 19 0.0000e+00 0.0000e+00 nan nan nan 
+ 20 0.0000e+00 0.0000e+00 nan nan nan +2.6771e-02 +2.6757e-02
+ 21 0.0000e+00 0.0000e+00 nan nan nan 
+ 22 0.0000e+00 0.0000e+00 nan nan nan +2.6771e-02 +2.6757e-02
+ 23 0.0000e+00 0.0000e+00 nan nan nan 
+ 24 0.0000e+00 0.0000e+00 nan nan nan +2.6771e-02 +2.6757e-02
+ 25 0.0000e+00 0.0000e+00 nan nan nan 
+ 26 0.0000e+00 0.0000e+00 nan nan nan +2.6771e-02 +2.6757e-02
+ 27 0.0000e+00 0.0000e+00 nan nan nan 
+ 28 0.0000e+00 0.0000e+00 nan nan nan +2.6771e-02 +2.6757e-02
+ 29 0.0000e+00 0.0000e+00 nan nan nan 
+ 30 0.0000e+00 0.0000e+00 nan nan nan +2.6771e-02 +2.6757e-02
 # TC check: K  eta(K)=max_{j<=K}|S_j/N-e_j|  eta_K=exp(-K/e^2)/K  mu<=K/e^2?  TC(N;K,y,eta_K) holds?
 #TC   2 2.144e-06 3.814e-01 False True
 #TC   4 5.294e-05 1.455e-01 False True
@@ -104,3 +243,9 @@
 #TC  14 3.292e-04 1.074e-02 False True
 #TC  16 3.292e-04 7.169e-03 False True
 #TC  18 3.292e-04 4.862e-03 False True
+#TC  20 3.292e-04 3.338e-03 False True
+#TC  22 3.292e-04 2.315e-03 False True
+#TC  24 3.292e-04 1.619e-03 True True
+#TC  26 3.292e-04 1.140e-03 True True
+#TC  28 3.292e-04 8.075e-04 True True
+#TC  30 3.292e-04 5.749e-04 True True
