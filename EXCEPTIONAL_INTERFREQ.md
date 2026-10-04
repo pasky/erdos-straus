@@ -1,7 +1,28 @@
 # EXCEPTIONAL_INTERFREQ — the inter-frequency cancellation door (task O18)
 
-Status: **in progress (O18).** Labels follow `DISCOVERIES.md`. PROVED means
-proved in this file, internal checks only, not refereed.
+Status: **checkpoint 1 (O18).** Labels follow `DISCOVERIES.md`. PROVED
+means proved in this file, internal checks only, not refereed. No θ > 3/4.
+
+## 0. Summary
+
+| item | statement | label |
+|---|---|---|
+| Obs 1.1 | unrestricted exact interval evaluation is the problem itself (ν = 1_𝒜); any cap must restrict spectrum, structure or evaluation | PROVED (trivial) |
+| Thm 2.2 | Selberg minorant: ν ≥ 0 on ℤ, all nonzero frequencies of denominator ≤ D < N ⇒ `Σ_{n≤N}ν ≥ (N−D)Eν`, whatever the cancellation | PROVED (classical tool) |
+| Cor 2.3 | majorants built from classes of modulus ≤ N/2 (any coefficients, any evaluation: exact, dispersion/BFI, Kloosterman, Vaaler, floor/ceiling, smooth windows, any Q₀) save `≤ C(log N)^{3/4}(log log N)^{3/4}` for every K2 forced-class mixture | PROVED (K2 proviso: Case A via ElT Prop 1.4) |
+| Thm 2.5 | **hybrid cap**: any bound B ≥ Σ_{n≤N}ν with `Σ_{d_i>N/2}|a_i| ≤ cB` saves `≤ log(2+12c) + C(log N)^{3/4}(log log N)^{3/4}`; contains K2 Cor 6.1 and Cor 2.3 | PROVED (same proviso) |
+| Prop 3.1 | exact-interval LP value of level-λ hit-pattern majorants depends only on the interval correlation counts `#{n≤N: n ∈ ∩_{ℓ∈T}F_ℓ}`, s(T) ≤ λ (dual: σ ≥ 0 matching moments) | PROVED |
+| Prop 3.2 | averaged over shifts, exact interval counts never save less than CRT (Jensen): an inter-frequency "gain" is generic, not arithmetic; at high level there is no structural barrier, only an evaluation barrier | PROVED |
+| §3.2 | toy full hit-pattern LPs: interval = CRT up to Q = N; above N the gain appears at every shift, and [1,N] gains least | EVIDENCE |
+| §3.3 | **reduction**: above N/2 the inter-frequency door *is* the non-CRT tuple-count door: one must count n ≤ N with prescribed witness sets of combined modulus > N/2, better than termwise | PROVED (reduction) / Assessment |
+| Lemma 4.1, 4.2 | (H_eq) may lose a factor N^{−A}; it is equivalent in kind to an interval-window correlation statement for patterns of modulus > N; not needed below level N/2 | PROVED; (H_eq) itself CONJECTURE |
+| §5 | BV/BFI/DI/Zhang-type level-of-distribution inputs live at moduli < N and are capped by Thm 2.5 *whatever their strength*; the needed input (high-order ES witness correlations above modulus N) is not known | PROVED (first part) / Assessment |
+
+**Verdict.** The inter-frequency door is closed for every method that
+treats classes of modulus > N/2 at their coefficient cost (Thm 2.5).
+This includes all level-of-distribution/dispersion technology and all
+smoothing. What remains is not a separate door: it is the counting of
+integers ≤ N with many simultaneous large-modulus ES witnesses (§3.3, §5).
 
 Notation as in `EXCEPTIONAL_NONCRT.md` (NC below), `EXCEPTIONAL_KARY2.md`
 (K2) and `EXCEPTIONAL_THETA.md` (ET). A *majorant* of an avoider set 𝒜 is a
@@ -385,9 +406,11 @@ modulus > N/2. For Case-B classes on [1,N] a hit by `ℛ(M)`, M > N/2, means
 `n + 4D = aM` with a small cofactor `a ≤ (N+4D)/M`. Switching to the
 complementary divisor turns it into the (a,D)-class
 `n ≡ −(4D + a) (mod 4a·g(D))` (NC Lemma 8.2; ET Lemma 3.2). Its modulus is
-`≤ 8B² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. So switching moves
-part of the large-modulus mass below N/2, where Theorem 2.5 caps it (K2
-covers (a,D)-classes). The rest stays above N/2 in both descriptions. What
+`≤ 8B² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. So a method may use
+the switched description from the start. The part of it below N/2 is
+then capped by Theorem 2.5 (K2 covers (a,D)-classes). The rest stays
+above N/2 in both descriptions. (Switching changes ν as a function on ℤ;
+the two descriptions agree only on [1,N].) What
 remains is to count integers n ≤ N with **k simultaneous witnesses of
 large modulus**. By NC Thm 8.1(H) this needs `k ≳ (log N)^{4θ/3−1}`
 (prime-slice setting), or else, at bounded k, an interval deficit
@@ -401,3 +424,11 @@ any Type I/II decomposition of the forced-class indicator above modulus N.
 The interval deficit is not seen numerically: NC §8.3, and §3.2 here,
 where [1,N] saves no more than shifted intervals. **Assessment: no known
 technique supplies the input; the door stays open only formally.**
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run --with scipy python scripts/interfreq_selberg_check.py > data/interfreq/selberg_check.txt   # Thm 2.2 LP check, ~1 min, <1 GB
+for off in 0 1000000007 5000000000; do uv run --with scipy python scripts/interfreq_hitpattern_lp.py 3000 12 all 3 $off; done > data/interfreq/hitpattern_lp_N3000_m12.txt
+for off in 0 1000000 2000000; do uv run --with scipy python scripts/interfreq_hitpattern_lp.py 3000 12 prime 3 $off; done >> data/interfreq/hitpattern_lp_N3000_m12.txt   # §3.2, seconds each, <2 GB
+```
