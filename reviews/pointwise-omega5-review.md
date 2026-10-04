@@ -263,3 +263,30 @@ structural reason, not "essentially":
 
 The column is vacuous and should be described as such. The replay
 timings are also overstated.
+
+## Defect list
+
+| # | Severity | Where | Defect | Fix |
+|---|---|---|---|---|
+| D1 | moderate | Thm 2.3 "Hence", Prop 3.2, Cor 4.1 | PROVED labels cover only events with `ℓ‖M` at every ℓ∈O; the prime-power weights are only Assessment | Sum over `≤2^k` exponent patterns, Thm 2.3 at `Q=q′` (sketch in Item 4) |
+| D2 | minor | Def 2.0 vs §6 | Height transfer to `q′` is asserted in one place and called "not checked" in the other | The transfer is immediate; drop the caveat |
+| D3 | minor | Def 2.0 Cost | The factor `e_ℓ(≤k+1)` is really `ℓ/(ℓ−1)`; and `e_ℓ≤k` | Restate; the absorption is then trivial |
+| D4 | moderate | §0, Thm 2.3 remark, Cor 4.1, report item 5, HC_Π | Literal HC is false but is called "not proved"; HC_Π is stated with O4 hubs, under which it is false (class −4, m=5) | "Literal HC false; HC* open"; O4 Thm 4.2 is vacuous as stated; state HC_Π with saturated hubs |
+| D5 | moderate (Assessment) | Lemma 3.3 remark, §4 item 1, (DIV) | `τ≤y^{2/3}` does not make (ii) HC-shaped (`τ/h` can be `y^{1/6}`); per-ray bounds are not "done" without a ray count | Threshold `τ≤H^{2/3}`; re-delimit (DIV); drop "done" |
+| D6 | minor | §1 Remark | "genuinely beyond Weil" overstates | Reword |
+| D7 | minor | §4 EVIDENCE, Replay | The wide-pair m>1 column is structurally 0; timings overstated | Reword |
+
+**Bottom line.** Lemma 1.1, Lemmas 2.1–2.2, Theorem 2.3 (Δ¹ bound),
+Lemma 3.1, Lemma 3.3 and the Def 2.0 counterexample are **PROVED and
+verified**. Thm 2.3 "Hence", Prop 3.2 and Cor 4.1 are PROVED for
+`ℓ‖M` events, and become fully PROVED once D1's short paragraph is
+added. HC* is enough for O4 Thm 4.2, and the saturated-hub cost is
+negligible. HC_Π remains open, so the proved rate stays O4 Cor 3.1.
+
+Parent actions:
+
+1. Apply D1–D7 in O5.
+2. Annotate O4 §4.2/Thm 4.2 (literal HC false; read with saturated
+   hubs) and O4 §7.3/§7.5 (the "sharp obstruction" is dissolved for
+   m=1 by O5 §1–2).
+3. Update DISCOVERIES (H)14.
