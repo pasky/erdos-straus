@@ -125,3 +125,58 @@ is immediate. `v_ℓ(M)≤e_ℓ`, and a hub congruence mod `q′` (κ′ a unit)
 reduces to a hub congruence mod every `ℓ^{v_ℓ}`, which saturation
 forbids. Delete the §6 caveat, or restate it as D1's weight
 bookkeeping, which D1 closes.
+
+## Item 5 — saturated-hub cost and Cor 4.1 (is HC* enough for Thm 4.2?)
+
+**D3 (minor; loose but harmless).** The quarantine probability is
+`h_ℓ ≤ Σ_{v≤e_ℓ}|𝓗_H(ℓ^v)|/φ(ℓ^v) ≤ 3H(1+log H)/(ℓ−1)·Σ_{v≥1}ℓ^{1−v}
+= 3H(1+log H)/(ℓ−1)·ℓ/(ℓ−1)`. O5 bounds each term by the v=1 term and
+gets a factor `e_ℓ`. The true factor is `1+O(1/y)`, not `e_ℓ`. Also
+`e_ℓ≤k`, not `k+1`, since `ℓ^{k+1}>y^{k+1}>T`. So O4's condition
+`300H(1+log H)<y` and `S_hub` are unchanged up to `1+O(1/y)`. The
+absorption claim is **CONFIRMED** both ways:
+
+* `h_ℓ≤1/100` (O3 Lemma 1.3) holds at `H=y^{1/2+o(1)}`.
+* `S_hub` enters only additively, in `log(M_1/μ)` and in
+  J ≈ e²S_hub primes per modulus (O3 Cor 1.2). A factor `≤k+1` costs
+  `O(log k)` in `log K`, and a factor `1+O(1/y)` costs nothing.
+* O3 Thm 1.1 and Lemma 1.3 accept arbitrary forbidden sets
+  `H_ℓ⊆(ℤ/ℓ^{e_ℓ})^×`, so replacing the hub set by the saturated hub set
+  changes nothing else.
+
+**Cor 4.1(ii): CONFIRMED.** O4 Thm 4.2 invokes HC exactly once, at
+`H=⌈(𝓛^Be^{0.011k}/η_k)^{1/a}⌉`, `k=⌊(a𝓛/5.72)^{1/3}⌋≤𝓛^{1/2}`,
+for O with `2≤|O|≤k−1` and no (now saturated) hub vertex. Sets
+containing a quarantined vertex carry no P′-mass. HC*'s three
+restrictions are all met:
+
+* `log H=(log(1/η_k)+O(k+log𝓛))/a ≈ 2.86k²/a`, while
+  `log y ≈ 𝓛/k ≈ 5.72k²/a`. So `H=y^{1/2+o(1)}≤y`, and `4^k≤H` since
+  `k log 4≪k²`.
+* `e^{Ck}` adds `Ck/a` to `log H`, which is `o(k²)`.
+* The 2^k pattern factor of D1 does the same.
+
+`0.2·(1/6)^{1/2}=0.0816>0.08` ✔. Cor 4.1(i) holds: Prop 3.2 with
+`μ=Ĥ^{1/6}` plus HC_Π, with `Ĥ≥H`. It is PROVED subject to D1.
+
+**D4 (moderate; status wording).** O5 proves literal HC **false**, yet
+it keeps writing as if HC were merely open:
+
+* §0 (§4 bullet): "HC itself is still **not** proved".
+* AGENT_REPORT item 5: "HC is not proved".
+* Remark after Thm 2.3: "What remains for full HC".
+* Cor 4.1: "HC_Π does **not** imply literal HC".
+* §0 (§3 bullet): "give HC with a=1/6", where HC* is meant.
+
+Also, Hypothesis HC_Π is stated with "no H-hub" in O4's sense, and only
+Cor 4.1's parenthetical switches to saturated hubs. It must be stated
+with saturated hubs: with O4's hubs, a lifted vertex can hide a hub
+class mod ℓ, and Def 2.0's mechanism then applies to the m>1 events of
+that class.
+
+Required wording:
+
+* "Literal HC is false (Def 2.0); HC* (saturated hubs) is open."
+* "O4 Thm 4.2 as stated is vacuous; it holds with HC* (Cor 4.1(ii))."
+
+Parent action: annotate O4 §4.2/Thm 4.2 and DISCOVERIES (H)14 accordingly.
