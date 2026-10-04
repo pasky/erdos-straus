@@ -301,7 +301,7 @@ Lemma 2.6 needs). A sequential block `V` has its primes in
 
 *Proof.* 1. Chain rule: by Lemma 2.1(2), given the past, `y_ℓ` has
 density `≤ (1−δ_ℓ)^{−1}` w.r.t. U on `ℤ/ℓ^{E_ℓ}`. 2. A class with top ℓ,
-`M = qℓ^v`, contributes `ℓ^{−v}` to `p_ℓ` iff its requirement mod q is met
+`M = qℓ^v`, adds at most `ℓ^{−v}` to `p_ℓ`, and only if its requirement mod q is met
 by the y-history; by 1 this has probability `≤ Γ(q)/q`; sum over `≤ τ(A_M²)`
 values of D and over M (partial summation of ETw Lemma 2.6 over
 `M ≤ e^{2(1+B)s}`). 3. The proof of ETw Lemma 4.0 uses only 1 (for lcm's of
