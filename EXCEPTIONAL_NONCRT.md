@@ -519,3 +519,30 @@ untouched: Theorem 2.3 is proved for prime-slice systems only.
 ```
 uv run --with scipy python scripts/noncrt_checks.py 8 > data/noncrt/checks_m8.txt   # ~1 min, < 1 GB
 ```
+
+## 8. Inter-frequency cancellation: direct interval counts (follow-up 1)
+
+### 8.1 The dichotomy, quantitatively
+
+For a majorant ν put the **interval discrepancy**
+
+    Δ_N(ν) = N·Eν − Σ_{n≤N} ν(n) = −Σ_{θ≠0} ν̂(θ) S_N(θ).          (8.1)
+
+**Theorem 8.1 (PROVED; a restatement of Thm 2.3).** In the setting of
+Theorem 2.3, suppose `Σ_{n≤N}ν(n) ≤ N e^{−s}`. Then for every λ ≥ s_*
+and α > 0, at least one of the following holds:
+* (H) `ε_λ(ν) > e^{−Φ̄(λ,α)}/4`: ν has Fourier mass above level λ of size
+  `Σ_{s(S)>λ} A_S e^{−s(S)} > e^{−Φ̄}/4`;
+* (D) `Δ_N(ν) ≥ N·[(|R|/(4Q₀)) e^{−Φ̄(λ,α)} − e^{−s}]`.
+
+In particular, if `s ≥ Φ̄(λ,α) + log(8Q₀/|R|)` and (H) fails, then
+`Δ_N(ν) ≥ ½ N·Eν·... ≥ (|R|/(8Q₀)) N e^{−Φ̄}`: the interval carries at
+most half of its CRT share of ν. *Proof.* If (H) fails, (2.4) gives
+`Eν ≥ (|R|/(4Q₀))e^{−Φ̄}`; subtract. ∎
+
+For the Cor 2.5 families, `Φ̄(λ) ≤ Cλ^{3/4}`. So a direct count with
+saving `s = (log N)^θ`, θ > 3/4, needs, at every level
+`λ ≤ c s^{4/3}` (which is `≫ log N`): either Fourier mass `≳ e^{−Cλ^{3/4}}`
+above level λ, or an interval share `≤ ½` of the CRT mean. Since the
+majorant has `Eν ≥ (|R|/(4Q₀))e^{−Cλ^{3/4}}` in the second case, the
+interval count must be a factor `≥ e^{s − Cλ^{3/4}}` *below* the CRT mean.
