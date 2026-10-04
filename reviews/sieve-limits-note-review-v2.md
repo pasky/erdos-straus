@@ -283,3 +283,77 @@ conservative than NC and acceptable.
   as in NC §8.1.
   (e) Nit: NC Prop 8.4 gives `≤ (N+1)(1+log N)²/4` pairs, so the mean
   is `≤ ¼(1+1/N)(1+log N)²`, not `≤ ¼(1+log N)²`.
+
+## 7. §§13–14 (exclusions, open problems) and citations
+
+**Faithfulness.** Item 4 of §13 now lists exactly KARY's "Still not
+covered": `log M/log P(M)` unbounded (no summation over B, constants
+untracked), (a,D)/Case-A moduli without a dominant prime, and mixed
+families (because the base rests on Lemma mordell). The Λ² removal of B
+for fixed r, with the `330 log L` tail, is correctly attributed to Thm
+noB. Items 1–3 and 6 record the partial NC coverage correctly, with the
+D7 caveat for item 3. Item 7's parenthesis on Thm karycap is accurate. In
+§14, list (i)–(iv) is consistent with §13. B-removal for general
+majorants is [open], and TW4 §11 is "a sketch only, not checked, and not
+claimed". Conj kary keeps [open] for the unweighted form: weighted form
+proved, unweighted false without incident weights, "no longer needed"
+(KARY §5). Prop twinconditional keeps [conditional] and is marked as
+superseded by Thm karycap, without the `log λ` and without `η^{−1}`
+(consistent). `H_MS`, Conj sparseNS, `(H_eq)`, `H_node` are all [open].
+
+**Citations.** Every `\cite[...]` into KA, TW, TW4 and NC (58 distinct
+locators) was spot-checked against the source headings. All exist and
+say what is attributed, except the TW4 §11 use in D5(a) and the TW4 §9.3
+label in D6. MV (Mathematika 20 (1973) 119–134) and vLR (Acta Arith. 11
+(1965) 209–216) are the standard references for Lemma 2.1/2.2 of TW4. KAr
+and KAr2 are described accurately. The intro's list of nine reviews
+matches the bibliography.
+
+* **D9 (NIT, editorial).**
+  (a) §14: "which formed item (i) in the first version of this list"
+  refers to an earlier version of the paper. Drop it for submission, or
+  say "in [ET, §6]".
+  (b) Lemma kthin: restore the source's "if `ϖ(x) = 0` both sides
+  vanish", which is needed to divide by `ϖ_ℓ(x_ℓ)`.
+  (c) Thm main could add the one-line remark that any admissible set
+  `R ⊇ R_{W₀(B)}`, in particular no admissibility restriction, is
+  covered, since `ν ≥ 1` on `A ⊇ A ∩ R_W`. This would show that `R_W` is a
+  proof device and not a restriction on the architectures. It is the
+  same observation as D5(b). If added, label it as an observation of this
+  note.
+
+## 8. Summary and verdict
+
+No mathematical error was found. I re-derived all of these as presented:
+the extrapolation lemma including the bound (eq:kB) in all three cases,
+the supermartingale lemma, Thm kcomp, Cor kmean, the weighted sequential
+limit, Lemma kmoments, the Thm 4.5 assembly (block decomposition, leak,
+singleton and top-block costs, dyadic sum), Thm main, Lemma roughBT,
+Lemma walshfourier, and Remark L2vsmain. Statements are faithful to KARY,
+TW4 and NONCRT with all hypotheses: fixed B, ℛ(M)-families only, base
+`R_W`, `λ ≥ λ₀(B)`, (A1)–(A3), and the Lemma 2.9 reading. I found no
+strengthening; the defects are omissions of hypotheses or labels and
+gaps in the presentation.
+
+| # | severity | where | defect |
+|---|---|---|---|
+| D1 | MINOR | Thm karycap, Lemma kmoments, Results 1 | finiteness of the family not stated; needed by the proof, infinite version not implied |
+| D2 | MINOR | Thm main proof (both cases) | level charges all primes `> W`, budget lemma truncates only family primes; average out non-family primes first (one sentence) |
+| D3 | MINOR | Lemma kextrap | (eq:kB) only sketched under a full-proof label; computation (verified here) should be printed or marked sketch |
+| D4 | MINOR | Thm karycap proof, Rem kweighted, §8 | `K'` undefined; `m` and `J` notation clashes |
+| D5 | MINOR | Rem L2vsmain, §1, Results 1 | own observation unlabelled and cited to a SKETCH; Results 1 claims the full avoider set without the one-line link to `A ∩ R_W`; `O_B` → `O_{A,B}` |
+| D6 | MINOR | end of §11, §14 | "middle range carries most of the mass" is an Assessment in TW4 §9.3, stated as fact |
+| D7 | MINOR | §12 moments, §13 item 3 | prime moments beyond `A log N` need NC Prop 4.1's provisos (ii), (iii), not only the Assessment |
+| D8 | MINOR | §12 | quantifiers in Thm perfreq; `p* ≤ 1/4` in Thm primemaj; Cor 8.7 needs `m ≥ 16(log N)^{3/4+δ}`; dichotomy phrasing; Prop 8.4 constant |
+| D9 | NIT | §14, Lemma kthin, Thm main | "first version"; `ϖ(x)=0` case; optional `R ⊇ R_W` remark |
+
+**Verdict: MINOR REVISION.** D1, D2, D3, D5 and D7 must be fixed before
+the note can be called faithful and complete. Each is a sentence or a
+short paragraph, and D3 is a ~15-line computation given in §1 above.
+D4, D6 and D8 are recommended; D9 is optional. No re-review of the
+mathematics is needed after these fixes; a diff check suffices.
+
+*Housekeeping note.* As instructed, the subject files were brought into
+this review branch with `git checkout side-agent/sieve-paper-v2 -- …`.
+They were committed together with the first review commit, unchanged
+(identical to `side-agent/sieve-paper-v2`).
