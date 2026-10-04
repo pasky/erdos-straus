@@ -45,19 +45,24 @@ congruence sieves.  The class consists of nonnegative CRT majorants that
 are at least one on the whole avoider set of a family of forced
 congruence classes, whose final bound has the form
 $N\cdot\E\nu+\sum_i|a_i|$, and whose family primes are at most
-$N^{O(1)}$.  The main theorem: for every fixed $B$ and every family of the
-forced classes $\cR(M)$ with $M\leq P(M)^{1+B}$ (twin moduli, prime-power
-tops and any number of prime factors at one scale included), every such
-sieve with the specified admissible set saves at most
-$O_{A,B}((\log N)^{3/4})$.  The same holds for families in which every modulus
-has a dominant prime factor, including the $(a,D)$-classes and, modulo a
-published divisor-sum estimate of Elsholtz and Tao, the Case-A classes.
-No power of $\log\log N$ can be gained.  The key new tool is a weighted
-$k$-ary comparison theorem for sequential conditioned laws, proved by
-Lagrange extrapolation in artificial replacement coins and a
-supermartingale bound.  The majorant of the $3/4$ note lies in the class,
-and the large-sieve argument of the $2/3$-loglog note is capped in the
-same way at its own exponent.  For finite prime-slice families the cap
+$N^{O(1)}$.  The main theorem: for every finite family mixing the
+forced classes $\cR(M)$, the $(a,D)$-classes, the Case-A classes and
+selector classes $0\bmod p$, with arbitrary moduli (no size condition, no
+dominant prime, any number of prime factors), every such sieve saves at
+most $O_A((\log N)^{3/4}(\log\log N)^{3/4})$.  So no sieve of this class
+proves $E(N)\ll N\exp\{-(\log N)^\theta\}$ with $\theta>3/4$.  If every modulus
+$G$ satisfies $G\leq P(G)^{1+B}$ with $B$ fixed, the saving is
+$O_{A,B}((\log N)^{3/4})$, and no power of $\log\log N$ can be gained.  The
+Case-A part uses a published divisor-sum estimate of Elsholtz and Tao.
+The key tools are a weighted $k$-ary comparison theorem for sequential
+conditioned laws, proved by Lagrange extrapolation in artificial
+replacement coins and a supermartingale bound; a base of unit squares,
+which avoids the small classes of all four types because no
+$\cR(M)$-, $(a,D)$- or Case-A class contains a square modulo its
+modulus; and Rankin's trick with Cauchy--Schwarz on
+smooth-dominated moduli.  The majorant of the $3/4$ note lies in the
+class, so $3/4$ is sharp for its method, and the large-sieve argument
+of the $2/3$-loglog note is capped in the same way at its own exponent.  For finite prime-slice families the cap
 extends to per-frequency signed rounding with weights $\geq1$, to majorants
 positive only at primes, and to CRT-evaluated moment methods.  For
 Selberg-type majorants we prove a sieve limit in terms of noise
@@ -108,12 +113,12 @@ Every statement carries one of the following labels.
 \item \lab{conjecture} / \lab{open}: not proved.
 \end{itemize}
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of eight internal working
+\lab{proved} result below appears in one of nine internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
-\cite{KA}, \cite{TW4}, \cite{NC}, or is assembled here from such results
+\cite{KA}, \cite{TW4}, \cite{NC}, \cite{KA2}, or is assembled here from such results
 with the short argument given (marked ``observation of this note'').  Each
 document was hostile-reviewed; the reviews
-are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev}.
+are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2}.
 
 \emph{Attribution} (literature audit \cite{NovAudit}).  The
 linear-programming duality between upper-bound sieves and measures matching
@@ -128,25 +133,31 @@ $e^{O(k)}$, building on Pr\'ekopa's discrete moment problem \cite{Prekopa}.
 To our knowledge the following are new: the weighted lower-set form with
 arbitrary densities, the Rankin-functional cap, the sequential and $k$-ary
 comparison theorems, and the applications to Erd\H{o}s--Straus below.
+The arithmetic inputs of Section~\ref{sec:noB} are standard: Mordell's
+Jacobi-symbol obstruction, Rankin's trick, Shiu's theorem \cite{Shiu} and
+a small-divisor domination of $\tau$ (cf.\ \cite{Landreau}); the Case-A
+first moment uses Prop.~1.4 of Elsholtz and Tao \cite{ElsholtzTao},
+published and not re-proved here.  That the $(a,D)$- and Case-A classes
+contain no squares is in the spirit of the Mordell--Schinzel
+obstructions quoted in \cite{ElsholtzTao}; our proof
+(Lemma~\ref{lem:nosquare}) is direct.
 
 \subsection*{Results}
 \begin{enumerate}
-\item \emph{The main theorem} (Theorems~\ref{thm:karycap}
-  and~\ref{thm:main}, \lab{proved}).  Fix $B$.  For every finite family
-  of classes $\cR(M)$ with $M\leq P(M)^{1+B}$, of any shape (dominant,
-  gapped, twin, prime-power top, any number of prime factors at
-  comparable scale), together with any $\cR(M)$-classes of
-  $W_0(B)$-smooth modulus, every nonnegative majorant of level $\lambda\geq\lambda_0(B)$ of the
-  avoider set in the quadratic-residue base $R_{W_0(B)}$ saves at most
-  $C(B)\lambda^{3/4}$; this applies in particular to every majorant of the
-  whole avoider set, which is $\geq1$ on its part in $R_{W_0(B)}$.  Hence every
-  CRT-majorant architecture (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$,
-  $\nu\geq1$ on the whole avoider set, final bound $N\E\nu+\sum|a_i|$,
-  family primes $\leq N^{O(1)}$) for such a family, with the admissible
-  set specified there, saves at most $O_{A,B}((\log N)^{3/4})$.  The same
-  holds for families whose moduli all have a dominant prime, Case-A and
-  $(a,D)$-classes included (Case A \lab{proved mod} Elsholtz--Tao
-  Prop.~1.4).
+\item \emph{The main theorem} (Theorem~\ref{thm:main}, \lab{proved}; the
+  Case-A part \lab{proved mod} Elsholtz--Tao Prop.~1.4).  Take any finite
+  family $\cG$ mixing $\cR(M)$-, $(a,D)$-, Case-A and selector classes
+  $0\bmod p$, with arbitrary moduli: no $B$-hypothesis, no dominant
+  prime, any number and multiplicity of prime factors.  Every method
+  that bounds $\#(\A(\cG)\cap[1,N])$ by $N\E\nu+\sum_i|a_i|<N$, with $\nu$ a
+  CRT majorant $\geq0$ on $\Z$ and $\geq1$ on the whole avoider set, and
+  with family primes $\leq N^{O(1)}$, saves at most
+  $O_A((\log N)^{3/4}(\log\log N)^{3/4})$.  So no method of this class gives
+  $\theta>3/4$.  If every modulus satisfies $G\leq P(G)^{1+B}$, $B$ fixed,
+  the saving is $O_{A,B}((\log N)^{3/4})$ (Theorems~\ref{thm:karycap}
+  and~\ref{thm:Bcapall}).  The underlying majorant caps are
+  Theorems~\ref{thm:noBcap} and~\ref{thm:Bcapall}.  All constants are
+  absolute but astronomically large, so these are asymptotic statements.
 \item \emph{The tools.}  The sieve-limit theorem for prime-slice systems
   (Theorem~\ref{thm:slice}): every majorant of level $\lambda$ saves at
   most $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond
@@ -164,7 +175,14 @@ comparison theorems, and the applications to Erd\H{o}s--Straus below.
   binomial laws (Lemma~\ref{lem:kextrap}), and pays for the thinning with
   a supermartingale (Lemma~\ref{lem:kthin}).  Only the mean activated mass
   enters, because the sequential sieve limit accepts random step costs
-  (Theorem~\ref{thm:wseq}).
+  (Theorem~\ref{thm:wseq}).  To mix the four class types and drop $B$
+  (Section~\ref{sec:noB}): a base of unit squares, which avoids every
+  small class because no $\cR(M)$-, $(a,D)$- or Case-A class contains a
+  square (Lemmas~\ref{lem:nosquare} and~\ref{lem:squarebase}); and
+  first and second moments over all moduli, by Rankin's trick and
+  Cauchy--Schwarz on smooth-dominated moduli, at the price of
+  $(\log\log y)^3$ in the mass (Lemmas~\ref{lem:firstnoB}
+  and~\ref{lem:secondnoB}).
 \item \emph{The campaign sieves are in the class}
   (Section~\ref{sec:campaign}, \lab{proved}).  The majorant of the $3/4$
   note is in the class, so $3/4$ is sharp for its architecture; the
@@ -178,8 +196,11 @@ comparison theorems, and the applications to Erd\H{o}s--Straus below.
   (Theorem~\ref{thm:rprime}) or without (Theorem~\ref{thm:noB}) the
   condition $M\leq P(M)^{1+B}$ (\lab{proved}).  Their new arithmetic input
   is a Brun--Titchmarsh bound for rough partners from the arithmetic
-  large sieve (Lemma~\ref{lem:roughBT}).  Under the $B$-hypothesis these
-  caps are superseded by the main theorem (Remark~\ref{rem:L2vsmain}).
+  large sieve (Lemma~\ref{lem:roughBT}).  As caps they are superseded by
+  Theorem~\ref{thm:karycap} under the $B$-hypothesis and, for
+  majorants $\geq1$ on the whole avoider set, by Theorem~\ref{thm:noBcap}
+  without it; both allow any number of large prime factors
+  (Remark~\ref{rem:L2vsmain}).
 \item \emph{Beyond CRT evaluation} (Section~\ref{sec:noncrt},
   \lab{proved}).  For the finite prime-slice families, the cap extends
   to every rounding bound $\sum_{\theta\neq0}|\hat\nu(\theta)|w(\theta)$ with
@@ -2132,6 +2153,14 @@ are therefore superseded as caps, as anticipated in \cite[\S11]{TW4}.  What the
 $\Lambda^2$ route still gives beyond Theorem~\ref{thm:karycap} is the
 removal of $B$ for a fixed number of large primes
 (Theorem~\ref{thm:noB}), and the noise-stability tools themselves.
+Without $B$, a $\Lambda^2$-majorant $g^2$ with $g\geq1$ on the \emph{whole}
+avoider set of a family of the four types is a majorant in the sense of
+Theorem~\ref{thm:noBcap}, which then gives
+$\log(1/\E g^2)\leq C\lambda^{3/4}(\log\lambda)^{3/4}$ for any number of large
+prime factors; for such majorants the $\Lambda^2$ caps of this section are
+superseded up to powers of $\log L$ as well.  (For $g^2$ that is $\geq1$
+only on the avoiders in a base $R_W$, as in \cite[\S3]{TW2}, we do not
+claim this.)
 \end{remark}
 
 \begin{remark}[what was bypassed]\label{rem:bypass}
@@ -2785,3 +2814,4 @@ R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \end{thebibliography}
 
 \end{document}
+
