@@ -6,8 +6,9 @@ Branch: this worktree. Deliverable: `EXCEPTIONAL_TWIN3.md`, plus
 ## Claim (PROVED here, internal check only)
 
 The whole of (H_O) holds: `E_P Σ_{j>w₂} ρ_j S_j ≪_B α^{−3}(log L)^{O(1)}`
-(Theorem 4.1). That covers (H_O^≠) and gives (H_O^=) again. So TW2
-Cor 5.2 becomes unconditional: the two-prime Λ² cap is
+(Theorem 4.1). (Correction after review E5: (H_O^≠), (H_O^=) and H_div, as
+un-quarantined pair sums, are *bypassed*, not proved; they remain open as
+stated.) So TW2 Cor 5.2 becomes unconditional: the two-prime Λ² cap is
 `≪ L^{3/4}(log L)^{O(1)}`, twins included, in Setting 3.0 (B-hypothesis
 `M ≤ P(M)^{1+B}`; Corollary 4.2).
 
@@ -151,3 +152,25 @@ Stopping for parent review.
   unbounded r.
 
 Stopping for parent review (context ≈ 75%).
+
+---
+
+# Review response (exceptional-twin3-review.md)
+
+The verdicts are SOUND for Lemmas 2.1, 3.1, 3.2/Cor 3.3 and 3.4, and
+SOUND-AFTER-REPAIRS for Thm 4.1/Cor 4.2 and for the exposition.
+Repairs E1–E8 are applied in one commit:
+* E1: empty Shiu blocks are dropped explicitly.
+* E2: the constants are absorbed explicitly.
+* E3: the block range is `(M₁, X/(kj)]`, with ℓ₀ computed at `M₁/2`.
+* E4: `X ≥ j` is dropped; the bound reads `HH′ ≥ j`.
+* E5: (H_O^≠), (H_O^=) and H_div are *bypassed, open as stated*. This is
+  fixed in the Thm 4.1 title, the Remarks, the new §0 table and this
+  report.
+* E6: the factor reads "5–16".
+* E7: Route 3 is marked as heuristic and unused.
+* E8: the remark on what `m > (kj)^{C₀}` buys is reworded (`M₁ ≥ q w₂/8`),
+  and the note `C₀ ≥ 5` suffices is added.
+
+E9 (TW2 status lines, DISCOVERIES) is left to the parent at merge.
+§6 (Lemmas 6.1–6.2, Props 6.3–6.4) has not yet been reviewed.

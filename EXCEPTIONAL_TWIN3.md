@@ -1,8 +1,23 @@
-# EXCEPTIONAL_TWIN3 — the cross-label hypothesis (H_O^≠) (task O5)
+# EXCEPTIONAL_TWIN3 — the off-diagonal term (H_O) of the two-prime Λ² cap (task O5)
 
-Status: **checkpoint 2 (task O5).**
-* §§1–5: (H_O) proved, so TW2 Cor 5.2 is unconditional (internal check
-  only; hostile review pending).
+## 0. Status at a glance
+
+| item | statement | label |
+|---|---|---|
+| (2.1), Lemma 2.1 | small partners `m ≤ (kj)^{C₀}`: paid for by their first moment, `≪ α^{−3}(log L)^{O(1)}` | PROVED (review: SOUND) |
+| Lemma 3.1 | largest-variable reduction; Brun–Titchmarsh over the prime partner | PROVED (SOUND) |
+| Lemma 3.2, Cor 3.3 | second moments of the short sums; `Σ_a V² ≪ (log L)^6` | PROVED (SOUND) |
+| Lemma 3.4 | large-partner part `≪ (log L)^{O(1)}` | PROVED (SOUND) |
+| **Thm 4.1, Cor 4.2** | **(H_O) holds, so TW2 Cor 5.2 (two-prime Λ² cap `≪ L^{3/4}(log L)^{O(1)}`) is unconditional** | PROVED (SOUND after repair E5) |
+| (H_O^≠), (H_O^=) as un-quarantined pair sums; H_div | no longer needed for Cor 5.2 | **bypassed, open as stated** (review E5) |
+| Lemmas 6.1, 6.2 | any-arity noise stability with codegree stars; free codegree quarantine | PROVED (internal; not yet reviewed) |
+| Prop 6.3, 6.4 | ≥ 3 large primes reduced to star sums; ternary case proved except one residual | reduction PROVED (internal); residual OPEN |
+
+Review: `reviews/exceptional-twin3-review.md` (branch `side-agent/review-twin3`;
+repairs E1–E8 applied).
+
+Earlier status lines:
+* §§1–5: (H_O) proved, so TW2 Cor 5.2 is unconditional.
 * §6: the noise-stability input holds for any arity (Lemmas 6.1–6.2,
   PROVED). The full ES family (≥ 3 large primes) is reduced to arithmetic
   star sums (Prop 6.3); the residual (3a)–(3c) is OPEN.
@@ -67,8 +82,9 @@ j and m where only upper bounds are needed.
 2. *Multiplicative characters mod j.* `Σ_{D|A²} χ(D)` is multiplicative in
    A (`1+χ(p)+χ(p)²` at p). Fourth moments of `L(1,χ)` then give the
    mean square over χ. The difficulty is the short A-ranges `m ≈ w₂`.
-3. *Lenstra / Coppersmith–Howgrave-Graham–Nagaraj.* When `km ≤ j^{1−ε}`
-   there are O(1) divisors of A² per class mod j, so `max_r v_j(r) ≪ log L`.
+3. *Lenstra / Coppersmith–Howgrave-Graham–Nagaraj (heuristic; not proved
+   here and not used).* Plausibly (via CHN, since `A² ≤ j^{4−2ε}`), when
+   `km ≤ j^{1−ε}` there are O(1) divisors of A² per class mod j, so `max_r v_j(r) ≪ log L`.
    Against the first moment `(log j)^2 log L` this already fits the
    `α^{−3}` budget.
 4. *Large sieve / Barban–Davenport–Halberstam in j.* Use this only if route
@@ -84,7 +100,7 @@ Throughout, only classes with `u = v = 1` (moduli `M = kjm`, `j ≠ m` primes
 `> w₂`, k w₂-smooth) are treated. The prime-power classes are split off as
 in TW2 Lemma 5.4 (D5): `S_j ≤ S_j^{(11)} + 3w_j^{pp}`, with
 `E_PΣ_jρ_jw_j^{pp} ≪ L³/w₂ + w₂^{−1/2}(log L)^{O(1)}`. Fix an absolute
-constant `C₀ ≥ 6`.
+constant `C₀ ≥ 6` (`C₀ ≥ 5` suffices for Lemma 3.1; review E8).
 
 **Definition.** A binary class `−4D mod kjm` through j is *small* (at j) if
 `m ≤ (kj)^{C₀}`, *large* if `m > (kj)^{C₀}`. Write `deg_c(j,a) = x(a) + z(a)`
@@ -112,12 +128,16 @@ by which prime is on top.
 Swap the sums: we need `Σ_{m>w₂} m^{−1} Σ_{j>m} j^{−1−α} τ(A²)`. Since A is
 linear in j, apply TW2 Lemma 3.3 with `q = km`, the variable j running over
 all integers, on dyadic blocks `(y,2y]` with `y ≥ m/2`. Its hypothesis
-`q ≤ (2y)^{B+2}` holds because `km ≤ j^B ≤ (2y)^B`. With `y_i = 2^{i−1}m`,
+`q ≤ (2y)^{B+2}` is only needed on non-empty blocks. There some j in the
+block satisfies `km ≤ j^B ≤ (2y)^B`. Blocks with `km > (2y)^B` contain no
+admissible j and are dropped (review E1). With `y_i = 2^{i−1}m`,
 
     Σ_{j>m} j^{−1−α}τ(A²) ≪ (km/φ(km)) Σ_{i≥0} y_i^{−α}(log 2kmy_i)²
                          ≪ (k/φ(k)) m^{−α} (a²/α + a/α² + 1/α³),
 
-with `a = log(2km²) ≪ log 2k + log m`, using `m/φ(m) ≤ 2` and TW2 §4's
+with `a = log(2km²) ≪ log 2k + log m`. This is an upper bound for
+`log(2km·y_0)` since `y_0 = m/2`. The step uses `(m/2)^{−α} ≤ 2m^{−α}`,
+`m/φ(m) ≤ 2`, and TW2 §4's
 `Σ_t (a+t log 2)² 2^{−αt} ≪ a²/α + a/α² + 1/α³`. Now sum over primes
 `m > w₂`, using `Σ_m m^{−1−α}(log m)^i ≪ (i−1)!α^{−i}` for `i ≥ 1` and
 `≪ log L` for `i = 0`. The result is
@@ -184,7 +204,9 @@ The second gives `m > M₁ := max((kj)^{C₀}, (4uv·max(u,v) − 1)/kj)`. Then
 * if `max(u,v) ≥ (kj)²`, then `M₁ ≥ q·kj − 1`;
 * otherwise `q < 4(kj)^4` and `M₁ ≥ (kj)^{C₀} ≥ q(kj)^{C₀−4}/4`.
 
-Cover `(M₁, X]` by at most 2L dyadic blocks `(y,2y]` with `y ≥ M₁/2 > q`.
+Cover the range `(M₁, X/(kj)]` of m by at most 2L dyadic blocks `(y,2y]`
+with `y ≥ M₁/2 > q`: the first block is `(M₁/2, M₁]` (which only adds
+terms), and ℓ₀ below is computed at `y = M₁/2` (review E3).
 Brun–Titchmarsh in the Montgomery–Vaughan form
 (`π(x+y;q,b) − π(x;q,b) < 2y/(φ(q)log(y/q))` for `y > q`) gives
 
@@ -208,7 +230,7 @@ carries the harmonic weight `1/φ`. No equidistribution of divisors of
 short product) was needed, and this class is long because `ψ ≥ A^{1/3}`.
 
 **Lemma 3.2 (second moments of the short sums; PROVED).** Let j be prime and
-`X ≥ j`. With all variables in `[1,X]` and prime to j, put
+`X ≥ 2` (`X ≥ j` is not needed). With all variables in `[1,X]` and prime to j, put
 
     r₁(ρ) = Σ_{(u,v)=1, u ≡ ρv (j)} 1/(uv),      r(c) = Σ_{v²t ≡ c (j)} 1/(vt).
 
@@ -246,7 +268,7 @@ contributes `≤ 2/j + 2/max(V,T)`. There are `≤ (2+log₂X)²` boxes. Those w
 
 **The function r₁.** The diagonal is `Σ 1/(uv)² ≤ ζ(2)²`. Two distinct
 coprime pairs with `u ≡ ρv`, `u′ ≡ ρv′` have `uv′ − u′v` nonzero (distinct
-reduced fractions) and divisible by j. So `max(u,v)·max(u′,v′) ≥ j/2`, and
+reduced fractions) and divisible by j. So `max(u,v)·max(u′,v′) ≥ |uv′−u′v| ≥ j`, and
 one of the two pairs has height `max ≥ (j/2)^{1/2}` (TW2 Lemma 5.5).
 Charge each unordered pair to such a member. The off-diagonal is then at
 most `2(1+log X)² sup_ρ Σ_{u≡ρv, max(u,v) ≥ (j/2)^{1/2}} 1/(uv)`. In a
@@ -296,7 +318,7 @@ Corollary 3.3, `Σ_a V_{j,k}(a)² ≤ C(log L)^6` uniformly in j and k. Then
 
 ## 4. Assembly: (H_O) holds; the two-prime Λ² cap is unconditional
 
-**Theorem 4.1 ((H_O), hence (H_O^≠); PROVED).** In Setting 3.0,
+**Theorem 4.1 ((H_O); PROVED).** In Setting 3.0,
 
     E_P Σ_{j>w₂} ρ_j S_j(c) ≪_B α^{−3}(log L)^{O(1)}.
 
@@ -312,10 +334,15 @@ Lemma 2.1 (`≪ α^{−3}(log L)^{O(1)}`) and Lemma 3.4 (`≪ (log L)^{O(1)}`). 
 *Proof.* TW2 Theorem 5.1 together with Theorem 4.1. ∎
 
 **Remarks.**
-* The proof never separates same-label from cross-label pairs. TW2 Lemma 5.4
-  ((H_O^=)) is used only for its prime-power reduction and its k-sum
-  bookkeeping. The cross-label part (H_O^≠) is not attacked separately: it
-  is absorbed into the two bounds above.
+* **(H_O^≠) is bypassed, not proved (review E5).** In TW2, (H_O^=) and
+  (H_O^≠) are *un-quarantined* pair sums (parts of `q_j = Σ ν deg²`), and
+  the route was `S_j ≤ q_j`. So (H_O^=) + (H_O^≠) ⇒ (H_O), not
+  conversely. Here `q_j` is bounded only for large–large pairs
+  (Lemma 3.4). Small–small and small–large pairs are paid for through
+  `min(x,1)² ≤ x`, which says nothing about `Σ x_C x_{C′}`. Hence
+  (H_O^≠) and H_div, as stated in TW2 §5 and §1 here, remain **open as
+  stated**. They are no longer needed for Cor 5.2. TW2 Lemma 5.4 is used
+  only for its prime-power reduction and its k-sum bookkeeping.
 * H_div (TW2 §5.5) was only a sufficient condition and is bypassed. Its
   weights `j/A` include all `A ≡ 4^{−1} (j)` down to `A ≍ j`, where `j/A ≍ 1`.
   The real system has `j/A ≍ k/m ≤ k/w₂`, and the quarantine lets small
@@ -328,9 +355,11 @@ Lemma 2.1 (`≪ α^{−3}(log L)^{O(1)}`) and Lemma 3.4 (`≪ (log L)^{O(1)}`). 
 * Why this was missed (TW2 §5.4–5.5). The obstacle there was the
   j-dependence of the first-element masses `1/m₀(θ,k)` once the divisor
   side is summed first. Summing over the partner prime first in the class
-  mod 4·(the two short variables) avoids that. This needs the largest of
-  u, v, t to be `≥ A^{1/3}`, which holds once `m > (kj)^{C₀}`; smaller
-  partners are handled by the quarantine `min(x,1)² ≤ x`.
+  mod 4·(the two short variables) avoids that. The largest of u, v, t is
+  always `≥ A^{1/3}`. What `m > (kj)^{C₀}` buys is `M₁ ≥ q·w₂/8`: the
+  Brun–Titchmarsh range for m is longer than the modulus
+  `q = 4·(short product)`, which can be as large as `≈ 4(kj)^4` (review
+  E8). Smaller partners are handled by the quarantine `min(x,1)² ≤ x`.
 
 ## 5. Numerics (EVIDENCE, toy scale)
 
@@ -367,7 +396,8 @@ Reading:
 * The small part has `Σ V² ≫ (Σ V)²/j`, because of the deadly values (here
   m starts at 3, so the hubs carry weight up to 1/3). That is why §2 pays
   for it with its first moment and no equidistribution claim.
-* (2.1) holds in every row, with a factor 5–13 to spare.
+* (2.1) holds in every row, with a factor 5–16 to spare (79.8/15.4,
+  118.0/7.3, 218.3/16.4; review E6).
 * What is *not* tested: the Brun–Titchmarsh constant of Lemma 3.1 (it is
   asymptotic: `log L` at `y/q ≥ w₂/16`), the fibre law P, and k > 1.
 
