@@ -264,3 +264,62 @@ and `(x+y+z)² ≤ 3(x²+y²+z²)`,
 So for large partners the mass at each vertex is spread out: although
 `Σ_a V(a) ≍ L² log L`, the second moment is only polylogarithmic. This
 includes the hub vertices (deadly values) and every pair sharing a label.
+
+**Lemma 3.4 (the large part of (2.1); PROVED).** In Setting 3.0,
+
+    E_P Σ_{j>w₂} ρ_j Σ_a ν_j(a) z(a)² ≪ (log L)^{O(1)}.
+
+*Proof.* A class kjm with `u = v = 1` constrains `y_j` only mod j. So
+`z(a)` depends only on `a mod j`. Summing ν_j over the lifts of a residue
+mod j gives at most `(8/7)/j` on supp P (unary density ≤ 1/8). The same
+holds for vertices modulo `j^{e_j}`, as in TW2 Lemma 5.4. Also
+`ν_m ≤ (8/7)/m`, and the probability that two classes with cofactors
+`k, k′` are both active is `≤ 4Γ(lcm)/lcm` (TW2 Lemma 3.2(1)). Hence, with
+`V_{j,k}` from §3 (which counts all classes, active or not),
+
+    E_P Σ_a ν_j(a) z(a)² ≤ 4(8/7)³ j^{−1} Σ_{a mod j} Σ_{k,k′} (Γ(lcm)/lcm) V_{j,k}(a) V_{j,k′}(a)
+                        ≤ 4(8/7)³ j^{−1} Σ_k (Γ(k)h(k)/k) Σ_a V_{j,k}(a)².
+
+The second line is AM–GM, with
+`Σ_{k′}Γ(lcm(k,k′))/lcm(k,k′) ≤ Γ(k)h(k)/k` (TW2 Lemma 5.4(ii)). By
+Corollary 3.3, `Σ_a V_{j,k}(a)² ≤ C(log L)^6` uniformly in j and k. Then
+`Σ_k Γ(k)h(k)/k ≪ (log L)^{O(1)}` (TW2 Lemma 5.4(iii)) and
+`Σ_{j>w₂} ρ_j/j ≪ log L`. ∎
+
+## 4. Assembly: (H_O) holds; the two-prime Λ² cap is unconditional
+
+**Theorem 4.1 ((H_O), hence (H_O^≠); PROVED).** In Setting 3.0,
+
+    E_P Σ_{j>w₂} ρ_j S_j(c) ≪_B α^{−3}(log L)^{O(1)}.
+
+*Proof.* `S_j ≤ S_j^{(11)} + 3w_j^{pp}` (TW2 Lemma 5.4, D5), and the
+prime-power part is `o(1)` there. Then `S_j^{(11)}` is bounded by (2.1),
+Lemma 2.1 (`≪ α^{−3}(log L)^{O(1)}`) and Lemma 3.4 (`≪ (log L)^{O(1)}`). ∎
+
+**Corollary 4.2 (TW2 Cor 5.2 made unconditional).** In Setting 3.0
+(ℛ(M)-families, `M ≤ X`, `M ≤ P(M)^{1+B}`, at most two prime factors above
+`w₂ = (log X)^8`, twins included), every admissible Λ² majorant g of level
+`λ ≤ A₀L` has `saving(g²) ≪_{A₀,B} L^{3/4}(log L)^{O(1)}`.
+
+*Proof.* TW2 Theorem 5.1 together with Theorem 4.1. ∎
+
+**Remarks.**
+* The proof never separates same-label from cross-label pairs. TW2 Lemma 5.4
+  ((H_O^=)) is used only for its prime-power reduction and its k-sum
+  bookkeeping. The cross-label part (H_O^≠) is not attacked separately: it
+  is absorbed into the two bounds above.
+* H_div (TW2 §5.5) was only a sufficient condition and is bypassed. Its
+  weights `j/A` include all `A ≡ 4^{−1} (j)` down to `A ≍ j`, where `j/A ≍ 1`.
+  The real system has `j/A ≍ k/m ≤ k/w₂`, and the quarantine lets small
+  partners be paid for by their first moment.
+* Where the budget goes. The `α^{−3}` comes only from Lemma 2.1, i.e. from
+  `Σ_j ρ_j (log j)³/j`: the divisor mass of classes whose partner is at
+  most polynomial in kj. The large partners cost only `(log L)^{O(1)}`. So
+  this route does not lower the exponent 3/4. The cap `L^{3/4}` is the
+  diagonal/unary scale (TW2 Lemma 4.1) in any case.
+* Why this was missed (TW2 §5.4–5.5). The obstacle there was the
+  j-dependence of the first-element masses `1/m₀(θ,k)` once the divisor
+  side is summed first. Summing over the partner prime first in the class
+  mod 4·(the two short variables) avoids that. This needs the largest of
+  u, v, t to be `≥ A^{1/3}`, which holds once `m > (kj)^{C₀}`; smaller
+  partners are handled by the quarantine `min(x,1)² ≤ x`.
