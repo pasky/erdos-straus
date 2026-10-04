@@ -536,8 +536,8 @@ and α > 0, at least one of the following holds:
 * (D) `Δ_N(ν) ≥ N·[(|R|/(4Q₀)) e^{−Φ̄(λ,α)} − e^{−s}]`.
 
 In particular, if `s ≥ Φ̄(λ,α) + log(8Q₀/|R|)` and (H) fails, then
-`Δ_N(ν) ≥ ½ N·Eν·... ≥ (|R|/(8Q₀)) N e^{−Φ̄}`: the interval carries at
-most half of its CRT share of ν. *Proof.* If (H) fails, (2.4) gives
+`Σ_{n≤N}ν(n) ≤ N e^{−s} ≤ ½N·Eν`: the interval carries at most half of
+its CRT share of ν. *Proof.* If (H) fails, (2.4) gives
 `Eν ≥ (|R|/(4Q₀))e^{−Φ̄}`; subtract. ∎
 
 For the Cor 2.5 families, `Φ̄(λ) ≤ Cλ^{3/4}`. So a direct count with
