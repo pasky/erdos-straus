@@ -37,7 +37,7 @@
 \title[Formally generic primes and the signed graph of Erd\H{o}s--Straus]{Under Hypothesis~H, formally generic primes block the pointwise signed-graph approach to the Erd\H{o}s--Straus conjecture}
 % TODO(parent): authorship to be settled with the user.
 \author{Anonymous}
-\date{Draft, 1 October 2026}
+\date{Draft, 4 October 2026}
 
 \begin{document}
 
@@ -72,7 +72,12 @@ square class the Bright--Loughran character dichotomy leaves no formal
 solution positive.
 We also record further obstructions: sterile components larger than the
 seed component, the triviality of large $p$-free buckets, and parity
-obstructions.  The Erd\H{o}s--Straus conjecture itself is untouched.
+obstructions.  Finally we report the companion's later refinements, none of which gives
+an unconditional sterile component, and two companion results of our own: the obstruction as a
+theorem about procedures, and, modulo a theorem of Thorner and Zaman, the
+fact that the least multiplier witness modulus exceeds any fixed power
+of $\log p$ for infinitely many primes~$p$.  The Erd\H{o}s--Straus conjecture itself is
+untouched.
 \end{abstract}
 
 \maketitle
@@ -150,8 +155,10 @@ Hypothesis~H, a formal argument confined to a square class fails for
 infinitely many primes.
 \end{principle}
 
-The principle is a heuristic summary, not a theorem.  Its precise content
-is given by the following results.  Proposition~\ref{prop:schinzel} is its
+The principle is a heuristic summary, not a theorem.  A version for
+general deterministic procedures is proved in a companion note \cite{PS};
+we report it in \S\ref{sec:companion}.  Within this paper, its precise
+content is given by the following results.  Proposition~\ref{prop:schinzel} is its
 unconditional core: there is no formally positive vertex in a square class.
 Theorem~\ref{thm:closed} shows that a closed formal exploration of $G_p$
 with no formally positive member contains the whole seed component.  Theorem~\ref{thm:unbounded} covers explorations of bounded radius
@@ -161,7 +168,8 @@ nonpositivity is verified directly rather than deduced from the square-class
 mechanism.  The conclusion
 (\S\ref{sec:discussion}) is that a pointwise proof must control the
 \emph{actual} factorisations of specific shifted integers, for instance by
-using the size of~$p$.
+using the size of~$p$.  Comparing formal quantities with powers of $p$ is
+not enough by itself (\S\ref{sec:companion}).
 
 \subsection{Results}
 Status labels follow the campaign convention: \status{proved},
@@ -238,7 +246,8 @@ result was found.
 ES is not proved or disproved here.  Conjecture~\ref{conj:seed} is
 \emph{open} unconditionally; no sterile seed component is known at an actual
 prime, and the families of Theorem~\ref{thmC} are far beyond computational
-reach.  Numerically every prime $p\equiv1\pmod4$ below $10^{12}$ has
+reach.  The companion's later actual-input searches also found no sterile
+prime (Remark~\ref{rem:astralater}).  Numerically every prime $p\equiv1\pmod4$ below $10^{12}$ has
 $\dist(p)\le3$ (\S\ref{sec:evidence}).  This is \status{evidence}, and by
 Theorem~\ref{thmB} the pattern is conditionally false.
 
@@ -1329,6 +1338,71 @@ admissibility conditions hold.  This illustrates the mechanism; it is not a
 test of~H.
 \end{evidence}
 
+\begin{remark}[later refinements of Theorem~\ref{thm:astra} in \cite{AS}; \status{reported}]\label{rem:astralater}
+After Theorem~\ref{thm:astra}, the companion project recorded the
+following results.  We state them as the companion's documents do.  We have
+not re-run the companion's checkers for them or re-derived their proofs.
+In the companion repository, an independent review of each found no
+blocker.  None of them gives an unconditional sterile seed component, and
+the stronger version of the whole-component result remains the
+companion's.
+\begin{enumerate}
+\item \emph{All $159$ primary anchors are seed-reachable unconditionally}
+\cite[\allowbreak\texttt{PRIMARY\_REACHABILITY.md}]{AS}.  Take $Q,M,A,H$ as in
+Theorem~\ref{thm:astra} and put $q=Q+Mn$, $t=6q$, $p=24q+1$ for any integer
+$n\ge0$.  There are explicit nonpositive walks of at most $11$ edges from
+the seed to vertices containing $t+a$ for each of the $84$ offsets $a\in A$,
+and $p(ph-t)$ for each of the $75$ rows $h\in H$.  No primality is assumed,
+not of $q$, of $p$ or of any primary form, and there is no threshold on~$n$.
+For composite $p$ the graph is defined by the same rule.  The walks are
+certified as polynomial identities in $n$; they do not use the prime
+fibre classification.  Since $\gcd(24Q+1,24M)=1$, Dirichlet's theorem
+applies them to infinitely many primes~$p$.  So the $159$ prime hypotheses
+control the \emph{extra} branches leaving these anchors, not access to
+them.  None of the anchors can be discarded as unreachable.  This does not
+show that each prime hypothesis is necessary.  The companion also derives
+$52$ divisor exclusions, at the $29$ positive offsets in $A$ and the $23$
+positive rows in $H$, that a sterile prime on this progression must
+satisfy.  If one fails, a positive vertex lies within $12$ edges of the
+seed.  Satisfying all $52$ does not certify sterility.
+\item \emph{One primary prime replaced by a leaf condition.}  Consider the
+primary form $F=(3q-553)/44$ of the anchor $x=t-1106$, so that $x=88F$
+\cite[\texttt{PRIMARY\_LEAF\_RELAXATION.md}]{AS}.  Its prime
+hypothesis is replaced by an exact divisor condition~$L$, checkable after
+factoring $x$ alone.  $L$ says that the only Type~I vertex at $x$ is the
+one returning to the row $h=2$, and that both $p$-divisible denominators of
+every Type~II vertex at $x$ have singleton fibres.  Under $L$ and the other
+$158$ prime conditions, the conclusion of Theorem~\ref{thm:astra}(1) holds
+for all sufficiently large $n$; no numerical threshold is asserted.  On
+this progression, the prime hypothesis on $F$ implies~$L$.  This is \emph{not} a theorem
+assuming only $158$ primes.  Realising $L$ with composite $F=8933R$, on
+$n\equiv8439\pmod{8933}$, still uses Dickson's conjecture for $159$
+affine forms; $F$ is then replaced by $R$.  It produces an extra Type~II
+vertex, whose boundary is closed exactly.  At the actual primes
+$R=6502739$ and $q=851971523327$, with $p=20447316559849$ prime, this
+two-vertex attachment was certified with only the existing $h=2$ port
+open.  That input is not on the packet's progression, and the other $158$
+conditions are not claimed there.  This is a local check, not a
+sterile-seed certificate.
+\item \emph{Other constructions: skeleton only}
+\cite[\texttt{TWELVE\_HUB\_SKELETON.md}, \texttt{NORM\_SEED\_FAMILIES.md}]{AS}.
+For $t=12r$ with $r$ prime, so that $q=2r$ is composite, there is a
+verified finite skeleton with $237$ primary forms.  It is explicitly not a
+whole-component theorem: the boundary proof is not assembled and there is
+no common threshold.  For the quadratic family $t=1591n^2+439n+30$, it is
+proved that whenever $p$ is prime, the complete fibres at $t+1$,
+$p(3t+1)$ and $p(7t+2)$ are nonpositive, with no hypothesis on~$q$.  This
+is local blocking, not closure.  All $9526$ retained actual inputs of this
+family, from selected subclasses, have certified positive seed paths of
+at most five edges, $9508$ of them of two edges.  One hard input,
+with $q$ composite, has a certified path of three edges.  So these actual-input
+searches found no sterile prime.
+\end{enumerate}
+The status of Conjecture~\ref{conj:seed} is unchanged.  It is open
+unconditionally, false under~H by Theorem~\ref{thm:F}, and, as reported,
+false under Dickson by Theorem~\ref{thm:astra}.
+\end{remark}
+
 %======================================================================
 \section{Further obstructions}\label{sec:further}
 
@@ -1628,6 +1702,96 @@ mechanism amplified in Lemma~\ref{lem:B}.
 \end{evidence}
 
 %======================================================================
+\section{Procedures and witness sizes: companion results}\label{sec:companion}
+
+Two later results of this repository, written up as companion notes
+\cite{PS,PO3}, bear on the conclusion in \S\ref{sec:discussion}.  Both are
+\status{reported}: they are proved and internally reviewed in those notes,
+and they are not re-proved here.  We give their exact labels; the precise
+definitions are in the notes.
+
+\subsection{Formal genericity as a theorem about procedures}
+The companion note \cite[\S1]{PS} considers deterministic programs on input
+$p$ that use ring operations, floor division, sign tests (including size
+comparisons), full factorisations and divisor lists, and loops over the
+lists so produced.  Such a program is run \emph{formally} at a profinite
+point $q^*$, on the polynomial input $P(X)$ (here $P=24X+1$), and every
+polynomial met is declared to factor generically.  A value $q$ is
+\emph{admissible} if it lies in one fixed congruence class, every
+polynomial met takes a prime value up to a fixed constant, and $q$ is
+large.
+\begin{itemize}
+\item \emph{\cite[Theorem~M]{PS}} (part~(a) \status{proved}; parts~(b)--(d)
+\status{conditional}).  If the formal run is defined and finite, then at
+every admissible $q$ the actual run on $p=P(q)$ executes the same steps,
+and its output is the formal output evaluated at~$q$.  Under Hypothesis~H
+for the explicit finite family met, there are infinitely many admissible
+$q$.  Dickson's conjecture suffices if that family is linear, and
+Dirichlet's theorem if only $p$ is factored.
+\item \emph{\cite[Theorem~C, Corollary~C1]{PS}} (formal odd-square
+principle).  Let $q^*$ be \emph{square-mimicking} (for every prime $\ell$,
+$P(q^*_\ell)$ is the square of a unit of $\Z_\ell$) and nondegenerate.
+Then a correct witness-producing program with a defined, finite formal run
+outputs FAIL at every admissible $q$ (\status{proved}).  So under~H it
+fails for infinitely many primes $p\equiv1\pmod{24}$.  In particular, under
+H for one explicit finite family, every correct \emph{bounded}
+witness-producing program fails infinitely often.  The character input is
+the positive direction of Theorem~\ref{thm:BL}.
+\end{itemize}
+By \cite[\S3]{PS}, breadth-first search to depth $k$ from the seed is an
+instance of Theorem~C, which recovers Theorem~\ref{thm:unbounded}.  The
+closure computation of Theorem~\ref{thm:F} is an instance of Theorem~M, in
+its literal form, with all $13521$ polynomials of $S$ (the reduction to
+$6402$ is Remark~\ref{rem:Fsquare}); there FAIL is certified directly by
+(E4), not by Theorem~C.  Theorem~C is also a precise
+H-conditional form of the Elsholtz--Tao remark for procedures.  So the
+principle of \S\ref{sec:intro}, which this paper uses only as a heuristic
+summary, has a precise form as a theorem about procedures in
+\cite{PS}.
+
+\emph{Size comparisons stay inside the obstruction.}
+\cite[Proposition~A]{PS} (\status{proved}) says that for $A\in\Q[X]$ and
+real $c>0$, $\theta\ge0$, the sign of $A(q)-c\,P(q)^\theta$ is eventually
+constant.  So a comparison with $c\,p^\theta$, or with any threshold in a
+Hardy field, has formal semantics, and Theorems~M and~C hold for programs
+that use it.  Examples are ``$d\le\sqrt p$'', ``$x^2$ has a divisor in
+$[p^\theta,2p^\theta]$'' for a formal quantity $x$, and the dead-denominator
+test of Theorem~\ref{thm:F}.  Using the size of $p$ through such
+eventual-sign comparisons is therefore not an escape by itself.  Size can
+help only by making the set of consulted integers $p$-dependent and
+unbounded, or by producing integers that are not eventually polynomial,
+such as $\lfloor p^\theta\rfloor$ \cite[\S4.2, (E1)--(E2)]{PS}.  Tests whose
+outcome oscillates along every congruence class, such as
+$\{\sqrt p\}<1/2$, are not covered by Proposition~A.
+
+\subsection{Multiplier witnesses need super-polylogarithmic moduli}
+For $M\equiv3\pmod4$ and a factorisation $(M+1)/4=uvw$ into positive
+integers, suppose that $pv\equiv-u\pmod M$, and put $s=(pv+u)/M$.  Then
+\[
+ \frac4p=\frac1{suw}+\frac1{psvw}+\frac1{puvw},
+\]
+since $pv+u+s=s(M+1)=4suvw$.  This is a positive vertex of $G_p$.  Let $W(p)$ be the least such $M$, with
+$W(p)=\infty$ if there is none \cite[\S0]{PO}.  A pointwise mechanism that
+produces witnesses of this form with modulus at most $T(p)$ succeeds at
+$p$ only if $W(p)\le T(p)$.
+
+\cite[Theorem~5.2]{PO3} (\status{proved} modulo \cite[Cor.~1.4]{TZ},
+together with the zero-free region quoted there; effective for each fixed
+$A$) states the following.  For every $A>0$ there are infinitely many
+primes $p$ in Mordell's six classes with $W(p)>(\log p)^A$.  The earlier
+bound was $W(p)\ge(\log p)^{2-o(1)}$ infinitely often \cite[Thm.~5.1]{PO},
+with the same status.
+For fixed $T$, the condition $W(p)>T$ is congruence-only, and the class of
+one already gives infinitely many such primes by Dirichlet's theorem; this
+is the formal regime of Theorem~M.  Theorem~5.2 of \cite{PO3} concerns
+moduli that grow with $p$, which lie outside Theorem~M.  It shows that,
+for every $A$, multiplier mechanisms with $T(p)\le(\log p)^A$ fail
+infinitely often.  We read this as evidence that pointwise multiplier
+mechanisms need super-polylogarithmic witness moduli.  It says nothing
+about seed reachability, and nothing about whether $W(p)<\infty$ for
+every~$p$.
+
+%======================================================================
 \section{What a pointwise proof must do}\label{sec:discussion}
 
 The results above locate the difficulty precisely.
@@ -1651,7 +1815,10 @@ principle in graph form.  Beyond bounded radius, the whole seed component
 is closed by explicit finite certificates: under H in Theorem~\ref{thm:F},
 and, as reported, under Dickson in Theorem~\ref{thm:astra}.  Their
 nonpositivity is checked directly; Theorem~\ref{thm:F} is not a
-square-class instance (Remark~\ref{rem:Fsquare}).
+square-class instance (Remark~\ref{rem:Fsquare}).  For general
+procedures, including eventual-sign comparisons with powers of $p$, the
+companion note \cite{PS} proves this obstruction as a theorem
+(\S\ref{sec:companion}).
 \item \emph{The global invariants we tested do not help.}  Component size
 (\S5.2), the parity constructions of \S5.3, and quadratic or quartic
 colourings gave no invariant that forces positivity.  Sterile components
@@ -1663,9 +1830,13 @@ A pointwise proof of ES must therefore use information that a formally
 generic prime does not have.  It must control the \emph{actual}
 factorisation of specific shifted integers $t+a$, $ph-t$, \dots, in the
 required classes, for every $p$.  This could come from the size of $p$
-relative to the numbers met, from analytic input about prime factors of
+relative to the numbers met, though not from eventual-sign size
+comparisons alone (\cite[Prop.~A]{PS}, \S\ref{sec:companion}).  It could
+also come from analytic input about prime factors of
 shifted primes, or from a structure invisible to formal polynomial
-families.  For the seed graph this is exactly the problem that the
+families.  A mechanism that produces the multiplier witnesses of
+\S\ref{sec:companion} must allow moduli beyond every power of $\log p$
+(\cite[Thm.~5.2]{PO3}, modulo \cite{TZ}).  For the seed graph this is exactly the problem that the
 exceptional-set machinery controls only on average: Vaughan's bound
 $E(N)\ll N\exp(-c(\log N)^{2/3})$ \cite{Vaughan} and its refinements.
 Conditionally on H, Conjecture~\ref{conj:seed} is false
@@ -1751,7 +1922,9 @@ in \cite{AS} (about $1$ minute).
 {\raggedright
 \begin{thebibliography}{99}
 \bibitem{AS} Companion project, \texttt{erdos-straus-astra} repository:
-\texttt{SIGNED\_SEED\_COUNTEREXAMPLE.md} and \texttt{PRIMARY\_SEED\_PACKET.md}
+\texttt{SIGNED\_SEED\_COUNTEREXAMPLE.md}, \texttt{PRIMARY\_SEED\_PACKET.md},
+\texttt{PRIMARY\_REACHABILITY.md}, \texttt{PRIMARY\_LEAF\_RELAXATION.md},
+\texttt{TWELVE\_HUB\_SKELETON.md} and \texttt{NORM\_SEED\_FAMILIES.md}
 (unpublished computational campaign, 2026).
 \bibitem{BGS} J.~Bourgain, A.~Gamburd and P.~Sarnak, Markoff surfaces and
 strong approximation: 1, arXiv:1607.01530 (2016).
@@ -1783,11 +1956,26 @@ properties of solutions to its underlying diophantine equation, manuscript,
 2008.
 \bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Academic Press,
 1969, Chapter~30.
+\bibitem{PO} Companion note in this repository,
+\texttt{POINTWISE\_OMEGA.md}: a superlinear $\Omega$-result for the
+multiplier witness (unpublished, 2026).
+\bibitem{PO3} Companion note in this repository,
+\texttt{POINTWISE\_OMEGA3.md}: beyond exponent~3 for the multiplier witness
+(unpublished, 2026; internally reviewed in
+\texttt{reviews/pointwise-omega3-review.md} and
+\texttt{reviews/pointwise-omega3-review-2.md}).
+\bibitem{PS} Companion note in this repository,
+\texttt{POINTWISE\_SIZE.md}: the formal-genericity obstruction as a
+meta-theorem, and what escapes it (unpublished, 2026; internally reviewed
+in \texttt{reviews/pointwise-size-step1-review.md}).
 \bibitem{Schinzel} A.~Schinzel, On sums of three unit fractions with
 polynomial denominators, Funct.\ Approx.\ Comment.\ Math.\ 28 (2000),
 187--194.
 \bibitem{SS} A.~Schinzel and W.~Sierpi\'nski, Sur certaines hypoth\`eses
 concernant les nombres premiers, Acta Arith.\ 4 (1958), 185--208.
+\bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number
+theorem for arithmetic progressions, Math.\ Z.\ 306 (2024);
+arXiv:2108.10878v2.
 \bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
 Schinzel, Mathematika 17 (1970), 193--198.
 \bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
