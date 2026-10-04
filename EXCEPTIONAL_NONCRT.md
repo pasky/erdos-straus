@@ -259,10 +259,9 @@ are independent. Put `R* = R ∩ (ℤ/Q₀)^×` and
 
 **Theorem 3.2 (PROVED).** ET-file Theorem 2.5 holds for prime majorants with
 E, R, Q₀, p_ℓ(c) replaced by E*, R*, φ(Q₀), p*_ℓ(c) (and the hypothesis
-`|F_ℓ(c)∖{0}| ≤ (ℓ−1)/4`). Theorem 2.3 above holds in the same way for
-E*-measure, with the rounding functional R_1 replaced by any ℓ¹ bound on
-the nonprincipal part of ν with respect to Dirichlet characters and
-additive characters that is ≥ the bound of Lemma 2.2 (see Remark 3.4).
+`|F_ℓ(c)∖{0}| ≤ (ℓ−1)/4`). ET-file Lemma 2.9 (coefficient budget ⇒
+level) also holds for E*, with the mean increase `a_i/φ(d'_i)` in place of
+`a_i/d'_i`, i.e. an extra factor `max d'/φ(d') ≪ log λ`.
 
 *Proof.* The proof of Thm 2.5 uses only: a product measure across the CRT
 coordinates; fibres `c ∈ R`; hit indicators independent Bernoulli with
@@ -291,6 +290,27 @@ With `α = λ^{−1/4}` this is `O(log²λ)`: the cap
 the new probabilities are `p_ℓ + 1/ℓ` (class 0 is not a forced class of
 the families, since those classes are units mod ℓ; if it were, nothing
 changes). Plug into (2.4). ∎
+
+**Remark 3.4 (where the level comes from; Assessment for the second
+bullet).**
+* The final bound of a prime-majorant argument is
+  `Σ_i a_i π(N; d_i, b_i) = π(N)·E*ν + Σ_i a_i E(N; d_i, b_i)`, where
+  `E(N;d,b) = π(N;d,b) − π(N)/φ(d)` for reduced b. The main term is capped by
+  Theorem 3.2 at level λ. Every known or conjectured equidistribution input
+  (Siegel–Walfisz, BV, BDH, EH, GRH) controls `E(N;d,b)` only for
+  `d ≤ N^{O(1)}`; for `d > N`, `π(N;d,b) ∈ {0,1}` and, short of knowing
+  which classes contain a prime `≤ N`, the term costs `|a_i|`, which is
+  the Lemma 2.9 situation. So prime majorants live at level `N^{O(1)}`.
+* Prime inputs are also *weaker* in the error term. The method needs
+  `|Σ a_i E(N;d_i,b_i)| ≤ π(N) e^{−(log N)^θ}`. BV and BDH save only
+  `(log N)^{−A}` on average; Siegel–Walfisz (ineffective) and the
+  Vinogradov–Korobov zero-free region save at most
+  `exp{−c(log N)^{3/5}(log log N)^{−1/5}}` even for d = 1. Unconditionally,
+  no asymptotic prime count is known with the relative accuracy
+  `exp{−(log N)^{3/4}}` that the *current* 3/4 bound already has. The 3/4
+  note avoids this by sieving the integers (it bounds `E(N) ≥ E_pr(N)`).
+  Under GRH, `E(N;d,b) ≪ N^{1/2}log²N` and Theorem 3.2 is the binding
+  constraint.
 
 So restricting to primes, by Dirichlet-measure (Thm 3.2) or by an extra
 sieve (Thm 3.3), changes the LP limit only by `O((log log N)²)` in the
