@@ -211,3 +211,81 @@ Lemma 3.1 with `η = 0` gives `(log y)¹` and `(log y)²` (κ = 1, 2). ∎
 No shifted divisor function occurs here: the (a,D)-grouping counts its
 classes by `(a, g)` and a bounded multiplicity, so its mass is a pure
 Euler product. This is why ET Lemma 3.2 already had a clean profile.
+
+**Lemma 3.4 (small-divisor domination; PROVED, standard, cf. Landreau).**
+For every `n ≥ 1`, `τ(n) ≤ 8·max{τ(d)^7 : d | n, d ≤ n^{1/4}}`. Hence, for
+every integer `q ≥ 1`, `τ(n)^q ≤ 8^q Σ_{d | n, d ≤ n^{1/4}} τ(d)^{7q}`.
+
+*Proof.* Let `n_L` be the part of n composed of primes `p > n^{1/4}`; it
+has at most 3 prime factors with multiplicity, so `τ(n_L) ≤ 8`. List the
+prime factors of `n_S = n/n_L` with multiplicity and cut the list greedily
+into consecutive chunks `c_1, …, c_m`: each chunk is the longest
+continuation whose product stays `≤ n^{1/4}`. Every `c_i` divides n and is
+`≤ n^{1/4}`, and `c_i c_{i+1} > n^{1/4}` (otherwise `c_i` would have
+absorbed the first prime of `c_{i+1}`). The `⌊m/2⌋` disjoint products
+`c_1c_2, c_3c_4, …` are each `> n^{1/4}` and multiply to at most n, so
+`⌊m/2⌋ ≤ 3` and `m ≤ 7`. Since τ is submultiplicative,
+`τ(n) ≤ τ(n_L)Π_iτ(c_i) ≤ 8 max_i τ(c_i)^7`. ∎
+
+**Lemma 3.5 (Case-A box moments; PROVED).** For integers `q ≥ 1`,
+`k ≥ 4` with `4 | k`, and `K ≥ k³`,
+
+    Σ_{r, h ≥ 1, rh ≤ K} τ(k r h² + 1)^q ≤ C_q K (log 2kK)^{c_q},    c_q = 2^{7q+1} + 2.
+
+*Proof.* `N = krh² + 1` is odd, so all its divisors are odd. Cover
+`{rh ≤ K}` by dyadic boxes `r ∈ [R,2R)`, `h ∈ [H,2H)` (`R, H` powers of 2,
+`RH ≤ K`); `Σ_{boxes} RH ≤ K(log₂K + 1)`.
+*Boxes with `max(R,H) ≥ 10k`.* In the box `N ≤ 8kRH² + 1 =: X`, and
+`X^{1/4} ≤ max(R,H)` (as `X ≤ 10k·max(R,H)³`). By Lemma 3.4,
+`Σ_{box}τ(N)^q ≤ 8^q Σ_{d ≤ X^{1/4}} τ(d)^{7q}·#{(r,h) ∈ box : d | N}`.
+If `p | d` and `p | kh`, then `N ≡ 1 (mod p)`; so only h with
+`gcd(d, kh) = 1` count. If `d ≤ R`: for each such h, r lies in one class
+mod d, at most `2R/d` values. If `d ≤ H`: for each r, h lies in at most
+`ρ(d) ≤ 2^{ω(d)}` classes mod d (d odd, Hensel), at most `2^{ω(d)}·2H/d`
+values. Either way the count is `≤ 2^{ω(d)+2}RH/d`, and
+`Σ_{d≤X}τ(d)^{7q}2^{ω(d)}/d ≤ Π_{p≤X}(1 + 2^{7q+1}/p + O_q(p^{−2}))
+≤ C_q(log X)^{2^{7q+1}}`.
+*Boxes with `max(R,H) < 10k`.* They contain at most `(20k)²` pairs, each
+with `N ≤ 8000k⁴` and `τ(N)^q ≤ C_q N^{1/8} ≤ C_q k^{1/2}`; total
+`≤ C_q k^{2.5} ≤ C_q K`.
+Summing, `≤ C_q K (log 2K)(log 2kK)^{2^{7q+1}} + C_qK`. ∎
+
+**Lemma 3.6 (Case-A first moment without B; PROVED modulo Elsholtz–Tao
+Prop. 1.4).** For `y ≥ y₀(W)`,
+
+    𝔐_A(y) ≤ Σ_{r,h : P(rh) ≤ y} τ(4rh²+1) Γ(4rh)/(4rh) ≤ K_A(W) (log y)³ (log log y)³.
+
+*Proof.* Put `u₀ = (c₂ + 8) log log y`, `X = y^{u₀}`.
+*Body `rh ≤ X`.* Drop `P(rh) ≤ y`. ET Lemma 3.7 with its γ-weight
+clause applies to `Γ(4rh) ≤ 8Γ(r)Γ(h) = 8Σ_{s|r}h(s)Σ_{t|h}h(t)`, h
+multiplicative, squarefree-supported, `h(p) = γ'(p) − 1 ≤ 7` for `p ≤ W`
+and `≤ 2p^{−1/2}` for `p > W`. Its two conditions,
+`Σ_{s,t}h(s)h(t)log(2+st)/(st) < ∞` and `Σ_n h(n)n^{−3/4} < ∞`, hold.
+So `Σ_{rh≤x}τ(4rh²+1)Γ(4rh) ≤ C(W)x(log 2x)²`, and partial summation gives
+`≤ C(W)(log X)³ = C(W)(c₂+8)³(log y)³(log log y)³`.
+*Tail `rh > X`.* Blocks `K < rh ≤ 2K`, `K = 2^t ≥ X/2`; Cauchy–Schwarz over
+pairs `(r,h)`. First factor: there are `τ(n)` pairs with `rh = n`, so it
+is `≤ (64Σ_{K<n≤2K, P(n)≤y}τ(n)Γ(n)²/n)^{1/2} ≤ C e^{−u/2}(log y)` by
+Lemma 3.1 (`F = τΓ²`, κ = 2). Second factor: by Lemma 3.5 (q = 2, k = 4),
+`(K^{−1}Σ_{rh≤2K}τ(4rh²+1)²)^{1/2} ≤ C(log 2K)^{c₂/2} ≤ C(2u log y)^{c₂/2}`.
+Summing over blocks as in Lemma 3.2,
+the tail is `≤ C(log y)^{2+c₂/2}u₀^{c₂/2}e^{−u₀/2}·(log y) ≤ C`. ∎
+
+*On the citation.* ET Prop. 1.4 (Elsholtz–Tao 2013) is used only for the
+body, exactly as in ET Lemma 3.7; it is what gives the exponent 2 of
+`log x`. Lemma 3.5 is self-contained but its exponent `c₂ = 2^{15}+2` is
+useless except against Rankin's `e^{−u/2}`. So the ℛ(M)- and (a,D)-parts
+of everything below are unconditional, and the Case-A part carries the
+same external dependence as ET Lemma 3.7 (DISCOVERIES (D)11).
+
+**Corollary 3.7 (all three types; PROVED, Case A modulo ET Prop 1.4).**
+`𝔐(y) ≤ K₃(W)(log y)³(log log y)³` for `y ≥ y₀(W)`.
+
+**Remark 3.8 (where the `(log log y)³` comes from).** Heuristically
+`𝔐_R(y) ≍ (log y)³`: `τ(A_M²)` should average `≍ log² M` also over
+y-smooth M, and `Σ_{P(M)≤y}(log M)²/M ≍ (log y)³`. Our proof drops the
+smoothness on `M ≤ y^{u₀}` and pays `u₀³`; the decay that kills the tail
+comes from Rankin, which costs a full `log y` per block and forces
+`u₀ ≍ log log y`. A bound `Σ_{M≤x, P(M)≤y}τ(A_M²) ≪ Ψ(x,y)(log x)²`
+(shifted smooth numbers, Fouvry–Tenenbaum type) would remove the loss in
+𝔐_R; it is not needed for the exponent.
