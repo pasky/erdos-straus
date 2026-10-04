@@ -33,7 +33,7 @@
 % internal repository documents.
 \title[Sieve limits for the Erd\H{o}s--Straus exceptional set]{Sieve limits for the Erd\H{o}s--Straus exceptional set:\\ why $3/4$ is sharp for congruence sieves}
 \author{Anonymous}
-\date{Research note; internally reviewed results only, not externally refereed}
+\date{Research note, version 3; internally reviewed results only, not externally refereed}
 \setlength{\emergencystretch}{2em}
 \begin{document}
 \begin{abstract}
@@ -210,11 +210,13 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   (Theorem~\ref{thm:primemaj}); and to moment methods whose moments are
   evaluated through CRT densities.
 \item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
-  and~\ref{sec:open}).  A precise list of what lies outside: chiefly
-  $\cR(M)$-moduli with $\log M/\log P(M)$ unbounded for general majorants,
-  $(a,D)$- and Case-A moduli without a dominant prime, non-selector
-  admissible sets, rounding with weights below one and cancellation
-  between frequencies, and $H_{\rm MS}$.
+  and~\ref{sec:open}).  A precise list of what lies outside: the large
+  sieve beyond prime slices; cancellation between frequencies in the
+  rounding; per-frequency weights below one; majorants $\geq1$ only on
+  $[1,N]$, on the exceptional set or on exceptional primes; non-CRT
+  input; other class types (and non-selector admissible sets); family
+  primes beyond $N^{O(1)}$.  The factor $(\log\log N)^{3/4}$ without $B$,
+  and $H_{\rm MS}$, are open.
 \end{enumerate}
 None of this bounds $E(N)$ from below or says anything about methods
 outside the class; in particular it is not evidence against the
@@ -361,7 +363,10 @@ $[1,N]$ that satisfy the admissibility condition $n\bmod Q_0\in R$, as follows.
 \end{definition}
 Every sieve majorant in use satisfies (A1): Bonferroni truncations
 $Q_r(H)=\binom{H-1}r$ and Selberg squares.  Both campaign notes satisfy
-(A1)--(A3) (Section~\ref{sec:campaign}).
+(A1)--(A3) (Section~\ref{sec:campaign}).  A selector admissible set
+$R=\{c:(c,P)=1\}$ is the same as adding the classes $0\bmod p$, $p\mid P$, to
+the family; in this form the main theorem (Theorem~\ref{thm:main}) needs
+no admissible set at all.
 
 \begin{lemma}[coefficient budget implies level; {\cite[Lemma~2.9]{ET}}, from {\cite[item~3]{ETrev}}; \lab{proved}]\label{lem:budget}
 Take a prime-slice system, or the sequential setting of
@@ -1881,7 +1886,11 @@ Lemma~\ref{lem:budget} converts any majorant on this family with
 coefficient sum $<N$ into one of level $\leq t+\log N+s$ with at most twice
 the mean.  So the note satisfies (A1)--(A3), and \emph{its exponent $3/4$
 is sharp for its own architecture} \lab{proved}.  This was the review's
-one substantive correction \cite[item~3, SC1]{ETrev}.
+one substantive correction \cite[item~3, SC1]{ETrev}.  Independently of
+the prime-slice reading, the same majorant is a majorant of the whole
+avoider set of the atom family together with the selector classes
+$0\bmod p$, $p\leq y$, with $B<1/120$, so Theorems~\ref{thm:Bcapall}
+and~\ref{thm:main} apply to it directly (Remark~\ref{rem:TQcovered}).
 
 \begin{lemma}[Bonferroni depth; {\cite[Lemma~4.2]{ET}}; \lab{proved}]\label{lem:depth}
 For even $r$ and any integer $H\geq0$, $\E Q_r(H)\geq\Prob(H\geq r+1)$.  If $H$
