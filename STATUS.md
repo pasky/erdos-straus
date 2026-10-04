@@ -115,7 +115,9 @@ for that class. No θ>3/4 was found. Beating 3/4 requires at least one of:
   proves the gapped case unconditionally, with no need for (E_δ). The η-twin
   moduli (top two primes at comparable scale) are the open core. They reduce
   to an arithmetic-free comparison inequality (Conj 6.4), and for Λ² sieves
-  to a sparse noise-stability statement (Conj 6.8);
+  to a sparse noise-stability statement (Conj 6.8). For Λ² sieves with at
+  most two large primes per modulus, the cap is now proved, twins included
+  (`EXCEPTIONAL_TWIN3.md`);
 * multipliers beyond N^{O(1)};
 * signed cancellation in rounding errors;
 * a non-CRT input (actual arithmetic of `(p+a)/4`).
