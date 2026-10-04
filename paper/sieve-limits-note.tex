@@ -1778,18 +1778,31 @@ Theorems~\ref{thm:twoprime} and~\ref{thm:HO}.
 \end{proof}
 
 \emph{Scope.}  This is a statement about Selberg-type majorants $g^2$
-only; for general majorants with twin moduli the residual of
-Theorem~\ref{thm:resolved} remains open (Section~\ref{sec:open}).  It
-needs at most two prime factors above $(\log X)^8$; moduli with three or
-more such primes are open.  The restriction $M\leq P(M)^{1+B}$ with $B$
-fixed is genuine: for fixed $B$, twins $k\ell_1\ell_2$ with a $w_2$-smooth
-cofactor $k>M^{(B-1)/(B+1)}$ are excluded.  The bound is stated in
-$L=\log X$, with moduli $\leq X$ and level $\lambda\leq A_0L$.  The level hypothesis
-$\lambda\leq A_0L$ is assumed directly: the coarsening of
-Lemma~\ref{lem:budget} does not preserve the square form $g^2$, so the
-reduction from a coefficient budget to a level (Corollary~\ref{cor:budgetlevel})
-is not available here as stated (observation of this note, not from
-\cite{TW2,TW3}).
+only.  It needs at most two prime factors above $(\log X)^8$; the
+extension to any fixed number is Theorem~\ref{thm:rprime} below.  The
+restriction $M\leq P(M)^{1+B}$ with $B$ fixed excludes, for fixed $B$,
+twins $k\ell_1\ell_2$ with a $w_2$-smooth cofactor $k>M^{(B-1)/(B+1)}$; for
+a fixed number of large primes it is removed by Theorem~\ref{thm:noB}.
+The bound is stated in $L=\log X$, with moduli $\leq X$ and level
+$\lambda\leq A_0L$.  The level hypothesis $\lambda\leq A_0L$ is assumed
+directly: the coarsening of Lemma~\ref{lem:budget} does not preserve the
+square form $g^2$, so the reduction from a coefficient budget to a level
+(Corollary~\ref{cor:budgetlevel}) is not available here as stated
+(observation of this note, not from \cite{TW2,TW3}).
+
+\begin{remark}[relation to the main theorem]\label{rem:L2vsmain}
+A $\Lambda^2$-majorant $g^2$ with $g\in V_{\lambda/2}$ and $g\geq1$ on the
+avoiders of a family is a nonnegative majorant of level $\lambda$, and it
+is $\geq1$ on the avoiders that lie in $R_W$.  So for families with
+$M\leq P(M)^{1+B}$, $B$ fixed, Theorem~\ref{thm:karycap} applies to $g^2$
+directly and gives $\log(1/\E g^2)\ll_B\lambda^{3/4}$ for $\lambda\geq\lambda_0(B)$,
+with any number of large prime factors and no power of $\log L$.  Under
+the $B$-hypothesis, Theorems~\ref{thm:twoprimecap} and~\ref{thm:rprime}
+are therefore superseded as caps \cite[\S11]{TW4}.  What the
+$\Lambda^2$ route still gives beyond Theorem~\ref{thm:karycap} is the
+removal of $B$ for a fixed number of large primes
+(Theorem~\ref{thm:noB}), and the noise-stability tools themselves.
+\end{remark}
 
 \begin{remark}[what was bypassed]\label{rem:bypass}
 The route of \cite{TW2} split the off-diagonal term into a same-label part
@@ -1802,6 +1815,103 @@ $\min(x,1)^2\leq x$, which says nothing about pair sums.  Both remain
 $\alpha^{-3}$ is used only by the small part, so this route does not
 lower the exponent $3/4$.
 \end{remark}
+
+\subsection{Any fixed number of large primes, and removing \texorpdfstring{$B$}{B}}
+The results of this subsection are from \cite{TW4}; the review
+\cite{TW4rev} (two rounds) found them sound after nits and one minor
+repair (G1), all applied.  Their new arithmetic input is an upper-bound
+sieve for the \emph{whole} partner of a modulus, from the arithmetic large
+sieve, in place of Brun--Titchmarsh for a prime partner.
+
+\begin{lemma}[rough-partner Brun--Titchmarsh; {\cite[Lemma~2.3]{TW4}}; \lab{proved}]\label{lem:roughBT}
+Let $s\geq1$, $w\geq2$, $q\geq1$, $(b,q)=1$ and $x\geq q\,2^{s+1}$.  Let
+$\mathcal R_s(w)$ be the set of integers all of whose prime factors exceed
+$w$ and with $\Omega(R)\leq s$.  Put $Y=x/q$, $Z=Y^{1/(s+1)}$ and
+$H=\sum_{w<p\leq Z}1/(p-1)$ ($H=0$ if $Z\leq w$).  Then
+\[
+ \sum_{\substack{R\in\mathcal R_s(w),\ x<R\leq2x\\ R\equiv b\ (q)}}\frac1R
+ \leq\frac{3(s+1)(1+H+\dots+H^{s-1})}{\varphi(q)\log Y}.
+\]
+\end{lemma}
+\begin{proof}
+Write $R=dn$, $d$ the part of $R$ at primes $\leq Z$.  If $d=R$ then
+$R\leq Z^s<x$; so $\Omega(d)\leq s-1$, $d\leq Z^{s-1}$, $(d,q)=1$, and $n>1$
+has all prime factors $>Z$, with $n\equiv b\bar d\pmod q$ and
+$n\in(x/d,2x/d]$.  Fix $d$ and write $n=n_0+qk$.  The admissible $k$ lie in
+an interval of at most $x/(dq)+1$ consecutive integers and avoid one class
+modulo each prime $p\leq Z$, $p\nmid q$.  The arithmetic large sieve
+\cite{MV} (in the form $|\mathcal N|\leq(N+Q^2)/J$) with $Q=Z$, and
+$J\geq(\varphi(q)/q)\log Z$ by \cite{vLR}, give
+$\#\{n\}\leq(x/(dq)+1+Z^2)/((\varphi(q)/q)\log Z)\leq3x/(d\varphi(q)\log Z)$,
+since $x/(dq)\geq Z^2$ and $x/(dq)\geq1$.  Each $R$ has $1/R<1/x$.  Sum over
+$d$: $\sum_d1/d\leq\sum_{i<s}H^i$, and $\log Z=\log Y/(s+1)$.
+\end{proof}
+For $s=1$ this is Brun--Titchmarsh up to the constant.  Neither the
+primality of the partner nor its splitting is used.  In the two-prime
+case this replaces the Brun--Titchmarsh step of Theorem~\ref{thm:HO}, and
+it closes the ternary residual left open in \cite[\S6.3]{TW3}: there the
+partner $R=\ell_a\ell_b$ with $\ell_b<w_2q$ is itself rough to level
+$(R/q)/w_2$, so only an \emph{upper} bound for rough integers in one
+progression of length $R/q$ is needed, not an asymptotic of
+Bombieri--Friedlander--Iwaniec type \cite[\S2]{TW4}.
+
+\begin{theorem}[$r$-prime $\Lambda^2$ cap; {\cite[Thm~7.1]{TW4}}; \lab{proved}]\label{thm:rprime}
+Fix $r\geq2$, $B\geq0$ and $A_0\geq1$.  Let the family consist of classes
+of $\cR(M)$ with $M\leq X$, $M\leq P(M)^{1+B}$, and at most $r$ distinct
+prime factors of $M$ above $w_2=(\log X)^8$.  Then every $g\in V_{\lambda/2}$,
+$\lambda\leq A_0\log X$, with $g\geq1$ on the avoiders of the family satisfies
+\[
+ \log\frac1{\E g^2}\ll_{A_0,B,r}L^{3/4}(\log L)^{3r+O(1)}.
+\]
+\end{theorem}
+\begin{proof}[Proof sketch]
+The noise-stability input is the any-arity bound with codegree terms and
+free codegree quarantine of \cite[Lemmas~6.1, 6.2]{TW3}; it reduces the
+saving to star sums \cite[Prop.~3.1]{TW4}.  The fibre law of
+\cite[\S3]{TW2} extends with threshold $\delta_r$ \cite[Lemma~4.1]{TW4}.
+Whole-event and unary terms are bounded by Shiu along the top prime
+($\ll\alpha^{-3}(\log L)^{r+O(1)}$), prime-power classes cost $o(1)$, small
+partners are paid through $\min(x,1)^2\leq x$, and large partners through
+a largest-variable reduction with Lemma~\ref{lem:roughBT} and box counting
+modulo squarefree $Q$, $\ll(\log L)^{3r+O(1)}$
+\cite[\S\S5--6]{TW4}.
+\end{proof}
+
+The $r$-dependence is explicit \cite[Prop.~9.1]{TW4} \lab{proved}: every
+implied constant is $\leq(C_B\log L)^{Cr}$, so for $r\leq\epsilon\log L/\log\log L$,
+$\epsilon\leq\epsilon_0$, the cap is $\ll_{A_0,B}L^{3/4+C\epsilon}$.  At the other end,
+classes with at least $330\log L$ prime factors above $w_2$, with no
+$B$-hypothesis, can be added to any such family at cost $o(1)$, provided
+the fibre law also conditions on a low-mass event \cite[Lemma~9.2,
+Cor.~9.3]{TW4} \lab{proved}.
+
+\begin{theorem}[no $B$-hypothesis for fixed $r$; {\cite[Thm~10.4]{TW4}}; \lab{proved}]\label{thm:noB}
+Fix $r\geq2$ and $A_0\geq1$.  For families of $\cR(M)$-classes with $M\leq X$
+and at most $r$ distinct prime factors above $(\log X)^8$, with no
+condition relating $M$ to $P(M)$, every $g\in V_{\lambda/2}$,
+$\lambda\leq A_0\log X$, with $g\geq1$ on the avoiders satisfies
+\[
+ \log\frac1{\E g^2}\ll_{A_0,r}L^{3/4}(\log L)^{O_r(1)}.
+\]
+The same holds if the family also contains arbitrary $\cR(M)$-classes
+with at least $330\log L$ prime factors above $(\log X)^8$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Write $M=kM_L$ with $k$ the $w_2$-smooth part.  The classes split into
+\emph{smooth-dominated} ($k>M_L^2$), \emph{high-power} (not
+smooth-dominated, $\ell^{12}\mid M$ for some $\ell>w_2$), and the rest,
+which satisfy $M\leq P(M)^{33r}$ and are handled by
+Theorem~\ref{thm:rprime} with $B=33r-1$.  For the smooth-dominated
+classes, Cauchy--Schwarz, Rankin's trick on the smooth $k$ and Shiu's
+theorem along $k$ (the modulus $M_L$ is now short) give a
+polylogarithmic \emph{unweighted} first moment \cite[Lemmas~10.1,
+10.2]{TW4}; the high-power classes have first moment $\ll L^{-3}$.  The
+fibre law survives without $B$ \cite[Lemma~10.3]{TW4}.
+\end{proof}
+The middle range $\epsilon\log L/\log\log L<r<330\log L$ is not covered,
+and it carries most of the $\alpha^{-3}$-weighted mass: there the method
+needs a hub count and an off-diagonal pair-sum bound that are efficient
+per prime \cite[\S\S9.3, 12]{TW4} \lab{open}.
 
 \section{Open problems}\label{sec:open}
 
