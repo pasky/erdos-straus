@@ -588,3 +588,79 @@ form, with codegree hubs costing nothing beyond their capped squares.
 What separates the full ES family from Corollary 4.2 is purely arithmetic:
 the star sums (3a)–(3c). The binary proof of §§2–3 is the s = 1,
 prime-partner case of the same template.
+
+### 6.3 Ternary moduli (fixed B): what the template proves, and the exact residual
+
+Here the family is Setting 3.0 with "at most two" replaced by "at most
+three" primes above w₂, and the ternary moduli are `M = kℓ₁ℓ₂ℓ₃`
+(prime-power cases split off as in TW2 Lemma 5.4). The star sum of
+Prop 6.3 has, per class, at most 3 vertex stars, 3 pair stars and 1 whole
+event. **So (3c) is trivial for r = 3**: the factor `2^r` is 8.
+
+**Proposition 6.4 (ternary star sums: proved parts; PROVED modulo the same
+inputs as §§2–3).** In this setting, each of the following contributes
+`≪_{B,C₀} α^{−3}(log L)^{O(1)}`:
+1. *Pair stars* `V = {ℓ₁,ℓ₂}`: here `Q = ℓ₁ℓ₂` and the partner is the
+   single prime `ℓ₃`.
+2. *Vertex stars at j with a small partner* `R = ℓ_aℓ_b ≤ (kj)^{C₀}`.
+3. *Vertex stars at j with an unbalanced large partner*:
+   `ℓ_b > (kjℓ_a)^{C₀}` (`ℓ_a < ℓ_b`).
+
+*Proof sketch.* All three follow the §§2–3 template line by line.
+
+(1) Replace j by `Q = ℓ₁ℓ₂` and `ρ_j` by `ρ_{ℓ₁}ρ_{ℓ₂}`.
+* *Small* `ℓ₃ ≤ (kQ)^{C₀}`: Shiu along the top prime. If it is `ℓ₁`, take
+  `q = kℓ₂ℓ₃ ≤ ℓ₁^B` and get `α^{−3}` from the ℓ₁-sum, while the
+  `ℓ₂, ℓ₃` sums cost `(log L)²`. If it is ℓ₃, take `q = kQ`; then
+  `(log kQ)³` against `Σρ_{ℓ₁}ρ_{ℓ₂}/Q` gives `α^{−3}log L`.
+* *Large* `ℓ₃`: Lemma 3.1 holds verbatim mod Q, with Brun–Titchmarsh over
+  the prime ℓ₃ (`(Q,4uv) = 1`). Lemma 3.2 holds mod the squarefree Q:
+  `v² ≡ c` has ≤ 4 roots mod Q, and distinct `N ≡ N′ (Q)` give `N′ > Q`.
+  So `Σ_{a mod Q} V² ≪ (log L)^6`, and `Σ_{ℓ₁,ℓ₂} ρρ/Q ≪ (log L)²`.
+
+(2) The proof of Lemma 2.1 goes through. The partner sum
+`Σ_{R=ℓ_aℓ_b} 1/R ≤ (Σ_ℓ 1/ℓ)² ≪ (log L)²` is polylogarithmic because R
+has exactly two primes. (The loss `1/α` of §6.2 (3a) needs an unbounded
+number of partner primes.)
+* j top: Shiu along j with `q = kR ≤ j^B` gives
+  `Σ_R R^{−1}P(R)^{−α}(log P(R))²/α ≪ α^{−3}log L`.
+* `ℓ_b` top: Shiu along `ℓ_b` with `q = kjℓ_a ≤ ℓ_b^B`, giving
+  `(log kj)³·Σ1/ℓ_a`.
+
+(3) Regard `kℓ_a` as the cofactor. Lemma 3.1 holds with `k → kℓ_a`
+(`(kℓ_a, j) = 1`) and Brun–Titchmarsh over the prime ℓ_b, because
+`ℓ_b > (kℓ_a j)^{C₀}`. Corollary 3.3 then gives `Σ_a V_{ℓ_a}² ≪ (log L)^6`
+for each ℓ_a. Cauchy–Schwarz over ℓ_a with weights `1/ℓ_a` costs
+`(Σ1/ℓ_a)² ≪ (log L)²`. Activity is handled with cofactor k only. ∎
+
+**The exact residual (OPEN): balanced partners.** Vertex stars at j from
+ternary classes with
+
+    R = ℓ_aℓ_b > (kj)^{C₀},   ℓ_a < ℓ_b ≤ (kjℓ_a)^{C₀}.
+
+Write `D | A²` as `A = uvt`, with ψ the largest coordinate and `q` four
+times the product of the other two. Lemma 3.1's step (sum over the
+partner in one class mod q) now needs the prime `ℓ_b` (ℓ_a fixed), or the
+pair `(ℓ_a,ℓ_b)`, to be equidistributed in a class mod q. Two cases:
+* *`ψ ≥ 8w₂(kjA)^{1/2}`, PROVED in the same way.* Then `q ≤ 4A/ψ` and
+  `ℓ_b ≥ (4A/kj)^{1/2}` give `ℓ_b ≥ q·w₂`. Brun–Titchmarsh over ℓ_b for
+  fixed ℓ_a applies, and Lemma 3.2 plus Cauchy–Schwarz over ℓ_a finish
+  as in (3).
+* *Balanced triples: all of u, v, t below `8w₂(kjA)^{1/2}`.* Then
+  `q ≍ A^{1/2±}` is comparable to or larger than both partner primes. Each
+  class of `ℓ_b` mod q has O(1) elements in range, so the first-element
+  problem of TW2 §5.4 returns, now for products of two primes in
+  progressions to moduli `q ≈ (ℓ_aℓ_b)^{1/2+}`. That is the
+  Bombieri–Friedlander–Iwaniec range, where only averages over q are known.
+  Here we need the average over the q's that occur (`q = 4·(two short
+  divisors)`, weighted by `1/φ`), which BFI does not supply directly.
+
+*Why the cap does not rescue it.* The first moment of this part is the
+τ-mass of balanced triples, a positive proportion of `L³`. Unlike the
+binary case, a composite partner keeps the τ-mass at full size
+`(log A)^2` even when the partner pair is balanced.
+
+**Size check (Assessment).** For hubs (small labels) and composite
+partners, `V(hub) ≍ (log L)²/height`, so hubs saturate the cap only for
+`height ≲ (log L)²`. Those vertices cost `≪ (log L)^{O(1)}/j` per j. They
+are harmless; the residual is the bulk, not the hubs.
