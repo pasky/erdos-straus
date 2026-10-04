@@ -1,0 +1,9 @@
+(1) R(M): M<=3000: 15754 classes (532 composite M, 5 prime-power M), 0 squares
+(2) square base, W=13, Q0=649296648000: classes R=5572 aD=35950 A=528780; 0 contain a unit square; selector 0 mod p: unit-square hits 0, plain-square hits 6
+(3) 3/4-note atoms: 124464 atoms (k<= 60, l<3000) all equal R(kl)-classes -4u^2w
+(4) lambda, min_s1 cost / [lam^{3/4}(log lam)^{3/4}]  (no B),  min_s1 cost / lam^{3/4}  (bounded B)
+    1e4: 11.288   31.062
+    1e6: 10.690   31.349
+    1e8: 10.433   31.373
+    1e10: 10.341   31.374
+    1e12: 10.332   31.374
