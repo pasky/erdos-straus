@@ -121,10 +121,8 @@ points of the EK/ETw proof need checking.
   `T = {ℓ ∈ V_j : ℓ | d_i}`, a function of `y_T`.
 * `g_{J+1} ≥ 1_𝒜` on unit histories: the final history fixes `n mod Q₀`
   and every `y_ℓ`, hence fixes membership in 𝒜 (all moduli of 𝔊 divide
-  L). `g_{J+1}` averages ν over the units with this history (only the
-  unit coordinates of no prime are left; nothing is left in fact, since
-  `Q₀ · Π ℓ^{E_ℓ} = L`), so it equals ν there, which is `≥ 1` on 𝒜 by
-  Lemma 1.2.
+  L). Since `Q₀ · Π_ℓ ℓ^{E_ℓ} = L`, the final history is `n mod L`, so
+  `g_{J+1} = ν` there, which is `≥ 1` on the units of 𝒜 by Lemma 1.2.
 
 The downward induction is then verbatim, ending at
 `E*ν = E_{(ℤ/Q₀)^×} g_1 ≥ (|R|/φ(Q₀))E_R g_1` (Lemma 2.1(4)), and the
@@ -151,3 +149,56 @@ Jensen step `E_{Q'}[1_𝒜 e^{−S}] ≥ ½e^{−2E S}` is unchanged. ∎
 
 So the whole difference from K2 is in the *numbers* `p*_ℓ`, i.e. in the
 first and second moments (§2.3–2.4).
+
+### 2.3 Inflation and first moments
+
+Put `γ*(p) = γ(p)` for `p ≤ W` (K2 Lemma 2.3(3)) and
+
+    γ*(ℓ) = (ℓ/(ℓ−1)) · (1 − ℓ^{−1/2})^{−1}        (ℓ > W),
+
+`Γ*(m) = Π_{p | m} γ*(p)`.
+
+**Lemma 2.3 (inflation; PROVED).** For every m and b,
+`Q'(n ≡ b (mod m)) ≤ Γ*(m)/m`. Moreover, for `ℓ > W ≥ 16`, with
+`x = ℓ^{−1/2} ≤ 1/4`:
+
+    1 ≤ ℓ/(ℓ−1) ≤ γ*(ℓ),   γ*(ℓ) − 1 ≤ 2ℓ^{−1/2},   γ*(ℓ)² ≤ 1 + 5ℓ^{−1/2},   γ*(ℓ) ≤ 3.
+
+Γ* is submultiplicative and `Γ*(m) ≤ 8·3^{ω(m)}`.
+
+*Proof.* Chain rule as in EK Lemma 4.2(1): given the past, `y_ℓ` has
+density `≤ (1−δ_ℓ)^{−1}` w.r.t. `U*_ℓ` (EK Lemma 2.1(2)), and
+`U*_ℓ` gives a class mod `ℓ^v` mass `≤ (ℓ/(ℓ−1))ℓ^{−v}` (Lemma 1.3); at the
+base use Lemma 2.1(3). The inequalities:
+`γ*(ℓ) = 1/((1−x)(1−x²))`, so
+`γ* − 1 = (x + x² − x³)/((1−x)(1−x²)) ≤ x/(1−x)² ≤ (16/9)x ≤ 2x`;
+then `γ*² ≤ (1+2x)² = 1 + 4x + 4x² ≤ 1 + 5x` as `x ≤ 1/4`. ∎
+
+K2 uses the large-prime weight `γ'(ℓ) = (1−ℓ^{−1/2})^{−1}` only through
+these four facts: `γ' ≥ 1` (EK Lemma 4.2′ Step 1),
+`h(ℓ) = γ'(ℓ) − 1 ≤ 2ℓ^{−1/2}` (EK 4.2′ Step 2, K2 Lemma 3.6, ET
+Lemma 3.7's γ-weight clause), `γ'² ≤ 1 + 5ℓ^{−1/2}` (K2 Lemma 3.2 tail)
+and the hypothesis `F(p) ≤ κ + Hp^{−1/2}` of K2 Lemma 3.1 for
+`F ∈ {Γ, Γ², τΓ², τ²Γ², τ⁵Γ², τ⁵Γ}` (all follow from the first three with
+the same κ and a possibly larger absolute H). Lemma 2.3 gives all of them
+for γ*.
+
+**Lemma 2.4 (first moment under E*; PROVED; Case-A part uses ElT Prop 1.4).**
+Let 𝔘 be the universe of classes of the four types and
+
+    𝔐*(y) = Σ_{C ∈ 𝔘, W < P(C) ≤ y} Γ*(G)/G.
+
+Then for every block V of primes `> W` and every family 𝔊 ⊆ 𝔘,
+`E_{Q'} Σ_{ℓ∈V} p*_ℓ ≤ 𝔐*(max V)`, and
+`𝔐*(y) ≤ K₃*(W)(log y)³(log log y)³` for `y ≥ y₀(W)`.
+
+*Proof.* *Step 1.* A class with top `ℓ ∈ V`, modulus `G = qℓ^v`,
+`P(q) < ℓ`, adds to `p*_ℓ` at most `U*_ℓ(b mod ℓ^v) ≤ (ℓ/(ℓ−1))ℓ^{−v}`
+(0 if `ℓ | b`; in particular selector classes add 0), and only if
+`n ≡ b (mod q)` holds for the history before ℓ, which has
+`Q'`-probability `≤ Γ*(q)/q` (Lemma 2.3). Since
+`(ℓ/(ℓ−1)) ≤ γ*(ℓ)`, the product is `≤ Γ*(G)/G`. Sum over classes.
+*Step 2.* K2 Lemmas 3.1–3.6 and Cor 3.7 with Γ replaced by Γ*: by the
+remark after Lemma 2.3 every hypothesis they place on Γ holds for Γ*,
+with constants depending on W only through the Euler factors at `p ≤ W`,
+which are unchanged. ∎
