@@ -652,3 +652,65 @@ It can only come from products of many moduli `≤ N` (Cor 8.3 proves the
 weaker cut-off `≍ N²`). This does **not** cap exact interval counts of
 such products: the exact void of the moduli `≤ N` on [1,N] is
 not known, and the CRT value there is `e^{−≍(log N)³}`.
+
+### 8.5 A cap for exact interval counts of bounded degree (conditional)
+
+**Proposition 8.6 (PROVED; Lagrange).** Let π be any probability law on
+`ℤ_{≥0}`, for example the empirical law of `H(n)` on the chosen integers
+in [1,N]. Let `y_0 < … < y_k` be integers ≥ 0 with `π(y_i) > 0`, and let
+`ℓ_i` be the Lagrange basis at these nodes. Then every polynomial P of
+degree ≤ k with `P ≥ 0` on `ℤ_{≥0}` and `P(0) ≥ 1` has
+
+    E_π P(H) ≥ [ max_i |ℓ_i(0)| / π(y_i) ]^{−1}.
+
+*Proof.* `1 ≤ P(0) = Σ_i ℓ_i(0)P(y_i) ≤ max_i(|ℓ_i(0)|/π(y_i))·Σ_i π(y_i)P(y_i)`. ∎
+
+With the nodes of ET-file Lemma 2.2(c) (`k+1` points spaced
+`≈ √(m/k)` within `√(km)` of `m := E_π H`), `|ℓ_i(0)| ≤ (4e√(m/k))^k`.
+Hence:
+
+**Corollary 8.7 (CONDITIONAL on the node hypothesis below).** Suppose that
+on [1,N]
+
+    (H_node(k))  π_int(y) ≥ e^{−C₀k}/√m  at the k+1 nodes above,
+
+with `m = E_int H ≤ (log N)^{O(1)}`. Then every degree-k hit-count majorant
+evaluated *exactly* on [1,N], with all inter-frequency cancellation
+included, saves at most `(k/2) log(16e² m/k) + C₀k + ½ log m`. A saving
+`(log N)^θ` therefore needs `k ≫ (log N)^θ / log log N`. So beating 3/4
+by exact interval counts needs hit-count polynomials of degree
+`≥ (log N)^{3/4+o(1)}`, i.e. control of k-fold witness coincidences on
+single integers for k that large.
+
+*Status of H_node.* It is a lower bound for the distribution of witness
+counts near their mean, of local-limit type. It is not proved here. For a
+Poisson-like H it holds with `C₀ = O(1)`. The witness count
+behaves partly like a divisor function (ET Thm 1.8: `f(n)` is at least
+`(log n)^{0.549}` for almost all n), so H_node is plausible but not
+obvious. The LP values in §8.3 are the exact optimum over P of the bound
+for the empirical law, so the table is a direct numerical check of the
+conclusion for k ≤ 10.
+
+### 8.6 Outcome of the follow-up
+
+* The dichotomy is quantitative (Thm 8.1). Direct counts beating 3/4 need
+  either Fourier mass `≳ e^{−Cλ^{3/4}}` above every level
+  `λ ≤ c(log N)^{4θ/3}`, or an interval count a factor
+  `e^{s − Cλ^{3/4}}` below the CRT mean.
+* For hit-pattern majorants, classes above `M₀ ≍ N²` are inert on [1,N]
+  (Cor 8.3, PROVED). Multiplier-one witnesses of all moduli have mean
+  `≤ ¼(1+log N)²` (Prop 8.4, PROVED). Conjecturally all moduli above N
+  carry only `O((log N)²)` (Conj 8.5).
+* The natural structured family (polynomials in the forced-class hit
+  count, degree ≤ 10) shows **no inter-frequency gain**. Its exact
+  interval values are worse than its CRT means for every Y ≥ N, so
+  `Δ_N < 0` (EVIDENCE, §8.3).
+* For a named class, exact interval counts of degree-k hit-count
+  majorants, there is a conditional cap. Beating 3/4 needs degree
+  `≥ (log N)^{3/4+o(1)}` (Cor 8.7, conditional on H_node).
+* No structured family was found with both large high-level Fourier mass
+  and a favourable interval count. The door stays open only for
+  majorants of degree `≥ (log N)^{3/4}` in the witness indicators, or for
+  non-hit-pattern majorants (e.g. multiplicative/Halász-type weights on
+  `(n+a)/4`, the a-frame route of ET-file §5.2, assessed at θ* ≈ 0.52 in
+  its model).
