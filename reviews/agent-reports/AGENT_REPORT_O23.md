@@ -40,18 +40,25 @@ proved rate is still O4 Cor 3.1. Nothing is claimed for ES.
 4. **Long-plane boxes (Prop 3.4, Cor 3.5).** Boxes in which a plane is in
    the Shiu/Henriot range and the third side is `≥μ_0W`
    (`W=C4^k𝓛²H^a`) are done. With three long planes, HC_Π holds for
-   `m<(qy/32)^{1/2}W^{−3/2}`. In O4's Thm 4.2 regime this is about
-   `y^{3/2}H^{−3a/2}`, compared with O5's `H^{1/3−a}`.
+   `m<(qy/32)^{1/2}W^{−3/2}` (about `y^{3/2}H^{−3a/2}`). **Scope:** this
+   holds only for `q≲T^{3/10}`, i.e. `|O|≲0.3(k+1)`. For `q≥T^{1/2}` the
+   (a,b)-plane is never long, and the m-range proved without residual is
+   still O5's `H^{1/3−a}` (review D5).
 
-## Exact residual (open)
+## Exact residual (open; split per review D5/D6)
 
 Corner atoms with `4sa>yH^{1/4−a}` lying in boxes where every plane is
 short or has its third side `<μ_0W`. These are:
 
-* **(a)** `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`;
-* **(b)** boxes with a short plane. Their numbers are `≤q^{O(1)}`, no
-  averaging theorem applies, and the pointwise `τ≤q^{O(1/log log q)}`
-  is too weak when `log q≫k log k`.
+* **(a)** three long planes: `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<2mW`.
+  This exists only for `q≲T^{3/10}`.
+* **(b1)** a short s-plane. Numbers are `≤q^{O(1)}`, no averaging
+  theorem applies, and the pointwise `τ` bound is too weak when
+  `log q≫k log k`.
+* **(b2) the main residual.** Only the (a,b)-plane is short. `a,b<2mW`,
+  s is large, Shiu/Henriot do apply, and **m is unrestricted**. This is
+  the hub-like / unbalanced-ray family of O5 (DIV), and the numerical
+  corner mass sits here.
 
 Equivalently, the missing input is the distribution, on average over
 the thin family `4sa²≡κ (q)`, of `q^{−1}·(divisors of 4sa²+1)` mod `4sa`
@@ -87,3 +94,17 @@ Assessment: residual (b) commentary and the equidistribution diagnosis.
 EVIDENCE: §4. Open: HC_Π, HC*, the `(log₂p)^{3/2}` rate.
 
 Stopping here for parent review.
+
+## Round 1 review (`side-agent/review-omega6`): applied
+
+* Core CONFIRMED.
+* D1: Shiu α=1/4.
+* D2: s squarefree in `D_sa`, `D_sb`, FT.
+* D3: `𝓛³` in `P_1`.
+* D4: "implied by", not "equivalent".
+* D5: the q-range `q≲T^{3/10}` for the m-threshold.
+* D6: residual split into (a)/(b1)/(b2), with (b2) as the main residual.
+* D7: FT restricted to `ν≤T/(qm)` and squarefree s; §4 measures `𝒦`.
+* D8: the `q^{−3/8}` aside holds only for `32SA²≥q`.
+* D9: §4 wording.
+* Nits: Prop 2.1 hypotheses, the Regime II split, the worst-case formula.
