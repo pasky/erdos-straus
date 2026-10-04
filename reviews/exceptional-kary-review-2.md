@@ -28,3 +28,37 @@ Verdict scale: SOUND / SOUND-AFTER-REPAIRS / DEFECTIVE. Defects numbered E1, E2,
   W-smooth classes; (R2) feeds Γ. Q₀ may be arbitrarily large (powers of small
   primes from the family's W-smooth parts) without affecting either. Within
   hypotheses.
+
+### 1.2 ETw Lemma 2.2 (inflation) under KARY's law — SOUND
+
+* Re-derived: for `m = Π p^e`, `Q'(n ≡ a mod m) = E[Π_p 1{n ≡ a mod p^e}]`.
+  Peel coordinates from the last in the processing order: given everything
+  earlier, the base factor is `≤ γ(p)/p^e` (R2, independence across p), and
+  a coordinate `ℓ > W` has conditional law uniform on `Ω_ℓ ∖ F_ℓ` with
+  `|F_ℓ|/ℓ^{E_ℓ} ≤ δ_ℓ` (light) or uniform (heavy). A class mod `ℓ^e`
+  (`e ≤ E_ℓ`) is a union of `ℓ^{E_ℓ−e}` points, so its conditional
+  probability is `≤ (1−δ_ℓ)^{−1}ℓ^{−e}` pointwise in the past. Product bound.
+* KARY Lemma 2.1(2) gives exactly this conditional law for the plain rule
+  (`P(y_ℓ=a | past) = ν_ℓ(a)1{a∉F_ℓ}/(1−p_ℓ)` when light). The c's do not
+  enter the y-history, so the chain rule is over y alone. `δ_ℓ = ℓ^{−1/2} ≤ 1/4`
+  needs `W ≥ 16` (ETw §2.3 assumes it; `W₀(B) ≥ 16` implicit — fine).
+* γ′(ℓ) = (1−ℓ^{−1/2})^{−1} for ℓ > W (the decaying form; O7-1 repair present).
+
+### 1.3 ETw Lemma 2.1′ (leak) and KARY Lemma 4.3 — SOUND
+
+* Re-derived: a final history outside 𝒜 satisfies some class C. Pure-small C
+  are excluded by (R1). Otherwise C is decided at its top prime ℓ (all
+  cofactor primes are smaller, hence earlier in the increasing order; the
+  W-smooth part is in the base; the top requirement mod `ℓ^v` is one
+  coordinate mod `ℓ^{E_ℓ}`). When ℓ is processed, the other requirements are
+  already met, so `y_ℓ` lies in the completing set `⊆ F_ℓ`. Light ℓ: impossible
+  (`y_ℓ ∉ F_ℓ`). Heavy ℓ: `y_ℓ = c_ℓ` uniform, hit probability `p_ℓ` given the
+  past. Union bound: `𝔏 ≤ Σ_ℓ E[p_ℓ 1{p_ℓ > δ_ℓ}]`.
+* This covers all four block types of Thm 4.5 uniformly, including the
+  singletons above `e^λ`: those must still condition at light ℓ (else the
+  leak bound fails), and they do; their cost is 0 because f is constant in
+  `y_ℓ`, not because σ = U. KARY's text ("singletons above `e^λ` (cost 0)")
+  is correct but terse; ETw Cor 4.3 says the same.
+* Cor 2.5 arithmetic: Markov `E[p1{p>δ}] ≤ E p²/δ`; with ε = 1/4,
+  `Σ_{ℓ>W} ℓ^{1/2}·Cℓ^{−7/4} = CΣℓ^{−5/4} ≪ W^{−1/4}`. Uniform in the family
+  and in λ because C(ε,B) is W-free (item 1.4).
