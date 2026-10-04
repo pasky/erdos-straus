@@ -28,7 +28,7 @@ Line-by-line check of the proof of Lemma 2.3.
   and with `log Z ≤ L`, `log w ≥ log L` this is `≤ log L` for L large.
 
 **Independent numerical test** (`reviews/exceptional-twin4-check-lemma23.py 4e6 7`;
-own code, different sieve algorithms; ~1 min, < 1 GB). `s = 1…5`,
+own code, different sieve algorithms; < 1 min, < 1 GB). `s = 1…5`,
 `w ∈ {2,3,7,50,300,2000}`, 30 moduli q (including 30030, 4620, powers of 2,
 primes up to 65537, 12 random q < 10⁵), x at the threshold `x = q·2^{s+1}`,
 at `x₀+1`, `1.5x₀` and on a ×4 grid up to 2·10⁶, all units b (or 300
