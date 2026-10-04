@@ -133,3 +133,77 @@ question whether that n is ≤ N. Combined with NC Lemma 8.2 (Case-B classes
 of modulus > M₀ ≍ N² are empty on [1,N]), the door for single Case-B
 classes is the modulus window `(N/2, M₀]`; for products it is combined
 moduli above N/2.
+
+### 2.1 The hybrid class: any cancellation below N/2, coefficient cost above
+
+Theorem 2.2 allows an extension: classes of modulus > D may be present,
+provided the method pays about `|a_i|` for each of them.
+
+**Lemma 2.4 (PROVED).** Let F be the minorant of Theorem 2.2 (for N and
+D < N). For every class `b mod d`,
+
+    | Σ_{n ≡ b (d)} F(n) − (N − D)/d | ≤ 2(N + D)/D,
+
+and the left side is 0 if d ≤ D.
+
+*Proof.* Poisson along the progression:
+`Σ_m F(b + md) = d^{−1} Σ_{k∈ℤ} F̂(k/d) e(kb/d)`. The k = 0 term is
+`(N−D)/d`. F̂ vanishes outside (−1/D, 1/D), so at most `2d/D` nonzero k
+contribute; none if d ≤ D. Each `|F̂(k/d)| ≤ ‖F‖₁`. Write `F = 1_I − g`
+with `g ≥ 0`, `∫g = |I| − F̂(0) = D`; then `|F| ≤ 1_I + g` and
+`‖F‖₁ ≤ N + D`. ∎
+
+**Theorem 2.5 (hybrid level-N/2 sieves are capped at 3/4; PROVED, Case-A
+part via K2 Thm 5.1).** Let 𝔊 be any finite family of ℛ(M)-, (a,D)-,
+Case-A and selector classes with every prime of every modulus `≤ N^A`.
+Let `ν = Σ_i a_i 1[n ≡ b_i (d_i)]` be a majorant of 𝒜(𝔊). Let D ≤ N/2,
+and put `T_> = Σ_{i: d_i > D} |a_i|` (coefficients as written, no merging
+needed). Suppose a method produces a bound B with
+
+    B ≥ Σ_{n≤N} ν(n)   and   T_> ≤ c·B   (some c ≥ 0),             (2.2)
+
+and `B = N e^{−s}`. Then, for N ≥ N₀(A),
+
+    s ≤ log(2 + 12c) + C_A (log N)^{3/4} (log log N)^{3/4},
+
+and with `G ≤ P(G)^{1+B₀}` for all moduli of 𝔊, `s ≤ log(2+12c) + C_{A,B₀}(log N)^{3/4}`.
+
+*Proof.* *Interval side.* ν ≥ 0 on ℤ and `F ≤ 1_{[1,N]}` on ℤ give
+`Σ_{n≤N}ν ≥ Σ_n F(n)ν(n)`. By Lemma 2.4, term by term,
+`Σ_n F(n)ν(n) ≥ (N − D)Eν − (2(N+D)/D)·T_> ≥ (N/2)Eν − 6T_>`. With (2.2),
+`B ≥ (N/2)Eν − 6cB`, so `Eν ≤ (2+12c)B/N = (2+12c)e^{−s}`.
+
+*Mean side.* Put `S = log(1/Eν)`; so `s ≤ S + log(2+12c)`. Follow K2
+Cor 6.1's proof, with one change. The projection `ν̄` to the family modulus
+does not raise moduli or coefficient sizes, so the terms of ν̄ of level
+`> log D` have coefficient sum ≤ T_>. ET Lemma 2.9's proof alters only
+terms of level > λ, so its conclusion holds with T replaced by the
+coefficient sum of those terms. For `λ ≥ log N ≥ log D` this is ≤ T_>.
+And `T_> ≤ cB < cN`. With `Λ₀ = A log N` and
+`λ = Λ₀ + log(max(T_>,1)) + S ≤ (A+1+o(1))log N + S + log(1+c)`, we get a
+majorant of level λ with mean `≤ 2Eν`. K2 Thm 5.1 (resp. 5.2) bounds S
+exactly as in K2 Cor 6.1's case analysis. ∎
+
+*Scope.* Theorem 2.5 contains:
+* K2 Cor 6.1 (`B ≥ Σ_i|a_i| ≥ T_>`, c = 1);
+* Cor 2.3 (`T_> = 0`);
+* every *hybrid* method: the interval sum of the classes of modulus ≤ N/2
+  is evaluated by any means (exact, dispersion, Kloosterman, Vaaler,
+  floor/ceiling), with coefficients of any size; each class of modulus
+  > N/2 is charged its trivial count `N/d_i + O(1)` per unit coefficient,
+  i.e. `Σ_{n≤N} ν_> ≤ N·Eν_> + T_>`;
+* smooth windows `Φ ≥ 1_{[1,N]}` used this way.
+
+**What is left of the door (precise).** A method escapes Theorem 2.5 only
+if its bound B is much smaller than the coefficient mass `T_>` of classes
+of modulus > N/2. Such a class `b mod d` has `N/d + r` elements in
+[1,N], with `r ∈ (−1, 1)`. For d > N its count is `1[b̃ ≤ N]` (b̃ the least
+positive residue). So the method must evaluate
+
+    Σ_{i: d_i > N/2} a_i · ( #{n ≤ N : n ≡ b_i (d_i)} − N/d_i )       (2.3)
+
+with cancellation between the classes, to accuracy `≪ B ≪ T_>`. For
+d_i > N this is a statement about *which* classes of large modulus meet
+[1,N]. For hit-pattern majorants those classes are intersections of
+forced classes, and (2.3) is a weighted count of integers n ≤ N with
+prescribed witness patterns. §3 develops this.
