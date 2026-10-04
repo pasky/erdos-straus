@@ -17031,4 +17031,130 @@ print("\n== (cj) EXCEPTIONAL_TWIN4: rough-partner Brun-Titchmarsh Lemma 2.3, exa
 check_cj()
 
 
+
+# ---------------------------------------------------------------- (ck)
+# EXCEPTIONAL_KARY.md Lemma 2.3 and Thm 2.5.
+# (1) Lemma 2.3 explicit node sets of §3 (cases (i)-(iii)), log-space: log B <= (2.1)
+#     and <= (3.1) on a grid n <= 10^5, t >= 10^-3, d <= 8; Lagrange inequality
+#     g(1) <= B(n,t,d) E_Bern(t) g on random nonnegative multilinear g (squares
+#     of random degree-floor(d/2) multilinear polynomials, n <= 8).  If scipy is
+#     importable: the LP optimum B*(n,t,d) <= B(explicit) for n <= 16, d <= 3, and
+#     B*(n,t,0) = 1 (reusing scripts/kary_check.py).
+# (2) Thm 2.5 (scipy only): 30 random small systems (seed 11), exhaustive path
+#     enumeration of the plain law sigma, constant t = d/(EM+4d), Phi with the
+#     explicit Lagrange B; LP max E[e^-Phi f(y)] over d-local f >= 0, E_nu f = 1,
+#     asserted <= 1 + 1e-7.  Not a proof (floating-point LP); the proof is in §2.
+
+def check_ck():
+    from time import perf_counter
+    import numpy as np
+    from math import lgamma, log1p, e as _e
+    t0 = perf_counter()
+
+    def logpsi(n, t, y):
+        return lgamma(n + 1) - lgamma(y + 1) - lgamma(n - y + 1) + y * log(t) + (n - y) * log1p(-t)
+
+    def nodes(n, t, d):
+        if n <= d:
+            return list(range(n + 1))
+        m0 = n * t
+        if m0 <= 2 * d:
+            return list(range(d + 1))
+        h = int(sqrt(m0 / d))
+        a = ceil(m0) - (d * h) // 2
+        return [a + i * h for i in range(d + 1)]
+
+    def logB(n, t, d):
+        if d == 0:
+            return 0.0
+        Y = nodes(n, t, d)
+        assert all(0 <= y <= n for y in Y) and len(set(Y)) == len(Y) == min(d, n) + 1, ("KARY nodes", n, t, d)
+        if n in Y:
+            return -logpsi(n, t, n)
+        return max(sum(log(abs(n - yj)) - log(abs(yi - yj)) for yj in Y if yj != yi) - logpsi(n, t, yi)
+                   for yi in Y)
+
+    C1 = 2 * _e ** 4.31
+    ncase = 0
+    worst21 = worst31 = -1e9
+    for n in list(range(1, 40)) + [60, 120, 500, 2000, 10 ** 5]:
+        for t in (0.25, 0.1, 0.03, 0.01, 1e-3):
+            for d in range(1, 9):
+                lb = logB(n, t, d)
+                r21 = d * log(4 * _e ** 3 * (n + 1) / t) + 0.5 * log(16 * n * t + 16)
+                r31 = d * log(C1 * max(1 / t, sqrt(n / (t * d)))) + 0.5 * log(22 * n * t + 22) + 3
+                assert lb >= -1e-9, ("KARY B >= 1", n, t, d)
+                worst21, worst31 = max(worst21, lb - r21), max(worst31, lb - r31)
+                ncase += 1
+    assert worst21 <= 0 and worst31 <= 0, ("KARY (2.1)/(3.1)", worst21, worst31)
+
+    # Lagrange inequality on random nonnegative multilinear g
+    rng = np.random.default_rng(3)
+    ng = 0
+    for _ in range(300):
+        n = int(rng.integers(1, 9))
+        d = int(rng.integers(0, 5))
+        t = float(rng.choice([0.25, 0.1, 0.03]))
+        k = d // 2
+        mons = [S for s in range(min(k, n) + 1) for S in combinations(range(n), s)]
+        coef = rng.normal(size=len(mons))
+        pts = np.array(list(cartesian_product((0, 1), repeat=n)))
+        h = np.array([sum(c for c, S in zip(coef, mons) if all(x[i] for i in S)) for x in pts])
+        g = h ** 2                                 # nonneg, multilinear deg <= 2k <= d on the cube
+        w = np.prod(np.where(pts == 1, t, 1 - t), axis=1)
+        assert g[-1] <= exp(logB(n, t, d)) * float(w @ g) * (1 + 1e-9) + 1e-12, ("KARY Lemma 2.3", n, t, d)
+        ng += 1
+    msg = (f"ck Lemma 2.3: {ncase} (n,t,d), max[log B - (2.1)] = {worst21:.2f}, "
+           f"max[log B - (3.1)] = {worst31:.2f}; {ng} random g: g(1) <= B E g")
+    try:
+        import importlib.util
+        import os
+        import scipy  # noqa: F401
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "kary_check.py")
+        spec = importlib.util.spec_from_file_location("kary_check", path)
+        kc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(kc)
+    except ImportError:
+        print(msg)
+        print("ck B* LP and Thm 2.5 LP: SKIPPED (scipy not installed; "
+              "run `uv run --with scipy python verify.py` to include it)")
+        return
+    nlp = 0
+    for n in range(1, 17):
+        for t in (0.25, 0.1, 0.03):
+            assert abs(kc.bstar(n, t, 0) - 1) < 1e-9, ("KARY B*(d=0)", n, t)
+            for d in (1, 2, 3):
+                assert log(kc.bstar(n, t, d)) <= logB(n, t, d) + 1e-6, ("KARY B* <= B", n, t, d)
+                nlp += 1
+    print(msg + f"; LP B* <= B on {nlp} small (n,t,d)")
+
+    rng = np.random.default_rng(11)
+    worst = 0.0
+    for inst in range(30):
+        m = int(rng.integers(3, 6))
+        q = int(rng.integers(2, 4))
+        d = int(rng.integers(1, min(m, 3) + 1))
+        delta = float(rng.choice([0.25, 0.15, 0.08]))
+        sizes, nus, pats = kc.random_instance(rng, m, q)
+        pts, A = kc.dlocal_matrix(sizes, d)
+        idx = {x: i for i, x in enumerate(pts)}
+        nu_w = np.array([prod(nus[l][x[l]] for l in range(m)) for x in pts])
+        P = kc.paths(sizes, nus, pats, delta, phantom=False)
+        assert abs(sum(p for p, *_ in P) - 1) < 1e-9
+        EM = sum(p * M for p, y, M, n in P)
+        tc = d / (EM + 4 * d)
+        obj = np.zeros(len(pts))
+        for p, y, M, n in P:
+            obj[idx[y]] += p * exp(-logB(n, tc, d) - (4 / 3) * tc * M)
+        val = kc.lp_max(A, obj, nu_w)
+        assert val <= 1 + 1e-7, ("KARY Thm 2.5 weighted LP > 1", inst, val)
+        worst = max(worst, val)
+    print(f"ck Thm 2.5: 30 random plain-law systems, max weighted LP value = {worst:.6f} (<= 1); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ck) EXCEPTIONAL_KARY: Lemma 2.3 extrapolation constant, Thm 2.5 weighted LP (scipy) ==")
+check_ck()
+
+
 print("\nall checks passed")
