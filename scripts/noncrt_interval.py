@@ -45,17 +45,21 @@ def lp_min(w, k, hcap):
     hs = np.arange(hcap + 1)
     t = 2 * hs / hcap - 1
     B = np.polynomial.chebyshev.chebvander(t, k)          # (hcap+1, k+1)
-    ww = np.zeros(hcap + 1); ww[:len(w)] = w[:hcap + 1]
-    c = ww @ B
+    assert len(w) == hcap + 1
+    c = w @ B
     A_ub = np.vstack([-B, -B[0:1]])
     b_ub = np.concatenate([np.zeros(hcap + 1), [-1.0]])
     res = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=[(None, None)] * (k + 1), method="highs")
     if res.status != 0 or not np.isfinite(res.fun):
         raise RuntimeError(f"LP failed k={k}: {res.message}")
-    return res.fun
+    vals = B @ res.x
+    neg = -min(vals.min(), 0.0)
+    # solver tolerance can leave tiny negative values; report and clip (P+ is still a
+    # valid majorant: >= P >= 0 up to tolerance, P+(0) >= 1). All reported numbers use P+.
+    return max(vals[0], 1.0), np.maximum(vals, 0.0) / max(vals[0], 1.0), neg
 
 
-def main(N, Ymax, mode="all", KMAX=10, HCAP=80):
+def main(N, Ymax, mode="all", KMAX=10, HCAP=200):
     M0 = 8 * ((N + 1) // 3) ** 2
     Ymax = min(Ymax, M0)
     spf = spf_sieve((Ymax + 1) // 4 + 1)
@@ -67,7 +71,8 @@ def main(N, Ymax, mode="all", KMAX=10, HCAP=80):
     thresholds = sorted({int(round(N ** e)) for e in (0.5, 1.0, 1.5)} | {Ymax})
     thresholds = [y for y in thresholds if y <= Ymax]
     H = np.zeros(N + 1, dtype=np.int64)           # index n = 0..N, use 1..N
-    pmf = np.zeros(HCAP + 1); pmf[0] = 1.0
+    PLEN = 400                                    # CRT pmf length; tail mass tracked
+    pmf = np.zeros(PLEN + 1); pmf[0] = 1.0; crt_drop = 0.0
     mass = 0.0; ti = 0; rows = []
     nn = np.arange(N + 1)
     if mode == "all":
@@ -85,8 +90,14 @@ def main(N, Ymax, mode="all", KMAX=10, HCAP=80):
     nsel = int(sel.sum())
     for l in primes + [Ymax + 10 ** 9]:
         while ti < len(thresholds) and l > thresholds[ti]:
-            emp = np.bincount(H[sel], minlength=HCAP + 1)[:HCAP + 1] / nsel
-            rows.append((thresholds[ti], mass, emp.copy(), pmf.copy()))
+            hm = int(H[sel].max())
+            if hm > HCAP:
+                raise SystemExit(f"max H = {hm} > HCAP = {HCAP}: raise HCAP (no truncation allowed)")
+            emp = np.bincount(H[sel], minlength=HCAP + 1) / nsel
+            tail = pmf[HCAP + 1:].sum() + crt_drop
+            if tail > 1e-12:
+                raise SystemExit(f"CRT mass beyond HCAP = {tail:.2e}: raise HCAP")
+            rows.append((thresholds[ti], mass, emp.copy(), pmf[:HCAP + 1].copy(), hm))
             ti += 1
         if l > Ymax:
             break
@@ -94,6 +105,7 @@ def main(N, Ymax, mode="all", KMAX=10, HCAP=80):
         F = {(-4 * d) % l for d in divisors_of_square(A, spf)}
         p = len(F) / l
         mass += p
+        crt_drop += pmf[-1] * p
         pmf[1:] = pmf[1:] * (1 - p) + pmf[:-1] * p; pmf[0] *= (1 - p)
         if l <= N:
             for r in F:
@@ -103,16 +115,20 @@ def main(N, Ymax, mode="all", KMAX=10, HCAP=80):
                 if 1 <= r <= N:
                     H[r] += 1
     print(f"N={N}  mode={mode} ({nsel} integers)  M0={M0}  Ymax={Ymax}  #primes(3 mod 4)<=Ymax: {len(primes)}")
-    for Y, mu, emp, crt in rows:
-        print(f"\nY={Y}: CRT mass mu={mu:.3f}  E_int H={np.dot(np.arange(HCAP+1), emp):.3f}"
+    print(f"positivity imposed on 0..{HCAP}; no mass truncated (asserted)")
+    for Y, mu, emp, crt, hm in rows:
+        print(f"\nY={Y}: CRT mass mu={mu:.3f}  E_int H={np.dot(np.arange(HCAP+1), emp):.3f}  max H={hm}"
               f"  void int={emp[0]:.5f}  void CRT={crt[0]:.3e}  (exp(-mu)={math.exp(-mu):.3e})")
-        print("  k   -log LP_int   -log LP_CRT")
+        print("  k   -log LP_int   -log LP_CRT   | P_int: -logE_int -logE_CRT | P_CRT: -logE_int -logE_CRT")
         for k in range(0, KMAX + 1):
             try:
-                vi = lp_min(emp, k, HCAP); vc = lp_min(crt, k, HCAP)
+                _, Pi, ni = lp_min(emp, k, HCAP); _, Pc, nc = lp_min(crt, k, HCAP)
+                vi, vc = emp @ Pi, crt @ Pc
             except RuntimeError as e:   # report, do not mask: printed as FAIL row
                 print(f"  {k:<3d} LP FAIL ({e})"); continue
-            print(f"  {k:<3d} {-math.log(max(vi,1e-300)):10.4f}   {-math.log(max(vc,1e-300)):10.4f}")
+            L = lambda v: -math.log(v) if v > 0 else float("nan")
+            print(f"  {k:<3d} {L(vi):10.4f}   {L(vc):10.4f}    | {L(emp @ Pi):8.4f} {L(crt @ Pi):8.4f}"
+                  f"        | {L(emp @ Pc):8.4f} {L(crt @ Pc):8.4f}   (clip {max(ni,nc):.1e})")
 
 
 if __name__ == "__main__":

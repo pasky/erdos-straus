@@ -18,9 +18,9 @@ internal checks only, not refereed.
 | Prop 4.1, 4.2 | **moment/variance methods** are CRT majorants (integer moments capped by Thm 2.3 when CRT-evaluated; prime moments by Thm 3.2 at level ≤ A log N, beyond that only under the Remark 3.4 Assessment); a degree-k moment method saves `O(k log log N)`, so Chebyshev/second moment gives θ = 0 | PROVED (prime moments of unbounded order: Assessment) |
 | Thm 8.1 | quantitative dichotomy for direct interval counts: large Fourier mass above every level `λ ≤ c(log N)^{4θ/3}`, or interval count a factor `e^{s−Cλ^{3/4}}` below the CRT mean | PROVED |
 | Lemma 8.2, Cor 8.3 | on [1,N], Case-B forced classes of modulus `> 8⌊(N+1)/3⌋²` are empty; hit-pattern majorants never benefit from them | PROVED (from notes Thm 60.1) |
-| Prop 8.4, Conj 8.5 | multiplier-one witnesses of all moduli: mean `≤ ¼(1+log N)²` on [1,N]; conjecturally all moduli > N carry `O((log N)²)` (CRT: cubic, growing) | PROVED / CONJECTURE |
-| §8.3 | hit-count majorants (deg ≤ 10) evaluated exactly on [1,N] are *worse* than their CRT means for all Y ≥ N: no inter-frequency gain in the natural family | EVIDENCE |
-| Prop 8.6, Cor 8.7 | exact interval counts of degree-k hit-count majorants save `≤ (k/2)log(Cm/k) + O(k)`; beating 3/4 needs degree `≥ (log N)^{3/4+o(1)}` | PROVED / CONDITIONAL on H_node |
+| Prop 8.4 | multiplier-one witnesses of all moduli: mean `≤ ¼(1+log N)²` on [1,N]. (Conj 8.5, "all moduli > N carry O((log N)²)", is **WITHDRAWN**: review numerics give ≍ 0.0133(log N)³, a constant factor ~1/17 below CRT) | PROVED |
+| §8.3 | for count polynomials (deg ≤ 10, prime-modulus sub-family), the exact interval optimum saves less than the CRT optimum for all Y ≥ N: no inter-frequency gain in this family (sign of Δ_N for a fixed P varies) | EVIDENCE |
+| Prop 8.6, Cor 8.7 | exact interval counts of degree-k hit-*count* polynomials save `≤ (k/2)log(Cm/k) + O(k)` for `k ≤ m/16`; with `m ≥ 16(log N)^{3/4+δ}` (full Case-B family), beating 3/4 needs degree `≥ (log N)^{3/4+o(1)}`; not for non-symmetric hit-pattern majorants | PROVED / CONDITIONAL on H_node (untested) |
 | §5 | toy LP (8 primes): Fourier-ℓ¹ budget ≈ coefficient budget × 2–8 (growing with B) | EVIDENCE (toy model) |
 
 **Verdict.** None of (a), (b), (c), in the natural formalisations above,
@@ -590,13 +590,18 @@ interval count must be a factor `≥ e^{s − Cλ^{3/4}}` *below* the CRT mean.
 *Proof.* This is (60.1) ⇒ (60.9) of notes Theorem 60.1 (finite normal
 form), which applies to every witness datum of every n ≥ 1. ∎
 
-So for `M > M₀(N) := 8⌊(N+1)/3⌋²` every class of `𝓡(M)` (and every
-Lemma 3.2 class, which is a subclass for n ≥ 1) misses [1,N] entirely. Its
+So for `M > M₀(N) := 8⌊(N+1)/3⌋²` every class of `𝓡(M)` misses [1,N]
+entirely. The same holds for every ET-file Lemma 3.2 class
+`n ≡ −(4D+a) (mod 4a·g(D))` of modulus `> M₀`. Such a class is *not* a
+subclass of one 𝓡(M) class, since M = (n+4D)/a varies along it. The
+argument is direct: for n ≤ N in the class, the datum has normal form
+`D = gd`, `d | g`, so `D | g²` and `g(D) | g`; with `a ≤ 2B`, `g ≤ B`
+this gives `4a·g(D) ≤ 8B² ≤ M₀` (review N9). Its
 CRT share `N|𝓡(M)|/M` is pure rounding, and `Σ_{M>M₀}|𝓡(M)|/M = ∞`.
 
 **Corollary 8.3 (PROVED).** Let 𝒲 be any family of Case-B forced classes,
 and let ν be a *hit-pattern majorant*: `ν(n) = G((1_W(n))_{W∈𝒲})` with
-G ≥ 0 and `G(0) ≥ 1` (this covers Bonferroni, Selberg Λ² in the
+G ≥ 0 on all of `{0,1}^𝒲` and `G(0) ≥ 1` (this covers Bonferroni, Selberg Λ² in the
 indicators, and every `P∘f` of §4). Let 𝒲₀ be the classes of modulus
 `≤ M₀(N)`, and `ν'(n) = G((1_W(n))_{W∈𝒲₀}, 0)`. Then:
 * ν' is a hit-pattern majorant of the truncated avoider set `𝒜_{𝒲₀}`;
@@ -618,45 +623,63 @@ tests what happens between N and M₀.
 ### 8.3 Test: hit-count majorants on [1,N] versus CRT (EVIDENCE)
 
 `scripts/noncrt_interval.py`, family: prime moduli `ℓ ≡ 3 (4)`,
-`F_ℓ = 𝓡(ℓ)`, `H_Y(n) = #{ℓ ≤ Y : n mod ℓ ∈ F_ℓ}`. For each degree
-k ≤ 10 it solves the LP `min E[P(H_Y)]` over `deg P ≤ k`,
-`P ≥ 0` on `{0..80}`, `P(0) ≥ 1`. It does this twice: once for the empirical
-law of H_Y on the chosen integers in [1,N] (an exact interval evaluation:
-every inter-frequency cancellation is included) and once for the CRT law
-(independent `Bern(|F_ℓ|/ℓ)`). Positivity is imposed only up to 80; this
-relaxation helps both sides equally. Runs take ≤ 1 min each
-(`data/noncrt/interval_*.txt`).
+`F_ℓ = 𝓡(ℓ)`, `H_Y(n) = #{ℓ ≤ Y : n mod ℓ ∈ F_ℓ}`. This is a single
+sub-family, and only polynomials in the *count* H are tried, not general
+hit-pattern majorants. For degree k ≤ 10 the script solves
+`min E[P(H_Y)]` over `deg P ≤ k`, `P ≥ 0` on `{0..200}`, `P(0) ≥ 1`, once
+for the empirical law of H_Y on the chosen integers in [1,N] (exact
+interval evaluation) and once for the CRT law (independent
+`Bern(|F_ℓ|/ℓ)`, the integer measure, not E*). The script *asserts*
+that no mass is truncated: max H ≤ 200 and the CRT tail beyond 200 is
+below 10⁻¹². Round 1 used a cap of 80 that silently dropped mass (review
+N10); the numbers below are regenerated. Each optimal polynomial is also
+evaluated under the other law. HiGHS solutions at degree 10 are feasible
+but not always optimal: the interval-optimal P sometimes beats the
+CRT-LP value on the CRT law. Each "best" entry below is therefore the
+better of the two polynomials, i.e. a *lower bound* on the optimal
+saving. Each run takes seconds (`data/noncrt/interval_*.txt`).
 
-| N, set | Y | CRT mass μ | E_int H | void int | saving k=10: int / CRT |
-|---|---|---|---|---|---|
-| 3000, all n | 3000 | 8.01 | 7.61 | 0.0200 | 3.62 / 6.30 |
-| | 8·10⁶ = M₀ | 30.47 | 9.75 | 0.0197 | 3.38 / 12.68 |
-| 3000, non-squares | 3000 | 8.01 | 7.75 | 0.0020 | 4.72 / 6.30 |
-| | 8·10⁶ | 30.47 | 9.93 | 0.0017 | 4.12 / 12.68 |
-| 3000, primes | 3000 | 8.01 | 8.22 | 0 | 4.83 / 6.30 |
-| | 8·10⁶ | 30.47 | 10.91 | 0 | 4.33 / 12.68 |
-| 30000, primes | 30000 | 13.08 | 13.33 | 0.0003 | 5.18 / 8.04 |
-| | 5.2·10⁶ | 28.87 | 16.96 | 0.0003 | 4.89 / 12.42 |
-| | 3·10⁷ | 35.62 | 17.14 | 0.0003 | 4.88 / 13.41 |
+Savings `−log E P(H)` at k = 10:
 
-Findings.
-* For `ℓ ≤ N` the interval and the CRT agree in first moment, as they
-  must, since `E_int H_N ≈ μ_N`.
-* **For `ℓ ∈ (N, Y]` the interval receives only a small part of the CRT
-  mass.** At N = 30000 (primes), raising Y from N to 3·10⁷ adds 22.5 to
-  μ but only 3.8 to `E_int H`. The forced residues `−4D mod ℓ` avoid
-  `[1,N]` (cf. Lemma 8.2, which is the extreme case).
-* Consequently, at every degree 2 ≤ k ≤ 10 and every Y ≥ N, the exact
-  interval value of the best hit-count majorant is **worse** than its CRT
-  mean, often by a factor `e^{5}–e^{9}`. The interval saving is flat in Y
-  for Y ≥ N. So for this natural family `Δ_N(ν) < 0`: the interval
-  carries *more* than its CRT share. That is the opposite of branch (D)
-  of Theorem 8.1.
-* At small Y (≈ √N) the interval is slightly better than CRT for primes
-  (3.36 vs 2.52, from the selector-like effect of primality). This is a
-  bounded-level effect, inside Theorem 3.3's `O(log²λ)`.
+| N, set | Y | μ (CRT) | E_int H | best int | best CRT | P_CRT on int | P_int on CRT |
+|---|---|---|---|---|---|---|---|
+| 3000, all n | N | 8.01 | 7.61 | 3.60 | 5.70 | 2.88 | 5.70 |
+| | M₀ = 8·10⁶ | 30.47 | 9.75 | 3.17 | 11.09 | 2.16 | 2.87 |
+| 3000, non-squares | N | 8.01 | 7.75 | 4.66 | 5.70 | 3.24 | 5.70 |
+| | M₀ | 30.47 | 9.93 | 3.71 | 11.09 | 2.31 | 2.84 |
+| 3000, primes | N | 8.01 | 8.22 | 4.76 | 5.66 | 2.31 | 5.66 |
+| | M₀ | 30.47 | 10.91 | 3.85 | 11.09 | 2.40 | 3.10 |
+| 30000, primes | N | 13.08 | 13.33 | 4.64 | 7.90 | −1.98 | 5.74 |
+| | 3·10⁷ | 35.62 | 17.44 | 4.21 | 11.75 | 2.05 | 3.91 |
 
-### 8.4 A proved piece of the thinning, and the conjecture
+Findings (review N11 applied).
+* For `ℓ ≤ N` the interval and the CRT agree in first moment. For
+  `ℓ ∈ (N, Y]` the interval receives only part of the CRT mass: at
+  N = 30000 (primes), raising Y from N to 3·10⁷ adds 22.5 to μ but 4.1 to
+  `E_int H`. The thinning is by a constant factor; see §8.4.
+* **The exact interval optimum saves less than the CRT optimum** in every
+  row with Y ≥ N and 2 ≤ k ≤ 10. The gap is `e^{0.9}–e^{3.3}` at Y = N
+  and `e^{7}–e^{8}` at the largest Y. The interval saving does not grow
+  with Y above N. In this family there is no gain from inter-frequency
+  cancellation.
+* This is a comparison of two *different* optima. It is not a statement
+  about `Δ_N(ν)` for one ν, and the sign of Δ_N depends on the polynomial:
+  * for the CRT-optimal P, `Δ_N < 0` (the interval carries more than the
+    CRT mean);
+  * for the interval-optimal P at large Y, `Δ_N > 0` (e.g. 3.85 vs 3.10
+    at N = 3000 primes, Y = M₀; at k = 2 the factor reaches `e^{1.9}`).
+
+  So branch-(D)-type behaviour does occur, mildly. It does not help,
+  because that P is a poor majorant on both sides.
+* Caveats:
+  * for "all n" and "non-squares" the interval saving is capped by the
+    void, `E_int P(H) ≥ π_int(0)`, i.e. ≤ 3.9 resp. ≤ 6.4; the "all n"
+    rows mostly measure the squares floor. The prime rows (void ≈ 0) are
+    the informative ones;
+  * one sub-family, count polynomials only, degree ≤ 10, LP values are
+    lower bounds on optimal savings.
+
+### 8.4 A proved piece of the thinning; Conjecture 8.5 withdrawn
 
 **Proposition 8.4 (PROVED).** The number of pairs (n, (M,D)) with
 `1 ≤ n ≤ N`, (M,D) a Case-B datum for n (Lemma 8.2), and *multiplier one*
@@ -674,18 +697,24 @@ mean `≤ ¼(1+log N)²` per integer. (For M > N, a hit with multiplier
 `a ≥ 2` needs `4D = aM − n > 2M − N > M`, i.e. a divisor D of `A²` above
 `M/4 ≈ A`. Those hits are not controlled by this argument.)
 
-**Conjecture 8.5 (interval thinning).** For the Case-B forced classes,
-`(1/N) Σ_{n≤N} #{data (M,D) for n with M > N} ≪ (log N)²`. The CRT mass
-of these classes up to `N^c` is `≍ (c³−1)(log N)³`.
+**Conjecture 8.5 — WITHDRAWN (review N12).** Round 1 conjectured that
+data with M > N carry `O((log N)²)` per integer. The reviewer's exact
+enumeration of all Case-B data of all n ≤ N (normal form, cross-checked
+against an (M,D) brute force) contradicts this.
+* The mean number of data with M > N is 4.96, 10.93, 20.62 and 34.98 at
+  N = 10³, 10⁴, 10⁵ and 10⁶.
+* Divided by (log N)² it rises steadily (0.104 → 0.183).
+* Divided by (log N)³ it flattens at ≈ 0.0133.
 
-*Assessment.* If 8.5 holds, the slice moduli above N carry only
-`O((log N)²)` hit mass on [1,N]. The CRT picture, in which mass grows
-cubically with the level, is then fictitious above N. So the high level
-that branch (H) of Theorem 8.1 needs cannot come from large slice primes.
-It can only come from products of many moduli `≤ N` (Cor 8.3 proves the
-weaker cut-off `≍ N²`). This does **not** cap exact interval counts of
-such products: the exact void of the moduli `≤ N` on [1,N] is
-not known, and the CRT value there is `e^{−≍(log N)³}`.
+A heuristic count, ≈ `Σ_{gv≤N/4} Σ_{d|g} #{u | d+v : u > v}`, also gives
+≍ N(log N)³. So the moduli in (N, M₀] carry ≍ (log N)³ real hit mass per
+integer. The thinning relative to CRT (≈ 0.22(log N)³) is a **constant
+factor ≈ 1/17**, not a log-power. Prop 8.4 (multiplier one only) stays
+proved; the multiplier `a ≥ 2` data are what carry the cubic mass.
+
+The round-1 Assessment built on Conj 8.5 is withdrawn too: large slice
+primes (N < M ≤ M₀) are *not* "fictitious" on [1,N]. Branch (H) of
+Theorem 8.1 is not excluded on these grounds.
 
 ### 8.5 A cap for exact interval counts of bounded degree (conditional)
 
@@ -708,43 +737,60 @@ on [1,N]
 
     (H_node(k))  π_int(y) ≥ e^{−C₀k}/√m  at the k+1 nodes above,
 
-with `m = E_int H ≤ (log N)^{O(1)}`, `m ≥ 64`, `k ≤ m/16`. Then every degree-k hit-count majorant
-evaluated *exactly* on [1,N], with all inter-frequency cancellation
-included, saves at most `(k/2) log(16e² m/k) + C₀k + ½ log m`. A saving
-`(log N)^θ` therefore needs `k ≫ (log N)^θ / log log N`. So beating 3/4
-by exact interval counts needs hit-count polynomials of degree
-`≥ (log N)^{3/4+o(1)}`, i.e. control of k-fold witness coincidences on
-single integers for k that large.
+with `m = E_int H ≤ (log N)^{O(1)}`, `m ≥ 64`, `k ≤ m/16`. Then every
+degree-k hit-count majorant evaluated *exactly* on [1,N], with all
+inter-frequency cancellation included, saves at most
+`(k/2) log(16e² m/k) + C₀k + ½ log m`. For k > m/16 the corollary gives
+nothing beyond the trivial `log(1/π_int(0))` (review N13). Hence, **if in
+addition `m ≥ 16(log N)^{3/4+δ}`** (true for the full Case-B family,
+where m ≍ (log N)³, ≈ 118 at N = 10⁶ by the review's enumeration; false
+for the §8.3 sub-family, m ≤ 17), a saving `(log N)^θ` with
+3/4 < θ ≤ 3/4+δ needs `k ≫ (log N)^θ/log log N`. Beating 3/4 by exact
+interval counts of hit-*count* polynomials then needs degree
+`≥ (log N)^{3/4+o(1)}`.
 
 *Status of H_node.* It is a lower bound for the distribution of witness
 counts near their mean, of local-limit type. It is not proved here. For a
 Poisson-like H it holds with `C₀ = O(1)`. The witness count
-behaves partly like a divisor function (ET Thm 1.8: `f(n)` is at least
-`(log n)^{0.549}` for almost all n), so H_node is plausible but not
-obvious. The LP values in §8.3 are the exact optimum over P of the bound
-for the empirical law, so the table is a direct numerical check of the
-conclusion for k ≤ 10.
+is divisor-like (ET Thm 1.8: typical size `(log n)^{0.549}`, mean
+`(log N)³`). Its law is therefore far from Poisson around the mean, and
+`C₀ = O(1)` is not the natural expectation. What makes H_node plausible
+is the slack `e^{−C₀k}` for `k ≫ log log N`. H_node is untested. The §8.3
+table does **not** test Cor 8.7: there m ≤ 17 < 16k for k ≥ 2, so the
+corollary does not apply. The table is merely consistent with it
+(review N14).
 
-### 8.6 Outcome of the follow-up
+### 8.6 Outcome of the follow-up (after review round 2)
 
-* The dichotomy is quantitative (Thm 8.1). Direct counts beating 3/4 need
-  either Fourier mass `≳ e^{−Cλ^{3/4}}` above every level
-  `λ ≤ c(log N)^{4θ/3}`, or an interval count a factor
-  `e^{s − Cλ^{3/4}}` below the CRT mean.
-* For hit-pattern majorants, classes above `M₀ ≍ N²` are inert on [1,N]
-  (Cor 8.3, PROVED). Multiplier-one witnesses of all moduli have mean
-  `≤ ¼(1+log N)²` (Prop 8.4, PROVED). Conjecturally all moduli above N
-  carry only `O((log N)²)` (Conj 8.5).
-* The natural structured family (polynomials in the forced-class hit
-  count, degree ≤ 10) shows **no inter-frequency gain**. Its exact
-  interval values are worse than its CRT means for every Y ≥ N, so
-  `Δ_N < 0` (EVIDENCE, §8.3).
-* For a named class, exact interval counts of degree-k hit-count
-  majorants, there is a conditional cap. Beating 3/4 needs degree
-  `≥ (log N)^{3/4+o(1)}` (Cor 8.7, conditional on H_node).
-* No structured family was found with both large high-level Fourier mass
-  and a favourable interval count. The door stays open only for
-  majorants of degree `≥ (log N)^{3/4}` in the witness indicators, or for
-  non-hit-pattern majorants (e.g. multiplicative/Halász-type weights on
-  `(n+a)/4`, the a-frame route of ET-file §5.2, assessed at θ* ≈ 0.52 in
-  its model).
+* **Theorem 8.1 (PROVED): the dichotomy is quantitative.** Direct counts
+  beating 3/4 need one of two things at every level
+  `λ ≤ c(log N)^{4θ/3}` (also using `log(P/φ(P)) ≤ s/2`):
+  * Fourier mass above level λ larger than `e^{−Cλ^{3/4}}/4`;
+  * an interval count a factor `e^{s−Cλ^{3/4}}` below the CRT mean.
+* **Cor 8.3 (PROVED): large moduli are inert.** For hit-pattern
+  majorants, classes of modulus above `M₀ ≍ N²` (𝓡(M) and ET-file
+  Lemma 3.2 classes) do nothing on [1,N]. Multiplier-one data of all
+  moduli have mean `≤ ¼(1+log N)²` (Prop 8.4, PROVED). The moduli in
+  (N, M₀] still carry ≍ (log N)³ per integer, a constant factor (~1/17)
+  below CRT. That figure comes from the review's numerics; Conj 8.5 is
+  withdrawn.
+* **§8.3 (EVIDENCE): no inter-frequency gain in the natural family.** For
+  polynomials of degree ≤ 10 in the forced-class hit count (prime-modulus
+  sub-family), the exact interval optimum saves less than the CRT optimum
+  for every Y ≥ N. The sign of Δ_N for a fixed P varies and is not the
+  point.
+* **Cor 8.7 (CONDITIONAL on H_node): the degree cap, for hit-count
+  polynomials only.** It needs `m = E_int H ≥ 16(log N)^{3/4+δ}`. Under
+  these conditions, beating 3/4 by exact interval counts needs degree
+  `≥ (log N)^{3/4+o(1)}`. General hit-pattern majorants `G((1_W)_W)`
+  of low degree but not symmetric in W are covered by neither Prop 8.6
+  nor Cor 8.7.
+* **What is open.**
+  * No structured family was found with both large high-level Fourier
+    mass and a favourable interval count. Branch (H) is not excluded,
+    since the moduli in (N, M₀] carry cubic real mass.
+  * Hit-count polynomials of degree `≥ (log N)^{3/4}` (or any degree
+    without H_node).
+  * Non-symmetric hit-pattern majorants.
+  * Non-hit-pattern weights, e.g. multiplicative/a-frame weights (ET-file
+    §5.2, model θ* ≈ 0.52).

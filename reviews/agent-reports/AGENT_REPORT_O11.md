@@ -63,7 +63,7 @@ proved theorem with exact scope. One conditional piece is isolated.
 * `noncrt_checks.py` checks Lemma 2.2 by floating-point enumeration on 40
   systems (max violation −1.7e−17). It also runs a toy LP comparing the
   coefficient budget with the Fourier budget (EVIDENCE, toy). Replay takes
-  about 1 min, under 1 GB.
+  a few seconds, under 1 GB.
 
 ## Suggested ledger text (parent's call)
 (D)15: "Per-frequency (complete-sum, w ≥ 1) signed rounding, prime-only
@@ -89,33 +89,39 @@ Lemma 2.2 hardest.
   with modulus `> 8⌊(N+1)/3⌋²` miss [1,N]. Hit-pattern majorants
   (Bonferroni, Selberg in indicators, P∘f) never gain from them.
 * **Prop 8.4 (PROVED).** On [1,N], multiplier-one witnesses of all moduli
-  have mean `≤ ¼(1+log N)²`. Conj 8.5: all moduli > N carry `O((log N)²)`,
-  against a cubic and growing CRT mass. The `a ≥ 2` hits are open.
-* **§8.3 (EVIDENCE).** I computed exact interval values against CRT for
-  degree-≤10 hit-count majorants of the prime-modulus Case-B family, at
-  N = 3000 (all / non-squares / primes) and N = 30000 (primes), with
-  Y up to `M₀` or 3·10⁷. Above N the interval receives about 1/6 of the
-  CRT mass. The interval LP saving is flat in Y and far below the CRT one
-  (e.g. 4.9 vs 13.4). So `Δ_N < 0`: the natural family has *no*
-  inter-frequency gain; the effect runs the other way.
-* **Prop 8.6 (PROVED) / Cor 8.7 (CONDITIONAL on H_node).** This is a
-  Lagrange-node cap for exact interval counts of degree-k hit-count
-  majorants. Beating 3/4 needs degree `≥ (log N)^{3/4+o(1)}`. H_node is a
-  local-limit lower bound for the witness-count distribution; it is
-  unproved.
-* **Bottom line.** No structured family was found with both large
-  high-level Fourier mass and a favourable interval count. What remains
-  open:
-  * hit-count majorants of degree `≥ (log N)^{3/4}`;
-  * non-hit-pattern (multiplicative / a-frame) weights.
+  have mean `≤ ¼(1+log N)²`. *Conj 8.5 (O((log N)²) for all moduli > N)
+  was WITHDRAWN after review N12*: exact counts give ≍ 0.0133(log N)³, a
+  constant factor ~1/17 below CRT. So branch (H) is not excluded on these
+  grounds.
+* **§8.3 (EVIDENCE, regenerated after N10).** Positivity is now imposed on
+  0..200, and no truncation of the laws is asserted. For degree-≤10
+  hit-count polynomials of the prime-modulus Case-B family, the exact
+  interval optimum saves less than the CRT optimum in all 108 rows with
+  Y ≥ N. Example: 4.21 against 11.75 at N = 30000 primes, Y = 3·10⁷. The
+  round-1 inference "Δ_N < 0 for the family" is withdrawn (N11): for a
+  fixed P the sign of Δ_N varies, and the interval-optimal P has mild
+  Δ_N > 0. The LP values are lower bounds on optimal savings (HiGHS at
+  degree 10).
+* **Prop 8.6 (PROVED) / Cor 8.7 (CONDITIONAL on H_node, untested).**
+  Beating 3/4 by exact interval counts of hit-*count* polynomials needs
+  degree `≥ (log N)^{3/4+o(1)}`, under the hypothesis
+  `m ≥ 16(log N)^{3/4+δ}` (N13). §8.3 does not test this (N14).
+  Non-symmetric hit-pattern majorants are not covered.
+* **Bottom line.** No structured family was found with an inter-frequency
+  gain. Still open:
+  * branch (H);
+  * high-degree count polynomials;
+  * non-symmetric hit-pattern majorants;
+  * multiplicative / a-frame weights.
 
 Replay: `uv run --with scipy python scripts/noncrt_interval.py N Ymax
-[all|nonsquare|prime]`. Each run takes ≤ 1 min and < 1 GB; outputs are in
+[all|nonsquare|prime]`. Each run takes seconds and < 1 GB; outputs are in
 `data/noncrt/interval_*.txt`.
 
-Parent review targets: Prop 8.4's use of the normal form (60.7)–(60.8),
-the statement of Cor 8.7, and whether the §8.3 LP relaxation (positivity
-only on 0..80) matters.
+Review round 2 (N9–N14) applied: Lemma 3.2 classes are handled directly
+in §8.2 (N9); HCAP and truncation (N10); the Δ_N inference (N11);
+Conj 8.5 and its Assessment withdrawn (N12); the m-hypothesis of Cor 8.7
+(N13); "numerical check" removed (N14); stale runtimes fixed.
 
 ---
 
