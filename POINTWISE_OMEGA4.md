@@ -547,17 +547,23 @@ Def 2.3).
   ```
   (ii) ≪ 𝓛²·2^{ω(q)/2}·(h_1^{−1/2}+h_2^{−1/2}) + 𝓛³(h_3^{−1}+q^{−1/2});
   ```
-* (iii) the factor m multiplies (i)–(ii) by a divisor average
-  `Σ_{m|a+b}1 = τ(a+b)` over the relevant points. Pointwise this is only
-  `T^{o(1)}`, which is too weak for HC. A polylog bound needs τ-sums over
-  lattice points in boxes (sublattices `d|a+b`, determinant qd). This is
-  routine-looking but **not done**;
+* (iii) the factor m. For fixed `m|a+b`, `qm|M` puts s in a single class
+  mod `qm`. Where s runs over full periods this costs a divisor average
+  `Σ_{m|a+b}1=τ(a+b)`. It is only `T^{o(1)}` pointwise, too weak for HC;
+  a polylog bound would need τ-sums over lattice points. In the
+  s-*boundary* terms (`𝓛Σ1/(βs_β)`, `𝓛Σ1/(a_βs_β)` and the core), the
+  weight becomes `qm/(4ab·s^{(m)})`, where `s^{(m)}` is the least
+  representative mod qm. That is a factor up to `m·s_β/s^{(m)}`, not 1.
+  So (iii) is an m-refinement of the s-progression (least residues
+  mod qm) plus τ(a+b) averages. **Not done** (review R2-D2). In the
+  lattice plane, boxes with `XY≥q/4` hold `≤2min(X,Y)` points, so they
+  contribute `≤4q^{−1/2}` each;
 * (iv) the **core**: `Σ_{β<q} q/(βa_βs_β)` over the β with
   `4βa_βs_β ≥ qy`, i.e. triples with all of `s,a,b<q`.
 
-So (i)–(iii) give exactly the HC shape with `a=1/2`, polylog `𝓛^B`, and
-an `e^{O(k)}` factor `2^{ω(q)/2}`, which is harmless in Thm 4.2. The
-whole difficulty is the core.
+So (i)–(ii), with `m=1`, give the HC shape with `a=1/2`, polylog `𝓛^B`,
+and an `e^{O(k)}` factor `2^{ω(q)/2}`, which is harmless in Thm 4.2.
+The m-refinement (iii) and the core are open.
 
 **Proposition 7.3 (the core is a short-range inverse problem; the
 counting statement is PROVED, its consequence for HC is an Assessment).**
@@ -573,13 +579,15 @@ so it is `≍#{t : s_t ≤ Y}/Y` at scale `n_t≍Y≥y`.
 
 * *Elementary counting.* Pairs `(s,t)` with `st²≡w (mod q)`, `s≤Y` and
   `t≤t_0` number at most `min(t_0, 2^{ω(q)+1}Y)`. Summing over scales
-  gives a core contribution `O(2^{ω(q)})` in general, and `≤(q/h)^{1/2}/y`
-  for this ray. The core points off rays (`ab≥q/4`) are handled the
-  same way. A mixed-sign short lattice vector (the class `+u/v`) leaves
-  a single-line term `≪2^{ω(q)/2}q^{1/4}y^{−1/2}`. So **for vertex sets
-  with `q≤y^{2−ε}` the method closes**: the core is
-  `≪2^{ω(q)}(y^{−ε/4}+H^{−1/2})`. (EVIDENCE-level bookkeeping: the
-  off-ray estimate is sketched, not written out.)
+  gives a core contribution `O(2^{ω(q)}log q)` in general, and
+  `≤4(q/h)^{1/2}/y` for this ray. Summed over the `≪(log q)²` rays this
+  gives `core ≪ 𝓛²(q/(hy²))^{1/2}`. That is HC-shaped only for
+  `q≤y²𝓛^{O(1)}`. Every relevant O has `|O|≥2` vertices at primes `>y`,
+  so `q>y²` always; the regime `q≤y²𝓛^{O(1)}` (pairs with both primes in
+  `(y,y𝓛^{O(1)}]`) is a near-vacuous slice. **§7 closes no nontrivial
+  class of vertex sets** (review R2-D1; an earlier claim that it closes
+  for `q≤y^{2−ε}` concerned an empty regime and is withdrawn). The
+  off-ray and mixed-sign parts were only sketched.
 * *For `q ≫ y²`* (for instance a pair with one prime near `T/y`), the
   core bound one needs is `#{t≤(q/h)^{1/2} : (wt^{−2} mod q) ≤ Y} ≪ ηY`
   for `Y≥y`. Here `(q/h)^{1/2}·Y/q` is the expected count. This is
@@ -592,8 +600,9 @@ so it is `≍#{t : s_t ≤ Y}/Y` at scale `n_t≍Y≥y`.
   in (i)–(iv).
 
 **Verdict (checkpoint 2).** HC(a,B) is **sharply reduced, not proved**.
-It holds with `a=1/2` for the non-core terms, modulo a τ-in-lattice
-average (iii). It also holds for all vertex sets with `q≤y^{2−ε}` (core sketched).
+With `m=1` it holds with `a=1/2` for the non-core terms. The
+m-refinement (iii) is not done. No nontrivial class of vertex sets is
+closed, because every relevant O has `q>y²`.
 What remains is a worst-case short-interval statement for modular
 inverses of squares, `w·t^{−2} mod q` with `t≤(q/h)^{1/2}`, for moduli
 q that are products of `≤k` primes in `(y,T]`. It lies beyond the Weil
@@ -609,9 +618,16 @@ range. Thm 4.2 is therefore not unconditional.
   for example by splitting the free range `(y,T]` into scales. This is
   untested.
 
-### 7.4 Route (β): restricting atoms cannot remove large-q vertex sets (PROVED), and what is left (Assessment)
+### 7.4 Route (β): restricting atoms (Assessment)
 
-**Lemma 7.4 (PROVED).** Any construction of this family must satisfy
+**Observation 7.4 (Assessment; downgraded from PROVED, review R2-D3).**
+Part (a) is true: in this family B equals 1 at every void point, so
+every surviving atom's class must be *covered* by events. It can be the
+atom's own event, or a coarser event, for example its class mod
+`ℓ_1ℓ′` with `q≈y²`. The claim below assumes the atom's own event is
+used. Avoiding large-q sets by coarsening is logically allowed; it is
+presumably too costly in mass (many atoms per coarse class), but that
+is an estimate, not proved. Original text: Any construction of this family must satisfy
 `B ≤ 1[W>T]` on `n≡1 (Q)` with `Q ⊇ ∏_{ℓ≤y}ℓ^{e_ℓ}`. In any such
 construction, every atom surviving Π with rough part `r>1` must be
 forbidden by some event, because otherwise (I) fails at the CRT point
@@ -627,7 +643,8 @@ unforbidden surviving atom gives a residue class `n≡−4D (M)`, compatible
 with `n≡1 (Q)`, on which `W(n)≤T` holds while no event occurs. Then any
 B that is ≥0 on that class with positive weight violates the minorant.
 Since B is a minorant of the void indicator only, the atom must be an
-event or be killed by one. ∎
+event or be killed by one. (The "Hence" above does not follow when
+coarser killing events are allowed; see the label.)
 
 *What (β) would have to be instead (Assessment, not pursued).*
 
@@ -677,10 +694,12 @@ h the ray height). The expected value is `t_0Y/q ≤ Y/(qh)^{1/2}`.
 * *What averaging buys.* Expand
   `Σ_{w mod q}N(q,w)² = #{s t'² ≡ s′t² (q) : s,s′≤Y, t,t′≤t_0}`. The
   numbers `st′², s′t²` are `≤Yt_0²`, so the count is at most
-  `(Yt_0²/q+1)·Yt_0·𝓛^{O(1)}` (divisor bound for the representations).
-  Hence
+  `(Yt_0²/q+1)·Yt_0·exp(O(𝓛/log𝓛))`. The divisor bound is pointwise
+  only; a polylog factor would need an average of representation numbers
+  over the progression `x′≡x (q)`, itself a short-range input, and it is
+  added to input (1) below (review R2-D4). Hence
   ```
-  #{w : N(q,w) ≥ ηY} ≤ t_0(1+Y/h)𝓛^{O(1)}/(η²Y),
+  #{w : N(q,w) ≥ ηY} ≤ t_0(1+Y/h)T^{o(1)}/(η²Y),
   ```
   against the Markov count `t_0/η`. The saving factor is
   `≍1/(ηh)+1/(ηY)`. Averaging over q as well, by the large sieve over
@@ -709,6 +728,8 @@ h the ray height). The expected value is `t_0Y/q ≤ Y/(qh)^{1/2}`.
     range;
   * (3) a check that the pushed rare sets' induced masses under cell
     conditioning stay `O(Ŝ)`.
+  * (4) `300H(1+log H)<y` with constants: at the optimum `log H≈k³≈log y`
+    (review R2-D4).
 
   Each looks like standard but substantial divisor-sum work.
 

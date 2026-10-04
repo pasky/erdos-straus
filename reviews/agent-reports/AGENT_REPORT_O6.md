@@ -93,13 +93,13 @@ the log domain, with worst-case Markov pushes, for `k=3..8` and
   * The full-period and two-variable boundary terms are
     `≪𝓛³/q + 𝓛²2^{ω(q)/2}(h_1^{−1/2}+h_2^{−1/2}) + 𝓛³h_3^{−1}`. This is
     the HC shape with `a=1/2`.
-  * Open gap (iii): the smooth-part factor `m|a+b` costs a τ(a+b)
-    average over lattice points. It looks routine, but I have not done
-    it.
+  * Open gap (iii): the m-refinement of the s-progression (least
+    residues mod qm) plus τ(a+b) averages. Not done (R2-D2).
 * **Prop 7.3 (the obstruction).** The core consists of triples with
   `s,a,b<q`.
-  * For `q≤y^{2−ε}` it closes by counting. The off-ray part is
-    sketched only.
+  * *(Withdrawn, R2-D1.)* The "closes for `q≤y^{2−ε}`" claim is empty:
+    every relevant O has `q>y²`. Counting closes only `q≤y²𝓛^{O(1)}`, a
+    near-vacuous slice.
   * For `q≫y²` (for example a pair with one prime near `T/y`), take a
     non-hub ray `(a,b)=t(u,v)` with `s_t` small. Its contribution is
     governed by `#{t≤(q/h)^{1/2} : w·t^{−2} mod q ≤ Y}` for `Y≥y`.
@@ -113,9 +113,9 @@ the log domain, with worst-case Markov pushes, for `k=3..8` and
 
 # Checkpoint 3 — route (β) (§7.4)
 
-* **Lemma 7.4 (PROVED).** Every surviving atom must be an event, by
-  (I). So vertex sets with `q≍T/y≫y²` occur in every construction of
-  this family. "Restricting atoms" is impossible, and quarantining the
+* **Observation 7.4 (Assessment; was PROVED, R2-D3).** Every surviving
+  atom must be *covered* by events, possibly coarser ones. So large-q
+  sets are avoidable in principle, presumably at prohibitive mass. "Restricting atoms" is impossible, and quarantining the
   large primes costs `θ(T/y²)`.
 * **Assessment.** The only form left is a composition level with the
   large-prime coordinates as outer variables. That moves the
@@ -145,3 +145,10 @@ the log domain, with worst-case Markov pushes, for `k=3..8` and
 * I stopped at the context limit. The recommended next task for a
   fresh agent is to prove inputs (1)–(3) of §7.5, which would give
   `(log₂p)^{4/3}`.
+
+# Round-2 review repairs
+R2-D1 to R2-D4 applied (text/label only): Prop 7.3's closing regime
+withdrawn, gap (iii) restated, Lemma 7.4 downgraded to an Assessment,
+and the §7.5 divisor bound stated as `T^{o(1)}` (polylog added to the
+inputs). Proved results unchanged: Thm 1.1, Thm 2.1, Cor 3.1–3.3,
+Prop 5.1, Lemma 7.1, and Thm 4.2 as an implication.
