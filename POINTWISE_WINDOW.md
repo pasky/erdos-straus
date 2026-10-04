@@ -78,10 +78,13 @@ all shifted primes).
 * **S1 (semi-linear sieve, lower bound).** H. Iwaniec, *The half dimensional
   sieve*, Acta Arith. 29 (1976) 69–95; in the β-sieve form of
   Friedlander–Iwaniec, *Opera de Cribro* (AMS Colloq. Publ. 57, 2010),
-  Theorem 11.13 with `κ=1/2`, `β=1`. We use it exactly as it is quoted and
-  applied in Teräväinen, arXiv:1611.08585, §6, display (6.4)
-  (archived: `sources/sieve/teravainen-1611.08585.{pdf,txt}`, lines ≈1440–1465).
-  Statement used: let `A` be a finite weighted sequence, `P` a set of primes,
+  Theorem 11.13 with `κ=1/2`, `β=1`. The archived secondary source
+  (Teräväinen, arXiv:1611.08585, §6, display (6.4);
+  `sources/sieve/teravainen-1611.08585.{pdf,txt}`, lines ≈1440–1465) shows
+  the theorem *applied* with exactly this `f(s)` and `s∈[1,2]`. It does not
+  reproduce the general hypotheses. Those below are the standard β-sieve
+  hypotheses, stated from the literature, and the general statement was
+  not read in a primary source here. Statement used: let `A` be a finite weighted sequence, `P` a set of primes,
   `g` multiplicative on squarefree `d|P(z)` with `0≤g(ℓ)<1` and the
   dimension condition
   `∏_{w≤ℓ<z, ℓ∈P}(1−g(ℓ))^{−1} ≤ (log z/log w)^{1/2}(1+K/log w)` (`2≤w<z`).
@@ -254,19 +257,23 @@ and every such p is hard with `a_min(p)≥11` (Lemma 1.1 at q=3 and q=7).
 ### 4.3 Proof (same skeleton as W1, with the linear sieve)
 
 * **Cited S1'.** Linear sieve lower bound: Jurkat–Richert / Iwaniec,
-  e.g. *Opera de Cribro* Thm 11.13 with `κ=1`, `β=2` (as quoted by Teräväinen §6,
-  (6.6)), or Halberstam–Richert Thm 8.4. Under `(Ω_1)`, for `2≤s≤3`:
+  e.g. *Opera de Cribro* Thm 11.13 with `κ=1`, `β=2`, or Halberstam–Richert
+  Thm 8.4. Teräväinen (6.6) quotes only the *upper* linear bound; the
+  lower-bound function below is the standard Jurkat–Richert `f`, stated
+  from the literature and not read in a primary source here. Under `(Ω_1)`, for `2≤s≤3`:
   `S(A,P,z)≥XV(z)(f(s)+o(1))−Σ_{d<D,d|P(z)}|r_d|` with
   `f(s)=2e^γ log(s−1)/s`. Since `log(1+u)≥u/2` on `[0,1]`, we get
   `f(s)≥(e^γ/3)(s−2)` for `2<s≤3`.
 * **Data.** `A={p≤x : p≡1 (840)}`, `X=li(x)/192`. Put
   `P=P_3∪P_7` (primes `≡2 (3)` or with `(ℓ/7)=−1`), `ω` as above,
   `g(ℓ)=ω(ℓ)/(ℓ−1)`. For `ℓ|840` there are no forbidden classes: `n_3≡1`
-  and `n_7≡2 (mod 210)`, `n_7/2` odd, and 2 is 7-good. `ω(ℓ)≤2<ℓ−1`, and
+  and `n_7≡2 (mod 210)`, so 3, 5, 7 never divide; 2 is 7-good (and 3-bad, but `n_3` is odd). `ω(ℓ)≤2<ℓ−1`, and
   `(Ω_1)` holds by Mertens mod 21. `V(z)≥c_V/log x`. `r_d` is a sum of at
   most `2^{ω(d)}` prime-count discrepancies mod `840d`, so
-  `Σ_{d<D}μ^2(d)|r_d|≪x/(log x)^2` for `D=x^{1−ε}/840` by EH (with the usual
-  Cauchy–Schwarz/trivial bound to absorb the `2^{ω(d)}` weight).
+  `Σ_{d<D}μ^2(d)|r_d|≪_ε x/(log x)^3` for `D=x^{1−ε}/840`. This follows from
+  EH with a large log-power saving: Cauchy–Schwarz against the trivial
+  bound `|E(x;k,b)|≪x/φ(k)` absorbs the `2^{ω(d)}` weight. The bound
+  `(log x)^{−3}` is needed, since the main term is only `≍εx/(log x)^2`.
 * **Parameters.** `z=x^{1/2−ε}`, `s=log D/log z→(1−ε)/(1/2−ε)=2+2ε/(1−2ε)`. So
   `f(s)≥(2/3)e^γε(1−o(1))` and `S(A,P,z)≥c_1εx/(log x)^2`, with `c_1` absolute.
 * **Survivors.** For each `q∈{3,7}` the q-bad factors of `n_q` are all
@@ -340,19 +347,24 @@ squarefree and `u/v≡−1 (mod q)`, so `−1∈Rat_q(n_q)` and the window succe
 a contradiction. Every class outside K is outside `C_big`, so it holds
 `<q` of the primes, and there are `<φ(q)` such classes. ∎
 
-**Consequence (dimension count; PROVED as a counting statement).** The
+**Consequence (dimension count; Assessment — the bookkeeping step is not a
+proved estimate).** The
 primes in classes outside K form a set of relative density
 `1−1/[G:K]≥1/2`, and all but `O_q(1)` of them must be absent from `n_q`.
-So the failure of window q is contained in a finite union, over subgroups
-`K∌−1` and over the `O_q(1)` exceptional primes, of events of sieve
-dimension `≥1/2`. For the first J windows the forbidden classes `−q mod ℓ`
+So the failure of window q is contained in a union, over the finitely many
+subgroups `K∌−1`, of events "`n_q` has `<qφ(q)` prime factors in a
+density-`≥1/2` set". The exceptional primes vary with x, so this is not a
+finite union of pure sifting events. Turning it into an upper bound of
+sieve dimension `≥1/2` (up to `(log log x)^{O_q(1)}`) needs a standard
+almost-prime-type upper-bound sieve, summed over the exceptional
+primes. We have not written that sum out. For the first J windows the forbidden classes `−q mod ℓ`
 are distinct for `ℓ>4J`. Hence "windows `3,…,4J−1` all fail" is covered by
 sieve events of dimension `≥J/2`. This is the rigorous form of the
 "dimension `≥K/8`" bookkeeping in Assessment 11.5. The `O_q(1)` exceptional
 primes change only `log log` factors in upper bounds, not the dimension.
 
-**Congruence restrictions do not help (PROVED; complements Lemma 11.3).**
-Restricting p to a class mod Q fixes the divisibility of `n_q` by the
+**Congruence restrictions do not help (PROVED for a fixed modulus Q;
+complements Lemma 11.3).** Restricting p to a class mod a fixed Q fixes the divisibility of `n_q` by the
 primes `ℓ|Q`, and nothing else. The sifting set of window q loses at most
 the finitely many primes dividing Q, so its density, and hence the
 dimension, is unchanged. Choosing p in clever classes can force small
