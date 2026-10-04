@@ -161,3 +161,52 @@ verbatim (`A,B > 1`, `k ≪ (AB)^{O(1)}`, bound `AB log(A+B) log(1+k)`).
 * **D7 (NIT).** §7.1, "for every η ≤ min(η₀, 1/C−1)": η₀ is never
   defined in the paper (EB: "η₀ < 1 fixed"). Define or drop it (η < 1 is
   already assumed).
+
+## 3. §§7–8: gapped moduli; the campaign sieves
+
+Checked against EB §2 (Lemma 2.1, Lemma 2.4, Lemma 2.5a, Thm 2.5 window
+sum), TW §§1–2, 4 (Lemma 1.3, Lemmas 2.1–2.2, Thm 2.3, Lemma 2.4, Cor 2.5,
+Lemma 2.6, Thm 2.7, Lemma 4.0, Prop 4.1, Lemma 4.2/Cor 4.3, Thm 4.4), TWrev
+(both rounds), ET §4, TQ §§2, 8, 10.
+
+**Faithfulness.** All §7 statements match the sources with hypotheses
+intact: `(η,B)`-gapped with `P(M) > W`, B fixed, `0 < η < 1`, `W = W₀(B)`,
+caps `δ_ℓ = ℓ^{−1/2}`, \ℛ(M)-classes only, plus W-smooth \ℛ(M)-classes.
+The scope paragraph after Thm 7.6 reproduces TW §2.3 "Scope" exactly.
+Thm 7.7 = TW Thm 4.4 (`λ ≥ (2 log W)^4`, `M ≤ P(M)^{1+B}`, window-resolved
+in `(e^{λ^{1/4}}, e^{λ/2}]`) and is correctly marked as stated-with-
+proof-cited. §8 matches ET Lemmas 4.1–4.4 / Cor 3.5; TQ citations checked
+by label numbering (Lemma 2.2 = lem:CRT, Cor 4.3 = cor:fibremass,
+Thm 8.2 = thm:assembly, §10 = heuristic ceiling with θ = 𝓑/(𝓑+1)):
+`|F_ℓ(c)| ≤ z_j² ≤ ℓ^{1/3}` (TQ l. 222), `T_abs ≤ N^{1/2}`, "convenient but
+not necessary" (TQ l. 1195–1196), `Q_r(0) = 1`, `Q_r(h) = C(h−1,r) ≥ 0`.
+
+**Proofs re-derived.**
+* Lemma 7.1 (gapped ⇒ (U)) ✓. Lemma 7.2 (QR base): odd `p ≤ W` factor has
+  `p^{e−1}(p−1)/2` of `p^e` elements, so `γ(p) = 2p/(p−1)`; (1) is
+  Lemma 2.6 since `c mod Q₀` determines `c mod M` for W-smooth `M | Q₀`. ✓
+* Lemma 7.3 and Thm 7.4 (capped measure): the induction, the
+  `f̃(0) = 0` case, and the final Jensen on `Q'(·|𝒜)` with
+  `Q'(𝒜) ≥ 1/2` giving `½e^{−2E S}` (uses `S ≥ 0`) ✓.
+* Lemma 7.5: `E N_ℓ² ≪ ℓ^{ε/2} Σ_{m≤ℓ^{2B}} 3^{ω(m)}τ(m²)/m ≪ ℓ^ε`; leak by
+  Markov `E[p 1{p>δ}] ≤ E p²/δ`, `Σ_{ℓ>W} ℓ^{−5/4} ≪ W^{−1/4}` ✓.
+* **Thm 7.6 constants** (from EB Thm 2.5): `X(s*) = 19λ/s*`, so
+  `2X(s*)/η = 38λ/(ηs*)`; above `s*`, `log⁺(X_j s_j/19λ) = 4 log(s_j/s*)
+  ≤ 4(k+1)log(1+η)`; `Σ_k(1+η)^{−k}(1+4(k+1)log(1+η)) ≤ (1+η)/η +
+  4(1+η)²/η ≤ 18/η`; `38 + 19·18 = 380` ✓; then
+  `380λ/(ηs*) = 380(C₄K(1+B)³/19)^{1/4} η^{−1} λ^{3/4}` and ×2 ✓.
+* Lemma 8.2 (Bonferroni depth): Chebyshev `P(H ≤ r) ≤ P(|H−μ| ≥ 2√μ) ≤ 1/4` ✓.
+* Cor 8.3: `t = ut₀`, second entry `≤ (38λ/(ut₀))(1 + log⁺(Cu³))` ✓.
+
+**Defects.**
+
+* **D8 (NIT, wording).** §8.2: "its bound cannot exceed
+  exp{−C(log N)^{2/3}(log log N)^{1/3}}" is backwards as English (the
+  *saving* cannot exceed `C(log N)^{2/3}(log log N)^{1/3}`, i.e. the bound
+  cannot be *smaller* than `N exp{−C…}`). Inherited from ET Lemma 4.4.
+  *Fix:* rephrase in terms of saving.
+* **D9 (NIT).** Lemma 8.1 statement "equals 1 on 𝒜": correct (`S_y = 1`,
+  `H_X = 0` there), but TQ Thm 8.2 only asserts "≥ 1 on exceptional
+  primes". Add "(since `Q_r(0) = 1`; ETrev item 3.1)" so the reader sees
+  this is the whole-avoider-set property the architecture needs, which the
+  note itself does not state.
