@@ -103,3 +103,72 @@ partner nor its splitting is used, only `Ω(R) ≤ s` and roughness `> w`.
 ≤ (1/log 2)(1 + log(2L+1)) ≤ 2 log L`, and
 `Σ_{i<s} H^i ≤ s(log L)^{s−1}` by Remark (iii) (for `H ≥ 1`; trivially
 otherwise). ∎
+
+## 3. Setting and reduction for r large primes
+
+**Setting 3.0^{(r)}.** Fix `B ≥ 0`, `A₀ ≥ 1` and an integer `r ≥ 2`. As TW2
+Setting 3.0 (same `W₁ = L^{1/2}`, `w₂ = L^8`, α, ε, Γ, fibre coordinates =
+primes `≤ w₂`), except that **at most r distinct prime factors of M exceed
+w₂**. For a class C (`−4D mod M`) let `S(C)` be the set of primes `> w₂`
+dividing M, `k = k(C)` the w₂-smooth part, and call C *squarefree-large*
+(sf) if every `ℓ ∈ S(C)` divides M exactly once, *prime-power* (pp)
+otherwise. Classes with `|S(C)| = 0` are small, `|S(C)| = 1` unary,
+`|S(C)| ≥ 2` events. In a fibre c an event class is *active* iff
+`c ≡ −4D (mod k)`; it then gives the event
+`E_C = {(ℓ, −4D mod ℓ^{e_ℓ(C)}) : ℓ ∈ S(C)}` (lifted to the coordinate
+alphabets `ℤ/ℓ^{e_ℓ}` as in TW2 §1).
+All constants below may depend on r, B, A₀.
+
+**Fibre law.** TW2 §3 with one change: `G_L` is replaced by
+
+    G_L^{(r)}:  for every prime ℓ > w₂,  p_ℓ(c) ≤ 1/8  and  w^U_ℓ(c) ≤ δ_r := (21/32)^r/(16r),
+
+where `w^U_ℓ(c) = Σ_{active event classes C ∋ ℓ} Π_{ℓ'∈S(C)} ℓ'^{−e_{ℓ'}(C)}`.
+On `supp P` (ν ≤ (8/7)U) this gives `w_ℓ ≤ (8/7)^r w^U_ℓ ≤ (3/4)^r/(16r)`.
+
+**Proposition 3.1 (reduction, bounded arity; PROVED as an implication).**
+In Setting 3.0^{(r)}, suppose the fibre law satisfies TW2 Lemma 3.2 and
+`supp P ⊆ G_L^{(r)}`. Then every admissible g (`g ∈ V_{λ/2}`, `g ≥ 1` on the
+avoiders, `λ ≤ A₀L`) has
+
+    saving(g²) ≤ A₀L^{3/4}/2 + 4L^{1/2} + C_r E_P[ Σ_ℓ ρ_ℓ p_ℓ + Σ_{σ star} π_σ ρ^σ min(D_σ,1)² ],
+
+the star sum over all stars (`|σ| ≥ 1`) of the active event system of c,
+computed with the fibre's own ν.
+
+*Proof.* TW2 Lemma 2.1 (tilting; `log‖dP/dU_F‖ ≤ 4L^{1/2}` by TW2 Lemma
+3.2(2), whose proof only involves small classes and the good events).
+Then TW2 Lemma 2.2 (vertex quarantine at `D_{(ℓ,a)} ≥ 1`). Its proof is
+arity-free (TW3 Prop 6.3, review R2.4) except for the inflation: passing to
+`ν⁺` multiplies each point mass by `≤ 4/3`, so `π⁺_E ≤ (4/3)^{|S(E)|}π_E`
+and `w⁺_ℓ ≤ (4/3)^r w_ℓ ≤ 1/(16r)`. Hence `Σ_{ℓ∈S(E)} w⁺_ℓ ≤ 1/16` for
+every event, and `p⁺_ℓ ≤ p_ℓ + w_ℓ ≤ 1/4`. Then TW3 Lemma 6.2 (promotion;
+keeps (H_δ), δ = 1/16) and TW3 Lemma 6.1 (`1 + 25δ ≤ 2.57`). The quarantined
+vertex terms are `≤ S_ℓ`-type terms with `min(D,1)²` (TW2 Lemma 2.2), the
+unary factor is `≤ 2Σρ_ℓ(p_ℓ + S_ℓ)`, `ρ̃ ≤ (4/3)ρ` per coordinate, and
+every star term of the quarantined system is at most `(4/3)^{3r}` times the
+corresponding term in ν (TW3 (6.2), E10). So `C_r ≤ 3·(4/3)^{4r}`
+suffices. ∎
+
+**Splitting the star sum.** Every star σ is `σ = (V, a)`: a nonempty set V
+of large primes and residues `a` at V, contained in some event. Write
+`Q_V = Π_{ℓ∈V} ℓ`, `ρ^V = Π_{ℓ∈V}ρ_ℓ`, and split
+`D_σ = D^{=}_σ + D^{sf}_σ + D^{pp}_σ`: the events equal to σ (each
+contributes `π_∅ = 1`), the sf events strictly containing σ, and the pp
+events strictly containing σ. Since
+`min(x+y+z,1)² ≤ 2·min(x,1) + 2min(y,1)² + 6z`,
+
+    Σ_σ π_σρ^σ min(D_σ,1)² ≤ 2·T_ev + 2 Σ_V ρ^V T_V^{sf} + 6·T_pp,        (3.1)
+
+    T_ev  = Σ_{active event classes C} ρ^{S(C)} π_{E_C}      (whole events),
+    T_V^{sf} = Σ_a π_{(V,a)} min(D^{sf}_{(V,a)}, 1)²           (proper stars),
+    T_pp  = Σ_V ρ^V Σ_a π_{(V,a)} D^{pp}_{(V,a)} ≤ 2^r Σ_{active pp event classes C} π_{E_C}.
+
+(For the last: `Σ_a π_{(V,a)} D^{pp}_{(V,a)} = Σ_{pp C, S(C)⊋V} π_{E_C}`,
+`ρ ≤ 1`, and a class has `< 2^r` subsets V.) In `T_V^{sf}` only sets V with
+`|V| ≤ r − 1` and partners `R = M/(kQ_V)`, a product of `s ≥ 1` distinct
+large primes outside V, occur.
+
+So the r-prime cap follows from four first/second-moment bounds:
+`E_P Σρ_ℓp_ℓ` (TW2 Lemma 4.1, unchanged), `E_P T_ev`, `E_P T_pp`, and
+`E_P Σ_V ρ^V T_V^{sf}`, each `≪ α^{−3}(log L)^{O_r(1)}` (§§5–6).
