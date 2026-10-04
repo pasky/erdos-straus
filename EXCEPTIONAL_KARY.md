@@ -1,21 +1,37 @@
 # EXCEPTIONAL_KARY — the k-ary comparison inequality (task O7)
 
-Status: **in progress.** Labels follow `DISCOVERIES.md`. PROVED means proved
+Status: **checkpoint (awaiting review).** Labels follow `DISCOVERIES.md`. PROVED means proved
 here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 (ETw), `EXCEPTIONAL_THETA.md` (ET).
 
-## 0. Summary (draft)
+## 0. Summary
 
-Conjecture 6.4 of ETw asks for a k-ary analogue of ET Prop 2.4 for the
-*plain* sequential law σ. We do not settle it for σ itself. We prove the
-same weak `d·log(mass)` comparison for a slight modification σ̃ of σ, the
-**phantom-sequential law**: at each coordinate it also avoids completions
-of the *discarded* draws at earlier replaced coordinates. The proof needs
-no incident-weight hypothesis, no Markov removal, and no sparsity. Its two
-ingredients are a coupling in which the replaced set does not depend on the
-interpolation coins, and a one-dimensional extrapolation lemma for
-binomial laws. The cost is path-dependent, so only first moments of the
-window masses enter.
+| item | statement | label |
+|---|---|---|
+| §1 | phantom-sequential law σ̃: sequential conditioning that also avoids completions of the discarded draws at replaced coordinates | definition |
+| Lemma 2.1 | σ̃ avoids every pattern with a light top; conditional densities `≤ (1−δ)^{−1}` | PROVED |
+| Lemma 2.2 | the replaced set R is a function of the path; `ρ ↦ f(y^ρ)` has degree ≤ d | PROVED |
+| Lemma 2.3, (2.1), (3.1) | binomial extrapolation `g(1) ≤ B(n,t,d)·E_{Bern(t)} g` for nonneg degree-d g; explicit bounds | PROVED |
+| Lemma 2.4 | thinned law vs ν, with weight `exp(−(4/3)tM)` | PROVED |
+| **Thm 2.5** | **k-ary comparison, any arity, no incident-weight hypothesis:** `E_ν f ≥ E[e^{−Φ}f(y)]`, `Φ = log B(n,t,d) + (4/3)tM` | PROVED |
+| Cor 2.6 | mean cost `≤ d log(C₀(E M + 4d)/d) + O(d)`: weak ET Prop 2.4 form with mean mass | PROVED |
+| Thm 4.1 | sequential sieve limit with random step costs (S_w) | PROVED |
+| Lemmas 4.2–4.4 | inflation, first/second moments, leak for phantom blocks on ℛ(M)-families | PROVED |
+| **Thm 4.5** | **`S_λ ≪_B λ^{3/4}` for every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, twins/prime powers/any shape, unconditionally** | PROVED |
+| ETw Conj 6.4 for the plain σ | — | OPEN, no longer needed (§5) |
+| ETw Conj 4.5_r (H_MS form) | — | OPEN, not needed for 3/4 |
+| `kary_check.py` | Thm 2.5 by exact LP, 100 random systems (unary/binary/ternary), weighted value ≤ 1 | EVIDENCE |
+
+ETw Conjecture 6.4 asks for a k-ary analogue of ET Prop 2.4 for the plain
+sequential law σ. We do not settle it for σ itself. We prove the same weak
+`d·log(mass)` comparison, in fact with the mean mass, for a modification σ̃
+of σ, the **phantom-sequential law**. The proof needs no incident-weight
+hypothesis, no Markov removal and no sparsity. Its ingredients are a
+coupling in which the replaced set does not depend on the interpolation
+coins, and a one-dimensional extrapolation lemma for binomial laws. Because
+the step cost may be random (Theorem 4.1), only first moments of window
+masses enter. Consequence (Theorem 4.5): the 3/4 cap holds for all bounded-B
+ℛ(M)-families, twin moduli included, with no hypothesis and no `log λ`.
 
 ## 1. Setting
 
@@ -362,3 +378,43 @@ exceptional-set exponent θ > 3/4.
 base, ETw Lemma 1.1, is proved for ℛ(M) only). Theorem 2.5 itself is
 arithmetic-free, so for those families the open part is the base and the
 moment lemmas, not the k-ary step.
+
+## 5. Relation to ETw Conjecture 6.4, and what is left open
+
+* **Conj 6.4 for the plain sequential σ: still OPEN, and no longer
+  needed.** The proof of Theorem 2.5 needs the replaced set R to be a
+  function of the path alone (Lemma 2.2). For σ, whether ℓ must be
+  resampled depends on the *current* values `y_{<ℓ}`, which change with the
+  coins ρ; then `f(y^ρ)` has unbounded degree in ρ (cascades). The phantom
+  activations remove exactly this dependence. Their cost is a constant
+  factor in the activated mass: at most `2^{r−1}` (Lemma 4.3), and in the
+  sparse regime only `≈ θ·μ` extra (a phantom needs a replaced coordinate,
+  of total expected number μ, whose discarded value has incident weight
+  ≤ θ). In the brute-force LPs `log C*` for σ̃ and for σ agree to within a
+  few percent (`data/kary/`).
+* **No incident-weight or sparsity hypothesis.** Conj 6.4 assumed
+  incident weights `≤ θ₀(r)`, which forced the Markov removal (ETw Lemma
+  6.3) and Hyp K2. Theorem 2.5 holds for any pattern family; only the caps
+  `p̃_ℓ ≤ δ_ℓ ≤ 1/4` are used (for the 4/3 factors and the leak).
+* **Strength.** Theorem 2.5 gives `d(O(1) + log⁺(E M/d))`, the weak form
+  of ET Prop 2.4 with the mean mass. It is not the H_MS form of ETw
+  Conj 4.5_r (a k-ary pattern costing `e^{−α Σ s}`); that sharper
+  statement is not needed for the 3/4 question and remains open.
+* **Unary sanity check.** For unary patterns σ̃ = σ = ν conditioned off the
+  forbidden sets, and Theorem 2.5 reproves ET Prop 2.4 in its weak form for
+  a single band (cost ≈ `d log(μ/d)` against ET's `(d/2)log(μ/d)`), by a
+  different route: interpolation in the *replacement* coins on the hit set
+  of an unconditioned draw, instead of thinning and symmetrisation of the
+  hit indicators.
+
+## Replay
+
+```
+# Theorem 2.5 / Remark 2.7 by exact LP on random small systems (each run < 40 min, < 1 GB)
+cd scripts
+uv run --with scipy --with numpy python kary_check.py 30 1        > ../data/kary/check_sparse_seed1.txt
+uv run --with scipy --with numpy python kary_check.py 40 2 dense  > ../data/kary/check_dense_seed2.txt
+uv run --with scipy --with numpy python kary_check.py 30 3 graph  > ../data/kary/check_graph_seed3.txt
+# (2.1) and (3.1) for the explicit node sets of §3, 7128 triples (~1 min)
+uv run --with scipy --with numpy python kary_b21_check.py
+```
