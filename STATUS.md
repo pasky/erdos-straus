@@ -101,26 +101,26 @@ witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
   and the 3/4 blind audit (~25 s; the THETA LP runs only with
   `uv run --with scipy python verify.py`).
 
-## Exceptional-set exponent: where it stands (2026-10-02)
+## Exceptional-set exponent: where it stands (2026-10-04)
 
-`EXCEPTIONAL_THETA.md` (reviewed, merged) proves that **3/4 is sharp** for
-every nonnegative CRT-majorant sieve built from forced classes whose moduli
-have a dominant prime. This class contains the 3/4 note's own majorant
-(DISCOVERIES (D)9). The note's mass heuristic θ=B/(B+1) is now a theorem
-for that class. No θ>3/4 was found. Beating 3/4 requires at least one of:
-* balanced moduli used jointly (they carry a positive share of the cubic
-  supply; open; reduced to H_MS^{Sel} for Λ² sieves). `EXCEPTIONAL_BALANCED.md`
-  (reviewed) reduces the *gapped* balanced moduli, for each fixed B, to one
-  arithmetic extremal statement (E_δ). `EXCEPTIONAL_TWIN.md` (reviewed) then
-  proves the gapped case unconditionally, with no need for (E_δ). The η-twin
-  moduli (top two primes at comparable scale) are the open core. They reduce
-  to an arithmetic-free comparison inequality (Conj 6.4), and for Λ² sieves
-  to a sparse noise-stability statement (Conj 6.8). For Λ² sieves with at
-  most two large primes per modulus, the cap is now proved, twins included
-  (`EXCEPTIONAL_TWIN3.md`);
-* multipliers beyond N^{O(1)};
-* signed cancellation in rounding errors;
-* a non-CRT input (actual arithmetic of `(p+a)/4`).
+**3/4 is now proved sharp for congruence sieves built from forced classes
+(internal; doubly reviewed).** See `EXCEPTIONAL_KARY.md` Thm 4.5.
+* For every family of ℛ(M) forced classes with `M ≤ P(M)^{1+B}` (B fixed),
+  every nonnegative CRT majorant saves at most `≪_B (log N)^{3/4}`. This
+  includes twin and balanced moduli.
+* Earlier steps: `EXCEPTIONAL_THETA.md` (dominant primes),
+  `EXCEPTIONAL_TWIN*.md` (gapped moduli; Λ² sieves with r large primes, B
+  removed for fixed r), `EXCEPTIONAL_NONCRT.md` (per-frequency signed
+  rounding, prime-only majorants and CRT moment methods are also capped at
+  3/4).
+* So the 3/4 note's exponent cannot be improved within this architecture.
+
+A θ>3/4 proof would need at least one of:
+* cancellation between frequencies (a direct interval count);
+* per-frequency weights below 1;
+* non-CRT tuple counts or other genuinely arithmetic input;
+* classes outside the ℛ(M) family with unbounded `log M/log P(M)` for
+  general majorants (B-removal is sketched only).
 
 Papers in `paper/`:
 * `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
