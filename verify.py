@@ -17304,4 +17304,61 @@ print("\n== (cm) EXCEPTIONAL_NONCRT: Walsh coefficient vs Fourier mass, Lemma 2.
 check_cm()
 
 
+
+# ---------------------------------------------------------------- (cn)
+# POINTWISE_OMEGA5.md Lemma 1.1 (squarefree lifting) and Cor 1.2, exhaustively:
+# for q <= 80, every w mod q, X in {q-1, q, 3q+2, 600}:
+#   #{(s,t): s squarefree, st^2 <= X, st^2 = w (q)} <= X/q + 1, and (s,t) -> st^2
+# is injective (each n = st^2 has one such factorisation).  Cor 1.2 for odd
+# squarefree q <= 400 coprime to h <= 12, w = (4h)^-1 mod q, t0 = floor(sqrt(q/(4h))),
+# Y <= 2q: N^sf <= Y t0^2/q + 1 <= Y/(4h) + 1.  Control: dropping
+# "s squarefree" breaks the X/q + 1 bound (the over-count of O4's remark).
+
+def check_cn():
+    from time import perf_counter
+    t0 = perf_counter()
+    XM = 600
+    sqf = [False] + [all(e == 1 for e in factorint(n).values()) for n in range(1, 3 * 80 * 81 + 1)]
+    pairs = [(s, t) for t in range(1, isqrt(XM) + 1) for s in range(1, XM // (t * t) + 1) if sqf[s]]
+    ns = [s * t * t for s, t in pairs]
+    assert sorted(ns) == list(range(1, XM + 1)), "OMEGA5 Lemma 1.1: n = st^2 not a bijection"
+    ncase = 0
+    ctrl = 0
+    for q in range(1, 81):
+        for X in sorted({max(1, q - 1), q, 3 * q + 2, XM}):
+            cnt = Counter(n % q for n in ns if n <= X)
+            assert max(cnt.values()) <= X / q + 1, ("OMEGA5 Lemma 1.1", q, X)
+            allc = Counter((s * t * t) % q for t in range(1, isqrt(X) + 1) for s in range(1, X // (t * t) + 1))
+            ctrl += max(allc.values()) > X / q + 1
+            ncase += q
+    assert ctrl > 0, "OMEGA5 control: non-squarefree count never exceeds X/q + 1"
+    ncor = 0
+    for q in range(3, 401, 2):
+        if not sqf[q]:
+            continue
+        for h in range(1, 13):
+            if gcd(4 * h, q) != 1:
+                continue
+            w = pow(4 * h, -1, q)
+            tt = isqrt(q // (4 * h))
+            while (tt + 1) ** 2 * 4 * h <= q:
+                tt += 1
+            while tt * tt * 4 * h > q:
+                tt -= 1
+            if tt == 0:
+                continue
+            for Y in (1, h, 4 * h, q // 3 + 1, 2 * q):
+                N = sum(1 for t in range(1, tt + 1) for s in range(1, Y + 1)
+                        if sqf[s] and (s * t * t - w) % q == 0)
+                assert N <= Y * tt * tt / q + 1 <= Y / (4 * h) + 1, ("OMEGA5 Cor 1.2", q, h, Y, N)
+                ncor += 1
+    print(f"cn Lemma 1.1: bijection n = st^2 (n <= {XM}); {ncase} (q, X, w) cases OK; control: "
+          f"{ctrl} (q, X) cases exceed X/q + 1 without squarefreeness")
+    print(f"cn Cor 1.2: {ncor} (q, h, Y) cases OK; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2 ==")
+check_cn()
+
+
 print("\nall checks passed")
