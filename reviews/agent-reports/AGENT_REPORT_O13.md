@@ -58,3 +58,28 @@ later.
 
 * Hostile review of §1–§2 (Theorem 2.3), Def 2.0 and Cor 4.1.
 * Decide whether to correct O4 §4.2 (saturated hubs) and DISCOVERIES (H)14.
+
+## Checkpoint 2 (HC_Π, round 2): POINTWISE_OMEGA5 §7
+
+* **Reparametrisation.** Fixing `(a,b)` instead of `(s,a)` turns the
+  m-sum into `τ(a+b)`, a divisor function of a *linear* form, instead of
+  `τ_Π(4sa²+1)`. For fixed `(a,b,m)` the atoms form one progression
+  (Lemma 7.0). This splits the large-m part as `P_0 + (𝓛/2)P_1`
+  (first terms + period terms).
+* **Prop 7.1 (PROVED, explicit):**
+  `P_1 ≤ 4𝓛²[2^{ω+1}(2+𝓛)/q + τ*(12q²)/q + 6h_3^{−1/4}]`. So the period
+  part of HC_Π holds with a=1/4. The proof is elementary divisor
+  switching in the long variable once it exceeds `3q²`, plus the pointwise
+  `τ*(12q²)`, which the factor 1/q absorbs. **Henriot / Nair–Tenenbaum are
+  not needed.** Their hypotheses (progression length ≥ `modulus^{1+ε}`,
+  α-dependent constants) would not fit the short ranges anyway.
+* **Open: the first terms P_0** (one atom per `(a,b,m)`; m-system cores
+  `s<2qm`) for `m>H^{1/3}`.
+  * For `H^{1/6}<m≤H^{1/3−ε}`, a per-m thin-box sketch works
+    (Assessment; boxes with `A` or `B≥qm` not redone).
+  * For `m>H^{1/3}`, the residual is a core-counting problem for the moduli
+    `qm`, averaged over Π-smooth m. It is not a divisor-sum problem.
+  * (DIV) for unbalanced rays is a sub-case of P_0.
+* Still: HC* not proved; proved rate = O4 Cor 3.1.
+* Not done: numerics splitting the m>1 part into P_0 and P_1. A review of
+  §7 is requested.
