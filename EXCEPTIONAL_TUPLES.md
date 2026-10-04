@@ -12,28 +12,33 @@ is claimed unconditionally. ES is not solved.
 | Lemma 1.3 | **shift form**: for the prime family, order-k witness correlations are k-point correlations of ω-type functions `ω_{y,D}(n+4D)` along shifts `4D`, `D | ((ℓ+1)/4)²` | PROVED |
 | Thm 2.1, Cor 2.2 | TC(N;K,y,η) (order-j sums ≈ CRT, j ≤ K, error ηN) ⇒ `#{f_y=0} ≤ N(Π(1−p_ℓ) + e_K(p) + Kη)`; at `μ_y ≈ K/e²`, `η = e^{−K/e²}/K`: `E(N) ≤ (e+2)N e^{−K/e²}` | PROVED |
 | Cor 2.3 | **TC_θ ⇒ `E(N) ≤ N exp(−(2/e²−o(1))(log N)^θ)`**; TC_θ with θ > 3/4 gives the θ > 3/4 target | CONDITIONAL on TC_θ (CONJECTURE) |
-| Prop 2.4 | TC holds unconditionally for `K ≤ c(log N)^{2/3}` (Brun's pure sieve; recovers 2/3) | PROVED |
+| Prop 2.4 | TC holds unconditionally for `K ≤ c(log N)^{2/3}` (Brun's pure sieve; recovers 2/3); so TC_θ holds for θ < 2/3 | PROVED |
 | Thm 3.1, Cor 3.2, 3.3 | majorants of prime-slice ES families whose terms have level ≤ A log N **or** order ≤ k save `≤ C[(log N)^{3/4} + k log log N]` (CRT-main-term evaluation); **bounded-order correlation input of any precision cannot give θ > 3/4**; saving `(log N)^θ` needs order `≥ c(log N)^θ/log log N`, and order `2⌈(log N)^θ⌉` suffices under TC | PROVED (via ET Prop 2.4) |
 | Cor 3.4 | all K2 families: order-k majorants (moduli ≤ N^A) save `≤ C(k log N)^{3/4}(log(k log N))^{3/4}`; bounded k useless | PROVED (from K2 Thm 5.1) |
 | Prop 4.1 | no Kubilius-type (total-variation) model for the ES hit vector once `log y ≥ C(log N)^{1/3}` (entropy `≍ (log y)³`) | PROVED |
-| Prop 4.2 | TC fails for `K ≥ (e²/2+ε) log N` (squares avoid all classes) | PROVED |
-| Ass. 4.3 | no known theorem or standard conjecture supplies TC_θ for any θ > 2/3: all divisor-correlation results/conjectures have a fixed number of shifts; EH-type inputs live below N; the Kubilius model needs a single shift | Assessment |
-| §5 | toy data: avoiders = CRT + squares; moments above N a few % below CRT, deficit shrinking like a power of N at fixed y; TC holds at `K = 2(log N)^{0.82}`, fails at `2(log N)^{0.95}` for N ≤ 10⁸ (pre-asymptotic, random control fails too) | EVIDENCE |
+| Prop 4.2 | TC fails for even `K ≥ (e²/2+ε) log N` (squares avoid all classes) | PROVED |
+| Prop 4.3 | majorants built only from the hits along a fixed set of r shifts `n+4D` (any order, any modulus) have `Eν ≥ exp(−2r(log log y + 3))` | PROVED |
+| Ass. 4.4 | no known theorem or standard conjecture supplies TC_θ for any θ > 2/3: divisor-correlation results/conjectures have a fixed number of shifts (Prop 4.3) or are shift-averaged; EH-type inputs live below N; the Kubilius model needs a single shift | Assessment |
+| §5 | toy data (N ≤ 10⁸): avoider excess over CRT positive, rising with y towards the square density, reproduced by a random-non-residue control; for y ≤ 1000, j ≤ 12 the moments above N are a few % below CRT and approach it as N grows; the TC test at the supplied y passes for y ≤ 100 and fails for y ≥ 300 (a random control fails too, so this is not ES-specific) | EVIDENCE |
 
 **Verdict.** The tuple-count door is now a precise statement. One
 natural, falsifiable hypothesis TC_θ about the first K moments of the
 witness count of the *prime* family (small primes `ℓ ≤ exp(O(K^{1/2}))`,
 combined moduli `exp((log N)^{3θ/2})`) gives θ (Cor 2.3). It is a theorem
-for θ ≤ 2/3 (Prop 2.4) and false at θ = 1 (Prop 4.2). Conversely, input
+for θ < 2/3 (Prop 2.4). The TC family is false at order `K ≥ 3.7 log N`
+(Prop 4.2); TC_θ at θ = 1 itself is not decided. Conversely, input
 of bounded order, or of order `o((log N)^{3/4}/log log N)` for prime-slice
 families, is useless for θ > 3/4 whatever its precision, even combined with
 arbitrary CRT majorant terms of level `≤ A log N`, as long as the
 evaluation asserts CRT main terms (Cor 3.3).
-So the needed order is `(log N)^θ` up to `log log N`. Every known
-divisor-correlation theorem (Heath-Brown, Deshouillers–Iwaniec,
-Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and every standard conjecture of
-Hardy–Littlewood/Elliott type has fixed order, so none can open this
-door. The only all-order mechanism known (the Kubilius model) is
+So the needed order is `(log N)^θ` up to `log log N`. The known
+divisor-correlation theorems (Heath-Brown, Deshouillers–Iwaniec,
+Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and the standard conjectures of
+Hardy–Littlewood/Elliott type concern a *fixed number of shifts*. That is
+a different axis from witness order (each τ(n+h) involves all orders).
+Information about any fixed set of r shifts is capped separately: it
+saves `≤ 2r(log log N + O(1))` (Prop 4.3). So none of these results can
+open the door on its own (Assessment 4.4). The only all-order mechanism known (the Kubilius model) is
 single-shift, and Prop 4.1 rules out its total-variation form here. The door
 is open only through a new "many-shift Kubilius model in the moment
 sense" (TC_θ), for which we know no approach.
@@ -153,7 +158,8 @@ Under the CRT law the same identity gives
 = Π(1−p_ℓ) + e_K(p)`. ∎
 
 **Corollary 2.2 (PROVED).** Let `K ≥ 2` be even and let `y_K` be the
-largest y with `μ_y ≤ K/e²`, and `η_K := e^{−K/e²}/K`. If
+largest integer y with `μ_y ≤ K/e²` (it exists since `μ_y → ∞`; `𝒫_{y_K}`
+may be empty, e.g. `y_2 = 2`), and `η_K := e^{−K/e²}/K`. If
 TC(N; K, y_K, η_K) holds, then
 
     E(N) ≤ (e + 2) N e^{−K/e²}.
@@ -287,13 +293,19 @@ produce a deficit larger than `½N·Eν`. A low-level part evaluated
 For majorants built only from classes of modulus ≤ N/2, IF Thm 2.2/2.5
 show that no such deficit occurs; for mixed ν this is open.) Then its saving `log(N/B)` is at most
 `C₉[(log N)^{3/4} + k log log N] + log(P/φ(P)) + log 2`. Hence:
-* bounded k (any fixed order; e.g. pair or triple correlations of
-  witnesses, however precise) cannot give θ > 3/4;
+* bounded k (any fixed witness order, i.e. at most k hit indicators per
+  term; e.g. pair or triple witness correlations, however precise) cannot
+  give θ > 3/4;
 * a saving `(log N)^θ` with θ > 3/4 needs `k ≥ c(log N)^θ/log log N`.
 
+(Both bullets assume the selector term is negligible,
+`log(P/φ(P)) = o((log N)^θ)`, as in ET Cor 3.4; it is
+`≤ log log log P + O(1)`, and `P = 1` for the prime family.)
+
 Together with Corollary 2.2 (order K = 2⌈(log N)^θ⌉ suffices for the
-prime family, which after dropping the finitely many `ℓ < ℓ₀(C)` is a
-Cor 3.2 family; dropping them changes `μ_y` by O(1)): **the correlation order needed for saving `(log N)^θ` is
+prime family; Theorem 2.1 and Cor 2.2 hold verbatim for the prime family
+restricted to `ℓ ≥ ℓ₀(C)`, with TC stated for that restricted family,
+which is a Cor 3.2 family; the restriction changes `μ_y` by O(1)): **the correlation order needed for saving `(log N)^θ` is
 `(log N)^θ` up to a factor `log log N`, in both directions.** ∎
 
 **Corollary 3.4 (all K2 families, weaker; PROVED from K2 Thm 5.1).** Let
@@ -339,7 +351,7 @@ entropy, which is exactly why the cubic supply helps the CRT model and
 also why no TV model survives above level N.
 
 **Proposition 4.2 (TC fails at order ≍ log N; PROVED).** If
-`K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, η_K) is false.
+K is even, `K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, η_K) is false.
 
 *Proof.* Squares lie in no class of 𝓡(ℓ). Indeed, for a prime `q | A`
 (A = (ℓ+1)/4) we have `ℓ ≡ −1 (mod q)`; for odd q reciprocity with
@@ -351,8 +363,9 @@ non-residue (the Mordell/Jacobi obstruction used in K2). So
 `(e+2)N e^{−K/e²} ≤ (e+2)N^{1/2−ε'}` for such K and large N. ∎
 
 So TC(N; K, y_K, η_K) is a theorem for `K ≤ c₀(log N)^{2/3}`
-(Prop 2.4), false for `K ≥ 4 log N` (Prop 4.2), and TC_θ for
-`3/4 < θ < 1` is the open middle. It is falsifiable at every finite N by
+(Prop 2.4; hence TC_θ holds for θ < 2/3) and false for even `K ≥ 3.7 log N`
+(Prop 4.2). TC_θ for `2/3 ≤ θ < 1` is open (θ = 1 itself, with
+`K = 2⌈log N⌉ < 3.7 log N`, is not decided by Prop 4.2). It is falsifiable at every finite N by
 computing K moments (§5).
 
 ### 4.2 Known divisor-type correlation results, measured against TC_θ
@@ -377,17 +390,44 @@ precision `e^{−ck}` in moments of size `e^{ck}`.
 (Dates/precisions are as remembered from the literature and serve only to
 place each result on the three axes; none is used in a proof.)
 
-**Assessment 4.3.** No known theorem, and no standard conjecture that we
+**Proposition 4.3 (a fixed set of shifts is worth O(r log log y); PROVED).**
+Let 𝒮 be a set of r positive integers, and let 𝒲_𝒮 be the classes
+`−4D mod ℓ` with `ℓ ∈ 𝒫_y`, `D ∈ 𝒮`, `D | A_ℓ²` (the events `ℓ | n+4D`,
+D ∈ 𝒮). Let ν ≥ 0 be any finite combination of indicators of
+intersections of classes of 𝒲_𝒮 (any number of them, any combined
+modulus) with ν ≥ 1 on the avoider set of the full prime family. Then
+
+    Eν ≥ Π_{ℓ∈𝒫_y}(1 − r_ℓ/ℓ) ≥ exp(−2r(log log y + 3)),
+
+where `r_ℓ ≤ min(r, ℓ−1)` is the number of distinct residues `−4D mod ℓ`.
+
+*Proof.* ν(n) depends only on the hit vector `(1_W(n))_{W∈𝒲_𝒮}`; let
+`G(0)` be its value at the zero vector. The full avoider set is nonempty
+(`0 ∉ 𝓡(ℓ)`, so every multiple of `Π_{𝒫_y}ℓ` avoids), and on it the
+𝒲_𝒮-vector is 0, so `G(0) ≥ 1`. Hence ν ≥ 1 on the 𝒲_𝒮-avoider set,
+whose density is `Π(1 − r_ℓ/ℓ)` by CRT. For `ℓ > 2r` use
+`1 − x ≥ e^{−2x}` (x ≤ ½) and `Σ_{ℓ≤y}1/ℓ ≤ log log y + 1`; for `ℓ ≤ 2r`
+use `1 − r_ℓ/ℓ ≥ 1/ℓ` and `Σ_{ℓ≤2r} log ℓ ≤ 1.04·2r`. ∎
+
+So information of any order and precision about a *fixed* set of r
+shifts, evaluated with CRT main terms (bound ≥ ½N·Eν), saves at most
+`2r(log log N + O(1))` when `y ≤ N^{O(1)}`. Not covered: methods that
+combine fixed-shift statements for *all* shift tuples (e.g. a pair
+correlation for every pair of shifts), or that mix them with other
+terms.
+
+**Assessment 4.4.** No known theorem, and no standard conjecture that we
 know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
-* All divisor-correlation theorems and the standard conjectures
+* The divisor-correlation theorems and the standard conjectures
   (Hardy–Littlewood/Elliott/Chowla type, binary/ternary additive divisor
-  problems) have a **fixed number of shifts**. By Cor 3.3 (prime-slice
-  families) and Cor 3.4 (all K2 families), fixed order gives no θ > 3/4,
-  even with a power-saving error and combined with any CRT majorant terms
-  of level `≤ A log N`. This is a theorem about methods that assert
-  CRT/local-density main terms, which all of these hypotheses do (Cor 3.3
-  scope note: exact low-level evaluation with a large favourable deficit
-  is not covered).
+  problems) concern a **fixed number of shifts**, each with all orders of
+  divisibility. Used for one fixed shift tuple they are capped by Prop 4.3.
+  TC_θ needs `≍ K` distinct shifts among `≍ y_K²` jointly. Shift-averaged
+  results (MRT, Browning, Blomer) average over shifts and do not give
+  joint K-shift statistics. Hypotheses of bounded *witness* order are
+  capped by Cor 3.3/3.4. Both caps concern methods that assert CRT main
+  terms. No theorem here excludes a clever combination of fixed-shift
+  statements over all shift tuples; we know of no such mechanism.
 * Level-of-distribution statements (EH for τ_k, BV/BFI/DI) live below
   modulus N and are capped by IF Thm 2.5 / K2 Thm 5.1.
 * The only known mechanism controlling *all* orders above modulus N is the
@@ -399,15 +439,16 @@ know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
   the moment sense". We know of no result of this kind for even two
   shifts with `K → ∞` moments at relative precision `e^{−cK}`.
 * Uniform-in-k conjectures (k-tuple conjectures with k growing) are not
-  standard; and TC itself is false at k ≍ log N (Prop 4.2), so any such
-  conjecture must stop below order log N, as TC_θ (θ < 1) does.
+  standard; and TC itself is false at order `K ≥ 3.7 log N` (Prop 4.2),
+  so any such conjecture must stop below a multiple of log N.
 
 **Verdict on the door.** TC_θ is a *natural, falsifiable* hypothesis
-(CONJECTURE, not evidence-backed beyond §5): it is a theorem up to
-`θ = 2/3` (Prop 2.4), false at `θ = 1` (Prop 4.2), and for
-`3/4 < θ < 1` it implies the θ target (Cor 2.3). Bounded-order
-correlation input, of any precision, is useless for θ > 3/4 (Cor 3.3,
-3.4). The order needed is `(log N)^θ` up to `log log N` (Cor 2.2 + Cor 3.3).
+(CONJECTURE, weak evidence only, §5): it is a theorem for θ < 2/3
+(Prop 2.4), the TC family is false at order `≥ 3.7 log N` (Prop 4.2), and for
+`3/4 < θ < 1` it implies the θ target (Cor 2.3). Correlation input of
+bounded witness order, or about a fixed set of shifts, of any precision,
+is useless for θ > 3/4 under CRT-main-term evaluation (Cor 3.3, 3.4,
+Prop 4.3). The order needed is `(log N)^θ` up to `log log N` (Cor 2.2 + Cor 3.3).
 
 ## 5. Numerics (EVIDENCE, toy scale only)
 
