@@ -154,7 +154,12 @@ ET-file (2.4) minus `log(Q₀/|R|)`, computed with these weights:
 `Φ̄ = 19αλ + C₄ Σ_{s_ℓ≤λ} p̄_ℓ e^{−αs_ℓ} + G(75+log(2+λ/s_*)) + (G/2)log(16μ̄+16)`.
 Then for all λ ≥ s_*, α > 0,
 
-    Eν ≥ (|R|/Q₀) · [ (1 − ε) e^{−Φ̄(λ,α)} − 2ε ],   ε = e^{−λ} R_1(ν).     (2.4)
+    Eν ≥ (|R|/Q₀) · [ (1 − ε) e^{−Φ̄(λ,α)} − 2ε ],                    (2.4)
+
+    ε = ε_λ(ν) := Σ_{S: s(S)>λ} A_S(ν) e^{−s(S)} ≤ e^{−λ} R_1(ν).
+
+Only the Fourier mass of ν at frequencies of *level above λ* enters; the
+low-level Fourier mass is unrestricted.
 
 *Proof.* `Eν = Q₀⁻¹ Σ_c E[ν_c] ≥ (|R|/Q₀) avg_{c∈R} E ν_c` (ν ≥ 0).
 For c ∈ R, `ν_c ≥ 0` and `ν_c(0) ≥ 1` (the event `{c} × {x = 0}` lies in
@@ -223,6 +228,10 @@ most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
   selector (`W(m²) = +∞`, DISCOVERIES (C)12), about `√N/log log N` of
   them, and nothing forces more. So there is **no set-level obstruction**
   for θ < 1, and also no method: Theorem 2.3 says any such argument must
-  control `Σ_{n≤N}ν(n)` with cancellation across frequencies whose
-  denominators exceed `N` (by Cor 2.4, majorants whose Fourier mass at
-  level `> 2log 4N` is `< N` are capped).
+  control `Σ_{n≤N}ν(n)` for a majorant whose *high-level* Fourier mass is
+  large: by (2.4), if `ε_λ(ν) ≤ e^{−Φ̄(λ)}/4` at some λ, the saving is
+  `≤ Φ̄(λ) + O(1)`. To save `(log N)^θ` with θ > 3/4 one needs
+  `ε_λ(ν) > e^{−Cλ^{3/4}}/4` for all `λ ≤ (log N)^{4θ/3}/C'`, i.e.
+  Fourier mass `A_S ≳ e^{s(S) − Cλ^{3/4}}`, superpolynomial in N, at
+  frequencies whose denominators are superpolynomial in N, and then a
+  cancellation *among* those frequencies in (1.2).
