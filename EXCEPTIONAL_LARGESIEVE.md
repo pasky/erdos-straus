@@ -1,6 +1,6 @@
 # EXCEPTIONAL_LARGESIEVE — the large sieve over forced-class mixtures (task O17)
 
-Status: **checkpoint 1 (unreviewed).** Labels follow
+Status: **checkpoint 2.** Hostile review `reviews/exceptional-largesieve-review.md` (branch `side-agent/review-largesieve`): SOUND; D1–D10 applied. Labels follow
 `DISCOVERIES.md`. Notation: ET = `EXCEPTIONAL_THETA.md`, KARY2 =
 `EXCEPTIONAL_KARY2.md`, NONCRT = `EXCEPTIONAL_NONCRT.md`.
 
@@ -8,22 +8,35 @@ Status: **checkpoint 1 (unreviewed).** Labels follow
 
 | item | statement | label |
 |---|---|---|
-| Thm 2.1, Cor 2.2 | **Exact duality.** For any frequency set Θ and weights w, the best CRT-admissible large-sieve denominator is `F*_w = 1/m_w`, `m_w = min{Σ|γ_θ|²/w_θ : Re Σγ_θe(−nθ) ≥ 1 on 𝒜}`. Since every N-large-sieve system has `w_θ ≤ 1/N`, every such bound is `≥ N·E|g*|²`, and `|g*|²` is a nonnegative CRT majorant whose moduli are lcm's of two frequency denominators | PROVED |
-| Thm 3.1, Cor 3.2 | **Large-sieve cap for every forced-class mixture.** With KARY2 Thm 5.1: any CRT-admissible large sieve (Montgomery, weighted, Farey with prime, prime-power or composite moduli, forced classes used in any form, fibrewise over `Q₀`, weighted sequences) saves `≤ Cλ^{3/4}(log λ)^{3/4}`, `λ = λ(Q₀) + 2λ_Θ`. With denominators `≤ N^{O(1)}` and `Q₀ ≤ min(N^{O(1)}, N/2)`: `≤ C(log N)^{3/4}(log log N)^{3/4}`, and `C_B(log N)^{3/4}` under bounded B. No rounding term is needed | PROVED (Case A via ElT Prop 1.4, as in KARY2) |
-| Thm 4.1, Cor 4.2, Rem 4.4 | **Prime-slice systems, any frequencies** (any denominators, sparse sets, any weights): Fourier–Rankin bound `saving ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8Σ p̄_ℓ ℓ^{−α}`; for ET Cor 3.4 families (also fibrewise, `Q₀ ≤ N/2`) `≤ C(log N)^{3/4} + log(P/φ(P))` | PROVED |
+| Thm 2.1, Cor 2.2 | **Exact duality** (standard convex duality, not claimed new; the new step is Fact 1.1 + the level count of Thm 3.1). For any frequency set Θ and weights w, the best CRT-admissible large-sieve denominator is `F*_w = 1/m_w`, `m_w = min{Σ|γ_θ|²/w_θ : Re Σγ_θe(−nθ) ≥ 1 on 𝒜}`. Since every N-large-sieve system has `w_θ ≤ 1/N`, every such bound is `≥ N·E|g*|²`, and `|g*|²` is a nonnegative CRT majorant whose moduli are lcm's of two frequency denominators | PROVED |
+| Thm 3.1, Cor 3.2 | **Large-sieve cap for every forced-class mixture.** With KARY2 Thm 5.1: any CRT-admissible large sieve (Montgomery, weighted, multiplicative via Rem 2.5, Farey with prime, prime-power or composite moduli, forced classes used in any form, fibrewise over `Q₀`, weighted sequences under Rem 2.4's proviso; rational frequencies, untwisted sequences) saves `≤ Cλ^{3/4}(log λ)^{3/4}`, `λ = λ(Q₀) + 2λ_Θ`. With denominators `≤ N^{O(1)}` and `Q₀ ≤ min(N^{O(1)}, N/2)`: `≤ C(log N)^{3/4}(log log N)^{3/4}`, and `C_B(log N)^{3/4}` under bounded B. No rounding term is needed | PROVED, conditional on KARY2 Thm 5.1 (internal); Case A via ElT Prop 1.4 |
+| Thm 4.1, Cor 4.2, Rem 4.4 | **Prime-slice systems, any rational frequencies** (any denominators, sparse sets, any weights; Cor 4.2 needs all slice primes `≥ ℓ₀'(C)`): Fourier–Rankin bound `saving ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8Σ p̄_ℓ ℓ^{−α}`; for ET Cor 3.4 families (also fibrewise, `Q₀ ≤ N/2`) `≤ C(log N)^{3/4} + log(P/φ(P))` | PROVED |
 | §5.1, Ex 5.2 | **Key question.** For prime moduli, `S_c(Q)` ≤ exp(Rankin functional of the prime-local system used), tautologically. For composite moduli the small-prime-conditioned Euler product does **not** dominate (disjoint twin-pair classes are invisible to it but seen by the composite large sieve, usefully once `N ≳ m³/ω`); the dominating functional is the top-prime sequential one (Thm 3.1) | PROVED |
 | Thm 6.2, Cor 6.3 | **Larger-sieve kernels** `K = Σ_q w(q)1[q|m]` (composite q allowed) save `≤ log(1 + N·X(π)/(W−h))`, `X(π) = Σ_q (w(q)/q)χ²_q(π)` (χ² of the mod-q marginals, q as in the kernel) for any `π` on 𝒜. For **Gallagher's** weights (Λ on prime powers) this is `≤ X(π) + O(1)`, and `O(1)` on ET Cor 3.4 prime slices | PROVED |
-| §7 | **Exact escape.** (E1) frequencies of super-polynomial level (`λ_Θ ≥ (log N)^{1+ε}`) against multi-large-prime classes, needing (H_LS); (E2) the larger sieve over mixtures, needing (H_Gal); (E3) non-CRT interval information; (E4) KARY2's inherited exclusions | (H_LS), (H_Gal): CONJECTURE/open |
-| §8 | duality, `F* = S(Q)` for product systems, Ex 5.2, Thm 4.1 bound: checked on small systems | EVIDENCE |
+| §7 | **Exact escape.** (E1) frequencies of super-polynomial level (`λ_Θ ≥ (log N)^{1+ε}`, computed on `den θ | M₀`, Rem 3.3) against multi-large-prime classes, needing (H_LS); (E2) the larger sieve over mixtures: (E2a) Gallagher as used needs only support bounds on `|𝒜 mod ℓ^v|`, (E2b) the optimal kernel needs (H_Gal); (E3) non-CRT interval information; (E4) KARY2's inherited exclusions | (H_LS), (H_Gal): CONJECTURE/open |
+| Prop 2.6 | for prime product systems `F*_1 = S(Q)`: Montgomery's arithmetic large sieve is already CRT-optimal | PROVED |
+| Rem 2.5 | the multiplicative (character) large sieve is dominated pointwise by the additive Farey functional (Gauss sums), so it is covered by Thm 3.1 | PROVED |
+| §8 | duality (Farey and sparse frequency sets), Prop 2.6, Ex 5.2, Thm 4.1 bound: checked on small systems | EVIDENCE |
 
-**Bottom line.** The large-sieve door is closed for every form used in
-the literature on this problem (Vaughan 1970, Pomerance–Weingartner §4,
-the 2/3 note) and for all their composite-moduli/fibrewise variants: by
-duality, the optimal large sieve *is* a Selberg-square CRT majorant of
-level `≤ 2 log Q + log Q₀`, so KARY2's 3/4 cap applies with no rounding
-term. The only remaining large-sieve escape is (E1): rational
-frequencies with super-polynomially large denominators, which are
-provably useless on prime slices and conjecturally useless in general.
+**Constants (review D10).** As in KARY2, W is absolute but astronomical
+(`log W ≈ 10^{10}`). For every practical N all W-rough levels vanish, and
+the caps are pure asymptotics.
+
+**Bottom line.** The large-sieve door is closed for the forms used on
+this problem: the 2/3 note (checked in the text, Remark 3.4), and Vaughan
+1970 and Pomerance–Weingartner §4 on the 2/3 note's description of them.
+It is also closed for their composite-moduli, fibrewise, multiplicative
+and weighted variants. The reason: by duality, the optimal large sieve
+*is* a Selberg-square CRT majorant of level `≤ 2λ_Θ + λ(Q₀)`, so KARY2's
+3/4 cap applies with no rounding term. Remaining large-sieve-type
+escapes:
+* (E1) rational frequencies whose denominators have super-polynomial
+  level inside the family modulus. These are provably useless on prime
+  slices and conjecturally useless in general.
+* (E2) the larger sieve over mixtures: (E2a) support bounds; (E2b)
+  (H_Gal).
+* Twisted sequences and hybrids (§1 scope); these are not used in the
+  literature.
 
 ## 1. Setting
 
@@ -191,6 +204,24 @@ CRT-admissible lower bound `L` in character form is therefore also one
 for the additive Farey system with the same `N + Q²`. Theorem 3.1 applies
 with `λ_Θ ≤ log Q`.
 
+**Proposition 2.6 (for prime product systems Montgomery's sieve is
+CRT-optimal; PROVED; review D9).** Let P be squarefree and
+`𝒜 = {n : n mod p ∉ Ω(p) for all p | P}` with `1 ≤ ω(p) < p`, and let Θ
+be the full Farey set `{a/q : q ≤ Q, (a,q) = 1}` with `w ≡ 1`. Then
+`F*_1 = S(Q) = Σ_{q≤Q, q|P} μ²(q)Π_{p|q} h(p)`, `h(p) = ω(p)/(p−ω(p))`.
+
+*Proof.* (≥) Montgomery's lemma gives `D_q(π) ≥ Π_{p|q}h(p)` for
+squarefree `q | P` and every π supported on 𝒜; the other `D_q` are
+`≥ 0`. (≤) Let π be uniform on 𝒜 mod `M'`. It is a product over p | P
+of uniform laws on `ℤ/p ∖ Ω(p)`, and all other CRT digits are uniform.
+So `π̂(a/q) = 0` unless q is squarefree with `q | P`. For such q, CRT
+factors `D_q(π) = Π_{p|q} Σ_{a≢0 (p)} |π̂_p(a/p)|² = Π_{p|q}
+(p/(p−ω(p)) − 1) = Π_{p|q} h(p)`. Summing over `q ≤ Q` gives `S(Q)`. ∎
+
+So in the product case the classical arithmetic large sieve loses
+nothing against the optimum. The gain from Theorem 2.1 lies entirely in
+non-product (mixture) systems.
+
 ## 3. The cap for frequencies of polynomial level
 
 **Fibrewise large sieves.** Fix a modulus `Q₀` (the small modulus). For
@@ -319,7 +350,7 @@ does the rest.
 `Σ_θ w_θ ≤ 1`. *Proof.* Average (LS) over independent random signs
 `a_n = ±1`: `E|Σ_n a_n e(nθ)|² = N`, so `N Σ_θ w_θ ≤ N`. ∎
 
-**Theorem 4.1 (large-sieve cap for prime-slice systems, any frequencies;
+**Theorem 4.1 (large-sieve cap for prime-slice systems, any rational frequencies;
 PROVED).** Take a prime-slice system `(Q₀, R, 𝒫, F_ℓ(c))` as in ET §1
 (classes mod `q₀ℓ`, `q₀ | Q₀`, `ℓ ∈ 𝒫` prime, `ℓ ∤ Q₀`). Assume, for some
 `0 ≤ κ < 1` and all `c ∈ R`, `ℓ ∈ 𝒫`:
@@ -327,7 +358,7 @@ PROVED).** Take a prime-slice system `(Q₀, R, 𝒫, F_ℓ(c))` as in ET §1
     f_ℓ(c) := |F_ℓ(c)| ≤ min(ℓ/2, ℓ^κ).
 
 Put `p̄_ℓ = E_{c∈R} f_ℓ(c)/ℓ` (no truncation). Then every CRT-admissible
-bound B from any N-large-sieve system `(Θ,w)` — any frequencies, any
+bound B from any N-large-sieve system `(Θ,w)` — any rational frequencies, any
 denominators, any weights — for `A ⊂ 𝒜 ∩ I` satisfies, for every
 `0 < α ≤ 1−κ`,
 
@@ -417,7 +448,7 @@ runs fibre by fibre over `c mod Q₀`. In fibre `c ∈ R`, `n = c + Q₀m`,
 the set `𝒜_c` is a pure product system in m (the slice classes become
 `m ∉ Q₀^{−1}(F_ℓ(c) − c) mod ℓ`), so Theorem 4.1 applies with small
 modulus 1 and no Markov step:
-`log(N_c/B_c) ≤ β log N_c + 4Σ_ℓ (f_ℓ(c)/ℓ)ℓ^{−α}`, any frequencies in
+`log(N_c/B_c) ≤ β log N_c + 4Σ_ℓ (f_ℓ(c)/ℓ)ℓ^{−α}`, any rational frequencies in
 each fibre. Fibres `c ∉ R` are empty. Jensen over `c ∈ R` and
 `N_c ≥ ⌊N/Q₀⌋` (assume `Q₀ ≤ N/2`, so `Q₀⌊N/Q₀⌋ ≥ N/2`) give the total saving
 `≤ log 2 + log(Q₀/|R|) + β log N + 4Σ_ℓ p̄_ℓ ℓ^{−α}`.
@@ -579,7 +610,8 @@ only in the following forms (all with `Q₀ ≤ min(N^{O(1)}, N/2)`).
 classes.** By Theorem 3.1 the saving is `≤ Cλ^{3/4}(log λ)^{3/4}` with
 `λ = λ(Q₀) + 2λ_Θ` **for every level**. So a saving
 `≥ (log N)^{3/4+ε}` needs, for N large, `λ_Θ ≥ (log N)^{1+ε}`:
-frequencies `a/d` whose W-rough part of `d` exceeds `N^{(log N)^ε}`. Such
+frequencies `a/d` with `d | M₀` (Remark 3.3: other frequencies are
+useless) whose W-rough part exceeds `N^{(log N)^ε}`. Such
 points are allowed in Montgomery's inequality (it only needs δ-spacing
 with `δ^{−1} ≲ N`, and by Fact 4.0 the total weight is ≤ 1), but they
 are useful only if `𝒜` has non-product structure across many large
@@ -591,7 +623,7 @@ of the denominator:
 > `log Σ_θ |π̂(θ)|^{2+2β} ≤ C(log N)^{3/4}·polylog`.
 
 By the Hölder step of Theorem 4.1, (H_LS) caps **every** N-large-sieve
-system, any frequencies. For KARY's sequential law the transform decays
+system, any rational frequencies. For KARY's sequential law the transform decays
 at the top prime of the denominator only (`|E[e(a n/ℓ) | history]| ≤
 g_ℓ`); products over several large primes would need conditional
 independence that classes such as ℛ(ℓ₁ℓ₂) destroy. (H_LS) is
@@ -637,17 +669,16 @@ must be bounded for the family at hand.
 
 ## 8. Numerics (EVIDENCE only)
 
-`scripts/ls_duality_check.py` (~10 s, cvxpy):
+`scripts/ls_duality_check.py` (~3 s wall clock; cvxpy):
 1. Theorem 2.1 on 12 random class systems (moduli products of 1–2 primes
    from {3,…,13}, random weights; 6 Farey sets and 6 sparse sets of
    5 random nonzero frequencies plus 0, not closed under conjugation):
    the two QPs give `F*_w·m_w = 1` to `1.2·10⁻¹⁴`. Degenerate case (no
    classes, Θ without 0): `F* = 0` and the dual is infeasible, as the
    theorem says. Solver status and all tolerances are asserted.
-2. Prime-only systems with Farey frequencies: `F*_1 = S(Q)` to `5·10⁻¹⁴`
-   in 8 cases. So for product systems the arithmetic large sieve
-   (Montgomery's lemma) is already the CRT-optimal large sieve; the
-   uniform measure on 𝒜 attains `F*`.
+2. Prime-only systems with Farey frequencies: `F*_1 = S(Q)` to
+   `5·10⁻¹⁴` in 8 cases, confirming Proposition 2.6 (now PROVED, not
+   only EVIDENCE).
 3. Analogues of Example 5.2 with `m = 35 = 5·7` and `143 = 11·13`
    (these violate its crude sufficient condition `ω_j < ℓ_j`: ω = 5, 22;
    emptiness is checked directly): all residues mod 5, 7, 11, 13 occur
@@ -660,5 +691,5 @@ must be bounded for the family at hand.
 ## Replay
 
 ```
-PYTHONPATH=scripts uv run --with cvxpy --with numpy python scripts/ls_duality_check.py   # ~10 s
+PYTHONPATH=scripts uv run --with cvxpy --with numpy python scripts/ls_duality_check.py   # ~3 s
 ```

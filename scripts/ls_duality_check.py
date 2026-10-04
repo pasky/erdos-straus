@@ -1,13 +1,15 @@
 """EXCEPTIONAL_LARGESIEVE.md numerics (EVIDENCE only).
 
-(1) Theorem 2.1: F*_w * m_w = 1 on random small class systems (two QPs).
-(2) Montgomery's lemma sanity check: for prime-only systems with Farey
-    frequencies, F*_1 >= S(Q) (the arithmetic large sieve is CRT-admissible).
+(1) Theorem 2.1: F*_w * m_w = 1 on random small class systems (two QPs;
+    Farey and sparse non-conjugate-closed frequency sets; degenerate F*=0 case).
+(2) Proposition 2.6: for prime-only (product) systems with full Farey
+    frequencies, F*_1 = S(Q) (asserted to 1e-5).
 (3) Example 5.2: twin pair system: induced prime-local system empty, but
     the composite modulus sees F* >= 1 + g.
 (4) Theorem 4.1: the Hausdorff-Young/Jensen bound for R(pi) on random
     prime-slice systems, computed exactly by FFT.
 
+Runtime: ~2 s of computation (plus uv/cvxpy start-up).
 Run: PYTHONPATH=scripts uv run --with cvxpy --with numpy python scripts/ls_duality_check.py
 """
 import itertools
@@ -130,7 +132,7 @@ def S_of_Q(omega, Q):
 
 
 def check2(rng):
-    print("(2) prime-only systems: F*_1 >= S(Q)")
+    print("(2) prime-only systems: F*_1 = S(Q) (Prop 2.6)")
     worst = 0.0
     for trial in range(8):
         primes = [3, 5, 7, 11]
