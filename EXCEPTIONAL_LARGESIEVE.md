@@ -362,3 +362,76 @@ dominated by the top-prime sequential functional (Theorem 3.1, for
 polynomial-level frequencies), not by the small-prime-conditioned Euler
 product (Example 5.2); for prime-slice systems the two coincide
 (Theorem 4.1).
+
+## 6. Gallagher's larger sieve and its kernel variants
+
+**Setting.** Take moduli `𝒮` with weights `w(q) ≥ 0`, the kernel
+`K(m) = Σ_{q∈𝒮} w(q) 1[q | m]`, `W = K(0) = Σ_q w(q)`, and any
+`h ≥ max_{0<|m|<N} K(m)`. For `A ⊂ I`, `|I| = N`,
+
+    Z² Σ_q w(q) coll_q(π_A) = Σ_{n,n'∈A} K(n−n') ≤ Z·W + (Z² − Z)·h,
+
+with `coll_q(π) = Σ_b π(n ≡ b (q))²`. Hence `Z ≤ (W−h)/(D(π_A) − h)`
+whenever `D(π) := Σ_q w(q) coll_q(π) > h`. Gallagher's larger sieve is
+`𝒮` = prime powers `≤ Q`, `w = Λ`, `h = log N`, with Cauchy–Schwarz
+`coll_q ≥ 1/ν(q)`. The CRT-admissible optimum is `Z ≤ (W−h)/(D* − h)`,
+`D* = min_{π∈P(𝒜)} D(π)`; composite moduli and the forced classes in any
+form are allowed in `𝒮`.
+
+Write `χ²_q(π) = q·coll_q(π) − 1` (the χ²-distance of `π mod q` from
+uniform) and
+
+    X(π) = Σ_{q∈𝒮} (w(q)/q) χ²_q(π).
+
+**Lemma 6.1 (PROVED).** `D_u := Σ_q w(q)/q ≤ h + (W − h)/N`.
+*Proof.* Count pairs in I: `Σ_{n,n'∈I} K(n−n') ≤ NW + (N²−N)h`, while by
+Cauchy–Schwarz over residues mod q it is `≥ Σ_q w(q) N²/q`. ∎
+
+**Theorem 6.2 (larger-sieve cap by a χ² functional; PROVED).** For every
+π ∈ P(𝒜), every CRT-admissible kernel bound B satisfies
+
+    log(N/B) ≤ log(1 + N·X(π)/(W − h)).
+
+For Gallagher's sieve (`w = Λ`, prime powers `≤ Q`, `h = log N`) this
+gives `log(N/B) ≤ X(π) + c₁` with an absolute `c₁`, unless
+`X(π) ≥ (log N)/3`.
+
+*Proof.* `D* ≤ D(π) = D_u + X(π)`, so by Lemma 6.1
+`D* − h ≤ (W−h)/N + X(π)` and `B ≥ (W−h)/((W−h)/N + X(π))`.
+Gallagher: `D_u ≤ log Q + c₀` (Mertens), so `D* > h` forces
+`Q ≥ N e^{−c₀−X}`. If `X < (log N)/3` and N is large, then `ψ(Q) ≥ Q/2 ≥
+2 log N`, so `W − h ≥ Q/4`, and with `u = D(π) − h ∈ (0, log(Q/N)+c₀+X]`,
+`B ≥ (Q/4)/u ≥ (N/4)e^{u−c₀−X}/u ≥ (N/4)e^{1−c₀−X}`. ∎
+
+**Corollary 6.3 (prime-slice systems; PROVED).** For a prime-slice system
+with `f_ℓ(c) ≤ ℓ/2`, a selector `R = {(c,P)=1}` with `Q₀` squarefree
+(`Q₀ = P`), and `Σ_ℓ p̄_ℓ ℓ^{−1/2} ≤ K₀`, Gallagher's larger sieve (any
+Q) saves at most `C(1 + K₀)`. For ET Cor 3.4 families this is `O(1)`.
+
+*Proof.* Take the product measure of Theorem 4.1 with `R' = R`. For
+`ℓ ∈ 𝒫`: `π mod ℓ^v` is `π mod ℓ` lifted uniformly, and by convexity of
+χ² in its first argument `χ²_{ℓ^v}(π) ≤ E_R χ²(Unif(ℤ/ℓ∖F_ℓ(c))) =
+E_R g_ℓ(c) ≤ 2p̄_ℓ`. For `p | P`: `π mod p^v` is uniform on units (or on
+`(ℤ/p)^×` lifted), so `χ² = 1/(p−1)`. Other primes: χ² = 0. Hence
+`X(π) ≤ Σ_ℓ 4p̄_ℓ log ℓ/ℓ + Σ_p 2 log p/(p(p−1)) ≤ C(1+K₀)`. Theorem 6.2. ∎
+
+So on prime slices the larger sieve does not even reach the
+`(log N)^{3/4}` scale: it is designed for sets occupying few classes,
+and forced-class avoiders occupy almost all classes.
+
+**Mixtures (open, precisely).** For a general mixture, Theorem 6.2
+reduces the cap to the existence of `π ∈ P(𝒜)` whose prime-power
+marginals are near uniform:
+
+> **(H_Gal)** there is `π ∈ P(𝒜(𝔊))` with
+> `Σ_{ℓ^v≤Q} (log ℓ/ℓ^v) χ²_{ℓ^v}(π) ≤ C(log N)^{3/4}` (Q ≤ N^{O(1)}).
+
+The square base gives this for `ℓ ≤ W` (cost `O(W)`). For `ℓ > W` the
+natural candidate is the KARY sequential law conditioned on no leak;
+before conditioning its marginals satisfy `χ²_ℓ ≤ E g_ℓ`, but the
+conditioning on the leak event may correlate with `n mod ℓ`, and that
+correlation is not controlled here. Note also that the Cauchy–Schwarz
+form `coll_q ≥ 1/ν(q)` only needs `|𝒜 mod ℓ^v|` close to `ℓ^v`; the
+squares give `𝒜 mod ℓ ⊇` the quadratic residues (KARY2 Lemmas 2.1–2.2),
+which is too weak by a factor 2. (H_Gal) is **open**; the larger sieve
+over mixtures is not covered.
