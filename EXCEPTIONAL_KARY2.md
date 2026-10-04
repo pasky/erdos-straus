@@ -551,22 +551,24 @@ the whole modulus, uniformly.
 
 ## 6. The final statement, and what remains excluded
 
-**Corollary 6.1 (exceptional-set reading; PROVED, Case A modulo ET
-Prop. 1.4).** Let a method bound `#(𝒜(𝔊) ∩ [1,N])` by `N·Eν + Σ_i|a_i|`,
-where:
-* 𝔊 is any finite family of ℛ(M)-, (a,D)- and Case-A classes (arbitrary
-  moduli; no B, no dominant prime, any number and multiplicity of prime
-  factors);
-* ν is a CRT majorant (`ν = Σ a_i 1[n ≡ b_i (d_i)] ≥ 0` on ℤ, `≥ 1` on
-  `𝒜(𝔊)`), of any level;
+**Corollary 6.1 (exceptional-set reading; PROVED; the Case-A part uses
+ElT Prop. 1.4).** Let a method bound `#(𝒜(𝔊) ∩ [1,N])` by
+`N·Eν + Σ_i|a_i|`, where:
+* 𝔊 is any finite family of ℛ(M)-, (a,D)-, Case-A and selector classes
+  (arbitrary moduli; no B, no dominant prime, any number and
+  multiplicity of prime factors);
+* ν is a CRT majorant of any level: `ν = Σ a_i 1[n ≡ b_i (d_i)]`, `≥ 0` on
+  ℤ and `≥ 1` on **all of** `𝒜(𝔊) ⊂ ℤ`;
 * every prime dividing a modulus of 𝔊 is `≤ N^A` (in particular, moduli
   `≤ N^{O(1)}` suffice);
 * `Σ|a_i| < N` (otherwise the bound is trivial).
 
 Then the saving `s = log(N/bound)` satisfies
-`s ≤ C_A (log N)^{3/4}(log log N)^{3/4}`. In particular **no such method
-proves `E(N) ≪ N exp(−(log N)^θ)` with `θ > 3/4`.** With `G ≤ P(G)^{1+B}`
-for all moduli (B fixed), `s ≤ C_{A,B}(log N)^{3/4}` (Thm 5.2).
+`s ≤ C_A (log N)^{3/4}(log log N)^{3/4}` for N large (asymptotic only;
+§0). With `G ≤ P(G)^{1+B}` for all moduli (B fixed),
+`s ≤ C_{A,B}(log N)^{3/4}` (Thm 5.2). In particular **no method of this
+class** proves `E(N) ≪ N exp(−(log N)^θ)` with `θ > 3/4`. Methods
+outside the class are listed under "Still excluded" below.
 
 *Proof.* *Projection (review).* Let `Q` be the lcm of the moduli of 𝔊;
 `𝒜(𝔊)` is Q-periodic. Replace ν by its conditional average
@@ -584,34 +586,75 @@ ET Lemma 2.9 applied to `ν̄` with `Λ₀ = A log N` and
 `λ ≤ 2S` and `S ≤ log 2 + C(2S)^{3/4}(log 2S)^{3/4}`, which bounds S by an
 absolute constant, contradicting `S > (A+1)log N` for N large. ∎
 
-**Architecture class covered.** Nonnegative CRT majorants of the avoider
-set of *any* finite mixture of the three forced-class families, with
-the coefficient-sum rounding bound. This contains the 3/4 note's
-majorant, all prime-slice / sequential / Λ² / Selberg-type majorants of
-ET, ETw, TW2–TW4, EK, and every combination of multiplier groupings among
-the three types. Compared with EK Thm 4.5 it drops `M ≤ P(M)^{1+B}` and
-adds (a,D)- and Case-A classes.
+*Side note on ET (review 1).* ET's "Consequence" after Lemma 2.9 writes
+`λ ≤ (A+1)log N + s` with s the saving. Lemma 2.9 actually needs
+`S = log(1/Eν) ≥ s` there. ET's conclusion survives by the same case
+analysis as above.
 
-**Still excluded (unchanged from ET §6.1, EK §4.3 and NONCRT):**
+**Architecture class covered.** Nonnegative CRT majorants of the *whole*
+avoider set of any finite mixture of the four class types, used with the
+coefficient-sum rounding bound. This includes (review 2, (C)):
+* Bonferroni / inclusion–exclusion truncations;
+* Selberg Λ² over any set system of these classes;
+* β-/Rosser and any combinatorial upper-bound sieve on the class system;
+* moment / variance methods evaluated by CRT (NONCRT Prop 4.1);
+* the 3/4 note's selector majorant (Remark 5.4);
+* the sequential, Λ² and Selberg-type majorants of ET, ETw, TW2–TW4 and EK.
+
+In each case the rounding error is at least the merged `Σ|a_i|`.
+Compared with EK Thm 4.5, the class drops `M ≤ P(M)^{1+B}` and adds
+(a,D)-, Case-A and selector classes.
+
+*Not transferred from the earlier files (review 2, D3).*
+* **Montgomery's large sieve** is capped only fibrewise over ET prime
+  slices (ET Remark 2.6; ET §6.1 item 8). It is not a pointwise
+  majorant, and nothing here extends it to mixtures or composite
+  moduli.
+* **NONCRT Thm 2.3** (per-frequency rounding with weights `w ≥ 1`) is
+  proved for ET Cor 3.4 families via ET's product/fibre argument, not
+  for the KARY sequential construction. Cor 6.1 needs `Σ|a_i|` rounding.
+
+**Still excluded:**
 1. *Exact exponent vs. `(log log N)^{3/4}`.* Theorem 5.1 leaves a factor
    `(log λ)^{3/4}`, which comes only from smooth-dominated moduli
-   (Remark 3.8). A method saving `(log N)^{3/4}·ω(N)` with
-   `ω ≤ (log log N)^{3/4}` is not excluded by Theorem 5.1 (it is by
-   Theorem 5.2 under bounded B).
-2. *Other forced classes.* Classes not of the three types (e.g. forced
-   classes from identities that are not ℛ(M)-groupings, (a,D) or Case
-   A). The proof uses only (i) no class contains a square mod its
-   modulus (for the base), (ii) first moments `≪ (log y)³·polylog(log y)`
-   over `P(G) ≤ y`, (iii) cofactor second moments `≪ ℓ^{o(1)}`. Any
-   family with (i)–(iii) is covered by the same proof.
-3. *Methods outside the class:* majorants nonnegative only on `[1,N]`;
-   bounds using cancellation between frequencies (direct interval
-   counts; NONCRT §2.4); per-frequency weights below 1; non-CRT tuple
-   counts or other genuinely arithmetic input; slice primes beyond
-   `N^{O(1)}`; non-majorant (signed) sieves whose error is not
-   `Σ|a_i|`.
-4. *External input.* The Case-A part uses Elsholtz–Tao Prop. 1.4 (as ET
-   Lemma 3.7 does). Families without Case-A classes are unconditional.
+   (Remark 3.8). For unbounded-B families, a method saving
+   `(log N)^{3/4}·ω(N)` with `ω ≤ (log log N)^{3/4}` is not excluded. It
+   is expected not to exist (Remark 3.8), but that is unproved. Under
+   bounded B it is excluded (Thm 5.2).
+2. *Other class types.* The proof uses only three properties:
+   * (i) no **W-smooth** class contains a *unit* square mod its modulus
+     (for the base);
+   * (ii) first moments `≪ (log y)³·polylog(log y)` over `P(G) ≤ y`;
+   * (iii) cofactor second moments `≪ ℓ^{o(1)}`.
+
+   Any family with (i)–(iii) is covered by the same proof.
+   *Pointer, not checked here (review 2, D6):* Schinzel's theorem, as
+   quoted in the introduction of ElT, says that no polynomial identity
+   covers a class `b mod a` with b a quadratic residue mod a. That
+   would make (i) automatic for polynomial-identity families, leaving
+   (ii)–(iii) family-specific.
+3. *Weaker majorant conditions (review 2, D4).* Theorem 5.1 needs `ν ≥ 1`
+   on all of `𝒜(𝔊) ⊂ ℤ`. Excluded are majorants with:
+   * `ν ≥ 0` only on `[1,N]`;
+   * `ν ≥ 1` only on `𝒜 ∩ [1,N]`, or only on the exceptional set;
+   * `ν ≥ 1` only on exceptional *primes*, used through prime
+     equidistribution beyond a selector (ET §6.1 item 3).
+
+   Selector classes cap the mean side of such prime-law methods by the
+   same proof, but the BV-type error accounting is open and not claimed.
+4. *Other methods:*
+   * bounds using cancellation between frequencies (direct interval
+     counts, Kloosterman / dispersion, Erdős–Turán / Vaaler; NONCRT
+     §2.4);
+   * per-frequency weights below 1;
+   * the large sieve beyond prime slices;
+   * non-CRT tuple counts or other genuinely arithmetic input (Type I/II,
+     Halász);
+   * slice primes beyond `N^{O(1)}`;
+   * signed sieves whose error is not `Σ|a_i|`.
+5. *External input.* The Case-A part uses ElT Prop. 1.4 (published, not
+   re-proved), as ET Lemma 3.7 does. Families without Case-A classes use
+   no external input.
 
 ## 7. Numerics (EVIDENCE only)
 
