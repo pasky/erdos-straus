@@ -189,8 +189,8 @@ STATUS.md. A proof of `θ > 3/4` would need at least one of the following:
   interval sum `Σ_{n≤N} ν(n)`. NONCRT Thm 8.1 gives a quantitative
   dichotomy (PROVED). Either there is large Fourier mass above every level
   `λ ≤ c(log N)^{4θ/3}`, or the interval count falls well below the CRT
-  mean. Small evidence (§8.3) shows no inter-frequency gain in the family
-  tested.
+  mean. In one tested family (count polynomials of degree ≤ 10) there
+  was no inter-frequency gain (EVIDENCE, NONCRT §8.3).
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
   Thm 2.3): coefficient sums, the sawtooth bound, and complete
   Gauss/Kloosterman sums. Weights `< 1` are open, except in a smooth-window
@@ -403,8 +403,9 @@ prime with `W > T`.
 * *Evidence.* `a_min/log p < 10` up to `10^8`, and in samples up to
   `10^24` (EVIDENCE).
 * *Target.* **Conjecture X_win(C):** `a_min(p) ≤ C log p` for every prime
-  `p ≡ 1 (24)` with `p > 10^18`. For any `C` it implies ES, given the
-  existing verification below `10^18`. It is the natural (E1) target.
+  `p ≡ 1 (24)` with `p > 10^18`. For any `C` it implies ES (Thm 8.1;
+  the cutoff relies on existing verification). The concrete conjecture put
+  forward is X_win(10). It is the natural (E1) target.
 
 **Unconditional and conditional Ω-results** (POINTWISE_WINDOW.md; review
 `reviews/pointwise-window-review.md`):
