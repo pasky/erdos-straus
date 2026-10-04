@@ -438,3 +438,51 @@ each of its `|σ|` coordinates, and `∫₀¹ t^{|σ|−1}dt = 1/|σ|`. ∎
 This proves the log-form of TW Conjecture 6.8 for arbitrary arity, *without
 any codegree hypothesis*: the codegree terms are part of the bound.
 Whether they are small is an arithmetic question (§6.3).
+
+**Lemma 6.2 (free codegree quarantine by promotion; PROVED).** In Setting
+6.0, call a star σ with `|σ| ≥ 2` a *codegree hub* if `D_σ > 1` and σ is
+not itself an event. To *promote* σ, delete all events `E ⊇ σ` and add σ
+as an event. Promote hubs repeatedly, in any order, until none is left.
+This terminates in a system 𝓔⁺ with the following properties:
+1. `A⁺ ⊆ A` (avoiding σ implies avoiding every `E ⊇ σ`), and every `w⁺_ℓ ≤ w_ℓ`,
+   so (H_δ) persists;
+2. `D⁺_τ ≤ min(D_τ, 1)` for every star τ of 𝓔⁺ with `|τ| ≥ 2`, and
+   `D⁺_τ ≤ D_τ` for `|τ| = 1`. Every star of 𝓔⁺ is a star of 𝓔 (with
+   `D_τ ≥ 1` if τ is a promoted event);
+3. consequently
+
+       log (Z₂⁺/Z₁⁺²) ≤ (1+25δ) [ Σ_{|σ|=1} π_σ ρ̃^σ D_σ² + Σ_{|σ|≥2} π_σ ρ̃^σ min(D_σ,1)² ],
+
+   with D computed in the original system.
+
+*Proof.* *Monotonicity of one promotion.* Let `τ ⊆ σ`. The new event σ
+adds `π_{σ∖τ}` to `D_τ`, and the deleted events remove
+`Σ_{E⊇σ}π_{E∖τ} = π_{σ∖τ}D_σ`. Since `D_σ > 1`, `D_τ` decreases. If
+`τ ⊄ σ`, the new event does not contain τ, and `D_τ` can only lose terms.
+The same computation with `τ = (ℓ,a)` summed over a shows that `w_ℓ` does
+not increase. After the promotion `D_σ = 1`. The number of events strictly
+decreases (a hub has `D_σ > 1`, hence at least two events contain it), so
+the process terminates.
+
+*Final state.* Every star τ with `|τ| ≥ 2` has one of three forms:
+* τ is an event; any other event `E ⊋ τ` is redundant and is deleted
+  (this does not change A⁺ and only lowers D). Then `D⁺_τ = 1`, and
+  `D_τ ≥ 1` in the original system by monotonicity read backwards;
+* τ is not an event, and `D⁺_τ ≤ 1` because τ is not a hub;
+* in both cases `D⁺_τ ≤ D_τ` by monotonicity.
+
+(3) follows from Lemma 6.1 applied to 𝓔⁺. The stars of 𝓔⁺ are sub-stars
+of events of 𝓔⁺, which are stars of 𝓔. ∎
+
+Together with TW2 Lemma 2.2 (unary quarantine of vertex hubs, cost
+`2Σρ_ℓ(p_ℓ + S_ℓ)`), and since `ν⁺ ≤ (4/3)ν` multiplies `π_σ` by at most
+`(4/3)^{|σ|}`, the fibre log-ratio of any-arity class systems is
+controlled by
+
+    Σ_ℓ ρ_ℓ(p_ℓ + S_ℓ) + Σ_{|σ|≥2} (4/3)^{|σ|} π_σ ρ^σ min(D_σ, 1)².              (6.2)
+
+The edge terms of TW2 (2.1) are the stars σ that are binary events, with
+`D_σ = 1`. Codegree hubs cost nothing beyond their capped square. Unlike
+vertex hubs they need no change of the unary law, because promotion keeps
+them as events. So the POINTWISE_OMEGA2 codegree-hub obstruction (§10.4)
+does not block the Λ² route; it only produces the star sum (6.2).
