@@ -1,6 +1,6 @@
 # EXCEPTIONAL_KARY — the k-ary comparison inequality (task O7)
 
-Status: **checkpoint (awaiting review).** Labels follow `DISCOVERIES.md`. PROVED means proved
+Status: **checkpoint (awaiting parent review; one internal hostile review, O7-1, applied).** Labels follow `DISCOVERIES.md`. PROVED means proved
 here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 (ETw), `EXCEPTIONAL_THETA.md` (ET).
 
@@ -408,18 +408,19 @@ moment lemmas, not the k-ary step.
   unconditioned draw, instead of thinning and symmetrisation of the hit
   indicators.
 * In the brute-force LPs, `log C*` (unweighted, informational) for the
-  phantom and the plain law differ by at most 0.04 in absolute terms
-  (relative differences up to ≈ 28% where both are small); see
+  phantom and the plain law differ by at most 0.036 in absolute terms
+  (relative differences up to ≈ 22% among values above 0.01); see
   `data/kary/`.
 
 ## Replay
 
 ```
-# Theorem 2.5 / Remark 2.7 by exact LP on random small systems (each run < 40 min, < 1 GB)
+# Theorem 2.5 / Remark 2.7, plain and phantom rules: exhaustive path enumeration + floating-point LP,
+# asserts weighted value <= 1 (each run < 40 min, < 1 GB)
 cd scripts
 uv run --with scipy --with numpy python kary_check.py 30 1        > ../data/kary/check_sparse_seed1.txt
 uv run --with scipy --with numpy python kary_check.py 40 2 dense  > ../data/kary/check_dense_seed2.txt
 uv run --with scipy --with numpy python kary_check.py 30 3 graph  > ../data/kary/check_graph_seed3.txt
-# (2.1) and (3.1) for the explicit node sets of §3, 7128 triples (~1 min)
+# (2.1) and (3.1) for the explicit node sets of §3, 7128 triples, asserted; d = 0 case (~1 min)
 uv run --with scipy --with numpy python kary_b21_check.py
 ```

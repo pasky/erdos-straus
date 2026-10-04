@@ -1,6 +1,6 @@
 """Check of (2.1) for the explicit node sets used in EXCEPTIONAL_KARY §3:
 log max_y |l_y(n)|/psi(y) <= d log(4e^3(n+1)/t) + 0.5 log(16nt+16), psi = Bin(n,t).
-Exact log-space arithmetic; also the LP optimum B* for small n as a cross-check (B* <= B)."""
+Log-space floating-point arithmetic (math.lgamma); also the LP optimum B* for small n as a cross-check (B* <= B)."""
 import math
 from kary_check import bstar
 
@@ -48,5 +48,10 @@ for n in list(range(1, 60)) + [80, 120, 200, 500, 1000, 5000, 10**5]:
             worst31 = max(worst31, lb - uni)
             if n <= 20 and d <= 3 and t >= 0.01:
                 assert math.log(bstar(n, t, d)) <= lb + 1e-6, (n, t, d)
-print(f"max [log B - (3.1)] = {worst31:.3f} (must be <= 0)")
+assert worst <= 0 and worst31 <= 0, (worst, worst31)
+# d = 0: B(n,t,0) := 1 by definition, and indeed B* = 1 (Q constant)
+for n in range(1, 30):
+    for t in [0.25, 0.1, 0.01]:
+        assert abs(bstar(n, t, 0) - 1) < 1e-9
+print(f"max [log B - (3.1)] = {worst31:.3f} (must be <= 0); d=0: B*=1 ok")
 print(f"{cnt} cases; max [log B(explicit nodes) - (2.1)] = {worst:.3f} (must be <= 0); B* <= B on small n: ok")
