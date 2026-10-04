@@ -1,0 +1,3 @@
+(a,D): a<=60, D<=600: 36000 classes, 0 contain a square mod G
+control: 280 of 2000 shifted residues c+1 are squares mod G
+Case A: d<=6000: 34884 classes, 0 contain a square mod G

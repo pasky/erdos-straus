@@ -1,0 +1,7 @@
+square test validated exhaustively for G <= 400
+(a,D): a<=200, D<=3000: 600000 classes, max G 2399200, squares found 0
+(a,D) direct x^2 in class, a<=30, D<=300, x<=2G: hits 0
+Case A: d<=100000: 721989 classes, max G 399992, squares found 0
+R(M): M<=100000: 1070466 classes, squares found 0
+control (a,D) shifted by +1: 280/2000 are squares
+random large classes 86798 squares 0
