@@ -599,3 +599,117 @@ their primes in `(L^8, e^{L^{1/4}}]` is Poisson-like with mean
 4. Range III (Cor 9.3) shows that the very-many-prime tail is not the
    problem. What blocks the full family is item 3, in the window
    `r ≍ log L`.
+
+## 10. Removing the B-hypothesis for fixed r (task O12, part 2b)
+
+**Setting 3.0^{(r)}_*.** Setting 3.0^{(r)} *without* `M ≤ P(M)^{1+B}`: all
+Case-B classes with `M ≤ X` and `ω_L(M) ≤ r`. Write `M = k·M_L`, k
+w₂-smooth, `M_L` the large part. Split the classes with `ω_L ≥ 1`:
+* **(D) smooth-dominated:** `k > M_L²`;
+* **(H) high power:** not (D), and `ℓ^{12} | M` for some `ℓ > w₂`;
+* **(G) good:** the rest. Then `M_L ≤ P^{11r}` (≤ r prime powers with
+  exponent ≤ 11, P the top prime), so `M ≤ M_L³ ≤ P(M)^{33r}`: **(G)
+  satisfies the B-hypothesis with `B = 33r − 1`.**
+
+So for fixed r the B-hypothesis only excludes (D) and (H). (D) is the
+regime "small top prime relative to M": the w₂-smooth cofactor carries
+most of M. Smooth numbers are sparse, but Shiu along the top prime is
+not available there, because the modulus `M/P` exceeds the length.
+Instead we run Shiu along k itself (now the modulus `M_L` is short) and
+pay for the smoothness of k with Rankin.
+
+**Lemma 10.1 (smooth-dominated sums; PROVED).** Let `i ∈ {1,2}`, and let G
+be multiplicative with `0 ≤ G(p^e) ≤ C(1+3e)` for `p ≤ w₂`, `G(p^e) = 0`
+for `p > w₂` (e.g. `Γ`, `Γ·2^{ω}`, `Γ·τ_Γ`). For odd `m ≥ 1` with
+`(m, k) = 1`,
+
+    Σ_{k>m², k≡k₀ (4)} G(k)τ(A_{km}²)^i / k ≪_{i,C} (log L)^{c_i} (m/φ(m))^{1/2} m^{−1/(2 log w₂)},
+
+with `A_{km} = (km+1)/4` and `c_i` depending only on i and C. The same
+bound without the factor `m^{−1/(2log w₂)}` holds for the sum over all
+k when `m = 1`.
+
+*Proof.* Dyadic blocks `(K,2K]`, `K ≥ m²`. Put `u = log K/log w₂`.
+Cauchy–Schwarz splits a block into `(Σ_{k∈(K,2K] smooth}G(k)²/k)^{1/2}`
+times `(Σ_{k∈(K,2K]}τ(A_{km}²)^{2i}/k)^{1/2}`.
+*Rankin* (k odd, so `p ≥ 3`; `η = 1/log w₂`, `p^{η} ≤ e`): the first sum is
+at most `K^{−η}Π_{3≤p≤w₂}(1 + Σ_e G(p^e)²p^{−e(1−η)}) ≤ e^{−u}(log L)^{c}`.
+The series at `p = 3` converges since `e/3 < 1`.
+*Shiu along k* (all integers k). `A = (km+1)/4` runs over one class mod m,
+in an interval of length `mK/4 ≥ m³/4`. So `m < (mK/4)^{1−β}` and
+`x^β < y` hold with `β = 1/4` for K large; small K are trivial. Shiu's
+theorem with `F(n) = τ(n²)^{2i}` (`F(p^l) ≤ 9^{il}`, `F(n) ≪ n^{o(1)}`)
+gives `Σ_{k∈(K,2K]} F(A) ≪ (Km/φ(m))(log 2K)^{9^i−1}`. Hence a block
+contributes `≪ (log L)^{c}(m/φ(m))^{1/2}e^{−u/2}(log 2K)^{(9^i−1)/2}`. Write
+`log 2K ≤ 2u log w₂` and sum over `K = 2^t ≥ m²`:
+`Σ_t e^{−u/2}u^{c′} ≪ log w₂ · e^{−u₀/3}` with `u₀ = 2log m/log w₂`. And
+`e^{−u₀/3} ≤ m^{−1/(2log w₂)}`. For `m = 1` sum over all blocks. ∎
+
+**Lemma 10.2 (first moments of (D) and (H); PROVED).**
+1. `Σ_{(D) moduli} Γ(k)τ(A²)/M ≪ (log L)^{O(1)}`;
+2. `Σ_{(H) moduli} Γ(k)τ(A²)/M ≪ L^{−3}`.
+
+*Proof.* (1) Write `M = km`, `m = M_L ≥ w₂` (odd), and apply Lemma 10.1
+(i = 1, G = Γ) for each m. Then
+`Σ_{m≥1}(m/φ(m))^{1/2}m^{−1−1/(2log w₂)} ≪ log w₂`. (2) Cauchy–Schwarz:
+`(Σ_{M≤X}τ(A²)²Γ(k)²/M)^{1/2} ≪ L^{81/2}` (proof of Cor 9.3), times
+`(Σ_{M≤X, ℓ^{12}|M, ℓ>w₂} 1/M)^{1/2} ≤ (2L·w₂^{−11})^{1/2} ≪ L^{−43}`. ∎
+
+**Lemma 10.3 (fibre law without B; PROVED).** In Setting 3.0^{(r)}_*,
+`P_QR(G_s) ≥ 1/2` and `P′(G_L^{(r)}) ≥ 1/2` for L large. Hence TW2 Lemma 3.2
+holds (inflation `4Γ(k)/k`, cost `4L^{1/2}`).
+
+*Proof.* B entered TW2 Lemma 3.4 only through pointwise τ bounds (review
+D3(b),(c)) and Shiu along the top prime (D3(a)).
+* *Small classes (`M = k`, no B now).* `E_QR T ≤ Σ_k Γ(k)2^{ω(k)}τ(A_k²)/k
+  ≪ (log L)^{O(1)}` by Lemma 10.1 (m = 1). This is better than TW2's
+  `L^{1/32+o(1)}`. For `μ_p`: expand the square, use AM–GM on
+  `τ(A_k²)τ(A_{k′}²)`, and apply Lemma 10.1 with i = 2 to `k = pk″`. Both
+  Cauchy–Schwarz factors carry `p^{−1/2}`: Rankin with the factor at p,
+  and Shiu along k″ mod p. So `E_QRμ_p² ≪ (log L)^{O(1)}p^{−2}`, and
+  `Σ_{p>W₁}p^{1/2}Eμ_p² ≪ (log L)^{O(1)}W₁^{−1/2} = o(1)`.
+* *(G) unary and event classes:* B holds with `B = 33r−1`, so TW2 Lemma
+  3.4 and Lemma 4.1 above apply verbatim.
+* *(H) classes:* by Markov on the first moment,
+  `P′(∃ℓ: p^{(H)}_ℓ + w^{U,(H)}_ℓ > δ_r/3) ≤ 3δ_r^{−1}·r·2·(Lemma 10.2(2)) = o(1)`.
+* *(D) classes through j* (unary or events). Put
+  `f_j(k) = Σ_{m: j|m, k>m²} τ(A_{km}²)/m`. As in TW3 Lemma 3.4,
+  `E′(w^{U,(D)}_j)² ≤ 2Σ_k(Γ(k)h(k)/k)f_j(k)²`. Cauchy–Schwarz over m gives
+  `f_j(k)² ≤ (Σ_{j|m}1/m)(Σ_{j|m}τ(A_{km}²)²/m)` with
+  `Σ_{j|m, ω_L(m)≤r}1/m ≤ 2j^{−1}(2log L)^{r}`. Then Lemma 10.1 (i = 2,
+  `G = Γh`; `h(k) ≪ (log L)^{O(1)}τ_Γ(k)`) for each m gives
+  `E′(w^{U,(D)}_j)² ≪ (log L)^{O(r)}j^{−1}Σ_{j|m}(m/φ(m))^{1/2}m^{−1} ≪ (log L)^{O(r)}j^{−2}`.
+  The same holds for the unary density `p^{(D)}_j`. Markov and
+  `Σ_{j>w₂}j^{−2} ≪ w₂^{−1}` give `o(1)`. ∎
+
+**Theorem 10.4 (r-prime Λ² cap without the B-hypothesis; PROVED, internal).**
+Fix `r ≥ 2`, `A₀ ≥ 1`. For ℛ(M)-families with `M ≤ X` and at most r
+distinct prime factors above `w₂ = (log X)^8` (no condition relating M to
+its top prime), every admissible Λ² majorant of level `λ ≤ A₀L` has
+
+    saving(g²) ≪_{A₀,r} L^{3/4}(log L)^{O_r(1)}.
+
+The same holds if the family also contains arbitrary classes with
+`ω_L(M) ≥ 330 log L` (Cor 9.3).
+
+*Proof.* Fibre law: Lemma 10.3 (plus `G_III` of Cor 9.3 if the
+many-prime classes are present). Prop 3.1 applies to the whole active
+system, because the per-vertex bounds hold for all three types. Split
+`D_σ = D^{(G)}_σ + D^{(D,H)}_σ` and use
+`min(x+y,1)² ≤ 2min(x,1)² + 2y`:
+* (G) part: §§5–6 and Cor 5.2 with `B = 33r − 1`. Those lemmas use B only
+  for the classes they sum over.
+* (D,H) part: `≤ 2Σ_σπ_σD^{(D,H)}_σ ≤ 2^{r+1}Σ_{active (D,H) C}π_{E_C}`.
+  Its `E_P` is `≪ 2^r(8/7)^r·4·Lemma 10.2 ≪ (log L)^{O(1)}`.
+* Unary term `Σρ_ℓp_ℓ`: (G) by TW2 Lemma 4.1 with `B = 33r−1`; (D), (H) by
+  Lemma 10.2.
+The many-prime classes are added by Lemma 9.2 at cost `o(1)`. ∎
+
+**Remark 10.5 (what (D) teaches).** For moduli dominated by their
+w₂-smooth part, the heuristic worry is that `τ(A²)` is as large as
+`(log X)²` while the ρ-weight sees only the small large part. That would
+make the *diagonal* term itself too big. It does not happen: by Lemma 10.1
+the smooth cofactor's sparsity (Rankin, `e^{−u}`) beats every power of
+`log k`. The whole (D) family has polylogarithmic *unweighted* first
+moment, so it needs no ρ-weight and no equidistribution at all. The
+"gapped/QR-base machinery" of TW is not needed for it.
