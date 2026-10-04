@@ -16948,4 +16948,87 @@ print("\n== (ci) EXCEPTIONAL_TWIN3: Lemma 3.2 box counting, inequality (2.1) =="
 check_ci()
 
 
+
+# ---------------------------------------------------------------- (cj)
+# EXCEPTIONAL_TWIN4.md Lemma 2.3 (rough-partner Brun-Titchmarsh), exact at toy
+# scale (adapted from reviews/exceptional-twin4-check-lemma23.py, reduced):
+# for s = 1..4, w in {2, 7, 50, 300}, q in a fixed list (smooth / prime / random),
+# x at the threshold q 2^(s+1) and at x0 4^k, up to 100 units b mod q:
+#   sum_{x<R<=2x, R=b (q), Omega(R)<=s, P^-(R)>w} 1/R
+#        <= 3(s+1)(1+H+...+H^(s-1)) / (phi(q) log(x/q)),  H = sum_{w<p<=Z} 1/(p-1).
+# Also the proof's d-step: R = d n with d the Z-smooth part has Omega(d) <= s-1,
+# and sum_d 1/d (Z-smooth, P^- > w, Omega <= s-1) <= sum_{i<s} H^i.
+
+def check_cj():
+    from time import perf_counter
+    import numpy as np
+    import random as _random
+    from sympy import totient
+    t0 = perf_counter()
+    N = 2_000_000
+    isp = np.ones(N + 1, dtype=bool); isp[:2] = False
+    for p in range(2, isqrt(N) + 1):
+        if isp[p]:
+            isp[p * p::p] = False
+    primes = np.nonzero(isp)[0]
+    Om = np.zeros(N + 1, dtype=np.int16)
+    for p in primes.tolist():
+        pe = p
+        while pe <= N:
+            Om[pe::pe] += 1
+            pe *= p
+    lpf = np.zeros(N + 1, dtype=np.int64)
+    for p in primes[::-1].tolist():
+        lpf[p::p] = p
+    rng = _random.Random(7)
+    qs = [1, 2, 3, 6, 30, 210, 2310, 7, 101, 997] + rng.sample(range(5, 5000), 4)
+    cases = 0
+    worst = 0.0
+    for s in range(1, 5):
+        for w in (2, 7, 50, 300):
+            ok = (lpf > w) & (Om >= 1) & (Om <= s)
+            for q in qs:
+                x0 = q * 2 ** (s + 1)
+                xs = sorted({x0, x0 + 1, int(x0 * 1.5)} | {x0 * 4 ** k for k in range(1, 12)})
+                xs = [x for x in xs if 2 * x <= N]
+                ph = int(totient(q))
+                units = [b for b in range(q) if gcd(b, q) == 1]
+                if len(units) > 100:
+                    units = rng.sample(units, 100)
+                for x in xs:
+                    Y = x / q
+                    Z = Y ** (1.0 / (s + 1))
+                    pw = primes[(primes > w) & (primes <= Z)]
+                    H = float((1.0 / (pw - 1)).sum())
+                    bound = 3 * (s + 1) * sum(H ** i for i in range(s)) / (ph * log(Y))
+                    for b in units:
+                        first = x + 1 + ((b - (x + 1)) % q)
+                        R = np.arange(first, 2 * x + 1, q, dtype=np.int64)
+                        R = R[ok[R]]
+                        lhs = float((1.0 / R).sum())
+                        assert lhs <= bound, ("TWIN4 Lemma 2.3", s, w, q, x, b, lhs, bound)
+                        worst = max(worst, lhs / bound)
+                        cases += 1
+                    # d-step on this (s, w, x): every R in (x, 2x] of the sieve set
+                    if q == 1:
+                        R = np.arange(x + 1, 2 * x + 1)[ok[x + 1:2 * x + 1]]
+                        dsum = {}
+                        for Rv in R[:400].tolist():
+                            d = 1
+                            for p, e in _o9_factor(Rv, lpf).items():
+                                if p <= Z:
+                                    d *= p ** e
+                            assert Rv != d and Om[d] <= s - 1, ("TWIN4 L2.3 d-step", s, w, x, Rv)
+                            dsum[d] = 1
+                        assert sum(1 / d for d in dsum) <= sum(H ** i for i in range(s)) + 1e-12, \
+                            ("TWIN4 L2.3 sum_d 1/d", s, w, x)
+    assert cases > 1500
+    print(f"cj Lemma 2.3: {cases} (s, w, q, x, b) cases, 0 violations, worst lhs/bound = {worst:.3f}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cj) EXCEPTIONAL_TWIN4: rough-partner Brun-Titchmarsh Lemma 2.3, exact toy check ==")
+check_cj()
+
+
 print("\nall checks passed")
