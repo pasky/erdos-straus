@@ -1,28 +1,44 @@
-# EXCEPTIONAL_KARY2 — the 3/4 cap without the B-hypothesis, for ℛ(M), (a,D) and Case-A classes (task O14)
+# EXCEPTIONAL_KARY2 — the 3/4 cap without the B-hypothesis, for ℛ(M), (a,D), Case-A and selector classes (task O14)
 
-Status: **checkpoint 1.** One internal self-review pass (codex reviewer,
-repairs applied: Cor 6.1 direction of the saving inequality and a
-projection step before ET Lemma 2.9; `Q₀` W-smooth; a transcription error
-in §3). Awaiting the parent's hostile review. Labels follow
-`DISCOVERIES.md`. Notation follows `EXCEPTIONAL_KARY.md` (EK),
-`EXCEPTIONAL_TWIN.md` (ETw), `EXCEPTIONAL_TWIN4.md` (TW4) and
-`EXCEPTIONAL_THETA.md` (ET).
+Status: **checkpoint 2 (reviewed).** Reviews:
+* an internal self-review (repairs applied: Cor 6.1 direction of the
+  saving inequality and a projection step before ET Lemma 2.9; `Q₀`
+  W-smooth; a transcription error in §3);
+* two independent hostile reviews: `reviews/exceptional-kary2-review.md`
+  (branch `side-agent/review-kary2`) and `reviews/exceptional-kary2-review-2.md`
+  (branch `side-agent/review-kary2b`). Both find Theorem 5.1 SOUND. All
+  their defects are applied here:
+  * review 1: D1 selector scope, D2 the Lemma 3.1 step, D3, D4;
+  * review 2: D1 selector classes as a fourth type, D2 notation and
+    labels, D3–D5 scope and constants, D6 a Schinzel pointer.
+
+Labels follow `DISCOVERIES.md`. Notation follows `EXCEPTIONAL_KARY.md`
+(EK), `EXCEPTIONAL_TWIN.md` (ETw), `EXCEPTIONAL_TWIN4.md` (TW4) and
+`EXCEPTIONAL_THETA.md` (ET). **ElT** is Elsholtz–Tao, *Counting the number
+of solutions to the Erdős–Straus equation on unit fractions*, J. Aust.
+Math. Soc. 2013 (arXiv 1107.1010). "ElT Prop 1.4" is their divisor-sum
+bound; it is used, as in ET Lemma 3.7, as a published input that is not
+re-proved here.
 
 ## 0. Summary
 
 | item | statement | label |
 |---|---|---|
-| §1 | EK Thm 4.5 uses B only in the block/singleton first moments and in the pointwise τ-bound of the second moment; the number of primes per modulus never enters | PROVED (inspection) |
+| §1 | EK Thm 4.5 uses B only in the block/singleton first moments and in the second moment (pointwise τ-bound, lcm range, v ≤ 1+B); the number of primes per modulus never enters | PROVED (inspection) |
 | Lemmas 2.1, 2.2 | no (a,D)-class and no Case-A class contains a square mod its modulus (Mordell/Jacobi); this proves ETw Remark 1.4's observation | PROVED |
-| Lemma 2.3 | square base: product measure, R-term `≤ 2W`, avoids every W-smooth class of all three types | PROVED |
+| Lemma 2.3 | square base: product measure, R-term `≤ 2W`, avoids every W-smooth class containing no unit square mod its modulus, hence every W-smooth class of all four types (selector classes `0 mod p` included) | PROVED |
 | Lemma 3.2 | ℛ(M): `Σ_{P(M)≤y}τ(A_M²)Γ(M)/M ≪ (log y)³(log log y)³`, no B (body: EK Lemma 4.2′; tail: Rankin + Cauchy–Schwarz) | PROVED |
-| Lemma 3.3 | (a,D): first moment `≪ (log y)³`, a pure Euler product | PROVED |
-| Lemmas 3.4–3.6 | Case A: small-divisor domination, box moments of `τ(krh²+1)^q`, first moment `≪ (log y)³(log log y)³` | PROVED (3.6 body modulo Elsholtz–Tao Prop 1.4) |
-| Lemmas 4.1–4.3 | cofactor second moments, `E p_ℓ² ≪ ℓ^{−7/4+o(1)}` for all three types, leak `≤ 1/2` with W absolute | PROVED |
-| **Thm 5.1** | **every mixture of ℛ(M)-, (a,D)- and Case-A classes, arbitrary moduli: `log(1/Eν) ≤ Cλ^{3/4}(log λ)^{3/4}`** | PROVED (Case A modulo ET Prop 1.4) |
-| Thm 5.2 | with `G ≤ P(G)^{1+B}`: `≪_B λ^{3/4}` for all three types (EK Thm 4.5 extended) | PROVED (Case A modulo ET Prop 1.4) |
-| Cor 6.1 | coefficient-sum methods with slice primes `≤ N^{O(1)}`: saving `≪ (log N)^{3/4}(log log N)^{3/4}`; **no θ > 3/4** | PROVED (same proviso) |
+| Lemma 3.3 | (a,D): first moment `≪ (log y)³`, a pure Euler product; selector classes: `≪ log log y` | PROVED |
+| Lemmas 3.4–3.6 | Case A: small-divisor domination, box moments of `τ(krh²+1)^q`, first moment `≪ (log y)³(log log y)³` | PROVED; Lemma 3.6 uses ElT Prop 1.4 (published, not re-proved) |
+| Lemmas 4.1–4.3 | cofactor second moments, `E p_ℓ² ≪ ℓ^{−7/4+o(1)}` for all four types, leak `≤ 1/2` with W absolute | PROVED |
+| **Thm 5.1** | **every mixture of ℛ(M)-, (a,D)-, Case-A and selector classes, arbitrary moduli: `log(1/Eν) ≤ Cλ^{3/4}(log λ)^{3/4}` for ν ≥ 1 on the whole avoider set** | PROVED; Case-A part uses ElT Prop 1.4 (published, not re-proved) |
+| Thm 5.2 | with `G ≤ P(G)^{1+B}`: `≪_B λ^{3/4}` for all four types (EK Thm 4.5 extended; covers the 3/4 note's selector majorant) | PROVED (same proviso) |
+| Cor 6.1 | for nonnegative CRT majorants of the avoider set of such a family, with rounding `Σ|a_i| < N` and family primes `≤ N^{O(1)}`: saving `≪ (log N)^{3/4}(log log N)^{3/4}`; so no method *of this class* gives θ > 3/4 (exclusions: §6) | PROVED (same proviso) |
 | §7 | brute-force checks of Lemmas 2.1(2), 2.2, 3.4; smooth first moments `≍ (log y)³` numerically | EVIDENCE |
+
+All constants (W, λ₀, C) are absolute but astronomically large (review 2
+estimates log W ≈ 10^{10–11}, through the Case-A exponents). Every
+statement here is asymptotic only.
 
 The B-removal follows TW4 §11's sketch in spirit, with one simplification.
 No (D)/(H)/(G) split is needed: Rankin's trick, applied to the whole
