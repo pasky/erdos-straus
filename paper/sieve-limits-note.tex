@@ -2581,39 +2581,48 @@ Theorem~\ref{thm:noBcap}, up to the factor $(\log\lambda)^{3/4}$
 \section{Open problems}\label{sec:open}
 
 A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
-least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}:
+least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
+\cite[\S6]{NC}, \cite[\S6]{KA2}:
 \begin{enumerate}
-\item[(i)] moduli outside Theorem~\ref{thm:main}: $\cR(M)$-moduli with
-  $\log M/\log P(M)$ unbounded, or $(a,D)$- and Case-A moduli without a
-  dominant prime (alone or mixed with $\cR(M)$-classes), used jointly in a
-  way that beats their mass;
-\item[(ii)] multipliers larger than the slice primes, used without paying
-  their lcm in level;
-\item[(iii)] a non-selector admissible set with a large saving of its own;
-\item[(iv)] a non-CRT input outside Section~\ref{sec:noncrt}: rounding
+\item[(i)] classes of a type outside Definition~\ref{def:types} that fail
+  one of the properties (a)--(c) of Section~\ref{sec:excluded}, item~6,
+  or a non-selector admissible set with a large saving of its own;
+\item[(ii)] a majorant that is $\geq1$ only on part of the avoider set
+  (on $[1,N]$, on the exceptional set, or on exceptional primes beyond
+  the prime-slice setting of Theorem~\ref{thm:primemaj});
+\item[(iii)] a non-CRT input outside Section~\ref{sec:noncrt}: rounding
   with weights $<1$ or cancellation between frequencies (a direct count
   of $\sum_{n\leq N}\nu(n)$ in one of the two branches of the dichotomy of
   Section~\ref{sec:noncrt}), counts of high-order correlations of
-  solutions without CRT, or such inputs in the sequential and balanced
-  settings.
+  solutions without CRT, the large sieve beyond prime slices, or such
+  inputs in the sequential and mixed settings;
+\item[(iv)] family primes beyond $N^{O(1)}$.
 \end{enumerate}
-Unresolved $\eta$-twin moduli, which formed item (i) of the corresponding
-list in \cite[\S6]{ET}, are no longer on it for fixed $B$: Theorem~\ref{thm:karycap}
-\lab{proved}.  For Selberg-type majorants at level $O(\log X)$, (i) is
-closed for $\cR(M)$-moduli with a fixed number of prime factors above
-$(\log X)^8$, with or without the $B$-hypothesis
-(Theorems~\ref{thm:rprime} and~\ref{thm:noB}).
+The items of the corresponding list in the previous version are gone:
+moduli with $\log M/\log P(M)$ unbounded, $(a,D)$- and Case-A moduli
+without a dominant prime and mixed families are inside
+Theorem~\ref{thm:main}, and so are multipliers larger than the slice
+primes (Section~\ref{sec:excluded}).  Unresolved $\eta$-twin moduli,
+item (i) of the list in \cite[\S6]{ET}, were removed for fixed $B$ by
+Theorem~\ref{thm:karycap} and are now covered without $B$
+(Theorem~\ref{thm:noBcap}) \lab{proved}.
 
-\emph{Removing $B$ for general majorants} \lab{open}.  A transfer of the
-smooth-dominated sums of Theorem~\ref{thm:noB} to the block moments of
-Lemma~\ref{lem:kmoments} is sketched in \cite[\S11]{TW4}; it would give
-$\ll\lambda^{3/4}\log\lambda$ for every $\cR(M)$-family.  It is a
-\emph{sketch} only, not checked, and not claimed here.  The base
-(Lemma~\ref{lem:mordell}) and the moment lemmas are also what is missing
-for $(a,D)$- and Case-A classes; Theorem~\ref{thm:kcomp} itself is
-arithmetic-free \cite[\S4.3]{KA}.
+\emph{The exact exponent without $B$} \lab{open}.  Remove the factor
+$(\log\lambda)^{3/4}$ of Theorem~\ref{thm:noBcap}.  It comes only from the
+first moment over smooth-dominated moduli (Lemma~\ref{lem:firstnoB}); a
+bound $\sum_{M\leq x,\,P(M)\leq y}\tau(A_M^2)\ll\Psi(x,y)(\log x)^2$ for
+shifted smooth numbers, and its Case-A analogue, would suffice
+\cite[Remark~3.8]{KA2}.  This affects only gains of order
+$(\log\log N)^{O(1)}$, not the exponent $3/4$.
 
-The following statement would close (i) and (iii) in general.
+\emph{Removing $B$ for general majorants} is now done
+(Theorem~\ref{thm:noBcap}).  The route follows the sketch of
+\cite[\S11]{TW4} in spirit, without its three-way split: Rankin's trick
+is applied to the whole modulus.  The sketch predicted a loss
+$\log\lambda$; the proof loses $(\log\lambda)^{3/4}$.
+
+The following statement would close (i) for forced classes with a
+bounded-saving admissible set.
 
 \begin{hypothesis}[$H_{\rm MS}$; {\cite[\S5.6]{ET}}; \lab{open}]\label{hyp:MS}
 For every CRT system of forced classes with moduli $\leq\e^\lambda$, every
@@ -2690,9 +2699,10 @@ moduli with $r\geq330\log L$ are free.  The middle range, which by the
 \emph{Assessment} of \cite[\S9.3]{TW4} carries most
 of the $\alpha^{-3}$-weighted mass, needs per-prime-efficient bounds for
 the number of vertex hubs and for an off-diagonal pair sum
-\cite[\S12]{TW4}.  Under the $B$-hypothesis this concerns only the
-$\Lambda^2$ method, since Theorem~\ref{thm:karycap} covers every $r$; without
-it, it is part of item (i).
+\cite[\S12]{TW4}.  This now concerns only the $\Lambda^2$ method:
+Theorem~\ref{thm:karycap} under the $B$-hypothesis, and
+Theorem~\ref{thm:noBcap} without it for majorants $\geq1$ on the whole
+avoider set, cover every $r$ (Remark~\ref{rem:L2vsmain}).
 
 \emph{Non-CRT counts} \lab{open}.  Conjecture $(H_{\rm eq})$ for smooth
 windows and the local-limit hypothesis $H_{\rm node}$ for exact interval
