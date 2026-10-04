@@ -313,3 +313,55 @@ So TC(N; K, y_K, e^{−K}) is a theorem for `K ≤ c₀(log N)^{2/3}`
 (Prop 2.4), false for `K ≥ 4 log N` (Prop 4.2), and TC_θ for
 `3/4 < θ < 1` is the open middle. It is falsifiable at every finite N by
 computing K moments (§5).
+
+### 4.2 Known divisor-type correlation results, measured against TC_θ
+
+By Lemma 1.3, order-k witness correlations are k-point correlations of
+ω-type functions along k shifts `4D_i < y²`. The requirements for
+θ > 3/4 are (Cor 2.3, Cor 3.3): order `k ≳ (log N)^θ/log log N`, combined
+moduli `exp((log N)^{3θ/2})` (prime family), and aggregate relative
+precision `e^{−ck}` in moments of size `e^{ck}`.
+
+| input (literature) | order / shifts | error | covers moduli above N? | verdict |
+|---|---|---|---|---|
+| Ingham, Estermann; Heath-Brown 1979 (`N^{5/6+ε}`); Deshouillers–Iwaniec 1982 (`N^{2/3+ε}`): `Σ τ(n)τ(n+h)` | 2, fixed h | power saving | yes (divisor switching) | order 2: Cor 3.3 ⇒ useless for θ > 3/4, however precise |
+| `Σ τ(n)τ(n+h₁)τ(n+h₂)` | 3 | open pointwise; known on average over shifts (Browning 2011, Blomer 2017) | averaged | order 3: same |
+| Matomäki–Radziwiłł–Tao (2019, I/II): `Σ τ_k(n)τ_l(n+h)` for almost all `h ≤ H` | 2 shifts, fixed k, l | o(1) or power saving, exceptional h | yes, averaged | bounded order; exceptional-shift sets are fatal for a fixed tuple of shifts `4D_i` |
+| Tao–Teräväinen (2018–19): log-averaged correlations of 1-bounded multiplicative functions, odd-order Chowla/Elliott | fixed k shifts | o(1), logarithmic averaging | yes | bounded order, o(1) error, multiplicative 1-bounded; none of the three requirements |
+| Elliott–Halberstam-type level for τ, τ₃ (Selberg/Hooley/Heath-Brown 2/3 for τ; Friedlander–Iwaniec, Heath-Brown 1/2+1/82, Fouvry–Kowalski–Michel 1/2+1/46 for τ₃) | 1 class at a time | power saving | no (moduli < N) | IF Thm 2.5 / K2: any evaluation below N/2 is capped at 3/4 |
+| Granville–Soundararajan (2007), sieve proof of Erdős–Kac with moments | growing, `≪ (log log N)^{1/3}`-type | explicit | no (they take `y = N^{1/k}` so products stay ≤ N) | below N by design |
+| Kubilius model (Kubilius; Tenenbaum 1999) | all orders | `ρ(u)`-type in TV | **yes** | single shift (class 0): hits are divisors of one integer ≤ N. Prop 4.1: no TV analogue for the ES hit vector once θ > 2/3 |
+| Ford (2025, arXiv:2408.03803): Kubilius model for shifted primes `p + a` | all orders | TV estimate | yes | single shift again |
+
+(Dates/precisions are as remembered from the literature and serve only to
+place each result on the three axes; none is used in a proof.)
+
+**Assessment 4.3.** No known theorem, and no standard conjecture that we
+know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
+* All divisor-correlation theorems and the standard conjectures
+  (Hardy–Littlewood/Elliott/Chowla type, binary/ternary additive divisor
+  problems) have a **fixed number of shifts**. By Cor 3.3 (prime-slice
+  families) and Cor 3.4 (all K2 families), fixed order gives no θ > 3/4,
+  even with a power-saving error and with everything below N evaluated
+  exactly. This is a theorem about hypotheses that assert CRT/local-
+  density main terms, which all of these do.
+* Level-of-distribution statements (EH for τ_k, BV/BFI/DI) live below
+  modulus N and are capped by IF Thm 2.5 / K2 Thm 5.1.
+* The only known mechanism controlling *all* orders above modulus N is the
+  Kubilius model, which rests on hits being divisors of a single integer.
+  By Lemma 1.3 the ES hits are divisors of `~y²` different shifts, and by
+  Prop 4.1 no TV model can hold. A proof of TC_θ would have to control
+  K-th moments of a sum of ω-functions over `≍ y_K²` shifts (with K and
+  `log y_K ≍ K^{1/2}` growing), i.e. a "Kubilius model for many shifts in
+  the moment sense". We know of no result of this kind for even two
+  shifts with `K → ∞` moments at relative precision `e^{−cK}`.
+* Uniform-in-k conjectures (k-tuple conjectures with k growing) are not
+  standard; and TC itself is false at k ≍ log N (Prop 4.2), so any such
+  conjecture must stop below order log N, as TC_θ (θ < 1) does.
+
+**Verdict on the door.** TC_θ is a *natural, falsifiable* hypothesis
+(CONJECTURE, not evidence-backed beyond §5): it is a theorem up to
+`θ = 2/3` (Prop 2.4), false at `θ = 1` (Prop 4.2), and for
+`3/4 < θ < 1` it implies the θ target (Cor 2.3). Bounded-order
+correlation input, of any precision, is useless for θ > 3/4 (Cor 3.3,
+3.4). The order needed is `(log N)^θ` up to `log log N` (Cor 2.2 + Cor 3.3).
