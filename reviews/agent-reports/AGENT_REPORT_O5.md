@@ -126,7 +126,8 @@ Stopping for parent review.
 
 * **(3c) is trivial for r = 3.** There are at most 7 sub-stars per class.
   The `2^r` problem exists only for an unbounded number of large primes.
-* **Prop 6.4 (proved, same inputs as §§2–3).** Each of the following is
+* **Prop 6.4 (SKETCH after review E11; conditional on the unwritten
+  any-arity fibre law).** Each of the following is
   `≪ α^{−3}(log L)^{O(1)}`:
   1. pair stars, i.e. vertex modulus `Q = ℓ₁ℓ₂` with a *prime* partner;
      the §§2–3 template runs mod Q, with ≤ 4 square roots;
@@ -135,19 +136,17 @@ Stopping for parent review.
      `Σ1/R ≪ (log L)²`;
   3. vertex stars with an unbalanced large partner `ℓ_b > (kjℓ_a)^{C₀}`,
      taking `kℓ_a` as the cofactor;
-  4. the balanced-partner case whenever the largest of u, v, t is
-     `≥ 8w₂(kjA)^{1/2}`.
-* **Exact residual (OPEN).** It is the vertex stars at j with all three of
-  the following:
-  * balanced partners: `(kj)^{C₀} < ℓ_aℓ_b`, `ℓ_b ≤ (kjℓ_a)^{C₀}`;
-  * a balanced divisor triple: every one of u, v, t is `< 8w₂(kjA)^{1/2}`;
-  * the resulting modulus `q = 4·(two short divisors) ≈ A^{1/2±}`, which
-    is comparable to or larger than both partner primes.
+  4. every large-partner triple with `ℓ_b ≥ w₂q` (BT over ℓ_b; E12);
+  5. whole-event stars and unary terms.
+* **Residual (OPEN; corrected by E12; "exact" withdrawn).** It is the
+  vertex stars at j with a large partner `R = ℓ_aℓ_b > (kj)^{C₀}` and
+  `ℓ_a ≤ ℓ_b < w₂q`, where `q = 4·(the two shorter of u, v, t)`. This
+  forces a nearly balanced triple, `ψ < 4w₂(kjA)^{1/2}`.
 
   What is needed is an upper bound of the expected order for products of
   two primes in progressions mod q, on average over the occurring q. This
-  is the Bombieri–Friedlander–Iwaniec range. The cap does not help, since
-  the τ-mass of this part is a positive proportion of `L³`.
+  is the Bombieri–Friedlander–Iwaniec range. The cap plausibly does not
+  help (Assessment, not verified).
 * Not done in this checkpoint: numerics for the residual; (3a)/(3b) for
   unbounded r.
 
@@ -174,3 +173,27 @@ Repairs E1–E8 are applied in one commit:
 
 E9 (TW2 status lines, DISCOVERIES) is left to the parent at merge.
 §6 (Lemmas 6.1–6.2, Props 6.3–6.4) has not yet been reviewed.
+
+---
+
+# Round 2 review response
+
+The verdicts are SOUND for Lemma 6.1, SOUND for Lemma 6.2 (nit E13) and
+SOUND-AFTER-REPAIRS for Prop 6.3 (E10). Prop 6.4 is SOUND as a sketch,
+with the labels repaired (E11, E12, E14). Repairs E10–E14 are applied in
+one commit:
+* E10: the ν⁺ inflation is `e^{6δ}` (it also hits the `E∖σ` factors), and
+  `ρ̃^σ ≤ (4/3)^{|σ|}ρ^σ`, which is absorbed by `π_σ` for unbounded arity.
+  Prop 6.3 and the G_L strengthening now assume `δ = 1/32`.
+* E11: Prop 6.4 is relabelled SKETCH and made conditional on the
+  unwritten any-arity fibre law. Whole-event stars and unary terms are
+  listed as item 4.
+* E12: the residual is corrected to `ℓ_a ≤ ℓ_b < w₂q`, and the word
+  "exact" is withdrawn. The case `ℓ_b ≥ w₂q` is proved by BT over ℓ_b.
+  The "cap does not rescue it" paragraph is marked as an unverified
+  Assessment.
+* E13: deletion of redundant events is now an explicit step of the
+  promotion procedure.
+* E14: the j-top bound in Prop 6.4(2) is `α^{−3}(log L)²`.
+
+E9 (TW2 status lines, DISCOVERIES) is left to the parent at merge.

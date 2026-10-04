@@ -10,11 +10,14 @@
 | Lemma 3.4 | large-partner part `≪ (log L)^{O(1)}` | PROVED (SOUND) |
 | **Thm 4.1, Cor 4.2** | **(H_O) holds, so TW2 Cor 5.2 (two-prime Λ² cap `≪ L^{3/4}(log L)^{O(1)}`) is unconditional** | PROVED (SOUND after repair E5) |
 | (H_O^≠), (H_O^=) as un-quarantined pair sums; H_div | no longer needed for Cor 5.2 | **bypassed, open as stated** (review E5) |
-| Lemmas 6.1, 6.2 | any-arity noise stability with codegree stars; free codegree quarantine | PROVED (internal; not yet reviewed) |
-| Prop 6.3, 6.4 | ≥ 3 large primes reduced to star sums; ternary case proved except one residual | reduction PROVED (internal); residual OPEN |
+| Lemmas 6.1, 6.2 | any-arity noise stability with codegree stars; free codegree quarantine | PROVED (review R2: SOUND) |
+| Prop 6.3 | ≥ 3 large primes reduced to star sums (`δ = 1/32`; inflation `e^{6δ}(4/3)^{|σ|}`) | PROVED as an implication (review R2: SOUND after E10) |
+| Prop 6.4 | ternary star sums except the balanced residual | SKETCH; conditional on the unwritten any-arity fibre law (E11) |
+| ternary residual | vertex stars with `ℓ_a ≤ ℓ_b < w₂q` (q = 4·two short divisors): products of two primes in APs, BFI range | OPEN (corrected, E12) |
 
 Review: `reviews/exceptional-twin3-review.md` (branch `side-agent/review-twin3`;
-repairs E1–E8 applied).
+repairs E1–E8 applied; Round 2 repairs E10–E14 applied; E9 is deferred to
+the merge).
 
 Earlier status lines:
 * §§1–5: (H_O) proved, so TW2 Cor 5.2 is unconditional.
@@ -483,7 +486,11 @@ Whether they are small is an arithmetic question (§6.3).
 **Lemma 6.2 (free codegree quarantine by promotion; PROVED).** In Setting
 6.0, call a star σ with `|σ| ≥ 2` a *codegree hub* if `D_σ > 1` and σ is
 not itself an event. To *promote* σ, delete all events `E ⊇ σ` and add σ
-as an event. Promote hubs repeatedly, in any order, until none is left.
+as an event. Alternate two steps until neither applies:
+* (a) delete every event that strictly contains another event (redundant:
+  A is unchanged);
+* (b) promote one codegree hub (any order).
+
 This terminates in a system 𝓔⁺ with the following properties:
 1. `A⁺ ⊆ A` (avoiding σ implies avoiding every `E ⊇ σ`), and every `w⁺_ℓ ≤ w_ℓ`,
    so (H_δ) persists;
@@ -516,13 +523,18 @@ the process terminates.
 of events of 𝓔⁺, which are stars of 𝓔. ∎
 
 Together with TW2 Lemma 2.2 (unary quarantine of vertex hubs, cost
-`2Σρ_ℓ(p_ℓ + S_ℓ)`), and since passing to `ν⁺` multiplies `ν_ℓ` by
-`(1−p_ℓ)/(1−p⁺_ℓ) ≤ e^{2w_ℓ}` (because `p⁺_ℓ − p_ℓ ≤ w_ℓ ≤ 1/16`), so that
-`π_σ` grows by at most `e^{2Σ_{V(σ)}w} ≤ e^{2δ}` under (H_δ) (uniformly in
-the arity), the fibre log-ratio of any-arity class systems is
+`2Σρ_ℓ(p_ℓ + S_ℓ)`), Passing to `ν⁺` multiplies every factor
+`ν_ℓ` by `(1−p_ℓ)/(1−p⁺_ℓ) ≤ e^{(4/3)w_ℓ}`, because `p⁺_ℓ − p_ℓ ≤ w_ℓ`
+and `p⁺ ≤ 1/4`. This applies both to `π_σ` and to the `E∖σ` factors inside
+`D_σ²`. Under (H_δ) a star term therefore grows by at most `e^{6δ}`
+(review E10a). TW2 Lemma 2.2 also has `ρ̃ ≤ (4/3)ρ` *per coordinate*, so
+`ρ̃^σ ≤ (4/3)^{|σ|}ρ^σ` (E10b). For bounded arity this is a constant
+(`(4/3)³` for ternary). For unbounded arity it is absorbed by
+`π_σ ≤ Π_{ℓ∈V(σ)}(8/7)/ℓ`, i.e. it costs a factor `(32/21)^{|σ|}` against
+`1/Q_V`, which is harmless in (3c). With these factors, the fibre log-ratio of any-arity class systems is
 controlled by
 
-    Σ_ℓ ρ_ℓ(p_ℓ + S_ℓ) + Σ_{|σ|≥2} e^{2δ} π_σ ρ^σ min(D_σ, 1)².              (6.2)
+    Σ_ℓ ρ_ℓ(p_ℓ + S_ℓ) + Σ_{|σ|≥2} e^{6δ}(4/3)^{|σ|} π_σ ρ^σ min(D_σ, 1)².              (6.2)
 
 The edge terms of TW2 (2.1) are the stars σ that are binary events, with
 `D_σ = 1`. Codegree hubs cost nothing beyond their capped square. Unlike
@@ -561,7 +573,9 @@ the script does not record how many of these satisfied (H_δ)). Hubs with
 two primes above w₂" from Setting 3.0, keep `M ≤ P(M)^{1+B}`, and let the
 fibre law P satisfy, for every `c ∈ supp P`:
 * `p_ℓ(c) ≤ 1/8`;
-* (H_δ) with `δ = 1/16` for the any-arity class system of c.
+* (H_δ) with `δ = 1/32` for the any-arity class system of c. This leaves
+  the slack that TW2 Lemma 2.2 needs (`w ≤ δ/2`), so that the quarantined
+  system still meets Lemma 6.1 with `δ ≤ 1/16` (review E10c).
 
 Then every admissible g has
 
@@ -569,12 +583,14 @@ Then every admissible g has
 
 *Proof.* TW2 Lemma 2.1, then TW2 Lemma 2.2 (vertex quarantine; its
 proof uses only `w_ℓ ≤ δ/2` and is arity-free), Lemma 6.2, and Lemma 6.1.
-With the `e^{2δ}` inflation of (6.2), the constant is C = 11. ∎
+With the inflation factors of (6.2), C is absolute for bounded arity.
+For unbounded arity, the per-star factor `(4/3)^{|σ|}` is kept inside the
+star sum, as in (6.2). ∎
 
 **Status of each input for the full ES family (Assessment).**
 1. *Fibre law and (H_δ).* TW2 §3 carries over. Its stages 1–2 use only
    w₂-smooth moduli. G_L must be strengthened to
-   `w_ℓ ≤ δ·log ℓ/L` for all `ℓ > w₂`; then
+   `w_ℓ ≤ δ·log ℓ/L` with `δ = 1/32` for all `ℓ > w₂`; then
    `Σ_{ℓ∈S(E)} w_ℓ ≤ δ·log M/L ≤ δ`. By Markov this needs
    `Σ_{ℓ>w₂} L²E w_ℓ²/(log ℓ)² = o(1)`. The any-arity second moment is
    `E w_ℓ² ≪ L^6(log L)^{O(1)}/ℓ²` (the TW2 Lemma 3.4 split by top prime).
@@ -631,14 +647,19 @@ three" primes above w₂, and the ternary moduli are `M = kℓ₁ℓ₂ℓ₃`
 Prop 6.3 has, per class, at most 3 vertex stars, 3 pair stars and 1 whole
 event. **So (3c) is trivial for r = 3**: the factor `2^r` is 8.
 
-**Proposition 6.4 (ternary star sums: proved parts; PROVED modulo the same
-inputs as §§2–3).** In this setting, each of the following contributes
+**Proposition 6.4 (ternary star sums; SKETCH, review E11).** This is
+conditional on the any-arity fibre law (Assessment item 1 of §6.2:
+strengthened G_L/(H_δ) with `w₂ = L^{10}`, routine but not written, and
+needed even for r = 3). Granted that, and the §§2–3 inputs, in this
+setting each of the following contributes
 `≪_{B,C₀} α^{−3}(log L)^{O(1)}`:
 1. *Pair stars* `V = {ℓ₁,ℓ₂}`: here `Q = ℓ₁ℓ₂` and the partner is the
    single prime `ℓ₃`.
 2. *Vertex stars at j with a small partner* `R = ℓ_aℓ_b ≤ (kj)^{C₀}`.
 3. *Vertex stars at j with an unbalanced large partner*:
    `ℓ_b > (kjℓ_a)^{C₀}` (`ℓ_a < ℓ_b`).
+4. *Whole-event stars and unary terms*: Shiu along the top prime, as in
+   Assessment item 2 of §6.2.
 
 *Proof sketch.* All three follow the §§2–3 template line by line.
 
@@ -657,7 +678,8 @@ inputs as §§2–3).** In this setting, each of the following contributes
 has exactly two primes. (The loss `1/α` of §6.2 (3a) needs an unbounded
 number of partner primes.)
 * j top: Shiu along j with `q = kR ≤ j^B` gives
-  `Σ_R R^{−1}P(R)^{−α}(log P(R))²/α ≪ α^{−3}log L`.
+  `Σ_R R^{−1}P(R)^{−α}[α^{−3} + (log P(R))²/α] ≪ α^{−3}(log L)²`. The
+  `α^{−3}Σ_R 1/R` term costs `(log L)²` (review E14).
 * `ℓ_b` top: Shiu along `ℓ_b` with `q = kjℓ_a ≤ ℓ_b^B`, giving
   `(log kj)³·Σ1/ℓ_a`.
 
@@ -667,32 +689,36 @@ number of partner primes.)
 for each ℓ_a. Cauchy–Schwarz over ℓ_a with weights `1/ℓ_a` costs
 `(Σ1/ℓ_a)² ≪ (log L)²`. Activity is handled with cofactor k only. ∎
 
-**The exact residual (OPEN): balanced partners.** Vertex stars at j from
-ternary classes with
+**The residual (OPEN; corrected after review E12).** Consider vertex
+stars at j from ternary classes with a large partner
+`R = ℓ_aℓ_b > (kj)^{C₀}`, `ℓ_a < ℓ_b`. Write `D | A²` as `A = uvt`, with ψ
+the largest coordinate and `q = 4·(product of the other two)`. Fix ℓ_a and
+the short pair. The triples counted then have ℓ_b in one class mod q, and
+Lemma 3.1's step is Brun–Titchmarsh over the prime ℓ_b on that class:
+* *Proved part: `ℓ_b ≥ w₂q`.* This is a per-triple condition. BT over ℓ_b
+  has a range longer than its modulus, so the proof of (3) applies
+  verbatim: Lemma 3.1 with cofactor `kℓ_a`, Lemma 3.2, and Cauchy–Schwarz
+  over ℓ_a. It contains the unbalanced case (3) (where
+  `ℓ_b > (kjℓ_a)^{C₀}` forces `ℓ_b ≥ w₂q`) and the case
+  `ψ ≥ 8w₂(kjA)^{1/2}` (which gives `ℓ_b ≥ 4w₂q`).
+* *Open part:*
 
-    R = ℓ_aℓ_b > (kj)^{C₀},   ℓ_a < ℓ_b ≤ (kjℓ_a)^{C₀}.
+      ℓ_a ≤ ℓ_b < w₂·q,   q = 4·(the two shorter of u, v, t).
 
-Write `D | A²` as `A = uvt`, with ψ the largest coordinate and `q` four
-times the product of the other two. Lemma 3.1's step (sum over the
-partner in one class mod q) now needs the prime `ℓ_b` (ℓ_a fixed), or the
-pair `(ℓ_a,ℓ_b)`, to be equidistributed in a class mod q. Two cases:
-* *`ψ ≥ 8w₂(kjA)^{1/2}`, PROVED in the same way.* Then `q ≤ 4A/ψ` and
-  `ℓ_b ≥ (4A/kj)^{1/2}` give `ℓ_b ≥ q·w₂`. Brun–Titchmarsh over ℓ_b for
-  fixed ℓ_a applies, and Lemma 3.2 plus Cauchy–Schwarz over ℓ_a finish
-  as in (3).
-* *Balanced triples: all of u, v, t below `8w₂(kjA)^{1/2}`.* Then
-  `q ≍ A^{1/2±}` is comparable to or larger than both partner primes. Each
-  class of `ℓ_b` mod q has O(1) elements in range, so the first-element
-  problem of TW2 §5.4 returns, now for products of two primes in
-  progressions to moduli `q ≈ (ℓ_aℓ_b)^{1/2+}`. That is the
-  Bombieri–Friedlander–Iwaniec range, where only averages over q are known.
-  Here we need the average over the q's that occur (`q = 4·(two short
-  divisors)`, weighted by `1/φ`), which BFI does not supply directly.
+  Each class of ℓ_b mod q then has O(w₂) elements in range, so the
+  first-element problem of TW2 §5.4 returns. It now concerns products of
+  two primes `ℓ_aℓ_b` in progressions to moduli `q > ℓ_b/w₂ ≥ (ℓ_aℓ_b)^{1/2}/w₂`.
+  That is the Bombieri–Friedlander–Iwaniec range, where only averages
+  over q are known. Here the average is over the moduli that occur
+  (`q = 4·(two short divisors)`, weighted by `1/φ`), which BFI does not
+  supply directly. Since `ℓ_b ≥ (4A/kj)^{1/2}`, the open part needs
+  `q > (A/kj)^{1/2}/w₂`. Hence the divisor triple is nearly balanced:
+  `ψ < 4A/q ≤ 4w₂(kjA)^{1/2}`.
 
-*Why the cap does not rescue it.* The first moment of this part is the
-τ-mass of balanced triples, a positive proportion of `L³`. Unlike the
-binary case, a composite partner keeps the τ-mass at full size
-`(log A)^2` even when the partner pair is balanced.
+*Why the cap may not rescue it (Assessment, not verified).* The first
+moment of the open part is the τ-mass of nearly balanced triples with
+`ℓ_b < w₂q`. This is plausibly a positive proportion of the ternary mass,
+not a polylogarithmic fraction.
 
 **Size check (Assessment).** For hubs (small labels) and composite
 partners, `V(hub) ≍ (log L)²/height`, so hubs saturate the cap only for
