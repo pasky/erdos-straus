@@ -87,3 +87,66 @@ included) and `< 2^r` subsets per class give the `T_pp` bound; the `T_ev`
 bound is `π_σρ^σ = π_Eρ^{S(E)}` for σ an event. ✓
 
 No defect.
+
+## Item 4. Lemma 4.1 (fibre law `G_L^{(r)}`, `w₂ = L^8`) — SOUND
+
+* Expanding `E′(w^U_j)²` over pairs of classes: joint activity under P′ is
+  `≤ 2Γ(lcm)/lcm` (TW2 Lemma 3.2(1) for P′; zero if the two congruences are
+  inconsistent). With `f(k) ≤ (k/φ(k))F_j` uniformly in k, the k-double sum
+  `Σ_{k,k′}(Γ(lcm)/lcm)(k/φ(k))(k′/φ(k′))` has Euler factors `1 + O(1/p)`
+  over `p ≤ w₂`, so it is polylog. The three top-prime cases are combined by
+  `(a+b+c)² ≤ 3(a²+b²+c²)`. ✓
+* `P = j`: `M ≤ j^{1+B}`, `τ(A²) ≤ C_εj^{(1+B)ε} = C_εj^{1/256}`,
+  `Σ_v j^{−v} ≤ 2/j`, and `≤ r−1` other prime powers give `(2log L)^{r−1}`
+  (summing over the number of them costs a factor r). ✓
+* `P ≠ j`, `P² | M`: `Σ_{P>j}Σ_{e≥2}P^{−e+1/256} ≪ j^{−1+1/256}`, times
+  `2/j`. ✓
+* `P ≠ j`, `P ∥ M`: `q = M/P ≤ P^B` (B-hypothesis), Lemma 3.3 needs
+  `q ≤ (2y)^{B+2}` only on nonempty blocks (true), `≤ 2L` blocks above the
+  largest other prime, each `≪ (q/φ(q))(log 2qy)² ≤ (q/φ(q))(2L)²` since
+  `qy ≤ X`. `q/φ(q) ≤ (k/φ(k))(1+1/w₂)^r`. So `F_j ≪ j^{−1}L³(log L)^{r}`. ✓
+* Markov: `Σ_j P′(w^U_j > δ_r) ≤ δ_r^{−2}Σ_j E′(w^U_j)² ≪_r L^{−2}(log L)^{O(r)}`;
+  `δ_r^{−2} = e^{O(r)}`. The unary part is TW2 Lemma 3.4 verbatim. ✓
+
+The Remark is right: TW3's `w₂ = L^{10}` came from the arity-uniform
+condition `w_ℓ ≤ δlog ℓ/L`; for fixed r the per-vertex condition suffices.
+Together with Cor 5.2(1) (whole-event stars) this discharges both inputs
+that review E11 listed as missing, for every fixed r.
+
+No defect.
+
+## Item 5. Lemma 5.1, Corollary 5.2, (5.1) — SOUND
+
+* (5.1): activity `≤ 4Γ(k)/k` and `π_{E_C} ≤ (8/7)^{|S(C)|}k/M`, at most
+  `τ(A²)` classes per modulus. ✓ (Weights need only be `≥ 0`, not `≤ 1`;
+  Lemma 5.3 uses `β = Σ_Vρ^V1[…] ≤ 2^r`. Harmless.)
+* Lemma 5.1: `q = kq₀ ≤ P^B`; dyadic blocks from `y₀ = p₂/2`; the Shiu sum
+  gives `(q/φ(q))p₂^{−α}(a²/α + a/α² + 1/α³)` with
+  `a ≥ log(2qy₀)`, `a ≤ log 2k + r log p₂` (`q₀ ≤ p₂^{r−1}`). Summing
+  `p₂^{−1−α}(log p₂)^i` gives `α^{−3}` for i = 1, 2 against the matching
+  `1/α` powers and `α^{−3}log L` for the `1/α³` term; the `≤ r−2` other
+  primes of `q₀` give `(log L)^{r−2}`; `q₀ = 1` is the case `p₂ := w₂`. ✓
+* Cor 5.2(2): the two pp cases (top prime squared / top prime simple and
+  another large prime squared) are exhaustive. In the first,
+  `τ ≤ C_εP^{1/256}`, `Σ_k Γ(k)/k` is polylog (no constraint on k needed),
+  `Σ_P P^{−2+1/256} ≪ w₂^{−1+1/256}`. In the second, Shiu along P
+  (`≤ 2L` blocks, `L³`) and `Σ_{ℓ,e≥2}ℓ^{−e} ≪ 1/w₂`. Total `o(1)`. ✓
+
+No defect.
+
+## Item 6. Lemma 5.3 (small partners, every star) — SOUND (nit F2)
+
+The author asked to check the Shiu hypotheses in (b).
+* (a) `P ∈ V`: `ρ^V ≤ P^{−α}`, `< 2^r` sets V, Lemma 5.1. ✓
+* (b) `P ∉ V`: `P | R ≤ (kQ_V)^{C₀}`. `q = kQ_VR′ = M/P ≤ P^B` (B-hypothesis),
+  so on every nonempty block `q ≤ (2y)^B ≤ (2y)^{B+2}` — Lemma 3.3 applies,
+  with constant depending on B only. P is the top prime, so the blocks start
+  above the largest prime of `q` (`≥ w₂/2`), and stop at `(kQ_V)^{C₀}`.
+  `log 2qy ≤ (C₀+1)log(2kQ_V) + log R′ ≤ (2C₀+1)log(2kQ_V)` uses
+  `R′ ≤ R ≤ (kQ_V)^{C₀}`. ✓ The V-sum: power mean
+  `(Σ_{i≤v+1}x_i)³ ≤ (v+1)²Σx_i³`, `Σρ_ℓ(log ℓ)³/ℓ ≪ α^{−3}`; V is nonempty,
+  so the `α^{−3}` gain is always available. ✓ Weight bookkeeping:
+  `Γ(k)/M·τ = (Γ(k)/(kQ_VR′))·(τ/P)` with `τ/P` summed by Shiu. ✓
+* **F2 (nit, constants).** The number of blocks is
+  `≤ C₀log₂(kQ_V) + 2`, not `C₀log(kQ_V) + 1`; and (5.1) is stated for
+  `β_C ∈ [0,1]` but used with `β_C ≤ 2^r`. Neither affects the bound.
