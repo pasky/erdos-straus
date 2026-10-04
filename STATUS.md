@@ -59,6 +59,10 @@ with its status label. Read it before starting new work.
     exact divisor (leaf) condition, leaving 158 prime conditions plus that
     leaf condition (`PRIMARY_LEAF_RELAXATION.md`). Searches over actual
     inputs still find no sterile prime.
+    Astra update 2026-10-04: proofs that the norm-family fibres are blocked,
+    thirty certified even-q escapes, and both fourth-norm extensions shown
+    impossible at prime inputs for integer secants (`NORM_SEED_FOLLOWUP.md`,
+    `EVEN_NORM_SEEDS.md`). There is still no unconditional sterile seed.
     Cite that version first. Write-up: `paper/pointwise-obstruction.tex`
     (29 pp; internal hostile referee `reviews/pointwise-obstruction-paper-review.md`,
     round 2 ACCEPT pending the authorship/[AS] citation decision).
