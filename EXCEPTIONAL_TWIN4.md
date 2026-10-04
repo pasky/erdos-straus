@@ -664,10 +664,13 @@ D3(b),(c)) and Shiu along the top prime (D3(a)).
 * *Small classes (`M = k`, no B now).* `E_QR T ≤ Σ_k Γ(k)2^{ω(k)}τ(A_k²)/k
   ≪ (log L)^{O(1)}` by Lemma 10.1 (m = 1). This is better than TW2's
   `L^{1/32+o(1)}`. For `μ_p`: expand the square, use AM–GM on
-  `τ(A_k²)τ(A_{k′}²)`, and apply Lemma 10.1 with i = 2 to `k = pk″`. Both
-  Cauchy–Schwarz factors carry `p^{−1/2}`: Rankin with the factor at p,
-  and Shiu along k″ mod p. So `E_QRμ_p² ≪ (log L)^{O(1)}p^{−2}`, and
-  `Σ_{p>W₁}p^{1/2}Eμ_p² ≪ (log L)^{O(1)}W₁^{−1/2} = o(1)`.
+  `τ(A_k²)τ(A_{k′}²)`. The `k′`-sum gives `(log L)^{O(1)}p^{−1}` (TW2), and
+  for `k = pk″` the proof of Lemma 10.1 (i = 2) gives `p^{−1/2}` from each
+  Cauchy–Schwarz factor: Rankin with the factor at p, and Shiu along k″
+  in a class mod p (valid for `k ≥ p^{4/3}`). For `k < p^{4/3} ≤ w₂²`, TW2's
+  pointwise `τ(A²) ≤ C_εk^{ε}` gives `≤ L^{1/16}`. So
+  `E_QRμ_p² ≪ L^{1/16}(log L)^{O(1)}p^{−2}`, as in TW2, and
+  `Σ_{p>W₁}p^{1/2}Eμ_p² ≪ L^{1/16+o(1)}W₁^{−1/2} = o(1)`.
 * *(G) unary and event classes:* B holds with `B = 33r−1`, so TW2 Lemma
   3.4 and Lemma 4.1 above apply verbatim.
 * *(H) classes:* by Markov on the first moment,
