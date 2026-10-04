@@ -156,11 +156,11 @@ with `g ≥ 0`, `∫g = |I| − F̂(0) = D`; then `|F| ≤ 1_I + g` and
 **Theorem 2.5 (hybrid level-N/2 sieves are capped at 3/4; PROVED, Case-A
 part via K2 Thm 5.1).** Let 𝔊 be any finite family of ℛ(M)-, (a,D)-,
 Case-A and selector classes with every prime of every modulus `≤ N^A`.
-Let `ν = Σ_i a_i 1[n ≡ b_i (d_i)]` be a majorant of 𝒜(𝔊). Let D ≤ N/2,
-and put `T_> = Σ_{i: d_i > D} |a_i|` (coefficients as written, no merging
+Let `ν = Σ_i a_i 1[n ≡ b_i (d_i)]` be a majorant of 𝒜(𝔊). Put
+`T_> = Σ_{i: d_i > N/2} |a_i|` (coefficients as written, no merging
 needed). Suppose a method produces a bound B with
 
-    B ≥ Σ_{n≤N} ν(n)   and   T_> ≤ c·B   (some c ≥ 0),             (2.2)
+    B ≥ Σ_{n≤N} ν(n)   and   T_> ≤ c·B   (c ≥ 0 fixed),             (2.2)
 
 and `B = N e^{−s}`. Then, for N ≥ N₀(A),
 
@@ -169,16 +169,17 @@ and `B = N e^{−s}`. Then, for N ≥ N₀(A),
 and with `G ≤ P(G)^{1+B₀}` for all moduli of 𝔊, `s ≤ log(2+12c) + C_{A,B₀}(log N)^{3/4}`.
 
 *Proof.* *Interval side.* ν ≥ 0 on ℤ and `F ≤ 1_{[1,N]}` on ℤ give
-`Σ_{n≤N}ν ≥ Σ_n F(n)ν(n)`. By Lemma 2.4, term by term,
-`Σ_n F(n)ν(n) ≥ (N − D)Eν − (2(N+D)/D)·T_> ≥ (N/2)Eν − 6T_>`. With (2.2),
+`Σ_{n≤N}ν ≥ Σ_n F(n)ν(n)`. Take F with D = N/2. By Lemma 2.4,
+term by term (classes of modulus ≤ N/2 contribute no error),
+`Σ_n F(n)ν(n) ≥ (N/2)Eν − 6T_>`. With (2.2),
 `B ≥ (N/2)Eν − 6cB`, so `Eν ≤ (2+12c)B/N = (2+12c)e^{−s}`.
 
 *Mean side.* Put `S = log(1/Eν)`; so `s ≤ S + log(2+12c)`. Follow K2
 Cor 6.1's proof, with one change. The projection `ν̄` to the family modulus
 does not raise moduli or coefficient sizes, so the terms of ν̄ of level
-`> log D` have coefficient sum ≤ T_>. ET Lemma 2.9's proof alters only
+`> log(N/2)` have coefficient sum ≤ T_>. ET Lemma 2.9's proof alters only
 terms of level > λ, so its conclusion holds with T replaced by the
-coefficient sum of those terms. For `λ ≥ log N ≥ log D` this is ≤ T_>.
+coefficient sum of those terms. For `λ ≥ log N` this is ≤ T_>.
 And `T_> ≤ cB < cN`. With `Λ₀ = A log N` and
 `λ = Λ₀ + log(max(T_>,1)) + S ≤ (A+1+o(1))log N + S + log(1+c)`, we get a
 majorant of level λ with mean `≤ 2Eν`. K2 Thm 5.1 (resp. 5.2) bounds S
