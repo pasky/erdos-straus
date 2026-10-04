@@ -170,3 +170,100 @@ for θ > 2/3 is aggregate cancellation among tuples above modulus N.
    architecture (Bonferroni degree ≍ saving, atoms of size
    `exp(s^{1/3})`). We use the prime family because CRT independence makes
    Theorem 2.1 exact. Nothing below needs composite moduli.
+
+## 3. No-go: correlation input of order k saves at most ≍ k log log N
+
+Theorem 2.1 used order K and saved `≍ K`. This section shows that this is
+optimal up to `log log N`, even if all information below modulus
+`N^{O(1)}` is used as well, as long as the hypotheses assert CRT main
+terms. Bounded order k is useless for θ > 3/4.
+
+Setting: a prime-slice system (ET §1: small modulus Q₀, admissible set R,
+finite slice-prime set 𝒫, forbidden sets `F_ℓ(c)`), with
+`p_ℓ(c) ≤ 1/4` and `|F_ℓ(c)| < ℓ` for all `ℓ ∈ 𝒫`, `c ∈ R`. A *majorant*
+is `ν = Σ_i a_i 1[n ≡ b_i (mod d_i)]` with `ν ≥ 0` on ℤ and `ν ≥ 1` on the
+whole avoider set 𝒜. Put `T_i = {ℓ ∈ 𝒫 : ℓ | d_i}`.
+
+**Definition 3.0.** ν is *(λ₀, k)-mixed* if every term i satisfies
+`Σ_{ℓ∈T_i} log ℓ ≤ λ₀` (level ≤ λ₀) **or** `|T_i| ≤ k` (order ≤ k).
+
+Examples. A k-point correlation `1[n ∈ W_1 ∩ … ∩ W_k]` of slice classes
+has order ≤ k, whatever its modulus. So `P∘f` with `deg P ≤ k`, Bonferroni
+truncations of degree k, Theorem 2.1's majorant (K = k), and any of these
+plus an arbitrary CRT majorant of level ≤ λ₀ are (λ₀, k)-mixed.
+
+**Theorem 3.1 (PROVED).** Let ν be (λ₀, k)-mixed, `k ≥ 1`. Let `L₀ > 0`,
+weights `s_ℓ = min(log ℓ, L₀)`, `s_* = min_𝒫 s_ℓ`, `λ = max(λ₀, kL₀) ≥ s_*`,
+`G = ⌊log₂(λ/s_*)⌋ + 1`, `μ̄ = Σ_{ℓ∈𝒫} p̄_ℓ`. For every α > 0,
+
+    log(1/Eν) ≤ log(Q₀/|R|) + 19αλ
+                + C₄ [ Σ_{ℓ∈𝒫, log ℓ≤L₀} p̄_ℓ ℓ^{−α} + e^{−αL₀} Σ_{ℓ∈𝒫, log ℓ>L₀} p̄_ℓ ]
+                + G(75 + log(2+λ/s_*)) + (G/2) log(16μ̄+16).          (3.1)
+
+*Proof.* ET Theorem 2.5's proof, with ET Proposition 2.4 applied to the
+weights `s_ℓ` instead of `log ℓ` (Prop 2.4 allows arbitrary weights
+`s_i ≥ s_* > 0`; NC Thm 2.3 does the same with other weights). Condition
+on `c = n mod Q₀ ∈ R`. The hit indicators `x_ℓ`, ℓ ∈ 𝒫, are independent
+`Bern(p_ℓ(c))`, and `ν_c = E[ν | c, x]` is a sum of terms depending on
+`x_{T_i}` only. Each term has weighted level
+`Σ_{T_i} s_ℓ ≤ min(Σ_{T_i} log ℓ, |T_i| L₀) ≤ λ`, by the mixed condition.
+So `ν_c` is λ-level for these weights, `ν_c ≥ 0`, and `ν_c(0) ≥ 1` (the
+event `{c} × {x = 0}` lies in 𝒜 and has positive probability). All
+`s_ℓ ≤ L₀ ≤ λ`, so Prop 2.4 needs `p_ℓ(c) ≤ 1/4` for all ℓ ∈ 𝒫, which is
+assumed, and its mass is μ̄ (averaged). Prop 2.4 gives (2.3) in each
+fibre with `Σ p_ℓ(c) e^{−αs_ℓ}`. The weights do not depend on c, so the
+fibre bound is affine in `(p_ℓ(c))_ℓ` up to the concave log term; average
+over c ∈ R by Jensen exactly as in ET Thm 2.5, and use
+`Eν ≥ (|R|/Q₀) avg_{c∈R} Eν_c`. Finally `e^{−αs_ℓ}` is `ℓ^{−α}` if
+`log ℓ ≤ L₀` and `e^{−αL₀}` otherwise. ∎
+
+**Corollary 3.2 (ES prime-slice families; PROVED).** Take a family as in
+ET Corollary 3.4 (forced classes of notes Lemma 16.1 or ET Lemma 3.2, or
+Case-A classes via ET Lemma 3.7; moduli `q₀ℓ`, `q₀ ≤ ℓ^C`, C < 1;
+selector R with parameter P; `ℓ ≥ ℓ₀(C)`), with all slice primes
+`ℓ ≤ N^A`. Every (A log N, k)-mixed majorant ν, `1 ≤ k`, satisfies
+
+    log(1/Eν) ≤ C₉(A,C) [ (log N)^{3/4} + k log log N ] + log(P/φ(P)).   (3.2)
+
+*Proof.* ET Cor 3.4's proof gives `p_ℓ⁺ ≤ 1/4`,
+`log(Q₀/|R|) ≤ log(P/φ(P))` after the selector average, and the mass
+bound `Σ_ℓ p̄_ℓ ℓ^{−β} ≤ C min(β,1)^{−3}` (ET Lemmas 3.1, 3.2, 3.7; for β ≥ 1
+use `ℓ^{−β} ≤ ℓ^{−1}`). With `β = 1/log x` this gives
+`Σ_{ℓ≤x} p̄_ℓ ≤ C'(log x)³`, so `μ̄ ≤ C'(A log N)³`. Put `λ₀ = A log N`,
+`L₀ = λ₀/k` (so λ = λ₀) and `α = max(λ₀^{−1/4}, 3k log(A log N)/λ₀)`.
+In (3.1):
+* `19αλ₀ ≤ 19λ₀^{3/4} + 57 k log(A log N)`;
+* the first mass sum is `≤ C α^{−3}... ≤ C λ₀^{3/4}` (as `α ≥ λ₀^{−1/4}`);
+* `αL₀ ≥ 3 log(A log N)`, so the second is `≤ (A log N)^{−3}·C'(A log N)³ = C'`;
+* `s_* ≥ min(log ℓ₀, λ₀/k)`, so `G = O(log(k + log N))` and the G-terms
+  are `O(log²(k + log N)) = O((log N)^{3/4} + k)`. ∎
+
+**Corollary 3.3 (order needed; PROVED).** Consider any method that bounds
+`#(𝒜 ∩ [1,N]) ≤ B` through a (A log N, k)-mixed majorant ν of a
+Cor 3.2 family, with `B ≥ ½ N·Eν`. (This holds whenever the method's
+evaluation of `Σ_{n≤N} ν(n)` asserts the CRT main term `N·Eν` up to an
+error of at most half of it, e.g. via any hypothesis of the form
+"order-j correlation sums equal their CRT predictions up to small
+error", j ≤ k, together with any evaluation of the terms of level
+`≤ A log N`.) Then its saving `log(N/B)` is at most
+`C₉[(log N)^{3/4} + k log log N] + log(P/φ(P)) + log 2`. Hence:
+* bounded k (any fixed order; e.g. pair or triple correlations of
+  witnesses, however precise) cannot give θ > 3/4;
+* a saving `(log N)^θ` with θ > 3/4 needs `k ≥ c(log N)^θ/log log N`.
+
+Together with Corollary 2.2 (order K = 2⌈(log N)^θ⌉ suffices for the
+prime family): **the correlation order needed for saving `(log N)^θ` is
+`(log N)^θ` up to a factor `log log N`, in both directions.** ∎
+
+**Corollary 3.4 (all K2 families, weaker; PROVED from K2 Thm 5.1).** Let
+𝔊 be any finite K2 family (ℛ(M)-, (a,D)-, Case-A, selector classes, any
+moduli). Let ν be a majorant of 𝒜(𝔊) each of whose terms is an
+intersection of at most k classes of modulus `≤ N^A`, or has level
+`≤ A log N`. Then ν has K2 level `≤ kA log N`, so
+`log(1/Eν) ≤ C(kA log N)^{3/4}(log(kA log N))^{3/4}`. Bounded k gives
+no θ > 3/4; saving `(log N)^θ` needs `k ≥ (log N)^{4θ/3−1−o(1)}`. ∎
+
+*Gap.* For composite-moduli families, k between `(log N)^{4θ/3−1}` and
+`(log N)^θ/log log N` is excluded only for prime-slice families
+(Cor 3.3). Closing it needs K2 Thm 5.1 with truncated weights
+`min(log ℓ, L₀)` (open; not attempted).
