@@ -12,6 +12,7 @@ Subject: branch `side-agent/omega-hcpi` at 7003065 (`POINTWISE_OMEGA6.md`,
 | # | Item | Verdict |
 |---|---|---|
 | 1 | Lemmas 1.1, 1.2, 1.4, Def 1.3, Thm 1.5 (three-fibre reduction) | **CONFIRMED**. Nits D2, D3 |
+| 2 | Prop 2.1 (`D_sa≪4^k𝓛⁴(H^{−1/2}+q^{−1/4})`), all three regimes; Cor 2.2 | **CONFIRMED** modulo Shiu Thm 1 and Henriot Thm 4, whose hypotheses I checked literally. Citation nit D1 |
 
 ## Item 1 — §1, the three-fibre reduction. CONFIRMED
 
@@ -53,3 +54,90 @@ O5 Prop 7.1 as `P_1≪2^k𝓛²(q^{−1+o(1)}+H^{−1/4})`. Prop 7.1 gives
 `P_1≤4𝓛²[2τ(q)(2+𝓛)/q+…]`, i.e. `2^k𝓛³/q` in the first term (O5's own
 summary says `(𝓛/2)P_1≤2^{k+O(1)}𝓛⁴(…)`). Harmless: Cor 2.2's `𝓛⁵`
 absorbs it.
+
+## Item 2 — §2, Prop 2.1 and Cor 2.2. CONFIRMED (modulo Shiu, Henriot)
+
+**The citations, read literally.**
+
+* *Shiu* (Crelle 313, p. 163, Thm 1; OCR of the archived scan). The class
+  M is: non-negative multiplicative, `f(p^l)≤A_1^l`, and for every ε>0,
+  `f(n)≤A_2(ε)n^ε`. The hypotheses are `0<α<1/2`, `0<β<1/2`, `(a,k)=1`,
+  `k<y^{1−β}`, `x^α<y≤x`, and the bound holds "as x→∞", uniformly in
+  a, k, y. τ is in M with `A_1=2`. O6's paraphrase is correct, except
+  for D1.
+* *Henriot* (arXiv 1102.1643, Thm 4). Here f is in the class M of the
+  Introduction (multiplicative, `f(p^ℓ)≤A^ℓ`, `f(n)≤B(ε)n^ε` for all ε).
+  Q must be irreducible. Thm 4 is derived from Cor 2 "under the
+  assumptions of Theorem 5", and Thm 5 assumes Q **primitive**
+  (§2: "We assume that Q is primitive"). The range is `x≥c_0‖Q‖^δ`,
+  `x^α<y≤x`, with `0<α,δ<1`. `Δ_D` is (1.4), a product over `p|D`. The
+  constants depend on `α,δ,A,B` (and g). **No** "no fixed prime divisor"
+  hypothesis is needed for the upper bound (that hypothesis is in Thm 1
+  and Thm 6, not Thm 5). O6 quotes all of this correctly, including
+  primitivity, which it secures by dividing by `g_0`.
+
+**D1 (minor; citation range).** O6 says "We use … α=1/2, β=1/4" for both
+theorems. Shiu requires `0<α<1/2` strictly, so α=1/2 is outside Shiu's
+range (it is fine for Henriot, where `0<α<1`). The fix is free: in
+Regime I, `y_1=4a²S/g_0=x_1/2`, so any α, e.g. α=1/4, works.
+
+**Regime I (Shiu in s). Checked.**
+* Fixed a: s is in one class mod q, so `n=4a²s+1` is in one class mod
+  `4a²q`, inside `(4a²S,8a²S]`, and `g_0|n`. Then `n_1=n/g_0` is in one
+  class mod `k_1=4a²q/g_0`. Its interval has length `y_1=4a²S/g_0` and
+  right end `x_1≈2y_1`.
+* `gcd(r_1,k_1)=1`. For `p|2a`, `n≡1 (p)` and `p∤g_0`. For `p|q` with
+  `v_p(g_0)=f<e=v_p(q)`: `n≡κ+1 (p^e)`, so `v_p(n)=f` and `p∤n_1`. For
+  `f=e`, `p∤k_1`, because `gcd(a,q)=1`. This also covers `q′`. Checked.
+* `k_1<y_1^{3/4} ⇔ 4a²q⁴<g_0S³`, which is implied by
+  `S≥(16A²)^{1/3}q^{4/3}`, and `16^{1/3}<3`. Checked.
+* `Σ_sτ(n)≤τ(g_0)Σ τ(n_1)≪2^k(S/q)𝓛²`. Summing over the A values of a
+  and dividing by SA gives `2^k𝓛²/q`. Checked.
+
+**Regime II (Henriot in a). Checked**, including the points the report
+asked about.
+* *Content.* `P=4sq²X²+8sqrX+(4sr²+1)`. A common prime factor p does not
+  divide `2sr`, so `p|q`. Its p-part is
+  `min(v_p(q²),v_p(q),v_p(4sr²+1))=min(v_p(q),v_p(κ+1))=v_p(g_0)`. So the
+  content is exactly `g_0`, and `P_1=P/g_0` is primitive. P has no real
+  root, so P is irreducible over ℚ.
+* *`Δ_D=1`.* `disc P_1=−16sq²/g_0²`. Its prime factors divide `2s` or
+  `q/g_0`. For `p|2s`, `P_1≡g_0^{−1}≢0 (p)`. For `p|q/g_0`, the X- and
+  X²-coefficients of `P_1` are divisible by p, and the constant
+  `(4sr²+1)/g_0` is a p-unit (valuation argument). So `ρ(p^ν)=0` for all
+  `p|D` and ν≥1, and each factor of (1.4) is 1. (For p with
+  `v_p(g_0)=v_p(q)`, `P_1` is linear mod p, with `ρ(p)=1`; but then
+  `p∤D`, so this is harmless.) Checked, including `q′`.
+* *Main term.* `Π_{2<p≤x}(1−ρ/p)·exp(Σ2ρ/p)≤exp(Σρ/p+O(1))≪(log x)²`,
+  since `ρ(p)≤2`. Checked.
+* *Range.* `‖P_1‖≤‖P‖≤16sq²+1≤40Sq²`, and `x≥A/q−1≥C_1q^{1/2}S^{1/4}−1`.
+  So `x≥c_0‖P_1‖^{1/4}` for `C_1≥3c_0`, say. The i-range has length `A/q`
+  and starts near `A/q`. Halving it gives two intervals with
+  `x′^{1/2}<y′≤x′`, as `A/q≥C_1q^{1/2}` is large. Checked. The "O(1)
+  single points" are unnecessary. If kept, their bound is
+  `2^kmaxτ(F)/A≤2^kA^{−1+o(1)}≤2^kq^{−3/2+o(1)}`, because `F≤A^{O(1)}` in
+  Regime II. That is not "like Regime III", but it is fine (nit).
+* Count: `≤2^k` classes r, times `τ(g_0)≤2^k`, gives `D(S,A)≪4^k𝓛²/q`.
+  Checked.
+
+**Regime III. Checked.** Not-I and not-II give `A≪q^{11/5}` and
+`S≪q^{14/5}`, so `F≪q^{36/5}`. Nicolas–Robin gives `τ(F)≤q^{1/8}` for q
+beyond an absolute constant. For bounded q, F is bounded, and the
+constant absorbs it. The three counts are correct. The subcase
+`32SA²<q` needs s squarefree (D2). Its bound `τ(F)≤(SA)^{1/2}` follows
+from `τ(n)≪n^{1/4}` and `F≤32(SA)²`, with an absolute constant, so "for
+SA beyond an absolute constant" is not even needed. Also `SA>h_1/4>H/4`.
+The final sum over `≤4𝓛²` boxes is checked.
+
+*Nit.* Prop 2.1's statement should list its hypotheses: `h_1(q,κ)>H`
+(or replace H by `h_1`), and s squarefree (D2). It does not need `q>y²`,
+as just noted.
+
+**Cor 2.2. Checked.** `q^{−1/4}<H^{−1/2}` because `q>y²≥H²`. `D_sb`
+uses `h_2>H`. `D_ab` uses Prop 7.1 (with D3's `𝓛³`). The total is
+`≪4^k𝓛⁵H^{−1/4}`.
+
+*Assessment.* Prop 2.1 is the main genuine gain of O6. It closes O5 §4
+item 2's "period terms" without a separate `τ_Π` average in short boxes.
+In the short regime, the `1/q` density of the plane pays for the
+pointwise divisor bound. Short boxes are a problem only for first terms.
