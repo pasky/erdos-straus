@@ -17,7 +17,7 @@ is claimed unconditionally. ES is not solved.
 | Cor 3.4 | all K2 families: order-k majorants (moduli ≤ N^A) save `≤ C(k log N)^{3/4}(log(k log N))^{3/4}`; bounded k useless | PROVED (from K2 Thm 5.1) |
 | Prop 4.1 | no Kubilius-type (total-variation) model for the ES hit vector once `log y ≥ C(log N)^{1/3}` (entropy `≍ (log y)³`) | PROVED |
 | Prop 4.2 | TC fails for even `K ≥ (e²/2+ε) log N` (squares avoid all classes) | PROVED |
-| Prop 4.3 | majorants built only from the hits along a fixed set of r shifts `n+4D` (any order, any modulus) have `Eν ≥ exp(−2r(log log y + 3))` | PROVED |
+| Prop 4.3 (+ ext.) | majorants built only from ES witness classes along a fixed set of r shifts `n+4D` (any order; prime family, or all `M ≤ N^A`) have `Eν ≥ exp(−2r(log log N^A + 3))`; majorants using non-witness divisor information along the shifts are not covered | PROVED |
 | Ass. 4.4 | no known theorem or standard conjecture supplies TC_θ for any θ > 2/3: divisor-correlation results/conjectures have a fixed number of shifts (Prop 4.3) or are shift-averaged; EH-type inputs live below N; the Kubilius model needs a single shift | Assessment |
 | §5 | toy data (N ≤ 10⁸): avoider excess over CRT positive, rising with y towards the square density, reproduced by a random-non-residue control; for y ≤ 1000, j ≤ 12 the moments above N are a few % below CRT and approach it as N grows; the TC test at the supplied y passes for y ≤ 100 and fails for y ≥ 300 (a random control fails too, so this is not ES-specific) | EVIDENCE |
 
@@ -36,8 +36,9 @@ divisor-correlation theorems (Heath-Brown, Deshouillers–Iwaniec,
 Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and the standard conjectures of
 Hardy–Littlewood/Elliott type concern a *fixed number of shifts*. That is
 a different axis from witness order (each τ(n+h) involves all orders).
-Information about any fixed set of r shifts is capped separately: it
-saves `≤ 2r(log log N + O(1))` (Prop 4.3). So none of these results can
+Information about the ES witness classes along any fixed set of r shifts
+is capped separately: it saves `≤ 2r(log log N + O(1))` (Prop 4.3).
+Non-witness divisor information along the shifts is not covered. So none of these results can
 open the door on its own (Assessment 4.4). The only all-order mechanism known (the Kubilius model) is
 single-shift, and Prop 4.1 rules out its total-variation form here. The door
 is open only through a new "many-shift Kubilius model in the moment
@@ -400,7 +401,7 @@ precision `e^{−ck}` in moments of size `e^{ck}`.
 
 | input (literature) | shifts | error | covers moduli above N? | verdict |
 |---|---|---|---|---|
-| Ingham, Estermann; Heath-Brown 1979 (`N^{5/6+ε}`); Deshouillers–Iwaniec 1982 (`N^{2/3+ε}`): `Σ τ(n)τ(n+h)` | 2 (n, n+h) | power saving | yes (divisor switching) | one fixed shift pair: Prop 4.3 caps any such input at `O(log log N)`, however precise |
+| Ingham, Estermann; Heath-Brown 1979 (`N^{5/6+ε}`); Deshouillers–Iwaniec 1982 (`N^{2/3+ε}`): `Σ τ(n)τ(n+h)` | 2 (n, n+h) | power saving | yes (divisor switching) | if used through the ES witness classes along a fixed shift pair: capped at `O(log log N)` by Prop 4.3 (extension), however precise; used through other divisor information: not covered |
 | `Σ τ(n)τ(n+h₁)τ(n+h₂)` | 3 | open pointwise; known on average over shifts (Browning 2011, Blomer 2017) | averaged | fixed shifts: Prop 4.3; averaged form gives no joint K-shift law |
 | Matomäki–Radziwiłł–Tao (2019, I/II): `Σ τ_k(n)τ_l(n+h)` for almost all `h ≤ H` | 2 shifts, fixed k, l | o(1) or power saving, exceptional h | yes, averaged | 2 shifts, averaged; exceptional-shift sets are fatal for a fixed tuple of shifts `4D_i` |
 | Tao–Teräväinen (2018–19): log-averaged correlations of 1-bounded multiplicative functions, odd-order Chowla/Elliott | fixed k shifts | o(1), logarithmic averaging | yes | fixed shift count, o(1) error, 1-bounded multiplicative; none of the three requirements |
@@ -431,19 +432,43 @@ whose density is `Π(1 − r_ℓ/ℓ)` by CRT. For `ℓ > 2r` use
 `1 − x ≥ e^{−2x}` (x ≤ ½) and `Σ_{ℓ≤y}1/ℓ ≤ log log y + 1`; for `ℓ ≤ 2r`
 use `1 − r_ℓ/ℓ ≥ 1/ℓ` and `Σ_{ℓ≤2r} log ℓ ≤ 1.04·2r`. ∎
 
-So information of any order and precision about a *fixed* set of r
-shifts, evaluated with CRT main terms (bound ≥ ½N·Eν), saves at most
-`2r(log log N + O(1))` when `y ≤ N^{O(1)}`. Not covered: methods that
-combine fixed-shift statements for *all* shift tuples (e.g. a pair
-correlation for every pair of shifts), or that mix them with other
-terms.
+**Extension (PROVED).** The same holds for all shift-form ES witness
+classes along 𝒮: the events `M | n + 4D` with `D ∈ 𝒮`, `M ≡ 3 (4)`,
+`D | A_M²`, `M ≤ N^A` (composite M allowed). Let ν ≥ 0 be built from
+these indicators, with ν ≥ 1 on the avoider set of a forced-class family
+containing them. Then `Eν ≥ exp(−2r(log log N^A + 3))`.
+
+*Proof.* As above, ν depends only on these indicators, and `G(0) ≥ 1`.
+The avoider set is nonempty because `(D, M) = 1` gives `0 ∉ 𝓡(M)`, so
+every multiple of the common modulus avoids. So Eν is at least the CRT
+density of the 𝒮-avoiders. A hit `M | n+4D` forces a prime `q | M` with
+`q ≡ 3 (4)`, `q ≤ N^A`, and `q ∤ D` (since `(D,M) = 1`), with `q | n+4D`.
+So the 𝒮-avoiders contain the set of n such that, for every D ∈ 𝒮, `n+4D`
+has no prime factor `q ≡ 3 (4)`, `q ≤ N^A`, `q ∤ D`. Its density is
+`Π_q(1 − r_q/q)`, where `r_q ≤ min(r, q−1)` counts the nonzero residues
+`−4D mod q`. Bound it as above, with `Σ_{q≤N^A}1/q ≤ log log N^A + 1`. ∎
+
+So information of any order and precision about the **ES witness
+classes** along a *fixed* set of r shifts saves at most
+`2r(log log N + O(1))` under CRT main terms (bound ≥ ½N·Eν). Not covered:
+* majorants that also use **non-witness** information along the shifts
+  (prime factors `q ≡ 1 (4)` of `n+4D`, exact divisor counts such as
+  `τ(n+4D)`, primes above `N^A`). The `G(0) ≥ 1` step would need every
+  pattern of those indicators to occur on the avoider set, which is not
+  proved;
+* methods that combine fixed-shift statements for *all* shift tuples
+  (e.g. a pair correlation for every pair of shifts), or that mix them
+  with other terms.
 
 **Assessment 4.4.** No known theorem, and no standard conjecture that we
 know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
 * The divisor-correlation theorems and the standard conjectures
   (Hardy–Littlewood/Elliott/Chowla type, binary/ternary additive divisor
   problems) concern a **fixed number of shifts**, each with all orders of
-  divisibility. Used for one fixed shift tuple they are capped by Prop 4.3.
+  divisibility. Used through the ES witness classes along one fixed shift
+  tuple, they are capped by Prop 4.3 and its extension. Used through
+  other divisor information (e.g. `τ(n+h)` itself, prime factors
+  ≡ 1 (4)), they are not covered by any theorem here.
   TC_θ needs `≍ K` distinct shifts among `≍ y_K²` jointly. Shift-averaged
   results (MRT, Browning, Blomer) average over shifts and do not give
   joint K-shift statistics. Hypotheses of bounded *witness* order are
@@ -551,10 +576,19 @@ Readings.
   `2(log N)^{0.82}` at N = 10⁸). It fails for y ≥ 300 (K = 32 is
   `2(log N)^{0.95}`).
 * The `rand` control also fails for y ≥ 300. At y = 300 its error is
-  already ≈ 6·10⁻⁴ at j = 8, with positive sign. So the failure is not
-  ES-specific. Its cause is not determined: random residue sets read
-  along consecutive integers are not independent samples, and we have no
-  variance model for them.
+  already ≈ 6·10⁻⁴ at j = 8, with positive sign, so the failure is not
+  ES-specific. A likely explanation (heuristic): TC asks for *absolute*
+  error `η_K = e^{−K/e²}/K` in moments whose peak size is `≈ e^{μ}`,
+  `μ ≈ K/e²`. A sample of N points can only be expected to reproduce
+  them to relative accuracy `≈ N^{−1/2}`, i.e. absolute `≈ e^{μ}N^{−1/2}`.
+  That beats `η_K` only if `2K/e² + log K ≲ ½ log N`, i.e.
+  `K ≲ (e²/4)(log N − 2 log K)`, which is ≈ 21 at N = 10⁸. This matches the
+  observed borderline pass at K = 22 and the failures at K ≥ 32. It also
+  means that **near θ = 1 (K ≈ 2 log N) TC is not expected even for a
+  random model**; TC_θ is a plausible conjecture only for θ < 1, where
+  the required precision is `N^{−o(1)}`. (Random residue sets read along
+  consecutive integers are not independent samples; this variance
+  heuristic is not proved.)
 * At fixed y the ES error η(K) decreases roughly like a power of N over
   the two decades: exponents ≈ 0.78, 0.64, 0.47 for y = 100, 300, 1000.
 * The ES error is 6–40× the `rand` error, with `randqnr` in between, so
