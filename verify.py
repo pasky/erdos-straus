@@ -17361,4 +17361,121 @@ print("\n== (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2 ==")
 check_cn()
 
 
+
+# ---------------------------------------------------------------- (co)
+# POINTWISE_WINDOW.md: Lemma 1.2 (parity of the q-bad part) and the W1
+# congruence data.
+# (1) Lemma 1.2: for all primes p = 1 (8), p < 2500, all q = 3 (4), q < 3p with
+#     gcd(n_q, q) = 1, n_q = (p+q)/4:  (-1)^{Omega_q^-(n_q)} = (n_q|q) = (p|q).
+# (2) Lemma 1.1: no q-bad factor => window q fails (Rat_q(n_q) misses -1, -p;
+#     rat_hits of scripts/pointwise_size_amin.py), p < 1200, q < 120; and the
+#     q = 3 converse (window 3 fails iff n_3 has no prime factor = 2 (3)) for all
+#     p = 1 (24), p < 2*10^4.
+# (3) W1 sifting data: p = 1 (840) => n_p = (p+3)/4 = 1 (210); for squarefree
+#     d <= 3000 built from primes l = 2 (3), l >= 11: {p = 1 (840) : d | n_p} is one
+#     reduced class mod 840d (so g(d) = 1/phi(d)); 1 - 1/phi(l) =
+#     (1-1/l)(1-(l-1)^-2) exactly.  Step 2 parity: Omega_3^-(n_p) is even for every
+#     prime p = 1 (840) < 4*10^6.  Regression vs §3 table: x = 10^6 gives 395 primes,
+#     N_3 = 244.  Step 4: sum_{m <= 10^5, l | m => l = 1 (3)} 1/phi(m) <= the Euler
+#     product prod_{l = 1 (3), l <= 10^5} (1 + l/(l-1)^2).
+
+def check_co():
+    from time import perf_counter
+    import importlib.util
+    import os
+    from sympy import totient as _totient, isprime as _isprime
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "pointwise_size_amin.py")
+    spec = importlib.util.spec_from_file_location("pointwise_size_amin", path)
+    pa = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(pa)
+    spf = _o9_spf(1_000_001)
+
+    # (1) Lemma 1.2
+    npar = 0
+    for p in primerange(17, 2500):
+        if p % 8 != 1:
+            continue
+        for q in range(3, 3 * p, 4):
+            n = (p + q) // 4
+            if gcd(n, q) != 1:
+                continue
+            f = _o9_factor(n, spf)
+            om = sum(e for r, e in f.items() if jacobi_symbol(r, q) == -1)
+            assert (-1) ** om == jacobi_symbol(n, q) == jacobi_symbol(p, q), ("WINDOW Lemma 1.2", p, q)
+            npar += 1
+
+    # (2) Lemma 1.1 and the q = 3 converse
+    n11 = 0
+    for p in primerange(17, 1200):
+        if p % 8 != 1:
+            continue
+        for q in range(3, 120, 4):
+            n = (p + q) // 4
+            if gcd(n, q) != 1 or n % p == 0:
+                continue
+            f = _o9_factor(n, spf)
+            if all(jacobi_symbol(r, q) != -1 for r in f):
+                assert pa.rat_hits(f, q, p) is None, ("WINDOW Lemma 1.1", p, q)
+                n11 += 1
+    n3 = 0
+    for p in primerange(17, 20000):
+        if p % 24 != 1:
+            continue
+        f = _o9_factor((p + 3) // 4, spf)
+        assert (pa.rat_hits(f, 3, p) is None) == all(r % 3 != 2 for r in f), ("WINDOW q=3 converse", p)
+        n3 += 1
+
+    # (3) W1 sifting data
+    for k in range(0, 3000):
+        assert ((840 * k + 1 + 3) // 4) % 210 == 1
+    bad = [l for l in primerange(11, 3001) if l % 3 == 2]
+    ds = [1]
+    for l in bad:
+        ds += [d * l for d in ds if d * l <= 3000]
+    for d in ds:
+        hits = [b for b in range(1, 840 * d, 840) if ((b + 3) // 4) % d == 0]
+        assert len(hits) == 1 and gcd(hits[0], 840 * d) == 1, ("WINDOW W1 class b_d", d)
+        assert all((((b + 3) // 4) % d == 0) == ((b + 3) % d == 0) for b in range(1, 840 * d, 840))
+        phid = prod(l - 1 for l in factorint(d))
+        assert int(_totient(840 * d)) == 192 * phid
+    for l in bad[:200]:
+        assert 1 - Fraction(1, l - 1) == (1 - Fraction(1, l)) * (1 - Fraction(1, (l - 1) ** 2))
+    X = 4_000_000
+    npr = n3f = 0
+    npr6 = n36 = 0
+    for p in range(841, X + 1, 840):
+        if not _isprime(p):
+            continue
+        f = _o9_factor((p + 3) // 4, spf)
+        om = sum(e for r, e in f.items() if r % 3 == 2)
+        assert om % 2 == 0, ("WINDOW W1 Step 2 parity", p)
+        npr += 1
+        if p <= 10 ** 6:
+            npr6 += 1
+            n36 += om == 0
+    assert (npr6, n36) == (395, 244), ("WINDOW §3 table x = 1e6", npr6, n36)
+    lim = 10 ** 5
+    good = [l for l in primerange(7, lim + 1) if l % 3 == 1]
+    ms = {1: 1}                                    # m -> phi(m), m composed of primes = 1 (3)
+    for l in good:
+        for m, ph in list(ms.items()):
+            mm, pp = m * l, ph * (l - 1)
+            while mm <= lim:
+                ms[mm] = pp
+                mm, pp = mm * l, pp * l
+    lhs = sum(1 / ph for ph in ms.values())
+    rhs = prod(1 + l / (l - 1) ** 2 for l in good)
+    assert lhs <= rhs, ("WINDOW W1 Step 4 Euler product", lhs, rhs)
+    print(f"co Lemma 1.2: {npar} (p, q) pairs, parity = (n_q|q) = (p|q); Lemma 1.1: {n11} bad-free windows "
+          f"all fail; q = 3 converse on {n3} primes p = 1 (24)")
+    print(f"co W1 data: {len(ds)} sifting moduli d: one reduced class mod 840d, g(d) = 1/phi(d); "
+          f"Step 2 parity on {npr} primes p = 1 (840) < {X:.0e}; x = 1e6: 395 primes, N_3 = 244 (table); "
+          f"Step 4: {lhs:.3f} <= {rhs:.3f}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data ==")
+check_co()
+
+
 print("\nall checks passed")
