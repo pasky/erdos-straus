@@ -213,3 +213,60 @@ codegrees) — the right direction, worth saying.
 **Minor wording.** "So the factorial of Theorem 1.1 is *entirely* the
 cascade" after Thm 4.2 is an Assessment: Thm 4.2 shows HC suffices to
 avoid it, not that nothing else could force factorial growth. Label it.
+
+## Item 5 — §4.1, §4.3–4.4 (anatomy and ceilings; labels). Verdict: **SOUND-AFTER-REPAIRS** (label/wording repairs D6, D7)
+
+* **§4.1 first paragraph** (the factorial arises only from the Markov
+  push in Step 1, and every other parameter enters through `Ẑ_r` as the
+  additive `b_k`) is a correct statement about the proof of Thm 1.1 and
+  the worst-case recursion (confirmed by `omega4_rates.py recursion`). ✔
+* **"Markov is sharp at the first push"** correctly cites O2 Prop 11.4,
+  but that proposition is for *fixed* t, is *ineffective*
+  (Siegel–Walfisz), uniform only for `D*≤(log T)^A`, and is proved for
+  the θ-system with `R=(y,T^{1/3}]`. The O4 sentence drops all three
+  qualifications.
+
+**D6 (label).** §4.1 is headed "(PROVED, about the scheme)", but its
+second bullet ("The cascade is an artefact") rests on EVIDENCE (O3 §2,
+one pair per T, k=3) and on unproved heuristics ("a pushed
+κ-monochromatic j-set has level-j sub-codegrees ≍1", "final cost
+`≈Σ1/ℓ≈log(k+1)` per κ", "heavy sets are κ-monochromatic" for `j≥3`).
+Repair: label the second bullet Assessment/EVIDENCE, and add the O2
+Prop 11.4 qualifications to the first. Also make explicit that "the
+factorial is real for the scheme as written" (here and in §6) refers to
+the *worst-case parameter recursion* with Markov-saturated pushes, not
+to the actual pushed masses of the ES system, which are not computed.
+
+* **§4.3 (Assessment) — content checked.** Item 3: for n disjoint
+  occurring events of support k, `B_L=Σ_{j≤⌊L/k⌋}(−1)^jbinom(n,j)=
+  (−1)^{⌊L/k⌋}binom(n−1,⌊L/k⌋)` ✔ (≤`2^{n−1}`; "≈2^n" is an upper bound).
+  Item 2's ceiling `H≳(kL)^{k−2}` is consistent with Thm 4.2's choice
+  `H≈N^{(k−2)/a}`. Consequence 2: minimising `(k/a)·5log𝓛+𝓛/k` gives
+  `k≍(a𝓛/log𝓛)^{1/2}` and `log W≳a(log₂p)²/log₃p` ✔. Labels correct.
+* **§4.4 PROVED part.** `p≡1 (Q)`, `p>1` ⇒ `log p>log Q≥θ(y)`; hence
+  `log p≤𝓛^{1/c}` forces `y≤𝓛^{O(1)}` and supports up to `≍𝓛/log𝓛`. ✔
+  (Trivial but correct.)
+
+**D7 (wording, §4.4 Assessment).** "Then `log p ≥ K ≥ T^{c'}`" is wrong as
+stated: PO Thm 4.1 gives an *upper* bound `log p≤C_1K·max(log Z,K)` for
+the prime it produces; nothing forces the actual p to be large. The
+intended statement is "the bound the method certifies is `≥K≥T^{c'}`".
+
+## Item 6 — Proposition 5.1 (Haar side). Verdict: **SOUND**; arithmetic slip D8
+
+* O2 Thm 11.3's proof with z free: Lemma 11.2 at `c_0=1/(8k_z)` gives
+  `|𝓑|≤k_zS*/c_0=8k_z²S*`; every event has `≤k_z` free primes, so the LLL
+  neighbour sum is `≤2k_zc_0=1/4`, and `P(no event)≥exp(−4S_tot)≥e^{−4S*}`;
+  the class of one costs `≤(π(z)+|𝓑|)𝓛`. ✔ (Needs `z≤T` so `k_z≥1`;
+  harmless.)
+* With `z=𝓛²` and ET: `8k_z²S*𝓛≈2𝓛³S*/(log𝓛)²≪𝓛^7/log𝓛`. O4 writes
+  `≪𝓛^7log𝓛`: true but weaker by `(log𝓛)²` than what the same proof (and
+  O2 Thm 11.3) gives. Cosmetic.
+* "Haar form of `exp((log p)^{1/7−o(1)})`" is correctly labelled as
+  resting on the density heuristic (Assessment).
+
+**D8 (arithmetic).** §5 last bullet: "The prime side is weaker by a
+factor `≍𝓛/log₂𝓛` in the doubly logarithmic scale." The two quantities
+are `(1+o(1))𝓛log₂𝓛/log𝓛` and `(7+o(1))log𝓛`, whose ratio is
+`≍𝓛·log₂𝓛/(log𝓛)²`, not `𝓛/log₂𝓛`. (Results-at-a-glance item 5 states
+the two quantities correctly.)
