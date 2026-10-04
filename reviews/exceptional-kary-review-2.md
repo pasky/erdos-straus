@@ -263,7 +263,8 @@ Outputs `data/kary/review2_pipeline_{sparse,dense}.txt`.
   An improvement, not a conflict.
 * No earlier file proves a *lower* bound on `S_λ` larger than `λ^{3/4}` for
   any bounded-B ℛ(M)-family (checked STATUS, DISCOVERIES, ET, EB, ETw,
-  NONCRT); the 3/4 note's majorant attains `λ^{3/4}` order, matching.
+  NONCRT); the 3/4 note's own majorant reaches θ = 3/4, so the cap is
+  attained, not beaten.
 
 ### 3.3 Why the earlier obstacles were not real (one paragraph)
 
