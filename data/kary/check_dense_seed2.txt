@@ -1,4 +1,4 @@
-inst m q d delta  EM  En  max(weightedLP: Rem2.7, Thm2.5)(<=1)  logC*(phantom)  logC*(plain)  E[Phi]  E[Phi_(2.1)]
+inst m q d delta  EM  En  max weighted LP over {phantom,plain}x{Thm2.5,Rem2.7} (<=1)  logC*(phantom)  logC*(plain)  E[Phi]  E[Phi_(2.1)]
   0 5 2 1 0.25 0.000 0.000  1.000000  0.0000  0.0000  0.000  7.159
   1 4 2 2 0.25 0.000 0.000  1.000000  0.0000  0.0000  0.000  12.931
   2 3 2 3 0.25 0.000 0.000  1.000000  0.0000  0.0000  0.000  18.704

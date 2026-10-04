@@ -1,4 +1,5 @@
-"""Brute-force check of EXCEPTIONAL_KARY Theorem 2.5 on random small systems.
+"""Exhaustive-enumeration check (floating-point LP) of EXCEPTIONAL_KARY Theorem 2.5 on random small systems,
+for the plain sequential law sigma and for the phantom variant; asserts the weighted LP value <= 1.
 
 For each random instance (product law nu on a small grid, random unary/binary/
 ternary patterns), enumerate every path omega=(c,y) of the phantom-sequential
@@ -155,7 +156,7 @@ def main():
     rng = np.random.default_rng(seed)
     M0 = 4.0
     worst = 0.0
-    print("inst m q d delta  EM  En  max(weightedLP: Rem2.7, Thm2.5)(<=1)  logC*(phantom)  logC*(plain)  E[Phi]  E[Phi_(2.1)]")
+    print("inst m q d delta  EM  En  max weighted LP over {phantom,plain}x{Thm2.5,Rem2.7} (<=1)  logC*(phantom)  logC*(plain)  E[Phi]  E[Phi_(2.1)]")
     for inst in range(ninst):
         m = int(rng.integers(3, 6)) if MODE != "graph" else int(rng.integers(5, 9))
         q = int(rng.integers(2, 4))
@@ -177,16 +178,23 @@ def main():
             law[idx[y]] += p
             EM += p * M; En += p * n; EPhi += p * phi
             EPhi21 += p * (lagrange_bound(n, t, d) + (4 / 3) * math.log(1 + M / M0))
-        val = lp_max(A, obj, nu_w)
-        # Theorem 2.5 with constant t = d/(EM+4d), weight exp(-(4/3) t M)
-        tc = d / (EM + 4 * d)
-        obj2 = np.zeros(len(pts))
-        for p, y, M, n in P:
-            obj2[idx[y]] += p * math.exp(-math.log(bstar(n, round(tc, 12), d)) - (4 / 3) * tc * M)
-        val2 = lp_max(A, obj2, nu_w)
-        val = max(val, val2)
-        cph = lp_max(A, law, nu_w)
         Pp = paths(sizes, nus, pats, delta, phantom=False)
+        assert abs(sum(p for p, *_ in Pp) - 1) < 1e-9
+        vals = [lp_max(A, obj, nu_w)]
+        # Theorem 2.5 (constant t = d/(EM+4d), weight exp(-(4/3)tM)) for the phantom law
+        # and for the plain sequential law sigma (frozen-path coupling, §2)
+        for PP in (P, Pp):
+            EMp = sum(p * M for p, y, M, n in PP)
+            tc = d / (EMp + 4 * d)
+            o1 = np.zeros(len(pts)); o2 = np.zeros(len(pts))
+            for p, y, M, n in PP:
+                o1[idx[y]] += p * math.exp(-math.log(bstar(n, round(tc, 12), d)) - (4 / 3) * tc * M)
+                t = 1.0 / (M + M0)
+                o2[idx[y]] += p * math.exp(-math.log(bstar(n, round(t, 12), d)) - (4 / 3) * math.log(1 + M / M0))
+            vals += [lp_max(A, o1, nu_w), lp_max(A, o2, nu_w)]
+        val = max(vals)
+        assert val <= 1 + 1e-7, (inst, vals)
+        cph = lp_max(A, law, nu_w)
         lawp = np.zeros(len(pts))
         for p, y, M, n in Pp:
             lawp[idx[y]] += p

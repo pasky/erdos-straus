@@ -45,54 +45,52 @@ masses enter. Consequence (Theorem 4.5): the 3/4 cap holds for all bounded-B
   with `d = ⌊λ/s⌋`.)
 * Thresholds `δ_ℓ ∈ (0, 1/4]`.
 
-**The phantom-sequential process.** Coordinates are processed in order.
-The state before ℓ is `(c_i, y_i)_{i<ℓ}`. Put
-
-    F̃_ℓ = { a ∈ Ω_ℓ : ∃ C, top(C) = ℓ, ∃ z ∈ Π_{i ∈ T_C∖ℓ} {c_i, y_i}, (z, a) = a_C },
-    p̃_ℓ = ν_ℓ(F̃_ℓ).
-
-Draw `c_ℓ ~ ν_ℓ` independently of the past. Call ℓ **light** if
-`p̃_ℓ ≤ δ_ℓ`.
-* If ℓ is light and `c_ℓ ∈ F̃_ℓ` (ℓ is **replaced**, ℓ ∈ R), draw `y_ℓ` from
-  `ν_ℓ(· | Ω_ℓ ∖ F̃_ℓ)`, independently of `c_ℓ`.
+**The coupled sequential process.** Coordinates are processed in order;
+the state before ℓ is `(c_i, y_i)_{i<ℓ}`. An **activation rule** assigns
+to each state a set `F_ℓ ⊆ Ω_ℓ` (so `F_ℓ` is known before ℓ is drawn);
+`p_ℓ = ν_ℓ(F_ℓ)`. Draw `c_ℓ ~ ν_ℓ` independently of the past. Call ℓ
+**light** if `p_ℓ ≤ δ_ℓ`.
+* If ℓ is light and `c_ℓ ∈ F_ℓ` (ℓ is **replaced**, ℓ ∈ R), draw `y_ℓ`
+  from `ν_ℓ(· | Ω_ℓ ∖ F_ℓ)`, independently of `c_ℓ`.
 * Otherwise `y_ℓ = c_ℓ`.
 
-σ̃ is the law of `y`. It differs from the plain sequential law σ of ETw
-Conj 6.4 only in the **phantom activations**: completions of `c_i` at
-earlier *replaced* coordinates i, where `c_i ≠ y_i`. Without replaced
-coordinates among the earlier ones, `F̃_ℓ` is exactly the activated set of σ.
+Two rules matter.
+* **Plain** (the law σ of ETw Conj 6.4 and Lemma 2.1′):
+  `F_ℓ = F_ℓ(y_{<ℓ}) = {a : ∃C, top(C) = ℓ, (y_{T_C∖ℓ}, a) = a_C}`.
+  The law of y is σ; the c's are an explicit coupling with ν.
+* **Phantom:** `F̃_ℓ = {a : ∃C, top(C) = ℓ, ∃z ∈ Π_{i∈T_C∖ℓ}{c_i, y_i}, (z,a) = a_C}`.
+  (An earlier draft used this rule; review O7-1 observed that §2 never
+  needs it. It is kept only as a remark.)
 
-Write `ω = (c, y)` for the whole path, `M(ω) = Σ_{ℓ light} p̃_ℓ` (the
-light activated mass) and `n(ω) = |R|`.
+Write `ω = (c, y)` for the whole path, `M(ω) = Σ_{ℓ light} p_ℓ` (the
+light activated mass) and `n(ω) = |R|`. The law of y is written σ.
 
 ## 2. The comparison theorem
 
-**Lemma 2.1 (avoidance, inflation; PROVED).**
-1. Every pattern whose top is light avoids `y`: if `top(C) = ℓ` is light
-   then `y_{T_C} ≠ a_C`. Hence `y ∉ 𝒜` only through heavy tops, and
-   `P(y ∉ 𝒜) ≤ Σ_ℓ E[p̃_ℓ 1{p̃_ℓ > δ_ℓ}]`.
-2. Given the state before ℓ, `y_ℓ ~ ν_ℓ(·|Ω_ℓ∖F̃_ℓ)` if ℓ is light and
+**Lemma 2.1 (avoidance, inflation; PROVED).** For any activation rule:
+1. *(plain and phantom rules)* if `top(C) = ℓ` is light then
+   `y_{T_C} ≠ a_C`. Hence `y ∉ 𝒜` only through heavy tops, and
+   `P(y ∉ 𝒜) ≤ Σ_ℓ E[p_ℓ 1{p_ℓ > δ_ℓ}]`.
+2. Given the state before ℓ, `y_ℓ ~ ν_ℓ(·|Ω_ℓ∖F_ℓ)` if ℓ is light and
    `y_ℓ ~ ν_ℓ` otherwise. In particular, for every `S ⊆ V` and `b ∈ Ω_S`,
-   `σ̃(y_S = b) ≤ Π_{ℓ∈S}(1−δ_ℓ)^{−1} ν(b)`.
+   `σ(y_S = b) ≤ Π_{ℓ∈S}(1−δ_ℓ)^{−1} ν(b)`.
 
-*Proof.* 1. For every ℓ, `y_ℓ ∈ {c_ℓ}` or `y_ℓ ∉ F̃_ℓ`; for light ℓ in
-fact `y_ℓ ∉ F̃_ℓ` (if `c_ℓ ∉ F̃_ℓ` then `y_ℓ = c_ℓ`). If `y_{T_C} = a_C`
-with `top(C) = ℓ`, then `z = y_{T_C∖ℓ}` lies in `Π{c_i, y_i}`, so
-`y_ℓ ∈ F̃_ℓ`; hence ℓ is heavy. At a heavy ℓ, `y_ℓ = c_ℓ ~ ν_ℓ` is
-independent of the past, and the patterns completed by `y` at ℓ form a
-subset of `F̃_ℓ`, so the hit probability is `≤ p̃_ℓ`.
-2. If ℓ is light, `P(y_ℓ = a | past) = ν_ℓ(a)1{a∉F̃} + p̃_ℓ ν_ℓ(a)1{a∉F̃}/(1−p̃_ℓ)
-= ν_ℓ(a)1{a∉F̃}/(1−p̃_ℓ)`. The bound for `y_S` follows by the chain rule,
+*Proof.* 1. For light ℓ, `y_ℓ ∉ F_ℓ` (if `c_ℓ ∉ F_ℓ` then `y_ℓ = c_ℓ`).
+Both rules contain `F_ℓ(y_{<ℓ})`, so a completion of C by y at a light top
+is impossible. At a heavy ℓ, `y_ℓ = c_ℓ ~ ν_ℓ` is independent of the past
+and the completed patterns lie in `F_ℓ(y_{<ℓ}) ⊆ F_ℓ`.
+2. If ℓ is light, `P(y_ℓ = a | past) = ν_ℓ(a)1{a∉F_ℓ} + p_ℓ ν_ℓ(a)1{a∉F_ℓ}/(1−p_ℓ)
+= ν_ℓ(a)1{a∉F_ℓ}/(1−p_ℓ)`. The bound for `y_S` follows by the chain rule,
 taking conditional expectations from the last element of S downwards
 (the coordinates outside S integrate to 1). ∎
 
-**Interpolation coins.** Fix a path ω. For `ρ ∈ {0,1}^V` put
+**Interpolation coins.** *Freeze* a whole path ω. For `ρ ∈ {0,1}^V` put
 
     y^ρ_ℓ = y_ℓ   if ℓ ∈ R and ρ_ℓ = 1,      y^ρ_ℓ = c_ℓ   otherwise.
 
-So `y^0 = c` and `y^1 = y`. The point of the phantom activations is that
-**R does not depend on ρ**: it is a function of ω alone, because `F̃_ℓ`
-uses both `c_i` and `y_i`.
+So `y^0 = c` and `y^1 = y`. R is a function of the frozen path, not of ρ;
+the intermediate points `y^ρ` need not be paths of the process, and nothing
+below requires them to be.
 
 **Lemma 2.2 (locality; PROVED).** For fixed ω and a d-local `f ≥ 0`, the
 function `g_ω(ρ) = f(y^ρ)` is nonnegative and multilinear of degree ≤ d in
