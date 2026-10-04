@@ -219,3 +219,64 @@ holds with Γ* (Lemma 3.1 with `F = τ²Γ*², τ⁵Γ*², τ⁵Γ*`; the pointw
 bounds use `Γ*(q) ≤ 8·3^{ω(q)}`). K2 Lemma 4.3's Minkowski step then gives
 the bound with an extra factor 4, and the leak sum
 `Σ_{ℓ>W}ℓ^{1/2}E p*_ℓ² ≪ W^{−1/4}(log W)^{3c+2}`. ∎
+
+## 3. The cap for prime majorants
+
+**Theorem 3.1 (prime-majorant cap for all forced-class mixtures; PROVED;
+the Case-A part uses ElT Prop 1.4, published, not re-proved).** There are
+absolute constants `W, λ₀, C` such that the following holds. Let 𝔊 be any
+finite family of ℛ(M)-, (a,D)-, Case-A and selector classes, mixed
+arbitrarily, with arbitrary moduli, and let ν be a prime majorant of
+`𝒜(𝔊)` (Definition 1.1) of level `λ ≥ λ₀`. Then
+
+    log(1/E*ν) ≤ C λ^{3/4}(log λ)^{3/4}.
+
+If every modulus of 𝔊 satisfies `G ≤ P(G)^{1+B}` (B fixed), then
+`log(1/E*ν) ≤ C(B)λ^{3/4}` for `λ ≥ λ₀(B)`. Families without Case-A
+classes use no external input. Constants are astronomically large (as in
+K2 §0); the statement is asymptotic only.
+
+*Proof.* By Lemma 1.2, ν is feasible for (1.1). Apply Proposition 2.2
+with K2 Thm 5.1's blocks, in increasing order of primes:
+`s₁ = λ^{1/4}(log λ)^{−3/4}`; singletons on `(W, e^{s₁}]`; sequential
+blocks `V_i = {2^is₁ < log ℓ ≤ 2^{i+1}s₁} ∩ (·, e^{λ/2}]`; one linear
+block `(e^{λ/2}, e^λ]`; singletons above `e^λ`. Every class of 𝔊 with
+`P(G) > W` is decided at its top prime; W-smooth classes are avoided by
+the base (Lemma 2.1(1)). `𝔏 ≤ 1/2` by Lemma 2.5 (W ≥ W₀*).
+
+Costs, with `𝔐*(y) ≤ K₃*(log y)³(log log y)³` (Lemma 2.4):
+* base: `(π(W)+1)log 2 + log 2` (Lemma 2.1(2));
+* singletons: `2·(4/3)Σ_{W<ℓ≤e^{s₁}}E_{Q'}p*_ℓ ≤ (8/3)𝔐*(e^{s₁})
+  ≤ (8/3)K₃*λ^{3/4}(log λ)^{3/4}`;
+* block `V_i`, `s = 2^is₁`, `d_i = ⌊λ/s⌋`: by EK Cor 2.6 on the unit
+  alphabets and Jensen, `E Φ_i ≤ d_i log(C₀(E M_{V_i}+4d_i)/d_i) +
+  (4/3)d_i + ½log(22d_i+22) + 3` with `E M_{V_i} ≤ 𝔐*(e^{2s})`; the
+  arithmetic of K2 §5 is unchanged, giving
+  `2Σ_iEΦ_i ≤ Cλ^{3/4}(log λ)^{3/4} + O(log²λ)`;
+* linear block `2log(1+3e^{−λ/4})`; above `e^λ`: 0.
+
+Sum, and absorb the W-terms into C. For bounded B: K2 Thm 5.2's proof
+(`s₁ = λ^{1/4}`, first moment `≤ C(B)(log y)³` by dropping smoothness
+over `G ≤ y^{1+B}`) with Γ* in place of Γ; its body sums use only the
+facts listed after Lemma 2.3. ∎
+
+**Remark 3.2 (what Theorem 3.1 adds to NC Thm 3.2).** NC Thm 3.2 had the
+same conclusion (with `λ^{3/4}`) for ET Cor 3.4 prime-slice families
+(dominant prime, `C < 1`, one slice prime per modulus), through ET's
+product/fibre argument. Theorem 3.1 covers every mixture of the four
+types: composite moduli with any number of large primes, prime-power
+tops, η-twins, no B (at the price `(log λ)^{3/4}`), (a,D)- and Case-A
+classes. The R-term `log(P/φ(P))` of NC Thm 3.2 is replaced by the
+absolute `(π(W)+1)log 2`.
+
+**Remark 3.3 (why nothing is lost).** The unit restriction acts on the
+LP in two ways, and both help or are neutral.
+* Forbidden classes that are non-units mod ℓ (selector classes; (a,D)
+  classes `−(4D+a) mod 4ag` with `ℓ | 4D+a`) have `U*`-mass 0: they are
+  free.
+* Unit classes mod `ℓ^v` gain mass by `ℓ/(ℓ−1)`; this is absorbed into
+  γ*, whose excess over 1 is still `O(ℓ^{−1/2})`.
+The base needs no change because the K2 base already consists of units:
+the Mordell/Jacobi argument (K2 Lemmas 2.1–2.2) says forced classes
+contain no *unit* square, which is exactly what a unit-supported base
+needs.
