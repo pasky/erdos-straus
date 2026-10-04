@@ -1,0 +1,214 @@
+# HC_Π: the large-m divisor part of the hub-codegree hypothesis (task O23)
+
+Labels follow the house rules. ES is not solved here or anywhere.
+Notation as in `POINTWISE_OMEGA5.md` (O5): vertex set O, modulus q
+(odd; squarefree, or `q′=∏ℓ^{v_ℓ}` for prime-power patterns, O5 Lemma
+2.0′), class κ (a unit mod q), atoms `(s,a,b)` with s squarefree,
+`M=4sab−1`, `q|M`, `a≡κb (q)`, Π-part m of `M/q`, `n′=M/(qm)≥y`, weight
+`P(e∖O)≤2/n′`. `𝓛:=log T`. Survival (O5 Lemma 3.1): `m | a+b`,
+`m | 4sa²+1`, `m | 4sb²+1`, `gcd(m,2q)=1`. Heights: O has no saturated
+H-hub, so (O5 §2) `h_1,h_2,h_3>H` for `(q,κ)`, where
+`h_1=min{sa: 4sa²≡κ}`, `h_2=min{sb: 4κsb²≡1}`, `h_3=min{ab: a≡κb, (ab,q)=1}`.
+`ω(q)≤k`, `τ(q)≤2^k`. We write
+
+```
+Σ^{>μ} := Σ_{atoms, m>μ} 2/n′     (an upper bound for Δ_O^{>μ}, O5 §4).
+```
+
+## 0. Summary (filled in as the work proceeds)
+
+* §1 (PROVED). **Three-fibre reduction.** Every atom lies in three
+  arithmetic progressions ("fibres"): over `(a,b,m)` (s varies mod qm),
+  over `(s,a,m)` (b varies), over `(s,b,m)` (a varies). Atoms that are
+  not the first element of some fibre are paid for by that fibre's
+  *period* sum. So `Σ^{>1} ≤ (1+𝓛/2)(D_ab+D_sa+D_sb) + 𝒦`, where `𝒦`
+  sums over *corner atoms* (first in all three fibres), all of which have
+  `s,a,b ≤ 2qm`.
+* §2 (PROVED, modulo Shiu 1980 Thm 1 and Henriot 2012 Thm 4). The
+  `(s,a)`-plane divisor sum
+  `D_sa = Σ_{4sa²≡κ (q)} τ(4sa²+1)/(sa) ≪ 4^k𝓛⁴(H^{−1/2}+q^{−1/4})`.
+  This is the "τ_Π(4sa²+1) average over residue classes" asked for.
+  Together with O5 Prop 7.1 (`D_ab`), all period parts are done for
+  **all** m>1 at once, with exponent 1/4.
+* So HC_Π is **equivalent** (up to proved terms) to a bound for the
+  corner sum `𝒦`.
+
+## 1. The three-fibre reduction (PROVED)
+
+**Lemma 1.1 (fibres).** Let `m` be a Π-number prime to 2q.
+
+1. *(a,b)-fibre.* Fix `(a,b)` with `a≡κb (q)`, `m|a+b`, `gcd(ab,qm)=1`.
+   The s with `qm | 4sab−1` form one class mod qm. Along it,
+   `n′_m(s):=(4sab−1)/(qm)` increases in steps of `4ab`.
+2. *(s,a)-fibre.* Fix `(s,a)` with `4sa²≡κ (q)` and `m | 4sa²+1`. The b
+   with `qm | 4sab−1`, `a≡κb (q)`, `m|a+b` form one class mod qm,
+   namely `b≡−a (m)`, `b≡κ^{−1}a (q)`. Along it `n′_m` steps by `4sa`.
+3. *(s,b)-fibre.* Fix `(s,b)` with `4κsb²≡1 (q)`, `m|4sb²+1`. The a form
+   one class mod qm (`a≡−b (m)`, `a≡κb (q)`), and `n′_m` steps by `4sb`.
+
+Every atom with Π-part m lies in its three fibres (with this m).
+
+*Proof.* (1) is O5 Lemma 7.0. (2) Mod m: `4sa²≡−1` makes `4sa` a unit
+with inverse `−a`, so `4sab≡1 ⇔ b≡−a`, and then `m|a+b`. Mod q:
+`(4sa)^{−1}≡κ^{−1}a` because `4sa²≡κ`; so `4sab≡1 ⇔ b≡κ^{−1}a ⇔ a≡κb`.
+(3) is (2) with `(a,κ)↔(b,κ^{−1})`. The last sentence is O5 Lemma 3.1. ∎
+
+For a fibre, its *elements* are the members of the class with
+`y ≤ n′_m ≤ T/(qm)` (true atoms, and possibly integers whose actual
+Π-part is a proper multiple of m; those only enlarge the sums below).
+The *first element* is the least one.
+
+**Lemma 1.2 (period sums).** In any fibre whose step is `d`
+(`d=4ab`, `4sa` or `4sb`), the elements other than the first have total
+weight `Σ 2/n′ ≤ (1+𝓛)·2/d`. If `d≤y`, then the first element also has
+weight `≤2/y≤2/d`.
+
+*Proof.* The i-th element (i≥1) has `n′ ≥ i·d`, and `i≤T`. So the sum is
+`≤(2/d)Σ_{i≤T}1/i ≤ (2/d)(1+𝓛)`. For the first, `n′≥y`. ∎
+
+**Definition 1.3 (corner atoms).** An atom with Π-part m is a *corner
+atom* if it is the first element of each of its three fibres, and
+`4ab>y`, `4sa>y`, `4sb>y`. Put `𝒦^{>μ}:=Σ_{corner atoms, m>μ} 2/n′`.
+
+**Lemma 1.4 (corner geometry).** A corner atom satisfies
+`s,a,b ≤ 2qm` and `n′ < y+4·min(sa,sb,ab)`.
+
+*Proof.* Take the (s,a)-fibre. Either `b≤qm`, and then
+`n′=(4sab−1)/(qm)<4sa`. Or `b′:=b−qm≥1` is not an element, so
+`n′−4sa=n′_m(b′)<y`. Then `4sab−1=qmn′<qm(y+4sa)`, hence
+`b<qm(1+y/(4sa))+1/(4sa)<2qm+1`, as `4sa>y`. So `b≤2qm` and
+`n′<y+4sa`. The other two fibres give `a≤2qm`, `n′<y+4sb` and
+`s≤2qm`, `n′<y+4ab`. ∎
+
+**Theorem 1.5 (reduction; PROVED).** For every μ≥1,
+
+```
+Σ^{>μ} ≤ (1+𝓛/2)·( D_ab + D_sa + D_sb ) + 𝒦^{>μ},
+D_ab := Σ_{(a,b): a≡κb (q), (ab,q)=1, ab≤T} τ(a+b)/(ab),
+D_sa := Σ_{(s,a): 4sa²≡κ (q), sa≤T} τ(4sa²+1)/(sa),
+D_sb := Σ_{(s,b): 4κsb²≡1 (q), sb≤T} τ(4sb²+1)/(sb).
+```
+
+*Proof.* Fix an atom with Π-part `m>μ`. If it is not the first element
+of its (a,b)-fibre, charge it to that fibre's period sum (Lemma 1.2).
+Likewise for the (s,a)- and (s,b)-fibres. If it is the first element of
+a fibre with step `d≤y`, charge it to that fibre's first-element bound
+`2/d`. Every atom not charged so far is a corner atom. Each fibre is
+charged at most `(2/d)(1+𝓛)+2/d=(2+𝓛)·2/d`; with `d=4ab` this is
+`(1+𝓛/2)/(ab)`. A fibre over `(a,b,m)` exists
+only if `m | a+b`, so the (a,b)-fibres carry total charge
+`≤ Σ_{(a,b)} τ(a+b)(1+𝓛/2)/(ab) = (1+𝓛/2)·D_ab`.
+The (s,a)-fibres need `m | 4sa²+1` and give `(1+𝓛/2)D_sa`. The (s,b)
+ones give `(1+𝓛/2)D_sb`. A fibre contains an atom only if `ab≤T`
+(resp. `sa≤T`, `sb≤T`), since `4sab−1≤T`. ∎
+
+*Remarks.* (i) Nothing here uses `m>μ`. The bound holds for the whole
+`m>1` part, and also for `m=1` (where it is weaker than O5 Thm 2.3).
+(ii) `D_ab` is O5 Prop 7.1's `P_1` (PROVED, `≪2^k𝓛²(q^{−1+o(1)}+H^{−1/4})`).
+(iii) `D_sb` is `D_sa` for the class `κ^{−1}`, whose heights are the
+same with `h_1↔h_2`. So everything except `𝒦` is reduced to `D_sa`
+(§2).
+
+## 2. The (s,a)-plane divisor sum (PROVED modulo Shiu and Henriot)
+
+**Cited theorems.** (Read in `sources/shiu-1980.pdf`, OCR of p. 163, and
+`sources/henriot-1102.1643.pdf`, Thm 4 and (1.4).)
+
+* **Shiu** (Crelle 313 (1980), Thm 1). For `f∈M(A,B,ε)` (in particular
+  `f=τ`), `0<α,β<1/2`: uniformly in coprime `r,k` and in
+  `1≤k<y^{1−β}`, `x^α≤y≤x`,
+  `Σ_{x−y<n≤x, n≡r (k)} f(n) ≪ (y/φ(k))(log x)^{−1}exp(Σ_{p≤x, p∤k} f(p)/p)`.
+  The constant depends only on `A,B,ε,α,β`.
+* **Henriot** (Thm 4, `k=1`). For `f∈M(A,B,ε)`, `Q∈ℤ[X]` irreducible of
+  degree g, primitive, discriminant D, `0<α,δ<1`: uniformly in
+  `x≥c_0‖Q‖^δ`, `x^α<y≤x`,
+  `Σ_{x<n≤x+y} f(|Q(n)|) ≪ Δ_D·y·Π_{g<p≤x}(1−ρ(p)/p)·exp(Σ_{p≤x, p∤D} f(p)ρ(p)/p)`,
+  with `Δ_D=Π_{p|D}(1+Σ_{1≤ν≤g} f(p^ν)(ρ(p^ν)p^{−ν}−ρ(p^{ν+1})p^{−ν−1}))`
+  and `‖Q‖` the sum of the absolute values of the coefficients. `c_0` and
+  the constant depend only on `g,α,δ,A,B`.
+
+We use `f=τ` (`A=2`), `α=1/2`, `β=1/4`, `δ=1/4`, `g=2`. So all implied
+constants below are **absolute**. Write `g_0:=gcd(κ+1,q)`.
+
+**Proposition 2.1.** For `T` larger than an absolute constant,
+
+```
+D_sa ≤ C·4^k·𝓛⁴·( H^{−1/2} + q^{−1/4} )     (C absolute).
+```
+
+*Proof.* Cut into dyadic boxes `s∈[S,2S)`, `a∈[A,2A)`, `SA≤T`; there
+are `≤4𝓛²` of them. Put `F:=4sa²+1` and
+`D(S,A):=(SA)^{−1}Σ_{box, 4sa²≡κ (q)} τ(F)`. For a pair in the box,
+`gcd(a,q)=1`, and `F≡κ+1 (q)`, so `gcd(F,q)=g_0`.
+
+*Regime I: `S ≥ 3A^{2/3}q^{4/3}` (Shiu in s).* Fix a. Then s runs over
+one class mod q, so `n:=F` runs over one class mod `4a²q` in
+`(4a²S,8a²S]`, and `g_0|n`. Write `n=g_0n_1`, so `τ(n)≤τ(g_0)τ(n_1)≤2^kτ(n_1)`.
+Then `n_1` runs over a class `r_1` mod `k_1:=4a²q/g_0`, in an interval of
+length `y_1=4a²S/g_0`, and `gcd(r_1,k_1)=1`. (For each `ℓ|q` with
+`e=v_ℓ(q)`, `f=v_ℓ(g_0)`: if `f<e` then `v_ℓ(F)=f` exactly, as `F≡κ+1 (ℓ^e)`;
+if `f=e` then `ℓ∤k_1`. This also covers the prime-power moduli `q′`.)
+Here `k_1<y_1^{3/4}`: this is `(4a²)^{1/3}q^{4/3}g_0^{−1/3}<S`, implied by
+`S≥3A^{2/3}q^{4/3}`.
+Shiu gives `Σ τ(n_1) ≪ (y_1/φ(k_1))(log x_1)^{−1}exp(2Σ_{p≤x_1}1/p)
+≪ (y_1/k_1)(k_1/φ(k_1))log x_1 ≪ (S/q)𝓛²` (using `k/φ(k)≪log log k`
+and `x_1≤8T³`). Summing over the `A` values of a:
+`D(S,A) ≪ 2^k𝓛²/q`.
+
+*Regime II: `A ≥ C_1 q^{3/2}S^{1/4}` (Henriot in a).* Fix s. The a with
+`4sa²≡κ (q)` lie in `≤2^{ω(q)}≤2^k` classes `r mod q`. For each,
+`a=r+qi` with i in an interval of length `≤A/q+1` starting at
+`x≥A/q−1`; split it into at most two intervals `(x′,x′+y′]` with
+`x′^{1/2}<y′≤x′` (plus O(1) single points, bounded pointwise like
+Regime III). Put `P(X):=4s(r+qX)²+1`. It is irreducible over ℚ (no real
+roots). Its content is exactly `g_0` (the coefficients are `4sq²`,
+`8sqr`, `4sr²+1≡κ+1 (q)`; a common divisor is prime to `2sr`, so it
+divides q, and then it divides `gcd(q,κ+1)`). Set
+`P_1:=P/g_0`, so `τ(P(i))≤2^kτ(P_1(i))`. `disc P_1 = −16sq²/g_0²`.
+For `p|2s`, `P≡1 (p)`, so `P_1` is a nonzero constant mod p and
+`ρ(p^ν)=0`. For `p | q/g_0`, `P_1≡(4sr²+1)/g_0≢0 (p)` (valuation
+argument of Regime I), so again `ρ=0`. Every other `p|disc` divides
+`g_0` but not `q/g_0`, hence not `disc P_1`. So `Δ_D=1`.
+Also `Π(1−ρ(p)/p)·exp(Σ2ρ(p)/p) ≤ exp(Σ_{p≤x}ρ(p)/p) ≤ exp(2Σ_{p≤x}1/p) ≪ (log x)²`.
+Henriot's condition `x≥c_0‖P_1‖^{1/4}` holds because `‖P_1‖≤4s(q+r)²+1≤40Sq²`
+and `A≥C_1q^{3/2}S^{1/4}` (C_1 absolute). And `y≥x^{1/2}`. So
+`Σ_i τ(P_1(i)) ≪ (A/q)𝓛²`. Summing over r and the `S` values of s:
+`D(S,A) ≪ 4^k𝓛²/q`.
+
+*Regime III: neither.* Then `A<C_1q^{3/2}(3A^{2/3}q^{4/3})^{1/4}`, so
+`A≪q^{11/5}`, and `S<3A^{2/3}q^{4/3}≪q^{14/5}`. So `F≤32SA²≪q^{36/5}`, and
+by Nicolas–Robin (`log τ(n)≤1.0661·log n/log log n`) `τ(F)≤q^{1/8}`
+once q exceeds an explicit absolute constant (`q>y²→∞`). The constant
+is astronomically large (about `log log q≥62`), but only the asymptotics
+matter here. The number of pairs
+in the box is at most each of: `A(S/q+1)` (a fixes s mod q), and
+`2^kS(A/q+1)` (s fixes a in `≤2^k` classes), and `32SA²/q+1` (the map
+`(s,a)↦4sa²<32SA²` is injective for squarefree s, and its values are
+`≡κ (q)`; O5 Lemma 1.1).
+* If `A>q^{1/2}`: `D(S,A) ≤ q^{1/8}·2^k(1/q+1/A) ≤ 2^{k+1}q^{−3/8}`.
+* If `A≤q^{1/2}` and `32SA²≥q`: the count is `≤64SA²/q`, so
+  `D(S,A)≤64q^{1/8}A/q≤64q^{−3/8}`.
+* If `32SA²<q`: the box holds at most one pair, and it has
+  `sa≥h_1>H`, so `SA>H/4`. Since `F≤32SA²≤32(SA)²`,
+  `D(S,A)≤τ(F)/(SA)≤(SA)^{−1/2}≤2H^{−1/2}` (for `SA` beyond an absolute
+  constant, again by Nicolas–Robin).
+
+Summing over the `≤4𝓛²` boxes, with `q^{−3/8}≤q^{−1/4}` and
+`1/q≤q^{−1/4}`, gives the claim. ∎
+
+**Corollary 2.2.** Under the hypotheses of HC* (no saturated H-hub,
+`4^k≤H≤y`, so `q>y²≥H²`):
+
+```
+Σ^{>μ} ≤ C·4^k·𝓛⁵·H^{−1/4} + 𝒦^{>μ}     for every μ ≥ 1.
+```
+
+*Proof.* Theorem 1.5. `D_ab≤P_1` (O5 Prop 7.1) gives `≪2^k𝓛²H^{−1/4}`
+(using `q^{−1+o(1)}≤H^{−1/4}`). Prop 2.1 for `D_sa`, and for `D_sb`
+(class `κ^{−1}`, heights `h_2>H`), gives `≪4^k𝓛⁴H^{−1/2}` (as
+`q^{−1/4}≤H^{−1/2}`). Multiply by `1+𝓛/2`. ∎
+
+So **HC_Π(a′) for `a′≤1/4` is equivalent, up to the proved term
+`C4^k𝓛⁵H^{−1/4}`, to `𝒦^{>H^{1/3−a′}} ≪ e^{Ck}𝓛^{B′}H^{−a′}`.** By
+Prop 3.2 of O5 (all atoms with `m≤μ`), one may even take μ=1 here and
+ask for `𝒦^{>1}`; the m≤μ part of `𝒦` is already covered.
