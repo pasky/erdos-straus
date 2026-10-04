@@ -96,3 +96,44 @@ Re-derived line by line.
 * **E3 (nit).** "Cover `(M₁, X]` by at most 2L dyadic blocks `(y,2y]` with
   `y ≥ M₁/2`" — the range is `(M₁, X/(kj)]`, and the first block should be
   `(M₁/2, M₁]`∪… or start at `y = M₁`; as written ℓ₀ uses `M₁/2`. Harmless.
+
+## Item 4. Lemma 3.2 and Corollary 3.3 (box counting) — SOUND (nit E4)
+
+* r, diagonal: `v = ga, v′ = gb, (a,b)=1, a²t = b²t′ ⇒ t = b²s, t′ = a²s`,
+  weight `1/(g²a³b³s²)`, sum `≤ ζ(2)²ζ(3)²`. Correct.
+* r, off-diagonal: distinct `N ≡ N′ (j)`, both ≥ 1 ⇒ `max > j`; ordered
+  off-diagonal `≤ 2ΣϱΣ sup_c T(c)` with `T(c) = Σ_{N′≡c, N′>j} ϱ(N′)`.
+  Box `[V,2V)×[T,2T)`: `≤ V(T/j+1)` (t in one class) and `≤ 2T(V/j+1)`
+  (≤ 2 square roots mod the prime j); min of the two
+  `≤ 2VT/j + 2min(V,T)`; weight ≤ `1/(VT)`; meets `{v²t > j}` only if
+  `V²T > j/8`, hence `max(V,T)³ > j/8`; `2i+1` boxes have `max = 2^i`.
+  Correct; `Σ_{2^i>(j/8)^{1/3}} (4i+4)2^{−i} ≪ j^{−1/3}log j`.
+* r₁: distinct reduced fractions with `u/v ≡ u′/v′ (j)` give
+  `0 ≠ uv′−u′v ≡ 0`, so `H·H′ ≥ j` (even better than the stated `j/2`);
+  charging to the higher member and the box count
+  `≤ UW/j + min(U,W)` are correct.
+* Cor 3.3: `n/φ(n) ≤ 2 log L` for `n ≤ X` (`e^γ log log n + O(1/loglog n)`),
+  applied to u and v separately via `φ(xy) ≥ φ(x)φ(y)`; the maps
+  `a ↦ −a, −1/(4a), −a/4` are bijections of nonzero residues (a = 0 gives
+  empty R's). `Σ_a V² ≤ 3(2log L)²·(2log L)⁴[Σr₁² + 2Σr²]`, and with
+  `log X = L`, `j > L^8`: error `≪ L^{−4} + L^{−2/3}log L`. So
+  `Σ_a V_{j,k}(a)² ≪ (log L)^6` uniformly in `j > w₂` and k. Correct.
+* **Numerical check (own code, `reviews/exceptional-twin3-check.py A`).**
+  Besides the second moments (which reproduce the author's §5 table exactly
+  at Y = 600), the script computes the quantities the proof actually bounds
+  — the sup tails `sup_c T(c)`, `sup_ρ T₁(ρ)` — and the explicit box bounds:
+
+  | j | Y | diag r (≤3.910) | sup T / box bd | diag r₁ (≤2.706) | sup T₁ / box bd |
+  |---|---|---|---|---|---|
+  | 101 | 600 | 3.8125 | 0.542 / 10.40 | 2.4950 | 0.377 / 5.20 |
+  | 1009 | 600 | 3.8131 | 0.103 / 5.16 | 2.4954 | 0.063 / 1.58 |
+  | 10007 | 600 | 3.8131 | 0.027 / 2.93 | 2.4954 | 0.022 / 0.47 |
+  | 101 | 2000 | 3.8322 | 0.729 / 11.28 | 2.4982 | 0.495 / 5.64 |
+  | 1009 | 2000 | 3.8329 | 0.124 / 5.28 | 2.4986 | 0.074 / 1.64 |
+  | 100003 | 2000 | 3.8329 | 0.009 / 1.70 | 2.4986 | 0.005 / 0.26 |
+
+  Also checked: off-diagonal ≤ `2·Σ·sup T` in every row. No violation; the
+  box bound is loose by 10–200×, as expected. The r-diagonal approaches
+  `ζ(2)²ζ(3)² = 3.910` from below as Y grows (tight constant).
+* **E4 (nit).** Lemma 3.2 assumes "`X ≥ j`" — not needed; and the r₁ proof
+  says `max(u,v)·max(u′,v′) ≥ j/2` where `≥ j` holds (`|uv′−u′v| ≤ HH′`).
