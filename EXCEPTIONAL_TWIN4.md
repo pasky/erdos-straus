@@ -211,3 +211,76 @@ arity-uniform condition `w_ℓ ≤ δ log ℓ/L`. For fixed r the per-vertex
 condition `w_ℓ ≤ δ_r` suffices (an event has ≤ r coordinates), and
 `w₂ = L^8` is enough. This closes review item E11 (the "unwritten any-arity
 fibre law") for every fixed r.
+
+## 5. First-moment terms
+
+On `supp P`, `ν ≤ (8/7)U`, and a class with cofactor k is active with
+probability `≤ 4Γ(k)/k` (TW2 Lemma 3.2(1)). So for any family 𝒞 of event
+classes and weights `β_C ∈ [0,1]`,
+
+    E_P Σ_{C∈𝒞 active} β_C π_{E_C} ≤ 4(8/7)^r Σ_{M} (Γ(k)/M) τ(A_M²) max_{C mod M} β_C.     (5.1)
+
+Prime sums (TW2 §4): for `i ≥ 1`, `Σ_{ℓ>w₂}ℓ^{−1−α}(log ℓ)^i ≪ (i−1)!α^{−i}`;
+`Σ_{w₂<ℓ≤X} 1/ℓ ≤ log L`; `Σ_{ℓ>w₂} ℓ^{−1−α} ≪ log L`.
+
+**Lemma 5.1 (top-prime Shiu sum; PROVED).** Let `𝓜` be the sf moduli
+`M = kP q₀` of the family with `|S(M)| ≤ r`, P the top prime, `q₀` the
+product of the other large primes (`ω(q₀) ≤ r − 1`). Then
+
+    Σ_{M∈𝓜} (Γ(k)/M) τ(A_M²) P^{−α} ≪_{B,r} α^{−3}(log L)^{r+O(1)}.
+
+*Proof.* Fix k and `q₀`; let `p₂` be the largest prime of `q₀` (`p₂ = w₂`
+if `q₀ = 1`). Put `q = kq₀ ≤ P^B`. TW2 Lemma 3.3 along P (all integers),
+on dyadic blocks `(y,2y]`, `y_i = 2^{i−1}p₂`, exactly as TW3 Lemma 2.1(a):
+
+    Σ_{P>p₂} P^{−1−α}τ(A²) ≪ (q/φ(q)) p₂^{−α}(a²/α + a/α² + 1/α³),   a = log(2qp₂) ≤ log 2k + r log p₂.
+
+Multiply by `1/q₀` and sum: `p₂` with weight `p₂^{−1−α}(log p₂)^i` gives
+`≪ α^{−i}` (`i ≥ 1`) or `log L` (`i = 0`), and each of the `≤ r − 2` other
+primes of `q₀` gives `≤ log L`. With `q/φ(q) ≤ 2(k/φ(k))`, the result is
+`≪_r (k/φ(k))(log 2k)²α^{−3}(log L)^{r−1}`. Sum over k with TW2 (3.1). ∎
+
+**Corollary 5.2 (whole events and prime powers; PROVED).**
+1. `E_P T_ev ≪ α^{−3}(log L)^{r+O(1)}`;
+2. `E_P T_pp ≪_r L³(log L)^{O(r)}/w₂ + w₂^{−1/2} = o(1)`.
+
+*Proof.* (1) For sf classes, `ρ^{S(C)} ≤ ρ_P = P^{−α}`; apply (5.1) and
+Lemma 5.1. pp classes have `ρ ≤ 1` and are covered by (2).
+(2) By (5.1) with `β = 1` it suffices to bound `Σ_{pp M}Γ(k)τ(A²)/M`.
+As in TW2 Lemma 5.4 (prime powers): if the top prime P has `P² | M`, use
+`τ ≤ C_εP^{1/256}`, `M ≥ P²·(rest)` and `Σ_{rest ≤ P^B} 1/rest ≤ (BL)^{O(r)}`…
+more precisely `Σ_{rest}Γ(k)/rest ≪ (log L)^{O(1)}(log P)^{r}`, so the sum is
+`≪ Σ_{P>w₂} P^{−2+1/256}(log P)^{O(r)} ≪ w₂^{−1/2}`. If `P ∥ M` and some
+other `ℓ² | M`, TW2 Lemma 3.3 along P (`q = M/P ≤ P^B`, ≤ 2L dyadic
+blocks) gives `Σ_P τ/P ≪ (q/φ(q))L³`, and `Σ_ℓ ℓ^{−2} ≪ 1/w₂` together with
+`≤ log L` for each remaining prime gives `≪ L³(log L)^{O(r)}/w₂`. ∎
+
+**Lemma 5.3 (small partners; PROVED).** Fix `C₀ ≥ 6`. Call an sf class
+small at V if its partner `R = M/(kQ_V) ≤ (kQ_V)^{C₀}`, and let `x_V(a)` be
+`D^{sf}_{(V,a)}` restricted to such classes. Then
+
+    E_P Σ_{V} ρ^V Σ_a π_{(V,a)} x_V(a) ≪_{B,C₀,r} α^{−3}(log L)^{2r+O(1)}.
+
+*Proof.* `Σ_a π_{(V,a)}x_V(a) = Σ_{active C small at V} π_{E_C}`, so by (5.1)
+the left side is `≤ 4(8/7)^r Σ_M (Γ(k)/M)τ(A²) Σ_{V⊊S(M), R_V small} ρ^V`.
+Fix M (sf) with top prime P, and V.
+* *(a) `P ∈ V`.* `ρ^V ≤ P^{−α}`. At most `2^r` sets V; Lemma 5.1 gives
+  `≪ α^{−3}(log L)^{r+O(1)}`.
+* *(b) `P ∉ V`.* Then `P | R`, so `P ≤ R ≤ (kQ_V)^{C₀}`. Fix k, V and
+  `R′ = R/P` (a product of `≤ r − 2` large primes `< P`), and put
+  `q = kQ_VR′ ≤ P^B`. TW2 Lemma 3.3 along P on the dyadic blocks with
+  `p₂/2 ≤ y ≤ (kQ_V)^{C₀}` (at most `C₀ log(kQ_V) + 1` blocks), each block
+  `≪ (q/φ(q))(log 2qy)²` with `log 2qy ≤ (C₀+1) log(2kQ_V) + log R′ ≤ (2C₀+2)log(2kQ_V)`
+  (as `R′ ≤ R ≤ (kQ_V)^{C₀}`), gives
+  `Σ_P τ(A²)/P ≪_{C₀} (k/φ(k))(log 2kQ_V)³`. Sum `1/R′` over its primes
+  (`≤ (log L)^{r−2}`), then over V with weight `ρ^V/Q_V`:
+  `(log 2kQ_V)³ ≤ (v+1)²((log 2k)³ + Σ_{ℓ∈V}(log ℓ)³)`, and
+  `Σ_{ℓ>w₂} ρ_ℓ(log ℓ)³/ℓ ≪ α^{−3}`, `Σ_ℓ ρ_ℓ/ℓ ≪ log L`, give
+  `Σ_{|V|=v} (ρ^V/Q_V)(log 2kQ_V)³ ≪_r ((log 2k)³ + α^{−3})(log L)^{v}`.
+
+Both cases give `≪_r (k/φ(k))(log 2k)³α^{−3}(log L)^{2r}`; sum over k by
+TW2 (3.1). ∎
+
+This is TW3 Lemma 2.1 for all V. As noted in TW3 Prop 6.4(2), the only
+loss for composite partners is `Σ_R 1/R ≤ (log L)^{s}`, polylogarithmic
+because R has a bounded number of primes.
