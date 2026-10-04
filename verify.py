@@ -28,6 +28,17 @@ Blocks (bz)..(ch) are fast replays of the 2026-10 documents' key checks
   (cg) EXCEPTIONAL_TWIN2: Thm 1.4 on random small binary systems;
   (ch) 3/4-note blind audit: the 16 checks of
        scripts/es34_blind_audit_checks.py (imported).
+Blocks (ci)..(co) (task O20) replay the later documents in the same way:
+  (ci) EXCEPTIONAL_TWIN3: Lemma 3.2 box counting; (2.1) pointwise and on a
+       toy class system;
+  (cj) EXCEPTIONAL_TWIN4: rough-partner Brun-Titchmarsh Lemma 2.3, exact;
+  (ck) EXCEPTIONAL_KARY: Lemma 2.3 node sets vs (2.1)/(3.1); B* LP and the
+       Thm 2.5 weighted LP on random small systems only if scipy is importable;
+  (cl) EXCEPTIONAL_KARY2: Lemmas 2.1-2.2 (no squares), Lemma 2.3 square base;
+  (cm) EXCEPTIONAL_NONCRT: Lemma 2.2 (imports scripts/noncrt_checks.py);
+  (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2;
+  (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data.
+(POINTWISE_OMEGA3's composition inequality is block (cc).)
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root

@@ -113,6 +113,8 @@ witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
   POINTWISE_SIZE/OMEGA/OMEGA2/OMEGA3, EXCEPTIONAL_THETA/BALANCED/TWIN/TWIN2
   and the 3/4 blind audit (~25 s; the THETA LP runs only with
   `uv run --with scipy python verify.py`).
+* `verify.py` blocks (ci)–(co) (O20, ~11 s) add EXCEPTIONAL_TWIN3/TWIN4/KARY/KARY2/NONCRT and
+  POINTWISE_OMEGA5/WINDOW checks (KARY B*/Thm 2.5 LPs need scipy; OMEGA3 is (cc)).
 
 ## Exceptional-set exponent: where it stands (2026-10-04)
 
