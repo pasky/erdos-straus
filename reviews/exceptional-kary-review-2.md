@@ -102,3 +102,42 @@ Verdict scale: SOUND / SOUND-AFTER-REPAIRS / DEFECTIVE. Defects numbered E1, E2,
 * Hypotheses: ETw Lemma 2.6 was stated for η-windows with `s_j ≤ λ`; the
   restriction `s_j ≤ λ` is not used in its proof, and Lemma 4.2′ restates the
   bound for any `V ⊆ (e^s, e^{2s}]`, `s ≥ log W`. Thm 4.5 has `s ≥ s₁ > 2log W`.
+
+### 1.6 ETw Prop 4.1 (singletons below `e^{λ^{1/4}}`) — SOUND
+
+* Re-derived: for any `f ≥ 0` (no level needed), `E_U f = (1−p)E_{U|F^c} f +
+  pE_{U|F} f ≥ (1−p)E_σ f` at a light ℓ; at a heavy ℓ, σ = U and Φ = 0. So
+  (S) with `Φ = −log(1−p_ℓ(h)) ≤ (4/3)p_ℓ(h)` (p ≤ 1/4). Summing
+  `E p_ℓ` over `W < ℓ ≤ e^{s₁}` by Lemma 4.2′'s Steps 1–3 with
+  `X = e^{(1+B)s₁}`: `≤ K′((1+B)s₁)³ = K′(1+B)³λ^{3/4}`; ×4/3 ×2.
+* Use in KARY: deterministic-cost (S) is an (S_w) with `Π = σ`, `Φ` a
+  function of h. Needs `s₁ > log W`: KARY takes `s₁ > 2 log W`. Fine.
+
+### 1.7 ETw Lemma 4.2 / Cor 4.3 (top block `(e^{λ/2}, e^λ]`) — SOUND
+
+* Lemma 4.2 re-derived: `E_U f = c₀`; `E_σ g_ℓ = E_U[(g_ℓ + m_ℓ)(r_ℓ − 1)] ≤
+  ε_ℓ m_ℓ` (the review variant), and `Σ m_ℓ ≤ c₀` from `f ≥ 0` at the
+  coordinatewise minimiser. Only the one-coordinate marginals of σ matter, so
+  any dependence structure inside the block (KARY's k-ary activations) is
+  allowed.
+* Cor 4.3: two primes `> e^{λ/2}` cannot both occur in a term of level λ, so
+  f has the linear form. Marginal density of the in-block sequential capped
+  law `≤ (1−δ_ℓ)^{−1} ≤ 1 + 2δ_ℓ`, `δ_ℓ ≤ e^{−λ/4}`. Cost `2log(1+3e^{−λ/4})`.
+  Needs `λ/2 > log W`: implied by `s₁ > 2log W`.
+* KARY uses the plain rule's law there (light/heavy by total activated
+  density). Same marginal bound. Within hypotheses.
+
+### 1.8 ETw Thm 2.3′ (abstract step + leak), as generalised by KARY Thm 4.1 — SOUND
+
+* Re-derived the ETw part: `g_j(h) = E_U[ν | H_{<j} = h]`; under U the block
+  residues are independent of h and of each other, and each term
+  `1[n ≡ b (mod d)]` of ν factorises by CRT, so `f(y) = g_{j+1}(h,y)` is a sum
+  of functions of `y_{T∩V_j}` with `Σ_{ℓ∈T∩V_j} log ℓ ≤ λ`. Majorant digits
+  finer than `ℓ^{E_ℓ}` and primes outside the family are integrated out by U
+  and do not break this. `f ≥ 0` **on all of** `Ω_{V_j}` because ν ≥ 0 on all
+  residues (every residue is hit by integers). This global nonnegativity is
+  essential for KARY Thm 2.5, whose interpolation points `y^ρ` are arbitrary
+  points of `Ω_{V_j}`; it holds.
+* Conclusion: `Eν ≥ (|R|/Q₀)avg_{c∈R}g_1(c)` uses only `g_1 ≥ 0` off R.
+* Locality in dyadic blocks: primes of `V_i` have `log ℓ > s`, so
+  `|T ∩ V_i| < λ/s`, hence `≤ ⌊λ/s⌋ = d_i`. Correct.
