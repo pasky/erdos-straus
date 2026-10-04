@@ -75,9 +75,7 @@ $(\log\log N)^{1/3}$ in the exponent.  The second~\cite{TQ} proves
 with label \emph{internally proved; not externally refereed}.  The $3/4$
 note itself explains $3/4$ heuristically: the forced classes have
 cubic logarithmic mass, and a mass-driven optimisation gives
-$\theta=B/(B+1)$ with $B=3$ \cite[\S\ref*{sec:intro}]{TQ}.
-% TODO: check the exact section of the 3/4 note for the ceiling heuristic
-% (its Section "The heuristic mass-driven three-quarter ceiling").
+$\theta=B/(B+1)$ with $B=3$ \cite[\S10]{TQ}.
 
 This note turns that heuristic into a theorem for a precise class of
 sieves, and records exactly where the theorem stops.
@@ -1013,7 +1011,7 @@ The atom family $\A_X$ of \cite[\S2]{TQ} is a prime-slice system with
 $Q_0=\lcm(L_K,P_y)$, $\cP$ the primes in $(X^{1/2},X]$, the selector
 $R=\{(c,P_y)=1\}$, $|F_\ell(c)|\leq\ell^{1/3}$, and
 $\sum_\ell p_\ell(c)\ell^{-\alpha}\leq C_ut^3X^{-\alpha/2}$ for all $c$ (the
-upper half of \cite[Cor.~\ref*{sec:intro}]{TQ}, ``uniform fibre masses''),
+upper half of \cite[Cor.~4.3]{TQ}, ``uniform fibre masses''),
 where $t=\log X$.  Its majorant $\nu_X=S_y\,Q_r(H_X)$ is $\geq0$ on $\Z$,
 equals $1$ on $\A$, and has level $\lambda=rt$.  Hence every majorant on
 this family has
@@ -1021,10 +1019,8 @@ this family has
  \log\frac1{\E\nu}\leq\log\log y+\min\Bigl\{Ct^3,\ C\frac\lambda t\Bigl(1+\log^+\frac{Ct^4}\lambda\Bigr)\Bigr\}+O(\log^2\lambda).
 \]
 \end{lemma}
-% TODO: replace the \ref* placeholder by the exact corollary number of the
-% 3/4 note (cor:fibremass); cross-document references are not resolvable.
 \begin{proof}
-The structure is \cite[Lemma~\ref*{sec:intro}]{TQ} (deduplication and
+The structure is \cite[Lemma~2.2]{TQ} (deduplication and
 conditional independence): conditional on $c\bmod L_K$ the coordinates
 $n\bmod\ell$ are independent and uniform, and an atom $(k,\ell,u,v)$ forbids
 $-uv^{-1}\bmod\ell$ in the fibres with $u+cv\equiv0\pmod k$; at most
@@ -1038,7 +1034,7 @@ $\log(P_y/\varphi(P_y))=\log\log y+O(1)$.
 With $\lambda\leq A\log N$ the maximum over $t$ is $\asymp(\log N)^{3/4}$,
 attained only for $t\asymp(\log N)^{1/4}$.  What forces $\lambda\lesssim\log
 N$ is not the note's modulus bound, which it calls ``not necessary'', but
-its coefficient budget $T_{\rm abs}\leq N^{1/2}$ \cite[(\ref*{sec:intro})]{TQ}:
+its coefficient budget $T_{\rm abs}\leq N^{1/2}$ \cite[proof of Thm~8.2]{TQ}:
 the slice primes are $\leq X$, so $\Lambda_0=t\leq\log N$, and
 Lemma~\ref{lem:budget} converts any majorant on this family with
 coefficient sum $<N$ into one of level $\leq t+\log N+s$ with at most twice
