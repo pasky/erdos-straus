@@ -2,7 +2,19 @@
 
 ## 0. Status at a glance
 
-(in progress; filled in at the checkpoint)
+| item | statement | label |
+|---|---|---|
+| Thm 1.1 | k-ary noise stability (goal 1) = TW3 Lemmas 6.1 + 6.2; no codegree hypothesis; PO2 Lemma 10.2 not needed | PROVED (TW3, reviewed) |
+| **Lemma 2.3**, Cor 2.4 | rough-partner Brun–Titchmarsh: `Σ_{R≡b (q), x<R≤2x, Ω(R)≤s, P⁻(R)>w} 1/R ≤ 3(s+1)ΣH^i/(φ(q)log(x/q))` (large sieve) | PROVED |
+| Prop 3.1 | reduction to star sums, bounded arity, constants `e^{O(r)}` | PROVED as an implication |
+| Lemma 4.1 | fibre law with `G_L^{(r)}` (`w_ℓ ≤ δ_r`); `w₂ = L^8` suffices for fixed r (closes TW3 review E11) | PROVED |
+| Lemma 5.1, Cor 5.2 | whole-event stars `≪ α^{−3}(log L)^{r+O(1)}`; prime-power classes `o(1)` | PROVED |
+| Lemma 5.3 | small partners, every star V | PROVED |
+| **Lemmas 6.1–6.4** | large partners, every star V: largest-variable reduction with Lemma 2.3 in place of BT; box counting mod squarefree Q | PROVED |
+| **ternary residual `ℓ_b < w₂q`** (goal 2) | closed by Lemma 6.1: an upper-bound sieve for the whole partner R; **no BFI input needed** | PROVED |
+| **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; not yet reviewed) |
+| §7.1 | unbounded r (`r > ε log L/log log L`) and dropping B | OPEN (Assessment) |
+| §8 | Lemma 2.3 exact on 1228 cases (worst ratio 0.13); former residual = 80–86% of toy ternary mass, second moment ≈ random | EVIDENCE |
 
 Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0, and
 `EXCEPTIONAL_TWIN3.md` (TW3): `L = log X`, `α = L^{−1/4}`, `ρ_ℓ = ℓ^{−α}`,
@@ -424,3 +436,40 @@ stars V containing its top few primes, or raising w₂ with r. The
 B-hypothesis is also still assumed. Neither point is a BFI-type
 obstruction: the arithmetic inputs used here (Shiu along the top prime,
 large sieve for rough partners, box counting mod Q) are all upper bounds.
+
+## 8. Numerics (EVIDENCE, toy scale)
+
+**Lemma 2.3, exact** (`scripts/twin4_rough_bt.py A 1e6`): `s ∈ {1,2,3}`,
+`w ∈ {2,5,30,100}`, nine moduli q up to 10007, three x up to 10⁶, five
+random units b each: 1228 cases, worst `lhs/bound = 0.128`. (The proof's
+constant 3(s+1) and the `log Z = log Y/(s+1)` loss are generous.)
+
+**The former residual on a toy ternary system** (`… B 1e9 1009 10007`):
+`M = jR`, `R = ℓ_aℓ_b` (primes ≥ `w₀ = 11`, `≠ j`), `jR ≤ 10⁹`,
+`jR ≡ 3 (4)`, toy `C₀ = 1` (R > j), all `D | A²`, k = 1, no fibre. Each
+triple is put in TW3's proved part if `ℓ_b ≥ w₀q`, else in the former
+residual.
+
+| j | #R | part | mass `ΣV` | `ΣV²` | max V | random `(ΣV)²/j` |
+|---|---|---|---|---|---|---|
+| 1009 | 53612 | proved | 10.24 | 1.016 | 0.425 | 0.104 |
+| 1009 | 53612 | residual | 40.61 | 1.826 | 0.082 | 1.635 |
+| 10007 | 4893 | proved | 3.09 | 0.139 | 0.155 | 0.001 |
+| 10007 | 4893 | residual | 18.94 | 0.052 | 0.015 | 0.036 |
+
+Reading: the former residual carries most of the ternary mass (80–86%),
+as TW3 §6.3 predicted. So it could not have been dropped. Yet its second
+moment is within a factor 1.5 of random, and its max is small. The proved
+part has the larger max: it contains the hub `a = −1` (`u = v = 1`,
+`q = 4`), which every R hits. Its second moment is polylogarithmic, as
+Lemma 6.1 allows (`R₁(−1) ≥ 1`). Not tested: k > 1, the fibre law, `C₀ ≥ 6`,
+`j > L^8` (out of numerical reach).
+
+## Replay
+
+```
+# Lemma 2.3 exact check (~40 s, < 1 GB)
+uv run --with numpy python scripts/twin4_rough_bt.py A 1e6
+# toy ternary table (~15 s, ~1.2 GB for the spf sieve to 2.5e8)
+uv run --with numpy python scripts/twin4_rough_bt.py B 1e9 1009 10007
+```
