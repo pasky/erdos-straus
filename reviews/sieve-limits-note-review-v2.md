@@ -174,3 +174,112 @@ DISCOVERIES (D)17. No strengthening found.
   - `J` is used for the replaced set `J(ω)` (§8), the number of blocks
     (Thm wseq) and the large-sieve sum (Lemma roughBT proof). Suggest
     `Rep(ω)` or `𝒥` for the replaced set.
+
+## 4. Abstract, §1, §§6–7 (reframing)
+
+**Faithfulness.** The abstract and Results item 1 state Thm karycap with
+`B` fixed, ℛ(M) only, and the architecture class with "the admissible set
+specified there". Case A is "modulo" Elsholtz–Tao, and the twin, prime-power
+and comparable-scale shapes are listed. "No power of `log log N` can be
+gained" is the last sentence of Thm main. §6 is now only a pointer
+paragraph. §7 calls Thms gapped/resolved special cases of Thm karycap
+(true: their families satisfy `M ≤ P(M)^{1+B}`), and the closing paragraph
+of §7 matches TW §4 and KARY §4.3. The Λ² scope in the abstract
+("fixed number of prime factors above `(log X)^8`, no condition relating M
+to P(M), level `O(log X)`") matches TW4 Thm 10.4. The v1 defects D1, D4, D5
+and D11 (scope drops) have not regressed.
+
+* **D5 (MINOR, provenance and labels).**
+  (a) §1 says that every [proved] result outside §2 "appears in one of
+  eight internal working documents". Two v2 statements do not:
+  Remark L2vsmain (the changelog calls it "my observation") and the
+  case-(ii) assembly of Thm main. Both are correct. For L2vsmain I checked
+  that TW2 Setting 3.0 charges all primes, so `g²` (with `g ∈ V_{λ/2}`)
+  is `≥ 0` of level λ; that it is `≥ 1` on avoiders ⊇ avoiders in `R_W`;
+  and that the family is ℛ(M) with `M ≤ P(M)^{1+B}`, `M ≤ X`. Its
+  citation, TW4 §11, is a coordination note labelled SKETCH/Assessment,
+  written while KARY was "under review". *Fix:* label Remark L2vsmain
+  [proved] (observation of this note, one-line proof given). Cite TW4 §11
+  as "anticipated in", not as the source. Amend the §1 sentence to
+  "…or is assembled here from such results".
+  (b) Results item 1 says "every nonnegative majorant of level λ **of the
+  avoider set**", while Thm karycap is stated for the avoider set **in
+  `R_W`** and `λ ≥ λ₀(B)`. Item 1 does follow, since a majorant of `A` is
+  ≥ 1 on `A ∩ R_W`, but the paper never says this, so a reader comparing
+  item 1 with Thm karycap sees a stronger claim. *Fix:* either add that
+  line after Thm karycap or restate item 1 with "in `R_W`" and
+  `λ ≥ λ₀(B)`. Abstract and item 1 write `O_B`, but the constant depends
+  on A as well (Thm main: "depending on A, B"); write `O_{A,B}` (nit).
+
+## 5. §11 additions (TW4)
+
+**Faithfulness.** Lemma roughBT = TW4 Lemma 2.3: same hypotheses
+(`x ≥ q2^{s+1}`, `(b,q) = 1`), same constant `3(s+1)ΣH^i/(φ(q)log Y)`.
+I re-derived the proof: `R = dn` with `Ω(d) ≤ s−1`; then `d ≤ Z^{s−1}` gives
+`x/(dq) ≥ Z²`, the large sieve with `ω(p) = 1`, and van Lint–Richert gives
+`J ≥ (φ(q)/q)log Z`. Correct. Thm rprime = TW4 Thm 7.1, Prop 9.1 and
+Lemma 9.2/Cor 9.3 in the text, and Thm noB = TW4 Thm 10.4: hypotheses
+(fixed r, `M ≤ X`, `w₂ = (log X)^8`, `λ ≤ A₀L`, the `330 log L` add-on with
+the extra fibre-law event) and bounds are reproduced exactly. The proof
+sketches are marked "Proof sketch" and cite precisely. The (D)/(H)/(G) split
+and `B = 33r−1` match TW4 §10. The TW4 §11 B-removal is marked SKETCH and
+not claimed (§14), as it should be.
+
+* **D6 (MINOR, label).** Two passages state as fact that the middle range
+  `ε log L/log log L < r < 330 log L` "carries most of the
+  `α^{−3}`-weighted mass": the end of §11 and §14 "Many large primes".
+  TW4 §9.3 is headed "(Assessment)", and the claim rests on a
+  Poisson-type heuristic: the number of primes in `(L^8, e^{L^{1/4}}]` has
+  mean `≈ ¼ log L`. *Fix:* label this clause *Assessment*. The
+  surrounding [open] for the hub-count and pair-sum statements is right.
+
+## 6. §12, beyond CRT evaluation (NONCRT)
+
+**Faithfulness.** The scope sentence is correct: the section covers
+finite prime-slice families of Cor sliceCap only, and not the sequential
+or balanced settings (NC §2.4). Prop highlevel = NC Prop 2.1 (sketch
+marked). Lemma walshfourier = NC Lemma 2.2; I re-derived the proof: the
+Fourier support of `g` is in `Θ_S` with `|ĝ| ≤ Q₀^{−1}Πp_ℓ`, then
+Parseval, and the `Θ_S` are disjoint. Thm perfreq = NC Thm 2.3 + Cors
+2.4–2.5: the weights `log(1/(2p⁺))`, `s_* = log 2`,
+`ε ≤ e^{−λ}R_1`, `λ_N = 2log(4N)`, and the cap
+`C(log N)^{3/4} + log(P/φ(P))` with no size bound on the slice primes.
+The paper's Case-A label "proved mod ET Prop 1.4" is more careful than
+NC's "PROVED", correctly inherited from Cor sliceCap. The "not covered"
+list (Vaaler/ψ, floor/ceiling, exact `|S_N|`, smooth windows,
+dispersion over moduli) and `(H_eq)` CONDITIONAL match NC §§2.3–2.5.
+Thm primemaj (1),(2) = NC Lemma 3.1, Thms 3.2, 3.3, including the
+`≪ log λ` loss in the budget lemma and the `O((log log N)²)` cost of
+primality. Prop 4.1, Prop 4.2, Thm 8.1, Lemma 8.2/Cor 8.3 and Prop 8.4
+match the source. The withdrawn Conj 8.5 is reported as withdrawn,
+Cor 8.7 as CONDITIONAL on `H_node`, and §8.3 as EVIDENCE. Remark 3.4 is
+an Assessment; the paper labels both bullets that way, which is more
+conservative than NC and acceptable.
+
+* **D7 (MINOR, faithfulness: dropped provisos).** For prime moments
+  beyond level `A log N`, NC Prop 4.1 requires three provisos: (i) every
+  high-level term costs `≥ |a_i|` (the Remark 3.4 Assessment), (ii)
+  `Σ_high|a_i| < π(N)`, (iii) slice primes `≤ N^{O(1)}`. NC also notes
+  that Thm 3.2 + Prop 4.2 alone leave a gap. §12 "Moment methods" and
+  §13 item 3 say "only under the Assessment", which suggests the
+  Assessment alone suffices. *Fix:* "only under the Assessment of
+  [NC, Rem 3.4] together with `Σ_high|a_i| < π(N)` and slice primes
+  `≤ N^{O(1)}` [NC, Prop 4.1]".
+
+* **D8 (MINOR, precision in §12).**
+  (a) Thm perfreq omits the quantifier "for all `λ ≥ s_*`, `α > 0`" from
+  the displayed inequality.
+  (b) Thm primemaj (1) states only `|F_ℓ(c)∖{0}| < ℓ−1`. NC Thm 3.2 also
+  needs `|F_ℓ(c)∖{0}| ≤ (ℓ−1)/4`, which the paper leaves implicit in "in
+  place of `p_ℓ(c)`". State it.
+  (c) Cor 8.7's conclusion "beating 3/4 needs `k ≥ (log N)^{3/4+o(1)}`"
+  also needs `m = E_int H ≥ 16(log N)^{3/4+δ}`. NC supports this for the
+  full Case-B family only by the review's enumeration and a heuristic,
+  so it should be stated as an added hypothesis or labelled
+  [evidence].
+  (d) "this holds at every level `λ ≤ c(log N)^{4θ/3}`": the dichotomy
+  of Thm 8.1 holds at every λ. What the range restricts is where branch
+  (D) is non-vacuous, i.e. where `Φ̄(λ) < s − log(8Q₀/|R|)`. Rephrase
+  as in NC §8.1.
+  (e) Nit: NC Prop 8.4 gives `≤ (N+1)(1+log N)²/4` pairs, so the mean
+  is `≤ ¼(1+1/N)(1+log N)²`, not `≤ ¼(1+log N)²`.
