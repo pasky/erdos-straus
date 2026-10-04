@@ -16330,4 +16330,147 @@ print("\n== (cb) POINTWISE_OMEGA2: support-truncated minorant, Lemmas 1.1-1.2 br
 check_cb()
 
 
+# ---------------------------------------------------------------- (cc)
+# POINTWISE_OMEGA3.md Thm 3.2 item 1 (two-level composition) by brute force:
+# random small product spaces, a level-2 family (supports 1-2) and a level-3
+# family (supports 2-3); B_3 = B_{L3} - 4^{L3+1} G_{L3+1} cell-expanded; on each
+# cell the conditioned level-2 system with beta = B_{L2} - 4^{L2+1}G, alpha =
+# B_{L2} + 4^{L2+1}G used for positive / negative coefficients.  Checks
+# B(x) <= F2(x) F3(x) and beta <= F2^{(i)} <= alpha on cells, for every outcome x.
+# Negative control (beta also for negative coefficients) must produce violations.
+
+def check_cc():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+
+    def cunion(cells):
+        d = {}
+        for c in cells:
+            for l, v in c:
+                if d.get(l, v) != v:
+                    return None
+                d[l] = v
+        return frozenset(d.items())
+
+    def supp(c):
+        return frozenset(l for l, _ in c)
+
+    def small_families(events, L):
+        res = [()]
+
+        def rec(start, cur, s):
+            for i in range(start, len(events)):
+                s2 = s | supp(events[i])
+                if len(s2) <= L:
+                    res.append(cur + (events[i],))
+                    rec(i + 1, cur + (events[i],), s2)
+        rec(0, (), frozenset())
+        return res
+
+    def BL_cells(events, L):
+        out = {}
+        for Fm in small_families(events, L):
+            u = cunion(Fm)
+            if u is not None and len(supp(u)) <= L:
+                out[u] = out.get(u, 0) + (-1) ** len(Fm)
+        return {c: v for c, v in out.items() if v}
+
+    def G_cells(events, coords, L1):
+        out = {}
+        by = {l: [e for e in events if l in supp(e)] for l in coords}
+        for P in combinations(coords, L1):
+            for ch in cartesian_product(*[by[l] for l in P]):
+                u = cunion(ch)
+                if u is not None:
+                    out[u] = out.get(u, 0) + 1
+        return out
+
+    def occurs(c, x):
+        return all(x[l] == v for l, v in c)
+
+    def evaluate(fn, x):
+        return sum(v for c, v in fn.items() if occurs(c, x))
+
+    def condition(events, cell):
+        fixed = dict(cell)
+        new = []
+        for e in events:
+            rest, ok = [], True
+            for l, v in e:
+                if l in fixed:
+                    if fixed[l] != v:
+                        ok = False
+                        break
+                else:
+                    rest.append((l, v))
+            if not ok:
+                continue
+            if not rest:
+                return True, None
+            new.append(frozenset(rest))
+        return False, sorted(set(new), key=sorted)
+
+    def trial(rng, neg):
+        k = rng.randint(3, 5)
+        coords = list(range(k))
+        m = {l: rng.randint(2, 3) for l in coords}
+
+        def rand_event(size):
+            return frozenset((l, rng.randrange(m[l])) for l in rng.sample(coords, size))
+        lev2 = sorted({rand_event(rng.choice([1, 2])) for _ in range(rng.randint(0, 4))}, key=sorted)
+        lev3 = sorted({rand_event(rng.choice([2, 3])) for _ in range(rng.randint(1, 4))}, key=sorted)
+        L3, L2 = rng.randint(0, 3), rng.randint(0, 3)
+        B3 = BL_cells(lev3, L3)
+        for c, v in G_cells(lev3, coords, L3 + 1).items():
+            B3[c] = B3.get(c, 0) - 4 ** (L3 + 1) * v
+        B, cellchecks = {}, []
+        for C, ci in B3.items():
+            if ci == 0:
+                continue
+            killed, sys2 = condition(lev2, C)
+            if killed:
+                continue
+            rest = [l for l in coords if l not in supp(C)]
+            sign = 1 if ci > 0 else -1
+            part = dict(BL_cells(sys2, L2))
+            for c, v in G_cells(sys2, rest, L2 + 1).items():
+                part[c] = part.get(c, 0) - (1 if neg else sign) * 4 ** (L2 + 1) * v
+            cellchecks.append((C, sys2, part, sign))
+            for c, v in part.items():
+                u = cunion([c, C])
+                B[u] = B.get(u, 0) + ci * v
+        bad = 0
+        for xs in cartesian_product(*[range(m[l]) for l in coords]):
+            x = dict(zip(coords, xs))
+            F2 = 0 if any(occurs(e, x) for e in lev2) else 1
+            F3 = 0 if any(occurs(e, x) for e in lev3) else 1
+            bad += evaluate(B, x) > F2 * F3
+            if not neg:
+                for C, sys2, part, sign in cellchecks:
+                    if occurs(C, x):
+                        f = 0 if any(occurs(e, x) for e in sys2) else 1
+                        v = evaluate(part, x)
+                        bad += (sign > 0 and v > f) or (sign < 0 and v < f)
+        return bad, len(B)
+
+    ncells = 0
+    for seed in (1, 2, 3):
+        rng = _random.Random(seed)
+        for _ in range(1500):
+            bad, nc = trial(rng, False)
+            assert bad == 0, ("O3 Thm 3.2 composition violated", seed)
+            ncells += nc
+    rng = _random.Random(2)
+    negbad = sum(trial(rng, True)[0] for _ in range(500))
+    assert negbad > 0, "O3 negative control produced no violation: check is vacuous"
+    print(f"cc O3 Thm 3.2: 3 x 1500 random two-level systems, {ncells} composite cells, "
+          f"0 violations; negative control (beta for c_i<0): {negbad} violations (expected)")
+    print(f"cc seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cc) POINTWISE_OMEGA3: two-level composition inequality (Thm 3.2) brute force ==")
+check_cc()
+
+
 print("\nall checks passed")
