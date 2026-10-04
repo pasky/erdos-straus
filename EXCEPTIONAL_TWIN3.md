@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TWIN3 — the cross-label hypothesis (H_O^≠) (task O5)
 
-Status: **work in progress (step 1: setup only).** Labels follow
+Status: **checkpoint 1 (task O5): (H_O) proved, so TW2 Cor 5.2 is unconditional (internal check only; awaiting parent review).** Labels follow
 `DISCOVERIES.md`. Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0:
 `L = log X`, `w₂ = L^8`, `α = L^{−1/4}`, `ρ_j = j^{−α}`, fibre law P (TW2 §3),
 `A = (M+1)/4`, binary moduli `M = kjm` (k w₂-smooth, j, m primes `> w₂`).
@@ -323,3 +323,51 @@ Lemma 2.1 (`≪ α^{−3}(log L)^{O(1)}`) and Lemma 3.4 (`≪ (log L)^{O(1)}`). 
   mod 4·(the two short variables) avoids that. This needs the largest of
   u, v, t to be `≥ A^{1/3}`, which holds once `m > (kj)^{C₀}`; smaller
   partners are handled by the quarantine `min(x,1)² ≤ x`.
+
+## 5. Numerics (EVIDENCE, toy scale)
+
+**Lemma 3.2** (`scripts/twin3_short_sums.py`, Y = 600: all variables are at
+most Y, so `X = Y`). The bound columns are `ζ(2)²ζ(3)² = 3.91` and
+`ζ(2)² = 2.71`.
+
+| j | Σr | Σr² | diag | off | rand | Σr₁ | Σr₁² | diag₁ | off₁ | rand₁ |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 101 | 48.3 | 25.5 | 3.81 | 21.7 | 23.1 | 33.8 | 12.8 | 2.50 | 10.3 | 11.3 |
+| 1009 | 48.7 | 5.94 | 3.81 | 2.13 | 2.35 | 34.1 | 3.23 | 2.50 | 0.739 | 1.150 |
+| 10007 | 48.7 | 3.96 | 3.81 | 0.151 | 0.237 | 34.1 | 2.54 | 2.50 | 0.040 | 0.116 |
+
+The diagonals sit at the proved constants. The off-diagonals are *below*
+the random prediction `(Σ)²/j` in every row; the proof's bound
+`L²(L²/j + j^{−1/3}log j)` is far from tight.
+
+**Corollary 3.3 and (2.1) on the real system** (`scripts/twin3_system.py`,
+X = 1e9, k = 1, every prime partner `m ≥ 3`, all `D | A²`, no fibre). This
+is a toy test: `C₀ = 1` (small means `m ≤ j`), whereas the proof needs
+`C₀ ≥ 6` and `j > L^8`, which is out of numerical reach. Column V2 is
+`Σ_a V(a)²`.
+
+| j | small: mass | V2 | max | rand | large: mass | V2 | max | rand | `Σmin(V,1)²` | (2.1) RHS |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1009 | 36.3 | 7.14 | 1.13 | 1.30 | 48.5 | 3.66 | 0.46 | 2.33 | 15.4 | 79.8 |
+| 10007 | 58.8 | 5.63 | 0.95 | 0.35 | 20.5 | 0.18 | 0.14 | 0.04 | 7.3 | 118.0 |
+| 100003 | 109.2 | 17.1 | 1.17 | 0.12 | 0 | 0 | 0 | 0 | 16.4 | 218.3 |
+
+Reading:
+* The large-partner second moment is O(1) and falls with j, while its mass
+  is 20–50. This is the spreading claimed by Cor 3.3, in which `Σ_a V²` is
+  polylogarithmic although `Σ_a V ≍ L² log L`.
+* The small part has `Σ V² ≫ (Σ V)²/j`, because of the deadly values (here
+  m starts at 3, so the hubs carry weight up to 1/3). That is why §2 pays
+  for it with its first moment and no equidistribution claim.
+* (2.1) holds in every row, with a factor 5–13 to spare.
+* What is *not* tested: the Brun–Titchmarsh constant of Lemma 3.1 (it is
+  asymptotic: `log L` at `y/q ≥ w₂/16`), the fibre law P, and k > 1.
+
+## Replay
+
+```
+# Lemma 3.2 table (~3 min, < 1 GB)
+uv run --with numpy python scripts/twin3_short_sums.py 600 101 1009 10007
+# §5 system table (X = 1e9: ~10 min, ~1.3 GB for the spf sieve to 2.5e8)
+uv run --with numpy python scripts/twin3_system.py 1e9 1 1009 10007 100003
+```
