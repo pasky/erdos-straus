@@ -1005,4 +1005,102 @@ $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$ are already covered.  The
 \emph{residual} is the set of unresolved moduli with top prime in that
 range.
 
+\section{The campaign sieves lie in the class}\label{sec:campaign}
+
+\subsection{The three-quarter note}
+\begin{lemma}[{\cite[Lemma~4.1]{ET}}; \lab{proved}]\label{lem:TQinclass}
+The atom family $\A_X$ of \cite[\S2]{TQ} is a prime-slice system with
+$Q_0=\lcm(L_K,P_y)$, $\cP$ the primes in $(X^{1/2},X]$, the selector
+$R=\{(c,P_y)=1\}$, $|F_\ell(c)|\leq\ell^{1/3}$, and
+$\sum_\ell p_\ell(c)\ell^{-\alpha}\leq C_ut^3X^{-\alpha/2}$ for all $c$ (the
+upper half of \cite[Cor.~\ref*{sec:intro}]{TQ}, ``uniform fibre masses''),
+where $t=\log X$.  Its majorant $\nu_X=S_y\,Q_r(H_X)$ is $\geq0$ on $\Z$,
+equals $1$ on $\A$, and has level $\lambda=rt$.  Hence every majorant on
+this family has
+\[
+ \log\frac1{\E\nu}\leq\log\log y+\min\Bigl\{Ct^3,\ C\frac\lambda t\Bigl(1+\log^+\frac{Ct^4}\lambda\Bigr)\Bigr\}+O(\log^2\lambda).
+\]
+\end{lemma}
+% TODO: replace the \ref* placeholder by the exact corollary number of the
+% 3/4 note (cor:fibremass); cross-document references are not resolvable.
+\begin{proof}
+The structure is \cite[Lemma~\ref*{sec:intro}]{TQ} (deduplication and
+conditional independence): conditional on $c\bmod L_K$ the coordinates
+$n\bmod\ell$ are independent and uniform, and an atom $(k,\ell,u,v)$ forbids
+$-uv^{-1}\bmod\ell$ in the fibres with $u+cv\equiv0\pmod k$; at most
+$z_j^2\leq\ell^{1/3}$ atoms live at each $\ell$.  The majorant is a product of
+the selector $S_y$ and $Q_r(H)=\binom{H-1}r$, both nonnegative, and $Q_r(0)=1$.
+A term of $Q_r(H_X)$ involves at most $r$ atoms, hence at most $r$ slice
+primes $\leq X$, so its level is at most $rt$.  The bound is
+Theorem~\ref{thm:slice} with $\alpha$ optimised and the selector term
+$\log(P_y/\varphi(P_y))=\log\log y+O(1)$.
+\end{proof}
+With $\lambda\leq A\log N$ the maximum over $t$ is $\asymp(\log N)^{3/4}$,
+attained only for $t\asymp(\log N)^{1/4}$.  What forces $\lambda\lesssim\log
+N$ is not the note's modulus bound, which it calls ``not necessary'', but
+its coefficient budget $T_{\rm abs}\leq N^{1/2}$ \cite[(\ref*{sec:intro})]{TQ}:
+the slice primes are $\leq X$, so $\Lambda_0=t\leq\log N$, and
+Lemma~\ref{lem:budget} converts any majorant on this family with
+coefficient sum $<N$ into one of level $\leq t+\log N+s$ with at most twice
+the mean.  So the note satisfies (A1)--(A3), and \emph{its exponent $3/4$
+is sharp for its own architecture} \lab{proved}.  This was the review's
+one substantive correction \cite[item~3, SC1]{ETrev}.
+
+\begin{lemma}[Bonferroni depth; {\cite[Lemma~4.2]{ET}}; \lab{proved}]\label{lem:depth}
+For even $r$ and any integer $H\geq0$, $\E Q_r(H)\geq\Prob(H\geq r+1)$.  If $H$
+is a sum of independent Bernoulli variables with mean $\mu$ and
+$r+1\leq\mu-2\sqrt\mu$, then $\E Q_r(H)\geq3/4$.
+\end{lemma}
+\begin{proof}
+$Q_r(h)=\binom{h-1}r\geq1$ for $h\geq r+1$, and Chebyshev with $\mathrm{Var}\,H\leq\mu$.
+\end{proof}
+So the depth $r\gg t^3$ in \cite{TQ} is forced.  The binding constraint in
+the $3/4$ proof is the pair (cubic supply $\mu_c\leq C_ut^3$, budget
+$\log T_{\rm abs}\leq\log N$).  Bonferroni depth, the Bombieri--Vinogradov
+level, the selector and the pruning cannot improve the exponent: the cap
+of Theorem~\ref{thm:slice} holds for every majorant, and
+Lemmas~\ref{lem:profileB}--\ref{lem:caseAprofile} bound the \emph{entire}
+forced-class supply independently of any level of distribution, so
+Elliott--Halberstam cannot raise the profile either \cite[Lemma~4.3 and
+remark]{ET} \lab{proved}.  That Selberg or other majorants \emph{attain} the
+same order up to constants is only \lab{evidence}: in an exchangeable
+Poisson model the numerically computed linear-programming optimum agrees
+with the Selberg value to within $0.01$ in $-\log$ in the tested cases
+\cite[\S2.5]{ET}.
+
+\subsection{The two-thirds loglog note}
+The note \cite{LL} is not a majorant sieve but Montgomery's large sieve
+over progressions modulo $L_{\mathcal K}$, with multipliers
+$\mathcal K=\{k\leq\delta\log N\}$.  It is covered through
+Remark~\ref{rem:LS}.
+
+\begin{corollary}[restricted multiplier sets; {\cite[Cor.~3.5]{ET}}; \lab{proved} given the notes' Brun--Titchmarsh upper bounds]\label{cor:restricted}
+Suppose a family at scale $X=\e^t$ uses slice primes in $(X^{1/2},X]$ and
+multipliers $k\in\mathcal K$, with $\sum_\ell p_\ell(c)\leq A_0t^2h(\mathcal K)$
+for all $c$, where $h(\mathcal K)=\sum_{k\in\mathcal K}\varphi(k)/k^2$.  Then
+\[
+ \text{saving}\leq\min\Bigl\{Ct^2h,\ \frac{38\lambda}t\Bigl(1+\log^+\frac{Ct^3h}\lambda\Bigr)\Bigr\}+O(\log^2\lambda),
+\]
+and the supremum over $t$ is $\asymp\lambda^{2/3}h^{1/3}$.  For
+$\mathcal K=\{k\leq\delta\log N\}$, $h\asymp\log\log N$, giving
+$(\log N)^{2/3}(\log\log N)^{1/3}$; the same holds for any $\mathcal K$ with
+$\lcm(\mathcal K)\leq N$, since then
+$h(\mathcal K)\leq\prod_{p\mid\lcm}(1+1/p)\ll\log\log N$.
+\end{corollary}
+\begin{proof}
+Insert $\sum_\ell\bar p_\ell\ell^{-\alpha}\leq A_0t^2h\e^{-\alpha t/2}$ into
+\eqref{eq:slice}.  With $t_0=(\lambda/h)^{1/3}$, for $t\leq t_0$ the first
+entry is $\leq C\lambda^{2/3}h^{1/3}$; for $t=ut_0\geq t_0$ the second is
+$\leq C\lambda^{2/3}h^{1/3}(1+3\log u)/u$.
+\end{proof}
+The note's large-sieve level is $Q^2\leq N/L_{\mathcal K}$, so
+$\lambda\leq\log N$, and its admissible set is the reduced residues modulo
+$L_{\mathcal K}$, with $R$-term $\log(L_{\mathcal K}/\varphi(L_{\mathcal K}))\ll\log\log\log N$.
+By Remark~\ref{rem:LS} and Corollary~\ref{cor:restricted} its bound cannot
+exceed $\exp\{-C(\log N)^{2/3}(\log\log N)^{1/3}\}$: \emph{the $2/3$-loglog
+note is sharp for its architecture} \cite[Lemma~4.4]{ET} \lab{proved}.
+Vaughan's argument and that of Pomerance--Weingartner~\cite{PW} are the
+case $\mathcal K=\{1\}$, giving $(\log N)^{2/3}$.  For the $3/4$ note,
+$h\asymp\kappa t$ and the same computation gives $\lambda^{3/4}$.
+
 \end{document}
