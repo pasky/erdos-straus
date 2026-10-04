@@ -109,3 +109,16 @@ Not edited: DISCOVERIES/STATUS. Suggested addition to (D)14: "B-hypothesis
 removed for fixed r (TWIN4 Thm 10.4); uniform for
 `r ≤ ε log L/log log L` with `L^{3/4+O(ε)}`; ≥ 330 log L primes free;
 window `r ≍ log L` open (needs a multi-prime H_O^≠)."
+
+## Addendum: review nits and KARY coordination
+* Review nits F1–F4 (exceptional-twin4-review) are applied in one commit.
+  §0 now marks Thm 7.1 as reviewed SOUND.
+* §11 (coordination note, SKETCH). If KARY Thm 4.5 survives review, it
+  supersedes Thm 7.1 and Prop 9.1 under the B-hypothesis, and B becomes
+  the main restriction for both routes. KARY uses B in its Lemma 4.2(2),(3).
+  The Lemma 10.1 technique (Rankin on the smooth cofactor, Shiu along it
+  modulo the short top-prime power) should transfer with `s^{O(1)}`
+  losses. KARY's `d·log(EM/d)` cost turns those into `λ^{3/4}log λ`,
+  which would rule out θ > 3/4 for *all* ℛ(M)-families with general
+  majorants. Suggested next task, once KARY is reviewed: write this out
+  (and check ETw Lemma 1.1, the base).

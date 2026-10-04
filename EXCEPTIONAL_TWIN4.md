@@ -727,3 +727,40 @@ the smooth cofactor's sparsity (Rankin, `e^{−u}`) beats every power of
 `log k`. The whole (D) family has polylogarithmic *unweighted* first
 moment, so it needs no ρ-weight and no equidistribution at all. The
 "gapped/QR-base machinery" of TW is not needed for it.
+
+## 11. Relation to EXCEPTIONAL_KARY Thm 4.5 (coordination note; SKETCH / Assessment)
+
+`EXCEPTIONAL_KARY.md` (branch `side-agent/kary-comparison`, under review)
+claims `S_λ ≪_B λ^{3/4}` for *general* majorants and every ℛ(M)-family
+with `M ≤ P(M)^{1+B}`, with any number of primes at any scale. If it
+survives review:
+* it supersedes Theorem 7.1 and Prop 9.1 (Λ², bounded r) under the
+  B-hypothesis. The middle-range obstruction of §9.3 is then specific to
+  the Λ²/noise-stability route, not to the 3/4 question;
+* the B-hypothesis becomes the main remaining restriction for both
+  routes. KARY lists "log M/log P(M) unbounded" as not covered.
+
+**Where KARY uses B.** Lemma 4.2(2) bounds the first moment of the
+classes decided in a block `V = (e^s, e^{2s}]`
+(`Σ_{P(M)∈V} τ(A²)Γ(M)/M ≤ K(W,B)(2(1+B)s)³`, partial summation over
+`M ≤ e^{2(1+B)s}`). Lemma 4.2(3) bounds the second moment of `p_ℓ`
+through pointwise τ-bounds (ETw Lemma 4.0). The base (ETw Lemma 1.1)
+should be checked separately.
+
+**Transfer of Lemma 10.1 (SKETCH).** For the non-B classes with top prime
+`P ∈ V`, write `M = P^v q`, with q P-smooth and `q > P^{1+B−v}`.
+* *`v ≤ 11`:* q is "smooth-dominated" relative to the short modulus
+  `P^v`. Run Lemma 10.1 with w₂ replaced by P (`η = 1/log P` in Rankin,
+  so the Euler product is `(log P)^{O(1)} = s^{O(1)}`), with Shiu along q
+  mod `P^v`. This should give
+  `Σ ≪ s^{c}e^{−cB}·Σ_{P∈V}1/P ≪ s^{c}`, and the analogous second moment
+  `E p_ℓ² ≪ (log ℓ)^{c}ℓ^{−2}` (enough for the leak, Lemma 4.3).
+* *`v ≥ 12`:* the mass `P^{−v}` beats pointwise τ.
+
+KARY's block cost is `d·log(C₀(EM + 4d)/d)`. A first moment `s^{O(1)}`
+instead of `O(s³)` therefore costs `O(d log s)` per block, i.e.
+`λ^{3/4}log λ` in total. That would give `S_λ ≪ λ^{3/4}log λ` for **all**
+ℛ(M)-families, so no ℛ(M) forced-class sieve (general majorants) would
+give θ > 3/4. **Not done**: this needs KARY's §4 in final form, a check
+of the base, and the dependence of `W₀`, `C(B)` on B (here B would be
+fixed, e.g. B = 1, with the rest non-B).
