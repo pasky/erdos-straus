@@ -108,8 +108,10 @@ W(n) = min{ M≡3 (4) : n mod M ∈ 𝓡(M) },   so   W(n)>T  ⟺  n mod M ∉ �
        certifiable depth is exactly `n_p`, i.e. `ck_min≥n_p` (Cor. 8.4,
        PROVED).
      * Unconditionally, `ck_min(p) ≫ log p·log log log p` i.o.
-       (Thm 8.5, PROVED modulo Lau–Wu Prop. 5.1, which follows
-       Graham–Ringrose). This is the first superlinear Type-I result. Exponent `1+δ` for `ck_min` by congruences would
+       (Thm 8.5, PROVED modulo Lau–Wu Prop. 5.1). This is
+       Graham–Ringrose's least-non-residue Ω-bound carried over to `ck_min`
+       by Lemma 8.1; G–R is the primary source. It is the first superlinear
+       Type-I result. Exponent `1+δ` for `ck_min` by congruences would
        beat every known Ω-result for the least quadratic non-residue.
    * **Haar side (§9; Haar only, says nothing about primes).**
      * Structural lemma: surviving atoms have smooth part `m≤r²+1`
@@ -863,6 +865,14 @@ lies in a Mordell class. Since
 `(q/p)=1` for every prime `q≤y`, Lemma 8.1 gives `ck_min(p)>y(x_n)`. Since
 `log p ≤ log x_n + log log x_n`,
 `y(x_n) ≥ (δ/2) log p·log₃ p`. ∎
+
+*Attribution* (`reviews/novelty-audit-2026-10.md`). The Ω-bound is
+Graham–Ringrose's `n_p=Ω(log p·log₃p)` (1990, Progr. Math. 85, 269–309;
+quoted in Lau–Wu §1). Theorem 8.5 carries it over to `ck_min` via the
+Yamamoto-type Lemma 8.1. Lau–Wu Prop 5.1 is used only for the extra
+congruence `p≡1 (4)`. It is not a new least-non-residue bound. The campaign
+content is Lemma 8.1 and the equivalence of Cor 8.4 ("congruence methods
+certify exactly `n_p`").
 
 This improves POINTWISE_SIZE Thm 11.2′ (`(5/12−ε)log p`) and notes
 Thm 54.3, but only by a `log₃` factor. By Corollary 8.4, any further

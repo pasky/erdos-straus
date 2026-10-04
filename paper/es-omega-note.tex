@@ -57,8 +57,9 @@ theorem of Thorner and Zaman, whose relative error term absorbs a possible
 Siegel zero.  As a warm-up we give the simpler prime-local construction,
 which reaches exponent~$2$ and cannot go further.  For the slice parameter we
 prove that congruence methods certify exactly the least quadratic
-non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$ infinitely often (via
-Lau--Wu, after Graham--Ringrose).  On the Haar side we prove
+non-residue, giving $\ckmin(p)\gg\log p\log\log\log p$ infinitely often.  This is Graham and
+Ringrose's $\Omega$-bound for the least non-residue, transported to $\ckmin$
+(in Lau--Wu's form).  On the Haar side we prove
 $\log(1/\delta^*(T))\le T^{o(1)}$ for the avoider density (polylogarithmic
 modulo Elsholtz--Tao), identify the single-prime atoms with points of
 Elsholtz--Tao's Type~I variety, and show that an individual Type~I bound
@@ -1553,6 +1554,15 @@ and $(q/p)=1$ for all primes $q\le y(x_n)$.  Such $p$ are $\equiv1\pmod{24}$
 and, since $(5/p)=(7/p)=1$, lie in a Mordell class.  Lemma~\ref{lem:np} gives
 $\ckmin(p)>y(x_n)\ge(\delta/2)\log p\log_3p$.  Effectivity is not claimed.
 \end{proof}
+
+\begin{remark}[Attribution]
+The $\Omega$-bound in Theorem~\ref{thm:slice} is due to Graham and Ringrose
+\cite{GR}: $n_p=\Omega(\log p\log_3p)$.  The theorem transports it via the
+Yamamoto-type Lemma~\ref{lem:np}, using Lau--Wu's version only for the extra
+congruence $p\equiv1\pmod4$.  It is not a new bound for the least non-residue.
+What is new here is the equivalence in Corollary~\ref{cor:exactly}: congruence
+methods certify exactly $n_p$.
+\end{remark}
 
 Under GRH, Montgomery's $n_p=\Omega(\log p\log\log p)$ would give the
 corresponding bound, and Ankeny's $n_p\ll(\log p)^2$ caps what congruences can

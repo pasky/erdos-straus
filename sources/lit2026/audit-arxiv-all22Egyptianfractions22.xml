@@ -1,0 +1,913 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/At3oqc5a4Nut0bDJqJpVCIm4BFQ</id>
+  <title>arXiv Query: search_query=all:"Egyptian fractions"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-10-04T08:22:12Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22Egyptian+fractions%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>48</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2605.23011v1</id>
+    <title>Star-Shaped Integral Cartan-Type Matrices and an Egyptian-Fraction Classification of Affine Weighted Trees</title>
+    <updated>2026-05-21T20:32:41Z</updated>
+    <link href="https://arxiv.org/abs/2605.23011v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.23011v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study a concrete family of symmetric integral $Z$-matrices attached to weighted star trees. The arms are ordinary type-$A$ chains and the central diagonal entry is an arbitrary positive integer $k$ rather than being fixed to the Cartan value $2$. This gives a matrix-theoretic and graph-theoretic version of the so called Berger construction: it extends the simply laced affine Dynkin stars while remaining accessible through elementary linear algebra. For a star with arm lengths $r_1,\ldots,r_m$ we compute the determinant, the inertia, the positive-definite and affine regimes, and the primitive positive null vector in the affine case. The affine condition is exactly the unit-fraction equation \[
+  \sum_{i=1}^m \frac{1}{r_i+1}=m-k, \] so the classification of these affine weighted trees reduces to a finite Egyptian-fraction enumeration for each fixed pair $(m,k)$. The classical affine diagrams $D_4^{(1)}$, $E_6^{(1)}$, $E_7^{(1)}$ and $E_8^{(1)}$ appear as small subfamilies, while higher-arm cases give new integral positive-semidefinite star matrices with explicit Coxeter labels.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-21T20:32:41Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Emilio Torrente-Lujan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.20976v3</id>
+    <title>A compensation theorem for the Sylow-integral invariant and counterexamples to an \texorpdfstring{$A_5$}{A5}-characterization conjecture</title>
+    <updated>2026-05-27T18:04:07Z</updated>
+    <link href="https://arxiv.org/abs/2605.20976v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.20976v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let \(ν_p(G)\) be the number of Sylow \(p\)-subgroups of a finite group \(G\), let \(σ_p(G)\) be their common order, and set \[
+  γ(G)=\int_0^1\sum_{p\inπ(G)}ν_p(G)x^{σ_p(G)}\,dx
+  =\sum_{p\inπ(G)}\frac{ν_p(G)}{σ_p(G)+1}. \] A recent conjectural extension of the simple-group theorem for this invariant asserted that a nonsolvable finite group has \(γ(G)=9/2\) precisely when \(G\cong A_5\). We disprove this assertion by a direct and verifiable construction. More generally, we prove an exact direct-product compensation formula for \(A_5\) with an arbitrary nilpotent factor. The formula reduces the equality \(γ(A_5\times N)=9/2\) to a finite Egyptian-fraction equation in the orders of the Sylow subgroups of \(N\). Taking \(N=\C_2\times\C_7\times\C_{11}\times\C_{13}\times\C_{17}\times\C_{19}\times\C_{29}\times\C_{71}\times\C_{83}\), the loss in the \(2\)-Sylow contribution is exactly compensated by the new normal Sylow subgroups. Consequently \(G=A_5\times N\) is nonsolvable, is not isomorphic to \(A_5\), has solvable radical \(N\), and nevertheless satisfies \(γ(G)=9/2\). Several further explicit compensation certificates are also recorded.</summary>
+    <category term="math.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-20T10:06:19Z</published>
+    <arxiv:primary_category term="math.GR"/>
+    <author>
+      <name>Yutong Zhang</name>
+    </author>
+    <author>
+      <name>Yaoran Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.04551v2</id>
+    <title>A Ceiling Continued Fraction Approach to the Erdős-Straus Conjecture: Heuristic finiteness of counterexamples</title>
+    <updated>2026-05-25T19:03:35Z</updated>
+    <link href="https://arxiv.org/abs/2605.04551v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.04551v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce the Ceiling Continued Fractions (FCT) framework for constructing three-term Egyptian fraction representations in the Erdős-Straus conjecture. The approach exploits divisor structures of shifted integers p+i rather than congruence-based techniques. We derive a super-polynomial upper bound on the failure probability; its convergence, together with the Borel-Cantelli lemma, provides heuristic evidence that counterexamples, if any exist, form a finite set. Computational tests on 10^9 primes in ranges around 10^17, 10^52, and 10^131, show no counterexamples with very small search depth.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-06T06:56:14Z</published>
+    <arxiv:comment>10 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Andres Ventas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.17112v2</id>
+    <title>Representations of rational numbers and Minkowski dimension</title>
+    <updated>2025-12-24T01:48:42Z</updated>
+    <link href="https://arxiv.org/abs/2510.17112v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.17112v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we investigate the representations of rational numbers via continued fraction, Egyptian fraction, and Engel fraction expansions. Given $m \in \mathbb{N}$, denote by $C_m, E_m, E_m^*$ the sets of rational numbers whose continued fraction, Egyptian fraction, and Engel fraction expansions have length $m$, respectively. We first establish the Minkowski dimensions of these sets, which implies that their global scaling properties are different. We also apply the results to sumsets of decreasing sequences.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-20T03:00:02Z</published>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Haipeng Chen</name>
+    </author>
+    <author>
+      <name>Lai Jiang</name>
+    </author>
+    <author>
+      <name>Yufeng Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.10030v1</id>
+    <title>A lower bound for the number of Egyptian fractions</title>
+    <updated>2025-09-12T07:51:39Z</updated>
+    <link href="https://arxiv.org/abs/2509.10030v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.10030v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An Egyptian fraction is a sum of the form $1/n_1 + \cdots + 1/n_r$ where $n_1, \dots, n_k$ are distinct positive integers. We prove explicit lower bounds for the cardinality of the set $E_N$ of rational numbers that can be represented by Egyptian fractions with denominators not exceeding $N$. More precisely, we show that for every integer $k \geq 4$ such that $\ln_k N \geq 3/2$ it holds $$ \frac{\ln(|E_N|)}{\ln 2} \geq \Big(2 - \frac{3}{\ln_k N}\Big)\frac{N}{\ln N}\prod_{j=3}^{k} \ln_j N , $$ where $\ln_k$ denotes the $k$-th iterate of the natural logarithm. This improves on a previous result of Bleicher and Erdős who established a similar bound but under the more stringent condition $\ln_k N\geq k$ and with a leading constant of $1$. Furthermore, we provide some methods to compute the exact values of $|E_N|$ for large positive integers $N$, and we give a table of $|E_N|$ for $N$ up to $154$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-12T07:51:39Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Sandro Bettin</name>
+    </author>
+    <author>
+      <name>Loïc Grenié</name>
+    </author>
+    <author>
+      <name>Giuseppe Molteni</name>
+    </author>
+    <author>
+      <name>Carlo Sanna</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.07023v2</id>
+    <title>Classifying integral Grothendieck rings up to rank 5 and beyond</title>
+    <updated>2025-09-17T08:08:24Z</updated>
+    <link href="https://arxiv.org/abs/2507.07023v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.07023v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we define a Grothendieck ring as a fusion ring categorifiable into a fusion category over the complex field. An integral fusion ring is called Drinfeld if all its formal codegrees are integers dividing the global Frobenius--Perron dimension. Every integral Grothendieck ring is necessarily Drinfeld.
+  Using the fact that the formal codegrees of integral Drinfeld rings form an Egyptian fraction summing to 1, we derive a finite list of possible global FPdims for small ranks. Applying Normaliz, we classify all fusion rings with these candidate FPdims, retaining only those admitting a Drinfeld structure. To exclude Drinfeld rings that are not Grothendieck rings, we analyze induction matrices to the Drinfeld center, classified via our new Normaliz feature. Further exclusions and constructions involve group-theoretical fusion categories and Schur multipliers.
+  Our main result is a complete classification of integral Grothendieck rings up to rank 5, extended to rank 7 in odd-dimensional and noncommutative cases using Frobenius--Schur indicators and Galois theory. Moreover, we show that any noncommutative, odd-dimensional, integral Grothendieck ring of rank at most 22 is pointed of rank 21.
+  We also classify all integral 1-Frobenius Drinfeld rings of rank 6, identify the first known non-Isaacs integral fusion category (which turns out to be group-theoretical), classify integral noncommutative Drinfeld rings of rank 8, and integral 1-Frobenius MNSD Drinfeld rings of rank 9. Finally, we determine the smallest-rank exotic simple integral fusion rings: rank 4 in general, rank 6 in the Drinfeld case, and rank 7 in the 1-Frobenius Drinfeld case.</summary>
+    <category term="math.QA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.RA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.RT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-09T16:53:14Z</published>
+    <arxiv:comment>38 pages. Appendices moved to ancillary files. Added two new subsections: "1.1. Integral fusion categories in the literature" and "1.3. Computational vs. non-computational", and one new section: "4. Algorithmic details". Feedback is welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.QA"/>
+    <author>
+      <name>Max A. Alekseyev</name>
+    </author>
+    <author>
+      <name>Winfried Bruns</name>
+    </author>
+    <author>
+      <name>Jingcheng Dong</name>
+    </author>
+    <author>
+      <name>Sebastien Palcoux</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.03727v1</id>
+    <title>Egyptian fractions for few primes</title>
+    <updated>2025-07-04T17:30:27Z</updated>
+    <link href="https://arxiv.org/abs/2507.03727v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.03727v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study solutions to the Egyptian fractions equation with the prime factors of the denominators constrained to lie in a fixed set of primes. We evaluate the effectiveness of the greedy algorithm in establishing bounds on such solutions. Additionally, we present improved algorithms for generating low-rank solutions and solutions restricted to specific prime sets. Computational results obtained using these algorithms are provided, alongside a discussion on their performance.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-04T17:30:27Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Agustina Czenky</name>
+    </author>
+    <author>
+      <name>Emily McGovern</name>
+    </author>
+    <author>
+      <name>Julia Plavnik</name>
+    </author>
+    <author>
+      <name>Eric Rowell</name>
+    </author>
+    <author>
+      <name>Abigail Watkins</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2505.08716v1</id>
+    <title>An Unexpected Connection Between the Discrete Zeta Function and the Erdos-Straus Conjecture Under Mballa's Conjecture</title>
+    <updated>2025-05-13T16:22:40Z</updated>
+    <link href="https://arxiv.org/abs/2505.08716v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2505.08716v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this article, we establish an additive decomposition of the discrete zeta function (for $s \in \mathbb{N}^*$, $s &gt; 1$), more precisely of the function $4(ζ(s)-1)$, as a series whose general term is of the form $1/x_n(s) + 1/y_n(s) + 1/z_n(s)$, where $x_n(s), y_n(s), z_n(s)$ are solutions of the Erdos--Straus conjecture under a personal conjecture (which I will refer to here as Mballa's Conjecture) that I formulated by parametrization in the article: arXiv:2502.20935. This connection thus builds a bridge between analysis and Egyptian fractions in general, and the Erdos--Straus conjecture in particular.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-05-13T16:22:40Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Philemon Urbain Mballa</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.03899v1</id>
+    <title>Distribution of the sum of reciprocal parts for distinct parts partitions</title>
+    <updated>2025-03-05T20:57:33Z</updated>
+    <link href="https://arxiv.org/abs/2503.03899v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.03899v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given an integer partition of $n$ into distinct parts, the sum of the reciprocal parts is an example of an egyptian fraction. We study this statistic under the uniform measure on distinct parts partitions of $n$ and prove that, as $n \to \infty$, the sum of reciprocal parts is distributed away from its mean like a random harmonic sum.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-05T20:57:33Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Walter Bridges</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2502.05607v1</id>
+    <title>On the examples of Egyptian fractions in Liber Abaci</title>
+    <updated>2025-02-08T15:27:59Z</updated>
+    <link href="https://arxiv.org/abs/2502.05607v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2502.05607v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The focus of this note is to formulate the algorithms and give the examples used by Fibonacci in Liber Abaci to expand any fraction into a sum of unit fractions. The description in Liber Abaci is all verbal and the examples are numbers which may lead to different algorithmic descriptions with the same input and results. An additional complication is that the manuscripts that exist are copies of an older manuscript and in the process new errors are introduced. Additional errors may also be introduced in the transcript and the translation. Fibonacci introduces seven categories each with several numerical examples. We give a precise description of the computational procedure using standard mathematical notation.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-02-08T15:27:59Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Trond Steihaug</name>
+    </author>
+    <author>
+      <name>Milo Gardner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2501.11575v4</id>
+    <title>Additive subgroups of a module that are saturated with respect to a subset of the ring</title>
+    <updated>2025-08-01T10:55:29Z</updated>
+    <link href="https://arxiv.org/abs/2501.11575v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2501.11575v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $T$ be a subset of a ring $A$, and let $M$ be an $A$-module. We study the additive subgroups $F$ of $M$ such that, for all $x \in M$, if $tx \in F$ for some $t \in T$, then $x \in F$. We call any such subset $F$ of $M$ a $T$-factroid of $M$, which is a kind of dual to the notion of a $T$-submodule of $M$. We connect the notion with the zero-divisors on $M$, various classes of primary and prime ideals of $A$, Euclidean domains, and the recent concepts of unit-additive commutative rings and of Egyptian fractions with respect to a multiplicative subset of a commutative ring. We also introduce a common generalization of local rings and unit-additive rings, called *sublocalizable* rings, and relate them to $T$-factroids.</summary>
+    <category term="math.RA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-01-20T16:26:03Z</published>
+    <arxiv:comment>Added obit note</arxiv:comment>
+    <arxiv:primary_category term="math.RA"/>
+    <author>
+      <name>Jesse Elliott</name>
+    </author>
+    <author>
+      <name>Neil Epstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2412.09728v1</id>
+    <title>Egyptian fractions meet the Sierpinski triangle</title>
+    <updated>2024-12-12T21:35:23Z</updated>
+    <link href="https://arxiv.org/abs/2412.09728v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2412.09728v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We explore a novel link between two seemingly disparate mathematical concepts: Egyptian fractions and fractals. By examining the decomposition of rationals into sums of distinct unit fractions, a practice rooted in ancient Egyptian mathematics, and the arithmetic operations that can be performed using this decomposition, we uncover fractal structures that emerge from these representations.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-12-12T21:35:23Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Laura De Carli</name>
+    </author>
+    <author>
+      <name>Andrew Echezabal</name>
+    </author>
+    <author>
+      <name>Ismael Morell</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2412.02049v1</id>
+    <title>On sums of Egyptian fractions</title>
+    <updated>2024-12-03T00:09:14Z</updated>
+    <link href="https://arxiv.org/abs/2412.02049v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2412.02049v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $n,d$, and $k$ be positive integers where $n$ and $d$ are coprime. Our two main results are
+  Theorem 1. There is a partition of the infinite interval $[kd,\infty)$ of positive integers into a family of finite sets $X$ for which the sum of the reciprocals of the elements in $X$ is $n/d$.
+  Theorem 1. There is a partition of $[2kd,\infty)$ into an infinite family of infinite sets $Y$ for which the sum of the reciprocals of the elements in $Y$ is $n/d$.
+  Our method is grounded in the Vital Identity, $1/z = 1/(z+1) + 1/z(z+1)$, which holds for every complex number $z \notin \{-1,0\}$, and which gives rise to an eponymous algorithm that serves as our tool. At the core of our Theorems 1 and 2 is the number theoretic function $\star: x\mapsto \star x := x(x+1)$ into whose properties this paper continues an investigation initiated in [7].</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-12-03T00:09:14Z</published>
+    <arxiv:comment>7 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Donald Silberger</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2410.24165v2</id>
+    <title>Egyptian fractions on groups</title>
+    <updated>2024-11-01T02:45:51Z</updated>
+    <link href="https://arxiv.org/abs/2410.24165v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2410.24165v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Results about the structure of the set of Egyptian fractions on the line are extended to subsets of topological groups.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-10-31T17:22:30Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>David A. Ross</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.07218v3</id>
+    <title>On eventually greedy best underapproximations by Egyptian fractions</title>
+    <updated>2024-09-26T13:38:27Z</updated>
+    <link href="https://arxiv.org/abs/2406.07218v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.07218v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Erdős and Graham found it conceivable that the best $n$-term Egyptian underapproximation of almost every positive number for sufficiently large $n$ gets constructed in a greedy manner, i.e., from the best $(n-1)$-term Egyptian underapproximation. We show that the opposite is true: the set of real numbers with this property has Lebesgue measure zero. [This note solves Problem 206 on Bloom's website "Erdős problems".]</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-11T12:53:57Z</published>
+    <arxiv:comment>7 pages; v2 corrects the history of the claim for rational numbers; v3 incorporates referee's suggestions. The author is grateful to Richard Green for discussing the paper and its background in the popular newsletter "A Piece of the Pi: mathematics explained"</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Number Theory, 268 (2025), 39-48</arxiv:journal_ref>
+    <author>
+      <name>Vjekoslav Kovač</name>
+    </author>
+    <arxiv:doi>10.1016/j.jnt.2024.09.004</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jnt.2024.09.004" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.16016v2</id>
+    <title>A question of Erdős and Graham on Egyptian fractions</title>
+    <updated>2025-12-17T20:36:01Z</updated>
+    <link href="https://arxiv.org/abs/2404.16016v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.16016v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Answering a question of Erdős and Graham, we show that for each fixed positive rational number $x$ the number of ways to write $x$ as a sum of reciprocals of distinct positive integers each at most $n$ is $2^{(c_x + o(1))n}$ for an explicit constant $c_x$ increasing with $x$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-24T17:50:12Z</published>
+    <arxiv:comment>Reformatted for Discrete Analysis</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Discrete Analysis 2025:28, 13 pp</arxiv:journal_ref>
+    <author>
+      <name>David Conlon</name>
+    </author>
+    <author>
+      <name>Jacob Fox</name>
+    </author>
+    <author>
+      <name>Xiaoyu He</name>
+    </author>
+    <author>
+      <name>Dhruv Mubayi</name>
+    </author>
+    <author>
+      <name>Huy Tuan Pham</name>
+    </author>
+    <author>
+      <name>Andrew Suk</name>
+    </author>
+    <author>
+      <name>Jacques Verstraëte</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2306.12564v2</id>
+    <title>A Threshold for the Best Two-term Underapproximation by Egyptian Fractions</title>
+    <updated>2024-01-20T08:07:18Z</updated>
+    <link href="https://arxiv.org/abs/2306.12564v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2306.12564v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $\mathcal{G}$ be the greedy algorithm that, for each $θ\in (0,1]$, produces an infinite sequence of positive integers $(a_n)_{n=1}^\infty$ satisfying $\sum_{n=1}^\infty 1/a_n = θ$. For natural numbers $p &lt; q$, let $Υ(p,q)$ denote the smallest positive integer $j$ such that $p$ divides $q+j$. Continuing Nathanson's study of two-term underapproximations, we show that whenever $Υ(p,q) \leqslant 3$, $\mathcal{G}$ gives the (unique) best two-term underapproximation of $p/q$; i.e., if $1/x_1 + 1/x_2 &lt; p/q$ for some $x_1, x_2\in \mathbb{N}$, then $1/x_1 + 1/x_2 \leqslant 1/a_1+1/a_2$. However, the same conclusion fails for every $Υ(p,q)\geqslant 4$.
+  Next, we study stepwise underapproximation by $\mathcal{G}$. Let $e_{m} = θ- \sum_{n=1}^{m}1/a_n$ be the $m$th error term. We compare $1/a_m$ to a superior underapproximation of $e_{m-1}$, denoted by $N/b_m$ ($N \in\mathbb{N}_{\geqslant 2}$), and characterize when $1/a_m = N/b_m$. One characterization is $a_{m+1} \geqslant N a_m^2 - a_m + 1$. Hence, for rational $θ$, we only have $1/a_m = N/b_m$ for finitely many $m$. However, there are irrational numbers such that $1/a_m = N/b_m$ for all $m$. Along the way, various auxiliary results are encountered.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-06-19T00:54:32Z</published>
+    <arxiv:comment>26 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Hung Viet Chu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2303.15685v2</id>
+    <title>Egyptian integral domains</title>
+    <updated>2023-08-11T20:15:42Z</updated>
+    <link href="https://arxiv.org/abs/2303.15685v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2303.15685v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The notion of an Egyptian domain (where the analogue of Egyptian fractions works appropriately), first explored by Guerrieri-Loper-Oman, is extended to the more general notions of generically and locally Egyptian domains. Results from the previous paper are extended, as well as reinterpreted in the new expanded context. It is shown that localizations of polynomial rings are typically Egyptian, that positive semigroup-graded domains are not Egyptian, and that affine semigroup rings are not Egyptian unless the semigroup is a group. However, any finitely generated algebra over a field or $\mathbb Z$ is shown to be locally Egyptian. It is further shown that if $R$ is a pullback of $S$, then $R$ is Egyptian if and only if $S$ is.</summary>
+    <category term="math.AC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-03-28T02:15:36Z</published>
+    <arxiv:comment>Some minor errors corrected and points clarified, due to referee comments. 10 pages</arxiv:comment>
+    <arxiv:primary_category term="math.AC"/>
+    <author>
+      <name>Neil Epstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2302.01613v10</id>
+    <title>Classification of integral modular data up to rank 13</title>
+    <updated>2026-08-06T03:58:32Z</updated>
+    <link href="https://arxiv.org/abs/2302.01613v10" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2302.01613v10" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper classifies the modular data of integral modular fusion categories up to rank 13, and integral half-Frobenius fusion rings up to rank 12. We establish that every perfect case within these bounds is trivial. Furthermore, we refine the non-pointed odd-dimensional modular data at ranks below 25 to exactly three items, all of rank 17, FPdim 225, and type [[1,3],[3,8],[5,6]], filling existing literature gaps. For rank 25, we narrow the perfect case to three open types.
+  Our core insight is that Egyptian fractions, typically used to list possible types, can be chosen with squared denominators. We develop several type criteria as initial filters. To construct the fusion rings, we solve dimension and associativity equations utilizing custom-built features in Normaliz. S-matrices are generated by self-transposing the character table, and T-matrices are derived by solving the Anderson-Moore-Vafa equations, concluding with the verification of extended modular data axioms.
+  From rank 13 onward, types are restricted by modular-specific properties involving universal grading, congruence representations of the modular group, and Galois action. This establishes critical arithmetic constraints: up to rank 21, a prime divisor of the global FPdim cannot exceed the rank, and up to rank 15 (non-pointed case), it cannot exceed half the rank. Ultimately, we reduce the rank 14 classification to 35 possible types, 8 of which are non-perfect.</summary>
+    <category term="math.QA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.RA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-02-03T09:24:46Z</published>
+    <arxiv:comment>29 pages. Revised version. The complete fusion and modular data are now provided as Supplementary Material in the ancillary files</arxiv:comment>
+    <arxiv:primary_category term="math.QA"/>
+    <arxiv:journal_ref>J. Math. Phys. 67, 081701 (2026)</arxiv:journal_ref>
+    <author>
+      <name>Max A. Alekseyev</name>
+    </author>
+    <author>
+      <name>Winfried Bruns</name>
+    </author>
+    <author>
+      <name>Sebastien Palcoux</name>
+    </author>
+    <author>
+      <name>Fedor V. Petrov</name>
+    </author>
+    <arxiv:doi>10.1063/5.0334158</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1063/5.0334158" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2302.01747v2</id>
+    <title>Approximation by Egyptian Fractions and the Weak Greedy Algorithm</title>
+    <updated>2023-05-30T10:09:16Z</updated>
+    <link href="https://arxiv.org/abs/2302.01747v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2302.01747v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $0 &lt; θ\leqslant 1$. A sequence of positive integers $(b_n)_{n=1}^\infty$ is called a weak greedy approximation of $θ$ if $\sum_{n=1}^{\infty}1/b_n = θ$. We introduce the weak greedy approximation algorithm (WGAA), which, for each $θ$, produces two sequences of positive integers $(a_n)$ and $(b_n)$ such that
+  a) $\sum_{n=1}^\infty 1/b_n = θ$;
+  b) $1/a_{n+1} &lt; θ- \sum_{i=1}^{n}1/b_i &lt; 1/(a_{n+1}-1)$ for all $n\geqslant 1$;
+  c) there exists $t\geqslant 1$ such that $b_n/a_n \leqslant t$ infinitely often.
+  We then investigate when a given weak greedy approximation $(b_n)$ can be produced by the WGAA. Furthermore, we show that for any non-decreasing $(a_n)$ with $a_1\geqslant 2$ and $a_n\rightarrow\infty$, there exist $θ$ and $(b_n)$ such that a) and b) are satisfied; whether c) is also satisfied depends on the sequence $(a_n)$. Finally, we address the uniqueness of $θ$ and $(b_n)$ and apply our framework to specific sequences.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-02-01T15:49:14Z</published>
+    <arxiv:comment>14 pages, to appear in Indag. Math. (N.S.)</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Hung Viet Chu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.07921v1</id>
+    <title>A note on the number of Egyptian fractions</title>
+    <updated>2022-10-11T14:19:51Z</updated>
+    <link href="https://arxiv.org/abs/2210.07921v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.07921v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Refining an estimate of Croot, Dobbs, Friedlander, Hetzel and Pappalardi, we show that for all $k \geq 2$, the number of integers $1 \leq a \leq n$ such that the equation $a/n = 1/m_1 + \dotsc + 1/m_k$ has a solution in positive integers $m_1, \dotsc, m_k$ is bounded above by $n^{1 - 1/2^{k-2} + o(1)}$ as $n$ goes to infinity. The proof is elementary.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-11T14:19:51Z</published>
+    <arxiv:comment>2 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Noah Lebowitz-Lockard</name>
+    </author>
+    <author>
+      <name>Victor Souza</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.04496v1</id>
+    <title>Egyptian Fractions</title>
+    <updated>2022-10-10T08:50:40Z</updated>
+    <link href="https://arxiv.org/abs/2210.04496v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.04496v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Any rational number can be written as the sum of distinct unit fractions. In this survey paper we review some of the many interesting questions concerning such 'Egyptian fraction' decompositions, and recent progress concerning them.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-10T08:50:40Z</published>
+    <arxiv:comment>10 pages, survey article written for Nieuw Archief voor Wiskunde. Comments welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Thomas F. Bloom</name>
+    </author>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2202.00191v2</id>
+    <title>Underapproximation by Egyptian fractions</title>
+    <updated>2022-02-03T17:43:15Z</updated>
+    <link href="https://arxiv.org/abs/2202.00191v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2202.00191v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>An increasing sequence $(x_i)_{i=1}^n$ of positive integers is an $n$-term Egyptian underapproximation of $θ\in (0,1]$ if $\sum_{i=1}^n \frac{1}{x_i} &lt; θ$. A greedy algorithm constructs an $n$-term underapproximation of $θ$. For some but not all numbers $θ$, the greedy algorithm gives a unique best $n$-term underapproximation for all $n$. An infinite set of rational numbers is constructed for which the greedy underapproximations are best, and numbers for which the greedy algorithm is not best are also studied.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-02-01T02:46:45Z</published>
+    <arxiv:comment>20 pages, minor corrections</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Journal of Number Theory 242 (2023), 208--234</arxiv:journal_ref>
+    <author>
+      <name>Melvyn B. Nathanson</name>
+    </author>
+    <arxiv:doi>10.1016/j.jnt.2022.07.005</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.jnt.2022.07.005" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2201.11805v3</id>
+    <title>Ternary Egyptian fractions with prime denominator</title>
+    <updated>2022-06-13T15:12:52Z</updated>
+    <link href="https://arxiv.org/abs/2201.11805v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2201.11805v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For a prime number $p$, let $A_3(p)= | \{ m \in \mathbb{N}: \exists m_1,m_2,m_3 \in \mathbb{N}, \frac{m}{p}=\frac{1}{m_1}+\frac{1}{m_2}+\frac{1}{m_3} \} |$. In 2019 Luca and Pappalardi proved that $x (\log x)^3 \ll \sum_{p \le x} A_{3}(p) \ll x (\log x)^5$. We improve the upper bound, showing $\sum_{p \le x} A_{3}(p) \ll x (\log x)^3 (\log \log x)^2$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-01-27T20:51:29Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Research in Number Theory 8 (3), 41 (2022)</arxiv:journal_ref>
+    <author>
+      <name>Adva Mond</name>
+    </author>
+    <author>
+      <name>Julien Portier</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2109.12217v1</id>
+    <title>Egyptian Fractions with Denominators from Sequences Closed Under Doubling</title>
+    <updated>2021-09-24T22:11:18Z</updated>
+    <link href="https://arxiv.org/abs/2109.12217v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2109.12217v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Resolving a conjecture of Zhi-Wei Sun, we prove that every rational number can be represented as a sum of distinct unit fractions whose denominators are practical numbers. The same method applies to allowed denominators that are closed under multiplication by two and include a multiple of every positive integer, including the odious numbers, evil numbers, Hardy-Ramanujan numbers, Jordan-Polya numbers, and fibbinary numbers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-09-24T22:11:18Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Journal of Integer Sequences, Vol. 24 (2021), Article 21.8.8</arxiv:journal_ref>
+    <author>
+      <name>David Eppstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2107.05076v1</id>
+    <title>An algorithm for Egyptian fraction representations with restricted denominators</title>
+    <updated>2021-07-11T16:00:23Z</updated>
+    <link href="https://arxiv.org/abs/2107.05076v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2107.05076v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A unit fraction representation of a rational number $r$ is a finite sum of reciprocals of positive integers that equals $r$. Of particular interest is the case when all denominators in the representation are distinct, resulting in an Egyptian fraction representation of $r$. Common algorithms for computing Egyptian fraction representations of a given rational number tend to result in extremely large denominators and cannot be adapted to restrictions on the allowed denominators. We describe an algorithm for finding all unit fraction representations of a given rational number using denominators from a given finite multiset of positive integers. The freely available algorithm, implemented in Scheme, is particularly well suited to computing dense Egyptian fraction representations, where the allowed denominators have a prescribed maximum.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-07-11T16:00:23Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Involve 18 (2025) 1-23</arxiv:journal_ref>
+    <author>
+      <name>Greg Martin</name>
+    </author>
+    <author>
+      <name>Yue Shi</name>
+    </author>
+    <arxiv:doi>10.2140/involve.2025.18.1</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.2140/involve.2025.18.1" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2007.14305v1</id>
+    <title>Sylvester's Conjecture and the Egyptian Fractions</title>
+    <updated>2020-06-27T13:36:35Z</updated>
+    <link href="https://arxiv.org/abs/2007.14305v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2007.14305v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper attempts to prove the Sylvester's conjecture using Egyptian Fractions with two key ingredients. First, creating a set of operators that completely generates all possible Egyptian fraction of 1. And second, to detect patterns in every operator that surely will generate a new number which are relatively prime to all that came before.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-06-27T13:36:35Z</published>
+    <arxiv:comment>5 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Keneth Adrian Dagal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.05162v1</id>
+    <title>Bounds for the Number of Terms of Harmonic Sums</title>
+    <updated>2020-04-11T20:09:30Z</updated>
+    <link href="https://arxiv.org/abs/2004.05162v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.05162v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper provides bounds for the number of terms, denoted by $f$, of a harmonic sum with the condition that it starts from any arbitrary unit fraction $\frac{1}{m}$, $m &gt; 1$, until another unit fraction $\frac{1}{m+f-1}$ such that the sum is the highest sum less than a particular positive integer $q$. Also, we consider the number of terms of Egyptian fractions whose terms are consecutive multiples of $r$, $r \geq 1$, under the same above condition. We end the paper with a formula for the case: $q=1$ and $r=1$.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-11T20:09:30Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Keneth Adrian Dagal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2003.13229v1</id>
+    <title>A New Operator for Egyptian Fractions</title>
+    <updated>2020-03-30T05:34:33Z</updated>
+    <link href="https://arxiv.org/abs/2003.13229v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2003.13229v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper introduces a new equation for rewriting two unit fractions to another two unit fractions. This equation is useful for optimizing the elements of an Egyptian Fraction. Parity of the elements of the Egyptian Fractions are also considered. And lastly, the statement that all rational numbers can be represented as Egyptian Fraction is re-established.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-03-30T05:34:33Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Keneth Adrian Dagal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1906.11986v2</id>
+    <title>Counting Egyptian fractions</title>
+    <updated>2019-07-17T09:22:57Z</updated>
+    <link href="https://arxiv.org/abs/1906.11986v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1906.11986v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For any integer $N \geq 1$, let $\mathfrak{E}_N$ be the set of all Egyptian fractions employing denominators less than or equal to $N$. We give upper and lower bounds for the cardinality of $\mathfrak{E}_N$, proving that $$ \frac{N}{\log N} \prod_{j = 3}^{k} \log_j N&lt;\log(\#\mathfrak{E}_N) &lt; 0.421\, N, $$ for any fixed integer $k\geq 3$ and every sufficiently large $N$, where $\log_j x$ denotes the $j$-th iterated logarithm of $x$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-06-27T22:43:08Z</published>
+    <arxiv:comment>1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Sandro Bettin</name>
+    </author>
+    <author>
+      <name>Loïc Grenié</name>
+    </author>
+    <author>
+      <name>Giuseppe Molteni</name>
+    </author>
+    <author>
+      <name>Carlo Sanna</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1905.06151v2</id>
+    <title>On ternary Egyptian fractions with prime denominator</title>
+    <updated>2019-09-19T09:43:41Z</updated>
+    <link href="https://arxiv.org/abs/1905.06151v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1905.06151v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a positive integer $n$ we let $A_k(n)$ be the number of positive integers $a$ such that $\frac{a}{n}=\frac{1}{m_1}+\frac{1}{m_2}+\cdots+\frac{1}{m_k}$ for some $m_1,m_2,\ldots,m_k\in {\mathbb N}$. We show that $x(\log x)^3\ll \sum_{p\le x} A_3(p)\ll x(\log x)^5$ as $x\rightarrow\infty$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-05-15T13:05:49Z</published>
+    <arxiv:comment>14 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Florian Luca</name>
+    </author>
+    <author>
+      <name>Francesco Pappalardi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1708.09478v2</id>
+    <title>Weighted real Egyptian numbers</title>
+    <updated>2017-09-12T14:56:00Z</updated>
+    <link href="https://arxiv.org/abs/1708.09478v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1708.09478v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $\mathcal A = (A_1,\ldots, A_n)$ be a sequence of nonempty finite sets of positive real numbers, and let $\mathcal{B} = (B_1,\ldots, B_n)$ be a sequence of infinite discrete sets of positive real numbers. A weighted real Egyptian number with numerators $\mathcal{A}$ and denominators $\mathcal{B}$ is a real number $c$ that can be represented in the form \[ c = \sum_{i=1}^n \frac{a_i}{b_i} \] with $a_i \in A_i$ and $b_i \in B_i$ for $i \in \{1,\ldots, n\}$. In this paper, classical results of Sierpinski for Egyptian fractions are extended to the set of weighted real Egyptian numbers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-08-30T21:22:12Z</published>
+    <arxiv:comment>10 pages. Improved and corrected</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Functiones et Approximatio Commentarii Mathematici 60 (2019}, 155--166</arxiv:journal_ref>
+    <author>
+      <name>Melvyn B. Nathanson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1706.01008v2</id>
+    <title>Egyptian Fractions and Prime Power Divisors</title>
+    <updated>2018-04-03T19:41:02Z</updated>
+    <link href="https://arxiv.org/abs/1706.01008v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1706.01008v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>From varying Egyptian fraction equations we obtain generalizations of primary pseudoperfect numbers and Giuga numbers which we call prime power psuedoperfect numbers and prime power Giuga numbers respectively. We show that a sequence of Amarnath Murthy in the OEIS is a subsequence of the sequence of prime power psuedoperfect numbers. Prime factorization conditions sufficient to imply a number is a prime power pseudoperfect number or a prime power Giuga number are given. The conditions on prime factorizations naturally give rise to a generalization of Fermat primes which we call extended Fermat primes.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-06-04T00:11:35Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Integer Seq. 21 (2018), no. 3, Art. 18.3.7</arxiv:journal_ref>
+    <author>
+      <name>John Machacek</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1606.02117v1</id>
+    <title>Egyptian Fractions with odd denominators</title>
+    <updated>2016-06-07T12:25:46Z</updated>
+    <link href="https://arxiv.org/abs/1606.02117v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1606.02117v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The number of solutions of the diophantine equation $\sum_{i=1}^k \frac{1}{x_i}=1,$ in particular when the $x_i$ are distinct odd positive integers is investigated. The number of solutions $S(k)$ in this case is, for odd $k$: \[\exp \left( \exp \left( c_1\, \frac{k}{\log k}\right)\right) \leq S(k) \leq \exp \left( \exp \left(c_2\, k \right)\right) \] with some positive constants $c_1$ and $c_2$. This improves upon an earlier lower bound of $S(k) \geq \exp \left( (1+o(1))\frac{\log 2}{2} k^2\right)$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-06-07T12:25:46Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1412.3263v2</id>
+    <title>On representations by Egyptian fractions</title>
+    <updated>2015-04-29T06:47:57Z</updated>
+    <link href="https://arxiv.org/abs/1412.3263v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1412.3263v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give a sharp upper bound for the entries of the representations of a rational number as a sum of Egyptian fractions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-12-10T11:32:27Z</published>
+    <arxiv:comment>5 pages; LaTeX</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Florin Ambro</name>
+    </author>
+    <author>
+      <name>Mugurel Barcau</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1411.0848v3</id>
+    <title>Commuting probabilities of finite groups</title>
+    <updated>2015-06-24T09:01:53Z</updated>
+    <link href="https://arxiv.org/abs/1411.0848v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1411.0848v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The commuting probability of a finite group is defined to be the probability that two randomly chosen group elements commute. Let P \subset (0,1] be the set of commuting probabilities of all finite groups. We prove that every point of P is nearly an Egyptian fraction of bounded complexity. As a corollary we deduce two conjectures of Keith Joseph from 1977: all limit points of P are rational, and P is well ordered by &gt;. We also prove analogous theorems for bilinear maps of abelian groups.</summary>
+    <category term="math.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-11-04T10:19:37Z</published>
+    <arxiv:comment>13 pages. To appear in the Bulletin of the LMS. This is the version accepted for publication, incorporating the referee's suggestions. This version will differ from the published version</arxiv:comment>
+    <arxiv:primary_category term="math.GR"/>
+    <author>
+      <name>Sean Eberhard</name>
+    </author>
+    <arxiv:doi>10.1112/blms/bdv050</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms/bdv050" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1401.0322v1</id>
+    <title>The $p$-adic Order of Power Sums, the Erdös-Moser Equation, and Bernoulli Numbers</title>
+    <updated>2014-01-01T19:04:44Z</updated>
+    <link href="https://arxiv.org/abs/1401.0322v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1401.0322v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Erdös-Moser equation is a Diophantine equation proposed more than 60 years ago which remains unresolved to this day. In this paper, we consider the problem in terms of divisibility of power sums and in terms of certain Egyptian fraction equations. As a consequence, we show that solutions must satisfy strong divisibility properties and a restrictive Egyptian fraction equation. Our studies lead us to results on the Bernoulli numbers and allow us to motivate Moser's original approach to the problem.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-01-01T19:04:44Z</published>
+    <arxiv:comment>22 pages, comments are welcome</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jonathan Sondow</name>
+    </author>
+    <author>
+      <name>Emmanuel Tsukerman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1111.2574v1</id>
+    <title>On the exceptional set for binary Egyptian fractions</title>
+    <updated>2011-11-10T19:43:49Z</updated>
+    <link href="https://arxiv.org/abs/1111.2574v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1111.2574v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For fixed integer $a\ge3$, we study the binary Diophantine equation $\frac{a}n=\frac1x+\frac1y$ and in particular the number $E_a(N)$ of $n\le N$ for which the equation has no positive integer solutions in $x, y$. The asymptotic formula $$E_a(N)\sim C(a) \frac{N(\log\log N)^{2^{m-1}-1}}{(\log N)^{1-1/2^m}}$$ as $N$ goes to infinity, is established in this article, and this improves the best result in the literature dramatically. The proof depends on a very delicate analysis of the underlying group structure.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-11-10T19:43:49Z</published>
+    <arxiv:comment>13 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jing-Jing Huang</name>
+    </author>
+    <author>
+      <name>Robert C. Vaughan</name>
+    </author>
+    <arxiv:doi>10.1112/blms/bdt020</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms/bdt020" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1109.2274v1</id>
+    <title>Mean value theorems for binary Egyptian fractions II</title>
+    <updated>2011-09-11T01:33:03Z</updated>
+    <link href="https://arxiv.org/abs/1109.2274v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1109.2274v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this article, we continue with our investigation of the Diophantine equation $\frac{a}n=\frac1x+\frac1y$ and in particular its number of solutions $R(n;a)$ for fixed $a$. We prove a couple of mean value theorems for the second moment $(R(n;a))^2$ and from which we deduce $\log R(n;a)$ satisfies a certain Gaussian distribution with mean $\log 3\log\log n$ and variance $(log 3)^2\log\log n$, which is an analog of the classical theorem of Erd\H os and Kac. And finally these results in all suggest that the behavior of $R(n;a)$ resembles the divisor function $d(n^2)$ in various aspects.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-09-11T01:33:03Z</published>
+    <arxiv:comment>9 pages, submitted</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jing-Jing Huang</name>
+    </author>
+    <author>
+      <name>Robert C. Vaughan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1109.0867v1</id>
+    <title>Mean Value from Representation of Rational Number as Sum of Two Egyptian Fractions</title>
+    <updated>2011-09-05T12:02:55Z</updated>
+    <link href="https://arxiv.org/abs/1109.0867v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1109.0867v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For given positive integers $n$ and $a$, let $R(n;\,a)$ denote the number of positive integer solutions $(x,\,y)$ of the Diophantine equation $$ {a\over n}={1\over x}+{1\over y}. $$ Write $$ S(N;\,a)=\sum_{\substack{n\leq N (n,\,a)=1}}R(n;\,a). $$ Recently Jingjing Huang and R. C. Vaughan proved that for $4\leq N$ and $a\leq 2N$, there is an asymptotic formula $$ S(N;\,a)={3\over π^2a}\prod_{p|a}{p-1\over p+1}\cdot N(\log^2N+c_1(a) \log N+c_0(a))+Δ(N;\,a). $$ In this paper, we shall get a more explicit expression with better error term for $c_0(a)$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-09-05T12:02:55Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Chaohua Jia</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1108.6118v1</id>
+    <title>Egyptian Fractions with Restrictions</title>
+    <updated>2011-08-31T03:08:56Z</updated>
+    <link href="https://arxiv.org/abs/1108.6118v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1108.6118v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $T_o(k)$ denote the number of solutions of $\sum_{i=1}^k\frac 1{x_i}=1$ in odd numbers $1&lt;x_1&lt;x_2&lt;...&lt;x_k$. It is clear that $T_o(2k)=0$. For distinct primes $p_1, p_2,..., p_t$, let $S(p_1, p_2,..., p_t)=\{p_1^{α_1}...p_t^{α_t}\mid α_i\in \mathbb{N}_0, i=1,2,..., t}$. Let $T_k(p_1,..., p_t)$ be the number of solutions $\sum_{i=1}^{k}\frac 1{x_i}=1$ with $1&lt;x_1&lt;x_2&lt;...&lt;x_{k}$ and $x_i\in S(p_1, p_2,..., p_t)$. It is clear that if $T_k(p_1,..., p_t)\not= 0$ for some $k$, then the inverse sum of all elements $s_j&gt;1$ in $S(p_1, p_2,..., p_t)$ is more than 1.
+  In this paper we study $T_o(k)$ and $T_k(p_1,..., p_t)$. Three of our results are:
+  1) $T_o(2k+1)\ge (\sqrt 2)^{(k+1)(k-4)}$ for all $k\ge 4$;
+  2) if the inverse sum of all elements $s_j&gt;1$ in $S(p_1, p_2,..., p_t)$ is more than 1, then $T_k(p_1,..., p_t)\not= 0$ for infinitely many $k$ and the set of these $k$ is the union of finitely many arithmetic progressions;
+  3) there exists two constants $k_0=k_0(p_1,..., p_t)&gt;1$ and $c=c(p_1,..., p_t)&gt;1$ such that for any $k&gt;k_0$ we have either $T_k(p_1,..., p_t)= 0$ or $T_k(p_1,..., p_t)&gt;c^k$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-08-31T03:08:56Z</published>
+    <arxiv:comment>18pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Acta Arith. 154 (2012), 109-123</arxiv:journal_ref>
+    <author>
+      <name>Yong-Gao Chen</name>
+    </author>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Li-Li Jiang</name>
+    </author>
+    <arxiv:doi>10.4064/aa154-2-1</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4064/aa154-2-1" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1108.0096v1</id>
+    <title>Mean Value Theorems for Binary Egyptian Fractions</title>
+    <updated>2011-07-30T18:22:10Z</updated>
+    <link href="https://arxiv.org/abs/1108.0096v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1108.0096v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we establish two mean value theorems for the number of solutions of the Diophantine equation $\frac{a}{n}=\frac{1}{x}+\frac{1}{y}$, in the case when $a$ is fixed and $n$ varies and in the case when both $a$ and $n$ vary.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-07-30T18:22:10Z</published>
+    <arxiv:comment>16 pages, to appear in J. Number Theory</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jing-Jing Huang</name>
+    </author>
+    <author>
+      <name>Robert C. Vaughan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1012.0814v2</id>
+    <title>Modular categories, integrality and Egyptian fractions</title>
+    <updated>2010-12-08T16:22:29Z</updated>
+    <link href="https://arxiv.org/abs/1012.0814v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1012.0814v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>It is a well-known result of Etingof, Nikshych and Ostrik that there are finitely many inequivalent integral modular categories of any fixed rank $n$. This follows from a double-exponential bound on the maximal denominator in an Egyptian fraction representation of 1. A naïve computer search approach to the classification of rank $n$ integral modular categories using this bound quickly overwhelms the computer's memory (for $n\geq 7$). We use a modified strategy: find general conditions on modular categories that imply integrality and study the classification problem in these limited settings. The first such condition is that the order of the twist matrix is 2,3,4 or 6 and we obtain a fairly complete description of these classes of modular categories. The second condition is that the unit object is the only simple non-self-dual object, which is equivalent to odd-dimensionality. In this case we obtain a (linear) improvement on the bounds and employ number-theoretic techniques to obtain a classification for rank at most 11 for odd-dimensional modular categories.</summary>
+    <category term="math.QA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-12-03T18:55:39Z</published>
+    <arxiv:comment>version 2: clarified results in section 3</arxiv:comment>
+    <arxiv:primary_category term="math.QA"/>
+    <author>
+      <name>Paul Bruillard</name>
+    </author>
+    <author>
+      <name>Eric C. Rowell</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1010.2035v2</id>
+    <title>On Egyptian fractions</title>
+    <updated>2012-04-30T11:23:54Z</updated>
+    <link href="https://arxiv.org/abs/1010.2035v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1010.2035v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We find a polynomial in three variables whose values at nonnegative integers satisfy the Erdős-Straus Conjecture. Although the perfect squares are not covered by these values, it allows us to prove that there are arbitrarily long sequence of consecutive numbers satisfying the Erdős-Straus Conjecture. We conjecture that the values of this polynomial include all the prime numbers of the form $4q+5$, which is checked up to $10^{14}$. A greedy-type algorithm to find an Erdős-Straus decomposition is also given; the convergence of this algorithm is proved for a wide class of numbers. Combining this algorithm with the mentioned polynomial we verify that all the natural numbers $n$, $2\le n\le 2\times 10^{14}$, satisfy the Edős-Straus Conjecture.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-10-11T08:28:36Z</published>
+    <arxiv:comment>24 pages. Summit to a journal. This is a new version of our old paper. We include new results, see the new abstract</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Manuel Bello-Hernández</name>
+    </author>
+    <author>
+      <name>Manuel Benito</name>
+    </author>
+    <author>
+      <name>Emilio Fernández</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0509025v1</id>
+    <title>Counting the Positive Rationals: A Brief Survey</title>
+    <updated>2005-09-01T18:45:19Z</updated>
+    <link href="https://arxiv.org/abs/math/0509025v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0509025v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We discuss some examples that illustrate the countability of the positive rational numbers and related sets. Techniques include radix representations, Godel numbering, the fundamental theorem of arithmetic, continued fractions, Egyptian fractions, and the sequence of ratios of successive hyperbinary representation numbers.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2005-09-01T18:45:19Z</published>
+    <arxiv:comment>7 pages</arxiv:comment>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>David M. Bradley</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0502247v1</id>
+    <title>Approximating 1 from below using $n$ Egyptian fractions</title>
+    <updated>2005-02-11T21:00:19Z</updated>
+    <link href="https://arxiv.org/abs/math/0502247v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0502247v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We find the closest approximation to 1 from below using a sum of $n$ Egyptian fractions.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2005-02-11T21:00:19Z</published>
+    <arxiv:comment>Short note not intended for publication</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>K. Soundararajan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/9811112v1</id>
+    <title>Denser Egyptian Fractions</title>
+    <updated>1998-11-18T16:49:21Z</updated>
+    <link href="https://arxiv.org/abs/math/9811112v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/9811112v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  An Egyptian fraction is a sum of distinct unit fractions (reciprocals of positive integers). We show that every rational number has Egyptian fraction representations where the number of terms is of the same order of magnitude as the largest denominator, improving a result from an earlier paper to best-possible form. We also settle, in best-possible form, the related problem of how small M_t(r) can be such that there is an Egyptian fraction representation of r with exactly t terms, the denominators of which are all at most M_t(r). We also consider the following problems posed by Erdos and Graham: the set of integers that cannot be the largest denominator of an Egyptian fraction representation of 1 is infinite - what is its order of growth? How about those integers that cannot be the second-largest (third-largest, etc.) denominator of such a representation? In the latter case, we show that only finitely many integers cannot be the second-largest (third-largest, etc.) denominator of such a representation; while in the former case, we show that the set of integers that cannot be the largest denominator of such a representation has density zero, and establish its order of growth. Both results extend to representations of any positive rational number.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>1998-11-18T16:49:21Z</published>
+    <arxiv:comment>26 pages; sequel to "Dense Egyptian Fractions" (math.NT/9804045)</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Acta Arith. 95 (2000), no. 3, 231-260</arxiv:journal_ref>
+    <author>
+      <name>Greg Martin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/9804045v1</id>
+    <title>Dense Egyptian Fractions</title>
+    <updated>1998-04-08T14:32:45Z</updated>
+    <link href="https://arxiv.org/abs/math/9804045v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/9804045v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  Every positive rational number has representations as Egyptian fractions (sums of reciprocals of distinct positive integers) with arbitrarily many terms and with arbitrarily large denominators. However, such representations normally use a very sparse subset of the positive integers up to the largest demoninator. We show that for every positive rational there exist Egyptian fractions whose largest denominator is at most N and whose denominators form a positive proportion of the integers up to N, for sufficiently large N; furthermore, the proportion is within a small factor of best possible.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>1998-04-08T14:32:45Z</published>
+    <arxiv:comment>16 pages; to appear in Trans. Amer. Math. Soc</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Trans. Amer. Math. Soc. 351 (1999), no. 9, pp. 3641-3657.</arxiv:journal_ref>
+    <author>
+      <name>Greg Martin</name>
+    </author>
+  </entry>
+</feed>

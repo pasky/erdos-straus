@@ -1,0 +1,1229 @@
+                                                           EXCEPTIONS TO THE
+                                                  ERDŐS–STRAUS–SCHINZEL CONJECTURE
+
+                                                     CARL POMERANCE AND ANDREAS WEINGARTNER
+arXiv:2511.16817v2 [math.NT] 15 Jan 2026
+
+
+
+
+                                                        For Krishnaswami Alladi on his 70th birthday
+
+                                                  Abstract. A famous conjecture of Erdős and Straus is that for
+                                                  every integer n ≥ 2, 4/n can be represented as 1/x + 1/y + 1/z,
+                                                  where x, y, z are positive integers. This conjecture was generalized
+                                                  to 5/n by Sierpiński, and then Schinzel conjectured that for every
+                                                  integer m ≥ 4 there is a bound nm such that the fraction m/n is
+                                                  the sum of 3 unit fractions for all integers n ≥ nm . Leveraging and
+                                                  generalizing work of Elsholtz and Tao, we show that if nm exists
+                                                  it must be at least exp(m1/3+o(1) ); that is, there are numbers n
+                                                  this large for which m/n is not the sum of 3 unit fractions. We
+                                                  prove a weaker, but numerically explicit version of this theorem,
+                                                  showing that for m ≥ 6.52×109 there is a prime p ∈ (m2 , 2m2 ) with
+                                                  m/p not the sum of 3 unit fractions, and report on some extensive
+                                                  numerical calculations that support this assertion with the much
+                                                  smaller bound m ≥ 20. A result of Vaughan is that for each m,
+                                                  most n’s have m/n representable; we make the dependence on m
+                                                  in this result explicit. In addition, we prove a result generalizing
+                                                  the problem to the sum of j unit fractions.
+
+
+                                                                        1. Introduction
+                                              Egyptian fractions have a long and colorful history. According to the
+                                           Rhind Papyrus (ca. 1550 BCE), ancient Egyptians preferred to write
+                                           fractions as sums of unit fractions (fractions with numerator 1). We
+                                           have not seen a compelling argument for why they had this preference,
+                                           but nevertheless it opened the door to many intriguing problems. For
+                                           surveys of some of the many problems and results, see [4, Ch. 4], [6,
+                                           Sec. D11].
+                                              The Erdős–Straus conjecture, which dates to around 1948, asserts
+                                           that 4/n is the sum of 3 unit fractions for every integer n ≥ 2. An
+                                           early result of Obláth [11] is that n has this property if n + 1 is di-
+                                           visible by a prime p ≡ 3 (mod 4). This implies that asymptotically
+                                           all n have the Erdős–Straus property. In fact, exceptions should only
+                                             2010 Mathematics Subject Classification. 11D68, 11D72, 11N37.
+                                             Key words and phrases. Egyptian fraction, unit fraction.
+                                                                                   1
+2           CARL POMERANCE AND ANDREAS WEINGARTNER
+
+be divisible by primes p for which p + 1 has no prime factor q ≡ 3
+(mod 4). The number of such primes p ≤ N is O(N/ log3/2 N ) as can
+be seen from sieve methods. This property allows only O(N/ log3/2 N )
+exceptional numbers up to N via an argument akin to the Hardy–
+Ramanujan inequality (cf. Gottschlich [5, Lemma 2.3]). The count of
+possible exceptions has been strongly improved, though not recently:
+In 1970, Vaughan [13] gave the upper bound N/ exp(c log2/3 N ) for a
+positive constant c.
+   Sierpiński conjectured that not only 4/n, but also 5/n, can be written
+as a sum of 3 unit fractions, and then Schinzel conjectured that for each
+integer m ≥ 4, m/n is the sum of 3 unit fractions for all sufficiently
+large n, depending on the choice of m. Clearly a necessary condition
+for “sufficiently large” is that n ≥ m/3. In this paper we show that
+“sufficiently large” is indeed big, in fact larger than any fixed power
+of m.
+Theorem 1.1. For each ϵ > 0 there is a bound m(ϵ) such that for each
+m ≥ m(ϵ) there is some n > exp(m1/3−ϵ ) with m/n not the sum of 3
+unit fractions.
+  For the proof we leverage some of the tools in Elsholtz–Tao [3], which
+paper was principally concerned with the number of representations of
+4/n as a sum of 3 unit fractions. We also prove a version of Theorem
+1.1 that’s weaker, but numerically explicit, and in particular we obtain
+the following result.
+Theorem 1.2. For each integer m ≥ 6.52 × 109 there is a prime p ∈
+(m2 , 2m2 ) for which m/p is not the sum of 3 unit fractions.
+   Complementing our lower bounds we prove the following upper bound
+for the distribution of exceptions to the Erdős–Straus–Schinzel conjec-
+ture.
+Theorem 1.3. There is an absolute positive constant C such that for
+each pair m, N with 4 ≤ m ≤ log2 N the number of n ≤ N with m/n
+not the sum of 3 unit fractions is at most N/ exp(C log2/3 (N )/φ(m)1/3 ).
+  Exploiting the large sieve, the proof is largely derivative of Vaughan’s
+theorem in [13].
+  In our proof of Theorem 1.1 we actually show that not only is there
+one exceptional n > exp(m1/3−ϵ ), but that most prime values of n near
+this bound are exceptions. This might be contrasted with Theorem 1.3
+which implies that when n ≈ exp(m1/2 ), most values of n and in fact
+most primes are not exceptions. So between exp(m1/3 ) and exp(m1/2 )
+there is a transition from “usually false” to “usually true”.
+     EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                3
+
+  The proof of Theorem 1.1 suggests that the average number of so-
+                                          3
+lutions for a prime n = p ≥ m is logm p (log log p)O(1) . If we ignore
+the log log p factor and, as in [3, Remark 1.1] with the case m = 4,
+model the number of solutions at each prime p as a Poisson process
+                   3
+with intensity logm p , we would expect any given prime p to have “prob-
+ability” exp(−(log p)3 /m) of having no solution. This would suggest
+that most primes p > exp(m1/3+ϵ ) have solutions. It also indicates that
+there are many exceptional primes p > exp(m1/2−ϵ ), while there are no
+exceptional primes p > exp(m1/2+ϵ ), when m is sufficiently large.
+  We also consider the more general question of whether m/n can
+be represented as the sum of j unit fractions, showing that there are
+somewhat large exceptional values here as well.
+Theorem 1.4. For each pair of positive integers j, k, there is a number
+m(j, k) such that for each m ≥ m(j, k), we have m/(km + 1) not the
+sum of j unit fractions.
+ In addition, we examine the Erdős–Straus–Schinzel conjecture nu-
+merically for various values of m.
+
+                      2. Some basic thoughts
+  For m, n ∈ N, we consider the equation
+                         m     1 1 1
+(2.1)                        = + + .
+                          n    x y z
+We say that a solution (x, y, z) ∈ N3 of (2.1) is of Type I if n divides
+x but is coprime to y, z, and of Type II if n divides y, z but is coprime
+to x. Note that if n is prime, n ∤ m and m ≥ 4 then, up to permuting
+x, y, z, every solution to (2.1) must be of Type I or Type II; this is
+not necessarily the case when n is composite. For example, 5/6 =
+1/3 + 1/4 + 1/4 is not of either type.
+   The following parametrizations of Type I and Type II solutions, as
+well as their proofs, follow the ideas in [3, Section 2], where the case
+m = 4 is treated. Also, see Aigner [1] and Nakayama [9].
+Proposition 2.1. Let n, m ∈ N. There exists a Type I solution
+(x, y, z) ∈ N3 of (2.1) if and only if there exist a, d, f ∈ N with
+f | ma2 d + 1, mad | n + f , and (n + f )/mad coprime to n.
+Proof. First assume that there exist a, d, f ∈ N with f | ma2 d + 1,
+                                                              2
+mad | n + f , and (n + f )/mad coprime to n. Define e := ma fd+1 ∈ N,
+c := n+f
+       mad
+           ∈ N, so that c is coprime to n, and b := ce − a ∈ N,
+since ce > a. Then one easily verifies that (x, y, z) := (abdn, acd, bcd)
+4            CARL POMERANCE AND ANDREAS WEINGARTNER
+
+satisfies (2.1), and that mabd = ne + 1, which implies gcd(n, abd) = 1.
+Since c is also coprime to n, so are y, z, and the solution (x, y, z) is of
+Type I.
+  Conversely, assume that (x, y, z) ∈ N3 is a Type I solution of (2.1).
+We factor x = ndx′ , y = dy ′ , z = dz ′ , where gcd(x′ , y ′ , z ′ ) = 1. After
+multiplying (2.1) by ndx′ y ′ z ′ , we get
+(2.2)                  mdx′ y ′ z ′ = y ′ z ′ + nx′ y ′ + nx′ z ′ .
+As y ′ , z ′ are coprime to n, we conclude that
+(2.3)                   x′ | y ′ z ′ ,   y ′ | x′ z ′ ,   z ′ | x′ y ′ .
+We claim that this implies
+(2.4)                      x′ = ab, y ′ = ac, z ′ = bc,
+where
+           a = gcd(x′ , y ′ ), b = gcd(x′ , z ′ ), c = gcd(y ′ , z ′ ).
+Indeed, if a prime p divides x′ y ′ z ′ , then gcd(x′ , y ′ , z ′ ) = 1 implies that
+(at least) one of x′ , y ′ , z ′ is not divisible by p, while (2.3) implies that
+the other two, and hence their gcd, are divisible by the same power of
+p. Substituting (2.4) into (2.2), we obtain
+(2.5)                         mabcd = n(a + b) + c.
+As y, z are coprime to n, abcd is coprime to n and (2.5) shows that
+c | a + b. Writing e := a+bc
+                              ∈ N and dividing (2.5) by c, we have
+mabd = ne + 1. Define f := macd − n, so that mad | n + f . Since
+(n + f )/mad = c and c is coprime to n, so is (n + f )/mad. We have
+f | ma2 d + 1, as
+ef = emacd − en = emacd − (mabd − 1) = mad(ec − b) + 1 = ma2 d + 1.
+                                                                                 □
+  The condition that (n + f )/mad is coprime to n is not necessary
+when m ≥ 4 and n is prime:
+Corollary 2.2. Let m ≥ 4 and p be prime. There exists a Type I
+solution (x, y, z) ∈ N3 of (2.1) with n = p if and only if there exist
+a, d, f ∈ N with f | ma2 d + 1 and mad | p + f .
+Proof. Assuming there exist a, d, f ∈ N with f | ma2 d + 1 and mad |
+n + f , the solution (x, y, z) is constructed as in the proof of Proposition
+2.1, and we find again that gcd(n, abd) = 1. Since n is prime, if n is not
+coprime to c then n | c, hence n | y and n | z, and 1/x + 1/y + 1/z ≤
+3/n < m/n. Thus n must be coprime to c, gcd(n, abcd) = 1, and
+(x, y, z) is of Type I.
+  The converse follows from Proposition 2.1.                               □
+        EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                          5
+
+Proposition 2.3. Let n, m ∈ N. There exists a Type II solution
+(x, y, z) ∈ N3 of (2.1) if and only if there exist a, b, e ∈ N with e | a + b,
+mab | n + e, and (n + e)/m coprime to n.
+Proof. First assume that there exist a, b, e ∈ N with e | a + b and
+mab | n + e, and(n + e)/m coprime to n. Define c := a+b              e
+                                                                        ∈ N and
+      n+e
+d := mab ∈ N. Then one easily verifies that (x, y, z) := (abd, acdn, bcdn)
+satisfies (2.1). Since x := abd = (n + e)/m, x is coprime to n and
+(x, y, z) is a Type II solution.
+   Conversely, assume that (x, y, z) ∈ N3 is a Type II solution of (2.1).
+We factor x = dx′ , y = ndy ′ , z = ndz ′ , where gcd(x′ , y ′ , z ′ ) = 1. After
+multiplying (2.1) by ndx′ y ′ z ′ , we get
+(2.6)                   mdx′ y ′ z ′ = ny ′ z ′ + x′ y ′ + x′ z ′ .
+As x′ is coprime to n, we conclude that x′ | y ′ z ′ , y ′ | x′ z ′ , z ′ | x′ y ′ . As
+in the proof of Proposition 2.1, this implies (2.4). Substituting (2.4)
+into (2.6), we obtain
+(2.7)                         mabcd = a + b + nc,
+which shows that c | a + b. Define e := a+bc
+                                               ∈ N, so that e | a + b.
+Dividing (2.7) by c, we have mabd = e + n, that is mab | e + n. Since
+e+n
+ m
+    = abd = x and x is coprime to n, so is e+n
+                                            m
+                                               .                    □
+
+  The condition that (n + e)/m is coprime to n is not necessary when
+m ≥ 4 and n is prime:
+Corollary 2.4. Let m ≥ 4 and n be prime. There exists a Type II
+solution (x, y, z) ∈ N3 of (2.1) if and only if there exist a, b, e ∈ N with
+e | a + b and mab | n + e.
+Proof. Assuming there exist a, b, e ∈ N with e | a+b and mab | n+e, the
+solution (x, y, z) is constructed as in the proof of Proposition 2.3. Since
+n is prime, if n is not coprime to x then n | x and 1/x + 1/y + 1/z ≤
+3/n < m/n. Thus n must be coprime to x and (x, y, z) is of Type II.
+  The converse follows from Proposition 2.3.                             □
+
+ 3. A lower bound for the number of exceptional primes
+  We will make use of the Brun–Titchmarsh inequality, which states
+that the number of primes up to N that are congruent to a (mod q) is
+                                         N
+                  π(N ; q, a) ≪                               (q < N ),
+                                   φ(q) log(N/q)
+6              CARL POMERANCE AND ANDREAS WEINGARTNER
+
+where φ(q) is the Euler totient function. We record (2.1) in the case
+that n = p, a prime:
+                          m     1 1 1
+(3.1)                        = + + .
+                           p    x y z
+Theorem 3.1. There is a constant c > 0, such that for every integer
+m ≥ 8, there are more than
+                       exp{c φ(m)1/3 /(log m)2/3 }
+primes p for which (3.1) has no solution in natural numbers x, y, z.
+  The proof follows the ideas in [3, Sections 8, 9], generalizing from
+m = 4 to general m.
+Proof. Note that (3.1) cannot be solved when p = 2, 3 for m = 8 and
+m ≥ 10, nor when p = 2, 5 for m = 9, so we may assume that m is
+large. When p is prime, then all solutions to (3.1) are of Type I or
+Type II, as discussed above. If (x, y, z) is a solution to (3.1) of Type I,
+Corollary 2.2 shows that there are natural numbers a, d, f such that
+                 p ≡ −f   (mod mad),        f | ma2 d + 1.
+By Lemma 7.4, the modulus satisfies mad ≤ 3p ≤ 3N , provided p ≤ N .
+For given m, a, d, f , the number of primes p ≤ N satisfying p ≡ −f
+(mod mad) is
+                        N                      N
+         ≪                    N
+                                  ≤                     N
+                                                             .
+           φ(mad) log(2 + mad )      φ(m)φ(ad) log(2 + mad )
+This follows from Brun–Titchmarsh when mad ≤ N/2, while the count
+is clearly O(1) if N/2 < mad ≤ 3N . The number of p ≤ N covered by
+these congruences, by varying the parameters a, d, f , is
+                     N        X         τ (ma2 d + 1)
+(3.2)            ≪                                   N
+                                                          .
+                    φ(m)             φ(ad) log(2 +  mad
+                                                        )
+                         a,d:ad≤3N/m
+
+The analogue of the estimate [3, Eq. (8.2)] is
+(3.3)
+     X     τ (ma2 d + 1)
+                         ≪ log2 X log m       (X, m ≥ 2, m ≪ X O(1) ),
+               φ(ad)
+a,d:X/2≤ad≤X
+
+which is proved just like in [3] with m replacing 4. Splitting the sum
+in (3.2) into dyadic intervals 3N
+                                m
+                                   2−j−1 ≤ ad ≤ 3N
+                                                 m
+                                                   2−j , the contribution
+to (3.2) from j with m1/6 ≤ 3N m
+                                 2−j is
+          N                  X 1          N
+     ≪        log2 N log m            ≪       log2 N log log N log m,
+        φ(m)               j≪log N
+                                    j    φ(m)
+     EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                  7
+
+by (3.3). Since τ (ma2 d + 1) ≪ (mad)1/6 , the contribution to (3.2) from
+j with m1/6 > 3Nm
+                   2−j , that is ad < m1/6 , is
+                       N       X                 N
+                 ≪                      m1/6 ≪       m1/2 .
+                    φ(m)            1/6
+                                                φ(m)
+                           a,d:ad≤m
+                                          1/4
+Assuming that N is chosen so that em ≪ N < em , the expression
+in (3.2), and hence the number of primes p ≤ N covered by Type I
+solutions, is
+                           N
+                       ≪       log2 N log2 m.
+                          φ(m)
+We now specify N = N (m) as the solution to
+                        φ(m)/ log2 m = C log3 N,
+for some sufficiently large constant C, noting that this is consistent
+         1/4
+with em ≪ N < em when C ≥ 1. Then most primes p ∈ (N/2, N ]
+are not covered by these congruences, and thus have no Type I solution
+to (3.1).
+   It remains to count the number of primes p ≤ N covered by Type
+II solutions. If (x, y, z) is a solution to (3.1) of Type II, Corollary 2.4
+shows that there are natural numbers a, b, e with
+                  p ≡ −e     (mod mab),         e | a + b.
+Note that gcd(a, b) = 1 follows from gcd(x′ , y ′ , z ′ ) = 1 in the proof
+of Proposition 2.3. Since e | a + b, we have e ≤ a + b ≤ 2ab. And
+mab | p + e implies mab ≤ p + e ≤ p + 2ab, so (m − 2)ab ≤ p and
+                                m
+(3.4)                  mab ≤ p       ≤ 2p ≤ 2N.
+                               m−2
+For given m, a, b, e, the number of primes p ≤ N satisfying p ≡ −e
+(mod mab) is
+                      N                       N
+          ≪                   N
+                                   ≤                    N
+                                                             ,
+              φ(mab) log(2 + mab )   φ(m)φ(ab) log(2 + mab )
+again by Brun–Titchmarsh if mab ≤ N/2 and trivially if N/2 < mab ≤
+2N . The number of primes p ≤ N that can be covered by these con-
+gruences, by varying the parameters a, b, e, is
+                     N      X            τ (a + b)
+                ≪                                  N
+                                                        .
+                   φ(m) a,b:ab≤2N/m φ(ab) log(2 + mab )
+                             (a,b)=1
+
+                                                 N
+Splitting this sum into dyadic intervals 2j−1 < mab ≤ 2j , and estimating
+the resulting sums as in the last paragraph of [3, Section 9], we find
+8           CARL POMERANCE AND ANDREAS WEINGARTNER
+
+that the number of primes p ≤ N covered by these congruences is
+                               N
+                        ≪          log2 N log log N.
+                              φ(m)
+Thus, most primes p ∈ (N/2, N ] are covered neither by Type I nor by
+Type II congruences if φ(m)/ log2 m = C log3 N and C is large enough,
+that is
+                     N = exp{(φ(m)/C log2 m)1/3 }.
+                                                              N
+The result now follows with c = 1/(2C 1/3 ), since we have 4 log N
+                                                                   >
+√
+  N = exp{c(φ(m)/ log2 m)1/3 }.                                    □
+
+  To see Theorem 1.1, since φ(m) ≫ m/ log log m, it follows from
+Theorem 3.1 that for each ϵ > 0 and m ≥ m(ϵ), we have more than
+exp(m1/3−ϵ ) primes p where (3.1) has no solution.
+
+                          4. An upper bound
+  In this section we prove Theorem 1.3. Our proof largely follows the
+argument in Vaughan [13].
+  For m ≥ 4 and a prime p ≡ −1 (mod m), let f (p) = fm (p) denote
+the greatest integer that is at most
+                       1 X               p + 1
+(4.1)                            |µ(t)|τ         .
+                       2                   tm
+                          t | (p+1)/m
+
+For other primes p we let f (p) = 0. As shown in [13] for each p there
+are at least f (p) residue classes mod p such that if n lies in one of them,
+then m/n is a sum of 3 unit fractions.
+  The strategy is to use the large sieve to show that the number of
+n ≤ N lying outside of these f (p) residue classes mod p for each p is
+bounded above by the bound in Theorem 1.3. To achieve this, we first
+establish the following lemma.
+Lemma 4.1. For m ≤ (log x)O(1) we have
+                        X f (p)           1
+                                    ≍        (log x)2 .
+                        p≤x
+                                p       φ(m)
+
+Proof. Via partial summation it suffices to show that
+                      X              1
+(4.2)                     f (p) ≍       x log x.
+                      p≤x
+                                  φ(m)
+     EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                                9
+
+For the upper bound we use the simple inequality
+                                  X
+                       τ3 (n) ≤ 3      τ (d),
+                                                 d|n
+                                                d≤n2/3
+
+where τ3 (n) is the number of triples a, b, c of integers with abc = n (cf.
+Koukoulopoulos [7, Ex. 20.2]). Then for a prime p ≡ −1 (mod m),
+                                               X
+                 f (p) < τ3 ((p + 1)/m) ≤ 3           τ (d).
+                                                         d | (p+1)/m
+                                                            d≤p2/3
+
+Thus, via the Brun–Titchmarsh inequality and our upper bound on m,
+       X                 X                                       X           xτ (d)
+              f (p) ≪            τ (d)π(x; dm, −1) ≪
+       p≤x
+                                                                          φ(dm) log x
+                        d≤x2/3                                  d≤x   2/3
+
+
+                       x       X τ (d)       1
+                  ≤                      ≪      x log x.
+                    φ(m) log x  2/3
+                                    φ(d)   φ(m)
+                                         d≤x
+
+  For the lower bound first note that for an integer n ≥ 2, one has
+⌊n/2⌋ ≥ n/3. If p ≡ −1 (mod m) and p + 1 > m, then the sum in
+(4.1) is ≥ 2, so that
+           X            1  X          X
+                f (p) ≥                      |µ(t)|
+           p≤x
+                        3   p≤x                   dt | (p+1)/m
+                                p ≡ −1 (mod m)
+                                     p+1>m
+                            1 X                          X
+                        ≥          |µ(t)|                              1
+                            3  1/6                      p≤x
+                                d,t≤x
+                                  dt>1           p ≡ −1 (mod mdt)
+                            1            X                            X
+                        ≥                             |µ(t)|                      1,
+                            3                                         p≤x
+                                     d,t≤x1/6
+                                1≤Ω(dt)≤3 log log x            p ≡ −1 (mod mdt)
+
+
+where Ω(n) is the total number of prime factors of n with multiplicity.
+We now use the Bombieri–Vinogradov theorem noting that the number
+of triples m, d, t with given product q is at most (log x)O(1) . Thus,
+       X                         X               |µ(t)|x        1
+              f (p) ≫                                       ≫      x log x,
+        p≤x
+                                               φ(mdt) log x   φ(m)
+                            d,t≤x1/6
+                        1≤Ω(dt)≤3 log log x
+
+completing the proof of (4.2) and the lemma.                                            □
+10         CARL POMERANCE AND ANDREAS WEINGARTNER
+
+  LetQN be large, let X ≤ N 1/2 be a quantity specified later, and let
+P = p≤X p. We now employ the large sieve. Let
+                         X           Y f (p)
+                    S=        |µ(s)|             .
+                                       p − f (p)
+                          1/2s≤N              p|s
+                              s|P
+
+The number of n ≤ N that avoid the f (p) residue classes mod p for
+each p ≤ X is bounded above by 4N/S, so our task is to get a lower
+bound for S.
+  Let
+                          X Y f (p)
+                      G=                   .
+                                 p − f (p)
+                                    s|P p|s
+For any v ≥ 0,
+                  X Y              f (p)            X Y f (p)
+        G−S =                              ≤ N −v/2  sv           .
+                                 p − f (p)              p − f (p)
+                 s>N 1/2 p | s                      s|P   p|s
+                  s|P
+
+Thus,
+          G−S          Y           f (p)  p − f (p) 
+              ≤ N −v/2     1 + pv
+           G           p≤X
+                                  p − f (p)      p
+
+                  −v/2
+                       Y      (pv − 1)f (p) 
+              =N           1+                  .
+                       p≤X
+                                      p
+We choose v = 1/ log X, so that
+            G−S              log N      X (e − 1)f (p) 
+                  ≤ exp −             +
+              G              2 log X p≤X          p
+                             log N      (e − 1)C2        
+                  ≤ exp −             +            log2 X ,
+                             2 log X        φ(m)
+where C2 is the upper bound constant implied in Lemma 4.1. Let
+                            1  φ(m) 1/3
+                       A=
+                            2 (e − 1)C2
+and choose
+                       X = exp A(log N )1/3 .
+                                              
+
+Then
+           G−S              1          2/3    1         2/3
+                                                             
+                  ≤ exp −       (log N ) +       (log N )
+             G              2A                8A
+                            1              
+                  < exp −       (log N )2/3 .
+                            4A
+       EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                            11
+
+We may assume this last expression is < 1/2, else the theorem holds
+trivially, so S > G/2. But
+                       X f (p)         C           
+                                            1
+              G ≥ exp             ≥ exp       (log X)2 ,
+                        p≤X
+                            p            φ(m)
+where C1 is the constant in the lower bound implicit in Lemma 4.1.
+Putting in our choice for X we have
+                4N     N            C A2             
+                                      1           2/3
+                    ≪     ≤ N/ exp        (log N )      .
+                 S     G             φ(m)
+It remains to note that A2 /φ(m) ≍ 1/φ(m)1/3 , completing our argu-
+ment for Theorem 1.3.
+                             5. The general case
+  In this section we prove Theorem 1.4.
+  Let a1 > a2 > . . . be a sequence of real numbers with lim an = 0
+and let A = {a1 , a2 , . . . }. For each positive integer j, let Vj denote the
+subset of Aj where the coordinates form a monotone non-increasing
+sequence. Further let Tj be the subset of (A ∪ {0})j again with the
+coordinates non-increasing. For v ∈ Tj , let s(v) denote the sum of the
+coordinates of v, and let Sj = s(Vj ).
+Lemma 5.1. For j ≥ 1, the set of limit points of Vj is Tj \ Vj .
+Proof. Suppose (vn ) is an infinite sequence of distinct members of Vj
+with lim vn = w. Let vn = (an,1 , . . . , an,j ). The sequence (an,j )n is
+either eventually constant or has limit 0. The first option cannot occur
+since otherwise there are only finitely many choices for the vectors vn .
+Next, we consider (an,j−1 )n and here both options are possible. But
+if it is eventually constant, then all earlier coordinates of the vectors
+v(sn ) likewise become eventually constant. Continuing in this manner,
+we have that vn converges to a vector w ∈ Tj with last coordinate 0,
+i.e., w ∈ Tj \ Vj .
+   Conversely, if t ∈ Tj with last coordinate 0, let t = (t1 , . . . , tk , 0, . . . , 0),
+where t1 , . . . , tk ∈ A and k < j. Suppose that tk = am . Replacing each
+of the 0’s with am+n , we then have a sequence of vectors tn ∈ Vj that
+converges to t. This completes the proof.                                             □
+Lemma 5.2. For each positive integer j and each positive real x there
+is a positive number ϵ, depending on the choice of j, x and sequence
+(an ), such that the interval (x − ϵ, x) contains no member of Sj .
+Proof. For each fixed j there is no infinite strictly increasing sequence
+made up of members of Sj . To see this, we suppose such a sequence
+12           CARL POMERANCE AND ANDREAS WEINGARTNER
+
+(sn ) exists and let sn = s(vn ). Write vn = (an,1 , . . . , an,j ). Each of
+the sequences (an,i )n has 0 as a limit point or it repeats some nonzero
+number infinitely often, so by passing to an infinite subsequence we may
+assume that either the sequence of ith coordinates is constant or has
+limit 0, and this holds for each i. These possibilities are incompatible
+with s(vn ) strictly increasing, which proves that no infinite strictly
+increasing sequence can be formed from the elements of Sj . Thus, the
+assertion in the lemma holds.                                             □
+
+  We now specify that the numbers ai are unit fractions. To prove
+Theorem 1.4, we use the lemmas with ai = 1/i, and note that there is
+some ϵ > 0, depending on the choice of k, j, such that (1/k − ϵ, 1/k)
+contains no member of Sj . However, for m sufficiently large,
+                        m/(km + 1) = 1/(k + 1/m)
+is in this interval, so it must be that that m/(km + 1) ∈
+                                                        / Sj . This
+completes the proof of Theorem 1.4.
+
+                            6. Empirical data
+   The original Erdős–Straus conjecture was verified up to 1017 by Salez
+[12], and this was recently improved to 1018 by Mihnea–Dumitru [8].
+By sifting with the seven congruences in [3, Proposition 1.9], with 4
+replaced by m, we have verified the m = 5 case up to 1018 , the m =
+6, 7, 8 cases up to 1013 , and the m = 9, . . . , 15 cases up to 1012 , with the
+noted exceptions found. This sifting was done only with primes, and
+then composites made up of exceptional primes were checked directly.
+In all the cases any other exceptional n, if they exist, must exceed the
+stated N . See Table 1.
+   In addition, with the help of a computer we verified that the claim
+in Theorem 1.2 also holds for all m ∈ [16, 30000], except m = 19. Note
+too that from Table 1 we see that it holds for m = 10 and m ∈ [12, 15].
+We conjecture that for every m ≥ 20 there is a prime p ∈ (m2 , 2m2 )
+for which m/p is not the sum of 3 unit fractions.
+
+     7. Numerically explicit estimates: primes with Type I
+                        representations
+  Let τ (n) denote the number of divisors of n and for j | 6, let τj′ (n)
+denote the number of divisors d of n with gcd(d, 6) = j. In the proof,
+we will make use of the following estimates.
+      EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                             13
+
+ m    all exceptions n ≤ N                                   Count   N
+                                                                     18
+  4   1                                                        1   10 [8]
+  5   1                                                        1    1018
+  6   1                                                        1    1013
+  7   1, 2                                                     2    1013
+  8   1, 2, 3, 11, 17, 131, 241                                7    1013
+  9   1, 2, 5, 11, 19                                          5    1012
+ 10   1, 2, 3, 7, 11, 43, 61, 67, 181                          9    1012
+ 11   1, 2, 3, 4, 37                                           5    1012
+      1, 2, 3, 5, 7, 13, 25, 29, 31, 37, 73, 97, 193, 433,
+ 12   577, 1129, 1657, 1873, 2521, 2593, 3433, 10369,         24    1012
+      12049, 12241
+ 13   1, 2, 3, 4, 5, 7, 14, 53, 61, 67, 79, 211, 281          13    1012
+ 14   1, 2, 3, 4, 5, 17, 19, 29, 59, 257, 353, 841            12    1012
+      1, 2, 3, 4, 8, 16, 17, 19, 23, 31, 34, 47, 53, 61, 79,
+ 15   113, 122, 137, 151, 197, 226, 233, 271, 541, 1103,      32    1012
+      1171, 1367, 4201, 6301, 12601, 16831, 20521
+      Table 1. Values of n ≤ N for which (3.1) has no solution.
+
+
+Lemma 7.1. For all integers n ≥ 2 we have
+                             τ (n) ≤ 138.32(n − 1)1/6 ,
+                            τ1′ (n) ≤ 16.2(n − 1)1/6 ,
+                            τ2′ (n) ≤ 51.3(n − 1)1/6 ,
+                            τ3′ (n) ≤ 32.3(n − 1)1/6 ,
+                            τ6′ (n) ≤ 102.7(n − 1)1/6 .
+
+Proof. First notice that τ (pa )/pa/6 = (a + 1)/pa/6 ≤ 1 unless p ≤
+61. Further, for p ≤ 61 we compute the integer ap that maximizes
+(a + 1)/pa/6 ; these maximizing prime powers being
+      28 , 34 , 53 , 72 , 112 , 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61.
+Thus, if u is the product of these prime powers, then
+                      τ (n)/n1/6 ≤ τ (u)/u1/6 < 138.313.
+To see the claimed inequality, note that 138.313n1/6 < 138.32(n − 1)1/6
+for n ≥ 3294 and the assertion is easily checked for smaller values of n.
+The inequalities for τj′ are proved in a similar manner.               □
+14              CARL POMERANCE AND ANDREAS WEINGARTNER
+
+   We are aware that the exponent “1/6” here can be replaced with
+any fixed ϵ > 0 at the expense of larger coefficients, and there are even
+effective asymptotic estimates for the maximal order (see [10]), but the
+elementary Lemma 7.1 is optimal for our needs.
+Lemma 7.2. Let j | 6 and let n be a positive integer. Among the √ divi-
+                                       1 ′
+sors d of n with gcd(d, 6) = j at most 2 τj (n) of them have d > jn.
+Proof. Write n = 2i 3k v with gcd(v, 6) = 1 and i, k ≥ 0. In the case
+j = 1 the divisors of n coprime to 6 are √
+                                         precisely √
+                                                   the divisors
+                                                         √      of v, and
+among these at most half of them are > v. But n ≥ v, so the case
+j = 1 is proved. If j = 2 note that the divisors 2d of n coprime to 3,
+correspond
+   √        to divisors d of n/2
+                               √ coprime to 3 with at most
+                                                      p half √   of these
+> 2 v. Note that 2d > 2n implies that d > n/2 ≥ 2i−1 v.
+      i−1
+
+The other cases are proved similarly.                                   □
+Lemma 7.3. For positive integers r ≤ k, and for x ≥ r, we have
+   X                   1
+         n−α ≤ r−α + (1 − α)−1 (x1−α − r1−α ),       (0 ≤ α < 1),
+   n≤x
+                       k
+ n ≡ r (mod k)
+         X                      1
+                     nα <            (x + k)1+α ,     (α > 0).
+          n≤x
+                            k(1 + α)
+     n ≡ r (mod k)
+
+Proof. These inequalities are easy exercises.                            □
+   As discussed above, when p is prime, p ∤ m and m ≥ 4, then all
+solutions to (3.1) are of Type I or Type II. By Proposition 2.1, if
+(x, y, z) is a solution to (3.1) of Type I, there are natural numbers
+a, d, f such that
+                      p ≡ −f     (mod mad),         f | ma2 d + 1.
+Lemma 7.4. When p has a Type I solution to (3.1) with m ≥ 4, then
+mad ≤ 2p + 1.
+Proof. As in the proof of Proposition 2.1, we define the natural numbers
+        2           p+f
+e := ma fd+1 , c := mad , b := ce−a, where (x, y, z) = (abdp, acd, bcd). We
+may assume y ≤ z, i.e. a ≤ b. Then ce = a + b ≤ 2b and c ≤ 2be = ef2 bf .
+The definitions of e, c, b imply that bf = pa + c, so
+                                      2               2
+                bf = pa + c ≤ pa + bf ≤ pa +              bf,
+                                     ef             m+1
+since ef = ma2 d + 1 ≥ m + 1. Thus,
+                                        m+1
+                                bf ≤ pa
+                                        m−1
+        EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE           15
+
+and, since b ≥ a,
+                                        m+1
+                                 f ≤p       .
+                                        m−1
+Now
+                                        2m
+                        macd = p + f ≤ p    .
+                                       m−1
+                             m
+If c ≥ 2, we obtain mad ≤ p m−1 < 2p. If c = 1, then bf = pa + c =
+pa + 1 and f = pa/b + 1/b ≤ p + 1, so mad = p + f ≤ 2p + 1.      □
+  For given m, a, d, f , we wish to count the number of primes p ∈
+(N/2, N ] satisfying p ≡ −f (mod mad). We shall consider 4 cases
+depending on the value of gcd(f, 6).
+7.1. The case gcd(f, 6) = 1. In this case, for given values of m, a, d,
+we let f run over the divisors of ma2 d + 1 coprime to 6. The number
+of primes p ∈ (N/2, N ] with p ≡ −f (mod mad) is at most
+                                          
+                            N            N
+                       ≤           ≤           + 1.
+                           2mad         2mad
+Thus, by Lemma 7.1, with κ1 = 16.2, the number of primes in this case
+is at most
+       X  N               
+                          + 1 τ1′ (ma2 d + 1)
+     mad≤2N +1
+                 2mad
+                  κ1 N    X
+                                  −2/3 −5/6
+                                                X
+               ≤     5/6
+                               a      d     +           τ1′ (ma2 d + 1)
+                 2m                           mad≤2N +1
+                         mad≤N/2
+               = S1,1 + S1,2 ,
+say, since ⌊N/2mad⌋ vanishes unless mad ≤ N/2. Thus, by Lemma
+7.3,
+         κ1 N X  N 1/3 −5/6         3κ1 N 4/3             N 4/3
+ S1,1 ≤            3          d     < 4/3 7/6 ζ(7/6) < 127.1 7/6 .
+        2m5/6        2md             2 m                    m
+               d≤N/2m
+
+  We will work harder for S1,2 . We first consider 2 cases: mad > 1.01N
+and mad ≤ 1.01N . In the first case, since madc − f ≤ N , we have
+f > N/100. But mad ≤ 2N + 1, so we have f > mad/300, and so
+                     m2 a2 d2
+(7.1)           f2 >            > 10ma2 d > 6(ma2 d + 1),
+                       105
+assuming m ≥ 109 , say. So, we are only considering divisors of ma2 d+1
+larger than the square root. Thus, by Lemma 7.2,
+               1 X                           1 X
+(7.2) S1,2 ≤               τ1′ (ma2 d + 1) +            τ ′ (ma2 d + 1).
+               2 mad≤1.01N                   2 mad≤2N +1 1
+16          CARL POMERANCE AND ANDREAS WEINGARTNER
+
+The two sums are computed similarly; let X stand for either 1.01N or
+2N + 1.
+  Considering first the case when a ≤ 100, we have
+    1 X X ′                        1         X           X
+                   τ1 (ma2 d + 1) ≤ κ1 m1/6       a1/3        d1/6
+    2 a≤100                        2        a≤100
+            d≤X/ma                                     d≤X/ma
+
+                                   3         X          X     7/6
+                                  ≤ κ1 m1/6       a1/3      +1
+                                   7        a≤100
+                                                         ma
+                                   3    1/6
+                                             X
+                                                    1/3 1.01X
+                                                             7/6
+                                  < κ1 m          a
+                                   7        a≤100
+                                                          ma
+                                   3
+                                  < κ1 (1.01X)7/6 m−1 7.51.
+                                   7
+Here we directly computed the a-sum and assumed that X > m2 and
+that m ≥ 109 . To this we will add the case a > 100:
+  1 X X ′                       1          X               X
+                τ1 (ma2 d + 1) ≤ κ1 m1/6          d1/6            a1/3
+  2 a>100 mad≤X                 2
+                                         d<X/100m      100<a≤X/md
+
+                                3          X            X     4/3
+                               ≤ κ1 m1/6          d1/6      +1
+                                8                        md
+                                          d<X/100m
+                                3
+                              < κ1 (1.01X)4/3 m−7/6 ζ(7/6).
+                                8
+Adding these 2 estimates, each for X = 1.01N and X = 2N + 1, we
+get
+                                N 4/3        N 7/6
+                    S1,2 < 143.4 7/6 + 171.8       .
+                                m              m
+So, our estimate in the case that f is coprime to 6 is
+                            N 4/3        N 7/6
+         S1,1 + S1,2 < 270.5 7/6 + 171.8
+                            m             m
+                                  171.8  N 4/3       N 4/3
+                     = 270.5 +                   < 276       ,
+                                 (N/m)1/6 m7/6         m7/6
+assuming that N > m2 and m ≥ 109 .
+
+7.2. The case gcd(f, 6) = 2. If 6 | m, then we must have f coprime
+to 6 (else madc − f is not prime), so this last estimate stands for our
+bound for Type I solutions. Otherwise we have more work to do. In the
+current case f is even, so that we only consider values of m, a, d, c that
+are all odd. For given values of m, a, d, the number of odd integers
+      EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                          17
+
+c that place madc in a half-open interval of length N/2 is at most
+⌈N/4mad⌉. Thus, the count for Type I primes in this case is at most
+     X  N 
+                    τ2′ (ma2 d + 1)
+   mad≤2N +1
+             4mad
+     ad odd
+                      X         N                         X
+              ≤κ2                   m1/6 a1/3 d1/6 + κ2           m1/6 a1/3 d1/6
+                               4mad                     mad≤2N +1
+                    mad≤N/4
+                     ad odd                                 ad odd
+              =S2,1 + S2,2 ,
+say, where κ2 = 51.3 from Lemma 7.1. We follow the same arguments
+we made for S1,1 , S1,2 , now taking into account that a, d are odd num-
+bers. Using Lemma 7.3 with k = 2, r = 1, and α = 2/3,
+                             X            3
+                                 n−2/3 < x1/3 ,
+                             n≤x
+                                          2
+                                  n odd
+
+so that
+                       3κ2 N 4/3         −7/6                 N 4/3
+                S2,1 ≤            (1 − 2      )ζ(7/6) <  44.3       .
+                       211/3 m7/6                             m7/6
+   For S2,2 , the analogue of (7.2) has the two sums with τ2′ and with a, d
+restricted to odd numbers. Following the argument with X standing
+for either 1.01N or 2N + 1 and using Lemmas 7.2, 7.3, and (7.1), we
+have
+   1 X X ′                             3           X         X       7/6
+                   τ2 (ma2 d + 1) ≤ κ2 m1/6             a1/3      +2
+   2 a≤100                             14         a≤100
+                                                              ma
+             d≤X/ma
+     a odd    d odd                                 a odd
+                        3                  X
+                      ≤ κ2 m−1 (1.01X)7/6       a−5/6 < 45.36X 7/6 m−1 ,
+                       14                 a≤100
+                                                 a odd
+
+where we directly computed the a-sum and we assumed that N > m2 ,
+m ≥ 109 . We also have
+ 1 X ′                   3          X         X     4/3
+         τ2 (ma2 d + 1) ≤ κ2 m1/6        d1/6     +2
+ 2                       16                    md
+  ad≤X/m                                     d≤X/100m
+   a,d odd                                     d odd
+    a>100
+            3
+              ≤κ2 (1 − 2−7/6 )ζ(7/6)(1.02X)4/3 /m7/6 < 36.1X 4/3 m−7/6 .
+            16
+Adding these two estimates with the two values of X, we have
+                    S2,2 < 147.8N 7/6 m−1 + 127.6N 4/3 m−7/6 .
+18           CARL POMERANCE AND ANDREAS WEINGARTNER
+
+Thus, assuming N > m2 and m ≥ 109 ,
+                          147.8  4/3 −7/6
+   S2,1 + S2,2 < 171.9 +          N m       < 177N 4/3 m−7/6 .
+                         (N/m)1/6
+7.3. The case gcd(f, 6) = 3. In this case we have madc not divisible
+by 3, and ma2 d ≡ −1 (mod 3). Thus, we have d ≡ −m (mod 3). The
+number of integers c ̸≡ 0 (mod 3) such that madc is in an interval
+of length N/2 is ≤ 2⌈N/6mad⌉. However, at the top end, namely
+if mad > N/2, then there is at most 1 value of c in play, and for
+mad > 1.01N , we have at most half of τ3′ (ma2 d + 1) as the number of
+possibilities for f . Using 2⌈N/6mad⌉ < 2⌊N/6mad⌋ + 2, the number
+of primes in this case is at most
+                                   S3,1 + S3,2 ,
+where
+                                X            N ′
+                 S3,1 :=                         τ3 (ma2 d + 1)
+                                            3mad
+                              mad≤N/6
+                           d ≡ −m (mod 3)
+                                3∤a
+and
+                                1            1
+(7.3)          S3,2 := f (N/2) + f (1.01N ) + f (2N + 1),
+                                2            2
+where
+                                    X
+(7.4)               f (x) :=                    τ3′ (ma2 d + 1).
+                                   mad≤x
+                               d ≡ −m (mod 3)
+                                    3∤a
+
+     From Lemma 7.1 with κ3 = 32.3 we have
+                     κ3 N     X
+             S3,1 ≤                   a−2/3 d−5/6
+                    3m5/6
+                                  ad≤N/6m
+                               d ≡ −m (mod 3)
+                                     3∤a
+
+                        κ3 N        X                        N 1/3
+                   <                            d−5/6 · 2              ,
+                       3m5/6                                 6md
+                                   d≤N/6m
+                               d ≡ −m (mod 3)
+
+using Lemma 7.3 with k = 3 and r = 1, 2. Summing numerically, we
+have           X                 X
+                      d−7/6 ≤           d−7/6 < 2.701,
+              d ≡ −m (mod 3)           d ≡ 1 (mod 3)
+so that
+                           S3,1 < 32.01N 4/3 m−7/6 .
+      EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                                   19
+
+  For S3,2 we follow the argument for S2,2 , getting
+ X         X                             2 (1.01x)7/6 X 1                x7/6
+                        τ3′ (ma2 d + 1) ≤ κ3                  5/6
+                                                                  < 50.1      .
+a≤100
+                                         7     m      a≤100
+                                                            a             m
+           d≤x/ma
+ 3 ∤ a d ≡ −m (mod 3)                                           3∤a
+
+
+Further,
+     X                               κ3 (1.03x)4/3         X               1            x4/3
+                 τ3′ (ma2 d + 1) ≤                                             < 45.4        .
+                                     2     m7/6                        d   7/6          m7/6
+    ad≤x/m                                             d ≡ 1 (mod 3)
+      3∤a                                                 d≤x/m
+     a>100
+d ≡ −m (mod 3)
+
+Adding these 2 estimates, we have
+                                       50.1  x4/3      x4/3
+                  f (x) < 45.4 +                    < 47      ,
+                                      (x/m)1/6 m7/6      m7/6
+where we have been assuming that x > m2 and m ≥ 109 . Thus, by
+(7.3) and assuming N ≥ 2m2 , m ≥ 109 ,
+
+                                                      N 4/3
+                             S3,1 + S3,2 < 133.7            .
+                                                      m7/6
+
+7.4. The case (f, 6) = 6. This case is similar to the preceding one,
+except that we use κ6 = 102.7 in place of κ3 , we assume the variables
+a, d, c are odd (in addition to not being divisible by 3), and we assume
+that d ≡ −m (mod 6). The first observation is that the number of
+integers c in an interval (x, x + L] coprime to 6 is ≤ ⌈(L + 1)/3⌉.
+So, the number of integers c coprime to 6 for which madc − f is in
+(N/2, N ] is ≤ ⌈N/6mad + 1/3⌉. At the top end, the number of choices
+for c when mad ≥ N/4 is ≤ 1, and the weight of this possible choice is
+1/2 if mad ≥ 1.01N as before. Thus, the count is at most
+(7.5)
+      X         N ′                 1           1            1
+                    τ6 (ma2 d + 1) + g(N/4) + g(1.01N ) + g(2N + 1),
+              6mad                  3           2            2
+   mad≤N/4
+    (a,6)=1
+d ≡ −m (mod 6)
+
+where
+                                       X
+                        g(x) :=                    τ6′ (ma2 d + 1).
+                                      mad≤x
+                                      (a,6)=1
+                                  d ≡ −m (mod 6)
+20              CARL POMERANCE AND ANDREAS WEINGARTNER
+
+     Using Lemma 7.3,
+          X      N                                     κ6 N              X
+                              τ6′ (ma2 d + 1) <                                    a−2/3 d−5/6
+                       6mad                           6m5/6
+         mad≤N/4                                                     ad≤N/4m
+          (a,6)=1                                                     (a,6)=1
+      d ≡ −m (mod 6)                                              d ≡ −m (mod 6)
+
+                          κ6 N         X              N 1/3
+                       <                                                 d−5/6
+                         6m5/6                         4md
+                                      d≤N/4m
+                                  d ≡ −m (mod 6)
+
+                              κ6 N 4/3         X                                 N 4/3
+                       <                                   d−7/6 < 19.23               .
+                           6 · 41/3 m7/6                                         m7/6
+                                           d ≡ 1 (mod 6)
+
+     As with the previous cases, we first sum on a ≤ 100. We have
+      X        X                                 X 1          x    7/6
+                      τ6′ (ma2 d + 1) ≤ κ6 m1/6         a1/3     +6
+     a≤100                                      a≤100
+                                                      7       ma
+                 d≤x/ma
+     (a,6)=1 d ≡ −m (mod 6)                                       (a,6)=1
+                                              7/6
+                                κ6 (1.01x)           X
+                                                                  −5/6           x7/6
+                              ≤                               a          < 42.63      .
+                                     7m              a≤100
+                                                                                  m
+                                                    (a,6)=1
+
+Also
+    X             X                                  κ6 (1.06x)4/3               X
+                              τ6′ (ma2 d + 1) ≤                                              d−7/6
+      a>100
+                                                         4m7/6
+                 d≤x/ma                                                     d ≡ −m (mod 6)
+     (a,6)=1 d ≡ −m (mod 6)
+
+                                                              x4/3
+                                                < 49.47            .
+                                                              m7/6
+Thus,
+                                   x7/6         x4/3
+                            g(x) < 42.63 + 49.47 7/6 .
+                                     m          m
+We conclude that when m ≥ 109 and N = 2m2 ,
+        1          1               1
+          g(N/4) + g(1.01N ) + g(2N + 1) < 92.03N 4/3 m−7/6 .
+        3          2               2
+With the previous estimate we have from (7.5) that the number of
+primes p ≤ N in the case gcd(f, 6) = 6 is ≤ 111.3N 4/3 /m7/6 . With
+the estimates for Sj,k for j = 1, 2, 3 and k = 1, 2, we have the following
+result.
+Proposition 7.5. When N = 2m2 and m ≥ 109 , the number of
+primes p ∈ (N/2, N ] which have a Type I representation is less than
+698N 4/3 /m7/6 .
+     EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE               21
+
+  8. Numerically explicit estimates: primes with Type II
+                      representations
+  In this section we prove the following statement.
+Proposition 8.1. For every natural number m ≥ 6, there exists a
+prime p > m2 , for which (3.1) has no Type II solution.
+Remark 8.2. When m = 4, every prime p < 1013 has a Type II solution.
+When m = 5, every prime p < 1013 except 2 and 5 has a Type II
+solution. We conjecture that these statements also hold for p > 1013 .
+Remark 8.3. The proof actually shows that for all m ≥ 6, except for
+m = 7, there is a prime p ∈ (m2 , 2m2 ] with no Type II solution. When
+m = 7, the first prime p > 72 without a Type II solution is 127.
+  In the proof of Proposition 8.1, we will make use of the following
+estimates.
+Lemma 8.4. We have
+               X1
+                              ≤ 1 + log x      (x ≥ 1),
+                      n≤x
+                          n
+                  X
+                        τ (n) ≤ x(1 + log x)     (x ≥ 1),
+                  n≤x
+
+        X τ (n)       1
+                  ≤     log2 x + 2 log x + 1 := P (x)       (x ≥ 1),
+        n≤x
+              n       2
+                                       x
+               π(x) − π(x/2) >                  (x ≥ 3299).
+                                    2 log x
+Proof. The first two inequalities are standard exercises. The third one
+follows from the second one and partial summation. The last one fol-
+lows from Dusart [2, Eq. (5.5)] when x ≥ 10600, and from direct
+computation otherwise.                                               □
+Proof of Proposition 8.1. We count the number of primes in the in-
+terval (N/2, N ] covered by Type II solutions. By Proposition 2.4, if
+(x, y, z) is a solution to (3.1) of Type II, there are natural numbers
+a, b, e with a ≤ b and
+                   p ≡ −e mod mab,             e | a + b.
+By (3.4),
+                               m      m
+                  mab ≤ p         ≤N     = Qm,
+                              m−2    m−2
+22          CARL POMERANCE AND ANDREAS WEINGARTNER
+
+where Q := N/(m − 2). For given m, a, b, e, the number of primes p in
+(N/2, N ] satisfying p ≡ −e mod mab is
+                                   
+                                N
+                           ≤          + 1.
+                               2mab
+The number of primes in (N/2, N ] that can be covered by these con-
+gruences, by varying the parameters a, b, e, is
+                                              
+                   X                    N
+(8.1)    ≤ T :=           τ (a + b)           + 1 = T1 + T2 ,
+                 a≤b:ab≤Q
+                                       2mab
+
+say. For T1 we may assume mab ≤ N/2, so that
+                    N    X 1      X       τ (a + b)
+               T1 ≤                                 .
+                    2m √       a              b
+                          a≤    N/2m     a≤b≤N/2am
+
+Writing n = a + b, the innermost sum is
+           X       2τ (a + b)      X               τ (n)
+      ≤                       ≤2                         ≤ 2P (N/am),
+                     a+b                             n
+         a≤b≤N/2am                     2a≤n≤N/am
+
+by Lemma 8.4. We obtain
+         N X P (N/am)      N               p
+    T1 ≤                  ≤ P (N/m)(1 + log N/2m).
+         m √            a  m
+              a≤   N/2m
+
+We let N = 2m2 . Since P (x) ≤ 12 (2 + log x)2 , we get
+                       m
+                 T1 ≤ (3 + log m)3          (m ≥ 4).
+                       2
+Similarly,
+                  X X                     X X
+            T2 ≤            τ (a + b) ≤               τ (n).
+                     √                         √
+                   a≤ Q b≤Q/a                a≤ Q n≤2Q/a
+
+By Lemma 8.4,
+         X 2Q                                          p
+    T2 ≤        (1 + log 2Q/a) ≤ 2Q(1 + log 2Q)(1 + log Q).
+          √   a
+          a≤ Q
+
+With N = 2m2 , we obtain
+                   T2 ≤ 2m(3 + log m)2         (m ≥ 18).
+The number of primes in (N/2, N ] = (m2 , 2m2 ] is,
+                                      N
+              π(N ) − π(N/2) >                     (N ≥ 3299),
+                                   2 log N
+     EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                23
+
+by Lemma 8.4. If T1 +T2 is less than the number of primes in (N/2, N ],
+then there are primes in (N/2, N ] with no Type II solution. From
+                                                               N
+the above bounds for T1 and T2 , it follows that T1 + T2 < 2 log N
+                                                                   for
+m ≥ 34000. When 16000 ≤ m ≤ 34000, we evaluate with a computer
+the more precise upper bounds
+          N X P (n/am)                       X 1 + log(2Q/a)
+     T1 ≤                        , T2 ≤ 2Q                      ,
+          m √             a                   √         a
+              a≤   N/2m                       a≤ Q
+
+                                                                     N
+which we also established above, to confirm that T1 + T2 < 2 log       N
+                                                                         .
+When 3000 ≤ m ≤ 16000, we evaluate with a computer the original
+                                           N
+sum T in (8.1) to confirm that T < 2 log     N
+                                               also holds in this range.
+When 20 ≤ m ≤ 6000, a brute force algorithm shows that there is a
+prime p in (m2 , 2m2 ] that has no solution at all to (3.1), and hence no
+solution of Type II. Finally, for 6 ≤ m ≤ 19, we verify that there is a
+prime p > m2 that has no Type II solution.                             □
+                     9. Proof of Theorem 1.2
+  We begin with the following corollary of the work in Section 8.
+Corollary 9.1. If N = 2m2 and m ≥ 109 , then the number of primes
+                                           1
+in (N/2, N ] with a Type II solution is < 10 N 4/3 m−7/6 .
+Proof. From the proof of Proposition 8.1, the number in question is
+                         m
+             ≤ T1 + T2 ≤ (3 + log m)3 + 2m(3 + log m)2 .
+                         2
+                          4/3
+          1   4/3 −7/6
+This is < 10 N m       = 210 m3/2 for m ≥ 109 .                     □
+   With Proposition 7.5 and Corollary 9.1 we have that when m ≥ 109
+and N = 2m2 , the number of primes p ∈ (N/2, N ] for which m/p is the
+sum of 3 unit fractions is < 698.1N 4/3 /m7/6 . We contrast this upper
+bound with the lower bound in Lemma 8.4 for the number of primes
+in (N/2, N ]. And we find that when m ≥ 6.52 × 109 and N = 2m2 , we
+have
+                            N            N 4/3
+                                 > 698.1 7/6 .
+                         2 log N         m
+Hence, Theorem 1.2 follows.
+                     10. Some final thoughts
+   In Theorem 1.2 we show that the dyadic interval (m2 , 2m2 ) has a
+prime p for which m/p is not the sum of 3 unit fractions, for m beyond a
+numerically explicit bound. One could ask the question for the smaller
+interval (m, 2m). Here it is a simple exercise to show that m/(m + 1)
+24           CARL POMERANCE AND ANDREAS WEINGARTNER
+
+is not the sum of 3 unit fractions once m ≥ 42. How about for prime
+n? Here we have that if p is a prime in (m, (6/5)(m − 1)), then m/p is
+not the sum of 3 unit fractions. To see this, note that, as we have seen,
+if m/p is the sum of 3 unit fractions, then the representation is either
+Type I or Type II, so that at least one summand is ≤ 1/p. The other
+two summands have sum ≤ 5/6, so m/p ≤ 5/6 + 1/p, which implies
+p ≥ (6/5)(m − 1), a contradiction. Using explicit prime estimates as
+in [2] and a calculation, one can show the interval (m, (6/5)(m − 1))
+contains a prime for every m ≥ 32. In fact, it is not hard to check
+smaller m’s to see that for each m ≥ 14 there is a prime p ∈ (m, 2m)
+with m/p not the sum of 3 unit fractions.
+   A simple corollary of Theorem 1.4 is that for each ϵ > 0 and each
+positive integer j, there are infinitely many positive rationals r < ϵ
+which are not the sum of j unit fractions. Perhaps this statement has
+a more direct proof?
+   Talking about j summands, perhaps the natural generalization of
+the Erdős–Straus conjecture is that for each m ≥ 4 there are at most
+finitely many n for which m/n is not the sum of m − 1 unit fractions.
+Might this be provable for some m?
+
+                             Acknowledgment
+     Thanks are due to Paul Pollack for some helpful comments.
+
+                                 References
+ [1] A. Aigner, Brüche als Summe von Stammbrüchen, J. Reine Angew. Math.
+     214/215 (1964), 174–179.
+ [2] P. Dusart, Explicit estimates of some functions over primes. Ramanujan J. 45
+     (2018), 227–251.
+ [3] C. Elsholtz and T. Tao, Counting the number of solutions to the Erdős–Straus
+     equation on unit fractions, J. Aust. Math. Soc. 94 (2013), 50–105.
+ [4] P. Erdős and R. L. Graham, Old and new problems and results in combinatorial
+     number theory, L’Enseignement Math. #28 (1980), 128 pp.
+ [5] A. Gottschlich, On positive integers n dividing the nth term of an elliptic
+     divisibility sequence, New York J. Math. 18 (2012), 409–420.
+ [6] R. K. Guy, Unsolved problems in number theory, Third Ed., Springer, New
+     York, 2004.
+ [7] D. Koukoulopoulos, The distribution of prime numbers, Graduate Studies in
+     Math. 203, Amer. Math. Soc., Providence, RI, 2019.
+ [8] S. Mihnea and B. C. Dumitru, Further verification and empirical evidence for
+     the Erdős–Straus conjecture, arXiv:2509.00128
+ [9] M. Nakayama, On the decomposition of a rational number into
+     “Stammbrüche.”, Tôhoku Math. J. 46 (1939), 1–21.
+[10] J.-L. Nicolas and G. Robin, Majorations explicites pour le nombre de diviseurs
+     de N , Canad. Math. Bull. 26 (1983), 485–492.
+       EXCEPTIONS TO THE ERDŐS–STRAUS–SCHINZEL CONJECTURE                            25
+
+[11] R. Obláth, Sur l’équation diophantienne n4 = x11 + x12 + x13 , Mathesis 59 (1950),
+     308–316.
+[12] S. E. Salez, The Erdős–Straus conjecture; New modular equations and checking
+     up to n = 1017 , arXiv:1406.6307.
+[13] R. C. Vaughan, On a problem of Erdős, Straus and Schinzel, Mathematika 17
+     (1970), 193–198.
+
+  Department of Mathematics, Dartmouth College, Hanover, NH 03755
+  Email address: carlp@math.dartmouth.edu
+
+  Department of Mathematics, Southern Utah University, 351 Uni-
+versity Boulevard, Cedar City, UT 84720
+  Email address: weingartner@suu.edu
+

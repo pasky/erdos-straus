@@ -1,0 +1,1533 @@
+                                          THE NUMBER OF SOLUTIONS OF THE ERDŐS-STRAUS EQUATION AND
+                                                          SUMS OF k UNIT FRACTIONS
+
+
+                                                                        CHRISTIAN ELSHOLTZ AND STEFAN PLANITZER
+arXiv:1805.02945v1 [math.NT] 8 May 2018
+
+
+
+
+                                                  Abstract. We prove new upper bounds for the number of representations of an arbitrary
+                                                  rational number as a sum of three unit fractions. In particular, for fixed m there are at most
+                                                  O (n3/5+ ) solutions of m n
+                                                                                 = a1 + a1 + a1 . This improves upon a result of Browning and
+                                                                                      1     2     3
+                                                  Elsholtz (2011) and extends a result of Elsholtz and Tao (2013) who proved this when m = 4
+                                                  and n is 
+                                                           a prime. Moreover      there exists an algorithm finding all solutions in expected running
+                                                                  3 1/5 
+                                                                 n
+                                                  time O n m2              , for any  > 0. We also improve a bound on the maximum number of
+                                                  representations of a rational number as a sum of k unit fractions. Furthermore, we also improve
+                                                  lower bounds. In particular we prove that for given m ∈ N in every reduced residue class
+                                                  e mod f there exist infinitely many
+                                                                                    primes p such that the number    of solutions of the equation
+                                                   m                                     5 log 2               log p
+                                                   p
+                                                     = a1 + a1 + a1 is f,m exp      12 lcm(m,f )
+                                                                                                  + of,m (1) log log p
+                                                                                                                        . Previously the best known
+                                                         1    2     3
+                                                  lower bound of this type was of order (log p)0.549 .
+
+
+
+
+                                                                                        1. Introduction
+                                              We consider the problem of finding upper bounds for the number of solutions in positive integers
+                                          a1 , a2 and a3 of equations of the form
+                                                                                   m     1    1    1
+                                          (1)                                         =    +     +
+                                                                                   n    a1    a2   a3
+                                          where m, n ∈ N are fixed. In the case when m = 4 we call equation (1) Erdős-Straus equation.
+                                          The Erdős-Straus conjecture states that this equation has at least one solution for any n > 1 (see
+                                          [12] and [16, D11] for classical results concerning the Erdős-Straus equation and several related
+                                          problems, as well as [15] for a survey of the work of Erdős on egyptian fractions). Also the more
+                                          general equation
+                                                                                                 k
+                                                                                            m X 1
+                                          (2)                                                 =
+                                                                                            n      a
+                                                                                                i=1 i
+                                          for m, n ∈ N fixed and a1 , . . . , ak ∈ N received some attention. Browning and Elsholtz [5] found
+                                          upper bounds for the number of solutions of (2). For the special case m = n = 1 they were able to
+                                                                                                                        (5/24+)2k
+                                          improve a result of Sándor [27] and proved that there are at most c0           representations of 1 as
+                                                                                                                                  −n
+                                          a sum of k unit fractions, for any  > 0 and sufficiently large k. Here c0 = limn→∞ u2n = 1.264 . . .
+                                          where u1 = 1 and
+                                                          un+1 = un (un + 1). On  the other hand Konyagin [21] proved a lower bound of
+                                          order exp exp (log 2)(log
+                                                                  3
+                                                                      3)
+                                                                         + o(1) logk k    for the number of these representations with distinct
+                                          denominators. While the Erdős-Straus conjecture is about representing certain rational numbers
+                                          as a sum of just three unit fractions, Martin [24] worked on representations of positive rationals
+                                          as sums of many unit fractions. InP   particular he proved that every positive rational number r has
+                                          a representation of the form r = s∈S 1s , where the set S contains a positive proportion of the
+                                          integers less than any sufficiently large real number x.
+                                             Chen et.al. [7] dealt with representations of 1 as a sum of k distinct unit fractions where
+                                          the denominators satisfy certain restrictions (like all of them being odd). Several results on
+                                          representations of rational numbers as a sum of unit fractions with restrictions on the denominators
+                                          can be found in the work of Graham [13–15]. Elsholtz [9] proved a lower bound of similar order
+
+                                            2010 Mathematics Subject Classification. Primary: 11D68, Secondary: 11D72 .
+                                                                                                  1
+2                                         C. ELSHOLTZ AND S. PLANITZER
+
+
+as the one of Konyagin for the number of representations of 1 as a sum of k distinct unit fractions
+with odd denominators.
+   For sums of k unit fractions we adopt the notation of [5] and define fk (m, n) to be the number
+of solutions (a1 , a2 , . . . , ak ) ∈ Nk of equation (2) with a1 ≤ a2 ≤ . . . ≤ ak , i.e.
+                                                                                                
+                                                     m     1     1           1
+        fk (m, n) = (a1 , a2 , . . . , ak ) ∈ Nk :      =     +    + · · · + , a1 ≤ a2 . . . ≤ ak .
+                                                     n     a1   a2          ak
+Concerning equation (1) with m = 4 the results of Elsholtz and Tao [12] show that the number
+of solutions f3 (4, n) is related to some divisor questions and is on average a power of log n (at
+least when n is prime). It even seems possible that for fixed m ∈ N and any  > 0 the number
+of representations of m                                                           
+                         n as a sum of k unit fractions is bounded by Ok, (n ). More details on
+this are informally and heuristically discussed in Section 3. For general m and n the best known
+upper bound on the number of solutions of (1) is due to Browning and Elsholtz [5, Theorem 2]
+                                               n 2/3
+                                                
+who proved an upper bound of order O (n m          ). In the case of the Erdős-Straus equation with
+n = p prime Elsholtz and Tao [12, Proposition 1.7] have improved this bound to O (p3/5+ ). It is
+known that this type of question is easier to study, when the denominator is prime.
+   Our main result will be the following theorem which provides an upper bound on the number
+of solutions of equation (1).
+                                                                             1 
+                                                                                      /5
+                                                                                  n3
+Theorem 1. For any m, n ∈ N and any  > 0 there are at most O n m                 2      solutions of
+the equation
+                                               m   1    1    1
+                                                 =    +    +
+                                               n   a1   a2   a3
+in positive integers a1 , a2 and a3 .
+   Note that this improves upon the bound of Browning and Elsholtz in the range m  n1/4 . As
+a corollary we get that the Elsholtz-Tao bound for the number of solutions of the Erdős-Straus
+equation is true for arbitrary denominators n ∈ N.
+Corollary 1. The Erdős-Straus equation
+                                                4   1    1    1
+                                                  =    +    +
+                                                n   a1   a2   a3
+has at most O (n3/5+ ) solutions in positive integers a1 , a2 and a3 .
+   We also prove the following algorithmic version of Theorem 1 with a matching upper bound for
+the expected running time1.
+                                                                                   1 
+                                                                                          /5
+                                                                                       n3
+Corollary 2. There exists an algorithm with an expected running time of order O n m   2     ,
+for any  > 0, which lists all representations of the rational number m n as a sum of three unit
+                                              m
+fractions. Furthermore
+                      all representations
+                                          of n as a sum  of k > 3 unit fractions may be found in
+                           k−3 8
+expected time O,k n2         ( /5+)−1
+                                           , for any  > 0.
+
+    For sums of k unit fractions we will prove the following result.
+Theorem 2. We have
+                                                                 n4/3   n28/17
+                                                                                
+                                                         
+                                       f4 (m, n)  n                 +
+                                                                 m2/3   m8/5
+and for any k ≥ 5
+                                                       4/3 2 28/17·2k−5
+                                                       k n
+                                                         
+                                    fk (m, n)  (kn)                     .
+                                                         m
+    1For a definition of expected running time see the proof of this corollary at the end of section 5.
+                                      SUMS OF UNIT FRACTIONS                                      3
+
+
+    Keeping in mind that 28
+                          17 = 1.64705 . . ., Theorem 2 may be compared with the following bounds
+from [5, Theorem 3]:
+                                             4/3      n 5/3 
+                                               n
+                           f4 (m, n)  n         +             ,
+                                              m2/3     m
+                                                 4/3 2 5/3·2k−5
+                                                k n
+                           fk (m, n)  (kn)                       , for k ≥ 5.
+                                                   m
+    A well studied special case of Theorem 2 concerns representations of 1 as a sum of k unit
+fractions. Browning and Elsholtz [5] mention several related problems which are studied in the
+literature and can be improved using better upper bounds on fk (m, n). We summarize these
+results in the following corollary.
+Corollary 3.       (1) For any  > 0 we have that
+                                                            k−1
+                                      fk (1, 1)  k /51·2        +
+                                                        7
+                                                                       .
+   (2) Let un be the sequence recursively defined by u0 = 1 and un+1 = un (un + 1) and set
+                      −n
+       c0 = limn→∞ u2n . Then for  > 0 and k ≥ k() we have
+                                                    (7/17+)2k−1
+                                       fk (1, 1) < c0                .
+   (3) For  > 0 and k ≥ k() the number S(k) of positive integer solutions of the equation
+                                            k
+                                            X 1              1
+                                       1=           + Qk
+                                               a
+                                            i=1 i           i=1 ai
+                                   (7/17+)2k
+        is bounded from above by c0             .
+Proof. The first assertion is an immediate consequence of Theorem 2. For the proof of the second
+statement we refer the reader to the proof of Theorem 4 in [5]. The only change necessary is
+plugging in the bound from Theorem 2 instead of [5, Theorem 3] for the last 5 lines of the proof
+which amounts to just exchanging one exponent. The last statement follows from the first one
+and the observation that S(k) ≤ fk+1 (1, 1).                                                   
+                                                             Pk 1          1
+   We note that the number of solutions of the equation 1 = 1=1 ai + Qk a has applications
+                                                                            i=1   i
+to problems considered in [4].
+   Finally we deal with lower bounds. In [12, Theorem 1.8] it is shown that we have
+                                                                           
+                                                                    log n
+                                f3 (4, n) ≥ exp (log 3 + o(1))
+                                                                  log log n
+for infinitely many n ∈ N and that
+                                                                          
+                                                    log 3
+                               f3 (4, n) ≥ exp             + o(1) log log n
+                                                       2
+for all integers n in a subset of the positive integers with density 1. The following theorem gives
+an improvement of these bounds which also give a limitation on improving the upper bounds for
+the number of solution of the Erdős-Straus equation and in the general case. For comparison we
+note that log 3 = 1.09861 . . ., log2 3 = 0.54930 . . . and log 6 = 1.79175 . . ..
+Theorem 3. For given m ∈ N there are infinitely many n ∈ N such that
+                                                                     
+                                                              log n
+                           f3 (m, n) ≥ exp (log 6 + om (1))             .
+                                                            log log n
+Furthermore, for given m ∈ N, there exists a subset M1 of the integers with density one, such that
+for any n ∈ M1
+                                        
+                               1
+               f3 (m, n) ≥         + o(1) exp ((log 3 + om (1)) log log n) · log log n
+                             ϕ(m)
+                         (log n)log 3+om (1) .
+4                                        C. ELSHOLTZ AND S. PLANITZER
+
+
+For the special case m = 4 and for integers n in a set M2 ⊂ N with density one, the last bound
+may be improved to
+                            f3 (4, n) ≥ exp ((log 6 + o(1)) log log n) .
+Remark 1. Previous proofs of lower bounds of similar type as the ones in Theorem 3 constructed
+solutions from factorizations of n. We get our improvement from additionally taking into account
+factorizations of a lot of shifts of n. Hence our proof 
+                                                        also shows that there are many values a1
+admitting many pairs (a2 , a3 ). Here ‘many’ means exp (C + om (1)) logloglogn n , where the constant
+C depends on which of the three lower bounds in Theorem 3 we consider.
+   We may ask if a lower bound on f3 (m, n) of the first type in Theorem 3 does not only hold
+for infinitely many positive integers n but also for infinitely many prime denominators p. In [12]
+there was no lower bound of this type, but it was proved that f3 (4, p)  (log p)0.549 for almost
+all primes. We note that this result implies, using Dirichlet’s theorem on primes, the following
+corollary.
+Corollary 4. For every reduced residue class e mod f , i.e. gcd(e, f ) = 1, there are infinitely
+many primes p such that f3 (4, p)  (log p)0.549 , and p ≡ e mod f .
+    Here we improve this corollary considerably.
+Theorem 4. For every m ∈ N and every reduced residue class e mod f there are infinitely many
+primes p ≡ e mod f such that
+                                                                         
+                                            5 log 2                 log p
+                  f3 (m, p) f,m exp                  + of,m (1)              .
+                                        12 lcm(m, f )             log log p
+Here of,m (1) denotes a quantity depending on f and m which goes to zero as p tends to infinity.
+                                                                            5
+   Using results of Harman [19, 20] one might be able to improve the factor 12 in the exponent to
+0.4736.
+
+                                                    2. Notation
+    As usual N denotes the set of positive integers and P the set of primes in N. We denote the
+greatest common divisor and the least common multiple of n elements ai ∈ N by gcd(a1 , a2 , . . . , an )
+and lcm(a1 , a2 , . . . , an ) or (a1 , a2 , . . . , an ) and [a1 , a2 , . . . , an ] for short. For integers d, n ∈ N we
+write d|n if d divides n. We use the symbols O, o,  and  within the contexts of the well known
+Landau and Vinogradov notations where dependence of the implied constant on certain variables
+is indicated by a subscript. For any prime p ∈ P we define the function νp : N → N ∪ {0} to be
+the p-adic valuation, i.e. νp (n) = a if and only if pa is the highest power of p dividing n. By τ (n)
+and ω(n), as usual, we denote the number of divisors and the number of distinct prime divisors
+of n. By τ (n, m), we denote the number of divisors of n coprime to m and τ (n, k, m), ω(n, k, m)
+denote the number of divisors (resp. distinct prime divisors) of n in the residue class k mod m,
+where (k, m) = 1. Finally, for two coprime integers a and b we denote by orda (b) the least positive
+integer l, such that bl ≡ 1 mod a.
+
+                                           3. Heuristics on fk (m, n)
+   We now informally discuss why f3 (m, n) = O (n ) can be expected. In fact, as far as we are
+aware, this was first observed by Roger Heath-Brown (private communication with the first author
+in 1994). Let us first recall (see e.g. [28, p. 201: Theorem 3]) that a fraction m
+                                                                                 n with gcd(m, n) = 1
+                                  1      1
+is a sum of two unit fractions a1 + a2 if and only if there exist two distinct, positive and coprime
+divisors d1 and d2 of n such that d1 + d2 ≡ 0 mod m. We may deduce an upper bound of O (n )
+for the number of representations of m     n as a sum of two unit fractions. Indeed from
+                                                   m   1   1
+(3)                                                  =    + ,
+                                                   n   a1  a2
+                                          SUMS OF UNIT FRACTIONS                                           5
+
+
+by setting d = (a1 , a2 ) and a0i = adi for i ∈ {1, 2}, we see that
+                                            ma01 a02 d = n(a01 + a02 ).
+This implies that a01 , a02 are divisors of n, d divides n(a01 + aP
+                                                                  0       2
+                                                                  2 ) < 2n and any solution (a1 , a2 ) of
+(3) uniquely corresponds to a triple (a1 , a2 , d). The number a0 ,a0 |n τ (n(a01 + a02 )) of such triples
+                                           0  0
+                                                                      1 2
+is bounded by O (n ) (see Lemma A below).
+   Studying m      1       1     1
+             n = a1 + a2 + a3 with a1 ≤ a2 ≤ a3 one observes that
+
+                                                 1    m   3
+                                                    <   ≤
+                                                 a1   n   a1
+           n
+from which m < a1 ≤ 3n
+                    m follows. In view of
+                                        m   1    ma1 − n   1    1
+(4)                                       −    =         =    +
+                                        n   a1    na1      a2   a3
+                       n
+                                                                                                
+there are at most O    m                          forgiven a1 there are at most d(na1 ) = O (n ) divisors
+                               choices for a1 , and
+                                                 1+
+of na1 . This shows that f3 (m, n) = O nm        is a trivial upper bound. The real question is for
+how many values of a1 there can be at least one solution. For increasing a1 , even if na1 contains
+many divisors, the congruence d1 + d2 ≡ 0 mod ma1 − n should become, on average, more difficult
+to satisfy if ma1 − n  n . Therefore we expect that the number of a1 contributing at least
+one solution is O (n ), so that f3 (m, n) = O (n2 ). Moreover equation (4) implies that for any
+                                             ˜
+given a1 , the number of solutions is about d(m,                ˜
+                                                  n, a1 ). Here d(m, n, a1 ) counts the number of pairs
+of coprime divisors d1 , d2 of na1 , with d1 + d2 ≡ 0 mod ma1 − n. Therefore f3 (m, n) should be
+                 P ˜
+approximately a1 d(m,      n, a1 ).
+    Similarly a completely trivial upper bound on f4 (m, n) is as follows. With a1 ≤ a2 ≤ a3 ≤ a4
+                 n
+it follows that m  < a1 ≤ 4nm and hence
+                                 ma1 − n   m   1    1    1    1   3
+                                         =   −    =    +    +    ≤ .
+                                  na1      n   a1   a2   a3   a4  a2
+                                                            2
+From those bounds we easily deduce that a2 ≤ 12n
+                                              m . With
+                        m    1     1    ma1 a2 − na2 − na1      1     1
+                           −    −     =                      =    + ,
+                        n    a1   a2           na1 a2          a3    a3
+                                                                3+ 
+with similar arguments as above, we deduce that f4 (m, n) = O nm2 . For fixed m the fact that
+                                                         2
+our bound on f4 (m, n) in Theorem 2 below      i than O(n ) shows that, for most pairs (a1 , a2 )
+                                       h is better     2
+                                             n 12n
+and moreover, for most choices of a2 ∈ m       , m there is no solution of m           1   1     1
+                                                                                n = a1 + a2 + a3 + a4 .
+                                                                                                       1
+
+Here again, as soon as ma1 a2 −na2 −na1  n one should not expect to have two divisors d1 , d2 of
+na1 a2 such that d1 +d2 ≡ 0 mod ma1 a2 −na2 −na1 . From this reasoning, also fk (m, n) = O,k (n ),
+for k ≥ 4 seems to us a reasonable expectation.
+   The papers [5] and [12] studied parametric solutions of the diophantine equation (1). The reason
+why the result in [12] is superior in the case of n being a prime is that here a full parametric solution
+(e.g. [26]) is much easier to work with. However, in this manuscript we develop parametric solutions
+of (1) and (2) from scratch. Some simplified version of this has been used in [11] and [12, Section
+11], but there the focus was to generate solutions with many parameters. Here we need to do kind
+of the opposite, namely to show that every solution comes from a number of parametric families.
+   The method we introduce should theoretically work for any diophantine equation as it expresses
+a k-tuple of integers in a standard form. In practice it might work favorably if there is some
+inhomogeneous part as in
+                                         n = a1 a2 a3 − a1 − a2 .
+For prime values of n in equation (1) there are several discussions of parametric solutions in
+the literature, e.g. by Rosati [26] and Aigner [1], see also Mordell’s book [25, Chapter 30]. For
+composite values n there is no satisfactory treatment in the literature, and Section 5 below may
+be the most detailed study to date.
+6                                      C. ELSHOLTZ AND S. PLANITZER
+
+
+                     4. Patterns and relative greatest common divisors
+   Consider a solution (a1 , a2 , . . . , ak ) ∈ Nk with a1 ≤ a2 ≤ . . . ≤ ak of equation (2) and set
+ni = (ai , n), ai = ni ti for i ∈ {1, 2, . . . , k}. We can thus rewrite equation (2) as
+                                                        k
+                                                   m X 1
+(5)                                                  =         .
+                                                   n      nt
+                                                       i=1 i i
+
+Later, when working on upper bounds for the number of solutions of equation (5) for k ∈ {3, 4}, we
+will fix a choice of (n1 , n2 , . . . , nk ) ∈ Nk . For given m, n ∈ N we call such a choice the pattern of a
+solution of thisequation.
+                              Note that for solutions corresponding to a given pattern (n1 , n2 , . . . , nk )
+                  n
+we have that      ni , ti   = 1 for all i ∈ {1, 2, . . . , k}. As ni |n the number of distinct patterns is
+      
+Ok (n ) only.
+   Also, when dealing with equations of type (5) for k ∈ {3, 4} we will make heavy use of the
+concept of relative greatest common divisors as described by Elsholtz in [10] (for some ad hoc defi-
+nition see also [11]). Relative greatest common divisors are a useful tool when studying divisibility
+relations among the ti in (5).
+   Let I = {1, 2, . . . , k} be the index set. Then we define the relative greatest common divisors of
+the positive integers t1 , t2 , . . . , tk recursively as follows:
+
+                                            xI = gcd(t1 , t2 , . . . , tk )
+
+and for any {i1 , i2 , . . . i|J| } = J ⊆ I, J 6= ∅ we set
+
+                                                 gcd(ti1 , ti2 , . . . , ti|J| )
+                                         xJ =         Q                          .
+                                                          J 0 ⊆I xJ 0
+                                                             J(J 0
+
+For k ∈ {3, 4} we will later identify the elements xJ with J ⊆ I with the elements xi , xij and xijk
+where {i, j, k} = {1, 2, 3} in the case when k = 3 and with the elements xi , xij , xijk and xijkl with
+{i, j, k, l} = {1, 2, 3, 4} when k = 4. With the relative greatest common divisors defined as above
+we have that
+                                                   Y
+                                              ti =     xJ .
+                                                            J⊆I
+                                                            i∈J
+
+  A further very useful property of relative greatest common divisors is that (xJ , xK ) = 1 if
+J * K and K * J. We prove this property as the following lemma (see also [10, p. 2]).
+
+Lemma 1. Let t1 , t2 , . . . , tk ∈ N, J, K ⊆ {1, 2, . . . , k}, J, K 6= ∅ and define the corresponding
+relative greatest common divisors xJ and xK as above. If J * K and K * J then (xJ , xK ) = 1.
+
+Proof. By assumption J * K and K * J and thus we have that J ( J ∪ K and K ( J ∪ K.
+We suppose that d = (xJ , xK ) > 1 and choose an arbitrary prime divisor p|d. Set L = J ∪ K,
+J = {j1 , j2 , . . . , j|J| }, K = {k1 , k2 , . . . , k|K| }, L = {l1 , l2 , . . . , l|L| } and write
+
+                                                   (tj1 , tj2 , . . . , tj|J| )
+                                xJ =                                                        ,
+                                                                                          !
+                                      Q                                Q
+                                       J 0 ⊆I xJ 0  · xL ·                J 0 ⊆I xJ 0
+                                             0
+                                                    
+                                           J(J                              L(J 0
+                                           L*J 0
+
+                                                    (tk1 , tk2 , . . . , tk|K| )
+                               xK =                                                               .
+                                                                                                !
+                                      Q                                  Q
+                                       K 0 ⊆I xK 0  · xL ·                      K 0 ⊆I xK 0
+                                             0
+                                                    
+                                           K(K                                    L(K 0
+                                           L*K 0
+                                                        SUMS OF UNIT FRACTIONS                                                     7
+
+             (tl1 ,tl2 ,...,tl|L| )
+With xL =      Q                    this simplifies to
+                   L0 ⊆I xL0
+                          0
+                   L(L
+
+                            (tj1 , tj2 , . . . , tj|J| )                                        (tk1 , tk2 , . . . , tk|K| )
+(6)      xJ =                                                   , xK =                                                     .
+               Q                                                            Q            
+                J 0 ⊆I xJ 0  · (tl1 , tl2 , . . . , tl )                     K 0 ⊆I xK 0  · (tl1 , tl2 , . . . , tl )
+                                                      |L|                                                          |L|
+                       0                                                              0
+                     J(J                                                              K(K
+                     L*J 0                                                            L*K 0
+
+Let pα be the highest power of p dividing the greatest common divisor of the terms (tj1 , tj2 , . . . , tj|J| )
+and (tk1 , tk1 , . . . , tk|K| ). Thus pα is also the highest power of p such that
+                     pα |((tj1 , tj2 , . . . , tj|J| ), (tk1 , tk1 , . . . , tk|K| )) = (tl1 , tl2 , . . . , tl|L| ).
+By definition of the greatest common divisor, without loss of generality we may suppose that
+νp ((tj1 , tj2 , . . . , tj|J| )) = α. From equation (6) we finally see that νp (xJ ) = 0, a contradiction to
+p|d.                                                                                                       
+   Relative greatest common divisors may be nicely visualized via Venn diagrams (especially when
+k ≤ 3). We identify a positive integers with the multiset of its prime divisors, i.e. each prime
+p dividing n occurs with multiplicity νp (n) in the multiset. Given the Venn diagram of the
+multisets corresponding to the integers t1 , . . . , tk , each area of intersection in the diagram uniquely
+corresponds to a relative greatest common divisor xJ , J ⊆ {1, . . . , k}. Figure 1 shows the situation
+for relative greatest common divisors of three positive integers t1 , t2 and t3 .
+                                            t1                                                     90
+
+
+                                           x1                                                      {5}
+
+
+
+                       t3            x13          x12        t2                             {}           {3, 3}
+                                                                             616                                       126
+                                           x123                                                    {2}
+
+                               x3          x23          x2                         {2, 2, 11}      {7}            {}
+
+
+
+
+         Figure 1. A visualization of relative greatest common divisors using Venn dia-
+         grams. On the left hand side one sees the general case of three positive integers
+         t1 , t2 and t3 and on the right hand side the situation when t1 = 90, t2 = 126 and
+         t3 = 616. Empty sets correspond to empty products and we set the corresponding
+         relative greatest common divisor to 1.
+
+   As mentioned in the beginning of this section relative greatest common divisors were system-
+atically described in [10]. Nonetheless concepts of a similar type date back at least as far as
+Dedekind [8] who called the relative greatest common divisors of the integers t1 , . . . , tk the cores
+(Kerne) of the system (t1 , . . . , tk ). Dedekind described the construction of these cores explicitly for
+systems with three and four elements and developed some theory to describe the cores of systems
+with more than four elements.
+   Decompositions similar to relative greatest common divisors also occur when we look for gen-
+eralizations of the formula
+                                                              t1 t2
+(7)                                            [t1 , t2 ] =            ,
+                                                            (t1 , t2 )
+where [t1 , t2 ] denotes the least common multiple of the integers t1 and t2 . A generalization of
+formula (7) to least common multiples and greatest common divisors of k integers t1 , . . . , tk was
+found by V.-A. Lebesgue [22, p. 350], who proved that
+                                                               Q
+                                                                1≤i≤k Gi
+                                     [t1 , t2 , . . . , tk ] = Q i odd   ,
+                                                                1≤j≤k Gj
+                                                                            j even
+8                                        C. ELSHOLTZ AND S. PLANITZER
+
+
+where the variables Gi denote the product of the greatest common divisors of all choices of subsets
+of i integers in the set {t1 , t2 , . . . , tk }.
+
+
+
+                                   5. Sums of three unit fractions
+    In this section we deal with equation (5) for k = 3, i.e. with equations of the form
+
+                                            m    1       1       1
+(8)                                           =       +       +       ,
+                                            n   n1 t1   n2 t2   n3 t3
+                                               
+where n1 t1 ≤ n2 t2 ≤ n3 t3 , ni |n and nni , ti = 1 for i ∈ {1, 2, 3}. In the following we use the
+concept of relative greatest common divisors introduced in the previous section to get a suitable
+parametrisation of the solutions of (8) corresponding to a fixed pattern (n1 , n2 , n3 ) ∈ N3 .
+   Writing the variables ti in terms of relative greatest common divisors, equation (8) takes the
+form
+
+                       m           1                    1                    1
+(9)                      =                    +                    +
+                       n   n1 x1 x12 x13 x123   n2 x2 x12 x23 x123   n3 x3 x13 x23 x123
+
+and multiplying out yields
+
+                                                     n              n              n
+(10)                mx1 x2 x3 x12 x13 x23 x123 =        x2 x3 x23 +    x1 x3 x13 +    x1 x2 x12 .
+                                                     n1             n2             n3
+
+A first thing we observe is that we have xi = 1 for all i ∈ {1, 2, 3}. This follows from Lemma 1
+and equation (10) together with the fact that xi | nni is possible only if xi = 1 by definition of ni .
+We thus can work with the following simplified version of equation (10)
+
+                                                          n        n        n
+(11)                           mx12 x13 x23 x123 =           x23 +    x13 +    x12 .
+                                                          n1       n2       n3
+                                                                                               
+                                                                                      n n
+Next we introduce the parameters dij which are defined as dij =                       ni , nj       . Again we have that
+(xij , dij ) = 1 by definition of the ni and we note that for given m, n and a fixed pattern (n1 , n2 , n3 )
+also the parameters dij are fixed.
+   In what follows we apply methods developed by Elsholtz and Tao [12, Sections 2 and 3]. The
+strategy is to derive a system of equations from (11) and to make use of divisor relations therein.
+With the observation of coprimality of dij and xij , and using divisibility relations implied by
+equation (11) we may define the following three positive integers
+
+                n
+                      x23 + n3nd13 x12           n
+                                                        x23 + n2nd12 x13                 n
+                                                                                                x13 + n3nd23 x12
+         w = n1 d13                      , y = n1 d12                      and z = n2 d23                          .
+                         x13                               x12                                       x23
+
+Later we make use of the product of w and z which is given by
+
+                                               n2                n2               n2
+                                                                                            
+                 n      n       x12
+          wz =               +                        x23 +               x13 + 2        x12
+               n1 d13 n2 d23   x13 x23 n1 n3 d13 d23        n2 n3 d13 d23      n d13 d23
+                                                                              3
+                 n      n            nx12           n       n          n
+             =               +                        x23 +    x13 +      x12
+               n1 d13 n2 d23   n3 d13 d23 x13 x23 n1        n2         n3
+                 n      n         nm
+             =               +            x2 x123 ,
+               n1 d13 n2 d23   n3 d13 d23 12
+                                      SUMS OF UNIT FRACTIONS                                      9
+
+
+where we used equation (11) to get the last equality. We collect the equations just derived in the
+following list
+                                            n          n          n
+(12)                    mx12 x13 x23 x123 =    x23 +      x13 +      x12
+                                            n1         n2         n3
+                                              n              n
+(13)                                yx12 =         x23 +         x13
+                                            n1 d12        n2 d12
+                                              n              n
+(14)                                zx23 =         x13 +         x12
+                                            n2 d23        n3 d23
+                                                     n
+(15)                      mx13 x23 x123 = d12 y +
+                                                    n3
+                                                     n
+(16)                      mx12 x13 x123 = d23 z +
+                                                    n1
+                                              n      n           nm
+(17)                                  wz =                 +             x2 x123 .
+                                            n1 d13 n2 d23     n3 d13 d23 12
+For proving Theorem 1 the classical divisor bound will play a crucial role. We will use it in the
+following form (see [18, Theorem 315]).
+                                                                          P
+Lemma A. Let d(n) : N → N be the divisor function, i.e. d(n) = d|n 1. Then for every  > 0
+we have
+                                            d(n)  n .
+  We now have all the tools we need to prove Theorem 1.
+Proof of Theorem 1. Consider a solution of equation (8) for a fixed pattern (n1 , n2 , n3 ). By as-
+sumption we have n1 t1 ≤ n2 t2 ≤ n3 t3 and using the parametrization of the ti we introduced in
+equation (9) this implies
+                                          n2               n3
+                                  x13 ≤      x23 and x12 ≤    x13 .
+                                          n1               n2
+Using these inequalities in equations (13) and (14) yields
+                                        n                       n
+                             yx12 ≤ 2        x23 and zx23 ≤ 2        x13 .
+                                      n1 d12                  n2 d23
+Dividing by x23 and x13 respectively and multiplying the last two inequalities we arrive at
+                                      yx12 zx23         n2
+                                                ≤4               .
+                                      x23 x13      n1 n2 d12 d23
+We now intend to obtain a lower bound for n1 n2 d12 d23 . Let n = p∈P pνp (n) be the prime
+                                                                            Q
+
+factorization of n. Then n1 = p∈P pνp (n1 ) and n2 = p∈P pνp (n2 ) where 0 ≤ νp (n1 ), νp (n2 ) ≤
+                                  Q                    Q
+
+νp (n) for all p ∈ P. Since
+                                          Y
+                                    n n
+                            d12 =     ,    =   pνp (n)−max(νp (n1 ),νp (n2 ))
+                                    n1 n2
+                                                    p∈P
+
+we have
+                                    Y
+                      n1 n2 d12 =         pνp (n1 )+νp (n2 )+νp (n)−max(νp (n1 ),νp (n2 ))
+                                    p∈P
+                                    Y
+                               ≥          pνp (n1 )+νp (n2 )+νp (n)−νp (n1 )−νp (n2 ) = n.
+                                    p∈P
+
+This shows that n1 n2 d12 d23 ≥ n and thus
+                                         yx12 zx23
+                                                    n.
+                                          x23 x13
+By assumption we have that n1 t1 is the smallest denominator in equation (8). This implies that
+                              m    3                  3n   n
+                                ≤       and thus t1 ≤      .
+                              n   n1 t1               mn1  m
+10                                    C. ELSHOLTZ AND S. PLANITZER
+
+
+The bound in Theorem 1 can finally be derived from the following inequality
+
+                                                        yx12 zx23                   n3
+(18)                 y · z · x12 x13 · (x12 x123 )2 =             (x12 x13 x123 )2  2 .
+                                                        x23 x13                     m
+                                                                                                   1/5 
+                                                                                                n3
+This implies that at least one of the factors y, z, x12 x13 and x12 x123 is bounded by O        m2            .
+                                                                                            
+   If this is the case for y then by Lemma A and equation (15) we have at most O (n ) choices
+for the parameters x13 , x23 and x123 for every choice of y. The parameter x12 is then uniquely
+determined by (12).
+   Similarly, if z is the bounded parameter use Lemma A and equation (16) to see that there
+are at most O (n ) choices for the parameters x12 , x13 and x123 for every choice of z. Again the
+remaining parameter x23 is uniquely determined by (12).
+                              3 1/5
+                               n
+   Suppose that x12 x13  m      2    . By Lemma A for every fixed choice of x12 x13 we may choose
+the factors x12 and x13 in at most O (n ) ways. For each of those choices Lemma A and equation
+(14) imply that there are at most O (n ) choices for the parameter x23 . As before the remaining
+parameter x123 is then fixed by (12).
+   Finally we need to consider the case when x12 x123 is the bounded factor. As in the previous
+case for any fixed choice of x12 x123 we have at most O (n ) choices for the factors x12 and x123 .
+Since equation (8) has no solutions for m > 3n we have that m  n and using equation (17) we
+see that for any fixed choice of x12 and x123 we have at most O (n ) choices for the parameters w
+and z. With z, x12 and x123 fixed, x13 is uniquely determined by (16). The last parameter x23 is
+again uniquely determined by (12).
+   In any case we have a bounded number of applications of the divisor bound   from     Lemma A,
+                                                                                       1/5 
+                                                                                 ˜ n3
+say it was applied at most l times. Setting ˜ = l we hence have at most O˜ n m2            choices
+for the parameters x12 , x13 , x23 and x123 which uniquely determine a solution of (8) if n1 , n2 and
+n3 are fixed. Note that this bound is independent of the concrete choice of the parameters ni and
+again by Lemma A we have at most O (n3 ) choices for the pattern (n1 , n2 , n3 ). Theorem 1 now
+follows by redefining the choice of .                                                              
+
+
+     Finally we prove Corollary 2.
+
+
+Proof of Corollary 2. The proof of Theorem 1 suggests an algorithm for computing all decom-
+positions of a rational number m  n as a sum of three unit fractions. The running time of this
+algorithm depends on the quality of algorithms used for integer factorization. In [23] a probabilis-
+tic algorithm is√analyzed which finds all prime factors of a given integer in expected running time
+exp((1 + o(1)) log n log log n) for n → ∞, which is clearly O (n ). Here the term probabilistic
+means that the algorithm is allowed to call a random number generator which outputs 0 or 1 each
+with probability 12 . The term expected running time refers to averaging over the output of the
+random number generator only and not over the input n. Hence the expected running time is also
+valid for each individual n.
+   As a consequence, using an algorithm of this type, all decompositions of m    n as a sum of three
+unit fractions can be found by carrying out the following steps. Factorize the integer n and
+compute all possible patterns (n1 , n2 , n3 ). For any of these O (n ) patterns it follows from the
+calculations in the proof of Theorem 1, that the implied constant in inequality (18) may be chosen
+                                                                                         3 1/5 
+             36                                                                       1/5  n
+as C := n2 d23 . For all choices of integers y, z, x12 x13 and x12 x123 ∈ 1, C             m2        we
+              1
+
+determine the integers x12 , x13 , x23 and x123 via factoring x12 x13 , x12 x123 and a small number of
+integers 
+         mentioned informulae (12)-(17). All in all this leads to an algorithm of expected running
+             3 1/5
+              n
+time O n m    2      .
+                                     SUMS OF UNIT FRACTIONS                                         11
+
+
+  As for representations of the form
+                                                  k
+                                             m X 1
+(19)                                           =
+                                             n      a
+                                                 i=1 i
+
+with k > 3 we enumerate all possible choices for the denominators ai , 1 ≤ i ≤ k − 3, and apply
+our algorithm for finding representations as sum of three unit fractions to determine all choices
+for the remaining three denominators, i.e. we solve
+                                     k−3
+                                 m X 1          1       1   1
+(20)                               −        =      +       + .
+                                 n   i=1
+                                         ai   ak−2   a k−1  ak
+
+We suppose the denominators ai in equation (19) are given in increasing order and prove upper
+bounds for the size of ai , 1 ≤ i ≤ k. In particular we use an induction argument to show
+                i−1
+that ai ≤ αi n2 Q where the finite sequence (αi )1≤i≤k is recursively defined by α1 = k and
+αi = (k − i + 1) j<i αj for 2 ≤ i ≤ k. For i = 1 this bound follows easily from the following
+inequality
+                                    m     1          1      k
+                                       =     + ··· +    ≤
+                                    n     a1         ak     a1
+which leads to a1 ≤ knm ≤ kn. If we suppose the bound holds for ai , with a similar argument we
+get
+                         m    1          1      1            1    (k − i)
+                           −     − ··· −    =       + ··· +     ≤         .
+                         n    a1         ai   ai+1           ak    ai+1
+The last inequality together with the induction hypothesis for j < i + 1 implies
+                                    Q
+                                   n j<i+1 aj                          Y                i
+         ai+1 ≤ (k − i)  Q              P       Q          ≤ (k − i)n       aj ≤ αi+1 n2 .
+                        m j<i+1 aj − n j<i+1 l<i+1 al                 j<i+1
+                                                     l6=j
+                                                     i
+By definition αi is a polynomial in k of degree 2 with leading coefficient 1. Furthermore the
+denominator of the rational number on the left hand side of equation (20) is of size at most
+  Qk−3            k−3
+n i=1 ai k n2 . By the aforementioned result we can compute all decompositions as a
+                                                           k−3
+sum of three unit fractions of this number in time O,k (n2 (3/5+) ). We have to compute these
+                            Qk−3          k−3
+representations for at most i=1 ai k n2 −1 rational numbers which leads to an upper bound
+of                                         k−3           
+                                      O,k n2 ( /5+)−1
+                                                  8
+
+
+
+for the running time.                                                                               
+Remark 2. The procedure for computing representations as a sum of k unit fractions as described
+in the proof of Corollary 2 could lead to a speedup for calculations similar to those in [2]. In
+the calculations above the size of the numerator of the rational number on the left hand side of
+                                      0
+equation (20), which we denote by m  n0 , was not taken into account. We note that also the proof
+of the upper bound for f3 (m, n) by Browning
+                                              and Elsholtz [5, Theorem 2] may be similarly turned
+                                              n 2/3
+                                                
+into an algorithm of running time O n m            . In practice one would check dynamically if
+                                                                                            0
+m0  (n0 )1/4 before computing the representations as a sum of three unit fractions of m  n0 . If this
+is the case, the algorithm described in the first part of the proof of Corollary 2 should be applied,
+if m0  (n0 )1/4 the method of [5] should be used.
+
+                                  6. Sums of k unit fractions
+   In this section we will prove Theorem 2. Browning and Elsholtz used an induction argument on
+their bound for the quantity f3 (m, n) to get bounds for fk (m, n) for k ≥ 4. Using their arguments
+directly on our result from Theorem 1 would lead to worse upper bounds than those of Browning
+and Elsholtz. The reason is that our bound for f3 (m, n) is weaker than the one in [5] when m is
+large.
+12                               C. ELSHOLTZ AND S. PLANITZER
+
+
+   As in [5, Section 4] the proof of Theorem 2 will be based on the observation that from equation
+(5) it follows that
+                                          X
+                           fk (m, n) ≤           fk−1 (mn1 t1 − n, n1 t1 n),
+                                     n          kn
+                                     m <n1 t1 ≤ m
+
+which, after introducing the parameter u = mn1 t1 − n, becomes
+                                                                 
+                                         X               n(u + n)
+(21)                       fk (m, n) ≤          fk−1 u,             .
+                                                            m
+                                      0<u≤(k−1)n
+                                        m|u+n
+
+   The improvement in Theorem 2 stems from extending the method of Browning and Elsholtz
+by applying the following new idea. In the case of k = 4 we do not consider the sum on the right
+hand side of (21) as a whole but we split the sum into two parts. In the first part we collect the
+values of u where 0 < u ≤ nδ for some 0 < δ < 1 which will be chosen later. This sum will be
+small since it contains few summands.
+                                                                                                 δ
+   The second part will consist of all summands where u > nδ . This corresponds to n1 t1 > n+n m
+which will force n2 t2 and n3 t3 to be small.
+   The following Lemma B is [5, Theorem 2].
+Lemma B. For any  > 0, we have
+                                                          n  23
+                                     f3 (m, n)  n                .
+                                                           m
+   In the proof of Theorem 2 below we make use of Lemma B rather than Theorem 1. Furthermore
+we will use a lifting procedure which was first used by Browning and Elsholtz [5] to lift upper
+bounds of the form
+                                                      2 c
+                                                      n
+(22)                                 f5 (m, n)  n
+                                                      m
+to upper bounds for fk (m, n) for k > 5. For possible future use we write this procedure up in the
+following lemma and work through the original proof by Browning and Elsholtz with an arbitrary
+exponent c > 1 in (22).
+Lemma C. Suppose that there exists c > 1 such that
+                                                   2 c
+                                                  n
+                                 f5 (m, n)  n          .
+                                                   m
+Then for any k ≥ 5 we have
+                                                  4/3 2 c2k−5
+                                                  k n
+                               fk (m, n)  (kn)                .
+                                                    m
+Proof. We will inductively show that for k ≥ 5 there exists Θk depending on k such that we have
+                                                   Θk 2 c2k−5
+                                                   k n
+                                                     
+(23)                            fk (m, n)  (kn)
+                                                     m
+and we note that this is certainly true for k = 5 by assumption. The proof works in three steps.
+   1. Establish an upper bound where the implied constant is allowed to depend on k.
+   For k ≥ 5 we want to have a bound of the form
+                                                       2 c2k−5
+                                                      n
+(24)                               fk (m, n) k, n
+                                                       m
+where the implied constant is allowed to depend on k. An upper bound of this type may easily
+be achieved via (21). Indeed this bound holds true for k = 5 by assumption and assuming its
+                                              SUMS OF UNIT FRACTIONS                                                                    13
+
+
+existence for fk (m, n) we find for fk+1 (m, n)
+                                                                      2 c2k−4 X∞
+                                   X               n(u + n)            n               1
+              fk+1 (m, n)                   fk u,            k, n                   c2k−5
+                                                      m                 m         u=1
+                                                                                      u
+                                  0<u≤kn
+                                   m|u+n
+                                                  c2k−4
+                                             n2
+                                         
+                                     
+                             k, n                           ,
+                                             m
+where we used that c > 1.
+   2. Use inequality (21) and split the sum into two parts.
+   For the upper bound where the implied constant is independent of k we again suppose it to be
+true for fk (m, n) with k ≥ 5 and inductively prove it to hold for fk+1 (m, n). Using inequalities
+(21) and (23) we get
+                                                
+                           X            n(u + n)
+           fk+1 (m, n)         fk u,
+                                           m
+                             0<u≤kn
+                              m|u+n
+                                                                                                                                 
+                                  X                       n(u + n)                     X                             n(u + n)
+                                             fk       u,                   +                            fk       u,
+                                                             m                                                          m
+                             0<u≤(L−1)n                                         (L−1)n<u≤kn
+                               m|u+n                                               m|u+n
+                                            2 c2k−4
+                                       k−5   n
+                         (kn) k Θk c2                ×
+                                             m
+                                                                                                                               
+                            X            1     c2k−4
+                                                                             X                      1                  k−4
+                                         k−5 L      +                                                    (k + 1)c2             .
+                                       uc2                                                   uc2k−5
+                           0<u≤(L−1)n                                  (L−1)n<u≤kn
+
+
+Since c2k−5 > 1 the infinite sums over c21k−5 converge. For the first sum we use that the sum is
+                                       u
+bounded by a constant for the second sum we use the following more accurate bound
+                                        ∞            Z ∞
+                     X          1      X      1             1               k−5
+                                     ≤                          du  L1−c2 .
+                              uc2k−5   u=L
+                                           u c2k−5
+                                                      L  u c2k−5
+                 (L−1)n<u≤kn
+
+Together with the fact that (a + b)α ≥ aα + bα for a, b > 0 and α > 1 this shows that
+
+        fk+1 (m, n)
+                                                                   c2k−4                                                 c2k−4 !
+                                                              n2
+                                                                                               
+                                                    k−5                               k−4                     k+1
+              ((k + 1)n) (k + 1)Θk c2                                      Lc2           +
+                                                              m                                L1/2−(c2k−4 )−1
+                                                                   c2k−4                             c2k−4
+                                                              n2
+                                                          
+                                            Θk c2k−5                                         k+1
+              ((k + 1)n) (k + 1)                                            L+                                            .
+                                                              m                        L1/2−(c2k−4 )−1
+  3. Optimizing for L and determining an upper bound for Θk .
+                                                                                          √
+                                                                 log( 23 (c)−1 )       1+ 5 1/
+  By the bound we derived in step 1 we may suppose that k ≥ max{      log 2       +4, (   2 ) −1}.
+With L = (k + 1)2/3 we get
+
+          fk+1 (m, n)
+                                                              c2k−4                                                        c2k−4
+                                                        n2
+                                                                                                   
+                                              k−5                                           k−4                    k−4 −1
+           ((k + 1)n) (k + 1)Θk c2                                  (k + 1) /3·c2                    1 + L(c2      )
+                                                                                  2
+
+                                                        m
+                                                                                  c2k−4
+                                                                             n2
+                                                                         
+                        (1+c2k−3 )                c2k−4 (Θk/2+2/3)
+           (k + 1)                n (k + 1)                                                   .
+                                                                             m
+14                                    C. ELSHOLTZ AND S. PLANITZER
+
+
+With Θk+1 = Θ2k + 23 and an appropriate choice of  this implies
+                                                                           c2(k+1)−5
+                                                          (k + 1)Θk+1 n2
+                                                      
+                                                  
+                            fk+1  ((k + 1)n)
+                                                                m
+Since for Θ5 ≤ 34 the sequence recursively defined by Θk+1 = Θ2k + 23 monotonically increases
+towards its limit 34 we eventually get for any k ≥ 5:
+                                                      4/3 2 c2k−5
+                                                      k n 
+                                   fk (m, n)  (kn)                .
+                                                        m
+                                                                                                           
+
+Proof of Theorem 2. In the following δ < 1 is a fixed constant to be chosen at the end of the
+                                                                            (1)        (2)
+proof. We start with proving bounds on f4 (m, n) and we write f4 (m, n) = f4 (m, n) + f4 (m, n).
+       (1)                                                             δ       (2)
+Here f4 (m, n) counts those solutions of equation (5) with n1 t1 ≤ n+n
+                                                                     m and f4 (m, n) those with
+            δ
+n1 t1 > n+nm . From (21) we have that
+                                                                        
+                         (1)         (2)
+                                                  X             n(u + n)      (2)
+            f4 (m, n) = f4 (m, n) + f4 (m, n) ≤         f3 u,              + f4 (m, n)
+                                                      δ
+                                                                   m
+                                                          0<u≤n
+                                                           m|u+n
+                                (2)
+                      = S1 + f4 (m, n).
+We use the following estimate (uniform in a ∈ Z)
+                                      X                     x1−Θ
+(25)                                           n−Θ =               + OΘ (1).
+                                                          (1 + Θ)q
+                                    n≤x
+                                  n≡a mod q
+
+To bound the sum S1 we use (25) and Lemma B to get
+                             2  23 X                 2  23                  δ
+                                                                                    !
+                              n            1           n                       n3
+(26)              S1  n                  2   n 
+                                                                                  +1 .
+                              m         δ u
+                                            3          m                       m
+                                           0<u≤n
+                                            m|u+n
+
+Next we prove that
+                                         (2)           n(12−4δ)/5
+                                       f4 (m, n)  n              .
+                                                          m8/5
+Since there are at most O (n ) distinct patterns (n1 , n2 , n3 , n4 ) it suffices to prove this bound for
+                          (2)
+all solutions counted by f4 (m, n) corresponding to a fixed pattern. To get an upper bound for
+                     (2)
+the contribution of f4 (m, n) we thus suppose that (n1 , n2 , n3 , n4 ) is fixed and note that the fact
+      4n           n+nδ
+that m ≥ n1 t1 > m implies the following upper bound for n2 t2 :
+                                        3      mn1 t1 − n   mnδ
+                                             ≥            ≥     .
+                                       n2 t2    nn1 t1      4n2
+Therefore we have
+                                                         n2−δ
+(27)                                            n2 t2        .
+                                                          m
+We use again relative greatest common divisors and write a representation of m             n as a sum of four
+unit fractions as
+            m                        1                                         1
+                =                                        +
+             n    n1 x1 x12 x13 x14 x123 x124 x134 x1234    n2 x2 x12 x23 x24 x123 x124 x234 x1234
+                                     1                                         1
+               +                                         +                                         .
+                  n3 x3 x13 x23 x34 x123 x134 x234 x1234   n4 x4 x14 x24 x34 x124 x134 x234 x1234
+                                            SUMS OF UNIT FRACTIONS                                                15
+
+
+It is again easy to see that x1 = x2 = x3 = x4 = 1 and multiplying out the last equation yields
+           mx12 x13 x14 x23 x24 x34 x123 x124 x134 x234 x1234
+(28)            n                       n                     n                     n
+            =      x23 x24 x34 x234 +      x13 x14 x34 x134 +    x12 x14 x24 x124 +    x12 x13 x23 x123 .
+                n1                     n2                     n3                    n4
+From equation (28) we see that the quantity
+                                          n                     n
+                                          n3 x12 x14 x24 x124 + n4 x12 x13 x23 x123
+                                 z34 =
+                                                                x34
+is an integer and we use
+                                           n                     n
+(29)                          z34 x34 =       x12 x14 x24 x124 +    x12 x13 x23 x123 .
+                                           n3                    n4
+                                    δ
+By (27) and 4n         n+n
+            m ≥ n1 t1 > m  we have
+                                                                                                     n12−4δ
+(30)       (t1 t2 )4 = (x12 x13 x14 x123 x124 x134 x1234 )4 (x12 x23 x24 x123 x124 x234 x1234 )4           ,
+                                                                                                      m8
+and we write
+          (x12 x13 x14 x123 x124 x134 x1234 )4 (x12 x23 x24 x123 x124 x234 x1234 )4 =
+            (x12 x13 x14 x23 x24 x123 x124 x1234 )(x12 x13 x23 x24 x123 x124 x134 x234 x1234 )×
+(31)
+            (x12 x14 x23 x24 x123 x124 x134 x234 x1234 )(x12 x13 x14 x24 x123 x124 x134 x234 x1234 )×
+            (x412 x13 x14 x23 x4123 x4124 x134 x234 x41234 ).
+We show that each of the five factors in brackets on the right hand side of the last equation
+corresponds to at most O (n ) solutions of (28), where  is an arbitrarily small positive number.
+First we note that all factors are of polynomial size in n and by Lemma A, given one of these
+factors, we have O (n ) choices for all the xij , xijk and x1234 appearing as sub-factors.
+   Given positive integer constants C0 , C1 , C2 and C3 of size polynomial in n, we count the number
+of integer solutions (A, B) of the equation
+(32)                                       C0 AB = C1 A + C2 B + C3 .
+Rewriting this equation in the form
+                                   (C0 A − C2 )(C0 B − C1 ) = C0 C3 + C1 C2
+we see that the number of solutions (A, B) is bounded by O (n ). For the second to the fifth factor
+on the right hand side of (31) exactly two parameters are missing to uniquely determine a solution
+of (28). All of these factors miss the parameter x34 . The second one additionally misses x14 , the
+third one x13 , the fourth one x23 and the last one x24 . In all of these cases equation (28) provides
+an instance of (32) where the variables A and B correspond to the two missing parameters (the
+term containing both missing parameters on the right hand side of (28) may be shifted to the left
+hand side).
+   In the first factor on the right hand side of (31) three parameters are missing. From equation
+(29) we see that we have at most O (n ) choices for the parameter x34 . To see the same bound
+for the parameters x134 and x234 we use again that equations of type (32) can be factorized.
+                                                                                                 (12−4δ)/5
+                                                                                            
+                                                                                             n
+   Since by (30) at least one of the factors on the right hand side of (31) is O                  m8/5
+                                                                                                             we have
+that
+                                             (2)    n(12−4δ)/5
+(33)                                       f4 (m, n)  n     .
+                                                      m8/5
+Again we note that in the considerations above the divisor bound from Lemma A was applied a
+bounded number of times and the bound in (33) follows upon redefining the choice of . Choosing
+     16
+δ = 17  in (26) and (33) we get
+                                                 4/3
+                                                         n28/17
+                                                                 
+                                                n
+(34)                            f4 (m, n)  n         + 8/5 .
+                                                 m2/3    m
+16                                           C. ELSHOLTZ AND S. PLANITZER
+
+
+To bound f5 (m, n) we again use (21) and (25) and get
+                                                          4/3                     28/17          !                     28/17
+                                                     n2                       n2                                    n2
+                                                                                                              
+                                
+                                        X                         1                          1              
+(35)         f5 (m, n)  n                                            +                                n                         .
+                                    0<u≤4n
+                                                     m           u2/3         m             u8/5                    m
+                                     m|u+n
+
+                 28
+     Setting c = 17 in Lemma C yields the bound in Theorem 2.                                                                         
+
+
+                                                      7. Lower bounds
+Proof of Theorem 3. To prove the first bound we are going to extend an idea used in the proof
+of [5, Theorem 1]. As before we use highly composite denominators n ∈ N, but here we show that
+there are many values a1 with many corresponding pairs (a2 , a3 ) giving a solution of
+                                                      m   1    1   1
+                                                        =    +    + .
+                                                      n   a1   a2  a3
+To prove our lower bound for f3 (m, n) we consider the set
+                                        (             r
+                                                           )
+                                                     Y
+                                             0   0
+                                  N = mn : n =           pi ,
+                                                                              i=1
+
+where pi is the i-th prime. In choosing the denominators n ∈ N we reduce the problem to finding
+many solutions of the equation
+                                        1     1   1     1
+                                          =     +    + .
+                                       n0    a1   a2   a3
+We set a1 = n0 + d, where d is any divisor of n0 , and are left with
+                                        1      1                     1                1   1
+                                           − 0   = 0                 n0
+                                                                              =         + .
+                                        n0  n +d  n                  d +1
+                                                                                      a2  a3
+
+For two divisors d1 and d2 of n0 with (d1 , d2 ) = 1 we have
+                                    1                            1                             1
+(36)                            n0
+                                            =            0                    +        0                       .
+                         n0     d +1
+                                                 n0 ( nd +1)
+                                                             (d1 + d2 )
+                                                                                    n0 ( nd +1)
+                                                                                                (d1 + d2 )
+                                                      d1                                 d2
+
+We note that for two pairs of divisors d1 , d2 and d01 , d02 with (d1 , d2 ) = 1 and (d01 , d02 ) = 1 it follows
+that
+                       0                        0        
+                   n0 nd + 1                   n0 nd + 1                      d1   d0
+                                (d1 + d2 ) =         0        (d01 + d02 ) ⇔     = 01 .
+                        d1                         d1                         d2   d2
+Since d1 and d2 as well as d01 and d02 are coprime we get d1 = d01 and d2 = d02 . This implies that
+each pair (d1 , d2 ) with d1 < d2 gives a unique solution of equation (36). Furthermore for any
+choice of d, d1 , d2 it follows that
+                                                 0     
+                                              n0 nd + 1
+                                     n0 + d <             (d1 + d2 ),
+                                                  d1
+which altogether implies that by counting all possible choices for d, d1 , d2 we get a lower bound
+for twice the value of f3 (1, n0 ).
+                                                                  0
+   Choosing n0 as in the construction of the set N , we have 2ω(n ) choices for the divisor d and
+using the binomial theorem there are
+                  ω(n0 )           ω(n 0
+                                           )−i             ω(n 0
+                  X          ω(n0 )    X         ω(n0 ) − i   X) ω(n0 )     0          0
+                                                            =             2ω(n )−i = 3ω(n )
+                  i=0
+                               i       j=0
+                                                    j         i=0
+                                                                    i
+                                        SUMS OF UNIT FRACTIONS                                             17
+
+
+choices for the divisors d1 and d2 . As a consequence of the prime number theorem it is known
+                        0
+that ω(n0 ) ∼ logloglogn n0 and hence, for n ∈ N
+                                                                                 log n0
+                                                                                         
+                                     0    1 ω(n0 ) ω(n0 )
+              f3 (m, n) = f3 (1, n ) ≥ 2          3       ≥ exp (log 6 + o(1))
+                                          2                                    log log n0
+                                                                                          
+                                                                                   log n
+                                                          ≥ exp (log 6 + om (1))             .
+                                                                                 log log n
+   For the second bound we modify the idea used in the proof of [12, Theorem 1.8]. For fixed
+m ∈ N, as a consequence of the Turán-Kubilius inequality (see e.g. [29, p. 434]) we get that the
+set
+                        \                          
+                                                         1
+                                                                             
+                 M1 =          n ∈ N : ω(n, k, m) =          + o(1) log log n
+                                                      ϕ(m)
+                             k≤m
+                           (k,m)=1
+
+is a set with density one, i.e. limx→∞ {n∈Mx1 :n≤x} = 1.
+                                      m0         0  0                                    0
+    For any n ∈ M1 we write m     n = n0 with (m , n ) = 1 and note that ω(n, k, m) = ω(n , k, m)
+                                                                      0                0
+ all k with(k, m) = 1. By construction of the set M1 and since n is coprime to m , we find
+for
+   1
+ ϕ(m) + o(1)   log log n prime divisors p of n0 in the residue class −n0 mod m0 . For any of these
+prime divisors we have
+                                 m0      1          p         1
+                                   0
+                                     − n0 +p = n0 +p = n0
+                                 n       m0
+                                                  0
+                                                n m0       n0 /p+1
+                                                                0     m
+       n0/p+1
+where m0 is an integer. Again, by construction of the set M1 , for the number of prime factors
+of n0 we have
+                         ω(n0 ) ≥ ω(n) − ω(m) = (1 + om (1)) log log n.
+   For two coprime divisors d1 and d2 of n0 we construct decompositions of n01/p+1 as a sum of
+                                                                                       n0   m0
+two unit fractions as in (36). As above we see that for any prime divisor p of n0 in the residue
+                                          0
+class −n0 mod m0 there are at least 3ω(n ) such decompositions and all of them are distinct.
+   Altogether this implies that for any n ∈ M1
+                                                                      
+                        1                  0                    1
+                             + o(1) 3ω(n ) · log log n ≥           + o(1) 3ω( /m) · log log n
+                                                                             n
+         f (m, n) ≥
+                      ϕ(m)                                    ϕ(m)
+                  ≥ exp((log 3 + om (1)) log log n) · log log n.
+   Finally, we prove the improved lower bound on f3 (4, n). To do so, we set
+                                                        
+                     \            τ (n, 4)
+          M2 =          {n ∈ N :          ≤ τ (n, i, 4)} ∩
+                                     4
+                    i∈{1,3}
+
+                ∩ {n ∈ N : ω(n) = (1 + o(1)) log log n} ∩ {n ∈ N : τ (n) ≥ (log n)log 2+o(1) }.
+The first two sets with i = 1 and i = 3 in the intersection in the definition of M2 have density 1
+by [17, Theorem 5]. For the third and the fourth set this is true by the Turán-Kubilius inequality
+(again see e.g. [29, p. 434]). Hence the set M2 has density 1 and we investigate what happens
+for n in a certain residue class modulo 4.
+   If n ≡ 0 mod 4, then n4 = n1/4 and for any divisor d of n4 we have
+                                        1       1             1
+                                        n − n    = n        n
+                                                                     .
+                                        4   4 +d   4        4d + 1
+
+Since ω n4 ≥ ω(n) − 1, with the same arguments as above, we conclude that the number of repre-
+           
+
+sentations of n/4(n/14d+1) as a sum of two unit fractions is at least of order 3ω(n/4) = 3(1+o(1)) log log n .
+From τ (n) = p|n (νp (n) + 1) we easily deduce that τ n4 ≥ 13 τ (n). Altogether we thus get
+              Q                                               
+
+                                   1  n  ω(n/4)
+                        f3 (4, n) ≥ τ      3       ≥ exp((log 6 + o(1)) log log n).
+                                   3    4
+18                                           C. ELSHOLTZ AND S. PLANITZER
+
+
+  If n ≡ 2 mod 4, then n2 is odd and the same is true for all τ                  n
+                                                                                         = 21 τ (n) divisors of n2 . We
+                                                                                     
+                                                                                 2
+have n4 = n2/2 and for any divisor d of n2
+                                               2      1                 1
+                                               n − n/2+d   =       n       .
+                                                               n    /2d+1
+                                               2     2         2      2
+
+As above we get                          n
+                         f3 (4, n) ≥ τ 3ω(n)−1 ≥ exp((log 6 + o(1)) log log n).
+                                   2
+   Finally, if n ≡ r mod 4 for r ∈ {1, 3}, we have τ (n, 4) = τ (n) and by construction of the set
+M2 , we have more than τ (n)
+                          4 divisors d of n in the residue class −r mod 4. Again, for any of these
+divisors we have
+                                     4      1          1
+                                        − n+d =  n         .
+                                     n      4     n    /d+1
+                                                        4
+
+Applying the arguments used previously one more time, we find
+                                             τ (n) ω(n)
+                               f3 (4, n) ≥        3     ≥ exp((log 6 + o(1)) log log n)
+                                               4
+also in this case.
+                                                                                                                     
+
+Remark 3. The difference in the constants in the exponential functions of the lower bounds
+on f (m, n) and f (4, n) for sets of integers with density one in Theorem 3 is basically due to
+                                                                                           m0
+cancellation effects when dealing with general m. In particular we deal with m      n = n0 , where
+(m0 , n0 ) = 1, and we would need to have good control of the number of divisors of n0 in the residue
+class −n0 mod m0 to get the log 6 exponent also in the general case. However, if we do not ask
+about a lower bound holding for a set of density one within the positive integers, but for a set of
+integers of density one within the set S of positive integers coprime to a given m ∈ N, we may
+achieve the log 6 exponent. To do so we replace the set M1 with
+                                                                
+               \                        τ (n)
+        M01 = 
+                                                            
+                  {n ∈ N : τ (n, i, m) =                    ∩
+                                               (1 + om (1))}
+                                        ϕ(m)
+                     1≤i≤m
+                     (i,m)=1
+
+             ∩ {n ∈ N : ω(n) = (1 + o(1)) log log n} ∩ {n ∈ N : τ (n) ≥ (log n)log 2+o(1) } ∩ S.
+Now we may use results from [17, Theorem 5] as well as Turán-Kubilius like previously and get that
+M01 has density one in S. Instead of constructing the first denominator via shifts in prime factors
+of n we may use arbitrary divisors of n in this case, which leads to the improvement mentioned
+above.
+Proof of Theorem 4. We consider solutions corresponding to the pattern (1, p, p). In equation (1)
+we suppose that a1 is the denominator with (a1 , p) = 1 and we write a1 = t1 , a2 = pt2 and
+a3 = pt3 . We use the parametrization via relative greatest common divisors of the ti and applying
+Lemma 1 it is easy to see, that x1 = x2 = x3 = 1 in this case. Hence we are looking for infinitely
+many primes p ≡ e mod f such that for given m ∈ N the equation
+                                 m        1               1               1
+(37)                               =              +               +
+                                 p   x12 x13 x123   px12 x23 x123   px13 x23 x123
+has many solutions. Multiplying equation (37) by the common denominator we get
+                                      mx12 x13 x23 x123 = px23 + x13 + x12 .
+Setting x12 + x13 = kx23 , M = lcm(m, f ) and x12 = Mm we deduce that
+                                               
+                                             M
+                                 M kx23 −         x123 = p + k.
+                                             m
+                                       SUMS OF UNIT FRACTIONS                                         19
+
+
+The residue class (f − e) ≡ −e mod    into the residue classes (f − e) + if mod M , for
+                                f splits
+           m                             m                                              m
+0 ≤ i ≤ (m,f ) − 1. Note, that gcd f, (m,f ) = 1 hence the integers i · f for 0 ≤ i ≤ (m,f ) − 1 are
+                                   m                                             m
+a full system of residues modulo (m,f ) . In particular there exists a 0 ≤ j ≤ (m,f ) − 1 such that
+                         m
+(f − e) + jf ≡ 1 mod (m,f ) . We set k = (f − e) + jf and with (e, f ) = 1 we altogether see that
+(M, k) = 1.      Qr
+   Now let Q = i=1 qi where qi is the i-th prime with qi ≡ − M    m mod k and qi > M . Note that
+gcd(M, Q) = j1.            k
+   With r = ϕ(k)Cloglogt log t we find that Q is of order t1/C +of,m (1) . We now use Linnik’s theorem
+on primes in arithmetic progressions. As the modulus is very smooth we can use an exponent of
+C = 12
+     5 + o(1), due to Chang [6, Corollary 11]. Hence we may find a prime p of order M t
+                                                                                            C 1+of,m (1)
+
+with
+                                             p ≡ −k mod QM.
+This congruence implies that p + k is divisible by the primes q1 , . . . , qr and together with k =
+(f − e) + jf , we deduce that p ≡ e mod f and p + k ≡ 0 mod M .
+   Let l ∈ N0 and S be a subset of size l ordk − M  m + 1 of the prime factors of Q. Hence
+                M
+        Q
+         q∈S q+ m                                     p+k
+x23 =       k       is an integer and we set x123 = M Q   q . We observe that any of these choices
+                                                               q∈S
+leads to a different solution of (37). To see this we look at the denominator a2 = px12 x23 x123 of
+the second fraction on the right hand side of this equation. Suppose that two sets S and S 0 would
+                                                                                            0
+lead to the same denominator a2 . With x12 = M  m this would imply the existence of x23 6= x23 such
+that
+                            M          p+k           M          p+k
+                           p x23             M
+                                                  = p x023
+                            m      M (kx23 − m )      m     M (kx023 − M
+                                                                       m)
+
+from which we derive that
+                                                     Q
+                                     x23   kx23 − M
+                                                  m     q∈S q
+                                      0  =   0    M
+                                                    =Q           0
+                                                                   .
+                                     x23   kx23 − m   q 0 ∈S 0 q
+
+                      x23 then q would also divide M
+If q ∈ S would divide Q                            m , which is impossible by construction of Q.
+                              q
+We hence have that Q 0q∈S0 q0 = 1 and thus S = S 0 .
+                     q ∈S
+  To count the number of solutions we get with the above construction, we make use of a formula
+which can be found in [3, Theorem 1], for example, and which states
+
+                                      Xn               u−1
+                                                       1X
+(38)                                               =         (1 + ξuj )n ,
+                                             iu        u j=0
+                                       i≥0
+
+
+where ξu = exp 2πi
+                    
+                  u . Note that for the term corresponding to j = 0 in the sum on the right hand
+side of (38) we get 2n while for all other j we have |1 + ξuj | < 2. Hence we deduce
+                                     X  n  2n
+                                              =     (1 + ou (1)).
+                                          iu      u
+                                       i≥0
+
+The number of choices of the parameter x23 is
+             X           r
+                                   X
+                                                 r+1
+                                                           X
+                                                                    r
+                                                                           
+                                    =                      −
+                  i ordk − M                 i ordk − M       i ordk − M
+                                                                       
+                i≥0         m +1             i≥0      m                m     i≥0
+
+                           2r+1                           2r
+                      =             (1 + o f,m (1)) −           (1 + of,m (1))
+                        ordk − M                      ordk − M
+                                  
+                                m                            m
+                            2r
+                      =            (1 + of,m (1)).
+                        ordk − Mm
+20                                           C. ELSHOLTZ AND S. PLANITZER
+
+                   j                     k
+                           log t
+Plugging in r =                      and using that p ≤ M C t1+of,m (1) we get a lower bound of
+                       ϕ(k)C log log t
+                                                                           
+                                                log 2                 log t
+                         f3 (m, p) f,m exp             + of,m (1)
+                                               Cϕ(k)                log log t
+(39)                                                                               
+                                                   5 log 2                    log p
+                                   f,m exp                   + of,m (1)                .
+                                               12 lcm(m, f )                log log p
+                                                                                                                 
+Remark 4. The best known exponent for Linnik’s Theorem takes care of the worst case modulus
+and is 5 by work of Xylouris [30]. Chang’s result [6, Corollary 11] considers smooth moduli (as
+in our situation) and allows for the better exponent 12
+                                                      5 . Harman investigated, in connection with
+constructing Carmichael numbers, what happens if one is allowed to avoid a small set of exceptional
+                                                           1
+moduli. In this situation he improved the exponent to 0.4736  (see [20, Theorem 1.2] and [19] for
+some more explanation). As in our situation we choose the modulus M , and hence can avoid
+”bad” factors, it seems possible that Theorem 4 can also be proved with a factor of 0.4736 instead
+    5
+of 12 ≈ 0.4167 in the exponent of the lower bound on f3 (m, p).
+Remark 5. If we consider the case m = 4, f = 4 and e ∈ {1, 3} in Theorem 4, we can explicitly
+compute k in the first line of (39). We simply have k = 3 if e = 1 and k = 1 if e = 3 hence we
+arrive at the lower bounds
+                                                                      
+                                                               log p
+                             f3 (4, p)  exp (0.1444 + o(1))
+                                                             log log p
+if e = 1 and                                                                   
+                                                                      log p
+                                    f3 (4, p)  exp (0.2888 + o(1))
+                                                                    log log p
+if e = 3.
+
+                                                 Acknowledgement
+  The authors acknowledge the support of the Austrian Science Fund (FWF): W1230. Further-
+more we would like to thank Igor Shparlinski and Glyn Harman for drawing our attention to the
+papers [6] and [19, 20].
+
+                                                    References
+ [1] A. Aigner, Brüche als Summe von Stammbrüchen, J. Reine Angew. Math. 214/215 (1964), 174–179.
+                                                                                     P11 1
+ [2] R. Arce-Nazario, F. Castro, and R. Figueroa, On the number of solutions of        i=1 xi = 1 in distinct odd
+     natural numbers, J. Number Theory 133 (2013), no. 6, 2036–2046.
+ [3] A. T. Benjamin, B. Chen, and K. Kindred, Sums of Evenly Spaced Binomial Coefficients, Math. Mag. 83
+     (2010), no. 5, 370–373.                                  P            Q
+ [4] L. Brenton and R. Hill, On the Diophantine equation 1 =      1/ni + 1/ ni and a class of homologically trivial
+     complex surface singularities, Pacific J. Math. 133 (1988), no. 1, 41–67.
+ [5] T. D. Browning and C. Elsholtz, The number of representations of rationals as a sum of unit fractions, Illinois
+     J. Math. 55 (2011), no. 2, 685–696.
+ [6] M.-C. Chang, Short character sums for composite moduli, J. Anal. Math. 123 (2014), 1–33.
+ [7] Y.-G. Chen, C. Elsholtz, and L.-L. Jiang, Egyptian fractions with restrictions, Acta Arith. 154 (2012), no. 2,
+     109–123.
+ [8] R. Dedekind, Über Zerlegungen von Zahlen durch ihre größten gemeinsamen Teiler, in Gesammelte math-
+     ematische Werke, Zweiter Band (Fricke, R., Noether, E. and Ore, Ö., eds.), Friedr. Vieweg & Sohn Akt.-
+     Ges., Braunschweig, 1931, pp. 103–147. Available online at http://resolver.sub.uni-goettingen.de/purl?
+     PPN235693928.
+ [9] C. Elsholtz, Egyptian fractions with odd denominators, Q. J. Math. 67 (2016), no. 3, 425–430.
+[10]        , Sums of k Unit Fractions, Shaker Verlag, Aachen, 1999. Phd Thesis, Technische Universität Darmstadt
+     (1998), 109 pages.
+[11]        , Sums of k unit fractions, Trans. Amer. Math. Soc. 353 (2001), no. 8, 3209–3227.
+[12] C. Elsholtz and T. Tao, Counting the number of solutions to the Erdős-Straus equation on unit fractions, J.
+     Aust. Math. Soc. 94 (2013), no. 1, 50–105.
+[13] R. L. Graham, On finite sums of reciprocals of distinct nth powers, Pacific J. Math. 14 (1964), 85–92.
+[14]        , On finite sums of unit fractions, Proc. London Math. Soc. (3) 14 (1964), 193–207.
+                                           SUMS OF UNIT FRACTIONS                                                  21
+
+
+[15]         , Paul Erdős and Egyptian Fractions, in Erdős Centennial, Bolyai Soc. Math. Stud., 25, (Lovász, L.,
+     Ruzsa, I. Z. and Sós, V. T., eds.), János Bolyai Math. Soc., Budapest, 2013, pp. 289–309.
+[16] R. K. Guy, Unsolved Problems in Number Theory, third edition, Springer-Verlag, New York, 2010.
+[17] R. R. Hall, On the distribution of divisors of integers in residue classes (mod k), J. Number Theory 2 (1970),
+     168–188.
+[18] G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers, sixth edition, Oxford University
+     Press, Oxford, 2008.
+[19] G. Harman, On the number of Carmichael numbers up to x, Bull. London Math. Soc. 37 (2005), no. 5, 641–650.
+[20]         , Watt’s mean value theorem and Carmichael numbers, Int. J. Number Theory 4 (2008), no. 2, 241–248.
+[21] S. V. Konyagin, Double exponential lower bound for the number of representations of unity by Egyptian
+     fractions, Math. Notes 95 (2014), no. 1-2, 277–281. Translation of Mat. Zametki 95 (2014), no. 2, 312–316.
+[22] V.-A. Lebesgue, Extrait des exercises d’analyse numérique, Nouvelles annales de mathématiques 1re série 8
+     (1849), 347–353.
+[23] H. W. Lenstra, Jr. and C. Pomerance, A rigorous time bound for factoring integers, J. Amer. Math. Soc. 5
+     (1992), no. 3, 483–516.
+[24] G. Martin, Dense Egyptian fractions, Trans. Amer. Math. Soc. 351 (1999), no. 9, 3641–3657.
+[25] L. J. Mordell, Diophantine Equations, Pure and Applied Mathematics, Vol. 30, Academic Press, London and
+     New York, 1969.
+[26] L. A. Rosati, Sull’equazione diofantea 4/n = 1/x1 + 1/x2 + 1/x3 , Boll. Un. Mat. Ital. (3) 9 (1954), 59–63.
+                                                                             Pn    1
+[27] C. Sándor, On the number of solutions of the Diophantine equation        i=1 xi = 1, Period. Math. Hungar. 47
+     (2003), no. 1-2, 215–219.
+[28] B. M. Stewart, Theory of Numbers, second edition, The Macmillan Company, New York, Collier-Macmillan
+     Limited, London, 1964.
+[29] G. Tenenbaum, Introduction à la théorie analytique et probabiliste des nombres, third edition, Éditions Belin,
+     Paris, 2008.
+[30] T. Xylouris, Über die Nullstellen der Dirichletschen L-Funktionen und die kleinste Primzahl in einer arith-
+     metischen Progression, Universität Bonn, 2011. PhD thesis.
+
+   (C. Elsholtz) Graz University of Technology, Institute of Analysis and Number Theory, Kopernikus-
+gasse 24/II, 8010 Graz, Austria
+   E-mail address: elsholtz@math.tugraz.at
+
+   (S. Planitzer) Graz University of Technology, Institute of Analysis and Number Theory, Kopernikus-
+gasse 24/II, 8010 Graz, Austria
+   E-mail address: planitzer@math.tugraz.at
+

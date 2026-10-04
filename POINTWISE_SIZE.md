@@ -45,6 +45,17 @@ Erdős–Straus (ES) is not solved here, and nothing below touches it.
   serves for all procedures. The same holds for correct unbounded
   procedures whose formal run is finite at a square-mimicking point that
   is universally nondegenerate.
+  *Novelty (partial; `reviews/novelty-audit-2026-10.md`).*
+  * Theorem C is the procedure-level, H-conditional generalisation of known
+    odd-square obstructions:
+    * Elsholtz–Tao Prop 1.6 and the remark on p. 6;
+    * Mordell 1969 / Schinzel 2000, square classes are not solvable by
+      polynomials (as quoted in ET p. 8);
+    * Yamamoto 1965;
+    * Bright–Loughran Cor 1.3–1.4.
+  * Its unconditional instances below are known in substance.
+  * Theorem M formalises the standard generic-point / Hypothesis-H
+    principle; no prior procedure-level statement was found.
 * **Instances (§3).** The following are special cases:
   * Corollary 17.3.1 / Thms 5.1, 17.3 / Prop. 77.3. These are
     unconditional, from the rational point "1". With Linnik this gives

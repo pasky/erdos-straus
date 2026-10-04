@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/5rzrEqBCey5CFrBgHd8WY11W2tI</id>
+  <title>arXiv Query: search_query=all:"exceptional set" AND (all:unit OR all:Egyptian)&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-10-04T08:22:13Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22exceptional+set%22+AND+(all:unit+OR+all:Egyptian)&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>24</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.00946v1</id>
+    <title>Baire-category transfer between Engel and Pierce expansions</title>
+    <updated>2026-10-01T02:29:15Z</updated>
+    <link href="https://arxiv.org/abs/2610.00946v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.00946v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we construct an explicit correspondence between Engel and Pierce expansion digit sequences, obtained by adding $n-2$ to the $n$th Engel expansion digit, and show that it induces a homeomorphism from the set of irrationals in the unit interval onto the complement of a countable dense subset of this set. This yields a transfer principle for Baire category between the two expansions, and we determine exactly which Borel classes are preserved. We then identify this homeomorphism with the composition of two maps considered by Moroz (2027), and study the continuity of the second map, which sends modified Engel expansions to Pierce expansions. We determine its set of discontinuities, show that every discontinuity is a jump, and prove that the map is nowhere monotone. In particular, this confirms, for this map, the nowhere monotonicity and the continuity outside the exceptional set conjectured by Moroz (2027). As applications, we characterize the non-increasing position-dependent weights for which the associated series of Pierce expansion digits diverges on a comeager set, and we relate the convergence exponents of the Engel and Pierce expansion digit sequences.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-01T02:29:15Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Min Woong Ahn</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.28814v2</id>
+    <title>Wiman-Valiron inequalities in the unit disk outside sets of finite logarithmic measure</title>
+    <updated>2026-09-25T08:58:52Z</updated>
+    <link href="https://arxiv.org/abs/2609.28814v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.28814v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give affirmative answers to both parts of Question 2.6 posed by Grosse-Erdmann (2025) concerning Wiman--Valiron inequalities in the unit disk. For every unbounded analytic function in the disk, we establish the proposed iterated-logarithm inequalities outside exceptional sets of finite logarithmic measure. The corresponding power estimate is a corollary. Both conclusions follow from a variance bound for Khinchin families and a classical estimate for their largest atom. The multiplicative constants in the main inequalities can be chosen absolute. We also obtain a disk analogue of Rosenbloom's composition estimate, with an explicit boundary prefactor. The key step combines a boundary change of variable with a monotone auxiliary function whose derivative is exactly the variance of a rescaled member of the Khinchin family. A classical example shows that the leading logarithmic exponent $1/2$ cannot be decreased.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T21:49:13Z</published>
+    <arxiv:comment>Minor improvements</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Víctor J. Maciá</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.03323v2</id>
+    <title>Variable-Cliff Nielsen Geometry and an Exponent -4/3 Lower Bound for the Infinite-Cliff Diameter</title>
+    <updated>2026-09-16T05:45:54Z</updated>
+    <link href="https://arxiv.org/abs/2609.03323v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.03323v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $D=2^n$ and $M=3n+9\binom n2$. We study the right-invariant one-step-cliff metric $d_Q$ on $\operatorname{PU}(D)$, with unit penalty on Pauli weights one and two and penalty $Q$ on all higher weights. If $M/Q_D\to0$ and $MQ_D^{3/4}/D^2\to0$, then, for every fixed $0&lt;x&lt;π/\sqrt3$, \[
+  μ_D\bigl(B_{Q_D}([I],x\sqrt{Q_D})\bigr)\le e^{-c_xD^2}. \] Here $μ_D$ is normalized Haar measure. Thus the Haar-typical distance from the identity and the diameter are both asymptotic to $(π/\sqrt3)\sqrt{Q_D}$ throughout the window $M\ll Q_D\ll D^{8/3}M^{-4/3}$. Choosing $Q_D=κD^{8/3}M^{-4/3}$ with sufficiently small fixed $κ&gt;0$ yields a Haar-typical lower bound of order $D^{4/3}M^{-2/3}$ for the corresponding infinite-cliff Carnot--Carathéodory distance, outside an $e^{-Ω(D^2)}$ exceptional set. The infinite-cliff diameter therefore has exponential lower rate at least $4/3$, disproving Brown's exponent-one conjecture. The same estimate gives a fixed-error no-ancilla two-qubit circuit lower bound of the same order.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T03:21:33Z</published>
+    <arxiv:comment>Minor revision: corrected a citation and the corresponding bibliographic entry. No changes to the mathematical results</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Honghuai Fang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.01683v1</id>
+    <title>Smooth Failure of Boundary Unique Continuation for Harmonic Functions</title>
+    <updated>2026-08-03T04:17:56Z</updated>
+    <link href="https://arxiv.org/abs/2608.01683v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.01683v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For every $n\geq 3$, we construct a nonconstant real-valued function $U\in C^\infty(\overline{\mathbb R^n_+})$, harmonic in the upper half-space, whose complete boundary jet vanishes on a compact nowhere dense subset of $\partial\mathbb R^n_+$ of positive $(n-1)$-dimensional measure. The essential construction takes place in two dimensions and yields the case $n=3$; higher-dimensional examples follow by cylindrical lifting. In every dimension, the exceptional set may occupy an arbitrarily large proportion of a fixed boundary cube. This resolves, in the negative, the smooth case of the boundary unique-continuation problem left open by Bourgain and Wolff in 1990 \cite[p.~260]{BourgainWolff1990}. In dimension three, a Möbius--Kelvin transfer gives the corresponding counterexample in the unit ball. It disproves Nadirashvili's smooth unit-ball conjecture on boundary singular sets \cite[Conjecture~4, p.~232]{Nadirashvili1997} and, a fortiori, disproves the gradient-only formulation subsequently recorded by Logunov and Malinnikova \cite[Section~7.4]{LogunovMalinnikova2020} and by Lin \cite[Conjecture~3, pp.~15--16]{Lin2020Current}.
+  The proof uncovers a hidden flexibility principle for nonlocal elliptic equations: microscopic modifications can exert macroscopic control over exterior data. A quantitative correction mechanism for the half-Laplacian, iterated across scales, produces flat nonlocal Cauchy data on a set of positive measure. Thus nonlocality has a striking dual character: the same long-range interaction that drives unique-continuation rigidity can also furnish the flexibility through which that rigidity fails in the smooth category.</summary>
+    <category term="math.AP" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-03T04:17:56Z</published>
+    <arxiv:primary_category term="math.AP"/>
+    <author>
+      <name>Guolin Qin</name>
+    </author>
+    <author>
+      <name>Weicheng Zhan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.15555v1</id>
+    <title>Service-Induced Congestion in Memory-Constrained LLM Serving</title>
+    <updated>2026-06-14T02:49:03Z</updated>
+    <link href="https://arxiv.org/abs/2606.15555v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.15555v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In large language model (LLM) serving, each request accumulates persistent graphics processing unit (GPU) memory during service as its key-value cache grows with every generated token. Under high concurrency, aggregate memory usage therefore increases endogenously over time: the service process itself creates future capacity pressure. When memory capacity is exceeded, systems evict active requests, discarding cached state and restarting them later, which wastes computation and reduces throughput. We develop a discrete-time dynamical model of memory-constrained LLM inference that captures admission, memory growth, and eviction under continuous batching. In the saturated-input regime, the system admits both eviction-free fixed points and limit cycles with evictions. For homogeneous workloads, we show that the eviction-free equilibrium is unstable and that, except for a Lebesgue-measure-zero exact-capture set, the system converges to a unique worst-case limit cycle that is asymptotically stable outside this exceptional set, with throughput losses as large as 50%. For heterogeneous workloads, we prove a stability criterion in the two-class common-input setting and explain how the survival-polynomial mechanism generalizes to multiple classes and heterogeneous-input lengths. Under an input-dominated scaling regime, coprime decoding lengths stabilize the eviction-free equilibrium, while non-coprime lengths create synchronized modes that drive instability. These results characterize when workload heterogeneity desynchronizes completions and helps stabilize memory-constrained serving. More broadly, we identify service-induced congestion as a structural instability mechanism and derive scheduling design principles for sustaining high throughput.</summary>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-14T02:49:03Z</published>
+    <arxiv:comment>101 pages</arxiv:comment>
+    <arxiv:primary_category term="math.OC"/>
+    <author>
+      <name>Ruicheng Ao</name>
+    </author>
+    <author>
+      <name>Jing Dong</name>
+    </author>
+    <author>
+      <name>Gan Luo</name>
+    </author>
+    <author>
+      <name>David Simchi-Levi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.23079v1</id>
+    <title>An exceptional set of uniformly spread Kakutani tilings of the line</title>
+    <updated>2025-12-28T21:04:14Z</updated>
+    <link href="https://arxiv.org/abs/2512.23079v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.23079v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The α-Kakutani substitution rule splits the unit interval into two subintervals of lengths alpha and 1 - α, for a fixed α in (0,1). A simple inflation-substitution procedure produces tilings of the real line and their associated Delone sets. We show that there are precisely five distinct values of min(α, 1 - α) for which these sets are uniformly spread, meaning that they are a bounded displacement of a lattice. The proof of this surprising fact combines the construction and analysis of a related family of primitive substitution tilings, Solomon's criterion for uniform spreadness, and a classification of Pisot-Vijayaraghavan polynomials.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-28T21:04:14Z</published>
+    <arxiv:comment>14 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Yotam Smilansky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2506.15914v1</id>
+    <title>On the Exceptional Sets of Transcendental Analytic Functions in Several Variables with Integer Coefficients</title>
+    <updated>2025-06-18T23:22:46Z</updated>
+    <link href="https://arxiv.org/abs/2506.15914v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2506.15914v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In 2020, Marques and Moreira proved that every subset of $\overline{\mathbb{Q}} \cap B(0,1)$, which is closed under complex conjugation and contains $0$, is the exceptional set of uncountably many transcendental analytic functions with integer coefficients. In this paper, we extend this result to transcendental analytic functions in several variables. In particular, we show that every subset of $\overline{\mathbb{Q}}^m$ contained in the unit polydisc $Δ(0;1)$, closed under complex conjugation and containing the zero vector, is the exceptional set of uncountably many transcendental analytic functions in several variables with integer coefficients.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-06-18T23:22:46Z</published>
+    <arxiv:comment>13 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jean Lelis</name>
+    </author>
+    <author>
+      <name>Bruno De Paula Miranda</name>
+    </author>
+    <author>
+      <name>Carlos Gustavo Moreira</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.05825v1</id>
+    <title>Factorization and piecewise affine approximation of bi-Lipschitz mappings on large sets</title>
+    <updated>2024-09-09T17:30:23Z</updated>
+    <link href="https://arxiv.org/abs/2409.05825v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.05825v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A well-known open problem asks whether every bi-Lipschitz homeomorphism of $\mathbb{R}^d$ factors as a composition of mappings of small distortion. We show that every bi-Lipschitz embedding of the unit cube $[0,1]^d$ into $\mathbb{R}^d$ factors into finitely many global bi-Lipschitz mappings of small distortion, outside of an exceptional set of arbitrarily small Lebesgue measure, which cannot in general be removed. Our main tool is a corona-type decomposition theorem for bi-Lipschitz mappings. As corollaries, we obtain a related factorization result for bi-Lipschitz homeomorphisms of the $d$-sphere, and we show that bi-Lipschitz embeddings of the unit $d$-cube in $\mathbb{R}^d$ can be approximated by global piecewise affine homeomorphisms outside of a small set.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-09T17:30:23Z</published>
+    <arxiv:comment>47 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Guy C. David</name>
+    </author>
+    <author>
+      <name>Matthew Romney</name>
+    </author>
+    <author>
+      <name>Raanan Schul</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2409.04235v1</id>
+    <title>Rate of growth of random analytic functions, with an application to linear dynamics</title>
+    <updated>2024-09-06T12:43:34Z</updated>
+    <link href="https://arxiv.org/abs/2409.04235v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.04235v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We obtain Wiman-Valiron type inequalities for random entire functions and for random analytic functions on the unit disk that improve a classical result of Erdős and Rényi and recent results of Kuryliak and Skaskiv. Our results are then applied to linear dynamics: we obtain rates of growth, outside some exceptional set, for analytic functions that are frequently hypercyclic for an arbitrary chaotic weighted backward shift.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.FA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-06T12:43:34Z</published>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Kevin Agneessens</name>
+    </author>
+    <author>
+      <name>Karl-G. Grosse-Erdmann</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1910.00801v1</id>
+    <title>A continuous transition from $\mathcal{E}$-sets to $R$-sets and beyond</title>
+    <updated>2019-10-02T07:14:19Z</updated>
+    <link href="https://arxiv.org/abs/1910.00801v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1910.00801v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The well-known $\mathcal{E}$-sets introduced by Hayman in 1960 are collections of Euclidean discs in the complex plane with the following property: The set of angles $θ$ for which the ray $\arg(z)=θ$ meets infinitely many discs in a given $\mathcal{E}$-set has linear measure zero. An important special case of an $\mathcal{E}$-set is known as the $R$-set. These sets appear in numerous papers in the theories of complex differential and functional equations. This paper offers a continuous transition from $\mathcal{E}$-sets to $R$-sets, and then to much thinner sets. In addition to rays, plane curves that originate from the zero distribution theory of exponential polynomials will be considered. It turns out that almost every such curve meets at most finitely many discs in the collection in question. Analogous discussions are provided in the case of the unit disc $\mathbb{D}$, where the curves tend to the boundary $\partial\mathbb{D}$ tangentially or non-tangentially. Finally, these findings will be used for improving well-known estimates for logarithmic derivatives, logarithmic differences and logarithmic $q$-differences of meromorphic functions, as well as for improving standard results on exceptional sets.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-10-02T07:14:19Z</published>
+    <arxiv:comment>30 pages, 6 figures</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Jie Ding</name>
+    </author>
+    <author>
+      <name>Janne Heittokangas</name>
+    </author>
+    <author>
+      <name>Zhi-Tao Wen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1904.01717v3</id>
+    <title>Fractal geometry of Airy_2 processes coupled via the Airy sheet</title>
+    <updated>2019-05-28T21:26:24Z</updated>
+    <link href="https://arxiv.org/abs/1904.01717v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1904.01717v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In last passage percolation models lying in the Kardar-Parisi-Zhang universality class, maximizing paths that travel over distances of order $n$ accrue energy that fluctuates on scale $n^{1/3}$; and these paths deviate from the linear interpolation of their endpoints on scale $n^{2/3}$. These maximizing paths and their energies may be viewed via a coordinate system that respects these scalings. What emerges by doing so is a system indexed by $x,y \in \mathbb{R}$ and $s,t \in \mathbb{R}$ with $s &lt; t$ of unit order quantities $W_n\big( x,s ; y,t \big)$ specifying the scaled energy of the maximizing path that moves in scaled coordinates between $(x,s)$ and $(y,t)$. The space-time Airy sheet is, after a parabolic adjustment, the putative distributional limit $W_\infty$ of this system as $n \to \infty$. The Airy sheet has recently been constructed in [15] as such a limit of Brownian last passage percolation. In this article, we initiate the study of fractal geometry in the Airy sheet. We prove that the scaled energy difference profile given by $\mathbb{R} \to \mathbb{R}: z \to W_\infty \big( 1,0 ; z,1 \big) - W_\infty \big( -1,0 ; z,1 \big)$ is a non-decreasing process that is constant in a random neighbourhood of almost every $z \in \mathbb{R}$; and that the exceptional set of $z \in \mathbb{R}$ that violate this condition almost surely has Hausdorff dimension one-half. Points of violation correspond to special behaviour for scaled maximizing paths, and we prove the result by investigating this behaviour, making use of two inputs from recent studies of scaled Brownian LPP; namely, Brownian regularity of profiles, and estimates on the rarity of pairs of disjoint scaled maximizing paths that begin and end close to each other.</summary>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2019-04-03T00:40:44Z</published>
+    <arxiv:comment>23 pages with four figures. Theorem 2.4 has been strengthened</arxiv:comment>
+    <arxiv:primary_category term="math.PR"/>
+    <author>
+      <name>Riddhipratim Basu</name>
+    </author>
+    <author>
+      <name>Shirshendu Ganguly</name>
+    </author>
+    <author>
+      <name>Alan Hammond</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1712.09066v3</id>
+    <title>Existence of closed geodesics through a regular point on translation surfaces</title>
+    <updated>2019-08-21T14:24:27Z</updated>
+    <link href="https://arxiv.org/abs/1712.09066v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1712.09066v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that on any translation surface, if a regular point is contained in a simple closed geodesic, then it is contained in infinitely many simple closed geodesics, whose directions are dense in the unit circle. Moreover, the set of points that are not contained in any simple closed geodesic is finite. We also construct explicit examples showing that such points exist. For a surface in any hyperelliptic component, we show that this finite exceptional set is actually empty. The proofs of our results use Apisa's classifications of periodic points and of $\GL(2,\R)$ orbit closures in hyperelliptic components, as well as a recent result of Eskin-Filip-Wright.</summary>
+    <category term="math.GT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-12-25T13:21:28Z</published>
+    <arxiv:comment>30 pages. Revised and expanded according to referee's report</arxiv:comment>
+    <arxiv:primary_category term="math.GT"/>
+    <author>
+      <name>Duc-Manh Nguyen</name>
+    </author>
+    <author>
+      <name>Huiping Pan</name>
+    </author>
+    <author>
+      <name>Weixu Su</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1709.06398v1</id>
+    <title>A piecewise contractive dynamical system and election methods</title>
+    <updated>2017-09-19T13:24:20Z</updated>
+    <link href="https://arxiv.org/abs/1709.06398v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1709.06398v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove some basic results for a dynamical system given by a piecewise linear and contractive map on the unit interval that takes two possible values at a point of discontinuity. We prove that there exists a universal limit cycle in the non-exceptional cases, and that the exceptional parameter set is very tiny in terms of gauge functions. The exceptional two-dimensional parameter is shown to have Hausdorff-dimension one. We also study the invariant sets and the limit sets; these are sometimes different and there are several cases to consider. In addition, we give a thorough investigation of the dynamics; studying the cases of rational and irrational rotation numbers separately, and we show the existence of a unique invariant measure. We apply some of our results to a combinatorial problem involving an election method suggested by Phragmén and show that the proportion of elected seats for each party converges to a limit, which is a rational number except for a very small exceptional set of parameters. This is in contrast to a related election method suggested by Thiele, which we study at the end of this paper, for which the limit can be irrational also in typical cases and hence there is no typical ultimate periodicity as in the case of Phragmén's method.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-09-19T13:24:20Z</published>
+    <arxiv:comment>56 pages</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Svante Janson</name>
+    </author>
+    <author>
+      <name>Anders Öberg</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1708.09483v1</id>
+    <title>A question proposed by K. Mahler on exceptional sets of transcendental functions with integer coefficients: solution of a Mahler's problem</title>
+    <updated>2017-08-30T21:43:39Z</updated>
+    <link href="https://arxiv.org/abs/1708.09483v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1708.09483v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper, we shall prove that any subset of $\overline{\mathbb Q}\cap B(0,1)$, which is closed under complex conjugation and which contains the element $0$, is the exceptional set of uncountably many transcendental functions, analytic in the unit ball, with integer coefficients. This solves a strong version of an old question proposed by K. Mahler (1976).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2017-08-30T21:43:39Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Diego Marques</name>
+    </author>
+    <author>
+      <name>Carlos Gustavo Moreira</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1611.09762v2</id>
+    <title>An improved bound on the packing dimension of Furstenberg sets in the plane</title>
+    <updated>2017-09-21T18:35:15Z</updated>
+    <link href="https://arxiv.org/abs/1611.09762v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1611.09762v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $0 \leq s \leq 1$. A set $K \subset \mathbb{R}^{2}$ is a Furstenberg $s$-set, if for every unit vector $e \in S^{1}$, some line $L_{e}$ parallel to $e$ satisfies $$\dim_{\mathrm{H}} [K \cap L_{e}] \geq s.$$ The Furstenberg set problem, introduced by T. Wolff in 1999, asks for the best lower bound for the dimension of Furstenberg $s$-sets. Wolff proved that $\dim_{\mathrm{H}} K \geq \max\{s + 1/2,2s\}$ and conjectured that $\dim_{\mathrm{H}} K \geq (1 + 3s)/2$. The only known improvement to Wolff's bound is due to Bourgain, who proved in 2003 that $\dim_{\mathrm{H}} K \geq 1 + ε$ for Furstenberg $1/2$-sets $K$, where $ε&gt; 0$ is an absolute constant. In the present paper, I prove a similar $ε$-improvement for all $1/2 &lt; s &lt; 1$, but only for packing dimension: $\dim_{\mathrm{p}} K \geq 2s + ε$ for all Furstenberg $s$-sets $K \subset \mathbb{R}^{2}$, where $ε&gt; 0$ only depends on $s$.
+  The proof rests on a new incidence theorem for finite collections of planar points and tubes of width $δ&gt; 0$. As another corollary of this theorem, I obtain a small improvement for Kaufman's estimate from 1968 on the dimension of exceptional sets of orthogonal projections. Namely, I prove that if $K \subset \mathbb{R}^{2}$ is a linearly measurable set with positive length, and $1/2 &lt; s &lt; 1$, then $$\dim_{\mathrm{H}} \{e \in S^{1} : \dim_{\mathrm{p}} π_{e}(K) \leq s\} \leq s - ε$$ for some $ε&gt; 0$ depending only on $s$. Here $π_{e}$ is the orthogonal projection onto the line spanned by $e$.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-11-29T18:11:03Z</published>
+    <arxiv:comment>32 pages, 3 figures. v2: incorporated reviewer comments, to appear in JEMS</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Tuomas Orponen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1610.06745v2</id>
+    <title>Improving Kaufman's exceptional set estimate for packing dimension</title>
+    <updated>2016-11-13T14:54:28Z</updated>
+    <link href="https://arxiv.org/abs/1610.06745v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1610.06745v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given $0 &lt; s &lt; 1$, I prove that there exists a constant $ε= ε(s) &gt; 0$ such that the following holds. Let $K \subset \mathbb{R}^{2}$ be a Borel set with $\mathcal{H}^{1}(K) &gt; 0$, and let $E_{s}(K) \subset S^{1}$ be the collection of unit vectors $e$ such that $$\dim_{\mathrm{p}} π_{e}(K) \leq s.$$ Then $\dim_{\mathrm{H}} E_{s}(K) \leq s - ε$.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.MG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-10-21T11:40:27Z</published>
+    <arxiv:comment>22 pages. v2: Significantly improved main result; changed title accordingly</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <author>
+      <name>Tuomas Orponen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1512.07397v1</id>
+    <title>Generic boundary behaviour of Taylor series in Hardy and Bergman spaces</title>
+    <updated>2015-12-23T09:10:27Z</updated>
+    <link href="https://arxiv.org/abs/1512.07397v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1512.07397v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>It is known that, generically, Taylor series of functions holomorphic in the unit disc turn out to be universal series outside of the unit disc and in particular on the unit circle. Due to classical and recent results on the boundary behaviour of Taylor series, for functions in Hardy spaces and Bergman spaces the situation is essentially different. In this paper it is shown that in many respects these results are sharp in the sense that universality generically appears on maximal exceptional sets. As a main tool it is proved that the Taylor (backward) shift on certain Bergman spaces is mixing.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-12-23T09:10:27Z</published>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Hans-Peter Beise</name>
+    </author>
+    <author>
+      <name>Jürgen Müller</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1111.2574v1</id>
+    <title>On the exceptional set for binary Egyptian fractions</title>
+    <updated>2011-11-10T19:43:49Z</updated>
+    <link href="https://arxiv.org/abs/1111.2574v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1111.2574v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For fixed integer $a\ge3$, we study the binary Diophantine equation $\frac{a}n=\frac1x+\frac1y$ and in particular the number $E_a(N)$ of $n\le N$ for which the equation has no positive integer solutions in $x, y$. The asymptotic formula $$E_a(N)\sim C(a) \frac{N(\log\log N)^{2^{m-1}-1}}{(\log N)^{1-1/2^m}}$$ as $N$ goes to infinity, is established in this article, and this improves the best result in the literature dramatically. The proof depends on a very delicate analysis of the underlying group structure.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-11-10T19:43:49Z</published>
+    <arxiv:comment>13 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Jing-Jing Huang</name>
+    </author>
+    <author>
+      <name>Robert C. Vaughan</name>
+    </author>
+    <arxiv:doi>10.1112/blms/bdt020</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1112/blms/bdt020" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1106.1385v1</id>
+    <title>Ideals of degree one contribute most of the height</title>
+    <updated>2011-06-07T16:07:39Z</updated>
+    <link href="https://arxiv.org/abs/1106.1385v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1106.1385v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $k$ be a number field, $f(x)\in k[x]$ a polynomial over $k$ with $f(0)\neq 0$, and $Ø_{k,S}^*$ the group of $S$-units of $k$, where $S$ is an appropriate finite set of places of $k$. In this note, we prove that outside of some natural exceptional set $T\subset Ø_{k,S}^*$, the prime ideals of $Ø_k$ dividing $f(u)$, $u\in Ø_{k,S}^*\setminus T$, mostly have degree one over $\Q$; that is, the corresponding residue fields have degree one over the prime field. We also formulate a conjectural analogue of this result for rational points on an elliptic curve over a number field, and deduce our conjecture from Vojta's Conjecture. We prove this conjectural analogue in certain cases when the elliptic curve has complex multiplication.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-06-07T16:07:39Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Aaron Levin</name>
+    </author>
+    <author>
+      <name>David McKinnon</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1006.5000v1</id>
+    <title>Radial growth of harmonic functions in the unit ball</title>
+    <updated>2010-06-25T14:01:02Z</updated>
+    <link href="https://arxiv.org/abs/1006.5000v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1006.5000v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study harmonic functions which admit a certain majorant in the unit ball in $\R^m $. We prove that when the majorant fulfills a doubling condition, the extremal growth or decay may occur only along small sets of radii, and we give precise estimates of these exceptional sets.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2010-06-25T14:01:02Z</published>
+    <arxiv:primary_category term="math.CA"/>
+    <arxiv:journal_ref>Math. Scand., 110, no. 2, 273-296, 2012</arxiv:journal_ref>
+    <author>
+      <name>Kjersti Solberg Eikrem</name>
+    </author>
+    <author>
+      <name>Eugenia Malinnikova</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0903.5125v1</id>
+    <title>Radial growth of functions from the Korenblum space</title>
+    <updated>2009-03-30T04:31:47Z</updated>
+    <link href="https://arxiv.org/abs/0903.5125v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0903.5125v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We study radial behavior of analytic and harmonic functions, which admit a certain majorant in the unit disk. We prove that extremal growth or decay may occur only along small sets of radii and give precise estimates of these exceptional sets.</summary>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-03-30T04:31:47Z</published>
+    <arxiv:comment>18 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CA"/>
+    <arxiv:journal_ref>Algebra i Analiz, 2009, 21:6, 47-65; St. Petersburg Math. J. 21 (2010), 877-891</arxiv:journal_ref>
+    <author>
+      <name>A. Borichev</name>
+    </author>
+    <author>
+      <name>Yu. Lyubarskii</name>
+    </author>
+    <author>
+      <name>E. Malinnikova</name>
+    </author>
+    <author>
+      <name>P. Thomas</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0802.2356v1</id>
+    <title>Quasiconformal mappings and singularity of boundary distortion</title>
+    <updated>2008-02-17T02:22:55Z</updated>
+    <link href="https://arxiv.org/abs/0802.2356v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0802.2356v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We extend a well-known theorem by Jones and Makarov [JM] on the singularity of boundary distortion of planar conformal mappings. We use a different technique to recover the previous result and, moreover, generalize the result for quasiconformal mappings of the unit ball $\B^n\subset \mathbb{R}^n$, $n\ge 2$. We also establish an estimate on the Hausdorff (gauge) dimension of the boundary of the image domain outside an exceptional set of given size on the sphere $\partial \B^n$. Furthermore, we show that this estimate is essentially sharp.
+  [JM] P. W. Jones and N. Makarov: Density properties of harmonic measure. Ann. Math. 142 (1995), 427--455.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2008-02-17T02:22:55Z</published>
+    <arxiv:comment>13 pages, 1 figure</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Tomi Nieminen</name>
+    </author>
+    <author>
+      <name>Ignacio Uriarte-Tuero</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0710.0592v1</id>
+    <title>Accuracy of approximation of subharmonic functions by logarithms of moduli of analytic ones in Chebyshev metrics</title>
+    <updated>2007-10-02T17:39:55Z</updated>
+    <link href="https://arxiv.org/abs/0710.0592v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0710.0592v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  It is known that a subharmonic function of finite order $ρ$ can be approximated by the logarithm of the modulus of an entire function at the point $z$ outside an exceptional set up to $C\log|z|$. In this article we prove that if such an approximation is made more precise, i. e. a constant
+  $C$ decreases, then, beginning with $C=ρ/4$, the size of the exceptional set enlarges substantially. Similar results are proved for subharmonic functions of infinite order and functions subharmonic in the unit disk. These theorems improve and complement a result by Yulmukhametov.</summary>
+    <category term="math.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2007-10-02T17:39:55Z</published>
+    <arxiv:comment>12 pages, LATEX</arxiv:comment>
+    <arxiv:primary_category term="math.CV"/>
+    <author>
+      <name>Markiyan Hirnyk</name>
+      <arxiv:affiliation>=Girnyk</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0511392v3</id>
+    <title>On resonances and the formation of gaps in the spectrum of quasi-periodic Schroedinger equations</title>
+    <updated>2008-04-09T19:26:33Z</updated>
+    <link href="https://arxiv.org/abs/math/0511392v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0511392v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We consider one-dimensional difference Schroedinger equations on the discrete line with a potential generated by evaluating a real-analytic potential function V(x) on the one-dimensional torus along an orbit of the shift x--&gt;x+nw. If the Lyapunov exponent is positive for all energies and w, then the integrated density of states is absolutely continuous for almost every w. In this work we establish the formation of a dense set of gaps in the spectrum. Our approach is based on an induction on scales argument, and is therefore both constructive as well as quantitative. Resonances between eigenfunctions of one scale lead to "pre-gaps" at a larger scale. To pass to actual gaps in the spectrum, we show that these pre-gaps cannot be filled more than a finite (and uniformly bounded) number of times. To accomplish this, we relate a pre-gap to pairs of complex zeros of the Dirichlet determinants off the unit circle using the techniques of an earlier paper by the authors. Amongst other things, we establish in this work a non-perturbative version of the co-variant parametrization of the eigenvalues and eigenfunctions via the phases in the spirit of Sinai's (perturbative) description of the spectrum via his function as well as an multi-scale/finite volume approach to Anderson localization in this context. This allows us to relate the gaps in the spectrum with the graphs of the eigenvalues parametrized by the phase. Our infinite volume theorems hold for all Diophantine frequencies w up to a set of Hausdorff dimension zero. This is in contrast to earlier technology which only yielded exceptional sets of measure zero. Our only assumption on the potential apart from analyticity is the positivity of the Lyapunov exponent.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2005-11-15T19:21:12Z</published>
+    <arxiv:comment>99 pages, 3 figures; this paper is an extensive revision of our paper from 2005. We have added several more results, as well as details, and have improved the presentation</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Michael Goldstein</name>
+    </author>
+    <author>
+      <name>Wilhelm Schlag</name>
+    </author>
+  </entry>
+</feed>

@@ -49,3 +49,29 @@ arXiv:2511.07465 is already archived as `../dyachenko-2511.07465.pdf`
 | `monks-velingker-2008-erdos-straus.pdf` | https://www.mathematicalgemstones.com/maria/papers/ErdosStraus.pdf (unpublished manuscript, 2008) | `0b1a3528c7ec0dcdf66fc6d8a721049ce9b1f745922dab4a328d128e548ccf08` |
 | `arxiv-2108.10878-thorner-zaman-pntap.pdf` (+ `.txt`, pdftotext -layout) | https://arxiv.org/pdf/2108.10878 (v2, 21 Sep 2021; published Math. Z. 306 (2024), no. 3, Paper 54), fetched 2026-10-01 for POINTWISE_OMEGA.md | `588ec896e0820c3620175b25da58850efbefc67b71227acac1d5c3fa4f6b3b09` |
 | `lau-wu-least-quadratic-nonresidue.pdf` (+ `.txt`) | https://hkumath.hku.hk/~yklau/p/34.pdf (Y.-K. Lau, J. Wu, "On the least quadratic non-residue", author PDF), fetched 2026-10-01 for POINTWISE_OMEGA §8 (secondary statements of Graham–Ringrose, Montgomery, Ankeny) | `4b17e69d2f1a2773b66b1645b8b59cb5a628333b17d1b2c751b8ba1e75accab4` |
+
+## Novelty audit 2026-10-04 (`reviews/novelty-audit-2026-10.md`)
+
+All of these were fetched or generated on 2026-10-04. Each `.txt` is `pdftotext -layout` of the PDF beside it. A `.txt` without a PDF here is an extraction of a PDF that was already archived (path given).
+
+| File | Source | SHA-256 |
+|---|---|---|
+| `audit-arxiv-0801.0059v3.pdf` / `.txt` | https://arxiv.org/pdf/0801.0059v3 (Peled–Yadin–Yehudayoff, *The maximal probability that k-wise independent bits are all 1*, RSA 38 (2011) 502–525) | `b7060e8a46c8c70d8a7068fb61f4ab835253ef2f88afc93d09cef9ba3ae5b7c0` / `a6678c5d6b18dfa3a24f2f0ed1163e55882c7a4cfbc19cf9e9668b480aa7ffe1` |
+| `audit-arxiv-1201.3261v1.pdf` / `.txt` | https://arxiv.org/pdf/1201.3261v1 (Benjamini–Gurel-Gurevich–Peled, *On K-wise independent distributions and Boolean functions*) | `8cddcf831d7084645bae8bdb1dcf5aaab32c101f6883a1a5c9c343422f94897e` / `13f073b2e9a478bc99bf7bce44bfd797fb005067459efb9164b8a76257151ab7` |
+| `audit-arxiv-2407.18688v1.pdf` / `.txt` | https://arxiv.org/pdf/2407.18688v1 (Berend–Ernst–Kontorovich–Kumar, exact M(n,k,p)) | `64bdcf6ac3f93a9a645497f5f3c51b77e856be454bd55684c58f0301592bba79` / `6122cc6ca63d97ec6fa82b4265cd4fef865a14ed58ded09413f5763fca84b83c` |
+| `audit-gkm-sieve-weights-1606.06781.pdf` / `.txt` | https://arxiv.org/pdf/1606.06781 (Granville–Koukoulopoulos–Maynard, *Sieve weights and their smoothings*) | `67feecce65ced4250aa046d6e0c36300744eb84358d21d53409a512d1649e34d` / `8081b12e47f2d750696fcb17c2fa0a4b7158580588739f84ec4c1c9baf47d017` |
+| `audit-tao-254a-notes4-sieve-theory.md` | https://r.jina.ai/https://terrytao.wordpress.com/2015/01/21/254a-notes-4-some-sieve-theory/ (markdown rendering; Theorem 5 "Dual sieve problem") | `97cc7c4efc4411570f001571f02e64b96f462f1b5300c273a63625915b2cf884` |
+| `audit-erdosproblems-242-2026-10-04.md` | https://r.jina.ai/https://www.erdosproblems.com/242 | `ad7a7f42bc2500c7cadfef46972554e765095d25496ce3aa1a4d51c349b9a189` |
+| `audit-erdosproblems-242-forum-2026-10-04.md` | https://r.jina.ai/https://www.erdosproblems.com/forum/thread/242 | `353aa307016b86e237d5e666f2ad8e8348f432e8a09865a6f7b26aae3530b2a8` |
+| `audit-elsholtz-tao-1107.1010.txt` | extraction of `../elsholtz-tao-1107.1010.pdf` | `f02364084bda16e9743609dd8b21d08cb8635873edfac22aa65969b090c57eba` |
+| `audit-pomerance-weingartner-2511.16817v2.txt` | extraction of `../pomerance-weingartner-2511.16817/pomerance-weingartner-2511.16817v2.pdf` | `abb051c766bea02d47fa8bbc32a6d8bb03ea103e3e0b4c5e2d51bb5ba311ea5a` |
+| `audit-dahan-2608.24035v1.txt` | extraction of `../dahan-2608.24035v1.pdf` | `8ae7f9ea09774953cfeba8b5a7583470bd506148cbdf5e35314ddd59feecc1af` |
+| `audit-bright-loughran-1908.02526.txt` | extraction of `../bright-loughran-1908.02526.pdf` | `425eb3403ebf3c333addaa3f95379d953bd0d330f9262f151ed8fac4106d3508` |
+| `audit-salez-arxiv-1406.6307.txt` | extraction of `arxiv-1406.6307.pdf` | `b8a69fc8d976373c5b7b9499e571a655f773c24720341a3bee504284013b1142` |
+| `audit-elsholtz-planitzer-1805.02945.txt` | extraction of `arxiv-1805.02945-elsholtz-planitzer.pdf` | `7355631b79c049be4f405a6087096410f1e99e9fc75f42c7d9ab4769c076f471` |
+| `audit-semanticscholar-vaughan-citations.json` | https://api.semanticscholar.org/graph/v1/paper/DOI:10.1112/S0025579300002886/citations?fields=title,year,externalIds&limit=1000 | `68ff480ebad45233b8c9a59ec1603b47c2fe80461d33a2cfe2df7be33f3c60db` |
+| `audit-arxiv-all22ErdosStraus22.xml` | https://export.arxiv.org/api/query?search_query=all:%22Erdos-Straus%22&sortBy=submittedDate&sortOrder=descending&max_results=100 | `5ba1d118aba08cfec71d7480ac7391f848af174c63cbf7222062ab5ba17c746f` |
+| `audit-arxiv-allStraus.xml` | same, `all:Straus` | `98a48397905168923efd380968e0c75e04b11f0c825d78eeb0d6ef27d02d4819` |
+| `audit-arxiv-all22unitfractions22.xml` | same, `all:"unit fractions"` | `1f7ffcfb0b58febb02bd5a7e5ea826f79cac8824904c4fc37a2f45cd6f1586ed` |
+| `audit-arxiv-all22Egyptianfractions22.xml` | same, `all:"Egyptian fractions"` | `992ef86144f54fed4cfbef571697b253e112f0d4ed4607cf8f937b15741a4a51` |
+| `audit-arxiv-all22exceptionalset22ANDallunitORallEgyptian.xml` | same, `all:"exceptional set" AND (all:unit OR all:Egyptian)` | `bd832fcfa95c36303d39c922ca2060cc907a69ae2c6473e8fac67bea3ef3fddb` |

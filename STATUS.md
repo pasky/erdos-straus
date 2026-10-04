@@ -4,6 +4,15 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+A novelty audit was run on 2026-10-04 (`reviews/novelty-audit-2026-10.md`).
+* **Known in sharper form:** the exchangeable core of the sieve-limit
+  theorem (Peled–Yadin–Yehudayoff 2011; Benjamini–Gurel-Gurevich–Peled).
+* **Transport of a known bound:** `ck_min ≫ log p·log₃p` is
+  Graham–Ringrose's bound carried over to `ck_min`.
+* **Partial:** Theorem C, which generalises known odd-square obstructions.
+* **Apparently new:** the 3/4 bound, the `W(p)` Ω-results, the weighted
+  sieve-limit form and the ES caps.
+
 Branch: `main`. Old branch names such as `wave33-sec77` were wave labels
 and have been merged. `DISCOVERIES.md` is the curated ledger of every claim
 with its status label. Read it before starting new work.

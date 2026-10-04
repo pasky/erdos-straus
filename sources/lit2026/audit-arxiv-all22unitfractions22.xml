@@ -1,0 +1,1283 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/qjL76Le3V+vanfZtzn6b6JFidwE</id>
+  <title>arXiv Query: search_query=all:"unit fractions"&amp;id_list=&amp;start=0&amp;max_results=100</title>
+  <updated>2026-10-04T08:22:12Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22unit+fractions%22&amp;start=0&amp;max_results=100&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <opensearch:totalResults>67</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.32140v1</id>
+    <title>Unit fractions with semiprime denominators: an elementary proof of Erdős Problem #306</title>
+    <updated>2026-09-26T01:53:41Z</updated>
+    <link href="https://arxiv.org/abs/2609.32140v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.32140v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give an elementary proof that every positive rational number $a/b$ with $b$ squarefree is a finite sum of distinct unit fractions $1/n$, where each $n$ is a product of two distinct primes (Erdős Problem #306). After a reduction to small targets, we take a single complete bipartite graph between the primes in $(y^2,2y^2]$, together with $2$ and the primes of $b$, and a tuned initial segment of the primes in $(y^8,y^9]$, and show that some subgraph has reciprocal sum congruent to $a/b$ modulo $1$; the small total mass then forces equality. Writing the number of such subgraphs as a finite Fourier sum, we sort the frequencies into three cases using a table indexed by the two sides of the graph. The small integer frequencies give a positive main term, and all other frequencies are negligible by a divisor-counting argument and a no-wrap-around form of the Chinese remainder theorem. The only inputs about primes are Chebyshev-type bounds. The circle-method framework comes from Tang's Lean development, which gave the first proof; our construction removes its anchor-synchronisation step. The proof has been formalised in Lean 4, apart from a cited inequality of Ramanujan. This work is a human-AI collaboration: AI tools contributed substantially to the construction, the experiments and the writing.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-26T01:53:41Z</published>
+    <arxiv:comment>13 pages. Lean 4/Mathlib formalisation included as ancillary files (anc/lean)</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Shisheng Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.07913v1</id>
+    <title>Improved Upper Bounds for Dynamic Bin Packing of General, Unit-Fraction, and Power-Fraction Squares</title>
+    <updated>2026-09-07T19:26:29Z</updated>
+    <link href="https://arxiv.org/abs/2609.07913v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.07913v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper presents significant upper-bound improvements for dynamic 2D square bin packing, where square items arrive and depart over time and the objective is to minimize the peak number of concurrent active unit bins. In our model, repacking is permitted only within a destination bin upon item arrival; migration between active bins is strictly forbidden. By introducing a streamlined two-list algorithm and proving a tight $5/16$ occupied-area bound for Next-Fit Decreasing Height, we reduce the upper bound on the asymptotic competitive ratio for arbitrary squares from 4.2154 down to 3.918, breaking a longstanding theoretical ceiling. For restricted variants, we establish asymptotic competitive ratios of at most 3.356 for unit-fraction side lengths and 2.211 for power-fraction side lengths.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-07T19:26:29Z</published>
+    <arxiv:comment>20 pages, 2 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.DS"/>
+    <author>
+      <name>Miguel A. Mini</name>
+    </author>
+    <author>
+      <name>Flávio K. Miyazawa</name>
+    </author>
+    <author>
+      <name>Gabriel M. Silva</name>
+    </author>
+    <author>
+      <name>Yoshiko Wakabayashi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.24035v1</id>
+    <title>Sieve dimension and search depth for the Erdős-Straus conjecture, $n \equiv 1 \pmod{24}$</title>
+    <updated>2026-08-25T03:47:55Z</updated>
+    <link href="https://arxiv.org/abs/2608.24035v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.24035v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For primes $n\equiv1\pmod{24}$ we study how deep an explicit, factorization-free search for a decomposition of $4/n$ into three unit fractions has to go. Write $E_2(N;J)$ for the set of such primes $n\le N$ at which no witness of depth at most $J$ exists, in the sense of the two-parameter criterion of Theorem 3.9 with coprime parameters $u,a\le J$. We prove that for every fixed $J$ $$|E_2(N;J)| \ll_J \frac{N}{(\log N)^{1+\mathfrak{A}(J)/2}},$$ the exponent being the exact dimension of the covering on which the proof rests. The proof replaces the subgroup generated by the prime factors, an approach that breaks down as soon as $(\mathbb{Z}/4m)^{\times}$ has exponent greater than $2$, by a fixed-point-free involution, and is unconditional at every $J$.
+  Second, we exhibit an unconditional obstruction. At the shift $c=7$ there are $\asymp N(\log N)^{-3/2}$ primes $n\le N$, $n\equiv1\pmod{24}$, at which both branches of the divisor criterion fail. The representation of $K_7=(n+7)/4$ by the principal form of discriminant $-7$ has to be primitive, so that the relevant input is the primitive-representation theorem of Fuchs, Hsu, Rickards, Schindler and Stange [25] rather than the classical results of Iwaniec; a fixed shift therefore cannot leave a finite residual set.
+  Third, a factorization-free procedure decides the conjecture for all primes of an interval $[N,2N]$. Its Type II pass costs $\mathcal{O}(N(\log N)^{3})$ while its Type I pass costs $Θ(N^{2})$, which locates the whole quadratic cost in the extraction of the divisors of $4u^{2}d+1$ and exhibits an asymmetry between the two halves of the Type I/Type II dichotomy. The conjecture itself remains open.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-25T03:47:55Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Benjamin Dahan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.00323v1</id>
+    <title>On a conjecture of Han and Xiong for fractional Gaussian binomial coefficients</title>
+    <updated>2026-07-31T22:23:29Z</updated>
+    <link href="https://arxiv.org/abs/2608.00323v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.00323v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Han and Xiong recently extended the Gaussian binomial coefficient $\genfrac{[}{]}{0pt}{}{r+k}{k}_{q}$ to positive rational $r$ and conjectured that its integer trace, the integer-exponent part of the resulting power series, is coefficientwise largest at $r=1/2$. We prove a support-dominance theorem comparing rational parameters under an explicit divisibility condition. It settles the conjecture for every $r\geq 1/2$ and reduces the full conjecture to the unit fractions $r=\frac{1}{2m}$, only finitely many of which are nontrivial for each fixed $k$. A computer computation then verifies the conjecture for every positive rational $r$ and every $k\leq 200$. The theoretical results were autonomously produced and verified in Lean by AxiomProver.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-31T22:23:29Z</published>
+    <arxiv:comment>Comments welcome</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Ken Ono</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.28387v2</id>
+    <title>Eventually greedy best Egyptian underapproximations of rational numbers via optimal control</title>
+    <updated>2026-08-04T17:26:33Z</updated>
+    <link href="https://arxiv.org/abs/2607.28387v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.28387v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that every positive rational number has eventually greedy best Egyptian underapproximations, both when repetitions of the denominators are allowed and when the denominators are required to be distinct. This answers affirmatively a problem originating with Erdős and Graham and later revisited by Nathanson, and yields an application concerning the maximal asymptotic growth of denominators in unit fraction series converging to a given rational number. We reformulate the question as an optimal control problem for a dynamical system, construct an appropriate payoff function, and study properties of the associated Bellman function. We also answer another question of Nathanson by constructing an irrational number with unique and greedy best Egyptian underapproximations.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.OC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-30T15:43:43Z</published>
+    <arxiv:comment>v2: 30 pages; Theorem 4, Figure 1, Remark 6, and Section 4 were added after discussions with colleagues</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Vjekoslav Kovač</name>
+    </author>
+    <author>
+      <name>Quanyu Tang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.15419v1</id>
+    <title>Sets of unit fractions without two members whose average is a unit fraction</title>
+    <updated>2026-07-16T19:44:56Z</updated>
+    <link href="https://arxiv.org/abs/2607.15419v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.15419v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We show that there is a constant $c&gt;0$ such that, for all sufficiently large $N$, there is a subset $A \subseteq \{1,\dots,N\}$ of size $&gt;cN$ such that for any two distinct elements $a,b$ in $A$, the average of $\frac{1}{a}$ and $\frac{1}{b}$ is not a unit fraction, negatively answering a question of Erdős and Graham. This also gives the best known lower bounds on the maximum size of a set of unit fractions without non-trivial three-term arithmetic progressions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-16T19:44:56Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Will Sawin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.13126v1</id>
+    <title>Greedy fusion</title>
+    <updated>2026-07-14T17:57:24Z</updated>
+    <link href="https://arxiv.org/abs/2607.13126v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.13126v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We demonstrate that certain sequences of integer formal codegrees, motivated by the greedy algorithm for unit fraction decompositions of 1, dictate the structure of fusion rings. In particular, no fusion ring that has formal codegrees 2, 3, and 7 is categorifiable.</summary>
+    <category term="math.QA" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-14T17:57:24Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="math.QA"/>
+    <author>
+      <name>Andrew Schopieray</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.08946v1</id>
+    <title>Training, Reading, and Editing Legible Transformers</title>
+    <updated>2026-07-09T21:15:40Z</updated>
+    <link href="https://arxiv.org/abs/2607.08946v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.08946v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A transformer can be built from operators that are legible by construction -- bounded, named units that read as fuzzy set operations rather than dense activations -- but legibility must be pressed for during training, and the pressure has a failure mode. A crispness penalty meant to sharpen a bounded operator into a decisive detector instead collapses it into a dead constant. An identity, E[v(1-v)] = mu(1-mu) - var, shows why -- the penalty is a variance-minimizer blind to the difference between a live detector and a constant -- and names the fix: a per-channel variance floor, the target legibility metric written as a loss, which recovers both legibility and quality. A learned per-unit fraction then retires the hand-set reserved-GELU partition of prior work: given the choice the model keeps no unit as pure GELU and routes 87% of its load-bearing computation through crisp operators. The result is the most legible transformer we have built -- 78% of its feed-forward operands and 50% of its attention value channels are crisp-and-contextual detectors, and per-head legibility rises from 18% in shallow layers to 78% in deep ones. Read in the correct rotated per-layer frame, these units separate a clean detection (what a unit responds to) from a harder naming (what its output decodes to); and because the objective makes each unit crisp and sparse, edits to them are far more local -- 50-184x in the deep layers where the edit sites concentrate -- and can target explicit conjunctions a single neuron cannot express. Finally, a between-unit decorrelation pressure exposes a legibility dial: it trades a circuit's reuse for independence at no quality cost, turning concepts into single, surgically editable units and a prediction into a short explanation read off a handful of named operations. Quality holds at parity with a conventional baseline throughout.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-09T21:15:40Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Mark Oskin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.07591v1</id>
+    <title>Geometric Interpretation of Sum Photon Blockade</title>
+    <updated>2026-07-08T16:12:49Z</updated>
+    <link href="https://arxiv.org/abs/2607.07591v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.07591v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present a geometric interpretation of the sum photon blockade effect in multimode quantum optical systems, such as semiconductor microresonators. The blockade condition \(c^{(n)} \cdot v = 0\) reflects the orthogonality of the \(n\)-photon amplitude vector to a target mode vector in an \(N\)-dimensional Hilbert space, visualized as the confinement of the state to a hyperplane.
+  A key result is the calculation of the maximum probability of the system remaining in the blockade subspace under the influence of decoherence processes (in particular, dephasing), which determines the practical feasibility and robustness of the effect. This approach extends to higher-order correlators \(g^{(2)}_Σ\) and cross-correlations, enabling the design of scalable quantum devices.
+  We introduce the concept of "dark-state typicality": as the number of modes \(M\) increases, the dark subspace annihilated by the collective mode operator asymptotically occupies a unit fraction of the \(n\)-boson Hilbert space. This allows the transition from fragile, finely tuned mechanisms to macroscopically robust non-classical light in large multimode bosonic architectures.
+  We consider continuum collective modes, hypotheses on correlation zeros and invariant manifolds, as well as the relationship between blockade and entanglement.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-08T16:12:49Z</published>
+    <arxiv:comment>8 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <author>
+      <name>Timur Khudaiberganov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.04157v1</id>
+    <title>A Stretched-Exponential Bound for an Erdos--Graham Unit-Fraction Problem</title>
+    <updated>2026-07-05T07:53:02Z</updated>
+    <link href="https://arxiv.org/abs/2607.04157v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.04157v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For a finite multiset $A$ of positive integers, write $\mathcal{R}(A)=\sum_{a\in A}a^{-1}$ and let $\varepsilon(A)$ be the distance from $1$ to the largest reciprocal subsum of $A$ that does not exceed $1$. Erdős and Graham proved that $\varepsilon(A)\ll K^{-2}$ whenever $\mathcal{R}(A)&gt;K$, and asked whether one always has $\varepsilon(A)\leq \exp(-cK)$ for an absolute constant $c&gt;0$. We prove the stretched-exponential estimate $$ \varepsilon(A)\leq \exp\bigl(-c\sqrt{K\log K}\bigr) $$ for all sufficiently large $K$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-05T07:53:02Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Samuel Korsky</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.15159v2</id>
+    <title>Every natural number is a sum of distinct semiprime unit fractions</title>
+    <updated>2026-06-17T01:55:21Z</updated>
+    <link href="https://arxiv.org/abs/2606.15159v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.15159v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that every natural number is a finite sum of distinct unit fractions whose denominators are semiprimes (products of two distinct primes). This is the $ω=2$ integer case of a problem of Erdős and Graham, stated only as a conjecture by Butler, Erdős and Graham (Integers 15 (2015), A51), who proved the $ω=3$ analogue. Counterintuitively the problem hardens as $ω$ decreases -- the induction's feed thins -- so $ω=2$ is the hard case; our proof adapts the Butler-Erdős-Graham induction to this thin-feed regime, where the entire content of the induction step reduces to an explicit onset inequality $Y_0(N)\le\min\{β(N),β'(N)\}$, proved for all $N\ge10$ by Olson's addition theorem and elementary Chebyshev bounds above a finite, machine-checked base range. The same engine extends to the rationals: for every squarefree $b$, every $a/b$ above an explicit threshold $\min\{B_{N_b}/6,\,1/5\}$ is $ω=2$ representable, unconditionally. As an application we give the first complete proof of the rational $ω=3$ statement -- every $a/b$ with squarefree $b$ is a sum of distinct sphenic unit fractions -- that Butler, Erdős and Graham conjectured but left unpublished; a descent settles every $ω\ge3$. What remains open is the $ω=2$ regime below this threshold, which we reduce to a single explicit conjecture -- that the gap-free floor of a semiprime subset-sum set tends to zero. This work is a human-AI collaboration: AI tools (notably Anthropic's Claude, used through Claude Code) contributed substantially to the Lean formalisation, the experiments, and the writing; correspondingly, every result is machine-checked in Lean 4 / Mathlib (no sorry; two cited classical axioms, plus the native_decide compiler-trust base for the finite computations), so its correctness is independent of the tools used.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-13T07:10:39Z</published>
+    <arxiv:comment>22 pages. Human-AI collaboration; see the "Use of AI" statement. Companion Lean 4 / Mathlib formalisation (0 sorry; reduces to two cited classical axioms plus the native_decide compiler-trust base) and standard-library Python verification scripts are included as ancillary files</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Shisheng Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.10922v1</id>
+    <title>A Divisor Parametrization for the Erdős--Straus Conjecture</title>
+    <updated>2026-06-09T14:29:39Z</updated>
+    <link href="https://arxiv.org/abs/2606.10922v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.10922v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study representations of \(1/n\) as a sum of three unit fractions whose denominators are all divisible by a prescribed integer \(m\). After scaling, this is equivalent to representing \(m/n\) as a sum of three unit fractions. Our main focus is the Erdős--Straus case \(m=4\). We introduce a divisor-based function \(\mathrm{fab}(n,a,b)\), prove that its admissible parameters recover exactly the decompositions of \(1/n\) with all three denominators divisible by \(4\), and compare this parametrization with well-known Type I/II descriptions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-09T14:29:39Z</published>
+    <arxiv:comment>15 pp. Summit to publication</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>M. Bello-Hernández</name>
+    </author>
+    <author>
+      <name>M. Benito</name>
+    </author>
+    <author>
+      <name>E. Fernández</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.23011v1</id>
+    <title>Star-Shaped Integral Cartan-Type Matrices and an Egyptian-Fraction Classification of Affine Weighted Trees</title>
+    <updated>2026-05-21T20:32:41Z</updated>
+    <link href="https://arxiv.org/abs/2605.23011v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.23011v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study a concrete family of symmetric integral $Z$-matrices attached to weighted star trees. The arms are ordinary type-$A$ chains and the central diagonal entry is an arbitrary positive integer $k$ rather than being fixed to the Cartan value $2$. This gives a matrix-theoretic and graph-theoretic version of the so called Berger construction: it extends the simply laced affine Dynkin stars while remaining accessible through elementary linear algebra. For a star with arm lengths $r_1,\ldots,r_m$ we compute the determinant, the inertia, the positive-definite and affine regimes, and the primitive positive null vector in the affine case. The affine condition is exactly the unit-fraction equation \[
+  \sum_{i=1}^m \frac{1}{r_i+1}=m-k, \] so the classification of these affine weighted trees reduces to a finite Egyptian-fraction enumeration for each fixed pair $(m,k)$. The classical affine diagrams $D_4^{(1)}$, $E_6^{(1)}$, $E_7^{(1)}$ and $E_8^{(1)}$ appear as small subfamilies, while higher-arm cases give new integral positive-semidefinite star matrices with explicit Coxeter labels.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-21T20:32:41Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Emilio Torrente-Lujan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.02012v1</id>
+    <title>Solutions to $\sum_{i=1}^n 1/x_i=1$ in integers $p^a\,q^b$ with $p$ and $q$ two set primes</title>
+    <updated>2026-02-02T12:10:08Z</updated>
+    <link href="https://arxiv.org/abs/2602.02012v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.02012v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present an algorithm for computing all the solutions in not necessarily distinct integers to the decomposition of the unit into a sum of unit fractions with denominators $p^a.q^b$ where $p$ and $q$ are two distinct primes, each appearing at least once in the solution.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-02T12:10:08Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Claire I. Levaillant</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.22083v2</id>
+    <title>The smallest denominator not contained in a unit fraction decomposition of $1$ with fixed length</title>
+    <updated>2026-05-24T17:02:10Z</updated>
+    <link href="https://arxiv.org/abs/2512.22083v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.22083v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $v(k)$ be the smallest integer larger than $1$ that does not occur among the denominators in any identity of the form $$ 1=\frac1{n_1}+\cdots+\frac1{n_k}, $$ where $1 \le n_1&lt;\cdots&lt;n_k$ are pairwise distinct integers. In their 1980 monograph, Erdős and Graham asked for quantitative estimates on the growth of $v(k)$ and suggested the lower bound $v(k)\gg k!$. In this paper we give the first known improvement and show that there exists an absolute constant $c&gt;0$ such that the inequality $$ v(k)\ge e^{c k^2} $$ holds for all positive integers $k$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-26T17:04:42Z</published>
+    <arxiv:comment>7 pages. Accepted for publication in Mathematical Proceedings of the Cambridge Philosophical Society; minor revisions following the referee's suggestion</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Math. Proc. Cambridge Philos. Soc., published online (2026), 1--9</arxiv:journal_ref>
+    <author>
+      <name>Wouter van Doorn</name>
+    </author>
+    <author>
+      <name>Quanyu Tang</name>
+    </author>
+    <arxiv:doi>10.1017/S0305004126102102</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1017/S0305004126102102" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.17716v2</id>
+    <title>Parametric Algorithms for the 5-Modular Analog of ES (Sierpiński): Structure of Solutions, Parameterization, and Constructive Proofs (SERP)</title>
+    <updated>2025-11-25T16:05:13Z</updated>
+    <link href="https://arxiv.org/abs/2511.17716v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.17716v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider the problem of representing the fraction $5/P$ as a sum of three distinct unit fractions $1/A+1/B+1/C$ with $A&lt;B&lt;C$ and $A,B,C\in\mathbb{N}$. The case of primes $P\equiv 1 \pmod{5}$ is analyzed, where two constructive types of solutions arise: ED1 (exactly one denominator divisible by $P$, namely $C=cP$) and ED2 (exactly two denominators divisible by $P$, namely $B=bP$ and $C=cP$). Parametric constructions and enumeration algorithms are developed, including explicit transitions between ED1 and ED2.
+  A deterministic algorithm is proposed, based on the intersection of a parametric lattice defined by pairs $(α,d')$ with bounded boxes. For each fixed prime $P\equiv 1 \pmod{5}$ the algorithm constructively produces a solution. Using analytic methods such as the Bombieri--Vinogradov theorem and the Chebotarev density theorem, it is shown that the density of admissible parameters is high, which yields polylogarithmic search complexity in the average case. A strict complexity guarantee for all primes remains conditional and depends on the finite covering hypothesis.
+  This study extends previous work for coefficient $4$ (the Erdős--Straus conjecture) to coefficient $5$, transferring the same structure of parametrization and constructive solutions. Analytic applications provide averaging tools used for density estimates in parametric boxes.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-21T19:12:30Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>E. Dyachenko</name>
+    </author>
+    <arxiv:doi>10.5281/zenodo.17067330</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.5281/zenodo.17067330" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.16817v2</id>
+    <title>Exceptions to the Erd\H os--Straus--Schinzel conjecture</title>
+    <updated>2026-01-15T16:47:46Z</updated>
+    <link href="https://arxiv.org/abs/2511.16817v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.16817v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A famous conjecture of Erd\H os and Straus is that for every integer $n\ge2$, $4/n$ can be represented as $1/x+1/y+1/z$, where $x,y,z$ are positive integers. This conjecture was generalized to $5/n$ by Sierpiński, and then Schinzel conjectured that for every integer $m\ge4$ there is a bound $n_m$ such that the fraction $m/n$ is the sum of 3 unit fractions for all integers $n\ge n_m$. Leveraging and generalizing work of Elsholtz and Tao, we show that if $n_m$ exists it must be at least $\exp(m^{1/3+o(1)})$; that is, there are numbers $n$ this large for which $m/n$ is not the sum of 3 unit fractions. We prove a weaker, but numerically explicit version of this theorem, showing that for $m\ge 6.52\times10^9$ there is a prime $p\in(m^2,2m^2)$ with $m/p$ not the sum of 3 unit fractions, and report on some extensive numerical calculations that support this assertion with the much smaller bound $m\ge20$. A result of Vaughan is that for each $m$, most $n$'s have $m/n$ representable; we make the dependence on $m$ in this result explicit. In addition, we prove a result generalizing the problem to the sum of $j$ unit fractions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-20T21:41:03Z</published>
+    <arxiv:comment>25 pages, 1 table</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Carl Pomerance</name>
+    </author>
+    <author>
+      <name>Andreas Weingartner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.07465v1</id>
+    <title>Constructive Proofs of the Erdos-Straus Conjecture for Prime Numbers with P congruent to 1 modulo 4</title>
+    <updated>2025-11-07T11:02:52Z</updated>
+    <link href="https://arxiv.org/abs/2511.07465v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.07465v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Erdos-Straus conjecture (ESC) concerns the representation of the fraction 4/P, where P is a prime number, as a sum of three positive unit fractions. The focus here is on the case when P is congruent to 1 modulo 4. Two constructive approaches are proposed. Method ED1 is based on a factorization identity and leads to a nonlinear parameterization in P, which requires divisor enumeration and local filtering. Method ED2 yields a linear system in P for the parameters (delta, b, c), describing the solution set as an affine lattice of finite index in Z^3. The central result states that for every prime P congruent to 1 modulo 4 there exists a representation: 4/P = 1/A + 1/(bP) + 1/(cP), where the triple (delta, b, c) in N^3 is constructed explicitly by method ED2. In addition, algorithms for transforming solutions (convolution and anti-convolution) are introduced, and large-scale computational verification confirms the correctness and efficiency of the proposed methods.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-07T11:02:52Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>E. Dyachenko</name>
+    </author>
+    <arxiv:doi>10.5281/zenodo.17062748</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.5281/zenodo.17062748" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.22635v2</id>
+    <title>A Sieve on Rational Imbalances and the First Appearance of Denominators</title>
+    <updated>2025-11-17T06:02:32Z</updated>
+    <link href="https://arxiv.org/abs/2510.22635v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.22635v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We construct a sieve that enumerates rational ``imbalances'' of the form $(p-q)/(p+q)$ for integers $p\ge2$ and $1\le q&lt;p$, ordered lexicographically by $(p,q)$. Each imbalance is reduced to lowest terms, and we record the sequence of distinct denominators as they first appear.
+  We show that every positive integer occurs exactly once as such a denominator, and that its first appearance coincides with the unit fraction $1/d$.
+  We then prove that the sieve, when viewed as a map from pairs $(p,q)$ to reduced fractions, enumerates all rational numbers in $(-1,1)$ without repetition, extend it symmetrically to all of $\mathbb{Q}$, and discuss its connections to hyperbolic geometry and rational enumeration theory.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-26T11:41:11Z</published>
+    <arxiv:comment>7 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Paul Alexander Bilokon</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2503.02317v1</id>
+    <title>Asymptotic Analysis of Infinite Decompositions of a Unit Fraction into Unit Fractions</title>
+    <updated>2025-03-04T06:17:35Z</updated>
+    <link href="https://arxiv.org/abs/2503.02317v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.02317v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Paul Erdős posed a problem on the asymptotic estimation of decomposing 1 into a sum of infinitely many unit fractions in \cite{Erd80}. We point out that this problem can be solved in the same way as the finite case, as shown in \cite{Sou05}.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-04T06:17:35Z</published>
+    <arxiv:comment>5 pages,comments welcome</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Yuhi Kamio</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2502.19198v1</id>
+    <title>Faithful Decomposition of Rationals</title>
+    <updated>2025-02-26T15:04:07Z</updated>
+    <link href="https://arxiv.org/abs/2502.19198v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2502.19198v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>If an irreducible fraction $\frac mn&gt;0$ can be decomposed into the sum of several irreducible proper fractions with different denominators, and the positive number smaller than $\frac mn$ in fractional ideal $\frac 1n\mathbb Z$ can not be obtained by replacing some numerator with smaller non-negative integers, then the decomposition is said to be faithful. For $t\in\mathbb Z$, we prove that the length of faithful decomposition of an irreducible fraction $\frac mn$ with $2\le t\le\frac mn&lt;t+1$ is at least $t+2$. In addition, we show a faithful decomposition of rationals consisting only of unit fractions except for one term. And we write $\frac 4n$ as a faithful decomposition with three fractions at most one non-unit fraction.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-02-26T15:04:07Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Sunben Chiu</name>
+    </author>
+    <author>
+      <name>Pingzhi Yuan</name>
+    </author>
+    <author>
+      <name>Hongjian Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2502.05607v1</id>
+    <title>On the examples of Egyptian fractions in Liber Abaci</title>
+    <updated>2025-02-08T15:27:59Z</updated>
+    <link href="https://arxiv.org/abs/2502.05607v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2502.05607v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The focus of this note is to formulate the algorithms and give the examples used by Fibonacci in Liber Abaci to expand any fraction into a sum of unit fractions. The description in Liber Abaci is all verbal and the examples are numbers which may lead to different algorithmic descriptions with the same input and results. An additional complication is that the manuscripts that exist are copies of an older manuscript and in the process new errors are introduced. Additional errors may also be introduced in the transcript and the translation. Fibonacci introduces seven categories each with several numerical examples. We give a precise description of the computational procedure using standard mathematical notation.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-02-08T15:27:59Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Trond Steihaug</name>
+    </author>
+    <author>
+      <name>Milo Gardner</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2412.09728v1</id>
+    <title>Egyptian fractions meet the Sierpinski triangle</title>
+    <updated>2024-12-12T21:35:23Z</updated>
+    <link href="https://arxiv.org/abs/2412.09728v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2412.09728v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We explore a novel link between two seemingly disparate mathematical concepts: Egyptian fractions and fractals. By examining the decomposition of rationals into sums of distinct unit fractions, a practice rooted in ancient Egyptian mathematics, and the arithmetic operations that can be performed using this decomposition, we uncover fractal structures that emerge from these representations.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-12-12T21:35:23Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Laura De Carli</name>
+    </author>
+    <author>
+      <name>Andrew Echezabal</name>
+    </author>
+    <author>
+      <name>Ismael Morell</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2408.04517v1</id>
+    <title>Approximating $δ$-Covering</title>
+    <updated>2024-08-08T15:16:37Z</updated>
+    <link href="https://arxiv.org/abs/2408.04517v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2408.04517v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>$δ$-Covering, for some covering range $δ&gt;0$, is a continuous facility location problem on undirected graphs where all edges have unit length. The facilities may be positioned on the vertices as well as on the interior of the edges. The goal is to position as few facilities as possible such that every point on every edge has distance at most $δ$ to one of these facilities. For large $δ$, the problem is similar to dominating set, which is hard to approximate, while for small $δ$, say close to $1$, the problem is similar to vertex cover. In fact, as shown by Hartmann et al. [Math. Program. 22], $δ$-Covering for all unit-fractions $δ$ is polynomial time solvable, while for all other values of $δ$ the problem is NP-hard.
+  We study the approximability of $δ$-Covering for every covering range $δ&gt;0$. For $δ\geq 3/2$, the problem is log-APX-hard, and allows an $\mathcal O(\log n)$ approximation. For every $δ&lt; 3/2$, there is a constant factor approximation of a minimum $δ$-cover (and the problem is APX-hard when $δ$ is not a unit-fraction). We further study the dependency of the approximation ratio on the covering range $δ&lt; 3/2$. By providing several polynomial time approximation algorithms and lower bounds under the Unique Games Conjecture, we narrow the possible approximation ratio, especially for $δ$ close to the polynomial time solvable cases.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-08-08T15:16:37Z</published>
+    <arxiv:comment>22 pages, 6 figures, extended abstract accepted at WAOA24</arxiv:comment>
+    <arxiv:primary_category term="cs.DS"/>
+    <author>
+      <name>Tim A. Hartmann</name>
+    </author>
+    <author>
+      <name>Tom Janßen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2406.17593v4</id>
+    <title>On several irrationality problems for Ahmes series</title>
+    <updated>2025-07-14T17:40:54Z</updated>
+    <link href="https://arxiv.org/abs/2406.17593v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2406.17593v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Using basic tools of mathematical analysis and elementary probability theory we address several problems on the irrationality of series of distinct unit fractions, $\sum_k 1/a_k$. In particular, we study subseries of the Lambert series $\sum_k 1/(t^k-1)$ and two types of irrationality sequences $(a_k)$ introduced by Paul Erdős and Ronald Graham. Next, we address a question of Erdős, who asked how rapidly a sequence of positive integers $(a_k)$ can grow if both series $\sum_k 1/a_k$ and $\sum_k 1/(a_k+1)$ have rational sums. Our construction of double exponentially growing sequences $(a_k)$ with this property generalizes to any number $d$ of series $\sum_k 1/(a_k+j)$, $j=0,1,2,\ldots,d-1$, and, in particular, also gives a positive answer to a question of Erdős and Ernst Straus on the interior of the set of $d$-tuples of their sums. Finally, we prove the existence of a sequence $(a_k)$ such that all well-defined sums $\sum_k 1/(a_k+t)$, $t\in\mathbb{Z}$, are rational numbers, giving a negative answer to a conjecture by Kenneth Stolarsky.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-06-25T14:34:22Z</published>
+    <arxiv:comment>28 pages. v4: referee's comments are incorporated, a mistake in the proof of Theorem 2.3 is fixed</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Acta Math. Hungar. 175 (2025), 572-608</arxiv:journal_ref>
+    <author>
+      <name>Vjekoslav Kovač</name>
+    </author>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+    <arxiv:doi>10.1007/s10474-025-01528-0</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s10474-025-01528-0" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.08283v1</id>
+    <title>Farey fractions with equal numerators and the rank of unit fractions</title>
+    <updated>2024-04-12T07:15:05Z</updated>
+    <link href="https://arxiv.org/abs/2404.08283v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.08283v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Analytical expressions are derived for the number of fractions with equal numerators in the Farey sequence of order $n$, $F_n$, and in the truncated Farey sequence $F_n^{1/k}$ containing all Farey fractions below $1/k$, with $1\leq k \leq n$. These developments lead to an expression for the rank of $1/k$ in $F_n$, or equivalently $\left|F_n^{1/k}\right|$, and to remarkable relations between the ranks of different unit fractions. Furthermore, the results are extended to Farey fractions of the form $2/k$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-12T07:15:05Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Integers, 24, 2024. https://math.colgate.edu/~integers/y63/y63.pdf</arxiv:journal_ref>
+    <author>
+      <name>Rogelio Tomas Garcia</name>
+    </author>
+    <arxiv:doi>10.5281/zenodo.12685697</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.5281/zenodo.12685697" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2404.07113v1</id>
+    <title>On further questions regarding unit fractions</title>
+    <updated>2024-04-10T15:51:58Z</updated>
+    <link href="https://arxiv.org/abs/2404.07113v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2404.07113v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that a subset $A\subseteq [1, N]$ with \[\sum_{n\in A}\frac{1}{n} \ge (\log N)^{4/5 + o(1)}\] contains a subset $B$ such that \[\sum_{n\in B} \frac{1}{n} = 1.\] Our techniques refine those of Croot and of Bloom. Using our refinements, we additionally consider a number of questions regarding unit fractions due to Erdős and Graham.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-04-10T15:51:58Z</published>
+    <arxiv:comment>22 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Yang P. Liu</name>
+    </author>
+    <author>
+      <name>Mehtaab Sawhney</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2403.17041v5</id>
+    <title>On a problem involving unit fractions</title>
+    <updated>2024-04-28T09:26:27Z</updated>
+    <link href="https://arxiv.org/abs/2403.17041v5" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2403.17041v5" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Erdős and Graham proposed to determine the number of subsets $S \subseteq \left\{1,2,\dots,n\right\}$ with $\sum_{s \in S} 1/s = 1$ and asked, among other things, whether that number could be as large as $2^{n - o(n)}$. We show that the number of subsets $S \subseteq \left\{1,2,\dots,n\right\}$ with $\sum_{s \in S} 1/s \leq 1$ is smaller than $2^{0.93n}$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-03-25T15:02:53Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Stefan Steinerberger</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2311.03668v2</id>
+    <title>On arithmetical structures on K9</title>
+    <updated>2025-04-16T04:33:05Z</updated>
+    <link href="https://arxiv.org/abs/2311.03668v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2311.03668v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We study the arithmetical structures on the complete graph $K_9$. Our method is based on studying the solutions to writing the unit as a sum of 9 unit fractions. We work from the perspective of the Diophantine equation and use some elementary properties on the $p$-adic valuations. The proofs are assisted by trees and automata.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-11-07T02:38:33Z</published>
+    <arxiv:comment>74 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Claire Levaillant</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2309.07280v1</id>
+    <title>Rational numbers with odd greedy expansion of fixed length</title>
+    <updated>2023-09-13T19:59:43Z</updated>
+    <link href="https://arxiv.org/abs/2309.07280v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2309.07280v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Given a positive rational number $n/d$ with $d$ odd, its odd greedy expansion starts with the largest odd denominator unit fraction at most $n/d$, adds the largest odd denominator unit fraction so the sum is at most $n/d$, and continues as long as the sum is less than $n/d$. It is an open question whether this expansion always has finitely many terms. Given a fixed positive integer $n$, we find all reduced fractions with numerator $n$ whose odd greedy expansion has length $2$. Given $m-1$ odd positive integers, we find all rational numbers whose odd greedy expansion has length $m$ and begins with these numbers as denominators. Given $m-2$ compatible odd positive integers, we find an infinite family of rational numbers whose odd greedy expansion has length $m$ and begins with these numbers as denominators.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-09-13T19:59:43Z</published>
+    <arxiv:comment>21 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Joel Louwsma</name>
+    </author>
+    <author>
+      <name>Joseph Martino</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2308.12719v1</id>
+    <title>Sharp volume and multiplicity bounds for Fano simplices</title>
+    <updated>2023-08-24T11:33:28Z</updated>
+    <link href="https://arxiv.org/abs/2308.12719v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2308.12719v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present sharp upper bounds on the volume, Mahler volume and multiplicity for Fano simplices depending on the dimension and Gorenstein index. These bounds rely on the interplay between lattice simplices and unit fraction partitions. Moreover, we present an efficient procedure for explicitly classifying Fano simplicies of any dimension and Gorenstein index and we carry out the classification up to dimension four for various Gorenstein indices.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-08-24T11:33:28Z</published>
+    <arxiv:comment>27 pages. Comments welcome</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <author>
+      <name>Andreas Bäuerle</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2306.04029v2</id>
+    <title>On Rado numbers for equations with unit fractions</title>
+    <updated>2024-06-25T15:07:27Z</updated>
+    <link href="https://arxiv.org/abs/2306.04029v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2306.04029v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $f_r(k)$ be the smallest positive integer $n$ such that every $r$-coloring of $\{1,2,...,n\}$ has a monochromatic solution to the nonlinear equation \[1/x_1+\cdots+1/x_k=1/y,\] where $x_1,...,x_k$ are not necessarily distinct. Brown and Rödl [Bull. Aust. Math. Soc. 43(1991): 387-392] proved that $f_2(k)=O(k^6)$. In this paper, we prove that $f_2(k)=O(k^3)$. The main ingredient in our proof is a finite set $A\subseteq\mathbb{N}$ such that every $2$-coloring of $A$ has a monochromatic solution to the linear equation $x_1+\cdots+x_k=y$ and the least common multiple of $A$ is sufficiently small. This approach can also be used to study $f_r(k)$ with $r&gt;2$. For example, a recent result of Boza, Marín, Revuelta, and Sanz [Discrete Appl. Math. 263(2019): 59-68] implies that $f_3(k)=O(k^{43})$.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-06-06T21:46:20Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Discrete Mathematics 347 (2024) 114156</arxiv:journal_ref>
+    <author>
+      <name>Collier Gaiser</name>
+    </author>
+    <arxiv:doi>10.1016/j.disc.2024.114156</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.disc.2024.114156" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2305.16518v1</id>
+    <title>The unit fractions from a Euclidean domain generate a DVR</title>
+    <updated>2023-05-25T22:54:04Z</updated>
+    <link href="https://arxiv.org/abs/2305.16518v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2305.16518v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let D be a Euclidean domain, with fraction field K. Let R(D) be the subring of K generated by the reciprocals of the nonzero elements of D. The main theorem states that if R(D) is not equal to K, then R(D) is a rank 1 discrete valuation ring that contains a field consisting of the units of D along with 0. Connections are made to ideas from medieval Italian mathematics.</summary>
+    <category term="math.AC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-05-25T22:54:04Z</published>
+    <arxiv:comment>7 pages. Comments welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.AC"/>
+    <author>
+      <name>Neil Epstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2305.02689v1</id>
+    <title>Unit fractions with shifted prime denominators</title>
+    <updated>2023-05-04T10:06:34Z</updated>
+    <link href="https://arxiv.org/abs/2305.02689v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2305.02689v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that any positive rational number is the sum of distinct unit fractions with denominators in $\{p-1 : p\textrm{ prime}\}$. The same conclusion holds for the set $\{p-h : p\textrm{ prime}\}$ for any $h\in\mathbb{Z}\backslash\{0\}$, provided a necessary congruence condition is satisfied. We also prove that this is true for any subset of the primes of relative positive density, provided a necessary congruence condition is satisfied.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-05-04T10:06:34Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Proceedings of the Royal Society of Edinburgh: Section A Mathematics 155 (2025) 2285-2295</arxiv:journal_ref>
+    <author>
+      <name>Thomas F. Bloom</name>
+    </author>
+    <arxiv:doi>10.1017/prm.2024.42</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1017/prm.2024.42" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2304.09845v2</id>
+    <title>Rings that are Egyptian with respect to a multiplicative set</title>
+    <updated>2023-09-19T15:32:43Z</updated>
+    <link href="https://arxiv.org/abs/2304.09845v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2304.09845v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The notion of an \emph{Egyptian} integral domain $D$ (where every fraction can be written as a sum of unit fractions with denominators from $D$) is extended here to the notion that a ring $R$ is \emph{$W$-Egyptian}, with $W$ a multiplicative set in $R$. The new notion allows denominators just from $W$. It is shown that several results about Egyptian domains can be extended to the $W$-Egyptian context, though some cannot, as shown in counterexamples. In particular, being a sum of unit fractions from $W$ is \emph{not} equivalent to being a distinct sum of unit fractions from $W$, so we need to add the notion of the \emph{strictly} $W$-Egyptian ring. Connections are made with Jacobson radicals, power series, products of rings, factor rings, modular arithmetic, and monoid algebras.</summary>
+    <category term="math.AC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-04-19T17:49:07Z</published>
+    <arxiv:comment>Refereed version. Expanded the introduction and added many little clarifications throughout the paper. 7 pages</arxiv:comment>
+    <arxiv:primary_category term="math.AC"/>
+    <author>
+      <name>Neil Epstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2210.04496v1</id>
+    <title>Egyptian Fractions</title>
+    <updated>2022-10-10T08:50:40Z</updated>
+    <link href="https://arxiv.org/abs/2210.04496v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2210.04496v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Any rational number can be written as the sum of distinct unit fractions. In this survey paper we review some of the many interesting questions concerning such 'Egyptian fraction' decompositions, and recent progress concerning them.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2022-10-10T08:50:40Z</published>
+    <arxiv:comment>10 pages, survey article written for Nieuw Archief voor Wiskunde. Comments welcome!</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Thomas F. Bloom</name>
+    </author>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2112.03726v2</id>
+    <title>On a density conjecture about unit fractions</title>
+    <updated>2023-10-12T10:07:53Z</updated>
+    <link href="https://arxiv.org/abs/2112.03726v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2112.03726v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove that any set $A\subset \mathbb{N}$ of positive upper density contains a finite $S\subset A$ such that $\sum_{n\in S}\frac{1}{n}=1$, answering a question of Erdős and Graham.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-12-07T14:30:58Z</published>
+    <arxiv:comment>18 pages, appendix co-written by Bhavik Mehta</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Thomas F. Bloom</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2109.12217v1</id>
+    <title>Egyptian Fractions with Denominators from Sequences Closed Under Doubling</title>
+    <updated>2021-09-24T22:11:18Z</updated>
+    <link href="https://arxiv.org/abs/2109.12217v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2109.12217v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Resolving a conjecture of Zhi-Wei Sun, we prove that every rational number can be represented as a sum of distinct unit fractions whose denominators are practical numbers. The same method applies to allowed denominators that are closed under multiplication by two and include a multiple of every positive integer, including the odious numbers, evil numbers, Hardy-Ramanujan numbers, Jordan-Polya numbers, and fibbinary numbers.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-09-24T22:11:18Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Journal of Integer Sequences, Vol. 24 (2021), Article 21.8.8</arxiv:journal_ref>
+    <author>
+      <name>David Eppstein</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2107.05076v1</id>
+    <title>An algorithm for Egyptian fraction representations with restricted denominators</title>
+    <updated>2021-07-11T16:00:23Z</updated>
+    <link href="https://arxiv.org/abs/2107.05076v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2107.05076v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A unit fraction representation of a rational number $r$ is a finite sum of reciprocals of positive integers that equals $r$. Of particular interest is the case when all denominators in the representation are distinct, resulting in an Egyptian fraction representation of $r$. Common algorithms for computing Egyptian fraction representations of a given rational number tend to result in extremely large denominators and cannot be adapted to restrictions on the allowed denominators. We describe an algorithm for finding all unit fraction representations of a given rational number using denominators from a given finite multiset of positive integers. The freely available algorithm, implemented in Scheme, is particularly well suited to computing dense Egyptian fraction representations, where the allowed denominators have a prescribed maximum.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-07-11T16:00:23Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Involve 18 (2025) 1-23</arxiv:journal_ref>
+    <author>
+      <name>Greg Martin</name>
+    </author>
+    <author>
+      <name>Yue Shi</name>
+    </author>
+    <arxiv:doi>10.2140/involve.2025.18.1</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.2140/involve.2025.18.1" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2101.00975v1</id>
+    <title>A Study on Erdős-Straus conjecture on Diophantine equation $\frac{4}{n}=\frac{1}{x}+\frac{1}{y}+\frac{1}{z}$</title>
+    <updated>2020-12-30T11:59:46Z</updated>
+    <link href="https://arxiv.org/abs/2101.00975v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2101.00975v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Erdős-Straus conjecture is a renowned problem which describes that for every natural number $n~(\ge 2)$, $\frac{4}{n}$ can be represented as the sum of three unit fractions. The main purpose of this study is to show that the Erdős-Straus conjecture is true. The study also re-demonstrates Mordell theorem which states that $\frac{4}{n}$ has a expression as the sum of three unit fractions for every number $n$ except possibly for those primes of the form $n\equiv r$ (mod 780) with $r=1^2,11^2,13^2,17^2,19^2,23^2$. For $l,r,a\in\mathbb{N}$; $\frac{4}{24l+1}-\frac{1}{6l+r}=\frac{4r-1}{(6l+r)(24l+1)}$ with $1\le r\le 12l$, if at least one of the sums in right side of the expression, say, $a+(4r-a-1),~1\le a\le 2r-1$ for at least one of the possible value of $r$ such that $a,(4r-a-1)$ divide $(6l+r)(24l+1)$; then the conjecture is valid for the corresponding $l$. However, in this way the conjecture can not be proved only twelve values of $l$ for $l$ up to $l=10^5$.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-30T11:59:46Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>S Maiti</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2012.05984v1</id>
+    <title>Sums of four and more unit fractions and approximate parametrizations</title>
+    <updated>2020-12-10T21:17:33Z</updated>
+    <link href="https://arxiv.org/abs/2012.05984v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2012.05984v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove new upper bounds on the number of representations of rational numbers $\frac{m}{n}$ as a sum of $4$ unit fractions, giving five different regions, depending on the size of $m$ in terms of $n$. In particular, we improve the most relevant cases, when $m$ is small, and when $m$ is close to $n$. The improvements stem from not only studying complete parametrizations of the set of solutions, but simplifying this set appropriately. Certain subsets of all parameters define the set of all solutions, up to applications of divisor functions, which has little impact on the upper bound of the number of solutions. These "approximate parametrizations" were the key point to enable computer programmes to filter through large number of equations and inequalities. Furthermore, this result leads to new upper bounds for the number of representations of rational numbers as sums of more than $4$ unit fractions.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-10T21:17:33Z</published>
+    <arxiv:comment>2 figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Stefan Planitzer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2012.01667v2</id>
+    <title>Computing the matrix fractional power with the double exponential formula</title>
+    <updated>2021-04-10T04:18:59Z</updated>
+    <link href="https://arxiv.org/abs/2012.01667v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2012.01667v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Two quadrature-based algorithms for computing the matrix fractional power $A^α$ are presented in this paper. These algorithms are based on the double exponential (DE) formula, which is well-known for its effectiveness in computing improper integrals as well as in treating nearly arbitrary endpoint singularities. The DE formula transforms a given integral into another integral that is suited for the trapezoidal rule; in this process, the integral interval is transformed to the infinite interval. Therefore, it is necessary to truncate the infinite interval into an appropriate finite interval. In this paper, a truncation method, which is based on a truncation error analysis specialized to the computation of $A^α$, is proposed. Then, two algorithms are presented -- one computes $A^α$ with a fixed number of abscissas, and the other computes $A^α$ adaptively. Subsequently, the convergence rate of the DE formula for Hermitian positive definite matrices is analyzed. The convergence rate analysis shows that the DE formula converges faster than the Gaussian quadrature when $A$ is ill-conditioned and $α$ is a non-unit fraction. Numerical results show that our algorithms achieved the required accuracy and were faster than other algorithms in several situations.</summary>
+    <category term="math.NA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-03T02:57:10Z</published>
+    <arxiv:comment>The title of the manuscript was changed. The former title is "Computing the matrix fractional power based on the double exponential formula"</arxiv:comment>
+    <arxiv:primary_category term="math.NA"/>
+    <arxiv:journal_ref>Electron. T. Numer. Ana., 54 (2021) 558-580</arxiv:journal_ref>
+    <author>
+      <name>Fuminori Tatsuoka</name>
+    </author>
+    <author>
+      <name>Tomohiro Sogabe</name>
+    </author>
+    <author>
+      <name>Yuto Miyatake</name>
+    </author>
+    <author>
+      <name>Tomoya Kemmochi</name>
+    </author>
+    <author>
+      <name>Shao-Liang Zhang</name>
+    </author>
+    <arxiv:doi>10.1553/etna_vol54s558</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1553/etna_vol54s558" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2007.15100v2</id>
+    <title>Bounding the number of arithmetical structures on graphs</title>
+    <updated>2021-06-08T19:11:55Z</updated>
+    <link href="https://arxiv.org/abs/2007.15100v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2007.15100v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Let $G$ be a connected undirected graph on $n$ vertices with no loops but possibly multiedges. Given an arithmetical structure $(\textbf{r}, \textbf{d})$ on $G$, we describe a construction which associates to it a graph $G'$ on $n-1$ vertices and an arithmetical structure $(\textbf{r}', \textbf{d}')$ on $G'$. By iterating this construction, we derive an upper bound for the number of arithmetical structures on $G$ depending only on the number of vertices and edges of $G$. In the specific case of complete graphs, possibly with multiple edges, we refine and compare our upper bounds to those arising from counting unit fraction representations.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-07-29T20:46:00Z</published>
+    <arxiv:comment>11 pages</arxiv:comment>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>Discrete Mathematics, 344(9):112494, 2021</arxiv:journal_ref>
+    <author>
+      <name>Christopher Keyes</name>
+    </author>
+    <author>
+      <name>Tomer Reiter</name>
+    </author>
+    <arxiv:doi>10.1016/j.disc.2021.112494</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.disc.2021.112494" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2004.05162v1</id>
+    <title>Bounds for the Number of Terms of Harmonic Sums</title>
+    <updated>2020-04-11T20:09:30Z</updated>
+    <link href="https://arxiv.org/abs/2004.05162v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2004.05162v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper provides bounds for the number of terms, denoted by $f$, of a harmonic sum with the condition that it starts from any arbitrary unit fraction $\frac{1}{m}$, $m &gt; 1$, until another unit fraction $\frac{1}{m+f-1}$ such that the sum is the highest sum less than a particular positive integer $q$. Also, we consider the number of terms of Egyptian fractions whose terms are consecutive multiples of $r$, $r \geq 1$, under the same above condition. We end the paper with a formula for the case: $q=1$ and $r=1$.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-04-11T20:09:30Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Keneth Adrian Dagal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2003.13229v1</id>
+    <title>A New Operator for Egyptian Fractions</title>
+    <updated>2020-03-30T05:34:33Z</updated>
+    <link href="https://arxiv.org/abs/2003.13229v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2003.13229v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper introduces a new equation for rewriting two unit fractions to another two unit fractions. This equation is useful for optimizing the elements of an Egyptian Fraction. Parity of the elements of the Egyptian Fractions are also considered. And lastly, the statement that all rational numbers can be represented as Egyptian Fraction is re-established.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-03-30T05:34:33Z</published>
+    <arxiv:comment>8 pages</arxiv:comment>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Keneth Adrian Dagal</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1812.06566v1</id>
+    <title>Primary Pseudoperfect Numbers, Arithmetic Progressions, and the Erdős-Moser Equation</title>
+    <updated>2018-12-17T00:15:48Z</updated>
+    <link href="https://arxiv.org/abs/1812.06566v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1812.06566v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>A primary pseudoperfect number (PPN) is an integer $K &gt; 1$ such that the reciprocals of $K$ and its prime factors sum to 1. PPNs arise in studying perfectly weighted graphs and singularities of algebraic surfaces, and are related to Sylvester's sequence, Giuga numbers, Znám's problem, the inheritance problem, and Curtiss's bound on solutions of a unit fraction equation.
+  Here we show $K \equiv 6 \pmod{6^2}$ if $6\mid K$, and uncover a remarkable $7$-term arithmetic progression of residues modulo $6^2\cdot8$ in the sequence of known PPNs. On that basis, we pose a conjecture which leads to a conditional proof of the new record lower bound $k&gt;10^{3.99\times10^{20}}$ on any non-trivial solution to the Erdős-Moser Diophantine equation $1^n + 2^n + \dotsb + k^n = (k+1)^n$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-12-17T00:15:48Z</published>
+    <arxiv:comment>7 pages, 1 table</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Amer. Math. Monthly 124 (2017) 232-240</arxiv:journal_ref>
+    <author>
+      <name>Jonathan Sondow</name>
+    </author>
+    <author>
+      <name>Kieren MacMillan</name>
+    </author>
+    <arxiv:doi>10.4169/amer.math.monthly.124.3.232</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.4169/amer.math.monthly.124.3.232" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1812.05684v2</id>
+    <title>Solutions to Diophantine Equation of Erdos-Straus Conjecture</title>
+    <updated>2018-12-31T06:32:30Z</updated>
+    <link href="https://arxiv.org/abs/1812.05684v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1812.05684v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In number theory, the Erdos-Straus conjecture states that for all n &gt;=2, the rational number 4/n can be expressed as the sum of three unit fractions. Paul Erdos and Ernst G. Straus formulated the conjecture in 1948. The restriction that the three unit fractions be positive is essential to the difficulty of the problem, for if negative values were allowed the problem could always be solved. This paper presents an explicit solutions to this conjecture for all n &gt;=2 excepting some n such that n=1(mod8).</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-12-11T08:14:48Z</published>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Dagnachew Jenber Negash</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1805.02945v1</id>
+    <title>The number of solutions of the Erdős-Straus Equation and sums of $k$ unit fractions</title>
+    <updated>2018-05-08T11:07:51Z</updated>
+    <link href="https://arxiv.org/abs/1805.02945v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1805.02945v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We prove new upper bounds for the number of representations of an arbitrary rational number as a sum of three unit fractions. In particular, for fixed $m$ there are at most $\mathcal{O}_ε(n^{3/5+ε})$ solutions of $\frac{m}{n}=\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}$. This improves upon a result of Browning and Elsholtz (2011) and extends a result of Elsholtz and Tao (2013) who proved this when $m=4$ and $n$ is a prime. Moreover there exists an algorithm finding all solutions in expected running time $\mathcal{O}_ε\left(n^ε\left(\frac{n^3}{m^2}\right)^{1/5}\right)$, for any $ε&gt;0$. We also improve a bound on the maximum number of representations of a rational number as a sum of $k$ unit fractions. Furthermore, we also improve lower bounds. In particular we prove that for given $m\in \mathbb{N}$ in every reduced residue class $e \bmod f$ there exist infinitely many primes $p$ such that the number of solutions of the equation $\frac{m}{p}=\frac{1}{a_1}+\frac{1}{a_2}+\frac{1}{a_3}$ is $\gg_{f,m} \exp\left(\left(\frac{5\log 2}{12 \mathrm{lcm}(m,f)}+o_{f,m}(1)\right)\frac{\log p}{\log \log p}\right)$. Previously the best known lower bound of this type was of order $(\log p)^{0.549}$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-05-08T11:07:51Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Stefan Planitzer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1804.09476v1</id>
+    <title>High-order fractal states in graphene superlattices</title>
+    <updated>2018-04-25T10:52:03Z</updated>
+    <link href="https://arxiv.org/abs/1804.09476v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1804.09476v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Graphene superlattices were shown to exhibit high-temperature quantum oscillations due to periodic emergence of delocalized Bloch states in high magnetic fields such that unit fractions of the flux quantum pierce a superlattice unit cell. Under these conditions, semiclassical electron trajectories become straight again, similar to the case of zero magnetic field. Here we report magnetotransport measurements that reveal second, third and fourth order magnetic Bloch states at high electron densities and temperatures above 100 K. The recurrence of these states creates a fractal pattern intimately related to the origin of Hofstadter butterflies. The hierarchy of the fractal states is determined by the width of magnetic minibands, in qualitative agreement with our band structure calculations.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2018-04-25T10:52:03Z</published>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <arxiv:journal_ref>Proc. Natl. Acad. Sci. (2018)</arxiv:journal_ref>
+    <author>
+      <name>R. Krishna Kumar</name>
+    </author>
+    <author>
+      <name>A. Mishchenko</name>
+    </author>
+    <author>
+      <name>X. Chen</name>
+    </author>
+    <author>
+      <name>S. Pezzini</name>
+    </author>
+    <author>
+      <name>G. H. Auton</name>
+    </author>
+    <author>
+      <name>L. A. Ponomarenko</name>
+    </author>
+    <author>
+      <name>U. Zeitler</name>
+    </author>
+    <author>
+      <name>L. Eaves</name>
+    </author>
+    <author>
+      <name>V. I. Fal'ko</name>
+    </author>
+    <author>
+      <name>A. K. Geim</name>
+    </author>
+    <arxiv:doi>10.1073/pnas.1804572115</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1073/pnas.1804572115" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1611.01946v4</id>
+    <title>Fractions in the Suan Shu Shu (China, Beginning of the 2nd Century BCE)</title>
+    <updated>2017-03-30T12:52:09Z</updated>
+    <link href="https://arxiv.org/abs/1611.01946v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1611.01946v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Su{à}n Sh{ù} Sh{ū} contains 301 instances of regular expressions for fractions. They can be "mono-dimensional" (formed with one integer name only) for unit fractions, "bidimensional" (with two integer names) for both unit and non-unit fractions, or lexicalized only for 1/3, 1/2 and 2/3. The present paper gives a complete description of the diversity of these forms. Bidimensional expressions are predicative phrases: the name n f{ē}n of a unit fraction 1/n acts as subject and the numerator's name as predicate; according to the syntactic context, the morpheme zh{ī} can be used as an optional marker of this predicative relation.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-11-07T09:18:36Z</published>
+    <arxiv:primary_category term="math.HO"/>
+    <arxiv:journal_ref>The Journal of Chinese Linguistics, 2017, 45 (1), pp.20 - 67</arxiv:journal_ref>
+    <author>
+      <name>Rémi Anicotte</name>
+      <arxiv:affiliation>CRLAO</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1603.07035v1</id>
+    <title>Revisiting Unit Fractions That Sum To 1</title>
+    <updated>2016-03-23T00:21:15Z</updated>
+    <link href="https://arxiv.org/abs/1603.07035v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1603.07035v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This paper is a continuation of a previous paper. Here, as there, we examine the problem of finding the maximum number of terms in a partial sequence of distinct unit fractions larger than 1/100 that sums to 1. In the previous paper, we found that the maximum number of terms is 42 and introduced a method for showing that. In this paper, we demonstrate that there are 27 possible solutions with 42 terms, and discuss how primes show that no 43-term solution exists.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2016-03-23T00:21:15Z</published>
+    <arxiv:comment>1 Figure</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Int. J. Pure Appl. Math. 85(1), (2013), 83-93</arxiv:journal_ref>
+    <author>
+      <name>Yutaka Nishiyama</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1503.08791v2</id>
+    <title>Canonical Trees, Compact Prefix-free Codes and Sums of Unit Fractions: A Probabilistic Analysis</title>
+    <updated>2015-05-28T20:45:36Z</updated>
+    <link href="https://arxiv.org/abs/1503.08791v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1503.08791v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For fixed $t\ge 2$, we consider the class of representations of $1$ as sum of unit fractions whose denominators are powers of $t$ or equivalently the class of canonical compact $t$-ary Huffman codes or equivalently rooted $t$-ary plane "canonical" trees. We study the probabilistic behaviour of the height (limit distribution is shown to be normal), the number of distinct summands (normal distribution), the path length (normal distribution), the width (main term of the expectation and concentration property) and the number of leaves at maximum distance from the root (discrete distribution).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2015-03-30T18:55:52Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>SIAM J. Discrete Math. 29 (2015), no. 3, 1600-1653</arxiv:journal_ref>
+    <author>
+      <name>Clemens Heuberger</name>
+    </author>
+    <author>
+      <name>Daniel Krenn</name>
+    </author>
+    <author>
+      <name>Stephan Wagner</name>
+    </author>
+    <arxiv:doi>10.1137/15M1017107</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1137/15M1017107" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1405.4025v2</id>
+    <title>Unit Fractions in Norm-Euclidean Rings of Integers</title>
+    <updated>2014-05-25T10:26:17Z</updated>
+    <link href="https://arxiv.org/abs/1405.4025v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1405.4025v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In this paper we make a Gaussian integer version of the Erdős-Straus conjecture and we solve the Erdős-Straus diophantine equation over the rings of integers of norm-Euclidean quadratic fields.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-05-15T22:01:28Z</published>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Kyle Bradford</name>
+    </author>
+    <author>
+      <name>Eugen J. Ionascu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1404.1087v1</id>
+    <title>Dynamic Windows Scheduling with Reallocation</title>
+    <updated>2014-04-03T20:20:05Z</updated>
+    <link href="https://arxiv.org/abs/1404.1087v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1404.1087v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We consider the Windows Scheduling problem. The problem is a restricted version of Unit-Fractions Bin Packing, and it is also called Inventory Replenishment in the context of Supply Chain. In brief, the problem is to schedule the use of communication channels to clients. Each client ci is characterized by an active cycle and a window wi. During the period of time that any given client ci is active, there must be at least one transmission from ci scheduled in any wi consecutive time slots, but at most one transmission can be carried out in each channel per time slot. The goal is to minimize the number of channels used. We extend previous online models, where decisions are permanent, assuming that clients may be reallocated at some cost. We assume that such cost is a constant amount paid per reallocation. That is, we aim to minimize also the number of reallocations. We present three online reallocation algorithms for Windows Scheduling. We evaluate experimentally these protocols showing that, in practice, all three achieve constant amortized reallocations with close to optimal channel usage. Our simulations also expose interesting trade-offs between reallocations and channel usage. We introduce a new objective function for WS with reallocations, that can be also applied to models where reallocations are not possible. We analyze this metric for one of the algorithms which, to the best of our knowledge, is the first online WS protocol with theoretical guarantees that applies to scenarios where clients may leave and the analysis is against current load rather than peak load. Using previous results, we also observe bounds on channel usage for one of the algorithms.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-04-03T20:20:05Z</published>
+    <arxiv:comment>6 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.DS"/>
+    <author>
+      <name>Martin Farach-Colton</name>
+    </author>
+    <author>
+      <name>Katia Leal</name>
+    </author>
+    <author>
+      <name>Miguel A. Mosteiro</name>
+    </author>
+    <author>
+      <name>Christopher Thraves</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1404.0341v1</id>
+    <title>Remarks on the Egyptian 2/D table in favor of a global approach (D composite number)</title>
+    <updated>2014-04-01T18:48:26Z</updated>
+    <link href="https://arxiv.org/abs/1404.0341v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1404.0341v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Egyptian decompositions of 2/D as a sum of two unit fractions are studied by means of certain divisors of D, namely r and s. Our analysis does not concern the method to find r and s, but just why the scribes have chosen a solution instead of another. A comprehensive approach, unconventional, is developed which implies having an overview of all pre-calculated alternatives. Difference s-r is the basis of the classification to be examined before taking the right decisions, step by step, if difficulties are encountered. An adequate adjustment of s-r limits the number of all alternatives to 57, what is very few. A four-component generator (2/3, 2/5, 2/7, 2/11) operates as a (hidden) mother-table. Adding few logical rules of common sense is enough to explain the reasons of the Egyptian choices. Even the singular case 2/95, which can not be decomposed into two fractions but only into three, reveals a doubly justified explanation.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-04-01T18:48:26Z</published>
+    <arxiv:comment>9 pages</arxiv:comment>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Lionel Bréhamet</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1403.5739v1</id>
+    <title>Remarks on the Egyptian 2/D table in favor of a global approach (D prime number)</title>
+    <updated>2014-03-23T10:34:55Z</updated>
+    <link href="https://arxiv.org/abs/1403.5739v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1403.5739v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For h=3 or 4, Egyptian decompositions into h unit fractions, like 2/D = 1/D1 + ... +1/Dh, were given by using (h-1) divisors (di) of D1. This ancient modus operandi, well recognized today, provides Di=DD1/di for i greater than 1. Decompositions selected (depending on di) have generally been studied by modern researchers through the intrinsic features of di itself. An unconventional method is presented here without considering the di properties but just the differences d(h-1)-dh. In contrast to widespread ideas about the last denominator like 'Dh smaller than 1000', it is more appropriate to adopt a global boundary of the form 'Dh smaller or equal to 10D', where 10 comes from the Egyptian decimal system. Singular case 2/53 (with 15 instead of 10) is explained. The number of preliminary alternatives before the final decisions is found tobe so low (71) for h=3 or 4 that a detailed overview is possible. A simple additive method of trials, independent of any context, can be carried out, namely 2n+1= d2+ ... + dh. Clearly the decisions fit with a minimal value of the differences d(h-1)-dh, independently of any di values.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2014-03-23T10:34:55Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Lionel Bréhamet</name>
+    </author>
+    <author>
+      <name>Lionel Bréhamet</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1212.5012v2</id>
+    <title>Cloning of Dirac fermions in graphene superlattices</title>
+    <updated>2013-05-09T11:10:05Z</updated>
+    <link href="https://arxiv.org/abs/1212.5012v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1212.5012v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Lateral superlattices have attracted major interest as this may allow one to modify spectra of two dimensional electron systems and, ultimately, create materials with tailored electronic properties. Previously, it proved difficult to realize superlattices with sufficiently short periodicity and weak disorder, and most of the observed features could be explained in terms of commensurate cyclotron orbits. Evidence for the formation of superlattice minibands (so called Hofstadter's butterfly) has been limited to the observation of new low-field oscillations and an internal structure within Landau levels. Here we report transport properties of graphene placed on a boron nitride substrate and accurately aligned along its crystallographic directions. The substrate's moire potential leads to profound changes in graphene's electronic spectrum. Second-generation Dirac points appear as pronounced peaks in resistivity accompanied by reversal of the Hall effect. The latter indicates that the sign of the effective mass changes within graphene's conduction and valence bands. Quantizing magnetic fields lead to Zak-type cloning of the third generation of Dirac points that are observed as numerous neutrality points in fields where a unit fraction of the flux quantum pierces the superlattice unit cell. Graphene superlattices open a venue to study the rich physics expected for incommensurable quantum systems and illustrate the possibility to controllably modify electronic spectra of 2D atomic crystals by using their crystallographic alignment within van der Waals heterostuctures.</summary>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-12-20T12:47:05Z</published>
+    <arxiv:comment>Nature 2013</arxiv:comment>
+    <arxiv:primary_category term="cond-mat.mes-hall"/>
+    <arxiv:journal_ref>Nature 497, 594-597 (2013)</arxiv:journal_ref>
+    <author>
+      <name>L. A. Ponomarenko</name>
+    </author>
+    <author>
+      <name>R. V. Gorbachev</name>
+    </author>
+    <author>
+      <name>G. L. Yu</name>
+    </author>
+    <author>
+      <name>D. C. Elias</name>
+    </author>
+    <author>
+      <name>R. Jalil</name>
+    </author>
+    <author>
+      <name>A. A. Patel</name>
+    </author>
+    <author>
+      <name>A. Mishchenko</name>
+    </author>
+    <author>
+      <name>A. S. Mayorov</name>
+    </author>
+    <author>
+      <name>C. R. Woods</name>
+    </author>
+    <author>
+      <name>J. R. Wallbank</name>
+    </author>
+    <author>
+      <name>M. Mucha-Kruczynski</name>
+    </author>
+    <author>
+      <name>B. A. Piot</name>
+    </author>
+    <author>
+      <name>M. Potemski</name>
+    </author>
+    <author>
+      <name>I. V. Grigorieva</name>
+    </author>
+    <author>
+      <name>K. S. Novoselov</name>
+    </author>
+    <author>
+      <name>F. Guinea</name>
+    </author>
+    <author>
+      <name>V. I. Fal'ko</name>
+    </author>
+    <author>
+      <name>A. K. Geim</name>
+    </author>
+    <arxiv:doi>10.1038/nature12187</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1038/nature12187" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1203.0018v1</id>
+    <title>The Rational Number n/p as a sum of two unit fractions</title>
+    <updated>2012-02-29T21:11:08Z</updated>
+    <link href="https://arxiv.org/abs/1203.0018v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1203.0018v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In a 2011 paper published in the journal "Asian Journal of Algebra"(see reference[1]), the authors consider, among other equations,the diophantine equations 2xy=n(x+y) and 3xy=n(x+y). For the first equation, with n being an odd positive integer, they give the solution x=(n+1)/2, y=n(n+1)/2. For the second equation they present the particular solution, x=(n+1)/3,y=n(n+1)/3, where is n is a positive integer congruent to 2modulo3. If in the above equations we assume n to be prime, then these two equations become special cases of the diophantine equation, nxy=p(x+y) (1), with p being a prime and n a positive integer greater than or equal to 2. This 2-variable symmetric diophantine equation is the subject matter of this article; with the added condition that the intager n is not divisible by the prime p. Observe that this equation can be written in fraction form: n/p= 1/x + 1/y(See [2] for more details)
+  In this work we prove the following result, Theorem1(stated on page2 of this paper):Let p be a prime, n a positive integer at least2, and not divisible by p. Then, 1)If n=2 and p is an odd prime, equation (1) has exactly three distinct positive integer solutions:x=p, y=p ; x=p(p+1)/2, y=(p+1)/2 ; x=(p+1)/2, y=p(p+1)/2 2)If n is greater than or equal to 3, and n is a divisor of p+1. Then equation (1) has exactly two distinct solutions: x=p(p+1)/n, y=(p+1)/n ; x=(p+1)/n, y=p(p+1)/n 3) if n is not a divisor of p+1. Then equation (1) has no positive integer solution. The proof of this result is elementary, and only uses Euclid's Lemma from number theory,and basic divisor arguments(such that if a prime divides a product of two integers; it must divide at least one of them).</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2012-02-29T21:11:08Z</published>
+    <arxiv:comment>6 pages</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Konstantine Zelator</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1108.5964v1</id>
+    <title>The number of Huffman codes, compact trees, and sums of unit fractions</title>
+    <updated>2011-08-30T14:16:08Z</updated>
+    <link href="https://arxiv.org/abs/1108.5964v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1108.5964v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The number of "nonequivalent" Huffman codes of length r over an alphabet of size t has been studied frequently. Equivalently, the number of "nonequivalent" complete t-ary trees has been examined. We first survey the literature, unifying several independent approaches to the problem. Then, improving on earlier work we prove a very precise asymptotic result on the counting function, consisting of two main terms and an error term.</summary>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DM" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-08-30T14:16:08Z</published>
+    <arxiv:primary_category term="math.CO"/>
+    <arxiv:journal_ref>IEEE Trans. Inf. Theory 59 (2013), 1065-1075</arxiv:journal_ref>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Clemens Heuberger</name>
+    </author>
+    <author>
+      <name>Helmut Prodinger</name>
+    </author>
+    <arxiv:doi>10.1109/TIT.2012.2226560</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1109/TIT.2012.2226560" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1107.1010v6</id>
+    <title>Counting the number of solutions to the Erdos-Straus equation on unit fractions</title>
+    <updated>2015-08-02T20:05:58Z</updated>
+    <link href="https://arxiv.org/abs/1107.1010v6" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1107.1010v6" rel="related" type="application/pdf" title="pdf"/>
+    <summary>For any positive integer $n$, let $f(n)$ denote the number of solutions to the Diophantine equation $\frac{4}{n} = \frac{1}{x} + \frac{1}{y} + \frac{1}{z}$ with $x,y,z$ positive integers. The \emph{Erdős-Straus conjecture} asserts that $f(n) &gt; 0$ for every $n \geq 2$. To solve this conjecture, it suffices without loss of generality to consider the case when $n$ is a prime $p$.
+  In this paper we consider the question of bounding the sum $\sum_{p&lt;N} f(p)$ asymptotically as $N \to \infty$, where $p$ ranges over primes. Our main result establishes the asymptotic upper and lower bounds $$ N \log^2 N \ll \sum_{p \leq N} f(p) \ll N \log^2 N \log \log N.$$ In particular, from this bound and the prime number theorem we have $f(p) = O(\log^3 p \log \log p)$ for a subset of primes of density arbitrarily close to 1; thus a typical prime has a relatively small number of solutions to the Erdős-Straus Diophantine equation.
+  We also establish some related results on $f$ and related quantities, for instance establishing the bound $f(p) \ll p^{3/5} + O(\frac{1}{\log\log p})}$ for all primes $p$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2011-07-06T01:02:36Z</published>
+    <arxiv:comment>55 pages, two figures. An error in the statement and proof of Theorem 1.9 has been corrected, and some new references added</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>J. Aust. Math. Soc. 94 (2013), 50--105</arxiv:journal_ref>
+    <author>
+      <name>Christian Elsholtz</name>
+    </author>
+    <author>
+      <name>Terence Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0912.2458v1</id>
+    <title>An ancient Egyptian problem:the diophantine equation 4/n=1/x+1/y+1/z, n&gt;or=2</title>
+    <updated>2009-12-14T14:24:13Z</updated>
+    <link href="https://arxiv.org/abs/0912.2458v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0912.2458v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  From the Rhind Papyrus and other extant sources, we know that the ancient Egyptians were very iterested in expressing a given fraction into a sum of unit fractions, that is fractions whose numerators are equal to 1. One of the problems that has come down to us in the last 60 years, is known as the Erdos- Strauss conjecture which states that for each positive integer n&gt;1; the fraction 4/n can be decomposed into a sum of three distinct unit fractions. Since 1950, a numberof partial results have been achieved, see references [1]- [8]; and also [10] and[11]. In this work we contribute four theorems. In Theorem 2, we prove that if the fraction 4/n is not equal to a sum of three distinct unit fractions, then each prime divisor of n; must be congruent to 1 modulo24. Moreover, if n contains a divisor noncongruent to 1mod24; then such a decomposition does exist and it is explicitly given.</summary>
+    <category term="math.GM" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-12-14T14:24:13Z</published>
+    <arxiv:comment>9 pages, no figures</arxiv:comment>
+    <arxiv:primary_category term="math.GM"/>
+    <author>
+      <name>Konstantine Zelator</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/0902.3859v2</id>
+    <title>Representation of One as the Sum of Unit Fractions</title>
+    <updated>2009-04-15T01:59:14Z</updated>
+    <link href="https://arxiv.org/abs/0902.3859v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/0902.3859v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  One is expressed as the sum of the reciprocals of a certain set of integers. We give an elegant proof to the fact applying the polynomial theorem and basic calculus.</summary>
+    <category term="math.HO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2009-02-23T07:58:16Z</published>
+    <arxiv:comment>6 pages, no figure</arxiv:comment>
+    <arxiv:primary_category term="math.HO"/>
+    <author>
+      <name>Yuya Dan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0412480v3</id>
+    <title>Volume and lattice points of reflexive simplices</title>
+    <updated>2007-01-15T16:10:33Z</updated>
+    <link href="https://arxiv.org/abs/math/0412480v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0412480v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We prove sharp upper bounds on the volume and the number of lattice points on edges of higher-dimensional reflexive simplices. These convex-geometric results are derived from new number-theoretic bounds on the denominators of unit fractions summing up to one. The main algebro-geometric application is a sharp upper bound on the anticanonical degree of higher-dimensional Q-factorial Gorenstein toric Fano varieties with Picard number one, where we completely characterize the case of equality.</summary>
+    <category term="math.AG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-12-23T15:04:28Z</published>
+    <arxiv:comment>AMS-LaTeX, 19 pages; paper reorganized, introduction added, bibliography updated; typos corrected</arxiv:comment>
+    <arxiv:primary_category term="math.AG"/>
+    <arxiv:journal_ref>Discr. Comp. Geom. 37 (2007), 301-320</arxiv:journal_ref>
+    <author>
+      <name>Benjamin Nill</name>
+    </author>
+    <arxiv:doi>10.1007/s00454-006-1299-y</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/s00454-006-1299-y" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0411305v4</id>
+    <title>A connection between covers of the integers and unit fractions</title>
+    <updated>2006-07-26T15:25:57Z</updated>
+    <link href="https://arxiv.org/abs/math/0411305v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0411305v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  For integers a and n&gt;0, let a(n) denote the residue class {x\in Z: x=a (mod n)}. Let A be a collection {a_s(n_s)}_{s=1}^k of finitely many residue classes such that A covers all the integers at least m times but {a_s(n_s)}_{s=1}^{k-1} does not. We show that if n_k is a period of the covering function w_A(x)=|{1\le s\le k: x\in a_s(n_s)}| then for any r=0,...,n_k-1 there are at least m integers in the form $\sum_{s\in I}1/n_s-r/n_k$ with I contained in {1,...,k-1}.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2004-11-15T15:56:26Z</published>
+    <arxiv:comment>9 pages. To appear in Adv. in Appl. Math</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Zhi-Wei Sun</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/0311421v1</id>
+    <title>On a coloring conjecture about unit fractions</title>
+    <updated>2003-11-24T18:01:46Z</updated>
+    <link href="https://arxiv.org/abs/math/0311421v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/0311421v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We prove an old conjecture of Erd{\H o}s and Graham on sums of unit fractions: There exists a constant $b&gt;0$ such that if we $r$-color the integers in $2,b^r]$, then there exists a monochromatic set $S$ such that $\sum_{n \in S} 1/n=1$.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2003-11-24T18:01:46Z</published>
+    <arxiv:comment>12 pages published version</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Ann. of Math. (2), Vol. 157 (2003), no. 2, 545--556</arxiv:journal_ref>
+    <author>
+      <name>Ernest S. Croot</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/9904181v1</id>
+    <title>On Unit Fractions with Denominators in Short Intervals</title>
+    <updated>1999-04-30T20:56:57Z</updated>
+    <link href="https://arxiv.org/abs/math/9904181v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/9904181v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  We answer several questions of P. Erdos and R. Graham by showing that for any rational number r &gt; 0, there exist integers n1, n2, ..., nk, k variable, where
+  N &lt; n1 &lt; n2 &lt; ... &lt; nk &lt; (e^r + o_r(1) ) N,
+  such that
+  r = 1/n1 + 1/n2 + ... + 1/nk. Moreover, we obtain the best-possible error term for the o_r(1), which is O_r(loglog N/log N).</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>1999-04-30T20:56:57Z</published>
+    <arxiv:comment>19 pages amstex, no figures</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <author>
+      <name>Ernest S. Croot</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/math/9811112v1</id>
+    <title>Denser Egyptian Fractions</title>
+    <updated>1998-11-18T16:49:21Z</updated>
+    <link href="https://arxiv.org/abs/math/9811112v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/math/9811112v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>  An Egyptian fraction is a sum of distinct unit fractions (reciprocals of positive integers). We show that every rational number has Egyptian fraction representations where the number of terms is of the same order of magnitude as the largest denominator, improving a result from an earlier paper to best-possible form. We also settle, in best-possible form, the related problem of how small M_t(r) can be such that there is an Egyptian fraction representation of r with exactly t terms, the denominators of which are all at most M_t(r). We also consider the following problems posed by Erdos and Graham: the set of integers that cannot be the largest denominator of an Egyptian fraction representation of 1 is infinite - what is its order of growth? How about those integers that cannot be the second-largest (third-largest, etc.) denominator of such a representation? In the latter case, we show that only finitely many integers cannot be the second-largest (third-largest, etc.) denominator of such a representation; while in the former case, we show that the set of integers that cannot be the largest denominator of such a representation has density zero, and establish its order of growth. Both results extend to representations of any positive rational number.</summary>
+    <category term="math.NT" scheme="http://arxiv.org/schemas/atom"/>
+    <published>1998-11-18T16:49:21Z</published>
+    <arxiv:comment>26 pages; sequel to "Dense Egyptian Fractions" (math.NT/9804045)</arxiv:comment>
+    <arxiv:primary_category term="math.NT"/>
+    <arxiv:journal_ref>Acta Arith. 95 (2000), no. 3, 231-260</arxiv:journal_ref>
+    <author>
+      <name>Greg Martin</name>
+    </author>
+  </entry>
+</feed>
