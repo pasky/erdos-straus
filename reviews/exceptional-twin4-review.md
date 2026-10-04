@@ -287,3 +287,164 @@ Suggested ledger text (the author's, endorsed): "Moduli with ≤ r large
 primes, r fixed: cap `≪ L^{3/4}(log L)^{O(r)}` PROVED (EXCEPTIONAL_TWIN4
 Thm 7.1, reviewed SOUND). The ternary residual closes by a large-sieve
 upper bound for rough partners. Open: r unbounded, and dropping B."
+
+---
+
+# Round 2 — commit b3244dd (§§9–11; repairs F1–F4)
+
+New defects are numbered G1, G2, …
+
+## R2.1 Repairs F1–F4 — all FIXED
+
+| defect | fix at b3244dd | status |
+|---|---|---|
+| F1 "losing nothing" | "losing only constants and a polylog" (§2) | FIXED |
+| F2 block count; β range | `C₀log₂(kQ_V)+2`; (5.1) note "valid for any `β_C ≥ 0`" | FIXED |
+| F3 θ-translation citation | Cor 7.2 cites ET Lemma 2.9 / TW review T7, uniform in `λ ≤ A₀L` | FIXED |
+| F4 toy `R = ℓ²`; "always"; §0 label | stated in §8; "for every large partner" (§6, report); §0 marks Thm 7.1 reviewed | FIXED |
+
+## R2.2 Proposition 9.1 (explicit r-dependence) — SOUND
+
+The loss table covers every r-dependence I found in round 1: inflations,
+`δ_r^{−1}`, `2^r` subsets, harmonic sums `(2log L)^r`, `r²` from Lemmas 5.1,
+5.3(b) and Cor 2.4, and `2^h`, `(8/7)^{3r}`, `(log L)^h` in §6. Shiu's
+constant depends on B only. Side conditions that must stay true for
+`r ≤ log L`, and do: `R ≥ 2^r q` in Lemma 6.1 needs
+`(kQ)² ≥ L^{16} ≥ 2^{1.5r+2}`; `q/φ(q) ≤ 2k/φ(k)` needs
+`(1+1/w₂)^r ≤ 2`; `p⁺ ≤ 1/4`. Lemma 4.1 needs
+`e^{O(r)}(log L)^{O(r)}L^{6−8} = o(1)`, which holds for
+`r ≤ ε₀log L/log log L`. Then `(C_Blog L)^{Cr} ≤ L^{Cε(1+o(1))}`. ✓
+
+## R2.3 Lemma 9.2 (unweighted payment, LLL with mixed x) — SOUND (G1 minor)
+
+* Monotonicity: `A⁺∩A⁺′ ⊆ A₁⁺∩A₁⁺′`. In the `ν⁺` product space the unary
+  sets are null, so `P(A⁺) = P(A₁⁺)P(no 𝓔₂ | A₁⁺)` and the unary factors
+  cancel. ✓
+* LLL hypothesis (TW2 Lemma 1.1). For `F ∈ 𝓔₁`:
+  `Σ_{Γ(F)}x ≤ Σ_{ℓ∈S(F)}(2w⁺_ℓ + y_ℓ)` (the 𝓔₁ neighbours through ℓ carry
+  `2w⁺_ℓ`, the 𝓔₂ neighbours carry `y_ℓ`). All `x ≤ 1/8`, so
+  `Π(1−x) ≥ e^{−(8/7)Σx} ≥ 1/2` and `P(F) = x_F/2`. For `G ∈ 𝓔₂`:
+  `P(G) = 2^{−|S(G)|}x_G` and `Π(1−x) ≥ e^{−c|S(G)|} ≥ 2^{−|S(G)|}`. ✓
+* Conclusion: the chain rule with Lemma 1.1(1), `𝓢 = 𝓔₁ ∪ G_{<i}`, gives
+  `P(no 𝓔₂ | A₁⁺) ≥ Π(1−x_{G_i}) ≥ e^{−(8/7)m₂}`, so the cost is
+  `(16/7)m₂ ≤ 3m₂`. ✓ TW2 Lemma 2.1 accepts any nonempty `A⁺ ⊆ A`. ✓
+* **G1 (minor, hypothesis mismatch; the proof survives).** Lemma 9.2 assumes
+  `Σ_{ℓ∈S(F)}w⁺_ℓ ≤ 1/32`, but Prop 3.1 (and Thm 10.4) deliver only `1/16`,
+  and Cor 9.3 never checks this hypothesis. The proof works with `1/16`:
+  `Σ_{Γ(F)}x ≤ 2/16 + 1/32 = 5/32` gives `Π ≥ e^{−0.18} ≥ 1/2`; per vertex
+  `w⁺_ℓ ≤ 1/16`, so `Σ_{Γ(G)}x ≤ (5/32)|S(G)|` gives
+  `e^{−0.18|S|} ≥ 2^{−|S|}`; `x_F ≤ 2w⁺ ≤ 1/8`. Fix: state the lemma with
+  `1/16`, or halve `δ_r`.
+
+## R2.4 Corollary 9.3 (Rankin, `ω_L ≥ 330 log L`) — SOUND
+
+* On supp P: `ν⁺ ≤ (4/3)(8/7)U ≤ 2U`, so `2^{|S|}P_{ν⁺}(G) ≤ 4^{|S|}P_U(G)`.
+  On `G_III`, `y_ℓ ≤ m₂ ≤ 1/L` and `Σ_{S(F)}y ≤ r/L ≤ 1/32`. ✓
+* `E′m₂ ≤ 2Σ_{ω_L≥r₂}Γ(k)τ(A²)4^{ω_L}/M`, with activity `2Γ(k)/k` times
+  `P_U = 1/M_L`. No B is used. ✓
+* First factor, after Cauchy–Schwarz twice: `Γ(p) ≤ 3` gives
+  `Γ(k)² ≤ 9^{ω(k)}`; `τ(p²)⁴ = 81`. Both mean values are `≍ L^{81}`, giving
+  `L^{81/4}·L^{81/4}`. ✓
+* Rankin: `16^ω1[ω≥r₂] ≤ 16^ωy^{ω−r₂}` needs `y ≥ 1`, and
+  `y = 330/16 ≈ 20.6` qualifies. `Σ_k 1/k ≤ 2log w₂` over w₂-smooth k, and
+  `Π(1+16y/(ℓ−1)) ≤ e^{16y(H₁+1)}`. The result is
+  `(16e/C₁)^{C₁log L}e^{C₁}`, i.e. `L^{−668.8}` up to a constant, far below
+  `L^{−81/2−2}`. ✓ (C₁ = 330 is very generous.) Markov then gives
+  `P′(G_III^c) = o(1)`, and `P′(G_L ∩ G_III) ≥ 1/2` keeps TW2 Lemma 3.2's
+  constants. ✓
+
+## R2.5 §9.3 (middle range) — labels honest (G2 nit)
+
+Marked OPEN / Assessment in §0, §9.3 and the report. The diagnosis is
+coherent: the Poisson mean `≈ (1/4)log L` lies inside the window, and the
+diagonal `Π_{ℓ∈S}(ρ_ℓ+1/ℓ) = ρ^S(1+O(rL^{−8}))` holds because
+`ℓ^{α−1} ≤ w₂^{α−1}`. The genuine loss is the first moment over `2^r`
+short-partner stars.
+* **G2 (nits).** (a) The §0 label "sharp failure point" overstates it.
+  Nothing shows that the first-moment route *must* fail there; call it
+  "identified failure point of this method". (b) Item 1 claims that in
+  good fibres `p_ℓ, w_ℓ ≪ L⁴/ℓ` for all ℓ. That cannot come from the Markov
+  step as it stands: `Σ_ℓ (ℓ/L⁴)²E′w_ℓ² ≍ Σ_ℓ L^{−2}` diverges. A
+  `log ℓ`, `ℓ^{η}` or dyadic-block slack is needed. This is harmless
+  inside an Assessment. (c) Item 3 says "labels have height comparable to
+  `Q_V^{1/2}`". The actual obstruction is that for short partners the
+  long variable cannot be spent: R's class mod q need not have length
+  `≥ 2^{s+1}`. Say that instead.
+
+## R2.6 §10: Lemmas 10.1–10.3, Theorem 10.4 (B removed for fixed r) — SOUND (G3 nit)
+
+* **(D)/(H)/(G) split.** If not (D), then `k ≤ M_L²`. If not (H), every
+  exponent is `≤ 11`, so `M_L ≤ P^{11r}` and `M ≤ M_L³ ≤ P^{33r}`. So (G)
+  satisfies B with `B = 33r−1` (unary: `M ≤ ℓ^{33}`). ✓
+* **Lemma 10.1.** Cauchy–Schwarz on each block is correct. Rankin with
+  `η = 1/log w₂` and `p^η ≤ e`: at `p = 3` the series
+  `ΣC²(1+3e)²(e/3)^e` converges; for larger p the Euler product is
+  `(log w₂)^{O(C²)}`. Shiu along k: `A = (km+1)/4` runs over one reduced
+  class mod m (`4a ≡ 1`), interval length `y = mK/4 ≥ m³/4`. With `β = 1/4`,
+  `m < y^{3/4}` and `x^{1/4} < y` hold; small K forces small m because
+  `K ≥ m²`. `F = τ(n²)^{2i}` has `F(p) = 9^i`, giving `(log)^{9^i−1}`. In the
+  dyadic sum, `e^{−u/2}u^{c′} ≪ e^{−u/3}` and `e^{−u₀/3} = m^{−2/(3log w₂)}`. ✓
+* **Lemma 10.2.** (1) `Σ_m (m/φ(m))^{1/2}m^{−1−η/2} ≪ 1/η = log w₂`. ✓
+  (2) `Σ_{ℓ^{12}|M}1/M ≤ 2L·w₂^{−11}`, and `L^{81/2}·L^{−43.5} = L^{−3}`. ✓ The
+  heuristic worry that τ(A²) is large for smooth-dominated moduli is
+  answered correctly: smooth sparsity `e^{−u}` beats `(u log w₂)^{O(1)}`.
+* **Lemma 10.3.** In TW2 the B-hypothesis entered only through (a) Shiu
+  along the top prime, (b) small moduli `≤ w₂^{1+B}`, and (c) pointwise τ
+  bounds (review D3). Each is replaced:
+  * T uses Lemma 10.1 with `m = 1` and `G = Γ2^ω`.
+  * `μ_p`: the `k′`-sum gives `p^{−1}` through `2^{ω(k₂′)}/k₂′`, with
+    activity depending only on `k₁`. The k-side with `p | k` gets `p^{−1/2}`
+    from each Cauchy–Schwarz factor (Rankin at p; Shiu mod p for
+    `K ≥ p^{4/3}`). For `k < p^{4/3}` the pointwise τ bound applies, with ε
+    now free since B is gone.
+  * (G) is verbatim with `B = 33r−1`.
+  * (H): first moment `× 3δ_r^{−1}·2r = o(1)`.
+  * (D): the AM–GM form `2Σ_k(Γh/k)f_j(k)²` is correct. Cauchy–Schwarz over
+    m uses `Σ_{j|m,ω_L≤r}1/m ≤ 2j^{−1}(2log L)^r`. Lemma 10.1 (`i = 2`,
+    `G = Γτ_Γ ≤ 3(1+3e)`) gives `(log L)^{O(r)}j^{−2}`, which is summable. ✓
+  The medium LLL (TW2 Lemma 3.1), the QR base, and the density cost
+  `e^{2T}` do not use B. ✓
+* **G3 (nit).** The `μ_p` paragraph is compressed. It does not separate
+  `p^e ∥ k` with `e ≥ 2` (bounded trivially by `p^{−2}`), and it does not
+  write out the pair weight (activity on `k₁`, weight `2^{ω(k₂)}/k₂`).
+  The argument is right; one more displayed line would make it checkable.
+* **Theorem 10.4.** Prop 3.1 needs only the per-vertex bounds, which Lemma
+  10.3 gives for all types. `min(x+y,1)² ≤ 2min(x,1)² + 2y` holds. The (G)
+  part follows by §§5–6 and Cor 5.2. I re-checked that each of these uses B
+  only through the class being summed: Lemmas 5.1 and 5.3(b) need
+  `q = M/P ≤ P^B` of that class; Cor 5.2(2) needs pointwise τ of that
+  class; §6 does not use B at all, since `V_{Q,k}` is a superset. The
+  (D,H) part is `≤ 2^{r+1}Σπ_{E_C}` (whole events included through
+  `π_∅ = 1`), which is polylog by Lemma 10.2. The unary terms split the
+  same way. ✓ The many-prime add-on is subject to G1.
+
+## R2.7 §11 (KARY coordination note) — labels honest
+
+Marked SKETCH / Assessment / "Not done". I checked the citations against
+`side-agent/kary-comparison:EXCEPTIONAL_KARY.md`:
+* Thm 4.5 is the `S_λ ≪_B λ^{3/4}` claim.
+* Lemma 4.2(2) is the first moment `K(W,B)(2(1+B)s)³`, by partial summation
+  over `M ≤ e^{2(1+B)s}`.
+* Lemma 4.2(3) is the second moment via ETw Lemma 4.0 (pointwise τ).
+* "Still not covered" names `log M/log P(M)` unbounded.
+
+All four are accurate. The transfer of Lemma 10.1 and the `λ^{3/4}log λ`
+consequence are not verified here and are correctly not claimed.
+
+## Round 2 summary
+
+| item | verdict | defects |
+|---|---|---|
+| F1–F4 | all FIXED | — |
+| Prop 9.1 | SOUND | — |
+| Lemma 9.2 | SOUND | G1 minor (state with 1/16) |
+| Cor 9.3 | SOUND | (G1 applies) |
+| §9.3 | honest Assessment / OPEN | G2 nits |
+| Lemmas 10.1–10.3 | SOUND | G3 nit |
+| Thm 10.4 | SOUND | (G1 for the many-prime add-on) |
+| §11 | honest SKETCH | — |
+
+No major defect. G1 is a hypothesis that is stated but not supplied, and
+the proof already covers the supplied constant. Thm 10.4 (no B-hypothesis,
+fixed r) and Cor 9.3 stand after G1. The middle window `r ≍ log L`
+remains OPEN.

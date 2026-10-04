@@ -12,8 +12,12 @@
 | Lemma 5.3 | small partners, every star V | PROVED |
 | **Lemmas 6.1–6.4** | large partners, every star V: largest-variable reduction with Lemma 2.3 in place of BT; box counting mod squarefree Q | PROVED |
 | **ternary residual `ℓ_b < w₂q`** (goal 2) | closed by Lemma 6.1: an upper-bound sieve for the whole partner R; **no BFI input needed** | PROVED |
-| **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; not yet reviewed) |
-| §7.1 | unbounded r (`r > ε log L/log log L`) and dropping B | OPEN (Assessment) |
+| **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; review `reviews/exceptional-twin4-review.md`: SOUND, nits F1–F4 applied) |
+| Prop 9.1 | explicit r-dependence `(C_B log L)^{Cr}`: cap `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L` | PROVED (bookkeeping) |
+| **Lemma 9.2**, Cor 9.3 | unweighted payment for any low-mass subfamily (LLL, `x_G = 2^{|S(G)|}P(G)`); classes with `ω_L(M) ≥ 330 log L` cost `o(1)` | PROVED |
+| §9.3 | middle range `ε log L/log log L < r < 330 log L` (the bulk): needs an off-diagonal second moment at short-partner stars, efficient per prime (multi-prime H_O^≠) | OPEN (sharp failure point) |
+| **Lemma 10.1** | smooth-dominated sums: Cauchy–Schwarz + Rankin on smooth k + Shiu along k | PROVED |
+| **Thm 10.4** | for fixed r the cap holds **without the B-hypothesis** (also with arbitrary classes having `ω_L ≥ 330 log L` added) | PROVED (internal; not yet reviewed) |
 | §8 | Lemma 2.3 exact on 1228 cases (worst ratio 0.13); former residual = 80–86% of toy ternary mass, second moment ≈ random | EVIDENCE |
 
 Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0, and
@@ -51,7 +55,8 @@ R is itself rough* to level `(R/q)/w₂`. And `R/q` is large: `R/q ≈ ψ/(kj)`,
 primes *in APs to moduli beyond √R* (an asymptotic, BFI-type question).
 It asks only for an *upper bound* for rough integers in one progression
 of length `R/q ≫ 1`. The large sieve (the same tool that proves
-Montgomery–Vaughan's Brun–Titchmarsh) gives that, losing nothing.
+Montgomery–Vaughan's Brun–Titchmarsh) gives that, losing only constants
+and a polylog (review F1).
 
 More generally: do not split R at all. Split R into its Z-smooth part d
 (bounded number of prime factors, all > w₂, harmonic sum ≤ (log L)^{s−1})
@@ -232,6 +237,8 @@ classes and weights `β_C ∈ [0,1]`,
 
     E_P Σ_{C∈𝒞 active} β_C π_{E_C} ≤ 4(8/7)^r Σ_{M} (Γ(k)/M) τ(A_M²) max_{C mod M} β_C.     (5.1)
 
+(Valid for any `β_C ≥ 0`; below it is also used with `β_C ≤ 2^r`; review F2.)
+
 Prime sums (TW2 §4): for `i ≥ 1`, `Σ_{ℓ>w₂}ℓ^{−1−α}(log ℓ)^i ≪ (i−1)!α^{−i}`;
 `Σ_{w₂<ℓ≤X} 1/ℓ ≤ log L`; `Σ_{ℓ>w₂} ℓ^{−1−α} ≪ log L`.
 
@@ -282,7 +289,7 @@ Fix M (sf) with top prime P, and V.
 * *(b) `P ∉ V`.* Then `P | R`, so `P ≤ R ≤ (kQ_V)^{C₀}`. Fix k, V and
   `R′ = R/P` (a product of `≤ r − 2` large primes `< P`), and put
   `q = kQ_VR′ ≤ P^B`. TW2 Lemma 3.3 along P on the dyadic blocks with
-  `p₂/2 ≤ y ≤ (kQ_V)^{C₀}` (at most `C₀ log(kQ_V) + 1` blocks), each block
+  `p₂/2 ≤ y ≤ (kQ_V)^{C₀}` (at most `C₀ log₂(kQ_V) + 2` blocks; review F2), each block
   `≪ (q/φ(q))(log 2qy)²` with `log 2qy ≤ (C₀+1) log(2kQ_V) + log R′ ≤ (2C₀+2)log(2kQ_V)`
   (as `R′ ≤ R ≤ (kQ_V)^{C₀}`), gives
   `Σ_P τ(A²)/P ≪_{C₀} (k/φ(k))(log 2kQ_V)³`. Sum `1/R′` over its primes
@@ -340,7 +347,8 @@ If `q ≤ 2^{−r}(kQ)^{C₀}` this is `R > (kQ)^{C₀}`. Otherwise
 *This is where the ternary residual closes.* TW3 fixed `ℓ_a` and applied
 Brun–Titchmarsh to the prime `ℓ_b` in its class mod q, which needs
 `ℓ_b ≥ w₂q`. Lemma 2.3 sieves the whole partner R in its class mod q.
-The only length condition is `R/q ≥ 2^{s+1}`, and it always holds. No
+The only length condition is `R/q ≥ 2^{s+1}`, and it holds for every
+large partner (`R > (kQ)^{C₀}`, `C₀ ≥ 6`, L large; review F4b). No
 asymptotic for primes or almost-primes in progressions to large moduli
 (BFI) is needed: the question was an upper-bound question all along.
 
@@ -416,7 +424,9 @@ it closes the ternary residual of TW3 §6.3 and supersedes TW3 Prop 6.4
 moduli `M ≤ X` satisfy `M ≤ P(M)^{1+B}` and have a bounded number of
 prime factors above `(log X)^8`, the saving is capped:
 `saving ≪ L^{3/4+o(1)}`. So such sieves cannot give an exceptional-set
-exponent θ > 3/4. ∎
+exponent θ > 3/4. This is the ET Lemma 2.9 translation (level `λ ≍ L`;
+TW review T7), inherited as in EXCEPTIONAL_TWIN.md §5; Theorem 7.1 is
+uniform in `λ ≤ A₀L` (review F3). ∎
 
 ### 7.1 What is left for "all polynomially bounded moduli" (Assessment)
 
@@ -445,7 +455,8 @@ random units b each: 1228 cases, worst `lhs/bound = 0.128`. (The proof's
 constant 3(s+1) and the `log Z = log Y/(s+1)` loss are generous.)
 
 **The former residual on a toy ternary system** (`… B 1e9 1009 10007`):
-`M = jR`, `R = ℓ_aℓ_b` (primes ≥ `w₀ = 11`, `≠ j`), `jR ≤ 10⁹`,
+`M = jR`, `R = ℓ_aℓ_b` (primes ≥ `w₀ = 11`, `≠ j`, `ℓ_a ≤ ℓ_b`, so
+`R = ℓ²` is included; review F4a), `jR ≤ 10⁹`,
 `jR ≡ 3 (4)`, toy `C₀ = 1` (R > j), all `D | A²`, k = 1, no fibre. Each
 triple is put in TW3's proved part if `ℓ_b ≥ w₀q`, else in the former
 residual.
@@ -473,3 +484,283 @@ uv run --with numpy python scripts/twin4_rough_bt.py A 1e6
 # toy ternary table (~15 s, ~1.2 GB for the spf sieve to 2.5e8)
 uv run --with numpy python scripts/twin4_rough_bt.py B 1e9 1009 10007
 ```
+
+## 9. Uniformity in r (task O12, part 2a)
+
+Write `ω_L(M)` for the number of distinct primes `> w₂` dividing M, and
+`H₁ = Σ_{w₂<ℓ≤X} 1/ℓ ≤ log L`.
+
+### 9.1 Range I: explicit r-dependence
+
+**Proposition 9.1 (PROVED; bookkeeping).** In Theorem 7.1 every implied
+constant is `≤ (C_B log L)^{C r}` (C absolute, `C_B` depending on B only),
+uniformly in `2 ≤ r ≤ log L`, provided Lemma 4.1 holds, i.e.
+`δ_r^{−2}L^6(log L)^{Cr}/w₂ = o(1)`. Hence, for
+`r ≤ ε log L/log log L` with `ε ≤ ε₀` small absolute,
+
+    saving(g²) ≪_{A₀,B} L^{3/4 + Cε}.
+
+*Proof.* Collect the r-dependence of each step. Shiu's constant (TW2 Lemma
+3.3) depends only on B. All the remaining losses are listed here:
+
+| step | loss |
+|---|---|
+| Prop 3.1 (inflations `(8/7)^r(4/3)^{3r}`, `1+25δ`) | `e^{O(r)}` |
+| `δ_r^{−1} = 16r(32/21)^r` (Lemma 4.1 threshold) | `e^{O(r)}` |
+| harmonic sums over other large primes (Lemmas 4.1, 5.1, 5.3, Cor 5.2) | `(2log L)^{r}` |
+| `2^r` subsets V (3.1), Lemma 5.3 | `2^r` |
+| Lemma 5.1: `a ≤ log 2k + r log p₂`, so `a² ≤ 2(log 2k)² + 2r²(log p₂)²` | `r²` |
+| Lemma 5.3(b): `(log 2kQ_V)³ ≤ (v+1)²(…)` | `r²` |
+| Lemma 2.3 / Cor 2.4: `12 s(s+1)(log L)^{s}` | `r²(log L)^{r}` |
+| Lemma 6.1 squared, Lemma 6.2 (`2^h` roots), Lemma 6.4 (`(8/7)^{3r}`, `Σ_V ρ^V/Q_V ≤ (log L)^h`) | `e^{O(r)}(log L)^{3r}` |
+
+The product is `≤ (C_B log L)^{Cr}`. In Lemma 4.1 the requirement is
+`e^{O(r)}(log L)^{O(r)}L^6/L^8 = o(1)`, true for
+`r ≤ ε₀ log L/log log L`. Finally `(C_B log L)^{Cr} ≤ L^{Cε(1+o(1))}`. ∎
+
+### 9.2 Range III: moduli with ≥ C₁ log L large primes are free
+
+**Lemma 9.2 (unweighted payment; PROVED).** Let `𝓔₁` be the event system
+of a fibre c, after vertex quarantine and promotion, with law `ν⁺` and
+`Σ_{ℓ∈S(F)} w⁺_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`. Let `𝓔₂` be a further finite
+family of events (any arity), and put
+`y_ℓ = Σ_{G∈𝓔₂, G∋ℓ} 2^{|S(G)|}P_{ν⁺}(G)` and `m₂ = Σ_{G∈𝓔₂} 2^{|S(G)|}P_{ν⁺}(G)`.
+If `Σ_{ℓ∈S(F)} y_ℓ ≤ 1/32` for every `F ∈ 𝓔₁`, `y_ℓ ≤ 1/32` for every ℓ, and
+`m₂ ≤ 1`, then with `A⁺ = A₁⁺ ∩ {no 𝓔₂ event}`
+
+    Ξ_c(A⁺) ≤ Ξ_c(A₁⁺) + 3m₂.
+
+*Proof.* `P(A⁺∩A⁺′) ≤ P(A₁⁺∩A₁⁺′)`, and `P(A⁺) = P(A₁⁺)P(no 𝓔₂ | A₁⁺)`
+(the unary factors are common). Apply TW2 Lemma 1.1 in the `ν⁺`-product
+space to `𝓑 = 𝓔₁ ∪ 𝓔₂`, with `x_F = 2P(F)` on `𝓔₁` and
+`x_G = 2^{|S(G)|}P(G)` on `𝓔₂`. *Hypothesis.* For `F ∈ 𝓔₁`,
+`Σ_{Γ(F)}x ≤ Σ_{ℓ∈S(F)}(2w⁺_ℓ + y_ℓ) ≤ 3/32`. So `Π_{Γ(F)}(1−x) ≥ 1/2`, and
+`P(F) = x_F/2` is enough. For `G ∈ 𝓔₂`,
+`Σ_{Γ(G)}x ≤ Σ_{ℓ∈S(G)}(2w⁺_ℓ + y_ℓ) ≤ |S(G)|·(1/16 + 1/32)`. Every
+`x ≤ 1/8`, so `Π(1−x) ≥ exp(−(8/7)(3/32)|S(G)|) ≥ 2^{−|S(G)|}`. *Conclusion.*
+Order `𝓔₂ = {G₁, G₂, …}`. Lemma 1.1(1) with
+`𝓢 = 𝓔₁ ∪ {G_1,…,G_{i−1}}` gives `P(G_i | A₁⁺ ∩ Ḡ_{<i}) ≤ x_{G_i}`. Hence
+`P(no 𝓔₂ | A₁⁺) ≥ Π_i(1 − x_{G_i}) ≥ exp(−(8/7)m₂)`. Then
+`Ξ(A⁺) ≤ Ξ(A₁⁺) + (16/7)m₂`. ∎
+
+TW2 Lemma 2.1 accepts any nonempty `A⁺_c ⊆ A_c`, so Lemma 9.2 lets a
+low-mass subfamily be added to *any* system already controlled, paying
+only its total (2^{|S|}-inflated) mass. No ρ-weight and no arity bound are
+needed.
+
+**Corollary 9.3 (PROVED).** Let `r₂ = C₁ log L`, `C₁ = 330`. Adding to any
+family of Setting 3.0^{(r)} (or of Prop 9.1) all classes with
+`ω_L(M) ≥ r₂` (no B-hypothesis for them) changes the saving bound by
+`o(1)`, provided the fibre law also conditions on the event
+`G_III = {m₂(c) ≤ L^{−1}}`, where `m₂` is computed with `U` in place of `ν⁺`
+and the factor `4^{|S|}` in place of `2^{|S|}` (as `ν⁺ ≤ (4/3)(8/7)U ≤ 2U`).
+
+*Proof.* On `G_III`, `y_ℓ ≤ m₂ ≤ L^{−1}`, so `Σ_{ℓ∈S(F)}y_ℓ ≤ r/L ≤ 1/32` for
+`F ∈ 𝓔₁`, and Lemma 9.2 applies. It costs `3m₂ ≤ 3/L`. It remains to show
+`P′(G_III^c) = o(1)`. Then the fibre-law bookkeeping of TW2 Lemma 3.2 is
+unchanged (`P′(G_L ∩ G_III) ≥ 1/2`). By TW2 Lemma 3.2(1) for `P′`,
+
+    E′m₂ ≤ Σ_C (2Γ(k)/k)·4^{ω_L}/M_L = 2 Σ_{M≤X, ω_L(M)≥r₂} Γ(k)τ(A²)4^{ω_L(M)}/M
+        ≤ 2 (Σ_M τ(A²)²Γ(k)²/M)^{1/2} · (Σ_{M≤X} 16^{ω_L(M)}1[ω_L(M)≥r₂]/M)^{1/2}
+
+(activity `2Γ(k)/k` times event mass `1/M_L`, `M_L = M/k`; ≤ τ(A²) classes
+per modulus; Cauchy–Schwarz).
+*First factor.* `Γ(k)² ≤ 9^{ω(k)}` and Cauchy–Schwarz again give
+`≤ (Σ_{A≤X}τ(A²)⁴/A)^{1/4}(Σ_{M≤X}81^{ω(M)}/M)^{1/4} ≪ L^{81/2}` (Euler
+products: `τ(p²)⁴ = 81`). *Second factor (Rankin).* For `y > 0`,
+`Σ_M 16^{ω_L}1[ω_L ≥ r₂]/M ≤ y^{−r₂}Σ_M (16y)^{ω_L(M)}/M
+≤ y^{−r₂}·2log w₂·exp(16y(H₁ + 1))`. With `y = r₂/(16 log L)` this is
+`≪ log L·(16e log L/r₂)^{r₂} = log L·L^{−C₁log(C₁/(16e))}`, and
+`C₁ log(C₁/16e)/2 ≥ 330/2 > 81/2 + 2`. So `E′m₂ ≪ L^{−2}` and Markov
+gives `P′(m₂ > L^{−1}) = o(1)`. ∎
+
+### 9.3 The middle range `ε log L/log log L < r < C₁ log L` (Assessment)
+
+This range is **not** covered, and it is the bulk. With the ρ-weights,
+the effective moduli have large part `≤ e^{O(1/α)}`, and the number of
+their primes in `(L^8, e^{L^{1/4}}]` is Poisson-like with mean
+`log(L^{1/4}/(8log L)) ≈ (1/4)log L`. So most of the `α^{−3}` mass lies at
+`r ≍ log L`. There every loss of the form `c^r` with `c > 1` is a power of L.
+
+*What is lossy, and what is genuine.*
+1. Inflation factors `(8/7)^r, (4/3)^r`: *removable*. They come from the
+   coarse thresholds `p_ℓ ≤ 1/8`, `w_ℓ ≤ δ_r`. In good fibres
+   `p_ℓ, w_ℓ ≪ L^{4}/ℓ`, so `Π_{ℓ∈S}(1−p_ℓ)^{−1} = 1 + O(rL^4/w₂) = 1+o(1)`
+   (TW3 already notes `e^{(4/3)w_ℓ}`). This needs a polynomial-decay G_L.
+2. Harmonic sums `(log L)^s` without `1/s!`: *removable*. Prime variables
+   are unordered.
+3. **The first moment for small partners (Lemma 5.3) over `2^r` subsets V:
+   genuine for this method.** `min(x,1)² ≤ x` loses the factor `1/D`. The
+   *diagonal* part of the star sum is `Σ_C π_{E_C} Σ_{V⊊S}ρ^V/R_V =
+   Σ_C π_{E_C}(Π_{ℓ∈S}(ρ_ℓ + 1/ℓ) − ρ^S)`, which is harmless:
+   `Π(ρ_ℓ+1/ℓ) ≤ ρ^S(1+o(1))` for `r ≤ L`. This is TW Conj 6.8's main term.
+   The first-moment bound instead pays `Σ_{V: R_V small}ρ^V`, i.e. `≈ 2^r`
+   per class. So the middle range needs an **off-diagonal second moment
+   at stars with short partners**. Namely, for V and partners
+   `R ≤ (kQ_V)^{C₀}`, a bound on
+   `Q_V^{−1}Σ_{(R,D)≠(R′,D′), −4D≡−4D′ (Q_V)} 1/(RR′)` that is efficient
+   per prime (`1 + o(1)` per prime of V, summed over V). This is the
+   multi-prime analogue of TW2's (H_O^≠). It was bypassed for r = 2
+   because there the first-moment loss was affordable (TW3 Remark,
+   "Where the budget goes"). For short partners (`A ≤ Q^{C₀+1}`) the
+   divisor labels `−u/v mod Q_V` have height comparable to `Q_V^{1/2}`,
+   so neither Lemma 2.3 nor box counting applies. It is a genuine
+   equidistribution question for divisors of `(kQR+1)²/16` mod `Q`,
+   averaged over `Q`. **OPEN.**
+4. Range III (Cor 9.3) shows that the very-many-prime tail is not the
+   problem. What blocks the full family is item 3, in the window
+   `r ≍ log L`.
+
+## 10. Removing the B-hypothesis for fixed r (task O12, part 2b)
+
+**Setting 3.0^{(r)}_*.** Setting 3.0^{(r)} *without* `M ≤ P(M)^{1+B}`: all
+Case-B classes with `M ≤ X` and `ω_L(M) ≤ r`. Write `M = k·M_L`, k
+w₂-smooth, `M_L` the large part. Split the classes with `ω_L ≥ 1`:
+* **(D) smooth-dominated:** `k > M_L²`;
+* **(H) high power:** not (D), and `ℓ^{12} | M` for some `ℓ > w₂`;
+* **(G) good:** the rest. Then `M_L ≤ P^{11r}` (≤ r prime powers with
+  exponent ≤ 11, P the top prime), so `M ≤ M_L³ ≤ P(M)^{33r}`: **(G)
+  satisfies the B-hypothesis with `B = 33r − 1`.**
+
+So for fixed r the B-hypothesis only excludes (D) and (H). (D) is the
+regime "small top prime relative to M": the w₂-smooth cofactor carries
+most of M. Smooth numbers are sparse, but Shiu along the top prime is
+not available there, because the modulus `M/P` exceeds the length.
+Instead we run Shiu along k itself (now the modulus `M_L` is short) and
+pay for the smoothness of k with Rankin.
+
+**Lemma 10.1 (smooth-dominated sums; PROVED).** Let `i ∈ {1,2}`, and let G
+be multiplicative with `0 ≤ G(p^e) ≤ C(1+3e)` for `p ≤ w₂`, `G(p^e) = 0`
+for `p > w₂` (e.g. `Γ`, `Γ·2^{ω}`, `Γ·τ_Γ`). For odd `m ≥ 1` with
+`(m, k) = 1`,
+
+    Σ_{k>m², k≡k₀ (4)} G(k)τ(A_{km}²)^i / k ≪_{i,C} (log L)^{c_i} (m/φ(m))^{1/2} m^{−1/(2 log w₂)},
+
+with `A_{km} = (km+1)/4` and `c_i` depending only on i and C. The same
+bound without the factor `m^{−1/(2log w₂)}` holds for the sum over all
+k when `m = 1`.
+
+*Proof.* Dyadic blocks `(K,2K]`, `K ≥ m²`. Put `u = log K/log w₂`.
+Cauchy–Schwarz splits a block into `(Σ_{k∈(K,2K] smooth}G(k)²/k)^{1/2}`
+times `(Σ_{k∈(K,2K]}τ(A_{km}²)^{2i}/k)^{1/2}`.
+*Rankin* (k odd, so `p ≥ 3`; `η = 1/log w₂`, `p^{η} ≤ e`): the first sum is
+at most `K^{−η}Π_{3≤p≤w₂}(1 + Σ_e G(p^e)²p^{−e(1−η)}) ≤ e^{−u}(log L)^{c}`.
+The series at `p = 3` converges since `e/3 < 1`.
+*Shiu along k* (all integers k). `A = (km+1)/4` runs over one class mod m,
+in an interval of length `mK/4 ≥ m³/4`. So `m < (mK/4)^{1−β}` and
+`x^β < y` hold with `β = 1/4` for K large; small K are trivial. Shiu's
+theorem with `F(n) = τ(n²)^{2i}` (`F(p^l) ≤ 9^{il}`, `F(n) ≪ n^{o(1)}`)
+gives `Σ_{k∈(K,2K]} F(A) ≪ (Km/φ(m))(log 2K)^{9^i−1}`. Hence a block
+contributes `≪ (log L)^{c}(m/φ(m))^{1/2}e^{−u/2}(log 2K)^{(9^i−1)/2}`. Write
+`log 2K ≤ 2u log w₂` and sum over `K = 2^t ≥ m²`:
+`Σ_t e^{−u/2}u^{c′} ≪ log w₂ · e^{−u₀/3}` with `u₀ = 2log m/log w₂`. And
+`e^{−u₀/3} ≤ m^{−1/(2log w₂)}`. For `m = 1` sum over all blocks. ∎
+
+**Lemma 10.2 (first moments of (D) and (H); PROVED).**
+1. `Σ_{(D) moduli} Γ(k)τ(A²)/M ≪ (log L)^{O(1)}`;
+2. `Σ_{(H) moduli} Γ(k)τ(A²)/M ≪ L^{−3}`.
+
+*Proof.* (1) Write `M = km`, `m = M_L ≥ w₂` (odd), and apply Lemma 10.1
+(i = 1, G = Γ) for each m. Then
+`Σ_{m≥1}(m/φ(m))^{1/2}m^{−1−1/(2log w₂)} ≪ log w₂`. (2) Cauchy–Schwarz:
+`(Σ_{M≤X}τ(A²)²Γ(k)²/M)^{1/2} ≪ L^{81/2}` (proof of Cor 9.3), times
+`(Σ_{M≤X, ℓ^{12}|M, ℓ>w₂} 1/M)^{1/2} ≤ (2L·w₂^{−11})^{1/2} ≪ L^{−43}`. ∎
+
+**Lemma 10.3 (fibre law without B; PROVED).** In Setting 3.0^{(r)}_*,
+`P_QR(G_s) ≥ 1/2` and `P′(G_L^{(r)}) ≥ 1/2` for L large. Hence TW2 Lemma 3.2
+holds (inflation `4Γ(k)/k`, cost `4L^{1/2}`).
+
+*Proof.* B entered TW2 Lemma 3.4 only through pointwise τ bounds (review
+D3(b),(c)) and Shiu along the top prime (D3(a)).
+* *Small classes (`M = k`, no B now).* `E_QR T ≤ Σ_k Γ(k)2^{ω(k)}τ(A_k²)/k
+  ≪ (log L)^{O(1)}` by Lemma 10.1 (m = 1). This is better than TW2's
+  `L^{1/32+o(1)}`. For `μ_p`: expand the square, use AM–GM on
+  `τ(A_k²)τ(A_{k′}²)`. The `k′`-sum gives `(log L)^{O(1)}p^{−1}` (TW2), and
+  for `k = pk″` the proof of Lemma 10.1 (i = 2) gives `p^{−1/2}` from each
+  Cauchy–Schwarz factor: Rankin with the factor at p, and Shiu along k″
+  in a class mod p (valid for `k ≥ p^{4/3}`). For `k < p^{4/3} ≤ w₂²`, TW2's
+  pointwise `τ(A²) ≤ C_εk^{ε}` gives `≤ L^{1/16}`. So
+  `E_QRμ_p² ≪ L^{1/16}(log L)^{O(1)}p^{−2}`, as in TW2, and
+  `Σ_{p>W₁}p^{1/2}Eμ_p² ≪ L^{1/16+o(1)}W₁^{−1/2} = o(1)`.
+* *(G) unary and event classes:* B holds with `B = 33r−1`, so TW2 Lemma
+  3.4 and Lemma 4.1 above apply verbatim.
+* *(H) classes:* by Markov on the first moment,
+  `P′(∃ℓ: p^{(H)}_ℓ + w^{U,(H)}_ℓ > δ_r/3) ≤ 3δ_r^{−1}·r·2·(Lemma 10.2(2)) = o(1)`.
+* *(D) classes through j* (unary or events). Put
+  `f_j(k) = Σ_{m: j|m, k>m²} τ(A_{km}²)/m`. As in TW3 Lemma 3.4,
+  `E′(w^{U,(D)}_j)² ≤ 2Σ_k(Γ(k)h(k)/k)f_j(k)²`. Cauchy–Schwarz over m gives
+  `f_j(k)² ≤ (Σ_{j|m}1/m)(Σ_{j|m}τ(A_{km}²)²/m)` with
+  `Σ_{j|m, ω_L(m)≤r}1/m ≤ 2j^{−1}(2log L)^{r}`. Then Lemma 10.1 (i = 2,
+  `G = Γh`; `h(k) ≪ (log L)^{O(1)}τ_Γ(k)`) for each m gives
+  `E′(w^{U,(D)}_j)² ≪ (log L)^{O(r)}j^{−1}Σ_{j|m}(m/φ(m))^{1/2}m^{−1} ≪ (log L)^{O(r)}j^{−2}`.
+  The same holds for the unary density `p^{(D)}_j`. Markov and
+  `Σ_{j>w₂}j^{−2} ≪ w₂^{−1}` give `o(1)`. ∎
+
+**Theorem 10.4 (r-prime Λ² cap without the B-hypothesis; PROVED, internal).**
+Fix `r ≥ 2`, `A₀ ≥ 1`. For ℛ(M)-families with `M ≤ X` and at most r
+distinct prime factors above `w₂ = (log X)^8` (no condition relating M to
+its top prime), every admissible Λ² majorant of level `λ ≤ A₀L` has
+
+    saving(g²) ≪_{A₀,r} L^{3/4}(log L)^{O_r(1)}.
+
+The same holds if the family also contains arbitrary classes with
+`ω_L(M) ≥ 330 log L` (Cor 9.3).
+
+*Proof.* Fibre law: Lemma 10.3 (plus `G_III` of Cor 9.3 if the
+many-prime classes are present). Prop 3.1 applies to the whole active
+system, because the per-vertex bounds hold for all three types. Split
+`D_σ = D^{(G)}_σ + D^{(D,H)}_σ` and use
+`min(x+y,1)² ≤ 2min(x,1)² + 2y`:
+* (G) part: §§5–6 and Cor 5.2 with `B = 33r − 1`. Those lemmas use B only
+  for the classes they sum over.
+* (D,H) part: `≤ 2Σ_σπ_σD^{(D,H)}_σ ≤ 2^{r+1}Σ_{active (D,H) C}π_{E_C}`.
+  Its `E_P` is `≪ 2^r(8/7)^r·4·Lemma 10.2 ≪ (log L)^{O(1)}`.
+* Unary term `Σρ_ℓp_ℓ`: (G) by TW2 Lemma 4.1 with `B = 33r−1`; (D), (H) by
+  Lemma 10.2.
+The many-prime classes are added by Lemma 9.2 at cost `o(1)`. ∎
+
+**Remark 10.5 (what (D) teaches).** For moduli dominated by their
+w₂-smooth part, the heuristic worry is that `τ(A²)` is as large as
+`(log X)²` while the ρ-weight sees only the small large part. That would
+make the *diagonal* term itself too big. It does not happen: by Lemma 10.1
+the smooth cofactor's sparsity (Rankin, `e^{−u}`) beats every power of
+`log k`. The whole (D) family has polylogarithmic *unweighted* first
+moment, so it needs no ρ-weight and no equidistribution at all. The
+"gapped/QR-base machinery" of TW is not needed for it.
+
+## 11. Relation to EXCEPTIONAL_KARY Thm 4.5 (coordination note; SKETCH / Assessment)
+
+`EXCEPTIONAL_KARY.md` (branch `side-agent/kary-comparison`, under review)
+claims `S_λ ≪_B λ^{3/4}` for *general* majorants and every ℛ(M)-family
+with `M ≤ P(M)^{1+B}`, with any number of primes at any scale. If it
+survives review:
+* it supersedes Theorem 7.1 and Prop 9.1 (Λ², bounded r) under the
+  B-hypothesis. The middle-range obstruction of §9.3 is then specific to
+  the Λ²/noise-stability route, not to the 3/4 question;
+* the B-hypothesis becomes the main remaining restriction for both
+  routes. KARY lists "log M/log P(M) unbounded" as not covered.
+
+**Where KARY uses B.** Lemma 4.2(2) bounds the first moment of the
+classes decided in a block `V = (e^s, e^{2s}]`
+(`Σ_{P(M)∈V} τ(A²)Γ(M)/M ≤ K(W,B)(2(1+B)s)³`, partial summation over
+`M ≤ e^{2(1+B)s}`). Lemma 4.2(3) bounds the second moment of `p_ℓ`
+through pointwise τ-bounds (ETw Lemma 4.0). The base (ETw Lemma 1.1)
+should be checked separately.
+
+**Transfer of Lemma 10.1 (SKETCH).** For the non-B classes with top prime
+`P ∈ V`, write `M = P^v q`, with q P-smooth and `q > P^{1+B−v}`.
+* *`v ≤ 11`:* q is "smooth-dominated" relative to the short modulus
+  `P^v`. Run Lemma 10.1 with w₂ replaced by P (`η = 1/log P` in Rankin,
+  so the Euler product is `(log P)^{O(1)} = s^{O(1)}`), with Shiu along q
+  mod `P^v`. This should give
+  `Σ ≪ s^{c}e^{−cB}·Σ_{P∈V}1/P ≪ s^{c}`, and the analogous second moment
+  `E p_ℓ² ≪ (log ℓ)^{c}ℓ^{−2}` (enough for the leak, Lemma 4.3).
+* *`v ≥ 12`:* the mass `P^{−v}` beats pointwise τ.
+
+KARY's block cost is `d·log(C₀(EM + 4d)/d)`. A first moment `s^{O(1)}`
+instead of `O(s³)` therefore costs `O(d log s)` per block, i.e.
+`λ^{3/4}log λ` in total. That would give `S_λ ≪ λ^{3/4}log λ` for **all**
+ℛ(M)-families, so no ℛ(M) forced-class sieve (general majorants) would
+give θ > 3/4. **Not done**: this needs KARY's §4 in final form, a check
+of the base, and the dependence of `W₀`, `C(B)` on B (here B would be
+fixed, e.g. B = 1, with the rest non-B).

@@ -15,7 +15,8 @@ Deliverable: `EXCEPTIONAL_TWIN4.md` (§0 status table), `scripts/twin4_rough_bt.
    sieves n mod q. This gives
    `Σ 1/R ≤ 3(s+1)ΣH^i/(φ(q)log(x/q))` for any partner with `Ω(R) ≤ s` and
    all primes `> w`. It replaces BT over the prime partner in TW3 Lemma
-   3.1, and needs only `R/q ≥ 2^{s+1}`, which always holds (Lemma 6.1).
+   3.1, and needs only `R/q ≥ 2^{s+1}`, which holds for every large partner
+   (`R > (kQ)^{C₀}`, L large; Lemma 6.1; review F4b).
 3. **Goal (3): Theorem 7.1 (PROVED, internal; not yet reviewed).** For
    fixed r and B, ℛ(M)-families with `M ≤ P(M)^{1+B}` and at most r primes
    above `(log X)^8` have Λ² saving `≪ L^{3/4}(log L)^{3r+O(1)}`. Inputs:
@@ -54,3 +55,70 @@ Deliverable: `EXCEPTIONAL_TWIN4.md` (§0 status table), `scripts/twin4_rough_bt.
   DISCOVERIES/STATUS were not edited (left for the merge).
 
 Replay: see `EXCEPTIONAL_TWIN4.md` Replay (~1 min total, ≤ 1.2 GB).
+
+---
+
+# Checkpoint 2 (parts 2a, 2b): EXCEPTIONAL_TWIN4 §§9–10
+
+## Results
+* **(b) The B-hypothesis is removed for fixed r: Thm 10.4 (PROVED, internal).**
+  Classes split three ways:
+  * (D): the w₂-smooth cofactor dominates, `k > M_L²`.
+  * (H): some large prime appears to exponent ≥ 12.
+  * (G): the rest. These satisfy `M ≤ P(M)^{33r}`, so Thm 7.1 applies with
+    `B = 33r−1`.
+
+  The (D) classes have *polylogarithmic unweighted* first moment
+  (Lemma 10.1): Cauchy–Schwarz splits off the smooth weight, Rankin on
+  the smooth k gives `e^{−u}`, and Shiu runs along k itself (the modulus
+  `M_L` is short there). (H) is `L^{−3}` by Cauchy–Schwarz. The fibre
+  law is redone without B (Lemma 10.3); small moduli are now unbounded.
+  The TW gapped/QR machinery is not needed.
+* **(a) Uniformity in r.**
+  * Prop 9.1: explicit constants `(C_B log L)^{Cr}`, hence the cap
+    `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L`.
+  * Lemma 9.2: a general **unweighted payment** lemma. Any subfamily
+    with small total mass can be added at cost `3m₂`, via the LLL with
+    `x_G = 2^{|S(G)|}P(G)`.
+  * Cor 9.3: moduli with `ω_L ≥ 330 log L` cost `o(1)` (Rankin).
+* **Sharp failure point (§9.3, OPEN).** The middle window
+  `ε log L/log log L < r < 330 log L` is the bulk of the ρ-weighted mass
+  (≈ `(1/4)log L` primes in `(L^8, e^{L^{1/4}}]`). Of the method's losses
+  there:
+  * the inflation factors `c^r` are removable (use a polynomial-decay G_L);
+  * the missing `1/s!` in the harmonic sums is removable;
+  * the genuine loss is Lemma 5.3's first moment over the `2^r` proper
+    stars with short partners. The diagonal is harmless
+    (`Π(ρ_ℓ+1/ℓ)`, TW Conj 6.8's main term). What is needed is an
+    off-diagonal second moment at short-partner stars that is efficient
+    per prime: a multi-prime analogue of TW2's (H_O^≠). It is an
+    equidistribution question for divisors of `(kQR+1)²/16` mod Q,
+    averaged over Q.
+
+## Points for the hostile reviewer
+* Lemma 9.2: the LLL hypothesis for the mixed family (`x_F = 2P(F)` on
+  𝓔₁, `2^{|S|}P` on 𝓔₂), and the fact that TW2 Lemma 2.1 accepts
+  `A⁺ = A₁⁺ ∩ {no 𝓔₂}`.
+* Lemma 10.1: the Shiu hypotheses along k (modulus m, length `mK/4`,
+  `K ≥ m²`), and Rankin at p = 3.
+* Lemma 10.3: the small-class `μ_p` bound without B, and the (D)
+  second moment.
+* Theorem 10.4: that §§5–6 use B only for the (G) classes they sum over.
+
+Not edited: DISCOVERIES/STATUS. Suggested addition to (D)14: "B-hypothesis
+removed for fixed r (TWIN4 Thm 10.4); uniform for
+`r ≤ ε log L/log log L` with `L^{3/4+O(ε)}`; ≥ 330 log L primes free;
+window `r ≍ log L` open (needs a multi-prime H_O^≠)."
+
+## Addendum: review nits and KARY coordination
+* Review nits F1–F4 (exceptional-twin4-review) are applied in one commit.
+  §0 now marks Thm 7.1 as reviewed SOUND.
+* §11 (coordination note, SKETCH). If KARY Thm 4.5 survives review, it
+  supersedes Thm 7.1 and Prop 9.1 under the B-hypothesis, and B becomes
+  the main restriction for both routes. KARY uses B in its Lemma 4.2(2),(3).
+  The Lemma 10.1 technique (Rankin on the smooth cofactor, Shiu along it
+  modulo the short top-prime power) should transfer with `s^{O(1)}`
+  losses. KARY's `d·log(EM/d)` cost turns those into `λ^{3/4}log λ`,
+  which would rule out θ > 3/4 for *all* ℛ(M)-families with general
+  majorants. Suggested next task, once KARY is reviewed: write this out
+  (and check ETw Lemma 1.1, the base).
