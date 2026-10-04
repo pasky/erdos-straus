@@ -426,9 +426,162 @@ $|\Lambda|\leq(1+\lambda/s_*)^G$:
 $\log(1/\E_uf_w)\leq\Phi(w)$, where
 $\Phi(w)=19\alpha\lambda+\sum_g[C_4q_gz_g\e^{-2\alpha s_g}+\frac12\log(16q_gz_g+16)+74]
 +G\log2+G\log(1+\lambda/s_*)$.  By Jensen,
-$\E f=\E_w\E_uf_w\geq\e^{-\E_w\Phi(w)}$.  Finally $\E_wq_gz_g=\sum_{B_g}p_i$,
+$\E f=\E_w\E_uf_w\geq\e^{-\E_w\Phi(w)}$.  Finally $\E_wq_gz_g=\mu_g:=\sum_{i\in B_g}p_i$,
 concavity of $\log$, $\e^{-2\alpha s_g}\leq\e^{-\alpha s_i}$ on $B_g$, and
 $\sum_g\log(16\mu_g+16)\leq G\log(16\mu+16)$.
+\end{proof}
+
+\subsection{The CRT form}
+\begin{theorem}[sieve limit for prime-slice systems; {\cite[Thm~2.5]{ET}}; \lab{proved}]\label{thm:slice}
+Take a prime-slice system.  Assume that for every $c\in R$,
+$|F_\ell(c)|\leq\ell/4$ for every $\ell\in\cP$ with $\ell\leq\e^\lambda$, and
+$|F_\ell(c)|<\ell$ for every $\ell\in\cP$.  Let
+$\bar\mu=\sum_{\ell\in\cP,\ \ell\leq\e^\lambda}\bar p_\ell$ be the truncated
+mass, $s_*=\log\min\cP$, and $G=\lfloor\log_2(\lambda/s_*)\rfloor+1$.  Then
+every majorant $\nu$ of $\A$ of level $\lambda\geq s_*$ satisfies, for every
+$\alpha>0$,
+\begin{equation}\label{eq:slice}
+ \log\frac1{\E\nu}\leq\log\frac{Q_0}{|R|}+19\alpha\lambda
+ +C_4\sum_{\ell\in\cP,\ \ell\leq\e^\lambda}\bar p_\ell\,\ell^{-\alpha}
+ +G\bigl(75+\log(2+\lambda/s_*)\bigr)+\frac G2\log(16\bar\mu+16).
+\end{equation}
+If $\lambda<s_*$, $\nu$ depends only on the small residue and the bound
+holds without the $\lambda$-terms.
+\end{theorem}
+\begin{proof}
+Use the uniform measure on $\Z/Q_{\rm tot}$ for a common period.  By CRT
+the coordinates $n\bmod Q_0^*$ (the $Q_0$-primary part of $Q_{\rm tot}$),
+$n\bmod\ell^{e_\ell}$ ($\ell\in\cP$) and the rest are independent and
+uniform.  Since $\nu\geq0$,
+$\E\nu\geq(|R|/Q_0)\,\mathrm{avg}_{c\in R}\E[\nu\mid n\bmod Q_0=c]$.  Fix
+$c\in R$.  The hit indicators $x_\ell=\ind[n\bmod\ell\in F_\ell(c)]$ are
+independent $\Bern(p_\ell(c))$, independent of the finer digits.  Each term
+of $\nu$, conditioned on $(c,x)$, depends only on $x_{T_i}$ with
+$T_i=\{\ell\in\cP:\ell\mid d_i\}$, so $\nu_c=\E[\nu\mid c,x]$ is
+$\lambda$-level with weights $s_\ell=\log\ell$, and $\nu_c\geq0$.  The event
+$\{c\}\times\{x=0\}$ has positive probability and lies in $\A$, so
+$\nu_c(0)\geq1$.  Apply Proposition~\ref{prop:boolean} in each fibre, then
+Jensen over $c\in R$; the right side of \eqref{eq:boolean} is linear in
+the $p_\ell$ except for the concave logarithmic term.
+\end{proof}
+
+\begin{remark}[size of the error terms]\label{rem:errors}
+The last two terms of \eqref{eq:slice} are $O(\log^2\lambda)$ when
+$s_*\gg1$ and $\log\bar\mu\ll\log\lambda$.  In general $\bar\mu$ may be as
+large as $\pi(\e^\lambda)/4$, and then they are $\asymp\lambda\log\lambda$.
+In every application below $\bar\mu\ll\lambda^3$.
+\end{remark}
+
+\begin{remark}[the $R$-term]\label{rem:Rterm}
+The term $\log(Q_0/|R|)$ is a saving that the theorem leaves uncontrolled:
+$\nu=\ind_R$ is a majorant with no slice cost and saving exactly
+$\log(Q_0/|R|)$.  For a selector $R=\{(c,P)=1\}$ the term is
+$\log(P/\varphi(P))\leq\log\log\log P+O(1)$.  If $R$ itself encodes forced
+classes with moduli dividing $Q_0$, the term is the void probability of a
+non-slice subsystem, about which Theorem~\ref{thm:slice} says nothing.
+\end{remark}
+
+Define the \emph{Rankin functional}
+\begin{equation}\label{eq:rankin}
+ \Psi(\lambda)=\inf_{\alpha>0}\Bigl[\alpha\lambda+\sum_\ell\bar p_\ell\,\ell^{-\alpha}\Bigr].
+\end{equation}
+Theorem~\ref{thm:slice} says that no majorant of level $\lambda$ saves more
+than $C\Psi(\lambda)+O(\log^2\lambda)$ beyond the $R$-term, in the
+situation of Remark~\ref{rem:errors}.  No converse is claimed in
+general; attainability is discussed only for the two campaign families
+(Section~\ref{sec:campaign}).
+
+\begin{remark}[Montgomery's large sieve; {\cite[Remark~2.6]{ET}}; \lab{proved}]\label{rem:LS}
+Montgomery's large sieve \cite{Montgomery} applied in a fibre $c$ gives a
+bound $Y/S_c(Q)$ with $Q^2\leq Y$, where
+$S_c(Q)=\sum_{q\leq Q}\mu^2(q)\prod_{\ell\mid q}g_\ell$ and
+$g_\ell=|F_\ell(c)|/(\ell-|F_\ell(c)|)$.  Rankin's trick gives
+$S_c(Q)\leq Q^\alpha\prod_\ell(1+g_\ell\ell^{-\alpha})
+\leq\exp\{\alpha\log Q+2\sum_\ell p_\ell(c)\ell^{-\alpha}\}$ when
+$p_\ell(c)\leq1/2$.  Summed over fibres, Jensen gives
+$\sum_cY\e^{-\Phi_c}\geq|R|\,Y\e^{-\mathrm{avg}\,\Phi_c}$.  So the large-sieve
+bound over a slice system obeys the same functional, with level
+$\lambda=\log Q$, directly and without duality.  No sequential or
+shared-prime large-sieve statement is made.
+\end{remark}
+% TODO: the source states the Rankin step as
+% S_c(Q) <= exp{alpha log Q + 2 sum p_l(c) l^{-alpha}}; the condition
+% p_l(c) <= 1/2 (so g_l <= 2 p_l) is my explicit reading. Referee to confirm.
+
+\subsection{Sequential windows: shared large primes}\label{sec:seq}
+Theorem~\ref{thm:slice} needs the slice primes to be disjoint from the
+small modulus.  The following extension allows a large prime to be the
+slice prime of one condition and a cofactor prime of another.
+
+\emph{Setting} \cite[\S2.6]{ET}.  Take $Q_0$, $R\subseteq\Z/Q_0$, and a set
+$\cP$ of primes not dividing $Q_0$, split into ordered windows
+$\cP=W_1\sqcup\dots\sqcup W_J$.  A \emph{condition} $C$ is an event
+\[
+ E_C=\{n\equiv a_C\ (\mathrm{mod}\ q_C),\ n\equiv b_{C,\ell}\
+ (\mathrm{mod}\ \ell^{e_{C,\ell}})\ \text{for }\ell\in S(C)\}
+\]
+with $q_C\mid Q_0$, $\emptyset\neq S(C)\subseteq\cP$ and $e_{C,\ell}\geq1$.
+Assume
+\begin{itemize}
+\item[(U)] the last window meeting $S(C)$ meets it in exactly one prime
+  $\ell(C)$, and $e_{C,\ell(C)}=1$.
+\end{itemize}
+Fix $E_\ell\geq\max_Ce_{C,\ell}$.  The \emph{history} before window $j$ is
+$H_{<j}=(n\bmod Q_0,(n\bmod\ell^{E_\ell})_{\ell\in W_{<j}})$.  For
+$\ell\in W_j$ and a history $h$ let $F_\ell(h)$ be the set of $b_{C,\ell}$
+over the conditions $C$ with $\ell(C)=\ell$ whose other requirements are
+met by $h$, and $p_\ell(h)=|F_\ell(h)|/\ell$.  The avoider set is
+$\A=\{n:n\bmod Q_0\in R,\ n\notin E_C\ \forall C\}$.  Let $\Qseq$ be the law
+of the history built window by window: $c=n\bmod Q_0$ uniform on $R$;
+given $H_{<j}$, the residues $n\bmod\ell$ ($\ell\in W_j$) independent and
+uniform on $\Z/\ell\setminus F_\ell(H_{<j})$, with uniform independent
+higher digits.  Majorants of level $\lambda$ charge all primes of $\cP$.
+
+\begin{theorem}[sequential sieve limit; {\cite[Thm~2.7]{ET}}; \lab{proved}]\label{thm:seq}
+Assume that on the support of $\Qseq$, $p_\ell(h)\leq1/4$ whenever
+$\log\ell\leq\lambda$, and $p_\ell(h)<1$ always.  Then for all
+$\alpha_1,\dots,\alpha_J>0$, every majorant $\nu$ of level $\lambda$ satisfies
+\[
+ \log\frac1{\E\nu}\leq\log\frac{Q_0}{|R|}+\sum_j\E_{\Qseq}\bigl[\Phi_j(H_{<j})\bigr],
+\]
+where $\Phi_j(h)$ is the right side of \eqref{eq:boolean} for the
+coordinates $\ell\in W_j$ with $\log\ell\leq\lambda$, probabilities
+$p_\ell(h)$ and $\alpha=\alpha_j$.  A window with $\log\min W_j>\lambda$
+contributes $0$.
+\end{theorem}
+\begin{proof}
+Let $g_j(h)=\E[\nu\mid H_{<j}=h]$ under the uniform measure, and let
+$\A_{<j}$ be the histories in $R$ satisfying no condition whose last
+window is before $j$.  We show by downward induction that for
+$h\in\A_{<j}$,
+$-\log g_j(h)\leq\E_{\Qseq}[\sum_{i\geq j}\Phi_i(H_{<i})\mid H_{<j}=h]$.
+For $j=J+1$ the history decides membership in $\A$, and $\nu\geq1$ on
+$\A$.  For the step, fix $h\in\A_{<j}$.  Given $h$, the residues
+$n\bmod\ell^{E_\ell}$, $\ell\in W_j$, are independent and uniform, so the
+indicators $x_\ell=\ind[n\bmod\ell\in F_\ell(h)]$ are independent
+$\Bern(p_\ell(h))$.  Put $f(x)=\E[g_{j+1}(H_{<j+1})\mid h,x]$.  Then
+$\E f=g_j(h)$, $f\geq0$, and $f$ is $\lambda$-level on $W_j$.  The event
+$x=0$ is exactly that no condition with last window $j$ holds; given it,
+$H_{<j+1}\in\A_{<j+1}$ with the $\Qseq$ transition law.  The induction
+hypothesis and Jensen give $f(0)>0$ and the bound for $f(0)$;
+Proposition~\ref{prop:boolean} for $f/f(0)$ gives
+$\E f\geq f(0)\e^{-\Phi_j(h)}$.  Finally
+$\E\nu\geq(|R|/Q_0)\,\mathrm{avg}_{c\in R}g_1(c)$ and Jensen over $c$.
+\end{proof}
+
+\begin{lemma}[profile under $\Qseq$; {\cite[Lemma~2.8]{ET}}; \lab{proved}]\label{lem:seqprofile}
+For $\ell\in W_j$,
+\[
+ \E_{\Qseq}p_\ell(H_{<j})\leq\sum_{C:\ \ell(C)=\ell}\frac1\ell\,
+ \Prob(c\equiv a_C\ (q_C)\mid c\in R)
+ \prod_{\ell'\in S(C)\setminus\{\ell\}}\frac1{\ell'^{e_{C,\ell'}}(1-p^*_{\ell'})},
+\]
+where $p^*_{\ell'}$ is the supremum of $p_{\ell'}(h)$ over reachable
+histories.
+\end{lemma}
+\begin{proof}
+Chain rule over windows: given the past, $n\bmod\ell'$ is uniform on at
+least $\ell'(1-p^*_{\ell'})$ residues, and the higher digits are uniform.
 \end{proof}
 
 \end{document}
