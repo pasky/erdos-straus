@@ -204,3 +204,53 @@ about known results, not an upper bound). The level argument (moduli > N cost
 |a_i| absent knowledge of which classes contain primes ≤ N) is an Assessment and
 is what bridges Thm 3.2 (level-λ) to arbitrary prime-majorant arguments; it should
 be cited wherever "BV/BDH/EH/GRH cannot beat 3/4" is stated as PROVED (see N6).
+
+### 10. Prop 4.1 (moment bounds are CRT majorants) — **SOUND-AFTER-REPAIRS** (prime clause)
+
+Integer clause: `f(n) ∈ ℤ_{≥0}`, `P ≥ 0` there, `P(0) ≥ 1` ⇒ `P∘f ≥ 0` on ℤ and ≥ 1
+on {f = 0}; products of class indicators are class indicators of intersections.
+A CRT evaluation of the moments with per-tuple error O(1) has rounding
+≥ Σ|a_i| (with multiplicity) ≥ R_1(P∘f), so Cor 2.4/2.5 apply with no level
+hypothesis. ✔
+
+**N6 (moderate, missing step).** "With prime moments `Σ_{p≤N}P(f(p))` it is covered by
+Theorem 3.2." Thm 3.2 is a level-λ statement, and there is no Fourier/Thm-2.3
+analogue for E*. A degree-k moment over witness moduli ≤ N^A has terms of level up
+to `kA log N`, so Thm 3.2 alone caps the saving only at `C(kA log N)^{3/4}`.
+Combining with Prop 4.2 (`O(k log log N)`) does **not** close the gap: the minimum
+of the two caps, maximised over k, is ≈ `(log N)^3/(log log N)^3`, far above
+`(log N)^{3/4}`. What closes it is the E*-version of Lemma 2.9 (item 7) applied to
+the terms of level > A log N, which needs (i) those terms to be charged ≥ |a_i|
+each (Remark 3.4, an *Assessment*: for lcm > N one has π(N;d,b) ∈ {0,1} and no known
+input beats the trivial cost), (ii) `Σ_{high}|a_i| < π(N)`, (iii) slice primes
+≤ N^{O(1)}. Repair: state the prime clause as "covered by Thm 3.2 + E*-Lemma 2.9
+under (i)–(iii)", and downgrade the §0/§6 claim "(c) … capped by (a)/(b)" for prime
+moments of unbounded order to "PROVED for level ≤ A log N; beyond that via the
+Remark 3.4 Assessment". The same caveat applies to the §0 phrase "BV/BDH/EH/GRH
+cannot beat 3/4" (true at level N^{O(1)}, which is where those inputs live — fine,
+but say "majorants evaluated at level N^{O(1)}").
+
+### 11. Prop 4.2 (degree-k CRT mean saves O(k log log N)) — **SOUND-AFTER-REPAIRS** (constant)
+
+Degree bookkeeping checked: given c, `f = Σ_ℓ φ_ℓ(n mod ℓ)` with φ_ℓ ≥ 0 supported on
+F_ℓ(c) (multiplicities allowed); `f^j` expands into products of ≤ j ≤ k factors,
+each a function of ≤ k slice coordinates; conditional expectation given (c,x)
+keeps each term a function of ≤ k of the x_ℓ (independence). With all s_ℓ = 1:
+λ = k, s_* = 1, one nonempty band (G = 1 after discarding empty bands, ET Step 0),
+`|Λ'| ≤ k+1`, `Σ p_i e^{−αs_i} = e^{−α}μ`. `ν_c(0) = P(0) ≥ 1` since x = 0 ⇒ f = 0.
+The displayed bound is exactly ET (2.3) with these data + Jensen over c. ✔
+
+**N7 (minor, constant).** With `x = C₄μ̄/(19k)` and `α = max(1, log x)`, the value
+`19αk + C₄e^{−α}μ̄` equals `19k(1+log x)` if x > e, but `19k(1 + x/e)` if x ≤ e, and
+`x/e ≥ log⁺x` (strictly for x < e). So the claimed `19k(1+log⁺x)` understates by up
+to `19k/e` when x ≤ 1. Repair: `19k(2 + log⁺(C₄μ̄/(19k)))`. Consequence
+`O(k log log N)` unaffected.
+
+Consequence paragraph: `μ̄ ≪ (log N)³` for witness moduli ≤ N^{O(1)} (Cor 3.4 profile);
+k = 2 ⇒ saving O(log log N) ⇒ θ = 0. ✔ The scope is CRT means (stated).
+
+Elsholtz–Tao Remark 1.3 is quoted correctly ("higher moments … out of reach of our
+methods, as the level of the relevant divisor sums becomes too great"). Calling
+this "the obstruction of Cor 2.5 in their language" overreads it: ET's obstruction
+is level of distribution of error terms (BV range), not the CRT-mean cap. Suggest
+"compatible with" instead.
