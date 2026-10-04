@@ -290,3 +290,123 @@ Parent actions:
    hubs) and O4 §7.3/§7.5 (the "sharp obstruction" is dissolved for
    m=1 by O5 §1–2).
 3. Update DISCOVERIES (H)14.
+
+---
+
+# Round 2 (subject: `side-agent/omega-inverse-squares` at 8825ea7)
+
+## R2.1 Round-1 defects D1–D7: all FIXED
+
+| # | Status | Where |
+|---|---|---|
+| D1 | **Fixed.** Lemma 2.0′ added (patterns `≤binom(k,|O|)≤2^k`, `Q=q′`, weight `1/φ(M/(q′m))`); `2^k` carried into the Thm 2.3 "Hence" and Prop 3.2. I checked it: `Σv_ℓ≤k` because `y^{Σv}<T`, and patterns = compositions. | §2 |
+| D2 | **Fixed.** The §6 caveat is dropped. The "reduces to one mod each ℓ^{v_ℓ}" sentence now appears twice in Def 2.0 (cosmetic). | Def 2.0, §6 |
+| D3 | **Fixed.** Cost is `ℓ/(ℓ−1)`; `e_ℓ≤k`. | Def 2.0 |
+| D4 | **Fixed.** The §0, Thm 2.3 remark and Cor 4.1 wording now says "literal HC false; Thm 4.2 vacuous as stated; HC* open". HC_Π is stated with saturated hubs. The −4/m=5 example is recorded. One residue: §0 line 25 still says "O4 Thm 4.2 survives with saturated hubs". That is acceptable as worded, but "holds under HC*" is cleaner. | §0, §2, §4 |
+| D5 | **Fixed.** Threshold `τ≤min(y,h)H^{−1/3}` (⇐`τ≤H^{2/3}`); "per ray only, no class done"; (DIV) re-delimited. | §3, §4 |
+| D6 | **Fixed.** | §1 |
+| D7 | **Fixed.** The wide-pair column is described as vacuous, and the timings are corrected. | §4, Replay |
+
+## R2.2 The O4 erratum/update boxes: CONFIRMED, with one wording nit
+
+* §4.2 erratum (before HC): correct and sufficient. It says literal HC is
+  false, gives the saturated-hub reading, the cost `1+O(1/y)`, "Thm 4.2
+  vacuous as stated, holds under HC*", and "HC* open".
+* §7.3 update: correct, with one nit (R2-D4 below): "the m=1 part of
+  every non-hub codegree" should read "every vertex set without
+  *saturated* H-hubs, `4^k≤H≤y`".
+* §7.5 update: correct.
+* DISCOVERIES (H)14 is still the parent's to fix.
+
+## R2.3 New §7: verdicts
+
+**Lemma 7.0: CONFIRMED.**
+
+* `m|a+b` and `m|M` give `gcd(m,ab)=1`, so `qm|4sab−1` fixes s mod qm.
+* `M=qmn′≡−1 (4ab)`, and admissible s step `n′` by exactly `4ab`.
+* The bound is `2/ν+(1/2ab)·log` (upper bound; s squarefree is dropped).
+* Atoms whose true Π-part is a proper multiple of m are charged to their
+  own fibre, so there is no double use.
+* The split `Δ_O^{>μ}≤P_0+(𝓛/2)P_1` is ✔. P_1 over-counts by including
+  all `m|a+b`, which only loosens the bound.
+
+**Prop 7.1 (period part, a=1/4): CONFIRMED, PROVED.** Rechecked:
+
+* `N_R≤AB/q+min(A,B)`, and per box
+  `τ*(4X)/q+τ*(4X)/X`.
+* `X>h_3^{1/2}/2` because `X²≥AB>h_3/4`, so `4X^{−1/2}<4√2·h_3^{−1/4}≤6h_3^{−1/4}`. ✔
+* `X>3q²`, divisor switching:
+  * `#{n≡c (q), d|n}` over a stretch of length B is `≤Bg/(qd)+1`, where
+    `g=gcd(d,q)`.
+  * `Σ_{d≤2√B}g/d≤τ(q)(1+½log4B)`.
+  * `4√B<4B/(√3q)<2.4B/q`. ✔
+* Nicolas–Robin's constant (1.5379·log2) is right.
+
+Minor defects R2-D2 and R2-D3 are below. Neither affects the conclusion.
+
+**P_0 reductions: CONFIRMED.**
+
+* For fixed `(a,b)`, the classes `−(qm)^{−1} mod 4ab` are distinct, since
+  `m≤a+b<4ab`.
+* Bound one (`2τ(a+b)/y`) is trivial; the "(1+o(1))" is unnecessary.
+* Bound two is the lifting count at fixed `(a,b)`: M determines `(s,m)`,
+  and `n′∈[Y,2Y)` forces `M<2qY(a+b)`.
+* The first atom has `s<qm(1+y/(4ab))+1`. ✔
+
+**R2-D1 (moderate; status mislabelled and superseded).** The middle band
+`H^{1/6}<m≤H^{1/3−ε}` is listed as an *Assessment* (per-m thin-box
+sketch, HC-shaped for `μ_0≤H^{1/3−2a}`). But Prop 3.2 is stated and
+proved for **every** μ: atoms with `m≤μ` contribute
+`≤2μΔ¹(q,κ)≤2^{k+1}Cμ𝓛⁴4^{k/3}H^{−1/3}`. With `μ=H^{1/3−a}` this is
+`≪2^k4^{k/3}𝓛⁴H^{−a}`. So:
+
+* `m≤H^{1/3−a}` gives exponent a. This is **PROVED**, by an existing
+  proposition, over a *larger* range than the sketch (`H^{1/3−a}` vs
+  `H^{1/3−2a}`). It covers all of the atom's mass, not only the first
+  terms.
+* The sketch is therefore superseded and should be deleted, or marked
+  "superseded by Prop 3.2 with general μ".
+
+The correct frontier is: for a target exponent `a∈(0,1/3)`, everything
+is PROVED except the **first terms P_0 with `m>H^{1/3−a}`**. The period
+part is PROVED (a=1/4) for all m.
+
+Consequences:
+
+* HC_Π should be restated with threshold `m>H^{1/3−a′}` instead of
+  `Ĥ^{1/6}`.
+* Cor 4.1 then gives HC* with `a=min(a′,1/4)` instead of
+  `min(a′,1/6)`, and `log W ≥ 0.2·min(a′,1/4)^{1/2}(log₂p)^{3/2}`.
+* The status line "m in (H^{1/6},H^{1/3−ε}] Assessment; m>H^{1/3} open"
+  should read "m≤H^{1/3−a} PROVED (Prop 3.2); first terms with
+  `m>H^{1/3−a}` open".
+
+**R2-D2 (minor).** Prop 7.1 says "Since `q>y²≥H⁴`". But HC* allows
+`H≤y`, and Thm 4.2 uses `H=y^{1/2+o(1)}`, so `y≥H²` (and hence `y²≥H⁴`)
+is not guaranteed. The conclusion is unaffected:
+`q^{−1+o(1)}<y^{−2+o(1)}≤H^{−2+o(1)}≤H^{−1/4}`. Write `q>y²≥H²`. The
+same unjustified "`y≥H²`" appears in the (superseded) middle-band
+sketch.
+
+**R2-D3 (minor).** Under Lemma 2.0′, Prop 7.1 runs with `Q=q′`, which
+is not squarefree. Its divisor switching uses `Σ_{g|q}1=τ(q)`, which
+equals `2^{ω}` only for squarefree q. For `q′`, `τ(q′)≤2^{Σv}≤2^k`.
+This is harmless, but the factor should read `τ(q′)`.
+
+**R2-D4 (trivial).** Fix the O4 §7.3 box wording (R2.2) and the §0
+"survives" line (R2.1).
+
+**Assessments in §7.** "No longer a divisor-sum problem" and "a pure
+core-counting problem averaged over m" are fair descriptions of P_0.
+Nothing in them is labelled PROVED.
+
+## Round 2 bottom line
+
+* D1–D7 are fixed, and the O4 boxes are correct.
+* §7's PROVED claims (Lemma 7.0, Prop 7.1, the P_0 reductions) are
+  verified.
+* The only substantive finding is R2-D1. The middle band is already
+  PROVED by Prop 3.2, so the open residual is exactly the first terms
+  P_0 with `m>H^{1/3−a}`. HC* would then follow with
+  `a=min(a′,1/4)`.
+* HC* remains open, and the proved rate stays O4 Cor 3.1.
