@@ -119,18 +119,20 @@ Under the CRT law the same identity gives
 = Π(1−p_ℓ) + e_K(p)`. ∎
 
 **Corollary 2.2 (PROVED).** Let `K ≥ 2` be even and let `y_K` be the
-largest y with `μ_y ≤ K/e²`. If TC(N; K, y_K, e^{−K}) holds, then
+largest y with `μ_y ≤ K/e²`, and `η_K := e^{−K/e²}/K`. If
+TC(N; K, y_K, η_K) holds, then
 
-    E(N) ≤ (K + 4) N e^{−K/e²}.
+    E(N) ≤ (e + 2) N e^{−K/e²}.
 
 Moreover `log y_K ≍ K^{1/2}` by (1.3).
 
 *Proof.* `0 ∉ 𝓡(ℓ)` (since `(D, ℓ) = 1` for `D | A²`), so `p_ℓ < 1`, and
 `μ_{y_K} > K/e² − 1`. Hence `Π(1−p_ℓ) ≤ e^{−μ} < e^{1−K/e²}`, and
-`e_K(p) ≤ μ^K/K! ≤ (eμ/K)^K ≤ e^{−K}`. Insert in Theorem 2.1 and (1.1). ∎
+`e_K(p) ≤ μ^K/K! ≤ (eμ/K)^K ≤ e^{−K}`, and `Kη_K = e^{−K/e²}`. Insert in
+Theorem 2.1 and (1.1). ∎
 
 **Corollary 2.3 (CONDITIONAL on TC_θ).** For θ ∈ (0,1) let *TC_θ* be the
-statement: for all large N, TC(N; K_N, y_{K_N}, e^{−K_N}) holds with
+statement: for all large N, TC(N; K_N, y_{K_N}, η_{K_N}) holds with
 `K_N = 2⌈(log N)^θ⌉`. Under TC_θ,
 
     E(N) ≤ N exp(−(2/e² − o(1)) (log N)^θ).
@@ -139,19 +141,19 @@ In particular **TC_θ for some θ > 3/4 implies the θ > 3/4 target.** ∎
 
 **Proposition 2.4 (the trivial range; PROVED).** TC(N; K, y, η) holds with
 `η = (Σ_{ℓ∈𝒫_y} F(ℓ))^K / N` whenever `Σ_ℓ F(ℓ) ≥ 1`. Consequently
-TC(N; K, y_K, e^{−K}) holds unconditionally for `K ≤ c₀(log N)^{2/3}`, and
+TC(N; K, y_K, η_K) holds unconditionally for `K ≤ c₀(log N)^{2/3}`, and
 Corollary 2.2 gives `E(N) ≪ N exp(−c(log N)^{2/3})`.
 
 *Proof.* By Lemma 1.2, `|S_j − N e_j(p)| ≤ #{j-sets of classes with
 distinct primes} = e_j(F) ≤ (ΣF)^j/j! ≤ (ΣF)^K`. By (1.3),
 `Σ_{ℓ≤y}F(ℓ) ≤ y μ_y ≤ C y (log y)²`, and `(log y_K)² ≤ K/(ce²)`. So
-`(ΣF)^K ≤ N e^{−K}` as soon as `K(C₁K^{1/2} + log C + 2 log K + 1) ≤ log N`,
+`(ΣF)^K ≤ N η_K` as soon as `K(C₁K^{1/2} + log C + 2 log K + 1) ≤ log N`,
 which holds for `K ≤ c₀(log N)^{2/3}`. ∎
 
 This is Brun's pure sieve; it recovers the 2/3 exponent (without the
 `(log log N)^{1/3}` of DISCOVERIES (A)6). It calibrates the framework:
 TC is a *theorem* exactly as long as the order-K tuples have total
-"termwise" error `≤ N e^{−K}`, i.e. `K log y_K ≲ log N`, and its content
+"termwise" error `≤ N η_K`, i.e. `K log y_K ≲ log N`, and its content
 for θ > 2/3 is aggregate cancellation among tuples above modulus N.
 
 **Remarks.**
@@ -162,7 +164,7 @@ for θ > 2/3 is aggregate cancellation among tuples above modulus N.
    in N, though each `ℓ_i ≤ y_K = N^{o(1)}` and each shift `4D_i < y_K²`.
    (Assessment; §5 checks the split numerically.)
 2. *Precision.* `e_j(p)` peaks near `j ≈ μ ≈ K/e²` at size `≈ e^{μ}`. So
-   (2.1) with `η = e^{−K}` asks for relative precision `≈ e^{−(1+e^{−2})K}`
+   (2.1) with `η = η_K` asks for relative precision `≈ e^{−2K/e²}/K`
    in the peak moments: `N^{−o(1)}`, far weaker than a power saving, but
    for growing order K. The alternating sum cancels from `e^{μ}` to `e^{−μ}`.
 3. *Composite moduli.* With all moduli `M ≤ y` (cubic mass, notes Thm
@@ -298,7 +300,7 @@ entropy, which is exactly why the cubic supply helps the CRT model and
 also why no TV model survives above level N.
 
 **Proposition 4.2 (TC fails at order ≍ log N; PROVED).** If
-`K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, e^{−K}) is false.
+`K ≥ (e²/2 + ε) log N` and N ≥ N₀(ε), then TC(N; K, y_K, η_K) is false.
 
 *Proof.* Squares lie in no class of 𝓡(ℓ). Indeed, for a prime `q | A`
 (A = (ℓ+1)/4) we have `ℓ ≡ −1 (mod q)`; for odd q reciprocity with
@@ -307,9 +309,9 @@ and for q = 2, A even gives `ℓ ≡ 7 (8)`, so `(2/ℓ) = 1`. Hence `(D/ℓ) = 
 for every `D | A²` and `(−4D/ℓ) = (−1/ℓ) = −1`: every class is a
 non-residue (the Mordell/Jacobi obstruction used in K2). So
 `#{n ≤ N : f_y(n) = 0} ≥ ⌊√N⌋`, which contradicts Corollary 2.2's
-`(K+4)N e^{−K/e²} ≤ (K+4)N^{1/2−ε'}` for such K and large N. ∎
+`(e+2)N e^{−K/e²} ≤ (e+2)N^{1/2−ε'}` for such K and large N. ∎
 
-So TC(N; K, y_K, e^{−K}) is a theorem for `K ≤ c₀(log N)^{2/3}`
+So TC(N; K, y_K, η_K) is a theorem for `K ≤ c₀(log N)^{2/3}`
 (Prop 2.4), false for `K ≥ 4 log N` (Prop 4.2), and TC_θ for
 `3/4 < θ < 1` is the open middle. It is falsifiable at every finite N by
 computing K moments (§5).
