@@ -68,3 +68,60 @@ Checked line by line:
   `2^{ω/2}≤y`). ✔
 * "Hence": `Ĥ≥min(H+1,y)≥H≥4^k`, `ω≤k`, `P(e∖O)=1/φ(n)≤2/n`. ✔ This
   holds only for events with `ℓ‖M` at every ℓ∈O. See D1.
+
+## Item 3 — Def 2.0: the counterexample and the saturated-hub repair
+
+**Counterexample: CONFIRMED.** O2 §10.3 (remark) states that splitting a
+class mod `ℓ^a` into its lifts leaves `Δ_O` unchanged for O containing
+a lifted vertex. Take k=3 and `ℓ_1,ℓ_2` just above `y=2T^{1/4}`, so
+`e_ℓ=3`. Take `x_i` a lift of −1 that is not in `𝓗_H(ℓ_i^3)`. This
+exists because `3H(1+log H)<ℓ_i²` for `H≤y`. For primes
+`r∈[T^{.28},T^{.32}]` with `ℓ_1ℓ_2r≡3 (4)` we have `M=ℓ_1ℓ_2r≤T`,
+`m=1`, and the class is −1 (non-injective form of O3 Lemma 2.1). Also
+`e_r≥3`, so all lifts at r except `O(H log H)` of them are non-hubs and
+survive deletion. Hence `Δ_O ≥ (1−o(1))·½Σ_r 1/r ≈ 0.067`, while HC
+demands `𝓛^BH^{−a}→0`. The lifting is essential: with `e_ℓ=1`, `x_i=−1`
+is itself a hub. A consequence of this item: O4 Thm 4.2 *as written* is
+a true but **vacuous** implication. The usable statement is Thm 4.2 with
+saturated hubs. O5's phrase "O4 Thm 4.2 survives" should say this
+(see D4).
+
+**Cost: CONFIRMED, with a sharper bound (D3).** See Item 5.
+
+## Item 4 — the prime-power gap (D1)
+
+**D1 (moderate; scope of PROVED labels).** Theorem 2.3's "Hence",
+Prop 3.2 and Cor 4.1 are labelled PROVED "for every vertex set O".
+But `Δ_O` includes events with `ℓ^v‖M`, `v≥2`, for some ℓ∈O, and for
+these O5 itself says "for ℓ²|M it is Assessment" (Def 2.0, last
+sentence; §6). For such an event, `P(e∖O)=1/φ(M/(q′m))` with
+`q′=∏_{ℓ∈O}ℓ^{v_ℓ(M)}`, which is up to `q′/q` times larger than
+`2/n`, `n=M/q`. So `2Δ¹(q,κ)` does **not** bound those terms. The
+labels overclaim as written.
+
+*Fix (reviewer-checked sketch; the author should write it out).*
+
+1. Group the events by the exponent pattern `(v_ℓ)_{ℓ∈O}`. Since
+   `ℓ>y=2T^{1/(k+1)}` and `∏ℓ^{v_ℓ}≤T`, we have `Σv_ℓ≤k`. So there are
+   at most `binom(k,|O|)≤2^k` patterns.
+2. For a fixed pattern, the event contains the lifted vertex
+   `(ℓ,x_ℓ)` iff its class mod `ℓ^{v_ℓ}` is `x_ℓ mod ℓ^{v_ℓ}`. Exactly
+   one lift qualifies, and `v_ℓ≤e_ℓ`. So the events lie in the system
+   `(q′,κ′)` with κ′ fixed by O.
+3. Their weight is `1/φ(n′)≤2/n′` with `n′=M/(q′m)≥y`, because e strictly
+   contains O and so has a free prime outside O.
+4. Theorem 2.3 needs only Q odd and `Q>y²`. It applies with `Q=q′`, and
+   saturation gives heights `>H` mod `q′` (D2).
+
+Hence the m=1 part and the `m≤μ` part are bounded by `2^k` times the
+stated bounds. The factor is absorbed in HC*'s `e^{Ck}`, and in
+Thm 4.2 it adds `O(k/a)` to `log H`. With this paragraph added, Thm 2.3
+"Hence", Prop 3.2 and Cor 4.1(i) are PROVED as stated. Without it they
+are PROVED only for O whose events satisfy `ℓ‖M` at every ℓ∈O.
+
+**D2 (minor; inconsistency).** Def 2.0 asserts that heights transfer to
+`q′`, while §6 says "the transfer to `q′` was not checked". The transfer
+is immediate. `v_ℓ(M)≤e_ℓ`, and a hub congruence mod `q′` (κ′ a unit)
+reduces to a hub congruence mod every `ℓ^{v_ℓ}`, which saturation
+forbids. Delete the §6 caveat, or restate it as D1's weight
+bookkeeping, which D1 closes.
