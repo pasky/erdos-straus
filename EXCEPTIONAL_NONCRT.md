@@ -1,7 +1,28 @@
 # EXCEPTIONAL_NONCRT — can a non-CRT input beat θ = 3/4? (task O11)
 
-Status: **in progress.** Labels follow `DISCOVERIES.md`. PROVED means proved
-in this file, internal checks only, not refereed.
+Status: **checkpoint 1 (O11).** No θ > 3/4. Three candidate non-CRT
+inputs are formalised and capped by proved theorems; the residue is stated
+exactly. Labels follow `DISCOVERIES.md`. PROVED means proved in this file,
+internal checks only, not refereed.
+
+## 0. Summary
+
+| item | statement | label |
+|---|---|---|
+| Prop 2.1 | Boolean sieve limit for majorants of **arbitrary level**: `Ef ≥ (1−r₀)e^{−Φ} − 2r₁`, where r₀, r₁ are the biased-Walsh tails above level λ | PROVED |
+| Lemma 2.2 | the Walsh coefficient at slice set S is bounded by the Fourier ℓ¹ mass `A_S` of ν on the frequency set Θ_S: `|d_S|Π p(1−p) ≤ A_S Π p` | PROVED (+ exact numerical check) |
+| Thm 2.3, Cor 2.4–2.5 | **per-frequency signed rounding is capped at 3/4**: any bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ)` with w ≥ 1 (this contains Σ|a_i|, the sawtooth bound, and all Gauss/Kloosterman/divisor-exponential-sum cancellation within a frequency) saves `≤ C(log N)^{3/4}` for the ET-file Cor 3.4 families. Only the Fourier mass above level λ matters, and **no bound on the size of the slice primes is needed** (removes ET-file §6.1 item 7 for prime-slice families) | PROVED |
+| §2.5 | weights < 1 (exact `|S_N|`, smooth windows): capped for hit-pattern majorants under an equidistribution conjecture (H_eq) (2.6); general majorants open | CONJECTURE / open |
+| Thm 3.2, 3.3 | **prime-only majorants**: same LP limit (Dirichlet measure), and detecting primality by a sieve adds `O((log log N)²)` to the saving; BV/BDH/EH/GRH-level inputs cannot beat 3/4 | PROVED |
+| Rem 3.4 | unconditional prime error terms are weaker than the integer count at relative accuracy `e^{−(log N)^{3/4}}` | Assessment |
+| Prop 4.1, 4.2 | **moment/variance methods** are CRT majorants (so capped by Thm 2.3/3.2 when CRT-evaluated); a degree-k moment method saves `O(k log log N)`, so Chebyshev/second moment gives θ = 0 | PROVED |
+| §5 | toy LP: Fourier-ℓ¹ budget ≈ coefficient budget × bounded factor | EVIDENCE (model) |
+
+**Verdict.** None of (a), (b), (c), in the natural formalisations above,
+beats θ = 3/4. What remains is (§6): cancellation *between* frequencies
+(a direct count of `Σ_{n≤N}ν(n)`), per-frequency bounds with weights below
+1 for non-hit-pattern majorants, and non-CRT counting of
+`(log N)^{3/4+δ}`-fold correlations of ES solutions.
 
 Notation as in `EXCEPTIONAL_THETA.md` (ET-file below): prime-slice system
 `(Q₀, 𝒫, R, F_ℓ(c))`, avoider set `𝒜`, `p_ℓ(c) = |F_ℓ(c)|/ℓ`,
@@ -254,7 +275,7 @@ high-level Fourier mass of ν to *avoid the 1/N-neighbourhood of 0*.
 
 *Reduction for hit-pattern majorants (PROVED, routine).* If ν is a function
 of `(n mod Q₀, x(n))` — Bonferroni, Selberg Λ² in the x-variables, and
-every `P∘f` of §4 — then for Q₀ = 1, `ν̂(Σ_S h_ℓ/ℓ) = d_S Π_S 1̂_{F_ℓ}(h_ℓ)`,
+every `P∘f` of §4 whose slices carry multiplicity one — then for Q₀ = 1, `ν̂(Σ_S h_ℓ/ℓ) = d_S Π_S 1̂_{F_ℓ}(h_ℓ)`,
 so the shape of ν̂ on each Θ_S is fixed by the classes. The smooth
 rounding is then `Σ_S |d_S| M_S` with
 `M_S = Σ_{h} Π_S |1̂_{F_ℓ}(h_ℓ)|·|W_N(Σ_S h_ℓ/ℓ)|`, and the proof of
