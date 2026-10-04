@@ -94,8 +94,7 @@ Suppose `−m^{−1} ≡ y² (mod G)`. Then `y²m ≡ −1 (mod 4rh)`, so
 * *Mod 4:* y is odd, `y² ≡ 1 (mod 8)`, so `m ≡ −1 (mod 4)`. In particular
   `m ≥ 3` and `(−1|m) = −1`. If r is even, `8 | G` and `m ≡ −1 (mod 8)`,
   so `(2|m) = 1`.
-* *Mod p, p | r odd:* `−m ≡ y^{−2}·(y²m)·(−1)·(−1)…`; directly,
-  `y²m ≡ −1 (mod p)` gives `−m ≡ (y^{−1})² (mod p)`, so the Legendre symbol
+* *Mod p, p | r odd:* `y²m ≡ −1 (mod p)` gives `−m ≡ (y^{−1})² (mod p)`, so the Legendre symbol
   `(−m|p) = 1`. Let `r_o` be the odd part of r (squarefree). Then the
   Jacobi symbol `(−m|r_o) = 1`.
 * *Mod m:* `4rh² ≡ −1 (mod m)` gives `−r ≡ ((2h)^{−1})² (mod m)`, with
