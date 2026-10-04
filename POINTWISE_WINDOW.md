@@ -74,8 +74,8 @@ all shifted primes).
   `o(1)→0` as `D→∞`, uniformly for s in compact subsets of `[1,2]` (Teräväinen
   writes the error as `O((log N)^{−0.1})`). We only use: **`f(s)>0` for
   `s>1`, and `f(s)≥c_f (s−1)^{1/2}` for `1<s≤2`** with
-  `c_f=2(e^γ/2π)^{1/2}>0` (from `∫_1^s ≥ ∫_1^s dt/(2(t−1))^{1/2}·…`; precisely
-  `t(t−1)≤2(t−1)` on `[1,2]`, so `∫_1^s dt/√(t(t−1)) ≥ √2·√(s−1)`, and `s≤2`).
+  `c_f=(e^γ/π)^{1/2}≈0.753`: on `[1,2]`, `t(t−1)≤2(t−1)`, so
+  `∫_1^s dt/√(t(t−1)) ≥ √2·√(s−1)`, and `(e^γ/(πs))^{1/2}≥(e^γ/(2π))^{1/2}` for `s≤2`.
 * **S2 (upper-bound sieve for prime pairs).** Uniformly in integers
   `a≥1` with `3∤a`, `2|a`, and `y≥3`:
   `#{r≤y prime : ar−3 prime} ≤ C_0·(a/φ(a))·y/(log y)^2`, `C_0` absolute.
