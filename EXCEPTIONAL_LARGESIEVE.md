@@ -327,6 +327,16 @@ frequency space. The mechanism is the product structure in each fibre:
 denominator. For mixtures with several large primes per modulus there is
 no such product measure; see §7.
 
+**Remark 4.4 (fibrewise over Q₀; PROVED).** ET Remark 2.6's large sieve
+runs fibre by fibre over `c mod Q₀`. In fibre `c ∈ R`, `n = c + Q₀m`,
+the set `𝒜_c` is a pure product system in m (the slice classes become
+`m ∉ Q₀^{−1}(F_ℓ(c) − c) mod ℓ`), so Theorem 4.1 applies with small
+modulus 1 and no Markov step:
+`log(N_c/B_c) ≤ β log N_c + 4Σ_ℓ (f_ℓ(c)/ℓ)ℓ^{−α}`, any frequencies in
+each fibre. Fibres `c ∉ R` are empty. Jensen over `c ∈ R` and
+`N_c ≥ ⌊N/Q₀⌋` give the total saving
+`≤ log 2 + log(Q₀/|R|) + β log N + 4Σ_ℓ p̄_ℓ ℓ^{−α}`.
+
 ## 5. The key question: is `S(Q)` dominated by a Rankin functional?
 
 **5.1 Prime moduli: yes, tautologically.** The arithmetic large sieve
