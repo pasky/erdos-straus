@@ -98,7 +98,42 @@ prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
 found; it may be folklore in spirit.  Novelty is not claimed.
 
 \subsection*{Results}
-% TODO: fill in after the body is written.
+\begin{enumerate}
+\item \emph{The sieve-limit theorem} (Theorem~\ref{thm:slice},
+  \lab{proved}).  For a prime-slice CRT system every nonnegative majorant
+  of level $\lambda$ of the avoider set saves at most
+  $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]+O(\log^2\lambda)$
+  beyond an admissible-set term.  A sequential version allows shared
+  large primes (Theorem~\ref{thm:seq}, \lab{proved}).
+\item \emph{The $3/4$ cap} (Theorem~\ref{thm:main}).  The forced classes
+  have cubic profile $\sum\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$
+  (Section~\ref{sec:profiles}).  Hence every CRT-majorant architecture
+  (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$, $\nu\geq1$ on the whole
+  avoider set, final bound $N\E\nu+\sum|a_i|$, family primes $\leq
+  N^{O(1)}$) saves at most $O((\log N)^{3/4})$, for families whose moduli
+  all have a dominant prime (\lab{proved}; Case-A classes mod
+  Elsholtz--Tao Prop.~1.4) and for $(\eta,B)$-gapped $\cR(M)$-families
+  (\lab{proved}).
+\item \emph{The campaign sieves are in the class}
+  (Section~\ref{sec:campaign}, \lab{proved}).  The majorant of the $3/4$
+  note is in the class, so $3/4$ is sharp for its architecture; the
+  large sieve of the $2/3$-loglog note is capped at its own exponent
+  $\frac23$ with the $(\log\log N)^{1/3}$ factor.
+\item \emph{Exclusions} (Section~\ref{sec:excluded}).  A precise list of
+  what lies outside, including unresolved twin moduli, which carry
+  cubic supply (Lemma~\ref{lem:balancedsupply}, \lab{proved}).
+\item \emph{Selberg-type majorants} (Section~\ref{sec:selberg}).  A
+  $\Lambda^2$ sieve limit for arbitrary systems in terms of noise
+  stability (Theorem~\ref{thm:L2}, \lab{proved}); a two-prime $\Lambda^2$
+  cap with twin moduli, \lab{conditional} on the open equidistribution
+  hypothesis $(H_O^{\neq})$ (Corollary~\ref{cor:twoprime}).
+\item \emph{Open problems} (Section~\ref{sec:open}): $H_{\rm MS}$, the
+  $k$-ary comparison inequality (Conjecture~\ref{conj:kary}), sparse noise
+  stability, and $(H_O^{\neq})$.
+\end{enumerate}
+None of this bounds $E(N)$ from below or says anything about methods
+outside the class; in particular it is not evidence against the
+conjecture.
 
 \section{Forced classes}\label{sec:forced}
 
@@ -1412,5 +1447,76 @@ of $A\equiv4^{-1}\pmod j$ modulo $j$, averaged over $j$ \cite[\S5.5, $H_{\rm
 div}$]{TW2} \lab{open}.  Known results on divisor functions in
 progressions do not reach it: it is a second moment with two coupled
 congruences at moduli up to $X$.
+
+\begin{thebibliography}{99}
+\bibitem[BBMST]{BBMST}
+P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and M.~Tiba, On the
+Erd\H{o}s covering problem: the density of the uncovered set,
+\emph{Invent. Math.} \textbf{228} (2022); arXiv:1811.03547.
+\bibitem[D]{Davenport}
+H.~Davenport, \emph{Multiplicative Number Theory}, third edition, revised
+by H.~L.~Montgomery, Graduate Texts in Mathematics 74, Springer, 2000,
+Chapter~28.
+\bibitem[EB]{EB}
+\emph{EXCEPTIONAL\_BALANCED: can balanced moduli beat the $3/4$ sieve
+limit?}, internal working document \texttt{EXCEPTIONAL\_BALANCED.md}, this
+repository, 2026.
+\bibitem[EBr]{EBrev}
+Hostile review of \cite{EB}, \texttt{reviews/exceptional-balanced-review.md},
+this repository, 2026.
+\bibitem[ET]{ET}
+\emph{EXCEPTIONAL\_THETA: where the exceptional-set exponent stops},
+internal working document \texttt{EXCEPTIONAL\_THETA.md}, this repository,
+2026.
+\bibitem[ETr]{ETrev}
+Hostile review of \cite{ET}, \texttt{reviews/exceptional-theta-review.md},
+this repository, 2026.
+\bibitem[ElT]{ElsholtzTao}
+C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.}
+\textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[H]{Hough}
+R.~Hough, Solution of the minimum modulus problem for covering systems,
+\emph{Ann. of Math.} \textbf{181} (2015), 361--382.
+\bibitem[LL]{LL}
+\emph{A logarithmic improvement of Vaughan's bound for the
+Erd\H{o}s--Straus exceptional set}, internally reviewed note,
+\texttt{paper/vaughan-loglog-note.tex}, this repository, 2026.
+\bibitem[M]{Montgomery}
+H.~L.~Montgomery, The analytic principle of the large sieve,
+\emph{Bull. Amer. Math. Soc.} \textbf{84} (1978), 547--567.
+\bibitem[MS]{MS}
+F.~J.~MacWilliams and N.~J.~A.~Sloane, \emph{The Theory of
+Error-Correcting Codes}, North-Holland, 1977, Chapter~10.
+\bibitem[N]{Notes}
+\emph{Erd\H{o}s--Straus research notebook}, \texttt{notes.md}, this
+repository, \S\S3, 16, 18; internally reviewed working notes, 2026.
+\bibitem[PW]{PW}
+C.~Pomerance and A.~Weingartner, Exceptions to the
+Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
+\bibitem[S]{Shiu}
+P.~Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
+\emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[TQ]{TQ}
+\emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
+equation}, internally proved research note,
+\texttt{paper/es-threequarter-note.tex}, this repository, 2026.
+\bibitem[TW]{TW}
+\emph{EXCEPTIONAL\_TWIN: $(E_\delta)$, the heavy coordinates, and
+$\eta$-twin windows}, internal working document
+\texttt{EXCEPTIONAL\_TWIN.md}, this repository, 2026.
+\bibitem[TWr]{TWrev}
+Hostile review of \cite{TW}, rounds 1--2,
+\texttt{reviews/exceptional-twin-review.md}, this repository, 2026.
+\bibitem[TW2]{TW2}
+\emph{EXCEPTIONAL\_TWIN2: the two-prime $\Lambda^2$ cap}, internal working
+document \texttt{EXCEPTIONAL\_TWIN2.md}, this repository, 2026.
+\bibitem[TW2r]{TW2rev}
+Hostile review of \cite{TW2}, rounds 1--2,
+\texttt{reviews/exceptional-twin2-review.md}, this repository, 2026.
+\bibitem[V]{Vaughan}
+R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
+\emph{Mathematika} \textbf{17} (1970), 193--198.
+\end{thebibliography}
 
 \end{document}
