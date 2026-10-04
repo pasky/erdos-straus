@@ -206,7 +206,9 @@ The normalised count is flat (0.0123–0.0126) over five decades, as W1
 and the matching upper bound predict. The fraction itself decays like
 `(log x)^{−1/2}` (`fraction·(log x)^{1/2}` = 2.30, 2.28, 2.27, 2.26, 2.26, 2.26).
 Re-check of 300 random counted `p<10^11`: all have `a_min≥7`; the
-distribution of `a_min` is `{7:148, 11:113, 15:23, 19:11, 23:3, 27:1, 31:1}`.
+distribution of `a_min` is `{7:163, 11:105, 15:17, 19:11, 23:1, 27:1, 31:2}`
+(uniform reservoir sample, seed 1; an earlier non-reservoir run gave
+`{7:148, 11:113, 15:23, 19:11, 23:3, 27:1, 31:1}`).
 So conditioning on window 3 failing, window 7 fails about half the time —
 the joint (two-window) event is common numerically; the obstacle in §4 is
 purely one of proof technology.
@@ -496,8 +498,8 @@ the bad count is a congruence datum (Lemma 1.2). That forces a sifted
 
 ```
 export PYTHONPATH=scripts
-(ulimit -v 10000000; uv run python scripts/window_w1.py 1e11 300)    # ~20 s; data/pointwise_window/w1_1e11.json
-(ulimit -v 10000000; uv run python scripts/window_joint.py 1e11 8)   # ~3 min; data/pointwise_window/joint_1e11_8.json
+(ulimit -v 10000000; uv run python scripts/window_w1.py 1e11 300)    # ~20 s; data/pointwise_window/w1_100000000000.json
+(ulimit -v 10000000; uv run python scripts/window_joint.py 1e11 8)   # ~3 min; data/pointwise_window/joint_100000000000_8.json
 (ulimit -v 10000000; uv run python scripts/window_joint.py 1e10 8)   # ~15 s
 ```
 Sources: `sources/sieve/teravainen-1611.08585.{pdf,txt}` (semi-linear and

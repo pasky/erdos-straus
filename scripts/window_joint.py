@@ -51,9 +51,7 @@ def run(XMAX, JMAX, BLOCK=2_000_000):
     KMAX = (XMAX - 1) // 840
     PP = list(primerange(2, isqrt(XMAX) + 2))
     QS = [4 * j + 3 for j in range(JMAX)]
-    edges = [10 ** e for e in range(6, 40) if 10 ** e <= XMAX]
-    if edges[-1] != XMAX:
-        edges.append(XMAX)
+    edges = [10 ** e for e in range(6, 40) if 10 ** e < XMAX] + [XMAX]
     cnt = np.zeros((len(edges), JMAX + 1), dtype=np.int64)
     for k0 in range(0, KMAX + 1, BLOCK):
         k1 = min(k0 + BLOCK, KMAX + 1)
@@ -93,5 +91,5 @@ if __name__ == "__main__":
     out = run(XMAX, JMAX)
     for r in out["rows"]:
         print(r["x"], r["counts"], ["%.4g" % v for v in r["norm"]])
-    with open(f"data/pointwise_window/joint_{XMAX:.0e}_{JMAX}.json".replace("+", ""), "w") as f:
+    with open(f"data/pointwise_window/joint_{XMAX}_{JMAX}.json", "w") as f:
         json.dump(out, f, indent=1)

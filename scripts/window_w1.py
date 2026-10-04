@@ -22,10 +22,12 @@ def run(XMAX, NCHECK=200, BLOCK=5_000_000):
     KMAX = (XMAX - 1) // 840
     P_SMALL = list(primerange(2, isqrt(XMAX) + 2))
     Q_SMALL = [r for r in primerange(2, isqrt(XMAX // 4) + 2)]
-    edges = [10 ** e for e in range(6, 40) if 10 ** e <= XMAX] + [XMAX]
+    edges = [10 ** e for e in range(6, 40) if 10 ** e < XMAX] + [XMAX]
     cnt_p = np.zeros(len(edges), dtype=np.int64)    # primes p=1 (840) <= edge
     cnt_f = np.zeros(len(edges), dtype=np.int64)    # ... with window 3 failing
-    found = []
+    found = []          # reservoir sample (size NCHECK) of counted primes
+    nfound = 0
+    rng = random.Random(1)
     for k0 in range(0, KMAX + 1, BLOCK):
         k1 = min(k0 + BLOCK, KMAX + 1)
         k = np.arange(k0, k1, dtype=np.int64)
@@ -68,7 +70,14 @@ def run(XMAX, NCHECK=200, BLOCK=5_000_000):
         for i, e in enumerate(edges):
             cnt_p[i] += int(np.count_nonzero(isp & (p <= e)))
             cnt_f[i] += int(np.count_nonzero(fail & (p <= e)))
-        found.extend(p[fail].tolist())
+        for v in p[fail].tolist():
+            nfound += 1
+            if len(found) < NCHECK:
+                found.append(v)
+            else:
+                j = rng.randrange(nfound)
+                if j < NCHECK:
+                    found[j] = v
     rows = []
     for i, e in enumerate(edges):
         rows.append(dict(x=int(e), primes=int(cnt_p[i]), fail3=int(cnt_f[i]),
@@ -76,8 +85,7 @@ def run(XMAX, NCHECK=200, BLOCK=5_000_000):
                          frac=cnt_f[i] / max(cnt_p[i], 1),
                          frac_times_sqrtlog=cnt_f[i] / max(cnt_p[i], 1) * log(e) ** 0.5))
     # independent re-check on a subsample
-    random.seed(1)
-    sub = random.sample(found, min(NCHECK, len(found)))
+    sub = found
     hist = {}
     for p in sub:
         assert isprime(p) and p % 840 == 1
@@ -96,5 +104,5 @@ if __name__ == "__main__":
     for r in out["rows"]:
         print(r)
     print("recheck", out["recheck"], "amin hist", out["amin_hist"])
-    with open(f"data/pointwise_window/w1_{XMAX:.0e}.json".replace("+", ""), "w") as f:
+    with open(f"data/pointwise_window/w1_{XMAX}.json", "w") as f:
         json.dump(out, f, indent=1)
