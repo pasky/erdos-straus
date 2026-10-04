@@ -1,0 +1,3233 @@
+                                                            Modular Hyperbolas
+arXiv:1103.2879v4 [math.NT] 3 Jun 2012
+
+
+
+
+                                                             Igor E. Shparlinski
+                                                  Department of Computing, Macquarie University
+                                                          Sydney, NSW 2109, Australia
+                                                           igor.shparlinski@mq.edu.au
+                                                                       November 8, 2018
+
+
+                                                                              Abstract
+                                                   We give a survey of a variety of recent results about the distribution
+                                               and some geometric properties of points (x, y) on modular hyperbolas
+                                               xy ≡ a (mod m). We also outline a very diverse range of applica-
+                                               tions of such results, discuss multivariate generalisations and suggest
+                                               a number of open problems of different levels of difficulty.
+
+
+                                         1     Introduction
+                                         1.1    Modular Hyperbolas
+                                         For a positive integer m and an arbitrary integer a with gcd(a, m) = 1, we
+                                         consider the set of points (x, y) on the modular hyperbola
+
+                                                              Ha,m = {(x, y) : xy ≡ a        (mod m)}.
+
+                                         We give a survey of various results about the distribution and some geometric
+                                         properties of points on Ha,m . We also briefly consider some multidimensional
+                                         generalisations, which often require very different techniques. Several open
+                                         problems are formulated as well. Our main goal is to show that although
+                                         Ha,m is defined by one of the simplest possible polynomial congruences, it
+                                         exhibits many mysterious properties and very surprising links with a wide
+                                         variety of classical number theoretic questions and beyond.
+
+                                                                                   1
+    In this survey, we do not present complete proofs but rather explain their
+underlying ideas and specific ingredients. Typically the error terms in the
+asymptotic formulas we give contain a factor mo(1) . In most cases it can be
+replaced by a more explicit function. Furthermore, when m is prime it can
+usually (but not always) be replaced by just some low power of log m.
+    There is a large number of papers in this area which rather routinely
+study seemingly distinct, but in fact closely related, problems about Ha,m on
+a case by case basis. Here, we explain some standard principles which can be
+used to derive these and many other results of similar spirit about the points
+on Ha,m as simple corollaries of just one general result about the uniformity
+of distribution of points on Ha,m in certain domains. In Section 3.1, such
+a result is presented in Theorem 13 and derived in a very straightforward
+fashion from bounds of Kloosterman sums (see (1) below) using some stan-
+dard arguments. Results of this type are quite standard and can be obtained
+for many other curves (at least in the case of prime modulus m, where the
+Bombieri bound [28] provides a readily available substitute for (1)).
+    However, most of the other results on modular hyperbolas rely on some
+rather subtle number theoretic arguments which in general do not apply to
+other polynomial congruences. This places modular hyperbolas in a very
+special position and shows that they define a mathematically much richer
+structure than a “typical” polynomial congruence.
+
+1.2    Distribution of Points and Kloosterman Sums
+Since the distribution of points on Ha,m is our primal object of study, we
+introduce the following definition. Given two sets of integers X and Y, we
+write
+              Ha,m (X , Y) = {(x, y) ∈ Ha,m : x ∈ X , y ∈ Y}.
+Since the case of a = 1 is of special interest we also write
+
+             Hm = H1,m ,       and     Hm (X , Y) = H1,m (X , Y).
+
+   Obtaining precise asymptotic formulas for and establishing the positivity
+of #Ha,m (X , Y) for various “interesting” sets X and Y have been the central
+themes of many works in this direction. Certainly the problem becomes
+harder and far more interesting when the sets X and Y become “thinner”.
+   Let
+                            em (z) = exp(2πiz/m).
+
+                                       2
+   One immediately observes that the well-known bound
+
+                    |Km (r, s)| ⩽ (m gcd(r, s, m))1/2+o(1) ,               (1)
+
+of Kloosterman sums
+                                      X
+                      Km (r, s) =              em (rx + sy) ,              (2)
+                                    (x,y)∈Hm
+                                    1⩽x,y⩽m
+
+
+see [115, Corollary 11.12], can be used to study the points on Ha,m . One
+only needs to recall some standard tools which link exponential sums with
+uniformity of distribution which we present in Section 2.3.
+    We remark that most of the results which rely only on (1) do not appeal
+to anything specific about the congruence xy ≡ a (mod m), and at least
+when m prime they can be extended to the distribution of solutions to more
+general congruences f (x, y) ≡ 0 (mod m), with a polynomial f with integer
+coefficients. In the case of prime m, the Bombieri bound [28] of exponential
+sums along a curve replaces the bound (1). Although, as we have mentioned,
+we present such a generic result in Section 3.1, our main purpose is to outline
+some more intricate arguments, which use special properties of the congru-
+ence xy ≡ a (mod m) and cannot be generalised to other congruences. In
+particular, in Section 3.2 we discuss the behaviour of points on Ha,m on av-
+erage over a. We also describe some geometric properties of the set Ha,m in
+Sections 4.1–4.3, show that it cannot be too concentrated even in very small
+squares in Section 4.4 and discuss some arithmetic properties of elements of
+Ha,m in Section 4.5.
+    Before presenting results about the properties of Ha,m , we give a short
+overview of the surprisingly diverse variety of number theoretic tools which
+have been used in the study of Ha,m and their multivariate generalisations,
+see Sections 2.1–2.4.
+    Finally, we demonstrate the wealth and diversity of various applications of
+the results on the distribution of points on Ha,m . Some of these applications
+are quite natural with very transparent connections to Ha,m , see Section 5.1.
+However, there are also several less obvious and thus much more exciting
+applications, see Sections 5.2–5.20. An especially striking example of such
+unexpected applications is given by a result of [148] on torsions of elliptic
+curves, see Section 5.11.
+
+
+                                        3
+1.3    Notation
+Throughout the paper, any implied constants in symbols O, ≪ and ≫ may
+occasionally depend, where obvious, on the real positive parameter ε and are
+absolute otherwise. We recall that the notations U = O(V ), U ≪ V and
+V ≫ U are all equivalent to the statement that |U| ⩽ cV holds with some
+constant c > 0.
+   We use p, with or without a subscript, to denote a prime number and use
+m to denote a positive integer.
+   We denote by Z/mZ the residue ring modulo m. Typically we assume that
+the set {0, . . . , m−1} is used to represent the elements of Z/mZ. Accordingly,
+we often consider the following subset of Ha,m
+
+                          Ha,m = Ha,m ∩ [0, m − 1]2 .
+
+We also put
+                           Hm = Hm ∩ [0, m − 1]2 .
+   We always follow the convention that arithmetic operations in the ar-
+guments of em are performed modulo m. In particular, the Kloosterman
+sums (2) can also be written as
+                                     m
+                                     X                     
+                    Km (r, s) =                em rx + sx−1 .
+                                      x=1
+                                  gcd(x,m)=1
+
+
+    As usual, ω(k), τ (k) and ϕ(k) denote the number of distinct prime divi-
+sors, the number of positive integer divisors and the Euler function of k ⩾ 1,
+respectively.
+    Finally, µ(k) denotes the Möbius function. We recall that µ(1) = 1,
+µ(k) = 0 if k ⩾ 2 is not squarefree and µ(k) = (−1)ω(k) otherwise.
+
+1.4    Acknowledgements
+Thanks go to Mizan Khan who introduced the beautiful and mysterious world
+of modular hyperbolas to the author.
+   The author would also like to thank Alexey Ustinov, Arne Winterhof and
+the referee, for a careful reading of the manuscript and making many valuable
+suggestions.
+   This work was supported in part by ARC grant DP1092835.
+
+                                         4
+2     Number Theory Background
+2.1      Exponential and Character Sums
+We have already mentioned the prominent role of Kloosterman sums (2) and
+the bound (1) in particular.
+   Most of the works also use the identity
+                                 
+             1 X                   1,    if v ≡ 0 (mod m),
+                       em (rv) =                                      (3)
+             m                     0,    if v 6≡ 0 (mod m),
+                      r∈Z/mZ
+
+to express various characteristic functions via exponential sums. Thus, we
+relate various counting questions to exponential sums.
+    It is very often complemented by the bound
+                                 W
+                                 X +Z
+                                          em (rz) ≪ min{Z, m/|r|}                              (4)
+                                z=W +1
+
+which holds for any integers r, W and Z ⩾ 1 with 0 < |r| ⩽ m/2, see [115,
+Bound (8.6)].
+   We now recall the estimate from [167] of exponential sums with rational
+functions of special type, which generalises the bound (1) of Kloosterman
+sums (2).
+Lemma 1. Let n1 , . . . , ns be s ⩾ 2 nonzero fixed pairwise distinct integers.
+Then the bound
+                                m
+                                X
+            max                           em (a1 z n1 + . . . + as z ns ) ⩽ d1/s m1−1/s+o(1)
+      gcd(a1 ,...,as ,m)=d
+                                 z=1
+                             gcd(z,m)=1
+
+holds.
+    We recall that several more bounds of exponential sums with sparse poly-
+nomials of large degree are also given in [30, 33, 59].
+    However, in many cases using bounds of multiplicative character sums
+yields stronger results.
+    Let Φm be the set of all ϕ(m) multiplicative characters modulo m. We
+have the following analogue of (3). For any integer r,
+                                    
+                  1 X                 1 if r ≡ 1 (mod m),
+                            χ (r) =                                      (5)
+                ϕ(m)                  0 otherwise.
+                              χ∈Φm
+
+
+                                                    5
+   We also use χ0 to denote the principal character.
+   The following result is a combination of the Pólya-Vinogradov (for ν = 1)
+and Burgess (for ν ⩾ 2) bounds, see [115, Theorems 12.5 and 12.6].
+Lemma 2. For arbitrary integers W and Z with 1 ⩽ Z ⩽ m, the bound
+                        W
+                        X +Z
+                                                                 2
+                 max            χ(z) ⩽ Z 1−1/ν m(ν+1)/4ν +o(1)
+                 χ∈Φm
+                 χ6=χ0 z=W +1
+
+holds with ν = 1, 2, 3 for any m and with an arbitrary positive integer ν if
+m = p is a prime.
+   The identity (5) immediately implies that for 1 ⩽ Z ⩽ m
+                     W +Z          2                W +Z
+               X     X                              X
+                            χ(z)       = ϕ(m)                  1 ⩽ ϕ(m)Z   (6)
+              χ∈Φm z=W +1                           z=W +1
+                                                  gcd(z,m)=1
+
+which has been used in many works on Ha,m .
+    Furthermore, it turns out, that sometimes one gets better results using
+the following fourth moment estimate from [12] (for prime m = p) and [83]
+(for arbitrary m), see also [96]. In fact, these results have recently been
+generalised in [60], which we present in the following slightly less precise
+form.
+Lemma 3. For arbitrary integers W , and Z ⩽ m, the bound
+                               W +Z           4
+                       X       X
+                                       χ(z)       ⩽ m1+o(1) Z 2
+                       χ∈Φm z=W +1
+                       χ6=χ0
+
+holds.
+    Note that many of the results below are based on previous estimates
+of [12] (which require m = p to be prime) and [83] (which apply to any m
+but require W = 0). So now Lemma 3 allows us to drop these restrictions.
+    For example, bounds of higher moments of multiplicative character sums,
+which in particular are based on combining Lemma 2 and a previous version
+of Lemma 3 with some other arguments, have been given [61], and can now
+be generalised.
+
+                                          6
+    In [93, 95] a new argument has been introduced to this area, which is based
+on a bound of [113] on the number of large values of Dirichlet polynomials,
+see also the original papers [114, 116] as well as [115, Chapter 9] for some
+other estimates for Dirichlet polynomials. This line of research is extremely
+interesting and definitely deserves more investigation.
+
+2.2    Average Values of L-functions
+Many quantities related to the distribution of points on Ha,m on average
+over a, lead to studying various average values of L-functions L(1, χ) with
+multiplicative characters χ ∈ Φm , see, for example, [133, 134, 135, 136, 137,
+143, 225]. Sometimes such sums are weighted by character sums and are of
+independent interest.
+   For example, let Ra,m (N) be the number of points (x, y) ∈ Ha,m with
+1 ⩽ x ⩽ N and 1 ⩽ y < m, and such that x + y is odd. It is shown in [143],
+that for a prime p the second moment of the differences Ra,p (N) − N/2,
+a = 1, . . . , p − 1, can be expressed via the sums
+                                     N                  2
+                            X        X
+           σ1 (p, N) =                   (−1) χ(n) |L(1, χ)|2 ,
+                                                  n
+
+                            χ∈Φp   n=1
+                          χ(−1)=−1
+                                            N                 2
+                            X               X
+           σ2 (p, N) =               χ(2)         (−1)n χ(n) |L(1, χ)|2.
+                            χ∈Φp            n=1
+                          χ(−1)=−1
+
+Using a combination of the methods of [175, 226], in [143] the asymptotic
+formulas
+                                                         
+              σ1 (p, N) = αpN + O N 2 po(1) + p(log N)2 ,
+                           α                              
+              σ2 (p, N) =    pN + O N 2 po(1) + p(log N)2 .
+                           2
+are given, where
+                                 ∞              k
+                                                          !
+                     π2      16 X       1     X      1
+               α=       1+
+                     12    9ζ(3)   (2k + 1)2       2h + 1
+                                      k=1               h=0
+
+and ζ(s) is the Riemann zeta-function. Clearly, the above formulas are non-
+trivial for pε < N ⩽ p1−ε for any fixed ε > 0. On the other hand,
+                           σ1 (p, p) = σ2 (p, p) = 0,
+
+                                        7
+so there is some kind of the “phase-transition” area when N gets close to p
+which would be interesting to understand more.
+
+2.3    Theory of Uniform Distribution
+For a finite set F ⊆ [0, 1]s of the s-dimensional unit cube, we define its
+discrepancy with respect to a domain Ξ ⊆ [0, 1]s as
+
+                               #{f ∈ F : f ∈ Ξ}
+                  ∆(F , Ξ) =                    − λ(Ξ) ,
+                                     #F
+
+where λ is the Lebesgue measure on [0, 1]s .
+   We now define the discrepancy of F as
+
+                          D(F ) = sup ∆(F , Π),
+                                    Π⊆[0,1]s
+
+
+where the supremum is taken over all boxes Π = [α1 , β1 ) × . . . × [αs , βs ) ⊆
+[0, 1]s .
+     A link between the discrepancy and exponential sums is provided by
+the celebrated Koksma–Szüsz inequality, see [66, Theorem 1.21]. However,
+for points of Ha,m , due to the discrete structure of the problem, one can
+immediately establish such a link directly by the identity (3).
+     For example, one can consider the points
+                    x y
+                        ,    ∈ [0, 1]2 ,   (x, y) ∈ Ha,m ,
+                      m m
+and apply the bound (1) to estimate their discrepancy, which in turn is equiv-
+alent to studying points of Ha,m (X , Y) where X and Y are sets of consecutive
+integers.
+    Moreover, the Koksma–Hlawka inequality, see [66, Theorem 1.14], allows
+us to estimate average values of various functions on the points (x, y) ∈ Ha,m .
+Lemma 4. For any continuous function ψ(z) on the unit cube [0, 1]s and a
+finite set F ⊆ [0, 1]s of discrepancy D(F ), the following bound holds:
+                                    Z
+                     1 X
+                             ψ(f) =         ψ(z) dz + O (D(F ))
+                   #F f ∈F           [0,1]s
+
+
+where the implied constant depends only on s and the function ψ.
+
+                                       8
+   To study Ha,m ∩ W for more general sets W some additional tools are
+required from the theory of uniform distribution.
+   As usual, we define the distance between a vector u ∈ [0, 1]s and a set
+Ξ ⊆ [0, 1]s by
+                        dist(u, Ξ) = inf ku − wk,
+                                      w∈Ξ
+
+where kvk denotes the Euclidean norm of v. Given ε > 0 and a domain
+Ξ ⊆ [0, 1]s we define the sets
+
+                  Ξε+ = {u ∈ [0, 1]s \Ξ : dist(u, Ξ) < ε}
+
+and
+                  Ξε− = {u ∈ Ξ : dist(u, [0, 1]s \Ξ) < ε} .
+   Let h(ε) be an arbitrary increasing function defined for ε > 0 and such
+that
+                               lim h(ε) = 0.
+                                ε→0
+
+As in [128, 152], we define the class Sh of domains Ξ ⊆ [0, 1]s for which
+                                                  
+                  λ Ξε+ ⩽ h(ε)        and     λ Ξε− ⩽ h(ε)
+
+for any ε > 0.
+    A relation between D(F ) and ∆(F , Ξ) for Ξ ∈ Sh is given by the follow-
+ing inequality of [128] (see also [152]).
+Lemma 5. For any domain Ξ ∈ Sh , we have
+                                                  
+                        ∆(F , Ξ) ≪ h s1/2 D(F )1/s .
+
+   Finally, the following bound, which is a special case of a more general
+result of H. Weyl [206] shows that if Ξ has a piecewise smooth boundary
+then Ξ ∈ Sh for some linear function h(ε) = Cε.
+Lemma 6. For any domain Ξ ∈ [0, 1]s with a piecewise smooth boundary,
+we have                       
+                        λ Ξε± = O(ε).
+   To use the above results for the study of points on Ha,m , one usually
+considers points
+             x y
+                 ,  ∈ [0, 1]2 ,   (x, y) ∈ Ha,m , 1 ⩽ x, y ⩽ m.       (7)
+              m m
+
+                                      9
+2.4    Arithmetic Functions, Divisors, Prime Numbers
+Certainly some elementary bounds such as
+                                                 k
+                              ϕ(k) ≫
+                                          log log(k + 2)
+and                                                          
+                 ω(k)                                 log k
+                 2     ⩽ τ (k) ⩽ exp (log 2 + o(1))             ,           (8)
+                                                    log log k
+see [189, Section I.5.2 and I.5.4], appear at various stages of the proofs of
+relevant results.
+    The following well-known consequence of the sieve of Eratosthenes (essen-
+tially of the inclusion-exclusion principle expressed via the Möbius function)
+is very often needed to estimate the main terms of various asymptotic for-
+mulas (see, for example, [171, 176]).
+Lemma 7. For any integers m, Z ⩾ 1 and W ⩾ 0,
+                          W
+                          X +Z
+                                          ϕ(m)
+                                     1=        Z + O(2ω(m) ).
+                          z=W +1
+                                           m
+                        gcd(z,m)=1
+
+    For an infinite monotonically increasing sequence of positive integers A =
+(an )∞
+     n=1 , we define
+
+            H(x, y, z; A) = #{n ⩽ x : ∃ d|an with y < d ⩽ z}.
+For A = N, the set of natural numbers, the order of magnitude of H(x, y, z; N)
+for all x, y, z has been determined in [73], see also [106]. Also in [73], one
+can find upper bounds for H(x, y, z; Pb ) of the expected order of magnitude,
+where Pb = {p+b : p prime} is a set of so-called shifted primes. However, for
+the problem of studying Ha,m , we need analogous results where n is restricted
+to an arithmetic progression. More precisely, let us define the sequences
+      Tk = {mk − 1 : m ∈ N}               and     Uk = {pk − 1 : p prime}.
+It has been shown in [75] that the arguments of [73] imply the following
+estimates.
+    It is usual that in questions of this kind, the constant
+                             1 + log log 2
+                  κ=1−                     = 0.086071 . . . .                (9)
+                                log 2
+plays an important role, see also [106].
+
+                                           10
+Lemma 8. Uniformly for 100 ⩽ y ⩽ x0.51 , 1.1y ⩽ z ⩽ y 1.1 , 1 ⩽ k ⩽ log x,
+we have
+                                         k κ
+                    H(x, y, z; Tk ) ≪ x      u (log(1/u))−3/2 ,
+                                        ϕ(k)
+                                         k κ
+                    H(x, y, z; Uk ) ≪ x      u (log(1/u))−3/2 ,
+                                        ϕ(k)
+
+where z = y 1+u .
+   A certain result of [75] relies on the existence of infinitely many primes p
+with a prescribed structure of divisors of p − 1, which is done using a very
+deep result of [29] concerning the Bombieri-Vinogradov theorem.
+   For an integer k ⩾ 1 we write
+                                                      di+1
+                             T (k) =      max              ,
+                                       i=1,...,τ (k)−1 di
+
+where 1 = d1 < . . . < dτ (k) = k are the positive divisors of k.
+   By [162, Theorem 1], we have:
+Lemma 9. Uniformly in z ⩾ t ⩾ 2,
+                    z log t                           z log t
+                            ≫ # {k ⩽ z : T (k) ⩽ t} ≫         .
+                     log z                             log z
+    Finally, we remark, that several interesting results about the distribution
+of points on Ha,m (X , Y) on average over a, for some special sets X and Y,
+such as intervals
+                        X = Y = {z : 1 ⩽ z ⩽ m/2},
+are based on various asymptotic formulas for average values of Dirichlet L-
+functions, see, for example, [133, 210, 225].
+
+2.5    Integer Points on Algebraic Surfaces and Convex
+       Polygons
+The result of [125, Theorem 2] is based on the following bound on the num-
+ber of solutions to a bivariate quadratic Diophantine equation, which follows
+from [201, Lemma 3.5] combined with [51, Proposition 1] and [166, Theo-
+rem 1]:
+
+                                          11
+Lemma 10. Let
+        G(X, Y ) = AX 2 + BXY + CY 2 + DX + EY + F ∈ Z[X, Y ]
+be an irreducible quadratic polynomial with coefficients of size at most H.
+Assume that G(X, Y ) is not affine equivalent to a parabola Y = X 2 and has
+a nonzero determinant
+                            ∆ = B 2 − 4AC 6= 0.
+Then the equation G(x, y) = 0 has at most H o(1) integral solutions (x, y) ∈
+[0, H] × [0, H].
+    As usual, we say that a polygon P ⊆ R2 is integral if all its vertices belong
+to the integral lattice Z2 .
+    Also, following [8] we say two polygons P, Q ⊆ R2 are equivalent if there
+is an affine transformation
+                           T : x 7→ Ax + b,         x ∈ R2 ,
+for A = GL2 (Z) and b ∈ Z2 preserving the integral lattice Z2 (that is,
+det A = ±1) that maps P to Q.
+    The following result of [16, Lemma 3] plays an important role in the
+argument of [125]
+Lemma 11. An integral polygon of area S is equivalent to a polygon con-
+tained in some box [0, u] × [0, v] of area uv ⩽ 4S.
+   Besides, the approach of [125] also makes use a special case of the following
+general result of [153, Lemma 2.2] which we use only in R2 .
+Lemma 12. Let U ⊆ Rd be a convex compact. We consider a finite sequence
+of compacts Vi ⊆ K, i = 1, . . . , n, such that none of them meets the convex
+hull of others. Then
+                  n
+                  X
+                         (vol Vi )(d−1)/(d+1) ≪ (vol U)(d−1)/(d+1) ,
+                   i=1
+
+where vol A denotes the volume of a compact set A ⊆ Rd and the implied
+constant depends only on d.
+    Furthermore, a result of [74] (that has been improved in [125]) uses the
+bound O(S 1/3 ) of [7] on the number of integer vertices of a convex polygon
+of area S.
+
+                                           12
+3      Distribution of Points on Ha,m
+3.1      Points on Ha,m in Intervals for All a
+A classical conjecture asserts that for any fixed ε > 0 and a sufficiently large
+p, for every integer a there are integers x and y with |x|, |y| ⩽ p1/2+ε such that
+xy ≡ a (mod p); see [91, 97, 98, 99] and references therein. The question has
+probably been motivated by the following observation. Using the Dirichlet
+pigeon-hole principle, one can easily show that for every integer a there are
+integers x and y with |x|, |y| ⩽ p1/2 and x/y ≡ a (mod p).
+    Unfortunately, this is known only with |x|, |y| ⩽ Cp3/4 for some absolute
+constant C > 0, which is shown in [92]. Several modifications of this bound,
+for example for composite m, are also known, see [123]. These results are
+based on the bound (1) of Kloosterman sums (2) (and its more precise form
+in the case when m = p is a prime) combined with some other standard
+arguments. The same arguments also produce the following estimate which
+is a slight generalisation of several previously known results, see [17, 88]
+and references therein. This estimate is certainly very well-known and has
+appeared in the literature in various forms. We however give a short proof
+in order to demonstrate the underlying techniques.
+
+Theorem 13. Let X = {U + 1, . . . , U + X}, where m > X ⩾ 1 and U ⩾ 0
+are arbitrary integers. Suppose that for every x ∈ X we are given a set
+Yx = {Vx + 1, . . . , Vx + Y } where m > Y ⩾ 1 and Vx ⩾ 0 are arbitrary
+integers. Then for any integer m ⩾ 1 and a with gcd(a, m) = 1, we have
+                          X              ϕ(m)
+                                    1=        XY + O(m1/2+o(1) ).
+                                          m2
+                       (x,y)∈Ha,m
+                        x∈X ,y∈Yx
+
+
+Proof. Using (3) we write
+       X               1      X          X X         X
+                 1 =                                         em (r(x − w) + s(y − z))
+                       m2
+    (x,y)∈Ha,m              (x,y)∈Ha,m w∈X z∈Yw r,s∈Z/mZ
+     x∈X ,y∈Yx               1⩽x,y⩽m
+                       1      X                     X                X
+                  =                    Km (r, as)         em (−rw)          em (−sz) .
+                       m2                           w∈X              z∈Yw
+                            r,s∈Z/mZ
+
+
+We now separate the main term which corresponds to r = s = 0 and is equal
+
+                                             13
+to
+                         XY        X               ϕ(m)
+                                              1=        XY.
+                         m2                         m2
+                              (x,y)∈Ha,m
+                               1⩽x,y⩽m
+
+For the error term E, for each divisor d|m, we collect together pairs (r, s)
+with the same value gcd(r, s, m) = d.
+   Applying the bounds (1) and (4) we obtain
+                            X                    X                   1
+         |E| ⩽ m1/2+o(1)           d1/2
+                                                             (|r| + 1)(|s| + 1)
+                             d|m          −(m−1)/2⩽r,s⩽m/2
+                            d<m              gcd(r,s,m)=d
+                                                             2
+                            X                 X            1 
+              ⩽ m1/2+o(1)          d1/2 
+                                                       d|t| + 1
+                             d|m            |t|⩽m/2d
+                            d<m
+                            X
+              ⩽ m1/2+o(1)          d−3/2 ⩽ m1/2+o(1) ,
+                             d|m
+                            d<m
+
+which leads to the desired statement.
+   For example if Vx = V for all x ∈ X = {U + 1, . . . , U + X} and Y =
+{V + 1, . . . , V + Y } then Theorem 13 yields
+
+                                      ϕ(m)
+                 #Ha,m (X , Y) =           XY + O(m1/2+o(1) ).                    (10)
+                                       m2
+    It seems that improving Theorem 13 or even just the asymptotic for-
+mula (10) and making them nontrivial for XY < mα with some fixed α < 3/2
+is out of reach at the present time. In particular, this exponent is related to
+the fact that an asymptotic formula for the sum of τ (n) for integers n ⩽ X
+in an arithmetic progression n ≡ a (mod m) is known only for m ⩽ X 2/3−ε
+for an arbitrary fixed ε > 0. This result has been independently discovered
+by A. Selberg and C. Hooley (see, for example, the discussion in [110]) and
+has resisted any improvement for more than half a century.
+    In turn, any improvement of Theorem 13 or just of (10) will trigger a
+chain reaction of improvements in many other problems; in particular some
+of them are outlined in this survey. Probably the most feasible way to tackle
+
+
+
+                                            14
+this problem is to obtain good bounds of incomplete Kloosterman sums,
+improving the estimate
+
+           X                   
+                     em sx−1       ⩽ (m gcd(s, m))1/2+o(1) ,         1 ⩽ X ⩽ m,
+       V +1⩽x⩽V +X
+        gcd(x,m)=1
+
+
+which is immediate from (1). We recall that a famous conjecture of Hoo-
+ley [111] asserts that if gcd(s, m) = 1 then the bound
+
+
+                           X                   
+                                     em sx−1       ⩽ X 1/2 mo(1) ,                (11)
+                          1⩽x⩽X
+                        gcd(x,m)=1
+
+
+holds uniformly over m1/4 ⩽ X ⩽ m The conjectured bound (11) enables us
+to derive that for X = {1, . . . , X} with X ⩾ m1/4 and Y = {V +1, . . . , V +Y }
+we have
+                                      ϕ(m)
+                  #Ha,m (X , Y) =        2
+                                           XY + O(X 1/2 mo(1) ).
+                                       m
+For example, we see that assuming (11) one can show that for any ε and
+sufficiently large prime p, for every integer a there are integers x and y
+with |x|, |y| ⩽ p2/3+ε and such that xy ≡ a (mod p). Unfortunately, the
+conjecture (11) seems to be extremely difficult; see however [126] for some
+improvements of the bound (1).
+    On the other hand, there are some apparently easier questions which
+could be more feasible to answer.
+
+Question 14. Improve the asymptotic formula (10) for some special moduli
+m, such as primes or prime powers.
+
+   It is quite possible that the method and results of [76] can be use to give
+a positive answer to the next problem; see [74] where the results of [76] have
+been used to study the distribution of points on Ha,m .
+
+Question 15. Improve the asymptotic formula (10) on average over the
+moduli m ⩽ M.
+
+
+
+                                          15
+    Clearly, Theorem 13 can be viewed as the bound O(m−1/2+o(1) ) on the
+discrepancy of the points (7). Thus one can now apply Lemmas 5 and (6) to
+study the distribution of points on Ha,m in more complicated domains than
+boxes [U + 1, U + X] × [V + 1, V + Y ] covered by Theorem 13. For example,
+we immediately deduce that
+
+                                                  πr 2 ϕ(m)
+        #{(x, y) ∈ Ha,m : x2 + y 2 ⩽ r 2 } =             2
+                                                            + O(m3/4+o(1) ).
+                                                    4m
+   Furthermore, the asymptotic formula (10), combined with Lemma 4, pro-
+vides the most direct way to the following asymptotic formula
+       X                               1                                  
+                 (x − y)2ν =                    m2ν ϕ(m) + O m2ν+1/2+o(1)      (12)
+                                (2ν + 1)(ν + 1)
+    (x,y)∈Ha,m
+
+
+which has been given in [221] (in a slightly more precise form, which can also
+be obtained within our elementary arguments).
+   Similarly Theorem 13 and Lemma 4 imply that for any real positive
+∆ < m/2
+                 X          ∆(2m − ∆)ϕ(m)                        
+                                                        1/2+o(1)
+                        1=                     +  O  m                    (13)
+                                     m2
+                   (x,y)∈Ha,m
+                    |x−y|⩽∆
+
+which is a version of a result of [222].
+    As we have mentioned, Theorem 13 uses very little specific information
+about the congruence xy ≡ a (mod m) and can be extended to many other
+congruences. For prime m = p one can use the Bombieri bound [28] instead
+of (1) and obtain exactly the same results in much more general settings. For
+example, this has been done for solutions of polynomial congruences modulo
+p and also for joint distribution of inverses modulo p of s linear forms aj x+bj ,
+j = 1, . . . , s, with integer coefficients, see [45, 53, 55, 56, 57, 58, 103, 200,
+215, 224, 228, 229] and references therein.
+    We also remark a very nice and completely elementary result of [48] about
+the distances between inverses on pairs of consecutive integers.
+    It is also easy to use some other bounds of more general exponential
+sums (instead of (1)) to study the distribution of values of polynomials and
+rational functions on the points of Ha,m .
+    For example, in [212, 224] some questions are studied about the distribu-
+tion of residues modulo m of powers (xk , y k ) taken over all (x, y) ∈ Ha,m . In
+
+                                           16
+particular, it has been shown in [212], that for any fixed integer k 6= 0, the
+smallest positive residue modulo m of nk and its modular inverse nk are of
+the same parity                                         
+                     N(k, m) = 0.5ϕ(m) + O m3/4+o(1)                      (14)
+times when n runs through all invertible elements of Z/mZ.
+    These results can be substantially extended and improved if one uses
+Lemma 1. In particular, it has been shown in [174] that Lemma 1 immedi-
+ately implies that the error term can be lowered from m3/4+o(1) to m1/2+o(1)
+in (14), that is, we have
+                                                      
+                     N(k, m) = 0.5ϕ(m) + O m1/2+o(1) .
+
+Moreover, it is shown in [174] that an analogous asymptotic formula (with the
+error term m1−1/s+o(1) ) for the counting function of the number of residues
+of s distinct powers xk1 , . . . , xks , where k1 , . . . , ks ∈ Z\{0}, of x modulo m
+which belong to s prescribed arithmetic progressions. All these results can be
+obtained by combining Lemma 1 with standard arguments similar to those
+used in the proof of Theorem 13.
+    In [41, 194] one can find asymptotic formulas for the number of points of
+(x, y) ∈ Ha,m in more complicated regions of the form
+
+                  x ∈ {U + 1, . . . , U + X},       0 ⩽ y ⩽ f (x),              (15)
+
+where f (t) is a twice differentiable function which satisfies
+
+                   F ≪ |f ′′ (t)| ≪ F,        t ∈ [U + 1, U + X],
+
+for some F ⩾ 1 (the error term also involves F ). It is shown in [41] that this
+question has applications to sums of divisor function with quadratic polyno-
+mials. Further investigations in this directions would be of great interest.
+
+3.2     Points on Ha,m in Intervals on Average Over a
+It is natural to expect that one can get stronger results than Theorem 13 on
+average over a.
+    This indeed is true, and it has been shown in the series of works [91, 97,
+98, 99] that the congruence a ≡ xy (mod m) is solvable for all but o(m)
+values of a = 1, . . . , m − 1, with x and y significantly smaller than m3/4 .
+In particular, in [98], this is proved for x and y in the range 1 ⩽ x, y ⩽
+
+                                         17
+m1/2 (log m)1+ε . Certainly this result is very sharp. Indeed, it has been
+noticed in [91] that well-known estimates for integers with a divisor in a
+given interval (see [73, 106]) immediately imply that for any ε > 0 almost all
+residue classes modulo m are not of the form xy (mod m) with 1 ⩽ x, y ⩽
+m1/2 (log m)κ−ε where κ is given by (9).
+    One can also derive from [75] (which in turn makes use of Lemma 8) that
+for any ε > 0 the inequality
+
+    max{|x|, |y| : xy ≡ 1 (mod m)} ⩾ m1/2 (log m)κ/2 (log log m)3/4−ε
+
+holds:
+
+   • for all positive integers m ⩽ M, except for possibly o(M) of them,
+
+   • for all prime m = p ⩽ M except for possibly o(M/ log M) of them.
+
+   In [74], some ideas and results of [76] have been used to show that
+
+               max{|x|, |y| : xy ≡ 1 (mod m)} ⩽ m1/2+o(1)
+
+for all positive integers m ⩽ M, except for possibly o(M) of them. So this
+implies that the above estimates of [75] are quite tights and also settles a
+slightly relaxed form of one of the conjectures of [75].
+    Similar questions about the ratios x/y, have also been studied, see [91,
+98, 164].
+    The result of [98] shows that almost all reduced classes modulo m can be
+represented as xy with 1 ⩽ x, y ⩽ m1/2+ε . However, it does not imply that
+these products are uniformly distributed in reduced residue classes, which is
+sometimes required in applications.
+    In this respect, the following bound is a minor modification of a result
+of [171] and gives the desired uniformity of distribution for 1 ⩽ x ⩽ X,
+V + 1 ⩽ y ⩽ V + Y provided that X, Y ⩾ m1/2+ε for a fixed ε > 0 and
+sufficiently large integer m. In turn, it is based on some ideas from [15].
+
+Theorem 16. Let X = {1, . . . , X} and Y = {V + 1, . . . , V + Y } where
+X, Y ⩾ 1 and V ⩾ 0 are arbitrary integers. Then for any integer m ⩾ 1,
+            m
+            X                                   2
+                                      ϕ(m)
+                      #Ha,m (X , Y) −      XY       ⩽ X(X + Y )mo(1) .
+             a=1
+                                       m2
+         gcd(a,m)=1
+
+
+
+                                     18
+Proof. We rewrite the congruence xy ≡ a (mod m) as y ≡ ax−1 (mod m)
+(where the inversion is taken modulo m). Using the identity (3), we write
+                             X
+                             X        VX
+                                       +Y             X
+                  1                                                                   
+  #Ha,m (X , Y) =                                               em r(ax−1 − y)
+                  m           x=1    y=V +1 −(m−1)/2⩽r⩽m/2
+                          gcd(x,m)=1
+
+                          X                           X
+                                                      X                       Y
+              1                                                         −1
+                                                                             X
+            =                         em (−rV )                em arx              em (−ry).
+              m                                       x=1                    y=1
+                  −(m−1)/2⩽r⩽m/2
+                                                  gcd(x,m)=1
+
+   By Lemma 7, the main term corresponding to r = 0 is
+                        X
+                        X      Y
+                               X
+                 1                         ϕ(m)                  
+                                      1=     2
+                                                XY + O Y m−1+o(1) .
+                 m       x=1    y=1
+                                            m
+                     gcd(x,m)=1
+
+Hence
+                              ϕ(m)     1
+         #Ha,m (X , Y) −        2
+                                   XY ≪ |Ea,m (X, Y )| + Y m−1+o(1) ,
+                               m       m
+where
+                               X            X
+                                            X                     Y
+                                                                 X
+            Ea,m (X, Y ) =                            em arx−1          em (−ry).
+                             1⩽|r|⩽m/2       x=1                  y=1
+                                         gcd(x,m)=1
+
+Using the Cauchy inequality (and the extending the summation to all residue
+classes modulo m), we derive
+        m
+        X                                         2
+                                ϕ(m)
+                #Ha,m (X , Y) −      XY
+       a=1
+                                 m2
+   gcd(a,m)=1                                                                             (16)
+                                          m
+                                        1 X
+                                      ≪ 2    |Ea,m (X, Y )|2 + Y 2 m−1+o(1) .
+                                       m a=1
+   We now put J = ⌊log(Y /2)⌋ and define the sets
+                 n                mo
+          R0 = r : 1 ⩽ |r| ⩽          ,
+                 n                Y          o
+                         j−1 m          jm
+          Rj = r : e           < |r| ⩽ e       ,                  j = 1, . . . , J,
+                 n           Y            Yo
+                          m
+        RJ+1 = r : eJ < |r| ⩽ m/2
+                           Y
+                                             19
+(we can certainly assume that J ⩾ 1 since otherwise the bound is trivial).
+   Applying the Cauchy inequality again, we deduce
+                                                                J+1
+                                                                X
+                                              2
+                    |Ea,m (X, Y )| ⩽ (J + 2)                          |Ea,m,j (X, Y )|2 ,                 (17)
+                                                                j=0
+
+where
+                                         X             X
+                                                       X                        Y
+                                                                          −1
+                                                                               X
+              Ea,m,j (X, Y ) =                                  em arx                 em (−ry).
+                                         r∈Rj          x=1                       y=1
+                                                   gcd(x,m)=1
+
+Using (4), we conclude that
+                                             Y
+                                             X
+                                                   em (−ry) ≪ e−j Y.
+                                             y=1
+
+for r ∈ Rj , j = 0, . . . , J + 1. Thus
+
+                                     X                X
+                                                      X                      
+ Ea,m,j (X, Y ) ≪ e−j Y                      ϑr                 em arx−1          ,      j = 0, . . . , J + 1,
+                                    r∈Rj               x=1
+                                                   gcd(x,m)=1
+
+for some complex numbers ϑr with |ϑr | ⩽ 1 for |r| ⩽ m/2. Therefore,
+                                                                                                 2
+  m
+  X                                                m
+                                                   X X                  X
+                                                                        X                  
+         |Ea,m,j (X, Y )|2 ≪ e−2j Y 2                           ϑr                em arx−1
+   a=1                                              a=1 r∈Rj             x=1
+                                                                     gcd(x,m)=1
+
+                                  X                         X
+                                                            X          m
+                                                                       X
+                  −2j       2
+                                                                                                        
+              =e        Y                    ϑr1 ϑr2                         em a r1 x−1      −1
+                                                                                      1 − r2 x2              .
+                                r1 ,r2 ∈Rj                x1 ,x2 ⩽X    a=1
+                                                       gcd(x1 x2 ,m)=1
+
+Clearly the inner sum vanishes if r1 x−1       −1
+                                      1 6≡ r2 x2  (mod m) and is equal to m
+otherwise. Therefore
+                     Xm
+                        |Ea,m,j (X, Y )|2 ≪ e−2j Y 2 mTj ,              (18)
+                                 a=1
+
+where Tj is the number of solutions to the congruence
+  r1 x2 ≡ r2 x1     (mod m),                       r1 , r2 ∈ Rj , x1 , x2 ⩽ X, gcd(x1 x2 , m) = 1.
+
+                                                          20
+We now see that if r1 and x2 are fixed, then r2 and x1 are such that their
+product s = r2 x1 ≪ ej mX/Y belongs to a prescribed residue class modulo
+m. Thus there are at most O (ej X/Y + 1) possible values of s and for each
+fixed s ≪ ej mX/Y there are τ (s) = mo(1) values of r1 and x2 with s = r1 x2 ,
+see (8). Therefore
+                                   e2j X 2 m1+o(1) ej Xm1+o(1)
+       Tj ⩽ X#Rj ej X/Y + 1 mo(1) =                +
+                                          Y2            Y
+and after substitution into (18) we get
+      m
+      X
+            |Ea,m,j (X, Y )|2 ≪ e−2j Y 2 mTj = X 2 m2+o(1) + e−j XY m2+o(1) .
+      a=1
+
+Substituting this bound in (17) and recalling (16), we conclude the proof.
+    We note that the proof of Theorem 16 can easily be extended to arbitrary
+sets X ⊆ {1, . . . , X}, see [171]. However, it breaks down if x runs through a
+short interval away from the origin. An alternative approach has been sug-
+gested in [96] and is based on bounds of the fourth moment of multiplicative
+character sums, see Lemma 3. If m = p is prime, it can handle such shifted
+intervals X = {U + 1, . . . , U + X} (but not arbitrary sets X ⊆ {1, . . . , X}
+as that of [171]). Furthermore, the technique of [96] leads to more explicit
+expressions instead of mo(1) in the error term. Thus, although the approaches
+of [96] and [171] complement each other they still leave some natural open
+questions.
+Question 17. Extend Theorem 16 to sets X = {U + 1, . . . , U + X} with
+arbitrary U.
+    As we have mentioned, if m = p, Question 17 is addressed in [96], however
+some of the necessary ingredients are not known for composite m.
+    In [49] the behaviour of #Ha,m (X , Y) has been studied for the sets X =
+{U + 1, . . . , U + X} and Y = {V + 1, . . . , V + Y } on average over U and V . It
+is shown in [49] that #Ha,m (X , Y) is close to its expected value XY ϕ(m)/m2
+for almost all U, V ∈ Zm provided that X, Y ⩾ m1/2+ε for some fixed ε > 0.
+Furthermore, one can also find in [49] a similar statement for a multidimen-
+sional analogues of #Ha,m (X , Y). Several more results of this kind have been
+given in [100], however in the setting of [100] the initial point of only one
+interval is “sliding”, while the other one is fixed, see also [40].
+
+                                         21
+     We also note that several results “on average” related to various modifi-
+cations of the Lehmer problem are given in [133, 205, 209, 210, 211, 214, 216,
+225, 227], see also Section 5.1.
+     Finally, we remark that #Ha,m (X , Y) has been studied in [54] for the
+same sets as in Theorem 13, that is, for X = {1, . . . , X} and Y = {V +
+1, . . . , V + Y }, but on average over V . It is shown in [54] that in this case
+one can also obtain stronger bounds than that of Theorem 13.
+
+3.3    Points on Ha,m in Sets with Arithmetic Conditions
+Theorems 13 and 16 consider the case when x and y belong to sets of consec-
+utive integers. However, studying points on Ha,m in other sets is of ultimate
+interest as well.
+    We start with a very simple observation that no general result of the type
+of Theorems 13 and 16 applying to arbitrary sets X and Y is possible (even
+for very massive sets X and Y). For example, if m = p is a prime and X = Y
+consist of all (p − 1)/2 quadratic residues modulo p, then Ha,p (X , Y) = ∅ for
+every quadratic nonresidue a.
+    The problem of distribution of pairs of primes (p, q) ∈ Ha,m has been
+considered in [71]. Unfortunately, it seems that even the Extended Riemann
+Hypothesis is not powerful enough to get a satisfactory answer to this ques-
+tion, see [71] for details. However, on average over both a and m this problem
+becomes more feasible and has actually been considered in [84]. More pre-
+cisely, let P (X; m, a) be the number of solutions to the congruence
+                             p1 p2 ≡ a     (mod m)
+in primes p1 , p2 ⩽ X. It is shown in [84] that for any sufficiently large M,
+       X         X m                         2
+                                       π(X)2
+                         P (X; m, a) −            ≪ X 4 (log X)−A + MX 2 ,
+    M <m⩽2M       a=1
+                                        ϕ(m)
+             gcd(a,m)=1
+
+for any A, with an implied constant that depends on A, and
+            p−1                     2
+      X X                      π(X)2                      
+                 P (X; p, a) −          ≪ M −1 X 4 + MX 2 (log X)−2 .
+    M <p⩽2M a=1
+                               p−1
+
+The number S(X; m, a) of solutions to the congruence
+                              s1 s2 ≡ a    (mod m)
+
+                                          22
+in squarefree positive integers s1 , s2 ⩽ X is certainly easier to study and in
+this case “individual” results are possible. For example, it is shown in [84]
+that for all integers m ⩾ 1 and a with gcd(a, m) = 1 and real positive x, we
+have
+                                               −1
+                  36 X 2 Y          1    1    1                        
+  S(X; m, a) = 4 ·            1+ − 2 + 3             + O Xm−1/4+o(1) . (19)
+                  π   m             p p       p
+                            p|m
+
+
+    Moreover, representations of residue classes by products of a squarefree
+number and a prime have also been studied [84] (for a fixed modulus but on
+average over residue classes).
+    The result of [86] on the distribution of values of the Euler function in
+residues classes is based on studying congruences with products of shifted
+primes
+                   (p1 − 1)(p2 − 1)(p3 − 1) ≡ a (mod m)
+and employing bounds of multiplicative character sums with shifted primes
+from [117, 154]; see also [85] for some related results on some residue classes
+modulo m which are “hard” to represent by a totient.
+    In [93] an improvement of some results of [86] has been obtained. This
+new idea of [93] is to use a bound of [113] on the number of large values of
+Dirichlet polynomials (see also [115, Chapter 9]), and can probably be applied
+to a number of other questions. For example, one of such applications to the
+distribution of points on multivariate modular hyperbolas is given in [95].
+    It is shown in [84] that there are two absolute constants η, κ > 0 such
+that for any prime p and integer X with p > X ⩾ p1−η , if gcd(ak, p) = 1
+then the congruence
+
+                             p1 p2 (p3 + k) ≡ a     (mod p)
+
+has (1 + O(p−κ ))π(X)3 /p solutions in primes p1 , p2 , p3 ≤ X (uniformly over
+a and k). It is shown in [95], using a result of [113], that one can take any
+η < 13/76.
+   In [94], for X ⩽ p, the bound
+
+
+                          X                                          
+              max                  ep (bq −1 ) ≪ X 15/16 + X 2/3 p1/4 po(1)   (20)
+            gcd(b,p)=1
+                          q⩽X
+                         q prime
+
+
+
+                                             23
+has been obtained for exponential sums of reciprocals of primes, which is in
+this special case an improvement of a more general result of [79]. In turn, this
+has led to an improvement of the result of [84] for the number of solutions
+of the congruence
+                          p1 (p2 + p3 ) ≡ a (mod p)                        (21)
+in primes p1 , p2 , p3 ≤ X. More precisely, in [94], the asymptotic formula
+(1 + O(p−κ ))π(X)3 /p for the number of solutions is shown to hold for p ⩾
+X ⩾ p16/17+ε , where κ > 0 depends only on ε > 0. Note that the exponent
+16/17 improves the previous exponent 38/39 of [84] that is based on the
+estimate of [79]. Using the bound of [80] on the average values of such
+exponential sums
+
+    X                     X                                                   
+             max                   ep (bq −1 ) ≪ X 3/5 Z 13/10 + X 5/6 Z 13/12 Z o(1) ,   (22)
+           gcd(b,p)=1
+  Z⩽p⩽2Z                  q⩽X
+                         q prime
+
+
+where X ⩽ Z, for almost all primes p, one can obtain a similar result for
+p ⩾ X ⩾ p13/14+ε . We note that the both bounds (20) and (22) are nontrivial
+for X ⩾ p3/4+ε for some fixed ε > 0. The bound of [31, Theorem 4.1] is
+nontrivial for X ⩾ p1/2+ε , however it is less explicit. Recently, an explicit
+version of the results of [31] has been given in [14] how it is not immediately
+clear whether it can lead to new results about the congruence (21) (except
+for the case where the variables are in the domain p1 ⩽ X, p2 , p3 ⩽ Y with
+X substantially smaller than Y ).
+    Furthermore, yet another approximation to the initial problem has been
+considered in [180]. Combining a generalisation of the bound (20) to compos-
+ite denominators (given in [80]) with the sieve method, it is shown in [180]
+that for a sufficiently large m and any a with gcd(a, m) = 1 there is a solution
+to the congruence
+
+                        pP17 ≡ a       (mod m),         p, P17 ⩽ m0.997 ,
+
+where p is prime and P17 has at most 17 prime divisors.
+    One can also study the distribution of points (x, y) ∈ Ha,m (X , Y) with
+some prescribed structure of prime factors. For example, let P+ (k) and
+P− (k) denote the largest and the smallest prime divisors of an integer k ⩾ 1,
+respectively.
+
+                                                24
+Question 18. Obtain an asymptotic formula for
+                  #{(x, y) ∈ Ha,m (X , Y) : P+ (xy) ⩽ R}
+and
+                   #{(x, y) ∈ Ha,m (X , Y) : P− (xy) ⩾ r}
+where X = {1, . . . , X} and Y = {1, . . . , Y } and 1 ⩽ X, Y ⩽ m are arbitrary
+integers with R and r in reasonably large ranges.
+   We remark that using elementary sieving arguments one can extend the
+result of Theorem 13 to counting (x, y) ∈ Ha,m such that x is of the largest
+possible multiplicative order modulo m (and thus so is y) which is given by
+the Carmichael function λ(n). In particular, when m = p is a prime, this
+addresses the problem of distribution of the points (x, y) ∈ Ha,m where x is
+a primitive root modulo p, for example, see [17, 123]. Proofs of these results
+usually follow the same standard lines as the proof of Theorem 13, except
+that instead of (1) one uses the bound of the same strength on Kloosterman
+sums (2) twisted with multiplicative characters
+              X
+                     χ(x)em (rx + sy) ≪ (m gcd(r, s, m))1/2+o(1) .
+            (x,y)∈Hm
+            1⩽x,y⩽m
+
+There are still some delicate issues of getting the mo(1) term as small as
+possible. A certain modification of this question has been studied in [230].
+    We also note that several very interesting results have recently been ob-
+tained in [149] about points (x, y) ∈ Ha,m such that x and y have restricted
+g-ary expansions to some fixed base g ⩾ 2, see also [151].
+    Finally, we note that the dual question about the arithmetic structure
+of the ratio (xy − a)/m for (x, y) ∈ Ha,m is also of interest and may have
+various applications. For example, in [186] such ratios without small prime
+divisors have been studied, which in turn has been important for yet another
+number theoretic question.
+
+
+4     Geometric Properties of Ha,m
+4.1    Distances
+We observe that the asymptotic formulas (12) and (13) have a natural inter-
+pretation as the bounds on the power moments and the distribution function
+
+                                      25
+of the distances between an element x ∈ {1, . . . , m} with gcd(x, m) = 1 and
+its modular inverse. Several results about the average (over a) value of power
+moments of distances can be found in [133, 134, 135, 136, 137, 138], see also
+references therein.
+    We now define the width wa,m of the set Ha,m :
+                                
+                    wa,m = max |x − y| : (x, y) ∈ Ha,m .
+
+We also put
+                                  wm = w1,m
+for the width of Hm , which has been the main object of study of [75, 121, 123].
+    Using Theorem 13 one easily derives that
+
+                          wa,m = m + O(m3/4+o(1) ).                        (23)
+
+Using the same arguments as in [123], one can obtain a more precise expres-
+sion for the factor mo(1) .
+    On the other hand, it has been noticed in [121] that
+                                      √        
+                            m − wm ≥ 2 m − 1
+
+with equality for all m of the form
+
+                               m = k 2 + ℓk + 1                            (24)
+                                                √
+with integers k and ℓ such that k > 0, 0 ≤ ℓ < 2 k + 1 and hence
+                                  m − wm
+                                   √
+                             lim inf     = 2.                              (25)
+                              m→∞    m
+
+Question 19. Show that√ there are infinitely many primes m = p of the
+form (24) with 0 ≤ ℓ < 2 k + 1.
+
+   As a curiosity,
+            √        we recall the following, it has been noted in [75], that
+m − wm ⩽ 8m for all positive integers m = 2s with s ∈ Z. Indeed, if s is
+even, then m = (2s/2 − 1)2 + 2(2s/2 − 1) + 1 is of the form (24). If s is odd,
+then this follows from
+
+               (2(s+1)/2 − 1)(2s − 2(s+1)/2 − 1) ≡ 1 (mod 2s ).
+
+
+                                       26
+In the opposite direction it is shown in [75] that
+                                       m − wm
+                             lim sup    √     = ∞.                        (26)
+                              m→∞         m
+Furthermore, analogues of (25) and (26) also hold for prime values m = p:
+                      p − wp                            p − wp
+            lim inf     √    =2        and    lim sup     √    = ∞,
+             p→∞          p                     p→∞         p
+
+which follow from the following two results given in [75].
+Theorem 20. For infinitely many primes p, we have
+                                         √
+                                  √        p
+                        p − wp ⩽ 2 p +        .
+                                        log p
+Proof. Let ε = 1/(4 log Q). Using [29] one can show that for sufficiently
+large Q, there is a prime p in the interval
+                                     √      ((1 −√ε)Q, Q] such that p − 1 has
+a divisor d in the interval ((1 − 2ε) Q, (1 − ε) Q]. If we write p − 1 = df ,
+then wp ⩾ p − f − d. But, if Q is so large that ε ⩽ 0.01, then
+                 p−1          x             p            √
+         f +d=       +d⩽         √ + (1 − ε) Q ⩽ (2 + 3ε) p,
+                  d      (1 − 2ε) Q
+which implies the desired result.
+Theorem 21. Let f (M) be any positive function tending monotonically to
+zero as M → ∞. Then the inequality
+
+                 m − wm ⩾ m1/2 (log m)κ/2 (log log m)3/4 f (m)
+
+holds:
+   • for all positive integers m ⩽ M, except for possibly o(M) of them,
+
+   • for all primes m = p ⩽ M except for possibly o(M/ log M) of them.
+Proof. Let M be large and set
+
+                      z = (log M)κ/2 (log log M)3/4 f (M/2).
+
+It suffices to show m − wm ⩽ zm1/2 for o(M) of integers m between M/2 and
+M. Without loss of generality, suppose f (M) ⩾ 1/ log log M for all M > 10.
+
+                                        27
+We define Jk to be the set of positive integers m ∈ (M/2, M] for which
+m − wm ⩽ ym1/2 and such that there are (x, y) ∈ Hm with wm = y − x and
+x(m − y) = km − 1.
+   By the arithmetic-geometric mean inequality, for every m ∈ Jk , we have
+             m − wm   m−y+x p          √
+                    =      ≥ x(m − y) = km − 1.                            (27)
+                2       2
+Thus Jk = ∅ for k ⩾ z 2 + 1. Suppose 1 ⩽ k < z 2 + 1, m ∈ Jk , (x, y) ∈ Hm
+and x(m − y) = km − 1. Then
+                 p                                 √
+                   kM/2 − 1 ⩽ max(x, m − y) ⩽ z M .
+
+By Lemma 8,
+                  p           √                  kM(log(3z 2 /k))κ
+    #Jk ⩽ H(M,     kM/2 − 1, z M ; Tk ) ≪
+                                             ϕ(k)(log M)κ (log log M)3/2
+
+which after simple calculations leads to the estimate
+                              X
+                                    #Jk = o(M)
+                           1⩽k<z 2 +1
+
+and proves the first part of the theorem.
+   The proof of the second part is completely analogous.
+   The following questions have been formulated as conjectures in [75], where
+one can also find some heuristic arguments in their support.
+
+Question 22. Let g(M) be any positive function tending monotonically to
+∞ as M → ∞. Show that the inequality
+
+                m − wm ⩽ m1/2 (log m)κ/2 (log log m)3/4 g(m)
+
+holds:
+
+   • for all positive integers m ⩽ M, except for possibly o(M) of them,
+
+   • for all primes m = p ⩽ M except for possibly o(M/ log M) of them.
+
+Question 23. Prove that m − wm ⩽ m1/2 (log m)κ/2+1/2+o(1) for m → ∞.
+
+
+                                        28
+    Even a weaker form of Question 23 with just m1/2+o(1) is already of great
+interest and would have some interesting applications, see [124].
+    Besides the extreme and average values of the distances between an el-
+ement and its modular inverse it is also interesting to study the number of
+distinct differences between x and y for (x, y) ∈ Ha,m .
+
+Question 24. Estimate the cardinality of the sets
+
+                    Da,m = {|x − y| : (x, y) ∈ Ha,m },
+                     ±
+                    Da,m = {x − y : (x, y) ∈ Ha,m },
+                    Sa,m = {x + y : (x, y) ∈ Ha,m }.
+                                                 ±
+   It is easy to see that the sets Da,m and Da,m    are closely related to each
+other due to symmetry of points on Ha,m .
+   Clearly the part of Question 24 concerning Da,m is equivalent to counting
+u = 0, . . . , m − 1 for which the quadratic congruence
+
+                          x(x + u) ≡ a     (mod m)
+
+has a solution x with 1 ⩽ x < m − u. In the case of Sa,m one needs to count
+u = 0, . . . , ±2(m − 1) for which
+
+                          x(u − x) ≡ a     (mod m)
+
+has a solution x with 1 ⩽ x < u,
+   For prime m = p this question has been studied in [182] where an explicit
+formula                                                  
+                        1            a            (p−1)/2
+                                                          
+               #Da,p =      p+1+         1 + (−1)             .
+                        4            p
+is given, where (a/p) denotes the Legendre symbol of a modulo p. It has been
+shown in [70] that the argument of [182] can also be used to derive explicit
+                ±
+formulas for Da,p   and Sa,p . However in the case of composite m studying
+these quantities is more complicated and sometimes leads to some surprising
+discoveries. In particular, it is shown in [70, Theorem 16] that for a = 1 we
+have
+          ±                                                    ±
+        #D1,m log log m                                     D1,m
+   lim inf              <∞           and      lim sup                   > 0,
+    m→∞    #S1,m                               m→∞      #S1,m log log m
+                                                                           (28)
+
+                                      29
+see also [122]. These results also have some interesting combinatorial inter-
+pretation.
+                                                      ±
+    In [182] an analogue of Question 24 concerning Da,p  is also studied when
+x and y range over prescribed intervals, however the method of [182] does
+not immediately apply to the case of composite moduli m.
+    A similar question can also be asked about Euclidean distances between
+distinct points of Ha,m and also between the origin and points of Ha,m .
+
+Question 25. Estimate the cardinality of the sets
+              p
+      Ea,m = { (x1 − x2 )2 + (y1 − y2 )2 : (x1 , y1), (x2 , y2) ∈ Ha,m }
+
+and                          p
+                     Fa,m = { x2 + y 2 : (x, y) ∈ Ha,m }.
+
+    The author is grateful to Arne Winterhof for the observation that if m = p
+is a prime then #Fa,p can be evaluated explicitely. Indeed if u ≡ x2 + y 2
+(mod p) for (x, y) ∈ Ha,p then the congruence Z 4 − uZ 2 + a2 ≡ 0 (mod p)
+has exactly four roots x, p − x, y, p − y (in particular, we have two double
+roots if x = y). Since (p − x)2 + (p − y)2 6= x2 + y 2 we have
+                                             
+                                    1         a
+                           #Fa,p =      p+          .
+                                    2         p
+
+    Clearly, Theorem 13 can be used to obtain some lower bounds on #Da,m
+and #Ea,m . For example, an easy modification of an argument which leads
+to the bound (23) yields
+
+                               #Da,m ⩾ m1/4+o(1) .
+
+However we are mostly interested in more precise results which should cer-
+tainly be based on some additional ideas.
+    We also ask a question of a different flavour, which is about the number
+of possible directions on the Euclidean plane defined by the pairs of distinct
+points (x1 , y1), (x2 , y2 ) ∈ Ha,m .
+
+Question 26. Estimate the cardinality of the set
+                                                                            
+             x1 − x2
+    La,m =           : (x1 , y1 ), (x2 , y2) ∈ Ha,m , (x1 , y1 ) 6= (x2 , y2) .
+             y1 − y2
+
+                                         30
+    Obviously Questions 25 and 26 are influenced by the Erdős and Kakeya
+problems, respectively, see [39, Sections 5.3 and 7.1] and also surveys [32, 120]
+(we also note the recent remarkable achievement [69, 105]). They can also
+be asked for points of Ha,m (X , Y) for various sets X and Y.
+    We note that in the definitions of the sets Ea,m , Fa,m and La,m all distances
+and angles are computer over the rationals. The same questions can also be
+asked with similar quantities where calculations are performed modulo m.
+Some interesting results in this direction can be found in [70, 107, 122].
+    Finally, motivated by [21, 22] and some other works one can also ask
+various questions about the distribution of the angles of elevation arctan(y/x)
+of points (x, y) ∈ Ha,m (X , Y) over the horizontal line.
+
+4.2    Convex Hull
+We consider the convex closure Cm of the point set Hm . It is not hard to
+see that Cm is always a convex polygon with nonempty interior, except when
+m = 2, 3, 4, 6, 8, 12, 24, see [124].
+    Following [124], we denote by v(m) the number of vertices of Cm and by
+V (M) its average value,
+                                         M
+                                    1 X
+                          V (M) =           v(m).
+                                  M − 1 m=2
+
+   First of all we notice that by a result of [7] a convex polygon of area S
+may have at most O(S 1/3 ) integer vertices, thus we immediately conclude
+that v(m) ≪ m2/3 . It is shown in [74] that a combination of the bound of [7]
+with Theorem 13 leads to a stronger estimate:
+
+                               v(m) ⩽ m7/12+o(1) .                           (29)
+
+Indeed, one can see from Theorem 13 that all vertices of Cm belong to one
+of the rectangles with one side length m and the other side length m3/4+o(1)
+which are adjacent to one of the sides of the square [0, m − 1] × [0, m − 1].
+Now considering the intersections of Cm with each of these rectangles (which
+remains convex) and applying the the result of [7], we obtain (29). The
+bound (29) has recently been improved in [125] as
+
+                               v(m) ⩽ m1/2+o(1)                              (30)
+
+
+                                       31
+for any integer m ⩾ 1 and as
+
+                               v(m) ⩽ m5/12+o(1)                          (31)
+
+for m which are almost squarefree (in particular, for almost all m). The
+proof of (31) is based on some geometric arguments, and thus on Lemmas 11
+and 12, and the bound on the number of solutions to bivariate quadratic
+Diophantine equations in a box given by Lemma 10. Furthermore, the same
+bounds hold for the convex hulls of arbitrary hyperbolas Ha,m .
+    More interestingly, one can obtain another bound, which is much better
+in some cases and relies on more specific properties of Hm
+
+                           v(m) ⩽ T (m − 1)mo(1) ,                        (32)
+
+see [124], where T (k) is defined in Section 2.4.
+    The lower bound
+                           v(m) ⩾ 2(τ (m − 1) − 1)                        (33)
+is also given in [124]. Furthermore, it is shown in [124] that in fact v(m) =
+2(τ (m − 1) − 1) whenever T (m − 1) ⩽ 5. Thus, this and the bound (32)
+explain why Lemma 9 comes into play. On the other hand, it is shown in [74]
+that v(m) > 2(τ (m−1) −1) for a set of m of positive asymptotic density. On
+the other hand, improving the previous estimate of [75], it is shown in [74]
+that [2, Theorem 2.1] can be used to derive that
+                                                           
+                                   5 log 2            log p
+                 v(p + 1) ⩾ exp            + o(1)               .
+                                     12             log log p
+for infinitely many primes p. In particular this shows, in a strong form, that
+sometimes v(m) and τ (m − 1) are vastly different orders of magnitude.
+    One can also find in [124] several efficient algorithms for computing v(m),
+together with their complexity analysis.
+    Numerical calculations show that while the behaviour of v(m) is not ad-
+equately described by any of the above bounds, the lower bound (33) seems
+to be more precise than (29) and (32).
+    It is quite natural to view the points of Hm as being randomly distributed
+in the square [0, m]×[0, m] (which is supported by the theoretic results which
+we have presented in Sections 3.1 and 3.2) and then appeal to the following
+result of [156, Satz 1]. Let R be a convex polygon in the plane with r vertices
+and let Pi , i = 1, . . . , n, be n points chosen at random in R with uniform
+
+                                      32
+distribution. Let Xn be the number of vertices of the convex closure of the
+points Pi , and let E(Xn ) be the expectation of Xn . Then
+                            2
+                    E(Xn ) = r(log n + γ) + cR + o(1),                  (34)
+                            3
+where γ = 0.577215 . . . is the Euler constant, and cR depends on R and is
+maximal when R is a regular r-gon or is affine equivalent to a regular r-gon.
+In particular, for the unit square R = [0, 1]2 we have
+                                     8
+                               cR = − log 2.
+                                     3
+   Using (34) with r = 4, it seems plausible to conjecture that for most m
+
+                               v(m) ≈ h(m),
+
+where
+                              8
+                      h(m) = (log ϕ(m) + γ − log 2).
+                              3
+However, surprisingly enough, the numerical results of [124] show that V (M)
+deviates from
+                      M
+                 1 X           8
+     H(M) =              h(m) = (log M + γ + η − 1 − log 2 + o(1)),
+               M − 1 m=2       3
+
+where
+                       X log(1 − 1/p)
+                 η=                   = −0.580058 . . . ,
+                      p prime
+                               p
+
+quite significantly, and is apparently larger than H(M) by a fixed factor.
+Some partial explanation to this phenomenon has been given in [124] and
+suggests that for each m, the convex hull Cm , besides some “random” points,
+also contains a “regular” component with 2(τ (m − 1) − 1) points associated
+with divisors of m − 1 whose average contribution
+                          M
+                     1 X
+                             2(τ (m − 1) − 1) ∼ 2 log M
+                   M − 1 m=2
+
+is of the same order of magnitude as the size of H(M).
+
+
+                                     33
+    It is also shown [124] that this affect is specific to the points of Hm and
+disappears for the convex hull of points on a “generic” curve which behaves
+in much better agreement with (34) than v(m).
+                         (m − 1, m − 1) ∈ Hm the diameter of Hm takes the
+    Clearly since (1, 1),√
+largest possible value 2(m − 2). However for the other values of a the
+question about the diameter of Ha,m is more interesting.
+Question 27. Estimate the diameter
+               p
+   ∆a,m = max{ (x1 − x2 )2 + (y1 − y2 )2 : (x1 , y1 ), (x2 , y2 ) ∈ Ha,m }.
+
+4.3    Visible Points
+For two sets of integers X and Y we denote
+
+           Ga,m (X , Y) = #{(x, y) ∈ Ha,m (X , Y) : gcd(x, y) = 1}
+
+and also, following our usual agreement, we put Gm (X , Y) = G1,m (X , Y).
+   Clearly Ga,m (X , Y) is the set of points (x, y) ∈ Ha,m (X , Y) which are
+“visible” from the origin (that is, which are not “blocked” by other points
+with integer coordinates).
+    The following estimate is obtained in [168] for Gm (X , Y) but its extension
+to the general case is immediate and we present it here (in fact we also
+simplify the argument).
+Theorem 28. Let X = {1, . . . , X} and Y = {1, . . . , Y } where 1 ⩽ X, Y ⩽ m
+are arbitrary integers. For all integers m with XY ⩾ m3/2 we have
+                                          −1
+                      6 XY Y             1                               
+     #Ga,m (X , Y) = 2 ·             1+        + O X 1/2 Y 1/2 m−1/4+o(1) ,
+                     π     m             p
+                               p|m
+
+where the product is taken over all prime numbers p | m.
+Proof. For an integer z we let
+
+           Ha,m (z; X , Y) = {(x, y) ∈ Ha,m (X , Y) : z | gcd(x, y)}.
+
+By the inclusion-exclusion principle, we write
+                                     ∞
+                                     X
+                  #Ga,m (X , Y) =          µ(z)#Ha,m (z; X , Y).
+                                     z=1
+
+
+                                       34
+   Clearly
+                                  Ha,m (z; X , Y) = ∅
+if gcd(z, m) > 1 or z > m. For gcd(z, m) = 1, writing
+                              x = zs     and      y = zt,                   (35)
+we have
+     Ha,m (z; X , Y) = {(zs, zt) : st ≡ az −2 (mod m),
+                                           1 ⩽ s ⩽ X/z, 1 ⩽ t ⩽ Y /z}.
+   Now, we define
+                                                                    
+       R = X 1/2 Y 1/2 m−3/4             and      Q = X 1/2 Y 1/2 m−1/2 ,
+and note that
+                                     XY /Q2 ⩽ m.
+   A variant of Theorem 13 gives
+                                        XY ϕ(m)              
+                 #Ha,m (z; X , Y) =       2  2
+                                                + O m1/2+o(1) ,
+                                         z m
+which we apply for “small” z ⩽ R.
+    We also note that for each z, the product r = st ⩽ XY /z 2 , where s and t
+are given by (35), belongs to a fixed residue class modulo m and thus can take
+at most XY /z 2 m+1 possible values. For each fixed r ⩽ XY /z 2 ⩽ XY ⩽ m2 ,
+there are τ (r) = r o(1) = mo(1) pairs (s, t) of integers s and t with r = st,
+see (8). Therefore,
+                                                   
+                                           XY
+                     #Ha,m (z; X , Y) ⩽     2
+                                                + 1 mo(1) ,
+                                           z m
+which we apply for “medium” z with Q ⩾ z > R.
+   We observe that Lemma 1 yields the bound
+                m
+                X
+                          em (Az −2 + Bz) ≪ gcd(A, B, m)1/2 m1/2+o(1) .
+                 z=1
+             gcd(z,m)=1
+
+Using the same arguments as in the proof of Theorem 13, we deduce that for
+the number of positive integers z ⩽ Z with az −2 ≡ w (mod m) with some
+w ⩽ W is ZW/m + O(m1/2+o(1) ).
+
+                                          35
+   We now remark that az −2 ≡ r (mod m) where, as before,
+
+                      r = st ⩽ XY /z 2 ⩽ XY /Q2 ⩽ m.
+
+Furthermore, for every z the value of r is uniquely defined and leads to at
+most τ (r) = mo(1) possible pairs (s, t). Hence, the total contribution from
+“large” z ⩾ Q can be estimated as
+                                 ⌈2 log m⌉
+     X                             X             X
+            #Ha,m (z; X , Y) ⩽                               #Ha,m (z; X , Y)
+    m⩾z⩾Q                          ν=0       2ν+1 Q>z⩾2ν Q
+                                 ⌈2 log m⌉                         
+                                   X                XY
+                                                ν+1             1/2
+                             ⩽            2 Q·       ν    2
+                                                            +m        mo(1)
+                                  ν=0
+                                                  m(2 Q)
+                               ⌈2 log m⌉               
+                                 X          XY      1/2
+                             ⩽               ν mQ
+                                                  +m      mo(1)
+                                  ν=0
+                                           2
+                                 XY −1+o(1)
+                             =      m       + m1/2+o(1) .
+                                  Q
+   Combining the above bounds and recalling our choice of R and Q (which
+optimises the error term), we derive the desired result.
+   In particular, under the conditions of Theorem 28
+                                                    −1
+                                   6 XY Y          1
+                   #Ga,m (X , Y) ∼ 2 ·          1+
+                                  π     m          p
+                                                  p|m
+
+
+provided that XY ⩾ m3/2+ε for some fixed ε > 0.
+    It is noticed in [46] that Theorem 28 maybe of use for some Diophantine
+approximation questions, see Section 5.17.
+    A multidimensional version of Theorem 28 has been derived in [183]. For
+the dimension s = 3 it is based on Theorem 16. For s ⩾ 4 the proof is
+based on various bounds for multiplicative character sums in the same style
+as in [169, 176].
+    Visible points satisfying general polynomial congruences have been stud-
+ied in [181]. However in [181] nontrivial results have been obtained only
+“on average” (either over some families of congruences or over some mod-
+uli). Recently, a nontrivial result for “individual” congruences has been given
+in [52].
+
+                                         36
+   Using the technique of [52], together with Theorem 30 below, one can
+probably tackle the following problem:
+Question 29. Extend Theorem 28 to intervals of the form
+
+      X = {U + 1, . . . , U + X}       and     Y = {V + 1, . . . , V + Y }
+
+with arbitrary U and V .
+   We also refer to [145] for further generalisations.
+
+4.4    Concentration of Points
+For a positive integer Z < p and arbitrary integers U and V , we denote by
+Ta,p (Z; U, V ) the number of points (x, y) ∈ Ha,p which belong to the square
+[U + 1, U + Z] × [V + 1, V + Z].
+    We remark that Theorem 13 implies that Ta,p (Z; U, V ) = (1 + o(1))Z 2 /p
+if Z ⩾ p3/4+ε for a fixed ε > 0, and also gives a nontrivial upper bound
+Ta,p (Z; U, V ) = o(Z) if Z ⩾ p1/2+ε and Z = o(p) as p → ∞. These results
+seem to be the limit of what can be achieved within the standard exponential
+sum techniques and currently available estimates on incomplete Kloosterman
+sums.
+    However, in [51] improving the previous result of [50], the following esti-
+mate has been given:
+Theorem 30. There exists some absolute constant η > 0 such that for any
+positive integer Z < p, uniformly over arbitrary integers U and V , we have
+                            4/3+o(1) −1/3
+                            Z          p     + Z o(1) for any U and V ,
+         Ta,p (Z; U, V ) ⩽
+                            Z 3/2+o(1) p−1/2 + Z o(1) if U = V .
+
+   Several more related estimates are given in [12, 36, 37, 60, 61, 96].
+
+4.5    Arithmetic Functions on Points on Ha,m
+A modification of the proof of Theorem 28 has lead to the asymptotic for-
+mula (19). There is little doubt that it can also be extended to the case
+where variables are taken intervals of different lengths and also to the sums
+                                 X
+                                          |µ(xy)|
+                             (x,y)∈Hm (X ,Y)
+
+
+                                       37
+under the same conditions on the sets X and Y as in Theorem 28.
+   For a prime p, asymptotic formulas for the average values
+              X             ϕ(|x − y|)                   X
+                                            and                        ϕ(|x − y|)
+                             |x − y|
+        (x,y)∈Ha,p (X,Y )                           (x,y)∈Ha,p (X,X)
+              x6=y                                        x6=y
+
+are given in [172].
+    It is also interesting to study sums of other arithmetic functions on
+(x, y) ∈ Hm (X , Y).
+Question 31. For intervals
+
+      X = {U + 1, . . . , U + X}            and     Y = {V + 1, . . . , V + Y }
+
+of length X, Y ⩽ m,
+   • obtain nontrivial bounds for the sums
+                       X                                     X              
+                                                                            x
+                                    µ(xy)     and                              ,
+                                                                            y
+                (x,y)∈Ha,m (X ,Y)                      (x,y)∈Ha,m (X ,Y)
+
+     where (x/y) is the Jacobi symbol of x modulo y, which we also extend
+     to even values of y by simply putting (x/y) = 0 in this case;
+   • obtain estimates or asymptotic formulas for the sums
+               X                                   X
+                       τ (|x − y|)   and                  ω(|x − y|).
+           (x,y)∈Ha,m (X ,Y)                          (x,y)∈Ha,m (X ,Y)
+
+
+   We remark that in the case when X and Y are very large (compared to
+m) intervals of the form
+
+          X = {X + 1, . . . , 2X}           and     Y = {Y + 1, . . . , 2Y }        (36)
+
+the bound on the sum of Jacobi symbol (x/y) has been given in [213]. In
+fact, the bound of [213] applies to even more general bilinear sums and asserts
+that for any ε > 0
+                  X                
+                                    x
+                            αx βy       ≪ XY 15/16+ε + X 15/16+ε Y         (37)
+                                    y
+              (x,y)∈Ha,m (X ,Y)
+                    xy⩽Z
+
+
+                                            38
+provided that
+                             m ⩽ (min{X, Y })ε/3 ,                              (38)
+where X and Y are of the form (36), Z is an arbitrary parameter and the
+sequences αx and βy are supported on X and Y, respectively, and satisfy
+
+                |αx | ⩽ 1, x ∈ X      and        |βy | ⩽ 1, y ∈ Y.
+
+Since the sum on the left hand side of (37) does not exceed XY /m +
+min{X, Y } we see that the bound in nontrivial only if
+
+                           m ⩽ (min{X, Y })1/16−ε .                             (39)
+
+    Comparing (38) and (39) we see that (37) may only be nontrivial if
+
+                              min{X, Y } ⩾ m64 .
+
+Some modifications of the argument of [213] may reduce the exponent 64,
+but certainly not below 16, while in Question 31 we ask about much shorter
+sums.
+
+
+5     Applications
+5.1    The Lehmer Problem
+One of the most natural and immediate applications of the uniformity of
+distribution results outlined in Section 3.1 is a positive solution to the Lehmer
+problem, see [104, Problem F12], about the joint distribution of the parity of
+x and y for (x, y) ∈ Ha,m (X , Y) with some intervals
+
+      X = {U + 1, . . . , U + X}      and        Y = {V + 1, . . . , V + Y }.
+
+This distribution is naturally expected to be close to uniform (that is, each
+parity combination is taken about in 25% of the cases) for any odd m ⩾ 1 and
+sufficiently large X and Y . The Lehmer problem can easily be reformulated
+as a question about the cardinality of #Ha,m (Xe, Y)e for some a and some
+other sets Xe and Ye of about X/2 and Y /2 consecutive integers, respectively.
+Indeed, we are interested in solutions to the congruence
+
+                      (2e         y + ϑ2 ) ≡ a
+                        x + ϑ1 )(2e                (mod m)
+
+                                       39
+with some fixed ϑ1 , ϑ2 ∈ {0, 1} and
+    U + 1 − ϑ1     U + X − ϑ1                  V + 1 − ϑ2        V + Y − ϑ2
+               ⩽x
+                e⩽            ,                           ⩽ ye ⩽            .
+        2              2                           2                 2
+It remains to notice that the above congruence is equivalent to
+
+                     x + 2−1 ϑ1 )(e
+                    (e            y + 2−1 ϑ2 ) ≡ 4−1 a    (mod m)
+(where the inversion is taken modulo m), which after a shift of variables takes
+the desired shape.
+    Close links between the Lehmer problem and bounds of Kloosterman
+sums (2) has been first observed in [218, 219]. The question and the above ap-
+proach have been extended in several directions, see [5, 56, 57, 132, 133, 134,
+136, 139, 140, 141, 145, 161, 207, 209, 210, 214, 216, 220, 221, 222, 223, 225]
+and references therein. In particular, in multidimensional generalisations,
+instead of the bound (1) more general bounds of incomplete or multiple
+Kloosterman sums
+       X                  X                                                      
+                ...                  em r1 x1 + . . . + rn xn + s(x1 . . . xn )−1 ,
+ U1 +1⩽x1 ⩽U1 +X1    Un +1⩽xn ⩽U +n+Xn
+
+have been frequently used. However, it has turned out that for multivariate
+analogues of the Lehmer problem, and a number of similar questions, bounds
+of character sums provide a more efficient tool than Kloosterman sums (2),
+see [176], where Lemmas 2 and 3 (for prime m = p) and the bound (6) have
+been used to improve several previous results.
+    Some ternary additive problems with points (x, y) ∈ Ha,m satisfying ad-
+ditional divisibility conditions are considered in [142]. The result of [142]
+has been improved in [184] where it is shown that one in fact can deal with
+binary additive problems with such numbers.
+    A generalisation of the original problem to joint distribution of arbitrary
+monomials and two arbitrary progressions is given in [174], which improves
+and generalises some results of [212].
+    Furthermore, a similar problem has also appeared in a very different con-
+text related to cryptography. Indeed, it has been shown in [35] that the
+conjecture of [101] on the cyclical distinctness of so-called ℓ-sequences mod-
+ulo p can be reformulated as the conjecture that for any prime p and pair of
+integers (a, d) 6= (1, 1) with
+
+             gcd(d, p − 1) = 1,          0 < |a| < p/2,     |d| < p/2,
+
+                                          40
+except for six explicitly listed triples of (p, a, d), at least one residue modulo
+p of axd is odd when x runs through all even residues modulo p, that is, that
+axd ≡ y (mod p) for some
+            x ∈ {2, 4, . . . , p − 1}      and   y ∈ {1, 3, . . . , p − 2}.
+In [102] this conjecture has been established for a wide class of triples (p, d, a)
+and also for all such triples. Finally, in [35] it has been proved for all triples
+(p, d, a) provided that p is large enough. Clearly d = −1 is related to the
+Lehmer conjecture. Recently, a decisive progress in a generalised Lehmer
+conjecture has been made in [34]. It is certainly interesting to see how much
+the methods of [34, 35] can be expanded and carried over to other problems.
+For examples, in the most general form one can ask about the existence and
+distribution of solutions to the congruence
+               x1d1 . . . xds s ≡ a   (mod p),   1 ⩽ x1 , . . . , xs < p
+in s arithmetic progressions xi ≡ bi (mod ki ), i = 1, . . . , s.
+
+5.2     Distribution of Angles in Some Point Sets
+A version of Theorem 13 has been used in [22] to study the distribution of
+angles between visible points (viewed from the origin) in a dilation of a certain
+plain region Ω ⊆ [0, 1]2 . More precisely, for Ω ⊆ [0, 1]2 and a sufficiently large
+Q, we define
+                       ΩQ = {(Qα, Qβ) : (α, β) ∈ Ω)}.
+We now consider #FΩ (Q) angles between the horizontal line and the points
+of the set
+             FΩ (Q) = {(x, y) ∈ ΩQ ∩ Z2 : gcd(x, y) = 1}.
+The distribution of these angles is studied in [22] and shown to exhibit a
+somewhat unexpected behaviour.
+   A slight generalisation of Theorem 13 has also played an important role in
+the study of angles defined by some other point sets [21], see also [25, 26, 196].
+
+5.3     Distribution of the Trajectory Length in the Peri-
+        odic Lorentz Gas
+Links between Theorem 13 and some problems of mathematical physics can
+be found in [24, 27, 43, 44]. Namely, assume that a particle moves along a
+
+                                            41
+straight line in a d-dimensional lattice until it falls in a δ-neighbourhood of
+a lattice point. In [24, 27, 43, 44] the distribution of the trajectory length is
+studied.
+
+5.4    Vertices of Convex Lattice Polygons
+Let N(r) be the number of vertices of the convex hull of the set of the integral
+lattice points inside of the ball of radius R centered at the origin, that is, of
+the set {(x, y) ∈ Z2 : x2 + y 2 ⩽ r 2 }. It is shown in [13] that for 1 ⩽ H ⩽ R
+we have
+      Z
+    1 R+H                 6 · 22/3 2/3                                     
+              N(r) dr =           R + O HR−1/3 + H −1 R2/3 + R5/8+o(1) .
+   H R                        π
+A version of Theorem 13 is one of the crucial ingredients of the proof.
+
+5.5    Arithmetic Structure of Shifted Products
+The main result of [186] on the largest prime divisor of the shifted products
+ab + 1, when a and b run through some reasonably dense sets of integers of
+a sufficiently large interval [1, N], is based on a variant of Theorem 13. The
+result of [186] has recently been improved in [147], where it is also shown
+that the above problem is related to counting #Hp (X , Y) on average over
+primes p for arbitrary sets of integers X , Y ⊆ Z.
+    Furthermore, in [130], Theorem 13 and its generalisations given in [169,
+176] (that are based on bounds on multiplicative character sums) have been
+used to study kth powerfree values of the polynomial X1 ...Xr −1, see also [81]
+for some other related results and alternative approaches to problems of this
+type.
+
+5.6    Sums of Divisor Functions over Quadratic Polyno-
+       mials and Arithmetic Progressions
+It has been demonstrated in [41] that results about the distribution of points
+(x, y) ∈ Ha,m in the regions of the form (15) can be used to derive precise
+asymptotic formulas for sums of the divisors with quadratic polynomials; for
+example, for the sums
+                                    X
+                          SD (N) =       τ (n2 + D)
+                                      n⩽N
+
+
+                                       42
+where D ⩾ 1 is a squarefree integer.
+   Furthermore, the strength of estimates on the error terms in asymptotic
+formulas for sums of some divisor functions over an arithmetic progression
+                                       X
+                        Sa,m (N) =             τ (n)
+                                              n⩽N
+                                        n≡a    (mod m)
+
+
+is closely related to the precision of our knowledge of #Ha,m (X , Y), where X
+and Y are sets of consecutive integers and also multidimensional analogues
+of this question, see [15, 76, 82, 83, 108, 190]. This link becomes transparent
+if one recalls that a standard approach to evaluating divisor sums is approx-
+imating the hyperbolic region {(x, y) : x, y ⩾ 0, xy ⩽ N} by a union of
+“small” rectangles. In fact, as we have mentioned, the proof of Theorem 16
+is based on some ideas of [15], where an asymptotic formula is given for the
+sums Sa,m (N) “on average” over a. In [190], there are also several results,
+and conjectures, for similar average values of various restricted versions of
+the divisor functions τ (n), but with less averaging. These results are also
+related to the problem of Section 5.7.
+
+5.7    Pair Correlation of Fractional Parts of αn2
+It is known, see [146, 160], that the spacings between the fractional parts of
+the sequence αn2 , n = 1, 2, . . ., obey a Poisson distribution for almost all real
+α. However no specific example of such α is known. However [109, Theo-
+rem 2] comes very close to giving such an example. Its proof, amongst other
+technical tools, is also based on tight upper bounds for the divisor function
+over short arithmetic progressions, which in turn leads to studying points on
+modular hyperbolas. In particular, we note that [109, Conjecture 2], can be
+reformulated as the upper bound
+                                                 ϕ(m) 2
+                            #Ha,m (X , Y) ≪          Z
+                                                  m2
+for the sets X = Y = {1, . . . , Z} with an integer Z ⩾ m1/2+ε for any fixed ε.
+Besides, it is shown in [109] that one of the approaches to the distribution of
+spacings between the fractional parts of αn2 is via studying the number of
+solutions of the quadratic congruence
+
+             x2 − y 2 ≡ c    (mod q),         1 ⩽ x ⩽ X, 1 ⩽ y ⩽ Y,
+
+                                         43
+on average over c that runs through the reduced residue classes modulo q.
+Furthermore, one can find such a bound in [109, Lemma 3]. It is shown
+in [179] that a slight generalisation of Theorem 16 leads to an improvement
+of [109, Lemma 3] for some parameter ranges. However, unfortunately in
+the range relevant to the pair correlation problem the corresponding results
+of [109] and [179] are essentially of the same strength.
+    Similar links between the distribution of fractional parts of αn2 , behaviour
+of the divisor function in arithmetic progressions and distribution of points
+on modular hyperbolas have also been exhibited in [190]. It is shown in [178]
+that Theorem 16 can be used to derive improvements on some of the results
+of [190].
+
+5.8    The Sato–Tate Conjecture in the “Vertical” As-
+       pect
+We also recall that Theorem 16 about the distribution of points on Ha,m on
+average over a has been used in studying the so-called “vertical” aspect of
+the Sato–Tate conjecture for Kloosterman sums (2), see [171]. The relation is
+provided by the identity Km (r, s) = Km (1, rs) which holds if gcd(r, m) = 1.
+Clearly for the complex conjugated sum we have
+                     Km (r, s) = Km (−r, −s) = Km (r, s),
+hence we see that Km (r, s) is real. Since by the Weil bound, for any prime
+p, we have
+                                 √
+                  |Kp (r, s)| ⩽ 2 p,      gcd(r, s, p) = 1,
+see [115, Theorem 11.11], we can now define the angles ψp (r, s) by the rela-
+tions
+                        √
+           Kp (r, s) = 2 p cos ψp (r, s) and    0 ⩽ ψp (r, s) ⩽ π.
+    The famous Sato–Tate conjecture asserts that, in the “horizontal” as-
+pect, that is, for any fixed non-zero integers r and s, the angles ψp (r, s) are
+distributed according to the Sato–Tate density
+                                         Z
+                                       2 β 2
+                          µST (α, β) =      sin γ dγ,
+                                       π α
+see [115, Section 21.2]. More precisely, if πr,s (α, β; T ) denotes the number of
+primes p ⩽ T with α ⩽ ψp (r, s) ⩽ β, the Sato–Tate conjecture predicts that
+                 πr,s (α, β; T ) ∼ µST (α, β)π(T ),   T → ∞,                (40)
+
+                                        44
+for all fixed real 0 ⩽ α < β ⩽ π, where, as usual, π(T ) denotes the total
+number of primes p ⩽ T , see [115, Section 21.2]. We remark that for elliptic
+curves, the Sato–Tate conjecture in its original (and the most difficult) “hor-
+izontal” aspect has recently been settled [188], but it still remains open for
+Kloosterman sums (2). It is shown in [171] that Theorem 16 implies that
+               1  X          X
+                                      πr,s (α, β; T ) ∼ µST (α, β)π(T )
+              4RS
+                    0<|r|⩽R 0<|s|⩽S
+
+
+provided RS ⩾ T 1+ε for some fixed ε > 0.
+
+5.9    Farey Fractions and Quotients of the Dedekind
+       Eta-function
+A result on the average values of some bivariate functions taken over points
+of Ha,m , has been obtained in [23] as a tool in the study of the distribution
+of Farey fractions
+
+            F (T ) = {r/s ∈ Q : gcd(r, s) = 1, 1 ⩽ r < s ⩽ T }.           (41)
+
+The proof of this result is based on some bounds of incomplete Kloosterman
+sums and is based on the same ideas which have led to Theorem 13.
+   It has also been used [6] to study the distribution of the quotients of the
+Dedekind Eta-function η(z).
+
+5.10     Farey Fractions in Residue Classes and the Lang-
+         Trotter Conjecture on Average
+The same arguments used in the prove of Theorem 16, can be used to study
+the distribution of ratios x/y, x ∈ X , y ∈ Y, in residue classes, where X
+and Y are sets of the same type as in Theorem 16. Combining this with an
+elementary sieve, it has been shown in [63] that the set of slightly modified
+Farey fractions of order T , that is, the set
+
+              G(T ) = {r/s ∈ Q : gcd(r, s) = 1, 1 ⩽ r, s ⩽ T },
+
+is uniformly distributed in residue classes modulo a prime p provided T ⩾
+p1/2+ε for any fixed ε > 0.
+
+                                          45
+    In turn, this result has been used in [63] to improve upper bounds of [62]
+for the Lang–Trotter conjectures on Frobenius traces and Frobenius fields
+“on average” over a one-parametric family of elliptic curves
+                   EA,B (t) :     U 2 = V 3 + A(t)V + B(t)
+with some polynomials A(t), B(t) ∈ Z[t] when the variable t is specialised to
+the elements of G(T ). A similar result can also be obtained for the set F (T )
+of “proper” Farey fractions given by (41).
+
+5.11     Torsion of Elliptic Curves
+A variant of Theorem 13 has been obtained in [148] and applied to estimating
+torsion of elliptic curves. More precisely, let E be an elliptic curve over an
+algebraic number field K of degree d over Q. It is shown in [148] that if E
+contains a point of prime order p then
+                                            2
+                                    p ⩽ d3d .
+
+5.12     Ranks and Selmer Groups of Elliptic Curves
+In [213] the bound (37) is used to show that for any elliptic curve E of the
+form
+                       E : Y 2 = X(X 2 + aX + b)
+where a and b are integers satisfying a certain special relation, the sequence
+of its quadratic twists
+                       ED :     DY 2 = X(X 2 + aX + b)
+is of rank 0 for a positive proportion of squarefree integers D. We also note
+that the bound (37) plays an important role in studying the distribution of
+Selmer groups of similar families of curves, see [208].
+
+5.13     Manin Conjecture for Some del Pezzo Surfaces
+Theorem 13 has also been obtained in [129, Lemma 1] where is used a tool to
+derive an asymptotic formula for rational points of bounded height on some
+del Pezzo surfaces. A 3-dimensional version of Theorem 13 from [82] has been
+used in [131] for a similar purpose. These asymptotic formulas correspond
+to the Manin conjecture for these type of varieties.
+
+                                       46
+5.14      Frobenius Numbers
+Given a vector a = (a1 , . . . , as ) of s positive integers with gcd(a1 , . . . , as ) = 1
+we define its Frobenius Number F (a) as the smallest integer f0 such that
+any integer f > f0 can be represented as
+
+                                f = a1 x1 + . . . + as xs
+
+with nonnegative integers x1 , . . . , xs , see [155] for the background.
+    It has been demonstrated in [163, 185, 195] that for the case s = 3 results
+of the type of Theorem 13 become important in studying the distribution of
+the values of F (a).
+    We remark that in the case of s = 3 it has been conjectured in [18] that
+
+                                F ((a, b, c)) ⩽ (abc)5/8                              (42)
+
+for all vectors (a, b, c) except for some explicitly excluded family of vectors;
+see also [18, Conjecture 1] for an even stronger conjecture. However the
+conjectured inequality (42) has been disproved in [163], where it is shown that
+for any a there are ϕ(a)/2 pairs (b, c) with a < b < c < 2a and gcd(a, b, c) = 1
+for which
+                                                a2
+                                 F ((a, b, c)) ⩾ .
+                                                2
+                 3
+Since abc ⩽ 4a , this means that the exponent in 5/8 in (42) has to be
+increased up to at least 2/3. Since these vectors are admissible in the termi-
+nology of [18] it shows that [18, Conjecture 1] fails too.
+     However one can do even better by using Theorem 13 and taking any pair
+(b, c) with bc ≡ 1 (mod a) and b, c = a3/4+o(1) in the argument of the proof
+of [163, Theorem 1], getting
+
+                                F ((a, b, c)) ⩾ a7/4+o(1)
+
+for such vectors (a, b, c). Thus, since abc = a5/2+o(1) , we conclude that for
+any a there are many pairs (b, c) for which 5/8 in the conjecture (42) has
+to be increased up to 7/10. Clearly these examples are quite sporadic and
+certainly do not belong to the family of excluded triples from [18]. We also
+remark that the family of integral vectors of the form
+
+                   (a, b, c) = (df − 1, d, f ),     d ⩽ f ⩽ d1+o(1) ,
+
+
+                                            47
+as d → ∞, for which abc = a2+o(1) leads to the inequality
+
+                      F ((a, b, c)) ⩾ ab1+o(1) = (abc)3/4+o(1) .
+
+Furthermore, using lower bounds on H(x, y, z; N), see [73, 106] one can see
+that the sequence of a = df − 1 of the above form is quite dense.
+    In the opposite direction, it is shown in [199] that for any a and almost
+all pairs of positive integers (b, c) with max{b, c} ⩽ a we have
+
+                              F ((a, b, c)) ⩽ (abc)1/2 .
+
+      Several other recent results can be found in [3, 4, 38, 89, 187].
+
+5.15       Distribution of Solutions of Linear Equations
+The paper [64] has introduced the question on the distribution of ratios
+x/m associated with the smallest positive solutions (x, y) to linear equations
+kx − my = 1, on average over the coefficients k and m in some intervals.
+In [64] it has been studied via continued fractions, see also [65]. Then, it has
+been noticed in [87, 157] that results of the type of Theorem 13 provide a
+simpler and more direct way to investigate the above ratios. Indeed, it is easy
+to see that this is equivalent to studying the distribution of modular inverses
+k −1 (mod m) which explains the link with Theorem 13 and of course, with
+Kloosterman sums (2). However this argument does not take any advantage
+of averaging over m. It is very plausible that the results about sums of
+Kloosterman sums, which date back to [127] can be useful for this kind of
+problem.
+Question 32. Improve the error terms in the asymptotic formulas of [64, 65,
+87, 157] by using the results of [127] on cancellations in sums of Kloosterman
+sums, see also [115, Chapter 16] for the guide to the modern results.
+   In [177], using some bounds of certain bilinear exponential sums from [67],
+these results have been extended to the case when the coefficients k and m
+run through arbitrary but sufficiently dense sets of integers.
+
+5.16       Coefficients of Cyclotomic Polynomials
+Let
+                              A(n) =     max         |an (k)|
+                                       k=0...,ϕ(n)
+
+
+                                          48
+be the height of the nth cyclotomic polynomial:
+                                           ϕ(n)
+                                           X
+                            Φn (Z) =              an (k)Z k .
+                                           k=0
+
+In [90], Theorem 13 has been used to show that for any ε > 0 and any
+sufficiently large prime p there exist infinitely many pairs (q, r) of distinct
+primes such that                              
+                                         2
+                            A(pqr) ⩾       − ε p,
+                                         3
+which disproves a conjecture from [19].
+
+5.17     Approximations by Sums of Several Rationals
+Following [46, 47], we consider the problem of obtaining an upper bound on
+the approximation of a real α by s rational fractions with denominators at
+most Q, that is for
+                                                      r1       rs
+                  δα,s (Q) =       min           α−      −...−
+                               1⩽q1 ,...,qs ⩽Q        q1       qs
+with positive integers q1 , . . . , qs ⩽ Q. The question is motivated by the
+Dirichlet theorem on rational approximations which corresponds to the case
+s = 1.
+    It is shown in [46, 47] that the results on the distribution of points on
+Ha,m and its multivariate analogues are directly related to this question and
+imply nontrivial bounds on δα,s (Q).
+    In particular, it is remarked in [46] that for s = 2 the question of Sec-
+tion 4.3 on visible points on modular hyperbolas becomes relevant and the
+result of [168] implies [46, Conjecture 5] with any ϑ > 3/4.
+    Furthermore, it is shown in [173] that in some cases, using Theorem 16,
+one can improve some of the results of [47].
+
+5.18     SL2(Fp ) Matrices of Bounded Height
+For a finite field Fp of p elements and a positive integer T ⩽ (p − 1)/2, we
+use Np (T ) to denote the number of matrices
+                                   
+                                u v
+                                      ∈ SL2 (Fp )
+                                x y
+
+                                           49
+with |u|, |v|, |x|, |y| ⩽ T (we assume that Fp is represented by the elements
+of the set {0, ±1, . . . , ±(p − 1)/2}).
+    Clearly                     X
+                      Np (T ) =     #Ha+1,p (T , T )#Ha,p (T , T )
+                              a∈Fp
+
+where T = {0, ±1, . . . , ±T } and also #H0,p (T , T ) = 4T + 1.
+   It has been shown in [1] that using the identity
+                          X
+                              #Ha,p (T , T ) = (2T + 1)2
+                           a∈Fp
+
+and Theorem 16, one can derive that
+                                  (2T + 1)4              
+                      Np (T ) =             + O T 2 po(1) ,
+                                      p
+
+which is nontrivial if T ⩾ p1/2+ε for any fixed ε > 0 and sufficiently large
+p. More general results on the distribution of determinants of n-dimensional
+matrices with entries from an arbitrary (but sufficiently large) set A ⊆ Fp
+are given in [202], see also [203]. We remark that these are Fp analogues of
+the results of similar spirit for matrices over Z and algebraic number fields,
+see [68, 158] and references therein. Furthermore, if one is only interested in
+the existence of SL2 (Fp ) matrices with bounded entries then one can apply
+the results from [11] about the existence of solutions to congruences
+
+                             axv + byu ≡ c   (mod m)
+
+in prescribed intervals.
+
+5.19     Matrix Products and Continued Fractions
+A variant of Theorem 13 plays an important role in obtaining an asymptotic
+formula for the number of products of the matrices
+                                              
+                         1 1                 0 1
+                                   and
+                         0 1                 1 1
+
+which are of trace at most N, see [20]. In turn, this question is related to
+studying the number of reduced quadratic irrationalities whose continued
+fraction expansions are of period length at most L.
+
+                                        50
+    Theorem 13 has also been used in [191] to estimate a certain weighted
+sum over points of Hm which appears in studying statistical properties of
+continued fractions of rational numbers from a certain set such as a/b with
+a, b ⩾ 1 and a2 + b2 ⩽ R, see also [9, 42, 192, 193, 197, 198] for other versions
+and applications of Theorem 13.
+    In [150], one can find several results about rational fractions a/m with
+partial quotients bounded by a certain parameter k. The approach of [150]
+rests on a series of very interesting results about the distribution of points of
+Ha,m .
+
+5.20     Computing Discrete Logarithms and Factoring
+It has been discovered in [165] that the distribution of points on hyperbolas
+Ha,m has direct links with analysis of some discrete logarithm algorithms.
+Namely, analysis of the algorithm from [165] rests on a weaker version of
+Theorem 16 obtained in [164].
+Question 33. Study whether Theorem 16 can be used to improve some of
+the results of [165].
+   A new deterministic integer factorisation algorithm has recently been sug-
+gested in [159]. Its analysis depends on a variant of Theorem 13.
+
+
+6      Concluding Remarks
+6.1    Multivariate Gerneralisations
+Multidimensional variants of the above problems have also been consid-
+ered and in principle one can use bounds of multidimensional Kloosterman
+sums (2) to study the distribution of solutions to the congruence
+
+                           x1 . . . xs ≡ a   (mod m)                        (43)
+
+in the same fashion as in the case of two variables. However, it has been
+shown in [10] that in many cases bounds of multiplicative character sums
+lead to much stronger results. For example, in [176], using the bounds of
+Lemma 2, a previous less general version of Lemma 3 and the bound (6),
+an improvement is given of some results of [5] on the generalised Lehmer
+problem, see also [214]. Similar ideas have also led in [169] to some other
+
+                                        51
+results on distribution of solutions to (43). For instance, let ∆s,a,m denote
+the discrepancy of the s-dimensional points
+  x         xs 
+     1
+       ,...,      ∈ [0, 1]s , x1 . . . xs ≡ a (mod m), 1 ⩽ x1 , . . . , xs ⩽ m.
+    m        m
+It is shown in [169] that
+                                        
+                                            m−1/2+o(1) if s = 3,
+                          ∆s,a,m ⩽
+                                             m−1+o(1) if s ⩾ 4.
+As we have mentioned, a multidimensional analogue of Theorem 28 is given
+in [183]. Using Lemma 3 in its present form one can easily generalise the
+above results.
+    We now show how multiplicative characters can be used on the example
+of counting the number of solutions to the congruence
+             x1 . . . xs ≡ a   (mod m),                  1 ⩽ xi ⩽ Xi , i = 1 . . . , s,
+for some integers X1 , . . . , Xs ⩾ 1, which we denote as Ns (a, m; X1 , . . . , Xs ).
+    Assuming that gcd(a, m) = 1 and using the identity (5), we write
+                                        X1
+                                        X            Xs
+                                                     X      1 X                     
+       Ns (a, m; X1 , . . . , Xs ) =           ...                 χ x1 . . . xs a−1 .
+                                       x1 =1         x =1
+                                                          ϕ(m) χ∈Φ
+                                                     s                 m
+
+
+Changing the order of summation and separating the contribution from the
+principal character χ0 , which gives the main term X1 . . . Xs /ϕ(m), we obtain
+                                                                               s       X
+                                       X1 . . . Xs     1 X Y X       i
+
+       Ns (a, m; X1 , . . . , Xs ) −               ⩽                   χ (xi ) .
+                                        ϕ(m)         ϕ(m) χ∈Φ i=1 x =1
+                                                                           m           i
+                                                                    χ6=χ0
+
+    We now assume that s ⩾ 4. Then we apply Lemma 2 to s − 4 sums in the
+above (say, for i = 5, . . . , s) and then use the Hölder inequality. This leads
+to the estimate
+                                   X1 . . . Xs
+   Ns (a, m; X1 , . . . , Xs ) −
+                                    ϕ(m)
+                                                                                              1/4
+                                        s          4        Xi                             4
+             1                         Y    1−1/ν
+                                                  Y   X X              
+                 (s−4)(ν+1)/4ν 2 +o(1)                                 
+         ⩽      m                          Xi                  χ (xi )                              .
+           ϕ(m)                        i=5        i=1  χ∈Φ x =1            m       i
+                                                                       χ6=χ0
+
+
+                                                 52
+We now apply Lemma 3 to the product of 4th powers. Certainly depending
+on the relative sizes of X1 , . . . , Xs , Lemma 2 can give better results if applied
+to different sums and maybe with different values of ν for each sum.
+    In [93, 95] the above approach based on using multiplicative character
+sums instead of exponential sums has been complemented with a very inter-
+esting new ingredient, which is based on the results and ideas of [83, 113].
+In particular, it is shown in [95] that
+
+                            N3 (a, m; X1 , X2 , X3 ) > 0
+
+and if m is cubefree then aslo
+
+                          N4 (a, m; X1 , X2 , X3 , X4 ) > 0
+
+for all but o(m) residue classes modulo m, provided that X1 X2 X3 > m1+ε
+and X1 X2 X3 X4 > m1+ε , respectively, for some fixed ε > 0. This line of
+research is very new and promising.
+    We, however, note that even in the multidimensional case, multiplicative
+character sum techniques do not always win over the exponential sum ap-
+proach. For example, it seems that for the results of [49] the bound on Kloost-
+erman sums (2) gives a more powerful and appropriate tool than bounds of
+multiplicative character sums.
+    Upper bounds on the number of solutions of the congruence (43) with
+variables from short intervals are given in [36, 51]. For example, it is shown
+in [36] that for a prime m = p and a positive integer
+                                              2
+                                   h < p1/(s −1)
+
+there are at most ho(1) solutions in interval of length h, that is with xi ∈
+[ki + h], for some integers ki , i = 1, . . . , s, see also [37].
+    It is worth noticing that one has to be careful with posing multidimen-
+sional generalisations, which sometimes lead to rather simple questions for
+s ⩾ 3 (despite that for s = 2 they are nontrivial at all). For example, it has
+been noticed in [169] that often such generalisations do not need any ana-
+lytic technique used in [217] but follow immediately from a very elementary
+argument.
+
+
+
+
+                                         53
+6.2     Gerneralisations to Other Congruences and Alge-
+        braic Domains
+We believe that it is interesting to explore how much of the theory developed
+for modular hyperbolas can be extended to modular circles
+
+                   Ca,m = {(x, y) : x2 + y 2 ≡ a           (mod m)}.
+
+Well-known parallels between the properties of integer points on hyperbolas
+and circles on the Euclidean plane, suggest that many of the results obtained
+for Ha,m can be extended to Ca,m . We also recall that [109, Lemma 3] gives
+a version of Theorem 16 for the number of solutions to the congruence
+
+                   x2 − y 2 ≡ a (mod m),             1 ⩽ x, y ⩽ X,
+
+on average over a.
+   One can also consider the analogue of the question of Section 5.18 for
+higher dimensional matrices. For example, for it is shown in [1] that for
+T ⩾ p3/4+ε the number of matrices
+
+                                (xij )ni,j=1 ∈ SL2 (Fp )
+                                                                            2
+with |xij | ⩽ T , i, j = 1, . . . , n, is asymptotic to its expected value T n /p. This
+result is based on different arguments which rely on the results of [77, 78]
+(and in fact apply to a wide class of polynomial equations).
+
+Question 34. Close the gap between the thresholds T ⩾ p1/2+ε for n = 2
+and T ⩾ p3/4+ε for n ⩾ 3.
+
+    In [112], using bounds of [72] for exponential sums with matrices, the join
+distribution of elements of a matrix A ∈ GLn (Fp ) and its inverse A−1 has
+been studied. In particular, in [112] some analogues of the result of [17] have
+been derived.
+    One of the interesting and still unexplored lines of research is studying
+function field generalisations, which conceivably should admit results of the
+same strength or maybe even stronger as in the case of residue rings. For
+example, a polynomial analogue of the conjecture of [71] could be more ac-
+cessible.
+
+
+
+                                          54
+Question 35. Let Fq be a finite field of q elements. Given an irreducible
+polynomial F (X) ∈ Fq [X] of sufficiently large degree d, show that for any
+polynomial A(X) ∈ Fq [X], relatively prime to F (X), there are two irreducible
+polynomials G(X), H(X) ∈ Fq [X] of degree at most d such that
+                     G(X)H(X) ≡ A(X) (mod F (X)).
+   It is also natural to ask about possible generalisations of Theorems 13
+and 16 to matrix equations.
+Question 36. Obtain asymptotic formulas, individually for every n × n ma-
+trix A over Z/mZ and also on average over all such matrices, for the number
+of solutions of the congruence
+                              XY ≡ A (mod m)
+with matrices X = (xij )ni,j=1 and Y = (yij )ni,j=1 where xij ∈ Xij , yij ∈ Yij for
+some “interesting” sets Xij , Yij ⊆ Z/mZ, i, j = 1, . . . , n (for example, when
+elements belong to prescribed short intervals).
+
+6.3    Ratios Instead of Products
+Questions about the distribution of points on modular hyperbolas can be
+reformulated as questions about the distribution of products xy in residue
+classes modulo m. In turn this naturally leads to similar questions about the
+distribution of ratios x/y (with gcd(y, m) = 1) in residue classes. Although
+typographically similar, many aspects of these new questions are very differ-
+ent.
+    For example, we have already mentioned in Section 3.1 that for any prime
+p, any integer a can easily be shown to be represented as x/y ≡ a (mod p) for
+some integers x and y with |x|, |y| ⩽ p1/2 , while for the products this state-
+ment is not correct and even obtaining a relaxed statements with |x|, |y| ⩽ pγ
+for some γ < 3/4 is still an open problem (and apparently is very hard).
+    Furthermore, by Theorem 13, every integer a can be represented in the
+form xy ≡ a (mod p) for some integers x and y with 1 ⩽ x, y ⩽ p3/4+ε for any
+ε and sufficiently large p, while obviously the congruence x/y ≡ −1 (mod p)
+has no solution with 1 ⩽ x, y ⩽ p/2.
+    On the other hand, in [171], a full analogue of Theorem 16 is given for
+the ratios x/y as well, see also [63, 91, 98, 164] and Section 5.10.
+    Further investigation of distinctions and similarities between these two
+groups of questions is a very interesting direction of research.
+
+                                        55
+6.4    Further Perspectives
+Here we mention some results which have not been used in this area, which
+we believe can lead to some new directions of research.
+    We have seen that bounds of Kloosterman sums (2) and several other
+celebrated number theoretic results and techniques, play a prominent role in
+this field. Still, it is highly important to further extend the scope of number
+theoretic tools which can be used for studying the points on modular hyper-
+bolas and their generalisations. In particular, it would be very interesting to
+find new applications of the bounds of very short incomplete Kloosterman
+sums from [31, 118, 119, 126, 144, 170, 204].
+    Furthermore, one may expect that the bounds of bilinear sum
+                        X       X
+                                     αm ϑx em (ax−1 ),   a ∈ Z,
+                 M ⩽m⩽2M X⩽x⩽2X
+
+
+from [67] (where (αm ) and (ϑx ) are arbitrary sequences supported on the
+intervals [M, 2M] and [X, 2X], respectively) can be useful for studying the
+points on Ha,m in very general sets on average over moduli m taken from
+another general set. One of such applications has been mentioned in Sec-
+tion 5.15.
+    In the same spirit, finding applications of the bounds of sums of Kloost-
+erman sums (2) to the study of points on Ha,m would be of great interest,
+see [115, Chapter 16] for a background on such results.
+
+
+References
+   [1] O. Ahmadi and I. E. Shparlinski, ‘Distribution of matrices with re-
+       stricted entries over finite fields’, Indag. Math., 18 (2007), 327–337.
+
+   [2] W. R. Alford, A. Granville and C. Pomerance, ‘There are infinitely
+       many Carmichael numbers’, Annals Math., 139 (1994), 703–722.
+
+   [3] I. M. Aliev and P. M. Gruber, ‘An optimal lower bound for the Frobe-
+       nius problem’, J. Number Theory, 123 (2007), 71–79.
+
+   [4] I. M. Aliev, M. Henk and A. Hinrichs, ‘Expected Frobenius numbers’,
+       J. Combin. Theory, Ser. A, 118 (2011), 525–531.
+
+
+                                      56
+ [5] E. Alkan, F. Stan and A. Zaharescu, ‘Lehmer k-tuples’, Proc. Amer.
+     Math. Soc., 134 (2006), 2807–2815.
+
+ [6] E. Alkan, M. Xiong and A. Zaharescu, ‘Quotients of values of the
+     Dedekind eta function’, Math. Ann., 342 (2008), 157–176.
+
+ [7] G. E. Andrews, ‘A lower bound for the volume of strictly convex
+     bodies with many boundary lattice points’, Trans. Amer. Math. Soc.,
+     106 (1963), 270–279.
+
+ [8] V. I. Arnold, ‘Statistics of integral polygons’, Funct. Anal. Appl.,
+     14(2) (1980), 1–3 (in Russian).
+
+ [9] M. O. Avdeeva, ‘On the statistics of partial quotients of finite con-
+     tinued fractions’, Funktsional. Anal. i Prilozhen. (Transl. as Funct.
+     Anal. Appl.), 38(2) (2004), 1–11 (in Russian).
+
+[10] A. Ayyad, ‘The distribution of solutions of the congruence
+     x1 x2 x3 . . . xn ≡ c (mod p)’, Proc. Amer. Math. Soc., 127 (1999), 943–
+     950.
+
+[11] A. Ayyad and T. Cochrane, ‘Lattices in Z2 and the congruence xy +
+     uv ≡ c (mod m)’, Acta Arith., 132 (2008), 127–133.
+
+[12] A. Ayyad, T. Cochrane and Z. Zheng, ‘The congruence x1 x2 ≡ x3 x4
+     (mod p), the equation x1 x2 = x3 x4 and the mean value of character
+     sums’, J. Number Theory, 59 (1996), 398–413.
+
+[13] A. Balog and J.-M. Deshouillers, ‘On some convex lattice polygons’,
+     Number Theory in Progress, W. de Gruyter, 1999, 591–606.
+
+[14] R. C. Baker, ‘Kloosterman sums with prime variable’, Preprint, 2011.
+
+[15] W. D. Banks, D. R. Heath-Brown and I. E. Shparlinski, ‘On the av-
+     erage value of divisor sums in arithmetic progressions’, Intern. Math.
+     Research Notices, 2005 (2005), 1–25.
+
+[16] I. Bárány and J. Pach, ‘On the number of convex lattice polygons’,
+     Combinatorics, Probability, and Computing, 1 (1992), 295–302.
+
+[17] J. Beck and M. R. Khan, ‘On the uniform distribution of inverses
+     modulo n’, Period. Math. Hung., 44 (2002), 147–155.
+
+                                    57
+[18] M. Beck, D. Einstein, S. Zacks, ‘Some experimental results on the
+     Frobenius problem’, Experiment. Math., 12 (2003), 263–269.
+[19] M. Beiter, ‘Magnitude of the coefficients of the cyclotomic polynomial
+     Fpqr , II’, Duke Math. J., 38 (1971), 591–594.
+                                                         
+                                           1 1          0 1
+[20] F. P. Boca, ‘Products of matrices           and          and the distri-
+                                           0 1          1 1
+     bution of reduced quadratic irrationals’, J. Reine Angew. Math., 606
+     (2007), 149–165.
+[21] F. P. Boca, ‘On the distribution of angles between geodesic rays as-
+     sociated with hyperbolic lattice points’, Quart. J. Math., 58 (2007),
+     281–295.
+[22] F. P. Boca, C. Cobeli and A. Zaharescu, ‘Distribution of lattice points
+     visible from the origin’, Commun. Math. Phys., 213 (2000), 433–470.
+[23] F. P. Boca, C. Cobeli and A. Zaharescu, ‘A conjecture of R. R. Hall
+     on Farey points’, J. Reine Angew. Math., 535 (2001), 207–236.
+[24] F. P. Boca, R. N. Gologan and A. Zaharescu, ‘The statistics of the
+     trajectory of a certain billiard in a at two-torus’, Comm. Math. Phys.,
+     240 (2003), 53–73.
+[25] F. P. Boca and A. Zaharescu, ‘Farey fractions and two-dimensional
+     tori’, Noncommutative Geometry and Number Theory, Aspects of
+     Mathematics E37, Vieweg Verlag, Wiesbaden, 2006, 57–77.
+[26] F. P. Boca and A. Zaharescu, ‘On the correlations of directions in the
+     Euclidean plane’, Trans. Amer. Math. Soc., 358 (2006), 1797–1825.
+[27] F. P. Boca and A. Zaharescu, ‘The distribution of the free path lengths
+     in the periodic two-dimensional Lorentz gas in the small-scatterer
+     limit’, Comm. Math. Phys., 269 (2007), 425–471.
+[28] E. Bombieri, ‘On exponential sums in finite fields’, Amer. J. Math.,
+     88 (1966), 71–105.
+[29] E. Bombieri, J. B. Friedlander and H. Iwaniec, ‘Primes in arithmetic
+     progressions to large moduli, III’, J. Amer. Math. Soc., 2 (1989), 215–
+     224.
+
+                                    58
+[30] J. Bourgain, ‘Mordell’s exponential sum estimate revisited’, J. Amer.
+     Math. Soc., 18 (2005), 477–499.
+
+[31] J. Bourgain, ‘More on the sum-product phenomenon in prime fields
+     and its applications’, Intern. J. Number Theory, 1 (2005), 1–32.
+
+[32] J. Bourgain, ‘New encounters in combinatorial number theory: From
+     the Kakeya problem to cryptography’, Perspectives in Analysis,
+     Mathematical Physics Studies, Vol. 27, Springer-Verlag, Berlin, 2005,
+     17–26.
+
+[33] J. Bourgain, ‘Estimates of polynomial exponential sums’, Israel J.
+     Math., 176 (2010), 221–240.
+
+[34] J. Bourgain, T. Cochrane, J. Paulhus and C. Pinner, ‘On the parity
+     of k-th powers modulo p. A generalization of a problem of Lehmer’,
+     Acta Arith., 147 (2011), 173–203.
+
+[35] J. Bourgain, T. Cochrane, J. Paulhus and C. Pinner, ‘Decimations of l-
+     sequences and permutations of even residues modp’, SIAM J. Discr.
+     Math., 23 (2009), 842–857.
+
+[36] J. Bourgain, M. Z. Garaev, S. V. Konyagin and I. E. Shparlinski, ‘On
+     the hidden shifted power problem’, Preprint, 2011 (available from
+     http://arxiv.org/abs/1110.0812)
+
+[37] J. Bourgain, M. Z. Garaev, S. V. Konyagin and I. E. Sh-
+     parlinski, ‘On congruences with products of variables from
+     short intervals and applications’, Preprint, 2012 (available from
+     http://arxiv.org/abs//1203.0017).
+
+[38] J. Bourgain and and Y. G. Sinai, ‘Limiting behavior of large Frobenius
+     numbers’, Uspekhi Matem. Nauk (Transl. as Russian Math. Surveys),
+     62(4) (2007), 77–90 (in Russian).
+
+[39] P. Brass, W. Moser and J. Pach, Research problems in discrete geom-
+     etry, Springer, New York, 2005.
+
+[40] T. Browning and A. Haynes, ‘Incomplete Kloosterman sums and mul-
+     tiplicative inverses in short intervals’, Preprint, 2012 (available from
+     http://arxiv.org/abs/1204.6374).
+
+                                    59
+[41] V. A. Bykovskiı̆, ‘Asymptotic properties of lattice points (a1 , a2 ) that
+     satisfy the congruence a1 a2 ≡ l (mod q)’, Analytic number theory and
+     the theory of functions, 4 , Zap. Nauchn. Sem. Leningrad. Otdel. Mat.
+     Inst. Steklov., Vol. 112, 1981, 5–25 (in Russian).
+
+[42] V. A. Bykovskiı̆, ‘An estimate for the dispersion of lengths of finite
+     continued fractions’, J. Math. Sci., 146 (2007), 5634–5643.
+
+[43] V. A. Bykovskiı̆ and A. V. Ustinov, ‘The statistics of particle trajecto-
+     ries in the homogeneous Sinai problem for a two-dimensional lattice’,
+     Funktsional. Anal. i Prilozhen. (Transl. as Funct. Anal. Appl.), 42(3)
+     (2008), 10–22 (in Russian).
+
+[44] V. A. Bykovskiı̆ and A. V. Ustinov, ‘The statistics of particle tra-
+     jectories in the inhomogeneous Sinai problem for a two-dimensional
+     lattice’, Izv. Ross. Akad. Nauk Ser. Mat. (Transl. as Izvestiya. Math-
+     ematics), 73 (4) (2009), 17–36 (in Russian).
+
+[45] T. H. Chan, ‘Distribution of difference between inverses of consecutive
+     integers modulo p’, Integers, 4 (2004), Paper A03, 1–11.
+
+[46] T. H. Chan, ‘Approximating reals by sums of two rationals’, J. Num-
+     ber Theory, 128 (2008), 1182–1194.
+
+[47] T. H. Chan, ‘Approximating reals by sums of rationals’, J. Number
+     Theory, 129 (2009) 316–324.
+
+[48] T. H. Chan, ‘A short note about difference between inverses of con-
+     secutive integers modulo p’, Integers, 9 (2009), 699–702.
+
+[49] T. H. Chan, ‘An almost all result on q1 q2 ≡ c (mod q)’, Monatsh.
+     Math., 162 (2011), 29–39.
+
+[50] T. H. Chan and I. E. Shparlinski, ‘On the concentration of points on
+     modular hyperbolas and exponential curves’, Acta Arith., 142 (2010),
+     59–66.
+
+[51] J. Cilleruelo and M. Z. Garaev, ‘Concentration of points on two and
+     three dimensional modular hyperbolas and applications’, Geom. and
+     Func. Anal., 21 (2011), 892–904.
+
+
+                                     60
+[52] J. Cilleruelo, M. Z. Garaev, A. Ostafe and I. E. Shparlinski, ‘On the
+     concentration of points of polynomial maps and applications’, Math.
+     Zeitschrift, (to appear).
+
+[53] C. Cobeli, S. M. Gonek and A. Zaharescu, ‘The distribution of pat-
+     terns of inverses modulo a prime’, J. Number Theory, 101 (2003),
+     209–222.
+
+[54] C. Cobeli, M. Vâjâitu and A. Zaharescu, ‘Average estimates for the
+     number of tuples of inverses mod p in short intervals’, Bull. Math.
+     Soc. Sci. Math. Roumanie., 43 (2000), 155–164.
+
+[55] C. Cobeli, M. Vâjâitu and A. Zaharescu, ‘Distribution of gaps between
+     the inverses mod q’, Proc. Edinb. Math. Soc., 46 (2003), 185–203.
+
+[56] C. Cobeli and A. Zaharescu, ‘The order of inverses     mod q’, Mathe-
+     matika, 47 (2000), 87–108.
+
+[57] C. Cobeli and A. Zaharescu, ‘Generalization of a problem of Lehmer’,
+     Manuscr. Math., 104 (2001), 301–307.
+
+[58] C. Cobeli and A. Zaharescu, ‘On the distribution of the Fp -points on
+     an affine curve in r dimensions’, Acta Arithmetica, 99 (2001), 321–
+     329.
+
+[59] T. Cochrane, C. Pinner and J. Rosenhouse, ‘Sparse polynomial expo-
+     nential sums’, Acta Arith., 108 (2003), 37–52.
+
+[60] T. Cochrane and S. Sih, ‘The congruence x1 x2 ≡ x3 x4 (mod p) and
+     mean values of character sums’, J. Number Theory, 130 (2010), 767–
+     785.
+
+[61] T. Cochrane and Z. Zheng, ‘High order moments of character sums’,
+     Proc. Amer. Math. Soc., 126 (1998), 951–956.
+
+[62] A. C. Cojocaru and C. Hall, ‘Uniform results for Serre’s theorem for
+     elliptic curves’, Internat. Math. Res. Notices, 2005 (2005), 3065–3080.
+
+[63] A. C. Cojocaru and I. E. Shparlinski, ‘Distribution of Farey fractions
+     in residue classes and Lang–Trotter conjectures on average’, Proc.
+     Amer. Math. Soc., 136 (2008), 1977–1986.
+
+
+                                   61
+[64] E. I. Dinaburg and Y. G. Sinai, ‘The statistics of the solutions of
+     the integer equation ax − by = ±1’, Funktsional. Anal. i Prilozhen.
+     (Transl. as Funct. Anal. Appl.), 24(3) (1990), 1–8 (in Russian).
+
+[65] D. Dolgopyat, ‘On the distribution of the minimal solution of a linear
+     Diophantine equation with random coefficients’, Funktsional. Anal. i
+     Prilozhen. (Transl. as Funct. Anal. Appl.), 28(3) (1994), 22–34 (in
+     Russian).
+
+[66] M. Drmota and R. Tichy, Sequences, discrepancies and applications,
+     Springer-Verlag, Berlin, 1997.
+
+[67] W. Duke, J. B. Friedlander and H. Iwaniec, ‘Bilinear forms with
+     Kloosterman fractions’, Invent. Math., 128 (1997), 23–43.
+
+[68] W. Duke, Z. Rudnick and P. Sarnak, ‘Density of integer points on
+     affine homogeneous varieties’, Duke Math. J., 71 (1993), 143–179.
+
+[69] Z. Dvir, ‘On the size of Kakeya sets in finite fields’, J. Amer. Math.
+     Soc., 22 (2009), 1093–1097.
+
+[70] D. Eichhorn, M. R. Khan, A. H. Stein and C. L. Yankov, ‘Sum and
+     differences of coordinates of points on modular hyperbolas’, Combina-
+     torial Number Theory, Proc. Integers Confer. 2007 , W. de Gruyter,
+     2009, 17–39.
+
+[71] P. Erdős, A. M. Odlyzko and A. Sárkőzy, ‘On the residues of products
+     of prime numbers’, Period. Math. Hung., 18 (1987), 229–239.
+
+[72] R. Ferguson, C. Hoffman, F. Luca, A. Ostafe and I. E. Shparlin-
+     ski, ‘Some additive combinatorics problems in matrix rings’, Revista
+     Matem. Complutense, 23 (2010), 501–513.
+
+[73] K. Ford, ‘The distribution of integers with a divisor in a given interval’,
+     Annals Math., 168 (2008), 367–433.
+
+[74] K. Ford, M. R. Khan and I. E. Shparlinski, ‘Geometric properties of
+     points on modular hyperbolas’, Proc. Amer. Math. Soc., 138 (2010),
+     4177–4185.
+
+
+
+
+                                     62
+[75] K. Ford, M. R. Khan, I. E. Shparlinski and C. L. Yankov, ‘On the max-
+     imal difference between an element and its inverse in residue rings’,
+     Proc. Amer. Math. Soc., 133 (2005), 3463–3468.
+
+[76] É. Fouvry, ‘Sur le probléme des diviseurs de Titchmarsh’, J. Reine
+     Angew. Math., 357 (1985), 51–76.
+
+[77] É. Fouvry, ‘Consequences of a result of N. Katz and G. Laumon con-
+     cerning trigonometric sums’, Israel J. Math., 120 (2000), 81–96.
+
+[78] É. Fouvry and N. M. Katz, ‘A general stratification theorem for expo-
+     nential sums, and applications’, J. Reine Angew. Math., 540 (2001),
+     115–166.
+
+[79] É. Fouvry and P. Michel, ‘Sur certaines sommes d’exponentielles sur
+     les nombres premiers’, Ann. Sci. École Norm. Sup., 31 (1998), 93–130.
+
+[80] É. Fouvry and I. Shparlinski, ‘On a ternary quadratic form over
+     primes’, Acta Arith., 150 (2011), 285–314.
+
+[81] É. Fouvry and I. Shparlinski, ‘Smooth shifted monomial products’,
+     Publ. Math. Debrecen, 79 (2011), 423–432.
+
+[82] J. B. Friedlander and H. Iwaniec, ‘Incomplete Kloosterman sums and
+     a divisor problem’, Ann. Math., 121 (1985), 319–350.
+
+[83] J. B. Friedlander and H. Iwaniec, ‘The divisor problem for arithmetic
+     progressions’, Acta Arith., 45 (1985), 273–277.
+
+[84] J. B. Friedlander, P. Kurlberg and I. E. Shparlinski, ‘Products in
+     residue classes’, Math. Res. Letters, 15 (2008), 1133–1147.
+
+[85] J. B. Friedlander and F. Luca, ‘Residue classes having tardy totients’,
+     Bull. Lond. Math. Soc., 40 (2008), 1007–1016.
+
+[86] J. B. Friedlander and I. E. Shparlinski, ‘Least totient in a residue
+     class’, Bull. Lond. Math. Soc., 39 (2007), 425–432.
+
+[87] A. Fujii, ‘On a problem of Dinaburg and Sinai’, Proc. Japan Acad.
+     Sci., Ser.A, 68 (1992), 198–203.
+
+
+
+                                   63
+[88] A. Fujii and Y. Kitaoka, ‘On plain lattice points whose coordinates are
+     reciprocals modulo a prime’, Nagoya Math. J., 147 (1997), 137–146.
+
+[89] L. Fukshansky and S. Robins, ‘Frobenius problem and the covering
+     radius of a lattice’, Discrete Comput. Geom., 37 (2007), 471–483.
+
+[90] Y. Gallot and P. Moree, ‘Ternary cyclotomic polynomials having a
+     large coefficient’, J. Reine Angew. Math., 632 (2009), 105–125.
+
+[91] M. Z. Garaev, ‘Character sums in short intervals and the multiplica-
+     tion table modulo a large prime’, Monatsh. Math., 148 (2006), 127–
+     138.
+
+[92] M. Z. Garaev, ‘On the logarithmic factor in error term estimates in
+     certain additive congruence problems’, Acta Arith., 124 (2006), 27–
+     39.
+
+[93] M. Z. Garaev, ‘A note on the least totient of a residue class’, Quart.
+     J. Math., 60 (2009), 53–56.
+
+[94] M. Z. Garaev, ‘Estimation of Kloosterman sums with prime num-
+     bers and an application’, Matem. Zametki , 88 (2010), 365–373, (in
+     Russian).
+
+[95] M. Z. Garaev, ‘On multiplicative congruences’, Math. Zeitschrift, (to
+     appear).
+
+[96] M. Z. Garaev and V. C. Garcia, ‘The equation x1 x2 = x3 x4 + λ in
+     fields of prime order and applications’, J. Number Theory, 128 (2008),
+     2520–2537.
+
+[97] M. Z. Garaev and A. A. Karatsuba, ‘On character sums and the excep-
+     tional set of a congruence problem’, J. Number Theory, 114 (2005),
+     182–192.
+
+[98] M. Z. Garaev and A. A. Karatsuba, ‘The representation of residue
+     classes by products of small integers’, Proc. Edinburgh Math. Soc., 50
+     (2007), 363–375.
+
+[99] M. Z. Garaev and K.-L. Kueh, ‘Distribution of special sequences mod-
+     ulo a large prime’, Int. J. Math. Math. Sci., 50 (2003), 3189–3194.
+
+
+                                   64
+[100] S. M. Gonek, G. S. Krishnaswami and V. L. Sondhi, ‘The distribution
+      of inverses modulo a prime in short intervals’, Acta Arith., 102 (2002),
+      315–322.
+
+[101] M. Goresky and A. Klapper, ‘Arithmetic cross-correlations of FCSR
+      sequences’, IEEE Trans. Inform. Theory, 43 (1997), 1342–1346.
+
+[102] M. Goresky, A. Klapper, R. Murty and I. E. Shparlinski, ‘On decima-
+      tions of ℓ-sequences’, SIAM J. Discrete Math., 18 (2004), 130–140.
+
+[103] A. Granville, I. E. Shparlinski and A. Zaharescu, ‘On the distribu-
+      tion of rational functions along a curve over Fp and residue races’, J.
+      Number Theory, 112 (2005), 216–237.
+
+[104] R. K. Guy, Unsolved problems in number theory, Springer-Verlag,
+      Berlin, 1994.
+
+[105] L. Guth and N. H. Katz, ‘On the Erdos distinct dis-
+      tance problem in the plane’, Preprint, 2011 (available from
+      http://arxiv.org/abs/1011.4105).
+
+[106] R. R. Hall and G. Tenenbaum, Divisors, Cambridge Tracts in Math.,
+      Vol. 90, Cambridge Univ. Press, 1988.
+
+[107] S. Hanrahan and M. R. Khan, ‘The cardinality of the value sets mod-
+      ulo n of x2 + x−2 and x2 + y 2 ’, Involve, 3 (2010), 171–182.
+
+[108] D. R. Heath-Brown, ‘The divisor function d3 (n) in arithmetic progres-
+      sions’, Acta Arith., 47 (1986), 29–56.
+
+[109] D. R. Heath-Brown, ‘Pair correlation for fractional parts of αn2 ’,
+      Math. Proc. Camb. Phil. Soc., 148 (2010), 385–407.
+
+[110] C. Hooley, ‘An asymptotic formula in the theory of numbers’, Proc.
+      London Math. Soc., 7 (1957), 396–413.
+
+[111] C. Hooley, ‘On the greatest prime factor of a cubic polynomial’, J.
+      Reine Angew. Math., 303/304 (1978) 21–50.
+
+[112] S. Hu and Y. Li, ‘On a uniformly distributed phenom-
+      ena in matrix groups’, Preprint, 2011 (available from
+      http://arxiv.org/abs/1103.3928).
+
+                                     65
+[113] M. N. Huxley, ‘Large values of Dirichlet polynomials, III’, Acta Arith.,
+      26 (1974), 435–444.
+
+[114] M. Huxley and M. Jutila, ‘Large values of Dirichlet polynomials, IV’,
+      Acta Arith., 32 (1977), 297–312.
+
+[115] H. Iwaniec and E. Kowalski, Analytic number theory, Amer. Math.
+      Soc., Providence, RI, 2004.
+
+[116] M. Jutila, ‘Zero-density estimates for L-functions’, Acta Arith., 32
+      (1977), 55–62.
+
+[117] A. A. Karatsuba, ‘Sums of characters with prime numbers’, Izv. Akad.
+      Nauk Ser. Mat., 34 (1970) 299–321.
+
+[118] A. A. Karatsuba, ‘Fractional parts of functions of a special form’,
+      Izv. Ross. Akad. Nauk Ser. Mat. (Transl. as Russian Acad. Sci. Izv.
+      Math.), 59(4) (1995), 61–80 (in Russian).
+
+[119] A. A. Karatsuba, ‘Analogues of Kloosterman sums’, Izv. Ross. Akad.
+      Nauk Ser. Mat. (Transl. as Russian Acad. Sci. Izv. Math.), 59(5)
+      (1995), 93–102 (in Russian).
+
+[120] N. Katz and T. Tao, ‘Recent progress on the Kakeya conjecture’,
+      Proceedings of the 6th International Conference on Harmonic Analysis
+      and Partial Differential Equations Publ Matem., U. Barcelona, 2002,
+      161–180.
+
+[121] M. R. Khan, ‘Problem 10736: An optimization with a modular con-
+      straint’, Amer. Math. Monthly, 108 (2001), 374–375.
+
+[122] M. R. Khan, ‘Modular hyperbolas and the coefficients of (x−1 +6+x)k ’,
+      Integers, 11 (2011), 469–476.
+
+[123] M. R. Khan and I. E. Shparlinski, ‘On the maximal difference between
+      an element and its inverse modulo n’, Period. Math. Hung., 47 (2003),
+      111–117.
+
+[124] M. R. Khan, I. E. Shparlinski and C. L. Yankov, ‘On the convex
+      closure of the graph of modular inversions’, Experimental Math., 17
+      (2008), 91–104.
+
+
+                                     66
+[125] S. V. Konyagin and I. E. Shparlinski, ‘On convex hull of points
+      on modular hyperbolas’, Moscow J. Comb. and Number Theory, 1
+      (2011), 43–51.
+
+[126] M. A. Korolev, ‘Incomplete Kloosterman sums and their applications’,
+      Izv. Ross. Akad. Nauk Ser. Mat. (Transl. as Izvestiya. Mathematics),
+      64(6) (2000), 41–64 (in Russian).
+
+[127] N. V. Kuznetsov, ‘The Peterson conjecture for cusp forms of weight
+      zero and the Linnik conjecture. Sums of Kloosterman sums’, Matem.
+      Sbornik (Transl. as Sbornik: Mathematics), 111 (1980), 334–383 (in
+      Russian).
+
+[128] M. Laczkovich, ‘Discrepancy estimates for sets with small boundary’,
+      Studia Sci. Math. Hungar., 30 (1995), 105–109.
+
+[129] P. Le Boudec, ‘Manin’s conjecture for two quartic del Pezzo surfaces
+      with 3A1 and A1 + A2 singularity types’, Acta Arith., 151 (2012),
+      109–163.
+
+[130] P. Le Boudec, ‘Power-free values of the polynomial t1 ...tr − 1’, Bull.
+      Aust. Math. Soc., 85 (2012), 154–163.
+
+[131] P. Le Boudec, ‘Manin’s conjecture for a cubic surface with 2A2 + A1
+      singularity type’, Proc. Cambridge Philos. Soc., (to appear).
+
+[132] H. N. Liu, ‘A note on Lehmer k-tuples’, Intern. J. Number Theory, 5
+      (2009), 1169–1178.
+
+[133] H. N. Liu and W. Zhang,‘On a problem of D. H. Lehmer’, Acta Math.
+      Sinica, 22 (2006), 61–68.
+
+[134] H. N. Liu and W. Zhang,‘Hybrid mean value on the difference between
+      a quadratic residue and its inverse modulo p’, Publ. Math. Debrecen,
+      69 (2006), 227–243.
+
+[135] H. N. Liu and W. Zhang, ‘General Kloosterman sums and the differ-
+      ence between an integer and its inverse modulo q’, Acta Math. Sinica,
+      23 (2007), 77–82.
+
+
+
+
+                                    67
+[136] H. N. Liu and W. Zhang, ‘Mean value on the difference between a
+      quadratic residue and its inverse modulo p’, Acta Math. Sinica, 23
+      (2007), 915–924.
+
+[137] H. N. Liu and W. Zhang, ‘Hybrid mean value results for a general-
+      ization on a problem of D. H. Lehmer and hyper-Kloosterman sums’,
+      Osaka J. Math., 44 (2007), 615–637.
+
+[138] H. N. Liu and W. Zhang, ‘Hybrid mean value on the difference be-
+      tween an integer and its inverse modulo q’, Archiv Math., 46 (2008),
+      337–347.
+
+[139] S. R. Louboutin, J. Rivat and A. Sárközy’, ‘On a problem of D. H.
+      Lehmer’, Proc. Amer. Math. Soc., 135 (2007), 969–975.
+
+[140] Y. Lu and Y. Yi, ‘On the generalization of the D. H. Lehmer problem’,
+      Acta Math. Sinica, 25 (2009), 1269–1274.
+
+[141] Y. Lu and Y. Yi, ‘On the generalization of the D. H. Lehmer problem,
+      II’, Acta Arith., 142 (2010), 179–186.
+
+[142] Y. Lu and Y. Yi, ‘Partitions involving D. H. Lehmer numbers’,
+      Monatsh. Math., 159 (2010), 45–58.
+
+[143] Y. Lu and Y. Yi, ‘A note on the D. H. Lehmer problem over short
+      intervals’, Acta Math. Sinica, 27 (2011), 1115-1120.
+
+[144] W. Luo, ‘Bounds for incomplete hyper-Kloosterman sums’, J. Number
+      Theory, 75 (1999), 41–46.
+
+[145] K.-H. Mak nd A. Zaharescu, ‘Lehmer points and visible points
+      on affine varieties over finite fields’, Preprint, 2011 (available from
+      http://arxiv.org/abs/1110.4691).
+
+[146] J. Markloff and A. Strömbergsson, ‘Equidistribution of Kronecker se-
+      quences along closed horocycles’, Geom. Funct. Analysis, 13 (2003),
+      1239–1280.
+
+[147] K. Matomäki, ‘On the greatest prime factor of ab + 1’, Acta Math.
+      Hung., 124 (2009), 115–123.
+
+
+
+                                    68
+[148] L. Merel, ‘Bornes pour la torsion des courbes elliptiques sur les corps
+      de nombres’, Invent. Math., 124 (1996), 437–449.
+
+[149] N. G. Moshchevitin, ‘On numbers with missing digits: Solvability of
+      the congruences x1 x2 ≡ λ (mod p)’, Doklady Akad. Nauk (Transl. as
+      Doklady Mathematics), 410 (2006), 730–733 (in Russian).
+
+[150] N. G. Moshchevitin, ‘Sets of the form A + B and finite continued
+      fractions’, Matem. Sbornik (Transl. as Sbornik: Mathematics), 198(4)
+      (2007), 95–116 (in Russian).
+
+[151] N. G. Moshchevitin and I. D. Shkredov, ‘On the multiplicative prop-
+      erties modulo m of numbers with missing digits’, Mathem. Zametki
+      (Transl. as Math. Notes), 81 (2007), 385–404 (in Russian).
+
+[152] H. Niederreiter and J. M. Wills, ‘Diskrepanz und Distanz von Massen
+      bezuglich konvexer und Jordanscher Mengen’, Math. Z., 144 (1975),
+      125–134.
+
+[153] F. V. Petrov, ‘Estimates for the number of rational points on convex
+      curves and surfaces’, Zapiski Nauchn. Sem. S.-Peterburg. Otdel. Mat.
+      Inst. Steklov. (POMI), 344 (2007), 174–189 (in Russian).
+
+[154] Z. Kh. Rakhmonov, ‘On the distribution of values of Dirichlet char-
+      acters and their applications’, Proc. Steklov Inst. Math., 207 (1995)
+      263–272.
+
+[155] J. L. Ramı́rez Alfonsı́n, The Diophantine Frobenius problem, Oxford
+      Lecture Series in Math. and its Appl., Vol. 30, Oxford Univ. Press,
+      Oxford, 2005.
+
+[156] A. Rényi and R. Sulanke, ‘Über die Konvexe Hülle von n Zufällig
+      Gewaählten Punkten’, Z. Wahrscheinlichkeitstheorie, 2 (1963), 75–
+      84.
+
+[157] G. J. Rieger, ‘Über die Gleichung ad − bc = 1 und Gleichverteilung’,
+      Math. Nachr., 162 (1993), 139–143.
+
+[158] C. Roettger, ‘Counting invertible matrices and uniform distribution’,
+      J. Théorie Nombres Bordeaux , 17 (2005), 301–322.
+
+
+                                    69
+[159] M.     Rubinstein,    ‘Hide   and   seek    –        A     naive    fac-
+      toring    algorithm’,     Preprint,    2006         (available     from
+      http://arxiv.org/abs/math/0610612).
+
+[160] Z. Rudnick and P. Sarnak, ‘The distribution of spacings between the
+      fractional parts of n2 α’, Invent. Math., 145 (2001), 37–57.
+
+[161] I. Z. Ruzsa and A. Schinzel, ‘An application of Kloosterman sums’,
+      Compos. Math., 96 (1995), 323–330.
+
+[162] É. Saias, ‘Entiers á diviseurs denses 1’, J. Number Theory, 62 (1997),
+      163–191.
+
+[163] J.-C. Schlage-Puchta,  ‘An estimate for Frobenius’ Dio-
+      phantine problem in three dimensions’,     J. Integer Se-
+      quences, 8 (2005), Article 05.1.7, 1–4 (available from
+      http://www.cs.uwaterloo.ca/journals/JIS/vol8.html).
+
+[164] I. A. Semaev, ‘On the number of small solutions of a linear homo-
+      geneous congruence’, Mat. Zametki (Transl. as Math. Notes), 50(4)
+      (1991), 102–107, (in Russian).
+
+[165] I. A. Semaev, ‘An algorithm for evaluation of discrete logarithms in
+      some nonprime finite fields’, Math. Comp., 67 (1998), 1679–1689.
+
+[166] V. Shelestunova, ‘Upper bounds for the number of integral points on
+      quadratic curves and surfaces’, PhD Thesis, University of Waterloo,
+      Ontario, Canada, 2010.
+
+[167] I. E. Shparlinski, ‘On exponential sums with sparse polynomials and
+      rational functions’, J. Number Theory, 60 (1996), 233–244.
+
+[168] I. E. Shparlinski, ‘Primitive points on a modular hyperbola’, Bull.
+      Polish Acad. Sci. Math., 54 (2006), 193–200.
+
+[169] I. E. Shparlinski, ‘On the distribution of points on multidimensional
+      modular hyperbolas’, Proc. Japan Acad. Sci., Ser.A, 83 (2007), 5–9.
+
+[170] I. E. Shparlinski, ‘Bounds of incomplete multiple Kloosterman sums’,
+      J. Number Theory, 126 (2007), 68–73.
+
+
+
+                                     70
+[171] I. E. Shparlinski, ‘Distribution of inverses and multiples of small in-
+      tegers and the Sato–Tate conjecture on average’, Michigan Math. J.,
+      56 (2008), 99–111.
+
+[172] I. E. Shparlinski, ‘On the Euler function on differences between the
+      coordinates of points on modular hyperbolas’, Bull. Polish Acad. Sci.
+      Math., 56 (2008), 1–7.
+
+[173] I. E. Shparlinski, ‘Approximation by several rationals’, Bull. Aust.
+      Math. Soc., 77 (2008), 325–329.
+
+[174] I. E. Shparlinski, ‘On a generalised Lehmer problem for arbitrary
+      powers’, Contributions in General Algebra II , Bangkok, 2008, 197-
+      216.
+
+[175] I. E. Shparlinski, ‘On some weighted average values of L-functions’,
+      Bull. Aust. Math. Soc., 79 (2009), 183–186.
+
+[176] I. E. Shparlinski, ‘On a generalisation of a Lehmer problem’, Math.
+      Zeitschrift, 263 (2009), 619–631.
+
+[177] I. E. Shparlinski, ‘On the distribution of solutions to linear equations’,
+      Glasnik Math., 44 (2009), 7–10.
+
+[178] I. E. Shparlinski, ‘On the restricted divisor function in arithmetic
+      progressions’, Revista Matemática Iberoamer., 28 (2012), 231–238.
+
+[179] I. E. Shparlinski, ‘On small solutions to quadratic congruences’, J.
+      Number Theory, 131 (2011), 1105–1111.
+
+[180] I. E. Shparlinski, ‘On products of primes and almost primes in arith-
+      metic progressions’, Period. Math. Hungarica, (to appear).
+
+[181] I. E. Shparlinski and J. F. Voloch, ‘Visible points on curves over finite
+      fields’, Bull. Polish Acad. Sci. Math., 55 (2007), 193–199.
+
+[182] I. E. Shparlinski and A. Winterhof, ‘On the number of distances be-
+      tween the coordinates of points points on modular hyperbolas’, J.
+      Number Theory, 128 (2008), 1224–1230.
+
+
+
+
+                                      71
+[183] I. E. Shparlinski and A. Winterhof, ‘Visible points on multidimen-
+      sional modular hyperbolas’, J. Number Theory, 128 (2008), 2695–
+      2703.
+[184] I. E. Shparlinski and A. Winterhof, ‘Partitions into two Lehmer num-
+      bers’, Monat. Math., 160 (2010), 429–441.
+[185] V. Shchur, Y. G. Sinai and A. V. Ustinov, ‘Limiting distribution of
+      Frobenius numbers for n = 3’,J. Number Theory, 129 (2009), 2778–
+      2789.
+[186] C. L. Stewart, ‘On the greatest prime factor of integers of the form
+      ab + 1’, Period. Math. Hung., 43 (2001), 81–91.
+[187] Z. Šunić, ‘Frobenius problem and dead ends in integers’, J. Number
+      Theory, 128 (2008), 1211–1223.
+[188] R. Taylor, ‘Automorphy for some l-adic lifts of automorphic mod l
+      Galois representations, II’, Pub. Math. IHES , 108 (2008), 183–239.
+[189] G. Tenenbaum, Introduction to analytic and probabilistic number the-
+      ory, Cambridge Univ. Press, 1995.
+[190] J. L. Truelsen, ‘Divisor problems and the pair correlation for the frac-
+      tional parts of n2 α’, Intern. Math. Research Notices, 2010 (2010),
+      3144–3183.
+[191] A. V. Ustinov, ‘On statistical properties of finite continued fractions’,
+      J. Math. Sci., 137 (2006), 4722–4738.
+[192] A. V. Ustinov, ‘Calculation of the variance in a problem in the theory
+      of continued fractions’, Matem. Sb. (Transl. as Sbornik: Mathemat-
+      ics), 198(6) (2007), 139–158 (in Russian).
+[193] A. V. Ustinov, ‘Asymptotic behaviour of the first and second moments
+      of the number of steps in the Euclid algorithm’, Izv. Ross. Akad. Nauk
+      Ser. Mat. (Transl. as Izvestiya. Mathematics), 72(5) (2008), 189–224
+      (in Russian).
+[194] A. V. Ustinov, ‘On the number of solutions of the congruence a1 a2 ≡ l
+      (mod q) under the graph of a twice differentiable function’, Algebra
+      and Analysis, 20(5) (2008), 186–216 (in Russian).
+
+                                     72
+[195] A. V. Ustinov, ‘The solution of Arnolds problem on the weak asymp-
+      totics of Frobenius numbers with three arguments’, Matem. Sb.
+      (Transl. as Sbornik: Mathematics), 200(4) (2009), 131–160 (in Rus-
+      sian).
+
+[196] A. V. Ustinov, ‘On the distribution of integer points’, Dalnevostochnyi
+      Matem. J. (Far Eastern Math. J.), 9(1-2) (2009), 176–181 (in Rus-
+      sian).
+
+[197] A. V. Ustinov, ‘The mean number of steps in the Euclidean algorithm
+      with least absolute-value remainders’, Mathem. Zametki (Transl. as
+      Math. Notes), 85 (2009), 153–156 (in Russian).
+
+[198] A. V. Ustinov, ‘On the statistical properties of elements of continued
+      fractions’, Doklady Akad. Nauk (Transl. as Doklady Mathematics),
+      424 (2009), 459–461 (in Russian).
+
+[199] A. V. Ustinov, ‘On the distribution of Frobenius numbers with three
+      arguments’, Izv. Ross. Akad. Nauk Ser. Mat. (Transl. as Izvestiya.
+      Mathematics), 74(5) (2010) 145–170 (in Russian).
+
+[200] M. Vâjâitu and A. Zaharescu, ‘Distribution of values of rational maps
+      on the Fp -points on an affine curve’, Monatsh. Math., 136 (2002),
+      81–86.
+
+[201] R. C. Vaughan and T. D. Wooley, ‘Further improvements in Waring’s
+      problem’, Acta Math., 174 (1995), 147–240.
+
+[202] L. A. Vinh, ‘On the distribution of determinant of matrices with re-
+      stricted entries over finite fields’, J. Combin. and Number Theory, 1
+      (2010), 203–212.
+
+[203] L. A. Vinh, ‘On the distribution of permanents of matrices over finite
+      fields’, Electronic Notes in Discr. Math 34 (2009), 519–523.
+
+[204] Y. Wang and H. Li, ‘On s-dimensional incomplete Kloosterman sums’,
+      J. Number Theory, 130 (2010), 1602–1608.
+
+[205] Y. Weili, ‘On the generalization of the D. H. Lehmer problem and its
+      mean value’, J. Algebra, Number Theory and Appl., 6 (2006), 479–491.
+
+
+                                    73
+[206] H. Weyl, ‘On the volume of tubes’, Amer. J. Math., 61 (1939), 461–
+      472.
+
+[207] P. Xi and Y. Yi, ‘Generalized D. H. Lehmer problem over short inter-
+      vals’, Glasgow Math. J., 53 (2011), 293–299.
+
+[208] M. Xiong and A. Zaharescu, ‘Distribution of Selmer groups of
+      quadratic twists of a family of elliptic curves’, Advances Math., 219
+      (2008), 523–553.
+
+[209] Z. Xu, ‘D. H. Lehmer problem over half intervals’, J. Korean Math.
+      Soc., 46 (2009), 493–511.
+
+[210] Z. Xu and W. Zhang, ‘On a problem of D. H. Lehmer over short
+      intervals’, J. Math. Anal. Appl., 320 (2006), 756–770.
+
+[211] Z. Xu and W. Zhang, ‘A problem of D. H. Lehmer and its mean value’,
+      Math. Nachr., 281 (2008), 596–606.
+
+[212] Y. Yi and W. Zhang, ‘On the generalization of a problem of D. H.
+      Lehmer’, Kyushu J. Math., 56 (2002), 235–241.
+
+[213] G. Yu, ‘Rank 0 quadratic twists of a family of elliptic curves’, Compos.
+      Math., 135 (2003), 331–356.
+
+[214] Y. Yuan and H. Yiwei, ‘On a generalisation of D. H. Lehmer problem’,
+      J. of Algebra, Number Theory and Appl., 14 (2009), 37–50.
+
+[215] A. Zaharescu, ‘The distribution of the values of a rational function
+      modulo a big prime’, J. Theor. Nombres Bordeaux , 15 (2003), 863–
+      872.
+
+[216] T. Zhang and X. Xue, ‘On the r-th hyper-Kloosterman sums and a
+      problem of D. H. Lehmer’, J. Korean Math. Soc., 46 (2009), 733–746.
+
+[217] T. Zhang and W. Zhang, ‘A generalization on the difference between
+      an integer and its inverse modulo q, II’, Proc. Japan Acad. Sci., Ser.A,
+      81 (2005), 7–11.
+
+[218] W. Zhang, ‘On a problem of D. H. Lehmer and its generalization’,
+      Compos. Math., 86 (1993), 307–316.
+
+
+                                     74
+[219] W. Zhang, ‘On a problem of D. H. Lehmer and its generalization, II’,
+      Compos. Math., 91 (1994), 47–56.
+
+[220] W. Zhang, ‘On the difference between a D. H. Lehmer number and
+      its inverse modulo q’, Acta Arith., 68 (1994), 255–263.
+
+[221] W. Zhang, ‘On the difference between an integer and its inverse mod-
+      ulo n’, J. Number Theory, 52 (1995), 1–6.
+
+[222] W. Zhang, ‘On the distribution of inverses modulo n’, J. Number
+      Theory, 61 (1996), 301–310.
+
+[223] W. Zhang, ‘On a problem of P. Gallagher’, Acta Math. Hung., 78
+      (1998), 345–357.
+
+[224] W. Zhang, ‘On the distribution of inverses modulo p, II’, Acta Arith.,
+      100 (2001), 189–194.
+
+[225] W. Zhang, ‘On a problem of D. H. Lehmer and Kloosterman sums’,
+      Monatsh. Math., 139 (2003), 247–257.
+
+[226] W. Zhang, ‘On the mean value of L-functions with the weight of
+      character sums’, J. Number Theory, 128 (2008), 2459–2466.
+
+[227] W. Zhang, Z. Xu and Y. Yi, ‘A problem of D. H. Lehmer and its mean
+      square value formula’, J. Number Theory, 103 (2003), 197–213.
+
+[228] W. Zhang and Y. Yi, ‘Some applications of Bombieri’s estimate for
+      exponential sums’, Acta Arith., 107 (2003), 245–250.
+
+[229] Z. Zheng, ‘The distribution of zeros of an irreducible curve over a
+      finite field’, J. Number Theory, 59 (1996), 106–118.
+
+[230] Z. Zheng and T. Cochrane, ‘Distribution of primitive λ-roots of com-
+      posite moduli II’, Chinese Annals of Math., Ser. B , 27 (2006), 549-
+      552.
+
+
+
+
+                                    75
+
