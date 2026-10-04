@@ -210,3 +210,88 @@ not necessary" (TQ l. 1195–1196), `Q_r(0) = 1`, `Q_r(h) = C(h−1,r) ≥ 0`.
   primes". Add "(since `Q_r(0) = 1`; ETrev item 3.1)" so the reader sees
   this is the whole-avoider-set property the architecture needs, which the
   note itself does not state.
+
+*Addendum to D2.* A one-line repair that needs only the `(log N)`-form of
+Cor 6.1/6.2: apply Lemma 3.4 with `λ = (A+2) log N`; then
+`Eν' ≤ Eν + T e^{Λ₀−λ} ≤ Eν + N·N^{A}·N^{−A−2} = Eν + N^{−1}`, so
+`min(s, log N) − log 2 ≤ C₈(A+2,C)(log N)^{3/4} + O(1)`, hence
+`s ≪ (log N)^{3/4}` for large N. Either fix is fine.
+
+## 4. §§9–11: exclusions, Selberg-type majorants, open problems
+
+Checked against ET §§3.8, 5.6, 5.7, 6, 6.1; TW §§4.4, 6.3, 6.6, 6.8;
+TW2 §§1–5 and its review (rounds 1–2); TW3 (current `main` version,
+commit 874be8d) and its review (current `main`, rounds 1–2).
+
+**Faithfulness.**
+* §9 list = ET §6.1 items 1–5, 7, 8, updated for TW Thm 2.7/4.4 and
+  TW2/TW3. ET item 6 (the prime-slice requirement of Cor 3.4) is folded
+  into item 7 "Large multipliers"; acceptable.
+* Lemma 9.1 = ET Lemma 3.8 (η ∈ (0,1/480], the stated ranges, `Y =
+  x^{1/(2+4.5η)}`); proof is a marked sketch citing ET §3.8 / ETrev
+  item 4.2 (SOUND). The lattice input is LL Lemma 3.1 = TQ eq. (latlower) ✓.
+* Thm 10.1 = ET Thm 5.5; proof re-derived: `P(A) ≤ ⟨g, Π_V 1_A⟩ ≤
+  ‖g‖‖Π_V 1_A‖`, and on `c(T) ≤ λ/2`, `1 ≤ e^{αλ/2}e^{−αc(T)}`, giving
+  `‖Π_V1_A‖² ≤ e^{αλ/2}P(A∩A')`; `Ξ ∈ [0, log 1/P(A)]` since `T_ρ ⪰ 0` and
+  `P(A∩A') ≤ P(A)`. ✓ Cor 5.6 factor `1 + ρp/(1−p) ≤ 1 + (4/3)ρp` ✓.
+* Hyp 10.2 = ET H_MS^{Sel} (open), conditional consequence labelled
+  \lab{conditional} ✓. The fibre counterexample ✓.
+* Lemma 10.3 = TW Lemma 6.6 (uniform P; proof re-derived:
+  `⟨h,T_ρh⟩ = Q_F Σ π_c² e^{Ξ_c}`, optimum `π ∝ e^{−Ξ}`, Jensen) and
+  TW2 Lemma 2.1 (general P; reviewed SOUND) ✓.
+* Thm 10.4 = TW2 Thm 1.4 (`w_ℓ ≤ δ ≤ 1/16`, constant `1+25δ`) ✓;
+  Thm 10.5 = TW2 Thm 5.1 (`A₀L^{3/4}/2 + C_B L^{3/4}(log L)^C +
+  11E_PΣρ_jS_j`) ✓; Setting = TW2 Setting 3.0 (`W₁ = L^{1/2}`, `w₂ = L^8`,
+  `α = L^{−1/4}`, `log‖dP/dU‖ ≤ 4L^{1/2}`) ✓.
+* Thm 10.6 = TW3 Thm 4.1, marked "Proof sketch"; the sketch matches TW3
+  (2.1), Lemma 2.1, Lemmas 3.1–3.4 (`C₀ ≥ 6`, `Σ_a V² ≪ (log L)^6`) ✓.
+* Thm 10.7 = TW2 Cor 5.2 + TW3 Cor 4.2 with all hypotheses (\ℛ(M), `M ≤ X`,
+  `M ≤ P(M)^{1+B}`, ≤ 2 primes above `(log X)^8`, `λ ≤ A₀ log X`) ✓. The
+  Scope paragraph and Remark 10.8 match TW2 "Bottom line" and TW3 E5
+  ("bypassed, not proved") ✓.
+* Hyp 11.1, Conj 11.2, Prop 11.3 (conditional on Conj 6.4 **and** K2, per
+  TWrev T10), Conj 11.4 = ET §5.6 and TW Conj 6.4, Prop 6.5, Conj 6.8 ✓.
+
+**Defects.**
+
+* **D10 (MINOR, faithfulness: stale and overstated status of TW3 §6).**
+  The "Three or more large primes" paragraph of §11 was written against
+  the pre-round-2 TW3. It says the TW3 §6 results are "not yet
+  hostile-reviewed" and that TW3 gives, for ternary moduli, "a proof of all
+  star sums except one residual, vertex stars whose two partner primes are
+  balanced with each other and whose divisor triples are balanced". The
+  current TW3 (`main`, after review round 2) says:
+  * Lemmas 6.1–6.2: PROVED, review R2 **SOUND**; Prop 6.3: PROVED as an
+    implication, **SOUND after E10**. So "not yet hostile-reviewed" is now
+    false.
+  * Prop 6.4: **SKETCH**, "conditional on the unwritten any-arity fibre
+    law" (`w₂ = L^{10}`, strengthened G_L/(H_δ)) — review **E11**. So "a
+    proof of all star sums except one residual" overstates the source.
+  * The residual is corrected (**E12**) to vertex stars with
+    `ℓ_a ≤ ℓ_b < w₂q`, `q = 4·(two shorter of u,v,t)` (BFI range); the
+    proved part is *every* triple with `ℓ_b ≥ w₂q`. "Two partner primes
+    balanced with each other" is not the corrected condition.
+
+  *Fix:* "Partial results [TW3 §6], hostile-reviewed [TW3rev, round 2]:
+  any-arity noise stability with codegree terms and free codegree
+  quarantine (Lemmas 6.1–6.2, proved); a reduction of the general case to
+  arithmetic star sums (Prop 6.3, proved as an implication); for ternary
+  moduli with B fixed, a *sketch* (Prop 6.4) of all star sums, conditional
+  on an unwritten any-arity fibre-law step, except the residual
+  `ℓ_a ≤ ℓ_b < w₂q`, which is open."
+* **D11 (MINOR, body scope drops; companion of D1).** Two body summaries
+  of Thm 10.7 drop its hypotheses: §9 item 4 ("Theorem 10.7 covers twin
+  \ℛ(M)-moduli with at most two prime factors above (log X)^8") and §11
+  opening ("(i) is closed for moduli with at most two prime factors above
+  (log X)^8"). Both omit `M ≤ P(M)^{1+B}` (B fixed) and level
+  `λ ≤ A₀ log X`; the §11 one also omits "\ℛ(M)". Since the Scope
+  paragraph stresses that the B-restriction "is genuine", the summaries
+  should carry it. *Fix:* add "with `M ≤ P(M)^{1+B}`, B fixed, at level
+  O(log X)".
+* **D12 (NIT, attribution of a new remark).** The sentence "the coarsening
+  of Lemma 3.4 does not preserve the square form g², so the reduction …
+  is not available here as stated" is correct (a coarsened g² is a
+  majorant but not a square, and truncating the signed g destroys `g ≥ 1`
+  on 𝒜), but it is not in TW2/TW3; only a `%` comment, invisible in the
+  PDF, says it is the author's. Put "(observation of this note)" in the
+  text, since every other claim carries a source.
