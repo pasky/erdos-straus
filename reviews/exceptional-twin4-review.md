@@ -150,3 +150,140 @@ The author asked to check the Shiu hypotheses in (b).
 * **F2 (nit, constants).** The number of blocks is
   `≤ C₀log₂(kQ_V) + 2`, not `C₀log(kQ_V) + 1`; and (5.1) is stated for
   `β_C ∈ [0,1]` but used with `β_C ≤ 2^r`. Neither affects the bound.
+
+## Item 7. Lemma 6.1 (largest-variable reduction mod Q, any partner) and the ternary residual — SOUND
+
+The author asked to check `R ≥ 2^r q`.
+* *t largest.* `u, v | A` and `4A ≡ 1 (mod kQ)`, kQ odd, so `(q,kQ) = 1`
+  for `q = 4uv`, and `q | kQR+1` is the single reduced class
+  `R ≡ −(kQ)^{−1} (mod q)`. The residue mod Q is `−u/v` (TW3 (3.1) holds
+  mod Q since `4A ≡ 1 (mod Q)`). Each R gives at most one triple
+  (`t = A_R/(uv)`). ✓
+* *Claim `R ≥ 2^r q`.* If `q ≤ 2^{−r}(kQ)^{C₀}`: `R > (kQ)^{C₀} ≥ 2^r q`.
+  Otherwise `t ≥ max(u,v) ≥ (q/4)^{1/2}` gives `kQR+1 = 4A_R ≥ q^{3/2}/2`,
+  so `R/q ≥ q^{1/2}/(2kQ) − 1 > 2^{−r/2−1}(kQ)^{C₀/2−1} − 1 ≥ 2^r` once
+  `(kQ)^{C₀/2−1} ≥ 2^{3r/2+2}`, true for `C₀ ≥ 6`, `kQ > w₂`, r fixed
+  (indeed any `C₀ > 2` works; TW3's `C₀ ≥ 5` constraint (E8) is no longer
+  binding). ✓ If `2^r q > X` there is nothing to sum.
+* Cor 2.4 with `s = r−h`, `s+1 ≤ r` (as `h ≥ 1`), so `x₀ = 2^r q ≥ 2^{s+1}q`;
+  `s(s+1) ≤ r²`; `φ(4uv) = 2φ(uv)` (uv odd). This gives
+  `6r²(log L)^{r−1}R₁(a)` — one log better than stated. u- and v-largest:
+  same with `q = 4vt`, `4ut`, `max(v,t) ≥ (q/4)^{1/2}`; dropping `(u,v) = 1`
+  only adds terms. ✓
+* `𝓡_{Q,k}` does not exclude R sharing primes with Q or non-squarefree R;
+  these only enlarge `V_{Q,k}`, which is used as an upper bound. ✓
+
+**Ternary residual.** TW3's residual classes `M = kjℓ_aℓ_b`,
+`R = ℓ_aℓ_b > (kj)^{C₀}`, at the vertex `V = {j}` have `R ∈ 𝓡_{j,k}` with
+`h = 1`, `Ω(R) = 2 ≤ r−1`, so Lemma 6.1 covers them regardless of
+`ℓ_b` vs `w₂q`. The point is genuine and correct: TW3 fixed `ℓ_a` and asked
+for primes `ℓ_b` in a short progression (BFI range); sieving the whole
+partner R over its class mod q needs only `R/q ≥ 2^{s+1}`, and the loss
+for not using primality is the polylog `(log L)^{s−1}`. The toy table
+(§8, replayed exactly) confirms the residual was 80–86% of the toy mass,
+so this is a real closure, not a negligible piece.
+
+No defect.
+
+## Item 8. Lemma 6.2 and Corollary 6.3 (box counting mod squarefree Q) — SOUND
+
+* (i) Q odd squarefree, `c/t` a unit: `v² ≡ c/t` has `≤ 2^h` roots (CRT).
+  The box bound `min(V(T/Q+1), 2^hT(V/Q+1)) ≤ 2^h(VT/Q + min(V,T))` holds
+  (split `V ≤ T` / `T < V`), so each box contributes
+  `≤ 2^h(1/Q + 1/max(V,T))`. ✓ (ii) `N ≠ N′ ≡ (Q)`, both ≥ 1 ⇒ `max > Q`. ✓
+  (iii) `u ≡ ρv`, ρ a unit; `Q | uv′−u′v ≠ 0`,
+  `|uv′−u′v| ≤ max(u,v)max(u′,v′)`; fixing u fixes v mod Q. ✓
+* Cor 6.3: `n/φ(n) ≤ 2log L` for `n ≤ X²`; `a ↦ c` bijective on units,
+  `V(a) = 0` off units; with `Q > L^8`, `X = e^L`:
+  `L⁴/Q ≤ L^{−4}`, and `(log Q)Q^{−1/3}` is decreasing for `Q > e³`, so
+  `L²(log Q)Q^{−1/3} ≤ 8L^{−2/3}log L` uniformly in `Q ≤ X`. The `2^h ≤ 2^r`
+  is absorbed in `C_r`. Exponent `2r+4` = `(log L)^{2r}` (Lemma 6.1 squared)
+  × `(2log L)^4` (two `1/φ` conversions squared). ✓
+
+No defect.
+
+## Item 9. Lemma 6.4 (large part; lifted residues) — SOUND
+
+The author asked to check the lifts.
+* For an sf class C ⊋ V, the events of C containing a lifted star
+  `σ = (V,a)` are the lifts at `S(C)∖V`; `Σπ_{E∖σ}` over them is
+  `Π_{ℓ′∈S(C)∖V}ν_{ℓ′}(lifts of the class residue mod ℓ′) ≤ (8/7)^{s}/R`,
+  independent of the lift a and of the alphabet exponents. So `z_V(a)`
+  depends only on `a mod Q`. ✓ (Identical events from different classes are
+  counted with multiplicity: upper bound.)
+* `Σ_{a ≡ a₀ (Q)}π_{(V,a)} = Π_{ℓ∈V}ν_ℓ(a ≡ a₀ mod ℓ) ≤ Π(8/7)/ℓ` since
+  `ν_ℓ ≤ (8/7)U_ℓ` pointwise on supp P. ✓
+* Pair activity `≤ 4Γ(lcm)/lcm`, AM–GM with `Σ_{k′}Γ(lcm)/lcm ≤ Γ(k)h(k)/k`
+  (TW2 Lemma 5.4(ii)), Cor 6.3 uniformly in Q, k, then
+  `Σ_{|V|=h}ρ^V/Q_V ≤ (log L)^h`, `h ≤ r−1`. Total
+  `(log L)^{2r+4+O(1)+r−1}`. ✓ (The factor is `(8/7)^{h+2s} ≤ (8/7)^{2r}`;
+  `(8/7)^{3r}` is generous.)
+
+No defect.
+
+## Item 10. Theorem 7.1 and Corollary 7.2 (assembly) — SOUND (nit F3)
+
+Prop 3.1 (Item 3) + Lemma 4.1 (supp P ⊆ `G_L^{(r)}`, TW2 Lemma 3.2 holds) +
+TW2 Lemma 4.1 (unary) + (3.1) + Cor 5.2 + `min(x+z,1)² ≤ 2x + 2z²` with
+Lemma 5.3 (x-part) and Lemma 6.4 (z-part). Small/large at V partition the
+sf classes (`R ≤` vs `> (kQ_V)^{C₀}`). The total is
+`L^{3/4}(log L)^{2r+O(1)} + (log L)^{3r+O(1)}`, within the stated
+`L^{3/4}(log L)^{3r+O(1)}` (the `2r` form is also true). Every use of the
+B-hypothesis is on the top prime (Shiu `q ≤ P^B`, pointwise `τ ≤ P^{1/256}`).
+* **F3 (nit, citation).** Cor 7.2's "cannot give an exceptional-set
+  exponent θ > 3/4" is the ET Lemma 2.9 translation (level `λ ≍ L`; TW
+  review T7 on the λ-range), as in EXCEPTIONAL_TWIN.md §5. Cite it; the
+  translation is inherited, not re-proved here. (Theorem 7.1 is uniform in
+  `λ ≤ A₀L`, so the λ-range condition is met.)
+
+## Item 11. §7.1 (unbounded r, dropping B) — honest Assessment
+
+Labelled OPEN / Assessment in §0, §7.1 and the report. The sketch for
+`r ≤ ε log L/log log L` is plausible: every r-dependence found in this
+review is `e^{O(r)}`, `r^{O(1)}` or `(log L)^{O(r)} = L^{O(ε)}`; Lemma 4.1 needs
+`L^{6+O(ε)}/w₂ = o(1)`; the `R ≥ 2^r q` claim needs `w₂² ≥ 2^{O(r)}`. Not
+verified in detail, and correctly not claimed.
+
+## Item 12. Numerics, script, report, labels — SOUND-AFTER-REPAIRS (nit F4)
+
+* Both replays reproduce exactly: Part A 1228 cases, worst 0.1281; Part B
+  table to all digits (24 s, ≤ 1.2 GB).
+* **F4 (nits).** (a) Part B enumerates `ℓ_a ≤ ℓ_b` including `ℓ_a = ℓ_b`,
+  so `R = ℓ²` (non-squarefree) partners are in the toy table; state it or
+  use `prs[ia+1:]`. It uses `w₀ = 11` for both roughness and the
+  proved/residual cut, and `C₀ = 1` (stated). (b) The report says
+  `R/q ≥ 2^{s+1}` "always holds"; it holds for *large* partners
+  (`R > (kQ)^{C₀}`, `C₀ > 2`, L large). (c) §0 "Thm 7.1 … not yet
+  reviewed" should be updated after this review.
+* Lemma 2.3 independently tested (Item 1): 631 686 cases, worst 0.126.
+
+## Summary
+
+| item | verdict | defects |
+|---|---|---|
+| 1 Lemmas 2.1–2.3 (rough-partner BT) | SOUND | — (independent check 631 686 cases, worst 0.126) |
+| 2 Cor 2.4 | SOUND | F1 nit |
+| 3 Prop 3.1 (r-ary inflation), (3.1) | SOUND | — |
+| 4 Lemma 4.1 (fibre law, `w₂ = L^8`) | SOUND | — |
+| 5 Lemma 5.1, Cor 5.2 | SOUND | — |
+| 6 Lemma 5.3 (Shiu in (b)) | SOUND | F2 nit |
+| 7 Lemma 6.1 (`R ≥ 2^r q`), ternary residual | SOUND | — |
+| 8 Lemma 6.2, Cor 6.3 | SOUND | — |
+| 9 Lemma 6.4 (lifts) | SOUND | — |
+| 10 Thm 7.1, Cor 7.2 | SOUND | F3 nit |
+| 11 §7.1 Assessment | honest | — |
+| 12 Numerics, report, labels | SOUND-AFTER-REPAIRS | F4 nits |
+
+No major or minor defect found. The four points the author flagged all
+check out: the r-ary inflation closes with exactly the slack E10(c) asked
+for (`(32/21)^r δ_r = 1/(16r)`); lifted residues cost `(8/7)^h/Q` and
+leave `z_V` a function of `a mod Q`; Shiu in Lemma 5.3(b) has
+`q = M/P ≤ P^B` on every nonempty block; and `R ≥ 2^r q` follows from
+`R > (kQ)^{C₀}` with any `C₀ > 2`. Theorem 7.1 (fixed r, fixed B) and the
+closure of the TW3 ternary residual by a large-sieve upper bound stand.
+TW3 review E11 is discharged for every fixed r. F1–F4 are cosmetic.
+
+Suggested ledger text (the author's, endorsed): "Moduli with ≤ r large
+primes, r fixed: cap `≪ L^{3/4}(log L)^{O(r)}` PROVED (EXCEPTIONAL_TWIN4
+Thm 7.1, reviewed SOUND). The ternary residual closes by a large-sieve
+upper bound for rough partners. Open: r unbounded, and dropping B."
