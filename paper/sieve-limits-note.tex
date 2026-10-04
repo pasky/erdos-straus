@@ -770,8 +770,8 @@ saves at most
 \[
  \log\frac1{\E\nu}\ll(\log N)^{3/4},
 \]
-with implied constant depending on $A,C$ in case (i) and on $A,B$ and
-$\eta^{-1}$ (linearly in $\eta^{-1}$) in case (ii).  In particular no such
+with implied constant depending on $A,C$ in case (i) and on $A,B,\eta$ in
+case (ii).  In particular no such
 architecture gives $E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with
 $\omega(N)\to\infty$, e.g.\ $\omega=(\log\log N)^\epsilon$.
 \end{theorem}
@@ -784,5 +784,225 @@ The statement for the prime-slice families of Corollary~\ref{cor:sliceCap}
 is the same, with the selector term $\log(P/\varphi(P))$ added; for the
 large sieve over slice systems the level hypothesis $\lambda\leq A\log N$
 is used directly (Remark~\ref{rem:LS}).
+
+\section{Gapped moduli, unconditionally}\label{sec:gapped}
+
+Corollary~\ref{cor:dominant} needs $P(M)\geq M^{1/(1+C)}$ with $C<1$.  This
+section treats a class of \emph{balanced} moduli ($P(M)\leq M^{1/2}$) as
+well, for the classes $\cR(M)$.  The results are from \cite[\S\S1--2,
+4]{TW}, building on the reductions of \cite[\S2]{EB}; the review
+\cite{TWrev} (two rounds) found them sound.
+
+\subsection{Gapped and twin moduli}
+Write $P_2(M)=P(M/P(M))$, with $P_2(1)=1$.  Fix $w_0\geq3$, $0<\eta<1$ and
+$B\geq0$.  Following \cite[\S2]{EB}, $M$ is \emph{$\eta$-gapped} if
+$P(M)>w_0$ and $P(M)\geq P_2(M)^{1+\eta}$, and \emph{$\eta$-twin}
+otherwise; it is \emph{$(\eta,B)$-gapped} if moreover $M\leq P(M)^{1+B}$.
+Put $s_0=\log w_0$, $s_j=s_0(1+\eta)^{j-1}$ and use the windows
+$W_j=\{\ell\text{ prime}:s_j<\log\ell\leq s_{j+1}\}$.
+
+\begin{lemma}[gapped implies (U); {\cite[Lemma~2.1]{EB}}; \lab{proved}]\label{lem:gappedU}
+If $M$ is $\eta$-gapped and $\ell=P(M)$, then $\ell\,\|\,M$, and every prime
+$\ell'\mid M/\ell$ with $\ell'>w_0$ lies in a window strictly before that
+of $\ell$.  So a family of $\eta$-gapped classes satisfies (U) with
+$\ell(C)=P(M_C)$.
+\end{lemma}
+\begin{proof}
+If $\ell^2\mid M$ then $P_2(M)=\ell$, contradicting $\ell\geq\ell^{1+\eta}$.
+If $\ell'\in W_j$ divides $M/\ell$, then
+$\log\ell\geq(1+\eta)\log\ell'>(1+\eta)s_j=s_{j+1}$.
+\end{proof}
+Dominant moduli with $P(M)>w_0$ are $\eta$-gapped for every
+$\eta\leq\min(\eta_0,1/C-1)$.  Balanced moduli $M=k\ell_1\ell_2$ with
+$P(k)<\ell_1$, $\ell_2\geq\ell_1^{1+\eta}$ and $k\ell_1\geq\ell_2$ are
+$\eta$-gapped.  The same-scale pairs of Lemma~\ref{lem:balancedsupply}
+below are $\eta$-twin.  For a gapped balanced modulus the cofactor
+$M/P(M)$ exceeds $P(M)$, so the counting bound $p_\ell\leq\ell^{C-1+o(1)}$
+of Corollary~\ref{cor:dominant} is lost; the hit probabilities can be
+large for some histories (\emph{heavy coordinates}).
+
+\subsection{The quadratic-residue base}
+Fix $W\geq3$, let $Q_0$ be a common multiple of the $W$-smooth parts of all
+moduli with $P_W\mid Q_0$, and put
+$R_W=\{c\bmod Q_0:(\frac cp)=1\text{ for every odd prime }p\leq W\}$.
+
+\begin{lemma}[QR base; {\cite[Lemma~1.3]{TW}}; \lab{proved}]\label{lem:QR}
+(1) Every $c\in R_W$ avoids every class of $\cR(M)$ with $W$-smooth $M$.
+(2) $\log(Q_0/|R_W|)=\sum_{3\leq p\leq W}\log(2p/(p-1))$.
+(3) Under the uniform law on $R_W$, residues at distinct primes are
+independent and $\Prob(c\equiv a\ (p^e))\leq\gamma(p)/p^e$ for $p^e\mid Q_0$,
+with $\gamma(p)=2p/(p-1)$ for odd $p$ and $\gamma(2)=1$.
+\end{lemma}
+\begin{proof}
+(1) is Lemma~\ref{lem:mordell}.  (2) and (3): by CRT $R_W$ is a product
+over the prime powers $p^e\|Q_0$; for odd $p\leq W$ the factor has
+$p^{e-1}(p-1)/2$ elements out of $p^e$.
+\end{proof}
+So Mordell's obstruction, which classically shows that polynomial
+identities never cover squares, is used constructively: it gives a
+\emph{product} base measure on avoiders of all small-modulus classes,
+with polylogarithmic inflation.
+
+\subsection{The capped sequential measure}
+Work in the sequential setting of Section~\ref{sec:seq}, with $R$
+satisfying (R1) every $c\in R$ avoids every condition with $S(C)=\emptyset$,
+and (R2) under the uniform law on $R$ the residues at distinct primes are
+independent and $\Prob(c\equiv a\ (p^e))\leq\gamma(p)/p^e$.  Fix caps
+$\delta_\ell\in(0,1/4]$.  The \emph{capped measure} $Q'$ draws $c$ uniformly
+from $R$; given $H_{<j}=h$, the residues $n\bmod\ell$ ($\ell\in W_j$) are
+independent, uniform on $\Z/\ell\setminus F_\ell(h)$ if
+$p_\ell(h)\leq\delta_\ell$ (\emph{light}), and uniform on $\Z/\ell$
+otherwise (\emph{heavy}); higher digits are uniform.  The \emph{leak} is
+$\mathfrak L=Q'(\text{final history}\notin\A)$.  This is a variant of the
+distortion method of Hough \cite{Hough} and
+Balister--Bollob\'as--Morris--Sahasrabudhe--Tiba \cite[def.~(5),
+Thm~3.1]{BBMST}, adapted to general level-$\lambda$ majorants.
+
+\begin{lemma}[leak and inflation; {\cite[Lemmas~2.1, 2.2]{TW}}; \lab{proved}]\label{lem:leak}
+(a) $\mathfrak L\leq\sum_{\ell\in\cP}\E_{Q'}[p_\ell(H_{<j(\ell)})\ind\{p_\ell(H_{<j(\ell)})>\delta_\ell\}]$.
+(b) For $m$ a product of prime powers $p^e$ with $e\leq E_p$ ($p\in\cP$) or
+$p^e\mid Q_0$, and every $a$,
+$Q'(n\equiv a\ (m))\leq\prod_{p^e\| m}\gamma'(p)/p^e$, where
+$\gamma'(p)=\gamma(p)$ for $p\mid Q_0$ and $\gamma'(p)=(1-\delta_p)^{-1}$ for
+$p\in\cP$.
+\end{lemma}
+\begin{proof}
+(a) A final history outside $\A$ satisfies some condition $C$ with
+$S(C)\neq\emptyset$, by (R1).  At the transition into the window of
+$\ell=\ell(C)$, $b_{C,\ell}\in F_\ell(h)$, and light coordinates never take
+such values, so $\ell$ was heavy and the hit has probability $p_\ell(h)$;
+take a union bound.  (b) Chain rule: (R2) at the base; a light coordinate
+is uniform on at least $p(1-\delta_p)$ residues, a heavy one on all $p$.
+\end{proof}
+
+\begin{theorem}[capped sequential sieve limit; {\cite[Thm~2.3]{TW}}; \lab{proved}]\label{thm:capped}
+If $\mathfrak L\leq1/2$, every majorant $\nu$ of level $\lambda$ of $\A$
+satisfies
+\[
+ \log\frac1{\E\nu}\leq\log\frac{Q_0}{|R|}+\log2+2\sum_j\E_{Q'}\bigl[\Phi_j^{\rm light}(H_{<j})\bigr],
+\]
+where $\Phi_j^{\rm light}(h)$ is the right side of \eqref{eq:boolean} for the
+coordinates of $W_j$ that are light at $h$ and have $\log\ell\leq\lambda$.
+\end{theorem}
+\begin{proof}
+Let $g_j(h)=\E_U[\nu\mid H_{<j}=h]$ under the uniform measure.  By downward
+induction, for every history $h$ at window $j$,
+\[
+ g_j(h)\geq\E_{Q'}\Bigl[\ind_\A(H_{<J+1})\exp\Bigl(-\sum_{i\geq j}\Phi_i^{\rm light}(H_{<i})\Bigr)\Bigm| H_{<j}=h\Bigr].
+\]
+The base case is $g_{J+1}\geq\ind_\A$.  For the step, the hit indicators
+under $U$ given $h$ are independent $\Bern(p_\ell(h))$; split
+$x=(x_L,x_H)$ into light and heavy and put
+$\tilde f(x_L)=\E_U[g_{j+1}(H_{<j+1})\mid h,x_L]$.  Then $\E\tilde f=g_j(h)$,
+$\tilde f\geq0$, $\tilde f$ is $\lambda$-level in $x_L$ (averaging over $x_H$
+preserves this), light coordinates have $p_\ell(h)\leq1/4$, and given
+$x_L=0$ the law of $H_{<j+1}$ is the $Q'$ transition.  If $\tilde f(0)=0$ the
+claim is trivial; otherwise Proposition~\ref{prop:boolean} for
+$\tilde f/\tilde f(0)$ gives $\E\tilde f\geq\tilde f(0)\e^{-\Phi_j^{\rm light}(h)}$,
+and the induction hypothesis bounds $\tilde f(0)$.  Finally, with
+$S=\sum_j\Phi^{\rm light}_j\geq0$,
+$\E\nu\geq(|R|/Q_0)\E_{Q'}[\ind_\A\e^{-S}]$, and Jensen on $Q'(\cdot\mid\A)$
+with $Q'(\A)\geq1/2$ gives $\E_{Q'}[\ind_\A\e^{-S}]\geq\frac12\e^{-2\E_{Q'}S}$.
+\end{proof}
+Heavy coordinates thus cost nothing in the bound; they enter only through
+$\mathfrak L$, which is controlled by an average, never by a supremum.
+
+\subsection{The gapped cap}
+Take the windows above with $w_0=W$, the base $R=R_W$, and caps
+$\delta_\ell=\ell^{-1/2}$.  The family $\cG$ consists of $\cR(M)$-classes
+with $M$ $(\eta,B)$-gapped and $P(M)>W$, and any $\cR(M)$-classes with
+$W$-smooth $M$.  The latter are avoided by $R_W$ (Lemma~\ref{lem:QR}), so
+(R1) holds; (U) holds by Lemma~\ref{lem:gappedU}.  Then
+$\Gamma(m):=\prod_{p\mid m}\gamma'(p)\leq3^{\omega(m)}$.
+
+\begin{lemma}[second moment; {\cite[Lemma~2.4]{TW}}; \lab{proved}]\label{lem:secondmoment}
+For every $\epsilon>0$ there is $C(\epsilon,B)$, independent of $W$, $\eta$
+and the family, such that $\E_{Q'}[p_\ell(H)^2]\leq C(\epsilon,B)\ell^{-2+\epsilon}$
+for every prime $\ell>W$.
+\end{lemma}
+\begin{proof}
+$|F_\ell(h)|$ is at most the number $N_\ell(n)$ of pairs $(q,D)$ with
+$q\leq\ell^B$, $D\mid A_{q\ell}^2$ and $n\equiv-4D\pmod q$, a function of the
+full history.  Expanding $N_\ell^2$, a compatible pair of pairs contributes
+$Q'(n\equiv a\ (m))\leq3^{\omega(m)}/m$ with $m=\lcm(q,q')$, by
+Lemma~\ref{lem:leak}(b).  Each $q$ carries $\tau(A^2)\ll_\epsilon\ell^{\epsilon/4}$
+divisors $D$, and there are $\tau(m^2)$ pairs with $\lcm=m$.  So
+$\E N_\ell^2\ll_\epsilon\ell^{\epsilon/2}\sum_{m\leq\ell^{2B}}3^{\omega(m)}\tau(m^2)/m
+\ll_{\epsilon,B}\ell^{\epsilon}$.  Divide by $\ell^2$.
+\end{proof}
+% The source writes A_q for (q*l+1)/4 with the top prime l fixed.
+
+By Lemma~\ref{lem:leak}(a) and Markov,
+$\mathfrak L\leq\sum_{\ell>W}\ell^{1/2}C(1/4,B)\ell^{-7/4}\ll_BW^{-1/4}$, so
+there is $W_0(B)$ with $\mathfrak L\leq1/2$ for $W\geq W_0(B)$, uniformly in
+$\eta$ and the family \cite[Cor.~2.5]{TW}.  The same weighted Shiu argument
+as in Corollary~\ref{cor:dominant} (now with $h(p)\leq2$ for $p\leq W$ and
+$h(\ell)\leq2\ell^{-1/2}$ for $\ell>W$) gives, for every window with
+$s_j\leq\lambda$,
+\begin{equation}\label{eq:windowmass}
+ \E_{Q'}\sum_{\ell\in W_j}p_\ell(H_{<j})\leq K\,((1+B)s_j)^3,\qquad K=K(W,B)
+\end{equation}
+\cite[Lemma~2.6]{TW}, using $M\leq P(M)^{1+B}\leq\e^{(1+B)s_{j+1}}$
+\cite[Lemma~2.4]{EB}.
+
+\begin{theorem}[the gapped cap; {\cite[Thm~2.7]{TW}}; \lab{proved}]\label{thm:gapped}
+Fix $B\geq0$ and take $W=W_0(B)$.  For every $0<\eta<1$, every family
+$\cG$ as above, and every majorant $\nu$ of level $\lambda\geq\log W$,
+\[
+ \log\frac1{\E\nu}\leq C\,K^{1/4}(1+B)^{3/4}\eta^{-1}\lambda^{3/4}
+ +O_B(\eta^{-1}\log^2\lambda)+O_B(1),
+\]
+with $C$ absolute and $K=K(W_0(B),B)$.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:capped} applies since $\mathfrak L\leq1/2$; the $R$-term
+is $O_B(1)$ by Lemma~\ref{lem:QR}(2).  Within a window the costs lie in
+$(s_j,(1+\eta)s_j]$ and $1+\eta<2$, so after Step~0 of
+Proposition~\ref{prop:boolean} there is one nonempty band, and $G=1$ with
+$s_*$ the least cost present \cite[Lemma~2.5a]{EB}.  The light profile is
+at most the full profile, so \eqref{eq:windowmass} and concavity bound
+the logarithmic terms by $O(\log\lambda+\log K+\log(1+B))$ per window,
+and there are at most $1+2\log\lambda/\eta$ windows with $s_j\leq\lambda$.
+The main term of window $j$ is at most
+$\inf_\alpha[19\alpha\lambda+X_j\e^{-\alpha s_j}]
+\leq\min\{X_j,(19\lambda/s_j)(1+\log^+(X_js_j/19\lambda))\}$ with
+$X_j=C_4K(1+B)^3s_j^3$.  Put $s^*=(19\lambda/(C_4K(1+B)^3))^{1/4}$.  Windows
+with $s_j\leq s^*$ contribute at most $2X(s^*)/\eta=38\lambda/(\eta s^*)$; the
+$k$-th window above $s^*$ contributes at most
+$(19\lambda/s^*)(1+\eta)^{-k}(1+4(k+1)\log(1+\eta))$, summing to at most
+$(19\lambda/s^*)\cdot18/\eta$ \cite[proof of Thm~2.5]{EB}.  The total is
+$\leq380\lambda/(\eta s^*)$.  Multiply by $2$.
+\end{proof}
+For dominant moduli this recovers Corollary~\ref{cor:dominant} for
+$\cR(M)$-classes, with a different $R$-term.  It needs no hypothesis on
+heavy coordinates: the extremal statement $(E_\delta)$ and hypothesis
+$H_{\rm light}$ of \cite[\S\S2.5, 4.4]{EB} are not used.
+
+\emph{Scope of Theorem~\ref{thm:gapped}.}  It covers only $\cR(M)$-classes:
+Lemma~\ref{lem:mordell} is proved for $\cR(M)$ only, and the analysis of
+\cite{EB} is restricted to $\cR(M)$.  It needs $B$ fixed: there is no
+summation over $B$.  It does not cover $\eta$-twin moduli, for which (U)
+fails.
+
+\begin{theorem}[window-resolved families; {\cite[Thm~4.4]{TW}}; \lab{proved}]\label{thm:resolved}
+Fix $B$, $W=W_0(B)$ and $\lambda\geq(2\log W)^4$.  Let $\cG$ be any family of
+$\cR(M)$-classes with $M\leq P(M)^{1+B}$, plus any $W$-smooth classes,
+such that every modulus with top prime in $(\e^{\lambda^{1/4}},\e^{\lambda/2}]$
+is window-resolved: the last $\eta$-window meeting its primes $>W$
+contains exactly one of them, to exponent one.  Then every majorant of
+level $\lambda$ satisfies $\log(1/\E\nu)\ll_B\eta^{-1}\lambda^{3/4}$.
+\end{theorem}
+The proof \cite[\S4]{TW} uses an abstract form of
+Theorem~\ref{thm:capped} with blocks: singletons below
+$\e^{\lambda^{1/4}}$, where even twin and prime-power moduli cost
+$\ll\lambda^{3/4}$ in total \cite[Prop.~4.1]{TW}; the $\eta$-windows in
+$(\e^{\lambda^{1/4}},\e^{\lambda/2}]$; one block above $\e^{\lambda/2}$, where
+each term of $\nu$ sees at most one prime and a linear-window inequality
+gives cost $O(\e^{-\lambda/4})$ \cite[Lemma~4.2, Cor.~4.3]{TW}; and a
+second-moment bound with prime-power top primes \cite[Lemma~4.0]{TW} for
+the leak.  So all twin moduli with top prime outside
+$(\e^{\lambda^{1/4}},\e^{\lambda/2}]$ are already covered.  The
+\emph{residual} is the set of unresolved moduli with top prime in that
+range.
 
 \end{document}
