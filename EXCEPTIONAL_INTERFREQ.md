@@ -1,6 +1,8 @@
 # EXCEPTIONAL_INTERFREQ — the inter-frequency cancellation door (task O18)
 
-Status: **checkpoint 1 (O18).** Labels follow `DISCOVERIES.md`. PROVED
+Status: **checkpoint 2 (O18), after the hostile review
+`reviews/exceptional-interfreq-review.md` (SOUND-WITH-REPAIRS; D1–D7
+applied).** Labels follow `DISCOVERIES.md`. PROVED
 means proved in this file, internal checks only, not refereed. No θ > 3/4.
 
 ## 0. Summary
@@ -10,26 +12,39 @@ means proved in this file, internal checks only, not refereed. No θ > 3/4.
 | Obs 1.1 | unrestricted exact interval evaluation is the problem itself (ν = 1_𝒜); any cap must restrict spectrum, structure or evaluation | PROVED (trivial) |
 | Thm 2.2 | Selberg minorant: ν ≥ 0 on ℤ, all nonzero frequencies of denominator ≤ D < N ⇒ `Σ_{n≤N}ν ≥ (N−D)Eν`, whatever the cancellation | PROVED (classical tool) |
 | Cor 2.3 | majorants built from classes of modulus ≤ N/2 (any coefficients, any evaluation: exact, dispersion/BFI, Kloosterman, Vaaler, floor/ceiling, smooth windows, any Q₀) save `≤ C(log N)^{3/4}(log log N)^{3/4}` for every K2 forced-class mixture | PROVED (K2 proviso: Case A via ElT Prop 1.4) |
-| Thm 2.5 | **hybrid cap**: any bound B ≥ Σ_{n≤N}ν with `Σ_{d_i>N/2}|a_i| ≤ cB` saves `≤ log(2+12c) + C(log N)^{3/4}(log log N)^{3/4}`; contains K2 Cor 6.1 and Cor 2.3 | PROVED (same proviso) |
+| Thm 2.5, Rem 2.6 | **coefficient-budget cap**: any bound B ≥ Σ_{n≤N}ν with `T_> := Σ_{d_i>N/2}|a_i| ≤ cB` saves `≤ log(2+12c) + C(log N)^{3/4}(log log N)^{3/4}`; the same order holds whenever `T_> ≤ (N/24)exp(−C(log N)^{3/4}(log log N)^{3/4})`, whatever B is. Contains K2 Cor 6.1 (c = 1). It contains Cor 2.3 for families with primes ≤ N^A. It does **not** by itself cover hybrid methods that charge large classes their trivial count (D1 of the review) | PROVED (same proviso; family primes ≤ N^A) |
 | Prop 3.1 | exact-interval LP value of level-λ hit-pattern majorants depends only on the interval correlation counts `#{n≤N: n ∈ ∩_{ℓ∈T}F_ℓ}`, s(T) ≤ λ (dual: σ ≥ 0 matching moments) | PROVED |
 | Prop 3.2 | averaged over shifts, the exact-interval LP value is ≤ the CRT value (Jensen; an average inequality only) | PROVED |
-| §3.2 | toy full hit-pattern LPs: interval within 0.005 of CRT up to Q = N; above N the deviations are larger and of either sign, mostly gains; [1,N] is not exceptional | EVIDENCE |
-| §3.3 | **reduction**: above N/2 the inter-frequency door *is* the non-CRT tuple-count door: one must count n ≤ N with prescribed witness sets of combined modulus > N/2, better than termwise | PROVED (reduction) / Assessment |
+| §3.2 | toy full hit-pattern LPs: interval within 0.005 of CRT up to Q = N; above N the deviations are larger and of either sign, mostly gains; [1,N] is not systematically better than shifted windows | EVIDENCE |
+| §3.3 | reading of Thm 2.5's contrapositive: a method escaping it must save on the large-modulus coefficient mass `T_>^*`, which for hit-pattern majorants means counting n ≤ N with prescribed witness sets of combined modulus > N/2 better than termwise (the non-CRT tuple-count door) | Assessment |
 | Lemma 4.1, 4.2 | (H_eq) may lose a factor N^{−A}; a window-correlation lower bound for patterns of modulus > N is a *sufficient* condition for it; not needed for majorants built from classes of modulus ≤ N/2 | PROVED; (H_eq) itself CONJECTURE |
-| §5 | BV/BFI/DI/Zhang-type inputs used as remainder estimates for classes of modulus ≤ N/2, with coefficient-cost charging above N/2, are capped by Thm 2.5 *whatever their strength* (integer avoider count); the input that would be needed (high-order ES witness correlations above modulus N) is not known | PROVED (first part, integer count only) / Assessment |
+| §5 | BV/BFI/DI/Zhang-type inputs, used as remainder estimates for majorants with all moduli ≤ N/2, are capped *whatever their strength* (Cor 2.3, integer avoider count). With large classes present they are capped only when the bound dominates `T_>^*/c` (Thm 2.5). The input that would be needed (high-order ES witness correlations above modulus N) is not known | PROVED (Cor 2.3 / Thm 2.5 parts, integer count only) / Assessment |
 
-**Verdict.** For the integer avoider count, the inter-frequency door is
-closed for every method of the following kind (Thm 2.5): a nonnegative
-majorant of the *whole* avoider set of a K2 forced-class mixture with
-family primes ≤ N^{O(1)}, whose bound dominates a fixed multiple of the
-coefficient mass on moduli > N/2. Classes of modulus ≤ N/2 may be
-evaluated in any way: exactly, by dispersion, or by smoothing. This does
-*not* cover methods that save on the large-modulus coefficient mass. That
-includes smooth per-frequency bounds above level N/2 (§4, open), prime-only
-counts beyond NC's prime-slice results, and majorants that are ≥ 0 only on
-[1,N]. By §3.3, what remains is the counting of integers ≤ N with
-prescribed large-modulus ES witness sets, done better than termwise. This
-is a reduction of the problem, not a proof that it is hard.
+**Verdict.** For the integer avoider count, two statements are proved.
+In both, ν is a nonnegative majorant of the *whole* avoider set of a K2
+forced-class mixture.
+* (Cor 2.3) If every class of ν has modulus ≤ N/2, no evaluation of
+  Σ_{n≤N}ν beats 3/4. It may be exact, use dispersion or smoothing, and
+  the coefficients may be of any size.
+* (Thm 2.5, Rem 2.6) Large classes may be present, with family primes
+  ≤ N^{O(1)}, provided the method's bound dominates `T_>^*/c`, where
+  `T_>^*` is the least coefficient mass on moduli > N/2 over
+  representations of ν. Here c may be as large as
+  `exp(O((log N)^{3/4}(log log N)^{3/4}))`. Alternatively it suffices that
+  `T_>^*` itself is that much below N.
+
+Not covered: methods that save on the large-modulus coefficient mass.
+**In particular, a "hybrid" method is not proved to be capped.** By a
+hybrid method we mean: any evaluation below N/2, with each class above N/2
+charged its trivial count `N/d_i + O(1)`. Its bound is
+`Σ_{n≤N}ν + Σ_{d_i>N/2}(|a_i| − a_i r_i)`, which can be ≪ T_> when positive
+coefficients sit on large classes that meet [1,N]. No counterexample is
+known; this is a proof gap. Also not covered: smooth per-frequency bounds
+with large classes (§4, open), prime-only counts beyond NC's prime-slice
+results, and majorants that are ≥ 0 only on [1,N]. §3.3 (Assessment)
+reads what remains as counting integers ≤ N with prescribed large-modulus
+ES witness sets, better than termwise. That is a reformulation, not a
+proof that it is hard.
 
 Notation as in `EXCEPTIONAL_NONCRT.md` (NC below), `EXCEPTIONAL_KARY2.md`
 (K2) and `EXCEPTIONAL_THETA.md` (ET). A *majorant* of an avoider set 𝒜 is a
@@ -117,7 +132,9 @@ Finally `F(n) ≤ 1_{[1,N]}(n)` and `ν(n) ≥ 0` for every n ∈ ℤ, so
 *Remarks.* (i) The hypothesis ν ≥ 0 is used at every integer, including
 those outside [1,N]: this is where "majorant on ℤ" enters (K2 §6 item 3
 excludes majorants that are ≥ 0 only on [1,N]). (ii) (2.1) is the
-minorant half of the Selberg/Montgomery–Vaughan large sieve (`N − 1 + δ^{−1}`).
+minorant counterpart of the Selberg extremal functions behind the large
+sieve. The large-sieve constant `N − 1 + δ^{−1}` comes from the *majorant*;
+the minorant used here has `F̂(0) = |I| − δ^{−1}` with `|I| = N`.
 It is classical in spirit; the point here is its consequence for the
 sieve-limit programme. (iii) For periodic ν with period Q ≤ D the
 elementary bound `Σ_{n≤N}ν ≥ ⌊N/Q⌋·Q·Eν` gives the same thing. Theorem 2.2
@@ -162,10 +179,12 @@ of modulus > M₀ ≍ N² are empty on [1,N]), the door for single Case-B
 classes is the modulus window `(N/2, M₀]`; for products it is combined
 moduli above N/2.
 
-### 2.1 The hybrid class: any cancellation below N/2, coefficient cost above
+### 2.1 Large classes under a coefficient budget
 
-Theorem 2.2 allows an extension: classes of modulus > D may be present,
-provided the method pays about `|a_i|` for each of them.
+Theorem 2.2 allows an extension: classes of modulus > N/2 may be present,
+provided the method's bound dominates a multiple of their total coefficient
+mass (hypothesis (2.2); paying the trivial count per class is *not*
+enough, Rem 2.6).
 
 **Lemma 2.4 (PROVED).** Let F be the minorant of Theorem 2.2 (for N and
 D < N). For every class `b mod d`,
@@ -181,7 +200,7 @@ contribute; none if d ≤ D. Each `|F̂(k/d)| ≤ ‖F‖₁`. Write `F = 1_I �
 with `g ≥ 0`, `∫g = |I| − F̂(0) = D`; then `|F| ≤ 1_I + g` and
 `‖F‖₁ ≤ N + D`. ∎
 
-**Theorem 2.5 (hybrid level-N/2 sieves are capped at 3/4; PROVED, Case-A
+**Theorem 2.5 (coefficient-budget cap with free small moduli; PROVED, Case-A
 part via K2 Thm 5.1).** Let 𝔊 be any finite family of ℛ(M)-, (a,D)-,
 Case-A and selector classes with every prime of every modulus `≤ N^A`.
 Let `ν = Σ_i a_i 1[n ≡ b_i (d_i)]` be a majorant of 𝒜(𝔊). Put
@@ -215,25 +234,48 @@ With `Λ₀ = A log N` and
 a majorant of level λ with mean `≤ 2Eν`. K2 Thm 5.1 (resp. 5.2) bounds S
 exactly as in K2 Cor 6.1's case analysis. ∎
 
-*Scope.* Theorem 2.5 contains:
-* K2 Cor 6.1 (`B ≥ Σ_i|a_i| ≥ T_>`, c = 1);
-* Cor 2.3 (`T_> = 0`);
-* every *hybrid* method: the interval sum of the classes of modulus ≤ N/2
-  is evaluated by any means (exact, dispersion, Kloosterman, Vaaler,
-  floor/ceiling), with coefficients of any size; each class of modulus
-  > N/2 is charged its trivial count `N/d_i + O(1)` per unit coefficient,
-  i.e. `Σ_{n≤N} ν_> ≤ N·Eν_> + T_>`;
-* smooth windows `Φ(n/N) ≥ 1_{[1,N]}(n)` used this way.
+**Remark 2.6 (strength and scope; PROVED).**
+* *Representations.* T_> depends on how ν is written. A class of modulus
+  ≤ N/2 splits into k classes of modulus kd > N/2, which inflates T_>
+  without changing ν. Theorem 2.5 holds for every representation, so it
+  applies with `T_>^* = inf_{repr} Σ_{d_i>N/2}|a_i|`.
+* *T_>/N, not T_>/B, is binding.* Put
+  `S_max = C_A(log N)^{3/4}(log log N)^{3/4}`. The mean side caps
+  `S = log(1/Eν) ≤ S_max` whenever `T_> ≤ N`, whatever B is. Then
+  `B ≥ (N/2)e^{−S} − 6T_>`. So if `T_>^* ≤ (N/24)e^{−S_max}`, then
+  `B ≥ (N/4)e^{−S_max}` and the saving is ≤ `S_max + log 4`. Equivalently,
+  c in (2.2) may be as large as `exp(O(S_max))` without changing the
+  order of the cap.
+* *Contains:* K2 Cor 6.1 (`B ≥ N·Eν + Σ_i|a_i| ≥ Σ_{n≤N}ν` and `B ≥ T_>`,
+  c = 1). It also contains Cor 2.3, but only for families with primes
+  ≤ N^A. That hypothesis serves only Λ₀ in ET Lemma 2.9, which is idle when
+  `T_> = 0`; Cor 2.3 itself needs no prime bound.
+* *Does not contain (proof gap, not a refutation):* hybrid methods that
+  evaluate the classes of modulus ≤ N/2 in any way and charge each class of
+  modulus > N/2 its trivial count. With `r_i = #{n≤N: n≡b_i (d_i)} − N/d_i`,
+  their bound is `B_hyb = Σ_{n≤N}ν + Σ_{d_i>N/2}(|a_i| − a_i r_i)`. The last
+  sum is ≈ `a_i N/d_i` for a positive coefficient on a class with `d_i ≫ N`
+  that meets [1,N], so B_hyb can be ≪ T_>. Then (2.2) fails for every
+  useful c. The mean side also needs `log T_> = O(log N)`, which is not
+  automatic for such methods. In natural sieves positive large-modulus
+  terms typically miss [1,N] and are charged ≈ |a_i|. A route to closing
+  the gap (review numerics only) is to show
+  `Σ_{n≡b (d)}(1_{[1,N]} − F)(n) ≤ 1 + N/(2d)` for d > N, together with
+  `F ≥ 0` on [1,N]. Not attempted here.
+* Smooth windows `Φ(n/N) ≥ 1_{[1,N]}(n)`: covered when the bound
+  dominates `T_>^*/c` (Rem 2.6 bullet 2), or when all moduli are ≤ N/2
+  (Cor 2.3).
 
-**What is left of the door (precise).** A method escapes Theorem 2.5 only
-if its bound B is much smaller than the coefficient mass `T_>` of classes
-of modulus > N/2. Such a class `b mod d` has `N/d + r` elements in
+**What is left of the door (Assessment).** A method escapes Theorem 2.5
+only if its bound B is much smaller than `T_>^*` (and `T_>^*` is not tiny
+compared with N, Rem 2.6). How Σ_{n≤N}ν splits between small and large
+classes depends on the representation. Such a class `b mod d` has `N/d + r` elements in
 [1,N], with `r ∈ (−1, 1)`. For d > N its count is `1[b̃ ≤ N]` (b̃ the least
 positive residue). So the method must evaluate
 
     Σ_{i: d_i > N/2} a_i · ( #{n ≤ N : n ≡ b_i (d_i)} − N/d_i )       (2.3)
 
-with cancellation between the classes, to accuracy `≪ B ≪ T_>`. For
+with cancellation between the classes, to accuracy `≪ B ≪ T_>^*`. For
 d_i > N this is a statement about *which* classes of large modulus meet
 [1,N]. For hit-pattern majorants those classes are intersections of
 forced classes, and (2.3) is a weighted count of integers n ≤ N with
@@ -287,9 +329,11 @@ So *on average over shifts* an exact interval count at level λ does at
 least as well as the CRT sieve. This is a generic effect of fixing one
 window, not an arithmetic feature of [1,N]. (Jensen gives an average
 inequality only, not a gain at every shift.) For `λ = ∞` the value is the
-void `π_N^{(t)}(0)`, whose average is the CRT density `Π(1 − p_ℓ)`. For
-the full ES family up to N^{O(1)} this is `e^{−c(log N)^3}`-small (mean
-witness mass ≍ (log N)³), far below `e^{−(log N)^{3/4}}`. So in the LP
+void `π_N^{(t)}(0)`, whose average is the CRT density `Π(1 − p_ℓ)` (prime
+moduli). *Heuristically*, for the full ES family up to N^{O(1)} the CRT
+avoider density is `e^{−c(log N)^3}`-small (mean witness mass ≍ (log N)³;
+composite-modulus classes are not a product `Π(1−p_ℓ)`, so this is not
+proved here), far below `e^{−(log N)^{3/4}}`. So in the LP
 sense exact counts at high level face no barrier from (3.1) alone: this is
 Observation 1.1 seen through the LP. The barrier is evaluation: knowing
 the interval counts `N·m_T(π_N)` for T of combined modulus `Π_T ℓ > N/2`.
@@ -314,13 +358,16 @@ patterns: HiGHS, < 5 s). Family: the 12 primes `3 ≤ ℓ ≤ 79`, ℓ ≡ 3 (4)
 | ∞ (void) | 3.152 | 2.976 | 3.178 | 3.270 |
 
 * Up to Q = N the interval LP is within 0.005 of the CRT LP, at every
-  shift (consistent with Theorem 2.2; Theorem 2.2 is a lower bound, not an
-  equality).
+  shift. Theorem 2.2 constrains this only for Q < N; at Q = N it is
+  vacuous (N − D = 0), and at Q = N^{1/2} it allows an excess ≤ 0.018.
 * Above N the deviations grow and have either sign. At Q = N^{3/2}, [1,N]
   saves less than CRT (2.306 < 2.324) and the shifts save more. At Q = N²
   all three save more (Prop 3.2 predicts this only on average). At full
-  level [1,N] saves less than CRT, because the squares are avoiders (void
-  0.051 versus CRT 0.043). [1,N] is never the best of the three.
+  level [1,N] saves less than CRT (void 0.051 versus CRT 0.043). The squares
+  are avoiders, which is a plausible but unverified explanation: there are
+  54 squares ≤ 3000 against an excess of about 25 voids. [1,N] saves the
+  most at Q = N (1.6713 vs 1.6690, 1.6642) and ties at Q = N^{3/4}. It is
+  not the best at Q ≥ N^{5/4}. There is no systematic advantage of [1,N].
 * Prime samples (`mode=prime`, about 200–400 points) deviate more, already
   near Q = N. The relevant scale is the sample size N/log N, and
   small-sample overfitting at high level grows.
@@ -328,14 +375,19 @@ patterns: HiGHS, < 5 s). Family: the 12 primes `3 ≤ ℓ ≤ 79`, ℓ ≡ 3 (4)
 The toy savings are tiny (m = 12). The table illustrates the mechanism.
 It is no evidence about the asymptotic exponent.
 
-### 3.3 The door, reduced
+### 3.3 The door, reduced (Assessment)
 
-Combining Theorem 2.5, Prop 3.1 and NC Thm 8.1: a method that beats θ = 3/4
-through inter-frequency cancellation must, for some majorant, evaluate
+This subsection is a reading, not a theorem. It interprets the
+contrapositive of Theorem 2.5 (with D1/D2 of the review: only methods
+whose bound is ≪ T_>^* escape) and combines it with NC Thm 8.1/Cor 8.3.
+Those two hold only for prime-slice / Case-B hit-pattern families, a
+narrower scope than K2 mixtures. Read this way, a method that beats
+θ = 3/4 through inter-frequency cancellation must, for some majorant and
+representation, evaluate
 
     Σ_{i: d_i > N/2} a_i ( #{n ≤ N : n ≡ b_i (d_i)} − N/d_i )         (3.2)
 
-with an error far below `T_> = Σ_{d_i > N/2}|a_i|`. For hit-pattern
+with an error far below `T_>^*`. For hit-pattern
 majorants the classes are intersections ∩_{ℓ∈T} F_ℓ with `Π_T ℓ > N/2`.
 Then (3.2) is a signed count of integers n ≤ N carrying a prescribed set of
 ES witnesses, i.e. correlations of the Elsholtz–Tao witness function f(n),
@@ -345,9 +397,10 @@ hit-pattern majorants on [1,N] with moduli ≤ M₀ ≍ N² (NC Cor 8.3) that
 means correlations of order `|T| ≥ c(log N)^{4θ/3−1}`. Or the interval
 count is ≤ ½ of the CRT mean. In both cases the input is a count of
 multi-witness integers ≤ N, done better than termwise. This is the
-"non-CRT tuple count" door (c′) of NC §6. **So the inter-frequency door is
-not a separate door: below N/2 it is closed (Thm 2.5), and above N/2 it is
-the tuple-count door.**
+"non-CRT tuple count" door (c′) of NC §6. **Assessment: the inter-frequency door is not a
+separate door. Below N/2 it is closed (Cor 2.3). With large classes it is
+closed for methods paying ≳ T_>^*/c (Thm 2.5). What remains is the
+tuple-count door.**
 
 ## 4. Smooth per-frequency rounding and (H_eq)
 
@@ -409,17 +462,20 @@ superseded below level N/2 (Cor 2.3), and the polynomial-loss form
 
 ## 5. Which arithmetic input would be needed, and is any known?
 
-**(i) Level-of-distribution / dispersion inputs are useless here.**
+**(i) Level-of-distribution / dispersion inputs at moduli ≤ N/2.**
 Bombieri–Vinogradov, BFI, Deshouillers–Iwaniec, Zhang/Polymath and
 Maynard-type well-factorable estimates control remainders
 `Σ_{d≤D} λ_d r_d` for moduli `d ≤ D < N` (for the integers, or level
-`N^{1/2+δ}`, `N^{4/7}` for primes). Theorem 2.5 shows that for the integer
-avoider count, *any* evaluation of all classes of modulus ≤ N/2, however
-strong (even exact), together with trivial charging above N/2, is capped
-at `(log N)^{3/4}(log log N)^{3/4}`. So no estimate of this type, used
-as a remainder estimate for moduli ≤ N/2, can help, whatever its quality.
-(It could matter only inside a method that also saves on the
-large-modulus mass, which is §3.3's problem.) For prime-only majorants, NC Thm 3.2/Rem 3.4 already
+`N^{1/2+δ}`, `N^{4/7}` for primes). For the integer avoider count, Cor 2.3 shows
+that if every class of the majorant has modulus ≤ N/2, then *any*
+evaluation, however strong (even exact), is capped at
+`(log N)^{3/4}(log log N)^{3/4}`. With classes above N/2 present,
+Theorem 2.5 gives the same cap provided the bound dominates `T_>^*/c`
+(Rem 2.6). That is not proved for hybrid methods that charge large
+classes only their trivial count (Rem 2.6, last bullet). So no estimate
+of this type helps when used on majorants of modulus ≤ N/2, or inside a
+method whose bound dominates T_>^*/c. It could matter only inside a method
+that also saves on the large-modulus mass. For prime-only majorants, NC Thm 3.2/Rem 3.4 already
 showed level `N^{O(1)}` equidistribution is capped. Theorem 2.5 does not
 extend this to prime counts (Lemma 2.4 is a statement about integers).
 
@@ -429,7 +485,7 @@ modulus > N/2. For Case-B classes on [1,N] a hit by `ℛ(M)`, M > N/2, means
 `n + 4D = aM` with a small cofactor `a ≤ (N+4D)/M`. Switching to the
 complementary divisor turns it into the (a,D)-class
 `n ≡ −(4D + a) (mod 4a·g(D))` (NC Lemma 8.2; ET Lemma 3.2). Its modulus is
-`≤ 8B² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. Caveat: the
+`≤ 8⌊(N+1)/3⌋² ≍ N²`, and it is < N/2 only when `a·g(D) < N/8`. Caveat: the
 unrestricted (a,D)-class has *more* hits than the original classes, even
 inside [1,N]. Example: N = 10, class `3 mod 7` (M = 7, D = 1) hits n = 3
 with a = 1, and the switched class `3 mod 4` also hits n = 7. So switching

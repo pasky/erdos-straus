@@ -15,7 +15,9 @@ V(law, Q) = min E_law G.  Laws:
 Printed: savings -log V.  Q = inf means all 2^m monomials (V = law(0)).
 
 Run: uv run --with scipy python scripts/interfreq_hitpattern_lp.py N m [all|prime] [LMIN] [OFFSET]
-Memory: sparse matrix with <= 3^m nonzeros (m <= 14: < 5e6); < 2 GB.\nQ = inf uses the closed form V = law(0).  Prime mode skips Q = N^3 (slow LPs\non ~300-point empirical laws).  Large OFFSET in prime mode sieves to OFFSET+N.
+Memory: sparse matrix with <= 3^m nonzeros (m <= 14: < 5e6); < 2 GB.
+Q = inf uses the closed form V = law(0).  Prime mode skips Q = N^3 (slow LPs
+on ~300-point empirical laws).  Large OFFSET in prime mode sieves to OFFSET+N.
 """
 import math
 import sys
