@@ -67,3 +67,63 @@ Write `D_q(π) = Σ*_{a mod q}|π̂(a/q)|²`. By Parseval mod q,
 Irrational θ are not seen by a CRT-admissible bound: `S_A(θ)` is not a
 function of `π_A`, and dropping these terms only weakens (LS)'s left side.
 So the best CRT-admissible bound is `Z ≤ 1/F*_w`.
+
+## 2. Exact duality: the optimal large sieve is a Λ²-majorant
+
+**Theorem 2.1 (duality; PROVED).** Let `(Θ,w)` be any finite set of
+points with positive weights, and `M'`, `Θ_ℚ`, `P(𝒜)` as in §1. Put
+
+    m_w = inf { Σ_{θ∈Θ_ℚ} |γ_θ|²/w_θ :  g(n) = Σ_{θ∈Θ_ℚ} γ_θ e(−nθ),
+                                        Re g(n) ≥ 1 for all n ∈ 𝒜 }
+
+(`inf ∅ = ∞`). Then `F*_w = 1/m_w`, and the infimum is attained when
+finite.
+
+*Proof.* `P(𝒜)` is a simplex in `ℝ^{M'}`. The map
+`T π = (√w_θ π̂(θ))_θ ∈ ℂ^{Θ_ℚ}` is ℝ-linear and `F_w(π) = ‖Tπ‖²`.
+
+(≥) Let g be feasible and `π ∈ P(𝒜)`. Since π is real,
+`Σ_n π(n) g(n) = Σ_θ γ_θ conj(π̂(θ))`, and its real part is
+`Σ_n π(n) Re g(n) ≥ 1`. Cauchy–Schwarz gives
+`1 ≤ (Σ_θ|γ_θ|²/w_θ)(Σ_θ w_θ|π̂(θ)|²)`. Hence `F_w(π) ≥ 1/m_w` for all π.
+
+(≤) Write `‖Tπ‖ = max_{c∈ℂ^{Θ_ℚ}, ‖c‖≤1} φ(π,c)` with
+`φ(π,c) = Re⟨Tπ,c⟩ = Σ_n π(n) Re h_c(n)`, where
+`h_c(n) = Σ_θ √w_θ conj(c_θ) e(nθ)`. φ is ℝ-bilinear and both sets are
+compact and convex. Von Neumann's minimax theorem gives
+
+    √F*_w = min_π max_c φ = max_c min_π φ = max_{‖c‖≤1} min_{n∈𝒜} Re h_c(n).
+
+If `F*_w = 0` there is no feasible g, by (≥). If `F*_w > 0`, take a
+maximiser `c*` and put `g = conj(h_{c*})/√F*_w`, i.e.
+`g(n) = Σ_θ γ_θ e(−nθ)` with `γ_θ = √w_θ c*_θ/√F*_w`. Then
+`Re g = Re h_{c*}/√F*_w ≥ 1` on 𝒜 and
+`Σ|γ_θ|²/w_θ = ‖c*‖²/F*_w ≤ 1/F*_w`. So `m_w ≤ 1/F*_w`, attained by g. ∎
+
+**Corollary 2.2 (the large sieve is bounded below by a CRT majorant;
+PROVED).** Let `(Θ,w)` be an N-large-sieve system and `A ⊂ 𝒜 ∩ I`. Every
+CRT-admissible large-sieve bound `Z ≤ 1/L` satisfies
+
+    1/L ≥ 1/F*_w = m_w ≥ N · Eν*,      ν* := |g*|²,
+
+where `g*` attains `m_w` (if `m_w = ∞` there is no bound at all). `ν*`
+is a CRT majorant of 𝒜 in the sense of ET §1 and KARY2 Thm 5.1:
+* `ν* ≥ 0` on ℤ, and `ν* ≥ (Re g*)² ≥ 1` on all of 𝒜;
+* `ν*(n) = Σ_{θ,θ'} γ_θ conj(γ_{θ'}) e(n(θ'−θ))`, and
+  `e(na/d) = Σ_{b mod d} e(ab/d)·1[n ≡ b (d)]`. Taking real parts,
+  `ν* = Σ_i a_i 1[n ≡ b_i (d_i)]` with real `a_i`, every `d_i` dividing
+  `lcm(den θ, den θ')` for some `θ, θ' ∈ Θ_ℚ`.
+
+*Proof.* `L ≤ F*_w` by admissibility; then Theorem 2.1; then Fact 1.1:
+`Σ|γ_θ|²/w_θ ≥ N Σ|γ_θ|² = N·E_{n mod M'}|g*(n)|²` (Parseval on `ℤ/M'`;
+the θ are distinct mod 1). ∎
+
+**Remark 2.3 (what this says).** The best bound any CRT-admissible large
+sieve can give, with any frequencies, any composite moduli and any
+weights, is at least `N` times the mean of a Selberg-square majorant
+`|g|²`, nonnegative on ℤ, built from the characters the large sieve
+uses. This is the classical large-sieve/Selberg duality, made exact and
+extended to arbitrary class systems. Unlike KARY2 Cor 6.1 there is no
+rounding term: the factor `N + δ^{−1} ≥ N` of the large sieve already
+contains N. So the cap needs only the **level** of `ν*`, not its
+coefficient sum.
