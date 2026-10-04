@@ -387,8 +387,8 @@ term is 0 or the probability of one class mod `lcm(q_C, q_{C'})`, so it is
 (This is ETw Lemma 2.4's expansion, with the pointwise τ-bound replaced
 by AM–GM; nothing is assumed about the size of q.)
 
-**Lemma 4.2 (cofactor sums for the three types; PROVED, Case A
-unconditional).** For every `κ ∈ (0, 1]` there are `c` (absolute) and
+**Lemma 4.2 (cofactor sums for the four types; PROVED, Case A included,
+with no external input).** For every `κ ∈ (0, 1]` there are `c` (absolute) and
 `C_κ(W)` such that for each type
 
     Σ_{P(q)<ℓ} μ_{ℓ,v}(q)² τ(q)Γ(q)/q ≤ C_κ(W) (v+1)^c [ (log ℓ)^c + ℓ^{κv} ].
@@ -397,6 +397,9 @@ unconditional).** For every `κ ∈ (0, 1]` there are `c` (absolute) and
 block is either *long* (K above a power of `ℓ^v`), where Cauchy–Schwarz
 with Lemma 3.1 (`y = ℓ`) gives `e^{−u/2}` times a polylog, or *short*,
 where pointwise divisor bounds cost `ℓ^{κv}`.
+
+*Selector.* Only `v = 1`, `q = 1`, `μ(1) = 1`: the sum is 1. (The class
+`0 mod ℓ` is always active and adds `1/ℓ` to `p_ℓ` deterministically.)
 
 *(a,D).* `μ(q) ≤ μ_{aD}(qℓ^v) ≤ τ(qℓ^v)² ≤ (v+1)²τ(q)²`. So the sum is
 `≤ (v+1)⁴Σ_{P(q)<ℓ}τ(q)⁵Γ(q)/q ≤ C(v+1)⁴(log ℓ)^{32}` (Lemma 3.1, κ = 32). No
@@ -434,8 +437,8 @@ polynomial `(v+1)^c`. Since
 ℓ^{O(v)}` and `q ≤ ℓ^{O(v)}`, so pointwise
 `μ(q)²τ(q)Γ(q) ≤ C_κℓ^{κv/2}`, and `Σ_{q≤256ℓ^{6v}}1/q ≤ C_κℓ^{κv/2}`. ∎
 
-**Lemma 4.3 (second moment and leak without B; PROVED, Case A
-unconditional).** For every prime `ℓ > W`,
+**Lemma 4.3 (second moment and leak without B; PROVED, Case A included,
+with no external input).** For every prime `ℓ > W`,
 `E_{Q'} p_ℓ² ≤ C(W) ℓ^{−7/4}(log ℓ)^{c}`, with `C(W) ≤ C(log W)^{c}`. Hence
 there is an absolute `W₀` such that for `W ≥ W₀`, every family 𝔊 ⊆ 𝔘,
 and the block structure of §5, `𝔏 ≤ 1/2`.
@@ -457,22 +460,27 @@ depend on.
 
 ## 5. The cap
 
-**Theorem 5.1 (3/4 cap for all forced-class families, no B; PROVED, the
-Case-A part modulo Elsholtz–Tao Prop. 1.4).** There are absolute
-constants `W, λ₀, C` such that the following holds. Let 𝔊 be any finite
-family of ℛ(M)-, (a,D)- and Case-A classes (Definition 2.0), mixed
-arbitrarily, with arbitrary moduli. Let `𝒜 = 𝒜(𝔊)` be the set of integers
-in none of its classes, and let ν be a majorant of level `λ ≥ λ₀` of 𝒜
-(ET §1: `ν = Σ a_i 1[n ≡ b_i (d_i)] ≥ 0` on ℤ, `≥ 1` on 𝒜,
+**Theorem 5.1 (3/4 cap for all forced-class families, no B; PROVED; the
+Case-A part uses ElT Prop. 1.4, published, not re-proved).** There are
+absolute constants `W, λ₀, C` such that the following holds. Let 𝔊 be
+any finite family of ℛ(M)-, (a,D)-, Case-A and selector classes
+(Definition 2.0), mixed arbitrarily, with arbitrary moduli. Let
+`𝒜 = 𝒜(𝔊)` be the set of **all** integers in none of its classes, and
+let ν be a majorant of level `λ ≥ λ₀` of 𝒜 (ET §1:
+`ν = Σ a_i 1[n ≡ b_i (d_i)] ≥ 0` on ℤ, `≥ 1` on all of 𝒜,
 `Σ_{ℓ | d_i, ℓ > W} log ℓ ≤ λ`). Then
 
     log(1/Eν) ≤ C λ^{3/4} (log λ)^{3/4}.
 
-If 𝔊 contains no Case-A classes, the statement is unconditional.
+If 𝔊 contains no Case-A classes, no external input is used. The
+constants are astronomically large (§0), so the statement is asymptotic
+only.
 
 *Proof.* EK Theorem 4.1 with the following data.
-* *Base:* `R_W^□` (Lemma 2.3); (R1) holds for every W-smooth class of 𝔊,
-  and the R-term is `≤ 2W`.
+* *Base:* `R_W^□` (Lemma 2.3); (R1) holds for every W-smooth class of 𝔊
+  (selector classes `0 mod p`, `p ≤ W`, included), and the R-term is
+  `≤ 2W`. Selector classes with `p > W` are ordinary classes decided at
+  p (`q = 1`, `v = 1`).
 * *Blocks, in increasing order of primes,* with
   `s₁ = λ^{1/4}(log λ)^{−3/4}` (`λ₀` such that `s₁ > 2 log W`):
   singletons `{ℓ}`, `W < ℓ ≤ e^{s₁}`; sequential blocks
@@ -497,20 +505,39 @@ If 𝔊 contains no Case-A classes, the statement is unconditional.
   `2Σ_i EΦ_i ≤ Cλ/s₁ + O(log²λ) = Cλ^{3/4}(log λ)^{3/4} + O(log²λ)`.
 * Linear block: `2log(1 + 3e^{−λ/4})` (ETw Cor 4.3). Above `e^λ`: 0.
 
-Summing, `log(1/Eν) ≤ 2W + log 2 + Cλ^{3/4}(log λ)^{3/4}`. ∎
+Summing, `log(1/Eν) ≤ 2W + log 2 + Cλ^{3/4}(log λ)^{3/4}`. Since W is
+absolute, `2W + log 2` is absorbed into C for `λ ≥ λ₀` (review 2, D5). ∎
 
-**Theorem 5.2 (bounded B, all three types, no log loss; PROVED, Case A
-modulo ET Prop. 1.4).** Fix `B ≥ 0`. If every modulus of 𝔊 satisfies
-`G ≤ P(G)^{1+B}`, then `log(1/Eν) ≤ C(B)λ^{3/4}` for `λ ≥ λ₀(B)`.
+**Theorem 5.2 (bounded B, all four types, no log loss; PROVED; the
+Case-A part uses ElT Prop. 1.4).** Fix `B ≥ 0`. If every modulus of 𝔊
+satisfies `G ≤ P(G)^{1+B}` (automatic for selector classes), then `log(1/Eν) ≤ C(B)λ^{3/4}` for `λ ≥ λ₀(B)`.
 
 *Proof.* As EK Thm 4.5 (`s₁ = λ^{1/4}`), with Lemma 2.3 for the base and
 Lemma 4.3 for the leak (both B-free). The first moment of classes with
 `P(G) ≤ y` is now `≤ C(B)(log y)³`: drop smoothness and sum over
 `G ≤ y^{1+B}`; for ℛ(M) by EK Lemma 4.2′, for (a,D) by Lemma 3.3, for
-Case A by the body part of Lemma 3.6 with `X = y^{1+B}`. ∎
+selectors by Lemma 3.3′, for Case A by the body part of Lemma 3.6 with
+`X = y^{1+B}`. ∎
 
-So EK Thm 4.5 extends verbatim to (a,D)- and Case-A classes, and with
-Theorem 5.1 the B-hypothesis costs at most a factor `(log λ)^{3/4}`.
+So EK Thm 4.5 extends verbatim to (a,D)-, Case-A and selector classes,
+and with Theorem 5.1 the B-hypothesis costs at most a factor
+`(log λ)^{3/4}`.
+
+**Remark 5.4 (the 3/4 note's majorant is covered; reviews 1 D1, 2 D1).**
+The 3/4 note's majorant is `ν_X = S_y·Q_r(H_X)`, with selector
+`S_y = 1[(n,P_y) = 1]`, `y = Bt³ > W`. It is `≥ 1` only on y-rough
+avoiders, so it is *not* a majorant of `𝒜(𝔊₀)` for the note's atom
+family 𝔊₀. That was the gap in the checkpoint-1 claim, inherited from
+EK Thm 4.5. It *is* a majorant of `𝒜(𝔊₀ ∪ {0 mod p : p ≤ y})`. The atoms
+`−uv^{−1} mod kℓ` are ℛ(kℓ)-classes with `kℓ ≤ ℓ^{1+2κ}`, `κ < 1/240`
+(review 2, check (3), on 124,464 atoms). So the note's majorant lies in
+Theorem 5.2's class with `B < 1/120`, and its saving `c(log N)^{3/4}`
+matches the cap `C(log N)^{3/4}` in order. The constants cannot be
+compared: the note's are ineffective (Bombieri–Vinogradov), and ours
+are astronomically large. The R-term here is `≤ 2W`, smaller than ET's
+`log(P/φ(P))` for selectors. The note's transfer from `E_pr(N)` to
+`E(N)` by the multiplicative semigroup is non-CRT post-processing that
+only loses, so it does not affect this reading.
 
 **Remark 5.3 (number of primes; goal (1) of the brief).** Nowhere in
 §§2–5 does `ω(G)`, or the number of primes of G at one scale, enter. The
