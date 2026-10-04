@@ -301,3 +301,64 @@ frequency space. The mechanism is the product structure in each fibre:
 `|π̂(θ)|` decays by a factor `g_ℓ(c)` for **every** slice prime in the
 denominator. For mixtures with several large primes per modulus there is
 no such product measure; see §7.
+
+## 5. The key question: is `S(Q)` dominated by a Rankin functional?
+
+**5.1 Prime moduli: yes, tautologically.** The arithmetic large sieve
+with prime moduli, in fibre c over a small modulus Q₀, uses sets
+`Ω_c(ℓ) ⊂ ℤ/ℓ` (ℓ ∤ Q₀) of classes that `𝒜_c` avoids. The largest
+admissible choice is the *induced prime-local system*
+`Ω_c(ℓ) = ℤ/ℓ ∖ (𝒜_c mod ℓ)`. It contains, for each class `b (mod q₀ℓ)` of
+𝔊 with `q₀ | Q₀` and `b ≡ c (q₀)`, the class `b mod ℓ`, and possibly more
+(fibres mod ℓ covered by classes with other primes). With
+`g_ℓ = ω_c(ℓ)/(ℓ−ω_c(ℓ))` and any `α > 0`, Rankin gives
+
+    S_c(Q) = Σ_{s≤Q} μ²(s) Π_{ℓ|s} g_ℓ ≤ Q^α Π_ℓ (1 + g_ℓ ℓ^{−α}),        (5.1)
+
+and by Jensen over fibres, `Σ_c Y/S_c(Q) ≥ |R|·Y·exp(−avg_c log S_c(Q))`.
+So the saving of any prime-modulus large sieve is at most the averaged
+Rankin functional of whatever prime-local system it uses (ET Remark 2.6).
+For Farey frequencies this is also a special case of Theorem 3.1, so no
+mass estimate for `Ω_c(ℓ)` (including covered fibres) is needed.
+
+**5.2 Composite moduli: no; the small-prime-conditioned Euler product
+does not dominate.** Once the large sieve uses composite moduli, its
+denominator is `F*_w` (Theorem 2.1), not a truncated Euler product, and
+it can see classes with two or more large primes that are invisible to
+every prime-local system obtained by conditioning on small primes.
+
+**Example 5.2 (PROVED).** Let `{(ℓ_j, ℓ'_j)}` be disjoint pairs of
+primes `> W`, with `m_j = ℓ_jℓ'_j ≡ 3 (mod 4)` (e.g. `ℓ_j ≡ 1`,
+`ℓ'_j ≡ 3 (mod 4)`), and let 𝔊 consist of the ℛ(m_j)-classes, `ω_j`
+of them mod `m_j` (`1 ≤ ω_j ≤ τ(A_{m_j}²) < min(ℓ_j, ℓ'_j)` for large
+primes). Let Q₀ be coprime to all `m_j`. Then:
+1. the induced prime-local system is empty: `Ω_c(ℓ) = ∅` for every c and
+   every prime ℓ, so `S_c(Q) = 1` for every Q and the prime-modulus
+   arithmetic large sieve saves nothing;
+2. the large sieve with the composite modulus `m_j` (frequencies `a/d`,
+   `d | m_j`, weight `w = (N+m_j²)^{−1}`) has
+   `F*_w ≥ w·(1 + g_j)`, `g_j = ω_j/(m_j − ω_j) > 0`.
+
+*Proof.* By CRT, 𝒜 is a product over the pairs of
+`(ℤ/m_j ∖ F_j)` times free coordinates. 1. Given `n ≡ b (mod ℓ_j)`, the
+classes of `F_j` exclude at most `ω_j < ℓ'_j` residues mod `ℓ'_j`, and the
+other coordinates are unconstrained; so every residue mod ℓ (ℓ a pair
+prime) and every residue mod any other prime occurs in `𝒜_c`. 2. For
+π ∈ P(𝒜), `π mod m_j` is supported on the `m_j − ω_j` residues outside
+`F_j`. By Parseval mod `m_j` and Cauchy–Schwarz,
+`Σ_{d|m_j} D_d(π) = m_j Σ_b π(n≡b (m_j))² ≥ m_j/(m_j − ω_j)`. ∎
+
+So "S(Q) ≤ exp(Rankin functional of the prime-local system induced by
+conditioning on small primes)" fails as soon as composite moduli are
+allowed. The saving in Example 5.2 is tiny, but by ET Lemma 3.8 the
+balanced moduli (no dominant prime) carry `≫ (log x)³` of the ES supply,
+so the mass that the small-prime-conditioned system misses is not lower
+order. **The functional that does dominate is the sequential one:**
+condition at each prime ℓ on the residues at *all* smaller primes and
+count the classes decided at ℓ (their top prime). That is the KARY
+construction, and Theorem 3.1 transfers its cap to the large sieve
+through duality. The answer to the key question is therefore:
+dominated by the top-prime sequential functional (Theorem 3.1, for
+polynomial-level frequencies), not by the small-prime-conditioned Euler
+product (Example 5.2); for prime-slice systems the two coincide
+(Theorem 4.1).
