@@ -546,3 +546,38 @@ saving `s = (log N)^θ`, θ > 3/4, needs, at every level
 above level λ, or an interval share `≤ ½` of the CRT mean. Since the
 majorant has `Eν ≥ (|R|/(4Q₀))e^{−Cλ^{3/4}}` in the second case, the
 interval count must be a factor `≥ e^{s − Cλ^{3/4}}` *below* the CRT mean.
+
+### 8.2 On [1,N], forced classes above N² are empty
+
+**Lemma 8.2 (PROVED, from notes Thm 60.1).** Let n ≥ 1 and
+`B = ⌊(n+1)/3⌋`. If n lies in a Case-B forced class of modulus M — i.e.
+`M ≡ 3 (4)`, `D | ((M+1)/4)²`, `M | n + 4D` — then `M ≤ 8B² − 1`.
+
+*Proof.* This is (60.1) ⇒ (60.9) of notes Theorem 60.1 (finite normal
+form), which applies to every witness datum of every n ≥ 1. ∎
+
+So for `M > M₀(N) := 8⌊(N+1)/3⌋²` every class of `𝓡(M)` (and every
+Lemma 3.2 class, which is a subclass for n ≥ 1) misses [1,N] entirely. Its
+CRT share `N|𝓡(M)|/M` is pure rounding, and `Σ_{M>M₀}|𝓡(M)|/M = ∞`.
+
+**Corollary 8.3 (PROVED).** Let 𝒲 be any family of Case-B forced classes,
+and let ν be a *hit-pattern majorant*: `ν(n) = G((1_W(n))_{W∈𝒲})` with
+G ≥ 0 and `G(0) ≥ 1` (this covers Bonferroni, Selberg Λ² in the
+indicators, and every `P∘f` of §4). Let 𝒲₀ be the classes of modulus
+`≤ M₀(N)`, and `ν'(n) = G((1_W(n))_{W∈𝒲₀}, 0)`. Then:
+* ν' is a hit-pattern majorant of the truncated avoider set `𝒜_{𝒲₀}`;
+* `Σ_{n≤N} ν(n) = Σ_{n≤N} ν'(n)`.
+
+*Proof.* The second claim is Lemma 8.2. For the first: ν' ≥ 0, and if
+`n ∈ 𝒜_{𝒲₀}` then ν'(n) = G(0) ≥ 1. ∎
+
+*Meaning.* For interval counts of hit-pattern majorants, classes of
+modulus beyond `M₀ ≍ N²` give neither sieving power nor cost. The high
+level λ ≫ log N that Theorem 8.1 requires must therefore come from
+*products of many classes of modulus ≤ N²* — from k-fold coincidences of
+witnesses on single integers n ≤ N, with `k ≥ λ/(2 log N)`. In the CRT
+model those coincidences are independent. On [1,N] they are the actual
+witness multiplicity, i.e. the Elsholtz–Tao `f(n)` and its correlations.
+Lemma 8.2 also shows real witnesses are *redundant*: any representation
+with large M has one with `M ≤ 8B²`. This points to clustering of hits
+(more voids than CRT), not to a deficit. §8.3 tests this.
