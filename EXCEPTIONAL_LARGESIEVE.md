@@ -201,3 +201,103 @@ frequencies whose denominators contain primes not dividing `M₀` can be
 discarded: averaging g* over the residue mod such a prime keeps
 `Re g* ≥ 1` on 𝒜 (𝒜 does not see that prime) and does not increase
 `Σ|γ|²/w`; so only primes of 𝔊 enter `λ_Θ`.
+
+## 4. Arbitrary frequencies over prime-slice systems: a Fourier–Rankin bound
+
+Theorem 3.1 needs the frequencies to have bounded level. For prime-slice
+systems (ET §1) no level condition is needed at all: one product measure
+on 𝒜 has small Fourier transform in an `ℓ^{2+2β}` sense, and Hölder
+does the rest.
+
+**Fact 4.0 (trace bound; PROVED).** In every N-large-sieve system,
+`Σ_θ w_θ ≤ 1`. *Proof.* Average (LS) over independent random signs
+`a_n = ±1`: `E|Σ_n a_n e(nθ)|² = N`, so `N Σ_θ w_θ ≤ N`. ∎
+
+**Theorem 4.1 (large-sieve cap for prime-slice systems, any frequencies;
+PROVED).** Take a prime-slice system `(Q₀, R, 𝒫, F_ℓ(c))` as in ET §1
+(classes mod `q₀ℓ`, `q₀ | Q₀`, `ℓ ∈ 𝒫` prime, `ℓ ∤ Q₀`). Assume, for some
+`0 ≤ κ < 1` and all `c ∈ R`, `ℓ ∈ 𝒫`:
+
+    f_ℓ(c) := |F_ℓ(c)| ≤ min(ℓ/2, ℓ^κ).
+
+Put `p̄_ℓ = E_{c∈R} f_ℓ(c)/ℓ` (no truncation). Then every CRT-admissible
+bound B from any N-large-sieve system `(Θ,w)` — any frequencies, any
+denominators, any weights — for `A ⊂ 𝒜 ∩ I` satisfies, for every
+`0 < α ≤ 1−κ`,
+
+    log(N/B) ≤ α log N/(2(1−κ)) + log(2Q₀/|R|) + 8 Σ_{ℓ∈𝒫} p̄_ℓ ℓ^{−α}.   (4.1)
+
+*Proof.* Put `β = α/(2(1−κ)) ≤ 1/2` and `p' = 2+2β`.
+
+*Good fibres.* Let `Σ(c) = Σ_ℓ 4 f_ℓ(c)/ℓ · ℓ^{−α}` and
+`R' = {c ∈ R : Σ(c) ≤ 2 E_R Σ}`; by Markov `|R'| ≥ |R|/2`.
+
+*The measure.* Let `M'` be as in §1, and let π be the law of n mod `M'`
+for which: `n mod Q₀ = c` is uniform on `R'`; given c, the residues
+`n mod ℓ` (ℓ ∈ 𝒫) are independent and uniform on `ℤ/ℓ ∖ F_ℓ(c)`; all
+remaining CRT digits (higher powers of primes of `Q₀` and of ℓ ∈ 𝒫,
+and other primes) are uniform given these. Then π is supported on 𝒜
+(`f_ℓ(c) < ℓ`).
+
+*Its Fourier transform.* Let θ ∈ `M'^{−1}ℤ/ℤ`. If its denominator has a
+prime-power factor that is not resolved by the coordinates above (a
+prime outside `Q₀𝒫`, `ℓ²` with ℓ ∈ 𝒫, or a power of a prime of Q₀
+beyond its exponent in Q₀), then `π̂(θ) = 0`, since that digit is uniform
+given the rest. Otherwise `θ = θ₀ + Σ_{ℓ∈S} a_ℓ/ℓ` with `den θ₀ | Q₀`,
+S ⊂ 𝒫 finite, `ℓ ∤ a_ℓ`, and
+
+    π̂(θ) = E_{c∈R'} [ e(θ₀c) Π_{ℓ∈S} φ_{ℓ,c}(a_ℓ) ],
+    φ_{ℓ,c}(a) = E[e(a n/ℓ) | c] = −(ℓ−f_ℓ(c))^{−1} Σ_{b∈F_ℓ(c)} e(ab/ℓ).
+
+Put `g_ℓ(c) = f_ℓ(c)/(ℓ−f_ℓ(c)) ≤ 2f_ℓ(c)/ℓ`. Then
+`|φ_{ℓ,c}(a)| ≤ g_ℓ(c)` and, by Parseval mod ℓ,
+`Σ_{a≢0}|φ_{ℓ,c}(a)|² = (ℓf − f²)/(ℓ−f)² = g_ℓ(c)`. Hence
+
+    Σ_{a≢0} |φ_{ℓ,c}(a)|^{p'} ≤ g_ℓ(c)^{1+2β} ≤ 2^{2β}·(2f/ℓ)·ℓ^{−2β(1−κ)} ≤ 4 (f_ℓ(c)/ℓ) ℓ^{−α},
+
+using `g ≤ 2f/ℓ ≤ 2ℓ^{κ−1}` and `2^{2β} ≤ 2`.
+
+*Hausdorff–Young in the small coordinate.* Fix S and `(a_ℓ)`, and put
+`X(c) = Π_{ℓ∈S} φ_{ℓ,c}(a_ℓ)`, `|X| ≤ 1`, and
+`f(c) = (Q₀/|R'|) 1_{R'}(c) X(c)` on `ℤ/Q₀`. Then
+`π̂(θ₀ + Σ a_ℓ/ℓ) = E_{c∈ℤ/Q₀} f(c) e(θ₀c) = f̂(θ₀)`. Hausdorff–Young on
+the finite abelian group `ℤ/Q₀` (uniform probability on the group,
+counting measure on the dual), with `p = p'/(p'−1) ∈ [1,2]`, gives
+
+    Σ_{θ₀} |f̂(θ₀)|^{p'} ≤ ‖f‖_p^{p'} = (Q₀/|R'|) (E_{R'}|X|^p)^{p'/p}
+                        ≤ (Q₀/|R'|) E_{R'} |X|^{p'}
+
+(the last step is Jensen, `p'/p ≥ 1`). Summing over all S and `(a_ℓ)`,
+
+    𝓡 := Σ_θ |π̂(θ)|^{p'} ≤ (Q₀/|R'|) E_{c∈R'} Π_{ℓ∈𝒫} (1 + Σ_{a≢0}|φ_{ℓ,c}(a)|^{p'})
+       ≤ (2Q₀/|R|) E_{R'} e^{Σ(c)} ≤ (2Q₀/|R|) exp(8 Σ_ℓ p̄_ℓ ℓ^{−α}).
+
+*Hölder.* With Fact 4.0 and Fact 1.1,
+
+    F_w(π) = Σ_θ w_θ|π̂(θ)|² ≤ (Σ_θ w_θ)^{β/(1+β)} (Σ_θ w_θ|π̂(θ)|^{p'})^{1/(1+β)}
+           ≤ (𝓡/N)^{1/(1+β)}.
+
+So `B ≥ 1/F*_w ≥ 1/F_w(π) ≥ (N/𝓡)^{1/(1+β)}`, i.e.
+`log(N/B) ≤ (β log N + log 𝓡)/(1+β) ≤ β log N + log⁺ 𝓡`. ∎
+
+**Corollary 4.2 (ET Cor 3.4 families, any large sieve; PROVED).** For
+the families of ET Cor 3.4 (forced classes of Lemma 16.1/3.2, and Case A
+via ET Lemma 3.7; moduli `q₀ℓ` with `q₀ ≤ ℓ^C`, C < 1; selector R),
+every CRT-admissible large-sieve bound — any frequency set, including
+sparse sets of rationals with huge denominators — saves at most
+
+    C'(C)(log N)^{3/4} + log(P/φ(P)) + log 2.
+
+*Proof.* ET Cor 3.4's proof gives `f_ℓ(c) ≤ ℓ^{C+o(1)} ≤ min(ℓ/2, ℓ^κ)`
+with `κ = (1+C)/2` for `ℓ ≥ ℓ₀(C)`, and
+`Σ_ℓ p̄_ℓ ℓ^{−α} ≪ α^{−3}` (untruncated; Lemmas 3.1, 3.2, 3.7); and
+`Q₀/|R| = P/φ(P)`. Take `α = (log N)^{−1/4}` in (4.1). ∎
+
+**Remark 4.3.** Theorem 4.1 closes the ET Remark 2.6 case completely:
+there the large sieve was covered only through `S_c(Q)` (Farey
+frequencies, prime moduli). Here any `(Θ,w)` is allowed, and the
+exponent of `N` enters only through `β log N`, a Rankin term in
+frequency space. The mechanism is the product structure in each fibre:
+`|π̂(θ)|` decays by a factor `g_ℓ(c)` for **every** slice prime in the
+denominator. For mixtures with several large primes per modulus there is
+no such product measure; see §7.
