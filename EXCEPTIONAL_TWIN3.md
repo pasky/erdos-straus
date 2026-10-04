@@ -198,3 +198,69 @@ residue mod j depends only on the two *short* variables, and each of them
 carries the harmonic weight `1/φ`. No equidistribution of divisors of
 `A_m` over m was used. Only Brun–Titchmarsh in the class of m mod 4·(the
 short product) was needed, and this class is long because `ψ ≥ A^{1/3}`.
+
+**Lemma 3.2 (second moments of the short sums; PROVED).** Let j be prime and
+`X ≥ j`. With all variables in `[1,X]` and prime to j, put
+
+    r₁(ρ) = Σ_{(u,v)=1, u ≡ ρv (j)} 1/(uv),      r(c) = Σ_{v²t ≡ c (j)} 1/(vt).
+
+Then
+
+    Σ_{ρ mod j} r₁(ρ)² ≤ ζ(2)² + C(log X)²((log X)²/j + (log j) j^{−1/2}),
+    Σ_{c mod j} r(c)²  ≤ ζ(2)²ζ(3)² + C(log X)²((log X)²/j + (log j) j^{−1/3}),
+
+with C absolute.
+
+*Proof.* **The function r.** Write `N = v²t` and `ϱ(N) = Σ_{v²t=N} 1/(vt)`.
+Then `Σ_c r(c)² = Σ_{N≡N′ (j)} ϱ(N)ϱ(N′)`. We bound the diagonal and the
+off-diagonal separately.
+
+*Diagonal `N = N′`.* Write `v = ga`, `v′ = gb` with `(a,b) = 1`. Then
+`a²t = b²t′` forces `t = b²s` and `t′ = a²s`. The weight is
+`1/(g²a³b³s²)`, so the diagonal is at most `ζ(2)²ζ(3)²`.
+
+*Off-diagonal `N < N′`.* Here `N′ ≡ N` and `N′ > N ≥ 1`, so `N′ > j`. The
+off-diagonal part is therefore at most
+
+    2 Σ_N ϱ(N) · sup_c Σ_{N′≡c, N′>j} ϱ(N′),   with Σ_N ϱ(N) ≤ (1+log X)².
+
+For the sup, cover `[1,X]²` by dyadic boxes `v ∈ [V,2V)`, `t ∈ [T,2T)`;
+only boxes with `V²T > j/8` meet `{v²t > j}`. In a box:
+* for fixed v, t lies in one class mod j, so the box has `≤ V(T/j+1)` points;
+* for fixed t, `v² ≡ c/t` has `≤ 2` roots mod j, so the box has
+  `≤ 2T(V/j+1)` points.
+
+So the box has `≤ 2VT/j + 2min(V,T)` points, each of weight `≤ 1/(VT)`, and
+contributes `≤ 2/j + 2/max(V,T)`. There are `≤ (2+log₂X)²` boxes. Those with
+`max(V,T) = M` number `≤ 2log₂M + 2` and need `M³ ≥ V²T > j/8`. Hence
+
+    sup_c Σ_{N′≡c,N′>j} ϱ(N′) ≤ 2(2+log₂X)²/j + Σ_{M=2^i > (j/8)^{1/3}} (4i+4)/2^i ≪ (log X)²/j + (log j) j^{−1/3}.
+
+**The function r₁.** The diagonal is `Σ 1/(uv)² ≤ ζ(2)²`. Two distinct
+coprime pairs with `u ≡ ρv`, `u′ ≡ ρv′` have `uv′ − u′v` nonzero (distinct
+reduced fractions) and divisible by j. So `max(u,v)·max(u′,v′) ≥ j/2`, and
+one of the two pairs has height `max ≥ (j/2)^{1/2}` (TW2 Lemma 5.5).
+Charge each unordered pair to such a member. The off-diagonal is then at
+most `2(1+log X)² sup_ρ Σ_{u≡ρv, max(u,v) ≥ (j/2)^{1/2}} 1/(uv)`. In a
+dyadic box `[U,2U)×[W,2W)`, fixing u fixes v mod j and vice versa, so the
+box holds `≤ UW/j + min(U,W)` points and contributes
+`≤ 1/j + 1/max(U,W)`. Boxes meeting the height condition have
+`max(U,W) ≥ (j/8)^{1/2}`. Summing as before gives
+`≪ (log X)²/j + (log j) j^{−1/2}`. ∎
+
+**Corollary 3.3 (PROVED).** For L large, `j > w₂ = L^8`, k as above, and
+`X = e^L`:
+
+    Σ_{a mod j} V_{j,k}(a)² ≤ C (log L)^6.
+
+*Proof.* `n/φ(n) ≤ 2 log L` for `n ≤ X` and L large, and
+`φ(xy) ≥ φ(x)φ(y)`. So `R₁(a) ≤ (2log L)² r₁(−a)`. The map `a ↦ c`
+(`c = −1/(4a)` for R₂, `c = −a/4` for R₀) is a bijection of the nonzero
+residues, so `R₂(a) ≤ (2log L)² r(c)`, and likewise for R₀. By Lemma 3.1
+and `(x+y+z)² ≤ 3(x²+y²+z²)`,
+`Σ_a V(a)² ≤ 3(2log L)^6 [Σ_ρ r₁(ρ)² + 2Σ_c r(c)²]`. By Lemma 3.2 with
+`j > L^8`, the bracket is `≤ ζ(2)²ζ(3)²·3 + C L²(L^{−6} + 8(log L) L^{−8/3}) ≪ 1`. ∎
+
+So for large partners the mass at each vertex is spread out: although
+`Σ_a V(a) ≍ L² log L`, the second moment is only polylogarithmic. This
+includes the hub vertices (deadly values) and every pair sharing a label.
