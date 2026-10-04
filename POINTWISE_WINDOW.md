@@ -437,7 +437,7 @@ the level. So it needs `β_{J/2}≤2ϑ`, with `β_κ` the sifting limit.
 |---|---|---|---|---|
 | 1 | 7 | 1/2 | `β_{1/2}=1≤2ϑ`: ϑ≥1/2 | BV: **unconditional (W1)** |
 | 2 | 11 | 1 | `β_1=2<2ϑ/(1−2ε)`: ϑ>1−2ε, for some small absolute ε | **EH (W2)**; a fixed level `1−ε_0` suffices |
-| ≥3 | ≥15 | ≥3/2 | `β_{3/2}≤2ϑ≤2` | impossible if `β^{opt}_{3/2}>2` |
+| ≥3 | ≥15 | ≥3/2 | `β_{3/2}≤2ϑ/(1−2ε)`, i.e. `β_{3/2}≤2+O(ε)` at ϑ≤1 | impossible if `β^{opt}_{3/2}>2` |
 
 * `β_{1/2}=1` and `β_1=2` are optimal (Iwaniec; Selberg's parity examples).
 * The optimal sifting limit is non-decreasing in κ, because a κ'-dimensional
@@ -455,7 +455,9 @@ the level. So it needs `β_{J/2}≤2ϑ`, with `β_κ` the sifting limit.
 Sift to `z=x^{1/s}` with s larger, and subtract the p for which some window
 keeps large bad primes. Use the Bonferroni inequality with parity: if a
 window has two or more large bad primes, the smaller one is `<√x`, so
-`1[clean_q] ≥ 1 − #{q-bad r|n_q : z≤r<√x}`.
+`1[clean_q] ≥ 1 − #{q-bad r|n_q : z≤r<√x}`. This inequality already uses
+Lemma 1.2: it fails for an `n_q` with exactly one bad prime `r≥√x`,
+which parity excludes. So route B uses the congruence parity too.
 
 **Proposition 7.2 (zero margin at level x; PROVED, as a computation with
 the linear-sieve functions).** Take `J=2` and the idealised endpoint level
@@ -472,15 +474,24 @@ f(s) − Σ_{q∈{3,7}} (1/2)∫_{1/s}^{1/2} F(s(1−α)) dα/α
 `(2e^γ/s)[log(α/(1−α))]_{1/s}^{1/2}=(2e^γ/s)log(s−1)`.)
 
 So the generic one-step Buchstab route sits **exactly** at the threshold
-at level x, and is negative at level `x^{1/2}`. There the `A_r` with
-`r>D^{1−o(1)}` cannot even be bounded without switching. W2 escapes
-only because route A uses more than the sieve axioms: the parity of
-the bad count is a congruence datum (Lemma 1.2). That forces a sifted
-`n_q/r` of size `≤x^{1/2+ε}` to be `m·r_2`, which the generic bound `F(1)` does not see.
+at level x. *Assessment (not computed):* it is negative at level
+`x^{1/2}`. There the level `D/r` for `A_r` shrinks to `O(1)` as `r→√x`, so
+`F(s_r)` blows up, and those `A_r` cannot be bounded at all without
+switching. We have not carried out a switched computation at
+`ϑ=1/2`.
+
+**Where W2's gain comes from.** Both routes use the parity of Lemma 1.2,
+so parity is not the difference. Route A's extra input is the bound on
+`T^{(q)}` (§4.3). For each pair `(m,r_1)` it sifts `r_2` *as a prime*,
+with `ar_2−q` prime and the other window's condition kept, in a
+dimension-5/2 upper sieve. This switched, structural bound sees that a
+sifted `n_q/r_1` of size `≤x^{1/2+ε}` must be `m·r_2` with m tiny. The
+generic bound `F(s(1−α))` on `A_r` does not see this. It gains the factor
+`ε^{1/2}` that makes W2 positive.
 
 ### 7.3 Which parity obstruction applies (answer to Goal 3)
 
-* **Single window: none.** Selberg's parity barrier says a sieve cannot
+* **Single window: none, given the congruence parity of Lemma 1.2.** Selberg's parity barrier says a sieve cannot
   tell an even number of prime factors from an odd one. For a window,
   the parity of the number of *bad* prime factors is fixed by a
   congruence (Lemma 1.2: `(−1)^{Ω_q^-(n_q)}=(p/q)`). So the event
@@ -491,26 +502,37 @@ the bad count is a congruence datum (Lemma 1.2). That forces a sifted
   has dimension 1, and its sieve functions f, F are the linear ones.
   These are extremal, attained by Selberg's λ-twisted sequences.
   Proposition 7.2 shows the generic route has margin exactly 0 at level
-  x. Route A survives at level x only by feeding in the
-  congruence-parity of Lemma 1.2. At BV level (`ϑ=1/2`), the two-window
+  x. Route A survives at level `x^{1−ε_0}` through the switched
+  dimension-5/2 upper bound for the two-prime configurations (§7.2).
+  Both routes use parity. At BV level (`ϑ=1/2`), the two-window
   problem asks a linear sieve to sift beyond `z=x^{1/4}=D^{1/2}`, which is
   precisely where the Selberg example forces `f(s)=0` (`s≤2`).
   Within these routes, unconditional `K=11` would therefore need either a
   level of distribution close to 1 for the relevant sequences, or a genuinely bilinear
   (Chen-switching / Type-II) input that breaks the linear-sieve parity
-  barrier for this problem. We have done neither.
-* **Unboundedly many windows: dimension, not parity.** By Lemma 6.1,
-  `a_min(p)>4J−1` costs dimension `≥J/2` (Route A needs
+  barrier for this problem. We have done neither. The precedent supports
+  this. Friedlander–Iwaniec, *Hyperbolic prime number theorem*, Acta Math.
+  202 (2009) (FI09), treat the same two-condition shape (p±2 both sums
+  of two squares). Their lower bound needs a level `θ<1` close to 1, and
+  the unconditional case is, per the review, still open
+  (arXiv:2609.28200). Unconditional K=11 is the window analogue of that
+  open problem. W2 is an FI09-type theorem.
+* **Unboundedly many windows: dimension, not parity.** By Lemma 6.1 and
+  the §6 Assessment, `a_min(p)>4J−1` should cost dimension `≥J/2`. With J
+  unbounded, the exception budget `≍J^3` is not O(1), so this needs
+  J-uniform bounds (Assessment only). Route A needs
   `β_{J/2}≤2`, which fails for large J; Route B's subtracted mass per
   window is comparable to the clean mass once `z≤x^{1/3}`, and there are
   J windows). Any proof of `a_min(p)→∞` along a subsequence must
   therefore produce primes p for which an unbounded number of shifted
-  values `(p+q)/4` simultaneously avoid a density-1/2 set of primes
-  (up to `O_q(1)` exceptions), i.e. a lower bound in a sieve problem of
-  unbounded dimension with complete-absence conditions. No such result
-  is known for *any* family of unboundedly many shifts of primes. The
-  closest known results produce one condition (Iwaniec 1972; FHRSS 2025),
-  or "many" but not all conditions (Maynard–Tao). **Assessment:**
+  values `(p+q)/4` simultaneously avoid a density-1/2 set of primes,
+  up to a bounded-per-window number of exceptions. That is a lower bound
+  in a sieve problem of unbounded dimension with complete-absence
+  conditions. Known results reach one condition unconditionally
+  (Iwaniec 1972; FHRSS 2025). They reach two conditions only on a level
+  close to 1 (FI09). Maynard–Tao gives "many" but not all conditions.
+  We know of no result for unboundedly many such conditions on shifted
+  primes, but we did not search exhaustively. **Assessment:**
   `a_min→∞` unconditionally is out of reach of present sieve technology.
   The obstruction is the growth of the sieve dimension against the
   bounded sifting range `z≤x^{1/2}`, plus the linear-sieve parity
@@ -528,10 +550,14 @@ the bad count is a congruence datum (Lemma 1.2). That forces a sifted
 * Assessment 11.5's "for K=7 (windows 3 and 7, dimension 1) the leftover
   configurations are of the same order as the main term" is now precise.
   (11.5's "K" means `a_min>K`; in this file K means `a_min≥K`, so
-  11.5's "K=7" is our K=11.) At BV level the route is negative, and Prop 7.2 shows it has margin exactly 0 at level x.
-  Route A (sift to `√x` + parity) still wins at level x, which gives W2.
-* Lemma 6.1 replaces the heuristic "each window ≥1/2" with a proved
-  covering statement that includes F3-type failures.
+  11.5's "K=7" is our K=11.) Prop 7.2 shows the generic route has margin
+  exactly 0 at level x. That it is negative at BV level is an Assessment.
+  Route A (sift to `x^{1/2−ε}`, parity, and the switched dimension-5/2
+  bound on two-prime configurations) wins at level `x^{1−ε_0}`, which gives
+  W2 (FI09-type).
+* Lemma 6.1 proves a covering statement that includes F3-type failures.
+  The resulting joint "dimension ≥J/2" count is still an Assessment
+  (§6). For a single window the dimension-1/2 bound is notes Thm 70.9.
 
 ## Replay
 
