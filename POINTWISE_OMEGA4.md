@@ -5,7 +5,7 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 (PO), `POINTWISE_OMEGA2.md` (O2) and `POINTWISE_OMEGA3.md` (O3). `𝓛=log T`;
 `log_j` is the j-fold iterated logarithm.
 
-**Results at a glance.**
+**Results at a glance.** (Hostile review `reviews/pointwise-omega4-review.md` on branch `side-agent/review-omega4`: Thm 1.1, 2.1, Cor 3.1–3.3 SOUND; repairs D1–D8 applied.)
 
 1. **Theorem 1.1** (PROVED; bookkeeping on O3 Thm 5.1): the k-level
    minorant has `log K ≤ (k−1)!·(log(3Ŝ+k+1)+8.06k+5log k+10.1)+102`.
@@ -37,7 +37,8 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 5. **Haar side (Prop 5.1, PROVED).** It is polynomial in k:
    `log(1/δ*) ≤ π(z)𝓛+8k_z²S*𝓛+4S*`. This gives `log(1/δ*) ≪ 𝓛^7log𝓛`
    (ET), the Haar form of `exp((log p)^{1/7})`. The prime/Haar gap is
-   `𝓛log₂𝓛/log𝓛` against `7log𝓛` in `log log` of the scale.
+   `𝓛log₂𝓛/log𝓛` against `7log𝓛` in `log log` of the scale (ratio
+   `≍𝓛log₂𝓛/(log𝓛)²`).
 
 ## 0. What is made explicit
 
@@ -108,6 +109,10 @@ and edges). Finally level-2 vertices of degree `>δ` become singles.
   at most
   `2^k·(2k/δ_*)·(8kẐ_r/δ_*)^{j−1}·Σ_r ≤ (β_kẐ_r)^j`, and the per-prime mass
   at ℓ is at most `β_k^jẐ_r^{j−1}w^{(r)}_ℓ` (`1≤j≤r−1`; `j=1` = singles).
+  Level 2 receives both `j=1` and `j=2`; together they carry
+  `≤(binom(r,1)+binom(r,2))(2k/δ_*)(8kẐ_r/δ_*)Ẑ_r ≤ (β_kẐ_r)²`, since
+  `binom(r,1)+binom(r,2)<2^k`, and per prime `≤β_k²Ẑ_rw^{(r)}_ℓ`. So the
+  bounds below hold for level 2 as well (review D1).
 
 **Step 2 (the recursion).** Level `r−1` is frozen after all levels `s≥r`
 have pushed into it, so `Σ_{r−1} ≤ Ŝ + Σ_{s≥r}(β_kẐ_s)^{r−1} ≤ Ŝ+k(β_kẐ_r)^{r−1}`.
@@ -223,7 +228,7 @@ follow from `(C_{k,T})` with `C_2:=6C_1e^{206}` (note `k+1≤𝓛`, and
 
 Two bounds for `S*` are available (O2 Lemma 11.1):
 
-* (U) unconditionally, `S* ≤ C log𝓛·𝓛³·τ*(T+2) = exp((log 2+o(1))𝓛/log𝓛)` (Wigert);
+* (U) unconditionally, `S* ≤ C log𝓛·(3+𝓛)(1+𝓛)²·τ*(4T+1) = exp((log 2+o(1))𝓛/log𝓛)` (Wigert);
 * (ET) modulo Elsholtz–Tao Prop. 1.4 (a published theorem, used as in
   PO Lemma 9.2), `S* ≪ 𝓛^4 log𝓛`.
 
@@ -261,7 +266,7 @@ Conclude as in Cor 3.1. ∎
 infinitely many p with an explicit `k=k(p)→∞`. In uniform form,
 `log L_h(T) ≤ T^{1/κ(𝓛)}` with `1/κ(𝓛) ~ log₃T/log₂T`:
 
-**Corollary 3.3 (uniform form).** For all large T there is a hard prime p
+**Corollary 3.3 (uniform form; PROVED modulo Thorner–Zaman and ET Prop. 1.4 (first form), modulo Thorner–Zaman (second form); effective, the first form provided ET Prop. 1.4's constant is effective).** For all large T there is a hard prime p
 with `W(p)>T` and `log log p ≤ 𝓛/κ(𝓛)` (under ET), resp. `≤𝓛/κ_0(𝓛)`
 (unconditionally in the sense of Cor 3.2). So
 `log log L_h(T) ≤ (1+o(1))𝓛·log₂𝓛/log𝓛`, resp. `≤ (1+o(1))𝓛·log₃𝓛/log₂𝓛`.
@@ -271,7 +276,7 @@ fixed k, i.e. `o(𝓛)` with no rate.
 
 ## 4. The bottleneck
 
-### 4.1 Anatomy of the factorial (PROVED, about the scheme)
+### 4.1 Anatomy of the factorial (first paragraph PROVED about the scheme's parameter recursion; the bullets as labelled)
 
 In Theorem 1.1 the factorial comes from one inequality only, the Markov
 push (Step 1): the mass pushed from level r into size j is bounded by
@@ -286,11 +291,14 @@ factor `3kβ_k^{r−1}`, i.e. the additive `b_k` in `z_r`.
 
 Two facts locate the problem precisely.
 
-* **Markov is sharp at the first push** (O2 Prop 11.4, O3 Prop 2.2): at
+* **Markov is sharp at the first push** (O2 Prop 11.4, PROVED for
+  `D*≤(log T)^A` via Siegel–Walfisz, ineffective; uniformity in `t=1/L`
+  needs an averaged form, O2 §11.4; O3 Prop 2.2): at
   level 3 the pairs of codegree `>t` have mass `≫(1/t)log(1/t)`, the
   Markov bound up to the log. So the first push cannot be made cheaper
   by better counting.
-* **The cascade is an artefact.** The heavy sets are κ-monochromatic
+* **The cascade is an artefact** (*Assessment/EVIDENCE*: O3 §2 data are
+  one pair per T at k=3; the statements for `j≥3` are heuristic). The heavy sets are κ-monochromatic
   (all vertices `(ℓ_i, κ mod ℓ_i)` for one rational κ of small height;
   O3 §2 EVIDENCE for pairs; Prop 2.2 for the three families). A pushed
   κ-monochromatic j-set has level-j sub-codegrees `≍1`, so the scheme
@@ -313,9 +321,12 @@ H-hub deleted, every vertex set O with `2≤|O|≤k−1` and no H-hub has
 codegree `Δ_O ≤ 𝓛^B H^{−a}`.
 
 Vertex *degrees* are not part of HC: they are enforced by Markov at cost
-`kS_H/δ_k` (O2 Thm 10.3 step 1). EVIDENCE for `|O|=2`, `k=3` is O3 §2:
-the maximum outside `𝓗_X` decays like `X^{−0.7}` at fixed T, with no
-growth in T over `10^9…10^13`. Nothing is known for `|O|≥3`.
+`kS_H/δ_k` (O2 Thm 10.3 step 1). EVIDENCE for `|O|=2`, `k=3` is O3 §2: one pair per T, with θ varying. The
+maximum outside `𝓗_X` decays like `X^{−0.7}` at fixed T. In T it grows at
+small X (outside `𝓗_16`: 0.034→0.089 over `10^9…10^13`) and is flat only
+in the `𝓗_1024` column. HC tolerates `𝓛^B` growth. Those data are maxima
+over joint classes without deleting hub events, which dominates the HC
+quantity. Nothing is known for `|O|≥3`.
 
 **Lemma 4.1 (transfer bookkeeping; PROVED modulo Thorner–Zaman).**
 Suppose, for Construction 2.0 with some Π, `|Π∖Π_0|≤e^X`, and a minorant
@@ -339,7 +350,11 @@ log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
    `c:=δ_k e^{−0.011k}/(64k)`, so `|𝓑| ≤ kŜ/c = e^{O(k)}Ŝ`.
 2. *Hub quarantine.* Impose `X_ℓ∉𝓗_H(ℓ^{e_ℓ})` at every free ℓ by O3
    Thm 1.1/Cor 1.2 (decoupling) with the conditioned measure P′.
-   `h_ℓ ≤ 3H(1+log H)/(ℓ−1) ≤ 1/100` since `ℓ>y≫H`, and
+   `h_ℓ ≤ 3H(1+log H)/(ℓ−1) ≤ 1/100` because `300H(1+log H)<y`. At the k
+   of step 5, `log H=(0.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}` and
+   `log y=(1+o(1))(5.72/a)^{1/3}𝓛^{2/3}`, so `H=y^{1/2+o(1)}`. This holds
+   only because of the optimisation; impose `300H(1+log H)<y` if k is
+   changed (review D4). Also
    `S_hub ≤ 3H(1+log H)(log(k+1)+1)` (Mertens over `y<ℓ≤T`). Under P′,
    events with an H-hub have measure 0, and `p′≤p·(100/99)`, so all
    masses and codegrees grow by at most `e^{0.011k}`.
@@ -364,7 +379,8 @@ log W(p) ≥ c_a·(log log p)^{3/2},    c_a := 0.2·a^{1/2}.
    Since `W(p)>T`, `log W(p) ≥ 𝓛 ≥ (1−o(1))(a/5.72)^{1/2}1.5^{−3/2}(log log p)^{3/2}`,
    and `(5.72)^{−1/2}1.5^{−3/2} = 0.227 > 0.2`. ∎
 
-So the factorial of Theorem 1.1 is *entirely* the cascade: an arithmetic
+*Assessment:* Thm 4.2 shows that HC suffices to avoid the cascade (it
+does not show that nothing else could force factorial growth): an arithmetic
 codegree bound of polynomial strength in the hub height would replace
 `(k−1)!` by `k²` in `log K`.
 
@@ -416,8 +432,9 @@ Consequences (same bookkeeping as Thm 4.2):
   `y ≤ 𝓛^{O(1)}`, and the events then have up to `k ≍ 𝓛/log𝓛` free
   primes.
 * *Assessment.* With `k≍𝓛/log𝓛`, items 1–2 of §4.3 give
-  `log K ≳ k log k ≍ 𝓛`. Then `log p ≥ K ≥ T^{c'}`, which is no better
-  than the trivial range. So `exp((log p)^c)` needs a minorant whose
+  `log K ≳ k log k ≍ 𝓛`. Then the bound the method certifies,
+  `log p ≤ C_1K·max(log Z,K)`, is `≥K≥T^{c'}`, which is no better than the
+  trivial range. So `exp((log p)^c)` needs a minorant whose
   ℓ¹-cost does not grow with the number of free primes per event, i.e.
   one that tracks the local lemma as the Haar side does (§5).
 
@@ -446,7 +463,7 @@ log(1/δ*(T)) ≤ π(z)𝓛 + 8k_z²S*𝓛 + 4S*.
 * **The gap, quantitatively.** In the uniform form, the prime side now
   proves `log log L_h(T) ≤ (1+o(1))𝓛 log₂𝓛/log𝓛` (Cor 3.3, ET). The Haar
   side gives `log log(1/δ*) ≤ (7+o(1))log𝓛`. The prime side is weaker
-  by a factor `≍𝓛/log₂𝓛` in the doubly logarithmic scale.
+  by a factor `≍𝓛·log₂𝓛/(log𝓛)²` in the doubly logarithmic scale.
 
 ## 6. EVIDENCE and checks
 
@@ -459,8 +476,9 @@ log(1/δ*(T)) ≤ π(z)𝓛 + 8k_z²S*𝓛 + 4S*.
     `Ŝ∈{10,10³,10⁶}`. All bounds hold, with about a factor 2 to spare
     in the logarithm.
   * The exact recursion itself grows like `(k−1)!`: `log K/(k−1)! ≈ 41`
-    at `k=8`. So the factorial is real for the scheme as written, not an
-    artefact of the closed form.
+    at `k=8`. So the factorial is real for the *worst-case parameter
+    recursion* (Markov-saturated pushes), not an artefact of the closed
+    form. The actual pushed masses of the ES system are not computed.
 * `scripts/omega4_rates.py rates` (`data/omega4/rates.txt`) tabulates
   κ, κ_0 and the Thm 4.2 constant. For example `κ(10^{10})=9` and
   `κ(10^{100})=66`, where the argument is 𝓛, so `T=e^{10^{10}}`. No
