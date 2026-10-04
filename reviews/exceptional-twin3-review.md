@@ -160,3 +160,37 @@ Re-derived line by line.
   `ν`-weighted second moment is `(log L)^{O(1)}/j`; the hub `a = −1`
   (`D = A`, every m) has `V(−1) ≤ Σ_{m∈𝓜} 1/m ≤ log L`, consistent with
   the bound. Nothing hidden.
+
+## Item 6. Theorem 4.1 / Corollary 4.2 (assembly; scope; inherited inputs) — SOUND-AFTER-REPAIRS (E5 minor)
+
+* Assembly: `S_j ≤ S_j^{(11)} + 3w_j^{pp}` (TW2 D5, in main), (2.1),
+  Lemma 2.1 (`≪ α^{−3}(log L)^{O(1)}`), Lemma 3.4 (`≪ (log L)^{O(1)}`),
+  prime powers `≪ L³/w₂ + w₂^{−1/2}(log L)^{O(1)} = o(1)`. Plugged into
+  TW2 Thm 5.1 (`11·E_PΣρ_jS_j`) this gives Cor 4.2. **I find no gap: (H_O)
+  as defined in TW2 §5 is proved, and Cor 4.2 follows.**
+* **"At most two primes above (log X)^8" — used where needed.** (i) TW2
+  Thm 5.1 itself (edges are binary; no ternary classes); (ii) every binary
+  modulus is `kjm` with k w₂-smooth, i.e. `k | Q_F`, which is exactly what
+  the activity inflation `4Γ(k)/k`, `4Γ(lcm)/lcm` (TW2 Lemma 3.2(1)) in
+  Lemmas 2.1 and 3.4 requires. Lemmas 3.1–3.2 do not need it. Not needed
+  anywhere else.
+* **B-hypothesis** (TW2 review D3): used in Lemma 2.1 (Shiu along the top
+  prime, both cases) and inherited from Thm 5.1 / D5; Cor 4.2 states it.
+  Lemmas 3.1–3.4 do not use B.
+* **Inherited inputs** — TW2 Lemma 3.2(1), Lemma 3.3, (3.1), Lemma
+  5.4(ii)–(iii) and the D5 split, Thm 5.1 — are all SOUND or
+  SOUND-AFTER-REPAIRS in reviews/exceptional-twin2-review.md, with the
+  repairs (D5) present in main's TW2. Used with the stated hypotheses.
+* **E5 (minor, logic of the labels).** "Theorem 4.1 ((H_O), hence
+  (H_O^≠))", the Remark "(H_O^≠) … is absorbed into the two bounds above",
+  and AGENT_REPORT_O5 "That covers (H_O^≠) and gives (H_O^=) again" are
+  wrong as implications. In TW2, (H_O^=) and (H_O^≠) are *un-quarantined*
+  pair sums (`Σ x_C x_{C′}`, i.e. parts of `q_j = Σν deg²`), and the route
+  was `S_j ≤ q_j`; so (H_O^=)+(H_O^≠) ⇒ (H_O), not conversely. TW3 bounds
+  `q_j` only for large–large pairs (Lemma 3.4 is un-quarantined); the
+  small–small and small–large pairs are paid by the first moment through
+  `min(x,1)² ≤ x`, which says nothing about `Σ x_C x_{C′}`. So (H_O^≠) as
+  stated in TW2 §5.1/TW3 §1 is **not** proved; it is **bypassed** (no
+  longer needed for Cor 5.2), like H_div. Fix: "(H_O) proved; (H_O^≠) and
+  H_div bypassed (no longer needed; open as stated)". Cor 4.2 is
+  unaffected.
