@@ -45,3 +45,24 @@ Checked line by line:
   ch.14-vs-Thm-11.13 inconsistency with POINTWISE_SIZE Prop 11.4.
 
 No mathematical gap found. Prop 11.4 → PROVED modulo S1–S3 is justified.
+
+### 3. FHRSS cross-citation (§2.3) — CORRECT; hypotheses checked literally
+
+Archived `2504.20289.txt` lines 34–49, Thm 1.1. With `f=x²+xy+y²`, `B=4`, `A=−3`,
+`m=35`, `l=1`:
+* f is primitive (gcd(1,1,1)=1); `D=−3` is not a square; f is positive definite;
+  `(a,2D)=(1,6)=1`.
+* `A≠0`; `gcd(A,B)=gcd(−3,4)=1`. `D=−3≡5 (8)`, so the alternative `2|AB` is
+  needed, and `AB=−12` is even. ✓
+* `gcd(l,m)=1`; `gcd(m,2DB)=gcd(35,24)=1`; `gcd(l−A,m)=gcd(4,35)=1`. ✓
+* "Primitively represented by Bf+A" means `p=4f(x,y)−3` with `gcd(x,y)=1`. The
+  doc's deduction is right: primes ≡2 (3), including 2, are inert in Z[ω], so a
+  primitive value has none of them. `n≡(x−y)² (3)` and `3∤n` give `p≡1 (24)`.
+  With `p≡1 (35)` this gives `p≡1 (840)`. FHRSS counts *primes*, so the lower
+  bound transfers. (Since h(−3)=1 the two sets actually coincide.)
+* Nit: "Their proof is Iwaniec's 1972 argument, i.e. the same S1–S3 route" is
+  loose. FHRSS §1.4 says the sieve gives a genus-level count, and then [BF12]
+  (Bourgain–Fuchs) is applied to pass to a single form. For D=−3 that step is
+  vacuous (one class), so the nit is harmless (D5).
+* FHRSS is an arXiv preprint (Apr 2025); the doc does not record its
+  publication status (D5).
