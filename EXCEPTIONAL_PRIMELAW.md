@@ -356,8 +356,8 @@ known to be over-populated). Under GRH this cannot help, for polynomial
 coefficient budgets:
 
 **Proposition 4.3 (CONDITIONAL on GRH for Dirichlet L-functions).** Fix
-`A ≥ 1`, `ε > 0`. Let ν be a prime majorant of `𝒜(𝔊)` with every prime of
-𝔊 `≤ N^A` and `T ≤ N^{1/2−ε}`, and let F be a set of primes with
+`A ≥ 1`, `ε > 0`. Let ν be a prime majorant of `𝒜(𝔊)` with every modulus
+`d_i ≤ N^A` and `T ≤ N^{1/2−ε}`, and let F be a set of primes with
 `|F| ≤ N^{1/2}` such that `ν(p) ≥ 0` for every prime `p ∉ F`. Then
 
     Σ_{p ≤ N, p ∉ F} ν(p) ≥ (1 − o(1))·li(N)·E*ν,
@@ -368,16 +368,15 @@ its error terms are evaluated (signed, exact), saves at most that much.
 
 *Proof.* Under GRH, `π(x; q, a) = li(x)/φ(q) + O(x^{1/2}log x)` uniformly
 for `q ≤ x`, `(a,q) = 1` (partial summation from the GRH bound
-`ψ(x;q,a) = x/φ(q) + O(x^{1/2}log²x)`); for `q > x` the same holds
-trivially, as both terms are `≤ 1 + li(x)/q ≤ 2`. Terms with
+`ψ(x;q,a) = x/φ(q) + O(x^{1/2}log²x)`); for `x < q ≤ x^A` it holds
+trivially, as `π(x;q,a) ≤ 1` and `li(x)/φ(q) ≪ log log x/log x`. Terms with
 `gcd(b_i,d_i) > 1` have `π(N;d_i,b_i) ≤ 1` and `E*`-mass 0. Hence
 
     Σ_{p≤N} ν(p) = li(N)E*ν + O(T N^{1/2} log N),
 
 using `Σ_{unit terms} a_i/φ(d_i) = E*ν` (Lemma 1.3). Removing F changes the
 sum by at most `|F|·max|ν| ≤ N^{1/2}T`. Both errors are `O(N^{1−ε}log N)`.
-By Lemma 4.1 (Λ₀ = A log N, log T ≤ log N) and Theorem 3.1, as in
-Cor 4.2 (H2), `E*ν ≥ exp(−C_A(log N)^{3/4}(log log N)^{3/4})`, so
+ν has level `≤ A log N`, so Theorem 3.1 gives `E*ν ≥ exp(−C_A(log N)^{3/4}(log log N)^{3/4})`, so
 `li(N)E*ν ≥ N^{1−ε/2}` for N large, and the errors are `o(li(N)E*ν)`. ∎
 
 Unconditionally the analogue fails for a trivial reason: the best
