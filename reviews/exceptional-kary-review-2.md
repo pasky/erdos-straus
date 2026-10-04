@@ -62,3 +62,43 @@ Verdict scale: SOUND / SOUND-AFTER-REPAIRS / DEFECTIVE. Defects numbered E1, E2,
 * Cor 2.5 arithmetic: Markov `E[p1{p>δ}] ≤ E p²/δ`; with ε = 1/4,
   `Σ_{ℓ>W} ℓ^{1/2}·Cℓ^{−7/4} = CΣℓ^{−5/4} ≪ W^{−1/4}`. Uniform in the family
   and in λ because C(ε,B) is W-free (item 1.4).
+
+### 1.4 ETw Lemma 2.4 / Lemma 4.0 (second moment, prime-power tops) — SOUND
+
+* Re-derived. Write each modulus with top ℓ as `M = qℓ^v`, `(q,ℓ)=1`,
+  `q ≤ ℓ^{1+B−v} ≤ ℓ^B`. The class `−4D (mod M)` contributes to `F_ℓ` only if
+  `n ≡ −4D (mod q)` (all primes of q precede ℓ), and then contributes one class
+  mod `ℓ^v`. So pointwise `p_ℓ ≤ Σ_v ℓ^{−v}N_{ℓ,v}(n)`. Expand `N²` over pairs
+  of pairs; a compatible pair is one class mod `m = lcm(q,q')`, probability
+  `≤ Γ(m)/m ≤ 3^{ω(m)}/m` (item 1.2; `γ(2)=1`, `γ(3)=3`, `γ(p) ≤ 5/2` for odd
+  `5 ≤ p ≤ W`, `γ′(ℓ) ≤ 4/3` above W). `#{(q,q'): lcm = m} = τ(m²)` (2e+1 choices
+  per `p^e ∥ m`). `τ(A_q²) ≤ C_ε ℓ^{ε/4}` since `A_q ≤ ℓ^{1+B}`. Euler product
+  `Π_{p≤ℓ^{2B}}(1 + 9/p + O(p^{−2})) ≪ (2B log ℓ)^9`. Minkowski over v. The
+  constant is **W-free** (only `Γ ≤ 3^ω` enters), which is what lets W₀(B) be
+  chosen afterwards.
+* Use in KARY (Lemma 4.2(3)): needs (a) item 1.2 for lcm's of cofactors —
+  holds for KARY's law; (b) `p_ℓ` is the density of classes decided at ℓ —
+  holds because in-block cofactor primes precede ℓ in the increasing order.
+  ETw's "any order compatible with the sequential construction" is satisfied.
+  Note the bound is pointwise in the full y-history, so KARY's in-block
+  dependence (which ETw's windows lacked) is irrelevant.
+
+### 1.5 ETw Lemma 2.6 → KARY Lemma 4.2′ (first moment on dyadic blocks) — SOUND
+
+* Step 1 re-derived as in 1.4 with one class: `E 1{active} ≤ Γ(q)/q`, and
+  `ℓ^{−v}Γ(q)/q ≤ Γ(M)/M` because `γ′ ≥ 1`; `≤ τ(A_M²)` values of D. Light mass
+  `M_V ≤ Σ_{ℓ∈V} p_ℓ`.
+* Step 2 is ET Lemma 3.1 / Cor 3.6 with `h(p) = γ′(p) − 1`: `h(2) = 0`,
+  `h(3) = 2`, `h(p) ≤ 3/2` for `5 ≤ p ≤ W`, `h(ℓ) ≤ (4/3)ℓ^{−1/2}` above W. The two
+  convergence conditions (Shiu range `Σ h(e)/φ(e) < ∞`; large divisors
+  `Σ h(e)e^{−3/4} < ∞`) hold, with constant `K₀(W)` (a finite Euler product
+  over `p ≤ W`, so `(log W)^{O(1)}`). This analytic mean value is an ET input,
+  not an ETw one; it is window-free and B-free, and was reviewed with ET. I
+  did not re-derive Shiu's theorem.
+* Step 3 re-checked: `Σ_{M≤X} τΓ/M = S(X)/X + ∫_1^X S(x)x^{−2}dx ≤
+  K₀(log²(X+2) + log³(X+2))`; `log X = 2(1+B)s ≥ 2log W ≥ 5.5` gives the
+  factor 1.3 (`1.01³·(1+1/5) ≈ 1.24`). Dropping `P(M) ∈ V` is a valid upper
+  bound (nonnegative terms). `M ≤ P(M)^{1+B} ≤ e^{2(1+B)s}`. Correct.
+* Hypotheses: ETw Lemma 2.6 was stated for η-windows with `s_j ≤ λ`; the
+  restriction `s_j ≤ λ` is not used in its proof, and Lemma 4.2′ restates the
+  bound for any `V ⊆ (e^s, e^{2s}]`, `s ≥ log W`. Thm 4.5 has `s ≥ s₁ > 2log W`.
