@@ -10,6 +10,24 @@ All computations are cheap (seconds). We verify:
       primes except a residue concentrated in the six square classes mod 840,
       and every leftover prime is nevertheless solvable (factorization luck);
   (e) the classical identity families are exactly valid (symbolic spot checks).
+
+Later blocks (f)..(by) follow notes.md sections; see the comment above each.
+Blocks (bz)..(ch) are fast replays of the 2026-10 documents' key checks
+(each raises AssertionError on any violation):
+  (bz) POINTWISE_SIZE: Lemma CT on all solutions, p = 1 (4) <= 1500;
+       window reciprocity Lemma 8.2 / Cor 8.3(a) for p = 1 (8) < 2000;
+  (ca) POINTWISE_OMEGA: Lemma 2.3 algebra (M <= 6000); prime-local
+       reduction Lemma 2.1 and its converse at T = 255, 1023, 4095;
+  (cb) POINTWISE_OMEGA2: Lemmas 1.1, 1.2, 10.1(1) by brute force;
+  (cc) POINTWISE_OMEGA3: Thm 3.2 two-level composition by brute force,
+       with a negative control;
+  (cd) EXCEPTIONAL_THETA: Prop 2.4 symmetrisation identity; reduction LP
+       only if scipy is importable (`uv run --with scipy python verify.py`);
+  (ce) EXCEPTIONAL_BALANCED: Lemma 4.1 (s,r,k) parametrisation; Lemma 2.1;
+  (cf) EXCEPTIONAL_TWIN: Jacobi Lemma 1.1 (M <= 20000); Lemmas 3.1-3.2;
+  (cg) EXCEPTIONAL_TWIN2: Thm 1.4 on random small binary systems;
+  (ch) 3/4-note blind audit: the 16 checks of
+       scripts/es34_blind_audit_checks.py (imported).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root

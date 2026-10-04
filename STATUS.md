@@ -96,6 +96,10 @@ witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
   section.
 * Status labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE.
   "Verified numerically" never means "proved".
+* `verify.py` blocks (bz)–(ch) replay the key machine checks of
+  POINTWISE_SIZE/OMEGA/OMEGA2/OMEGA3, EXCEPTIONAL_THETA/BALANCED/TWIN/TWIN2
+  and the 3/4 blind audit (~25 s; the THETA LP runs only with
+  `uv run --with scipy python verify.py`).
 
 ## Exceptional-set exponent: where it stands (2026-10-02)
 
