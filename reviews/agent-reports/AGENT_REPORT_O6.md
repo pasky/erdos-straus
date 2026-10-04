@@ -110,3 +110,18 @@ the log domain, with worst-case Markov pushes, for `k=3..8` and
   * (α) An averaged HC plus a Markov push for the rare bad sets.
   * (β) Rescale the construction so that large-q vertex sets cannot
     occur.
+
+# Checkpoint 3 — route (β) (§7.4)
+
+* **Lemma 7.4 (PROVED).** Every surviving atom must be an event, by
+  (I). So vertex sets with `q≍T/y≫y²` occur in every construction of
+  this family. "Restricting atoms" is impossible, and quarantining the
+  large primes costs `θ(T/y²)`.
+* **Assessment.** The only form left is a composition level with the
+  large-prime coordinates as outer variables. That moves the
+  short-interval inverse problem to the outer level, a `k→k/2`
+  recursion. I do not expect it to remove the obstruction.
+* **Unconditional rate unchanged:** Cor 3.1/3.2.
+* **Not done (context exhausted):** the off-ray core estimate and gap
+  (iii) (the τ(a+b) lattice average). Both matter only once the core
+  obstruction is solved.

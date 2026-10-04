@@ -590,3 +590,49 @@ range. Thm 4.2 is therefore not unconditional.
 * (β) Change the construction so that heavy-q vertex sets cannot occur,
   for example by splitting the free range `(y,T]` into scales. This is
   untested.
+
+### 7.4 Route (β): restricting atoms cannot remove large-q vertex sets (PROVED), and what is left (Assessment)
+
+**Lemma 7.4 (PROVED).** Any construction of this family must satisfy
+`B ≤ 1[W>T]` on `n≡1 (Q)` with `Q ⊇ ∏_{ℓ≤y}ℓ^{e_ℓ}`. In any such
+construction, every atom surviving Π with rough part `r>1` must be
+forbidden by some event, because otherwise (I) fails at the CRT point
+realising it. Hence the events include vertex sets O with
+`q(O) = T^{1−1/(k+1)+o(1)}`. Example: `M = ℓ_1ℓ_2ℓ'`, with
+`ℓ_1∈(y,2y]`, `ℓ'∈(y,2y]`, `ℓ_2≍T/y²` prime, and O the pair at
+`ℓ_1,ℓ_2`. Then `q≍T/y ≫ y²` for `k≥3`. So "keeping fewer atoms" is not
+available, and neither is enlarging Π to the large primes, which would
+cost `log Q ≥ θ(T/y²)`.
+
+*Proof.* (I) is the only link between B and W (O2 Lemma 4.3 (I)). An
+unforbidden surviving atom gives a residue class `n≡−4D (M)`, compatible
+with `n≡1 (Q)`, on which `W(n)≤T` holds while no event occurs. Then any
+B that is ≥0 on that class with positive weight violates the minorant.
+Since B is a minorant of the void indicator only, the atom must be an
+event or be killed by one. ∎
+
+*What (β) would have to be instead (Assessment, not pursued).*
+
+* Rescaling must act on the **minorant**, not on the atom set. One
+  natural form is a further composition level whose *outer* sieve
+  variables are the coordinates at large primes `ℓ>y^{2−ε}`. In the
+  inner system, cell-conditioning on those coordinates turns a large-q
+  set O into an induced set at small primes only, where Prop 7.3 closes.
+* The cost would be the large-prime level's own truncation and induced
+  mass, as `H_r` in Thm 1.1. Codegrees at the outer level involve only
+  sets of large primes, and those are again large-q.
+* So this just moves the obstruction, unless the large-prime level has
+  degree-only structure. An event of support ≤k has at most
+  `⌊(1+1/k)·log T/log y^{2−ε}⌋ ≤ (k+1)/2` primes above `y^{2−ε}`, so
+  that level has supports about k/2: a recursion `k→k/2` with the same
+  problem.
+* I estimate this gives at best `log₂k` levels of HC-type input, each
+  with the same short-interval inverse problem at its own scale. So
+  (β) does not remove the obstruction of Prop 7.3.
+
+**Status after checkpoint 3:**
+
+* HC(a,B) remains open.
+* Unconditionally (mod TZ, ET) the best rate is Cor 3.1:
+  `log W ≥ (1+o(1))log₂p·log₃p/log₄p`.
+* Off-ray core estimate and gap (iii): not done; context exhausted.
