@@ -371,3 +371,70 @@ uv run --with numpy python scripts/twin3_short_sums.py 600 101 1009 10007
 # §5 system table (X = 1e9: ~10 min, ~1.3 GB for the spf sieve to 2.5e8)
 uv run --with numpy python scripts/twin3_system.py 1e9 1 1009 10007 100003
 ```
+
+## 6. Three or more large primes (task O5, part 2)
+
+### 6.1 Arbitrary arity: noise stability with codegree terms
+
+**Setting 6.0.** This is Setting 1.0 of TW2 with *events* in place of edges.
+An event E is a partial assignment `E = {(ℓ, c_E(ℓ)) : ℓ ∈ S(E)}`,
+`|S(E)| ≥ 2`, and it *occurs* at y iff `y_ℓ = c_E(ℓ)` for all `ℓ ∈ S(E)`.
+Put `π_E = Π_{ℓ∈S(E)} ν_ℓ(c_E(ℓ))` and `w_ℓ = Σ_{E: ℓ∈S(E)} π_E`. A *star*
+σ is a nonempty partial assignment contained in some event. Let `V(σ)` be
+its coordinate set, `π_σ = Π_{(ℓ,c)∈σ} ν_ℓ(c)`, and `ρ̃^{σ} = Π_{ℓ∈V(σ)} ρ̃_ℓ`.
+Its *codegree mass* is
+
+    D_σ = Σ_{E ⊇ σ} π_{E∖σ}      (π_∅ = 1).
+
+So `D_{(ℓ,a)} = deg(ℓ,a)`, and `D_σ ≥ 1` if σ is itself an event.
+Hypothesis:
+
+    (H_δ)   Σ_{ℓ∈S(E)} w_ℓ ≤ δ ≤ 1/16 for every event E.
+
+**Lemma 6.1 (noise stability, any arity; PROVED).** In Setting 6.0, for every
+`ρ̃ ∈ [0,1]^{index}`,
+
+    log (Z₂(ρ̃)/Z₁²) ≤ (1 + 25δ) Σ_{σ star} π_σ ρ̃^{σ} D_σ².                  (6.1)
+
+For graph systems the stars are vertices (`D = deg`) and edges (`D = 1`).
+Then (6.1) is exactly TW2 (1.2). For hyperedges the new terms are the
+stars with `2 ≤ |σ| < |S(E)|`. They are the codegree hubs of
+POINTWISE_OMEGA2 §10.4, which now appear as explicit squared masses.
+
+*Proof.* We repeat TW2 Theorem 1.4 with three changes.
+
+*(i) Local lemma.* In the doubled system each event E gives `E, E′`.
+Take `x_F = 2P(F)`. Then `Σ_{F∈Γ(E)} x_F ≤ 4Σ_{ℓ∈S(E)} w_ℓ ≤ 4δ`, so the
+hypothesis of TW2 Lemma 1.1 holds. For an event B depending on
+`Y_ℓ, ℓ ∈ T`, part (2) gives `P(B|A_𝓢) ≤ P(B)exp(5Σ_{ℓ∈T}w_ℓ)`.
+
+*(ii) Derivative identity.* TW2 Lemma 1.3 holds verbatim with
+`F = {a : some E ∋ (j,a) has y_{S(E)∖j} = c_E}`, and likewise F′.
+
+*(iii) Numerator.* `ν_j(F∩F′) ≤ Σ_a ν_j(a) Σ_{E,E′∋(j,a)} 1[B_{E,E′}]`,
+where `B_{E,E′} = {y_{S(E)∖j} = c_E, y′_{S(E′)∖j} = c_{E′}}`. B depends on
+`T = S(E)∪S(E′)∖{j}`, and `Σ_T w ≤ 2δ`, so the conditional factor is
+`≤ e^{10δ}`. Let `T(E,E′)` be the set of `m ≠ j` with `c_E(m) = c_{E′}(m)`.
+For each `m ∈ T(E,E′)` with common value c, the coupling gives
+`P = κ_mν_m(c) + (1−κ_m)ν_m(c)² ≤ ν_m(c)²(1 + κ_m/ν_m(c))`. Every other
+coordinate contributes its product of marginals, or less. Hence
+
+    P(B_{E,E′}) ≤ π_{E∖j} π_{E′∖j} Π_{m∈T(E,E′)} (1 + tρ̃_m/ν_m(c_m))      (κ = tρ̃)
+               = Σ_{U ⊆ T(E,E′)} t^{|U|} π_{E∖j}π_{E′∖j} Π_{m∈U} ρ̃_m/ν_m(c_m).
+
+For fixed U put `σ = {(j,a)} ∪ {(m,c_m) : m ∈ U}`, a star contained in
+both E and E′. Then `π_{E∖j} = π_{E∖σ} Π_{m∈U}ν_m(c_m)`, and the
+`(E,E′,U)` sum is a sum over stars `σ ∋ (j,a)` of
+`t^{|σ|−1} Π_{m∈U}(ρ̃_mν_m(c_m)) D_σ²`. So
+
+    ν-numerator ≤ e^{10δ} P(A_{−j}) Σ_{σ: j∈V(σ)} t^{|σ|−1} (π_σ/ρ̃_j) ρ̃^{σ} D_σ².
+
+*(iv) Denominator and integration.* As in TW2,
+`E[ν_j(F)|A_{−j}] ≤ e^{5δ}w_j ≤ e^{5δ}δ`. Hence
+`∂_{κ_j}log Z₂(tρ̃) ≤ (1+25δ) Σ_{σ∋j} t^{|σ|−1}(π_σ/ρ̃_j)ρ̃^σ D_σ²`.
+Multiply by `ρ̃_j` and sum over j. Each star is then counted once from
+each of its `|σ|` coordinates, and `∫₀¹ t^{|σ|−1}dt = 1/|σ|`. ∎
+
+This proves the log-form of TW Conjecture 6.8 for arbitrary arity, *without
+any codegree hypothesis*: the codegree terms are part of the bound.
+Whether they are small is an arithmetic question (§6.3).
