@@ -18,15 +18,18 @@ prime factors, all `>y`), `n′≥y`. Survival: `m|4sa²+1`.
   `#{(s,t): s squarefree, s≤Y, t≤t_0, st²≡w (q)} ≤ Yt_0²/q+1`,
   pointwise in w, with no divisor loss and no Kloosterman input.
 * §2 (PROVED). **Theorem 2.3:** the `m=1` part of every non-hub codegree
-  is `≪𝓛⁴4^{k/3}H^{−1/3}`. This is HC with `a=1/3` for events whose
-  atom has trivial Π-part. The proof combines the lifting with square-root
+  is `≪𝓛⁴4^{k/3}H^{−1/3}` for `4^k≤H≤y`. This is HC* (the restricted
+  form of HC, Cor 4.1) with `a=1/3` for events whose atom has trivial
+  Π-part, with saturated hubs (Def 2.0). **HC as literally stated in O4 is
+  false** for lifted vertices: a non-hub lift of a hub class has codegree
+  `≫1` (Def 2.0). O4 Thm 4.2 survives with saturated hubs. The proof combines the lifting with square-root
   counts and a thin-box lattice lemma. It uses no exponential sums.
 * §3 (PROVED). The Π-part m (O4 gap (iii)) satisfies `m|u+v` and
   `m|4sa²+1`. Events with `m≤H^{1/6}` give HC with `a=1/6`, and ray sums
   are bounded for balanced rays.
 * §4. **Open residual HC_Π (large m).** It is a divisor-function problem
   in short progressions, not a Weil-range inverse problem. HC_Π implies
-  HC, and hence O4 Thm 4.2's `log W ≥ c(log₂p)^{3/2}` (Cor 4.1). HC itself
+  HC*, and hence O4 Thm 4.2's `log W ≥ c(log₂p)^{3/2}` (Cor 4.1). HC itself
   is still **not** proved, and the proved rate stays O4 Cor 3.1.
 * §5. Literature: no known theorem gives O4's IS. HC never needed IS
   (squarefree s).
@@ -96,6 +99,9 @@ For every M ≡ 3 (4), `(s,a,b)=((M+1)/4,1,1)` is an atom of class −1 and
 event of class −1 mod `ℓ_1ℓ_2r` contains O, and most of its lifts at r
 survive hub deletion. Hence `Δ_O ≥ c·Σ_r 1/r ≫ 1` while O has no H-hub in
 O4's sense, so HC as stated fails, and O4 Thm 4.2 must be read with saturated hubs.
+(Lifting convention: O2 §10.3 splits a class mod `ℓ^a` into its lifts as
+disjoint events with the same union, and `Δ_O` is unchanged for O containing
+a lifted vertex. So the lift `x_i` inherits the codegree of the class −1.)
 *Cost.* The quarantined mass becomes
 `h_ℓ ≤ Σ_{v≤e_ℓ}|𝓗_H(ℓ^v)|·ℓ^{e_ℓ−v}/φ(ℓ^{e_ℓ}) ≤ e_ℓ·3H(1+log H)/(ℓ−1)`.
 Since `e_ℓ≤k+1`, O4 Thm 4.2 step 2 then needs `300(k+1)H(1+log H)<y`
@@ -147,9 +153,9 @@ the sub-box's points lie on one line L. Let `δ` be the shortest vector of
 Δ¹(Q,K) ≤ C·𝓛⁴·4^{ω(Q)/3}·Ĥ^{−1/3}     (C absolute).
 ```
 
-Hence, for every vertex set O with no H-hub vertex (and `H≤y`), the
-`m=1` part of `Δ_O` is `≤ 2C𝓛⁴4^{k/3}H^{−1/3}`: **HC(1/3, 4) holds for the
-m=1 part**, with the harmless factor `e^{O(k)}`.
+Hence, for every vertex set O with no saturated H-hub vertex and
+`4^k≤H≤y`, the `m=1` part of `Δ_O` is `≤ 2C𝓛⁴4^{k/3}H^{−1/3}`: **HC*(1/3,4)
+holds for the m=1 part** (Cor 4.1 for HC*).
 
 *Proof.* Dyadic boxes `[S,2S)×[A,2A)×[B,2B)` (powers of 2, `SAB≤T`):
 at most `8𝓛³` of them. A point has `1/n ≤ Q/(2SAB)`, and a nonempty box
@@ -355,9 +361,10 @@ is therefore unnecessary for the core.
 ## 6. Status
 
 * **PROVED:** Lemma 1.1, Cor 1.2, Lemmas 2.1–2.2, Theorem 2.3
-  (HC with a=1/3 for the m=1 part), Lemma 3.1, Prop 3.2 (HC with a=1/6
-  for `m≤Ĥ^{1/6}`), Lemma 3.3, Cor 4.1 (HC_Π ⇒ HC ⇒ O4 Thm 4.2 rate).
-* **Open:** HC_Π, i.e. the large-m part. HC(a,B) is therefore still
+  (HC* with a=1/3 for the m=1 part), Lemma 3.1, Prop 3.2 (HC* with a=1/6
+  for `m≤Ĥ^{1/6}`), Lemma 3.3, Cor 4.1 (HC_Π ⇒ HC* ⇒ O4 Thm 4.2 rate),
+  and the counterexample to literal HC (Def 2.0).
+* **Open:** HC_Π, i.e. the large-m part. HC*(a,B) is therefore still
   not proved unconditionally, and the proved rate remains O4 Cor 3.1.
 * **Scope caveats.** q is taken squarefree, as in O4 §7. Free primes
   `ℓ≤√T` have vertex classes mod `ℓ^{e_ℓ}`, and events with `ℓ^2|M` see
