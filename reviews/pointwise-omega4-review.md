@@ -144,3 +144,72 @@ constant is effective. ET's proof is elementary (divisor-sum / Type I
 counting), so this is very likely, but the text should say "effective
 provided ET Prop. 1.4 is" or cite the effectivity, as PO does not record
 it either.
+
+## Item 4 — Hypothesis HC(a,B), Lemma 4.1, Theorem 4.2. Verdict: **SOUND** (as a conditional implication); minor defects D4, D5
+
+Checked step by step:
+
+* **Pointwise validity with hub deletion.** HC is stated for the system
+  *with H-hub events deleted*. This is legitimate: O3 Thm 1.1 gives
+  `B≤1_{𝒜_1∩𝒜_2}` with `𝒜_1={X_ℓ∉𝓗_H(ℓ^{e_ℓ}) ∀ℓ}` and `𝒜_2` the void
+  event of the *reduced* system; on `𝒜_1` no hub-containing event can
+  occur, so `1_{𝒜_1∩𝒜_2}≤1[no event]≤1[W>T]` on `n≡1 (Q)` by (I). After
+  deletion, sets O containing a hub have codegree 0, so HC (which only
+  speaks of hub-free O) covers every set Lemma 10.2 needs. ✔
+* **Step 1.** `|𝓑|≤kŜ/c=64k²·4ek17^k·e^{0.011k}Ŝ=e^{O(k)}Ŝ`. ✔ Per-prime
+  under P′: `≤e^{0.011k}c=δ_k/(64k)`, which gives (G_k) and (W_k) of O2
+  Thm 10.3. ✔
+* **Step 2.** `(100/99)^k=e^{0.01005k}≤e^{0.011k}` ✔;
+  `S_hub≤3H(1+log H)Σ_{y<ℓ≤T}1/(ℓ−1)≤3H(1+log H)(log(k+1)+1)` ✔.
+* **Step 3.** From O2 Thm 10.3: `Λ′=17S_1^++2ek17^kS_H`,
+  `S_1^+≤S_1+kS_H/δ_k`, `λ=3(S_1^++S_H)`, and `2ek17^k=1/(2δ_k)`; so
+  `Λ′+λ≤(20k+½)Ŝ′/δ_k+23Ŝ′≤22kŜ′/δ_k` ✔, `L+1≤17kŜ′/δ_k` ✔. With
+  `N≥k(L+1)`, the bound `Δ≤η_k=δ_k/(2N^{k−2})` gives
+  `Σ_{j=1}^{k−2}N^jη_k≤δ_k`, i.e. (CD_k) in the form actually used in
+  Thm 10.3 Step 3. ✔ Recomputed
+  `log(1/η_k)=log(1/δ_k)+log2+(k−2)[log17+2log k+logŜ+0.011k+log(1/δ_k)]
+  ≤(k−1)(logŜ+2.86k+3log k+6)` (per-factor constant 2.844k+5.22). ✔
+* **Step 4 / Lemma 4.1.** O3 Cor 1.2 output, `J+1=O(S_hub+kŜ′/δ_k)=O(K)`,
+  so primes per modulus `≤e^X` after the `O(1)`. `|𝓑|=e^{O(k)}𝓛^5≤e^X`
+  since `X≍k²/a≫k+log𝓛`. `log Z≤2.52(k+1)T^{1/(k+1)}+3e^X𝓛+O(1)≤…+e^{X+2}𝓛`. ✔
+* **Step 5.** `min_k(2.86k²/a+𝓛/k)` is at `k³=a𝓛/5.72` ✔; then
+  `X=(0.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}`, `𝓛/k=(1+o(1))(5.72/a)^{1/3}𝓛^{2/3}`,
+  max is the first branch, `log₂p≤(1.5+o(1))(…)`; inverting,
+  `𝓛≥(1−o(1))(a/5.72)^{1/2}1.5^{−3/2}(log₂p)^{3/2}`;
+  `5.72^{−1/2}·1.5^{−3/2}=0.2276>0.2`. ✔ Lower-order terms
+  (`(k/a)5log𝓛`, `(B/a)log𝓛`, `log log H`, `O(log k)`) are `o(𝓛^{2/3})`. ✔
+  `k≈𝓛^{1/3}` is inside HC's range `k≤𝓛^{1/2}`. ✔
+* **ET is genuinely needed** (label correct): with only (U),
+  `logŜ≈0.7𝓛/log𝓛` makes `(k/a)logŜ` dominate and the optimum collapses
+  to `log W≳log₂p·(log₃p)^{1/2}`, weaker than Cor 3.2.
+* **Sanity check of HC (reviewer).** Every atom's class is `−a/b` with
+  `ab=(M+1)/(4s)≤T/4` (O3 Lemma 2.1), so for `H≥T/4` every event vertex
+  is an H-hub and HC is vacuous; HC therefore only constrains `H<T`, and
+  the decay `H^{−a}` for κ-monochromatic sets of height `h>H`
+  (`Δ≍1/h`) forces `a≤1`. No inconsistency found; HC is correctly
+  labelled open.
+
+**D4 (unverified step).** Step 2 asserts `h_ℓ≤1/100` "since `ℓ>y≫H`".
+This is needed for O3 Lemma 1.3 and it is *not* automatic: at the chosen
+k, `log H=(1+o(1))X=(0.5+o(1))(5.72/a)^{1/3}𝓛^{2/3}` while
+`log y=(1+o(1))(5.72/a)^{1/3}𝓛^{2/3}`, i.e. `H=y^{1/2+o(1)}`. So it holds,
+with a factor 2 in the exponent to spare, but only *because of* the
+optimisation; for a larger k (smaller y) it would fail. The proof
+should state `log H≤(½+o(1))log y` explicitly (or impose `k` so that
+`300H(1+log H)<y`).
+
+**D5 (EVIDENCE misreported).** §4.2 says the O3 §2 maximum outside
+`𝓗_X` shows "no growth in T over `10^9…10^13`". O3 EVIDENCE 2.4's table
+shows growth at small X: outside `𝓗_16`, 0.034 → 0.052 → 0.086 → 0.089;
+outside `𝓗_64`, 0.013 → 0.019 → 0.033 → 0.038. Only the `𝓗_1024` column is
+flat. Also θ (hence y) varies with T in that table, and it is one pair
+per T. (HC tolerates `𝓛^B` growth, so this does not contradict HC, but
+the sentence overstates the evidence; O3's own phrasing is inherited.)
+Note also the O3 data are maxima over joint classes `c mod ℓ_1ℓ_2`
+outside `𝓗_X(q)`, *without* deleting hub events, which dominates the
+HC quantity (hub-free vertices ⇒ `c∉𝓗_X(q)`; deletion lowers
+codegrees) — the right direction, worth saying.
+
+**Minor wording.** "So the factorial of Theorem 1.1 is *entirely* the
+cascade" after Thm 4.2 is an Assessment: Thm 4.2 shows HC suffices to
+avoid it, not that nothing else could force factorial growth. Label it.
