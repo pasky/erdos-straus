@@ -673,6 +673,19 @@ Compared with EK Thm 4.5, the class drops `M ≤ P(M)^{1+B}` and adds
   `≍ (log y)³`. For `y ≥ 200` the truncation `X = 10⁷` is not converged
   (u ≤ 3), so those rows are lower bounds. Output `data/kary2/moments.txt`.
 
+* Independent checks by the reviewers (on their branches):
+  * `scripts/review_kary2_squares.py` (review 1) found no square in
+    600,000 (a,D)-, 721,989 Case-A and 1,070,466 ℛ(M)-classes, plus
+    86,798 random large classes. Output `data/kary2/review_squares.txt`.
+  * `scripts/kary2_review2_checks.py` (review 2) checked:
+    * the mixed base at `W = 13` against every W-smooth class with
+      `G | Q₀`, including selector classes (no unit square in any);
+    * the ℛ(kℓ)-form and `B < 1/120` of 124,464 atoms of the 3/4 note;
+    * the §5 ledger numerically: the minimised cost over
+      `λ^{3/4}(log λ)^{3/4}` converges to ≈ 10.3.
+
+    Output `data/kary2/review2_checks.txt`.
+
 ## Replay
 
 ```
