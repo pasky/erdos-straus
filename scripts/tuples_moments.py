@@ -129,7 +129,7 @@ def main():
             tw = eF[j] / (M * e[j]) if e[j] > 0 else float('nan')
             r = S[j] / e[j] if e[j] > 0 else float('nan')
             bon = f"{bi:+.4e} {bc:+.4e}" if j % 2 == 0 else ""
-            print(f"{j:3d} {S[j]:.4e} {e[j]:.4e} {r:.4f} {ab:.3f} {tw:.2e} {bon}")
+            print(f"{j:3d} {S[j]:.4e} {e[j]:.4e} {r:.4f} {ab:.3f} {tw:.2e} {bon}".rstrip())
         print("# TC check: K  eta(K)=max_{j<=K}|S_j/N-e_j|  eta_K=exp(-K/e^2)/K  "
               "mu<=K/e^2?  TC(N;K,y,eta_K) holds?")
         for K in range(2, J + 1, 2):

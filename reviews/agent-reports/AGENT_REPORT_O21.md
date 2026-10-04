@@ -17,9 +17,10 @@ No θ > 3/4 is claimed unconditionally. ES is not solved.
    `η = e^{−K/e²}/K` this is `E(N) ≤ (e+2)N e^{−K/e²}`. Hence
    **TC_θ ⇒ E(N) ≤ N exp(−(2/e²−o(1))(log N)^θ)** (Cor 2.3).
    * TC is a theorem for `K ≤ c(log N)^{2/3}` (Prop 2.4; Brun, recovers
-     2/3).
-   * TC is false for `K ≥ (e²/2+ε) log N`, because squares avoid every
-     class (Prop 4.2, Jacobi argument).
+     2/3), so TC_θ holds for θ < 2/3.
+   * TC is false for even `K ≥ (e²/2+ε) log N`, because squares avoid
+     every class (Prop 4.2, Jacobi argument). TC_θ at θ = 1 itself is not
+     decided.
    * TC_θ for 3/4 < θ < 1 is the open CONJECTURE: natural and
      falsifiable.
 3. **No-go for bounded order (PROVED, §3).**
@@ -37,18 +38,37 @@ No θ > 3/4 is claimed unconditionally. ES is not solved.
 4. **Literature (§4, Assessment).**
    * Heath-Brown/Deshouillers–Iwaniec (Σττ), the triple correlations
      (averaged only), Matomäki–Radziwiłł–Tao and Tao–Teräväinen all have
-     a fixed number of shifts. EH-type level results live below N.
+     a fixed number of shifts. That axis is distinct from witness order.
+     Prop 4.3 (PROVED): any information about a fixed set of r shifts
+     saves at most `2r(log log N + O(1))` under CRT-main-term
+     evaluation. EH-type level results live below N.
    * The Kubilius model is all-order but single-shift. Prop 4.1 (PROVED):
      the ES hit vector has entropy `≍(log y)³`, so no total-variation
      model holds once `log y ≥ C(log N)^{1/3}`.
    * No known theorem or standard conjecture supplies TC_θ for any
      θ > 2/3.
 5. **Numerics (EVIDENCE, toy, N ≤ 10⁸).**
-   * Avoiders = CRT + squares, to two digits.
-   * Above modulus N, the moments are a few % below CRT, and the deficit
-     shrinks like a power of N at fixed y.
-   * TC holds at `K = 2(log N)^{0.82}` and fails at `2(log N)^{0.95}`.
-     This is pre-asymptotic: a random control fails too.
+   * The avoider excess over CRT is positive and rises with y towards
+     the square density. A random-non-residue control reproduces it.
+   * For y ≤ 1000 and j ≤ 12, moments above N are a few % below CRT and
+     approach it as N grows. This is not uniform (y = 3000 fluctuates).
+   * The TC test at the supplied y passes for y ≤ 100 and fails for
+     y ≥ 300. The random control fails too, so this is not
+     ES-specific.
+
+## Self-review (deep reviewer subagent, round 1)
+
+Seven defects were found, all repaired:
+* the TC_θ endpoints were overstated;
+* fixed shift count was conflated with witness order (Prop 4.3 added);
+* `y_K` was ill-defined, and the numerics used the supplied y, not `y_K`;
+* the avoider-excess and moment-deficit claims were overstated;
+* the random-control explanation was unsupported;
+* the selector hypothesis in Cor 3.3 was missing;
+* even K was missing in Prop 4.2.
+
+The reviewer confirmed that Thm 3.1 (truncated weights in ET Prop 2.4),
+Cor 3.2's parameters, Prop 4.1 and Prop 4.2 are sound.
 
 ## Points for the parent's review
 
