@@ -385,3 +385,40 @@ def stress(seed, ntr):
 
 if __name__ == "__main__" and len(sys.argv) > 3 and sys.argv[3] == "stress":
     stress(int(sys.argv[1]), int(sys.argv[2]))
+
+
+def adversarial_mass(seed, iters, N, d, EMmin):
+    """Hill-climb a full-state rule (q=2, nu(1)=1/4 at the cap) to maximise the
+    LP value subject to E M >= EMmin (else heavily penalised)."""
+    rng = random.Random(seed)
+    qs = [2] * N; nus = [[0.75, 0.25] for _ in range(N)]; deltas = [0.25] * N
+    keys = [(l, c, y) for l in range(N)
+            for c in itertools.product(range(2), repeat=l) for y in itertools.product(range(2), repeat=l)]
+    table = {k: frozenset([1]) for k in keys if rng.random() < 0.8}
+
+    def score(tab):
+        S = System(qs, nus, deltas, table_rule(tab), d)
+        paths = S.paths(); EM = sum(p * M for p, c, y, R, M in paths)
+        basis = S.local_basis(d); best = 0.0
+        for t in (0.25, 0.1, d / (EM + 4 * d)):
+            best = max(best, S.lp_value(weights(S, paths, t, d, Bstar), d, basis))
+        return (best if EM >= EMmin else best - 1), best, EM
+    cur = score(table)
+    for it in range(iters):
+        tab2 = dict(table)
+        for _ in range(rng.randint(1, 4)):
+            k = rng.choice(keys)
+            if k in tab2: tab2.pop(k)
+            else: tab2[k] = frozenset([1])
+        sc = score(tab2)
+        if sc[0] >= cur[0]:
+            cur, table = sc, tab2
+    assert cur[1] <= 1 + TOL, ("THM 2.5 VIOLATED (adversarial_mass)", cur)
+    return cur
+
+
+if __name__ == "__main__" and len(sys.argv) > 3 and sys.argv[3] == "advmass":
+    for s in range(int(sys.argv[2])):
+        for (N, d, emin) in [(6, 2, 0.6), (7, 2, 0.8), (7, 3, 0.8), (6, 1, 0.6)]:
+            sc, v, em = adversarial_mass(100 * int(sys.argv[1]) + s, 150, N, d, emin)
+            print(f"advmass seed={s} N={N} d={d} EMmin={emin}: max LP = {v:.6f} (EM={em:.3f})", flush=True)
