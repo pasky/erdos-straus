@@ -143,3 +143,67 @@ Consequently, if `p_ℓ(c) ≤ 1/4`, the tails of Prop. 2.1 for `f = ν_c` obey
 
 So with weights `s_ℓ := log(1/(2p_ℓ⁺))`, `p_ℓ⁺ = max_{c∈R} p_ℓ(c)`, both
 tails are `≤ e^{−λ} R_1(ν)` for every c.
+
+### 2.3 The cap
+
+**Theorem 2.3 (sieve limit with per-frequency rounding; PROVED).** Take a
+prime-slice system with `p_ℓ(c) ≤ 1/4` for all ℓ ∈ 𝒫, c ∈ R, and a
+majorant ν of *arbitrary* level. Use the weights `s_ℓ = log(1/(2p_ℓ⁺))`
+(so `s_ℓ ≥ log 2`), and write `Φ̄(λ, α)` for the right-hand side of
+ET-file (2.4) minus `log(Q₀/|R|)`, computed with these weights:
+`Φ̄ = 19αλ + C₄ Σ_{s_ℓ≤λ} p̄_ℓ e^{−αs_ℓ} + G(75+log(2+λ/s_*)) + (G/2)log(16μ̄+16)`.
+Then for all λ ≥ s_*, α > 0,
+
+    Eν ≥ (|R|/Q₀) · [ (1 − ε) e^{−Φ̄(λ,α)} − 2ε ],   ε = e^{−λ} R_1(ν).     (2.4)
+
+*Proof.* `Eν = Q₀⁻¹ Σ_c E[ν_c] ≥ (|R|/Q₀) avg_{c∈R} E ν_c` (ν ≥ 0).
+For c ∈ R, `ν_c ≥ 0` and `ν_c(0) ≥ 1` (the event `{c} × {x = 0}` lies in
+𝒜 and has positive probability). Apply Prop. 2.1 in the fibre, with the
+fibre probabilities `p_ℓ(c)` and the c-independent weights `s_ℓ`; by (2.3)
+`r₀(c), r₁(c) ≤ ε`. Average over c and use Jensen for the convex `e^{−Φ}`,
+exactly as in ET-file Thm 2.5 (Φ_c is affine in the `p_ℓ(c)` except for
+the concave log term). ∎
+
+**Corollary 2.4 (PROVED).** Suppose an argument bounds `#(𝒜∩[1,N])` by
+
+    N·Eν + R_w(ν),   w ≥ 1   (any per-frequency rounding bound),     (2.5)
+
+and the bound equals `N e^{−s}` with s ≥ 0. Then
+
+    s ≤ Φ̄(λ_N, α) + log 4 + log(Q₀/|R|)   for every α > 0,
+
+where `λ_N` is any λ ≥ s_* with `λ ≥ log(4N) + Φ̄(λ, α)`.
+
+*Proof.* `R_1 ≤ R_w ≤ N e^{−s} ≤ N`, so `ε ≤ N e^{−λ} ≤ e^{−Φ̄}/4`. Then
+(2.4) gives `e^{−s} ≥ Eν ≥ (|R|/Q₀)(3/4 − 1/2) e^{−Φ̄}`. ∎
+
+Two differences from ET-file Lemma 2.9 + Cor 3.4:
+* the rounding is any `Σ_{θ≠0}|ν̂(θ)|w(θ)`, not `Σ|a_i|`, which is
+  never smaller (since R_1 ≤ Σ|a_i|);
+* **no bound on the size of the slice primes is needed.** Large primes
+  enter only through `p̄_ℓ e^{−αs_ℓ}` and through ε. This closes the
+  exclusion "slice primes beyond N^{O(1)}" of ET-file §6.1 item 7 for the
+  dominant-prime-slice class.
+
+**Corollary 2.5 (the Case-B/Case-A families; PROVED).** Under the
+hypotheses of ET-file Cor 3.4 (forced classes of Lemma 16.1 or 3.2, or
+Case-A classes; moduli `q₀ℓ` with `q₀ ≤ ℓ^C`, C < 1; selector R;
+`ℓ ≥ ℓ₀(C)`), every bound of the form (2.5) has saving
+
+    s ≤ C₈(C) (log N)^{3/4} + log(P/φ(P)).
+
+*Proof.* As in Cor 3.4, `|F_ℓ(c)| ≤ ℓ^{C+o(1)}`, so for `ℓ ≥ ℓ₀(C)`:
+`p_ℓ⁺ ≤ 1/4` and `s_ℓ ≥ ((1−C)/2) log ℓ`. Hence
+`Σ p̄_ℓ e^{−αs_ℓ} ≤ Σ p̄_ℓ ℓ^{−α'}` with `α' = α(1−C)/2`, which is
+`≪ α'^{−3}` by Lemmas 3.1, 3.2 and 3.7 of the ET-file (and
+`ℓ^{−α'} ≤ M^{−α'/2}` as there). With `α = λ^{−1/4}`,
+`Φ̄(λ) ≤ C(C)λ^{3/4} + O(log²λ)`; the truncated mass is
+`μ̄ ≤ Σ_{s_ℓ≤λ} p̄_ℓ ≪ λ³`, so the G-terms are `O(log²λ)`. Then
+`λ_N = 2 log(4N)` satisfies the condition of Cor 2.4 for N ≥ N₀(C). ∎
+
+**What this closes.** Candidate (a) in its natural form — "use the
+arithmetic structure of the forced classes (Gauss/Kloosterman/divisor
+exponential sums) to beat the trivial rounding `Σ|a_i|`" — is capped at
+`(log N)^{3/4}`. A cancellation inside each frequency improves R_w by at
+most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
+`R_1(ν) < N` (with no other restriction) already forces the 3/4 cap.
