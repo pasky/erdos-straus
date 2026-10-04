@@ -478,3 +478,88 @@ them.
 | P24 | W1: `a_min ≥ 7` for `≫ x/(log x)^{3/2}` hard `p` | PROVED modulo cited sieve theorems | `POINTWISE_WINDOW.md` §2 | `reviews/pointwise-window-review.md` | semi-linear sieve, Selberg sieve, BV (also FHRSS 2025) |
 | P25 | W2: `a_min ≥ 11` for `≫ x/(log x)²` hard `p` | CONDITIONAL on Elliott–Halberstam | `POINTWISE_WINDOW.md` §4 | `reviews/pointwise-window-review.md` | EH (level `x^{1−ε₀}`) |
 | P26 | `log W ≍ (log p)^{1/3}`; `a_min ≍ log p/log log p` | Assessment | `POINTWISE_SIZE.md` §7, §8 | — | — |
+
+---
+
+## 5. Novelty and attribution (from `reviews/novelty-audit-2026-10.md`)
+
+The audit is a priority search, not a proof check. "New" means **no prior
+source was found in what was searched**. It is not a certificate of
+priority. The search was limited: the Jina search API failed, and
+Semantic Scholar was rate-limited. These were **not accessed**:
+* Selberg's sieve lectures and *Opera de Cribro*;
+* Prékopa 1988/1990 and Mádi-Nagy–Prékopa 2004;
+* Linial–Nisan and Kahn–Linial–Samorodnitsky;
+* Graham–Ringrose 1990;
+* Schinzel 2000 and Yamamoto 1965;
+* Vaughan's 1970 primary text.
+
+**Known; must be cited, not claimed:**
+* *LP duality for sieve majorants.* A level-λ majorant sieve is dual to
+  the largest avoider mass under laws matching the level-λ marginals. This
+  is standard: Tao, 254A Notes 4, Thm 5; Benjamini–Gurel-Gurevich–Peled
+  (BGP) Prop. 4.
+* *The exchangeable single-band core of the sieve-limit theorem.* It is
+  **known in sharper form**: Peled–Yadin–Yehudayoff (RSA 2011) Thm 1.1 and
+  BGP Thm 23, building on Prékopa 1988. In the binomial model the k-wise LP
+  optimum is within `e^{O(k)}` of the Selberg value. The campaign's ET §2.5
+  "Selberg is near-optimal" EVIDENCE is a theorem there; EVIDENCE remains
+  only for the Poisson model and the multi-band case. KARY Lemma 2.3
+  (binomial extrapolation) is `M(n,d,t) ≥ 1/B` in BGP/PYY notation. PYY is
+  sharper for `d ≤ c·nt`; KARY's crude bound covers all ranges.
+* *The signed character dichotomy and finiteness* (Bright–Loughran 2020;
+  Yamamoto 1965 for one direction).
+* *Notes Thms 5.1 and 17.3* ("finite congruence-identity coverings cannot
+  settle ES"). These are known in substance: Mordell 1969 and Schinzel
+  2000 as quoted in Elsholtz–Tao p. 8, and the Elsholtz–Tao remark on p. 6.
+
+**Transport of a known bound:**
+* `ck_min(p) ≫ log p · log₃p` is Graham–Ringrose's 1990 bound
+  `n_p = Ω(log p · log₃p)` carried over by a Yamamoto-type lemma (as
+  stated in Lau–Wu). Cite Graham–Ringrose as the primary source. Only the
+  equivalence "congruence methods certify exactly `n_p`" (POINTWISE_OMEGA
+  Prop 8.3, Cor 8.4) is campaign content.
+
+**Partial:**
+* *Theorem C.* It generalises, to procedures and conditionally on H, the
+  known odd-square obstructions: Elsholtz–Tao Prop 1.6 and its p. 6
+  remark, Mordell–Schinzel, and Bright–Loughran Cor 1.3–1.4. Its
+  unconditional instances are known.
+* *Theorem M.* It formalises the standard generic-point / Hypothesis-H
+  principle. No procedure-level statement was found, but the principle is
+  folklore.
+* *DEPTH3 Thm 2 and Theorem F* are instances of the same principle.
+  Theorem F was obtained first, and in stronger form, by the sibling
+  project astra (Dickson for 159 linear forms). The campaign's paper
+  reports that result without re-proving it; the authorship and citation
+  form are still undecided.
+
+**Apparently new (no prior source found):**
+* *The 3/4 bound* and the 2/3-loglog bound. As of 2026-10-04, no
+  improvement of Vaughan's 2/3 (or of its loglog factor) was found. Vaughan
+  is still cited as the record by Elsholtz–Tao, Pomerance–Weingartner and
+  erdosproblems #242. The cubic average solution count of Elsholtz–Tao
+  Thm 1.1 is at the same scale but is a different statistic.
+* *The weighted lower-set (multi-band) sieve-limit form* with arbitrary
+  densities, the Rankin-functional cap, and the sequential-law comparison
+  (KARY Thm 2.5). One check is still open and needs library access:
+  whether Mádi-Nagy–Prékopa 2004 contains the multivariate lower-set
+  version.
+* *The ES caps* (3/4 sharp for forced-class CRT sieves). No ES source
+  discusses the limits of sieve majorants.
+* *The `W(p)` Ω-results*, including the explicit rate. No Ω-result for any
+  least ES witness parameter was found. The method follows the classical
+  CRT-plus-least-prime pattern (Fridlender, Salié, Chowla–Turán). The
+  technical novelty is the multilevel minorant and local-lemma machinery.
+  The interest of the result depends on `W` being a natural statistic; it
+  is campaign-defined.
+* *The signed refactor graph and seed-component conjecture.* These are
+  elementary; their value is structural, not a priority claim.
+
+**Other attribution notes:**
+* Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
+  Thm 1.1(2).
+* Theorem W2 is a Friedlander–Iwaniec (2009) type theorem.
+* The campaign uses a 2026 Pomerance–Weingartner bound and
+  Dahan's work (arXiv:2608.24035; Thm 4.17 is credited as an independent
+  antecedent of the cubic exponent shape, for a different statistic).
