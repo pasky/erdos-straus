@@ -371,17 +371,20 @@ computing K moments (§5).
 ### 4.2 Known divisor-type correlation results, measured against TC_θ
 
 By Lemma 1.3, order-k witness correlations are k-point correlations of
-ω-type functions along k shifts `4D_i < y²`. The requirements for
-θ > 3/4 are (Cor 2.3, Cor 3.3): order `k ≳ (log N)^θ/log log N`, combined
+ω-type functions along up to k shifts `4D_i ≤ (y+1)²/4`. Two axes must be
+kept apart: the *witness order* (number of hit indicators, Cor 3.3) and
+the *number of shifts* (Prop 4.3 below); a divisor correlation at r fixed
+shifts has bounded shift count but unbounded witness order. The
+requirements for θ > 3/4 are (Cor 2.3, Cor 3.3): order `k ≳ (log N)^θ/log log N`, combined
 moduli `exp((log N)^{3θ/2})` (prime family), and aggregate relative
 precision `e^{−ck}` in moments of size `e^{ck}`.
 
-| input (literature) | order / shifts | error | covers moduli above N? | verdict |
+| input (literature) | shifts | error | covers moduli above N? | verdict |
 |---|---|---|---|---|
-| Ingham, Estermann; Heath-Brown 1979 (`N^{5/6+ε}`); Deshouillers–Iwaniec 1982 (`N^{2/3+ε}`): `Σ τ(n)τ(n+h)` | 2, fixed h | power saving | yes (divisor switching) | order 2: Cor 3.3 ⇒ useless for θ > 3/4, however precise |
-| `Σ τ(n)τ(n+h₁)τ(n+h₂)` | 3 | open pointwise; known on average over shifts (Browning 2011, Blomer 2017) | averaged | order 3: same |
-| Matomäki–Radziwiłł–Tao (2019, I/II): `Σ τ_k(n)τ_l(n+h)` for almost all `h ≤ H` | 2 shifts, fixed k, l | o(1) or power saving, exceptional h | yes, averaged | bounded order; exceptional-shift sets are fatal for a fixed tuple of shifts `4D_i` |
-| Tao–Teräväinen (2018–19): log-averaged correlations of 1-bounded multiplicative functions, odd-order Chowla/Elliott | fixed k shifts | o(1), logarithmic averaging | yes | bounded order, o(1) error, multiplicative 1-bounded; none of the three requirements |
+| Ingham, Estermann; Heath-Brown 1979 (`N^{5/6+ε}`); Deshouillers–Iwaniec 1982 (`N^{2/3+ε}`): `Σ τ(n)τ(n+h)` | 2 (n, n+h) | power saving | yes (divisor switching) | one fixed shift pair: Prop 4.3 caps any such input at `O(log log N)`, however precise |
+| `Σ τ(n)τ(n+h₁)τ(n+h₂)` | 3 | open pointwise; known on average over shifts (Browning 2011, Blomer 2017) | averaged | fixed shifts: Prop 4.3; averaged form gives no joint K-shift law |
+| Matomäki–Radziwiłł–Tao (2019, I/II): `Σ τ_k(n)τ_l(n+h)` for almost all `h ≤ H` | 2 shifts, fixed k, l | o(1) or power saving, exceptional h | yes, averaged | 2 shifts, averaged; exceptional-shift sets are fatal for a fixed tuple of shifts `4D_i` |
+| Tao–Teräväinen (2018–19): log-averaged correlations of 1-bounded multiplicative functions, odd-order Chowla/Elliott | fixed k shifts | o(1), logarithmic averaging | yes | fixed shift count, o(1) error, 1-bounded multiplicative; none of the three requirements |
 | Elliott–Halberstam-type level for τ, τ₃ (Selberg/Hooley/Heath-Brown 2/3 for τ; Friedlander–Iwaniec, Heath-Brown 1/2+1/82, Fouvry–Kowalski–Michel 1/2+1/46 for τ₃) | 1 class at a time | power saving | no (moduli < N) | IF Thm 2.5 / K2: any evaluation below N/2 is capped at 3/4 |
 | Granville–Soundararajan (2007), sieve proof of Erdős–Kac with moments | growing, `≪ (log log N)^{1/3}`-type | explicit | no (they take `y = N^{1/k}` so products stay ≤ N) | below N by design |
 | Kubilius model (Kubilius; Tenenbaum 1999) | all orders | `ρ(u)`-type in TV | **yes** | single shift (class 0): hits are divisors of one integer ≤ N. Prop 4.1: no TV analogue for the ES hit vector once θ > 2/3 |

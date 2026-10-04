@@ -83,7 +83,7 @@ Cor 3.2's parameters, Prop 4.1 and Prop 4.2 are sound.
   and Ford 2408.03803, which were checked online. It is used in no proof.
   Dates/exponents may deserve a check.
 * Suggested ledger entry: (D)20 "tuple-count door" (Cor 3.2–3.4 PROVED;
-  Cor 2.3 CONDITIONAL on TC_θ; Prop 4.1, 4.2 PROVED).
+  Cor 2.3 CONDITIONAL on TC_θ; Prop 4.1–4.3 PROVED).
 
 ## Replay
 
