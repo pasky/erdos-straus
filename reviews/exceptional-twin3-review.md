@@ -137,3 +137,26 @@ Re-derived line by line.
   `ζ(2)²ζ(3)² = 3.910` from below as Y grows (tight constant).
 * **E4 (nit).** Lemma 3.2 assumes "`X ≥ j`" — not needed; and the r₁ proof
   says `max(u,v)·max(u′,v′) ≥ j/2` where `≥ j` holds (`|uv′−u′v| ≤ HH′`).
+
+## Item 5. Lemma 3.4 (large part of (2.1)) — SOUND
+
+* For `u = v = 1` classes `deg^{lg}(j,·)` factors through `a mod j`;
+  `Σ_{lifts} ν_j ≤ (8/7)/j` and `ν_m ≤ (8/7)/m` hold pointwise on supp P
+  (`p_j ≤ 1/8` on `G_L`), so they come out of `E_P` deterministically.
+* Expanding `z(a)²` over ordered pairs of classes (diagonal pair included,
+  where the pair probability is `P(C active) ≤ 4Γ(k)/k`, consistent);
+  incompatible residues mod `gcd(k,k′)` give probability 0 ≤ bound. Both
+  active ⇔ one congruence mod `lcm(k,k′) | Q_F` ⇒ `≤ 4Γ(lcm)/lcm`
+  (TW2 Lemma 3.2(1)). So `E_P Σ_a ν_j z² ≤ 4(8/7)³ j^{−1}
+  Σ_{a mod j}Σ_{k,k′}(Γ(lcm)/lcm)V_{j,k}(a)V_{j,k′}(a)`. Correct.
+* AM–GM: the weight `c(k,k′) = Γ(lcm)/lcm` is symmetric, so
+  `Σ c V_kV_{k′} ≤ Σ_k V_k² Σ_{k′}c(k,k′)`; `Γ(lcm) ≤ Γ(k)Γ(k′)` (Γ depends on
+  the prime support, factors ≥ 1) gives `Σ_{k′}c ≤ Γ(k)h(k)/k`. Correct.
+* Uniformity of Cor 3.3 in k is genuine (no k enters Lemma 3.2; k enters
+  Lemma 3.1 only through `(kj)^{C₀}` and `(4uv, kj) = 1`), so the k-sum is
+  `Σ_k Γ(k)h(k)/k ≪ (log L)^{O(1)}` (Euler product, TW2 5.4(iii)), and
+  `Σ_{j>w₂} ρ_j/j ≪ log L`. The large part does not even need ρ_j.
+* Sanity of scale: the large-partner mass at j is `≍ L²log L/j` but its
+  `ν`-weighted second moment is `(log L)^{O(1)}/j`; the hub `a = −1`
+  (`D = A`, every m) has `V(−1) ≤ Σ_{m∈𝓜} 1/m ≤ log L`, consistent with
+  the bound. Nothing hidden.
