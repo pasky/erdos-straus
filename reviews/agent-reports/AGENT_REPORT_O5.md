@@ -66,3 +66,55 @@ The same-label / cross-label split is never needed.
   Lemma 2.1 and TW2 Lemma 4.1 (diagonal/unary).
 
 Stopping for parent review.
+
+---
+
+# Checkpoint 2 — three or more large primes (EXCEPTIONAL_TWIN3 §6)
+
+## Proved (internal)
+
+* **Lemma 6.1 (noise stability, any arity).** For a hypergraph event system
+  under (H_δ), i.e. `Σ_{ℓ∈S(E)} w_ℓ ≤ δ ≤ 1/16` for every event E:
+  `log(Z₂/Z₁²) ≤ (1+25δ) Σ_{stars σ} π_σ ρ̃^σ D_σ²`, where
+  `D_σ = Σ_{E⊇σ} π_{E∖σ}` is the codegree mass. The proof is TW2 Thm 1.4
+  verbatim; the only change is that the coupling factor
+  `Π_{agreeing m}(1+tρ̃_m/ν_m)` is expanded over sub-stars. For graphs this
+  is exactly TW2 (1.2). It is TW Conj 6.8 in log form, with no codegree
+  hypothesis.
+* **Lemma 6.2 (codegree quarantine by promotion).** A star with
+  `D_σ > 1` is replaced by the single event σ. This is monotone (A⁺ ⊆ A;
+  no mass grows), so it is free, and it caps every star with `|σ| ≥ 2` at
+  `min(D_σ,1)²`. So the POINTWISE_OMEGA2 codegree-hub obstruction does not
+  block the Λ² route.
+* **Exact check.** `scripts/twin3_kary_check.py`, 1200 random hypergraph
+  systems, 276 inside (H_δ): the largest ratio is 0.949 for both lemmas.
+  Promotions inside (H_δ) are rare in these toys.
+
+## Reduction and residual
+
+* **Prop 6.3.** For the full family (any number of large primes, fixed B)
+  the Λ² saving is at most `L^{3/4}` plus the fibre cost, plus the star
+  sums `E_P[Σρp + ΣρS + Σ_{|σ|≥2}π_σρ^σ min(D_σ,1)²]`.
+* **Inputs 1–2 are routine or already covered:**
+  * the good event (H_δ) needs `w₂ = L^{10}` in place of `L^8`;
+  * the unary and whole-event terms are covered by Shiu along the top prime.
+* **Open (3a).** For the small-partner first moment with *composite*
+  partner R, Lemma 2.1(a) sums the top prime over all integers. That loses
+  `1/α`, giving `≈ L/log L`. The fix needs a Shiu bound over the *prime*
+  top variable.
+* **Open (3b).** For large composite partners, Brun–Titchmarsh over the
+  prime m is replaced by a rough-number sieve with weight `L/log L`. This
+  needs Lemma 3.2's `j^{−1/3}` sharpened to `j^{−1/2+o(1)}`, which looks
+  feasible.
+* **Open (3c), the main point.** The sum over star supports V: a
+  first-moment bound over all sub-stars costs `Π_{ℓ∈S(C)}(1+ρ_ℓ) ≤ 2^r`
+  per class. The decay in |V| must come from second moments, not first
+  moments.
+* **No cheap reduction.** Projection to the two largest primes and
+  unweighted payment for k-ary events both fail. The reasons are stated in
+  §6.2.
+
+Recommendation: next task = (3a)–(3c), starting with (3c) for `r = 3`
+(ternary moduli with fixed B).
+
+Stopping for parent review.

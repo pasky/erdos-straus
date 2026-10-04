@@ -1,6 +1,11 @@
 # EXCEPTIONAL_TWIN3 — the cross-label hypothesis (H_O^≠) (task O5)
 
-Status: **checkpoint 1 (task O5): (H_O) proved, so TW2 Cor 5.2 is unconditional (internal check only; awaiting parent review).** Labels follow
+Status: **checkpoint 2 (task O5).**
+* §§1–5: (H_O) proved, so TW2 Cor 5.2 is unconditional (internal check
+  only; hostile review pending).
+* §6: the noise-stability input holds for any arity (Lemmas 6.1–6.2,
+  PROVED). The full ES family (≥ 3 large primes) is reduced to arithmetic
+  star sums (Prop 6.3); the residual (3a)–(3c) is OPEN. Labels follow
 `DISCOVERIES.md`. Notation follows `EXCEPTIONAL_TWIN2.md` (TW2), Setting 3.0:
 `L = log X`, `w₂ = L^8`, `α = L^{−1/4}`, `ρ_j = j^{−α}`, fibre law P (TW2 §3),
 `A = (M+1)/4`, binary moduli `M = kjm` (k w₂-smooth, j, m primes `> w₂`).
@@ -366,6 +371,8 @@ Reading:
 ## Replay
 
 ```
+# Lemma 6.1/6.2 exact check (3 seeds x 400 trials, ~1 min each, < 1 GB)
+for s in 1 2 3; do uv run --with numpy python scripts/twin3_kary_check.py 400 $s; done
 # Lemma 3.2 table (~3 min, < 1 GB)
 uv run --with numpy python scripts/twin3_short_sums.py 600 101 1009 10007
 # §5 system table (X = 1e9: ~10 min, ~1.3 GB for the spf sieve to 2.5e8)
