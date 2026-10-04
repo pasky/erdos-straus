@@ -49,7 +49,7 @@ $N^{O(1)}$.  The main theorem: for every fixed $B$ and every family of the
 forced classes $\cR(M)$ with $M\leq P(M)^{1+B}$ (twin moduli, prime-power
 tops and any number of prime factors at one scale included), every such
 sieve with the specified admissible set saves at most
-$O_B((\log N)^{3/4})$.  The same holds for families in which every modulus
+$O_{A,B}((\log N)^{3/4})$.  The same holds for families in which every modulus
 has a dominant prime factor, including the $(a,D)$-classes and, modulo a
 published divisor-sum estimate of Elsholtz and Tao, the Case-A classes.
 No power of $\log\log N$ can be gained.  The key new tool is a weighted
@@ -110,7 +110,9 @@ Every statement carries one of the following labels.
 Apart from the classical facts of Section~\ref{sec:forced}, each
 \lab{proved} result below appears in one of eight internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
-\cite{KA}, \cite{TW4}, \cite{NC}.  Each was hostile-reviewed; the reviews
+\cite{KA}, \cite{TW4}, \cite{NC}, or is assembled here from such results
+with the short argument given (marked ``observation of this note'').  Each
+document was hostile-reviewed; the reviews
 are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev}.  No
 prior source for the sieve-limit theorem (Theorem~\ref{thm:slice}) was
 found; it may be folklore in spirit.  Novelty is not claimed.
@@ -121,12 +123,15 @@ found; it may be folklore in spirit.  Novelty is not claimed.
   and~\ref{thm:main}, \lab{proved}).  Fix $B$.  For every family of
   classes $\cR(M)$ with $M\leq P(M)^{1+B}$, of any shape (dominant,
   gapped, twin, prime-power top, any number of prime factors at
-  comparable scale), every nonnegative majorant of level $\lambda$ of the
-  avoider set saves at most $C(B)\lambda^{3/4}$.  Hence every
+  comparable scale), finite, together with any classes of $W_0(B)$-smooth
+  modulus, every nonnegative majorant of level $\lambda\geq\lambda_0(B)$ of the
+  avoider set in the quadratic-residue base $R_{W_0(B)}$ saves at most
+  $C(B)\lambda^{3/4}$; this applies in particular to every majorant of the
+  whole avoider set, which is $\geq1$ on its part in $R_{W_0(B)}$.  Hence every
   CRT-majorant architecture (Definition~\ref{def:arch}: $\nu\geq0$ on $\Z$,
   $\nu\geq1$ on the whole avoider set, final bound $N\E\nu+\sum|a_i|$,
   family primes $\leq N^{O(1)}$) for such a family, with the admissible
-  set specified there, saves at most $O_B((\log N)^{3/4})$.  The same
+  set specified there, saves at most $O_{A,B}((\log N)^{3/4})$.  The same
   holds for families whose moduli all have a dominant prime, Case-A and
   $(a,D)$-classes included (Case A \lab{proved mod} Elsholtz--Tao
   Prop.~1.4).
@@ -1811,15 +1816,16 @@ square form $g^2$, so the reduction from a coefficient budget to a level
 (Corollary~\ref{cor:budgetlevel}) is not available here as stated
 (observation of this note, not from \cite{TW2,TW3}).
 
-\begin{remark}[relation to the main theorem]\label{rem:L2vsmain}
+\begin{remark}[relation to the main theorem; observation of this note; \lab{proved}]\label{rem:L2vsmain}
 A $\Lambda^2$-majorant $g^2$ with $g\in V_{\lambda/2}$ and $g\geq1$ on the
 avoiders of a family is a nonnegative majorant of level $\lambda$, and it
-is $\geq1$ on the avoiders that lie in $R_W$.  So for families with
+is $\geq1$ on the avoiders that lie in $R_W$ (the setting of \cite[\S3]{TW2}
+charges all primes).  So for families with
 $M\leq P(M)^{1+B}$, $B$ fixed, Theorem~\ref{thm:karycap} applies to $g^2$
 directly and gives $\log(1/\E g^2)\ll_B\lambda^{3/4}$ for $\lambda\geq\lambda_0(B)$,
 with any number of large prime factors and no power of $\log L$.  Under
 the $B$-hypothesis, Theorems~\ref{thm:twoprimecap} and~\ref{thm:rprime}
-are therefore superseded as caps \cite[\S11]{TW4}.  What the
+are therefore superseded as caps, as anticipated in \cite[\S11]{TW4}.  What the
 $\Lambda^2$ route still gives beyond Theorem~\ref{thm:karycap} is the
 removal of $B$ for a fixed number of large primes
 (Theorem~\ref{thm:noB}), and the noise-stability tools themselves.
@@ -1929,8 +1935,9 @@ polylogarithmic \emph{unweighted} first moment \cite[Lemmas~10.1,
 10.2]{TW4}; the high-power classes have first moment $\ll L^{-3}$.  The
 fibre law survives without $B$ \cite[Lemma~10.3]{TW4}.
 \end{proof}
-The middle range $\epsilon\log L/\log\log L<r<330\log L$ is not covered,
-and it carries most of the $\alpha^{-3}$-weighted mass: there the method
+The middle range $\epsilon\log L/\log\log L<r<330\log L$ is not covered.  By a
+Poisson-type heuristic it carries most of the $\alpha^{-3}$-weighted mass
+(\emph{Assessment}, \cite[\S9.3]{TW4}).  There the method
 needs a hub count and an off-diagonal pair-sum bound that are efficient
 per prime \cite[\S\S9.3, 12]{TW4} \lab{open}.
 
@@ -2005,7 +2012,7 @@ Take a finite prime-slice system with $p_\ell(c)\leq1/4$, weights
 $s_\ell=\log(1/(2p^+_\ell))$, $p^+_\ell=\max_cp_\ell(c)$, and a majorant $\nu$ of
 arbitrary level.  Let $\bar\Phi(\lambda,\alpha)$ be the right side of
 \eqref{eq:slice} minus $\log(Q_0/|R|)$, computed with these weights and
-$s_*=\log2$.  Then
+$s_*=\log2$.  Then for all $\lambda\geq s_*$ and $\alpha>0$,
 \[
  \E\nu\geq\frac{|R|}{Q_0}\bigl[(1-\varepsilon)\e^{-\bar\Phi(\lambda,\alpha)}-2\varepsilon\bigr],\qquad
  \varepsilon=\sum_{s(S)>\lambda}A_S(\nu)\e^{-s(S)}\leq\e^{-\lambda}R_1(\nu).
@@ -2042,7 +2049,8 @@ A \emph{prime majorant} is $\geq0$ at all primes and $\geq1$ at the primes of
 $\A$; the bound is $\sum_{p\leq N}\nu(p)$.
 
 \begin{theorem}[{\cite[Lemma~3.1, Thms~3.2, 3.3]{NC}}; \lab{proved}]\label{thm:primemaj}
-(1) Assume $|F_\ell(c)\setminus\{0\}|<\ell-1$.  By Dirichlet's theorem, a prime
+(1) Assume $|F_\ell(c)\setminus\{0\}|\leq(\ell-1)/4$ (so in particular
+$<\ell-1$).  By Dirichlet's theorem, a prime
 majorant is $\geq0$ on every reduced class modulo a common period $L$ and
 $\geq1$ on every reduced class contained in $\A$.  Theorem~\ref{thm:slice}
 and Lemma~\ref{lem:budget} hold for the uniform law on $(\Z/L)^\times$, with
@@ -2074,8 +2082,11 @@ on $\Z_{\geq0}$ and $P(0)\geq1$, then $P\circ f$ is a CRT majorant of
 $\{f=0\}$ \cite[Prop.~4.1]{NC} \lab{proved}.  Hence integer moment methods
 of any order, whose moments are evaluated as $N\cdot$(CRT density) plus a
 per-frequency error, are capped by Theorem~\ref{thm:perfreq}; prime moments
-are capped at level $\leq A\log N$ by Theorem~\ref{thm:primemaj}, and beyond
-that level only under the Assessment above.  For slice witness classes
+are capped at level $\leq A\log N$ by Theorem~\ref{thm:primemaj}.  Beyond
+that level they are capped only under the Assessment of
+\cite[Remark~3.4]{NC} (every high-level term costs $\geq|a_i|$) together
+with $\sum_{\rm high}|a_i|<\pi(N)$ and slice primes $\leq N^{O(1)}$
+\cite[Prop.~4.1]{NC}.  For slice witness classes
 and $\deg P\leq k$, $\log(1/\E[P\circ f])\leq19k(2+\log^+(C_4\bar\mu/(19k)))+O(\log(\bar\mu+k))+\log(Q_0/|R|)$
 \cite[Prop.~4.2]{NC} \lab{proved}; with witness moduli $\leq N^{O(1)}$,
 $\bar\mu\ll(\log N)^3$ and a degree-$k$
@@ -2090,20 +2101,26 @@ $\sum_{n\leq N}\nu(n)$.  Theorem~\ref{thm:perfreq} turns into a dichotomy
 every $\lambda$ and $\alpha$, either the Fourier mass above level $\lambda$ satisfies
 $\varepsilon>\e^{-\bar\Phi(\lambda,\alpha)}/4$, or
 $N\E\nu-\sum_{n\leq N}\nu(n)\geq N[(|R|/(4Q_0))\e^{-\bar\Phi}-\e^{-s}]$.  For the
-families of Corollary~\ref{cor:sliceCap} and $s=(\log N)^\theta$, $\theta>3/4$,
-this holds at every level $\lambda\leq c(\log N)^{4\theta/3}$, which is
-$\gg\log N$.  Two facts about $[1,N]$ are proved.  Case-B classes of modulus
+families of Corollary~\ref{cor:sliceCap}, $\bar\Phi(\lambda)\leq C\lambda^{3/4}$, so for
+$s=(\log N)^\theta$, $\theta>3/4$, the second branch is non-vacuous at every level
+$\lambda\leq c(\log N)^{4\theta/3}$ (a range containing levels $\gg\log N$): there
+a direct count needs either Fourier mass $\gtrsim\e^{-C\lambda^{3/4}}$ above level
+$\lambda$, or an interval count a factor $\geq\e^{s-C\lambda^{3/4}}$ below the CRT
+mean \cite[\S8.1]{NC}.  Two facts about $[1,N]$ are proved.  Case-B classes of modulus
 $>M_0:=8\lfloor(N+1)/3\rfloor^2$ contain no $n\leq N$, so for hit-pattern
 majorants they give neither sieving power nor cost \cite[Lemma~8.2,
 Cor.~8.3]{NC}; and the multiplier-one witnesses of all moduli have mean
-$\leq\frac14(1+\log N)^2$ on $[1,N]$ \cite[Prop.~8.4]{NC}.  The moduli in
+$\leq\frac14(1+1/N)(1+\log N)^2$ on $[1,N]$ \cite[Prop.~8.4]{NC}.  The moduli in
 $(N,M_0]$ still carry real hit mass $\asymp(\log N)^3$ per integer, a
 constant factor below the CRT value \lab{evidence}; a conjecture of
 \cite{NC} to the contrary was withdrawn after review.  For hit-count
 polynomials of degree $k$ evaluated exactly on $[1,N]$, beating $3/4$ needs
 $k\geq(\log N)^{3/4+o(1)}$, \lab{conditional} on a local-limit hypothesis
-$H_{\rm node}$ for the witness count, which is untested \cite[Prop.~8.6,
-Cor.~8.7]{NC}.  Numerically, for polynomials of degree $\leq10$ in the hit
+$H_{\rm node}$ for the witness count, which is untested, and under the
+further hypothesis that the mean witness count on $[1,N]$ is
+$m\geq16(\log N)^{3/4+\delta}$ \cite[Prop.~8.6, Cor.~8.7]{NC}.  For the full
+Case-B family this hypothesis is supported only by enumeration and a
+heuristic ($m\asymp(\log N)^3$, \lab{evidence}).  Numerically, for polynomials of degree $\leq10$ in the hit
 count of a prime-modulus subfamily, the exact interval optimum saves less
 than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 
@@ -2136,7 +2153,9 @@ part of an item, this is said.
   $(p+a)/4$, Hal\'asz-type arguments, moments counted as tuples of
   solutions rather than through CRT densities, and prime moments of
   unbounded order beyond level $A\log N$ (covered only under the
-  Assessment of \cite[Remark~3.4]{NC}).
+  Assessment of \cite[Remark~3.4]{NC} together with
+  $\sum_{\rm high}|a_i|<\pi(N)$ and slice primes $\leq N^{O(1)}$,
+  \cite[Prop.~4.1]{NC}).
 \item \emph{Moduli without the $B$-hypothesis, and mixed families.}
   Theorem~\ref{thm:karycap} covers every $\cR(M)$-family with
   $M\leq P(M)^{1+B}$, $B$ fixed, twin moduli included; there is no
@@ -2222,8 +2241,8 @@ least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC}:
   solutions without CRT, or such inputs in the sequential and balanced
   settings.
 \end{enumerate}
-Unresolved $\eta$-twin moduli, which formed item (i) in the first version
-of this list, are no longer on it for fixed $B$: Theorem~\ref{thm:karycap}
+Unresolved $\eta$-twin moduli, which formed item (i) of the corresponding
+list in \cite[\S6]{ET}, are no longer on it for fixed $B$: Theorem~\ref{thm:karycap}
 \lab{proved}.  For Selberg-type majorants at level $O(\log X)$, (i) is
 closed for $\cR(M)$-moduli with a fixed number of prime factors above
 $(\log X)^8$, with or without the $B$-hypothesis
@@ -2311,7 +2330,8 @@ conjecture itself is \lab{open}.
 \emph{Many large primes in the $\Lambda^2$ route} \lab{open}.  The
 $\Lambda^2$ caps of Section~\ref{sec:selberg} are uniform for
 $r\leq\epsilon\log L/\log\log L$ prime factors above $(\log X)^8$, and the
-moduli with $r\geq330\log L$ are free.  The middle range, which carries most
+moduli with $r\geq330\log L$ are free.  The middle range, which by the
+\emph{Assessment} of \cite[\S9.3]{TW4} carries most
 of the $\alpha^{-3}$-weighted mass, needs per-prime-efficient bounds for
 the number of vertex hubs and for an off-diagonal pair sum
 \cite[\S12]{TW4}.  Under the $B$-hypothesis this concerns only the
