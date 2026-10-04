@@ -258,15 +258,19 @@ every `P∘f` of §4 — then for Q₀ = 1, `ν̂(Σ_S h_ℓ/ℓ) = d_S Π_S 1̂
 so the shape of ν̂ on each Θ_S is fixed by the classes. The smooth
 rounding is then `Σ_S |d_S| M_S` with
 `M_S = Σ_{h} Π_S |1̂_{F_ℓ}(h_ℓ)|·|W_N(Σ_S h_ℓ/ℓ)|`, and the proof of
-Theorem 2.3 goes through verbatim provided
+Theorem 2.3 goes through (with weights `log(3/(8p_ℓ⁺))` in place of
+`log(1/(2p_ℓ⁺))`) provided
 
-    M_S ≥ c · Π_S (2p_ℓ) · e^{s(S)} · e^{−o(λ)}   for every S with s(S) > λ.     (2.6)
+    M_S ≥ e^{−o(λ)} · Π_{ℓ∈S} (1 − p_ℓ)   for every S with s(S) > λ.     (2.6)
 
-Since `Π_S 2p_ℓ e^{s(S)} ≤ 1` and `∫|W_N| ≍ 1`, (2.6) says that the measure
-`Σ_h Π|1̂_F(h_ℓ)| δ_{Σh_ℓ/ℓ}` puts at least its average share of mass,
-up to `e^{−o(λ)}`, within `1/N` of 0. That is an equidistribution statement
-for sums of reciprocals weighted by the Fourier transforms of the forced
-classes, at denominators `Π_S ℓ ≥ e^{λ}`. **(2.6) is CONJECTURE (H_eq)**; it
+Indeed then `|d_S| Π_S 2p_ℓ ≤ e^{o(λ)} |d_S| M_S Π_S (8/3)p_ℓ`, and the
+tails r₀, r₁ are `≤ e^{−λ+o(λ)}·R_Φ`. The total mass of the measure
+`Σ_h Π|1̂_F(h_ℓ)| δ_{Σh_ℓ/ℓ}` is `A_S = Π a_ℓ ≥ Π(1−p_ℓ)`, and
+`∫_0^1 |W_N| ≍ 1`; so (2.6) says this measure is not depleted, beyond a
+factor `e^{−o(λ)}`, in the `1/N`-neighbourhood of 0. That is an
+equidistribution statement for sums of reciprocals `Σ h_ℓ/ℓ` weighted by
+the Fourier transforms of the forced classes, at denominators
+`Π_S ℓ ≥ e^{λ}`. **(2.6) is CONJECTURE (H_eq)**; it
 is not proved here. If it holds, smooth windows do not help hit-pattern
 majorants. General (non-hit-pattern) majorants can reshape ν̂ inside Θ_S,
 so they stay outside even under (H_eq).
