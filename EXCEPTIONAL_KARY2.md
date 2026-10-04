@@ -384,3 +384,70 @@ EK Lemma 4.3 (ETw Lemma 2.1′ and Markov, `E[p1{p>δ}] ≤ E p²/δ`) gives
 
 So W, and every constant below, is absolute: there is no B left to
 depend on.
+
+## 5. The cap
+
+**Theorem 5.1 (3/4 cap for all forced-class families, no B; PROVED, the
+Case-A part modulo Elsholtz–Tao Prop. 1.4).** There are absolute
+constants `W, λ₀, C` such that the following holds. Let 𝔊 be any finite
+family of ℛ(M)-, (a,D)- and Case-A classes (Definition 2.0), mixed
+arbitrarily, with arbitrary moduli. Let `𝒜 = 𝒜(𝔊)` be the set of integers
+in none of its classes, and let ν be a majorant of level `λ ≥ λ₀` of 𝒜
+(ET §1: `ν = Σ a_i 1[n ≡ b_i (d_i)] ≥ 0` on ℤ, `≥ 1` on 𝒜,
+`Σ_{ℓ | d_i, ℓ > W} log ℓ ≤ λ`). Then
+
+    log(1/Eν) ≤ C λ^{3/4} (log λ)^{3/4}.
+
+If 𝔊 contains no Case-A classes, the statement is unconditional.
+
+*Proof.* EK Theorem 4.1 with the following data.
+* *Base:* `R_W^□` (Lemma 2.3); (R1) holds for every W-smooth class of 𝔊,
+  and the R-term is `≤ 2W`.
+* *Blocks, in increasing order of primes,* with
+  `s₁ = λ^{1/4}(log λ)^{−3/4}` (`λ₀` such that `s₁ > 2 log W`):
+  singletons `{ℓ}`, `W < ℓ ≤ e^{s₁}`; sequential blocks
+  `V_i = {ℓ : 2^is₁ < log ℓ ≤ 2^{i+1}s₁} ∩ (·, e^{λ/2}]`, `0 ≤ i ≤ I`
+  (I maximal with `2^Is₁ < λ/2`); one linear block `(e^{λ/2}, e^λ]`;
+  singletons above `e^λ`. This is EK Thm 4.5's structure with a smaller
+  `s₁`.
+* *Leak:* every class is decided at its top prime (its modulus is
+  `qℓ^v`, `P(q) < ℓ`), and `𝔏 ≤ 1/2` by Lemma 4.3.
+
+*Costs.* Write `𝔐(y) ≤ K₃(log y)³(log log y)³` (Cor 3.7).
+* Singletons (ETw Prop 4.1: `Φ ≤ (4/3)p_ℓ` if light, 0 if heavy;
+  doubled by Thm 4.1): `≤ (8/3)𝔐(e^{s₁}) ≤ (8/3)K₃s₁³(log λ)³
+  = (8/3)K₃λ^{3/4}(log λ)^{3/4}`.
+* Block `V_i`, `s = 2^is₁`, `d_i = ⌊λ/s⌋ ≥ λ/(2s) ≥ 1`. By EK Cor 2.6 for
+  each history and Jensen (as in EK Thm 4.5),
+  `E Φ_i ≤ d_i log(C₀(E M_{V_i} + 4d_i)/d_i) + (4/3)d_i + ½log(22d_i+22) + 3`.
+  Here `E M_{V_i} ≤ 𝔐(e^{2s}) ≤ 8K₃s³(log λ)³` (as `2s ≤ λ`), so
+  `(E M_{V_i} + 4d_i)/d_i ≤ 16K₃s⁴(log λ)³/λ + 4 = 16K₃·16^i + 4`, using
+  `s⁴ = 16^iλ(log λ)^{−3}`. Hence
+  `E Φ_i ≤ (λ/(2^is₁))(c₁ + i log 16) + O(log λ)`, and
+  `2Σ_i EΦ_i ≤ Cλ/s₁ + O(log²λ) = Cλ^{3/4}(log λ)^{3/4} + O(log²λ)`.
+* Linear block: `2log(1 + 3e^{−λ/4})` (ETw Cor 4.3). Above `e^λ`: 0.
+
+Summing, `log(1/Eν) ≤ 2W + log 2 + Cλ^{3/4}(log λ)^{3/4}`. ∎
+
+**Theorem 5.2 (bounded B, all three types, no log loss; PROVED, Case A
+modulo ET Prop. 1.4).** Fix `B ≥ 0`. If every modulus of 𝔊 satisfies
+`G ≤ P(G)^{1+B}`, then `log(1/Eν) ≤ C(B)λ^{3/4}` for `λ ≥ λ₀(B)`.
+
+*Proof.* As EK Thm 4.5 (`s₁ = λ^{1/4}`), with Lemma 2.3 for the base and
+Lemma 4.3 for the leak (both B-free). The first moment of classes with
+`P(G) ≤ y` is now `≤ C(B)(log y)³`: drop smoothness and sum over
+`G ≤ y^{1+B}`; for ℛ(M) by EK Lemma 4.2′, for (a,D) by Lemma 3.3, for
+Case A by the body part of Lemma 3.6 with `X = y^{1+B}`. ∎
+
+So EK Thm 4.5 extends verbatim to (a,D)- and Case-A classes, and with
+Theorem 5.1 the B-hypothesis costs at most a factor `(log λ)^{3/4}`.
+
+**Remark 5.3 (number of primes; goal (1) of the brief).** Nowhere in
+§§2–5 does `ω(G)`, or the number of primes of G at one scale, enter. The
+k-ary step (EK Thm 2.5) has no arity bound; the first moments are sums
+over all classes with `P(G)` in a range; the second moment is a sum over
+all cofactors of `ℓ^v`. This is the structural reason the KARY route has
+no analogue of the middle window `r ≍ log L` of TW4 §§9.3, 12 (there the
+Λ² noise-stability losses `2^r`, `(log L)^r` are per prime). The TW4
+(D)/(H)/(G) split is not needed either: Rankin's trick is applied to
+the whole modulus, uniformly.
