@@ -1,5 +1,28 @@
 # AGENT_REPORT_O7 — Conjecture 6.4 (k-ary comparison inequality)
 
+## Checkpoint 2 (after `reviews/exceptional-kary-review.md`)
+
+* That review rated every item SOUND: Lemmas 2.2–2.4, Thm 2.5, §3,
+  Thm 4.1, Lemmas 4.2–4.3, and the Thm 4.5 assembly. Its independent brute
+  force found no violation.
+* **D3 applied:** new Lemma 4.2′ writes out ETw Lemma 2.6 for the dyadic
+  blocks `(e^s, e^{2s}]`, in three steps:
+  1. reduction to `Σ τ(A_M²)Γ(M)/M` via inflation;
+  2. the window-free mean value `S(x) ≪_W x log²x`, with the decaying
+     `h(ℓ) ≤ 2ℓ^{−1/2}`;
+  3. explicit partial summation up to `X = e^{2(1+B)s}`, which gives
+     `K(W)(2(1+B)s)³` with `K = 1.3K₀(W)`.
+
+  Thm 4.5 now cites it, with `K₁ = 8(1+B)³K`.
+* **D1, D2: not applied, because their text is missing.** The committed
+  review file on `side-agent/review-kary` (e283164) has no item 9 and no
+  D1–D3 text, although the commit message says "item 9 (labels, D1-D3
+  editorial)". Its diff only touches the brute-force table. Please forward
+  D1/D2; I will apply them in one more commit.
+* §0 status line and summary table updated.
+
+## Checkpoint 1
+
 Branch: this worktree. Deliverable: `EXCEPTIONAL_KARY.md`; scripts
 `scripts/kary_check.py`, `scripts/kary_b21_check.py`; data `data/kary/`.
 

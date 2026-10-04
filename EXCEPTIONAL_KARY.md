@@ -1,6 +1,6 @@
 # EXCEPTIONAL_KARY — the k-ary comparison inequality (task O7)
 
-Status: **checkpoint (awaiting parent review; one internal hostile review, O7-1, applied).** Labels follow `DISCOVERIES.md`. PROVED means proved
+Status: **checkpoint 2.** Internal hostile reviews: O7-1 (applied) and `reviews/exceptional-kary-review.md` (all items SOUND; D3 applied, D1–D2 pending). A second deep review is pending. Labels follow `DISCOVERIES.md`. PROVED means proved
 here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 (ETw), `EXCEPTIONAL_THETA.md` (ET).
 
@@ -17,7 +17,7 @@ here and checked internally only. Notation follows `EXCEPTIONAL_TWIN.md`
 | Cor 2.6 | mean cost `≤ d log(C₀(E M + 4d)/d) + O(d)` | PROVED |
 | Remark 2.8 | the *unweighted* mean-mass comparison is false without incident-weight bounds (example) | PROVED |
 | Thm 4.1 | sequential sieve limit with random step costs (S_w) | PROVED |
-| Lemmas 4.2, 4.3 | inflation, moments, leak: ETw Lemmas 2.2, 2.6, 4.0, 2.1′ apply verbatim | PROVED |
+| Lemmas 4.2, 4.2′, 4.3 | inflation, moments, leak: ETw Lemmas 2.2, 4.0, 2.1′ apply verbatim; ETw Lemma 2.6 written out for dyadic blocks (4.2′) | PROVED |
 | **Thm 4.5** | **`S_λ ≪_B λ^{3/4}` for every family of ℛ(M)-classes with `M ≤ P(M)^{1+B}`, twins/prime powers/any shape, unconditionally** | PROVED |
 | ETw Conj 6.4, unweighted form | — | OPEN, no longer needed (§5) |
 | ETw Conj 4.5_r (H_MS form) | — | OPEN, not needed for 3/4 |
@@ -294,18 +294,59 @@ Lemma 2.6 needs). A sequential block `V` has its primes in
 
 **Lemma 4.2 (PROVED).** With sequential steps in some blocks:
 1. (inflation) ETw Lemma 2.2 holds for `Q'`;
-2. (first moment) `E_{Q'} M_V ≤ Σ_{M: P(M)∈V} τ(A_M²)Γ(M)/M ≤ K(W,B)(2(1+B)s)³`,
-   K as in ETw Lemma 2.6;
+2. (first moment) `E_{Q'} M_V ≤ K(W)(2(1+B)s)³` (Lemma 4.2′);
 3. (second moment) `E_{Q'} p_ℓ² ≤ C(ε,B)(2+B)²ℓ^{−2+ε}` for every `ℓ > W`
    (ETw Lemma 4.0).
 
 *Proof.* 1. Chain rule: by Lemma 2.1(2), given the past, `y_ℓ` has
-density `≤ (1−δ_ℓ)^{−1}` w.r.t. U on `ℤ/ℓ^{E_ℓ}`. 2. A class with top ℓ,
-`M = qℓ^v`, adds at most `ℓ^{−v}` to `p_ℓ`, and only if its requirement mod q is met
-by the y-history; by 1 this has probability `≤ Γ(q)/q`; sum over `≤ τ(A_M²)`
-values of D and over M (partial summation of ETw Lemma 2.6 over
-`M ≤ e^{2(1+B)s}`). 3. The proof of ETw Lemma 4.0 uses only 1 (for lcm's of
-cofactors) and the fact that p_ℓ is a density of classes decided at ℓ. ∎
+density `≤ (1−δ_ℓ)^{−1}` w.r.t. U on `ℤ/ℓ^{E_ℓ}`. 2. See Lemma 4.2′.
+3. The proof of ETw Lemma 4.0 uses only 1 (for lcm's of cofactors) and the
+fact that `p_ℓ` is a density of classes decided at ℓ. ∎
+
+**Lemma 4.2′ (ETw Lemma 2.6 on dyadic blocks; PROVED; review D3).** There is
+`K = K(W,B)` such that for every `s ≥ log W` and every block
+`V ⊆ {ℓ : s < log ℓ ≤ 2s}`,
+
+    E_{Q'} M_V ≤ E_{Q'} Σ_{ℓ∈V} p_ℓ ≤ Σ_{M ∈ 𝔐, P(M) ∈ V} τ(A_M²)Γ(M)/M ≤ K·(2(1+B)s)³,
+
+where 𝔐 is the set of moduli of the family (`M ≡ 3 (mod 4)`,
+`M ≤ P(M)^{1+B}`) and `A_M = (M+1)/4`.
+
+*Proof.* *Step 1 (reduction to a divisor sum).* `M_V` is the light part of
+`Σ_{ℓ∈V} p_ℓ`. A class `−4D (mod M)` with top `ℓ ∈ V` is written
+`M = qℓ^v`, `(q,ℓ) = 1`. It adds at most `ℓ^{−v}` to `p_ℓ` (one class mod
+`ℓ^v` in `ℤ/ℓ^{E_ℓ}`), and only if `n ≡ −4D (mod q)` holds for the y-history
+before ℓ. That history includes the base, the earlier blocks and the
+earlier primes of V. By part 1 (chain rule over the prime powers of q),
+this has `Q'`-probability `≤ Γ(q)/q`. There are `≤ τ(A_M²)` values of D, and
+`ℓ^{−v}Γ(q)/q ≤ Γ(M)/M` since `γ' ≥ 1`. Summing over M with `P(M) ∈ V`
+gives the middle inequality.
+
+*Step 2 (mean value).* Write `Γ(M) = Σ_{e|M} h(e)` with h multiplicative,
+supported on squarefree e, `h(p) = γ'(p) − 1`. Then `h(p) ≤ 2` for `p ≤ W`
+(`γ'(p) ≤ 3`, ETw §2.3), and `h(ℓ) = (1−ℓ^{−1/2})^{−1} − 1 ≤ 2ℓ^{−1/2}` for
+`ℓ > W ≥ 16`. ETw Lemma 2.6 (via ET Cor 3.6 / Lemma 3.1: the Shiu range
+`e ≤ x^{1/2}` needs `Σ_e h(e)/φ(e) < ∞`; the large divisors need
+`Σ_e h(e)e^{−3/4} < ∞`, Euler factors `1 + O(p^{−5/4})`) gives
+
+    S(x) := Σ_{M ≤ x, M ≡ 3 (4)} τ(A_M²)Γ(M) ≤ K₀(W)·x·log²(x+2)     (x ≥ 1).
+
+This needs no windows and no B.
+
+*Step 3 (partial summation).* Every M in the sum satisfies
+`M ≤ P(M)^{1+B} ≤ X := e^{2(1+B)s}`. Drop the condition `P(M) ∈ V`
+(all terms are ≥ 0) and sum by parts:
+
+    Σ_{M≤X} τΓ(M)/M = S(X)/X + ∫_1^X S(x)x^{−2} dx
+                    ≤ K₀ log²(X+2) + K₀∫_1^X log²(x+2) x^{−1} dx ≤ K₀(log²(X+2) + log³(X+2)).
+
+Since `log X = 2(1+B)s ≥ 2 log W ≥ 5`, `log(X+2) ≤ 1.01 log X` and
+`log² X ≤ log³X/5`. So the sum is `≤ 1.3K₀(2(1+B)s)³`. Take `K = 1.3K₀(W)`;
+it depends only on W. ∎
+
+(The bound does not use the lower end `e^s` of the block. The cubic growth
+`s³` against the level `d ≍ λ/s` is what makes the sum over blocks in
+Theorem 4.5 converge.)
 
 **Lemma 4.3 (leak; PROVED).** In the block structure of Theorem 4.5, every
 class is decided at its top prime, and
@@ -348,7 +389,7 @@ Corollary 2.6 applied for each h with `m̄ = E[M|h]`, then Jensen over h
 
     E_{Q'}Φ_i ≤ d_i·log(C₀(E M_{V_i} + 4d_i)/d_i) + (4/3)d_i + ½log(22d_i+22) + 3.
 
-By Lemma 4.2(2), `E M_{V_i} ≤ K₁(B)s³`, so
+By Lemma 4.2′, `E M_{V_i} ≤ K₁(B)s³` with `K₁ = 8(1+B)³K`, so
 `(E M_{V_i} + 4d_i)/d_i ≤ 2K₁s⁴/λ + 4 = 2K₁·16^i + 4`. Hence
 `E Φ_i ≤ (λ^{3/4}/2^i)(c₁(B) + 4i·log 2) + O(log λ)`, and
 
