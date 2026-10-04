@@ -127,3 +127,42 @@ Archived `2504.20289.txt` lines 34–49, Thm 1.1. With `f=x²+xy+y²`, `B=4`, `A
 * §7.3 uses Lemma 6.1 with J unbounded. The exception budget `Σ_q qφ(q)≍J^3`
   is then not O(1), so "(up to O_q(1) exceptions)" and "(log log x)^{O_q(1)}"
   need J-uniformity. That is fine inside an Assessment, but it should be said (D6).
+
+### 6. Prop 7.2 and §7 Assessments — computation CORRECT; attribution of the gain WRONG (D3); labels mostly OK
+
+* Prop 7.2 identity re-derived by hand and checked numerically (s=2,2.3,2.7,3:
+  residual ≤2e−13). The ranges are fine: `s(1−α)∈[s/2,s−1]⊂[1,2]`, so
+  `F(t)=2e^γ/t` applies. "PROVED (computation)" is acceptable for what it is,
+  namely an identity between the sieve functions for this particular one-step
+  scheme.
+* **D3 (misattribution in §7.2 last paragraph, §7.3 bullet 2, §8 bullet 2, report
+  Goal 3).** The text says W2 escapes route B "only because route A uses more
+  than the sieve axioms: the parity of the bad count (Lemma 1.2)". But route B
+  *as set up in §7.2 already uses Lemma 1.2*. Its Bonferroni step
+  `1[clean_q] ≥ 1 − #{q-bad r|n_q: z≤r<√x}` is false for an `n_q` with exactly
+  one bad prime `r≥√x`. It holds only because parity excludes that case. So
+  parity is common to both routes. The real extra input of route A is the
+  `T^{(q)}` bound. For each pair `(m,r_1)` it sifts `r_2` as a *prime*, with `ar_2−q`
+  prime and the other window kept, in a dimension-5/2 upper sieve. This saves
+  `ε^{1/2}` over the generic `F(s(1−α))` bound on `A_r`. That is a
+  switching/structural input, not a parity input. The doc's own last sentence
+  ("forces n_q/r to be m·r_2, which the generic bound F(1) does not see") is
+  the correct explanation and contradicts the "only because … parity"
+  sentence. Fix the wording, and the §7.3 sentence "Route A survives at level x
+  only by feeding in the congruence-parity of Lemma 1.2".
+* "and is negative at level `x^{1/2}`" (after Prop 7.2) is asserted, not
+  computed. Prop 7.2 is only at D=x. Label it Assessment or give the computation
+  (D4).
+* §7.1 table and β facts. `β_{1/2}=1` and `β_1=2` are optimal (standard). The
+  monotonicity argument for `β^{opt}_κ` is correct: `(Ω_{κ'})⇒(Ω_κ)` for κ'≤κ.
+  "β_{3/2} near 3 (recalled from memory)" is flagged honestly. The J≥3 row is
+  conditional ("impossible if β^{opt}_{3/2}>2"). Labels OK. Small nit: at J=3,
+  `s=ϑ/(1/2−ε)` slightly exceeds 2ϑ, so the threshold is "β≤2ϑ/(1−2ε)", as in
+  the J=2 row.
+* §7.3 "single window: no parity barrier". As an Assessment this is fine, and
+  it agrees with FI09 §6–7 (semilinear β=1, then two-prime removal). The §0
+  slogan "a single window has **no** parity barrier" should keep the qualifier
+  "given the congruence parity of Lemma 1.2". Otherwise it reads as a claim about
+  the sieve alone (nit).
+* §7.3 literature sentence: see D1 (FI09 is a two-condition result on shifted
+  primes, conditional on level <1 close to 1).
