@@ -173,6 +173,8 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 
 14. **Explicit rate (POINTWISE_OMEGA4.md Cor 3.1–3.3):** with all constants of the k-level construction explicit (Thm 1.1; `log K ≤ (k−1)!(…)`), letting k grow gives, for infinitely many Mordell-hard p, `log W(p) ≥ (1+o(1)) log₂p·log₃p/log₄p` **modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4**, and `log W ≥ (1+o(1)) log₂p·log₄p/log₅p` modulo Thorner–Zaman alone. The factorial loss is the Markov push-down cascade. A hub-codegree hypothesis HC(a,B) would give `log W ≥ 0.2√a (log₂p)^{3/2}` (Thm 4.2, PROVED implication). HC reduces to a short-interval equidistribution problem for inverses of squares beyond the Weil range (§7, open). Review `reviews/pointwise-omega4-review.md` (rounds 1–2).
 
+15. **Window statistic Ω-results (POINTWISE_WINDOW.md):** `#{p≤x: p≡1 (840), (p+3)/4 has no prime factor ≡2 (3)} ≫ x/(log x)^{3/2}`, and all such p are hard with `a_min(p)≥7` (Thm W1, **PROVED modulo cited sieve theorems**: semi-linear sieve plus a parity-of-bad-count trick; also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025 Thm 1.1(2)). `a_min(p)≥11` for `≫x/(log x)^2` hard p **CONDITIONAL on Elliott–Halberstam** (Thm W2, Friedlander–Iwaniec hyperbolic-PNT type). Unconditional `a_min→∞` is not reached; the obstruction is linear-sieve parity at two windows (Assessment). Review `reviews/pointwise-window-review.md`.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
