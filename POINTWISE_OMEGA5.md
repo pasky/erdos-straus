@@ -382,3 +382,101 @@ uv run --with sympy python scripts/omega5_codeg.py 10000000000 331 337 30011 204
 uv run --with sympy python scripts/omega5_codeg.py 100000000000 933 937 941 2048      # ~15 min
 ```
 Outputs: `data/omega5/codeg_*.txt`.
+
+## 7. HC_Π, round 2: the (a,b)-parametrisation; the period part is done
+
+Round 1 (§4) parametrised large-m atoms by `(s,a)` and met
+`τ_Π(4sa²+1)`, a divisor function of a *quadratic* polynomial in short
+progressions (the Henriot / Nair–Tenenbaum territory). Fixing `(a,b)`
+instead puts the divisor function on the **linear** form `a+b`, where
+elementary divisor switching suffices.
+
+**Lemma 7.0 (fibres over (a,b,m); PROVED).** Fix `(a,b)∈Λ*` (Lemma 2.2's
+notation, modulus q) and a Π-number `m | a+b` with `gcd(m,2abq)=1`.
+The atoms `(s,a,b)` of Π-part m have s in one class mod qm, and their
+values `n′=M/(qm)` run through the progression `n′≡−(qm)^{−1} (mod 4ab)`,
+`y≤n′≤T/(qm)`. Hence their total weight is at most
+
+```
+2/ν(a,b,m) + 𝓛/(2ab),     ν(a,b,m) := least n′≥y with qmn′≡−1 (mod 4ab).
+```
+
+*Proof.* `qm | 4sab−1` fixes s mod qm. `M=qmn′≡−1 (mod 4ab)`. Consecutive
+admissible s change n′ by `4ab`, and `Σ_{i≥0}1/(ν+4ab·i) ≤ 1/ν+(4ab)^{−1}log(T/(qmy))`. ∎
+
+By Lemma 3.1(1), every atom of Π-part m has `m | a+b`. Hence
+
+```
+Δ_O^{>μ} ≤ P_0 + (𝓛/2)·P_1,
+P_1 := Σ_{(a,b)∈Λ*, ab≤T} τ(a+b)/(ab),
+P_0 := Σ_{(a,b)∈Λ*} Σ_{m|a+b, m>μ} 2/ν(a,b,m)     (first terms).
+```
+
+**Proposition 7.1 (the period part; PROVED, explicit).** With
+`τ*(x):=max_{n≤x}τ(n)`,
+
+```
+P_1 ≤ 4𝓛²·[ 2^{ω(q)+1}(2+𝓛)/q + τ*(12q²)/q + 6·h_3^{−1/4} ].
+```
+
+In particular `(𝓛/2)P_1 ≤ 2^{k+O(1)}𝓛⁴(q^{−1+o(1)} + H^{−1/4})` for a
+vertex set O without saturated H-hubs. By Nicolas–Robin,
+`log τ*(x) ≤ 1.538·log2·log x/log log x`, so `τ*(12q²)/q=q^{−1+o(1)}`
+explicitly. Since `q>y²≥H⁴`, the period part satisfies HC* with `a=1/4`.
+
+*Proof.* Use dyadic boxes `R=[A,2A)×[B,2B)`. Since `a,b≤T`, there are at
+most `4𝓛²` of them. Put `X:=max(A,B)`. Each b fixes a mod q, so R holds
+`≤B(A/q+1)` points; by symmetry, `N_R≤AB/q+min(A,B)`. Each point weighs
+`≤τ(a+b)/(AB)`, and `a+b<4X`. A nonempty box has `AB>h_3/4`, so `X>h_3^{1/2}/2`.
+* `X≤3q²`: the box weighs
+  `≤τ*(4X)(AB/q+min(A,B))/(AB) ≤ τ*(12q²)/q + τ*(4X)/X`. Also
+  `τ(n)≤2√n` gives `τ*(4X)/X≤4X^{−1/2}≤6h_3^{−1/4}`.
+* `X>3q²`, say `X=B`: for each a, `n=a+b` runs over one class mod q, a
+  stretch of length B. Using `τ(n)≤2#{d|n: d≤√n}` and `√n<2√B`, and
+  splitting by `g=gcd(d,q)`:
+  `Σ_bτ(a+b) ≤ 2Σ_{d≤2√B}(Bg/(qd)+1) ≤ 2(B/q)·2^{ω(q)}(1+𝓛)+4√B`.
+  With `B>3q²`, `4√B<2.4B/q`, so the box weighs `≤2^{ω+1}(2+𝓛)/q`. The case
+  `X=A` is symmetric. ∎
+
+*Remark.* No Shiu / Nair–Tenenbaum / Henriot input is needed for the
+period part. Those theorems require progressions longer than
+`modulus^{1+ε}`, plus α-dependent constants. Here the long variable is
+summed elementarily once it exceeds `3q²`, and below that the pointwise
+`τ*(12q²)` is absorbed by the factor `1/q`. The τ-weights on rays,
+`τ(t(u+v))/(t²h)`, are harmless because their weight decays in `h`.
+
+**What is left: the first terms P_0 (open).** We have
+`P_0 = Σ_{(a,b)∈Λ*} Σ_{m|a+b, m>μ} 2/ν(a,b,m)`. For fixed `(a,b)`, the
+classes `−(qm)^{−1} mod 4ab` are distinct for distinct `m|a+b`
+(`m≤a+b<4ab`), so
+
+```
+Σ_m 2/ν(a,b,m) ≤ min( 2τ(a+b)/y·(1+o(1)) ,  2𝓛(1/a+1/b) + 4/y ),
+```
+
+(the second by Lemma 3.3(i)'s lifting at the point). Neither is summable
+over the whole lattice. One needs to use `ν≤T/(qm)` (existence) and
+`s≥1`, i.e. a count of *first atoms*. Each such atom has
+`s<qm(1+y/(4ab))`, so P_0 is a sum over the m-system cores
+`{s<2qm}` (for `4ab≥y`), summed over m. Partial results:
+
+* `m≤Ĥ^{1/6}`: Prop 3.2.
+* For `m∈[μ_0,2μ_0)` the per-m thin-box argument of Theorem 2.3 in the
+  system `(qm,κ_m)` works: ray sums are taken per m (Lemma 2.1, with
+  no τ), and `Σ_{m∼μ_0}2^{ω(m)}≤2μ_0(1+log2μ_0)` replaces `2^{ω}`. It gives
+  `≪𝓛⁴[H^{−a} + 4^kμ_0³H^{2a}/y + 2^kμ_0²H^{a}𝓛/H]` for the core boxes
+  `A,B<qμ_0`. This is HC-shaped for `μ_0≤H^{1/3−2a}` (with `y≥H²`).
+  The boxes with `A` or `B≥qμ_0` were not redone with m. *Assessment
+  (sketch, not checked line by line).*
+* `m≥H^{1/3}`: no argument. Per m, the cores contribute up to `O(1/y)`.
+  The sum over the up to `T/(qy)` values of m needs the number of
+  first atoms with `n′∈[Y,2Y)` and `m>H^{1/3}` to be `≪𝓛^BH^{−a}Y`,
+  summed over all m. The unbalanced rays of (DIV) are the sub-case
+  `(a,b)=t(u,v)`.
+
+**Status of HC_Π after round 2.** The period part is PROVED (a=1/4),
+first terms with `m≤H^{1/6}` are PROVED (Prop 3.2), first terms with
+`H^{1/6}<m≤H^{1/3−ε}` are an Assessment, and first terms with `m>H^{1/3}`
+are open. The open piece is a pure core-counting problem for the moduli
+`qm`, `m` Π-smooth, averaged over m with weight 1. It is no longer a
+divisor-sum problem.
