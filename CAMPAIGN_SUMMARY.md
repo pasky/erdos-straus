@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (2026-10-04)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)21)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -47,6 +47,9 @@ literature.
 The campaign ran two lines of research.
 * **Exceptional-set line.** It went from 2/3 to 3/4. It then proved that
   3/4 is sharp for a broad, precisely defined class of congruence sieves.
+  Later work extended the cap to the large sieve and to inter-frequency
+  cancellation for moduli `≤ N/2`. The one identified door above 3/4 is
+  the tuple-count hypothesis TC_θ, which is a CONJECTURE.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -170,7 +173,7 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
    comparison theorem (Thm 2.5): couple a sequential law with a product
    law, then extrapolate along artificial Bernoulli replacement coins.
 6. `EXCEPTIONAL_NONCRT.md` ((D)15): several "non-CRT" inputs are also
-   capped at 3/4 for the finite prime-slice families (details in §2.3).
+   capped at 3/4 for the finite prime-slice families (details in §2.4).
 7. `EXCEPTIONAL_KARY2.md` ((D)18): the main theorem above. A unit-square
    base serves all four class types, because no (a,D)- or Case-A class
    contains a square (Mordell/Jacobi). Rankin's trick plus Cauchy–Schwarz
@@ -178,7 +181,11 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
    `(log log)^{3/4}` in the cap.
 
 Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
-sieves"; refereed internally, fixes applied; v3 merged).
+sieves"; refereed internally, fixes applied; v3 merged). The 3/4 note
+now has a remark that its ceiling is a theorem for its own architecture
+(sieve-limits v3 Thm 10.8 / Rem 10.9; KARY2 Cor 6.1). It replaces the
+note's earlier heuristic-ceiling caveat. The (D)19–(D)21 results are in
+separate files (§2.3).
 
 ### 2.3 Beyond coefficient sums: the large sieve, interval cancellation, tuple counts
 
@@ -650,10 +657,13 @@ ratings are this summary's judgement, not ledger labels.
    to a human referee first. Related tasks: read Vaughan 1970 itself and
    complete the priority search.
 2. **θ > 3/4 for `E(N)`.** (I high, F low.) Every coefficient-sum CRT
-   sieve over the four class types is capped (§2.2), so a new ingredient
-   is required. The candidates are those listed in §2.3:
-   inter-frequency cancellation in a direct interval count, per-frequency
-   weights below 1, or non-CRT arithmetic input.
+   sieve over the four class types is capped (§2.2). So are the large
+   sieve and, for moduli `≤ N/2`, interval cancellation (§2.3). A new
+   ingredient is required (§2.4). The most concrete candidate is TC_θ for
+   `θ > 3/4`: CRT-accurate witness correlations of order `≍ (log N)^θ`.
+   It is a CONJECTURE; its proved implication is (D)21. Other candidates:
+   per-frequency weights below 1, the large-sieve escapes (H_LS), and
+   other non-CRT arithmetic input.
 3. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
