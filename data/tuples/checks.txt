@@ -1,0 +1,6 @@
+(1) shift form OK for n<=20000, y=400, 40 primes
+(2) all 42546 classes are non-residues
+(3) Bonferroni identity OK (K<30, f<60)
+(4) CRT Bonferroni bound OK (max lhs-rhs = 8.27e-12)
+(5) |S_j - N e_j| <= e_j(F) exactly for N=3000, y=60, j<=9
+(6) Lemma 16.1 identity OK on 2220 (n, class) samples
