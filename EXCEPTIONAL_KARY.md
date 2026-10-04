@@ -173,17 +173,20 @@ If `d = 0`, Q is constant and `B = 1`. Let `d ≥ 1`, `m₀ = nt ≤ n/4`.
 
 *(iii) m₀ > 2d.* Put `h = ⌊√(m₀/d)⌋ ≥ 1` (so `h ≥ ½√(m₀/d)`) and
 `y_i = ⌈m₀⌉ − ⌊dh/2⌋ + ih`, `0 ≤ i ≤ d`. Then
-`|y_i − m₀| ≤ ½√(dm₀) + 1`. Since `d < m₀/2`, every node lies in
-`[0.6m₀, 1.36m₀+1] ⊆ [1, n−1]` (note `n ≥ 4m₀ > 8`). ET Lemma 2.1 and
-`(y−m₀)² ≤ dm₀/2 + 2` give `ψ(y_i) ≥ (16m₀)^{−1/2} e^{−2d/3 − 4/3}`. Next,
+`|y_i − m₀| ≤ dh/2 + 3/2 ≤ ½√(dm₀) + 3/2`. Since `√(dm₀) < m₀/√2`, every
+node lies in `[0.64m₀, 1.36m₀ + 1.5] ⊆ [1, n−1]` (note `n ≥ 4m₀ > 8`), and
+`8y_i ≤ 22m₀`. Using `m₀ > 2d ≥ 2`,
+`(4/3)(y_i−m₀)²/m₀ ≤ (4/3)(d/4 + 1.5√(d/m₀) + 2.25/m₀) ≤ d/3 + 2.92`,
+so ET Lemma 2.1 gives `ψ(y_i) ≥ (22m₀)^{−1/2} e^{−d/3 − 2.92}`. Next,
 
     |ℓ_i(n)| = Π_{j≠i}|n−y_j| / (h^d i!(d−i)!) ≤ (2n)^d/(h^d d!) ≤ (2en/(dh))^d ≤ (4e√(n/(td)))^d.
 
-So `log B ≤ (d/2)log(16e²n/(td)) + 2d/3 + 4/3 + ½log(16m₀)`.
+So `log B ≤ (d/2)log(16e²n/(td)) + d/3 + 2.92 + ½log(22m₀)`.
 
-In each case the bound is at most
-`d·log(4e³(n+1)/t) + ½log(16nt+16)`. (In (iii) use `√(n/(td)) ≤ n/t` and
-`4/3 ≤ (4/3)d`.) ∎
+In cases (i), (ii) the bound is visibly at most (2.1), since
+`e^{3.31} < 4e³`. In case (iii), (2.1) minus the bound is at least
+`d(2 + ½log(nd/t) − 1/3) − 2.92 − ½log(22/16) ≥ (5/3 + ½log 36) − 3.08 > 0`,
+using `n ≥ 9`, `t ≤ 1/4`, `d ≥ 1`. ∎
 
 Case (iii) is the sharp regime: the main term is `(d/2)log(n/(td))`, half
 of (2.1). `scripts/kary_b21_check.py` evaluates the three node sets exactly
