@@ -16473,4 +16473,87 @@ print("\n== (cc) POINTWISE_OMEGA3: two-level composition inequality (Thm 3.2) br
 check_cc()
 
 
+# ---------------------------------------------------------------- (cd)
+# EXCEPTIONAL_THETA.md Prop 2.4, Steps 2-3 (thinning + symmetrisation): exact
+# symmetrisation identity avg_{Sym(Z)} u^S = C(K,|S|)/C(z,|S|) (always run), and,
+# if scipy is importable, the reduction LP on 40 random non-exchangeable instances
+# (n <= 7, m <= 3):  W(p,m) = min{E f : f m-local, f >= 0, f(0) >= 1}
+# >= E_w W_ex(|Z(w)|, max p, m) and >= prod(1-p_i).  Without scipy the LP part is
+# skipped with a notice (run `uv run --with scipy python verify.py` to include it).
+
+def check_cd():
+    from time import perf_counter
+    from itertools import permutations
+    from math import comb
+    import random as _random
+    t0 = perf_counter()
+
+    # symmetrisation identity, exact
+    nsym = 0
+    for z in range(1, 6):
+        perms = list(permutations(range(z)))
+        for u in cartesian_product((0, 1), repeat=z):
+            K = sum(u)
+            for s in range(z + 1):
+                for S in combinations(range(z), s):
+                    avg = Fraction(sum(all(u[pi[i]] for i in S) for pi in perms), len(perms))
+                    assert avg == Fraction(comb(K, s), comb(z, s)), ("THETA Step 3", z, u, S)
+                    nsym += 1
+    print(f"cd Prop 2.4 Step 3 symmetrisation identity: {nsym} (z,u,S) cases exact")
+
+    try:
+        import numpy as np
+        from scipy.optimize import linprog
+    except ImportError:
+        print("cd Prop 2.4 reduction LP: SKIPPED (scipy not installed; "
+              "run `uv run --with scipy python verify.py` to include it)")
+        return
+
+    def W_full(p, m):
+        n = len(p)
+        pts = list(cartesian_product((0, 1), repeat=n))
+        probs = np.array([prod(pi if xi else 1 - pi for pi, xi in zip(p, x)) for x in pts])
+        subsets = [S for k in range(m + 1) for S in combinations(range(n), k)]
+        A = np.array([[1.0 if all(x[i] for i in S) else 0.0 for S in subsets] for x in pts])
+        b_ub = np.zeros(len(pts))
+        b_ub[0] = -1.0
+        res = linprog(probs @ A, A_ub=-A, b_ub=b_ub, bounds=[(None, None)] * len(subsets),
+                      method="highs")
+        assert res.status == 0, res.message
+        return res.fun
+
+    def W_ex(z, q, m):
+        if z == 0:
+            return 1.0
+        m = min(m, z)
+        ks = np.arange(z + 1)
+        pmf = np.array([comb(z, k) * q ** k * (1 - q) ** (z - k) for k in ks])
+        V = np.vander(ks.astype(float), m + 1, increasing=True)
+        b_ub = np.zeros(z + 1)
+        b_ub[0] = -1.0
+        res = linprog(pmf @ V, A_ub=-V, b_ub=b_ub, bounds=[(None, None)] * (m + 1), method="highs")
+        assert res.status == 0, res.message
+        return res.fun
+
+    rng = _random.Random(1)
+    worst = float("inf")
+    for _ in range(40):
+        n = rng.choice([4, 5, 6, 7])
+        m = rng.choice([1, 2, 3])
+        p = [rng.uniform(0.02, 0.45) for _ in range(n)]
+        q = max(p)
+        Wf = W_full(p, m)
+        Rr = sum(prod((pi / q) if wi else 1 - pi / q for pi, wi in zip(p, w)) * W_ex(sum(w), q, m)
+                 for w in cartesian_product((0, 1), repeat=n))
+        void = prod(1 - pi for pi in p)
+        assert Wf >= Rr - 1e-9 and Wf >= void - 1e-9, ("THETA Prop 2.4 reduction", n, m, p, Wf, Rr)
+        worst = min(worst, Wf - Rr)
+    print(f"cd Prop 2.4 reduction LP: 40 random instances, W >= reduced and >= void; "
+          f"min(W - reduced) = {worst:.1e}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cd) EXCEPTIONAL_THETA: Prop 2.4 thinning/symmetrisation (reduction LP if scipy) ==")
+check_cd()
+
+
 print("\nall checks passed")
