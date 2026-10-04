@@ -719,6 +719,9 @@ ratings are this summary's judgement, not ledger labels.
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
+| the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md` |
+| inter-frequency cancellation in interval counts | `EXCEPTIONAL_INTERFREQ.md` |
+| the tuple-count door TC_θ and witness correlations | `EXCEPTIONAL_TUPLES.md` |
 | the signed graph, basics | `SIGNED_REFACTOR.md`, `POINTWISE.md` |
 | short escapes and exceptional sets for the seed distance | `DEPTH3.md` |
 | Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
