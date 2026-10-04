@@ -135,3 +135,17 @@ exponential sums … is capped") and the §6 row (a) present the closed part as 
 natural form. Repair: say explicitly that sums over moduli (dispersion,
 Kloosterman-fraction bilinear forms) are inter-frequency and *not* capped; label the
 closed part "complete-sum (single-frequency) cancellation".
+
+### 5. §2.4 dichotomy and §2.5 (weights < 1) — **SOUND** (as labelled)
+
+* Dichotomy: if `ε_λ ≤ e^{−Φ̄}/4` then (2.4) gives `Eν ≥ (|R|/Q₀)(3/4 − 1/2)e^{−Φ̄}`.
+  Correct, and honestly labelled "a restatement of (2.4), nothing more". Squares:
+  `≍ √N` avoiders give only a θ = 1 obstruction. Correct.
+* §2.5 hit-pattern reduction (Q₀ = 1): `ν̂(Σ_S h_ℓ/ℓ) = d_S Π_S 1̂_{F_ℓ}(h_ℓ)` — other
+  Walsh terms vanish on Θ_S since `ŷ_ℓ(0) = 0`. With (2.6) and weights
+  `log(3/(8p⁺))`: `Π2p = Π(8/3)p·Π(3/4) ≤ Π(8/3)p·Π(1−p) ≤ e^{o(λ)}M_SΠ(8/3)p`. Correct.
+  (H_eq) is properly marked CONJECTURE. Small point: "e^{−o(λ)}" must be uniform in
+  S with s(S) > λ (a fixed function of λ), otherwise the tail sum is not controlled;
+  say so in (2.6).
+* "Weights < 1 open" is the honest residue; note that by N2 the per-class
+  floor/ceiling and ψ-Vaaler bounds also belong here.
