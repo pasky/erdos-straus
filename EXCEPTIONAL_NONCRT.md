@@ -207,3 +207,22 @@ exponential sums) to beat the trivial rounding `Σ|a_i|`" — is capped at
 `(log N)^{3/4}`. A cancellation inside each frequency improves R_w by at
 most the ratio `Σ|a_i| / R_1(ν)`, and Theorem 2.3 shows that even
 `R_1(ν) < N` (with no other restriction) already forces the 3/4 cap.
+
+### 2.4 What is left of (a)
+
+* *Scope.* Theorem 2.3 is for prime-slice systems (the world of ET-file
+  Cor 3.4). The sequential/shared-prime world of ET-file Thm 2.7/Cor 3.6
+  and balanced moduli are not covered here; Lemma 2.2 uses that distinct
+  slice primes give disjoint frequency sets Θ_S.
+* *Inter-frequency cancellation.* The only rounding not covered by (2.5)
+  uses cancellation between different θ in (1.2). By (1.2) such a bound
+  is just a bound for `Σ_{n≤N} ν(n)` obtained without the CRT main term.
+  That is no longer a sieve; it is a direct count. Its only *a priori*
+  limit is `Σ_{n≤N}ν(n) ≥ #(𝒜 ∩ [1,N])`. For the integer avoider set this
+  limit is far below the 3/4 scale: it contains the squares coprime to the
+  selector (`W(m²) = +∞`, DISCOVERIES (C)12), about `√N/log log N` of
+  them, and nothing forces more. So there is **no set-level obstruction**
+  for θ < 1, and also no method: Theorem 2.3 says any such argument must
+  control `Σ_{n≤N}ν(n)` with cancellation across frequencies whose
+  denominators exceed `N` (by Cor 2.4, majorants whose Fourier mass at
+  level `> 2log 4N` is `< N` are capped).
