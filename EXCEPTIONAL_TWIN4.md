@@ -549,12 +549,11 @@ and the factor `4^{|S|}` in place of `2^{|S|}` (as `ν⁺ ≤ (4/3)(8/7)U ≤ 2U
 `P′(G_III^c) = o(1)`. Then the fibre-law bookkeeping of TW2 Lemma 3.2 is
 unchanged (`P′(G_L ∩ G_III) ≥ 1/2`). By TW2 Lemma 3.2(1) for `P′`,
 
-    E′m₂ ≤ 2 Σ_{M≤X, ω_L(M)≥r₂} Γ(k)τ(A²)4^{ω_L(M)}/M_L      (M_L = M/k)
+    E′m₂ ≤ Σ_C (2Γ(k)/k)·4^{ω_L}/M_L = 2 Σ_{M≤X, ω_L(M)≥r₂} Γ(k)τ(A²)4^{ω_L(M)}/M
         ≤ 2 (Σ_M τ(A²)²Γ(k)²/M)^{1/2} · (Σ_{M≤X} 16^{ω_L(M)}1[ω_L(M)≥r₂]/M)^{1/2}
 
-by Cauchy–Schwarz (writing `Γ(k)/M_L = kΓ(k)/M ≤ …`; more simply, apply
-it to `Σ_M (τΓ)(16^{ω_L}1[…])/M` after `k/M_L·(1/k) = 1/M` — the
-activity factor `Γ(k)/k` times the event mass `1/M_L` is exactly `Γ(k)/M`).
+(activity `2Γ(k)/k` times event mass `1/M_L`, `M_L = M/k`; ≤ τ(A²) classes
+per modulus; Cauchy–Schwarz).
 *First factor.* `Γ(k)² ≤ 9^{ω(k)}` and Cauchy–Schwarz again give
 `≤ (Σ_{A≤X}τ(A²)⁴/A)^{1/4}(Σ_{M≤X}81^{ω(M)}/M)^{1/4} ≪ L^{81/2}` (Euler
 products: `τ(p²)⁴ = 81`). *Second factor (Rankin).* For `y > 0`,
