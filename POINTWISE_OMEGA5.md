@@ -140,3 +140,58 @@ Take `F:=(Ĥ/4^ω)^{1/3}≥1`; then `1/F = F′²/Ĥ = 4^{ω/3}Ĥ^{−1/3}`. ∎
 the squarefree lifting (Lemma 1.1, applied to the planes (C1), (C2) and to
 rays), the square-root count (C3), and the thin-box geometry (Lemma 2.2).
 What remains for full HC is the Π-part m (O4 gap (iii)); see §3.
+
+## 3. The Π-part m (O4 gap (iii))
+
+**Lemma 3.1 (m-systems; PROVED).** Let P=(s,a,b) be an atom containing O,
+with Π-part m and ray `(u,v)=(a,b)/t`, `t=gcd(a,b)`. Then
+
+1. `m | u+v` (and `m | 4sa²+1`, `m | 4sb²+1`);
+2. with `κ_m:=` the CRT class `≡κ (q)`, `≡−1 (m)`, P satisfies
+   `a≡κ_m b (qm)` and `qm | M`; conversely these imply `m|4sa²+1`;
+3. writing `4sa²+1=m·m*`, one has `b=jm−a` for an integer j and
+   `M = m·(4saj−m*)`, so `qn′ = 4saj−m*`.
+
+*Proof.* (1) O3 Lemma 2.1(2): `m|gcd(M,4D+1)|a+b=t(u+v)`, and
+`gcd(m,t)=1` since `t|M+1`. Mod m, `b≡−a`, so `4sb²≡4sa²≡−1`.
+(2) `a≡−b (m)` and `4sab≡1 (m)` give `4sa²≡−1`. (3)
+`M=4sa(jm−a)−1=4saj·m−(4sa²+1)`. ∎
+
+So the m-part of `Δ_O` is `≤2Σ_{m>1}Δ¹(qm,κ_m)` (sum over Π-numbers m
+prime to 2q, `m≤T/(qy)`; each atom is counted in the system of its own
+m with weight `2/n′`). In the system `(qm,κ_m)` every point has
+`a+b≥m`, so `h_3(qm,κ_m)≥m−1` and `h_1,h_2≥((m−1)/4)^{1/2}`.
+
+**Proposition 3.2 (small m; PROVED).** The atoms with `m≤μ` contribute at
+most `2μ·Δ¹(q,κ) ≤ 2Cμ𝓛⁴4^{k/3}Ĥ^{−1/3}` to `Δ_O`. With `μ=Ĥ^{1/6}`: the
+part of `Δ_O` from events with `m≤Ĥ^{1/6}` is `≪𝓛⁴4^{k/3}Ĥ^{−1/6}`.
+
+*Proof.* `2/n′=2m/n≤2μ/n`, and `n=mn′≥y`, so the atom is a term of
+`Δ¹(q,κ)`. Theorem 2.3. ∎
+
+**Lemma 3.3 (ray sums with m; PROVED).** For a ray `(u,v)` as in Lemma 2.1
+(modulus q), the atoms on the ray, all m included, contribute to `Δ_O` at most
+
+```
+min{ 2𝓛(1/u+1/v) + 4/y ,  τ(u+v)·(2/y + 𝓛/(2h)) ,  (T/(4hq)+1)·2/y }.
+```
+
+*Proof.* Atoms on the ray ↔ M (Lemma 2.1), `M≡−1 (4h)`, `q|M`, and M
+determines `(m,n′)`. (i) For `n′∈[Y,2Y)`, `M<2qY(u+v)` (Lemma 3.1(1)), so
+there are `≤Y(u+v)/(2h)+1` such M, each of weight `≤2/Y`; sum over dyadic
+`Y≥y`. (ii) For fixed `m|u+v`, `n′` lies in one class mod 4h
+(`gcd(qm,4h)=1` since `gcd(u+v,uv)=1`); Lemma 2.1's sum. (iii) At most
+`T/(4hq)+1` values of M, each of weight `≤2/y`. ∎
+
+Bound (i) is HC-shaped for *balanced* rays (`min(u,v)≥H^{1/3}`), and (ii)
+for rays with `τ(u+v)≤y^{2/3}`. Neither covers an unbalanced ray
+`(u,v)`, `u<H^{1/3}`, with `τ(u+v)>y^{2/3}` and `h<T/(qy^{1/3})`.
+
+**Hubs reappear at large m (Assessment, with a PROVED identity).** By
+Lemma 3.1(3), the extreme case `m=4sa²+1` (all of `4sa²+1` in the Π-part)
+gives `M=(4sa²+1)(4saj−1)`, `qn′=4saj−1`, and the j with `q|4saj−1` form
+one class mod q, so for that `(s,a)` the atoms contribute
+`≤2/y+𝓛/(2sa)`. These are exactly the (F1) hub family of O3 Prop 2.2
+(`κ≡4sa²`), and non-hub means `sa>H`. So the *pointwise* worst cases at
+large m are hub-type, and the m-refinement is a structured, not a
+Weil-range, problem. A complete treatment is §4.
