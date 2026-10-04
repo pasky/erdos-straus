@@ -17256,4 +17256,52 @@ print("\n== (cl) EXCEPTIONAL_KARY2: no squares in R(M)/(a,D)/Case-A classes (Lem
 check_cl()
 
 
+
+# ---------------------------------------------------------------- (cm)
+# EXCEPTIONAL_NONCRT.md Lemma 2.2: |d_S(c)| prod_S p(1-p) <= A_S(nu) prod_S p for
+# every fibre c and S != 0, on random prime-slice systems (Q0 = 3, slice primes
+# 5,7,11[,13], random F_l(c), random signed class combinations nu): part1 of
+# scripts/noncrt_checks.py (imported), seeds 1 and 2 x 40 systems; floating point
+# (max lhs - rhs must be <= 1e-9).  Plus (2.2)'s premise: the frequency sets
+# Theta_S (S subset of {5,7,11,13}, S != 0) are pairwise disjoint and avoid 0
+# mod Q = 3*5*7*11*13 (exact integer check).
+
+def check_cm():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import io
+    import contextlib
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "noncrt_checks.py")
+    spec = importlib.util.spec_from_file_location("noncrt_checks", path)
+    nc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(nc)
+    out = []
+    for seed in (1, 2):
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ok = nc.part1(trials=40, seed=seed)
+        assert ok, ("NONCRT Lemma 2.2 violated", seed, buf.getvalue())
+        line = buf.getvalue().strip()
+        out.append(line.split("max lhs/rhs (rhs>1e-12) = ")[1].split()[0])
+    Q0, ells = 3, (5, 7, 11, 13)
+    Q = Q0 * prod(ells)
+    seen = {}
+    for r in range(1, len(ells) + 1):
+        for S in combinations(ells, r):
+            for a in range(Q0):
+                for hs in cartesian_product(*[range(1, l) for l in S]):
+                    k = (a * (Q // Q0) + sum(h * (Q // l) for h, l in zip(hs, S))) % Q
+                    assert k != 0 and k not in seen, ("NONCRT Theta_S disjointness", S, seen.get(k))
+                    seen[k] = S
+    print(f"cm Lemma 2.2: 2 x 40 random systems, 0 violations, max lhs/rhs = {out[0]}, {out[1]}; "
+          f"Theta_S pairwise disjoint, 0 excluded ({len(seen)} frequencies); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cm) EXCEPTIONAL_NONCRT: Walsh coefficient vs Fourier mass, Lemma 2.2 ==")
+check_cm()
+
+
 print("\nall checks passed")
