@@ -4,7 +4,25 @@ Reviewer: side agent (worktree 0007). Subject files brought in via
 `git checkout 5d19b4f -- POINTWISE_OMEGA4.md reviews/agent-reports/AGENT_REPORT_O6.md scripts data`.
 Verdicts: SOUND / SOUND-AFTER-REPAIRS / DEFECTIVE. Defects numbered D1, D2, …
 
-(in progress — items are appended one at a time)
+## Summary
+
+| Item | Claim | Verdict |
+|---|---|---|
+| 1 | Thm 1.1 explicit k-level constants, Ẑ_r recursion, per-prime `e^{k+A_k}` | **SOUND** (D1 cosmetic, repaired in place) |
+| 2 | Construction 2.0 / Thm 2.1, `y=2T^{1/(k+1)}` | **SOUND** |
+| 3 | Cor 3.1–3.3 rates, k=k(T), uniformity | **SOUND** (editorial D2 missing label, D3 τ* argument) |
+| 4 | HC(a,B), Lemma 4.1, Thm 4.2 | **SOUND** as implication (D4 unverified `h_ℓ≤1/100`, holds with factor-2 margin; D5 EVIDENCE overstated) |
+| 5 | §4.1 anatomy, §4.3–4.4 ceilings | **SOUND-AFTER-REPAIRS** (D6 PROVED label over EVIDENCE/heuristics; D7 "log p ≥ K" wording) |
+| 6 | Prop 5.1 Haar side | **SOUND** (D8 gap-ratio arithmetic) |
+
+No DEFECTIVE item. The specific worry in the brief — dropping O3's
+`exp(2𝓛/log𝓛)` from y — is unfounded: that factor was used only for O2's
+(W),(G), which Lemma 11.2 replaces; (I), supports `≤k`, the vertex
+structure (distinct primes, classes mod `ℓ^{e_ℓ}`, prime-square rough
+parts lifted as in O2 §10.3) and all size bounds survive (Item 2). All
+constants are explicit or absolute, so k=k(T) is legitimate (Item 3).
+Required before merge: D2, D4, D6, D7, D8 (all text-level); D1, D3, D5
+recommended.
 
 ## Item 1 — Theorem 1.1 (explicit k-level constants). Verdict: **SOUND** (one cosmetic defect, D1)
 
