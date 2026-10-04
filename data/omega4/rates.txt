@@ -1,0 +1,19 @@
+Cor 3.1: kappa(X) = max{k>=3: 6k k!(6 log X + 9k) <= X}; compare log X/log log X
+  X=1e4    kappa=3   logX/loglogX=4.15
+  X=1e6    kappa=5   logX/loglogX=5.26
+  X=1e8    kappa=7   logX/loglogX=6.32
+  X=1e10   kappa=9   logX/loglogX=7.34
+  X=1e15   kappa=13   logX/loglogX=9.75
+  X=1e20   kappa=17   logX/loglogX=12.02
+  X=1e30   kappa=24   logX/loglogX=16.31
+  X=1e50   kappa=37   logX/loglogX=24.26
+  X=1e100  kappa=66   logX/loglogX=42.33
+Cor 3.2: kappa_0(X) = max{k>=3: 5k k! <= log X}  (input: log X)
+  logX=90        kappa_0=3   loglogX/logloglogX=2.99
+  logX=600       kappa_0=4   loglogX/logloglogX=3.45
+  logX=4000      kappa_0=5   loglogX/logloglogX=3.92
+  logX=36000     kappa_0=6   loglogX/logloglogX=4.46
+  logX=360000    kappa_0=7   loglogX/logloglogX=5.02
+  logX=4e+06     kappa_0=8   loglogX/logloglogX=5.59
+  logX=1e+09     kappa_0=10   loglogX/logloglogX=6.84
+Thm 4.2 (conditional on HC(a,B)): c_a/sqrt(a) = 5.72^(-1/2) * 1.5^(-3/2) = 0.2276

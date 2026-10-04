@@ -5,7 +5,39 @@ nothing below bears on whether `W(p)<∞`. Notation as in `POINTWISE_OMEGA.md`
 (PO), `POINTWISE_OMEGA2.md` (O2) and `POINTWISE_OMEGA3.md` (O3). `𝓛=log T`;
 `log_j` is the j-fold iterated logarithm.
 
-**Results at a glance.** *(filled in at the end)*
+**Results at a glance.**
+
+1. **Theorem 1.1** (PROVED; bookkeeping on O3 Thm 5.1): the k-level
+   minorant has `log K ≤ (k−1)!·(log(3Ŝ+k+1)+8.06k+5log k+10.1)+102`.
+   It works at per-prime threshold `c_k(Ŝ)=k^{−2}e^{−56−2A_k(Ŝ)}`. The
+   factorial is the push-down cascade, and nothing else.
+2. **Theorem 2.1** (PROVED modulo Thorner–Zaman; effective): if
+   `A_k(S*+1)+log(C_2𝓛) ≤ 𝓛/(6k²)`, some hard p has `W(p)>T` and
+   `log p≤T^{1/k}`. O3's factor `exp(2𝓛/log𝓛)` in y is removed: it is
+   not needed after the iterated quarantine, and it would be fatal for
+   growing k.
+3. **Rates (Cor 3.1–3.3).** For infinitely many Mordell-hard p:
+   * `W(p) > (log p)^{κ(log₂p)}` with `κ(X)~log X/log log X`, i.e.
+     `log W(p) ≥ (1+o(1))log₂p·log₃p/log₄p`. This is modulo
+     Thorner–Zaman and Elsholtz–Tao Prop 1.4.
+   * `log W(p) ≥ (1+o(1))log₂p·log₄p/log₅p` modulo Thorner–Zaman only.
+   
+   This is the brief's first target: `W(p)/(log p)^{k(p)}→∞` with an
+   explicit `k(p)→∞`. Neither `exp(c(log₂p)²)` nor `exp((log p)^c)` is
+   reached.
+4. **The bottleneck (§4).**
+   * Precise sufficient input: Hypothesis HC(a,B), a polynomial
+     codegree bound outside the hub set `𝓗_H`.
+   * **Theorem 4.2** (PROVED implication, modulo Thorner–Zaman and
+     Elsholtz–Tao): HC(a,B) implies `log W(p) ≥ 0.2a^{1/2}(log₂p)^{3/2}`
+     i.o. So the factorial is replaced by `k²`.
+   * Further ceilings (Assessment, §4.3): `(log₂p)²/log₃p` needs, in
+     addition, an event-sensitive truncation (removing `e^{O(k)}` from
+     L). `exp((log p)^c)` is outside the method (§4.4).
+5. **Haar side (Prop 5.1, PROVED).** It is polynomial in k:
+   `log(1/δ*) ≤ π(z)𝓛+8k_z²S*𝓛+4S*`. This gives `log(1/δ*) ≪ 𝓛^7log𝓛`
+   (ET), the Haar form of `exp((log p)^{1/7})`. The prime/Haar gap is
+   `𝓛log₂𝓛/log𝓛` against `7log𝓛` in `log log` of the scale.
 
 ## 0. What is made explicit
 
@@ -415,3 +447,33 @@ log(1/δ*(T)) ≤ π(z)𝓛 + 8k_z²S*𝓛 + 4S*.
   proves `log log L_h(T) ≤ (1+o(1))𝓛 log₂𝓛/log𝓛` (Cor 3.3, ET). The Haar
   side gives `log log(1/δ*) ≤ (7+o(1))log𝓛`. The prime side is weaker
   by a factor `≍𝓛/log₂𝓛` in the doubly logarithmic scale.
+
+## 6. EVIDENCE and checks
+
+* `scripts/omega4_rates.py recursion` (`data/omega4/recursion.txt`) runs
+  O3 Thm 5.1's parameter recursion exactly as written, in the log
+  domain. Every level starts at mass Ŝ, and every push saturates its
+  Markov bound.
+  * It compares log K, log(#primes per cell) and the per-prime
+    amplification with Theorem 1.1's closed forms, for `k=3..8` and
+    `Ŝ∈{10,10³,10⁶}`. All bounds hold, with about a factor 2 to spare
+    in the logarithm.
+  * The exact recursion itself grows like `(k−1)!`: `log K/(k−1)! ≈ 41`
+    at `k=8`. So the factorial is real for the scheme as written, not an
+    artefact of the closed form.
+* `scripts/omega4_rates.py rates` (`data/omega4/rates.txt`) tabulates
+  κ, κ_0 and the Thm 4.2 constant. For example `κ(10^{10})=9` and
+  `κ(10^{100})=66`, where the argument is 𝓛, so `T=e^{10^{10}}`. No
+  numerical instance of any theorem here is claimed: as in O3, the
+  constants put every instance far beyond computation.
+* **Not claimed.** Nothing about ES. HC(a,B) is open (EVIDENCE only for
+  pairs at k=3). §4.3–4.4 are Assessments, except the stated PROVED part
+  of §4.4.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+uv run python scripts/omega4_rates.py recursion   # <1 s -> data/omega4/recursion.txt
+uv run python scripts/omega4_rates.py rates       # <1 s -> data/omega4/rates.txt
+```
