@@ -96,8 +96,8 @@ for §5, in AGENT_REPORT item 3 and in its suggested ledger text. The method
 in question evaluates classes of modulus ≤ N/2 in any way and charges each
 class of modulus > N/2 its trivial count `N/d_i + O(1)` per unit
 coefficient. **This is not proved.** Theorem 2.5 needs hypothesis (2.2),
-`T_> ≤ cB`, and the hybrid bound need not satisfy it with any c of size
-`e^{o((log N)^{3/4})}`.
+`T_> ≤ cB`, and nothing shows that the hybrid bound satisfies it with a
+c small enough to keep the cap (D4).
 
 Exactly, with `r_i = #{n≤N: n≡b_i (d_i)} − N/d_i ∈ (−1,1)`:
 
@@ -142,7 +142,7 @@ inclusion or drop the prime hypothesis when T_> = 0.
 From `B ≥ (N/2)e^{−S} − 6T_>`, with S capped whenever `T_> ≤ N`, the cap
 holds as soon as `T_> ≤ (N/24)·exp(−C(log N)^{3/4}(log log N)^{3/4})`,
 whatever B is. So "a fixed multiple" in the Verdict can be any
-`c ≤ e^{o((log N)^{3/4})}`. The binding quantity is T_>/N, not T_>/B.
+`c ≤ exp(O((log N)^{3/4}(log log N)^{3/4}))` without changing the order of the cap. The binding quantity is T_>/N, not T_>/B.
 
 **D5 (minor, numerics text).** §3.2 says "[1,N] is never the best of the
 three", and AGENT_REPORT item 8 repeats it. This is false: at Q = N, [1,N]
@@ -194,5 +194,5 @@ legitimately closes level-≤ N/2 majorants with arbitrary coefficients and
 any evaluation of the interval sum. One repair is required before ledger
 entry: D1. "Every hybrid method with trivial charging above N/2" is *not*
 proved to be capped. Only methods whose bound dominates T_>/c are capped
-(and, per D4, c may be as large as `e^{o((log N)^{3/4})}`). D2–D7 are
+(and, per D4, c may be as large as `exp(O((log N)^{3/4}(log log N)^{3/4}))`). D2–D7 are
 wording and label fixes.
