@@ -194,3 +194,58 @@ Re-derived line by line.
   longer needed for Cor 5.2), like H_div. Fix: "(H_O) proved; (H_O^≠) and
   H_div bypassed (no longer needed; open as stated)". Cor 4.2 is
   unaffected.
+
+## Item 7. Exposition, numerics, replay — SOUND-AFTER-REPAIRS (nits E6–E9)
+
+* **Replay.** `scripts/twin3_system.py 1e9 1 1009 10007 100003` reproduces
+  the §5 system table exactly (~10 min); my own `partA` reproduces the
+  Lemma 3.2 table at Y = 600 exactly. Own Lemma 3.1 check
+  (`reviews/exceptional-twin3-check.py C`: j = 11, k = 1, C₀ = 5, 100 914
+  prime partners `m ∈ (11⁵, 3·10⁶]`, 11.8M triples, 223 723 short-pair
+  keys): (3.1) residue identity 0 failures; every (key, m) in the predicted
+  class mod `4·(short product)` with `A_m ≥ (short product)·max` — 0
+  failures; injectivity 0 failures; `M₁ ≥ q·kj/8` (the w₂-analogue) 0
+  failures; on 1500 sampled keys the t-case set *equals* the predicted
+  prime set and the u/v-cases are contained in it; per-key
+  `Σ1/m ≤ (2/φ(q))Σ_blocks 1/log(y/q)` holds with worst ratio 0.26.
+* **E6 (nit).** §5 "(2.1) holds in every row, with a factor 5–13 to spare":
+  the rows give 79.8/15.4 = 5.2, 118.0/7.3 = 16.2, 218.3/16.4 = 13.3, i.e.
+  5–16.
+* **E7 (nit).** §1 Route 3 asserts as fact "When `km ≤ j^{1−ε}` there are
+  O(1) divisors of A² per class mod j" (Lenstra/CHN). Plausible via
+  Coppersmith–Howgrave-Graham–Nagaraj (`A² ≤ j^{4−2ε}`, so
+  `j ≥ (A²)^{1/4+δ}`), but unproved here and unused; mark as heuristic or
+  delete.
+* **E8 (nit).** §4 Remark "This needs the largest of u, v, t to be
+  `≥ A^{1/3}`, which holds once `m > (kj)^{C₀}`": the largest is always
+  `≥ A^{1/3}`; what `m > (kj)^{C₀}` buys is `M₁ ≥ q w₂/8` (BT range longer
+  than the modulus `4·short product`, which can be `≈ 4(kj)^4`). Reword.
+  Likewise §2 "Fix C₀ ≥ 6" — C₀ ≥ 5 suffices (Item 3).
+* **E9 (nit, ledger).** On merge: TW2 §0 / Cor 5.2 / §5.4–5.5 still say
+  (H_O)/(H_O^≠) OPEN and Cor 5.2 CONDITIONAL; they need a forward pointer
+  to TW3 Thm 4.1, and DISCOVERIES should record "(H_O) PROVED,
+  (H_O^≠)/H_div bypassed (still open as stated)" per E5.
+
+## Summary
+
+| item | verdict | defects |
+|---|---|---|
+| 1 S_j definition, (2.1), D5 split | SOUND | — |
+| 2 Lemma 2.1 (small first moment) | SOUND | E1, E2 nits |
+| 3 Lemma 3.1 (largest-variable reduction, BT) | SOUND | E3 nit |
+| 4 Lemma 3.2, Cor 3.3 (box counting) | SOUND | E4 nit |
+| 5 Lemma 3.4 (large part) | SOUND | — |
+| 6 Thm 4.1, Cor 4.2 (assembly, scope) | SOUND-AFTER-REPAIRS | E5 minor |
+| 7 Exposition, numerics, replay | SOUND-AFTER-REPAIRS | E6–E9 nits |
+
+**Bottom line.** I could not break Theorem 4.1. (H_O) as defined in TW2
+§5 is proved, and Cor 4.2 — the two-prime Λ² cap
+`saving(g²) ≪_{A₀,B} L^{3/4}(log L)^{O(1)}` in Setting 3.0 (`M ≤ X`,
+`M ≤ P(M)^{1+B}`, ≤ 2 primes above `(log X)^8`, twins included) — is
+unconditional modulo the already-reviewed TW2 inputs. The key idea (sum
+over the prime partner first, in the class mod 4·(two short variables),
+which is long because `m > (kj)^{C₀}`; quarantine pays for the small
+partners by their first moment) is correct and the author's flagged
+points all check out. The one substantive correction is E5: (H_O^≠) and
+(H_O^=) in TW2's un-quarantined form are *bypassed*, not proved; the
+status lines must say so. No major defect.
