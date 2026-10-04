@@ -636,3 +636,65 @@ event or be killed by one. ∎
 * Unconditionally (mod TZ, ET) the best rate is Cor 3.1:
   `log W ≥ (1+o(1))log₂p·log₃p/log₄p`.
 * Off-ray core estimate and gap (iii): not done; context exhausted.
+
+### 7.5 Route (α) and the inverse-square problem (Assessment; checkpoint 4)
+
+**Problem IS(q; t_0, Y)** (precise form of the core obstruction).
+Setting:
+
+* q is squarefree, a product of `≤k` primes in `(y,T]`, and `(w,q)=1`;
+* `N(q,w) := #{t≤t_0, (t,q)=1 : (w·t̄² mod q) ∈ [1,Y]}`, where t̄ is the
+  inverse mod q;
+* the relevant range is `t_0≤(q/h)^{1/2}` and `y≤Y≤q^{1/2}`.
+
+HC for large-q sets needs `N(q,w) ≪ 𝓛^B·Y·h^{−a}` **for every** w (with
+h the ray height). The expected value is `t_0Y/q ≤ Y/(qh)^{1/2}`.
+
+* *Why beyond Weil.* Completing the t-sum and using the Weil bound for
+  `Σ_{t mod q}e((wt̄²·u+tv)/q) ≪ 2^{ω(q)}q^{1/2}` gives
+  `N = t_0Y/q + O(2^{ω(q)}q^{1/2}log² q)`. The error exceeds the target
+  `Y ≤ q^{1/2}`. Weil is nontrivial only for t-ranges `≥q^{1/2+ε}`, but
+  here `t_0≤q^{1/2}`. The problem is of the same type as small values of
+  modular inverses in short ranges, which is open in this generality.
+* *What averaging buys.* Expand
+  `Σ_{w mod q}N(q,w)² = #{s t'² ≡ s′t² (q) : s,s′≤Y, t,t′≤t_0}`. The
+  numbers `st′², s′t²` are `≤Yt_0²`, so the count is at most
+  `(Yt_0²/q+1)·Yt_0·𝓛^{O(1)}` (divisor bound for the representations).
+  Hence
+  ```
+  #{w : N(q,w) ≥ ηY} ≤ t_0(1+Y/h)𝓛^{O(1)}/(η²Y),
+  ```
+  against the Markov count `t_0/η`. The saving factor is
+  `≍1/(ηh)+1/(ηY)`. Averaging over q as well, by the large sieve over
+  moduli `q~Q`, adds nothing essential here: the saving is already in
+  the w-average, and q enters only through the trivial term.
+
+**(α) with this rarity.**
+
+* Bad sets (`Δ_O>η`, non-hub) are pushed down by Markov. Their mass is
+  smaller than O3's Markov push by the rarity factor `≈1/(ηH)`. With
+  `H≥η^{−2}` the pushed mass is `O(Ŝ)`. So the pushed levels'
+  truncations are **not** inflated (`L′≈e^{O(k)}(Ŝ+H_r)`), and that
+  inflation is what produced the factorial.
+* The cascade remains. A subset O′ of a pushed set needs a codegree
+  bound at its new level. That bound comes only from O′ not being
+  pushed itself, via `Δ^{new}_{O′} ≤ binom·η_{|O′|}/η_{|O|}`. So the
+  thresholds must satisfy `η_i ≤ η_j·L′^{−(i−1)}` for `i<j`, which gives
+  `log(1/η_2) ≈ k·log L′ + log(1/η_k) ≈ k³`.
+* The resulting bookkeeping (as in Thm 4.2, with `log H≈k³`) is
+  `log log p ≈ k³+𝓛/k`, so `k≈𝓛^{1/4}` and **`log W ≳ (log₂p)^{4/3}`**.
+* *Required inputs, none proved:*
+  * (1) the second-moment rarity for the **full** codegree, not just the
+    ray core. This includes gap (iii) (τ(a+b) lattice averages) and the
+    off-ray core;
+  * (2) rarity uniform over all `≤k`-prime moduli q in the full scale
+    range;
+  * (3) a check that the pushed rare sets' induced masses under cell
+    conditioning stay `O(Ŝ)`.
+
+  Each looks like standard but substantial divisor-sum work.
+
+**Verdict.** (α) is the most promising route found. If (1)–(3) hold, it
+would give an unconditional (mod TZ, ET) `log W(p) ≥ c(log₂p)^{4/3}` i.o.,
+a power improvement over Cor 3.1 (`log₂p·log₃p/log₄p`). It is **not
+proved**. Cor 3.1/3.2 remain the proved rates.

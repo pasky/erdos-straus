@@ -125,3 +125,23 @@ the log domain, with worst-case Markov pushes, for `k=3..8` and
 * **Not done (context exhausted):** the off-ray core estimate and gap
   (iii) (the τ(a+b) lattice average). Both matter only once the core
   obstruction is solved.
+
+# Checkpoint 4 — route (α), inverse-square problem (§7.5)
+
+* **Precise obstruction IS(q;t_0,Y).** For every `(w,q)=1`:
+  `#{t≤t_0≤(q/h)^{1/2} : w·t̄² mod q ≤ Y} ≪ 𝓛^BYh^{−a}`, with `Y≥y`.
+  * Completion plus Weil gives an error of `2^{ω}q^{1/2}`, above the
+    target `Y≤q^{1/2}`. So the problem is beyond Weil.
+  * The second moment over w gives a rarity factor `1/(ηh)+1/(ηY)`
+    against Markov. A large sieve over q adds nothing essential.
+* **(α) Assessment.** The rarity keeps the pushed mass `O(Ŝ)`, so
+  truncations are not inflated. The remaining threshold cascade gives
+  `log(1/η)≈k³`, hence plausibly `log W ≳ (log₂p)^{4/3}`, mod TZ+ET.
+  * This needs three unproved inputs: full-codegree rarity (including
+    gap (iii) and the off-ray core), uniformity in q, and induced-mass
+    control.
+  * Not proved. The proved rates remain Cor 3.1 (TZ+ET) and Cor 3.2
+    (TZ only).
+* I stopped at the context limit. The recommended next task for a
+  fresh agent is to prove inputs (1)–(3) of §7.5, which would give
+  `(log₂p)^{4/3}`.
