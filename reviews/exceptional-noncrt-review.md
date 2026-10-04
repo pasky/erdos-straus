@@ -374,3 +374,64 @@ a different route: for n ≤ N in the class, the datum has normal form with
 
 The "Meaning" paragraph is fine: after Cor 8.3, level above λ needs at least
 `λ/(2 log N + O(1))` classes of modulus ≤ M₀ in one product.
+
+## R2.3 §8.3 interval-vs-CRT LPs (EVIDENCE) — **SOUND-AFTER-REPAIRS** (qualitative finding stands; two statements wrong)
+
+Reran all four runs of `scripts/noncrt_interval.py`: outputs **identical** to
+`data/noncrt/interval_*.txt` (6–23 s, ≤ 220 MB). Every row with Y ≥ N and
+2 ≤ k ≤ 10 has interval saving < CRT saving, as claimed. Table entries match the files.
+The LP is the right object for "best degree-k polynomial in the hit count,
+evaluated exactly on the chosen integers": `Σ_{n≤N}P(H(n)) = N·E_emp P(H)`.
+Diagnostics are in `scripts/review_noncrt_interval.py`.
+
+**N10 (moderate, numerics; conclusion survives).** The cap HCAP = 80 does two things.
+It relaxes positivity, and it also **truncates both laws**: `bincount(...)[:HCAP+1]`
+and the length-81 CRT pmf recursion silently drop all mass at H > 80. At N = 30000
+(primes), Y = 3·10⁷, max H on the primes is **129**, and 0.31% of them have H > 80;
+that mass is simply deleted. The claim that the relaxation "helps both sides equally"
+is false. With positivity imposed on 0..200 and untruncated laws (k = 10):
+
+| run | int (HC=80 → 200) | CRT (HC=80 → 200) |
+|---|---|---|
+| N=3000 all, Y=N | 3.62 → 3.60 | 6.30 → 5.34 |
+| N=3000 all, Y=M₀ | 3.38 → 3.17 | 12.68 → 11.09 |
+| N=3000 primes, Y=M₀ | 4.33 → 3.85 | 12.68 → 11.09 |
+| N=30000 primes, Y=N | 5.18 → 4.64 | 8.04 → 7.90 |
+| N=30000 primes, Y=3·10⁷ | 4.88 → 4.21 | 13.41 → 11.75 |
+
+So the CRT side moves by up to 1.6 and the interval side by up to 0.7. The gap
+narrows at Y = N (N = 3000: 2.7 → 1.7) but keeps its sign everywhere. Repair: set
+HCAP ≥ max H (or assert that no mass is dropped), drop "helps both sides equally",
+and regenerate the table.
+
+**N11 (moderate, wrong inference).** "So for this natural family `Δ_N(ν) < 0`: the
+interval carries *more* than its CRT share … the opposite of branch (D)." What the
+LPs compare is `min_P E_int P(H)` against `min_P E_CRT P(H)`. Those are the optima of
+two different problems; neither is `Δ_N(ν)` for a fixed ν. Cross-evaluating
+(HC = 200):
+* for the **CRT-optimal** P, Δ_N < 0 — e.g. N=3000 all, Y=M₀, k=10: E_int ↔ saving
+  2.16 vs E_CRT ↔ 11.09;
+* for the **interval-optimal** P, Δ_N > 0 in most rows: the interval carries *less*
+  than the CRT mean. At N=3000 all, Y=M₀, k=10, E_int ↔ 3.17 vs E_CRT ↔ 2.87. At k=2,
+  E_CRT[P_int] > 1 (saving −0.56) while E_int ↔ 1.37, a factor e^{1.9}. At N=30000
+  primes, Y=3·10⁷, k=10: 4.21 vs 3.91.
+
+So branch-(D)-type behaviour does occur, in a mild form: the interval count is below
+the CRT mean of the *same* majorant. It does not help, because the interval optimum
+still saves far less than the CRT optimum. Repair: say "the exact interval optimum
+saves less than the CRT optimum (so there is no gain from inter-frequency
+cancellation in this family)". Drop the claims "Δ_N < 0" and "opposite of
+branch (D)" in §8.3, §8.6 and the AGENT_REPORT.
+
+Additional caveats (state them):
+* For "all n" and "non-squares" the interval saving is capped by the void:
+  `E_int P(H) ≥ π_int(0)` because `P(0) ≥ 1`. That is 3.9 (all n, void 0.02, mostly
+  squares) and 6.2 (non-squares). The "all n" rows mostly measure the squares floor,
+  not inter-frequency effects. The prime rows (void ≈ 0) are the informative ones.
+* The CRT model for the prime rows is the integer measure `Bern(|F_ℓ|/ℓ)`, not the
+  Dirichlet measure E* of Thm 3.2. The difference is a factor `ℓ/(ℓ−1)` per ℓ and
+  does not matter qualitatively.
+* Single sub-family: prime moduli ℓ ≡ 3 (4) with F = ℛ(ℓ), and polynomials in
+  the *count* H only (not general hit-pattern majorants).
+* "often by a factor e^5–e^9" holds for Y ≫ N. At Y = N the gap is e^{1.6–2.9}
+  (HC = 80) or e^{1.7–3.3} (HC = 200).
