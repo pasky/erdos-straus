@@ -1318,19 +1318,34 @@ Thus the entire identity-class supply, with distinct moduli and residues,
 already has exponent three; counting the same $M$ again through another
 factorization $M=k\ell$ does not create new supply.
 
-\begin{remark}[scope of the ceiling]
-The mass-and-budget calculation suggests that changing only a fixed level
-of distribution does not change the predicted exponent $3/4$ when the
-saving comes only from this summed identity-class mass and the truncation
-retains the stated $t\mu$ budget.  This is a \emph{heuristic ceiling}, not
-an optimality theorem: a sufficient product-tail or coefficient budget has
-not been proved necessary for every implementation of the method.
-In particular it does not rule out other congruence-and-sieve arguments,
-extra identities, or use of arithmetic arrangement beyond total mass.  The
-stronger universal formulation does not follow from the supply calculation;
-notes \S18
-explicitly makes this same restriction.  Nothing about the ceiling is
-used in the proof of Theorem~\ref{thm:main}.
+\begin{remark}[the ceiling is a theorem for this architecture]
+The calculation above is heuristic, but its conclusion
+$\theta=\mathcal B/(\mathcal B+1)=3/4$ is now a theorem for the architecture
+of this note \cite[Cor.~6.1, Remark~5.4]{KA2}; see also
+% keep in sync with sieve-limits-note.tex v3: thm:main=10.8, rem:TQcovered=10.9
+\cite[Theorem~10.8, Remark~10.9]{SL}.  The majorant
+$\nu_X=S_y\,Q_r(H_X)$ of \eqref{eq:majorant} is $\geq0$ on $\mathbb Z$ and
+$\geq1$ on the whole set of integers avoiding the atom classes and the
+classes $0\bmod p$, $p\leq y$; the atoms $-uv^{-1}\bmod k\ell$ are classes of
+$\mathcal R(k\ell)$ with $k\ell\leq\ell^{1+2\kappa}$, where
+$\mathcal R(M)=\{-4D\bmod M:D\mid((M+1)/4)^2\}$ (as above); the primes are $\leq X\leq N$;
+and the bound is $N\,\E\nu_X$ plus at most $T_{\rm abs}\leq N^{1/2}$.  For
+every method of exactly this form --- a nonnegative CRT majorant that is
+$\geq1$ on the whole avoider set of a finite family of $\mathcal R(M)$-,
+$(a,D)$-, Case-A and selector classes with primes $\leq N^{O(1)}$, used
+through $N\,\E\nu+\sum_i|a_i|$ with $\sum_i|a_i|<N$ --- the saving is
+$\leq C(\log N)^{3/4}$ when every modulus $G$ satisfies $G\leq P(G)^{1+\beta}$
+with $\beta$ fixed (here $k\ell\leq\ell^{1+2\kappa}$, so $\beta=2\kappa<1/120$), and
+$\leq C(\log N)^{3/4}(\log\log N)^{3/4}$ in general.  So the exponent $3/4$
+of Theorem~\ref{thm:main} is sharp for its method.  Not covered: the
+large sieve beyond prime slices, cancellation between frequencies in
+the rounding, rounding weights below one, majorants $\geq1$ only on
+$[1,N]$ or on exceptional primes, non-CRT input, other class types, and
+primes beyond $N^{O(1)}$.  The Case-A part uses Elsholtz--Tao Prop.~1.4
+(published, not re-proved); the part relevant here, $\mathcal R(M)$- and
+selector classes, uses no external input.  These results are internally
+reviewed only.  Nothing about the ceiling is used in the proof of
+Theorem~\ref{thm:main}.
 \end{remark}
 
 \section{The three external-referee checkpoints}\label{sec:checkpoints}
@@ -1409,6 +1424,10 @@ share are not asserted.
 H. Davenport, \emph{Multiplicative Number Theory}, third edition,
 revised by H. L. Montgomery, Graduate Texts in Mathematics 74,
 Springer, 2000, Chapter 28.
+\bibitem[KA2]{KA2}
+\emph{EXCEPTIONAL\_KARY2: the $3/4$ cap without the $B$-hypothesis},
+internal working document \texttt{EXCEPTIONAL\_KARY2.md}, this repository,
+2026; two internal hostile reviews.
 \bibitem[LL]{LL}
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed standalone note,
@@ -1426,6 +1445,10 @@ repository, \S\S16,18,34,39,41,76; internally reviewed working notes,
 \bibitem[S]{Shiu}
 P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[SL]{SL}
+\emph{Sieve limits for the Erd\H{o}s--Straus exceptional set: why $3/4$
+is sharp for congruence sieves}, research note, version 3,
+\texttt{paper/sieve-limits-note.tex}, this repository, 2026.
 \bibitem[V]{Vaughan}
 R. C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), 193--198.
