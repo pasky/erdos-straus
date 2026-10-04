@@ -15,7 +15,8 @@ Deliverable: `EXCEPTIONAL_TWIN4.md` (§0 status table), `scripts/twin4_rough_bt.
    sieves n mod q. This gives
    `Σ 1/R ≤ 3(s+1)ΣH^i/(φ(q)log(x/q))` for any partner with `Ω(R) ≤ s` and
    all primes `> w`. It replaces BT over the prime partner in TW3 Lemma
-   3.1, and needs only `R/q ≥ 2^{s+1}`, which always holds (Lemma 6.1).
+   3.1, and needs only `R/q ≥ 2^{s+1}`, which holds for every large partner
+   (`R > (kQ)^{C₀}`, L large; Lemma 6.1; review F4b).
 3. **Goal (3): Theorem 7.1 (PROVED, internal; not yet reviewed).** For
    fixed r and B, ℛ(M)-families with `M ≤ P(M)^{1+B}` and at most r primes
    above `(log X)^8` have Λ² saving `≪ L^{3/4}(log L)^{3r+O(1)}`. Inputs:

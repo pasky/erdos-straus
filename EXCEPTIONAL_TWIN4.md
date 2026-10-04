@@ -12,7 +12,7 @@
 | Lemma 5.3 | small partners, every star V | PROVED |
 | **Lemmas 6.1–6.4** | large partners, every star V: largest-variable reduction with Lemma 2.3 in place of BT; box counting mod squarefree Q | PROVED |
 | **ternary residual `ℓ_b < w₂q`** (goal 2) | closed by Lemma 6.1: an upper-bound sieve for the whole partner R; **no BFI input needed** | PROVED |
-| **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; not yet reviewed) |
+| **Thm 7.1** (goal 3) | Λ² cap `≪ L^{3/4}(log L)^{3r+O(1)}` for `M ≤ P(M)^{1+B}` with ≤ r primes above `(log X)^8`, r fixed | PROVED (internal; review `reviews/exceptional-twin4-review.md`: SOUND, nits F1–F4 applied) |
 | Prop 9.1 | explicit r-dependence `(C_B log L)^{Cr}`: cap `L^{3/4+O(ε)}` for `r ≤ ε log L/log log L` | PROVED (bookkeeping) |
 | **Lemma 9.2**, Cor 9.3 | unweighted payment for any low-mass subfamily (LLL, `x_G = 2^{|S(G)|}P(G)`); classes with `ω_L(M) ≥ 330 log L` cost `o(1)` | PROVED |
 | §9.3 | middle range `ε log L/log log L < r < 330 log L` (the bulk): needs an off-diagonal second moment at short-partner stars, efficient per prime (multi-prime H_O^≠) | OPEN (sharp failure point) |
@@ -55,7 +55,8 @@ R is itself rough* to level `(R/q)/w₂`. And `R/q` is large: `R/q ≈ ψ/(kj)`,
 primes *in APs to moduli beyond √R* (an asymptotic, BFI-type question).
 It asks only for an *upper bound* for rough integers in one progression
 of length `R/q ≫ 1`. The large sieve (the same tool that proves
-Montgomery–Vaughan's Brun–Titchmarsh) gives that, losing nothing.
+Montgomery–Vaughan's Brun–Titchmarsh) gives that, losing only constants
+and a polylog (review F1).
 
 More generally: do not split R at all. Split R into its Z-smooth part d
 (bounded number of prime factors, all > w₂, harmonic sum ≤ (log L)^{s−1})
@@ -236,6 +237,8 @@ classes and weights `β_C ∈ [0,1]`,
 
     E_P Σ_{C∈𝒞 active} β_C π_{E_C} ≤ 4(8/7)^r Σ_{M} (Γ(k)/M) τ(A_M²) max_{C mod M} β_C.     (5.1)
 
+(Valid for any `β_C ≥ 0`; below it is also used with `β_C ≤ 2^r`; review F2.)
+
 Prime sums (TW2 §4): for `i ≥ 1`, `Σ_{ℓ>w₂}ℓ^{−1−α}(log ℓ)^i ≪ (i−1)!α^{−i}`;
 `Σ_{w₂<ℓ≤X} 1/ℓ ≤ log L`; `Σ_{ℓ>w₂} ℓ^{−1−α} ≪ log L`.
 
@@ -286,7 +289,7 @@ Fix M (sf) with top prime P, and V.
 * *(b) `P ∉ V`.* Then `P | R`, so `P ≤ R ≤ (kQ_V)^{C₀}`. Fix k, V and
   `R′ = R/P` (a product of `≤ r − 2` large primes `< P`), and put
   `q = kQ_VR′ ≤ P^B`. TW2 Lemma 3.3 along P on the dyadic blocks with
-  `p₂/2 ≤ y ≤ (kQ_V)^{C₀}` (at most `C₀ log(kQ_V) + 1` blocks), each block
+  `p₂/2 ≤ y ≤ (kQ_V)^{C₀}` (at most `C₀ log₂(kQ_V) + 2` blocks; review F2), each block
   `≪ (q/φ(q))(log 2qy)²` with `log 2qy ≤ (C₀+1) log(2kQ_V) + log R′ ≤ (2C₀+2)log(2kQ_V)`
   (as `R′ ≤ R ≤ (kQ_V)^{C₀}`), gives
   `Σ_P τ(A²)/P ≪_{C₀} (k/φ(k))(log 2kQ_V)³`. Sum `1/R′` over its primes
@@ -344,7 +347,8 @@ If `q ≤ 2^{−r}(kQ)^{C₀}` this is `R > (kQ)^{C₀}`. Otherwise
 *This is where the ternary residual closes.* TW3 fixed `ℓ_a` and applied
 Brun–Titchmarsh to the prime `ℓ_b` in its class mod q, which needs
 `ℓ_b ≥ w₂q`. Lemma 2.3 sieves the whole partner R in its class mod q.
-The only length condition is `R/q ≥ 2^{s+1}`, and it always holds. No
+The only length condition is `R/q ≥ 2^{s+1}`, and it holds for every
+large partner (`R > (kQ)^{C₀}`, `C₀ ≥ 6`, L large; review F4b). No
 asymptotic for primes or almost-primes in progressions to large moduli
 (BFI) is needed: the question was an upper-bound question all along.
 
@@ -420,7 +424,9 @@ it closes the ternary residual of TW3 §6.3 and supersedes TW3 Prop 6.4
 moduli `M ≤ X` satisfy `M ≤ P(M)^{1+B}` and have a bounded number of
 prime factors above `(log X)^8`, the saving is capped:
 `saving ≪ L^{3/4+o(1)}`. So such sieves cannot give an exceptional-set
-exponent θ > 3/4. ∎
+exponent θ > 3/4. This is the ET Lemma 2.9 translation (level `λ ≍ L`;
+TW review T7), inherited as in EXCEPTIONAL_TWIN.md §5; Theorem 7.1 is
+uniform in `λ ≤ A₀L` (review F3). ∎
 
 ### 7.1 What is left for "all polynomially bounded moduli" (Assessment)
 
@@ -449,7 +455,8 @@ random units b each: 1228 cases, worst `lhs/bound = 0.128`. (The proof's
 constant 3(s+1) and the `log Z = log Y/(s+1)` loss are generous.)
 
 **The former residual on a toy ternary system** (`… B 1e9 1009 10007`):
-`M = jR`, `R = ℓ_aℓ_b` (primes ≥ `w₀ = 11`, `≠ j`), `jR ≤ 10⁹`,
+`M = jR`, `R = ℓ_aℓ_b` (primes ≥ `w₀ = 11`, `≠ j`, `ℓ_a ≤ ℓ_b`, so
+`R = ℓ²` is included; review F4a), `jR ≤ 10⁹`,
 `jR ≡ 3 (4)`, toy `C₀ = 1` (R > j), all `D | A²`, k = 1, no fibre. Each
 triple is put in TW3's proved part if `ℓ_b ≥ w₀q`, else in the former
 residual.
