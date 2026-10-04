@@ -656,4 +656,133 @@ $\sum_{4rh\leq G}\tau(4rh^2+1)/(4rh)$.
 The review \cite[item~4]{ETrev} checked Prop.~1.4 and its $k$-range against
 the source; it was not re-proved.
 
+\section{The three-quarter cap}\label{sec:cap}
+
+\subsection{Prime-slice families}
+\begin{corollary}[{\cite[Cor.~3.4]{ET}}; \lab{proved}]\label{cor:sliceCap}
+Fix $0<C<1$ and $A\geq1$.  Take a prime-slice system in which every
+condition is a slice condition (no pure small-modulus conditions), and
+\begin{itemize}
+\item every condition is a forced class of $\cR(M)$ (any splitting
+  $M=q_0\ell$), an $(a,D)$-class, or a Case-A class;
+\item each condition modulus $q_0\ell$ satisfies $q_0\leq\ell^C$;
+\item $R=\{c:(c,P)=1\}$ for some $P\mid Q_0$;
+\item $\ell\geq\ell_0(C)$ for every slice prime.
+\end{itemize}
+Then every majorant of level $\lambda\leq A\log N$ satisfies
+\[
+ \log\frac1{\E\nu}\leq C_7(A,C)(\log N)^{3/4}+\log\frac P{\varphi(P)},
+\]
+and so does the large-sieve bound of Remark~\ref{rem:LS}, summed over
+fibres.
+\end{corollary}
+\begin{proof}
+Since $q_0\leq\ell^C$ and the number of family classes modulo $M$ is
+$M^{o(1)}$, $|F_\ell(c)|\leq\ell^{C+o(1)}\leq\ell/4$.  For a selector,
+$\Prob(c\equiv b\ (q_0)\mid R)\leq1/\varphi(q_0)$, so
+$\bar p_\ell\leq\sum_{M=q_0\ell}|\mathcal C(M)|(M/\varphi(M))/M$, where
+$|\mathcal C(M)|$ is the number of family classes modulo $M$.  Since
+$\ell\geq M^{1/(1+C)}$, $\ell^{-\alpha}\leq M^{-\alpha/2}$.
+Lemmas~\ref{lem:profileB}, \ref{lem:profileaD} and~\ref{lem:caseAprofile}
+give $\sum_\ell\bar p_\ell\ell^{-\alpha}\ll\alpha^{-3}$.  Take
+$\alpha=\lambda^{-1/4}$ in \eqref{eq:slice}; here $G=O(\log\lambda)$ and
+$\bar\mu\ll\lambda^3$.
+\end{proof}
+
+\subsection{Dominant-prime families}
+\begin{corollary}[{\cite[Cor.~3.6]{ET}}; \lab{proved}]\label{cor:dominant}
+Fix $0<C<1$ and $A\geq1$, and put $\delta=(1-C)/2$.  Consider any family of
+Case-B forced classes (classes of $\cR(M)$, or $(a,D)$-classes modulo
+$G=4a\,g(D)$), and Case-A classes (modulo $G=4rh$), such that every
+modulus $M$ has a prime factor $\ell(M)\geq M^{1/(1+C)}$.  The other prime
+factors are unrestricted: they may be large, occur to higher powers, or be
+the dominant prime of other moduli.  Let $w_0=w_0(C)$ be large,
+$Q_0=\lcm(P_{w_0},\ w_0\text{-smooth parts of all moduli})$ and
+$R=\{c:(c,P_{w_0})=1,\ c\text{ satisfies no condition with all primes}\leq w_0\}$.
+Then every majorant of level $\lambda\leq A\log N$, charging all primes
+$>w_0$, satisfies
+\[
+ \log\frac1{\E\nu}\leq C_8(A,C)(\log N)^{3/4}+\log\frac{Q_0}{|R|},
+ \qquad\log\frac{Q_0}{|R|}=O_C(1).
+\]
+\end{corollary}
+\begin{proof}
+\emph{The $R$-term.}  A $w_0$-smooth modulus is at most $w_0^{1+C}$, so there
+are finitely many.  Let $L'=\lcm(P_{w_0},w_0\text{-smooth moduli})$.  By
+Lemma~\ref{lem:one}, $c\equiv1\pmod{L'}$ lies in $R$, so
+$|R|/Q_0\geq1/L'=\e^{-O_C(1)}$.
+
+\emph{Windows.}  With $s_0=\log w_0$ take
+$W_j=(\e^{s_j},\e^{s_j/C}]$, $s_j=s_0C^{-j+1}$, and attach each condition
+to $\ell(M)$.  Since $\ell(M)>\sqrt M$ it occurs to exponent one, and every
+other prime $\ell'\mid M$ has $\ell'\leq M/\ell\leq\ell^C$, so it lies in an
+earlier window or divides $Q_0$.  Thus (U) holds.
+
+\emph{Hypotheses of Theorem~\ref{thm:seq}.}  The number of conditions with
+dominant prime $\ell$ is at most $\sum_{q\leq\ell^C}\ell^{o(1)}=\ell^{C+o(1)}$,
+so $p^*_\ell\leq\ell^{-\delta}\leq1/4$ for $\ell>w_0$.
+
+\emph{Profile.}  By Lemma~\ref{lem:one},
+$\Prob(c\equiv a\ (q)\mid R)\leq L'/\varphi(q)$.  By
+Lemma~\ref{lem:seqprofile} each condition contributes at most
+$L'(M/\varphi(M))\gamma(M)/M$ with
+$\gamma(M)=\prod_{\ell'\mid M,\ \ell'>w_0}(1-\ell'^{-\delta})^{-1}$.  Write
+$(M/\varphi(M))\gamma(M)=\sum_{d\mid M}h(d)$, $h$ multiplicative on
+squarefree $d$ with $h(p)\leq1/(p-1)+3p^{-\delta}$.  The proof of
+Lemma~\ref{lem:profileB} goes through: in the Shiu range it uses
+$\sum_dh(d)/\varphi(d)<\infty$; for $d>x^{1/2}$,
+$\sum_dh(d)d^{-1+\delta/2}<\infty$ gives a tail $\ll x^{1-\delta/4+\epsilon}=o(x)$.
+For $(a,D)$-classes use
+$(G/\varphi(G))\gamma(G)\leq2[(a/\varphi(a))\gamma(a)][(g/\varphi(g))\gamma(g)]$,
+and for Case A use the $\gamma$-weighted form of
+Lemma~\ref{lem:caseAprofile}.  So the profile is $\ll_C\beta^{-3}$.
+
+\emph{Summing windows.}  For $\ell\in W_j$, $M\leq\ell^{1+C}\leq\e^{2s_j/C}$,
+so the window mass is $\ll s_j^3$ and its profile is
+$\ll\e^{-\alpha s_j}s_j^3$.  Optimising $\alpha_j$ per window,
+$\E\Phi_j\ll\min\{s_j^3,(\lambda/s_j)(1+\log^+(s_j^4/\lambda))\}+O(\log^2\lambda)$.
+Only $J\ll_C\log\lambda$ windows meet $\ell\leq\e^\lambda$.  Below the
+crossover $s\asymp\lambda^{1/4}$ the cubic branch is a geometric sum;
+above it, with $s=\lambda^{1/4}C^{-k}$, the window contributes
+$O_C(\lambda^{3/4}C^k(1+k))$; the remainders total $O_C(\log^3\lambda)$.
+Hence $\sum_j\E\Phi_j\ll_C\lambda^{3/4}$.
+\end{proof}
+The constants deteriorate as $C\to1$.  For unweighted integers, Dickman's
+function gives logarithmic density $\log(1+C)$ to the moduli with
+$P(M)\geq M^{1/(1+C)}$; the share of the \emph{weighted} cubic supply is
+not proved \lab{conjecture}.
+
+\subsection{The main theorem}
+\begin{theorem}[the $3/4$ cap; \lab{proved} mod Elsholtz--Tao Prop.~1.4 for Case-A classes; unconditional for Case-B families]\label{thm:main}
+Fix $0<C<1$ and $A\geq1$.  Let $\cF$ be a family of forced classes such
+that either
+\begin{enumerate}
+\item[(i)] every modulus has a dominant prime $P(M)\geq M^{1/(1+C)}$
+  (Case-B and Case-A classes; Corollary~\ref{cor:dominant}); or
+\item[(ii)] $\cF$ consists of $\cR(M)$-classes with $(\eta,B)$-gapped
+  moduli, for fixed $B$ and $0<\eta<1$, together with any $\cR(M)$-classes of
+  $W_0(B)$-smooth modulus (Theorem~\ref{thm:gapped}, Section~\ref{sec:gapped}).
+\end{enumerate}
+Then every CRT-majorant architecture (Definition~\ref{def:arch}) for
+$\cF$, with the admissible set of Corollary~\ref{cor:dominant} in case (i)
+and the quadratic-residue base of Section~\ref{sec:gapped} in case (ii),
+saves at most
+\[
+ \log\frac1{\E\nu}\ll(\log N)^{3/4},
+\]
+with implied constant depending on $A,C$ in case (i) and on $A,B$ and
+$\eta^{-1}$ (linearly in $\eta^{-1}$) in case (ii).  In particular no such
+architecture gives $E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with
+$\omega(N)\to\infty$, e.g.\ $\omega=(\log\log N)^\epsilon$.
+\end{theorem}
+\begin{proof}
+Corollary~\ref{cor:budgetlevel}, applied with
+Corollary~\ref{cor:dominant} in case (i) and Theorem~\ref{thm:gapped} in
+case (ii).  In both the $R$-term is bounded.
+\end{proof}
+The statement for the prime-slice families of Corollary~\ref{cor:sliceCap}
+is the same, with the selector term $\log(P/\varphi(P))$ added; for the
+large sieve over slice systems the level hypothesis $\lambda\leq A\log N$
+is used directly (Remark~\ref{rem:LS}).
+
 \end{document}
