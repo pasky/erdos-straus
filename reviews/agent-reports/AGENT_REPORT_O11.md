@@ -9,8 +9,10 @@ proved theorem with exact scope. One conditional piece is isolated.
 
 * **(a) signed rounding.** Thm 2.3 / Cor 2.4–2.5 (PROVED). Any bound
   `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ)` with w ≥ 1 saves `≤ C(log N)^{3/4}` for the
-  ET-file Cor 3.4 families. This covers Σ|a_i|, the sawtooth bound and all
-  Gauss/Kloosterman/divisor-sum cancellation within a frequency. The new
+  ET-file Cor 3.4 families. This covers Σ|a_i|, the sawtooth bound as
+  `min(N,1/(2‖θ‖))` and complete Gauss/Kloosterman/divisor sums within one
+  frequency. It does not cover Vaaler/ψ or floor/ceiling rounding, or
+  Kloosterman/dispersion cancellation over moduli (review N2, N3). The new
   tools are:
   * Prop 2.1: the Boolean sieve limit for arbitrary level, paying only the
     biased-Walsh tail above λ;
@@ -25,8 +27,9 @@ proved theorem with exact scope. One conditional piece is isolated.
   (2.6). Open otherwise.
 * **(b) prime-only majorants.** Thms 3.2, 3.3 (PROVED). These give the same
   LP limit under the Dirichlet measure. Detecting primality by a sieve
-  raises the bound by `O((log log N)²)`. So BV/BDH/EH/GRH-level inputs
-  cannot beat 3/4. Rem 3.4 (Assessment): unconditional prime error terms
+  raises the bound by `O((log log N)²)`. So majorants evaluated at level
+  `N^{O(1)}` (BV/BDH/EH/GRH) cannot beat 3/4; prime moments of unbounded
+  order are capped only via the Remark 3.4 Assessment (review N6). Rem 3.4 (Assessment): unconditional prime error terms
   are weaker than the integer count at this precision.
 * **(c) moment/variance methods.** Prop 4.1: P∘f is a CRT majorant.
   Prop 4.2: a degree-k CRT mean saves only `O(k log log N)`, so
@@ -63,7 +66,8 @@ proved theorem with exact scope. One conditional piece is isolated.
   about 1 min, under 1 GB.
 
 ## Suggested ledger text (parent's call)
-(D)15: "Per-frequency signed rounding, prime-only majorants and CRT-evaluated
+(D)15: "Per-frequency (complete-sum, w ≥ 1) signed rounding, prime-only
+majorants at level N^{O(1)} (beyond: Assessment) and CRT-evaluated
 moment methods are all capped at (log N)^{3/4} for the Cor 3.4 families
 (EXCEPTIONAL_NONCRT Thm 2.3, Thms 3.2–3.3, Props 4.1–4.2). PROVED,
 internal. Open: inter-frequency cancellation; weights < 1 (H_eq);
@@ -112,3 +116,12 @@ Replay: `uv run --with scipy python scripts/noncrt_interval.py N Ymax
 Parent review targets: Prop 8.4's use of the normal form (60.7)–(60.8),
 the statement of Cor 8.7, and whether the §8.3 LP relaxation (positivity
 only on 0..80) matters.
+
+---
+
+Review `reviews/exceptional-noncrt-review.md` (branch side-agent/review-noncrt):
+N1–N8 applied in one commit. The changes: finite 𝒫; scope of the sawtooth
+bound and of Kloosterman cancellation; R*-term = 0; the Thm 3.3 increment;
+the prime-moment clause downgraded to an Assessment beyond level A log N;
+the constant `19k(2+log⁺)`; numerics labels. Lemma 2.2 now reports max
+ratio 0.923.
