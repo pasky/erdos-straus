@@ -311,3 +311,54 @@ is `W₁(B) ≥ W₀(B)` with `𝔏 ≤ 1/2` for `W ≥ W₁(B)`.
 2.1(1)), and a heavy top is hit with conditional probability `≤ p̃_ℓ`. In
 the other blocks this is ETw Lemma 2.1′. Markov and Lemma 4.3(2) (resp.
 ETw Lemma 4.0) give `Σ_{ℓ>W} ℓ^{1/2}·O_B(ℓ^{−7/4})`. ∎
+
+### 4.3 The cap
+
+**Theorem 4.5 (PROVED).** Fix `B ≥ 0` and `W = W₁(B)`. There are
+`λ₀(B)` and `C(B)` such that for every family 𝔊 of ℛ(M)-classes with
+`M ≤ P(M)^{1+B}` (any shape: dominant, gapped, η-twin, prime-power top, any
+number of primes at comparable scale), plus any W-smooth classes, every
+majorant ν of level `λ ≥ λ₀(B)` satisfies
+
+    log(1/Eν) ≤ C(B)·λ^{3/4}.
+
+*Proof.* Put `s₁ = λ^{1/4}` (`λ₀` is such that `s₁ > 2 log W`). Blocks, in
+increasing order of primes:
+* singletons `{ℓ}`, `W < ℓ ≤ e^{s₁}` (ETw Prop 4.1);
+* phantom blocks `V_i = {ℓ : 2^i s₁ < log ℓ ≤ 2^{i+1}s₁} ∩ (·, e^{λ/2}]`,
+  `0 ≤ i ≤ I`, `2^I s₁ < λ/2`;
+* one sequential block `(e^{λ/2}, e^λ]` (ETw Cor 4.3);
+* singletons above `e^λ` (cost 0).
+Every class is decided at its top prime, and `𝔏 ≤ 1/2` (Lemma 4.4).
+Apply Theorem 4.1. Base: `O_B(1)` (ETw Lemma 1.3). Singletons:
+`≤ (8/3)K'(1+B)³λ^{3/4}`. Top block: `2log(1+3e^{−λ/4})`.
+
+Phantom block `V_i`, `s = 2^i s₁`, `d_i = ⌊λ/s⌋ ≥ λ/(2s) ≥ 1`. By
+Corollary 2.6 applied for each h with `m̄ = E[M|h]`, then Jensen over h
+(the map `m ↦ log(C₀(m+4d)/d)` is concave),
+
+    E_{Q'}Φ_i ≤ d_i·log(C₀(E M_{V_i} + 4d_i)/d_i) + (4/3)d_i + ½log(22d_i+22) + 3.
+
+By Lemma 4.3(1), `E M_{V_i} ≤ K₁(B)s³`, so
+`(E M_{V_i} + 4d_i)/d_i ≤ 2K₁s⁴/λ + 4 = 2K₁·16^i + 4`. Hence
+`E Φ_i ≤ (λ^{3/4}/2^i)(c₁(B) + 4i·log 2) + O(log λ)`, and
+
+    2Σ_{i≥0} E Φ_i ≤ 2λ^{3/4} Σ_i 2^{−i}(c₁(B) + 2.78 i) + O(log²λ) ≪_B λ^{3/4}. ∎
+
+**What this settles.** ETw §5 "Not covered" item 1 (unresolved moduli:
+η-twin, prime-power top, ≥ 3 primes in a window, with top prime in
+`(e^{λ^{1/4}}, e^{λ/2}]`) is removed. For every fixed B, every family of
+ℛ(M)-classes with `M ≤ P(M)^{1+B}` has `S_λ ≪_B λ^{3/4}`, with no
+hypothesis: Conjecture 4.5_r, Conjecture 6.4, Hyp K2, Prop 6.5's `log λ`,
+the Markov removal (Lemma 6.3) and the windows' η are all unnecessary.
+With ETw §5's reading of ET Lemma 2.9 (λ ≍ log N, the hypothesis needed
+for every λ in the relevant range, which is automatic here since the
+theorem has no family hypothesis beyond B), no such family yields an
+exceptional-set exponent θ > 3/4.
+
+**Still not covered** (unchanged from ETw §5): moduli with
+`log M/log P(M)` unbounded (no summation over B; constants `W₁(B)`,
+`C(B)` untracked); (a,D)- and Case-A classes mixed with ℛ(M)-classes (the
+base, ETw Lemma 1.1, is proved for ℛ(M) only). Theorem 2.5 itself is
+arithmetic-free, so for those families the open part is the base and the
+moment lemmas, not the k-ary step.
