@@ -128,6 +128,14 @@ rounding term: the factor `N + δ^{−1} ≥ N` of the large sieve already
 contains N. So the cap needs only the **level** of `ν*`, not its
 coefficient sum.
 
+**Remark 2.4 (weighted sifted sequences; PROVED).** If the large sieve
+is applied to weights `a_n ≥ 0` supported on `𝒜 ∩ I` (e.g.
+`a_n = Λ(n)` on the exceptional primes), (LS) gives
+`(Σa)²·F_w(π_a) ≤ Σa²` with `π_a = a/Σa ∈ P(𝒜)` (after reduction mod
+`M'`). A CRT-admissible bound is then `Σa ≤ (Σa²/Σa)·m_w ≤ (max a)·m_w`,
+and `m_w ≥ N·Eν*`. Compared with the trivial `Σa ≤ N·max a` the saving is
+again at most `log(1/Eν*)`. Everything below applies verbatim.
+
 ## 3. The cap for frequencies of polynomial level
 
 **Fibrewise large sieves.** Fix a modulus `Q₀` (the small modulus). For
@@ -436,3 +444,56 @@ form `coll_q ≥ 1/ν(q)` only needs `|𝒜 mod ℓ^v|` close to `ℓ^v`; the
 squares give `𝒜 mod ℓ ⊇` the quadratic residues (KARY2 Lemmas 2.1–2.2),
 which is too weak by a factor 2. (H_Gal) is **open**; the larger sieve
 over mixtures is not covered.
+
+## 7. Where the large sieve can still escape (exact form)
+
+Combining §§3–6, a CRT-admissible large-sieve-type bound for a
+forced-class mixture can save more than `C(log N)^{3/4}(log log N)^{3/4}`
+only in the following forms.
+
+**(E1) Frequencies of super-polynomial level against multi-large-prime
+classes.** By Theorem 3.1 the saving is `≤ Cλ^{3/4}(log λ)^{3/4}` with
+`λ = λ(Q₀) + 2λ_Θ` **for every level**. So a saving
+`≥ (log N)^{3/4+ε}` needs `λ_Θ ≥ (log N)^{1+4ε/3}/C'`: frequencies
+`a/d` whose W-rough part of `d` exceeds `N^{(log N)^{4ε/3}/C'}`. Such
+points are allowed in Montgomery's inequality (it only needs δ-spacing
+with `δ^{−1} ≲ N`, and by Fact 4.0 the total weight is ≤ 1), but they
+are useful only if `𝒜` has non-product structure across many large
+primes: for prime-slice systems Theorem 4.1 shows they are useless. The
+missing input is a measure on 𝒜 with Fourier decay at every large prime
+of the denominator:
+
+> **(H_LS)** there is `π ∈ P(𝒜(𝔊))` and `β ≍ (log N)^{−1/4}` with
+> `log Σ_θ |π̂(θ)|^{2+2β} ≤ C(log N)^{3/4}·polylog`.
+
+By the Hölder step of Theorem 4.1, (H_LS) caps **every** N-large-sieve
+system, any frequencies. For KARY's sequential law the transform decays
+at the top prime of the denominator only (`|E[e(a n/ℓ) | history]| ≤
+g_ℓ`); products over several large primes would need conditional
+independence that classes such as ℛ(ℓ₁ℓ₂) destroy. (H_LS) is
+**CONJECTURE**; heuristically the Fourier coefficients of 𝒜 at
+high-level frequencies behave like those of a random set of the same
+local densities, and no escape is expected.
+
+**(E2) The larger sieve over mixtures.** Theorem 6.2 caps it by the
+χ²-functional `X(π)`; the cap for mixtures needs (H_Gal) (§6), open.
+
+**(E3) Non-CRT information.** Bounds that use that `π_A` is the
+empirical law of a set in a short interval (not just a law on 𝒜) are
+outside the definition of CRT-admissible; this is the "direct interval
+count" exclusion of NONCRT §2.4 and KARY2 §6. The large sieve inequality
+itself uses the interval (through `N + δ^{−1}`), but only through the
+factor N, which the theorems keep.
+
+**(E4) Inherited exclusions.** The `(log log N)^{3/4}` factor for
+unbounded-B mixtures, other class types, and the Case-A dependence on ElT
+Prop 1.4 are inherited from KARY2 Thm 5.1 through Theorem 3.1.
+
+Everything else is closed: Montgomery's inequality and its weighted
+forms, any Farey-type frequency set with denominators `≤ N^{O(1)}`,
+prime, prime-power and composite moduli, forced classes of composite
+moduli used through prime-power components or directly, excluded
+classes chosen fibrewise over any modulus `Q₀ ≤ N^{O(1)}`, weighted
+sifted sequences (Theorem 3.1, Remark 2.4); and, for prime-slice
+systems, every large sieve system whatsoever (Theorem 4.1) and
+Gallagher's larger sieve (Corollary 6.3, saving O(1)).
