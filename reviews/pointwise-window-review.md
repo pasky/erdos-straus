@@ -41,7 +41,7 @@ Checked line by line:
   `ε^{1/2}` vs `ε^{3/2}` choice of ε works.
 * S1 citation: Teräväinen (archived, line 1446) cites exactly "[Opera de Cribro,
   Theorem 11.13], with β=1" for the semilinear sieve, with the same `f(s)`. The
-  primary is not read, and the doc says so honestly. See D3 for the
+  primary is not read, and the doc says so honestly. See D7 for the
   ch.14-vs-Thm-11.13 inconsistency with POINTWISE_SIZE Prop 11.4.
 
 No mathematical gap found. Prop 11.4 → PROVED modulo S1–S3 is justified.
@@ -166,3 +166,25 @@ Archived `2504.20289.txt` lines 34–49, Thm 1.1. With `f=x²+xy+y²`, `B=4`, `A
   the sieve alone (nit).
 * §7.3 literature sentence: see D1 (FI09 is a two-condition result on shifted
   primes, conditional on level <1 close to 1).
+
+### 7. Scripts and data (§3, §5) — REPRODUCED exactly
+
+* `window_w1.py 1e11 300`: all six rows (primes, `N_3`, ratios) and the 300-sample
+  `a_min` histogram `{7:163,11:105,15:17,19:11,23:1,27:1,31:2}` reproduce. The
+  regenerated JSON is byte-identical in content to the committed one.
+* `window_joint.py 1e10 8` and `1e11 8`: every count in the §5 tables reproduces.
+  The 1e11 JSON is identical to the committed one.
+* Independent reviewer check (/tmp script with brute-force `Rat_q`, no project
+  code), `p≡1 (840)`, `p<10^6`:
+  * joint prefix counts 395/244/160/52/28 match;
+  * window-3 failure ⟺ no factor ≡2 (3) holds for every p;
+  * Lemma 1.1 (F1-clean ⇒ fail) holds at q=3,7,11,15;
+  * Lemma 1.2 parity holds for all `q≤43`;
+  * all 244 window-3 failures have `a_min≥7`.
+* Code read: segmented sieves are correct (cofactor after removing primes
+  `≤√n_max` is 1 or a prime; Jacobi of the big cofactor via `cof mod q`). The
+  r|210 branch and r|q branch are handled.
+* Nit (D8): "flat at 0.0123–0.0126" is in fact a monotone drift
+  0.01259→0.01227 (−2.5%) over 1e7…1e11, and `frac·√log` drifts 2.296→2.258.
+  This is consistent with `1+O(1/log x)` secondary terms, but "flat" overstates
+  it. The J=7,8 columns are only flat from 1e9 on.
