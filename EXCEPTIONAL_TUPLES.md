@@ -112,13 +112,13 @@ truncated additive functions at the shifts `4D`:
     S_k(N) = Σ_{{(ℓ_1,D_1),…,(ℓ_k,D_k)}} #{n ≤ N : ℓ_i | n + 4D_i, i ≤ k},   (1.5)
 
 summed over k-sets with distinct `ℓ_i ∈ 𝒫_y` and `D_i ∈ 𝒟_{ℓ_i}`. All
-shifts satisfy `4D < y²/4`.
+shifts satisfy `4D ≤ (y+1)²/4`.
 
 *Proof.* The classes `−4D`, `D ∈ 𝒟_ℓ`, are distinct mod ℓ, so
 `x_ℓ(n) = Σ_{D∈𝒟_ℓ} 1[ℓ | n + 4D]`. Summing over ℓ and regrouping by D
 gives (1.4). Expanding `binom(f_y(n), k)` as the number of k-sets of hit
 primes, each hit prime ℓ with its unique D, gives (1.5). Finally
-`D ≤ A_ℓ² < (y+1)²/16`. ∎
+`D ≤ A_ℓ² ≤ (y+1)²/16`. ∎
 
 So **ES witness correlations of order k are k-point correlations of
 ω-type (divisor-indicator) functions along k shifts**, with each prime
@@ -394,7 +394,7 @@ know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
   Kubilius model, which rests on hits being divisors of a single integer.
   By Lemma 1.3 the ES hits are divisors of `~y²` different shifts, and by
   Prop 4.1 no TV model can hold. A proof of TC_θ would have to control
-  K-th moments of a sum of ω-functions over `≍ y_K²` shifts (with K and
+  K-th moments of a sum of ω-functions over up to `≍ y_K²` shifts (with K and
   `log y_K ≍ K^{1/2}` growing), i.e. a "Kubilius model for many shifts in
   the moment sense". We know of no result of this kind for even two
   shifts with `K → ∞` moments at relative precision `e^{−cK}`.
