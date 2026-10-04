@@ -65,9 +65,15 @@ three places:
 * **(B2) singleton first moment** (ETw Prop 4.1): the same over
   `M ≤ e^{(1+B)s₁}`;
 * **(B3) second moment / leak** (ETw Lemmas 2.4, 4.0, used in EK Lemma
-  4.2(3) and 4.3): the pointwise bound `τ(A_q²) ≤ ℓ^{o(1)}`, valid because
-  the cofactor q of the top prime power is `≤ ℓ^B`; and the constants
-  `W₀(B)`, `C(B)`.
+  4.2(3) and 4.3). The cofactor q of the top prime power is `≤ ℓ^B`, and
+  this is used three ways (review 1):
+  * the pointwise bound `τ(A_q²) ≤ ℓ^{o(1)}`;
+  * the lcm range `m ≤ ℓ^{2B}` (the factor `(1+2B log ℓ)^9`);
+  * the finite range `v ≤ 1+B` (the factor `(2+B)²`).
+
+  Through these it also enters the constants `W₀(B)`, `C(B)`. All three
+  uses go away in §4: the AM–GM reduction sums over all cofactors, and
+  `Σ_v ℓ^{−7v/8}` converges.
 
 Everything else is B-free:
 * EK Thm 2.5 is arithmetic-free and has no arity bound;
@@ -87,13 +93,14 @@ noise-stability losses (`2^r`, `(log L)^r`).
 
 So, to drop B, it suffices to replace (B1)–(B3) by bounds over *all*
 classes with `P(G) ≤ y`, and over all cofactors of `ℓ^v`. That is §§3–4.
-To add (a,D)- and Case-A classes, the base must also avoid their
-W-smooth classes; that is §2.
+To add (a,D)-, Case-A and selector classes, the base must also avoid
+their W-smooth classes (§2), and their first and second moments must be
+bounded (§§3–4).
 
-## 2. The three class types and the square base
+## 2. The four class types and the square base
 
 **Definition 2.0 (forced-class families).** A *class* is `n ≡ b (mod G)`.
-The three types, with the multiplicity bounds used below:
+The four types, with the multiplicity bounds used below:
 
 * **ℛ(M)** (notes Lemma 18.1): `M ≡ 3 (mod 4)`, `A = A_M = (M+1)/4`,
   classes `−4D (mod M)`, `D | A²`. At most `τ(A²)` classes per M.
@@ -105,11 +112,17 @@ The three types, with the multiplicity bounds used below:
   `m | 4d+1`, class `−m^{−1} (mod G)`, `G = 4rh`. At most `τ(4rh²+1)`
   classes per pair `(r,h)`, and
   `μ_A(G) := Σ_{4rh = G} τ(4rh²+1)` per modulus.
+* **Selector** (reviews 1 D1, 2 D1): `0 (mod p)`, p prime. One class per
+  prime.
 
-Every class of each type is forced for every `n ≥ 1` (notes Lemmas 16.1,
-18.1; ET Lemma 3.2; ET §3 Case A). A *family* 𝔊 is any finite set of
-classes of these types, mixed arbitrarily, with **no condition on the
-moduli** (no B, no dominant prime, any number of primes at any scale).
+Every class of the first three types is forced for every `n ≥ 1` (notes
+Lemmas 16.1, 18.1; ET Lemma 3.2; ET §3 Case A). Selector classes are not
+forced. They encode prime or rough-number restrictions: removing
+`0 mod p` for all `p ≤ y` turns `𝒜` into `𝒜 ∩ {(n,P_y) = 1}`, which is
+the selector of ET §1 and of the 3/4 note (`S_y = 1[(n,P_y)=1]`). A
+*family* 𝔊 is any finite set of classes of these types, mixed
+arbitrarily, with **no condition on the moduli** (no B, no dominant
+prime, any number of primes at any scale).
 
 **Lemma 2.1 (no squares in ℛ(M)- and (a,D)-classes; PROVED).**
 1. No residue of an ℛ(M)-class is a square mod M.
@@ -156,8 +169,9 @@ prime above W in `Q₀` would add its own factor to the R-term). Put
 
     R_W^□ = { c mod Q₀ : c mod p^e is a unit square for every p^e ∥ Q₀ }.
 
-1. (R1) Every `c ∈ R_W^□` avoids every class of 𝔊 whose modulus is
-   W-smooth.
+1. (R1) Every `c ∈ R_W^□` avoids every class `b (mod G)` with G W-smooth
+   that contains no unit square mod G. In particular it avoids every
+   W-smooth class of 𝔊 of all four types.
 2. `log(Q₀/|R_W^□|) = 3 log 2 + Σ_{3≤p≤W} log(2p/(p−1)) ≤ 2W`.
 3. (R2) Under the uniform law on `R_W^□`, residues at distinct primes are
    independent, and `P(c ≡ a (mod p^e)) ≤ γ(p)/p^e` for `p^e | Q₀`, with
@@ -165,8 +179,10 @@ prime above W in `Q₀` would add its own factor to the R-term). Put
 
 *Proof.* 1. Let the class be `b (mod G)`, G W-smooth, so every `p^e ∥ G`
 divides `Q₀`. If `c ≡ b (mod G)` and c is a unit square mod every
-`p^e ∥ Q₀`, then by CRT `b ≡ c` is a square mod G, contradicting Lemma 2.1
-or 2.2. 2. By CRT `R_W^□` is a product. Unit squares mod `p^e` (p odd)
+`p^e ∥ Q₀`, then by CRT `b ≡ c` is a unit square mod G. For the first
+three types this contradicts Lemma 2.1 or 2.2, which exclude even
+non-unit squares. A selector class `0 (mod p)` contains the square 0 but
+no unit, so it contains no unit square either. 2. By CRT `R_W^□` is a product. Unit squares mod `p^e` (p odd)
 are a fraction `(p−1)/(2p)` of the residues; mod `2^e`, `e ≥ 3`, a
 fraction `1/8`. And `Σ_{3≤p≤W}log(2p/(p−1)) ≤ π(W)log 3 + O(1)`.
 3. As ETw Lemma 1.3(3): a single residue `a mod p^e` has probability at
@@ -189,13 +205,13 @@ factor). For `y ≥ 3` put
 
     𝔐(y) = Σ_{C ∈ 𝔘, W < P(C) ≤ y} Γ(G)/G,
 
-where 𝔘 is the *universe* of all classes of the three types (each class
+where 𝔘 is the *universe* of all classes of the four types (each class
 counted once per parametrisation; this only over-counts). EK Lemma 4.2′
 Step 1 bounds the expected (light or not) block mass by this sum:
 `E_{Q'} Σ_{ℓ ∈ V} p_ℓ ≤ 𝔐(max V)`, for every family 𝔊 ⊆ 𝔘 (Step 1 uses
 only the chain rule, now with the square base, and
-`(Γ(q)/q)ℓ^{−v} ≤ Γ(G)/G` for `G = qℓ^v`). The three types are bounded separately:
-`𝔐 ≤ 𝔐_R + 𝔐_{aD} + 𝔐_A`.
+`(Γ(q)/q)ℓ^{−v} ≤ Γ(G)/G` for `G = qℓ^v`). The four types are bounded separately:
+`𝔐 ≤ 𝔐_R + 𝔐_{aD} + 𝔐_A + 𝔐_S`.
 
 **Lemma 3.1 (smooth Euler products, Rankin; PROVED, standard).** Let
 `F ≥ 0` be multiplicative with `F(p^e) ≤ H(e+1)^a` for all p, e, and
@@ -208,10 +224,13 @@ and for `K ≥ 1`, with `u = log K/log y`,
 
     Σ_{K < m ≤ 2K, P(m) ≤ y} F(m)/m ≤ C(H,a,κ,W) e^{−u} (log y)^κ.
 
-*Proof.* The sum is `Π_{p≤y}(1 + Σ_{e≥1}F(p^e)p^{−e(1−η)})`. Since
-`p ≤ y`, `p^{eη} ≤ e^e`, so for `p ≥ 3` the terms `e ≥ 2` total
-`≤ C(H,a)p^{−2}`; for `p = 2` the series converges since
-`2^{1−η} ≥ 2e^{−ln2/ln y₀} > 1`. The finitely many `p ≤ W` give a
+*Proof.* The sum is `Π_{p≤y}(1 + Σ_{e≥1}F(p^e)p^{−e(1−η)})`. Take
+`y₀ ≥ e^{10}`, so `η ≤ 1/10` and `p^{−e(1−η)} ≤ p^{−0.9e}` for every p
+(review 1, D2: the earlier bound `p^{eη} ≤ e^e` does not give convergence
+at small p). Then `Σ_{e≥2}H(e+1)^a p^{−e(1−η)} ≤ C(H,a)p^{−1.8}` for all
+`p ≥ 2`, and these terms contribute a bounded factor overall. For
+`p ≤ W` the e = 1 term is `≤ H2^a p^{η}/p ≤ eH2^a/p` (as `p ≤ y`), so
+the primes `p ≤ W` contribute a factor `≤ C(H,a)(log W)^{eH2^a}`, a
 constant. For `W < p ≤ y`, the e = 1 term is
 `≤ (κ + Hp^{−1/2})p^{−1+η}`, and `p^η ≤ 1 + (e−1)log p/log y` (convexity
 on `[0,1]`), so `Σ_{p≤y}p^{−1+η} ≤ log log y + (e−1)(log y + 2)/log y + O(1)`
@@ -237,7 +256,7 @@ second, `A = (M+1)/4 ≤ K`, so it is `≤ K^{−1}Σ_{A≤K}τ(A²)²`. With
 `g = τ(·²)² ∗ μ ≥ 0` (`g(p^k) = (2k+1)² − (2k−1)² = 8k`),
 `Σ_{A≤x}τ(A²)² ≤ xΣ_{d≤x}g(d)/d ≤ xΠ_{p≤x}(1 + Σ_k 8k p^{−k}) ≤ C x(log 2x)^8`.
 So a block contributes `≤ C e^{−u/2}(log y)^{1/2}(2u log y)^4`
-(`log 2K ≤ 2u log y` as `u ≥ 1`). The function `φ(u) = e^{−u/2}u^4`
+(`log 2K ≤ 2u log y` as `u ≥ u₀ − δ ≥ 1`). The function `φ(u) = e^{−u/2}u^4`
 decreases for `u ≥ 8`, and consecutive blocks have u-spacing
 `δ = log 2/log y`, so `Σ_{t} φ(u_t) ≤ φ(u₀ − δ) + δ^{−1}∫_{u₀−δ}^∞ φ`.
 Hence the tail is `≤ C(log y)^{5.5}u₀^4 e^{−u₀/2} = C·12⁴(log log y)^4
@@ -254,6 +273,10 @@ Lemma 3.1 with `η = 0` gives `(log y)¹` and `(log y)²` (κ = 1, 2). ∎
 No shifted divisor function occurs here: the (a,D)-grouping counts its
 classes by `(a, g)` and a bounded multiplicity, so its mass is a pure
 Euler product. This is why ET Lemma 3.2 already had a clean profile.
+
+**Lemma 3.3′ (selector first moment; PROVED).**
+`𝔐_S(y) = Σ_{W<p≤y} Γ(p)/p ≤ Σ_{W<p≤y}(1+2p^{−1/2})/p ≤ log log y + O(1)`.
+This is negligible against `(log y)³`.
 
 **Lemma 3.4 (small-divisor domination; PROVED, standard, cf. Landreau).**
 For every `n ≥ 1`, `τ(n) ≤ 8·max{τ(d)^7 : d | n, d ≤ n^{1/4}}`. Hence, for
@@ -273,7 +296,7 @@ absorbed the first prime of `c_{i+1}`). The `⌊m/2⌋` disjoint products
 **Lemma 3.5 (Case-A box moments; PROVED).** For integers `q ≥ 1`,
 `k ≥ 4` with `4 | k`, and `K ≥ k³`,
 
-    Σ_{r, h ≥ 1, rh ≤ K} τ(k r h² + 1)^q ≤ C_q K (log 2kK)^{c_q},    c_q = 2^{7q+1} + 2.
+    Σ_{r, h ≥ 1, rh ≤ K} τ(k r h² + 1)^q ≤ C_q K (log 2kK)^{c_q},    c_q = 2^{7q+1} + 1.
 
 *Proof.* `N = krh² + 1` is odd, so all its divisors are odd. Cover
 `{rh ≤ K}` by dyadic boxes `r ∈ [R,2R)`, `h ∈ [H,2H)` (`R, H` powers of 2,
@@ -293,8 +316,8 @@ with `N ≤ 8000k⁴` and `τ(N)^q ≤ C_q N^{1/8} ≤ C_q k^{1/2}`; total
 `≤ C_q k^{2.5} ≤ C_q K`.
 Summing, `≤ C_q K (log 2K)(log 2kK)^{2^{7q+1}} + C_qK`. ∎
 
-**Lemma 3.6 (Case-A first moment without B; PROVED modulo Elsholtz–Tao
-Prop. 1.4).** For `y ≥ y₀(W)`,
+**Lemma 3.6 (Case-A first moment without B; PROVED, using ElT Prop. 1.4,
+published, not re-proved).** For `y ≥ y₀(W)`,
 
     𝔐_A(y) ≤ Σ_{r,h : P(rh) ≤ y} τ(4rh²+1) Γ(4rh)/(4rh) ≤ K_A(W) (log y)³ (log log y)³.
 
@@ -315,14 +338,16 @@ Summing over blocks as in Lemma 3.2,
 the tail is `≤ C(log y)^{2+c₂/2}u₀^{c₂/2}e^{−u₀/2} = C(c₂+8)^{c₂/2}(log log y)^{c₂/2}(log y)^{−2} ≤ C`
 (one `log y` is the first factor, one counts the blocks per unit of u). ∎
 
-*On the citation.* ET Prop. 1.4 (Elsholtz–Tao 2013) is used only for the
-body, exactly as in ET Lemma 3.7; it is what gives the exponent 2 of
-`log x`. Lemma 3.5 is self-contained but its exponent `c₂ = 2^{15}+2` is
+*On the citation.* ElT Prop. 1.4 is used only for the body, exactly as
+in ET Lemma 3.7; it is what gives the exponent 2 of
+`log x`. Lemma 3.5 is self-contained but its exponent `c₂ = 2^{15}+1` is
 useless except against Rankin's `e^{−u/2}`. So the ℛ(M)- and (a,D)-parts
-of everything below are unconditional, and the Case-A part carries the
-same external dependence as ET Lemma 3.7 (DISCOVERIES (D)11).
+of everything below (and the selector part) use no external input; the
+Case-A part uses ElT Prop. 1.4 in the same way as ET Lemma 3.7
+(DISCOVERIES (D)11).
 
-**Corollary 3.7 (all three types; PROVED, Case A modulo ET Prop 1.4).**
+**Corollary 3.7 (all four types; PROVED, the Case-A part using ElT
+Prop. 1.4).**
 `𝔐(y) ≤ K₃(W)(log y)³(log log y)³` for `y ≥ y₀(W)`.
 
 **Remark 3.8 (where the `(log log y)³` comes from).** Heuristically
