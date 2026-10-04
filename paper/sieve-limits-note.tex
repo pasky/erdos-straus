@@ -1107,7 +1107,7 @@ independently of the past.  If $\ell$ is light and $c_\ell\in F_\ell$
 ($\ell$ is \emph{replaced}), draw $y_\ell$ from
 $\varpi_\ell(\cdot\mid\Omega_\ell\setminus F_\ell)$, independently of
 $c_\ell$; otherwise $y_\ell=c_\ell$.  Write $\omega=(c,y)$ for the path,
-$J(\omega)$ for the replaced set, $z(\omega)=|J(\omega)|$, and
+$\mathcal J(\omega)$ for the replaced set, $z(\omega)=|\mathcal J(\omega)|$, and
 $m(\omega)=\sum_{\ell\text{ light}}p_\ell$ for the light activated mass.
 The law $\sigma$ of $y$ is the sequential capped law of \cite[\S6]{TW}; the
 $c$'s are an explicit coupling of $\sigma$ with $\varpi$.
@@ -1131,18 +1131,18 @@ $S$ downwards.
 
 \subsection{Extrapolation in replacement coins}
 Freeze a whole path $\omega$.  For $\rho\in\{0,1\}^V$ put $y^\rho_\ell=y_\ell$
-if $\ell\in J(\omega)$ and $\rho_\ell=1$, and $y^\rho_\ell=c_\ell$ otherwise.
+if $\ell\in \mathcal J(\omega)$ and $\rho_\ell=1$, and $y^\rho_\ell=c_\ell$ otherwise.
 So $y^0=c$ and $y^{\mathbf 1}=y$.  The intermediate points $y^\rho$ need not
 be paths of the process, and nothing below requires them to be.
 
 \begin{lemma}[locality; {\cite[Lemma~2.2]{KA}}; \lab{proved}]\label{lem:klocal}
 For fixed $\omega$ and a $d$-local $f\geq0$, $g_\omega(\rho)=f(y^\rho)$ is
-nonnegative, multilinear of degree at most $d$ in $\rho_{J(\omega)}$, and
-independent of $\rho_{V\setminus J(\omega)}$.
+nonnegative, multilinear of degree at most $d$ in $\rho_{\mathcal J(\omega)}$, and
+independent of $\rho_{V\setminus \mathcal J(\omega)}$.
 \end{lemma}
 \begin{proof}
 $y^\rho_\ell$ depends on $\rho_\ell$ only, so $f_T(y^\rho_T)$ is a function
-of $\rho_{T\cap J}$, and $|T|\leq d$.
+of $\rho_{T\cap\mathcal J}$, and $|T|\leq d$.
 \end{proof}
 
 The one-dimensional input is Lagrange \emph{extrapolation} for binomial
@@ -1171,11 +1171,35 @@ $\rho^S$ is $\binom K{|S|}/\binom z{|S|}$) and $Q\geq0$ on $\{0,\dots,z\}$.
 Lagrange interpolation at a minimising $Y$ gives
 $Q(z)=\sum_y\ell_y(z)Q(y)\leq B\sum_y\psi(y)Q(y)\leq B\,\E Q(K)$.  For
 $d\geq1$, interpolating the constant $1$ gives
-$\sum_y|\ell_y(z)|\geq1\geq\sum_y\psi(y)$, so $B\geq1$.  For
-\eqref{eq:kB} use three node sets \cite[\S3]{KA}: $Y=\{0,\dots,z\}$ if
-$z\leq d$ (then $B\leq t^{-z}$); $Y=\{0,\dots,d\}$ if $zt\leq2d$; and, if
-$zt>2d$, $d+1$ nodes spaced $\lfloor\sqrt{zt/d}\rfloor$ around $zt$, bounded
-below by Lemma~\ref{lem:binom}.
+$\sum_y|\ell_y(z)|\geq1\geq\sum_y\psi(y)$, so $B\geq1$.
+
+For \eqref{eq:kB} let $d\geq1$ and $m_0=zt\leq z/4$; we use three node sets
+\cite[\S3]{KA}, and $-\log(1-t)\leq1.151t$ for $t\leq1/4$.
+
+\emph{(i) $z\leq d$.}  Take $Y=\{0,\dots,z\}$.  Then $\ell_y(z)=\ind_{y=z}$ and
+$B\leq1/\psi(z)=t^{-z}\leq t^{-d}$.
+
+\emph{(ii) $z>d$ and $m_0\leq2d$.}  Take $Y=\{0,\dots,d\}$.  Then
+$|\ell_i(z)|\leq z^d/(i!(d-i)!)$, $\binom zi\geq(z/i)^i\geq z^i/(i!\e^i)$ and
+$(1-t)^{z-i}\geq\e^{-1.151m_0}\geq\e^{-2.31d}$, so
+$|\ell_i(z)|/\psi(i)\leq z^{d-i}\e^i\e^{2.31d}/((d-i)!\,t^i)$.  Since
+$z\leq2d/t$ and $(2d)^k/k!\leq(2\e d/k)^k\leq(2\e)^d$ for $k\leq d$, this is at
+most $(2\e^{4.31}/t)^d$.
+
+\emph{(iii) $m_0>2d$.}  Put $h=\lfloor\sqrt{m_0/d}\rfloor\geq\frac12\sqrt{m_0/d}$ and
+$y_i=\lceil m_0\rceil-\lfloor dh/2\rfloor+ih$, $0\leq i\leq d$.  Then
+$|y_i-m_0|\leq dh/2+3/2\leq\frac12\sqrt{dm_0}+\frac32$, and
+$\sqrt{dm_0}<m_0/\sqrt2$, so every node lies in
+$[0.64m_0,1.36m_0+1.5]\subseteq[1,z-1]$ (as $z\geq4m_0>8$), and $8y_i\leq22m_0$.
+Since $m_0>2d\geq2$,
+$\frac43(y_i-m_0)^2/m_0\leq\frac43(d/4+1.5\sqrt{d/m_0}+2.25/m_0)\leq d/3+2.92$,
+so Lemma~\ref{lem:binom} gives $\psi(y_i)\geq(22m_0)^{-1/2}\e^{-d/3-2.92}$.  Next,
+$|\ell_i(z)|=\prod_{j\neq i}|z-y_j|/(h^di!(d-i)!)\leq(2z)^d/(h^dd!)\leq(2\e z/(dh))^d
+\leq(4\e\sqrt{z/(td)})^d$.  Hence
+$\log B\leq d\log(4\e^{4/3}\sqrt{z/(td)})+2.92+\frac12\log(22zt)$.
+
+In each case the bound is at most the right side of \eqref{eq:kB}, since
+$t^{-1}\leq C_1'/t$ and $4\e^{4/3}\leq C_1'$.
 \end{proof}
 % The source also proves the cruder log B <= d log(4e^3(z+1)/t) + (1/2)log(16zt+16)
 % and checks both forms numerically (kary_b21_check.py); only (eq:kB) is used.
@@ -1192,12 +1216,13 @@ $\E_\omega[\mathcal W(\omega)\Prob_\rho(y^\rho=x\mid\omega)]\leq\varpi(x)$.
 At a replaced $\ell$, $c_\ell\in F_\ell\not\ni y_\ell$, so $c_\ell=x_\ell$ and
 $y_\ell=x_\ell$ cannot both hold.  Hence
 $\Prob_\rho(y^\rho=x\mid\omega)\leq\prod_\ell\phi_\ell$ with
-$\phi_\ell=\ind\{c_\ell=x_\ell\}+t\ind\{\ell\in J,\ y_\ell=x_\ell\}$.  Given the
+$\phi_\ell=\ind\{c_\ell=x_\ell\}+t\ind\{\ell\in\mathcal J,\ y_\ell=x_\ell\}$.  Given the
 past,
 $\E[\phi_\ell\mid\text{past}]=\varpi_\ell(x_\ell)+\ind\{\ell\text{ light}\}\,tp_\ell\varpi_\ell(x_\ell)\ind_{x_\ell\notin F_\ell}/(1-p_\ell)
 \leq\varpi_\ell(x_\ell)D_\ell$, $D_\ell=1+\frac43tp_\ell\ind\{\ell\text{ light}\}$,
 and $D_\ell$ is known before $\ell$.  So the partial products of
-$\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ form a nonnegative supermartingale
+$\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ form a nonnegative supermartingale (if
+$\varpi(x)=0$ both sides of the claim vanish, so assume $\varpi(x)>0$)
 and $Z=\prod_\ell\phi_\ell/(\varpi_\ell(x_\ell)D_\ell)$ has $\E Z\leq1$.  Pathwise
 $\prod_\ell D_\ell\leq\e^{\frac43tm}=1/\mathcal W$, so
 $\E[\mathcal W\prod\phi_\ell]=\varpi(x)\E[\mathcal W\prod D_\ell\cdot Z]\leq\varpi(x)$.
@@ -1214,7 +1239,7 @@ arity of the patterns is arbitrary.
 \end{theorem}
 \begin{proof}
 By Lemmas~\ref{lem:klocal} and~\ref{lem:kextrap},
-$f(y)=g_\omega(\ind_J)\leq B\,\E_\rho g_\omega(\rho)$.  Multiply by
+$f(y)=g_\omega(\ind_{\mathcal J})\leq B\,\E_\rho g_\omega(\rho)$.  Multiply by
 $\mathcal W/B$ and take $\E_\omega$:
 $\E_\omega[\e^{-\Phi}f(y)]\leq\sum_xf(x)\E_\omega[\mathcal W\Prob_\rho(y^\rho=x\mid\omega)]\leq\E_\varpi f$
 by Lemma~\ref{lem:kthin} and $f\geq0$.
@@ -1241,8 +1266,8 @@ with only the \emph{mean} activated mass.
 Theorem~\ref{thm:kcomp} bounds $\E[\e^{-\Phi}f(y)]$, not
 $\log(\E_\sigma f/\E_\varpi f)$.  No bound of the latter by the mean mass
 holds in general \lab{proved}: take a trigger $X$ with $\Prob(X=1)=\epsilon$,
-coordinates $Z_1,\dots,Z_m$ with $\Prob(Z_i=1)=1/4$, patterns
-$(X,Z_i)=(1,1)$, $\mu=m/4$ and $\epsilon=1/\mu$; every activated set is light,
+coordinates $Z_1,\dots,Z_q$ with $\Prob(Z_i=1)=1/4$, patterns
+$(X,Z_i)=(1,1)$, $\mu=q/4$ and $\epsilon=1/\mu$; every activated set is light,
 $\E m(\omega)=1$, but the $3$-local $f=X(\sum Z_i-\mu)^2$ has
 $\E_\sigma f/\E_\varpi f=\mu/(1-1/4)\to\infty$.  The incident weight of
 $(X,1)$ is about $1$ here, so this does not contradict the unweighted
@@ -1321,9 +1346,12 @@ Fix $B\geq0$ and work with the base $R_W$ of Lemma~\ref{lem:QR}, caps
 $\delta_\ell=\ell^{-1/2}$, and
 $\Gamma(m)=\prod_{p\mid m}\gamma'(p)$ with $\gamma'(\ell)=(1-\ell^{-1/2})^{-1}$
 for $\ell>W$ (Lemma~\ref{lem:leak}(b)); assume $W\geq16$, so that
-$\delta_\ell\leq1/4$.  The family $\cG$ consists of $\cR(M)$-classes with
-$M\leq P(M)^{1+B}$, of any shape, plus any $\cR(M)$-classes of $W$-smooth
-modulus.
+$\delta_\ell\leq1/4$.  The family $\cG$ consists of finitely many
+$\cR(M)$-classes with $M\leq P(M)^{1+B}$, of any shape, plus any
+$\cR(M)$-classes of $W$-smooth modulus.  The latter are avoided by every
+element of $R_W$ (Lemma~\ref{lem:QR}(1)), so they do not change the
+avoider set in $R_W$, and $Q_0$ need only be a common multiple of $P_W$ and
+the $W$-smooth parts of the finitely many other moduli.
 
 \begin{lemma}[{\cite[Lemmas~4.2, 4.2$'$, 4.3]{KA}}; \lab{proved}]\label{lem:kmoments}
 Let $Q'$ be built with sequential steps in some blocks and singleton steps
@@ -1371,7 +1399,7 @@ $d\asymp\lambda/s$, is what makes the sum over blocks below converge.
 \subsection{The cap}
 \begin{theorem}[the $3/4$ cap for fixed $B$; {\cite[Thm~4.5]{KA}}; \lab{proved}]\label{thm:karycap}
 Fix $B\geq0$ and $W=W_0(B)$.  There are $\lambda_0(B)$ and $C(B)$ such that
-for every family $\cG$ of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (of any
+for every finite family $\cG$ of $\cR(M)$-classes with $M\leq P(M)^{1+B}$ (of any
 shape: dominant, gapped, $\eta$-twin, prime-power top, any number of prime
 factors at comparable scale), together with any $\cR(M)$-classes of
 $W$-smooth modulus, every majorant $\nu$ of the avoider set in $R_W$ of
@@ -1392,7 +1420,9 @@ Every class is decided at its top prime, and $\mathfrak L\leq1/2$ by
 Lemma~\ref{lem:kmoments}(4), so Theorem~\ref{thm:wseq} applies.  The base
 costs $O_B(1)$ (Lemma~\ref{lem:QR}(2)).  The singletons below
 $\e^{s_1}$ cost $\leq\frac83K'(1+B)^3\lambda^{3/4}$ in total
-\cite[Prop.~4.1]{TW}, and the top block costs $2\log(1+3\e^{-\lambda/4})$
+\cite[Prop.~4.1]{TW}, where $K'=K'(W,B)$ is the constant in
+$\sum_{W<\ell\leq\e^{s_1}}\E_{Q'}p_\ell\leq K'((1+B)s_1)^3$ (the bound of
+Lemma~\ref{lem:kmoments}(2), applied to $(W,\e^{s_1}]$), and the top block costs $2\log(1+3\e^{-\lambda/4})$
 \cite[Lemma~4.2, Cor.~4.3]{TW}: there each term of $\nu$ sees at most one
 prime.  For $V_i$ put $s=2^is_1$ and $d_i=\lfloor\lambda/s\rfloor\geq\lambda/(2s)$.
 Corollary~\ref{cor:kmean} with $\bar m=\E[m\mid h]$ for each $h$, then
@@ -1437,11 +1467,36 @@ $E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with $\omega(N)\to\infty$,
 e.g.\ $\omega=(\log\log N)^\epsilon$.
 \end{theorem}
 \begin{proof}
-Corollary~\ref{cor:budgetlevel}, applied with Corollary~\ref{cor:dominant}
-for $A+2$ in place of $A$ in case (i), and with
+\emph{Finiteness.}  By (A3) the family primes are at most $N^A$, so every
+modulus with $P(M)>w_0$ (resp.\ $P(M)>W$) satisfies
+$M\leq P(M)^{1+C}\leq N^{A(1+C)}$ in case (i) and $M\leq N^{A(1+B)}$ in case
+(ii); these classes are finitely many.  The $W$-smooth classes of case
+(ii) are avoided by $R_W$ (Lemma~\ref{lem:QR}(1)).
+
+\emph{Non-family primes.}  The sieve limits charge every prime above
+$w_0$ (resp.\ $W$), while Lemma~\ref{lem:budget} truncates only family
+primes, and (A3) bounds only those.  So first replace $\nu$ by its
+conditional expectation $\bar\nu$ over the CRT coordinates $n\bmod p^e$ of
+the primes $p$ that divide no modulus of the family and not $Q_0$.  The
+avoider set is a union of full fibres in these coordinates, so $\bar\nu\geq0$
+on $\Z$, $\bar\nu\geq1$ on $\A$, and $\E\bar\nu=\E\nu$.  Averaging
+$\ind[n\equiv b\ (d)]$ over these coordinates gives the indicator of the
+class modulo the part of $d$ coprime to them, times the same
+coefficient, so $\sum_i|a_i|$ and the level do not increase.  Every prime
+that $\bar\nu$ charges is now a family prime.
+
+\emph{Conclusion.}  Apply Corollary~\ref{cor:budgetlevel} to $\bar\nu$, with
+Corollary~\ref{cor:dominant} for $A+2$ in place of $A$ in case (i), and with
 Theorem~\ref{thm:karycap} at $\lambda=(A+2)\log N\geq\lambda_0(B)$ in case
 (ii).  In both cases the $R$-term is bounded.
 \end{proof}
+\emph{The base is a proof device} (observation of this note;
+\lab{proved}).  A majorant that is $\geq1$ on the avoiders in a larger
+admissible set $R\supseteq R_{W_0(B)}$, or on all avoiders in $\Z$, is in
+particular $\geq1$ on the avoiders in $R_{W_0(B)}$; so
+Theorem~\ref{thm:karycap} and case (ii) apply to it unchanged.  The
+restriction to $R_W$ is not a restriction on the architectures.
+
 Case (ii) contains the gapped families of Theorem~\ref{thm:gapped} and the
 window-resolved families of Theorem~\ref{thm:resolved} (with an
 $\eta$-free constant), and the twin moduli of
