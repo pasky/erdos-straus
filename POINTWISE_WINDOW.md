@@ -271,9 +271,17 @@ independent, so `Σ_{ℓ<z}ω(ℓ)log ℓ/ℓ=log z+O(1)`. The linear sieve has
 That is the Elliott–Halberstam range, not the BV range. At BV level the
 two-window sieve only reaches `z<x^{1/4}`. Each window can then carry two or
 four large bad primes, and the two-bad configurations are no longer
-small. §5 quantifies this.
+small. §7 analyses this.
 
 ### 4.2 Statement
+
+*Precedent.* Friedlander–Iwaniec, *Hyperbolic prime number theorem*,
+Acta Math. 202 (2009) 1–19 (FI09; not archived here, located by the
+review). It proves the analogous two-condition lower bound (p−2 and p+2
+both sums of two squares) on a level of distribution `θ<1` close to 1,
+by the semi-linear sieve and removal of two-prime configurations. W2 is
+the window-3/window-7 instance of that method. We claim no novelty of
+technique.
 
 **Theorem W2 (CONDITIONAL on EH for primes).** Assume EH: for every
 `η,A>0`, `Σ_{k≤x^{1−η}} max_{(b,k)=1}|π(x;k,b)−li(x)/φ(k)| ≪_{η,A} x/(log x)^A`.
