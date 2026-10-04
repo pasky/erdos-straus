@@ -132,3 +132,107 @@ is (P_k), which is all O3 Step B and the twist step use. ∎
   `k→k−1→…→2`. §4 discusses whether it is intrinsic.
 * `b_k=O(k)` carries the `e^{O(r)}` constants `δ_r`, `2^r`; they enter
   only additively inside the factorial.
+
+## 2. The ES instantiation, explicit in k (PROVED modulo Thorner–Zaman)
+
+**Construction 2.0.** Fix `k≥3` and T. Put `y:=2T^{1/(k+1)}` (so `y^{k+1}>T`),
+`Π_0:={ℓ≤y}`, `Ŝ:=S*+1` with `S*` the uniform mass of O2 Lemma 11.1, and
+`c:=c_k(Ŝ)` (Thm 1.1). Run O2 Lemma 11.2 from `Π_0` with `z=y` and
+threshold c: it stops at `Π=Π_0∪𝓑` with `|𝓑| ≤ ⌊𝓛/log y⌋S*/c ≤ kŜ/c`.
+Put `Q:=lcm(24,ℓ^{e_ℓ}:ℓ∈Π)`, `𝒫:={y<ℓ≤T}∖𝓑`, and form the events as in
+O3 Construction 4.1. Every rough part `r≤T` has all prime factors `>y`,
+so `Ω(r)≤k`: the system has supports `≤k`.
+
+The only change from O3 Thm 5.2's construction is `y`: O3 used
+`T^{1/k}exp(2𝓛/log𝓛)`, a factor inherited from O2 where it secured the
+per-prime conditions (O2 Lemma 4.3 (W),(G)). With the iterated quarantine
+those conditions come from Lemma 11.2, and the factor is not used:
+O3 Lemma 4.2 needs only (I) (O2 Lemma 4.3 (I), which uses only that
+`Π∋` every prime `≤y` and `ℓ^{e_ℓ}≤T`), the per-prime bound `≤c` (Lemma
+11.2), the total mass `≤S*` (O2 Lemma 11.1), and the size of `log Q`.
+For k growing with T the factor would be fatal (`2𝓛/log𝓛 ≫ 𝓛/k`).
+
+**Theorem 2.1 (PROVED modulo Thorner–Zaman, via PO Thm 4.1; effective).**
+There is an absolute effective constant `C_2` such that the following
+holds. If `k≥3` and T satisfy
+
+```
+(C_{k,T})     A_k(S*+1) + log(C_2𝓛) ≤ 𝓛/(6k²),
+```
+
+then there is a Mordell-hard prime `p≡1 (mod 840)`, `p>T`, with
+`W(p)>T` and `log p ≤ T^{1/k}`; in particular `W(p) > (log p)^k`.
+
+*Proof.* Write `A:=A_k(Ŝ)`. O3 Lemma 4.2 holds verbatim for
+Construction 2.0 (previous paragraph), so Theorem 1.1 applies:
+`K ≤ e^{102+A}`, and every modulus `d_i` is a product of at most
+`e^{102+A}` prime powers `≤T`, so `log max d_i ≤ e^{102+A}𝓛`. As in O3
+Thm 4.3, take a prime `ℓ_0∈(R,2R]`, `R=max(T,max d_i)`, and replace Q by
+`Qℓ_0`. Sizes:
+
+* `π(y)𝓛 ≤ 1.26(y/log y)(k+1)log y = 1.26(k+1)y` (Rosser–Schoenfeld;
+  `𝓛<(k+1)log y`);
+* `|𝓑|𝓛 ≤ kŜ𝓛/c = k³Ŝe^{56+2A}𝓛 ≤ e^{56+4A}𝓛` (`k³, Ŝ ≤ e^A`);
+* `log Z ≤ log Q + log 2R + log max d_i ≤ 2.52(k+1)T^{1/(k+1)} + e^{104+4A}𝓛`.
+
+PO Thm 4.1 gives `p≡1 (Qℓ_0)` with `W(p)>T` and
+
+```
+log p ≤ C_1K·max(log Z,K) ≤ C_1e^{102+A}·[2.52(k+1)T^{1/(k+1)} + e^{104+4A}𝓛].
+```
+
+The first term is `≤T^{1/k}/2` iff `A+log(5.04C_1e^{102}(k+1)) ≤ 𝓛/(k(k+1))`;
+the second is `≤T^{1/k}/2` iff `5A+log(2C_1e^{206}𝓛) ≤ 𝓛/k`. Both
+follow from `(C_{k,T})` with `C_2:=6C_1e^{206}` (note `k+1≤𝓛`, and
+`(C_{k,T})` forces `y≥7`). `840|Q`, so p is Mordell-hard, and
+`p>ℓ_0>T`. ∎
+
+## 3. Letting k grow: explicit rates (PROVED modulo the cited theorems)
+
+Two bounds for `S*` are available (O2 Lemma 11.1):
+
+* (U) unconditionally, `S* ≤ C log𝓛·𝓛³·τ*(T+2) = exp((log 2+o(1))𝓛/log𝓛)` (Wigert);
+* (ET) modulo Elsholtz–Tao Prop. 1.4 (a published theorem, used as in
+  PO Lemma 9.2), `S* ≪ 𝓛^4 log𝓛`.
+
+`(C_{k,T})` reads `6k²(k−1)!(log(3S*+k+1)+b_k) + 6k²log(C_2𝓛) ≤ 𝓛`.
+
+**Corollary 3.1 (PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop. 1.4;
+effective).** Put `κ(X):=max{k≥3 : 6k·k!·(6log X+9k) ≤ X}`, so
+`κ(X)=(1+o(1))log X/log log X`. For infinitely many Mordell-hard p,
+
+```
+W(p) > (log p)^{κ(log log p)},   i.e.   log W(p) ≥ (1+o(1))·log₂p·log₃p/log₄p.
+```
+
+*Proof.* Under (ET), `log(3S*+k+1) ≤ 5log𝓛+O(1)` for `k≤𝓛`, and
+`b_k ≤ 9k+C`. So for `k=κ(𝓛)` and T large, `(C_{k,T})` holds (the
+`6log X` absorbs the constants and the `log(C_2𝓛)` term). Theorem 2.1
+gives p with `W(p)>T≥(log p)^{κ(𝓛)}` and `log log p ≤ 𝓛/κ(𝓛) ≤ 𝓛`. Since κ is
+nondecreasing, `κ(𝓛)≥κ(log log p)`. Distinct T give infinitely many p
+(`p>T`). ∎
+
+**Corollary 3.2 (PROVED modulo Thorner–Zaman; effective).** Put
+`κ_0(X):=max{k≥3 : 5k·k! ≤ log X}`, so `κ_0(X)=(1+o(1))log₂X/log₃X`.
+For infinitely many Mordell-hard p,
+
+```
+W(p) > (log p)^{κ_0(log log p)},   i.e.   log W(p) ≥ (1+o(1))·log₂p·log₄p/log₅p.
+```
+
+*Proof.* Under (U), `log(3S*+k+1) ≤ 0.7𝓛/log𝓛` for T large. For
+`k=κ_0(𝓛)`, `6k²(k−1)!·0.7𝓛/log𝓛 = 4.2k·k!·𝓛/log𝓛 ≤ 0.84𝓛`, and the
+remaining terms `6k²(k−1)!b_k+6k²log(C_2𝓛) = (log𝓛)^{O(1)}` are `≤0.16𝓛`.
+Conclude as in Cor 3.1. ∎
+
+*So the first target of the brief holds:* `W(p)/(log p)^k → ∞` along
+infinitely many p with an explicit `k=k(p)→∞`; equivalently
+`log L_h(T) ≤ T^{ε(T)}` with `ε(T) = 1/κ(𝓛) ≍ log₂T/log𝓛`… more precisely:
+
+**Corollary 3.3 (uniform form).** For all large T there is a hard prime p
+with `W(p)>T` and `log log p ≤ 𝓛/κ(𝓛)` (under ET), resp. `≤𝓛/κ_0(𝓛)`
+(unconditionally in the sense of Cor 3.2). So
+`log log L_h(T) ≤ (1+o(1))𝓛·log₂𝓛/log𝓛`, resp. `≤ (1+o(1))𝓛·log₃𝓛/log₂𝓛`.
+
+Comparison: O3 Thm 5.2 gives `log log L_h(T) ≤ 𝓛/k+O_k(𝓛/log𝓛)` for each
+fixed k, i.e. `o(𝓛)` with no rate.
