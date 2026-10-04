@@ -211,3 +211,106 @@ Model-only remark: the a-frame/multiplicative route sits at
 `θ* ≈ 0.52` under its model, below 3/4 (**Assessment**, ET §5.2). The
 proposed universal "0.5823 ceiling" was withdrawn as restricted-model only
 (ledger (F)6).
+
+---
+
+## 3. The pointwise line
+
+### 3.1 The signed graph, closed conditionally
+
+**The idea.** Let `p = 4t+1`. The signed integer solutions of
+`4/p = 1/x+1/y+1/z` form a finite set. Make it a graph by joining two
+triples when they share a denominator. The seed `(t, −2pt, −2pt)` exists
+for every such `p`. The *seed-component conjecture* says the seed's
+component always contains an all-positive vertex. It would imply ES for
+`p ≡ 1 (mod 4)`.
+
+**Known versus new (ledger (G)1–4, `LITERATURE_2026.md`):**
+* The signed character dichotomy (a signed vertex is all-positive iff its
+  same-valuation pair has opposite Legendre characters mod `p`) is
+  **KNOWN**: Bright–Loughran 2020, Thms 1.2 and 1.5 at `n = p`. The
+  positive direction goes back to Yamamoto 1965.
+* Finiteness of the signed set is **KNOWN** (Bright–Loughran Lemma 3.10).
+* The labels and the Type I chart are Elsholtz–Tao coordinates in
+  disguise.
+* The refactor graph itself, the seed, the hub bridge and the fibre
+  counts are **PROVED (elementary; no prior source found)**.
+
+**Results:**
+* **Short escapes** (DEPTH3.md Thm 1, PROVED). Exact classification of
+  escapes from the seed of length ≤ 3.
+* **Exits and exceptional sets** (DEPTH3 Thm 3 + Corollary). Every prime
+  outside Mordell's six classes mod 840 has seed distance exactly 2
+  (PROVED). Moreover `#{p ≤ N : dist > 2} ≪ N/(log N)^{11/2}` and
+  `#{p ≤ N : dist > 5} ≪ N/(log N)^{10}`. These are PROVED modulo a
+  standard sieve theorem, using Dahan's half-dimension lemma.
+* **Unbounded distance** (DEPTH3 Thm 2, CONDITIONAL on H). For every `k`
+  there are infinitely many `p = 24q+1` such that every vertex within
+  distance `k` of the seed is nonpositive.
+* **Theorem F** (FORMAL_CLOSURE.md; ledger (G)12). Assume Hypothesis H for
+  an explicit family of 6402 polynomials of degree ≤ 2. Then for infinitely
+  many `p = 24q+1` the *whole* seed component has no all-positive vertex.
+  The component is the set of values of 7883 explicit formal vertices.
+  Label: **CONDITIONAL on H (proved implication) + CERTIFIED.** The
+  certificate was reproduced by an independent from-scratch engine
+  (`reviews/formal-closure-review.md`: all 9961 fibres equal, logic
+  CORRECT). No example is within computational reach, and ES itself is
+  untouched.
+* **Companion result** (sibling project `../erdos-straus-astra`, read-only).
+  It reached the same conclusion first and in stronger form: it needs only
+  Dickson's conjecture for 159 linear forms. On the subprogression
+  `n ≡ 507 (857)` it also exhibits a positive solution outside the sterile
+  component; that part needs Dickson for the restricted tuple. Later astra
+  work (STATUS.md, 2026-10-02 and 2026-10-04) relaxed one prime condition to
+  a divisor condition and ruled out some extensions, but there is still
+  **no unconditional sterile seed**. The paper should cite the astra
+  version first.
+* **Supporting results:**
+  * SIZE_CONJECTURE.md (CERTIFIED/PROVED): certified sterile components
+    larger than the seed component.
+  * WINDMILL.md: parity lemmas (PROVED) and negative scans (EVIDENCE).
+    Theorem 7: large p-free buckets are singletons.
+* **Evidence** (DEPTH3 §5). Every prime `p ≡ 1 (4)` below `10^12` has seed
+  distance ≤ 3. No prime of distance ≥ 4 is known.
+
+**Verdict.** The seed-component conjecture is **OPEN unconditionally and
+FALSE under H**. So this line cannot prove ES. Write-up:
+`paper/pointwise-obstruction.tex` (29 pp; internal hostile referee, round
+2 ACCEPT pending the authorship and astra-citation decision).
+
+### 3.2 The formal-genericity meta-theorem
+
+The common mechanism behind Theorem F, DEPTH3 Thm 2 and the Elsholtz–Tao
+"odd-square" remark is stated as theorems about *procedures* in
+`POINTWISE_SIZE.md`. Review: `reviews/pointwise-size-step1-review.md`,
+SOUND-AFTER-REPAIRS.
+* **Theorem M (transfer principle; PROVED, existence CONDITIONAL).**
+  * *Procedures covered:* deterministic procedures built from ring
+    operations, floor division, eventual-sign tests, factorisations,
+    divisor lists and loops over them.
+  * *Claim:* if the formal run at a profinite point `q*` is finite, then
+    at every admissible `q` the actual run follows the formal run step by
+    step.
+  * *Existence of admissible `q`:* CONDITIONAL on H for the finite family
+    of polynomials met (Dickson if linear; Dirichlet/Linnik if only `p` is
+    factored).
+  * Novelty: this formalises the standard generic-point / Hypothesis-H
+    principle. No prior procedure-level statement was found.
+* **Lemma CT (character trap, PROVED).** For `p ≡ 1 (4)`, every p-free
+  denominator of every positive solution has a prime factor that is a
+  non-residue mod `p`.
+* **Theorem C (formal odd-square principle, CONDITIONAL on H).** Every
+  correct bounded witness-producing ES procedure fails for infinitely many
+  `p ≡ 1 (24)`. Theorem F, DEPTH3 Thm 2, notes Thms 5.1/17.3 and the
+  Elsholtz–Tao remark are instances. Novelty is partial (§5).
+* **Scope (Proposition A, PROVED).** Eventual-sign size comparisons of
+  boundedly many formal quantities are *inside* the obstruction. This
+  includes comparisons against `p^θ`, against `log p`, and short-interval
+  tests on formal divisors. So "using the size of p" this way does not
+  escape. A pointwise proof must use one of:
+  * (E1) a search whose length grows with `p`;
+  * (E2) non-quasi-polynomial primitives (`⌊p^θ⌋`, the least
+    non-residue, oscillating archimedean tests), and then control actual
+    factorisations.
+
+  Whether fixed non-abelian Frobenius data (E3) escapes is open.
