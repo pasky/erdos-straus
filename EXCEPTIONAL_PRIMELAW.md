@@ -1,6 +1,6 @@
 # EXCEPTIONAL_PRIMELAW — prime-only majorants over all forced-class mixtures (task O22)
 
-Status: **checkpoint 1 (O22), in progress.** Labels follow `DISCOVERIES.md`.
+Status: **checkpoint 1 (O22), unreviewed.** Labels follow `DISCOVERIES.md`.
 PROVED means proved in this file, internal checks only, not refereed.
 
 Notation follows `EXCEPTIONAL_KARY2.md` (K2), `EXCEPTIONAL_KARY.md` (EK),
