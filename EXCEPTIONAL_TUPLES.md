@@ -27,7 +27,8 @@ combined moduli `exp((log N)^{3θ/2})`) gives θ (Cor 2.3). It is a theorem
 for θ ≤ 2/3 (Prop 2.4) and false at θ = 1 (Prop 4.2). Conversely, input
 of bounded order, or of order `o((log N)^{3/4}/log log N)` for prime-slice
 families, is useless for θ > 3/4 whatever its precision, even combined with
-exact evaluation of everything up to modulus `N^{O(1)}` (Cor 3.3).
+arbitrary CRT majorant terms of level `≤ A log N`, as long as the
+evaluation asserts CRT main terms (Cor 3.3).
 So the needed order is `(log N)^θ` up to `log log N`. Every known
 divisor-correlation theorem (Heath-Brown, Deshouillers–Iwaniec,
 Matomäki–Radziwiłł–Tao, Tao–Teräväinen) and every standard conjecture of
@@ -209,9 +210,9 @@ for θ > 2/3 is aggregate cancellation among tuples above modulus N.
 ## 3. No-go: correlation input of order k saves at most ≍ k log log N
 
 Theorem 2.1 used order K and saved `≍ K`. This section shows that this is
-optimal up to `log log N`, even if all information below modulus
-`N^{O(1)}` is used as well, as long as the hypotheses assert CRT main
-terms. Bounded order k is useless for θ > 3/4.
+optimal up to `log log N`, even if arbitrary CRT majorant terms of
+level `≤ A log N` are added, as long as the evaluation asserts CRT main
+terms (scope: Cor 3.3). Bounded order k is useless for θ > 3/4.
 
 Setting: a prime-slice system (ET §1: small modulus Q₀, admissible set R,
 finite slice-prime set 𝒫, forbidden sets `F_ℓ(c)`), with
@@ -382,9 +383,11 @@ know of, supplies TC_θ for any θ > 2/3, let alone θ > 3/4.
   (Hardy–Littlewood/Elliott/Chowla type, binary/ternary additive divisor
   problems) have a **fixed number of shifts**. By Cor 3.3 (prime-slice
   families) and Cor 3.4 (all K2 families), fixed order gives no θ > 3/4,
-  even with a power-saving error and with everything below N evaluated
-  exactly. This is a theorem about hypotheses that assert CRT/local-
-  density main terms, which all of these do.
+  even with a power-saving error and combined with any CRT majorant terms
+  of level `≤ A log N`. This is a theorem about methods that assert
+  CRT/local-density main terms, which all of these hypotheses do (Cor 3.3
+  scope note: exact low-level evaluation with a large favourable deficit
+  is not covered).
 * Level-of-distribution statements (EH for τ_k, BV/BFI/DI) live below
   modulus N and are capped by IF Thm 2.5 / K2 Thm 5.1.
 * The only known mechanism controlling *all* orders above modulus N is the
