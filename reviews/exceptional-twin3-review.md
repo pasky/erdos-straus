@@ -249,3 +249,139 @@ partners by their first moment) is correct and the author's flagged
 points all check out. The one substantive correction is E5: (H_O^≠) and
 (H_O^=) in TW2's un-quarantined form are *bypassed*, not proved; the
 status lines must say so. No major defect.
+
+---
+
+# Round 2 — commit d15d267 (repairs E1–E8; new §6)
+
+## R2.1 Repairs E1–E8 — all FIXED
+
+| defect | fix at d15d267 | status |
+|---|---|---|
+| E1 empty Shiu blocks | dropped explicitly in Lemma 2.1(a) | FIXED |
+| E2 constants in (a) | `(m/2)^{−α} ≤ 2m^{−α}`, `m/φ(m) ≤ 2`, `a ≥ log(2km·y₀)` stated | FIXED |
+| E3 block range | `(M₁, X/(kj)]`, first block `(M₁/2, M₁]`, ℓ₀ at `M₁/2` | FIXED |
+| E4 `X ≥ j`; `HH′ ≥ j` | both corrected | FIXED |
+| E5 (H_O^≠) bypassed, not implied | Thm 4.1 title, Remark, §0 table, agent report | FIXED |
+| E6 "5–16" | corrected | FIXED |
+| E7 Route 3 | marked heuristic, unused | FIXED |
+| E8 role of C₀; C₀ ≥ 5 | reworded, note added | FIXED |
+
+E9 (TW2 status lines / DISCOVERIES) is deferred to the parent at merge, as
+the report says; the new §0 table already records the TW3-side status.
+
+## R2.2 Lemma 6.1 (any-arity noise stability) — SOUND
+
+Checked against TW2 Thm 1.4 step by step. (i) Doubled events have
+`Γ(E)`-mass `Σ x_F ≤ 2·2Σ_{ℓ∈S(E)}w_ℓ ≤ 4δ ≤ 1/4`, so Lemma 1.1 applies,
+and Lemma 1.1(2) gives `exp((32/7)Σ_T w) ≤ exp(5Σ_T w)`. (ii) Lemma 1.3 is
+verbatim. (iii) For `m ∈ T(E,E′)` with equal values,
+`κν + (1−κ)ν² ≤ ν²(1+κ/ν)`; unequal values `≤ νν′`; the expansion over
+`U ⊆ T(E,E′)` is a bijection `(E,E′,U) ↔ (σ ⊇ (j,a), E,E′ ⊇ σ)`, and
+`π_{E∖j}π_{E′∖j}Π_U ρ̃/ν = π_{E∖σ}π_{E′∖σ}Π_U ρ̃ν`, giving
+`(π_σρ̃^σ/ρ̃_j)D_σ²`. `Σ_T w ≤ 2δ` by (H_δ), hence `e^{10δ}`. (iv) is
+verbatim with `e^{5δ}` (needs `Σ_{S(E)∖j} w ≤ δ`). Each star is counted
+from its `|σ|` coordinates against `∫t^{|σ|−1} = 1/|σ|`. For graphs this is
+exactly TW2 (1.2). The author's script replays (seed 1: 75 systems in
+(H_δ), worst ratio 0.77).
+
+## R2.3 Lemma 6.2 (codegree quarantine by promotion) — SOUND (nit E13)
+
+One promotion: for `τ ⊆ σ` the change in `D_τ` is `π_{σ∖τ}(1−D_σ) < 0`;
+for `τ ⊄ σ` only deletions; `w_ℓ` does not increase (same computation);
+`A⁺ ⊆ A`; (H_δ) persists for the new event (its support is inside that of
+any deleted `E ⊇ σ`); `D_σ > 1` with `π ≤ 1` forces ≥ 2 deleted events,
+so the process terminates. Final state: `D⁺_τ = 1` for events (original
+`D_τ ≥ 1` by monotonicity), `≤ 1` for non-hubs, and `≤ D_τ` always; stars of
+𝓔⁺ are stars of 𝓔. Correct.
+* **Own targeted test** (`reviews/exceptional-twin3-check-partD.py 7 200`):
+  the author's test rarely promotes (6/1200). Mine forces pair-star hubs
+  (full or half fibres over the other coordinates, with codegree `D_σ` up
+  to 2.0) on alphabets of size 9–12. 96 of 200 systems satisfy (H_δ), and
+  94 of these are promoted. Results: 0 cases of `w⁺ > w`, 0 failures of
+  `D⁺ ≤ min(D,1)` / `D⁺ ≤ D`, 0 new stars, and exact
+  `log(Z₂⁺/Z₁⁺²) ≤ (1+25δ)·(capped star sum)` with worst ratio 0.47.
+* **E13 (nit).** The removal of redundant events `E ⊋ τ` (τ an event)
+  appears only in the "Final state" proof. It should be a step of the
+  procedure in the statement; the script already does it.
+
+## R2.4 Proposition 6.3 (reduction, any arity) — SOUND-AFTER-REPAIRS (E10 minor)
+
+The chain TW2 Lemma 2.1 → vertex quarantine → Lemma 6.2 → Lemma 6.1 is
+right, but the constants are not arity-uniform as claimed.
+* **E10 (minor).** (a) Passing to `ν⁺` multiplies every ν-factor by
+  `≤ e^{(4/3)w_ℓ}`. This applies to the `E∖σ` factors inside `D_σ²` too, not
+  only to `π_σ`, so the factor is `≤ e^{6δ}` rather than `e^{2δ}`. (b) TW2 Lemma
+  2.2 has `ρ̃ ≤ (4/3)ρ` *per coordinate*, so `ρ̃^σ ≤ (4/3)^{|σ|}ρ^σ`. The
+  stated "C = 11" therefore does not hold uniformly in the arity. It holds for
+  bounded arity, e.g. ternary with `(4/3)³`; for unbounded arity it needs
+  a line (`π_σ` contains `Π_{ℓ∈σ} ν_ℓ ≤ Π(8/7)/ℓ`, which absorbs it). (c) TW2
+  Lemma 2.2 assumes `w ≤ δ/2` so that the inflated system still meets
+  Lemma 6.1's `δ ≤ 1/16`. Prop 6.3 assumes (H_δ) with `δ = 1/16` itself,
+  which leaves no slack. The hypothesis should be
+  `Σ_{ℓ∈S(E)} w_ℓ ≤ 1/32` (and the same for the G_L strengthening of
+  Assessment item 1).
+* The Assessment items (1)–(3c) are labelled honestly (Routine; not
+  written / essentially proved / Not done / main open point).
+
+## R2.5 Proposition 6.4 (ternary) and the residual — SOUND as a sketch; labels need repair (E11 minor, E12 minor, E14 nit)
+
+Checked:
+* (1) Pair stars mod `Q = ℓ₁ℓ₂`. In the small case, Shiu along the top
+  prime gives `α^{−3}(log L)²` (ℓ₁ top) or `α^{−3}log L` (ℓ₃ top). In the
+  large case, Lemma 3.1 runs mod Q with BT over the prime ℓ₃ (`M₁` with
+  kQ in place of kj). Lemma 3.2 mod squarefree Q also holds: `≤ 4` square
+  roots, `N ≠ N′ ≡ (Q) ⇒ max > Q`, and `|uv′−u′v| ≥ Q`. Correct.
+* (2) Small composite partner `R = ℓ_aℓ_b`. With two primes,
+  `Σ1/R ≪ (log L)²`. The j-top cross term `α^{−3}Σ_R 1/R` gives
+  `α^{−3}(log L)²`, not `α^{−3}log L` (E14, harmless). The ℓ_b-top case
+  gives `(log kj)³ log L`. Correct.
+* (3) Unbalanced large partner with cofactor `kℓ_a`. Lemmas 3.1–3.3 never
+  use smoothness of the cofactor, only `(kℓ_a, j) = 1`. Activity uses k
+  only, and Cauchy–Schwarz over ℓ_a costs `(log L)²`. Correct.
+* Balanced partner with `ψ ≥ 8w₂(kjA)^{1/2}`. Fix ℓ_a and the short
+  product s (`q = 4s`). Then `A ≥ 64w₂²s²kj`, and `ℓ_b ≥ (4A/kj)^{1/2}` gives
+  `ℓ_b ≥ 16w₂s = 4w₂q`. So BT over ℓ_b applies with a long range. Correct.
+* **E11 (minor, status labels).** §0 says "ternary case proved except one
+  residual". The report says "Prop 6.4 (proved, same inputs as §§2–3)".
+  But the proof is written as a *sketch*, and the ternary cap also needs
+  two inputs that are not "the same inputs as §§2–3":
+  * the any-arity fibre law (Assessment item 1: strengthened G_L/(H_δ),
+    second moment of `w_ℓ` with ternary partners, `w₂ = L^{10}`). This is
+    "Routine; not written", and it is needed even for r = 3, since the
+    ternary partner mass raises `E w_ℓ²`;
+  * the whole-event stars (Assessment item 2, "essentially proved"). This
+    is easy for r = 3, but Prop 6.4 does not list it.
+
+  Fix: label Prop 6.4 as SKETCH, or expand it. The ternary cap should read
+  "conditional on the balanced residual *and* on the unwritten fibre-law
+  step".
+* **E12 (minor, the residual is not exact).** The proved case uses
+  `ψ ≥ 8w₂(kjA)^{1/2}` only as a *sufficient* condition for
+  `ℓ_b ≥ w₂q`. BT over ℓ_b (fixed ℓ_a and short pair) works for every triple
+  with `ℓ_b ≥ w₂q`, which is a per-triple condition on ℓ_b. The exact
+  residual is therefore `ℓ_b < w₂q` (balanced partners). The stated
+  description "`q ≍ A^{1/2±}` is comparable to or larger than both partner
+  primes" is false as written: in the balanced-triple regime,
+  `q > A^{1/2}/(2w₂(kj)^{1/2}) ≍ R^{1/2}/w₂`, while ℓ_b ranges up to
+  `≈ R^{C₀/(C₀+1)}`, so `ℓ_b ≫ q` is possible. The error is on the safe side
+  (OPEN is claimed for a superset), and the BFI-range diagnosis is correct
+  for the true residual `ℓ_a ≤ ℓ_b < w₂q`. The word "exact" and the
+  description should be corrected in §6.3 and in the report.
+* The "Why the cap does not rescue it" and "Size check" paragraphs are
+  labelled Assessment; they are plausible and are not used.
+
+## Round 2 summary
+
+| item | verdict | defects |
+|---|---|---|
+| E1–E8 | all FIXED | (E9 deferred to merge) |
+| Lemma 6.1 | SOUND | — |
+| Lemma 6.2 | SOUND | E13 nit |
+| Prop 6.3 | SOUND-AFTER-REPAIRS | E10 minor (constants: arity, slack) |
+| Prop 6.4 + residual | SOUND as a sketch; labels SOUND-AFTER-REPAIRS | E11 minor, E12 minor, E14 nit |
+
+No major defect. Cor 4.2 (two-prime cap, unconditional) stands. The §6
+residual is stated as OPEN honestly, but it is over-stated: the true
+residual is `ℓ_b < w₂q`. The ternary status line must also mention the
+unwritten fibre-law step.
