@@ -145,6 +145,48 @@ and `E n = E M` (each light ℓ is replaced with conditional probability
 `nt ≤ n`, and concavity of log. ∎
 
 The unweighted form follows when M and n are bounded: if `M ≤ M̄` and
-`n ≤ n̄` on every path, then `E_σ̃ f ≤ B(n̄, 1/(M̄+M₀), d)(1+M̄/M₀)^{4/3} E_ν f`,
-i.e. `log(E_σ̃ f/E_ν f) ≪ d log(2+M̄) + log(2+n̄)` when `n̄ ≍ M̄`. This is
-the shape of ETw Conjecture 6.4, for σ̃ in place of σ.
+`n ≤ n̄` on every path, then by (2.1)
+`log(E_σ̃ f/E_ν f) ≤ d·log(4e³(n̄+1)(M̄+M₀)) + ½log(16n̄+16) + (4/3)log(1+M̄/M₀)`,
+i.e. `≪ d log(2+M̄) + log(2+n̄)` when `n̄ ≍ M̄`. This is the shape of ETw
+Conjecture 6.4, for σ̃ in place of σ. The weighted form is stronger and
+is what §4 uses: it needs no bound on M, only its mean.
+
+`scripts/kary_check.py` tests Theorem 2.5 by exact LP on 100 random small
+systems (unary, binary and ternary patterns, d ≤ 3, up to 8 coordinates,
+every path of the process enumerated). The weighted LP value is always
+≤ 1, as the theorem requires, with the optimal one-dimensional constant
+`B*` in Φ (`B* ≤ B`, so this is a stronger test). EVIDENCE only; the proof
+is above.
+
+## 3. Proof of (2.1)
+
+If `d = 0`, Q is constant and `B = 1`. Let `d ≥ 1`, `m₀ = nt ≤ n/4`.
+
+*(i) n ≤ d.* Take `Y = {0,…,n}`. Then `ℓ_y(n) = 1{y = n}` and
+`B ≤ 1/ψ(n) = t^{−n} ≤ t^{−d}`.
+
+*(ii) n > d, m₀ ≤ 2d.* Take `Y = {0,…,d}`. Then
+`|ℓ_i(n)| ≤ n^d/(i!(d−i)!)`. Also `C(n,i) ≥ (n/i)^i ≥ n^i/(i! e^i)` and
+`(1−t)^{n} ≥ e^{−1.151 m₀} ≥ e^{−2.31d}` (as `t ≤ 1/4`). So
+
+    |ℓ_i(n)|/ψ(i) ≤ n^{d−i} e^{i} e^{2.31d}/((d−i)! t^i) ≤ (e^{3.31} n/t)^d.
+
+*(iii) m₀ > 2d.* Put `h = ⌊√(m₀/d)⌋ ≥ 1` (so `h ≥ ½√(m₀/d)`) and
+`y_i = ⌈m₀⌉ − ⌊dh/2⌋ + ih`, `0 ≤ i ≤ d`. Then
+`|y_i − m₀| ≤ ½√(dm₀) + 1`. Since `d < m₀/2`, every node lies in
+`[0.6m₀, 1.36m₀+1] ⊆ [1, n−1]` (note `n ≥ 4m₀ > 8`). ET Lemma 2.1 and
+`(y−m₀)² ≤ dm₀/2 + 2` give `ψ(y_i) ≥ (16m₀)^{−1/2} e^{−2d/3 − 4/3}`. Next,
+
+    |ℓ_i(n)| = Π_{j≠i}|n−y_j| / (h^d i!(d−i)!) ≤ (2n)^d/(h^d d!) ≤ (2en/(dh))^d ≤ (4e√(n/(td)))^d.
+
+So `log B ≤ (d/2)log(16e²n/(td)) + 2d/3 + 4/3 + ½log(16m₀)`.
+
+In each case the bound is at most
+`d·log(4e³(n+1)/t) + ½log(16nt+16)`. (In (iii) use `√(n/(td)) ≤ n/t` and
+`4/3 ≤ (4/3)d`.) ∎
+
+Case (iii) is the sharp regime: the main term is `(d/2)log(n/(td))`, half
+of (2.1). `scripts/kary_b21_check.py` evaluates the three node sets exactly
+(log-space) on 7128 triples `(n,t,d)`, `n ≤ 10⁵`, `t ≥ 10⁻⁴`, `d ≤ 12`. The
+largest value of `log B − (2.1)` is −5.66. It also confirms `B* ≤ B` against
+the LP optimum for small n.
