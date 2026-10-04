@@ -274,3 +274,34 @@ The essential new point compared with W1 is keeping the other window's
 half-dimensional condition inside the upper bound for `T^{(q)}`. Without
 it, `T^{(q)}≍ε^{3/2}x/(log x)^{3/2}` would swamp the main term
 `εx/(log x)^2`.
+
+## 5. Joint F1 failure of the first J windows (EVIDENCE)
+
+`scripts/window_joint.py XMAX J` counts the primes `p=840k+1≤x` for which windows
+`3,7,…,4J−1` are **all** F1-clean, i.e. every prime factor r of `n_q` has
+`(r/q)=+1`. This implies `a_min(p)≥4J+3`. The counts are cross-checked
+against brute-force sympy factorisation at `x=10^6` for `J≤3`
+(395/244/160/52 both ways). Prime counts
+(`p≡1 (840)`): `x=10^6…10^11`: 395, 3426, 30061, 264770, 2369556, 21445485.
+
+| x \ J | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| 1e6 | 244 | 160 | 52 | 28 | 9 | 4 | 2 | 1 |
+| 1e8 | 15912 | 8912 | 2675 | 1614 | 496 | 172 | 95 | 24 |
+| 1e10 | 1118043 | 549500 | 147738 | 77906 | 22340 | 6789 | 3816 | 939 |
+| 1e11 | 9622751 | 4486561 | 1147221 | 572604 | 156751 | 45947 | 24351 | 5731 |
+
+Normalised by `x/(log x)^{1+J/2}` (the sieve-dimension prediction):
+
+| x \ J | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| 1e8 | 0.0126 | 0.0302 | 0.0390 | 0.1009 | 0.1331 | 0.1980 | 0.4695 | 0.5090 |
+| 1e10 | 0.0124 | 0.0291 | 0.0376 | 0.0951 | 0.1309 | 0.1908 | 0.5147 | 0.6078 |
+| 1e11 | 0.0123 | 0.0288 | 0.0370 | 0.0930 | 0.1282 | 0.1891 | 0.5044 | 0.5974 |
+
+Each column is roughly flat, as the dimension-`J/2` heuristic predicts.
+The joint events are abundant: 5731 primes `p<10^11` in the single class
+`1 mod 840` have `a_min≥35` by F1 alone. Window 27 uses the same
+character as window 3 (`(r/27)=(r/3)`), which is why the `J=7` survival
+ratio is high (24351/45947). The classes `−3` and `−27 mod ℓ` are still
+distinct, so the dimension still adds.
