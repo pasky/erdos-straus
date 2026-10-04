@@ -32,6 +32,17 @@ H-hub, so (O5 §2) `h_1,h_2,h_3>H` for `(q,κ)`, where
   **all** m>1 at once, with exponent 1/4.
 * So HC_Π is **equivalent** (up to proved terms) to a bound for the
   corner sum `𝒦`.
+* §3 (PROVED). Corner atoms with `min(4sa,4sb,4ab)≤yH^{1/4−a}` are paid
+  for by the period sums (Lemma 3.1). Hence HC_Π(a), `a≤1/4`, follows
+  from the **first-term bound (FT_a)** (Thm 3.2): on average over
+  `4sa²≡κ (q)`, `4sa>yH^{1/4−a}`, the divisors m of `4sa²+1` must not
+  put the least `ν≥y` with `qmν≡−1 (4sa)` close to y. Boxes in which a
+  plane is long (Shiu/Henriot range) are done (Prop 3.4). The exact
+  residual (Cor 3.5): (a) `m≥(qy/32)^{1/2}W^{−3/2}` with `s,a,b<mW`,
+  `W=C4^k𝓛²H^a`; (b) boxes with a short plane.
+* **HC_Π, HC* and the `(log₂p)^{3/2}` rate remain open.** EVIDENCE (§4):
+  at high hub height the m>1 mass is mostly corner mass, of the
+  average size predicted by (FT).
 
 ## 1. The three-fibre reduction (PROVED)
 
