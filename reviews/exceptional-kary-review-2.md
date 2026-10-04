@@ -141,3 +141,78 @@ Verdict scale: SOUND / SOUND-AFTER-REPAIRS / DEFECTIVE. Defects numbered E1, E2,
 * Conclusion: `Eν ≥ (|R|/Q₀)avg_{c∈R}g_1(c)` uses only `g_1 ≥ 0` off R.
 * Locality in dyadic blocks: primes of `V_i` have `log ℓ > s`, so
   `|T ∩ V_i| < λ/s`, hence `≤ ⌊λ/s⌋ = d_i`. Correct.
+
+## Part 2 — KARY Thm 2.5 and Thm 4.1, re-derived independently
+
+### 2.1 Thm 2.5 (weighted k-ary comparison) — SOUND
+
+Re-derived without reading the first review's argument:
+* Corner bound. On a frozen path ω, `y^ρ_ℓ ∈ {c_ℓ, y_ℓ}` is selected by `ρ_ℓ`
+  alone, so `g(ρ) = f(y^ρ)` is a nonnegative function on `{0,1}^R`, multilinear
+  of degree ≤ d (each `f_T` sees `ρ_{T∩R}`). Averaging over `Sym(R)` keeps
+  `g(1)` and `E_{Bern(t)}g`; the average is `Q(K)` with `deg Q ≤ d`, `Q ≥ 0` on
+  `{0..n}`. Lagrange at any `min(d,n)+1` nodes and `Q ≥ 0` at **every** k
+  give `g(1) = Q(n) ≤ max_y(|ℓ_y(n)|/ψ(y))·E Q(K)`. Direction: upper bound on
+  the σ-side value by the thinned bulk. Correct.
+* Thinned law (Lemma 2.4), the crux. Fix x. `P_ρ(y^ρ = x | ω) = Π_ℓ π_ℓ`
+  with `π_ℓ = (1−t)1{c_ℓ=x_ℓ} + t1{y_ℓ=x_ℓ}` on R and `1{c_ℓ = x_ℓ}` off R; so
+  `π_ℓ ≤ φ_ℓ`. Given `𝒢_{ℓ−1}` (all of `(c,y)_{<ℓ}`), `F_ℓ`, `p_ℓ`, "light" and
+  `D_ℓ` are known; `c_ℓ ~ ν_ℓ` and the fresh draw are independent of `𝒢_{ℓ−1}`
+  and of each other. `E[φ_ℓ|𝒢_{ℓ−1}] = ν_ℓ(x_ℓ)(1 + 1{light}t p_ℓ1{x_ℓ∉F_ℓ}/(1−p_ℓ))
+  ≤ ν_ℓ(x_ℓ)D_ℓ`. The normalised product is a nonnegative supermartingale, so
+  `E[Πφ_ℓ/(ν_ℓ(x_ℓ)D_ℓ)] ≤ 1`, and `W·ΠD_ℓ ≤ 1` pathwise because t is
+  deterministic. Correct. Only predictability of `F_ℓ` is used; the rule may
+  depend on anything in `𝒢_{ℓ−1}`.
+* Assembly: multiply the pathwise corner bound by `W/B ≥ 0`, take `E_ω`, swap
+  sums (`f ≥ 0`), apply Lemma 2.4 pointwise in x. No unweighted ratio
+  `E_σ f/E_ν f` appears. Correct.
+* Cor 2.6: `E n = E M` exact (replacement probability `1{light}p_ℓ` given the
+  past); the (3.1) bound is concave in n after `max ≤ sum`; Jensen; with
+  `t = d/(m̄+4d) ≤ 1/4`. Correct. I did not redo §3's constants beyond spot
+  checks; the first review did, and my item-3 script uses exact Lagrange B.
+
+### 2.2 Thm 4.1 (random step costs) — SOUND; the induction is linear in `e^{−Φ}` in the right direction
+
+* Induction claim: `g_j(h) ≥ G_j(h) := E_{Q'}[1_𝒜 e^{−Σ_{i≥j}Φ_i} | H_{<j}=h]`,
+  for **every** h (G is defined through the kernels, so Q′-null h are fine).
+* Step: `g_j(h) = E_U f`, `f = g_{j+1}(h,·) ≥ 0` λ-level (item 1.8).
+  (S_w): `E_U f ≥ E_ω[e^{−Φ_j(h,ω)} f(Y_j)]` — the cost Φ_j does **not** depend
+  on f (it is `log B(n,t,d) + (4/3)tM`, t fixed by h), which is what lets one
+  apply it to the unknown `f = g_{j+1}(h,·)`. Then IH pointwise
+  `f(Y_j) ≥ G_{j+1}(h,Y_j)`, multiplied by `e^{−Φ_j} ≥ 0`: monotone, correct
+  direction. Finally `E_ω[e^{−Φ_j}G_{j+1}(h,Y_j)] = G_j(h)` because later
+  kernels see `ω_j` only through `Y_j` (the c's and coins are discarded).
+  The weight stays **inside** the expectation; nothing is pulled out as
+  `e^{−EΦ}` until the very end.
+* The only nonlinear step: `E[1_𝒜e^{−S}] ≥ Q′(𝒜)exp(−E[S|𝒜]) ≥ ½e^{−2ES}`
+  (convexity of `e^{−x}`; `S ≥ 0`, `Q′(𝒜) ≥ ½`). Correlations between
+  `Φ_j` and later blocks or 1_𝒜 are harmless: they are all under one
+  expectation.
+* `S ≥ 0` requires `B(n,t,d) ≥ 1`, true (`Σ_yℓ_y(n) = 1`, `Σ_yψ(y) ≤ 1` ⇒
+  max ratio ≥ 1) but **not stated** in KARY → defect E1 (minor).
+* Thm 4.5's use: `E_{Q'}Φ_i ≤ E_{Q'}F(E[M_{V_i}|H_{<i}]) ≤ F(E_{Q'}M_{V_i})`, F
+  concave increasing; and `E_{Q'}E[M|H] = E_{Q'}M` with the same law. Correct.
+  Also `d ↦ d·log(C₀(a/d+4))` is increasing, so using `d ≤ λ/s` outside and
+  `d ≥ λ/(2s)` inside the log is legitimate.
+
+### 2.3 Independent end-to-end toy test of Thm 4.1 ∘ Thm 2.5 (EVIDENCE)
+
+The first review tested Thm 2.5 for one block. Untested so far: the
+**composition** with random, history-dependent `t_j(h)` and costs across
+blocks, patterns straddling blocks, and leak through heavy coordinates.
+`scripts/review2_kary_pipeline.py` (from scratch): 6 coordinates in two blocks
+of 3, alphabets 2–3, random unary/binary/ternary patterns (some straddling),
+cap 1/4, plain rule; exact path enumeration; per-block `d_j`, `t_1`,
+`t_2(h) = d_2/(E[M_2|h]+4d_2)`, exact Lagrange `B`. It solves
+`LP = min{E_ν f : f ≥ 0, f ≥ 1_𝒜, f = Σ f_T, |T∩V_j| ≤ d_j}` and compares with
+`E_{Q′}[1_𝒜 e^{−Φ₁−Φ₂}]` (the claim of Thm 4.1's induction at j = 1), and
+checks `log(1/LP) ≤ log 2 + 2EΦ` when `Q′(𝒜) ≥ ½`.
+
+| run | cases | max RHS/LP | Φ/2 violates | no-M-term violates |
+|---|---|---|---|---|
+| sparse (60 seeds × d ∈ {(1,1),(2,1),(2,2)}) | 180 | 0.9964 | 142 | 115 |
+| dense (same) | 180 (12 with 𝒜 = ∅) | 1.0000 | 5 | 3 |
+
+No violation; Jensen form holds in all 186 cases with `Q′(𝒜) ≥ ½`. The test
+has power: halving Φ or dropping `(4/3)tM` is violated in most sparse cases.
+Outputs `data/kary/review2_pipeline_{sparse,dense}.txt`.
