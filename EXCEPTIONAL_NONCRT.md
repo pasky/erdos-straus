@@ -101,3 +101,45 @@ Jensen and Step 5 as in ET-file, and `E_w E_u h_w = E h ≤ r₁`. ∎
 Prop. 2.1 lets f have arbitrary level; it only pays for the high part
 through the two tail sums, which carry the factor `Π_S p_i ≤ e^{−s(S)}` if
 `s_i ≤ log(1/(2p_i))`.
+
+### 2.2 Fourier mass controls the high-level Walsh tail
+
+Take a prime-slice system (ET-file §1) and a majorant ν (any moduli: higher
+prime powers, non-slice primes, arbitrary residues). Restrict 𝒫 to the
+slice primes dividing some `d_i`; this keeps ν ≥ 1 on the new (larger)
+avoider set, by the CRT modification argument of ET-file Step 0, provided
+`|F_ℓ(c)| < ℓ` for every ℓ. So 𝒫 is finite.
+
+For `c ∈ R` put `x_ℓ(n) = 1[n mod ℓ ∈ F_ℓ(c)]`, `y_ℓ = x_ℓ − p_ℓ(c)`, and
+`ν_c(x) = E[ν(n) | n ≡ c (Q₀), x(n) = x]`. By CRT, given `n ≡ c (Q₀)` the
+`x_ℓ` are independent `Bern(p_ℓ(c))`. Expand `ν_c = Σ_S d_S(c) y^S`.
+
+For `S ⊆ 𝒫` let `Θ_S` be the set of frequencies
+`θ = a/Q₀ + Σ_{ℓ∈S} h_ℓ/ℓ (mod 1)` with `a mod Q₀` arbitrary and every
+`h_ℓ ≢ 0 (mod ℓ)`. Put `A_S(ν) = Σ_{θ∈Θ_S} |ν̂(θ)|`. Since `(ℓ, Q₀) = 1`
+and the ℓ are distinct primes, the sets Θ_S are pairwise disjoint and
+`0 ∉ Θ_S` for S ≠ ∅. Hence
+
+    Σ_{S≠∅} A_S(ν) ≤ R_1(ν) = Σ_{θ≠0} |ν̂(θ)| ≤ R_w(ν)   (w ≥ 1).     (2.2)
+
+**Lemma 2.2 (PROVED).** For every `c ∈ R` and `S ≠ ∅`,
+
+    |d_S(c)| · Π_{ℓ∈S} p_ℓ(c)(1 − p_ℓ(c)) ≤ A_S(ν) · Π_{ℓ∈S} p_ℓ(c).
+
+*Proof.* By orthogonality and the tower property,
+`d_S(c)·Π_S p_ℓ(1−p_ℓ) = E[ν_c y^S] = E[ν(n) y^S(n) | n ≡ c (Q₀)]
+= Q₀·E_n[ν(n) g(n)]`, where `g(n) = 1[n ≡ c (Q₀)]·Π_{ℓ∈S} y_ℓ(n mod ℓ)`.
+By CRT g is a product of functions of `n mod Q₀` and of `n mod ℓ`
+(ℓ ∈ S). The first factor has Fourier coefficients `e(−ac/Q₀)/Q₀` at
+`a/Q₀`. The factor `y_ℓ` has mean 0, so its coefficients live at `h/ℓ`
+with `h ≢ 0`, where they equal `1̂_{F_ℓ(c)}(h)`, of modulus
+`≤ |F_ℓ(c)|/ℓ = p_ℓ(c)`. So ĝ is supported on Θ_S with
+`|ĝ(θ)| ≤ Q₀⁻¹ Π_S p_ℓ(c)`. Parseval, `E[νg] = Σ_θ ν̂(θ)·conj(ĝ(θ))`,
+gives the claim. ∎
+
+Consequently, if `p_ℓ(c) ≤ 1/4`, the tails of Prop. 2.1 for `f = ν_c` obey
+
+    r₀(c) ≤ Σ_{s(S)>λ} A_S Π_S (4/3)p_ℓ(c),   r₁(c) ≤ Σ_{s(S)>λ} A_S Π_S 2p_ℓ(c).   (2.3)
+
+So with weights `s_ℓ := log(1/(2p_ℓ⁺))`, `p_ℓ⁺ = max_{c∈R} p_ℓ(c)`, both
+tails are `≤ e^{−λ} R_1(ν)` for every c.
