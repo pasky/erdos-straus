@@ -8,11 +8,94 @@ except where §6 changes their inputs.
 
 ## Summary verdicts
 
-(in progress)
+| claim | verdict |
+|---|---|
+| §6.1 ledger (Thm 4.3 bookkeeping) | SOUND (but cites a non-existent Lemma 6.2: M1) |
+| Lemma 6.1 (spectral bookkeeping) | SOUND (re-derived; numerics clean; m1, m2 cosmetic) |
+| Thm 6.3 (`W ≥ exp(c(log p/log log p)^{1/13})`, mod TZ + ET) | SOUND; label correct |
+| §6.4 counterexample (q-ary DT switching false) | SOUND-AFTER-REPAIRS (constant fix m3; ESW-consistency wording m4) |
+| §6.4 "ESW would give exponent 1/11" | GAP (M1: needs Lemma 6.2 *and* a q-ary M_1 bound) |
+| §6.5 ceilings (Assessment) | SOUND as heuristic after rewording (m5: "any minorant", "ceiling under ET") |
+| (D) `Σ_{p≤x,p≡3(4)}τ(((p+1)/4)²) ≫ π(x)(log x)²` | true and standard (BV + Brun–Titchmarsh, ET §5 pattern); write out (m6) |
+| Prop 6.6 (`S ≫ 𝓛²`) | SOUND modulo (D); label OK; can be strengthened to `log(1/δ) ≥ S1 ≫ 𝓛²` (m7) |
+| §6.6 Consequence / report's "one opening" | Assessment; partly misleading (m8) |
+
+No FATAL defects. One MAJOR (M1). Thm 6.3 stands.
 
 ## Defects
 
-(in progress)
+**M1 (MAJOR) — "ESW ⇒ exponent 1/11" is unsupported; Lemma 6.2 is
+missing.** Locations: §6.1 item 2 ("Lemma 6.2 removes it" — no Lemma 6.2,
+no §6.2/§6.3 exist); §6.4 parenthesis "`d≪𝓛⁵, K≪𝓛⁵log𝓛, log Z≪𝓛⁶`, i.e.
+exponent 1/11"; header item 6; AGENT_REPORT_O30 §6.4 bullet. (i) `K≪𝓛⁵log𝓛`
+requires Lemma 6.1's spectral M_1 bound, whose proof uses
+`‖f̂_ρ‖₁≤2^{DT(f_ρ)}` and the bit-level *decision-tree* switching lemma; ESW
+is an energy statement and gives no ℓ¹ control, so with ESW alone M_1 goes
+through Lemma 3.2 and `K≍d𝓛≍𝓛⁶`. (ii) `log Z≪𝓛⁶` ignores
+`log Q_Π≍k²S*𝓛≍𝓛⁷/log𝓛`, which only the absent Lemma 6.2 would lower (the
+log-weighted-threshold remark after Thm 6.3 shows the obvious attempt does
+not). As written ESW gives `𝓛¹³/log𝓛` (no real gain over 1/13).
+*Repair:* replace "would give 1/11" by "would give 1/11 provided also (a) a
+q-ary analogue of Lemma 6.1's ℓ¹ bound for ES truncations
+(`log M_1 ≪ d log𝓛`) and (b) `|𝓑| ≪ kS*` (a Lemma 6.2, not yet proved)";
+delete or supply Lemma 6.2; fix the header and report accordingly.
+
+**m1 (MINOR) — Lemma 6.1 should say g_j is a function of the coordinates
+outside supp E_j.** It is (F^{(j)} does not depend on them, so neither do its
+Fourier truncation nor the blockwise pull-back; verified in the toy), and
+Lemma 3.1's `E[A_je_j²]=P(E_j)E(F^{(j)}−g_j)²` needs it. Add one sentence.
+
+**m2 (MINOR) — notation.** In Lemma 6.1, `ĝ_j(S)` should be the coefficient
+of g̃_j (g_j lives on residues, not bits); d is used both for the degree and
+for moduli `d_i` (Thm 6.3's `log Z` line). Rename the degree (e.g. D_0).
+
+**m3 (MINOR) — §6.4 constants.** With `p=1/(2C)` and width k=2, the
+hypothetical bound `(Cpk)^s` equals 1, so the example does not refute it as
+written. Take `p:=1/(4C)` (any `p<1/(2C)`; then `(C(2p+q^{−1/2}))^s→0`
+geometrically while `Pr[DT_q≥pN/2] ≥ c>0`; numerically ≈0.61 vs 10^{−37}
+at q=10⁶, C=1). Also `Pr[fixed values distinct] ≥ e^{−1/2}−o(1)`, not just
+`e^{−1}`.
+
+**m4 (MINOR) — §6.4 "nearly constant in ℓ²".** At the typical `s≍pN`,
+`Pr[f_ρ=1] ≲ Ns/q ≍ p`, a constant, not small; and `W^{≥1}≤Pr[f_ρ=1]` says
+nothing about the `s`-geometric decay ESW requires. The exact ES weights
+(q=49…144) do decay in the level, so the example is plausibly consistent
+with ESW, but the stated justification is not an argument. Reword: "the
+energy at level ≥s of f_ρ is ≈`(s²/q)^{s/2}`-small (pairwise-collision
+structure), not ≈1 as the decision depth suggests".
+
+**m5 (MINOR) — §6.5 wording.** (a) "holds for any minorant" — there is no
+argument that every PO-Thm-4.1 minorant needs junta ≳S; say "for minorants
+of Brun/BRW type (heuristic)". (b) "≈1/9 is the ceiling under ET" (also
+header item 6, report): ET gives an *upper* bound on S; 1/9 is what the
+present bookkeeping yields with S only bounded by S*, not a ceiling. The
+supported ceiling is via Prop 6.6 (`S1≫𝓛²` ⇒ exponent ≤1/4, Assessment).
+(c) "log p ≳ S² up to logs" vs "S·S𝓛": per junta prime the cost is between
+`log z` and `𝓛`, and 𝓛 is not a "log" in this bookkeeping; write
+`log p ≳ S²·log z`. (d) "K≥log(1/μ)≈S": only `≥S1` is rigorous.
+
+**m6 (MINOR) — (D) and partial summation.** (D) is correct and standard,
+but (i) write out the 6-line BV argument (main term
+`Σ_{d≤x^{1/3}}2^{ω(d)}/φ(4d)≍(log x)²`; error by Cauchy–Schwarz with
+Brun–Titchmarsh and BV, exactly as ET §5 (5.7)–(5.8)); (ii) state it on
+dyadic ranges `(x/2,x]` — the cumulative form plus "partial summation"
+only yields `≫𝓛`, not `≫𝓛²`, without a matching upper bound. Label
+"PROVED modulo (D) (standard; sketched)" is acceptable. The report's
+"mass ≍𝓛²" also needs the (equally standard) upper bound; say `≫`.
+
+**m7 (MINOR, improvement) — Prop 6.6 states less than it proves and than is
+used.** The proof bounds the *distinct-class* single mass S1, so it gives
+`S ≥ S1 ≫ 𝓛²` for the distinct-event mass S of Thm 3.4 (not just the atom
+count S_tot), and, singles at distinct primes being independent,
+`δ ≤ ∏(1−g_ℓ) ≤ e^{−S1}`: `log(1/δ*) ≫ 𝓛²` and `K ≥ log(1/μ) ≫ 𝓛²`
+rigorously (mod D). State that; §6.5/§6.6 use exactly this.
+
+**m8 (MINOR) — §6.6 Consequence / report "one opening".** Splitting off
+the singles (Brun for singles, BRW for the rest) cannot lower K: any
+minorant B≤F has `μ≤δ≤e^{−S1}`, so `K≳𝓛²` regardless; only `log Z` could
+shrink. Also `log Z≥log ℓ_aux>𝓛`, so PO Thm 4.1's sufficient condition can
+never be met below `log p≈𝓛³` on this route. Say so, so that the successor
+does not chase `S_{≥2}` expecting to beat the K-side.
 
 ### Working notes, Lemma 6.1 (re-derived)
 
