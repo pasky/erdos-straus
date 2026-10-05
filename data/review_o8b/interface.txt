@@ -1,0 +1,12 @@
+(i) max |mu-E B|, |mu_psi - E[B psi]| over 200 random combos x 15 psi: 4.44e-16; max [P(C&D) - P(C)P(D)prod phi] over 500 pairs: 8.67e-19 (<=0 expected)
+(ii) ES truncation vs Lemma 3.2 c_W formula, t=0..3: max diff 4.44e-15
+(iii) m=25 events, max w=0.00521 (c0=0.00521), EF=0.99114, max(B-F)=0.00e+00, E[F-B]/EF=4.52e-06 (needs <=1e-2 for Lemma 3.3)
+      Lemma 3.3 chain holds for all (psi, l0): True; max |E[B psi]|/mu = 0.0037 (<=1/4 claimed when E[F-B]<=EF/100)
+(i) max |mu-E B|, |mu_psi - E[B psi]| over 200 random combos x 15 psi: 4.44e-16; max [P(C&D) - P(C)P(D)prod phi] over 500 pairs: 8.67e-19 (<=0 expected)
+(ii) ES truncation vs Lemma 3.2 c_W formula, t=0..3: max diff 2.33e-15
+(iii) m=50 events, max w=0.00521 (c0=0.00521), EF=0.99084, max(B-F)=0.00e+00, E[F-B]/EF=3.88e-06 (needs <=1e-2 for Lemma 3.3)
+      Lemma 3.3 chain holds for all (psi, l0): True; max |E[B psi]|/mu = 0.0029 (<=1/4 claimed when E[F-B]<=EF/100)
+(i) max |mu-E B|, |mu_psi - E[B psi]| over 200 random combos x 15 psi: 4.44e-16; max [P(C&D) - P(C)P(D)prod phi] over 500 pairs: 8.67e-19 (<=0 expected)
+(ii) ES truncation vs Lemma 3.2 c_W formula, t=0..3: max diff 3.55e-15
+(iii) m=32 events, max w=0.00520 (c0=0.00521), EF=0.99036, max(B-F)=0.00e+00, E[F-B]/EF=6.86e-39 (needs <=1e-2 for Lemma 3.3)
+      Lemma 3.3 chain holds for all (psi, l0): True; max |E[B psi]|/mu = 0.0048 (<=1/4 claimed when E[F-B]<=EF/100)
