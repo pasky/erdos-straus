@@ -170,8 +170,10 @@ coordinate (small coordinates shared), and the atomic events
 Given `x_s` the copies are independent, so `P(Av(𝓕^{(m)})|x_s)=∏_ℓ(1−p_ℓ(x_s))^m`, and the
 left side is `P(Av(𝓕^{(m)}))`. Its mass is `mμ`.
 *Local lemma.* `E^{(i)}` conflicts only with events sharing a prime `q|v` (any copy) or with
-copy-i events at ℓ. So `Σ_{Γ(E^{(i)})}P ≤ mΣ_{q|v}w_q + w_ℓ ≤ m(𝓛/log y)(𝓛³/(2y)+4𝓛T^{−2/5}) + T^{−0.09}
-≤ 1/8` (HAAR Lemma 2.3's `w_q`; `w_ℓ` as in Lemma 2.1), and `P(E)≤1/8`. HAAR Remark 1.4(iii):
+copy-i events at ℓ. So `Σ_{Γ(E^{(i)})}P ≤ mΣ_{q|v}w_q + w_ℓ ≤ m(𝓛/log y)(𝓛³/(2y)+4𝓛T^{−2/5}) + T^{−0.49}
+≤ 1/8` (HAAR Lemma 2.3's `w_q`; here `w_ℓ:=Σ_{ℓ(E)=ℓ}P(E)` is the *unconditional* load, not
+Lemma 2.1's conditional `p_ℓ(x_s)`: by the count in Lemma 2.1's proof and `P(E)=1/φ(vℓ)`,
+`w_ℓ≤T^{0.1}(1+𝓛)·(Σ_{v y-rough}1/φ(v))/(ℓ−1)≤T^{0.1}(1+𝓛)(C𝓛/log y)/(ℓ−1)≤T^{−0.49}` for `ℓ>T^{0.6}`), and `P(E)≤1/8`. HAAR Remark 1.4(iii):
 the hypothesis of HAAR Lemma 1.3 holds with `x=2P`, `K≤e^{1/3}`.
 *Pair sum.* Bit-sharing pairs of 𝓕^{(m)}: (α) same copy, `E≠E'`: exactly the bit-sharing
 pairs of 𝓕, total `≤mΔ(𝓕)≤mC𝓛²`; (β) copies `i≠j`: they share only primes of
@@ -255,9 +257,11 @@ explicit ν verified in exact rationals on 100 random instances satisfying (1.1)
 `k=0,1,2,3` (`n≤22`, `p_i∈[0.2,0.5]` plus one zero coordinate; ρ=ν−μ is supported on `|y|≤k+1`,
 so the check is exact without enumerating `2^n`): `ν≥0`, `ν(0)=0`, all `≤k`-marginals of ρ
 vanish; 0 failures (the script asserts this, and LP success/feasibility). (2) Toy LP (n iid bits,
-`F=1[all zero]`, B any sum of `≤k`-bit functions with `B≤F`): the optimum `E B/E F` vanishes
-already at `R≈1.1 (k=1)`, `1.8 (k=2)`, `3.0 (k=3)` (n=10,10,12), below the sufficient
-threshold `(k+1)+(2k+1)r*` (2.3, 3.9, 5.8). So (1.1) is conservative by a constant factor only;
+`F=1[all zero]`, B any sum of `≤k`-bit functions with `B≤F`): on our grid (p step 0.05) the
+first grid values with optimum `E B/E F=0` are `R≈1.1 (k=1)`, `1.8 (k=2)`, `3.0 (k=3)`
+(n=10,10,12); these are grid values, not thresholds. R49's bisection on the exactly
+symmetrised LP (`scripts/review_o14_toy_lp.py`) gives the actual thresholds `R≈1.11, 1.25, 2.51`
+(same n), all below the sufficient threshold `(k+1)+(2k+1)r*` (2.3, 3.9, 5.8). So (1.1) is conservative by a constant factor only;
 the order `k≍R` is right (Remark (ii)).
 
 ## 3. What this says about the brief's routes (i)–(iii)
