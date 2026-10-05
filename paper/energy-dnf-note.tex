@@ -1,7 +1,7 @@
 \documentclass[11pt,reqno]{amsart}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{microtype}
+\usepackage[expansion=false]{microtype}
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
 
@@ -124,8 +124,8 @@ Fourier coefficients if $\pi$ is uniform).  Then for every integer $t\ge0$
 \]
 where $p=\PP[g=-1]$.
 So $g$ is $\varepsilon$-concentrated up to degree $k\log_2(4/\varepsilon)$.  Moreover
-$\sum_U2^{|U|/k}\|g^{=U}\|^2\le1+4p$, and the total influence is at most
-$(4k/\ln2)\,p$.  The same holds for $q$-ary DNFs, with literals $x_v\in S_v$,
+$\sum_U2^{|U|/k}\|g^{=U}\|^2\le1+4p$, and the total influence
+$\mathbf I[g]:=\sum_U|U|\,\|g^{=U}\|^2$ is at most $(4k/\ln2)\,p$.  The same holds for $q$-ary DNFs, with literals $x_v\in S_v$,
 under any product measure on $\prod_v[q_v]$.
 \end{corollary}
 
@@ -142,10 +142,14 @@ general product spaces the base $2^{-1/k}$ is sharp: no bound
 $C\rho^{-t/k}$ with $\rho>2$ holds, and at most a factor of order $\sqrt{t/k}$
 can be gained (Proposition~\ref{prop:sharp}).  On the uniform cube we only
 know that the true rate lies between $3^{-t/k}$ and $2^{-t/k}$
-(Example~\ref{ex:parity}).  The bound on the total influence is weaker by a
-constant factor than the known bound $2w$ for width-$w$ DNFs (we recall this
-from memory; it is usually attributed to Boppana \cite{Boppana}), and we
-state it only because it falls out.
+(Example~\ref{ex:parity}).  The influence bound is \emph{not} a gain: an
+elementary certificate argument gives $\mathbf I[g]\le2kp$ on the uniform cube
+and $\sum_v\|L_vg\|^2\le4kp$ under any product measure
+(Remark~\ref{rem:influence}), so our $(4k/\ln2)p$ is weaker by the factor
+$2/\ln2$, resp.\ $1/\ln2$.  Sharper bounds without the factor $p$ are known
+(from memory: $\mathbf I\le2w$ is usually attributed to Boppana \cite{Boppana},
+and we recall that Amano \cite{Amano} improved it to $\mathbf I\le w$).  We state the
+influence bound only because it falls out.
 
 The nearest prior art we know is the paper of Lecomte and Tan \cite{LT}.
 They bound $|\hat g(S)|$ by $2^{|S|}$ times the probability that $S$ is covered
@@ -334,12 +338,13 @@ follow from a bound on $Q_\mu$ that is uniform over all hypergraphs whose edges
 have weight at most $2$.
 
 \begin{remark}[Unsigned counts are too weak]\label{rem:unsigned}
-Lecomte and Tan \cite{LT} bound $|\hat g(S)|$ for a DNF $g$ on the uniform
+Lecomte and Tan \cite[Fact~9]{LT} bound $|\hat g(S)|$ for a DNF $g$ on the uniform
 cube by $2^{|S|}\PP_x[S$ is covered by the terms satisfied by $x]$; we quote
-the form from \cite{LT}, checked earlier.  With the unsigned count the
-suppression is lost.  For example, if $\Ho(x)$ contains a singleton $\{u\}$
-and many edges through a set $V\not\ni u$, then $N_{\Ho(x)}(V)=0$, while the
-number of covers of $V$ is large.
+the form from \cite{LT}, checked earlier.  The indicator ``$S$ is covered'' does
+not see cancellations.  For example, if $\Ho(x)$ contains a singleton $\{u\}$
+and an edge containing a set $V\not\ni u$, then $N_{\Ho(x)}(V)=0$, while
+$\mathbf 1[V\text{ is covered}]=1$, so the bound of \cite{LT} charges $2^{|V|}$ at such
+points.
 \end{remark}
 
 \section{The hypergraph inequality}\label{sec:hyper}
@@ -501,8 +506,19 @@ Replacing each term by these events changes neither $F$ nor the supports.
 For a width-$k$ CNF $h$, $-h$ is a width-$k$ DNF and $W^{>t}[h]=W^{>t}[-h]$; so the
 same bounds hold with $p=\PP[h=+1]$ (the probability that $h$ is false), and
 the bound $4\cdot2^{-(t+1)/k}$ holds as stated.  Here
-$\mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2$ is the Efron--Stein total influence; it is
+$\mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2=\sum_v\|L_vg\|^2$ is the Efron--Stein total influence; it is
 the usual total influence for the uniform measure.
+
+\begin{remark}[The influence bound is elementary]\label{rem:influence}
+Let $g$ be a width-$k$ DNF and $p=\PP[g=-1]$.  If $g(x)=-1$, fix a term satisfied at
+$x$; changing a coordinate outside it leaves $g=-1$.  So the fibre of $x$ in
+direction $v$ is non-constant for at most $k$ coordinates $v$.  Since
+$\|L_vg\|^2=\E\operatorname{Var}_{x_v}(g)$ and $\operatorname{Var}_{x_v}(g)=4q(1-q)\le4q$ on a non-constant fibre, with
+$q$ the conditional probability of $g=-1$, we get $\sum_v\|L_vg\|^2\le4kp$ under any
+product measure.  On the uniform cube, $\mathbf I[g]$ is the mean number of
+sensitive coordinates; every sensitive edge has exactly one endpoint with
+$g=-1$, so $\mathbf I[g]\le2kp$.  Corollary~\ref{cor:dnf} gives the weaker $(4k/\ln2)p$.
+\end{remark}
 
 \begin{remark}[Non-uniform widths]\label{rem:widths}
 Theorem~\ref{thm:main} also handles terms of very different widths, and
@@ -833,11 +849,13 @@ The run takes about six minutes on one core; its output is in the file
 
 {\small
 \begin{thebibliography}{99}
+\bibitem{Amano} K.~Amano, Tight bounds on the average sensitivity of $k$-CNF,
+Theory Comput.\ 7 (2011), 45--48.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 \bibitem{Boppana} R.~B.~Boppana, The average sensitivity of bounded-depth
 circuits, Inform.\ Process.\ Lett.\ 63 (1997), 257--261.
-% TODO(verify): [Boppana], [Mansour], [Tal] details written from memory.
+% TODO(verify): [Amano], [Boppana], [Mansour], [Tal] and all items marked "from memory" were written from memory (no internet).
 \bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
 Statist.\ 9 (1981), 586--596.
 \bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
