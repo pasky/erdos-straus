@@ -1,6 +1,33 @@
 # Type-I `ck_min` beyond the least non-residue (task O31)
 
-Status: IN PROGRESS (side agent O31, branch `side-agent/typei-ckmin`).
+Status: checkpoint 1 (side agent O31, branch `side-agent/typei-ckmin`); not yet reviewed.
+
+## 0. Results at a glance
+
+| # | statement | label |
+|---|---|---|
+| L1.1 | `M_{c,k}(p)=#{j: hj>p, (hj−p) ∣ 4cj²+1}` (dual/Type-I form); vanishing is a congruence sieve on p with moduli `hD` up to `h·p` | PROVED |
+| T2.1 | under Schinzel H: for every g and prime `r≥100D(g)²g³`, infinitely many hard p with `n_p=r`, `ck_min>g·n_p`; also `ck_min≥n_p^{2−ε}` i.o. So no bound `ck_min≤f(n_p)` with `f(r)≤r^{2−ε}` is provable without refuting H | CONDITIONAL (H, explicit finite family) |
+| T3.1 | under GRH: `ck_min(p)>(1/(2log2)−ε)log p·log log p` i.o. (Montgomery's `n_p` Ω-result via Lagarias–Odlyzko, with `p≡1 (24)`) | CONDITIONAL (GRH) |
+| P4.1 | exact event list for `ck_min>G·n_p` (one non-residue prime per unforced slice for `G<n_p`) | PROVED |
+| P4.2 | every reduced hard class mod L contains infinitely many p with `ck_min(p)=n_p`; congruence input gives exactly `g=1` | PROVED |
+| L4.3 | subgroup-type sieve criteria for an unforced slice have dimension `≥1/2`, additive over slices | PROVED |
+| A4.4–4.6 | sieve/level/first-moment barriers: EH insufficient even for one slice by pure sieve; union bound gives only `O(1)` extra slices; Poisson model suggests `g=exp(c(log₂p)^{1/3})` on GR-type primes | Assessment |
+| L4.5 | target divisors near `√N` need moduli `>x` | PROVED (structural) |
+| §5 | census of all 82887 hard `p<10^7`: new records `ck_min(414241)=218`, `ck_min(9033649)=883` (`n_p=43`, ratio 20.5) | EVIDENCE |
+| T6.1 | `n_p=5 ⟹ ck_min(p)≤10` (sharp), by a mod-7 Type-I covering | PROVED |
+| R6.2 | under H, `C(r)=sup_{n_p=r}ck_min` equals the least height of a finite Type-I covering of `{n_p=r}`; `C(7)<∞`? open (EVIDENCE: covered by small-D certificates to `3·10^6`) | PROVED direction + H sketch; open |
+
+**Answer to the task.** (1) An unconditional `ck_min ≥ g(p)·n_p`, g→∞,
+was **not** obtained; §4 identifies the needed events exactly (P4.1) and
+shows why available tools stop: congruences give exactly `g=1` (P4.2);
+sieve criteria cost dimension `≥1/2` per slice and need sifting range
+`√N≈x` at level `≤x` (L4.3, A4.4); first-moment needs `>x` moduli and
+fails beyond `O(1)` slices (L4.5, A4.6). (2) GRH: T3.1; GRH/EH do not
+reach the combined event. (3) The upper-bound direction is false in the
+strong form under H (T2.1: `ck_min≥n_p^{2−ε}` i.o.), but **true for
+`n_p=5`** (T6.1, `C(5)=10`), and in general reduces under H to a finite
+covering problem per value of `n_p` (R6.2).
 
 Notation as in POINTWISE_OMEGA §8 and notes §§36, 44, 48, 50, 52. A slice
 is `(c,k)∈𝓑_p` (notes (36.1)); `h=4ck`, `N=N_{c,k}(p)=p²+4ck²`,
