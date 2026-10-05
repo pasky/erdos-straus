@@ -1,6 +1,6 @@
 # Beyond low-conductor minorants? A Wiener-norm barrier at `𝓛^4` (task O57)
 
-Status: CHECKPOINT 0 (in progress). Labels as in DISCOVERIES.md. Notation as in
+Status: CHECKPOINT 1 (for review). Labels as in DISCOVERIES.md. Notation as in
 POINTWISE_OMEGA14.md (O14) and POINTWISE_OMEGA13.md (O13): `𝓛=log T`; Haar measure P on the
 fibre `H={n≡r (Q)}⊂Ẑ^×`; F = indicator that no ES event `E_{M,D}={n≡−4D (M)}`, `M≤T`, holds;
 *big* coordinates `X_ℓ`, ℓ prime, `ℓ>T^{0.6}`, `ℓ∤Q`; *small* coordinates = all others (x_s).
@@ -301,3 +301,86 @@ arcs) and the Type I/II analysis close. For ES, Thm 1.2 (applied to B=F) gives
 exceeds every floor `x^{A}`. The digit filtration (conditions mod `b^j` refine those mod
 `b^{j−1}`, period = range) has no analogue for the CRT sieve, whose period `e^{(1+o(1))T}` is
 doubly exponential in `𝓛`, while x is `e^{𝓛^{3+o(1)}}`.
+
+## 5. Minorants valid only on primes (brief item (a))
+
+**Lemma 5.1 (Dirichlet closure; PROVED, as EXCEPTIONAL_PRIMELAW Lemma 1.2).** Let B be a finite
+combination of periodic functions and L a common period of B and F (F has period
+`lcm(M≤T)`). Then `B(p)≤F(p)` for all but finitely many primes `p∈H` iff `B≤F` on every unit
+class mod `lcm(L,Q)` inside H, i.e. Haar-a.e. on H. *Proof.* Each such class contains infinitely
+many primes (Dirichlet); B and F are constant on it. ∎
+
+So "valid only at primes" adds nothing unless restricted to a finite range `p≤x`. Then
+`U:={B>F}` is a union of unit classes mod L containing no prime `≤x`. By Linnik–Xylouris every
+unit class of modulus `≤cx^{1/5}` contains a prime `≤x`, so U contains no class of modulus
+`≤cx^{1/5}`: the extra knowledge is that a set of *deep* classes is prime-free up to x. In the
+language of §2 this is the constraint `m(U)=0` added to the information set; it is non-oblivious
+(it depends on which deep classes the primes ≤ x occupy), exactly the knowledge excluded in
+Cor 2.4. With it the problem is circular (take `U={F=0}`, `B=1`). Same situation as
+EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
+
+## 6. What is and is not covered
+
+**Covered (barrier at `log x≍𝓛^4/log𝓛`, i.e. exponent 1/4 up to `(log log)^{1/2}`).**
+1. Minorants of any level, used through linear transfers whose accuracy is uniform over
+   translation orbits of residue classes, Dirichlet characters or additive characters (Thm 1.2,
+   Thm 2.2, Lemma 2.3, Cor 2.4), with any assumption on the primes that is *true* (GRH, or
+   anything stronger: Lemma 2.3 shows the accuracies GRH provides are optimal up to logs on deep
+   moduli). Hölder-averaged accounting over orbits (Prop 2.5).
+2. Siegel-zero main terms (Thm 3.1): the exceptional reweighting `1−εχ_1` is transported to
+   the fake. Closes O14 Cor 4.6's Siegel item for linear transfers.
+3. The integer Type I sums that Vaughan / Heath-Brown identities and Heath-Brown's Siegel-zero
+   method reduce to (Prop 4.1), for class-ℓ¹ certificates; Type II input is then moot (Cor 4.3,
+   Assessment for the "moot" part).
+4. Prime-only minorants (Lemma 5.1) up to non-oblivious knowledge.
+
+**Not covered (the precise residual).**
+* (N1) *Non-periodic structure.* Certificates that exploit a non-periodic family inside the
+  avoider set (the integer analogue is the squares, Remark 4.2). For primes one would need a
+  "prime-rich" non-periodic family on which F is automatic; every periodic one costs
+  `‖·‖_×/mean≥e^{c𝓛^4/log𝓛}` (Thm 1.2). None is known; Chebotarev-type families
+  (`p` split in `ℚ(√ℓ*:ℓ≤T)`) are periodic and cost `2^{π(T)}`.
+* (N2) *Non-oblivious knowledge* of the primes ≤ x in deep classes (§5); equivalently,
+  error bounds that are not translation-uniform.
+* (N3) *Non-linear certificates*: arguments in which F (or the prime measure) enters
+  non-linearly — e.g. second-moment / pair-correlation counts `Σ_{p,p'}F(p)F(p')`, entropy or
+  density-increment arguments. The fake is a single measure; a joint fake for pair statistics
+  is not constructed here.
+* (N4) *Asymptotic evaluation of integer Type I sums by non-class-ℓ¹ means* (would be a new
+  theorem about CRT sieves beyond the sieving limit, integers only; no such tool is known — the
+  digit-filtration that powers restricted-digit results has no CRT analogue, §4).
+
+**Answer to the brief.** (1a) adds nothing (Lemma 5.1). (1b) Type II cannot help on its own: the
+Type I half already needs integer equidistribution of F at superpolynomial level
+`x^{𝓛^{1−o(1)}}`, and every oblivious linear method is blocked there (Prop 4.1); the Maynard
+analogue fails quantitatively (complexity `x^{O(1)}` vs `x^{𝓛/polylog}`). (1c) Siegel zeros do
+not help linear transfers (Thm 3.1), and Heath-Brown's mechanism reduces to (1b). (2) No
+CONDITIONAL improvement was found; the obstruction is theorem-level (Thm 1.2/2.2, Prop 2.5,
+Thm 3.1, Prop 4.1) with the exact scope above. The 1/4 ceiling is a **sieve-dimension**
+barrier (sieving limit `β_κ≍κ`, `κ≍𝓛³/log𝓛`, `log z≍𝓛`), not a parity barrier, and it is a
+property of F, invariant under any strengthening of prime equidistribution.
+
+## 7. Status
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | planted perturbation: `|E_ρh|≤(4r*)^{k+1}` for every reduced product; 0 if `|I|≤k` | PROVED (exact checks: identity 40 brute-force instances, bound 900 cases, worst ratio 2.4·10⁻⁴) |
+| Thm 1.2 | every minorant `B≤F` on any fibre (`log Q≤T^{0.05}`): `E_HB≤e^{−c𝓛^4/log𝓛}‖B‖_×` | PROVED mod (G), effective Page, fundamental lemma (O14 Thm 4.5 inputs) |
+| Thm 2.2 | linear certificates need accuracy `𝔈<N_xη` | PROVED (same) |
+| Lemma 2.3 | forced accuracy on deep orbits: ≥1/2 (classes), `≥√(N_x/3)` (characters, additive) | PROVED (elementary) |
+| Cor 2.4 | oblivious linear transfers (incl. under GRH) need `log x≥c𝓛^4/log𝓛` | PROVED implication |
+| Prop 2.5 | `‖ν−P‖_TV≤e^{−0.6μ*}`; Hölder-averaged accuracy also blocked | PROVED (same) |
+| Thm 3.1 | Siegel-model law `(1−εχ_1)P`: same fake; level `≤c𝓛^4/log𝓛−log x` gives `E_{P_1}B≤0` | PROVED (same) |
+| Prop 4.1 | integer (Type I) sums: class-ℓ¹ certificates blocked below `log x≍𝓛^4/log𝓛` | PROVED (same + Mertens) |
+| Cor 4.3 | Type II / Siegel (Heath-Brown) / Maynard-type routes need Type I beyond the barrier | Assessment (built on Prop 4.1) |
+| Lemma 5.1 | prime-only minorants = Haar minorants (Dirichlet) | PROVED |
+
+Not claimed: anything about ES; anything about the true size of the least avoider prime;
+anything in (N1)–(N4).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega15_pseudorandom.py 1)  # Lemma 1.1 -> data/omega15/pseudorandom.txt (~1 min)
+```
