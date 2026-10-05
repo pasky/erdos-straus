@@ -37,3 +37,45 @@ the RHS by `(1−β_1)(log x)[x exp(−log x/log Q) + x log x/(Q log Q)]`.
   obtained by the author nor by me. Label "PROVED modulo (G)" is the right one.
 
 **Verdict on (i): SOUND** (quotation exact, modulo minors m1, m2).
+
+## 2. Character expansion (items 1–3, `S(x)`, `R_1`)
+
+Re-derived. Since `gcd(Q,D)=1`, CRT gives `Σ_{n∈G} f(n)χ̄(n) = Σ_{b mod D} B(b)χ̄_D(b)` for every
+`χ_Q`, hence `c(χ)=E_D[Bχ̄_D]/φ(Q)` (all `φ(Q)` choices of `χ_Q` occur with equal coefficients).
+`E_D[1[n≡b_i (d_i)]χ̄_D]=0` unless `χ_D` factors through `(ℤ/d_i)^*`, i.e. `cond χ_D | d_i`. Hence
+`cond χ ≤ Q·d_i ≤ Z`. Injectivity of `χ ↦ χ*` for fixed modulus QD is standard; count
+`≤ Σ_{q≤Z}φ(q) ≤ Z²`. `μ=Σc_i/φ(d_i)=E_D B` (PO's definition) and PO's
+`μ_ψ=Σ_{f|d_i}c_iψ(b_i)/φ(d_i)=E_D[Bψ]` for primitive ψ mod f, f|D. `|ϑ_{QD}(x;χ)−ϑ(x;χ*)| ≤ log(QD)`,
+`log(QD) ≤ 2Z` (Rosser–Schoenfeld ψ(y)<1.04y), so `|R_1| ≤ 2Z³Aμ/φ(Q)`, which is
+`≤ μx/(400φ(Q))` once `x ≥ 800AZ³`.
+
+From-scratch check `scripts/review_o9a_charexp.py` (sympy; ALL characters mod N=QD built from
+prime-power generators, conductors by brute force): on 40 random instances (Q∈{3,4,5,7,8}, 1–3 moduli
+d_i ≤ 39, random real c_i, N ≤ 700) every assertion holds: coefficient identity, conductor support
+`cond χ_D | d_i`, `cond χ ≤ Z`, `|c(χ)| ≤ E_D|B|/φ(Q)`, `c(χ_0)=μ/φ(Q)`, injectivity of χ↦χ* on the
+support, `μ_ψ(PO) = φ(Q)c(χ)` for real χ with nontrivial χ_D, `#supp ≤ Z²`.
+
+**Verdict: SOUND.**
+
+## 3. Case 0 and the final inequality (the crux)
+
+The key point is correct: (G) bounds the **sum** of `|ϑ(x;χ)−E_0x|` over **all** primitive χ of
+conductor `≤ Q_G` (about `Q_G²` of them), so after pulling out `max|c(χ)| ≤ Aμ/φ(Q)` the number of
+supported characters never multiplies the zero-density error; it enters only `R_1` (trivial
+`log(QD)` per character), which is polynomial in Z and absorbed by `x ≥ Z^{C_2}`. This is exactly
+Linnik's theorem with weights; no `max_y` is needed (only the single x is used).
+
+Constants re-checked by hand: `C_G A e^{−L} = e^{−2c}A/(400(A+1)) < 1/400`;
+`C_G A(κL)²/Q_G ≤ A/(10^4(A+1)) < 1/400`; sum `< 1/200` ✓. Side conditions: `κL ≥ 3·2c ≥ 6c` gives
+`Q_G^{6c} ≤ x` ✓; `Q_G ≥ Z ≥ Q ≥ 2` ✓; `A ≥ 1` automatically (|B|≥B), so `1+log A ≥ 1`.
+`A ≤ Z^{1/4}` is genuinely needed (else `Q_G ≥ C_G A` fails for `log A ≫ log Z`) and is assumed.
+
+From-scratch check `scripts/review_o9a_params.py`: with `L=2c+log(400C_G(A+1))`,
+`log Q_G=log x/(κL)`, `log x=C_2(1+log A)log Z`, it computes the least C_2 meeting every side
+condition (incl. the Case-A `R_1` condition with Page, see m4) and verifies both error ratios
+(`≤1/200`, `≤1/100`), over a grid `2 ≤ Z ≤ e^{700}`, `1 ≤ A ≤ Z^{1/4}`. The required C_2 is bounded
+uniformly in (A,Z) (e.g. 617 for C_G=1,c=1,κ=3,c_2=1; 1.2·10^5 for C_G=10^9,c=5,κ=50,c_2=10^6), i.e.
+C_2 depends only on (C_G, c, κ, c_2): **absolute**, as claimed. No constant secretly depends on Z,
+A, the number of cells, M_1 or K.
+
+**Verdict: SOUND.**
