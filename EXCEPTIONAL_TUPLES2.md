@@ -438,8 +438,9 @@ block-sparse families.
 
 **Proposition 7.1 (PROVED, by K2 Thm 5.1's proof with one change).** Let
 𝔊 be a K2 family (Def 2.0 there) with all moduli `≤ N^A`, such that every
-modulus has at most r prime factors in each K2 block
-`V_i = (e^{2^i s₁}, e^{2^{i+1}s₁}]` (K2 §5). Let ν be a majorant of
+modulus has at most r prime factors in each dyadic block
+`V_i = (e^{2^i s₁}, e^{2^{i+1}s₁}]`, i ≥ 0, up to `N^A` (K2 §5's blocks,
+continued past `e^{λ₀/2}`). Let ν be a majorant of
 `𝒜(𝔊)` each of whose terms has level `≤ λ₀ := A log N` or is an
 intersection of at most k classes of 𝔊. Then
 
