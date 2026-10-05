@@ -53,9 +53,11 @@ n₀ ± je, j ≥ 1, and n₀ + e ≥ CN + 2, n₀ − e ≤ N − CN − 1. ∎
 So in RSPW, points of Z are constrained only by sparse classes (≤ K) and
 (P1); in particular **SPW1 Lemma 9.3 (σ ≤ 2/5) disappears once K ≥ 3/2**
 (its 5 lifts include 2 sparse ones). SPW1 Thm 3.2's Fejér argument still
-applies: with ρ_e ≤ K off W, T(x_in) ≤ −η + (K+1)e/(2(M+1)r), and the same
-optimisation gives `η ≲ √(K/M)`, i.e. **K ≳ η²·log N** is forced
-(PROVED, same proof). This is harmless for Lemma 1.1 (σ = η/(2K) ≍ 1/log N
+applies: with ρ_e ≤ K off W, T(x_in) ≤ −η + (K+1)e/(2(M+1)r); and instead
+of |T| ≤ 1 use |T̂(k)| ≤ Σρ_e + N = 2N, so T (degree < m₀) has
+‖T‖_∞ ≤ 4m₀N/e and ‖T′‖_∞ ≤ 8πm₀²N/e², independent of K. Optimising r
+gives `η ≲ m₀√(K/M)`, i.e. **K ≳ η²·log N/m₀²** is forced (PROVED, same
+proof with these two changes). This is harmless for Lemma 1.1 (σ = η/(2K) ≍ 1/log N
 if η fixed).
 
 **Lemma 2.3 (near zone alone cannot work for N > 40; PROVED).** If R − λ_N
