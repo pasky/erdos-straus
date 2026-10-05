@@ -113,3 +113,40 @@ The G-maximisers are always a single event whose fixed values have
 vanishing probability (`G=1−π(2−∏_v(λ−(λ−1)p_v))↑1`), i.e. C-1 is tight only
 in this degenerate limit, as the document says. Excesses of order 1e−15
 are float rounding. **No violation of C-1 or Cor 4.1 found.**
+
+## 3. Consistency with lower bounds; sharpness of the rate (own analysis)
+
+**3.1 The exponential rate `2^{−1/k}` of Cor 4.1 is SHARP over general
+product spaces** (stronger than the document's "tail rate not claimed
+sharp"). Family: m disjoint width-k events, each fixing values of
+probability p (q-ary uniform with p=1/q, or p-biased bits). With
+`π=p^k`, `F=∏(1−A_i)` and the block polynomial
+`B(z)=(1−π)²+π²((1+z(1−p)/p)^k−1)`, the level generating function is
+`B(z)^m`. As `p→0` with `S:=mπ` fixed, the top component of a block has
+mass `π(1−p)^k≈π` and lower components `O(πkp)`, so the number J of
+"active" blocks is ≈ `Po(S)` tilted by `e^{−S}`, degree = kJ, and
+`energy(F; jk−1)·2^{j} ≈ Σ_{i≥j}2^{j−i}P(Po(2S)=i)·… → max_S ≈ 2/√(2πj)`.
+Exact computation (`review_o10b_sharp.py`, float; one cancellation-affected
+cell rechecked with 60-digit mpmath in `review_o10b_sharp_mp.py`; output
+`reviews/agent-reports/r38b_sharp.txt`): `max_m energy(t)·2^{(t+1)/k}` at
+`t=jk−1`, p=10⁻³: k=1: 0.407, 0.296, 0.224, 0.166, 0.135 for j=2,5,10,20,30;
+k=3, j=30: 0.131; times `√(2πj)` it tends to ≈1.8–1.9 (→2). So
+`sup energy(t)·2^{(t+1)/k} ≍ (t/k)^{−1/2}` along this family: the base
+`2^{1/k}` cannot be improved, only a `√(t/k)` factor could be gained.
+Cor 4.1 is consistent with (and almost matched by) this lower bound.
+
+**3.2 Uniform Boolean cube.** There the rate is not attained: for p=1/2
+(tribes-like disjoint ANDs) the normalised tail decays (k=1, j=30: 0.0000;
+x√(2πj)→0). The best Boolean family found is OR of s disjoint k-parities
+(`F=∏(1+χ_{B_i})/2`): `energy(jk−1)=Σ_{i≥j}C(s,i)4^{−s}`, maximised over s at
+`≍3^{−j}` (`Σ_sC(s,j)4^{−s}=(4/3)3^{−j}`). So on `{±1}^n` uniform the truth
+for width-k DNFs lies between rates `3^{−t/k}` (this example) and `2^{−t/k}`
+(Cor 4.1): ε-concentration degree between `k·log₃(1/ε)` and `k·log₂(4/ε)`.
+The hill climbs (§2.3) never beat the parity family. Nothing here
+contradicts any known Boolean lower bound that I know of (LMN/Mansour-type
+upper bounds `O(w log 1/ε)` are of course consistent).
+
+**3.3 Corollaries as sanity checks.** From `G_F(2^{1/k})≤1` and `Σ_U‖F^{=U}‖²=E F`:
+`Σ_U(2^{|U|/k}−1)‖F^{=U}‖² ≤ P(h)`, hence for ±1 `g`: total influence
+`I[g] ≤ (4k/ln 2)·P(h) ≈ 5.77k·P(h)` — consistent with (weaker than) the
+known `I ≤ 2w` for width-w DNFs (Boppana; from memory). Tribes: `I≈w ln2`.
