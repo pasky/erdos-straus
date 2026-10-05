@@ -140,3 +140,121 @@ another prime of M, so `≤ 2/(q−1)²` for q≥3. Summing: `≤ Σ_q 2/(q−1)
 So the single-prime bound `Φ ≫ 𝓛²` of OMEGA8 Prop 6.6 is the limit of
 "independent/negatively correlated subfamily" arguments; going beyond it
 needs the positive-correlation bookkeeping of Theorem 1.4.
+
+## 2. Lower bound: `Φ(T) ≫ 𝓛³/log𝓛` (PROVED modulo the sieve fundamental lemma)
+
+**Theorem 2.1.** There are absolute constants `c>0`, `T_0` such that for
+`T ≥ T_0`
+
+```
+log(1/δ*(T)) ≥ c·𝓛³/log𝓛.
+```
+
+So the Haar exponent satisfies `a ≥ 3` (if it exists; in any case
+`liminf log Φ/log𝓛 ≥ 3`). The only external input is the fundamental lemma
+of sieve theory (e.g. Friedlander–Iwaniec, *Opera de Cribro*, Lemma 6.3 /
+Cor. 6.10; Halberstam–Richert Thm 2.5), used for a lower bound on rough
+numbers in progressions to small moduli. No Bombieri–Vinogradov or
+Elsholtz–Tao input is used.
+
+**The family.** Put `y := 𝓛^5`, `N_0 := 𝓛²`, and write `D* := ∏ p^{⌈v_p(D)/2⌉}`
+(so `D | A² ⟺ D* | A`; every integer D is uniquely `D = κt²`, κ squarefree,
+and `D* = κt`; for given `n` there are exactly `2^{ω(n)}` integers with
+`D* = n`). Let
+
+```
+𝓕 := { E_{M,D} :  √T ≤ M ≤ T,  M squarefree, all prime factors of M > y,
+                  M ≡ 3 (4),  n := D* ∈ [N_0, T^{1/10}],  n | A_M }.
+```
+
+Facts used repeatedly:
+* (F1) `D ≤ n² ≤ T^{1/5} < M/4`, so different D give different residues
+  `−4D mod M`: the listed events are distinct, and
+  `P(E_{M,D}) = 1/φ(M)`.
+* (F2) for y-rough squarefree `m ≤ T`, `ω(m) ≤ 𝓛/log y` and
+  `φ(m) ≥ m(1−𝓛/(y log y)) ≥ m/2`.
+* (F3) `Σ_{n≤x}2^{ω(n)}/n ≤ (1+log x)²`, `Σ_{n≤x}2^{ω(n)} ≤ x(1+log x)`,
+  `Σ_{n>x}2^{ω(n)}/n² ≪ (1+log x)/x`.
+* (F4) for an AP `v ≡ c (mod d)` in `[v_0, V]` with least element `v_1 ≥ v_0`:
+  `Σ 1/v ≤ 1/v_1 + log(V/v_0)/d`.
+* (F5) for `m ≥ 1` and `0<α≤1` with `ω(m)y^{−α} ≤ 1`:
+  `Σ_{g|m, g>1, g y-rough squarefree} g^{−α} ≤ (1+y^{−α})^{ω(m)}−1 ≤ 2ω(m)y^{−α}`.
+
+**Lemma 2.2 (the mass; PROVED mod fundamental lemma).** `μ := Σ_{E∈𝓕}P(E) ≥ c_1𝓛³/log y`.
+
+*Proof.* By (F1), `μ ≥ Σ_{N_0≤n≤T^{1/10}} 2^{ω(n)} Σ_{M} 1/M`, M over
+y-rough squarefree `M∈[√T,T]` with `M ≡ −1 (mod 4n)` (this implies
+`M≡3 (4)` and `n | A_M`; primes dividing 2n never divide M). For a dyadic
+block `(X,2X] ⊂ [√T,T]`, sift the progression (length `X/(4n) ≥ X^{4/5}/4`)
+by the primes `p<y`, `p∤2n`, with sifting level `X^{1/2}` and
+`s = log X/(2log y) ≥ 𝓛/(20 log𝓛) → ∞`: the fundamental lemma gives at
+least `(X/4n)∏_{p<y}(1−1/p)(1−O(e^{−s})) − O(X^{1/2}) ≥ c_2X/(n log y)`
+y-rough elements. Non-squarefree ones (divisible by `p²`, `p≥y`) number
+`≤ Σ_{y≤p≤√(2X)}(X/(4np²)+1) ≤ X/(4ny) + √(2X)`, negligible since
+`n ≤ X^{1/5}`. So each block contributes `≥ c_2/(4n log y)`, there are
+`≥ 𝓛/(2log2) − 1` blocks, and
+`Σ_{N_0≤n≤T^{1/10}} 2^{ω(n)}/n ≥ (3/π²−o(1))(𝓛/10)²` (the range `n<N_0`
+removes only `O((log𝓛)²)`). ∎
+
+**Lemma 2.3 (local-lemma hypothesis; PROVED).** For `T ≥ T_0` every
+`E∈𝓕` has `P(E) ≤ 1/8` and `Σ_{E'∈Γ(E)}P(E') ≤ 1/8`. Hence Theorem 1.4
+applies to 𝓕 with `x_E=2P(E)`, `K ≤ e^{1/3}`.
+
+*Proof.* `P(E) ≤ 2/√T`. Let `w_q := Σ_{E'∈𝓕: q|M'}P(E')`; events
+conflicting with E share a prime `q | M`, so
+`Σ_{Γ(E)}P ≤ Σ_{q|M}w_q ≤ (𝓛/log y)·max_{q>y}w_q`. Writing `M'=qv`,
+`qv ≡ −1 (4n')`, `qv ≥ √T`, (F2) and (F4) give
+`w_q ≤ (2/q)Σ_{D'}(𝓛/(4n') + min(1,q/√T))`. The first part is
+`≤ 𝓛³/(2q)` by (F3); the second is `≤ (2/q)min(1,q/√T)·T^{1/10}(1+𝓛) ≤ 4𝓛T^{−2/5}`.
+So `Σ_{Γ(E)}P ≤ (𝓛/log y)(𝓛³/(2y) + 4𝓛T^{−2/5}) = O(1/(𝓛 log𝓛))`. ∎
+
+**Lemma 2.4 (the pair sum; PROVED).** `Δ := Σ_{bit-sharing pairs}P(E∩E') ≤ C𝓛²`.
+
+*Proof.* Let `E=E_{M,D}`, `E'=E_{M',D'}` be distinct and share a bit; put
+`g := gcd(M,M') > 1`, `M=gv`, `M'=gv'` (`gcd(v,v')=1`, g is y-rough so
+`g>y`). Compatibility on every prime of g means `g | D−D'`. Also
+`M ≠ M'` (if `M=M'` then `M | D−D'`, and E = E' by (F1)). By (F2),
+`P(E∩E') = 1/(φ(g)φ(v)φ(v')) ≤ 8/(gvv')`. For fixed g and D the admissible
+v satisfy `gv ≡ −1 (mod 4n)` and `gv ≥ √T`, so by (F4)
+
+```
+σ(g,n) := Σ_v 1/v ≤ 𝓛/(4n) + min(1, g/√T).                         (2.1)
+```
+
+*(a) D = D'.* Then `v ≠ v'`, and `v ≡ v' ≡ −g^{−1} (mod 4n)`. Sum over g
+first: for fixed `(v,n)`, g runs over a progression mod 4n with `g > y`,
+so `Σ_g 1/g ≤ 1/y + 𝓛/(4n)`. Then, ordering `v<v'`,
+`Σ_{v<v', v'≡v (4n)} 1/(vv') ≤ Σ_{v≤T}(1/v)(1+𝓛)/(4n) ≤ (1+𝓛)²/(4n)`.
+Hence
+
+```
+Δ_a ≤ 16 Σ_{n≥N_0} 2^{ω(n)} (1/y + 𝓛/(4n))(1+𝓛)²/(4n) ≪ 𝓛^4/y + 𝓛³ log N_0/N_0 ≪ 𝓛 log𝓛.
+```
+
+*(b) D ≠ D'.* Now `g | m := |D−D'|`, `0 < m < T^{1/5}`, so `g < T^{1/5}`
+and (2.1) gives `σ(g,n) ≤ 𝓛/(4n) + T^{−3/10}`. Summing over g with (F5)
+(`α=1`, `ω(m) ≤ 𝓛`):
+
+```
+Δ_b ≤ Σ_{D≠D'} Σ_{g|m} (8/g) (𝓛/(4n) + T^{−3/10})(𝓛/(4n') + T^{−3/10})
+    ≤ (2𝓛/y)·[ (𝓛²/2)(Σ_D 1/n)² + 4T^{−3/10}𝓛·#𝓓·Σ_D1/n + 8T^{−3/5}(#𝓓)² ],
+```
+
+where 𝓓 is the set of D with `D* ≤ T^{1/10}`: `Σ_D 1/n ≤ 𝓛²`,
+`#𝓓 ≤ T^{1/10}(1+𝓛)` by (F3). So `Δ_b ≤ 𝓛^7/y + O(T^{−1/10}𝓛^5) ≪ 𝓛²`. ∎
+
+*Proof of Theorem 2.1.* All events of 𝓕 involve only primes `> y > 3`, so
+they are independent of `n mod 24`, and `δ*(T) ≤ P(Av(𝓕))`. Theorem 1.4
+with Lemmas 2.2–2.4: `Φ ≥ μ − e^{1/3}Δ ≥ c_1𝓛³/(5log𝓛) − C𝓛² ≫ 𝓛³/log𝓛`. ∎
+
+*Remarks.* (i) The restriction `M ≥ √T ≥ (D*)^5` is what makes the
+progression "first terms" in (2.1) harmless; the restriction `D* ≥ 𝓛²`
+removes the small-D hubs (`D=1`: residue −4 at every prime), whose same-D
+pairs would otherwise make `Δ_a ≍ μ`. (ii) The `log𝓛` loss is the price of
+`y`-roughness (`Σ_{M y-rough}1/M ≍ 𝓛/log y`); y must exceed the per-prime
+loads `w_q ≈ 𝓛³/q` for the local lemma, and `y ≥ 𝓛^{4+ε}` is needed for
+`Δ_b`'s crude count (an averaged count would allow `y ≈ 𝓛^{3+ε}`; the loss
+stays `≍ log𝓛`). (iii) The statement is Haar-only; it is a lower bound on
+`log(1/δ*)`, i.e. it says the profinite avoider set is *small*.
+(iv) Asymptotic only: at `T ≤ 10^7` one has `T^{1/10} < N_0`, so 𝓕 is
+empty; no conflict with the measured `Φ(65535) ≈ 38`.
