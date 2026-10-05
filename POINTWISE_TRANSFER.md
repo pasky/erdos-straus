@@ -379,12 +379,12 @@ iff `m/p` has no solution with exactly two denominators divisible by `p` and
 `D ≡ −A (q^a)` and `A²/D ≡ −A`, so `q^a | m·A²/D + 1`; symmetric. ∎
 (`scripts/transfer_mn.py`.)
 
-**Corollary 5.2 (proved modulo G+H and ET Prop 1.4 with `κ = m`).** For each
+**Corollary 5.2 (proved modulo G+H and ET Prop 1.4 — stated in ET for general `k ≪ (AB)^{O(1)}`, used with `k = m`).** For each
 fixed `m ≥ 4` there is `c_m > 0` such that for every large `T` there is a
 prime `p ≡ 1 (mod lcm(1..⌊(log T)²⌋))` with `p > T`, `W_m(p) > T` and
 `log p ≤ C_m (log T)^7`. Hence `W_m(p) ≥ exp(c_m(log p)^{1/7})` for infinitely
 many primes `p`. Without ET Prop 1.4: `log W_m(p) ≥ (1/log2 − o(1))
-log log p·log log log p` i.o. (proved modulo G+H).
+log log p·log log log p` i.o. (proved modulo G+H). By Lemma 5.0, `W_m(p) > T` means: every solution of `m/p` with exactly two denominators divisible by `p` has `m·uvw − 1 > T` in the coordinates of (5.1).
 
 *Proof.* Repeat [SN] §2 with `4 ↦ m`, `M ≡ 3 (4) ↦ M ≡ −1 (m)`:
 atoms `(M,D)`, survival `m_Π | mD+1`, events `n ≡ −mD (mod r_Π)` (unit
@@ -404,9 +404,9 @@ Reduction (`lem:system`(iv)) uses Lemma 5.1(i),(ii) in place of
 
 *Remarks.* (a) For `m = 4` this is [SN] Thm 1 (the hard-prime condition
 `p ≡ 1 (840)` is automatic as `840 | lcm(1..ℒ²)`). (b) The only `m`-specific
-inputs are Lemma 5.1 and the `κ = m` case of ET Prop 1.4; the `log(1+κ)` factor
+inputs are Lemma 5.1 and ET Prop 1.4 (general `k`, used with `k = m`; nothing beyond ET is assumed); the `log(1+κ)` factor
 affects the `m`-dependence of the constants, which we do not track. (c) As for
-`m = 4`, this is an Ω-result for *one explicit family*; it says nothing about
+`m = 4`, this is an Ω-result for the Type II solutions (all of them, by Lemma 5.0); it says nothing about Type I or other solutions or about
 solvability of `m/p` (other representations may exist). The heuristic
 truth for `m = 4` is `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7); we have not
 redone that heuristic for general `m`.
@@ -519,7 +519,7 @@ ulimit -v 8000000; PYTHONPATH=scripts timeout 600 uv run --with numpy python scr
 
 * Theorem 1.1, Corollary 1.3, Corollaries 5.2–5.4: **PROVED modulo G+H**
   (Gallagher's theorem as quoted from the MV3 draft with Landau–Page, and
-  Håstad's switching lemma); Cor. 5.2 also modulo ET Prop 1.4 (`κ = m`), its
+  Håstad's switching lemma); Cor. 5.2 also modulo ET Prop 1.4 (stated there for general `k`; used with `k = m`), its
   weaker version without. All proofs are re-assemblies of [SN] lemmas; the
   new content is the abstraction (arbitrary events; atoms only inside the
   sandwich; general target class; any density lower bound; Haar criterion
