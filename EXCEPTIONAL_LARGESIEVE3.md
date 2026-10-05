@@ -132,8 +132,13 @@ can only be hit by `y_ℓ ∈ F_ℓ`. *Density.* Given the past, `y_ℓ` is
 uniform on `ℤ/ℓ^{E_ℓ}∖F_ℓ` (light) or on `ℤ/ℓ^{E_ℓ}` (heavy), so each
 step has conditional probability `≤ ℓ^{−E_ℓ}(1−p_ℓ)^{−1}`, and on G,
 `Π(1−p_ℓ)^{−1} ≤ e^{2Σp_ℓ} ≤ e^{16𝔐(z)}` (`p ≤ 1/2`). The base has
-density `Q_W/|R_W^□| ≤ e^{2W₁}` (K2 Lemma 2.3(2)). Conditioning on an
-event of probability `≥ 1/2` at most doubles the density. ∎
+density `Q₀/|R_W^□| ≤ e^{2W₁}` (K2 Lemma 2.3(2); `Q₀` is K2's base
+modulus, the lcm of `8P_W` and the W-smooth parts of the moduli).
+Conditioning on an event of probability `≥ 1/2` at most doubles the
+density. (Review R59 D6(a): `Q₀` need not divide `M_s` because of the
+factor `8P_W`; either replace `M_s` by `lcm(M_s, Q₀)` throughout, which
+changes nothing in Theorem 1.1, or take `π_s` to be the marginal on
+`ℤ/M_s` — marginalisation does not increase the maximal density.) ∎
 
 ## 3. Rough-slice mixtures: every large sieve is capped
 
