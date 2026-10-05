@@ -56,7 +56,7 @@ def main():
     eps, K, theta = float(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3])
     one = "--one" in sys.argv
     CAP = None
-    METHOD = "highs-ds" if "--ds" in sys.argv else "highs"
+    METHOD = "highs-ds" if "--ds" in sys.argv else ("highs-ipm" if "--ipm" in sys.argv else "highs")
     for a in sys.argv:
         if a.startswith("--cap="):
             CAP = float(a[6:])          # nu <= CAP*mu (2 = 'bounded fake', Lemma 3.6)
@@ -110,7 +110,15 @@ def main():
     vis = [v for v, k in zip(vis, keep) if k]
     As = sp.diags(1.0 / rho) @ A @ sp.diags(mu)
     cs = c * mu
-    res = linprog(cs, A_eq=As, b_eq=np.ones(len(vis)), bounds=(0, CAP), method=METHOD,
+    bnds = [(0, CAP)] * len(configs)
+    for a in sys.argv:
+        if a.startswith("--swcap="):     # switching model: nu <= Ksw*mu on configs with a point >= alpha
+            Ksw, alpha = map(float, a[8:].split(":"))
+            for j, C in enumerate(configs):
+                mx = max([g[k] for m in C for k in range(K) if m[k] > 0], default=0.0)
+                if mx >= alpha:
+                    bnds[j] = (0, Ksw if CAP is None else min(Ksw, CAP))
+    res = linprog(cs, A_eq=As, b_eq=np.ones(len(vis)), bounds=bnds, method=METHOD,
                   options={"primal_feasibility_tolerance": 1e-10, "dual_feasibility_tolerance": 1e-10})
     nu = res.x * mu if res.status == 0 else None
     resid = float(np.max(np.abs(As @ res.x - 1.0))) if res.status == 0 else None

@@ -350,3 +350,39 @@ windows clean** (discrete model; EVIDENCE, LP residual ≤10⁻⁶). The thresho
 C*∈(3,3.5) on this grid. "Bounded-weight subsequence of primes" is therefore not
 enough information. The useful primality information must be *structural*:
 it is the switched sieve (§6.2), not a size bound.
+
+*Numerical robustness note.* `window2_lp.py` passes HiGHS rescaled entries
+`emb·μ(C)/ρ(S)`, and some of these fall below HiGHS's `small_matrix_value`, so they are silently
+dropped. `window2_feas.py` now normalises columns. With `--bisect` it finds the minimal
+`ν(∅)/τ` at which an L∞ relative residual ≤10⁻⁹ is attainable. It re-confirms every number above:
+one window 0.744 (θ=.5) and 0.828 (θ=.6); two windows 0 (θ=.5), **0 (θ=.6, now with
+residual ≤10⁻⁹)**, 0.497 (θ=.7); cap=2: 0.373; cap≥3.5: 0. The unbounded θ=0.5 fake
+is now found directly with residual 1.3·10⁻¹⁵.
+
+### 6.2 Switching as configuration caps
+W1's `T_2` and W2's `T^{(q)}` bound configurations with a large prime r by sifting
+r (and `p=ar−q`) *as primes*. In the model, this is an upper bound `ν(C)≤K·μ(C)` on
+configurations C that have a point (prime factor) of size `≥x^α`. K is the
+constant of the switched upper-bound sieve; K=1 would be a perfect upper bound.
+`window2_feas.py 0.1 8 0.5 --swcap=K:α --bisect` gives min ν(∅)/τ:
+
+| α \ K | 1 | 2 | 3 |
+|---|---|---|---|
+| 0.6 | 0.459 | 0.111 | 0 |
+| 0.45 | 0.801 | 0.173 | 0 |
+| 0.3 | 0.965 | 0.250 | 0 |
+
+**So positivity at θ=1/2 does come back in the model once primality enters as a
+switched upper bound, but only if that bound is within a factor ≈2–3 of the truth
+on large-prime configurations** (EVIDENCE, coarse grid, uncertified bracket
+width 2.4·10⁻⁴). For comparison, the simplest switched problem is a prime-pair count
+`#{r: ar−q prime}` (dimension 2, level `y^{1/2}`). Its best known upper constant is about
+3.4 times the Hardy–Littlewood value (Chen/Wu-type twin-prime constants, recalled, not
+re-checked), which is just on the wrong side of K≈3. The switched problems here
+also carry the other window's half-dimensional condition, and a *configuration*
+(not just a sifting) condition on the remaining factors. **Assessment:** an
+unconditional two-window proof along "Type-I at BV + parity + switching" needs
+switched upper bounds that are sharper than current twin-prime technology,
+uniformly over configurations. This is a quantitative, not a qualitative,
+barrier in the model. The caps here act on bins of a coarse grid, so the
+thresholds K≈2–3 are indicative only.
