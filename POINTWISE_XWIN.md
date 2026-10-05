@@ -184,3 +184,77 @@ such a subgroup), so the base `5/9` cannot be improved below `1/2` by any
 argument; the second moment loses only `log(10/9)` per prime factor.
 For `G=(Z/a)^×` (a odd) `t(G)=2^{ω(a)}`, `τ=−1`, `n=φ(a)`.
 
+### 2.2 The pattern-summed sieve
+
+Notation: `ℒ=log N`, `L=log log N`. Fix `0<θ<1` and `0<δ<(1−θ)/2`. Put
+
+```
+Z=ℒ^θ,  y=exp(ℒ^δ),  M=⌈6L⌉,  log y'=ℒ^{1−θ}/(100M),  z_0=N^{1/20},
+λ(u,v)=Σ_{u<ℓ≤v}1/ℓ,  λ=λ(y,y')=(1−θ−δ)L−log L−O(1).
+```
+
+**Input (SW).** Siegel–Walfisz plus partial summation: uniformly for
+`a≤ℒ^θ=(log y)^{θ/δ}`, `(c,a)=1` and `y≤u<v`,
+`Σ_{u<ℓ≤v, ℓ≡c (a)}1/ℓ ≤ (λ(u,v)+η)/φ(a)` with `η=ℒ·exp(−c_0ℒ^{δ/2})`.
+(Ineffective through Siegel–Walfisz; nothing else is ineffective.)
+
+**Theorem 2.2 (uniform pattern sieve; PROVED modulo SW and notes Lemma
+12.1).** For N large in terms of θ, δ, and every set A of integers
+`a≡3 (4)`, `a≤Z`,
+
+```
+#{N/2<p≤N prime, p≡1 (24): −1∉Rat_a((p+a)/4) ∀a∈A}
+   ≤ 2N·ℒ^{δ−1} · ∏_{a∈A} F_a,
+F_a = (1+o(1))·(3φ(a)e^{−2λ/3} + (9/4)2^{ω(a)}e^{−4λ/9}) + O((φ(a)+2^{ω(a)})ℒ^{−3}),
+```
+
+with o(1), O uniform in a and A.
+
+*Proof.* **Step 0 (patterns).** For a counted p and `a∈A`, let `R_a` be
+the set of the M smallest primes of `(y,y']` dividing `x_a` (all of them
+if there are fewer). Order `R_a` and take the tuple of classes mod a; it
+is *bad* in the sense of Lemma 2.1 (`G=(Z/a)^×`, `τ=−1`), because for
+`ε∈{−1,0,1}^{R_a}` the coprime `u=∏_{ε_r=1}r`, `v=∏_{ε_r=−1}r` have
+`uv|x_a`, so `Σ±⊆Rat_a(x_a)`. Put `m_a=y'` if `|R_a|<M` and
+`m_a=max R_a` if `|R_a|=M`. Then the event `R_a=R` is: `r|x_a` for
+`r∈R`, and `ℓ∤x_a` for primes `ℓ∈(y,m_a]∖R`.
+
+**Step 1 (one pattern vector).** Fix `(R_a)_{a∈A}`. If two `R_a` share a
+prime ℓ the count is 0 (`ℓ|a−a'`, but `ℓ>y>Z`). Otherwise put
+`Q=∏_a∏_{r∈R_a}r`; `log Q≤MJ log y'≤ℒ/100`. Write `p=24t+1`; t runs over
+X≍N/48 integers, and the conditions `r|x_a` put t in one class mod Q:
+`t=t_0+Qu`, u in an interval of `X/Q+O(1)≥N^{0.9}` integers. Sieve u
+by the primes `ℓ∈P=(y,z_0]∖∪_aR_a`, removing the class `p≡0` and, for each
+a with `ℓ≤m_a`, the class `p≡−a`. These classes are distinct (`ℓ>y>Z`),
+so `ν(ℓ)=1+#{a: ℓ≤m_a}≤J+1<ℓ`, and
+`Λ≤log z_0+(J+1)(log y'+O(1))≤ℒ/20+ℒ/50≤log(X/Q)/4`. Notes Lemma 12.1
+gives the bound `4(X/Q)(1+o(1))∏_{ℓ∈P}(1−ν(ℓ)/ℓ)`, and
+
+```
+Σ_{ℓ∈P}ν(ℓ)/ℓ ≥ λ(y,z_0)+Σ_a λ(y,m_a) − (J+1)Σ_{ℓ∈∪R_a}1/ℓ,
+```
+
+where the last sum is `≤(J+1)MJ/y=o(1)`. With
+`e^{−λ(y,z_0)}=(1+o(1))log y/log z_0=20(1+o(1))ℒ^{δ−1}`:
+
+```
+count ≤ 80(1+o(1))·(X/Q)·ℒ^{δ−1}·∏_a e^{−λ(y,m_a)}.
+```
+
+**Step 2 (sum over patterns).** Dropping disjointness, the sum over
+pattern vectors factorises: total `≤80(1+o(1))Xℒ^{δ−1}∏_aF_a` with
+`F_a=Σ_{R bad}e^{−λ(y,m_R)}/∏_{r∈R}r`, and `80X≤2N`.
+
+**Step 3 (one window).** Let `n=φ(a)`, `t=2^{ω(a)}`.
+* `|R|=k<M`. Bound the sum over k-sets by `1/k!` times the sum over
+  ordered k-tuples of primes whose class tuple is bad, and group the
+  tuples by class tuple. By (SW) each class contributes `≤(λ+η)/n`, so
+  this part is `≤e^{−λ}Σ_k(λ+η)^kρ_k/k! = e^{η}E ρ_K`, K Poisson of mean
+  `λ+η`. Lemma 2.1 gives `≤e^{η}(3ne^{−2λ/3}+(9/4)te^{−4λ/9})`.
+* `|R|=M`. Write `R=R'∪{m}`, `m=max R`. Badness is inherited by
+  `R'` (`Σ±(R')⊆Σ±(R)`), and `R'⊆(y,m)`. The same grouping gives
+  `≤Σ_{y<m≤y'}m^{−1}·e^{−λ(y,m)}(λ(y,m)+η)^{M−1}ρ_{M−1}/(M−1)!`
+  `≤e^{η}ρ_{M−1}(λ+o(1))`, since a Poisson probability is ≤1. With
+  `M=⌈6L⌉`, Lemma 2.1 gives `ρ_{M−1}≪nℒ^{−6.5}+tℒ^{−3.5}`, so this part
+  is `O((n+t)ℒ^{−3})`. ∎
+
