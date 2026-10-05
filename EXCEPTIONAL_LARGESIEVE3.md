@@ -189,10 +189,11 @@ fibre families** `𝔊_c` (`z = exp((log N)^{1/4})`, all primes `> z`), for
 Theorem 3.1 proves (H_rough) when every class has one rough prime (product
 measures). In the fibres the family is **sparse in the strongest sense
 available**: by (Q4) and K2 §3, the expected activated mass at a rough
-prime ℓ (top-prime order) is `≤ 𝔐'(ℓ) ≪ (log ℓ)²(log log ℓ)³/ℓ·log ℓ`
-summed per prime, and the mass of classes divisible by a rough `D` is
-`≤ D^{−1}(log N)^{O(1)}` (K2 Lemma 3.1 restricted to multiples of D —
-(Sp) of LS2 §8.2). The dense-bundle mechanism of LS2 Thm 8.5 is therefore
+prime ℓ (top-prime order) is at most the increment
+`Σ_{C: P(G_C)=ℓ}Γ(G_C)/G_C` of 𝔐 at ℓ (and `Σ_{ℓ>z}ℓ^{−α}·`increment
+`≪ α^{−3}(log 1/α)³`, as in Theorem 3.1), and the mass of classes divisible
+by a rough `D` is expected to be `≤ D^{−1}(log N)^{O(1)}` ((Sp) of LS2
+§8.2; Assessment, not needed below). The dense-bundle mechanism of LS2 Thm 8.5 is therefore
 absent; what is missing is a **correlation-decay** statement for a measure
 on `𝒜_c` at many rough primes simultaneously.
 
@@ -226,8 +227,9 @@ over b this is the mass at p, `≪ (log N)^{O(1)}/p`. But:
 **Lemma 4.2 (residue concentration; PROVED).** The class `−4 (mod M)`
 belongs to ℛ(M) for every `M ≡ 3 (mod 4)` (take `D = 1 | A_M²`). Hence for
 the family `{−4 mod pM' : M' ≤ X, pM' ≡ 3 (4), M' z-rough}` and the residue
-`b ≡ −4 (mod p)`, `m*(p,b) = Σ_{M'}1/M' ≫ log X/log z`, which is
-`≫ (log N)^{3/4}` for `X = N^{A}`.
+`b ≡ −4 (mod p)`, `m*(p,b) = Σ_{M'}1/M' ≍ log X/log z` (Mertens over
+z-rough `M'`, half of them in the right class mod 4), which is
+`≍ A(log N)^{3/4}` for `X = N^{A}`.
 
 So a fibre family can be locally **dense at one residue** although sparse
 on average, and every proof must either average over residues or use the
