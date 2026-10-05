@@ -374,6 +374,69 @@ integral `∫ϑ(t)(1+log t)(t log t)^{−2}dt` gives `log(7/6)`, and the boundar
 `n∈𝒩_exc ⟺ q''|n`. It is used only through Lemma 4.4's class-uniform upper bound for multiples
 of `q''`, with `τ(q'')/q''≤𝓛^{−1.8}`.
 
+**Lemma 4.4 (the D's are class-uniform mod v; PROVED, elementary).** Put `L:=log X=ε𝓛`.
+For T large, every odd squarefree y-rough `v≤V`, and every unit class a mod v,
+
+```
+W(v,a) := Σ_{D: n_D∈[V,X]∖𝒩_exc, D≡a (v)} 1/φ(4n_D) ≥ L²/(200v).
+```
+
+*Proof.* Write `D=κt²` with κ squarefree, so `n_D=κt`; this is a bijection between D and such
+pairs. Keep only `t≤X^{1/6}` with `(t,v)=1` and `κ∈(K_1,K_2]`, where `K_1:=X^{2/3}` and `K_2:=X/t`.
+Then `n_D∈[V,X]`, and `D≡a (v)` means `κ≡b:=at^{−2} (v)`. Use `φ(4n)≤2n`.
+*Squarefree count.* For a unit `b mod v`,
+`N_b(K):=#{κ≤K squarefree, κ≡b (v)} = σ_vK/v + O(√K)` uniformly, with
+`σ_v=Σ_{(d,v)=1}μ(d)/d²≥6/π²`. To see this, write `μ²(κ)=Σ_{d²|κ}μ(d)`; if `p|(d,v)` the count
+is empty, otherwise `#{m≤K/d²: md²≡b (v)}=K/(d²v)+O(1)`; the tail `d>√K` costs `≤√K/v`.
+Partial summation gives
+`Σ_{κ∈(K_1,K_2], κ≡b}1/κ ≥ (σ_v/v)log(X^{1/3}/t) − O(K_1^{−1/2})`.
+*Sum over t.* For y-rough v,
+`Σ_{t≤X^{1/6},(t,v)=1}(1/t)log(X^{1/3}/t) ≥ L²/24 − (ω(v)/y)·O(L²) − O(L) ≥ L²/48`.
+So the D's with `n_D∉𝒩_exc` not yet removed contribute `≥(1/2)(6/π²)L²/(48v) − O(LX^{−1/3})`.
+*Removing 𝒩_exc* (only if `q_1>𝓛^{1.9}`). Here `q''|κt`, so `q''/(q'',t)` divides κ. Together
+with `κ≡b (v)` this is one class mod `v·q''/(q'',t)` (or empty), and HAAR (F4) bounds the
+`1/κ`-sum by `1/K_1+(q'',t)log(X^{1/3})/(vq'')`. Since `Σ_{t≤X}(q'',t)/t≤τ(q'')(1+L)`,
+the removed weight is `≤L²τ(q'')/(vq'')+O(LX^{−2/3}) ≤ 4L²𝓛^{−1.8}/v`.
+Collecting, `W(v,a)≥L²/v·(6/(96π²)−o(1)) ≥ L²/(200v)`, using `X^{−1/3}≤1/v`. ∎
+
+**Theorem 4.5 (no positive low-level minorant; PROVED modulo (G), the effective Page bound and
+the fundamental lemma).** There are absolute `c,ε>0` such that, for T large, the following holds
+for every modulus Q with `log Q≤T^{0.05}` and every unit class r.
+Let B be any function on the fibre `n≡r (Q)` of level `≤D` (Setting 2.0), with `B≤F` pointwise and
+`log D≤c𝓛^4/log𝓛`. Then
+
+```
+E_{fibre} B ≤ 0 .
+```
+
+*Proof.* *Setting.* Small coordinates: everything except the `X_ℓ` with ℓ prime,
+`ℓ>T^{0.6}`, `ℓ∤Q`; the coordinates fixed by the fibre are constants among the small ones.
+The family is `𝓕*` minus the events whose ℓ divides Q. Each event has exactly one big
+coordinate, and `p*≤T^{−0.09}` (Lemma 2.1; the family is smaller).
+*Uniform lower bound for R.* Fix any small configuration x, with x a unit. By Lemma 4.2,
+`R(x)≥Σ_ℓp_ℓ(x)≥Σ_vΣ_{D≡−x/4 (v), n_D∉𝒩_exc}c(v,n_D) − Σ_{ℓ|Q, ℓ>T^{0.6}}p*`.
+For `D≡−x/4 (v)`, D is a unit mod v, so `gcd(v,2n_D)=1`. Lemmas 4.3–4.4 then give
+`R(x) ≥ 0.13·(L²/200)·Σ_{v≤V y-rough sqfree}1/v − (log Q)T^{−0.09} ≥ μ* := c_9ε³𝓛³/log𝓛`.
+For the v-sum, the fundamental lemma gives `≥c_3log V/log y` (as in Lemma 2.2).
+*Conclusion.* `k:=⌊log D/(0.6𝓛)⌋`, so `(k+1)+(2k+1)r*≤(k+1)(1+4p*)≤μ*` if `c≤0.3c_9ε³`.
+Lemma 4.1 gives `E B≤0`. ∎
+
+**Corollary 4.6 (the 1/4 ceiling of minorant transfers; PROVED implication).**
+* *Who is affected.* Any certificate of a Mordell-hard prime with `W(p)>T` that uses a Haar
+  minorant B≤F with `E B>0` on a fibre (`log Q≤T^{0.05}`) of level Z. This includes O8/O9 Thm 1.1
+  and O13 Thm 5.1 (BRW, Selberg, Bonferroni, sparse or dense, any A).
+* *The bound.* Such a certificate must have `log Z≥c𝓛^4/log𝓛`. O9 Thm 1.1 needs
+  `log x≫(1+log A)log Z≥log Z`.
+* *Consequence.* No such argument proves `W(p)≥exp((log p)^{1/4+δ})` for any `δ>0`, or even
+  `W(p)≥exp(C(log p)^{1/4}(log log p)^{1/4})` with C large. O13 Thm 5.1 (`(log p)^{1/4}(log log p)^{−1/4}`)
+  is optimal for this architecture up to a factor `(log log p)^{1/2}` in the exponent's argument.
+* *What it does not cover.* Arguments using information about primes other than their
+  distribution against a low-conductor minorant of F, e.g. bilinear/Type II sums, or
+  majorant/parity-sensitive mixtures.
+
+This supersedes Prop 2.7's open loophole. "1/4 is the ceiling of minorant-based transfers" is
+now a theorem (modulo (G)), not an Assessment.
+
 ## Replay
 
 ```
