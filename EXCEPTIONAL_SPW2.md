@@ -37,3 +37,49 @@ So the target is: **a measure with exact small-modulus window profile in
 which every full large class loses a fraction η_N, with sparse large classes
 allowed mass K_N, and log(K_N/η_N) = O((log N)^{3/4})** (weak SPW). SPW1
 Thm 3.2 forces η_N/K_N ≲ (log N)^{−1/2}, harmless.
+
+## 2. The relaxed problem RSPW and first numerics
+
+**Definition 2.1.** RSPW(C, η, K) at N: R ≥ 0 on ℤ with (P1), `R(s) ≤ 1 − η`
+on every class of modulus > CN meeting [1,N] ("full"), `R(s) ≤ K` on every
+class of modulus > CN missing [1,N] ("sparse"). (Medium classes: measured,
+not imposed; Lemma 1.1 only needs Δ′ ≤ K·e^{O((log N)^{3/4})}.)
+By Lemma 1.1, RSPW with η fixed and K ≤ e^{O((log N)^{3/4})} gives the cap.
+
+**Lemma 2.2 (the near zone is invisible; PROVED).** A class of modulus
+e > CN through n₀ ∈ [1,N] contains no point of the *near zone*
+`Z := [N − CN, 0] ∪ [N+1, CN+1]` (C ≥ 1). *Proof.* Its other points are
+n₀ ± je, j ≥ 1, and n₀ + e ≥ CN + 2, n₀ − e ≤ N − CN − 1. ∎
+So in RSPW, points of Z are constrained only by sparse classes (≤ K) and
+(P1); in particular **SPW1 Lemma 9.3 (σ ≤ 2/5) disappears once K ≥ 3/2**
+(its 5 lifts include 2 sparse ones). SPW1 Thm 3.2's Fejér argument still
+applies: with ρ_e ≤ K off W, T(x_in) ≤ −η + (K+1)e/(2(M+1)r), and the same
+optimisation gives `η ≲ √(K/M)`, i.e. **K ≳ η²·log N** is forced
+(PROVED, same proof). This is harmless for Lemma 1.1 (σ = η/(2K) ≍ 1/log N
+if η fixed).
+
+**Lemma 2.3 (near zone alone cannot work for N > 40; PROVED).** If R − λ_N
+is supported in an interval of length ℓ, then either R = λ_N or
+ℓ > Φ(D) := Σ_{d≤D} φ(d) (≈ 0.304 D²). *Proof.* f = R − λ_N has zero class
+sums mod every d ≤ D iff F(z) = Σ f(x)z^x vanishes at every root of unity of
+order ≤ D, i.e. ∏_{d≤D}Φ_d(z) | F(z) (Laurent), degree Φ(D). ∎
+(Φ(D) > 3N already for D ≥ 12–13.) So far mass (at distance ≫ CN) is
+unavoidable; it must be spread over the lines n₀ + eℤ.
+
+**Numerics (EVIDENCE; `scripts/spw2_relaxed_lp.py`, HiGHS, support
+[−L, N+L], C = 2, medium unconstrained).**
+
+| N | L | K | η | max sparse class | max medium dev |
+|---|---|---|---|---|---|
+| 12, 16 | 8N | ∞ | 1.000 (R = 0 on W, all mass in Z) | — | — |
+| 20 | 8N | ∞ | 0.955 | | |
+| 30 | 16N | ∞ / 1.5 | 0.861 / 0.860 | 1.73 / 1.50 | 2.58 / 2.36 |
+| 50 | 4N / 8N / 16N | ∞ | 0.482 / 0.675 / 0.755 | 1.60 (16N) | 2.32 |
+| 50 | 16N | 1.5 | 0.754 | 1.50 | 2.31 |
+| 80 | 4N / 8N / 16N | ∞ | 0.303 / 0.512 / 0.663 | | |
+| 12–20 | 8N | 1 | 0.667 (= Lemma 9.3 with K = 1) | | |
+
+Strong support dependence (η grows with L; the needed support grows with
+N, consistent with Lemma 2.3). Optimal R (N = 30): reflection-symmetric,
+≈ 0 on W, ≈ 11.4 mass in each half of Z peaking at height ≈ 1.15 at
+distance ≈ N/3 from the window, remaining ≈ 7 spread thinly up to |x| ≈ 16N.
