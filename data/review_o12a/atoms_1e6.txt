@@ -1,0 +1,4 @@
+T=1000000 atoms(all D)=15305744 atoms(D<=A)=7777872 converse=7777872
+S0(all)=206.6793 Omega0(all)=543.1906 S0'(D<=A)=105.0291 Omega0'(D<=A)=274.8096 meanh=2.6282
+Sigma_I=87.0516 Sigma_II=194.1566 ratio(SI+SII)/Om'=1.0233
+check Omega0 <= 2(SI+SII): 543.1906 <= 562.4162
