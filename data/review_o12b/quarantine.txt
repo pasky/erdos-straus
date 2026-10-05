@@ -1,0 +1,35 @@
+T=1000 c=1/64 start=pre L=6.908 atoms=3914 surviving=123 rounds=1
+  logQ_start=6.73 (<=1.02L+7=14.05: True) logQ_final=513.65
+  max_E sum w = 0.01553 <= c=0.01562: True
+  S_tot=0.175  S_1=455.36  Omega_1=875.68  cost bound=387143.3  logQ<=bound: True
+  max P(E)/(e^3 g/M) over surviving atoms, all stages = 0.05933  (<=1: True)
+  #primes in Q=97 max exponent=2
+T=10000 c=1/64 start=pre L=9.210 atoms=69106 surviving=11852 rounds=1
+  logQ_start=6.73 (<=1.02L+7=16.39: True) logQ_final=1944.27
+  max_E sum w = 0.01437 <= c=0.01562: True
+  S_tot=2.474  S_1=1110.34  Omega_1=2425.02  cost bound=1429470.1  logQ<=bound: True
+  max P(E)/(e^3 g/M) over surviving atoms, all stages = 0.06304  (<=1: True)
+  #primes in Q=293 max exponent=2
+T=10000 c=1/64 start=o11 L=9.210 atoms=69106 surviving=11852 rounds=1
+  logQ_start=6.73 (<=1.02L+7=16.39: True) logQ_final=1944.27
+  max_E sum w = 0.01437 <= c=0.01562: True
+  S_tot=2.474  S_1=1110.34  Omega_1=2425.02  cost bound=1429470.1  logQ<=bound: True
+  #primes in Q=293 max exponent=2
+T=10000 c=1/64 start=pre L=9.210 atoms=69106 surviving=11860 rounds=1
+  logQ_start=23.98 (<=1.02L+7=16.39: False) logQ_final=1942.80
+  max_E sum w = 0.01437 <= c=0.01562: True
+  S_tot=2.484  S_1=1110.34  Omega_1=2425.02  cost bound=1429470.1  logQ<=bound: True
+  max P(E)/(e^3 g/M) over surviving atoms, all stages = 0.05288  (<=1: True)
+  #primes in Q=292 max exponent=2
+T=10000 c=1/64 start=pre L=9.210 atoms=69106 surviving=11860 rounds=1
+  logQ_start=189.95 (<=1.02L+7=16.39: False) logQ_final=1935.62
+  max_E sum w = 0.01437 <= c=0.01562: True
+  S_tot=2.484  S_1=1110.34  Omega_1=2425.02  cost bound=1429470.1  logQ<=bound: True
+  max P(E)/(e^3 g/M) over surviving atoms, all stages = 0.05002  (<=1: True)
+  #primes in Q=292 max exponent=2
+T=10000 c=1/8 start=pre L=9.210 atoms=69106 surviving=23295 rounds=1
+  logQ_start=189.95 (<=1.02L+7=16.39: False) logQ_final=338.02
+  max_E sum w = 0.10317 <= c=0.12500: True
+  S_tot=9.476  S_1=1110.34  Omega_1=2425.02  cost bound=178694.3  logQ<=bound: True
+  max P(E)/(e^3 g/M) over surviving atoms, all stages = 0.05002  (<=1: True)
+  #primes in Q=70 max exponent=2

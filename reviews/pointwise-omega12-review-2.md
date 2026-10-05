@@ -50,3 +50,17 @@ STATUS: in progress.
 * (I): O11 Lemma 2.1's (I) proof uses only `n≡1 (Q)` and Fact 1.1, no structure of Q. ✓
 
 **Verdict Lemma 6.2: SOUND** (pending numerical check D3).
+
+### D3. From-scratch numerics for Lemma 6.2 (`scripts/review_o12b_quarantine.py`, `data/review_o12b/quarantine.txt`)
+
+Own implementation: all atoms `D|A_M²` (69 106 at `T=10^4`), atomic iteration (all violators raised per round),
+exact fibre probabilities. EVIDENCE only:
+* At every `T≤e^{11}≈6·10^4` one has `{odd ℓ≤𝓛}⊆{3,5,7}`, so Lemma 6.2's start **coincides** with O11's at
+  every T where anything can be computed (confirmed: identical runs at `10^3,10^4`). To exercise the mechanism
+  I added a pre-quarantine bound `y≥𝓛` (y=30, 200): every surviving atom at every stage has
+  `P(E)/(e³g/M) ≤ 0.063` (so `P(E)≤s_1` with ample room; the e³ is very loose), `max_EΣ_{supp}w_ℓ ≤ c` at
+  `c=1/64` (0.01437) and `c=1/8` (0.1032), and `log Q ≤ log Q_start + (𝓛/c)Ω_1` by orders of magnitude.
+* Start cost `log Q_start=log 840=6.73≤1.02𝓛+7` at `y=𝓛` ✓ (the "False" lines in the data are for `y>𝓛`,
+  where the `1.02𝓛+7` bound is not claimed).
+* Atomic `T=10^4,c=1/64`: `log Q=1944`, 293 primes, `max Σw=0.01437`; author's distinct-event variant
+  (O11 table): 1900, 287, 0.0144 — consistent with R44a's remark that the variants differ slightly.
