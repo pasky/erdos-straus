@@ -42,3 +42,33 @@ identity (v=1, i.e. M=ℓ, is included; harmless). Checked by brute force (scrip
   gives `(1−β_1)log x≥c'𝓛^{0.05}/(log𝓛)²→∞`. OK. Case `q_1>𝓛^{1.9}`: n excluded. OK.
 * Partial summation: `∫_{T^{.6}}^{T^{.7}}(1+log t)/(t log²t)dt=log(7/6)+O(1/𝓛)`; boundary terms
   `O(1/(𝓛φ(q)))` need the upper bound 9/8 at `T^{0.6}`, available. `(7/8)log(7/6)=0.1349≥0.13`. OK.
+
+### Lemma 4.4 (D's class-uniform mod v) — SOUND (one MINOR justification gap, D3)
+* `D=κt²`, κ squarefree ⇒ `D*=κt` (v_p: `⌈(e+2f)/2⌉=e+f`, e∈{0,1}); bijection. OK.
+* Kept pairs: `t≤X^{1/6}`, `κ∈(X^{2/3},X/t]` ⇒ `n=κt∈(X^{2/3}t,X]⊂[V,X]`. OK. `φ(4n)=2n∏_{p|n odd}(1−1/p)≤2n`. OK.
+* Squarefree-in-AP: `N_b(K)=σ_vK/v+O(√K)` with the O(√K) **not** divided by v; partial summation
+  error `O(K_1^{−1/2})=O(X^{−1/3})≤O(1/v)` since v≤V=X^{1/3}; summed over t: `O(LX^{−1/3})=o(L²/v)`. OK.
+* `∫_1^{X^{1/6}}(L/3−log t)dt/t=L²/18−L²/72=L²/24`. OK; coprimality to v costs `O(ω(v)L²/y)`. OK.
+* Constant: `(1/2)(6/π²)/48=0.00633>1/200`. OK.
+* Exceptional removal: `q_1|4n⟺q''|n` with `q''=q_1/gcd(q_1,4)` (checked: `q_1=2^a m`). `q''|κt⇒q''/(q'',t)|κ`;
+  CRT with `κ≡b (v)` (empty if not coprime); (F4) and `Σ_{t≤X}(q'',t)/t≤τ(q'')(1+L)`. OK.
+* D3 below: the final step `τ(q'')/q''≤𝓛^{−1.8}` (or `≤4𝓛^{−1.8}`) is asserted as if from
+  `q''≥𝓛^{1.9}/4` alone; it needs `τ(m)≤m^{1/20}` for `m≥m_0` (true, divisor bound) — note
+  q'' can be as large as `4T^ε`, where τ(q'') is far bigger than `𝓛^{0.1}`, so the ratio must be
+  bounded via `τ(m)/m≤m^{−0.95}`, not via τ bounded.
+
+### Theorem 4.5 — SOUND (re-derived)
+* Small coordinates may be random or fibre-fixed: Thm 1.3 only needs the big coordinates to be
+  independent of each other and of x_s, with x_s drawn from its true law. On `n≡r (Q)` the Haar
+  law is the product of local laws restricted to the coset, so `X_ℓ` (ℓ>T^{0.6}, ℓ∤Q) are
+  independent Haar, independent of the rest. Fibre-fixed `x_q` (q|Q, q|v) are just particular
+  values of x, and the lower bound on R is for **every** x. For ℓ|Q, ℓ>T^{0.6}: these are
+  *small* (only mod `ℓ^{v_ℓ(Q)}` fixed — still fine, small coords may be random) and their events
+  are dropped; loss `≤(log Q/0.6𝓛)·T^{−0.09}=o(1)`. Level count: a level function reads big
+  primes dividing q≤D only (ℓ∤Q), fewer than `log D/(0.6𝓛)`. OK.
+* `D≡−x/4 (v)` ⇒ D unit mod v ⇒ `gcd(v,n_D)=1`; v y-rough ⇒ odd. So Lemmas 4.3, 4.4 apply to
+  every v, with `a=−x/4` a unit. `R≥0.13·(L²/200)·Σ_v1/v`, `Σ_{v≤V,y-rough sqfree}1/v≫log V/log y=ε𝓛/(18log𝓛)`.
+  `μ*≍ε³𝓛³/log𝓛`. Arithmetic `(k+1)(1+4p*)≤μ*` for `c≤0.3c_9ε³`: OK (needs only c<0.6c_9ε³).
+* Events are genuine ES events: `M=vℓ≤T^{0.7+ε/3}≤T`, `M≡3 (4)`, `D|A_M²` (via `n|A_M`), and
+  `F=1[W(n)>T]` exactly (POINTWISE_OMEGA §0 has no `D<M/4` restriction). OK.
+* Constants c, ε are absolute (ε from (G)'s c, κ, C' only). No hidden parameter dependence found.
