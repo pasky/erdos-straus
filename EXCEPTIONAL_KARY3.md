@@ -377,7 +377,9 @@ The costs of the first three kinds are bounded by Theorem 4.1's ledger
 (Thm 2.5 is arithmetic-free: any ordered block, any d-local f) with
 `d = d₀`, `m̄ = 𝔐(e^Λ) ≥ E M_{V_top}` (K2 §3: `E Σ_{ℓ∈V}p_ℓ ≤ 𝔐(max V)`;
 primes above `e^Λ` carry no class and add nothing),
-and `𝔐(e^Λ) ≤ K₃′Λ³` (Cor 3.3); EK Cor 2.6 gives
+and `𝔐(e^Λ) ≤ K₃′Λ³` (Cor 3.3). As in K2 §5, t is chosen per history,
+`t(h) = d₀/(E[M|h] + 4d₀)`, and EK Cor 2.6 plus Jensen over histories
+(concavity in `E[M|h]`) gives
 `EΦ_top ≤ d₀log(C₀(K₃′Λ³+4d₀)/d₀) + (4/3)d₀ + ½log(22d₀+22) + 3`, doubled
 by EK Thm 4.1. The leak bound K2 Lemma 4.3 is per prime (`𝔏 ≤ Σ_{ℓ>W}
 ℓ^{1/2}E p_ℓ²`, every class decided at its top prime under any
