@@ -251,7 +251,9 @@ is a uniformly random square class, and mod 3 the only square is 1. So `840|Q` a
 always hold, and r is a square mod 840, i.e. a Mordell-hard class. The forced steps are ordinary
 `a=0` steps, so Lemma 3.2 covers them verbatim. They add only `log105` to the cost.
 Coordinates and events are as in O11 Setting 2.0, but with fibre `n≡r (Q)` in place
-of `n≡1 (Q)`. Only primes `ℓ≤Y` are eligible. A *step* at `(ℓ,a)` is taken while the
+of `n≡1 (Q)`. An atom `(M,D)` *survives* `(Q,r)` iff `−4D≡r (mod gcd(M,Q))` and `M∤Q`
+(R48d D3; for `r=1` this is O11's `gcd(M,Q)|4D+1`). Equivalently `μ(E)>0`: by Lemma 3.1,
+`M|Q` never occurs together with `−4D≡r (mod M)`. Only primes `ℓ≤Y` are eligible. A *step* at `(ℓ,a)` is taken while the
 reweighted fibre mass `w̃_ℓ>η` (Lemma 1.1). It reveals `n mod ℓ^{a+1}` uniformly
 among the classes of the current fibre that are squares mod ℓ:
 
@@ -261,7 +263,7 @@ among the classes of the current fibre that are squares mod ℓ:
 By Lemma 3.1 no atom ever fires, so the final system has no deterministic event.
 The prime side counts primes `p≡r (mod Q)`. For every real character χ mod Q,
 `χ(r)=1`, exactly as for the class of one. So O11 Lemma 3.1's Case A/B analysis is
-unchanged. This is to be checked in §4.
+unchanged. This is checked in §5 (I3).
 
 *Drift.* At an `a=0` step at ℓ, an atom with `ℓ|M` has
 `E[p_new(E)]=(1+(−d_E|ℓ))p(E)` by Lemma 3.1(a). That is at most `2p(E)`, not
