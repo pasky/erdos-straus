@@ -440,3 +440,34 @@ above the main terms `π(N)e^{−(log N)^{3/4}}` at stake; for
 `N exp(−c(log N)^{3/5−o(1)})`, which is still larger than those main terms,
 since `3/5 < 3/4`. So no unconditional signed accounting can even resolve
 the main term at the 3/4 scale. Under GRH, PL Prop 4.3 caps it.
+
+## 7. Numerics (EVIDENCE / sanity checks only)
+
+`scripts/largesieve2_checks.py` (~7 s, 2 threads, < 1 GB), output
+`data/largesieve2/checks.txt`. Toy family: all ℛ(M)-, (a,D)-, Case-A
+classes with modulus dividing `L = 24·5·7·11` plus the selectors
+`0 mod p`, `p | L` (W = 3); "arity" k = number of primes 5, 7, 11 per
+modulus of `V_𝒟` (stand-in for the level).
+1. Lemma 1.1: the LP's dual multipliers satisfy stationarity to
+   `1.4·10⁻¹⁵`; for the extracted π, a second LP gives
+   `max{E_πf : f ∈ V_𝒟, f ≥ 0, E_Uf = 1} = 1/m*` exactly (24 at k = 0,
+   140 at k = 2), as the proof predicts.
+2. Lemma 2.2 and the type-(i) estimate of Theorem 2.4: 504 weighted Farey
+   rows (denominators of arity ≤ 1), `N = 60`; `N·E_U|H|²/(Δ‖c‖²) ≤ 0.094`
+   and `[R̃(π)/E_π|ψ|²]/[Δ/(Nm*)] ≤ 0.031` over random c and random
+   twists `|ψ| ∈ [1,3]`.
+3. Lemma 4.1 holds exactly for 6 random kernels (`N = 40`); the QP optimum
+   `D*` gives kernel bounds `B ∈ [3.0, 12.7]`, all above Theorem 4.2's
+   lower bound (which is far from sharp at this size).
+4. Theorem 4.3's proof steps on the exact plain sequential law σ: base
+   marginals `χ² = 7` (q = 8) and 2 (q = 3); `χ²_ℓ(σ) ≤ E[p/(1−p); light]`
+   at ℓ = 5, 7, 11; and `1 + χ²_q(π) ≤ (1+χ²_q(σ))(1−𝔏)^{−2}` for all q,
+   on the full toy family (every rough prime heavy, leak 0.91: degenerate)
+   and on three random thinnings (leak 0, 0, 0.32).
+
+## Replay
+
+```
+OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONPATH=scripts uv run --with cvxpy --with scipy \
+  --with numpy --with sympy python scripts/largesieve2_checks.py > data/largesieve2/checks.txt   # ~7 s
+```
