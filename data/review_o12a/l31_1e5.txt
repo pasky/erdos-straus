@@ -1,0 +1,16 @@
+T=100000 worst small-q ratio (must be <=1): 0.1112
+C=1 mass=8.8952 mean h(N)=1.5230
+C=2 mass=8.6973 mean h(N)=1.5709
+C=4 mass=7.3467 mean h(N)=1.6221
+C=8 mass=6.3731 mean h(N)=1.6811
+C=16 mass=5.8910 mean h(N)=1.7478
+C=32 mass=5.0991 mean h(N)=1.7915
+C=64 mass=4.3639 mean h(N)=1.8509
+C=128 mass=3.5817 mean h(N)=1.9049
+C=256 mass=2.7628 mean h(N)=1.9562
+C=512 mass=1.9526 mean h(N)=2.0000
+C=1024 mass=1.3414 mean h(N)=2.0485
+C=2048 mass=0.9285 mean h(N)=2.0866
+C=4096 mass=0.4928 mean h(N)=2.1321
+C=8192 mass=0.2264 mean h(N)=2.2066
+C=16384 mass=0.0845 mean h(N)=2.2303
