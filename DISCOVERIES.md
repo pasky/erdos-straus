@@ -286,6 +286,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * In the ES construction this removes the bit encoding and switching lemma: the junta term drops to `≪𝓛^6` (Thm 4.2), so log Z's only `𝓛^7` term is the quarantine (see (H)22). The single-step monotonicity MONO is false (§2).
     * **PROVED** (internal). Two independent hostile reviews, both SOUND: `reviews/pointwise-omega10-review.md` (exhaustive exact checks, hill-climbing for counterexamples) and `reviews/pointwise-omega10-review-2.md` (independent re-derivation, exact Walsh–Fourier computations on DNFs, sharpness).
 
+22. **Exponent 1/6 (POINTWISE_OMEGA11.md Thm 3.2): `W(p) ≥ exp(c(log p)^{1/6})` for infinitely many Mordell-hard primes; Haar side `log(1/δ*(T)) ≪ (log T)^6` (Cor 3.3).** Supersedes (H)19's 1/7.
+    * Graded quarantine (§2, Lemmas 2.1–2.2): quarantine ℓ only to `n≡1 (ℓ^{a_ℓ})`, raising `a_ℓ` while the fibre mass exceeds `c(a_ℓ+1)log ℓ/𝓛`. The local lemma needs only `Σ_{ℓ∈supp E} w_ℓ ≤ c` per event, which follows from `Σ v_ℓ(M)log ℓ ≤ 𝓛`; no small-prime block and no width bound are needed. Cost `log Q ≤ 9 + (1+o(1))𝓛²S♯/(c log 𝓛) ≪ 𝓛^6` under ET (was `≍𝓛^7/log 𝓛`). Transfer: POINTWISE_OMEGA9 Thm 1.1 extended to fibre cells (Lemma 3.1); junta from POINTWISE_OMEGA10 Thm 4.2 ((H)21).
+    * Toward 1/5: a digit-filtration energy lemma (Lemma 1.1, Cor 1.2, PROVED from OMEGA10 Thm 3.4) makes the junta modulus `≪𝓛^5 log 𝓛`; then hypothesis H_ω(B) (the s-weighted mean of `h(M)=Σ_{ℓ|M}H_{v_ℓ(M)}` is `(log 𝓛)^B`) gives `W ≥ exp(c(log p)^{1/5}(log log p)^{−max(B,1)/5})` (Cor 4.1, PROVED implication; EVIDENCE for B≈2: means 2.32, 2.57, 2.79 at T=10⁴,10⁵,10⁶). H_ω needs ET Prop 1.4 in progressions (open).
+    * **PROVED modulo Gallagher's theorem (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4** (the last is proved and doubly reviewed). Two independent hostile reviews, both SOUND with minors applied: `reviews/pointwise-omega11-review.md` (graded quarantine, local lemma with partial quarantine, fibre-cell transfer; toy exact-Haar checks) and `reviews/pointwise-omega11-review-2.md` (filtration lemma, exponent chain).
+    * The heuristic truth remains `log W ≍ (log p)^{1/3}`; 1/6 is the ceiling of coordinate-counting arguments in this architecture (POINTWISE_OMEGA9 Cor 4.2; modulus-weighted arguments could reach ≈1/5).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
