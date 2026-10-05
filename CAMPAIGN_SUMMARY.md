@@ -288,6 +288,29 @@ factor quoted in this subsection can be dropped.
   * *What remains:* multi-witness tuple counting above modulus N
     (Assessment). (H_eq) is open but not needed when all moduli are
     `≤ N/2`.
+* **Hybrid methods reduced to a combinatorial hypothesis**
+  (`EXCEPTIONAL_INTERFREQ2.md`, `EXCEPTIONAL_SPW.md`; ledger (D)26).
+  * *Setting.* Hybrids charge each class of modulus `> N/2` only its
+    least position-blind count. They have an exact LP dual (Prop 2.1).
+    A sign rule (Lemma 3.1) shows that right-signed large classes can be
+    counted exactly, so no inequality `B_hyb ≥ c·N·Eν` holds and the
+    (D)20 accounting does not extend verbatim.
+  * *Caps.* The 3/4 cap holds when the right-signed mass is `≤ c·B`
+    (Cor 5.1, PROVED). It holds for every hybrid whose right-signed mass
+    at moduli in `(N/2, CN]` is `O(e^{O(S)}B)`, conditional on a
+    hypothesis Flat (Thm 5.2, PROVED implication). Flat follows from a
+    purely combinatorial statement SPW about measures that count every
+    small-modulus class exactly as `[1,N]` does (Prop 9.1).
+  * *SPW with fixed σ is false* (`EXCEPTIONAL_SPW.md` Thm 3.2, PROVED;
+    Fejér smoothing plus Bernstein's inequality): such measures have
+    `σ ≲_C (log N)^{−1/2}`, with exact rational certificates at N = 300
+    and N = 1150. The earlier "σ* = 2/5 at every N" pattern was a small-N
+    artefact. Thm 5.2 needs only **weak SPW** (`σ_N ≥ c₀e^{−S_A}`), which
+    Thm 3.2 does not touch and which is **open**.
+  * *Label:* **PROVED / PROVED implication as labelled** (internal;
+    reviews `reviews/exceptional-interfreq2-review.md`,
+    `reviews/exceptional-spw-review.md`, SOUND). No hybrid beating 3/4
+    was found.
 * **The tuple-count door** (`EXCEPTIONAL_TUPLES.md`; ledger (D)21).
   * *Reformulation (Lemma 1.3).* Order-k witness correlations are the
     distinct-prime parts of k-point correlations of ω-type functions
@@ -307,14 +330,34 @@ factor quoted in this subsection can be dropped.
     fit (Prop 4.3 plus Assessment).
   * *Label:* **PROVED** (internal). Review:
     `reviews/exceptional-tuples-review.md`, all items SOUND.
-  * *Open:* TC_θ for `3/4 < θ < 1` is an open, natural, falsifiable
-    **CONJECTURE**.
+  * *Open (as of (D)21):* TC_θ for `3/4 < θ < 1`, stated as a
+    **CONJECTURE**; it was repaired in (D)23 (next item).
+* **TC_θ repaired** (`EXCEPTIONAL_TUPLES2.md`; ledger (D)23).
+  * *Forced zeros.* Tuples whose form-group product exceeds `Ns+r` have
+    interval count 0 but positive CRT mass. For every θ > 2/3 this mass
+    exceeds the TC precision by `e^{K/(2e²)}` (Thms 2.1–2.2). So the
+    literal TC_θ, θ > 2/3, holds only with a compensating CRT excess on
+    admissible tuples (Cor 2.3, PROVED necessary condition). That the
+    literal TC_θ is false on (2/3, 1) is an Assessment, not proved.
+  * *Repair.* The forced-zero term cancels in the alternating sum (an
+    Euler-characteristic identity). The one-sided alternating hypothesis
+    TC^alt_θ, and TC^𝔄_θ (accuracy on admissible tuples only), each still
+    imply `E(N) ≤ C N exp(−(2/e²)(log N)^θ)` (Thm 4.1, Cor 4.2, PROVED
+    implications). **TC^alt is the correct form of the tuple-count door.**
+  * *Difficulty.* For the pure prime family, CRT-main-term sieves save
+    `≤ C(log N)^{2/3}` (Cor 6.1); so TC^alt_θ with θ > 2/3 needs accuracy
+    at moduli `exp(c(log N)^{3θ/2})`, which no known theorem reaches
+    (Assessment).
+  * *Label:* **PROVED** (internal; review
+    `reviews/exceptional-tuples2-review.md`, SOUND). TC^alt_θ for
+    θ > 3/4 is open.
 
 * **Prime-only majorants** (`EXCEPTIONAL_PRIMELAW.md`; ledger (D)22).
   Majorants that are ≥ 1 only at the primes of the avoider set, for any
   mixture of forced and selector classes, save at most
-  `Cλ^{3/4}(log λ)^{3/4}`. Prime-law methods with all moduli ≤ N^A save at
-  most `C_A(log N)^{3/4}(log log N)^{3/4}`; this includes
+  `Cλ^{3/4}(log λ)^{3/4}` (the log factor is dropped by (D)24).
+  Prime-law methods with all moduli ≤ N^A save at most
+  `C_A(log N)^{3/4}`; this includes
   SW/BV/BDH/EH/GRH-level inputs. **PROVED** (internal; Case A uses
   Elsholtz–Tao Prop 1.4). Review: `reviews/exceptional-primelaw-review.md`.
 
