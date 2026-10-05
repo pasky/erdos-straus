@@ -13,6 +13,15 @@ standard shifted-prime divisor bound (D'); upper: OMEGA11 Cor 3.3 modulo ET
 Prop 1.4; OMEGA12 claims `𝓛^5 log𝓛`). Numerics: local exponent 2.26→2.58
 (POINTWISE_SIZE §7.2).
 
+**Results of this note (checkpoint 1).** (i) A Janson-type inequality for
+atomic events on product spaces under a lopsided local lemma (Thm 1.4) —
+needed because Harris fails for one-hot variables. (ii) **`log(1/δ*(T)) ≫
+𝓛³/log𝓛`** (Thm 2.1, PROVED modulo the sieve fundamental lemma), improving
+the lower bound `𝓛²`; so `a ≥ 3`. (iii) Negative-association arguments alone
+cannot pass `𝓛²` (Prop 1.5). (iv) The Monte Carlo data fit `𝓛³/log𝓛` with a
+constant ratio 0.069–0.070, explaining the measured exponent 2.3–2.6 as
+`3 − 1/log𝓛` (§3, EVIDENCE). Conjecture: `a = 3`.
+
 ## 0. The event system
 
 Haar measure on `Ẑ`, restricted to the class `n ≡ 1 (24)`. For each
@@ -294,3 +303,51 @@ type that Theorem 2.1's proof produces. Conjecture: `Φ(T) ≍ 𝓛³/log𝓛`
 best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuristic
 (POINTWISE_SIZE §7.3) this predicts
 `log W(p) ≍ (log p·log log p)^{1/3}` for the record values.
+
+## 4. What this means on the prime side (Assessment unless stated)
+
+* **Haar-only.** Theorem 2.1 is a statement about `δ*(T)` alone. The one
+  rigorous link to primes is POINTWISE_SIZE Prop 7.1(a) (fixed T): for every
+  fixed `T ≥ T_0`, the proportion of hard primes with `W(p) > T` is
+  `δ*(T) ≤ exp(−c𝓛³/log𝓛)` (PROVED, as a fixed-T density statement).
+* **Ceiling under RA.** Under the random-avoider heuristic RA, record values
+  satisfy `log W ≲ (log p·log log p)^{1/3}`; so the prime-side exponent of
+  the Ω-programme cannot exceed 1/3 even heuristically, and the current 1/6
+  (OMEGA11) / 1/5 (OMEGA12, under review) are a factor 2 resp. 5/3 away in
+  the exponent. (Assessment.)
+* **BRW/Thorner–Zaman route (OMEGA8 §6.6 analogue; PROVED bookkeeping).**
+  For every minorant `B ≤ F` on a class-of-one fibre, `μ = E B ≤ δ` and
+  `log(1/μ) ≥ Φ(T) − log φ(Q) ≥ …`; more simply, on the full Haar space
+  `μ/φ(Q) ≤ δ*(T)`. For BRW expansions as written (`M_1 ≥ 1`) this gives
+  `K ≥ 1 + log(1/μ)`, and with the quarantine cost
+  `log φ(Q) ≤ Φ − log(1/μ)` one of `K`, `log Q` is `≥ Φ/2 ≫ 𝓛³/log𝓛`. Through
+  POINTWISE_OMEGA Thm 4.1 (`log p ≳ K·max(log Z,K)`) this caps that route at
+  exponent `≤ 1/6+o(1)`; it is not a cap for the O9 linear transfer, whose
+  condition does not contain `log(1/μ)`. (No universal statement over all
+  representations is claimed, cf. OMEGA8 §6.6, R34a.)
+* **Transfer costs.** Any prime-side use of a Haar improvement passes
+  through OMEGA9/OMEGA11: the quarantine `log Q` and the junta modulus. The
+  lower bound shows `log Q + log(1/μ) ≥ Φ ≫ 𝓛³/log𝓛` for class-of-one
+  constructions, so no class-of-one design can have *both* `log Q` and
+  `log(1/μ)` below `𝓛^{3−ε}`.
+
+## 5. Status (checkpoint 1)
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1–1.3 | compatible-event inequality, NA for bit-disjoint families, lopsided LLL inflation | PROVED (standard inputs: Joag-Dev–Proschan, Erdős–Spencer) |
+| Thm 1.4 | `−log P(Av) ≥ μ − KΔ`, and `≥ min(μ/2, μ²/(4KΔ))`, for atomic events under lopsided LLL | PROVED |
+| Prop 1.5 | bit-disjoint (NA-only) families give at most `𝓛² + O(log𝓛)` | PROVED |
+| Thm 2.1 | `log(1/δ*(T)) ≫ 𝓛³/log𝓛` | PROVED modulo the sieve fundamental lemma |
+| §3 | MC data: `Φ/(𝓛³/log𝓛) = 0.069–0.070` for `1023 ≤ T ≤ 32767` | EVIDENCE |
+| Conj. 3.1 | `Φ ≍ 𝓛³/log𝓛`, i.e. `a = 3` | CONJECTURE |
+| upper bound below `𝓛^5` | — | OPEN (in progress) |
+
+Known now: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^5 log𝓛` (upper bound from OMEGA12, under review;
+`𝓛^6` from OMEGA11, reviewed).
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/haar_fit.py      # §3 table, data/haar/fit.txt
+```
