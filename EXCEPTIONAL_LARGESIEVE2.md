@@ -669,16 +669,16 @@ i.e. level up to `Σ_i L_i`, which is `≥ Kλ` in case (a) of Prop 8.2:
 
 **Theorem 8.5 (explicit (E1) escape for dense families; PROVED).** For
 every `λ ≥ 1`, every `N ≥ N₀` and `η = 1/9` there is a finite class family
-(the band family with `K = ⌊log(N/3)/log(2R+1)⌋`, `R = 325`, all
+(the band family with `K = ⌊log(N/3)/log(2R+1)⌋`, `R = 324`, all
 `ℓ_i, ℓ'_i > max(W, e^{λ/2}, (16KRN)^{1/2})`) such that
 * every majorant of level `≤ λ` has `E_Uν ≥ 1` (Prop 8.2(a)); the level-λ
   comparison measure of Lemma 1.1 exists with `S = 0`;
 * a Montgomery–Vaughan large sieve with `≤ N/3` frequencies, all of level
   `> λ` except 0, proves `|𝒜 ∩ I| ≤ (5N/3)e^{−K/27}`, a saving
-  `≥ c log N` with `c = 1/(27 log 651) − o(1) > 0` (Prop 8.4).
+  `≥ c log N` with `c = 1/(27 log 649) − o(1) > 0` (Prop 8.4).
 
 The large sieve beats the level-λ comparison by a power of N, for every
-λ. (Consistency: the true density of 𝒜 is `≈ (1−2η)^K ≈ N^{−0.034}`,
+λ. (Consistency: the true density of 𝒜 is `≈ (1−2η)^K ≈ N^{−0.039}`,
 below the sieve bound `N^{−0.0057}`.)
 
 **Consequences.**
