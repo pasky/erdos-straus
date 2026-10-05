@@ -39,14 +39,18 @@ What must be proved:
 
 ## 1. The hypothesis of OMEGA10 Remark 4.3 for ES events
 
-**1.1 The literal hypothesis fails (Assessment, with a PROVED mechanism).**
+**1.1 The literal hypothesis is not available for ES (Assessment; not proved).**
 Remark 4.3 asks `∏_{ℓ∈supp E}ℓ^{a_ℓ} ≤ T^ρ`, `a_ℓ` the largest exponent of ℓ
 used by *any* event. For a free prime `ℓ∈(z,√T]` the atoms `M=ℓ^{f}m'`
 (`f=f_ℓ=⌊𝓛/logℓ⌋`, `m'≤T/ℓ^f`, `M≡3 (4)`) give events with `ℓ^f | r`
-whenever one survives, so generically `a_ℓ=f_ℓ` and `ℓ^{a_ℓ}>T/ℓ`. An event
-with j free primes `≤T^{1/j}` then has `∏ℓ^{a_ℓ} ≥ T^{j-1}`: the
-hypothesis holds only with `ρ≍k≍𝓛/log𝓛`, which gives back OMEGA10 Thm
-4.2's `𝓛^6` (no gain). (`scripts/omega11_rho.py` measures this; §1.4.)
+whenever one survives, so one expects `a_ℓ` near `f_ℓ`, i.e. `ℓ^{a_ℓ}>T/ℓ`,
+for most such ℓ. If so, an event with j free primes `≤T^{1/j}` has
+`∏ℓ^{a_ℓ} ≥ T^{j-1}`, and the hypothesis would hold only with
+`ρ≍k≍𝓛/log𝓛`, giving back OMEGA10 Thm 4.2's `𝓛^6`. This is an implication only.
+Neither the occurrence of top powers in surviving events (it can fail:
+at `T=10^4`, the only multiple of `97²` below T is `≡1 (4)`) nor the
+existence of events with many such primes is proved here. §1.2 makes the
+question moot.
 
 **1.2 What is true instead: a digit-filtration form of OMEGA10 Cor 3.5.**
 Write each coordinate `X_ℓ` (units mod `ℓ^{f}`, or a fibre `1+ℓ^aℤ mod ℓ^f`,
@@ -100,12 +104,14 @@ edge weight is `≤∏_ℓλ_ℓ^{2v_ℓ(E)} ≤ 2`. ∎
 *Remarks.* (i) `Σ_jλ^j(λ−1)` telescopes to `λ^v−1`, so the edge weight is
 `≤exp(Σ_ℓ(λ_ℓ^{v_ℓ}−1))`; by convexity this allows `λ_ℓ=2^{logℓ/(ρ𝓛)}` for
 any `ρ ≥ 1/log₂(1+ln2) ≈ 1.32`. We use ρ=2.
-(ii) *Conditioned systems.* O8's `F^{(j)}` is F restricted to the cylinder
-`E_j`. At ℓ it fixes digits `<v_ℓ(E_j)`, and every other event restricts to a
-cylinder on the *next* digits `v_ℓ(E_j)..v_ℓ(E)−1`, again an initial
+(ii) *Conditioned systems.* O8's `F^{(j)}` is `F_{<j}` (the good-indicator of
+the events before `E_j`) restricted to the cylinder `E_j`. At ℓ the remaining
+digits start at `i_0:=max(a_ℓ,v_ℓ(E_j))` (fibre digits below `a_ℓ` are fixed by
+the quarantine), and every other event restricts to a cylinder on the digits
+`i_0..v_ℓ(E)−1`, again an initial
 segment of the remaining digits. Apply the proof on the remaining digits,
 with the same absolute weights `Λ_{ℓ,i}=λ^{i+1}`: the first remaining
-level `i_0=v_ℓ(E_j)` gets `1+μ'=λ^{i_0+1}`, and the edge weight is
+level `i_0` gets `1+μ'=λ^{i_0+1}`, and the edge weight is
 `≤λ^{i_0+1}·λ^{2(v−i_0−1)} ≤ λ^{2v}`. So Lemma 1.1 holds for every `F^{(j)}`,
 with the cost `m_U` measured in absolute digit positions.
 (iii) The proof never uses single values on full coordinates. O8 Setting
@@ -181,7 +187,7 @@ raise `a_ℓ` by one. The procedure stops, and at the end:
 (cost): a step at ℓ from a to a+1, taken at stage `Q_i`, has
 `log ℓ < 𝓛·w_ℓ(Q_i)/(c(a+1))`, and `w_ℓ(Q_i) ≤ Σ_{(M,D): v_ℓ(M)≥a+1} s(M,D)`
 by Lemma 2.1. Each pair `(ℓ,a)` is stepped at most once. Summing,
-`log(Q/6720) ≤ (𝓛/c)Σ_{(M,D)} s(M,D)·h(M)` with
+`log(Q/840) ≤ (𝓛/c)Σ_{(M,D)} s(M,D)·h(M)` with
 `h(M):=Σ_{ℓ|M}H_{v_ℓ(M)}` (`H_v=Σ_{i≤v}1/i`). Now `H_v≤log₂(v+1)` (induction:
 `1/(v+1)≤log₂(1+1/(v+1))` as `log₂(1+x)≥x` on `[0,1]`), so
 `h(M)≤log₂τ(M)≤(1+o(1))𝓛/log𝓛` (Wigert, `M≤T`). ∎
@@ -199,7 +205,7 @@ The ratio (cost of a step)/(threshold) is `logℓ/θ = 𝓛/(c(a+1))`, uniform i
 ## 3. Assembly: exponent 1/6
 
 **Lemma 3.1 (linear transfer with fibre cells; PROVED modulo (G), as O9
-Thm 1.1).** O9 Thm 1.1 holds without `gcd(d_i,Q)=1`, provided every cell is
+Thm 1.1).** Assume `8|Q`. Then O9 Thm 1.1 holds without `gcd(d_i,Q)=1`, provided every cell is
 consistent with the class of one (`b_i≡1 mod gcd(d_i,Q)`), and with
 `E_D` replaced by `E_H`, the Haar mean over `H:={x∈(ℤ/N)^*: x≡1 (Q)}`,
 `N:=lcm(Q,D)`. That is: `μ:=E_H B>0`, `A:=E_H|B|/μ`, `Z:=Q·max d_i`; twist
@@ -279,8 +285,8 @@ Mordell-hard p. (Proof: Theorem 3.2's proof with the displayed cost and
 Cor 1.2's junta.) ∎
 
 **EVIDENCE for H_ω** (`scripts/omega11_hmoment.py`, `data/omega11/hmoment.txt`;
-s without the `C loglog` factor). The s-weighted mean of h at
-`T=10^4,10^5,10^6` is `2.32, 2.57, 2.79`. This tracks `log log T`
+the factor `C loglog T` of s replaced by the exact `∏_{ℓ|M}ℓ/(ℓ−1)`). The s-weighted mean of h at
+`T=10^4,10^5,10^6` is `2.32, 2.57, 2.79` (with the pure weight `g/M`: `2.18, 2.42, 2.63`). This tracks `log log T`
 (`2.22, 2.44, 2.63`; steps `0.25, 0.22` against `0.22, 0.19`), while the worst-case charge
 `𝓛/log𝓛` is `4.15, 4.71, 5.26` (steps `0.56, 0.55`). So the mean charge is
 consistent with `log𝓛+O(1)`, i.e. `B=2`. Most of `Ω♯` comes from primes
@@ -311,8 +317,9 @@ bound for divisors of `4sr'²+1` in residue classes. We did not prove it,
 even on average over `ℓ≤y`.
 
 **The floor of this architecture (Assessment).** Any graded class-of-one
-quarantine feeding the local lemma needs at least `w_ℓ ≤ 1/8` at every
-coordinate. If the fibre masses behave like `w_ℓ(a)≈κS/ℓ^{a+1}` (as the
+quarantine feeding *this* local-lemma criterion (`x_E=2P(E)`, neighbourhood
+sums `≤1/4`) needs at least `w_ℓ ≤ 1/8` at every coordinate (a property of the
+chosen sufficient criterion, not of every local-lemma argument). If the fibre masses behave like `w_ℓ(a)≈κS/ℓ^{a+1}` (as the
 main terms suggest), this alone forces `ℓ^{a_ℓ+1}≳S` for all `ℓ≲S`, so
 `log Q ≳ Σ_{ℓ≤S}log(S/ℓ) ≍ S/log S`, which is `≍𝓛^4` under ET with `S≍S♯`.
 Lemma 2.2's per-event rule (thresholds `∝log ℓ^{a+1}/𝓛`) costs
@@ -326,7 +333,13 @@ standard BV lower bound) is known here, so these floors are not theorems.
 
 **Finite-T EVIDENCE for Lemma 2.2** (`scripts/omega11_graded.py`;
 `data/omega11/graded*.txt`). The local-lemma quantity
-`max_E Σ_{ℓ∈E}w_ℓ` stays below c in every run.
+`max_E Σ_{ℓ∈E}w_ℓ` stays below c in every run. The script runs the
+*distinct-event* variant of Lemma 2.2 (thresholds tested on distinct-event
+masses, all violators raised per round). That variant is equally valid: the
+local lemma works with distinct events, and their masses are at most the
+atomic sums used in the charging. It can stop earlier than the atomic
+iteration as written (at `T=10^4` the atomic mass at ℓ=1237 is 0.01456,
+above its threshold 0.01208, review R44a).
 
 | T | c | rounds | log Q (graded) | #primes in Q | largest | max exponent | `max_EΣw` | proven cost bound |
 |---|---|---|---|---|---|---|---|---|

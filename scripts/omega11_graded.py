@@ -4,7 +4,10 @@
 State: exponents a_l (start a_3=a_5=a_7=1), Q = 8 prod l^{a_l}.  Atom (M,D) survives iff
 gcd(M,Q) | 4D+1 and M does not divide Q; its event lives on the coordinates l with
 v_l(M) > a_l, probability prod 1/phi(l^v) (a_l=0) resp. l^{-(v-a_l)} (a_l>=1).
-Distinct events are (tuple of (l, l^v)), class) pairs.  Rule: raise a_l by one whenever the
+Distinct events are (tuple of (l, l^v)), class) pairs, and the masses w_l are DISTINCT-EVENT
+masses: this is the distinct-event variant of Lemma 2.2 (valid: the local lemma works with
+distinct events, and distinct-event masses are <= the atomic sums used in the charging).
+Lemma 2.2 as written uses atomic masses; the two iterations can stop at different Q.  Rule: raise a_l by one whenever the
 fibre mass w_l > c (a_l+1) log l / log T (all violators of a round at once).
 Reports: rounds, log Q, number of graded primes, max exponent, final max_E sum_{l in E} w_l
 (the local-lemma quantity, must be <= c), S_tot, the Haar bound log phi(Q) - log 8 + 4 S_tot,
@@ -87,9 +90,9 @@ def main():
     logphiQ = log(4) + sum(log(p - 1) + (e - 1) * log(p) for p, e in a.items() if e > 0)
     graded = sorted(a.items())
     print(f"T={T} c={c:.4f}: rounds={rounds} log Q={logQ:.1f} (proven bound {cost_bound:.0f}) "
-          f"#primes in Q={sum(1 for _, e in graded if e > 0)} max prime={max(p for p, e in graded if e > 0)} "
+          f"#primes in Q={sum(1 for _, e in graded if e > 0)} max prime={max((p for p, e in graded if e > 0), default=0)} "
           f"max exp={max(e for _, e in graded)}")
-    print(f"  final: max_l w_l={max(w.values()):.4f} max_E sum w={lll:.4f} (need <= c) S_tot={Stot:.2f} "
+    print(f"  final: max_l w_l={max(w.values(), default=0.0):.4f} max_E sum w={lll:.4f} (need <= c) S_tot={Stot:.2f} "
           f"=> log(1/delta*) <= {logphiQ - log(2) + 4 * Stot:.1f}")
     print("  exponents (l:a_l, first 40):", " ".join(f"{p}:{e}" for p, e in graded[:40]))
 
