@@ -551,3 +551,42 @@ modulus of `V_𝒟` (stand-in for the level).
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONPATH=scripts uv run --with cvxpy --with scipy \
   --with numpy --with sympy python scripts/largesieve2_checks.py > data/largesieve2/checks.txt   # ~7 s
 ```
+
+## 8. (E1) has an explicit escape for dense abstract class families
+
+This section answers whether (E1) can be closed by the comparison
+principle (Lemma 1.1) plus the large-sieve axioms alone. It cannot: for
+abstract class families with **dense bundles** (≍ D classes at a single
+modulus D of high level) a large sieve with frequencies of level
+`≫ λ` saves `≍ log N`, while every level-λ majorant saves 0 (or
+`O(log log N)`). Forced classes are sparse (`≤ D^{o(1)}` classes per
+modulus); §8.3 says what this means for (H_LS∞).
+
+### 8.1 The band family
+
+Fix `0 < η ≤ 1/8`, integers `K, M ≥ 1`, and pairwise distinct primes
+`ℓ_i, ℓ'_i ≥ 5` (`1 ≤ i ≤ K`), `D_i = ℓ_iℓ'_i`, `L_i = log D_i`. For
+`a_i` coprime to `D_i` let
+
+    S_i = { n : ‖n a_i/D_i‖ ≤ 1/2 − η },     𝒜 = ∩_i S_i,
+
+`‖·‖` the distance to ℤ. So the family consists, for each i, of the
+`≈ 2ηD_i` classes mod `D_i` whose phase `na_i/D_i` lies in the band
+`B = (1/2−η, 1/2+η)`. By CRT write `n ↔ (x,y) ∈ ℤ/ℓ_i × ℤ/ℓ'_i`; with
+`uℓ'_i + vℓ_i = 1`, the phase is `α(x) + β(y)`, `α(x) = xa_iu/ℓ_i`,
+`β(y) = ya_iv/ℓ'_i`, and α, β are bijections onto `ℓ_i^{−1}ℤ/ℤ`,
+`ℓ'^{−1}_iℤ/ℤ`.
+
+**Lemma 8.1 (uniform-marginal measure on a band set; PROVED).** There is
+a probability `μ_i` on `S_i mod D_i` whose marginals mod `ℓ_i` and mod
+`ℓ'_i` are uniform.
+
+*Proof.* Gale's supply–demand theorem for the bipartite graph with rows
+`x` (supply `1/ℓ_i`), columns y (demand `1/ℓ'_i`), edges `(x,y) ∈ S_i`:
+a flow exists iff `|R|/ℓ_i ≤ |N(R)|/ℓ'_i` for every row set R. Let
+`C = C(R)` be the columns adjacent to no row of R, i.e. `α + β(y) ∈ B` for
+all `α ∈ α(R)`. If `α(R)` contains two points at circular distance `≥ 2η`,
+the arcs `B − α` are disjoint and `C = ∅`. Otherwise `α(R)` lies in an arc
+of length `< 2η`, so `|R| ≤ 2ηℓ_i + 1`, and `β(C) ⊂ B − α` gives
+`|C| ≤ 2ηℓ'_i + 1`. Then `|R|/ℓ_i + |C|/ℓ'_i ≤ 4η + 2/5 < 1`, which is the
+condition, since `|N(R)| = ℓ'_i − |C|`. ∎
