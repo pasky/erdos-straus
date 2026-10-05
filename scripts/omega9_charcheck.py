@@ -93,8 +93,8 @@ out.append(f"(1) characters={count} max|c - E_D[B conj chi_D]/phi(Q)|={maxdev:.2
 assert maxdev < 1e-9 and maxc * 2 <= EabsB + 1e-12
 
 # (2) prime sums
-ps = np.array(list(primerange(D + 1, XMAX)), dtype=np.int64)
-ps = ps[ps % Q == 1]
+ps = np.array(list(primerange(2, XMAX + 1)), dtype=np.int64)
+ps = ps[(ps % Q == 1) & (np.gcd(ps, Q * D) == 1)]  # p = 1 (Q), p not dividing QD
 lp = np.log(ps.astype(float))
 for x in [XMAX // 30, XMAX // 3, XMAX]:
     sel = ps <= x

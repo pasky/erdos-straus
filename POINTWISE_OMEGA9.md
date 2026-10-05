@@ -200,8 +200,9 @@ S* through ET; and the per-prime cost `𝓛` of every modulus prime.
   `Q=3`, `D=7·11·13·17`, B = inclusion–exclusion expansion of a random
   good-indicator. All 23040 coefficients satisfy
   `c(χ)=E_D[Bχ̄_D]/φ(Q)` (to `3·10^{−17}`) and `|c(χ)|≤E|B|/φ(Q)`. The prime
-  sum's relative error (−0.6% at `x=3·10^6`) is below the per-progression
-  bookkeeping `(M_1/μ)·max ε_i` (17.5%). Illustration only.
+  sum's relative error (−0.09% at `x=3·10^6`) is far below the
+  per-progression bookkeeping `(M_1/μ)·max ε_i` (20.1%). (An earlier run
+  dropped all primes `≤D`; fixed, R34a.) Illustration only.
 * **Inputs:** (G) as stated in MV III Thm 28.19 (a draft book; Gallagher's
   paper itself not read), the effective Page bound, O8 §§3–4, 6.1 (minorant,
   twist, local lemma), O2 Lemmas 4.3(I), 11.1–11.2, O4 Thm 2.1's auxiliary
