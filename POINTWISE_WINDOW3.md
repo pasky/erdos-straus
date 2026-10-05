@@ -68,3 +68,20 @@ masses at bin centres, cofactor weight evaluated at the centre sum), not from ε
 **Repair adopted:** μ(C) := exact cell integral of the continuum law over the bin cell of C
 (sub-grid quadrature, `scripts/window3_model.py`). Then ρ(S)=Σ_C emb(S,C)μ(C) are the exact
 cell-aggregated continuum data, product-form and parity-blind to the accuracy above.
+
+### 2.2 Cell-integrated law: data product-form and parity-blind to ≤0.27% (EVIDENCE, quadrature N=4000)
+`scripts/window3_rcheck.py EPS K 0.5` computes `r(S)=ρ(S)/(∏w_k^{S_k}/S_k!)/ρ(∅)` for all visible S
+(rep convention), for the even law and for the odd ("(p/3)=−1") law:
+
+| (ε,K) | window configs (even) | r(S) range, even law | max \|r_even(S)−r_odd(S)\| |
+|---|---|---|---|
+| (0.1, 8) | 197 | [0.999993, 1.000004] | 2.7e-3 |
+| (0.1, 12) | 685 | [0.999997, 1.000003] | 2.7e-3 |
+| (0.07, 9) | 842 | [0.9999998, 1.0] | 2.2e-3 |
+| (0.05, 10) | 4110 | [0.9999998, 1.0] | 1.9e-3 |
+
+(Compare R29: [0.82,1.87] for WINDOW2's point-mass law.) The residual parity sensitivity is the
+continuum `F_−` (it is ≍ the density of x^ε-smooth cofactors in reality, even smaller, but
+≤0.3% either way). **R29-M4 is repaired for the data**: every LP below uses this law.
+(The cell-integrated law includes configurations whose cell straddles Σ=1, with their mass
+below 1; hence more configurations than WINDOW2 at the same grid.)
