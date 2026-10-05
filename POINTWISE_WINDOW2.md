@@ -306,8 +306,10 @@ Hence the relevance of Prop 3.7 to actual sieve methods is EVIDENCE of the weake
 
 Unconditional `a_min≥11` for infinitely many hard p was **not** reached. Route by route:
 
-* **Pure Type-I sieves at BV level (any weights, any combinatorics):** blocked
-  in the discrete model by Prop 3.7. A proof must use information outside
+* **Sieves whose only inputs are `|A_{d_1d_2}|` for bad squarefree `d_1d_2≤x^{1/2}`, the
+  parities and the total mass:** blocked in the discrete model ε=0.1, K=8 (coarse heuristic
+  law) by Prop 3.7. This does not cover sieves that use good or mixed d (not in the model),
+  and ε=0.1 is far from the asymptotic regime (§3.7 Scope; R29 M2, M4). A proof must use information outside
   𝒯𝒫(1/2). Such information includes primality of p in a switched variable (W1's `T_2`
   bound uses it, and so does W2's `T^{(q)}`), Type-II sums, or level >1/2.
   (The model statement is CERTIFIED only for the grid ε=0.1, K=8; the
@@ -318,7 +320,12 @@ Unconditional `a_min≥11` for infinitely many hard p was **not** reached. Route
   not fixed (equivalently `n_3≡0 (d_1)`, `n_3≡−1 (d_2)` for consecutive `n_3, n_3+1`).
   Moreover, the model LP is still 0 at θ=0.6 (grid, uncertified) and positive only
   from θ≈0.7 in the coarse grid. Even a level of 3/5 for the right weights
-  would not suffice in the model. **Assessment: closed.**
+  would not suffice in the model. Window 3 *alone* has the fixed class a=\u22123, so one-window
+  data beyond 1/2 are a priori available; reviewer mixed-level test (R29 m7, `review_w2_lp.py
+  --onewin=T_1`: joint data at level 1/2 plus one-window data `(S_3,\u2205)`, `(\u2205,S_7)` up to T_1):
+  T_1=0.55, 0.6 \u2192 fake persists (min 0, primal uncertified); T_1=0.7 \u2192 CERTIFIED \u22650.16298.
+  So at BFI/Maynard-type levels (\u22643/5) the model obstruction persists on the grid (EVIDENCE;
+  same \u03b5=0.1 caveats as \u00a73.7). **Assessment: closed** (in the model).
 * **(i) Bilinear/Type-II input.** The sequence `r_{−3}(n)r_{−7}(n+1)` (§1) is the
   window analogue of Sedunova's `r(n−2)r(n+2)`. Only its Type-I level `x^{1/6}` is
   known there, and no Type-II estimate is known. A Chen-type switch would need BV for the
