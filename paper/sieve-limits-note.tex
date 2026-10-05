@@ -73,7 +73,8 @@ positive only at primes are capped at $O_A((\log N)^{3/4}(\log\log N)^{3/4})$
 sieve saves only $O(\log\log N)$.  For
 hybrid methods that count large classes blindly we reduce the cap to a
 combinatorial hypothesis; for super-polynomial large-sieve frequencies we
-show that any cap must use the sparsity of forced classes.  We also show
+show that any cap needs family-specific input, such as the sparsity of
+forced classes.  We also show
 that the literal tuple-count hypothesis meets forced zeros above $2/3$ and
 give the repaired alternating form.  We list exactly what the theorems
 exclude.  Every statement carries its status label.  All proofs were
@@ -2127,9 +2128,9 @@ system, CRT-evaluated moment and variance methods
 (Remark~\ref{rem:TQcovered}), and the sequential, $\Lambda^2$ and
 Selberg-type majorants of Sections~\ref{sec:limit}--\ref{sec:selberg}
 when they are $\geq1$ on the whole avoider set (several of them, such
-as Theorems~\ref{thm:gapped} and~\ref{thm:karycap} and the $\Lambda^2$
-majorants of \cite{TW2}, are stated for the avoiders in $R_W$ only; see
-Remark~\ref{rem:L2vsmain}).
+as Theorems~\ref{thm:gapped} and~\ref{thm:karycap}, are stated for the
+avoiders in $R_W$ only; the $\Lambda^2$ majorants of \cite{TW2} are whole-avoider
+majorants, see Remark~\ref{rem:L2vsmain}).
 \emph{Not covered by Theorem~\ref{thm:main} itself}, but capped in
 Section~\ref{sec:LS}: the large sieve, which is not a pointwise majorant
 with rounding $\sum|a_i|$ but is bounded below by one through duality
@@ -2445,18 +2446,10 @@ square form $g^2$, so the reduction from a coefficient budget to a level
 
 \begin{remark}[relation to the main theorem; observation of this note; \lab{proved}]\label{rem:L2vsmain}
 A $\Lambda^2$-majorant $g^2$ with $g\in V_{\lambda/2}$ and $g\geq1$ on the
-avoiders of a family is a nonnegative majorant of level $\lambda$, and it
-is $\geq1$ on the avoiders that lie in $R_W$ (the setting of \cite[\S3]{TW2}
-charges all primes).  So for families with
-$M\leq P(M)^{1+B}$, $B$ fixed, Theorem~\ref{thm:karycap} applies to $g^2$
-directly and gives $\log(1/\E g^2)\ll_B\lambda^{3/4}$ for $\lambda\geq\lambda_0(B)$,
-with any number of large prime factors and no power of $\log L$.  Under
-the $B$-hypothesis, Theorems~\ref{thm:twoprimecap} and~\ref{thm:rprime}
-are therefore superseded as caps, as anticipated in \cite[\S11]{TW4}.  What the
-$\Lambda^2$ route still gives beyond Theorem~\ref{thm:karycap} is the
-removal of $B$ for a fixed number of large primes
-(Theorem~\ref{thm:noB}), and the noise-stability tools themselves.
-Without $B$, a $\Lambda^2$-majorant $g^2$ with $g\geq1$ on the \emph{whole}
+avoiders of a family is a nonnegative majorant of level $\lambda$ (the
+setting of \cite[\S3]{TW2} charges all primes).  Under the $B$-hypothesis
+Theorem~\ref{thm:karycap} already applies to $g^2$, as anticipated in
+\cite[\S11]{TW4}.  In general, a $\Lambda^2$-majorant $g^2$ with $g\geq1$ on the \emph{whole}
 avoider set of a family of the four types is a majorant in the sense of
 Theorem~\ref{thm:noBcap}, which then gives $\log(1/\E g^2)\leq C\lambda^{3/4}$
 for any number of large prime factors and with no $B$.  The settings of
