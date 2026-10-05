@@ -72,7 +72,9 @@ bounded) gives multipliers `μ(x) ≥ 0` with
 (Stationarity of the Lagrangian `E_Uν − Σ_x μ(x)(ν(x) − b(x))` in the free
 variable `ν ∈ V_𝒟` is the first identity.) Put `π = μ|_𝒜 / μ(𝒜)`. For
 `f ∈ V_𝒟` with `f ≥ 0` everywhere,
-`E_π f = Σ_{x∈𝒜} μ(x)f(x)/m* ≤ Σ_x μ(x)f(x)/m* = E_U f/m* ≤ e^{S(λ)}E_U f`. ∎
+`E_π f = Σ_{x∈𝒜} μ(x)f(x)/m* ≤ Σ_x μ(x)f(x)/m* = E_U f/m* ≤ e^{S(λ)}E_U f`.
+(Since `1 ∈ V_𝒟`, the first identity with `ν ≡ 1` gives `Σ_x μ(x) = 1`: μ is
+a probability, `μ(𝒜) = m* ≤ 1`, and π is μ conditioned on 𝒜; review m6.) ∎
 
 *Remarks.* (i) Lemma 1.1 is **equivalent** to K2 Thm 5.1 on `V_𝒟`
 (conversely, (1.1) with `f = ν` gives `1 ≤ E_πν ≤ e^S E_Uν`). Its use
@@ -174,7 +176,11 @@ put `λ = max(λ₀, λ(Q₀) + max(2λ_Φ, Λ₀ + log N))`. Then
 
 *Proof.* Let 𝒟 consist of 1, `Q₀`, all lifted moduli `Q₀·lcm(d_j, d_k)`
 (j, k rows of one fibre system) and `Q₀·d` (d a modulus of some `ν'_c`);
-all have level `≤ λ`. Take π from Lemma 1.1 and the fibre laws `π_c`
+all have level `≤ λ`. Take `M'` a common multiple of `M₀`, of 𝒟 and of
+`Q₀·`(every row period and every twist period), so that every
+`E_{π_c}[ψ_cφ̄_j]` is defined; Lemma 1.1 holds for every such `M'` with 𝒟
+unchanged, which is why the twists' periods never enter the level
+(review m1). Take π from Lemma 1.1 and the fibre laws `π_c`
 (Remark (iii)). Fibres with `π(c) = 0` contribute `B_c ≥ 0`.
 * Type (i): for `‖c‖ ≤ 1`, Cauchy–Schwarz and (1.2), Lemma 2.2 give
   `|E_{π_c}[ψ_c Σ_j c_jφ̄_j]|² ≤ E_{π_c}|ψ_c|² · E_{π_c}|Σ_j c̄_jφ_j|²
@@ -278,7 +284,8 @@ Let every `q ∈ 𝒮` (with `w(q) > 0`) have level `≤ λ_𝒮`, and
 
     B ≥ (N/2) e^{−S(λ)} / (1 + N h/(W_K − h)).
 
-*Proof.* Take π from Lemma 1.1 with 𝒟 = `{lcm(q,q') : q,q' ∈ 𝒮}`. For
+*Proof.* Take π from Lemma 1.1 with 𝒟 = `{1} ∪ {lcm(q,q') : q,q' ∈ 𝒮}`
+(1 is needed by Lemma 1.1; review m2). For
 `‖c‖ ≤ 1` put `H_c = Σ_{θ≠0} (w̃_θ)^{1/2} c_θ e(nθ)`; `|H_c|² ≥ 0` lies in
 `V_𝒟`. Then
 `D(π) − D_u = Σ_{θ≠0}w̃_θ|π̂(θ)|² = sup_c |E_π H_c|² ≤ sup_c E_π|H_c|²
