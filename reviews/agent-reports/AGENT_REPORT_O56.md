@@ -1,7 +1,7 @@
 # AGENT_REPORT_O56 — es-subexp-note v4 (checkpoint 1: full draft, compiles)
 
 Branch `side-agent/subexp-paper-v4`. File: `paper/es-subexp-note.tex` / `.pdf` (39 pp., v3 had
-27). `pdflatex` twice: 0 undefined references, 4 overfull boxes < 11pt.
+27). `pdflatex` twice: 0 undefined references, 3 overfull boxes < 10pt.
 Not merged into main.
 
 ## Headline results of v4
@@ -96,3 +96,10 @@ Section numbers refer to v4.
 * No independent re-derivation of NT constants or of OMEGA14 numerics (exact LP checks) — the
   paper cites none of them as inputs.
 * Memory citations listed in the bibliography TODO comment need checking before submission.
+
+## Self-review (reviewer subagent, deep mode) and repairs
+No FATAL. Applied: (MAJOR) abstract and §10 opening claimed "every fibre" — now restricted to
+`log Q ≤ T^{0.05}` (Thm 10.6's hypothesis; larger Q are handled only via the transfer cost in
+Cor 10.7); (MINOR) abstract said expected residual masses "are Haar masses" — now "bounded by
+Haar masses with a compensating factor 2^{ω_Y(M)}"; (MINOR) abstract sieve dimension now
+`(log T)³/log log T`; (MINOR) overfull box in Lemma 3.2 fixed.

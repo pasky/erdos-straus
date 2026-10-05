@@ -53,17 +53,19 @@ $(\log T)^3/\log\log T\ll\log(1/\delta^*(T))\ll(\log T)^3(\log\log T)^5$.  The
 upper bound comes from quarantining $n$ to a \emph{random square class}
 modulo a growing modulus: the residues $-4D\bmod M$ of the multiplier
 congruences are Jacobi non-residues, so no congruence is ever forced, and in
-expectation the residual masses are Haar masses.  A local lemma with
+expectation the residual masses are bounded by Haar masses with a
+compensating factor $2^{\omega_Y(M)}$.  A local lemma with
 weights $\beta^{|\supp E|}$ and a supermartingale bookkeeping control the
 cost.  The lower bound comes from a Janson-type inequality for events on
 product spaces of one-hot variables, where Harris' inequality fails.  The
 transfer to primes uses, as before, the one-sided $\ell^2$ sandwich of Bazzi
 and Razborov, an energy bound for avoidance indicators of cylinder events,
 and a linear transfer theorem based on Gallagher's theorem.  Finally we show
-that $1/4$ is the limit of this architecture: on every fibre, no minorant of
+that $1/4$ is the limit of this architecture: on every fibre $n\equiv r\pmod Q$
+with $\log Q\le T^{0.05}$, no minorant of
 $\mathbf 1[W(n)>T]$ of level $\exp(c(\log T)^4/\log\log T)$ has positive Haar
 mean.  The proof is a planting argument, the dual of a lower-bound sieve of
-dimension $\asymp(\log T)^3$.
+dimension $\asymp(\log T)^3/\log\log T$.
 \end{abstract}
 
 \maketitle
@@ -715,11 +717,12 @@ Summing over $D\mid A_M^2$ gives $\sum_DH(M)P_H(E_{M,D})=w(M)/M$.  Sums over $M$
 run over $M\le T$.
 
 \begin{lemma}[Haar masses; proved, (A) modulo Theorem~\ref{thm:NT}]\label{lem:masses}
+Let $2\le Y\le T$ and $\beta=1+1/\log\Lc$.
 \begin{enumerate}
-\item[(A)] We have $S_H^\beta=\sum_Mw(M)/M\ll\Lc^3\log Y$ and
-\[
- \sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log M_Y\ll\Lc^3(\log Y)^4 .
-\]
+\item[(A)] We have
+\begin{gather*}
+ S_H^\beta=\sum_M\frac{w(M)}M\ll\Lc^3\log Y,\\ \sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log M_Y\ll\Lc^3(\log Y)^4 .
+\end{gather*}
 \item[(B)] $\sum_{\ell>Y\ \text{prime}}B_2(\ell)\le\frac{\Lc+1}Y\,\Xi$, where
 $\Xi=\sum_Mw(M)^2\tau(M)\omega(M)/M\ll\Lc^{C_0}$ for an absolute constant $C_0$,
 uniformly in $2\le Y\le T$.
@@ -1861,7 +1864,9 @@ that the junta term cannot be reduced within the present architecture.
 
 The proof of Theorem~\ref{thm:main} passes through a minorant $B\le F$ of
 positive Haar mean whose cells have modulus $e^{O(\Lc S)}$.  Here we show
-that no minorant of smaller level exists, dense or sparse, on any fibre.
+that no minorant of smaller level exists, dense or sparse, on any fibre
+whose modulus satisfies $\log Q\le T^{0.05}$ (for larger $Q$ the transfer
+itself is too expensive, Corollary~\ref{cor:ceiling}).
 
 \emph{Setting.}  Fix a modulus $Q$ and a unit $r$ modulo $Q$, and consider the
 \emph{fibre} $\{n\in\hat{\mathbb Z}^\times:\ n\equiv r\ (Q)\}$ with its Haar
