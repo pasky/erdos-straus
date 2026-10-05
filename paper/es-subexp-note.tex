@@ -706,8 +706,7 @@ the binomial law $\mathrm{Bin}(n,p)$ is $\lfloor np\rfloor$ or $\lceil np\rceil$
 \begin{lemma}[Fourier tail; proved modulo Theorem~\ref{thm:hastad}]\label{lem:tail}
 In the Setting of \S\ref{sec:brw}, let $\varphi$ be the avoidance indicator of
 a family of events, each on at most $k$ coordinates, on a set of $N'\le N$
-coordinates.  Let $b=\lceil\log_2(4NT)\rceil$ ($\log_2$ the binary
-logarithm).  Then for every integer $k_0\ge1$,
+coordinates.  Let $b$ be an integer with $2^b\ge4NT$.  Then for every integer $k_0\ge1$,
 \[
  \energy\big(\varphi;\,10\,k\,b\,k_0\big)\ \le\ 4\cdot2^{-k_0}.
 \]
@@ -765,7 +764,7 @@ The width $kb$ enters $t$ only linearly.  Nothing about the events is used
 beyond their support size; in particular there is no codegree hypothesis.
 
 \begin{corollary}[Proved modulo Theorem~\ref{thm:hastad}]\label{cor:el}
-In the Setting of \S\ref{sec:brw} with $N\le T$, assume $w_\ell\le1/(64k)$ for all
+In the Setting of \S\ref{sec:brw} with $N\le T$ and $m\ge1$, assume $w_\ell\le1/(64k)$ for all
 $\ell$.  Let
 \[
  b=\lceil\log_2(4T^2)\rceil,\qquad
@@ -777,7 +776,8 @@ $\E[F-B]\le\delta/100$.
 \end{corollary}
 
 \begin{proof}
-Apply Lemma~\ref{lem:tail} to each $F^{(j)}$: it is the avoidance indicator of
+Here $\log_2$ is the binary logarithm, and $2^b\ge4T^2\ge4NT$.  Apply
+Lemma~\ref{lem:tail} to each $F^{(j)}$: it is the avoidance indicator of
 events on at most $k$ coordinates.  This gives
 $\energy(F^{(j)};t)\le4\cdot2^{-k_0}\le e^{-3S}/(100m^2(S+1))$.  By
 \eqref{eq:uj}, $\E[F-B]\le m^2S\,e^{-3S}/(100m^2(S+1))\le e^{-3S}/100$, and
