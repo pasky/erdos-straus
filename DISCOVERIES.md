@@ -118,6 +118,14 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 
 22. **Prime-only majorants capped for all mixtures (EXCEPTIONAL_PRIMELAW.md):** a level-λ majorant that is ≥ 0 at primes and ≥ 1 at the primes of the avoider set of any finite mixture of ℛ(M)-, (a,D)-, Case-A and selector classes saves at most `Cλ^{3/4}(log λ)^{3/4}` (≤ `C_Bλ^{3/4}` under bounded B) (Thm 3.1, via Dirichlet ⇒ LP under the unit measure, and the arithmetic-free KARY machinery on unit groups). Hence prime-law methods with bound `π(N)E*ν+Err` save at most `C_A(log N)^{3/4}(log log N)^{3/4}` when all moduli are ≤ N^A, which includes Siegel–Walfisz/BV/BDH/EH/GRH-level inputs at any polynomial level (Cor 4.2). **PROVED** (internal; Case A uses Elsholtz–Tao Prop 1.4; review `reviews/exceptional-primelaw-review.md`, SOUND). Open: ν ≥ 0 only at primes ≤ N when the period L > N^c; unconditional signed errors; the large sieve applied to primes.
 
+23. **TC_θ repaired; the literal hypothesis is obstructed above 2/3 (EXCEPTIONAL_TUPLES2.md):**
+    * Each class of ℛ(ℓ) is `−r/s mod ℓ` with `rsm=(ℓ+1)/4`; the class −1 lies in every ℛ(ℓ) (Lemma 1.1).
+    * Forced zeros: tuples whose form-group product exceeds `Ns+r` have interval count 0 but positive CRT mass. For every θ>2/3 this mass exceeds the TC precision `η_K` by `e^{K/(2e²)}` (Thms 2.1–2.2). So TC_θ (θ>2/3) holds only if the admissible tuples carry a compensating aggregate CRT excess (Cor 2.3, PROVED, a necessary condition). That the literal TC_θ is false on (2/3,1) is an Assessment, not proved.
+    * The forced-zero term cancels in the alternating sum (an Euler-characteristic identity). The one-sided alternating hypothesis TC^alt_θ, and TC^𝔄_θ (accuracy on admissible tuples only), each still imply `E(N) ≤ C N exp(−(2/e²)(log N)^θ)` (Thm 4.1, Cor 4.2, PROVED implications). TC^alt is the correct form of the tuple-count door.
+    * For the pure prime family, CRT-main-term sieves save ≤ `C(log N)^{2/3}` (Cor 6.1). So TC^alt_θ for θ>2/3 needs accuracy at moduli `exp(c(log N)^{3θ/2})`; no known theorem reaches this (Assessment).
+    * The (D)21 Cor 3.4 gap is closed for families with at most r prime factors in every interval `(x,x²]` (Prop 7.1, relative to KARY2 Thm 5.1); the general case is open.
+    * **PROVED** (internal; review `reviews/exceptional-tuples2-review.md`, SOUND, minor repairs D1–D7 applied). The positive direction (any θ>3/4 input) remains open.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
