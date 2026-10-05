@@ -798,19 +798,21 @@ one-sided $\ell^2$ sandwich of Bazzi \cite{Bazzi} in the form of Razborov
 for any functions $u_j$ of the coordinates not fixed by $E_j$.  The natural
 choice of $u_j$ is the truncation of the Efron--Stein decomposition of $F^{(j)}$
 to digit sets $U$ with $m_U\le e^\tau$.  By \eqref{eq:energy} it is a combination
-of classes of modulus at most $e^\tau$, and by Corollary~\ref{cor:modtail} its
+of classes of modulus at most $e^\tau$ (so $\mathbf 1_{E_j}u_j$ has modulus at most
+$Te^\tau$, and every class in the expansion of $B$ has modulus at most
+$T^3e^{2\tau}$), and by Corollary~\ref{cor:modtail} its
 error is at most $2^{-\tau/(2\Lc)}$.  The sandwich needs the error to be about
 $e^{-O(S)}m^{-2}$, where $S$ is the total mass of the events.  So
 $\tau\ll\Lc(S+\Lc)$ suffices; in \cite{Subexp} $S\ll\Lc^4$ (using the
-Elsholtz--Tao input), and the junta moduli satisfy $\log d_i\ll\Lc^5$.  The
+Elsholtz--Tao input), and the cell moduli $d_i$ of $B$ satisfy $\log d_i\le3\Lc+2\tau\ll\Lc^5$.  The
 quarantine costs $\log Q\ll\Lc^5\log\Lc$, and a linear transfer theorem based on
 Gallagher's theorem then produces a prime $p$ with $\log p\ll\Lc^5\log\Lc$.
 
-An earlier version of \cite{Subexp} encoded the residues in binary and used
-the switching-lemma tail of LMN instead.  There the junta modulus picked up
-factors for the width of the events and for the bit length, and it was one
-of the two terms of the largest order (the other being the quarantine).  With
-the energy bound the junta term is smaller than the quarantine term.  The
+If instead one encodes the residues in binary and bounds the Fourier tail of
+$F^{(j)}$ by the switching-lemma route of \cite{LMN}, the junta moduli pick up
+factors for the width of the events (the number of primes involved) and for
+the bit length of the residues, since a junta on $d$ bits may read the top bit of
+each residue.  Theorem~\ref{thm:filtration} avoids both factors.  The
 exponent $1/5$ needs two further ingredients of \cite{Subexp} (a graded
 quarantine and a moment bound), and we do not attribute it to
 Theorem~\ref{thm:filtration} alone.  Two features of the energy bound matter
