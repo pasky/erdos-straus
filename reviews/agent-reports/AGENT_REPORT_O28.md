@@ -1,4 +1,4 @@
-# AGENT REPORT O28 (branch side-agent/kary2-loglog) — checkpoint 1
+# AGENT REPORT O28 (branch side-agent/kary2-loglog) — checkpoint 2
 
 Deliverable: `EXCEPTIONAL_KARY3.md`, `scripts/kary3_moments.py`,
 `data/kary3/moments.txt`. Self-reviewed (`reviews/kary3-self-review.md`, deep-mode subagent; D1–D7 applied, none affecting Thm 4.1).
@@ -76,3 +76,55 @@ Deliverable: `EXCEPTIONAL_KARY3.md`, `scripts/kary3_moments.py`,
 
 Numerics (EVIDENCE): the smooth first moments `S(y)/(log y)³` converge
 (X = 10¹²) and decrease over y = 7..31. The block profile has max `u⁴b = 0.385` over all complete blocks.
+
+## Checkpoint 2 (after hostile review R28)
+
+* **R28 defects 1–5 applied**, each in its own commit:
+  1. ElT's second slip (reciprocity sign; the Kronecker character of
+     −ka is never principal) is now recorded in §3.
+  2. Threshold form (2.1′), cited in Lemma 3.1.
+  3. Lemma 3.1(ii) now reads `h > K^{3/4}`, `(2/u)^k`.
+  4. Thm 5.1, `L₀ > λ/2`: the top block can be treated as a linear block.
+     ETw Cor 4.3's proof uses only 1-locality and the caps.
+  5. The status line now lists the K2/EK dependencies ("PROVED given
+     K2/EK as reviewed").
+* **Goal (3), the TWIN4 middle window (§7, Lemma 7.1, PROVED):** §6 is
+  now checked against TW2/TW4's own definitions.
+  * TW2 Setting 3.0 charges all primes, and its classes are ℛ(M)-classes.
+  * For admissible g (TW4 Setting 3.0^{(r)}), `g²` is a K2 majorant of
+    level ≤ λ, and TW's saving is `log(1/E g²)`.
+  * So TW4 Thm 7.1, Prop 9.1, Cor 9.3 and the middle window `r ≍ log L`
+    are superseded *as caps*: the cap is `CA₀^{3/4}L^{3/4}` for every r,
+    and B is not needed.
+  * The TW4 §12 hub-count problem concerns only TW4's own Λ² mechanism
+    and has no consequence for any cap. I deliberately did not pursue it;
+    that would be padding.
+* **Class-order window of TU Cor 3.4 (§7, Lemma 7.2, PROVED):** a residue
+  class whose prime powers are ≤ N^A and with `log d ≤ (k−1)A log N/2` is
+  an intersection of ≤ k classes of modulus ≤ N^A (next-fit packing plus
+  CRT).
+  * So TU Cor 3.4's *literal* hypothesis is, up to a factor 2 in k, a
+    level hypothesis at λ ≍ kL.
+  * Its window therefore cannot be closed from that hypothesis alone.
+    Closing it would improve level-λ caps from λ^{3/4} to (λ/L)·polylog,
+    which the KARY ledger cannot give. Attainability at such levels is
+    ET §2.5's open question.
+  * The window makes sense only for structured order: prime order (closed,
+    Cor 5.2) or intersections of *family* classes. The latter is closed
+    for boundedly many large primes per modulus (Cor 5.3) and open
+    otherwise.
+  * Assessment, not proved: in EK's abstract pattern model, class order k
+    over m-prime conjunctions is indistinguishable from prime order km.
+    So the remaining window is probably genuine and needs ES-specific
+    (TC-type, O24) input.
+
+Proposed DISCOVERIES addition for (D)16: "TW4's Λ² cap, including the
+middle window r ≍ log L, is superseded as a cap by KARY3 Thm 4.1 / Lemma
+7.1: `C L^{3/4}` for all r, no B." For (D)21: "TU Cor 3.4's literal
+hypothesis equals a level-≍kL hypothesis (KARY3 Lemma 7.2). Prime order
+is closed (Cor 5.2); family-class order is closed for bounded ω_{>W}
+(Cor 5.3) and open otherwise."
+
+Natural next step (not started): ES-specific structure of intersections
+of forced classes with many large primes. This overlaps O24 (TC_θ), so I
+stop here.
