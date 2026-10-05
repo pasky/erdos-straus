@@ -551,12 +551,18 @@ verbatim.)
   `C(11)>3000` (census: 111).
 * Unconditionally, any finite Type-I covering of `{n_p=7}` must have height
   `≥539`, and any covering of `{n_p=11}` must have height `>3000` (PROVED).
-  A covering of lower height would also cover the formal point, i.e.
-  some certificate would hold on its class. Certificate classes are
-  decided by residues, and at the formal point no fixed-part divisor is a
-  target. So no certificate of height ≤X with B-smooth F holds there.
-  Certificates whose F has a prime `>B` also cannot hold on the whole
-  class, because `p mod` that prime is free.
+  *Proof.* Suppose a finite covering of height ≤X is given, and let
+  `ℓ_1,…,ℓ_t>B` be the primes `>B` that occur in its F's. Refine the
+  formal class by `p≢` any root of any `N_{c,k}` (`ck≤X`) mod each `ℓ_i`.
+  This is possible because `ℓ_i>B≥2·#slices+2`. The refined class still
+  contains infinitely many primes (Dirichlet), and all of them have
+  `n_p=r`.
+  * A certificate whose F contains some `ℓ_i` never holds there
+    (`ℓ_i∤N`).
+  * A certificate with B-smooth F holds on the class iff F divides the
+    fixed part and `F≡−p (4ck)`, which the computation excludes.
+
+  So the class is not covered. ∎
 
 *Why r=11 escapes so well.* At the residue-one point the unforced slices
 are `(11c',k)` with odd `v_11(c)`. Write `m` for the 11-free part of `ck`,
