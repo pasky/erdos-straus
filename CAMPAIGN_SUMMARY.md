@@ -872,14 +872,55 @@ Semantic Scholar was rate-limited. These were **not accessed**:
   CRT-plus-least-prime pattern (Fridlender, Salié, Chowla–Turán). The
   technical novelty is the multilevel minorant and local-lemma machinery.
   The interest of the result depends on `W` being a natural statistic; it
-  is campaign-defined.
+  is campaign-defined. For the sub-exponential rates (OMEGA8
+  onwards) see the separate audit below.
 * *The signed refactor graph and seed-component conjecture.* These are
   elementary; their value is structural, not a priority claim.
+
+**The sub-exponential pointwise machinery** (sources:
+`reviews/novelty-audit-omega8.md`, a no-internet audit partly from memory;
+the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
+`paper/energy-dnf-note.tex`). All searches here were partial.
+* *Known, cited, no novelty claimed:*
+  * the one-sided ℓ² sandwich of OMEGA8 Lemma 3.1 (Bazzi's scheme in
+    Razborov's form, with Wigderson's choice of approximant);
+  * the switching-lemma Fourier tail of OMEGA8 Lemma 4.1 (a routine
+    adaptation of Linial–Mansour–Nisan and Håstad);
+  * the **β-weighted local lemma** (OMEGA13 Lemma 1.1): the asymmetric
+    local lemma with the choice `x_E = β^{|supp E|}P(E)`; its conditional
+    form is standard (Haeupler–Saha–Srinivasan);
+  * the **planting lemma** (OMEGA14 Lemma 1.1): it is the LP dual of
+    lower-bound sieves, and laws of the same kind appear in
+    Benjamini–Gurel-Gurevich–Peled and Peled–Yadin–Yehudayoff. Only its
+    use to bound the level of minorants of a concrete arithmetic
+    indicator is new to us.
+* *Apparently new (low-to-medium confidence):*
+  * using the sandwich as a sieve minorant transferred to primes, and a
+    switching-lemma bound for a covering-avoidance density (the known
+    number-theoretic uses of these tools run the other way);
+  * the **energy bound C-1** and the DNF tails `W^{>t} ≤ 4·2^{−(t+1)/k}`
+    under any product measure (OMEGA10; `paper/energy-dnf-note.tex`).
+    Nearest prior art: **Lecomte–Tan** (FOCS 2021), who bound Fourier
+    coefficients of a DNF by cover probabilities but still use Håstad for
+    the degree; C-1 uses signed covers, all levels at once, and no
+    switching lemma. The note claims no priority;
+  * the **Janson-type inequality for one-hot product spaces**
+    (POINTWISE_HAAR Thm 1.4), where Harris's inequality fails: built from
+    the lopsided local lemma and Janson's proof scheme; not found in this
+    form, no systematic search, no priority claim.
+* The m/n analogues (POINTWISE_TRANSFER) claim no novelty beyond the
+  ES-type applications.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
   Thm 1.1(2).
 * Theorem W2 is a Friedlander–Iwaniec (2009) type theorem.
+* POINTWISE_XWIN Thm 2.2 (window tail) re-proves what notes Thms
+  14.4/14.9 already imply; priority to the notes.
+* The GRH part of POINTWISE_TYPEI (Thm 3.1) is Montgomery's Ω-result for
+  the least non-residue, transported (sources cited from memory).
+* The results of ledger (D)23–(D)26 and of POINTWISE_XWIN/WINDOW2/TYPEI
+  have not been separately novelty-audited.
 * Related recent work that the campaign compares against:
   Pomerance–Weingartner (arXiv:2511.16817; an explicit-in-`m` Vaughan
   bound) and Dahan (arXiv:2608.24035). Dahan's Thm 4.17 is credited as an
