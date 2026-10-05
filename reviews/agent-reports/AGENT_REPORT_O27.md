@@ -1,6 +1,6 @@
 # AGENT REPORT O27 — remaining large-sieve and prime-law escapes (branch `side-agent/ls-escapes`)
 
-Deliverable: `EXCEPTIONAL_LARGESIEVE2.md` (checkpoint 1), script
+Deliverable: `EXCEPTIONAL_LARGESIEVE2.md` (checkpoint 2), script
 `scripts/largesieve2_checks.py`, output `data/largesieve2/checks.txt`.
 
 ## Results
@@ -35,8 +35,8 @@ Deliverable: `EXCEPTIONAL_LARGESIEVE2.md` (checkpoint 1), script
    ℓ^{2+2β} form). (H_LS∞) remains CONJECTURE; the
    obstacles (abstract dual π, reweighted KARY law, top-prime-only decay of
    the plain law, density loss of product sub-laws) are listed.
-6. **PL finite-range relaxation (Prop 6.1).** With "ν ≥ 1 only at primes of
-   𝒜 ∩ [1,N]" the LP value is the exact count, attained at level `log 2N`
+6. **PL finite-range relaxation (Prop 6.1), one of two bullets.** With "ν ≥ 1
+   only at primes of 𝒜 ∩ [1,N]" the LP value is the exact count, attained at level `log 2N`
    by a nonnegative ν; no cap of any kind exists — the gap is certification
    (non-CRT), not majorant design. Signed unconditional errors: Assessment.
 
@@ -69,9 +69,25 @@ and comparison identity of Lemma 1.1 exact on a 9240-periodic toy family;
 Lemma 2.2/Thm 2.4 and Lemma 4.1/Thm 4.2 inequalities; Thm 4.3's proof steps
 on the exact sequential law. EVIDENCE only.
 
+## Checkpoint 2: hostile review R27 applied
+
+R27 (`reviews/exceptional-largesieve2-review.md`): all claims SOUND, no
+FATAL/MAJOR. Applied: m1 (M' contains row and twist periods in Thm 2.4),
+m2 (`1 ∈ 𝒟` in Thm 4.2), m3 (Thm 4.3 label "unconditional; Shiu + Mertens,
+no ElT Prop 1.4"; enlarged W₀ for 𝔏 ≤ 1/4; W-uniformity of K2 Lemma 4.3
+cited; `𝔏 log W = o(1)` step made explicit), m4 (Prop 6.1 covers only the
+"ν ≥ 1 only on 𝒜∩[1,N]" relaxation; "ν ≥ 0 only at primes ≤ N" stays open),
+m5 (Siegel–Walfisz exponent 1/2 vs Vinogradov–Korobov 3/5), m6 (μ is a
+probability). Also: KARY3 Thm 4.1 ((D)24) removes the `(log log N)^{3/4}`
+factor from every K2-based cap here (Lemma 1.1, Thms 2.4, 4.2, Cor 2.5,
+Prop 5.1); for the unit-measure Thm 3.1 via KARY3 §4.3 (pointer level).
+
 ## Ledger suggestion (for the parent)
 
-(D)19 open escapes: replace "the larger sieve over mixtures; twisted/hybrid
-forms" by "closed (LARGESIEVE2 Thms 2.4, 4.2, 4.3)"; keep (E1) as
-(H_LS∞). (D)22 open: "the large sieve applied to primes" closed (Thm 3.1);
-"ν ≥ 0 only at primes ≤ N" annotated by Prop 6.1.
+(D)19 open escapes: twisted/hybrid forms closed (Thm 2.4); Gallagher's
+larger sieve over mixtures closed for prime-power kernels, unconditionally,
+saving `O(log log N)` (Thm 4.3); composite kernels capped only where
+`Nh/(W_K−h)` is controlled (Thm 4.2); keep (E1) as (H_LS∞). With KARY3 the
+caps are `C_A(log N)^{3/4}`. (D)22 open: "the large sieve applied to primes"
+closed (Thm 3.1); "ν ≥ 1 only on 𝒜∩[1,N]" shown vacuous (Prop 6.1);
+"ν ≥ 0 only at primes ≤ N" stays open (Assessment).

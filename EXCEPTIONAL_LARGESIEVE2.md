@@ -1,6 +1,9 @@
 # EXCEPTIONAL_LARGESIEVE2 — the remaining large-sieve and prime-law escapes (task O27)
 
-Status: **checkpoint 1** (self-review by a deep subagent applied; awaiting parent review). Labels as in
+Status: **checkpoint 2.** Hostile review R27
+(`reviews/exceptional-largesieve2-review.md`, branch
+`side-agent/review-largesieve2`): all claims SOUND, no FATAL/MAJOR; minor
+m1–m6 applied. Labels as in
 `DISCOVERIES.md`. Notation: LS = `EXCEPTIONAL_LARGESIEVE.md`, K2 =
 `EXCEPTIONAL_KARY2.md`, EK = `EXCEPTIONAL_KARY.md`, PL =
 `EXCEPTIONAL_PRIMELAW.md`, ET = `EXCEPTIONAL_THETA.md`.
