@@ -341,6 +341,39 @@ Given x, the events at ℓ whose small part holds are the `E_{vℓ,D}` with
 `x≡−4D (mod v)`. Distinct D give distinct classes `−4D mod ℓ`, since `0<|D−D'|<T^{2ε}<ℓ`. So
 `p_ℓ(x)=(ℓ−1)^{−1}#{D: the v of (ℓ,D) exists and x≡−4D (v)}`. Sum over ℓ, then group by v. ∎
 
+**Lemma 4.3 (class-uniform primes mod 4n; PROVED modulo (G) and the effective Page bound,
+as quoted in POINTWISE_OMEGA9 §0).** There is an absolute `ε_0>0` such that, for `ε≤ε_0`, T
+large, and `q_1` the modulus of the exceptional character of (G) with `Q_G:=4X` (if any), put
+
+```
+𝒩_exc := {n : q_1 | 4n} if q_1 exists and q_1>𝓛^{1.9};   𝒩_exc := ∅ otherwise.
+```
+
+Then `c(v,n) ≥ 0.13/φ(4n)` for every `n∈[V,X]∖𝒩_exc` and every `v≤V` with `gcd(v,2n)=1`.
+
+*Proof.* Put `q:=4n≤Q_G` and `b:≡−v^{−1} (q)`, a unit. Every χ mod q is induced by a primitive
+`χ*` of conductor `q*|q`, and `|ϑ(x;χ)−ϑ(x;χ*)|≤log q`. Orthogonality and (G) give, for
+`x∈[T^{0.6},T^{0.7}]`,
+
+```
+|ϑ(x;q,b) − x/φ(q) + [q_1|q]χ_1(b)x^{β_1}/(β_1φ(q))| ≤ (C'/φ(q))·x·(e^{−log x/(κlog Q_G)} + (log x/log Q_G)²/Q_G) + log q.
+```
+
+In the exceptional case the right side carries a prefactor `(1−β_1)log x≤0.7/(κε)`.
+Since `log x/log Q_G≥0.6/(ε+o(1))`, the right side is `≤x/(8φ(q))` once ε is small.
+The range condition `Q_G^{6c}≤x` holds for `ε≤0.1/c`.
+*Exceptional term.* If `q_1∤q`, it is absent. If `q_1|q` and `q_1≤𝓛^{1.9}`, the effective Page bound
+`1−β_1≫q_1^{−1/2}(log q_1)^{−2}` gives `x^{β_1−1}≤exp(−c𝓛^{0.05}/(log𝓛)²)=o(1)`, and `1/β_1≤2`.
+If `q_1|q` and `q_1>𝓛^{1.9}`, then `n∈𝒩_exc`, which is excluded.
+So `ϑ(t;q,b)∈[(7/8−o(1)),(9/8)]·t/φ(q)` on `[T^{0.6},T^{0.7}]`. Partial summation then gives
+`Σ_{ℓ≡b (q), ℓ∈(T^{0.6},T^{0.7}]}1/ℓ ≥ (7/8)log(7/6)/φ(q) − O(1/(𝓛φ(q))) ≥ 0.13/φ(q)`: the
+integral `∫ϑ(t)(1+log t)(t log t)^{−2}dt` gives `log(7/6)`, and the boundary terms are
+`O(1/𝓛)`. ∎
+
+*Exceptional set is harmless.* If `q_1>𝓛^{1.9}`, write `q'':=q_1/gcd(q_1,4)≥q_1/4`; then
+`n∈𝒩_exc ⟺ q''|n`. It is used only through Lemma 4.4's class-uniform upper bound for multiples
+of `q''`, with `τ(q'')/q''≤𝓛^{−1.8}`.
+
 ## Replay
 
 ```
