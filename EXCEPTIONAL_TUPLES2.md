@@ -160,7 +160,7 @@ structure of single forms.**
 
 ## 3. Is literal TC_θ false above 2/3?
 
-**Lemma 3.1 (the class −1 is one-sided; PROVED).** Let G be a set of
+**Lemma 3.1 (the class −1 is one-sided; PROVED).** Let G be a nonempty set of
 primes `ℓ ≡ 3 (4)`, `ℓ ≤ y`, `q_G = Π_G ℓ`, and `T_G` the tuple with class
 −1 at each ℓ ∈ G. Then `C_{T_G}(N) = ⌊(N+1)/q_G⌋ ≤ N/q_G + 1/q_G`, and
 `= 0` if `q_G > N+1`. Hence the pure-(1,1) part `Σ_{|G|=j} C_{T_G}(N)` of
@@ -172,7 +172,8 @@ mass `N Σ_{q_G > N+1} 1/q_G` minus the floor deficit
 *Proof.* `n ≤ N` with `q_G | n+1` ⟺ `n+1 ∈ q_Gℤ ∩ [2, N+1]`; there are
 `⌊(N+1)/q_G⌋` such (q_G ≥ 3). ∎
 
-So inside one form, the interval count is **never** above CRT by more than
+So for the class −1 (not for general forms: `(r,s) = (1,2)`, ℓ = 7, N = 3
+gives `C = 1 > 4/7`), the interval count is **never** above CRT by more than
 `1/q`, and it is below CRT by the full CRT share once `q > N+1`, and by the
 fractional part `{(N+1)/q}` (≈ ½ on average over N, Assessment) below that.
 These are the Kubilius truncation and rounding effects of the single
@@ -285,9 +286,9 @@ proof), so `2Π(1−p) + 2e^{−K} + Kη_K ≤ (2e + 2)e^{−K/e²}` for large K
   is of that size at the calibrated N is not proved (individual terms can
   be negative when `q | N+1`; the size `≈ ½` per tuple is an average over
   N). (Assessment.)
-* TC^alt fails for even `K ≥ (2e²/2+ε) log N`-type orders (squares: T1
+* TC^alt fails for even `K ≥ (e²/2+ε) log N`, N ≥ N₀(ε) (squares: T1
   Prop 4.2's proof uses only the Bonferroni bound; the factor 2 in TC^alt
-  shifts the constant slightly). The calibrated endpoint θ = 1
+  only changes N₀). The calibrated endpoint θ = 1
   (`K ≈ 2 log N`) is not decided by this argument, as in T1.
 * In the alternating sum the forced-zero (truncation) correction to the
   CRT mass is an Euler-characteristic term `χ_φ`, which vanishes unless
