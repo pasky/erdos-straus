@@ -165,3 +165,36 @@ system):
   The idea of feeding a sieve minorant into Linnik is standard
   (Chang/Iwaniec-type least-prime-in-sieved-sets results). The
   *junta-size* bookkeeping is the specific feature.
+
+(Correction to the last bullet: "standard" there means that combining a
+sieve minorant with a least-prime theorem is a common pattern, as in
+PO Thm 4.1 and the v3 note. The auditor cannot name a specific prior
+paper with a *union-of-cells* Linnik theorem of PO Thm 4.1's shape. Treat
+that sentence as unverified.)
+
+## Verdict table
+
+| Item | Verdict | Confidence | Basis |
+|---|---|---|---|
+| Thm 4.3 / 4.4 as statements (Ω-rate for W) | **NEW** (no Ω-result for W outside the campaign) | medium-high for ES literature (archived, earlier audit); W campaign-defined | earlier audit + this pass |
+| Lemma 3.1 (BRW minorant, identity `F−B=ΣA_i(Σ_{j<i}A_je_j)²`) | **KNOWN** (Razborov 2009, Bazzi's scheme, Wigderson's choice) | high *[memory]* | must be cited as such |
+| Lemma 4.1 (switching lemma ⇒ Efron–Stein tail of width-k systems after bit encoding) | **KNOWN technique, routine adaptation**: LMN + Håstad, standard encoding | high | cite LMN/Håstad/O'Donnell |
+| Use of the BRW sandwich as a *sieve minorant transferred to primes* (Thm 3.4 + Cor 4.2) | **APPARENTLY NEW** | low-medium (no search) | none known to auditor |
+| Switching-lemma bound for a sieve error term / covering-avoidance density | **APPARENTLY NEW** | low-medium | the known NT uses run the other way (Green, Bourgain) |
+| Haar input (local lemma; iterated quarantine) | campaign's earlier result; **analogous to** Hough / BBMST distortion and to LLL folklore | — | not part of the novelty of Thm 4.3 |
+| Lemma 2.1, §2 diagnosis | Lemma 2.1 elementary; §2 is an Assessment | — | not for the paper's main line |
+
+## Recommendations for the paper (Step B)
+
+1. Present Lemma 3.1 as "Razborov's form of Bazzi's argument". Write
+   out its full proof for self-containedness, but claim no novelty for
+   it.
+2. Present Lemma 4.1 as a direct application of LMN/Håstad. Spell out
+   the encoding.
+3. Locate the novelty in the transfer (the multiplicative-error Linnik
+   theorem consumes a bounded-junta sandwich), and in the statement.
+4. State plainly: no literature search beyond the archive; Green and
+   Bourgain go in the opposite direction; Hough/BBMST are the nearest
+   probabilistic covering-system analogue, on the Haar side only.
+5. Mention §6 (exponent 1/13) at most as "further bookkeeping
+   improvements appear possible".
