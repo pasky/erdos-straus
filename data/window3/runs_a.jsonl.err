@@ -1,0 +1,40 @@
+{"cg_iter": 1, "cols": 353, "obj": 0.2771049419646544, "neg_rc": 134628, "min_rc": -3039.690483091945}
+{"cg_iter": 2, "cols": 10353, "obj": 0.3382709715144308, "neg_rc": 92980, "min_rc": -814.6566082303334}
+{"cg_iter": 3, "cols": 20353, "obj": 0.32936443772304613, "neg_rc": 67716, "min_rc": -281.67766010201404}
+{"cg_iter": 4, "cols": 30353, "obj": 0.0, "neg_rc": 0, "min_rc": -0.0}
+{"cg_iter": 1, "cols": 912, "obj": 0.5469513269758058, "neg_rc": 571614, "min_rc": -2885.6672097885607}
+{"cg_iter": 2, "cols": 10912, "obj": 0.31410913443836763, "neg_rc": 496250, "min_rc": -7731.324436601962}
+{"cg_iter": 3, "cols": 20912, "obj": 0.07515129615815706, "neg_rc": 432993, "min_rc": -21114.696356368884}
+{"cg_iter": 4, "cols": 30912, "obj": 0.0, "neg_rc": 346204, "min_rc": -27117.313060946944}
+{"cg_iter": 5, "cols": 40912, "obj": 0.0, "neg_rc": 329993, "min_rc": -102149.71228960603}
+{"cg_iter": 6, "cols": 51140, "obj": 0.0, "neg_rc": 292210, "min_rc": -3867.459285812723}
+{"cg_iter": 7, "cols": 63925, "obj": 0.0, "neg_rc": 237383, "min_rc": -32978.096796873484}
+{"cg_iter": 8, "cols": 79906, "obj": 0.0, "neg_rc": 196015, "min_rc": -536.4547423202929}
+{"cg_iter": 9, "cols": 99882, "obj": 0.0, "neg_rc": 0, "min_rc": -0.0}
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0006/scripts/window3_lp2.py", line 120, in <module>
+    main()
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0006/scripts/window3_lp2.py", line 23, in main
+    L, W, mu1, A, rho, cols_mu = build(eps, K, theta, vis, N, False)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0006/scripts/window3_lp.py", line 67, in build
+    A = sp.vstack([sp.kron(B[a], B[b], format="csr") for a, b in pairs]).tocsr()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pasky/.cache/uv/archive-v0/qesLe_rYLkfhiURR/lib/python3.12/site-packages/scipy/sparse/_construct.py", line 900, in kron
+    coords[-B.ndim:] = [(co.reshape(-1, B.nnz) + Bco).ravel()
+                         ~~~~~~~~~~~~~~~~~~~~~~^~~~~
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 21.4 MiB for an array with shape (1846, 3039) and data type int32
+{"cg_iter": 1, "cols": 353, "obj": 0.568152947011271, "neg_rc": 134900, "min_rc": -3125.7398410616033}
+{"cg_iter": 2, "cols": 10353, "obj": 0.4902280634984011, "neg_rc": 97927, "min_rc": -596.7168498987189}
+{"cg_iter": 3, "cols": 20353, "obj": 0.39395444123335, "neg_rc": 70672, "min_rc": -212.48325720996877}
+{"cg_iter": 4, "cols": 30353, "obj": 0.22122294217884833, "neg_rc": 41753, "min_rc": -121.40467601283058}
+{"cg_iter": 5, "cols": 40353, "obj": 0.0, "neg_rc": 0, "min_rc": -0.0}
+{"cg_iter": 1, "cols": 912, "obj": 0.7261555481876842, "neg_rc": 572522, "min_rc": -2871.438968754421}
+{"cg_iter": 2, "cols": 10912, "obj": 0.5564118726460088, "neg_rc": 497489, "min_rc": -8362.642345843951}
+{"cg_iter": 3, "cols": 20912, "obj": 0.35461134002187933, "neg_rc": 441089, "min_rc": -30792.898771106597}
+{"cg_iter": 4, "cols": 30912, "obj": 0.2243253013218678, "neg_rc": 365360, "min_rc": -11568.543730251313}
+{"cg_iter": 5, "cols": 40912, "obj": 0.17487314917884683, "neg_rc": 335727, "min_rc": -84814.40114429283}
+{"cg_iter": 6, "cols": 51140, "obj": 0.1586966144202289, "neg_rc": 308987, "min_rc": -834411.4618474935}
+{"cg_iter": 7, "cols": 63925, "obj": 0.15047060162831116, "neg_rc": 277234, "min_rc": -1131.2327705201096}
+{"cg_iter": 8, "cols": 79906, "obj": 0.06665114636152614, "neg_rc": 252144, "min_rc": -8450.196980229026}
+{"cg_iter": 9, "cols": 99882, "obj": 0.0, "neg_rc": 0, "min_rc": -0.0}
