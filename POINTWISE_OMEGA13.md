@@ -130,3 +130,63 @@ heavy late primes are themselves quarantined and charged, so only
 `Σ_{ℓ>Y}V(ℓ)²logℓ` is needed. (ii) M(Y). (iii) A junta below `𝓛·S`. This is the
 brief's (ii), and with (i)–(ii) it would push the conditional exponent towards
 1/3. (iv) The interface check (c).
+
+## 2. LPL is not needed pointwise: heavy late primes are quarantined, second moment over ℓ
+
+Put `s♯(E):=β^{ω(M)}C_1·g/M`. By O11 Lemma 2.1 and O12 Lemma 6.2, `P(E)≤s♯(E)` holds
+for *every* graded class-of-one Q, uniformly. Put `V♯(ℓ):=Σ_{E: ℓ|M}s♯(E)`.
+
+**Lemma 2.1 (reduction; PROVED).** Fix `Y≥𝓛` and let
+`𝓗:={ℓ>Y prime: V♯(ℓ)>η/2}`. This set is deterministic and independent of Q.
+Run Lemma 1.2 with only the primes `ℓ≤Y` and `ℓ∈𝓗` eligible. Then:
+
+* (LLL) (1.1) holds at the end, at every coordinate.
+* (cost)
+  ```
+  log Q ≤ log Q_start + (1/η)Σ_E β^{ω(M)}C_1(g_Y/M)·log M_Y + 𝓛·(1/η+1)·Σ_{ℓ∈𝓗}V♯(ℓ)·(2/η)... 
+  ```
+  More simply: `log Q ≤ log Q_start + (1/η)Σ_Eβ^{ω}C_1(g_Y/M)log M_Y + (𝓛/η+𝓛)·R_2`.
+* (mass) `Σ_Eβ^{s}P(E) ≤ S_Y + R_2`.
+
+Here
+
+```
+R_2 := (4/η²)·Σ_{ℓ>Y} V♯(ℓ)²   (≥ |𝓗| and ≥ Σ_{ℓ∈𝓗}V♯(ℓ)·(2/η)^{-1}… see proof).
+```
+
+*Proof.*
+(LLL) For `ℓ>Y`, `ℓ∉𝓗`: `w̃_ℓ(Q)≤V♯(ℓ)≤η/2`, for every Q. Eligible coordinates
+satisfy (1.1) when the procedure stops.
+
+(weights) Let `Q=Q_Y·Q_𝓗`, where `Q_𝓗` is composed of primes in 𝓗. A surviving
+atom has `gcd(M,Q)|g`. If no prime of 𝓗 divides `gcd(M,Q)`, then
+`gcd(M,Q)|g_Y` and `P(E)≤β^{-ω}…`; that is, `x_E≤β^{ω}C_1g_Y/M=:s_Y(E)`.
+Otherwise `x_E≤s♯(E)` and some `ℓ∈𝓗` divides g, hence divides M. So
+
+```
+x_E ≤ s_Y(E) + Σ_{ℓ∈𝓗, ℓ|M} s♯(E),       Σ_E x_E ≤ S_Y + Σ_{ℓ∈𝓗}V♯(ℓ).
+```
+
+(Chebyshev) On 𝓗, `1<2V♯(ℓ)/η`. So
+`|𝓗|≤(4/η²)ΣV♯²=R_2` and `Σ_{ℓ∈𝓗}V♯(ℓ)≤(2/η)ΣV♯²=(η/2)R_2≤R_2`.
+
+(cost) Steps at `ℓ∈𝓗` cost at most `Σ_{a≤f_ℓ}logℓ≤𝓛` per prime, so `≤𝓛|𝓗|≤𝓛R_2`.
+Steps at `ℓ≤Y` are charged as in Lemma 1.2, with the uniform weight
+`s_Y(E)+Σ_{ℓ'∈𝓗,ℓ'|M}s♯(E)`. This weight is valid for every Q of the above
+shape, because 𝓗 is fixed in advance. Their charge `Λ_st(M)≤log M_Y≤𝓛` gives
+`(1/η)[Σs_Y log M_Y + 𝓛Σ_{ℓ∈𝓗}V♯(ℓ)] ≤ (1/η)Σs_Y log M_Y + (𝓛/η)R_2`. ∎
+
+**Hypothesis V2(Y).** `Σ_{ℓ>Y prime}V♯(ℓ)² ≪ 𝓛²(log𝓛)^{O(1)}` for some `Y=𝓛^{O(1)}`.
+
+**Corollary 2.2 (CONDITIONAL).** Proposition 1.3 holds with LPL(Y) replaced by V2(Y):
+`R_2≪(log𝓛)²·𝓛²(log𝓛)^{O(1)}`, so `𝓛R_2/η≪𝓛³(log𝓛)^{O(1)}`.
+
+*Why V2 is more accessible than LPL.*
+* **Averaged over ℓ.** V2 is an average over the moduli ℓ (a
+  Barban–Davenport–Halberstam-type second moment), not a pointwise bound for each ℓ.
+* **Uses the full weights.** It uses `s♯=g/M` itself: the full ET mass
+  `S♯≍𝓛^4log𝓛`, with no smooth truncation.
+* **Heuristic size.** `V♯(ℓ)≈S♯/ℓ` gives `Σ_{ℓ>Y}V♯²≈S♯²/(Y logY)≈𝓛^8/Y`.
+  So `A≥6` suffices.
+* **First-term ℓ.** The special primes with `V♯(ℓ)≈ℓ^{−1/2}𝓛^{O(1)}`
+  (`ℓ|4a²+1` with `a≈√ℓ`) have density `≈ℓ^{−1/2}`. They contribute `O(1)`.
