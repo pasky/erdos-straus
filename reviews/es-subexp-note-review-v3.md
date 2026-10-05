@@ -91,3 +91,18 @@ Status: IN PROGRESS.
   attained), Lemma 6.2 for every V, Lemma 6.3 identity (err ≤6e-16), Lemma 6.4 for every
   matching, Cor 6.6 tail ≤2^{−(t+1)/k} (max ratio 0.50): all pass. The single-event formula
   for G_{1−1_E} also checked (λ=2.2, π=0.01 gives G=1.0019>1, so λ^{supp}≤2 is needed).
+
+### Pass 5: Cor 6.6, Remarks 6.7–6.8, Thm 6.9, Cor 6.10 (hand)
+* Cor 6.6 ✓. Remark 6.7 (sharpness): F^{=U} factorisation over disjoint supports,
+  ‖(1_E)^{=supp E}‖²=π(1−p)^k, limit e^{−2s}s^j/j!, s=j/2 and j!≤e j^{j+1/2}e^{−j}
+  give ≥2^{−j}/(e√j) ✓ — correct and now genuinely proved.
+* Remark 6.8: Boolean tail 4·2^{−(t+1)/k} ✓; total influence Σ|U|‖F^{=U}‖²≤(k/ln2)P(F=0)
+  from λ^{|U|}≥1+|U|lnλ and Σ‖F^{=U}‖²=P(F=1) ✓; q-ary literals ✓. The LMN/OD constant
+  2·2^{−t/(20k)} was NOT checked (O'Donnell's book not in `sources/`).
+* Thm 6.9: P_{ℓ,j}F^{=U}∈{F^{=U},0} according to max U_ℓ≥j ✓; telescoping
+  1+Σ_{i_0≤j≤max U_ℓ}μ'_{ℓ,j}=λ^{1+max U_ℓ} ✓; coarse space (head/tail per selected ℓ),
+  splitting events into disjoint coarse cylinders leaves F unchanged and exactly one piece
+  holds at x ✓; trace of coarse support on V' = {(ℓ,j)∈V: j<v_ℓ(E)} = Ê∩V ✓; extension to
+  all V (μ'≥0) ✓; per-ℓ factor λ^{i_0+1}Π_{i_0<j<v}(1+λ^j(λ−1)) ≤ λ^{2v} using λ^j≤√2<λ+1 ✓.
+* Cor 6.10: Πλ_ℓ^{2v_ℓ}=2^{log Πℓ^{v_ℓ}/𝓛}≤2 and weight 2^{log m_U/(2𝓛)} ✓.
+* Verdict §6: SOUND (pending brute force of Thm 6.9).
