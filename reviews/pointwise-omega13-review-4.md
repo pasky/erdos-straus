@@ -71,3 +71,9 @@ Toy parameters: `β=1.25` (`η=0.167`; the theorem's `β=1+1/log𝓛` exceeds `e
 * `T=600, Y=20`: 6/6 realisations have late violations (15 primes `ℓ∈(Y,T]` with `w̃_ℓ>η`). Expected: the
   theorem needs `Y=𝓛^{C_0+4}≈𝓛^{52.5}`, which is `≤T` only once `𝓛≳300`. The toy cannot see the late-prime
   Chebyshev step; it confirms only the algebra (Lemma 3.1, (I), Mordell classes, LLL bound, twist sign).
+
+**Late-prime second moment (`scripts/review_o13d_late.py 400 13 200 7`).** Exact `B_2(ℓ)` (definition of
+Lemma 3.2(d), β=1.25, Y=13) against the Monte Carlo mean of `w̃_ℓ(end)²` over 200 realisations, for all primes
+`ℓ∈(13,133]`: max ratio `E[w̃²]/B_2 = 1.000` (attained with equality at `ℓ≥83`, where only `M=ℓ, 3ℓ` occur and
+`w̃_ℓ` is deterministic — the bound is tight there, as the proof predicts); typical ratios 0.01–0.9. Also
+`E[S_res]≈8.27 ≤ S_H^β=38.1` (Lemma 3.2(c)). No violation of the inequalities driving the random → deterministic step.
