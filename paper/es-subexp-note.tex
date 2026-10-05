@@ -1182,3 +1182,228 @@ digits in $U$ needs, not by the number of coordinates.  For the
 Erd\H{o}s--Straus events (digits in base $\ell$) this removes both the
 binary width and the support size from the junta modulus.
 
+\section{The residual system and the sandwich minorant}\label{sec:brw}
+
+Throughout this section $Q$ is a graded quarantine as in
+Definition~\ref{def:system}, $E_1,\dots,E_m$ ($m\le T^2$) are the events of the
+surviving atoms, in some order, $A_i=\mathbf 1_{E_i}$,
+$F_{<i}=\prod_{j<i}(1-A_j)$, $F=F_{<m+1}$, $w_\ell=w_\ell(Q)$, $S=S(Q)$ and
+$\delta=\E F$.  We assume
+\begin{equation}\label{eq:lllhyp}
+ \sum_{\ell\in\supp E_i}w_\ell\le\frac1{64}\quad(i\le m),\qquad w_\ell\le\frac1{64}\quad(\ell\in\cP),
+\end{equation}
+which holds for the output of Lemma~\ref{lem:gradedq} with $c=1/64$.
+
+\emph{Digits.}  For $\ell\in\cP$ write $x\in\Omega_\ell$ in base $\ell$ as
+$x=\sum_{i<f_\ell}\delta_{\ell,i}\ell^i$.  The digits $\delta_{\ell,i}$ with $i<a_\ell$ are those of
+$1$, hence constant on $\Omega_\ell$.  The others are independent and uniform:
+$\delta_{\ell,0}$ on $\{1,\dots,\ell-1\}$ if $a_\ell=0$, and $\delta_{\ell,i}$ on $\{0,\dots,\ell-1\}$
+for $\max(a_\ell,1)\le i<f_\ell$; indeed $x\mapsto(\delta_{\ell,i})_{i\ge a_\ell}$ is a bijection
+from $\Omega_\ell$ onto the product of these ranges.  So the free digits are
+those with $i\ge i_0(\ell):=a_\ell$, and $E_{M,D}$ is a digit-prefix event with
+$v_\ell(E_{M,D})=v_\ell(M)$ for $\ell\in\supp(M,D)$ and $v_\ell(E_{M,D})=0$ otherwise.  A
+function of the digits $\delta_{\ell,i}$ with $i\le i_\ell$ depends only on $X_\ell$ modulo
+$\ell^{1+i_\ell}$.
+
+\emph{Cells.}  A \emph{consistent unit cell} is a class $b\bmod d$ with $d$
+composed of primes of $\cP$, $d\mid\prod_{\ell\in\cP}\ell^{f_\ell}$, $\gcd(b,d)=1$ and
+$b\equiv1\pmod{\gcd(d,Q)}$; on $\Omega$ it is the event
+$\{X_\ell\equiv b\ (\mathrm{mod}\ \ell^{v_\ell(d)})\ \forall\ell\mid d\}$, and on $\mathbb Z$ the
+class itself.  The events $E_{M,D}$ are consistent unit cells (by survival).
+The intersection of two consistent unit cells is empty or a consistent unit
+cell whose modulus is the lcm of the two, both on $\Omega$ and on $\mathbb Z$.
+A function on $\Omega$ that depends only on $(X_\ell\bmod\ell^{b_\ell})_\ell$ is a linear
+combination of consistent unit cells of modulus $\prod_\ell\ell^{b_\ell}$ (the
+indicators of its level sets' points).
+
+\begin{lemma}[Haar means; proved]\label{lem:haar}
+Let $Q'=Q\ell'$ with $\ell'$ a prime not dividing $Q\prod_{\ell\in\cP}\ell$ (or $Q'=Q$), and
+let $\varphi$ be a combination of consistent unit cells with $\lcm$ of moduli
+$D$.  With $H$ as in Theorem~\ref{thm:transfer} for $Q'$ and $D$, $\E_H\varphi=\E\varphi$.
+The same holds for $\varphi\psi$, where $\psi$ is a character modulo a squarefree
+$f\mid D$ coprime to $Q$, viewed on $\Omega$ through $X_\ell\bmod\ell$ for $\ell\mid f$.
+\end{lemma}
+
+\begin{proof}
+Let $N_0=\lcm(Q',D)$.  By the Chinese remainder theorem the uniform measure on
+$H$ is the product of the uniform measures on
+$H_p=\{x\in(\mathbb Z/p^{v_p(N_0)})^\times:\ x\equiv1\ (p^{v_p(Q')})\}$.  For $\ell\in\cP$ with
+$\ell\mid D$, $v_\ell(Q')=a_\ell$ and $v_\ell(N_0)\le f_\ell$, and reduction maps the uniform
+measure on $\Omega_\ell$ to the uniform measure on $H_\ell$ (all fibres have the
+same size).  The other primes of $N_0$ do not divide $D$, and $\varphi$, $\psi$ do
+not depend on them.
+\end{proof}
+
+\begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
+Let $\mathcal A$ be a finite family of events in a product space, each
+depending on a finite set of coordinates; write $A'\sim A$ if they share a
+coordinate.  Suppose $x_A\in[0,1)$ satisfy
+$\PP(A)\le x_A\prod_{A'\sim A,\,A'\ne A}(1-x_{A'})$.  Then
+$\PP(\bigcap_{\mathcal A}\bar A)\ge\prod_{\mathcal A}(1-x_A)$.  Moreover, for every
+event $B$ depending on a set $J$ of coordinates,
+$\PP(B\mid\bigcap_{\mathcal A}\bar A)\le\PP(B)\prod_{A\in\Gamma(B)}(1-x_A)^{-1}$, where
+$\Gamma(B)$ is the set of $A\in\mathcal A$ depending on some coordinate in $J$.
+\end{lemma}
+
+\begin{proof}
+The first statement is \cite[Lemma~5.1.1]{AS}.  Its proof shows
+$\PP(A\mid\bigcap_{A'\in\mathcal S}\bar A')\le x_A$ for every
+$\mathcal S\subseteq\mathcal A$ with $A\notin\mathcal S$.  For the second
+(cf.\ \cite[Thm.~2.1]{HSS}), note that $B$ is independent of
+$\bigcap_{A\notin\Gamma(B)}\bar A$, so
+\[
+ \PP\Big(B\ \Big|\ \bigcap_{\mathcal A}\bar A\Big)
+ \le\frac{\PP(B)\,\PP(\bigcap_{A\notin\Gamma(B)}\bar A)}{\PP(\bigcap_{\mathcal A}\bar A)}
+ =\frac{\PP(B)}{\PP(\bigcap_{\Gamma(B)}\bar A\mid\bigcap_{A\notin\Gamma(B)}\bar A)}.
+\]
+The chain rule and the displayed claim bound the denominator below by
+$\prod_{\Gamma(B)}(1-x_A)$.
+\end{proof}
+
+\begin{corollary}[Proved]\label{cor:lll}
+Assume \eqref{eq:lllhyp}.  Then $\delta=\E F\ge e^{-2.2S}$.  Moreover, for every
+subfamily $\mathcal A$ of $\{E_1,\dots,E_m\}$ and every event $B$ depending on
+the coordinates $X_\ell$, $\ell\in J$, where $\sum_{\ell\in J}w_\ell\le1/64$,
+$\PP(B\mid\text{no }A\in\mathcal A\text{ occurs})\le1.04\,\PP(B)$.
+\end{corollary}
+
+\begin{proof}
+Apply Lemma~\ref{lem:lll} with the coordinates $X_\ell$ and
+$x_{E_i}=2\PP(E_i)\le2w_\ell\le1/32$ for any $\ell\in\supp E_i$.  For an event $B$ on $J$,
+$\sum_{A\in\Gamma(B)}x_A\le2\sum_{\ell\in J}w_\ell$.  With $B=E_i$ this is at most $1/32$,
+so $\prod_{A\sim E_i,\,A\ne E_i}(1-x_A)\ge31/32$, and the hypothesis of
+Lemma~\ref{lem:lll} holds for every subfamily.  Since $1-x\ge e^{-1.1x}$ for
+$0\le x\le1/32$, we get $\delta\ge\prod_i(1-2\PP(E_i))\ge e^{-2.2S}$, and
+$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.1/32}\le1.04$ when $\sum_{\ell\in J}w_\ell\le1/64$.
+\end{proof}
+
+For $j\le m$ let $F^{(j)}$ be the function of the digits not fixed by $E_j$
+obtained from $F_{<j}$ by giving the digits fixed by $E_j$ their values on
+$E_j$.  Then $A_jF_{<j}=A_jF^{(j)}$.  At $\ell$, the digits not fixed by $E_j$ are
+those with $i\ge i_0^{(j)}(\ell):=\max(a_\ell,v_\ell(E_j))$, and $F^{(j)}$ is the avoidance
+indicator of the restrictions of the events $E_i$ ($i<j$) compatible with
+$E_j$.  Each restriction fixes the digits $i_0^{(j)}(\ell)\le i<v_\ell(E_i)$, so it is a
+digit-prefix event for the filtration starting at $i_0^{(j)}$, with the same
+$v_\ell(E_i)$ and $\prod_\ell\ell^{v_\ell(E_i)}\le M_i\le T$.  (A restriction may fix
+nothing; then $F^{(j)}\equiv0$.)
+
+\begin{lemma}[Bazzi--Razborov sandwich {\cite{Bazzi,Razborov}}; proved]\label{lem:brw}
+Let $u_1,\dots,u_m$ be arbitrary real functions, $v_i=\sum_{j<i}A_ju_j$, and
+\[
+ B=1-\sum_{i\le m}A_i(1-v_i)^2 .
+\]
+Then $B\le F$ pointwise, and with $e_j=F_{<j}-u_j$,
+\[
+ F-B=\sum_iA_i\Big(\sum_{j<i}A_je_j\Big)^2,\qquad \E[F-B]\le m^2\sum_{j\le m}\E[A_je_j^2].
+\]
+If $u_j$ is a function of the digits not fixed by $E_j$, then
+$\E[A_je_j^2]=\PP(E_j)\,\E(F^{(j)}-u_j)^2$.
+\end{lemma}
+
+\begin{proof}
+The identity $1-F=\sum_iA_iF_{<i}$ holds pointwise: the sum counts the first
+occurring event.  Put $f_{<i}=1-F_{<i}=\sum_{j<i}A_jF_{<j}$.  If $F_{<i}=1$,
+then $A_j=0$ for all $j<i$, so $v_i=0$ and $A_i(1-v_i)^2=A_i=A_iF_{<i}$.  If
+$F_{<i}=0$, then $f_{<i}=1$, and $A_i(1-v_i)^2-A_iF_{<i}=A_i(f_{<i}-v_i)^2$.  In
+both cases $A_i(1-v_i)^2-A_iF_{<i}=A_i(f_{<i}-v_i)^2$, and summing over $i$,
+\[
+ F-B=\sum_iA_i\big[(1-v_i)^2-F_{<i}\big]=\sum_iA_i(f_{<i}-v_i)^2\ \ge0,
+\]
+with $f_{<i}-v_i=\sum_{j<i}A_j(F_{<j}-u_j)$.  By Cauchy--Schwarz,
+$(\sum_{j<i}A_je_j)^2\le m\sum_{j<i}A_je_j^2$.  Drop $A_i\le1$ and sum over
+$i$.  For the last claim, $A_je_j^2=A_j(F^{(j)}-u_j)^2$, and $F^{(j)}-u_j$ is
+independent of $A_j$.
+\end{proof}
+
+This is Razborov's simplification \cite{Razborov} of Bazzi's argument
+\cite{Bazzi}.  The choice of $u_j$ as an $\ell^2$-approximation of the
+``conditional survival function'' $F^{(j)}$ is the one used there.  We
+include the short proof for completeness.  The identity and the inequality
+$B\le F$ use only that each $A_i$ takes values in $\{0,1\}$, so they also hold
+for the functions on $\mathbb Z$ obtained from cell expansions.
+
+\emph{Choice of $u_j$.}  Fix $\tau\ge0$.  For $j\le m$ let $\cD_j$ be the family of
+sets $U$ of digits not fixed by $E_j$ with $m_U\le e^\tau$, where
+$m_U=\prod_{\ell:\,U_\ell\ne\emptyset}\ell^{1+\max U_\ell}$; it is down-closed.  Put
+\begin{equation}\label{eq:uj}
+ u_j=\big(F^{(j)}\big)^{\cD_j}=\sum_{U\in\cD_j}\big(F^{(j)}\big)^{=U},
+\end{equation}
+the Efron--Stein decomposition being taken over the digits not fixed by $E_j$.
+
+\begin{lemma}[Approximation error; proved]\label{lem:EL}
+With $u_j$ as in \eqref{eq:uj}, $\E[F-B]\le m^2S\,2^{-\tau/(2\Lc)}$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:energy} and Corollary~\ref{cor:modtail}, applied to $F^{(j)}$ with
+the filtration starting at $i_0^{(j)}$ (the digits are indexed by their
+absolute position, so $m_U$ is the modulus needed),
+$\E(F^{(j)}-u_j)^2\le2^{-\tau/(2\Lc)}$.  Conclude with Lemma~\ref{lem:brw}.
+\end{proof}
+
+\begin{lemma}[Cell structure of $B$; proved]\label{lem:size}
+With $u_j$ as in \eqref{eq:uj}, $B$ is a finite real combination of consistent
+unit cells of modulus at most $T^3e^{2\tau}$, composed of primes of $\cP$.
+The identity $B=1-\sum_iA_i(1-v_i)^2$ also holds for the expanded cell
+combination evaluated at any integer $n$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:energy}, $u_j$ is a combination of the functions
+$\E[F^{(j)}\mid\delta_W]$, $W\in\cD_j$.  Such a function depends only on
+$X_\ell\bmod\ell^{1+\max W_\ell}$ for the $\ell$ with $W_\ell\ne\emptyset$, so it is a combination
+of consistent unit cells of modulus $m_W\le e^\tau$.  Expanding,
+\[
+ B=1-\sum_iA_i+2\sum_i\sum_{j<i}A_iA_ju_j-\sum_i\sum_{j,j'<i}A_iA_jA_{j'}u_ju_{j'} .
+\]
+Each term is a product of at most three events (moduli $\le T$) and at most
+two $u$'s, so every cell is an intersection of consistent unit cells of total
+modulus at most $T^3e^{2\tau}$.  The last claim holds because the
+intersection identities hold on $\mathbb Z$.
+\end{proof}
+
+\begin{lemma}[$\ell^1$-tightness; proved]\label{lem:l1}
+If $B\le F$ pointwise, $F\ge0$ and $\E[F-B]\le\eta\,\E B$, then
+$\E|B|\le(1+2\eta)\E B$.
+\end{lemma}
+
+\begin{proof}
+$B^-:=\max(-B,0)\le F-B$ since $F\ge0$, and $\E|B|=\E B+2\E B^-$.
+\end{proof}
+
+\begin{lemma}[Twist; proved]\label{lem:twist}
+Assume \eqref{eq:lllhyp} and $\E[F-B]\le\delta/100$, and write $B$ as in
+Lemma~\ref{lem:size}, with $\mu=\E B$.  Let $\psi$ be a real primitive character of
+conductor $f>1$ with $\gcd(f,Q)=1$ and $f\mid d_i$ for some cell modulus $d_i$.
+Then $\mu\ge0.99\,\delta$ and $|\E[B\psi]|\le\mu/4$, where $\psi$ is viewed on $\Omega$
+through $X_\ell\bmod\ell$, $\ell\mid f$.
+\end{lemma}
+
+\begin{proof}
+$\mu=\E F-\E[F-B]\ge0.99\,\delta$.  As $2\nmid f$, $f$ is squarefree.  Its prime
+factors divide $d_i$, so they lie in $\cP$, and $a_\ell=0$ for them as
+$\gcd(f,Q)=1$.  So $\psi=\prod_{\ell\mid f}\psi_\ell(X_\ell\bmod\ell)$ with nontrivial
+characters $\psi_\ell$ of the uniformly distributed digits $\delta_{\ell,0}$.  Now
+\[
+ |\E[B\psi]|\le\E|B-F|+|\E[F\psi]|=\E[F-B]+|\E[F\psi]| .
+\]
+Fix $\ell_0\mid f$ and let $F'$ be the avoidance indicator of the events $E_i$
+with $\ell_0\notin\supp E_i$.  Given the other coordinates $X_{-\ell_0}$, we have
+$F=F'\cdot\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where $\mathrm{Forb}$ is the union of the
+classes $X_{\ell_0}\equiv-4D_i\pmod{\ell_0^{v_{\ell_0}(M_i)}}$ over the events $E_i\ni\ell_0$
+whose other conditions hold.  Write $E_i\setminus\ell_0$ for the event given by those
+other conditions, and $\pi_i$ for the $\Omega_{\ell_0}$-probability of the class at $\ell_0$,
+so that $\PP(E_i)=\PP(E_i\setminus\ell_0)\pi_i$.  Since $\E_{X_{\ell_0}}\psi_{\ell_0}=0$,
+\begin{align*}
+ |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_{\ell_0}\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|
+ \le\sum_{i:\,\ell_0\in\supp E_i}\PP(F'=1,\ E_i\setminus\ell_0)\,\pi_i .
+\end{align*}
+The coordinates of $E_i\setminus\ell_0$ lie in $\supp E_i$, so by \eqref{eq:lllhyp}
+and Corollary~\ref{cor:lll} applied to the family defining $F'$,
+$\PP(E_i\setminus\ell_0\mid F'=1)\le1.04\,\PP(E_i\setminus\ell_0)$.  Hence
+$|\E[F\psi]|\le1.04\,w_{\ell_0}\E F'\le0.0163\,\E F'$.  Likewise
+$\E F'-\E F=\E[F'\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]]\le0.0163\,\E F'$, so
+$\E F'\le\delta/0.9837$.  Altogether
+$|\E[B\psi]|\le0.01\,\delta+0.0166\,\delta\le0.027\,\mu/0.99<\mu/4$.
+\end{proof}
+
