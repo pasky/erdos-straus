@@ -52,3 +52,18 @@ Label "PROVED; Case A PROVED mod ElT Prop 1.4, Thm 7.1, Cor 7.4, (7.10)" is accu
   27 167 cases, the corrected sign in 0 — the slip is real and the repair right; (3) (7.10) ratio
   Σ_{a≤30}Σ_{m≤3000}ρ_{ka}(m)/m ÷ (A log B log(1+k)) decreases from 0.93 (k=1) to 0.05
   (k≈2·10⁴): no sign of non-uniformity in k.
+
+### Claim 2 — Thm 10.12 (noBcap), Thm 10.13 (Bcapall), Thm 10.14 (main): SOUND
+
+* Thm 10.12 ledger re-checked: singletons (8/3)K₃′s₁³=(8/3)K₃′λ^{3/4}; blocks E m_V≤8K₃′s³,
+  d_i≥λ/(2s) ⇒ ratio ≤16K₃′·16^i+4, Σ_i (λ/2^is₁)(c₁+i log16)=O(λ^{3/4}); O(log λ) blocks ⇒
+  O(log²λ). Matches KA3 Thm 4.1 line by line; the needed y≥y₀(W) holds as e^{s₁}→∞.
+* Thm 10.14: the proof (projection + Lemma budget with Λ₀=A log N, λ=(A+2)log N) is the v3 proof
+  unchanged except for the cap; it differs from KA3 Cor 4.2's route (ET Lemma 2.9 case
+  analysis) but is self-contained in this note and was refereed in v3. Statement matches KA3
+  Cor 4.2 (no B, family primes ≤N^A, Σ|a_i|<N, whole-avoider majorant). The ω(N)→∞ corollary
+  follows. No overclaim.
+* Labels: header "PROVED; Case A PROVED mod ElT Prop 1.4, Thm 7.1, Cor 7.4, (7.10)". KA3's own
+  label is "PROVED given K2/EK as reviewed"; the §10 opening paragraph states this proviso
+  explicitly. Acceptable (see minor point M1 below for a suggestion).
+* Thm 10.13 retained with only Prop 1.4 — consistent and correctly motivated.
