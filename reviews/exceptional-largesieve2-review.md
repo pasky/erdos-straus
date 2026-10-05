@@ -2,13 +2,28 @@
 
 Reviewer: side-agent/review-largesieve2. Reviewed: branch
 `side-agent/ls-escapes` (checkpoint 1). From-scratch scripts:
-`scripts/review_ls2_*.py`. Status: **in progress**.
+`scripts/review_ls2_*.py`. Status: **round 1 complete**.
 
 ## Verdict per claim
 
 | claim | verdict |
 |---|---|
 | Lemma 1.1 (comparison measure) | SOUND (conditional on K2 Thm 5.1, as labelled) |
+| Lemma 1.2 (unit version) | SOUND (conditional on PL Thm 3.1) |
+| Lemma 2.2, Lemma 2.3 | SOUND |
+| Thm 2.4, Cor 2.5 (hybrid / twisted / multiplicative cap) | SOUND (minor: M' must contain the twists' periods, m1) |
+| Thm 3.1 (prime large sieve) | SOUND (conditional on PL Thm 3.1); scope = type (i)/(iii) fibres only, as stated |
+| Lemma 4.1, Thm 4.2 | SOUND (minor m2: add 1 to 𝒟) |
+| **Thm 4.3** (Gallagher, 26 log log N, unconditional) | SOUND, modulo K2 Lemmas 2.3, 4.1–4.3 and the W-uniformity `C(W) ≤ C(log W)^c` (checked against K2 Lemma 3.1's proof); wording m3 |
+| Prop 5.1, Prop 5.2 | SOUND; (H_LS∞) correctly labelled CONJECTURE |
+| Prop 6.1 | SOUND but trivial; its *reading* is overstated in the bottom line and the ledger suggestion (m4) |
+| §6.3 | Assessment, fine; one inaccurate aside (m5) |
+
+No FATAL or MAJOR defects found. Every key inequality was re-derived by
+hand, and Lemma 1.1, Lemma 2.2, Thm 2.4 type (i) (additive **and**
+multiplicative/character rows, random twists `|ψ| ∈ [1,3]` of random
+period), Lemma 4.1, the Thm 4.2 chain, Prop 6.1 and Thm 4.3's elementary
+constants were checked by independent code (`data/review_ls2/`).
 
 ## Claim-by-claim notes
 
@@ -30,7 +45,13 @@ Remark (iii) / (1.2): checked; the lifted `F(n) = f((n−c)/Q₀)1[n≡c (Q₀)]
 needs `Q₀d | M'`, which holds as `Q₀d ∈ 𝒟`. Converse direction (Remark
 (i)) correct.
 
-Numerical check from scratch: see `scripts/review_ls2_lp.py` (pending).
+Numerical check from scratch (`scripts/review_ls2_lp.py`, seed 1, output
+`data/review_ls2/lp_seed1.txt`): toy M' = 2310, random forced-class
+avoiders (densities 0.33–0.73), 𝒟 = divisors with ≤ k of {5,7,11}
+(k = 0,1,2). HiGHS duals: stationarity ≤ 4·10⁻¹², μ is a probability,
+μ(𝒜) = m*, π has no mass off 𝒜, and the second LP
+`max{E_πf : f ∈ V_𝒟, f ≥ 0, E_Uf = 1}` equals `1/m*` in every case
+(e.g. 2.4367 = 1/m* at k = 2).
 
 ### Theorem 4.3 (unconditional O(log log N) cap for Gallagher) — first pass
 
