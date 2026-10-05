@@ -19,7 +19,7 @@ as in `EXCEPTIONAL_INTERFREQ.md` (IF below), `EXCEPTIONAL_KARY2.md` (K2).
 | Prop 9.1 | **SPW ⇒ Flat**: a spread pseudo-window R (≥ 0, exact window profile mod every d ≤ N/2, mass ≤ 1 − σ on every class of modulus > CN) yields Flat with t, s₀ ≍ σ, via `θF_S + (1−θ)(1_{[1,N]} − R)`; so SPW (constants σ, Δ₀) ⇒ the 3/4 cap of Thm 5.2 | PROVED implication |
 | Lemma 9.2 | SPW ⇒ patch-cancellation inequality (9.1) for all ν ≥ 0 (converse for LP truncations) | PROVED |
 | §9 | SPW found by LP at N ≤ 60 (σ ≈ 0.34–0.40, C = 2); big-prime re-randomisation proves the profile part but not (P2) on lcm(1..N/4)-smooth moduli; SPW itself open | EVIDENCE / Assessment |
-| §5 numerics | finitely supported F satisfying Flat found by LP at the sampled parameters N ∈ {20,30,40,60,80,100}, t = 0.1, C ∈ {1.5, 2} (s₀ ≥ 0.04, Δ ≤ 1.5); C = 1 infeasible at N = 20 (rigidity); with sign conditions on medium moduli the finite-support LP forces s₀ ≤ 0 | EVIDENCE (floating-point LP, finite support) |
+| §5 numerics | finitely supported F satisfying Flat found by LP at the sampled parameters N ∈ {20,30,40,60,80,100}, t = 0.1, C ∈ {1.5, 2} (s₀ ≥ 0.04, Δ ≤ 1.5); C = 1 infeasible at N = 20 (rigidity); medium sign conditions on (N/2, N] compatible with s₀ = 1/3 at C = 2 (N ≤ 40, long support); periodic certificates: (N/2, N] not freeable at C = 1.5, (N/2, CN] not freeable at N = 20 | EVIDENCE (floating-point LP) |
 
 **Verdict.** The hybrid gap of IF Rem 2.6 is *not* closed unconditionally.
 It is narrowed to two precisely stated pieces:
@@ -303,11 +303,20 @@ length (pointwise beyond), with (F1)–(F2) exact; Δ is then measured.
 Support matters: at N = 60, C = 2 the margin rises from 0.326 (support
 [−5N, 6N]) to 0.372 ([−8N, 9N]), so much of the decrease is truncation.
 With C = 1 the LP is infeasible at N = 20 (rigidity, Example 3.2).
-*Medium moduli are not freed this way (finite-support evidence):* adding the sign conditions that
-would make right-signed terms with `N/2 < d ≤ N` cost nothing (option
-`med`, margin 0 there) forces the margin for d > CN down to 0 (N = 20, 30)
-or below (−0.15 at N = 40, C = 1.5). So T_mid in Theorem 5.2 is not an
-artefact of a lazy (F5). The
+*Medium moduli (corrected after review R25, M1).* Option `med` adds the
+sign conditions that make right-signed terms with `N/2 < d ≤ N` cost
+nothing (margin 0 there). On the short support [−5N, 6N] this forced the
+margin above CN to ≤ 0; that was a **truncation artefact** at C = 2: on
+[−10N, 11N] and longer the margin is 1/3 at N = 20, 30, 40 (finite-support
+witnesses, `data/interfreq2/med_periodic.txt`). Rigorous statements come from
+the *periodic* relaxation on ℤ/Q′ (`scripts/interfreq2_med_periodic.py`):
+every F on ℤ projects to a feasible point there, and Farkas certificates are
+Q′-periodic ν ≥ 0 on all of ℤ. Results at Q′ = lcm(1..N/2)·(small): C = 1.5,
+N = 20: `med` forces max s = 0 (a genuine periodic certificate); C = 2,
+N = 12, 16, 20: max s = 0.5, 0.4, 0.4 with `med`, i.e. no obstruction;
+sign conditions on all of (N/2, CN] (`medall`): infeasible at N = 20 (the
+rigid modulus 21 = N + 1 of Example 3.2), feasible (0.4) at N = 16. See §10.
+The
 margins decrease slowly with N; Theorem 5.2 only needs `s₀ ≥ N^{−A₁}` and
 `Δ ≤ e^{S_A}`, so the trend is harmless unless it is faster than
 polynomial. Independent check (`scripts/interfreq2_checks.py`): the N = 20
@@ -449,7 +458,10 @@ coefficient mass |m|) satisfies the **patch-cancellation inequality**
     Σ_{n≤N} ν(n) + (1 − σ)·Z_sparse + Δ₀|m| ≥ σ·Z_full,          (9.1)
 
 Z_full / Z_sparse the z-mass on classes meeting / missing [1,N].
-(For finite-support LP truncations the converse holds by Farkas.)
+(A converse holds for the *periodic* LP on ℤ/Q′ by finite LP duality: its
+Farkas certificates are Q′-periodic ν ≥ 0 on ℤ violating (9.1) restricted
+to moduli dividing Q′. For finite-support truncations a certificate is only
+≥ 0 on the support window and proves nothing about ℤ.)
 
 *Proof.* `Σ_n R ν ≥ 0`. By (P1) `Σ_{n≤N} g = Σ_n R g`, so
 `Σ_{n≤N}ν = Σ_n Rν + Σ_i z_i(c(s_i) − R(s_i)) + Σ_med a(c(s) − R(s))`, and
@@ -503,13 +515,23 @@ is ≈ 0 on [1,N] and spread at density ≈ 0.1–0.3 over [−5N, 6N].
   right-signed medium mass `T_mid` at rate Δ. Moduli in (N/2, CN] have
   level ≤ log(CN), so they never affect the mean side; the issue is
   purely the interval side.
-* Medium mass cannot be made free by the F-method (§5 `med` runs: the
-  finite-support LP with zero-cost sign conditions on (N/2, N] forces the
-  margin above CN to ≤ 0). By Farkas (finite truncations) this means there
-  are nonnegative ν whose patches above CN *are* cancelled by medium-modulus
-  terms; Example 3.2 is the prototype (modulus N + 1).
-* Hence a cap for hybrids with large right-signed medium mass needs an
-  argument that uses ν ≥ 1 on 𝒜 (not just ν ≥ 0), i.e. the arithmetic of the
-  family, at moduli comparable to N. We have no such argument and no
+* **(N/2, N] can probably be freed at C = 2.** Theorem 5.2′ (PROVED
+  implication, same proof as Thm 5.2): if F satisfies Flat and in addition
+  the sign conditions `F(s) ≥ M/d` on full and `F(s) ≤ M/d` on sparse classes
+  with N/2 < d ≤ N, then T_mid in Thm 5.2 may be restricted to right-signed
+  mass on (N, CN] (the right-signed (N/2, N] terms then contribute ≥ 0 to
+  the expansion in the proof of (5.1)). Finite-support witnesses with
+  margin s₀ = 1/3 exist at N = 20, 30, 40 (C = 2, t = 0.1, support
+  ≥ [−10N, 11N]); the periodic relaxation shows no obstruction at
+  N ≤ 20 (C = 2). EVIDENCE.
+* **(N, CN] cannot be fully freed.** Periodic certificate (rigorous up to
+  floating point): at N = 20, C = 2 sign conditions on all of (N/2, CN] are
+  infeasible on ℤ/2520, via the rigid modulus N + 1 = 21. And by review R25
+  C11 (§9 below), even (N/2, N] cannot be freed when C ≤ 1.5 at N = 20
+  (periodic certificate, max s = 0).
+* So a cap for hybrids with large right-signed mass at moduli in (N, CN]
+  probably needs more than ν ≥ 0 (e.g. ν ≥ 1 on 𝒜, i.e. the arithmetic of
+  the family at moduli comparable to N); this is supported by the periodic
+  certificate at N = 20 but not proved in general. We have no such argument and no
   beating hybrid. Precisely open: *bound `B_hyb` below for majorants of
   𝒜(𝔊) whose free mass sits at moduli in (N/2, CN].*
