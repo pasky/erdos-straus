@@ -6,7 +6,10 @@ Deliverable: `POINTWISE_HAAR.md` (new), `scripts/haar_fit.py`,
 ## Main result
 **Theorem 2.1: `log(1/δ*(T)) ≫ 𝓛³/log𝓛`** (PROVED modulo the sieve
 fundamental lemma only; no BV, no ET). Previous lower bound: `𝓛²` (OMEGA8
-Prop 6.6, modulo a BV-type divisor bound). So the Haar exponent `a ≥ 3`.
+Prop 6.6, modulo the shifted-prime divisor lower bound (D'), proved there via
+Brun–Titchmarsh + Bombieri–Vinogradov). So the Haar exponent `a ≥ 3`.
+Now known: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^5 log𝓛` (upper: OMEGA12 Thm 6.3, modulo ET).
+`T_0` is astronomically large (`𝓕 ≠ ∅` needs `T ≳ e^{90}`): purely asymptotic.
 
 Ingredients:
 1. Thm 1.4: a Janson-type inequality `−log P(no event) ≥ μ − KΔ` for
@@ -20,13 +23,16 @@ Ingredients:
    loads `≤ 𝓛³/q` so the lopsided LLL holds; `Δ ≪ 𝓛²` by elementary counting
    (`M ≥ √T ≥ (D*)^5` kills progression first terms; `D* ≥ 𝓛²` kills the
    small-D hubs; `D≠D'` pairs need `g | D−D'`, averaged with (F5)).
-3. Prop 1.5: NA/bit-disjoint subfamilies cannot pass `𝓛² + O(log𝓛)` — the
-   positive-correlation bookkeeping of Thm 1.4 is necessary.
+3. Prop 1.5: *singleton* NA bounds (Lemma 1.2 with one event per group,
+   squarefree moduli) give at most `S1 + O(log𝓛) ≍ 𝓛²` (S1 upper bound: standard,
+   sketched). Grouped uses of Lemma 1.2 are not covered.
 
 ## Reconciliation (EVIDENCE)
 The POINTWISE_SIZE §7.2 Monte Carlo has `Φ/(𝓛³/log𝓛) = 0.0691–0.0699` for
-all `1023 ≤ T ≤ 32767`; `3 − 1/log𝓛` reproduces the measured local exponent
-drift 2.3→2.6. Conjecture 3.1: `Φ ≍ 𝓛³/log𝓛` (a = 3).
+`1023 ≤ T ≤ 32767` — *consistent with* a = 3 plus a slowly decaying
+correction, but the test discriminates weakly (spread 1.16% vs 1.85% for
+`𝓛^{2.5}`), and the `log𝓛` of Thm 2.1 is a proof artefact. Conjecture 3.1:
+`a = 3` (order `𝓛³/log𝓛` vs `𝓛³` left open).
 
 ## Prime side
 Haar-only. Rigorous fixed-T density corollary via Prop 7.1(a); under RA the
@@ -48,4 +54,14 @@ quarantine inflates the residual mass from `S_tot ≍ 𝓛³` (elementary) to
 `S♯ ≈ 𝓛^4` (factor ≈ τ(M)); a quarantine with non-unit classes whose residual
 mass stays `≈ S_tot` would give `≈ 𝓛^4` via the OMEGA11 cost formula. The
 obstruction is controlling atomic-event inflation under the small-prime
-avoider measure. Requested: hostile review of Thm 1.4 and Lemmas 2.2–2.4.
+avoider measure. 
+
+## Hostile review R46 (`reviews/pointwise-haar-review.md`)
+Thm 1.4 and Thm 2.1 SOUND (re-derived, brute-forced exactly, scaled family
+check). Minors applied: D1 (Prop 1.5 scope, S1 upper bound sketched), D2
+("explaining" → "consistent with", Conj. 3.1 as `a = 3`), D3 (T_0 ≳ e^{90}
+stated), D4 (constant 16→8; why `y ≥ 𝓛^{4+ε}`; harmonised what OMEGA8's 𝓛²
+depends on); upper-bound reference updated to OMEGA12's `𝓛^5 log𝓛`.
+
+## Open
+Haar upper bound below `𝓛^5 log𝓛`; diagnosis in "Not done / next" above.
