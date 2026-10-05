@@ -85,3 +85,9 @@ Status: IN PROGRESS.
 * Thm 6.5: independence of {J∩P=∅} over a matching, P(J∩P=∅)=1/w_J,
   E=Π[(1−1/w)+(w−1)²/w]=Π(w−1) ✓.
 * Verdict Thm 6.5 (C-1): SOUND as written (pending the brute-force check below).
+* From scratch (`scripts/review_r47_energy.py`, exact Efron–Stein on random non-uniform
+  product spaces, n≤4 coordinates, alphabets 2–3, ≤5 events of width ≤3, 300 instances,
+  weights scaled to max λ^{supp E}=2): G_F≤1 (max 0.9991 — the constant is essentially
+  attained), Lemma 6.2 for every V, Lemma 6.3 identity (err ≤6e-16), Lemma 6.4 for every
+  matching, Cor 6.6 tail ≤2^{−(t+1)/k} (max ratio 0.50): all pass. The single-event formula
+  for G_{1−1_E} also checked (λ=2.2, π=0.01 gives G=1.0019>1, so λ^{supp}≤2 is needed).
