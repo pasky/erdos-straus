@@ -57,3 +57,25 @@ step — the bound is valid, just very lossy; this is why `Y=𝓛^{C_0+4}` with 
 Also `S_H^β/(𝓛³logY)≈0.06–0.09`, cost `/(𝓛³(logY)^4)≈0.002–0.012` at these T,
 consistent with (A).
 
+### Theorem 3.4 assembly — SOUND-AFTER-REPAIRS (D1, D2)
+
+Powers re-tracked: `η=(3/4)log(1+1/log𝓛)≍1/log𝓛`, `logY=(C_0+4)log𝓛≍log𝓛`.
+`E[logQ_end]≤log8+(1/η)·O(𝓛³(logY)^4)=O(𝓛³(log𝓛)^5)`; `E[S_res]=O(𝓛³log𝓛)`;
+`P(late bad)≤η^{−2}(𝓛+1)Ξ/Y=O((log𝓛)^{O(1)}𝓛^{C_0+1}/𝓛^{C_0+4})→0`. Three bad events of
+probability ≤1/4 each ⇒ a good realisation exists; Lemma 1.1 on the fibre gives
+`log(1/δ*)≤logQ+(4/3)S_res`. So the explicit bound is `log(1/δ*)≪𝓛³(log𝓛)^5`
+(the doc's `(log𝓛)^{O(1)}` can be made explicit). Events with `M|Q` have probability 0 on
+the fibre (Lemma 3.1) and must simply be dropped before applying Lemma 1.1 (which
+assumes `supp E≠∅`); harmless, but say it. `β≤e^{1/3}` and `η≤1/4` hold for 𝓛≥e^{3}.
+`Y≤T` (needed in Lemma 3.3(A)) holds for large T.
+
+Normalisation mismatch (D2): POINTWISE_HAAR §0 defines `δ*` with Haar measure
+**normalised in `n≡1 (24)`**, while Thm 3.4 speaks of "n∈Ẑ^×" and the process starts
+from `Q=8`, `r≡1 (8)`. These are different quantities and "exponent 3" combines an upper
+bound on one with a lower bound on the other. It is repairable: ℓ=3 is always stepped at
+a=0 (initially `w̃_3≫η`), revealing the unique square class 1 mod 3, so every
+realisation has `r≡1 (24)` and the bound holds for the HAAR δ* too; equivalently start at
+`Q=24,r=1` and note `p_0(E)=(1+(−d|3))P_H(E)≤2P_H(E)` for `3|M`, absorbed by the factor
+`2^{u_0}` that 3 no longer contributes. Lemma 3.2(b)'s sentence "p_0=P_H (M odd, so the
+class mod 8 is irrelevant)" needs this amendment.
+
