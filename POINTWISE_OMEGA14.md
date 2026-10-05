@@ -85,6 +85,12 @@ product law. Hence `E_νφ=Eφ` for all φ∈𝒱_k, so `E B=E_νB≤E_νF`. In 
 bit is 1, so some `E∈𝓕` holds and `F=0`. In the other case ν coincides with the true
 law conditionally on `x_s`. ∎
 
+*Technical remarks (R49 m1).* (a) Only finitely many b have `p_b(x_s)>0` (in the ES instance:
+primes ≤T), so Lemma 1.1 is applied to a finite bit vector; bits with `p_b=0` get `w_J=0` and are
+never planted. (b) `ν≪P` with `dν/dP≤2` (the positive extra charge on `1_y` is `≤μ(1_y)`, since
+`e_{k+1−j}(s)≤e_{k+1}(r)`), so `B≤F` P-a.e. suffices and every P-integrable φ stays ν-integrable.
+(c) `x_s↦ν_{x_s}` is measurable (Ω_b depends on x_s through a finite modulus in the ES instance).
+
 *Reading.* Under the true law, `E[F|x_s]≤∏_b(1−p_b(x_s))≤e^{−R(x_s)(1−p*)}`. So the
 minorant can only "see" the part of the avoider mass where the big events have total
 odds `<k+1+o(k)`. If the avoiders are (conditionally on F=1) still typical for R, with
