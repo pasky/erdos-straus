@@ -844,6 +844,7 @@ about $-2.5\%$ overall)
 \end{remark}
 
 \begin{corollary}[exact order for one window]\label{cor:orders1}
+One has
 $\#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge7\}\asymp x/(\log x)^{3/2}$; the
 upper bound is \status{proved} (Corollary~\ref{cor:tail} with $Z=3$), the lower
 bound \status{proved} modulo the cited theorems of Theorem~\ref{thm:W1}.
@@ -859,12 +860,12 @@ $z=x^{1/2-\varepsilon}$, which is what the parity argument needs, requires
 a level close to $x$.
 
 \begin{theorem}[\status{conditional} on EH]\label{thm:W2}
-Assume EH (Definition~\ref{def:EH}).  Then
+Assume EH (Definition~\ref{def:EH}).  Let $N_{3,7}(x)$ be the number of
+primes $p\le x$, $p\equiv1\pmod{840}$, such that $(p+3)/4$ has no prime
+factor $\equiv2\pmod3$ and $(p+7)/4$ has no prime factor $r$ with
+$\leg r7=-1$.  Then
 \[
- N_{3,7}(x):=\#\Bigl\{p\le x:\ 
- \begin{array}{l}p\equiv1\ (840),\\\text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)},\\
- \text{$(p+7)/4$ has no prime factor $r$ with $\leg r7=-1$}\end{array}\Bigr\}
- \gg\frac x{(\log x)^2},
+ N_{3,7}(x)\gg\frac x{(\log x)^2},
 \]
 and every prime counted is Mordell-hard with $\amin(p)\ge11$.
 \end{theorem}
@@ -972,6 +973,7 @@ $T^{(q)}$.  Without it, $T^{(q)}$ would be of order
 $\varepsilon^{3/2}x/(\log x)^{3/2}$ and would swamp the main term.
 
 \begin{corollary}[exact order for two windows]\label{cor:orders}
+One has
 $\#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge11\}\ll x/(\log x)^2$
 (\status{proved}, Corollary~\ref{cor:tail} with $Z=7$), and on EH it is
 $\asymp x/(\log x)^2$ (Theorem~\ref{thm:W2}).
