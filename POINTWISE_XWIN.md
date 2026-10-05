@@ -345,3 +345,79 @@ is the sifting range `(y,y']` (the sieve dimension `J≍ℒ^θ` forces
   fundamentally, at `θ<1` (dimension vs. sifting range): it is
   the same obstruction as POINTWISE_WINDOW §7.3, now from above.
 
+## 3. Goals 2–4
+
+### 3.1 Goal 2: positive-density sets
+
+* **Trivial version.** `S_3={p≡1 (24): (p+3)/4 has a prime factor ≡2 (3)}`
+  has relative density 1 (notes Thm 70.9), satisfies `a_min=3` on it, and
+  is not a finite union of classes (its complement meets the class
+  `1 mod 840` in `≫x/(log x)^{3/2}` primes, POINTWISE_WINDOW W1; a finite
+  union of classes of relative density 1 would be cofinite). But it is
+  certified by a *bounded* procedure (window 3), so it is not what
+  POINTWISE_SIZE §10 asks for.
+* **Meaningful version: sets where every bounded window search fails
+  on a positive proportion.** Let `F_K={p: a_min(p)>K}`.
+
+  **Corollary 3.1 (PROVED modulo SW and the W1/W2 inputs).** Let
+  `𝒲_1={p≤x: p≡1 (840), window 3 fails by F1}` (W1: `|𝒲_1|≫x/(log x)^{3/2}`).
+  Then all but `O(x·exp(−(log x)^{2/5−ε}))` primes of `𝒲_1` have
+  `7≤a_min(p)≤(log p)^{2/5−ε}`. CONDITIONAL on EH, the same holds for
+  the W2 family (`a_min≥11`, size `≫x/(log x)^2`).
+
+  *Proof.* Cor 2.3 with θ close to 2/5, compared with the W1/W2 lower
+  bounds (any `N exp(−cℒ^θ log ℒ)` is `o(N/(log N)^A)` for all A). ∎
+
+  So on a set of primes of size `≍x/(log x)^{3/2}`, on which the bounded
+  search "window 3" fails identically, the unbounded window search is
+  proved to succeed within `(log p)^{2/5}` for relative density 1. Beyond
+  `K=7` (EH: 11) no lower bound for `|F_K|` is known (POINTWISE_WINDOW
+  §7.3), and that — not the upper side — is what blocks the analogous
+  statement for larger K.
+
+### 3.2 Goal 3: seeded windows on average (Assessment; no new theorem)
+
+Theorem 2.2 applies verbatim to the seeded windows `q≡−p (4n)` after
+conditioning on `n_p=n` (drop all but the conditions `(ℓ/p)=1`, `ℓ≤w`,
+and `(n/p)=−1`, a congruence mod `4n∏_{ℓ≤w}ℓ`; Brun–Titchmarsh bounds
+`#{p≤N: n_p>m}≤(2+o(1))π(N)2^{−π(m)}` for `log m=o(L)`... ). Because the
+seeded moduli are `≈4n_pj`, the usable number of windows is
+`J≲ℒ^{2/5}/n_p`, and the result is weaker than Cor 2.3 (balance at
+`n_p≈ℒ^{1/5}` gives a saving `exp(−ℒ^{1/5−o(1)})`). The second-moment
+lemma cannot see the advantage of seeding (no F1 at prime seeded
+windows): Lemma 2.1 bounds all bad tuples, including F3-type half-sets
+containing the planted non-residue. So nothing unconditional specific to
+X_QNR is obtained.
+
+### 3.3 Goal 4: conditional statements
+
+* **GRH** makes Theorem 2.2 effective (Siegel–Walfisz → GRH-PNT in APs)
+  and allows `log y≍(log L)^2`, i.e. δ→0 at no cost; it does **not**
+  change the range `θ<2/5` or the per-window constant.
+* **EH / higher level**: no help. The binding constraint is
+  `Λ=Σν(ℓ)log ℓ/ℓ≲log X` (dimension × log sifting range ≤ level), and a
+  level beyond `X` carries no information about integers `≤X`.
+* **Proposition 3.2 (dimension–range obstruction for V-type majorants;
+  PROVED as an optimisation; its relevance to "all sieve methods" is
+  Assessment).** Any bound of the form
+  `count ≤ X·∏_{a∈A}(log z_a)^{−1/2}` (half-dimensional per window,
+  even with `y=1`), subject to `Σ_a log z_a≤ℒ`, is
+  `≥X·exp(−ℒ/(2e))=N^{1−1/(2e)+o(1)}`.
+
+  *Proof.* By concavity of `log log`, equal `z_a` are optimal, giving
+  `exp(−(J/2)log(ℒ/J))`; `(J/2)log(ℒ/J)` is maximal at `J=ℒ/e`, with
+  value `ℒ/(2e)`. ∎
+
+  So no window-sieve majorant can reach count-below-one, at any level of
+  distribution: **ES ⇐ X_win cannot be proved by stacking window sieves**,
+  even with per-window exponent 1/2 and full uniformity (H_FAIL+H_STACK
+  would give at most `N^{1−1/(2e)}` from these majorants; notes
+  (71.44)–(71.46)'s requirement `Z>(4+o(1))L` is therefore unattainable
+  within V-type majorants — note `L` there is `log N`).
+* **No clean "ES ⇐ standard hypothesis".** X_win is a pointwise
+  statement about the factorisations of `≍log p` specific integers
+  `(p+a)/4`; GRH, EH, Bateman–Horn/Dickson (which go the *other* way,
+  Prop 8.4) and Hooley-type hypotheses control averages over p or over
+  moduli. We found no standard hypothesis implying X_win; Prop 3.2 shows
+  that sieve-averaging cannot even give the "count below one" route.
+
