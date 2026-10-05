@@ -34,6 +34,13 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    cascade come from (§2.3). Lemma
    2.1 (locally minimal events) shows that the outer inclusion–exclusion
    is codegree-free; the trouble sits in the neighbourhood factors.
+6. **Phase 2 (§6).** Exponent improved to 1/13 (Thm 6.3:
+   `W(p) ≥ exp(c(log p/log log p)^{1/13})`, mod TZ and ET). The cell
+   bookkeeping is replaced by spectral norms (Lemma 6.1). §6.1 is a
+   ledger of the losses. §6.4 proves that the q-ary decision-tree
+   switching lemma fails even with small masses; the energy form ESW
+   would give 1/11. §6.5: any route through PO Thm 4.1 loses
+   `log p ≳ S²`; ≈1/9 is the ceiling under ET, ≈1/6 with the observed S.
 5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
    needed `log K ≤ k^{O(1)}`; the new minorant has `log K = O(log 𝓛)`.
 
