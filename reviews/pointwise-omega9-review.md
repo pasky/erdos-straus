@@ -79,3 +79,26 @@ C_2 depends only on (C_G, c, κ, c_2): **absolute**, as claimed. No constant sec
 A, the number of cells, M_1 or K.
 
 **Verdict: SOUND.**
+
+## 4. Exceptional case (Cases A, B)
+
+* `u=(1−β_1)log x < L` since `1−β_1 < 1/(κ log Q_G) = L/log x` ✓. Replaced RHS of (G) is
+  `C_G u x[e^{−κL}+κL/Q_G]` ✓ (`log x/log Q_G = κL`). With `u = min(u,1)max(u,1)`, `max(u,1) ≤ L`
+  (L ≥ 2), the bound `≤ min(u,1)·μx/(200φ(Q))` follows from `2C_G A L(e^{−κL}+κL/Q_G) ≤ 1/100` ✓
+  (`e^{−κL} ≤ e^{−L}e^{−2L}`; `2C_GAL·κL/Q_G ≤ 2A/(10^4κ(A+1))`).
+* If χ_1 is not some χ*, χ_1's term is simply absent from our subsum ✓. Otherwise exactly one χ
+  (injectivity) ✓; c(χ) real ✓.
+* **Case A** (χ_D trivial, χ*=χ_Q*=χ_1, q_1 | Q): `c(χ)=μ/φ(Q)` ✓, `λ=1−e^{−u}/β_1` ✓.
+  `λ ≥ min(u,1)/2` for `log x ≥ 16`: TRUE; from-scratch grid `scripts/review_o9a_lambda.py`
+  (log x ∈ [16,10^8], u ∈ [10^{−12}, log x/2]) gives `min λ/(min(u,1)/2) = 1.215` (at u=1, log x=16).
+  But one step of the written justification is wrong (m3). The (G) error `≤ λμx/(100φ(Q))` ✓.
+  `R_1`: with `q_1 ≤ Q ≤ Z` and MV (28.62), `λ ≥ min(8/(c_2Z^{1/2}(log Z)²), 1/2)`; the needed
+  inequality is then `x ≥ 400c_2 A Z^{7/2}(log Z)²/16`, not `x ≥ C·A·Z³` as written (m4). Harmless,
+  since `x ≥ Z^{C_2}`; included in my C_2 computation above.
+* **Case B** (χ_D nontrivial, real, induced by primitive ψ of conductor f>1, `f | D`, `gcd(f,Q)=1`,
+  and `f | d_i` for some i by item 1): `c(χ)=μ_ψ/φ(Q)`, twist condition `|μ_ψ| ≤ μ/4`,
+  `x^{β_1}/β_1 ≤ 2x` ✓. Total: `S ≥ (μx/φ(Q))(1−1/2−1/200−1/400) > 0` ✓.
+* Conclusion `S(x)>0 ⇒ ∃p≤x, p≡1 (Q), p∤QD, B(p)>0 ⇒ W(p)>T` uses the hypothesis on `n≡1 (Q)`
+  coprime to all d_i ✓ (weaker than PO's hypothesis, fine).
+
+**Verdict: SOUND (after minors m3, m4).**
