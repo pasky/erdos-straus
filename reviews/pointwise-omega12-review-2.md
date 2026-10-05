@@ -64,3 +64,40 @@ exact fibre probabilities. EVIDENCE only:
   where the `1.02𝓛+7` bound is not claimed).
 * Atomic `T=10^4,c=1/64`: `log Q=1944`, 293 primes, `max Σw=0.01437`; author's distinct-event variant
   (O11 table): 1900, 287, 0.0144 — consistent with R44a's remark that the variants differ slightly.
+
+### D2. Exponent chain (Thms 6.1, 6.3, Haar corollary), re-derived
+
+Ingredients and their sizes (`c=1/64`; ≪-constants absolute, T large):
+
+| term | Thm 6.1 (O11 start, `s=C log𝓛·g/M`) | Thm 6.3 (Lemma 6.2 start, `s_1=e³g/M`) |
+|---|---|---|
+| start cost | `log 840` | `≤1.02𝓛+7` |
+| quarantine charge `(𝓛/c)Σ s·h` | `64𝓛·C log𝓛·Ω_0 ≪ 𝓛^5(log𝓛)^2` | `64e³𝓛Ω_0 ≪ 𝓛^5 log𝓛` |
+| `S_tot(Q)≤Σs` | `≪𝓛^4log𝓛` | `≤e³S_0≪𝓛^4` |
+| junta `τ=2𝓛⌈log₂(100m²(S+1)e^{3S})⌉`, `m≤T²` | `≈(6/ln2)𝓛S+O(𝓛²) ≪𝓛^5log𝓛` | `≪𝓛^5` |
+| cell moduli of B `≤e^{2τ+3𝓛}`, `ℓ_aux≤2max(T,e^{2τ+3𝓛})` | `≪𝓛^5log𝓛` | `≪𝓛^5` |
+| `log Z=log(Qℓ_aux)+log max d_i` | `≪𝓛^5(log𝓛)^2` | `≪𝓛^5log𝓛` |
+
+* Bottleneck in both: the quarantine charge (as the author says). In Thm 6.3 the junta is smaller by a
+  factor `log𝓛`, so the next improvement would have to come from `Ω_0` (author's §6A last para) ✓.
+* Transfer (O11 Lemma 3.1 = O9 Thm 1.1 with fibre cells): `log x ≥ C_2(1+log A)log Z` with `A≤1.03`
+  (O9 Lemma 2.1, needs `E[F−B]≤δ/100`, supplied by BRW with EL_mod: `m²·S_tot·e^{−3S}/(100m²(S+1)) ≤
+  e^{−3S}/100 ≤ δ/100` as `δ≥e^{−2.2S_tot}`, any `S≥S_tot` may be used in τ). μ enters O9 Thm 1.1 only via
+  A, so no `log(1/δ)` term; `A≤Z^{1/4}` trivially. Hence `log p≤log x≪log Z` ✓. `p≡1 (840)` ⇒ Mordell-hard ✓.
+* Conversion: `log p ≤ K𝓛^5 log𝓛` and `log𝓛 ≤ log log p` (since `p>T`) give
+  `𝓛 ≥ K^{−1/5}(log p)^{1/5}(log log p)^{−1/5}`; `W(p)>T=e^𝓛` ✓. Likewise `(loglog p)^{−2/5}` for Thm 6.1 ✓
+  (matches O11 Cor 4.1 with `B=2`; O11 Cor 4.1 reviewed SOUND in R44b). The direction of the loglog
+  substitution is the safe one.
+* Twist (O8 Lemma 3.3 as used in O11 Thm 3.2): needs only `1.07w_{ℓ_0}≤0.02` and neighbourhood sums `≤1/32`;
+  `ℓ_0` coprime to Q is a coordinate (`a=0`), so `w_{ℓ_0}≤c logℓ_0/𝓛≤c`. The extra fact `ℓ_0>𝓛` is true but
+  unused ✓.
+* Cell consistency: O11's argument is for any graded Q (pre-set fibres included) ✓.
+* Haar corollary (`c=1/8`): `log Q≤1.02𝓛+7+8e³𝓛Ω_0≪𝓛^5log𝓛`; LLL with neighbourhood sums `≤1/4` gives
+  `δ≥exp(−2·2ln2·S_tot)≥e^{−4S_1}` on the class of one, and `δ*≥δ/φ(Q)` ✓. Needs only ET (not (G), not O10
+  Thm 3.4) — see m1.
+* Unconditional remark ("nothing changes without ET"): `S_0` is then only `exp(O(𝓛/log𝓛))`, which dominates
+  everything; Lemma 6.2 removes a `log𝓛` from a quantity that is already super-polynomial. ✓
+
+**Verdicts: Thm 6.1 SOUND; Thm 6.3 SOUND; Haar corollary SOUND (label slightly over-hypothesised, m1);** all
+as implications from Thm 5.1, ET, (G), O10 Thm 3.4 — no hidden parameter-dependence of constants found
+(`c, C_1, C_2, A` absolute; Lemma 6.2's pre-set range `ℓ≤𝓛` depends on T but is paid explicitly).
