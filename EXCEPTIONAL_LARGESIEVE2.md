@@ -1,6 +1,6 @@
 # EXCEPTIONAL_LARGESIEVE2 — the remaining large-sieve and prime-law escapes (task O27)
 
-Status: **checkpoint 2.** Hostile review R27
+Status: **checkpoint 3** (§§8–9 new, unreviewed; §§1–7 = checkpoint 2). Hostile review R27
 (`reviews/exceptional-largesieve2-review.md`, branch
 `side-agent/review-largesieve2`): all claims SOUND, no FATAL/MAJOR; minor
 m1–m6 applied. Labels as in
@@ -36,6 +36,9 @@ Theorem 4.3 does not use K2 Thm 5.1 and is unaffected.
 | Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
 | Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
+| **Thm 8.5** (Lemma 8.1, Props 8.2, 8.4) | **explicit (E1) escape for dense abstract families**: a band family (≍ηD classes at single moduli D = ℓℓ' of level > λ) on which every level-λ majorant saves 0 (comparison measure with S = 0), while a Montgomery–Vaughan large sieve with ≤ N/3 frequencies of level > λ saves `≥ c log N`. So (E1) cannot be closed by Lemma 1.1 + large-sieve axioms; a proof must use sparsity (Sp) or K2's moment hypotheses, which the band family violates | PROVED |
+| Thm 9.1 | composite kernels: Thm 4.2 holds with **no level hypothesis** (moduli ≥ N via anti-concentration of π); only the factor `1 + Nh/(W_K−h)` remains | PROVED, conditional on K2 Thm 5.1 / KARY3 |
+| Prop 9.2 | kernels whose moduli are T-rough: saving `≤ log(1 + ε_T(1 + Nh/(W_K−h)))`, `ε_T ≍ T^{−1/4+o(1)}`; the factor problem lives at small primes | PROVED, unconditional |
 | Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design. It does **not** cover the other relaxation (`ν ≥ 0` only at primes `≤ N`, `ν ≥ 1` on all primes of 𝒜), which stays open (Assessment, §6.2) | PROVED |
 | §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
 | §7 | LP/QP/exact-law sanity checks of Lemma 1.1, Lemma 2.2/Thm 2.4, Lemma 4.1/Thm 4.2, Thm 4.3's steps | EVIDENCE |
@@ -50,7 +53,12 @@ relaxation "`ν ≥ 1` only on the primes of `𝒜 ∩ [1,N]`" is vacuous as a
 sieve limit (Prop 6.1), while the relaxation "`ν ≥ 0` only at primes
 `≤ N`" (with `ν ≥ 1` on all primes of 𝒜) stays open (Assessment). Open: (E1)/(H_LS) — now reduced to frequencies with
 many-prime denominators and to a sup-decay statement (H_LS∞) — and
-unconditional signed error accounting (Assessment only). The tool behind
+unconditional signed error accounting (Assessment only). Checkpoint 3
+(§§8–9): (E1) has an explicit escape for *dense* abstract families
+(Thm 8.5), so it can only be closed using sparsity of forced classes;
+composite kernels are capped at every level up to `1 + Nh/(W_K−h)`, and
+that factor matters only for kernels with small prime factors
+(Thm 9.1, Prop 9.2). The tool behind
 all of it is Lemma 1.1: K2's cap, read through LP duality, is one
 measure that tests every nonnegative low-level function at once, so
 Cauchy–Schwarz can strip twists and fibres away.
