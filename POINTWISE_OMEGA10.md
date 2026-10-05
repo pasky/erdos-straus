@@ -4,7 +4,7 @@ Task O38 (branch `esw-suppression`). Labels as in the house rules. ES is not
 touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O2, O8, O9 likewise; `𝓛=log T`.
 
-**Status: work in progress (not reviewed).**
+**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); not yet reviewed.**
 
 ## 0. Notation
 
@@ -239,6 +239,84 @@ the vertex recursion write `X:=Σ_Vμ^V N_𝓐(V)N_𝓑(V)`; then
 induction **whenever X≥0**. But X<0 occurs (triangle `{01},{0v},{1v}`,
 `X≈−0.17` at `w=2`; `scripts/omega10_*` search), where QM survives only
 through slack in the bounds for `Q(𝓐)`, `Q(𝓑)`. Open.
+
+### 3.1 Proof of Conjecture Q (PROVED)
+
+For a finite multiset 𝒞 of vertex sets ("edges", possibly empty) and
+weights `λ_v≥1`, put
+
+```
+Θ_λ(𝒞) := Σ_{𝒥⊆𝒞} (−1)^{|𝒥|} λ^{∪𝒥}        (λ^U:=∏_{v∈U}λ_v; Θ(∅)=1).
+```
+
+**Lemma 3.2 (polarization; PROVED).** Let `μ_v=λ_v−1≥0` and let P be a random
+vertex set with `P(v∈P)=μ_v/λ_v` independently. Then for every hypergraph 𝓗
+
+```
+Q_μ(𝓗) = E_P[ Θ_λ(𝓗_P)² ],     𝓗_P := {E∈𝓗 : E∩P=∅}.
+```
+
+*Proof.* Let `T(p):=Σ_Vτ̂(V)p^V` be the multilinear extension of `τ=τ_𝓗`.
+If the `p_v` are independent with mean 0 and variance `μ_v`, then distinct
+monomials are orthogonal and `E[T(p)²]=Σ_Vμ^Vτ̂(V)²=Q_μ(𝓗)`, whatever the
+law of `p_v`. Take `p_v=1` with probability `μ_v/λ_v` and `p_v=−μ_v`
+otherwise (mean `μ/λ−μ/λ=0`, variance `μ/λ+μ²/λ=μ`); `P:={p_v=1}`. Since
+`T(p)=Σ_Rτ(R)∏_{v∈R}p_v∏_{v∉R}(1−p_v)`, only `R⊇P` survive, and with
+`R=P∪B`, `B⊆P^c`: `T=Σ_{B⊆P^c}(−μ)^Bλ^{P^c∖B}τ(P∪B)`. Here
+`τ(P∪B)=τ_{𝓗_P}(B)=Σ_{𝒥⊆𝓗_P}(−1)^{|𝒥|}1[B∩∪𝒥=∅]` (inclusion–exclusion),
+and `Σ_{B⊆P^c}(−μ)^Bλ^{P^c∖B}1[B∩U=∅]=λ^U∏_{v∈P^c∖U}(λ_v−μ_v)=λ^U` for
+`U⊆P^c`. Hence `T=Θ_λ(𝓗_P)`. ∎
+(`scripts/omega10_qtheta.py`: exact enumeration, 300 random cases,
+`μ` up to 3, max discrepancy `5·10^{−13}`.)
+
+**Lemma 3.3 (matching bound for Θ; PROVED).** If every edge of 𝒞 has
+`w_E=λ^E≤2`, then for every matching `𝓜⊆𝒞` (pairwise disjoint edges)
+
+```
+|Θ_λ(𝒞)| ≤ ∏_{E∈𝓜}(w_E−1)          (in particular |Θ_λ(𝒞)|≤1).
+```
+
+*Proof.* Deletion–contraction: for a vertex v let `𝒞−v` be the edges not
+containing v and `𝒞/v:={E∖{v}:E∈𝒞}`. Splitting `𝒥` according to whether
+it contains an edge through v,
+
+```
+Θ(𝒞) = Θ(𝒞−v) + λ_v[Θ(𝒞/v) − Θ(𝒞−v)] = λ_v Θ(𝒞/v) − μ_v Θ(𝒞−v).
+```
+
+Both families again have all weights `≤2` (`w_{E∖v}=w_E/λ_v`), and
+vertex sets smaller by one. Induct on the number of vertices.
+If `∅∈𝒞`, then `Θ(𝒞)=0` (toggling the empty edge pairs the terms), so the
+claim holds. If `𝒞=∅`, `Θ=1` and `𝓜=∅`. If `𝓜=∅` and `𝒞≠∅`, it
+suffices to prove the bound for `𝓜={E}`, since `w_E−1≤1`. So let
+`E_0∈𝓜` be nonempty, `v∈E_0`, `Π′:=∏_{𝓜∖E_0}(w−1)`. In `𝒞/v` the family
+`𝓜∖{E_0}∪{E_0∖v}` is a matching, so `|Θ(𝒞/v)|≤(w_{E_0}/λ_v−1)Π′`
+(if `E_0={v}` this reads `0`, consistent with `∅∈𝒞/v`). In `𝒞−v` the
+family `𝓜∖{E_0}` is a matching, so `|Θ(𝒞−v)|≤Π′`. Therefore
+`|Θ(𝒞)| ≤ (w_{E_0}−λ_v)Π′+μ_vΠ′ = (w_{E_0}−1)Π′`. ∎
+
+**Theorem 3.4 (Conjectures Q and QM; PROVED).** If every edge of 𝓗 has
+`w_E≤2`, then `Q_μ(𝓗) ≤ ∏_{E∈𝓜}(w_E−1)` for every matching `𝓜⊆𝓗`; in
+particular `Q_μ(𝓗)≤1` and `Q_μ(𝓗)≤min_E w_E−1`.
+
+*Proof.* Lemma 3.2, then Lemma 3.3 for `𝓗_P` with the matching
+`𝓜∩𝓗_P`. The edges of 𝓜 are disjoint, so the events `{E∩P=∅}` are
+independent, with probability `∏_{v∈E}λ_v^{−1}=1/w_E`. Hence
+`Q ≤ ∏_{E∈𝓜}[(1−1/w_E)+(w_E−1)²/w_E] = ∏_{E∈𝓜}(w_E−1)`. ∎
+
+**Corollary 3.5 (C-1; PROVED).** For every single-value system on a finite
+product of uniform spaces, and all weights `λ_v≥1` with
+`w_E=∏_{v∈supp E}λ_v≤2` for every event,
+
+```
+G_F(λ) = Σ_U (∏_{v∈U}λ_v)·‖F^{=U}‖² ≤ 1 .
+```
+
+*Proof.* Lemma 3.1 and Theorem 3.4 (𝓗(x) consists of event supports). ∎
+
+So C-1, and with it the modulus-weighted EL of §4, holds with **no** mass,
+codegree, quarantine or width hypothesis. (FM, the fractional-matching form,
+remains open, but nothing below needs it.)
 
 ## 4. What C-1 would give (PROVED implication)
 
