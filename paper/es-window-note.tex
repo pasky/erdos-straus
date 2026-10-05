@@ -1,0 +1,320 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{introthm}{Theorem}
+\renewcommand{\theintrothm}{\Alph{introthm}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{citedthm}[theorem]{Cited theorem}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Rat}{\operatorname{Rat}}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\amin}{a_{\min}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\status}[1]{\textsc{#1}}
+\title[The window statistic for Erd\H{o}s--Straus]{The window statistic for the Erd\H{o}s--Straus equation: exact orders for bounded windows and a parity barrier}
+\author{Anonymous}
+\date{Draft, 5 October 2026; internal checks only, not externally refereed}
+\begin{document}
+\begin{abstract}
+For a prime $p\equiv1\pmod 4$ and a positive integer $a\equiv3\pmod4$ put
+$x_a=(p+a)/4$.  The equation $4/p=1/x+1/y+1/z$ has a solution with
+denominator $x=x_a$ exactly when $-1$ or $-p$ is a ratio $u/v$ modulo $a$
+of coprime $u,v$ with $uv\mid x_a$.  The least such $a$, the \emph{window
+statistic} $\amin(p)$, is finite for every $p$ if and only if the
+Erd\H{o}s--Straus conjecture holds.  We study how often $\amin(p)$ is
+large.  For every fixed $Z$ the number of primes $p\le N$ with
+$\amin(p)>Z$ is $\ll_Z N/(\log N)^{1+J(Z)/2}$, where $J(Z)$ is the number of
+$a\le Z$ with $a\equiv3\pmod4$; this is the exponent of the natural random
+model.  The bound is attained for $Z=3$: at least $\gg x/(\log x)^{3/2}$
+primes $p\le x$ in Mordell's hard classes have $\amin(p)\ge7$ (modulo
+cited sieve theorems).  On the Elliott--Halberstam conjecture it is also
+attained for $Z=7$.  Unconditionally, two windows run into the parity
+problem: we exhibit two explicit sets of primes with the same sieve data
+at every level allowed by Bombieri--Vinogradov, of which one has window~3
+failing for $\gg x/(\log x)^{3/2}$ elements and the other for none.  A
+model computation suggesting that Type~I information plus parity does not
+suffice for two windows is recorded as a remark with its limited scope.
+Nothing here proves the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+The Erd\H{o}s--Straus conjecture asserts that for every integer $n\ge2$
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1x+\frac1y+\frac1z
+\end{equation}
+has a solution in positive integers.  It suffices to treat primes $n=p$,
+and Mordell's polynomial identities \cite{Mordell} settle every prime
+outside the six classes
+\[
+ p\equiv1,\ 121,\ 169,\ 289,\ 361,\ 529\pmod{840}.
+\]
+We call these primes \emph{Mordell-hard}.  Each of the six classes is a
+square modulo $3$, $5$, $7$ and $8$, so Mordell-hard primes satisfy
+$p\equiv1\pmod{24}$ and $\leg p3=\leg p5=\leg p7=1$.
+
+\subsection{The window statistic}
+Fix a prime $p\equiv1\pmod4$.  For an integer $x$ coprime to an odd modulus
+$a$ let
+\[
+ \Rat_a(x)=\Bigl\{\textstyle\prod_{r\mid x}r^{f_r}\bmod a:\ |f_r|\le v_r(x)\Bigr\}
+ =\{u v^{-1}\bmod a:\ u,v\ge1,\ \gcd(u,v)=1,\ uv\mid x\}\subseteq(\Z/a\Z)^\times
+\]
+(the product is over primes $r$; the two descriptions agree by putting the
+positive exponents into $u$ and the negative ones into $v$).  For
+$a\equiv3\pmod4$, $a\ge3$, put
+\[
+ x_a=\frac{p+a}4,
+\]
+an integer.  We say that the \emph{window} $a$ \emph{succeeds} if
+$p\nmid x_a$ and $\Rat_a(x_a)\cap\{-1,-p\}\ne\varnothing$, and that it
+\emph{fails} otherwise.  (For $a<3p$ we have $x_a<p$, so $p\nmid x_a$
+automatically.)  Define
+\[
+ \amin(p)=\min\{a\equiv3\ (\mathrm{mod}\ 4):\ \text{window $a$ succeeds}\}
+ \in\{3,7,11,\dots\}\cup\{\infty\}.
+\]
+Theorem~\ref{thm:frame} below shows that \eqref{eq:ES} is solvable for
+$n=p$ if and only if $\amin(p)<\infty$; the window $a$ is the denominator
+$x=x_a$ of a solution coprime to $p$, and the two targets $-1$, $-p$
+correspond to the two classical solution types.  Thus the
+Erd\H{o}s--Straus conjecture is the statement that the search
+$a=3,7,11,\dots$ always terminates, and $\amin(p)$ is its length.
+Numerically $\amin(p)$ is small: for every Mordell-hard $p<10^8$ one has
+$\amin(p)\le107$ (Remark~\ref{rem:data}).
+
+\subsection{Results}
+Write $J(Z)=\#\{a\le Z:\ a\equiv3\pmod4\}=\lfloor(Z+1)/4\rfloor$.
+In the natural random model (Remark~\ref{rem:model}) each window fails
+with probability of order $(\log p)^{-1/2}$, roughly independently, so
+one expects
+\begin{equation}\label{eq:model-intro}
+ \#\{p\le N:\ \amin(p)>Z\}\approx \pi(N)\,(\log N)^{-J(Z)/2}.
+\end{equation}
+
+\begin{introthm}[Theorem~\ref{thm:stack}, Corollary~\ref{cor:tail}; \status{proved}]\label{thmA}
+For every fixed finite set $A$ of positive integers $a\equiv3\pmod4$,
+\[
+ \#\{p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for all }a\in A\}
+ \ll_A\frac N{(\log N)^{1+|A|/2}}.
+\]
+In particular $\#\{p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\ll_Z N/(\log N)^{1+J(Z)/2}$
+for every fixed $Z\ge3$.  A uniform version holds for $Z=o(\log\log N)$
+(Theorem~\ref{thm:uniform}).
+\end{introthm}
+
+The key input is a \emph{half-set lemma} (Lemma~\ref{lem:halfset}): if a
+window fails, all prime factors of $x_a$ lie in one of boundedly many
+explicit sets of exactly half of the reduced classes modulo $a$.  Theorem~A
+is then a fixed-dimension upper-bound sieve.
+
+\begin{introthm}[Theorem~\ref{thm:W1}; \status{proved} modulo cited sieve theorems]\label{thmB}
+\[
+ \#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}
+ \gg\frac{x}{(\log x)^{3/2}},
+\]
+and every prime counted is Mordell-hard with $\amin(p)\ge7$.
+\end{introthm}
+
+\begin{introthm}[Theorem~\ref{thm:W2}; \status{conditional} on Elliott--Halberstam]\label{thmC}
+Assume the Elliott--Halberstam conjecture.  Then $\gg x/(\log x)^2$
+Mordell-hard primes $p\le x$ have $\amin(p)\ge11$.
+\end{introthm}
+
+Together with Theorem~A these give the exact orders
+\[
+ \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge7\}\asymp\frac{x}{(\log x)^{3/2}},\qquad
+ \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge11\}\asymp\frac{x}{(\log x)^{2}},
+\]
+the first modulo the cited sieve theorems, the second (lower bound only)
+on Elliott--Halberstam (Corollary~\ref{cor:orders}).
+
+The proofs of Theorems~B and~C rest on a congruence fact
+(Lemma~\ref{lem:parity}): the number of prime factors of $x_a$ that are
+non-residues modulo $a$, counted with multiplicity, has parity
+$\leg pa$.  For one window and a sieve of dimension $1/2$ this removes the
+parity obstruction.  The next result shows that this congruence input is
+not optional.
+
+\begin{introthm}[Theorem~\ref{thm:P1}; \status{proved}]\label{thmD}
+Let $\mathcal A^{\pm}=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (35),\ \leg p3=\pm1\}$
+and $P_3=\{\ell\ \text{prime}:\ \ell\equiv2\ (3)\}$.  The two sequences
+$\{(p+3)/4:\ p\in\mathcal A^{\pm}\}$ have the same sieve data with respect
+to $P_3$ up to remainders admissible at level $x^{1/2}(\log x)^{-B}$
+(Bombieri--Vinogradov), yet window~$3$ fails for no $p\in\mathcal A^-$
+and for $\gg x/(\log x)^{3/2}$ primes $p\in\mathcal A^+$.
+\end{introthm}
+
+Two windows (3 and 7) form a sieve problem of dimension one, for which the
+same mechanism needs a level of distribution close to~$1$; this is why
+Theorem~C is conditional.  The problem is a window analogue of the
+Friedlander--Iwaniec hyperbolic prime number theorem \cite{FI09}, whose
+lower bound is likewise conditional (Lemma~\ref{lem:quadric},
+Remark~\ref{rem:FI}).  Section~\ref{sec:model} records, with an explicit
+\status{model-only} label, a finite linear-programming computation in a
+coarse discretised model in which Type~I information of level $1/2$ plus
+parity does not force both windows to fail.
+
+\subsection{Status and conventions}
+Labels: \status{proved} means a complete proof is given here, possibly
+using cited theorems that are listed explicitly; \status{conditional}
+names the hypothesis; \status{evidence} is numerical; \status{model}
+statements concern an explicit heuristic model and not the primes.  All
+cited external theorems are collected in Section~\ref{sec:cited}, each with a
+note on whether its exact statement was checked against a source.  The
+arguments have had internal checks only; they have not been externally
+refereed.  The Erd\H{o}s--Straus conjecture is not proved here, and
+none of the results bounds $\amin(p)$ for every $p$.
+
+Throughout, $p$ denotes a prime, $r,\ell$ denote primes, $\leg{\cdot}{a}$
+is the Jacobi symbol, $\Omega(n)$ counts prime factors with multiplicity,
+and implied constants depend only on the indicated parameters.
+
+\section{The window frame}\label{sec:frame}
+
+\subsection{The window criterion}
+
+\begin{lemma}[two unit fractions]\label{lem:two}
+Let $r,s$ be coprime positive integers.  Then $r/s=1/y+1/z$ has a solution
+in positive integers if and only if there are coprime positive integers
+$d_1,d_2$ with $d_1d_2\mid s$ and $r\mid d_1+d_2$; the solution is then
+$y=s(d_1+d_2)/(rd_1)$, $z=s(d_1+d_2)/(rd_2)$.
+\end{lemma}
+
+\begin{proof}
+Sufficiency is the identity $1/y+1/z=r(d_1+d_2)/(s(d_1+d_2))$; both
+denominators are integers because $d_1d_2\mid s$, $\gcd(d_1,d_2)=1$ and
+$r\mid d_1+d_2$, $\gcd(r,d_i)\mid\gcd(r,s)=1$.  Conversely, write $y=gy_1$,
+$z=gz_1$ with $\gcd(y_1,z_1)=1$.  Then $rgy_1z_1=s(y_1+z_1)$.  As
+$\gcd(y_1+z_1,y_1z_1)=1$, we get $y_1z_1\mid s$; and as $\gcd(r,s)=1$, we
+get $r\mid y_1+z_1$.  Take $d_1=z_1$, $d_2=y_1$.
+\end{proof}
+
+\begin{theorem}[window criterion; \status{proved}]\label{thm:frame}
+Let $p\equiv1\pmod4$ be prime, let $a\equiv3\pmod4$ be positive, put
+$x=x_a=(p+a)/4$ and suppose $p\nmid x$.  Then $\gcd(a,x)=1$, and:
+\begin{enumerate}
+\item If $u,v\ge1$ are coprime, $uv\mid x$ and $u\equiv-v\pmod a$, then
+ \begin{equation}\label{eq:typeII}
+ \frac4p=\frac1x+\frac{au}{px(u+v)}+\frac{av}{px(u+v)}
+ \end{equation}
+ is a solution of \eqref{eq:ES} in positive integers.
+\item If $u,v\ge1$ are coprime, $uv\mid x$ and $u\equiv-pv\pmod a$, then
+ \begin{equation}\label{eq:typeI}
+ \frac4p=\frac1x+\frac{au}{px(u+pv)}+\frac{av}{x(u+pv)}
+ \end{equation}
+ is a solution of \eqref{eq:ES} in positive integers.
+\item Conversely, if $4/p=1/x+1/y+1/z$ with $p\nmid x$, then $x=x_a$ for
+ $a=4x-p$, which is a positive integer $\equiv3\pmod4$, and
+ $\Rat_a(x)\cap\{-1,-p\}\neq\varnothing$.
+\end{enumerate}
+Consequently \eqref{eq:ES} is solvable for $n=p$ if and only if
+$\amin(p)<\infty$.
+\end{theorem}
+
+\begin{proof}
+Since $4x-a=p$, $\gcd(a,x)=\gcd(p,x)=1$.  Also $a$ is odd and coprime to
+$p$, so $4/p-1/x=a/(px)$ is in lowest terms.  By Lemma~\ref{lem:two} with
+$(r,s)=(a,px)$, $a/(px)=1/y+1/z$ is solvable if and only if there are coprime
+$d_1,d_2$ with $d_1d_2\mid px$ and $a\mid d_1+d_2$.  Taking $(d_1,d_2)=(u,v)$
+gives \eqref{eq:typeII}, and $(d_1,d_2)=(u,pv)$ gives \eqref{eq:typeI}; in
+both cases the denominators $px(d_1+d_2)/(ad_i)$ are integers by
+Lemma~\ref{lem:two}, and one checks that the two displayed fractions are
+$1/y,1/z$.  This proves (1) and (2).
+
+For (3): $1/x<4/p$ gives $a=4x-p>0$, and $a\equiv-p\equiv3\pmod4$.
+Lemma~\ref{lem:two} gives coprime $d_1,d_2$ with $d_1d_2\mid px$ and
+$a\mid d_1+d_2$.  Since $\gcd(d_1,d_2)=1$ and $p\,\|\,px$, the prime $p$
+divides at most one of them.  If $p\nmid d_1d_2$, then $d_1d_2\mid x$ and
+$d_1\equiv-d_2\pmod a$, so $-1\in\Rat_a(x)$.  If $p\mid d_2$, say
+$d_2=pv$, then $d_1v\mid x$ and $d_1\equiv-pv$, so $-p\in\Rat_a(x)$ (the case
+$p\mid d_1$ is symmetric, using $\Rat_a(x)=\Rat_a(x)^{-1}$ and
+$d_2\equiv-p\,(d_1/p)$ hence $d_2\cdot(d_1/p)^{-1}\equiv -p$).
+
+Finally, if \eqref{eq:ES} holds for $n=p$, not all of $x,y,z$ are
+divisible by $p$: otherwise multiplying by $p$ would write $4$ as a sum of
+three unit fractions.  Relabel so that $p\nmid x$ and apply (3); then
+window $a=4x-p$ succeeds.  The converse is (1)--(2).
+\end{proof}
+
+Solutions from \eqref{eq:typeII} have two denominators divisible by $p$
+and those from \eqref{eq:typeI} exactly one; these are the Type~II and
+Type~I solutions of the literature \cite{ET}.  The criterion is a
+reformulation of the classical parametrisations of these two types
+(compare \cite[\S2]{ET}); we use it only in the form of
+Theorem~\ref{thm:frame}.  We do not use the targets $-p$ in any upper
+bound below: all upper bounds concern the larger event that $-1\notin
+\Rat_a(x_a)$.
+
+\subsection{Window reciprocity and the parity of the bad part}
+
+\begin{lemma}[window reciprocity; \status{proved}]\label{lem:recip}
+Let $p\equiv1\pmod8$ be prime, $a\equiv3\pmod4$ with $0<a<3p$, and
+$x=x_a$.  Every prime $r\mid x$ is coprime to $a$ and satisfies
+$\leg ra=\leg rp$.
+\end{lemma}
+
+\begin{proof}
+If $r\mid a$ then $r\mid4x-a=p$, so $r=p$; but $r\le x<p$.  If $r$ is odd,
+Jacobi reciprocity with $(a-1)/2$ odd gives
+$\leg ra=\leg{-1}r\leg ar=\leg{-a}r$; since $r\mid p+a$ this is $\leg pr$,
+which equals $\leg rp$ as $p\equiv1\pmod4$.  If $r=2$ then $8\mid p+a$, so
+$a\equiv7\pmod8$ and $\leg2a=1=\leg2p$.
+\end{proof}
+
+Call a prime $r\nmid a$ \emph{$a$-bad} if $\leg ra=-1$ and \emph{$a$-good}
+otherwise, and let $\Omega_a^-(n)$ be the number of $a$-bad prime factors
+of $n$ counted with multiplicity.  The set of $a$-bad primes is a union of
+reduced classes modulo $4a$, of relative density $1/2$, and does not
+depend on~$p$.
+
+\begin{lemma}[clean windows fail; \status{proved}]\label{lem:F1}
+Let $p\equiv1\pmod 8$, $a\equiv3\pmod4$, $0<a<3p$.  If $x_a$ has no
+$a$-bad prime factor, window $a$ fails.
+\end{lemma}
+
+\begin{proof}
+$u\mapsto\leg ua$ is a character of $(\Z/a\Z)^\times$, so every element of
+$\Rat_a(x_a)$ has symbol $+1$.  But $\leg{-1}a=-1$ as $a\equiv3\pmod4$, and
+$\leg{-p}a=-\leg{4x_a}a=-\prod_{r\mid x_a}\leg ra^{v_r(x_a)}=-1$.
+\end{proof}
+
+By Lemma~\ref{lem:recip}, ``$x_a$ has no $a$-bad prime factor'' is the same as
+``every prime factor of $x_a$ is a quadratic residue modulo $p$''.  We call
+such a window \emph{clean}.  Writing the condition through $\leg\cdot a$
+rather than $\leg\cdot p$ makes it a sifting condition on the shifted prime
+$x_a$ by a fixed set of primes of density $1/2$.
+
+\begin{lemma}[parity of the bad part; \status{proved}]\label{lem:parity}
+If $\gcd(x_a,a)=1$ then $(-1)^{\Omega_a^-(x_a)}=\leg{x_a}a=\leg pa$.
+\end{lemma}
+
+\begin{proof}
+Multiplicativity gives $\leg{x_a}a=\prod_r\leg ra^{v_r(x_a)}=(-1)^{\Omega_a^-(x_a)}$,
+and $4x_a\equiv p\pmod a$ with $\leg4a=1$.
+\end{proof}
+
+\begin{lemma}[window 3]\label{lem:w3}
+Let $p\equiv1\pmod{24}$.  Window $3$ fails if and only if $x_3=(p+3)/4$ has
+no prime factor $\equiv2\pmod3$.  Hence $\amin(p)\ge7$ exactly in this case.
+\end{lemma}
+
+\begin{proof}
+Modulo $3$ both targets equal $2$ ($-p\equiv-1$).  The prime $3$ does not
+divide $x_3$ as $p\equiv1\pmod3$.  $\Rat_3(x_3)$ is generated by the classes
+of the prime factors of $x_3$, so it contains $2$ if and only if some prime
+factor is $\equiv2\pmod3$.  (The ``if'' direction is also Lemma~\ref{lem:F1}.)
+\end{proof}
