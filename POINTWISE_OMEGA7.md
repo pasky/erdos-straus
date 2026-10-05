@@ -112,3 +112,47 @@ side is identical with `d′>μ`, so its first term is `≤1/μ`. ∎
 
 *Remark.* The error `2(X/q+1)` is the only place where "first terms"
 enter. It is `≪(S/q)H^{−a}` iff `S≥max(9A²H^{2a}, qH^{a})·O(1)`.
+
+**Lemma 2.2 (first terms; PROVED).** For `d_0(a,j)` as in Lemma 2.1 and
+`h_3>H`,
+
+```
+E(A) := A^{−1} Σ_{a∈[A,2A), (a,q)=1} Σ_{j≤2T, (j,q)=1} 1/(j·d_0(a,j)) ≤ 12𝓛²(H^{−1/3}+q^{−1}).
+```
+
+*Proof.* (1) `d_0(a,j)` depends on `r:=j mod q` only, and
+`Σ_{j≡r, j≤2T}1/j≤1/r+2𝓛/q`. As `r↦d_0(a,r)` is injective,
+`Σ_r1/d_0≤𝓛`. So `Σ_j1/(jd_0)≤Σ_{1≤r<q}1/(r·d_0(a,r))+2𝓛²/q`.
+(2) *Hub bound.* `a·d_0≡κr (q)` with `ad_0r` prime to q, so
+`(u,v)=(ad_0,r)` has `u≡κv`, and `h_3>H` gives `rd_0>H/a`. Cover
+`[1,q)²` by `≤4𝓛²` dyadic boxes `[R,2R)×[D,2D)`. A box holds
+`≤min(R,D)` points `(r,d_0(a,r))` (injective in each coordinate), each
+with `1/(rd_0)≤1/(RD)`; a nonempty box has `4RD>H/a`. So a box gives
+`≤1/max(R,D)≤(RD)^{−1/2}<2(a/H)^{1/2}`, and
+`Σ_r1/(rd_0)≤8𝓛²(2A/H)^{1/2}`.
+(3) *Average over a.* For fixed r and each value d, `a≡κr d̄ (q)`, so
+`≤A/q+1` values of a give `d_0(a,r)=d`. Hence
+`Σ_a1/d_0(a,r)≤(A/q+1)𝓛` and `A^{−1}Σ_aΣ_r1/(rd_0)≤𝓛²(1/q+1/A)`.
+Take the better of (2) and (3): `min(8√2(A/H)^{1/2},1/A)≤11.4H^{−1/3}`. ∎
+
+**Proposition 2.3 (long-s boxes; PROVED).** Assume `h_3>H` and let
+`μ≥1`. In an `(s,a)`-box, *all* atoms (corner or not) with `a≤b`,
+`m>μ`, `gcd(j,q)=1` have total weight
+
+```
+≤ 3𝓛/μ + 30𝓛²(H^{−1/3}+q^{−1}) + 𝓛(32A/√S + 6q/S).
+```
+
+*Proof.* `2/n′=2qm/(4sab−1)` and `m=(a+b)/j≤2b/j` give
+`2/n′≤4q/(j(4sa−1))≤(4/3)q/(jSA)`. By Lemma 1.1(iv) the atoms inject
+into the tuples `(s,a,j,d)` counted by `N(a,j)`, `j≤a+b≤2T`. So the
+weight is `≤(4q/(3SA))Σ_{a,j}N(a,j)/j`. Insert Lemma 2.1, use
+`Σ_{j≤2T}1/j≤2𝓛`, `1+log X≤2𝓛`, `X/q+1≤6A√S/q+1`, and Lemma 2.2 for
+the `1/d_0` terms. ∎
+
+**Corollary 2.4.** With `μ=H^{1/3−a}`, `0<a≤1/6`, and `q>H²`: every
+`(s,a)`-box with `S≥max(A²,q)·H^{2a}` contributes
+`≪𝓛²H^{−a}` from the atoms with `a≤b`, `gcd(j,q)=1`. By the symmetry
+`(a,b,κ)↔(b,a,κ^{−1})` (which preserves `h_3` and swaps `h_1,h_2`), the
+same holds for `a≥b` in `(s,b)`-boxes with `S≥max(B²,q)H^{2a}`. This uses
+no corner structure and no Shiu/Henriot input. ∎
