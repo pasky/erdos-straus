@@ -347,11 +347,13 @@ above its threshold 0.01208, review R44a).
 | 10⁵ | 1/64 | 3 | 4054 | 557 | 21839 | 3 | 0.0136 | 2.9·10⁵ |
 | 10⁶ | 1/64 | 4 | 7531 | 960 | 34319 | 4 | 0.0129 | 6.8·10⁵ |
 | 10⁵ | 1/8 | 3 | 690 | 126 | 1439 | 3 | 0.0711 | 3.6·10⁴ |
+| 10⁶ | 1/8 | 4 | 1247 | 206 | 1847 | 4 | 0.0764 | 8.5·10⁴ |
 
 For comparison, O2 Lemma 11.2 at `T=10^5`, `z=20` with the matching per-prime
 threshold `c_0=1/(64k)=0.0052` gives `log Q_Π=8942`
 (`scripts/omega2_iterq.py 100000 20 0.0052`). With `c=1/8` the Haar
-certificate is `log(1/δ*(10^5)) ≤ 764`, against O2's 1479 (`c_0=1/(8k)`).
+certificate is `log(1/δ*) ≤ 764` at `10^5` and `≤1390` at `10^6`, against O2's
+1479 and 3565 (`c_0=1/(8k)`, z=20, O2 §11 table).
 At these T the asymptotic gain (`≈𝓛/log²𝓛`) is small, and the ratios
 (≈2) are illustrative only.
 
