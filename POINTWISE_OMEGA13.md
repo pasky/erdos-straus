@@ -40,7 +40,11 @@ so it is counted in at least one `w̃_ℓ`. So `P(E)=x_Eβ^{−s(E)}≤x_E∏_{E
 This is the asymmetric LLL hypothesis. Its standard conclusions are
 `P(∩Ē)≥∏(1−x_E)≥exp(−(4/3)Σx_E)` and the conditional bound. For a general A, the
 standard LLL bound `P(A|∩_{𝒮}F̄)≤P(A)∏_{F∈𝒮, F∼A}(1−x_F)^{−1}` is used (as in O8 Lemma 3.3;
-Haeupler–Saha–Srinivasan). The displayed computation, applied with `supp A`, gives
+Haeupler–Saha–Srinivasan, J. ACM 2011; theorem number not verified, source not archived). It
+has a one-line proof (R48c m5): with `𝒮_1:={F∈𝒮: F∼A}`, `𝒮_2:=𝒮∖𝒮_1`, A is independent of
+`∩_{𝒮_2}F̄` (disjoint supports), so
+`P(A|∩_𝒮F̄)≤P(A∩_{𝒮_2}F̄)/P(∩_{𝒮_1}F̄|∩_{𝒮_2}F̄)≤P(A)/∏_{F∈𝒮_1}(1−x_F)`, the denominator by
+the chain rule and the conditional bound `P(F|∩F̄')≤x_F` above. The displayed computation, applied with `supp A`, gives
 `∏(1−x_F)^{−1}≤exp((4/3)|supp A|η)=β^{|supp A|}`. ∎
 
 *Range (R48b D5).* The prime-side twist (§5, I1) needs `η≤0.19`. This fails at the
@@ -494,7 +498,7 @@ export PYTHONPATH=scripts
 
 **Setting.** Fix the good realisation `(Q,r)` of Theorem 3.4. It has:
 * `840|Q`, with r a square mod every prime of Q and `r≡1 (24)`;
-* (1.1) at every coordinate, with `η≤0.19`;
+* (1.1) at every coordinate, with `η≤0.19` (true for `T≥e^{33}`, §1 Range);
 * `S_res=Σ_Eβ^{s(E)}P(E)≪𝓛³log𝓛` and `log Q≪𝓛³(log𝓛)^5`.
 
 `F` is the indicator of avoiding all live events on the fibre `rH`, `H:={x≡1 (Q)}`, and
