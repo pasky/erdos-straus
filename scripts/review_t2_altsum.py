@@ -102,3 +102,22 @@ for j in range(J + 1):
         continue
     r = S[j] / (N * float(eA[j])) if eA[j] else float('nan')
     print(f"{j:2d} {float(e[j]):.4e} {float(eA[j]):.4e} {float(e[j]-eA[j]):.4e} {S[j]/N:.4e} {r:.4f}")
+
+# (v) Thm 4.1 intermediate inequality (no epsilon hypothesis needed):
+#   E a(H) - P(H=empty) <= Pi(1-p) [ prod_phi (1 + sum_{k>=u1} e_k(w_phi)) - 1 ],
+#   w_phi = (4/l) over primes l <= y, l = -1 mod 4rs;  u1 = floor(log N/log y)+1.
+from math import log, floor
+u1 = floor(log(N) / log(y)) + 1
+formset = set(f for l in primes for b, f in cls[l])
+brk = Fraction(1)
+for (r, s) in formset:
+    ws = [Fraction(4, l) for l in primes if (l + 1) % (4 * r * s) == 0]
+    c = [Fraction(1)] + [Fraction(0)] * len(ws)
+    for w in ws:
+        for k in range(len(ws), 0, -1):
+            c[k] += w * c[k - 1]
+    brk *= 1 + sum(c[u1:])
+lhs = Ea - P0
+rhs = P0 * (brk - 1)
+print(f"(v) u1={u1}: E a(H)-P(H=0) = {float(lhs):.4e} <= {float(rhs):.4e} : {lhs <= rhs};  "
+      f"lower side -rhs <= lhs: {-rhs <= lhs}")
