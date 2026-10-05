@@ -184,7 +184,8 @@ empty, and a character/additive character mod q restricts to one mod q′ times 
 2.5 ("coprime to Q after the reduction"). On H only `X_p mod p^{v_p(Q)}` is fixed; higher p-adic
 digits are free. So `1_C|_H` is (class mod q′)×(sub-class mod `p^{v_p(q)}`), not a class mod q′.
 Similarly χ mod q restricted to H is not χ′·const. *Repair:* prove Lemma 2.3 relative to H. The
-image of H mod q is a coset `K` of a subgroup of `(ℤ/q)^×`, with `|K|=φ(q)/φ(gcd(q,Q^∞))·…`. The
+image of H mod q is the coset `K={u∈(ℤ/q)^×: u≡r (gcd(q,Q))}`, `|K|=φ(q)/φ(gcd(q,Q))`, and Haar on H
+is uniform on K. The
 primes `≤x<q` are distinct elements of K. Run (a) with `N_x≤|K|/2`, and (b) with the characters of
 `(ℤ/q)^×` restricted to K. The mean square over the `|K|` restricted characters is
 `|K|N'`, and the same algebra gives `≥N_x(1−N_x/|K|)`. Alternatively restrict Cor 2.4 to moduli
