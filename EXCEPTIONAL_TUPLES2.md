@@ -276,6 +276,9 @@ Cor 2.2. For TC^alt this is T1 Cor 2.2's arithmetic directly. ∎
   count `⌊(N+1)/q⌋`, a deficit of `{(N+1)/q} − 1/q` each, and there are
   `N exp(−(log N)^{1−θ/2+o(1)}) ≫ Nη_K` of them at order
   `⌊log N/log y⌋` (Lemma 3.1). (Assessment.)
+* TC^alt still fails for even `K ≥ (e²/2+ε) log N` (squares: T1 Prop
+  4.2's proof uses only the Bonferroni bound, i.e. TC^alt). So for TC^alt
+  the known failure threshold remains θ = 1.
 * TC^alt is immune to every single-form effect: in the alternating sum the
   Kubilius truncation is an Euler-characteristic term `χ_φ`, which vanishes
   unless every hit sits in an inadmissible group (proof of Thm 4.1). So
@@ -452,3 +455,14 @@ moments `𝔐(y)` hold for all y, K2 Cor 3.7). Families with unboundedly many
 primes per block per modulus remain open: there one would have to show
 that dense classes (r+1 primes in one block; mass `≲ (log 2)^{r+1}/(r+1)!`
 per block relative) can be absorbed into the leak. Not attempted.
+
+## Replay
+
+```
+cd scripts
+for a in "1e6 100" "1e6 1000" "1e8 1000" "1e8 3000"; do uv run python tuples2_forced.py $a 12 > ../data/tuples2/forced_$(echo $a|tr ' ' _).txt; done   # §5(a); ~1 min total
+for a in "1e8 1000" "1e7 1000" "1e6 1000"; do uv run python tuples2_allforms.py $a 13 > ../data/tuples2/allforms_$(echo $a|tr ' ' _).txt; done        # §5(c); seconds
+uv run python tuples2_translates.py 1e7 1000 0,1e12,2.718281828e12,3.14159265e13,1e15 13 > ../data/tuples2/translates_1e7_1000.txt   # §5(b); ~5 min, < 1 GB
+```
+§5(c)'s "observed" column is T1's `data/tuples/moments_N{1e6,1e7,1e8}_es.txt` (y = 1000 block).
+§5(d): histogram of f_y vs the exact Poisson-binomial law at N = 10⁶, y = 100 (one-off check, ~10 lines of numpy using `tuples_moments.R_set`).
