@@ -302,7 +302,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Thm 5.1 (H_ω(2), PROVED modulo Elsholtz–Tao Prop 1.4, Thm 7.1, Cor 7.4, (7.10)): `Ω_0 = Σ_{atoms}(g/M)h(M) ≪ 𝓛^4 log 𝓛`. Type I coordinates split h(M) into a rough part (sum along c-progressions only over prime powers below the block scale — full periods, no first terms — paying larger ones pointwise; ET Prop 1.4 gives every c-scale the same mass, so the cost averages to log 𝓛) and a smooth part (ET Thm 7.1 on shifted quadratics with root counts ≤ 2, or Cor 7.4 on linear forms).
     * Thm 6.1 (via POINTWISE_OMEGA11 Cor 4.1 with B=2) and the sharper Thm 6.3 (pre-quarantine `a_ℓ=1` for odd `ℓ ≤ 𝓛`, Lemma 6.2): log Q ≪ 𝓛^5 log 𝓛, junta ≪ 𝓛^5.
     * **PROVED modulo Gallagher's theorem (G), Elsholtz–Tao, and POINTWISE_OMEGA10 Thm 3.4** (proved). Two independent hostile reviews, both SOUND (no FATAL/MAJOR): `reviews/pointwise-omega12-review.md` (Thm 5.1, ET hypotheses incl. root counts at p=q, §7 numerics recomputed) and `reviews/pointwise-omega12-review-2.md` (assembly, Lemma 6.2, Haar corollary).
-    * 1/5 is about the ceiling of modulus-weighted arguments in this architecture; the Haar exponent is at least 3 (see (H)25 if merged), so the heuristic truth 1/3 needs a genuinely different idea.
+    * 1/5 is about the ceiling of modulus-weighted arguments in this architecture; the Haar exponent is at least 3 ((H)25), so the heuristic truth 1/3 needs a genuinely different idea.
+
+25. **The Haar exponent is at least 3 (POINTWISE_HAAR.md Thm 2.1): `log(1/δ*(T)) ≫ (log T)³/log log T`** for the profinite avoider density of the ES witness system (PROVED modulo the sieve fundamental lemma; previous lower bound `𝓛²`, POINTWISE_OMEGA8 Prop 6.6). So `𝓛³/log 𝓛 ≪ log(1/δ*(T)) ≪ 𝓛^5 log 𝓛` ((H)24).
+    * New tool: a Janson-type inequality `−log P(no event) ≥ μ − KΔ` for atomic events on product spaces with one-hot coordinates, where Harris's inequality fails; Δ counts only compatible overlapping pairs and K is a lopsided-LLL inflation factor (Thm 1.4, via Lemma 1.1 and the lopsided local lemma). Applied to a family of events with squarefree 𝓛^5-rough moduli in [√T, T].
+    * The Monte Carlo of POINTWISE_SIZE §7.2 fits `Φ/(𝓛³/log 𝓛) ≈ 0.069–0.070` over 1023 ≤ T ≤ 32767, so the measured local exponent drift 2.3→2.6 is consistent with a = 3 (EVIDENCE; Conjecture 3.1: `log(1/δ*) ≍ 𝓛³/log 𝓛`). This supports the heuristic prime-side truth `log W ≍ (log p)^{1/3}`.
+    * **PROVED** as labelled (internal; review `reviews/pointwise-haar-review.md`, SOUND, Thm 1.4 brute-forced exactly; minors applied). T_0 is astronomically large.
 
 ## Items to verify by the maintainer
 
