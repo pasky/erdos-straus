@@ -1,6 +1,14 @@
 # Hostile review R31 of POINTWISE_TYPEI.md (O31, branch side-agent/typei-ckmin)
 
-Reviewer branch: side-agent/review-typei. Status: in progress.
+Reviewer branch: side-agent/review-typei. Status: round 1 complete.
+
+**Overall verdict: SOUND-AFTER-REPAIRS (no FATAL, no MAJOR).** Every key numerical claim was reproduced with
+from-scratch code (Lemma 1.1, Thm 6.1 incl. ck_min(193)=10, all seven formal escape points of §6.2 incl. 539 and >3000,
+the census and the 883 record). Proofs of L1.1, T2.1, P4.1, P4.2, L4.3, T6.1 and the unconditional part of Cor 6.4 were
+re-derived and hold. Eight MINOR defects (below): the most substantive are the Cor 6.4 slice count (defect 1, wording
+makes the r=11 case literally false; fix = count unforced slices), the T3.1 log log bookkeeping (defect 2), and the missing
+compactness step in R6.2(ii) (defect 6). Labels are otherwise appropriate (CONDITIONAL on H/GRH correctly flagged;
+LO/Serre/Montgomery not accessible to me — constant 1/(2log2) is the author's derivation, plausible).
 
 ## Summary verdicts (filled in incrementally)
 
