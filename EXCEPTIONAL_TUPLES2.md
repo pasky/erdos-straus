@@ -464,9 +464,9 @@ block-sparse families.
 
 **Proposition 7.1 (PROVED, by K2 Thm 5.1's proof with one change).** Let
 𝔊 be a K2 family (Def 2.0 there) with all moduli `≤ N^A`, such that every
-modulus has at most r prime factors in each dyadic block
-`V_i = (e^{2^i s₁}, e^{2^{i+1}s₁}]`, i ≥ 0, up to `N^A` (K2 §5's blocks,
-continued past `e^{λ₀/2}`). Let ν be a majorant of
+modulus has at most r prime factors in every interval `(x, x²]`, x ≥ 2
+(an N-free condition; it implies ≤ r primes in each block
+`V_i ⊆ (e^s, e^{2s}]` of K2 §5, continued past `e^{λ₀/2}`, for every N). Let ν be a majorant of
 `𝒜(𝔊)` each of whose terms has level `≤ λ₀ := A log N` or is an
 intersection of at most k classes of 𝔊. Then
 
@@ -486,7 +486,10 @@ most one prime), which we treat as further dyadic blocks up to `N^A`
 instead of K2's linear block and empty tail. Keep K2's base, leak,
 singletons below `e^{s₁}` with `s₁ = λ₀^{1/4}(log λ₀)^{−3/4}`, and block
 step bound `EΦ_i ≤ d_i log(C₀(E M_{V_i} + 4d_i)/d_i) + (4/3)d_i +
-½log(22d_i+22) + 3`, which is increasing in `d_i`. The λ₀/s part
+½log(22d_i+22) + 3`. Its main part `g(d) = d log(C₀(M+4d)/d)` has
+`g(d)/d` decreasing, hence is subadditive, `g(a+b) ≤ g(a) + g(b)`, and the
+remaining terms are subadditive up to O(1) per block; so the cost at
+`d_i ≤ λ₀/s + kr` splits into the two parts below. The λ₀/s part
 reproduces K2's sum `Cλ₀^{3/4}(log λ₀)^{3/4}`. The kr part costs, per
 block, `kr·log(C₀(8K₃s³(log 2s)³ + 4kr)/(kr)) + O(kr) ≤ C kr log log N`
 (as `s ≤ A log N`), over `O(log log N)` blocks. ∎
