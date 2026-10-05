@@ -50,3 +50,26 @@ Re-derived independently, step by step:
     `E[A_je_j²]=P(E_j)·E[(F^{(j)}−u_j)²|E_j]`; nothing requires single values. ✓
 
 **Verdict on Lemma 1.1 + Remarks: SOUND** (pending the numerical check in §B).
+
+### B. From-scratch numerics for Lemma 1.1 (`scripts/review_o11b_filtration.py`)
+
+Independent code (not the author's): exact digit-level Efron–Stein energies by Möbius inversion of
+`‖E[F|X_W]‖²`; 1–3 "primes", up to 3 digits, digit 0 on units (`ℓ−1` values) or full; random **first free
+digit `i_0`** (models both fibres `a_ℓ>0` and Remark (ii)'s conditioned systems, with absolute weights
+`Λ_{ℓ,i}=λ^{i+1}`, `Λ_{ℓ,i_0−1}:=1`); 1–8 events fixing initial segments of the remaining digits; random
+per-prime log-sizes rescaled so the hypothesis is **tight** (`max_E∏λ^{ρv}=2`). Besides `G'≤1` it checks the two
+intermediate steps of the proof: (b) the identity `G'=Σ_{selections}μ'^V‖L_VF‖²`, and (c) the per-selection bound
+`‖L_VF‖²≤E_xN_{Ĥ(x)}(V)²` with `Ĥ` built from `Ê={(ℓ,j): j<v_ℓ(E)}`.
+
+| run | ρ | systems | max G' | max\|G'−Σ_sel\| | max(‖L_VF‖²−E N²) |
+|---|---|---|---|---|---|
+| random, seed 2 | 2 | 1500 | 0.99933 | 9e−16 | 7e−16 |
+| random, seed 3 | 1 | 600 | 0.99961 | 1e−15 | 6e−16 |
+| random, seed 5 | 1.32 | 600 | 0.99871 | 1e−15 | 9e−16 |
+| hill-climb (150 steps each), seed 11 | 2 | 60 | 0.99869 | — | — |
+| hill-climb, seed 12 | 1 | 60 | 0.99981 | — | — |
+| **power check**, seed 4 | 0.5 | 600 | **1.537** | 8e−16 | 6e−16 |
+
+So (b) and (c) hold to rounding, `G'≤1` at ρ=2 (and, unclaimed, at ρ=1), and the test has power: at ρ=0.5 it
+detects `G'>1`. This agrees with the author's `data/omega11/filtration.txt` (max 0.9972 at ρ=2, 0.9971 at ρ=1).
+**EVIDENCE consistent with Lemma 1.1; no counterexample.**
