@@ -31,7 +31,7 @@ EK Lemma 4.2′, K2 Lemma 4.2).
 | Cor 5.2 | TU Cor 3.4 window closed for **prime order**: (A log N, k)-mixed majorants of any K2 family save `≤ C_A[(log N)^{3/4} + k log log N]` | PROVED (same proviso) |
 | Cor 5.3 | class order k when every modulus has `≤ r` primes above the fixed W: `≤ C_A[(log N)^{3/4} + kr log log N]`; open: `max(L^{4θ/3−1}, L^θ/(r log L)) ≲ k ≲ L^θ/log L` for unbounded r | PROVED / open part stated |
 | §6 | TW4 middle window: every Λ² sieve over every K2 family saves `≤ CL^{3/4}` for all r (Thm 4.1 applies; no ω-hypothesis) | PROVED (corollary) |
-| §7 | Lemma 7.1: TW4's Λ² setting checked at text level (g² is a K2 level-λ majorant; all primes charged), so TW4 Thm 7.1 / middle window are superseded as caps. Lemma 7.2: an `N^A`-prime-power class with `log d ≤ (k−1)A log N/2` is an intersection of `≤ k` classes of modulus `≤ N^A`; so TU Cor 3.4's literal hypothesis is a level-`≍kL` hypothesis and its window cannot be closed from that hypothesis alone | PROVED |
+| §7 | Lemma 7.1: TW4's Λ² setting checked at text level (g² is a K2 level-λ majorant; all primes charged), so TW4 Thm 7.1 / middle window are superseded as caps. Lemma 7.2: an `N^A`-prime-power class with `log d ≤ (k−1)A log N/2` is an intersection of `≤ k` classes of modulus `≤ N^A`; so TU Cor 3.4's literal hypothesis is a level-`≍kL` hypothesis; closing its window from that hypothesis would require a better level cap (`C[L^{3/4}+(λ/L)polylog L]` instead of `Cλ^{3/4}`), which the KARY ledger does not give (Assessment); whether `λ^{3/4}` is attained there is open | PROVED (lemma); consequence as stated |
 | §8 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `max u⁴b = 0.385` (all complete blocks) | EVIDENCE |
 
 Constants are absolute but astronomically large (as in K2); everything
@@ -539,10 +539,13 @@ and `log d ≤ (k−1)A log N/2`, i.e. every such majorant of level
 So, up to a factor 2 in k, the literal Cor 3.4 class **is** the class
 of level-`λ` majorants, `λ ≍ kL` (L = log N), built from primes `≤ N^A`,
 and TU's bound `C(kAL)^{3/4}` is Theorem 4.1 at that level. Hence:
-1. No argument that uses only the literal hypothesis can close the
-   window `L^{4θ/3−1} ≲ k ≲ L^θ/log L`. Closing it would bound level-λ
-   majorants (λ ≫ L, primes `≤ e^{AL}`) by `C[L^{3/4} + (λ/L)·polylog L]`
-   instead of `Cλ^{3/4}`. The KARY method cannot do this: its cost
+1. Closing the window `L^{4θ/3−1} ≲ k ≲ L^θ/log L` from the literal
+   hypothesis alone would require a better level cap: it would bound
+   level-λ majorants (λ ≫ L, primes `≤ e^{AL}`) by
+   `C[L^{3/4} + (λ/L)·polylog L]` instead of `Cλ^{3/4}`. (Wording aligned
+   with referee R36 m12: this is not a proof that the window cannot be
+   closed, since attainability of `λ^{3/4}` at such levels is open.) By
+   inspection (Assessment) the KARY method cannot do this: its cost
    ledger at level λ is minimised at `s₁ = λ^{1/4} ≤ AL` (for
    `k ≤ L³`), where the truncation of primes at `e^{AL}` is invisible.
    Whether `λ^{3/4}` is *attained* at such levels is the attainability
