@@ -12,8 +12,8 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 | Thm 1.2 | SOUND (labels match O14 Thm 4.5 inputs) |
 | Def 2.1 / Thm 2.2 | SOUND (Def 2.1 is narrow by design, see D-notes) |
 | Lemma 2.3 | SOUND (minor bookkeeping) |
-| Cor 2.4 | (pending) |
-| Prop 2.5 | (pending) |
+| Cor 2.4 | SOUND-AFTER-REPAIRS (proof OK; Q-reduction wrong in general; headline oversold) |
+| Prop 2.5 | SOUND |
 | Thm 3.1 | (pending) |
 | Prop 4.1 | (pending) |
 | Remark 4.2 / Assessment 4.3 | (pending) |
@@ -67,5 +67,36 @@ primitive roots): (a), both lower bounds of (b) and the identity `Σ_χ|·|²=φ
 Bookkeeping: `S(a)` is written over all `p≤x, p∈H` but must run over the primes counted by `m_x`
 (m3). In Cor 2.4 the hypothesis `N_x≤φ(q')/2` is asserted via "`q'>x²`", but the case split only
 gives `q'>x` (m4).
+
+### Cor 2.4 — SOUND-AFTER-REPAIRS; is "full-orbit uniform" honest?
+*Proof.* Correct given Def 2.1: shallow terms have `E_ρ=0`, deep terms (≥k+1 big primes, modulus
+`>T^{0.6(k+1)}>x`) cost `≥1/2` (classes) / `≥√(N_x/3)` (characters) each by Lemma 2.3, and
+`E_HB≤η·Σ_deep|c_i|`. The Q-reduction sentence is false when `v_p(q)>v_p(Q)` for some `p|Q`
+(on H the p-adic digits above `p^{v_p(Q)}` are free, so a class mod q is a class mod q′
+*intersected with a sub-class at p*, and a character mod q is not "a character mod q′ times a
+constant") — see M2; repairable.
+
+*The class.* Not tailored to make the result trivially true: it is exactly the standard sieve
+remainder accounting `Σ_q|λ_q|·max_a|r(q,a)|` (BV/GRH-type statements are uniform in a), and the
+quantitative core is Thm 1.2, not the definition. But the definition does make the
+"any accuracy, GRH included" clause **vacuous**: by Lemma 2.3, for moduli `q>x` *no* true
+orbit-uniform bound beats the trivial `≈1` per class (`≈√N_x` per character), and GRH's
+`x^{1/2}log²` is already trivial for `q>x^{1/2}`. So Cor 2.4 really says: *a minorant whose positive
+mean lives on moduli `>x` cannot be paid for with trivial per-term remainders; and if all moduli are
+`≤x`, O14 Thm 4.5 applies.* The strength of the prime input plays no role at all; the
+headline should say so rather than present GRH-independence as a strength (M1).
+Robustness check (positive, suggested addition): *one-sided* orbit-uniform accounting is also
+covered. For a deep class with `c_C>0` a certificate may use `m(C)≥0` (orbit-uniform cost
+`N_xP(C)≈0`); dropping those terms gives `B'≤B≤F` with only negative deep class terms, each of
+which needs an upper bound and costs `≥1/2` (some class of the orbit contains a prime). Thm 1.2
+applied to B' gives the same `N_xη>1/2`. Worth one sentence, since one-sidedness is the first
+thing a sieve theorist would try.
+
+### Prop 2.5 — SOUND
+(i) `|ρ_{x_s}|≤P_0Σ_Jw_J‖σ_J‖=P_02^{k+1}`, `P_0≤e^{−Σp_b}≤e^{−(1−p*)R}`, and
+`(1−p*)−(ln2)/2≥0.6` needs `p*≤0.053` (true, `p*≤T^{−0.09}`; implicit). My toy runs show
+`|ρ|=P_02^{k+1}` exactly (no cancellation), so (i) cannot be improved via cancellation.
+(ii)–(iii) and the exponent algebra `N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}` re-derived; the `s=∞` case is
+right. The model (Hölder with the *true* error vector) dominates any valid Hölder certificate.
 
 ## Defects
