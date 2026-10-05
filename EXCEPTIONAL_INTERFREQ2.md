@@ -451,3 +451,57 @@ Z_full / Z_sparse the z-mass on classes meeting / missing [1,N].
 (9.1) says: positive patches of modulus > CN through [1,N] cannot be
 cancelled cheaply by a small-modulus part that is negative on [1,N].
 Example 3.2 is such a cancellation at modulus N + 1 (counted in |m|).
+
+**Numerics for SPW (EVIDENCE; `interfreq2_flatF.py` with t = 0, so
+R = 1_{[1,N]} − F; `data/interfreq2/flat0_scan.txt`).** Support
+[−5N, 6N], C = 2: σ = 0.400, 0.400, 0.384, 0.335 at N = 20, 30, 40, 60
+(Δ₀ ≤ 1.24); C = 1.5, N = 40: σ = 0.200. The t > 0 runs behave alike and
+the decrease is largely truncation (Flat at N = 100, C = 2: s₀ = 0.167 on
+[−5N, 6N] versus 0.320 on [−10N, 11N]; `flatF_scan3.txt`). The optimal R
+is ≈ 0 on [1,N] and spread at density ≈ 0.1–0.3 over [−5N, 6N].
+
+**Why SPW is not yet proved (Assessment, with the proved pieces).**
+* *Translates and twists cannot do it.* Any R built from L₀-translates or
+  from the twists of Lemma 6.1 with the identity on primes ≤ N/4 has
+  `R(s) = c(s)` on every class s whose modulus divides the N/4-smooth part of
+  L₀ (those maps fix such classes), so (P2) fails on full classes of
+  modulus e > CN, e | lcm(1..N/4) (e.g. e = q₁q₂, q_i ≤ N/4). This is the
+  same obstruction as the edge problem.
+* *Big primes can be re-randomised (PROVED, easy).* Let L_s be the part of
+  L₀ = lcm(1..N/2) on primes ≤ √(N/2). Draw n′ uniform in [1,N] and, for
+  each prime p ∈ (√(N/2), N/2], an independent n′_p uniform in
+  `{m ≤ N : m ≡ n′ (mod L_s(p))}`, `L_s(p) = lcm{d ≤ N/(2p)}`; put
+  `Z ≡ n′ (mod L_s)`, `Z ≡ n′_p (mod p)`. Every small d is `d_s` or `d_s p`
+  with `d_s ≤ N/(2p)`, and `(n′_p mod d_s, n′_p mod p)` has the window law,
+  so `N·Law(Z)` satisfies (P1) on ℤ/L₀. But Z ≡ n′ (mod L_s) exactly, so
+  classes of modulus e | L_s with e > CN keep mass 1/N: (P2) fails there.
+* *What is needed* is a random integer Z whose residues modulo every
+  d ≤ N/2 are jointly distributed exactly like those of a uniform
+  n ∈ [1,N], while `Pr(Z ∈ s) ≤ (1 − σ)/N` for every class of modulus
+  > CN. The constraints couple all prime powers q, q′ with qq′ ≤ N/2, so
+  componentwise or sequential-conditional constructions break the joint
+  laws of non-small products. Single patches are harmless (Fréchet: with
+  only the classes mod q₁, q₂ of a patch mod q₁q₂ > N, the minimal coupling
+  mass on the patch cell is `max(0, c₁ + c₂ − N) = 0`), so any failure of
+  (9.1) must cancel many patches jointly, as in Example 3.2.
+* *Not structurally false as far as we can see:* the LP optima exist with
+  margins bounded away from 0 at every tested N once the support is long
+  enough, and no certificate of the form (9.1)-violation was found above
+  modulus CN.
+
+## 10. Medium moduli (N/2, CN] (status)
+
+* What is proved: Cor 5.1 (C = 1) and Thm 5.2/Prop 9.1 (any C) charge the
+  right-signed medium mass `T_mid` at rate Δ. Moduli in (N/2, CN] have
+  level ≤ log(CN), so they never affect the mean side; the issue is
+  purely the interval side.
+* Medium mass cannot be made free by the F-method (§5 `med` runs: the
+  finite-support LP with zero-cost sign conditions on (N/2, N] forces the
+  margin above CN to ≤ 0). By Farkas (finite truncations) this means there
+  are nonnegative ν whose patches above CN *are* cancelled by medium-modulus
+  terms; Example 3.2 is the prototype (modulus N + 1).
+* Hence a cap for hybrids with large right-signed medium mass needs an
+  argument that uses ν ≥ 1 on 𝒜 (not just ν ≥ 0), i.e. the arithmetic of the
+  family, at moduli comparable to N. We have no such argument and no
+  beating hybrid. Precisely open: *bound `B_hyb` below for majorants of
+  𝒜(𝔊) whose free mass sits at moduli in (N/2, CN].*
