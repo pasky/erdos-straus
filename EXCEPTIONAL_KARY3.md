@@ -19,9 +19,9 @@ EK Lemma 4.2′, K2 Lemma 4.2).
 | **Thm 4.1** | **K2 Thm 5.1 without loss: every mixture of ℛ(M)-, (a,D)-, Case-A and selector classes, arbitrary moduli (no B): `log(1/Eν) ≤ Cλ^{3/4}`** | PROVED (same proviso) |
 | Cor 4.2 | coefficient-sum CRT methods: saving `≤ C_A(log N)^{3/4}`; the `(log log N)^{3/4}` of K2 Cor 6.1 / (D)18 is gone | PROVED (same proviso) |
 | §4.3 | (D)19 LARGESIEVE, (D)20 INTERFREQ, (D)22 PRIMELAW, (D)21 TU Cor 3.4 lose the same factor (pointers; PRIMELAW's Γ* checked to satisfy the hypotheses used) | PROVED modulo the cited files (pointer-level) |
-| **Thm 5.1** | truncated weights `min(log ℓ, L₀)`: `log(1/Eν) ≤ Cλ^{3/4} + 2d₀log(CΛ³/d₀) + O(d₀)`, `d₀ = ⌊λ/L₀⌋`, family primes `≤ e^Λ` | PROVED (same proviso) |
+| **Thm 5.1** | truncated weights `min(log ℓ, L₀)`, `L₀ ≤ λ`: `log(1/Eν) ≤ Cλ^{3/4} + 2d₀log(C(1+Λ³/d₀)) + O(d₀)`, `d₀ = ⌊λ/L₀⌋`, family primes `≤ e^Λ` | PROVED (same proviso) |
 | Cor 5.2 | TU Cor 3.4 window closed for **prime order**: (A log N, k)-mixed majorants of any K2 family save `≤ C_A[(log N)^{3/4} + k log log N]` | PROVED (same proviso) |
-| Cor 5.3 | class order k with `≤ r` large primes per modulus: `≤ C_A[(log N)^{3/4} + kr log log N]`; open only for unbounded r (exact scope stated) | PROVED / open part stated |
+| Cor 5.3 | class order k when every modulus has `≤ r` primes above the fixed W: `≤ C_A[(log N)^{3/4} + kr log log N]`; open: `max(L^{4θ/3−1}, L^θ/(r log L)) ≲ k ≲ L^θ/log L` for unbounded r | PROVED / open part stated |
 | §6 | TW4 middle window: every Λ² sieve over every K2 family saves `≤ CL^{3/4}` for all r (Thm 4.1 applies; no ω-hypothesis) | PROVED (corollary) |
 | §7 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `u⁴b ≤ 0.25` | EVIDENCE |
 
@@ -177,12 +177,17 @@ as the Prop 1.4 that K2 already uses, and Prop 1.4 is proved from them):
 * **ElT Thm 7.1.** For P of degree D, coefficients nonnegative integers
   `≤ N^l`, and `ρ_P(p^j) ≤ C` for all prime powers:
   `Σ_{n≤N} τ(P(n)) ≪_{D,l,C} N Σ_{m≤N} ρ_P(m)/m`.
-* **ElT (7.10).** For `A, B > 1` and every positive integer k:
+* **ElT (7.10).** For `A, B ≥ 2` and every positive integer k:
   `Σ_{a≤A} Σ_{m≤B} ρ_{ka}(m)/m ≪ A log B · log(1+k)`, where
   `ρ_{ka}(m) = #{b mod m : kab² + 1 ≡ 0 (mod m)}`. Its proof (ElT
   pp. 30–32: ranges `q < A`, `A ≤ q ≤ kA`, `q > kA` after quadratic
   reciprocity) uses no size condition on k; the condition
   `k ≪ (AB)^{O(1)}` of Prop 1.4 enters only through Thm 7.1.
+  *Source caveat (self-review):* ElT p. 31 says the small-q character
+  `a ↦ (−ka/q)` has mean zero for every q; this fails for square q
+  (including q = 1). Square q contribute at most
+  `A log B·Σ_{q square}1/q = O(A log B)`, so (7.10) holds as stated,
+  uniformly in k. (Cor 7.4 is used with `N ≥ 2`.)
 
 **Lemma 3.1 (smooth Case-A blocks decay; PROVED, using ElT §7).** Fix
 `k ≥ 1`. There are `C_k(W)`, `y₀(k,W)` such that for `y ≥ y₀`,
@@ -322,7 +327,8 @@ should re-check each pointer.
   polynomial denominators, no B.
 * **INTERFREQ Cor 2.3 ((D)20):** majorants from forced classes of modulus
   `≤ N/2`, any evaluation of the interval sum: `C(log N)^{3/4}`.
-* **TUPLES Cor 3.4 ((D)21):** `log(1/Eν) ≤ C(kA log N)^{3/4}`, so saving
+* **TUPLES Cor 3.4 ((D)21)** (under its hypothesis that the intersected
+  class moduli are `≤ N^A`): `log(1/Eν) ≤ C(kA log N)^{3/4}`, so saving
   `(log N)^θ` needs `k ≥ c(log N)^{4θ/3−1}` exactly (no `−o(1)`). The
   remaining gap is §5.
 
@@ -339,12 +345,14 @@ families) if every term has level `≤ λ₀` or prime order `≤ k`. With
 W, λ₀ (the threshold), `K₃′` be as in Theorem 4.1. Let 𝔊 be any finite
 K2 family whose moduli have all prime factors `≤ e^Λ`, and ν ≥ 0 on ℤ,
 `≥ 1` on `𝒜(𝔊)`, of truncated level `≤ λ` with `λ₀ ≤ λ ≤ Λ` and
-`L₀ < λ`. Put `d₀ = ⌊λ/L₀⌋ ≥ 1`. Then
+`L₀ ≤ λ`. Put `d₀ = ⌊λ/L₀⌋ ≥ 1`. Then
 
     log(1/Eν) ≤ C λ^{3/4} + 2d₀ log(C₀(K₃′Λ³ + 4d₀)/d₀) + (8/3)d₀ + log(22d₀+22) + 6.
 
 In particular, if `d₀ ≤ Λ³`, `log(1/Eν) ≤ Cλ^{3/4} + C′d₀ log(Λ+2)`.
-(For `L₀ ≥ λ` truncation is vacuous and Theorem 4.1 applies.)
+(For `L₀ > λ` no prime with `log ℓ > λ` can occur in a term, the truncated
+level is the ordinary level, and Theorem 4.1 applies. At `L₀ = λ` the
+proof below works with `d₀ = 1`; review D7.)
 
 *Proof.* EK Thm 4.1 holds for any class 𝓕 of functions that is closed
 under `f ↦ E_U[f | coordinates before a block]` and under fixing earlier
@@ -388,29 +396,50 @@ the TU Cor 3.2/3.3 conclusion, now for **all** K2 families
 (ℛ(M), (a,D), Case A, selector; arbitrary composite moduli), with no
 selector term `log(P/φ(P))`.
 
-*Proof.* Theorem 5.1 with `λ = Λ = A log N` (projection as in K2 Cor 6.1
-first, so that all moduli divide the family lcm), `L₀ = λ/k`,
-`d₀ = k`. If `k > λ` then `L₀ < 1 < log W` and every prime is in the
-top block; the bound still holds. ∎
+*Proof.* Project first as in K2 Cor 6.1, so that all moduli divide the
+family lcm; this shrinks every prime set, so both term types are
+preserved, and all primes are then `≤ N^A = e^Λ`, `Λ = A log N`. For
+`k = 1` every term has level `≤ Λ` (a single prime `≤ e^Λ`, or level
+`≤ A log N`), and Theorem 4.1 with `λ = Λ` applies. For `k ≥ 2` apply
+Theorem 5.1 with `λ = Λ`, `L₀ = λ/k < λ`, `d₀ = k`. If `k > λ` then
+`L₀ < 1 < log W` and every prime is in the top block; the bound still
+holds. ∎
 
-**Corollary 5.3 (class order; PROVED).** If every modulus of 𝔊 has at
-most r prime factors `> W`, then an intersection of k classes of 𝔊 (and
-of any residue classes whose moduli have `≤ r` primes `> W`) has prime
-order `≤ kr`. Hence (λ₀ = A log N, class order k) majorants satisfy
-`log(1/Eν) ≤ C_A[(log N)^{3/4} + kr log log N]`, and saving `(log N)^θ`
-needs `kr ≥ c(log N)^θ/log log N`. This closes the TU §6 item 2 window for
-every family with `r = (log N)^{o(1)}` per modulus, up to that factor; for
-bounded r (twin moduli, `ℛ(kℓ)` atoms of the 3/4 note, η-twins, any
-fixed number of large primes) it closes it completely.
+**Corollary 5.3 (class order with boundedly many large primes; PROVED).**
+Suppose every modulus of 𝔊 has at most r prime factors `> W` (W the
+absolute constant of Theorem 4.1, **not** a moving cutoff). Then an
+intersection of k classes of 𝔊 (or of any residue classes whose moduli
+have `≤ r` primes `> W`) has prime order `≤ kr`. Hence (λ₀ = A log N,
+class order k) majorants satisfy
+`log(1/Eν) ≤ C_A[(log N)^{3/4} + kr log log N]` (family primes `≤ N^A`),
+and a saving `(log N)^θ` needs `kr ≥ c(log N)^θ/log log N`. For bounded r
+this is the full TU Cor 3.2/3.3 conclusion.
 
-**What is still open (exact scope).** For families whose moduli have
-unboundedly many primes `> W`, an intersection of k classes can have
-prime order up to `kA log N/log W`. Then only the level bound applies:
-`log(1/Eν) ≤ C(kA log N)^{3/4}` (§4.3), and the window
-`(log N)^{4θ/3−1} ≲ k ≲ (log N)^θ/(r log log N)` in *class* order is
-not excluded. The obstruction is structural: EK Thm 2.5's locality is
-in prime coordinates; a class-coordinate version would need a k-ary
-comparison for the dependent indicators `1[n ∈ C]`. Not attempted.
+*Scope warning (review D1).* Bounded r is measured above the fixed W.
+The twin / η-twin moduli of TW2–TW4 and the `ℛ(kℓ)` atoms of the 3/4
+note have two (resp. one) primes above a **moving** cutoff (`(log X)^8`,
+resp. `ℓ`), with a cofactor that may contain arbitrarily many primes
+above W; they are covered by Theorem 4.1, but **not** by Corollary 5.3
+unless their cofactors are W-smooth or have bounded `ω_{>W}`.
+
+**What is still open (exact scope; reviews D2, D3).** Assume, as TU Cor
+3.4 does, that the intersected classes have moduli `≤ N^A` (this, not
+merely family primes `≤ N^A`, is what bounds the level of a k-fold
+intersection by `kA log N`). Put `L = log N`, `r = max_G ω_{>W}(G)`
+(`r ≤ AL/log W`). The proved necessary conditions for a saving `L^θ`
+under CRT-main-term evaluation are then
+
+    k ≳ max( L^{4θ/3−1}, L^θ/(r log L) )      (TU Cor 3.4 + §4.3; Cor 5.3).
+
+The prime-slice benchmark is `k ≳ L^θ/log L` (TU Cor 3.3, and Cor 5.2
+for prime order). So what is not excluded is class order k in
+
+    max( L^{4θ/3−1}, L^θ/(r log L) ) ≲ k ≲ L^θ/log L,
+
+nonempty only when r → ∞. The obstruction is structural: EK Thm 2.5's
+locality is in prime coordinates, and a class with many large primes is
+many-local; a class-coordinate version would need a k-ary comparison for
+the dependent indicators `1[n ∈ C]`. Not attempted.
 
 ## 6. Goal (3): the TW4 middle window is subsumed (for the cap)
 
@@ -425,7 +454,9 @@ most `C L^{3/4}` at level L, for all r**, superseding TW4 Thm 7.1's
 `L^{3/4}(log L)^{3r+O(1)}` and Prop 9.1 / Cor 9.3 as far as the cap is
 concerned (PROVED, as a corollary of Thm 4.1). What remains open in TW4
 §12 is only the *Λ²-internal* route (hub count, off-diagonal pair sum);
-it no longer bears on any ES cap. Not pursued.
+it no longer bears on any ES cap. Not pursued. ("Saving" here is the
+mean saving `log(1/Eν)`, TW4's convention; the exceptional-set reading
+still needs Cor 4.2's evaluation hypotheses.)
 
 ## 7. Numerics (EVIDENCE only)
 
