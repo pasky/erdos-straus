@@ -446,6 +446,64 @@ supports `≤k`, per-prime masses `≤1/(64k)`, and `S*` is used.
   We found no prior use of it in Erdős–Straus or in Ω-results of this
   type (not a literature search).
 
+## 6. Phase 2: optimising the exponent 1/14
+
+(This section was requested as "new §5"; it is numbered §6 so that the
+reviewed numbering of §§1–5 is unchanged.)
+
+### 6.1 Where the powers of 𝓛 go (ledger for Thm 4.3; under ET)
+
+PO Thm 4.1 costs `log p ≍ K·max(log Z, K)`. With `z=𝓛²`, so that
+`k≍𝓛/log𝓛`:
+
+| quantity | source | size |
+|---|---|---|
+| `S ≤ S*` | O2 Lemma 11.1 with ET Prop 1.4 | `𝓛^4log𝓛` (EVIDENCE: actual `S≈0.05𝓛^{2.5}`) |
+| `log(1/δ)` | local lemma, `δ≥e^{−2.2S}` | `≍S` |
+| `k_0` | precision `e^{−3S}/m²` | `≍S+k𝓛 ≍ S` |
+| width w | bit encoding: k coordinates × `b≈2log₂T` bits | `kb ≍ 𝓛²/log𝓛` |
+| degree / junta `t=2C_Hwk_0` | switching lemma + LMN | `≍ w·S ≍ 𝓛^6` |
+| `log M_1` | Lemma 3.2: `N^{t}` coefficient count and `T^{junta}` overlap inflation | `≍ t𝓛 ≍ 𝓛^7` |
+| `log max d_i` | moduli on `≤3k+2t` primes `≤T` | `≍ t𝓛 ≍ 𝓛^7` |
+| `log Q_Π` | `π(z)𝓛 + |𝓑|𝓛`, `|𝓑|≤64k²S*` | `≍ k²S*𝓛 ≍ 𝓛^7/log𝓛` |
+| `K` | `log M_1 + log(1/δ)` | `𝓛^7` |
+| `log p` | `K·log Z` | `𝓛^{14}` |
+
+There are four independent losses beyond the Haar side's `𝓛^7/log𝓛`.
+1. The factor 𝓛 in `log M_1`: an artefact of cell bookkeeping
+   (Lemma 6.1 removes it).
+2. The factor k in `|𝓑|`, from the crude per-prime threshold `1/(64k)`
+   (Lemma 6.2 removes it).
+3. The factor `b≍𝓛` in the width, from the bit encoding (§6.4).
+4. The square from `K·log Z`, intrinsic to PO Thm 4.1; and S itself,
+   through ET.
+
+**Lemma 6.1 (spectral bookkeeping; PROVED).** In Lemma 3.1 take `u_j :=`
+the pull-back `g_j(x)=E[g̃_j(U) | π(U)=x]` of the Fourier truncation `g̃_j`
+of `F̃^{(j)}` below degree d, where `w:=kb`, `p:=1/(4C_Hw)` and
+`d:=k_0/p=4C_Hwk_0`. Then:
+* `E_{Haar}[(F^{(j)}−g_j)²] ≤ e^{1/2}·2·4^{−k_0}`;
+* B is a combination of unit cells, each on `≤3k+2d` free primes;
+* `log M_1(B) ≤ 3log m + 2d·log(4C_Hw) + 4`.
+
+So `log M_1` loses the factor `𝓛/log(k𝓛)` against Lemma 3.2.
+
+*Proof.* The first claim is Lemma 4.1 with p replaced by `1/(4C_Hw)`:
+`Pr[DT(f_ρ)≥k_0]≤4^{−k_0}`. *Spectral norm.* For a restriction
+`ρ=(I,z)` and `S⊆I`, `f̂_ρ(S)=Σ_{T⊆I^c}f̂(S∪T)χ_T(z)`, so
+`E_z f̂_ρ(S)=f̂(S)`. Hence
+`Σ_S p^{|S|}|f̂(S)| ≤ E_ρ‖f̂_ρ‖_1 ≤ E_ρ 2^{DT(f_ρ)}`. The last step holds
+because a depth-s tree has at most `2^s` leaves, each path indicator has
+spectral norm 1, and `|f|≤1`. This is `≤Σ_{s≥0}2^s4^{−s}=2`. Therefore
+`Σ_{|S|<d}|ĝ_j(S)| ≤ 2p^{−d} = 2(4C_Hw)^d`. *Cells.* Each pulled-back
+character `χ̃_S:=E[χ_S | π(U)=·]` is a function of `<d` coordinates with
+`|χ̃_S|≤1`. A product `A_iA_jA_{j'}χ̃_Sχ̃_{S'}` is a function h of at most
+`3k+2d` coordinates with `|h|≤A_iA_jA_{j'}`. Its expansion over the cells
+of those coordinates has ℓ¹ mass `E|h|≤1`, with no overlap inflation,
+because the product is expanded as one function and not cell by cell.
+Summing over `i,j,j'≤m` and over `S,S'`,
+`M_1(B) ≤ 1+m+2m²·2(4C_Hw)^d+m³·4(4C_Hw)^{2d}`. ∎
+
 ## Replay
 
 ```
