@@ -1,0 +1,34 @@
+(a) encoding b<=10, all q<=2^b: violations 0  max #cubes/(2b) = 0.5
+(b) restriction identity max err 5.828670879282072e-16 ; switching (5pw)^s violations 0
+(c) Pr[Bin(n,p)>=k0]>=1/2 when np>=k0, p=1/(10w): tested 48000 violations 0
+(d) qs=[3, 5] b=4 d=1: W>=d=2.163e-01 Epi(phi-g)^2=2.163e-01 Haar=2.225e-01 energy(<d)=2.222e-01 jmax=0 gres=5.6e-17 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=2: W>=d=1.391e-01 Epi(phi-g)^2=1.171e-01 Haar=1.249e-01 energy(<d)=7.111e-02 jmax=1 gres=2.2e-16 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=3: W>=d=7.475e-02 Epi(phi-g)^2=4.826e-02 Haar=5.053e-02 energy(<d)=1.118e-31 jmax=2 gres=6.7e-16 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=4: W>=d=3.545e-02 Epi(phi-g)^2=2.331e-02 Haar=2.538e-02 energy(<d)=1.118e-31 jmax=2 gres=3.6e-16 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=5: W>=d=8.499e-03 Epi(phi-g)^2=2.315e-03 Haar=2.581e-03 energy(<d)=1.118e-31 jmax=2 gres=7.8e-16 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=6: W>=d=2.151e-03 Epi(phi-g)^2=1.577e-04 Haar=1.773e-04 energy(<d)=1.118e-31 jmax=2 gres=5.3e-16 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=7: W>=d=2.594e-04 Epi(phi-g)^2=3.200e-06 Haar=3.631e-06 energy(<d)=1.118e-31 jmax=2 gres=5.6e-16 densbound=1.790 ok=True
+(d) qs=[3, 5] b=4 d=8: W>=d=1.526e-05 Epi(phi-g)^2=3.179e-08 Haar=3.617e-08 energy(<d)=1.118e-31 jmax=2 gres=6.7e-16 densbound=1.790 ok=True
+(d) qs=[3, 5, 7] b=4 d=1: W>=d=1.068e-01 Epi(phi-g)^2=1.068e-01 Haar=1.085e-01 energy(<d)=1.085e-01 jmax=0 gres=6.9e-17 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=2: W>=d=9.767e-02 Epi(phi-g)^2=9.264e-02 Haar=9.387e-02 energy(<d)=3.991e-02 jmax=1 gres=6.5e-16 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=3: W>=d=4.442e-02 Epi(phi-g)^2=3.617e-02 Haar=3.900e-02 energy(<d)=8.707e-03 jmax=2 gres=7.8e-16 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=4: W>=d=2.628e-02 Epi(phi-g)^2=2.109e-02 Haar=2.346e-02 energy(<d)=3.525e-30 jmax=3 gres=2.4e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=5: W>=d=1.262e-02 Epi(phi-g)^2=8.159e-03 Haar=9.033e-03 energy(<d)=3.525e-30 jmax=3 gres=3.2e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=6: W>=d=4.646e-03 Epi(phi-g)^2=2.128e-03 Haar=2.334e-03 energy(<d)=3.525e-30 jmax=3 gres=3.8e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=7: W>=d=1.397e-03 Epi(phi-g)^2=2.954e-04 Haar=3.342e-04 energy(<d)=3.525e-30 jmax=3 gres=4.3e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=8: W>=d=3.033e-04 Epi(phi-g)^2=2.247e-05 Haar=2.564e-05 energy(<d)=3.525e-30 jmax=3 gres=4.3e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=9: W>=d=4.649e-05 Epi(phi-g)^2=9.698e-07 Haar=1.116e-06 energy(<d)=3.525e-30 jmax=3 gres=4.6e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=10: W>=d=4.768e-06 Epi(phi-g)^2=2.318e-08 Haar=2.624e-08 energy(<d)=3.525e-30 jmax=3 gres=4.5e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=11: W>=d=2.384e-07 Epi(phi-g)^2=2.208e-10 Haar=2.357e-10 energy(<d)=3.525e-30 jmax=3 gres=4.6e-15 densbound=3.183 ok=True
+(d) qs=[3, 5, 7] b=4 d=12: W>=d=0.000e+00 Epi(phi-g)^2=0.000e+00 Haar=0.000e+00 energy(<d)=3.525e-30 jmax=3 gres=4.6e-15 densbound=3.183 ok=True
+(d) qs=[7, 5] b=5 d=1: W>=d=2.318e-01 Epi(phi-g)^2=2.318e-01 Haar=2.335e-01 energy(<d)=2.335e-01 jmax=0 gres=5.6e-17 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=2: W>=d=1.982e-01 Epi(phi-g)^2=1.829e-01 Haar=1.798e-01 energy(<d)=5.878e-02 jmax=1 gres=1.9e-16 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=3: W>=d=1.023e-01 Epi(phi-g)^2=7.360e-02 Haar=7.139e-02 energy(<d)=5.989e-31 jmax=2 gres=1.6e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=4: W>=d=4.405e-02 Epi(phi-g)^2=2.957e-02 Haar=2.862e-02 energy(<d)=5.989e-31 jmax=2 gres=2.2e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=5: W>=d=1.196e-02 Epi(phi-g)^2=5.580e-03 Haar=5.267e-03 energy(<d)=5.989e-31 jmax=2 gres=1.8e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=6: W>=d=4.105e-03 Epi(phi-g)^2=8.830e-04 Haar=8.938e-04 energy(<d)=5.989e-31 jmax=2 gres=1.9e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=7: W>=d=1.099e-03 Epi(phi-g)^2=5.484e-05 Haar=5.486e-05 energy(<d)=5.989e-31 jmax=2 gres=1.9e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=8: W>=d=1.984e-04 Epi(phi-g)^2=1.474e-06 Haar=1.383e-06 energy(<d)=5.989e-31 jmax=2 gres=2.0e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=9: W>=d=1.144e-05 Epi(phi-g)^2=7.876e-09 Haar=7.696e-09 energy(<d)=5.989e-31 jmax=2 gres=2.7e-15 densbound=1.517 ok=True
+(d) qs=[7, 5] b=5 d=10: W>=d=0.000e+00 Epi(phi-g)^2=0.000e+00 Haar=0.000e+00 energy(<d)=5.989e-31 jmax=2 gres=1.7e-15 densbound=1.517 ok=True
+(d) all chain inequalities ok: True
