@@ -215,3 +215,38 @@ true conditional law: they move mass between configurations with different cofac
 `1−ΣC`, and good divisors see the cofactor size (exactly R29-M2). Whether a fake survives when
 the good conditional may *also* be altered is the real question; it needs the full two-type
 model (bad and good points both recorded), §7.
+
+## 7. Full two-type model: good-prime data do not help once fakes may move good parts
+
+`scripts/window3_full.py` records bad *and* good points ≥x^ε in each window. Law: same Poisson
+intensity `dt/(2t)` for both types, remainder density H (x^ε-smooth, bad-free part) defined by
+exact discrete back-substitution so that summing out good points reproduces the bad-only law of §2
+exactly (H≥0 checked: min 2.7e-7). Data: all `(S_B,S_G)` with `ΣS_B+ΣS_G≤θ`. Target: `B_3=B_7=∅`
+(any good part). Families (`--swz=K`, prefix Z, uniform K) for every `C_q=(B_q,G_q)` with
+`B_q≠∅`; `--swgood` adds `B_q=∅, G_q≠∅` (switching a *good* prime of `n_q`).
+
+One window, θ=1/2 (min ν(clean)/τ):
+
+| (ε,K) | bad-only rows | all rows (bad+good) | §6 fixed-conditional |
+|---|---|---|---|
+| (0.15,6) | 0.6691 | 0.6691 | — |
+| (0.1,6) | 0 | 0 | — |
+| (0.1,8) | 0.48929 | 0.48929 | 0.997 |
+
+Two windows, (ε,K)=(0.15,6), θ=1/2 (65025 joint configurations, 53 rows; residual ≤2e-15):
+
+| constraints | min ν(both clean)/τ |
+|---|---|
+| bad-only rows, no switching | 0 (fake) |
+| all rows, no switching | 0 (fake) |
+| all rows + families K=4 (± `--swgood`) | 0 (fake) |
+| all rows + families K=2 (± `--swgood`) | 0.411 |
+| all rows + families K=1.2 | 0.809 |
+
+**Conclusion (EVIDENCE, coarse grids):** once a fake may also change the good part of the
+factorisation, the good-prime Type-I data add *nothing* (identical LP values on all one-window
+grids tested). §6's large values came only from freezing the good conditional law. R29-M2 is
+answered in the model: the obstruction is not an artefact of omitting good divisors. The picture
+of §4 (fake at uniform K=4, positivity at K=2) is reproduced in the full model.
+(Heuristic reason: good and bad points have the same intensity, so the data depend on
+`S_B⊔S_G` essentially type-blindly, except through the parity boundary terms.)
