@@ -610,7 +610,10 @@ used in the same way in \cite[Lemma 12.1]{Notes}.
 For fixed $a\ge1$ and $\gcd(c,a)=1$,
 $\sum_{\ell\le z,\ \ell\equiv c\,(a)}1/\ell=\varphi(a)^{-1}\log\log z+M(a,c)+O_a(1/\log z)$.
 Consequently, if $\mathcal P$ is a union of $k$ reduced classes modulo $a$,
-then $\prod_{\ell<w,\ \ell\in\mathcal P}(1-1/\ell)^{-1}=c_{\mathcal P}(\log w)^{k/\varphi(a)}(1+O(1/\log w))$
+then
+\[
+ \prod_{\ell<w,\ \ell\in\mathcal P}(1-1/\ell)^{-1}=c_{\mathcal P}(\log w)^{k/\varphi(a)}\bigl(1+O(1/\log w)\bigr)
+\]
 with $c_{\mathcal P}>0$.
 \end{citedthm}
 \noindent Standard consequence of the prime number theorem in
@@ -639,10 +642,10 @@ $\sum_{k\le x^{1-\eta}}\max_{\gcd(b,k)=1}|\pi(x;k,b)-\li(x)/\varphi(k)|\ll_{\eta
 \begin{citedthm}[semi-linear sieve, lower bound]\label{cit:semi}
 Assume \eqref{eq:sievedata} and $(\Omega_{1/2})$.  Let $D=z^s$ with
 $1\le s\le2$.  Then
-\[
- S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,
- \qquad f(s)=\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}\int_1^s\frac{dt}{\sqrt{t(t-1)}},
-\]
+\begin{gather*}
+ S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,\\
+ f(s)=\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}\int_1^s\frac{dt}{\sqrt{t(t-1)}},
+\end{gather*}
 where $o(1)\to0$ as $D\to\infty$, uniformly for $s\in[1,2]$, depending
 only on~$K$.
 \end{citedthm}
@@ -657,17 +660,19 @@ above are the standard ones and were \emph{not} compared with
 \begin{equation}\label{eq:fsemi}
  f(s)\ge c_f(s-1)^{1/2},\qquad c_f=(e^\gamma/\pi)^{1/2},
 \end{equation}
-which follows from $t(t-1)\le2(t-1)$ on $[1,2]$:
-$\int_1^s dt/\sqrt{t(t-1)}\ge\int_1^s dt/\sqrt{2(t-1)}=\sqrt2\,(s-1)^{1/2}$, and
-$(e^\gamma/(\pi s))^{1/2}\ge(e^\gamma/(2\pi))^{1/2}$.
+which follows from $t(t-1)\le2(t-1)$ on $[1,2]$, whence
+\[
+ \int_1^s\frac{dt}{\sqrt{t(t-1)}}\ge\int_1^s\frac{dt}{\sqrt{2(t-1)}}=\sqrt2\,(s-1)^{1/2},
+\]
+and from $(e^\gamma/(\pi s))^{1/2}\ge(e^\gamma/(2\pi))^{1/2}$.
 
 \begin{citedthm}[linear sieve, lower bound]\label{cit:lin}
 Assume \eqref{eq:sievedata} and $(\Omega_1)$.  Let $D=z^s$ with $2\le s\le3$.
 Then
-\[
- S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f_1(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,
- \qquad f_1(s)=\frac{2e^\gamma\log(s-1)}{s},
-\]
+\begin{gather*}
+ S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f_1(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,\\
+ f_1(s)=\frac{2e^\gamma\log(s-1)}{s},
+\end{gather*}
 with $o(1)\to0$ as $D\to\infty$, uniformly in $s\in[2,3]$, depending only on~$K$.
 \end{citedthm}
 \noindent Jurkat--Richert; \cite[Thm.~8.4]{HR}, \cite[Thm.~11.13]{OdC}
@@ -698,10 +703,11 @@ Theorem~\ref{cit:LS}.
 \section{\texorpdfstring{One window: $\amin(p)\ge7$ for $\gg x/(\log x)^{3/2}$ hard primes}{One window}}\label{sec:W1}
 
 \begin{theorem}[\status{proved} modulo Cited Theorems~\ref{cit:LS}, \ref{cit:mertens}, \ref{cit:BV}, \ref{cit:semi}]\label{thm:W1}
-\[
- N_3(x):=\#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}
+\begin{multline*}
+ N_3(x):=\#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\\
+ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}
  \gg\frac{x}{(\log x)^{3/2}}.
-\]
+\end{multline*}
 Every prime counted by $N_3(x)$ is Mordell-hard and has $\amin(p)\ge7$.
 \end{theorem}
 
@@ -743,10 +749,10 @@ $\sum_{d<D}|r_d|\ll x(\log x)^{-2}$.
 
 \emph{Step 1 (lower bound).}  By Cited Theorem~\ref{cit:semi} and
 \eqref{eq:fsemi}, $f(s)\ge c_f\varepsilon^{1/2}$ and
-\[
- S(\mathcal A,\mathcal P,z)\ge\frac{\li(x)}{192}\,c_V(\log x)^{-1/2}\bigl(c_f\varepsilon^{1/2}-o(1)\bigr)-O\Bigl(\frac x{(\log x)^2}\Bigr)
- \ge c_1\varepsilon^{1/2}\frac{x}{(\log x)^{3/2}}
-\]
+\begin{align*}
+ S(\mathcal A,\mathcal P,z)&\ge\frac{\li(x)}{192}\,c_V(\log x)^{-1/2}\bigl(c_f\varepsilon^{1/2}-o(1)\bigr)-O\Bigl(\frac x{(\log x)^2}\Bigr)\\
+ &\ge c_1\varepsilon^{1/2}\frac{x}{(\log x)^{3/2}}
+\end{align*}
 for $x\ge x_0(\varepsilon)$, where $c_1>0$ is absolute.
 
 \emph{Step 2 (survivors).}  Let $n=n_p$ be counted by $S(\mathcal A,\mathcal P,z)$
@@ -855,8 +861,8 @@ a level close to $x$.
 \begin{theorem}[\status{conditional} on EH]\label{thm:W2}
 Assume EH (Definition~\ref{def:EH}).  Then
 \[
- N_{3,7}(x):=\#\Bigl\{p\le x:\ p\equiv1\ (840),\ 
- \begin{array}{l}\text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)},\\
+ N_{3,7}(x):=\#\Bigl\{p\le x:\ 
+ \begin{array}{l}p\equiv1\ (840),\\\text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)},\\
  \text{$(p+7)/4$ has no prime factor $r$ with $\leg r7=-1$}\end{array}\Bigr\}
  \gg\frac x{(\log x)^2},
 \]
@@ -903,12 +909,12 @@ an absolute $K$, and $V(z)\ge c_V/\log x$.  Let $\varepsilon\le1/20$,
 $z=x^{1/2-\varepsilon}$, $D=x^{1-\varepsilon}/840$.  Using
 $\max_b|E(x;k,b)|\ll x/\varphi(k)$ for $k\le x$, Cauchy--Schwarz and EH
 with $A=10$,
-\[
+\begin{align*}
  \sum_{d<D}\mu^2(d)|r_d|
- \le\Bigl(\sum_{d<D}\tau(d)^2\frac{x}{\varphi(840d)}\Bigr)^{1/2}
- \Bigl(\sum_{k\le x^{1-\varepsilon}}\max_b|E(x;k,b)|\Bigr)^{1/2}
- \ll_\varepsilon\bigl(x(\log x)^4\cdot x(\log x)^{-10}\bigr)^{1/2}=\frac x{(\log x)^3}.
-\]
+ &\le\Bigl(\sum_{d<D}\tau(d)^2\frac{x}{\varphi(840d)}\Bigr)^{1/2}
+ \Bigl(\sum_{k\le x^{1-\varepsilon}}\max_b|E(x;k,b)|\Bigr)^{1/2}\\
+ &\ll_\varepsilon\bigl(x(\log x)^4\cdot x(\log x)^{-10}\bigr)^{1/2}=\frac x{(\log x)^3}.
+\end{align*}
 
 \emph{Lower bound.}  Here $s=\log D/\log z\to(1-\varepsilon)/(1/2-\varepsilon)=2+2\varepsilon/(1-2\varepsilon)$,
 so $2+\varepsilon\le s\le3$ for large $x$, and \eqref{eq:flin} gives
@@ -1039,7 +1045,9 @@ $P_3=\{\ell\equiv2\ (3)\}$.
 \item (Same sieve data.)  For every squarefree $d$ composed of primes of
  $P_3$,
  \[
- \#\{p\in\mathcal A^\pm:\ d\mid n_3\}=g(d)X+r_d^\pm,\qquad X=\frac{\li(x)}{192},\qquad
+ \#\{p\in\mathcal A^\pm:\ d\mid n_3\}=g(d)X+r_d^\pm,\qquad X=\frac{\li(x)}{192},
+ \]
+ \[
  g(d)=\begin{cases}1/\varphi(d),&\gcd(d,10)=1,\\0,&\text{otherwise},\end{cases}
  \]
  with the same $X$ and $g$ for both signs, and for every $A$ there is $B$
