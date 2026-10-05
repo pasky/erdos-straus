@@ -73,10 +73,10 @@ $p\equiv1\pmod{24}$ and $\leg p3=\leg p5=\leg p7=1$.
 \subsection{The window statistic}
 Fix a prime $p\equiv1\pmod4$.  For an integer $x$ coprime to an odd modulus
 $a$ let
-\[
- \Rat_a(x)=\Bigl\{\textstyle\prod_{r\mid x}r^{f_r}\bmod a:\ |f_r|\le v_r(x)\Bigr\}
- =\{u v^{-1}\bmod a:\ u,v\ge1,\ \gcd(u,v)=1,\ uv\mid x\}\subseteq(\Z/a\Z)^\times
-\]
+\begin{align*}
+ \Rat_a(x)&=\Bigl\{\textstyle\prod_{r\mid x}r^{f_r}\bmod a:\ |f_r|\le v_r(x)\Bigr\}\\
+ &=\{u v^{-1}\bmod a:\ u,v\ge1,\ \gcd(u,v)=1,\ uv\mid x\}\subseteq(\Z/a\Z)^\times
+\end{align*}
 (the product is over primes $r$; the two descriptions agree by putting the
 positive exponents into $u$ and the negative ones into $v$).  For
 $a\equiv3\pmod4$, $a\ge3$, put
@@ -111,10 +111,10 @@ one expects
 
 \begin{introthm}[Theorem~\ref{thm:stack}, Corollary~\ref{cor:tail}; \status{proved}]\label{thmA}
 For every fixed finite set $A$ of positive integers $a\equiv3\pmod4$,
-\[
- \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for all }a\in A\}
+\begin{multline*}
+ \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for all }a\in A\}\\
  \ll_A\frac N{(\log N)^{1+|A|/2}}.
-\]
+\end{multline*}
 In particular $\#\{p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\ll_Z N/(\log N)^{1+J(Z)/2}$
 for every fixed $Z\ge3$.  A uniform version holds for $Z=o(\log\log N)$
 (Theorem~\ref{thm:uniform}).
@@ -126,10 +126,10 @@ explicit sets of exactly half of the reduced classes modulo $a$.  Theorem~A
 is then a fixed-dimension upper-bound sieve.
 
 \begin{introthm}[Theorem~\ref{thm:W1}; \status{proved} modulo cited sieve theorems]\label{thmB}
-\[
- \#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}
+\begin{multline*}
+ \#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}\\
  \gg\frac{x}{(\log x)^{3/2}},
-\]
+\end{multline*}
 and every prime counted is Mordell-hard with $\amin(p)\ge7$.
 \end{introthm}
 
@@ -139,10 +139,10 @@ Mordell-hard primes $p\le x$ have $\amin(p)\ge11$.
 \end{introthm}
 
 Together with Theorem~A these give the exact orders
-\[
- \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge7\}\asymp\frac{x}{(\log x)^{3/2}},\qquad
+\begin{gather*}
+ \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge7\}\asymp\frac{x}{(\log x)^{3/2}},\\
  \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge11\}\asymp\frac{x}{(\log x)^{2}},
-\]
+\end{gather*}
 the first modulo the cited sieve theorems, the second (lower bound only)
 on Elliott--Halberstam (Corollary~\ref{cor:orders}).
 
@@ -360,9 +360,11 @@ $g^2=1$ has exactly $2^{\omega(a)}$ solutions, so there are
 $(\varphi(a)-2^{\omega(a)})/4$ orbits of size four and $2^{\omega(a)-1}$ of
 size two.  Hence
 \begin{equation}\label{eq:beta}
+ \begin{gathered}
  |S_\sigma|=\tfrac12\varphi(a)\ \text{for every }\sigma,\qquad
- \#\{\sigma\}=2^{\beta(a)},\quad
+ \#\{\sigma\}=2^{\beta(a)},\\
  \beta(a)=\frac{\varphi(a)-2^{\omega(a)}}4+2^{\omega(a)-1}-1\le\frac{\varphi(a)}4+2^{\omega(a)-2}.
+ \end{gathered}
 \end{equation}
 For $x$ coprime to $a$ let $C(x)\subseteq G$ be the set of classes of the
 prime factors of~$x$.
@@ -439,10 +441,10 @@ $H(X^{1/2})\ge V^{-1}/2$ and $|S|\le 2X\cdot2V$.
 \begin{theorem}[fixed-set stacking; \status{proved}]\label{thm:stack}
 Let $A$ be a fixed finite set of positive integers $a\equiv3\pmod4$, and
 $J=|A|$.  Then (the restriction $p>3\max A$ ensures $\gcd(x_a,a)=1$, so that $\Rat_a(x_a)$ is defined)
-\[
- \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \forall a\in A\}
+\begin{multline*}
+ \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \forall a\in A\}\\
  \ll_A\frac{N}{(\log N)^{1+J/2}}.
-\]
+\end{multline*}
 \end{theorem}
 
 \begin{proof}
@@ -482,10 +484,10 @@ Summing over the $O_A(1)$ vectors $\sigma$ and over dyadic ranges
 
 \begin{corollary}[tail of $\amin$; \status{proved}]\label{cor:tail}
 For every fixed $Z\ge3$,
-\[
- \#\{p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ \amin(p)>Z\}\ll_Z\frac N{(\log N)^{1+J(Z)/2}}
- =\pi(N)(\log N)^{-J(Z)/2}\cdot O_Z(1).
-\]
+\begin{align*}
+ \#\{p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ \amin(p)>Z\}&\ll_Z\frac N{(\log N)^{1+J(Z)/2}}\\
+ &=\pi(N)(\log N)^{-J(Z)/2}\cdot O_Z(1).
+\end{align*}
 \end{corollary}
 
 \begin{proof}
@@ -510,10 +512,10 @@ is affordable while $Z\ll\log\log N$.
 \begin{theorem}[uniform stacking; \status{proved} modulo Siegel--Walfisz]\label{thm:uniform}
 Let $L=\log\log N$, $\mathcal L=\log N$, and fix $C_0\ge1$.  Uniformly for
 $3\le Z\le C_0L$ and $N\ge N_0(C_0)$, with $J=J(Z)$,
-\[
- \#\{N/2<p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}
+\begin{multline*}
+ \#\{N/2<p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\\
  \le\frac N{\mathcal L}\exp\Bigl(-\frac J2\bigl(L-3\log L-C\bigr)+\beta_{\rm tot}(Z)\log2+O(\log L)\Bigr),
-\]
+\end{multline*}
 where $C$ and the implied constant depend only on $C_0$.  In particular the
 left side is $\pi(N)(\log N)^{-(1/2-o(1))J(Z)}$ uniformly for $Z=o(L)$.
 \end{theorem}
