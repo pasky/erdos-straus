@@ -74,3 +74,33 @@ Equivalences `a_min≥7 ⟺ a_min>3` (Z=3, J=1, exponent 3/2) and
 * **MINOR-2** (Cor 1.4): the counts `#{p≤x: a_min(p)≥7}` do not say `p≡1 (24)`;
   the upper bound (Thm 1.2) is proved only for that class. Either add
   `p≡1 (24)` or note that the same sieve with `p=4t+1` covers all `p≡1 (4)`.
+
+## Theorem 1.5 — uniform stacking (not previously reviewed): SOUND-AFTER-REPAIRS
+
+Re-derived: `y=exp(L²)`, `log z=ℒ/(5(J+1))`. SW for `a≤L=(log y)^{1/2}`,
+partial summation gives per-class error `≪∫_{L²}^∞e^{−c√u}du≪e^{−c_1L}`; with
+`≤Z` windows × `≤Z` classes the total is `o(1)` ✔. Main term
+`(1+J/2)log(log z/log y)`, and `log(log z/log y)=L−2log L−log(5(J+1))≥L−3log L−C`
+for `J≤L` ✔; `y<z` and `Λ≤ℒ/5+O(J)≤ℒ/4` ✔; `e^{−(L−3logL−C)}≍L³/ℒ` ✔. Union
+over `2^{β_tot}` vectors ✔; `β(a)=φ/4+2^{ω−2}−1` exactly, so the bound is ✔.
+For `Z=o(L)`: `β_tot=O(Z²)=o(JL)` and `(J+1)log L=o(JL)`, giving
+`π(N)ℒ^{−(1/2−o(1))J}` ✔. SW is used only for moduli `≤(log y)^{1/2}`, where
+even the effective Landau–Page bound suffices; "modulo SW" is just "PROVED
+(constants possibly ineffective)".
+
+Numerics (`scripts/review_xw_beta.py`): `β_tot(Z)/(Z²/4π²)=0.971, 1.0005, 1.0005`
+at `Z=100,1000,5000` ✔; optimising `−(Z/8)L+(log2/4π²)Z²` gives `Z*=π²L/(4log2)=3.56L`
+and `c=0.2225` ✔.
+
+* **MAJOR-1** (Thm 1.5 statement vs. its consequence, POINTWISE_XWIN lines
+  ≈157–166 and table row 1.5): the theorem is stated "uniformly for `3≤Z≤L`",
+  but the advertised `N exp(−0.22(log log N)²)` is evaluated at
+  `Z≈3.6L>L`, outside the stated range. The proof does extend (SW holds for
+  `a≤3.6L≤(log y)^{1/2}·3.6`; `log(5(J+1))≤log L+C` still; `Λ` bound still), so
+  this is a statement-range bug, not a mathematical gap. Repair: state the
+  theorem for `3≤Z≤C_0L` with any fixed `C_0` (constants depending on `C_0`),
+  or for `Z≤L^{A}`; then the 0.22 claim follows (as `c=0.2225−o(1)`).
+  (Graded MAJOR only because, as written, a headline claim is not covered by
+  the theorem it is derived from.)
+* **MINOR-3**: `c≈0.22` uses `β_tot~Z²/(4π²)`, an asymptotic; say "for any
+  `c<π²/(64 log 2)·… =0.2225`" or "`c=0.2225−o(1)`" to make it a theorem.
