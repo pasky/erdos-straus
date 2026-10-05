@@ -2,8 +2,7 @@
 
 Branch `side-agent/subexp-paper-v3`. Status: **checkpoint 1 — complete draft, compiles
 (pdflatex, 27 pp, no undefined refs, one 1.6pt overfull box); not yet refereed.**
-`POINTWISE_HAAR.md` was not on main when I finished, so no remark on the lower bound
-`log(1/δ*) ≫ 𝓛³/log 𝓛` is included.
+`POINTWISE_HAAR.md` reached main late; it is cited in Remark 8.3 only (see end).
 
 ## Main results of v3 (labels as in the paper)
 
@@ -92,7 +91,6 @@ Structure: §1 intro; §2 atoms + graded quarantine; §3 mass and charge moment 
 
 * No independent re-run of numerics (all numbers quoted are from O11/O12/R38b and are
   labelled Assessment/evidence).
-* `POINTWISE_HAAR.md` remark: omitted (not on main).
 * Bibliographic TODO(verify) list unchanged apart from [LT].
 
 ## Self-review (reviewer subagent, deep mode) and repairs
