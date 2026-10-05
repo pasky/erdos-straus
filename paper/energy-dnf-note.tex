@@ -83,8 +83,9 @@ study the weighted energy
 \]
 For constant weights $\lambda_v=\rho^2$ it is $\|T_\rho F\|^2$, where $T_\rho$
 multiplies the component $F^{=U}$ by $\rho^{|U|}$; so we are asking for the
-largest noise operator \emph{with $\rho>1$} that is still a contraction from
-avoidance indicators to $L^2$.
+largest noise operator \emph{with $\rho>1$} that still maps every avoidance indicator
+(of a suitable family) into the unit ball of $L^2$.  (It is not a contraction
+in $L^2$: $\|T_\rho F\|>\|F\|$ for nonconstant $F$.)
 
 \begin{theorem}[Energy bound]\label{thm:main}
 Let $\lambda_v\ge1$ $(v\in V_0)$, and suppose that $\lambda^{\supp E}\le2$ for every
@@ -119,8 +120,9 @@ Let $g:\{\pm1\}^n\to\{\pm1\}$ be computed by a DNF of width $k$, and let $\pi$ b
 any product measure on $\{\pm1\}^n$ (Efron--Stein components in $L^2(\pi)$;
 Fourier coefficients if $\pi$ is uniform).  Then for every integer $t\ge0$
 \[
- W^{>t}[g]:=\sum_{|U|>t}\|g^{=U}\|^2\ \le\ 4\,p(2-p)\cdot2^{-(t+1)/k}\ \le\ 4\cdot2^{-(t+1)/k},\qquad p=\PP[g=-1].
+ W^{>t}[g]:=\sum_{|U|>t}\|g^{=U}\|^2\ \le\ 4\,p(2-p)\cdot2^{-(t+1)/k}\ \le\ 4\cdot2^{-(t+1)/k},
 \]
+where $p=\PP[g=-1]$.
 So $g$ is $\varepsilon$-concentrated up to degree $k\log_2(4/\varepsilon)$.  Moreover
 $\sum_U2^{|U|/k}\|g^{=U}\|^2\le1+4p$, and the total influence is at most
 $(4k/\ln2)\,p$.  The same holds for $q$-ary DNFs, with literals $x_v\in S_v$,
@@ -312,7 +314,7 @@ function that does not depend on all coordinates in $V$, hence every
 cylinder whose support is a proper subset of $V$.  A cylinder with support
 $V$ is a point indicator $\mathbf 1_{\{\sigma\}}$.  Therefore $L_Vg_y=L_Vc_y$, where
 \[
- c_y(\sigma)=\sum_{\cJ:\ \mathbf 1_\cJ=\mathbf 1_{\{\sigma\}}}(-1)^{|\cJ|}.
+ c_y(\sigma)=\sum_{\cJ:\ \supp\mathbf 1_\cJ=V,\ \mathbf 1_\cJ=\mathbf 1_{\{\sigma\}}}(-1)^{|\cJ|}.
 \]
 Since $L_V$ is an orthogonal projection in $L^2(\pi_V)$,
 $\|L_Vc_y\|^2\le\E_\sigma c_y(\sigma)^2$.  The subfamilies counted in $c_y(\sigma)$ are
@@ -405,7 +407,8 @@ $\Theta(\cC-v)$ both in $\Theta(\cC)$ and in $\Theta(\cC/v)$.  Hence
 \begin{equation}\label{eq:dc}
  \Theta(\cC)=\Theta(\cC-v)+\lambda_v\big[\Theta(\cC/v)-\Theta(\cC-v)\big]=\lambda_v\Theta(\cC/v)-\mu_v\Theta(\cC-v).
 \end{equation}
-Both families again have all weights at most $2$, since $w_{J\setminus v}=w_J/\lambda_v$.
+Both families again have all weights at most $2$, since $w_{J\setminus v}=w_J/\lambda_v$ for
+$J\ni v$ and the other members are unchanged.
 We induct on $|\bigcup\cC|$.  If $\emptyset\in\cC$, then $\Theta(\cC)=0$ (toggling the
 empty member pairs the terms), and the claim holds.  If $\cC=\emptyset$, then
 $\Theta=1$ and $\cM=\emptyset$.  This covers the base case $\bigcup\cC=\emptyset$.  If
@@ -479,18 +482,25 @@ $4\cdot2^{-(d+1)/k}\le\varepsilon$, i.e.\ $d+1\ge k\log_2(4/\varepsilon)$, then 
 least such integer $d$ is at most $k\log_2(4/\varepsilon)$.
 
 For the weighted sum, $\|g^{=\emptyset}\|^2=(1-2p)^2$ and, with $\lambda=2^{1/k}$,
-$\sum_{U\ne\emptyset}\lambda^{|U|}\|g^{=U}\|^2=4(G_h-p^2)$, where $G_h=G_F-1+2p\le2p$ by
+\[
+ \sum_{U\ne\emptyset}\lambda^{|U|}\|g^{=U}\|^2=4(G_h-p^2),
+\]
+where $G_h=G_F-1+2p\le2p$ by
 Lemma~\ref{lem:ident}(c).  So the sum is at most $(1-2p)^2+8p-4p^2=1+4p$.
 For the influence, $\sum_U(\lambda^{|U|}-1)\|F^{=U}\|^2=G_F-\E F\le p$, and
 $\lambda^{|U|}-1\ge|U|\ln\lambda=|U|\ln2/k$.  Hence
-$\mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2=4\sum_U|U|\,\|F^{=U}\|^2\le(4k/\ln2)p$.
+\[
+ \mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2=4\sum_U|U|\,\|F^{=U}\|^2\le(4k/\ln2)\,p .
+\]
 
 For a $q$-ary DNF, a term $\bigwedge_{v\in S}(x_v\in S_v)$ is the disjoint union of the
 cylinder events $\{x_S=\sigma\}$, $\sigma\in\prod_{v\in S}S_v$, which all have support $S$.
 Replacing each term by these events changes neither $F$ nor the supports.
 \end{proof}
 
-The same bounds hold for CNFs, since $W^{>t}[-g]=W^{>t}[g]$.  Here
+For a width-$k$ CNF $h$, $-h$ is a width-$k$ DNF and $W^{>t}[h]=W^{>t}[-h]$; so the
+same bounds hold with $p=\PP[h=+1]$ (the probability that $h$ is false), and
+the bound $4\cdot2^{-(t+1)/k}$ holds as stated.  Here
 $\mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2$ is the Efron--Stein total influence; it is
 the usual total influence for the uniform measure.
 
@@ -600,10 +610,12 @@ If every edge of $\Ho$ has $w_J\le2$, then $Q_\mu(\Ho)\le\prod_{J\in\Ho}(w_J-1)^
 every fractional matching $y$ ($y_J\ge0$, $\sum_{J\ni v}y_J\le1$ for all $v$).
 \end{conjecture}
 
-Both were tested by exact computation on small random systems (several
-thousand cases on $[q]^n$ with $q\le5$, $n\le9$; internal computations, not
-part of this note), without a violation.  For Conjecture~\ref{conj:fm}
-equality is frequent.  Example~\ref{ex:mono} shows that a proof of
+Both were tested numerically on small random systems (several thousand
+cases on $[q]^n$ with $q\le5$, $n\le9$; floating-point internal computations,
+with a numerical linear program over $y$ for Conjecture~\ref{conj:fm}; not part
+of this note), without a violation.  For Conjecture~\ref{conj:cexp} only the
+weaker form $G_F\le\exp\big(\sum_E\PP(E)(w_E-2)_+\big)$ was tested.  For
+Conjecture~\ref{conj:fm} equality (up to rounding) is frequent.  Example~\ref{ex:mono} shows that a proof of
 Conjecture~\ref{conj:cexp} by induction on the number of events would
 need a stronger induction hypothesis.
 
@@ -626,8 +638,9 @@ prove the corresponding variant.
 arbitrary distributions on finite sets, and the coordinates are independent.
 The Efron--Stein decomposition $F=\sum_UF^{=U}$ is taken over the digits, so $U$
 is a set of pairs $(\ell,i)$; we write $U_\ell=\{i:(\ell,i)\in U\}$.  An event $E$ is a
-\emph{digit-prefix event} if, for some integers $v_\ell(E)$, it fixes exactly the
-digits $\delta_{\ell,i}$ with $i_0(\ell)\le i<v_\ell(E)$, for each $\ell$, to arbitrary values.  Such
+\emph{digit-prefix event} if, for some integers $0\le v_\ell(E)\le f_\ell$, it fixes exactly the
+digits $\delta_{\ell,i}$ with $i_0(\ell)\le i<v_\ell(E)$, for each $\ell$, to arbitrary values (no
+digit of $X_\ell$ if $v_\ell(E)\le i_0(\ell)$).  The offsets are integers $i_0(\ell)\ge0$.  Such
 an event is a cylinder event on the digits.  (The offset $i_0(\ell)$ allows digits
 below $i_0(\ell)$ to be fixed in advance; they are not coordinates.)
 
@@ -682,7 +695,7 @@ pairs: the left side of the claim is at most $\E_x[Q_{\mu'}(\hat\Ho(x))]$.  By
 Theorem~\ref{thm:Q} it remains to show that
 $\prod_{(\ell,j)\in\hat E}(1+\mu'_{\ell,j})\le2$ for every event.  Fix $\ell$, write $\lambda=\lambda_\ell$,
 $v=v_\ell(E)$, $i_0=i_0(\ell)$, and assume $v>i_0$.  Here $1+\mu'_{\ell,i_0}=\lambda^{i_0+1}$, and
-$1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$.  The hypothesis gives $\lambda^{2v}\le2$, so
+$1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$ (if $v\le i_0$ the factor of $\ell$ is $1$).  The hypothesis gives $\lambda^{2v}\le2$, so
 $\lambda^j\le\lambda^v\le\sqrt2<\lambda+1$ for $j<v$, which is equivalent to $1+\lambda^j(\lambda-1)\le\lambda^2$.
 The factor of $\ell$ is therefore at most $\lambda^{i_0+1}\lambda^{2(v-1-i_0)}\le\lambda^{2v}$, and the
 product over $\ell$ is at most $\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.
@@ -704,8 +717,10 @@ Theorem~\ref{thm:filtration} is $2^{\log m_U/(2\Lc)}$; apply Lemma~\ref{lem:iden
 \end{proof}
 
 \begin{remark}[The factor $2$ in the exponent]\label{rem:rho}
-The proof gives more.  The factor of $\ell$ is
-$\lambda^{i_0+1}\prod_{i_0<j<v}(1+\lambda^j(\lambda-1))\le\exp\big(\lambda^{i_0+1}-1+\sum_{i_0<j<v}\lambda^j(\lambda-1)\big)=\exp(\lambda^v-1)$.
+The proof gives more.  If $v>i_0$, the factor of $\ell$ is
+\[
+ \lambda^{i_0+1}\prod_{i_0<j<v}(1+\lambda^j(\lambda-1))\le\exp\Big(\lambda^{i_0+1}-1+\sum_{i_0<j<v}\lambda^j(\lambda-1)\Big)=\exp(\lambda^v-1).
+\]
 So it suffices that $\sum_\ell(\lambda_\ell^{v_\ell(E)}-1)\le\ln2$ for every event.  In
 Corollary~\ref{cor:modtail} take $\lambda_\ell=2^{\log\ell/(\rho\Lc)}$ and put
 $x_\ell=v_\ell(E)\log\ell/\Lc$, so that $\sum_\ell x_\ell\le1$.  The function $x\mapsto2^{x/\rho}-1$ is
@@ -733,12 +748,14 @@ solutions, and says nothing about whether the conjecture holds.
 The structure of the argument is as follows.  Fix $T$ and $\Lc=\log T$.  After a
 \emph{quarantine} $n\equiv1\pmod Q$, the condition $W(n)>T$ holds as soon as $n$
 avoids a finite family of congruence events $n\equiv b_i\pmod{r_i}$ with
-$r_i\le T$, at most $T^2$ of them.  For $n$ distributed by Haar measure on
-$\widehat{\mathbb Z}$, conditioned on the quarantine, the residues $X_\ell=n\bmod\ell^{f_\ell}$
-at the remaining primes are independent.  Their base-$\ell$ digits are
-independent as well: in \cite{Subexp} each $X_\ell$ ranges over the units, or a
-fibre $1+\ell^a\mathbb Z$, modulo $\ell^{f_\ell}$, and on these the Haar measure is the product
-of the (uniform) digit distributions.  Moreover an event $n\equiv b\pmod r$ is a digit-prefix event with
+$r_i\le T$, at most $T^2$ of them.  For $n$ distributed by Haar measure on the
+unit group $\widehat{\mathbb Z}^\times$, conditioned on the quarantine, the residues
+$X_\ell=n\bmod\ell^{f_\ell}$ at the primes involved are independent.  Each $X_\ell$ is
+uniform on the units modulo $\ell^{f_\ell}$, or on a fibre $1+\ell^a\mathbb Z$ modulo $\ell^{f_\ell}$ if
+$\ell$ is quarantined with $a=a_\ell\ge1$.  On these sets the uniform measure is the
+product of the uniform distributions of the free base-$\ell$ digits (digit $0$
+ranging over the nonzero residues in the unit case), so the digits are
+independent coordinates.  Moreover an event $n\equiv b\pmod r$ is a digit-prefix event with
 $\prod_\ell\ell^{v_\ell(E)}=r\le T$.  So the avoidance indicator $F$ is in the setting of
 Corollary~\ref{cor:modtail}, and so is each conditioned function $F^{(j)}$
 (the indicator that no earlier event occurs, restricted to the cylinder of
@@ -749,10 +766,10 @@ $B\le F$ that is a combination of congruence classes of small modulus, has
 mean comparable to $\E F$, and has small $\ell^1$ norm.  \cite{Subexp} uses the
 one-sided $\ell^2$ sandwich of Bazzi \cite{Bazzi} in the form of Razborov
 \cite{Razborov}:
-\[
- B=1-\sum_i\mathbf 1_{E_i}\Big(1-\sum_{j<i}\mathbf 1_{E_j}u_j\Big)^2\le F,\qquad
- \E[F-B]\le m^2\sum_j\PP(E_j)\,\E\big[(F^{(j)}-u_j)^2\big],
-\]
+\begin{align*}
+ B&=1-\sum_i\mathbf 1_{E_i}\Big(1-\sum_{j<i}\mathbf 1_{E_j}u_j\Big)^2\le F,\\
+ \E[F-B]&\le m^2\sum_j\PP(E_j)\,\E\big[(F^{(j)}-u_j)^2\big],
+\end{align*}
 for any functions $u_j$ of the coordinates not fixed by $E_j$.  The natural
 choice of $u_j$ is the truncation of the Efron--Stein decomposition of $F^{(j)}$
 to digit sets $U$ with $m_U\le e^\tau$.  By \eqref{eq:energy} it is a combination
@@ -779,8 +796,8 @@ it involves.
 
 \section{Computational checks}\label{sec:check}
 
-The proofs above are complete; the script \texttt{scripts/energy\_note\_check.py}
-is a sanity check of the statements on small cases.  It uses exact rational
+The proofs above are complete.  The script
+\path{scripts/energy_note_check.py} is a sanity check of the statements on small cases.  It uses exact rational
 arithmetic throughout; where a statement involves an irrational number, the
 comparison is rewritten as an exact rational one (for instance
 $W^{>t}\le c\,2^{-(t+1)/k}$ as $(W^{>t})^k2^{t+1}\le c^k$).  With seed $1$ it checks:
@@ -794,20 +811,24 @@ the matching bounds of Lemma~\ref{lem:theta} and Theorem~\ref{thm:Q}
 (including the equality case) on $300$ random weighted hypergraphs on at most
 $5$ vertices;
 \item[(C)] Corollary~\ref{cor:dnf} for \emph{every} Boolean function on $4$ bits
-under the uniform measure, with $k$ its minimal DNF width, for all $t$, and
-$G_F(\lambda)\le1$ for a rational $\lambda\le2^{1/k}$; the largest value of
-$W^{>t}[g]\,2^{(t+1)/k}/(4p(2-p))$ is $0.680$;
-\item[(D)] Corollary~\ref{cor:dnf} on $150$ random DNFs under biased product
+under the uniform measure, with $k$ its minimal DNF width: the tail bound for
+all $t$ (exactly), the bounds $1+4p$ and $(4k/\ln2)p$ at the endpoint
+$\lambda=2^{1/k}$ (exactly for $k=1$, in floating point with slack $10^{-12}$
+otherwise), and $G_F(\lambda)\le1$ at a rational $\lambda\le2^{1/k}$; the largest value
+of $W^{>t}[g]\,2^{(t+1)/k}/(4p(2-p))$ is $0.680$;
+\item[(D)] the same statements on $150$ random DNFs under biased product
 measures on $\{\pm1\}^n$ and $q$-ary DNFs with set-valued literals;
 \item[(E)] Theorem~\ref{thm:filtration} on $150$ random digit-prefix systems in
-bases $2$ and $3$ with random digit distributions;
+bases $2$ and $3$, with random offsets $i_0(\ell)\in\{0,1\}$ and random digit
+distributions;
 \item[(F)] the level polynomial of Proposition~\ref{prop:sharp} against brute
 force, Corollary~\ref{cor:tail} along that family, the formula of
-Example~\ref{ex:parity} and the growth rate $1/3$, and the exact sign in
-Example~\ref{ex:mono}.
+Example~\ref{ex:parity}, and the exact sign in Example~\ref{ex:mono}.  The
+values $(\max_s\energy(F;jk-1))^{1/j}$ of Example~\ref{ex:parity} ($0.299$, $0.311$,
+$0.319$ for $j=10,20,40$) are printed, not checked.
 \end{enumerate}
-The run takes about six minutes on one core; its output is in
-\texttt{data/energy\_note/check\_seed1.txt}.
+The run takes about six minutes on one core; its output is in the file
+\path{data/energy_note/check_seed1.txt}.
 
 
 {\small

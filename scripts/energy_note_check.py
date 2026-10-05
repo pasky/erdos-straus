@@ -14,12 +14,16 @@ Sections:
      (matching bounds for Theta and Q), random weighted hypergraphs.
   C  Corollary 1.3, exhaustive: every Boolean function on 4 bits, uniform
      measure, with its minimal DNF width k: W^{>t} <= 4p(2-p) 2^{-(t+1)/k}
-     for all t, and G_F(lambda) <= 1 for rational lambda <= 2^{1/k}.
+     for all t, sum 2^{|S|/k} g^(S)^2 <= 1+4p and I[g] <= (4k/ln2)p at the
+     endpoint (exact for k=1, float with 1e-12 slack otherwise), and
+     G_F(lambda) <= 1 for a rational lambda <= 2^{1/k}.
   D  Corollary 1.3 for random DNFs under biased product measures, and q-ary
      DNFs with set-valued literals.
-  E  Theorem 7.1 (filtration energy bound), random digit-prefix systems.
+  E  Theorem 7.1 (filtration energy bound), random digit-prefix systems with
+     random offsets i_0 in {0,1} and random digit distributions.
   F  Proposition 6.1 (sharpness family, exact level polynomial),
-     Example 6.2 (parities), Example 6.3 (adding an event increases G).
+     Example 6.2 (parity formula; the rates (max_s En)^(1/j) are only printed),
+     Example 6.3 (adding an event increases G; exact sign).
 """
 import itertools
 import random
@@ -332,6 +336,15 @@ def section_C():
             check(Wt ** k * 2 ** (t + 1) <= c0 ** k, f"Cor 1.3 code={code} t={t}")
             if Wt > 0:
                 maxratio = max(maxratio, float(Wt) * 2 ** ((t + 1) / k) / float(c0))
+        # endpoint lambda = 2^{1/k}: sum 2^{|S|/k} g^(S)^2 <= 1+4p (exact if k=1, else float)
+        if k == 1:
+            ws = sum(2 ** bin(S_).count("1") * Fr(c * c, N * N) for S_, c in enumerate(co))
+            check(ws <= 1 + 4 * p, f"Cor 1.3 weighted sum code={code}")
+        else:
+            ws = sum(2 ** (bin(S_).count("1") / k) * (c * c) / (N * N) for S_, c in enumerate(co))
+            check(ws <= float(1 + 4 * p) + 1e-12, f"Cor 1.3 weighted sum (float) code={code}")
+        infl = sum(bin(S_).count("1") * (c * c) / (N * N) for S_, c in enumerate(co))
+        check(infl <= 4 * k / 0.6931471805599453 * float(p) + 1e-12, f"Cor 1.3 influence code={code}")
         # G_F <= 1 with F = (1+g)/2, lambda <= 2^{1/k}
         lam = lamk[k]
         G = sum(lam ** bin(S_).count("1") * Fr(c * c, N * N) for S_, c in enumerate(co) if S_) / 4
@@ -371,6 +384,12 @@ def section_D(rng, cases):
                 worst = max(worst, float(Wt) * 2 ** ((t + 1) / k) / float(c0))
         lam = [lam_for_k(k)] * n
         check(G_from_comp(comp, lam) <= 1, f"Thm 1.1 DNF case {case}")
+        # endpoint lambda = 2^{1/k} (float): weighted sum of g = 2F-1 and influence
+        ws = sum(2 ** (bin(U).count("1") / k) * float(c) * (4 if U else 1) for U, c in comp.items() if U)
+        ws += float(1 - 2 * a) ** 2
+        check(ws <= float(1 + 4 * a) + 1e-12, f"Cor 1.3 weighted sum (float) case {case}")
+        infl = sum(4 * bin(U).count("1") * float(c) for U, c in comp.items())
+        check(infl <= 4 * k / 0.6931471805599453 * float(a) + 1e-12, f"Cor 1.3 influence case {case}")
     print(f"D: {cases} random DNFs (biased Boolean / q-ary set-valued): Cor 1.3 holds;"
           f" max normalised tail {worst:.4f}")
 
@@ -381,9 +400,10 @@ def section_E(rng, cases):
         # primes (radix) and digit counts; digit 0 may have a smaller alphabet
         ells = rng.sample([2, 3], rng.randint(1, 2))
         digits = []  # (ell, i, alphabet size)
+        i0 = {ell: rng.randint(0, 1) for ell in ells}
         for ell in ells:
             f = rng.randint(1, 3 if ell == 2 else 2)
-            for i in range(f):
+            for i in range(i0[ell], i0[ell] + f):
                 digits.append((ell, i, ell))
         if len(digits) > 5:
             digits = digits[:5]
@@ -395,8 +415,9 @@ def section_E(rng, cases):
         nd = {ell: sum(1 for d in digits if d[0] == ell) for ell in ells}
         events = []
         for _ in range(rng.randint(1, 6)):
-            v = {ell: rng.randint(0, nd[ell]) for ell in ells}
-            if all(x == 0 for x in v.values()):
+            # v_ell(E) in [0, f_ell]; v <= i0 fixes no digit of X_ell
+            v = {ell: rng.randint(0, i0[ell] + nd[ell]) for ell in ells}
+            if all(x <= i0[ell] for ell, x in v.items()):
                 continue
             w = Fr(1)
             for ell in ells:
@@ -406,7 +427,7 @@ def section_E(rng, cases):
             val = {}
             mask = 0
             for idx, (ell, i, q) in enumerate(digits):
-                if i < v[ell]:
+                if i0[ell] <= i < v[ell]:
                     val[idx] = rng.randrange(q)
                     mask |= 1 << idx
             events.append((mask, val))
@@ -420,7 +441,7 @@ def section_E(rng, cases):
                 if idx:
                     wt *= lamell[ell] ** (1 + max(idx))
             tot += wt * c
-        check(tot <= 1, f"Theorem 7.1: {tot} digits={digits} lam={lamell} ev={events}")
+        check(tot <= 1, f"Theorem 7.1: {tot} digits={digits} i0={i0} lam={lamell} ev={events}")
         if events:
             worst = max(worst, tot)
     print(f"E: {cases} digit-prefix systems: Theorem 7.1 holds; max weighted sum (nonempty systems) = {float(worst):.6f}")
