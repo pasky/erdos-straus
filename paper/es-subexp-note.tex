@@ -300,8 +300,9 @@ $1\notin\cR(M)$ for every $M\equiv3\pmod4$.
 \end{lemma}
 
 \begin{proof}
-If $-4D\equiv1$ then $D\equiv-A_M\pmod M$ (multiply by $A_M$).  Since
-$4A_M^2\equiv A_M$, the map $D\mapsto A_M^2/D$ preserves this congruence, so
+If $-4D\equiv1$ then $D\equiv-A_M\pmod M$ (multiply by $A_M$).  As $A_M$ is a
+unit modulo $M$, $D\equiv-A_M$ gives $A_M^2/D\equiv A_M^2(-A_M)^{-1}=-A_M$, so the
+map $D\mapsto A_M^2/D$ preserves this congruence, and
 we may assume $D\le A_M$; then $0<D+A_M\le2A_M<M$, while $M\mid D+A_M$.
 \end{proof}
 
@@ -383,7 +384,7 @@ $H_v=\sum_{i\le v}1/i$, and put
 both sums over all atoms.
 
 \begin{lemma}[Graded iterated quarantine; proved]\label{lem:gradedq}
-Let $\Lc\ge2$ and $0<c\le1/8$.  Start from $a_\ell=1$ for the odd primes
+Let $\Lc\ge2$ and $c>0$.  Start from $a_\ell=1$ for the odd primes
 $\ell\le\max(\Lc,7)$ and $a_\ell=0$ for all other odd $\ell$.  While some
 $\ell\in\cP$ has
 \[
@@ -446,13 +447,15 @@ $\rho_P(p^j)\le C$ for all primes $p$ and all $j\ge1$.  Then
 $\sum_{n\le N}\tau(P(n))\ll_{D_P,l,C}N\sum_{m\le N}\rho_P(m)/m$.
 \item[(c)] \textup{(\cite[Cor.~7.4]{ET})} If $a,b,N$ are natural numbers, $N\ge2$, with
 $a,b\ll N^{O(1)}$, then $\sum_{n\le N}\tau(an+b)\ll\tau(\gcd(a,b))\,N\log N$.
-\item[(d)] \textup{(\cite[(7.10)]{ET})} For $2\le A\le B$ and $\kappa\ge1$,
+\item[(d)] \textup{(\cite[(7.10)]{ET})} For $2\le A\le B$ and $\kappa=4$,
 $\sum_{a\le A}\sum_{m\le B}\rho_{\kappa a}(m)/m\ll A\log B\log(1+\kappa)$.
 \end{enumerate}
 \end{theorem}
 
-We use (a) and (d) only with $\kappa=4$.  Elsholtz and Tao state (d) inside
-the case $A\le B$ of their proof of (a), and we use it only in that range.
+We use (a) only with $\kappa=4$.  Elsholtz and Tao derive (d) inside the
+case $A\le B$ of their proof of (a), under its standing hypotheses
+($A,B>1$, $\kappa\ll(AB)^{O(1)}$); we state and use it only with $\kappa=4$ in that
+range.
 
 \begin{lemma}[Prime-power counts; proved]\label{lem:h}
 \textup{(a)} $h(xy)\le h(x)+h(y)$ for all $x,y\ge1$.
@@ -863,7 +866,7 @@ In all cases $S(x)>0$.  So some prime $p\le x$ with $p\nmid N_0$ and
 $p\equiv1\pmod Q$ has $B(p)>0$, and then $W(p)>T$.
 \end{proof}
 
-\begin{remark}\label{rem:linear}
+\begin{remark}[Assessment]\label{rem:linear}
 This is Linnik's theorem with weights.  Every character coefficient is
 bounded by $\E_H|B|/\varphi(Q)$, not by the $\ell^1$ mass of a cell
 representation.  Theorem~\ref{thm:G} controls all characters of conductor
@@ -1096,7 +1099,7 @@ gained.  The condition $\lambda^{\supp E}\le2$ in
 Theorem~\ref{thm:C1} is necessary, by the single-event formula above.
 \end{remark}
 
-\begin{remark}[Boolean form and comparison]\label{rem:boolean}
+\begin{remark}[Boolean form and comparison; proved, except the cited constant]\label{rem:boolean}
 A width-$k$ DNF $g:\{\pm1\}^n\to\{\pm1\}$ is $1-2F$ for the family of its terms
 (a term with a literal set is a cylinder event).  As $g^{=U}=-2F^{=U}$ for
 $U\ne\emptyset$, Corollary~\ref{cor:tail} gives, for every product measure on
@@ -1461,7 +1464,9 @@ every $n\equiv1\pmod Q$.
 $\ell_{\rm aux}\in(R,2R]$.  Apply Theorem~\ref{thm:transfer} with $Q'=Q\ell_{\rm aux}$, so
 $8\mid Q'$.  As $\ell_{\rm aux}>\max d_i$, $\gcd(d_i,Q')=\gcd(d_i,Q)$, so the cells
 are consistent for $Q'$.  The inequality $B\le\mathbf 1[W>T]$ holds on
-$n\equiv1\pmod{Q'}$.  By Lemma~\ref{lem:haar}, $\E_HB=\mu$ and
+$n\equiv1\pmod{Q'}$.  The functions $B$ and $|B|$ depend only on $X\bmod D$, so
+both are combinations of consistent unit cells (point cells modulo $D$), and by
+Lemma~\ref{lem:haar}, $\E_HB=\mu$ and
 $\E_H|B|/\mu\le1.03\le Z^{1/4}$.  A real primitive character of conductor
 $f>1$ coprime to $Q'$ is coprime to $Q$, so Lemmas~\ref{lem:twist}
 and~\ref{lem:haar} give the twist condition.  Here
@@ -1497,25 +1502,38 @@ Infinitely many primes arise as before.
 \end{proof}
 
 \begin{corollary}[Haar side; proved modulo Theorem~\ref{thm:ETall}]\label{cor:haar}
-The set of integers $n$ with $W(n)>T$, which is periodic, has density
-$\delta^*(T)$ with $\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.
+Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
+relative to the class $n\equiv1\pmod{24}$, i.e.\ the proportion, among the
+units modulo $L=\lcm(24,\,M\le T)$ that are $\equiv1\pmod{24}$, of those with
+$W(n)>T$ (the condition $W(n)>T$ depends only on $n\bmod L$).  Then
+$\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  The natural density $\delta^*_{\mathbb Z}(T)$ of
+the set of all integers $n$ with $W(n)>T$ satisfies the same bound.
 \end{corollary}
 
 \begin{proof}
-Take $Q$ as in Theorem~\ref{thm:assembly}.  The integers $n\equiv1\pmod Q$ with
+Take $Q$ as in Theorem~\ref{thm:assembly}; $24\mid Q$.  The integers $n\equiv1\pmod Q$ with
 $n\bmod\ell^{f_\ell}\in\Omega_\ell$ for all $\ell\in\cP$ and $F(n)=1$ have $W(n)>T$
-(Lemma~\ref{lem:system}(i)).  Their density is
-$Q^{-1}\prod_{\ell\in\cP,\,a_\ell=0}(1-1/\ell)\cdot\delta$, and $\delta\ge e^{-2.2S_1}$ by
-Corollary~\ref{cor:lll}.  So
-$\log(1/\delta^*(T))\le\log Q+\log\Lc+O(1)+2.2S_1\ll\Lc^5\log\Lc$ by
-Mertens' theorem, Lemma~\ref{lem:gradedq} and Theorem~\ref{thm:omega}.
-Gallagher's theorem is not used.
+(Lemma~\ref{lem:system}(i)).  Among the units $\equiv1\pmod{24}$, the class
+$n\equiv1\pmod Q$ has relative Haar measure $\varphi(24)/\varphi(Q)$, and within it the
+residues $n\bmod\ell^{f_\ell}$, $\ell\in\cP$, are independent and uniform on $\Omega_\ell$
+(Chinese remainder theorem).  So
+$\delta^*(T)\ge(\varphi(24)/\varphi(Q))\,\delta$, and $\delta\ge e^{-2.2S_1}$ by
+Corollary~\ref{cor:lll}; hence $\log(1/\delta^*(T))\le\log Q+2.2S_1\ll\Lc^5\log\Lc$ by
+Lemma~\ref{lem:gradedq} and Theorem~\ref{thm:omega}.  For the natural density,
+the same integers have density $Q^{-1}\prod_{\ell\in\cP,\,a_\ell=0}(1-1/\ell)\cdot\delta$, which
+gives $\log(1/\delta^*_{\mathbb Z}(T))\le\log Q+\log\Lc+O(1)+2.2S_1$ by Mertens'
+theorem.  Gallagher's theorem is not used.
 \end{proof}
 
 \begin{remark}[A lower bound on the Haar side; cited, internal]\label{rem:haarlower}
 In companion work \cite{Haar} we show, modulo the fundamental lemma of
-sieve theory, that $\log(1/\delta^*(T))\gg\Lc^3/\log\Lc$; so
+sieve theory, that $\log(1/\delta^*(T))\gg\Lc^3/\log\Lc$ for the unit
+normalisation $\delta^*(T)$ of Corollary~\ref{cor:haar} (Haar measure on
+$\hat{\mathbb Z}^\times$ relative to the class $1\bmod24$); so
 $\Lc^3/\log\Lc\ll\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  We do not reprove this here.
+It does not give a lower bound for $\log(1/\delta^*_{\mathbb Z}(T))$: non-units avoid
+every event at the primes dividing them, so the all-integer density can be
+larger.
 Monte Carlo estimates of $\delta^*(T)$ for $T\le32767$ are consistent with
 $\log(1/\delta^*(T))\asymp\Lc^3/\log\Lc$ (evidence only).  If the transfer to primes
 lost nothing beyond the Haar density, this would suggest
@@ -1546,7 +1564,9 @@ We make no claim about the true order of $W(p)$.
 \item Proved: Lemmas~\ref{lem:atoms}, \ref{lem:one}, \ref{lem:system},
 \ref{lem:gradedq}, \ref{lem:h}, \ref{lem:param}; the energy bound
 (Lemmas~\ref{lem:cover}--\ref{lem:theta}, Theorems~\ref{thm:C1}
-and~\ref{thm:filtration}, Corollaries~\ref{cor:tail} and~\ref{cor:modtail});
+and~\ref{thm:filtration}, Corollaries~\ref{cor:tail} and~\ref{cor:modtail},
+Remark~\ref{rem:sharp}, and Remark~\ref{rem:boolean} except the cited
+switching-lemma constant);
 Lemmas~\ref{lem:haar}, \ref{lem:brw}, \ref{lem:EL}, \ref{lem:size}, \ref{lem:l1},
 \ref{lem:twist} and Corollary~\ref{cor:lll} (with the classical
 Lemma~\ref{lem:lll}); the unconditional part of Theorem~\ref{thm:omega}
@@ -1578,10 +1598,17 @@ parameter exceeds every power of $\log p$, preprint, 2026.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 % TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough],
-% [FFKPY], [LMO], [TZcheb], [MV1], [RS], [LT] were written from memory (no library
+% [FFKPY], [LMO], [TZcheb], [MV1], [RS] were written from memory (no library
 % access in task O33; referee R33 rates the first four "probably correct, unverified").
 % Also unverified: the journal data of [TZ] (arXiv
 % version archived).  Check all of these before submission.
+% [LT] verified on arxiv.org by referee R47.  Unverified: the constant
+% 2*2^{-t/(20k)} attributed to [OD, Sec. 4.4] (book not archived).
+% TODO(novelty, before submission): check Hastad, "A slight sharpening of LMN"
+% (JCSS 2001); Tal, "Tight bounds on the Fourier spectrum of AC0" (CCC 2017);
+% the Fourier-growth line (Chattopadhyay--Hatami--Lovett--Tal and successors),
+% since G_F(lambda) with constant lambda is the squared norm of a noise operator
+% with rho>1 applied to F.
 \bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
 M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
 Invent.\ Math.\ 228 (2022), 377--414.
