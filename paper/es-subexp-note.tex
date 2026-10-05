@@ -41,7 +41,7 @@ For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
 earlier work we showed that $W(p)$ exceeds every fixed power of $\log p$ for
 infinitely many primes $p$ in Mordell's hard classes.  Here we prove
 $W(p)\ge\exp(c(\log p)^{1/14})$ for infinitely many hard primes, assuming
-Elsholtz and Tao's average bound for $\tau(kab^2+1)$; equivalently, the least
+Elsholtz and Tao's average bound for $\tau(kab^2+1)$; more precisely, the least
 hard prime with $W(p)>T$ is at most $\exp(O((\log T)^{14}))$.
 Without the Elsholtz--Tao input we get $\log W(p)\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p$
 infinitely often.  As before, the class of one modulo the small primes leaves
@@ -190,8 +190,8 @@ on the truth of the Erd\H{o}s--Straus conjecture: a prime with large $W(p)$
 may well have other representations.
 
 \smallskip\noindent\textbf{Notation.}  $T$ is large, $\Lc=\log T$, $\log_2$
-denotes the binary logarithm only where explicitly said (otherwise
-$\log\log$ is written out), $\tau$ is the divisor function and
+always denotes the binary logarithm (iterated logarithms are written out as
+$\log\log$), $\tau$ is the divisor function and
 $\tau^*(x)=\max_{n\le x}\tau(n)$.
 
 \section{Atoms and the residual system}\label{sec:system}
@@ -321,7 +321,11 @@ pairs may have a common lift; such duplicates are kept), and let $F=\mathbf 1[\t
 \end{definition}
 
 The lifts of one pair $(r,c)$ partition the class $c\bmod r$, so their weights
-add up to $1/\varphi(r)$.
+add up to $1/\varphi(r)$.  This pair-then-lift construction is what makes
+Lemma~\ref{lem:system}(iii) an equality: duplicate lifts of different pairs
+are counted in $w_\ell$ and in $w_\ell(\Pi)$ alike.  Duplicates are harmless
+in Lemmas~\ref{lem:lll}, \ref{lem:brw} and~\ref{lem:twist}, which are stated
+for indexed families.
 
 \begin{lemma}[Properties of the residual system; proved]\label{lem:system}
 In Definition~\ref{def:system}, with $z\ge7$:
@@ -753,7 +757,7 @@ $\{X_\ell=\sigma_\ell\ (\ell\in\supp E)\}$ pulls back to a conjunction over
 $\ell\in\supp E$ of disjunctions of conjunctions of at most $b$ literals in the
 bits of $U_\ell$.  Distributing, it is a DNF of width $\le kb$.  Hence
 $f:=1-\tilde\varphi$, the OR of these over all events, is a DNF of width
-$w\le kb$.
+at most $w:=kb\ge1$.
 
 \emph{(b) Concentration} (Linial--Mansour--Nisan \cite{LMN}).  Take
 $p=1/(10w)$ and $d=k_0/p=10wk_0$.  By Theorem~\ref{thm:hastad},
@@ -774,7 +778,7 @@ blocks $U_\ell$ are independent and $\pi$ acts blockwise.  Hence
 $\E[\chi_S(U)\mid\pi(U)=x]$ is the product over the blocks $\ell$ met by $S$ of
 $\E[\chi_{S\cap\text{block }\ell}(U_\ell)\mid\pi_\ell(U_\ell)=x_\ell]$, a function of
 fewer than $d$ coordinates.  So $g$ is a sum of functions of at most
-$d=10wk_0\le10kbk_0$ coordinates.  Let $\pi_*$ be the law of $\pi(U)$.  As
+$d=10kbk_0$ coordinates.  Let $\pi_*$ be the law of $\pi(U)$.  As
 $\tilde\varphi$ is a function of $\pi(U)$, Jensen gives
 $\E_{\pi_*}(\varphi-g)^2=\E\big[\E[\tilde\varphi-\tilde g\mid\pi(U)]^2\big]\le2^{1-k_0}$.
 Finally, the density of the uniform law relative to $\pi_*$ is
@@ -862,10 +866,6 @@ $\ell_{\rm aux}\mid p-1$ we have $p>\ell_{\rm aux}>T$, and $840\mid Q_\Pi$
 gives $p\equiv1\pmod{840}$.
 \end{proof}
 
-Distinctness of the events plays no role: duplicates are harmless in
-Lemmas~\ref{lem:lll}, \ref{lem:brw} and~\ref{lem:twist}, because the per-prime
-masses $w_\ell$ count them.
-
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 Take $z=\Lc^2$, so $k\le\Lc/(2\log\Lc)$ and $\pi(z)\ll\Lc^2/\log\Lc$.  By
 Lemma~\ref{lem:qmass}(b), $S^*\ll\Lc^4\log\Lc$.  Then $k_0\ll S^*+k\Lc\ll\Lc^4\log\Lc$
@@ -895,7 +895,8 @@ Infinitely many primes arise as before.
 \begin{remark}[Where the exponent comes from; Assessment]\label{rem:exponent}
 The Haar side is $\log(1/\delta)\ll S^*\ll\Lc^4\log\Lc$, plus
 $\log Q_\Pi\ll\Lc^7/\log\Lc$ for the quarantine; cf.\ \cite{Paper1}, where
-$\log(1/\delta^*(T))\ll\Lc^7/\log\Lc$ is proved for the avoider density.  The
+$\log(1/\delta^*(T))\ll\Lc^7/\log\Lc$ is proved, modulo \cite[Prop.~1.4]{ET},
+for the avoider density.  The
 prime side costs $K\cdot\log Z$, with both factors of order $\Lc^7$: $K$
 through $t\Lc$, and $\log Z$ through both $t\Lc$ and $\log Q_\Pi$.  So the
 exponent $14$ is bookkeeping, not a barrier.  Sharper choices of the
