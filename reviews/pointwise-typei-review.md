@@ -9,6 +9,8 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 | L1.1 | SOUND |
 | T6.1 | SOUND |
 | §5 record ck_min(9033649)=883 | CONFIRMED (independent) |
+| §6.2 formal table, C6.4 (H part) | SOUND (all 7 rows reproduced from scratch) |
+| C6.4 unconditional part | SOUND-AFTER-REPAIRS (defect 1) |
 | T2.1 | pending (proof read line-by-line: no defect found yet) |
 
 ## Notes per claim
@@ -31,3 +33,25 @@ ck_min(193)=10, ck_min(12289)=77 (matches notes (48.12)); all 9307 hard p<2·10^
 
 ### §5 record
 `review_ti_ckmin.py one 9033649 900` (all slices incl. forced): n_p=43, ck_min=883. CONFIRMED.
+
+### §6.2 formal table and Cor 6.4
+From-scratch engine `scripts/review_ti_formal.py` (own valuation bookkeeping: default primes via v_ℓ(1+4ck²), prescribed
+primes via v_ℓ(a²+4ck²) asserted < e; target class −p mod 4ck asserted fixed; forcedness from the Legendre symbols fixed
+by the point; determinacy checked for every UNFORCED slice up to the hit — forced slices are 0 by notes Thm 48.1 and need no
+determinacy). Results (all agree with the table):
+* `7:3:1` → 21, (7,3), D=11; `7:5:1` → 21, D=23; `7:6:1` → 28, (14,2), D=15;
+* `2:25:14 3:7:9 7:6:6` (X=2000,B=30000) → **539**, (77,7), D=43, f=3·13·43; 319 unforced slices below;
+* `2:25:14 3:7:9 7:13:6` → 98, (14,7), D=183; `2:25:14 3:7:9 11:2:4` → 990, (55,18), D=119;
+* `11:2:5` (X=3000,B=30000) → >3000 (1491 unforced slices, 14834 with s∉{1,2,3,6}, 24496 total);
+  `11:2:4`, `11:6:4` (X=1500,B=14000) → >1500.
+Hand check of the 539 witness: −p ≡ 3 (4), 43 (49), 10 (11) and 43 ≡ 3, 43, 10 resp. ✓; n_p=7 at the point ✓.
+The H-step identity M=2·#{D|f: D≡−p (4ck)} when N=f·R, R prime >B, was also tested on real factorisations
+(`scripts/review_ti_step5.py`, 21391 cases, 0 failures).
+Note: determinacy genuinely FAILS beyond the hit for some points (e.g. `7:3:1`, e_7=1: slice (10,1) has 7²|N — but it is
+forced; `3:7:9`: slice (23,76), ck=1748, has v_3=12≥9). These are all forced or beyond the stated X-range used, so no
+claim is affected; but the doc should say determinacy is only needed/checked for unforced slices up to the hit.
+
+Unconditional part (refinement at primes ℓ_i>B occurring in the covering): argument re-derived and correct in substance:
+quantifier order is right (refinement depends on the given covering), B-smooth F: F|N ⟺ F|f because v_ℓ(N) is fixed for
+ℓ≤B on unforced slices; certificates on forced slices never hold; F containing some ℓ_i fails as ℓ_i∤N; the refined
+class is a reduced class mod Q·∏ℓ_i, so Dirichlet gives infinitely many primes, all hard with n_p=r. See defect 1.
