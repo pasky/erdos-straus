@@ -22,7 +22,9 @@ w̃_ℓ ≤ η   for every coordinate ℓ.                                  (1.1
 ```
 
 Then `P(∩Ē) ≥ exp(−(4/3)Σ_E β^{s(E)}P(E))`. Moreover, for every E and every
-family 𝒮 of events with `E∉𝒮`, `P(E | ∩_{F∈𝒮}F̄) ≤ x_E`.
+family 𝒮 of events with `E∉𝒮`, `P(E | ∩_{F∈𝒮}F̄) ≤ x_E`. More generally (R48b D5), for
+any event A determined by a coordinate set `supp A` (not necessarily in the family),
+`P(A | ∩_{F∈𝒮}F̄) ≤ P(A)∏_{F∼A}(1−x_F)^{−1} ≤ β^{|supp A|}P(A)`.
 
 *Proof.* Let `E∼E'` mean that their supports meet. E is mutually independent
 of the events whose supports are disjoint from its own (product measure), so
@@ -36,7 +38,13 @@ this is a dependency graph. Every E lies in some `supp`-coordinate ℓ, so
 The middle step holds because each `E'∼E` shares at least one coordinate with E,
 so it is counted in at least one `w̃_ℓ`. So `P(E)=x_Eβ^{−s(E)}≤x_E∏_{E'∼E}(1−x_{E'})`.
 This is the asymmetric LLL hypothesis. Its standard conclusions are
-`P(∩Ē)≥∏(1−x_E)≥exp(−(4/3)Σx_E)` and the conditional bound. ∎
+`P(∩Ē)≥∏(1−x_E)≥exp(−(4/3)Σx_E)` and the conditional bound. For a general A, the
+standard LLL bound `P(A|∩_{𝒮}F̄)≤P(A)∏_{F∈𝒮, F∼A}(1−x_F)^{−1}` is used (as in O8 Lemma 3.3;
+Haeupler–Saha–Srinivasan). The displayed computation, applied with `supp A`, gives
+`∏(1−x_F)^{−1}≤exp((4/3)|supp A|η)=β^{|supp A|}`. ∎
+
+*Range (R48b D5).* The prime-side twist (§5, I1) needs `η≤0.19`. This fails at the
+extreme `β=e^{1/3}` but holds for `β=1+1/log𝓛`, which is the only value used.
 
 *Effect.* The criterion is now per coordinate, with a threshold η independent of
 ℓ and of the level. The price is the reweighting `β^{s(E)}≤β^{ω(M)}`. With
@@ -196,7 +204,8 @@ all atoms). Columns: `S♯`; `Σ_{ℓ>Y}V♯²` against the heuristic `S♯²/(Y
 | 10⁵ | 113.3 | 0.47 (1.15) | 0.019 (0.075) | 0 (0.005) | 6.4 |
 | 10⁶ | 206.7 | 1.05 (2.06) | 0.029 (0.112) | 0.0010 (0.0065) | 9.8 |
 
-* *The second moment.* It stays below the heuristic `S♯²/(Y logY)`.
+* *The second moment.* For `Y≥𝓛³` it stays below the heuristic `S♯²/(Y logY)`. At `Y=𝓛²`,
+  `T=10⁶` it is slightly above (42.86 vs 42.62; R48b D7).
 * *The pointwise ratio.* `max ℓV♯(ℓ)/S♯` grows with T (6.4 → 9.8). This is the
   first-term effect, and it is why we prefer the averaged V2 to the pointwise LPL.
 * *Scope.* This is finite-T evidence only.
@@ -309,13 +318,13 @@ revealing a level of ℓ':
 * *ℓ' constrains only one event at this level:* that event's factor behaves as in
   (a), and its ρ is already 1.
 * *Both constrain ℓ' at this level and agree:* both are multiplied by the same
-  `F_r·1[match]` (F_r = number of classes revealed among), and ρ is divided by `F_r`.
-  So `Π→F_r1[match]Π`. Its mean is Π for `a≥1`, and `(1+(−d|ℓ'))Π≤2Π` for `a=0`.
+  `N·1[match]`, where N is the number of classes of the current fibre at this level
+  (`ℓ'−1` if `a=0`, `ℓ'` if `a≥1`; R48a m1), and ρ is divided by N. So `Π→N·1[match]Π`. Its mean is Π for `a≥1`, and `(1+(−d|ℓ'))Π≤2Π` for `a=0`.
   In the latter case both u's drop.
 * *Both constrain ℓ' and disagree at this level* (level `j+1`): both cannot match, so `Π→0`.
 
-(R1 fix: ρ uses the agreement depth j, not `min(v,v')`. Otherwise a pair agreeing at low levels but not
-at `min(v,v')` would gain a factor `F_r` at low-level steps.) At the start `R_0=∏φ(ℓ'^{j})≤φ(gcd)`.
+(Depth j is used for tightness only. With depth `min(v,v')`, Π is also a supermartingale, because
+the disagreement step kills it (R48a m2).) At the start `R_0=∏φ(ℓ'^{j})≤φ(gcd)`.
 
 So `E[Π_end]≤2^{u_0+u_0'}Π_0≤2^{ω_Y+ω_Y'}P_H(F)P_H(F')·φ(gcd(M_F,M_{F'}))`. Apply this
 with `F=E^{(ℓ)}`, `F'=E'^{(ℓ)}` and multiply by `φ(ℓ^v)^{−1}φ(ℓ^{v'})^{−1}`. The final
