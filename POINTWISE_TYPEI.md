@@ -1,6 +1,6 @@
 # Type-I `ck_min` beyond the least non-residue (task O31)
 
-Status: checkpoint 1 (side agent O31, branch `side-agent/typei-ckmin`); not yet reviewed.
+Status: checkpoint 2 (side agent O31, branch `side-agent/typei-ckmin`); hostile review R31 (`reviews/pointwise-typei-review.md` on branch side-agent/review-typei): SOUND-AFTER-REPAIRS, defects D1–D8 applied.
 
 ## 0. Results at a glance
 
@@ -27,8 +27,10 @@ sieve criteria cost dimension `≥1/2` per slice and need sifting range
 fails beyond `O(1)` slices (L4.5, A4.6). (2) GRH: T3.1; GRH/EH do not
 reach the combined event. (3) The upper-bound direction is false in the
 strong form under H (T2.1: `ck_min≥n_p^{2−ε}` i.o.), but **true for
-`n_p=5`** (T6.1, `C(5)=10`), and in general reduces under H to a finite
-covering problem per value of `n_p` (R6.2).
+`n_p=5`** (T6.1, `C(5)=10`). In general, finite Type-I coverings bound
+`C(r)`, while uncovered classes give lower bounds under H (R6.2). Under H,
+`C(7)≥539` and `C(11)>3000` (C6.4). Unconditionally, every Type-I covering
+of `{n_p=7}` has height ≥539 (resp. >3000 for `{n_p=11}`).
 
 Notation as in POINTWISE_OMEGA §8 and notes §§36, 44, 48, 50, 52. A slice
 is `(c,k)∈𝓑_p` (notes (36.1)); `h=4ck`, `N=N_{c,k}(p)=p²+4ck²`,
@@ -504,8 +506,8 @@ latter happens at height `≥r^{2−ε}` for large r.
   mod 7 are covered for `p≡1 (24)`) use all seven equation types. For
   primes 11–37 Salez's single-prime filters do **not** contain all
   non-residues; e.g. `S_11={0,7,8,10}` misses the non-residues 2 and 6. So
-  for `p≡1 (24)` the literature has full single-prime coverings exactly for
-  `r=5,7`.
+  for `p≡1 (24)`, among Salez's listed single-prime filters
+  (`S_ℓ`, `ℓ≤37`), the full ones are exactly those for `r=5,7` (R31-D7).
 * **What these coverings give for `C(r)`.**
   * For `r=7` the classical covering does not bound `C(7)`. No
     (15d)-certificate is decided modulo `168=[7,24]` on a non-residue class
@@ -560,10 +562,18 @@ undecided prime in F.
 Thm 2.1 machinery with an arbitrary prescribed residue pattern). Take p
 with prescribed residues `a_ℓ mod ℓ^{e_ℓ}` and `p≡1 (mod ℓ^E)` at every
 other prime `ℓ≤B`. The script computes the fixed B-part `f_{c,k}` of
-every `N_{c,k}` with `ck≤X`. It asserts that this part, and every target
-class `−p mod 4ck`, is determined by the class. It then evaluates
-`M=2·#{D|f: D≡−p (4ck)}`. Under H, with `B≥2·#slices+2`, infinitely many
-primes in the class have exactly this `ck_min` and this `n_p`.
+`N_{c,k}`. It asserts that this part, and the target class `−p mod 4ck`,
+are determined by the class **for every unforced slice with ck up to the
+formal `ck_min` (or up to X if there is no hit)**. That is all the H and
+covering arguments need. Forced slices vanish by notes Thm 48.1 and need
+no determinacy. Beyond the hit, determinacy can genuinely fail: e.g. at
+`3:7:9` the slice (23,76) has `v_3(N)=12`, and at `7:3:1` the forced slice
+(10,1) has `7²|N` (R31-D8). It then evaluates `M=2·#{D|f: D≡−p (4ck)}`.
+Under H, with `B≥2·#slices+2` (the script counts all slices with
+`s∉{1,2,3,6}`, which is more than the unforced ones that need prime
+cofactors), infinitely many primes in the class have exactly this
+`ck_min` and this `n_p`. An independent engine (review R31,
+`scripts/review_ti_formal.py`) reproduced all seven rows.
 (CONDITIONAL on H for the explicit family; the proof is Thm 2.1 steps 3–5
 verbatim.)
 
