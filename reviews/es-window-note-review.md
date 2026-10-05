@@ -25,4 +25,12 @@ Referee branch `side-agent/referee-window-note`; author branch `side-agent/windo
 * **Thm 4.2 (fixed-set stacking)** — SOUND. Classes distinct (ℓ>y>a, |a−a'|, ℓ∤24);
   ℓ≤z<p; ℓ|p+a, ℓ odd ⇒ ℓ|x_a and ℓ∤a; Mertens-AP gives (1+J/2)loglog z+O_A(1).
 
+**Brute force (from scratch, `scripts/review_r41_halfset.py`)**: for every a≡3 (4),
+3≤a≤63, the number of selections equals 2^β(a) with β from (eq. beta), every S_σ has
+size φ(a)/2, and every x≤20000 coprime to a with −1∉Rat_a(x) (Rat computed from the
+u/v definition) has C(x)⊆S_σ for some σ (no exception, ~1.6·10⁵ cases). The window
+criterion (Rat condition ⇔ a/(px)=1/y+1/z solvable, by direct search over y) holds for
+all primes p≡1 (4), p<1200, and all a<3p (39 645 pairs); Lemma 2.6 checked there too;
+Remark 3.2(i) example (a=7,x=17,p=61) confirmed.
+
 ## Defects
