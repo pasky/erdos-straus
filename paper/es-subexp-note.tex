@@ -864,7 +864,7 @@ $\delta\ge e^{-2.2S}$ by Corollary~\ref{cor:lll}.
 
 \section{Proof of the main theorems}\label{sec:proof}
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:TZ} and~\ref{thm:hastad}]\label{thm:assembly}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and~\ref{thm:hastad}]\label{thm:assembly}
 Let $T$ be large, $7\le z\le T$, $k=\lfloor\Lc/\log z\rfloor$, and let $\Pi$ be
 the output of Lemma~\ref{lem:iterq} with $c_0=1/(64k)$.  Put
 \[
@@ -872,12 +872,10 @@ the output of Lemma~\ref{lem:iterq} with $c_0=1/(64k)$.  Put
  t=10\,k\,\lceil\log_2(4T^2)\rceil\,k_0 .
 \]
 Then there is a prime $p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and
-$\log p\le C_1K\max(\log Z,K)$, where
-\begin{align*}
- K&\le2.2\,S^*+C'(k+t)\Lc,\\
- \log Z&\le(\pi(z)+64k^2S^*)\Lc+2(3k+2t+1)\Lc+4,
-\end{align*}
-with $C_1$ from Theorem~\ref{thm:transfer} and $C'$ absolute.
+$\log p\le C_6\log Z$, where $C_6$ is absolute and
+\[
+ \log Z\le(\pi(z)+64k^2S^*)\Lc+2(3k+2t+1)\Lc+4 .
+\]
 \end{theorem}
 
 \begin{proof}
@@ -885,16 +883,14 @@ Take the residual system of Definition~\ref{def:system} for this $\Pi$.  By
 Lemma~\ref{lem:system}, $N\le T$, $m\le T^{k+2}$, $S\le S^*$, every support has at
 most $k$ primes, and $w_\ell\le1/(64k)$.  If $m=0$ put $B=1$.  Otherwise define
 $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj} and $t$ as above.
-Since $k_0$ is increasing in $S$ and $m$, it is at least the $k_0$ of
-Corollary~\ref{cor:el}, and $\energy(\cdot;t)$ decreases in $t$.  So
-Corollary~\ref{cor:el} gives $\E[F-B]\le\delta/100$, and Lemma~\ref{lem:twist}
-gives $\mu\ge0.99\delta\ge0.99e^{-2.2S}$ (Corollary~\ref{cor:lll}) and the twist
-condition for every real primitive $\psi$ with conductor coprime to $Q_\Pi$
-dividing some $d_i$.  By Lemma~\ref{lem:size}, every modulus is
-$d_i\le T^{3k+2t}$, and
-\[
- \log(M_1/\mu)\le3(k+2)\Lc+4t(\Lc+1)+4(3k+2t)\Lc+2+2.2S^*+0.02 .
-\]
+Since $m^2\le T^{2k+4}$ and $S\le S^*$, Lemma~\ref{lem:tail} gives the bound
+of Corollary~\ref{cor:el} at this $k_0$, so $\E[F-B]\le\delta/100$.  Then
+Lemma~\ref{lem:twist} gives $\mu=\E B\ge0.99\delta>0$ and the twist condition
+for every real primitive $\psi$ with conductor coprime to $Q_\Pi$ dividing some
+$d_i$.  As $\E[F-B]\le\mu/99$, Lemma~\ref{lem:l1} gives
+$A=\E|B|/\mu\le1+2/99<1.03$.  By Lemma~\ref{lem:size}, every modulus is
+$d_i\le T^{3k+2t}$.
+
 \emph{Pointwise inequality on integers.}  For every integer $n$ the values
 $A_i(n)\in\{0,1\}$ (with $X_\ell=n\bmod\ell^{e_\ell}$) satisfy the hypotheses of
 Lemma~\ref{lem:brw}, and the cell expansion of $B$ is valid on $\mathbb Z$
@@ -906,53 +902,53 @@ $\ell_{\rm aux}\in(R,2R]$.  Apply Theorem~\ref{thm:transfer} with
 $Q=Q_\Pi\ell_{\rm aux}$.  Every $d_i$ is composed of free primes, which are
 $\le T$ and outside $\Pi$, so $\gcd(d_i,Q)=1$; the $b_i$ are units.  The
 inequality $B\le\mathbf 1[W>T]$ holds on $n\equiv1\pmod Q$.  The twist
-condition holds, as a conductor coprime to $Q$ is coprime to $Q_\Pi$.  Here
+condition holds, as a conductor coprime to $Q$ is coprime to $Q_\Pi$.  Also
+$\E_D|B|/\mu=A\le1.03\le Z^{1/4}$, since $\E_D$ is the Haar mean.  Here
 $\log Z=\log Q_\Pi+\log\ell_{\rm aux}+\log\max d_i\le\log Q_\Pi+\log2+2(3k+2t)\Lc$,
 and $\log Q_\Pi\le(\pi(z)+64k^2S^*)\Lc+\log24$ by Lemmas~\ref{lem:system}(i)
-and~\ref{lem:iterq}.  Theorem~\ref{thm:transfer} gives a prime $p$ with
-$p\equiv1\pmod Q$, $W(p)>T$ and $\log p\le C_1K\max(\log Z,K)$.  Since
-$\ell_{\rm aux}\mid p-1$ we have $p>\ell_{\rm aux}>T$, and $840\mid Q_\Pi$
-gives $p\equiv1\pmod{840}$.
+and~\ref{lem:iterq}.  Theorem~\ref{thm:transfer} with
+$\log x=C_2(1+\log1.03)\log Z$ gives a prime $p$ with $p\equiv1\pmod Q$,
+$W(p)>T$ and $\log p\le C_6\log Z$.  Since $\ell_{\rm aux}\mid p-1$ we have
+$p>\ell_{\rm aux}>T$, and $840\mid Q_\Pi$ gives $p\equiv1\pmod{840}$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
 We take $z=\Lc^2$.  Then $k\le\Lc/(2\log\Lc)$ and $\pi(z)\ll\Lc^2/\log\Lc$.  By
 Lemma~\ref{lem:qmass}(b), $S^*\ll\Lc^4\log\Lc$.  Then $k_0\ll S^*+k\Lc\ll\Lc^4\log\Lc$
-and $t\ll k\Lc k_0\ll\Lc^6$, so $K\ll\Lc^7$.  Also
-$\log Q_\Pi\ll(\Lc^2/\log\Lc+k^2S^*)\Lc\ll\Lc^7/\log\Lc$ and
+and $t\ll k\Lc k_0\ll\Lc^6$.  Also
+$\log Q_\Pi\ll(\Lc^2/\log\Lc+k^2S^*)\Lc\ll\Lc^7/\log\Lc$, so
 $\log Z\ll\Lc^7$.  Theorem~\ref{thm:assembly} gives a hard prime $p>T$ with
-$W(p)>T$ and $\log p\le C\Lc^{14}$, i.e.\
-$W(p)>T\ge\exp\big(c(\log p)^{1/14}\big)$.  Applying this to a sequence
+$W(p)>T$ and $\log p\le C\Lc^{7}$, i.e.\
+$W(p)>T\ge\exp\big(c(\log p)^{1/7}\big)$.  Applying this to a sequence
 $T_1<T_2<\dots$ with $T_{j+1}$ larger than the prime found for $T_j$ gives
 infinitely many distinct primes.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:uncond}]
 Take $z=\Lc^2$ again, and use Lemma~\ref{lem:qmass}(a) instead of (b).  Now
-$k_0$, $t$, $K$, $\log Q_\Pi$ and $\log Z$ are all at most
-$\Lc^{O(1)}(S^*+1)$, so
+$k_0$, $t$, $\log Q_\Pi$ and $\log Z$ are all at most $\Lc^{O(1)}(S^*+1)$, so
 \[
- \log\log p\le2\log(S^*+1)+O(\log\Lc)\le(2\log2+o(1))\,\Lc/\log\Lc .
+ \log\log p\le\log(S^*+1)+O(\log\Lc)\le(\log2+o(1))\,\Lc/\log\Lc .
 \]
 Since $x\mapsto x/\log x$ is increasing for $x\ge e$, we get
-$\Lc/\log\Lc\ge Y:=(1/(2\log2)-o(1))\log\log p$, hence
+$\Lc/\log\Lc\ge Y:=(1/\log2-o(1))\log\log p$, hence
 $\Lc\ge Y\log\Lc\ge Y\log Y$.  That is,
 \[
- \log W(p)>\Lc\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p .
+ \log W(p)>\Lc\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p .
 \]
 Infinitely many primes arise as before.
 \end{proof}
 
 \begin{remark}[Where the exponent comes from; Assessment]\label{rem:exponent}
-The Haar side is $\log(1/\delta)\ll S^*\ll\Lc^4\log\Lc$, plus
-$\log Q_\Pi\ll\Lc^7/\log\Lc$ for the quarantine; cf.\ \cite{Paper1}, where
-$\log(1/\delta^*(T))\ll\Lc^7/\log\Lc$ is proved, modulo \cite[Prop.~1.4]{ET},
-for the avoider density.  The
-prime side costs $K\cdot\log Z$, with both factors of order $\Lc^7$: $K$
-through $t\Lc$, and $\log Z$ through both $t\Lc$ and $\log Q_\Pi$.  So the
-exponent $14$ is bookkeeping, not a barrier.  Sharper choices of the
-parameters appear to lower it somewhat; we do not pursue this here.  We make
-no claim about the true order of $W(p)$.
+The certified bound is $\log p\ll\log Z\ll\log Q_\Pi+t\Lc$.  The quarantine
+term is $\log Q_\Pi\ll\Lc^7/\log\Lc$, which is the size of the Haar-side bound
+$\log(1/\delta^*(T))\ll\Lc^7/\log\Lc$ proved, modulo \cite[Prop.~1.4]{ET}, in
+\cite{Paper1}.  The junta term $t\Lc\ll\Lc^7$ is larger by a logarithm.  It
+comes from the bit width $b\asymp\Lc$ in Lemma~\ref{lem:tail}, multiplied by
+$k$, $k_0\asymp S^*$ and the cost $\Lc$ per modulus prime.  So the exponent
+$7$ is bookkeeping, not a barrier.  With $z=\Lc^2$, however, the quarantine
+alone forces $\log Q_\Pi\gg\pi(z)\Lc\asymp\Lc^3/\log\Lc$.  We make no claim
+about the true order of $W(p)$.
 \end{remark}
 
 \section{Summary of status}\label{sec:status}
