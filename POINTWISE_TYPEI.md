@@ -149,3 +149,61 @@ Then `ck_min(p)>gr ≥ r^{2−ε}/2` with `n_p=r`. ∎
   all large hard p, for any function f, or even `ck_min(p) ≤ n_p^{2−ε}`,
   would disprove Hypothesis H for the explicit family (2.3). Averaged
   upper bounds are not affected (the H-primes have density zero).
+
+## 3. Under GRH: `ck_min ≫ log p·log log p` infinitely often
+
+**Theorem 3.1 (CONDITIONAL on GRH for real Dirichlet characters).** For
+every `ε>0` there are infinitely many primes `p≡1 (24)` with
+
+```
+n_p > (1/(2 log 2) − ε)·log p·log log p   and hence   ck_min(p) > (1/(2 log 2) − ε)·log p·log log p.
+```
+
+This is Montgomery's GRH Ω-result for `n_p` (Topics in multiplicative
+number theory, LNM 227; quoted in Lau–Wu §1, archived
+`sources/lit2026/lau-wu-least-quadratic-nonresidue.txt` l. 72), in the form
+needed for Lemma 8.1 (the extra condition `p≡1 (mod 4)`); we give the
+standard proof so that the congruence condition and the constant are
+visible.
+
+*Proof.* Let `y≥5`, and let `L=ℚ(√−1, √ℓ : ℓ≤y prime)`, a multiquadratic
+field of degree `n_L=2^{π(y)+1}`. Its quadratic subfields have conductors
+dividing `F=8∏_{3≤ℓ≤y}ℓ`, so by the conductor–discriminant formula
+`log d_L ≤ n_L log F ≤ n_L(θ(y)+log 8)`. A prime `p>y` splits completely in
+L iff `p≡1 (4)` and `(ℓ/p)=1` for all primes `ℓ≤y`. ζ_L is a product of
+Dirichlet L-functions of real characters, so GRH for these gives the
+Lagarias–Odlyzko effective Chebotarev theorem (Lagarias–Odlyzko 1977,
+Thm 1.1; in Serre's form, Serre 1981, Thm 4): for the identity class,
+
+```
+| π_split(x) − Li(x)/n_L | ≤ c₁ x^{1/2} (log d_L / n_L + log x) ≤ c₁ x^{1/2}(θ(y)+3+log x),
+```
+
+with c₁ absolute. Hence the number of split primes in `(x/2,x]` is
+
+```
+≥ x/(3 n_L log x) − 2c₁ x^{1/2}(θ(y)+3+log x)   (x large),
+```
+
+which is positive as soon as `2^{π(y)} ≤ x^{1/2}/(C(log x)²)` (using
+`θ(y)≪log x·log log x` in the range below). Take y maximal with
+`π(y) ≤ (log x − 4 log log x − 2 log C)/(2 log 2)`. By the prime number
+theorem `y ∼ π(y) log π(y) ∼ (1/(2 log 2)) log x·log log x`. Every split
+`p∈(x/2,x]` has `p≡1 (4)`, `(2/p)=(3/p)=1` (so `p≡1 (24)`) and
+`(ℓ/p)=1` for all `ℓ≤y`, so `n_p>y` and Lemma 8.1 (POINTWISE_OMEGA) gives
+`ck_min(p)>y`. Since `log p = log x+O(1)`, the claim follows. ∎
+
+**Remarks.**
+* *Ceiling for congruence methods under GRH.* Ankeny (GRH):
+  `n_p ≪ (log p)²`. By Cor 8.4 every congruence certificate for
+  `ck_min(p)>T` forces `n_p>T`, so under GRH congruence methods can never
+  certify `ck_min > C(log p)²`. Theorem 3.1 is within a factor
+  `log p/log log p` of that ceiling, and matches the random model
+  `max_{p≤x} n_p ≍ log x·log log x`.
+* *GRH does not reach the combined event.* GRH controls Chebotarev
+  conditions in fixed (or controlled-discriminant) fields, i.e. congruence
+  conditions on p. On an unforced slice, `M_{c,k}(p)=0` is not a congruence
+  event (notes Cor 52.2), and it involves target divisors D up to `√N≍p`,
+  i.e. congruences on p modulo `hD` up to `h·p` (Lemma 1.1). GRH gives
+  equidistribution of primes ≤x only to moduli `≤x^{1/2−o(1)}`. Section 4
+  quantifies why this (and even Elliott–Halberstam) is insufficient.
