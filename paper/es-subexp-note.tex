@@ -156,8 +156,8 @@ tail $\le4\cdot2^{-k_0}$ at level $t\asymp k\log T\cdot k_0$
 $t\ll(\log T)^6$ and $\log p\ll(\log T)^{14}$.
 
 \subsection*{Relation to the literature}
-Lemma~\ref{lem:brw} is Razborov's identity, and Lemma~\ref{lem:tail} is a
-routine application of \cite{Hastad,LMN} (we follow \cite[\S4]{OD}).  We claim
+The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.  The tail bound
+(Lemma~\ref{lem:tail}) is a routine application of \cite{Hastad,LMN} (we follow \cite[\S4]{OD}).  We claim
 no novelty for either.  To our knowledge these tools from the theory of
 bounded independence (``polylogarithmic independence fools DNF and
 $\mathrm{AC}^0$'' \cite{Bazzi,Razborov,Braverman}) have not been used
@@ -574,8 +574,10 @@ $\varphi^{=U}$ is orthogonal to every function of $X_{U'}$ with $U'\not\supseteq
 Hence the space of sums of functions of at most $t$ coordinates is
 $\bigoplus_{|U|\le t}V_U$, where $V_U$ is the space of all possible $\varphi^{=U}$, and
 \begin{equation}\label{eq:energy}
- \energy(\varphi;t):=\sum_{|U|>t}\|\varphi^{=U}\|_2^2
- =\min\Big\{\E(\varphi-g)^2:\ g\ \text{a sum of functions of}\le t\ \text{coordinates}\Big\},
+ \begin{aligned}
+ \energy(\varphi;t)&:=\sum_{|U|>t}\|\varphi^{=U}\|_2^2\\
+ &\phantom{:}=\min\Big\{\E(\varphi-g)^2:\ g\ \text{a sum of functions of}\le t\ \text{coordinates}\Big\},
+ \end{aligned}
 \end{equation}
 attained at $\varphi^{\le t}:=\sum_{|U|\le t}\varphi^{=U}$.
 
@@ -654,7 +656,10 @@ combination evaluated at any integer $n$.
 For $\varphi=F^{(j)}$, a function of the $N'\le N$ coordinates outside $\supp E_j$,
 \[
  \varphi^{\le t}=\sum_{|U|\le t}\sum_{W\subseteq U}(-1)^{|U\setminus W|}\E[\varphi\mid X_W]
- =\sum_{|W|\le t}c_W\,\E[\varphi\mid X_W],\qquad
+ =\sum_{|W|\le t}c_W\,\E[\varphi\mid X_W],
+\]
+where
+\[
  c_W=\sum_{i=0}^{t-|W|}(-1)^i\binom{N'-|W|}i .
 \]
 Here $|c_W|\le(N+1)^t$, and there are at most $(N+1)^t$ sets $W$.  Further
@@ -704,10 +709,10 @@ $F=F'\cdot\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where $\mathrm{Forb}$ is th
 $\sigma_{i,\ell_0}$ of the events $E_i\ni\ell_0$ whose other conditions hold.  The
 $\ell_0$-component $\psi_0$ of $\psi$ is a nontrivial character of $X_{\ell_0}$, and
 $F'\cdot\prod_{\ell\ne\ell_0}\psi_\ell$ depends on $X_{-\ell_0}$ only.  So
-\[
- |\E[F\psi]|=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_0\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|
- \le\sum_{i:\,\ell_0\in\supp E_i}\frac{\PP(F'=1,\ E_i\setminus\ell_0)}{|G_{\ell_0}|},
-\]
+\begin{align*}
+ |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_0\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|\\
+ &\le\sum_{i:\,\ell_0\in\supp E_i}\frac{\PP(F'=1,\ E_i\setminus\ell_0)}{|G_{\ell_0}|},
+\end{align*}
 where $E_i\setminus\ell_0$ is the event given by the conditions of $E_i$ off $\ell_0$.
 By Corollary~\ref{cor:lll} applied to the family defining $F'$,
 $\PP(E_i\setminus\ell_0\mid F'=1)\le1.04\,\PP(E_i\setminus\ell_0)$.  Hence
@@ -803,11 +808,10 @@ beyond their support size; in particular there is no codegree hypothesis.
 \begin{corollary}[Proved modulo Theorem~\ref{thm:hastad}]\label{cor:el}
 In the Setting of \S\ref{sec:brw} with $N\le T$ and $m\ge1$, assume $w_\ell\le1/(64k)$ for all
 $\ell$.  Let
-\[
- b=\lceil\log_2(4T^2)\rceil,\qquad
- k_0=\big\lceil3S\log_2e+\log_2\big(400\,m^2(S+1)\big)\big\rceil,\qquad
- t=10\,k\,b\,k_0 ,
-\]
+\begin{gather*}
+ b=\lceil\log_2(4T^2)\rceil,\qquad t=10\,k\,b\,k_0,\\
+ k_0=\big\lceil3S\log_2e+\log_2\big(400\,m^2(S+1)\big)\big\rceil,
+\end{gather*}
 and define $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}.  Then
 $\E[F-B]\le\delta/100$.
 \end{corollary}
@@ -831,13 +835,11 @@ the output of Lemma~\ref{lem:iterq} with $c_0=1/(64k)$.  Put
  t=10\,k\,\lceil\log_2(4T^2)\rceil\,k_0 .
 \]
 Then there is a prime $p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and
-\[
- \log p\le C_1K\max(\log Z,K),\qquad
- \begin{aligned}
+$\log p\le C_1K\max(\log Z,K)$, where
+\begin{align*}
  K&\le2.2\,S^*+C'(k+t)\Lc,\\
  \log Z&\le(\pi(z)+64k^2S^*)\Lc+2(3k+2t+1)\Lc+4,
- \end{aligned}
-\]
+\end{align*}
 with $C_1$ from Theorem~\ref{thm:transfer} and $C'$ absolute.
 \end{theorem}
 
@@ -877,7 +879,7 @@ gives $p\equiv1\pmod{840}$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Take $z=\Lc^2$, so $k\le\Lc/(2\log\Lc)$ and $\pi(z)\ll\Lc^2/\log\Lc$.  By
+We take $z=\Lc^2$.  Then $k\le\Lc/(2\log\Lc)$ and $\pi(z)\ll\Lc^2/\log\Lc$.  By
 Lemma~\ref{lem:qmass}(b), $S^*\ll\Lc^4\log\Lc$.  Then $k_0\ll S^*+k\Lc\ll\Lc^4\log\Lc$
 and $t\ll k\Lc k_0\ll\Lc^6$, so $K\ll\Lc^7$.  Also
 $\log Q_\Pi\ll(\Lc^2/\log\Lc+k^2S^*)\Lc\ll\Lc^7/\log\Lc$ and
@@ -898,7 +900,9 @@ $\Lc^{O(1)}(S^*+1)$, so
 Since $x\mapsto x/\log x$ is increasing for $x\ge e$, we get
 $\Lc/\log\Lc\ge Y:=(1/(2\log2)-o(1))\log\log p$, hence
 $\Lc\ge Y\log\Lc\ge Y\log Y$.  That is,
-$\log W(p)>\Lc\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p$.
+\[
+ \log W(p)>\Lc\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p .
+\]
 Infinitely many primes arise as before.
 \end{proof}
 
