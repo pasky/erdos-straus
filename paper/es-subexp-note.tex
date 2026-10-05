@@ -43,7 +43,7 @@ infinitely many primes $p$ in Mordell's hard classes.  Here we prove
 $W(p)\ge\exp(c(\log p)^{1/14})$ for infinitely many hard primes, assuming
 Elsholtz and Tao's average bound for $\tau(kab^2+1)$; equivalently, the least
 hard prime with $W(p)>T$ is at most $\exp(O((\log T)^{14}))$.
-Unconditionally we get $\log W(p)\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p$
+Without the Elsholtz--Tao input we get $\log W(p)\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p$
 infinitely often.  As before, the class of one modulo the small primes leaves
 a residual congruence system on the larger primes.  The local lemma shows
 that its avoiding set has Haar density $e^{-O(S)}$, where $S$ is its total
@@ -167,12 +167,12 @@ with a \emph{relative} error.  So the number of primes per cell is what
 costs, while the size of the moduli is nearly free.  Earlier uses of the
 switching lemma in number theory known to us run in the opposite
 direction: they show that an arithmetic function such as the M\"obius
-function is uncorrelated with bounded-depth circuits.  Our literature
+function is uncorrelated with bounded-depth circuits \cite{Green,Bourgain}.  Our literature
 search was limited, and we make no priority claim.  The Haar-side input,
 a local-lemma lower bound for the density of the uncovered set of a
 congruence system, has well-known relatives in the work on Erd\H{o}s
-covering systems by Hough and by Balister, Bollob\'as, Morris,
-Sahasrabudhe and Tiba.  We do not use those results.
+covering systems by Hough \cite{Hough} and by Balister, Bollob\'as, Morris,
+Sahasrabudhe and Tiba \cite{BBMST}.  We do not use those results.
 
 \smallskip\noindent\textbf{Status conventions.}  Every theorem header
 carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
@@ -910,6 +910,13 @@ Wiley, 2016.
 parameter exceeds every power of $\log p$, preprint, 2026.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
+% TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough]
+% were written from memory (no library access in task O33); check before submission.
+\bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
+M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
+Invent.\ Math.\ 228 (2022), 377--414.
+\bibitem{Bourgain} J.~Bourgain, On the Fourier--Walsh spectrum of the Moebius
+function, Israel J.\ Math.\ 197 (2013), 215--235.
 \bibitem{Braverman} M.~Braverman, Polylogarithmic independence fools
 $\mathrm{AC}^0$ circuits, J.\ ACM 57 (2010), no.~5, Art.~28.
 \bibitem{Dav} H.~Davenport, Multiplicative Number Theory, 3rd ed., Springer GTM 74, 2000.
@@ -918,10 +925,14 @@ Statist.\ 9 (1981), 586--596.
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 50--105 (Proposition numbering as in arXiv:1107.1010v6).
+\bibitem{Green} B.~Green, On (not) computing the M\"obius function using
+bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
 \bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
 the Lov\'asz local lemma, J.\ ACM 58 (2011), no.~6, Art.~28.
 \bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
 circuits, in: Proc.\ 18th ACM STOC (1986), 6--20.
+\bibitem{Hough} R.~Hough, Solution of the minimum modulus problem for covering
+systems, Ann.\ of Math.\ (2) 181 (2015), 361--382.
 \bibitem{HW} G.~H.~Hardy and E.~M.~Wright, An Introduction to the Theory of
 Numbers, 6th ed., Oxford, 2008.
 \bibitem{Hoeffding} W.~Hoeffding, A class of statistics with asymptotically
