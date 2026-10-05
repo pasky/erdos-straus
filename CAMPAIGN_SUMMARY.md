@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)22)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)26 and (H)27)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -46,16 +46,28 @@ literature.
 
 The campaign ran two lines of research.
 * **Exceptional-set line.** It went from 2/3 to 3/4. It then proved that
-  3/4 is sharp for a broad, precisely defined class of congruence sieves.
-  Later work extended the cap to the large sieve and to inter-frequency
-  cancellation for moduli `≤ N/2`. The one identified door above 3/4 is
-  the tuple-count hypothesis TC_θ, which is a CONJECTURE.
+  3/4 is sharp, with no `log log` loss, for every coefficient-sum
+  congruence sieve over any mixture of forced classes. Later work
+  extended the cap to large sieves (twisted, hybrid, applied to primes),
+  to prime-only majorants and to inter-frequency cancellation for moduli
+  `≤ N/2`. The remaining doors above 3/4 are precisely stated: the
+  repaired tuple-count hypothesis TC^alt_θ (a CONJECTURE), the
+  large-sieve hypothesis H_LS∞ for forced families (a CONJECTURE), the
+  combinatorial statement "weak SPW" for hybrid methods (open; the
+  fixed-σ version is refuted), and genuinely non-CRT arithmetic input.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
   meta-theorem about procedures. It also produced unconditional
-  Ω-results showing that the least multiplier witness `W(p)` exceeds every
-  fixed power of `log p` infinitely often.
+  Ω-results for the least multiplier witness `W(p)`. The rate went from
+  every fixed power of `log p` to
+  `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
+  hard primes (PROVED modulo Gallagher's theorem and Nair–Tenenbaum).
+  The matching profinite (Haar) exponent is exactly 3 up to logs, so the
+  heuristic truth is `log W ≍ (log p)^{1/3}`. Exponent 1/4 is proved to
+  be the ceiling of the architecture used; 1/3 would need bilinear or
+  parity-sensitive prime input. Window results give exact orders for
+  bounded windows and show that parity input is necessary.
 
 ---
 
