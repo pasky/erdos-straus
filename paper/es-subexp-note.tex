@@ -1900,7 +1900,7 @@ $a=k+2-j,\dots,k+1$.
 
 This is the dual (linear programming) side of lower-bound sieves:
 minorants of degree $k$ of $\mathbf 1[b=0]$ with positive mean exist only if
-no such $\nu$ exists.  It is close in spirit to work on $k$-wise independent
+no such $\nu$ exists (the duality itself is standard, cf.\ \cite[Thm.~5]{Tao254A}).  It is close in spirit to work on $k$-wise independent
 laws with extremal probabilities \cite{BGP,PYY}; we claim no novelty for
 it.  In the Poisson-like model with $R$ of order $S$, Bonferroni inequalities
 of order $\asymp S$ do give positive minorants, so the order $k\asymp R$ is
@@ -2134,33 +2134,45 @@ adapted to the ES system.  We do not know how to provide it.
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
-\item Proved: Lemmas~\ref{lem:atoms}, \ref{lem:one}, \ref{lem:system},
-\ref{lem:gradedq}, \ref{lem:h}, \ref{lem:param}; the energy bound
+\item Proved: Lemmas~\ref{lem:atoms}, \ref{lem:jacobi}, \ref{lem:one},
+\ref{lem:system}, \ref{lem:betalll} (with the classical Lemma~\ref{lem:lll}),
+\ref{lem:book}, Lemma~\ref{lem:masses}(B); the Janson-type inequality
+(Lemmas~\ref{lem:compat}, \ref{lem:lopsided}, Theorem~\ref{thm:janson}) and
+Lemmas~\ref{lem:hlll}, \ref{lem:hpair}; the energy bound
 (Lemmas~\ref{lem:cover}--\ref{lem:theta}, Theorems~\ref{thm:C1}
 and~\ref{thm:filtration}, Corollaries~\ref{cor:tail} and~\ref{cor:modtail},
 Remark~\ref{rem:sharp}, and Remark~\ref{rem:boolean} except the cited
-switching-lemma constant);
-Lemmas~\ref{lem:haar}, \ref{lem:brw}, \ref{lem:EL}, \ref{lem:size}, \ref{lem:l1},
-\ref{lem:twist} and Corollary~\ref{cor:lll} (with the classical
-Lemma~\ref{lem:lll}); the unconditional part of Theorem~\ref{thm:omega}
-(with the classical divisor bound).
-\item Proved modulo the Elsholtz--Tao estimates (Theorem~\ref{thm:ETall}):
-Lemmas~\ref{lem:block}, \ref{lem:rough}, \ref{lem:smooth}, Theorem~\ref{thm:omega}
-and the Haar-side Corollary~\ref{cor:haar}.
+switching-lemma constant); Lemmas~\ref{lem:haar}, \ref{lem:brw}, \ref{lem:EL},
+\ref{lem:size}, \ref{lem:l1}, \ref{lem:twist}; the planting and level-barrier
+Lemmas~\ref{lem:planting}, \ref{lem:barrier}, and Lemmas~\ref{lem:unique},
+\ref{lem:cuD}.
+\item Proved modulo the Nair--Tenenbaum theorem (Theorem~\ref{thm:NT}):
+Lemma~\ref{lem:masses}(A) and the Haar upper bound
+Theorem~\ref{thm:haarupper}.
+\item Proved modulo the fundamental lemma of sieve theory: Lemma~\ref{lem:hmass}
+and the Haar lower bound Theorem~\ref{thm:haarlower}.  With the previous
+item: Theorem~\ref{thm:haar} (the Haar exponent is $3$).
 \item Proved modulo Gallagher's theorem (Theorems~\ref{thm:G}
 and~\ref{thm:xz}, quoted from the draft \cite{MV3}): the linear transfer
-Theorem~\ref{thm:transfer}, Theorem~\ref{thm:assembly} and
-Theorem~\ref{thm:uncond}.
-\item Proved modulo Gallagher's theorem and Theorem~\ref{thm:ETall}:
-Theorem~\ref{thm:main}.
-\item Cited from internal work, not reproved: Remark~\ref{rem:haarlower}.
-\item Assessment: Remarks~\ref{rem:linear}, \ref{rem:mean}
-and~\ref{rem:exponent}.
-\item Not claimed: anything about the Erd\H{o}s--Straus conjecture;
-optimality of the exponent $1/5$; any numerical instance; priority for
-Theorem~\ref{thm:C1} (literature search partial).
-\item Håstad's switching lemma and the Thorner--Zaman theorem are no longer
-used; they are cited only for comparison.
+Theorem~\ref{thm:transfer} and Lemma~\ref{lem:cuprimes}.
+\item Proved modulo Gallagher's theorem and Theorem~\ref{thm:NT}:
+Theorem~\ref{thm:assembly} and Theorem~\ref{thm:main}.
+\item Proved modulo Gallagher's theorem and the fundamental lemma:
+Theorem~\ref{thm:ceiling} (= Theorem~\ref{thm:ceilingintro}).  Proved
+implications: Corollary~\ref{cor:ceiling} (within its stated scope) and
+Corollary~\ref{cor:notail} (which also uses Theorem~\ref{thm:NT}).
+\item Evidence, not used: the computer check of Lemma~\ref{lem:jacobi} for
+$M\le2\cdot10^5$; the exact check of Theorem~\ref{thm:janson} on small
+instances; the Monte Carlo fit of $\delta^*(T)$ for $T\le32767$.
+\item Assessment: Remarks~\ref{rem:linear}, \ref{rem:exponent}
+and~\ref{rem:third}.
+\item Not claimed: anything about the Erd\H{o}s--Straus conjecture; the
+heuristic exponent $1/3$; anything about arguments outside the scope of
+Corollary~\ref{cor:ceiling}; any numerical instance; priority for
+Theorem~\ref{thm:C1} or Theorem~\ref{thm:janson} (literature searches
+partial).
+\item The Elsholtz--Tao estimates, Håstad's switching lemma and the
+Thorner--Zaman theorem are no longer used; they are cited only for comparison.
 \end{itemize}
 
 \begin{thebibliography}{99}
@@ -2182,6 +2194,13 @@ formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 % the Fourier-growth line (Chattopadhyay--Hatami--Lovett--Tal and successors),
 % since G_F(lambda) with constant lambda is the squared norm of a noise operator
 % with rho>1 applied to F.
+% TODO(verify, v4): [BGP], [PYY], [ErdosSpencer], [Janson], [FI], [Tao254A] and the
+% journal data of [Henriot] were written from memory (arXiv numbers of [BGP],
+% [PYY] and the Tao blog date as recorded in reviews/novelty-audit-2026-10.md).
+% [NT] checked on the archived PDF (Acta Math. 180 (1998), 119-144); [Henriot]
+% arXiv:1102.1643 archived, (1.1) checked.
+\bibitem{BGP} I.~Benjamini, O.~Gurel-Gurevich and R.~Peled, On $K$-wise
+independent distributions and Boolean functions, arXiv:1201.3261 (2012).
 \bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
 M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
 Invent.\ Math.\ 228 (2022), 377--414.
@@ -2192,18 +2211,23 @@ $\mathrm{AC}^0$ circuits, J.\ ACM 57 (2010), no.~5, Art.~28.
 \bibitem{Dav} H.~Davenport, Multiplicative Number Theory, 3rd ed., Springer GTM 74, 2000.
 \bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
 Statist.\ 9 (1981), 586--596.
+\bibitem{ErdosSpencer} P.~Erd\H{o}s and J.~Spencer, Lopsided Lov\'asz local
+lemma and Latin transversals, Discrete Appl.\ Math.\ 30 (1991), 151--154.
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 50--105 (Proposition numbering as in arXiv:1107.1010v6).
 \bibitem{FFKPY} M.~Filaseta, K.~Ford, S.~Konyagin, C.~Pomerance and G.~Yu,
 Sieving by large integers and covering systems of congruences, J.\ Amer.\
 Math.\ Soc.\ 20 (2007), 495--517.
+\bibitem{FI} J.~Friedlander and H.~Iwaniec, Opera de Cribro, Amer.\ Math.\
+Soc.\ Colloq.\ Publ.\ 57, 2010.
 \bibitem{Gallagher} P.~X.~Gallagher, A large sieve density estimate near
 $\sigma=1$, Invent.\ Math.\ 11 (1970), 329--339.
 \bibitem{Green} B.~Green, On (not) computing the M\"obius function using
 bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
-\bibitem{Haar} Anonymous, The Haar avoider exponent for Erd\H{o}s--Straus
-witnesses, internal note, 2026.
+\bibitem{Henriot} K.~Henriot, Nair--Tenenbaum bounds uniform with respect to
+the discriminant, Math.\ Proc.\ Cambridge Philos.\ Soc.\ 152 (2012), 405--424
+(arXiv:1102.1643).
 \bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
 the Lov\'asz local lemma, J.\ ACM 58 (2011), no.~6, Art.~28.
 \bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
@@ -2214,6 +2238,8 @@ systems, Ann.\ of Math.\ (2) 181 (2015), 361--382.
 Numbers, 6th ed., Oxford, 2008.
 \bibitem{Hoeffding} W.~Hoeffding, A class of statistics with asymptotically
 normal distribution, Ann.\ Math.\ Statist.\ 19 (1948), 293--325.
+\bibitem{Janson} S.~Janson, Poisson approximation for large deviations,
+Random Structures Algorithms 1 (1990), 221--229.
 \bibitem{LT} V.~Lecomte and L.-Y.~Tan, Sharper bounds on the Fourier
 concentration of DNFs, in: Proc.\ 62nd IEEE FOCS (2021), arXiv:2109.04525.
 \bibitem{LMN} N.~Linial, Y.~Mansour and N.~Nisan, Constant depth circuits,
@@ -2231,18 +2257,25 @@ the least prime ideal in the Chebotarev density theorem, Invent.\ Math.\ 54
 Mathematics 30, Academic Press, 1969.
 \bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
 evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
+\bibitem{NT} M.~Nair and G.~Tenenbaum, Short sums of certain arithmetic
+functions, Acta Math.\ 180 (1998), 119--144.
 \bibitem{OD} R.~O'Donnell, Analysis of Boolean Functions, Cambridge University
 Press, 2014.
 \bibitem{Oblath} R.~Obl\'ath, Sur l'\'equation diophantienne
 $4/n=1/x_1+1/x_2+1/x_3$, Mathesis 59 (1950), 308--316.
 \bibitem{PW} C.~Pomerance and A.~Weingartner, Exceptions to the
 Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
+\bibitem{PYY} R.~Peled, A.~Yadin and A.~Yehudayoff, The maximal probability
+that $k$-wise independent bits are all $1$, Random Structures Algorithms 38
+(2011), 502--525 (arXiv:0801.0059).
 \bibitem{Razborov} A.~Razborov, A simple proof of Bazzi's theorem, ACM Trans.\
 Comput.\ Theory 1 (2009), no.~1, Art.~3.
 \bibitem{RS} J.~B.~Rosser and L.~Schoenfeld, Approximate formulas for some
 functions of prime numbers, Illinois J.\ Math.\ 6 (1962), 64--94.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
 equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{Tao254A} T.~Tao, 254A, Notes 4: Some sieve theory, blog post,
+21 January 2015.
 \bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number theorem
 for arithmetic progressions, Math.\ Z.\ 306 (2024), Paper No.~54
 (arXiv:2108.10878v2).
