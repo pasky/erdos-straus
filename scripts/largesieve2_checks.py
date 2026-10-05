@@ -259,6 +259,58 @@ def check4(cls):
     print("    " + "; ".join(rows) + "  [base: 7 at q=8, 2 at q=3]")
 
 
+def check5():
+    """Section 8: band family. (a) LP: level-lambda majorants (each term sees at most one
+    prime of each pair) have mean >= 1; (b) Lemma 8.3's polynomial: P >= 1 on J, int P^2 <= 1 - eta/3."""
+    pairs = [(5, 7), (11, 13)]
+    Mp = math.prod(a * b for a, b in pairs)
+    for eta in (1 / 8, 1 / 9):
+        avoid = np.ones(Mp, dtype=bool)
+        n = np.arange(Mp)
+        for (l1, l2), a in zip(pairs, (2, 3)):
+            D = l1 * l2
+            ph = (n * a % D) / D
+            dist = np.abs(ph - np.round(ph))
+            avoid &= dist <= 0.5 - eta
+        # moduli: products of at most one prime from each pair
+        mods = []
+        for c1 in (1, 5, 7):
+            for c2 in (1, 11, 13):
+                mods.append(c1 * c2)
+        rows, cols, c = [], [], []
+        for d in mods:
+            for b in range(d):
+                j = len(c)
+                mem = list(range(b, Mp, d))
+                rows += mem
+                cols += [j] * len(mem)
+                c.append(len(mem) / Mp)
+        A = coo_matrix((np.ones(len(rows)), (rows, cols)), shape=(Mp, len(c))).tocsr()
+        res = linprog(np.array(c), A_ub=-A, b_ub=-avoid.astype(float), bounds=(None, None), method="highs")
+        assert res.status == 0 and res.fun >= 1 - 1e-9, res.fun
+        R = math.ceil(4 / eta ** 2)
+        t = np.linspace(0, 1, 200001)
+        # G = I * F_R in Fourier: I^(m) = e(-m/2) sin(pi m eta)/(pi m), F_R^(m) = 1 - |m|/(R+1)
+        m = np.arange(-R, R + 1)
+        Ihat = np.where(m == 0, eta, np.sin(np.pi * m * eta) / (np.pi * np.where(m == 0, 1, m))) * np.cos(np.pi * m)
+        Ghat = Ihat * (1 - np.abs(m) / (R + 1))
+        chat = -Ghat
+        chat[R] += 1 + eta / 4
+        # evaluate P on a grid in chunks (memory-bounded)
+        Pmin = np.inf
+        for k0 in range(0, len(t), 20000):
+            tt = t[k0:k0 + 20000]
+            vals = np.cos(2 * np.pi * np.outer(tt, m)) @ chat  # chat real and even
+            Jmask = np.abs(tt - 0.5) >= eta
+            if Jmask.any():
+                Pmin = min(Pmin, vals[Jmask].min())
+        l2 = float(np.sum(chat ** 2))
+        assert Pmin >= 1 - 1e-9 and l2 <= 1 - eta / 3
+        print(f"(5) band family eta={eta:.4f}: |A mod {Mp}|={int(avoid.sum())} "
+              f"(density {avoid.mean():.3f}); level-lambda majorant LP min = {res.fun:.6f} >= 1; "
+              f"Lemma 8.3: R={R}, min_J P = {Pmin:.4f} >= 1, int P^2 = {l2:.4f} <= 1-eta/3 = {1-eta/3:.4f}")
+
+
 def main():
     cls = toy_family()
     avoid = avoider(cls)
@@ -272,6 +324,7 @@ def main():
     for keep in (0.05, 0.1, 0.2):
         thin = {C for C in cls if SMALL % C[1] == 0 or random.random() < keep}
         check4(thin)
+    check5()
 
 
 if __name__ == "__main__":

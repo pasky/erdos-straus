@@ -544,6 +544,10 @@ modulus of `V_𝒟` (stand-in for the level).
    at ℓ = 5, 7, 11; and `1 + χ²_q(π) ≤ (1+χ²_q(σ))(1−𝔏)^{−2}` for all q,
    on the full toy family (every rough prime heavy, leak 0.91: degenerate)
    and on three random thinnings (leak 0, 0, 0.32).
+5. §8 band family on `ℤ/5005` (pairs (5,7), (11,13), η = 1/8, 1/9): the
+   LP over majorants whose terms see at most one prime of each pair has
+   value exactly 1 (Prop 8.2(a)); Lemma 8.3's polynomial has
+   `min_J P = 1.029, 1.026` and `∫P² = 0.926, 0.935 ≤ 1 − η/3`.
 
 ## Replay
 

@@ -10,3 +10,5 @@
     q=8: chi2(sigma)=7.0000, chi2(pi)=7.0000; q=3: chi2(sigma)=2.0000, chi2(pi)=2.0000; q=5: chi2(sigma)=0.2500, chi2(pi)=0.2500; q=7: chi2(sigma)=0.1667, chi2(pi)=0.1667; q=11: chi2(sigma)=0.0201, chi2(pi)=0.0201  [base: 7 at q=8, 2 at q=3]
 (4) |family|=204, sigma exact: leak=0.3175; per prime (l, chi2_l(sigma), E[p/(1-p);light], E p): (5,0.2500,0.2500,0.2000), (7,0.2250,0.3000,0.3929), (11,0.0363,0.1112,0.2662)
     q=8: chi2(sigma)=7.0000, chi2(pi)=7.0000; q=3: chi2(sigma)=2.0000, chi2(pi)=2.0000; q=5: chi2(sigma)=0.2500, chi2(pi)=0.5077; q=7: chi2(sigma)=0.2250, chi2(pi)=0.4321; q=11: chi2(sigma)=0.0363, chi2(pi)=0.1266  [base: 7 at q=8, 2 at q=3]
+(5) band family eta=0.1250: |A mod 5005|=2889 (density 0.577); level-lambda majorant LP min = 1.000000 >= 1; Lemma 8.3: R=256, min_J P = 1.0291 >= 1, int P^2 = 0.9260 <= 1-eta/3 = 0.9583
+(5) band family eta=0.1111: |A mod 5005|=2997 (density 0.599); level-lambda majorant LP min = 1.000000 >= 1; Lemma 8.3: R=324, min_J P = 1.0258 >= 1, int P^2 = 0.9353 <= 1-eta/3 = 0.9630
