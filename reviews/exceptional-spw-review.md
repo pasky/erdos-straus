@@ -120,4 +120,26 @@ refuted, only the fixed-σ route — is correct. Caveat (D3): the label in the
 Thm 5.2 then grow (cap S′ + O(S_A)), and that Δ_N ≤ e^{S_A}/2 must be read
 with S_A for the *same* A.
 
+### §2 BDW
+* **Lemma 2.1** re-derived: R(s) ≤ (KQ′/e + 1)·AN/(KQ′) ≤ AN/e + AN/(KQ′); the
+  author writes N/K for the last term, valid once K ≥ A (harmless). Medium
+  classes: R(s) ≤ AN/(D+1) < 2A, c(s) < 3, so Δ₀ = 2A + 2 works (A ≥ 1). SOUND.
+* **Lemma 2.2** (Farkas for an affine slice of a box): SOUND.
+* A*(N) = 3/2 − 3/N for every even N ∈ [12, 60] by exact enumeration
+  (`review_spw_basic.py` (d)).
+* LP optimum = A*(N): my own LP on ℤ/L₀ (`review_spw_bdwlp.py`) gives exactly
+  1.25, 1.2857, 1.3125, 1.3333, 1.35 at N = 12, 14, 16, 18, 20. EVIDENCE confirmed.
+* **Prop 2.3** re-derived: window side Σ_n dE_d(n) = dΣ_bE_d² = r_d(d − r_d);
+  conditional expectation E[dE_d | x mod g₀] = g₀E_{g₀} and CRT independence
+  ⇒ E[dE_d·d′E_{d′}] = r_{g₀}(g₀ − r_{g₀}). Brute-force verified on ℤ/L₀ for
+  N = 12, 14, 16, 18 for all pairs d, d′ (`review_spw_bdw.py` (i)). The
+  window-side sum over d = D − k, k < (D−1)/3 gives D³/27 − O(D²); E g² ≤ D³/4;
+  ratio 4D^{3/2}/(27N) → 0.0524√N, so "c = 0.05 for N ≥ N₀" is right.
+  Exact values recomputed from scratch with exact rational comparison of
+  squares: A(150) ≥ 1.5514, A(200) ≥ 1.7730, A(300) ≥ 2.2009, A(400) ≥ 2.4965
+  (rounded down) — match the author's 1.551, 1.773, 2.200, 2.496. **SOUND.**
+* The Assessment "any SPW measure has relative density ≳ √N somewhere on ℤ/L₀"
+  is in fact PROVED (project R to ℤ/L₀; the projection has the window profile,
+  so max ≥ A(N)·N/L₀). Could be upgraded (D5).
+
 ## Defects
