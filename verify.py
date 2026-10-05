@@ -18621,4 +18621,207 @@ print("\n== (cx) EXCEPTIONAL_INTERFREQ2: Example 3.2, Lemma 3.1, rigidity, Lemma
 check_cx()
 
 
+# ---------------------------------------------------------------- (cy)
+# EXCEPTIONAL_LARGESIEVE2.md §§8-9 (cf. scripts/largesieve2_checks.py check (5), review_ls2b_gale.py,
+# review_ls2b_lp.py, review_ls2b_kernel.py).
+# (1) Lemma 8.1 (Gale): for D = l l' (5 <= l != l' <= 23), eta in {1/8, 1/9, 1/10, 1/20}, three a
+#     coprime to D, the band set S = {n : ||na/D|| <= 1/2 - eta} carries a probability with uniform
+#     marginals mod l and mod l' (exact integer max-flow, supplies l', demands l).
+# (2) Prop 8.2(a) on the tiny band family (l,l') = (5,7), (11,13), a = (2,3), eta = 1/8, 1/9:
+#     mu = mu_1 (x) mu_2 from (1) is supported on A and gives every class of an allowed modulus
+#     (at most one prime of each pair) exactly its uniform mass, so E_U nu = E_mu nu >= 1 for
+#     every level-lambda majorant (exact Fractions); [scipy] check (5) of largesieve2_checks.py
+#     (majorant LP min = 1, Lemma 8.3 polynomial) and the contrast LP with D_1 allowed (< 1).
+# (3) [scipy] Thm 9.1 inequality chain (*), (**) for arbitrary pi on random A in Z/1260 with
+#     the exact best S for the prefix moduli set (LP), 60 random kernels (>= 15 nontrivial;
+#     review_ls2b_kernel.py).
+
+def check_cy():
+    from time import perf_counter
+    import random as _random
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    from collections import deque
+    t0 = perf_counter()
+    try:
+        import numpy as np
+        from scipy.optimize import linprog
+        from scipy.sparse import coo_matrix
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+
+    def band(l1, l2, a, eta):
+        D = l1 * l2
+        return {n for n in range(D) if min(n * a % D, D - n * a % D) <= (Fraction(1, 2) - eta) * D}
+
+    def gale(l1, l2, S):                     # integer max-flow; returns flow dict or None
+        src, snk = ("s",), ("t",)
+        cap = {}
+        adj = {}
+
+        def edge(u, v, c):
+            cap[(u, v)] = cap.get((u, v), 0) + c
+            cap.setdefault((v, u), 0)
+            adj.setdefault(u, set()).add(v)
+            adj.setdefault(v, set()).add(u)
+        for x in range(l1):
+            edge(src, ("x", x), l2)
+        for y in range(l2):
+            edge(("y", y), snk, l1)
+        for n in S:
+            edge(("x", n % l1), ("y", n % l2), l1 * l2)
+        total = 0
+        while True:
+            par = {src: None}
+            dq = deque([src])
+            while dq and snk not in par:
+                u = dq.popleft()
+                for v in adj[u]:
+                    if v not in par and cap[(u, v)] > 0:
+                        par[v] = u
+                        dq.append(v)
+            if snk not in par:
+                break
+            path, v = [], snk
+            while par[v] is not None:
+                path.append((par[v], v))
+                v = par[v]
+            f = min(cap[e] for e in path)
+            for u, v in path:
+                cap[(u, v)] -= f
+                cap[(v, u)] += f
+            total += f
+        if total < l1 * l2:
+            return None
+        D = l1 * l2
+        mu = {}
+        for n in S:                          # flow on edge (x,y) = reverse residual capacity
+            fl = cap[(("y", n % l2), ("x", n % l1))]
+            if fl:
+                mu[n] = Fraction(fl, D)
+        return mu
+
+    # (1)
+    rng = _random.Random(8)
+    ps = list(primerange(5, 24))
+    ngale = 0
+    for l1, l2 in combinations(ps, 2):
+        D = l1 * l2
+        units = [a for a in range(1, D) if gcd(a, D) == 1]
+        for eta in (Fraction(1, 8), Fraction(1, 9), Fraction(1, 10), Fraction(1, 20)):
+            for a in rng.sample(units, 3):
+                for L1, L2 in ((l1, l2), (l2, l1)):
+                    mu = gale(L1, L2, band(L1, L2, a, eta))
+                    assert mu is not None, ("LARGESIEVE2 Lemma 8.1", L1, L2, a, eta)
+                    ngale += 1
+    assert gale(5, 7, band(5, 7, 1, Fraction(2, 5))) is None, "control: wide band infeasible"
+
+    # (2) Prop 8.2(a), exact
+    pairs, avals = [(5, 7), (11, 13)], (2, 3)
+    Mp = prod(a * b for a, b in pairs)
+    allowed = [c1 * c2 for c1 in (1, 5, 7) for c2 in (1, 11, 13)]
+    for eta in (Fraction(1, 8), Fraction(1, 9)):
+        mus = [gale(l1, l2, band(l1, l2, a, eta)) for (l1, l2), a in zip(pairs, avals)]
+        A = {n for n in range(Mp) if all(n % (l1 * l2) in band(l1, l2, a, eta) for (l1, l2), a in zip(pairs, avals))}
+        D1, D2 = 35, 143
+        mu = {}
+        for n1, m1 in mus[0].items():
+            for n2, m2 in mus[1].items():
+                n = (n1 * D2 * pow(D2, -1, D1) + n2 * D1 * pow(D1, -1, D2)) % Mp
+                mu[n] = m1 * m2
+        assert sum(mu.values()) == 1 and set(mu) <= A, "LARGESIEVE2 Prop 8.2(a): mu on A"
+        for d in allowed:
+            cls = Counter()
+            for n, m in mu.items():
+                cls[n % d] += m
+            assert all(cls[b] == Fraction(1, d) for b in range(d)), ("LARGESIEVE2 Prop 8.2(a) uniform marginal", d)
+        assert any(sum(m for n, m in mu.items() if n % D1 == b) != Fraction(1, D1) for b in range(D1)), "control: D_1 non-uniform"
+
+    msgs = []
+    if have_scipy:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "largesieve2_checks.py")
+        spec = importlib.util.spec_from_file_location("largesieve2_checks", path)
+        ls = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(ls)
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ls.check5()
+        assert buf.getvalue().count("level-lambda majorant LP min = 1.0000") == 2, buf.getvalue()
+        A8 = np.array([n in A for n in range(Mp)], float)   # eta = 1/9 family from (2)
+
+        def best_majorant(moduli):
+            cols = [(d, b) for d in moduli for b in range(d)]
+            idx = {c: j for j, c in enumerate(cols)}
+            r = [x for x in range(Mp) for d in moduli]
+            cc = [idx[(d, x % d)] for x in range(Mp) for d in moduli]
+            M = coo_matrix((np.ones(len(r)), (r, cc)), shape=(Mp, len(cols))).tocsr()
+            res = linprog(np.array([1.0 / d for d, b in cols]), A_ub=-M, b_ub=-A8, bounds=(None, None), method="highs")
+            assert res.status == 0
+            return res.fun
+        v_low, v_hi = best_majorant([55, 65, 77, 91]), best_majorant([35, 11, 13])
+        assert v_low >= 1 - 1e-9 and v_hi < 0.99, ("LARGESIEVE2 Prop 8.2(a) LP / contrast", v_low, v_hi)
+        msgs.append(f"check (5) OK; LP level < L_i: {v_low:.6f}, with D_1: {v_hi:.4f}")
+
+        # (3) Thm 9.1 chain
+        PR, Q = [2, 3, 5, 7], 1260
+        divs = [d for d in range(2, Q + 1) if Q % d == 0]
+
+        def prefix(q, N):
+            cur = 1
+            for p in PR:
+                while q % p == 0:
+                    cur *= p
+                    q //= p
+                if cur >= N:
+                    return cur
+            return cur
+
+        def best_S(pi, Dset):
+            Dset = sorted(Dset)
+            cols = [(d, b) for d in Dset for b in range(d)]
+            idx = {c: j for j, c in enumerate(cols)}
+            r = [x for x in range(Q) for d in Dset]
+            cc = [idx[(d, x % d)] for x in range(Q) for d in Dset]
+            M = coo_matrix((np.ones(len(r)), (r, cc)), shape=(Q, len(cols))).tocsr()
+            eU = np.array([1.0 / d for d, b in cols])
+            res = linprog(-(M.T @ pi), A_ub=-M, b_ub=np.zeros(Q), A_eq=eU[None, :], b_eq=[1.0],
+                          bounds=(None, None), method="highs")
+            assert res.status == 0
+            return log(-res.fun)
+        nprng = np.random.default_rng(91)
+        ntr, worst = 0, 1e9
+        for _ in range(60):
+            N = int(nprng.choice([6, 10, 15, 25, 40]))
+            Aset = nprng.random(Q) < nprng.choice([0.3, 0.6, 0.9])
+            pi = nprng.random(Q) ** int(nprng.choice([1, 4])) * Aset
+            pi /= pi.sum()
+            Smod = [int(v) for v in nprng.choice(divs, size=int(nprng.integers(2, 7)), replace=False)]
+            wq = {q: float(nprng.random()) for q in Smod}
+            Slt = [q for q in Smod if q < N]
+            Dset = {1} | {lcm(a, b) for a in Slt for b in Slt} | {prefix(q, N) for q in Smod if q >= N}
+            S = max(0.0, best_S(pi, Dset))
+            WK = sum(wq.values())
+            h = max(sum(wq[q] for q in Smod if m % q == 0) for m in range(1, N))
+            Dpi = sum(wq[q] * float(np.sum(np.bincount(np.arange(Q) % q, weights=pi, minlength=q) ** 2)) for q in Smod)
+            if WK <= h or Dpi <= h:
+                continue
+            ntr += 1
+            rhs = (WK - h) / N + exp(S) * (h + WK / N)
+            B, Bcap = (WK - h) / (Dpi - h), (N / 2) * exp(-S) / (1 + N * h / (WK - h))
+            assert Dpi - h <= rhs + 1e-9 and B >= Bcap - 1e-9, ("LARGESIEVE2 Thm 9.1 chain", N, Smod, S)
+            worst = min(worst, rhs / (Dpi - h), B / Bcap)
+        assert ntr >= 15, ("LARGESIEVE2 Thm 9.1: too few nontrivial trials", ntr)
+        msgs.append(f"Thm 9.1 chain on {ntr} random kernels, min slack ratio {worst:.3f}")
+    print(f"cy Lemma 8.1: {ngale} band sets (l, l' <= 23) Gale-feasible; Prop 8.2(a): exact mu on A mod {Mp} with "
+          f"uniform marginals on all {len(allowed)} allowed moduli (eta = 1/8, 1/9)")
+    print("cy " + ("; ".join(msgs) if have_scipy else "LP parts skipped (no scipy)") + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cy) EXCEPTIONAL_LARGESIEVE2 §§8-9: Lemma 8.1 Gale, Prop 8.2(a) exact measure, check (5), Thm 9.1 chain ==")
+check_cy()
+
+
 print("\nall checks passed")
