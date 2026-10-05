@@ -78,3 +78,23 @@ measures; for a fixed measure the optimal rate is open (cf. Ex 6.2)".
 D5 (MINOR) Ex 6.3: the [5]^3 sentence does not say which event is added. Repair: "…; adding A={x=(0,0,0)}
 increases G_F from 0.75406 to 0.75467 (λ=2^{1/3})" (my values; the author's script does not check [5]^3, as the
 report admits).
+
+## 4. Thm 7.1 (filtration), Cor 7.2, Rem 7.3 — SOUND
+
+Re-derived: P_{ℓ,j} = I − E_{B_{ℓ,j}} acts diagonally on Efron–Stein components (1 iff max U_ℓ ≥ j), so
+‖L'_V F‖² = Σ_{U≻V}‖F^{=U}‖² and Σ_{selections V ≺ U} μ'^V telescopes to Π_ℓ λ_ℓ^{1+max U_ℓ}. Coarsening to
+(head, tail-block) coordinates, splitting each event into coarse cylinders with the same coarse support, and the
+trace identity hat E ∩ V are correct; adding the non-selection V's only adds nonnegative terms. Weight bound:
+1+μ'_{ℓ,i0} = λ^{i0+1}, 1+μ'_{ℓ,j} = 1+λ^j(λ−1) ≤ λ² ⟺ λ^j ≤ λ+1, true since λ^j ≤ λ^v ≤ √2 (each factor of the
+product ≤ 2 is ≥ 1, so λ_ℓ^{2v_ℓ} ≤ 2 individually); exponent i0+1+2(v−1−i0) ≤ 2v. Correct.
+Cor 7.2 (λ_ℓ = 2^{log ℓ/(2𝓛)}, Markov at threshold e^τ) and Rem 7.3 (1+x ≤ e^x, telescoping to λ^v−1;
+superadditivity of the convex x ↦ 2^{x/ρ}−1 with value 0 at 0; ρ0 = 1/log₂(1+ln 2) = 1.3163…) are correct.
+
+From scratch (`scripts/review_r50_filt.py`, `data/r50_filt.txt`): 3000 random digit-prefix systems (1–2 "primes",
+bases 2/3, offsets i0 ∈ {0,1}, random digit laws incl. zero-mass digits, weights pushed to the hypothesis
+boundary) under the Thm 7.1 hypothesis Π λ^{2v} ≤ 2, and 3000 more under the weaker Rem 7.3 hypothesis
+Σ(λ^v − 1) ≤ ln 2: all pass (exact). Exploratory: for a single prefix event even ρ = 1 (Π λ^v ≤ 2) gives ≤ 1
+(max 0.99999999584); I did not find whether ρ<ρ0 fails for families — the note claims nothing there, fine.
+
+No defect. (Readability nit, MINOR: say once explicitly that the factor-2 exponent hypothesis forces each
+λ_ℓ^{2v_ℓ(E)} ≤ 2 individually, since that is what "λ^j ≤ λ^v ≤ √2" silently uses.)
