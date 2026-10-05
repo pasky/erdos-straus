@@ -176,17 +176,20 @@ Lagarias–Odlyzko effective Chebotarev theorem (Lagarias–Odlyzko 1977,
 Thm 1.1; in Serre's form, Serre 1981, Thm 4): for the identity class,
 
 ```
-| π_split(x) − Li(x)/n_L | ≤ c₁ x^{1/2} (log d_L / n_L + log x) ≤ c₁ x^{1/2}(θ(y)+3+log x),
+| π_split(x) − Li(x)/n_L | ≤ c₁ x^{1/2} (log d_L / n_L + log x) + log d_L
+                          ≤ c₁ x^{1/2}(θ(y)+3+log x) + n_L(θ(y)+3),
 ```
 
-with c₁ absolute. Hence the number of split primes in `(x/2,x]` is
+with c₁ absolute (the last term accounts for ramified primes; Serre's
+form omits it at the cost of the constant). Hence the number of split primes in `(x/2,x]` is
 
 ```
 ≥ x/(3 n_L log x) − 2c₁ x^{1/2}(θ(y)+3+log x)   (x large),
 ```
 
-which is positive as soon as `2^{π(y)} ≤ x^{1/2}/(C(log x)²)` (using
-`θ(y)≪log x·log log x` in the range below). Take y maximal with
+which, after subtracting also `n_L(θ(y)+3)`, is positive as soon as
+`2^{π(y)} ≤ x^{1/2}/(C(log x)²)` (using `θ(y)≪log x·log log x` in the range
+below; then `n_Lθ(y) ≪ x^{1/2}/log x`). Take y maximal with
 `π(y) ≤ (log x − 4 log log x − 2 log C)/(2 log 2)`. By the prime number
 theorem `y ∼ π(y) log π(y) ∼ (1/(2 log 2)) log x·log log x`. Every split
 `p∈(x/2,x]` has `p≡1 (4)`, `(2/p)=(3/p)=1` (so `p≡1 (24)`) and
