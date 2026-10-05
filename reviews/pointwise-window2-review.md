@@ -119,3 +119,13 @@ does not test this mixed-level model. Reviewer test (`--onewin=T₁`: joint leve
 one-window data (S₃,∅),(∅,S₇) up to T₁): T₁=0.55 → 0, T₁=0.6 → 0 (fake persists; primal uncertified),
 T₁=0.7 → **certified ≥0.16298**. So at BFI/Maynard-type levels (≤3/5) the obstruction persists in the
 grid — supports "closed" for (ii). Suggest adding this test to §4 (EVIDENCE).
+
+### §5 item 2 / Prop 3.7 last sentence / §0 — MAJOR presentation defect (M3)
+W1 (POINTWISE_WINDOW §2.2 Step 4) bounds T₂ by the prime-pair upper sieve S2 applied to
+`p=4mr₁r₂−3`, i.e. it **uses primality in a switched variable** — outside 𝒯𝒫(θ) (the doc itself says
+so in §4 route (i) and §6.2). So "Parity is sufficient for one window at level 1/2 (Thm W1)" is not a
+statement about Type-I+parity. The one-window model positivity is a *separate* fact: grid LP 0.744,
+now certified by the reviewer's exact dual (≥0.744128). "In 𝒯𝒫(θ) the one-window threshold is
+exactly 1/2" is proved only below 1/2 (fakes) and on one grid at 1/2; the continuum statement at
+θ=1/2 is unproved. Repair: separate (a) actual primes: W1 = Type-I + parity + switching;
+(b) model: one window positive at θ=1/2 on the grid (CERTIFIED with dual), continuum open.
