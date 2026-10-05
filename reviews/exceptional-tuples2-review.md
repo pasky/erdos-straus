@@ -18,7 +18,8 @@ From-scratch scripts: `scripts/review_t2_*.py` (none reuse the author's code).
 |---|---|---|
 | Lemma 1.1 | SOUND | re-derived; brute force all ℓ ≤ 3000 (218 primes), 0 failures (`review_t2_forms.py`) |
 | Cor 1.2 | SOUND | trivial from (1.1) + distinct primes; brute-forced below |
-| Thm 2.1 | SOUND | (pending numeric check) |
+| Thm 2.1 | SOUND | re-derived (§A); at toy scale its bound e_{u₀}(q) is below η_K (2.0·10⁻⁵ vs 4.3·10⁻⁵ at (10⁸,1000)), as the paper's table shows — asymptotic statement only |
+| Lemma 3.1, Cor 4.2 | SOUND | floor identity checked by hand; (1,2), ℓ=7, N=3 counterexample correct |
 | Thm 2.2 | SOUND | exponent bookkeeping re-derived (see §A) |
 | Cor 2.3 | SOUND | |
 | (1.3) | SOUND | brute force y = 35, 50; N = 50, 300, 3000: S_j = Σ_𝔄 C_T exactly (`review_t2_altsum.py`) |
