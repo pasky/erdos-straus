@@ -168,8 +168,12 @@ Cauchy–Schwarz is needed; the decay `u^{−4}` is crude (the truth is
 ## 3. The Case-A first moment without loss
 
 Lemma 2.1 holds for any y-smooth m in the form: `log m ≤ log S_y(m) +
-Z_y(m)log y`; so if `m ≥ Y` and `S_y(m) ≤ m^{1/2}` then
-`Z_y(m) ≥ log Y/(2 log y)` (same proof).
+Z_y(m)log y`, with `S_y(m)` squarefull (same proof). So:
+
+    (2.1′)  m ≥ Y, P(m) ≤ y, S_y(m) ≤ T   ⇒   Z_y(m) log y ≥ log(Y/T).
+
+Lemma 3.1 uses (2.1′) with `(Y,T) = (K^{1/4}, K^{1/8})` (giving
+`Z ≥ u/8`) and `(Y,T) = (K^{3/4}, K^{1/4})` (giving `Z ≥ u/2`).
 
 Inputs from ElT §7 (published, not re-proved; the same paper and section
 as the Prop 1.4 that K2 already uses, and Prop 1.4 is proved from them):
@@ -188,7 +192,13 @@ as the Prop 1.4 that K2 already uses, and Prop 1.4 is proved from them):
   `a ↦ (−ka/q)` has mean zero for every q; this fails for square q
   (including q = 1). Square q contribute at most
   `A log B·Σ_{q square}1/q = O(A log B)`, so (7.10) holds as stated,
-  uniformly in k. (Cor 7.4 is used with `N ≥ 2`.)
+  uniformly in k. (Cor 7.4 is used with `N ≥ 2`.) A second slip (review
+  R28): in the range `q > kA`, ElT's `c(q)` omits the reciprocity sign
+  `(−1)^{((q−1)/2)((k′a−1)/2)}`. For fixed a the corrected factor is still
+  8-periodic in q, and `q ↦ (−ka/q)` is the Kronecker character of the
+  negative number `−ka`, never principal (even if `k′a` is a square), so
+  the mean-zero / partial-summation step holds with an absolute constant,
+  uniformly in k.
 
 **Lemma 3.1 (smooth Case-A blocks decay; PROVED, using ElT §7).** Fix
 `k ≥ 1`. There are `C_k(W)`, `y₀(k,W)` such that for `y ≥ y₀`,
@@ -200,7 +210,7 @@ as the Prop 1.4 that K2 already uses, and Prop 1.4 is proved from them):
 Pointwise `τ(4rh²+1)Γ(4rh) ≤ C_εK^ε` (`4rh²+1 ≤ 17K²`). Split the pairs.
 
 *(i) `r ≥ K^{1/4}`.* Then `h ≤ 2K^{3/4}`, r is y-smooth, and
-`1 ≤ 1[S_y(r) > K^{1/8}] + (8Z_y(r)/u)^k`. The pairs with r y-smooth and
+`1 ≤ 1[S_y(r) > K^{1/8}] + (8Z_y(r)/u)^k` (by (2.1′)). The pairs with r y-smooth and
 `S_y(r) > K^{1/8}` (so r has a squarefull divisor `> K^{1/8}`) number `≤ Σ_{h≤2K}Σ_{s sqfull > K^{1/8}} 2K/(hs) ≪
 K^{1−1/16}log K`; with the pointwise bound they give `≪ K^{1−1/20}`. The
 moment part, smoothness and the lower bound `rh > K` dropped, is at most
@@ -220,12 +230,12 @@ Cor 7.4 (l = 14) gives `≪ R' log R' ≤ 2K log K/(hL)`. Summing over
 `≪ 2^kK^{1+ε−1/64}(log K)/D`. Lemma 2.2 then bounds part (i) by
 `C_k(W)[K(log K)²u^{−k} + K^{1−1/80}]`.
 
-*(ii) `r < K^{1/4}`.* Then `h > K^{3/4}/2 ≥ K^{1/2}`, h is y-smooth, and
-`1 ≤ 1[S_y(h) > K^{1/4}] + (4Z_y(h)/u)^k`. The pairs with h y-smooth and
+*(ii) `r < K^{1/4}`.* Then `h > K^{3/4}` (as `rh > K`), h is y-smooth, and
+`1 ≤ 1[S_y(h) > K^{1/4}] + (2Z_y(h)/u)^k` (by (2.1′)). The pairs with h y-smooth and
 `S_y(h) > K^{1/4}` (squarefull divisor of h) give
 `≪ K^{1−1/20}` as in (i). The moment part is at most
 
-    8(4/u)^k (log y)^{−k} Σ_{d} ΠΛ(d_i) Σ_{s,t} h(s)h(t)
+    8(2/u)^k (log y)^{−k} Σ_{d} ΠΛ(d_i) Σ_{s,t} h(s)h(t)
         Σ_{r<K^{1/4}, s|r} Σ_{h' ≤ 2K/(rL)} τ(4rL²h'² + 1),    L = lcm(D, t).
 
 Take `t ≤ K^{1/16}`, so `L ≤ K^{1/8}`. Fix r and put
