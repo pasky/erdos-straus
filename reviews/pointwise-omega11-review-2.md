@@ -73,3 +73,23 @@ intermediate steps of the proof: (b) the identity `G'=Σ_{selections}μ'^V‖L_V
 So (b) and (c) hold to rounding, `G'≤1` at ρ=2 (and, unclaimed, at ρ=1), and the test has power: at ρ=0.5 it
 detects `G'>1`. This agrees with the author's `data/omega11/filtration.txt` (max 0.9972 at ρ=2, 0.9971 at ρ=1).
 **EVIDENCE consistent with Lemma 1.1; no counterexample.**
+
+### C. Corollary 1.2 (junta modulus `≪𝓛(S+𝓛)`)
+
+Checked against O8 Lemma 3.1 (BRW, arbitrary events/`u_j`), O8 Thm 3.4 (EL constant `e^{−3S}/(100m²(S+1))`,
+`E[F−B]≤m²Σ_jP(E_j)·tail_j≤δ/100` with `δ≥e^{−2.2S}`) and O9 Thm 2.2 (`log Z≤log Q+log ℓ_aux+log max d_i`).
+
+* `2^{−τ/(2𝓛)}≤1/(100m²(S+1)e^{3S})` by the choice of τ, and Remark (ii) gives `G'_{F^{(j)}}≤1` for every j, so
+  the modulus-truncation error obeys the EL bound. ✓ (Strictly, "EL" in O8 is phrased with `|U|>t`; what BRW
+  needs is only `E[(F^{(j)}−u_j)²|E_j]≤…`, which is what is proved. Wording only — m1.)
+* A function of digit set U (absolute positions) depends on `X_ℓ mod ℓ^{maxU_ℓ+1}`, so `u_j` is a combination of
+  cells of modulus `m_U≤e^τ`; these cells lie in the fibre, hence are consistent with the class of one. ✓
+* Terms of B are `A_iA_ju_j`, `A_iA_jA_{j'}u_ju_{j'}` (and lower), modulus `≤T³e^{2τ}`. ✓
+* `m≤#atoms≤Σ_{M≤T}τ(A_M²)≤T^{1+o(1)}≤T²` for large T, so `log₂(m²)≪𝓛` and `τ≍𝓛(S+𝓛)`; with S the atom
+  mass `S_tot(Q)≤S♯≪𝓛^4log𝓛` (ET), `log Z≤log Q+O(𝓛(S+𝓛))≪log Q+𝓛^5log𝓛`. ✓ Duplicated atoms (same event)
+  are harmless: BRW and the local lemma allow multisets; using atom mass in both `τ` and `δ≥e^{−2.2S}` is
+  consistent.
+* With O2's full quarantine (`i_0=0`, units) the same argument applies verbatim, giving in O9 Thm 2.2
+  `log Z ≪ 𝓛^7/log𝓛 + 𝓛^5log𝓛`, consistent with O10 Thm 4.2 (`≪𝓛^6` junta there). ✓
+
+**Verdict on Cor 1.2: SOUND.**
