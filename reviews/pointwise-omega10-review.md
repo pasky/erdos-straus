@@ -72,3 +72,29 @@ set|: weights stay ≤2; `𝓜∖E_0∪{E_0∖v}` is a matching *sub-multiset* o
   non-uniform λ normalised to `max w_E=2`: max G=0.99971; 300 hill-climbs
   (60 steps, event add/delete/mutate + λ jitter): max G=0.99991, attained
   by a single full-width event. No counterexample.
+
+### Cor 4.1 (energy form of ESW)
+Deduction: with `λ_v=2^{1/k}` every event has `w_E≤2`, so `G_F≤1` and
+`Σ_{|U|>t}‖F^{=U}‖² ≤ λ^{−(t+1)}G_F`. `f^{=U}=−F^{=U}` for U≠∅ (h=1−F).
+Correct. Note the conclusion is about **0/1-valued** f; in ±1 language
+(O'Donnell's convention) multiply by 4: `W^{>t}[±1 f] ≤ 4·2^{−(t+1)/k}`.
+The document does not say which normalisation it uses when comparing with
+LMN; harmless here because ES uses 0/1 indicators (MINOR, see defects).
+
+Consistency checks (`scripts/review_o10_dnf.py`, exact Walsh transforms;
+k := C_1(f), the least DNF width):
+* **all** 2^16 Boolean functions on 4 bits and all on 3 bits: max
+  `G = 0.75, 0.864, 0.930, 0.965` for k=1..4 (single AND); max of
+  `energy(f;t)·2^{(t+1)/k}` = 0.5 (parity-type, t=k−1). No violation.
+* 3000 random f on 5 bits: max ratio 0.38.
+* tribes (w,s)=(2,5),(2,6),(3,3),(3,4),(4,3), all width-2 monotone terms on
+  6 vars, all `x_a∧¬x_b`: G ≤ 0.90, ratio ≤ 0.31.
+Compatibility with the literature: the Boolean consequences are
+`W^{>t} ≤ 4·2^{−(t+1)/w}` and (taking `λ^{|U|}≥1+|U|ln λ`)
+`I_{0/1}[f] ≤ (w/ln2)·P[f=1]`, i.e. `I_{±1} ≤ 5.78·w·P[f=1]`. Both are
+*stronger in the exponent* than O'Donnell's switching-lemma bound
+`W^{≥t}≤2·2^{−t/(20w)}` but they are not contradicted by any lower bound I
+know: the standard tightness examples (parity of w bits written as a width-w
+DNF: `W^{=w}=1` in ±1 units, our bound `4·2^{−1}=2` at t=w−1; tribes;
+single AND) all satisfy it with room, and Boppana/Traxler-type influence
+bounds `I≤2w` are of the same order. No conflict found.
