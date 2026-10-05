@@ -446,8 +446,16 @@ is `≥r^{2−ε}` for large r.
 hard primes in `(10^5,3·10^6)` with `n_p=7` have a positive unforced slice
 with `ck≤194` witnessed by a target divisor `D≤2000` (most frequent D: 11,
 3, 23, 15, 71, 7, 39, …); with `D≤200, ck≤120`, 27 are not witnessed. This
-is consistent with a finite covering for r=7 but uses many D's; a proof
-needs a product-space covering search (not done). **Open:** is
+is consistent with a finite covering for r=7 but uses many D's.
+`typei_cover.py` (sound covering search: c,k smooth over `{2,…,r}`, D with at
+most one new prime) re-proves Thm 6.1 (`typei_cover.py 5 10 7 3 1 1`: 2/2
+nodes covered) but for r=7 leaves 1684 of 7560 nodes mod `32·27·25·49`
+uncovered (`X=1500, Dmax=3000`). The actual witnesses on the uncovered
+class `p≡601 (5040)` use slices whose core contains a *further*
+non-residue prime (`(11,1,D=3)`, `(17,1,3)`, `(19,1,7)`, `(26,1,15)`, …),
+so a covering for r=7 must branch on `p mod ℓ` for `ℓ=11,13,17,…`; the
+worst branches are the residue-one-like points, where the analysis is
+that of Thm 2.1 step 5. Not done. **Open:** is
 `C(7)<∞`? Is `C(r)<∞` for every r? A positive answer for all r would prove
 Type-I ES for all hard primes (by a family of coverings, one per value of
 `n_p` — an E2 escape in the sense of POINTWISE_SIZE Prop A, since `n_p` is
@@ -464,4 +472,5 @@ PYTHONPATH=scripts uv run python scripts/typei_ratio.py 3000000 10000000 2000 /t
 PYTHONPATH=scripts uv run python scripts/typei_records.py 9033649 414241 12289
 PYTHONPATH=scripts uv run python scripts/typei_smallD.py 7 3000000 2000 400  # EVIDENCE 6.3
 uv run python scripts/typei_c5.py                                          # Thm 6.1 covering mod 840
+uv run python scripts/typei_cover.py 5 10 7 3 1 1; uv run python scripts/typei_cover.py 7 1500 3000 5 3 2 2   # §6 covering search
 ```
