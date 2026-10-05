@@ -277,3 +277,67 @@ congruence DNFs, at cost polynomial in the width.* We know of no prior
 statement of this form, but our search was limited to the above; no priority
 claim. Novelty audit for the underlying ES application:
 `reviews/novelty-audit-omega8.md`.
+
+## 5. Applications
+
+### 5.1 The witness modulus for m/n (Sierpiński m = 5 and general m)
+
+Fix an integer `m ≥ 4`. For `M ≡ −1 (mod m)`, `M ≥ 3`, put `A_M = (M+1)/m`
+(so `gcd(A_M, M) = 1`, `mA_M ≡ 1 (M)`). If `uvw = A_M`,
+`n ≡ −uv^{−1} (mod M)` and `s = (nv+u)/M`, then (direct verification:
+`nv+u+s = m·suvw` ⇔ `s(m·uvw−1) = nv+u`)
+```
+m/n = 1/(suw) + 1/(nsvw) + 1/(nuvw).                      (5.1)
+```
+These are Type II solutions (`n | y, z`) in the parametrisation of
+Elsholtz–Tao §2 with `4 ↦ m` (ET: `e(macd−1) = n + m a²d`, i.e. `M = macd−1`,
+class `−m a²d`; ET Remark 1.10 notes their analysis extends to numerators
+`m ≠ 4`, "considered first by Sierpiński and Schinzel"; we use only the "if"
+direction (5.1) and do not claim every Type II solution of `m/n` arises this
+way, though for `m = 4` this is ET Prop. 2.x). Define
+```
+W_m(n) = min{ M ≡ −1 (m), M ≥ 3 : n mod M ∈ R_m(M) },  R_m(M) = {−mD mod M : D | A_M²}.
+```
+
+**Lemma 5.1 (atoms and class of one for m/n; proved, machine-checked for
+`m ∈ {4,5,6,7,8,11}`, `M ≤ 3000`).** (i) `{−uv^{−1} mod M : uvw = A_M} = R_m(M)`;
+(ii) `1 ∉ R_m(M)`; (iii) `D ↦ A_M²/D` preserves `gcd(M, mD+1)`.
+*Proof.* (i) As [SN] `lem:atoms` with `4 ↦ m`: `v^{−1} ≡ muw`, so
+`−uv^{−1} ≡ −m·u²w`, and every `D | A²` is `u²w` with `uvw = A`.
+(ii) `−mD ≡ 1` ⇒ (× `A`) `D ≡ −A (M)`; `D ↦ A²/D` preserves this, so WLOG
+`D ≤ A`, and then `0 < D + A ≤ 2A < mA − 1 = M` (as `m ≥ 4`, or `m = 3`,
+`A ≥ 2`), contradicting `M | D + A`. (iii) If `q^a | M`, `q^a | mD+1`, then
+`D ≡ −A (q^a)` and `A²/D ≡ −A`, so `q^a | m·A²/D + 1`; symmetric. ∎
+(`scripts/transfer_mn.py`.)
+
+**Corollary 5.2 (proved modulo G+H and ET Prop 1.4 with `κ = m`).** For each
+fixed `m ≥ 4` there is `c_m > 0` such that for every large `T` there is a
+prime `p ≡ 1 (mod lcm(1..⌊(log T)²⌋))` with `p > T`, `W_m(p) > T` and
+`log p ≤ C_m (log T)^7`. Hence `W_m(p) ≥ exp(c_m(log p)^{1/7})` for infinitely
+many primes `p`. Without ET Prop 1.4: `log W_m(p) ≥ (1/log2 − o(1))
+log log p·log log log p` i.o. (proved modulo G+H).
+
+*Proof.* Repeat [SN] §2 with `4 ↦ m`, `M ≡ 3 (4) ↦ M ≡ −1 (m)`:
+atoms `(M,D)`, survival `m_Π | mD+1`, events `n ≡ −mD (mod r_Π)` (unit
+classes on free primes, `≤ k = ⌊ℒ/log z⌋` of them). Mass bound
+(`lem:qmass`): with `g = gcd(M, mD+1)`, `D = sr²`, `A = srh`,
+`M = msrh − 1 ≥ (m−1)srh`: Lemma 5.1(iii) gives the `D ≤ A` reduction,
+`g | gcd(msr²+1, r+h)` (from `g | msr(r+h)`, `gcd(g, msr) = 1`), and
+ET Prop 1.4 with `κ = m` bounds `Σ τ(msr²+1)` exactly as for `κ = 4`; so
+`S*_m ≪_m ℒ⁴ log ℒ` (and `S*_m ≤ exp((log2+o(1))ℒ/log ℒ)` unconditionally).
+Iterated quarantine (`lem:iterq`, unchanged) with `z = ℒ²`, `c₀ = 1/(64k)`.
+Reduction (`lem:system`(iv)) uses Lemma 5.1(i),(ii) in place of
+`lem:atoms`, `lem:one`. Now apply Corollary 1.3 with `Q = Q_Π`, `a = 1`,
+`N ≤ T`, `S ≤ S*_m`: `log p ≪ log Q_Π + k ℒ²(S*_m + kℒ)`, with
+`log Q_Π ≪ (π(z) + k²S*_m)ℒ ≪ ℒ⁷/log ℒ` and
+`kℒ²(S*_m + kℒ) ≪ (ℒ/log ℒ)·ℒ²·ℒ⁴log ℒ = ℒ⁷`. Unconditional version as in
+[SN] Thm `thm:uncond`. ∎
+
+*Remarks.* (a) For `m = 4` this is [SN] Thm 1 (the hard-prime condition
+`p ≡ 1 (840)` is automatic as `840 | lcm(1..ℒ²)`). (b) The only `m`-specific
+inputs are Lemma 5.1 and the `κ = m` case of ET Prop 1.4; the `log(1+κ)` factor
+there makes the constants polynomial in `log m` (not tracked). (c) As for
+`m = 4`, this is an Ω-result for *one explicit family*; it says nothing about
+solvability of `m/p` (other representations may exist). The heuristic
+truth for `m = 4` is `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7); we have not
+redone that heuristic for general `m`.
