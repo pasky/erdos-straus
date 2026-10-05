@@ -194,3 +194,69 @@ N = 800: 0.3961; N = 1000: 0.4000 (e ≤ 6000 only); N = 1430, e = 3003: 0.4286.
 So composite e just above CN give local obstructions slightly *below*
 σ_C(N) = 2/5 (first seen here; 0.3892 at N = 300), but no collapse up to
 N = 1000 in this range of e.
+
+**Exact certificates (PROVED; `scripts/spw_local_cert.py`).** The LP dual
+is rounded to a rational g (combination of classes mod d | e, d ≤ D) and
+rational patch weights z ≥ 0 on classes mod e′ | e, e′ > CN, with the point
+patches recomputed so that Σ z_s 1_s ≥ g holds exactly on ℤ/e. For any
+SPW measure R, Σ_{n≤N} g(n) = ⟨g,R⟩ ≤ Σ z_s R(s) ≤ (1−σ)Σ z_s. Results:
+
+| N | C | e | certified bound on σ |
+|---|---|---|---|
+| 300 | 2 | 630 = 2·3²·5·7 | σ ≤ 72/185 = 0.38919 |
+| 1150 | 2 | 2310 = 2·3·5·7·11 | σ ≤ 0.381132 (exact rational) |
+
+So **SPW(2, σ) is false at N = 300 for σ > 72/185 < 2/5**: the optimum is
+not σ_C(N) = 2/5 at all N (the R25 C10 pattern breaks beyond the tested
+N ≤ 60). LP values (EVIDENCE) keep decreasing: 0.3849 (N = 3300,
+e = 6930), 0.3737 (N = 4400, e = 9240) — data/spw/local_primorial.txt.
+
+**Theorem 3.2 (fixed-σ SPW fails for large N; PROVED).** Let C ≥ 1, let
+M ≥ 2 with L_M := lcm(1..M) ≤ N, and let e be the least multiple of L_M
+exceeding CN (so e ≤ CN + L_M, m₀ := e/D ≤ 2C + 3 for N ≥ N₀(C)). If R
+satisfies (P1)–(P2) of SPW(C, σ, ·) at N, then
+
+    σ ≤ 4·√(π m₀/(M+1)) · (1 + o(1))      (o(1) as M/… → ∞, uniformly).
+
+Since one can take M ≍ log N (ψ(M) = log L_M ~ M), **σ ≲_C (log N)^{−1/2}**:
+for every fixed C and σ > 0, SPW(C, σ, Δ₀) fails for all large N.
+
+*Proof.* Project R to ρ on ℤ/e; then 0 ≤ ρ ≤ 1 − σ pointwise (points of ℤ/e
+are classes mod e > CN) and ρ̂(k) = 1̂_W(k) whenever gcd(k, e) ≥ m₀
+(Fourier form above; W = {1..N} ⊂ ℤ/e). Put f = ρ − 1_W. If
+m₀ ≤ |k| ≤ M (integer representative) then |k| divides L_M | e, so
+gcd(k, e) = |k| ≥ m₀ and f̂(k) = 0. Let K be the Fejér kernel of degree M
+on ℤ/e, K(x) = (1/e)Σ_{|k|≤M}(1 − |k|/(M+1))e(kx/e) ≥ 0, ΣK = 1, and
+K(x) ≤ e/(4(M+1)x²) for 1 ≤ |x| ≤ e/2 (sin(πx/e) ≥ 2|x|/e). Then
+T := K∗f has Fourier support in {|k| < m₀}: it is the restriction to
+ℤ/e of a real trigonometric polynomial T(θ) of degree n < m₀, T(x/e).
+Also T = K∗ρ − φ with φ := K∗1_W ∈ [0,1] and 0 ≤ K∗ρ ≤ 1 − σ, so
+|T| ≤ 1 on ℤ/e, and by sampling (Bernstein, nearest sample within 1/(2e))
+‖T‖_{L^∞(𝕋)} ≤ 1/(1 − πm₀/e).
+Edge: for 1 ≤ r < (N−1)/2 take x_in = 1 + r ∈ W, x_out = −r ∉ W. The
+tail bound gives Σ_{|t|≥a}K(t) ≤ e/(2(M+1)(a−1)), hence
+1 − φ(x_in) ≤ e/(2(M+1)r) and φ(x_out) ≤ e/(2(M+1)r) (the far sides are at
+distance ≥ N − r and ≥ e − N − r ≥ r). So T(x_in) ≤ 1 − σ − φ(x_in)
+≤ −σ + e/(2(M+1)r) and T(x_out) ≥ −φ(x_out) ≥ −e/(2(M+1)r), i.e.
+T(x_out) − T(x_in) ≥ σ − e/((M+1)r). Bernstein:
+|T(x_out) − T(x_in)| ≤ 2π m₀ ‖T‖_∞ (2r+1)/e. Therefore
+
+    σ ≤ e/((M+1)r) + 2πm₀(2r+1)/(e(1 − πm₀/e)).
+
+Take r = ⌈e/√(4πm₀(M+1))⌉ (which is < (N−1)/2 once M is large): both terms
+are √(4πm₀/(M+1))(1 + o(1)). ∎
+
+*Remarks.* (i) The mechanism is the window's *jump*: once all
+frequencies m₀ ≤ |k| ≤ M are pinned, a Fejér smoothing of ρ − 1_W at scale
+e/M is a trig polynomial of bounded degree, which cannot jump by σ across
+the edge of W. It is the edge problem of IF2 §5 in quantitative form.
+(ii) The bound is useless numerically (it needs log N ≫ 50/σ²); the LP
+values above show the actual decrease is slow but visible already at
+N ≈ 10³–10⁴. The true rate of σ*(N) → 0 is open (between this
+(log N)^{−1/2} upper bound and whatever constructions give).
+(iii) **What survives.** By Lemma 1.4, Thm 5.2 (via Prop 9.1) only needs
+SPW(C, σ_N, Δ_N) with σ_N ≥ c₀e^{−S_A}, S_A ≍ (log N)^{3/4}(log log N)^{3/4};
+Theorem 3.2 only forces σ_N ≲ (log N)^{−1/2}, far above that threshold.
+So the hybrid program is not refuted; the correct target is **weak SPW**
+with slowly decaying σ_N, and the original fixed-σ SPW (in particular the
+conjectured value 2/5) is false.
