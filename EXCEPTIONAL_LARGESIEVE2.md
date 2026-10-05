@@ -401,3 +401,42 @@ factor `≤ ω^{ω/2}`; distinct primes force `ω ≲ ℓ_typ/log ℓ_typ`, so t
 product still decays like `exp(−(1/2 − o(1))·level)`. So (H_LS∞) is
 expected with `η = 1/2 − o(1)`, and no escape is expected. No method in
 the literature uses such frequencies.
+
+## 6. The remaining prime-law opens (PL §6 items 2, 3)
+
+**6.1 The large sieve for primes** is closed by Theorem 3.1.
+
+**6.2 Finite-range positivity.** PL §6 item 2 lists majorants with
+`ν(p) ≥ 0` only for primes `p ≤ N` (and/or `ν ≥ 1` only at the primes of
+`𝒜 ∩ [1,N]`), the gap living at period `L > N^c`.
+
+**Proposition 6.1 (the finite-range LP is the exact count; PROVED).**
+For every family 𝔊 and every N there is ν with
+* `ν ≥ 0` on all of ℤ, `ν ≥ 1` at every prime `p ≤ N` with `p ∈ 𝒜`;
+* every modulus a single prime `q ∈ (N, 2N]` (level `≤ log 2N`), and
+  coefficient sum `T = #(𝒜 ∩ primes ≤ N) ≤ N`;
+* `Σ_{p≤N} ν(p) = #(𝒜 ∩ primes ≤ N)` exactly.
+
+*Proof.* `ν = Σ_{p ≤ N, p ∈ 𝒜} 1[n ≡ p (mod q)]`; for primes `p' ≤ N`,
+`p' ≡ p (mod q)` with `p, p' ≤ N < q` forces `p' = p`. ∎
+
+So with "`ν ≥ 1` only at the primes of `𝒜 ∩ [1,N]`" the relaxed LP has
+value equal to the truth, already at level `≍ log N`, polynomial budget
+and nonnegative ν: **no cap of any kind can hold for that relaxation.**
+What a real method lacks is not a better majorant but the knowledge of
+*which* primes `≤ N` lie in 𝒜 — that is, the ES verification itself
+(non-CRT input, LS (E3)). Methods that certify `ν ≥ 1` through the
+family alone are in PL Def 1.1 and capped by PL Cor 4.2. The mixed variant
+(`ν ≥ 1` on every unit of 𝒜, `ν ≥ 0` only at primes `≤ N`) lets ν be
+negative only on reduced classes containing no prime `≤ N`; at period
+`L > N` these are almost all classes, and certifying the sign condition
+again needs the location of the primes `≤ N` (Assessment; not a theorem).
+
+**6.3 Unconditional signed errors.** Unchanged from PL §4.3/§6 item 3
+(Assessment): unconditional error terms for `π(N; d, b)` with
+`d ≥ (log N)^{O(1)}` are at best `N(log N)^{−A}` on average (BV), far
+above the main terms `π(N)e^{−(log N)^{3/4}}` at stake; for
+`d ≤ (log N)^{O(1)}` (Siegel–Walfisz/Vinogradov–Korobov) they are
+`N exp(−c(log N)^{3/5−o(1)})`, which is still larger than those main terms,
+since `3/5 < 3/4`. So no unconditional signed accounting can even resolve
+the main term at the 3/4 scale. Under GRH, PL Prop 4.3 caps it.
