@@ -1,0 +1,35 @@
+(a) R(M) == uvw-set and 1 notin R(M) for all M<=min(T,2000), M=3(4): failures=0
+(b) T=3000 z=7 k=4 c0=0.00391 rounds=1 |B|=256 kS*/c0=39843.8 final max w=0.00382 (<=c0: True) S_tot(Pi)=0.057 S*=38.910 Lemma11.1 majorant (no loglog factor)=439.1
+    |B|<=kS*/c0: True;  S_tot<=S*: True;  max support=1 (<=k: True)
+(d) max neighbourhood sum 2*sum_w <= 0.0076 (2kc0=0.0312); log prod(1-2P) = -0.113, -2.07*S = -0.117
+    log Q_Pi = 1726.6; 840|Q: True; Q>T: True
+(c) forced survivors: 100, with W(n)>T: 100, mismatches: 0
+    random n=1(Q): 300, events occurred in 15, [no event] == [W>T] in 300/300
+(a) R(M) == uvw-set and 1 notin R(M) for all M<=min(T,2000), M=3(4): failures=0
+(b) T=3000 z=7 k=4 c0=0.05000 rounds=1 |B|=68 kS*/c0=3112.8 final max w=0.04902 (<=c0: True) S_tot(Pi)=3.672 S*=38.910 Lemma11.1 majorant (no loglog factor)=439.1
+    |B|<=kS*/c0: True;  S_tot<=S*: True;  max support=1 (<=k: True)
+(d) max neighbourhood sum 2*sum_w <= 0.0980 (2kc0=0.4000); log prod(1-2P) = -7.354, -2.07*S = -7.602
+    log Q_Pi = 408.3; 840|Q: True; Q>T: True
+(c) forced survivors: 100, with W(n)>T: 100, mismatches: 0
+    random n=1(Q): 300, events occurred in 291, [no event] == [W>T] in 300/300
+(a) R(M) == uvw-set and 1 notin R(M) for all M<=min(T,2000), M=3(4): failures=0
+(b) T=5000 z=11 k=3 c0=0.03000 rounds=1 |B|=122 kS*/c0=4705.7 final max w=0.02985 (<=c0: True) S_tot(Pi)=3.338 S*=47.057 Lemma11.1 majorant (no loglog factor)=527.7
+    |B|<=kS*/c0: True;  S_tot<=S*: True;  max support=1 (<=k: True)
+(d) max neighbourhood sum 2*sum_w <= 0.0597 (2kc0=0.1800); log prod(1-2P) = -6.681, -2.07*S = -6.909
+    log Q_Pi = 799.5; 840|Q: True; Q>T: True
+(c) forced survivors: 60, with W(n)>T: 60, mismatches: 0
+    random n=1(Q): 200, events occurred in 194, [no event] == [W>T] in 200/200
+(a) R(M) == uvw-set and 1 notin R(M) for all M<=min(T,2000), M=3(4): failures=0
+(b) T=3000 z=5 k=4 c0=0.50000 rounds=1 |B|=9 kS*/c0=311.3 final max w=0.33800 (<=c0: True) S_tot(Pi)=10.253 S*=38.910 Lemma11.1 majorant (no loglog factor)=439.1
+    |B|<=kS*/c0: True;  S_tot<=S*: True;  max support=2 (<=k: True)
+(d) max neighbourhood sum 2*sum_w <= 1.1423 (2kc0=4.0000); log prod(1-2P) = -20.638, -2.07*S = -21.223
+    log Q_Pi = 77.5; 840|Q: True; Q>T: True
+(c) forced survivors: 100, with W(n)>T: 100, mismatches: 0
+    random n=1(Q): 300, events occurred in 300, [no event] == [W>T] in 300/300
+(a) R(M) == uvw-set and 1 notin R(M) for all M<=min(T,2000), M=3(4): failures=0
+(b) T=4000 z=3 k=7 c0=2.00000 rounds=1 |B|=3 kS*/c0=152.2 final max w=1.35585 (<=c0: True) S_tot(Pi)=15.685 S*=43.499 Lemma11.1 majorant (no loglog factor)=485.4
+    |B|<=kS*/c0: True;  S_tot<=S*: True;  max support=2 (<=k: True)
+(d) max neighbourhood sum 2*sum_w <= 4.4338 (2kc0=28.0000); log prod(1-2P) = -31.749, -2.07*S = -32.468
+    log Q_Pi = 32.8; 840|Q: True; Q>T: True
+(c) forced survivors: 100, with W(n)>T: 100, mismatches: 0
+    random n=1(Q): 300, events occurred in 300, [no event] == [W>T] in 300/300

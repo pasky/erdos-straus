@@ -65,3 +65,53 @@ cells, only on `M_1, μ, Z`; so the astronomically many cells of B are harmless.
 * *(I) on the class.* `F ≤ 1[W>T]` on n≡1 (Q_Π) — see §2.
 
 Verdict (1): **SOUND**, with the minor defects D1–D3 below.
+
+## 2. Haar-side inputs: O2 Lemma 4.3 (I), Lemmas 11.1–11.2, Thm 11.3, ET Prop 1.4
+
+**(I) for an arbitrary quarantine Π.** Re-derived: for n≡1 (Q_Π), Q_Π =
+lcm(24, ℓ^{e_ℓ}: ℓ∈Π), and `M≤T`, `M≡3 (4)`: the Π-part m of M divides Q_Π
+(each `ℓ^v‖M` has `ℓ^v≤T`, so `v≤e_ℓ`), so n≡1 (m). If r=1, Fact 1.1. If
+`n≡−4D (M)`, `D|A_M²`, then `m|4D+1` (survival) and `n≡−4D (r)` (the event
+occurs). Only "Π-part divides Q_Π" is used, so (I) holds verbatim for the
+output of Lemma 11.2 (any Π). The events are unit single-value conditions
+(`gcd(D,M)=1` since `gcd(A,M)=1`). Supports: primes `>z` dividing `r≤T`
+number at most `k=⌊𝓛/log z⌋` ✓. **SOUND.**
+
+*From scratch* (`scripts/review_o8b_quarantine.py`, output
+`data/review_o8b/quarantine.txt`): (a) `{−4D: D|A²} = {−uv^{−1}: uvw=A}`
+(the blind51 (B1.1) witness definition) and `1∉𝓡(M)` for all M≤2000;
+(c) actual integers n≡1 (Q_Π) built by CRT, W(n) computed by brute force over
+all M≤T: in 5 configurations (T=3000–5000, z∈{3,5,7,11}, c_0 = 1/(64k) and
+larger, supports up to 2) all 510 forced survivors have W(n)>T, and on 1500
+unconditioned samples `[no event] = [W(n)>T]` with 0 mismatches.
+
+**Lemma 11.1 (S*).** Re-derived: survival forces `m_Π | g:=gcd(M,4D+1)`;
+`D↦A²/D` preserves g (in ℤ/g, `D≡−1/4`, `A≡1/4`, so `4A²/D≡−1`); with
+`D=sr'²≤A=sr'k`: `g | 4sr'(r'+k)` and `gcd(g,4sr')=1`, so `g|r'+k`; least k
+is `≥g/2`, k-sum `≤(3+log X)/g`. ✓ Numerically S* (exact max over all Π,
+per atom) is 38.9 (T=3000), 43.5 (4000), 47.1 (5000), far below the majorant
+(even without the `C log log T` factor). **ET Prop 1.4** read in
+`sources/elsholtz-tao-1107.1010.pdf` (p. 4): `Σ_{a≤A,b≤B}τ(kab²+1) ≪
+AB log(A+B) log(1+k)` for `A,B>1`, `k≪(AB)^{O(1)}` — matches PO Lemma 9.2's
+quotation; dyadic blocks (`O(𝓛²)` of them, each `O(𝓛)` with k=4) give
+`Σ τ(4sr'²+1)/(sr') ≪ 𝓛³`, hence `S*≪𝓛^4 log𝓛` ✓. (Effectivity of ET's
+constant: ET's proof is an Erdős-type elementary argument; I did not check
+effectivity line by line — Thm 4.3 correctly makes effectivity conditional
+on it.)
+
+**Lemma 11.2 (iterated quarantine).** Re-derived: a prime added at stage i
+has `c_0<w_ℓ(Π_i) ≤ Σ_{atoms surviving Π_i, ℓ|r} 1/φ(r) ≤ Σ_{atoms, ℓ|M, ℓ>z}
+(S*-contribution)`; each atom has ≤k primes >z, and each ℓ is added once, so
+`|𝓑|c_0 < kS*`. Termination: Π only grows within a finite set. At the end all
+free ℓ have `w_ℓ≤c_0` ✓. Numerically `|𝓑|` ≤ kS*/c_0 and final
+`max w_ℓ ≤ c_0` in all runs ✓. With c_0=1/(64k): `|𝓑|≤64k²S*` ✓.
+
+**Thm 11.3 / the LLL lower bound used in Thm 3.4.** With `x_E=2P(E)`,
+`P(E)≤w_ℓ≤c_0`, neighbourhood sum `≤2kc_0` (=1/32 for c_0=1/(64k)); then
+`δ ≥ ∏(1−2P(E)) ≥ e^{−2.07S}` (`−log(1−x)≤1.04x` for x≤1/32) ✓ —
+numerically `log∏(1−2P) ≥ −2.07S` in all runs. O2's arithmetic
+`log(1/δ*) ≤ (π(z)+8k²S*)𝓛+4S* ≪ 𝓛³+𝓛³S*/(log𝓛)²` with z=𝓛² ✓.
+
+**What OMEGA8 needs from Π** — supports ≤k, `w_ℓ≤1/(64k)` for all free ℓ,
+`S≤S*`, (I), `840|Q_Π` (z≥7), `log Q_Π≤(π(z)+64k²S*)𝓛+log 24` — all
+delivered. Verdict (2): **SOUND.** (Minor: D4.)
