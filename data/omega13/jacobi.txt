@@ -1,0 +1,1 @@
+T=200000 atoms=2401032 Jacobi!=-1: 0  Legendre(-4D,l)!=(-d|l): 0
