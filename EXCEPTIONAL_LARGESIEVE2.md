@@ -332,3 +332,72 @@ other weights `w ≥ 0` on prime powers: the same π (with `W = W₀`) has
 `≤ log(16 + 15Nh/(W_K − h))`. (c) Composite kernels are covered by Theorem 4.2
 when their moduli have polynomial level; kernels whose moduli have
 super-polynomial level belong with (E1) (§5).
+
+## 5. Escape (E1): super-polynomial levels — sharpened, not closed
+
+Throughout this section the system is LS's: rational frequencies Θ,
+weights `w_θ ≤ 1/N` (LS Fact 1.1), `Σ_θ w_θ ≤ 1` (LS Fact 4.0).
+
+**Proposition 5.1 (what (E1) really requires; PROVED, conditional on K2
+Thm 5.1).** Let all primes of 𝔊 be `≤ N^A`. If every frequency θ used
+(after LS Rem 3.3's projection, `den θ | M₀`) has at most r distinct
+prime factors `> W` in its denominator, the saving is
+`≤ log 2 + S(2rA log N + λ(Q₀))`. Hence a saving `≥ (log N)^{3/4+ε}`
+needs frequencies with `≥ (log N)^{4ε/3 − o(1)}` distinct family primes
+`> W` in the denominator.
+
+*Proof.* Such θ have level `≤ rA log N`; LS Thm 3.1 (or Theorem 2.4).
+Solve `S(2rA log N) ≥ (log N)^{3/4+ε}` for r. ∎
+
+So (E1) is not about large denominators but about denominators with
+**many** prime factors (each `≤ N^A`). Such frequencies probe correlations
+of the residues of 𝒜 at many primes simultaneously.
+
+**Proposition 5.2 (diagonal reduction; PROVED).** Fix `λ' ≥ λ₀/2`.
+Suppose there is `π ∈ P(𝒜)` with
+* (a) `E_π f ≤ e^{S₁} E_U f` for all `f ≥ 0` of level `≤ 2λ'`, and
+* (b) `|π̂(θ)|² ≤ e^{S₂}/N` for every θ of level `> λ'`.
+
+Then every CRT-admissible large-sieve bound (any rational frequencies,
+any weights) is `≥ N/(e^{S₁} + e^{S₂})`.
+
+*Proof.* `F_w(π) = Σ_{level θ ≤ λ'} w_θ|π̂(θ)|² + Σ_{level θ > λ'} w_θ|π̂(θ)|²`.
+The first sum is `sup_{‖c‖≤1}|E_π Σ_{low} √w_θ c_θ e(nθ)|² ≤ e^{S₁}·max w ≤
+e^{S₁}/N` (as in Theorem 2.4); the second is `≤ max_{high}|π̂|²·Σw ≤
+e^{S₂}/N`. Admissibility gives `B ≥ 1/F_w(π)`. ∎
+
+There are no cross terms: `F_w` is diagonal in θ. This is weaker than
+LS's (H_LS) (which asked for `ℓ^{2+2β}` smallness of π̂ over **all**
+frequencies): the low levels are already handled by K2 (Lemma 1.1
+supplies (a)), and only a **sup** bound is needed at high level. Since λ'
+may be any fixed multiple of `log N` (cost `S(2λ') ≍ (log N)^{3/4}·polylog`),
+it suffices that (a) at level `2λ' = (2/η)log N` and
+
+    (H_LS∞)   |π̂(θ)| ≤ e^{S(λ')} exp(−η·level(θ))   for level(θ) > λ'
+
+hold for one π and some fixed `η > 0` (any exponential rate in the level).
+
+*Status.* (H_LS∞) is **CONJECTURE**. What is missing is a measure that
+satisfies (a) **and** has Fourier decay at many primes simultaneously:
+* Lemma 1.1's π is an abstract LP dual (no Fourier information);
+* EK's explicit law (sequential `Q'` reweighted by `e^{−ΣΦ}1_𝒜`)
+  satisfies (a), but the reweighting depends on the whole path;
+* the unweighted sequential law `Q'` decays at the **top** prime of the
+  denominator only, `|Q̂'(θ)| ≤ E g_{ℓ_top}` (LS §7). Product decay over
+  several primes fails for the naive Schur-type induction: each step
+  sums `|·|` over all cofactors of the classes decided at the current
+  prime, and with first moments `≍ (log ℓ)²/ℓ` per prime the losses
+  compound (`Σ_q Π_{p|q}(log p)²/q` diverges); real cancellation in the
+  phases would have to be used;
+* a product sub-law (forbid every class at its top prime regardless of
+  the lower residues) has exact product decay but loses density
+  `Π_ℓ(1 − f̃_ℓ/ℓ)` with `f̃_ℓ` the number of all classes with top ℓ,
+  `≍ ℓ^{B+o(1)}`; this works only for slice-type families (LS Thm 4.1).
+
+*Heuristic (Assessment).* For the uniform law on 𝒜 a polymer (cluster)
+expansion over connected covers of the primes of `den θ` by family moduli
+predicts `|π̂(θ)| ≲ Π_{ℓ | den θ}(c(log ℓ)^c/ℓ)` times a combinatorial
+factor `≤ ω^{ω/2}`; distinct primes force `ω ≲ ℓ_typ/log ℓ_typ`, so the
+product still decays like `exp(−(1/2 − o(1))·level)`. So (H_LS∞) is
+expected with `η = 1/2 − o(1)`, and no escape is expected. No method in
+the literature uses such frequencies.
