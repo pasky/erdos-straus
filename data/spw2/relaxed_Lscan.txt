@@ -1,0 +1,2 @@
+N=30 L=1920 C=2.0 Kz=None: eta=0.8926 maxR_out=1.242 massW=0.00 far=5.68 rows=114330 nnz=583824 t=63s
+N=30 L=3840 C=2.0 Kz=None: eta=0.9050 maxR_out=1.243 massW=0.00 far=5.48 rows=229530 nnz=1324203 t=302s

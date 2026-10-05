@@ -80,6 +80,14 @@ unavoidable; it must be spread over the lines n₀ + eℤ.
 | 50 | 16N | 1.5 | 0.754 | 1.50 | 2.31 |
 | 80 | 4N / 8N / 16N | ∞ | 0.303 / 0.512 / 0.663 | | |
 | 12–20 | 8N | 1 | 0.667 (= Lemma 9.3 with K = 1) | | |
+| 30 | 64N / 128N | ∞ | 0.893 / 0.905 (R = 0 on W; far mass ≈ 5.5) | | |
+| 50 | 32N / 64N | ∞ | 0.798 / 0.820 (far mass ≈ 15) | | |
+
+(`scripts/spw2_relaxed_fast.py` = vectorised K = ∞ version, same values;
+data/spw2/relaxed_Lscan.txt.) Every finite-support optimum is a genuine
+measure on ℤ, so e.g. at N = 50 RSPW(2, 0.82, K ≈ 1.6) holds, hence
+SPW(2, ≈ 0.25) via SPW1 Lemma 1.4 (EVIDENCE: floating-point LP, not
+re-verified in exact arithmetic).
 
 Strong support dependence (η grows with L; the needed support grows with
 N, consistent with Lemma 2.3). Optimal R (N = 30): reflection-symmetric,
