@@ -590,3 +590,31 @@ the arcs `B − α` are disjoint and `C = ∅`. Otherwise `α(R)` lies in an arc
 of length `< 2η`, so `|R| ≤ 2ηℓ_i + 1`, and `β(C) ⊂ B − α` gives
 `|C| ≤ 2ηℓ'_i + 1`. Then `|R|/ℓ_i + |C|/ℓ'_i ≤ 4η + 2/5 < 1`, which is the
 condition, since `|N(R)| = ℓ'_i − |C|`. ∎
+
+**Proposition 8.2 (level-λ majorants of the band family; PROVED).** Let
+ν be a real combination of class indicators, `ν ≥ 0` on ℤ, `ν ≥ 1` on 𝒜,
+every term of level `≤ λ` (all `ℓ_i, ℓ'_i > W`).
+* (a) If `L_i > λ` for every i, then `E_U ν ≥ 1`: **no saving at all**.
+  Equivalently (Lemma 1.1), the best comparison measure at level λ has
+  `S = 0`.
+* (b) If every `ℓ_i, ℓ'_i > e^{λ/d}` (d ≥ 1 an integer) and `η ≤ 1/9`, then
+  `log(1/E_U ν) ≤ d log(C₀(K/4 + 4d)/d) + (4/3)d + ½log(22d+22) + 3`
+  (C₀ of EK Cor 2.6), i.e. `O_d(log K)`.
+
+*Proof.* (a) Let `μ = ⊗_i μ_i` on the coordinates mod `D_i`, uniform and
+independent on all other CRT digits (Lemma 8.1). A term `1[n ≡ b (d)]`
+has level `≤ λ < L_i`, so d is divisible by at most one of `ℓ_i, ℓ'_i`
+for each i; μ's marginal on the coordinates d involves is therefore a
+product of uniform one-prime marginals and other uniform digits, so
+`E_μ 1[n ≡ b (d)] = E_U 1[n ≡ b (d)]`. By linearity `E_U ν = E_μ ν ≥ 1`,
+μ being supported on 𝒜.
+(b) Average ν over the digits outside `{ℓ_i, ℓ'_i}` (still a majorant, as
+𝒜 depends only on those coordinates; mean kept). It is then d-local in the
+sense of EK §1 on the coordinates `y_ℓ = n mod ℓ`, ℓ ∈ `{ℓ_i, ℓ'_i}`, since
+a term of level `≤ λ` contains at most d of these primes. Order the
+coordinates so that `ℓ_i` precedes `ℓ'_i`; the patterns are the pairs
+`(x,y)` with `α(x)+β(y) ∈ B`, top `ℓ'_i`. Given `y_{ℓ_i}`, the activated
+set at `ℓ'_i` has `≤ 2ηℓ'_i + 1` points, so `p ≤ 2η + 1/ℓ'_i ≤ 1/4 = δ`:
+every coordinate is light, the plain rule never leaks (EK Lemma 2.1(1)),
+and `M ≤ K/4`. EK Thm 2.5 with Cor 2.6 (`m̄ = K/4`) gives
+`E_U ν ≥ E[e^{−Φ}ν(y)] ≥ E e^{−Φ} ≥ e^{−EΦ}` with the stated bound. ∎
