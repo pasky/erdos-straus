@@ -1,6 +1,6 @@
 # EXCEPTIONAL_LARGESIEVE2 — the remaining large-sieve and prime-law escapes (task O27)
 
-Status: **checkpoint 1** (not yet reviewed). Labels as in
+Status: **checkpoint 1** (self-review by a deep subagent applied; awaiting parent review). Labels as in
 `DISCOVERIES.md`. Notation: LS = `EXCEPTIONAL_LARGESIEVE.md`, K2 =
 `EXCEPTIONAL_KARY2.md`, EK = `EXCEPTIONAL_KARY.md`, PL =
 `EXCEPTIONAL_PRIMELAW.md`, ET = `EXCEPTIONAL_THETA.md`.
@@ -18,17 +18,18 @@ Thm 5.1 (`λ ≥ λ₀`), and `S_B(λ) = C(B)λ^{3/4}` that of K2 Thm 5.2.
 |---|---|---|
 | Lemma 1.1, 1.2 | **comparison measure**: K2 Thm 5.1 (resp. PL Thm 3.1) is equivalent, by LP duality, to the existence of one π on 𝒜 (resp. on 𝒜 ∩ units) with `E_π f ≤ e^{S(λ)}E_U f` (resp. `E*f`) for **every** nonnegative f of level ≤ λ | PROVED, conditional on K2 Thm 5.1 / PL Thm 3.1 |
 | Thm 2.4, Cor 2.5 | **periodic Bessel systems, twisted, hybrid**: any inequality `Σ_j|Σ a_n φ̄_j(n)|² ≤ ΔΣ|a_n|²` with periodic rows of level ≤ λ_Φ, applied to `a_n = ψ(n)1_A(n)` with any periodic twist `|ψ| ≥ 1` on 𝒜 (any period), fibrewise over `Q₀`, mixed with majorant-with-rounding fibres: `B ≥ (N/2)e^{−S(λ)}`; saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` for polynomial periods. Covers multiplicative × additive, Gauss-sum twisted and hybrid forms (escape 3) | PROVED, conditional on K2 Thm 5.1 (internal) |
-| Thm 3.1 | **large sieve applied to the primes** of the sifted set (PL §6 item 5): same cap relative to `π(N)` | PROVED, conditional on PL Thm 3.1 |
-| Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))` | PROVED, conditional on K2 Thm 5.1 |
+| Thm 3.1 | **large sieve applied to the primes** of the sifted set (PL §6 item 5): same cap relative to `π(N)`, when all primes of `M'` (family, rows, twists, `Q₀`) are `≤ N^A` | PROVED, conditional on PL Thm 3.1 |
+| Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 4.1–4.3 and EK Lemma 2.1 only; no external input) |
-| Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; the cap follows from (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
+| Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
 | Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design | PROVED |
 | §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
 | §7 | LP/QP/exact-law sanity checks of Lemma 1.1, Lemma 2.2/Thm 2.4, Lemma 4.1/Thm 4.2, Thm 4.3's steps | EVIDENCE |
 
 **Bottom line.** Of the four escape groups of O27: escape 2 (Gallagher
-over mixtures) is closed unconditionally and far below the 3/4 scale
-(Thm 4.3; composite kernels by Thm 4.2); escape 3 (twisted, multiplicative
+over mixtures) is closed for prime-power kernels, unconditionally and far
+below the 3/4 scale (Thm 4.3); composite kernels are capped by Thm 4.2 only
+where `Nh/(W_K−h)` is controlled; escape 3 (twisted, multiplicative
 × additive, Gauss-sum, hybrid fibrewise forms) is closed (Thm 2.4); the
 prime large sieve (escape 4, third item) is closed (Thm 3.1); the
 finite-range prime relaxation is shown to be no sieve limit at all
@@ -89,7 +90,7 @@ in m whose moduli d have `Q₀d` ∈ 𝒟-span (level `λ(Q₀) + λ(d) ≤ λ`)
 
 since `n ↦ f((n−c)/Q₀)1[n ≡ c (Q₀)]` is `≥ 0`, lies in `V_𝒟` (a class
 `m ≡ b (d)` becomes `n ≡ c + Q₀b (Q₀d)`), and has U-mean `E_U f/Q₀`.
-Also `π(c) ≤ e^{S(λ)}/Q₀` by (1.1) with `f = 1[n ≡ c (Q₀)]`.
+If moreover `Q₀ ∈ 𝒟`, then `π(c) ≤ e^{S(λ)}/Q₀` by (1.1) with `f = 1[n ≡ c (Q₀)]` (review: this needs `1[n≡c (Q₀)] ∈ V_𝒟`; Theorem 2.4 puts `Q₀` into 𝒟).
 
 **Lemma 1.2 (unit-measure version; PROVED, conditional on PL Thm 3.1).**
 Let `E*` be uniform on `(ℤ/M')^×`. For `λ ≥ λ₀` there is a probability π*
@@ -225,7 +226,7 @@ classes `c ∈ (ℤ/Q₀)^×`,
 
     B ≥ (N/2) e^{−S(λ)} φ(M')/M',      λ = max(λ₀, λ(Q₀) + 2λ_Φ).
 
-If all primes of `M'` are `≤ N^A` and `λ ≤ 3A log N`, then
+If all primes of `M'` — the family's, the rows', the twists' and `Q₀`'s — are `≤ N^A`, and `λ ≤ 3A log N`, then
 `B ≥ π(N)·exp(−C_A(log N)^{3/4}(log log N)^{3/4})`: relative to the
 trivial bound `π(N)` the saving is `≤ C_A(log N)^{3/4}(log log N)^{3/4}`.
 
@@ -239,7 +240,9 @@ the reading, Mertens gives `M'/φ(M') ≤ Π_{p≤N^A}(1−1/p)^{−1} ≤ 2A lo
 for N large, and `N/(4A log N) ≥ π(N)/(5A)`. ∎
 
 So Montgomery's large sieve for the primes of the sifted set (any
-periodic rows of polynomial period, any twist `|ψ| ≥ 1`, fibrewise)
+periodic rows and twists `|ψ| ≥ 1` whose periods have all prime factors
+`≤ N^A`, fibrewise; unlike Theorem 2.4, the twist's period enters here
+through `M'/φ(M')`)
 gains nothing beyond the integer cap: the factor `φ(M')/M'` is exactly
 the prime density already in `π(N)`. *Sketch only (not claimed):* type-
 (ii) fibres carrying prime majorants with `Err ≥ 0` (PL Cor 4.2) can be
@@ -285,7 +288,12 @@ Let every `q ∈ 𝒮` (with `w(q) > 0`) have level `≤ λ_𝒮`, and
 `B = (W_K−h)/(L−h)` gives the claim. ∎
 
 So the larger sieve with composite moduli of polynomial level is capped
-like the large sieve, up to the factor `1 + Nh/(W_K − h)`. For
+like the large sieve **up to the factor `1 + Nh/(W_K − h)`, which is not
+controlled in general** (review: adding weight T at modulus 1 leaves the
+kernel bound unchanged but inflates h by T; more generally kernels with
+`W_K − h ≪ Nh` are not covered). Composite kernels are therefore capped
+only when `log(1 + Nh/(W_K−h)) ≪ (log N)^{3/4}` (after deleting the
+modulus 1, which cancels). For
 Gallagher's kernel (`h = log N`, `W_K = ψ(Q)`) that factor is
 `≤ 1 + 4 log N` once `Q ≥ N`; the next theorem does much better.
 
@@ -357,8 +365,9 @@ other weights `w ≥ 0` on prime powers: the same π (with `W = W₀`) has
 `χ²_q(π) ≤ 7(1+4𝔏) + 4𝔏 ≤ 15` for every prime power q, so
 `X(π) ≤ 15D_u ≤ 15(h + (W_K−h)/N)` and the saving is
 `≤ log(16 + 15Nh/(W_K − h))`. (c) Composite kernels are covered by Theorem 4.2
-when their moduli have polynomial level; kernels whose moduli have
-super-polynomial level belong with (E1) (§5).
+when their moduli have polynomial level **and** `Nh/(W_K−h)` is at most
+`exp(O((log N)^{3/4}))`; otherwise they remain open, and kernels whose
+moduli have super-polynomial level belong with (E1) (§5).
 
 ## 5. Escape (E1): super-polynomial levels — sharpened, not closed
 
@@ -369,7 +378,7 @@ weights `w_θ ≤ 1/N` (LS Fact 1.1), `Σ_θ w_θ ≤ 1` (LS Fact 4.0).
 Thm 5.1).** Let all primes of 𝔊 be `≤ N^A`. If every frequency θ used
 (after LS Rem 3.3's projection, `den θ | M₀`) has at most r distinct
 prime factors `> W` in its denominator, the saving is
-`≤ log 2 + S(2rA log N + λ(Q₀))`. Hence a saving `≥ (log N)^{3/4+ε}`
+`≤ log 2 + S(max(λ₀, 2rA log N + λ(Q₀)))`. Hence a saving `≥ (log N)^{3/4+ε}`
 needs frequencies with `≥ (log N)^{4ε/3 − o(1)}` distinct family primes
 `> W` in the denominator.
 
@@ -393,10 +402,13 @@ The first sum is `sup_{‖c‖≤1}|E_π Σ_{low} √w_θ c_θ e(nθ)|² ≤ e^{
 e^{S₁}/N` (as in Theorem 2.4); the second is `≤ max_{high}|π̂|²·Σw ≤
 e^{S₂}/N`. Admissibility gives `B ≥ 1/F_w(π)`. ∎
 
-There are no cross terms: `F_w` is diagonal in θ. This is weaker than
-LS's (H_LS) (which asked for `ℓ^{2+2β}` smallness of π̂ over **all**
-frequencies): the low levels are already handled by K2 (Lemma 1.1
-supplies (a)), and only a **sup** bound is needed at high level. Since λ'
+There are no cross terms: `F_w` is diagonal in θ. This is a sufficient
+criterion **different** from LS's (H_LS) (which asked for `ℓ^{2+2β}`
+smallness of π̂ over all frequencies). Neither implies the other: an
+`ℓ^{2+2β}` bound tolerates isolated large high-level coefficients (e.g.
+density `1 + cos(2πn/d)`), which (b) forbids (review). Its advantage is
+that the low levels are already handled by K2 (Lemma 1.1 supplies (a)),
+so only high-level coefficients need control. Since λ'
 may be any fixed multiple of `log N` (cost `S(2λ') ≍ (log N)^{3/4}·polylog`),
 it suffices that (a) at level `2λ' = (2/η)log N` and
 
@@ -481,7 +493,7 @@ modulus of `V_𝒟` (stand-in for the level).
    140 at k = 2), as the proof predicts.
 2. Lemma 2.2 and the type-(i) estimate of Theorem 2.4: 504 weighted Farey
    rows (denominators of arity ≤ 1), `N = 60`; `N·E_U|H|²/(Δ‖c‖²) ≤ 0.094`
-   and `[R̃(π)/E_π|ψ|²]/[Δ/(Nm*)] ≤ 0.031` over random c and random
+   and `[R̃(π)/E_π|ψ|²]/[Δ/(Nm*)] ≤ 0.029` over random c and random
    twists `|ψ| ∈ [1,3]`.
 3. Lemma 4.1 holds exactly for 6 random kernels (`N = 40`); the QP optimum
    `D*` gives kernel bounds `B ∈ [3.0, 12.7]`, all above Theorem 4.2's

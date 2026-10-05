@@ -37,6 +37,7 @@ BIG = [5, 7, 11]
 SMALL = 24
 L = SMALL * math.prod(BIG)
 random.seed(20261005)
+np.random.seed(20261005)
 
 
 def toy_family():
