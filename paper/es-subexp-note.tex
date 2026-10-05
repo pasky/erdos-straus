@@ -190,10 +190,15 @@ Because it controls the whole family of characters of conductor $\le Q_G$
 simultaneously, the cost is governed by the Haar $\ell^1$ norm of the
 minorant and the size of its largest modulus, and not by the number of
 cells or their $\ell^1$ mass.  For a Bazzi--Razborov sandwich the $\ell^1$
-norm is automatically close to the mean (Lemma~\ref{lem:l1}).  We do not
-know an earlier use of Gallagher's theorem in this role, but we have not
-searched for one systematically.  Linnik-type bounds for primes in sets
-defined by many congruence conditions are of course classical.  Earlier uses of the
+norm is automatically close to the mean (Lemma~\ref{lem:l1}).  The nearest classical analogues are bounds for the least prime in a union
+of residue classes, or in a Chebotarev class of an abelian extension
+(Lagarias--Montgomery--Odlyzko \cite{LMO}; Thorner--Zaman \cite{TZcheb}).
+These also bound the least prime by a power of the conductor through
+log-free zero-density estimates and the Deuring--Heilbronn phenomenon, but
+they concern nonnegative indicators of sets of classes.  As far as we know,
+what is new here is the use of a \emph{signed} minorant, whose cost is
+governed by $A=\E|B|/\E B$.  We have not searched systematically for an
+earlier use of Gallagher's theorem in this role.  Earlier uses of the
 switching lemma in number theory known to us run in the opposite
 direction: they show that an arithmetic function such as the M\"obius
 function is uncorrelated with bounded-depth circuits \cite{Green,Bourgain}.  Our literature
@@ -902,11 +907,11 @@ beyond their support size; in particular there is no codegree hypothesis.
 
 \begin{corollary}[Proved modulo Theorem~\ref{thm:hastad}]\label{cor:el}
 In the Setting of \S\ref{sec:brw} with $N\le T$ and $m\ge1$, assume $w_\ell\le1/(64k)$ for all
-$\ell$.  Let
-\begin{gather*}
- b=\lceil\log_2(4T^2)\rceil,\qquad t=10\,k\,b\,k_0,\\
- k_0=\big\lceil3S\log_2e+\log_2\big(400\,m^2(S+1)\big)\big\rceil,
-\end{gather*}
+$\ell$.  Let $k_0$ be any integer with
+\[
+ k_0\ \ge\ 3S\log_2e+\log_2\big(400\,m^2(S+1)\big),\qquad\text{and put}\quad
+ b=\lceil\log_2(4T^2)\rceil,\quad t=10\,k\,b\,k_0,
+\]
 and define $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}.  Then
 $\E[F-B]\le\delta/100$.
 \end{corollary}
@@ -939,10 +944,12 @@ $\log p\le C_6\log Z$, where $C_6$ is absolute and
 \begin{proof}
 Take the residual system of Definition~\ref{def:system} for this $\Pi$.  By
 Lemma~\ref{lem:system}, $N\le T$, $m\le T^{k+2}$, $S\le S^*$, every support has at
-most $k$ primes, and $w_\ell\le1/(64k)$.  If $m=0$ put $B=1$.  Otherwise define
-$B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj} and $t$ as above.
-Since $m^2\le T^{2k+4}$ and $S\le S^*$, Lemma~\ref{lem:tail} gives the bound
-of Corollary~\ref{cor:el} at this $k_0$, so $\E[F-B]\le\delta/100$.  Then
+most $k$ primes, and $w_\ell\le1/(64k)$.  If $m=0$, then $F\equiv1$; we put $B=1$, so that $D=1$, $\mu=A=1$, the twist
+condition is vacuous, and we go directly to the transfer step below.
+Otherwise define $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}
+and $t$ as above.  Since $m^2\le T^{2k+4}$ and $S\le S^*$, our $k_0$ satisfies
+the hypothesis of Corollary~\ref{cor:el}, which therefore gives
+$\E[F-B]\le\delta/100$.  Then
 Lemma~\ref{lem:twist} gives $\mu=\E B\ge0.99\delta>0$ and the twist condition
 for every real primitive $\psi$ with conductor coprime to $Q_\Pi$ dividing some
 $d_i$.  As $\E[F-B]\le\mu/99$, Lemma~\ref{lem:l1} gives
@@ -1042,7 +1049,7 @@ parameter exceeds every power of $\log p$, preprint, 2026.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 % TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough],
-% [FFKPY] and the journal version of [EGLNV] were written from memory (no library
+% [FFKPY], [LMO], [TZcheb], [MV1], [RS] and the journal version of [EGLNV] were written from memory (no library
 % access in task O33; referee R33 rates the first four "probably correct, unverified").
 % The STOC'92 data of [EGLNV] are as quoted in Benjamini--Gurel-Gurevich--Peled
 % (arXiv:1201.3261, ref. [16]).  Also unverified: the journal data of [TZ] (arXiv
@@ -1091,6 +1098,9 @@ University Press, 2007.
 \bibitem{MV3} H.~L.~Montgomery and R.~C.~Vaughan, Multiplicative Number
 Theory III, unpublished draft (course notes, R.~C.~Vaughan's Penn State web
 page, accessed 5 October 2026), \S28.7--28.8.
+\bibitem{LMO} J.~C.~Lagarias, H.~L.~Montgomery and A.~M.~Odlyzko, A bound for
+the least prime ideal in the Chebotarev density theorem, Invent.\ Math.\ 54
+(1979), 271--296.
 \bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Pure and Applied
 Mathematics 30, Academic Press, 1969.
 \bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
@@ -1110,6 +1120,9 @@ equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
 \bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number theorem
 for arithmetic progressions, Math.\ Z.\ 306 (2024), Paper No.~54
 (arXiv:2108.10878v2).
+\bibitem{TZcheb} J.~Thorner and A.~Zaman, An explicit bound for the least
+prime ideal in the Chebotarev density theorem, Algebra Number Theory 11
+(2017), 1135--1197.
 \bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
 Schinzel, Mathematika 17 (1970), 193--198.
 \end{thebibliography}
