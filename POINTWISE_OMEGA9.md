@@ -191,3 +191,34 @@ irrelevant (it enters only through `log N ≪ log Z`), so R30c M1(i)
 (the missing q-ary ℓ¹ bound) is **no longer needed** for the ESW route.
 Remaining losses: the bit width `b≍𝓛` in d; the quarantine `|𝓑|≍k²S*`;
 S* through ET; and the per-prime cost `𝓛` of every modulus prime.
+
+## 3. Checks, scope, open items
+
+* `scripts/omega9_charcheck.py` (`data/omega9/charcheck.txt`): toy with
+  `Q=3`, `D=7·11·13·17`, B = inclusion–exclusion expansion of a random
+  good-indicator. All 23040 coefficients satisfy
+  `c(χ)=E_D[Bχ̄_D]/φ(Q)` (to `3·10^{−17}`) and `|c(χ)|≤E|B|/φ(Q)`. The prime
+  sum's relative error (−0.6% at `x=3·10^6`) is below the per-progression
+  bookkeeping `(M_1/μ)·max ε_i` (17.5%). Illustration only.
+* **Inputs:** (G) as stated in MV III Thm 28.19 (a draft book; Gallagher's
+  paper itself not read), the effective Page bound, O8 §§3–4, 6.1 (minorant,
+  twist, local lemma), O2 Lemmas 4.3(I), 11.1–11.2, O4 Thm 2.1's auxiliary
+  prime, ET Prop 1.4 (Thm 2.2 only). Thorner–Zaman is no longer used.
+* **Not claimed:** anything about ES; optimality of 1/7; any numerical
+  instance.
+* **Supersedes (if review confirms):** O8 Thm 4.3/6.3 (1/14, 1/13), O8
+  Thm 4.4's constant, and O8 §6.5/§6.6's ceilings, which concern PO Thm
+  4.1 only. With Thm 1.1 the cost is `log p ≍ log Z`, so `K≫𝓛²` (R30c m7)
+  is harmless, and the route's ceiling becomes `log Z ≳ junta·log z +
+  log Q_Π`.
+* **Next (open):** exponent 1/6 needs *both* (i) ESW (`d≍k·k_0`; R30c
+  M1(i) is moot now) and (ii) a quarantine with `log Q_Π ≪ 𝓛^6`, e.g. via a
+  uniform per-prime bound `w_ℓ ≪ 𝓛^{O(1)}/ℓ` (an upper-bound divisor sum in
+  progressions mod ℓ, Shiu-type), which would make the bad primes `≤𝓛^{O(1)}`.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega9_charcheck.py 1 3e6)  # ~2 min -> data/omega9/charcheck.txt
+```
