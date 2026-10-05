@@ -107,3 +107,44 @@ of `m/p`, not about a sub-family. The author's hedge in §5.1 ("we do not claim
 every Type II solution of m/n arises this way") is unnecessarily weak: see
 defect MINOR-? (upgrade, not an error). Cor 5.2 is correct either way since it
 only concerns `W_m` as defined.
+
+### Corollary 5.2 (m/n, Sierpiński analogue)
+
+Re-ran [SN] `lem:qmass`, `lem:iterq`, `def:system`, `lem:system`, `thm:assembly`,
+proofs of `thm:main`/`thm:uncond` with `4 ↦ m`:
+* `gcd(A_M, M) = 1` from `mA_M − M = 1`; all `R_m(M)` classes are units. OK.
+* Mass: `1/φ(r_Π) ≤ g/φ(M)`, `g = gcd(M, mD+1)`; `D ↦ A²/D` preserves `g`
+  (Lemma 5.1(iii)); `D = sr²`, `A = srh`, `M = msrh − 1 ≥ (m−1)srh`;
+  `g | msr²+1` and `g | msrh−1` ⇒ `g | msr(r+h)`, `gcd(g,msr)=1` ⇒ `g | r+h`. The
+  `Σ_h g/h ≤ (3+log X)τ(msr²+1)` step is numerator-free (`X = (T+1)/m`). OK.
+* **ET Prop 1.4 for general κ.** Checked against `sources/elsholtz-tao-1107.1010.pdf`
+  (text p. 5): "For any A, B > 1, and any positive integer k ≪ (AB)^{O(1)}, one has
+  Σ_{a≤A}Σ_{b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)." So Prop 1.4 *is* stated for
+  general `k`; `κ = m` is literally ET's statement (with `a = s`, `b = r`; the
+  restriction to squarefree `s` only drops nonnegative terms). Nothing new is
+  assumed. The label "modulo ET Prop 1.4 with κ = m" is accurate but suggests an
+  extension; MINOR wording.
+* Reduction uses Lemma 5.1(ii) (needs `m ≥ 4`, given). Hard-prime condition:
+  `lcm(1..⌊ℒ²⌋) | Q_Π` since `z = ℒ² ≤ T` and `Π ⊇ {ℓ ≤ z}` with maximal `e_ℓ`. OK.
+* Exponent: `k ≤ ℒ/(2log ℒ)`, `log Q_Π ≪ (ℒ²/log ℒ + k²S*_m)ℒ ≪ ℒ⁷/log ℒ`,
+  `kℒ²(S*_m + kℒ) ≪ ℒ⁷`. Unconditional: `τ(msr²+1) ≤ τ*(T+2)`; same as [SN]. OK.
+* With the completeness proof above, Cor 5.2 actually says: for infinitely many
+  primes `p`, every solution of `m/p` with exactly two denominators divisible by
+  `p` has `m·uvw − 1 > exp(c_m(log p)^{1/7})` (in the (5.1) coordinates).
+* Verdict: **SOUND** (modulo G+H+ET Prop 1.4, as labelled).
+
+### Corollary 5.3 (generic witness families)
+
+* Weight: `φ(M) = φ(m_Π)φ(r_Π) ≤ m_Π φ(r_Π)` and `m_Π | gcd(M, r−1)`. OK.
+* Reduction: `r_Π = 1` ⇒ `r ≡ 1 (M)` ⇒ `1 ∈ R(M)`, excluded. OK. Supports ≤ k. OK.
+* Exponent: terms are `π(z)ℒ ≍ ℒ³/log ℒ`, `k²S^♮ℒ ≍ ℒ^{α+3}/(log ℒ)²`,
+  `kℒ²S^♮ ≍ ℒ^{α+3}/log ℒ`, `k²ℒ³ ≍ ℒ⁵/(log ℒ)²`. Max is `≪ ℒ^β/log ℒ`,
+  `β = max(α+3, 5)`. Correct (even slightly generous for `α < 2`).
+* `ℒ^β ≫ log p·log log p`: needs `log ℒ ≫ log log p`, which follows from
+  `log p ≪ ℒ^β` (not from `p > T`, which gives the opposite inequality). The text
+  says `ℒ^β ≫ log p·log ℒ ≫ log p·log log p`; correct but the second step deserves
+  the one-line justification `log log p ≤ β log ℒ + O(1)`. MINOR.
+* Remark (i) "Any family whose mass is ℒ^α gets exponent 1/(α+3)": false for
+  `α < 2`, where the corollary gives `1/5`. MINOR (contradicts the corollary's own β).
+* `log S^♮ ≤ σ(T)` clause: should read `log(S^♮+1)` or `max(σ,0)`. MINOR.
+* Verdict: **SOUND** modulo the minor wording points.
