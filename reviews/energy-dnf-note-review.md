@@ -23,3 +23,29 @@ Q ≤ Π_M(w_J−1) for every matching with equality on matchings — all pass. 
 (the bound is essentially attained; consistent with Prop 2.3/6.1). Output: `data/r50_core_seed3.txt`.
 
 No defect in the core proof.
+
+## 2. Cor 1.2 (energy tail with a(2−a)) and Cor 1.3 (DNF tails, 1+4p, influence, q-ary) — SOUND (one MINOR overstatement of novelty-relevance, see D2)
+
+Re-derived: Σ_{U≠∅}λ^{|U|}‖F^{=U}‖² ≤ 1 − (EF)² = a(2−a); g = 2F−1 multiplies non-constant energies by 4;
+G_g = (1−2p)² + 4(G_F − (1−p)²) ≤ 1+4p; I ≤ (k/ln2)·Σ(λ^{|U|}−1)‖g^{=U}‖² ≤ 4kp/ln2 (using λ^{|U|}−1 ≥ |U| ln2/k).
+CNF sign convention (p = P[h=+1]) and q-ary splitting into disjoint cylinders with equal support: correct.
+ε-concentration degree k·log₂(4/ε): correct.
+
+From-scratch check (`scripts/review_r50_dnf.py`, output `data/r50_dnf_seed1.txt`; exact rationals for tails via
+tail^k·2^{t+1} ≤ (4p(2−p))^k, 60-digit mpmath only at the irrational endpoint λ = 2^{1/k}):
+* all 65536 Boolean functions on 4 bits, uniform measure, k = minimal DNF width: pass; max of
+  W^{>t}/(4p(2−p)2^{−(t+1)/k}) = 0.680315 (reproduces the author's 0.680); max I/(kp) = 2.0; max (G_g−1)/p = 2.0;
+* 1500 random DNFs, n ≤ 6, random widths, biased measures with biases down to 1/50 and up to 49/50: pass, max ratio 0.9899;
+* adversarial: disjoint ANDs (tribes / the sharpness family) at p ∈ {1/2,1/5,1/20,1/100}: pass, max ratio 0.99498
+  (bound essentially tight under strong bias, as Prop 6.1 predicts); sunflowers (common core of k−1 variables)
+  and threshold-≥k DNFs on 6 bits: pass, max ratio 0.764.
+
+Defect D2 (MINOR, comparison with known influence bound), §1 "Comparison" paragraph and Cor 1.3:
+the note says its influence bound (4k/ln2)p ≈ 5.77kp "is weaker by a constant factor than the known bound 2w".
+This understates the known bound: the elementary certificate argument gives **I[g] ≤ 2w·p** on the uniform cube
+(each sensitive edge has exactly one endpoint where the DNF is true, and there the sensitivity is ≤ w, so
+I = 2·E[s(x)·1{g(x)=−1}] ≤ 2wp), and under a product measure the same argument gives Σ_v‖L_v g‖² ≤ 4wp.
+(My data: max I/(kp) = 2.0 uniform, 3.92 biased — consistent with these.) So the factor p is *not* a gain of the
+new method; the new bound is worse by 2/ln2 (uniform) resp. 1/ln2 (biased).
+Repair: state "I ≤ 2wp (uniform), ≤ 4wp (product measures) follows from the trivial certificate argument; our
+(4k/ln2)p is weaker by a constant and is stated only because it falls out" — or drop the influence claim.
