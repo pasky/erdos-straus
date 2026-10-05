@@ -268,7 +268,7 @@ with `x=1/3, 5/9`. ∎
 *Remark.* If some index-2 subgroup avoids τ, then `ρ_k≥2^{−k}` (all
 entries in it). For `G=(Z/a)^×`, `τ=−1`, this holds for **every**
 `a≡3 (4)`, prime or composite: the kernel of the Jacobi character
-`(·/a)` has index 2 and avoids −1 since `(−1/a)=−1`. So so the base `5/9` cannot be
+`(·/a)` has index 2 (a≡3 (4) is not a square) and avoids −1 since `(−1/a)=−1`. So the base `5/9` cannot be
 improved below `1/2` by any argument; the second moment loses only `log(10/9)` per prime factor.
 For `G=(Z/a)^×` (a odd) `t(G)=2^{ω(a)}`, `τ=−1`, `n=φ(a)`.
 

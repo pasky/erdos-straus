@@ -18,9 +18,10 @@ Deliverable: `POINTWISE_XWIN.md`; scripts `scripts/xwin_checks.py`,
    POINTWISE_WINDOW §6's joint-dimension Assessment into a theorem.
    **Cor 1.4:** `#{a_min≥7}≍x/(log x)^{3/2}`; `#{a_min≥11}≍x/(log x)^2`
    on EH (W2 is sharp). Census evidence (§1.3) flat at this scale.
-3. **Theorem 1.5 (PROVED mod SW).** Uniform version: exponent exactly
-   `1/2−o(1)` per window for `Z=o(log log N)`; `N exp(−0.22(log log N)²)`
-   at `Z≈3.6 log log N`.
+3. **Theorem 1.5 (PROVED; SW only for moduli `≤(log y)^{1/2}`).** Uniform
+   for `Z≤C_0 log log N`: exponent exactly `1/2−o(1)` per window for
+   `Z=o(log log N)`; `N exp(−(π²/(64 log 2)−o(1))(log log N)²)`
+   (`0.2225…`) at `Z≈3.56 log log N`.
 4. **§2 (Lemma 2.1, Thm 2.2, Cor 2.3; PROVED mod SW): NOT a new frontier.**
    A prime-side pattern-summed large sieve gives
    `T(N,(log N)^θ)≤N exp(−(d(θ)/4−ε)(log N)^θ log log N)` for every
@@ -55,7 +56,22 @@ One deep self-review (reviewer subagent): no fatal issues in Lemmas 1.1,
 GRH floor `y>Z`, piecewise per-window exponent, Goal-2 misframing, seeded
 "verbatim" claim, Prop 3.2 overreach; minors fixed (ρ lower-bound remark,
 `F_a` pattern-sum vs majorant notation, scripts now exit non-zero on
-violations). Theorem 1.5 was added after that review and is unreviewed.
+violations). Theorem 1.5 was added after that review.
+
+**Hostile review R32** (`reviews/pointwise-xwin-review.md`, branch
+`side-agent/review-xwin`): Lemma 1.1, Thm 1.2/Cor 1.3, Lemma 2.1,
+Thm 2.2/Cor 2.3 SOUND; census table reproduced bit-for-bit. Repairs
+applied, one commit each:
+* MAJOR-1: Thm 1.5 now stated for `3≤Z≤C_0L` (the advertised `Z≈3.56L` is
+  inside); MINOR-3: constant written `π²/(64log2)−o(1)`, with the
+  optimisation shown.
+* MINOR-1/2: Cor 1.4 lower halves labelled "PROVED modulo the sieve
+  theorems cited for W1" / "CONDITIONAL on EH"; counts restricted to
+  `p≡1 (24)` (with a note on `p=4t+1`).
+* MINOR-4: Chernoff term uses the Poisson mean `λ+η`.
+* MINOR-5: `ρ_k≥2^{−k}` for every `a≡3 (4)` via the kernel of `(·/a)`.
+* MINOR-6: §3.3 GRH and EH bullets labelled Assessment; GRH floor
+  `y=ℒ^C` with `C>2θ`.
 
 ## Suggested ledger entry (for the parent to decide)
 
