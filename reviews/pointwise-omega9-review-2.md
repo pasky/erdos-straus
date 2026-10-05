@@ -104,7 +104,7 @@ gives `log p≪𝓛^7`, and `log W>𝓛≥(log p/C)^{1/7}`.
 
 **Bottleneck.** It is the *junta* term `d·𝓛` (cells on `≤3k+2d` free primes,
 each costing up to 𝓛 in `log max d_i`), not the quarantine: `log Q_Π` is
-smaller by a factor `≍log𝓛` (and by a constant ≈400 in the tally).
+smaller by a factor `≍log𝓛` (and by a constant ≈860 in the tally).
 Note that `log Q_Π ≍ 𝓛^7/log𝓛` is the same quantity that bounds the Haar
 side, O2 Thm 11.3 (`log(1/δ*)≪𝓛^7/log log T`, from `8k²S*𝓛`). So after
 Thm 1.1 the prime-side certificate matches the *Haar-side certificate* up
@@ -119,4 +119,24 @@ slopes at `𝓛=10^{12}`: k 0.96, w 1.96, `k_0` 4.04, d 6.00, `log Q_Π` 6.96,
 Not an issue but worth stating: K (hence `log(1/δ)≍S`) now enters only via
 `1+log A=O(1)`; neither `M_1`, nor `m`, nor Lemma 6.1's third bullet is used
 anywhere in Thm 2.2. (Lemma 6.1's ℓ¹ bound is dead weight for O9.)
+
+### (v) Thm 2.3's constant `1/log2` — SOUND (one MINOR)
+
+Unconditionally, O2 Lemma 11.1 gives
+`S* ≤ C log𝓛·(3+𝓛)·Σ_{sr'²≤T}τ(4sr'²+1)/(sr')`; Wigert
+(`τ(n)≤2^{(1+o(1))log n/log log n}`, `n≤4T+1`) and `Σ1/(sr')≪𝓛²` give
+`log S* ≤ (log2+o(1))𝓛/log𝓛` — the constant `log2` is explicit because a
+*single* τ appears. Every cost term is `≤𝓛^{O(1)}(S*+1)`: `log Q_Π` (via
+`64k²S*𝓛`), `d≪w(S*+k𝓛)`, `log ℓ_aux`; and Thm 1.1 has `log p≪log Z` with
+an absolute constant. So `y:=log₂p ≤ log S*+O(log𝓛) ≤ (log2+o(1))𝓛/log𝓛`.
+Inversion: `y≤𝓛` ⇒ `log y≤log𝓛` ⇒ `𝓛 ≥ (1/log2−o(1))·y·log𝓛 ≥
+(1/log2−o(1))·y·log y`, and `log W>𝓛`. ✓. The halving of the old
+`1/(2log2)` is exactly the removal of the square `K·log Z` (`K≍S*`).
+Inputs: (G), Page, O2/O8 machinery; ET not used. ✓.
+
+**MINOR m2 (Thm 2.3 proof).** "Wigert's `log S*≤(log2+o(1))𝓛/log𝓛`" is
+attributed implicitly to O2 Lemma 11.1, whose statement only says
+`exp(O(log T/log log T))`. Cite the one-line derivation above (single τ
+in the sum, Wigert's constant) so that the `log2` is checkable; O8 Thm 4.4
+has the same gap in wording.
 
