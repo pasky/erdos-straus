@@ -504,6 +504,83 @@ because the product is expanded as one function and not cell by cell.
 Summing over `i,j,j'≤m` and over `S,S'`,
 `M_1(B) ≤ 1+m+2m²·2(4C_Hw)^d+m³·4(4C_Hw)^{2d}`. ∎
 
+**Theorem 6.3 (PROVED modulo Thorner–Zaman and ET Prop 1.4).** For
+infinitely many Mordell-hard p,
+
+```
+W(p) ≥ exp( c·(log p / log log p)^{1/13} ),
+```
+
+uniformly `log L_h(T) ≪ 𝓛^{13}log𝓛`.
+
+*Proof.* Theorem 3.4 with Lemma 6.1 in place of Lemma 3.2 and Lemma 4.1
+(the twist Lemma 3.3 needs only `E[F−B]≤EF/100`; the extension to n
+coprime to the moduli is unchanged). With `z=𝓛²`: `w=kb≪𝓛²/log𝓛`,
+`k_0≪S*+k𝓛≪𝓛^4log𝓛`, so `d=4C_Hwk_0≪𝓛^6`. Then
+`K ≤ 3log m+2d log(4C_Hw)+2.2S+6 ≪ 𝓛^6log𝓛`, and
+`log Z ≤ log Q_Π+2(3k+2d+1)𝓛 ≪ 𝓛^7` (`log Q_Π≪𝓛^7/log𝓛` as before). So
+`log p ≪ K·log Z ≪ 𝓛^{13}log𝓛`. ∎
+
+So the factor 𝓛 in K is gone; `log Z` (moduli `≍T^{junta}`, plus `Q_Π`)
+is now the larger factor. Lowering `|𝓑|` alone (item 2 of 6.1) cannot help
+until the junta shrinks. Remark: log-weighted thresholds
+`c_ℓ=log ℓ/(16𝓛)` satisfy the local lemma, because
+`Σ_{ℓ∈supp E}c_ℓ≤1/16`. They give `Σ_{ℓ∈𝓑}log ℓ ≤ 16k𝓛S*`, but bad
+primes `≤√T` still cost `e_ℓlog ℓ≤𝓛`, so `log Q_Π` improves only on the
+part `>√T`; not pursued.
+
+### 6.4 The bit-encoding width (Assessment, with a PROVED example)
+
+The degree is `d ≍ w·k_0` with `w=kb`. The factor `b≍2log₂T` appears
+because a q-ary literal `X_ℓ=c` is a b-bit term. A **q-ary switching
+lemma** of the form `Pr[DT_q(f_ρ)≥s] ≤ (Cpk)^s` would give
+`d ≍ k·k_0`. Here ρ frees each coordinate with probability p and fixes the
+others uniformly; `DT_q` is q-ary decision-tree depth, which bounds the
+Efron–Stein degree. The LMN step works verbatim for Efron–Stein in product
+spaces (`E_z‖(f_{I,z})^{=S}‖² = Σ_{U∩I=S}‖f^{=U}‖²`). The result would
+be `d≪𝓛^5`, `K≪𝓛^5log𝓛`, `log Z≪𝓛^6`, i.e. exponent `1/11`.
+
+*Such a lemma is false without a mass condition (PROVED example).* Take
+coordinates `X_1,…,X_N` uniform on `[q]`, and the DNF of width 2 whose
+terms are `X_i=c ∧ X_j=c` for all `i<j`, `c∈[q]` (f = "two coordinates
+coincide"). Fix `X_1,…,X_{N−1}` to distinct values and leave
+`X_N=:Y` free. Then `f_ρ=1[Y∈{x_1,…,x_{N−1}}]`, a one-query function;
+but if `s` coordinates are free and the fixed ones take `N−s` distinct
+values, `f_ρ` = "the free values coincide with each other or hit a fixed
+value". Its q-ary decision-tree depth is s once `N−s < q−s`. With
+`N=q/2` and `p=1/(Ck)=1/(2C)`, `Pr[DT_q(f_ρ)≥s]` is `≍1` for
+`s≍pN=q/(4C)`, which is not `(Cp·2)^s`. The per-coordinate mass here is
+`Σ_{j,c}q^{−2}=(N−1)/q≍1/2`, far above `1/(64k)`.
+
+So any q-ary switching lemma must use the per-prime mass hypothesis. The
+natural statement is `Pr[DT_q(f_ρ)≥s] ≤ (C(pk+max_ℓ w_ℓ))^s` for
+systems with per-prime masses `w_ℓ`. It is plausible (the Razborov
+encoding loses `q` per fixed coordinate, but a mass bound pays exactly
+`1/q` per fixed coordinate of a term), and it is **open**.
+
+### 6.5 Ceilings of this route (Assessment)
+
+* *The square.* PO Thm 4.1 needs `log x ≫ K·log Z`. Here `K≥log(1/μ)≈S`,
+  and `log Z ≳ (junta)·log z` with junta `≳ S/log(junta/S)` even for
+  prime-local systems (Brun). So `log p ≳ S²` up to logs. This is the
+  price of Thorner–Zaman's error `exp(−c log x/log q)` and holds for any
+  minorant.
+* *Under ET* (`S≤𝓛^4log𝓛`): even an ideal junta `≍S` gives
+  `log p ≈ S·S𝓛 ≈ 𝓛^9` (exponent `≈1/9`). *With the empirical*
+  `S≈𝓛^{2.5}` (EVIDENCE, PO §2): `≈𝓛^6` (exponent `≈1/6`). The heuristic
+  truth `log W≍(log p)^{1/3}` (POINTWISE_SIZE §7) is out of reach of
+  any transfer through PO Thm 4.1 with a Haar density `e^{−Θ(S)}`, unless
+  `S` itself is `≪𝓛`; the Haar side's true size is
+  `−log δ*≍𝓛^{2.3…2.6}` (EVIDENCE).
+* *Remaining losses, ordered by size.*
+  1. The width `kb≍𝓛²/log𝓛` in d. The bit part needs a mass-sensitive
+     q-ary switching lemma (6.4); the k part would need Fourier tails
+     sensitive to the event-size distribution rather than to the maximal
+     width.
+  2. `S*` through ET: `𝓛^4log𝓛` against `𝓛^{2.5}` observed.
+  3. The precision `k_0≍S`, forced by `δ≥e^{−2.2S}` being only a lower
+     bound.
+
 ## Replay
 
 ```
