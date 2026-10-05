@@ -36,7 +36,7 @@ indicators on ≤t coordinates (no formula). Over 60 trials:
 `|E[A_je_j²]−P(E_j)energy_j| ≤ 3·10^{−17}`, and the `m²` bound holds in
 all trials.
 
-### Lemma 3.2 — SOUND
+### Lemma 3.2 — SOUND (cosmetic D5)
 
 The `c_W` formula is the Möbius-inverted ES truncation;
 `c_W=Σ_{i≤t−|W|}(−1)^i binom(N'−|W|,i)=(−1)^{t−|W|}binom(N'−|W|−1,t−|W|)`,
@@ -129,7 +129,7 @@ family; splitting leaves `w_ℓ` unchanged, and split events at one prime
 are mutually exclusive (dependent, but included in the neighbourhood
 sum via `w_ℓ`).
 
-### Theorem 3.4 — SOUND (minor D1, D5)
+### Theorem 3.4 — SOUND (minor D1)
 
 * (I) for the iterated-quarantine Π: re-derived. O2 Lemma 4.3 (I)'s proof
   uses only that every prime `≤T` is in Π or free, `ℓ^{e_ℓ}≤T`, `24|Q`,
