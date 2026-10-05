@@ -10,7 +10,7 @@ Notation as in POINTWISE_OMEGA11.md (O11): `𝓛=log T`, atoms `(M,D)`,
 `q` always denotes a prime power `ℓ^i` (`i≥1`), and `Σ_q` sums over them.
 
 Target (O11 §4): **H_ω(B)** `Ω♯≪𝓛^4(log𝓛)^B`. We prove it with `B=2`
-(Theorem 4), modulo ET Prop 1.4, Thm 7.1, Cor 7.4 and (7.10) (all proved in ET).
+(Theorem 5.1), modulo ET Prop 1.4, Thm 7.1, Cor 7.4 and (7.10) (all proved in ET).
 
 ## 1. Elementary facts about h
 
@@ -162,8 +162,7 @@ which is `B≤A` here.
 odd, and `gcd(a,b_a)|gcd(a,4a²d_0+1)=1`. Both coefficients are
 `≤16B²≤N^6` (`N≥B^{1/2}`, `B≥16`). ET Cor 7.4 gives
 `Σ_{d'≤N}τ(4a²d'+b_a)≪N log N≤(2B/q)log(2B)`. With `1/(ad)≤1/(aB)`:
-`Σ_{a,d: q|P}τ(P/q)/(ad)≪(log B/q)Σ_{a<2A}1/a`. The last sum is over
-`a∈[A,2A)`, so it is `≤2`.
+`Σ_{a,d: q|P}τ(P/q)/(ad)≪(log B/q)Σ_{A≤a<2A}1/a≤2log B/q`.
 
 *Sum over small q.* `Σ_{q≤Z^{1/2}}(1/i)·log Z/q ≪ log Z·log log Z`. ∎
 
@@ -184,8 +183,9 @@ occurs once per c. So `Σ_I≤Σ_C Σ_{(A,B)} 2R(A,B)`. Lemma 4.1 with
 
 *Proof.* Lemma 2.1, Lemma 3.1 and Corollary 4.2. ∎
 
-So the s-weighted mean of the charge h is `≪log𝓛` (against `S_0≪𝓛^4`), as
-the O11 EVIDENCE suggested (`2.32, 2.57, 2.79` at `T=10^{4,5,6}`).
+This is the moment bound H_ω needs. It does not by itself bound the weighted
+*mean* of h (that would need `S_0≫𝓛^4`, not proved). It is consistent with
+the O11 EVIDENCE (s-weighted mean `2.32, 2.57, 2.79` at `T=10^{4,5,6}`).
 
 ## 6. Exponent 1/5
 
@@ -254,10 +254,12 @@ Haar side and BRW minorant need only `P(E)≤s_1` and the local-lemma sums
 `≤2c`. Cell consistency holds for any graded Q. The twist prime `ℓ_0`
 has `a_{ℓ_0}=0`, hence `ℓ_0>𝓛`; O8 Lemma 3.3 needs only `w_{ℓ_0}≤c`. ∎
 
-*What is left of the log (Assessment).* The remaining `log𝓛` is the s-weighted
-mean of the charge `h(M)≥ω(M)`. Its true size is `≍log𝓛` (EVIDENCE, O11 §4,
-§7 here), so Theorem 6.3 is the limit of O11 Lemma 2.2's per-event charging.
-Removing it would need a different threshold rule, not a better bound on Ω.
+*What is left of the log (CONJECTURE/Assessment).* The remaining `log𝓛` comes from
+the moment `Ω_0`. Numerically the weighted mean of `h(M)≥ω(M)` grows like
+`log𝓛` (O11 §4, §7 here; three values of T only), so we expect
+`Ω_0≍𝓛^4log𝓛` and no better bound on `Ω_0` to remove it. This is not a
+lower bound on the cost of the quarantine itself: Lemma 2.2's charging is an
+upper bound and also charges atoms that do not survive.
 
 ## 6B. Status and scope
 
@@ -297,10 +299,10 @@ only 2%. The Lemma 4.1 ratio is the same small-block maximum at all T. The
 Lemma 3.1 profile (mass and mean `h(N)` per c-scale `C=2^j`) shows the
 crude bound `𝓛/log max(C,2)` far above the actual large-q part
 (at `10^6`: `1.65` vs `19.9` at `j=0`; `0.26` vs `1.17` at `j=17`), and the mass
-per scale *decreasing* in j (14.2 at j=0, 0.13 at j=17). Evaluated on these
-actual masses, Lemma 3.1's two bounds (`log log` small part plus `𝓛/log Y`)
-give a mean `≈8.6` for `h(N)` at `10^6`, against the true `1.85`: at finite T the
-proof is crude, and almost all of the slack is the `j≤1` scales. The asymptotic
+per scale *decreasing* in j (14.2 at j=0, 0.13 at j=17). As a heuristic diagnostic only (not a certified bound: Lemma 3.1 bounds the
+small-q part through the enlarged sum `Στ(P)/(ad)`, not the actual mass),
+weighting `loglog(C+2)+𝓛/log Y` by the actual masses gives `≈8.6` at `10^6`,
+against the true mean `1.85` of `h(N)`. Most of the slack is at the `j≤1` scales. The asymptotic
 statement only uses Lemma 2.2's uniform bound per scale.
 
 ## Replay
