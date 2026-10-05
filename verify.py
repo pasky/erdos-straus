@@ -19514,4 +19514,128 @@ print("\n== (dc) POINTWISE_HAAR §1: Lemmas 1.1-1.3, Thm 1.4 Janson-type bound (
 check_dc()
 
 
+
+# ---------------------------------------------------------------- (dd)
+# POINTWISE_OMEGA13.md §§1, 3 (cf. scripts/omega13_jacobi.py, review_o13a_jacobi.py,
+# review_o13c_jacobi.py, review_o13a_lll.py).
+# (1) Lemma 3.1 on all atoms (M, D), M <= 3*10^4 (M = 3 (4), D | A_M^2): (a) (-4D | l) = (-d | l)
+#     for every prime l | M (d = squarefree part of D); (b) Jacobi (-4D | M) = -1; and directly
+#     (M <= 1500): -4D mod M is not a square of a unit mod M (so a square class r never fires).
+# (2) Lemma 1.1 (beta-weighted LLL), exact enumeration: random product spaces (non-uniform
+#     rational marginals), general events (random accepted tuples on random supports),
+#     x_E = beta^{s(E)} P(E), beta in {6/5, 4/3, e^{1/3}}, eta = (3/4) log beta; whenever every
+#     w~_l = sum_{E ni l} x_E <= eta: P(no event) >= exp(-(4/3) sum x_E), P(E | Av(S)) <= x_E
+#     (E not in S), and for an outside event A: P(A | Av(S)) <= P(A) prod_{F ~ A}(1 - x_F)^-1
+#     <= beta^{|supp A|} P(A).
+
+def check_dd():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+    rng = _random.Random(5413)
+    F0, F1 = Fraction(0), Fraction(1)
+
+    def jac(a, n):
+        # Jacobi symbol (a | n), n odd positive (binary algorithm, integers only)
+        a %= n
+        r = 1
+        while a:
+            while a % 2 == 0:
+                a //= 2
+                if n % 8 in (3, 5):
+                    r = -r
+            a, n = n, a
+            if a % 4 == 3 and n % 4 == 3:
+                r = -r
+            a %= n
+        return r if n == 1 else 0
+
+    for n in (3, 5, 7, 15, 21, 35, 45, 77):
+        for a in range(n):
+            assert jac(a, n) == jacobi_symbol(a, n), ("OMEGA13 jacobi helper vs sympy", a, n)
+    T = 3 * 10 ** 4
+    natoms = 0
+    for M in range(3, T + 1, 4):
+        fM = factorint(M)
+        A = (M + 1) // 4
+        pA = list(factorint(A))
+        sq = {(x * x) % M for x in range(1, M) if gcd(x, M) == 1} if M <= 1500 else None
+        for D in divisors_of_square(A):
+            natoms += 1
+            d = 1
+            for p in pA:
+                e, y = 0, D
+                while y % p == 0:
+                    y //= p
+                    e += 1
+                d *= p if e % 2 else 1
+            assert jac((-4 * D) % M, M) == -1, ("OMEGA13 Lemma 3.1(b) Jacobi(-4D|M) = -1", M, D)
+            for l in fM:
+                assert jac((-4 * D) % l, l) == jac((-d) % l, l), ("OMEGA13 Lemma 3.1(a)", M, D, l)
+            if sq is not None:
+                assert (-4 * D) % M not in sq, ("OMEGA13 Lemma 3.1: -4D is a unit square mod M", M, D)
+
+    # (2) beta-weighted LLL
+    def run(beta):
+        eta = 0.75 * log(beta)
+        k = rng.randint(2, 4)
+        sizes = [rng.randint(3, 9) for _ in range(k)]
+        if prod(sizes) > 1500:
+            return None
+        marg = []
+        for s in sizes:
+            w = [rng.randint(1, 8) for _ in range(s)]
+            marg.append([Fraction(a, sum(w)) for a in w])
+        pts = [(x, prod((marg[v][a] for v, a in enumerate(x)), start=F1))
+               for x in cartesian_product(*[range(s) for s in sizes])]
+        evs = []
+        for _ in range(rng.randint(1, 7)):
+            S = tuple(sorted(rng.sample(range(k), rng.randint(1, k))))
+            tuples = list(cartesian_product(*[range(sizes[v]) for v in S]))
+            acc = frozenset(rng.sample(tuples, rng.randint(1, max(1, len(tuples) // 25))))
+            evs.append((S, acc))
+
+        def occ(E, x):
+            return tuple(x[v] for v in E[0]) in E[1]
+
+        P = [sum((p for x, p in pts if occ(E, x)), F0) for E in evs]
+        xs = [beta ** len(E[0]) * float(p) for E, p in zip(evs, P)]
+        if any(sum(xs[i] for i, E in enumerate(evs) if l in E[0]) > eta for l in range(k)):
+            return None
+        pav = sum((p for x, p in pts if not any(occ(E, x) for E in evs)), F0)
+        assert float(pav) >= exp(-(4 / 3) * sum(xs)) * (1 - 1e-12), ("OMEGA13 Lemma 1.1 P(Av) bound", beta, evs)
+        for i, E in enumerate(evs):
+            S = [j for j in range(len(evs)) if j != i and rng.random() < 0.7]
+            pS = sum((p for x, p in pts if not any(occ(evs[j], x) for j in S)), F0)
+            pES = sum((p for x, p in pts if occ(E, x) and not any(occ(evs[j], x) for j in S)), F0)
+            assert float(pES / pS) <= xs[i] * (1 + 1e-12), ("OMEGA13 Lemma 1.1 P(E | Av(S)) <= x_E", beta, evs, i)
+        SA = tuple(sorted(rng.sample(range(k), rng.randint(1, k))))
+        tuples = list(cartesian_product(*[range(sizes[v]) for v in SA]))
+        A = (SA, frozenset(rng.sample(tuples, rng.randint(1, len(tuples)))))
+        S = [j for j in range(len(evs)) if rng.random() < 0.8]
+        pA = sum((p for x, p in pts if occ(A, x)), F0)
+        pS = sum((p for x, p in pts if not any(occ(evs[j], x) for j in S)), F0)
+        pAS = sum((p for x, p in pts if occ(A, x) and not any(occ(evs[j], x) for j in S)), F0)
+        infl = prod(1 / (1 - xs[j]) for j in S if set(evs[j][0]) & set(SA))
+        assert float(pAS / pS) <= float(pA) * infl * (1 + 1e-12) and infl <= beta ** len(SA) * (1 + 1e-12), \
+            ("OMEGA13 Lemma 1.1 outside event A", beta, evs, A)
+        return float(pav) / exp(-(4 / 3) * sum(xs))
+
+    nl = 0
+    worst = 9.0
+    for beta in (1.2, 4 / 3, exp(1 / 3)):
+        for trial in range(500):
+            r = run(beta)
+            if r is not None:
+                nl += 1
+                worst = min(worst, r)
+    assert nl >= 300, ("OMEGA13 Lemma 1.1: too few systems meeting (1.1)", nl)
+    print(f"dd Lemma 3.1 (a), (b) on all {natoms} atoms M <= {T} (unit-square check M <= 1500); Lemma 1.1 on {nl} "
+          f"systems meeting (1.1) (min P(Av)/exp(-(4/3) sum x) = {worst:.4f}); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dd) POINTWISE_OMEGA13: Lemma 3.1 Jacobi non-residue, Lemma 1.1 beta-weighted LLL ==")
+check_dd()
+
+
 print("\nall checks passed")
