@@ -70,3 +70,50 @@ true for K2's `W₀` but is never said (defect m1). Then all tops light,
 σ ⊂ 𝒜 a.s. (EK Lemma 2.1(1)), `M ≤ K/4` pathwise, Cor 2.6 with
 `m̄ = K/4`, and Jensen `E e^{−Φ} ≥ e^{−EΦ}` give exactly the stated bound ✓.
 Note (b) is not used by Thm 8.5.
+
+**Lemma 8.3.** Re-derived. Fejér: `F_R(z) = (R+1)^{−1}(sin π(R+1)z/sin πz)² ≤
+1/(4(R+1)z²)` from `sin πz ≥ 2z` ✓. For `t ∈ J`, `‖t − 1/2‖ ≥ η` so the
+distance to supp I is `≥ η/2` ✓; `G(t) ≤ η·max F ≤ 1/((R+1)η) < η/4` as
+`R ≥ 4/η²` ✓. `∫P² = (1+η/4)² − 2(1+η/4)η + ∫G²`; the doc drops the
+`−η²/2` term (harmless) ✓; `1 − η/2 + η²/16 ≤ 1 − η/3` for η ≤ 8/3 ✓.
+*From scratch* (`review_ls2b_ls.py`): P built from its Fourier coefficients
+`c_m = (1+η/4)δ_{m0} − Î(m)(1 − |m|/(R+1))`; on a 2·10⁵-point grid
+min_J P = 1.029 / 1.026 / 1.012 and Σc_m² = 0.926 / 0.935 / 0.973 for
+η = 1/8, 1/9, 1/20 (claimed ≤ 0.958, 0.963, 0.983) ✓. P > 0 everywhere
+(min ≈ η/4 + small), so the product g of Prop 8.4 is ≥ 0 and ≥ 1 on 𝒜.
+
+**Prop 8.4.** Re-derived. Balanced base-(2R+1) digits: `{Σm_iβ_i}` =
+`Ξ^{−1}{−(Ξ−1)/2,…,(Ξ−1)/2}`, spacing `1/Ξ` also across 0 ≡ 1 ✓;
+perturbation `≤ KRε = 1/(4Ξ)` per point gives spacing `≥ 1/(2Ξ)` ✓. Window
+for `a_i`: length `2εD_i ≥ 8` ✓; ≤ 2 of 4 consecutive integers are killed by
+ℓ, ℓ' ≥ 5 ✓. `m_i a_i/D_i` with `|m_i| ≤ R < ℓ_i` keeps denominator `D_i`, so
+every nonzero frequency has denominator `Π_{i∈T}D_i` ✓. MV with
+`N − 1 + δ^{−1} ≤ N + 2N/3` ✓; LS axioms: `w = 3/(5N) ≤ 1/N` (Fact 1.1),
+`Σw ≤ (N/3)·3/(5N) = 1/5 ≤ 1` (Fact 4.0) ✓. Dual: `g = Π_iP(nθ_i)`,
+`Σ|γ|² = (Σ|c_m|²)^K` (distinct points) ✓. CRT-admissibility (LS §1
+definition, `L ≤ F_w(π)` for **every** π ∈ P(𝒜)): for any such π,
+`1 ≤ E_πg = Σγ_θπ̂(θ) ≤ (Σ|γ|²/w)^{1/2}F_w(π)^{1/2}`, so
+`L = w/Σ|γ|²` is admissible ✓ — the bound uses residues only, not the
+short interval. (Equivalently g itself is a nonnegative majorant of 𝒜 of
+mean `c₀^K < 1` at level `Σ L_i`: the escape is a pure level phenomenon.)
+*From scratch*: K = 1, 2 instances with η = 1/9, R = 324, `N = 3Ξ`, primes
+just above `(16KRN)^{1/2}` (D_i ≈ 1.3·10¹⁰ for K = 2): coprime `a_i`
+found in the ε-window, min gap·Ξ = 0.9999 (claim ≥ 1/2), `|𝒜∩[1,N]|` =
+1515 / 764 902 below the bounds 3035 / 1 842 358, and `g ≥ 1.026` /
+`1.053` on 2000 sampled points of 𝒜 ✓. (At K ≤ 2 the bound exceeds N, as
+expected; a positive saving needs K ≥ 14, i.e. `N ≥ 3·649¹⁴ ≈ 10^{39.8}`.)
+
+**Thm 8.5.** Quantifiers re-checked. Order: λ ≥ 1 and N ≥ N₀ arbitrary,
+then the family (K, R, η fixed functions of N; primes depending on λ, N, W).
+N₀ is absolute (needs K ≥ 14 for a positive saving, and `−o(1)` absorbs
+`⌊·⌋` and `log(5/3)`); c = 1/(27 log 649) = 0.00572 is absolute ✓;
+`(1−1/27)^K ≤ e^{−K/27}` ✓. Bullet 1 needs `L_i > λ` ✓ (`ℓ,ℓ' > e^{λ/2}`);
+bullet 2 needs `D_i ≥ 16KRΞ` ✓ (`ℓ,ℓ' > (16KRN)^{1/2}`), and every nonzero
+frequency has level `≥ min L_i > λ` ✓. Both bullets concern the **same**
+family; the LS bound is CRT-admissible in the exact LS §1 sense (not a
+short-interval artefact), and the comparison side is the full LP optimum
+(Prop 8.2(a): `E_Uν ≥ 1` for every level-λ majorant). So the escape is
+genuine: no argument whose only inputs are "a comparison measure at level
+λ" + Facts 1.1/4.0 + duality can cap CRT-admissible large sieves whose
+frequencies have level > λ. Density remark: exponent
+`log(9/7)/log 649 = 0.0388` ✓, `0.00572` ✓.
