@@ -12,7 +12,7 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 | Thm 1.2 | SOUND (labels match O14 Thm 4.5 inputs) |
 | Def 2.1 / Thm 2.2 | SOUND (Def 2.1 is narrow by design, see D-notes) |
 | Lemma 2.3 | SOUND (minor bookkeeping) |
-| Cor 2.4 | SOUND-AFTER-REPAIRS (proof OK; Q-reduction wrong in general; headline oversold) |
+| Cor 2.4 | SOUND-AFTER-REPAIRS (M2 Q-reduction; M1 headline) |
 | Prop 2.5 | SOUND |
 | Thm 3.1 | SOUND-AFTER-REPAIRS (Gauss-sum bound misstated; conclusion survives) |
 | Prop 4.1 | SOUND as a Haar statement; certificate clause covers an accounting nobody uses for integers (scope MAJOR) |
@@ -158,3 +158,93 @@ measure (`m` is a sum of unit masses at integers `≤x`), which Def 2.1 forbids 
 broader than "support-aware" — e.g. `m(C)∈ℤ_{≥0}` for every class; this should be named in (N2).
 
 ## Defects
+
+No FATAL defect. The mathematics (Lemma 1.1, Thm 1.2, Thm 2.2, Lemma 2.3, Prop 2.5, Thm 3.1,
+Prop 4.1's Haar bound, Prop 5.2) checks out. The problems are one routine proof gap and scope /
+rhetoric.
+
+**M1 (MAJOR, scope/rhetoric) — the "GRH included" clause is vacuous and the §0 headline drops
+the qualifier.** Locations: §0 ("This disposes of GRH-strength transfers, Siegel-zero main
+terms, and Fourier (minor-arc) transfers … as long as they act linearly on a minorant"), Cor 2.4
+(boldface "whatever true statement about the primes is used (GRH included)"), §6 Covered 1,
+Answer ("invariant under any strengthening of prime equidistribution"), report/ledger (H)28.
+For deep moduli `q>x`, Lemma 2.3 shows that *no* orbit-uniform statement about the primes beats
+the trivial one, and GRH is trivial there anyway. So within the class the strength of the prime
+input cannot matter, by construction. That is not evidence that the barrier is "a property of F
+invariant under prime input". *Repair:* (a) put "full-orbit uniform" (and "linear, Def 2.1") into
+§0 and into every restatement; (b) rephrase Cor 2.4's moral as: "positivity must come from
+moduli `>x`, where no orbit-uniform information beats the trivial bound (Lemma 2.3); Thm 1.2 shows
+trivial bounds cannot pay for it". Drop "GRH included" or explain that it is vacuous. (c) In the
+Answer, qualify "invariant under any strengthening…" with "for full-orbit uniform linear
+transfers".
+
+**M2 (MAJOR, proof gap; routine repair) — the Q-reduction in Cor 2.4 / Prop 2.5 is false when
+`v_p(q)>v_p(Q)` for some `p|Q`.** Location: Cor 2.4 proof ("on H a class mod q is a class mod q′ or
+empty, and a character/additive character mod q restricts to one mod q′ times a constant"); Prop
+2.5 ("coprime to Q after the reduction"). On H only `X_p mod p^{v_p(Q)}` is fixed; higher p-adic
+digits are free. So `1_C|_H` is (class mod q′)×(sub-class mod `p^{v_p(q)}`), not a class mod q′.
+Similarly χ mod q restricted to H is not χ′·const. *Repair:* prove Lemma 2.3 relative to H. The
+image of H mod q is a coset `K` of a subgroup of `(ℤ/q)^×`, with `|K|=φ(q)/φ(gcd(q,Q^∞))·…`. The
+primes `≤x<q` are distinct elements of K. Run (a) with `N_x≤|K|/2`, and (b) with the characters of
+`(ℤ/q)^×` restricted to K. The mean square over the `|K|` restricted characters is
+`|K|N'`, and the same algebra gives `≥N_x(1−N_x/|K|)`. Alternatively restrict Cor 2.4 to moduli
+with `v_p(q)≤v_p(Q)` for all `p|Q`.
+
+**M3 (MAJOR, overclaim) — "integer Type I sums" are listed as Covered and Type II as "moot".**
+Locations: §6 Covered item 3 ("Type II input is then moot (Cor 4.3, Assessment …)"); §7 row
+Prop 4.1 ("class-ℓ¹ certificates blocked", without the uniform-error qualifier); Answer (1b)
+("Type II cannot help on its own: the Type I half already needs …", stated as fact); report
+bullet "Prop 4.1 (integers)". Prop 4.1's certificate clause only covers accounting that charges
+error 1 to every deep class. For integers that accounting is unnatural: supports are known
+exactly, and the author's own (N2) calls support-aware accounting "the natural accounting" here.
+"Moot"/"cannot help" rests on Assessment 4.3, which is heuristic. *Repair:* in §6 move item 3
+under "Covered only under full-orbit-uniform accounting (not the natural one for integers)", and
+delete "Type II input is then moot". Label Answer (1b) "Assessment". Fix the dangling "Cor 4.3"
+reference (renamed to Assessment 4.3 per the report). Add the qualifier to the §7 row and the
+report.
+
+**m1 (MINOR) Gauss-sum bound in Thm 3.1's proof.** "`≤√b^v/φ(b^v)≤1/4`" is false for
+imprimitive data (13256 counterexamples, b≤13, v≤3; `review_o15_lemma23.py` B). *Repair:* the
+sum vanishes unless the conductors agree (`f=g`). Then `|·|/φ(b^v)=b^{1−g/2}/(b−1)≤√b/(b−1)≤1/4`
+for `b≥19`. Tight; verified.
+
+**m2 (MINOR) Prop 4.1 proof, "Certificates".** `|m^{(d)}(C)−X_dP_d(C)|≤1` should be `<2` when
+`X_d` is the actual count (or use `x/(dQ)` as the mass). Constants only.
+
+**m3 (MINOR) Lemma 2.3 proof.** `S(a)` must sum over the primes counted by `m_x` (coprime to 𝒬),
+not all `p≤x, p∈H`; otherwise `S(0)≠N_x`.
+
+**m4 (MINOR) Cor 2.4 proof.** It says "`>x²`", but the case split `log x<c′𝓛^4/log𝓛` only gives
+`q′>x`. Lemma 2.3 also needs `N_x≤φ(q′)/2`. *Repair:* split at `log x<(c′/2)𝓛^4/log𝓛`; then
+`q′>x²`, and `φ(q′)≫q′/loglog q′≥2x` (or use `|K|` from M2).
+
+**m5 (MINOR) Prop 5.2.** "B≤0 on every class of H mod q" should read "every unit class" (the
+others are Haar-null and contain ≤1 prime). The §7 row "q≤x^{1/5}/(QT)" drops `C_L^{−1/5}` and the
+existence of `ℓ_0` (state it: automatic in range).
+
+**m6 (MINOR) Consistency.** §0 states `(8r*)^{k+1}`, Lemma 1.1 proves `(4r*)^{k+1}`, and the
+"slack for §3" is unnecessary (Thm 3.1 uses `2(4r*)^{k+1}`). Harmonise. The document's internal
+self-review is called "R57", which collides with this review's tag. Rename it (e.g. "R57-self").
+
+**m7 (MINOR) Def 2.1.** State at the definition that certificates may not use atomicity,
+integrality (`m(C)∈ℤ`) or support of the prime measure (the fake `N_xν` is diffuse). List these
+explicitly in (N2), which currently names only "support-aware".
+
+**m8 (MINOR) Prop 2.5(i)** implicitly needs `p*≤0.053` (`(1−p*)−(ln 2)/2≥0.6`). Say so (true:
+`p*≤T^{−0.09}`).
+
+**s1 (suggestion, strengthens the paper).** Add the one-sided remark: certificates that use
+`m(C)≥0` for positive-coefficient deep classes are still blocked (drop those terms, apply Thm 1.2
+to the remaining minorant). See Cor 2.4 notes.
+**s2 (suggestion).** Thm 3.1: if `s≤k`, then `E_ρχ_1=0`, so `ν_1(H)=P_1(H)` exactly; the mass
+caveat is then unnecessary.
+
+## Overall
+The core new result, Lemma 1.1 ⇒ Thm 1.2 (Wiener-norm barrier `E_HB≤η‖B‖_×`), is correct, uniform
+in the stated parameters, and brute-force confirmed. It is a genuine strengthening of O14 Thm
+4.5. "Full-orbit uniform accuracy" is an honest, natural class: it is standard sieve-remainder
+accounting. It is not tailored to make Cor 2.4 trivial. But it makes the prime-input-independence
+("GRH included") automatic, and the presentation should say this instead of advertising it
+(M1). The integer/Type II conclusions are scoped correctly in the body but overclaimed in §6,
+§7 and the Answer (M3). M2 is a routine fix. Recommended label changes: none for the PROVED
+items once M2 is repaired; §6 item 3 and Answer (1b) → qualified/Assessment.
