@@ -230,6 +230,16 @@ $1/\varphi(r_\Pi)$.  Put
 \]
 the sum over all atoms and the maximum over all sets of primes.
 
+\begin{theorem}[Elsholtz--Tao {\cite[Prop.~1.4]{ET}}; cited]\label{thm:ET}
+For any $A,B>1$ and any positive integer $\kappa\ll(AB)^{O(1)}$,
+\[
+ \sum_{a\le A}\sum_{b\le B}\tau(\kappa ab^2+1)\ \ll\ AB\log(A+B)\log(1+\kappa).
+\]
+\end{theorem}
+
+We use it only with $\kappa=4$, so the factor $\log(1+\kappa)=\log5$ is a
+constant.
+
 \begin{lemma}[Mass bound; proved, and (b) modulo {\cite[Prop.~1.4]{ET}}]\label{lem:qmass}
 \textup{(a)} $S^*\le\exp\big((\log2+o(1))\Lc/\log\Lc\big)$.
 \textup{(b)} $S^*\ll\Lc^4\log\Lc$.
@@ -247,16 +257,16 @@ and for a prime power $q^a\mid M$ with $q^a\mid4D+1$ we have
 $4D'\equiv4A^2\cdot(-4)\equiv-(4A)^2\equiv-1\pmod{q^a}$.  It exchanges
 $D<A$ with $D>A$, so it suffices to sum over $D\le A$ and double.  Write
 $D=sr^2$ with $s$ squarefree.  Then $D\mid A^2$ if and only if $sr\mid A$;
-write $A=srk$, so that $D\le A$ if and only if $r\le k$, and
-$M=4srk-1\ge3srk$.  From $g\mid4sr^2+1$ and $g\mid M=4srk-1$ we get
-$g\mid4sr(r+k)$, and $\gcd(g,4sr)=1$, so $g\mid\gcd(4sr^2+1,\,r+k)$.  For fixed
-$(s,r)$ the triple $(M,D,g)$ is determined by $k$.  Using
+write $A=srh$, so that $D\le A$ if and only if $r\le h$, and
+$M=4srh-1\ge3srh$.  From $g\mid4sr^2+1$ and $g\mid M=4srh-1$ we get
+$g\mid4sr(r+h)$, and $\gcd(g,4sr)=1$, so $g\mid\gcd(4sr^2+1,\,r+h)$.  For fixed
+$(s,r)$ the triple $(M,D,g)$ is determined by $h$.  Using
 $g\le\sum_{e\mid g}e$, we get
 \[
- \sum_{\substack{r\le k\le X}}\frac{g}{k}\ \le\ \sum_{e\mid4sr^2+1}e\sum_{\substack{r\le k\le X\\ k\equiv-r\ (e)}}\frac1k
+ \sum_{\substack{r\le h\le X}}\frac{g}{h}\ \le\ \sum_{e\mid4sr^2+1}e\sum_{\substack{r\le h\le X\\ h\equiv-r\ (e)}}\frac1h
  \ \le\ (3+\log X)\,\tau(4sr^2+1),\qquad X=\tfrac{T+1}4 .
 \]
-For the last step: the least admissible $k$ is at least $\max(r,e-r)\ge e/2$,
+For the last step: the least admissible $h$ is at least $\max(r,e-r)\ge e/2$,
 so the inner sum is at most $2/e+(1+\log X)/e$.  Hence
 \[
  S^*\ \le\ C'\log\Lc\cdot\Lc\sum_{sr^2\le X}\frac{\tau(4sr^2+1)}{sr}.
@@ -264,9 +274,9 @@ so the inner sum is at most $2/e+(1+\log X)/e$.  Hence
 (a) Bound $\tau(4sr^2+1)\le\tau^*(T+2)$ and $\sum_{s,r\le X}1/(sr)\le(1+\Lc)^2$.
 Then use $\log\tau^*(x)\le(\log2+o(1))\log x/\log\log x$ \cite[Thm.~317]{HW}.
 (b) Split $s\in[2^i,2^{i+1})$, $r\in[2^j,2^{j+1})$ with $2^i,2^j\le X$.  By
-\cite[Prop.~1.4]{ET} with $k=4$, $A=2^{i+1}$, $B=2^{j+1}$ (so $A,B>1$ and
-$k\ll(AB)^{O(1)}$), each block contributes
-$\ll2^{-i-j}AB\log(A+B)\ll\Lc$.  There are $\ll\Lc^2$ blocks, so the sum is
+Theorem~\ref{thm:ET} with $\kappa=4$, $A=2^{i+1}$, $B=2^{j+1}$ (so $A,B>1$ and
+$\kappa\ll(AB)^{O(1)}$), each block contributes
+$\ll2^{-i-j}AB\log(A+B)\log5\ll\Lc$.  There are $\ll\Lc^2$ blocks, so the sum is
 $\ll\Lc^3$.
 \end{proof}
 
