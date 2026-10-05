@@ -277,8 +277,30 @@ factor to stay bounded. Not checked.) Dump: `data/window2/fake_eps0.1_K8_theta0.
 **Proposition 3.7 (discrete model; CERTIFIED).** In the discrete 𝒯𝒫(1/2) model with
 ε=0.1, K=8, the Type-I correlations of level 1/2 together with the parity of both
 windows do not imply that any configuration has both windows clean. In the
-same model the one-window LP gives min ν(∅)/τ=0.744>0 at θ=1/2. So one
-window is decided by Type-I + parity at level 1/2 and two windows are not.
+same model the one-window LP gives min ν(∅)/τ≥0.744128>0 at θ=1/2 (CERTIFIED by the
+reviewer's exact dual, R29 m6). So *in this discrete model* one window is decided by
+Type-I + parity at level 1/2 and two windows are not. (This is not a statement about W1,
+which uses switching; R29 M3.)
+
+**Scope of Prop 3.7 (R29 M2, M4).** Prop 3.7 is a statement about a discrete model only:
+* *Coarse heuristic law.* The "true law" μ is the heuristic law of §3.3 (independent
+  windows, Mertens density, clean weight `(1−Σt)^{−1/2}`), discretised on 8 bins with ε=0.1.
+  It is not derived from the primes.
+* *ε=0.1 is far from the regime.* At ε=0.1 the model's own normalised one-window correlations
+  `r(S)=ρ_μ(S)/(∏w_k^{S_k}/S_k!)/ρ_μ(∅)` range over [0.82, 1.87] and differ between the even
+  and odd laws (e.g. single point at bin 0.115: 1.349 vs 1.081; reviewer
+  `scripts/review_w2_rhocheck.py`). For actual primes BV + fundamental lemma give `r(S)≈1`
+  independent of parity (Thm P1). So the model's Type-I data partly encode parity and differ
+  from real sieve data by up to ~90%. Refinement does not fix this within reach (spreads
+  [0.71,1.76] at ε=0.07, K=9; [0.82,1.64] at ε=0.05, K=10). Every θ=1/2 computation in this
+  document uses ε=0.1. A reviewer LP at ε=0.07, K=9 returns min 0 only with ν/μ≤10³ at relative
+  residual 3.4·10⁻⁴ (EVIDENCE of the weakest kind, uncertified).
+* *Bad-prime data only.* The model contains only the counts `|A_{d_1d_2}|` for *bad*
+  squarefree `d_1d_2≤x^{1/2}`. Real BV-level Type-I data also include good and mixed d. The fake
+  reweights configurations with different cofactor sizes `1−Σt`, so it is **not** shown to
+  match those data.
+
+Hence the relevance of Prop 3.7 to actual sieve methods is EVIDENCE of the weakest kind.
 
 ## 4. Goal 1 routes (i)–(v): status
 
