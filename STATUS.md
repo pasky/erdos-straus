@@ -180,9 +180,10 @@ Papers in `paper/`:
 * `es-window-note` (new): the window statistic `a_min(p)` — half-set lemma,
   exact stacking orders for bounded windows (W1/W2 sharp), parity as a
   necessary input (refereed internally, R41 minor revision applied).
-* `es-subexp-note` v2: `W(p) ≥ exp(c(log p)^{1/7})` i.o. via a
-  Bazzi–Razborov sandwich minorant and a Gallagher-type linear transfer
-  (refereed internally twice, R33/R33b minor revisions
-  applied; novelty audit `reviews/novelty-audit-omega8.md`).
+* `es-subexp-note` v3: `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.
+  via a Bazzi–Razborov sandwich minorant, the energy bound C-1 (replacing
+  switching lemmas), graded quarantine, H_ω(2) and a Gallagher-type linear
+  transfer (refereed internally three times: R33, R33b, R47; novelty audit
+  `reviews/novelty-audit-omega8.md`).
 
 Authorship and the citation form for astra are still undecided.
