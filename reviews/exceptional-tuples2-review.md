@@ -12,6 +12,9 @@ From-scratch scripts: `scripts/review_t2_*.py` (none reuse the author's code).
 | Thm 2.1 | SOUND | (pending numeric check) |
 | Thm 2.2 | SOUND | exponent bookkeeping re-derived (see §A) |
 | Cor 2.3 | SOUND | |
+| (1.3) | SOUND | brute force y = 35, 50; N = 50, 300, 3000: S_j = Σ_𝔄 C_T exactly (`review_t2_altsum.py`) |
+| Thm 4.1 | SOUND | re-derived line by line (§B); identity Σ(−1)^j e_j^𝔄 = E a(H) verified in exact rationals |
+| §5(a) | SOUND | reproduced exactly (no log-binning) by `review_t2_forced.py`: max Z11/η_K = 9.24·10² (j=8) at (10⁸,1000), 1.84·10⁵ (j=10) at (10⁸,3000) |
 
 ## A. Re-derivations
 
@@ -40,6 +43,30 @@ the same exponent comparison runs the other way (Λ_N ≫ K), so Thm 2.1's lower
 
 **Cor 2.3.** (1.3) at j = u₀ plus S_{u₀} − Ne_{u₀} ≥ −η_K N. Correct, and correctly labelled
 as a *necessary condition*, not a refutation.
+
+**Thm 4.1 (re-derived).** δ_T = P(T ⊆ H) under the CRT hit law; tail |T| > K costs
+≤ Σ_{j>K}(eμ/j)^j ≤ e^{−K} for K ≥ e²μ. Admissibility is a per-form condition, so
+Σ_{T⊆H,T∈𝔄}(−1)^{|T|} = Π_φ χ_φ(H_φ); χ_φ(G) = 1[G=∅] for admissible G (subset-closed),
+|χ_φ| ≤ 2^{|G|} always. An inadmissible group has y^k ≥ Πℓ > N ⇒ k ≥ u₁. P(H = H₀) =
+Π(1−p)·Π_{H₀}1/(ℓ(1−p_ℓ)) ≤ Π(1−p)·Π_{H₀}2/ℓ (p_ℓ < ½), so with the 2^{|H|} the weight 4/ℓ is
+right. Per (ℓ, φ) at most one pair (fixed representatives), primes of form φ ⊆ {ℓ ≡ −1 (4rs)},
+Σ4/ℓ ≤ (4/(3rs))(1+log y) ≤ u₁/2; tail Σ_{k≥u₁}W^k/k! ≤ 2(eW/u₁)^{u₁}; Σ_{(r,s)}(rs)^{−u₁} ≤
+ζ(u₁)² ≤ 2. All steps check. Cor 4.2: u₁ ≍ (log N)^{1−θ/2} ≫ log y_K ≍ (log N)^{θ/2} iff θ < 1. ✓
+
+**Brute force (`review_t2_altsum.py`, exact rationals).** Fixed representatives as in the paper
+(−1 ↦ (1,1); others: smallest (rs, r)). Results:
+
+| y, N | (i) n with inadmissible hit group | (ii) (1.3) | (iii) Σ(−1)^j e_j^𝔄 = E a(H) | Σ(−1)^j e_j^𝔄 | Π(1−p) | #{f=0}/N |
+|---|---|---|---|---|---|---|
+| 35, 50 | 0 | ✓ | ✓ | 0.0794 | 0.1191 | 0.180 |
+| 50, 300 | 0 | ✓ | ✓ | 0.0775 | 0.0802 | 0.103 |
+| 50, 3000 | 0 | ✓ | ✓ | 0.0814 | 0.0802 | 0.0853 |
+
+(i) confirms Cor 1.2 (every inadmissible tuple has C_T = 0). The truncated alternating CRT
+sum differs from Π(1−p) with **both signs** at toy scale (ε is not small here: u₁ ≥ 4(1+log y)
+fails); Thm 4.1 only claims the upper bound, so no defect. Note the interval avoider count
+exceeds the CRT value in all three cases (floor/Kubilius effects of small n), the sign that
+TC^alt must control.
 
 ## Defects
 
