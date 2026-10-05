@@ -11,6 +11,7 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 | §5 record ck_min(9033649)=883 | CONFIRMED (independent) |
 | §6.2 formal table, C6.4 (H part) | SOUND (all 7 rows reproduced from scratch) |
 | C6.4 unconditional part | SOUND-AFTER-REPAIRS (defect 1) |
+| §6.1 literature | SOUND (checked against ET PDF and Salez audit text) |
 | T2.1 | pending (proof read line-by-line: no defect found yet) |
 
 ## Notes per claim
@@ -55,3 +56,14 @@ Unconditional part (refinement at primes ℓ_i>B occurring in the covering): arg
 quantifier order is right (refinement depends on the given covering), B-smooth F: F|N ⟺ F|f because v_ℓ(N) is fixed for
 ℓ≤B on unforced slices; certificates on forced slices never hold; F containing some ℓ_i fails as ℓ_i∤N; the refined
 class is a reduced class mod Q·∏ℓ_i, so Dirichlet gives infinitely many primes, all hard with n_p=r. See defect 1.
+
+### §6.1 literature
+Checked against `sources/elsholtz-tao-1107.1010.pdf` (pdftotext): ET Type-I variety (2.6) `4acd=n+f`, (2.7) `ef=4a²d+1`,
+(2.3) `4abcd=na+nb+c`; so ET (a,c,d,f) = our (j,k,c,D) — consistent with Lemma 1.1 and with the doc's
+`(c_ours,k_ours,D)=(d,c,f)` for family 3. ET §10 polynomial witnesses: family 1 has c_ET=(n+f)/4ad (our k grows),
+family 2 and 4 have d_ET growing (our c grows), family 3 has c,d fixed. Author's claim correct.
+Salez (audit text of arXiv:1406.6307): (15d) is `p+F≡0 (4CD)`, `p²+4C²D≡0 (F)` ✓; Example 1 [15d] at p=120t−23 ✓ = slice (5,1),
+D=3 (Thm 6.1 first case). Filters S_5,S_7,S_11 as quoted ✓; S_13..S_37 also miss non-residues (checked by hand: S_13 misses 2,7).
+"exactly for r=5,7" should read "among Salez's listed single-prime filters (ℓ≤37)" — MINOR wording.
+`scripts/review_ti_mod168.py`: no (c,k,F) with ck|42, F|21 is valid on a hard class that is a non-residue mod 7, confirming
+"no (15d)-certificate is decided modulo 168 on a non-residue class mod 7".
