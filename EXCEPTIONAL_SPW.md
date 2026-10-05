@@ -211,7 +211,7 @@ not σ_C(N) = 2/5 at all N (the R25 C10 pattern breaks beyond the tested
 N ≤ 60). LP values (EVIDENCE) keep decreasing: 0.3849 (N = 3300,
 e = 6930), 0.3737 (N = 4400, e = 9240) — data/spw/local_primorial.txt.
 
-**Theorem 3.2 (fixed-σ SPW fails for large N; PROVED).** Let C ≥ 1, let
+**Theorem 3.2 (fixed-σ SPW fails for large N; PROVED).** Let C > 1 (for C ≤ 1 SPW is impossible anyway, IF2 Lemma 9.3), let
 M ≥ 2 with L_M := lcm(1..M) ≤ N, and let e be the least multiple of L_M
 exceeding CN (so e ≤ CN + L_M, m₀ := e/D ≤ 2C + 3 for N ≥ N₀(C)). If R
 satisfies (P1)–(P2) of SPW(C, σ, ·) at N, then
@@ -233,17 +233,17 @@ T := K∗f has Fourier support in {|k| < m₀}: it is the restriction to
 Also T = K∗ρ − φ with φ := K∗1_W ∈ [0,1] and 0 ≤ K∗ρ ≤ 1 − σ, so
 |T| ≤ 1 on ℤ/e, and by sampling (Bernstein, nearest sample within 1/(2e))
 ‖T‖_{L^∞(𝕋)} ≤ 1/(1 − πm₀/e).
-Edge: for 1 ≤ r < (N−1)/2 take x_in = 1 + r ∈ W, x_out = −r ∉ W. The
+Edge: for 1 ≤ r < min(N−1, (C−1)N − 1)/2 take x_in = 1 + r ∈ W, x_out = −r ∉ W. The
 tail bound gives Σ_{|t|≥a}K(t) ≤ e/(2(M+1)(a−1)), hence
 1 − φ(x_in) ≤ e/(2(M+1)r) and φ(x_out) ≤ e/(2(M+1)r) (the far sides are at
-distance ≥ N − r and ≥ e − N − r ≥ r). So T(x_in) ≤ 1 − σ − φ(x_in)
+distance ≥ N − r > r + 1 and ≥ e − N − r > (C−1)N − r > r + 1). So T(x_in) ≤ 1 − σ − φ(x_in)
 ≤ −σ + e/(2(M+1)r) and T(x_out) ≥ −φ(x_out) ≥ −e/(2(M+1)r), i.e.
 T(x_out) − T(x_in) ≥ σ − e/((M+1)r). Bernstein:
 |T(x_out) − T(x_in)| ≤ 2π m₀ ‖T‖_∞ (2r+1)/e. Therefore
 
     σ ≤ e/((M+1)r) + 2πm₀(2r+1)/(e(1 − πm₀/e)).
 
-Take r = ⌈e/√(4πm₀(M+1))⌉ (which is < (N−1)/2 once M is large): both terms
+Take r = ⌈e/√(4πm₀(M+1))⌉ (which is o(N), hence admissible, once M is large): both terms
 are √(4πm₀/(M+1))(1 + o(1)). ∎
 
 *Remarks.* (i) The mechanism is the window's *jump*: once all
