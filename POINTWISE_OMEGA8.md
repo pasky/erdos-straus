@@ -253,8 +253,9 @@ Thm 4.1, with the auxiliary prime `ℓ_0` as in O4 Thm 2.1, and
 1. If EL(t) holds with `t ≤ (𝓛S*)^A`, take `z=𝓛²`. Then
    `log p ≤ (𝓛S*)^{O(A)}`. Modulo Elsholtz–Tao Prop 1.4
    (`S*≪𝓛^4log𝓛`): **`W(p) ≥ exp((log p)^{c/A})` for infinitely many
-   Mordell-hard p.** Unconditionally (`S*=T^{o(1)}`):
-   `log W ≥ (log 2−o(1))^{−1}·log₂p·log₃p`, which already beats O4 Cor 3.2.
+   Mordell-hard p.** Unconditionally (`log S* ≤ (log 2+o(1))𝓛/log𝓛`):
+   `log W ≥ c_A·log₂p·log₃p` with `c_A>0`, which already beats O4 Cor 3.2
+   (and Cor 3.1).
 2. If EL(t) holds only with `t ≤ C_0^k(𝓛S*)^A`, take
    `log z ≍ (𝓛 log C_0)^{1/2}`: `log W(p) ≥ c(log₂p)²/log C_0` (mod ET).
 
