@@ -8,19 +8,23 @@ explicitly said (§5).
 
 Notation. `𝓛 := log T`, `Φ(T) := log(1/δ*(T))`. The target exponent `a` is
 defined by `Φ(T) = 𝓛^{a+o(1)}` (if it exists). Before this note:
-`𝓛² ≪ Φ ≪ 𝓛^6` (lower: OMEGA8 Prop 6.6, single-prime events, modulo the
-standard shifted-prime divisor bound (D'); upper: OMEGA11 Cor 3.3 modulo ET
-Prop 1.4; OMEGA12 claims `𝓛^5 log𝓛`). Numerics: local exponent 2.26→2.58
+`𝓛² ≪ Φ ≪ 𝓛^5 log𝓛` (lower: OMEGA8 Prop 6.6, single-prime events, modulo the
+standard shifted-prime divisor lower bound (D') (proved there via Brun–Titchmarsh
+plus Bombieri–Vinogradov); upper: OMEGA12 Thm 6.3, modulo ET Prop 1.4, reviewed
+and on main, improving OMEGA11 Cor 3.3's `𝓛^6`). Numerics: local exponent 2.26→2.58
 (POINTWISE_SIZE §7.2).
 
-**Results of this note (checkpoint 1).** (i) A Janson-type inequality for
+**Results of this note.** (i) A Janson-type inequality for
 atomic events on product spaces under a lopsided local lemma (Thm 1.4) —
 needed because Harris fails for one-hot variables. (ii) **`log(1/δ*(T)) ≫
 𝓛³/log𝓛`** (Thm 2.1, PROVED modulo the sieve fundamental lemma), improving
-the lower bound `𝓛²`; so `a ≥ 3`. (iii) Negative-association arguments alone
-cannot pass `𝓛²` (Prop 1.5). (iv) The Monte Carlo data fit `𝓛³/log𝓛` with a
-constant ratio 0.069–0.070, explaining the measured exponent 2.3–2.6 as
-`3 − 1/log𝓛` (§3, EVIDENCE). Conjecture: `a = 3`.
+the lower bound `𝓛²`; so `a ≥ 3`. (iii) Singleton
+negative-association bounds (Lemma 1.2 with one event per group, squarefree
+moduli) give at most the single-prime mass `S1 ≍ 𝓛²` plus `O(log𝓛)` (Prop 1.5);
+grouped uses of Lemma 1.2 are not covered. (iv) The Monte Carlo data are
+*consistent with* `𝓛³/log𝓛` (ratio 0.069–0.070), and with the measured
+exponent 2.3–2.6 being `a = 3` plus a slowly decaying correction; the data
+cannot separate this from e.g. `𝓛^{2.5}` (§3, EVIDENCE). Conjecture: `a = 3`.
 
 ## 0. The event system
 
@@ -154,9 +158,15 @@ so there are at most `q−1` of them, and each has
 (Pairwise *conflicting* families are not enough: the five events
 `M=35`, `D∈{1,3,9,27,81}` conflict pairwise but `D=1,81` both use `X_5=1`.)
 
-So the single-prime bound `Φ ≫ 𝓛²` of OMEGA8 Prop 6.6 is the limit of
-"independent/negatively correlated subfamily" arguments; going beyond it
-needs the positive-correlation bookkeeping of Theorem 1.4.
+Together with the upper bound `S1 := Σ_{ℓ≤T} #𝓡(ℓ)/(ℓ−1) ≪ Σ_{ℓ≤T}τ(A_ℓ²)/ℓ ≪ 𝓛²`
+for the single-prime part (a standard upper bound of Titchmarsh-divisor type;
+SKETCH, not written out: write `τ(A_ℓ²) = Σ_{d|A_ℓ}2^{ω(d)}`, use
+Brun–Titchmarsh `#{ℓ≤x: ℓ≡−1 (4d)} ≪ x/(φ(d)log(x/d))` for `d ≤ x^{1/2}`, and
+treat larger d via the complementary divisor `A_ℓ/d`), the singleton use of Lemma 1.2 (bound
+`∏_E(1−P(E))`, squarefree moduli) gives at most `S1 + O(log𝓛) ≍ 𝓛²`.
+This does not cover grouped uses of Lemma 1.2 (groups with exactly
+computed `P(Av(𝓕_i))`) or prime-power moduli. Theorem 1.4 goes beyond it
+by bookkeeping positive correlations.
 
 ## 2. Lower bound: `Φ(T) ≫ 𝓛³/log𝓛` (PROVED modulo the sieve fundamental lemma)
 
@@ -245,7 +255,7 @@ so `Σ_g 1/g ≤ 1/y + 𝓛/(4n)`. Then, ordering `v<v'`,
 Hence
 
 ```
-Δ_a ≤ 16 Σ_{N_0≤n≤T^{1/10}} 2^{ω(n)} (1/y + 𝓛/(4n))(1+𝓛)²/(4n) ≪ 𝓛^4/y + 𝓛³ log N_0/N_0 ≪ 𝓛 log𝓛.
+Δ_a ≤ 8 Σ_{N_0≤n≤T^{1/10}} 2^{ω(n)} (1/y + 𝓛/(4n))(1+𝓛)²/(4n) ≪ 𝓛^4/y + 𝓛³ log N_0/N_0 ≪ 𝓛 log𝓛.
 ```
 
 *(b) D ≠ D'.* Now `g | m := |D−D'|`, `0 < m < T^{1/5}`, so `g < T^{1/5}`
@@ -270,11 +280,16 @@ removes the small-D hubs (`D=1`: residue −4 at every prime), whose same-D
 pairs would otherwise make `Δ_a ≍ μ`. (ii) The `log𝓛` loss is the price of
 `y`-roughness (`Σ_{M y-rough}1/M ≍ 𝓛/log y`); y must exceed the per-prime
 loads `w_q ≈ 𝓛³/q` for the local lemma, and `y ≥ 𝓛^{4+ε}` is needed for
-`Δ_b`'s crude count (an averaged count would allow `y ≈ 𝓛^{3+ε}`; the loss
-stays `≍ log𝓛`). (iii) The statement is Haar-only; it is a lower bound on
+`Δ_b`'s crude count: its main term is `≈ 10^{−4}𝓛^7/y` (since
+`Σ_D 1/n ≤ (1+𝓛/10)²`), which at `y = 𝓛^4` would be `≈ 10^{−4}𝓛³` and compete
+with `μ ≍ 𝓛³/log𝓛`; `y = 𝓛^5` makes it `O(𝓛²)`. (An averaged count would allow
+`y ≈ 𝓛^{3+ε}`; the loss stays `≍ log𝓛`.) (iii) The statement is Haar-only; it is a lower bound on
 `log(1/δ*)`, i.e. it says the profinite avoider set is *small*.
-(iv) Asymptotic only: at `T ≤ 10^7` one has `T^{1/10} < N_0`, so 𝓕 is
-empty; no conflict with the measured `Φ(65535) ≈ 38`.
+(iv) Purely asymptotic: `T_0` is astronomically large. Already `𝓕 ≠ ∅`
+needs `T^{1/10} ≥ N_0 = 𝓛²`, i.e. `𝓛 ≳ 90` (`T ≳ e^{90}`), and `μ − KΔ > 0`
+needs much more (Lemma 2.2's `c_1` contains the sieve constant, `1/(2log2)`
+and `(3/π²)/100`). The theorem says nothing about any T in the §3 table;
+no conflict with the measured `Φ(65535) ≈ 38`.
 
 ## 3. Reconciliation with the Monte Carlo exponent (EVIDENCE / Assessment)
 
@@ -295,9 +310,16 @@ multilevel-splitting table of POINTWISE_SIZE §7.2 unchanged.
 
 * The ratio `Φ/(𝓛³/log𝓛)` is constant to ±1% (0.0691–0.0699) over
   `1023 ≤ T ≤ 32767` (and 0.0691–0.0699 on `1023 ≤ T ≤ 16383`; POINTWISE_SIZE
-  §7.2 flags the two deepest rows as noisy and biased toward *larger* Φ). The shape of Theorem 2.1 has local
-  exponent `3 − 1/log𝓛`, which is 2.48→2.57 here — exactly the measured
-  2.3→2.6 drift.
+  §7.2 flags the two deepest rows as noisy and biased toward *larger* Φ).
+  The shape `𝓛³/log𝓛` has local exponent `3 − 1/log𝓛` (2.48→2.57 here),
+  consistent with the measured 2.3→2.6 drift. The `log𝓛` of Theorem 2.1 is an
+  artefact of its proof (roughness `y = 𝓛^5`), not a derived feature of Φ,
+  and 𝓕 is empty at every T in the table.
+* The test discriminates weakly (review R46): over `1023 ≤ T ≤ 32767` the
+  relative spread of `Φ/g` is 1.16% for `g = 𝓛³/log𝓛`, 1.85% for `g = 𝓛^{2.5}`
+  and 3.1% for `g = 𝓛² log𝓛`. `I/(𝓛³/log𝓛)` rises steadily (0.0856→0.0921)
+  while `Φ ≈ 0.77·I` (POINTWISE_SIZE §7.2), so the data cannot separate
+  `𝓛³/log𝓛` from `𝓛^{2.5}` or from `𝓛³` times a slowly decaying correction.
 * Least squares on `T ≥ 127`: `Φ = c𝓛^a` gives `a = 2.39` (max log-residual
   0.043); `Φ = c𝓛^a/log𝓛` gives `a = 2.90` (residual 0.028).
 * The independence exponent `I(T)` (§7.1(c)) also tracks `𝓛³/log𝓛` with a
@@ -307,9 +329,10 @@ multilevel-splitting table of POINTWISE_SIZE §7.2 unchanged.
 **Assessment 3.1.** The measured exponent 2.3–2.6 is *consistent with*
 `a = 3` seen through a `1/log𝓛` correction of the type that Theorem 2.1's
 proof produces. A short fit over one decade of 𝓛-values cannot identify the
-correction or prove the exponent; this is consistency evidence only. Conjecture: `Φ(T) ≍ 𝓛³/log𝓛`
-(CONJECTURE; the lower bound is Theorem 2.1, the upper bound is open —
-best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuristic
+correction or prove the exponent; this is consistency evidence only. Conjecture 3.1: `a = 3`, i.e.
+`Φ(T) = 𝓛^{3+o(1)}` (CONJECTURE; whether the true order is `𝓛³/log𝓛`, `𝓛³`
+or in between is left open; the lower bound is Theorem 2.1, the best upper
+bound `𝓛^5 log𝓛`, OMEGA12, modulo ET). Under the RA heuristic
 (POINTWISE_SIZE §7.3) this puts the one-expected-exceedance level at
 `log T_N ≍ (log N·log log N)^{1/3}` (RA does not control individual records).
 
@@ -324,7 +347,7 @@ best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuris
   `log T_N ≍ (log N·log log N)^{1/3}` (if Conj. 3.1 holds; Thm 2.1 alone gives
   `≲`). RA does not control individual outliers, so this is not a ceiling on
   record values; it says the natural target exponent of the Ω-programme is
-  1/3, versus 1/6 (OMEGA11) and 1/5 (OMEGA12, under review). (Assessment.)
+  1/3, versus 1/5 (OMEGA12, up to `(log log p)^{−1/5}`). (Assessment.)
 * **Class-of-one constructions (PROVED bookkeeping).** On a class-of-one
   fibre `H` (`n ≡ 1 mod Q`, relative density `≍1/φ(Q)` in `1 (24)`), every
   minorant `B ≤ F` has `μ = E_H B ≤ E_H F ≤ O(φ(Q))·δ*(T)`, hence
@@ -345,14 +368,15 @@ best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuris
 | Lemma 1.1–1.3 | compatible-event inequality, NA for bit-disjoint families, lopsided LLL inflation | PROVED (standard inputs: Joag-Dev–Proschan, Erdős–Spencer) |
 | Thm 1.4 | `−log P(Av) ≥ μ − KΔ`, and `≥ min(μ/2, μ²/(4KΔ))`, for atomic events under lopsided LLL | PROVED |
 | Thm 1.4 check | exact enumeration of 299 random small systems satisfying the hypothesis (`scripts/haar_janson_check.py`): all pass | EVIDENCE (sanity) |
-| Prop 1.5 | bit-disjoint (NA-only) families give at most `𝓛² + O(log𝓛)` | PROVED |
+| Prop 1.5 | singleton NA bounds (literally non-overlapping families, squarefree moduli) give at most `S1 + O(log𝓛) ≍ 𝓛²` | PROVED, except the standard upper bound `S1 ≪ 𝓛²` (SKETCH) |
 | Thm 2.1 | `log(1/δ*(T)) ≫ 𝓛³/log𝓛` | PROVED modulo the sieve fundamental lemma |
 | §3 | MC data: `Φ/(𝓛³/log𝓛) = 0.069–0.070` for `1023 ≤ T ≤ 32767` | EVIDENCE |
-| Conj. 3.1 | `Φ ≍ 𝓛³/log𝓛`, i.e. `a = 3` | CONJECTURE |
-| upper bound below `𝓛^5` | — | OPEN (in progress) |
+| Conj. 3.1 | `Φ = 𝓛^{3+o(1)}`, i.e. `a = 3` | CONJECTURE |
+| upper bound below `𝓛^5 log𝓛` | — | OPEN |
 
-Known now: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^6` (OMEGA11, reviewed, modulo ET); OMEGA12
-(branch side-agent/homega, under review, not in this tree) claims `𝓛^5 log𝓛`.
+Known now: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^5 log𝓛` (upper: OMEGA12 Thm 6.3, modulo ET
+Prop 1.4, ledger (H)24). Review: `reviews/pointwise-haar-review.md` (R46,
+SOUND; minors D1–D4 applied).
 
 ## Replay
 
