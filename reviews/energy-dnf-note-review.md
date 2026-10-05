@@ -3,7 +3,34 @@
 Referee: hostile side agent R50 (branch side-agent/referee-energy-note).
 From-scratch scripts: `scripts/review_r50_*.py` (no reuse of `scripts/energy_note_check.py`).
 
-## Status: IN PROGRESS
+## Recommendation
+
+**Minor revision (accept after minor repairs) on correctness; major revision on the literature section before
+any external submission.** I found no FATAL and no MAJOR mathematical defect. Every proof was re-derived line by
+line, and every main inequality was re-checked by independent from-scratch exact-arithmetic code (thousands of
+random and adversarial cases; bounds essentially attained, never violated). The only MAJOR point (D8) is missing
+prior-art comparisons (bias-dependent LMN for product measures, general product domains, sharp switching lemmas,
+Håstad 2001), which matter for a TCS venue's novelty assessment but not for correctness.
+The author's own script was also re-run: ALL CHECKS PASSED (exit 0), and its printed numbers (0.680, the parity
+rates, the Ex 6.3 values) agree with my independent code.
+
+## Summary verdicts
+
+| Claim | Verdict |
+|---|---|
+| Thm 1.1, Lemmas 2.2, 3.1, 4.1, 4.2, Thm 4.3, Prop 2.3 | SOUND |
+| Cor 1.2 (a(2−a) refinement) | SOUND |
+| Cor 1.3 (DNF tail, 1+4p, influence, CNF, q-ary) | SOUND (influence comparison overstated: D2) |
+| Prop 6.1 sharpness | SOUND (wording D3, D4) |
+| Ex 6.2 parities, rate in [3^{−t/k}, 2^{−t/k}] | SOUND |
+| Ex 6.3 non-monotonicity | SOUND (D5: [5]^3 instance underspecified) |
+| Conj 6.4, 6.5 | correctly labelled CONJECTURE; not tested by me |
+| Thm 7.1, Cor 7.2, Rem 7.3 | SOUND |
+| §8 application (exposition) | SOUND as exposition (D6, D7 minor) |
+| Literature comparison / novelty | GAP (D8 MAJOR, D9, D10 minor); hedging itself is fair |
+| Compilation | pdflatex ×3 in a clean copy: 15 pp., no undefined refs, no overfull/underfull boxes; one harmless pdfTeX font-expansion warning despite the workaround (D11) |
+
+Defect list: D2 (MINOR), D3–D7 (MINOR), D8 (MAJOR, literature), D9–D11 (MINOR). (D1 is intentionally unused.)
 
 ## 1. Core: Thm 1.1, Lemma 2.2, Prop 2.3, Lemma 3.1, Lemma 4.1, Lemma 4.2, Thm 4.3 — SOUND
 
@@ -163,3 +190,31 @@ bound charges 2^{|V|} there".
 Hedging: "We believe Theorem 1.1 and the constant 1 in Corollary 1.3 are new, but we make no priority claim",
 plus the explicit list of what was not searched, is appropriately cautious for an internal draft; for
 submission D8 must be resolved. Abstract sentence "The proof does not use a switching lemma" is accurate.
+
+## 7. Readability, presentation, author's points (AGENT_REPORT_O50)
+
+D11 (MINOR, cosmetic) `pdfTeX warning (font expansion): font should be expanded before its first use` remains
+(the `\setbox0` workaround after `\maketitle` does not catch it). Harmless; e.g. load microtype with
+`expansion=false` or move the workaround before `\maketitle`.
+
+Readability: the note is well organised and the proofs are short and complete; the "Proof outline" in §1 is
+useful. Suggestions (optional): (i) define the total influence I[g] before Cor 1.3 rather than after its proof;
+(ii) in Lemma 4.2 state explicitly that the induction is on |∪C| over *multisets* and that C/v may create empty
+members (handled by the Θ=0 case) — the proof does handle it, but a reader has to notice; (iii) in Thm 7.1 note
+that Π λ^{2v} ≤ 2 implies each λ_ℓ^{2v_ℓ} ≤ 2 (used silently).
+
+Author's points: (1) novelty — see D8/D9; the from-memory flags are honest. (2) refinements a(2−a) and 1+4p —
+correct, exactly checked (my §2). (3) Prop 6.1 for biased Boolean measures — correct, but see D4 (bias must
+→0 with t). (4) numerics-not-proved statements — D3 (2/√(2πj) is asymptotic, and provable). (5) Ex 6.3 [5]^3 —
+confirmed with A=(0,0,0) (D5). (6) §8 — accurate (D6/D7 minor). (7) length 15 pp. fine for a note.
+(8) the ρ>1 noise-operator framing is correct (G_F(ρ²) = ‖T_ρF‖², T_ρ not a contraction) and harmless; it
+does, however, oblige a citation check of the Fourier-growth literature (D8(f)).
+
+## Replay
+```
+(ulimit -v 8000000; timeout 1500 env PYTHONPATH=scripts uv run python scripts/review_r50_core.py 3 2000)
+(ulimit -v 8000000; timeout 3000 env PYTHONPATH=scripts uv run --with mpmath python scripts/review_r50_dnf.py 1 1500)   # ~2.5 min
+(ulimit -v 8000000; timeout 600  env PYTHONPATH=scripts uv run --with mpmath --with sympy python scripts/review_r50_sharp.py)
+(ulimit -v 8000000; timeout 900  uv run --with sympy python scripts/review_r50_mono.py)
+(ulimit -v 8000000; timeout 900  env PYTHONPATH=scripts uv run python scripts/review_r50_filt.py 1 3000)
+```
