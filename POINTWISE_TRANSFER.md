@@ -527,5 +527,7 @@ ulimit -v 8000000; PYTHONPATH=scripts timeout 600 uv run --with numpy python scr
   witness-family corollaries.
 * Lemma 1.2, Lemma 3.2, Lemma 5.1: **PROVED** (5.1 also machine-checked).
 * §3.3, §3.4, §4.6: **Assessment** (method comparisons, not theorems about
-  least primes).
+  least primes). §4.6: no system is known on which Theorem 1.1 provably beats quarantine + coarsening + Bonferroni with the same transfer (R42 MAJOR-1).
+* Lemma 5.0 (completeness of (5.1) for Type II, all `m ≥ 4`, prime `n > m`): **PROVED** (proof by the R42 reviewer; brute-force checked there).
+* Review: R42 (`reviews/pointwise-transfer-review.md` on `side-agent/review-transfer`): Thm 1.1, Lemmas 1.2/3.2/5.1, Cors 1.3/5.2 SOUND; Cor 5.3 sound after repairs; all defects applied.
 * Novelty: no priority claim. §4 lists exactly what was and was not checked.

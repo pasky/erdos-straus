@@ -35,13 +35,14 @@ Case A. I explain why Case B cannot be handled Case-A-style by this argument.
   replaces `N log T` by poly(`k, log T, S`) × `log N`.
 * Per-cell Thorner–Zaman (OMEGA8 v1) pays the ℓ¹ mass; Gallagher transfer pays
   only `𝔼|B|/𝔼B`.
-* §4.6 (Assessment, worth a look): Bonferroni + the same Gallagher transfer
-  would be *better* by `≈ log(NT)` for codegree-spread systems, but its
-  cost is governed by `𝔼C(N,j)`, not by `S, w_ℓ`; a multi-hub example
-  (`3k ≤ H ≤ q₀/100` hubs) forces depth `≳ q₀/k` for that method (heuristic
-  Poisson computation; the first single-hub version was wrong and was
-  replaced after self-review). BRW has no codegree hypothesis — this is
-  the real reason the sandwich wins (matches [SN]'s "factorial in levels").
+* §4.6 (Assessment, revised after R42 MAJOR-1): the right benchmark is
+  quarantine (Q) + coarsening/union bound (C) + Bonferroni (B), all with the
+  same Gallagher transfer. (B) alone beats Thm 1.1 by `≈ log(NT)` on
+  codegree-spread systems. Hub examples are beaten by (Q) (single/multi-hub)
+  or (C) (pair-hubs on a matching). **No system is known on which Thm 1.1
+  provably beats (Q)+(C)+(B)**; whether the ES witness system is one is
+  unchecked (the OMEGA2 experience is only evidence). The earlier claim
+  that the hub example shows the sandwich's advantage was wrong.
 * Jacobsthal/covering literature (Iwaniec, FKMPT, FFKPY, Hough, BBMST): all
   Haar-side or integer statements; only Costello–Watts/FGKMT/FKMPT are in
   `sources/`; the others are *[memory]* and unchecked. No priority claim.
@@ -52,8 +53,10 @@ Case A. I explain why Case B cannot be handled Case-A-style by this argument.
   `R_m(M) = {−mD : D | A²}`: `W_m(p) ≥ exp(c_m(log p)^{1/7})` i.o. (mod G+H+ET
   Prop 1.4 with `κ=m`), and `(1/log2−o(1))log₂p·log₃p` without ET.
   Lemma 5.1 (atoms, class of one, gcd symmetry) proved + machine-checked.
-  Not checked: that every Type II solution of `m/n` is of this form for
-  `m ≠ 4` (ET Prop 2.6's proof looks numerator-independent).
+  After R42: Lemma 5.0 (reviewer's proof, credited) — every Type II
+  solution of `m/p` (prime `p > m`) has the form (5.1), so Cor 5.2 bounds
+  *all* Type II solutions. ET Prop 1.4 is stated for general `k`; nothing
+  beyond ET is assumed.
 * **Cor 5.3 (generic witness families):** any `R(M)` of unit classes with
   `1 ∉ R(M)` and mass `S^♮(T) = Σ_{M≤T}Σ_{r∈R(M)} gcd(M,r−1)/φ(M) ≤ ℒ^α` has
   `W_R(p) ≥ exp(c(log p)^{1/β})` i.o., `β = max(α+3, 5)` (the floor 5 comes
@@ -61,9 +64,8 @@ Case A. I explain why Case B cannot be handled Case-A-style by this argument.
   `α = 4`(+log) → `1/7`.
 * **Cor 5.4 (prime Jacobsthal-type, composite moduli)** with an honest scope
   paragraph: for `k = 1` / monotone ("`d | p+h`") events, sieves are far
-  better; for `S ≤ 1/3` the union bound suffices; the theorem's range is
-  non-monotone composite-modulus events with `S ≫ 1` and uncontrolled
-  codegrees (ES type).
+  better; for small mass the union bound suffices; §5.3(c) is now an
+  unverified Assessment (no separating example known, see §4.6).
 
 ## Checks
 `scripts/transfer_mn.py` (Lemma 5.1, identity, `m ≤ 11`, `M ≤ 3000`) and
@@ -86,3 +88,13 @@ toy-output misreport; script cutoff handling. Confirmed sound by the
 reviewer: Steps 1/3 (arbitrary events, atom count, DNF width), Step 6
 (general target class, `χ₁(a') = −1`, aux prime, `log Z`), Lemmas 1.2/3.2,
 Cor 1.3 arithmetic, Cor 5.2.
+
+## Round 2: R42 repairs (all applied, one commit each)
+* MAJOR-1: §4.6 rewritten with the (Q)+(C)+(B) benchmark; plain statement
+  that no separating example is known; pair-hub attempt shown beaten by
+  coarsening; §5.3(c) softened to unverified Assessment.
+* MINOR-1/2: Lemma 5.0 (completeness, reviewer's proof with credit); Cor 5.2
+  phrased for all Type II solutions; ET Prop 1.4 label wording.
+* MINOR-3..6: exponent `1/max(α+3,5)` in Remark (i); `log log p` step and
+  `log(S^♮+1)` clause in Cor 5.3; Remark 3.1 says (LLL) is unused with
+  `δ_*`; Cor 5.4 instance (2) needs `q ∤ h`, `y ≥ 64`.
