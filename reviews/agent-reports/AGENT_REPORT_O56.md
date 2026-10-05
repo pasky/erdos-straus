@@ -1,7 +1,7 @@
 # AGENT_REPORT_O56 — es-subexp-note v4 (checkpoint 1: full draft, compiles)
 
 Branch `side-agent/subexp-paper-v4`. File: `paper/es-subexp-note.tex` / `.pdf` (39 pp., v3 had
-27). `pdflatex` twice: 0 undefined references, 3 overfull boxes < 10pt.
+27). `pdflatex` twice: 0 undefined references, 0 overfull boxes (after R56 m9).
 Not merged into main.
 
 ## Headline results of v4
@@ -103,3 +103,25 @@ No FATAL. Applied: (MAJOR) abstract and §10 opening claimed "every fibre" — n
 Cor 10.7); (MINOR) abstract said expected residual masses "are Haar masses" — now "bounded by
 Haar masses with a compensating factor 2^{ω_Y(M)}"; (MINOR) abstract sieve dimension now
 `(log T)³/log log T`; (MINOR) overfull box in Lemma 3.2 fixed.
+
+## Response to referee R56 (`reviews/es-subexp-note-review-v4.md`, minor revision)
+All minors applied; recompiled (39 pp., 0 undefined references, 0 overfull boxes).
+* **m1** Abstract now names the inputs of the Haar bounds (NT; fundamental lemma) and of the
+  ceiling (Gallagher, Landau–Page, fundamental lemma).
+* **m2** After the specialisation of Thm 3.1: a parenthetical noting Henriot's remark on NT's
+  original class, that our F (products of multiplicative functions of separate variables) lie
+  in NT's own class, and that NT's own range (ε<1/(8g²), x^{4g²ε}≤y≤x) covers ε=1/200, g=2,
+  y=x — so the citation rests on [NT, Thm 1] alone.
+* **m3** Intro "The method": "the level 𝓛S is forced up to a factor (log𝓛)²".
+* **m4** §10 "The ES instance": small coordinates listed explicitly, incl. the higher ℓ-adic
+  digits of big ℓ (uniform and independent of X_ℓ on the units); level-D functions depend on
+  the *distinct* big primes of q only.
+* **m5** Lemma 10.5: reason for "one class or empty" (unit b mod v; CRT).
+* **m6** Lemma 4.5: count X/(4n(y−1))+π(√(2X)).
+* **m7** Left as is (valid, loose bound), as the referee allows.
+* **m8** Bibliography TODO comment now lists only [ErdosSpencer], [Janson] and the [FI]
+  numbering as unverified; [BGP], [PYY], [Henriot], [Tao254A] recorded as verified.
+* **m9** All overfull boxes removed (rephrasings in §1 literature paragraph, Lemma 2.9
+  preamble, Lemma 3.2 proof).
+* Also: the §1 literature sentence "for every fibre" is now restricted to `log Q ≤ T^{0.05}`
+  (same issue as the earlier self-review MAJOR, which had missed this occurrence).

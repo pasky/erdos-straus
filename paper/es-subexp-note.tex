@@ -274,8 +274,9 @@ some lecture notes; we did not search the literature on switching-lemma
 variants, Fourier growth or hypercontractivity with $\rho>1$
 systematically), and we make no priority claim.
 
-\emph{The local lemmas.}  Lemma~\ref{lem:betalll} is the asymmetric local
-lemma \cite[Lemma~5.1.1]{AS} with the choice $x_E=\beta^{|\supp E|}\PP(E)$; the
+\emph{The local lemmas.}  The $\beta$-weighted local lemma
+(Lemma~\ref{lem:betalll}) is the asymmetric local lemma of
+\cite[Lemma~5.1.1]{AS} with the choice $x_E=\beta^{|\supp E|}\PP(E)$; the
 conditional form for events outside the family is standard (cf.\
 \cite{HSS}).  Theorem~\ref{thm:janson} combines the lopsided local lemma of
 Erd\H{o}s and Spencer \cite{ErdosSpencer} with the proof scheme of Janson's
@@ -287,8 +288,8 @@ lemma (Lemma~\ref{lem:planting}) is the linear-programming dual of
 lower-bound sieves; constructions of $k$-wise independent laws with
 extremal all-zero or all-one probabilities of the same kind appear in
 \cite{BGP,PYY}, and we claim no novelty for it.  Its use to bound the level
-of minorants of a concrete arithmetic indicator, for every fibre, is new to
-us.
+of minorants of a concrete arithmetic indicator, on every fibre of modulus
+$\log Q\le T^{0.05}$, is new to us.
 
 \emph{The rest.}  The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.
 To our knowledge tools from the theory of bounded independence
@@ -592,6 +593,7 @@ number of primes $\ell\le Y$ dividing $M$, and $M_Y$ for the $Y$-smooth part of
 $M$.
 
 \begin{lemma}[Bookkeeping for the square-class process; proved]\label{lem:book}
+Consider the square-class process with parameter $Y$.
 \begin{enumerate}
 \item[(a)] For every fixed $\phi(E)\ge0$, $G_i=\sum_Ep_i(E)2^{u_i(E)}\phi(E)$ is
 a supermartingale, and $G_0=\sum_EP_H(E)2^{\omega_Y(M)}\phi(E)$.
@@ -743,8 +745,8 @@ uniformly in $2\le Y\le T$.
 multiplicative function with $f_2(p^k)=\beta\,2^{[p\le Y]}p/(p-1)\le6$ for odd $p$
 (as $\beta\le2$).  The function $F(n_1,n_2)=\tau(n_1^2)f_2(n_2)$ satisfies
 $F(a_1b_1,a_2b_2)=\tau(a_1^2)f_2(a_2)F(b_1,b_2)$ when
-$\gcd(a_1a_2,b_1b_2)=1$, and $\tau(a_1^2)f_2(a_2)\le8^{\Omega(a_1a_2)}$ and
-$\le B(a_1a_2)^{1/200}$ for an absolute $B$ (divisor bound).  So
+$\gcd(a_1a_2,b_1b_2)=1$, and $\tau(a_1^2)f_2(a_2)$ is at most
+$8^{\Omega(a_1a_2)}$ and at most $B(a_1a_2)^{1/200}$ for an absolute $B$ (divisor bound).  So
 $F\in\cM_2(8,B,1/200)$, uniformly in $T$ and $Y$.  Theorem~\ref{thm:NT} on
 $x<n\le2x$ gives
 \begin{multline*}
