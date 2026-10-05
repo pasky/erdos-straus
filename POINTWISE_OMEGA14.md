@@ -243,7 +243,8 @@ the order `k≍R` is right (Remark (ii)).
 On the fibre of O13 Thm 5.1, EL_mod(τ) (O11 Cor 1.2: every `F^{(j)}` has digit-energy beyond
 log-modulus τ at most `e^{−3S}/(100m²(S+1))`) is **false** for `τ≤c𝓛^4/log𝓛`. In particular no
 modulus weighting λ_v in C-1 (brief item (i)), however adapted to prime sizes or to
-single-prime events, can give a tail `≤2^{−τ/ρ}` with `ρ=o(𝓛·log𝓛)` at these levels.
+single-prime events, can give a tail `≤2^{−τ/ρ}` with `ρ≤c𝓛/(log𝓛)²` (such a tail would give EL_mod at
+`τ≍ρ(S_res+𝓛)≪ρ𝓛³log𝓛≤c'𝓛^4/log𝓛`). The present `ρ=2𝓛` is optimal up to `(log𝓛)²`.
 
 *Proof.* EL_mod(τ) makes the BRW minorant B have `E B≥0.99δ` (O13 I1(a)) and cells of modulus
 `≤e^{2τ+3𝓛}` (O11 Cor 1.2), i.e. level `log D≤2τ+3𝓛`. Theorem 2.4 forbids this when
