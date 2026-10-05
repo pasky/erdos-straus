@@ -40,14 +40,13 @@ Deliverable: `POINTWISE_OMEGA11.md`, `scripts/omega11_{filtration,graded,hmoment
      `(π(z)+64k²S*)𝓛≪𝓛^7/log𝓛`.
 3. **Exponent 1/6 (Thm 3.2).** `W(p)≥exp(c(log p)^{1/6})` for infinitely
    many Mordell-hard p. This is PROVED modulo (G), ET Prop 1.4 and OMEGA10
-   Thm 3.4 (still under review). OMEGA10 Thm 4.2 alone, with `k≤ω(M)`, also
-   suffices for 1/6.
+   Thm 3.4 (two SOUND reviews). The junta comes from OMEGA10 Thm 4.2 with
+   `k≤ω(M)`; Lemma 1.1/Cor 1.2 is needed only for Cor 4.1 (R44b m3).
    * It needs **Lemma 3.1**: O9 Thm 1.1 with fibre cells (`gcd(d_i,Q)>1`),
      using the Haar mean over `H={x≡1 (Q)}`.
    * The twist reduces to the part of ψ prime to Q: real primitive
      conductors have squarefree odd part, and `8|Q`.
    * On the Haar side (Cor 3.3): `log(1/δ*)≪𝓛^6`.
-   * Without OMEGA10 the junta is O9's `𝓛^7` and the exponent stays 1/7.
    * Unconditionally, O9 Thm 2.3 is unchanged.
 4. **Towards 1/5 (§4).**
    * *Only loss:* the worst-case charge `h(M)≤𝓛/log𝓛`.
@@ -85,3 +84,27 @@ Deliverable: `POINTWISE_OMEGA11.md`, `scripts/omega11_{filtration,graded,hmoment
 Self-review R44a (deep subagent): no FATAL; the MAJOR (overclaim in §1.1) and the minors are fixed (F^{(j)} wording, `8|Q` in Lemma 3.1, 840, distinct-event variant documented in the graded script, h-moment weight relabelled, empty-family crash).
 
 DISCOVERIES/STATUS were not edited; the parent updates the ledger after review.
+
+## Review round (R44a, R44b)
+
+Both hostile reviews found no FATAL or MAJOR issue. Thm 3.2 is SOUND as an
+implication. Reports:
+`reviews/pointwise-omega11-review.md` (R44a) and
+`reviews/pointwise-omega11-review-2.md` (R44b); both branches are merged here.
+
+All minors are applied in POINTWISE_OMEGA11.md:
+
+* **R44a m1:** cost constant is `log 840`.
+* **R44a m2:** any order of raises, and simultaneous raises, are allowed in
+  Lemma 2.2.
+* **R44a m3:** cell consistency of the actual B (Thm 3.2, new bullet).
+* **R44a m4:** `gcd(b_i,d_i)=1` is kept in Lemma 3.1.
+* **R44a m5:** `ℓ_0≠ℓ_aux`, and `w_{ℓ_0}≤θ≤c`.
+* **R44b m1:** EL_mod(τ) is stated explicitly, and BRW uses only it.
+* **R44b m2:** the bottleneck factor is `≍𝓛/log𝓛` (two places).
+* **R44b m3:** Thm 3.2 uses OMEGA10 Thm 4.2; Lemma 1.1 is needed only for
+  Cor 4.1.
+* **R44b m4:** Lemma 1.1 is stated with a first free digit `i_0(ℓ)` and
+  absolute weights; Remark (ii) is now a special case.
+
+No mathematical statement or label changed beyond these.
