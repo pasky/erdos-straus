@@ -59,3 +59,35 @@ events of support ≤2), `u_j` random Gaussian or Efron–Stein truncations:
 `min(F−B)=0`, `B^-≤F−B` pointwise, and `E|B|≤(1+2η)EB` in all 230 trials
 with `EB>0` (max excess `1.1·10^{-16}`, rounding).
 
+### (iii) Interface O8 Thm 3.4 / Lemma 6.1 / Lemma 3.3 → Thm 1.1 — SOUND (one MINOR)
+
+Checked hypothesis by hypothesis, with `Q:=Q_Π·ℓ_aux`, `ℓ_aux∈(R,2R]`,
+`R=max(T,max d_i)`:
+* `gcd(d_i,Q)=1`: cell moduli are products of `ℓ^{e_ℓ}` over free primes,
+  which are `ℓ∈(z,T]∖Π` (O2 Lemma 11.2), so coprime to `Q_Π`; `ℓ_aux>max d_i`
+  so `ℓ_aux∤d_i`. Hence also `gcd(Q,D)=1`, needed for (i).
+* `gcd(b_i,d_i)=1`: Lemma 6.1 expands into unit cells (coordinates uniform
+  on units mod `ℓ^{e_ℓ}`). ✓.
+* `B(n)≤1[W(n)>T]` on `n≡1 (Q)`, `(n,D)=1`: O2 Lemma 4.3 (I) needs only
+  `n≡1 (Q_Π)` and "no event at n" (re-read; no coprimality needed), plus
+  `B≤F`; the class mod `Q_Π ℓ_aux` is a subclass. ✓.
+* `μ>0`, twist: Lemma 3.3 needs `w_ℓ≤1/(64k)` (Lemma 11.2 with
+  `c_0=1/(64k)`) and `E[F−B]≤EF/100` (EL via Cor 4.2's `k_0`; Lemma 6.1's error
+  `e^{1/2}·2·4^{−k_0}≤4·2^{−k_0}` ✓). Its quantifier (`gcd(f,Q)=1`, `f|d_i`)
+  is exactly Thm 1.1's; enlarging Q by `ℓ_aux` only shrinks the ψ-family.
+  Lemma 3.3's "f odd squarefree" holds since `2∈Π` (`840|Q_Π`), so f is odd,
+  and real primitive odd conductors are squarefree. `μ_ψ` agrees (see (i)).
+* Conductors `≤Z`: Thm 1.1 uses `Z=Q·max d_i`, so the `ℓ_aux` factor is
+  inside Z: `log Z ≤ log Q_Π + log 2R + log max d_i ≤ log Q_Π+2(3k+2d+1)𝓛`
+  using `max d_i≤T^{3k+2d}` (cells on `≤3k+2d` free primes, `ℓ^{e_ℓ}≤T`). ✓.
+* `p>T`: `p≡1 (ℓ_aux)`, `p≠1` ⇒ `p>2ℓ_aux>T`; `p≡1 (840)` ⇒ hard. ✓.
+* `A≤Z^{1/4}`: `A≤1.03`. ✓.
+
+**MINOR m1 (Thm 1.1 proof, "x ≥ C·A·Z^3" and Case A's R_1 step).** Case A
+needs `|R_1| ≤ 2AμZ³/φ(Q) ≤ λμx/(100φ(Q))` with only
+`λ ≫ Z^{−1/2}(log Z)^{−2}`, i.e. `x ≫ A·Z^{7/2}(log Z)^2`, not `x≥C·A·Z^3` as
+listed. The conclusion is unaffected (the hypothesis gives
+`log x ≥ C'log Z` with C' arbitrary, so e.g. `x≥Z^5≥A Z^{4.75}`), but the
+displayed consequence should read `x ≥ C·A·Z^{4}` (or "`x≥Z^5`").
+(Reviewer 1 owns the analytic core; flagged here as an interface item.)
+
