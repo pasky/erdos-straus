@@ -15,7 +15,7 @@ as in `EXCEPTIONAL_INTERFREQ.md` (IF below), `EXCEPTIONAL_KARY2.md` (K2).
 | Lemma 4.1, 6.1 | `B_hyb(ν) ≥ Σ_{n∈W}ν` for every *twisted window* W = φ([1,N]), φ componentwise affine preserving the small-class profile (translates by lcm(1..N/2)-multiples, reflections on primes in (N/4, N/2], any affine map on primes > N/2) | PROVED (that averaging over them cannot give the cap: Assessment only) |
 | Lemma 4.2 + numerics | a class on which every dual μ vanishes (equivalently, some representation of it has hybrid charge 0) has `gcd(d, L₀) > N` with `b mod gcd` missing [1,N]; sampled scan (N ≤ 40, e ≤ 3N, e | L₀): such e occur only just above N, summed density ≤ 0.14 | PROVED / EVIDENCE |
 | Cor 5.1 | cap `S_A + O(log(1+c))` for hybrids whose free mass (patches through [1,N] with d > N, right-signed terms with N/2 < d ≤ N) is ≤ c·B, c ≤ e^{O(S_A)}; wrong-signed and free negative terms unrestricted | PROVED (from IF Thm 2.5) |
-| Thm 5.2 | **conditional cap**: if a *flat minorant* exists (Flat: F ≤ 1_{[1,N]}, uniform on classes mod d ≤ N/2, F(s) ≥ M/d + s₀ on classes mod d > CN through [1,N], ≥ M/d − 1 on the others, bounded deviation on (N/2, CN]), then every hybrid with right-signed mass on (N/2, CN] at most c·B saves `≤ C(log N)^{3/4}(log log N)^{3/4} + log((1+Δ(1+c))/t)`; patches above CN are unrestricted | PROVED implication |
+| Thm 5.2 | **conditional cap**: if a *flat minorant* exists (Flat: F ≤ 1_{[1,N]}, uniform on classes mod d ≤ N/2, F(s) ≥ M/d + s₀ on classes mod d > CN through [1,N], ≥ M/d − 1 on the others, bounded deviation on (N/2, CN]), then every hybrid with right-signed mass on (N/2, CN] at most c·B saves `≤ C(log N)^{3/4}(log log N)^{3/4} + log((1+Δ(1+c))/t)`; patches above CN are unrestricted. Flat is needed at the given (every large) N with `s₀ ≥ N^{−A₁}`, `t ≥ e^{−S_A}`, `Δ ≤ e^{S_A}` | PROVED implication |
 | Prop 9.1 | **SPW ⇒ Flat**: a spread pseudo-window R (≥ 0, exact window profile mod every d ≤ N/2, mass ≤ 1 − σ on every class of modulus > CN) yields Flat with t, s₀ ≍ σ, via `θF_S + (1−θ)(1_{[1,N]} − R)`; so SPW (constants σ, Δ₀) ⇒ the 3/4 cap of Thm 5.2 | PROVED implication |
 | Lemma 9.2 | SPW ⇒ patch-cancellation inequality (9.1) for all ν ≥ 0 (converse for LP truncations) | PROVED |
 | §9 | SPW found by LP at N ≤ 60 (σ ≈ 0.34–0.40, C = 2); big-prime re-randomisation proves the profile part but not (P2) on lcm(1..N/4)-smooth moduli; SPW itself open | EVIDENCE / Assessment |
@@ -67,6 +67,13 @@ covered: classes in `(D_s, N/2]` charged blindly cost at least their exact
 count. So it suffices to bound
 
     H*(N; 𝒜) := inf_{ν, representation} B_hyb(ν).
+
+*Scope (review R25, m1).* The charge is per term. A method that charges a
+*group* of large classes of one modulus by the worst case of their joint
+count over shifts of the window (shift-blind but not term-blind) can pay
+less than Σβ*; such grouped charges are outside Definition 1.2. Lemma 4.1-
+type duals cover them only when the group is invariant under the shifts
+used.
 
 ## 2. LP duality for H*
 
@@ -430,8 +437,12 @@ Flat(C, t, s₀, Δ) with
 via `F := θ F_S + (1 − θ)(1_{[1,N]} − R)`.
 
 *Proof.* τ: for x outside I the Beurling–Selberg construction gives
-`|F_S(x)| ≤ c₁/(1 + δ² dist(x,I)²)` (Vaaler 1985, from
-`|B(z) − sgn z| ≤ c/(1+z²)`), and `‖F_S‖_∞ < ∞`. A class of modulus
+`|F_S(x)| ≤ c₁/(1 + δ² dist(x,I)²)` and `‖F_S‖_∞ < ∞`. Source: Vaaler,
+Bull. AMS 12 (1985), Theorem 4 and Lemma 5: Beurling's function satisfies
+`0 ≤ B(z) − sgn(z) ≤ 2K(z)`, `K(z) = (sin πz/πz)²`, and F_S is
+`−½[B(δ(α−x)) + B(δ(x−β)) ]`-type, so outside I it is bounded by
+`K(δ·dist) ≤ min(1, 1/(π δ dist)²)`. (Not in `sources/`; quoted from the
+standard construction, as the reviewer also did.) A class of modulus
 d > CN > N has at most one point in [1,N] and its outside points are spaced
 d apart, so `τ ≤ ‖F_S‖_∞ + 2c₁(1 + Σ_{k≥1}(N/(2kd))²) = O(1)`.
 (F1): both summands are ≤ `1_{[1,N]}` and the weights are convex. (F2):
@@ -526,9 +537,8 @@ is ≈ 0 on [1,N] and spread at density ≈ 0.1–0.3 over [−5N, 6N].
   N ≤ 20 (C = 2). EVIDENCE.
 * **(N, CN] cannot be fully freed.** Periodic certificate (rigorous up to
   floating point): at N = 20, C = 2 sign conditions on all of (N/2, CN] are
-  infeasible on ℤ/2520, via the rigid modulus N + 1 = 21. And by review R25
-  C11 (§9 below), even (N/2, N] cannot be freed when C ≤ 1.5 at N = 20
-  (periodic certificate, max s = 0).
+  infeasible on ℤ/2520, via the rigid modulus N + 1 = 21. With C = 1.5,
+  even (N/2, N] cannot be freed at N = 20 (periodic relaxation: max s = 0).
 * So a cap for hybrids with large right-signed mass at moduli in (N, CN]
   probably needs more than ν ≥ 0 (e.g. ν ≥ 1 on 𝒜, i.e. the arithmetic of
   the family at moduli comparable to N); this is supported by the periodic
