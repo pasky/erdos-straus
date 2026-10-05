@@ -384,19 +384,24 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
 
 ## 6. What is and is not covered
 
-**Covered (barrier at `log x≍𝓛^4/log𝓛`, i.e. exponent 1/4 up to `(log log)^{1/2}`).**
-1. Minorants of any level, used through linear transfers whose accuracy is uniform over
-   translation orbits of residue classes, Dirichlet characters or additive characters (Thm 1.2,
-   Thm 2.2, Lemma 2.3, Cor 2.4), with any assumption on the primes that is *true* (GRH, or
-   anything stronger: Lemma 2.3 shows the accuracies GRH provides are optimal up to logs on deep
-   moduli). Hölder-averaged accounting over orbits (Prop 2.5).
-2. Siegel-zero main terms (Thm 3.1): the exceptional reweighting `1−εχ_1` is transported to
-   the fake. Closes O14 Cor 4.6's Siegel item for linear transfers.
-3. The integer Type I sums that Vaughan / Heath-Brown identities and Heath-Brown's Siegel-zero
-   method reduce to (Prop 4.1), for class-ℓ¹ certificates; Type II input is then moot (Cor 4.3,
-   Assessment for the "moot" part).
-4. Prime-only minorants valid at all primes (Lemma 5.1); finite-range ones of a single moderate
+**Covered (barrier at `log x≍𝓛^4/log𝓛`, i.e. exponent 1/4 up to `(log log)^{1/2}`), always for
+linear certificates (Def 2.1) with full-orbit uniform accuracy.**
+1. Minorants of any level (Thm 1.2), used through such transfers built on residue classes,
+   Dirichlet characters or additive characters (Thm 2.2, Lemma 2.3, Cor 2.4), including
+   one-sided and Hölder-averaged accounting (Cor 2.4 remark, Prop 2.5). Within this class the
+   strength of the prime input is irrelevant by construction (on moduli `>x` every true
+   orbit-uniform bound is trivial, Lemma 2.3); this is not evidence about prime input outside it.
+2. Siegel-zero main terms (Thm 3.1, atom norm): the exceptional reweighting `1−εχ_1` is
+   transported to the fake. Closes O14 Cor 4.6's Siegel item for linear transfers.
+3. Prime-only minorants valid at all primes (Lemma 5.1); finite-range ones of a single moderate
    modulus (Prop 5.2).
+
+**Covered only under full-orbit uniform accounting, which is *not* the natural accounting for
+integers (R57 M3).** The integer Type I sums that Vaughan / Heath-Brown identities and
+Heath-Brown's Siegel-zero method reduce to (Prop 4.1): blocked only for certificates that charge
+error 1 to every deep class; integer supports are known exactly, so support-aware accounting
+(N2) is the relevant one and is open. Whether Type II input can help is therefore **open**; our
+view that it cannot on its own is Assessment 4.3 (heuristic).
 
 **Not covered (the precise residual).**
 * (N1) *Non-periodic structure.* Certificates that exploit a non-periodic family inside the
@@ -404,8 +409,10 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
   "prime-rich" non-periodic family on which F is automatic; every periodic one costs
   `‖·‖_×/mean≥e^{c𝓛^4/log𝓛}` (Thm 1.2). None is known; Chebotarev-type families
   (`p` split in `ℚ(√ℓ*:ℓ≤T)`) are periodic and cost `2^{π(T)}`.
-* (N2) *Support-aware / finite-range certificates*: minorants valid only on `H∩[1,x]` or on
-  primes `≤x`, i.e. error accounting that is not uniform over translation orbits (e.g. using
+* (N2) *Certificates using atomicity, integrality or support of the prime (or integer)
+  measure* — `m(C)∈ℤ_{≥0}`, unit point masses, support in `[1,x]` — forbidden by Def 2.1 (the fake
+  is diffuse); in particular support-aware / finite-range certificates: minorants valid only on
+  `H∩[1,x]` or on primes `≤x`, i.e. error accounting that is not uniform over translation orbits (e.g. using
   that classes mod `q>x` with least representative `>x` are empty). Prop 5.2 excludes single
   moduli `≤x^{1/5}/(QT)`; sieve-type combinations are open. For the integer Type I sums this is
   the natural accounting, so (N2) is the main gap in §4 (R57-self, R57).
@@ -418,15 +425,18 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
   digit-filtration that powers restricted-digit results has no CRT analogue, §4).
 
 **Answer to the brief.** (1a) adds nothing at all primes (Lemma 5.1); restricted to `p≤x` it
-becomes support-aware accounting (N2), excluded only for single moduli `≤x^{1/5}/(QT)` (Prop 5.2). (1b) Type II cannot help on its own: the
-Type I half already needs integer equidistribution of F at superpolynomial level
-`x^{𝓛^{1−o(1)}}`, and every full-orbit uniform linear method is blocked there (Prop 4.1;
-support-aware methods are open, (N2)); the Maynard analogue fails quantitatively (complexity `x^{O(1)}` vs `x^{𝓛/polylog}`). (1c) Siegel zeros do
-not help linear transfers (Thm 3.1), and Heath-Brown's mechanism reduces to (1b). (2) No
-CONDITIONAL improvement was found; the obstruction is theorem-level (Thm 1.2/2.2, Prop 2.5,
-Thm 3.1, Prop 4.1) with the exact scope above. The 1/4 ceiling is a **sieve-dimension**
-barrier (sieving limit `β_κ≍κ`, `κ≍𝓛³/log𝓛`, `log z≍𝓛`), not a parity barrier, and it is a
-property of F, invariant under any strengthening of prime equidistribution.
+becomes support-aware accounting (N2), excluded only for single moduli `≤x^{1/5}/(QT)` (Prop 5.2). (1b) *Assessment (not a theorem):* Type II
+input should not help on its own, since in the standard organisation the Type I half needs
+integer equidistribution of F at superpolynomial level `x^{𝓛^{1−o(1)}}`; what is *proved* is only
+that full-orbit uniform linear methods are blocked there (Prop 4.1) — support-aware methods,
+signed cancellation across d and non-linear methods are open ((N2)–(N4)). The Maynard analogue
+fails quantitatively for norm-based methods (complexity `x^{O(1)}` vs `x^{𝓛/polylog}`). (1c) Siegel
+zeros do not help full-orbit uniform linear transfers (Thm 3.1); Heath-Brown's mechanism reduces
+to (1b). (2) No CONDITIONAL improvement was found; the obstruction is theorem-level (Thm 1.2/2.2,
+Lemma 2.3, Prop 2.5, Thm 3.1, Prop 4.1, Prop 5.2) with the exact scope above. Our reading: the
+1/4 ceiling is a **sieve-dimension** barrier (sieving limit `β_κ≍κ`, `κ≍𝓛³/log𝓛`, `log z≍𝓛`),
+not a parity barrier; for full-orbit uniform linear transfers it is a property of F, independent
+of the prime input. Outside that class this is an Assessment.
 
 ## 7. Status
 
@@ -436,12 +446,12 @@ property of F, invariant under any strengthening of prime equidistribution.
 | Thm 1.2 | every minorant `B≤F` on any fibre (`log Q≤T^{0.05}`): `E_HB≤e^{−c𝓛^4/log𝓛}‖B‖_×` | PROVED mod (G), effective Page, fundamental lemma (O14 Thm 4.5 inputs) |
 | Thm 2.2 | linear certificates need accuracy `𝔈<N_xη` | PROVED (same) |
 | Lemma 2.3 | forced accuracy on deep orbits: ≥1/2 (classes), `≥√(N_x/3)` (characters, additive) | PROVED (elementary) |
-| Cor 2.4 | full-orbit uniform linear transfers (incl. under GRH) need `log x≥c𝓛^4/log𝓛` | PROVED implication |
+| Cor 2.4 | full-orbit uniform linear transfers (Def 2.1; prime input irrelevant by construction) need `log x≥c𝓛^4/log𝓛` | PROVED implication |
 | Prop 2.5 | `‖ν−P‖_TV≤e^{−0.6μ*}`; Hölder-averaged accuracy also blocked | PROVED (same) |
 | Thm 3.1 | Siegel-model law `(1−εχ_1)P`: same fake (atom norm); level `≤c𝓛^4/log𝓛−log x` gives `E_{P_1}B≤0` | PROVED (same) |
-| Prop 4.1 | integer (Type I) sums: class-ℓ¹ certificates blocked below `log x≍𝓛^4/log𝓛` | PROVED (same + Mertens) |
+| Prop 4.1 | integer (Type I) sums: Haar bound `E_{P_d}B≤e^{−c'𝓛^6}+η‖B‖_×`; class-ℓ¹ certificates charging error 1 to every deep class blocked below `log x≍𝓛^4/log𝓛` (not the natural integer accounting) | PROVED (same + Mertens) |
 | Assessment 4.3 | Type II / Siegel (Heath-Brown) / Maynard-type routes need Type I beyond the barrier | Assessment (heuristic) |
-| Prop 5.2 | finite-range prime-only minorants of one modulus `q≤x^{1/5}/(QT)`: `E_HB≤0` | PROVED mod Linnik–Xylouris |
+| Prop 5.2 | finite-range prime-only minorants of one modulus q with `x≥C_L(qQℓ_0)^5` (ℓ_0 exists automatically): `B≤0` on unit classes, `E_HB≤0` | PROVED mod Linnik–Xylouris |
 | Lemma 5.1 | prime-only minorants = Haar minorants (Dirichlet) | PROVED |
 
 Not claimed: anything about ES; anything about the true size of the least avoider prime;
