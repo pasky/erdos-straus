@@ -265,8 +265,10 @@ Chebyshev `ρ_k=P(N=0) ≤ Var N/μ_N² ≤ 2n/(3^k−1) + t5^k/(3^k−1)²`. Us
 `3^k−1≥(2/3)3^k`. The Poisson statement follows from `E x^K=e^{−μ(1−x)}`
 with `x=1/3, 5/9`. ∎
 
-*Remark.* If some index-2 subgroup avoids τ (e.g. the squares, a prime),
-then `ρ_k≥2^{−k}` (all entries in it), so the base `5/9` cannot be
+*Remark.* If some index-2 subgroup avoids τ, then `ρ_k≥2^{−k}` (all
+entries in it). For `G=(Z/a)^×`, `τ=−1`, this holds for **every**
+`a≡3 (4)`, prime or composite: the kernel of the Jacobi character
+`(·/a)` has index 2 and avoids −1 since `(−1/a)=−1`. So so the base `5/9` cannot be
 improved below `1/2` by any argument; the second moment loses only `log(10/9)` per prime factor.
 For `G=(Z/a)^×` (a odd) `t(G)=2^{ω(a)}`, `τ=−1`, `n=φ(a)`.
 
@@ -297,10 +299,11 @@ F̄_a = e^{η}·E ρ^{(a)}_{K} + O((φ(a)+2^{ω(a)})ℒ^{−3}),   K ~ Poisson(�
 where `ρ^{(a)}_k` is the bad proportion of Lemma 2.1 for `G=(Z/a)^×`,
 `τ=−1`; the O is uniform in a and A. By Lemma 2.1,
 `E ρ_K ≤ 3φ(a)e^{−2λ/3}+(9/4)2^{ω(a)}e^{−4λ/9}` (uncapped), and for any
-`k_0≤λ` (capped; `ρ_k≤1` below `k_0`, Chernoff for the Poisson tail)
+`k_0≤λ+η` (capped; `ρ_k≤1` below `k_0`, Chernoff for the Poisson tail
+of K, whose mean is `λ+η`)
 
 ```
-E ρ_K ≤ e^{−λ}(eλ/k_0)^{k_0} + 3φ(a)3^{−k_0} + (9/4)2^{ω(a)}(5/9)^{k_0}.   (2.1)
+E ρ_K ≤ e^{−(λ+η)}(e(λ+η)/k_0)^{k_0} + 3φ(a)3^{−k_0} + (9/4)2^{ω(a)}(5/9)^{k_0}.   (2.1)
 ```
 
 *Proof.* **Step 0 (patterns).** For a counted p and `a∈A`, let `R_a` be
@@ -458,12 +461,14 @@ bad tuples). Nothing unconditional specific to X_QNR is obtained.
 
 ### 3.3 Goal 4: conditional statements
 
-* **GRH** makes Theorem 2.2 effective (Siegel–Walfisz → GRH-PNT in APs,
-  with the floor e.g. `y=ℒ^C`, C large, which keeps `y>Z` so that roots
-  stay distinct and `(J+1)MJ/y=o(1)`); this removes the δ-loss
+* **GRH (Assessment; proof sketch, not written out).** GRH would make
+  Theorem 2.2 effective (Siegel–Walfisz → GRH-PNT in APs), with the floor
+  `y=ℒ^C` for a fixed `C>2θ`: this keeps `y>Z` (roots distinct), gives
+  `(J+1)MJ/y=o(1)`, and makes the GRH error `φ(a)y^{−1/2}log y→0`. This
+  would remove the δ-loss
   (`c=1−θ−O(log L/L)`). It does **not** change the range `θ<θ_*` or the
   form of `d(θ)`.
-* **EH / higher level**: no help to *this* argument. Its binding
+* **EH / higher level (Assessment, about this argument only)**: no help. Its binding
   constraint is Lemma 12.1's `Λ=Σν(ℓ)log ℓ/ℓ≤(log X)/4`, i.e. dimension ×
   log(sifting range) ≲ level, and levels beyond X carry no information
   about integers `≤X`.
