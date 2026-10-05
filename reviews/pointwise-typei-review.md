@@ -12,7 +12,7 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 | §6.2 formal table, C6.4 (H part) | SOUND (all 7 rows reproduced from scratch) |
 | C6.4 unconditional part | SOUND-AFTER-REPAIRS (defect 1) |
 | §6.1 literature | SOUND (checked against ET PDF and Salez audit text) |
-| T2.1 | pending (proof read line-by-line: no defect found yet) |
+| T2.1 | SOUND (CONDITIONAL label correct) |
 
 ## Notes per claim
 
@@ -67,3 +67,10 @@ D=3 (Thm 6.1 first case). Filters S_5,S_7,S_11 as quoted ✓; S_13..S_37 also mi
 "exactly for r=5,7" should read "among Salez's listed single-prime filters (ℓ≤37)" — MINOR wording.
 `scripts/review_ti_mod168.py`: no (c,k,F) with ck|42, F|21 is valid on a hard class that is a non-residue mod 7, confirming
 "no (15d)-certificate is decided modulo 168 on a non-residue class mod 7".
+
+Concrete instances (`scripts/review_ti_thm21_instance.py g r`: builds Q, a, b exactly as in the proof, replaces H by a search
+for t with p and all (p²+4ck²)/A prime, then checks n_p and every unforced slice ck≤gr by direct factorisation):
+g=1,r=7: p=31982111786880107424001, n_p=7, slice (7,1) M=0; g=1,r=11: p=1797590122919658552759652159465320001, n_p=11,
+(11,1) M=0. g≥2 instances are out of reach (B≥max A forces Q≈10^200). Mechanism confirmed.
+Uniformity check: the H-family depends on (g,r) (finite for each); "ck_min≥n_p^{2−ε} i.o." needs only ONE r≥r_0(ε) (its
+infinitely many p all have n_p=r), so the finite-family claim is accurate.
