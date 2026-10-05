@@ -149,8 +149,9 @@ checked and, if confirmed, cited and compared:
 
 D9 (MINOR, suggestion that strengthens the paper) Quantify the gap to the switching-lemma route instead of only
 quoting "20" from memory: with Håstad's bound Pr[DT(g|ρ) ≥ d] ≤ (Apw)^d (A ≈ 5) and the LMN reduction
-W^{≥t} ≤ 2·Pr[DT depth > pt/2], optimising p gives W^{≥t} ≲ 2·exp(−t/(2eA·w)), i.e. exponent constant ≈ 2eA/ln 2 ≈ 39
-in base 2 for A=5 (≈ 20 with the sharper bookkeeping of [OD]). So the switching-lemma route loses a factor > 10 in the
+W^{≥t} ≤ 2·Pr[DT depth > pt/2], optimising p (x = Apw = 1/e) gives W^{≥t} ≤ 2·exp(−t/(2eA·w)) = 2·2^{−t/(2eA ln2·w)}, i.e. base-2 exponent
+constant 2eA·ln 2 ≈ 18.8 for A = 5 — consistent with the from-memory "20" of [OD §4.4], which this re-derivation
+thus corroborates (still [mem] for the inputs A=5 and the LMN reduction). So the switching-lemma route loses a factor > 10 in the
 exponent for intrinsic reasons (the restriction keeps only a p-fraction of the degree and the switching base
 needs pw ≲ 1/(eA)). One paragraph like this (labelled as a heuristic re-derivation) makes the constant-1 claim
 much more convincing than the from-memory constant.
