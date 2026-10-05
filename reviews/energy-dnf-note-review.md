@@ -49,3 +49,32 @@ I = 2·E[s(x)·1{g(x)=−1}] ≤ 2wp), and under a product measure the same argu
 new method; the new bound is worse by 2/ln2 (uniform) resp. 1/ln2 (biased).
 Repair: state "I ≤ 2wp (uniform), ≤ 4wp (product measures) follows from the trivial certificate argument; our
 (4k/ln2)p is weaker by a constant and is stated only because it falls out" — or drop the influence claim.
+
+## 3. Prop 6.1 (sharpness), Ex 6.2 (parities), Ex 6.3 (non-monotonicity) — SOUND (minor wording)
+
+Re-derived Prop 6.1: per-block level weights (1−π)² at W=∅ and π²((1−p)/p)^{|W|} at W⊆S_i (so π(1−p)^k at W=S_i);
+Poisson limit e^{−2s}s^j/j!; at s=j/2 and with j! ≤ e·j^{j+1/2}e^{−j} the bound 2^{−j}/(e√j) follows. Correct.
+Consequence "no Cρ^{−(t+1)/k} with ρ>2" correct; it needs p→0 as t grows (bias depending on t), which the
+statement allows ("a suitable product measure") — fine, but see D4.
+From scratch (`scripts/review_r50_sharp.py`, `data/r50_sharp.txt`): level formula = brute force on [3]^3, {±1}^4
+(biased), [3]^4; limit ≥ 2^{−j}/(e√j) for j ≤ 80; finite p = 1/40, k ≤ 3, j ∈ {1,2,4}: max_m En(F;jk−1)·2^j well above
+1/(e√j) and below the Cor 1.2 bound. Parity formula En = 4^{−s}Σ_{i≥j}C(s,i) = brute force; (max_s En)^{1/j} =
+0.298587, 0.310939, 0.319400 for j = 10, 20, 40 (reproduces the note's 0.299/0.311/0.319; → 1/3 by Stirling).
+Ex 6.3 (`scripts/review_r50_mono.py`, `data/r50_mono.txt`): exactly G = 323/4096 + 343√2/2048 ≈ 0.3157106 and,
+after adding A, 147/1024 + 63√2/512 ≈ 0.3175692 — increase confirmed. [5]^3 (λ=2^{1/3}, points with exactly two
+nonzero coordinates): adding A=(0,0,0) increases G (0.75406 → 0.75467); adding (1,0,0), (1,1,1), (1,2,3) does not.
+
+D3 (MINOR) §6 after Prop 6.1: "the supremum over m … is about 2/√(2πj) for small p (an earlier internal
+computation; we do not prove it)". My numbers (p→0 limit, sup over s): 0.2255 vs 2/√(2πj)=0.2523 at j=10; 0.0876 vs
+0.0892 at j=80. So it is an *asymptotic* (j→∞) statement, ~11% off at j=10. It is also easy to prove
+(sup_s e^{−2s}Σ_{i≥j}s^i/i! ~ 2·2^{−j}/√(2πj): the i=j term at s=j/2 plus a geometric tail of ratio ½). Repair: write
+"~ 2/√(2πj) as j→∞" and either prove it in two lines or keep the hedge.
+
+D4 (MINOR) Prop 6.1 / abstract / §1 "Over general product spaces the base 2^{−1/k} is sharp": the extremal measures
+have bias p→0 *depending on t*. For any fixed product measure with all atoms ≥ δ (e.g. q-ary uniform with q fixed,
+or uniform cube) the proposition says nothing. Worth one sentence: "sharp in the sense of the sup over all product
+measures; for a fixed measure the optimal rate is open (cf. Ex 6.2)".
+
+D5 (MINOR) Ex 6.3: the [5]^3 sentence does not say which event is added. Repair: "…; adding A={x=(0,0,0)}
+increases G_F from 0.75406 to 0.75467 (λ=2^{1/3})" (my values; the author's script does not check [5]^3, as the
+report admits).

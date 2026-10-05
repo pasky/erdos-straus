@@ -1,0 +1,6 @@
+[8]^2: 323/4096 + 343*sqrt(2)/2048 = 0.31571057 ; with A: 147/1024 + 63*sqrt(2)/512 = 0.31756925 ; increase: True
+[5]^3 base (even #nonzero >=2, i.e. exactly 2): 0.75405995
+   add (0, 0, 0) : 0.75466703 increase
+   add (1, 0, 0) : 0.74366868 no increase
+   add (1, 1, 1) : 0.74939865 no increase
+   add (1, 2, 3) : 0.74939865 no increase
