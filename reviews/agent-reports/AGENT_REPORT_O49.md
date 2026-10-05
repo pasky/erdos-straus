@@ -81,12 +81,17 @@ Replay: `PYTHONPATH=scripts uv run --with scipy python scripts/omega14_planting.
     the count of the D's mod v (squarefree numbers in progressions, elementary, Lemma 4.4).
   * *Conclusion.* Hence `R(x)≥c𝓛³/log𝓛` for **every** small configuration x. The planting
     law then exists everywhere (Lemma 4.1), and the sieving limit is deterministic.
-* **Cor 4.6.** Exponent 1/4 is the ceiling, up to a factor `(log log p)^{1/2}`, of every
-  certificate through a Haar minorant of F (O8/O9/O13 architecture, any A). Prop 2.7's
-  loophole and the earlier Assessment label are superseded.
+* **Cor 4.6.** Exponent 1/4 is the ceiling, up to a factor `(log log p)^{1/2}`, of the
+  *certified* bound for every certificate through a Haar minorant of F with a transfer
+  requiring `log x≫log Z` (O8/O9/O13 architecture, any A). Within that scope, Prop 2.7's
+  loophole is closed.
 * **Not covered.** Prime input beyond low-conductor minorants, e.g. bilinear/Type II or
   parity-sensitive input.
 * **Please check.**
   * Lemma 4.3's use of (G): the induced-character reduction, and the exceptional-term case split at `q_1=𝓛^{1.9}`.
   * Lemma 4.4's removal of the exceptional set.
   * That Thm 1.3 legitimately treats fibre-fixed coordinates as constant small coordinates.
+* **Self-review of §4.** No FATAL; Lemmas 4.1–4.5 hold. One MAJOR: Cor 4.6 is now scoped
+  to transfers requiring `log x≳log Z` and stated as a limit on the certified bound. Minors
+  fixed: the surrogate weight in Lemma 4.4, the Gallagher prefactor and `ε≤0.05/c`, `9/8+o(1)`,
+  the heading, the O9 §1 reference, and section numbering.

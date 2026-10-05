@@ -282,7 +282,7 @@ modulus `>T^{0.6}`. Lower-bound sieves of dimension κ need level `z^{≍κ}` (s
 `β_κ≍κ`); here `z^{κ}=e^{≍𝓛μ}`. Lemma 1.1 is the elementary proof of `β_κ≳κ` that this
 needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink κ.
 
-## 4. Status (checkpoint 1)
+## 5. Status (checkpoints 1–2)
 
 | item | statement | label |
 |---|---|---|
@@ -300,12 +300,12 @@ needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink 
 | Lemma 4.1 | deterministic planting: `R(x_s)≥…` for all `x_s` ⇒ `E B≤0` | PROVED |
 | Lemmas 4.2–4.4 | uniqueness family; class-uniform primes mod 4n; class-uniform D's mod v | PROVED (4.3 mod (G) + effective Page) |
 | Thm 4.5 | every fibre with `log Q≤T^{0.05}`: no minorant `B≤F` of level `log D≤c𝓛^4/log𝓛` has `E B>0` | PROVED mod (G), Page, fundamental lemma |
-| Cor 4.6 | 1/4 is the ceiling (up to `(loglog)^{1/2}`) of minorant-based transfers; closes Prop 2.7's loophole | PROVED implication |
+| Cor 4.6 | 1/4 is the ceiling (up to `(loglog)^{1/2}`) of certified bounds via minorant transfers needing `log x≫log Z` (O8/O9/O13); closes Prop 2.7's loophole there | PROVED implication |
 
 Not claimed: anything about ES; anything about arguments that do not pass through a
 bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs).
 
-## 4. Closing the sparse loophole: no positive minorant at all below level `𝓛^4/log²𝓛` (O49b)
+## 4. Closing the sparse loophole: no positive minorant at all below level `𝓛^4/log𝓛` (O49b)
 
 *Idea.* Prop 2.7 leaves room only on `G={R(X_s)<K'}`. If the big odds are bounded below for
 **every** small configuration, then `G=∅` and Theorem 1.3 gives `E B≤0` outright: no
@@ -346,7 +346,7 @@ Given x, the events at ℓ whose small part holds are the `E_{vℓ,D}` with
 `p_ℓ(x)=(ℓ−1)^{−1}#{D: the v of (ℓ,D) exists and x≡−4D (v)}`. Sum over ℓ, then group by v. ∎
 
 **Lemma 4.3 (class-uniform primes mod 4n; PROVED modulo (G) and the effective Page bound,
-as quoted in POINTWISE_OMEGA9 §0).** There is an absolute `ε_0>0` such that, for `ε≤ε_0`, T
+as quoted in POINTWISE_OMEGA9 §1).** There is an absolute `ε_0>0` such that, for `ε≤ε_0`, T
 large, and `q_1` the modulus of the exceptional character of (G) with `Q_G:=4X` (if any), put
 
 ```
@@ -363,13 +363,14 @@ Then `c(v,n) ≥ 0.13/φ(4n)` for every `n∈[V,X]∖𝒩_exc` and every `v≤V`
 |ϑ(x;q,b) − x/φ(q) + [q_1|q]χ_1(b)x^{β_1}/(β_1φ(q))| ≤ (C'/φ(q))·x·(e^{−log x/(κlog Q_G)} + (log x/log Q_G)²/Q_G) + log q.
 ```
 
-In the exceptional case the right side carries a prefactor `(1−β_1)log x≤0.7/(κε)`.
-Since `log x/log Q_G≥0.6/(ε+o(1))`, the right side is `≤x/(8φ(q))` once ε is small.
-The range condition `Q_G^{6c}≤x` holds for `ε≤0.1/c`.
+In the exceptional case the Gallagher term (not the induced-character term `log q`) carries a
+prefactor `(1−β_1)log x≤0.7/(κε)`. Since `log x/log Q_G≥0.6/(ε+o(1))`, the right side is
+`≤x/(8φ(q))` once ε is small. The range condition `Q_G^{6c}=4^{6c}T^{6cε}≤x` holds for
+`ε≤0.05/c`.
 *Exceptional term.* If `q_1∤q`, it is absent. If `q_1|q` and `q_1≤𝓛^{1.9}`, the effective Page bound
 `1−β_1≫q_1^{−1/2}(log q_1)^{−2}` gives `x^{β_1−1}≤exp(−c𝓛^{0.05}/(log𝓛)²)=o(1)`, and `1/β_1≤2`.
 If `q_1|q` and `q_1>𝓛^{1.9}`, then `n∈𝒩_exc`, which is excluded.
-So `ϑ(t;q,b)∈[(7/8−o(1)),(9/8)]·t/φ(q)` on `[T^{0.6},T^{0.7}]`. Partial summation then gives
+So `ϑ(t;q,b)∈[(7/8−o(1)),(9/8+o(1))]·t/φ(q)` (the `+o(1)` covers `χ_1(b)=−1`) on `[T^{0.6},T^{0.7}]`. Partial summation then gives
 `Σ_{ℓ≡b (q), ℓ∈(T^{0.6},T^{0.7}]}1/ℓ ≥ (7/8)log(7/6)/φ(q) − O(1/(𝓛φ(q))) ≥ 0.13/φ(q)`: the
 integral `∫ϑ(t)(1+log t)(t log t)^{−2}dt` gives `log(7/6)`, and the boundary terms are
 `O(1/𝓛)`. ∎
@@ -387,7 +388,9 @@ W(v,a) := Σ_{D: n_D∈[V,X]∖𝒩_exc, D≡a (v)} 1/φ(4n_D) ≥ L²/(200v).
 
 *Proof.* Write `D=κt²` with κ squarefree, so `n_D=κt`; this is a bijection between D and such
 pairs. Keep only `t≤X^{1/6}` with `(t,v)=1` and `κ∈(K_1,K_2]`, where `K_1:=X^{2/3}` and `K_2:=X/t`.
-Then `n_D∈[V,X]`, and `D≡a (v)` means `κ≡b:=at^{−2} (v)`. Use `φ(4n)≤2n`.
+Then `n_D∈[V,X]`, and `D≡a (v)` means `κ≡b:=at^{−2} (v)`. Since `φ(4n)≤2n`,
+`W(v,a)≥H_all−H_exc`, where `H_all`/`H_exc` are the surrogate sums of `1/(2κt)` over the kept
+pairs with all n / with `n∈𝒩_exc`; we bound `H_all` below and `H_exc` above.
 *Squarefree count.* For a unit `b mod v`,
 `N_b(K):=#{κ≤K squarefree, κ≡b (v)} = σ_vK/v + O(√K)` uniformly, with
 `σ_v=Σ_{(d,v)=1}μ(d)/d²≥6/π²`. To see this, write `μ²(κ)=Σ_{d²|κ}μ(d)`; if `p|(d,v)` the count
@@ -396,11 +399,176 @@ Partial summation gives
 `Σ_{κ∈(K_1,K_2], κ≡b}1/κ ≥ (σ_v/v)log(X^{1/3}/t) − O(K_1^{−1/2})`.
 *Sum over t.* For y-rough v,
 `Σ_{t≤X^{1/6},(t,v)=1}(1/t)log(X^{1/3}/t) ≥ L²/24 − (ω(v)/y)·O(L²) − O(L) ≥ L²/48`.
-So the D's with `n_D∉𝒩_exc` not yet removed contribute `≥(1/2)(6/π²)L²/(48v) − O(LX^{−1/3})`.
+So `H_all≥(1/2)(6/π²)L²/(48v) − O(LX^{−1/3})`.
 *Removing 𝒩_exc* (only if `q_1>𝓛^{1.9}`). Here `q''|κt`, so `q''/(q'',t)` divides κ. Together
 with `κ≡b (v)` this is one class mod `v·q''/(q'',t)` (or empty), and HAAR (F4) bounds the
 `1/κ`-sum by `1/K_1+(q'',t)log(X^{1/3})/(vq'')`. Since `Σ_{t≤X}(q'',t)/t≤τ(q'')(1+L)`,
-the removed weight is `≤L²τ(q'')/(vq'')+O(LX^{−2/3}) ≤ 4L²𝓛^{−1.8}/v`.
+`H_exc≤L²τ(q'')/(vq'')+O(LX^{−2/3}) ≤ 4L²𝓛^{−1.8}/v`.
+Collecting, `W(v,a)≥L²/v·(6/(96π²)−o(1)) ≥ L²/(200v)`, using `X^{−1/3}≤1/v`. ∎
+
+**Theorem 4.5 (no positive low-level minorant; PROVED modulo (G), the effective Page bound and
+the fundamental lemma).** There are absolute `c,ε>0` such that, for T large, the following holds
+for every modulus Q with `log Q≤T^{0.05}` and every unit class r.
+Let B be any function on the fibre `n≡r (Q)` of level `≤D` (Setting 2.0), with `B≤F` pointwise and
+`log D≤c𝓛^4/log𝓛`. Then
+
+```
+E_{fibre} B ≤ 0 .
+```
+
+*Proof.* *Setting.* Small coordinates: everything except the `X_ℓ` with ℓ prime,
+`ℓ>T^{0.6}`, `ℓ∤Q`; the coordinates fixed by the fibre are constants among the small ones.
+The family is `𝓕*` minus the events whose ℓ divides Q. Each event has exactly one big
+coordinate, and `p*≤T^{−0.09}` (Lemma 2.1; the family is smaller).
+*Uniform lower bound for R.* Fix any small configuration x, with x a unit. By Lemma 4.2,
+`R(x)≥Σ_ℓp_ℓ(x)≥Σ_vΣ_{D≡−x/4 (v), n_D∉𝒩_exc}c(v,n_D) − Σ_{ℓ|Q, ℓ>T^{0.6}}p*`.
+For `D≡−x/4 (v)`, D is a unit mod v, so `gcd(v,2n_D)=1`. Lemmas 4.3–4.4 then give
+`R(x) ≥ 0.13·(L²/200)·Σ_{v≤V y-rough sqfree}1/v − (log Q)T^{−0.09} ≥ μ* := c_9ε³𝓛³/log𝓛`.
+For the v-sum, the fundamental lemma gives `≥c_3log V/log y` (as in Lemma 2.2).
+*Conclusion.* `k:=⌊log D/(0.6𝓛)⌋`, so `(k+1)+(2k+1)r*≤(k+1)(1+4p*)≤μ*` if `c≤0.3c_9ε³`.
+Lemma 4.1 gives `E B≤0`. ∎
+
+**Corollary 4.6 (the 1/4 ceiling of the minorant-transfer architecture; PROVED implication).**
+* *Scope.* Certificates that produce a Mordell-hard prime with `W(p)>T` from a Haar minorant
+  `B≤F` with `E B>0`, on a fibre with `log Q≤T^{0.05}`, through a transfer whose hypothesis
+  requires `log x≫log Z`. Here Z is the minorant's level and x the certified search bound.
+  O8/O9 Thm 1.1, and hence O13 Thm 5.1, are of this type (O9 needs
+  `log x≥C(1+log A)log Z`); this covers BRW, Selberg, Bonferroni, sparse or dense, any A.
+* *Statement.* For every such certificate, `log Z≥c𝓛^4/log𝓛` (Thm 4.5), hence the certified
+  bound has `log x≫𝓛^4/log𝓛`. So such certificates cannot give
+  `W(p)≥exp((log p)^{1/4+δ})` (δ>0), nor `exp(C(log p log log p)^{1/4})` with C large, *as
+  certified bounds*. O13 Thm 5.1 (`(log p)^{1/4}(log log p)^{−1/4}`) is optimal within this
+  architecture, up to a factor `(log log p)^{1/2}` in `𝓛`.
+* *Not claimed.*
+  * Nothing about the true size of the least such prime.
+  * Nothing about transfers that do not require `log x≳log Z`.
+  * Nothing about prime input other than low-conductor minorants, e.g. bilinear/Type II or
+    parity-sensitive input.
+
+Within this scope, this supersedes Prop 2.7's open loophole.
+
+## 5. Status (checkpoints 1–2)
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | planting: odds-sum `R≥(k+1)+(2k+1)r*` ⇒ k-wise-equivalent law with no all-zero | PROVED (exact check, 100 instances, k≤3) |
+| Thm 1.3 | abstract level barrier `E B≤E[F·1{R<…}]` for `B∈𝒱_k`, `B≤F` | PROVED |
+| Lemma 2.1 | big family: one big prime `>T^{0.6}`, `p*≤T^{−0.09}` | PROVED |
+| Lemma 2.2 | big-family mass `≫𝓛³/log y` | PROVED mod BV + fundamental lemma (theorems) |
+| Lemma 2.3 | m-copy Janson: `E∏(1−p_ℓ)^m≤exp(−mμ+Cm²𝓛²)` | PROVED (via HAAR Thm 1.4, Lemmas 2.3–2.4) |
+| Thm 2.4 | level `log D≤0.6𝓛(μ/3−1)` ⇒ `E B≤exp(−mμ/4)` | PROVED (same inputs) |
+| Cor 2.5 | on O13 Thm 5.1's fibre: level `≫𝓛^4/log𝓛` is necessary; Thm 5.1 optimal up to logs among level-D minorant transfers | PROVED implication (+NT for δ) |
+| Thm 2.6 | any Q with `log Q≤𝓛^5`: same barrier | PROVED |
+| Prop 2.7 | a level-D minorant's mean lives on a set of measure `≤e^{−3mμ/8}` | PROVED |
+| "1/4 ceiling" (§2 version) | dense minorants only | superseded by Cor 4.6 |
+| Cor 3.1 | EL_mod(τ) false for `τ≤c𝓛^4/log𝓛`: no better C-1 weights | PROVED |
+| Lemma 4.1 | deterministic planting: `R(x_s)≥…` for all `x_s` ⇒ `E B≤0` | PROVED |
+| Lemmas 4.2–4.4 | uniqueness family; class-uniform primes mod 4n; class-uniform D's mod v | PROVED (4.3 mod (G) + effective Page) |
+| Thm 4.5 | every fibre with `log Q≤T^{0.05}`: no minorant `B≤F` of level `log D≤c𝓛^4/log𝓛` has `E B>0` | PROVED mod (G), Page, fundamental lemma |
+| Cor 4.6 | 1/4 is the ceiling (up to `(loglog)^{1/2}`) of certified bounds via minorant transfers needing `log x≫log Z` (O8/O9/O13); closes Prop 2.7's loophole there | PROVED implication |
+
+Not claimed: anything about ES; anything about arguments that do not pass through a
+bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs).
+
+## 4. Closing the sparse loophole: no positive minorant at all below level `𝓛^4/log𝓛` (O49b)
+
+*Idea.* Prop 2.7 leaves room only on `G={R(X_s)<K'}`. If the big odds are bounded below for
+**every** small configuration, then `G=∅` and Theorem 1.3 gives `E B≤0` outright: no
+minorant of that level has positive mean, sparse or not, and A plays no role. Typical-case
+bounds (Lemma 2.3) cannot give this, because `R(x_s)` is a divisor-type sum over the shifts
+`x+4D`. So we pass to a subfamily in which every (ℓ,D) has a *unique* small part v, and
+prove class-uniform equidistribution.
+
+**Lemma 4.1 (deterministic planting; PROVED, from Thm 1.3).** In Setting 1.2, suppose
+`R(x_s)≥(k+1)+(2k+1)r*` for *every* `x_s`. Then every `B∈𝒱_k` with `B≤F` has `E B≤0`.
+
+*Proof.* Theorem 1.3 with `1{R<…}≡0`. ∎
+
+**The uniqueness family.** Fix a small absolute `ε∈(0,1/10]` (chosen in Lemma 4.3), put
+`X:=T^ε`, `V:=X^{1/3}`, `y:=𝓛^6`, and
+
+```
+𝓕* := { E_{vℓ,D} : n:=D*∈[V,X], v≤V y-rough squarefree, ℓ prime ∈(T^{0.6},T^{0.7}],
+                   vℓ≡−1 (mod 4n) }.
+```
+
+As in Lemma 2.2, `vℓ≡−1 (4n)` gives `M=vℓ≡3 (4)` and `n|A_M`, i.e. `D|A_M²`. Also `M` is squarefree
+and y-rough, `√T≤M≤T`, and `D≤n²≤T^{2ε}<M/4`, so 𝓕* is a subfamily of §2's 𝓕 (with v
+restricted further). Lemma 2.1 holds for it.
+
+**Lemma 4.2 (unique small part; PROVED).** For each pair (ℓ,D) there is at most one v with
+`E_{vℓ,D}∈𝓕*`. Hence, for every small configuration x (the coordinates at primes `≤T^{0.6}`),
+
+```
+Σ_ℓ p_ℓ(x) = Σ_{v} Σ_{D: n_D∈[V,X], 4D≡−x (mod v)} c(v,n_D),     c(v,n):=Σ_{ℓ∈(T^{0.6},T^{0.7}], ℓ≡−v^{−1} (4n)} 1/(ℓ−1),
+```
+
+with v over y-rough squarefree `v≤V`, and `c(v,n):=0` if `gcd(v,2n)>1`.
+
+*Proof.* v satisfies `v≡−ℓ^{−1} (mod 4n)` and `1≤v≤V≤n<4n`, so v is determined by (ℓ,n).
+Given x, the events at ℓ whose small part holds are the `E_{vℓ,D}` with
+`x≡−4D (mod v)`. Distinct D give distinct classes `−4D mod ℓ`, since `0<|D−D'|<T^{2ε}<ℓ`. So
+`p_ℓ(x)=(ℓ−1)^{−1}#{D: the v of (ℓ,D) exists and x≡−4D (v)}`. Sum over ℓ, then group by v. ∎
+
+**Lemma 4.3 (class-uniform primes mod 4n; PROVED modulo (G) and the effective Page bound,
+as quoted in POINTWISE_OMEGA9 §1).** There is an absolute `ε_0>0` such that, for `ε≤ε_0`, T
+large, and `q_1` the modulus of the exceptional character of (G) with `Q_G:=4X` (if any), put
+
+```
+𝒩_exc := {n : q_1 | 4n} if q_1 exists and q_1>𝓛^{1.9};   𝒩_exc := ∅ otherwise.
+```
+
+Then `c(v,n) ≥ 0.13/φ(4n)` for every `n∈[V,X]∖𝒩_exc` and every `v≤V` with `gcd(v,2n)=1`.
+
+*Proof.* Put `q:=4n≤Q_G` and `b:≡−v^{−1} (q)`, a unit. Every χ mod q is induced by a primitive
+`χ*` of conductor `q*|q`, and `|ϑ(x;χ)−ϑ(x;χ*)|≤log q`. Orthogonality and (G) give, for
+`x∈[T^{0.6},T^{0.7}]`,
+
+```
+|ϑ(x;q,b) − x/φ(q) + [q_1|q]χ_1(b)x^{β_1}/(β_1φ(q))| ≤ (C'/φ(q))·x·(e^{−log x/(κlog Q_G)} + (log x/log Q_G)²/Q_G) + log q.
+```
+
+In the exceptional case the Gallagher term (not the induced-character term `log q`) carries a
+prefactor `(1−β_1)log x≤0.7/(κε)`. Since `log x/log Q_G≥0.6/(ε+o(1))`, the right side is
+`≤x/(8φ(q))` once ε is small. The range condition `Q_G^{6c}=4^{6c}T^{6cε}≤x` holds for
+`ε≤0.05/c`.
+*Exceptional term.* If `q_1∤q`, it is absent. If `q_1|q` and `q_1≤𝓛^{1.9}`, the effective Page bound
+`1−β_1≫q_1^{−1/2}(log q_1)^{−2}` gives `x^{β_1−1}≤exp(−c𝓛^{0.05}/(log𝓛)²)=o(1)`, and `1/β_1≤2`.
+If `q_1|q` and `q_1>𝓛^{1.9}`, then `n∈𝒩_exc`, which is excluded.
+So `ϑ(t;q,b)∈[(7/8−o(1)),(9/8+o(1))]·t/φ(q)` (the `+o(1)` covers `χ_1(b)=−1`) on `[T^{0.6},T^{0.7}]`. Partial summation then gives
+`Σ_{ℓ≡b (q), ℓ∈(T^{0.6},T^{0.7}]}1/ℓ ≥ (7/8)log(7/6)/φ(q) − O(1/(𝓛φ(q))) ≥ 0.13/φ(q)`: the
+integral `∫ϑ(t)(1+log t)(t log t)^{−2}dt` gives `log(7/6)`, and the boundary terms are
+`O(1/𝓛)`. ∎
+
+*Exceptional set is harmless.* If `q_1>𝓛^{1.9}`, write `q'':=q_1/gcd(q_1,4)≥q_1/4`; then
+`n∈𝒩_exc ⟺ q''|n`. It is used only through Lemma 4.4's class-uniform upper bound for multiples
+of `q''`, with `τ(q'')/q''≤𝓛^{−1.8}`.
+
+**Lemma 4.4 (the D's are class-uniform mod v; PROVED, elementary).** Put `L:=log X=ε𝓛`.
+For T large, every odd squarefree y-rough `v≤V`, and every unit class a mod v,
+
+```
+W(v,a) := Σ_{D: n_D∈[V,X]∖𝒩_exc, D≡a (v)} 1/φ(4n_D) ≥ L²/(200v).
+```
+
+*Proof.* Write `D=κt²` with κ squarefree, so `n_D=κt`; this is a bijection between D and such
+pairs. Keep only `t≤X^{1/6}` with `(t,v)=1` and `κ∈(K_1,K_2]`, where `K_1:=X^{2/3}` and `K_2:=X/t`.
+Then `n_D∈[V,X]`, and `D≡a (v)` means `κ≡b:=at^{−2} (v)`. Since `φ(4n)≤2n`,
+`W(v,a)≥H_all−H_exc`, where `H_all`/`H_exc` are the surrogate sums of `1/(2κt)` over the kept
+pairs with all n / with `n∈𝒩_exc`; we bound `H_all` below and `H_exc` above.
+*Squarefree count.* For a unit `b mod v`,
+`N_b(K):=#{κ≤K squarefree, κ≡b (v)} = σ_vK/v + O(√K)` uniformly, with
+`σ_v=Σ_{(d,v)=1}μ(d)/d²≥6/π²`. To see this, write `μ²(κ)=Σ_{d²|κ}μ(d)`; if `p|(d,v)` the count
+is empty, otherwise `#{m≤K/d²: md²≡b (v)}=K/(d²v)+O(1)`; the tail `d>√K` costs `≤√K/v`.
+Partial summation gives
+`Σ_{κ∈(K_1,K_2], κ≡b}1/κ ≥ (σ_v/v)log(X^{1/3}/t) − O(K_1^{−1/2})`.
+*Sum over t.* For y-rough v,
+`Σ_{t≤X^{1/6},(t,v)=1}(1/t)log(X^{1/3}/t) ≥ L²/24 − (ω(v)/y)·O(L²) − O(L) ≥ L²/48`.
+So `H_all≥(1/2)(6/π²)L²/(48v) − O(LX^{−1/3})`.
+*Removing 𝒩_exc* (only if `q_1>𝓛^{1.9}`). Here `q''|κt`, so `q''/(q'',t)` divides κ. Together
+with `κ≡b (v)` this is one class mod `v·q''/(q'',t)` (or empty), and HAAR (F4) bounds the
+`1/κ`-sum by `1/K_1+(q'',t)log(X^{1/3})/(vq'')`. Since `Σ_{t≤X}(q'',t)/t≤τ(q'')(1+L)`,
+`H_exc≤L²τ(q'')/(vq'')+O(LX^{−2/3}) ≤ 4L²𝓛^{−1.8}/v`.
 Collecting, `W(v,a)≥L²/v·(6/(96π²)−o(1)) ≥ L²/(200v)`, using `X^{−1/3}≤1/v`. ∎
 
 **Theorem 4.5 (no positive low-level minorant; PROVED modulo (G), the effective Page bound and
