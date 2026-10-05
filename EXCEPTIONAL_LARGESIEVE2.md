@@ -12,12 +12,23 @@ set, `M₀` the lcm of its moduli. "Level" means W-rough level,
 Thm 5.1. `S(λ) := C λ^{3/4}(log λ)^{3/4}` denotes the right side of K2
 Thm 5.1 (`λ ≥ λ₀`), and `S_B(λ) = C(B)λ^{3/4}` that of K2 Thm 5.2.
 
+**Update (KARY3, ledger (D)24).** `EXCEPTIONAL_KARY3.md` Thm 4.1 removes the
+`(log λ)^{3/4}` loss from K2 Thm 5.1 for every mixture (no B): one may take
+`S(λ) = Cλ^{3/4}` throughout, with KARY3's dependencies (K2/EK as reviewed;
+Case A via ElT §7, published, not re-proved). Every result below that cites
+K2 Thm 5.1 (Lemma 1.1, Thms 2.4, 4.2, Cor 2.5, Prop 5.1) therefore holds
+with `S(λ) = Cλ^{3/4}`, and its exceptional-set reading becomes
+`C_A(log N)^{3/4}` — the `(log log N)^{3/4}` factor drops. For the
+unit-measure results (Lemma 1.2, Thm 3.1) the same holds via KARY3 §4.3's
+transfer to PL Thm 3.1, which is stated there at pointer level only.
+Theorem 4.3 does not use K2 Thm 5.1 and is unaffected.
+
 ## 0. Summary
 
 | item | statement | label |
 |---|---|---|
 | Lemma 1.1, 1.2 | **comparison measure**: K2 Thm 5.1 (resp. PL Thm 3.1) is equivalent, by LP duality, to the existence of one π on 𝒜 (resp. on 𝒜 ∩ units) with `E_π f ≤ e^{S(λ)}E_U f` (resp. `E*f`) for **every** nonnegative f of level ≤ λ | PROVED, conditional on K2 Thm 5.1 / PL Thm 3.1 |
-| Thm 2.4, Cor 2.5 | **periodic Bessel systems, twisted, hybrid**: any inequality `Σ_j|Σ a_n φ̄_j(n)|² ≤ ΔΣ|a_n|²` with periodic rows of level ≤ λ_Φ, applied to `a_n = ψ(n)1_A(n)` with any periodic twist `|ψ| ≥ 1` on 𝒜 (any period), fibrewise over `Q₀`, mixed with majorant-with-rounding fibres: `B ≥ (N/2)e^{−S(λ)}`; saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` for polynomial periods. Covers multiplicative × additive, Gauss-sum twisted and hybrid forms (escape 3) | PROVED, conditional on K2 Thm 5.1 (internal) |
+| Thm 2.4, Cor 2.5 | **periodic Bessel systems, twisted, hybrid**: any inequality `Σ_j|Σ a_n φ̄_j(n)|² ≤ ΔΣ|a_n|²` with periodic rows of level ≤ λ_Φ, applied to `a_n = ψ(n)1_A(n)` with any periodic twist `|ψ| ≥ 1` on 𝒜 (any period), fibrewise over `Q₀`, mixed with majorant-with-rounding fibres: `B ≥ (N/2)e^{−S(λ)}`; saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` for polynomial periods (`C_A(log N)^{3/4}` with KARY3 Thm 4.1). Covers multiplicative × additive, Gauss-sum twisted and hybrid forms (escape 3) | PROVED, conditional on K2 Thm 5.1 (internal) |
 | Thm 3.1 | **large sieve applied to the primes** of the sifted set (PL §6 item 5): same cap relative to `π(N)`, when all primes of `M'` (family, rows, twists, `Q₀`) are `≤ N^A` | PROVED, conditional on PL Thm 3.1 |
 | Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
@@ -199,7 +210,8 @@ Summing, `B ≥ e^{−S}Q₀⌊N/Q₀⌋Σ_cπ(c) ≥ (N/2)e^{−S}`. ∎
 `Q₀ ≤ min(N^A, N/2)`, all row periods are `≤ N^A` and all primes of 𝔊
 are `≤ N^A` (A ≥ 1), then `λ ≤ 4A log N` and every such hybrid bound
 saves at most `C_A(log N)^{3/4}(log log N)^{3/4}` (`C_{A,B}(log N)^{3/4}`
-under bounded B). In particular twisted large sieves (any periodic twist
+under bounded B), and `C_A(log N)^{3/4}` for every mixture with KARY3
+Thm 4.1. In particular twisted large sieves (any periodic twist
 ψ with `|ψ| ≥ 1` on 𝒜, of **any** period and level), the multiplicative
 large sieve and its hybrids with additive frequencies, Gauss-sum
 twisted rows, and fibrewise mixtures of large-sieve and
@@ -235,7 +247,8 @@ classes `c ∈ (ℤ/Q₀)^×`,
 
 If all primes of `M'` — the family's, the rows', the twists' and `Q₀`'s — are `≤ N^A`, and `λ ≤ 3A log N`, then
 `B ≥ π(N)·exp(−C_A(log N)^{3/4}(log log N)^{3/4})`: relative to the
-trivial bound `π(N)` the saving is `≤ C_A(log N)^{3/4}(log log N)^{3/4}`.
+trivial bound `π(N)` the saving is `≤ C_A(log N)^{3/4}(log log N)^{3/4}`
+(`≤ C_A(log N)^{3/4}` with KARY3 §4.3, pointer-level).
 
 *Proof.* As Theorem 2.4, with π* of Lemma 1.2. For `f ≥ 0` on all of
 `ℤ/M'`, `E*f = (M'/φ(M'))E_U[f·1_{units}] ≤ (M'/φ(M'))E_U f`. Hence for
