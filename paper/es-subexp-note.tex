@@ -327,8 +327,8 @@ its \emph{event} is
 \]
 The \emph{fibre mass} at $\ell\in\cP$ and the total mass are
 \[
- w_\ell(Q)=\sum_{(M,D)\ \text{surviving},\ \ell\in\supp(M,D)}\PP(E_{M,D}),\qquad
- S(Q)=\sum_{(M,D)\ \text{surviving}}\PP(E_{M,D}),
+ w_\ell(Q)=\sum_{\substack{(M,D)\ \text{surviving}\\ \ell\in\supp(M,D)}}\PP(E_{M,D}),\qquad
+ S(Q)=\sum_{\substack{(M,D)\\ \text{surviving}}}\PP(E_{M,D}),
 \]
 where surviving atoms are counted individually (two atoms may give the same
 event).  For an integer $n$ we put $X_\ell(n)=n\bmod\ell^{f_\ell}$, and $F(n)=1$
@@ -435,8 +435,8 @@ $\rho_{\kappa a}(m)$ be the number of $x\bmod m$ with $\kappa ax^2+1\equiv0\pmod
 
 \begin{theorem}[Elsholtz--Tao {\cite{ET}}; cited]\label{thm:ETall}
 \begin{enumerate}
-\item[(a)] \textup{(\cite[Prop.~1.4]{ET})} For $A,B>1$ and every positive
-integer $\kappa\ll(AB)^{O(1)}$,
+\item[(a)] \textup{(\cite[Prop.~1.4]{ET})} For $A,B>1$ and each
+integer $\kappa\ge1$ with $\kappa\ll(AB)^{O(1)}$,
 $\sum_{a\le A}\sum_{b\le B}\tau(\kappa ab^2+1)\ll AB\log(A+B)\log(1+\kappa)$.
 \item[(b)] \textup{(\cite[Thm.~7.1]{ET})} Let $N>1$, and let $P$ be a polynomial of degree $D_P$ whose
 coefficients are non-negative integers at most $N^{l}$, with
@@ -494,9 +494,9 @@ $g$ is unchanged.
 The involution exchanges $D<A_M$ with $D>A_M$ and preserves $M$, so
 \begin{equation}\label{eq:split}
  S_0\le2\sum_{(a,c,d,f)}\frac1N,\qquad
- \Omega_0\le2\sum_{(a,c,d,f)}\frac{h(eN)}N\le2(\Sigma_I+\Sigma_{II}),\qquad
- \Sigma_I=\sum\frac{h(e)}N,\quad\Sigma_{II}=\sum\frac{h(N)}N,
+ \Omega_0\le2\sum_{(a,c,d,f)}\frac{h(eN)}N\le2(\Sigma_I+\Sigma_{II}),
 \end{equation}
+where $\Sigma_I=\sum h(e)/N$ and $\Sigma_{II}=\sum h(N)/N$,
 with all sums over the quadruples of Lemma~\ref{lem:param} and
 $e=P/f$; we used Lemma~\ref{lem:h}(a).  For dyadic $A,B,C\in\{2^j:\ j\ge0\}$
 the \emph{block} $(A,C,B)$ consists of the quadruples with $a\in[A,2A)$,
@@ -549,7 +549,10 @@ $\sum_{q\mid N,\,q>Y}1/i\le\Lc/\log Y$ pointwise, and Lemma~\ref{lem:block}
 bounds the mass of the block.
 
 \emph{Sum.}  With $C=2^j$, $0\le j\le\Lc/\log2$,
-$\sum_j(\log\log(2^j+2)+1+\Lc/\log\max(2^j,2))\ll\Lc\log\Lc$, and
+\[
+ \sum_j\Big(\log\log(2^j+2)+1+\frac\Lc{\log\max(2^j,2)}\Big)\ll\Lc\log\Lc,
+\]
+and
 $\sum_{(A,B)}\log(A+B+2)\ll\Lc^3$.
 \end{proof}
 
@@ -913,7 +916,7 @@ For weights $\lambda_v\ge1$ put $\mu_v=\lambda_v-1$ and
 \]
 \end{definition}
 
-The second form follows from $\lambda^U=\sum_{V\subseteq U}\mu^V$ and
+The second form follows from the identity $\lambda^U=\sum_{V\subseteq U}\mu^V$ and
 $\|L_V\varphi\|^2=\sum_{U\supseteq V}\|\varphi^{=U}\|^2$.  For every $\tau$,
 \begin{equation}\label{eq:markov}
  \sum_{U:\ \lambda^U>e^\tau}\|\varphi^{=U}\|^2\ \le\ e^{-\tau}G_\varphi(\lambda).
@@ -1005,7 +1008,9 @@ $B\subseteq P^c$,
 \]
 Now $\tau(P\cup B)=\sum_{\mathcal J\subseteq\Ho_P}(-1)^{|\mathcal J|}\mathbf 1[B\cap\bigcup\mathcal J=\emptyset]$,
 and for $U\subseteq P^c$,
-$\sum_{B\subseteq P^c\setminus U}(-\mu)^B\lambda^{P^c\setminus B}=\lambda^U\prod_{v\in P^c\setminus U}(\lambda_v-\mu_v)=\lambda^U$.
+\[
+ \sum_{B\subseteq P^c\setminus U}(-\mu)^B\lambda^{P^c\setminus B}=\lambda^U\prod_{v\in P^c\setminus U}(\lambda_v-\mu_v)=\lambda^U .
+\]
 Hence $\mathcal T(p)=\Theta_\lambda(\Ho_P)$.
 \end{proof}
 
@@ -1395,8 +1400,8 @@ whose other conditions hold.  Write $E_i\setminus\ell_0$ for the event given by 
 other conditions, and $\pi_i$ for the $\Omega_{\ell_0}$-probability of the class at $\ell_0$,
 so that $\PP(E_i)=\PP(E_i\setminus\ell_0)\pi_i$.  Since $\E_{X_{\ell_0}}\psi_{\ell_0}=0$,
 \begin{align*}
- |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_{\ell_0}\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|
- \le\sum_{i:\,\ell_0\in\supp E_i}\PP(F'=1,\ E_i\setminus\ell_0)\,\pi_i .
+ |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_{\ell_0}\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|\\
+ &\le\sum_{i:\,\ell_0\in\supp E_i}\PP(F'=1,\ E_i\setminus\ell_0)\,\pi_i .
 \end{align*}
 The coordinates of $E_i\setminus\ell_0$ lie in $\supp E_i$, so by \eqref{eq:lllhyp}
 and Corollary~\ref{cor:lll} applied to the family defining $F'$,
