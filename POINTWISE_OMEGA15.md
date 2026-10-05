@@ -161,6 +161,17 @@ certificate needs `N_xE_HB>Σ_{deep}|c_i|𝔈_i` with `𝔈_i≥1/2` (classes) o
 `ω(q)≤𝓛^4`, `N_x≥3ω(q)` for the x in question). So `N_xη>1/2` resp. `√N_x η>1/√3`. If there is no
 deep term, `E_HB=E_νB≤0` (O14 Thm 4.5's argument). ∎
 
+**Proposition 2.5 (averaged accuracy does not help; PROVED, same inputs).** Group the deep
+reduced products into translation orbits O (all classes mod q, `q>x`), and suppose the
+certificate bounds `|Σ_{C∈O}c_Ce_C|≤‖c_O‖_{s}‖e_O‖_{s'}` (Hölder, any `1≤s≤∞`, `1/s+1/s'=1`) with
+`e_C:=∫1_Cdm_x−N_xP_H(C)` the true errors. Then it needs `N_x·η>1/2` again. Indeed:
+(i) `‖ν−P‖_TV≤e^{−0.6μ*}`: conditionally on x_s the perturbation has mass
+`P_0Σ_Jw_J‖σ_J‖=P_02^{k+1}`, and `P_0≤e^{−(1−p*)R}≤e^{−(1−p*)μ*}`, `k+1≤μ*/2`;
+(ii) so `‖ρ_O‖_{s'}≤‖ρ_O‖_1^{1/s'}‖ρ_O‖_∞^{1/s}≤e^{−0.6μ*/s'}η^{1/s}`, with `ρ_O:=(E_ρ1_C)_{C∈O}`;
+(iii) the truth has `‖e_O‖_{s'}≥(N'/2)^{1/s'}` (N' entries `≥1/2`, Lemma 2.3(a)).
+Positivity needs, for some O, `N_x‖ρ_O‖_{s'}>‖e_O‖_{s'}`, i.e.
+`N_x^{1/s}η^{1/s}e^{−0.6μ*/s'}>(1/2)^{1/s'}(N'/N_x)^{1/s'}`, forcing `N_xη>1/2` (`N'≥N_x/2`). ∎
+
 *Reading.* GRH improves accuracy from "BV/Gallagher level x^c" to "square-root error at every
 modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
 property of F (the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of every minorant), not of the primes.
@@ -270,7 +281,7 @@ one, `∏_{ℓ≤T}1[(n/ℓ)=1]≤F`, has `‖·‖_×/mean=2^{π(T)}`, consiste
 **Corollary 4.3 (what Type I/II input would have to supply; Assessment built on Prop 4.1).**
 A Vaughan/Heath-Brown proof of `Σ_{p≤x,p∈H}F(p)>0` at `log x≍𝓛^3` needs, as Type I input,
 `Σ_{n≤x,d|n}F(n)1_H(n)=X_dE_{P_d}F·(1+o(1))` for (a weighted majority of) `d≤x^{1/3}`, and
-`E_{P_d}F≈δ` is `e^{−𝓛^{3+o(1)}}`, so the relative error must be `≤x^{−1/C}` (C large).
+`E_{P_d}F≈δ` is `e^{−𝓛^{3+o(1)}}`, so the absolute error must be `≤(x/d)·x^{−1/C}` (C large).
 By Prop 4.1 no oblivious class/character/additive-character method can produce even the lower
 half of this at `log x<c𝓛^4/log𝓛`; the Type II sums are then moot. Under a Siegel zero the Type I
 level rises to `x^{1−ε}` — a constant factor in `log D`, against a required `log D≍𝓛·log x/polylog`
