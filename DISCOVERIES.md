@@ -133,6 +133,14 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Consequently the `(log log N)^{3/4}` and `(log λ)^{3/4}` factors in (D)18–(D)20 and (D)22 can be dropped.
     * **PROVED given K2/EK as reviewed** (internal; review `reviews/exceptional-kary3-review.md`, all claims SOUND, five minor repairs applied; Case A uses Elsholtz–Tao, published, not re-proved). §§7–8 (Lemmas 7.1, 7.2, 8.1) were added after the review and checked by the parent only.
 
+25. **Large-sieve escapes closed except H_LS (EXCEPTIONAL_LARGESIEVE2.md):**
+    * Comparison measure (Lemma 1.1, LP duality): the KARY2/KARY3 cap is equivalent to one probability measure on the sifted set within `e^{S(λ)}` of uniform on every nonnegative level-λ test function (unit-measure version from PRIMELAW Thm 3.1).
+    * Twisted and hybrid forms (Thm 2.4, Cor 2.5): every Bessel-type inequality with periodic rows of polynomial period (additive, multiplicative, mixed `χ(n)e(nθ)`, Gauss-sum rows, periodic twists with `|ψ|≥1` on the sifted set, fibrewise use) is capped at `C_A(log N)^{3/4}` (with (D)24).
+    * The large sieve applied to the primes (Thm 3.1): the same cap relative to π(N), when every prime of the common period is ≤ N^A.
+    * Gallagher's larger sieve with prime-power kernels over any mixture saves at most `26 log log N + C`, unconditionally (Thm 4.3; uses only KARY2 Lemmas 2.3, 4.1–4.3). Composite kernels are capped only where `Nh/(W−h)` is controlled (Thm 4.2).
+    * Prop 6.1: requiring ν ≥ 1 only on `𝒜∩[1,N]` makes the LP value equal the true count already at level `log 2N`, so no cap can hold for that relaxation (trivial, but it shows the door is about certifying positivity). The relaxation "ν ≥ 0 only at primes ≤ N" stays open (Assessment).
+    * **PROVED** (internal; conditional on KARY2/KARY3 Thm 5.1/4.1 where cited; review `reviews/exceptional-largesieve2-review.md`, all SOUND, minor m1–m6 applied). Open: H_LS (super-polynomial frequency levels; sharpened as H_LS∞, CONJECTURE, Prop 5.2), composite Gallagher kernels with `W−h ≪ Nh`.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
