@@ -20,7 +20,7 @@ author code imported).
 | Thm 5.2 | SOUND as an implication; constants independent of N and of the family (see C7) |
 | Prop 9.1 | SOUND (algebra of θ re-derived; τ = O(1) via Vaaler's K-bound) |
 | Lemma 9.2 | SOUND for the proved direction; the 'converse by Farkas' and the §5/§10 readings of it overclaim (M1) |
-| SPW plausibility | Reviewer opinion: plausible, with σ* = (C−1)/(C+½) exactly at all tested N (EVIDENCE, C10–C11); the author's N-decay is truncation |
+| SPW plausibility | Reviewer opinion: plausible, with σ* = σ_C(N) of C11 (2/5 at C = 2) exactly at all tested N (EVIDENCE, C10–C11); the author's N-decay is truncation |
 
 ## Line-by-line checks
 
@@ -128,8 +128,9 @@ up to floating point). Results (data/review_if2_spw.txt):
 | 3 | 13, 16, 20 | 0.70, 0.625, 0.571 | 0.571, 0.571, 0.571 (5) |
 
 Δ₀ ≤ 1.4 throughout. So at every N tested the optimum is pinned at
-σ = (C−1)/(C+½) (2/5 at C = 2, 4/7 at C = 3, 1/4 at C = 1.5 up to
-discreteness), the upper and lower bounds coincide for 13 ≤ N ≤ 21, and the
+σ = σ_C(N) of C11 (2/5 at C = 2, 4/7 at C = 3, 1/5 or 1/4 at C = 1.5
+depending on N; the `per` values above σ_C(N) are only because ℤ/L₀ lacks
+the modulus kq used in C11), the upper and lower bounds coincide for 13 ≤ N ≤ 21, and the
 author's decay with N (0.335 at N = 60, a = 5) is a truncation artefact:
 it disappears at a = 12. This *strengthens* the author's §9 evidence. My
 opinion on SPW: **plausible (EVIDENCE only)** — no sign of N-dependence;
@@ -142,12 +143,17 @@ ones: `1 mod 6` has c = 3 points in [1,13] and is the disjoint union of the
 five classes 1, 7, 13, 19, 25 mod 30 (30 > 2N), so (P1)+(P2) give
 3 ≤ 5(1−σ). In general, for N ≥ 7 pick q ∈ (N/3, N/2) with
 c(1,q) = 3 and k = ⌈(CN+1)/q⌉ (≈ 2C+1 for q near N/2): (P1)–(P2) force
-**σ ≤ 1 − 3/k**, i.e. σ ≤ (C−1)/(C+½) + o(1) for suitable q. Consequences:
-(a) SPW with C ≤ 1 is impossible at every N ≥ 7 (k ≤ 3), independently of
+**σ ≤ 1 − 3/k**. Generally (`review_if2_c11.py`):
+**σ ≤ σ_C(N) := min_{q ≤ N/2} (1 − ⌈N/q⌉/k_q)**, k_q = ⌊CN/q⌋ + 1.
+σ_2(N) = 2/5 for every tested N (12 … 10⁵), σ_3 = 4/7 (N ≥ 13), σ_{1.5} ∈ {1/5, 1/4},
+σ_1 = 0. Consequences:
+(a) SPW with C ≤ 1 is impossible at every N (σ_1 = 0), independently of
 Example 3.2 — a cleaner reason for the author's "C = 1 infeasible";
-(b) σ → 0 as C ↓ 1, so the medium range (N/2, CN] cannot be shrunk to
+(b) σ_C → 0 as C ↓ 1 (q near N/2: 1 − 3/(⌊2C⌋+1)), so the medium range (N/2, CN] cannot be shrunk to
 (N/2, (1+ε)N] at fixed σ; (c) the LP optima in C10 attain this bound
 exactly, so nothing beyond this local obstruction is visible up to N = 60.
+The win-LP value equals σ_C(N) in every run that reached its plateau
+(C = 2: N = 12–21, 30, 40, 60; C = 1.5: N = 13, 16, 20; C = 3: N = 13, 16, 20).
 The same argument applies to Flat ((F2)+(F3) on the same five classes).
 
 ## Defects
@@ -169,10 +175,10 @@ infeasibility does not establish the existence of a nonnegative ν, nor that
 a medium-moduli cap "must" use arithmetic. Repair: either rerun `med` in a
 *periodic* formulation on ℤ/L₀ (or ℤ/L₀·m) — its infeasibility does give a
 periodic ν ≥ 0 on all of ℤ — or weaken the sentences to "finite-support
-evidence suggests". (Note that C11 already gives a genuine ν ≥ 0 on ℤ —
-1[1 mod 6] − Σ five classes mod 30 ≥ 0? no: it is ≡ 0 — of the patch-
-cancellation type at modulus 2N+4, so medium-type cancellation by *small*
-classes is real; the question is only whether the `med` claim is.)
+evidence suggests". (Contrast C11: ν = Σ_{b∈{1,7,13,19,25}} 1[b mod 30] − 1[1 mod 6] ≡ 0 is a
+genuine ν ≥ 0 on ℤ with Σ_{n≤13}ν = 0, Z_full = 3, Z_sparse = 2, which is
+how (9.1) caps σ at 2/5 at N = 13, C = 2; this is the kind of certificate
+the `med` claim would need.)
 
 **m1 (MINOR, scope of Def 1.2).** Def 1.2 is per-term blind charging, which
 matches IF Rem 2.6. A method that charges a *group* of same-modulus large
@@ -184,7 +190,7 @@ duals cover them only when the group is shift-invariant).
 **m2 (MINOR, presentation).** §0 row Thm 5.2 should repeat that Flat is
 needed at every large N with s₀ ≥ N^{−A₁}, t ≥ e^{−S_A}, Δ ≤ e^{S_A}
 (the body states this; the table does not). Also add C11's necessary bound
-σ ≤ (C−1)/(C+½) (resp. its Flat analogue) to §9, since it explains the
+σ ≤ σ_C(N) (resp. its Flat analogue) to §9, since it explains the
 pinned LP values 0.4 / 0.25 and the C = 1 failure.
 
 **m3 (MINOR, citation).** Prop 9.1's decay `|F_S(x)| ≤ c₁/(1+δ²dist²)` should
@@ -200,4 +206,4 @@ Not checked: Lemma 4.2's sampled density "≤ 0.14" and the §7 toy LP table
 SOUND-AFTER-REPAIRS (M1 wording only). Labels are honest except the Farkas
 reading in §5/§10/report. My independent LPs support SPW more strongly than
 the author's (no N-decay once support is long enough), and identify the
-exact local obstruction σ ≤ (C−1)/(C+½).
+exact local obstruction σ ≤ σ_C(N) (= 2/5 at C = 2).
