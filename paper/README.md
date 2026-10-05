@@ -1,5 +1,15 @@
 # Paper draft status
 
+**New (2026-10-05): `es-subexp-note.tex` / `.pdf`** (task O33, 16 pages, DRAFT,
+**not yet refereed**). A standalone note proving `W(p) ≥ exp(c(log p)^{1/14})`
+for infinitely many hard primes (mod Thorner–Zaman + Elsholtz–Tao Prop 1.4),
+and `log W ≥ (1/(2log2)−o(1))log₂p·log₃p` (mod TZ only). Source:
+`POINTWISE_OMEGA8.md` §§3–4 (Thms 4.3/4.4). It uses a Bazzi–Razborov sandwich
+minorant and a switching-lemma Fourier tail. It supersedes the rate of
+`es-omega-note.tex` (v3), which remains the reference for the transfer theorem,
+the slice parameter and the Haar Type I material. Novelty audit:
+`reviews/novelty-audit-omega8.md`.
+
 **New (2026-09-06): `vaughan-loglog-note.tex` / `.pdf`** — a 9-page standalone,
 self-contained note proving the unconditional bound
 `E(N) ≪ N exp{-c (log N)^(2/3) (log log N)^(1/3)}` (Theorems 1.1/1.2; source
