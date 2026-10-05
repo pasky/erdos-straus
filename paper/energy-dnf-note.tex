@@ -340,6 +340,120 @@ and many edges through a set $V\not\ni u$, then $N_{\Ho(x)}(V)=0$, while the
 number of covers of $V$ is large.
 \end{remark}
 
+\section{The hypergraph inequality}\label{sec:hyper}
+
+For a finite multiset $\cC$ of subsets of $V_0$ (empty members allowed) put
+\[
+ \Theta_\lambda(\cC)=\sum_{\cJ\subseteq\cC}(-1)^{|\cJ|}\lambda^{\bigcup\cJ}\qquad(\Theta_\lambda(\emptyset)=1),
+\]
+the sum running over sub-multisets (members are distinguishable).
+
+\begin{lemma}[Polarization]\label{lem:polar}
+Let $\lambda_v\ge1$, $\mu_v=\lambda_v-1$, and let $P\subseteq V_0$ be random with
+$\PP(v\in P)=\mu_v/\lambda_v$, independently for different $v$.  For every
+hypergraph $\Ho$,
+\[
+ Q_\mu(\Ho)=\E_P\big[\Theta_\lambda(\Ho_P)^2\big],\qquad \Ho_P=\{J\in\Ho:\ J\cap P=\emptyset\}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\tau(R)=\mathbf 1[R\cap J\ne\emptyset\ \text{for all}\ J\in\Ho]$ for $R\subseteq V_0$, and
+$\hat\tau(V)=\sum_{R\subseteq V}(-1)^{|V\setminus R|}\tau(R)$.  By inclusion--exclusion,
+\begin{equation}\label{eq:tauIE}
+ \tau(R)=\sum_{\cJ\subseteq\Ho}(-1)^{|\cJ|}\mathbf 1\big[R\cap{\textstyle\bigcup}\cJ=\emptyset\big].
+\end{equation}
+The M\"obius transform of $R\mapsto\mathbf 1[R\cap U=\emptyset]$ is
+$V\mapsto(-1)^{|V|}\mathbf 1[V\subseteq U]$, so $\hat\tau(V)=(-1)^{|V|}N_\Ho(V)$.  Let
+\[
+ \mathcal T(p)=\sum_V\hat\tau(V)p^V=\sum_R\tau(R)\prod_{v\in R}p_v\prod_{v\notin R}(1-p_v)
+\]
+be the multilinear extension of $\tau$.  If the $p_v$ are independent random
+variables with mean $0$ and variance $\mu_v$, then distinct monomials are
+orthogonal and $\E[\mathcal T(p)^2]=\sum_V\mu^V\hat\tau(V)^2=Q_\mu(\Ho)$, whatever the
+laws of the $p_v$.  Take $p_v=1$ with probability $\mu_v/\lambda_v$ and $p_v=-\mu_v$
+otherwise.  The mean is $\mu_v/\lambda_v-\mu_v/\lambda_v=0$ and the variance is
+$\mu_v/\lambda_v+\mu_v^2/\lambda_v=\mu_v$.  Let $P=\{v:\ p_v=1\}$.  In the second form of $\mathcal T$,
+the factor $1-p_v$ vanishes for $v\in P$, so only the $R\supseteq P$ contribute;
+writing $R=P\cup B$ with $B\subseteq P^c$, and using $1-p_v=\lambda_v$ for $v\notin P$,
+\[
+ \mathcal T(p)=\sum_{B\subseteq P^c}(-\mu)^B\lambda^{P^c\setminus B}\,\tau(P\cup B).
+\]
+An edge that meets $P$ meets $P\cup B$, so \eqref{eq:tauIE} for the hypergraph
+$\Ho_P$ gives $\tau(P\cup B)=\sum_{\cJ\subseteq\Ho_P}(-1)^{|\cJ|}\mathbf 1[B\cap\bigcup\cJ=\emptyset]$.  For
+$U\subseteq P^c$,
+\[
+ \sum_{B\subseteq P^c\setminus U}(-\mu)^B\lambda^{P^c\setminus B}=\lambda^U\prod_{v\in P^c\setminus U}(\lambda_v-\mu_v)=\lambda^U .
+\]
+Hence $\mathcal T(p)=\sum_{\cJ\subseteq\Ho_P}(-1)^{|\cJ|}\lambda^{\bigcup\cJ}=\Theta_\lambda(\Ho_P)$.
+\end{proof}
+
+\begin{lemma}[Matching bound]\label{lem:theta}
+If every member of $\cC$ has $w_J:=\lambda^J\le2$, then for every matching
+$\cM\subseteq\cC$ \textup{(}pairwise disjoint members\textup{)}
+\[
+ |\Theta_\lambda(\cC)|\le\prod_{J\in\cM}(w_J-1);\qquad\text{in particular }|\Theta_\lambda(\cC)|\le1 .
+\]
+\end{lemma}
+
+\begin{proof}
+For $v\in V_0$ let $\cC-v$ be the multiset of members not containing $v$, and
+$\cC/v=\{J\setminus\{v\}:\ J\in\cC\}$ (as a multiset).  Split the sum over $\cJ$
+according to whether $\cJ$ contains a member through $v$.  If it does, then
+$\lambda^{\bigcup\cJ}=\lambda_v\lambda^{\bigcup(\cJ/v)}$; the terms without such a member form
+$\Theta(\cC-v)$ both in $\Theta(\cC)$ and in $\Theta(\cC/v)$.  Hence
+\begin{equation}\label{eq:dc}
+ \Theta(\cC)=\Theta(\cC-v)+\lambda_v\big[\Theta(\cC/v)-\Theta(\cC-v)\big]=\lambda_v\Theta(\cC/v)-\mu_v\Theta(\cC-v).
+\end{equation}
+Both families again have all weights at most $2$, since $w_{J\setminus v}=w_J/\lambda_v$.
+We induct on $|\bigcup\cC|$.  If $\emptyset\in\cC$, then $\Theta(\cC)=0$ (toggling the
+empty member pairs the terms), and the claim holds.  If $\cC=\emptyset$, then
+$\Theta=1$ and $\cM=\emptyset$.  This covers the base case $\bigcup\cC=\emptyset$.  If
+$\cM=\emptyset$ and $\cC\ne\emptyset$, it suffices to prove the bound for $\cM=\{J\}$ with
+any $J\in\cC$, since $w_J-1\le1$.  So let $J_0\in\cM$ be nonempty, $v\in J_0$, and
+$\Pi'=\prod_{J\in\cM\setminus\{J_0\}}(w_J-1)$.  In $\cC/v$ the family
+$(\cM\setminus\{J_0\})\cup\{J_0\setminus\{v\}\}$ is a matching, so by induction
+$|\Theta(\cC/v)|\le(w_{J_0}/\lambda_v-1)\Pi'$.  In $\cC-v$ the family $\cM\setminus\{J_0\}$ is a
+matching, so $|\Theta(\cC-v)|\le\Pi'$.  By \eqref{eq:dc},
+$|\Theta(\cC)|\le(w_{J_0}-\lambda_v)\Pi'+\mu_v\Pi'=(w_{J_0}-1)\Pi'$.
+\end{proof}
+
+The hypothesis $w_J\le2$ enters only through $w_J-1\le1$ and its stability
+under contraction.  Without it $\Theta$ is unbounded: for $m$ disjoint
+singletons of weight $\lambda$, $\Theta=(1-\lambda)^m$.
+
+\begin{theorem}[Hypergraph inequality]\label{thm:Q}
+If every edge of a hypergraph $\Ho$ has $w_J=\lambda^J\le2$, then
+\[
+ Q_\mu(\Ho)\le\prod_{J\in\cM}(w_J-1)\quad\text{for every matching }\cM\subseteq\Ho;
+\]
+in particular $Q_\mu(\Ho)\le1$, and $Q_\mu(\Ho)\le\min_{J\in\Ho}w_J-1$ if $\Ho\ne\emptyset$.
+Equality holds if $\Ho=\cM$ is itself a matching.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:polar}, and Lemma~\ref{lem:theta} applied to $\Ho_P$ with
+the matching $\cM\cap\Ho_P$,
+$Q_\mu(\Ho)\le\E_P\prod_{J\in\cM\cap\Ho_P}(w_J-1)^2$.  The members of $\cM$ are disjoint,
+so the events $\{J\cap P=\emptyset\}$, $J\in\cM$, are independent, with probabilities
+$\prod_{v\in J}(1-\mu_v/\lambda_v)=1/w_J$.  Hence
+\[
+ Q_\mu(\Ho)\le\prod_{J\in\cM}\Big[\Big(1-\frac1{w_J}\Big)+\frac{(w_J-1)^2}{w_J}\Big]=\prod_{J\in\cM}(w_J-1).
+\]
+The equality case is the example after the definition of $Q_\mu$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+By Lemma~\ref{lem:cover}, $G_F(\lambda)\le\E_x[Q_\mu(\Ho(x))]$.  Every edge of $\Ho(x)$
+is the support of an event, so it has weight at most $2$, and
+Theorem~\ref{thm:Q} gives $Q_\mu(\Ho(x))\le1$ for every $x$.
+\end{proof}
+
+Theorem~\ref{thm:Q} with the matching bound gives slightly more:
+$G_F(\lambda)\le\E_x\min_{\cM}\prod_{J\in\cM}(w_J-1)$, the minimum over matchings in $\Ho(x)$.
+It would be interesting to know whether the minimum over matchings can be
+replaced by a fractional-matching version (Conjecture~\ref{conj:fm}).
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
