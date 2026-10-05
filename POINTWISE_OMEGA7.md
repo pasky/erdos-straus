@@ -182,3 +182,52 @@ terms `𝓛(32A/√S)` then pick up a factor `2^k`, absorbed in `e^{Ck}`. ∎
 
 So the `gcd(j,q)>1` case flagged in §1 is closed, uniformly in the box.
 Cor 2.4 holds for all atoms with `a≤b` (resp. `a≥b`) in the stated boxes.
+
+## 3. Summing the Kloosterman box bound (a-dominant boxes)
+
+**Lemma 3.1 (PROVED modulo Weil–Estermann).** Assume `h_3>H`, `μ≥1`.
+In an `(s,a)`-box `[S,2S)×[A,2A)`, all atoms with `a≤b`, `m>μ` have
+total weight
+
+```
+≤ C·[ 𝓛²(H^{−1/3}+q^{−1}) + 𝓛/μ + 𝓛²q/(A²S) + 𝓛^{11}·A·q/S ]      (C absolute).
+```
+
+*Proof.* Fix a, j with `gcd(j,q)=1`. For `m∈[M_0,2M_0)`, F confines
+`m*` to `≤3` dyadic ranges `M_1`, and there are `≤2𝓛` ranges `M_0`.
+Sum Prop 1.3 over these boxes: the terms `2/(ajq)`, `2q/(a³jS)` and the
+Weil term occur `≤6𝓛` times. The terms `2/(ajM_1)` sum to
+`≤24/(ajd_0(a,j))` (geometric, `M_1≥d_0/2` since `m*≡κjā`), and the
+`2/(ajM_0)` to `≤24/(ajμ)`. Now sum over `j≤2T` (`Σ1/j≤2𝓛`) and
+`a∈[A,2A)`: the `1/d_0` terms give `24E(A)` (Lemma 2.2); the Weil terms
+give `≤12C𝓛²(q/S)log²(8T²q)Σ_{a<2A}τ(4a²)²`, and
+`Σ_{a≤x}τ(a²)²≪x(log x)^8` (τ(p^{2e})² is `(2e+1)²`, so the Dirichlet
+series is `ζ(s)^9` times a convergent product), while
+`τ(4a²)≤3τ(a²)`. For `gcd(j,q)=g>1` (so `g=g_0≥y`, Lemma 2.5) the same
+argument applies with m in one class mod `q/g` (`|I|≤gM_0/q+1`) and m*
+in one class mod q; the factor g is cancelled by `Σ_{g|j}1/j≤2𝓛/g`,
+except in the `1/d_0` term, which becomes `≤2𝓛/g≤2𝓛/y`. ∎
+
+**Corollary 3.2.** With `μ=H^{1/3−a}`, `0<a≤1/6`, `q>H²`: every
+`(s,a)`-box with `S≥𝓛^{9}·A·q·H^{a}` contributes `≪𝓛²H^{−a}` from
+atoms with `a≤b` (the term `q/(A²S)` is `≤H^{−a}` once `S≥qH^a`). This
+improves Cor 2.4 exactly when `A>q`: there it needs `S≥A²H^{2a}`.
+
+Together with Cor 2.4 (and the symmetric statements for `a≥b`):
+
+**Theorem 3.3 (PROVED modulo Weil–Estermann).** Let `0<a≤1/6`, O with no
+saturated H-hub, `4^k≤H≤y`. Then `Σ^{>H^{1/3−a}} ≪ 2^k𝓛^{4}H^{−a}`
+**plus** the weight of the atoms in *residual boxes*: those with, for
+`a≤b` (resp. symmetrically `(s,b)` for `a≥b`),
+
+```
+S < H^{2a}·𝓛^{9}·max( q , min(A², A·q) ).
+```
+
+*Proof.* Cut atoms by `a≤b` / `a>b` into `≤4𝓛²` dyadic `(s,a)`- resp.
+`(s,b)`-boxes. Non-residual boxes are covered by Cor 2.4 (with Lemma 2.5)
+or Cor 3.2. The factor `2^k` is O5 Lemma 2.0′ (prime-power patterns). ∎
+
+No corner or Shiu/Henriot input is used. (O6's corner reduction can be
+applied on top: only corner atoms of residual boxes with
+`min(4sa,4sb,4ab)>yH^{1/4−a}` remain.)
