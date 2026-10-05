@@ -6,6 +6,24 @@ as in `POINTWISE_OMEGA6.md` (O6): atoms `(s,a,b)`, s squarefree,
 `2/n′`, `𝓛=log T`, heights `h_i>H`. By the symmetry `(a,b,κ)↔(b,a,κ^{−1})`
 we treat atoms with `a≤b`.
 
+## 0. Summary
+
+* **Lemma 1.1 (PROVED).** Every atom has `j:=(a+b)/m` and `m*:=(4sa²+1)/m`
+  with `a·m*≡κj (q)` and `mm*≡1 (mod 4a²)`. So the "first term" of O6's
+  (FT) is a question about divisors of `4a²s+1` in one fixed class mod q.
+* **§2 (PROVED, elementary).** In `(s,a)`-boxes with
+  `S≥max(A²,q)H^{2a}`, *all* m>μ atoms with `a≤b` have weight
+  `≪𝓛²H^{−a}` (Prop 2.3, Cor 2.4). The case `gcd(j,q)>1` is closed
+  (Lemma 2.5).
+* **§§1,3 (PROVED modulo Weil–Estermann).** A modular-hyperbola count
+  (Lemma 1.2) also covers `S≥𝓛^{10}AqH^{a}` (Cor 3.2).
+* **Thm 3.3.** HC_Π(a), `a≤1/6`, holds outside the residual boxes
+  `S<H^{2a}𝓛^{10}max(q,min(A²,Aq))`: (R1) short s and (R2) a-dominant.
+  These occur for every q, so **HC_Π, HC* and the `(log₂p)^{3/2}` rate
+  remain open**. The residual needs equidistribution of quadratic-congruence
+  roots (or of divisors of a Kloosterman-type family) in residue classes
+  mod q (§5, Assessment).
+
 ## 1. The (a,j,m,m*) parametrisation and a modular-hyperbola count
 
 **Lemma 1.1 (PROVED).** For an atom put `j:=(a+b)/m∈ℕ` and `m*:=F/m`. Then
