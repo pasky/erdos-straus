@@ -175,3 +175,17 @@ correctly stated as an implication. The reduction in "What H_ω needs" (`ω(M)�
 correctly labelled Assessment. `h(M)≤ω(M)+Σ_{ℓ²|M}log₂(v_ℓ+1)` is valid (`H_v≤log₂(v+1)`, `H_1=1`).
 
 **Verdict on H_ω labels: SOUND.**
+
+## Replay
+
+```
+export PYTHONPATH=scripts OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+cd scripts
+(ulimit -v 8000000; timeout 1200 uv run --with numpy python review_o11b_filtration.py 2 1500 2)        # ~1 min
+(ulimit -v 8000000; timeout 1200 uv run --with numpy python review_o11b_filtration.py 3 600 1)
+(ulimit -v 8000000; timeout 1200 uv run --with numpy python review_o11b_filtration.py 5 600 1.32)
+(ulimit -v 8000000; timeout 1200 uv run --with numpy python review_o11b_filtration.py 4 600 0.5)       # power check: G'>1
+(ulimit -v 8000000; timeout 1500 uv run --with numpy python review_o11b_filtration.py 11 60 2 climb)
+(ulimit -v 8000000; timeout 1500 uv run --with numpy python review_o11b_filtration.py 12 60 1 climb)
+(ulimit -v 8000000; timeout 3000 uv run --with numpy python review_o11b_hmoment.py 10000 100000 1000000 10000000)  # ~45 s
+```
