@@ -145,3 +145,14 @@ Phase 2 (exponent optimisation) follows in OMEGA8 §6.
   counterexample shows that any q-ary result must bound energy, not
   decision depth.
 * Phase 2/3 status: Thm 6.3 (exponent 1/13) and Prop 6.6 are unreviewed.
+
+## Round 3: review R30c of §6 (applied by successor O34)
+
+R30c (`reviews/pointwise-omega8-review-3.md`): Thm 6.3 and Lemma 6.1 SOUND.
+MAJOR M1 applied: "ESW ⇒ 1/11" needs in addition a q-ary ℓ¹ bound and a
+quarantine with `|𝓑|≪kS*` (the cited "Lemma 6.2" never existed); without
+them ESW gives no real gain. The phase-2 bullets above that say "ESW would
+give 1/11" and "≈1/9 is the ceiling under ET" are superseded by OMEGA8
+§6.4–6.5 as repaired (1/9 is bookkeeping, the supported ceiling of the
+PO-Thm-4.1 route is 1/4). Minors m1–m8 applied (m7: `K ≥ log(1/δ) ≥ S1 ≫ 𝓛²`
+rigorously; m8: splitting off singles cannot lower K).
