@@ -68,3 +68,30 @@ Status: IN PROGRESS.
   log(A+B)log(1+k)` for `k≪(AB)^{O(1)}`; with k=4 and dyadic (s,r') blocks this gives
   `Σ τ(4sr'²+1)/(sr')≪𝓛³`, hence `S♯≪𝓛^4log𝓛`. CHECKED (blocks with A or B ≤1 need the
   trivial separate treatment; the statement requires A,B>1 — immaterial).
+
+### From-scratch numerics (scripts/review_o11a_graded.py, scripts/review_o11a_toy.py)
+
+`review_o11a_graded.py T c n`: atoms enumerated directly; Lemma 2.2 with *atomic* masses
+(batch raising per round — valid, since the cost proof only needs `w_ℓ(Q')>θ` at *some*
+stage and the Q-uniform majorant); asserts at every stage `P(E)≤s'=(g/M)∏ℓ/(ℓ−1)` for
+each surviving atom, `w_ℓ(Q_i)≤Σ_{v_ℓ(M)≥a+1}s'` at every raise, final `max_EΣw≤c`,
+`log Q≤9+(𝓛/c)Σs'h`, `h≤log₂τ`; and (I) *with its converse* (`W(n)≤T` ⟺ some surviving
+event occurs) on random `n≡1 (Q)` (n up to 1e30·Q). All assertions pass:
+
+| T | c | rounds | events | S_tot | max_EΣw | log Q | proven bound | (I) samples / W>T |
+|---|---|---|---|---|---|---|---|---|
+| 100 | 1/8 | 1 | 15 | 0.23 | 0.110 | 42 | 611 | 5000 / 3986 |
+| 1000 | 1/8 | 1 | 1256 | 2.86 | 0.105 | 156 | 3497 | 3000 / 174 |
+| 1000 | 1/64 | 1 | 123 | 0.18 | 0.0155 | 514 | 27916 | 1000 / 864 |
+| 10⁴ | 1/8 | 1 | 23271 | 9.41 | 0.085 | 346 | 12717 | 300 / 0 |
+| 10⁴ | 1/64 | 1 | 11852 | 2.47 | 0.0144 | 1944 | 101672 | 50 / 6 |
+
+The atomic iteration at `10⁴, c=1/64` gives `log Q=1944` (293 primes) vs the author's
+distinct-event variant 1900 (287 primes), consistent with the author's note that the
+atomic rule additionally catches ℓ=1237; `max_EΣw=0.0144` agrees with the author's table.
+
+`review_o11a_toy.py 3000 7`: (a) CRT check that on `n≡1 (Q)` mod `N=8·9·25` the
+coordinates are independent and fibre-uniform (50 random `(a_3,a_5)`); (b) exact
+fibre probabilities; (c) 393 random graded toy systems (primes 3..11, exponents ≤3,
+random partial quarantine, ≤8 events with initial-segment cylinders) meeting
+`max_EΣ_{ℓ∈supp E}w_ℓ≤1/8`: exact `P(no event)≥∏(1−2P(E))≥exp(−(8/3)ΣP)` in all.
