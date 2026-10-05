@@ -594,6 +594,39 @@ system's bad-indicator. ESW with LMN would give `d≍k·k_0`. ESW is
   3. The precision `k_0≍S`, forced by `δ≥e^{−2.2S}` being only a lower
      bound.
 
+### 6.6 The Haar mass S cannot be `𝓛^{1+o(1)}` (PROVED modulo a standard divisor sum)
+
+**Proposition 6.6.** Let Π be any quarantine set with
+`|Π∩(T^{1/2},T]| ≤ T^{1/3}`; the iterated quarantine qualifies, since
+`|𝓑|≤T^{o(1)}`. Then the surviving mass satisfies `S_tot(Π) ≫ 𝓛²`.
+This rests on the shifted-prime divisor bound
+
+```
+(D)   Σ_{p≤x, p≡3 (4)} τ(((p+1)/4)²) ≫ π(x)(log x)²,
+```
+
+which is standard: write `τ(n²)=Σ_{d|n}2^{ω(d)}`, keep `d≤x^{1/3}`, and
+apply Bombieri–Vinogradov.
+
+*Proof.* The atoms `(M,D)=(ℓ,D)` with M a free prime have `m=1`, so they
+survive every class-of-one quarantine (`1|4D+1`). They are singles at ℓ
+with classes `−4D mod ℓ`. The divisors `D≤A_ℓ=(ℓ+1)/4<ℓ` of `A_ℓ²` give
+distinct classes, and there are at least `τ(A_ℓ²)/2` of them. So the
+single mass is `≥ Σ_{ℓ∈(√T,T]∖Π} τ(A_ℓ²)/(2(ℓ−1))`. By (D) and partial
+summation, the sum over all `ℓ∈(√T,T]` is
+`≫ ∫_{√T}^{T}(log u)²du/(u log u) ≍ 𝓛²`. The at most `T^{1/3}`
+quarantined primes there remove at most `T^{1/3}·τ*(T)²/√T = o(1)`. ∎
+
+**Consequence (Assessment).** In §6.5's ceiling `log p ≳ S²·(log factors)`,
+S is at least of order `𝓛²`. So even with an ideal junta and the observed
+`S≈𝓛^{2.5}`, this route cannot go below `log p≈𝓛^{4…6}`; the exponent
+stays `≤1/4` at best. Task (b)'s hope `S≪𝓛^{1+o(1)}` is a dead end: the
+`m=1` singles alone carry mass `≍𝓛²`. Singles are prime-local, so a
+construction that sieves them separately (Brun, junta `≍S_1`) and applies
+the BRW route only to multi-prime events would face `S_{≥2}` in place of
+S. Whether `S_{≥2}` is much smaller is unexamined. The data of PO §2 are
+for `y=√T`, where `S_{≥2}=0`.
+
 ## Replay
 
 ```
