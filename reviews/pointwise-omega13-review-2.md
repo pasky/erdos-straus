@@ -32,3 +32,28 @@ and `(3/2)^k≤B·3^{kε}` for all k forces `ε≥log(3/2)/log3≈0.37`, while N
 remark "Euler factor 1+O(1)/p" addresses the wrong hypothesis. See D1 (repair is
 easy and leaves the bound `𝓛³(logY)^4` intact).
 
+### Lemma 3.3(B) — SOUND (minor wording, D3)
+
+Re-derived line by line: (i) for `M=ℓm`, `gcd(M,M')/ℓ^{min v}` divides `gcd(m,m')`
+(also when `ℓ²|M`), and `φ(g)≤g=Σ_{e|g}φ(e)`; summing over D gives `Σ_D H P_H=w(M)/M`, so
+`B_2(ℓ)≤Σ_eφ(e)V(eℓ)²` ✓. (ii) CS in k with `Σ_{k≤T}1/k≤𝓛+1` ✓. (iii) `N=eℓk` is
+the atom modulus M itself, `φ(e)/(e²ℓ²k)=φ(e)/(eℓN)≤1/(ℓN)`, at most `τ(N/ℓ)≤τ(N)` pairs
+(e,k), `Σ_{ℓ|N,ℓ>Y}1/ℓ≤ω(N)/Y` ✓. (iv) Ξ: CS with `w²τω≤τ(A²)²·H²(M/φ)²τ²`, and
+`Σ_{A≤T}τ(A²)^4/A≍𝓛^{81}` (→ 40.5 = the doc's "4.5+36"), the other factor
+`≪(logY)^{O(1)}𝓛^{8β^4}`, `β^4−1≍1/log𝓛` so `𝓛^{O(β^4−1)}=O(1)`. Hence
+`Ξ≪𝓛^{C_0}(log𝓛)^{O(1)}`, `C_0` absolute; the `(logY)^{O(1)}` with `Y=𝓛^{C_0+4}` is
+only polylog in 𝓛, so not circular. Uniform in T. ✓
+
+From-scratch numerics (`scripts/review_o13b_lemma33.py`, exact `B_2(ℓ)` by brute-force
+pair sums, β=1+1/log𝓛):
+
+| T | Y | Σ_{ℓ>Y}B_2 exact | Σ_eφ(e)V(eℓ)² | (𝓛+1)Ξ/Y |
+|---|---|---|---|---|
+| 2000 | 20 / 100 / 400 | 267 / 15.3 / 0.52 | 360 / 18.8 / 0.63 | 4.0e5 / 1.3e5 / 3.3e4 |
+| 20000 | 20 / 100 / 400 | 2437 / 221 / 16.4 | 3390 / 294 / 21.4 | 4.6e6 / 1.8e6 / 5.0e5 |
+
+The chain of inequalities holds in every case (by 3–5 orders of magnitude at the last
+step — the bound is valid, just very lossy; this is why `Y=𝓛^{C_0+4}` with `C_0≈50`).
+Also `S_H^β/(𝓛³logY)≈0.06–0.09`, cost `/(𝓛³(logY)^4)≈0.002–0.012` at these T,
+consistent with (A).
+
