@@ -66,3 +66,12 @@ passes. Including `j=i` in `∏_{j∼i}` only enlarges `η`. Then
 `1−x ≥ e^{−1.1x}` on `[0,1/32]` (0.96875 ≥ 0.96621); `log₂e^{2.2S} = 3.17S`;
 `η_ℓ ≤ e^{1.1/32}/(64k) < 1/6`. The final simplification uses `log₂(S+1) ≪ S+1`
 and `12 ≪ k log(4NT)`. **SOUND.**
+
+**From-scratch toy check** `scripts/review_tr_sandwich.py` (numpy, <1 min):
+Haar space `(ℤ/8)^××(ℤ/3)^××(ℤ/5)^××(ℤ/7)^××(ℤ/11)^×` (1920 points; 2 is a free
+prime with `e_2 = 3`, so conductors 4, 8 and composite `f` such as `8·5·11` occur),
+random *general* events (≤ 4 classes, width ≤ 2), own Efron–Stein truncation.
+Passing: `B ≤ F`; BRW identity; `𝔼[F−B] ≤ m_a²Σℙ(C_j)En(F^{(j)};t)`; Lemma 3.2 chain
+`|𝔼Fψ| ≤ δ^{(ℓ₀)}−δ` for all 63 real primitive `ψ` and all `ℓ₀ | f`; Lemma 1.2
+(`η ≤ 1/6` ⇒ `|𝔼Fψ| ≤ δ/5`) in the 11/30 sparse systems where it applies.
+Consistent with the author's toy (seed with `max|𝔼Fψ|/δ = 1` reproduced: (Tw) can fail).
