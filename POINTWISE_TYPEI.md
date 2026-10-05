@@ -436,4 +436,5 @@ PYTHONPATH=scripts uv run python scripts/typei_ratio.py 25 3000000 2000 /tmp/r1.
 PYTHONPATH=scripts uv run python scripts/typei_ratio.py 3000000 10000000 2000 /tmp/r2.txt  # §5 (~1 h)
 PYTHONPATH=scripts uv run python scripts/typei_records.py 9033649 414241 12289
 PYTHONPATH=scripts uv run python scripts/typei_smallD.py 7 3000000 2000 400  # EVIDENCE 6.3
+uv run python scripts/typei_c5.py                                          # Thm 6.1 covering mod 840
 ```
