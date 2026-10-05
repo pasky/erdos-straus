@@ -274,7 +274,7 @@ denotes a prime power $\ell^i$ with $i\ge1$, and $\sum_q$ is a sum over prime
 powers.  For
 $\lambda=(\lambda_v)$ and a finite set $U$ we write $\lambda^U=\prod_{v\in U}\lambda_v$.
 
-\section{Atoms and the graded quarantine}\label{sec:system}
+\section{Atoms, square classes and the local lemma}\label{sec:system}
 
 For $M\equiv3\pmod4$ put $\cR(M)=\{-4D\bmod M:\ D\mid A_M^2\}$.  Note that
 $\gcd(A_M,M)=1$ (as $4A_M=M+1$), so every element of $\cR(M)$ is a unit
@@ -295,362 +295,670 @@ non-negative, so $u=\prod q^{u_q}$, $v=\prod q^{v_q}$, $w=\prod q^{w_q}$
 satisfy $uvw=A_M$ and $u^2w=D$.
 \end{proof}
 
+An \emph{atom} is a pair $(M,D)$ with $M\le T$, $M\equiv3\pmod4$ and
+$D\mid A_M^2$.  There are at most $T^2$ atoms, since $\tau(A_M^2)\le2A_M\le T$.
+
+\begin{lemma}[Event classes are Jacobi non-residues; proved]\label{lem:jacobi}
+Let $(M,D)$ be an atom and let $d$ be the squarefree part of $D$.  Then
+\begin{enumerate}
+\item[(a)] every prime $\ell\mid M$ satisfies $\ell\nmid 2D$ and
+$\big(\frac{-4D}{\ell}\big)=\big(\frac{-d}{\ell}\big)$;
+\item[(b)] the Jacobi symbol $\big(\frac{-4D}{M}\big)$ equals $-1$.
+\end{enumerate}
+Consequently, if $r$ is an integer coprime to $M$ that is a quadratic residue
+modulo every prime dividing $M$, then $r\not\equiv-4D\pmod M$.
+\end{lemma}
+
+\begin{proof}
+(a) $\gcd(M,4A_M)=1$ and every prime of $D$ divides $A_M$, so $\ell\nmid2D$;
+and $-4D=-d\cdot(2t)^2$ for an integer $t$.  (b) By (a),
+$\big(\frac{-4D}M\big)=\big(\frac{-d}M\big)=\big(\frac{-1}M\big)\big(\frac dM\big)=-\big(\frac dM\big)$,
+as $M\equiv3\pmod4$.  Every prime $p\mid d$ has $v_p(D)$ odd and
+$v_p(D)\le2v_p(A_M)$, so $p\mid A_M$ and $M=4A_M-1\equiv-1\pmod p$.  For odd
+$p$, quadratic reciprocity, with $(M-1)/2$ odd, gives
+$\big(\frac pM\big)=\big(\frac Mp\big)(-1)^{(p-1)/2}=\big(\frac{-1}p\big)(-1)^{(p-1)/2}=1$.
+If $p=2$, then $2\mid A_M$, so $M\equiv7\pmod8$ and $\big(\frac2M\big)=1$.  Hence
+$\big(\frac dM\big)=1$.  For the consequence,
+$\big(\frac rM\big)=\prod_{\ell\mid M}\big(\frac r\ell\big)^{v_\ell(M)}=1\ne\big(\frac{-4D}M\big)$.
+\end{proof}
+
+We checked (a) and (b) by computer on all $2\,401\,032$ atoms with
+$M\le2\cdot10^5$ (no failures; this check is not used).  The lemma is the
+mechanism behind two classical facts: the identities \eqref{eq:ident} cover
+the non-residue classes, and Mordell's hard classes modulo $840$ are exactly
+the six square classes.  For $r=1$ it contains Lemma~\ref{lem:one} below.
+
 \begin{lemma}[Class of one; proved]\label{lem:one}
 $1\notin\cR(M)$ for every $M\equiv3\pmod4$.
 \end{lemma}
 
 \begin{proof}
-If $-4D\equiv1$ then $D\equiv-A_M\pmod M$ (multiply by $A_M$).  As $A_M$ is a
-unit modulo $M$, $D\equiv-A_M$ gives $A_M^2/D\equiv A_M^2(-A_M)^{-1}=-A_M$, so the
-map $D\mapsto A_M^2/D$ preserves this congruence, and
-we may assume $D\le A_M$; then $0<D+A_M\le2A_M<M$, while $M\mid D+A_M$.
+Lemma~\ref{lem:jacobi} with $r=1$.
 \end{proof}
 
-An \emph{atom} is a pair $(M,D)$ with $M\le T$, $M\equiv3\pmod4$ and
-$D\mid A_M^2$.  There are at most $T^2$ atoms, since $\tau(A_M^2)\le2A_M\le T$.
-For an atom put $g=g(M,D)=\gcd(M,4D+1)$.
-
-\begin{definition}[Graded quarantine and residual system]\label{def:system}
+\begin{definition}[Square-class quarantine and residual system]\label{def:system}
 For an odd prime $\ell\le T$ let $f_\ell=\lfloor\Lc/\log\ell\rfloor\ge1$ be the
-largest exponent with $\ell^{f_\ell}\le T$.  A \emph{graded quarantine} is a
-choice of integers $0\le a_\ell\le f_\ell$ for the odd primes $\ell\le T$; put
-$Q=8\prod_\ell\ell^{a_\ell}$.  The \emph{coordinate primes} are the odd
-$\ell\le T$ with $a_\ell<f_\ell$; write $\cP$ for their set.  For $\ell\in\cP$ let
+largest exponent with $\ell^{f_\ell}\le T$.  A \emph{square-class quarantine}
+is a pair $(Q,r)$, where $Q=8\prod_\ell\ell^{a_\ell}$ with integers
+$0\le a_\ell\le f_\ell$ for the odd primes $\ell\le T$, and $r$ is a unit modulo
+$Q$ with $r\equiv1\pmod8$ that is a quadratic residue modulo every odd prime
+dividing $Q$.  The \emph{coordinate primes} are the odd $\ell\le T$ with
+$a_\ell<f_\ell$; write $\cP$ for their set.  For $\ell\in\cP$ let
 \[
- \Omega_\ell=\{x\in(\mathbb Z/\ell^{f_\ell})^\times:\ x\equiv1\ (\mathrm{mod}\ \ell^{a_\ell})\}
+ \Omega_\ell=\{x\in(\mathbb Z/\ell^{f_\ell})^\times:\ x\equiv r\ (\mathrm{mod}\ \ell^{a_\ell})\}
 \]
 (all units if $a_\ell=0$), with the uniform measure, and let $\PP$, $\E$ be
 the product measure on $\Omega=\prod_{\ell\in\cP}\Omega_\ell$, with coordinates
-$X_\ell$.  An atom \emph{survives} $Q$ if $\gcd(M,Q)\mid4D+1$ and $M\nmid Q$.  Its
-\emph{support} is $\supp(M,D)=\{\ell:\ v_\ell(M)>a_\ell\}$, which is a nonempty
-subset of $\cP$, its \emph{modulus} is $r=\prod_{\ell\in\supp}\ell^{v_\ell(M)}$, and
-its \emph{event} is
+$X_\ell$.  An atom \emph{survives} $(Q,r)$ if $-4D\equiv r\pmod{\gcd(M,Q)}$ and
+$M\nmid Q$.  Its \emph{support} is $\supp(M,D)=\{\ell:\ v_\ell(M)>a_\ell\}$, a
+nonempty subset of $\cP$, with $s(M,D)=|\supp(M,D)|\le\omega(M)$; its
+\emph{modulus} is $\prod_{\ell\in\supp}\ell^{v_\ell(M)}$, and its \emph{event} is
 \[
  E_{M,D}=\{X_\ell\equiv-4D\ (\mathrm{mod}\ \ell^{v_\ell(M)})\ \text{for all}\ \ell\in\supp(M,D)\}.
 \]
-The \emph{fibre mass} at $\ell\in\cP$ and the total mass are
+For $\beta\ge1$ the \emph{weighted fibre mass} at $\ell\in\cP$ and the
+weighted total mass are
 \[
- w_\ell(Q)=\sum_{\substack{(M,D)\ \text{surviving}\\ \ell\in\supp(M,D)}}\PP(E_{M,D}),\qquad
- S(Q)=\sum_{\substack{(M,D)\\ \text{surviving}}}\PP(E_{M,D}),
+ \tilde w_\ell=\sum_{\substack{(M,D)\ \text{surviving}\\ \ell\in\supp(M,D)}}\beta^{s(M,D)}\PP(E_{M,D}),\qquad
+ S_\beta=\sum_{\substack{(M,D)\\ \text{surviving}}}\beta^{s(M,D)}\PP(E_{M,D}),
 \]
 where surviving atoms are counted individually (two atoms may give the same
 event).  For an integer $n$ we put $X_\ell(n)=n\bmod\ell^{f_\ell}$, and $F(n)=1$
-if $n\not\equiv-4D\pmod r$ for every surviving atom, $F(n)=0$ otherwise; on
+if $n$ lies in no event of a surviving atom, $F(n)=0$ otherwise; on
 $\Omega$, $F$ is the indicator that no event $E_{M,D}$ occurs.
 \end{definition}
 
 Every event is nonempty: $-4D$ is a unit modulo $\ell$, and
-$-4D\equiv1\pmod{\ell^{a_\ell}}$ by survival.  The modulus satisfies $r\le M\le T$.
-The quarantine of \cite{Paper1} and of the previous version is the special
-case $a_\ell\in\{0,f_\ell\}$.
+$-4D\equiv r\pmod{\ell^{a_\ell}}$ by survival.  The modulus is at most $M\le T$.
+The class-of-one quarantines of \cite{Paper1} and of the previous versions
+are the case $r=1$.
 
 \begin{lemma}[Reduction and weights; proved]\label{lem:system}
-In Definition~\ref{def:system}:
+Let $(Q,r)$ be a square-class quarantine.
 \begin{enumerate}
-\item[(i)] If $n\equiv1\pmod Q$ and $F(n)=1$, then $W(n)>T$.
+\item[(i)] If $n\equiv r\pmod Q$ and $F(n)=1$, then $W(n)>T$.
 \item[(ii)] For every surviving atom,
 \[
- \PP(E_{M,D})=\frac{\gcd(M,Q)}M\prod_{\ell\in\supp(M,D),\ a_\ell=0}\frac{\ell}{\ell-1}
- \ \le\ \frac gM\prod_{\ell\mid M,\ a_\ell=0}\frac{\ell}{\ell-1}.
+ \PP(E_{M,D})=\frac{\gcd(M,Q)}M\prod_{\ell\in\supp(M,D),\ a_\ell=0}\frac{\ell}{\ell-1}.
 \]
-\item[(iii)] If $\Lc\ge2$ and $a_\ell\ge1$ for every odd prime $\ell\le\Lc$, then
-$\PP(E_{M,D})\le C_1g/M$ for every surviving atom, where $C_1=e^2$.
+\item[(iii)] If $3\cdot5\cdot7\mid Q$, then $r\bmod 840$ is one of the six
+classes $1^2,11^2,13^2,17^2,19^2,23^2$, so every prime $p\equiv r\pmod Q$ is hard.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 (i) Let $M\le T$, $M\equiv3\pmod4$, and suppose $n\equiv-4D\pmod M$ with
-$D\mid A_M^2$.  Reducing modulo $\gcd(M,Q)$ gives $-4D\equiv1$, i.e.\
-$\gcd(M,Q)\mid4D+1$.  If $M\mid Q$, then $n\equiv1\pmod M$, which contradicts
-Lemma~\ref{lem:one}.  Otherwise the atom survives, and $n\equiv-4D\pmod r$ as
-$r\mid M$, so $F(n)=0$.  Conclude with Lemma~\ref{lem:atoms}.
+$D\mid A_M^2$.  Reducing modulo $\gcd(M,Q)$ gives $-4D\equiv r$.  If $M\mid Q$,
+then $r\equiv-4D\pmod M$, and every prime of $M$ divides $Q$, so $r$ is a
+quadratic residue modulo it; this contradicts Lemma~\ref{lem:jacobi}.
+Otherwise the atom survives, and $n$ lies in its event, so $F(n)=0$.
+Conclude with Lemma~\ref{lem:atoms}.
 (ii) Let $\ell\in\supp$ and $v=v_\ell(M)$.  If $a_\ell=0$, the class of $-4D$
 modulo $\ell^v$ has probability $1/\varphi(\ell^v)=\ell^{-v}\cdot\ell/(\ell-1)$ in
 $\Omega_\ell$.  If $a_\ell\ge1$, then $|\Omega_\ell|=\ell^{f_\ell-a_\ell}$, and the class
-(which lies in $\Omega_\ell$) has $\ell^{f_\ell-v}$ elements, so probability
-$\ell^{a_\ell-v}$.  As $M$ is odd, $\gcd(M,Q)=\prod_{\ell\mid M}\ell^{\min(v_\ell(M),a_\ell)}$,
-and $\min(v_\ell(M),a_\ell)=v_\ell(M)$ for $\ell\notin\supp$.  This gives the identity.
-Survival gives $\gcd(M,Q)\mid g$.
-(iii) Every prime $\ell$ with $\ell\mid M$ and $a_\ell=0$ satisfies $\ell>\Lc$, so
-$\ell/(\ell-1)\le1+1/(\Lc-1)$.  As $M$ is odd, $\omega(M)\le\log M/\log3\le\Lc$.
-The product in (ii) is therefore at most $\exp(\Lc/(\Lc-1))\le e^2$.
+(which lies in $\Omega_\ell$ by survival) has $\ell^{f_\ell-v}$ elements, so
+probability $\ell^{a_\ell-v}$.  As $M$ is odd,
+$\gcd(M,Q)=\prod_{\ell\mid M}\ell^{\min(v_\ell(M),a_\ell)}$, and
+$\min(v_\ell(M),a_\ell)=v_\ell(M)$ for $\ell\notin\supp$.
+(iii) A unit modulo $840$ that is $\equiv1\pmod8$ and a square modulo $3$, $5$
+and $7$ is a square modulo $840$, and there are $1\cdot1\cdot2\cdot3=6$ such
+classes; they are the six listed classes.
 \end{proof}
 
-Write $h(M)=\sum_{\ell^i\mid M,\ i\ge1}1/i=\sum_{\ell\mid M}H_{v_\ell(M)}$, where
-$H_v=\sum_{i\le v}1/i$, and put
-\[
- S_0=\sum_{(M,D)}\frac gM,\qquad \Omega_0=\sum_{(M,D)}\frac gM\,h(M),
-\]
-both sums over all atoms.
-
-\begin{lemma}[Graded iterated quarantine; proved]\label{lem:gradedq}
-Let $\Lc\ge2$ and $c>0$.  Start from $a_\ell=1$ for the odd primes
-$\ell\le\max(\Lc,7)$ and $a_\ell=0$ for all other odd $\ell$.  While some
-$\ell\in\cP$ has
-\[
- w_\ell(Q)\ >\ \theta_\ell:=c\,(a_\ell+1)\frac{\log\ell}{\Lc},
-\]
-raise $a_\ell$ by one.  The procedure stops, and the final quarantine satisfies:
-\begin{enumerate}
-\item[(a)] $\sum_{\ell\in\supp(M,D)}w_\ell(Q)\le c$ for every surviving atom, and
-$w_\ell(Q)\le c$ for every $\ell\in\cP$;
-\item[(b)] $\PP(E_{M,D})\le C_1g/M$ for every surviving atom, and $S(Q)\le C_1S_0$;
-\item[(c)] $840\mid Q$ and $\log Q\le1.02\,\Lc+7+(C_1\Lc/c)\,\Omega_0$.
-\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-Each step raises some $a_\ell<f_\ell$, so the procedure stops.  Exponents only
-grow, so Lemma~\ref{lem:system}(iii) applies at every stage, which gives
-(b).  (a): at the end every $\ell\in\cP$ has $w_\ell\le\theta_\ell$.  If
-$\ell\in\supp(M,D)$, then $\ell\in\cP$ and $a_\ell+1\le v_\ell(M)$, so
-\[
- \sum_{\ell\in\supp(M,D)}w_\ell\le\frac c\Lc\sum_{\ell\mid M}v_\ell(M)\log\ell=\frac{c\log M}{\Lc}\le c .
-\]
-Also $w_\ell\le\theta_\ell\le cf_\ell\log\ell/\Lc\le c$, as $a_\ell<f_\ell$ and
-$\ell^{f_\ell}\le T$.
-(c) $840=8\cdot3\cdot5\cdot7$ divides the starting $Q$, whose logarithm is
-at most $\log(8\cdot105)+\vartheta(\Lc)\le1.02\,\Lc+7$ by $\vartheta(x)<1.01624\,x$
-\cite{RS}.  A step at $\ell$ from $a$ to $a+1$, taken at a stage with
-quarantine $Q'$, has $\log\ell<\Lc\,w_\ell(Q')/(c(a+1))$, and by (b) at that stage,
-$w_\ell(Q')\le C_1\sum_{(M,D):\,v_\ell(M)\ge a+1}g/M$.  Each pair $(\ell,a)$ is stepped
-at most once.  Summing over all steps,
-\[
- \log Q-\log Q_{\rm start}\le\frac{C_1\Lc}c\sum_{(M,D)}\frac gM\sum_{\ell\mid M}\sum_{a=0}^{v_\ell(M)-1}\frac1{a+1}
- =\frac{C_1\Lc}c\,\Omega_0 .\qedhere
-\]
-\end{proof}
-
-The local lemma needs only that the total mass seen by each event is small
-(Corollary~\ref{cor:lll}), not that each $w_\ell$ is at most a fixed fraction
-of $1/k$, where $k$ bounds the number of primes in a support.  Charging the
-threshold to the prime power $\ell^{a_\ell+1}$ that a coordinate consumes lets
-the budget $\log M\le\Lc$ do the work of the width $k$.  In particular no
-block $\{\ell\le z\}$ of fully quarantined small primes is needed.  The ratio
-of the cost of a step to its threshold is $\Lc/(c(a+1))$, uniformly in $\ell$.
-
-\section{The mass and the charge moment}\label{sec:moment}
-
-In this section we bound $S_0$ and $\Omega_0$.  We use four results of
-Elsholtz and Tao.  For a polynomial $P$ and $m\ge1$ let $\rho_P(m)$ be the
-number of roots of $P$ in $\mathbb Z/m\mathbb Z$, and for integers $\kappa,a\ge1$ let
-$\rho_{\kappa a}(m)$ be the number of $x\bmod m$ with $\kappa ax^2+1\equiv0\pmod m$.
-
-\begin{theorem}[Elsholtz--Tao {\cite{ET}}; cited]\label{thm:ETall}
-\begin{enumerate}
-\item[(a)] \cite[Prop.~1.4]{ET}: for $A,B>1$
-and each integer $\kappa\ge1$ with $\kappa\ll(AB)^{O(1)}$,
-$\sum_{a\le A}\sum_{b\le B}\tau(\kappa ab^2+1)\ll AB\log(A+B)\log(1+\kappa)$.
-\item[(b)] \textup{(\cite[Thm.~7.1]{ET})} Let $N>1$, and let $P$ be a polynomial of degree $D_P$ whose
-coefficients are non-negative integers at most $N^{l}$, with
-$\rho_P(p^j)\le C$ for all primes $p$ and all $j\ge1$.  Then
-$\sum_{n\le N}\tau(P(n))\ll_{D_P,l,C}N\sum_{m\le N}\rho_P(m)/m$.
-\item[(c)] \textup{(\cite[Cor.~7.4]{ET})} If $a,b,N$ are natural numbers, $N\ge2$, with
-$a,b\ll N^{O(1)}$, then $\sum_{n\le N}\tau(an+b)\ll\tau(\gcd(a,b))\,N\log N$.
-\item[(d)] \textup{(\cite[(7.10)]{ET})} For $2\le A\le B$ and $\kappa=4$,
-$\sum_{a\le A}\sum_{m\le B}\rho_{\kappa a}(m)/m\ll A\log B\log(1+\kappa)$.
-\end{enumerate}
-\end{theorem}
-
-We use (a) only with $\kappa=4$.  Elsholtz and Tao derive (d) inside the
-case $A\le B$ of their proof of (a), under its standing hypotheses
-($A,B>1$, $\kappa\ll(AB)^{O(1)}$); we state and use it only with $\kappa=4$ in that
-range.
-
-\begin{lemma}[Prime-power counts; proved]\label{lem:h}
-\textup{(a)} $h(xy)\le h(x)+h(y)$ for all $x,y\ge1$.
-\textup{(b)} For $Y\ge2$ and $N\ge1$, $\sum_{q\mid N,\ q>Y}1/i\le\log N/\log Y$, where $q=\ell^i$.
-\textup{(c)} $h(M)\le\log M/\log3$ for odd $M$.
-\end{lemma}
-
-\begin{proof}
-(a) $h=\sum_\ell H_{v_\ell}$, and $H_{x+y}-H_x=\sum_{x<i\le x+y}1/i\le H_y$.
-(b) Fix $\ell\mid N$ with $v=v_\ell(N)$.  Each $i\le v$ with $\ell^i>Y$ has
-$1/i<\log\ell/\log Y$, so these terms contribute at most $v\log\ell/\log Y$.  Sum
-over $\ell$.  (c) $h(M)\le\sum_\ell v_\ell(M)$.
-\end{proof}
-
-\begin{lemma}[Parametrisation; proved, cf.\ {\cite[\S2]{ET}}]\label{lem:param}
-Let $(M,D)$ be an atom with $D\le A_M$.  There are unique integers
-$a,b,d\ge1$ with $d$ squarefree, $D=da^2$, $A_M=dab$ and $a\le b$.  Put
-$P=4a^2d+1=4D+1$, $e=g(M,D)$, $f=P/e$, $c=(a+b)/e$ and $N=M/e$.  Then $c$ is a
-positive integer, $f\mid P$, and
-\[
- N=4acd-f,\qquad acd\le N\le T,\qquad a^2d\le T,\qquad \frac gM=\frac1N .
-\]
-The map $(M,D)\mapsto(a,c,d,f)$ is injective.  The involution
-$D\mapsto A_M^2/D$ of the divisors of $A_M^2$ preserves $g(M,D)$.
-\end{lemma}
-
-\begin{proof}
-Write $D=da^2$ with $d$ squarefree.  Comparing valuations, $da^2\mid A_M^2$ if
-and only if $da\mid A_M$; so $A_M=dab$, and $D\le A_M$ if and only if $a\le b$.
-As $M=4dab-1$, $\gcd(M,4dab)=1$.  Since $M+4D+1=4da(a+b)$, $e\mid4da(a+b)$
-and hence $e\mid a+b$, so $c$ is an integer; $e\mid P$ by definition.  Next,
-$e\cdot4acd=4ad(a+b)=(P-1)+(M+1)=ef+eN$, so $4acd=f+N$.  From $b\ge a$,
-$eN=4abd-1\ge4a^2d-1=ef-2$, so $N\ge f-2/e$; then
-$2N\ge N+f-2/e=4acd-2/e$, and $N\ge2acd-1\ge acd$.  Also $a^2d=D\le A_M\le T$,
-$N\le M\le T$ and $g/M=e/(eN)$.  The quadruple determines $e=P/f$, then
-$b=ce-a$, $D$ and $A_M$, hence the atom.  For the involution: $\gcd(A_M,M)=1$
-and $4A_M\equiv1\pmod M$, so $4A_M^2/D+1\equiv(4D)^{-1}(1+4D)\pmod M$, and
-$g$ is unchanged.
-\end{proof}
-
-The involution exchanges $D<A_M$ with $D>A_M$ and preserves $M$, so
-\begin{equation}\label{eq:split}
- S_0\le2\sum_{(a,c,d,f)}\frac1N,\qquad
- \Omega_0\le2\sum_{(a,c,d,f)}\frac{h(eN)}N\le2(\Sigma_I+\Sigma_{II}),
-\end{equation}
-where $\Sigma_I=\sum h(e)/N$ and $\Sigma_{II}=\sum h(N)/N$,
-with all sums over the quadruples of Lemma~\ref{lem:param} and
-$e=P/f$; we used Lemma~\ref{lem:h}(a).  For dyadic $A,B,C\in\{2^j:\ j\ge0\}$
-the \emph{block} $(A,C,B)$ consists of the quadruples with $a\in[A,2A)$,
-$c\in[C,2C)$, $d\in[B,2B)$.  Only blocks with $A^2B\le T$ and $ACB\le T$ occur.
-There are $O(\Lc^2)$ pairs $(A,B)$ and $O(\Lc)$ values of $C$.
-
-\begin{lemma}[Block mass; proved modulo Theorem~\ref{thm:ETall}(a)]\label{lem:block}
-For every block,
-\[
- \sum_{(a,c,d,f)\in(A,C,B)}\frac1N\ \le\ \sum_{a\in[A,2A),\,d\in[B,2B)}\frac{2\tau(4a^2d+1)}{ad}\ \ll\ \log(A+B+2).
-\]
-Consequently $S_0\ll\Lc^4$.  Unconditionally, $S_0\le2(1+\Lc)^3\tau^*(4T+1)$.
-\end{lemma}
-
-\begin{proof}
-$1/N\le1/(acd)$, $\sum_{c\in[C,2C)}1/c\le1+\log2<2$, and for fixed $(a,d)$ there
-are $\tau(P)$ choices of $f$.  In the block $1/(ad)\le1/(AB)$, and
-Theorem~\ref{thm:ETall}(a) with $\kappa=4$ and Elsholtz--Tao's $(a,b,A,B)$
-equal to our $(d,a,2B,2A)$ gives
-$\sum_{a<2A,\,d<2B}\tau(4a^2d+1)\ll AB\log(A+B+2)$.  Sum over the $O(\Lc^3)$
-blocks, using $\log(A+B+2)\ll\Lc$.  For the unconditional bound, use
-$\tau(P)\le\tau^*(4T+1)$ and $\sum_{a,c,d\le T}1/(acd)\le(1+\Lc)^3$ in
-\eqref{eq:split}.
-\end{proof}
-
-\begin{lemma}[The rough part; proved modulo Theorem~\ref{thm:ETall}(a)]\label{lem:rough}
-For every block $(A,C,B)$, with $Y=\max(C,2)$,
-\[
- \sum_{(a,c,d,f)\in(A,C,B)}\frac{h(N)}N\ \ll\ \log(A+B+2)\Big(\log\log(C+2)+1+\frac\Lc{\log Y}\Big).
-\]
-Hence $\Sigma_{II}\ll\Lc^4\log\Lc$.
-\end{lemma}
-
-\begin{proof}
-$N$ divides the odd number $M$, so only odd $q=\ell^i$ divide $N$.  Write
-$h(N)=\sum_{q\mid N}1/i$ and split at $q\le C$ and $q>Y$; for $C=1$ the
-first part is empty.
-
-\emph{Small $q$.}  Fix $(a,d,f)$ and $q=\ell^i\le C$.  If $\ell\mid ad$, then
-$P\equiv1\pmod\ell$, so $\ell\nmid f$ and $N\equiv-f\not\equiv0\pmod\ell$.
-Otherwise $q\mid N=4ad\,c-f$ confines $c$ to one class modulo $q$, which has
-at most $C/q+1\le2C/q$ elements in $[C,2C)$, and each term has
-$1/N\le1/(adC)$.  So the contribution of $(a,d,f)$ is at most
-$(2/(ad))\sum_{q\le C}1/(iq)\le(2/(ad))(\log\log(C+2)+O(1))$ by Mertens'
-theorem.  Summing over the $\tau(P)$ choices of $f$ and over $(a,d)$ as in
-Lemma~\ref{lem:block} gives $\ll\log(A+B+2)(\log\log(C+2)+1)$.
-
-\emph{Large $q$.}  By Lemma~\ref{lem:h}(b) and $N\le T$,
-$\sum_{q\mid N,\,q>Y}1/i\le\Lc/\log Y$ pointwise, and Lemma~\ref{lem:block}
-bounds the mass of the block.
-
-\emph{Sum.}  With $C=2^j$, $0\le j\le\Lc/\log2$,
-\[
- \sum_j\Big(\log\log(2^j+2)+1+\frac\Lc{\log\max(2^j,2)}\Big)\ll\Lc\log\Lc,
-\]
-and
-$\sum_{(A,B)}\log(A+B+2)\ll\Lc^3$.
-\end{proof}
-
-The prime powers $q\le C$ are summed along the $c$-progression only where a
-block contains a full period.  The larger ones are paid pointwise, at the
-cost $\Lc/\log C$; this is large only for small $c$, and every dyadic
-$c$-scale carries the same mass bound, so the cost averages to
-$\Lc^{-1}\sum_{j\le\Lc}\Lc/j\asymp\log\Lc$.
-
-For the smooth part note that $\sum_{e\mid P}h(e)=\sum_{q\mid P}(1/i)\,\tau(P/q)$
-(write $e=qe'$ with $e'\mid P/q$).  For a pair $(A,B)$ put $Z_0=\max(A,B)$ and
-\[
- R(A,B)=\sum_{a\in[A,2A),\ d\in[B,2B)}\frac1{ad}\sum_{q\mid P}\frac1i\,\tau(P/q),\qquad P=4a^2d+1 .
-\]
-
-\begin{lemma}[Prime powers of $4a^2d+1$; proved modulo Theorem~\ref{thm:ETall}]\label{lem:smooth}
-$R(A,B)\ll\log(Z_0+2)\log\log(Z_0+16)$, uniformly in $A,B\ge1$.  Hence
-$\Sigma_I\ll\Lc^4\log\Lc$.
-\end{lemma}
-
-\begin{proof}
-Every $q=\ell^i\mid P$ is odd and has $\ell\nmid ad$, since $P$ is odd and
-$P\equiv1\pmod\ell$ if $\ell\mid ad$.
-
-\emph{Large $q$ ($q>Z_0^{1/2}$), and all $q$ if $Z_0<16$.}  Use
-$\tau(P/q)\le\tau(P)$.  As $P<32Z_0^3$, Lemma~\ref{lem:h}(b) gives
-$\sum_{q\mid P,\,q>Z_0^{1/2}}1/i\le2\log(32Z_0^3)/\log Z_0\ll1$ for $Z_0\ge16$, and
-for $Z_0<16$, $h(P)\le\log_2P\ll1$.  So this part is
-$\ll\sum\tau(P)/(ad)\ll\log(Z_0+2)$ by Theorem~\ref{thm:ETall}(a), as in
-Lemma~\ref{lem:block}.
-
-\emph{Small $q$, case $A\ge B$} (so $Z_0=A\ge16$ and $q\le A^{1/2}$).  Fix $d<2B$
-with $\ell\nmid d$.  The congruence $4dx^2+1\equiv0\pmod q$ has at most two
-roots $x_0\in[0,q)$ ($\ell$ odd, $\ell\nmid4dx_0$, Hensel).  For each, write
-$a=qa'+x_0$; then $1\le a'\le N':=\lfloor2A/q\rfloor$, as $a\ge A\ge q>x_0$.  Put
-\[
- P^\flat(a')=\frac{P(qa'+x_0)}q=4dq\,a'^2+8dx_0\,a'+\frac{4dx_0^2+1}q .
-\]
-Its coefficients are non-negative integers at most $8dq\le16A^{3/2}\le N'^5$
-(as $N'\ge A^{1/2}$ and $A\ge16$).  It takes odd values, so
-$\rho_{P^\flat}(2^j)=0$.  For an odd prime $p\ne\ell$, $a'\mapsto qa'+x_0$ is a
-bijection modulo $p^j$, so $\rho_{P^\flat}(p^j)=\rho_{4d}(p^j)\le2$.  For $p=\ell$,
-each of the at most two roots of $4dx^2+1$ modulo $\ell^{i+j}$ fixes $a'$
-modulo $\ell^j$, so $\rho_{P^\flat}(\ell^j)\le2$.  By Theorem~\ref{thm:ETall}(b)
-(degree $2$, $l=5$, $C=2$) and multiplicativity,
-\[
- \sum_{a'\le N'}\tau(P^\flat(a'))\ll N'\sum_{m\le N'}\frac{\rho_{P^\flat}(m)}m
- \le\frac{2A}q\Big(1+\frac2{\ell-1}\Big)\sum_{m\le2A}\frac{\rho_{4d}(m)}m .
-\]
-With $1/(ad)\le1/(AB)$ and at most two roots,
-\[
- \sum_{\substack{a,d:\ q\mid P}}\frac{\tau(P/q)}{ad}\ll\frac1{qB}\sum_{d<2B}\sum_{m\le2A}\frac{\rho_{4d}(m)}m\ll\frac{\log A}q,
-\]
-by Theorem~\ref{thm:ETall}(d) with $\kappa=4$ and Elsholtz--Tao's $(A,B)$
-equal to our $(2B,2A)$, which satisfies $2\le2B\le2A$.
-
-\emph{Small $q$, case $B>A$} (so $Z_0=B\ge16$ and $q\le B^{1/2}$).  Fix $a<2A$
-with $\ell\nmid a$.  Then $q\mid P$ means $d\equiv d_0\pmod q$, where
-$d_0\equiv-(4a^2)^{-1}$ and $0<d_0<q$.  Write $d=qd'+d_0$ with
-$1\le d'\le N'':=\lfloor2B/q\rfloor$ (as $d\ge B\ge q$).  Then
-$P/q=4a^2d'+b_a$ with $b_a=(4a^2d_0+1)/q\le4a^2$, and $\gcd(4a^2,b_a)=1$: $b_a$
-is odd, and a prime dividing $a$ and $b_a$ divides $4a^2d_0+1$.  Both
-coefficients are at most $16B^2\le N''^6$.  By Theorem~\ref{thm:ETall}(c),
-$\sum_{d'\le N''}\tau(4a^2d'+b_a)\ll N''\log N''\le(2B/q)\log(2B)$.  With
-$1/(ad)\le1/(aB)$ we get
-$\sum_{a,d:\,q\mid P}\tau(P/q)/(ad)\ll(\log B/q)\sum_{a\in[A,2A)}1/a\ll\log B/q$.
-
-\emph{Sum over small $q$.}  $\sum_{q\le Z_0^{1/2}}(1/i)\log Z_0/q\ll\log Z_0\log\log Z_0$.
-
-\emph{$\Sigma_I$.}  We have $1/N\le1/(acd)$ and $\sum_{c\in[C,2C)}1/c<2$, and each
-$(a,d,e)$ with $e\mid P$ occurs at most once for each $c$.  So
-$\Sigma_I\le\sum_C\sum_{(A,B)}2R(A,B)\ll\Lc\cdot\Lc^2\cdot\Lc\log\Lc$, as
-$Z_0\le T$.
-\end{proof}
-
-\begin{theorem}[Charge moment; proved modulo Theorem~\ref{thm:ETall}]\label{thm:omega}
-$S_0\ll\Lc^4$ and $\Omega_0\ll\Lc^4\log\Lc$.  Unconditionally,
-$\Omega_0\le\Lc S_0$ and $\log S_0\le(\log2+o(1))\Lc/\log\Lc$.
-\end{theorem}
-
-\begin{proof}
-Lemma~\ref{lem:block}, \eqref{eq:split} and Lemmas~\ref{lem:rough}
-and~\ref{lem:smooth}.  Unconditionally, $h(M)\le\Lc$ by Lemma~\ref{lem:h}(c),
-and $\log\tau^*(x)\le(\log2+o(1))\log x/\log\log x$ \cite[Thm.~317]{HW}.
-\end{proof}
-
-\begin{remark}[Assessment]\label{rem:mean}
-Theorem~\ref{thm:omega} bounds the moment, not the $g/M$-weighted mean
-$\Omega_0/S_0$ of $h(M)$; that would need $S_0\gg\Lc^4$, which we have not
-proved.  Numerically (atoms with $D\le A_M$, $T=10^4,10^5,10^6$) the mean is
-$2.16$, $2.40$, $2.62$, which tracks $\log\log T$, and the splitting
-$h(eN)\le h(e)+h(N)$ loses about $2\%$.  This is evidence only.
+\begin{remark}[The graded class-of-one quarantine]\label{rem:graded}
+In the previous version $r=1$, and the exponents $a_\ell$ were raised while
+the fibre mass exceeded $c(a_\ell+1)\log\ell/\Lc$.  With $r=1$ a surviving atom
+has $\gcd(M,Q)\mid g=\gcd(M,4D+1)$, so by (ii) its weight is up to $g/M$
+instead of the Haar weight $1/\varphi(M)$.  Summed over the atoms, the Haar
+weights give $O(\Lc^3\log\Lc)$ (Lemma~\ref{lem:masses}), while for the
+inflated weights we could only prove $O(\Lc^4)$, and that needed the
+Elsholtz--Tao divisor-sum estimates \cite{ET}.  The
+threshold $\propto\log\ell/\Lc$ cost a further factor $\Lc$ in the
+quarantine.  A \emph{random} square class removes the inflation in
+expectation (Lemma~\ref{lem:book}), Lemma~\ref{lem:jacobi} guarantees that
+no event is ever forced, and the $\beta$-weighted local lemma
+(Lemma~\ref{lem:betalll}) replaces the log-weighted threshold by a constant
+one.  The graded class-of-one quarantine is therefore superseded, and we
+omit it.
 \end{remark}
+
+\subsection*{The local lemma}
+
+\begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
+Let $\mathcal A$ be a finite family of events in a product space, each
+depending on a finite set of coordinates; write $A'\sim A$ if they share a
+coordinate.  Suppose $x_A\in[0,1)$ satisfy
+$\PP(A)\le x_A\prod_{A'\sim A,\,A'\ne A}(1-x_{A'})$.  Then
+$\PP(\bigcap_{\mathcal A}\bar A)\ge\prod_{\mathcal A}(1-x_A)$, and
+$\PP(A\mid\bigcap_{A'\in\mathcal S}\bar A')\le x_A$ for every
+$\mathcal S\subseteq\mathcal A$ with $A\notin\mathcal S$.  Moreover, for every
+event $B$ depending on a set $J$ of coordinates and every
+$\mathcal S\subseteq\mathcal A$,
+$\PP(B\mid\bigcap_{\mathcal S}\bar A)\le\PP(B)\prod_{A\in\Gamma(B)}(1-x_A)^{-1}$, where
+$\Gamma(B)$ is the set of $A\in\mathcal S$ depending on some coordinate in $J$.
+\end{lemma}
+
+\begin{proof}
+The first two statements are \cite[Lemma~5.1.1]{AS} and its proof.  For the
+third (cf.\ \cite[Thm.~2.1]{HSS}), $B$ is independent of
+$\bigcap_{A\in\mathcal S\setminus\Gamma(B)}\bar A$, so
+\[
+ \PP\Big(B\ \Big|\ \bigcap_{\mathcal S}\bar A\Big)
+ \le\frac{\PP(B)\,\PP(\bigcap_{\mathcal S\setminus\Gamma(B)}\bar A)}{\PP(\bigcap_{\mathcal S}\bar A)}
+ =\frac{\PP(B)}{\PP(\bigcap_{\Gamma(B)}\bar A\mid\bigcap_{\mathcal S\setminus\Gamma(B)}\bar A)},
+\]
+and the chain rule with the second statement bounds the denominator below by
+$\prod_{\Gamma(B)}(1-x_A)$.
+\end{proof}
+
+\begin{lemma}[$\beta$-weighted local lemma; proved]\label{lem:betalll}
+Let $\mathcal A$ be a finite family of events on a product probability
+space, each determined by the coordinates in a nonempty set $\supp A$, and
+put $s(A)=|\supp A|$.  Let $1<\beta\le e^{1/3}$, $\eta=\frac34\log\beta$, and
+$\tilde w_v=\sum_{A\ni v}\beta^{s(A)}\PP(A)$, the sum over the $A$ with
+$v\in\supp A$.  Suppose that $\tilde w_v\le\eta$ for every coordinate $v$.
+Then
+\[
+ \PP\Big(\bigcap_{\mathcal A}\bar A\Big)\ \ge\ \exp\Big(-\frac43\sum_{A\in\mathcal A}\beta^{s(A)}\PP(A)\Big),
+\]
+and for every event $B$ determined by a coordinate set $J$ and every
+$\mathcal S\subseteq\mathcal A$,
+$\PP(B\mid\bigcap_{\mathcal S}\bar A)\le\beta^{|J|}\PP(B)$.
+\end{lemma}
+
+\begin{proof}
+Put $x_A=\beta^{s(A)}\PP(A)$.  Every $A$ has a coordinate $v\in\supp A$, so
+$x_A\le\tilde w_v\le\eta\le1/4$.  For $0\le x\le1/4$,
+$-\log(1-x)\le x/(1-x)\le\frac43x$.  For any coordinate set $J$, each $A'$
+sharing a coordinate with $J$ is counted in some $\tilde w_v$, $v\in J$, so
+\begin{equation}\label{eq:betaprod}
+ \prod_{A'\text{ meets }J}(1-x_{A'})\ \ge\ \exp\Big(-\frac43\sum_{v\in J}\tilde w_v\Big)\ \ge\ \exp\Big(-\frac43|J|\eta\Big)=\beta^{-|J|}.
+\end{equation}
+With $J=\supp A$ this gives $\PP(A)=x_A\beta^{-s(A)}\le x_A\prod_{A'\sim A}(1-x_{A'})$,
+the hypothesis of Lemma~\ref{lem:lll}.  Its conclusions give
+$\PP(\bigcap\bar A)\ge\prod(1-x_A)\ge\exp(-\frac43\sum x_A)$ and, with
+\eqref{eq:betaprod}, the conditional bound.
+\end{proof}
+
+The criterion is per coordinate, with a threshold that depends neither on
+the coordinate nor on the level of its quarantine; the price is the weight
+$\beta^{s(A)}$.  We shall take $\beta=1+1/\log\Lc$, so that $\beta^{\omega(M)}$
+is $O(1)$ on average, and $\eta\asymp1/\log\Lc$.
+
+\subsection*{The square-class process}
+Fix a parameter $Y\ge7$ and $\beta=1+1/\log\Lc$, $\eta=\frac34\log\beta$.  The
+\emph{square-class process} is the following random sequence of square-class
+quarantines $(Q_i,r_i)$.  Start from $Q=8$, $r=1$.  Then make three
+\emph{forced} steps at $\ell=3,5,7$ with $a=0$, and afterwards, while some
+odd prime $\ell\le Y$ with $\ell\in\cP$ has $\tilde w_\ell>\eta$ (computed for the
+current quarantine), make a step at the least such $\ell$.  A \emph{step} at
+$(\ell,a)$, where $a=a_\ell<f_\ell$ is the current exponent, replaces $a_\ell$ by
+$a+1$ and $r$ by a class $r'\bmod Q\ell$ with $r'\equiv r\pmod Q$, chosen
+uniformly among the classes of the current fibre at $\ell$ that are squares
+modulo $\ell$: if $a=0$ this is uniform among the $(\ell-1)/2$ nonzero squares
+modulo $\ell$, and if $a\ge1$ among the $\ell$ lifts of $r\bmod\ell^a$ to
+$\ell^{a+1}$, all of which are squares.  Each step raises some $a_\ell<f_\ell$
+with $\ell\le Y$, so the process stops after at most $\sum_{\ell\le Y}f_\ell$
+steps.
+
+Every $(Q_i,r_i)$ is a square-class quarantine.  After the forced steps,
+$840\mid Q$ and $r\equiv1\pmod{24}$, since $1$ is the only nonzero square
+modulo $3$.  Primes $\ell>Y$ are never stepped.  By Lemma~\ref{lem:jacobi}, no
+atom ever has all its coordinates quarantined and matched: the final system
+contains no event of probability one.
+
+\emph{Notation.}  At stage $i$ let $\mu_i$ be the uniform probability on the
+units $n$ with $n\equiv r_i\pmod{Q_i}$ (on $\hat{\mathbb Z}^\times$, or modulo
+any multiple of $\lcm(Q_i,M)$), and for an atom $E=(M,D)$ put
+$p_i(E)=\mu_i(n\equiv-4D\ (\mathrm{mod}\ M))$.  So $p_i(E)=\PP(E_{M,D})$ if the
+atom survives $(Q_i,r_i)$, and $p_i(E)=0$ otherwise (if $M\mid Q_i$ the class
+is excluded by Lemma~\ref{lem:jacobi}).  Let $P_H(E)=1/\varphi(M)$ be the Haar
+probability, $s_i(E)$ the support size at stage $i$, and
+$u_i(E)=\#\{\ell\le Y:\ \ell\mid M,\ a_\ell(i)=0\}$.  Write $\omega_Y(M)$ for the
+number of primes $\ell\le Y$ dividing $M$, and $M_Y$ for the $Y$-smooth part of
+$M$.
+
+\begin{lemma}[Bookkeeping for the square-class process; proved]\label{lem:book}
+\begin{enumerate}
+\item[(a)] For every fixed $\phi(E)\ge0$, $G_i=\sum_Ep_i(E)2^{u_i(E)}\phi(E)$ is
+a supermartingale, and $G_0=\sum_EP_H(E)2^{\omega_Y(M)}\phi(E)$.
+\item[(b)] With $Q_{\rm end}$ the final modulus,
+\[
+ \E[\log Q_{\rm end}]\ \le\ \log840+\frac1\eta\sum_EP_H(E)\,2^{\omega_Y(M)}\beta^{\omega(M)}\log M_Y .
+\]
+\item[(c)] $\E\big[\sum_E\beta^{s_{\rm end}(E)}p_{\rm end}(E)\big]\le S_H^\beta:=\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}$.
+\item[(d)] For every prime $\ell>Y$, $\E[\tilde w_\ell(\mathrm{end})^2]\le B_2(\ell)$, where
+\[
+ B_2(\ell)=\sum_{\substack{E,E'\\ \ell\mid M,\ \ell\mid M'}}\beta^{\omega(M)+\omega(M')}2^{\omega_Y(M)+\omega_Y(M')}P_H(E)P_H(E')\,
+ \varphi\Big(\frac{\gcd(M,M')}{\ell^{\min(v_\ell(M),v_\ell(M'))}}\Big).
+\]
+Hence $\PP(\exists\,\ell>Y:\ \tilde w_\ell(\mathrm{end})>\eta)\le\eta^{-2}\sum_{\ell>Y}B_2(\ell)$.
+\end{enumerate}
+All sums are over atoms $E=(M,D)$, $E'=(M',D')$.
+\end{lemma}
+
+\begin{proof}
+(a) Consider a step at $(\ell,a)$.  Atoms with $\ell\nmid M$, or with
+$v_\ell(M)\le a$, are unaffected: their class modulo $\ell^{v_\ell(M)}$ is
+already determined by the fibre, and the step only refines it at higher
+levels.  Let $v_\ell(M)>a$.  If $a\ge1$, the new class is uniform among the
+$\ell$ classes of the fibre at level $a+1$, so $\E[p_{i+1}(E)\mid\text{past}]=p_i(E)$,
+and $u$ is unchanged.  If $a=0$, the conditional probability of the event
+becomes $\ell^{1-v}$ (with $v=v_\ell(M)$) if $r'\equiv-4D\pmod\ell$ and $0$
+otherwise; the class $r'\bmod\ell$ is uniform on the $(\ell-1)/2$ squares, so
+\[
+ \E[p_{i+1}(E)\mid\text{past}]=p_i(E)\,\varphi(\ell^v)\,\ell^{1-v}\,\frac{2}{\ell-1}\,\mathbf 1\Big[\Big(\frac{-4D}\ell\Big)=1\Big]
+ =\Big(1+\Big(\frac{-d}\ell\Big)\Big)p_i(E)\le2p_i(E)
+\]
+by Lemma~\ref{lem:jacobi}(a), while $u$ drops by one if $\ell\le Y$ (forced
+steps and all other steps have $\ell\le Y$).  So each term
+$p_i(E)2^{u_i(E)}\phi(E)$ is a supermartingale.  At the start $Q=8$, $r=1$
+and $M$ is odd, so $p_0(E)=P_H(E)$; and $u_0(E)=\omega_Y(M)$.
+
+(b) For a pair $(\ell,a)$ with $\ell\le Y$ let $\tau_{\ell,a}$ be the stage at
+which the (unforced) step at $(\ell,a)$ is taken, $\infty$ if it is never taken.
+At that stage $\tilde w_\ell>\eta$, so
+\[
+ \log\ell\cdot\mathbf 1[\tau_{\ell,a}<\infty]\le\frac{\log\ell}\eta\,G^{(\ell,a)}_{\tau_{\ell,a}}\mathbf 1[\tau_{\ell,a}<\infty],\qquad
+ G^{(\ell,a)}_i=\sum_{E:\ v_\ell(M)\ge a+1}p_i(E)2^{u_i(E)}\beta^{\omega(M)},
+\]
+since at stage $\tau_{\ell,a}$ the atoms with $\ell\in\supp E$ are those with
+$v_\ell(M)\ge a+1$, and $\beta^{s}p\le\beta^{\omega}2^up$.  The stopping times
+are bounded, and optional stopping for the nonnegative supermartingale
+$G^{(\ell,a)}$ (part (a) with $\phi=\beta^{\omega(M)}\mathbf 1[v_\ell(M)\ge a+1]$)
+gives $\E[G^{(\ell,a)}_{\tau}\mathbf 1[\tau<\infty]]\le G^{(\ell,a)}_0$.  Summing over
+$\ell\le Y$ and $a<v_\ell(M)$, and using $\sum_{\ell\le Y}v_\ell(M)\log\ell=\log M_Y$,
+gives the claim; the forced steps cost $\log105$, and $\log Q\le\log8+\log105+\sum_{\rm steps}\log\ell$.
+
+(c) Part (a) with $\phi=\beta^{\omega(M)}$, and $s_{\rm end}\le\omega$.
+
+(d) The prime $\ell$ is never stepped, so for $\ell\mid M$,
+$p_i(E)=p_i(E^{(\ell)})/\varphi(\ell^{v_\ell(M)})$, where $E^{(\ell)}$ is the event
+with its condition at $\ell$ removed, and
+$\tilde w_\ell^2\le\sum_{E,E'}\beta^{\omega(M)+\omega(M')}p(E)p(E')$, the sum over
+atoms with $\ell\mid M$, $\ell\mid M'$.  For two events $F,F'$ (conditions at sets
+of primes, with given residues) put $\Pi_i=p_i(F)p_i(F')R_i$, where
+$R_i=\prod_{\ell'}\rho_i(\ell')$ over the primes $\ell'$ constrained by both, and
+$\rho_i(\ell')$ is the number of classes modulo $\ell'^{j}$ in the current
+fibre, $j\le\min(v_{\ell'}(F),v_{\ell'}(F'))$ being the depth to which the two
+prescribed residues agree ($\rho_i(\ell')=1$ once $a_{\ell'}\ge j$).  Then
+$p_i(F)p_i(F')\le\Pi_i$, and $\Pi_i2^{u_i(F)+u_i(F')}$ is a supermartingale.
+Indeed, consider a step revealing level $a+1$ at $\ell'$.  If neither event
+constrains $\ell'$ at this level, nothing changes.  If only one does, its
+factor behaves as in (a), and its $\rho$ is already $1$.  If both do and they
+agree at this level, both probabilities are multiplied by the same factor
+$N\cdot\mathbf 1[\text{match}]$, where $N$ is the number of classes of the
+current fibre at this level ($N=\ell'-1$ if $a=0$, $N=\ell'$ if $a\ge1$), and
+$\rho$ is divided by $N$; so $\Pi\mapsto N\mathbf 1[\text{match}]\Pi$, whose mean
+is $\Pi$ if $a\ge1$ and $(1+(\frac{-d}{\ell'}))\Pi\le2\Pi$ if $a=0$, in which
+case both $u$'s drop.  If both constrain $\ell'$ and disagree at this level,
+they cannot both match, so $\Pi\mapsto0$.  At the start
+$R_0\le\prod\varphi(\ell'^{j})\le\varphi(\gcd(M_F,M_{F'}))$, so
+$\E[\Pi_{\rm end}]\le2^{\omega_Y(M_F)+\omega_Y(M_{F'})}P_H(F)P_H(F')\varphi(\gcd(M_F,M_{F'}))$.
+Apply this to $F=E^{(\ell)}$, $F'=E'^{(\ell)}$, multiply by
+$\varphi(\ell^{v_\ell(M)})^{-1}\varphi(\ell^{v_\ell(M')})^{-1}$ and sum.  The last claim
+is Chebyshev's inequality and a union bound.
+\end{proof}
+
+Part (d) is the reason for the random class: the second moment of the mass
+at a prime that is never quarantined is controlled by a Haar
+pair-correlation sum, a deterministic divisor sum in which $\gcd(M,4D+1)$ does
+not occur.
+
+\section{Haar masses and the upper bound on the Haar side}\label{sec:moment}
+
+The only analytic input of this section is the following theorem.  For
+fixed $k\ge1$, $A,B\ge1$ and $\varepsilon>0$, let $\cM_k(A,B,\varepsilon)$ be the
+class of non-negative functions $F$ of $k$ variables with
+\[
+ F(a_1b_1,\dots,a_kb_k)\le\min\big(A^{\Omega(a_1\cdots a_k)},\,B(a_1\cdots a_k)^\varepsilon\big)F(b_1,\dots,b_k)
+\]
+whenever $\gcd(a_1\cdots a_k,b_1\cdots b_k)=1$.
+
+\begin{theorem}[Nair--Tenenbaum {\cite[Thm.~1]{NT}}; cited in the form of {\cite[(1.1)]{Henriot}}]\label{thm:NT}
+Let $Q_1,\dots,Q_k\in\mathbb Z[X]$ be pairwise coprime irreducible polynomials,
+$Q=Q_1\cdots Q_k$ of degree $g$, without fixed prime divisor.  Let
+$\rho_{Q_j}(n)$ and $\rho(n)$ be the numbers of zeros of $Q_j$ and of $Q$
+modulo $n$.  Let $0<\alpha,\delta<1$, $A,B\ge1$, $0<\varepsilon\le\alpha\delta/(12g^2)$ and
+$F\in\cM_k(A,B,\varepsilon)$.  Then, uniformly in $x\ge c_0\|Q\|^\delta$ and
+$x^\alpha<y\le x$,
+\[
+ \sum_{x<n\le x+y}F\big(|Q_1(n)|,\dots,|Q_k(n)|\big)\ \ll\ y\prod_{p\le x}\Big(1-\frac{\rho(p)}p\Big)
+ \sum_{n_1\cdots n_k\le x}F(n_1,\dots,n_k)\frac{\rho_{Q_1}(n_1)\cdots\rho_{Q_k}(n_k)}{n_1\cdots n_k},
+\]
+where $c_0$ and the implied constant depend only on $k,g,A,B,\varepsilon,\alpha,\delta$
+and the discriminant of $Q$.
+\end{theorem}
+
+We use it with $k=2$, $Q_1(n)=n$, $Q_2(n)=4n-1$: these are coprime and
+irreducible, $Q=4n^2-n$ has discriminant $1$ and no fixed prime divisor
+($Q(1)=3$, $Q(2)=14$), $\rho(2)=1$, $\rho(p)=2$ for odd $p$, $\rho_{Q_1}\equiv1$
+and $\rho_{Q_2}(m)=\mathbf 1[m\text{ odd}]$.  We take $y=x$, $\alpha=\delta=1/2$ and
+$\varepsilon=1/200$.
+
+Throughout, $\beta=1+1/\log\Lc$, $2\le Y\le T$, $H(M)=\beta^{\omega(M)}2^{\omega_Y(M)}$, and
+\[
+ w(M)=\tau(A_M^2)\,H(M)\,\frac M{\varphi(M)}\quad(M\equiv3\ (4)),\qquad w(M)=0\ \text{otherwise}.
+\]
+Summing over $D\mid A_M^2$ gives $\sum_DH(M)P_H(E_{M,D})=w(M)/M$.  Sums over $M$
+run over $M\le T$.
+
+\begin{lemma}[Haar masses; (A) proved modulo Theorem~\ref{thm:NT}, (B) proved]\label{lem:masses}
+\begin{enumerate}
+\item[(A)] $S_H^\beta=\sum_Mw(M)/M\ll\Lc^3\log Y$, and
+$\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log M_Y\ll\Lc^3(\log Y)^4$.
+\item[(B)] $\sum_{\ell>Y\ \text{prime}}B_2(\ell)\le\frac{\Lc+1}Y\,\Xi$, where
+$\Xi=\sum_Mw(M)^2\tau(M)\omega(M)/M\ll\Lc^{C_0}$ for an absolute constant $C_0$,
+uniformly in $2\le Y\le T$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(A) Write $n=A_M$, so $M=4n-1$, and $f_2(m)=H(m)m/\varphi(m)$, a
+multiplicative function with $f_2(p^k)=\beta\,2^{[p\le Y]}p/(p-1)\le6$ for odd $p$
+(as $\beta\le2$).  The function $F(n_1,n_2)=\tau(n_1^2)f_2(n_2)$ satisfies
+$F(a_1b_1,a_2b_2)=\tau(a_1^2)f_2(a_2)F(b_1,b_2)$ when
+$\gcd(a_1a_2,b_1b_2)=1$, and $\tau(a_1^2)f_2(a_2)\le8^{\Omega(a_1a_2)}$ and
+$\le B(a_1a_2)^{1/200}$ for an absolute $B$ (divisor bound).  So
+$F\in\cM_2(8,B,1/200)$, uniformly in $T$ and $Y$.  Theorem~\ref{thm:NT} on
+$x<n\le2x$ gives
+\[
+ \sum_{x<n\le2x}\tau(n^2)f_2(4n-1)\ll\frac x{(\log x)^2}\sum_{n_1\le x}\frac{\tau(n_1^2)}{n_1}\sum_{n_2\le x}\frac{f_2(n_2)}{n_2}
+ \ll\frac x{(\log x)^2}(\log x)^3(\log x)^\beta(\log Y)^\beta ,
+\]
+by the Euler products $\prod_{p\le x}(1+3/p+\dots)$ and
+$\prod_{p\le Y}(1+2\beta/(p-1)+O(p^{-2}))\prod_{Y<p\le x}(1+\beta/(p-1)+O(p^{-2}))$.
+Since $(\log x)^{\beta-1},(\log Y)^{\beta-1}\le\Lc^{1/\log\Lc}=e$, this is
+$\ll x(\log x)^2\log Y$.  As $\tau(A_M^2)H(M)/\varphi(M)=\tau(n^2)f_2(M)/M$ with
+$M\asymp x$, the block contributes $\ll\Lc^2\log Y$; the $O(\Lc)$ dyadic blocks
+(and the bounded range $x<c_0$) give the first bound.  For the second, use
+$\log M_Y\le\log Y\cdot\Omega(M_Y)\le\log Y\cdot\tau(M_Y)$ (as
+$\sum k_i\le\prod(k_i+1)-1$), and repeat the argument with $f_2(m)\tau(m_Y)$ in
+place of $f_2$.  Its values at $p^k$ are at most $6(k+1)\le12^k$ and
+$\ll_\varepsilon p^{k\varepsilon}$, so the class condition holds uniformly; its Euler
+factor at $p\le Y$ is $1+4\beta/(p-1)+O(p^{-2})$, so
+$\sum_{n_2\le x}f_2(n_2)\tau((n_2)_Y)/n_2\ll(\log x)(\log Y)^3$, and the bound
+$\Lc^3(\log Y)^4$ follows.
+
+(B) For an atom pair with $\ell\mid M$, $\ell\mid M'$ write $M=\ell m$,
+$M'=\ell m'$.  Then $\gcd(M,M')/\ell^{\min(v_\ell(M),v_\ell(M'))}$ divides $\gcd(m,m')$, so
+its $\varphi$ is at most $\gcd(m,m')=\sum_{e\mid(m,m')}\varphi(e)$.  Summing over
+$D,D'$,
+\[
+ B_2(\ell)\le\sum_e\varphi(e)V(e\ell)^2,\qquad V(q)=\sum_{q\mid M}\frac{w(M)}M=\sum_{k\le T/q}\frac{w(qk)}{qk}.
+\]
+By Cauchy--Schwarz in $k$, $V(q)^2\le(\Lc+1)\sum_kw(qk)^2/(q^2k)$.  Put $N=e\ell k$:
+the term $\varphi(e)w(N)^2/(e^2\ell^2k)$ equals $(w(N)^2/N)\varphi(e)/(e\ell)\le(w(N)^2/N)/\ell$,
+and for fixed $\ell$ there are at most $\tau(N)$ factorisations $N=e\ell k$.  So
+\[
+ \sum_{\ell>Y}B_2(\ell)\le(\Lc+1)\sum_N\frac{w(N)^2\tau(N)}N\sum_{\ell\mid N,\ \ell>Y}\frac1\ell\le\frac{\Lc+1}Y\,\Xi .
+\]
+For $\Xi$, use $\omega\le\tau$, $2^{\omega_Y}\le2^\omega$ and Cauchy--Schwarz with
+$M=4n-1\ge3n$:
+\[
+ \Xi\le\Big(\sum_{n\le T}\frac{\tau(n^2)^4}n\Big)^{1/2}\Big(\sum_{m\le4T}\frac{g(m)^2}m\Big)^{1/2},\qquad
+ g(m)=\beta^{2\omega(m)}4^{\omega(m)}\Big(\frac m{\varphi(m)}\Big)^2\tau(m)^2 .
+\]
+Both are mean values of non-negative multiplicative functions $f$ with
+$f(p^k)\le C(k+1)^C$ for an absolute $C$; bounding them by
+$\prod_{p\le4T}(1+f(p)/p+f(p^2)/p^2+\dots)$ gives $\ll\Lc^{C_0}$, with
+$C_0$ absolute (since $\beta\le2$) and independent of $Y$.
+\end{proof}
+
+The proof of (A) is the only place where Theorem~\ref{thm:NT} is used.  All
+masses here are Haar masses, so the Elsholtz--Tao estimates are not needed.
+
+Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
+relative to the class $n\equiv1\pmod{24}$, that is, the proportion, among the
+units modulo $L=\lcm(24,\,M\le T)$ that are $\equiv1\pmod{24}$, of those with
+$W(n)>T$ (the condition $W(n)>T$ depends only on $n\bmod L$).  On all of
+$\hat{\mathbb Z}^\times$ the proportion is exactly half of this, because the atom
+$(3,1)$ excludes $n\equiv2\pmod3$.
+
+\begin{theorem}[Haar side, upper bound; proved modulo Theorem~\ref{thm:NT}]\label{thm:haarupper}
+For large $T$ there is a square-class quarantine $(Q,r)$ with $840\mid Q$,
+$r\equiv1\pmod{24}$, all prime factors of $Q$ at most $Y:=\Lc^{C_0+4}$ (with
+$C_0$ from Lemma~\ref{lem:masses}), and, with $\beta=1+1/\log\Lc$ and
+$\eta=\frac34\log\beta$,
+\begin{equation}\label{eq:goodQ}
+ \tilde w_\ell\le\eta\ \ (\ell\in\cP),\qquad S_\beta\le C\Lc^3\log\Lc,\qquad \log Q\le C\Lc^3(\log\Lc)^5,
+\end{equation}
+where $C$ is absolute.  Consequently $\delta=\E F\ge\exp(-\frac43S_\beta)$ and
+\[
+ \log\frac1{\delta^*(T)}\ \le\ \log\varphi(Q)+\frac43S_\beta\ \ll\ \Lc^3(\log\Lc)^5 .
+\]
+\end{theorem}
+
+\begin{proof}
+Run the square-class process with this $Y$.  As $1/\eta\asymp\log\Lc$ and
+$\log Y\asymp\log\Lc$, Lemma~\ref{lem:book}(b,c) and Lemma~\ref{lem:masses}(A)
+give $\E[\log Q_{\rm end}]\ll\Lc^3(\log\Lc)^5$ and
+$\E[S_\beta(\mathrm{end})]\ll\Lc^3\log\Lc$.  By Lemma~\ref{lem:book}(d) and
+Lemma~\ref{lem:masses}(B),
+$\PP(\exists\ell>Y:\ \tilde w_\ell>\eta)\le\eta^{-2}(\Lc+1)\Lc^{C_0}/Y\le1/4$ for
+large $T$.  By Markov's inequality each of the events
+$\log Q_{\rm end}>4\E[\log Q_{\rm end}]$ and $S_\beta>4\E[S_\beta]$ has probability at
+most $1/4$.  So some realisation $(Q,r)$ avoids all three.  In it every
+coordinate $\ell\le Y$ has $\tilde w_\ell\le\eta$ because the process stopped, and
+every $\ell>Y$ by the choice of realisation; this is \eqref{eq:goodQ}.
+Lemma~\ref{lem:betalll} gives $\delta\ge\exp(-\frac43S_\beta)$.  By
+Lemma~\ref{lem:system}(i), the units $n\equiv r\pmod Q$ with $F(n)=1$ have
+$W(n)>T$.  Among the units $\equiv1\pmod{24}$ the class $r\bmod Q$ has relative
+Haar measure $\varphi(24)/\varphi(Q)$, as $r\equiv1\pmod{24}$, and within it the
+residues $n\bmod\ell^{f_\ell}$, $\ell\in\cP$, are independent and uniform on
+$\Omega_\ell$.  So $\delta^*(T)\ge(\varphi(24)/\varphi(Q))\,\delta$.
+\end{proof}
+
+With Theorem~\ref{thm:haarlower} below this determines the Haar exponent:
+$\log\log(1/\delta^*(T))=(3+o(1))\log\Lc$.  The quarantine costs
+$\Lc^3(\log\Lc)^5$; the class-of-one route of the previous version gave
+$\log(1/\delta^*(T))\ll\Lc^5\log\Lc$ modulo the Elsholtz--Tao estimates.
+
+\section{A Janson-type inequality and the lower bound on the Haar side}\label{sec:haarlower}
+
+In this section $(X_v)$ are independent random variables with finite or
+countable ranges, and an \emph{atomic event} is an event
+$E=\{X_v=a_{E,v}\ \text{for}\ v\in S_E\}$ with $S_E$ finite and single
+values $a_{E,v}$.  For a family $\mathcal F$ put
+$\mathrm{Av}(\mathcal F)=\bigcap_{E\in\mathcal F}\bar E$.  Two atomic events
+\emph{conflict} if they prescribe different values on some common
+coordinate (then $E\cap E'=\emptyset$), and \emph{share a bit} if
+$S_E\cap S_{E'}\ne\emptyset$ and they agree on all common coordinates (then
+$\PP(E\cap E')>0$).  Harris' inequality is not available here: for one-hot
+variables $\PP(X=a\mid X\ne a')>\PP(X=a)$.  The following lemmas replace it.
+
+\begin{lemma}[Compatible events; proved]\label{lem:compat}
+Let $A$ be atomic and let $\mathcal C$ be a family of atomic events none of
+which conflicts with $A$.  Then $\PP(A\cap\mathrm{Av}(\mathcal C))\le\PP(A)\PP(\mathrm{Av}(\mathcal C))$.
+\end{lemma}
+
+\begin{proof}
+Condition on $A$.  For $C\in\mathcal C$, $C\cap A=A\cap C'$, where $C'$ is $C$
+with the coordinates in $S_A$ deleted; $C'$ is independent of
+$(X_v)_{v\in S_A}$ and $C'\supseteq C$.  So
+$\PP(\mathrm{Av}(\mathcal C)\mid A)=\PP(\bigcap\bar C')\le\PP(\bigcap\bar C)$.
+\end{proof}
+
+\begin{lemma}[Lopsided local lemma; proved, standard]\label{lem:lopsided}
+Let $\mathcal F$ be a family of atomic events, $\Gamma(E)$ the set of
+$E'\in\mathcal F$ conflicting with $E$, and suppose $x_E\in(0,1)$ satisfy
+$\PP(E)\le x_E\prod_{E'\in\Gamma(E)}(1-x_{E'})$.  Then for every atomic event $A$
+and every $\mathcal S\subseteq\mathcal F$,
+\[
+ \PP(A\mid\mathrm{Av}(\mathcal S))\le\PP(A)\prod_{E'\in\mathcal S\text{ conflicting with }A}(1-x_{E'})^{-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:compat}, $\PP(E\mid\mathrm{Av}(\mathcal S'))\le\PP(E)$ whenever
+no event of $\mathcal S'$ conflicts with $E$, so the lopsided local lemma of
+Erd\H{o}s and Spencer \cite{ErdosSpencer} applies with the graph $\Gamma$; its
+proof gives $\PP(E\mid\mathrm{Av}(\mathcal S))\le x_E$ for $E\notin\mathcal S$.  For
+$A$, let $\mathcal S_1$ be the events of $\mathcal S$ conflicting with $A$ and
+$\mathcal S_2=\mathcal S\setminus\mathcal S_1$.  Then
+$\PP(A\mid\mathrm{Av}(\mathcal S))\le\PP(A\mid\mathrm{Av}(\mathcal S_2))/\PP(\mathrm{Av}(\mathcal S_1)\mid\mathrm{Av}(\mathcal S_2))$;
+the numerator is at most $\PP(A)$ by Lemma~\ref{lem:compat}, and the chain
+rule bounds the denominator below by $\prod_{\mathcal S_1}(1-x_E)$.
+\end{proof}
+
+\begin{theorem}[Janson-type inequality for atomic events; proved]\label{thm:janson}
+Under the hypothesis of Lemma~\ref{lem:lopsided} put
+$K=\max_{E\in\mathcal F}\prod_{E'\in\Gamma(E)}(1-x_{E'})^{-1}$,
+$\mu=\sum_{E\in\mathcal F}\PP(E)$, and
+$\Delta=\sum\PP(E\cap E')$ over the unordered pairs of distinct events of
+$\mathcal F$ that share a bit.  Then
+\[
+ -\log\PP(\mathrm{Av}(\mathcal F))\ \ge\ \mu-K\Delta,\qquad
+ -\log\PP(\mathrm{Av}(\mathcal F))\ \ge\ \min\Big(\frac\mu2,\frac{\mu^2}{4K\Delta}\Big).
+\]
+\end{theorem}
+
+\begin{proof}
+Order $\mathcal F=\{E_1,\dots,E_N\}$ and put $B_i=\mathrm{Av}(\{E_j:\ j<i\})$, so
+$-\log\PP(\mathrm{Av}(\mathcal F))=-\sum_i\log(1-\PP(E_i\mid B_i))\ge\sum_i\PP(E_i\mid B_i)$.
+Let $B_i^d=\mathrm{Av}(\{E_j:\ j<i,\ S_j\cap S_i=\emptyset\})\supseteq B_i$.  Then
+$\PP(E_i\mid B_i)\ge\PP(E_i)\PP(B_i\mid E_i)/\PP(B_i^d)$.  Given $E_i$, the
+events $E_j$ ($j<i$) conflicting with $E_i$ are impossible, those sharing a bit
+become $E_j'$ ($E_j$ with the coordinates of $S_i$ deleted, so
+$\PP(E_i)\PP(E_j')=\PP(E_i\cap E_j)$), and $B_i^d$ is independent of $E_i$.  Hence
+\[
+ \PP(B_i\mid E_i)\ge\PP(B_i^d)-\sum_{j<i,\ j\text{ shares a bit with }i}\PP(E_j'\cap B_i^d).
+\]
+$B_i^d$ is the avoidance event of a subfamily of $\mathcal F$, and every event
+conflicting with $E_j'$ conflicts with $E_j$, so Lemma~\ref{lem:lopsided}
+gives $\PP(E_j'\mid B_i^d)\le K\PP(E_j')$.  Therefore
+$\PP(E_i\mid B_i)\ge\PP(E_i)-K\sum_{j<i,\,j\sim i}\PP(E_i\cap E_j)$, and summing over
+$i$ gives the first bound.  For the second, a subfamily $\mathcal F'$
+satisfies the hypothesis with the same $x_E$ and the same or smaller $K$,
+and $\PP(\mathrm{Av}(\mathcal F))\le\PP(\mathrm{Av}(\mathcal F'))$.  For a random
+$\mathcal F'$ with inclusion probability $p$, $\E\mu'=p\mu$ and
+$\E\Delta'=p^2\Delta$, so some $\mathcal F'$ has $\mu'-K\Delta'\ge p\mu-p^2K\Delta$; take
+$p=\min(1,\mu/(2K\Delta))$.
+\end{proof}
+
+$\Delta$ counts only compatible pairs; conflicting pairs, which carry the
+structure ``one coordinate, many residues'', enter only through $K$.  If
+$x_E=2\PP(E)$, $\PP(E)\le1/8$ and $\sum_{E'\in\Gamma(E)}\PP(E')\le1/8$ for all $E$,
+the hypothesis holds and $K\le e^{1/3}$.  Theorem~\ref{thm:janson} was
+checked by exact enumeration on small random instances (not used).  We did
+not find it in the literature in this form; the Janson inequality itself
+\cite{Janson} needs positively correlated (increasing) events, and the
+lopsided local lemma alone gives upper bounds on $\PP(E\mid\cdot)$, not lower
+bounds.  We make no priority claim.
+
+\subsection*{The lower bound}
+For the ES events the coordinates are $X_\ell=n\bmod\ell^{f}$ ($f$ large) for
+odd primes $\ell$, independent and uniform on units (on $X_3\equiv1\pmod3$ in
+the normalisation of $\delta^*(T)$), and
+$E_{M,D}=\bigcap_{\ell\mid M}\{X_\ell\equiv-4D\ (\ell^{v_\ell(M)})\}$.  For squarefree $M$
+with $3\nmid M$ these are atomic events in the variables $X_\ell\bmod\ell$, and
+$\PP(E_{M,D})=1/\varphi(M)$.  Distinct pairs $(M,-4D\bmod M)$ are distinct
+events.
+
+\begin{theorem}[Haar side, lower bound; proved modulo the fundamental lemma]\label{thm:haarlower}
+There are absolute constants $c>0$ and $T_0$ such that for $T\ge T_0$
+\[
+ \log\frac1{\delta^*(T)}\ \ge\ c\,\frac{\Lc^3}{\log\Lc} .
+\]
+\end{theorem}
+
+The only external input is the fundamental lemma of sieve theory
+\cite[Lemma~6.3, Cor.~6.10]{FI} (cited), used for a lower bound for rough numbers in
+progressions to small moduli.  $T_0$ is astronomically large.
+
+\emph{The family.}  Put $y=\Lc^5$, $N_0=\Lc^2$, and for an integer $D$ write
+$D^*=\prod_pp^{\lceil v_p(D)/2\rceil}$.  Then $D\mid A^2\iff D^*\mid A$, and each
+$n\ge1$ equals $D^*$ for exactly $2^{\omega(n)}$ integers $D$ (write $D=\kappa t^2$
+with $\kappa$ squarefree; then $D^*=\kappa t$).  Let $\mathcal F$ be the set of
+events $E_{M,D}$ with
+\[
+ \sqrt T\le M\le T,\quad M\ \text{squarefree with all prime factors}>y,\quad M\equiv3\ (4),\quad
+ n:=D^*\in[N_0,T^{1/10}],\quad n\mid A_M .
+\]
+We use: (F1) $D\le n^2\le T^{1/5}<M/4$, so different $D$ give different
+residues $-4D\bmod M$, and $\PP(E_{M,D})=1/\varphi(M)$; (F2) for $y$-rough squarefree
+$m\le T$, $\omega(m)\le\Lc/\log y$ and $\varphi(m)\ge m/2$; (F3)
+$\sum_{n\le x}2^{\omega(n)}/n\le(1+\log x)^2$ and $\sum_{n\le x}2^{\omega(n)}\le x(1+\log x)$;
+(F4) for a progression $v\equiv c\pmod d$ in $[v_0,V]$ with least element
+$v_1\ge v_0$, $\sum1/v\le1/v_1+\log(V/v_0)/d$; (F5) if $\omega(m)y^{-1}\le1$, then
+$\sum_{g\mid m,\ g>1,\ g\ \text{squarefree and } y\text{-rough}}g^{-1}\le(1+1/y)^{\omega(m)}-1\le2\omega(m)/y$.
+
+\begin{lemma}[Mass; proved modulo the fundamental lemma]\label{lem:hmass}
+$\mu=\sum_{E\in\mathcal F}\PP(E)\ge c_1\Lc^3/\log y$.
+\end{lemma}
+
+\begin{proof}
+By (F1), $\mu\ge\sum_{N_0\le n\le T^{1/10}}2^{\omega(n)}\sum_M1/M$, over $y$-rough squarefree
+$M\in[\sqrt T,T]$ with $M\equiv-1\pmod{4n}$; this congruence implies $M\equiv3\pmod4$
+and $n\mid A_M$.  For a dyadic block $(X,2X]\subseteq[\sqrt T,T]$, sift the
+progression (of length $X/(4n)\ge X^{4/5}/4$) by the primes $p<y$, $p\nmid2n$,
+at level $X^{1/2}$; as $s=\log X/(2\log y)\to\infty$, the fundamental lemma gives at
+least $c_2X/(n\log y)$ $y$-rough elements.  Those divisible by $p^2$ with $p\ge y$
+number at most $X/(4ny)+\sqrt{2X}$, which is negligible as $n\le X^{1/5}$.  So each
+of the $\gg\Lc$ blocks contributes $\ge c_2/(4n\log y)$, and
+$\sum_{N_0\le n\le T^{1/10}}2^{\omega(n)}/n\gg\Lc^2$.
+\end{proof}
+
+\begin{lemma}[Local-lemma hypothesis; proved]\label{lem:hlll}
+For $T\ge T_0$, every $E\in\mathcal F$ has $\PP(E)\le1/8$ and
+$\sum_{E'\in\Gamma(E)}\PP(E')\le1/8$.  Hence Theorem~\ref{thm:janson} applies with
+$x_E=2\PP(E)$ and $K\le e^{1/3}$.
+\end{lemma}
+
+\begin{proof}
+$\PP(E)\le2/\sqrt T$.  Put $w_q=\sum_{E'\in\mathcal F:\,q\mid M'}\PP(E')$.  Events
+conflicting with $E$ share a prime $q\mid M$, so
+$\sum_{\Gamma(E)}\PP\le(\Lc/\log y)\max_{q>y}w_q$.  Writing $M'=qv$ with
+$qv\equiv-1\pmod{4n'}$ and $qv\ge\sqrt T$, (F2) and (F4) give
+$w_q\le(2/q)\sum_{D'}(\Lc/(4n')+\min(1,q/\sqrt T))$.  By (F3) the first part is at
+most $\Lc^3/(2q)$, and the second at most $4\Lc T^{-2/5}$.  So
+$\sum_{\Gamma(E)}\PP\le(\Lc/\log y)(\Lc^3/(2y)+4\Lc T^{-2/5})=O(1/(\Lc\log\Lc))$.
+\end{proof}
+
+\begin{lemma}[Pair sum; proved]\label{lem:hpair}
+$\Delta=\sum_{\text{bit-sharing pairs}}\PP(E\cap E')\le C\Lc^2$.
+\end{lemma}
+
+\begin{proof}
+Let $E=E_{M,D}$, $E'=E_{M',D'}$ be distinct and share a bit; put
+$g=\gcd(M,M')>1$, $M=gv$, $M'=gv'$.  Then $g$ is $y$-rough, so $g>y$, and
+compatibility means $g\mid D-D'$.  Also $M\ne M'$: otherwise $M\mid D-D'$ and
+$E=E'$ by (F1).  By (F2), $\PP(E\cap E')=1/(\varphi(g)\varphi(v)\varphi(v'))\le8/(gvv')$.
+For fixed $g$ and $D$ the admissible $v$ satisfy $gv\equiv-1\pmod{4n}$ and
+$gv\ge\sqrt T$, so by (F4)
+\begin{equation}\label{eq:sigmagn}
+ \sigma(g,n):=\sum_v\frac1v\le\frac\Lc{4n}+\min\Big(1,\frac g{\sqrt T}\Big).
+\end{equation}
+(a) $D=D'$.  Then $v\ne v'$ and $v\equiv v'\equiv-g^{-1}\pmod{4n}$.  For fixed $(v,n)$,
+$g$ runs over a progression modulo $4n$ with $g>y$, so $\sum_g1/g\le1/y+\Lc/(4n)$;
+and $\sum_{v<v',\ v'\equiv v\ (4n)}1/(vv')\le(1+\Lc)^2/(4n)$.  So
+$\Delta_a\le8\sum_{N_0\le n\le T^{1/10}}2^{\omega(n)}(1/y+\Lc/(4n))(1+\Lc)^2/(4n)\ll\Lc^4/y+\Lc^3\log N_0/N_0\ll\Lc\log\Lc$.
+
+(b) $D\ne D'$.  Now $g\mid m=|D-D'|$ with $0<m<T^{1/5}$, so $g<T^{1/5}$ and
+\eqref{eq:sigmagn} gives $\sigma(g,n)\le\Lc/(4n)+T^{-3/10}$.  Summing over $g$
+with (F5),
+\[
+ \Delta_b\le\frac{2\Lc}y\Big[\frac{\Lc^2}2\Big(\sum_D\frac1n\Big)^2+4T^{-3/10}\Lc\,\#\cD\sum_D\frac1n+8T^{-3/5}(\#\cD)^2\Big],
+\]
+where $\cD$ is the set of $D$ with $D^*\le T^{1/10}$, so $\sum_D1/n\le(1+\Lc)^2$ and
+$\#\cD\le T^{1/10}(1+\Lc)$ by (F3).  So $\Delta_b\ll\Lc^7/y+T^{-1/10}\Lc^5\ll\Lc^2$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:haarlower}]
+The events of $\mathcal F$ involve only primes $>y>3$, so they are independent
+of $n\bmod24$, and $\delta^*(T)\le\PP(\mathrm{Av}(\mathcal F))$.  By
+Theorem~\ref{thm:janson} and Lemmas~\ref{lem:hmass}--\ref{lem:hpair},
+$\log(1/\delta^*(T))\ge\mu-e^{1/3}\Delta\ge c_1\Lc^3/(5\log\Lc)-C\Lc^2$.
+\end{proof}
+
+Two restrictions make the pair sum small: $M\ge\sqrt T\ge(D^*)^5$ makes the
+first terms of the progressions in \eqref{eq:sigmagn} harmless, and
+$D^*\ge\Lc^2$ removes the small-$D$ hubs ($D=1$ has residue $-4$ at every
+prime), whose same-$D$ pairs would make $\Delta_a\asymp\mu$.  The factor
+$\log\Lc$ is the price of $y$-roughness.  A Monte Carlo estimate of
+$\delta^*(T)$ for $1023\le T\le32767$ fits
+$\log(1/\delta^*(T))\approx0.07\,\Lc^3/\log\Lc$ (evidence only, not used; at these $T$
+it cannot distinguish $\Lc^3/\log\Lc$ from, say, $\Lc^{2.5}$).
 
 \section{The analytic input: Gallagher's theorem}\label{sec:analytic}
 
