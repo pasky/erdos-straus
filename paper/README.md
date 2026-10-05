@@ -54,7 +54,7 @@ is v3's unconditional loglog·logloglog theorem. Change list for the referee:
   R33b (`reviews/es-subexp-note-review-v2.md`, MINOR REVISION; M1 and minors applied) and merged.
 * v3 (exponent 1/5) refereed in `reviews/es-subexp-note-review-v3.md` (change list
   `reviews/agent-reports/AGENT_REPORT_O47.md`).
-* v4 not yet refereed.
+* v4 refereed in R56 (`reviews/es-subexp-note-review-v4.md`, MINOR REVISION; m1–m9 applied).
 
 The rate supersedes `es-omega-note.tex` (v3). That note remains the
 reference for the slice parameter and the Haar Type I material. Novelty
