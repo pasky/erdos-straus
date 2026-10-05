@@ -179,3 +179,42 @@ only the parts of the rows of period dividing `M₀` count toward λ_Φ.
 (c) Not covered: rows that are not periodic (Archimedean twists
 `n^{it}`, smooth weights in n); these use the position of n in I, i.e.
 non-CRT information (LS (E3)).
+
+## 3. The large sieve applied to the primes (PL §6 item 5)
+
+Let `A ⊂ {p ≤ N prime : p ∈ 𝒜, p ∤ M'} ∩ I`. (Primes dividing `M'` are
+at most `ω(M')` and are added by the method separately; that only
+enlarges its bound, as in PL Cor 4.2 / review D3.) Now `π_A` lives on
+`𝒜 ∩ (ℤ/M')^×`. Call a bound *CRT-admissible for primes* if, in the
+definitions of §2, "every probability on 𝒜" is replaced by "every
+probability on `𝒜 ∩ (ℤ/M')^×`" (a lower bound may use primality through
+the residues: all moduli at once, Dirichlet/Siegel–Walfisz-type
+reduced-class information included).
+
+**Theorem 3.1 (prime large sieve cap; PROVED, conditional on PL Thm 3.1,
+i.e. with its Case-A proviso).** In the setting of Theorem 2.4 with
+admissibility for primes, every fibre of type (i) or (iii), and fibre
+classes `c ∈ (ℤ/Q₀)^×`,
+
+    B ≥ (N/2) e^{−S(λ)} φ(M')/M',      λ = max(λ₀, λ(Q₀) + 2λ_Φ).
+
+If all primes of `M'` are `≤ N^A` and `λ ≤ 3A log N`, then
+`B ≥ π(N)·exp(−C_A(log N)^{3/4}(log log N)^{3/4})`: relative to the
+trivial bound `π(N)` the saving is `≤ C_A(log N)^{3/4}(log log N)^{3/4}`.
+
+*Proof.* As Theorem 2.4, with π* of Lemma 1.2. For `f ≥ 0` on all of
+`ℤ/M'`, `E*f = (M'/φ(M'))E_U[f·1_{units}] ≤ (M'/φ(M'))E_U f`. Hence for
+the lifted fibre function `F(n) = |H((n−c)/Q₀)|²1[n ≡ c (Q₀)] ≥ 0`,
+`E_{π*}F ≤ e^S(M'/φ(M'))E_U|H|²/Q₀`, and the type-(i) estimate becomes
+`B_c ≥ N_cQ₀π*(c)e^{−S}φ(M')/M'`. For type (iii),
+`π*(c) ≤ e^S E*1[n≡c] = e^S/φ(Q₀) ≤ e^S(M'/φ(M'))/Q₀`. Sum over c. For
+the reading, Mertens gives `M'/φ(M') ≤ Π_{p≤N^A}(1−1/p)^{−1} ≤ 2A log N`
+for N large, and `N/(4A log N) ≥ π(N)/(5A)`. ∎
+
+So Montgomery's large sieve for the primes of the sifted set (any
+periodic rows of polynomial period, any twist `|ψ| ≥ 1`, fibrewise)
+gains nothing beyond the integer cap: the factor `φ(M')/M'` is exactly
+the prime density already in `π(N)`. *Sketch only (not claimed):* type-
+(ii) fibres carrying prime majorants with `Err ≥ 0` (PL Cor 4.2) can be
+mixed in the same way under PL's hypothesis (H1); this needs PL Lemma
+1.3's fibre bookkeeping under E*, which is not written out here.
