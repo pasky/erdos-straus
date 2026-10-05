@@ -46,3 +46,9 @@ Re-derived line by line:
   C_4/(8 log 2) is right up to a harmless factor from t_0−1 vs t_0); (a,D) multiplicity
   ≤2^{ω(g)} and Γ(4ag)/(4ag)≤2Γ(a)Γ(g)/(ag) OK.
 Label "PROVED; Case A PROVED mod ElT Prop 1.4, Thm 7.1, Cor 7.4, (7.10)" is accurate.
+* From-scratch numerics (scripts/review_r36_checks.py, EVIDENCE): (1) L 10.4 inequality holds
+  for all y-smooth m≤2·10⁴, y∈{2,…,30} (equality up to 2e-15 rounding when S_y=1); (2) slip (ii):
+  over 109 060 triples (k≤40, odd a≤40, q<400) ElT's c(q)(q/k'a) disagrees with (−ka/q) in
+  27 167 cases, the corrected sign in 0 — the slip is real and the repair right; (3) (7.10) ratio
+  Σ_{a≤30}Σ_{m≤3000}ρ_{ka}(m)/m ÷ (A log B log(1+k)) decreases from 0.93 (k=1) to 0.05
+  (k≈2·10⁴): no sign of non-uniformity in k.
