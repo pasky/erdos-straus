@@ -108,4 +108,32 @@ the same way in IF Thm 2.2.
 **C9 (Lemma 9.2).** Identity Σ_{n≤N}ν = ΣRν + Σz_i(c − R) + Σ_med a(c − R)
 re-derived; (P2) gives c − R ≥ σ on full, ≥ −(1−σ) on sparse classes. SOUND.
 
+**C10 (SPW numerics, from scratch: `review_if2_spw.py`).** Two LPs that
+bracket the best σ in SPW(C, σ, ·) at N (P3 only measured):
+`per` = necessary condition on ℤ/L₀ (any SPW R projects to a measure on
+ℤ/L₀ with (P1) and (P2) for all d | L₀, d > CN) → *upper* bound;
+`win a` = R supported on [−aN, (a+1)N], (P2) for every d ≤ support length
+and pointwise beyond → *lower* bound (a genuine finite-support SPW witness
+up to floating point). Results (data/review_if2_spw.txt):
+
+| C | N | per (upper) | win (lower), a |
+|---|---|---|---|
+| 2 | 12 | 0.500 | 0.400 (5) |
+| 2 | 13–21 | 0.400 | 0.400 (5) |
+| 2 | 30 | — | 0.400 (5), 0.400 (8) |
+| 2 | 40 | — | 0.384 (5), **0.400** (8) |
+| 2 | 60 | — | 0.378 (8), **0.400** (12) |
+| 2 | 80 | — | 0.374 (10) |
+| 1.5 | 13, 16, 20 | 0.20, 0.25, 0.25 | 0.20, 0.20, 0.25 (5) |
+| 3 | 13, 16, 20 | 0.70, 0.625, 0.571 | 0.571, 0.571, 0.571 (5) |
+
+Δ₀ ≤ 1.4 throughout. So at every N tested the optimum is pinned at
+σ = (C−1)/(C+½) (2/5 at C = 2, 4/7 at C = 3, 1/4 at C = 1.5 up to
+discreteness), the upper and lower bounds coincide for 13 ≤ N ≤ 21, and the
+author's decay with N (0.335 at N = 60, a = 5) is a truncation artefact:
+it disappears at a = 12. This *strengthens* the author's §9 evidence. My
+opinion on SPW: **plausible (EVIDENCE only)** — no sign of N-dependence;
+the obstruction to σ > (C−1)/(C+½) looks like a fixed local one, not the
+smooth-modulus phenomenon of §9.
+
 ## Defects
