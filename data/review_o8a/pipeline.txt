@@ -1,0 +1,1 @@
+T=120 z=7 Q=6350400 free=26 events=121 samples=20000 (primes 2000); #F=1: 450, #W>T: 450, #B>0: 450; viol (I): 0, viol B<=F<=1[W>T]: 0, viol expansion: 0
