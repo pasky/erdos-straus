@@ -186,3 +186,17 @@ shape, because 𝓗 is fixed in advance. Their charge `Λ_st(M)≤log M_Y≤𝓛
   So `A≥6` suffices.
 * **First-term ℓ.** The special primes with `V♯(ℓ)≈ℓ^{−1/2}𝓛^{O(1)}`
   (`ℓ|4a²+1` with `a≈√ℓ`) have density `≈ℓ^{−1/2}`. They contribute `O(1)`.
+
+*EVIDENCE for V2 versus LPL* (`scripts/omega13_v2.py`, `data/omega13/v2.txt`; β=1, `C_1=1`,
+all atoms). Columns: `S♯`; `Σ_{ℓ>Y}V♯²` against the heuristic `S♯²/(Y logY)`; and
+`max_{ℓ>Y}ℓV♯(ℓ)/S♯`.
+
+| T | S♯ | Y=𝓛³ | Y=𝓛⁴ | Y=𝓛⁵ | max ℓV♯/S♯ |
+|---|---|---|---|---|---|
+| 10⁵ | 113.3 | 0.47 (1.15) | 0.019 (0.075) | 0 (0.005) | 6.4 |
+| 10⁶ | 206.7 | 1.05 (2.06) | 0.029 (0.112) | 0.0010 (0.0065) | 9.8 |
+
+* *The second moment.* It stays below the heuristic `S♯²/(Y logY)`.
+* *The pointwise ratio.* `max ℓV♯(ℓ)/S♯` grows with T (6.4 → 9.8). This is the
+  first-term effect, and it is why we prefer the averaged V2 to the pointwise LPL.
+* *Scope.* This is finite-T evidence only.
