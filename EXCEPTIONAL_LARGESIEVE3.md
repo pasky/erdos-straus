@@ -256,3 +256,17 @@ sub-law cost `ℓ^{B+o(1)}` of LS2 §5. Global Hausdorff–Young loses the full
 density `e^{(mass)}`. A proof has to keep the π-average inside the
 `ℓ^{p'}` norm, i.e. it is a genuine multi-scale correlation-decay
 statement.
+
+## 5. Numerics (EVIDENCE / sanity checks only)
+
+`scripts/largesieve3_checks.py`: (1) Theorem 1.1's core inequality
+`𝓡_{p'}(π) ≤ ρ E_{π_s}𝓡_{p'}(π_c)` on 20 random toy rough-slice mixtures
+over `ℤ/(3·5·7·11·13)` (max ratio 0.867 ≤ 1; π checked to live on 𝒜);
+(2) the local bound `Σ_{a≠0}|φ|^{p'} ≤ g^{1+2β}` and Parseval `= g`;
+(3) Lemma 4.1's two-copy identity and `𝓡 ≤ Σ_S s_S^{2β}P_S` for a random
+non-product measure mod 105.
+
+## Replay
+
+    ulimit -v 8000000
+    timeout 600 env PYTHONPATH=scripts uv run --with numpy python scripts/largesieve3_checks.py
