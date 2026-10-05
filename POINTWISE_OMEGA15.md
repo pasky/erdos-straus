@@ -241,9 +241,9 @@ Hence Thm 1.2, Thm 2.2 and Cor 2.4 hold for `P_1` (η doubled) **for representat
 atoms** (classes, characters, additive characters; write `‖B‖_atom` for the corresponding
 ℓ¹-infimum): every minorant `B≤F` has `E_{P_1}B≤2η‖B‖_atom`. (Arbitrary reduced products are not
 closed under multiplication by χ_1: locally `h=(3χ+1)/4` is reduced, `χh=(3+χ)/4` is not — R57-self.)
-Masses: `P_1(H)=1−εE_Hχ_1` and `ν_1(H)−P_1(H)=−εE_ρχ_1`, of size `≤(4r*)^{k+1}`; so the
-information sets of §2 must allow the total mass to vary within the accuracy 𝔈, which they do
-once `𝔈≥N_x(4r*)^{k+1}`. Moreover, if `B∈𝒱_{k−s}` (level `log D≤0.6𝓛(k−s)`), where s is the
+Masses: `P_1(H)=1−εE_Hχ_1` and `ν_1(H)−P_1(H)=−εE_ρχ_1`, of size `≤(4r*)^{k+1}`; so in general the
+information sets of §2 must allow the total mass to vary within the accuracy 𝔈. In the relevant
+regime `s≤k` (s as below), `χ_1∈𝒱_k`, so `E_ρχ_1=0` and the masses agree exactly (R57 s2). Moreover, if `B∈𝒱_{k−s}` (level `log D≤0.6𝓛(k−s)`), where s is the
 number of big primes dividing `q_1`, then `E_{P_1}B≤0` exactly. Since Gallagher-range moduli
 have `log q_1≪log x`, `s≤log x/(0.6𝓛)`, so **no minorant of level `log D≤c𝓛^4/log𝓛−log x`
 gets positivity from the exceptional term**; with `log x≪𝓛^4/log𝓛` this closes the "Siegel"
@@ -252,8 +252,10 @@ item of O14 Cor 4.6's Not-claimed list (for linear transfers).
 *Proof.* `ν_1≥0` and `ν_1≪ν`, so `F=0` ν_1-a.e. `E_{ν_1}h−E_{P_1}h=E_ρh−εE_ρ[χ_1h]`. Both h and
 `χ_1h` are reduced products up to a unimodular constant: at a big b in the support, the
 local factor of `χ_1h` is `χ_{1,b}h_b` with `|·|≤1` and mean `≤1/(b−1)` (class indicator times a
-unimodular function), `0` (nontrivial character), or a normalised Gauss sum
-`≤√b^{v}/φ(b^v)≤1/4` (additive times multiplicative, both nontrivial at b); a factor that
+unimodular function), `0` (nontrivial character), or a normalised Gauss-type sum (additive times multiplicative, both nontrivial at b): if
+`e(a·/b^v)` has conductor `b^g` and `χ_{1,b}` conductor `b^f`, the sum over units mod `b^v` vanishes
+unless `f=g`, and then has modulus `b^{v−g}·b^{g/2}`, so the mean is `≤b^{1−g/2}/(b−1)≤√b/(b−1)≤1/4`
+for `b≥19` (R57 m1: the earlier bound `√(b^v)/φ(b^v)` is false for imprimitive data); a factor that
 becomes trivial is constant and is dropped from I. Lemma 1.1 bounds each term by `(4r*)^{k+1}`
 (its proof gives 4r*). For the exact statement: B and `χ_1B` lie in `𝒱_k` (χ_1 adds at most s
 big coordinates), on which `E_ρ=0` (O14 Thm 1.3), so `E_{P_1}B=E_{ν_1}B≤E_{ν_1}F=0`. ∎
