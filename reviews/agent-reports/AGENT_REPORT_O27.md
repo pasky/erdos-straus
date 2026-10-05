@@ -91,3 +91,40 @@ saving `O(log log N)` (Thm 4.3); composite kernels capped only where
 caps are `C_A(log N)^{3/4}`. (D)22 open: "the large sieve applied to primes"
 closed (Thm 3.1); "ν ≥ 1 only on 𝒜∩[1,N]" shown vacuous (Prop 6.1);
 "ν ≥ 0 only at primes ≤ N" stays open (Assessment).
+
+## Checkpoint 3 (§§8–9, unreviewed)
+
+Task: serious attempt on H_LS / H_LS∞ and on composite kernels with
+`W−h ≪ Nh`.
+
+1. **(E1): explicit escape, for dense abstract families (Thm 8.5, PROVED).**
+   Band family: for disjoint prime pairs `D_i = ℓ_iℓ'_i`, forbid the
+   ≍ηD_i classes mod `D_i` whose phase `na_i/D_i` lies within η of 1/2.
+   * Lemma 8.1 (Gale's supply–demand theorem): there is a measure on each
+     band set with uniform one-prime marginals. Hence every majorant whose
+     terms have level `< L_i` has mean `≥ 1` (Prop 8.2(a)): the level-λ
+     comparison measure exists with `S = 0`. If the primes are only
+     `> e^{λ/d}`, EK Thm 2.5 gives saving `O_d(log K)` (Prop 8.2(b)).
+   * A Montgomery–Vaughan large sieve on the sumset `{Σ m_iθ_i}`, using
+     products of an explicit L²-small arc majorant (Lemma 8.3), saves
+     `≥ c log N` (Prop 8.4). Its frequencies have level `≥ Kλ`.
+
+   So (E1) **cannot** be closed by Lemma 1.1 plus the large-sieve axioms. A
+   proof of (H_LS∞) for forced families must use the sparsity (Sp) — mass
+   `≤ D^{−1+o(1)}` on classes with modulus divisible by D — or K2's moment
+   hypotheses, both of which the band family violates. (H_LS∞) for forced
+   families remains CONJECTURE (budget heuristic, §8.2).
+2. **Composite kernels (Thm 9.1, Prop 9.2).** The level hypothesis of Thm
+   4.2 is removed entirely: moduli `≥ N` are controlled by anti-concentration
+   of the comparison measure via prefixes. For T-rough kernel moduli the
+   factor `1 + Nh/(W_K−h)` is harmless up to `T^{1/4−o(1)}` (unconditional).
+   Open: kernels with `Nh/(W_K−h) ≥ e^{(log N)^{3/4}}` and small prime
+   factors in their moduli. There 𝒜 is genuinely non-uniform (selectors,
+   ℛ(3)). No escape is known; the band family does not give one for kernels.
+3. Numerics: check (5) of the script verifies Prop 8.2(a) by LP (value
+   exactly 1) and Lemma 8.3 numerically.
+
+Ledger suggestion: (D)25 (E1) entry: add "explicit escape for dense
+abstract class families (LARGESIEVE2 Thm 8.5); a cap needs sparsity (Sp)";
+composite kernels: "capped at any level up to `1+Nh/(W_K−h)`
+(Thm 9.1); open only for small-prime kernels with `Nh/(W_K−h)` huge".

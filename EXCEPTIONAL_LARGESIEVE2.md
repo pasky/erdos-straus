@@ -1,6 +1,6 @@
 # EXCEPTIONAL_LARGESIEVE2 — the remaining large-sieve and prime-law escapes (task O27)
 
-Status: **checkpoint 2.** Hostile review R27
+Status: **checkpoint 3** (§§8–9 new, unreviewed; §§1–7 = checkpoint 2). Hostile review R27
 (`reviews/exceptional-largesieve2-review.md`, branch
 `side-agent/review-largesieve2`): all claims SOUND, no FATAL/MAJOR; minor
 m1–m6 applied. Labels as in
@@ -36,6 +36,9 @@ Theorem 4.3 does not use K2 Thm 5.1 and is unaffected.
 | Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
 | Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
+| **Thm 8.5** (Lemma 8.1, Props 8.2, 8.4) | **explicit (E1) escape for dense abstract families**: a band family (≍ηD classes at single moduli D = ℓℓ' of level > λ) on which every level-λ majorant saves 0 (comparison measure with S = 0), while a Montgomery–Vaughan large sieve with ≤ N/3 frequencies of level > λ saves `≥ c log N`. So (E1) cannot be closed by Lemma 1.1 + large-sieve axioms; a proof must use sparsity (Sp) or K2's moment hypotheses, which the band family violates | PROVED |
+| Thm 9.1 | composite kernels: Thm 4.2 holds with **no level hypothesis** (moduli ≥ N via anti-concentration of π); only the factor `1 + Nh/(W_K−h)` remains | PROVED, conditional on K2 Thm 5.1 / KARY3 |
+| Prop 9.2 | kernels whose moduli are T-rough: saving `≤ log(1 + ε_T(1 + Nh/(W_K−h)))`, `ε_T ≍ T^{−1/4+o(1)}`; the factor problem lives at small primes | PROVED, unconditional |
 | Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design. It does **not** cover the other relaxation (`ν ≥ 0` only at primes `≤ N`, `ν ≥ 1` on all primes of 𝒜), which stays open (Assessment, §6.2) | PROVED |
 | §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
 | §7 | LP/QP/exact-law sanity checks of Lemma 1.1, Lemma 2.2/Thm 2.4, Lemma 4.1/Thm 4.2, Thm 4.3's steps | EVIDENCE |
@@ -50,7 +53,12 @@ relaxation "`ν ≥ 1` only on the primes of `𝒜 ∩ [1,N]`" is vacuous as a
 sieve limit (Prop 6.1), while the relaxation "`ν ≥ 0` only at primes
 `≤ N`" (with `ν ≥ 1` on all primes of 𝒜) stays open (Assessment). Open: (E1)/(H_LS) — now reduced to frequencies with
 many-prime denominators and to a sup-decay statement (H_LS∞) — and
-unconditional signed error accounting (Assessment only). The tool behind
+unconditional signed error accounting (Assessment only). Checkpoint 3
+(§§8–9): (E1) has an explicit escape for *dense* abstract families
+(Thm 8.5), so it can only be closed using sparsity of forced classes;
+composite kernels are capped at every level up to `1 + Nh/(W_K−h)`, and
+that factor matters only for kernels with small prime factors
+(Thm 9.1, Prop 9.2). The tool behind
 all of it is Lemma 1.1: K2's cap, read through LP duality, is one
 measure that tests every nonnegative low-level function at once, so
 Cauchy–Schwarz can strip twists and fibres away.
@@ -544,6 +552,10 @@ modulus of `V_𝒟` (stand-in for the level).
    at ℓ = 5, 7, 11; and `1 + χ²_q(π) ≤ (1+χ²_q(σ))(1−𝔏)^{−2}` for all q,
    on the full toy family (every rough prime heavy, leak 0.91: degenerate)
    and on three random thinnings (leak 0, 0, 0.32).
+5. §8 band family on `ℤ/5005` (pairs (5,7), (11,13), η = 1/8, 1/9): the
+   LP over majorants whose terms see at most one prime of each pair has
+   value exactly 1 (Prop 8.2(a)); Lemma 8.3's polynomial has
+   `min_J P = 1.029, 1.026` and `∫P² = 0.926, 0.935 ≤ 1 − η/3`.
 
 ## Replay
 
@@ -551,3 +563,230 @@ modulus of `V_𝒟` (stand-in for the level).
 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONPATH=scripts uv run --with cvxpy --with scipy \
   --with numpy --with sympy python scripts/largesieve2_checks.py > data/largesieve2/checks.txt   # ~7 s
 ```
+
+## 8. (E1) has an explicit escape for dense abstract class families
+
+This section answers whether (E1) can be closed by the comparison
+principle (Lemma 1.1) plus the large-sieve axioms alone. It cannot: for
+abstract class families with **dense bundles** (≍ D classes at a single
+modulus D of high level) a large sieve with frequencies of level
+`≫ λ` saves `≍ log N`, while every level-λ majorant saves 0 (or
+`O(log log N)`). Forced classes are sparse (`≤ D^{o(1)}` classes per
+modulus); §8.3 says what this means for (H_LS∞).
+
+### 8.1 The band family
+
+Fix `0 < η ≤ 1/8`, integers `K, M ≥ 1`, and pairwise distinct primes
+`ℓ_i, ℓ'_i ≥ 5` (`1 ≤ i ≤ K`), `D_i = ℓ_iℓ'_i`, `L_i = log D_i`. For
+`a_i` coprime to `D_i` let
+
+    S_i = { n : ‖n a_i/D_i‖ ≤ 1/2 − η },     𝒜 = ∩_i S_i,
+
+`‖·‖` the distance to ℤ. So the family consists, for each i, of the
+`≈ 2ηD_i` classes mod `D_i` whose phase `na_i/D_i` lies in the band
+`B = (1/2−η, 1/2+η)`. By CRT write `n ↔ (x,y) ∈ ℤ/ℓ_i × ℤ/ℓ'_i`; with
+`uℓ'_i + vℓ_i = 1`, the phase is `α(x) + β(y)`, `α(x) = xa_iu/ℓ_i`,
+`β(y) = ya_iv/ℓ'_i`, and α, β are bijections onto `ℓ_i^{−1}ℤ/ℤ`,
+`ℓ'^{−1}_iℤ/ℤ`.
+
+**Lemma 8.1 (uniform-marginal measure on a band set; PROVED).** There is
+a probability `μ_i` on `S_i mod D_i` whose marginals mod `ℓ_i` and mod
+`ℓ'_i` are uniform.
+
+*Proof.* Gale's supply–demand theorem for the bipartite graph with rows
+`x` (supply `1/ℓ_i`), columns y (demand `1/ℓ'_i`), edges `(x,y) ∈ S_i`:
+a flow exists iff `|R|/ℓ_i ≤ |N(R)|/ℓ'_i` for every row set R. Let
+`C = C(R)` be the columns adjacent to no row of R, i.e. `α + β(y) ∈ B` for
+all `α ∈ α(R)`. If `α(R)` contains two points at circular distance `≥ 2η`,
+the arcs `B − α` are disjoint and `C = ∅`. Otherwise `α(R)` lies in an arc
+of length `< 2η`, so `|R| ≤ 2ηℓ_i + 1`, and `β(C) ⊂ B − α` gives
+`|C| ≤ 2ηℓ'_i + 1`. Then `|R|/ℓ_i + |C|/ℓ'_i ≤ 4η + 2/5 < 1`, which is the
+condition, since `|N(R)| = ℓ'_i − |C|`. ∎
+
+**Proposition 8.2 (level-λ majorants of the band family; PROVED).** Let
+ν be a real combination of class indicators, `ν ≥ 0` on ℤ, `ν ≥ 1` on 𝒜,
+every term of level `≤ λ` (all `ℓ_i, ℓ'_i > W`).
+* (a) If `L_i > λ` for every i, then `E_U ν ≥ 1`: **no saving at all**.
+  Equivalently (Lemma 1.1), the best comparison measure at level λ has
+  `S = 0`.
+* (b) If every `ℓ_i, ℓ'_i > e^{λ/d}` (d ≥ 1 an integer) and `η ≤ 1/9`, then
+  `log(1/E_U ν) ≤ d log(C₀(K/4 + 4d)/d) + (4/3)d + ½log(22d+22) + 3`
+  (C₀ of EK Cor 2.6), i.e. `O_d(log K)`.
+
+*Proof.* (a) Let `μ = ⊗_i μ_i` on the coordinates mod `D_i`, uniform and
+independent on all other CRT digits (Lemma 8.1). A term `1[n ≡ b (d)]`
+has level `≤ λ < L_i`, so d is divisible by at most one of `ℓ_i, ℓ'_i`
+for each i; μ's marginal on the coordinates d involves is therefore a
+product of uniform one-prime marginals and other uniform digits, so
+`E_μ 1[n ≡ b (d)] = E_U 1[n ≡ b (d)]`. By linearity `E_U ν = E_μ ν ≥ 1`,
+μ being supported on 𝒜.
+(b) Average ν over the digits outside `{ℓ_i, ℓ'_i}` (still a majorant, as
+𝒜 depends only on those coordinates; mean kept). It is then d-local in the
+sense of EK §1 on the coordinates `y_ℓ = n mod ℓ`, ℓ ∈ `{ℓ_i, ℓ'_i}`, since
+a term of level `≤ λ` contains at most d of these primes. Order the
+coordinates so that `ℓ_i` precedes `ℓ'_i`; the patterns are the pairs
+`(x,y)` with `α(x)+β(y) ∈ B`, top `ℓ'_i`. Given `y_{ℓ_i}`, the activated
+set at `ℓ'_i` has `≤ 2ηℓ'_i + 1` points, so `p ≤ 2η + 1/ℓ'_i ≤ 1/4 = δ`:
+every coordinate is light, the plain rule never leaks (EK Lemma 2.1(1)),
+and `M ≤ K/4`. EK Thm 2.5 with Cor 2.6 (`m̄ = K/4`) gives
+`E_U ν ≥ E[e^{−Φ}ν(y)] ≥ E e^{−Φ} ≥ e^{−EΦ}` with the stated bound. ∎
+
+**Lemma 8.3 (an L² majorant of the allowed arc; PROVED).** Let
+`J = [−1/2+η, 1/2−η]` (mod 1) and `R = ⌈4/η²⌉`. There is a real
+trigonometric polynomial `P(t) = Σ_{|m|≤R} c_m e(mt)` with `P ≥ 1` on J and
+`Σ_m |c_m|² = ∫_0^1 P² ≤ 1 − η/3`.
+
+*Proof.* Let `I = 1[‖t − 1/2‖ ≤ η/2]`, `F_R` the Fejér kernel of degree R
+(`F_R ≥ 0`, mean 1, `F_R(z) ≤ 1/(4(R+1)z²)` for `‖z‖ ≤ 1/2`), and
+`G = I ∗ F_R`: real, degree R, `0 ≤ G ≤ 1`, `∫G = η`, `∫G² ≤ ∫G = η`. For
+`t ∈ J`, every point of supp I is at distance `≥ η/2` from t, so
+`G(t) ≤ η·(4(R+1)(η/2)²)^{−1} = 1/((R+1)η) ≤ η/4`. Put
+`P = 1 + η/4 − G`. Then `P ≥ 1` on J and
+`∫P² = (1+η/4)² − 2(1+η/4)η + ∫G² ≤ 1 + η/2 + η²/16 − 2η + η ≤ 1 − η/3`
+for `η ≤ 1/8`. ∎
+
+**Proposition 8.4 (the large sieve saves `≍ log N`; PROVED).** Let
+`K = ⌊log(N/3)/log(2R+1)⌋` and let every `D_i` be large enough (as
+specified in the proof). There are `a_i` and a Montgomery–Vaughan system
+`Θ = {Σ_i m_iθ_i : |m_i| ≤ R}`, `θ_i = a_i/D_i`, with weights
+`w ≥ 3/(5N)` such that every `A ⊂ 𝒜 ∩ I` (`|I| = N`) satisfies
+
+    |A| ≤ (5N/3)(1 − η/3)^K,   i.e. saving ≥ (η/3)K − log(5/3) ≍ η log N / log(1/η).
+
+*Proof.* *Spacing.* Put `Ξ = (2R+1)^K ≤ N/3`, `β_i = (2R+1)^{−i}`, and
+choose `a_i` coprime to `D_i` with `|a_i/D_i − β_i| ≤ ε := 1/(4KRΞ)`
+(possible once `D_i ≥ 4/ε = 16KRΞ`: the interval `[D_i(β_i−ε), D_i(β_i+ε)]`
+contains 4 consecutive integers, of which at most one is divisible by
+`ℓ_i` and at most one by `ℓ'_i`, as both are `≥ 5`).
+The numbers `Σ_i m_iβ_i`, `|m_i| ≤ R`, are the `Ξ` distinct integers in
+`[−(Ξ−1)/2, (Ξ−1)/2]` divided by Ξ, so they are `Ξ^{−1}`-spaced mod 1
+(the total span is `< 1`). Each `Σm_iθ_i` moves by `≤ KRε = 1/(4Ξ)`, so Θ
+has `Ξ` distinct points, spacing `δ ≥ 1/(2Ξ)`, `δ^{−1} ≤ 2N/3`.
+Montgomery–Vaughan: `Σ_θ|Σ_{n∈I}a_ne(nθ)|² ≤ (N + δ^{−1})Σ|a_n|²`, so
+`w = (N+δ^{−1})^{−1} ≥ 3/(5N)`.
+*Dual polynomial.* `g(n) = Π_i P(nθ_i) = Σ_{θ∈Θ}γ_θe(nθ)` with
+`γ_{Σm_iθ_i} = Π_i c_{m_i}` (the points of Θ are distinct). g is real,
+and `g ≥ 1` on 𝒜 since each `nθ_i ∈ J` there. For `A ⊂ 𝒜 ∩ I`, by
+Cauchy–Schwarz and MV,
+`|A| ≤ Σ_{n∈A}g(n) = Σ_θγ_θ S_A(θ) ≤ (Σ|γ|²/w)^{1/2}(Σ_θ w|S_A(θ)|²)^{1/2}
+≤ (Σ|γ|²/w)^{1/2}|A|^{1/2}`, so `|A| ≤ Σ|γ|²/w ≤ (5N/3)(Σ_m|c_m|²)^K`,
+and Lemma 8.3 finishes. This is a CRT-admissible large-sieve bound in the
+sense of LS §1 (it is Thm 2.1's (≥) direction). ∎
+
+The frequencies used have denominators `Π_{i∈T}D_i` with `|T|` up to K,
+i.e. level up to `Σ_i L_i`, which is `≥ Kλ` in case (a) of Prop 8.2:
+**super-polynomial level** whenever `λ ≥ log N`.
+
+### 8.2 The escape theorem and what it says about (E1)
+
+**Theorem 8.5 (explicit (E1) escape for dense families; PROVED).** For
+every `λ ≥ 1`, every `N ≥ N₀` and `η = 1/9` there is a finite class family
+(the band family with `K = ⌊log(N/3)/log(2R+1)⌋`, `R = 324`, all
+`ℓ_i, ℓ'_i > max(W, e^{λ/2}, (16KRN)^{1/2})`) such that
+* every majorant of level `≤ λ` has `E_Uν ≥ 1` (Prop 8.2(a)); the level-λ
+  comparison measure of Lemma 1.1 exists with `S = 0`;
+* a Montgomery–Vaughan large sieve with `≤ N/3` frequencies, all of level
+  `> λ` except 0, proves `|𝒜 ∩ I| ≤ (5N/3)e^{−K/27}`, a saving
+  `≥ c log N` with `c = 1/(27 log 649) − o(1) > 0` (Prop 8.4).
+
+The large sieve beats the level-λ comparison by a power of N, for every
+λ. (Consistency: the true density of 𝒜 is `≈ (1−2η)^K ≈ N^{−0.039}`,
+below the sieve bound `N^{−0.0057}`.)
+
+**Consequences.**
+1. **No proof of (E1) from the comparison principle alone.** Lemma 1.1
+   at any level λ, Facts 1.1/4.0 and duality do not cap large sieves with
+   frequencies of level `> λ`: the band family satisfies all of them and
+   still loses `≍ log N`. Prop 5.2's condition (b) fails there for every
+   π on 𝒜: for each i, `1 ≤ E_πP(nθ_i) ≤ c₀ + Σ_{m≠0}|c_m||π̂(mθ_i)|` with
+   `c₀ = ∫P ≤ (∫P²)^{1/2} < 1`, so some `|π̂(mθ_i)| ≥ (1−c₀)/Σ|c_m|`, a
+   constant, at a frequency of level `L_i > λ`.
+2. **What the band family violates.** It carries class mass `≈ 2η` at a
+   *single* modulus `D_i` of level `> λ` (≍ ηD_i classes mod `D_i`). It is
+   also heavy in the K2 sense (`p = 2η` per top prime, not `≤ ℓ^{−1/2}`;
+   `E p_ℓ²` is not `≪ ℓ^{−7/4}`). Forced families satisfy
+   > **(Sp)** for every D, the classes whose modulus is divisible by D have
+   > total mass `≤ D^{−1+o(1)}` (moduli `≤ N^{O(1)}`),
+
+   by the divisor bounds of K2 §3. Any proof of (H_LS∞) must use (Sp) or
+   the K2 moment hypotheses in an essential way; the comparison measure
+   does not see them beyond level λ.
+3. **The budget heuristic (Assessment).** In the band family each bundle
+   of mass m gains `≈ m` and costs `≈ log(1/m)` of the frequency budget
+   `log N`, so the large sieve gains `≈ log N·m/log(1/m)`. Exceeding
+   `(log N)^{3/4}` needs bundles of mass `≥ (log N)^{−1/4+o(1)}` at level
+   `> λ`; under (Sp) a single modulus of level `> λ ≥ log N` carries mass
+   `≤ N^{−1+o(1)}`. So for forced families an escape would have to come
+   from **collective** correlations of many sparse low-level classes,
+   which is exactly what (H_LS∞) rules out heuristically (§5 polymer
+   heuristic). This is not a proof.
+
+## 9. Composite kernels: the level hypothesis removed; the factor localised
+
+Notation of §4. Assume every prime of 𝔊 and of the kernel moduli is
+`≤ e^{Λ₀}`.
+
+**Theorem 9.1 (kernel cap at any level; PROVED, conditional on K2 Thm 5.1
+/ KARY3 Thm 4.1).** With `λ = max(λ₀, 2 log N + Λ₀)`, every CRT-admissible
+kernel bound satisfies
+
+    B ≥ (N/2) e^{−S(λ)} / (1 + Nh/(W_K − h)),
+
+with **no** hypothesis on the levels of the kernel moduli.
+
+*Proof.* Split `𝒮 = 𝒮_< ∪ 𝒮_≥` (`q < N`, `q ≥ N`). For `q ∈ 𝒮_≥` let
+`q°` be the shortest prefix of q (its W-smooth part, then its prime
+powers `p^{v_p(q)}`, `p > W`, in increasing order of p) with `q° ≥ N`, or
+`q° = q`. The prefix before the last step is `< N`, so `λ(q°) ≤ log N + Λ₀`.
+Moduli `q < N` have level `≤ log N`. Take π from Lemma 1.1 with
+`𝒟 = {1} ∪ {lcm(q,q') : q,q' ∈ 𝒮_<} ∪ {q° : q ∈ 𝒮_≥}` (levels `≤ λ`).
+* `q ∈ 𝒮_≥`: `coll_q(π) ≤ max_b π(b mod q) ≤ max_b π(b mod q°) ≤ e^S/q° ≤ e^S/N`
+  (Lemma 1.1 with `f = 1[n ≡ b (q°)]`).
+* `𝒮_<`: as in Thm 4.2, `Σ_{q∈𝒮_<}w(q)coll_q(π) ≤ D_u^< + e^S max_{θ≠0}w̃^<_θ`,
+  and Lemma 4.1 for the sub-kernel `K_<` (whose `h_< ≤ h`, `W_< ≤ W_K`)
+  gives `w̃^<_θ ≤ h + W_</N`.
+
+With `D_u^< ≤ D_u ≤ h + (W_K−h)/N` this yields
+`D(π) − h ≤ (W_K−h)/N + e^S(h + W_K/N) ≤ e^S((2W_K − h)/N + h)`, and
+`B ≥ (W_K−h)/(D(π)−h) ≥ N e^{−S}(W_K−h)/(2(W_K−h) + h + Nh)`, which is the
+claim since `h ≤ Nh`. ∎
+
+So for kernels the level is never the obstruction (in contrast to the
+large sieve, §8): moduli `≥ N` are handled by anti-concentration of π
+alone. What is left is the factor `1 + Nh/(W_K−h)`.
+
+**Proposition 9.2 (rough kernels: the factor is harmless; PROVED,
+unconditional as Thm 4.3).** Let `T ≥ W₀` and suppose every kernel
+modulus q is coprime to all primes `≤ T` and has `ω(q) ≤ T^{1/4}`. Then
+every CRT-admissible kernel bound saves at most
+
+    log(1 + ε_T + ε_T·Nh/(W_K − h)),     ε_T = C(log T)^c T^{−1/4}.
+
+*Proof.* Let σ be the plain sequential law of Thm 4.3 with `W := T`, and
+`π = σ(·|𝒜)`. For a T-rough q, EK Lemma 2.1(2) gives the pointwise
+density bound `dσ_q/dU_q ≤ Π_{ℓ|q}(1−ℓ^{−1/2})^{−1} ≤ e^{2ω(q)T^{−1/2}}`
+for the law of n mod q (the base coordinates are not involved), so
+`1 + χ²_q(σ) ≤ e^{2T^{−1/4}}`. With `𝔏 ≤ C(log T)^cT^{−1/4}` (K2 Lemma 4.3,
+W-uniform) and the conditioning step of Thm 4.3,
+`χ²_q(π) ≤ e^{2T^{−1/4}}(1+4𝔏) − 1 ≤ ε_T`. Hence
+`X(π) ≤ ε_T D_u ≤ ε_T(h + (W_K−h)/N)` (LS Lemma 6.1), and LS Thm 6.2's
+bound `log(1 + NX/(W_K−h))` gives the claim. ∎
+
+So a composite kernel can exploit `W_K − h ≪ Nh` only if
+`Nh/(W_K − h) ≳ T^{1/4−o(1)}` where T is the least prime dividing some
+kernel modulus with nonzero weight: **the factor problem lives at small
+primes**. There the avoider set is genuinely non-uniform (selector classes
+`0 mod p`; ℛ(3) forbids `n ≡ 2 mod 3`), so no π on 𝒜 has `χ²_q(π)` small
+for such q, and the subtraction of h must absorb that non-uniformity.
+
+*Status (Assessment).* We could not prove that it always does, and we
+found no family and kernel where it fails. One observation: Theorem 9.1's
+proof uses only the existence of a comparison measure (1.1), so it applies
+to the band family of §8 with `S = 0` once every `L_i > 2log N + Λ₀` (e.g.
+all `ℓ_i, ℓ'_i ∈ [N³, 2N³]`). Every kernel with `h = 0` (all moduli
+`≥ N`) then saves `≤ log 2` on it: kernels resist the dense-bundle escape
+that defeats the large sieve, and any kernel escape must use moduli
+`< N`, where Prop 9.2 forces small prime factors.
+
+Open precisely: kernels with `Nh/(W_K − h) ≥ exp((log N)^{3/4})` whose
+moduli have prime factors `≤ (Nh/(W_K − h))^{4+o(1)}`.
