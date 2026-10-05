@@ -4,7 +4,7 @@ Task O38 (branch `esw-suppression`). Labels as in the house rules. ES is not
 touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O2, O8, O9 likewise; `𝓛=log T`.
 
-**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); not yet reviewed.**
+**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); self-review R38a (deep): no FATAL/MAJOR in the mathematics, minors applied.**
 
 ## 0. Notation
 
@@ -284,7 +284,7 @@ it contains an edge through v,
 Θ(𝒞) = Θ(𝒞−v) + λ_v[Θ(𝒞/v) − Θ(𝒞−v)] = λ_v Θ(𝒞/v) − μ_v Θ(𝒞−v).
 ```
 
-Both families again have all weights `≤2` (`w_{E∖v}=w_E/λ_v`), and
+Both families again have all weights `≤2` (`w_{E∖v}=w_E/λ_v` for `E∋v`, unchanged otherwise), and
 vertex sets smaller by one. Induct on the number of vertices.
 If `∅∈𝒞`, then `Θ(𝒞)=0` (toggling the empty edge pairs the terms), so the
 claim holds. If `𝒞=∅`, `Θ=1` and `𝓜=∅`. If `𝓜=∅` and `𝒞≠∅`, it
@@ -325,7 +325,7 @@ bad- or good-indicator of a single-value system whose events have support
 `≤k`, on any finite product of uniform spaces (any alphabet sizes). Then
 
 ```
-energy(f; t) = Σ_{|U|>t}‖f^{=U}‖² ≤ 2^{−(t+1)/k}     for all t≥0.
+energy(f; t) = Σ_{|U|>t}‖f^{=U}‖² ≤ 2^{−(t+1)/k}     for all integers t≥0 (k≥1).
 ```
 
 *Proof.* Corollary 3.5 with `λ_v=2^{1/k}`, and `f^{=U}=−F^{=U}` for `U≠∅`. ∎
@@ -333,7 +333,8 @@ energy(f; t) = Σ_{|U|>t}‖f^{=U}‖² ≤ 2^{−(t+1)/k}     for all t≥0.
 This is the energy form of ESW (O8 §6.4) with no dependence on the alphabet
 size, on masses or on codegrees. It is the q-ary analogue of the Boolean
 fact "width-w DNFs are ε-concentrated up to degree `O(w log 1/ε)`", here
-with the sharp constant (`λ^k=2` is attained by a single event, §2).
+with the threshold `λ^k=2` of Cor 3.5 sharp as the alphabet sizes grow (a single
+event has `G=1−π(2−∏(λ_v−(λ_v−1)/q_v))`, §2). The tail rate itself is not claimed sharp.
 
 **Theorem 4.2 (junta term without the bit factor; PROVED, as an
 implication inside O8 Thm 3.4 / O9 Thm 2.2).** In O8 Thm 3.4 (events split
@@ -356,7 +357,9 @@ log Z ≤ log Q_Π + 2(3k+2t+1)𝓛 ≪ log Q_Π + k𝓛(S*+k𝓛) ≪ log Q_Π 
 The rest of O9 Thm 2.2 is unchanged: Lemma 2.1 gives `A≤1.03`, the twist
 uses only `E[F−B]≤δ/100`, and the cells of B lie on `≤3k+2t` free primes.
 
-So the junta term drops from `≍𝓛^7` to `≪𝓛^6`, and
+So the junta term drops from `≍𝓛^7` to `≪𝓛^6`, and already
+`log L_h(T) ≪ 𝓛^7/log𝓛`, i.e. `W(p) ≥ exp(c(log p·log log p)^{1/7})` i.o. (a log
+gain over O9 Thm 2.2), and
 `log Q_Π≪𝓛^7/log𝓛` is now the **only** term of order `𝓛^7`. With a
 quarantine `log Q_Π≪𝓛^6` (task item (b)), O9 Thm 2.2 would give exponent
 1/6. That is O9 Cor 4.2's ceiling for coordinate-counting arguments, and
@@ -370,7 +373,7 @@ Suppose every event's modulus satisfies `∏_{ℓ∈supp E}ℓ^{a_ℓ} ≤ T^ρ`
 truncation at modulus `e^τ`, `τ:=ρ𝓛·⌈log₂(100m²(S+1)e^{3S})⌉`, satisfies EL,
 and `log Z ≤ log Q_Π + O(ρ𝓛(S+k𝓛))`. If all free primes enter the event
 moduli to the first power (`ρ=1`), this is `≪ log Q_Π+𝓛^5log𝓛` under ET.
-Exponent 1/5 would then need `log Q_Π≪𝓛^5log𝓛`. We have **not** checked
+`W ≥ exp(c(log p/log log p)^{1/5})` would then need `log Q_Π≪𝓛^5log𝓛`. We have **not** checked
 whether the ES events at free primes `>z` use higher prime powers, or
 whether those can be quarantined cheaply. (Digit coordinates do not
 help: a junta function of the i-th base-ℓ digit alone needs modulus
@@ -402,4 +405,6 @@ export PYTHONPATH=scripts
 (ulimit -v 8000000; timeout 900 uv run python scripts/omega10_qmin.py 1 20000 9)    # Q'
 (ulimit -v 8000000; timeout 900 uv run --with scipy python scripts/omega10_fm.py 1 20000 9)  # FM
 (ulimit -v 8000000; timeout 900 uv run python scripts/omega10_xsign.py 1 20000 8)   # X<0 cases
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_qtheta.py 1 300 7)    # Lemma 3.2 identity (exact enumeration)
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_theta.py 1 30000 10)  # |Theta|<=1 (Lemma 3.3)
 ```
