@@ -136,3 +136,50 @@ the precision demanded is `η_K/e_{u₀} ≤ e^{−(2/e²)(log N)^θ}`. At θ < 
 the inequality reverses and TC holds (T1 Prop 2.4): **2/3 is exactly the
 point where the literal moment hypothesis starts to "see" the integer
 structure of single forms.**
+
+## 3. Is literal TC_θ false above 2/3?
+
+**Lemma 3.1 (the class −1 is one-sided; PROVED).** Let G be a set of
+primes `ℓ ≡ 3 (4)`, `ℓ ≤ y`, `q_G = Π_G ℓ`, and `T_G` the tuple with class
+−1 at each ℓ ∈ G. Then `C_{T_G}(N) = ⌊(N+1)/q_G⌋ ≤ N/q_G + 1/q_G`, and
+`= 0` if `q_G > N+1`. Hence the pure-(1,1) part of every `S_j(N)` is at
+most its CRT value plus `Σ_{|G|=j} 1/q_G ≤ (log log y)^j/j!`, minus the
+forced-zero mass, minus `Σ_{q_G ≤ N+1} ({(N+1)/q_G} − 1/q_G)·`(≥ 0 up to `1/q_G`).
+
+*Proof.* `n ≤ N` with `q_G | n+1` ⟺ `n+1 ∈ q_Gℤ ∩ [2, N+1]`; there are
+`⌊(N+1)/q_G⌋` such (q_G ≥ 3). ∎
+
+So inside one form, the interval count is **never** above CRT by more than
+`1/q`, and it is below CRT by the full CRT share once `q > N+1`, and by the
+fractional part `{(N+1)/q}` (≈ ½ on average over N, Assessment) below that.
+These are the Kubilius truncation and rounding effects of the single
+integer `n + 1`. The floor deficit has the same order of magnitude as the
+forced-zero mass: the number of j-sets of primes of 𝒬 with product
+`≤ N+1` at `j = ⌊log(N+1)/log y⌋` is `≥ (|𝒬|−j)^j/j! = N·exp(−(log N)^{1−θ/2+o(1)})`
+in the TC_θ calibration, again `≫ Nη_K` for θ > 2/3.
+
+**Assessment 3.2 (literal TC_θ is false for every θ ∈ (2/3, 1); heuristic).**
+By (1.3) and Cor 2.3, TC_θ holds only if the admissible u₀-tuples
+over-represent [1,N] by at least `N Z_{u₀}`, and (by Lemma 3.1) this excess
+must come from tuples that are **not** pure class −1. Compare with the
+natural fluctuation scale. The sum `S_{u₀}` is a sum over N integers of
+`binom(f(n), u₀)`, whose CRT second moment is `≤ binom(2u₀,u₀) e_{2u₀}`, so
+a square-root-cancellation model gives fluctuations
+`≲ N^{1/2}(2μ)^{u₀}/u₀!·(u₀!/√((2u₀)!))·…`, crudely `≤ N^{1/2}(4μ)^{u₀}/u₀!`.
+Against `N Z_{u₀} ≥ N(σ_y/2)^{u₀}/u₀!` the ratio is
+`N^{1/2}(σ_y/(8μ))^{u₀} = N^{1/2 − o(1)}` (as `u₀ log(μ log y) = o(log N)`).
+So TC_θ would need the multi-form tuples to conspire to an aggregate
+excess `N^{1/2−o(1)}` times the noise floor, matching (to precision η_K) a
+deficit that comes from the unrelated integer `n + 1`. No mechanism for
+this is known or plausible: multi-form tuples have no common integer, and
+their CRT solutions have no small rational representative. **We therefore
+expect TC_θ to be false for every θ ∈ (2/3, 1)**, and true for θ < 2/3
+(T1 Prop 2.4). This is an Assessment, not a theorem: a proof would need an
+upper bound for the multi-form tuple counts above modulus N, which is the
+same kind of input that TC itself needs.
+
+**Consequence.** The moment-by-moment hypothesis is the wrong door. A
+method that "verifies TC_θ" for θ > 2/3 would have to evaluate moments
+whose true value differs from CRT by `≫ η_K`; what Theorem 2.1 of T1
+actually uses is only the alternating sum, where (§4) the single-form
+deviations cancel.
