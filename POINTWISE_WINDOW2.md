@@ -413,3 +413,25 @@ has visible points need fewer zero correlations. This is the precise sense in
 which the fake is "joint". A closed-form continuum construction exploiting
 it was **not** obtained. The continuum model theorem (fake at θ=1/2 for ε→0)
 remains open; Prop 3.7 is the strongest statement proved.
+
+## 7. Switching on actual primes: the required constant versus known ones (started)
+
+### 7.1 Translation of the §6.2 caps (Assessment, with one new number)
+A §6.2 cap applies to a configuration in which some `n_q` has a q-bad prime `r≥x^α`,
+`n_q=m·r` with m in a prescribed class. On primes, the cap means an upper bound for
+`#{r∈I prime : 4mr−q prime}` (plus the other window's sifting conditions on
+`mr+(q'−q)/4`), summed over m. That is a Chen-type switched prime-pair count in the variable r.
+With BV in r (level `(x/m)^{1/2}`) and the linear upper sieve, the bound is
+**4×** the Hardy–Littlewood main term. Wu-type weighted switching (Chen's method;
+Wu 2004 for twin primes, ≈3.39–3.40×; recalled, not re-checked) is the best known.
+
+Required constant (coarse grid ε=0.1, K=8, θ=1/2, α=0.6; `window2_feas.py
+--swcap=K:0.6 --v=0`): feasible fake (no positivity) at **K=2.75** (residual
+4·10⁻¹⁶). Infeasible at K=2.5 (residual 1.6·10⁻³) and K=2.25. So
+**K*∈(2.5,2.75]**, while the best known switched prime-pair constant is ≈3.4. The
+numerical gap is a factor ≈1.25–1.35, under the generous assumption that the caps
+need hold only *bin-wise* and only on configurations with a prime factor ≥x^{0.6}.
+The real switched counts also carry the other window's half-dimensional
+conditions, which makes them no easier. **No unconditional `a_min≥11` follows.**
+Not done (context limit): the K*(α) curve for α<0.6, a finer grid, and a check
+of the exact Wu constant in the source.

@@ -63,3 +63,9 @@ data `data/window2/fake_eps0.1_K8_theta0.5.json.gz`; archived sources `sources/w
   certified fake needs the mixed-level relaxation. No continuum construction was obtained,
   so the continuum model theorem is still open.
 * Not done: bigger grids (step 1).
+
+## Round 3 (switching on actual primes, §7; stopped at the context limit)
+* The §6.2 caps translate to Chen-type switched prime-pair counts `#{r: 4mr−q prime}`.
+  The BV linear sieve gives 4×. The best known (Wu-type) is ≈3.4× (recalled, not re-checked).
+* Required K* (coarse grid, α=0.6) ∈ (2.5, 2.75]. **Gap ≈1.25–1.35×. No unconditional a_min≥11.**
+* §§1–6 untouched in this round. Open: the K*(α) curve, finer grids, primary-source Wu constant.
