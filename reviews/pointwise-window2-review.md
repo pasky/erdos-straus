@@ -48,3 +48,12 @@ Status: in progress.
 * Sedunova (arXiv 2609.28200, archived): abstract — FI09 lower bound conditional; unconditional
   asymptotic for square-free distances; ≤7 prime factors via level x^{1/6} of r(n−2)r(n+2). Matches.
 * Nath–Xie (arXiv 2501.16723, archived): Thm 1.1 `#{p=m²+n²+1, Ω(p+2)≤9} ≫ x/(log x)^{3/2}`. Matches.
+
+### Model scope (§3.1, §4 route "Pure Type-I", §5 last paragraph) — GAP (overclaimed scope; see M2)
+The model's data are the correlations of the *bad* prime factors only; good primes and primes
+< x^ε are lumped into the clean weight `(1−Σt)^{−1/2}`. Real Type-I data at BV level include
+`|A_d|` for all d≤x^{1/2} (good and mixed d). A reweighting ν(C)/μ(C) that moves mass between
+configurations with different cofactor sizes 1−Σt changes the good-divisor correlations, so the
+model fake is **not** shown to be a fake for "all Type-I data". The §2 axioms (d | P₃(z)) are
+consistent with the model; the wording in §4 ("any weights, any combinatorics") and §5
+("Methods that provably cannot give a_min≥11 …") is not.
