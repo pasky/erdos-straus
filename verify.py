@@ -17489,4 +17489,127 @@ print("\n== (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence da
 check_co()
 
 
+# ---------------------------------------------------------------- (cp)
+# EXCEPTIONAL_TUPLES2.md: forms Lemma 1.1, forced zeros Cor 1.2 / (1.3), Lemma 3.1,
+# and the Thm 4.1 Euler-characteristic identity (cf. scripts/review_t2_forms.py,
+# scripts/review_t2_altsum.py).
+# (1) Lemma 1.1: for primes l = 3 (4), l <= 1500, A = (l+1)/4: (r,s,m) -> r^2 m is a
+#     bijection {rsm = A, gcd(r,s) = 1} -> divisors of A^2; n = -4D (l) <=> l | ns + r
+#     (all n mod l); -1 in R(l); 4rs | l+1.
+# (2) On small (y, N): Cor 1.2 (every hit set H(n), n <= N, has all form-groups
+#     admissible) and (1.3) S_j(N) = sum over admissible j-tuples of C_T(N); Lemma 3.1
+#     C_{T_G}(N) = floor((N+1)/q_G) for the pure class -1.
+# (3) Thm 4.1 proof identity, exact rationals: sum_j (-1)^j e_j^A = E_CRT a(H),
+#     a(H) = prod_phi chi_phi(H_phi) (tuple vs configuration enumeration); full
+#     sum_j (-1)^j e_j = prod(1 - p_l); and the intermediate two-sided bound
+#     |E a(H) - P(H = 0)| <= Pi(1-p) [prod_phi (1 + sum_{k >= u1} e_k(w_phi)) - 1].
+
+def check_cp():
+    from time import perf_counter
+    from math import comb
+    from sympy import divisors as _divs
+    t0 = perf_counter()
+
+    # (1) Lemma 1.1
+    nl = 0
+    for l in primerange(3, 1501):
+        if l % 4 != 3:
+            continue
+        nl += 1
+        A = (l + 1) // 4
+        trip = [(r, s, A // (r * s)) for r in _divs(A) for s in _divs(A // r) if gcd(r, s) == 1]
+        Ds = [r * r * m for r, s, m in trip]
+        assert len(set(Ds)) == len(Ds) and set(Ds) == set(_divs(A * A)), ("TUPLES2 Lemma 1.1 bijection", l)
+        assert (l - 1) in {(-4 * D) % l for D in Ds}, ("TUPLES2 -1 in R(l)", l)
+        for r, s, m in trip:
+            assert (l + 1) % (4 * r * s) == 0
+            D = r * r * m
+            for n in range(l):
+                assert ((n + 4 * D) % l == 0) == ((n * s + r) % l == 0), ("TUPLES2 (1.1)", l, r, s, n)
+
+    # (2), (3) small brute force
+    def run(y, N):
+        primes = [l for l in primerange(3, y + 1) if l % 4 == 3]
+        cls = {}
+        for l in primes:
+            A = (l + 1) // 4
+            forms = {}
+            for r in _divs(A):
+                for s in _divs(A // r):
+                    if gcd(r, s) == 1:
+                        forms.setdefault((-r * pow(s, -1, l)) % l, []).append((r, s))
+            cls[l] = sorted((b, (1, 1) if b == l - 1 else min(fl, key=lambda t: (t[0] * t[1], t[0])))
+                            for b, fl in forms.items())
+            assert (1, 1) in forms[l - 1]
+
+        def adm(pairs):
+            g = {}
+            for l, f in pairs:
+                g[f] = g.get(f, 1) * l
+            return all(q <= N * f[1] + f[0] for f, q in g.items())
+
+        J = len(primes)
+        S = [0] * (J + 1)
+        SA = [0] * (J + 1)
+        for n in range(1, N + 1):
+            H = [(l, f) for l in primes for b, f in cls[l] if n % l == b]
+            assert adm(H), ("TUPLES2 Cor 1.2", y, N, n)
+            for k in range(len(H) + 1):
+                S[k] += comb(len(H), k)
+                SA[k] += sum(1 for T in combinations(H, k) if adm(T))
+        assert S == SA, ("TUPLES2 (1.3)", y, N)
+        for k in range(1, J + 1):
+            for G in combinations(primes, k):
+                q = prod(G)
+                c = sum(1 for n in range(1, N + 1) if all(n % l == l - 1 for l in G))
+                assert c == (N + 1) // q, ("TUPLES2 Lemma 3.1", G)
+        opts = [[None] + [(l, f) for b, f in cls[l]] for l in primes]
+        e = [Fraction(0)] * (J + 1)
+        eA = [Fraction(0)] * (J + 1)
+        Ea = Fraction(0)
+        ninadm = 0
+        for cfg in cartesian_product(*opts):
+            T = [c for c in cfg if c is not None]
+            d = Fraction(1, prod(l for l, f in T))
+            e[len(T)] += d
+            if adm(T):
+                eA[len(T)] += d
+            else:
+                ninadm += 1
+            pH = prod(Fraction(1, l) if c is not None else Fraction(l - len(cls[l]), l)
+                      for l, c in zip(primes, cfg))
+            groups = {}
+            for l, f in T:
+                groups.setdefault(f, []).append((l, f))
+            a = 1
+            for G in groups.values():
+                a *= sum((-1) ** k for k in range(len(G) + 1) for U in combinations(G, k) if adm(U))
+            Ea += pH * a
+        P0 = prod(Fraction(l - len(cls[l]), l) for l in primes)
+        assert sum((-1) ** j * eA[j] for j in range(J + 1)) == Ea, ("TUPLES2 Thm 4.1 Euler char", y, N)
+        assert sum((-1) ** j * e[j] for j in range(J + 1)) == P0, ("TUPLES2 full alt sum", y, N)
+        assert ninadm > 0 and Ea != P0, ("TUPLES2 test not exercising inadmissible groups", y, N)
+        u1 = int(log(N) / log(y)) + 1
+        assert y ** (u1 - 1) <= N < y ** u1
+        brk = Fraction(1)
+        for r, s in {f for l in primes for b, f in cls[l]}:
+            c = [Fraction(1)]
+            for w in [Fraction(4, l) for l in primes if (l + 1) % (4 * r * s) == 0]:
+                c = [c[k] + (w * c[k - 1] if k else 0) for k in range(len(c))] + [w * c[-1]]
+            brk *= 1 + sum(c[u1:])
+        assert abs(Ea - P0) <= P0 * (brk - 1), ("TUPLES2 Thm 4.1 intermediate bound", y, N)
+        return len(primes), ninadm, float(Ea), float(P0)
+
+    res = [(y, N) + run(y, N) for y, N in [(20, 50), (24, 300), (32, 200), (44, 1000)]]
+    print(f"cp Lemma 1.1: {nl} primes l = 3 (4) <= 1500 (bijection, (1.1) on all residues, -1 in R(l))")
+    for y, N, J, ni, ea, p0 in res:
+        print(f"cp y={y} N={N}: {J} primes; Cor 1.2, (1.3), Lemma 3.1 exact; {ni} inadmissible configs; "
+              f"sum(-1)^j e_j^A = E a(H) = {ea:.5f} (Pi(1-p) = {p0:.5f}); intermediate bound ok")
+    print(f"cp seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cp) EXCEPTIONAL_TUPLES2: forms Lemma 1.1, Cor 1.2/(1.3), Lemma 3.1, Thm 4.1 identity ==")
+check_cp()
+
+
 print("\nall checks passed")
