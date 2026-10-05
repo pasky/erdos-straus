@@ -115,3 +115,51 @@ numerically `log∏(1−2P) ≥ −2.07S` in all runs. O2's arithmetic
 **What OMEGA8 needs from Π** — supports ≤k, `w_ℓ≤1/(64k)` for all free ℓ,
 `S≤S*`, (I), `840|Q_Π` (z≥7), `log Q_Π≤(π(z)+64k²S*)𝓛+log 24` — all
 delivered. Verdict (2): **SOUND.** (Minor: D4.)
+
+## 3. Definition chain and the conversion to `(log p)^{1/14}`
+
+**Definitions.** PO §0: `A_M=(M+1)/4`, `𝓡(M)={−4D mod M: D|A_M²}`,
+`W(n)=min{M≡3 (4): n mod M∈𝓡(M)}`. This agrees with the multiplier-witness
+definition blind51 (B1.1) `min{M: (M+1)/4=uvw, pv≡−u (M)}`: `v^{−1}≡4uw`
+gives `−uv^{−1}≡−4u²w`, and every `D|A²` is `u²w` with `uvw=A` (per prime:
+`d≤a`: x=0,z=d,y=a−d; `d>a`: x=d−a, z=2a−d, y=0) — checked by brute force
+for all M≤2000 (§2 script, part (a)). "Hard" = one of Mordell's six classes
+mod 840, contains 1 mod 840. `L_h(T)=min{p>T prime, p≡1 (24), W(p)>T}`
+(notes l. 21604).
+
+**Produced primes.** Π ⊇ {ℓ≤z}, z=𝓛²≥7, so `840 | Q_Π` and every
+`p≡1 (Q_Π)` is ≡1 (840) (Mordell-hard) and ≡1 (24); `p>Q_Π>T` (already
+`5^{e_5}7^{e_7}>T²/35`), so the auxiliary ℓ_0 is not even needed for `p>T`.
+PO Thm 4.1 returns a **prime** p≡1 (Q_Π ℓ_0) with `B(p)>0` for some such p,
+hence `W(p)>T` ✓, so `L_h(T)≤p` ✓.
+
+**Exponents (re-derived; `scripts/review_o8b_exponents.py`,
+`data/review_o8b/exponents.txt`).** With z=𝓛²: `k≤𝓛/(2log𝓛)`,
+`b≍𝓛`, `k_0 ≍ S + k𝓛 ≪ 𝓛^4log𝓛` (ET), so `t=2C_Hkbk_0 ≪ (𝓛/log𝓛)·𝓛·𝓛^4log𝓛
+= 𝓛^6` (the logs cancel); `K ≪ S*+(k+t)𝓛 ≪ 𝓛^7`;
+`log Q_Π ≤ (π(𝓛²)+64k²S*)𝓛+log24 ≪ 𝓛^7/log𝓛`; `log Z ≤ log Q_Π + log ℓ_0 +
+log max d ≪ 𝓛^7`; `log p ≤ C_1K max(log Z,K) ≪ 𝓛^{14}`. Then `𝓛 ≥
+(log p/C)^{1/14}` and `W(p)>e^𝓛 ≥ exp(c(log p)^{1/14})`, `c=C^{−1/14}` ✓.
+Numerically (all absolute constants =1, C_H=5, worst case S=S*), the ratios
+`log t/log𝓛, log K/log𝓛, log log Z/log𝓛, log log p/log𝓛` are
+`6+4.1/log𝓛, 7+6.2/log𝓛, 7+5.5/log𝓛, 14+12.4/log𝓛` at every 𝓛 from 10³ to
+10³⁰ — i.e. exactly `𝓛^6, 𝓛^7, 𝓛^7, 𝓛^{14}` up to absolute constants, no
+hidden `log𝓛` powers and no parameter-dependent constants ✓.
+
+Verdict (3): **SOUND** (minor D2).
+
+## 4. Thm 4.4 (modulo Thorner–Zaman only)
+
+Unconditionally `S* ≤ C log𝓛(3+𝓛)(1+𝓛)²τ*(4T+1)` and Wigert
+(`log τ(n) ≤ (log2+o(1))log n/log log n`) give `log S* ≤ (log2+o(1))𝓛/log𝓛`.
+Every quantity in §3 is `≤ 𝓛^{O(1)}(S*+1)` (t ≪ k𝓛(S+k𝓛), K, log Z), so
+`log p ≪ 𝓛^{O(1)}S*²`, `log₂p ≤ 2log S*+O(log𝓛) ≤ (2log2+o(1))𝓛/log𝓛`.
+`x/log x` increasing ⇒ `𝓛 ≥ (1−o(1))·(log₂p/(2log2))·log log₂p`, i.e.
+`log W(p) > 𝓛 ≥ (1/(2log2)−o(1))log₂p·log₃p` ✓. Numerically (log-space,
+Wigert main term) `𝓛/(log₂p·log₃p)` decreases 0.866 → 0.741 for
+𝓛=10⁴…10⁸⁰ towards `1/(2log2)=0.7213` from above ✓ (convergence is slow, as
+expected of `log₃`). Inputs: TZ, Wigert (classical), LLL + its conditional
+form, Håstad/LMN (textbook). No ET. The label "modulo Thorner–Zaman only" is
+correct. It beats O4 Cor 3.2 (`log₂p·log₄p/log₅p`) ✓.
+
+Verdict (4): **SOUND.**
