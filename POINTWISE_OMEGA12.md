@@ -105,3 +105,84 @@ block contains a full period. The primes `q>C` are paid pointwise by Lemma
 1.1(c), at a cost `𝓛/log C`. This is large only when c is small, and Lemma
 2.2 gives every dyadic c-scale the same mass, so the cost averages to
 `(1/𝓛)Σ_j𝓛/j≍log𝓛`.
+
+## 4. The smooth part: `Σ_I≪𝓛^4 log𝓛` (ET Thm 7.1 in progressions)
+
+By Lemma 1.1(a), `Σ_{e|P}h(e)=Σ_{q|P}(1/i)·τ(P/q)` (write `e=qe'`, `e'|P/q`).
+For a pair `(A,B)` put `Z:=max(A,B)` and
+
+```
+R(A,B) := Σ_{a∈[A,2A), d∈[B,2B)} (1/(ad)) Σ_{q|P} (1/i)·τ(P/q),     P=4a²d+1.
+```
+
+**Lemma 4.1 (PROVED modulo ET Prop 1.4, Thm 7.1, Cor 7.4, (7.10)).**
+`R(A,B) ≪ log(Z+2)·log log(Z+16)`, uniformly in `A,B≥1`.
+
+*Proof.* Every `q|P` is odd and has `ℓ∤ad`, since `P` is odd and `P≡1 (ℓ)` if `ℓ|ad`.
+
+*Large q (`q>Z^{1/2}`), and all q if `Z<16`.* Use `τ(P/q)≤τ(P)`. As
+`P≤16Z³`, Lemma 1.1(c) gives `Σ_{q|P,q>Z^{1/2}}1/i≤2log(16Z³)/log Z≪1` for
+`Z≥16`; for `Z<16` simply `h(P)≤log₂P≪1`. So this part is
+`≪Σ τ(P)/(ad)≪log(Z+2)` (ET Prop 1.4, as in Lemma 2.2).
+
+*Small q, case `A≥B` (`Z=A≥16`, `q=ℓ^i≤A^{1/2}`), quadratic.* Fix `d<2B`
+with `ℓ∤d`. `P(x)=4dx²+1` has at most two roots `x_0 mod q` (ℓ odd,
+`ℓ∤4d`, Hensel). For each, write `a=qa'+x_0`. Then `a'≥1` (as
+`a≥A≥q>x_0`) and `a'≤N':=⌊2A/q⌋`. Put
+
+```
+Q(a') := P(qa'+x_0)/q = 4dq·a'² + 8dx_0·a' + (4dx_0²+1)/q .
+```
+
+The coefficients are nonnegative integers `≤8dq≤16A^{3/2}≤N'^5` (`N'≥A^{1/2}`,
+`A≥16`). Root counts: Q is odd-valued, so `ρ_Q(2^j)=0`. For an odd prime
+`p≠ℓ`, `a'↦qa'+x_0` is a bijection mod `p^j`, so `ρ_Q(p^j)=ρ_{4d}(p^j)≤2`,
+where `ρ_{4d}(m):=#{x mod m: 4dx²+1≡0}` (ET's `ρ_{ka}` with `k=4`, `a=d`). For
+`p=ℓ`, each of the `≤2` roots of P mod `ℓ^{i+j}` fixes `a' mod ℓ^j`, so
+`ρ_Q(ℓ^j)≤2`. ET Thm 7.1 (degree 2, `l=5`, `C=2`) gives
+
+```
+Σ_{a'≤N'} τ(Q(a')) ≪ N' Σ_{m≤N'} ρ_Q(m)/m ≤ (2A/q)·(1+2/(ℓ−1))·Σ_{m≤2A} ρ_{4d}(m)/m,
+```
+
+using multiplicativity of `ρ_Q` and `ρ_Q(m')=ρ_{4d}(m')` for `ℓ∤m'`. With
+`1/(ad)≤1/(AB)` and two roots,
+
+```
+Σ_{a,d: q|P} τ(P/q)/(ad) ≪ (1/(qB)) Σ_{d<2B} Σ_{m≤2A} ρ_{4d}(m)/m ≪ log A / q,
+```
+
+by ET (7.10) with ET's `(A,B,k)=(2B,2A,4)`. ET prove (7.10) for ET's `A≤B`,
+which is `B≤A` here.
+
+*Small q, case `B>A` (`Z=B≥16`, `q≤B^{1/2}`), linear.* Fix `a<2A` with
+`ℓ∤a`. `q|P` means `d≡d_0:=−(4a²)^{−1} (mod q)`, `0<d_0<q`. Write
+`d=qd'+d_0` with `1≤d'≤N:=⌊2B/q⌋` (`d≥B≥q`). Then
+`P/q=4a²d'+b_a`, `b_a:=(4a²d_0+1)/q≤4a²+1`. Here `gcd(4a²,b_a)=1`: `b_a` is
+odd, and `gcd(a,b_a)|gcd(a,4a²d_0+1)=1`. Both coefficients are
+`≤16B²+1≤N^5` (`N≥B^{1/2}`, `B≥16`). ET Cor 7.4 gives
+`Σ_{d'≤N}τ(4a²d'+b_a)≪N log N≤(2B/q)log(2B)`. With `1/(ad)≤1/(aB)`:
+`Σ_{a,d: q|P}τ(P/q)/(ad)≪(log B/q)Σ_{a<2A}1/a`. The last sum is over
+`a∈[A,2A)`, so it is `≤2`.
+
+*Sum over small q.* `Σ_{q≤Z^{1/2}}(1/i)·log Z/q ≪ log Z·log log Z`. ∎
+
+**Corollary 4.2 (PROVED modulo ET).** `Σ_I ≪ 𝓛^4 log𝓛`.
+
+*Proof.* `1/N≤1/(acd)`, `Σ_{c∈[C,2C)}1/c≤2`, and each `(a,d,e)` with `e|P`
+occurs once per c. So `Σ_I≤Σ_C Σ_{(A,B)} 2R(A,B)`. Lemma 4.1 with
+`log(Z+2)≪𝓛` (as `Z≤T`) and the block counts of §2 gives
+`≪𝓛·𝓛²·𝓛 log𝓛`. ∎
+
+## 5. The theorem
+
+**Theorem 5.1 (H_ω(2); PROVED modulo ET Prop 1.4, Thm 7.1, Cor 7.4, (7.10)).**
+
+```
+Ω_0 = Σ_{atoms} (g/M)·h(M) ≪ 𝓛^4 log𝓛,      Ω♯ = C log log T·Ω_0 ≪ 𝓛^4 (log𝓛)^2.
+```
+
+*Proof.* Lemma 2.1, Lemma 3.1 and Corollary 4.2. ∎
+
+So the s-weighted mean of the charge h is `≪log𝓛` (against `S_0≪𝓛^4`), as
+the O11 EVIDENCE suggested (`2.32, 2.57, 2.79` at `T=10^{4,5,6}`).
