@@ -65,3 +65,72 @@ what removes the obstacle that limited notes Cor 71.4 to the exponent
 everything below bounds the larger event "Type II fails at all windows of
 A", a fortiori the window failure.
 
+### 1.2 The stacking theorem for a fixed set of windows
+
+**Sieve input (notes Lemma 12.1, PROVED there; standard large sieve).**
+Let I be an interval of X integers, P a finite set of primes, and
+`Ω_ℓ` a set of `ν(ℓ)<ℓ` classes mod ℓ for `ℓ∈P`. If `S⊆I` avoids every
+`Ω_ℓ`, `V=∏_{ℓ∈P}(1−ν(ℓ)/ℓ)` and `Λ=Σ_{ℓ∈P}ν(ℓ)log ℓ/ℓ≤(log X)/4`, then
+`|S|≤4XV`.
+
+**Theorem 1.2 (fixed-set stacking; PROVED).** Let A be a fixed finite set
+of positive integers `a≡3 (4)`, `J=|A|`. Then
+
+```
+#{p≤N prime, p≡1 (24): −1∉Rat_a((p+a)/4) for every a∈A} ≪_A N/(log N)^{1+J/2}.
+```
+
+*Proof.* It suffices to treat `p∈(N/2,N]`. Write `p=24t+1`; t runs over an
+interval I with `X≍N` integers. By Lemma 1.1, each counted p has a
+selection vector `σ=(σ_a)_{a∈A}` with `C(x_a)⊆S_{σ_a}` for all a; there
+are `∏_a 2^{β(a)}=O_A(1)` vectors, so fix one. Put `y=2max A+24`,
+`log z=(log X)/(5(J+1))`, `P={primes y<ℓ≤z}`, and
+
+* `Ω_ℓ∋` the class `24t+1≡0 (ℓ)`;
+* `Ω_ℓ∋` the class `24t+1+a≡0 (ℓ)` for each `a∈A` with
+  `(ℓ mod a)∉S_{σ_a}`.
+
+Every counted t avoids `Ω_ℓ`: `p>N/2>z≥ℓ`, so `ℓ∤p`; and if
+`ℓ | p+a` with `ℓ` odd then `ℓ|x_a`, so `ℓ mod a∈C(x_a)⊆S_{σ_a}`. The listed
+classes are distinct because `ℓ>2max A` exceeds every `|a−a'|` and every
+a; and `ℓ∤24`. So `ν(ℓ)=1+#{a: ℓ mod a∉S_{σ_a}}≤J+1<ℓ`.
+Then `Λ≤(J+1)Σ_{ℓ≤z}log ℓ/ℓ≤(J+1)(log z+O(1))≤(log X)/4` for large N.
+By Mertens in the fixed progressions mod a (each `G∖S_{σ_a}` is a union
+of `φ(a)/2` reduced classes),
+
+```
+Σ_{ℓ∈P} ν(ℓ)/ℓ = (1+J/2)·log log z + O_A(1) = (1+J/2)·log log N + O_A(1).
+```
+
+Hence `|S|≤4X·exp(−Σν/ℓ)≪_A N(log N)^{−1−J/2}`. Sum over the `O_A(1)`
+vectors σ and over dyadic ranges. ∎
+
+**Corollary 1.3 (PROVED).** For every fixed `Z≥3`, with
+`J(Z)=#{a≤Z: a≡3 (4)}=⌊(Z+1)/4⌋`,
+
+```
+T(N,Z)=#{p≤N, p≡1 (24): a_min(p)>Z} ≪_Z N/(log N)^{1+J(Z)/2} = π(N)·(log N)^{−J(Z)/2}.
+```
+
+*Proof.* For `p>3Z` every `a≤Z` is admissible (`x_a<p`, so `p∤x_a`), and
+`a_min(p)>Z` means each such window fails, in particular `−1∉Rat_a(x_a)`.
+Apply Theorem 1.2 with `A={a≤Z: a≡3 (4)}`. ∎
+
+*What this says.* The random model of POINTWISE_SIZE §8.4 /
+notes Heuristic 70.1 predicts
+`P(a_min(p)>Z)≈∏_{a≤Z}c_a(log p)^{−1/2}=(log p)^{−J(Z)/2+o(1)}`.
+Corollary 1.3 proves this as an **upper bound with the model's exact
+exponent**, for every fixed Z. Previously proved: exponent `1/2` (one
+window, notes Thm 70.9) and `δ_J=Σ_{a prime}1/(a−1)≈½log log Z` (notes
+Cor 71.4, via the single excluded class −1). For instance
+`T(N,7)≪N/(log N)^2`, `T(N,11)≪N/(log N)^{5/2}`, `T(N,23)≪N/(log N)^4`
+versus notes (71.26)'s `2/3, 23/30, 859/990` (beyond the `1/log N`).
+
+**Corollary 1.4 (two-sided orders; lower bounds cited).**
+* `#{p≤x: a_min(p)≥7}≍x/(log x)^{3/2}`: upper bound Cor 1.3 (Z=3; also
+  notes Thm 70.9), lower bound POINTWISE_WINDOW Thm W1 (PROVED modulo cited
+  sieve theorems, restricted to a subclass, which only helps).
+* `#{p≤x: a_min(p)≥11}≍x/(log x)^2` **CONDITIONAL on Elliott–Halberstam**
+  for the lower bound (POINTWISE_WINDOW Thm W2); the upper bound
+  `≪x/(log x)^2` is unconditional (Cor 1.3, Z=7). So W2 is sharp.
+
