@@ -1321,9 +1321,9 @@ factorization $M=k\ell$ does not create new supply.
 \begin{remark}[the ceiling is a theorem for this architecture]
 The calculation above is heuristic, but its conclusion
 $\theta=\mathcal B/(\mathcal B+1)=3/4$ is now a theorem for the architecture
-of this note \cite[Cor.~6.1, Remark~5.4]{KA2}; see also
-% keep in sync with sieve-limits-note.tex v3: thm:main=10.8, rem:TQcovered=10.9
-\cite[Theorem~10.8, Remark~10.9]{SL}.  The majorant
+of this note \cite[Cor.~6.1, Remark~5.4]{KA2}, \cite[Cor.~4.2]{KA3}; see also
+% keep in sync with sieve-limits-note.tex v4: thm:main=10.14, rem:TQcovered=10.15, thm:LScap=14.2
+\cite[Theorem~10.14, Remark~10.15]{SL}.  The majorant
 $\nu_X=S_y\,Q_r(H_X)$ of \eqref{eq:majorant} is $\geq0$ on $\mathbb Z$ and
 $\geq1$ on the whole set of integers avoiding the atom classes and the
 classes $0\bmod p$, $p\leq y$; the atoms $-uv^{-1}\bmod k\ell$ are classes of
@@ -1334,16 +1334,22 @@ every method of exactly this form --- a nonnegative CRT majorant that is
 $\geq1$ on the whole avoider set of a finite family of $\mathcal R(M)$-,
 $(a,D)$-, Case-A and selector classes with primes $\leq N^{O(1)}$, used
 through $N\,\E\nu+\sum_i|a_i|$ with $\sum_i|a_i|<N$ --- the saving is
-$\leq C(\log N)^{3/4}$ when every modulus $G$ satisfies $G\leq P(G)^{1+\beta}$
-with $\beta$ fixed (here $k\ell\leq\ell^{1+2\kappa}$, so $\beta=2\kappa<1/120$), and
-$\leq C(\log N)^{3/4}(\log\log N)^{3/4}$ in general.  So the exponent $3/4$
-of Theorem~\ref{thm:main} is sharp for its method.  Not covered: the
-large sieve beyond prime slices, cancellation between frequencies in
-the rounding, rounding weights below one, majorants $\geq1$ only on
-$[1,N]$ or on exceptional primes, non-CRT input, other class types, and
-primes beyond $N^{O(1)}$.  The Case-A part uses Elsholtz--Tao Prop.~1.4
-(published, not re-proved); the part relevant here, $\mathcal R(M)$- and
-selector classes, uses no external input.  These results are internally
+$\leq C(\log N)^{3/4}$, with no condition on the moduli \cite[Cor.~4.2]{KA3},
+\cite[Theorem~10.14]{SL}.  (For this note's atoms $k\ell\leq\ell^{1+2\kappa}$, so
+$G\leq P(G)^{1+\beta}$ with $\beta=2\kappa<1/120$, and the earlier bounded-$\beta$ form
+\cite[Thm~5.2]{KA2} already applied; the factor $(\log\log N)^{3/4}$ of the
+earlier general form is removed in \cite{KA3}.)  So the exponent $3/4$
+of Theorem~\ref{thm:main} is sharp for its method, up to constants: no
+gain $(\log N)^{3/4}\omega(N)$ with $\omega\to\infty$ is possible in this class.  The
+same cap holds for every CRT-admissible large sieve with frequencies of
+polynomial level \cite[Theorem~14.2]{SL}.  Not covered: large-sieve
+frequencies of super-polynomial level, direct counts and hybrid
+accounting above modulus $N/2$, majorants $\geq1$ only on $[1,N]$,
+non-CRT input (such as tuple counts with non-CRT main terms), other class
+types, and primes beyond $N^{O(1)}$ \cite[\S16]{SL}.  The Case-A part uses
+Elsholtz--Tao Prop.~1.4 and \S7 (published, not re-proved); the part
+relevant here, $\mathcal R(M)$- and selector classes, uses only Shiu's
+theorem.  These results are internally
 reviewed only.  Nothing about the ceiling is used in the proof of
 Theorem~\ref{thm:main}.
 \end{remark}
@@ -1428,6 +1434,10 @@ Springer, 2000, Chapter 28.
 \emph{EXCEPTIONAL\_KARY2: the $3/4$ cap without the $B$-hypothesis},
 internal working document \texttt{EXCEPTIONAL\_KARY2.md}, this repository,
 2026; two internal hostile reviews.
+\bibitem[KA3]{KA3}
+\emph{EXCEPTIONAL\_KARY3: removing the $(\log\log N)^{3/4}$ loss},
+internal working document \texttt{EXCEPTIONAL\_KARY3.md}, this repository,
+2026; one internal hostile review.
 \bibitem[LL]{LL}
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed standalone note,
@@ -1447,7 +1457,7 @@ P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
 \bibitem[SL]{SL}
 \emph{Sieve limits for the Erd\H{o}s--Straus exceptional set: why $3/4$
-is sharp for congruence sieves}, research note, version 3,
+is sharp for congruence sieves}, research note, version 4,
 \texttt{paper/sieve-limits-note.tex}, this repository, 2026.
 \bibitem[V]{Vaughan}
 R. C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
