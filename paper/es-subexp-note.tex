@@ -31,7 +31,7 @@
 \title[A sub-exponential Erd\H{o}s--Straus witness bound]{Large Erd\H{o}s--Straus witnesses II:\\
 the multiplier modulus is infinitely often $\exp\big((\log p)^{c}\big)$}
 \author{Anonymous}
-\date{Draft, 5 October 2026}
+\date{Draft v2, 5 October 2026}
 
 \begin{document}
 
@@ -40,10 +40,10 @@ For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
 ``multiplier'' congruence that yields a solution of $4/p=1/x+1/y+1/z$.  In
 earlier work we showed that $W(p)$ exceeds every fixed power of $\log p$ for
 infinitely many primes $p$ in Mordell's hard classes.  Here we prove
-$W(p)\ge\exp(c(\log p)^{1/14})$ for infinitely many hard primes, assuming
+$W(p)\ge\exp(c(\log p)^{1/7})$ for infinitely many hard primes, assuming
 Elsholtz and Tao's average bound for $\tau(kab^2+1)$; more precisely, the least
-hard prime with $W(p)>T$ is at most $\exp(O((\log T)^{14}))$.
-Without the Elsholtz--Tao input we get $\log W(p)\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p$
+hard prime with $W(p)>T$ is at most $\exp(O((\log T)^{7}))$.
+Without the Elsholtz--Tao input we get $\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$
 infinitely often.  As before, the class of one modulo the small primes leaves
 a residual congruence system on the larger primes.  The local lemma shows
 that its avoiding set has Haar density $e^{-O(S)}$, where $S$ is its total
@@ -54,9 +54,13 @@ the theory of bounded independence.  Its error is the Efron--Stein tail of
 the avoidance indicator.  After a binary encoding of residues the indicator
 is a CNF of small width, so Håstad's switching lemma, through the argument
 of Linial, Mansour and Nisan, bounds the tail.  The minorant is transferred
-to primes by the Linnik-range prime number theorem of Thorner and Zaman.  No
-codegree condition, level structure or truncated inclusion--exclusion is
-needed.
+to primes by a \emph{linear} transfer theorem.  We expand it in Dirichlet
+characters, bound every coefficient by its Haar $\ell^1$ norm, which is
+within $3\%$ of its mean, and control all characters of conductor up to a
+power of the modulus at once by Gallagher's prime number theorem for the
+family of all characters.  The bound for the least such prime is then
+linear in the logarithm of the largest modulus.  No codegree condition,
+level structure or truncated inclusion--exclusion is needed.
 \end{abstract}
 
 \maketitle
@@ -92,24 +96,29 @@ Linnik's theorem gives $W(p)\gg\log p$ infinitely often.  In
 $W(p)\ge(\log p)^{k}e^{-C_k\log\log p/\log\log\log p}$ for infinitely many
 hard primes.  Here we prove a sub-exponential rate.
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:TZ}, \ref{thm:ET} and~\ref{thm:hastad}]\label{thm:main}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:G}, \ref{thm:ET} and~\ref{thm:hastad}]\label{thm:main}
 There is an absolute constant $c>0$ such that for infinitely many hard primes $p$
 \[
- W(p)\ \ge\ \exp\big(c\,(\log p)^{1/14}\big).
+ W(p)\ \ge\ \exp\big(c\,(\log p)^{1/7}\big).
 \]
 More precisely, for every sufficiently large $T$ there is a prime
-$p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{14}$.
+$p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{7}$.
 \end{theorem}
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:TZ} and~\ref{thm:hastad}]\label{thm:uncond}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:G} and~\ref{thm:hastad}]\label{thm:uncond}
 For infinitely many hard primes $p$,
 \[
- \log W(p)\ \ge\ \Big(\frac1{2\log2}-o(1)\Big)\log\log p\cdot\log\log\log p .
+ \log W(p)\ \ge\ \Big(\frac1{\log2}-o(1)\Big)\log\log p\cdot\log\log\log p .
 \]
 \end{theorem}
 
-Theorem~\ref{thm:TZ} is Thorner and Zaman's prime number theorem in the
-Linnik range \cite{TZ}.  No hypothesis on Siegel zeros is needed.
+Theorem~\ref{thm:G} is Gallagher's prime number theorem for the family of
+all primitive characters of conductor at most $Q_G$ \cite{Gallagher}, quoted
+from \cite[Thm.~28.19]{MV3} together with the standard facts on exceptional
+zeros (Theorem~\ref{thm:xz}).  No hypothesis on Siegel zeros is needed.  The
+first version of this note had the exponent $1/14$ and the constant
+$1/(2\log2)$; it used the Thorner--Zaman theorem \cite{TZ}, through the
+transfer theorem of \cite{Paper1}, in place of Theorem~\ref{thm:transfer}.
 \cite[Prop.~1.4]{ET} is used only to bound the total mass of the residual
 system by $(\log T)^4\log\log T$ (Lemma~\ref{lem:qmass}).  Without it,
 the same argument gives Theorem~\ref{thm:uncond}.  All constants are
@@ -127,11 +136,23 @@ $\delta\ge e^{-2.2S}$, where $S\ll(\log T)^4\log\log T$ is the total
 mass, once an iterated quarantine has made the mass at each free prime
 small.  To find a \emph{prime} in the avoiding set we need a function
 $B=\sum_ic_i\mathbf 1[n\equiv b_i\ (d_i)]$ with $B\le\mathbf 1[\text{avoid}]$
-pointwise, mean $\gg\delta$, controlled $\ell^1$ mass, and moduli $d_i$ that
-each involve few primes.  The transfer theorem (Theorem~\ref{thm:transfer},
-from \cite{Paper1}) then gives a prime $p$ with
-$\log p\ll K\max(\log Z,K)$, where $K=1+\log(\ell^1/\text{mean})$ and $Z$ is
-the largest modulus.  Both are polynomial in $\log T$ in our construction.
+pointwise, mean $\gg\delta$, Haar $\ell^1$ norm $\E|B|$ comparable to its
+mean, and moduli $d_i$ that each involve few primes.  The linear transfer
+theorem (Theorem~\ref{thm:transfer}) then gives a prime $p$ with
+$\log p\ll\log Z$, where $Z$ is the largest modulus.  In our construction
+$\log Z\ll(\log T)^7$.
+
+The transfer theorem is Linnik's theorem with weights.  The function
+$B(n)\mathbf 1[n\equiv1\ (Q)]$ is expanded in characters modulo $QD$,
+$D=\lcm d_i$.  The coefficient of $\chi=\chi_Q\chi_D$ is
+$\E_D[B\bar\chi_D]/\varphi(Q)$, so it is bounded by $\E_D|B|/\varphi(Q)$
+whatever the number of cells.  Every character that occurs has conductor
+at most $Z$, and Gallagher's theorem bounds the sum of
+$|\vartheta(x;\chi)|$ over \emph{all} of them at once.  The exceptional zero
+is handled as in \cite{Paper1}: either it multiplies the main term, or it
+belongs to a real character whose coefficient is controlled by a twisted
+mean of $B$.  For our minorants $\E|B|\le1.03\,\E B$, because $B\le F$ and
+$\E[F-B]$ is small (Lemma~\ref{lem:l1}).
 
 In \cite{Paper1} the minorant was an alternating expansion (inclusion--exclusion
 truncated by the number of primes in the support), organised in levels.
