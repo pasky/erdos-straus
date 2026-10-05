@@ -139,3 +139,13 @@ runs over the multiples of e, so some `μ_k(s) > 0` unless no n ∈ [1,N]
 satisfies `n ≡ b (e)`. If e ≤ N every class mod e meets [1,N]. ∎
 
 Example 3.2 is such a class (e = 21 | L₀ = lcm(1..10)).
+
+**Numerics (EVIDENCE; `scripts/interfreq2_rigid.py`, `interfreq2_rigid_points.py`,
+`interfreq2_rigid_scan.py`).**
+* N = 20, Q′ = 2520 = lcm(1..10): some μ ∈ 𝔐 puts *all* its mass N off
+  [1,N] (so 𝔐 is far from {λ_N}). Per-point maxima: the only rigid-null
+  points are the 120 multiples of 21, i.e. Example 3.2's class.
+* Rigid-null sparse classes `b mod e`, e | lcm(1..N/2), N < e ≤ 3N: N = 20:
+  e = 21 {0}, e = 42 {0, 21}; N = 30: none; N = 40: e = 42 {0, 41},
+  e = 45 {43}, e = 84, 90 (lifts). They sit just above N; the summed
+  density is ≤ 0.14 in these ranges.
