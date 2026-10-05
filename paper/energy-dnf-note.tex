@@ -711,12 +711,77 @@ Corollary~\ref{cor:modtail} take $\lambda_\ell=2^{\log\ell/(\rho\Lc)}$ and put
 $x_\ell=v_\ell(E)\log\ell/\Lc$, so that $\sum_\ell x_\ell\le1$.  The function $x\mapsto2^{x/\rho}-1$ is
 convex and vanishes at $0$, so it is superadditive, and
 $\sum_\ell(2^{x_\ell/\rho}-1)\le2^{1/\rho}-1$.  This is at most $\ln2$ when
-$\rho\ge1/\log_2(1+\ln2)\approx1.316$, which gives the tail $2^{-\tau/(1.316\,\Lc)}$.
+$\rho\ge\rho_0:=1/\log_2(1+\ln2)=1.3163\ldots$, and then the tail in
+Corollary~\ref{cor:modtail} is at most $2^{-\tau/(\rho\Lc)}$.
 \end{remark}
+
+\section{Application: Erd\H{o}s--Straus witness moduli}\label{sec:app}
+
+This section explains where Theorem~\ref{thm:filtration} is used; the details
+are in \cite{Subexp}, and nothing here is needed for the rest of the note.
+The Erd\H{o}s--Straus conjecture asserts that $4/n=1/x+1/y+1/z$ has a solution
+in positive integers for every $n\ge2$; it is open.  For $M\equiv3\pmod4$ the
+classical multiplier identity gives a solution for every $n$ with
+$n\equiv-uv^{-1}\pmod M$ for some factorisation $uvw=(M+1)/4$.  Let $W(n)$ be the
+least such $M$ ($+\infty$ if there is none).  In \cite{Subexp} it is shown, assuming
+Gallagher's prime number theorem for the family of all characters and four
+estimates of Elsholtz and Tao on divisor sums, that
+$W(p)\ge\exp\big(c(\log p)^{1/5}(\log\log p)^{-1/5}\big)$ for infinitely many primes $p$.
+This is an $\Omega$-result about one particular family of explicit
+solutions, and says nothing about whether the conjecture holds.
+
+The structure of the argument is as follows.  Fix $T$ and $\Lc=\log T$.  After a
+\emph{quarantine} $n\equiv1\pmod Q$, the condition $W(n)>T$ holds as soon as $n$
+avoids a finite family of congruence events $n\equiv b_i\pmod{r_i}$ with
+$r_i\le T$, at most $T^2$ of them.  For $n$ distributed by Haar measure on
+$\widehat{\mathbb Z}$, conditioned on the quarantine, the residues $X_\ell=n\bmod\ell^{f_\ell}$
+at the remaining primes are independent.  Their base-$\ell$ digits are
+independent as well: in \cite{Subexp} each $X_\ell$ ranges over the units, or a
+fibre $1+\ell^a\mathbb Z$, modulo $\ell^{f_\ell}$, and on these the Haar measure is the product
+of the (uniform) digit distributions.  Moreover an event $n\equiv b\pmod r$ is a digit-prefix event with
+$\prod_\ell\ell^{v_\ell(E)}=r\le T$.  So the avoidance indicator $F$ is in the setting of
+Corollary~\ref{cor:modtail}, and so is each conditioned function $F^{(j)}$
+(the indicator that no earlier event occurs, restricted to the cylinder of
+the $j$-th event): there the digit offsets $i_0(\ell)$ are raised.
+
+To find a \emph{prime} $p$ with $W(p)>T$ one needs a minorant
+$B\le F$ that is a combination of congruence classes of small modulus, has
+mean comparable to $\E F$, and has small $\ell^1$ norm.  \cite{Subexp} uses the
+one-sided $\ell^2$ sandwich of Bazzi \cite{Bazzi} in the form of Razborov
+\cite{Razborov}:
+\[
+ B=1-\sum_i\mathbf 1_{E_i}\Big(1-\sum_{j<i}\mathbf 1_{E_j}u_j\Big)^2\le F,\qquad
+ \E[F-B]\le m^2\sum_j\PP(E_j)\,\E\big[(F^{(j)}-u_j)^2\big],
+\]
+for any functions $u_j$ of the coordinates not fixed by $E_j$.  The natural
+choice of $u_j$ is the truncation of the Efron--Stein decomposition of $F^{(j)}$
+to digit sets $U$ with $m_U\le e^\tau$.  By \eqref{eq:energy} it is a combination
+of classes of modulus at most $e^\tau$, and by Corollary~\ref{cor:modtail} its
+error is at most $2^{-\tau/(2\Lc)}$.  The sandwich needs the error to be about
+$e^{-O(S)}m^{-2}$, where $S$ is the total mass of the events.  So
+$\tau\ll\Lc(S+\Lc)$ suffices; in \cite{Subexp} $S\ll\Lc^4$ (using the
+Elsholtz--Tao input), and the junta moduli satisfy $\log d_i\ll\Lc^5$.  The
+quarantine costs $\log Q\ll\Lc^5\log\Lc$, and a linear transfer theorem based on
+Gallagher's theorem then produces a prime $p$ with $\log p\ll\Lc^5\log\Lc$.
+
+An earlier version of \cite{Subexp} encoded the residues in binary and used
+the switching-lemma tail of LMN instead.  There the junta modulus picked up
+factors for the width of the events and for the bit length, and it was one
+of the two terms of the largest order (the other being the quarantine).  With
+the energy bound the junta term is smaller than the quarantine term.  The
+exponent $1/5$ needs two further ingredients of \cite{Subexp} (a graded
+quarantine and a moment bound), and we do not attribute it to
+Theorem~\ref{thm:filtration} alone.  Two features of the energy bound matter
+here: the events are congruences modulo integers up to $T$, so the alphabets
+are huge and the measure is far from the Boolean setting, and the cost of a
+junta must be measured by its modulus rather than by the number of primes
+it involves.
 
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
+\bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
+formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 \bibitem{Boppana} R.~B.~Boppana, The average sensitivity of bounded-depth
 circuits, Inform.\ Process.\ Lett.\ 63 (1997), 257--261.
 % TODO(verify): [Boppana], [Mansour], [Tal] details written from memory.
@@ -734,6 +799,8 @@ Fourier transform, and learnability, J.\ ACM 40 (1993), 607--620.
 under the uniform distribution, J.\ Comput.\ System Sci.\ 50 (1995), 543--550.
 \bibitem{OD} R.~O'Donnell, Analysis of Boolean Functions, Cambridge University
 Press, 2014.
+\bibitem{Razborov} A.~Razborov, A simple proof of Bazzi's theorem, ACM Trans.\
+Comput.\ Theory 1 (2009), no.~1, Art.~3.
 \bibitem{Subexp} Anonymous, Large Erd\H{o}s--Straus witnesses II: the multiplier
 modulus is infinitely often $\exp((\log p)^{1/5-o(1)})$, preprint, 2026.
 \bibitem{Tal} A.~Tal, Tight bounds on the Fourier spectrum of $\mathrm{AC}^0$, in:
