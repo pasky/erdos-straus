@@ -149,6 +149,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Open: weak SPW, and right-signed mass at moduli in (N, CN]. No hybrid beating 3/4 was found.
     * **PROVED / PROVED implication as labelled** (internal; review `reviews/exceptional-interfreq2-review.md`, all SOUND; M1 (Farkas on truncated LPs) repaired by a periodic LP).
 
+27. **Large sieves at any frequency level, for mixtures with one large prime per modulus (EXCEPTIONAL_LARGESIEVE3.md).**
+    * Smooth–rough splitting (Thm 1.1, PROVED, elementary): any large sieve is capped by `β log N + log ρ + log E_{c∼π_s}𝓡_{2+2β}(π_c)`, where the z-smooth coordinates cost only a density factor ρ (Hausdorff–Young in the smooth coordinate; constant sharp per review). Lemma 2.1: the z-smooth part has a measure with `log ρ ≤ 16𝔐(z)+O(1)`, affordable up to `z = exp((log N)^{1/4})`.
+    * Thm 3.1 (PROVED, given the reviewed KARY2 inputs and ET Prop 1.4 for Case A): for every forced-class mixture in which each modulus has at most one prime factor above `exp((log N)^{1/4})` (any number of smaller primes, any modulus size, no B), every CRT-admissible large sieve — any rational frequencies, any denominators, any level — saves ≤ `C(log N)^{3/4}(log log N)^3`. This closes the (D)25 escape (E1)/H_LS∞ for such families.
+    * Residual: H_LS∞ for forced families is implied by a correlation-decay statement (H_rough) for the fibre measures at primes above `exp((log N)^{1/4})`, needed only for classes with ≥2 such primes (sufficiency only). The symmetric local-lemma route fails because of residue concentration: the class −4 mod M lies in ℛ(M) for every M ≡ 3 (4) (Lemma 4.2; "route fails" is an Assessment).
+    * **PROVED as labelled** (internal; review `reviews/exceptional-largesieve3-review.md`, all PROVED proofs SOUND; two overclaims (an "equivalence" and a remark) repaired).
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
