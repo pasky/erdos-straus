@@ -273,7 +273,7 @@ upper bound and also charges atoms that do not survive.
 | Thm 5.1 | `Ω_0≪𝓛^4log𝓛`; **H_ω(2)** | PROVED mod ET |
 | Thm 6.1 | `W(p)≥exp(c(log p)^{1/5}(log log p)^{−2/5})` i.o. | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
 | Lemma 6.2, Thm 6.3 | `s_1=e³g/M`; `W(p)≥exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.; `log(1/δ*)≪𝓛^5log𝓛` | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
-| §6A last para | `log𝓛` is the limit of Lemma 2.2's charging | Assessment |
+| §6A last para | `Ω_0≍𝓛^4log𝓛` (no better moment bound) | CONJECTURE (EVIDENCE at 3 values of T) |
 
 Here ET means results proved in Elsholtz–Tao (arXiv:1107.1010, J. Aust. Math. Soc. 2013);
 nothing in ET is re-proved here. Not claimed: anything about ES itself;
