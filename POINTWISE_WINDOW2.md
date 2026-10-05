@@ -320,12 +320,12 @@ Unconditional `a_min≥11` for infinitely many hard p was **not** reached. Route
   not fixed (equivalently `n_3≡0 (d_1)`, `n_3≡−1 (d_2)` for consecutive `n_3, n_3+1`).
   Moreover, the model LP is still 0 at θ=0.6 (grid, uncertified) and positive only
   from θ≈0.7 in the coarse grid. Even a level of 3/5 for the right weights
-  would not suffice in the model. Window 3 *alone* has the fixed class a=\u22123, so one-window
+  would not suffice in the model. Window 3 *alone* has the fixed class a=−3, so one-window
   data beyond 1/2 are a priori available; reviewer mixed-level test (R29 m7, `review_w2_lp.py
-  --onewin=T_1`: joint data at level 1/2 plus one-window data `(S_3,\u2205)`, `(\u2205,S_7)` up to T_1):
-  T_1=0.55, 0.6 \u2192 fake persists (min 0, primal uncertified); T_1=0.7 \u2192 CERTIFIED \u22650.16298.
-  So at BFI/Maynard-type levels (\u22643/5) the model obstruction persists on the grid (EVIDENCE;
-  same \u03b5=0.1 caveats as \u00a73.7). **Assessment: closed** (in the model).
+  --onewin=T_1`: joint data at level 1/2 plus one-window data `(S_3,∅)`, `(∅,S_7)` up to T_1):
+  T_1=0.55, 0.6 → fake persists (min 0, primal uncertified); T_1=0.7 → CERTIFIED ≥0.16298.
+  So at BFI/Maynard-type levels (≤3/5) the model obstruction persists on the grid (EVIDENCE;
+  same ε=0.1 caveats as §3.7). **Assessment: closed** (in the model).
 * **(i) Bilinear/Type-II input.** The sequence `r_{−3}(n)r_{−7}(n+1)` (§1) is the
   window analogue of Sedunova's `r(n−2)r(n+2)`. Only its Type-I level `x^{1/6}` is
   known there, and no Type-II estimate is known. A Chen-type switch would need BV for the
