@@ -216,3 +216,64 @@ theorem is presumably far from optimal: a prime-local system is a sifted set,
 and we expect (but have not worked out) a bound of the shape
 `log Q + log T + ℒ` from sieve + Linnik-type arguments ([SN] cites EGLNV for
 the "combinatorial rectangle" analogue on the independence side).
+
+## 4. Comparison with known results (honest scope)
+
+Checked sources: only `sources/` and `LITERATURE_2026.md` (no internet). Items
+marked *[memory]* are from memory / the bibliography of [SN] (whose own
+bibliographic details for these items are flagged "from memory" there) and
+have **not** been checked against the papers.
+
+**4.1 Linnik / Thorner–Zaman (single class).** For one class `c mod q`:
+`p ≪ q^{L}` (Linnik), so avoidance via a single surviving class modulo
+`Q·D₀` gives `log p ≪ log Q + log D₀`, `log D₀ = Σ_{ℓ∈𝒫} e_ℓ log ℓ`. Thorner–
+Zaman's refinement (arXiv:2108.10878, in `sources/lit2026/`) applied cell by
+cell to a signed minorant (the route of POINTWISE_OMEGA2/OMEGA8 v1) costs
+`log x ≫ K·max(log Z, K)`, `K = 1 + log(Σ|c_i|/φ(d_i) / μ)` ([SN] Rem.
+`rem:linear`) — the `ℓ¹` *mass* of the cell expansion, not `𝔼|B|`, enters,
+which squares the final exponent (14 vs 7 in the ES application).
+Theorem 1.1 instead depends only on `A = 𝔼|B|/μ ≤ 1.03` and the largest cell
+modulus. **Gain:** `log D₀ ≍ N log T` is replaced by
+`k log T log(NT)(ℒ + k log(NT))`; useful exactly when `N` (number of free
+primes) is much larger than the local complexity.
+
+**4.2 Least prime in a union of classes / Chebotarev** *[memory]*
+(Lagarias–Montgomery–Odlyzko 1979; Thorner–Zaman 2017 explicit). The set
+avoiding the system is a union of classes mod `Q·D₀`, i.e. a union of
+Frobenius classes in `ℚ(ζ_{QD₀})/ℚ`. These bounds are powers of the
+discriminant/conductor, hence again `log p ≪ log(QD₀)`; we do not know a
+version of them whose exponent improves with the *structure* (bounded-width
+events) of the set rather than its density. We could not check whether such
+structure-sensitive bounds exist in the literature.
+
+**4.3 Jacobsthal-type (integers).** Iwaniec's bound (secondary-source verified
+in `sources/jacobsthal-literature/`, Costello–Watts): every interval of length
+`≪ (k log k)²` contains an integer avoiding one prescribed class at each of
+`k` primes. This is the `k = 1`, one-class-per-prime case and for **integers**;
+for integers the least avoider of any finite system is trivially bounded by
+CRT. The prime analogue (least *prime* avoiding the system) is what
+Theorem 1.1 addresses; Ford–Konyagin–Maynard–Pomerance–Tao (sieved sets, in
+`sources/`) treat bounded numbers of classes per prime and prove *lower*
+bounds (long gaps); they give no upper bound for composite-modulus systems
+(per the README there).
+
+**4.4 Covering systems** *[memory]*. Erdős–Selfridge type questions; Filaseta–
+Ford–Konyagin–Pomerance–Yu (JAMS 2007) use the local lemma for lower bounds on
+the uncovered density; Hough (Annals 2015) solved the minimum-modulus problem;
+Balister–Bollobás–Morris–Sahasrabudhe–Tiba (Invent. 2022) developed the
+"distortion method" for the density of the uncovered set. All these are
+**Haar-side** statements (density of integers not covered). By Remark 3.1
+any such lower bound `δ_*` can be fed into Theorem 1.1 — subject to (Tw), to
+working on units (non-unit classes deleted; the *unit* density is what
+matters), and to `k ≤ log₂ X`, `T ≤ X` for moduli `≤ X`. We did not check the
+exact hypotheses/forms of these density bounds, so we state no corollary
+quoting them; Cor. 5.3 below states the generic form with `δ_*` as input.
+
+**4.5 Independence side.** The sandwich is Bazzi/Razborov; "polylog
+independence fools DNF/AC⁰" (Bazzi, Razborov, Braverman) *[memory]*. The
+transfer principle here is: *a Dirichlet-character expansion of a sandwich
+minorant with small Haar `ℓ¹` norm makes primes "fool" bounded-width
+congruence DNFs, at cost polynomial in the width.* We know of no prior
+statement of this form, but our search was limited to the above; no priority
+claim. Novelty audit for the underlying ES application:
+`reviews/novelty-audit-omega8.md`.
