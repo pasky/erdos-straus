@@ -6,7 +6,7 @@ Focus: the new machinery (Lemmas 3.1–3.3, Lemma 4.1, Thm 3.4, Thms
 4.3/4.4 bookkeeping). From-scratch scripts: `scripts/review_o8a_*.py`,
 output in `data/review_o8a/`.
 
-## Verdict per claim (in progress)
+## Verdict per claim (see Summary verdict at the end)
 
 | Claim | Verdict |
 |---|---|
@@ -171,3 +171,101 @@ Unconditional `S*≤exp((log2+o(1))𝓛/log𝓛)` (O2 Lemma 11.1 + Wigert):
 `x/log x`: `𝓛≥(1/(2log2)−o(1))log₂p·log(log₂p)`, i.e.
 `log W(p)≥(1/(2log2)−o(1))log₂p·log₃p` ✓ (the o(1) is as T→∞ along the
 constructed sequence; p≥T).
+
+Bookkeeping check with explicit constants (`scripts/review_o8a_bookkeeping.py`,
+`data/review_o8a/bookkeeping.txt`; `C_1=1`, `C_H=5`, `S*=𝓛⁴log𝓛`):
+`log t/log𝓛 → 6`, `log K/log𝓛 → 7`, `log log Q_Π/log𝓛 → 7`,
+`log log p/log𝓛 = 16.1, 15.3, 14.8, 14.5, 14.3, 14.16` at
+`𝓛=10^{3,5,8,12,20,40}`, i.e. `log p = O(𝓛^{14})` with the excess being
+the constant factors (`→14` like `O(1/log𝓛)`). Thm 4.4 regime
+(`S*=e^{log2·𝓛/log𝓛}`): `log₂p/(𝓛/log𝓛) → 1.3863 = 2log2` ✓.
+
+### Inputs (checked as far as accessible)
+
+* Elsholtz–Tao Prop 1.4 (read in `sources/elsholtz-tao-1107.1010.pdf`):
+  `Σ_{a≤A,b≤B}τ(kab²+1) ≪ AB log(A+B) log(1+k)` for `k≪(AB)^{O(1)}`.
+  With k=4, dyadic blocks in `(s,r')` (`≪𝓛²` blocks, each `≪𝓛`) give
+  `Σ_{sr'²≤T}τ(4sr'²+1)/(sr') ≪ 𝓛³`, hence O2 Lemma 11.1's
+  `S*≪𝓛⁴log𝓛` ✓. ET's constant: effectivity not checked (the author
+  hedges correctly).
+* Thorner–Zaman: enters only via PO Thm 4.1, used verbatim; its
+  hypotheses are verified above. Not re-read here (previously reviewed).
+* Håstad / O'Donnell: quoted correctly (above). Bazzi (FOCS 2007),
+  Razborov (TOCT 2009): not accessed. Nothing in the proof depends on
+  them: Lemma 3.1 is proved in full in the note and re-derived here, so
+  the attribution is historical only.
+* Haeupler–Saha–Srinivasan conditional LLL: standard form
+  `P(A|∩B̄)≤P(A)∏_{Γ(A)}(1−x_B)^{−1}`, used correctly.
+
+### Extension of `B≤1[W>T]` to all integers `n≡1 (Q)` (PO Thm 4.1's literal hypothesis)
+
+Verified (the author's self-review states it; here is the argument).
+At a non-unit coordinate all cells through ℓ vanish; the cell identities
+`1_C1_D=1_{C∩D}` still hold, so `B(n)=1−ΣA_i(n)(1−v_i(n))²≤F(n)` with
+"no event at ℓ". And `F(n)=1⇒W(n)>T` still holds: if `n≡−4D (M)` with
+`D|A_M²`, then n is a unit mod M (−4D is), so the reduction argument of
+(I) applies. In any case PO Thm 4.1's proof only evaluates B at primes
+`p≡1 (Q)`, `p>T`.
+
+## Defects
+
+No FATAL or MAJOR defect found.
+
+**D1 (MINOR) — Thm 3.4, displayed bound for log p.** With
+`ℓ_0∈(R,2R]`, `R=max(T,max d_i)`, one has
+`log Z ≤ log Q_Π + 2(3k+2t)𝓛 + 1`, not `log Q_Π+(3k+2t+2)𝓛`; the
+display holds only after doubling C. *Repair:* write
+`(6k+4t+2)𝓛` or say "C absolute, ≥2C_1". No effect on any rate.
+
+**D2 (MINOR) — Lemma 3.3 statement.** It quantifies over every real
+primitive ψ with `gcd(f,Q)=1`, but the proof needs a prime `ℓ_0|f` that
+is a free coordinate (ψ must be a function of the coordinates for
+`E[Fψ]` to make sense). *Repair:* add "and `f|d_i` for some i" (exactly
+PO Thm 4.1's twist quantifier; then all primes of f are free), and note
+`μ_ψ=E[Bψ]` for any cell representation because ψ is primitive.
+
+**D3 (MINOR) — Lemma 4.1(b) citation.** "Lovett's notes, Lemma 3.3 and
+Cor 3.4" is unspecific (no title/URL/date) and was not verifiable. The
+textbook statement is O'Donnell Lemma 4.21 (3ε-concentration up to
+degree 3k/δ via Chernoff). The note's median variant (2ε up to degree
+k/δ) is correct but is the author's own; cite Kaas–Buhrman (Statistica
+Neerlandica 34 (1980)) for "median of Bin(n,p) is ⌊np⌋ or ⌈np⌉", or
+simply use O'Donnell's Lemma 4.21 with `d=3k_0/p` and `3·2^{−k_0}`
+(then `t` gains a factor 3/2; nothing else changes).
+
+**D4 (MINOR, cosmetic) — Haar-side citation.** Header item 1 and the
+Comparison paragraph quote O2 Thm 11.3 as `log(1/δ*)≪𝓛^7 log𝓛`; O2
+Thm 11.3 states `≪(log T)^7/log log T` (its proof gives
+`π(z)𝓛+8k²S*𝓛 ≪ 𝓛^7/log𝓛`). Harmless (weaker), but should match the
+source. Likewise Lemma 4.1(c)'s density bound is actually `≤e^{1/3}`;
+`e^{1/2}` is a valid but loose constant (fine as is).
+
+**D5 (MINOR) — Lemma 3.2 constant.** `2(3k+2t)·4𝓛` is far larger than
+what the proof gives (`(3k+2t)𝓛` for the `T^{|I∩J|}` inflation). Not
+wrong; just unexplained. *Repair:* state `(3k+2t)𝓛` or explain the 8.
+
+## Summary verdict
+
+| Claim | Verdict |
+|---|---|
+| Lemma 2.1 (codegree-free outer level) | SOUND (spot-checked; error bound is loose by a factor L+1) |
+| Lemma 3.1 (BRW sandwich, identity, `m²` bound) | SOUND |
+| Lemma 3.2 (cells on `≤3k+2t` primes, `log M_1`) | SOUND (D5 cosmetic) |
+| Lemma 3.3 (twist) | SOUND-AFTER-REPAIRS (D2: add `f|d_i`) |
+| Thm 3.4 | SOUND-AFTER-REPAIRS (D1: constant) |
+| Lemma 4.1 (bit encoding + Håstad + LMN + pull-back) | SOUND (D3 citation) |
+| Cor 4.2 | SOUND |
+| **Thm 4.3** `W(p)≥exp(c(log p)^{1/14})` i.o., mod TZ + ET Prop 1.4 | **SOUND** |
+| Thm 4.4 `log W≥(1/(2log2)−o(1))log₂p·log₃p` i.o., mod TZ | SOUND |
+| §2.3–2.4 diagnosis | correctly labelled Assessment; not reviewed further |
+
+Assessment: the key new idea is legitimate. The BRW sandwich turns the
+minorant error into `m²·max_j P(E_j)·energy(F^{(j)};t)`, an ℓ² quantity
+with no alternating structure; Håstad/LMN bound the energy of **any**
+width-`kb` DNF good-indicator by `2^{−Ω(t/(k𝓛))}`, independently of the
+number of events and of codegrees; and every cost (`m`, `N`, `T^{junta}`,
+`(N+1)^{2t}`) enters `K` and `log Z` only logarithmically, i.e.
+polynomially in `𝓛`. I could not find a quantifier error, a
+parameter-dependent "absolute" constant, or circularity. The labels
+("PROVED modulo TZ and ET Prop 1.4") are appropriate. All
+from-scratch numerical checks pass (`data/review_o8a/`).
