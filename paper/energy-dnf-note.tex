@@ -269,6 +269,77 @@ On the uniform cube $\{\pm1\}^n$ the single-event condition is the weaker
 $\prod_v(1+\lambda_v)/2\le2$.  The threshold $w_E\le2$ is forced by large
 alphabets or strongly biased measures.
 
+\section{The cover bound}\label{sec:cover}
+
+A \emph{hypergraph} $\Ho$ is a finite set of subsets (\emph{edges}) of $V_0$; the
+empty edge is allowed.  For $V\subseteq V_0$ let
+\[
+ N_\Ho(V)=\sum_{\cJ\subseteq\Ho:\ \bigcup_{J\in\cJ}(J\cap V)=V}(-1)^{|\cJ|},\qquad
+ Q_\mu(\Ho)=\sum_{V\subseteq V_0}\mu^V\,N_\Ho(V)^2 .
+\]
+So $N_\Ho(V)$ is a signed count of the subfamilies whose traces cover $V$.  It
+depends only on the multiset of traces $J\cap V$.  It does not change if an
+edge is replaced by several edges with the same trace: a class of $m\ge1$
+edges with equal traces contributes $\sum_{j\ge1}\binom mj(-1)^j=-1$ to the choice
+of whether the class meets $\cJ$, exactly like a single edge.  If some edge
+misses $V$, then $N_\Ho(V)=0$: toggling that edge is a sign-reversing
+involution on the covering subfamilies.  Also $N_\Ho(\emptyset)=\mathbf 1[\Ho=\emptyset]$.
+For example, $Q_\mu(\{J\})=\lambda^J-1$, and for pairwise disjoint edges
+$Q_\mu(\{J_1,\dots,J_m\})=\prod_i(\lambda^{J_i}-1)$.
+
+\begin{lemma}[Cover bound]\label{lem:cover}
+For every family $\cE$ of cylinder events and every $V\subseteq V_0$,
+\[
+ \|L_VF\|^2\ \le\ \E_x\big[N_{\Ho(x)}(V)^2\big],\qquad
+ \Ho(x)=\{\supp E:\ E\in\cE,\ x\in E\}.
+\]
+Consequently $G_F(\lambda)\le\E_x\big[Q_\mu(\Ho(x))\big]$ for all weights $\lambda_v\ge1$.
+\end{lemma}
+
+\begin{proof}
+Write $x=(\sigma,y)$ with $\sigma\in\Omega_V$ and $y\in\Omega_{V^c}$, $V^c=V_0\setminus V$.  The
+operator $L_V$ acts on the $V$-coordinates only, so
+$\|L_VF\|^2=\E_y\|L_Vg_y\|^2_{L^2(\pi_V)}$ with $g_y=F(\cdot,y)$.  Now $g_y$ is the
+avoidance indicator on $\Omega_V$ of the \emph{restricted} events: those $E\in\cE$
+whose conditions off $V$ hold at $y$, restricted to $\supp E\cap V$.  Expand
+\[
+ g_y=\prod_E(1-\mathbf 1_{E|_y})=\sum_{\cJ}(-1)^{|\cJ|}\mathbf 1_\cJ
+\]
+over subfamilies $\cJ$ of restricted events, where $\mathbf 1_\cJ$ is the indicator
+of their intersection.  This intersection is a cylinder on $\Omega_V$ with
+support $\bigcup_{E\in\cJ}(\supp E\cap V)$, or empty.  The operator $L_V$ kills every
+function that does not depend on all coordinates in $V$, hence every
+cylinder whose support is a proper subset of $V$.  A cylinder with support
+$V$ is a point indicator $\mathbf 1_{\{\sigma\}}$.  Therefore $L_Vg_y=L_Vc_y$, where
+\[
+ c_y(\sigma)=\sum_{\cJ:\ \mathbf 1_\cJ=\mathbf 1_{\{\sigma\}}}(-1)^{|\cJ|}.
+\]
+Since $L_V$ is an orthogonal projection in $L^2(\pi_V)$,
+$\|L_Vc_y\|^2\le\E_\sigma c_y(\sigma)^2$.  The subfamilies counted in $c_y(\sigma)$ are
+exactly the subfamilies of events that hold at $x=(\sigma,y)$ whose traces on
+$V$ cover $V$.  Two events that hold at $x$ and have the same support are the
+same cylinder.  By the remark on repeated traces, $c_y(\sigma)=N_{\Ho(x)}(V)$.
+Taking $\E_y$ gives the first claim.  For the second, multiply by $\mu^V$, sum
+over $V$ and use Lemma~\ref{lem:ident}(a).
+\end{proof}
+
+The lemma is an equality for $V=\emptyset$ (both sides equal $\E F$).  The only
+loss is the projection step $\|L_Vc\|\le\|c\|$.  Two features matter below.
+First, the suppression is built in: $N_{\Ho(x)}(V)=0$ as soon as some event
+that holds at $x$ misses $V$.  Second, the right-hand side no longer involves
+the measure, except through the law of $\Ho(x)$; Theorem~\ref{thm:main} will
+follow from a bound on $Q_\mu$ that is uniform over all hypergraphs whose edges
+have weight at most $2$.
+
+\begin{remark}[Unsigned counts are too weak]\label{rem:unsigned}
+Lecomte and Tan \cite{LT} bound $|\hat g(S)|$ for a DNF $g$ on the uniform
+cube by $2^{|S|}\PP_x[S$ is covered by the terms satisfied by $x]$; we quote
+the form from \cite{LT}, checked earlier.  With the unsigned count the
+suppression is lost.  For example, if $\Ho(x)$ contains a singleton $\{u\}$
+and many edges through a set $V\not\ni u$, then $N_{\Ho(x)}(V)=0$, while the
+number of covers of $V$ is large.
+\end{remark}
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
