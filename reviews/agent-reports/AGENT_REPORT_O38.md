@@ -2,6 +2,7 @@
 
 Deliverable: `POINTWISE_OMEGA10.md`, `scripts/omega10_*.py`.
 Checkpoint 2 supersedes checkpoint 1: Conjecture Q is now proved.
+**Round 3:** the parent's review R38 found all claims SOUND, with no FATAL or MAJOR issue. R38 MINOR 1–5 are applied; see the end of this report.
 Self-review R38a (deep subagent) found no FATAL or MAJOR issue in the
 mathematics. Its minors are applied. Its one MAJOR concerned the
 checkpoint-1 wording of this report, which is rewritten below.
@@ -60,3 +61,27 @@ checkpoint-1 wording of this report, which is rewritten below.
     empty matching;
   * Thm 4.2's bookkeeping against O8 Thm 3.4 / O9 Thm 2.2;
   * whether ES event moduli satisfy Remark 4.3 with ρ=O(1).
+
+## Round 3: R38 minors applied
+
+1. Cor 4.1 is stated for 0/1-valued f. In ±1 form it reads
+   `W^{>t}≤4·2^{−(t+1)/k}`, and also `I_{0/1}[f]≤(k/ln2)P[f=1]`. For q=2
+   both are stronger in the exponent than the switching-lemma bound, and no
+   known lower bound contradicts them.
+2. Prior art: Lecomte–Tan (FOCS 2021, arXiv:2109.04525) is cited as the
+   nearest prior art. Their bound uses unsigned cover counts over {±1}^n and
+   still uses Håstad. C-1, Lemmas 3.2–3.3 and Cor 4.1 are labelled "new to
+   us, literature search partial". Also noted (R38 item 6): C-1 holds on
+   arbitrary finite product probability spaces.
+3. Thm 4.2 now cites O8 Lemma 3.1 with Efron–Stein truncations and O8
+   Lemma 3.2 for the cell form, and lists exactly what O9 Thm 1.1 uses.
+4. Every stated rate (`log L_h≪𝓛^7/log𝓛`, the 1/7·loglog gain) now carries
+   "modulo (G) and Elsholtz–Tao Prop 1.4".
+5. Remark 4.3 now states:
+   * the down-set truncation `u_j=Σ_{W∈𝒟}c_WE[F^{(j)}|X_W]`, so every cell
+     modulus is `≤e^τ`;
+   * that splitting mod `ℓ^{a_ℓ}` costs at most `T^ρ` in m;
+   * that O8 guarantees only ρ≤k, which gives back `𝓛^6`.
+   The ρ=O(1) hypothesis for ES remains unchecked.
+
+A second reviewer is to check Cor 4.1 against the DNF literature. Stopping here.

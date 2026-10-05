@@ -4,7 +4,7 @@ Task O38 (branch `esw-suppression`). Labels as in the house rules. ES is not
 touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O2, O8, O9 likewise; `𝓛=log T`.
 
-**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); self-review R38a (deep): no FATAL/MAJOR in the mathematics, minors applied.**
+**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); self-review R38a and parent review R38 (`reviews/pointwise-omega10-review.md`): all claims SOUND, no FATAL/MAJOR; R38 MINOR 1–5 applied.**
 
 ## 0. Notation
 
@@ -437,7 +437,7 @@ help: a junta function of the i-th base-ℓ digit alone needs modulus
   arguments only); §2 identities and the single-coordinate case of MONO; the
   counterexample to MONO; **Lemma 3.1** (`G_F ≤ E_x Q_μ(𝓗(x))`, suppression
   built in); the vertex recursion; the two-edge formula; §4's implication.
-* PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2).
+* PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2; rates modulo (G) and ET Prop 1.4). Novelty of C-1/Cor 4.1: new to us, literature search partial (nearest prior art Lecomte–Tan 2021).
 * CONJECTURE (EVIDENCE): FM (fractional matchings), C-exp (`w_E>2` allowed).
 * Not claimed: the random-restriction form of ESW (not needed: Cor 4.1 is
   the energy-tail statement that ESW+LMN was meant to supply); any exponent improvement
