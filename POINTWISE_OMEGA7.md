@@ -1,5 +1,11 @@
 # HC_Π corner residuals: the (m,m*) hyperbola and Kloosterman input (task O26)
 
+> **Parent note (2026-10-05).** This file was merged without an independent
+> hostile review. Its PROVED labels are the author's (with a deep-mode
+> self-review). The HC_Π route it serves is superseded for the rate by
+> `POINTWISE_OMEGA8.md` (W(p) ≥ exp(c(log p)^{1/14}) i.o., doubly reviewed),
+> so it is archived as a partial reduction only.
+
 Labels follow the house rules. ES is not solved here or anywhere. Notation
 as in `POINTWISE_OMEGA6.md` (O6): atoms `(s,a,b)`, s squarefree,
 `M=4sab−1=q·m·n′`, `a≡κb (q)`, Π-part m, `m|a+b`, `m|F:=4sa²+1`, weight
