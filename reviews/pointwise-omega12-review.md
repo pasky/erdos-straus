@@ -84,3 +84,46 @@ period" point: no first-term loss because the c-window has length `C≥q`).
 `C=2^j`: `(𝓛/log2)(1+H_J)≪𝓛 log𝓛` ✓; `Σ_{(A,B)}log(A+B+2)≪𝓛³` ✓.
 The averaging is honest: per `(A,B)` the bound is `log(A+B+2)·Σ_j(…)`, no
 hidden dependence of constants on C. (MINOR m1 below: q=2 at C=1.)
+
+### Lemma 4.1 — SOUND (modulo ET Prop 1.4, Thm 7.1, Cor 7.4, (7.10))
+Identity `Σ_{e|P}h(e)=Σ_{q|P}(1/i)τ(P/q)` ✓ (also brute-forced on 3000 P's in
+`scripts/review_o12a_R.py`). `q|P ⇒ ℓ` odd, `ℓ∤ad` ✓.
+*Large q:* `P≤4(2A−1)²(2B−1)+1<32Z³` ✓; `2log(32Z³)/log Z≤8.5` for `Z≥16` ✓;
+`Z<16`: `h(P)≤Ω(P)≪1` ✓.
+*Quadratic case (A≥B, Z=A≥16, q≤A^{1/2}).* `x_0≠0` (P(0)=1), `a≥A≥q>x_0 ⇒ a'≥1` ✓,
+`a'≤⌊2A/q⌋=N'`, `N'≥⌊2A^{1/2}⌋≥A^{1/2}` ✓. Coefficients `4dq, 8dx_0,
+(4dx_0²+1)/q` are non-negative integers `<16A^{3/2}≤N'^5` iff `A≥16` ✓.
+Root counts — the specific point the brief asked about:
+  - `p=2`: Q odd-valued (P odd, q odd) ⇒ `ρ_Q(2^j)=0` ✓;
+  - `p=ℓ`: `Q(a')≡0 (ℓ^j) ⇔ P(qa'+x_0)≡0 (ℓ^{i+j})`; `a'↦qa'+x_0 mod ℓ^{i+j}`
+    is injective from `ℤ/ℓ^j`, and P has ≤2 roots mod `ℓ^{i+j}` ⇒ `ρ_Q(ℓ^j)≤2` ✓
+    (in fact ≤1, Hensel lift of the single root ≡x_0);
+  - `p∤2ℓ`: q unit mod `p^j` ⇒ `ρ_Q(p^j)=ρ_{4d}(p^j)≤2` (0 if p|d) ✓.
+  So (7.2) holds with `C=2` for **all** `p,j`; constant `≪_{2,5,2}` absolute,
+  independent of `d,q,x_0` ✓. Brute force (`scripts/review_o12a_rho.py`:
+  39 values of d, q∈{3,9,27,5,25,7,49,13,169,17,289}, every root `x_0`, all
+  prime powers `≤400` incl. 2-powers and ℓ-powers): 40 546 checks, `ρ_Q≤2`,
+  `ρ_Q(2^j)=0`, `ρ_Q(m)=ρ_{4d}(m)` for `ℓ∤m` ✓. Multiplicativity step
+  `Σ_{m≤N'}ρ_Q(m)/m ≤ (Σ_jρ_Q(ℓ^j)ℓ^{−j})Σ_{m≤2A}ρ_{4d}(m)/m ≤ 2Σ…` ✓.
+  Then `(1/(AB))·2·(2A/q)·2·Σ_{d<2B}Σ_{m≤2A}ρ_{4d}(m)/m ≪ (1/(qB))·B log A` by
+  (7.10) with ET's `(A,B,k)=(2B,2A,4)` ✓.
+*Linear case (B>A, Z=B≥16, q≤B^{1/2}).* `d_0∈(0,q)` unique, `d≥B≥q ⇒ d'≥1` ✓,
+`b_a≤4a²` odd, `gcd(4a²,b_a)=1` ✓ (brute-forced too). Coefficients `≤16B²≤N^6`
+iff `B≥16` ✓. Cor 7.4 with fixed exponent 6 ⇒ constant absolute ✓.
+`Σ_{a∈[A,2A)}1/a<2` ✓.
+*Sum over q:* `Σ_{q≤Z^{1/2}}1/(iq)≪log log Z` ✓. No hidden log: each q costs
+`≪log Z/q` uniformly, the per-q constants are absolute.
+Numerically (own code, T=10⁴, all blocks `A²B≤T`): `max R/(log(Z+2)loglog(Z+16))
+= 1.2903` at `(A,B)=(8,2)` — matches the author; per-q normalised pieces
+`F(q)=q·Σ_{q|P}τ(P/q)/(ad)/log Z` stay `≤1.32` (worst `(A,B,q)=(64,1,5)`).
+(10⁶ run: §7.)
+
+### Cor 4.2 — SOUND
+For fixed `(a,c,d)`, `f↦e=P/f` is a bijection on divisors, so the f-sum is
+`≤Σ_{e|P}h(e)` ✓; `Σ_c1/c<2` ✓; `𝓛` values of C × `O(𝓛²)` pairs × `𝓛 log𝓛` ✓.
+
+### Thm 5.1 — SOUND (modulo the four ET inputs, all correctly stated)
+`Ω_0≤2(Σ_I+Σ_II)` (Lemma 2.1, checked numerically: 120.7≤127.3 at 10⁴,
+273.9≤285.5 at 10⁵). `Ω♯` in O11 §4 is `Σ_{all (M,D)} s·h` with
+`s=C log log T·g/M`, so `Ω♯=C log log T·Ω_0` exactly as the author writes ✓.
+Hence `Ω♯≪𝓛^4(log𝓛)^2`, i.e. **H_ω(2)** of O11 §4, modulo ET ✓.
