@@ -1,7 +1,14 @@
 # EXCEPTIONAL_KARY3 — removing the `(log log N)^{3/4}` loss from KARY2 Thm 5.1; truncated weights (task O28)
 
-Status: **checkpoint 1, self-reviewed** (`reviews/kary3-self-review.md`,
-D1–D7 applied; independent review pending). Labels follow `DISCOVERIES.md`.
+Status: **checkpoint 2, reviewed.** Self-review
+(`reviews/kary3-self-review.md`, D1–D7 applied); independent hostile
+review R28 (`reviews/exceptional-kary3-review.md`, branch
+`side-agent/review-kary3`): all claims SOUND, MINOR defects 1–5 applied.
+**Dependencies (R28 defect 5):** the PROVED labels of Thms 4.1 and 5.1
+rest on the K2/EK framework as reviewed there (square base K2 Lemma 2.3,
+leak K2 Lemma 4.3, EK Thm 4.1 / Cor 2.6, ETw Prop 4.1 / Cor 4.3) and on
+the bodies of EK Lemma 4.2′ and K2 Lemma 3.6, none re-proved here;
+i.e. "PROVED given K2/EK as reviewed". Labels follow `DISCOVERIES.md`.
 Notation follows `EXCEPTIONAL_KARY2.md` (K2), `EXCEPTIONAL_KARY.md` (EK),
 `EXCEPTIONAL_THETA.md` (ET), `EXCEPTIONAL_TUPLES.md` (TU). **ElT** is
 Elsholtz–Tao, arXiv 1107.1010 (J. Aust. Math. Soc. 2013); K2 already uses
@@ -377,7 +384,8 @@ about "λ-level". Order the primes increasingly:
   (nonempty ones only); for `ℓ ∈ V_i`, `s_ℓ = log ℓ > 2^is₁ = s`, so
   every `f ∈ 𝓕` is `⌊λ/s⌋`-local on `V_i`;
 * if `L₀ > λ/2`, the linear block `(e^{λ/2}, e^{L₀}]` (every f is 1-local
-  there; ETw Cor 4.3);
+  there; ETw Cor 4.3 applied to this sub-block of K2's `(e^{λ/2}, e^λ]`,
+  pointer-level as in K2/EK);
 * one **top block** `V_top = {ℓ : log ℓ > L₀}` (all remaining primes);
   there `s_ℓ = L₀`, so every `f ∈ 𝓕` is `d₀`-local on `V_top`.
 
@@ -391,7 +399,12 @@ and `𝔐(e^Λ) ≤ K₃′Λ³` (Cor 3.3). As in K2 §5, t is chosen per histor
 `t(h) = d₀/(E[M|h] + 4d₀)`, and EK Cor 2.6 plus Jensen over histories
 (concavity in `E[M|h]`) gives
 `EΦ_top ≤ d₀log(C₀(K₃′Λ³+4d₀)/d₀) + (4/3)d₀ + ½log(22d₀+22) + 3`, doubled
-by EK Thm 4.1. The leak bound K2 Lemma 4.3 is per prime (`𝔏 ≤ Σ_{ℓ>W}
+by EK Thm 4.1. *(R28 defect 4.)* When `L₀ > λ/2`, `d₀ = 1` and every
+prime of `V_top` exceeds `e^{λ/2}`, so `V_top` may instead be treated as a
+linear block: ETw Cor 4.3's argument uses only 1-locality and the caps
+`δ_ℓ ≤ e^{−λ/4}` (not the width of the block), giving cost
+`≤ 2log(1+3e^{−λ/4})` in place of `≈ 2log(C₀(K₃′Λ³+4))` (pointer-level).
+The leak bound K2 Lemma 4.3 is per prime (`𝔏 ≤ Σ_{ℓ>W}
 ℓ^{1/2}E p_ℓ²`, every class decided at its top prime under any
 increasing-order block structure with caps `ℓ^{−1/2}`), so `𝔏 ≤ 1/2` still.
 The base adds `2W + log 2`. ∎
