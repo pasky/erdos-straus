@@ -202,9 +202,9 @@ attained, no cancellation);
 (iii) the truth has `‖e_O‖_{s'}≥(1/2)N_x^{1/s'}` (the `N_x` classes containing a counted prime
 have error `≥1/2`, Lemma 2.3(a)).
 Positivity needs, for some O, `N_x‖ρ_O‖_{s'}>‖e_O‖_{s'}`, i.e.
-`N_xe^{−0.6μ*/s'}η^{1/s}>(1/2)(N_x/2)^{1/s'}`; raising to the power s (`s/s'=s−1`):
-`N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}≥1/2` (for `s<∞`). For `s=∞` (`s'=1`) the condition reads
-`N_xe^{−0.6μ*}>N_x/4`, impossible. ∎
+`N_xe^{−0.6μ*/s'}η^{1/s}>(1/2)N_x^{1/s'}`; raising to the power s (`s/s'=s−1`):
+`N_xη>(1/2)(e^{0.6μ*}/2)^{s−1}≥1/2` (for `s<∞`). For `s=∞` (`s'=1`) the condition reads
+`N_xe^{−0.6μ*}>N_x/2`, impossible. ∎
 
 *Reading.* On moduli `>x` every true orbit-uniform bound is trivial (Lemma 2.3), so within this
 class prime input cannot matter; the content is Thm 1.2 — the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of
