@@ -31,18 +31,21 @@ absolute precision η_K), conflicts with a rigorous integer constraint
 for **every θ > 2/3**: the class −1 sits in every 𝓡(ℓ), so its hits are
 prime divisors of the one integer n+1, and the CRT moments contain a
 forced-zero mass far above η_K (Thm 2.2). TC_θ can then only hold through
-an implausible compensating excess (Cor 2.3, Ass. 3.2). So the failure
-threshold of the literal hypothesis is **θ = 2/3** (heuristically sharp;
-proved: TC holds below 2/3, and above 2/3 it requires that excess), not ≈ 1 as the squares (T1 Prop 4.2) suggested. This does **not**
-close the door: the obstruction lives in individual moments and cancels
-in the alternating sum that T1 Thm 2.1 actually uses (Thm 4.1). The
+an implausible compensating excess (Cor 2.3, Ass. 3.2). So the expected
+failure threshold of the literal hypothesis is **θ = 2/3**, not ≈ 1 as the
+squares (T1 Prop 4.2) suggested. Proved: TC holds below 2/3, and above
+2/3 it *requires* that excess. That TC_θ actually fails above 2/3 is an
+Assessment (CONJECTURE), not a theorem. This does **not** close the door:
+the forced-zero correction lives in individual moments and cancels in the
+alternating sum that T1 Thm 2.1 actually uses (Thm 4.1); the analogous
+cancellation of the floor deficits is heuristic. The
 correct door is TC^alt_θ, a one-sided Brun-sieve statement, which still
 gives `E(N) ≤ (2e+2)N exp(−(2/e²)(log N)^θ)` (Cor 4.2). Task (A): no
 positive result; TC^alt_θ for θ > 2/3 is beyond CRT by Cor 6.1 and no
 known theorem reaches its level `exp(c(log N)^{3θ/2})` (Ass. 6.2). No
-structured obstruction to TC^alt below θ = 1 was found: the single-form
-deviations are invisible to it, and the square-type obstructions have
-polynomial density. Task (C): closed for block-sparse families (Prop 7.1).
+structured obstruction to TC^alt below θ = 1 was found: the forced-zero
+correction provably cancels in it, the floor deficits heuristically do,
+and the square-type obstructions (n = c·k²) have polynomial density. Task (C): closed for block-sparse families (Prop 7.1).
 
 ## 1. Forms: a rigorous size constraint invisible to CRT
 
