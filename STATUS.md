@@ -168,6 +168,9 @@ Papers in `paper/`:
   internally; fixes applied);
 * `es-omega-note` v3: every fixed exponent (refereed internally; P1–P4
   applied).
+* `es-window-note` (new): the window statistic `a_min(p)` — half-set lemma,
+  exact stacking orders for bounded windows (W1/W2 sharp), parity as a
+  necessary input (refereed internally, R41 minor revision applied).
 * `es-subexp-note` v2: `W(p) ≥ exp(c(log p)^{1/7})` i.o. via a
   Bazzi–Razborov sandwich minorant and a Gallagher-type linear transfer
   (refereed internally twice, R33/R33b minor revisions
