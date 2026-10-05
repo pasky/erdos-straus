@@ -19638,4 +19638,101 @@ print("\n== (dd) POINTWISE_OMEGA13: Lemma 3.1 Jacobi non-residue, Lemma 1.1 beta
 check_dd()
 
 
+
+# ---------------------------------------------------------------- (de)
+# POINTWISE_TRANSFER.md §5.1 (cf. scripts/transfer_mn.py, review_tr_lemma51.py, review_tr_typeII.py).
+# (1) Lemma 5.1 for m = 4..7 (and 8, 11), all M <= 3000, M = -1 (m), A = (M+1)/m:
+#     (i) {-u v^-1 mod M : uvw = A} = R_m(M) = {-mD mod M : D | A^2}; (ii) 1 not in R_m(M);
+#     (iii) D -> A^2/D preserves gcd(M, mD+1); identity (5.1) m/n = 1/(suw) + 1/(nsvw) + 1/(nuvw)
+#     for n = -u v^-1 (M), s = (nv+u)/M (exact Fractions, three n per class).
+# (2) Lemma 5.0 (completeness for Type II): every solution of m/p = 1/x + 1/y + 1/z (m = 4..7,
+#     primes m < p <= 200) with exactly two denominators divisible by p has the form (5.1):
+#     w = gcd(x, y', z'), (X, Y, Z) = (su, sv, uv), s(m uvw - 1) = pv + u, and p mod M in R_m(M).
+
+def check_de():
+    from time import perf_counter
+    t0 = perf_counter()
+
+    def divisors(x):
+        out = [1]
+        for p, e in factorint(x).items():
+            out = [d * p ** k for d in out for k in range(e + 1)]
+        return out
+
+    nmod = 0
+    for m in (4, 5, 6, 7, 8, 11):
+        for M in range(m - 1, 3001, m):
+            if M < 3:
+                continue
+            A = (M + 1) // m
+            dA2 = divisors(A * A)
+            R = {(-m * D) % M for D in dA2}
+            fam = set()
+            for u in divisors(A):
+                for v in divisors(A // u):
+                    w = A // (u * v)
+                    c = (-u * pow(v, -1, M)) % M
+                    fam.add(c)
+                    for n in (c, c + M, c + 7 * M):
+                        if n == 0:
+                            continue
+                        assert (n * v + u) % M == 0, ("TRANSFER (5.1): M | nv + u", m, M, u, v)
+                        s = (n * v + u) // M
+                        assert Fraction(m, n) == Fraction(1, s * u * w) + Fraction(1, n * s * v * w) + \
+                            Fraction(1, n * u * v * w), ("TRANSFER identity (5.1)", m, M, u, v, w, n)
+            assert fam == R, ("TRANSFER Lemma 5.1(i)", m, M)
+            assert 1 % M not in R, ("TRANSFER Lemma 5.1(ii): class of one", m, M)
+            for D in dA2:
+                assert gcd(M, m * D + 1) == gcd(M, m * (A * A // D) + 1), ("TRANSFER Lemma 5.1(iii)", m, M, D)
+            nmod += 1
+
+    def solutions(m, n):
+        # all x <= y <= z with m/n = 1/x + 1/y + 1/z
+        out = []
+        for x in range(n // m + 1, 3 * n // m + 1):
+            r = Fraction(m, n) - Fraction(1, x)
+            if r <= 0:
+                continue
+            a, b = r.numerator, r.denominator
+            for y in range(max(x, -(-b // a)), 2 * b // a + 1):
+                r2 = r - Fraction(1, y)
+                if r2 > 0 and r2.numerator == 1 and r2.denominator >= y:
+                    out.append((x, y, r2.denominator))
+        return out
+
+    nsol = ntype2 = 0
+    for m in (4, 5, 6, 7):
+        for p in primerange(m + 1, 201):
+            for sol in solutions(m, p):
+                nsol += 1
+                div = [t for t in sol if t % p == 0]
+                if len(div) != 2:
+                    continue
+                ntype2 += 1
+                x = [t for t in sol if t % p][0]
+                y1, z1 = div[0] // p, div[1] // p
+                w = gcd(gcd(x, y1), z1)
+                X, Y, Z = x // w, y1 // w, z1 // w
+                # X = su, and (Y, Z) = (sv, uv) in one of the two orders
+                ok = False
+                for Yv, Zv in ((Y, Z), (Z, Y)):
+                    s = gcd(X, Yv)
+                    u, v = X // s, Yv // s
+                    if Zv == u * v and s * (m * u * v * w - 1) == p * v + u:
+                        M = m * u * v * w - 1
+                        A = u * v * w
+                        assert p % M in {(-m * D) % M for D in divisors(A * A)}, ("TRANSFER Lemma 5.0: p mod M in R_m(M)", m, p, sol)
+                        ok = True
+                        break
+                assert ok, ("TRANSFER Lemma 5.0: Type II solution not of the form (5.1)", m, p, sol)
+    assert ntype2 >= 500, ("TRANSFER Lemma 5.0: too few Type II solutions", ntype2)
+    print(f"de Lemma 5.1 (i)-(iii) + identity (5.1) on {nmod} moduli (m = 4..8, 11; M <= 3000); Lemma 5.0: all "
+          f"{ntype2} Type II among {nsol} solutions of m/p (m = 4..7, p <= 200) have the form (5.1); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (de) POINTWISE_TRANSFER §5.1: Lemma 5.1 (atoms, class of one, involution), (5.1), Lemma 5.0 ==")
+check_de()
+
+
 print("\nall checks passed")
