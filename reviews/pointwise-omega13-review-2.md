@@ -103,7 +103,7 @@ genuine (if small) check, not a formality.
 
 **I1 sketch (twist).** As in O8 Lemma 3.3, with `ℓ_0|f` (a coordinate, `a_{ℓ_0}=0` since
 `gcd(f,Q)=1`): `|E[Fψ]|≤Σ_{E∋ℓ_0}p_{ℓ_0}(E)P(E∖ℓ_0∩F')`. The standard LLL conditional
-bound for an arbitrary event A (Haeupler–Saha–Srinivasan Thm 2.1:
+bound for an arbitrary event A (Haeupler–Saha–Srinivasan, as already cited by O8 Lemma 3.3; I did not re-open that paper:
 `P(A|∩F̄)≤P(A)∏_{F∈Γ(A)}(1−x_F)^{−1}`), with Lemma 1.1's computation, gives for
 `A=E∖ℓ_0`: `∏(1−x_F)^{−1}≤exp((4/3)Σ_{ℓ∈supp A}w̃_ℓ)≤β^{s(E)−1}`. Hence
 `|E[Fψ]|≤β^{−1}w̃_{ℓ_0}EF'≤ηEF'`, `EF≥(1−η)EF'`, and `|μ_ψ|≤E|B−F|+|E[Fψ]|≤(0.01+η/(1−η))EF≤μ/4` (using `μ≥0.99EF`)
