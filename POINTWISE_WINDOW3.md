@@ -154,3 +154,37 @@ Giving *every* family the same constant K (far more generous than §4.1):
 **So even if every switched family — sifting the other window to any depth — were bounded
 with the prime-pair constant 4 (or 2.5), Type-I + parity + switching would not prove a single
 two-window failure in this model.** Threshold for uniform constants: `K*∈(2,2.5)`.
+
+## 5. Best known constants for the switched counts (goal 2)
+
+Source checked: J. Wu, *Chen's double sieve, Goldbach's conjecture and the twin prime problem*,
+Acta Arith. 114 (2004) 215–273 = arXiv:0705.1652, archived `sources/window3/0705.1652.{pdf,txt}`
+(§1, pp. 1–4); part 2 (Acta Arith. 131 (2008) 367–387) = arXiv:0709.3764, archived (it improves
+the *lower* bound `D_{1,2}`, irrelevant here). Constants as ratios to the Hardy–Littlewood value
+(Goldbach `D(N)~2Θ(N)`, twins `π_2~Π(x)`):
+
+| method | Goldbach `D(N)` | twins `π_2(x)` | inputs |
+|---|---|---|---|
+| Selberg Λ² (1949) | 8 | — | level from Selberg |
+| Bombieri–Davenport (1966) | **4** | 4 | linear sieve + BV (level 1/2) |
+| Chen (1978) double sieve | 3.9171 | 3.9171 | + Chen's weighted inequalities + switching |
+| Wu 2004 Thm 1 / Thm 3 | 3.91045 | **3.3996** | twins: + BFI/Fouvry mean-value theorems with well-factorable weights (level > 1/2, *fixed* residue class) |
+| any sieve, even at level 1 (EH) | ≥2 | ≥2 | Selberg's parity example for upper bounds (`F(2)=e^γ` at `D=x`) |
+
+(Checked in source: 16→12→8→7.8342→7.8209 for `D(N)≤aΘ(N)`, "the constant a is half of the
+corresponding constant in the Goldbach problem" for twins at equal technology, 3.418→3.406→3.3996
+for twins; Wu: "It seems very difficult to prove (1.2) with a constant strictly less than 8 by the
+method in [1]", the linear sieve bounds are attained by Selberg's parity sequences, and Remark 1(i):
+the double-sieve gain "works for all sequences satisfying the Chen–Iwaniec switching principle".)
+
+**Which applies to the window switched sequences** `E_q={4mr−q}` (bilinear, residue class
+`q·4^{−1} mod d` fixed, but primes enter through the convolution `𝓜*𝒫`): BV for convolutions
+(level 1/2) is available, so **K=4 is a theorem-level baseline**. Chen's double sieve plausibly
+transfers (Wu's Remark 1(i)), giving ≈3.91 — not checked for convolution sequences, and it
+needs the switching principle *for E itself*. Wu's 3.3996 needs level >1/2 with well-factorable
+weights for primes in a fixed class; for convolutions `α*β` with arbitrary α (the configuration
+set 𝓜) such mean-value theorems are not known to us at the required generality
+(Assessment, not searched exhaustively). The half-dimensional extra condition (§4.1) only makes the
+constants larger (K(ζ)≈8–15 with composed sieves). **Recalled vs checked:** the table's rows are
+checked in Wu's §1; "≥2 at level 1" is the standard parity statement (recalled; it is Wu's
+remark about (1.3) at ν=1); the K(ζ) values of §4.1 are our computations.
