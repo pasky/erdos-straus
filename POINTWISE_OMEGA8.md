@@ -17,7 +17,7 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    1.4): `W(p) ≥ exp(c(log p)^{1/14})` for infinitely many Mordell-hard p;
    uniformly `log L_h(T) ≪ (log T)^{14}`. This replaces O4 Cor 3.1
    (`log W ≥ (1+o(1))log₂p·log₃p/log₄p`) and reaches the third target of
-   O4 §4.4. The Haar side is `log(1/δ*) ≪ 𝓛^7log𝓛`; the prime side now
+   O4 §4.4. The Haar side is `log(1/δ*) ≪ 𝓛^7/log𝓛` (O2 Thm 11.3); the prime side now
    costs its square.
 2. **Theorem 4.4** (PROVED modulo Thorner–Zaman only): `log W(p) ≥
    (1/(2log2)−o(1))log₂p·log₃p` i.o. (was `log₂p·log₄p/log₅p`).
@@ -234,7 +234,7 @@ unit congruence cells, each on at most `3k+2t` free primes (so every
 modulus d has `log d ≤ (3k+2t)𝓛`), with
 
 ```
-log M_1(B) ≤ 3 log m + 8t log(N+1) + 2(3k+2t)·4𝓛 + 3.
+log M_1(B) ≤ 3 log m + 4t log(N+1) + 4(3k+2t)𝓛 + 3.
 ```
 
 *Proof.* `φ^{=U}=Σ_{W⊆U}(−1)^{|U∖W|}E[φ|X_W]`, so
@@ -246,13 +246,19 @@ log M_1(B) ≤ 3 log m + 8t log(N+1) + 2(3k+2t)·4𝓛 + 3.
 `M_1(fg) ≤ M_1(f)M_1(g)T^{min(junta)}`. Each term `A_iA_jA_{j'}u_ju_{j'}`
 of B (and the lower-order ones) is a product of at most five such
 factors on at most `3k+2t` primes; there are at most `m³+m²+m+1` of them.
-Merging equal cells only lowers `M_1`. ∎
+Hence each term has `M_1 ≤ (N+1)^{4t}T^{4(3k+2t)}`: four successive
+products, each inflating by at most `T^{3k+2t}`, and `M_1(u_j)≤(N+1)^{2t}`
+twice. This gives the displayed bound (R30a D5). Merging equal cells only
+lowers `M_1`. ∎
 
 **Lemma 3.3 (twist; PROVED).** Assume `w_ℓ ≤ 1/(64k)` for all free ℓ
 and `E[F−B] ≤ E F/100`. Then for every real primitive ψ of conductor
-`f>1`, `gcd(f,Q)=1`, the twisted mean of B satisfies `|μ_ψ| ≤ μ/4`.
+`f>1`, `gcd(f,Q)=1`, `f|d_i` for some i (PO Thm 4.1's quantifier; so all
+primes of f are free coordinates), the twisted mean of B satisfies `|μ_ψ| ≤ μ/4`.
 
-*Proof.* As O2 Thm 3.1 Step 4. `|μ_ψ| ≤ E|B−F| + |E[Fψ]|`. Fix a prime
+*Proof.* As O2 Thm 3.1 Step 4. Since ψ is primitive and f is odd
+squarefree, `μ_ψ=E[Bψ]` for any cell representation of B, so
+`|μ_ψ| ≤ E|B−F| + |E[Fψ]|`. Fix a prime
 `ℓ_0|f` and let `F'` be the indicator that no event avoiding `ℓ_0` occurs.
 Then `F=F'·1[X_{ℓ_0}∉Forb]` with Forb determined by `X_{−ℓ_0}`, and
 `|E[Fψ]| ≤ E[F'·P_{X_{ℓ_0}}(Forb)] ≤ Σ_{E∋ℓ_0} p_{ℓ_0}(E)·P(E∖ℓ_0 ∩ F')`.
@@ -277,7 +283,7 @@ EL(t):   energy(F^{(j)}; t) ≤ e^{−3S}/(100 m² (S+1))    for every j.
 Then there is a Mordell-hard prime `p>T` with `W(p)>T` and
 
 ```
-log p ≤ C·K·(log Q_Π + (3k+2t+2)𝓛 + K),     K := 4S* + C'(k+t)𝓛,
+log p ≤ C·K·(log Q_Π + 2(3k+2t+1)𝓛 + K),     K := 4S* + C'(k+t)𝓛,
 log Q_Π ≤ (π(z) + 64k²S*)𝓛 + 4.
 ```
 
@@ -285,9 +291,14 @@ log Q_Π ≤ (π(z) + 64k²S*)𝓛 + 4.
 `≤2k c_0`) gives `δ:=E F ≥ e^{−2.2S}` on the class of one mod `Q_Π`. Lemma
 3.1 with EL(t): `E[F−B] ≤ m²·S·e^{−3S}/(100m²(S+1)) ≤ δ/100`, so
 `μ=E B ≥ 0.99δ`. Lemma 3.2 bounds `M_1` and the moduli (`N≤T`), Lemma 3.3
-the twist; (I) (O2 Lemma 4.3 (I)) gives `B≤1[W>T]` on `n≡1 (Q_Π)`. Then PO
-Thm 4.1, with the auxiliary prime `ℓ_0` as in O4 Thm 2.1, and
-`|𝓑|≤kS*/c_0`. ∎
+the twist. (I) (O2 Lemma 4.3 (I)) gives `B≤1[W>T]` for every `n≡1 (Q_Π)`
+coprime to all `d_i`. That is all PO Thm 4.1's proof uses: it evaluates B
+only at primes `p≡1 (Q)`, `p>Q>T` (R30b D1). Then apply PO Thm 4.1 with the
+auxiliary prime `ℓ_aux∈(R,2R]`, `R=max(T,max d_i)`, as in O4 Thm 2.1:
+`log Z ≤ log Q_Π + log ℓ_aux + log max d_i ≤ log Q_Π + 2(3k+2t+1)𝓛`
+(R30a/R30b D1–D2). Finally `|𝓑|≤kS*/c_0`. Splitting may create duplicate
+single-value events; they are kept, since Lemma 3.1 and the local lemma do not
+need distinctness and masses are unchanged (R30b D5). ∎
 
 **Corollary 3.5 (rates under EL; PROVED implications).**
 1. If EL(t) holds with `t ≤ (𝓛S*)^A`, take `z=𝓛²`. Then
@@ -339,8 +350,11 @@ we have `Pr[Bin(|U|,p)≥k_0] ≥ Pr[Bin(|U|,p)≥⌊p|U|⌋] ≥ 1/2` (the medi
 a binomial is `⌊np⌋` or `⌈np⌉`). Since `W^{≥k_0}[f_ρ]≤1`, this gives
 `W^{≥d}[1−φ̃] ≤ 2·2^{−k_0}`; the same holds for φ̃. So the Fourier
 truncation g̃ of φ̃ below degree d has `E(φ̃−g̃)² ≤ 2^{1−k_0}`.
-(Standard: Linial–Mansour–Nisan 1993; e.g. Lovett's notes, Lemma 3.3 and
-Cor 3.4.)
+(Linial–Mansour–Nisan 1993. Textbook form: O'Donnell, *Analysis of Boolean
+Functions*, Lemma 4.21, which gives `3ε`-concentration up to degree `3k/δ`
+via Chernoff. The median variant used here follows Kaas–Buhrman,
+Statistica Neerlandica 34 (1980): the median of `Bin(n,p)` is `⌊np⌋` or
+`⌈np⌉`. With O'Donnell's version, t gains a factor 3/2; R30a D3.)
 
 (c) *Back to coordinates.* Put `g(x):=E[g̃(U) | π(U)=x]`. A character
 `χ_S` (S a set of bits) involves the blocks of at most `|S|<d`
@@ -349,7 +363,7 @@ coordinates, and since the blocks are independent and π acts blockwise,
 functions of `<d` coordinates. By Jensen (φ̃ is `π(U)`-measurable),
 `E_{x∼π_*}(φ−g)² ≤ E(φ̃−g̃)²`. Finally each fibre has `⌊2^b/q⌋` or
 `⌈2^b/q⌉` points, so the Haar density relative to `π_*` is
-`≤∏_ℓ(1−q_ℓ2^{−b})^{−1} ≤ exp(2NT·2^{−b}) ≤ e^{1/2}`. Hence
+`≤∏_ℓ(1−q_ℓ2^{−b})^{−1} ≤ exp(2NT·2^{−b}) ≤ e^{1/2}` (in fact `≤e^{1/3}`; R30a). Hence
 `energy_{Haar}(φ;d) ≤ E_{Haar}(φ−g)² ≤ e^{1/2}2^{1−k_0} ≤ 4·2^{−k_0}`. ∎
 
 **Corollary 4.2 (EL; PROVED).** In Theorem 3.4, EL(t) holds with
@@ -389,7 +403,7 @@ increasing, this inverts to `𝓛 ≥ (1/(2log2)−o(1))·log₂p·log₃p`. ∎
 ET); O4 Cor 3.2: `log₂p·log₄p/log₅p` (mod TZ). Theorem 4.3 is the third
 target of O4 §4.4 (declared "outside the method" there; it was outside
 the *alternating-expansion* method), and matches the Haar side
-`log(1/δ*)≪𝓛^7log𝓛` (O2 Thm 11.3) up to squaring: the transfer costs
+`log(1/δ*)≪𝓛^7/log𝓛` (O2 Thm 11.3; R30a/b D4) up to squaring: the transfer costs
 `log p ≈ K·log Z` with both factors of Haar size. The heuristic truth is
 `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7).
 
@@ -418,7 +432,7 @@ supports `≤k`, per-prime masses `≤1/(64k)`, and `S*` is used.
   Lemma 4.3 (I), the local lemma with its conditional form
   (Haeupler–Saha–Srinivasan), Håstad's switching lemma with the
   Linial–Mansour–Nisan argument (textbook; constants as in O'Donnell
-  §4.4 / Lovett's notes), and Razborov's form of Bazzi's reduction (with
+  §4.4, Lemma 4.21; Kaas–Buhrman for binomial medians), and Razborov's form of Bazzi's reduction (with
   Wigderson's choice). Elsholtz–Tao Prop 1.4 enters only through
   `S*≪𝓛^4log𝓛`.
 * **Not claimed:** anything about ES; any optimality of the exponent
