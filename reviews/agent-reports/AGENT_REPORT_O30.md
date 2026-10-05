@@ -128,3 +128,20 @@ Phase 2 (exponent optimisation) follows in OMEGA8 §6.
   `E_z f̂_ρ(S)=f̂(S)` and the spectral-norm bound in Lemma 6.1; that the
   pulled-back characters are bounded functions of `<d` coordinates; and
   the counterexample in §6.4.
+
+## Phase 3 (parent's tasks (a), (b)); stopping near the context limit
+
+* **(b) is a dead end, proved (OMEGA8 §6.6, Prop 6.6; modulo a standard
+  BV divisor lower bound for `Σ_p τ(((p+1)/4)²)`).** The `m=1` singles
+  survive every class-of-one quarantine and carry mass `≍𝓛²`, so
+  `S≪𝓛^{1+o(1)}` is impossible, also for the iterated quarantine
+  (`|𝓑|=T^{o(1)}`). With §6.5, the route via PO Thm 4.1 cannot beat
+  roughly `log p≈𝓛^{4…6}` (exponent ≤1/4) even ideally. The one opening:
+  singles are prime-local, so sieve them by Brun and use BRW only for
+  multi-prime events. Then `S_{≥2}` replaces S; its size is unexamined.
+* **(a) ESW: not attempted beyond its formulation (§6.4).** I did no
+  literature check of Tal 2017, p-biased or product-space switching, or
+  O'Donnell ch. 8; there was no context left for it. §6.4's
+  counterexample shows that any q-ary result must bound energy, not
+  decision depth.
+* Phase 2/3 status: Thm 6.3 (exponent 1/13) and Prop 6.6 are unreviewed.
