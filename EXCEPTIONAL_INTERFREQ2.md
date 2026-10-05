@@ -437,12 +437,13 @@ Flat(C, t, s₀, Δ) with
 via `F := θ F_S + (1 − θ)(1_{[1,N]} − R)`.
 
 *Proof.* τ: for x outside I the Beurling–Selberg construction gives
-`|F_S(x)| ≤ c₁/(1 + δ² dist(x,I)²)` and `‖F_S‖_∞ < ∞`. Source: Vaaler,
-Bull. AMS 12 (1985), Theorem 4 and Lemma 5: Beurling's function satisfies
-`0 ≤ B(z) − sgn(z) ≤ 2K(z)`, `K(z) = (sin πz/πz)²`, and F_S is
-`−½[B(δ(α−x)) + B(δ(x−β)) ]`-type, so outside I it is bounded by
-`K(δ·dist) ≤ min(1, 1/(π δ dist)²)`. (Not in `sources/`; quoted from the
-standard construction, as the reviewer also did.) A class of modulus
+`|F_S(x)| ≤ c₁/(1 + δ² dist(x,I)²)` and `‖F_S‖_∞ < ∞`. Source: Beurling's function satisfies `0 ≤ B(z) − sgn(z) ≤ 2K(z)`,
+`K(z) = (sin πz/πz)²` (Vaaler, Bull. AMS 12 (1985), Lemma 5 / Thm 6 as
+quoted in review R25; the paper is not in `sources/` and the numbering was
+not re-checked). With `F_S(x) = −½[B(δ(α−x)) + B(δ(x−β))]` (α = 1/2,
+β = N + 1/2), for x > β both errors lie in [0, 2K(δ·dist)], so
+`−2K(δ·dist(x,I)) ≤ F_S(x) ≤ 0`, i.e. c₁ = 2 up to the form of K; similarly
+for x < α. A class of modulus
 d > CN > N has at most one point in [1,N] and its outside points are spaced
 d apart, so `τ ≤ ‖F_S‖_∞ + 2c₁(1 + Σ_{k≥1}(N/(2kd))²) = O(1)`.
 (F1): both summands are ≤ `1_{[1,N]}` and the weights are convex. (F2):
