@@ -19379,4 +19379,139 @@ print("\n== (db) POINTWISE_OMEGA12: Lemma 2.1 parametrisation, Lemma 1.1, Lemma 
 check_db()
 
 
+
+# ---------------------------------------------------------------- (dc)
+# POINTWISE_HAAR.md §1 (cf. scripts/haar_janson_check.py, review_haar_janson_bf.py).  Exact
+# enumeration of small product spaces (independent X_v, NON-UNIFORM rational marginals, atomic
+# events = partial single-value assignments; probabilities exact Fractions):
+# (1) Lemma 1.1: P(A & Av(C)) <= P(A) P(Av(C)) when no event of C conflicts with A;
+#     Lemma 1.2: P(Av(F_1) & Av(F_2)) <= P(Av(F_1)) P(Av(F_2)) for literally non-overlapping families;
+#     Lemma 1.3: P(A | Av(S)) <= P(A) prod_{E' in S conflicting with A} (1 - x_E')^-1 (x_E = 2P(E));
+# (2) Thm 1.4: under the lopsided-LLL hypothesis with x_E = 2P(E), -log P(Av) >= mu - K Delta and
+#     >= min(mu/2, mu^2/(4 K Delta)), K, mu, Delta exact; a control: Harris fails for one-hot
+#     variables (P(X = r | X != r') > P(X = r), Remark (ii)); Prop 1.5's example (M = 35,
+#     D in {1,3,9,27,81} pairwise conflicting, D = 1, 81 share X_5 = 1).
+
+def check_dc():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+    rng = _random.Random(5412)
+    F0, F1 = Fraction(0), Fraction(1)
+
+    def conflict(E, G):
+        return any(v in G and G[v] != a for v, a in E.items())
+
+    def share(E, G):
+        return bool(set(E) & set(G)) and not conflict(E, G)
+
+    def system(nv, qmax, ne, maxw):
+        qs = [rng.randint(2, qmax) for _ in range(nv)]
+        probs = []
+        for q in qs:
+            w = [rng.randint(1, 6) for _ in range(q)]
+            probs.append([Fraction(a, sum(w)) for a in w])
+        pts = []
+        for x in cartesian_product(*[range(q) for q in qs]):
+            pts.append((x, prod((probs[v][a] for v, a in enumerate(x)), start=F1)))
+        evs = set()
+        for _ in range(ne):
+            S = rng.sample(range(nv), rng.randint(1, min(maxw, nv)))
+            evs.add(tuple(sorted((v, rng.randrange(qs[v])) for v in S)))
+        evs = [dict(e) for e in sorted(evs)]
+        return qs, probs, pts, evs
+
+    def Pr(pts, pred):
+        return sum((p for x, p in pts if pred(x)), F0)
+
+    def occ(E, x):
+        return all(x[v] == a for v, a in E.items())
+
+    def av(fam):
+        return lambda x: not any(occ(E, x) for E in fam)
+
+    def PE(E, probs):
+        return prod((probs[v][a] for v, a in E.items()), start=F1)
+
+    # (1) Lemmas 1.1-1.3
+    n11 = n12 = n13 = 0
+    for trial in range(250):
+        qs, probs, pts, evs = system(rng.randint(2, 4), 4, rng.randint(2, 9), 3)
+        A, rest = evs[0], evs[1:]
+        C = [E for E in rest if not conflict(A, E)]
+        pA, pAv = PE(A, probs), Pr(pts, av(C))
+        assert Pr(pts, lambda x: occ(A, x) and av(C)(x)) <= pA * pAv, ("HAAR Lemma 1.1", qs, A, C)
+        n11 += 1
+        lits = lambda fam: {(v, a) for E in fam for v, a in E.items()}
+        F1s, F2s = [], []
+        for E in rest:
+            if not (lits([E]) & lits(F2s)):
+                F1s.append(E)
+            elif not (lits([E]) & lits(F1s)):
+                F2s.append(E)
+        rng.shuffle(F1s)
+        k = len(F1s) // 2
+        F1s, F2s = F1s[:k], F1s[k:] + F2s
+        if F1s and F2s and not (lits(F1s) & lits(F2s)):
+            pboth = Pr(pts, lambda x: av(F1s)(x) and av(F2s)(x))
+            assert pboth <= Pr(pts, av(F1s)) * Pr(pts, av(F2s)), ("HAAR Lemma 1.2 (NA)", qs, F1s, F2s)
+            n12 += 1
+        P = [PE(E, probs) for E in evs]
+        x = [2 * p for p in P]
+        ok = all(x[i] < 1 and P[i] <= x[i] * prod((1 - x[j] for j in range(len(evs)) if j != i
+                                                   and conflict(evs[i], evs[j])), start=F1) for i in range(len(evs)))
+        if ok:
+            S = [j for j in range(1, len(evs)) if rng.random() < 0.7]
+            pS = Pr(pts, av([evs[j] for j in S]))
+            infl = prod((1 / (1 - x[j]) for j in S if conflict(A, evs[j])), start=F1)
+            assert Pr(pts, lambda y: occ(A, y) and av([evs[j] for j in S])(y)) <= pA * infl * pS, \
+                ("HAAR Lemma 1.3 inflation bound", qs, evs, S)
+            n13 += 1
+    assert n11 >= 200 and n12 >= 40 and n13 >= 40, ("HAAR (1): too few cases", n11, n12, n13)
+
+    # (2) Thm 1.4
+    nrun = ndel = 0
+    tight = None
+    for trial in range(4000):
+        qs, probs, pts, evs = system(rng.randint(3, 5), 7, rng.randint(2, 30), rng.randint(2, 3))
+        if len(pts) > 2000:
+            continue
+        P = [PE(E, probs) for E in evs]
+        x = [2 * p for p in P]
+        conf = [[j for j in range(len(evs)) if j != i and conflict(evs[i], evs[j])] for i in range(len(evs))]
+        if not all(x[i] < 1 and P[i] <= x[i] * prod((1 - x[j] for j in conf[i]), start=F1) for i in range(len(evs))):
+            continue
+        K = max(1 / prod((1 - x[j] for j in conf[i]), start=F1) for i in range(len(evs)))
+        mu = sum(P, F0)
+        Delta = F0
+        for i, j in combinations(range(len(evs)), 2):
+            if share(evs[i], evs[j]):
+                Delta += PE({**evs[i], **evs[j]}, probs)
+        pav = Pr(pts, av(evs))
+        lhs = -log(pav)
+        rhs1 = float(mu - K * Delta)
+        rhs2 = float(min(mu / 2, mu * mu / (4 * K * Delta))) if Delta else float(mu / 2)
+        assert lhs >= rhs1 - 1e-12 and lhs >= rhs2 - 1e-12, ("HAAR Thm 1.4 violated", qs, evs, lhs, rhs1, rhs2)
+        nrun += 1
+        ndel += Delta > 0
+        if Delta and (tight is None or (lhs - rhs1) / float(mu) < tight):
+            tight = (lhs - rhs1) / float(mu)
+    assert nrun >= 250 and ndel >= 100, ("HAAR Thm 1.4: too few systems satisfying the hypothesis", nrun, ndel)
+    # controls
+    assert Fraction(1, 3) / (1 - Fraction(1, 3)) > Fraction(1, 3), "HAAR Remark (ii): Harris fails for one-hot"
+    evs35 = []
+    for D in (1, 3, 9, 27, 81):
+        assert ((35 + 1) // 4) ** 2 % D == 0      # D | A_35^2 = 81
+        evs35.append({5: (-4 * D) % 5, 7: (-4 * D) % 7})
+    assert all(conflict(E, G) for E, G in combinations(evs35, 2)), "HAAR Prop 1.5 example: pairwise conflicting"
+    assert evs35[0][5] == evs35[4][5] == 1, "HAAR Prop 1.5 example: D = 1, 81 both use X_5 = 1"
+    print(f"dc Lemma 1.1 ({n11}), Lemma 1.2 ({n12}), Lemma 1.3 ({n13}) exact on biased product spaces; "
+          f"Thm 1.4 on {nrun} systems satisfying lopsided LLL ({ndel} with Delta > 0 (min (lhs - (mu - K Delta))/mu = {tight:.4f})); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dc) POINTWISE_HAAR §1: Lemmas 1.1-1.3, Thm 1.4 Janson-type bound (exact enumeration) ==")
+check_dc()
+
+
 print("\nall checks passed")
