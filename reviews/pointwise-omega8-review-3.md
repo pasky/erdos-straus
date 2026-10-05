@@ -118,3 +118,35 @@ except where §6 changes their inputs.
   `log(1/δ*) ≫ 𝓛²` and, since `μ≤δ`, `K ≥ log(1/μ) ≫ 𝓛²` *rigorously*
   (mod D). This is what §6.5/§6.6 actually use; the Prop as stated (about
   `S_tot`, an atom count with multiplicity) is weaker than what is proved.
+
+### Working notes, "ESW ⇒ 1/11" (§6.4 end, header item 6, report)
+
+The chain `d≪𝓛⁵, K≪𝓛⁵log𝓛, log Z≪𝓛⁶ ⇒ 1/11` has two unsupported links.
+(i) `K≪𝓛⁵log𝓛` needs Lemma 6.1's *spectral* bound on M_1, and that bound
+uses `‖f̂_ρ‖₁ ≤ 2^{DT(f_ρ)}` plus Håstad's *decision-tree* lemma on the bit
+encoding. ESW is an energy statement in the q-ary product space; it gives
+no ℓ¹/M_1 control (and §6.4 shows the decision-tree route is false q-arily).
+With ESW alone, M_1 must go through Lemma 3.2: `log M_1≍d𝓛≍𝓛⁶`, so
+`K≍𝓛⁶`. (ii) `log Z≪𝓛⁶` ignores `log Q_Π≍k²S*𝓛≍𝓛⁷/log𝓛`; lowering it
+needs the non-existent "Lemma 6.2". With both as written, ESW gives
+`log p≪𝓛⁶·𝓛⁷/log𝓛 = 𝓛¹³/log𝓛`, i.e. essentially still 1/13; with a
+Lemma 6.2 but no q-ary spectral bound, `𝓛¹²` (1/12). 1/11 needs ESW **and**
+an M_1 bound `log M_1≪d log𝓛` for q-ary ES truncations **and** Lemma 6.2.
+
+### Working notes, §6.5 (Assessment)
+
+* "K≥log(1/μ)≈S": only `K≥log(1/μ)≥log(1/δ)≥S1` is rigorous (see Prop 6.6
+  notes); `log(1/δ)≈S` for multi-prime events is heuristic (no FKG for
+  cell events). Fine under the Assessment label, but say so.
+* "junta ≳ S/log(junta/S) … holds for any minorant": no argument is given
+  that *every* minorant consumed by PO Thm 4.1 needs junta ≳ S; this is a
+  heuristic from Brun/fundamental-lemma level requirements. "any minorant"
+  is an overclaim even for an Assessment.
+* "≈1/9 is the ceiling under ET" (§6.5, header item 6, report): ET gives an
+  *upper* bound `S≤S*`; a ceiling needs a *lower* bound on S. What 1/9 is:
+  the best this bookkeeping can give when S is only known to be ≤S*. The
+  actual ceiling statement supported by the doc is Prop 6.6's `S1≫𝓛²` ⇒
+  `log p ≳ 𝓛⁴·log z` ⇒ exponent ≤1/4 (Assessment). Also `log p ≳ S²
+  "up to logs"` vs. the ideal-junta value `S·S𝓛` differ by a factor between
+  `log z` and `𝓛` per junta prime; `𝓛` is not a "log" in this exponent
+  bookkeeping (it is the variable). State the bound as `S²·log z ≲ log p`.
