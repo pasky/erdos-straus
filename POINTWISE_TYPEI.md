@@ -338,3 +338,37 @@ polynomials) Hypothesis-H/Bateman–Horn statement. Under the Poisson model
 it holds while `(log G)³ ≲ log₂p` (the GR primes number `x^{1−o(1)}`, the
 model cost is `p^{−(c_0/12)(log G)³/log₂ p}`), suggesting the true i.o.
 gain is `g(p)=exp(c(log₂p)^{1/3})` on GR-type primes (Assessment).
+
+## 6. Goal (3), the upper-bound side: `C(r)=sup{ck_min(p) : p hard, n_p=r}`
+
+Theorem 2.1 shows (under H) that no bound `ck_min ≤ f(n_p)` with
+`f(r)≤r^{2−ε}` holds. But for each *fixed* r the set `{p hard : n_p=r}` is
+a union of congruence classes mod `24∏_{ℓ≤r}ℓ` that is **not** a square
+class (p is a non-residue mod r), so the Mordell–Schinzel square-class
+obstruction does not apply, and `C(r)<∞` may be provable by a finite
+covering by Type-I positivity classes (fixed target divisors). The census
+(§5) gives `C(5)≥10`, `C(7)≥76`, `C(11)≥111`, `C(13)≥143`, `C(17)≥166`,
+`C(19)≥218`, `C(23)≥222`, `C(43)≥883`.
+
+**Theorem 6.1 (`C(5)=10`; PROVED, elementary).** Every hard prime p with
+`(5/p)=−1` has `ck_min(p)≤10`; if moreover `p≡2 (mod 5)` then
+`ck_min(p)=5`. The bound 10 is attained (`p=193`).
+
+*Proof.* `n_p=5` (2, 3 are residues), and `p≡1 (8)`, `p≡1 (3)`,
+`p≡2,3 (5)`, so `p≡17` or `33 (mod 40)`. All slices used below are in
+`𝓑_p` for `p>40`, and have cores 5 or 10.
+* `p≡17 (40)`: `h=20`, `−p≡3 (mod 20)`, and `p²+20≡1+2≡0 (mod 3)`. So
+  `D=3` is a target divisor, `M_{5,1}(p)≥1`, `ck_min≤5=n_p≤ck_min`.
+* `p≡33 (40)`: `−p≡7 (mod 40)`, hence also mod 20. As p ranges over units
+  mod 7, `p²∈{1,2,4}`, and `−20≡1`, `−40≡2`, `−80≡4 (mod 7)`. So 7
+  divides exactly one of `p²+20`, `p²+40`, `p²+80`, and `D=7` is a target
+  divisor of the slice `(5,1)`, `(10,1)` or `(5,2)` respectively
+  (`h=20,40,40`). Thus `ck_min≤10`.
+(Every hard prime is `≥73>40`.) `ck_min(193)=10` (§5; `193≡33 (40)`). ∎
+
+*Mechanism.* One fixed prime D (here 7) lies in the target class of several
+slices at once (all `h|40`), and the values `−4ck² (mod D)` of those slices
+cover all non-zero squares mod D. This is a finite covering by Type-I
+positivity progressions in the sense of notes Thm 48.4, i.e. a Mordell-type
+identity system restricted to Type I. (ES for `p≡2,3 (5)` is classical via
+Mordell's identities; the content here is only the Type-I depth `≤10`.)
