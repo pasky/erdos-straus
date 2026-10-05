@@ -38,3 +38,19 @@ log(κ_0/c_0)≥3c, guaranteed by (28.91)); and for κ≥3κ_0, if such a zero h
 1-β_1 ≥ 1/(κ log Q), the Case-2 bound plus x^{β_1}/β_1 ≤ 2x e^{-log x/(κ log Q)}
 and (1-β_1)log x·e^{-log x/log Q} ≤ (log x/log Q)e^{-log x/log Q} ≪ e^{-log x/(2 log Q)}
 yields the non-exceptional bound. So the theorem holds for every κ≥3κ_0.
+
+### Thm 3.1 (exceptional zero statement) — GAP in the statement (easy repair)
+Checked: MV III (28.61)–(28.62) (draft p. 216–217) say "F(s,T)=∏_{q≤T}∏*L(s,χ) has
+at most one zero s with Re s>1-c_1/log T", with NO height restriction and no
+stated range of T. The paper copies this ("for every Y≥3"). As literally stated
+(no bound on Im s) this is NOT a known theorem: it would give a zero-free
+region σ>1-c_1/log Y for each fixed L(s,χ) uniformly in |t|, far beyond
+Vinogradov–Korobov. MV's own source, Cor. 11.10 of vol. I (not accessed by me;
+MV III p. 193 paraphrases it as "at most one zero ρ=β+iγ to be counted
+[i.e. |γ|≤T] with β≥1-c/log 2QT"), has the region σ ≥ 1-c/log(Q(|t|+2)) or a
+height cutoff. The paper only uses real zeros (uniqueness of the real
+Gallagher zero, reality/quadraticity of χ_1, Page bound), so nothing
+downstream breaks. See defect M1.
+The Page bound δ_1 ≥ c_2^{-1}q_1^{-1/2}(log q_1)^{-2} is the standard effective
+bound for any real zero of a real primitive L(s,χ) (Davenport ch. 14), valid
+for every q_1≥3 independently of Y — correct.
