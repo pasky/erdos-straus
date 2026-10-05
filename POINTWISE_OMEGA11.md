@@ -195,3 +195,61 @@ budget `log M≤𝓛` do the work of the width k. In particular **no initial
 `π(z)𝓛≍𝓛³/log𝓛` floor and the factor `k²` of `|𝓑|≤64k²S*`.
 The ratio (cost of a step)/(threshold) is `logℓ/θ = 𝓛/(c(a+1))`, uniform in
 ℓ; with full quarantine it would be `≍𝓛²/logℓ`.
+
+## 3. Assembly: exponent 1/6
+
+**Lemma 3.1 (linear transfer with fibre cells; PROVED modulo (G), as O9
+Thm 1.1).** O9 Thm 1.1 holds without `gcd(d_i,Q)=1`, provided every cell is
+consistent with the class of one (`b_i≡1 mod gcd(d_i,Q)`), and with
+`E_D` replaced by `E_H`, the Haar mean over `H:={x∈(ℤ/N)^*: x≡1 (Q)}`,
+`N:=lcm(Q,D)`. That is: `μ:=E_H B>0`, `A:=E_H|B|/μ`, `Z:=Q·max d_i`; twist
+condition `|E_H[Bψ]|≤μ/4` for every real primitive ψ of conductor `f>1`
+with `gcd(f,Q)=1` and `f|d_i` for some i.
+
+*Proof (changes only).* On `G=(ℤ/N)^*`, `f(n)=B(n)1[n≡1 (Q)]` has
+`c(χ)=φ(N)^{−1}Σ_{n∈H}B(n)χ̄(n)=E_H[Bχ̄]/φ(Q)` (`G→(ℤ/Q)^*` is onto with
+kernel H). So `|c(χ)|≤Aμ/φ(Q)`, `c(χ_0)=μ/φ(Q)`. Item 1: by consistency each
+term of f is one cell mod `lcm(d_i,Q)≤Qd_i≤Z`, so `c(χ)≠0` forces
+`cond χ≤Z`. Item 3: let χ be real with `c(χ)≠0`, induced by a primitive ψ of
+conductor f. Split `ψ=ψ_1ψ_2`, with the primes of `f_1` dividing Q and
+`gcd(f_2,Q)=1`. Real primitive conductors have squarefree odd part and
+2-part `|8`, and `8|Q`, so `f_1|Q` and `ψ_1≡1` on H. If `f_2=1`, χ is trivial
+on H, hence induced from a character mod Q: this is Case A (`q_1|Q≤Z`,
+`c(χ)=μ/φ(Q)`), unchanged. If `f_2>1`, then `c(χ)=E_H[Bψ_2]/φ(Q)`, and a
+cell with `f_2∤d_i` has zero `ψ_2`-mean (average over a free prime
+`p|f_2`, `p∤d_i`, whose coordinate is uniform on units on H). So the twist
+condition applies to `ψ_2`, and Case B is unchanged. The rest of O9 Thm
+1.1's proof does not use coprimality (`log N≤log Q+1.04 max d_i`). ∎
+
+**Theorem 3.2 (PROVED modulo (G) and Elsholtz–Tao Prop 1.4).** For
+infinitely many Mordell-hard primes p,
+
+```
+W(p) ≥ exp( c·(log p)^{1/6} );     uniformly  log L_h(T) ≪ (log T)^6.
+```
+
+*Proof.* Lemma 2.2 with `c=1/64` gives Q (`840|Q`) with
+`log Q ≤ 9+(1+o(1))64𝓛²S♯/log𝓛 ≪ 𝓛^6` (ET: `S♯≪𝓛^4log𝓛`). Then follow O9
+Thm 2.2, with these changes.
+* Haar side: neighbourhood sums `≤2c=1/32`, so `δ=E_HF≥e^{−2.2S}`,
+  `S=S_tot(Q)≤S♯`, as in O8 Thm 3.4.
+* Minorant: O8 Lemma 3.1 (BRW) on the `m≤T²` unsplit events, with `u_j`
+  the modulus-truncation of Cor 1.2 (or, coarser, O10 Thm 4.2 with
+  `k≤ω(M)≤2𝓛/log𝓛`), so EL holds and `E[F−B]≤δ/100`.
+* Twist: O8 Lemma 3.3 verbatim. It needs only the neighbourhood sums
+  `≤1/32` and `w_{ℓ_0}≤c=1/64` at a prime `ℓ_0|f_2`, which is a coordinate with
+  `a_{ℓ_0}=0`, since `gcd(f_2,Q)=1`.
+* Transfer: Lemma 3.1 with O9 Lemma 2.1 (`A≤1.03`) and the auxiliary prime
+  `ℓ_aux∈(R,2R]`, `R=max(T,max d_i)`, appended to Q (it exceeds T, so no
+  event uses it).
+
+So `log Z ≤ log Q + O(𝓛(S♯+𝓛)) ≪ 𝓛^6`, and some hard `p>T` with `W(p)>T` has
+`log p≪𝓛^6`. ∎
+
+*Unconditionally* (no ET) nothing changes: `log S♯≤(log2+o(1))𝓛/log𝓛`, so
+O9 Thm 2.3 (`log W≥(1/log2−o(1))log₂p·log₃p`) stands.
+
+*Ledger after Thm 3.2 (under ET).* `log Q ≤ 64(1+o(1))𝓛²S♯/log𝓛`, i.e.
+`≍𝓛^6` if `S♯≍𝓛^4log𝓛`; junta `≪𝓛(S+𝓛)≪𝓛^5log𝓛` (Cor 1.2). **The quarantine is
+again the bottleneck**, now by a factor ≈`𝓛/log²𝓛`. The lossy step is the
+worst-case charge `h(M)≤log₂τ(M)≤𝓛/log𝓛` per atom in Lemma 2.2 (§4).
