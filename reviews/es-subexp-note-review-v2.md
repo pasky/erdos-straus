@@ -147,8 +147,7 @@ so the non-exceptional bound holds; hence the theorem holds for all κ ≥ 3κ_0
 
 **m2 (MINOR) — uncited explicit Chebyshev bound.** Location: proof of Thm 4.1,
 "log D ≤ 1.04 max d_i". Cite Rosser–Schoenfeld (ψ(y) < 1.03883y), or use the
-elementary log D ≤ ψ(y) < 2y log 2 (Chebyshev/Erdős: ∏_{p≤y}p < 4^y, plus
-prime powers via log D ≤ π(y)log y) — any bound log(QD) ≤ CZ suffices, at the
+classical lcm(1,…,y) < 3^y (Hanson 1972), i.e. log D < 1.1y — any bound log(QD) ≤ CZ suffices, at the
 cost of the constant in x ≥ C_4AZ⁴.
 
 **m3 (MINOR) — Gallagher's original not seen; "Thm 7" number unverified.**
