@@ -6,7 +6,7 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 
 | claim | verdict |
 |---|---|
-| L1.1 | pending |
+| L1.1 | SOUND |
 | T2.1 | pending (proof read line-by-line: no defect found yet) |
 
 ## Notes per claim
@@ -15,3 +15,8 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 Re-derived steps 1–5: A|P since ℓ^{E_ℓ}>A; a²+4ck²≡A (mod P) so f_{c,k}∈ℤ[t]; v_ℓ(N)=v_ℓ(A) for ℓ≤B (ℓ=r: N≡p²≢0, A≡1);
 p≡1 (mod 4c'k) because r∤c'k (r>g); DR≡−p ⟺ A/D≡−p (mod h) checked; |𝒟|<(r−1)/2 and b↦−b injective. No fixed prime
 divisor: ℓ|Q unit, ℓ>B degree argument fine. Minor: A≤1+4rg² (not g³) — harmless overestimate.
+
+### L1.1 (dual form)
+Proof re-derived: D=hj−p, N≡4ck²(4cj²+1) (mod D), (D,2ck)=1 from D≡−p (mod 4ck), p odd. Definition of M matches notes (44.2)/(44.3)
+(raw count, multiplicities = distinct divisors D). From-scratch brute force `scripts/review_ti_lemma11.py`: all odd primes p<400,
+c≤24, k≤11, (p,ck)=1 (19966 slices): divisor count = dual j-count, and no j solutions beyond hj−p>N (200 extra j each). SOUND.
