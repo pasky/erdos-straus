@@ -54,6 +54,24 @@ found by LP at sampled N ≤ 100 (C = 1.5, 2; finite support) and is infeasible 
   0.326 → 0.372 at N = 60 when the support grows from 11N to 17N).
 * Medium moduli (N/2, CN]. Neither a cap nor a beating hybrid.
 
+## Follow-up (checkpoint 2): Flat and medium moduli
+
+* **Prop 9.1 (PROVED):** Flat follows from a cleaner hypothesis SPW
+  ("spread pseudo-window": R ≥ 0 with the exact small-class profile of
+  [1,N] and mass ≤ 1 − σ on every class of modulus > CN), by mixing
+  Selberg's minorant with `1_{[1,N]} − R`; constants t, s₀ ≍ σ, so
+  SPW ⇒ the 3/4 cap of Thm 5.2. Lemma 9.2: SPW ⇒ the patch-cancellation
+  inequality (9.1) for all ν ≥ 0.
+* **SPW not proved.** Proved partial construction: big primes
+  (> √(N/2)) can be re-randomised keeping the exact profile; the
+  obstruction is classes whose modulus divides lcm(1..N/4) (translates and
+  twists fix them; this is the edge problem in another guise). LP: SPW
+  holds at N ≤ 60 with σ ≈ 0.34–0.40 (C = 2); Flat at N = 100 has
+  s₀ = 0.32 on a long support. No structural reason for failure found.
+* **Medium moduli (§10):** not closed. The F-method cannot make them free
+  (finite-support LP); a cap there must use ν ≥ 1 on 𝒜, i.e. arithmetic at
+  moduli ≍ N. No beating hybrid known.
+
 ## Self-review (reviewer subagent, deep) — repairs applied
 
 Thm 5.2 large-mass branch redone with K = 1+Δ(1+c) (c unrestricted);
@@ -83,8 +101,9 @@ exactly (Ex 3.2), so no `B ≥ cNEν` holds. PROVED: cap when the free large
 mass is ≤ e^{O(S)}B (Cor 5.1); every twisted window bounds the hybrid from
 below (Lemma 6.1). CONDITIONAL: cap `C(log N)^{3/4}(log log N)^{3/4}` for all
 hybrids with bounded right-signed mass on (N/2, CN], under the analytic
-hypothesis Flat (Thm 5.2); Flat checked by LP at sampled N ≤ 100 (EVIDENCE). Open:
-Flat; medium moduli (N/2, CN].
+hypothesis Flat (Thm 5.2), and Flat follows from the cleaner SPW (Prop 9.1, PROVED);
+Flat/SPW checked by LP at sampled N ≤ 100 (EVIDENCE). Open: SPW; medium
+moduli (N/2, CN].
 
 ## Replay
 
