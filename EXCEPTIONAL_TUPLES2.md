@@ -355,8 +355,9 @@ are `O(log²λ + log λ·log log y)`). ∎
 
 So for the pure prime family the CRT exponent is exactly 2/3, and the
 literal TC door closes exactly there (§§2–3). TC^alt_θ for any θ > 2/3
-(not only θ > 3/4) is a non-CRT statement: by Cor 6.1 with
-`λ = c(log N)^θ`-saving, the Bonferroni majorant `ν_K` must be evaluated
+(not only θ > 3/4) is a non-CRT statement: by Cor 6.1 a saving
+`(log N)^θ` needs level `λ ≥ c(log N)^{3θ/2}`, so the Bonferroni majorant
+`ν_K` must be evaluated
 with CRT accuracy on terms of level `≥ c(log N)^{3θ/2}`, i.e. moduli
 `Q = exp(c(log N)^{3θ/2})`, super-polynomial in N for θ > 2/3.
 
