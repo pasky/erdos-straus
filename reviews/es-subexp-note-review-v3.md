@@ -26,3 +26,22 @@ Status: IN PROGRESS.
   correct. Start cost: log 840+ϑ(𝓛)≤1.02𝓛+7 with ϑ(x)<1.01624x (RS) — fine.
 * Lemma 3.2, 3.3 (parametrisation, injectivity, involution preserving g):
   re-derived; correct.
+
+### Pass 2: §3 (Lemmas 3.4–3.6, Thm 3.7) and ET inputs vs `sources/elsholtz-tao-1107.1010.pdf`
+* Thm 3.1 vs ET (pdftotext of the arXiv PDF): (a) = Prop. 1.4 (A,B>1, k≪(AB)^{O(1)}) ✓;
+  (b) = Thm 7.1 (coefficients non-negative integers ≤N^l, ρ(p^j)≤C, implied constant
+  depending on D,l,C) ✓; (c) = Cor. 7.4 (ET do not write N≥2; the paper's N≥2 is a
+  harmless sharpening) ✓; (d) = (7.10), which ET state inside the case A≤B of the proof of
+  Prop. 1.4 (so with A,B>1, k≪(AB)^{O(1)}); the paper's "2≤A≤B" and κ=4 are inside that
+  range ✓. ρ_{κa}(m) = #{x mod m: κax²+1≡0} matches ET's ρ_ka ✓.
+* Lemma 3.4: ET variable matching (ET's (a,b,A,B) = our (d,a,2B,2A)), Σ_{c∈[C,2C)}1/c<2,
+  τ(P) choices of f, O(𝓛³) blocks; unconditional bound with P≤4T+1 ✓.
+* Lemma 3.5: the ℓ|ad exclusion (P≡1 mod ℓ ⇒ ℓ∤f ⇒ ℓ∤N), the count C/q+1≤2C/q for q≤C,
+  the C=1 / Y=2 split, Lemma 3.2(b) pointwise, and the dyadic sum Σ_j 𝓛/j ≪ 𝓛log𝓛 ✓.
+* Lemma 3.6: Σ_{e|P}h(e)=Σ_{q|P}(1/i)τ(P/q) ✓; P<32Z_0³ ✓; case A≥B: a'≥1 (A≥q>x_0),
+  coefficient bounds 8dq≤16A^{3/2}≤N'^5 for A≥16, N'≥A^{1/2}, ρ_{P♭}(2^j)=0,
+  ρ_{P♭}(p^j)=ρ_{4d}(p^j)≤2 (p≠ℓ), ρ_{P♭}(ℓ^j)≤2, multiplicativity factor (1+2/(ℓ−1)),
+  then (d) with ET's (A,B)=(2B,2A) ✓; case B>A: d_0∈(0,q), b_a≤4a², gcd(4a²,b_a)=1,
+  coefficients ≤16B²≤N''^6 for B≥16, Cor 7.4 ✓; Σ_{q≤√Z_0}(1/i)/q ≪ loglog Z_0 ✓.
+* Thm 3.7 incl. unconditional Ω_0≤𝓛S_0 and log S_0≤(log2+o(1))𝓛/log𝓛 (HW Thm 317) ✓.
+* Verdict §3: SOUND (modulo ET, as labelled).
