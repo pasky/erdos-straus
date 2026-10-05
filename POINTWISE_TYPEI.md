@@ -216,9 +216,12 @@ form omits it at the cost of the constant). Hence the number of split primes in 
 ```
 
 which, after subtracting also `n_L(θ(y)+3)`, is positive as soon as
-`2^{π(y)} ≤ x^{1/2}/(C(log x)²)` (using `θ(y)≪log x·log log x` in the range
-below; then `n_Lθ(y) ≪ x^{1/2}/log x`). Take y maximal with
-`π(y) ≤ (log x − 4 log log x − 2 log C)/(2 log 2)`. By the prime number
+`2^{π(y)} ≤ x^{1/2}/(C(log x)²·log log x)`. In the range below,
+`θ(y)≪log x·log log x`, so the main term `≍C x^{1/2} log x·log log x`
+dominates `c₁x^{1/2}(θ(y)+3+log x)`, and `n_Lθ(y) ≪ x^{1/2}/log x`.
+(R31-D2: the earlier condition omitted the `log log x` factor and did not
+close.) Take y maximal with
+`π(y) ≤ (log x − 4 log log x − 2 log log log x − 2 log C)/(2 log 2)`. By the prime number
 theorem `y ∼ π(y) log π(y) ∼ (1/(2 log 2)) log x·log log x`. Every split
 `p∈(x/2,x]` has `p≡1 (4)`, `(2/p)=(3/p)=1` (so `p≡1 (24)`) and
 `(ℓ/p)=1` for all `ℓ≤y`, so `n_p>y` and Lemma 8.1 (POINTWISE_OMEGA) gives
