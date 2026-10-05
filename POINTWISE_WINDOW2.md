@@ -152,3 +152,38 @@ reproduces the model threshold 1/2 (W1). **For two windows the full LP finds a
 fake at θ=0.5 and 0.6**, although block fakes reach only 43% of the target mass.
 The optimal fake at θ=0.6 removes the target and rearranges one-window
 pair configurations (P,∅) and (∅,Q). It does not need (P,Q) mass.
+
+**Grid dependence above 0.6** (min ν(∅)/τ for two windows):
+
+| (ε,K) | (0.2,5) | (0.15,6) | (0.12,7) | (0.1,8) | (0.1,10) |
+|---|---|---|---|---|---|
+| θ=0.7 | 0.91 | 0.81 | 0.17 | 0.50 | 0.28 |
+| θ=0.8 | 0.93 | 0.88 | 0.63 | 0.73 | 0.71 |
+
+At θ=0.5, ε=0.1, K=12 (182329 configurations) the value is again **0**. Above 0.6
+the value falls as the grid is refined, but not monotonically. The
+discretisation (and the clipped `(1−Σ)^{−1/2}` weight) is coarse, so the
+continuum threshold θ_2 of the two-window model is **not** determined. The
+data are consistent with θ_2 ≥ 0.6 and do not exclude θ_2 → 1 as ε→0.
+
+*Why two windows are weaker than one (Assessment, partial explanation).* The
+window-3 marginal of a fake, `δ_3=Σ_{C_7}δ(·,C_7)`, must be a one-window
+zero-correlation measure at level 1/2. Its value at ∅ is
+`−τ_3τ_7+Σ_{C_7≠∅}δ(∅,C_7)`. So target mass may be moved to "window 3 clean, window 7 not"
+without touching the window-3 marginal at ∅. The window-7 marginal then has to
+remove only a fraction `≈P(window 3 clean)` of its clean mass, and its removal budget is
+`Σ_{C_3}μ(C_3,C_7)` (all window-3 configurations), not `τ_3μ_7`. As ε→0 that fraction
+is `≍ε^{1/2}→0`. This coupling has no one-window analogue. It is
+the reason the one-window threshold (1/2) does not carry over. Making it a
+continuum construction (handling the mixed correlations) is open. Product
+fakes `μ−γ_3⊗γ_7` (Lemma 3.6 below) do *not* realise it.
+
+**Lemma 3.6 (product fakes; Model-PROVED).** Let `γ_q` be window-q signed measures with zero
+correlations at levels a and b, `γ_q(∅)=−μ_q(∅)`, and `|γ_q(C)|≤μ_q(C)` for C≠∅.
+Then `ν=μ_3⊗μ_7−γ_3⊗γ_7` is a fake at level a+b with ν(∅,∅)=0.
+*Proof.* `ρ_{γ_3⊗γ_7}(S)=ρ_{γ_3}(S_3)ρ_{γ_7}(S_7)`, and `s_3+s_7≤a+b` forces `s_3≤a` or `s_7≤b`.
+`ν(∅,∅)=τ_3τ_7−τ_3τ_7=0`. Positivity follows from `|γ_3γ_7|≤μ_3μ_7` termwise. ∎
+The hypothesis asks for a 2-bounded one-window fake (`0≤μ+γ≤2μ`). In the
+coarse grid (ε=0.1, K=8), `--one --cap=2` gives min ν(∅)/τ = 0.45, 0.54, 0.63
+at a = 0.2, 0.25, 0.3. So no 2-bounded fake exists there, and the LP fakes of
+§3.5 are not of product type.

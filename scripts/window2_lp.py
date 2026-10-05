@@ -12,7 +12,7 @@ PRIMAL: min nu(empty) s.t. nu >= 0, sum_C nu(C) emb(S,C) = rho_mu(S) for all vis
 Output nu(empty)/tau  (tau = mu(empty) = 1).  0 => a fake exists in the
 discrete model; > 0 => the dual is a Type-I+parity lower bound in the model.
 
-Usage: window2_lp.py EPS K THETA [--one]
+Usage: window2_lp.py EPS K THETA [--one] [--cap=2] [--show]
 """
 import sys
 import json
@@ -55,6 +55,10 @@ def multisets(g, cap, strict):
 def main():
     eps, K, theta = float(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3])
     one = "--one" in sys.argv
+    CAP = None
+    for a in sys.argv:
+        if a.startswith("--cap="):
+            CAP = float(a[6:])          # nu <= CAP*mu (2 = 'bounded fake', Lemma 3.6)
     g, w = bins(eps, K)
     W = [m for m in multisets(g, 1.0, True) if sum(m) % 2 == 0]
     def mu_win(m):
@@ -105,7 +109,7 @@ def main():
     vis = [v for v, k in zip(vis, keep) if k]
     As = sp.diags(1.0 / rho) @ A @ sp.diags(mu)
     cs = c * mu
-    res = linprog(cs, A_eq=As, b_eq=np.ones(len(vis)), bounds=(0, None), method="highs")
+    res = linprog(cs, A_eq=As, b_eq=np.ones(len(vis)), bounds=(0, CAP), method="highs")
     nu = res.x * mu if res.status == 0 else None
     out = {"eps": eps, "K": K, "theta": theta, "one_window": one,
            "n_configs": len(configs), "n_visible": len(vis), "nnz": int(A.nnz),
