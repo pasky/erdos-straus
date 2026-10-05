@@ -240,10 +240,11 @@ nonconstant parts have variance `q^{−1}(1−q^{−1})`. Such U have
 **Corollary 4.2 (the method needs junta `≳k·S`; PROVED).** In the
 setting of Lemma 4.1 (limit `q→∞`):
 * every junta-t function g with `E(F−g)² ≤ δ/3` has `t ≥ k(S−1)`.
-  (`Pr[Po(S)>S−1] ≥ 1/2` for `S≥1`; the median of `Po(S)` is
-  `≥S−log2`.)
+  (`Pr[Po(S)≥S−1] ≥ 1/2`, since the median of `Po(S)` is `≥S−log2`
+  (Choi 1994); so `E(F−g)² ≥ energy(F;t) ≥ (1/2−o(1))δ`.)
 * O8's EL level `energy ≤ e^{−3S}/poly` forces `Pr[Po(S)>t/k] ≤ e^{−2S}`,
-  i.e. `t ≥ c_*kS` with `c_*log c_*−c_*+1=2` (`c_*≈4.3`).
+  i.e. `t ≥ (c_*−o(1))kS` as `S→∞` (Poisson large deviations), with
+  `c_*log c_*−c_*+1=2` (`c_*≈3.59`).
 
 The F^{(j)} of O8 Lemma 3.1 are of the same form (the restriction of F to
 `E_j` for a disjoint system is the good-indicator of the other events). So
