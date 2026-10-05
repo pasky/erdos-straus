@@ -44,7 +44,9 @@ Haeupler–Saha–Srinivasan). The displayed computation, applied with `supp A`,
 `∏(1−x_F)^{−1}≤exp((4/3)|supp A|η)=β^{|supp A|}`. ∎
 
 *Range (R48b D5).* The prime-side twist (§5, I1) needs `η≤0.19`. This fails at the
-extreme `β=e^{1/3}` but holds for `β=1+1/log𝓛`, which is the only value used.
+extreme `β=e^{1/3}` but holds for `β=1+1/log𝓛`, which is the only value used, as soon as
+`(3/4)log(1+1/log𝓛)≤0.19`, i.e. `𝓛≥32.1` (`T≥e^{33}`) (R48c m3). The exact requirement is
+`(0.01+η/(1−η))/0.99≤1/4`, i.e. `η≤0.1919`. All statements below are for such T ("T large").
 
 *Effect.* The criterion is now per coordinate, with a threshold η independent of
 ℓ and of the level. The price is the reweighting `β^{s(E)}≤β^{ω(M)}`. With
