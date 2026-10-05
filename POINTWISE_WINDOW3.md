@@ -85,3 +85,35 @@ continuum `F_−` (it is ≍ the density of x^ε-smooth cofactors in reality, ev
 ≤0.3% either way). **R29-M4 is repaired for the data**: every LP below uses this law.
 (The cell-integrated law includes configurations whose cell straddles Σ=1, with their mass
 below 1; hence more configurations than WINDOW2 at the same grid.)
+
+## 3. The LP on the faithful law (ε=0.1, K=8, θ=1/2, rep visibility)
+
+`scripts/window3_lp.py` (columns normalised; dual bound computed from HiGHS duals with an
+explicit penalty for dual violations, `x_j≤ρ_0/μ_j` from the total-mass row; "cert" = this
+float dual bound equals the primal value). Window configs 197, joint 38809, rows 89.
+
+| constraint set | min ν(∅,∅)/τ | status |
+|---|---|---|
+| one window, none | 0.4893 | cert (dual 0.48929) |
+| two windows, none | 0 | fake, residual 5e-15 (max ν/μ 1.6e19: unbounded) |
+| per-config caps `x_C≤K` on all C≠∅ (`--swpc=K:0.1`), K=2 | 0.2407 | cert |
+| same, K=2.25 | 0.1045 | cert |
+| same, K=2.5 / 3 | 0 / 0 | fake, residual 3e-15 |
+| per-config caps on C with a point in the top cell `[0.75,1]` (`--swpc=K:0.6`), K=1.01 | 0 | fake, residual 1e-13 |
+| **marginal caps (SW_K), all C_q≠∅**, K=1.03 | 0.077 | primal only (residual 5e-9), dual not certified |
+| same, K=1.05 | 0.055 | primal only |
+| same, K=1.07 | 0.032 | primal only |
+| same, K=1.1 / 1.15 / 1.2 / 2 / 4 | 0 | fake, residual ≤2.3e-8 |
+
+So on the faithful law: (i) one-window positivity at θ=1/2 survives (0.489, certified on the
+grid); (ii) bounded reweighting needs `K*∈(2.25,2.5)`; (iii) WINDOW2 §7.1's α=0.6 bin caps are
+useless here (the fake avoids top-cell configurations); (iv) **the faithful aggregate switching
+constraint (SW_K) needs K*∈(1.07,1.1)** — essentially a *perfect* switched upper bound — against
+the baseline K=4 (and ≈3.4 even if Wu-type twin-prime technology transferred). (EVIDENCE on this grid.)
+
+*Mechanism (from the K=1.05 primal).* The fake removes the target and inflates the one-sided
+configurations `(C_3,∅)` and `(∅,C_7)` (pairs of window-3 bad primes, window 7 clean) by
+`ν/μ≈2.2`, while emptying `(C_3,C_7≠∅)`. The C_3-marginal stays ≤K because `μ_7(∅)/M_7≈0.48`.
+A switched sieve on `n_3=m·r` cannot tell "n_7 clean" from "n_7 has two large bad primes",
+so (SW_K) cannot block this. Only a switched bound that *also sifts n_7 to a high level* can
+(§4).
