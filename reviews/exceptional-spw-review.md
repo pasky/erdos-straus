@@ -19,6 +19,13 @@ Scripts (from scratch, no reuse of the author's code): `scripts/review_spw_*.py`
 false for every fixed C, σ at large N; certified σ ≤ 72/185 < 2/5 at N = 300)
 stands. No FATAL/MAJOR defect. Weak SPW remains open, as the author says.
 
+Not re-checked (all labelled EVIDENCE by the author): HL LP h = 0.1889 at D = 10;
+Monte-Carlo ratios of §2; local LP values at N ≥ 3300. No external source is
+cited by the new results (Bernstein's inequality and Fejér's kernel are
+standard and were re-derived). Process note: `git merge --ff-only
+side-agent/spw-proof` was impossible (main had moved); I used a plain merge
+into my review branch.
+
 ## Per-claim notes
 
 ### Definition match (SPW vs IF2 §9)
