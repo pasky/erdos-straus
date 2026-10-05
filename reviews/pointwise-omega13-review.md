@@ -7,7 +7,16 @@ Scripts: `scripts/review_o13a_*.py` (from scratch; author's scripts not reused).
 
 ## Summary verdicts
 
-(filled in claim by claim below)
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (β-weighted LLL, threshold `(3/4)logβ`) | SOUND (re-derived; exact brute force on 4 844 systems, incl. adversarial) |
+| Lemma 3.1 (`(−4D|M)=−1`, `(−4D|ℓ)=(−d|ℓ)`; square classes never fire) | SOUND (re-derived; 3 independent from-scratch checks, 0 failures) |
+| Lemma 3.2 (a)–(d) (supermartingales, optional stopping, pair potential, `B_2`) | SOUND (re-derived; exact one-step checks on ~2.7·10⁵ cases, max ratio exactly 1; MC of full process within bounds); MINOR m1, m2 |
+| Thm 3.4 random → deterministic logic | SOUND (existence of a good realisation; bounds δ*(T) itself); conditional on Lemma 3.3 (reviewer 2); MINOR m3, m5 |
+| Cor 3.5 / I3 | not reviewed in depth; MINOR m4 (start must force r square mod 840) |
+
+No FATAL or MAJOR defect found in the quarantine machinery. Labels PROVED (1.1, 3.1, 3.2) are justified.
+Thm 3.4's label "PROVED modulo NT" stands or falls with Lemma 3.3 (outside my scope).
 
 ## Claim-by-claim
 
