@@ -3,7 +3,7 @@
 
   halfset AMAX           : orbit structure, |S_sigma| = phi(a)/2, #selections = 2^beta(a)
   lemma11 AMAX XMAX      : every x<=XMAX (gcd(x,a)=1) with -1 notin Rat_a(x) has C(x) inside some S_sigma
-  rho AMAX KMAX NS SEED  : Monte-Carlo / exact rho_k vs Lemma 2.1 bound 3n 3^-k + 9/4 t (5/9)^k
+  rho AMAX KMAX NS SEED  : Monte-Carlo rho_k vs Lemma 2.1 bound 3n 3^-k + 9/4 t (5/9)^k
 """
 import sys
 import random
@@ -165,8 +165,11 @@ def rho(AMAX, KMAX, NS, seed):
 if __name__ == "__main__":
     mode = sys.argv[1]
     if mode == "halfset":
-        halfset(int(sys.argv[2]))
+        v = halfset(int(sys.argv[2]))
     elif mode == "lemma11":
-        lemma11(int(sys.argv[2]), int(sys.argv[3]))
+        v = lemma11(int(sys.argv[2]), int(sys.argv[3]))
     elif mode == "rho":
-        rho(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]))
+        v = rho(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]))
+    else:
+        sys.exit("unknown mode")
+    sys.exit(1 if v else 0)

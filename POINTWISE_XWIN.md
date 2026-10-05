@@ -156,7 +156,7 @@ parentheses (`scripts/xwin_tail_table.py`):
 | 1e7 | 35750 (0.231) | 7144 (0.186) | 2681 (0.280) | 1732 (0.725) | 849 (1.427) | 308 (2.079) |
 | 1e8 | 289372 (0.229) | 54226 (0.184) | 18868 (0.275) | 11250 (0.703) | 5125 (1.375) | 1742 (2.006) |
 
-Every column is flat to within a few per cent over two decades, as the
+Every column is flat to within 9% (mostly 1–4%) over two decades, as the
 exponent `1+J/2` of Corollary 1.3 (and the model) predicts; this is
 consistent with Corollary 1.3 being sharp in the exponent for each fixed
 Z (proved only for Z=3, and Z=7 on EH, by Cor 1.4).
@@ -448,3 +448,16 @@ bad tuples). Nothing unconditional specific to X_QNR is obtained.
   POINTWISE_SIZE Prop 8.4) and Hooley-type hypotheses control averages
   over p or over moduli. We found no standard hypothesis implying X_win
   (Assessment).
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/xwin_checks.py halfset 399        # Lemma 1.1 orbit/selection counts
+PYTHONPATH=scripts uv run python scripts/xwin_checks.py lemma11 63 20000   # Lemma 1.1 on all x<=2e4, a<=63 (~10 min)
+PYTHONPATH=scripts uv run python scripts/xwin_checks.py rho 47 16 20000 1  # Lemma 2.1 Monte Carlo -> data/xwin/rho_a47_k16.txt
+PYTHONPATH=scripts uv run python scripts/pointwise_size_amin.py census 1000000   > data/xwin/amin_census_1e6.json
+PYTHONPATH=scripts uv run python scripts/pointwise_size_amin.py census 10000000  > data/xwin/amin_census_1e7.json
+uv run python scripts/xwin_tail_table.py data/xwin/amin_census_1e6.json data/xwin/amin_census_1e7.json data/pointwise_size/window/amin_census_1e8.json
+```
+All checks exit non-zero on a violation. Run heavy modes under
+`ulimit -v 8000000` and `timeout`.
