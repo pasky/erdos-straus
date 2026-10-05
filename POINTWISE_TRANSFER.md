@@ -278,6 +278,34 @@ statement of this form, but our search was limited to the above; no priority
 claim. Novelty audit for the underlying ES application:
 `reviews/novelty-audit-omega8.md`.
 
+**4.6 Benchmark 2: Bonferroni minorant + the same Gallagher transfer
+(Assessment).** The obvious alternative to the sandwich is the odd Bonferroni
+truncation `B_j = Σ_{i≤j}(−1)^i C(N_n,i)` (`N_n` = number of events containing
+`n`), `j` odd. Pointwise `B_j = 1[N=0] − C(N−1,j)1[N≥1] ≤ F`, so
+`𝔼|B_j| = δ + 𝔼[C(N−1,j);N≥1]`, and [SN] `thm:transfer` (cost depends only on
+`A` and the largest modulus, here `≤ T^{jk}`) gives `log p ≪ log Q + jk log T`
+once `𝔼[C(N−1,j);N≥1] ≤ δ/100` and the twist condition hold. For *spread*
+systems (`𝔼C(N,i) ≤ (cS)^i/i!`) this needs `j ≍ S + log(1/δ)` and gives
+`log p ≪ log Q + k(S + ℒ)log T` — **better than Theorem 1.1**, by a factor
+`≈ log(NT)` when the mass/density terms dominate. But `𝔼C(N,i)` is governed by
+codegrees, not by `S` and `w_ℓ`. *Example (many hubs; heuristic
+computation).* Take `H` hub primes `ℓ_h` with `|G_{ℓ_h}| = q₀`, and for each
+`h` a spread cluster `{E'_{h,j}}` on other (fresh) coordinates of total mass
+`S' = q₀/(128k)`, conditioned on the hub value: events
+`E'_{h,j} ∩ {X_{ℓ_h} = σ_h}`. Then `w_{ℓ_h} = 1/(128k)`, all other `w_ℓ` are
+small, `S = H/(128k)`, and `δ ≥ 1 − H/q₀`. Take `3k ≤ H ≤ q₀/100`, so
+`δ ≥ 0.99` and `S ≥ 0.023`. Given `X_{ℓ_h} = σ_h`, `N` is ≈ Poisson(`S'`),
+so `𝔼[C(N−1,j);N≥1] ≈ (H/q₀)·S'^j/j!` (for `1 ≤ j ≪ S'`; at `j = 1` it is
+`≈ S − H/q₀ ≥ 0.015 > δ/100`). Since `H/q₀ ≥ 3k/q₀ ≍ 1/S'` and
+`S'^j/j! ≥ S'` for `1 ≤ j ≤ S' − 1`, the condition `≤ δ/100` forces
+`j ≳ S' ≍ q₀/k`: *for this method* `log p ≫ q₀ log T`, versus polylogarithmic
+in Theorem 1.1, which has no codegree hypothesis ([SN] remark after
+`lem:tail`). Quarantining the hubs costs `H log T`. (This compares methods;
+it is not a lower bound for the least prime.) It is the
+factorial-in-levels loss of the alternating expansion of POINTWISE_OMEGA2
+mentioned in [SN]. (An earlier single-hub version of this example was
+wrong: with `S = 1/(128k)` already `B₁ = 1 − N` works.)
+
 ## 5. Applications
 
 ### 5.1 The witness modulus for m/n (Sierpiński m = 5 and general m)
@@ -344,31 +372,6 @@ there makes the constants polynomial in `log m` (not tracked). (c) As for
 solvability of `m/p` (other representations may exist). The heuristic
 truth for `m = 4` is `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7); we have not
 redone that heuristic for general `m`.
-
-**4.6 Benchmark 2: Bonferroni minorant + the same Gallagher transfer
-(Assessment, with exact computations).** The obvious alternative to the
-sandwich is the odd Bonferroni truncation `B_j = Σ_{i≤j}(−1)^i C(N_n,i)`
-(`N_n` = number of events containing `n`), `j` odd. Pointwise
-`B_j = 1[N=0] − C(N−1,j)1[N≥1] ≤ F`, so `𝔼|B_j| = δ + 𝔼[C(N−1,j);N≥1]`, and
-[SN] `thm:transfer` (whose cost depends only on `A` and the largest modulus,
-here `≤ T^{jk}`) gives `log p ≪ log Q + jk log T` as soon as
-`𝔼C(N−1,j) ≤ δ/100` and (Tw)-type twisted bounds hold. For *spread*
-systems (`𝔼C(N,i) ≤ (cS)^i/i!`) this needs `j ≍ S + log(1/δ)` and gives
-`log p ≪ log Q + k(S + ℒ)log T` — **better than Theorem 1.1** by a factor
-`≈ log T·log(NT)`. But `𝔼C(N,i)` is *not* controlled by `S` and the local
-masses `w_ℓ`: it is governed by codegrees. *Example (hubs).* A free prime
-`ℓ₀` with `|G_{ℓ₀}| = q₀` and events `E'_j ∩ {X_{ℓ₀} = σ₀}`, where `{E'_j}`
-lives on other coordinates with total mass `S' = q₀/(128k)` and spread. Then
-`w_{ℓ₀} = S'/q₀ = 1/(128k)` and the hub contributes only `1/(128k)` to `S`, but
-conditionally on `X_{ℓ₀} = σ₀` the count `N` is ≈ Poisson(`S'`), so
-`𝔼C(N,j) ≥ q₀^{−1}·(≈ S'^j/j!)`, and `𝔼C(N,j) ≤ δ/100` forces
-`j ≳ eS' ≍ q₀/k` — i.e. `log p ≫ q₀ log T` *for this method*, versus
-polylogarithmic in Theorem 1.1, which has no codegree hypothesis ([SN]
-remark after `lem:tail`). Quarantining `ℓ₀` removes one hub, but a system
-with `≍ N` hubs would cost `≍ N log T` to quarantine. (This compares
-*methods*; it is not a lower bound for the least prime.) This is exactly the
-factorial-in-levels loss of the alternating expansion in POINTWISE_OMEGA2 that
-[SN] mentions.
 
 ### 5.2 Generic witness-modulus Ω-theorem (application (c))
 
