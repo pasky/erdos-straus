@@ -81,7 +81,7 @@ output `reviews/agent-reports/r38b_families.txt`, 127 functions): tribes
 (w≤5, all s with ws≤16), thresholds `[|x|≥k]` (all k-ANDs, n∈{8,12,14},
 k≤6), `[|x|≥k or |x|≤n−k]`, OR of s disjoint k-parities, parity_n as a
 2^{n−1}-term DNF (n≤12), majority (n≤15, k=(n+1)/2), multiplexers,
-sunflowers. **Max G = 0.9822** (single AND of width 5, = `1−2^{−5}(2−(1+2^{1/5})^5/2^5·…)`
-as predicted by §2's single-event formula), **max tail ratio = 0.5**
+sunflowers. **Max G = 0.9822** (single AND of width 5; equals
+`1−2^{−5}(2−((1+2^{1/5})/2)^5)=0.98223`, §2's single-event formula), **max tail ratio = 0.5**
 (attained by parity_k at t=k−1 and a single literal). No violation; the
 Boolean bound has a factor ≥2 slack on all of these.
