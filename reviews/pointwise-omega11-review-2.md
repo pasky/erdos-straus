@@ -93,3 +93,37 @@ Checked against O8 Lemma 3.1 (BRW, arbitrary events/`u_j`), O8 Thm 3.4 (EL const
   `log Z ≪ 𝓛^7/log𝓛 + 𝓛^5log𝓛`, consistent with O10 Thm 4.2 (`≪𝓛^6` junta there). ✓
 
 **Verdict on Cor 1.2: SOUND.**
+
+### D. Exponent chain: Thm 3.2, Cor 3.3, Cor 4.1
+
+**Thm 3.2.** Re-derived:
+* Lemma 2.2 with `c=1/64`: `log Q ≤ 9+64(1+o(1))𝓛²S♯/log𝓛`; `S♯≪𝓛^4log𝓛` under ET (O2 Lemma 11.1 already
+  contains the `C log log T` factor, so no hidden extra `log𝓛`). Hence `log Q≪𝓛^6`. ✓
+* Haar side: `x_E=2P(E)`, neighbourhood sum `≤2Σ_{ℓ∈supp E}w_ℓ≤2c=1/32`; `−ln(1−2p)≤2.07p` for `2p≤1/32` gives
+  `δ≥e^{−2.2S}`. ✓
+* Twist (O8 Lemma 3.3): needs `1.07·w_{ℓ_0}≤0.02`; `w_{ℓ_0}≤θ_{ℓ_0}=c·logℓ_0/𝓛≤1/64` gives `0.0167`. ✓ (`a_{ℓ_0}=0`
+  since `ℓ_0∤Q`; `ψ` depends on digit 0 only.)
+* Transfer: O9 Thm 1.1 needs `A≤Z^{1/4}` (`A≤1.03` by O9 Lemma 2.1 with η=1/99) and gives
+  `log p≪(1+log A)log Z≪log Z`. ✓
+* Junta: Cor 1.2 gives `𝓛^5log𝓛`; the "coarser" O10 Thm 4.2 route (`k≤ω(M)≤(1+o(1))𝓛/log𝓛`,
+  `t≍k(S+k𝓛)`, cells on `≤3k+2t` coordinates of modulus `≤T`) gives `k𝓛(S+k𝓛)≍𝓛^6`, also enough. So
+  **Thm 3.2 does not need Lemma 1.1 at all**; only Cor 4.1 does. (Observation, not a defect; the label's
+  dependency "OMEGA10 Thm 3.4" is correct either way.)
+* `log p≪𝓛^6`, `p>T` (auxiliary prime), `W(p)>T=e^𝓛≥exp(c(log p)^{1/6})`; T→∞ gives infinitely many p. ✓
+
+Bottleneck: `log Q≍64𝓛²S♯/log𝓛` vs junta `≍𝓛S♯`: ratio `≍𝓛/log𝓛`, **not** `𝓛/log²𝓛` as written (defect m2).
+The same slip occurs at line 357 ("asymptotic gain ≈𝓛/log²𝓛" over O2): O2's
+`64k²S*𝓛=16𝓛³S*/log²𝓛` (z=𝓛², `log z=2log𝓛`) against `64𝓛²S♯/log𝓛` is a gain `≍𝓛/(4log𝓛)`; likewise for the
+`c=1/8` Haar comparison (`8k²S*𝓛` vs `8𝓛²S♯/log𝓛`). Harmless for every stated exponent.
+
+**Cor 3.3.** `c=1/8`, neighbourhood sums `≤1/4`, `x∏(1−x')≥2P(1−1/4)≥P`; `1−x≥e^{−2x}` for `x≤1/2` gives
+`δ≥e^{−4S♯}`; `log(1/δ*)≤log φ(Q)+4S♯≪𝓛²S♯/log𝓛≪𝓛^6`. Depends only on Lemmas 2.1–2.2 + ET. Comparison
+with O2 Thm 11.3 (`𝓛³S*/log²𝓛≍𝓛^7/log𝓛`) ✓. **SOUND.**
+
+**Cor 4.1.** `log Q≤9+(𝓛/c)Ω♯` is exactly what Lemma 2.2's charging gives
+(`Σ_{a<v}1/(a+1)=H_v`); under H_ω(B) `log Q≪𝓛^5(log𝓛)^B`; junta `𝓛^5log𝓛` (needs Cor 1.2, i.e. Lemma 1.1);
+`log p≪𝓛^5(log𝓛)^{max(B,1)}` inverts to `𝓛≫(log p)^{1/5}(log log p)^{−max(B,1)/5}`. ✓ Label "PROVED
+implication" under H_ω, ET, (G), O10 Thm 3.4 is accurate. **SOUND.**
+
+**Thm 3.2 verdict: SOUND** (modulo (G), ET Prop 1.4, O10 Thm 3.4, and the other §2–3 lemmas, which are reviewer
+1's scope).

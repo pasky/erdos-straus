@@ -1,0 +1,12 @@
+T=10000: S(g/M)=55.280 mean_h(g/M)=2.1840 | S(exact s)=74.210 mean_h(s)=2.3240 | loglogT=2.2203 L/logL=4.1482
+T=100000: S(g/M)=113.271 mean_h(g/M)=2.4178 | S(exact s)=151.299 mean_h(s)=2.5718 | loglogT=2.4435 L/logL=4.7117
+T=1000000: S(g/M)=206.679 mean_h(g/M)=2.6282 | S(exact s)=275.522 mean_h(s)=2.7935 | loglogT=2.6258 L/logL=5.2615
+
+real	0m4.075s
+user	0m4.021s
+sys	0m0.053s
+T=10000000: S(g/M)=347.648 mean_h(g/M)=2.8195 | S(exact s)=463.066 mean_h(s)=2.9936 | loglogT=2.7799 L/logL=5.7980
+
+real	0m39.955s
+user	0m39.815s
+sys	0m0.123s
