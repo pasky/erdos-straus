@@ -73,3 +73,24 @@ consistent with the model; the wording in §4 ("any weights, any combinatorics")
 
 Since visible sets grow with θ, min ν(∅)/τ is nondecreasing in θ. So in this grid the
 two-window threshold θ₂ ∈ (0.5, 0.7] is *certified*; (0.6, 0.7] remains EVIDENCE (0.6 fake uncertified).
+
+### §6.3 slice reduction — SOUND (algebra); quantitative step: SOUND-AFTER-REPAIRS (m1)
+* Sufficiency algebra checked: for visible S with S₃≠∅, ρ_δ(S)=Σ_Q emb(S₇,Q)·[slice-Q correlation of S₃],
+  s₃≤1/2−s₇≤1/2, so (1) kills it; S₃=∅ is (2). Correct.
+* `scripts/review_w2_slice.py 0.1 8 0.5` solves the *full* slice-separable LP (conditions (1)+(2), ν≥0):
+  **min ν(∅,∅)/τ = 0.430 > 0**, confirming "slice-separable fakes cannot work" on this grid.
+  Also confirmed: max one-window total with ν'(∅)=0 is μ_tot−0.74413 (the "m(∅)≤−0.744" step).
+* The prose chain "homogeneity … caps Σm(Q) at 0.256·1.256≈0.32" is not derived in the text (the
+  1.256 cost bound is unexplained; with ν'(∅)=0 forced I get a minimal slice-total change −1.226).
+  Replace it by the direct separable-LP value (0.430), labelled EVIDENCE (or certify its dual).
+
+### Lemma 3.2 (two-block fakes) — SOUND; trivial-range sentence — MINOR (m2)
+* Re-derived: for multisets, emb(S,U⊔V)=Σ_{S=S_U⊔S_V} emb(S_U,U)emb(S_V,V) (Vandermonde); mixed
+  splits have ΣS ≥ minU+minV > θ; the remaining terms cancel. Parity preserved. Correct.
+* The R(θ)≥τ ⇒ fake step is correct (remove c_C≤μ(C), add U,V freely).
+* "θ<1/2: U={a,b} with a,b∈(θ,1−θ)": the fake meant is δ=−[∅]+[{a,b}] (not Lemma 3.2, which needs
+  V≠∅), and the condition is a,b>θ with **a+b<1**; a,b∈(θ,1−θ) does not imply a+b<1 (θ=0.1,a=b=0.8).
+
+### Lemma 3.6 (product fakes) — SOUND
+ρ_{γ₃⊗γ₇}(S)=ρ_{γ₃}(S₃)ρ_{γ₇}(S₇); s₃+s₇≤a+b ⇒ s₃≤a or s₇≤b (S_q=∅ is included in "zero correlations",
+so total masses vanish); ν(∅,∅)=0; positivity termwise. Correct.
