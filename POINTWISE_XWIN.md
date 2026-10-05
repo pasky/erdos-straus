@@ -15,6 +15,7 @@ POINTWISE_SIZE §8: for a prime `p≡1 (4)` and `a≡3 (4)`, `x_a=(p+a)/4`,
 | 1.1 | Half-set lemma: failure of window a ⇒ all prime factors of `x_a` lie in one of `2^{β(a)}` explicit sets `S_σ` of exactly half the classes mod a (any a≡3 (4), prime or composite); no budget exceptions | PROVED |
 | 1.2–1.3 | For every fixed finite set A of moduli ≡3 (4): `#{p≤N: −1∉Rat_a(x_a) ∀a∈A}≪_A N/(log N)^{1+|A|/2}`; hence `T(N,Z)≪_Z N/(log N)^{1+J(Z)/2}`, `J(Z)=⌊(Z+1)/4⌋` — the random-model exponent, for each fixed Z | PROVED (fixed-dimension upper sieve). New: improves notes Cor 71.4 (`δ_J≈½log log Z`) and makes POINTWISE_WINDOW §6's joint "dimension ≥J/2" Assessment a theorem |
 | 1.4 | `#{a_min≥7}≍x/(log x)^{3/2}`; `#{a_min≥11}≍x/(log x)^2` (lower bound on EH) | PROVED / CONDITIONAL (lower bounds = POINTWISE_WINDOW W1/W2) |
+| 1.5 | uniform version: `T(N,Z)≤π(N)(log N)^{−(1/2−o(1))J(Z)}` for `Z=o(log log N)`; `N exp(−0.22(log log N)²)` at `Z≈3.6 log log N` | PROVED modulo SW |
 | §1.3 | `T(x,Z)·(log x)^{1+J/2}/x` flat (±9%) for `x=10^6..10^8`, `Z≤23` | EVIDENCE |
 | 2.1 | Random signed products: `P(τ∉Σ±(c_1..c_k)) ≤ 3n·3^{−k}+(9/4)t(G)(5/9)^k` | PROVED (= notes Lemma 12.5) |
 | 2.2 | Pattern-summed prime-side sieve for windows `a≤(log N)^θ` | PROVED modulo Siegel–Walfisz |
@@ -143,6 +144,41 @@ versus notes (71.26)'s `2/3, 23/30, 859/990` (beyond the `1/log N`).
 * `#{p≤x: a_min(p)≥11}≍x/(log x)^2` **CONDITIONAL on Elliott–Halberstam**
   for the lower bound (POINTWISE_WINDOW Thm W2); the upper bound
   `≪x/(log x)^2` is unconditional (Cor 1.3, Z=7). So W2 is sharp.
+
+### 1.2' Uniformity: exponent exactly 1/2 per window for `Z=o(log log N)`
+
+**Theorem 1.5 (PROVED modulo Siegel–Walfisz).** Let `L=log log N`,
+`ℒ=log N`. Uniformly for `3≤Z≤L` and `N` large, with `J=J(Z)` and
+`β_tot(Z)=Σ_{a≤Z, a≡3 (4)}β(a)`,
+
+```
+#{N/2<p≤N, p≡1 (24): a_min(p)>Z}
+   ≤ (N/ℒ)·exp( −(J/2)(L − 3 log L − C) + β_tot(Z)·log 2 + O(log L) ).
+```
+
+Since `β_tot(Z)≤Σ_{a≤Z}(φ(a)/4+2^{ω(a)−2})=O(Z²)`, this is
+`π(N)·(log N)^{−(1/2−o(1))J(Z)}` uniformly for `Z=o(L)` — the model
+rate with the exact per-window exponent 1/2 — and at `Z≍L` it is
+`N exp(−c(log log N)²)` with an explicit c (≈0.22 at `Z≈3.6L`, using
+`β_tot≈Z²/(4π²)`).
+
+*Proof.* As Theorem 1.2, with `y=exp(L²)` and
+`log z=ℒ/(5(J+1))`. Moduli `a≤Z≤L=(log y)^{1/2}`, so SW gives
+`Σ_{y<ℓ≤z, ℓ≡c (a)}1/ℓ=(1/φ(a))log(log z/log y)+O(e^{−c_1L})` uniformly;
+summed over `≤L` windows and `≤L` classes the error is `o(1)`. Roots are
+distinct as `y>2Z`, `ν(ℓ)≤J+1<ℓ`, and `Λ≤(J+1)(log z+O(1))≤ℒ/4`. For a
+fixed selection vector σ, Lemma 12.1 gives
+`≤4X exp(−(1+J/2)log(log z/log y)+o(1))` with
+`log(log z/log y)=L−2log L−log(5(J+1))≥L−3log L−C`, and
+`e^{−(L−3log L−C)}=O(L³/ℒ)` supplies the `1/ℒ` (the extra `L³` is the
+`O(log L)`). Sum over the `2^{β_tot}` selection vectors (Lemma 1.1). ∎
+
+*Comparison.* notes Cor 71.4 has, for fixed J, exponent
+`δ_J≈½log log Z` in total; Theorem 1.5 has `J/2≈Z/8`, uniformly up to
+`Z=o(log log N)`. The union cost `2^{β_tot}≈2^{Z²/(4π²)}` is what stops
+the half-set method at `Z≍log log N`; §2 handles larger Z with a weaker
+per-window exponent. This is the only range in which the stacking
+hypothesis H_STACK's per-window constant (`ℒ^{−1/2}`) is attained here.
 
 ### 1.3 Numerical check (EVIDENCE)
 
