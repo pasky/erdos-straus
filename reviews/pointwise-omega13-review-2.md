@@ -94,7 +94,7 @@ genuine (if small) check, not a formality.
 bound for an arbitrary event A (Haeupler–Saha–Srinivasan Thm 2.1:
 `P(A|∩F̄)≤P(A)∏_{F∈Γ(A)}(1−x_F)^{−1}`), with Lemma 1.1's computation, gives for
 `A=E∖ℓ_0`: `∏(1−x_F)^{−1}≤exp((4/3)Σ_{ℓ∈supp A}w̃_ℓ)≤β^{s(E)−1}`. Hence
-`|E[Fψ]|≤β^{−1}w̃_{ℓ_0}EF'≤ηEF'`, `EF≥(1−η)EF'`, and `|μ_ψ|≤(0.01+0.01·… +η/(1−η))EF≤μ/4`
+`|E[Fψ]|≤β^{−1}w̃_{ℓ_0}EF'≤ηEF'`, `EF≥(1−η)EF'`, and `|μ_ψ|≤E|B−F|+|E[Fψ]|≤(0.01+η/(1−η))EF≤μ/4` (using `μ≥0.99EF`)
 as soon as `η≤0.19` (true for large T; note it is **false** at the extreme `β=e^{1/3}`,
 `η=1/4`, where `η/(1−η)=1/3>0.2475` — so Lemma 1.1's full range of β is not usable on the
 prime side; harmless since β→1). Note Lemma 1.1 as stated only gives the conditional
@@ -109,7 +109,7 @@ because Lemma 1.1 gives `δ≥exp(−(4/3)S_res)`. ✓
 `n≡r (ℓ^{a})`, `r` a unit, has uniform digits `≥a`, conditioned systems are initial
 segments as before. So junta `O(𝓛(S_res+log m+𝓛))=O(𝓛(S_res+𝓛))`. ✓
 
-**I3 sketch.** On `rH`: `c(χ)=χ̄(r)E_{rH}[Bχ̄']…/φ(Q)`; for χ trivial on H,
+**I3 sketch.** On `rH`: `c(χ)=E_{rH}[Bχ̄]/φ(Q)`; for χ trivial on H,
 `c(χ)=χ̄(r)μ/φ(Q)`. Every *real* χ mod Q is a product of Legendre symbols at odd `p|Q` and a
 character mod 8, all `=1` at r (r a QR mod each odd `p|Q`, `r≡1 (8)`), so Case A
 (the only place a sign matters, Siegel-type term) is unchanged; non-real χ enter only via
@@ -121,4 +121,47 @@ which the square-class process (started at `Q=8`) does not guarantee as written 
 Net: Cor 3.5 rests on (G), NT, OMEGA10 Thm 3.4 (and no longer on Elsholtz–Tao, which
 should be said: S_res is bounded via NT, not ET) plus I1–I3. With the sketches above
 written out, CONDITIONAL could be upgraded to "PROVED modulo (G), NT, OMEGA10 Thm 3.4".
+
+## Numbered defects
+
+**D1 (MAJOR, repairable; Lemma 3.3(A), proof of the second display).** The function
+`F(n_1,n_2)=τ(n_1²)f_2(n_2)(3/2)^{Ω_Y(n_2)}` is not in any NT class `M_2(A,B,ε)` with the
+admissible `ε<1/(8g²)=1/32` (NT 1998 Thm 1; Henriot quotes `ε≤αδ/(12g²)`): already
+`F(1,3^k)≫(3/2)^k>B·3^{kε}` for large k. The "Euler factor 1+O(1)/p" remark is beside the
+point. *Repair:* use `Ω_Y(m)≤τ(m_Y)−1` (for `m_Y=∏p^{k_i}`, `Σk_i≤∏(k_i+1)−1`), i.e.
+`log M_Y≤logY·τ(M_Y)`. `τ(p^k)=k+1≤B_εp^{kε}` for every ε, so `f_2·τ_Y∈M_2(8',B_ε,ε)`
+uniformly; Euler factor at `p≤Y` becomes `≈4β/p`, giving `Σf_2τ_Y(n)/n≪(logY)^{3}(log x)`
+and the same final bound `≪𝓛³(logY)^4`. (Alternatively `x≤K(1+1/K)^x` with fixed K≥100.)
+
+**D2 (MINOR; Thm 3.4 statement / Lemma 3.2(b)).** δ* is defined in POINTWISE_HAAR §0 with
+Haar measure normalised on `n≡1 (24)`, but Thm 3.4 says "n∈Ẑ^×" and the process starts at
+`Q=8`. "Haar exponent a=3" pairs bounds on two different quantities. *Repair:* state Thm 3.4
+for the HAAR δ*; start at `Q=24,r=1` (or note 3 is forced to be stepped first with the
+unique square class 1 mod 3), and amend "p_0=P_H" to `p_0(E)≤2^{[3|M]}P_H(E)`, absorbed in
+`2^{u_0}` (3 is no longer counted in u_0).
+
+**D3 (MINOR; Lemma 3.3(A) proof, first display).** `(log x)^{β}logY` should read
+`(log x)^{β}(logY)^{β}` (from `∏_{p≤Y}(1+2β/p)∏_{Y<p≤x}(1+β/p)`); harmless as
+`(logY)^{β−1}≤e`. Also "C_0=4.5+36+…" is cryptic: say `C_0=81/2+8+o(1)` from
+`Σ τ(n²)^4/n≍𝓛^{81}` and `H^4(m/φ)^4τ^4` having `f(p)=16β^4` at `p>Y`, with the
+`(logY)^{O(1)}` factor absorbed (no circularity since `logY≍log𝓛`). State the explicit
+final bound `log(1/δ*)≪𝓛³(log𝓛)^5`.
+
+**D4 (MINOR→MAJOR for Cor 3.5; I3).** Mordell-hardness of p needs `840|Q` (r a square mod
+3,5,7). The square-class process starts from `Q=8` and only steps primes with `w̃_ℓ>η`;
+nothing in the text guarantees `a_3,a_5,a_7≥1` (true in practice since initially
+`w̃_ℓ≫η`, but masses at 3,5,7 can change by other primes' `a=0` steps before 3,5,7 are
+stepped). *Repair:* start from `Q=840`, `r=1` (as O11 Lemma 2.2 does), with
+`p_0(E)≤2^{ω(gcd(M,105))}P_H(E)` absorbed as in D2, and drop 3,5,7 from `u_0`.
+
+**D5 (MINOR; Lemma 1.1 / I1).** Lemma 1.1's conditional bound is stated only for events
+of the family. The twist argument (O8 Lemma 3.3) needs it for `A=E∖ℓ_0`, which is not in the
+family. The general form `P(A|∩_{F∈𝒮}F̄)≤P(A)∏_{F∼A}(1−x_F)^{−1}≤β^{s(A)}P(A)` follows from
+the same computation; add it to Lemma 1.1. Also record that the twist needs `η≤0.19`
+(fails at `β=e^{1/3}`), fine for `β=1+1/log𝓛`.
+
+**D6 (MINOR; Cor 3.5 dependency list).** Thm 3.4 and Cor 3.5 no longer use Elsholtz–Tao
+Prop 1.4 (masses are Haar masses bounded via NT). Say so — it is a genuine simplification
+of the conditional chain — and keep "(G), NT, OMEGA10 Thm 3.4" as the full list once
+I1–I3 are written out.
 
