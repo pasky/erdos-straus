@@ -273,7 +273,7 @@ Removing it would need a different threshold rule, not a better bound on Ω.
 | Lemma 6.2, Thm 6.3 | `s_1=e³g/M`; `W(p)≥exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.; `log(1/δ*)≪𝓛^5log𝓛` | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
 | §6A last para | `log𝓛` is the limit of Lemma 2.2's charging | Assessment |
 
-Here ET means results proved in Elsholtz–Tao (published, Proc. LMS 2013);
+Here ET means results proved in Elsholtz–Tao (arXiv:1107.1010, J. Aust. Math. Soc. 2013);
 nothing in ET is re-proved here. Not claimed: anything about ES itself;
 optimality of 1/5.
 
