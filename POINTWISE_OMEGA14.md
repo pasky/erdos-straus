@@ -461,6 +461,9 @@ Lemma 4.1 gives `E B≤0`. ∎
   requires `log x≫log Z`. Here Z is the minorant's level and x the certified search bound.
   O8/O9 Thm 1.1, and hence O13 Thm 5.1, are of this type (O9 needs
   `log x≥C(1+log A)log Z`); this covers BRW, Selberg, Bonferroni, sparse or dense, any A.
+  *Every fibre (R49b D4).* For O9-type transfers the restriction `log Q≤T^{0.05}` is vacuous:
+  they need `log x≥C_2 log Z≥log Q` (O9's Z is a multiple of Q), so `log Q>T^{0.05}` already forces
+  `log x>e^{0.05𝓛}`, far beyond the ceiling below. So for them the corollary covers every fibre.
 * *Statement.* For every such certificate, `log Z≥c𝓛^4/log𝓛` (Thm 4.5), hence the certified
   bound has `log x≫𝓛^4/log𝓛`. So such certificates cannot give
   `W(p)≥exp((log p)^{1/4+δ})` (δ>0), nor `exp(C(log p log log p)^{1/4})` with C large, *as
@@ -470,7 +473,14 @@ Lemma 4.1 gives `E B≤0`. ∎
   * Nothing about the true size of the least such prime.
   * Nothing about transfers that do not require `log x≳log Z`.
   * Nothing about prime input other than low-conductor minorants, e.g. bilinear/Type II or
-    parity-sensitive input.
+    parity-sensitive input, or majorant/minorant mixtures.
+  * Nothing about transfers whose positivity does not come from the Haar mean `E_fibre B>0`
+    (R49b D5). In particular transfers whose positivity comes from the exceptional-character
+    term (`Σ_pB(p)≈x(E B−x^{β_1−1}E[Bχ_1])/φ(Q)`, which can be positive with `E B≤0` if a Siegel
+    zero exists at that scale) are outside the theorem; they can only work at Siegel scales,
+    hence not unconditionally for infinitely many T.
+  * Nothing about minorants of F that are not of bounded level in the O14 sense (e.g. using a
+    modulus with many prime factors `>T^{0.6}`).
 
 Within this scope, this supersedes Prop 2.7's open loophole.
 
