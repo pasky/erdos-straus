@@ -175,8 +175,10 @@ q and lies in one class mod `q/g` (from `mm*≡κ+1` mod `q/g`, where
 `N(a,j)≤(S/q)(1+1/μ+4𝓛g/q)+2(gX/q+1)`. (iv) Now j runs over multiples
 of g: `Σ_{j≤2T, g|j}1/j≤2𝓛/g`. Inserting as in Prop 2.3, the factor g
 cancels in every term except `S/q·1`, which gives `(4/3)(2𝓛/g)≤3𝓛/y`.
-The sum over the `≤2^k` divisors `g|q` costs nothing more: distinct g
-give disjoint sets of j. ∎
+(v) Which g occur: by (i) `g|g_0`, and by Lemma 2.0 every prime of `g_0`
+divides j. So for squarefree q, `g=g_0` is forced (one value). For `q′`,
+g ranges over `≤2^k` divisors of `g_0` with the radical of `g_0`; the
+terms `𝓛(32A/√S)` then pick up a factor `2^k`, absorbed in `e^{Ck}`. ∎
 
 So the `gcd(j,q)>1` case flagged in §1 is closed, uniformly in the box.
 Cor 2.4 holds for all atoms with `a≤b` (resp. `a≥b`) in the stated boxes.
