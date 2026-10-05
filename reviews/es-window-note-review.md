@@ -149,7 +149,8 @@ the published bound only.
 **m1 (Remark 7.3, FI09 description).** "counts primes p with p−2 and p+2 both sums of two
 squares": FI09's π_Γ(x) counts orbit points γi (≈ matrices in SL₂(Z)), i.e. primes
 weighted by their number of representations (FI09 l.60–80: π_Γ≍x/log x, whereas the
-unweighted prime count would be of order x/(log x)²·(log)^{O(1)}). Say "counts, with
+unweighted prime count is heuristically of order x/(log x)², two half-dimensional
+conditions). Say "counts, with
 multiplicity, the representations p=x₁²+…+x₄², x₁x₄−x₂x₃=1, so that p∓2 are sums of two
 squares". The §8 sentence after Lemma 8.1 is fine.
 
