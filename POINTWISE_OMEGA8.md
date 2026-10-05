@@ -407,10 +407,8 @@ supports `≤k`, per-prime masses `≤1/(64k)`, and `S*` is used.
   Wigderson's choice). Elsholtz–Tao Prop 1.4 enters only through
   `S*≪𝓛^4log𝓛`.
 * **Not claimed:** anything about ES; any optimality of the exponent
-  1/14 (it is bookkeeping: `log p ≈ K·log Z`, each `≍𝓛^7`); a
-  numerical instance (`T` would have to be astronomically large for
-  `exp(3𝓛/…)`-type conditions; here the only size condition is that `z=𝓛²`
-  exceeds 7 and Lemma 11.2 runs).
+  1/14 (it is bookkeeping: `log p ≈ K·log Z`, each `≍𝓛^7`); any
+  numerical instance.
 * **Literature status of the method:** the Bazzi–Razborov–Braverman
   theory is standard in pseudorandomness ("bounded independence fools
   DNF/AC0"). Its use here is a transfer: Thorner–Zaman makes the primes
