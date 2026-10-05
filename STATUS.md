@@ -168,8 +168,9 @@ Papers in `paper/`:
   internally; fixes applied);
 * `es-omega-note` v3: every fixed exponent (refereed internally; P1–P4
   applied).
-* `es-subexp-note` (new, 16 pp): `W(p) ≥ exp(c(log p)^{1/14})` i.o. via a
-  Bazzi–Razborov sandwich minorant (refereed internally, R33 minor revision
+* `es-subexp-note` v2: `W(p) ≥ exp(c(log p)^{1/7})` i.o. via a
+  Bazzi–Razborov sandwich minorant and a Gallagher-type linear transfer
+  (refereed internally twice, R33/R33b minor revisions
   applied; novelty audit `reviews/novelty-audit-omega8.md`).
 
 Authorship and the citation form for astra are still undecided.
