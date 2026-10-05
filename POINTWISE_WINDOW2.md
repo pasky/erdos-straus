@@ -45,3 +45,50 @@ factors) from the unconditional level `x^{1/6}` of `r(n−2)r(n+2)`.
 The best unconditional "one complete absence + one almost-prime" result is
 Nath–Xie (arXiv:2501.16723, archived): `p=m²+n²+1` with `Ω(p+2)≤9`, by a
 semi-linear × linear vector sieve.
+
+## 3. The Type-I + parity model 𝒯𝒫(θ) and fake sequences
+
+### 3.1 Definition
+A *configuration* is `C=(B_3,B_7)`, where `B_q` is the multiset of log-sizes
+`t=log r/log x` of the q-bad prime factors of `n_q`. *Parity* means that `|B_3|` and
+`|B_7|` are even (POINTWISE_WINDOW Lemma 1.2: this is a congruence fact for hard p).
+The information of level θ is the set of correlation functions
+`ρ(S)=E[#embeddings of S into C]` for all `S=(S_3,S_7)` with `ΣS≤θ`. These are
+exactly the Type-I data `|A_{d_1d_2}|`, `d_1|n_3`, `d_2|n_7` bad squarefree, `d_1d_2≤x^θ`.
+A *fake* is a nonnegative measure ν on parity configurations with the same ρ(S)
+for `ΣS≤θ`. **Model statement:** Type-I + parity at level θ cannot prove
+"both clean" if some fake ν has `ν(∅,∅)=0`.
+
+### 3.2 Two-block fakes (Lemma 3.2, Model-PROVED)
+Let `U,V` be disjoint nonempty configurations, each even in each window, with
+`min U+min V>θ`. Then `δ=−[∅]−[U⊔V]+[U]+[V]` has `ρ_δ(S)=0` for every S with `ΣS≤θ`.
+*Proof.* Take `S⊂U⊔V`. If `S=∅` the contribution is `−1−1+1+1=0`. If `∅≠S⊂U`
+(or `⊂V`) it is `−1+1=0`. If S meets both U and V, then `ΣS≥min U+min V>θ`, so S
+is outside the level. ∎
+Hence, if the true law μ satisfies `R(θ):=μ{C≠∅ : C θ-splittable} ≥ τ:=μ(∅,∅)`,
+a fake with no clean element exists. (Remove τ of target mass, and remove
+splittable C up to its true mass. Add U and V; adding is unconstrained.) Here C is
+*θ-splittable* if `C=U⊔V` as in the lemma. The optimal split puts `c_1=min C` in
+U and takes for V the two largest points of one window (Lemma 3.3: any V has
+two points in some window, so `min V≤` that window's second largest).
+
+*Trivial range (Model-PROVED).* For θ<1/2, a single window already admits
+`U={a,b}` with `a,b∈(θ,1−θ)`. So a fake exists even for one window. For θ≥1/2 the
+one-window block fakes are impossible: four points with `min U+min V>1/2`
+would have sum >1. This matches W1 (one window at BV level).
+
+### 3.3 The true law and the MC (EVIDENCE, preliminary)
+Heuristic true law for one window (bad primes ≥ x^ε, clean weight 1):
+density `∏(1/2t_i)·(1−Σt)^{−1/2}` (half the primes are bad, by Mertens; the
+clean cofactor contributes `(log x^{1−Σt})^{−1/2}`). The two windows are
+taken as independent. `scripts/window2_blockfake.py 2e6 0.02 1`:
+
+| θ | 0.40 | 0.45 | 0.50 | 0.55 | 0.60 | 0.70 | 0.80 |
+|---|---|---|---|---|---|---|---|
+| R(θ)/τ | 1.53 | 0.83 | **0.42** | 0.24 | 0.13 | 0.04 | 0.007 |
+
+So at BV level (θ=1/2), two-block fakes remove only ≈42% of the target mass. They
+do **not** give an obstruction there. The ε-stability and multi-block fakes
+(m blocks, `Σ min U_j>θ`) are still to be checked. If no fake exists at θ=1/2,
+the LP dual is a Type-I sieve at BV level, i.e. a candidate unconditional route
+to Goal 1.
