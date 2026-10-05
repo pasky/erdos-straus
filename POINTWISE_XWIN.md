@@ -161,9 +161,22 @@ exponent `1+J/2` of Corollary 1.3 (and the model) predicts; this is
 consistent with Corollary 1.3 being sharp in the exponent for each fixed
 Z (proved only for Z=3, and Z=7 on EH, by Cor 1.4).
 
-## 2. Growing window sets: a proved weak form of H_STACK up to `a≤(log N)^{2/5}`
+## 2. Growing window sets: a prime-side proof of the window tail (independent of notes §14)
 
-(In progress; written lemma by lemma.) Plan: replace the half-set
+**Priority.** notes §14 (Thm 14.4, θ<2/5; Thm 14.9, every
+`θ<θ_*=log3/(1+log3)=0.5235`; DISCOVERIES (A)5, review status not
+stated) already bounds this window statistic: its sufficiency step uses
+exactly a signed witness `−1∈Rat_w((m+w)/4)` at a window `w≤W=(log N)^θ`,
+so its proof gives `T(N,(log N)^θ)≤N exp(−c(log N)^θ log log N)` for
+`θ<θ_*` (integer-side Λ² weights, Paley–Zygmund local factors, exclusion
+corrections). Lemma 2.1 below is essentially notes Lemma 12.5 (same pair
+calculation). What this section adds is an **independent second proof**
+of that window tail by a different architecture (a prime-side large sieve
+with a pattern sum over the small prime factors; primality used through
+the sieve), with explicit per-window exponents. It is a cross-check of
+the window form of notes Thm 14.4/14.9, not a new frontier.
+
+Plan: replace the half-set
 majorant (whose union cost `2^{φ(a)/4}` limits it to `a≲log log N`) by a
 **second-moment bound on random signed products in G**, uniform in a,
 and feed it into a pattern-summed large sieve over the prime factors of
@@ -177,7 +190,7 @@ Let G be a finite abelian group of order n, `τ∈G` with `τ≠1`, `τ²=1`, an
 `Σ±(c)={∏c_i^{ε_i}: ε∈{−1,0,1}^k}` (each entry used at most once), and
 call c *bad* if `τ∉Σ±(c)`. Let `ρ_k=#{bad c}/n^k`.
 
-**Lemma 2.1 (PROVED).** For all `k≥0`,
+**Lemma 2.1 (PROVED; = notes Lemma 12.5 up to presentation).** For all `k≥0`,
 `ρ_k ≤ 3n·3^{−k} + (9/4)·t(G)·(5/9)^k`.
 Consequently, if K is Poisson with mean μ,
 `E ρ_K ≤ 3n·e^{−2μ/3} + (9/4)·t(G)·e^{−4μ/9}`.
@@ -206,9 +219,9 @@ Chebyshev `ρ_k=P(N=0) ≤ Var N/μ_N² ≤ 2n/(3^k−1) + t5^k/(3^k−1)²`. Us
 `3^k−1≥(2/3)3^k`. The Poisson statement follows from `E x^K=e^{−μ(1−x)}`
 with `x=1/3, 5/9`. ∎
 
-*Remark.* `ρ_k≥2^{−k}·(#index-2 subgroups avoiding τ)` (all entries in
-such a subgroup), so the base `5/9` cannot be improved below `1/2` by any
-argument; the second moment loses only `log(10/9)` per prime factor.
+*Remark.* If some index-2 subgroup avoids τ (e.g. the squares, a prime),
+then `ρ_k≥2^{−k}` (all entries in it), so the base `5/9` cannot be
+improved below `1/2` by any argument; the second moment loses only `log(10/9)` per prime factor.
 For `G=(Z/a)^×` (a odd) `t(G)=2^{ω(a)}`, `τ=−1`, `n=φ(a)`.
 
 ### 2.2 The pattern-summed sieve
