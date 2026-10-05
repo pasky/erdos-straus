@@ -1,6 +1,6 @@
 # The junta bottleneck: a level barrier at `𝓛·S` (task O49)
 
-Status: IN PROGRESS. Labels as in DISCOVERIES.md. Notation as in POINTWISE_OMEGA13.md (O13),
+Status: CHECKPOINT 3 (R49/R49b repairs applied). Labels as in DISCOVERIES.md. Notation as in POINTWISE_OMEGA13.md (O13),
 O11, O12: `𝓛=log T`; coordinates `X_ℓ∈ℤ_ℓ^×` (Haar); atoms `(M,D)`, `M≡3 (4)`, `M≤T`,
 `A=(M+1)/4`, `D|A²`, event `E_{M,D}={n≡−4D (mod M)}`; F = indicator that no event holds.
 
@@ -13,7 +13,8 @@ of cell modulus `≪S·polylog`, or a proof that `𝓛·S` is forced.
 Answer: **it is forced (up to logs) for every *dense* minorant of bounded level — any B
 with `B≤F` keeping a share `≥exp(−𝓛^{3.9})` of the avoider mass — not only for BRW**, on every fibre with
 `log(1/δ_fibre)≤c″𝓛^4/(log𝓛)²` (e.g. O13's fibre, by O13 I1(a))
-(Thm 2.4, Cor 2.5, Cor 3.1). Sparse minorants with small `A=E|B|/E B` remain open (Prop 2.7).
+(Thm 2.4, Cor 2.5, Cor 3.1). Sparse minorants with small `A=E|B|/E B` are left open by §2 (Prop 2.7) and excluded by §4
+(Thm 4.5: no level-`≪𝓛^4/log𝓛` minorant has `E B>0`, mod (G) and effective Page).
 §1 proves an abstract *planting* barrier: if every event has one "big" coordinate of cost
 `≥L`, and B is any combination of functions that each see at most k big coordinates, then
 `B≤F` forces `E B ≤ E[F·1{R<(k+1)(1+o(1))}]`, where R is the conditional odds-mass of the
@@ -300,28 +301,32 @@ modulus `>T^{0.6}`. Lower-bound sieves of dimension κ need level `z^{≍κ}` (s
 `β_κ≍κ`); here `z^{κ}=e^{≍𝓛μ}`. Lemma 1.1 is the elementary proof of `β_κ≳κ` that this
 needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink κ.
 
-## 5. Status (checkpoints 1–2)
+## 5. Status (checkpoints 1–3; R49/R49b repairs applied by O55)
 
 | item | statement | label |
 |---|---|---|
 | Lemma 1.1 | planting: odds-sum `R≥(k+1)+(2k+1)r*` ⇒ k-wise-equivalent law with no all-zero | PROVED (exact check, 100 instances, k≤3) |
-| Thm 1.3 | abstract level barrier `E B≤E[F·1{R<…}]` for `B∈𝒱_k`, `B≤F` | PROVED |
+| Thm 1.3 | abstract level barrier `E B≤E[F·1{R<…}]` for `B∈𝒱_k`, `B≤F` | PROVED (R49: SOUND; m1 remark added) |
 | Lemma 2.1 | big family: one big prime `>T^{0.6}`, `p*≤T^{−0.09}` | PROVED |
 | Lemma 2.2 | big-family mass `≫𝓛³/log y` | PROVED mod BV + fundamental lemma (theorems) |
 | Lemma 2.3 | m-copy Janson: `E∏(1−p_ℓ)^m≤exp(−mμ+Cm²𝓛²)` | PROVED (via HAAR Thm 1.4, Lemmas 2.3–2.4) |
 | Thm 2.4 | level `log D≤0.6𝓛(μ/3−1)` ⇒ `E B≤exp(−mμ/4)` | PROVED (same inputs) |
-| Cor 2.5 | on O13 Thm 5.1's fibre: level `≫𝓛^4/log𝓛` is necessary; Thm 5.1 optimal up to logs among level-D minorant transfers | PROVED implication (+NT for δ) |
-| Thm 2.6 | any Q with `log Q≤𝓛^5`: same barrier | PROVED |
+| Cor 2.5 | on O13 Thm 5.1's fibre: level `≫𝓛^4/log𝓛` is necessary for dense minorants; Thm 5.1 optimal up to logs among dense level-D minorant transfers | PROVED implication (+NT for δ) |
+| Thm 2.6 | any Q with `log Q≤𝓛^5`: same absolute barrier (blocks dense minorants only where `log(1/δ_fibre)≤c″𝓛^4/(log𝓛)²`) | PROVED |
 | Prop 2.7 | a level-D minorant's mean lives on a set of measure `≤e^{−3mμ/8}` | PROVED |
 | "1/4 ceiling" (§2 version) | dense minorants only | superseded by Cor 4.6 |
 | Cor 3.1 | EL_mod(τ) false for `τ≤c𝓛^4/log𝓛`: no better C-1 weights | PROVED |
 | Lemma 4.1 | deterministic planting: `R(x_s)≥…` for all `x_s` ⇒ `E B≤0` | PROVED |
 | Lemmas 4.2–4.4 | uniqueness family; class-uniform primes mod 4n; class-uniform D's mod v | PROVED (4.3 mod (G) + effective Page) |
 | Thm 4.5 | every fibre with `log Q≤T^{0.05}`: no minorant `B≤F` of level `log D≤c𝓛^4/log𝓛` has `E B>0` | PROVED mod (G), Page, fundamental lemma |
-| Cor 4.6 | 1/4 is the ceiling (up to `(loglog)^{1/2}`) of certified bounds via minorant transfers needing `log x≫log Z` (O8/O9/O13); closes Prop 2.7's loophole there | PROVED implication |
+| Cor 4.6 | 1/4 is the ceiling (up to `(loglog)^{1/2}`) of certified bounds via minorant transfers needing `log x≫log Z` (O8/O9/O13; every fibre for O9-type); closes Prop 2.7's loophole there | PROVED implication (scope: positivity from `E_Haar B>0`, transfer needs `log x≫log Z`) |
 
 Not claimed: anything about ES; anything about arguments that do not pass through a
-bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs).
+bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs);
+transfers whose positivity comes from a Siegel-zero (exceptional-character) term rather than `E_Haar B>0`.
+
+Reviews: R49 (`reviews/pointwise-omega14-review.md`, §§1–3) and R49b
+(`reviews/pointwise-omega14-review-2.md`, §4): no FATAL/MAJOR; minors m1–m5, D1–D5 applied (O55).
 
 ## 4. Closing the sparse loophole: no positive minorant at all below level `𝓛^4/log𝓛` (O49b)
 
