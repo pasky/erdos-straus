@@ -99,10 +99,12 @@ finite; `ν≪P` with `dν/dP≤2` (O14 m1(b)).
 ## 2. Linear transfers of any accuracy: GRH, characters, additive characters
 
 **Definition 2.1 (linear prime information).** Let 𝒽 be a family of reduced products on H
-and `𝔈≥0`. Put `N_x:=#{p≤x: p∈H}`. A nonnegative measure m on H of mass `N_x` is
+whose moduli form a finite set 𝒬, and `𝔈≥0`. Put `N_x:=#{p≤x: p∈H, p∤q ∀q∈𝒬}` and let
+`m_x` below count only these primes (the finitely many `p|q` are specific numbers; inspecting
+them individually is a search, not a transfer). A nonnegative measure m on H of mass `N_x` is
 *𝒽-consistent at accuracy 𝔈* if `|∫h dm − N_xE_Hh|≤𝔈` for every `h∈𝒽`. A *linear certificate
 at accuracy 𝔈* proves "some prime `p≤x` in H has `F(p)=1`" from the facts (i) the prime counting
-measure `m_x:=Σ_{p≤x,p∈H}δ_p` is nonnegative of mass `N_x`, (ii) it is 𝒽-consistent at accuracy
+measure `m_x:=Σ_{p≤x,p∈H,p∤𝒬}δ_p` is nonnegative of mass `N_x`, (ii) it is 𝒽-consistent at accuracy
 𝔈. It is *valid* iff every 𝒽-consistent m has `∫F dm>0`. (Every minorant transfer is one:
 from `B=Σc_ih_i≤F`, `h_i∈𝒽`, it concludes `Σ_pF(p)≥Σ_pB(p)≥N_xE_HB−𝔈Σ|c_i|>0`.)
 
@@ -119,12 +121,12 @@ So the only question is how small an accuracy 𝔈 can be *true* for the primes.
 that are closed under translation, it cannot be small:
 
 **Lemma 2.3 (forced accuracy; PROVED, elementary).** Let `q>x` with `gcd(q,Q)=1`, and
-`N':=#{p≤x: p∈H, p∤q}≥N_x−ω(q)`; assume `N'≥1` and `N_x≤φ(q)/2`.
+`N':=#{p counted by m_x: p∤q}` (`=N_x` if `q∈𝒬`); assume `N'≥1` and `N_x≤φ(q)/2`.
 (a) If 𝒽 contains `1_{a mod q}` for every unit a, every bound 𝔈 valid for `m_x` on 𝒽 has
 `𝔈≥1/2`.
 (b) If 𝒽 contains all nontrivial Dirichlet characters mod q, then
 `𝔈²≥N'(φ(q)−N')/(φ(q)−1)`; if it contains all `e(an/q)`, `a≢0 (q)`, then
-`𝔈²≥N_x(1−N_x/φ(q))`. Both are `≥N_x/3` when `N_x≥3ω(q)`.
+`𝔈²≥N_x(1−N_x/φ(q))`. Both are `≥N_x/3` when `N'≥2N_x/3` (e.g. `q∈𝒬`).
 
 *Proof.* The primes counted by N' are distinct units mod q. (a) A unit class containing one of
 them has `∫1_a dm_x≥1`, while `N_xE_H1_a=N_x/φ(q)≤1/2` (H is a class mod Q, coprime to q).
@@ -157,8 +159,8 @@ oblivious linear transfer, whatever is assumed about the primes (GRH included).*
 *Proof.* Let `log x<c'𝓛^4/log𝓛` (else nothing to prove). Split `B=B_sh+B_deep` (h_i with
 `≤k` resp. `≥k+1` big primes). By Lemma 1.1, `E_HB=E_νB−E_ρB_deep≤η·Σ_{deep}|c_i|`; the
 certificate needs `N_xE_HB>Σ_{deep}|c_i|𝔈_i` with `𝔈_i≥1/2` (classes) or `≥√(N_x/3)`
-(characters) by Lemma 2.3 (applicable: deep moduli are `>x²`, coprime to Q, and
-`ω(q)≤𝓛^4`, `N_x≥3ω(q)` for the x in question). So `N_xη>1/2` resp. `√N_x η>1/√3`. If there is no
+(characters) by Lemma 2.3 (applicable: deep moduli are in 𝒬, `>x²` and coprime to Q, so
+`N'=N_x`; assume `N_x≥1`, else nothing is certified). So `N_xη>1/2` resp. `√N_x η>1/√3`. If there is no
 deep term, `E_HB=E_νB≤0` (O14 Thm 4.5's argument). ∎
 
 **Proposition 2.5 (averaged accuracy does not help; PROVED, same inputs).** Group the deep
