@@ -260,3 +260,43 @@ Theorem 3.2 only forces σ_N ≲ (log N)^{−1/2}, far above that threshold.
 So the hybrid program is not refuted; the correct target is **weak SPW**
 with slowly decaying σ_N, and the original fixed-σ SPW (in particular the
 conjectured value 2/5) is false.
+
+**Corollary 3.3 (Flat's margin also decays; PROVED).** If Flat(C, t, s₀, Δ)
+(IF2 §5) holds at N, then s₀ ≤ 6√(πm₀/(M+1))(1 + o(1)) with M, e, m₀ as in
+Theorem 3.2, for any t, Δ. *Proof.* Project F to F_e on ℤ/e. Since
+F ≤ 1_{[1,N]} and F ≤ 0 off [1,N], F_e ≤ 1 on W and ≤ 0 off W; (F3)/(F4) at
+modulus e give F_e ≥ M/e + s₀ on W and ≥ M/e − 1 off W. So
+ρ := 1_W − F_e + M/e has the window profile mod d | e, d ≤ D, and
+0 ≤ ρ ≤ 1 − s₀ on W, 0 ≤ ρ ≤ 1 off W. In the proof of Theorem 3.2,
+K∗ρ(x_in) ≤ (1 − s₀)φ(x_in) + (1 − φ(x_in)), so T(x_in) ≤ −s₀ + 2ε with
+ε = e/(2(M+1)r); the rest is unchanged (|T| ≤ 1 still). ∎
+Thm 5.2 needs only s₀ ≥ N^{−A₁}, so this does not hurt it; it does show
+that the decrease of the Flat margins in IF2 §5 (0.40 → 0.17 for
+N = 20 → 100) is not only truncation: s₀ must tend to 0.
+
+## 4. Status of the task and what is open
+
+* SPW(2, 2/5 − ε, O(1)) for all large N — the target of O40 — is **false**
+  (Thm 3.2; already σ ≤ 72/185 < 2/5 at N = 300). So is SPW(C, σ, Δ₀) for
+  every fixed C and σ > 0, at all large N.
+* The hybrid cap of IF2 Thm 5.2 via Prop 9.1 survives: it needs only
+  **weak SPW**, i.e. SPW(C, σ_N, Δ_N) with σ_N ≥ c₀e^{−S_A},
+  Δ_N ≤ e^{S_A} (Lemma 1.4), and Theorem 3.2 gives only σ_N ≲ (log N)^{−1/2}.
+  Weak SPW is **open** (no construction for large N; LPs only at N ≤ 60,
+  and §2 shows small-N LP evidence can be misleading).
+* Useful reductions for weak SPW: periodic form (Lemma 1.1), two-edge split
+  (Lemma 1.3: one half-line problem HL suffices), only full classes need
+  mass < 1 (Lemma 1.4), and any construction must be pointwise
+  non-spread (Prop 2.3) yet degrade the edge only at rate ≳ (log N)^{−1/2}.
+
+## Replay
+
+```
+uv run --with scipy python scripts/spw_halfline_lp.py 10 40 -200 220 1        # HL at D=10: h=0.1889 (s)
+uv run --with scipy python scripts/spw_bdw_lp.py 12 14 16 18 20 22 24          # BDW optimum = A*(N) (~1 min)
+uv run --with scipy python scripts/spw_bdw_l2bound.py 150 200 300 400          # BDW fails: A >= 1.55..2.50 (exact; ~1 min)
+uv run --with scipy python scripts/spw_bdw_dualtest.py d 20 32 60 100 200      # MC ratios (EVIDENCE)
+uv run --with scipy python scripts/spw_local_cert.py 300 2 630                 # sigma <= 72/185 (exact)
+uv run --with scipy python scripts/spw_local_cert.py 1150 2 2310               # sigma <= 0.381132 (exact)
+uv run --with scipy python scripts/spw_local_scan.py 2 6000 100 150 200 300 400 600 800 1000   # local scan (~1 h)
+```
