@@ -1,6 +1,7 @@
 # Beyond 1/5: a β-weighted local lemma and the late-prime lightness hypothesis (task O48)
 
-Status: checkpoint 2 (after R48a/R48b repairs; §5 added). Labels as in DISCOVERIES.md. Notation as in
+Status: checkpoint 3 (after R48a/R48b repairs; §5 added; §5 reviewed SOUND-AFTER-REPAIRS by
+R48c/R48d, all their defects applied by O51). Labels as in DISCOVERIES.md. Notation as in
 POINTWISE_OMEGA11.md (O11) and POINTWISE_OMEGA12.md (O12): `𝓛=log T`, atoms `(M,D)`,
 `g=gcd(M,4D+1)`, graded class-of-one quarantine `Q=8∏ℓ^{a_ℓ}` (O11 Setting 2.0),
 fibre coordinates `X_ℓ` (independent, product measure), `supp E={ℓ: v_ℓ(M)>a_ℓ}`,
@@ -483,8 +484,8 @@ the conditional prime exponent to `1/3`.
 | Lemma 3.3 | (A) Haar-weighted masses `≪𝓛³polylog`; (B) `Σ_{ℓ>Y}B_2≤(𝓛+1)Ξ/Y`, `Ξ≪𝓛^{O(1)}` | (A) PROVED mod NT; (B) PROVED |
 | Thm 3.4 | `log(1/δ*(T))≪𝓛³(log𝓛)^5` (HAAR normalisation); Haar exponent a=3 | PROVED mod NT (Nair–Tenenbaum) |
 | Cor 3.5 | (superseded by Thm 5.1) | — |
-| §5 I1–I3 | BRW/EL, twist (`η≤0.19`), junta, coset transfer + (I) | PROVED (I3 mod (G)) |
-| Thm 5.1 | `W(p)≥exp(c(log p)^{1/4}(loglog p)^{−1/4})` i.o.; `log L_h(T)≪𝓛^4log𝓛` | PROVED mod (G), NT, OMEGA10 Thm 3.4 (no ET) |
+| §5 I1–I3 | BRW/EL, twist (`η≤0.19`, `T≥e^{33}`), junta, coset transfer + (I) | PROVED (I3 mod (G)); R48c/R48d SOUND after repairs (applied) |
+| Thm 5.1 | `W(p)≥exp(c(log p)^{1/4}(loglog p)^{−1/4})` i.o.; `log L_h(T)≪𝓛^4log𝓛` | PROVED mod (G), NT, OMEGA10 Thm 3.4 (no ET); `r'≡1 (ℓ_aux)` repair (R48c m1/R48d D1) applied |
 
 Not claimed: anything about ES itself; optimality of 1/4 (the junta `𝓛·S` is the bottleneck; heuristic truth 1/3).
 
