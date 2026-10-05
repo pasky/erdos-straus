@@ -202,3 +202,34 @@ material's review status is not recorded.
 
 **m13 (intro, "Unconditionally we only know a_min≥7 infinitely often", Remark 9.2).** This
 is a claim about the literature; qualify as "the only unconditional result we know of".
+
+## Author's 17-point checklist (O41) — disposition
+
+1 Thm 2.2(3) p|d₁: OK. 2 Lemma 2.3/2.4: OK. 3 half-set g=h and β(a): OK (brute force a≤63).
+4 Lemma 4.1 Markov/constant 4: OK. 5 Thm 4.2 distinctness, ℓ∤p, Mertens-AP: OK.
+6 Thm 4.4 SW range/errors/bookkeeping: OK. 7 Remark 4.5 Σφ~Z²/π², π²/(64log2): OK
+(numerically confirmed). 8 W1 c₁ independent of ε, s∈[1+ε,2]: OK. 9 W1 Step 4 bounds:
+OK (the inequality is needed and true for ℓ≥7, not ℓ≥5 as in the report; all ℓ≡1 (3)).
+10 W2 e_p, |r_d|≤τ(d)max|E|, (Ω₁), s, T^{(q)}, factor bound, m even: OK. 11 union bound: OK.
+12 P1(1) bookkeeping: OK (m4). 13 Remark 8.3: OK. 14 Lemma 8.1: OK. 15 Dickson (a): OK.
+16 LP numbers/scope vs WINDOW2: OK. 17 numerics: census to 10⁸ and N₃ to 10⁹ re-done from
+scratch and match; larger ranges not re-run.
+
+Sources: FHRSS Thm 1.1, Teräväinen (6.4), FI09 A(θ)/Thm 2, Nath–Xie Thm 1.1, Sedunova
+abstract checked against archived txt. Not checkable here (no archived copy): Iwaniec 1976,
+OdC Thm 11.13 hypotheses, HR Thm 8.4, MV Cor 11.21 / IK Thm 17.1 numbering, Montgomery
+1968, Mihnea–Dumitru 10¹⁸ (statements are the standard ones as far as I know; the note
+already flags them "from memory").
+
+## Recommendation
+
+**Minor revision (accept after repairs).** I found no FATAL defect and no mathematical gap
+in any proof as written in the paper: every PROVED claim was re-derived line by line, and
+every finite claim that I could test (half-set lemma, β(a), window criterion vs direct
+unit-fraction search, Lemma 2.6, Remark 3.2(i), census to 10⁸, W1 counts to 10⁹,
+Σφ constant) was confirmed by from-scratch code. Labels are essentially right; the one
+real problem is **M1**, where the abstract (and one intro sentence) presents a
+one-window parity example plus a model computation as if they were an unconditional
+two-window parity barrier. **M2** (missing Vaughan 1970 / notes Thm 12.2 context and an
+explicit novelty statement) must also be fixed before external circulation. m1–m13 are
+wording/typesetting.
