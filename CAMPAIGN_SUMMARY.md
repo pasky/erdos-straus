@@ -639,7 +639,7 @@ original paper was not obtained.
     `{n_p = 11}` height > 3000 (Cor 6.4, PROVED).
   * CONDITIONAL: under Schinzel H, `ck_min > g·n_p` i.o. for every `g`;
     under GRH, `ck_min > (1/(2log 2)−ε) log p·log log p` i.o. (Montgomery's
-  Ω-result transported; sources cited from memory).
+    Ω-result transported; sources cited from memory).
   * Census to `10^7`: record `ck_min(9033649) = 883` (EVIDENCE).
 * *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
   internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v4
@@ -682,6 +682,44 @@ original paper was not obtained.
   linear-sieve parity at two windows (**Assessment**). Unconditional
   `K = 11` is the window analogue of the open unconditional case of
   Friedlander–Iwaniec 2009.
+
+**Exact stacking orders** (POINTWISE_XWIN.md, (H)18; **PROVED**,
+review `reviews/pointwise-xwin-review.md`).
+* *Half-set lemma* (Lemma 1.1). For any `a ≡ 3 (mod 4)`, if window `a`
+  fails at `x` then all prime factors of `x` lie in one of `2^{β(a)}`
+  explicit sets of exactly `φ(a)/2` residue classes, with no exceptions.
+* *Fixed-set stacking* (Thm 1.2, Cor 1.3). For any fixed set `A` of
+  windows, `#{p ≤ N : all a ∈ A fail} ≪_A N/(log N)^{1+|A|/2}`. Hence
+  `#{p ≤ N : a_min(p) > Z} ≪_Z π(N)(log N)^{−J(Z)/2}`, the random model's
+  exact exponent.
+* *Exact orders* (Cor 1.4). `#{a_min ≥ 7} ≍ x/(log x)^{3/2}`
+  unconditionally and `#{a_min ≥ 11} ≍ x/(log x)²` on EH. So W1 and W2
+  are sharp. A uniform version holds for `Z` up to about
+  `3.6 log log N` (Thm 1.5, PROVED modulo Siegel–Walfisz).
+* The window tail bound of Thm 2.2 is a second proof of what notes
+  Thms 14.4/14.9 already imply (priority to the notes).
+
+**Two windows need parity** (POINTWISE_WINDOW2.md, (H)20; review
+`reviews/pointwise-window2-review.md`). Unconditional `a_min(p) ≥ 11`
+was **not** reached.
+* Windows 3 and 7 are both clean iff `n, n+1` are primitive norms from
+  `ℚ(√−3)` and `ℚ(√−7)`: a Friedlander–Iwaniec-shaped quadric (Lemma 1.2,
+  PROVED).
+* *Parity is necessary* (Thm P1, PROVED; necessity modulo BV resp. EH).
+  The classes `(p/3) = ±1` have identical sieve data, but the −1 class
+  never has window 3 clean. This is Selberg's parity example realised by
+  primes.
+* *Model obstruction.* In a discrete model of Type-I correlations of
+  level θ plus parity, there is a "fake" with no both-clean mass at
+  θ = 1/2 (Prop 3.7, CERTIFIED in the model); the model's two-window
+  threshold lies in (0.5, 0.7]. So Type-I plus parity at BV level does
+  not give two windows in the model. Relevance to real sieves is weak
+  EVIDENCE only.
+
+**Write-up.** `paper/es-window-note.tex` (22 pp): window criterion,
+half-set lemma, stacking, W1/W2 and exact orders, Prop P1, with the model
+and data as labelled remarks (refereed internally, R41 minor revision
+applied).
 
 ---
 
