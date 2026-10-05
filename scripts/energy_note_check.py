@@ -23,7 +23,7 @@ Sections:
      random offsets i_0 in {0,1} and random digit distributions.
   F  Proposition 6.1 (sharpness family, exact level polynomial),
      Example 6.2 (parity formula; the rates (max_s En)^(1/j) are only printed),
-     Example 6.3 (adding an event increases G; exact sign).
+     Example 6.3 (adding an event increases G; exact sign on [8]^2, 50-digit on [5]^3).
 """
 import itertools
 import random
@@ -534,6 +534,25 @@ def section_F():
     G1 = float(c1[0]) + 2 ** 0.5 * float(c1[1] + c1[2]) + 2 * float(c1[3])
     G2 = float(c2[0]) + 2 ** 0.5 * float(c2[1] + c2[2]) + 2 * float(c2[3])
     print(f"F4: Example 6.3 (exact sign): G before = {G1:.5f}, after adding A = {G2:.5f}")
+    # Example 6.3, second instance: [5]^3, lambda = 2^{1/3}, points with exactly two nonzero
+    # coordinates, A = {x=(0,0,0)}.  G = sum_U alpha^{|U|} c_U with exact rational c_U;
+    # the sign of the difference is evaluated with 50-digit decimal arithmetic.
+    from decimal import Decimal, getcontext
+    getcontext().prec = 50
+    q = 5
+    S = Space([q] * 3, [[Fr(1, q)] * q] * 3)
+    ev = [(7, {0: x[0], 1: x[1], 2: x[2]}) for x in S.points if sum(1 for a in x if a) == 2]
+    check(len(ev) == 48, "Example 6.3 [5]^3 event count")
+    c1 = components_from_L(S.L_norms(avoidance(S, ev)), 3)
+    c2 = components_from_L(S.L_norms(avoidance(S, ev + [(7, {0: 0, 1: 0, 2: 0})])), 3)
+    alpha = Decimal(2) ** (Decimal(1) / Decimal(3))
+
+    def Gd(c):
+        return sum(alpha ** bin(U).count("1") * (Decimal(v.numerator) / Decimal(v.denominator)) for U, v in c.items())
+
+    g1, g2 = Gd(c1), Gd(c2)
+    check(g2 - g1 > Decimal(10) ** -30, "Example 6.3 [5]^3: G increases")
+    print(f"F5: Example 6.3 on [5]^3 (50-digit): G before = {float(g1):.5f}, after adding A = {float(g2):.5f}")
 
 
 def main():
