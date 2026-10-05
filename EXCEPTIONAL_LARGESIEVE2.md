@@ -746,3 +746,40 @@ claim since `h ≤ Nh`. ∎
 So for kernels the level is never the obstruction (in contrast to the
 large sieve, §8): moduli `≥ N` are handled by anti-concentration of π
 alone. What is left is the factor `1 + Nh/(W_K−h)`.
+
+**Proposition 9.2 (rough kernels: the factor is harmless; PROVED,
+unconditional as Thm 4.3).** Let `T ≥ W₀` and suppose every kernel
+modulus q is coprime to all primes `≤ T` and has `ω(q) ≤ T^{1/4}`. Then
+every CRT-admissible kernel bound saves at most
+
+    log(1 + ε_T + ε_T·Nh/(W_K − h)),     ε_T = C(log T)^c T^{−1/4}.
+
+*Proof.* Let σ be the plain sequential law of Thm 4.3 with `W := T`, and
+`π = σ(·|𝒜)`. For a T-rough q, EK Lemma 2.1(2) gives the pointwise
+density bound `dσ_q/dU_q ≤ Π_{ℓ|q}(1−ℓ^{−1/2})^{−1} ≤ e^{2ω(q)T^{−1/2}}`
+for the law of n mod q (the base coordinates are not involved), so
+`1 + χ²_q(σ) ≤ e^{2T^{−1/4}}`. With `𝔏 ≤ C(log T)^cT^{−1/4}` (K2 Lemma 4.3,
+W-uniform) and the conditioning step of Thm 4.3,
+`χ²_q(π) ≤ e^{2T^{−1/4}}(1+4𝔏) − 1 ≤ ε_T`. Hence
+`X(π) ≤ ε_T D_u ≤ ε_T(h + (W_K−h)/N)` (LS Lemma 6.1), and LS Thm 6.2's
+bound `log(1 + NX/(W_K−h))` gives the claim. ∎
+
+So a composite kernel can exploit `W_K − h ≪ Nh` only if
+`Nh/(W_K − h) ≳ T^{1/4−o(1)}` where T is the least prime dividing some
+kernel modulus with nonzero weight: **the factor problem lives at small
+primes**. There the avoider set is genuinely non-uniform (selector classes
+`0 mod p`; ℛ(3) forbids `n ≡ 2 mod 3`), so no π on 𝒜 has `χ²_q(π)` small
+for such q, and the subtraction of h must absorb that non-uniformity.
+
+*Status (Assessment).* We could not prove that it always does, and we
+found no family and kernel where it fails. Two observations:
+* single small moduli are absorbed exactly: adding `w·1[q | m]` with
+  `q < N` raises h by at least w, while it raises `D(π)` by at most
+  `w·coll_q(π) ≤ w`, so the bound does not improve;
+* the band family of §8 (large-sieve escape) has no small-modulus
+  structure, and Theorem 9.1 caps every kernel on it with `h = 0` at
+  saving `≤ log 2` (when all `D_i > N`, `S = 0`). Kernels thus resist the
+  dense-bundle escape that defeats the large sieve.
+
+Open precisely: kernels with `Nh/(W_K − h) ≥ exp((log N)^{3/4})` whose
+moduli have prime factors `≤ (Nh/(W_K − h))^{4+o(1)}`.
