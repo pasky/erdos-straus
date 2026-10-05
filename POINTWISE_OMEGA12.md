@@ -208,6 +208,57 @@ Thus the "1/5 natural limit of the present ES-modulus route" (O11 §4,
 Assessment) is reached, up to `(log log p)^{2/5}`. Unconditionally (without
 ET) nothing changes: O9 Thm 2.3 stands.
 
+## 6A. Removing the `log log T` in s: exponent `1/5` up to `(log log p)^{1/5}`
+
+The factor `C log log T` in `s` (O11 Lemma 2.1) only bounds
+`∏_{ℓ|M, a_ℓ=0}ℓ/(ℓ−1)`, the unramified coordinates. Quarantining every prime
+`ℓ≤𝓛` to its first digit costs only `≈𝓛` and removes it.
+
+**Lemma 6.2 (PROVED; a variant of O11 Lemmas 2.1–2.2).** Run O11 Lemma 2.2
+from the start `a_ℓ=1` for all odd primes `ℓ≤𝓛` and for `ℓ∈{3,5,7}` (all other
+`a_ℓ=0`). Let `T≥e²` and `C_1:=e³`. Then for every Q reached and every surviving atom,
+
+```
+P(E_{M,D}) ≤ s_1(M,D) := C_1·g/M ,
+```
+
+and O11 Lemma 2.2's conclusions hold with `s` replaced by `s_1` and
+`log 840` replaced by `log(8·105·∏_{ℓ≤𝓛}ℓ) ≤ 1.02𝓛+7` (Rosser–Schoenfeld
+`θ(x)<1.01624x`). In particular `log Q ≤ 1.02𝓛+7+(𝓛/c)·C_1·Ω_0`.
+
+*Proof.* O11 Lemma 2.1's proof gives
+`P(E) ≤ (gcd(M,Q)/M)·∏_{ℓ∈supp E, a_ℓ=0} ℓ/(ℓ−1)` (fibre probability
+`ℓ^{−(v−a_ℓ)}` if `a_ℓ≥1`, `1/φ(ℓ^v)` if `a_ℓ=0`). The exponents only grow,
+so `a_ℓ=0` forces `ℓ>𝓛`, and then `1/(ℓ−1)≤1/(𝓛−1)`. With
+`ω(M)≤log M/log2≤1.45𝓛`, the product is
+`≤exp(1.45𝓛/(𝓛−1))≤e³` for `𝓛≥2`. Survival gives `gcd(M,Q)|g`. O11 Lemma
+2.2's proof uses Lemma 2.1 only through `w_ℓ(Q_i)≤Σ_{v_ℓ(M)≥a+1}s(M,D)`, so it
+runs verbatim with `s_1`, plus the cost of the starting point. (I) of O11 Lemma 2.1
+holds for every Q. ∎
+
+**Theorem 6.3 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), and
+OMEGA10 Thm 3.4).** With Lemma 6.2's start, `S_1:=Σ s_1=C_1S_0≪𝓛^4` and
+`Ω_1:=Σ s_1h=C_1Ω_0≪𝓛^4log𝓛` (Lemma 2.2, Theorem 5.1). Hence
+`log Q≪𝓛^5log𝓛`, the junta term `O(𝓛(S+𝓛))≪𝓛^5` (O11 Cor 1.2, `S≤S_1`), and
+for infinitely many Mordell-hard primes p
+
+```
+W(p) ≥ exp( c·(log p)^{1/5}·(log log p)^{−1/5} ),     uniformly  log L_h(T) ≪ 𝓛^5 log𝓛.
+```
+
+Also `log(1/δ*(T))≤log φ(Q)+4S_1≪𝓛^5log𝓛` (O11 Cor 3.3 with `c=1/8`).
+
+*Proof.* As Theorem 6.1, with Lemma 6.2 in place of O11 Lemma 2.2. The
+other uses of the quarantine in O11 Thm 3.2's proof are unaffected: the
+Haar side and BRW minorant need only `P(E)≤s_1` and the local-lemma sums
+`≤2c`. Cell consistency holds for any graded Q. The twist prime `ℓ_0`
+has `a_{ℓ_0}=0`, hence `ℓ_0>𝓛`; O8 Lemma 3.3 needs only `w_{ℓ_0}≤c`. ∎
+
+*What is left of the log (Assessment).* The remaining `log𝓛` is the s-weighted
+mean of the charge `h(M)≥ω(M)`. Its true size is `≍log𝓛` (EVIDENCE, O11 §4,
+§7 here), so Theorem 6.3 is the limit of O11 Lemma 2.2's per-event charging.
+Removing it would need a different threshold rule, not a better bound on Ω.
+
 ## 7. Checks (EVIDENCE; exact identities asserted)
 
 `scripts/omega12_blocks.py T` enumerates all atoms with `D≤A_M` and asserts
