@@ -84,3 +84,37 @@ except where §6 changes their inputs.
 * **Lemma 6.2 does not exist** in the document (§6.1 item 2 cites it; there
   is no §6.2/§6.3 heading either). This matters for the "ESW ⇒ 1/11"
   claim: see M1.
+
+### Working notes, Prop 6.6 and input (D)
+
+* Atoms (O2 §4/§11): `M≤T`, `M≡3 (4)`, `D|A_M²`, survives Π iff `m_Π|4D+1`
+  and `r_Π>1`; weight `1/φ(r_Π)`. For `M=ℓ∉Π` prime: `m_Π=1`, `r=ℓ`,
+  survives every Π not containing ℓ; weight `1/(ℓ−1)`. Correct.
+* Distinct classes: D≤A_ℓ ⇒ `4D∈[4,ℓ+1]`, so `−4D mod ℓ` are distinct and
+  nonzero; their number is exactly `(τ(A_ℓ²)+1)/2` (A_ℓ² a square).
+  Verified for the first 400 ℓ≡3 (4) (`scripts/review_o8c_divsum.py`).
+* Quarantine loss: each removed ℓ>√T costs `≤τ(A_ℓ²)/(ℓ−1) ≤ T^{−1/2+o(1)}`;
+  `T^{1/3}` of them cost `o(1)`. `|𝓑|≤64k²S*≤T^{o(1)}` unconditionally
+  (O2 Lemma 11.1). Correct.
+* (D) is true and standard. Re-derived: `τ(n²)=Σ_{d|n}2^{ω(d)}` (check at
+  `p^a`: `2a+1=1+2a`); `d|(p+1)/4 ⟺ p≡−1 (4d)`; keep `d≤x^{1/3}`; main term
+  `li(x)Σ_{d≤x^{1/3}}2^{ω(d)}/φ(4d) ≍ π(x)(log x)²`; error
+  `Σ2^{ω(d)}|E(x;4d,−1)| ≤ (Σ4^{ω(d)}·x/d)^{1/2}(Σ|E|)^{1/2} ≪ x(log x)^{2−A/2}`
+  by Brun–Titchmarsh + BV. Same pattern as Elsholtz–Tao §5 (their (5.7)–(5.8),
+  checked in sources/elsholtz-tao-1107.1010.pdf: BV + Cauchy–Schwarz on a
+  divisor-weighted sum of D(N;q)). Not literally stated there; a 6-line proof
+  should be written out (m6).
+* Partial summation: (D) as a *cumulative* lower bound does not by itself
+  give the dyadic lower bounds needed for `Σ_{ℓ∈(√T,T]}τ/ℓ ≫ 𝓛²` (it only
+  gives `≫𝓛` via `(A(T)−A(√T))/T`). The BV argument gives (D) on each
+  `(x/2,x]` equally, so this is a wording fix (m6).
+* Numerics (`data/review_o8c/divsum.txt`, T up to 10⁸, exact): the m=1 single
+  mass `S1(T)=Σ_{ℓ∈(√T,T]}(τ(A_ℓ²)+1)/(2(ℓ−1))` has `S1/𝓛²` =
+  0.051, 0.050, 0.048, 0.047, 0.047 at T=10³,10⁴,10⁶,10⁷,10⁸; the (D)-ratio
+  `Σ_{p≤T,3(4)}τ/(π(T)𝓛²)` ≈ 0.19→0.217 and its dyadic version ≈ 0.235,
+  both stable. Consistent with `S1≍𝓛²` (heuristic constant ≈0.04).
+* Strengthening worth stating: singles at distinct free primes are
+  independent, so `δ = E F ≤ ∏_ℓ(1−g_ℓ) ≤ exp(−S1)`; hence
+  `log(1/δ*) ≫ 𝓛²` and, since `μ≤δ`, `K ≥ log(1/μ) ≫ 𝓛²` *rigorously*
+  (mod D). This is what §6.5/§6.6 actually use; the Prop as stated (about
+  `S_tot`, an atom count with multiplicity) is weaker than what is proved.
