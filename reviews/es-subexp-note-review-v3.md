@@ -109,3 +109,18 @@ Status: IN PROGRESS.
 * From scratch (`scripts/review_r47_filtration.py`): 400 random digit systems (≤3 coordinates,
   ≤6 digits, random i_0∈{0,1,2}, arbitrary digit laws, ≤5 prefix events, weights scaled to
   max Πλ^{2v}=2): the weighted energy of Thm 6.9 never exceeds 1 (max 0.99896). PASS.
+
+### Pass 6: §7 up to Lemma 7.5 (digits, cells, Lemma 7.1 Haar means, LLL, sandwich, u_j)
+* Digits of Ω_ℓ: the map x↦(δ_{ℓ,i})_{i≥a_ℓ} is a bijection onto the product of ranges
+  ({1..ℓ−1} for i=0 when a_ℓ=0) ✓; E_{M,D} is a digit-prefix event with v_ℓ=v_ℓ(M) ✓.
+* Lemma 7.1: CRT factorisation of H, v_ℓ(N_0)=max(a_ℓ,v_ℓ(D))≤f_ℓ, uniform fibres of
+  Ω_ℓ→H_ℓ ✓; ψ has conductor prime to Q, so its primes have a_ℓ=0 ✓.
+* Lemma 7.2/Cor 7.3 (LLL): x_E=2P(E)≤2w_ℓ≤1/32, Σ_{A∼E_i}x_A≤2Σ_{supp}w_ℓ≤1/32 (repeated
+  events counted individually, consistent with w_ℓ) ✓; 1−x≥e^{−1.1x} on [0,1/32] ✓;
+  conditional bound via independence of B from ∩_{A∉Γ(B)}Ā and the chain rule ✓;
+  e^{1.1/32}=1.035≤1.04 ✓.
+* F^{(j)}: restrictions are prefix events for the filtration from i_0^{(j)}=max(a_ℓ,v_ℓ(E_j))
+  with the same v_ℓ and Πℓ^{v_ℓ}≤T ✓ (empty restriction ⇒ F^{(j)}≡0, still covered).
+* Lemma 7.4 (sandwich): identity 1−F=ΣA_iF_{<i}, both cases, F−B=ΣA_i(Σ_{j<i}A_je_j)², CS
+  with factor m, independence of A_j and F^{(j)}−u_j ✓. Validity on ℤ for any real u_j ✓.
+* Lemma 7.5: 𝒟_j down-closed, (6.1)+Cor 6.10 per j ⇒ E[F−B]≤m²S·2^{−τ/(2𝓛)} ✓.
