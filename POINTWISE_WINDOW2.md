@@ -104,3 +104,26 @@ do **not** give an obstruction there. The ε-stability and multi-block fakes
 (m blocks, `Σ min U_j>θ`) are still to be checked. If no fake exists at θ=1/2,
 the LP dual is a Type-I sieve at BV level, i.e. a candidate unconditional route
 to Goal 1.
+
+### 3.4 Composed (tree) block fakes: no gain (EVIDENCE)
+Two-block fakes compose. The pieces U and V that one step adds can be split again,
+and each further split removes one more unit of target mass. So a true
+configuration C carries a *capacity* `cap(C)=max(0, max_{valid U⊔V} 1+cap(U)+cap(V))`,
+and a fake exists if `Σ_C μ(C)cap(C)≥τ`. (Correlations still vanish, because
+the construction is a sum of Lemma 3.2 fakes; positivity is unaffected, because
+the intermediate pieces are added before they are removed.)
+
+The product construction `ν=α⊗μ_7+μ_3⊗β−α⊗β` uses one-window fakes α, β at
+levels a, b<1/2 with a+b≥1/2. It is algebraically valid (the visible region
+`s_3+s_7≤1/2` is covered by `{s_3≤a}∪{s_7≤b}`, and ν(∅,∅)=0). Expanded, it is
+exactly the two-block fake with `U=(P,∅)`, `V=(∅,Q)`. So it is not a new family.
+
+`scripts/window2_treefake.py 2e6 0.02 3 0.5 0.55 0.6` (exact recursion over all
+splits; no configuration exceeded 14 points). Results: tree capacity/τ = 0.451
+(θ=0.5), 0.239 (0.55), 0.144 (0.6), identical to the two-block ratio. Every
+splittable configuration in the sample has cap=1. The extra mass from deeper
+trees is zero within sampling, because cap ≥ 2 needs two near-half pairs plus
+small points in a single configuration.
+
+**Assessment.** Block-type fakes do not reach the target at θ=1/2. The remaining
+question is the full LP (§3.5).
