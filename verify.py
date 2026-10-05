@@ -17863,4 +17863,147 @@ print("\n== (cr) EXCEPTIONAL_LARGESIEVE2 §§1-7: Lemma 1.1 LP dual, Lemma 2.2, 
 check_cr()
 
 
+# ---------------------------------------------------------------- (cs)
+# POINTWISE_OMEGA8.md §§1-5.  Imports scripts/omega8_brw_check.py (trial(), es_trunc()).
+# (1) Lemma 3.1 (BRW minorant): on random single-value event systems on (Z/q)^n with
+#     u_j = Efron-Stein truncations of F^(j): B <= F pointwise, the identity
+#     F - B = sum_i A_i (sum_{j<i} A_j e_j)^2 and E[F-B] <= m^2 sum_j P(E_j) energy(F^(j); t)
+#     (n = 6, q = 5, 40 trials, seed 1 = the data/omega8/brw_check.txt run; plus n = 4, q = 3); B <= F with
+#     the identity for ARBITRARY real u_j (the lemma's hypothesis), plus
+#     E[A_j e_j^2] = P(E_j) energy(F^(j); t) for the truncation choice.
+# (2) Lemma 3.2 cell coefficient formula: level-t ES truncation of phi on N coordinates =
+#     sum_{|W| <= t} c_W E[phi | X_W], c_W = sum_{i=0}^{t-|W|} (-1)^i binom(N-|W|, i), |c_W| <= (N+1)^t.
+# (3) Exponent bookkeeping (cf. scripts/review_o8b_exponents.py, review_o8a_bookkeeping.py;
+#     Assessment-level arithmetic of Thm 3.4 + Cor 4.2 with constants 1): in the ET regime
+#     S* = L^4 log L, log(log p)/log L decreases in L towards 14 (Thm 4.3) with
+#     log t/log L -> 6, log K/log L -> 7; Thm 4.4: log2 p/(L/log L) -> 2 log 2.
+
+def check_cs():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import numpy as np
+    from math import comb
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "omega8_brw_check.py")
+    spec = importlib.util.spec_from_file_location("omega8_brw_check", path)
+    ob = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ob)
+
+    # (1) Lemma 3.1 via the author's trial()
+    ntr = 0
+    for (nn, qq, trials, seed) in ((6, 5, 40, 1), (4, 3, 30, 7)):
+        ob.n, ob.q = nn, qq
+        rng = np.random.default_rng(seed)
+        for _ in range(trials):
+            m = int(rng.integers(3, 25))
+            t = int(rng.integers(0, nn))
+            viol, ident, err, bd, _ = ob.trial(rng, m, 3, t)
+            assert viol <= 1e-9 and ident <= 1e-9 and err <= bd + 1e-12, ("OMEGA8 Lemma 3.1", nn, qq, m, t, viol, ident)
+            ntr += 1
+    # arbitrary u_j, and the energy identity, self-contained on (Z/3)^4
+    rng = np.random.default_rng(2026)
+    n, q = 4, 3
+    shape = (q,) * n
+    narb = 0
+    for _ in range(40):
+        m = int(rng.integers(2, 12))
+        A = []
+        for _ in range(m):
+            a = np.zeros(shape)
+            idx = [slice(None)] * n
+            for l in rng.choice(n, size=int(rng.integers(1, 4)), replace=False):
+                idx[l] = int(rng.integers(q))
+            a[tuple(idx)] = 1.0
+            A.append(a)
+        Flt = [np.ones(shape)]
+        for a in A:
+            Flt.append(Flt[-1] * (1 - a))
+        F = Flt[-1]
+        u = [rng.normal(0, 1.5, shape) for _ in range(m)]
+        B = np.ones(shape)
+        rhs = np.zeros(shape)
+        for i in range(m):
+            v = sum((A[j] * u[j] for j in range(i)), np.zeros(shape))
+            B -= A[i] * (1 - v) ** 2
+            rhs += A[i] * sum((A[j] * (Flt[j] - u[j]) for j in range(i)), np.zeros(shape)) ** 2
+        assert (B - F).max() <= 1e-9 and np.abs(F - B - rhs).max() <= 1e-9, ("OMEGA8 Lemma 3.1 arbitrary u", m)
+        narb += 1
+    ob.n, ob.q = n, q
+    for _ in range(20):
+        ev = [(int(l), int(rng.integers(q))) for l in rng.choice(n, size=2, replace=False)]
+        a = ob.event_indicator(ev)
+        Fj = rng.random(shape) * (rng.random(shape) < 0.7)
+        idx = [slice(None)] * n
+        for l, c in ev:
+            idx[l] = slice(c, c + 1)
+        phi = np.broadcast_to(Fj[tuple(idx)], shape).copy()
+        others = [ax for ax in range(n) if ax not in [l for l, c in ev]]
+        for t in range(len(others) + 1):
+            uj = ob.es_trunc(phi, t, others)
+            energy = ((phi - uj) ** 2).mean()
+            assert abs((a * (Fj - uj) ** 2).mean() - a.mean() * energy) < 1e-12, ("OMEGA8 energy identity", ev, t)
+
+    # (2) Lemma 3.2 coefficient formula
+    ncoef = 0
+    for (N, qq) in ((4, 3), (5, 2), (3, 5)):
+        shape = (qq,) * N
+        for _ in range(3):
+            phi = rng.random(shape)
+            for t in range(N + 1):
+                u = ob.es_trunc(phi, t, list(range(N)))
+                g = np.zeros(shape)
+                for r in range(t + 1):
+                    cW = sum((-1) ** i * comb(N - r, i) for i in range(t - r + 1))
+                    assert abs(cW) <= (N + 1) ** t
+                    for Wset in combinations(range(N), r):
+                        drop = tuple(ax for ax in range(N) if ax not in Wset)
+                        g += cW * (phi.mean(axis=drop, keepdims=True) if drop else phi)
+                assert np.abs(g - u).max() < 1e-10, ("OMEGA8 Lemma 3.2 c_W formula", N, qq, t)
+                ncoef += 1
+
+    # (3) exponent bookkeeping (R30b chain, all constants 1, C_H = 5)
+    def llp_et(L):
+        z = L * L
+        k = max(1, int(L // log(z)))
+        S = L ** 4 * log(L)
+        logm = (k + 2) * L
+        b = ceil(2 + 2 * L / log(2))
+        k0 = ceil(3 * S / log(2) + (log(400) + 2 * logm + log(S + 1)) / log(2))
+        t = 2 * 5 * k * b * k0
+        K = 1 + 3 * logm + 8 * t * L + 8 * (3 * k + 2 * t) * L + 3 + 2.07 * S + 0.02
+        logQ = (1.26 * z / log(z) + 64 * k * k * S) * L + log(24)
+        logmaxd = (3 * k + 2 * t) * L
+        logZ = logQ + log(2) + max(L, logmaxd) + logmaxd
+        return (log(K) + log(max(logZ, K))) / log(L), log(t) / log(L), log(K) / log(L)
+    vals = [llp_et(10.0 ** e) for e in (3, 6, 12, 20, 30)]
+    assert all(a[0] > b[0] > 14 for a, b in zip(vals, vals[1:])) and vals[-1][0] < 14.25, ("OMEGA8 Thm 4.3 exponent", vals)
+    assert 6 < vals[-1][1] < 6.1 and 7 < vals[-1][2] < 7.15 and vals[-1][2] < vals[-2][2], ("OMEGA8 t, K exponents", vals[-1])
+    def lse(*xs):                                   # log(sum exp(x))
+        mx = max(xs)
+        return mx + log(sum(exp(x - mx) for x in xs))
+    r44 = []
+    for e in (8, 20, 80):                           # same chain in log space, log S* = log 2 L/log L
+        L = 10.0 ** e
+        logS = log(2) * L / log(L)
+        k = max(1, int(L // log(L * L)))
+        logm = (k + 2) * L
+        b = ceil(2 + 2 * L / log(2))
+        logk0 = lse(logS + log(3 / log(2)), log((log(400) + 2 * logm) / log(2) + logS / log(2) + 1))
+        logt = log(10 * k * b) + logk0
+        logK = lse(log(1 + 3 * logm + 3.02), log(24 * L) + logt, logS + log(2.07))
+        loglogZ = lse(log((1.26 * L * L / log(L * L)) * L + log(24)), log(64 * k * k * L) + logS,
+                      log(L + log(2)), log(4 * L) + logt, log(6 * k * L + 1))
+        r44.append((logK + max(loglogZ, logK)) / (L / log(L)))
+    assert all(abs(r - 2 * log(2)) < 1e-3 for r in r44), ("OMEGA8 Thm 4.4 rate", r44)
+    print(f"cs Lemma 3.1: {ntr} BRW trials (B <= F, identity, E[F-B] bound) + {narb} with arbitrary u_j; "
+          f"energy identity; Lemma 3.2 c_W formula on {ncoef} (phi, t) cases")
+    print(f"cs bookkeeping: log(log p)/log L = " + ", ".join(f"{v[0]:.3f}" for v in vals)
+          + f" (L = 1e3..1e30, -> 14); Thm 4.4 log2 p/(L/log L) = " + ", ".join(f"{r:.4f}" for r in r44) + f" -> 2 log 2; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cs) POINTWISE_OMEGA8 §§1-5: BRW sandwich Lemma 3.1, c_W formula Lemma 3.2, exponent bookkeeping ==")
+check_cs()
+
+
 print("\nall checks passed")
