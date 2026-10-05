@@ -270,3 +270,63 @@ door" is not an independent door. It is precisely *Brun's sieve used
 beyond its level of distribution*, for the pure prime family, whose own
 CRT cap is `(log N)^{2/3}` (T1 Thm 3.1 with mass `Σ p_ℓ ℓ^{−α} ≍ α^{−2}`;
 see §6).
+
+## 5. Numerics (EVIDENCE, toy scale)
+
+Scripts: `scripts/tuples2_forced.py` (class −1 forced zeros, exact DP with
+logs rounded down, so a lower bound; pure class −1 floor deficits by
+enumeration), `scripts/tuples2_allforms.py` (the same summed over all
+forms (r,s), 4rs−1 ≤ y; collisions between forms ignored, so an estimate),
+`scripts/tuples2_translates.py` (moments on `[t+1, t+N]`).
+
+**(a) Forced zeros versus η_K already at toy scale.** At the T1 §5(c)
+test parameters (`K` = first even integer ≥ e²μ_y):
+
+| N, y | K | η_K | u₀ | Thm 2.1 bound `e_{u₀}(q)` | `Z^{(1,1)}_{u₀}` | `max_j Z^{(1,1)}_j/η_K` (j ≤ 12) |
+|---|---|---|---|---|---|---|
+| 10⁸, 1000 | 46 | 4.3·10⁻⁵ | 3 | 2.0·10⁻⁵ | 1.6·10⁻⁴ | 9.2·10² (j = 8) |
+| 10⁸, 3000 | 60 | 5.0·10⁻⁶ | 3 | 1.4·10⁻⁵ | 2.1·10⁻³ | 1.8·10⁵ (j = 10) |
+
+(`data/tuples2/forced_*.txt`.) So the class −1 forced zeros alone violate
+the TC precision by factors 10³–10⁵ at these parameters; the multi-form
+tuples would have to compensate.
+
+**(b) The T1 §5(b) moment deficits are an initial-segment effect.** Ratios
+`S_j/(N e_j)` at N = 10⁷, y = 1000 (`data/tuples2/translates_1e7_1000.txt`):
+
+| window | j = 4 | 6 | 8 | 10 | 12 |
+|---|---|---|---|---|---|
+| [1, N] | 0.9982 | 0.9914 | 0.9737 | 0.9385 | 0.8827 |
+| t = 10¹² | 1.0000 | 1.0001 | 1.0016 | 1.0112 | 1.0473 |
+| t = 2.718·10¹² | 1.0000 | 0.9996 | 0.9982 | 0.9949 | 0.9858 |
+| t = 3.14·10¹³ | 1.0002 | 1.0010 | 1.0000 | 0.9814 | 0.9022 |
+| t = 10¹⁵ | 1.0000 | 1.0002 | 1.0001 | 0.9955 | 0.9643 |
+
+On far translates the j ≤ 8 ratios are 1 to within 0.2% (both signs; j ≥
+10 is tail-noise dominated), while [1,N] has a systematic deficit. This is
+what the mechanism of §1 predicts: the constraint `ns + r ≤ Ns + r` is a
+property of small integers.
+
+**(c) How much of the [1,N] deficit is single-form?** Relative deficit
+`1 − S_j/(N e_j)` (T1 data) versus the single-form estimate
+`(Z_all + Fl_all)/e_j` (`data/tuples2/allforms_*_1000.txt`), y = 1000:
+
+| N | j = 8 observed | single-form | j = 12 observed | single-form |
+|---|---|---|---|---|
+| 10⁶ | 7.2% | 2.3% | 15.4% | 8.4% |
+| 10⁷ | 2.6% | 0.81% | 11.7% | 3.7% |
+| 10⁸ | 0.90% | 0.25% | 6.3% | 1.5% |
+
+The `randqnr` control (T1) shows 0.15% (j = 8) and 1.7% (j = 12) at
+N = 10⁸; `rand` shows none. So single-form effects account for roughly a
+third of the toy deficit, quadratic-character structure for a further
+part; the rest (≈ 0.5% at j = 8, N = 10⁸) is unexplained, decays with N at
+the same rate as the single-form part, and is also absent on translates.
+Plausible source (untested): small-height relations between two forms.
+None of this bears on asymptotic θ; it only shows that the deviations of
+§§2–3 are real and visible, and all of the same sign (deficit).
+
+**(d) Tail sampling at small y.** At N = 10⁶, y = 100 the histogram of
+`f_y` matches the CRT law within Poisson noise (e.g. 972/119/5 integers
+with f = 8/9/10 against 1021/120/9.7 predicted), so the large T1 ratio
+deviations at j ≥ 8 there come from a handful of integers.
