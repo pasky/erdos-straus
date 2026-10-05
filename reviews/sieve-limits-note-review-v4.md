@@ -156,3 +156,39 @@ and not re-checked, and that Δ₀ must be bounded; Thm 14.11 discussion (l. 307
 "must use (Sp) or the moment hypotheses" where LS2 says "something like" — soften. Thm 14.12
 sketch (l. 3097): "the square base consists of units, since no forced class contains a unit
 square" is a non sequitur (the no-square lemma gives avoidance, not unit-ness).
+
+**m8 (§15 opening, l. 3328).** "the non-CRT inputs of Section 16, item 5": item 5 of the §16 list
+is "Majorants ≥1 only on part of the avoider set"; non-CRT input is item 6. *Repair:* "item 6"
+(better: \label the item).
+
+**m9 (after Cor 15.7, l. 3465–3466).** "a saving (log N)^θ needs order k≥c(log N)^θ/log log N"
+lacks "θ>3/4" (TU Cor 3.3 states it only for θ>3/4; for θ≤3/4 it is false since k=1 already
+gives c(log N)^{3/4}). *Repair:* insert "for θ>3/4".
+
+**m10 (Cor 15.8, l. 3470).** (a) needs k≥1 (k=0 makes the bound read log(1/Eν)≤0); (b) the
+"PROVED given KA2/KA as reviewed" proviso of §10 is attached by the §15.3 header only to Thm 15.11
+and Cors 15.12–15.13, not to Cor 15.8 which also uses Thm 10.12; (c) state "proof given here;
+KA3 §4.3 only points to it". *Repair:* as stated.
+
+**m11 (Cor 15.13, l. 3567).** "the corresponding mixed majorants" leaves implicit λ₀=A log N,
+family primes ≤N^A and the allowed term types; KA3's self-review D3 asked that the family-prime
+bound be stated. *Repair:* spell out the hypotheses.
+
+**m12 (eq:window, l. 3619–3623).** The lower end L^{4θ/3−1} comes from Cor 15.8 and so needs
+family moduli ≤N^A; and Prop 15.14 already narrows the window for block-sparse families.
+*Repair:* add "(family moduli ≤N^A; except as narrowed by Prop 15.14)". The clause "the k-ary
+ledger cannot give this (optimal at s₁=λ^{1/4})" (l. ~3610) is an unlabelled inspection claim:
+mark it *Assessment* and add KA3's qualifier "for k≤L³". (Note for the parent, not the paper:
+(D)24's and KA3 §0/§7's "cannot be closed from it alone" overclaim — attainability of λ^{3/4}
+at λ≫L is open per KA3 itself; the paper's "would require a better level cap" is the correct
+form; the ledger/KA3 wording should be aligned to it.)
+
+**m13 (Assessment after Cor 15.18, l. 3669–3671).** "so the excess must come from multi-form
+tuples": TU2 L3.1 covers only class −1, and TU2 itself exhibits other single-form tuples that
+exceed CRT; TU2 Ass. 3.2 says "not pure class −1". *Repair:* "…from tuples that are not pure
+class −1 (heuristically, multi-form tuples)".
+
+**m14 (§15 "What is open", l. 3744–3754).** Missing: deciding literal TC_θ / TC^𝔄_θ on (2/3,1)
+(only an Assessment so far) and θ=1; removing (log λ₀)^{3/4} from Prop 15.14. Also: ℓ₀ in
+Cor 15.21 is undefined (as in TU2); "(λ₀,k)-mixed" is defined twice (Def 15.5 with slice primes,
+Def 15.10 with primes >W) — rename one.
