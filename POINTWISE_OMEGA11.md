@@ -222,7 +222,8 @@ The ratio (cost of a step)/(threshold) is `logℓ/θ = 𝓛/(c(a+1))`, uniform i
 
 **Lemma 3.1 (linear transfer with fibre cells; PROVED modulo (G), as O9
 Thm 1.1).** Assume `8|Q`. Then O9 Thm 1.1 holds without `gcd(d_i,Q)=1`, provided every cell is
-consistent with the class of one (`b_i≡1 mod gcd(d_i,Q)`), and with
+consistent with the class of one (`b_i≡1 mod gcd(d_i,Q)`); `gcd(b_i,d_i)=1` is
+still assumed (non-unit cells vanish on H and may be dropped). And with
 `E_D` replaced by `E_H`, the Haar mean over `H:={x∈(ℤ/N)^*: x≡1 (Q)}`,
 `N:=lcm(Q,D)`. That is: `μ:=E_H B>0`, `A:=E_H|B|/μ`, `Z:=Q·max d_i`; twist
 condition `|E_H[Bψ]|≤μ/4` for every real primitive ψ of conductor `f>1`
@@ -261,9 +262,18 @@ Thm 2.2, with these changes.
   `E[F−B]≤δ/100`. **Lemma 1.1/Cor 1.2 is not needed for Thm 3.2**; it is
   needed only for Cor 4.1 (the 1/5 implication), where the junta must be
   `≪𝓛^5log𝓛`.
+* Cell consistency (Lemma 3.1's hypothesis). Event cells have residue
+  `−4D≡1 (ℓ^{a_ℓ})` by survival. Each `u_j` is a function of the fibre
+  coordinates, so it is a combination of cells whose residues mod `ℓ^{i+1}`
+  (`i≥a_ℓ`) lie in the fibre. Intersections of consistent cells are
+  consistent or empty. So B has a consistent cell representation.
+  Consistency is a property of this representation: rewriting by residues mod
+  `ℓ^{i+1}` without regard to the fibre need not be consistent.
 * Twist: O8 Lemma 3.3 verbatim. It needs only the neighbourhood sums
   `≤1/32` and `w_{ℓ_0}≤c=1/64` at a prime `ℓ_0|f_2`, which is a coordinate with
-  `a_{ℓ_0}=0`, since `gcd(f_2,Q)=1`.
+  `a_{ℓ_0}=0`, since `gcd(f_2,Q)=1`. Here `ℓ_0≠ℓ_aux`, because `ℓ_aux|Q`. All
+  other primes of the `d_i` are coordinates `≤T`, so
+  `w_{ℓ_0}≤θ_{ℓ_0}=c·logℓ_0/𝓛≤c`.
 * Transfer: Lemma 3.1 with O9 Lemma 2.1 (`A≤1.03`) and the auxiliary prime
   `ℓ_aux∈(R,2R]`, `R=max(T,max d_i)`, appended to Q (it exceeds T, so no
   event uses it).
