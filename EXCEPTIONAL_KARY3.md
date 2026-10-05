@@ -22,7 +22,8 @@ EK Lemma 4.2′, K2 Lemma 4.2).
 | **Thm 5.1** | truncated weights `min(log ℓ, L₀)`: `log(1/Eν) ≤ Cλ^{3/4} + 2d₀log(CΛ³/d₀) + O(d₀)`, `d₀ = ⌊λ/L₀⌋`, family primes `≤ e^Λ` | PROVED (same proviso) |
 | Cor 5.2 | TU Cor 3.4 window closed for **prime order**: (A log N, k)-mixed majorants of any K2 family save `≤ C_A[(log N)^{3/4} + k log log N]` | PROVED (same proviso) |
 | Cor 5.3 | class order k with `≤ r` large primes per modulus: `≤ C_A[(log N)^{3/4} + kr log log N]`; open only for unbounded r (exact scope stated) | PROVED / open part stated |
-| §6 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `u⁴b ≤ 0.25` | EVIDENCE |
+| §6 | TW4 middle window: every Λ² sieve over every K2 family saves `≤ CL^{3/4}` for all r (Thm 4.1 applies; no ω-hypothesis) | PROVED (corollary) |
+| §7 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `u⁴b ≤ 0.25` | EVIDENCE |
 
 Constants are absolute but astronomically large (as in K2); everything
 is asymptotic only.
@@ -407,7 +408,22 @@ not excluded. The obstruction is structural: EK Thm 2.5's locality is
 in prime coordinates; a class-coordinate version would need a k-ary
 comparison for the dependent indicators `1[n ∈ C]`. Not attempted.
 
-## 6. Numerics (EVIDENCE only)
+## 6. Goal (3): the TW4 middle window is subsumed (for the cap)
+
+TW4 §§9.3, 12 leave open a per-prime-efficient Λ² bound for ℛ(M)-families
+whose moduli have `r ≍ log L` large primes. A Selberg Λ² majorant
+`ν = (Σ_S λ_S 1[n ∈ ∩_{C∈S}C])²` with `λ_∅ = 1` equals 1 at every avoider
+`n ∈ ℤ` (all class indicators vanish), is ≥ 0, and is a CRT majorant whose
+level is at most twice the sieve level. So it is in the class of
+Theorem 4.1, which has no hypothesis on `ω(M)`, on B, or on the number of
+primes at one scale. Hence **every Λ² sieve over every K2 family saves at
+most `C L^{3/4}` at level L, for all r**, superseding TW4 Thm 7.1's
+`L^{3/4}(log L)^{3r+O(1)}` and Prop 9.1 / Cor 9.3 as far as the cap is
+concerned (PROVED, as a corollary of Thm 4.1). What remains open in TW4
+§12 is only the *Λ²-internal* route (hub count, off-diagonal pair sum);
+it no longer bears on any ES cap. Not pursued.
+
+## 7. Numerics (EVIDENCE only)
 
 `scripts/kary3_moments.py` enumerates all y-smooth `M ≡ 3 (mod 4)` up to
 `X = 10¹²` for `y ∈ {7, 13, 23, 31}` and factors `A_M`
@@ -427,6 +443,6 @@ comparison for the dependent indicators `1[n ∈ C]`. Not attempted.
 
 ```
 mkdir -p data/kary3
-# §6: smooth first moments and block profiles (~25 s, < 1 GB)
+# §7: smooth first moments and block profiles (~25 s, < 1 GB)
 uv run --with sympy python scripts/kary3_moments.py 1e12 7,13,23,31 > data/kary3/moments.txt
 ```
