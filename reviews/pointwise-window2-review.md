@@ -103,3 +103,19 @@ But θ=0.4 gives 3.48 / 1.53 / 1.46 across seeds: the weight (1−Σt)^{−1/2} 
 moment** (∫(1−s)^{−1}ds diverges), so the MC estimator has infinite variance and "R/τ≈0.43±0.05"
 is not a statistically valid error bar. Repair: compute R(θ) by quadrature / in the discrete model
 (exact), or importance-sample Σt near 1; drop the ±. (Conclusion unaffected: superseded by the LP.)
+
+### §6.1–6.2 caps — numbers SOUND (EVIDENCE); modelling of "switching" — Assessment, see m4
+`scripts/review_w2_lp.py 0.1 8 0.5 --cap=C | --swcap=K:α` (own LP, primal only, exact-equality rows):
+cap 2 → 0.3735, cap 3 → 0.0779, cap 3.5 → 0 (author 0.373, 0.078, 0). swcap K:α (cap on configs with a
+bin value ≥α): 1.001:0.45 → 0.793, 2:0.45 → 0.168, 3:0.45 → 0, 1.001:0.6 → 0.453, 2:0.6 → 0.106,
+3:0.6 → 0, 3:0.3 → 0 (author 0.801, 0.173, 0, 0.459, 0.111, 0, 0; the small offsets are the author's
+residual-1e-9 bisection vs my exact rows; with K=1 exactly HiGHS falsely reports infeasibility,
+although ν=μ is feasible — a numerical artefact on the boundary, not a model issue).
+
+### §4 route (ii) — Assessment SOUND (in the model), and strengthened
+The two-window class `CRT(−3,−7) mod d₁d₂` indeed varies with the modulus (BFI/Maynard need fixed a).
+But window 3 *alone* has fixed a=−3, so one-window data beyond 1/2 are a priori available. The doc
+does not test this mixed-level model. Reviewer test (`--onewin=T₁`: joint level 1/2 plus pure
+one-window data (S₃,∅),(∅,S₇) up to T₁): T₁=0.55 → 0, T₁=0.6 → 0 (fake persists; primal uncertified),
+T₁=0.7 → **certified ≥0.16298**. So at BFI/Maynard-type levels (≤3/5) the obstruction persists in the
+grid — supports "closed" for (ii). Suggest adding this test to §4 (EVIDENCE).

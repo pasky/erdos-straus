@@ -52,6 +52,13 @@ if one:
 else:
     C = [(a, b) for a in Wn for b in Wn]; mu = [muW[a] * muW[b] for a, b in C]
     VIS = [(a, b) for a in V1 for b in V1 if sz[a] + sz[b] <= theta]
+    # --onewin=T1: add pure one-window data (S3,0) and (0,S7) up to level T1 > theta
+    T1 = next((float(a[9:]) for a in sys.argv if a.startswith("--onewin=")), None)
+    if T1 is not None:
+        Z = tuple([0] * K)
+        for m in vecs(T1, False):
+            if sum(a * b for a, b in zip(m, g)) > theta:
+                VIS += [(m, Z), (Z, m)]
 def emb(S, c):
     r = 1
     for Sw, cw in zip(S, c):
@@ -76,8 +83,18 @@ print(f"configs={len(C)} visible={len(VIS)} tau={mp.nstr(tau,6)}")
 A = sp.csr_matrix((np.array([v * float(mu[j] / rho[i]) for i, j, v in zip(rows, cols, vals)]),
                    (rows, cols)), shape=(len(VIS), len(C)))
 c = np.zeros(len(C)); c[j0] = 1.0
-r = linprog(c, A_eq=A, b_eq=np.ones(len(VIS)), bounds=(0, None), method="highs")
+CAP = next((float(a[6:]) for a in sys.argv if a.startswith("--cap=")), None)
+SW = next((a[8:] for a in sys.argv if a.startswith("--swcap=")), None)
+bnds = [(0, None)] * len(C)
+if CAP is not None:
+    bnds = [(0, CAP)] * len(C)
+if SW is not None:      # nu <= Ksw*mu on configs having a point (bin rep. value) >= alpha
+    Ksw, al = map(float, SW.split(":"))
+    bnds = [(0, Ksw) if any(m and gf[k] >= al for cw in cc for k, m in enumerate(cw)) else (0, None) for cc in C]
+r = linprog(c, A_eq=A, b_eq=np.ones(len(VIS)), bounds=bnds, method="highs")
 print("primal status:", r.status, " min nu(empty)/tau ≈", r.fun)
+if CAP is not None or SW is not None:
+    sys.exit(0)
 # dual of the scaled problem: max sum z_i s.t. sum_i z_i A_ij <= c_j ; y_S = z_i/rho_i
 Ad = sp.csr_matrix((np.array(vals, float), (rows, cols)), shape=(len(VIS), len(C)))
 # unscaled dual: max sum y_i rho_i  s.t. sum_i y_i emb_ij <= [j=j0]
