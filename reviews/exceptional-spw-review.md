@@ -68,25 +68,56 @@ a fortiori SPW. **MATCH.**
 D ≥ C+1 only. No circularity; no use of (P3). The theorem is correctly
 labelled PROVED. (Minor presentation points: D6, D7 below.)
 
-### Exact local certificates (
-s3)
-Rebuilt from scratch (`scripts/review_spw_cert.py`): my own dual LP on \u2124/e
-(variables a_{d,b} on classes mod d | e, d \u2264 D, and z \u2265 0 on classes mod
-e\u2032 | e, e\u2032 > CN, \u03a3z = 1, z-cover \u2265 g pointwise, maximise \u03a3_{n\u2264N} g(n)),
+### Exact local certificates (§3)
+Rebuilt from scratch (`scripts/review_spw_cert.py`): my own dual LP on ℤ/e
+(variables a_{d,b} on classes mod d | e, d ≤ D, and z ≥ 0 on classes mod
+e′ | e, e′ > CN, Σz = 1, z-cover ≥ g pointwise, maximise Σ_{n≤N} g(n)),
 solved with HiGHS, coefficients rounded to rationals, then **the bound
-1 \u2212 \u03a3_W g / \u03a3 z recomputed in exact `Fraction` arithmetic** with the cover
+1 − Σ_W g / Σ z recomputed in exact `Fraction` arithmetic** with the cover
 re-derived exactly (for e = 630, 2310 the only divisor > CN is e itself, so the
-optimal cover is z = g\u207a). Logic re-checked: for any R with (P1)\u2013(P2),
-\u03a3_{n\u2264N} g(n) = \u2211 a_{d,b} c(b,d) = \u27e8g,R\u27e9 \u2264 \u27e8g\u207a,\u03c1\u27e9 \u2264 (1\u2212\u03c3)\u03a3g\u207a. \u2714
+optimal cover is z = g⁺). Logic re-checked: for any R with (P1)–(P2),
+Σ_{n≤N} g(n) = Σ a_{d,b} c(b,d) = ⟨g,R⟩ ≤ ⟨g⁺,ρ⟩ ≤ (1−σ)Σg⁺. ✔
 
 | N | e | my LP | my exact certificate | author |
 |---|---|---|---|---|
-| 300 | 630 | 0.389189 | **\u03c3 \u2264 72/185** (identical rational) | 72/185 |
-| 1150 | 2310 | 0.381132 | \u03c3 \u2264 0.381132545 (rounded up; 3843-digit denominator) | 0.3811324\u2026 \u2264 0.381133 |
+| 300 | 630 | 0.389189 | **σ ≤ 72/185** (identical rational) | 72/185 |
+| 1150 | 2310 | 0.381132 | σ ≤ 0.381132545 (rounded up; 3843-digit denominator) | 0.3811324… ≤ 0.381133 |
 
 **Verdict: SOUND** (both reproduced independently; my N = 1150 rational differs
 from the author's in the 8th digit only because of a different rounding of the
-dual \u2014 both are valid upper bounds, and both lie below 0.381133). The LP
+dual — both are valid upper bounds, and both lie below 0.381133). The LP
 values at N = 3300, 4400, 9100 are labelled EVIDENCE and were not re-run.
+
+### Corollary 3.3 (Flat margin)
+Re-derived. Since e > CN > N, every class mod e meets [1,N] in ≤ 1 point, so
+(F1) gives F_e ≤ 1 on W, ≤ 0 off W; (F3)/(F4) at modulus e give
+F_e ≥ M_F/e + s₀ on W, ≥ M_F/e − 1 off W (this also forces s₀ ≤ 1, used
+implicitly). ρ := 1_W − F_e + M_F/e then lies in [M_F/e, 1−s₀] on W and
+[M_F/e, 1] off W, and its profile mod d | e, d ≤ D is that of 1_W because
+the constant M_F/e has class sums M_F/d = those of F_e by (F2). K∗ρ(x_in) ≤
+1 − s₀φ(x_in) ⇒ T(x_in) ≤ (1−φ) − s₀φ ≤ −s₀ + ε(1+s₀) ≤ −s₀ + 2ε;
+T(x_out) ≥ −ε; T ∈ [−1, 1]. So s₀ ≤ 3ε + Bernstein term; with the r of
+Thm 3.2 this is 3√(πm₀/(M+1)) + 2√(πm₀/(M+1)) = 5√(…) ≤ 6√(…)
+(re-optimising r gives 2√(6πm₀/(M+1)) ≈ 4.9√(…)). Needs t ≥ 0 (stated).
+**Verdict: SOUND.**
+
+### Lemma 1.4 (weak SPW suffices for IF2 Thm 5.2)
+Checked against IF2 Thm 5.2 (lines 253–291) and Prop 9.1 (lines 433–461).
+(1) Thm 5.2 hypotheses: t, 1/Δ ≥ e^{−S_A}, s₀ ≥ N^{−A₁}; conclusion
+log(N/B) ≤ S′ + log((1+Δ(1+c))/t), so with t ≥ e^{−S_A}, Δ ≤ e^{S_A} the cap
+is S′ + O(S_A) — still (log N)^{3/4}(log log N)^{3/4}. ✔ (2) Prop 9.1 with
+σ small: θ = σ/(2(σ+τ+1/(2C))) ≥ σ/(2(1+τ+1/(2C))), t = θ/2, s₀ = σ/2,
+Δ = 6θ + Δ₀ ≤ 3 + Δ₀; nothing in its proof needs σ bounded below. So
+σ_N ≥ c₀e^{−S_A} with c₀ = 4(1+τ+1/(2C)) gives t ≥ e^{−S_A}, and
+s₀ = σ_N/2 ≥ N^{−A₁} for large N because S_A = o(log N). ✔ (3) The
+mixing step R := (1 − 1/(2K))λ_N + R′/(2K): (P1) by linearity; a class of
+modulus > CN > N has λ_N-mass 1 iff it meets [1,N], else 0; so full classes
+get ≤ 1 − η/(2K), sparse ones ≤ K/(2K) = 1/2; (P3) deviation scales by
+1/(2K). ✔ (σ = min(η/(2K), 1/2) = η/(2K) since η ≤ 1 ≤ K.)
+**Verdict: SOUND** as a PROVED implication; the conclusion — Thm 5.2 is not
+refuted, only the fixed-σ route — is correct. Caveat (D3): the label in the
+§0 table and §4 should say explicitly that the *constants* in the cap of
+Thm 5.2 then grow (cap S′ + O(S_A)), and that Δ_N ≤ e^{S_A}/2 must be read
+with S_A for the *same* A.
 
 ## Defects
