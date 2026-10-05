@@ -95,10 +95,10 @@ exactly as K2 Lemma 3.2 already did (not re-checked here; same use).
   ✓. Constant `≪_{2,2,2}` absolute ✓. (7.10) applied with `k = 4s`
   (s unbounded, up to `K^{1/4}`) — legitimate by the uniformity check
   above; `A = 2R ≥ 2`, `B = 2K` ✓. `Σ_s h(s)log(1+4s)/s < ∞` ✓.
-* Note: if one tried Prop 1.4 instead of (7.10) here, `k = 4s ≤ 4K^{1/4}`
-  would also be `≪ (AB)^{O(1)}` — but Prop 1.4 is for `τ(kab²+1)`
-  summed over a *box* in b, whereas here b = Lh′ runs over a progression;
-  routing through Thm 7.1 + (7.10) is the correct way. ✓
+* Note: Prop 1.4 itself would only give a factor `log(1+4sL²)`, and L
+  (built from the moment divisor D) is not summable against it; routing
+  through Thm 7.1 (which strips L via the bijection `n ↦ Ln`) and then
+  (7.10) with `k = 4s` is what makes the bound L-free. ✓
 
 ### Cor 3.2, Cor 3.3 — SOUND (pointer-level for the K2 body)
 `X = y^{256} = y^{64k}` at k = 4 ✓; tail summation identical to Cor 2.4.
