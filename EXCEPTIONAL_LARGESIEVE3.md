@@ -19,7 +19,7 @@ may and do take π uniform on all CRT digits not resolved by `M₀`, so only
 | item | statement | label |
 |---|---|---|
 | Thm 1.1 | **smooth–rough splitting.** For any `z`, the z-smooth CRT coordinates cost only the *density* of a measure on the z-smooth avoider set (no Fourier or level information at all); only the z-rough part needs Fourier control, in the `ℓ^{2+2β}` sense of LS Thm 4.1 | PROVED |
-| Lemma 2.1 | the z-smooth part costs `≤ 2T₁ + O(1)`, `T₁ ≍ 𝔐(z) ≪ (log z)³(log log z)³` (sequential law with square base, conditioned on a good set) | PROVED (K2 §§2–4; Case A via ElT Prop 1.4) |
+| Lemma 2.1 | the z-smooth part costs `log ρ ≤ 16𝔐(z) + 2W₁ + log 2`, `𝔐(z) ≪ (log z)³(log log z)³` (sequential law with square base, conditioned on a good set) | PROVED (K2 §§2–4; Case A via ElT Prop 1.4) |
 | Thm 3.1 | **rough-slice mixtures**: if every modulus of 𝔊 has at most one prime factor `> z = exp((log N)^{1/4})`, every CRT-admissible large sieve (any rational frequencies, any denominators, any weights) saves `≤ C(log N)^{3/4}(log log N)³` | PROVED (same inputs) |
 
 ## 1. The smooth–rough splitting
@@ -43,7 +43,8 @@ For a probability σ on a finite cyclic group `ℤ/m` and `p' ≥ 2` put
 **Theorem 1.1 (smooth–rough splitting; PROVED).** Let `0 < β ≤ 1/2`,
 `p' = 2 + 2β`. Let `π_s` be a probability on `𝒜_s` with
 `π_s(c) ≤ ρ/M_s` for all c, and for each `c ∈ supp π_s` let `π_c` be a
-probability on `𝒜_c`. Then every CRT-admissible bound B from any
+probability on `𝒜_c` (this presupposes `𝒜_c ≠ ∅` for every
+`c ∈ supp π_s`; review R59 D6(c)). Then every CRT-admissible bound B from any
 N-large-sieve system satisfies
 
     log(N/B) ≤ β log N + log ρ + log E_{c∼π_s} 𝓡_{p'}(π_c).            (1.1)
@@ -68,9 +69,20 @@ So `B ≥ 1/F_w(π) ≥ (N/𝓡_{p'}(π))^{1/(1+β)}` and
 *Remarks.* (a) Nothing is assumed about the smooth frequencies `θ_s`: their
 denominators may have any number of prime factors `≤ z`, i.e. any level.
 The smooth coordinates are paid for by `log ρ` only — a pure density
-statement about `𝒜_s`. So the part of (E1) (LS §7, LS2 §5) coming from
-denominators with many prime factors `≤ z` is closed as soon as `log ρ` is
-small (Lemma 2.1: `z = exp((log N)^{1/4})` is affordable).
+statement about `𝒜_s`. What this closes (review R59 D2):
+(i) for rough-slice mixtures, all frequencies (Theorem 3.1);
+(ii) for an arbitrary mixture, the frequencies with **z-smooth
+denominators only** (`θ_r = 0`; then `π̂(θ_s) = π̂_s(θ_s)` and HY gives
+`Σ_{θ_s}|π̂_s|^{p'} ≤ ρ`), *provided* `𝒜_c ≠ ∅` for all `c ∈ supp π_s` —
+not automatic when 𝔊 has classes with several primes `> z`, since rough
+classes can cover a whole fibre and Lemma 2.1's `π_s` does not see them.
+Mixed frequencies `θ_s + θ_r` (`θ_r ≠ 0`, even of small rough level) in a
+general mixture are **not** covered: they need a fibre measure with the
+rough-level comparison of Rem 1.1(c) for every `c ∈ supp π_s`, a
+K2-Lemma-1.1-type statement for the fibre families `𝔊_c` uniformly in c,
+which is not proved (fibre families are not of the four K2 types, and K2's
+moments are only averaged over c). That part is CONJECTURE, inside
+(H_rough) of §4.
 (b) In the fibres only the rough frequencies enter, through the
 `ℓ^{p'}` mass `𝓡_{p'}(π_c)` (LS's (H_LS) restricted to z-rough
 coordinates). For product measures `π_c` this is LS Thm 4.1's computation
