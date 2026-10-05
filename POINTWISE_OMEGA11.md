@@ -60,10 +60,14 @@ event fixing `X_ℓ mod ℓ^v` fixes the *initial segment* of digits `0..v-1`.
 For a digit set U let `m_U:=∏_ℓ ℓ^{1+max\{i:(ℓ,i)∈U\}}` (the modulus a function
 of `X_U` needs). Fix `λ_ℓ≥1` and put `Λ_{ℓ,i}:=λ_ℓ^{i+1}`.
 
-**Lemma 1.1 (filtration C-1; PROVED).** Let F be the good-indicator of a
-family of events, each fixing an initial segment of digits `0..v_ℓ(E)−1` at
-every ℓ in its support (values arbitrary). If every event satisfies
-`∏_ℓ λ_ℓ^{2v_ℓ(E)} ≤ 2`, then
+**Lemma 1.1 (filtration C-1; PROVED).** For each ℓ let `i_0(ℓ)≥0` be the
+*first free digit*: the digits `≥i_0(ℓ)` are independent uniform coordinates, and
+the digits `<i_0(ℓ)` are fixed (e.g. `i_0=a_ℓ` on a fibre, Setting 2.0, or
+`i_0=max(a_ℓ,v_ℓ(E_j))` on the cylinder of `E_j`, Remark (ii)). Let F be the
+good-indicator of a family of events, each fixing an initial segment
+`i_0(ℓ)..v_ℓ(E)−1` of the free digits at every ℓ in its support (values
+arbitrary). Keep the *absolute* weights `Λ_{ℓ,i}=λ_ℓ^{i+1}` (`i≥i_0(ℓ)`). If
+every event satisfies `∏_ℓ λ_ℓ^{2v_ℓ(E)} ≤ 2`, then
 
 ```
 G'_F := Σ_U (∏_ℓ Λ_{ℓ, max U_ℓ})·‖F^{=U}‖² ≤ 1     (empty U_ℓ: factor 1),
@@ -74,7 +78,10 @@ where `F^{=U}` is the Efron–Stein decomposition over digits. With
 every ES event, and `∏_ℓΛ = 2^{log m_U/(2𝓛)}`, so
 `Σ_{U: log m_U>τ}‖F^{=U}‖² ≤ 2^{−τ/(2𝓛)}`.
 
-*Proof.* For each ℓ let `W_{ℓ,i}` (`i=−1,0,1,…`) be the functions of `X_ℓ`
+*Proof.* Write the proof for `i_0(ℓ)=0`. For general `i_0`, re-index the free
+digits and replace `Λ_{ℓ,−1}:=1` below by the weight 1 of the constants, so the
+first free level `i_0` gets `1+μ'=λ^{i_0+1}`; the edge-weight bound at the end
+becomes `λ^{i_0+1}·λ^{2(v−i_0−1)} ≤ λ^{2v}`. For each ℓ let `W_{ℓ,i}` (`i=−1,0,1,…`) be the functions of `X_ℓ`
 measurable w.r.t. digits `≤i` and orthogonal to those of digits `<i`, and
 `P_{≥j}:=I−E[·|δ_{ℓ,<j}]=Σ_{i≥j}P_{W_{ℓ,i}}`. With `μ'_{ℓ,j}:=Λ_{ℓ,j}−Λ_{ℓ,j−1}`
 (`Λ_{ℓ,−1}:=1`), `Σ_iΛ_{ℓ,i}P_{W_{ℓ,i}} = I+Σ_{j≥0}μ'_{ℓ,j}P_{≥j}`. Since
@@ -108,20 +115,26 @@ any `ρ ≥ 1/log₂(1+ln2) ≈ 1.32`. We use ρ=2.
 the events before `E_j`) restricted to the cylinder `E_j`. At ℓ the remaining
 digits start at `i_0:=max(a_ℓ,v_ℓ(E_j))` (fibre digits below `a_ℓ` are fixed by
 the quarantine), and every other event restricts to a cylinder on the digits
-`i_0..v_ℓ(E)−1`, again an initial
-segment of the remaining digits. Apply the proof on the remaining digits,
-with the same absolute weights `Λ_{ℓ,i}=λ^{i+1}`: the first remaining
-level `i_0` gets `1+μ'=λ^{i_0+1}`, and the edge weight is
-`≤λ^{i_0+1}·λ^{2(v−i_0−1)} ≤ λ^{2v}`. So Lemma 1.1 holds for every `F^{(j)}`,
-with the cost `m_U` measured in absolute digit positions.
+`i_0..v_ℓ(E)−1`, again an initial segment of the free digits. This is the
+case `i_0(ℓ)=max(a_ℓ,v_ℓ(E_j))` of Lemma 1.1, so the lemma holds for every
+`F^{(j)}`, with the cost `m_U` measured in absolute digit positions.
 (iii) The proof never uses single values on full coordinates. O8 Setting
 3.0's splitting is not needed (BRW Lemma 3.1 takes any events).
 
 **Corollary 1.2 (junta term `≪𝓛(S+𝓛)` for ES; PROVED implication inside
 O8 Thm 3.4 / O9 Thm 2.2).** In OMEGA10 Thm 4.2 take for `u_j` the truncation
 of `F^{(j)}` to digit sets with `log m_U ≤ τ`,
-`τ:=2𝓛⌈log₂(100m²(S+1)e^{3S})⌉`, with `m≤T²` unsplit events (atoms). EL holds
-by Lemma 1.1, each `u_j` is a combination of cells of modulus `≤e^τ`, and the
+`τ:=2𝓛⌈log₂(100m²(S+1)e^{3S})⌉`, with `m≤T²` unsplit events (atoms). O8's
+EL(t) counts coordinates (`|U|>t`). What holds here is its modulus-weighted
+analogue
+
+```
+EL_mod(τ):   E[(F^{(j)}−u_j)² | E_j] = Σ_{U: log m_U>τ}‖(F^{(j)})^{=U}‖² ≤ e^{−3S}/(100m²(S+1))   for every j,
+```
+
+which follows from Lemma 1.1 (the tail is `≤2^{−τ/(2𝓛)}`). O8 Thm 3.4's
+proof uses EL only through BRW Lemma 3.1,
+`E[F−B] ≤ m²Σ_jP(E_j)E[(F^{(j)}−u_j)²|E_j]`, so EL_mod(τ) suffices there. Each `u_j` is a combination of cells of modulus `≤e^τ`, and the
 cells of B have modulus `≤e^{2τ+3𝓛}`. Hence
 
 ```
