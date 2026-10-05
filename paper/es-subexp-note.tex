@@ -65,7 +65,10 @@ that $1/4$ is the limit of this architecture: on every fibre $n\equiv r\pmod Q$
 with $\log Q\le T^{0.05}$, no minorant of
 $\mathbf 1[W(n)>T]$ of level $\exp(c(\log T)^4/\log\log T)$ has positive Haar
 mean.  The proof is a planting argument, the dual of a lower-bound sieve of
-dimension $\asymp(\log T)^3/\log\log T$.
+dimension $\asymp(\log T)^3/\log\log T$.  The Haar upper bound uses the
+Nair--Tenenbaum bound, the Haar lower bound the fundamental lemma of sieve
+theory, and the ceiling Gallagher's theorem, the Landau--Page bound and the
+fundamental lemma.
 \end{abstract}
 
 \maketitle
@@ -244,7 +247,7 @@ the moduli (Theorem~\ref{thm:filtration}), it shows that truncating $F^{(j)}$
 to moduli at most $e^{\tau}$ costs $2^{-\tau/(2\log T)}$.  So moduli of size
 $\log d_i\ll\Lc\cdot(S+\Lc)$ suffice, where $S\ll\Lc^3\log\Lc$ is the residual mass.
 Altogether $\log Z\ll\Lc^4\log\Lc$.  The ceiling (Theorem~\ref{thm:ceiling})
-shows that the level $\Lc S$ is forced: conditioned on the small primes,
+shows that the level $\Lc S$ is forced up to a factor $(\log\Lc)^2$: conditioned on the small primes,
 the events with one large prime factor form a sieve of dimension
 $\asymp\Lc^3/\log\Lc$ on the primes above $T^{0.6}$, and a planting lemma
 (Lemma~\ref{lem:planting}), the dual of a lower-bound sieve, shows that no
@@ -707,7 +710,13 @@ We use it with $k=2$, $Q_1(n)=n$, $Q_2(n)=4n-1$: these are coprime and
 irreducible, $Q=4n^2-n$ has discriminant $1$ and no fixed prime divisor
 ($Q(1)=3$, $Q(2)=14$), $\rho(2)=1$, $\rho(p)=2$ for odd $p$, $\rho_{Q_1}\equiv1$
 and $\rho_{Q_2}(m)=\mathbf 1[m\text{ odd}]$.  We take $y=x$, $\alpha=\delta=1/2$ and
-$\varepsilon=1/200$.
+$\varepsilon=1/200$.  (Henriot notes that NT's own class $\cM_k$ requires the
+inequality whenever $\gcd(a_i,b_i)=1$ for each $i$, so the class above is
+slightly larger and Theorem~\ref{thm:NT} is Henriot's reading of NT's proof.
+Our functions $F$, products of multiplicative functions of separate
+variables, lie in NT's original class, and NT's own range
+($\varepsilon<1/(8g^2)$, $x^{4g^2\varepsilon}\le y\le x$) covers $\varepsilon=1/200$, $g=2$, $y=x$; so
+for our use the citation rests on \cite[Thm.~1]{NT} alone.)
 
 Throughout, $\beta=1+1/\log\Lc$, $2\le Y\le T$, $H(M)=\beta^{\omega(M)}2^{\omega_Y(M)}$, and
 \[
@@ -972,7 +981,7 @@ and $n\mid A_M$.  For a dyadic block $(X,2X]\subseteq[\sqrt T,T]$, sift the
 progression (of length $X/(4n)\ge X^{4/5}/4$) by the primes $p<y$, $p\nmid2n$,
 at level $X^{1/2}$; as $s=\log X/(2\log y)\to\infty$, the fundamental lemma gives at
 least $c_2X/(n\log y)$ $y$-rough elements.  Those divisible by $p^2$ with $p\ge y$
-number at most $X/(4ny)+\sqrt{2X}$, which is negligible as $n\le X^{1/5}$.  So each
+number at most $X/(4n(y-1))+\pi(\sqrt{2X})$, which is negligible as $n\le X^{1/5}$.  So each
 of the $\gg\Lc$ blocks contributes $\ge c_2/(4n\log y)$, and
 $\sum_{N_0\le n\le T^{1/10}}2^{\omega(n)}/n\gg\Lc^2$.
 \end{proof}
@@ -1957,11 +1966,17 @@ $E_{v\ell,D}$ with
 \end{multline*}
 The congruence gives $v\ell\equiv3\pmod4$ and $n_D\mid A_{v\ell}$, i.e.\ $D\mid A_{v\ell}^2$;
 and $D\le n_D^2\le T^{2\varepsilon}$.  On a fibre $n\equiv r\pmod Q$ the \emph{big}
-coordinates are the $X_\ell=n\bmod\ell$ for primes $\ell>T^{0.6}$ with $\ell\nmid Q$;
-everything else is small (coordinates fixed by the fibre are constants).  A
-modulus $q\le D$ has at most $\log D/(0.6\Lc)$ prime factors $>T^{0.6}$, so a
-function of level at most $D$ is a combination of functions of the small
-coordinates and of at most $k=\lfloor\log D/(0.6\Lc)\rfloor$ big ones.
+coordinates are the $X_\ell=n\bmod\ell$ for primes $\ell>T^{0.6}$ with $\ell\nmid Q$.
+Everything else is small: the residues of $n$ modulo the primes $\le T^{0.6}$
+and modulo $2$, the coordinates fixed by the fibre (constants), and, for big
+$\ell$, the higher $\ell$-adic digits of $n$ beyond $n\bmod\ell$.  On the units these
+higher digits are uniform and independent of $X_\ell$, so all coordinates are
+independent, as Lemma~\ref{lem:barrier} requires.  A modulus $q\le D$ has at
+most $\log D/(0.6\Lc)$ \emph{distinct} prime factors $>T^{0.6}$, and a function
+of $n\bmod qQ$ depends on $X_\ell$ only for these $\ell$ (whatever their exponent
+in $q$).  So a function of level at most $D$ is a combination of functions
+of the small coordinates and of at most $k=\lfloor\log D/(0.6\Lc)\rfloor$ big
+ones.
 
 \begin{lemma}[Unique small part; proved]\label{lem:unique}
 For each pair $(\ell,D)$ there is at most one $v$ with $E_{v\ell,D}\in\mathcal F^*$.
@@ -2045,7 +2060,9 @@ $y$-rough $v$,
 $\sum_{t\le X^{1/6},(t,v)=1}t^{-1}\log(X^{1/3}/t)\ge L^2/24-O(\omega(v)L^2/y)-O(L)\ge L^2/48$.
 So $H_{\rm all}\ge\frac12\cdot\frac6{\pi^2}\cdot\frac{L^2}{48v}-O(LX^{-1/3})$.  If
 $\mathcal N_{\rm exc}\ne\emptyset$: $q''\mid\kappa t$ forces $q''/(q'',t)\mid\kappa$, which with
-$\kappa\equiv b\pmod v$ is one class modulo $vq''/(q'',t)$ or empty, so by (F4)
+$\kappa\equiv b\pmod v$ is one class modulo $vq''/(q'',t)$ or empty (empty if
+a prime of $v$ divides $q''/(q'',t)$, since $b$ is a unit modulo $v$; otherwise
+the Chinese remainder theorem gives one class), so by (F4)
 the $1/\kappa$-sum is at most $1/K_1+(q'',t)L/(vq'')$.  Since
 $\sum_{t\le X}(q'',t)/t\le\tau(q'')(1+L)$, we get
 $H_{\rm exc}\le L^2\tau(q'')/(vq'')+O(LX^{-2/3})\le4L^2\Lc^{-1.8}/v$.  As
@@ -2207,11 +2224,12 @@ formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 % the Fourier-growth line (Chattopadhyay--Hatami--Lovett--Tal and successors),
 % since G_F(lambda) with constant lambda is the squared norm of a noise operator
 % with rho>1 applied to F.
-% TODO(verify, v4): [BGP], [PYY], [ErdosSpencer], [Janson], [FI], [Tao254A] and the
-% journal data of [Henriot] were written from memory (arXiv numbers of [BGP],
-% [PYY] and the Tao blog date as recorded in reviews/novelty-audit-2026-10.md).
-% [NT] checked on the archived PDF (Acta Math. 180 (1998), 119-144); [Henriot]
-% arXiv:1102.1643 archived, (1.1) checked.
+% TODO(verify, v4): [ErdosSpencer], [Janson] and the numbering in [FI]
+% (Lemma 6.3, Cor. 6.10) were written from memory.
+% Verified: [NT] on the archived PDF (Acta Math. 180 (1998), 119-144); [Henriot]
+% arXiv:1102.1643 archived, (1.1) checked, journal data via DOI
+% 10.1017/S0305004111000752; [BGP], [PYY] (journal data) and [Tao254A] (date;
+% Thm 5 = dual sieve problem) checked online by referee R56.
 \bibitem{BGP} I.~Benjamini, O.~Gurel-Gurevich and R.~Peled, On $K$-wise
 independent distributions and Boolean functions, arXiv:1201.3261 (2012).
 \bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
