@@ -222,7 +222,7 @@ SPW measure R, Σ_{n≤N} g(n) = ⟨g,R⟩ ≤ Σ z_s R(s) ≤ (1−σ)Σ z_s. R
 So **SPW(2, σ) is false at N = 300 for σ > 72/185 < 2/5**: the optimum is
 not σ_C(N) = 2/5 at all N (the R25 C10 pattern breaks beyond the tested
 N ≤ 60). LP values (EVIDENCE) keep decreasing: 0.3849 (N = 3300,
-e = 6930), 0.3737 (N = 4400, e = 9240) — data/spw/local_primorial.txt.
+e = 6930), 0.3737 (N = 4400, e = 9240), 0.3733 (N = 9100, e = 18480) — data/spw/local_primorial*.txt.
 
 **Theorem 3.2 (fixed-σ SPW fails for large N; PROVED).** Let C > 1 (for C ≤ 1 SPW is impossible anyway, IF2 Lemma 9.3), let
 M ≥ 2 with L_M := lcm(1..M) ≤ N, and let e be the least multiple of L_M

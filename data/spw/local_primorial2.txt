@@ -1,0 +1,1 @@
+N=9100 e=18480 e/D=4.062 sigma_loc=0.3733 #small divs=76 (235s)
