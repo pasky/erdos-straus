@@ -102,7 +102,9 @@ This is Selberg's parity example (`{λ(n)=±1}`) realised by actual primes. The
 Liouville function of the bad part is a Dirichlet character of p. That makes the
 barrier *removable by a congruence* (which is why W1 holds), but it also makes
 parity **necessary** input. §3 asks whether parity is also *sufficient* for two
-windows at level 1/2. Answer, in a discrete model: no (Prop 3.7).
+windows at level 1/2. Answer, in one coarse discrete model of a heuristic law: no (Prop 3.7; see its Scope
+paragraph: the model data are not those of the primes).
+
 
 ## 3. The Type-I + parity model 𝒯𝒫(θ) and fake sequences
 
@@ -134,7 +136,8 @@ two points in some window, so `min V≤` that window's second largest).
 fake `δ=−[∅]+[{a,b}]` with `a,b>θ` and `a+b<1` (each nonempty S⊂{a,b} has ΣS>θ).
 This is not an instance of Lemma 3.2 (there V=∅). So a fake exists even for one window. For θ≥1/2 the
 one-window block fakes are impossible: four points with `min U+min V>1/2`
-would have sum >1. This matches W1 (one window at BV level).
+would have sum >1. (This is consistent with W1, but W1 also uses switching, so it is not
+implied by W1 nor does it imply W1; R29 M3.)
 
 ### 3.3 The true law and the MC (EVIDENCE, preliminary)
 Heuristic true law for one window (bad primes ≥ x^ε, clean weight 1):
