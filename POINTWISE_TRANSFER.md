@@ -286,9 +286,9 @@ Three cheaper competitors use the same transfer ([SN] `thm:transfer`, cost
 `log Q + log(max modulus)` when `A = O(1)`):
 
 * **(C) Coarsen + union bound.** Replace each event by a superset (e.g. a
-  sub-cell on fewer primes). If the coarsened system has mass `S_c ≤ 1/3`,
-  the minorant `1 − Σ 1_{E^c_i}` has `A ≤ 3` and the transfer gives
-  `log p ≪ log Q + k log T` (no Siegel issue: twisted means are `≤ S_c ≤ μ/2`).
+  sub-cell on fewer primes). If the coarsened system has mass `S_c ≤ 1/5`,
+  the minorant `1 − Σ 1_{E^c_i}` has `μ ≥ 4/5`, `A ≤ 1 + 2S_c/μ ≤ 2` and the transfer gives
+  `log p ≪ log Q + k log T` (no Siegel issue: twisted means are `≤ S_c ≤ μ/4`, so the twist condition holds).
 * **(Q) Quarantine.** Add a prime set `Π'` to `Q` and choose the target class
   so that the events through `Π'` are decided; cost `Σ_{ℓ∈Π'} e_ℓ log ℓ`.
 * **(B) Bonferroni.** Odd truncation `B_j = Σ_{i≤j}(−1)^iC(N,i)`
@@ -313,7 +313,7 @@ matching (`H` disjoint prime pairs `(a_h,b_h)`, `|G| = q`, hub cell of mass
 `q^{−2}`, cluster mass `S' ≈ q` so that `S = O(1)`): now (Q) costs `≍ H log T`
 and plain (B) costs `≍ (q²/H)k log T`, so for `H ≍ q ≫ k² log²(NT)` both exceed
 Theorem 1.1's `≍ k² log T log²(NT)` — but (C) wins: replacing each cluster by
-its hub cell gives mass `H/q² ≍ 1/q ≤ 1/3`, hence `log p ≪ k log T`.
+its hub cell gives mass `H/q² ≍ 1/q ≤ 1/5`, hence `log p ≪ k log T`.
 More generally, any heavy cluster sitting on a common sub-cell is beaten by
 coarsening to that sub-cell or quarantining it.
 
